@@ -55,8 +55,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [25 x i8] c"rb_native_cond_broadcast\00", align 1
 @.str.14 = private unnamed_addr constant [18 x i8] c"pthread_cond_wait\00", align 1
 @rb_internal_thread_event_hooks = internal global ptr null, align 8
-@ruby_native_thread = internal thread_local global ptr null, align 8
-@ruby_nt_serial = external thread_local global i32, align 4
+@ruby_native_thread = internal thread_local unnamed_addr global ptr null, align 8
+@ruby_nt_serial = external thread_local local_unnamed_addr global i32, align 4
 @.str.17 = private unnamed_addr constant [16 x i8] c"RUBY_MN_THREADS\00", align 1
 @ruby_mn_threads_enabled = external local_unnamed_addr global i32, align 4
 @.str.18 = private unnamed_addr constant [13 x i8] c"RUBY_MAX_CPU\00", align 1
@@ -161,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.105 = private unnamed_addr constant [70 x i8] c"rb_internal_thread_specific_key_create() is called more than %d times\00", align 1
 @condattr_mono = internal global %union.pthread_condattr_t zeroinitializer, align 4
 @.str.107 = private unnamed_addr constant [23 x i8] c"pthread_cond_timedwait\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @ruby_current_vm_ptr = external local_unnamed_addr global ptr, align 8
 @ruby_single_main_ractor = external local_unnamed_addr global ptr, align 8
 @nt_machine_stack_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
@@ -375,7 +375,7 @@ vm_check_ints_blocking.exit:                      ; preds = %13, %24
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_mutex_lock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -395,7 +395,7 @@ declare void @rb_bug_errno(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -411,8 +411,8 @@ define dso_local void @rb_native_mutex_unlock(ptr noundef %0) local_unnamed_addr
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_native_mutex_trylock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef %0) #20
+define dso_local range(i32 0, 17) i32 @rb_native_mutex_trylock(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef %0) #19
   switch i32 %2, label %3 [
     i32 0, label %4
     i32 16, label %4
@@ -431,7 +431,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_mutex_initialize(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #20
+  %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -448,7 +448,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_mutex_destroy(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -466,7 +466,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_cond_initialize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @condattr_monotonic, align 8
-  %3 = tail call i32 @pthread_cond_init(ptr noundef %0, ptr noundef %2) #20
+  %3 = tail call i32 @pthread_cond_init(ptr noundef %0, ptr noundef %2) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -483,7 +483,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_cond_destroy(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_cond_destroy(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_cond_destroy(ptr noundef %0) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -503,7 +503,7 @@ define dso_local void @rb_native_cond_signal(ptr noundef %0) local_unnamed_addr 
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = tail call i32 @pthread_cond_signal(ptr noundef %0) #20
+  %3 = tail call i32 @pthread_cond_signal(ptr noundef %0) #19
   switch i32 %3, label %4 [
     i32 11, label %2
     i32 0, label %5
@@ -525,7 +525,7 @@ define dso_local void @rb_native_cond_broadcast(ptr noundef %0) local_unnamed_ad
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = tail call i32 @pthread_cond_broadcast(ptr noundef %0) #20
+  %3 = tail call i32 @pthread_cond_broadcast(ptr noundef %0) #19
   switch i32 %3, label %4 [
     i32 11, label %2
     i32 0, label %5
@@ -544,7 +544,7 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_native_cond_wait(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pthread_cond_wait(ptr noundef %0, ptr noundef %1) #20
+  %3 = tail call i32 @pthread_cond_wait(ptr noundef %0, ptr noundef %1) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -571,12 +571,12 @@ define dso_local void @rb_native_cond_timedwait(ptr noundef %0, ptr noundef %1, 
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %rb_hrtime_now.exit.i, label %12
 
 12:                                               ; preds = %9
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %12, %9
@@ -592,7 +592,7 @@ rb_hrtime_now.exit.i:                             ; preds = %12, %9
   br label %native_cond_timeout.exit
 
 17:                                               ; preds = %3
-  call void @rb_timespec_now(ptr noundef nonnull %6) #20
+  call void @rb_timespec_now(ptr noundef nonnull %6) #19
   %.val.i = load i64, ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %.val3.i = load i64, ptr %18, align 8
@@ -613,10 +613,10 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %24 = urem i64 %.0.i4.i, 1000000000
   br label %rb_hrtime2timespec.exit.i
 
-rb_hrtime2timespec.exit.i:                        ; preds = %rb_hrtime2timespec.exit.i, %native_cond_timeout.exit
+rb_hrtime2timespec.exit.i:                        ; preds = %native_cond_timeout.exit, %rb_hrtime2timespec.exit.i
   store i64 %23, ptr %4, align 8
   store i64 %24, ptr %22, align 8
-  %25 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #20
+  %25 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #19
   switch i32 %25, label %.split10.us.i [
     i32 4, label %rb_hrtime2timespec.exit.i
     i32 110, label %native_cond_timedwait.exit
@@ -637,7 +637,7 @@ define hidden void @rb_add_running_thread(ptr noundef %0) local_unnamed_addr #0 
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 288
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %6
 
@@ -653,7 +653,7 @@ thread_sched_lock_.exit:                          ; preds = %1
   %.not.i = icmp eq ptr %10, %9
   %11 = select i1 %.not.i, ptr null, ptr %0
   tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %0, ptr noundef null, ptr noundef %11)
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #20
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i7 = icmp eq i32 %12, 0
   br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %13
 
@@ -670,7 +670,7 @@ define hidden void @rb_del_running_thread(ptr noundef %0) local_unnamed_addr #0 
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 288
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %6
 
@@ -682,7 +682,7 @@ thread_sched_lock_.exit:                          ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %4, ptr noundef %8, ptr noundef null, ptr noundef nonnull %0, ptr noundef null)
-  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #20
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i7 = icmp eq i32 %9, 0
   br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %10
 
@@ -696,7 +696,7 @@ thread_sched_unlock_.exit:                        ; preds = %thread_sched_lock_.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_thread_sched_init(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #20
+  %3 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #19
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %rb_native_mutex_initialize.exit, label %4
 
@@ -733,7 +733,7 @@ define hidden void @rb_ractor_sched_sleep(ptr nocapture noundef readonly %0, ptr
   %9 = getelementptr inbounds i8, ptr %1, i64 192
   store ptr %.val, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.val, i64 288
-  %11 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #20
+  %11 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %12
 
@@ -746,7 +746,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %3
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %.val, i64 336
   store ptr %1, ptr %14, align 8
-  %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #20
+  %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i6.i = icmp eq i32 %15, 0
   br i1 %.not.i6.i, label %setup_ubf.exit, label %16
 
@@ -755,7 +755,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %3
   unreachable
 
 setup_ubf.exit:                                   ; preds = %rb_native_mutex_lock.exit.i
-  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #20
+  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %.not.i.i32 = icmp eq i32 %17, 0
   br i1 %.not.i.i32, label %thread_sched_lock_.exit, label %18
 
@@ -764,7 +764,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
   unreachable
 
 thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
-  call void @rb_ractor_unlock_self(ptr noundef nonnull %1) #20
+  call void @rb_ractor_unlock_self(ptr noundef nonnull %1) #19
   %19 = getelementptr inbounds i8, ptr %.val, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 32
@@ -788,7 +788,7 @@ thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
   %33 = call i32 @_setjmp(ptr noundef nonnull %32) #41
   %34 = load ptr, ptr %19, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 160
-  %36 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !7
+  %36 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %.val, i64 240
   %38 = load i8, ptr %37, align 8
@@ -801,7 +801,7 @@ thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
 
 42:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %43 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %43 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %45, label %44
 
@@ -832,7 +832,7 @@ thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
   %54 = load ptr, ptr %.0.i, align 8
   %55 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %54(i32 noundef 8, ptr noundef nonnull %4, ptr noundef %56) #20
+  call void %54(i32 noundef 8, ptr noundef nonnull %4, ptr noundef %56) #19
   br label %57
 
 57:                                               ; preds = %52, %48
@@ -842,7 +842,7 @@ thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
   br i1 %.not14.i, label %.loopexit.i, label %48, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %57, %45
-  %60 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %60 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %60, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %61
 
@@ -904,7 +904,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
   br label %83
 
 83:                                               ; preds = %thread_sched_wakeup_next_thread.exit, %28, %thread_sched_lock_.exit
-  %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #20
+  %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %.not.i.i36 = icmp eq i32 %84, 0
   br i1 %.not.i.i36, label %thread_sched_unlock_.exit, label %85
 
@@ -913,7 +913,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
   unreachable
 
 thread_sched_unlock_.exit:                        ; preds = %83
-  %86 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #20
+  %86 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i37 = icmp eq i32 %86, 0
   br i1 %.not.i.i37, label %rb_native_mutex_lock.exit.i38, label %87
 
@@ -923,7 +923,7 @@ thread_sched_unlock_.exit:                        ; preds = %83
 
 rb_native_mutex_lock.exit.i38:                    ; preds = %thread_sched_unlock_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %88 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #20
+  %88 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i6.i39 = icmp eq i32 %88, 0
   br i1 %.not.i6.i39, label %setup_ubf.exit40, label %89
 
@@ -932,7 +932,7 @@ rb_native_mutex_lock.exit.i38:                    ; preds = %thread_sched_unlock
   unreachable
 
 setup_ubf.exit40:                                 ; preds = %rb_native_mutex_lock.exit.i38
-  call void @rb_ractor_lock_self(ptr noundef %1) #20
+  call void @rb_ractor_lock_self(ptr noundef %1) #19
   store ptr null, ptr %9, align 8
   ret void
 }
@@ -976,12 +976,12 @@ define internal fastcc void @thread_sched_wait_running_turn(ptr noundef %0, ptr 
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds i8, ptr %.val.us, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @coroutine_transfer(ptr noundef %19, ptr noundef %21) #20
+  %22 = tail call ptr @coroutine_transfer(ptr noundef %19, ptr noundef %21) #19
   br label %rb_ractor_thread_switch.exit.us
 
 23:                                               ; preds = %.preheader.split.us
   %24 = getelementptr inbounds i8, ptr %.val.us, i64 40
-  %25 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %24, ptr noundef nonnull %0) #20
+  %25 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %24, ptr noundef nonnull %0) #19
   %.not.i.us = icmp eq i32 %25, 0
   br i1 %.not.i.us, label %rb_native_cond_wait.exit.us, label %.split.us
 
@@ -1018,7 +1018,7 @@ rb_ractor_thread_switch.exit.us:                  ; preds = %33, %28, %rb_native
 
 37:                                               ; preds = %.preheader.split
   %38 = getelementptr inbounds i8, ptr %.val, i64 40
-  %39 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %38, ptr noundef nonnull %0) #20
+  %39 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %38, ptr noundef nonnull %0) #19
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %rb_native_cond_wait.exit, label %.split.us
 
@@ -1089,7 +1089,7 @@ thread_sched_switch.exit:                         ; preds = %52, %60
   store ptr %54, ptr %50, align 8
   %64 = getelementptr inbounds i8, ptr %34, i64 192
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr @coroutine_transfer(ptr noundef %55, ptr noundef %65) #20
+  %66 = tail call ptr @coroutine_transfer(ptr noundef %55, ptr noundef %65) #19
   br label %rb_ractor_thread_switch.exit
 
 67:                                               ; preds = %._crit_edge, %49
@@ -1101,7 +1101,7 @@ thread_sched_switch.exit:                         ; preds = %52, %60
   %70 = load ptr, ptr %10, align 8
   %71 = getelementptr inbounds i8, ptr %.val, i64 96
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call ptr @coroutine_transfer(ptr noundef %70, ptr noundef %72) #20
+  %73 = tail call ptr @coroutine_transfer(ptr noundef %70, ptr noundef %72) #19
   br label %rb_ractor_thread_switch.exit
 
 rb_ractor_thread_switch.exit:                     ; preds = %47, %42, %thread_sched_switch.exit, %67, %rb_native_cond_wait.exit
@@ -1126,7 +1126,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %47, %42, %thread_sc
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %82 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %82 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i42 = icmp eq i32 %82, 0
   br i1 %.not.i42, label %84, label %83
 
@@ -1157,7 +1157,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %47, %42, %thread_sc
   %93 = load ptr, ptr %.0.i, align 8
   %94 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %95 = load ptr, ptr %94, align 8
-  call void %93(i32 noundef 4, ptr noundef nonnull %4, ptr noundef %95) #20
+  call void %93(i32 noundef 4, ptr noundef nonnull %4, ptr noundef %95) #19
   br label %96
 
 96:                                               ; preds = %91, %87
@@ -1167,7 +1167,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %47, %42, %thread_sc
   br i1 %.not14.i, label %.loopexit.i, label %87, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %96, %84
-  %99 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %99 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %99, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %100
 
@@ -1192,7 +1192,7 @@ define hidden void @rb_ractor_sched_wakeup(ptr nocapture noundef readonly %0) lo
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #20
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %8
 
@@ -1212,7 +1212,7 @@ thread_sched_lock_.exit:                          ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %thread_sched_lock_.exit
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #20
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i.i9 = icmp eq i32 %15, 0
   br i1 %.not.i.i9, label %thread_sched_unlock_.exit, label %16
 
@@ -1233,7 +1233,7 @@ define internal fastcc void @thread_sched_to_ready_common(ptr noundef %0, ptr no
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %10, label %9
 
@@ -1264,7 +1264,7 @@ define internal fastcc void @thread_sched_to_ready_common(ptr noundef %0, ptr no
   %19 = load ptr, ptr %.0.i, align 8
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void %19(i32 noundef 2, ptr noundef nonnull %5, ptr noundef %21) #20
+  call void %19(i32 noundef 2, ptr noundef nonnull %5, ptr noundef %21) #19
   br label %22
 
 22:                                               ; preds = %17, %13
@@ -1274,7 +1274,7 @@ define internal fastcc void @thread_sched_to_ready_common(ptr noundef %0, ptr no
   br i1 %.not14.i, label %.loopexit.i, label %13, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %22, %10
-  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %25, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %26
 
@@ -1341,7 +1341,7 @@ thread_sched_enq.exit:                            ; preds = %33, %37, %40
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_ractor_sched_barrier_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %5
 
@@ -1358,7 +1358,7 @@ ractor_sched_lock_.exit:                          ; preds = %2
   store i32 0, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %10, align 8
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #20
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %rb_native_mutex_unlock.exit, label %12
 
@@ -1405,7 +1405,7 @@ rb_native_cond_wait.exit:                         ; preds = %rb_native_cond_wait
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %rb_native_cond_wait.exit
-  %28 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %16, ptr noundef nonnull %3) #20
+  %28 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %16, ptr noundef nonnull %3) #19
   %.not.i37 = icmp eq i32 %28, 0
   br i1 %.not.i37, label %rb_native_cond_wait.exit, label %29, !llvm.loop !12
 
@@ -1414,7 +1414,7 @@ rb_native_cond_wait.exit:                         ; preds = %rb_native_cond_wait
   unreachable
 
 30:                                               ; preds = %rb_native_cond_wait.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i38 = icmp eq i32 %31, 0
   br i1 %.not.i.i38, label %ractor_sched_unlock_.exit, label %32
 
@@ -1423,7 +1423,7 @@ rb_native_cond_wait.exit:                         ; preds = %rb_native_cond_wait
   unreachable
 
 ractor_sched_unlock_.exit:                        ; preds = %30
-  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #20
+  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
   %.not.i39 = icmp eq i32 %33, 0
   br i1 %.not.i39, label %rb_native_mutex_lock.exit, label %34
 
@@ -1434,7 +1434,7 @@ ractor_sched_unlock_.exit:                        ; preds = %30
 rb_native_mutex_lock.exit:                        ; preds = %ractor_sched_unlock_.exit
   store i32 %9, ptr %8, align 8
   store ptr %1, ptr %10, align 8
-  %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
+  %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i40 = icmp eq i32 %35, 0
   br i1 %.not.i.i40, label %ractor_sched_lock_.exit41, label %36
 
@@ -1453,7 +1453,7 @@ ractor_sched_lock_.exit41:                        ; preds = %rb_native_mutex_loc
   br label %41
 
 41:                                               ; preds = %41, %ractor_sched_lock_.exit41
-  %42 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %40) #20
+  %42 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %40) #19
   switch i32 %42, label %43 [
     i32 11, label %41
     i32 0, label %rb_native_cond_broadcast.exit
@@ -1464,7 +1464,7 @@ ractor_sched_lock_.exit41:                        ; preds = %rb_native_mutex_loc
   unreachable
 
 rb_native_cond_broadcast.exit:                    ; preds = %41
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i42 = icmp eq i32 %44, 0
   br i1 %.not.i.i42, label %ractor_sched_unlock_.exit43, label %45
 
@@ -1479,7 +1479,7 @@ ractor_sched_unlock_.exit43:                      ; preds = %rb_native_cond_broa
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_ractor_sched_barrier_join(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %rb_native_mutex_unlock.exit, label %5
 
@@ -1489,7 +1489,7 @@ define hidden void @rb_ractor_sched_barrier_join(ptr noundef %0, ptr nocapture n
 
 rb_native_mutex_unlock.exit:                      ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 160
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #20
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %8
 
@@ -1513,7 +1513,7 @@ ractor_sched_lock_.exit:                          ; preds = %rb_native_mutex_unl
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #20
+  %18 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #19
   switch i32 %18, label %19 [
     i32 11, label %17
     i32 0, label %ractor_sched_barrier_join_signal_locked.exit
@@ -1527,7 +1527,7 @@ ractor_sched_barrier_join_signal_locked.exit:     ; preds = %17, %ractor_sched_l
   %20 = getelementptr inbounds i8, ptr %1, i64 328
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef %0, ptr noundef %21)
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #20
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i.i10 = icmp eq i32 %22, 0
   br i1 %.not.i.i10, label %ractor_sched_unlock_.exit, label %23
 
@@ -1536,7 +1536,7 @@ ractor_sched_barrier_join_signal_locked.exit:     ; preds = %17, %ractor_sched_l
   unreachable
 
 ractor_sched_unlock_.exit:                        ; preds = %ractor_sched_barrier_join_signal_locked.exit
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i11 = icmp eq i32 %24, 0
   br i1 %.not.i11, label %rb_native_mutex_lock.exit, label %25
 
@@ -1568,9 +1568,9 @@ rb_native_cond_wait.exit:                         ; preds = %10, %2
   %13 = call i32 @_setjmp(ptr noundef nonnull %12) #41
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 160
-  %16 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !13
+  %16 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   store ptr %16, ptr %15, align 8
-  %17 = call i32 @pthread_cond_wait(ptr noundef nonnull %7, ptr noundef nonnull %3) #20
+  %17 = call i32 @pthread_cond_wait(ptr noundef nonnull %7, ptr noundef nonnull %3) #19
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %rb_native_cond_wait.exit, label %18, !llvm.loop !14
 
@@ -1582,7 +1582,7 @@ rb_native_cond_wait.exit:                         ; preds = %10, %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @ruby_thread_from_native() local_unnamed_addr #5 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
   %2 = load ptr, ptr %1, align 8
@@ -1629,13 +1629,13 @@ define hidden void @Init_native_thread(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_condattr_init(ptr noundef nonnull %2) #20
+  %4 = tail call i32 @pthread_condattr_init(ptr noundef nonnull %2) #19
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @condattr_monotonic, align 8
-  %8 = tail call i32 @pthread_condattr_setclock(ptr noundef %7, i32 noundef 1) #20
+  %8 = tail call i32 @pthread_condattr_setclock(ptr noundef %7, i32 noundef 1) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.critedge
 
@@ -1644,11 +1644,11 @@ define hidden void @Init_native_thread(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %6, %.critedge, %1
-  %11 = tail call ptr @ruby_posix_signal(i32 noundef 26, ptr noundef nonnull @null_func) #20
+  %11 = tail call ptr @ruby_posix_signal(i32 noundef 26, ptr noundef nonnull @null_func) #19
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 160
-  %15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %14, ptr noundef null) #20
+  %15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %14, ptr noundef null) #19
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %rb_native_mutex_initialize.exit, label %16
 
@@ -1659,7 +1659,7 @@ define hidden void @Init_native_thread(ptr noundef %0) local_unnamed_addr #0 {
 rb_native_mutex_initialize.exit:                  ; preds = %10
   %17 = getelementptr inbounds i8, ptr %13, i64 216
   %18 = load ptr, ptr @condattr_monotonic, align 8
-  %19 = tail call i32 @pthread_cond_init(ptr noundef nonnull %17, ptr noundef %18) #20
+  %19 = tail call i32 @pthread_cond_init(ptr noundef nonnull %17, ptr noundef %18) #19
   %.not.i28 = icmp eq i32 %19, 0
   br i1 %.not.i28, label %rb_native_cond_initialize.exit, label %20
 
@@ -1670,7 +1670,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %10
 rb_native_cond_initialize.exit:                   ; preds = %rb_native_mutex_initialize.exit
   %21 = getelementptr inbounds i8, ptr %13, i64 360
   %22 = load ptr, ptr @condattr_monotonic, align 8
-  %23 = tail call i32 @pthread_cond_init(ptr noundef nonnull %21, ptr noundef %22) #20
+  %23 = tail call i32 @pthread_cond_init(ptr noundef nonnull %21, ptr noundef %22) #19
   %.not.i29 = icmp eq i32 %23, 0
   br i1 %.not.i29, label %rb_native_cond_initialize.exit30, label %24
 
@@ -1681,7 +1681,7 @@ rb_native_cond_initialize.exit:                   ; preds = %rb_native_mutex_ini
 rb_native_cond_initialize.exit30:                 ; preds = %rb_native_cond_initialize.exit
   %25 = getelementptr inbounds i8, ptr %13, i64 408
   %26 = load ptr, ptr @condattr_monotonic, align 8
-  %27 = tail call i32 @pthread_cond_init(ptr noundef nonnull %25, ptr noundef %26) #20
+  %27 = tail call i32 @pthread_cond_init(ptr noundef nonnull %25, ptr noundef %26) #19
   %.not.i31 = icmp eq i32 %27, 0
   br i1 %.not.i31, label %29, label %28
 
@@ -1735,7 +1735,7 @@ ruby_thread_set_native.exit:                      ; preds = %29, %46
   %52 = load ptr, ptr %37, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr @condattr_monotonic, align 8
-  %55 = tail call i32 @pthread_cond_init(ptr noundef nonnull %53, ptr noundef %54) #20
+  %55 = tail call i32 @pthread_cond_init(ptr noundef nonnull %53, ptr noundef %54) #19
   %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %native_thread_setup.exit, label %56
 
@@ -1745,13 +1745,13 @@ ruby_thread_set_native.exit:                      ; preds = %29, %46
 
 native_thread_setup.exit:                         ; preds = %ruby_thread_set_native.exit
   %57 = load ptr, ptr %37, align 8
-  %58 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #20
+  %58 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #19
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds i8, ptr %57, i64 24
   store i32 %59, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %57, i64 88
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @rb_register_sigaltstack(ptr noundef %62) #20
+  %63 = tail call ptr @rb_register_sigaltstack(ptr noundef %62) #19
   store ptr %63, ptr %61, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -1811,13 +1811,13 @@ define internal fastcc void @thread_sched_setup_running_threads(ptr noundef %0, 
 14:                                               ; preds = %9, %13
   %.0 = phi ptr [ %3, %13 ], [ null, %9 ]
   %15 = getelementptr inbounds i8, ptr %1, i64 160
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #20
+  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #19
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %19
 
 .thread:                                          ; preds = %5
   %17 = getelementptr inbounds i8, ptr %1, i64 160
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #20
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #19
   %.not.i.i2 = icmp eq i32 %18, 0
   br i1 %.not.i.i2, label %ractor_sched_lock_.exit.thread, label %19
 
@@ -1858,7 +1858,7 @@ ractor_sched_lock_.exit:                          ; preds = %14
   br label %39
 
 39:                                               ; preds = %39, %37
-  %40 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %38) #20
+  %40 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %38) #19
   switch i32 %40, label %41 [
     i32 11, label %39
     i32 0, label %ractor_sched_barrier_join_signal_locked.exit
@@ -1899,7 +1899,7 @@ ractor_sched_lock_.exit.thread:                   ; preds = %.thread, %ractor_sc
   br label %55
 
 55:                                               ; preds = %55, %53
-  %56 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %54) #20
+  %56 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %54) #19
   switch i32 %56, label %57 [
     i32 11, label %55
     i32 0, label %ractor_sched_barrier_join_signal_locked.exit48
@@ -1972,12 +1972,12 @@ ractor_sched_barrier_join_signal_locked.exit48:   ; preds = %55, %48
   br i1 %88, label %.preheader.i.i.i, label %timer_thread_wakeup_force.exit.i
 
 .preheader.i.i.i:                                 ; preds = %86, %91
-  %89 = call i64 @write(i32 noundef %87, ptr noundef nonnull %6, i64 noundef 8) #20
+  %89 = call i64 @write(i32 noundef %87, ptr noundef nonnull %6, i64 noundef 8) #19
   %90 = icmp slt i64 %89, 1
   br i1 %90, label %91, label %timer_thread_wakeup_force.exit.i
 
 91:                                               ; preds = %.preheader.i.i.i
-  %92 = tail call ptr @rb_errno_ptr() #20
+  %92 = tail call ptr @rb_errno_ptr() #19
   %93 = load i32, ptr %92, align 4
   switch i32 %93, label %94 [
     i32 4, label %.preheader.i.i.i
@@ -2010,7 +2010,7 @@ timer_thread_wakeup_locked.exit:                  ; preds = %timer_thread_wakeup
   br label %102
 
 102:                                              ; preds = %95, %timer_thread_wakeup_locked.exit
-  %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #20
+  %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #19
   %.not.i.i49 = icmp eq i32 %103, 0
   br i1 %.not.i.i49, label %ractor_sched_unlock_.exit, label %104
 
@@ -2029,7 +2029,7 @@ ractor_sched_unlock_.exit:                        ; preds = %102
   br i1 %.not45, label %thread_sched_lock_.exit, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %109 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i50 = icmp eq i32 %109, 0
   br i1 %.not.i.i50, label %thread_sched_unlock_.exit, label %110
 
@@ -2043,17 +2043,17 @@ thread_sched_unlock_.exit:                        ; preds = %108
   br i1 %.not.i.i51, label %rb_vm_lock_enter.exit, label %rb_vm_lock_leave.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %thread_sched_unlock_.exit
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #19
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i52 = icmp eq ptr %.pr, null
   br i1 %.not.i.i52, label %112, label %rb_vm_lock_leave.exit
 
 112:                                              ; preds = %rb_vm_lock_enter.exit
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #19
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %thread_sched_unlock_.exit, %rb_vm_lock_enter.exit, %112
-  %113 = call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %113 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i53 = icmp eq i32 %113, 0
   br i1 %.not.i.i53, label %thread_sched_lock_.exit, label %114
 
@@ -2087,7 +2087,7 @@ define hidden void @ruby_mn_threads_params() local_unnamed_addr #10 {
 
 rb_current_ractor.exit:                           ; preds = %0, %3, %7
   %.0.i.i = phi ptr [ %2, %0 ], [ %9, %7 ], [ null, %3 ]
-  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #20
+  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #19
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %15, label %11
 
@@ -2104,7 +2104,7 @@ rb_current_ractor.exit:                           ; preds = %0, %3, %7
   %.0.shrunk = phi i8 [ 1, %14 ], [ 0, %11 ], [ 0, %rb_current_ractor.exit ]
   %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 338
   store i8 %.0.shrunk, ptr %16, align 2
-  %17 = tail call ptr @getenv(ptr noundef nonnull @.str.18) #20
+  %17 = tail call ptr @getenv(ptr noundef nonnull @.str.18) #19
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %21, label %18
 
@@ -2158,7 +2158,7 @@ rb_vm_lock_enter.exit.thread:                     ; preds = %6
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %6
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %17 = icmp eq ptr %.pre, null
   %18 = getelementptr inbounds i8, ptr %8, i64 336
@@ -2174,7 +2174,7 @@ rb_vm_lock_enter.exit:                            ; preds = %6
   br i1 %17, label %24, label %rb_vm_lock_leave.exit
 
 24:                                               ; preds = %rb_vm_lock_enter.exit
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit.thread, %24, %rb_vm_lock_enter.exit, %1
@@ -2191,7 +2191,7 @@ define hidden void @rb_threadptr_sched_free(ptr nocapture noundef %0) local_unna
   br i1 %4, label %7, label %18
 
 7:                                                ; preds = %1
-  tail call void @ruby_xfree(ptr noundef %6) #20
+  tail call void @ruby_xfree(ptr noundef %6) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -2199,7 +2199,7 @@ define hidden void @rb_threadptr_sched_free(ptr nocapture noundef %0) local_unna
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 40
-  %12 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %11) #20
+  %12 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %11) #19
   %.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i, label %rb_native_cond_destroy.exit.i, label %13
 
@@ -2210,11 +2210,11 @@ define hidden void @rb_threadptr_sched_free(ptr nocapture noundef %0) local_unna
 rb_native_cond_destroy.exit.i:                    ; preds = %10
   %14 = getelementptr inbounds i8, ptr %9, i64 88
   %15 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %15) #20
+  tail call void @free(ptr noundef %15) #19
   %16 = getelementptr inbounds i8, ptr %9, i64 96
   %17 = load ptr, ptr %16, align 8
-  tail call void @ruby_xfree(ptr noundef %17) #20
-  tail call void @ruby_xfree(ptr noundef nonnull %9) #20
+  tail call void @ruby_xfree(ptr noundef %17) #19
+  tail call void @ruby_xfree(ptr noundef nonnull %9) #19
   br label %native_thread_destroy.exit
 
 18:                                               ; preds = %1
@@ -2222,7 +2222,7 @@ rb_native_cond_destroy.exit.i:                    ; preds = %10
   br i1 %.not.i6, label %native_thread_destroy.exit, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @nt_machine_stack_lock) #20
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @nt_machine_stack_lock) #19
   %.not.i.i7 = icmp eq i32 %20, 0
   br i1 %.not.i.i7, label %rb_native_mutex_lock.exit.i, label %21
 
@@ -2248,7 +2248,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %19
   br i1 %33, label %34, label %nt_stack_chunk_get_stack_start.exit.i
 
 34:                                               ; preds = %rb_native_mutex_lock.exit.i
-  %35 = tail call i64 @sysconf(i32 noundef 30) #20
+  %35 = tail call i64 @sysconf(i32 noundef 30) #19
   store i64 %35, ptr @get_sysconf_page_size.page_size, align 8
   br label %nt_stack_chunk_get_stack_start.exit.i
 
@@ -2259,7 +2259,7 @@ nt_stack_chunk_get_stack_start.exit.i:            ; preds = %34, %rb_native_mute
   %sext.i.i = mul i64 %38, %36
   %39 = ashr exact i64 %sext.i.i, 32
   %40 = getelementptr i8, ptr %26, i64 %39
-  %41 = tail call fastcc i64 @nt_thread_stack_size(), !range !15
+  %41 = tail call fastcc i64 @nt_thread_stack_size()
   %42 = mul i64 %41, %29
   %43 = getelementptr i8, ptr %40, i64 %42
   %44 = getelementptr inbounds i8, ptr %26, i64 8
@@ -2283,19 +2283,19 @@ nt_stack_chunk_get_stack_start.exit.i:            ; preds = %34, %rb_native_mute
   %55 = zext i16 %53 to i64
   %56 = getelementptr [0 x i16], ptr %51, i64 0, i64 %55
   store i16 %50, ptr %56, align 2
-  %57 = tail call fastcc i64 @nt_thread_stack_size(), !range !15
-  %58 = tail call i32 @madvise(ptr noundef %43, i64 noundef %57, i32 noundef 8) #20
+  %57 = tail call fastcc i64 @nt_thread_stack_size()
+  %58 = tail call i32 @madvise(ptr noundef %43, i64 noundef %57, i32 noundef 8) #19
   %.not13.i = icmp eq i32 %58, 0
   br i1 %.not13.i, label %62, label %59
 
 59:                                               ; preds = %49
-  %60 = tail call ptr @rb_errno_ptr() #20
+  %60 = tail call ptr @rb_errno_ptr() #19
   %61 = load i32, ptr %60, align 4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.120, i32 noundef %61) #45
   unreachable
 
 62:                                               ; preds = %49
-  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @nt_machine_stack_lock) #20
+  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @nt_machine_stack_lock) #19
   %.not.i14.i = icmp eq i32 %63, 0
   br i1 %.not.i14.i, label %native_thread_destroy.exit, label %64
 
@@ -2306,7 +2306,7 @@ nt_stack_chunk_get_stack_start.exit.i:            ; preds = %34, %rb_native_mute
 native_thread_destroy.exit:                       ; preds = %62, %18, %rb_native_cond_destroy.exit.i, %7
   %65 = getelementptr inbounds i8, ptr %0, i64 192
   %66 = load ptr, ptr %65, align 8
-  tail call void @ruby_xfree(ptr noundef %66) #20
+  tail call void @ruby_xfree(ptr noundef %66) #19
   %67 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %67, align 8
   ret void
@@ -2343,12 +2343,12 @@ define hidden void @rb_thread_sched_mark_zombies(ptr noundef readonly %0) local_
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %.pn.in14, i64 -104
   %14 = load i64, ptr %13, align 8
-  tail call void @rb_gc_mark(i64 noundef %14) #20
+  tail call void @rb_gc_mark(i64 noundef %14) #19
   br label %15
 
 15:                                               ; preds = %7, %12
   %.not11 = icmp eq ptr %.pn15, %2
-  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %15, %1
   ret void
@@ -2366,12 +2366,12 @@ define hidden void @rb_thread_wakeup_timer_thread(i32 noundef %0) local_unnamed_
   br i1 %4, label %.preheader.i.i, label %timer_thread_wakeup_force.exit
 
 .preheader.i.i:                                   ; preds = %1, %7
-  %5 = call i64 @write(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 8) #20
+  %5 = call i64 @write(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 8) #19
   %6 = icmp slt i64 %5, 1
   br i1 %6, label %7, label %timer_thread_wakeup_force.exit
 
 7:                                                ; preds = %.preheader.i.i
-  %8 = tail call ptr @rb_errno_ptr() #20
+  %8 = tail call ptr @rb_errno_ptr() #19
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
     i32 4, label %.preheader.i.i
@@ -2418,7 +2418,7 @@ timer_thread_wakeup_force.exit:                   ; preds = %.preheader.i.i, %7,
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %15, i64 336
   %29 = load ptr, ptr %28, align 8
-  tail call void %26(ptr noundef %29) #20
+  tail call void %26(ptr noundef %29) #19
   br label %30
 
 30:                                               ; preds = %12, %19, %24, %27, %16, %timer_thread_wakeup_force.exit
@@ -2428,8 +2428,8 @@ timer_thread_wakeup_force.exit:                   ; preds = %.preheader.i.i, %7,
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_assert_sig() local_unnamed_addr #0 {
   %1 = alloca %struct.__sigset_t, align 8
-  %2 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef null, ptr noundef nonnull %1) #20
-  %3 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 26) #20
+  %2 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef null, ptr noundef nonnull %1) #19
+  %3 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 26) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -2451,7 +2451,7 @@ declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %union.pthread_attr_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2460,12 +2460,12 @@ define hidden i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %7 = tail call i64 @pthread_self() #42
-  %8 = call i32 @pthread_getattr_np(i64 noundef %7, ptr noundef nonnull %3) #20
+  %8 = call i32 @pthread_getattr_np(i64 noundef %7, ptr noundef nonnull %3) #19
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %21
 
 9:                                                ; preds = %2
-  %10 = call i32 @pthread_attr_getstack(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #20
+  %10 = call i32 @pthread_attr_getstack(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not15.i = icmp eq i32 %10, 0
   br i1 %.not15.i, label %11, label %21
 
@@ -2474,7 +2474,7 @@ define hidden i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef 
   %13 = load i64, ptr %6, align 8
   %14 = getelementptr i8, ptr %12, i64 %13
   store ptr %14, ptr %5, align 8
-  %15 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %15 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not16.i = icmp eq i32 %15, 0
   br i1 %.not16.i, label %16, label %21
 
@@ -2483,7 +2483,7 @@ define hidden i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef 
   %18 = load i64, ptr %6, align 8
   %19 = sub i64 %18, %17
   store i64 %19, ptr %6, align 8
-  %20 = call i32 @pthread_attr_destroy(ptr noundef nonnull %3) #20
+  %20 = call i32 @pthread_attr_destroy(ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %27
@@ -2526,7 +2526,7 @@ define hidden i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @rb_reserved_fd_p(i32 noundef %0) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @rb_reserved_fd_p(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %14, label %3
 
@@ -2554,7 +2554,7 @@ define dso_local i32 @rb_reserved_fd_p(i32 noundef %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @rb_nativethread_self() local_unnamed_addr #15 {
+define dso_local i64 @rb_nativethread_self() local_unnamed_addr #14 {
   %1 = tail call i64 @pthread_self() #42
   ret i64 %1
 }
@@ -2567,7 +2567,7 @@ define dso_local noundef nonnull ptr @rb_internal_thread_add_event_hook(ptr noun
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 8
-  %7 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %7 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -2581,7 +2581,7 @@ define dso_local noundef nonnull ptr @rb_internal_thread_add_event_hook(ptr noun
   store ptr %10, ptr %11, align 8
   %12 = ptrtoint ptr %4 to i64
   %13 = atomicrmw volatile xchg ptr @rb_internal_thread_event_hooks, i64 %12 seq_cst, align 8
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not11 = icmp eq i32 %14, 0
   br i1 %.not11, label %16, label %15
 
@@ -2594,7 +2594,7 @@ define dso_local noundef nonnull ptr @rb_internal_thread_add_event_hook(ptr noun
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #1
@@ -2604,7 +2604,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %2 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -2640,15 +2640,15 @@ define dso_local noundef zeroext i1 @rb_internal_thread_remove_event_hook(ptr no
 
 19:                                               ; preds = %.preheader
   %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %.thread, label %.preheader, !llvm.loop !17
+  br i1 %.not17, label %.thread, label %.preheader, !llvm.loop !16
 
 20:                                               ; preds = %15, %7
-  %21 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %21 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not18 = icmp eq i32 %21, 0
   br i1 %.not18, label %25, label %23
 
 .thread:                                          ; preds = %19
-  %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not1820 = icmp eq i32 %22, 0
   br i1 %.not1820, label %.thread22, label %23
 
@@ -2658,7 +2658,7 @@ define dso_local noundef zeroext i1 @rb_internal_thread_remove_event_hook(ptr no
   unreachable
 
 25:                                               ; preds = %20
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #20
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #19
   br label %.thread22
 
 .thread22:                                        ; preds = %.thread, %25
@@ -2683,7 +2683,7 @@ define dso_local noundef zeroext i1 @rb_thread_lock_native_thread() local_unname
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds i8, ptr %10, i64 160
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #20
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
   %.not.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %14
 
@@ -2696,7 +2696,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %11
   %16 = load <2 x i32>, ptr %15, align 8
   %17 = add <2 x i32> %16, <i32 -1, i32 1>
   store <2 x i32> %17, ptr %15, align 8
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #20
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
   %.not.i.i8.i = icmp eq i32 %18, 0
   br i1 %.not.i.i8.i, label %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i, label %19
 
@@ -2716,8 +2716,8 @@ native_thread_dedicated_inc.exit:                 ; preds = %0, %ractor_sched_lo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_obj_is_mutex(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+define hidden range(i64 0, 21) i64 @rb_obj_is_mutex(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
   ret i64 %3
@@ -2728,7 +2728,7 @@ declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_mutex_new() local_unnamed_addr #0 {
   %1 = load i64, ptr @rb_cMutex, align 8
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %1, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %1, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -2752,7 +2752,7 @@ mutex_alloc.exit:                                 ; preds = %0, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @mutex_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -2775,8 +2775,8 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_mutex_locked_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+define dso_local range(i64 0, 21) i64 @rb_mutex_locked_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %4 = select i1 %.not, i64 0, i64 20
@@ -2784,8 +2784,8 @@ define dso_local i64 @rb_mutex_locked_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_mutex_trylock(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+define dso_local range(i64 0, 21) i64 @rb_mutex_trylock(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %16
@@ -2798,7 +2798,7 @@ define dso_local noundef i64 @rb_mutex_trylock(i64 noundef %0) #0 {
   %10 = getelementptr i8, ptr %7, i64 48
   %.val.i = load ptr, ptr %10, align 8
   store ptr %9, ptr %2, align 8
-  %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %12 = getelementptr inbounds i8, ptr %.val.i, i64 352
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
@@ -2834,7 +2834,7 @@ define internal fastcc noundef i64 @do_mutex_lock(i64 noundef returned %0, i32 n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %12 = inttoptr i64 %0 to ptr
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 8192
@@ -2856,7 +2856,7 @@ define internal fastcc noundef i64 @do_mutex_lock(i64 noundef returned %0, i32 n
   unreachable
 
 23:                                               ; preds = %15, %2
-  %24 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %24 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %37
@@ -2868,7 +2868,7 @@ define internal fastcc noundef i64 @do_mutex_lock(i64 noundef returned %0, i32 n
   %31 = getelementptr i8, ptr %28, i64 48
   %.val.i.i = load ptr, ptr %31, align 8
   store ptr %30, ptr %24, align 8
-  %32 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %32 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %33 = getelementptr inbounds i8, ptr %.val.i.i, i64 352
   %34 = load ptr, ptr %33, align 8
   %.not.i.i.i = icmp eq ptr %34, null
@@ -2915,14 +2915,14 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
 
 58:                                               ; preds = %.lr.ph, %threadptr_get_interrupts.exit84
   %.091 = phi i32 [ 0, %.lr.ph ], [ %.1, %threadptr_get_interrupts.exit84 ]
-  %59 = call i64 @rb_fiber_scheduler_current() #20
+  %59 = call i64 @rb_fiber_scheduler_current() #19
   %.not68 = icmp eq i64 %59, 4
   br i1 %.not68, label %66, label %60
 
 60:                                               ; preds = %58
   store i64 %0, ptr %3, align 8
   store ptr %8, ptr %40, align 8
-  %61 = call i32 @rb_fiberptr_blocking(ptr noundef %10) #20
+  %61 = call i32 @rb_fiberptr_blocking(ptr noundef %10) #19
   %.not.i = icmp eq i32 %61, 0
   %..i = select i1 %.not.i, ptr %10, ptr null
   store ptr %..i, ptr %41, align 8
@@ -2931,7 +2931,7 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
   store ptr %62, ptr %45, align 8
   store ptr %42, ptr %62, align 8
   store ptr %42, ptr %44, align 8
-  %63 = call i64 @rb_ensure(ptr noundef nonnull @call_rb_fiber_scheduler_block, i64 noundef %0, ptr noundef nonnull @delete_from_waitq, i64 noundef %46) #20
+  %63 = call i64 @rb_ensure(ptr noundef nonnull @call_rb_fiber_scheduler_block, i64 noundef %0, ptr noundef nonnull @delete_from_waitq, i64 noundef %46) #19
   %64 = load ptr, ptr %11, align 8
   %.not71 = icmp eq ptr %64, null
   br i1 %.not71, label %65, label %105
@@ -2950,7 +2950,7 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %11, align 8
-  %73 = call ptr @rb_fiber_threadptr(ptr noundef %72) #20
+  %73 = call ptr @rb_fiber_threadptr(ptr noundef %72) #19
   %74 = icmp eq ptr %73, %8
   br i1 %74, label %75, label %77
 
@@ -2962,7 +2962,7 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
 77:                                               ; preds = %71, %66
   store i64 %0, ptr %4, align 8
   store ptr %8, ptr %48, align 8
-  %78 = call i32 @rb_fiberptr_blocking(ptr noundef %10) #20
+  %78 = call i32 @rb_fiberptr_blocking(ptr noundef %10) #19
   %.not.i77 = icmp eq i32 %78, 0
   %..i78 = select i1 %.not.i77, ptr %10, ptr null
   store ptr %..i78, ptr %49, align 8
@@ -3110,7 +3110,7 @@ vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %152 = and i32 %151, %150
   %153 = cmpxchg volatile ptr %141, i32 %150, i32 %152 seq_cst seq_cst, align 4
   %.not.i82 = extractvalue { i32, i1 } %153, 1
-  br i1 %.not.i82, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !18
+  br i1 %.not.i82, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !17
 
 threadptr_get_interrupts.exit:                    ; preds = %.preheader
   %154 = load i32, ptr %143, align 4
@@ -3124,13 +3124,13 @@ threadptr_get_interrupts.exit:                    ; preds = %.preheader
   %159 = and i32 %158, %157
   %160 = cmpxchg volatile ptr %141, i32 %157, i32 %159 seq_cst seq_cst, align 4
   %.not.i83 = extractvalue { i32, i1 } %160, 1
-  br i1 %.not.i83, label %threadptr_get_interrupts.exit84, label %.preheader87, !llvm.loop !18
+  br i1 %.not.i83, label %threadptr_get_interrupts.exit84, label %.preheader87, !llvm.loop !17
 
 threadptr_get_interrupts.exit84:                  ; preds = %.preheader87, %139, %threadptr_get_interrupts.exit, %vm_check_ints_blocking.exit, %138
   %.1 = phi i32 [ %.091, %vm_check_ints_blocking.exit ], [ %.091, %138 ], [ %156, %threadptr_get_interrupts.exit ], [ %.091, %139 ], [ %.091, %.preheader87 ]
   %161 = load ptr, ptr %11, align 8
   %.not66 = icmp eq ptr %161, %10
-  br i1 %.not66, label %._crit_edge, label %58, !llvm.loop !19
+  br i1 %.not66, label %._crit_edge, label %58, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %threadptr_get_interrupts.exit84
   %.not67 = icmp eq i32 %.1, 0
@@ -3146,7 +3146,7 @@ threadptr_get_interrupts.exit84:                  ; preds = %.preheader87, %139,
   br i1 %166, label %.thread, label %172
 
 .thread:                                          ; preds = %._crit_edge, %162
-  %167 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %167 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %168 = getelementptr inbounds i8, ptr %8, i64 352
   %169 = load ptr, ptr %168, align 8
   %.not.i.i = icmp eq ptr %169, null
@@ -3175,12 +3175,12 @@ mutex_locked.exit:                                ; preds = %.thread, %170
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_mutex_owned_p(i64 noundef %0) #0 {
+define hidden range(i64 0, 21) i64 @rb_mutex_owned_p(i64 noundef %0) #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %.val = load ptr, ptr %6, align 8
   %7 = icmp eq ptr %.val, %5
   %8 = select i1 %7, i64 20, i64 0
@@ -3189,7 +3189,7 @@ define hidden i64 @rb_mutex_owned_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_mutex_unlock(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
@@ -3231,7 +3231,7 @@ define internal fastcc noundef ptr @rb_mutex_unlock_th(ptr noundef %0, ptr nocap
   %.not10.i = icmp eq ptr %10, %0
   %or.cond.i = or i1 %.not.i, %.not10.i
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  br i1 %or.cond.i, label %.critedge.i, label %9, !llvm.loop !20
+  br i1 %or.cond.i, label %.critedge.i, label %9, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %9
   br i1 %.not.i, label %thread_mutex_remove.exit, label %12
@@ -3275,8 +3275,8 @@ thread_mutex_remove.exit:                         ; preds = %.critedge.i, %12
 
 31:                                               ; preds = %28
   %32 = load i64, ptr %17, align 8
-  %33 = tail call i64 @rb_fiberptr_self(ptr noundef nonnull %30) #20
-  %34 = tail call i64 @rb_fiber_scheduler_unblock(i64 noundef %27, i64 noundef %32, i64 noundef %33) #20
+  %33 = tail call i64 @rb_fiberptr_self(ptr noundef nonnull %30) #19
+  %34 = tail call i64 @rb_fiber_scheduler_unblock(i64 noundef %27, i64 noundef %32, i64 noundef %33) #19
   br label %rb_threadptr_interrupt.exit
 
 35:                                               ; preds = %28, %18
@@ -3292,7 +3292,7 @@ thread_mutex_remove.exit:                         ; preds = %.critedge.i, %12
 
 39:                                               ; preds = %35, %35
   %40 = getelementptr inbounds i8, ptr %25, i64 288
-  %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #20
+  %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #19
   %.not.i.i.i = icmp eq i32 %41, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %42
 
@@ -3313,11 +3313,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %39
 49:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %50 = getelementptr inbounds i8, ptr %25, i64 336
   %51 = load ptr, ptr %50, align 8
-  tail call void %48(ptr noundef %51) #20
+  tail call void %48(ptr noundef %51) #19
   br label %52
 
 52:                                               ; preds = %49, %rb_native_mutex_lock.exit.i.i
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %40) #20
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %40) #19
   %.not.i8.i.i = icmp eq i32 %53, 0
   br i1 %.not.i8.i.i, label %rb_threadptr_interrupt.exit, label %54
 
@@ -3351,7 +3351,7 @@ define dso_local i64 @rb_mutex_sleep(i64 noundef %0, i64 noundef %1) local_unnam
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call { i64, i64 } @rb_time_interval(i64 noundef %1) #20
+  %6 = tail call { i64, i64 } @rb_time_interval(i64 noundef %1) #19
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   br label %9
@@ -3359,7 +3359,7 @@ define dso_local i64 @rb_mutex_sleep(i64 noundef %0, i64 noundef %1) local_unnam
 9:                                                ; preds = %5, %2
   %.sroa.2.0 = phi i64 [ undef, %2 ], [ %8, %5 ]
   %.sroa.0.0 = phi i64 [ undef, %2 ], [ %7, %5 ]
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 48
@@ -3376,13 +3376,13 @@ define dso_local i64 @rb_mutex_sleep(i64 noundef %0, i64 noundef %1) local_unnam
   unreachable
 
 rb_mutex_unlock.exit:                             ; preds = %9
-  %19 = tail call i64 @time(ptr noundef null) #20
-  %20 = tail call i64 @rb_fiber_scheduler_current() #20
+  %19 = tail call i64 @time(ptr noundef null) #19
+  %20 = tail call i64 @rb_fiber_scheduler_current() #19
   %.not = icmp eq i64 %20, 4
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %rb_mutex_unlock.exit
-  %22 = tail call i64 @rb_fiber_scheduler_kernel_sleep(i64 noundef %20, i64 noundef %1) #20
+  %22 = tail call i64 @rb_fiber_scheduler_kernel_sleep(i64 noundef %20, i64 noundef %1) #19
   %23 = tail call fastcc i64 @do_mutex_lock(i64 noundef %0, i32 noundef 0)
   br label %.critedge
 
@@ -3390,7 +3390,7 @@ rb_mutex_unlock.exit:                             ; preds = %9
   br i1 %4, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_mutex_sleep_forever, i64 noundef %0, ptr noundef nonnull @mutex_lock_uninterruptible, i64 noundef %0) #20
+  %26 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_mutex_sleep_forever, i64 noundef %0, ptr noundef nonnull @mutex_lock_uninterruptible, i64 noundef %0) #19
   br label %.critedge
 
 27:                                               ; preds = %24
@@ -3405,7 +3405,7 @@ rb_mutex_unlock.exit:                             ; preds = %9
   %.0.i4.i = tail call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i, i64 %.0.i3.i)
   store i64 %.0.i4.i, ptr %3, align 8
   %34 = ptrtoint ptr %3 to i64
-  %35 = call i64 @rb_ensure(ptr noundef nonnull @rb_mutex_wait_for, i64 noundef %34, ptr noundef nonnull @mutex_lock_uninterruptible, i64 noundef %0) #20
+  %35 = call i64 @rb_ensure(ptr noundef nonnull @rb_mutex_wait_for, i64 noundef %34, ptr noundef nonnull @mutex_lock_uninterruptible, i64 noundef %0) #19
   %36 = icmp eq i64 %35, 0
   %37 = load ptr, ptr %11, align 8
   %38 = getelementptr i8, ptr %37, i64 48
@@ -3510,7 +3510,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i23:  ; preds = %71, %68
   br label %vm_check_ints_blocking.exit30
 
 vm_check_ints_blocking.exit30:                    ; preds = %85, %74, %vm_check_ints_blocking.exit
-  %87 = call i64 @time(ptr noundef null) #20
+  %87 = call i64 @time(ptr noundef null) #19
   %88 = sub i64 %87, %19
   %89 = add i64 %88, 4611686018427387904
   %or.cond.i = icmp sgt i64 %89, -1
@@ -3522,7 +3522,7 @@ vm_check_ints_blocking.exit30:                    ; preds = %85, %74, %vm_check_
   br label %rb_long2num_inline.exit
 
 93:                                               ; preds = %vm_check_ints_blocking.exit30
-  %94 = call i64 @rb_int2big(i64 noundef %88) #20
+  %94 = call i64 @rb_int2big(i64 noundef %88) #19
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %93, %90, %vm_check_ints_blocking.exit
@@ -3533,7 +3533,7 @@ rb_long2num_inline.exit:                          ; preds = %93, %90, %vm_check_
 declare { i64, i64 } @rb_time_interval(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #1
@@ -3552,12 +3552,12 @@ declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_mutex_sleep_forever(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_fiber_scheduler_current() #20
+  %2 = tail call i64 @rb_fiber_scheduler_current() #19
   %.not.i = icmp eq i64 %2, 4
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %2, i64 noundef %0, i64 noundef 4) #20
+  %4 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %2, i64 noundef %0, i64 noundef 4) #19
   br label %rb_thread_sleep_deadly_allow_spurious_wakeup.exit
 
 5:                                                ; preds = %1
@@ -3573,7 +3573,7 @@ rb_thread_sleep_deadly_allow_spurious_wakeup.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_mutex_wait_for(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_mutex_wait_for(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
@@ -3589,13 +3589,13 @@ define internal i64 @rb_mutex_wait_for(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_mutex_synchronize(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i64 @do_mutex_lock(i64 noundef %0, i32 noundef 1)
-  %5 = tail call i64 @rb_ensure(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @rb_mutex_unlock, i64 noundef %0) #20
+  %5 = tail call i64 @rb_ensure(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @rb_mutex_unlock, i64 noundef %0) #19
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_mutex_allow_trap(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #20
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
   %.not = icmp eq i32 %1, 0
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
@@ -3610,13 +3610,13 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_builtin_thread_sync() local_unnamed_addr #0 {
-  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.30, ptr noundef nonnull @Init_builtin_thread_sync.thread_sync_table) #20
+  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.30, ptr noundef nonnull @Init_builtin_thread_sync.thread_sync_table) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_queue_pop(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @queue_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @queue_data_type) #19
   %6 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 480
   %8 = load i64, ptr %7, align 8
@@ -3647,7 +3647,7 @@ define internal i64 @rb_szqueue_pop(ptr nocapture readnone %0, i64 noundef %1, i
   %5 = and i64 %2, -5
   %.not = icmp eq i64 %5, 0
   %6 = zext i1 %.not to i32
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @szqueue_data_type) #20
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @szqueue_data_type) #19
   %8 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 480
   %10 = load i64, ptr %9, align 8
@@ -3730,7 +3730,7 @@ define internal noundef i64 @rb_szqueue_push(ptr nocapture readnone %0, i64 noun
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.queue_waiter, align 8
   %9 = alloca %struct.queue_sleep_arg, align 8
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @szqueue_data_type) #20
+  %10 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @szqueue_data_type) #19
   %11 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 480
   %13 = load i64, ptr %12, align 8
@@ -3808,7 +3808,7 @@ queue_length.exit:                                ; preds = %35, %38
   unreachable
 
 47:                                               ; preds = %43
-  %48 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %4) #20
+  %48 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %4) #19
   %49 = and i64 %48, -5
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %50, label %.loopexit
@@ -3835,7 +3835,7 @@ rb_num2long_inline.exit.i:                        ; preds = %52
   br label %rb_sec2hrtime.exit.i
 
 60:                                               ; preds = %52
-  %61 = tail call double @rb_num2dbl(i64 noundef %4) #20
+  %61 = tail call double @rb_num2dbl(i64 noundef %4) #19
   %62 = fcmp ult double %61, 0x43E0000000000000
   %63 = fcmp ugt double %61, 0.000000e+00
   %64 = fmul double %61, 1.000000e+09
@@ -3847,12 +3847,12 @@ rb_num2long_inline.exit.i:                        ; preds = %52
 rb_sec2hrtime.exit.i:                             ; preds = %60, %56, %rb_num2long_inline.exit.i
   %.08.i = phi i64 [ %storemerge9.i.i, %60 ], [ %.0.i.i.i, %56 ], [ 0, %rb_num2long_inline.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %66 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
+  %66 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #19
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %rb_hrtime_now.exit.i, label %68
 
 68:                                               ; preds = %rb_sec2hrtime.exit.i
-  call void @rb_timespec_now(ptr noundef nonnull %7) #20
+  call void @rb_timespec_now(ptr noundef nonnull %7) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %68, %rb_sec2hrtime.exit.i
@@ -3947,7 +3947,7 @@ queue_length.exit37:                              ; preds = %99, %102
   store ptr %113, ptr %79, align 8
   %114 = getelementptr inbounds i8, ptr %111, i64 40
   %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @rb_fiberptr_blocking(ptr noundef %115) #20
+  %116 = call i32 @rb_fiberptr_blocking(ptr noundef %115) #19
   %.not.i38 = icmp eq i32 %116, 0
   %..i = select i1 %.not.i38, ptr %115, ptr null
   store ptr %..i, ptr %80, align 8
@@ -3963,17 +3963,17 @@ queue_length.exit37:                              ; preds = %99, %102
   store i64 %1, ptr %9, align 8
   store i64 %4, ptr %87, align 8
   store i64 %.0.i, ptr %88, align 8
-  %120 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %89, ptr noundef nonnull @szqueue_sleep_done, i64 noundef %90) #20
+  %120 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %89, ptr noundef nonnull @szqueue_sleep_done, i64 noundef %90) #19
   br i1 %51, label %128, label %121
 
 121:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %122 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
+  %122 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %rb_hrtime_now.exit, label %124
 
 124:                                              ; preds = %121
-  call void @rb_timespec_now(ptr noundef nonnull %6) #20
+  call void @rb_timespec_now(ptr noundef nonnull %6) #19
   br label %rb_hrtime_now.exit
 
 rb_hrtime_now.exit:                               ; preds = %121, %124
@@ -3994,7 +3994,7 @@ rb_hrtime_now.exit:                               ; preds = %121, %124
   %130 = icmp ne i64 %129, 0
   %131 = icmp eq i64 %.val32, 0
   %132 = or i1 %131, %130
-  br i1 %132, label %.critedge.i.i33, label %92, !llvm.loop !21
+  br i1 %132, label %.critedge.i.i33, label %92, !llvm.loop !20
 
 133:                                              ; preds = %queue_length.exit37
   br i1 %.not.i40, label %queue_do_push.exit, label %134
@@ -4004,7 +4004,7 @@ rb_hrtime_now.exit:                               ; preds = %121, %124
   unreachable
 
 queue_do_push.exit:                               ; preds = %133
-  %135 = call i64 @rb_ary_push(i64 noundef %.val3249, i64 noundef %2) #20
+  %135 = call i64 @rb_ary_push(i64 noundef %.val3249, i64 noundef %2) #19
   call fastcc void @sync_wakeup(ptr noundef nonnull %10, i64 noundef 1)
   br label %.loopexit
 
@@ -4017,7 +4017,7 @@ declare void @rb_load_with_builtin_functions(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_nativethread_lock_initialize(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #20
+  %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %rb_native_mutex_initialize.exit, label %3
 
@@ -4031,7 +4031,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_nativethread_lock_destroy(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %rb_native_mutex_destroy.exit, label %3
 
@@ -4045,7 +4045,7 @@ rb_native_mutex_destroy.exit:                     ; preds = %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_nativethread_lock_lock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %3
 
@@ -4059,7 +4059,7 @@ rb_native_mutex_lock.exit:                        ; preds = %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_nativethread_lock_unlock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %rb_native_mutex_unlock.exit, label %3
 
@@ -4074,7 +4074,7 @@ rb_native_mutex_unlock.exit:                      ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_threadptr_interrupt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #19
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %4
 
@@ -4095,11 +4095,11 @@ rb_native_mutex_lock.exit.i:                      ; preds = %1
 11:                                               ; preds = %rb_native_mutex_lock.exit.i
   %12 = getelementptr inbounds i8, ptr %0, i64 336
   %13 = load ptr, ptr %12, align 8
-  tail call void %10(ptr noundef %13) #20
+  tail call void %10(ptr noundef %13) #19
   br label %14
 
 14:                                               ; preds = %11, %rb_native_mutex_lock.exit.i
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #19
   %.not.i8.i = icmp eq i32 %15, 0
   br i1 %.not.i8.i, label %rb_threadptr_interrupt_common.exit, label %16
 
@@ -4128,7 +4128,7 @@ define hidden void @rb_threadptr_unlock_all_locking_mutexes(ptr nocapture nounde
   %8 = load ptr, ptr %4, align 8
   %9 = tail call fastcc ptr @rb_mutex_unlock_th(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %8)
   %.not10 = icmp eq ptr %9, null
-  br i1 %.not10, label %3, label %10, !llvm.loop !22
+  br i1 %.not10, label %3, label %10, !llvm.loop !21
 
 10:                                               ; preds = %5
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.31, ptr noundef nonnull %9) #45
@@ -4176,7 +4176,7 @@ define hidden void @rb_thread_terminate_all(ptr noundef %0) local_unnamed_addr #
   %21 = load ptr, ptr %17, align 8
   %22 = tail call fastcc ptr @rb_mutex_unlock_th(ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef %21)
   %.not10.i = icmp eq ptr %22, null
-  br i1 %.not10.i, label %16, label %23, !llvm.loop !22
+  br i1 %.not10.i, label %16, label %23, !llvm.loop !21
 
 23:                                               ; preds = %18
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.31, ptr noundef nonnull %22) #45
@@ -4273,7 +4273,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %60, %rb_ec_ractor_p
   br i1 %.not.i.i23, label %126, label %63
 
 63:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %51, i32 noundef %.0.i.i.i) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %51, i32 noundef %.0.i.i.i) #19
   br label %126
 
 .thread:                                          ; preds = %rb_ec_vm_lock_rec.exit
@@ -4296,13 +4296,13 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %60, %rb_ec_ractor_p
 67:                                               ; preds = %.lr.ph.i
   %68 = getelementptr inbounds i8, ptr %.013.i, i64 272
   %69 = load i64, ptr %68, align 8
-  %70 = call i64 @rb_ary_push(i64 noundef %69, i64 noundef 3) #20
+  %70 = call i64 @rb_ary_push(i64 noundef %69, i64 noundef 3) #19
   %71 = getelementptr inbounds i8, ptr %.013.i, i64 240
   %72 = load i8, ptr %71, align 8
   %73 = and i8 %72, -65
   store i8 %73, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %.013.i, i64 288
-  %75 = call i32 @pthread_mutex_lock(ptr noundef nonnull %74) #20
+  %75 = call i32 @pthread_mutex_lock(ptr noundef nonnull %74) #19
   %.not.i.i.i.i24 = icmp eq i32 %75, 0
   br i1 %.not.i.i.i.i24, label %rb_native_mutex_lock.exit.i.i.i, label %76
 
@@ -4323,11 +4323,11 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %67
 83:                                               ; preds = %rb_native_mutex_lock.exit.i.i.i
   %84 = getelementptr inbounds i8, ptr %.013.i, i64 336
   %85 = load ptr, ptr %84, align 8
-  call void %82(ptr noundef %85) #20
+  call void %82(ptr noundef %85) #19
   br label %86
 
 86:                                               ; preds = %83, %rb_native_mutex_lock.exit.i.i.i
-  %87 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #20
+  %87 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #19
   %.not.i8.i.i.i = icmp eq i32 %87, 0
   br i1 %.not.i8.i.i.i, label %rb_threadptr_interrupt.exit.i, label %88
 
@@ -4338,10 +4338,10 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %67
 rb_threadptr_interrupt.exit.i:                    ; preds = %86, %.lr.ph.i
   %.0.i25 = load ptr, ptr %.013.i, align 8
   %.not.i26 = icmp eq ptr %.0.i25, %66
-  br i1 %.not.i26, label %terminate_all.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i26, label %terminate_all.exit, label %.lr.ph.i, !llvm.loop !22
 
 terminate_all.exit:                               ; preds = %rb_threadptr_interrupt.exit.i, %65
-  %89 = call i32 @rb_ractor_living_thread_num(ptr noundef %8) #20
+  %89 = call i32 @rb_ractor_living_thread_num(ptr noundef %8) #19
   %90 = icmp sgt i32 %89, 1
   br i1 %90, label %.lr.ph, label %.loopexit
 
@@ -4371,14 +4371,14 @@ terminate_all.exit:                               ; preds = %rb_threadptr_interr
 native_sleep.exit:                                ; preds = %95, %96
   %.0..0..0..0.7 = load volatile ptr, ptr %2, align 8
   %100 = getelementptr i8, ptr %.0..0..0..0.7, i64 48
-  %.val.i27 = load ptr, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.val.i27, i64 272
+  %.val.i28 = load ptr, ptr %100, align 8
+  %101 = getelementptr i8, ptr %.val.i28, i64 272
   %.val6.i = load i64, ptr %101, align 8
   %102 = inttoptr i64 %.val6.i to ptr
   %103 = load i64, ptr %102, align 8
   %104 = and i64 %103, 8192
-  %.not.i.i.i28 = icmp eq i64 %104, 0
-  br i1 %.not.i.i.i28, label %108, label %105
+  %.not.i.i.i29 = icmp eq i64 %104, 0
+  br i1 %.not.i.i.i29, label %108, label %105
 
 105:                                              ; preds = %native_sleep.exit
   %106 = lshr i64 %103, 15
@@ -4391,9 +4391,9 @@ native_sleep.exit:                                ; preds = %95, %96
   br label %rb_threadptr_pending_interrupt_empty_p.exit.i
 
 rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %108, %105
-  %.0.i.i.i29 = phi i64 [ %107, %105 ], [ %110, %108 ]
-  %.not.i30 = icmp eq i64 %.0.i.i.i29, 0
-  br i1 %.not.i30, label %111, label %116
+  %.0.i.i.i30 = phi i64 [ %107, %105 ], [ %110, %108 ]
+  %.not.i31 = icmp eq i64 %.0.i.i.i30, 0
+  br i1 %.not.i31, label %111, label %116
 
 111:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
   %112 = getelementptr i8, ptr %.0..0..0..0.7, i64 32
@@ -4406,7 +4406,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %108, %105
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %122
 
 116:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
-  %117 = getelementptr inbounds i8, ptr %.val.i27, i64 240
+  %117 = getelementptr inbounds i8, ptr %.val.i28, i64 240
   %118 = load i8, ptr %117, align 8
   %119 = and i8 %118, -65
   store i8 %119, ptr %117, align 8
@@ -4415,14 +4415,14 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %108, %105
   br label %122
 
 122:                                              ; preds = %116, %111
-  %123 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i27, i32 noundef 1)
+  %123 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i28, i32 noundef 1)
   br label %vm_check_ints_blocking.exit
 
 vm_check_ints_blocking.exit:                      ; preds = %111, %122
   store volatile i32 0, ptr %3, align 4
-  %124 = call i32 @rb_ractor_living_thread_num(ptr noundef %8) #20
+  %124 = call i32 @rb_ractor_living_thread_num(ptr noundef %8) #19
   %125 = icmp sgt i32 %124, 1
-  br i1 %125, label %92, label %.loopexit, !llvm.loop !24
+  br i1 %125, label %92, label %.loopexit, !llvm.loop !23
 
 126:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i, %63
   %127 = icmp ne i32 %49, 0
@@ -4444,13 +4444,13 @@ vm_check_ints_blocking.exit:                      ; preds = %111, %122
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #18
+declare ptr @llvm.frameaddress.p0(i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #19
+declare ptr @llvm.stacksave.p0() #18
 
 ; Function Attrs: nounwind
-declare i32 @llvm.eh.sjlj.setjmp(ptr) #20
+declare i32 @llvm.eh.sjlj.setjmp(ptr) #19
 
 declare i32 @rb_ractor_living_thread_num(ptr noundef) local_unnamed_addr #3
 
@@ -4489,12 +4489,12 @@ define internal fastcc void @native_thread_init_stack(ptr nocapture noundef read
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %17 = call i32 @pthread_getattr_np(i64 noundef %12, ptr noundef nonnull %5) #20
+  %17 = call i32 @pthread_getattr_np(i64 noundef %12, ptr noundef nonnull %5) #19
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %18, label %32
 
 18:                                               ; preds = %16
-  %19 = call i32 @pthread_attr_getstack(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8) #20
+  %19 = call i32 @pthread_attr_getstack(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8) #19
   %.not15.i.i = icmp eq i32 %19, 0
   br i1 %.not15.i.i, label %20, label %32
 
@@ -4503,7 +4503,7 @@ define internal fastcc void @native_thread_init_stack(ptr nocapture noundef read
   %22 = load i64, ptr %8, align 8
   %23 = getelementptr i8, ptr %21, i64 %22
   store ptr %23, ptr %7, align 8
-  %24 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %5, ptr noundef nonnull %6) #20
+  %24 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not16.i.i = icmp eq i32 %24, 0
   br i1 %.not16.i.i, label %25, label %32
 
@@ -4512,7 +4512,7 @@ define internal fastcc void @native_thread_init_stack(ptr nocapture noundef read
   %27 = load i64, ptr %8, align 8
   %28 = sub i64 %27, %26
   store i64 %28, ptr %8, align 8
-  %29 = call i32 @pthread_attr_destroy(ptr noundef nonnull %5) #20
+  %29 = call i32 @pthread_attr_destroy(ptr noundef nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %30 = load i64, ptr %8, align 8
@@ -4530,7 +4530,7 @@ define internal fastcc void @native_thread_init_stack(ptr nocapture noundef read
   %33 = load ptr, ptr @__libc_stack_end, align 8
   store ptr %33, ptr @native_main_thread.2, align 8
   %34 = tail call i32 @getpagesize() #42
-  %35 = call i32 @getrlimit(i32 noundef 3, ptr noundef nonnull %9) #20
+  %35 = call i32 @getrlimit(i32 noundef 3, ptr noundef nonnull %9) #19
   %36 = icmp eq i32 %35, 0
   %37 = load i64, ptr %9, align 8
   %spec.select.i = select i1 %36, i64 %37, i64 1048576
@@ -4600,12 +4600,12 @@ native_thread_init_main_thread_stack.exit:        ; preds = %14, %46, %53
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %70 = call i32 @pthread_getattr_np(i64 noundef %12, ptr noundef nonnull %3) #20
+  %70 = call i32 @pthread_getattr_np(i64 noundef %12, ptr noundef nonnull %3) #19
   %.not.i10 = icmp eq i32 %70, 0
   br i1 %.not.i10, label %71, label %get_stack.exit.thread
 
 71:                                               ; preds = %69
-  %72 = call i32 @pthread_attr_getstack(ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %11) #20
+  %72 = call i32 @pthread_attr_getstack(ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %11) #19
   %.not15.i = icmp eq i32 %72, 0
   br i1 %.not15.i, label %73, label %get_stack.exit.thread
 
@@ -4614,7 +4614,7 @@ native_thread_init_main_thread_stack.exit:        ; preds = %14, %46, %53
   %75 = load i64, ptr %11, align 8
   %76 = getelementptr i8, ptr %74, i64 %75
   store ptr %76, ptr %10, align 8
-  %77 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %77 = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not16.i = icmp eq i32 %77, 0
   br i1 %.not16.i, label %78, label %get_stack.exit.thread
 
@@ -4628,7 +4628,7 @@ get_stack.exit.thread:                            ; preds = %69, %71, %73
   %80 = load i64, ptr %11, align 8
   %81 = sub i64 %80, %79
   store i64 %81, ptr %11, align 8
-  %82 = call i32 @pthread_attr_destroy(ptr noundef nonnull %3) #20
+  %82 = call i32 @pthread_attr_destroy(ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %83 = load ptr, ptr %10, align 8
@@ -4682,7 +4682,7 @@ vm_proc_ep.exit:                                  ; preds = %tailrecurse.i, %tai
   br i1 %.not, label %vm_proc_ep.exit.thread, label %11
 
 11:                                               ; preds = %vm_proc_ep.exit
-  %12 = tail call ptr @rb_vm_ep_local_ep(ptr noundef nonnull %10) #20
+  %12 = tail call ptr @rb_vm_ep_local_ep(ptr noundef nonnull %10) #19
   br label %vm_proc_ep.exit.thread
 
 vm_proc_ep.exit.thread:                           ; preds = %tailrecurse.i, %vm_proc_ep.exit, %11
@@ -4704,7 +4704,7 @@ define dso_local noundef i64 @rb_thread_create(ptr noundef nonnull %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %0, ptr %7, align 8
   %8 = load i64, ptr @rb_cThread, align 8
-  %9 = tail call i64 @rb_thread_alloc(i64 noundef %8) #20
+  %9 = tail call i64 @rb_thread_alloc(i64 noundef %8) #19
   %10 = call fastcc i64 @thread_create_core(i64 noundef %9, ptr noundef nonnull %3)
   ret i64 %9
 }
@@ -4714,7 +4714,7 @@ define internal fastcc noundef i64 @thread_create_core(i64 noundef returned %0, 
   %3 = alloca %struct.rb_internal_thread_event_data, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %7 = getelementptr i8, ptr %5, i64 48
   %.val = load ptr, ptr %7, align 8
   %8 = load i32, ptr @specific_key_count, align 4
@@ -4756,7 +4756,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %19, %thread_specifi
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i64 @rb_fiber_inherit_storage(ptr noundef nonnull %5, ptr noundef %31) #20
+  %32 = tail call i64 @rb_fiber_inherit_storage(ptr noundef nonnull %5, ptr noundef %31) #19
   %33 = load i32, ptr %1, align 8
   switch i32 %33, label %83 [
     i32 1, label %34
@@ -4775,7 +4775,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %19, %thread_specifi
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %38, align 8
-  %42 = tail call i32 @rb_keyword_given_p() #20
+  %42 = tail call i32 @rb_keyword_given_p() #19
   %43 = getelementptr inbounds i8, ptr %6, i64 384
   store i32 %42, ptr %43, align 8
   br label %84
@@ -4791,7 +4791,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %19, %thread_specifi
   store ptr %6, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8
-  %52 = tail call i64 @rb_proc_isolate_bang(i64 noundef %51) #20
+  %52 = tail call i64 @rb_proc_isolate_bang(i64 noundef %51) #19
   %53 = getelementptr inbounds i8, ptr %6, i64 368
   store i64 %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4827,12 +4827,12 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %68 = or disjoint i64 %67, 1
   %69 = getelementptr inbounds i8, ptr %6, i64 376
   store i64 %68, ptr %69, align 8
-  %70 = tail call i32 @rb_keyword_given_p() #20
+  %70 = tail call i32 @rb_keyword_given_p() #19
   %71 = getelementptr inbounds i8, ptr %6, i64 384
   store i32 %70, ptr %71, align 8
   %72 = load ptr, ptr %46, align 8
   %73 = load i64, ptr %54, align 8
-  tail call void @rb_ractor_send_parameters(ptr noundef nonnull %5, ptr noundef %72, i64 noundef %73) #20
+  tail call void @rb_ractor_send_parameters(ptr noundef nonnull %5, ptr noundef %72, i64 noundef %73) #19
   br label %84
 
 74:                                               ; preds = %27
@@ -4861,7 +4861,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %88 = load i64, ptr %13, align 8
   %89 = getelementptr inbounds i8, ptr %6, i64 256
   store i64 %88, ptr %89, align 8
-  %90 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #20
+  %90 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #19
   %91 = getelementptr inbounds i8, ptr %6, i64 272
   store i64 %90, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %6, i64 240
@@ -4870,14 +4870,14 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   store i8 %94, ptr %92, align 8
   %95 = getelementptr inbounds i8, ptr %.val, i64 280
   %96 = load i64, ptr %95, align 8
-  %97 = tail call i64 @rb_ary_dup(i64 noundef %96) #20
+  %97 = tail call i64 @rb_ary_dup(i64 noundef %96) #19
   %98 = getelementptr inbounds i8, ptr %6, i64 280
   store i64 %97, ptr %98, align 8
   %99 = inttoptr i64 %97 to ptr
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   store i64 0, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %6, i64 288
-  %102 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %101, ptr noundef null) #20
+  %102 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %101, ptr noundef null) #19
   %.not.i = icmp eq i32 %102, 0
   br i1 %.not.i, label %rb_native_mutex_initialize.exit, label %103
 
@@ -4888,14 +4888,14 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 rb_native_mutex_initialize.exit:                  ; preds = %84
   %104 = getelementptr inbounds i8, ptr %6, i64 24
   %105 = load ptr, ptr %104, align 8
-  tail call void @rb_ractor_living_threads_insert(ptr noundef %105, ptr noundef nonnull %6) #20
+  tail call void @rb_ractor_living_threads_insert(ptr noundef %105, ptr noundef nonnull %6) #19
   %106 = load ptr, ptr @rb_internal_thread_event_hooks, align 8
   %.not.i49 = icmp eq ptr %106, null
   br i1 %.not.i49, label %127, label %107
 
 107:                                              ; preds = %rb_native_mutex_initialize.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %108 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %108 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i.i50 = icmp eq i32 %108, 0
   br i1 %.not.i.i50, label %110, label %109
 
@@ -4926,7 +4926,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %84
   %119 = load ptr, ptr %.0.i.i51, align 8
   %120 = getelementptr inbounds i8, ptr %.0.i.i51, i64 16
   %121 = load ptr, ptr %120, align 8
-  call void %119(i32 noundef 1, ptr noundef nonnull %3, ptr noundef %121) #20
+  call void %119(i32 noundef 1, ptr noundef nonnull %3, ptr noundef %121) #19
   br label %122
 
 122:                                              ; preds = %117, %113
@@ -4936,7 +4936,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %84
   br i1 %.not14.i.i, label %.loopexit.i.i, label %113, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %122, %110
-  %125 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %125 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i.i = icmp eq i32 %125, 0
   br i1 %.not15.i.i, label %rb_thread_execute_hooks.exit.i, label %126
 
@@ -4971,7 +4971,7 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   %137 = call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #46
   %138 = getelementptr inbounds i8, ptr %137, i64 40
   %139 = load ptr, ptr @condattr_monotonic, align 8
-  %140 = call i32 @pthread_cond_init(ptr noundef nonnull %138, ptr noundef %139) #20
+  %140 = call i32 @pthread_cond_init(ptr noundef nonnull %138, ptr noundef %139) #19
   %.not.i.i.i.i.i = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i, label %native_thread_alloc.exit.i.i, label %141
 
@@ -5001,12 +5001,12 @@ native_thread_alloc.exit.i.i:                     ; preds = %136
   %155 = getelementptr inbounds i8, ptr %6, i64 177
   store i8 1, ptr %155, align 1
   %156 = load ptr, ptr %28, align 8
-  call void @rb_ec_initialize_vm_stack(ptr noundef %156, ptr noundef nonnull %154, i64 noundef %152) #20
+  call void @rb_ec_initialize_vm_stack(ptr noundef %156, ptr noundef nonnull %154, i64 noundef %152) #19
   %157 = getelementptr inbounds i8, ptr %6, i64 184
   store ptr %154, ptr %157, align 8
   %158 = load ptr, ptr %104, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 288
-  %160 = call i32 @pthread_mutex_lock(ptr noundef nonnull %159) #20
+  %160 = call i32 @pthread_mutex_lock(ptr noundef nonnull %159) #19
   %.not.i.i.i16.i.i = icmp eq i32 %160, 0
   br i1 %.not.i.i.i16.i.i, label %thread_sched_lock_.exit.i.i.i, label %161
 
@@ -5016,7 +5016,7 @@ native_thread_alloc.exit.i.i:                     ; preds = %136
 
 thread_sched_lock_.exit.i.i.i:                    ; preds = %native_thread_alloc.exit.i.i
   call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %159, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false)
-  %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #20
+  %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #19
   %.not.i.i6.i.i.i = icmp eq i32 %162, 0
   br i1 %.not.i.i6.i.i.i, label %native_thread_create_dedicated.exit.i, label %163
 
@@ -5032,7 +5032,7 @@ native_thread_create_dedicated.exit.i:            ; preds = %thread_sched_lock_.
 166:                                              ; preds = %._crit_edge.i
   %167 = getelementptr inbounds i8, ptr %6, i64 32
   %168 = load ptr, ptr %167, align 8
-  %169 = call i32 @pthread_mutex_lock(ptr noundef nonnull @nt_machine_stack_lock) #20
+  %169 = call i32 @pthread_mutex_lock(ptr noundef nonnull @nt_machine_stack_lock) #19
   %.not.i.i.i.i = icmp eq i32 %169, 0
   br i1 %.not.i.i.i.i, label %rb_native_mutex_lock.exit.i.i.i, label %170
 
@@ -5071,13 +5071,13 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %166
   br i1 %186, label %187, label %nt_stack_chunk_get_stack_start.exit.i.i.i.i
 
 187:                                              ; preds = %175
-  %188 = call i64 @sysconf(i32 noundef 30) #20
+  %188 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %188, ptr @get_sysconf_page_size.page_size, align 8
   br label %nt_stack_chunk_get_stack_start.exit.i.i.i.i
 
 nt_stack_chunk_get_stack_start.exit.i.i.i.i:      ; preds = %187, %175
   %189 = phi i64 [ %188, %187 ], [ %185, %175 ]
-  %190 = call fastcc i64 @nt_thread_stack_size(), !range !15
+  %190 = call fastcc i64 @nt_thread_stack_size()
   %191 = getelementptr inbounds i8, ptr %168, i64 9552
   %192 = load i64, ptr %191, align 8
   %193 = load i64, ptr @get_sysconf_page_size.page_size, align 8
@@ -5085,7 +5085,7 @@ nt_stack_chunk_get_stack_start.exit.i.i.i.i:      ; preds = %187, %175
   br i1 %194, label %195, label %nt_stack_chunk_get_stack.exit.i.i.i
 
 195:                                              ; preds = %nt_stack_chunk_get_stack_start.exit.i.i.i.i
-  %196 = call i64 @sysconf(i32 noundef 30) #20
+  %196 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %196, ptr @get_sysconf_page_size.page_size, align 8
   br label %nt_stack_chunk_get_stack.exit.i.i.i
 
@@ -5133,13 +5133,13 @@ nt_stack_chunk_get_stack.exit.i.i.i:              ; preds = %195, %nt_stack_chun
   br i1 %225, label %226, label %nt_stack_chunk_get_stack_start.exit.i25.i.i.i
 
 226:                                              ; preds = %214
-  %227 = call i64 @sysconf(i32 noundef 30) #20
+  %227 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %227, ptr @get_sysconf_page_size.page_size, align 8
   br label %nt_stack_chunk_get_stack_start.exit.i25.i.i.i
 
 nt_stack_chunk_get_stack_start.exit.i25.i.i.i:    ; preds = %226, %214
   %228 = phi i64 [ %227, %226 ], [ %224, %214 ]
-  %229 = call fastcc i64 @nt_thread_stack_size(), !range !15
+  %229 = call fastcc i64 @nt_thread_stack_size()
   %230 = getelementptr inbounds i8, ptr %168, i64 9552
   %231 = load i64, ptr %230, align 8
   %232 = load i64, ptr @get_sysconf_page_size.page_size, align 8
@@ -5147,7 +5147,7 @@ nt_stack_chunk_get_stack_start.exit.i25.i.i.i:    ; preds = %226, %214
   br i1 %233, label %234, label %nt_stack_chunk_get_stack.exit29.i.i.i
 
 234:                                              ; preds = %nt_stack_chunk_get_stack_start.exit.i25.i.i.i
-  %235 = call i64 @sysconf(i32 noundef 30) #20
+  %235 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %235, ptr @get_sysconf_page_size.page_size, align 8
   br label %nt_stack_chunk_get_stack.exit29.i.i.i
 
@@ -5176,7 +5176,7 @@ nt_stack_chunk_get_stack.exit29.i.i.i:            ; preds = %234, %nt_stack_chun
   br i1 %251, label %252, label %get_sysconf_page_size.exit.i.i.i
 
 252:                                              ; preds = %nt_stack_chunk_get_stack.exit29.i.i.i
-  %253 = call i64 @sysconf(i32 noundef 30) #20
+  %253 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %253, ptr @get_sysconf_page_size.page_size, align 8
   br label %get_sysconf_page_size.exit.i.i.i
 
@@ -5184,12 +5184,12 @@ get_sysconf_page_size.exit.i.i.i:                 ; preds = %252, %nt_stack_chun
   %254 = phi i64 [ %253, %252 ], [ %250, %nt_stack_chunk_get_stack.exit29.i.i.i ]
   %sext.i.i.i = shl i64 %254, 32
   %255 = ashr exact i64 %sext.i.i.i, 32
-  %256 = call i32 @mprotect(ptr noundef %243, i64 noundef %255, i32 noundef 0) #20
+  %256 = call i32 @mprotect(ptr noundef %243, i64 noundef %255, i32 noundef 0) #19
   %.not.i30.i.i.i = icmp eq i32 %256, -1
   br i1 %.not.i30.i.i.i, label %257, label %nt_guard_page.exit.i.i.i
 
 257:                                              ; preds = %get_sysconf_page_size.exit.i.i.i
-  %258 = call ptr @rb_errno_ptr() #20
+  %258 = call ptr @rb_errno_ptr() #19
   %259 = load i32, ptr %258, align 4
   br label %nt_guard_page.exit.i.i.i
 
@@ -5201,24 +5201,24 @@ get_sysconf_page_size.exit.i.i.i:                 ; preds = %252, %nt_stack_chun
   br label %.backedge.i.i.i.backedge
 
 263:                                              ; preds = %.backedge.i.i.i
-  %264 = call ptr @mmap(ptr noundef null, i64 noundef 536870912, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #20
+  %264 = call ptr @mmap(ptr noundef null, i64 noundef 536870912, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #19
   %265 = icmp eq ptr %264, inttoptr (i64 -1 to ptr)
   br i1 %265, label %nt_alloc_thread_stack_chunk.exit.thread.i.i.i, label %266
 
 266:                                              ; preds = %263
-  %267 = call fastcc i64 @nt_thread_stack_size(), !range !15
+  %267 = call fastcc i64 @nt_thread_stack_size()
   %268 = load i64, ptr @get_sysconf_page_size.page_size, align 8
   %269 = icmp eq i64 %268, 0
   br i1 %269, label %get_sysconf_page_size.exit.i.i.i.i, label %get_sysconf_page_size.exit25.i.i.i.i
 
 get_sysconf_page_size.exit.i.i.i.i:               ; preds = %266
-  %270 = call i64 @sysconf(i32 noundef 30) #20
+  %270 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %270, ptr @get_sysconf_page_size.page_size, align 8
   %271 = icmp eq i64 %270, 0
   br i1 %271, label %272, label %get_sysconf_page_size.exit25.i.i.i.i
 
 272:                                              ; preds = %get_sysconf_page_size.exit.i.i.i.i
-  %273 = call i64 @sysconf(i32 noundef 30) #20
+  %273 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %273, ptr @get_sysconf_page_size.page_size, align 8
   br label %get_sysconf_page_size.exit25.i.i.i.i
 
@@ -5239,7 +5239,7 @@ get_sysconf_page_size.exit25.i.i.i.i:             ; preds = %272, %get_sysconf_p
   br i1 %282, label %283, label %get_sysconf_page_size.exit26.i.i.i.i
 
 283:                                              ; preds = %get_sysconf_page_size.exit25.i.i.i.i
-  %284 = call i64 @sysconf(i32 noundef 30) #20
+  %284 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %284, ptr @get_sysconf_page_size.page_size, align 8
   %.pre.i.i.i.i = trunc i64 %284 to i32
   br label %get_sysconf_page_size.exit26.i.i.i.i
@@ -5262,7 +5262,7 @@ get_sysconf_page_size.exit28.thread37.i.i.i.i:    ; preds = %286
   br label %get_sysconf_page_size.exit29.thread.i.i.i.i
 
 get_sysconf_page_size.exit27.i.i.i.i:             ; preds = %286
-  %291 = call i64 @sysconf(i32 noundef 30) #20
+  %291 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %291, ptr @get_sysconf_page_size.page_size, align 8
   %292 = trunc i64 %291 to i32
   %293 = add i32 %280, 23
@@ -5275,7 +5275,7 @@ get_sysconf_page_size.exit28.thread.i.i.i.i:      ; preds = %get_sysconf_page_si
   br label %get_sysconf_page_size.exit29.thread.i.i.i.i
 
 get_sysconf_page_size.exit28.i.i.i.i:             ; preds = %get_sysconf_page_size.exit27.i.i.i.i
-  %297 = call i64 @sysconf(i32 noundef 30) #20
+  %297 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %297, ptr @get_sysconf_page_size.page_size, align 8
   %.pre33.i.i.i.i = trunc i64 %297 to i32
   %298 = sdiv i32 %294, %.pre33.i.i.i.i
@@ -5291,7 +5291,7 @@ get_sysconf_page_size.exit29.thread.i.i.i.i:      ; preds = %get_sysconf_page_si
   br label %get_sysconf_page_size.exit30.i.i.i.i
 
 get_sysconf_page_size.exit29.i.i.i.i:             ; preds = %get_sysconf_page_size.exit28.i.i.i.i
-  %303 = call i64 @sysconf(i32 noundef 30) #20
+  %303 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %303, ptr @get_sysconf_page_size.page_size, align 8
   %304 = trunc i64 %303 to i32
   %305 = sdiv i32 536870912, %304
@@ -5300,7 +5300,7 @@ get_sysconf_page_size.exit29.i.i.i.i:             ; preds = %get_sysconf_page_si
   br i1 %307, label %308, label %get_sysconf_page_size.exit30.i.i.i.i
 
 308:                                              ; preds = %get_sysconf_page_size.exit29.i.i.i.i
-  %309 = call i64 @sysconf(i32 noundef 30) #20
+  %309 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %309, ptr @get_sysconf_page_size.page_size, align 8
   %.pre35.i.i.i.i = trunc i64 %309 to i32
   br label %get_sysconf_page_size.exit30.i.i.i.i
@@ -5341,7 +5341,7 @@ nt_alloc_thread_stack_chunk.exit.i.i.i:           ; preds = %get_sysconf_page_si
   br label %.backedge.i.i.i
 
 nt_alloc_thread_stack_chunk.exit.thread.i.i.i:    ; preds = %263
-  %324 = call ptr @rb_errno_ptr() #20
+  %324 = call ptr @rb_errno_ptr() #19
   %325 = load i32, ptr %324, align 4
   br label %nt_guard_page.exit.i.i.i
 
@@ -5349,7 +5349,7 @@ nt_guard_page.exit.i.i.i:                         ; preds = %nt_alloc_thread_sta
   %.026.i.i = phi ptr [ null, %nt_alloc_thread_stack_chunk.exit.thread.i.i.i ], [ %242, %257 ], [ %242, %get_sysconf_page_size.exit.i.i.i ], [ %203, %nt_stack_chunk_get_stack.exit.i.i.i ]
   %.025.i.i = phi ptr [ null, %nt_alloc_thread_stack_chunk.exit.thread.i.i.i ], [ %245, %257 ], [ %245, %get_sysconf_page_size.exit.i.i.i ], [ %206, %nt_stack_chunk_get_stack.exit.i.i.i ]
   %.0.i.i.i = phi i32 [ %325, %nt_alloc_thread_stack_chunk.exit.thread.i.i.i ], [ %259, %257 ], [ 0, %get_sysconf_page_size.exit.i.i.i ], [ 0, %nt_stack_chunk_get_stack.exit.i.i.i ]
-  %326 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @nt_machine_stack_lock) #20
+  %326 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @nt_machine_stack_lock) #19
   %.not.i32.i.i.i = icmp eq i32 %326, 0
   br i1 %.not.i32.i.i.i, label %nt_alloc_stack.exit.i.i, label %327
 
@@ -5367,7 +5367,7 @@ nt_alloc_stack.exit.i.i:                          ; preds = %nt_guard_page.exit.
   %331 = load i64, ptr %330, align 8
   %332 = lshr i64 %331, 3
   %333 = load ptr, ptr %28, align 8
-  call void @rb_ec_initialize_vm_stack(ptr noundef %333, ptr noundef %.026.i.i, i64 noundef %332) #20
+  call void @rb_ec_initialize_vm_stack(ptr noundef %333, ptr noundef %.026.i.i, i64 noundef %332) #19
   %334 = getelementptr inbounds i8, ptr %168, i64 9560
   %335 = load i64, ptr %334, align 8
   %336 = add i64 %335, -16
@@ -5405,7 +5405,7 @@ nt_alloc_stack.exit.i.i:                          ; preds = %nt_guard_page.exit.
   store ptr %6, ptr %357, align 8
   %358 = load ptr, ptr %104, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 288
-  %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull %359) #20
+  %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull %359) #19
   %.not.i.i.i.i9.i = icmp eq i32 %360, 0
   br i1 %.not.i.i.i.i9.i, label %thread_sched_lock_.exit.i.i10.i, label %361
 
@@ -5415,7 +5415,7 @@ nt_alloc_stack.exit.i.i:                          ; preds = %nt_guard_page.exit.
 
 thread_sched_lock_.exit.i.i10.i:                  ; preds = %328
   call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %359, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false)
-  %362 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %359) #20
+  %362 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %359) #19
   %.not.i.i6.i.i11.i = icmp eq i32 %362, 0
   br i1 %.not.i.i6.i.i11.i, label %thread_sched_to_ready.exit.i.i, label %363
 
@@ -5439,9 +5439,9 @@ native_thread_create.exit.thread:                 ; preds = %nt_alloc_stack.exit
   %367 = or i8 %366, 3
   store i8 %367, ptr %92, align 8
   %368 = load ptr, ptr %104, align 8
-  call void @rb_ractor_living_threads_remove(ptr noundef %368, ptr noundef %6) #20
+  call void @rb_ractor_living_threads_remove(ptr noundef %368, ptr noundef %6) #19
   %369 = load i64, ptr @rb_eThreadError, align 8
-  %370 = call ptr @strerror(i32 noundef %.0.i55) #20
+  %370 = call ptr @strerror(i32 noundef %.0.i55) #19
   call void (i64, ptr, ...) @rb_raise(i64 noundef %369, ptr noundef nonnull @.str.176, ptr noundef %370) #36
   unreachable
 
@@ -5464,7 +5464,7 @@ define hidden noundef i64 @rb_thread_create_ractor(ptr noundef %0, i64 noundef %
   %8 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %8, align 8
   %9 = load i64, ptr @rb_cThread, align 8
-  %10 = tail call i64 @rb_thread_alloc(i64 noundef %9) #20
+  %10 = tail call i64 @rb_thread_alloc(i64 noundef %9) #19
   %11 = call fastcc i64 @thread_create_core(i64 noundef %10, ptr noundef nonnull %4)
   ret i64 %10
 }
@@ -5472,12 +5472,12 @@ define hidden noundef i64 @rb_thread_create_ractor(ptr noundef %0, i64 noundef %
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef i64 @rb_hrtime_now() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #20
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #19
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %getclockofday.exit, label %4
 
 4:                                                ; preds = %0
-  call void @rb_timespec_now(ptr noundef nonnull %1) #20
+  call void @rb_timespec_now(ptr noundef nonnull %1) #19
   br label %getclockofday.exit
 
 getclockofday.exit:                               ; preds = %0, %4
@@ -5712,7 +5712,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us: ; preds = %91, %88
 vm_check_ints_blocking.exit33.us.us:              ; preds = %105, %100
   %.0.i29.us.us = phi i32 [ %106, %105 ], [ 0, %100 ]
   %.not21.us.us.not = icmp eq i32 %.0.i29.us.us, 0
-  br i1 %.not21.us.us.not, label %vm_check_ints_blocking.exit.split.us.split.us.split, label %.split.us, !llvm.loop !25
+  br i1 %.not21.us.us.not, label %vm_check_ints_blocking.exit.split.us.split.us.split, label %.split.us, !llvm.loop !24
 
 vm_check_ints_blocking.exit.split.us.split:       ; preds = %vm_check_ints_blocking.exit.split.us, %vm_check_ints_blocking.exit33.us
   %107 = load i8, ptr %3, align 8
@@ -5790,7 +5790,7 @@ vm_check_ints_blocking.exit33.us:                 ; preds = %146, %141
   %.0.i29.us = phi i32 [ %147, %146 ], [ 0, %141 ]
   %.not21.us = icmp ne i32 %.0.i29.us, 0
   %or.cond.us = and i1 %.not22, %.not21.us
-  br i1 %or.cond.us, label %.split.us, label %vm_check_ints_blocking.exit.split.us.split, !llvm.loop !25
+  br i1 %or.cond.us, label %.split.us, label %vm_check_ints_blocking.exit.split.us.split, !llvm.loop !24
 
 vm_check_ints_blocking.exit.split:                ; preds = %vm_check_ints_blocking.exit
   %148 = load i8, ptr %3, align 8
@@ -5872,12 +5872,12 @@ define internal fastcc i32 @sleep_hrtime(ptr noundef %0, i64 noundef %1, i32 nou
   %7 = getelementptr inbounds i8, ptr %0, i64 240
   %8 = load i8, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %rb_hrtime_now.exit, label %11
 
 11:                                               ; preds = %3
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   br label %rb_hrtime_now.exit
 
 rb_hrtime_now.exit:                               ; preds = %3, %11
@@ -5961,8 +5961,8 @@ vm_check_ints_blocking.exit:                      ; preds = %32, %43
   br label %52
 
 52:                                               ; preds = %.lr.ph, %hrtime_update_expire.exit
-  %.val.i16 = load ptr, ptr %48, align 8
-  %53 = getelementptr i8, ptr %.val.i16, i64 104
+  %.val.i17 = load ptr, ptr %48, align 8
+  %53 = getelementptr i8, ptr %.val.i17, i64 104
   %.val.val.i = load i32, ptr %53, align 8
   %54 = icmp sgt i32 %.val.val.i, 0
   br i1 %54, label %55, label %56
@@ -5980,71 +5980,71 @@ vm_check_ints_blocking.exit:                      ; preds = %32, %43
 native_sleep.exit:                                ; preds = %55, %56
   %60 = load ptr, ptr %19, align 8
   %61 = getelementptr i8, ptr %60, i64 48
-  %.val.i17 = load ptr, ptr %61, align 8
-  %62 = getelementptr i8, ptr %.val.i17, i64 272
-  %.val6.i18 = load i64, ptr %62, align 8
-  %63 = inttoptr i64 %.val6.i18 to ptr
+  %.val.i18 = load ptr, ptr %61, align 8
+  %62 = getelementptr i8, ptr %.val.i18, i64 272
+  %.val6.i19 = load i64, ptr %62, align 8
+  %63 = inttoptr i64 %.val6.i19 to ptr
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 8192
-  %.not.i.i.i19 = icmp eq i64 %65, 0
-  br i1 %.not.i.i.i19, label %69, label %66
+  %.not.i.i.i20 = icmp eq i64 %65, 0
+  br i1 %.not.i.i.i20, label %69, label %66
 
 66:                                               ; preds = %native_sleep.exit
   %67 = lshr i64 %64, 15
   %68 = and i64 %67, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i20
+  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21
 
 69:                                               ; preds = %native_sleep.exit
   %70 = getelementptr inbounds i8, ptr %63, i64 16
   %71 = load i64, ptr %70, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i20
+  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21
 
-rb_threadptr_pending_interrupt_empty_p.exit.i20:  ; preds = %69, %66
-  %.0.i.i.i21 = phi i64 [ %68, %66 ], [ %71, %69 ]
-  %.not.i22 = icmp eq i64 %.0.i.i.i21, 0
-  br i1 %.not.i22, label %72, label %77
+rb_threadptr_pending_interrupt_empty_p.exit.i21:  ; preds = %69, %66
+  %.0.i.i.i22 = phi i64 [ %68, %66 ], [ %71, %69 ]
+  %.not.i23 = icmp eq i64 %.0.i.i.i22, 0
+  br i1 %.not.i23, label %72, label %77
 
-72:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i20
+72:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21
   %73 = getelementptr i8, ptr %60, i64 32
-  %.val7.i24 = load i32, ptr %73, align 8
+  %.val7.i25 = load i32, ptr %73, align 8
   %74 = getelementptr i8, ptr %60, i64 36
-  %.val8.i25 = load i32, ptr %74, align 4
-  %75 = xor i32 %.val8.i25, -1
-  %76 = and i32 %.val7.i24, %75
-  %.not9.i26 = icmp eq i32 %76, 0
-  br i1 %.not9.i26, label %vm_check_ints_blocking.exit27.thread, label %vm_check_ints_blocking.exit27
+  %.val8.i26 = load i32, ptr %74, align 4
+  %75 = xor i32 %.val8.i26, -1
+  %76 = and i32 %.val7.i25, %75
+  %.not9.i27 = icmp eq i32 %76, 0
+  br i1 %.not9.i27, label %vm_check_ints_blocking.exit28.thread, label %vm_check_ints_blocking.exit28
 
-77:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i20
-  %78 = getelementptr inbounds i8, ptr %.val.i17, i64 240
+77:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21
+  %78 = getelementptr inbounds i8, ptr %.val.i18, i64 240
   %79 = load i8, ptr %78, align 8
   %80 = and i8 %79, -65
   store i8 %80, ptr %78, align 8
   %81 = getelementptr inbounds i8, ptr %60, i64 32
   %82 = atomicrmw volatile or ptr %81, i32 2 seq_cst, align 4
-  br label %vm_check_ints_blocking.exit27
+  br label %vm_check_ints_blocking.exit28
 
-vm_check_ints_blocking.exit27:                    ; preds = %72, %77
-  %83 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i17, i32 noundef 1)
+vm_check_ints_blocking.exit28:                    ; preds = %72, %77
+  %83 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i18, i32 noundef 1)
   %.not = icmp ne i32 %83, 0
   %or.cond = and i1 %.not11, %.not
-  br i1 %or.cond, label %vm_check_ints_blocking.exit27.hrtime_update_expire.exit.thread.loopexit_crit_edge, label %vm_check_ints_blocking.exit27.thread
+  br i1 %or.cond, label %vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge, label %vm_check_ints_blocking.exit28.thread
 
-vm_check_ints_blocking.exit27.hrtime_update_expire.exit.thread.loopexit_crit_edge: ; preds = %vm_check_ints_blocking.exit27
-  %.pre38.pre = load i8, ptr %7, align 8
+vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge: ; preds = %vm_check_ints_blocking.exit28
+  %.pre39.pre = load i8, ptr %7, align 8
   br label %hrtime_update_expire.exit.thread
 
-vm_check_ints_blocking.exit27.thread:             ; preds = %72, %vm_check_ints_blocking.exit27
-  %.0.i2333 = phi i32 [ %83, %vm_check_ints_blocking.exit27 ], [ 0, %72 ]
+vm_check_ints_blocking.exit28.thread:             ; preds = %72, %vm_check_ints_blocking.exit28
+  %.0.i2434 = phi i32 [ %83, %vm_check_ints_blocking.exit28 ], [ 0, %72 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %84 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #20
+  %84 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %rb_hrtime_now.exit.i, label %86
 
-86:                                               ; preds = %vm_check_ints_blocking.exit27.thread
-  call void @rb_timespec_now(ptr noundef nonnull %4) #20
+86:                                               ; preds = %vm_check_ints_blocking.exit28.thread
+  call void @rb_timespec_now(ptr noundef nonnull %4) #19
   br label %rb_hrtime_now.exit.i
 
-rb_hrtime_now.exit.i:                             ; preds = %86, %vm_check_ints_blocking.exit27.thread
+rb_hrtime_now.exit.i:                             ; preds = %86, %vm_check_ints_blocking.exit28.thread
   %.val.i.i = load i64, ptr %4, align 8
   %.val1.i.i = load i64, ptr %51, align 8
   %87 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 1000000000)
@@ -6054,19 +6054,19 @@ rb_hrtime_now.exit.i:                             ; preds = %86, %vm_check_ints_
   %.0.i2.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i, i64 %.val1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %90 = icmp ugt i64 %.0.i2.i.i.i, %.0.i
-  %.pre38.pre39 = load i8, ptr %7, align 8
+  %.pre39.pre40 = load i8, ptr %7, align 8
   br i1 %90, label %hrtime_update_expire.exit.thread, label %hrtime_update_expire.exit
 
 hrtime_update_expire.exit:                        ; preds = %rb_hrtime_now.exit.i
   %91 = sub i64 %.0.i, %.0.i2.i.i.i
   store i64 %91, ptr %6, align 8
-  %92 = and i8 %.pre38.pre39, 3
+  %92 = and i8 %.pre39.pre40, 3
   %93 = icmp eq i8 %92, 1
-  br i1 %93, label %52, label %hrtime_update_expire.exit.thread, !llvm.loop !26
+  br i1 %93, label %52, label %hrtime_update_expire.exit.thread, !llvm.loop !25
 
-hrtime_update_expire.exit.thread:                 ; preds = %hrtime_update_expire.exit, %rb_hrtime_now.exit.i, %vm_check_ints_blocking.exit27.hrtime_update_expire.exit.thread.loopexit_crit_edge, %vm_check_ints_blocking.exit
-  %94 = phi i8 [ %45, %vm_check_ints_blocking.exit ], [ %.pre38.pre, %vm_check_ints_blocking.exit27.hrtime_update_expire.exit.thread.loopexit_crit_edge ], [ %.pre38.pre39, %rb_hrtime_now.exit.i ], [ %.pre38.pre39, %hrtime_update_expire.exit ]
-  %.1 = phi i32 [ 1, %vm_check_ints_blocking.exit ], [ %83, %vm_check_ints_blocking.exit27.hrtime_update_expire.exit.thread.loopexit_crit_edge ], [ 1, %hrtime_update_expire.exit ], [ %.0.i2333, %rb_hrtime_now.exit.i ]
+hrtime_update_expire.exit.thread:                 ; preds = %hrtime_update_expire.exit, %rb_hrtime_now.exit.i, %vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge, %vm_check_ints_blocking.exit
+  %94 = phi i8 [ %45, %vm_check_ints_blocking.exit ], [ %.pre39.pre, %vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge ], [ %.pre39.pre40, %rb_hrtime_now.exit.i ], [ %.pre39.pre40, %hrtime_update_expire.exit ]
+  %.1 = phi i32 [ 1, %vm_check_ints_blocking.exit ], [ %83, %vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge ], [ 1, %hrtime_update_expire.exit ], [ %.0.i2434, %rb_hrtime_now.exit.i ]
   %95 = and i8 %8, 3
   %96 = and i8 %94, -4
   %97 = or disjoint i8 %96, %95
@@ -6131,8 +6131,8 @@ vm_check_ints_blocking.exit:                      ; preds = %14, %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_check_trap_pending() local_unnamed_addr #0 {
-  %1 = tail call i32 @rb_signal_buff_size() #20
+define dso_local range(i32 0, 2) i32 @rb_thread_check_trap_pending() local_unnamed_addr #0 {
+  %1 = tail call i32 @rb_signal_buff_size() #19
   %2 = icmp ne i32 %1, 0
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -6141,13 +6141,13 @@ define dso_local i32 @rb_thread_check_trap_pending() local_unnamed_addr #0 {
 declare i32 @rb_signal_buff_size() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_interrupted(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define dso_local range(i32 0, 11) i32 @rb_thread_interrupted(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 36
@@ -6163,7 +6163,7 @@ define dso_local void @rb_thread_sleep(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   %3 = shl nsw i64 %2, 1
   %4 = or disjoint i64 %3, 1
-  %5 = tail call { i64, i64 } @rb_time_timeval(i64 noundef %4) #20
+  %5 = tail call { i64, i64 } @rb_time_timeval(i64 noundef %4) #19
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -6231,7 +6231,7 @@ define internal fastcc void @rb_thread_schedule_limits(i32 noundef %0) unnamed_a
 
 rb_thread_alone.exit:                             ; preds = %1, %4, %8
   %.0.i.i.i = phi ptr [ %3, %1 ], [ %10, %8 ], [ null, %4 ]
-  %11 = call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i) #20
+  %11 = call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i) #19
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %rb_ractor_thread_switch.exit, label %12
 
@@ -6252,12 +6252,12 @@ rb_thread_alone.exit:                             ; preds = %1, %4, %8
   %22 = call i32 @_setjmp(ptr noundef nonnull %21) #41
   %23 = load ptr, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 160
-  %25 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !27
+  %25 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !26
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %.val.i, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 288
-  %29 = call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #20
+  %29 = call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #19
   %.not.i.i.i8 = icmp eq i32 %29, 0
   br i1 %.not.i.i.i8, label %thread_sched_lock_.exit.i, label %30
 
@@ -6278,7 +6278,7 @@ thread_sched_lock_.exit.i:                        ; preds = %18
 
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %36 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %36 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %38, label %37
 
@@ -6309,7 +6309,7 @@ thread_sched_lock_.exit.i:                        ; preds = %18
   %47 = load ptr, ptr %.0.i.i, align 8
   %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %47(i32 noundef 8, ptr noundef nonnull %2, ptr noundef %49) #20
+  call void %47(i32 noundef 8, ptr noundef nonnull %2, ptr noundef %49) #19
   br label %50
 
 50:                                               ; preds = %45, %41
@@ -6319,7 +6319,7 @@ thread_sched_lock_.exit.i:                        ; preds = %18
   br i1 %.not14.i.i, label %.loopexit.i.i, label %41, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %50, %38
-  %53 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %53 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i.i = icmp eq i32 %53, 0
   br i1 %.not15.i.i, label %rb_thread_execute_hooks.exit.i, label %54
 
@@ -6383,7 +6383,7 @@ thread_sched_wakeup_next_thread.exit.i:           ; preds = %70, %thread_sched_d
   br label %75
 
 75:                                               ; preds = %thread_sched_wakeup_next_thread.exit.i, %thread_sched_lock_.exit.i
-  %76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #20
+  %76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #19
   %.not.i.i19.i = icmp eq i32 %76, 0
   br i1 %.not.i.i19.i, label %thread_sched_yield.exit, label %77
 
@@ -6437,7 +6437,7 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
 16:                                               ; preds = %rb_ec_vm_ptr.exit
   %17 = getelementptr inbounds i8, ptr %.val, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %18) #20
+  %19 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %18) #19
   %20 = icmp ne i32 %19, 1
   %brmerge = select i1 %20, i1 true, i1 %15
   %21 = and i32 %4, 2
@@ -6457,13 +6457,13 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
   %.028 = phi ptr [ %3, %22 ], [ %3, %16 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
   %.0 = phi ptr [ %2, %22 ], [ %2, %16 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
   %25 = and i32 %4, 1
-  %26 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %.028, i32 noundef %25), !range !28
+  %26 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %.028, i32 noundef %25)
   %.not32 = icmp eq i32 %26, 0
   br i1 %.not32, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = call ptr %0(ptr noundef %1) #20
-  %29 = call i32 @rb_errno() #20
+  %28 = call ptr %0(ptr noundef %1) #19
+  %29 = call i32 @rb_errno() #19
   call fastcc void @blocking_region_end(ptr noundef %.val, ptr noundef nonnull %6)
   br label %30
 
@@ -6530,7 +6530,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %43, %40
   br label %vm_check_ints_blocking.exit
 
 vm_check_ints_blocking.exit:                      ; preds = %57, %46, %33
-  call void @rb_errno_set(i32 noundef %.027) #20
+  call void @rb_errno_set(i32 noundef %.027) #19
   ret ptr %.029
 }
 
@@ -6540,7 +6540,7 @@ define internal void @ubf_select(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i64, ptr %3, align 8
-  %4 = tail call i32 @pthread_kill(i64 noundef %.val.val, i32 noundef 26) #20
+  %4 = tail call i32 @pthread_kill(i64 noundef %.val.val, i32 noundef 26) #19
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %ubf_wakeup_thread.exit, label %5
 
@@ -6550,7 +6550,7 @@ define internal void @ubf_select(ptr noundef %0) #0 {
 
 ubf_wakeup_thread.exit:                           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #20
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %8
 
@@ -6574,7 +6574,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %ubf_wakeup_thread.e
   br label %14
 
 14:                                               ; preds = %10, %rb_native_mutex_lock.exit.i
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #20
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i3.i = icmp eq i32 %15, 0
   br i1 %.not.i3.i, label %register_ubf_list.exit, label %16
 
@@ -6588,7 +6588,7 @@ register_ubf_list.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @blocking_region_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @blocking_region_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 240
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 3
@@ -6617,7 +6617,7 @@ rb_native_mutex_unlock.exit.us.i:                 ; preds = %5, %29
   br label %rb_vm_check_ints.exit.us.i
 
 rb_vm_check_ints.exit.us.i:                       ; preds = %17, %rb_native_mutex_unlock.exit.us.i
-  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #20
+  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %.not.i16.us.i = icmp eq i32 %20, 0
   br i1 %.not.i16.us.i, label %rb_native_mutex_lock.exit.us.i, label %.split29.us.i
 
@@ -6639,9 +6639,9 @@ rb_native_mutex_lock.exit.us.i:                   ; preds = %rb_vm_check_ints.ex
   br i1 %.not21.us.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %24
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #20
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i17.us.i = icmp eq i32 %30, 0
-  br i1 %.not.i17.us.i, label %rb_native_mutex_unlock.exit.us.i, label %.split32.us.i, !llvm.loop !29
+  br i1 %.not.i17.us.i, label %rb_native_mutex_unlock.exit.us.i, label %.split32.us.i, !llvm.loop !27
 
 rb_native_mutex_unlock.exit.i:                    ; preds = %5, %45
   %31 = load ptr, ptr %10, align 8
@@ -6655,7 +6655,7 @@ rb_native_mutex_unlock.exit.i:                    ; preds = %5, %45
   br i1 %.not20.i, label %rb_vm_check_ints.exit.i, label %thread_sched_to_waiting.exit
 
 rb_vm_check_ints.exit.i:                          ; preds = %rb_native_mutex_unlock.exit.i
-  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #20
+  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %.not.i16.i = icmp eq i32 %36, 0
   br i1 %.not.i16.i, label %rb_native_mutex_lock.exit.i, label %.split29.us.i
 
@@ -6682,9 +6682,9 @@ rb_native_mutex_lock.exit.i:                      ; preds = %rb_vm_check_ints.ex
   br i1 %.not21.i, label %.critedge.i, label %45
 
 45:                                               ; preds = %40
-  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #20
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i17.i = icmp eq i32 %46, 0
-  br i1 %.not.i17.i, label %rb_native_mutex_unlock.exit.i, label %.split32.us.i, !llvm.loop !29
+  br i1 %.not.i17.i, label %rb_native_mutex_unlock.exit.i, label %.split32.us.i, !llvm.loop !27
 
 .split32.us.i:                                    ; preds = %45, %29
   %.us-phi33.i = phi i32 [ %30, %29 ], [ %46, %45 ]
@@ -6696,7 +6696,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %rb_vm_check_ints.ex
   store ptr %2, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %3, ptr %48, align 8
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #20
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i18.i = icmp eq i32 %49, 0
   br i1 %.not.i18.i, label %unblock_function_set.exit, label %50
 
@@ -6713,17 +6713,17 @@ unblock_function_set.exit:                        ; preds = %.critedge.i
   store i8 %54, ptr %6, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load ptr, ptr %55, align 8
-  call void @rb_ractor_blocking_threads_inc(ptr noundef %56, ptr noundef nonnull @.str.36, i32 noundef 1483) #20
+  call void @rb_ractor_blocking_threads_inc(ptr noundef %56, ptr noundef nonnull @.str.36, i32 noundef 1483) #19
   %57 = load ptr, ptr %10, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 176
   %59 = call i32 @_setjmp(ptr noundef nonnull %58) #41
   %60 = load ptr, ptr %10, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 160
-  %62 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !30
+  %62 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !28
   store ptr %62, ptr %61, align 8
   %63 = load ptr, ptr %55, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
-  %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #20
+  %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #19
   %.not.i.i.i = icmp eq i32 %65, 0
   br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %66
 
@@ -6733,7 +6733,7 @@ unblock_function_set.exit:                        ; preds = %.critedge.i
 
 thread_sched_lock_.exit.i:                        ; preds = %unblock_function_set.exit
   call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %64, ptr noundef nonnull %0, i1 noundef zeroext false)
-  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #20
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #19
   %.not.i.i6.i = icmp eq i32 %67, 0
   br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %68
 
@@ -6751,7 +6751,7 @@ declare i32 @rb_errno() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @blocking_region_end(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %5
 
@@ -6762,7 +6762,7 @@ define internal fastcc void @blocking_region_end(ptr noundef %0, ptr nocapture n
 rb_native_mutex_lock.exit.i:                      ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr null, ptr %6, align 8
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i3.i = icmp eq i32 %7, 0
   br i1 %.not.i3.i, label %unblock_function_clear.exit, label %8
 
@@ -6777,7 +6777,7 @@ unblock_function_clear.exit:                      ; preds = %rb_native_mutex_loc
   br i1 %.not.i, label %unregister_ubf_list.exit, label %11
 
 11:                                               ; preds = %unblock_function_clear.exit
-  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #20
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i.i11 = icmp eq i32 %12, 0
   br i1 %.not.i.i11, label %rb_native_mutex_lock.exit.i12, label %13
 
@@ -6795,7 +6795,7 @@ rb_native_mutex_lock.exit.i12:                    ; preds = %11
   store ptr %18, ptr %15, align 8
   store ptr %9, ptr %14, align 8
   store ptr %9, ptr %9, align 8
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #20
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i3.i13 = icmp eq i32 %19, 0
   br i1 %.not.i3.i13, label %unregister_ubf_list.exit, label %20
 
@@ -6827,7 +6827,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %unregister_ubf_list
   %31 = phi ptr [ %24, %unregister_ubf_list.exit ], [ %.pre, %29 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr null, ptr %32, align 8
-  tail call void @rb_ractor_blocking_threads_dec(ptr noundef %31, ptr noundef nonnull @.str.36, i32 noundef 1508) #20
+  tail call void @rb_ractor_blocking_threads_dec(ptr noundef %31, ptr noundef nonnull @.str.36, i32 noundef 1508) #19
   %33 = getelementptr inbounds i8, ptr %0, i64 240
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 3
@@ -6849,7 +6849,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %unregister_ubf_list
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @thread_value(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = tail call fastcc i64 @thread_join(ptr noundef %2, i64 noundef 4, ptr noundef null)
   %4 = getelementptr inbounds i8, ptr %2, i64 264
   %5 = load i64, ptr %4, align 8
@@ -6860,7 +6860,7 @@ define internal i64 @thread_value(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_thread_kill(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 8
@@ -6906,12 +6906,12 @@ define dso_local noundef i64 @rb_thread_kill(i64 noundef returned %0) #0 {
   unreachable
 
 threadptr_check_pending_interrupt_queue.exit:     ; preds = %21
-  %25 = tail call i64 @rb_ary_push(i64 noundef %.val, i64 noundef 1) #20
+  %25 = tail call i64 @rb_ary_push(i64 noundef %.val, i64 noundef 1) #19
   %26 = load i8, ptr %3, align 8
   %27 = and i8 %26, -65
   store i8 %27, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 288
-  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #20
+  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #19
   %.not.i.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %30
 
@@ -6932,11 +6932,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %threadptr_check_pen
 37:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %38 = getelementptr inbounds i8, ptr %2, i64 336
   %39 = load ptr, ptr %38, align 8
-  tail call void %36(ptr noundef %39) #20
+  tail call void %36(ptr noundef %39) #19
   br label %40
 
 40:                                               ; preds = %37, %rb_native_mutex_lock.exit.i.i
-  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #20
+  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #19
   %.not.i8.i.i = icmp eq i32 %41, 0
   br i1 %.not.i8.i.i, label %rb_threadptr_interrupt.exit, label %42
 
@@ -6964,7 +6964,7 @@ define dso_local ptr @rb_thread_call_without_gvl(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @rb_thread_mn_schedulable(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -7011,7 +7011,7 @@ define dso_local i64 @rb_thread_io_blocking_call(ptr nocapture noundef readonly 
 thread_io_mn_schedulable.exit:                    ; preds = %4, %22
   %27 = phi i8 [ 0, %4 ], [ %26, %22 ]
   store i8 %27, ptr %16, align 8
-  %28 = tail call ptr @rb_errno_ptr() #20
+  %28 = tail call ptr @rb_errno_ptr() #19
   store i32 0, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %29 = getelementptr inbounds i8, ptr %7, i64 24
@@ -7038,7 +7038,7 @@ rb_vm_lock_enter.exit.i.thread:                   ; preds = %thread_io_mn_schedu
   br label %thread_io_setup_wfd.exit
 
 rb_vm_lock_enter.exit.i:                          ; preds = %thread_io_mn_schedulable.exit
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %39 = icmp eq ptr %.pre, null
   %40 = getelementptr inbounds i8, ptr %.0.18.val, i64 32
@@ -7054,7 +7054,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %thread_io_mn_schedu
   br i1 %39, label %46, label %thread_io_setup_wfd.exit
 
 46:                                               ; preds = %rb_vm_lock_enter.exit.i
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #19
   br label %thread_io_setup_wfd.exit
 
 thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.exit.i.thread, %rb_vm_lock_enter.exit.i, %46
@@ -7149,7 +7149,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_p
   br i1 %.not.i.i35, label %.thread, label %86
 
 86:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %74, i32 noundef %.0.i.i.i) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %74, i32 noundef %.0.i.i.i) #19
   br label %.thread
 
 .thread:                                          ; preds = %86, %rb_ec_vm_lock_rec.exit.i.i
@@ -7166,10 +7166,10 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_p
 
 .split.us:                                        ; preds = %88
   %92 = load ptr, ptr %30, align 8
-  %93 = call fastcc i32 @blocking_region_begin(ptr noundef %92, ptr noundef nonnull %12, ptr noundef nonnull @ubf_select, ptr noundef %92, i32 noundef 0), !range !28
-  %94 = call i64 %0(ptr noundef %1) #20
+  %93 = call fastcc i32 @blocking_region_begin(ptr noundef %92, ptr noundef nonnull %12, ptr noundef nonnull @ubf_select, ptr noundef %92, i32 noundef 0)
+  %94 = call i64 %0(ptr noundef %1) #19
   store volatile i64 %94, ptr %8, align 8
-  %95 = call ptr @rb_errno_ptr() #20
+  %95 = call ptr @rb_errno_ptr() #19
   %96 = load i32, ptr %95, align 4
   store volatile i32 %96, ptr %9, align 4
   %97 = load ptr, ptr %30, align 8
@@ -7178,10 +7178,10 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_p
 
 .split:                                           ; preds = %88, %.split.backedge
   %98 = load ptr, ptr %30, align 8
-  %99 = call fastcc i32 @blocking_region_begin(ptr noundef %98, ptr noundef nonnull %12, ptr noundef nonnull @ubf_select, ptr noundef %98, i32 noundef 0), !range !28
-  %100 = call i64 %0(ptr noundef %1) #20
+  %99 = call fastcc i32 @blocking_region_begin(ptr noundef %98, ptr noundef nonnull %12, ptr noundef nonnull @ubf_select, ptr noundef %98, i32 noundef 0)
+  %100 = call i64 %0(ptr noundef %1) #19
   store volatile i64 %100, ptr %8, align 8
-  %101 = call ptr @rb_errno_ptr() #20
+  %101 = call ptr @rb_errno_ptr() #19
   %102 = load i32, ptr %101, align 4
   store volatile i32 %102, ptr %9, align 4
   %103 = load ptr, ptr %30, align 8
@@ -7347,7 +7347,7 @@ vm_check_ints_blocking.exit55:                    ; preds = %158, %169
 
 174:                                              ; preds = %vm_check_ints_blocking.exit55
   %.0..0..0..0.9 = load volatile i32, ptr %9, align 4
-  %175 = call ptr @rb_errno_ptr() #20
+  %175 = call ptr @rb_errno_ptr() #19
   store i32 %.0..0..0..0.9, ptr %175, align 4
   %.0..0..0..0.11 = load volatile i64, ptr %8, align 8
   ret i64 %.0..0..0..0.11
@@ -7377,7 +7377,7 @@ define internal fastcc void @thread_io_wake_pending_closer(ptr nocapture noundef
   br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.exit
 
 12:                                               ; preds = %9
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %9, %12
@@ -7393,7 +7393,7 @@ rb_vm_lock_enter.exit:                            ; preds = %9, %12
   br i1 %.not.i.i8, label %19, label %rb_vm_lock_leave.exit
 
 19:                                               ; preds = %rb_vm_lock_enter.exit
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %19
@@ -7414,7 +7414,7 @@ rb_thread_wakeup.exit:                            ; preds = %rb_vm_lock_leave.ex
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8
-  %30 = call ptr @rb_check_typeddata(i64 noundef %29, ptr noundef nonnull @mutex_data_type) #20
+  %30 = call ptr @rb_check_typeddata(i64 noundef %29, ptr noundef nonnull @mutex_data_type) #19
   %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 48
@@ -7436,7 +7436,7 @@ rb_thread_wakeup.exit:                            ; preds = %rb_vm_lock_leave.ex
   br i1 %.not.i.i10, label %40, label %rb_vm_lock_enter.exit11
 
 40:                                               ; preds = %.critedge
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
   br label %rb_vm_lock_enter.exit11
 
 rb_vm_lock_enter.exit11:                          ; preds = %.critedge, %40
@@ -7452,7 +7452,7 @@ rb_vm_lock_enter.exit11:                          ; preds = %.critedge, %40
   br i1 %.not.i.i12, label %47, label %rb_mutex_unlock.exit
 
 47:                                               ; preds = %rb_vm_lock_enter.exit11
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
   br label %rb_mutex_unlock.exit
 
 rb_mutex_unlock.exit:                             ; preds = %47, %rb_vm_lock_enter.exit11, %rb_thread_wakeup.exit
@@ -7473,7 +7473,7 @@ define dso_local ptr @rb_thread_call_with_gvl(ptr nocapture noundef nonnull read
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  tail call void @ruby_debug_breakpoint() #20
+  tail call void @ruby_debug_breakpoint() #19
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 61, i64 1, ptr %7) #48
   tail call void @exit(i32 noundef 1) #36
@@ -7495,8 +7495,8 @@ define dso_local ptr @rb_thread_call_with_gvl(ptr nocapture noundef nonnull read
   %15 = getelementptr inbounds i8, ptr %4, i64 328
   %.sroa.0.0.copyload = load ptr, ptr %15, align 8
   tail call fastcc void @blocking_region_end(ptr noundef nonnull %4, ptr noundef nonnull %11)
-  %16 = tail call ptr %0(ptr noundef %1) #20
-  %17 = tail call fastcc i32 @blocking_region_begin(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.2.0.copyload, i32 noundef 0), !range !28
+  %16 = tail call ptr %0(ptr noundef %1) #19
+  %17 = tail call fastcc i32 @blocking_region_begin(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.2.0.copyload, i32 noundef 0)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %19
 
@@ -7511,13 +7511,13 @@ define dso_local ptr @rb_thread_call_with_gvl(ptr nocapture noundef nonnull read
 declare void @ruby_debug_breakpoint() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #21
+declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: cold noreturn
 declare void @rb_assert_failure(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @ruby_thread_has_gvl_p() local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ruby_thread_has_gvl_p() local_unnamed_addr #21 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
   %2 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %2, null
@@ -7541,7 +7541,7 @@ define dso_local noundef i32 @ruby_thread_has_gvl_p() local_unnamed_addr #5 {
 define hidden void @rb_threadptr_pending_interrupt_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load i64, ptr %2, align 8
-  %4 = tail call i64 @rb_ary_clear(i64 noundef %3) #20
+  %4 = tail call i64 @rb_ary_clear(i64 noundef %3) #19
   ret void
 }
 
@@ -7551,7 +7551,7 @@ declare i64 @rb_ary_clear(i64 noundef) local_unnamed_addr #3
 define hidden void @rb_threadptr_pending_interrupt_enque(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i64, ptr %3, align 8
-  %5 = tail call i64 @rb_ary_push(i64 noundef %4, i64 noundef %1) #20
+  %5 = tail call i64 @rb_ary_push(i64 noundef %4, i64 noundef %1) #19
   %6 = getelementptr inbounds i8, ptr %0, i64 240
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -65
@@ -7602,7 +7602,7 @@ define hidden i32 @rb_threadptr_execute_interrupts(ptr noundef %0, i32 noundef %
   %28 = and i32 %27, %26
   %29 = cmpxchg volatile ptr %23, i32 %26, i32 %28 seq_cst seq_cst, align 4
   %.not.i = extractvalue { i32, i1 } %29, 1
-  br i1 %.not.i, label %threadptr_get_interrupts.exit, label %25, !llvm.loop !18
+  br i1 %.not.i, label %threadptr_get_interrupts.exit, label %25, !llvm.loop !17
 
 threadptr_get_interrupts.exit:                    ; preds = %25
   %30 = load i32, ptr %24, align 4
@@ -7625,13 +7625,13 @@ threadptr_get_interrupts.exit:                    ; preds = %25
   br i1 %or.cond, label %rb_vm_lock_enter.exit, label %rb_vm_lock_leave.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %33
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #19
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i79 = icmp eq ptr %.pr, null
   br i1 %.not.i.i79, label %41, label %rb_vm_lock_leave.exit
 
 41:                                               ; preds = %rb_vm_lock_enter.exit
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #19
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_enter.exit, %33
@@ -7640,7 +7640,7 @@ rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_ent
 
 42:                                               ; preds = %rb_vm_lock_leave.exit
   %43 = load ptr, ptr %9, align 8
-  call void @rb_postponed_job_flush(ptr noundef %43) #20
+  call void @rb_postponed_job_flush(ptr noundef %43) #19
   br label %44
 
 44:                                               ; preds = %42, %rb_vm_lock_leave.exit
@@ -7659,18 +7659,18 @@ rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_ent
   %52 = and i8 %51, 3
   %53 = and i8 %51, -4
   store i8 %53, ptr %10, align 8
-  %54 = call i32 @rb_get_next_signal() #20
+  %54 = call i32 @rb_get_next_signal() #19
   %.not71122 = icmp eq i32 %54, 0
   br i1 %.not71122, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %55 = phi i32 [ %58, %.lr.ph ], [ %54, %50 ]
   %.1123 = phi i32 [ %57, %.lr.ph ], [ %.058, %50 ]
-  %56 = call i32 @rb_signal_exec(ptr noundef %0, i32 noundef %55) #20
+  %56 = call i32 @rb_signal_exec(ptr noundef %0, i32 noundef %55) #19
   %57 = or i32 %56, %.1123
-  %58 = call i32 @rb_get_next_signal() #20
+  %58 = call i32 @rb_get_next_signal() #19
   %.not71 = icmp eq i32 %58, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.1.lcssa = phi i32 [ %.058, %50 ], [ %57, %.lr.ph ]
@@ -7849,7 +7849,7 @@ rb_array_const_ptr.exit.i.i:                      ; preds = %115, %111
 
 RB_SYMBOL_P.exit.preheader.us.i.i:                ; preds = %133, %128
   %exitcond20.not.i.i = icmp eq i64 %122, %.0.i2.i.i
-  br i1 %exitcond20.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph9.split.us.split.i.i, !llvm.loop !32
+  br i1 %exitcond20.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph9.split.us.split.i.i, !llvm.loop !30
 
 .lr.ph9.split.i.i:                                ; preds = %.lr.ph9.i.i, %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i
   %.0258.i.i = phi i64 [ %138, %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i ], [ 0, %.lr.ph9.i.i ]
@@ -7925,7 +7925,7 @@ RB_SYMBOL_P.exit.preheader.i.i:                   ; preds = %RB_SYMBOL_P.exit.pr
 
 175:                                              ; preds = %172, %169
   %.024.i.i = phi i64 [ %171, %169 ], [ %.0267.i.i, %172 ]
-  %176 = call i64 @rb_hash_aref(i64 noundef %141, i64 noundef %.024.i.i) #20
+  %176 = call i64 @rb_hash_aref(i64 noundef %141, i64 noundef %.024.i.i) #19
   %.not30.i.i = icmp eq i64 %176, 4
   br i1 %.not30.i.i, label %RB_SYMBOL_P.exit.i.i, label %177
 
@@ -7953,11 +7953,11 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %175, %172
   %188 = getelementptr inbounds i8, ptr %165, i64 16
   %189 = load i64, ptr %188, align 8
   %.not.i19.i = icmp eq i64 %189, 0
-  br i1 %.not.i19.i, label %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, label %RB_SYMBOL_P.exit.preheader.i.i, !llvm.loop !33
+  br i1 %.not.i19.i, label %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, label %RB_SYMBOL_P.exit.preheader.i.i, !llvm.loop !31
 
 RB_SYMBOL_P.exit..loopexit_crit_edge.i.i:         ; preds = %RB_SYMBOL_P.exit.i.i, %RB_SYMBOL_P.exit.thread.i.i
   %exitcond.not.i.i = icmp eq i64 %138, %.0.i2.i.i
-  br i1 %exitcond.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph9.split.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph9.split.i.i, !llvm.loop !30
 
 rb_threadptr_pending_interrupt_check_mask.exit.i: ; preds = %180, %157
   br i1 %.not74, label %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i, label %rb_threadptr_pending_interrupt_deque.exit
@@ -7967,7 +7967,7 @@ rb_threadptr_pending_interrupt_check_mask.exit.thread23.i: ; preds = %rb_threadp
   %.pre = load i64, ptr %11, align 8
   %.phi.trans.insert = inttoptr i64 %.pre to ptr
   %.pre152 = load i64, ptr %.phi.trans.insert, align 8
-  br label %.preheader126, !llvm.loop !34
+  br label %.preheader126, !llvm.loop !32
 
 rb_threadptr_pending_interrupt_deque.exit.thread: ; preds = %rb_array_len.exit.i, %rb_array_len.exit.thread.i
   %191 = load i8, ptr %10, align 8
@@ -7977,7 +7977,7 @@ rb_threadptr_pending_interrupt_deque.exit.thread: ; preds = %rb_array_len.exit.i
 
 rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.exit.i.i, %.lr.ph9.split.us.i.i, %.split.us.i.i, %177, %rb_threadptr_pending_interrupt_check_mask.exit.i, %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, %RB_SYMBOL_P.exit.preheader.us.i.i
   %193 = load i64, ptr %11, align 8
-  %194 = call i64 @rb_ary_delete_at(i64 noundef %193, i64 noundef %78) #20
+  %194 = call i64 @rb_ary_delete_at(i64 noundef %193, i64 noundef %78) #19
   switch i64 %92, label %195 [
     i64 36, label %threadptr_pending_interrupt_active_p.exit.thread
     i64 17, label %.thread
@@ -7993,7 +7993,7 @@ rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %195
-  %201 = call i64 @ruby_vm_special_exception_copy(i64 noundef %92) #20
+  %201 = call i64 @ruby_vm_special_exception_copy(i64 noundef %92) #19
   br label %202
 
 202:                                              ; preds = %200, %195
@@ -8048,7 +8048,7 @@ threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pendin
 rb_ec_ractor_hooks.exit:                          ; preds = %209, %219
   %222 = load ptr, ptr %5, align 8
   %223 = getelementptr i8, ptr %222, i64 48
-  %.val78 = load ptr, ptr %223, align 8, !nonnull !35, !noundef !35
+  %.val78 = load ptr, ptr %223, align 8, !nonnull !33, !noundef !33
   %224 = getelementptr inbounds i8, ptr %.val78, i64 24
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 24
@@ -8072,7 +8072,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %209, %219
   store i64 36, ptr %19, align 8
   store i64 36, ptr %20, align 8
   store i32 0, ptr %21, align 8
-  call void @rb_exec_event_hooks(ptr noundef nonnull %3, ptr noundef nonnull %230, i32 noundef 0) #20
+  call void @rb_exec_event_hooks(ptr noundef nonnull %3, ptr noundef nonnull %230, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %235
 
@@ -8082,7 +8082,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %209, %219
 
 236:                                              ; preds = %235, %208
   %.val.pre = load ptr, ptr %5, align 8
-  br label %22, !llvm.loop !36
+  br label %22, !llvm.loop !34
 
 .loopexit:                                        ; preds = %threadptr_get_interrupts.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ %.058, %threadptr_get_interrupts.exit ]
@@ -8125,7 +8125,7 @@ define internal fastcc void @rb_threadptr_to_kill(ptr nocapture noundef %0) unna
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_thread_execute_interrupts(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef %2, i32 noundef 1)
   ret void
 }
@@ -8162,11 +8162,11 @@ define internal fastcc void @rb_threadptr_raise(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %6
   %9 = load i64, ptr @rb_eRuntimeError, align 8
-  %10 = tail call i64 @rb_exc_new(i64 noundef %9, ptr noundef null, i64 noundef 0) #20
+  %10 = tail call i64 @rb_exc_new(i64 noundef %9, ptr noundef null, i64 noundef 0) #19
   br label %13
 
 11:                                               ; preds = %6
-  %12 = tail call i64 @rb_make_exception(i32 noundef %1, ptr noundef %2) #20
+  %12 = tail call i64 @rb_make_exception(i32 noundef %1, ptr noundef %2) #19
   br label %13
 
 13:                                               ; preds = %11, %8
@@ -8179,15 +8179,15 @@ define internal fastcc void @rb_threadptr_raise(ptr noundef %0, i32 noundef %1, 
 15:                                               ; preds = %13
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %17 = load ptr, ptr %16, align 8
-  tail call void @rb_ec_setup_exception(ptr noundef %17, i64 noundef %.0, i64 noundef 36) #20
+  tail call void @rb_ec_setup_exception(ptr noundef %17, i64 noundef %.0, i64 noundef 36) #19
   %18 = getelementptr inbounds i8, ptr %0, i64 272
   %19 = load i64, ptr %18, align 8
-  %20 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %.0) #20
+  %20 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %.0) #19
   %21 = load i8, ptr %4, align 8
   %22 = and i8 %21, -65
   store i8 %22, ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 288
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #20
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #19
   %.not.i.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %25
 
@@ -8208,11 +8208,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %15
 32:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %33 = getelementptr inbounds i8, ptr %0, i64 336
   %34 = load ptr, ptr %33, align 8
-  tail call void %31(ptr noundef %34) #20
+  tail call void %31(ptr noundef %34) #19
   br label %35
 
 35:                                               ; preds = %32, %rb_native_mutex_lock.exit.i.i
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #20
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #19
   %.not.i8.i.i = icmp eq i32 %36, 0
   br i1 %.not.i8.i.i, label %rb_threadptr_interrupt.exit, label %37
 
@@ -8229,7 +8229,7 @@ define hidden void @rb_threadptr_signal_exit(ptr nocapture noundef readonly %0) 
   %2 = alloca [2 x i64], align 16
   %3 = load i64, ptr @rb_eSystemExit, align 8
   store i64 %3, ptr %2, align 16
-  %4 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.38, i64 noundef 4) #20
+  %4 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.38, i64 noundef 4) #19
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8241,7 +8241,7 @@ define hidden void @rb_threadptr_signal_exit(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @rb_ec_set_raised(ptr nocapture noundef %0) local_unnamed_addr #23 {
+define hidden range(i32 0, 2) i32 @rb_ec_set_raised(ptr nocapture noundef %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -8259,7 +8259,7 @@ define hidden noundef i32 @rb_ec_set_raised(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @rb_ec_reset_raised(ptr nocapture noundef %0) local_unnamed_addr #23 {
+define hidden range(i32 0, 2) i32 @rb_ec_reset_raised(ptr nocapture noundef %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -8277,7 +8277,7 @@ define hidden noundef i32 @rb_ec_reset_raised(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @rb_notify_fd_close(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rb_notify_fd_close(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -8295,7 +8295,7 @@ define hidden noundef i32 @rb_notify_fd_close(i32 noundef %0, ptr noundef %1) lo
   br i1 %.not.i.i, label %13, label %rb_vm_lock_enter.exit
 
 13:                                               ; preds = %2
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #19
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %2, %13
@@ -8336,13 +8336,13 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %13
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %21, i64 272
   %35 = load i64, ptr %34, align 8
-  %36 = call i64 @rb_ary_push(i64 noundef %35, i64 noundef %33) #20
+  %36 = call i64 @rb_ary_push(i64 noundef %35, i64 noundef %33) #19
   %37 = getelementptr inbounds i8, ptr %21, i64 240
   %38 = load i8, ptr %37, align 8
   %39 = and i8 %38, -65
   store i8 %39, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %21, i64 288
-  %41 = call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #20
+  %41 = call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #19
   %.not.i.i.i = icmp eq i32 %41, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %42
 
@@ -8363,11 +8363,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %19
 49:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %50 = getelementptr inbounds i8, ptr %21, i64 336
   %51 = load ptr, ptr %50, align 8
-  call void %48(ptr noundef %51) #20
+  call void %48(ptr noundef %51) #19
   br label %52
 
 52:                                               ; preds = %49, %rb_native_mutex_lock.exit.i.i
-  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %40) #20
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %40) #19
   %.not.i8.i.i = icmp eq i32 %53, 0
   br i1 %.not.i8.i.i, label %rb_threadptr_interrupt.exit, label %54
 
@@ -8377,7 +8377,7 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %19
 
 rb_threadptr_interrupt.exit:                      ; preds = %52, %.lr.ph
   %.not = icmp eq ptr %.02433, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %rb_threadptr_interrupt.exit, %rb_vm_lock_enter.exit
   %55 = load ptr, ptr %1, align 8
@@ -8394,7 +8394,7 @@ rb_threadptr_interrupt.exit:                      ; preds = %52, %.lr.ph
 
 62:                                               ; preds = %._crit_edge
   %63 = load i64, ptr @rb_cMutex, align 8
-  %64 = call i64 @rb_data_typed_object_zalloc(i64 noundef %63, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #20
+  %64 = call i64 @rb_data_typed_object_zalloc(i64 noundef %63, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #19
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8
@@ -8427,20 +8427,20 @@ rb_mutex_new.exit:                                ; preds = %62, %70
   br i1 %.not.i.i27, label %80, label %rb_vm_lock_leave.exit
 
 80:                                               ; preds = %76
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #19
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %76, %80
   %81 = zext i1 %56 to i32
   store ptr %3, ptr %5, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #20, !srcloc !38
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #19, !srcloc !36
   %82 = load ptr, ptr %5, align 8
   %83 = load volatile i64, ptr %82, align 8
   ret i32 %81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_thread_current() local_unnamed_addr #5 {
+define dso_local i64 @rb_thread_current() local_unnamed_addr #21 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %2, i64 48
@@ -8469,11 +8469,11 @@ define hidden void @rb_notify_fd_close_wait(ptr noundef readonly %0) local_unnam
   %9 = tail call i64 @rb_mutex_sleep(i64 noundef %8, i64 noundef 4)
   %10 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %10, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %11 = load i64, ptr %2, align 8
-  %12 = tail call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @mutex_data_type) #20
+  %12 = tail call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @mutex_data_type) #19
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 48
@@ -8496,7 +8496,7 @@ rb_mutex_unlock.exit:                             ; preds = %._crit_edge, %1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_thread_fd_close(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.rb_io_close_wait_list, align 8
-  %3 = call i32 @rb_notify_fd_close(i32 noundef %0, ptr noundef nonnull %2), !range !28
+  %3 = call i32 @rb_notify_fd_close(i32 noundef %0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %rb_notify_fd_close_wait.exit, label %4
 
@@ -8518,11 +8518,11 @@ define dso_local void @rb_thread_fd_close(i32 noundef %0) local_unnamed_addr #0 
   %12 = call i64 @rb_mutex_sleep(i64 noundef %11, i64 noundef 4)
   %13 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %13, %2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
   %14 = load i64, ptr %5, align 8
-  %15 = call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @mutex_data_type) #20
+  %15 = call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @mutex_data_type) #19
   %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 48
@@ -8546,8 +8546,8 @@ rb_notify_fd_close_wait.exit:                     ; preds = %._crit_edge.i, %4, 
 declare void @rb_exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_thread_to_be_killed(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define hidden range(i32 0, 2) i32 @rb_thread_to_be_killed(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 8
@@ -8577,7 +8577,7 @@ define dso_local noundef i64 @rb_thread_wakeup(i64 noundef returned %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_thread_wakeup_alive(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 3
@@ -8586,7 +8586,7 @@ define dso_local noundef i64 @rb_thread_wakeup_alive(i64 noundef %0) local_unnam
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %2, i64 288
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #20
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i, label %rb_native_mutex_lock.exit.i.i.i, label %10
 
@@ -8607,11 +8607,11 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %7
 17:                                               ; preds = %rb_native_mutex_lock.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %2, i64 336
   %19 = load ptr, ptr %18, align 8
-  tail call void %16(ptr noundef %19) #20
+  tail call void %16(ptr noundef %19) #19
   br label %20
 
 20:                                               ; preds = %17, %rb_native_mutex_lock.exit.i.i.i
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #20
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %.not.i8.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i8.i.i.i, label %rb_threadptr_ready.exit, label %22
 
@@ -8692,7 +8692,7 @@ define dso_local noundef i64 @rb_thread_stop() local_unnamed_addr #0 {
 
 rb_thread_alone.exit:                             ; preds = %0, %2, %6
   %.0.i.i.i = phi ptr [ %1, %0 ], [ %8, %6 ], [ null, %2 ]
-  %9 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i) #20
+  %9 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i) #19
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %10, label %12
 
@@ -8711,7 +8711,7 @@ rb_thread_alone.exit:                             ; preds = %0, %2, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_alone() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_thread_alone() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %2, label %rb_current_ractor.exit
@@ -8731,7 +8731,7 @@ define dso_local i32 @rb_thread_alone() local_unnamed_addr #0 {
 
 rb_current_ractor.exit:                           ; preds = %0, %2, %6
   %.0.i.i = phi ptr [ %1, %0 ], [ %8, %6 ], [ null, %2 ]
-  %9 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i) #20
+  %9 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i) #19
   %10 = icmp eq i32 %9, 1
   %11 = zext i1 %10 to i32
   ret i32 %11
@@ -8739,14 +8739,14 @@ rb_current_ractor.exit:                           ; preds = %0, %2, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_thread_list() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_ractor_thread_list() #20
+  %1 = tail call i64 @rb_ractor_thread_list() #19
   ret i64 %1
 }
 
 declare i64 @rb_ractor_thread_list() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_thread_main() local_unnamed_addr #5 {
+define dso_local i64 @rb_thread_main() local_unnamed_addr #21 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %2, label %rb_current_ractor.exit
@@ -8755,7 +8755,7 @@ define dso_local i64 @rb_thread_main() local_unnamed_addr #5 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
-  %.val.i.i = load ptr, ptr %5, align 8, !nonnull !35, !noundef !35
+  %.val.i.i = load ptr, ptr %5, align 8, !nonnull !33, !noundef !33
   %6 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %7 = load ptr, ptr %6, align 8
   br label %rb_current_ractor.exit
@@ -8771,7 +8771,7 @@ rb_current_ractor.exit:                           ; preds = %0, %2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_thread_group(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 256
   %4 = load i64, ptr %3, align 8
   ret i64 %4
@@ -8780,7 +8780,7 @@ define hidden i64 @rb_thread_group(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_thread_local_aref(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = icmp eq i64 %1, 3121
   %6 = getelementptr inbounds i8, ptr %4, i64 48
@@ -8799,7 +8799,7 @@ define dso_local i64 @rb_thread_local_aref(i64 noundef %0, i64 noundef %1) local
   br i1 %.not.i, label %threadptr_local_aref.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = call i32 @rb_id_table_lookup(ptr noundef nonnull %13, i64 noundef %1, ptr noundef nonnull %3) #20
+  %15 = call i32 @rb_id_table_lookup(ptr noundef nonnull %13, i64 noundef %1, ptr noundef nonnull %3) #19
   %.not8.i = icmp eq i32 %15, 0
   %16 = load i64, ptr %3, align 8
   %spec.select.i = select i1 %.not8.i, i64 4, i64 %16
@@ -8834,7 +8834,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %8, %3
   unreachable
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %16 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %17 = icmp eq i64 %1, 3121
   %18 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = load ptr, ptr %18, align 8
@@ -8856,14 +8856,14 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %8, %3
   br i1 %.not.i, label %threadptr_local_aset.exit, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i32 @rb_id_table_delete(ptr noundef nonnull %24, i64 noundef %1) #20
+  %28 = tail call i32 @rb_id_table_delete(ptr noundef nonnull %24, i64 noundef %1) #19
   br label %threadptr_local_aset.exit
 
 29:                                               ; preds = %22
   br i1 %.not.i, label %30, label %34
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @rb_id_table_create(i64 noundef 0) #20
+  %31 = tail call ptr @rb_id_table_create(i64 noundef 0) #19
   %32 = load ptr, ptr %18, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 56
   store ptr %31, ptr %33, align 8
@@ -8871,7 +8871,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %8, %3
 
 34:                                               ; preds = %30, %29
   %.0.i = phi ptr [ %31, %30 ], [ %24, %29 ]
-  %35 = tail call i32 @rb_id_table_insert(ptr noundef %.0.i, i64 noundef %1, i64 noundef %2) #20
+  %35 = tail call i32 @rb_id_table_insert(ptr noundef %.0.i, i64 noundef %1, i64 noundef %2) #19
   br label %threadptr_local_aset.exit
 
 threadptr_local_aset.exit:                        ; preds = %20, %26, %27, %34
@@ -8908,7 +8908,7 @@ define hidden void @rb_fd_init_copy(ptr nocapture noundef writeonly %0, ptr noca
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %10, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %10, i64 %spec.store.select, i1 false)
   ret void
 }
 
@@ -8916,7 +8916,7 @@ define hidden void @rb_fd_init_copy(ptr nocapture noundef writeonly %0, ptr noca
 define dso_local void @rb_fd_term(ptr nocapture noundef nonnull %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @ruby_xfree(ptr noundef %3) #20
+  tail call void @ruby_xfree(ptr noundef %3) #19
   store i32 0, ptr %0, align 8
   store ptr null, ptr %2, align 8
   ret void
@@ -9030,7 +9030,7 @@ define dso_local void @rb_fd_clr(i32 noundef %0, ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @rb_fd_isset(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @rb_fd_isset(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #21 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp sgt i32 %3, %0
   br i1 %.not, label %4, label %17
@@ -9067,7 +9067,7 @@ define dso_local void @rb_fd_copy(ptr nocapture noundef %0, ptr nocapture nounde
   %9 = load ptr, ptr %8, align 8
   %10 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %9, i64 noundef %spec.store.select) #49
   store ptr %10, ptr %8, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %10, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %spec.store.select, i1 false)
   ret void
 }
 
@@ -9089,7 +9089,7 @@ define dso_local void @rb_fd_dup(ptr nocapture noundef %0, ptr nocapture noundef
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %9, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %spec.store.select, i1 false)
   ret void
 }
 
@@ -9230,7 +9230,7 @@ rb_fd_resize.exit32:                              ; preds = %70, %72
 
 74:                                               ; preds = %rb_fd_resize.exit32, %51
   %.0 = phi ptr [ %.val24, %rb_fd_resize.exit32 ], [ null, %51 ]
-  %75 = tail call i32 @select(i32 noundef %0, ptr noundef %.017, ptr noundef %.016, ptr noundef %.0, ptr noundef %4) #20
+  %75 = tail call i32 @select(i32 noundef %0, ptr noundef %.017, ptr noundef %.016, ptr noundef %.0, ptr noundef %4) #19
   ret i32 %75
 }
 
@@ -9398,7 +9398,7 @@ rb_fd_resize.exit:                                ; preds = %81, %83
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %1, i64 8
   %93 = load ptr, ptr %92, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 1 dereferenceable(1) %93, i64 %spec.store.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %90, ptr noundef nonnull readonly align 1 dereferenceable(1) %93, i64 %spec.store.select.i, i1 false)
   %.pre = load ptr, ptr %38, align 8
   br label %97
 
@@ -9469,7 +9469,7 @@ rb_fd_resize.exit35:                              ; preds = %118, %120
   store ptr %128, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %122, i64 8
   %131 = load ptr, ptr %130, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, ptr noundef nonnull align 1 dereferenceable(1) %131, i64 %spec.store.select.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %128, ptr noundef nonnull readonly align 1 dereferenceable(1) %131, i64 %spec.store.select.i37, i1 false)
   br label %135
 
 132:                                              ; preds = %97
@@ -9539,7 +9539,7 @@ rb_fd_resize.exit41:                              ; preds = %156, %158
   store ptr %166, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %160, i64 8
   %169 = load ptr, ptr %168, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, ptr noundef nonnull align 1 dereferenceable(1) %169, i64 %spec.store.select.i43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %166, ptr noundef nonnull readonly align 1 dereferenceable(1) %169, i64 %spec.store.select.i43, i1 false)
   br label %173
 
 170:                                              ; preds = %135
@@ -9551,7 +9551,7 @@ rb_fd_resize.exit41:                              ; preds = %156, %158
 
 173:                                              ; preds = %170, %161, %rb_fd_resize.exit41
   %174 = ptrtoint ptr %6 to i64
-  %175 = call i64 @rb_ensure(ptr noundef nonnull @do_select, i64 noundef %174, ptr noundef nonnull @select_set_free, i64 noundef %174) #20
+  %175 = call i64 @rb_ensure(ptr noundef nonnull @do_select, i64 noundef %174, ptr noundef nonnull @select_set_free, i64 noundef %174) #19
   %176 = trunc i64 %175 to i32
   br label %177
 
@@ -9561,7 +9561,7 @@ rb_fd_resize.exit41:                              ; preds = %156, %158
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @do_select(i64 noundef %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @do_select(i64 noundef %0) #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -9589,12 +9589,12 @@ define internal i64 @do_select(i64 noundef %0) #0 {
   %.0.i4.i.i = tail call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 %.0.i3.i.i)
   store i64 %.0.i4.i.i, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %18 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
+  %18 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %rb_hrtime_now.exit.i, label %20
 
 20:                                               ; preds = %10
-  call void @rb_timespec_now(ptr noundef nonnull %2) #20
+  call void @rb_timespec_now(ptr noundef nonnull %2) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %20, %10
@@ -9629,7 +9629,7 @@ timeout_prepare.exit:                             ; preds = %1, %rb_hrtime_now.e
 
 36:                                               ; preds = %.backedge, %timeout_prepare.exit
   %37 = load ptr, ptr %25, align 8
-  %38 = call fastcc i32 @blocking_region_begin(ptr noundef %37, ptr noundef nonnull %5, ptr noundef nonnull @ubf_select, ptr noundef %37, i32 noundef 1), !range !28
+  %38 = call fastcc i32 @blocking_region_begin(ptr noundef %37, ptr noundef nonnull %5, ptr noundef nonnull @ubf_select, ptr noundef %37, i32 noundef 1)
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %67, label %39
 
@@ -9673,7 +9673,7 @@ rb_hrtime2timeval.exit:                           ; preds = %50, %55
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %rb_hrtime2timeval.exit
-  %63 = call ptr @rb_errno_ptr() #20
+  %63 = call ptr @rb_errno_ptr() #19
   %64 = load i32, ptr %63, align 4
   br label %65
 
@@ -9737,7 +9737,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %79, %76
   br label %vm_check_ints_blocking.exit
 
 vm_check_ints_blocking.exit:                      ; preds = %82, %93
-  %95 = call fastcc i32 @wait_retryable(ptr noundef nonnull %3, i32 noundef %.1, ptr noundef %storemerge.i, i64 noundef %.043), !range !28
+  %95 = call fastcc i32 @wait_retryable(ptr noundef nonnull %3, i32 noundef %.1, ptr noundef %storemerge.i, i64 noundef %.043)
   %.not27 = icmp eq i32 %95, 0
   br i1 %.not27, label %.critedge, label %96
 
@@ -9759,7 +9759,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %105 = call nonnull ptr @ruby_xrealloc(ptr noundef %104, i64 noundef %spec.store.select.i) #49
   store ptr %105, ptr %103, align 8
   %106 = load ptr, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %105, ptr noundef nonnull align 1 dereferenceable(1) %106, i64 %spec.store.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %105, ptr noundef nonnull readonly align 1 dereferenceable(1) %106, i64 %spec.store.select.i, i1 false)
   br label %107
 
 107:                                              ; preds = %96, %98
@@ -9780,7 +9780,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %116 = call nonnull ptr @ruby_xrealloc(ptr noundef %115, i64 noundef %spec.store.select.i39) #49
   store ptr %116, ptr %114, align 8
   %117 = load ptr, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull align 1 dereferenceable(1) %117, i64 %spec.store.select.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %116, ptr noundef nonnull readonly align 1 dereferenceable(1) %117, i64 %spec.store.select.i39, i1 false)
   br label %118
 
 118:                                              ; preds = %107, %109
@@ -9801,11 +9801,11 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %127 = call nonnull ptr @ruby_xrealloc(ptr noundef %126, i64 noundef %spec.store.select.i41) #49
   store ptr %127, ptr %125, align 8
   %128 = load ptr, ptr %35, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull align 1 dereferenceable(1) %128, i64 %spec.store.select.i41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %127, ptr noundef nonnull readonly align 1 dereferenceable(1) %128, i64 %spec.store.select.i41, i1 false)
   br label %.backedge
 
 .backedge:                                        ; preds = %120, %118
-  br label %36, !llvm.loop !40
+  br label %36, !llvm.loop !38
 
 .critedge:                                        ; preds = %vm_check_ints_blocking.exit
   %129 = load i32, ptr %3, align 4
@@ -9813,7 +9813,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %.critedge
-  %132 = call ptr @rb_errno_ptr() #20
+  %132 = call ptr @rb_errno_ptr() #19
   store i32 %.1, ptr %132, align 4
   br label %133
 
@@ -9828,19 +9828,19 @@ define internal noundef i64 @select_set_free(i64 noundef %0) #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
-  tail call void @ruby_xfree(ptr noundef %5) #20
+  tail call void @ruby_xfree(ptr noundef %5) #19
   store i32 0, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
-  tail call void @ruby_xfree(ptr noundef %8) #20
+  tail call void @ruby_xfree(ptr noundef %8) #19
   store i32 0, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 72
   %10 = getelementptr inbounds i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8
-  tail call void @ruby_xfree(ptr noundef %11) #20
+  tail call void @ruby_xfree(ptr noundef %11) #19
   store i32 0, ptr %9, align 8
   store ptr null, ptr %10, align 8
   ret i64 0
@@ -9882,7 +9882,7 @@ define hidden i32 @rb_thread_wait_for_single_fd(i32 noundef %0, i32 noundef %1, 
   br i1 %.not.i.i.i, label %25, label %rb_vm_lock_enter.exit.i
 
 25:                                               ; preds = %3
-  call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #20
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   br label %rb_vm_lock_enter.exit.i
 
@@ -9902,7 +9902,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %25, %3
   br i1 %.not.i.i6.i, label %33, label %thread_io_setup_wfd.exit
 
 33:                                               ; preds = %rb_vm_lock_enter.exit.i
-  call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #19
   br label %thread_io_setup_wfd.exit
 
 thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.exit.i, %33
@@ -9936,7 +9936,7 @@ thread_io_wait_events.exit:                       ; preds = %thread_io_mn_schedu
 
 .thread:                                          ; preds = %thread_io_wait_events.exit
   store i16 %16, ptr %17, align 2
-  %46 = call ptr @rb_errno_ptr() #20
+  %46 = call ptr @rb_errno_ptr() #19
   store i32 0, ptr %46, align 4
   call fastcc void @thread_io_wake_pending_closer(ptr noundef nonnull %8)
   br label %207
@@ -10034,7 +10034,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %86, %rb_ec_ractor_p
   br i1 %.not.i.i35, label %90, label %89
 
 89:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %77, i32 noundef %.0.i.i.i) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %77, i32 noundef %.0.i.i.i) #19
   br label %90
 
 90:                                               ; preds = %89, %rb_ec_vm_lock_rec.exit.i.i
@@ -10113,12 +10113,12 @@ vm_check_ints_blocking.exit:                      ; preds = %107, %118
   %.0.i4.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i43, i64 %.0.i3.i.i)
   store i64 %.0.i4.i.i, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #20
+  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %rb_hrtime_now.exit.i, label %130
 
 130:                                              ; preds = %120
-  call void @rb_timespec_now(ptr noundef nonnull %4) #20
+  call void @rb_timespec_now(ptr noundef nonnull %4) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %130, %120
@@ -10144,7 +10144,7 @@ timeout_prepare.exit:                             ; preds = %vm_check_ints_block
 136:                                              ; preds = %vm_check_ints_blocking.exit58, %timeout_prepare.exit
   store volatile i32 0, ptr %9, align 4
   %137 = load ptr, ptr %22, align 8
-  %138 = call fastcc i32 @blocking_region_begin(ptr noundef %137, ptr noundef nonnull %13, ptr noundef nonnull @ubf_select, ptr noundef %137, i32 noundef 1), !range !28
+  %138 = call fastcc i32 @blocking_region_begin(ptr noundef %137, ptr noundef nonnull %13, ptr noundef nonnull @ubf_select, ptr noundef %137, i32 noundef 1)
   %.not23 = icmp eq i32 %138, 0
   br i1 %.not23, label %162, label %139
 
@@ -10175,13 +10175,13 @@ timeout_prepare.exit:                             ; preds = %vm_check_ints_block
 
 rb_hrtime2timespec.exit:                          ; preds = %150, %151
   %.0.i47 = phi ptr [ %14, %151 ], [ null, %150 ]
-  %155 = call i32 @ppoll(ptr noundef nonnull %6, i64 noundef 1, ptr noundef %.0.i47, ptr noundef null) #20
+  %155 = call i32 @ppoll(ptr noundef nonnull %6, i64 noundef 1, ptr noundef %.0.i47, ptr noundef null) #19
   store i32 %155, ptr %7, align 4
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %160
 
 157:                                              ; preds = %rb_hrtime2timespec.exit
-  %158 = call ptr @rb_errno_ptr() #20
+  %158 = call ptr @rb_errno_ptr() #19
   %159 = load i32, ptr %158, align 4
   store volatile i32 %159, ptr %9, align 4
   br label %160
@@ -10245,9 +10245,9 @@ rb_threadptr_pending_interrupt_empty_p.exit.i51:  ; preds = %174, %171
 
 vm_check_ints_blocking.exit58:                    ; preds = %177, %188
   %.0..0..0..0.8 = load volatile i32, ptr %9, align 4
-  %190 = call fastcc i32 @wait_retryable(ptr noundef nonnull %7, i32 noundef %.0..0..0..0.8, ptr noundef %storemerge.i, i64 noundef %.060), !range !28
+  %190 = call fastcc i32 @wait_retryable(ptr noundef nonnull %7, i32 noundef %.0..0..0..0.8, ptr noundef %storemerge.i, i64 noundef %.060)
   %.not25 = icmp eq i32 %190, 0
-  br i1 %.not25, label %.loopexit, label %136, !llvm.loop !41
+  br i1 %.not25, label %.loopexit, label %136, !llvm.loop !39
 
 .loopexit:                                        ; preds = %vm_check_ints_blocking.exit58, %90
   %191 = phi i32 [ %75, %90 ], [ 0, %vm_check_ints_blocking.exit58 ]
@@ -10279,7 +10279,7 @@ vm_check_ints_blocking.exit58:                    ; preds = %177, %188
 
 205:                                              ; preds = %203
   %.0..0..0..0.9 = load volatile i32, ptr %9, align 4
-  %206 = call ptr @rb_errno_ptr() #20
+  %206 = call ptr @rb_errno_ptr() #19
   store i32 %.0..0..0..0.9, ptr %206, align 4
   br label %218
 
@@ -10290,7 +10290,7 @@ vm_check_ints_blocking.exit58:                    ; preds = %177, %188
   br i1 %.not27, label %212, label %210
 
 210:                                              ; preds = %207
-  %211 = call ptr @rb_errno_ptr() #20
+  %211 = call ptr @rb_errno_ptr() #19
   store i32 9, ptr %211, align 4
   br label %218
 
@@ -10315,7 +10315,7 @@ vm_check_ints_blocking.exit58:                    ; preds = %177, %188
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @wait_retryable(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wait_retryable(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = load i32, ptr %0, align 4
@@ -10335,12 +10335,12 @@ define internal fastcc noundef i32 @wait_retryable(ptr nocapture noundef %0, i32
 
 11:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
+  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %rb_hrtime_now.exit.i, label %14
 
 14:                                               ; preds = %11
-  call void @rb_timespec_now(ptr noundef nonnull %6) #20
+  call void @rb_timespec_now(ptr noundef nonnull %6) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %14, %11
@@ -10366,12 +10366,12 @@ rb_hrtime_now.exit.i:                             ; preds = %14, %11
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %rb_hrtime_now.exit.i16, label %25
 
 25:                                               ; preds = %22
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   br label %rb_hrtime_now.exit.i16
 
 rb_hrtime_now.exit.i16:                           ; preds = %25, %22
@@ -10403,13 +10403,13 @@ hrtime_update_expire.exit22:                      ; preds = %hrtime_update_expir
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_threadptr_check_signal(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @rb_signal_buff_size() #20
+  %2 = tail call i32 @rb_signal_buff_size() #19
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %threadptr_trap_interrupt.exit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 288
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #20
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %7
 
@@ -10430,11 +10430,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %4
 14:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %15 = getelementptr inbounds i8, ptr %0, i64 336
   %16 = load ptr, ptr %15, align 8
-  tail call void %13(ptr noundef %16) #20
+  tail call void %13(ptr noundef %16) #19
   br label %17
 
 17:                                               ; preds = %14, %rb_native_mutex_lock.exit.i.i
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #20
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
   %.not.i8.i.i = icmp eq i32 %18, 0
   br i1 %.not.i8.i.i, label %threadptr_trap_interrupt.exit, label %19
 
@@ -10469,12 +10469,12 @@ define hidden void @rb_thread_stop_timer_thread() local_unnamed_addr #0 {
   br i1 %11, label %.preheader.i.i.i, label %native_stop_timer_thread.exit
 
 .preheader.i.i.i:                                 ; preds = %9, %14
-  %12 = call i64 @write(i32 noundef %10, ptr noundef nonnull %1, i64 noundef 8) #20
+  %12 = call i64 @write(i32 noundef %10, ptr noundef nonnull %1, i64 noundef 8) #19
   %13 = icmp slt i64 %12, 1
   br i1 %13, label %14, label %native_stop_timer_thread.exit
 
 14:                                               ; preds = %.preheader.i.i.i
-  %15 = tail call ptr @rb_errno_ptr() #20
+  %15 = tail call ptr @rb_errno_ptr() #19
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %17 [
     i32 4, label %.preheader.i.i.i
@@ -10488,7 +10488,7 @@ define hidden void @rb_thread_stop_timer_thread() local_unnamed_addr #0 {
 native_stop_timer_thread.exit:                    ; preds = %.preheader.i.i.i, %14, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %18 = load i64, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 1), align 8
-  %19 = tail call i32 @pthread_join(i64 noundef %18, ptr noundef null) #20
+  %19 = tail call i32 @pthread_join(i64 noundef %18, ptr noundef null) #19
   br label %native_stop_timer_thread.exit.thread
 
 native_stop_timer_thread.exit.thread:             ; preds = %native_stop_timer_thread.exit, %5, %0
@@ -10528,23 +10528,23 @@ define internal fastcc void @rb_thread_create_timer_thread() unnamed_addr #0 {
 
 8:                                                ; preds = %4
   store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  %9 = tail call i32 @close(i32 noundef %5) #20
+  %9 = tail call i32 @close(i32 noundef %5) #19
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %close_invalidate_pair.exit
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @rb_errno_ptr() #20
+  %12 = tail call ptr @rb_errno_ptr() #19
   %13 = load i32, ptr %12, align 4
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.199, i32 noundef %13, i32 noundef %5) #43
   unreachable
 
 14:                                               ; preds = %4
-  %15 = tail call i32 @close(i32 noundef %6) #20
+  %15 = tail call i32 @close(i32 noundef %6) #19
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %close_invalidate.exit9.i
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @rb_errno_ptr() #20
+  %18 = tail call ptr @rb_errno_ptr() #19
   %19 = load i32, ptr %18, align 4
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.199, i32 noundef %19, i32 noundef %6) #43
   unreachable
@@ -10552,12 +10552,12 @@ define internal fastcc void @rb_thread_create_timer_thread() unnamed_addr #0 {
 close_invalidate.exit9.i:                         ; preds = %14
   %20 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
   store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  %21 = tail call i32 @close(i32 noundef %20) #20
+  %21 = tail call i32 @close(i32 noundef %20) #19
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %close_invalidate_pair.exit
 
 23:                                               ; preds = %close_invalidate.exit9.i
-  %24 = tail call ptr @rb_errno_ptr() #20
+  %24 = tail call ptr @rb_errno_ptr() #19
   %25 = load i32, ptr %24, align 4
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.199, i32 noundef %25, i32 noundef %20) #43
   unreachable
@@ -10565,18 +10565,18 @@ close_invalidate.exit9.i:                         ; preds = %14
 close_invalidate_pair.exit:                       ; preds = %8, %close_invalidate.exit9.i
   %26 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
   store i32 -1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  %27 = tail call i32 @close(i32 noundef %26) #20
+  %27 = tail call i32 @close(i32 noundef %26) #19
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %close_invalidate.exit
 
 29:                                               ; preds = %close_invalidate_pair.exit
-  %30 = tail call ptr @rb_errno_ptr() #20
+  %30 = tail call ptr @rb_errno_ptr() #19
   %31 = load i32, ptr %30, align 4
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.200, i32 noundef %31, i32 noundef %26) #43
   unreachable
 
 close_invalidate.exit:                            ; preds = %close_invalidate_pair.exit
-  %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %rb_native_mutex_destroy.exit, label %33
 
@@ -10587,7 +10587,7 @@ close_invalidate.exit:                            ; preds = %close_invalidate_pa
 rb_native_mutex_destroy.exit:                     ; preds = %close_invalidate.exit, %3
   store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5, i32 0, i32 1), align 8
   store ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5), align 8
-  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6), ptr noundef null) #20
+  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6), ptr noundef null) #19
   %.not.i3 = icmp eq i32 %34, 0
   br i1 %.not.i3, label %rb_native_mutex_initialize.exit, label %35
 
@@ -10604,18 +10604,18 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
   br i1 %or.cond.i, label %setup_communication_pipe_internal.exit, label %40
 
 40:                                               ; preds = %rb_native_mutex_initialize.exit
-  %41 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #20
+  %41 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #19
   store i32 %41, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
   store i32 %41, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  tail call void @rb_update_max_fd(i32 noundef %41) #20
+  tail call void @rb_update_max_fd(i32 noundef %41) #19
   br label %setup_communication_pipe_internal.exit
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @rb_cloexec_pipe(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2)) #20
+  %45 = tail call i32 @rb_cloexec_pipe(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2)) #19
   %.not.i4 = icmp eq i32 %45, 0
   br i1 %.not.i4, label %47, label %46
 
@@ -10625,64 +10625,64 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
 
 47:                                               ; preds = %44
   %48 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  tail call void @rb_update_max_fd(i32 noundef %48) #20
+  tail call void @rb_update_max_fd(i32 noundef %48) #19
   %49 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
-  tail call void @rb_update_max_fd(i32 noundef %49) #20
+  tail call void @rb_update_max_fd(i32 noundef %49) #19
   %50 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2), align 8
-  %51 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %50, i32 noundef 3) #20
+  %51 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %50, i32 noundef 3) #19
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %47
-  %54 = tail call ptr @rb_errno_ptr() #20
+  %54 = tail call ptr @rb_errno_ptr() #19
   %55 = load i32, ptr %54, align 4
   tail call void @rb_syserr_fail(i32 noundef %55, ptr noundef null) #36
   unreachable
 
 56:                                               ; preds = %47
   %57 = or i32 %51, 2048
-  %58 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %50, i32 noundef 4, i32 noundef %57) #20
+  %58 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %50, i32 noundef 4, i32 noundef %57) #19
   %59 = icmp eq i32 %58, -1
   br i1 %59, label %60, label %set_nonblock.exit.i
 
 60:                                               ; preds = %56
-  %61 = tail call ptr @rb_errno_ptr() #20
+  %61 = tail call ptr @rb_errno_ptr() #19
   %62 = load i32, ptr %61, align 4
   tail call void @rb_syserr_fail(i32 noundef %62, ptr noundef null) #36
   unreachable
 
 set_nonblock.exit.i:                              ; preds = %56
   %63 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 2, i64 1), align 4
-  %64 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 3) #20
+  %64 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 3) #19
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %set_nonblock.exit.i
-  %67 = tail call ptr @rb_errno_ptr() #20
+  %67 = tail call ptr @rb_errno_ptr() #19
   %68 = load i32, ptr %67, align 4
   tail call void @rb_syserr_fail(i32 noundef %68, ptr noundef null) #36
   unreachable
 
 69:                                               ; preds = %set_nonblock.exit.i
   %70 = or i32 %64, 2048
-  %71 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 4, i32 noundef %70) #20
+  %71 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 4, i32 noundef %70) #19
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %setup_communication_pipe_internal.exit
 
 73:                                               ; preds = %69
-  %74 = tail call ptr @rb_errno_ptr() #20
+  %74 = tail call ptr @rb_errno_ptr() #19
   %75 = load i32, ptr %74, align 4
   tail call void @rb_syserr_fail(i32 noundef %75, ptr noundef null) #36
   unreachable
 
 setup_communication_pipe_internal.exit:           ; preds = %rb_native_mutex_initialize.exit, %43, %69
-  %76 = tail call i32 @epoll_create1(i32 noundef 524288) #20
+  %76 = tail call i32 @epoll_create1(i32 noundef 524288) #19
   store i32 %76, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %timer_thread_setup_mn.exit
 
 78:                                               ; preds = %setup_communication_pipe_internal.exit
-  %79 = tail call ptr @rb_errno_ptr() #20
+  %79 = tail call ptr @rb_errno_ptr() #19
   %80 = load i32, ptr %79, align 4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.202, i32 noundef %80) #45
   unreachable
@@ -10694,7 +10694,7 @@ timer_thread_setup_mn.exit:                       ; preds = %setup_communication
 
 83:                                               ; preds = %timer_thread_setup_mn.exit, %0
   %84 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %85 = tail call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 1), ptr noundef null, ptr noundef nonnull @timer_thread_func, ptr noundef %84) #20
+  %85 = tail call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 1), ptr noundef null, ptr noundef nonnull @timer_thread_func, ptr noundef %84) #19
   ret void
 }
 
@@ -10708,7 +10708,7 @@ define dso_local void @rb_clear_coverages() local_unnamed_addr #0 {
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %0
-  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #20
+  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #19
   br label %6
 
 6:                                                ; preds = %5, %0
@@ -10716,7 +10716,7 @@ define dso_local void @rb_clear_coverages() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_get_coverages() local_unnamed_addr #5 {
+define dso_local i64 @rb_get_coverages() local_unnamed_addr #21 {
   %1 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 1272
   %3 = load i64, ptr %2, align 8
@@ -10765,7 +10765,7 @@ RARRAY_AREF.exit29:                               ; preds = %7, %9
   br label %25
 
 23:                                               ; preds = %15
-  %24 = tail call i64 @rb_ary_clear(i64 noundef %12) #20
+  %24 = tail call i64 @rb_ary_clear(i64 noundef %12) #19
   br label %.loopexit41
 
 25:                                               ; preds = %.preheader, %41
@@ -10799,15 +10799,15 @@ RARRAY_AREF.exit32:                               ; preds = %rb_array_len.exit.t
   br i1 %.not25, label %41, label %38
 
 38:                                               ; preds = %RARRAY_AREF.exit32
-  %39 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %12) #20
+  %39 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %12) #19
   %40 = getelementptr i64, ptr %39, i64 %26
   store i64 1, ptr %40, align 8
-  tail call void @rb_ary_ptr_use_end(i64 noundef %12) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %12) #19
   br label %41
 
 41:                                               ; preds = %RARRAY_AREF.exit32, %38
   %42 = add i32 %.019, 1
-  br label %25, !llvm.loop !42
+  br label %25, !llvm.loop !40
 
 .loopexit41:                                      ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %23, %RARRAY_AREF.exit29
   %.not26 = icmp eq i64 %14, 0
@@ -10860,12 +10860,12 @@ rb_array_len.exit38:                              ; preds = %60, %63
   br i1 %65, label %66, label %.loopexit
 
 66:                                               ; preds = %rb_array_len.exit38
-  %67 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %53) #20
+  %67 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %53) #19
   %68 = getelementptr i64, ptr %67, i64 %57
   store i64 1, ptr %68, align 8
-  tail call void @rb_ary_ptr_use_end(i64 noundef %53) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %53) #19
   %69 = add i32 %.0, 1
-  br label %56, !llvm.loop !43
+  br label %56, !llvm.loop !41
 
 .loopexit:                                        ; preds = %rb_array_len.exit38, %.loopexit41
   ret i32 0
@@ -10880,8 +10880,8 @@ define dso_local void @rb_thread_atfork() local_unnamed_addr #0 {
   tail call fastcc void @rb_thread_atfork_internal(ptr noundef %.val.i, ptr noundef nonnull @terminate_atfork_i)
   %4 = getelementptr inbounds i8, ptr %.val.i, i64 360
   store ptr null, ptr %4, align 8
-  tail call void @rb_fiber_atfork(ptr noundef %.val.i) #20
-  tail call void @rb_reset_random_seed() #20
+  tail call void @rb_fiber_atfork(ptr noundef %.val.i) #19
+  tail call void @rb_reset_random_seed() #19
   ret void
 }
 
@@ -10905,7 +10905,7 @@ define internal fastcc void @rb_thread_atfork_internal(ptr noundef %0, ptr nocap
   %14 = load i64, ptr @current_fork_gen, align 8
   %15 = add i64 %14, 1
   store i64 %15, ptr @current_fork_gen, align 8
-  %16 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %13, ptr noundef null) #20
+  %16 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %13, ptr noundef null) #19
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %rb_thread_sched_init.exit.i, label %17
 
@@ -10937,7 +10937,7 @@ rb_thread_sched_init.exit.i:                      ; preds = %2
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 216
   %31 = load ptr, ptr @condattr_monotonic, align 8
-  %32 = tail call i32 @pthread_cond_init(ptr noundef nonnull %30, ptr noundef %31) #20
+  %32 = tail call i32 @pthread_cond_init(ptr noundef nonnull %30, ptr noundef %31) #19
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %rb_native_cond_initialize.exit.i, label %33
 
@@ -10948,7 +10948,7 @@ rb_thread_sched_init.exit.i:                      ; preds = %2
 rb_native_cond_initialize.exit.i:                 ; preds = %rb_thread_sched_init.exit.i
   %34 = getelementptr inbounds i8, ptr %24, i64 360
   %35 = load ptr, ptr @condattr_monotonic, align 8
-  %36 = tail call i32 @pthread_cond_init(ptr noundef nonnull %34, ptr noundef %35) #20
+  %36 = tail call i32 @pthread_cond_init(ptr noundef nonnull %34, ptr noundef %35) #19
   %.not.i23.i = icmp eq i32 %36, 0
   br i1 %.not.i23.i, label %rb_native_cond_initialize.exit24.i, label %37
 
@@ -10959,7 +10959,7 @@ rb_native_cond_initialize.exit.i:                 ; preds = %rb_thread_sched_ini
 rb_native_cond_initialize.exit24.i:               ; preds = %rb_native_cond_initialize.exit.i
   %38 = getelementptr inbounds i8, ptr %24, i64 408
   %39 = load ptr, ptr @condattr_monotonic, align 8
-  %40 = tail call i32 @pthread_cond_init(ptr noundef nonnull %38, ptr noundef %39) #20
+  %40 = tail call i32 @pthread_cond_init(ptr noundef nonnull %38, ptr noundef %39) #19
   %.not.i25.i = icmp eq i32 %40, 0
   br i1 %.not.i25.i, label %rb_native_cond_initialize.exit26.i, label %41
 
@@ -11001,7 +11001,7 @@ rb_native_cond_initialize.exit26.i:               ; preds = %rb_native_cond_init
   br i1 %.not22.i, label %thread_sched_atfork.exit, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #20
+  %56 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #19
   %57 = trunc i64 %56 to i32
   %58 = load ptr, ptr %25, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 24
@@ -11011,7 +11011,7 @@ rb_native_cond_initialize.exit26.i:               ; preds = %rb_native_cond_init
 thread_sched_atfork.exit:                         ; preds = %53, %55
   store ptr @ubf_list_head, ptr getelementptr inbounds (%struct.ccan_list_head, ptr @ubf_list_head, i64 0, i32 0, i32 1), align 8
   store ptr @ubf_list_head, ptr @ubf_list_head, align 8
-  %60 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @ubf_list_lock, ptr noundef null) #20
+  %60 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @ubf_list_lock, ptr noundef null) #19
   %.not.i.i30 = icmp eq i32 %60, 0
   br i1 %.not.i.i30, label %ubf_list_atfork.exit.preheader, label %61
 
@@ -11027,7 +11027,7 @@ ubf_list_atfork.exit.preheader:                   ; preds = %thread_sched_atfork
 ubf_list_atfork.exit.loopexit:                    ; preds = %.lr.ph, %.lr.ph41
   %.pn = load ptr, ptr %.pn40, align 8
   %.not = icmp eq ptr %.pn, %7
-  br i1 %.not, label %ubf_list_atfork.exit._crit_edge, label %.lr.ph41, !llvm.loop !44
+  br i1 %.not, label %ubf_list_atfork.exit._crit_edge, label %.lr.ph41, !llvm.loop !42
 
 .lr.ph41:                                         ; preds = %ubf_list_atfork.exit.preheader, %ubf_list_atfork.exit.loopexit
   %.pn40 = phi ptr [ %.pn, %ubf_list_atfork.exit.loopexit ], [ %.pn38, %ubf_list_atfork.exit.preheader ]
@@ -11038,10 +11038,10 @@ ubf_list_atfork.exit.loopexit:                    ; preds = %.lr.ph, %.lr.ph41
 
 .lr.ph:                                           ; preds = %.lr.ph41, %.lr.ph
   %.02837 = phi ptr [ %.028, %.lr.ph ], [ %.02835, %.lr.ph41 ]
-  tail call void %1(ptr noundef %.02837, ptr noundef %0) #20, !callees !45
+  tail call void %1(ptr noundef %.02837, ptr noundef %0) #19, !callees !43
   %.028 = load ptr, ptr %.02837, align 8
   %.not29 = icmp eq ptr %.028, %62
-  br i1 %.not29, label %ubf_list_atfork.exit.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not29, label %ubf_list_atfork.exit.loopexit, label %.lr.ph, !llvm.loop !44
 
 ubf_list_atfork.exit._crit_edge:                  ; preds = %ubf_list_atfork.exit.loopexit, %ubf_list_atfork.exit.preheader
   %63 = getelementptr inbounds i8, ptr %4, i64 488
@@ -11059,10 +11059,10 @@ ubf_list_atfork.exit._crit_edge:                  ; preds = %ubf_list_atfork.exi
   %69 = getelementptr inbounds i8, ptr %4, i64 344
   store ptr %68, ptr %69, align 8
   store ptr %68, ptr %68, align 8
-  tail call void @rb_ractor_atfork(ptr noundef %4, ptr noundef %0) #20
-  tail call void @rb_vm_postponed_job_atfork() #20
+  tail call void @rb_ractor_atfork(ptr noundef %4, ptr noundef %0) #19
+  tail call void @rb_vm_postponed_job_atfork() #19
   %70 = getelementptr inbounds i8, ptr %4, i64 1216
-  %71 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %70, ptr noundef null) #20
+  %71 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %70, ptr noundef null) #19
   %.not.i31 = icmp eq i32 %71, 0
   br i1 %.not.i31, label %rb_native_mutex_initialize.exit, label %72
 
@@ -11072,7 +11072,7 @@ ubf_list_atfork.exit._crit_edge:                  ; preds = %ubf_list_atfork.exi
 
 rb_native_mutex_initialize.exit:                  ; preds = %ubf_list_atfork.exit._crit_edge
   %73 = getelementptr inbounds i8, ptr %0, i64 288
-  %74 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %73, ptr noundef null) #20
+  %74 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %73, ptr noundef null) #19
   %.not.i32 = icmp eq i32 %74, 0
   br i1 %.not.i32, label %rb_native_mutex_initialize.exit33, label %75
 
@@ -11096,7 +11096,7 @@ rb_native_mutex_initialize.exit33:                ; preds = %rb_native_mutex_ini
   br i1 %.not.i34, label %rb_clear_coverages.exit, label %85
 
 85:                                               ; preds = %rb_native_mutex_initialize.exit33
-  tail call void @rb_hash_foreach(i64 noundef %83, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #20
+  tail call void @rb_hash_foreach(i64 noundef %83, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #19
   br label %rb_clear_coverages.exit
 
 rb_clear_coverages.exit:                          ; preds = %rb_native_mutex_initialize.exit33, %85
@@ -11126,7 +11126,7 @@ define internal void @terminate_atfork_i(ptr noundef %0, ptr noundef readnone %1
   store ptr %8, ptr %9, align 8
   store ptr %8, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %rb_mutex_abandon_keeping_mutexes.exit, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %.not.i.i, label %rb_mutex_abandon_keeping_mutexes.exit, label %.lr.ph.i.i, !llvm.loop !45
 
 rb_mutex_abandon_keeping_mutexes.exit:            ; preds = %.lr.ph.i.i, %3
   store ptr null, ptr %4, align 8
@@ -11136,7 +11136,7 @@ rb_mutex_abandon_keeping_mutexes.exit:            ; preds = %.lr.ph.i.i, %3
   br i1 %.not.i, label %rb_mutex_abandon_locking_mutex.exit, label %12
 
 12:                                               ; preds = %rb_mutex_abandon_keeping_mutexes.exit
-  %13 = tail call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @mutex_data_type) #20
+  %13 = tail call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @mutex_data_type) #19
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %14, ptr %15, align 8
@@ -11156,7 +11156,7 @@ rb_mutex_abandon_locking_mutex.exit:              ; preds = %rb_mutex_abandon_ke
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 152
   store ptr null, ptr %23, align 8
-  tail call void @rb_threadptr_root_fiber_terminate(ptr noundef nonnull %0) #20
+  tail call void @rb_threadptr_root_fiber_terminate(ptr noundef nonnull %0) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %24, align 8
   br label %25
@@ -11196,7 +11196,7 @@ define internal void @terminate_atfork_before_exec_i(ptr noundef %0, ptr noundef
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 152
   store ptr null, ptr %11, align 8
-  tail call void @rb_threadptr_root_fiber_terminate(ptr noundef %0) #20
+  tail call void @rb_threadptr_root_fiber_terminate(ptr noundef %0) #19
   br label %12
 
 12:                                               ; preds = %3, %2
@@ -11205,7 +11205,7 @@ define internal void @terminate_atfork_before_exec_i(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_thread_shield_new() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #20
+  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 32, ptr noundef nonnull @mutex_data_type) #19
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -11224,7 +11224,7 @@ thread_shield_alloc.exit:                         ; preds = %0, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %10, ptr %11, align 8
   store ptr %10, ptr %10, align 8
-  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull @thread_shield_data_type) #20
+  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull @thread_shield_data_type) #19
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -11235,13 +11235,13 @@ thread_shield_alloc.exit:                         ; preds = %0, %7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @rb_thread_shield_owned(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @mutex_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @mutex_data_type) #19
   %6 = load ptr, ptr %5, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
@@ -11256,14 +11256,14 @@ define hidden zeroext i1 @rb_thread_shield_owned(i64 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_thread_shield_wait(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #20
+define hidden range(i64 0, 21) i64 @rb_thread_shield_wait(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #19
   %3 = ptrtoint ptr %2 to i64
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %50, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @mutex_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @mutex_data_type) #19
   %6 = load ptr, ptr %5, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
@@ -11317,7 +11317,7 @@ rb_thread_shield_waiting_dec.exit:                ; preds = %rb_thread_shield_wa
   br i1 %.not11, label %38, label %50
 
 38:                                               ; preds = %rb_thread_shield_waiting_dec.exit
-  %39 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @mutex_data_type) #20
+  %39 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @mutex_data_type) #19
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr i8, ptr %40, i64 48
   %.val.i.i = load ptr, ptr %41, align 8
@@ -11345,8 +11345,8 @@ rb_mutex_unlock.exit:                             ; preds = %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_thread_shield_release(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #20
+define hidden range(i64 0, 21) i64 @rb_thread_shield_release(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #19
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %thread_shield_get_mutex.exit
 
@@ -11358,7 +11358,7 @@ define hidden i64 @rb_thread_shield_release(i64 noundef %0) local_unnamed_addr #
 
 thread_shield_get_mutex.exit:                     ; preds = %1
   %6 = ptrtoint ptr %2 to i64
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @mutex_data_type) #20
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @mutex_data_type) #19
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 48
@@ -11384,8 +11384,8 @@ rb_mutex_unlock.exit:                             ; preds = %thread_shield_get_m
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_thread_shield_destroy(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #20
+define hidden range(i64 0, 21) i64 @rb_thread_shield_destroy(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thread_shield_data_type) #19
   %.not.i = icmp eq ptr %2, null
   %3 = inttoptr i64 %0 to ptr
   br i1 %.not.i, label %4, label %thread_shield_get_mutex.exit
@@ -11399,7 +11399,7 @@ thread_shield_get_mutex.exit:                     ; preds = %1
   %6 = ptrtoint ptr %2 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @mutex_data_type) #20
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @mutex_data_type) #19
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 48
@@ -11425,7 +11425,7 @@ rb_mutex_unlock.exit:                             ; preds = %thread_shield_get_m
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_exec_recursive(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @rb_frame_last_func() #20
+  %4 = tail call i64 @rb_frame_last_func() #19
   %5 = tail call fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef %2, i32 noundef 0, i64 noundef %4)
   ret i64 %5
 }
@@ -11440,7 +11440,7 @@ define internal fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 n
   %12 = alloca %struct.exec_recursive_params, align 8
   %.not = icmp eq i64 %5, 0
   %. = select i1 %.not, i64 152, i64 %5
-  %13 = tail call i64 @rb_id2sym(i64 noundef %.) #20
+  %13 = tail call i64 @rb_id2sym(i64 noundef %.) #19
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 48
@@ -11467,14 +11467,14 @@ define internal fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %29, label %32, label %.thread.i
 
 .thread.i:                                        ; preds = %25, %20, %6
-  %30 = tail call i64 @rb_ident_hash_new() #20
+  %30 = tail call i64 @rb_ident_hash_new() #19
   %.val54.i = load ptr, ptr %17, align 8
   %31 = getelementptr inbounds i8, ptr %.val54.i, i64 64
   store i64 %30, ptr %31, align 8
   br label %.critedge53.i
 
 32:                                               ; preds = %25
-  %33 = tail call i64 @rb_hash_aref(i64 noundef %.val.val.i, i64 noundef %13) #20
+  %33 = tail call i64 @rb_hash_aref(i64 noundef %.val.val.i, i64 noundef %13) #19
   %34 = icmp eq i64 %33, 4
   br i1 %34, label %.critedge53.i, label %35
 
@@ -11494,8 +11494,8 @@ define internal fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 n
 
 .critedge53.i:                                    ; preds = %40, %35, %32, %.thread.i
   %.04857.i = phi i64 [ %30, %.thread.i ], [ %.val.val.i, %35 ], [ %.val.val.i, %40 ], [ %.val.val.i, %32 ]
-  %45 = tail call i64 @rb_ident_hash_new() #20
-  %46 = tail call i64 @rb_hash_aset(i64 noundef %.04857.i, i64 noundef %13, i64 noundef %45) #20
+  %45 = tail call i64 @rb_ident_hash_new() #19
+  %46 = tail call i64 @rb_hash_aset(i64 noundef %.04857.i, i64 noundef %13, i64 noundef %45) #19
   br label %recursive_list_access.exit
 
 recursive_list_access.exit:                       ; preds = %40, %.critedge53.i
@@ -11512,15 +11512,15 @@ recursive_list_access.exit:                       ; preds = %40, %.critedge53.i
   br i1 %.not34, label %55, label %recursive_check.exit
 
 recursive_check.exit:                             ; preds = %recursive_list_access.exit
-  %52 = tail call i64 @rb_id2sym(i64 noundef 3121) #20
-  %53 = tail call i64 @rb_hash_lookup2(i64 noundef %47, i64 noundef %52, i64 noundef 36) #20
+  %52 = tail call i64 @rb_id2sym(i64 noundef 3121) #19
+  %53 = tail call i64 @rb_hash_lookup2(i64 noundef %47, i64 noundef %52, i64 noundef 36) #19
   %54 = icmp eq i64 %53, 36
   br label %55
 
 55:                                               ; preds = %recursive_check.exit, %recursive_list_access.exit
   %or.cond = phi i1 [ true, %recursive_list_access.exit ], [ %54, %recursive_check.exit ]
   %56 = phi i1 [ false, %recursive_list_access.exit ], [ %54, %recursive_check.exit ]
-  %57 = tail call i64 @rb_hash_lookup2(i64 noundef %47, i64 noundef %1, i64 noundef 36) #20
+  %57 = tail call i64 @rb_hash_lookup2(i64 noundef %47, i64 noundef %1, i64 noundef 36) #19
   %58 = icmp eq i64 %57, 36
   br i1 %58, label %77, label %59
 
@@ -11547,7 +11547,7 @@ recursive_check.exit:                             ; preds = %recursive_list_acce
   br i1 %70, label %recursive_check.exit44, label %77
 
 71:                                               ; preds = %65
-  %72 = tail call i64 @rb_hash_lookup(i64 noundef %57, i64 noundef %2) #20
+  %72 = tail call i64 @rb_hash_lookup(i64 noundef %57, i64 noundef %2) #19
   %73 = icmp eq i64 %72, 4
   br i1 %73, label %77, label %recursive_check.exit44
 
@@ -11559,7 +11559,7 @@ recursive_check.exit44:                           ; preds = %71, %.critedge.i, %
   unreachable
 
 75:                                               ; preds = %recursive_check.exit44
-  %76 = tail call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 1) #20
+  %76 = tail call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 1) #19
   br label %225
 
 77:                                               ; preds = %55, %.critedge.i, %71
@@ -11567,11 +11567,11 @@ recursive_check.exit44:                           ; preds = %71, %.critedge.i, %
   br i1 %56, label %78, label %130
 
 78:                                               ; preds = %77
-  %79 = tail call i64 @rb_id2sym(i64 noundef 3121) #20
-  %80 = tail call i64 @rb_hash_aset(i64 noundef %47, i64 noundef %79, i64 noundef 20) #20
+  %79 = tail call i64 @rb_id2sym(i64 noundef 3121) #19
+  %80 = tail call i64 @rb_hash_aset(i64 noundef %47, i64 noundef %79, i64 noundef 20) #19
   tail call fastcc void @recursive_push(i64 noundef %47, i64 noundef %1, i64 noundef %2)
   %81 = ptrtoint ptr %7 to i64
-  %82 = call i64 @rb_catch_protect(i64 noundef %47, ptr noundef nonnull @exec_recursive_i, i64 noundef %81, ptr noundef nonnull %8) #20
+  %82 = call i64 @rb_catch_protect(i64 noundef %47, ptr noundef nonnull @exec_recursive_i, i64 noundef %81, ptr noundef nonnull %8) #19
   %83 = load i64, ptr %48, align 8
   %84 = load i64, ptr %49, align 8
   %85 = load i64, ptr %50, align 8
@@ -11579,7 +11579,7 @@ recursive_check.exit44:                           ; preds = %71, %.critedge.i, %
   br i1 %.not.i45, label %.critedge.i46, label %86
 
 86:                                               ; preds = %78
-  %87 = call i64 @rb_hash_lookup2(i64 noundef %83, i64 noundef %84, i64 noundef 36) #20
+  %87 = call i64 @rb_hash_lookup2(i64 noundef %83, i64 noundef %84, i64 noundef 36) #19
   %88 = icmp eq i64 %87, 36
   br i1 %88, label %recursive_pop.exit, label %89
 
@@ -11598,7 +11598,7 @@ recursive_check.exit44:                           ; preds = %71, %.critedge.i, %
   br i1 %98, label %99, label %.critedge.i46
 
 99:                                               ; preds = %94
-  %100 = call i64 @rb_hash_delete_entry(i64 noundef %87, i64 noundef %85) #20
+  %100 = call i64 @rb_hash_delete_entry(i64 noundef %87, i64 noundef %85) #19
   %101 = load i64, ptr %95, align 8
   %102 = and i64 %101, 32768
   %.not.i.i.i.i = icmp eq i64 %102, 0
@@ -11622,13 +11622,13 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %106, %103
   br i1 %111, label %.critedge.i46, label %113
 
 .critedge.i46:                                    ; preds = %RHASH_EMPTY_P.exit.i, %94, %89, %78
-  %112 = call i64 @rb_hash_delete_entry(i64 noundef %83, i64 noundef %84) #20
+  %112 = call i64 @rb_hash_delete_entry(i64 noundef %83, i64 noundef %84) #19
   br label %113
 
 113:                                              ; preds = %RHASH_EMPTY_P.exit.i, %.critedge.i46
   %114 = load i64, ptr %48, align 8
-  %115 = call i64 @rb_id2sym(i64 noundef 3121) #20
-  %116 = call i64 @rb_hash_delete_entry(i64 noundef %114, i64 noundef %115) #20
+  %115 = call i64 @rb_id2sym(i64 noundef 3121) #19
+  %116 = call i64 @rb_hash_delete_entry(i64 noundef %114, i64 noundef %115) #19
   %117 = load i32, ptr %8, align 4
   %.not42 = icmp eq i32 %117, 0
   br i1 %.not42, label %125, label %118
@@ -11650,7 +11650,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %106, %103
   br i1 %127, label %128, label %219
 
 128:                                              ; preds = %125
-  %129 = call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 1) #20
+  %129 = call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 1) #19
   br label %219
 
 130:                                              ; preds = %77
@@ -11746,7 +11746,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %168, %rb_ec_ractor_
   br i1 %.not.i.i53, label %172, label %171
 
 171:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.3, i32 noundef %159, i32 noundef %.0.i.i.i52) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.3, i32 noundef %159, i32 noundef %.0.i.i.i52) #19
   %.0..0..0..0.5.pre.pre = load ptr, ptr %10, align 8
   br label %172
 
@@ -11760,7 +11760,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %168, %rb_ec_ractor_
 174:                                              ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %11, ptr %133, align 8
   store i32 0, ptr %8, align 4
-  %175 = call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 0) #20
+  %175 = call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 0) #19
   store volatile i64 %175, ptr %9, align 8
   br label %176
 
@@ -11777,7 +11777,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %168, %rb_ec_ractor_
   br i1 %.not.i54, label %.critedge.i55, label %183
 
 183:                                              ; preds = %176
-  %184 = call i64 @rb_hash_lookup2(i64 noundef %180, i64 noundef %181, i64 noundef 36) #20
+  %184 = call i64 @rb_hash_lookup2(i64 noundef %180, i64 noundef %181, i64 noundef 36) #19
   %185 = icmp eq i64 %184, 36
   br i1 %185, label %recursive_pop.exit, label %186
 
@@ -11796,7 +11796,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %168, %rb_ec_ractor_
   br i1 %195, label %196, label %.critedge.i55
 
 196:                                              ; preds = %191
-  %197 = call i64 @rb_hash_delete_entry(i64 noundef %184, i64 noundef %182) #20
+  %197 = call i64 @rb_hash_delete_entry(i64 noundef %184, i64 noundef %182) #19
   %198 = load i64, ptr %192, align 8
   %199 = and i64 %198, 32768
   %.not.i.i.i.i57 = icmp eq i64 %199, 0
@@ -11820,7 +11820,7 @@ RHASH_EMPTY_P.exit.i58:                           ; preds = %203, %200
   br i1 %208, label %.critedge.i55, label %210
 
 .critedge.i55:                                    ; preds = %RHASH_EMPTY_P.exit.i58, %191, %186, %176
-  %209 = call i64 @rb_hash_delete_entry(i64 noundef %180, i64 noundef %181) #20
+  %209 = call i64 @rb_hash_delete_entry(i64 noundef %180, i64 noundef %181) #19
   br label %210
 
 210:                                              ; preds = %.critedge.i55, %RHASH_EMPTY_P.exit.i58
@@ -11867,7 +11867,7 @@ declare i64 @rb_frame_last_func() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_exec_recursive_paired(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @rb_memory_id(i64 noundef %2) #42
-  %6 = tail call i64 @rb_frame_last_func() #20
+  %6 = tail call i64 @rb_frame_last_func() #19
   %7 = tail call fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 noundef %5, i64 noundef %3, i32 noundef 0, i64 noundef %6)
   ret i64 %7
 }
@@ -11877,7 +11877,7 @@ declare i64 @rb_memory_id(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_exec_recursive_outer(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @rb_frame_last_func() #20
+  %4 = tail call i64 @rb_frame_last_func() #19
   %5 = tail call fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef %2, i32 noundef 1, i64 noundef %4)
   ret i64 %5
 }
@@ -11891,7 +11891,7 @@ define hidden i64 @rb_exec_recursive_outer_mid(ptr noundef %0, i64 noundef %1, i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_exec_recursive_paired_outer(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @rb_memory_id(i64 noundef %2) #42
-  %6 = tail call i64 @rb_frame_last_func() #20
+  %6 = tail call i64 @rb_frame_last_func() #19
   %7 = tail call fastcc i64 @exec_recursive(ptr noundef %0, i64 noundef %1, i64 noundef %5, i64 noundef %3, i32 noundef 1, i64 noundef %6)
   ret i64 %7
 }
@@ -11905,7 +11905,7 @@ define hidden void @Init_Thread_Mutex() local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.val.i, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1216
-  %7 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #20
+  %7 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #19
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %rb_native_mutex_initialize.exit, label %8
 
@@ -11915,7 +11915,7 @@ define hidden void @Init_Thread_Mutex() local_unnamed_addr #0 {
 
 rb_native_mutex_initialize.exit:                  ; preds = %0
   %9 = getelementptr inbounds i8, ptr %.val.i, i64 288
-  %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %9, ptr noundef null) #20
+  %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %9, ptr noundef null) #19
   %.not.i2 = icmp eq i32 %10, 0
   br i1 %.not.i2, label %rb_native_mutex_initialize.exit3, label %11
 
@@ -11933,267 +11933,267 @@ define hidden void @Init_Thread() local_unnamed_addr #0 {
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %2, i64 48
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 5) #20
-  %5 = tail call i64 @rb_id2sym(i64 noundef %4) #20
+  %4 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 5) #19
+  %5 = tail call i64 @rb_id2sym(i64 noundef %4) #19
   store i64 %5, ptr @sym_never, align 8
-  %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.48, i64 noundef 9) #20
-  %7 = tail call i64 @rb_id2sym(i64 noundef %6) #20
+  %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.48, i64 noundef 9) #19
+  %7 = tail call i64 @rb_id2sym(i64 noundef %6) #19
   store i64 %7, ptr @sym_immediate, align 8
-  %8 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 11) #20
-  %9 = tail call i64 @rb_id2sym(i64 noundef %8) #20
+  %8 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 11) #19
+  %9 = tail call i64 @rb_id2sym(i64 noundef %8) #19
   store i64 %9, ptr @sym_on_blocking, align 8
   %10 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %10, ptr noundef nonnull @.str.50, ptr noundef nonnull @thread_s_new, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %10, ptr noundef nonnull @.str.50, ptr noundef nonnull @thread_s_new, i32 noundef -1) #19
   %11 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %11, ptr noundef nonnull @.str.51, ptr noundef nonnull @thread_start, i32 noundef -2) #20
+  tail call void @rb_define_singleton_method(i64 noundef %11, ptr noundef nonnull @.str.51, ptr noundef nonnull @thread_start, i32 noundef -2) #19
   %12 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.52, ptr noundef nonnull @thread_start, i32 noundef -2) #20
+  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.52, ptr noundef nonnull @thread_start, i32 noundef -2) #19
   %13 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_thread_s_main, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_thread_s_main, i32 noundef 0) #19
   %14 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %14, ptr noundef nonnull @.str.54, ptr noundef nonnull @thread_s_current, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %14, ptr noundef nonnull @.str.54, ptr noundef nonnull @thread_s_current, i32 noundef 0) #19
   %15 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %15, ptr noundef nonnull @.str.55, ptr noundef nonnull @thread_stop, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %15, ptr noundef nonnull @.str.55, ptr noundef nonnull @thread_stop, i32 noundef 0) #19
   %16 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %16, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_thread_s_kill, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %16, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_thread_s_kill, i32 noundef 1) #19
   %17 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %17, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_thread_exit, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %17, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_thread_exit, i32 noundef 0) #19
   %18 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %18, ptr noundef nonnull @.str.57, ptr noundef nonnull @thread_s_pass, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %18, ptr noundef nonnull @.str.57, ptr noundef nonnull @thread_s_pass, i32 noundef 0) #19
   %19 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %19, ptr noundef nonnull @.str.58, ptr noundef nonnull @thread_list, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %19, ptr noundef nonnull @.str.58, ptr noundef nonnull @thread_list, i32 noundef 0) #19
   %20 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %20, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_thread_s_abort_exc, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %20, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_thread_s_abort_exc, i32 noundef 0) #19
   %21 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %21, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_thread_s_abort_exc_set, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %21, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_thread_s_abort_exc_set, i32 noundef 1) #19
   %22 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %22, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_thread_s_report_exc, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %22, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_thread_s_report_exc, i32 noundef 0) #19
   %23 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %23, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_thread_s_report_exc_set, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %23, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_thread_s_report_exc_set, i32 noundef 1) #19
   %24 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %24, ptr noundef nonnull @.str.63, ptr noundef nonnull @rb_thread_s_ignore_deadlock, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %24, ptr noundef nonnull @.str.63, ptr noundef nonnull @rb_thread_s_ignore_deadlock, i32 noundef 0) #19
   %25 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %25, ptr noundef nonnull @.str.64, ptr noundef nonnull @rb_thread_s_ignore_deadlock_set, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %25, ptr noundef nonnull @.str.64, ptr noundef nonnull @rb_thread_s_ignore_deadlock_set, i32 noundef 1) #19
   %26 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %26, ptr noundef nonnull @.str.65, ptr noundef nonnull @rb_thread_s_handle_interrupt, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %26, ptr noundef nonnull @.str.65, ptr noundef nonnull @rb_thread_s_handle_interrupt, i32 noundef 1) #19
   %27 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %27, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_thread_s_pending_interrupt_p, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %27, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_thread_s_pending_interrupt_p, i32 noundef -1) #19
   %28 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_thread_pending_interrupt_p, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_thread_pending_interrupt_p, i32 noundef -1) #19
   %29 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.67, ptr noundef nonnull @thread_initialize, i32 noundef -2) #20
+  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.67, ptr noundef nonnull @thread_initialize, i32 noundef -2) #19
   %30 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.68, ptr noundef nonnull @thread_raise_m, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.68, ptr noundef nonnull @thread_raise_m, i32 noundef -1) #19
   %31 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.69, ptr noundef nonnull @thread_join_m, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.69, ptr noundef nonnull @thread_join_m, i32 noundef -1) #19
   %32 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.70, ptr noundef nonnull @thread_value, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.70, ptr noundef nonnull @thread_value, i32 noundef 0) #19
   %33 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #19
   %34 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.71, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.71, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #19
   %35 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_thread_kill, i32 noundef 0) #19
   %36 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.72, ptr noundef nonnull @rb_thread_run, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.72, ptr noundef nonnull @rb_thread_run, i32 noundef 0) #19
   %37 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.73, ptr noundef nonnull @rb_thread_wakeup, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.73, ptr noundef nonnull @rb_thread_wakeup, i32 noundef 0) #19
   %38 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.74, ptr noundef nonnull @rb_thread_aref, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.74, ptr noundef nonnull @rb_thread_aref, i32 noundef 1) #19
   %39 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.75, ptr noundef nonnull @rb_thread_aset, i32 noundef 2) #20
+  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.75, ptr noundef nonnull @rb_thread_aset, i32 noundef 2) #19
   %40 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.76, ptr noundef nonnull @rb_thread_fetch, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.76, ptr noundef nonnull @rb_thread_fetch, i32 noundef -1) #19
   %41 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.77, ptr noundef nonnull @rb_thread_key_p, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.77, ptr noundef nonnull @rb_thread_key_p, i32 noundef 1) #19
   %42 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.78, ptr noundef nonnull @rb_thread_keys, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.78, ptr noundef nonnull @rb_thread_keys, i32 noundef 0) #19
   %43 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.79, ptr noundef nonnull @rb_thread_priority, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.79, ptr noundef nonnull @rb_thread_priority, i32 noundef 0) #19
   %44 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.80, ptr noundef nonnull @rb_thread_priority_set, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.80, ptr noundef nonnull @rb_thread_priority_set, i32 noundef 1) #19
   %45 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.81, ptr noundef nonnull @rb_thread_status, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.81, ptr noundef nonnull @rb_thread_status, i32 noundef 0) #19
   %46 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.82, ptr noundef nonnull @rb_thread_variable_get, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.82, ptr noundef nonnull @rb_thread_variable_get, i32 noundef 1) #19
   %47 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.83, ptr noundef nonnull @rb_thread_variable_set, i32 noundef 2) #20
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.83, ptr noundef nonnull @rb_thread_variable_set, i32 noundef 2) #19
   %48 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.84, ptr noundef nonnull @rb_thread_variables, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.84, ptr noundef nonnull @rb_thread_variables, i32 noundef 0) #19
   %49 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_thread_variable_p, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_thread_variable_p, i32 noundef 1) #19
   %50 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_thread_alive_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_thread_alive_p, i32 noundef 0) #19
   %51 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_thread_stop_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_thread_stop_p, i32 noundef 0) #19
   %52 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_thread_abort_exc, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_thread_abort_exc, i32 noundef 0) #19
   %53 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_thread_abort_exc_set, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_thread_abort_exc_set, i32 noundef 1) #19
   %54 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_thread_report_exc, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_thread_report_exc, i32 noundef 0) #19
   %55 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_thread_report_exc_set, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_thread_report_exc_set, i32 noundef 1) #19
   %56 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_thread_group, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_thread_group, i32 noundef 0) #19
   %57 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_thread_backtrace_m, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_thread_backtrace_m, i32 noundef -1) #19
   %58 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.90, ptr noundef nonnull @rb_thread_backtrace_locations_m, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.90, ptr noundef nonnull @rb_thread_backtrace_locations_m, i32 noundef -1) #19
   %59 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.91, ptr noundef nonnull @rb_thread_getname, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.91, ptr noundef nonnull @rb_thread_getname, i32 noundef 0) #19
   %60 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.92, ptr noundef nonnull @rb_thread_setname, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.92, ptr noundef nonnull @rb_thread_setname, i32 noundef 1) #19
   %61 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_thread_native_thread_id, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_thread_native_thread_id, i32 noundef 0) #19
   %62 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.94, ptr noundef nonnull @rb_thread_to_s, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.94, ptr noundef nonnull @rb_thread_to_s, i32 noundef 0) #19
   %63 = load i64, ptr @rb_cThread, align 8
-  tail call void @rb_define_alias(i64 noundef %63, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.94) #20
+  tail call void @rb_define_alias(i64 noundef %63, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.94) #19
   %64 = load i64, ptr @rb_eIOError, align 8
-  %65 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.96, i64 noundef 31) #20
-  tail call void @rb_vm_register_special_exception_str(i32 noundef 4, i64 noundef %64, i64 noundef %65) #20
+  %65 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.96, i64 noundef 31) #19
+  tail call void @rb_vm_register_special_exception_str(i32 noundef 4, i64 noundef %64, i64 noundef %65) #19
   %66 = load i64, ptr @rb_cObject, align 8
-  %67 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.97, i64 noundef %66) #20
-  tail call void @rb_define_alloc_func(i64 noundef %67, ptr noundef nonnull @thgroup_s_alloc) #20
-  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.58, ptr noundef nonnull @thgroup_list, i32 noundef 0) #20
-  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.98, ptr noundef nonnull @thgroup_enclose, i32 noundef 0) #20
-  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.99, ptr noundef nonnull @thgroup_enclosed_p, i32 noundef 0) #20
-  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.100, ptr noundef nonnull @thgroup_add, i32 noundef 1) #20
-  %68 = tail call i64 @rb_obj_alloc(i64 noundef %67) #20
+  %67 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.97, i64 noundef %66) #19
+  tail call void @rb_define_alloc_func(i64 noundef %67, ptr noundef nonnull @thgroup_s_alloc) #19
+  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.58, ptr noundef nonnull @thgroup_list, i32 noundef 0) #19
+  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.98, ptr noundef nonnull @thgroup_enclose, i32 noundef 0) #19
+  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.99, ptr noundef nonnull @thgroup_enclosed_p, i32 noundef 0) #19
+  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.100, ptr noundef nonnull @thgroup_add, i32 noundef 1) #19
+  %68 = tail call i64 @rb_obj_alloc(i64 noundef %67) #19
   %69 = getelementptr inbounds i8, ptr %.val.i, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 400
   store i64 %68, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %.val.i, i64 256
   store i64 %68, ptr %72, align 8
-  tail call void @rb_define_const(i64 noundef %67, ptr noundef nonnull @.str.101, i64 noundef %68) #20
+  tail call void @rb_define_const(i64 noundef %67, ptr noundef nonnull @.str.101, i64 noundef %68) #19
   %73 = load i64, ptr @rb_eStandardError, align 8
-  %74 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.102, i64 noundef %73) #20
+  %74 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.102, i64 noundef %73) #19
   store i64 %74, ptr @rb_eThreadError, align 8
-  %75 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #20
+  %75 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #19
   %76 = getelementptr inbounds i8, ptr %.val.i, i64 272
   store i64 %75, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %78 = load i8, ptr %77, align 8
   %79 = and i8 %78, -65
   store i8 %79, ptr %77, align 8
-  %80 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #20
+  %80 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #19
   %81 = getelementptr inbounds i8, ptr %.val.i, i64 280
   store i64 %80, ptr %81, align 8
   tail call fastcc void @rb_thread_create_timer_thread()
   %82 = load i64, ptr @rb_cThread, align 8
-  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.246) #20
+  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.246) #19
   %84 = load i64, ptr @rb_cObject, align 8
-  %85 = tail call i64 @rb_define_class_id_under(i64 noundef %82, i64 noundef %83, i64 noundef %84) #20
+  %85 = tail call i64 @rb_define_class_id_under(i64 noundef %82, i64 noundef %83, i64 noundef %84) #19
   %86 = load i64, ptr @rb_cObject, align 8
-  tail call void @rb_const_set(i64 noundef %86, i64 noundef %83, i64 noundef %85) #20
+  tail call void @rb_const_set(i64 noundef %86, i64 noundef %83, i64 noundef %85) #19
   store i64 %85, ptr @rb_cMutex, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %85, ptr noundef nonnull @mutex_alloc) #20
+  tail call void @rb_define_alloc_func(i64 noundef %85, ptr noundef nonnull @mutex_alloc) #19
   %87 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %87, ptr noundef nonnull @.str.67, ptr noundef nonnull @mutex_initialize, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %87, ptr noundef nonnull @.str.67, ptr noundef nonnull @mutex_initialize, i32 noundef 0) #19
   %88 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %88, ptr noundef nonnull @.str.247, ptr noundef nonnull @rb_mutex_locked_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %88, ptr noundef nonnull @.str.247, ptr noundef nonnull @rb_mutex_locked_p, i32 noundef 0) #19
   %89 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %89, ptr noundef nonnull @.str.248, ptr noundef nonnull @rb_mutex_trylock, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %89, ptr noundef nonnull @.str.248, ptr noundef nonnull @rb_mutex_trylock, i32 noundef 0) #19
   %90 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @rb_mutex_lock, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @rb_mutex_lock, i32 noundef 0) #19
   %91 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %91, ptr noundef nonnull @.str.2, ptr noundef nonnull @rb_mutex_unlock, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %91, ptr noundef nonnull @.str.2, ptr noundef nonnull @rb_mutex_unlock, i32 noundef 0) #19
   %92 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %92, ptr noundef nonnull @.str.231, ptr noundef nonnull @mutex_sleep, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %92, ptr noundef nonnull @.str.231, ptr noundef nonnull @mutex_sleep, i32 noundef -1) #19
   %93 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %93, ptr noundef nonnull @.str.249, ptr noundef nonnull @rb_mutex_synchronize_m, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %93, ptr noundef nonnull @.str.249, ptr noundef nonnull @rb_mutex_synchronize_m, i32 noundef 0) #19
   %94 = load i64, ptr @rb_cMutex, align 8
-  tail call void @rb_define_method(i64 noundef %94, ptr noundef nonnull @.str.250, ptr noundef nonnull @rb_mutex_owned_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %94, ptr noundef nonnull @.str.250, ptr noundef nonnull @rb_mutex_owned_p, i32 noundef 0) #19
   %95 = load i64, ptr @rb_cThread, align 8
-  %96 = tail call i64 @rb_intern(ptr noundef nonnull @.str.251) #20
+  %96 = tail call i64 @rb_intern(ptr noundef nonnull @.str.251) #19
   %97 = load i64, ptr @rb_cObject, align 8
-  %98 = tail call i64 @rb_define_class_id_under(i64 noundef %95, i64 noundef %96, i64 noundef %97) #20
+  %98 = tail call i64 @rb_define_class_id_under(i64 noundef %95, i64 noundef %96, i64 noundef %97) #19
   %99 = load i64, ptr @rb_cObject, align 8
-  tail call void @rb_const_set(i64 noundef %99, i64 noundef %96, i64 noundef %98) #20
+  tail call void @rb_const_set(i64 noundef %99, i64 noundef %96, i64 noundef %98) #19
   store i64 %98, ptr @rb_cQueue, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %98, ptr noundef nonnull @queue_alloc) #20
+  tail call void @rb_define_alloc_func(i64 noundef %98, ptr noundef nonnull @queue_alloc) #19
   %100 = load i64, ptr @rb_eStopIteration, align 8
-  %101 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.252, i64 noundef %100) #20
+  %101 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.252, i64 noundef %100) #19
   store i64 %101, ptr @rb_eClosedQueueError, align 8
   %102 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %102, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_queue_initialize, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %102, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_queue_initialize, i32 noundef -1) #19
   %103 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_undef_method(i64 noundef %103, ptr noundef nonnull @.str.253) #20
+  tail call void @rb_undef_method(i64 noundef %103, ptr noundef nonnull @.str.253) #19
   %104 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %104, ptr noundef nonnull @.str.254, ptr noundef nonnull @undumpable, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %104, ptr noundef nonnull @.str.254, ptr noundef nonnull @undumpable, i32 noundef 0) #19
   %105 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %105, ptr noundef nonnull @.str.255, ptr noundef nonnull @rb_queue_close, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %105, ptr noundef nonnull @.str.255, ptr noundef nonnull @rb_queue_close, i32 noundef 0) #19
   %106 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %106, ptr noundef nonnull @.str.256, ptr noundef nonnull @rb_queue_closed_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %106, ptr noundef nonnull @.str.256, ptr noundef nonnull @rb_queue_closed_p, i32 noundef 0) #19
   %107 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %107, ptr noundef nonnull @.str.257, ptr noundef nonnull @rb_queue_push, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %107, ptr noundef nonnull @.str.257, ptr noundef nonnull @rb_queue_push, i32 noundef 1) #19
   %108 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %108, ptr noundef nonnull @.str.258, ptr noundef nonnull @rb_queue_empty_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %108, ptr noundef nonnull @.str.258, ptr noundef nonnull @rb_queue_empty_p, i32 noundef 0) #19
   %109 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %109, ptr noundef nonnull @.str.259, ptr noundef nonnull @rb_queue_clear, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %109, ptr noundef nonnull @.str.259, ptr noundef nonnull @rb_queue_clear, i32 noundef 0) #19
   %110 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %110, ptr noundef nonnull @.str.260, ptr noundef nonnull @rb_queue_length, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %110, ptr noundef nonnull @.str.260, ptr noundef nonnull @rb_queue_length, i32 noundef 0) #19
   %111 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %111, ptr noundef nonnull @.str.261, ptr noundef nonnull @rb_queue_num_waiting, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %111, ptr noundef nonnull @.str.261, ptr noundef nonnull @rb_queue_num_waiting, i32 noundef 0) #19
   %112 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_method(i64 noundef %112, ptr noundef nonnull @.str.262, ptr noundef nonnull @rb_queue_freeze, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %112, ptr noundef nonnull @.str.262, ptr noundef nonnull @rb_queue_freeze, i32 noundef 0) #19
   %113 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_alias(i64 noundef %113, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.257) #20
+  tail call void @rb_define_alias(i64 noundef %113, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.257) #19
   %114 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_alias(i64 noundef %114, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.257) #20
+  tail call void @rb_define_alias(i64 noundef %114, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.257) #19
   %115 = load i64, ptr @rb_cQueue, align 8
-  tail call void @rb_define_alias(i64 noundef %115, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.260) #20
+  tail call void @rb_define_alias(i64 noundef %115, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.260) #19
   %116 = load i64, ptr @rb_cThread, align 8
-  %117 = tail call i64 @rb_intern(ptr noundef nonnull @.str.266) #20
+  %117 = tail call i64 @rb_intern(ptr noundef nonnull @.str.266) #19
   %118 = load i64, ptr @rb_cQueue, align 8
-  %119 = tail call i64 @rb_define_class_id_under(i64 noundef %116, i64 noundef %117, i64 noundef %118) #20
+  %119 = tail call i64 @rb_define_class_id_under(i64 noundef %116, i64 noundef %117, i64 noundef %118) #19
   %120 = load i64, ptr @rb_cObject, align 8
-  tail call void @rb_const_set(i64 noundef %120, i64 noundef %117, i64 noundef %119) #20
+  tail call void @rb_const_set(i64 noundef %120, i64 noundef %117, i64 noundef %119) #19
   store i64 %119, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %119, ptr noundef nonnull @szqueue_alloc) #20
+  tail call void @rb_define_alloc_func(i64 noundef %119, ptr noundef nonnull @szqueue_alloc) #19
   %121 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_szqueue_initialize, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_szqueue_initialize, i32 noundef 1) #19
   %122 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.255, ptr noundef nonnull @rb_szqueue_close, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.255, ptr noundef nonnull @rb_szqueue_close, i32 noundef 0) #19
   %123 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.267, ptr noundef nonnull @rb_szqueue_max_get, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.267, ptr noundef nonnull @rb_szqueue_max_get, i32 noundef 0) #19
   %124 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.268, ptr noundef nonnull @rb_szqueue_max_set, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.268, ptr noundef nonnull @rb_szqueue_max_set, i32 noundef 1) #19
   %125 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.258, ptr noundef nonnull @rb_szqueue_empty_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.258, ptr noundef nonnull @rb_szqueue_empty_p, i32 noundef 0) #19
   %126 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.259, ptr noundef nonnull @rb_szqueue_clear, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.259, ptr noundef nonnull @rb_szqueue_clear, i32 noundef 0) #19
   %127 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.260, ptr noundef nonnull @rb_szqueue_length, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.260, ptr noundef nonnull @rb_szqueue_length, i32 noundef 0) #19
   %128 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.261, ptr noundef nonnull @rb_szqueue_num_waiting, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.261, ptr noundef nonnull @rb_szqueue_num_waiting, i32 noundef 0) #19
   %129 = load i64, ptr @rb_cSizedQueue, align 8
-  tail call void @rb_define_alias(i64 noundef %129, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.260) #20
+  tail call void @rb_define_alias(i64 noundef %129, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.260) #19
   %130 = load i64, ptr @rb_cThread, align 8
-  %131 = tail call i64 @rb_intern(ptr noundef nonnull @.str.269) #20
+  %131 = tail call i64 @rb_intern(ptr noundef nonnull @.str.269) #19
   %132 = load i64, ptr @rb_cObject, align 8
-  %133 = tail call i64 @rb_define_class_id_under(i64 noundef %130, i64 noundef %131, i64 noundef %132) #20
+  %133 = tail call i64 @rb_define_class_id_under(i64 noundef %130, i64 noundef %131, i64 noundef %132) #19
   %134 = load i64, ptr @rb_cObject, align 8
-  tail call void @rb_const_set(i64 noundef %134, i64 noundef %131, i64 noundef %133) #20
+  tail call void @rb_const_set(i64 noundef %134, i64 noundef %131, i64 noundef %133) #19
   store i64 %133, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %133, ptr noundef nonnull @condvar_alloc) #20
-  %135 = tail call i64 @rb_intern(ptr noundef nonnull @.str.231) #20
+  tail call void @rb_define_alloc_func(i64 noundef %133, ptr noundef nonnull @condvar_alloc) #19
+  %135 = tail call i64 @rb_intern(ptr noundef nonnull @.str.231) #19
   store i64 %135, ptr @id_sleep, align 8
   %136 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_condvar_initialize, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_condvar_initialize, i32 noundef 0) #19
   %137 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_undef_method(i64 noundef %137, ptr noundef nonnull @.str.253) #20
+  tail call void @rb_undef_method(i64 noundef %137, ptr noundef nonnull @.str.253) #19
   %138 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.254, ptr noundef nonnull @undumpable, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.254, ptr noundef nonnull @undumpable, i32 noundef 0) #19
   %139 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_method(i64 noundef %139, ptr noundef nonnull @.str.270, ptr noundef nonnull @rb_condvar_wait, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %139, ptr noundef nonnull @.str.270, ptr noundef nonnull @rb_condvar_wait, i32 noundef -1) #19
   %140 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_method(i64 noundef %140, ptr noundef nonnull @.str.271, ptr noundef nonnull @rb_condvar_signal, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %140, ptr noundef nonnull @.str.271, ptr noundef nonnull @rb_condvar_signal, i32 noundef 0) #19
   %141 = load i64, ptr @rb_cConditionVariable, align 8
-  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.272, ptr noundef nonnull @rb_condvar_broadcast, i32 noundef 0) #20
-  tail call void @rb_provide(ptr noundef nonnull @.str.273) #20
+  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.272, ptr noundef nonnull @rb_condvar_broadcast, i32 noundef 0) #19
+  tail call void @rb_provide(ptr noundef nonnull @.str.273) #19
   ret void
 }
 
@@ -12203,7 +12203,7 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @thread_s_new(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_thread_alloc(i64 noundef %2) #20
+  %4 = tail call i64 @rb_thread_alloc(i64 noundef %2) #19
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %rb_current_ractor.exit
@@ -12212,7 +12212,7 @@ define internal i64 @thread_s_new(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 48
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !35, !noundef !35
+  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !33, !noundef !33
   %10 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %rb_current_ractor.exit
@@ -12233,9 +12233,9 @@ rb_current_ractor.exit:                           ; preds = %3, %6
   unreachable
 
 20:                                               ; preds = %rb_current_ractor.exit
-  %21 = tail call i32 @rb_keyword_given_p() #20
-  tail call void @rb_obj_call_init_kw(i64 noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %21) #20
-  %22 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %21 = tail call i32 @rb_keyword_given_p() #19
+  tail call void @rb_obj_call_init_kw(i64 noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %21) #19
+  %22 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %23 = getelementptr inbounds i8, ptr %22, i64 392
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
@@ -12257,17 +12257,17 @@ define internal noundef i64 @thread_start(i64 noundef %0, i64 noundef %1) #0 {
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = tail call i64 @rb_block_proc() #20
+  %6 = tail call i64 @rb_block_proc() #19
   store i64 %6, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = tail call i64 @rb_thread_alloc(i64 noundef %0) #20
+  %8 = tail call i64 @rb_thread_alloc(i64 noundef %0) #19
   %9 = call fastcc i64 @thread_create_core(i64 noundef %8, ptr noundef nonnull %3)
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_thread_s_main(i64 %0) #5 {
+define internal i64 @rb_thread_s_main(i64 %0) #21 {
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i.i, label %3, label %rb_thread_main.exit
@@ -12276,7 +12276,7 @@ define internal i64 @rb_thread_s_main(i64 %0) #5 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 48
-  %.val.i.i.i = load ptr, ptr %6, align 8, !nonnull !35, !noundef !35
+  %.val.i.i.i = load ptr, ptr %6, align 8, !nonnull !33, !noundef !33
   %7 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %8 = load ptr, ptr %7, align 8
   br label %rb_thread_main.exit
@@ -12291,7 +12291,7 @@ rb_thread_main.exit:                              ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @thread_s_current(i64 %0) #5 {
+define internal i64 @thread_s_current(i64 %0) #21 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
@@ -12322,7 +12322,7 @@ define internal noundef i64 @thread_stop(i64 %0) #0 {
 
 rb_thread_alone.exit.i:                           ; preds = %7, %3, %1
   %.0.i.i.i.i = phi ptr [ %2, %1 ], [ %9, %7 ], [ null, %3 ]
-  %10 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i.i) #20
+  %10 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %.0.i.i.i.i) #19
   %.not.i = icmp eq i32 %10, 1
   br i1 %.not.i, label %11, label %rb_thread_stop.exit
 
@@ -12384,12 +12384,12 @@ rb_thread_schedule.exit:                          ; preds = %1, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @thread_list(i64 %0) #0 {
-  %2 = tail call i64 @rb_ractor_thread_list() #20
+  %2 = tail call i64 @rb_ractor_thread_list() #19
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_thread_s_abort_exc(i64 %0) #5 {
+define internal range(i64 0, 21) i64 @rb_thread_s_abort_exc(i64 %0) #21 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
@@ -12424,7 +12424,7 @@ define internal noundef i64 @rb_thread_s_abort_exc_set(i64 %0, i64 noundef retur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_thread_s_report_exc(i64 %0) #5 {
+define internal range(i64 0, 21) i64 @rb_thread_s_report_exc(i64 %0) #21 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
@@ -12459,7 +12459,7 @@ define internal noundef i64 @rb_thread_s_report_exc_set(i64 %0, i64 noundef retu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_thread_s_ignore_deadlock(i64 %0) #5 {
+define internal range(i64 0, 21) i64 @rb_thread_s_ignore_deadlock(i64 %0) #21 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
@@ -12510,7 +12510,7 @@ define internal i64 @rb_thread_s_handle_interrupt(i64 %0, i64 noundef %1) #0 {
   %.0.18.val = load ptr, ptr %11, align 8
   store volatile ptr %.0.18.val, ptr %5, align 8
   store volatile i64 4, ptr %6, align 8
-  %12 = tail call i32 @rb_block_given_p() #20
+  %12 = tail call i32 @rb_block_given_p() #19
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %15
 
@@ -12520,7 +12520,7 @@ define internal i64 @rb_thread_s_handle_interrupt(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 15:                                               ; preds = %2
-  %16 = tail call i64 @rb_to_hash_type(i64 noundef %1) #20
+  %16 = tail call i64 @rb_to_hash_type(i64 noundef %1) #19
   %17 = and i64 %16, 7
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %16, 0
@@ -12538,7 +12538,7 @@ define internal i64 @rb_thread_s_handle_interrupt(i64 %0, i64 noundef %1) #0 {
   br i1 %or.cond, label %RB_OBJ_FROZEN.exit.thread, label %30
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %21, %15
-  %28 = tail call i64 @rb_hash_compare_by_id_p(i64 noundef %16) #20
+  %28 = tail call i64 @rb_hash_compare_by_id_p(i64 noundef %16) #19
   %.not45 = icmp eq i64 %28, 0
   br i1 %.not45, label %30, label %29
 
@@ -12548,13 +12548,13 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %21, %15
 
 30:                                               ; preds = %21, %29, %RB_OBJ_FROZEN.exit.thread
   %31 = ptrtoint ptr %3 to i64
-  call void @rb_hash_foreach(i64 noundef %16, ptr noundef nonnull @handle_interrupt_arg_check_i, i64 noundef %31) #20
+  call void @rb_hash_foreach(i64 noundef %16, ptr noundef nonnull @handle_interrupt_arg_check_i, i64 noundef %31) #19
   %32 = load i64, ptr %3, align 8
   %33 = icmp eq i64 %32, 36
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
-  %35 = call i64 @rb_yield(i64 noundef 4) #20
+  %35 = call i64 @rb_yield(i64 noundef 4) #19
   br label %164
 
 36:                                               ; preds = %30
@@ -12591,7 +12591,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %21, %15
   %.0..0..0..0.7 = load volatile ptr, ptr %5, align 8
   %52 = getelementptr inbounds i8, ptr %.0..0..0..0.7, i64 280
   %53 = load i64, ptr %52, align 8
-  %54 = call i64 @rb_ary_push(i64 noundef %53, i64 noundef %51) #20
+  %54 = call i64 @rb_ary_push(i64 noundef %53, i64 noundef %51) #19
   %.0..0..0..0.8 = load volatile ptr, ptr %5, align 8
   %55 = getelementptr i8, ptr %.0..0..0..0.8, i64 272
   %.0.8.val = load i64, ptr %55, align 8
@@ -12722,7 +12722,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %112, %rb_ec_ractor_
   br i1 %.not.i.i51, label %116, label %115
 
 115:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %103, i32 noundef %.0.i.i.i) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %103, i32 noundef %.0.i.i.i) #19
   %.0..0..0..0.4.pre.pre = load ptr, ptr %7, align 8
   br label %116
 
@@ -12734,7 +12734,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %112, %rb_ec_ractor_
 
 118:                                              ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %8, ptr %77, align 8
-  %119 = call i64 @rb_yield(i64 noundef 4) #20
+  %119 = call i64 @rb_yield(i64 noundef 4) #19
   store volatile i64 %119, ptr %6, align 8
   br label %120
 
@@ -12747,7 +12747,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %112, %rb_ec_ractor_
   %.0..0..0..0.12 = load volatile ptr, ptr %5, align 8
   %124 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 280
   %125 = load i64, ptr %124, align 8
-  %126 = call i64 @rb_ary_pop(i64 noundef %125) #20
+  %126 = call i64 @rb_ary_pop(i64 noundef %125) #19
   %.0..0..0..0.13 = load volatile ptr, ptr %5, align 8
   %127 = getelementptr i8, ptr %.0..0..0..0.13, i64 272
   %.0.13.val = load i64, ptr %127, align 8
@@ -12830,22 +12830,22 @@ rb_vm_check_ints.exit:                            ; preds = %145, %152
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_thread_s_pending_interrupt_p(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @rb_thread_s_pending_interrupt_p(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i64 @rb_thread_pending_interrupt_p(i32 noundef %0, ptr noundef %1, i64 noundef %8), !range !48
+  %9 = tail call i64 @rb_thread_pending_interrupt_p(i32 noundef %0, ptr noundef %1, i64 noundef %8)
   ret i64 %9
 }
 
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_thread_pending_interrupt_p(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 0, 21) i64 @rb_thread_pending_interrupt_p(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %5 = getelementptr inbounds i8, ptr %4, i64 272
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
@@ -12888,7 +12888,7 @@ rb_check_arity.exit:                              ; preds = %17
 19:                                               ; preds = %rb_check_arity.exit
   %20 = load i64, ptr %1, align 8
   %21 = load i64, ptr @rb_cModule, align 8
-  %22 = tail call i64 @rb_obj_is_kind_of(i64 noundef %20, i64 noundef %21) #20
+  %22 = tail call i64 @rb_obj_is_kind_of(i64 noundef %20, i64 noundef %21) #19
   %.not10 = icmp eq i64 %22, 0
   br i1 %.not10, label %23, label %.preheader
 
@@ -12932,10 +12932,10 @@ RARRAY_AREF.exit.i:                               ; preds = %37, %.thread.i
   %.0.i.i.i = phi ptr [ %36, %.thread.i ], [ %39, %37 ]
   %40 = getelementptr i64, ptr %.0.i.i.i, i64 %25
   %41 = load i64, ptr %40, align 8
-  %42 = tail call i64 @rb_obj_is_kind_of(i64 noundef %41, i64 noundef %20) #20
+  %42 = tail call i64 @rb_obj_is_kind_of(i64 noundef %41, i64 noundef %20) #19
   %.not.i = icmp eq i64 %42, 0
   %43 = add i32 %.07.i, 1
-  br i1 %.not.i, label %.preheader, label %rb_threadptr_pending_interrupt_include_p.exit, !llvm.loop !49
+  br i1 %.not.i, label %.preheader, label %rb_threadptr_pending_interrupt_include_p.exit, !llvm.loop !46
 
 rb_threadptr_pending_interrupt_include_p.exit:    ; preds = %RARRAY_AREF.exit.i, %rb_array_len.exit.i, %rb_array_len.exit.thread.i, %rb_check_arity.exit, %rb_threadptr_pending_interrupt_empty_p.exit, %3
   %.0 = phi i64 [ 0, %3 ], [ 0, %rb_threadptr_pending_interrupt_empty_p.exit ], [ 20, %rb_check_arity.exit ], [ 0, %rb_array_len.exit.thread.i ], [ 0, %rb_array_len.exit.i ], [ 20, %RARRAY_AREF.exit.i ]
@@ -12945,8 +12945,8 @@ rb_threadptr_pending_interrupt_include_p.exit:    ; preds = %RARRAY_AREF.exit.i,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @thread_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = alloca %struct.thread_create_params, align 8
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
-  %5 = tail call i32 @rb_block_given_p() #20
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
+  %5 = tail call i32 @rb_block_given_p() #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
 
@@ -12966,7 +12966,7 @@ define internal noundef i64 @thread_initialize(i64 noundef returned %0, i64 noun
 threadptr_invoke_proc_location.exit:              ; preds = %8
   %11 = getelementptr inbounds i8, ptr %4, i64 368
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @rb_proc_location(i64 noundef %12) #20
+  %13 = tail call i64 @rb_proc_location(i64 noundef %12) #19
   %14 = icmp eq i64 %13, 4
   br i1 %14, label %threadptr_invoke_proc_location.exit.thread, label %15
 
@@ -13005,7 +13005,7 @@ threadptr_invoke_proc_location.exit.thread:       ; preds = %8, %threadptr_invok
   %30 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 16
-  %32 = tail call i64 @rb_block_proc() #20
+  %32 = tail call i64 @rb_block_proc() #19
   store i64 %32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
@@ -13015,7 +13015,7 @@ threadptr_invoke_proc_location.exit.thread:       ; preds = %8, %threadptr_invok
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @thread_raise_m(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %5 = getelementptr i8, ptr %4, i64 272
   %.val = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -13100,7 +13100,7 @@ rb_sec2hrtime.exit:                               ; preds = %rb_num2long_inline.
   br label %.thread
 
 17:                                               ; preds = %9
-  %18 = tail call double @rb_num2dbl(i64 noundef %7) #20
+  %18 = tail call double @rb_num2dbl(i64 noundef %7) #19
   %19 = fcmp ult double %18, 0x43E0000000000000
   %20 = fcmp ugt double %18, 0.000000e+00
   %21 = fmul double %18, 1.000000e+09
@@ -13114,7 +13114,7 @@ rb_sec2hrtime.exit:                               ; preds = %rb_num2long_inline.
 .thread:                                          ; preds = %rb_check_arity.exit, %rb_sec2hrtime.exit, %17, %6
   %.0812 = phi i64 [ 4, %6 ], [ %7, %rb_sec2hrtime.exit ], [ %7, %17 ], [ 4, %rb_check_arity.exit ]
   %.0 = phi ptr [ null, %6 ], [ %4, %rb_sec2hrtime.exit ], [ %.0.i10, %17 ], [ null, %rb_check_arity.exit ]
-  %23 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %23 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %24 = call fastcc i64 @thread_join(ptr noundef %23, i64 noundef %.0812, ptr noundef %.0)
   ret i64 %24
 }
@@ -13124,12 +13124,12 @@ define internal i64 @rb_thread_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #20
+  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #19
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %20, label %6
 
 6:                                                ; preds = %2
-  %7 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %7 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = icmp eq i64 %5, 3121
   %9 = getelementptr inbounds i8, ptr %7, i64 48
@@ -13148,7 +13148,7 @@ define internal i64 @rb_thread_aref(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not.i.i, label %rb_thread_local_aref.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @rb_id_table_lookup(ptr noundef nonnull %16, i64 noundef %5, ptr noundef nonnull %3) #20
+  %18 = call i32 @rb_id_table_lookup(ptr noundef nonnull %16, i64 noundef %5, ptr noundef nonnull %3) #19
   %.not8.i.i = icmp eq i32 %18, 0
   %19 = load i64, ptr %3, align 8
   %spec.select.i.i = select i1 %.not8.i.i, i64 4, i64 %19
@@ -13166,7 +13166,7 @@ rb_thread_local_aref.exit:                        ; preds = %11, %14, %17
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_thread_aset(i64 noundef %0, i64 noundef %1, i64 noundef returned %2) #0 {
-  %4 = tail call i64 @rb_to_id(i64 noundef %1) #20
+  %4 = tail call i64 @rb_to_id(i64 noundef %1) #19
   %5 = tail call i64 @rb_thread_local_aset(i64 noundef %0, i64 noundef %4, i64 noundef %2)
   ret i64 %2
 }
@@ -13175,7 +13175,7 @@ define internal noundef i64 @rb_thread_aset(i64 noundef %0, i64 noundef %1, i64 
 define internal i64 @rb_thread_fetch(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %7 = add i32 %0, -3
   %or.cond.i = icmp ult i32 %7, -2
   br i1 %or.cond.i, label %8, label %rb_check_arity.exit
@@ -13187,7 +13187,7 @@ define internal i64 @rb_thread_fetch(i32 noundef %0, ptr nocapture noundef reado
 rb_check_arity.exit:                              ; preds = %3
   %9 = load i64, ptr %1, align 8
   store i64 %9, ptr %4, align 8
-  %10 = tail call i32 @rb_block_given_p() #20
+  %10 = tail call i32 @rb_block_given_p() #19
   %11 = icmp ne i32 %10, 0
   %12 = icmp eq i32 %0, 2
   %or.cond = and i1 %12, %11
@@ -13198,7 +13198,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %14
 
 14:                                               ; preds = %13, %rb_check_arity.exit
-  %15 = call i64 @rb_check_id(ptr noundef nonnull %4) #20
+  %15 = call i64 @rb_check_id(ptr noundef nonnull %4) #19
   switch i64 %15, label %21 [
     i64 3121, label %16
     i64 0, label %30
@@ -13220,7 +13220,7 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %.not18, label %30, label %26
 
 26:                                               ; preds = %21
-  %27 = call i32 @rb_id_table_lookup(ptr noundef nonnull %25, i64 noundef %15, ptr noundef nonnull %5) #20
+  %27 = call i32 @rb_id_table_lookup(ptr noundef nonnull %25, i64 noundef %15, ptr noundef nonnull %5) #19
   %.not19 = icmp eq i32 %27, 0
   br i1 %.not19, label %30, label %28
 
@@ -13233,7 +13233,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 31:                                               ; preds = %30
   %32 = load i64, ptr %4, align 8
-  %33 = call i64 @rb_yield(i64 noundef %32) #20
+  %33 = call i64 @rb_yield(i64 noundef %32) #19
   br label %43
 
 34:                                               ; preds = %30
@@ -13242,7 +13242,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 36:                                               ; preds = %34
   %37 = load i64, ptr %4, align 8
-  %38 = call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.228, i64 noundef %37) #20
+  %38 = call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.228, i64 noundef %37) #19
   %39 = load i64, ptr %4, align 8
   call fastcc void @rb_key_err_raise(i64 noundef %38, i64 noundef %2, i64 noundef %39) #43
   unreachable
@@ -13258,12 +13258,12 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_key_p(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_thread_key_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
-  %5 = call i64 @rb_check_id(ptr noundef nonnull %3) #20
-  %6 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %5 = call i64 @rb_check_id(ptr noundef nonnull %3) #19
+  %6 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 56
@@ -13274,7 +13274,7 @@ define internal i64 @rb_thread_key_p(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %2
-  %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %5, ptr noundef nonnull %4) #20
+  %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %5, ptr noundef nonnull %4) #19
   %.not = icmp eq i32 %14, 0
   %15 = select i1 %.not, i64 0, i64 20
   br label %16
@@ -13286,18 +13286,18 @@ define internal i64 @rb_thread_key_p(i64 noundef %0, i64 noundef %1) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_keys(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @rb_ary_new() #20
+  %7 = tail call i64 @rb_ary_new() #19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %1
   %9 = inttoptr i64 %7 to ptr
-  tail call void @rb_id_table_foreach(ptr noundef nonnull %6, ptr noundef nonnull @thread_keys_i, ptr noundef %9) #20
+  tail call void @rb_id_table_foreach(ptr noundef nonnull %6, ptr noundef nonnull @thread_keys_i, ptr noundef %9) #19
   br label %10
 
 10:                                               ; preds = %8, %1
@@ -13305,8 +13305,8 @@ define internal i64 @rb_thread_keys(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_priority(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 1, 0) i64 @rb_thread_priority(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 241
   %4 = load i8, ptr %3, align 1
   %5 = sext i8 %4 to i64
@@ -13316,18 +13316,18 @@ define internal i64 @rb_thread_priority(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_priority_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 1, 0) i64 @rb_thread_priority_set(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %4 = and i64 %1, 1
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @rb_fix2int(i64 noundef %1) #20
+  %6 = tail call i64 @rb_fix2int(i64 noundef %1) #19
   br label %rb_num2int_inline.exit
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @rb_num2int(i64 noundef %1) #20
+  %8 = tail call i64 @rb_num2int(i64 noundef %1) #19
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %5, %7
@@ -13346,7 +13346,7 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_status(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr i8, ptr %2, i64 240
   %.val = load i8, ptr %3, align 8
   %4 = and i8 %.val, 3
@@ -13380,7 +13380,7 @@ default.unreachable:                              ; preds = %1
 
 thread_status_name.exit:                          ; preds = %1, %1, %13
   %.0.i = phi ptr [ %15, %13 ], [ @.str.231, %1 ], [ @.str.231, %1 ]
-  %16 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #20
+  %16 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #19
   br label %17
 
 17:                                               ; preds = %5, %thread_status_name.exit
@@ -13397,9 +13397,9 @@ define internal i64 @rb_thread_variable_get(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not, label %9, label %rb_thread_local_storage.exit
 
 rb_thread_local_storage.exit:                     ; preds = %2
-  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #20
-  %7 = tail call i64 @rb_to_symbol(i64 noundef %1) #20
-  %8 = tail call i64 @rb_hash_aref(i64 noundef %6, i64 noundef %7) #20
+  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #19
+  %7 = tail call i64 @rb_to_symbol(i64 noundef %1) #19
+  %8 = tail call i64 @rb_hash_aref(i64 noundef %6, i64 noundef %7) #19
   br label %9
 
 9:                                                ; preds = %2, %rb_thread_local_storage.exit
@@ -13435,23 +13435,23 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %8, %3
   br i1 %.not.i, label %17, label %rb_thread_local_storage.exit
 
 17:                                               ; preds = %15
-  %18 = tail call i64 @rb_hash_new() #20
-  %19 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef 3473, i64 noundef %18) #20
+  %18 = tail call i64 @rb_hash_new() #19
+  %19 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef 3473, i64 noundef %18) #19
   %20 = load i64, ptr %9, align 8
   %21 = or i64 %20, 33554432
   store i64 %21, ptr %9, align 8
   br label %rb_thread_local_storage.exit
 
 rb_thread_local_storage.exit:                     ; preds = %15, %17
-  %22 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #20
-  %23 = tail call i64 @rb_to_symbol(i64 noundef %1) #20
-  %24 = tail call i64 @rb_hash_aset(i64 noundef %22, i64 noundef %23, i64 noundef %2) #20
+  %22 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #19
+  %23 = tail call i64 @rb_to_symbol(i64 noundef %1) #19
+  %24 = tail call i64 @rb_hash_aset(i64 noundef %22, i64 noundef %23, i64 noundef %2) #19
   ret i64 %24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_variables(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_ary_new() #20
+  %2 = tail call i64 @rb_ary_new() #19
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 33554432
@@ -13459,8 +13459,8 @@ define internal i64 @rb_thread_variables(i64 noundef %0) #0 {
   br i1 %.not, label %7, label %rb_thread_local_storage.exit
 
 rb_thread_local_storage.exit:                     ; preds = %1
-  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #20
-  tail call void @rb_hash_foreach(i64 noundef %6, ptr noundef nonnull @keys_i, i64 noundef %2) #20
+  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #19
+  tail call void @rb_hash_foreach(i64 noundef %6, ptr noundef nonnull @keys_i, i64 noundef %2) #19
   br label %7
 
 7:                                                ; preds = %1, %rb_thread_local_storage.exit
@@ -13468,7 +13468,7 @@ rb_thread_local_storage.exit:                     ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_variable_p(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_thread_variable_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 33554432
@@ -13476,9 +13476,9 @@ define internal i64 @rb_thread_variable_p(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not, label %10, label %rb_thread_local_storage.exit
 
 rb_thread_local_storage.exit:                     ; preds = %2
-  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #20
-  %7 = tail call i64 @rb_to_symbol(i64 noundef %1) #20
-  %8 = tail call i64 @rb_hash_lookup(i64 noundef %6, i64 noundef %7) #20
+  %6 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef 3473) #19
+  %7 = tail call i64 @rb_to_symbol(i64 noundef %1) #19
+  %8 = tail call i64 @rb_hash_lookup(i64 noundef %6, i64 noundef %7) #19
   %.not5 = icmp eq i64 %8, 4
   %9 = select i1 %.not5, i64 0, i64 20
   br label %10
@@ -13489,8 +13489,8 @@ rb_thread_local_storage.exit:                     ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_thread_alive_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 0, 21) i64 @rb_thread_alive_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 3
@@ -13511,8 +13511,8 @@ thread_finished.exit.thread:                      ; preds = %thread_finished.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_stop_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 0, 21) i64 @rb_thread_stop_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr i8, ptr %2, i64 240
   %.val = load i8, ptr %3, align 8
   %4 = and i8 %.val, 3
@@ -13523,8 +13523,8 @@ define internal i64 @rb_thread_stop_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_abort_exc(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 0, 21) i64 @rb_thread_abort_exc(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 16
@@ -13537,7 +13537,7 @@ define internal i64 @rb_thread_abort_exc(i64 noundef %0) #0 {
 define internal noundef i64 @rb_thread_abort_exc_set(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = and i64 %1, -5
   %.not = icmp eq i64 %3, 0
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %5 = getelementptr inbounds i8, ptr %4, i64 240
   %6 = load i8, ptr %5, align 8
   %7 = select i1 %.not, i8 0, i8 16
@@ -13548,8 +13548,8 @@ define internal noundef i64 @rb_thread_abort_exc_set(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_report_exc(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 0, 21) i64 @rb_thread_report_exc(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 32
@@ -13562,7 +13562,7 @@ define internal i64 @rb_thread_report_exc(i64 noundef %0) #0 {
 define internal noundef i64 @rb_thread_report_exc_set(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = and i64 %1, -5
   %.not = icmp eq i64 %3, 0
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %5 = getelementptr inbounds i8, ptr %4, i64 240
   %6 = load i8, ptr %5, align 8
   %7 = select i1 %.not, i8 0, i8 32
@@ -13574,19 +13574,19 @@ define internal noundef i64 @rb_thread_report_exc_set(i64 noundef %0, i64 nounde
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_backtrace_m(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_vm_thread_backtrace(i32 noundef %0, ptr noundef %1, i64 noundef %2) #20
+  %4 = tail call i64 @rb_vm_thread_backtrace(i32 noundef %0, ptr noundef %1, i64 noundef %2) #19
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_backtrace_locations_m(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_vm_thread_backtrace_locations(i32 noundef %0, ptr noundef %1, i64 noundef %2) #20
+  %4 = tail call i64 @rb_vm_thread_backtrace_locations(i32 noundef %0, ptr noundef %1, i64 noundef %2) #19
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_getname(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 432
   %4 = load i64, ptr %3, align 8
   ret i64 %4
@@ -13597,21 +13597,21 @@ define internal i64 @rb_thread_setname(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %6 = icmp eq i64 %1, 4
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %2
-  %8 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #20
+  %8 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #19
   %9 = load i64, ptr %4, align 8
-  %10 = call ptr @rb_enc_get(i64 noundef %9) #20
+  %10 = call ptr @rb_enc_get(i64 noundef %9) #19
   %11 = getelementptr i8, ptr %10, i64 20
   %.val.i = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %7
-  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %10) #44
+  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %10) #44
   %.not3.i = icmp eq i32 %12, 0
   br i1 %.not3.i, label %15, label %rb_enc_asciicompat.exit.thread
 
@@ -13624,7 +13624,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %7, %rb_enc_asciicom
 
 15:                                               ; preds = %rb_enc_asciicompat.exit
   %16 = load i64, ptr %4, align 8
-  %17 = call i64 @rb_str_new_frozen(i64 noundef %16) #20
+  %17 = call i64 @rb_str_new_frozen(i64 noundef %16) #19
   store i64 %17, ptr %4, align 8
   br label %18
 
@@ -13655,7 +13655,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %7, %rb_enc_asciicom
 
 33:                                               ; preds = %27
   %34 = inttoptr i64 %19 to ptr
-  %35 = load i64, ptr %34, align 8, !noalias !50
+  %35 = load i64, ptr %34, align 8, !noalias !47
   %36 = and i64 %35, 8192
   %.not.i.i = icmp eq i64 %36, 0
   %37 = getelementptr inbounds i8, ptr %34, i64 24
@@ -13673,14 +13673,14 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %38, %33
   br i1 %39, label %40, label %native_set_another_thread_name.exit
 
 40:                                               ; preds = %rbimpl_rstring_getmem.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.3.0.i, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(15) %3, ptr noundef nonnull readonly align 1 dereferenceable(15) %.sroa.3.0.i, i64 15, i1 false)
   %41 = getelementptr inbounds i8, ptr %3, i64 15
   store i8 0, ptr %41, align 1
   br label %native_set_another_thread_name.exit
 
 native_set_another_thread_name.exit:              ; preds = %27, %rbimpl_rstring_getmem.exit.i, %40
   %.0.i7 = phi ptr [ @.str.235, %27 ], [ %3, %40 ], [ %.sroa.3.0.i, %rbimpl_rstring_getmem.exit.i ]
-  %42 = call i32 @pthread_setname_np(i64 noundef %31, ptr noundef %.0.i7) #20
+  %42 = call i32 @pthread_setname_np(i64 noundef %31, ptr noundef %.0.i7) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.pre = load i64, ptr %4, align 8
   br label %43
@@ -13691,8 +13691,8 @@ native_set_another_thread_name.exit:              ; preds = %27, %rbimpl_rstring
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_thread_native_thread_id(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+define internal range(i64 1, 0) i64 @rb_thread_native_thread_id(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %3 = getelementptr i8, ptr %2, i64 240
   %.val = load i8, ptr %3, align 8
   %4 = and i8 %.val, 3
@@ -13724,9 +13724,9 @@ native_thread_native_thread_id.exit:              ; preds = %11, %7, %5, %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_thread_to_s(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_obj_class(i64 noundef %0) #20
-  %3 = tail call i64 @rb_class_path(i64 noundef %2) #20
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %2 = tail call i64 @rb_obj_class(i64 noundef %0) #19
+  %3 = tail call i64 @rb_class_path(i64 noundef %2) #19
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %5 = getelementptr i8, ptr %4, i64 240
   %.val = load i8, ptr %5, align 8
   %6 = and i8 %.val, 3
@@ -13755,14 +13755,14 @@ default.unreachable:                              ; preds = %1
 thread_status_name.exit:                          ; preds = %1, %7, %10, %11
   %.0.i = phi ptr [ @.str.231, %11 ], [ %9, %7 ], [ @.str.230, %10 ], [ @.str.232, %1 ]
   %12 = inttoptr i64 %0 to ptr
-  %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.236, i64 noundef %3, ptr noundef %12) #20
+  %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.236, i64 noundef %3, ptr noundef %12) #19
   %14 = getelementptr inbounds i8, ptr %4, i64 432
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 4
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %thread_status_name.exit
-  %18 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.237, i64 noundef %15) #20
+  %18 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.237, i64 noundef %15) #19
   br label %19
 
 19:                                               ; preds = %17, %thread_status_name.exit
@@ -13774,7 +13774,7 @@ thread_status_name.exit:                          ; preds = %1, %7, %10, %11
 threadptr_invoke_proc_location.exit:              ; preds = %19
   %23 = getelementptr inbounds i8, ptr %4, i64 368
   %24 = load i64, ptr %23, align 8
-  %25 = tail call i64 @rb_proc_location(i64 noundef %24) #20
+  %25 = tail call i64 @rb_proc_location(i64 noundef %24) #19
   %.not = icmp eq i64 %25, 4
   br i1 %.not, label %threadptr_invoke_proc_location.exit.thread, label %26
 
@@ -13799,11 +13799,11 @@ RARRAY_AREF.exit17:                               ; preds = %30, %32
   %35 = load i64, ptr %.in, align 8
   %36 = getelementptr i8, ptr %.in, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.238, i64 noundef %35, i64 noundef %37) #20
+  %38 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.238, i64 noundef %35, i64 noundef %37) #19
   br label %threadptr_invoke_proc_location.exit.thread
 
 threadptr_invoke_proc_location.exit.thread:       ; preds = %19, %RARRAY_AREF.exit17, %threadptr_invoke_proc_location.exit
-  %39 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.239, ptr noundef nonnull %.0.i) #20
+  %39 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.239, ptr noundef nonnull %.0.i) #19
   ret i64 %13
 }
 
@@ -13819,7 +13819,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @thgroup_s_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 4, ptr noundef nonnull @thgroup_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 4, ptr noundef nonnull @thgroup_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -13840,7 +13840,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @thgroup_list(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_ary_new() #20
+  %2 = tail call i64 @rb_ary_new() #19
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %4, label %rb_current_ractor.exit
@@ -13849,7 +13849,7 @@ define internal i64 @thgroup_list(i64 noundef %0) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 48
-  %.val.i.i = load ptr, ptr %7, align 8, !nonnull !35, !noundef !35
+  %.val.i.i = load ptr, ptr %7, align 8, !nonnull !33, !noundef !33
   %8 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %rb_current_ractor.exit
@@ -13871,13 +13871,13 @@ rb_current_ractor.exit:                           ; preds = %1, %4
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %.010, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %16) #20
+  %17 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %16) #19
   br label %18
 
 18:                                               ; preds = %.lr.ph, %14
   %.0 = load ptr, ptr %.010, align 8
   %.not = icmp eq ptr %.0, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %18, %rb_current_ractor.exit
   ret i64 %2
@@ -13885,14 +13885,14 @@ rb_current_ractor.exit:                           ; preds = %1, %4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @thgroup_enclose(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #19
   store i32 1, ptr %2, align 4
   ret i64 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @thgroup_enclosed_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #20
+define internal range(i64 0, 21) i64 @thgroup_enclosed_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #19
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   %4 = select i1 %.not, i64 0, i64 20
@@ -13901,7 +13901,7 @@ define internal i64 @thgroup_enclosed_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @thgroup_add(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ruby_threadptr_data_type) #20
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0
@@ -13924,7 +13924,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %8, %2
   unreachable
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #20
+  %17 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @thgroup_data_type) #19
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %21, label %19
@@ -13959,7 +13959,7 @@ RB_OBJ_FROZEN.exit12.thread:                      ; preds = %28, %21
   unreachable
 
 36:                                               ; preds = %28
-  %37 = tail call ptr @rb_check_typeddata(i64 noundef %23, ptr noundef nonnull @thgroup_data_type) #20
+  %37 = tail call ptr @rb_check_typeddata(i64 noundef %23, ptr noundef nonnull @thgroup_data_type) #19
   %38 = load i32, ptr %37, align 4
   %.not9 = icmp eq i32 %38, 0
   br i1 %.not9, label %41, label %39
@@ -13980,8 +13980,8 @@ declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnam
 
 declare i64 @rb_ary_hidden_new(i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ruby_native_thread_p() local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define dso_local range(i32 0, 2) i32 @ruby_native_thread_p() local_unnamed_addr #5 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
   %2 = load ptr, ptr %1, align 8
   %3 = icmp ne ptr %2, null
@@ -13999,7 +13999,7 @@ define hidden i64 @rb_vm_memsize_waiting_fds(ptr noundef readonly %0) local_unna
   %.05 = load ptr, ptr %.05.in, align 8
   %.not = icmp eq ptr %.05, %0
   %3 = add i64 %.0, 40
-  br i1 %.not, label %4, label %2, !llvm.loop !54
+  br i1 %.not, label %4, label %2, !llvm.loop !51
 
 4:                                                ; preds = %2
   ret i64 %.0
@@ -14029,18 +14029,18 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly %0, ptr nounde
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 @rb_iseq_path(ptr noundef %10) #20
+  %13 = tail call i64 @rb_iseq_path(ptr noundef %10) #19
   br label %28
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = tail call ptr @rb_proc_get_iseq(i64 noundef %16, ptr noundef null) #20
+  %17 = tail call ptr @rb_proc_get_iseq(i64 noundef %16, ptr noundef null) #19
   %.not84 = icmp eq ptr %17, null
   br i1 %.not84, label %.critedge88, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @rb_iseq_path(ptr noundef nonnull %17) #20
+  %19 = tail call i64 @rb_iseq_path(ptr noundef nonnull %17) #19
   %20 = getelementptr inbounds i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   br label %28
@@ -14129,7 +14129,7 @@ declare ptr @rb_proc_get_iseq(i64 noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_coverage_mode() local_unnamed_addr #5 {
+define hidden i32 @rb_get_coverage_mode() local_unnamed_addr #21 {
   %1 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 1288
   %3 = load i32, ptr %2, align 8
@@ -14155,13 +14155,13 @@ define dso_local void @rb_resume_coverages() local_unnamed_addr #0 {
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 1280
   %5 = load i64, ptr %4, align 8
-  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_line_coverage, i32 noundef 65536, i64 noundef 4, i32 noundef 5) #20
+  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_line_coverage, i32 noundef 65536, i64 noundef 4, i32 noundef 5) #19
   %6 = and i32 %3, 2
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %0
-  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_branch_coverage, i32 noundef 131072, i64 noundef 4, i32 noundef 5) #20
+  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_branch_coverage, i32 noundef 131072, i64 noundef 4, i32 noundef 5) #19
   br label %8
 
 8:                                                ; preds = %7, %0
@@ -14170,7 +14170,7 @@ define dso_local void @rb_resume_coverages() local_unnamed_addr #0 {
   br i1 %.not3, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_method_coverage, i32 noundef 8, i64 noundef %5, i32 noundef 5) #20
+  tail call void @rb_add_event_hook2(ptr noundef nonnull @update_method_coverage, i32 noundef 8, i64 noundef %5, i32 noundef 5) #19
   br label %11
 
 11:                                               ; preds = %10, %8
@@ -14187,7 +14187,7 @@ define internal void @update_line_coverage(i64 %0, ptr nocapture readnone %1) #0
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @rb_iseq_coverage(ptr noundef %8) #20
+  %9 = tail call i64 @rb_iseq_coverage(ptr noundef %8) #19
   %10 = and i64 %9, 7
   %11 = icmp ne i64 %10, 0
   %12 = icmp eq i64 %9, 0
@@ -14228,7 +14228,7 @@ RARRAY_AREF.exit:                                 ; preds = %24, %26
   br i1 %.not40, label %.critedge, label %30
 
 30:                                               ; preds = %RARRAY_AREF.exit
-  %31 = tail call i32 @rb_sourceline() #20
+  %31 = tail call i32 @rb_sourceline() #19
   %32 = add i32 %31, -1
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -14250,10 +14250,10 @@ RARRAY_AREF.exit:                                 ; preds = %24, %26
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = add nsw i64 %48, -1
-  tail call void @rb_iseq_clear_event_flags(ptr noundef %39, i64 noundef %49, i32 noundef 65536) #20
+  tail call void @rb_iseq_clear_event_flags(ptr noundef %39, i64 noundef %49, i32 noundef 65536) #19
   %50 = shl nsw i64 %33, 1
   %51 = add nsw i64 %50, 3
-  %52 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %51) #20
+  %52 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %51) #19
   br label %.critedge
 
 53:                                               ; preds = %30
@@ -14311,7 +14311,7 @@ define internal void @update_branch_coverage(i64 %0, ptr nocapture readnone %1) 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @rb_iseq_coverage(ptr noundef %8) #20
+  %9 = tail call i64 @rb_iseq_coverage(ptr noundef %8) #19
   %10 = and i64 %9, 7
   %11 = icmp ne i64 %10, 0
   %12 = icmp eq i64 %9, 0
@@ -14385,7 +14385,7 @@ RARRAY_AREF.exit39:                               ; preds = %48, %50
   %.0.i.i38 = phi ptr [ %49, %48 ], [ %52, %50 ]
   %53 = getelementptr i64, ptr %.0.i.i38, i64 %42
   %54 = load i64, ptr %53, align 8
-  %55 = tail call i64 @rb_fix2int(i64 noundef %54) #20
+  %55 = tail call i64 @rb_fix2int(i64 noundef %54) #19
   %sext = shl i64 %55, 32
   %56 = ashr exact i64 %sext, 32
   %57 = inttoptr i64 %30 to ptr
@@ -14432,10 +14432,10 @@ RARRAY_AREF.exit45:                               ; preds = %70, %72
 78:                                               ; preds = %RARRAY_AREF.exit45
   %79 = or i64 %76, 1
   %80 = add i64 %79, 2
-  %81 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %66) #20
+  %81 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %66) #19
   %82 = getelementptr i64, ptr %81, i64 %56
   store i64 %80, ptr %82, align 8
-  tail call void @rb_ary_ptr_use_end(i64 noundef %66) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %66) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %RARRAY_AREF.exit, %78, %RARRAY_AREF.exit45, %19, %14
@@ -14448,14 +14448,14 @@ define internal void @update_method_coverage(i64 noundef %0, ptr nocapture readn
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @rb_vm_frame_method_entry(ptr noundef %6) #20
+  %7 = tail call ptr @rb_vm_frame_method_entry(ptr noundef %6) #19
   %8 = tail call ptr @rb_resolve_me_location(ptr noundef %7, ptr noundef null)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %8 to i64
-  %11 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %10) #20
+  %11 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %10) #19
   %12 = and i64 %11, 1
   %.not12 = icmp eq i64 %12, 0
   br i1 %.not12, label %.thread, label %13
@@ -14470,7 +14470,7 @@ define internal void @update_method_coverage(i64 noundef %0, ptr nocapture readn
   %17 = phi i64 [ %15, %13 ], [ 1, %9 ]
   %18 = shl nsw i64 %17, 1
   %19 = or disjoint i64 %18, 1
-  %20 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %10, i64 noundef %19) #20
+  %20 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %10, i64 noundef %19) #19
   br label %21
 
 21:                                               ; preds = %2, %.thread, %13
@@ -14479,7 +14479,7 @@ define internal void @update_method_coverage(i64 noundef %0, ptr nocapture readn
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_suspend_coverages() local_unnamed_addr #0 {
-  %1 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_line_coverage) #20
+  %1 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_line_coverage) #19
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1288
   %4 = load i32, ptr %3, align 8
@@ -14488,7 +14488,7 @@ define dso_local void @rb_suspend_coverages() local_unnamed_addr #0 {
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %0
-  %7 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_branch_coverage) #20
+  %7 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_branch_coverage) #19
   %.pre = load ptr, ptr @ruby_current_vm_ptr, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 1288
   %.pre2 = load i32, ptr %.phi.trans.insert, align 8
@@ -14501,7 +14501,7 @@ define dso_local void @rb_suspend_coverages() local_unnamed_addr #0 {
   br i1 %.not1, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_method_coverage) #20
+  %12 = tail call i32 @rb_remove_event_hook(ptr noundef nonnull @update_method_coverage) #19
   br label %13
 
 13:                                               ; preds = %11, %8
@@ -14520,11 +14520,11 @@ define dso_local void @rb_reset_coverages() local_unnamed_addr #0 {
   br i1 %.not.i, label %rb_clear_coverages.exit, label %5
 
 5:                                                ; preds = %0
-  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #20
+  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @clear_coverage_i, i64 noundef 0) #19
   br label %rb_clear_coverages.exit
 
 rb_clear_coverages.exit:                          ; preds = %0, %5
-  tail call void @rb_iseq_remove_coverage_all() #20
+  tail call void @rb_iseq_remove_coverage_all() #19
   %6 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1272
   store i64 0, ptr %7, align 8
@@ -14535,7 +14535,7 @@ declare void @rb_iseq_remove_coverage_all() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_default_coverage(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef 3) #20
+  %2 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef 3) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1288
   %5 = load i32, ptr %4, align 8
@@ -14549,16 +14549,16 @@ define hidden i64 @rb_default_coverage(i32 noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef %10) #20
+  %11 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef %10) #19
   br label %14
 
 12:                                               ; preds = %7
-  %13 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #20
+  %13 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #19
   br label %14
 
 14:                                               ; preds = %9, %12, %1
   %.0 = phi i64 [ 0, %1 ], [ %11, %9 ], [ %13, %12 ]
-  %15 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %2) #20
+  %15 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %2) #19
   store i64 %.0, ptr %15, align 8
   %16 = and i64 %.0, 7
   %17 = icmp ne i64 %16, 0
@@ -14567,20 +14567,20 @@ define hidden i64 @rb_default_coverage(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %RARRAY_ASET.exit, label %20
 
 20:                                               ; preds = %14
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #19
   br label %RARRAY_ASET.exit
 
 RARRAY_ASET.exit:                                 ; preds = %14, %20
-  tail call void @rb_ary_ptr_use_end(i64 noundef %2) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %2) #19
   %21 = and i32 %5, 2
   %.not15 = icmp eq i32 %21, 0
   br i1 %.not15, label %40, label %22
 
 22:                                               ; preds = %RARRAY_ASET.exit
-  %23 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef 2) #20
-  %24 = tail call i64 @rb_hash_new() #20
-  %25 = tail call i64 @rb_obj_hide(i64 noundef %24) #20
-  %26 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %23) #20
+  %23 = tail call i64 @rb_ary_hidden_new_fill(i64 noundef 2) #19
+  %24 = tail call i64 @rb_hash_new() #19
+  %25 = tail call i64 @rb_obj_hide(i64 noundef %24) #19
+  %26 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %23) #19
   store i64 %24, ptr %26, align 8
   %27 = and i64 %24, 7
   %28 = icmp ne i64 %27, 0
@@ -14589,13 +14589,13 @@ RARRAY_ASET.exit:                                 ; preds = %14, %20
   br i1 %30, label %RARRAY_ASET.exit16, label %31
 
 31:                                               ; preds = %22
-  tail call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %24) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %24) #19
   br label %RARRAY_ASET.exit16
 
 RARRAY_ASET.exit16:                               ; preds = %22, %31
-  tail call void @rb_ary_ptr_use_end(i64 noundef %23) #20
-  %32 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #20
-  %33 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %23) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %23) #19
+  %32 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #19
+  %33 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %23) #19
   %34 = getelementptr i8, ptr %33, i64 8
   store i64 %32, ptr %34, align 8
   %35 = and i64 %32, 7
@@ -14605,16 +14605,16 @@ RARRAY_ASET.exit16:                               ; preds = %22, %31
   br i1 %38, label %RARRAY_ASET.exit17, label %39
 
 39:                                               ; preds = %RARRAY_ASET.exit16
-  tail call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %32) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %23, i64 noundef %32) #19
   br label %RARRAY_ASET.exit17
 
 RARRAY_ASET.exit17:                               ; preds = %RARRAY_ASET.exit16, %39
-  tail call void @rb_ary_ptr_use_end(i64 noundef %23) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %23) #19
   br label %40
 
 40:                                               ; preds = %RARRAY_ASET.exit17, %RARRAY_ASET.exit
   %.013 = phi i64 [ %23, %RARRAY_ASET.exit17 ], [ 0, %RARRAY_ASET.exit ]
-  %41 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %2) #20
+  %41 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %2) #19
   %42 = getelementptr i8, ptr %41, i64 8
   store i64 %.013, ptr %42, align 8
   %43 = and i64 %.013, 7
@@ -14624,11 +14624,11 @@ RARRAY_ASET.exit17:                               ; preds = %RARRAY_ASET.exit16,
   br i1 %46, label %RARRAY_ASET.exit18, label %47
 
 47:                                               ; preds = %40
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.013) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.013) #19
   br label %RARRAY_ASET.exit18
 
 RARRAY_ASET.exit18:                               ; preds = %40, %47
-  tail call void @rb_ary_ptr_use_end(i64 noundef %2) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %2) #19
   ret i64 %2
 }
 
@@ -14636,7 +14636,7 @@ declare i64 @rb_ary_hidden_new_fill(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %0) #20
+  %4 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %0) #19
   %5 = getelementptr i64, ptr %4, i64 %1
   store i64 %2, ptr %5, align 8
   %6 = and i64 %2, 7
@@ -14646,11 +14646,11 @@ define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef %1, i64 nou
   br i1 %9, label %rb_obj_write.exit, label %10
 
 10:                                               ; preds = %3
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #19
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %3, %10
-  tail call void @rb_ary_ptr_use_end(i64 noundef %0) #20
+  tail call void @rb_ary_ptr_use_end(i64 noundef %0) #19
   ret void
 }
 
@@ -14660,22 +14660,22 @@ declare i64 @rb_obj_hide(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_uninterruptible(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @rb_ident_hash_new() #20
+  %3 = tail call i64 @rb_ident_hash_new() #19
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 48
   %.val.i = load ptr, ptr %6, align 8
   %7 = load i64, ptr @rb_cObject, align 8
   %8 = load i64, ptr @sym_never, align 8
-  %9 = tail call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %7, i64 noundef %8) #20
+  %9 = tail call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %7, i64 noundef %8) #19
   %10 = inttoptr i64 %3 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = or i64 %11, 2048
   store i64 %12, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 280
   %14 = load i64, ptr %13, align 8
-  %15 = tail call i64 @rb_ary_push(i64 noundef %14, i64 noundef %3) #20
-  %16 = tail call i64 @rb_ensure(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @uninterruptible_exit, i64 noundef 4) #20
+  %15 = tail call i64 @rb_ary_push(i64 noundef %14, i64 noundef %3) #19
+  %16 = tail call i64 @rb_ensure(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @uninterruptible_exit, i64 noundef 4) #19
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 32
@@ -14709,7 +14709,7 @@ define internal noundef i64 @uninterruptible_exit(i64 %0) #0 {
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val.i, i64 280
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i64 @rb_ary_pop(i64 noundef %6) #20
+  %7 = tail call i64 @rb_ary_pop(i64 noundef %6) #19
   %8 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, -65
@@ -14749,7 +14749,7 @@ rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_internal_thread_specific_key_create() local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @rb_internal_thread_specific_key_create() local_unnamed_addr #0 {
   %1 = load i32, ptr @specific_key_count, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %10
@@ -14790,7 +14790,7 @@ define dso_local i32 @rb_internal_thread_specific_key_create() local_unnamed_add
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 48
-  %.val.i.i = load ptr, ptr %21, align 8, !nonnull !35, !noundef !35
+  %.val.i.i = load ptr, ptr %21, align 8, !nonnull !33, !noundef !33
   %22 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %rb_current_ractor.exit
@@ -14819,14 +14819,14 @@ thread_specific_storage_alloc.exit:               ; preds = %.lr.ph.split, %27
   %30 = phi i32 [ %25, %.lr.ph.split ], [ %.pre, %27 ]
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, %24
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !55
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !52
 
 .loopexit:                                        ; preds = %thread_specific_storage_alloc.exit, %rb_current_ractor.exit, %14
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @rb_internal_thread_specific_get(i64 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @rb_internal_thread_specific_get(i64 noundef %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -14877,7 +14877,7 @@ define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef read
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %10) #20
+  %12 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %10) #19
   switch i32 %12, label %13 [
     i32 11, label %11
     i32 0, label %rb_native_cond_signal.exit
@@ -14896,7 +14896,7 @@ define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef read
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 160
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #20
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #19
   %.not.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %22
 
@@ -14922,7 +14922,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %15
   br label %32
 
 32:                                               ; preds = %32, %ractor_sched_lock_.exit.i
-  %33 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %31) #20
+  %33 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %31) #19
   switch i32 %33, label %34 [
     i32 11, label %32
     i32 0, label %rb_native_cond_signal.exit.i
@@ -14933,7 +14933,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %15
   unreachable
 
 rb_native_cond_signal.exit.i:                     ; preds = %32
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #20
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #19
   %.not.i.i9.i = icmp eq i32 %35, 0
   br i1 %.not.i.i9.i, label %rb_native_cond_signal.exit, label %36
 
@@ -14963,7 +14963,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #30
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @nt_thread_stack_size() unnamed_addr #0 {
+define internal fastcc range(i64 -4611686016279904256, 4611686018427387905) i64 @nt_thread_stack_size() unnamed_addr #0 {
   %1 = load i64, ptr @nt_thread_stack_size.msz, align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %2, label %37
@@ -14988,7 +14988,7 @@ get_sysconf_page_size.exit5.thread10:             ; preds = %2
   br label %get_sysconf_page_size.exit6.thread
 
 get_sysconf_page_size.exit:                       ; preds = %2
-  %14 = tail call i64 @sysconf(i32 noundef 30) #20
+  %14 = tail call i64 @sysconf(i32 noundef 30) #19
   store i64 %14, ptr @get_sysconf_page_size.page_size, align 8
   %15 = trunc i64 %14 to i32
   %16 = trunc i64 %8 to i32
@@ -15002,7 +15002,7 @@ get_sysconf_page_size.exit5.thread:               ; preds = %get_sysconf_page_si
   br label %get_sysconf_page_size.exit6.thread
 
 get_sysconf_page_size.exit5:                      ; preds = %get_sysconf_page_size.exit
-  %21 = tail call i64 @sysconf(i32 noundef 30) #20
+  %21 = tail call i64 @sysconf(i32 noundef 30) #19
   store i64 %21, ptr @get_sysconf_page_size.page_size, align 8
   %.pre = trunc i64 %21 to i32
   %22 = add i32 %17, -1
@@ -15018,7 +15018,7 @@ get_sysconf_page_size.exit6.thread:               ; preds = %get_sysconf_page_si
   br label %get_sysconf_page_size.exit7
 
 get_sysconf_page_size.exit6:                      ; preds = %get_sysconf_page_size.exit5
-  %27 = tail call i64 @sysconf(i32 noundef 30) #20
+  %27 = tail call i64 @sysconf(i32 noundef 30) #19
   store i64 %27, ptr @get_sysconf_page_size.page_size, align 8
   %28 = trunc i64 %27 to i32
   %29 = sdiv i32 %23, %28
@@ -15026,7 +15026,7 @@ get_sysconf_page_size.exit6:                      ; preds = %get_sysconf_page_si
   br i1 %30, label %31, label %get_sysconf_page_size.exit7
 
 31:                                               ; preds = %get_sysconf_page_size.exit6
-  %32 = tail call i64 @sysconf(i32 noundef 30) #20
+  %32 = tail call i64 @sysconf(i32 noundef 30) #19
   store i64 %32, ptr @get_sysconf_page_size.page_size, align 8
   br label %get_sysconf_page_size.exit7
 
@@ -15054,14 +15054,14 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @async_bug_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #22 {
   %4 = alloca [64 x i8], align 16
-  %5 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 64) #20
+  %5 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 64) #19
   %6 = icmp ult i64 %5, 61
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %4, i64 %5
   %9 = sub nuw nsw i64 64, %5
-  %10 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str.122, i32 noundef %2) #20
+  %10 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str.122, i32 noundef %2) #19
   br label %11
 
 11:                                               ; preds = %7, %3
@@ -15099,7 +15099,7 @@ define internal void @mutex_free(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @rb_fiber_threadptr(ptr noundef nonnull %2) #20
+  %4 = tail call ptr @rb_fiber_threadptr(ptr noundef nonnull %2) #19
   %5 = load ptr, ptr %0, align 8
   %6 = tail call fastcc ptr @rb_mutex_unlock_th(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5)
   %.not9 = icmp eq ptr %6, null
@@ -15110,7 +15110,7 @@ define internal void @mutex_free(ptr noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %3, %1
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #20
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -15125,8 +15125,8 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @call_rb_fiber_scheduler_block(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_fiber_scheduler_current() #20
-  %3 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %2, i64 noundef %0, i64 noundef 4) #20
+  %2 = tail call i64 @rb_fiber_scheduler_current() #19
+  %3 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %2, i64 noundef %0, i64 noundef 4) #19
   ret i64 %3
 }
 
@@ -15169,7 +15169,7 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
 16:                                               ; preds = %11
   %17 = getelementptr i8, ptr %0, i64 280
   %.val = load i32, ptr %17, align 8
-  %18 = tail call i32 @rb_ractor_living_thread_num(ptr noundef nonnull %0) #20
+  %18 = tail call i32 @rb_ractor_living_thread_num(ptr noundef nonnull %0) #19
   %19 = icmp sgt i32 %18, %.val
   br i1 %19, label %.critedge, label %20
 
@@ -15214,7 +15214,7 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not31, label %50, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call ptr @rb_check_typeddata(i64 noundef %38, ptr noundef nonnull @mutex_data_type) #20
+  %40 = tail call ptr @rb_check_typeddata(i64 noundef %38, ptr noundef nonnull @mutex_data_type) #19
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %27, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 40
@@ -15235,23 +15235,23 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
 50:                                               ; preds = %46, %47, %36
   %.023 = load ptr, ptr %.02344, align 8
   %.not28 = icmp eq ptr %.023, %12
-  br i1 %.not28, label %.critedge36, label %.lr.ph, !llvm.loop !57
+  br i1 %.not28, label %.critedge36, label %.lr.ph, !llvm.loop !54
 
 .critedge36:                                      ; preds = %50, %.preheader
   %51 = load i64, ptr @rb_eFatal, align 8
   store i64 %51, ptr %2, align 16
-  %52 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.136, i64 noundef 31) #20
+  %52 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.136, i64 noundef 31) #19
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %52, ptr %53, align 8
-  %54 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.137, i64 noundef 4) #20
-  %55 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %0) #20
+  %54 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.137, i64 noundef 4) #19
+  %55 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %0) #19
   %.val.i37 = load i32, ptr %17, align 8
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr i8, ptr %56, i64 48
   %.val.i.i = load ptr, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 392
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.138, i32 noundef %55, i32 noundef %.val.i37, ptr noundef %.val.i.i, ptr noundef %59) #20
+  %60 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.138, i32 noundef %55, i32 noundef %.val.i37, ptr noundef %.val.i.i, ptr noundef %59) #19
   %.02837.i = load ptr, ptr %12, align 8
   %.not38.i = icmp eq ptr %.02837.i, %12
   br i1 %.not38.i, label %debug_deadlock_check.exit, label %.lr.ph41.i
@@ -15277,14 +15277,14 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8
-  %75 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.140, i64 noundef %62, ptr noundef nonnull %.02839.i, ptr noundef %70, i32 noundef %74) #20
+  %75 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.140, i64 noundef %62, ptr noundef nonnull %.02839.i, ptr noundef %70, i32 noundef %74) #19
   %76 = getelementptr inbounds i8, ptr %.02839.i, i64 344
   %77 = load i64, ptr %76, align 8
   %.not32.i = icmp eq i64 %77, 0
   br i1 %.not32.i, label %85, label %78
 
 78:                                               ; preds = %69
-  %79 = tail call ptr @rb_check_typeddata(i64 noundef %77, ptr noundef nonnull @mutex_data_type) #20
+  %79 = tail call ptr @rb_check_typeddata(i64 noundef %77, ptr noundef nonnull @mutex_data_type) #19
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %79, i64 16
   br label %82
@@ -15295,10 +15295,10 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.pn.i.i, %81
   %83 = add i64 %.0.i.i, 1
-  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %82, !llvm.loop !58
+  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %82, !llvm.loop !55
 
 rb_mutex_num_waiting.exit.i:                      ; preds = %82
-  %84 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.142, ptr noundef %80, i64 noundef %.0.i.i) #20
+  %84 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.142, ptr noundef %80, i64 noundef %.0.i.i) #19
   br label %85
 
 85:                                               ; preds = %rb_mutex_num_waiting.exit.i, %69
@@ -15311,21 +15311,21 @@ rb_mutex_num_waiting.exit.i:                      ; preds = %82
   %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.034.i, %85 ]
   %87 = getelementptr inbounds i8, ptr %.036.i, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.143, ptr noundef %88) #20
+  %89 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.143, ptr noundef %88) #19
   %.0.i = load ptr, ptr %.036.i, align 8
   %.not33.i = icmp eq ptr %.0.i, null
-  br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
+  br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %85
-  %90 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.137) #20
+  %90 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.137) #19
   %91 = load ptr, ptr %71, align 8
-  %92 = tail call i64 @rb_ec_backtrace_str_ary(ptr noundef %91, i64 noundef 0, i64 noundef 0) #20
-  %93 = tail call i64 @rb_ary_join(i64 noundef %92, i64 noundef %54) #20
-  %94 = tail call i64 @rb_str_concat(i64 noundef %52, i64 noundef %93) #20
-  %95 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.144) #20
+  %92 = tail call i64 @rb_ec_backtrace_str_ary(ptr noundef %91, i64 noundef 0, i64 noundef 0) #19
+  %93 = tail call i64 @rb_ary_join(i64 noundef %92, i64 noundef %54) #19
+  %94 = tail call i64 @rb_str_concat(i64 noundef %52, i64 noundef %93) #19
+  %95 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.144) #19
   %.028.i = load ptr, ptr %.02839.i, align 8
   %.not.i = icmp eq ptr %.028.i, %12
-  br i1 %.not.i, label %debug_deadlock_check.exit, label %.lr.ph41.i, !llvm.loop !60
+  br i1 %.not.i, label %debug_deadlock_check.exit, label %.lr.ph41.i, !llvm.loop !57
 
 debug_deadlock_check.exit:                        ; preds = %._crit_edge.i, %.critedge36
   %96 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -15335,7 +15335,7 @@ debug_deadlock_check.exit:                        ; preds = %._crit_edge.i, %.cr
 97:                                               ; preds = %debug_deadlock_check.exit
   %98 = load ptr, ptr %3, align 8
   %99 = getelementptr i8, ptr %98, i64 48
-  %.val.i.i40 = load ptr, ptr %99, align 8, !nonnull !35, !noundef !35
+  %.val.i.i40 = load ptr, ptr %99, align 8, !nonnull !33, !noundef !33
   %100 = getelementptr inbounds i8, ptr %.val.i.i40, i64 24
   %101 = load ptr, ptr %100, align 8
   br label %rb_current_ractor.exit
@@ -15431,7 +15431,7 @@ rb_array_len.exit:                                ; preds = %22, %25
   unreachable
 
 32:                                               ; preds = %29
-  %33 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %3) #20
+  %33 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %3) #19
   %34 = and i64 %33, -5
   %.not33 = icmp eq i64 %34, 0
   br i1 %.not33, label %35, label %.loopexit
@@ -15458,7 +15458,7 @@ rb_num2long_inline.exit.i:                        ; preds = %37
   br label %rb_sec2hrtime.exit.i
 
 45:                                               ; preds = %37
-  %46 = tail call double @rb_num2dbl(i64 noundef %3) #20
+  %46 = tail call double @rb_num2dbl(i64 noundef %3) #19
   %47 = fcmp ult double %46, 0x43E0000000000000
   %48 = fcmp ugt double %46, 0.000000e+00
   %49 = fmul double %46, 1.000000e+09
@@ -15470,12 +15470,12 @@ rb_num2long_inline.exit.i:                        ; preds = %37
 rb_sec2hrtime.exit.i:                             ; preds = %45, %41, %rb_num2long_inline.exit.i
   %.08.i = phi i64 [ %storemerge9.i.i, %45 ], [ %.0.i.i.i, %41 ], [ 0, %rb_num2long_inline.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
+  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %queue_timeout2hrtime.exit.split.preheader, label %53
 
 53:                                               ; preds = %rb_sec2hrtime.exit.i
-  call void @rb_timespec_now(ptr noundef nonnull %6) #20
+  call void @rb_timespec_now(ptr noundef nonnull %6) #19
   br label %queue_timeout2hrtime.exit.split.preheader
 
 queue_timeout2hrtime.exit.split.preheader:        ; preds = %53, %rb_sec2hrtime.exit.i
@@ -15556,7 +15556,7 @@ rb_array_len.exit30.us:                           ; preds = %90, %87
   store ptr %100, ptr %73, align 8
   %101 = getelementptr inbounds i8, ptr %98, i64 40
   %102 = load ptr, ptr %101, align 8
-  %103 = call i32 @rb_fiberptr_blocking(ptr noundef %102) #20
+  %103 = call i32 @rb_fiberptr_blocking(ptr noundef %102) #19
   %.not.i31.us = icmp eq i32 %103, 0
   %..i.us = select i1 %.not.i31.us, ptr %102, ptr null
   store ptr %..i.us, ptr %74, align 8
@@ -15574,8 +15574,8 @@ rb_array_len.exit30.us:                           ; preds = %90, %87
   store i64 %0, ptr %8, align 8
   store i64 4, ptr %79, align 8
   store i64 0, ptr %80, align 8
-  %109 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %81, ptr noundef nonnull @queue_sleep_done, i64 noundef %82) #20
-  br label %queue_timeout2hrtime.exit.split.us, !llvm.loop !61
+  %109 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %81, ptr noundef nonnull @queue_sleep_done, i64 noundef %82) #19
+  br label %queue_timeout2hrtime.exit.split.us, !llvm.loop !58
 
 queue_timeout2hrtime.exit.split:                  ; preds = %queue_timeout2hrtime.exit.split.preheader, %rb_hrtime_now.exit
   %110 = load i64, ptr %9, align 1
@@ -15614,7 +15614,7 @@ rb_array_len.exit30:                              ; preds = %114, %117
   store ptr %127, ptr %60, align 8
   %128 = getelementptr inbounds i8, ptr %125, i64 40
   %129 = load ptr, ptr %128, align 8
-  %130 = call i32 @rb_fiberptr_blocking(ptr noundef %129) #20
+  %130 = call i32 @rb_fiberptr_blocking(ptr noundef %129) #19
   %.not.i31 = icmp eq i32 %130, 0
   %..i = select i1 %.not.i31, ptr %129, ptr null
   store ptr %..i, ptr %61, align 8
@@ -15632,14 +15632,14 @@ rb_array_len.exit30:                              ; preds = %114, %117
   store i64 %0, ptr %8, align 8
   store i64 %3, ptr %66, align 8
   store i64 %.0.i7.i, ptr %67, align 8
-  %136 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %68, ptr noundef nonnull @queue_sleep_done, i64 noundef %69) #20
+  %136 = call i64 @rb_ensure(ptr noundef nonnull @queue_sleep, i64 noundef %68, ptr noundef nonnull @queue_sleep_done, i64 noundef %69) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %137 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %137 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %rb_hrtime_now.exit, label %139
 
 139:                                              ; preds = %124
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   br label %rb_hrtime_now.exit
 
 rb_hrtime_now.exit:                               ; preds = %124, %139
@@ -15652,7 +15652,7 @@ rb_hrtime_now.exit:                               ; preds = %124, %139
   %.0.i2.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i32, i64 %.val1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not25 = icmp ult i64 %.0.i2.i.i, %.0.i7.i
-  br i1 %.not25, label %queue_timeout2hrtime.exit.split, label %rb_hrtime_now.exit..split.us.loopexit34_crit_edge, !llvm.loop !61
+  br i1 %.not25, label %queue_timeout2hrtime.exit.split, label %rb_hrtime_now.exit..split.us.loopexit34_crit_edge, !llvm.loop !58
 
 rb_hrtime_now.exit..split.us.loopexit34_crit_edge: ; preds = %rb_hrtime_now.exit
   %.pre.pre = load i64, ptr %9, align 1
@@ -15660,7 +15660,7 @@ rb_hrtime_now.exit..split.us.loopexit34_crit_edge: ; preds = %rb_hrtime_now.exit
 
 .split.us:                                        ; preds = %rb_array_len.exit30, %rb_array_len.exit30.us, %rb_hrtime_now.exit..split.us.loopexit34_crit_edge
   %143 = phi i64 [ %.pre.pre, %rb_hrtime_now.exit..split.us.loopexit34_crit_edge ], [ %83, %rb_array_len.exit30.us ], [ %110, %rb_array_len.exit30 ]
-  %144 = call i64 @rb_ary_shift(i64 noundef %143) #20
+  %144 = call i64 @rb_ary_shift(i64 noundef %143) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %94, %32, %.split.us
@@ -15681,12 +15681,12 @@ define internal noundef i64 @queue_sleep(i64 noundef %0) #0 {
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = tail call i64 @rb_fiber_scheduler_current() #20
+  %11 = tail call i64 @rb_fiber_scheduler_current() #19
   %.not.i = icmp eq i64 %11, 4
   br i1 %.not.i, label %14, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %11, i64 noundef %6, i64 noundef %8) #20
+  %13 = tail call i64 @rb_fiber_scheduler_block(i64 noundef %11, i64 noundef %6, i64 noundef %8) #19
   br label %rb_thread_sleep_deadly_allow_spurious_wakeup.exit
 
 14:                                               ; preds = %1
@@ -15702,12 +15702,12 @@ define internal noundef i64 @queue_sleep(i64 noundef %0) #0 {
   %19 = getelementptr inbounds i8, ptr %.val.i8.i, i64 240
   %20 = load i8, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %21 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #20
+  %21 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %rb_hrtime_now.exit.i.i, label %23
 
 23:                                               ; preds = %18
-  call void @rb_timespec_now(ptr noundef nonnull %3) #20
+  call void @rb_timespec_now(ptr noundef nonnull %3) #19
   br label %rb_hrtime_now.exit.i.i
 
 rb_hrtime_now.exit.i.i:                           ; preds = %23, %18
@@ -15790,8 +15790,8 @@ vm_check_ints_blocking.exit.i.i:                  ; preds = %55, %44
   br label %63
 
 63:                                               ; preds = %hrtime_update_expire.exit.i.i, %.lr.ph.i.i
-  %.val.i16.i.i = load ptr, ptr %60, align 8
-  %64 = getelementptr i8, ptr %.val.i16.i.i, i64 104
+  %.val.i17.i.i = load ptr, ptr %60, align 8
+  %64 = getelementptr i8, ptr %.val.i17.i.i, i64 104
   %.val.val.i.i.i = load i32, ptr %64, align 8
   %65 = icmp sgt i32 %.val.val.i.i.i, 0
   br i1 %65, label %66, label %67
@@ -15809,42 +15809,42 @@ vm_check_ints_blocking.exit.i.i:                  ; preds = %55, %44
 native_sleep.exit.i.i:                            ; preds = %67, %66
   %71 = load ptr, ptr %31, align 8
   %72 = getelementptr i8, ptr %71, i64 48
-  %.val.i17.i.i = load ptr, ptr %72, align 8
-  %73 = getelementptr i8, ptr %.val.i17.i.i, i64 272
-  %.val6.i18.i.i = load i64, ptr %73, align 8
-  %74 = inttoptr i64 %.val6.i18.i.i to ptr
+  %.val.i18.i.i = load ptr, ptr %72, align 8
+  %73 = getelementptr i8, ptr %.val.i18.i.i, i64 272
+  %.val6.i19.i.i = load i64, ptr %73, align 8
+  %74 = inttoptr i64 %.val6.i19.i.i to ptr
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, 8192
-  %.not.i.i.i19.i.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i19.i.i, label %80, label %77
+  %.not.i.i.i20.i.i = icmp eq i64 %76, 0
+  br i1 %.not.i.i.i20.i.i, label %80, label %77
 
 77:                                               ; preds = %native_sleep.exit.i.i
   %78 = lshr i64 %75, 15
   %79 = and i64 %78, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
 
 80:                                               ; preds = %native_sleep.exit.i.i
   %81 = getelementptr inbounds i8, ptr %74, i64 16
   %82 = load i64, ptr %81, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i: ; preds = %80, %77
-  %.0.i.i.i21.i.i = phi i64 [ %79, %77 ], [ %82, %80 ]
-  %.not.i22.i.i = icmp eq i64 %.0.i.i.i21.i.i, 0
-  br i1 %.not.i22.i.i, label %83, label %88
+rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i: ; preds = %80, %77
+  %.0.i.i.i22.i.i = phi i64 [ %79, %77 ], [ %82, %80 ]
+  %.not.i23.i.i = icmp eq i64 %.0.i.i.i22.i.i, 0
+  br i1 %.not.i23.i.i, label %83, label %88
 
-83:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i
+83:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
   %84 = getelementptr i8, ptr %71, i64 32
-  %.val7.i24.i.i = load i32, ptr %84, align 8
+  %.val7.i25.i.i = load i32, ptr %84, align 8
   %85 = getelementptr i8, ptr %71, i64 36
-  %.val8.i25.i.i = load i32, ptr %85, align 4
-  %86 = xor i32 %.val8.i25.i.i, -1
-  %87 = and i32 %.val7.i24.i.i, %86
-  %.not9.i26.i.i = icmp eq i32 %87, 0
-  br i1 %.not9.i26.i.i, label %vm_check_ints_blocking.exit27.i.i, label %94
+  %.val8.i26.i.i = load i32, ptr %85, align 4
+  %86 = xor i32 %.val8.i26.i.i, -1
+  %87 = and i32 %.val7.i25.i.i, %86
+  %.not9.i27.i.i = icmp eq i32 %87, 0
+  br i1 %.not9.i27.i.i, label %vm_check_ints_blocking.exit28.i.i, label %94
 
-88:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i
-  %89 = getelementptr inbounds i8, ptr %.val.i17.i.i, i64 240
+88:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
+  %89 = getelementptr inbounds i8, ptr %.val.i18.i.i, i64 240
   %90 = load i8, ptr %89, align 8
   %91 = and i8 %90, -65
   store i8 %91, ptr %89, align 8
@@ -15853,20 +15853,20 @@ rb_threadptr_pending_interrupt_empty_p.exit.i20.i.i: ; preds = %80, %77
   br label %94
 
 94:                                               ; preds = %88, %83
-  %95 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i17.i.i, i32 noundef 1)
-  br label %vm_check_ints_blocking.exit27.i.i
+  %95 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i18.i.i, i32 noundef 1)
+  br label %vm_check_ints_blocking.exit28.i.i
 
-vm_check_ints_blocking.exit27.i.i:                ; preds = %94, %83
+vm_check_ints_blocking.exit28.i.i:                ; preds = %94, %83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
+  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %rb_hrtime_now.exit.i.i.i, label %98
 
-98:                                               ; preds = %vm_check_ints_blocking.exit27.i.i
-  call void @rb_timespec_now(ptr noundef nonnull %2) #20
+98:                                               ; preds = %vm_check_ints_blocking.exit28.i.i
+  call void @rb_timespec_now(ptr noundef nonnull %2) #19
   br label %rb_hrtime_now.exit.i.i.i
 
-rb_hrtime_now.exit.i.i.i:                         ; preds = %98, %vm_check_ints_blocking.exit27.i.i
+rb_hrtime_now.exit.i.i.i:                         ; preds = %98, %vm_check_ints_blocking.exit28.i.i
   %.val.i.i.i.i = load i64, ptr %2, align 8
   %.val1.i.i.i.i = load i64, ptr %62, align 8
   %99 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i.i.i, i64 1000000000)
@@ -15876,18 +15876,18 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %98, %vm_check_ints_
   %.0.i2.i.i.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i.i.i, i64 %.val1.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %102 = icmp ugt i64 %.0.i2.i.i.i.i.i, %10
-  %.pre32.pre.i.i = load i8, ptr %19, align 8
+  %.pre33.pre.i.i = load i8, ptr %19, align 8
   br i1 %102, label %sleep_hrtime_until.exit.i, label %hrtime_update_expire.exit.i.i
 
 hrtime_update_expire.exit.i.i:                    ; preds = %rb_hrtime_now.exit.i.i.i
   %103 = sub i64 %10, %.0.i2.i.i.i.i.i
   store i64 %103, ptr %4, align 8
-  %104 = and i8 %.pre32.pre.i.i, 3
+  %104 = and i8 %.pre33.pre.i.i, 3
   %105 = icmp eq i8 %104, 1
-  br i1 %105, label %63, label %sleep_hrtime_until.exit.i, !llvm.loop !62
+  br i1 %105, label %63, label %sleep_hrtime_until.exit.i, !llvm.loop !59
 
 sleep_hrtime_until.exit.i:                        ; preds = %hrtime_update_expire.exit.i.i, %rb_hrtime_now.exit.i.i.i, %vm_check_ints_blocking.exit.i.i
-  %106 = phi i8 [ %57, %vm_check_ints_blocking.exit.i.i ], [ %.pre32.pre.i.i, %rb_hrtime_now.exit.i.i.i ], [ %.pre32.pre.i.i, %hrtime_update_expire.exit.i.i ]
+  %106 = phi i8 [ %57, %vm_check_ints_blocking.exit.i.i ], [ %.pre33.pre.i.i, %rb_hrtime_now.exit.i.i.i ], [ %.pre33.pre.i.i, %hrtime_update_expire.exit.i.i ]
   %107 = and i8 %20, 3
   %108 = and i8 %106, -4
   %109 = or disjoint i8 %108, %107
@@ -15933,7 +15933,7 @@ declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #3
 define internal void @queue_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 1
-  tail call void @rb_gc_mark(i64 noundef %3) #20
+  tail call void @rb_gc_mark(i64 noundef %3) #19
   ret void
 }
 
@@ -15946,7 +15946,7 @@ define internal noundef i64 @queue_memsize(ptr nocapture readnone %0) #8 {
 define internal void @szqueue_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 1
-  tail call void @rb_gc_mark(i64 noundef %3) #20
+  tail call void @rb_gc_mark(i64 noundef %3) #19
   ret void
 }
 
@@ -15996,13 +15996,13 @@ define internal fastcc void @sync_wakeup(ptr noundef readonly %0, i64 noundef %1
 
 19:                                               ; preds = %16
   %20 = load i64, ptr %.01531, align 8
-  %21 = tail call i64 @rb_fiberptr_self(ptr noundef nonnull %18) #20
-  %22 = tail call i64 @rb_fiber_scheduler_unblock(i64 noundef %15, i64 noundef %20, i64 noundef %21) #20
+  %21 = tail call i64 @rb_fiberptr_self(ptr noundef nonnull %18) #19
+  %22 = tail call i64 @rb_fiber_scheduler_unblock(i64 noundef %15, i64 noundef %20, i64 noundef %21) #19
   br label %43
 
 23:                                               ; preds = %16, %13
   %24 = getelementptr inbounds i8, ptr %9, i64 288
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #20
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #19
   %.not.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %26
 
@@ -16023,11 +16023,11 @@ rb_native_mutex_lock.exit.i.i:                    ; preds = %23
 33:                                               ; preds = %rb_native_mutex_lock.exit.i.i
   %34 = getelementptr inbounds i8, ptr %9, i64 336
   %35 = load ptr, ptr %34, align 8
-  tail call void %32(ptr noundef %35) #20
+  tail call void %32(ptr noundef %35) #19
   br label %36
 
 36:                                               ; preds = %33, %rb_native_mutex_lock.exit.i.i
-  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #20
+  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #19
   %.not.i8.i.i = icmp eq i32 %37, 0
   br i1 %.not.i8.i.i, label %rb_threadptr_interrupt.exit, label %38
 
@@ -16051,7 +16051,7 @@ rb_threadptr_interrupt.exit:                      ; preds = %36
 46:                                               ; preds = %.lr.ph, %43
   %.1 = phi i64 [ %44, %43 ], [ %.01629, %.lr.ph ]
   %.not = icmp eq ptr %.pn32, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %46, %43, %2
   ret void
@@ -16107,9 +16107,9 @@ define internal fastcc void @native_cond_sleep(ptr noundef %0, ptr nocapture nou
   %16 = call i32 @_setjmp(ptr noundef nonnull %15) #41
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 160
-  %19 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !64
+  %19 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !61
   store ptr %19, ptr %18, align 8
-  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #20
+  %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %21
 
@@ -16119,7 +16119,7 @@ define internal fastcc void @native_cond_sleep(ptr noundef %0, ptr nocapture nou
 
 thread_sched_lock_.exit.i:                        ; preds = %2
   call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %12, ptr noundef nonnull %0, i1 noundef zeroext false)
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #20
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
   %.not.i.i6.i = icmp eq i32 %22, 0
   br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %23
 
@@ -16128,7 +16128,7 @@ thread_sched_lock_.exit.i:                        ; preds = %2
   unreachable
 
 thread_sched_to_waiting.exit:                     ; preds = %thread_sched_lock_.exit.i
-  %24 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #20
+  %24 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %25
 
@@ -16170,12 +16170,12 @@ rb_native_mutex_lock.exit:                        ; preds = %thread_sched_to_wai
 
 43:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #20
+  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %rb_hrtime_now.exit.i, label %46
 
 46:                                               ; preds = %43
-  call void @rb_timespec_now(ptr noundef nonnull %4) #20
+  call void @rb_timespec_now(ptr noundef nonnull %4) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %46, %43
@@ -16191,7 +16191,7 @@ rb_hrtime_now.exit.i:                             ; preds = %46, %43
   br label %native_cond_timeout.exit
 
 51:                                               ; preds = %40
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   %.val.i = load i64, ptr %5, align 8
   %52 = getelementptr inbounds i8, ptr %5, i64 8
   %.val3.i = load i64, ptr %52, align 8
@@ -16212,10 +16212,10 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %58 = urem i64 %.0.i4.i, 1000000000
   br label %rb_hrtime2timespec.exit.i
 
-rb_hrtime2timespec.exit.i:                        ; preds = %rb_hrtime2timespec.exit.i, %native_cond_timeout.exit
+rb_hrtime2timespec.exit.i:                        ; preds = %native_cond_timeout.exit, %rb_hrtime2timespec.exit.i
   store i64 %57, ptr %3, align 8
   store i64 %58, ptr %56, align 8
-  %59 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %3) #20
+  %59 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %3) #19
   switch i32 %59, label %.split10.us.i [
     i32 4, label %rb_hrtime2timespec.exit.i
     i32 110, label %native_cond_timedwait.exit
@@ -16232,7 +16232,7 @@ native_cond_timedwait.exit:                       ; preds = %rb_hrtime2timespec.
 
 60:                                               ; preds = %native_cond_timedwait.exit, %rb_native_mutex_lock.exit
   store ptr null, ptr %26, align 8
-  %61 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #20
+  %61 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i29 = icmp eq i32 %61, 0
   br i1 %.not.i29, label %rb_native_mutex_unlock.exit, label %62
 
@@ -16276,10 +16276,10 @@ define internal fastcc zeroext i1 @thread_sched_wait_events(ptr noundef %0, ptr 
   %14 = call i32 @_setjmp(ptr noundef nonnull %13) #41
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 160
-  %17 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !65
+  %17 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !62
   store ptr %17, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 288
-  %19 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #20
+  %19 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #19
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %20
 
@@ -16292,7 +16292,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %10
   store ptr @ubf_event_waiting, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 336
   store ptr %1, ptr %22, align 8
-  %23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #20
+  %23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #19
   %.not.i6.i = icmp eq i32 %23, 0
   br i1 %.not.i6.i, label %setup_ubf.exit, label %24
 
@@ -16307,7 +16307,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
 
 26:                                               ; preds = %setup_ubf.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %27 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %27 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %29, label %28
 
@@ -16338,7 +16338,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
   %38 = load ptr, ptr %.0.i, align 8
   %39 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %38(i32 noundef 8, ptr noundef nonnull %6, ptr noundef %40) #20
+  call void %38(i32 noundef 8, ptr noundef nonnull %6, ptr noundef %40) #19
   br label %41
 
 41:                                               ; preds = %36, %32
@@ -16348,7 +16348,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
   br i1 %.not14.i, label %.loopexit.i, label %32, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %41, %29
-  %44 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %44 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %44, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %45
 
@@ -16361,7 +16361,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
   br label %46
 
 46:                                               ; preds = %rb_thread_execute_hooks.exit, %setup_ubf.exit
-  %47 = call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %47 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i28 = icmp eq i32 %47, 0
   br i1 %.not.i.i28, label %thread_sched_lock_.exit, label %48
 
@@ -16444,7 +16444,7 @@ thread_sched_deq.exit.i:                          ; preds = %62
   br label %88
 
 88:                                               ; preds = %88, %86
-  %89 = call i32 @pthread_cond_signal(ptr noundef nonnull %87) #20
+  %89 = call i32 @pthread_cond_signal(ptr noundef nonnull %87) #19
   switch i32 %89, label %90 [
     i32 11, label %88
     i32 0, label %thread_sched_wakeup_running_thread.exit
@@ -16475,7 +16475,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup
   %97 = icmp eq i32 %96, 0
   %98 = zext i1 %97 to i8
   store volatile i8 %98, ptr %7, align 1
-  %99 = call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %99 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i32 = icmp eq i32 %99, 0
   br i1 %.not.i.i32, label %thread_sched_unlock_.exit, label %100
 
@@ -16493,7 +16493,7 @@ thread_sched_unlock_.exit:                        ; preds = %94
   br label %104
 
 104:                                              ; preds = %102, %thread_sched_unlock_.exit
-  %105 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #20
+  %105 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #19
   %.not.i.i33 = icmp eq i32 %105, 0
   br i1 %.not.i.i33, label %rb_native_mutex_lock.exit.i34, label %106
 
@@ -16503,7 +16503,7 @@ thread_sched_unlock_.exit:                        ; preds = %94
 
 rb_native_mutex_lock.exit.i34:                    ; preds = %104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %107 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #20
+  %107 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #19
   %.not.i6.i35 = icmp eq i32 %107, 0
   br i1 %.not.i6.i35, label %setup_ubf.exit36, label %108
 
@@ -16534,10 +16534,10 @@ define internal fastcc void @thread_sched_to_waiting_until_wakeup(ptr noundef %0
   %7 = call i32 @_setjmp(ptr noundef nonnull %6) #41
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 160
-  %10 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !66
+  %10 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
   store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 288
-  %12 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #20
+  %12 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %13
 
@@ -16550,7 +16550,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %2
   store ptr @ubf_waiting, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 336
   store ptr %1, ptr %15, align 8
-  %16 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #20
+  %16 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i6.i = icmp eq i32 %16, 0
   br i1 %.not.i6.i, label %setup_ubf.exit, label %17
 
@@ -16565,7 +16565,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
 
 19:                                               ; preds = %setup_ubf.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %20 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %20 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %22, label %21
 
@@ -16596,7 +16596,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
   %31 = load ptr, ptr %.0.i, align 8
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %31(i32 noundef 8, ptr noundef nonnull %3, ptr noundef %33) #20
+  call void %31(i32 noundef 8, ptr noundef nonnull %3, ptr noundef %33) #19
   br label %34
 
 34:                                               ; preds = %29, %25
@@ -16606,7 +16606,7 @@ setup_ubf.exit:                                   ; preds = %rb_native_mutex_loc
   br i1 %.not14.i, label %.loopexit.i, label %25, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %34, %22
-  %37 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %37 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %37, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %38
 
@@ -16619,7 +16619,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
   br label %39
 
 39:                                               ; preds = %rb_thread_execute_hooks.exit, %setup_ubf.exit
-  %40 = call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %40 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i19 = icmp eq i32 %40, 0
   br i1 %.not.i.i19, label %thread_sched_lock_.exit, label %41
 
@@ -16686,7 +16686,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
   br label %69
 
 69:                                               ; preds = %thread_sched_lock_.exit, %thread_sched_wakeup_next_thread.exit
-  %70 = call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %70 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i23 = icmp eq i32 %70, 0
   br i1 %.not.i.i23, label %thread_sched_unlock_.exit, label %71
 
@@ -16695,7 +16695,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
   unreachable
 
 thread_sched_unlock_.exit:                        ; preds = %69
-  %72 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #20
+  %72 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %.not.i.i24 = icmp eq i32 %72, 0
   br i1 %.not.i.i24, label %rb_native_mutex_lock.exit.i25, label %73
 
@@ -16705,7 +16705,7 @@ thread_sched_unlock_.exit:                        ; preds = %69
 
 rb_native_mutex_lock.exit.i25:                    ; preds = %thread_sched_unlock_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #20
+  %74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i6.i26 = icmp eq i32 %74, 0
   br i1 %.not.i6.i26, label %setup_ubf.exit27, label %75
 
@@ -16725,7 +16725,7 @@ define internal void @ubf_pthread_cond_signal(ptr nocapture noundef readonly %0)
   br label %5
 
 5:                                                ; preds = %5, %1
-  %6 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #20
+  %6 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #19
   switch i32 %6, label %7 [
     i32 11, label %5
     i32 0, label %rb_native_cond_signal.exit
@@ -16741,7 +16741,7 @@ rb_native_cond_signal.exit:                       ; preds = %5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @thread_sched_to_running(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %4
 
@@ -16763,7 +16763,7 @@ thread_sched_lock_.exit:                          ; preds = %2
 
 13:                                               ; preds = %thread_sched_lock_.exit
   %14 = getelementptr inbounds i8, ptr %6, i64 160
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #20
+  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #19
   %.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i, label %ractor_sched_lock_.exit.i.i, label %16
 
@@ -16783,7 +16783,7 @@ ractor_sched_lock_.exit.i.i:                      ; preds = %13
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, -1
   store i32 %25, ptr %23, align 4
-  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #20
+  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #19
   %.not.i.i8.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i8.i.i, label %native_thread_dedicated_dec.exit.i, label %27
 
@@ -16809,7 +16809,7 @@ native_thread_dedicated_dec.exit.i:               ; preds = %ractor_sched_lock_.
 
 thread_sched_to_running_common.exit:              ; preds = %native_thread_dedicated_dec.exit.i, %31
   tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext false)
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   %.not.i.i7 = icmp eq i32 %36, 0
   br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %37
 
@@ -16830,7 +16830,7 @@ define internal fastcc void @thread_sched_to_waiting_common0(ptr noundef %0, ptr
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %7 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %7 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %9, label %8
 
@@ -16861,7 +16861,7 @@ define internal fastcc void @thread_sched_to_waiting_common0(ptr noundef %0, ptr
   %18 = load ptr, ptr %.0.i, align 8
   %19 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %20 = load ptr, ptr %19, align 8
-  call void %18(i32 noundef 8, ptr noundef nonnull %4, ptr noundef %20) #20
+  call void %18(i32 noundef 8, ptr noundef nonnull %4, ptr noundef %20) #19
   br label %21
 
 21:                                               ; preds = %16, %12
@@ -16871,7 +16871,7 @@ define internal fastcc void @thread_sched_to_waiting_common0(ptr noundef %0, ptr
   br i1 %.not14.i, label %.loopexit.i, label %12, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %21, %9
-  %24 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %24 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %24, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %25
 
@@ -16898,7 +16898,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds i8, ptr %29, i64 160
-  %37 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #20
+  %37 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #19
   %.not.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %38
 
@@ -16911,7 +16911,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %35
   %40 = load <2 x i32>, ptr %39, align 8
   %41 = add <2 x i32> %40, <i32 -1, i32 1>
   store <2 x i32> %41, ptr %39, align 8
-  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #20
+  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #19
   %.not.i.i8.i = icmp eq i32 %42, 0
   br i1 %.not.i.i8.i, label %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i, label %43
 
@@ -17005,12 +17005,12 @@ define internal fastcc noundef zeroext i1 @timer_thread_register_waiting(ptr nou
 
 14:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
+  %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %rb_hrtime_now.exit, label %17
 
 17:                                               ; preds = %14
-  call void @rb_timespec_now(ptr noundef nonnull %7) #20
+  call void @rb_timespec_now(ptr noundef nonnull %7) #19
   br label %rb_hrtime_now.exit
 
 rb_hrtime_now.exit:                               ; preds = %14, %17
@@ -17045,7 +17045,7 @@ rb_hrtime_now.exit:                               ; preds = %14, %17
   store i16 1, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %6, i64 6
   store i16 0, ptr %29, align 2
-  %30 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0) #20
+  %30 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0) #19
   %.not66 = icmp eq i32 %30, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %.not66, label %31, label %rb_native_mutex_unlock.exit
@@ -17068,7 +17068,7 @@ rb_hrtime_now.exit:                               ; preds = %14, %17
   store i16 4, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %5, i64 6
   store i16 0, ptr %37, align 2
-  %38 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 0) #20
+  %38 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 0) #19
   %.not67 = icmp eq i32 %38, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %.not67, label %39, label %rb_native_mutex_unlock.exit
@@ -17079,7 +17079,7 @@ rb_hrtime_now.exit:                               ; preds = %14, %17
 
 41:                                               ; preds = %39, %31
   %.1 = phi i32 [ %40, %39 ], [ %.042, %31 ]
-  %42 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %42 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %43
 
@@ -17096,12 +17096,12 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   %45 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %0, ptr %45, align 4
   %46 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  %47 = call i32 @epoll_ctl(i32 noundef %46, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %8) #20
+  %47 = call i32 @epoll_ctl(i32 noundef %46, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %8) #19
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %44
-  %50 = call ptr @rb_errno_ptr() #20
+  %50 = call ptr @rb_errno_ptr() #19
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %55 [
     i32 9, label %52
@@ -17110,7 +17110,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   ]
 
 52:                                               ; preds = %49, %49, %49
-  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i62 = icmp eq i32 %53, 0
   br i1 %.not.i62, label %rb_native_mutex_unlock.exit, label %54
 
@@ -17120,7 +17120,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
 
 55:                                               ; preds = %49
   call void @perror(ptr noundef nonnull @.str.166) #48
-  %56 = call ptr @rb_errno_ptr() #20
+  %56 = call ptr @rb_errno_ptr() #19
   %57 = load i32, ptr %56, align 4
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.167, i32 noundef %1, i32 noundef %57) #45
   unreachable
@@ -17168,7 +17168,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 1
   %.not60 = icmp eq i32 %76, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph84, !llvm.loop !67
+  br i1 %.not60, label %._crit_edge, label %.lr.ph84, !llvm.loop !64
 
 .lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.pn7082 = phi ptr [ %81, %.lr.ph ], [ %70, %.lr.ph.preheader ]
@@ -17182,7 +17182,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   %.0417283 = getelementptr i8, ptr %.pn7082, i64 -160
   %81 = load ptr, ptr %.pn7082, align 8
   %.not59 = icmp eq ptr %81, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 5)
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph84, %80, %.lr.ph.preheader
   %.0.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0417283, %.lr.ph ], [ %.07181, %.lr.ph84 ], [ %.0417283, %80 ]
@@ -17218,7 +17218,7 @@ rb_native_mutex_lock.exit:                        ; preds = %41
   br label %94
 
 94:                                               ; preds = %58, %65, %93
-  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i63 = icmp eq i32 %95, 0
   br i1 %.not.i63, label %rb_native_mutex_unlock.exit, label %96
 
@@ -17239,7 +17239,7 @@ define internal void @ubf_event_waiting(ptr noundef %0) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = tail call fastcc zeroext i1 @timer_thread_cancel_waiting(ptr noundef %0)
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %8
 
@@ -17259,7 +17259,7 @@ thread_sched_lock_.exit:                          ; preds = %1
   br label %13
 
 13:                                               ; preds = %thread_sched_lock_.exit, %12
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #20
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i13 = icmp eq i32 %14, 0
   br i1 %.not.i.i13, label %thread_sched_unlock_.exit, label %15
 
@@ -17279,7 +17279,7 @@ define internal fastcc noundef zeroext i1 @timer_thread_cancel_waiting(ptr nound
   br i1 %.not, label %rb_native_mutex_unlock.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %6
 
@@ -17312,19 +17312,19 @@ rb_native_mutex_lock.exit:                        ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 152
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  %21 = tail call i32 @epoll_ctl(i32 noundef %20, i32 noundef 2, i32 noundef %19, ptr noundef null) #20
+  %21 = tail call i32 @epoll_ctl(i32 noundef %20, i32 noundef 2, i32 noundef %19, ptr noundef null) #19
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %timer_thread_unregister_waiting.exit
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @rb_errno_ptr() #20
+  %24 = tail call ptr @rb_errno_ptr() #19
   %25 = load i32, ptr %24, align 4
   %cond.i = icmp eq i32 %25, 9
   br i1 %cond.i, label %timer_thread_unregister_waiting.exit, label %26
 
 26:                                               ; preds = %23
   tail call void @perror(ptr noundef nonnull @.str.166) #48
-  %27 = tail call ptr @rb_errno_ptr() #20
+  %27 = tail call ptr @rb_errno_ptr() #19
   %28 = load i32, ptr %27, align 4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.173, i32 noundef %28) #45
   unreachable
@@ -17334,7 +17334,7 @@ timer_thread_unregister_waiting.exit:             ; preds = %23, %17, %8
   br label %29
 
 29:                                               ; preds = %timer_thread_unregister_waiting.exit, %rb_native_mutex_lock.exit
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i10 = icmp eq i32 %30, 0
   br i1 %.not.i10, label %rb_native_mutex_unlock.exit, label %31
 
@@ -17358,7 +17358,7 @@ define internal fastcc void @timer_thread_wakeup() unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 160
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %5
 
@@ -17386,12 +17386,12 @@ ractor_sched_lock_.exit:                          ; preds = %0
   br i1 %15, label %.preheader.i.i.i, label %timer_thread_wakeup_force.exit.i
 
 .preheader.i.i.i:                                 ; preds = %13, %18
-  %16 = call i64 @write(i32 noundef %14, ptr noundef nonnull %1, i64 noundef 8) #20
+  %16 = call i64 @write(i32 noundef %14, ptr noundef nonnull %1, i64 noundef 8) #19
   %17 = icmp slt i64 %16, 1
   br i1 %17, label %18, label %timer_thread_wakeup_force.exit.i
 
 18:                                               ; preds = %.preheader.i.i.i
-  %19 = tail call ptr @rb_errno_ptr() #20
+  %19 = tail call ptr @rb_errno_ptr() #19
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %21 [
     i32 4, label %.preheader.i.i.i
@@ -17407,7 +17407,7 @@ timer_thread_wakeup_force.exit.i:                 ; preds = %18, %.preheader.i.i
   br label %timer_thread_wakeup_locked.exit
 
 timer_thread_wakeup_locked.exit:                  ; preds = %ractor_sched_lock_.exit, %9, %timer_thread_wakeup_force.exit.i
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #20
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i3 = icmp eq i32 %22, 0
   br i1 %.not.i.i3, label %ractor_sched_unlock_.exit, label %23
 
@@ -17428,7 +17428,7 @@ define internal void @ubf_waiting(ptr noundef %0) #0 {
   %4 = getelementptr inbounds i8, ptr %3, i64 288
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #20
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %7
 
@@ -17447,7 +17447,7 @@ thread_sched_lock_.exit:                          ; preds = %1
   br label %12
 
 12:                                               ; preds = %thread_sched_lock_.exit, %11
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #20
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i12 = icmp eq i32 %13, 0
   br i1 %.not.i.i12, label %thread_sched_unlock_.exit, label %14
 
@@ -17466,7 +17466,7 @@ declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #9
 define internal fastcc void @reserve_stack(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = alloca [256 x i8], align 16
-  %5 = call i32 @getrlimit(i32 noundef 3, ptr noundef nonnull %3) #20
+  %5 = call i32 @getrlimit(i32 noundef 3, ptr noundef nonnull %3) #19
   %6 = icmp eq i32 %5, 0
   %7 = load i64, ptr %3, align 8
   %8 = icmp eq i64 %7, -1
@@ -17536,10 +17536,10 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
   %9 = sub i64 %6, %.0.i
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %9, ptr %10, align 8
-  %11 = tail call ptr @rb_allocate_sigaltstack() #20
+  %11 = tail call ptr @rb_allocate_sigaltstack() #19
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %11, ptr %12, align 8
-  %13 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #20
+  %13 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #19
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
@@ -17548,7 +17548,7 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
   unreachable
 
 15:                                               ; preds = %1
-  %16 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %2, i64 noundef %6) #20
+  %16 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %2, i64 noundef %6) #19
   %.not23 = icmp eq i32 %16, 0
   br i1 %.not23, label %18, label %17
 
@@ -17557,7 +17557,7 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
   unreachable
 
 18:                                               ; preds = %15
-  %19 = call i32 @pthread_attr_setinheritsched(ptr noundef nonnull %2, i32 noundef 0) #20
+  %19 = call i32 @pthread_attr_setinheritsched(ptr noundef nonnull %2, i32 noundef 0) #19
   %.not24 = icmp eq i32 %19, 0
   br i1 %.not24, label %21, label %20
 
@@ -17566,7 +17566,7 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
   unreachable
 
 21:                                               ; preds = %18
-  %22 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %2, i32 noundef 1) #20
+  %22 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %2, i32 noundef 1) #19
   %.not25 = icmp eq i32 %22, 0
   br i1 %.not25, label %24, label %23
 
@@ -17576,8 +17576,8 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull @nt_start, ptr noundef nonnull %0) #20
-  %27 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #20
+  %26 = call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull @nt_start, ptr noundef nonnull %0) #19
+  %27 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #19
   %.not26 = icmp eq i32 %27, 0
   br i1 %.not26, label %29, label %28
 
@@ -17590,7 +17590,7 @@ define internal fastcc i32 @native_thread_create0(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 declare ptr @rb_allocate_sigaltstack() local_unnamed_addr #3
 
@@ -17613,15 +17613,15 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noalias noundef ptr @nt_start(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #20
+  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #19
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @rb_register_sigaltstack(ptr noundef %8) #20
+  %9 = tail call ptr @rb_register_sigaltstack(ptr noundef %8) #19
   store ptr %9, ptr %7, align 8
-  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #20
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #19
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
@@ -17672,7 +17672,7 @@ define internal noalias noundef ptr @nt_start(ptr noundef %0) #0 {
 ruby_thread_set_native.exit:                      ; preds = %.thread, %34
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
   store ptr %26, ptr %37, align 8
-  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %29) #20
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %29) #19
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %39
 
@@ -17698,7 +17698,7 @@ thread_sched_lock_.exit:                          ; preds = %ruby_thread_set_nat
 
 49:                                               ; preds = %43, %thread_sched_lock_.exit
   tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %29, ptr noundef nonnull %26, i1 noundef zeroext false)
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #20
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #19
   %.not.i.i39 = icmp eq i32 %50, 0
   br i1 %.not.i.i39, label %thread_sched_unlock_.exit, label %51
 
@@ -17711,7 +17711,7 @@ thread_sched_unlock_.exit:                        ; preds = %49
   br label %.loopexit
 
 .critedge:                                        ; preds = %.critedge.preheader, %thread_sched_unlock_.exit45
-  %52 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #20
+  %52 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #19
   %.not.i.i.i = icmp eq i32 %52, 0
   br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %53
 
@@ -17737,9 +17737,9 @@ ccan_list_pop_.exit.i:                            ; preds = %ractor_sched_lock_.
   br i1 %61, label %ccan_list_pop_.exit.thread.i, label %64
 
 ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit.i, %ractor_sched_lock_.exit.i
-  %62 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %20, ptr noundef nonnull %18) #20
+  %62 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %20, ptr noundef nonnull %18) #19
   %.not.i14.i = icmp eq i32 %62, 0
-  br i1 %.not.i14.i, label %ractor_sched_lock_.exit.i, label %63, !llvm.loop !68
+  br i1 %.not.i14.i, label %ractor_sched_lock_.exit.i, label %63, !llvm.loop !65
 
 63:                                               ; preds = %ccan_list_pop_.exit.thread.i
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.14, i32 noundef %62) #36
@@ -17749,7 +17749,7 @@ ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit
   %65 = load i32, ptr %21, align 8
   %66 = add i32 %65, -1
   store i32 %66, ptr %21, align 8
-  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #20
+  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #19
   %.not.i.i15.i = icmp eq i32 %67, 0
   br i1 %.not.i.i15.i, label %ractor_sched_deq.exit, label %68
 
@@ -17759,7 +17759,7 @@ ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit
 
 ractor_sched_deq.exit:                            ; preds = %64
   %69 = getelementptr i8, ptr %54, i64 -80
-  %70 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %69) #20
+  %70 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %69) #19
   %.not.i.i41 = icmp eq i32 %70, 0
   br i1 %.not.i.i41, label %thread_sched_lock_.exit42, label %71
 
@@ -17803,11 +17803,11 @@ thread_sched_switch0.exit:                        ; preds = %78, %84
   store ptr %0, ptr %75, align 8
   %88 = getelementptr inbounds i8, ptr %73, i64 192
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr @coroutine_transfer(ptr noundef %79, ptr noundef %89) #20
+  %90 = tail call ptr @coroutine_transfer(ptr noundef %79, ptr noundef %89) #19
   br label %91
 
 91:                                               ; preds = %thread_sched_lock_.exit42, %74, %thread_sched_switch0.exit
-  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %69) #20
+  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %69) #19
   %.not.i.i44 = icmp eq i32 %92, 0
   br i1 %.not.i.i44, label %thread_sched_unlock_.exit45, label %93
 
@@ -17856,7 +17856,7 @@ define internal fastcc void @call_thread_start_func_2(ptr noundef %0) unnamed_ad
   br i1 %.not.i.i.i, label %19, label %rb_vm_lock.exit.i
 
 19:                                               ; preds = %17
-  call void @rb_vm_lock_body() #20
+  call void @rb_vm_lock_body() #19
   %.pre.i = load ptr, ptr %11, align 8
   br label %rb_vm_lock.exit.i
 
@@ -17864,15 +17864,15 @@ rb_vm_lock.exit.i:                                ; preds = %19, %17
   %20 = phi ptr [ %12, %17 ], [ %.pre.i, %19 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  call void @rb_vm_ractor_blocking_cnt_dec(ptr noundef %22, ptr noundef %20, ptr noundef nonnull @.str.36, i32 noundef 647) #20
+  call void @rb_vm_ractor_blocking_cnt_dec(ptr noundef %22, ptr noundef %20, ptr noundef nonnull @.str.36, i32 noundef 647) #19
   %23 = load ptr, ptr %11, align 8
-  %24 = call i64 @rb_io_prep_stdin() #20
+  %24 = call i64 @rb_io_prep_stdin() #19
   %25 = getelementptr inbounds i8, ptr %23, i64 464
   store i64 %24, ptr %25, align 8
-  %26 = call i64 @rb_io_prep_stdout() #20
+  %26 = call i64 @rb_io_prep_stdout() #19
   %27 = getelementptr inbounds i8, ptr %23, i64 472
   store i64 %26, ptr %27, align 8
-  %28 = call i64 @rb_io_prep_stderr() #20
+  %28 = call i64 @rb_io_prep_stderr() #19
   %29 = getelementptr inbounds i8, ptr %23, i64 480
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -17880,7 +17880,7 @@ rb_vm_lock.exit.i:                                ; preds = %19, %17
   br i1 %.not.i.i105.i, label %31, label %rb_vm_unlock.exit.i
 
 31:                                               ; preds = %rb_vm_lock.exit.i
-  call void @rb_vm_unlock_body() #20
+  call void @rb_vm_unlock_body() #19
   br label %rb_vm_unlock.exit.i
 
 rb_vm_unlock.exit.i:                              ; preds = %31, %rb_vm_lock.exit.i, %1
@@ -17975,7 +17975,7 @@ rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %70, %rb_ec_ractor_p
   br i1 %.not.i.i107.i, label %74, label %73
 
 73:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.9.i, i32 noundef %61, i32 noundef %.0.i.i.i.i) #20
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.9.i, i32 noundef %61, i32 noundef %.0.i.i.i.i) #19
   br label %74
 
 74:                                               ; preds = %73, %rb_ec_vm_lock_rec.exit.i.i.i
@@ -17989,7 +17989,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
   store ptr %9, ptr %76, align 8
   %77 = load ptr, ptr %32, align 8
   %78 = getelementptr i8, ptr %77, i64 48
-  %.val103.i = load ptr, ptr %78, align 8, !nonnull !35, !noundef !35
+  %.val103.i = load ptr, ptr %78, align 8, !nonnull !33, !noundef !33
   %79 = getelementptr inbounds i8, ptr %.val103.i, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 24
@@ -18020,7 +18020,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
   store i64 36, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %6, i64 64
   store i32 0, ptr %96, align 8
-  call void @rb_exec_event_hooks(ptr noundef nonnull %6, ptr noundef nonnull %85, i32 noundef 0) #20
+  call void @rb_exec_event_hooks(ptr noundef nonnull %6, ptr noundef nonnull %85, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   br label %97
 
@@ -18036,7 +18036,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
 101:                                              ; preds = %97
   %102 = tail call i64 @pthread_self() #42
   %103 = inttoptr i64 %99 to ptr
-  %104 = load i64, ptr %103, align 8, !noalias !69
+  %104 = load i64, ptr %103, align 8, !noalias !66
   %105 = and i64 %104, 8192
   %.not.i.i.i.i110.i = icmp eq i64 %105, 0
   %106 = getelementptr inbounds i8, ptr %103, i64 24
@@ -18048,7 +18048,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
 
 RSTRING_PTR.exit.i.i.i:                           ; preds = %107, %101
   %.sroa.2.0.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.i, %107 ], [ %106, %101 ]
-  %108 = call i32 @pthread_setname_np(i64 noundef %102, ptr noundef %.sroa.2.0.i.i.i.i) #20
+  %108 = call i32 @pthread_setname_np(i64 noundef %102, ptr noundef %.sroa.2.0.i.i.i.i) #19
   br label %native_set_thread_name.exit.i.i
 
 109:                                              ; preds = %97
@@ -18060,7 +18060,7 @@ RSTRING_PTR.exit.i.i.i:                           ; preds = %107, %101
 threadptr_invoke_proc_location.exit.i.i.i:        ; preds = %109
   %113 = getelementptr inbounds i8, ptr %0, i64 368
   %114 = load i64, ptr %113, align 8
-  %115 = call i64 @rb_proc_location(i64 noundef %114) #20
+  %115 = call i64 @rb_proc_location(i64 noundef %114) #19
   store i64 %115, ptr %3, align 8
   %.not.i.i112.i = icmp eq i64 %115, 4
   br i1 %.not.i.i112.i, label %native_set_thread_name.exit.i.i, label %116
@@ -18085,7 +18085,7 @@ RARRAY_AREF.exit.i.i.i:                           ; preds = %122, %120
   %.0.i.i.i.i.i = phi ptr [ %121, %120 ], [ %124, %122 ]
   %125 = load i64, ptr %.0.i.i.i.i.i, align 8
   %126 = inttoptr i64 %125 to ptr
-  %127 = load i64, ptr %126, align 8, !noalias !72
+  %127 = load i64, ptr %126, align 8, !noalias !69
   %128 = and i64 %127, 8192
   %.not.i.i14.i.i.i = icmp eq i64 %128, 0
   %129 = getelementptr inbounds i8, ptr %126, i64 24
@@ -18130,19 +18130,19 @@ RARRAY_AREF.exit20.i.i.i:                         ; preds = %138, %136
   br i1 %.not.i.i.i114.i, label %146, label %144
 
 144:                                              ; preds = %RARRAY_AREF.exit20.i.i.i
-  %145 = call i64 @rb_fix2int(i64 noundef %142) #20
+  %145 = call i64 @rb_fix2int(i64 noundef %142) #19
   br label %rb_num2int_inline.exit.i.i.i
 
 146:                                              ; preds = %RARRAY_AREF.exit20.i.i.i
-  %147 = call i64 @rb_num2int(i64 noundef %142) #20
+  %147 = call i64 @rb_num2int(i64 noundef %142) #19
   br label %rb_num2int_inline.exit.i.i.i
 
 rb_num2int_inline.exit.i.i.i:                     ; preds = %146, %144
   %.0.i21.i.i.i = phi i64 [ %145, %144 ], [ %147, %146 ]
   %148 = trunc i64 %.0.i21.i.i.i to i32
-  %149 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %4, i64 noundef 16, ptr noundef nonnull @.str.184, ptr noundef %.0.i.i113.i, i32 noundef %148) #20
+  %149 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %4, i64 noundef 16, ptr noundef nonnull @.str.184, ptr noundef %.0.i.i113.i, i32 noundef %148) #19
   store ptr %3, ptr %5, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #20, !srcloc !75
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #19, !srcloc !72
   %150 = load ptr, ptr %5, align 8
   %151 = load volatile i64, ptr %150, align 8
   %152 = icmp ugt i32 %149, 15
@@ -18157,7 +18157,7 @@ rb_num2int_inline.exit.i.i.i:                     ; preds = %146, %144
 
 156:                                              ; preds = %153, %rb_num2int_inline.exit.i.i.i
   %157 = tail call i64 @pthread_self() #42
-  %158 = call i32 @pthread_setname_np(i64 noundef %157, ptr noundef nonnull %4) #20
+  %158 = call i32 @pthread_setname_np(i64 noundef %157, ptr noundef nonnull %4) #19
   br label %native_set_thread_name.exit.i.i
 
 native_set_thread_name.exit.i.i:                  ; preds = %156, %threadptr_invoke_proc_location.exit.i.i.i, %109, %RSTRING_PTR.exit.i.i.i
@@ -18180,7 +18180,7 @@ native_set_thread_name.exit.i.i:                  ; preds = %156, %threadptr_inv
 163:                                              ; preds = %native_set_thread_name.exit.i.i
   %164 = call fastcc i64 @thread_do_start_proc(ptr noundef nonnull %0)
   %165 = load ptr, ptr %32, align 8
-  call void @rb_ractor_atexit(ptr noundef %165, i64 noundef %164) #20
+  call void @rb_ractor_atexit(ptr noundef %165, i64 noundef %164) #19
   br label %thread_do_start.exit.i
 
 166:                                              ; preds = %native_set_thread_name.exit.i.i
@@ -18188,7 +18188,7 @@ native_set_thread_name.exit.i.i:                  ; preds = %156, %threadptr_inv
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %0, i64 376
   %170 = load ptr, ptr %169, align 8
-  %171 = call i64 %168(ptr noundef %170) #20
+  %171 = call i64 %168(ptr noundef %170) #19
   br label %thread_do_start.exit.i
 
 172:                                              ; preds = %native_set_thread_name.exit.i.i
@@ -18198,10 +18198,10 @@ native_set_thread_name.exit.i.i:                  ; preds = %156, %threadptr_inv
 thread_do_start.exit.i:                           ; preds = %166, %163, %161, %native_set_thread_name.exit.i.i, %74
   %173 = phi i32 [ %59, %74 ], [ 0, %native_set_thread_name.exit.i.i ], [ 0, %161 ], [ 0, %163 ], [ 0, %166 ]
   %.092.i = phi i64 [ 36, %74 ], [ 36, %native_set_thread_name.exit.i.i ], [ %162, %161 ], [ %164, %163 ], [ %171, %166 ]
-  %174 = call i64 @rb_fiber_scheduler_set(i64 noundef 4) #20
+  %174 = call i64 @rb_fiber_scheduler_set(i64 noundef 4) #19
   %175 = load ptr, ptr %32, align 8
   %176 = getelementptr i8, ptr %175, i64 48
-  %.val.i = load ptr, ptr %176, align 8, !nonnull !35, !noundef !35
+  %.val.i = load ptr, ptr %176, align 8, !nonnull !33, !noundef !33
   %177 = getelementptr inbounds i8, ptr %.val.i, i64 24
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 24
@@ -18232,7 +18232,7 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
   store i64 36, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %2, i64 64
   store i32 0, ptr %194, align 8
-  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %183, i32 noundef 0) #20
+  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %183, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
   br label %195
 
@@ -18244,7 +18244,7 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
   %198 = getelementptr inbounds i8, ptr %197, i64 120
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %7, align 8
-  %200 = call i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef %173, i64 noundef 36) #20
+  %200 = call i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef %173, i64 noundef 36) #19
   %201 = icmp eq i64 %200, 4
   br i1 %201, label %203, label %202
 
@@ -18265,12 +18265,12 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %32, align 8
-  call void @rb_ractor_atexit(ptr noundef %211, i64 noundef 4) #20
+  call void @rb_ractor_atexit(ptr noundef %211, i64 noundef 4) #19
   br label %245
 
 212:                                              ; preds = %203
   %213 = load i64, ptr @rb_eSystemExit, align 8
-  %214 = call i64 @rb_obj_is_kind_of(i64 noundef %204, i64 noundef %213) #20
+  %214 = call i64 @rb_obj_is_kind_of(i64 noundef %204, i64 noundef %213) #19
   %.not98.i = icmp eq i64 %214, 0
   br i1 %.not98.i, label %215, label %245
 
@@ -18285,10 +18285,10 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
   %220 = getelementptr inbounds i8, ptr %0, i64 16
   %221 = load i64, ptr %220, align 8
   %222 = call i64 @rb_thread_to_s(i64 noundef %221)
-  %223 = call i64 @rb_str_cat(i64 noundef %222, ptr noundef nonnull @.str.182, i64 noundef 58) #20
-  call void @rb_write_error_str(i64 noundef %222) #20
+  %223 = call i64 @rb_str_cat(i64 noundef %222, ptr noundef nonnull @.str.182, i64 noundef 58) #19
+  call void @rb_write_error_str(i64 noundef %222) #19
   %224 = load ptr, ptr %32, align 8
-  call void @rb_ec_error_print(ptr noundef %224, i64 noundef %204) #20
+  call void @rb_ec_error_print(ptr noundef %224, i64 noundef %204) #19
   br label %225
 
 225:                                              ; preds = %219, %215
@@ -18299,7 +18299,7 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
 
 229:                                              ; preds = %225
   %230 = load ptr, ptr %32, align 8
-  call void @rb_ractor_atexit_exception(ptr noundef %230) #20
+  call void @rb_ractor_atexit_exception(ptr noundef %230) #19
   br label %231
 
 231:                                              ; preds = %229, %225
@@ -18318,7 +18318,7 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
   br i1 %.not101.i, label %240, label %245
 
 240:                                              ; preds = %237
-  %241 = call ptr @rb_ruby_debug_ptr() #20
+  %241 = call ptr @rb_ruby_debug_ptr() #19
   %242 = load i64, ptr %241, align 8
   %243 = and i64 %242, -5
   %.not1.i = icmp eq i64 %243, 0
@@ -18357,13 +18357,13 @@ thread_do_start.exit.i:                           ; preds = %166, %163, %161, %n
 258:                                              ; preds = %255
   %259 = getelementptr inbounds i8, ptr %252, i64 16
   %260 = load i64, ptr %259, align 8
-  %261 = call i64 @rb_fiberptr_self(ptr noundef nonnull %257) #20
-  %262 = call i64 @rb_fiber_scheduler_unblock(i64 noundef %254, i64 noundef %260, i64 noundef %261) #20
+  %261 = call i64 @rb_fiberptr_self(ptr noundef nonnull %257) #19
+  %262 = call i64 @rb_fiber_scheduler_unblock(i64 noundef %254, i64 noundef %260, i64 noundef %261) #19
   br label %284
 
 263:                                              ; preds = %255, %.lr.ph.i.i
   %264 = getelementptr inbounds i8, ptr %252, i64 288
-  %265 = call i32 @pthread_mutex_lock(ptr noundef nonnull %264) #20
+  %265 = call i32 @pthread_mutex_lock(ptr noundef nonnull %264) #19
   %.not.i.i.i.i120.i = icmp eq i32 %265, 0
   br i1 %.not.i.i.i.i120.i, label %rb_native_mutex_lock.exit.i.i.i.i, label %266
 
@@ -18384,11 +18384,11 @@ rb_native_mutex_lock.exit.i.i.i.i:                ; preds = %263
 273:                                              ; preds = %rb_native_mutex_lock.exit.i.i.i.i
   %274 = getelementptr inbounds i8, ptr %252, i64 336
   %275 = load ptr, ptr %274, align 8
-  call void %272(ptr noundef %275) #20
+  call void %272(ptr noundef %275) #19
   br label %276
 
 276:                                              ; preds = %273, %rb_native_mutex_lock.exit.i.i.i.i
-  %277 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %264) #20
+  %277 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %264) #19
   %.not.i8.i.i.i.i = icmp eq i32 %277, 0
   br i1 %.not.i8.i.i.i.i, label %rb_threadptr_interrupt.exit.i.i, label %278
 
@@ -18412,7 +18412,7 @@ rb_threadptr_interrupt.exit.i.i:                  ; preds = %276
 284:                                              ; preds = %282, %rb_threadptr_interrupt.exit.i.i, %258
   %285 = load ptr, ptr %247, align 8
   %.not.i119.i = icmp eq ptr %285, null
-  br i1 %.not.i119.i, label %rb_threadptr_join_list_wakeup.exit.i, label %.lr.ph.i.i, !llvm.loop !76
+  br i1 %.not.i119.i, label %rb_threadptr_join_list_wakeup.exit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 rb_threadptr_join_list_wakeup.exit.i:             ; preds = %284, %245
   %286 = getelementptr inbounds i8, ptr %0, i64 352
@@ -18430,7 +18430,7 @@ rb_threadptr_join_list_wakeup.exit.i:             ; preds = %284, %245
   %292 = load ptr, ptr %288, align 8
   %293 = call fastcc ptr @rb_mutex_unlock_th(ptr noundef nonnull %288, ptr noundef nonnull %0, ptr noundef %292)
   %.not10.i.i = icmp eq ptr %293, null
-  br i1 %.not10.i.i, label %287, label %294, !llvm.loop !22
+  br i1 %.not10.i.i, label %287, label %294, !llvm.loop !21
 
 294:                                              ; preds = %289
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.31, ptr noundef nonnull %293) #45
@@ -18445,7 +18445,7 @@ rb_threadptr_unlock_all_locking_mutexes.exit.i:   ; preds = %287
 298:                                              ; preds = %rb_threadptr_unlock_all_locking_mutexes.exit.i
   call void @rb_thread_terminate_all(ptr noundef nonnull %0)
   %299 = load ptr, ptr %32, align 8
-  call void @rb_ractor_teardown(ptr noundef %299) #20
+  call void @rb_ractor_teardown(ptr noundef %299) #19
   br label %300
 
 300:                                              ; preds = %298, %rb_threadptr_unlock_all_locking_mutexes.exit.i
@@ -18489,7 +18489,7 @@ rb_threadptr_unlock_all_locking_mutexes.exit.i:   ; preds = %287
   %323 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.11.i, i64 24
   store ptr %322, ptr %323, align 8
   %324 = load ptr, ptr %32, align 8
-  call void @rb_ec_clear_current_thread_trace_func(ptr noundef %324) #20
+  call void @rb_ec_clear_current_thread_trace_func(ptr noundef %324) #19
   %325 = getelementptr inbounds i8, ptr %0, i64 344
   %326 = load i64, ptr %325, align 8
   %.not102.i = icmp eq i64 %326, 0
@@ -18515,7 +18515,7 @@ rb_threadptr_unlock_all_locking_mutexes.exit.i:   ; preds = %287
 
 337:                                              ; preds = %333
   %338 = getelementptr inbounds i8, ptr %14, i64 288
-  %339 = call i32 @pthread_mutex_lock(ptr noundef nonnull %338) #20
+  %339 = call i32 @pthread_mutex_lock(ptr noundef nonnull %338) #19
   %.not.i.i.i122.i = icmp eq i32 %339, 0
   br i1 %.not.i.i.i122.i, label %rb_native_mutex_lock.exit.i.i.i, label %340
 
@@ -18536,11 +18536,11 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %337
 347:                                              ; preds = %rb_native_mutex_lock.exit.i.i.i
   %348 = getelementptr inbounds i8, ptr %14, i64 336
   %349 = load ptr, ptr %348, align 8
-  call void %346(ptr noundef %349) #20
+  call void %346(ptr noundef %349) #19
   br label %350
 
 350:                                              ; preds = %347, %rb_native_mutex_lock.exit.i.i.i
-  %351 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %338) #20
+  %351 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %338) #19
   %.not.i8.i.i.i = icmp eq i32 %351, 0
   br i1 %.not.i8.i.i.i, label %.rb_threadptr_interrupt.exit_crit_edge.i, label %352
 
@@ -18558,7 +18558,7 @@ rb_threadptr_interrupt.exit.i:                    ; preds = %.rb_threadptr_inter
   %354 = load ptr, ptr %32, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 40
   %356 = load ptr, ptr %355, align 8
-  call void @rb_fiber_close(ptr noundef %356) #20
+  call void @rb_fiber_close(ptr noundef %356) #19
   store i64 0, ptr %325, align 8
   %357 = load i8, ptr %301, align 8
   %358 = or i8 %357, 3
@@ -18569,9 +18569,9 @@ rb_threadptr_interrupt.exit.i:                    ; preds = %.rb_threadptr_inter
   %361 = load ptr, ptr %32, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 152
   store ptr null, ptr %362, align 8
-  call void @rb_threadptr_root_fiber_terminate(ptr noundef nonnull %0) #20
+  call void @rb_threadptr_root_fiber_terminate(ptr noundef nonnull %0) #19
   %363 = getelementptr inbounds i8, ptr %0, i64 288
-  %364 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %363) #20
+  %364 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %363) #19
   %.not.i.i123.i = icmp eq i32 %364, 0
   br i1 %.not.i.i123.i, label %thread_cleanup_func.exit.i, label %365
 
@@ -18589,11 +18589,11 @@ thread_cleanup_func.exit.i:                       ; preds = %rb_threadptr_interr
   %370 = getelementptr inbounds i8, ptr %368, i64 288
   call fastcc void @thread_sched_to_dead(ptr noundef nonnull %370, ptr noundef nonnull %0)
   %371 = load ptr, ptr %11, align 8
-  call void @rb_ractor_living_threads_remove(ptr noundef %371, ptr noundef nonnull %0) #20
+  call void @rb_ractor_living_threads_remove(ptr noundef %371, ptr noundef nonnull %0) #19
   br label %thread_start_func_2.exit
 
 372:                                              ; preds = %thread_cleanup_func.exit.i
-  call void @rb_ractor_living_threads_remove(ptr noundef %368, ptr noundef nonnull %0) #20
+  call void @rb_ractor_living_threads_remove(ptr noundef %368, ptr noundef nonnull %0) #19
   %373 = load ptr, ptr %11, align 8
   %374 = getelementptr inbounds i8, ptr %373, i64 288
   call fastcc void @thread_sched_to_dead(ptr noundef nonnull %374, ptr noundef nonnull %0)
@@ -18642,7 +18642,7 @@ declare void @rb_fiber_close(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @thread_sched_to_dead(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_internal_thread_event_data, align 8
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %thread_sched_lock_.exit, label %5
 
@@ -18658,7 +18658,7 @@ thread_sched_lock_.exit:                          ; preds = %2
 
 7:                                                ; preds = %thread_sched_lock_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i.i6 = icmp eq i32 %8, 0
   br i1 %.not.i.i6, label %10, label %9
 
@@ -18689,7 +18689,7 @@ thread_sched_lock_.exit:                          ; preds = %2
   %19 = load ptr, ptr %.0.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void %19(i32 noundef 16, ptr noundef nonnull %3, ptr noundef %21) #20
+  call void %19(i32 noundef 16, ptr noundef nonnull %3, ptr noundef %21) #19
   br label %22
 
 22:                                               ; preds = %17, %13
@@ -18699,7 +18699,7 @@ thread_sched_lock_.exit:                          ; preds = %2
   br i1 %.not14.i.i, label %.loopexit.i.i, label %13, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %22, %10
-  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i.i = icmp eq i32 %25, 0
   br i1 %.not15.i.i, label %rb_thread_execute_hooks.exit.i, label %26
 
@@ -18712,7 +18712,7 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   br label %thread_sched_to_dead_common.exit
 
 thread_sched_to_dead_common.exit:                 ; preds = %thread_sched_lock_.exit, %rb_thread_execute_hooks.exit.i
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef %0) #20
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i7 = icmp eq i32 %27, 0
   br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %28
 
@@ -18771,7 +18771,7 @@ vm_proc_ep.exit.i:                                ; preds = %tailrecurse.i.i, %t
   br i1 %.not.i, label %rb_vm_proc_local_ep.exit, label %21
 
 21:                                               ; preds = %vm_proc_ep.exit.i
-  %22 = tail call ptr @rb_vm_ep_local_ep(ptr noundef nonnull %20) #20
+  %22 = tail call ptr @rb_vm_ep_local_ep(ptr noundef nonnull %20) #19
   br label %rb_vm_proc_local_ep.exit
 
 rb_vm_proc_local_ep.exit:                         ; preds = %tailrecurse.i.i, %vm_proc_ep.exit.i, %21
@@ -18841,7 +18841,7 @@ vm_check_ints_blocking.exit:                      ; preds = %39, %50
   %56 = getelementptr inbounds i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8
   %.val = load i64, ptr %57, align 8
-  %58 = tail call i64 @rb_fix2int(i64 noundef %4) #20
+  %58 = tail call i64 @rb_fix2int(i64 noundef %4) #19
   %59 = trunc i64 %58 to i32
   %sext71 = shl i64 %58, 32
   %60 = ashr exact i64 %sext71, 32
@@ -18857,7 +18857,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %55
   %64 = alloca i8, i64 %63, align 16
   %65 = load ptr, ptr %9, align 8
   %66 = load ptr, ptr %56, align 8
-  call void @rb_ractor_receive_parameters(ptr noundef %65, ptr noundef %66, i32 noundef %59, ptr noundef nonnull %64) #20
+  call void @rb_ractor_receive_parameters(ptr noundef %65, ptr noundef %66, i32 noundef %59, ptr noundef nonnull %64) #19
   %67 = load ptr, ptr %9, align 8
   %68 = getelementptr i8, ptr %67, i64 48
   %.val.i41 = load ptr, ptr %68, align 8
@@ -18912,7 +18912,7 @@ vm_check_ints_blocking.exit51:                    ; preds = %79, %90
   %92 = phi ptr [ %67, %79 ], [ %.pre76, %90 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 384
   %94 = load i32, ptr %93, align 8
-  %95 = call i64 @rb_vm_invoke_proc_with_self(ptr noundef %92, ptr noundef %8, i64 noundef %.val, i32 noundef %59, ptr noundef nonnull %64, i32 noundef %94, i64 noundef 0) #20
+  %95 = call i64 @rb_vm_invoke_proc_with_self(ptr noundef %92, ptr noundef %8, i64 noundef %.val, i32 noundef %59, ptr noundef nonnull %64, i32 noundef %94, i64 noundef 0) #19
   br label %157
 
 96:                                               ; preds = %vm_check_ints_blocking.exit
@@ -18976,7 +18976,7 @@ rbimpl_size_mul_or_raise.exit55:                  ; preds = %118, %116
   br i1 %.not.i56, label %ruby_nonempty_memcpy.exit, label %121
 
 121:                                              ; preds = %rbimpl_size_mul_or_raise.exit55
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %115, ptr align 1 %.0.i54, i64 %114, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %115, ptr readonly align 1 %.0.i54, i64 %114, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit55, %121
@@ -19051,7 +19051,7 @@ vm_check_ints_blocking.exit70:                    ; preds = %140, %151
   %153 = phi ptr [ %128, %140 ], [ %.pre, %151 ]
   %154 = getelementptr inbounds i8, ptr %0, i64 384
   %155 = load i32, ptr %154, align 8
-  %156 = call i64 @rb_vm_invoke_proc(ptr noundef %153, ptr noundef %8, i32 noundef %108, ptr noundef %.037, i32 noundef %155, i64 noundef 0) #20
+  %156 = call i64 @rb_vm_invoke_proc(ptr noundef %153, ptr noundef %8, i32 noundef %108, ptr noundef %.037, i32 noundef %155, i64 noundef 0) #19
   br label %157
 
 157:                                              ; preds = %vm_check_ints_blocking.exit70, %vm_check_ints_blocking.exit51
@@ -19073,7 +19073,7 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @RB_FIX2INT(i64 noundef %0) unnamed_addr #0 {
-  %2 = tail call i64 @rb_fix2int(i64 noundef %0) #20
+  %2 = tail call i64 @rb_fix2int(i64 noundef %0) #19
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
@@ -19103,7 +19103,7 @@ define internal void @co_start(ptr nocapture readnone %0, ptr noundef %1) #22 {
   %.not.i = icmp eq ptr %12, %11
   %13 = select i1 %.not.i, ptr null, ptr %5
   tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %8, ptr noundef %10, ptr noundef %5, ptr noundef null, ptr noundef %13)
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #20
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %.not.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i, label %thread_sched_unlock_.exit, label %15
 
@@ -19118,7 +19118,7 @@ thread_sched_unlock_.exit:                        ; preds = %2
 
 17:                                               ; preds = %thread_sched_unlock_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %18 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %18 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i35 = icmp eq i32 %18, 0
   br i1 %.not.i35, label %20, label %19
 
@@ -19149,7 +19149,7 @@ thread_sched_unlock_.exit:                        ; preds = %2
   %29 = load ptr, ptr %.0.i, align 8
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %31 = load ptr, ptr %30, align 8
-  call void %29(i32 noundef 4, ptr noundef nonnull %3, ptr noundef %31) #20
+  call void %29(i32 noundef 4, ptr noundef nonnull %3, ptr noundef %31) #19
   br label %32
 
 32:                                               ; preds = %27, %23
@@ -19159,7 +19159,7 @@ thread_sched_unlock_.exit:                        ; preds = %2
   br i1 %.not14.i, label %.loopexit.i, label %23, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %32, %20
-  %35 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %35 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i = icmp eq i32 %35, 0
   br i1 %.not15.i, label %rb_thread_execute_hooks.exit, label %36
 
@@ -19173,7 +19173,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 
 37:                                               ; preds = %rb_thread_execute_hooks.exit, %thread_sched_unlock_.exit
   call fastcc void @call_thread_start_func_2(ptr noundef %5)
-  %38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #20
+  %38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %.not.i.i36 = icmp eq i32 %38, 0
   br i1 %.not.i.i36, label %thread_sched_lock_.exit, label %39
 
@@ -19200,7 +19200,7 @@ thread_sched_lock_.exit:                          ; preds = %37
   store i8 1, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %41, i64 96
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @coroutine_transfer(ptr noundef %1, ptr noundef %50) #20
+  %51 = call ptr @coroutine_transfer(ptr noundef %1, ptr noundef %50) #19
   br label %83
 
 52:                                               ; preds = %thread_sched_lock_.exit
@@ -19246,7 +19246,7 @@ thread_sched_switch0.exit:                        ; preds = %62, %69
   store ptr %41, ptr %60, align 8
   %74 = getelementptr inbounds i8, ptr %57, i64 192
   %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @coroutine_transfer(ptr noundef %64, ptr noundef %75) #20
+  %76 = call ptr @coroutine_transfer(ptr noundef %64, ptr noundef %75) #19
   %77 = getelementptr inbounds i8, ptr %5, i64 176
   store i8 1, ptr %77, align 8
   br label %83
@@ -19256,7 +19256,7 @@ thread_sched_switch0.exit:                        ; preds = %62, %69
   store i8 1, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %41, i64 96
   %81 = load ptr, ptr %80, align 8
-  %82 = call ptr @coroutine_transfer(ptr noundef %1, ptr noundef %81) #20
+  %82 = call ptr @coroutine_transfer(ptr noundef %1, ptr noundef %81) #19
   br label %83
 
 83:                                               ; preds = %thread_sched_switch0.exit, %78, %47
@@ -19267,7 +19267,7 @@ thread_sched_switch0.exit:                        ; preds = %62, %69
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @native_thread_check_and_create_shared(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #19
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %4
 
@@ -19302,7 +19302,7 @@ rb_native_mutex_lock.exit:                        ; preds = %1
 
 .critedge:                                        ; preds = %18, %rb_native_mutex_lock.exit
   store i32 %12, ptr %5, align 8
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #19
   %.not.i17 = icmp eq i32 %22, 0
   br i1 %.not.i17, label %rb_native_mutex_unlock.exit, label %23
 
@@ -19314,7 +19314,7 @@ rb_native_mutex_unlock.exit:                      ; preds = %.critedge
   %24 = tail call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #46
   %25 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr @condattr_monotonic, align 8
-  %27 = tail call i32 @pthread_cond_init(ptr noundef nonnull %25, ptr noundef %26) #20
+  %27 = tail call i32 @pthread_cond_init(ptr noundef nonnull %25, ptr noundef %26) #19
   %.not.i.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i.i, label %native_thread_alloc.exit, label %28
 
@@ -19332,7 +19332,7 @@ native_thread_alloc.exit:                         ; preds = %rb_native_mutex_unl
   br label %rb_native_mutex_unlock.exit19
 
 33:                                               ; preds = %14, %18
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #19
   %.not.i18 = icmp eq i32 %34, 0
   br i1 %.not.i18, label %rb_native_mutex_unlock.exit19, label %35
 
@@ -19405,7 +19405,7 @@ define internal fastcc i64 @thread_join(ptr noundef %0, i64 noundef %1, ptr noun
   store ptr %29, ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %30, align 8
-  %31 = tail call i32 @rb_fiberptr_blocking(ptr noundef %11) #20
+  %31 = tail call i32 @rb_fiberptr_blocking(ptr noundef %11) #19
   %.not26 = icmp eq i32 %31, 0
   %32 = select i1 %.not26, ptr %11, ptr null
   %33 = getelementptr inbounds i8, ptr %4, i64 16
@@ -19419,7 +19419,7 @@ define internal fastcc i64 @thread_join(ptr noundef %0, i64 noundef %1, ptr noun
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %2, ptr %36, align 8
   %37 = ptrtoint ptr %5 to i64
-  %38 = call i64 @rb_ensure(ptr noundef nonnull @thread_join_sleep, i64 noundef %37, ptr noundef nonnull @remove_from_join_list, i64 noundef %37) #20
+  %38 = call i64 @rb_ensure(ptr noundef nonnull @thread_join_sleep, i64 noundef %37, ptr noundef nonnull @remove_from_join_list, i64 noundef %37) #19
   %.not27 = icmp eq i64 %38, 0
   br i1 %.not27, label %62, label %39
 
@@ -19478,7 +19478,7 @@ imemo_throw_data_p.exit.thread:                   ; preds = %49, %imemo_throw_da
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @thread_join_sleep(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @thread_join_sleep(i64 noundef %0) #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = inttoptr i64 %0 to ptr
@@ -19495,12 +19495,12 @@ define internal noundef i64 @thread_join_sleep(i64 noundef %0) #0 {
 12:                                               ; preds = %1
   %13 = load i64, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #20
+  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %12
-  call void @rb_timespec_now(ptr noundef nonnull %3) #20
+  call void @rb_timespec_now(ptr noundef nonnull %3) #19
   br label %.thread
 
 17:                                               ; preds = %1
@@ -19549,7 +19549,7 @@ thread_finished.exit.us:                          ; preds = %thread_finished.exi
   br i1 %.not39.us, label %41, label %thread_finished.exit.thread
 
 41:                                               ; preds = %thread_finished.exit.us
-  %42 = tail call i64 @rb_fiber_scheduler_current() #20
+  %42 = tail call i64 @rb_fiber_scheduler_current() #19
   %.not25.us = icmp eq i64 %42, 4
   br i1 %.not25.us, label %sleep_forever.exit.us, label %.split.us
 
@@ -19635,7 +19635,7 @@ vm_check_ints_blocking.exit.us:                   ; preds = %84, %79
   %88 = load i8, ptr %18, align 8
   %89 = and i8 %88, 3
   %90 = icmp eq i8 %89, 3
-  br i1 %90, label %thread_finished.exit.thread, label %thread_finished.exit.us, !llvm.loop !77
+  br i1 %90, label %thread_finished.exit.thread, label %thread_finished.exit.us, !llvm.loop !74
 
 thread_finished.exit:                             ; preds = %thread_finished.exit.preheader, %vm_check_ints_blocking.exit
   %91 = load i64, ptr %30, align 8
@@ -19643,7 +19643,7 @@ thread_finished.exit:                             ; preds = %thread_finished.exi
   br i1 %.not39, label %92, label %thread_finished.exit.thread
 
 92:                                               ; preds = %thread_finished.exit
-  %93 = call i64 @rb_fiber_scheduler_current() #20
+  %93 = call i64 @rb_fiber_scheduler_current() #19
   %.not25 = icmp eq i64 %93, 4
   br i1 %.not25, label %105, label %.split.us
 
@@ -19655,7 +19655,7 @@ thread_finished.exit:                             ; preds = %thread_finished.exi
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %4, i64 16
   %99 = load i64, ptr %98, align 8
-  %100 = call i64 @rb_fiber_scheduler_block(i64 noundef %.us-phi, i64 noundef %97, i64 noundef %99) #20
+  %100 = call i64 @rb_fiber_scheduler_block(i64 noundef %.us-phi, i64 noundef %97, i64 noundef %99) #19
   %101 = load i8, ptr %95, align 8
   %102 = and i8 %101, 3
   %103 = icmp eq i8 %102, 3
@@ -19668,12 +19668,12 @@ thread_finished.exit28:                           ; preds = %.split.us
 
 105:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
+  %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %rb_hrtime_now.exit.i, label %108
 
 108:                                              ; preds = %105
-  call void @rb_timespec_now(ptr noundef nonnull %2) #20
+  call void @rb_timespec_now(ptr noundef nonnull %2) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %108, %105
@@ -19768,7 +19768,7 @@ vm_check_ints_blocking.exit:                      ; preds = %137, %148
   %152 = load i8, ptr %26, align 8
   %153 = and i8 %152, 3
   %154 = icmp eq i8 %153, 3
-  br i1 %154, label %thread_finished.exit.thread, label %thread_finished.exit, !llvm.loop !77
+  br i1 %154, label %thread_finished.exit.thread, label %thread_finished.exit, !llvm.loop !74
 
 thread_finished.exit.thread:                      ; preds = %thread_finished.exit, %vm_check_ints_blocking.exit, %thread_finished.exit.us, %vm_check_ints_blocking.exit.us, %.thread, %17, %.split.us, %thread_finished.exit28
   br label %hrtime_update_expire.exit
@@ -19802,7 +19802,7 @@ define internal noundef i64 @remove_from_join_list(i64 noundef %0) #35 {
 12:                                               ; preds = %10
   %13 = load ptr, ptr %2, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %15, label %10, !llvm.loop !78
+  br i1 %14, label %15, label %10, !llvm.loop !75
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %11, align 8
@@ -19867,7 +19867,7 @@ define internal noundef ptr @timer_thread_func(ptr noundef %0) #0 {
   br label %16
 
 16:                                               ; preds = %.lr.ph, %timer_thread_polling.exit
-  %17 = call i32 @rb_signal_buff_size() #20
+  %17 = call i32 @rb_signal_buff_size() #19
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %timer_thread_check_signal.exit
 
@@ -19878,7 +19878,7 @@ define internal noundef ptr @timer_thread_func(ptr noundef %0) #0 {
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %20, i64 288
-  %23 = call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #20
+  %23 = call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #19
   %.not.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i.i.i, label %rb_native_mutex_lock.exit.i.i.i, label %24
 
@@ -19899,11 +19899,11 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %21
 31:                                               ; preds = %rb_native_mutex_lock.exit.i.i.i
   %32 = getelementptr inbounds i8, ptr %20, i64 336
   %33 = load ptr, ptr %32, align 8
-  call void %30(ptr noundef %33) #20
+  call void %30(ptr noundef %33) #19
   br label %34
 
 34:                                               ; preds = %31, %rb_native_mutex_lock.exit.i.i.i
-  %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #20
+  %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #19
   %.not.i8.i.i.i = icmp eq i32 %35, 0
   br i1 %.not.i8.i.i.i, label %timer_thread_check_signal.exit, label %36
 
@@ -19913,12 +19913,12 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %21
 
 timer_thread_check_signal.exit:                   ; preds = %16, %19, %34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %37 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %37 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %rb_hrtime_now.exit.i, label %39
 
 39:                                               ; preds = %timer_thread_check_signal.exit
-  call void @rb_timespec_now(ptr noundef nonnull %5) #20
+  call void @rb_timespec_now(ptr noundef nonnull %5) #19
   br label %rb_hrtime_now.exit.i
 
 rb_hrtime_now.exit.i:                             ; preds = %39, %timer_thread_check_signal.exit
@@ -19930,7 +19930,7 @@ rb_hrtime_now.exit.i:                             ; preds = %39, %timer_thread_c
   %.0.i.i.i.i = select i1 %41, i64 -1, i64 %42
   %.0.i2.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i, i64 %.val1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %44
 
@@ -19978,7 +19978,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %rb_hrtime_now.exit.
   %64 = getelementptr i8, ptr %45, i64 -136
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 288
-  %67 = call i32 @pthread_mutex_lock(ptr noundef nonnull %66) #20
+  %67 = call i32 @pthread_mutex_lock(ptr noundef nonnull %66) #19
   %.not.i.i.i.i4 = icmp eq i32 %67, 0
   br i1 %.not.i.i.i.i4, label %thread_sched_lock_.exit.i.i, label %68
 
@@ -19999,7 +19999,7 @@ thread_sched_lock_.exit.i.i:                      ; preds = %57
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %74 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %74 = call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i.i19 = icmp eq i32 %74, 0
   br i1 %.not.i.i19, label %76, label %75
 
@@ -20030,7 +20030,7 @@ thread_sched_lock_.exit.i.i:                      ; preds = %57
   %85 = load ptr, ptr %.0.i.i, align 8
   %86 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %85(i32 noundef 2, ptr noundef nonnull %2, ptr noundef %87) #20
+  call void %85(i32 noundef 2, ptr noundef nonnull %2, ptr noundef %87) #19
   br label %88
 
 88:                                               ; preds = %83, %79
@@ -20040,7 +20040,7 @@ thread_sched_lock_.exit.i.i:                      ; preds = %57
   br i1 %.not14.i.i, label %.loopexit.i.i, label %79, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %88, %76
-  %91 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #20
+  %91 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not15.i.i = icmp eq i32 %91, 0
   br i1 %.not15.i.i, label %rb_thread_execute_hooks.exit.i, label %92
 
@@ -20076,7 +20076,7 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   br label %104
 
 104:                                              ; preds = %104, %102
-  %105 = call i32 @pthread_cond_signal(ptr noundef nonnull %103) #20
+  %105 = call i32 @pthread_cond_signal(ptr noundef nonnull %103) #19
   switch i32 %105, label %106 [
     i32 11, label %104
     i32 0, label %thread_sched_to_ready_common.exit
@@ -20091,7 +20091,7 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %64, align 8
   %111 = getelementptr inbounds i8, ptr %109, i64 160
-  %112 = call i32 @pthread_mutex_lock(ptr noundef nonnull %111) #20
+  %112 = call i32 @pthread_mutex_lock(ptr noundef nonnull %111) #19
   %.not.i.i.i.i22 = icmp eq i32 %112, 0
   br i1 %.not.i.i.i.i22, label %ractor_sched_lock_.exit.i.i, label %113
 
@@ -20117,7 +20117,7 @@ ractor_sched_lock_.exit.i.i:                      ; preds = %107
   br label %123
 
 123:                                              ; preds = %123, %ractor_sched_lock_.exit.i.i
-  %124 = call i32 @pthread_cond_signal(ptr noundef nonnull %122) #20
+  %124 = call i32 @pthread_cond_signal(ptr noundef nonnull %122) #19
   switch i32 %124, label %125 [
     i32 11, label %123
     i32 0, label %rb_native_cond_signal.exit.i.i
@@ -20128,7 +20128,7 @@ ractor_sched_lock_.exit.i.i:                      ; preds = %107
   unreachable
 
 rb_native_cond_signal.exit.i.i:                   ; preds = %123
-  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %111) #20
+  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %111) #19
   %.not.i.i9.i.i23 = icmp eq i32 %126, 0
   br i1 %.not.i.i9.i.i23, label %thread_sched_to_ready_common.exit, label %127
 
@@ -20171,16 +20171,16 @@ thread_sched_enq.exit.i:                          ; preds = %135, %132, %128
   br label %thread_sched_to_ready_common.exit
 
 thread_sched_to_ready_common.exit:                ; preds = %104, %thread_sched_enq.exit.i, %99, %rb_native_cond_signal.exit.i.i, %thread_sched_lock_.exit.i.i
-  %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #20
+  %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #19
   %.not.i.i9.i.i = icmp eq i32 %146, 0
-  br i1 %.not.i.i9.i.i, label %rb_native_mutex_lock.exit.i, label %147, !llvm.loop !79
+  br i1 %.not.i.i9.i.i, label %rb_native_mutex_lock.exit.i, label %147, !llvm.loop !76
 
 147:                                              ; preds = %thread_sched_to_ready_common.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %146) #36
   unreachable
 
 148:                                              ; preds = %51, %47, %rb_native_mutex_lock.exit.i
-  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i4.i = icmp eq i32 %149, 0
   br i1 %.not.i4.i, label %timer_thread_check_timeout.exit, label %150
 
@@ -20194,7 +20194,7 @@ timer_thread_check_timeout.exit:                  ; preds = %148
   br i1 %152, label %ubf_wakeup_all_threads.exit, label %153
 
 153:                                              ; preds = %timer_thread_check_timeout.exit
-  %154 = call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #20
+  %154 = call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i.i5 = icmp eq i32 %154, 0
   br i1 %.not.i.i5, label %rb_native_mutex_lock.exit.i6, label %155
 
@@ -20213,16 +20213,16 @@ rb_native_mutex_lock.exit.i6:                     ; preds = %153, %156
   %.0.val.i = load ptr, ptr %157, align 8
   %158 = getelementptr i8, ptr %.0.val.i, i64 16
   %.0.val.val.i = load i64, ptr %158, align 8
-  %159 = call i32 @pthread_kill(i64 noundef %.0.val.val.i, i32 noundef 26) #20
+  %159 = call i32 @pthread_kill(i64 noundef %.0.val.val.i, i32 noundef 26) #19
   %.not.i3.i8 = icmp eq i32 %159, 0
-  br i1 %.not.i3.i8, label %rb_native_mutex_lock.exit.i6, label %160, !llvm.loop !80
+  br i1 %.not.i3.i8, label %rb_native_mutex_lock.exit.i6, label %160, !llvm.loop !77
 
 160:                                              ; preds = %156
   call void @rb_bug_errno(ptr noundef nonnull @.str.186, i32 noundef %159) #36
   unreachable
 
 161:                                              ; preds = %rb_native_mutex_lock.exit.i6
-  %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #20
+  %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i4.i9 = icmp eq i32 %162, 0
   br i1 %.not.i4.i9, label %ubf_wakeup_all_threads.exit, label %163
 
@@ -20232,7 +20232,7 @@ rb_native_mutex_lock.exit.i6:                     ; preds = %153, %156
 
 ubf_wakeup_all_threads.exit:                      ; preds = %timer_thread_check_timeout.exit, %161
   %164 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  %165 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #20
+  %165 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i.i.i.i = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i, label %ractor_sched_lock_.exit.i.i.i, label %166
 
@@ -20259,7 +20259,7 @@ ractor_sched_lock_.exit.i.i.i:                    ; preds = %ubf_wakeup_all_thre
   %.sink.i.i.i = phi i8 [ 0, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select.i.i.i, %171 ]
   %.0.i.i.i = phi i32 [ 10, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select23.i.i.i, %171 ]
   store i8 %.sink.i.i.i, ptr %13, align 8
-  %174 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #20
+  %174 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i.i16.i.i.i = icmp eq i32 %174, 0
   br i1 %.not.i.i16.i.i.i, label %ractor_sched_unlock_.exit.i.i.i, label %175
 
@@ -20273,7 +20273,7 @@ ractor_sched_unlock_.exit.i.i.i:                  ; preds = %173
   br i1 %177, label %178, label %event_wait.exit.i
 
 178:                                              ; preds = %ractor_sched_unlock_.exit.i.i.i
-  %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i.i.i.i16 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i16, label %rb_native_mutex_lock.exit.i.i.i17, label %180
 
@@ -20298,12 +20298,12 @@ rb_native_mutex_lock.exit.i.i.i17:                ; preds = %178
 
 187:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %188 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #20
+  %188 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %rb_hrtime_now.exit.i.i.i, label %190
 
 190:                                              ; preds = %187
-  call void @rb_timespec_now(ptr noundef nonnull %4) #20
+  call void @rb_timespec_now(ptr noundef nonnull %4) #19
   br label %rb_hrtime_now.exit.i.i.i
 
 rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
@@ -20325,7 +20325,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
 
 199:                                              ; preds = %rb_hrtime_now.exit.i.i.i, %183, %rb_native_mutex_lock.exit.i.i.i17
   %.1.i.i.i = phi i32 [ %198, %rb_hrtime_now.exit.i.i.i ], [ %.0.i.i.i, %183 ], [ %.0.i.i.i, %rb_native_mutex_lock.exit.i.i.i17 ]
-  %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i19.i.i.i = icmp eq i32 %200, 0
   br i1 %.not.i19.i.i.i, label %event_wait.exit.i, label %201
 
@@ -20335,7 +20335,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
 
 event_wait.exit.i:                                ; preds = %199, %ractor_sched_unlock_.exit.i.i.i
   %.2.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.exit.i.i.i ], [ %.1.i.i.i, %199 ]
-  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 4), i32 noundef 16, i32 noundef %.2.i.i.i) #20
+  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 4), i32 noundef 16, i32 noundef %.2.i.i.i) #19
   switch i32 %202, label %.preheader.i [
     i32 0, label %204
     i32 -1, label %217
@@ -20350,7 +20350,7 @@ event_wait.exit.i:                                ; preds = %199, %ractor_sched_
   br label %.lr.ph.i
 
 204:                                              ; preds = %event_wait.exit.i
-  %205 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #20
+  %205 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i.i10 = icmp eq i32 %205, 0
   br i1 %.not.i.i.i10, label %ractor_sched_lock_.exit.i, label %206
 
@@ -20371,7 +20371,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %204
   %210 = atomicrmw volatile or ptr %209, i32 1 seq_cst, align 4
   %.pn.i.i = load ptr, ptr %.pn7.i.i, align 8
   %.not.i.i11 = icmp eq ptr %.pn.i.i, %11
-  br i1 %.not.i.i11, label %timer_thread_check_timeslice.exit.i, label %.lr.ph.i.i, !llvm.loop !81
+  br i1 %.not.i.i11, label %timer_thread_check_timeslice.exit.i, label %.lr.ph.i.i, !llvm.loop !78
 
 timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor_sched_lock_.exit.i
   %211 = load i32, ptr %12, align 8
@@ -20379,7 +20379,7 @@ timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor
   br i1 %.not.i12, label %rb_native_cond_signal.exit.i, label %.preheader
 
 .preheader:                                       ; preds = %timer_thread_check_timeslice.exit.i, %.preheader
-  %212 = call i32 @pthread_cond_signal(ptr noundef nonnull %15) #20
+  %212 = call i32 @pthread_cond_signal(ptr noundef nonnull %15) #19
   switch i32 %212, label %213 [
     i32 11, label %.preheader
     i32 0, label %rb_native_cond_signal.exit.i
@@ -20390,7 +20390,7 @@ timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor
   unreachable
 
 rb_native_cond_signal.exit.i:                     ; preds = %.preheader, %timer_thread_check_timeslice.exit.i
-  %214 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #20
+  %214 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i.i25.i = icmp eq i32 %214, 0
   br i1 %.not.i.i25.i, label %ractor_sched_unlock_.exit.i, label %215
 
@@ -20403,14 +20403,14 @@ ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_sign
   br label %timer_thread_polling.exit
 
 217:                                              ; preds = %event_wait.exit.i
-  %218 = call ptr @rb_errno_ptr() #20
+  %218 = call ptr @rb_errno_ptr() #19
   %219 = load i32, ptr %218, align 4
   %cond.i = icmp eq i32 %219, 4
   br i1 %cond.i, label %timer_thread_polling.exit, label %220
 
 220:                                              ; preds = %217
   call void @perror(ptr noundef nonnull @.str.207) #48
-  %221 = call ptr @rb_errno_ptr() #20
+  %221 = call ptr @rb_errno_ptr() #19
   %222 = load i32, ptr %221, align 4
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.208, i32 noundef %222) #45
   unreachable
@@ -20429,12 +20429,12 @@ ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_sign
   br label %229
 
 229:                                              ; preds = %231, %227
-  %230 = call i64 @read(i32 noundef %228, ptr noundef nonnull %3, i64 noundef 8) #20
+  %230 = call i64 @read(i32 noundef %228, ptr noundef nonnull %3, i64 noundef 8) #19
   %or.cond.i = icmp sgt i64 %230, -1
   br i1 %or.cond.i, label %consume_communication_pipe.exit.i, label %231
 
 231:                                              ; preds = %229
-  %232 = call ptr @rb_errno_ptr() #20
+  %232 = call ptr @rb_errno_ptr() #19
   %233 = load i32, ptr %232, align 4
   switch i32 %233, label %234 [
     i32 4, label %229
@@ -20451,7 +20451,7 @@ consume_communication_pipe.exit.i:                ; preds = %231, %229
 
 235:                                              ; preds = %.lr.ph.i
   %236 = load i32, ptr %223, align 4
-  %237 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %237 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i26.i = icmp eq i32 %237, 0
   br i1 %.not.i26.i, label %rb_native_mutex_lock.exit.i13, label %238
 
@@ -20479,19 +20479,19 @@ rb_native_mutex_lock.exit.i13:                    ; preds = %235
   %248 = getelementptr inbounds i8, ptr %225, i64 152
   %249 = load i32, ptr %248, align 8
   %250 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 3), align 8
-  %251 = call i32 @epoll_ctl(i32 noundef %250, i32 noundef 2, i32 noundef %249, ptr noundef null) #20
+  %251 = call i32 @epoll_ctl(i32 noundef %250, i32 noundef 2, i32 noundef %249, ptr noundef null) #19
   %252 = icmp eq i32 %251, -1
   br i1 %252, label %253, label %timer_thread_unregister_waiting.exit.i
 
 253:                                              ; preds = %241
-  %254 = call ptr @rb_errno_ptr() #20
+  %254 = call ptr @rb_errno_ptr() #19
   %255 = load i32, ptr %254, align 4
   %cond.i.i = icmp eq i32 %255, 9
   br i1 %cond.i.i, label %timer_thread_unregister_waiting.exit.i, label %256
 
 256:                                              ; preds = %253
   call void @perror(ptr noundef nonnull @.str.166) #48
-  %257 = call ptr @rb_errno_ptr() #20
+  %257 = call ptr @rb_errno_ptr() #19
   %258 = load i32, ptr %257, align 4
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.173, i32 noundef %258) #45
   unreachable
@@ -20504,7 +20504,7 @@ timer_thread_unregister_waiting.exit.i:           ; preds = %253, %241
   %260 = getelementptr inbounds i8, ptr %225, i64 24
   %261 = load ptr, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 288
-  %263 = call i32 @pthread_mutex_lock(ptr noundef nonnull %262) #20
+  %263 = call i32 @pthread_mutex_lock(ptr noundef nonnull %262) #19
   %.not.i.i.i27.i = icmp eq i32 %263, 0
   br i1 %.not.i.i.i27.i, label %thread_sched_lock_.exit.i.i14, label %264
 
@@ -20523,7 +20523,7 @@ thread_sched_lock_.exit.i.i14:                    ; preds = %timer_thread_unregi
   br label %268
 
 268:                                              ; preds = %267, %thread_sched_lock_.exit.i.i14
-  %269 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %262) #20
+  %269 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %262) #19
   %.not.i.i9.i.i15 = icmp eq i32 %269, 0
   br i1 %.not.i.i9.i.i15, label %timer_thread_wakeup_thread.exit.i, label %270
 
@@ -20532,7 +20532,7 @@ thread_sched_lock_.exit.i.i14:                    ; preds = %timer_thread_unregi
   unreachable
 
 timer_thread_wakeup_thread.exit.i:                ; preds = %268, %rb_native_mutex_lock.exit.i13
-  %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #20
+  %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.anon.18, ptr @timer_th, i64 0, i32 6)) #19
   %.not.i29.i = icmp eq i32 %271, 0
   br i1 %.not.i29.i, label %rb_native_mutex_unlock.exit.i, label %272
 
@@ -20543,12 +20543,12 @@ timer_thread_wakeup_thread.exit.i:                ; preds = %268, %rb_native_mut
 rb_native_mutex_unlock.exit.i:                    ; preds = %timer_thread_wakeup_thread.exit.i, %consume_communication_pipe.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %timer_thread_polling.exit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %timer_thread_polling.exit, label %.lr.ph.i, !llvm.loop !79
 
 timer_thread_polling.exit:                        ; preds = %rb_native_mutex_unlock.exit.i, %.preheader.i, %ractor_sched_unlock_.exit.i, %217
   %273 = load volatile i32, ptr @system_working, align 4
   %.not = icmp eq i32 %273, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %timer_thread_polling.exit, %1
   ret ptr null
@@ -20585,7 +20585,7 @@ declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @thread_shield_mark(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  tail call void @rb_gc_mark(i64 noundef %2) #20
+  tail call void @rb_gc_mark(i64 noundef %2) #19
   ret void
 }
 
@@ -20598,16 +20598,16 @@ define internal fastcc void @recursive_push(i64 noundef %0, i64 noundef %1, i64 
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef 20) #20
+  %5 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef 20) #19
   br label %26
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @rb_hash_lookup2(i64 noundef %0, i64 noundef %1, i64 noundef 36) #20
+  %7 = tail call i64 @rb_hash_lookup2(i64 noundef %0, i64 noundef %1, i64 noundef 36) #19
   %8 = icmp eq i64 %7, 36
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #20
+  %10 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #19
   br label %26
 
 11:                                               ; preds = %6
@@ -20625,14 +20625,14 @@ define internal fastcc void @recursive_push(i64 noundef %0, i64 noundef %1, i64 
   br i1 %20, label %24, label %.critedge
 
 .critedge:                                        ; preds = %11, %16
-  %21 = tail call i64 @rb_hash_new() #20
-  %22 = tail call i64 @rb_hash_aset(i64 noundef %21, i64 noundef %7, i64 noundef 20) #20
-  %23 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef %21) #20
+  %21 = tail call i64 @rb_hash_new() #19
+  %22 = tail call i64 @rb_hash_aset(i64 noundef %21, i64 noundef %7, i64 noundef 20) #19
+  %23 = tail call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %1, i64 noundef %21) #19
   br label %24
 
 24:                                               ; preds = %.critedge, %16
   %.034 = phi i64 [ %7, %16 ], [ %21, %.critedge ]
-  %25 = tail call i64 @rb_hash_aset(i64 noundef %.034, i64 noundef %2, i64 noundef 20) #20
+  %25 = tail call i64 @rb_hash_aset(i64 noundef %.034, i64 noundef %2, i64 noundef 20) #19
   br label %26
 
 26:                                               ; preds = %9, %24, %4
@@ -20649,7 +20649,7 @@ define internal i64 @exec_recursive_i(i64 %0, i64 noundef %1, i32 %2, ptr nocapt
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = tail call i64 %7(i64 noundef %9, i64 noundef %11, i32 noundef 0) #20
+  %12 = tail call i64 %7(i64 noundef %9, i64 noundef %11, i32 noundef 0) #19
   ret i64 %12
 }
 
@@ -20723,7 +20723,7 @@ define internal noundef i32 @handle_interrupt_arg_check_i(i64 noundef %0, i64 no
   br i1 %23, label %RB_SYMBOL_P.exit.thread43, label %.critedge
 
 .critedge:                                        ; preds = %17, %19
-  %24 = tail call i64 @rb_ident_hash_new() #20
+  %24 = tail call i64 @rb_ident_hash_new() #19
   store i64 %24, ptr %4, align 8
   %25 = and i64 %.pre, 255
   %26 = icmp eq i64 %25, 12
@@ -20741,13 +20741,13 @@ RB_SYMBOL_P.exit:                                 ; preds = %27
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %.critedge, %RB_SYMBOL_P.exit
   %32 = load i64, ptr @rb_eException, align 8
-  %33 = tail call i64 @rb_hash_aset(i64 noundef %24, i64 noundef %32, i64 noundef %.pre) #20
+  %33 = tail call i64 @rb_hash_aset(i64 noundef %24, i64 noundef %32, i64 noundef %.pre) #19
   %.pre46 = load i64, ptr %4, align 8
   br label %RB_SYMBOL_P.exit.thread43
 
 RB_SYMBOL_P.exit.thread43:                        ; preds = %27, %RB_SYMBOL_P.exit, %RB_SYMBOL_P.exit.thread, %19
   %34 = phi i64 [ %24, %27 ], [ %24, %RB_SYMBOL_P.exit ], [ %.pre46, %RB_SYMBOL_P.exit.thread ], [ %.pre, %19 ]
-  %35 = tail call i64 @rb_hash_aset(i64 noundef %34, i64 noundef %0, i64 noundef %1) #20
+  %35 = tail call i64 @rb_hash_aset(i64 noundef %34, i64 noundef %0, i64 noundef %1) #19
   br label %37
 
 36:                                               ; preds = %15
@@ -20774,7 +20774,7 @@ declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #37
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_key_err_raise(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 {
-  %4 = tail call i64 @rb_key_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #20
+  %4 = tail call i64 @rb_key_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #19
   tail call void @rb_exc_raise(i64 noundef %4) #36
   unreachable
 }
@@ -20790,8 +20790,8 @@ declare void @rb_id_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @thread_keys_i(i64 noundef %0, i64 %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
-  %5 = tail call i64 @rb_id2sym(i64 noundef %0) #20
-  %6 = tail call i64 @rb_ary_push(i64 noundef %4, i64 noundef %5) #20
+  %5 = tail call i64 @rb_id2sym(i64 noundef %0) #19
+  %6 = tail call i64 @rb_ary_push(i64 noundef %4, i64 noundef %5) #19
   ret i32 0
 }
 
@@ -20805,7 +20805,7 @@ declare i64 @rb_ivar_get(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @keys_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %0) #20
+  %4 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %0) #19
   ret i32 0
 }
 
@@ -20858,7 +20858,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_mutex_synchronize_m(i64 noundef %0) #0 {
-  %2 = tail call i32 @rb_block_given_p() #20
+  %2 = tail call i32 @rb_block_given_p() #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
 
@@ -20869,13 +20869,13 @@ define internal i64 @rb_mutex_synchronize_m(i64 noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = tail call fastcc i64 @do_mutex_lock(i64 noundef %0, i32 noundef 1)
-  %7 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef 36, ptr noundef nonnull @rb_mutex_unlock, i64 noundef %0) #20
+  %7 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef 36, ptr noundef nonnull @rb_mutex_unlock, i64 noundef %0) #19
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @queue_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 36, ptr noundef nonnull @queue_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 36, ptr noundef nonnull @queue_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -20899,7 +20899,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_queue_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @queue_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @queue_data_type) #19
   %6 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 480
   %8 = load i64, ptr %7, align 8
@@ -20918,19 +20918,19 @@ define internal noundef i64 @rb_queue_initialize(i32 noundef %0, ptr noundef %1,
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %3, %12
-  %15 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.274, ptr noundef nonnull %4) #20
+  %15 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.274, ptr noundef nonnull %4) #19
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %queue_ptr.exit
   %18 = load i64, ptr %4, align 8
-  %19 = call i64 @rb_to_array(i64 noundef %18) #20
+  %19 = call i64 @rb_to_array(i64 noundef %18) #19
   store i64 %19, ptr %4, align 8
   br label %20
 
 20:                                               ; preds = %17, %queue_ptr.exit
   %21 = getelementptr inbounds i8, ptr %5, i64 24
-  %22 = call i64 @rb_ary_hidden_new(i64 noundef 1) #20
+  %22 = call i64 @rb_ary_hidden_new(i64 noundef 1) #19
   store i64 %22, ptr %21, align 8
   %23 = and i64 %22, 7
   %24 = icmp ne i64 %23, 0
@@ -20939,7 +20939,7 @@ queue_ptr.exit:                                   ; preds = %3, %12
   br i1 %26, label %rb_obj_write.exit, label %27
 
 27:                                               ; preds = %20
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %22) #20
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %22) #19
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %20, %27
@@ -20951,7 +20951,7 @@ rb_obj_write.exit:                                ; preds = %20, %27
 29:                                               ; preds = %rb_obj_write.exit
   %30 = load i64, ptr %21, align 1
   %31 = load i64, ptr %4, align 8
-  %32 = call i64 @rb_ary_concat(i64 noundef %30, i64 noundef %31) #20
+  %32 = call i64 @rb_ary_concat(i64 noundef %30, i64 noundef %31) #19
   br label %33
 
 33:                                               ; preds = %29, %rb_obj_write.exit
@@ -20963,14 +20963,14 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @undumpable(i64 noundef %0) #22 {
   %2 = load i64, ptr @rb_eTypeError, align 8
-  %3 = tail call i64 @rb_obj_class(i64 noundef %0) #20
+  %3 = tail call i64 @rb_obj_class(i64 noundef %0) #19
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.276, i64 noundef %3) #36
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_queue_close(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21019,7 +21019,7 @@ RB_FL_SET.exit:                                   ; preds = %15, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_queue_closed_p(i64 noundef %0) #5 {
+define internal range(i64 0, 21) i64 @rb_queue_closed_p(i64 noundef %0) #21 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 131072
@@ -21030,7 +21030,7 @@ define internal i64 @rb_queue_closed_p(i64 noundef %0) #5 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_queue_push(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 480
   %6 = load i64, ptr %5, align 8
@@ -21081,14 +21081,14 @@ queue_ptr.exit:                                   ; preds = %2, %10
   unreachable
 
 queue_do_push.exit:                               ; preds = %24
-  %30 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %1) #20
+  %30 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %1) #19
   tail call fastcc void @sync_wakeup(ptr noundef nonnull %3, i64 noundef 1)
   ret i64 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_queue_empty_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+define internal range(i64 0, 21) i64 @rb_queue_empty_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21151,7 +21151,7 @@ queue_length.exit:                                ; preds = %24, %27
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_queue_clear(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21191,13 +21191,13 @@ queue_ptr.exit:                                   ; preds = %1, %9
   unreachable
 
 check_array.exit:                                 ; preds = %18
-  %24 = tail call i64 @rb_ary_clear(i64 noundef %13) #20
+  %24 = tail call i64 @rb_ary_clear(i64 noundef %13) #19
   ret i64 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_queue_length(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21263,7 +21263,7 @@ queue_length.exit:                                ; preds = %24, %27
   br label %rb_long2num_inline.exit
 
 34:                                               ; preds = %queue_length.exit
-  %35 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #20
+  %35 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #19
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %31, %34
@@ -21272,8 +21272,8 @@ rb_long2num_inline.exit:                          ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_queue_num_waiting(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #20
+define internal range(i64 1, 0) i64 @rb_queue_num_waiting(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @queue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21313,7 +21313,7 @@ define internal noundef i64 @rb_queue_freeze(i64 noundef %0) #22 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @szqueue_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 64, ptr noundef nonnull @szqueue_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 64, ptr noundef nonnull @szqueue_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -21340,7 +21340,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_szqueue_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 480
   %6 = load i64, ptr %5, align 8
@@ -21374,7 +21374,7 @@ szqueue_ptr.exit:                                 ; preds = %2, %10
   br label %rb_num2long_inline.exit
 
 19:                                               ; preds = %szqueue_ptr.exit
-  %20 = tail call i64 @rb_num2long(i64 noundef %1) #20
+  %20 = tail call i64 @rb_num2long(i64 noundef %1) #19
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %17, %19
@@ -21389,7 +21389,7 @@ rb_num2long_inline.exit:                          ; preds = %17, %19
 
 24:                                               ; preds = %rb_num2long_inline.exit
   %25 = getelementptr inbounds i8, ptr %3, i64 24
-  %26 = tail call i64 @rb_ary_hidden_new(i64 noundef 1) #20
+  %26 = tail call i64 @rb_ary_hidden_new(i64 noundef 1) #19
   store i64 %26, ptr %25, align 8
   %27 = and i64 %26, 7
   %28 = icmp ne i64 %27, 0
@@ -21398,7 +21398,7 @@ rb_num2long_inline.exit:                          ; preds = %17, %19
   br i1 %30, label %rb_obj_write.exit, label %31
 
 31:                                               ; preds = %24
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %26) #20
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %26) #19
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %24, %31
@@ -21423,7 +21423,7 @@ define internal noundef i64 @rb_szqueue_close(i64 noundef returned %0) #0 {
   br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %7 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 480
   %9 = load i64, ptr %8, align 8
@@ -21477,7 +21477,7 @@ RB_FL_SET.exit:                                   ; preds = %szqueue_ptr.exit, %
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_szqueue_max_get(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21514,7 +21514,7 @@ szqueue_ptr.exit:                                 ; preds = %1, %9
   br label %rb_long2num_inline.exit
 
 21:                                               ; preds = %szqueue_ptr.exit
-  %22 = tail call i64 @rb_int2big(i64 noundef %16) #20
+  %22 = tail call i64 @rb_int2big(i64 noundef %16) #19
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %18, %21
@@ -21533,12 +21533,12 @@ define internal noundef i64 @rb_szqueue_max_set(i64 noundef %0, i64 noundef retu
   br label %rb_num2long_inline.exit
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @rb_num2long(i64 noundef %1) #20
+  %7 = tail call i64 @rb_num2long(i64 noundef %1) #19
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
-  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %9 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 480
   %11 = load i64, ptr %10, align 8
@@ -21584,8 +21584,8 @@ szqueue_ptr.exit:                                 ; preds = %rb_num2long_inline.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_szqueue_empty_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+define internal range(i64 0, 21) i64 @rb_szqueue_empty_p(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21654,7 +21654,7 @@ queue_length.exit:                                ; preds = %27, %30
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_szqueue_clear(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21700,7 +21700,7 @@ szqueue_ptr.exit:                                 ; preds = %1, %9
   unreachable
 
 check_array.exit:                                 ; preds = %21
-  %27 = tail call i64 @rb_ary_clear(i64 noundef %16) #20
+  %27 = tail call i64 @rb_ary_clear(i64 noundef %16) #19
   %28 = getelementptr inbounds i8, ptr %2, i64 40
   tail call fastcc void @sync_wakeup(ptr noundef nonnull %28, i64 noundef 9223372036854775807)
   ret i64 %0
@@ -21708,7 +21708,7 @@ check_array.exit:                                 ; preds = %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_szqueue_length(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21780,7 +21780,7 @@ queue_length.exit:                                ; preds = %27, %30
   br label %rb_long2num_inline.exit
 
 37:                                               ; preds = %queue_length.exit
-  %38 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #20
+  %38 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #19
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %34, %37
@@ -21789,8 +21789,8 @@ rb_long2num_inline.exit:                          ; preds = %34, %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_szqueue_num_waiting(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #20
+define internal range(i64 1, 0) i64 @rb_szqueue_num_waiting(i64 noundef %0) #0 {
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @szqueue_data_type) #19
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = load i64, ptr %4, align 8
@@ -21832,7 +21832,7 @@ szqueue_ptr.exit:                                 ; preds = %.szqueue_ptr.exit_c
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @condvar_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 24, ptr noundef nonnull @cv_data_type) #20
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 24, ptr noundef nonnull @cv_data_type) #19
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -21858,7 +21858,7 @@ define internal noundef i64 @rb_condvar_initialize(i64 noundef returned %0) #0 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 480
   %4 = load i64, ptr %3, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, %4
@@ -21884,7 +21884,7 @@ define internal i64 @rb_condvar_wait(i32 noundef %0, ptr noundef %1, i64 noundef
   %8 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 480
   %10 = load i64, ptr %9, align 8
-  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @cv_data_type) #20
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @cv_data_type) #19
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, %10
@@ -21899,7 +21899,7 @@ define internal i64 @rb_condvar_wait(i32 noundef %0, ptr noundef %1, i64 noundef
 
 condvar_ptr.exit:                                 ; preds = %3, %14
   %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.280, ptr noundef nonnull %4, ptr noundef nonnull %16) #20
+  %17 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.280, ptr noundef nonnull %4, ptr noundef nonnull %16) #19
   %18 = load i64, ptr %4, align 8
   store i64 %18, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21909,7 +21909,7 @@ condvar_ptr.exit:                                 ; preds = %3, %14
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   %23 = getelementptr inbounds i8, ptr %7, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @rb_fiberptr_blocking(ptr noundef %24) #20
+  %25 = call i32 @rb_fiberptr_blocking(ptr noundef %24) #19
   %.not.i5 = icmp eq i32 %25, 0
   %..i = select i1 %.not.i5, ptr %24, ptr null
   store ptr %..i, ptr %22, align 8
@@ -21923,7 +21923,7 @@ condvar_ptr.exit:                                 ; preds = %3, %14
   store ptr %26, ptr %27, align 8
   %30 = ptrtoint ptr %4 to i64
   %31 = ptrtoint ptr %5 to i64
-  %32 = call i64 @rb_ensure(ptr noundef nonnull @do_sleep, i64 noundef %30, ptr noundef nonnull @delete_from_waitq, i64 noundef %31) #20
+  %32 = call i64 @rb_ensure(ptr noundef nonnull @do_sleep, i64 noundef %30, ptr noundef nonnull @delete_from_waitq, i64 noundef %31) #19
   ret i64 %32
 }
 
@@ -21932,7 +21932,7 @@ define internal noundef i64 @rb_condvar_signal(i64 noundef returned %0) #0 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 480
   %4 = load i64, ptr %3, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, %4
@@ -21955,7 +21955,7 @@ define internal noundef i64 @rb_condvar_broadcast(i64 noundef returned %0) #0 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 480
   %4 = load i64, ptr %3, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #20
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @cv_data_type) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, %4
@@ -21998,7 +21998,7 @@ define internal i64 @do_sleep(i64 noundef %0) #0 {
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @id_sleep, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = tail call i64 @rb_funcallv(i64 noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef nonnull %5) #20
+  %6 = tail call i64 @rb_funcallv(i64 noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef nonnull %5) #19
   ret i64 %6
 }
 
@@ -22048,7 +22048,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22057,14 +22057,14 @@ attributes #10 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: 
 attributes #11 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22112,7 +22112,7 @@ attributes #50 = { cold nounwind }
 !12 = distinct !{!12, !9}
 !13 = !{i64 2156354443}
 !14 = distinct !{!14, !9}
-!15 = !{i64 -4611686016279904256, i64 4611686018427387905}
+!15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
@@ -22123,61 +22123,58 @@ attributes #50 = { cold nounwind }
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = !{i64 2158314214}
-!28 = !{i32 0, i32 2}
+!26 = !{i64 2158314214}
+!27 = distinct !{!27, !9}
+!28 = !{i64 2158314685}
 !29 = distinct !{!29, !9}
-!30 = !{i64 2158314685}
+!30 = distinct !{!30, !9}
 !31 = distinct !{!31, !9}
 !32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
+!33 = !{}
 !34 = distinct !{!34, !9}
-!35 = !{}
-!36 = distinct !{!36, !9}
+!35 = distinct !{!35, !9}
+!36 = !{i64 2158328654}
 !37 = distinct !{!37, !9}
-!38 = !{i64 2158328654}
+!38 = distinct !{!38, !9}
 !39 = distinct !{!39, !9}
 !40 = distinct !{!40, !9}
 !41 = distinct !{!41, !9}
 !42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
+!43 = !{ptr @terminate_atfork_before_exec_i, ptr @terminate_atfork_i}
 !44 = distinct !{!44, !9}
-!45 = !{ptr @terminate_atfork_before_exec_i, ptr @terminate_atfork_i}
+!45 = distinct !{!45, !9}
 !46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = !{i64 0, i64 21}
-!49 = distinct !{!49, !9}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"rbimpl_rstring_getmem: argument 0"}
-!52 = distinct !{!52, !"rbimpl_rstring_getmem"}
-!53 = distinct !{!53, !9}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"rbimpl_rstring_getmem: argument 0"}
+!49 = distinct !{!49, !"rbimpl_rstring_getmem"}
+!50 = distinct !{!50, !9}
+!51 = distinct !{!51, !9}
+!52 = distinct !{!52, !9, !53}
+!53 = !{!"llvm.loop.unswitch.partial.disable"}
 !54 = distinct !{!54, !9}
-!55 = distinct !{!55, !9, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
+!55 = distinct !{!55, !9}
+!56 = distinct !{!56, !9}
 !57 = distinct !{!57, !9}
 !58 = distinct !{!58, !9}
 !59 = distinct !{!59, !9}
 !60 = distinct !{!60, !9}
-!61 = distinct !{!61, !9}
-!62 = distinct !{!62, !9}
-!63 = distinct !{!63, !9}
-!64 = !{i64 2156362132}
-!65 = !{i64 2156406185}
-!66 = !{i64 2156347792}
-!67 = distinct !{!67, !9}
-!68 = distinct !{!68, !9}
+!61 = !{i64 2156362132}
+!62 = !{i64 2156406185}
+!63 = !{i64 2156347792}
+!64 = distinct !{!64, !9}
+!65 = distinct !{!65, !9}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"rbimpl_rstring_getmem: argument 0"}
+!68 = distinct !{!68, !"rbimpl_rstring_getmem"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"rbimpl_rstring_getmem: argument 0"}
 !71 = distinct !{!71, !"rbimpl_rstring_getmem"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"rbimpl_rstring_getmem: argument 0"}
-!74 = distinct !{!74, !"rbimpl_rstring_getmem"}
-!75 = !{i64 2156372234}
+!72 = !{i64 2156372234}
+!73 = distinct !{!73, !9}
+!74 = distinct !{!74, !9}
+!75 = distinct !{!75, !9}
 !76 = distinct !{!76, !9}
 !77 = distinct !{!77, !9}
 !78 = distinct !{!78, !9}
 !79 = distinct !{!79, !9}
 !80 = distinct !{!80, !9}
-!81 = distinct !{!81, !9}
-!82 = distinct !{!82, !9}
-!83 = distinct !{!83, !9}

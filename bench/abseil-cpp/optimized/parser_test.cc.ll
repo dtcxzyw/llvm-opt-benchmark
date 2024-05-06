@@ -2021,7 +2021,7 @@ call1.i.i.noexc:                                  ; preds = %invoke.cont5
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %call1.i.i.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, i8 0, i64 16, i1 false), !alias.scope !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp6, i8 0, i64 16, i1 false), !alias.scope !48
   br label %invoke.cont8
 
 if.end.i:                                         ; preds = %call1.i.i.noexc

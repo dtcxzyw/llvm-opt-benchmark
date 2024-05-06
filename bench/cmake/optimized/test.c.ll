@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   %1 = tail call i32 @test_abi_C() #2
   %2 = icmp eq i32 %1, 0
   %3 = tail call i32 @test_int_C() #2
@@ -17,13 +17,13 @@ define dso_local i32 @main() local_unnamed_addr #0 {
   %10 = icmp eq i32 %9, 0
   %11 = tail call i32 @test_include_CXX() #2
   %12 = icmp eq i32 %11, 0
-  %.not8 = select i1 %12, i1 true, i1 %10
-  %13 = select i1 %.not8, i1 true, i1 %8
-  %14 = select i1 %13, i1 true, i1 %6
-  %15 = select i1 %14, i1 true, i1 %4
-  %16 = select i1 %15, i1 true, i1 %2
-  %17 = zext i1 %16 to i32
-  ret i32 %17
+  %.not18 = select i1 %12, i1 true, i1 %10
+  %.not16 = select i1 %.not18, i1 true, i1 %8
+  %.not13 = select i1 %.not16, i1 true, i1 %6
+  %.not11 = select i1 %.not13, i1 true, i1 %4
+  %.not8 = select i1 %.not11, i1 true, i1 %2
+  %13 = zext i1 %.not8 to i32
+  ret i32 %13
 }
 
 declare i32 @test_abi_C() local_unnamed_addr #1

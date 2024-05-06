@@ -125,7 +125,7 @@ define noundef i64 @_Z20fast_rv64i_aes64ks1iP11processor_t6insn_tm(ptr nocapture
 .critedge:                                        ; preds = %3
   %11 = lshr i64 %1, 20
   %12 = and i64 %11, 15
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = icmp ugt i32 %13, 10
   br i1 %14, label %15, label %20
 
@@ -148,7 +148,7 @@ define noundef i64 @_Z20fast_rv64i_aes64ks1iP11processor_t6insn_tm(ptr nocapture
   %24 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %25, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %.not = icmp eq i32 %13, 10
   br i1 %.not, label %33, label %28
 
@@ -247,7 +247,7 @@ define noundef i64 @_Z22logged_rv64i_aes64ks1iP11processor_t6insn_tm(ptr noundef
 .critedge:                                        ; preds = %3
   %11 = lshr i64 %1, 20
   %12 = and i64 %11, 15
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = icmp ugt i32 %13, 10
   br i1 %14, label %15, label %20
 
@@ -270,7 +270,7 @@ define noundef i64 @_Z22logged_rv64i_aes64ks1iP11processor_t6insn_tm(ptr noundef
   %24 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %25, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %.not = icmp eq i32 %13, 10
   br i1 %.not, label %33, label %28
 
@@ -423,7 +423,7 @@ define noundef i64 @_Z20fast_rv64e_aes64ks1iP11processor_t6insn_tm(ptr nocapture
 .critedge:                                        ; preds = %3
   %11 = lshr i64 %1, 20
   %12 = and i64 %11, 15
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = icmp ugt i32 %13, 10
   br i1 %14, label %15, label %20
 
@@ -462,7 +462,7 @@ define noundef i64 @_Z20fast_rv64e_aes64ks1iP11processor_t6insn_tm(ptr nocapture
   %31 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %22
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %.not = icmp eq i32 %13, 10
   br i1 %.not, label %40, label %35
 
@@ -574,7 +574,7 @@ define noundef i64 @_Z22logged_rv64e_aes64ks1iP11processor_t6insn_tm(ptr noundef
 .critedge:                                        ; preds = %3
   %11 = lshr i64 %1, 20
   %12 = and i64 %11, 15
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = icmp ugt i32 %13, 10
   br i1 %14, label %15, label %20
 
@@ -613,7 +613,7 @@ define noundef i64 @_Z22logged_rv64e_aes64ks1iP11processor_t6insn_tm(ptr noundef
   %31 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %22
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %.not = icmp eq i32 %13, 10
   br i1 %.not, label %40, label %35
 

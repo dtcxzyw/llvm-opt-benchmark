@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @vms_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 239
@@ -136,7 +136,7 @@ vms_check_file_type.exit._crit_edge:              ; preds = %vms_check_file_type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vms_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @vms_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   %9 = icmp slt i64 %8, 1
@@ -151,7 +151,7 @@ define internal i32 @vms_read(ptr nocapture noundef readonly %0, ptr nocapture n
 13:                                               ; preds = %6
   store i64 %8, ptr %5, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call fastcc i32 @parse_vms_packet(ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !6
+  %15 = tail call fastcc i32 @parse_vms_packet(ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %16
 
 16:                                               ; preds = %13, %10
@@ -160,7 +160,7 @@ define internal i32 @vms_read(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vms_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @vms_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
@@ -170,7 +170,7 @@ define internal noundef i32 @vms_seek_read(ptr nocapture noundef readonly %0, i6
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
-  %14 = tail call fastcc i32 @parse_vms_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !6
+  %14 = tail call fastcc i32 @parse_vms_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -217,7 +217,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x i8], align 1
   %7 = alloca [241 x i8], align 16
   %8 = alloca i32, align 4
@@ -313,7 +313,7 @@ define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture nound
   %51 = getelementptr i8, ptr %.075151, i64 1
   %52 = load i8, ptr %51, align 1
   %.not87 = icmp eq i8 %52, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %50, %42
   store i32 -13, ptr %3, align 4
@@ -364,7 +364,7 @@ define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture nound
   %73 = getelementptr i8, ptr %.01528.i, i64 1
   %74 = load i8, ptr %73, align 1
   %.not.i = icmp eq i8 %74, 0
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %72, %.lr.ph.i, %65
   %.015.lcssa.i = phi ptr [ %7, %65 ], [ %.01528.i, %.lr.ph.i ], [ %73, %72 ]
@@ -392,7 +392,7 @@ define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture nound
   %82 = add nuw nsw i32 %.01432.i, 1
   %83 = getelementptr i8, ptr %.231.i, i64 1
   %exitcond.not.i = icmp eq i32 %82, 8
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %75, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %75, !llvm.loop !8
 
 .preheader.preheader.i:                           ; preds = %81
   %scevgep39.i = getelementptr i8, ptr %.11635.i, i64 11
@@ -409,12 +409,12 @@ define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture nound
   %86 = add nuw nsw i32 %.134.i, 1
   %87 = getelementptr i8, ptr %.333.i, i64 1
   %exitcond40.not.i = icmp eq i32 %86, 3
-  br i1 %exitcond40.not.i, label %88, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond40.not.i, label %88, label %.preheader.i, !llvm.loop !9
 
 88:                                               ; preds = %85
   %89 = add nuw nsw i32 %.036.i, 1
   %exitcond42.not.i = icmp eq i32 %89, 4
-  br i1 %exitcond42.not.i, label %90, label %.preheader21.i, !llvm.loop !11
+  br i1 %exitcond42.not.i, label %90, label %.preheader21.i, !llvm.loop !10
 
 90:                                               ; preds = %88
   %91 = load i8, ptr %scevgep41.i, align 1
@@ -429,7 +429,7 @@ define internal fastcc i32 @parse_vms_packet(ptr noundef %0, ptr nocapture nound
 isdumpline.exit:                                  ; preds = %75, %.preheader.i, %90
   %.017.i = phi i32 [ %96, %90 ], [ 0, %.preheader.i ], [ 0, %75 ]
   %.not86 = icmp eq i32 %.017.i, 0
-  br i1 %.not86, label %20, label %.loopexit141, !llvm.loop !12
+  br i1 %.not86, label %20, label %.loopexit141, !llvm.loop !11
 
 .loopexit141:                                     ; preds = %isdumpline.exit, %55, %58
   br i1 %.not85, label %97, label %99
@@ -542,7 +542,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   %150 = getelementptr i8, ptr %.01528.i104, i64 1
   %151 = load i8, ptr %150, align 1
   %.not.i127 = icmp eq i8 %151, 0
-  br i1 %.not.i127, label %.critedge.i106, label %.lr.ph.i103, !llvm.loop !8
+  br i1 %.not.i127, label %.critedge.i106, label %.lr.ph.i103, !llvm.loop !7
 
 .critedge.i106:                                   ; preds = %149, %.lr.ph.i103, %.preheader139
   %.015.lcssa.i107 = phi ptr [ %7, %.preheader139 ], [ %.01528.i104, %.lr.ph.i103 ], [ %150, %149 ]
@@ -570,7 +570,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   %159 = add nuw nsw i32 %.01432.i113, 1
   %160 = getelementptr i8, ptr %.231.i114, i64 1
   %exitcond.not.i116 = icmp eq i32 %159, 8
-  br i1 %exitcond.not.i116, label %.preheader.preheader.i117, label %152, !llvm.loop !9
+  br i1 %exitcond.not.i116, label %.preheader.preheader.i117, label %152, !llvm.loop !8
 
 .preheader.preheader.i117:                        ; preds = %158
   %scevgep39.i118 = getelementptr i8, ptr %.11635.i111, i64 11
@@ -587,12 +587,12 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   %163 = add nuw nsw i32 %.134.i120, 1
   %164 = getelementptr i8, ptr %.333.i121, i64 1
   %exitcond40.not.i124 = icmp eq i32 %163, 3
-  br i1 %exitcond40.not.i124, label %165, label %.preheader.i119, !llvm.loop !10
+  br i1 %exitcond40.not.i124, label %165, label %.preheader.i119, !llvm.loop !9
 
 165:                                              ; preds = %162
   %166 = add nuw nsw i32 %.036.i110, 1
   %exitcond42.not.i125 = icmp eq i32 %166, 4
-  br i1 %exitcond42.not.i125, label %isdumpline.exit128, label %.preheader21.i109, !llvm.loop !11
+  br i1 %exitcond42.not.i125, label %isdumpline.exit128, label %.preheader21.i109, !llvm.loop !10
 
 isdumpline.exit128:                               ; preds = %165
   %167 = load i8, ptr %scevgep41.i108, align 1
@@ -624,7 +624,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
 
 180:                                              ; preds = %isdumpline.exit128.thread
   store i8 0, ptr %19, align 16
-  br label %.preheader139, !llvm.loop !13
+  br label %.preheader139, !llvm.loop !12
 
 .lr.ph154:                                        ; preds = %.preheader, %186
   %181 = phi i8 [ %190, %186 ], [ %174, %.preheader ]
@@ -642,7 +642,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   %189 = getelementptr [241 x i8], ptr %7, i64 0, i64 %188
   %190 = load i8, ptr %189, align 1
   %.not96 = icmp eq i8 %190, 0
-  br i1 %.not96, label %.critedge3, label %.lr.ph154, !llvm.loop !14
+  br i1 %.not96, label %.critedge3, label %.lr.ph154, !llvm.loop !13
 
 .critedge3:                                       ; preds = %186, %.lr.ph154, %.preheader, %141
   %.2 = phi i32 [ %.073158, %141 ], [ %.073158, %.preheader ], [ %187, %186 ], [ %.1153, %.lr.ph154 ]
@@ -653,7 +653,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   store i8 0, ptr %132, align 1
   %194 = sext i32 %.2 to i64
   %195 = getelementptr i8, ptr %133, i64 %194
-  %196 = call i64 @strtoul(ptr nocapture noundef %195, ptr noundef null, i32 noundef 16) #7
+  %196 = call i64 @strtoul(ptr nocapture noundef readonly %195, ptr noundef null, i32 noundef 16) #7
   %sext.i = shl i64 %196, 32
   %197 = ashr exact i64 %sext.i, 32
   %.not.i129 = icmp eq i64 %197, %191
@@ -690,7 +690,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   store i8 %214, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i131, label %.loopexit, label %202, !llvm.loop !15
+  br i1 %exitcond.not.i131, label %.loopexit, label %202, !llvm.loop !14
 
 215:                                              ; preds = %.critedge3
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
@@ -704,7 +704,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   %217 = add i32 %.074157, 16
   %218 = load i32, ptr %8, align 4
   %219 = icmp ult i32 %217, %218
-  br i1 %219, label %135, label %._crit_edge161, !llvm.loop !16
+  br i1 %219, label %135, label %._crit_edge161, !llvm.loop !15
 
 ._crit_edge161:                                   ; preds = %.loopexit, %111
   %220 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 240, ptr noundef %0) #7
@@ -769,7 +769,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -779,4 +779,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

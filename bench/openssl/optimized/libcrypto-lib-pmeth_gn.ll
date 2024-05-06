@@ -573,7 +573,7 @@ declare i32 @EVP_PKEY_CTX_set_mac_key(ptr noundef, ptr noundef, i32 noundef) loc
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_fromdata_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @EVP_PKEY_fromdata_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cond.i = icmp eq ptr %ctx, null
   br i1 %cond.i, label %if.end9.i, label %lor.lhs.false.i
@@ -611,7 +611,7 @@ fromdata_init.exit:                               ; preds = %if.end4.i, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_fromdata(ptr noundef readonly %ctx, ptr noundef %ppkey, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @EVP_PKEY_fromdata(ptr noundef readonly %ctx, ptr noundef %ppkey, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

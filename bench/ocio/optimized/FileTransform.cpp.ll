@@ -5033,7 +5033,7 @@ entry:
   %ref.tmp89 = alloca %"class.std::__cxx11::basic_string", align 8
   %os102 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp114 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.OpenColorIO_v2_4dev::GenericCache", ptr @_ZN19OpenColorIO_v2_4dev11g_fileCacheB5cxx11E, i64 0, i32 3)) #28
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i189.invoke
@@ -7748,7 +7748,7 @@ unreachable.i.i.i.i.i:                            ; preds = %lpad.i.i.i.i.i
 
 invoke.cont.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp.i4.i, label %if.then.i.i.i, label %if.else12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i

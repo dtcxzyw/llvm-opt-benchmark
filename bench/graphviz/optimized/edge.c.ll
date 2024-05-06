@@ -1317,7 +1317,7 @@ agsubrep.exit25:                                  ; preds = %43, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = alloca %struct.Agedge_s, align 16
   %5 = load i32, ptr %1, align 8
@@ -1711,7 +1711,7 @@ agfindedge_by_key.exit._crit_edge:                ; preds = %agsubrep.exit38, %a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @agedgeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 56
@@ -1752,7 +1752,7 @@ define internal noundef i32 @agedgeseqcmpf(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1801,7 +1801,7 @@ define internal noundef i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ageqedge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2

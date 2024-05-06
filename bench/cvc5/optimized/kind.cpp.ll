@@ -642,7 +642,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory22typeConstantToTheoryIdENS0_12TypeConstantE(i32 noundef %typeConstant) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 14) i32 @_ZN4cvc58internal6theory22typeConstantToTheoryIdENS0_12TypeConstantE(i32 noundef %typeConstant) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ult i32 %typeConstant, 11
   br i1 %0, label %switch.lookup, label %sw.epilog

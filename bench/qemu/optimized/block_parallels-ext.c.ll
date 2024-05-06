@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.15, ptr @.str.16, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.17, ptr @.str.16, i32 52, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @parallels_read_format_extension(ptr noundef %bs, i64 noundef %ext_off, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @parallels_read_format_extension(ptr noundef %bs, i64 noundef %ext_off, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %uuid.i.i = alloca %struct.QemuUUID, align 4
   %uuidstr.i.i = alloca [37 x i8], align 16
@@ -198,7 +198,7 @@ if.then15.i.i:                                    ; preds = %if.end11.i.i
   br label %parallels_load_bitmap.exit.thread.i
 
 if.end16.i.i:                                     ; preds = %if.end11.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, ptr noundef nonnull align 1 dereferenceable(16) %bf.sroa.5.0..sroa_idx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bf.sroa.5.0..sroa_idx.i.i, i64 16, i1 false)
   call void @qemu_uuid_unparse(ptr noundef nonnull %uuid.i.i, ptr noundef nonnull %uuidstr.i.i) #8
   %call20.i.i = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %shl.i.i, ptr noundef nonnull %uuidstr.i.i, ptr noundef %errp) #8
   %tobool.not.i.i = icmp eq ptr %call20.i.i, null

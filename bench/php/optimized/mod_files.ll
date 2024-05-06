@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [46 x i8] c"ps_files_cleanup_dir: dirname(%s) is too long\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_open_files(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [3 x ptr], align 16
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 0
@@ -211,7 +211,7 @@ ps_files_close.exit:                              ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_read_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i64 %3) #0 {
   %5 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %6 = load ptr, ptr %0, align 8
@@ -314,14 +314,14 @@ define hidden noundef i32 @ps_read_files(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_write_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_write_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call fastcc i32 @ps_files_write(ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !4
+  %6 = tail call fastcc i32 @ps_files_write(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_delete_files(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %4, null
@@ -350,7 +350,7 @@ define hidden noundef i32 @ps_delete_files(ptr nocapture noundef readonly %0, pt
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = getelementptr inbounds i8, ptr %12, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %22, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 8 %22, i64 %14, i1 false)
   %23 = getelementptr inbounds i8, ptr %3, i64 %14
   store i8 47, ptr %23, align 1
   %.041.i = add i64 %14, 1
@@ -379,10 +379,10 @@ define hidden noundef i32 @ps_delete_files(ptr nocapture noundef readonly %0, pt
   %.0.in.lcssa.i = phi i64 [ %14, %20 ], [ %28, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %.041.i, %20 ], [ %.0.i, %.lr.ph.i ]
   %32 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %33 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i
   %34 = getelementptr i8, ptr %33, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 8 %21, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %34, ptr nonnull readonly align 8 %21, i64 %7, i1 false)
   %35 = getelementptr i8, ptr %34, i64 %7
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %4, i64 36
@@ -584,7 +584,7 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %7, i64 24
   %30 = getelementptr inbounds i8, ptr %20, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 8 %30, i64 %22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 8 %30, i64 %22, i1 false)
   %31 = getelementptr inbounds i8, ptr %2, i64 %22
   store i8 47, ptr %31, align 1
   %.041.i.i = add i64 %22, 1
@@ -618,9 +618,9 @@ ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
   %.0.in.lcssa.i.i = phi i64 [ %22, %28 ], [ %36, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.041.i.i, %28 ], [ %.0.i.i, %.lr.ph.i.i ]
   %40 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.in.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr nonnull align 8 %29, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %gep, ptr nonnull readonly align 8 %29, i64 %15, i1 false)
   %41 = getelementptr i8, ptr %gep, i64 %15
   store i8 0, ptr %41, align 1
   %42 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
@@ -666,7 +666,7 @@ ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @ps_validate_sid_files(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 {
+define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = load ptr, ptr %0, align 8
@@ -701,7 +701,7 @@ define hidden noundef i32 @ps_validate_sid_files(ptr nocapture noundef readonly 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %23, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 8 %23, i64 %15, i1 false)
   %24 = getelementptr inbounds i8, ptr %3, i64 %15
   store i8 47, ptr %24, align 1
   %.041.i.i = add i64 %15, 1
@@ -730,10 +730,10 @@ define hidden noundef i32 @ps_validate_sid_files(ptr nocapture noundef readonly 
   %.0.in.lcssa.i.i = phi i64 [ %15, %21 ], [ %29, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.041.i.i, %21 ], [ %.0.i.i, %.lr.ph.i.i ]
   %33 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %33, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %33, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %34 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i.i
   %35 = getelementptr i8, ptr %34, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 8 %22, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %35, ptr nonnull readonly align 8 %22, i64 %8, i1 false)
   %36 = getelementptr i8, ptr %35, i64 %8
   store i8 0, ptr %36, align 1
   %37 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
@@ -749,7 +749,7 @@ ps_files_key_exists.exit:                         ; preds = %2, %6, %11, %.loope
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_update_timestamp_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %6, null
@@ -778,7 +778,7 @@ define hidden noundef i32 @ps_update_timestamp_files(ptr nocapture noundef reado
 22:                                               ; preds = %12
   %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = getelementptr inbounds i8, ptr %14, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %24, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 8 %24, i64 %16, i1 false)
   %25 = getelementptr inbounds i8, ptr %5, i64 %16
   store i8 47, ptr %25, align 1
   %.041.i = add i64 %16, 1
@@ -807,10 +807,10 @@ define hidden noundef i32 @ps_update_timestamp_files(ptr nocapture noundef reado
   %.0.in.lcssa.i = phi i64 [ %16, %22 ], [ %30, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %.041.i, %22 ], [ %.0.i, %.lr.ph.i ]
   %34 = getelementptr inbounds i8, ptr %5, i64 %.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %34, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %34, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %35 = getelementptr i8, ptr %5, i64 %.0.in.lcssa.i
   %36 = getelementptr i8, ptr %35, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 8 %23, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %36, ptr nonnull readonly align 8 %23, i64 %9, i1 false)
   %37 = getelementptr i8, ptr %36, i64 %9
   store i8 0, ptr %37, align 1
   %38 = call i32 @utime(ptr noundef nonnull %5, ptr noundef null) #15
@@ -818,7 +818,7 @@ define hidden noundef i32 @ps_update_timestamp_files(ptr nocapture noundef reado
   br i1 %39, label %40, label %ps_files_path_create.exit.thread
 
 40:                                               ; preds = %.loopexit
-  %41 = tail call fastcc i32 @ps_files_write(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2), !range !4
+  %41 = tail call fastcc i32 @ps_files_write(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2)
   br label %ps_files_path_create.exit.thread
 
 ps_files_path_create.exit.thread:                 ; preds = %4, %7, %12, %.loopexit, %40
@@ -960,7 +960,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds i8, ptr %42, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %51, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 8 %51, i64 %44, i1 false)
   %52 = getelementptr inbounds i8, ptr %3, i64 %44
   store i8 47, ptr %52, align 1
   %.041.i = add i64 %44, 1
@@ -993,10 +993,10 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   %.0.in.lcssa.i = phi i64 [ %44, %50 ], [ %57, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %.041.i, %50 ], [ %.0.i, %.lr.ph.i ]
   %62 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %62, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %62, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %63 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i
   %64 = getelementptr i8, ptr %63, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr nonnull align 8 %31, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %64, ptr nonnull readonly align 8 %31, i64 %37, i1 false)
   %65 = getelementptr i8, ptr %64, i64 %37
   store i8 0, ptr %65, align 1
   %66 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1107,7 +1107,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ps_files_write(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ps_files_write(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call fastcc void @ps_files_open(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -1254,4 +1254,3 @@ attributes #19 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

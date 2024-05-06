@@ -247,7 +247,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @vsyscall_setup(ptr noundef readonly %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @vsyscall_setup(ptr noundef readonly %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -785,7 +785,7 @@ define dso_local ptr @get_gate_vma(ptr noundef %0) local_unnamed_addr #7 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @in_gate_area(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @in_gate_area(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -814,7 +814,7 @@ define dso_local i32 @in_gate_area(ptr noundef %0, i64 noundef %1) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @in_gate_area_no_mm(i64 noundef %0) local_unnamed_addr #8 align 16 {
+define dso_local range(i32 0, 2) i32 @in_gate_area_no_mm(i64 noundef %0) local_unnamed_addr #8 align 16 {
   %2 = load i32, ptr @vsyscall_mode, align 4
   %3 = icmp ne i32 %2, 2
   %4 = and i64 %0, -4096

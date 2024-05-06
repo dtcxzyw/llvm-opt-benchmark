@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [11 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_join_ibss.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1968, ptr @trace_drv_join_ibss.__UNIQUE_ID___addressable___SCK__tp_func_drv_join_ibss1967, ptr @trace_drv_leave_ibss.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1982, ptr @trace_drv_leave_ibss.__UNIQUE_ID___addressable___SCK__tp_func_drv_leave_ibss1981, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_tx_last_beacon.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1520, ptr @trace_drv_tx_last_beacon.__UNIQUE_ID___addressable___SCK__tp_func_drv_tx_last_beacon1519], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_ibss_csa_beacon(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_ibss_csa_beacon(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1256
   %5 = getelementptr inbounds i8, ptr %0, i64 1982
   %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
@@ -178,7 +178,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %25 = getelementptr i8, ptr %18, i64 88
   %26 = getelementptr inbounds i8, ptr %0, i64 1986
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %25, ptr noundef align 2 dereferenceable(6) %26, i64 6, i1 false)
-  %27 = trunc i32 %1 to i16
+  %27 = trunc nuw i32 %1 to i16
   %28 = getelementptr i8, ptr %18, i64 96
   %29 = getelementptr i8, ptr %18, i64 104
   store i16 %27, ptr %29, align 8
@@ -356,7 +356,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   br label %146
 
 143:                                              ; preds = %128
-  %144 = trunc i64 %indvars.iv to i32
+  %144 = trunc nuw nsw i64 %indvars.iv to i32
   %145 = add nuw nsw i32 %144, 1
   br label %.loopexit12
 
@@ -370,7 +370,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   br i1 %149, label %121, label %.loopexit12.loopexit, !llvm.loop !13
 
 .loopexit12.loopexit:                             ; preds = %146
-  %150 = trunc i64 %indvars.iv.next to i32
+  %150 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %.loopexit12.loopexit, %143, %107
@@ -597,7 +597,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_ibss_finish_csa(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -67, 1) i32 @ieee80211_ibss_finish_csa(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = getelementptr inbounds i8, ptr %0, i64 2160
   %5 = load i32, ptr %4, align 8
@@ -951,7 +951,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
 108:                                              ; preds = %94
   %109 = lshr i32 %97, 16
   %110 = and i32 %97, %109
-  %111 = trunc i32 %110 to i16
+  %111 = trunc nuw i32 %110 to i16
   %112 = and i16 %101, %111
   %113 = icmp eq i16 %112, -1
   br i1 %113, label %114, label %464
@@ -1590,10 +1590,10 @@ define dso_local void @ieee80211_ibss_work(ptr noundef %0) local_unnamed_addr #0
   %41 = sub i64 %40, %35
   %42 = add i64 %41, -30000
   %43 = lshr i64 %42, 61
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = and i32 %44, 4
   %46 = lshr i64 %42, 63
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %48 = add i32 %31, %47
   br label %49
 
@@ -1874,10 +1874,10 @@ ieee80211_sta_create_ibss.exit:                   ; preds = %131, %143
   %226 = sub i64 %225, %220
   %227 = add i64 %226, -30000
   %228 = lshr i64 %227, 61
-  %229 = trunc i64 %228 to i32
+  %229 = trunc nuw nsw i64 %228 to i32
   %230 = and i32 %229, 4
   %231 = lshr i64 %227, 63
-  %232 = trunc i64 %231 to i32
+  %232 = trunc nuw nsw i64 %231 to i32
   %233 = add i32 %216, %232
   br label %234
 
@@ -2103,7 +2103,7 @@ define dso_local void @ieee80211_ibss_notify_scan_completed(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_ibss_join(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ieee80211_ibss_join(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -3267,7 +3267,7 @@ define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nocap
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 4184
   store i8 1, ptr %102, align 8
-  %103 = trunc i32 %2 to i16
+  %103 = trunc nuw i32 %2 to i16
   %104 = getelementptr inbounds i8, ptr %0, i64 4186
   store i16 %103, ptr %104, align 2
   %105 = getelementptr inbounds i8, ptr %0, i64 4208

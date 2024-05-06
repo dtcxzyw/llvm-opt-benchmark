@@ -3995,7 +3995,7 @@ define internal i32 @dissect_pfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %132 = load i32, ptr %121, align 8
   %133 = load i32, ptr %123, align 4
   %134 = load ptr, ptr %124, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
   store i32 %132, ptr %131, align 8
   %135 = icmp eq i32 %133, 0
   br i1 %135, label %copy_address_wmem.exit.i.i, label %136
@@ -4630,7 +4630,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pfcp_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @pfcp_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %40
@@ -4757,7 +4757,7 @@ define internal i32 @pfcp_sn_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pfcp_sn_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @pfcp_sn_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4800,7 +4800,7 @@ define internal i32 @pfcp_sn_equal_matched(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pfcp_sn_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @pfcp_sn_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -6552,7 +6552,7 @@ pfcp_ip_exists.exit:                              ; preds = %92, %80
   %100 = load i32, ptr %.068, align 8
   %101 = load i32, ptr %.06878.sroa.4.0..068.sroa_idx, align 4
   %102 = load ptr, ptr %.06878.sroa.5.0..068.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   store i32 %100, ptr %99, align 8
   %103 = icmp eq i32 %101, 0
   br i1 %103, label %copy_address_wmem.exit, label %104
@@ -6649,7 +6649,7 @@ pfcp_ip_exists.exit90:                            ; preds = %133, %121
   %141 = load i32, ptr %.069, align 8
   %142 = load i32, ptr %.06981.sroa.4.0..069.sroa_idx, align 4
   %143 = load ptr, ptr %.06981.sroa.5.0..069.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
   store i32 %141, ptr %140, align 8
   %144 = icmp eq i32 %142, 0
   br i1 %144, label %copy_address_wmem.exit91, label %145
@@ -12621,7 +12621,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 65536) i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %4 to i32
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %21, label %7
@@ -12684,7 +12684,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @wmem_map_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pfcp_frame_equal(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #5 {
+define internal range(i32 0, 2) i32 @pfcp_frame_equal(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
@@ -13112,7 +13112,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_pppoe_session_id(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_ppp_protocol(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 4) i32 @dissect_pfcp_enterprise_bbf_ppp_protocol(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_pfcp_bbf_ppp_protocol_flags, align 4
   %7 = load i32, ptr @ett_pfcp_bbf_ppp_protocol_flags, align 4
@@ -14025,7 +14025,7 @@ define internal i32 @pfcp_info_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pfcp_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @pfcp_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4

@@ -245,7 +245,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_pci_bmdm
 declare dso_local i32 @ata_noop_qc_prep(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_sff_qc_issue(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 0, 65) i32 @ata_sff_qc_issue(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1636,7 +1636,7 @@ define dso_local void @ata_sff_exec_command(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_sff_data_xfer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local range(i32 0, -1) i32 @ata_sff_data_xfer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca [2 x i8], align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1813,7 +1813,7 @@ define dso_local i32 @ata_sff_wait_ready(ptr noundef %0, i64 noundef %1) #1 alig
 declare dso_local i32 @ata_wait_ready(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ata_sff_check_ready(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -19, 2) i32 @ata_sff_check_ready(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1945,7 +1945,7 @@ declare dso_local void @iowrite16_rep(ptr noundef, ptr noundef, i64 noundef) loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_sff_data_xfer32(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local range(i32 0, -1) i32 @ata_sff_data_xfer32(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca [4 x i8], align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2088,7 +2088,7 @@ declare dso_local void @iowrite32_rep(ptr noundef, ptr noundef, i64 noundef) loc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_sff_hsm_move(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #1 align 16 {
+define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 64
@@ -3391,13 +3391,13 @@ define internal fastcc void @ata_tf_to_host(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_sff_port_intr(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_sff_port_intr(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @__ata_sff_port_intr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false), !range !20
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ata_sff_port_intr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__ata_sff_port_intr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = zext i1 %2 to i8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_ata_sff_port_intr, i64 0, i32 1), i32 2) #13
           to label %25 [label %5], !srcloc !37
@@ -3550,7 +3550,7 @@ define internal fastcc noundef i32 @__ata_sff_port_intr(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_sff_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @ata_sff_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 112
@@ -4066,7 +4066,7 @@ define dso_local void @ata_sff_std_ports(ptr nocapture noundef %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_pci_sff_init_host(ptr nocapture noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nocapture noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
@@ -4641,7 +4641,7 @@ define dso_local noundef i32 @ata_bmdma_qc_prep(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_bmdma_qc_issue(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 0, 65) i32 @ata_bmdma_qc_issue(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -5262,7 +5262,7 @@ define dso_local void @ata_bmdma_post_internal_cmd(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_bmdma_port_start(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_bmdma_port_start(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 292
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -5406,7 +5406,7 @@ define dso_local zeroext i8 @ata_bmdma_status(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_bmdma_port_start32(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_bmdma_port_start32(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 32
   %4 = or i32 %3, 3145728
@@ -5543,7 +5543,7 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_bmdma_port_intr(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_bmdma_port_intr(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 9032
   %4 = getelementptr inbounds i8, ptr %0, i64 15728
   %5 = load i32, ptr %4, align 16
@@ -5702,7 +5702,7 @@ define dso_local noundef i32 @ata_bmdma_port_intr(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 112
@@ -5748,7 +5748,7 @@ define dso_local i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @ata_bmdma_port_intr(ptr noundef %16, ptr noundef nonnull %22) #13, !range !20, !callees !139
+  %36 = tail call i32 @ata_bmdma_port_intr(ptr noundef %16, ptr noundef nonnull %22) #13, !callees !139
   %37 = or i32 %36, %14
   %.pre16 = load i32, ptr %4, align 8
   br label %46
@@ -5859,7 +5859,7 @@ declare dso_local void @ata_eh_thaw_port(ptr noundef) local_unnamed_addr #0
 declare dso_local void @iowrite32(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_pci_bmdma_clear_simplex(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local range(i32 -95, 1) i32 @ata_pci_bmdma_clear_simplex(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 1176
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -6221,7 +6221,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @ata_sff_init() local_unnamed_addr #8 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @ata_sff_init() local_unnamed_addr #8 section ".init.text" align 16 {
   %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.21, i32 noundef 8, i32 noundef 512) #13
   store ptr %1, ptr @ata_sff_wq, align 8
   %2 = icmp eq ptr %1, null

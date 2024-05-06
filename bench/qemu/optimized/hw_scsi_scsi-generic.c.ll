@@ -107,7 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.49, ptr @.str.50, i32 38, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_ioctl, ptr @.str.51, ptr @.str.52, i32 218, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_ioctl, ptr @.str.49, ptr @.str.52, i32 218, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @scsi_SG_IO_FROM_DEV(ptr noundef %blk, ptr noundef %cmd, i8 noundef zeroext %cmd_size, ptr noundef %buf, i8 noundef zeroext %buf_size, i32 noundef %timeout) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scsi_SG_IO_FROM_DEV(ptr noundef %blk, ptr noundef %cmd, i8 noundef zeroext %cmd_size, ptr noundef %buf, i8 noundef zeroext %buf_size, i32 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -266,7 +266,7 @@ entry:
   %1 = load ptr, ptr %conf.i, align 8
   %io_timeout.i = getelementptr inbounds i8, ptr %s, i64 600
   %2 = load i32, ptr %io_timeout.i, align 8
-  %call.i = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %1, ptr noundef nonnull %cmd.i, i8 noundef zeroext 6, ptr noundef nonnull %buf.i, i8 noundef zeroext -6, i32 noundef %2), !range !5
+  %call.i = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %1, ptr noundef nonnull %cmd.i, i8 noundef zeroext 6, ptr noundef nonnull %buf.i, i8 noundef zeroext -6, i32 noundef %2)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %scsi_generic_read_device_identification.exit, label %if.end.i
 
@@ -280,7 +280,7 @@ if.end.i:                                         ; preds = %entry
   %conv9.i = zext i8 %4 to i64
   %or.i = or disjoint i64 %shl.i, %conv9.i
   %cond.i = call i64 @llvm.umin.i64(i64 %or.i, i64 246)
-  %conv13.i = trunc i64 %cond.i to i32
+  %conv13.i = trunc nuw nsw i64 %cond.i to i32
   %cmp14.not60.i = icmp ult i32 %conv13.i, 3
   br i1 %cmp14.not60.i, label %scsi_generic_read_device_identification.exit, label %for.body.lr.ph.i
 
@@ -331,7 +331,7 @@ if.then13.i.i:                                    ; preds = %if.then30.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then13.i.i
   %arrayidx18.i.i = getelementptr i8, ptr %arrayidx17.i, i64 4
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx18.i.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %arrayidx18.i.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.end21.i.i, label %if.end49.i
 
@@ -368,7 +368,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %or.i.i = or i64 %conv46.i.i, %shl.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %if.then34.i, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %if.then34.i, label %for.body.i.i, !llvm.loop !5
 
 if.then34.i:                                      ; preds = %for.body.i.i, %if.end.i.i
   %wwn.1.i = phi i64 [ %9, %if.end.i.i ], [ %or.i.i, %for.body.i.i ]
@@ -397,7 +397,7 @@ if.then13.i16.i:                                  ; preds = %if.then42.i
 
 lor.lhs.false.i19.i:                              ; preds = %if.then13.i16.i
   %arrayidx18.i20.i = getelementptr i8, ptr %arrayidx17.i, i64 4
-  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx18.i20.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %arrayidx18.i20.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %tobool.not.i22.i = icmp eq i32 %bcmp.i21.i, 0
   br i1 %tobool.not.i22.i, label %if.end21.i24.i, label %if.end49.i
 
@@ -434,7 +434,7 @@ for.body.i30.i:                                   ; preds = %for.body.i30.i.preh
   %or.i43.i = or i64 %conv46.i42.i, %shl.i40.i
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 24
-  br i1 %exitcond.not.i45.i, label %if.then46.i, label %for.body.i30.i, !llvm.loop !6
+  br i1 %exitcond.not.i45.i, label %if.then46.i, label %for.body.i30.i, !llvm.loop !5
 
 if.then46.i:                                      ; preds = %for.body.i30.i, %if.end.i49.i
   %wwn.2.i = phi i64 [ %15, %if.end.i49.i ], [ %or.i43.i, %for.body.i30.i ]
@@ -444,7 +444,7 @@ if.then46.i:                                      ; preds = %for.body.i30.i, %if
 if.end49.i:                                       ; preds = %if.then46.i, %land.lhs.true.i26.i, %lor.lhs.false.i19.i, %if.then13.i16.i, %if.then.i46.i, %if.then42.i, %if.then34.i, %land.lhs.true.i.i, %lor.lhs.false.i.i, %if.then13.i.i, %if.then.i.i, %if.then30.i
   %add.i = add i32 %add21.i, 3
   %cmp14.not.i = icmp sgt i32 %add.i, %conv13.i
-  br i1 %cmp14.not.i, label %scsi_generic_read_device_identification.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp14.not.i, label %scsi_generic_read_device_identification.exit, label %for.body.i, !llvm.loop !7
 
 scsi_generic_read_device_identification.exit:     ; preds = %for.body.i, %if.end49.i, %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %cmd.i)
@@ -471,7 +471,7 @@ if.then:                                          ; preds = %scsi_generic_read_d
   store i8 -6, ptr %arrayidx4.i9, align 1
   %23 = load ptr, ptr %conf.i, align 8
   %24 = load i32, ptr %io_timeout.i, align 8
-  %call.i12 = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %23, ptr noundef nonnull %cmd.i5, i8 noundef zeroext 6, ptr noundef nonnull %buf.i6, i8 noundef zeroext -6, i32 noundef %24), !range !5
+  %call.i12 = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %23, ptr noundef nonnull %cmd.i5, i8 noundef zeroext 6, ptr noundef nonnull %buf.i6, i8 noundef zeroext -6, i32 noundef %24)
   %cmp.i13 = icmp slt i32 %call.i12, 0
   br i1 %cmp.i13, label %scsi_generic_set_vpd_bl_emulation.exit, label %if.end.i14
 
@@ -490,7 +490,7 @@ for.body.preheader.i:                             ; preds = %if.end.i14
 for.cond.i:                                       ; preds = %for.body.i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.i16, !llvm.loop !9
+  br i1 %exitcond.not, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.i16, !llvm.loop !8
 
 for.body.i16:                                     ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.i ], [ 4, %for.body.preheader.i ]
@@ -563,7 +563,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.ptr.i = getelementptr i8, ptr %p.09.i, i64 %idx.ext.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -619,7 +619,7 @@ if.then12:                                        ; preds = %if.end
   %call = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #14
   %conf = getelementptr inbounds i8, ptr %0, i64 184
   %13 = load ptr, ptr %conf, align 8
-  %call15 = tail call fastcc i32 @execute_command(ptr noundef %13, ptr noundef nonnull %req, i32 noundef -1, ptr noundef nonnull @scsi_command_complete), !range !11
+  %call15 = tail call fastcc i32 @execute_command(ptr noundef %13, ptr noundef nonnull %req, i32 noundef -1, ptr noundef nonnull @scsi_command_complete)
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then18, label %return
 
@@ -722,7 +722,7 @@ trace_scsi_generic_read_data.exit:                ; preds = %entry, %land.lhs.tr
 if.end:                                           ; preds = %trace_scsi_generic_read_data.exit
   %conf = getelementptr inbounds i8, ptr %0, i64 184
   %9 = load ptr, ptr %conf, align 8
-  %call4 = tail call fastcc i32 @execute_command(ptr noundef %9, ptr noundef nonnull %req, i32 noundef -3, ptr noundef nonnull @scsi_read_complete), !range !11
+  %call4 = tail call fastcc i32 @execute_command(ptr noundef %9, ptr noundef nonnull %req, i32 noundef -3, ptr noundef nonnull @scsi_read_complete)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.end7.sink.split, label %if.end7
 
@@ -793,7 +793,7 @@ if.end:                                           ; preds = %trace_scsi_generic_
   %call = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #14
   %conf = getelementptr inbounds i8, ptr %0, i64 184
   %10 = load ptr, ptr %conf, align 8
-  %call7 = tail call fastcc i32 @execute_command(ptr noundef %10, ptr noundef nonnull %req, i32 noundef -2, ptr noundef nonnull @scsi_write_complete), !range !11
+  %call7 = tail call fastcc i32 @execute_command(ptr noundef %10, ptr noundef nonnull %req, i32 noundef -2, ptr noundef nonnull @scsi_write_complete)
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end10
 
@@ -925,7 +925,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @scsi_req_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef %direction, ptr noundef %complete) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef %direction, ptr noundef %complete) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %r, i64 8
@@ -1530,7 +1530,7 @@ if.else:                                          ; preds = %calculate_max_trans
 
 if.end:                                           ; preds = %calculate_max_transfer.exit
   %add.ptr11 = getelementptr inbounds i8, ptr %buf, i64 2
-  %conv12 = trunc i32 %call7 to i16
+  %conv12 = trunc nuw i32 %call7 to i16
   %8 = shl nuw nsw i16 %conv12, 8
   store i16 %8, ptr %add.ptr11, align 2
   %9 = load ptr, ptr %buf1, align 8
@@ -1693,7 +1693,7 @@ if.then85:                                        ; preds = %land.lhs.true81
   %27 = and i16 %narrow, 255
   %conv90 = zext nneg i16 %27 to i32
   %28 = tail call i32 @llvm.umin.i32(i32 %conv90, i32 %24)
-  %conv99 = trunc i32 %28 to i8
+  %conv99 = trunc nuw i32 %28 to i8
   %cmp10160 = icmp ugt i8 %conv99, 4
   br i1 %cmp10160, label %land.rhs, label %while.end
 
@@ -1721,7 +1721,7 @@ if.end123:                                        ; preds = %if.then114, %while.
   %dec = add i8 %page_idx.061, -1
   %conv100 = zext i8 %dec to i32
   %cmp101 = icmp ugt i8 %dec, 4
-  br i1 %cmp101, label %land.rhs, label %if.end123.while.end.loopexit_crit_edge, !llvm.loop !12
+  br i1 %cmp101, label %land.rhs, label %if.end123.while.end.loopexit_crit_edge, !llvm.loop !10
 
 if.end123.while.end.loopexit_crit_edge:           ; preds = %if.end123
   %.pre.pre = load i32, ptr %buflen82, align 8
@@ -2054,7 +2054,7 @@ if.end39:                                         ; preds = %if.end32
 
 sw.bb:                                            ; preds = %if.end39
   %9 = load ptr, ptr %conf, align 8
-  %call44 = call fastcc i32 @get_stream_blocksize(ptr noundef %9), !range !13
+  %call44 = call fastcc i32 @get_stream_blocksize(ptr noundef %9)
   %blocksize = getelementptr inbounds i8, ptr %s, i64 560
   %cmp46 = icmp eq i32 %call44, -1
   %spec.store.select = select i1 %cmp46, i32 0, i32 %call44
@@ -2170,7 +2170,7 @@ _nocheck__trace_scsi_generic_realize_type.exit:   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @get_stream_blocksize(ptr noundef %blk) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 16777216) i32 @get_stream_blocksize(ptr noundef %blk) unnamed_addr #0 {
 entry:
   %cmd = alloca [6 x i8], align 1
   %buf = alloca [12 x i8], align 1
@@ -2180,7 +2180,7 @@ entry:
   store i8 26, ptr %cmd, align 1
   %arrayidx2 = getelementptr inbounds i8, ptr %cmd, i64 4
   store i8 12, ptr %arrayidx2, align 1
-  %call = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %blk, ptr noundef nonnull %cmd, i8 noundef zeroext 6, ptr noundef nonnull %buf, i8 noundef zeroext 12, i32 noundef 6), !range !5
+  %call = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %blk, ptr noundef nonnull %cmd, i8 noundef zeroext 6, ptr noundef nonnull %buf, i8 noundef zeroext 12, i32 noundef 6)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2302,12 +2302,9 @@ attributes #18 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i32 -5, i32 1}
-!12 = distinct !{!12, !7}
-!13 = !{i32 -1, i32 16777216}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

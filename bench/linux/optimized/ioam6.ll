@@ -308,7 +308,7 @@ define dso_local void @ioam6_fill_trace_data(ptr nocapture noundef readonly %0, 
 25:                                               ; preds = %19, %17, %10
   %26 = phi i8 [ %24, %19 ], [ 1, %17 ], [ 0, %10 ]
   %27 = lshr i16 %7, 8
-  %28 = trunc i16 %27 to i8
+  %28 = trunc nuw i16 %27 to i8
   %29 = and i8 %28, 127
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %39, label %31
@@ -902,7 +902,7 @@ define dso_local void @ioam6_fill_trace_data(ptr nocapture noundef readonly %0, 
   %414 = trunc i16 %413 to i8
   %415 = lshr i8 %414, 3
   %416 = lshr i16 %413, 8
-  %417 = trunc i16 %416 to i8
+  %417 = trunc nuw i16 %416 to i8
   %418 = add i8 %415, %26
   %419 = sub i8 %417, %418
   %420 = and i8 %419, 127
@@ -980,7 +980,7 @@ declare dso_local ptr @rht_bucket_nested(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ioam6_ns_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal range(i32 0, 2) i32 @ioam6_ns_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1080,7 +1080,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ioam6_sc_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal range(i32 0, 2) i32 @ioam6_sc_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1274,7 +1274,7 @@ define internal noundef i32 @ioam6_genl_delns(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ioam6_genl_dumpns_start(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ioam6_genl_dumpns_start(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1621,7 +1621,7 @@ define internal noundef i32 @ioam6_genl_delsc(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ioam6_genl_dumpsc_start(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ioam6_genl_dumpsc_start(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1805,7 +1805,7 @@ define internal noundef i32 @ioam6_genl_dumpsc_done(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ioam6_genl_ns_set_schema(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ioam6_genl_ns_set_schema(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16

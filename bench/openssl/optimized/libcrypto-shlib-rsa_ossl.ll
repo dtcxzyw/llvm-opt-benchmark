@@ -932,7 +932,7 @@ if.end119:                                        ; preds = %if.then114, %if.end
   br i1 %cmp120, label %if.then122, label %if.end128
 
 if.then122:                                       ; preds = %if.end119
-  %call123 = call fastcc i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr noundef nonnull %rsa, ptr noundef nonnull %call10, i32 noundef %div, ptr noundef nonnull %kdk), !range !4
+  %call123 = call fastcc i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr noundef nonnull %rsa, ptr noundef nonnull %call10, i32 noundef %div, ptr noundef nonnull %kdk)
   %cmp124 = icmp eq i32 %call123, 0
   br i1 %cmp124, label %err, label %if.end128
 
@@ -995,7 +995,7 @@ err:                                              ; preds = %if.end103, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_ossl_mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) #3 {
+define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) #3 {
 entry:
   %m = alloca [3 x ptr], align 16
   tail call void @BN_CTX_start(ptr noundef %ctx) #8
@@ -1069,7 +1069,7 @@ if.then21:                                        ; preds = %lor.lhs.false17, %i
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.0271, 1
   %exitcond.not = icmp eq i32 %inc, %ex_primes.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0271 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -1307,7 +1307,7 @@ if.then147:                                       ; preds = %if.then141
 for.cond149:                                      ; preds = %if.end162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond277.not, label %for.end175, label %for.body151, !llvm.loop !7
+  br i1 %exitcond277.not, label %for.end175, label %for.body151, !llvm.loop !6
 
 for.body151:                                      ; preds = %for.body151.lr.ph, %for.cond149
   %indvars.iv = phi i64 [ 0, %for.body151.lr.ph ], [ %indvars.iv.next, %for.cond149 ]
@@ -1324,7 +1324,7 @@ if.then154:                                       ; preds = %for.body151
 
 if.end155:                                        ; preds = %for.body151
   %47 = load ptr, ptr %prime_infos156, align 8
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i268 = tail call ptr @OPENSSL_sk_value(ptr noundef %47, i32 noundef %48) #8
   tail call void @BN_with_flags(ptr noundef %call143, ptr noundef %I, i32 noundef 4) #8
   %d = getelementptr inbounds i8, ptr %call.i268, i64 8
@@ -1435,12 +1435,12 @@ for.body230.lr.ph:                                ; preds = %if.then223
 for.cond228:                                      ; preds = %if.end260
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %for.end267, label %for.body230, !llvm.loop !8
+  br i1 %exitcond282.not, label %for.end267, label %for.body230, !llvm.loop !7
 
 for.body230:                                      ; preds = %for.body230.lr.ph, %for.cond228
   %indvars.iv278 = phi i64 [ 0, %for.body230.lr.ph ], [ %indvars.iv.next279, %for.cond228 ]
   %60 = load ptr, ptr %prime_infos231, align 8
-  %61 = trunc i64 %indvars.iv278 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv278 to i32
   %call.i269 = tail call ptr @OPENSSL_sk_value(ptr noundef %60, i32 noundef %61) #8
   %arrayidx234 = getelementptr inbounds [3 x ptr], ptr %m, i64 0, i64 %indvars.iv278
   %62 = load ptr, ptr %arrayidx234, align 8
@@ -1651,7 +1651,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load ptr, ptr %prime_infos, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #8
   %cmp = icmp slt i32 %inc, %call.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %_method_mod_n = getelementptr inbounds i8, ptr %rsa, i64 168
@@ -1854,7 +1854,7 @@ declare i32 @BN_BLINDING_invert_ex(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr nocapture noundef readonly %rsa, ptr noundef %buf, i32 noundef %num, ptr noundef %kdk) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr nocapture noundef readonly %rsa, ptr noundef %buf, i32 noundef %num, ptr noundef %kdk) unnamed_addr #3 {
 entry:
   %md_len = alloca i32, align 4
   %d_hash = alloca [32 x i8], align 16
@@ -2067,9 +2067,8 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

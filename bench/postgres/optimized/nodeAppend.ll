@@ -971,7 +971,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr nocapture
 .lr.ph.i:                                         ; preds = %19, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %19 ]
   %28 = load ptr, ptr %23, align 8
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = tail call zeroext i1 @bms_is_member(i32 noundef %29, ptr noundef %28) #5
   br i1 %30, label %35, label %31
 
@@ -1114,7 +1114,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr nocapture
 .lr.ph.i:                                         ; preds = %16, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %16 ]
   %26 = load ptr, ptr %20, align 8
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %28 = tail call zeroext i1 @bms_is_member(i32 noundef %27, ptr noundef %26) #5
   br i1 %28, label %33, label %29
 

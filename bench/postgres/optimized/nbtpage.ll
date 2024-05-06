@@ -2269,7 +2269,7 @@ _bt_delitems_delete.exit:                         ; preds = %.lr.ph57.i
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_bt_delitems_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -65535, 65536) i32 @_bt_delitems_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 6

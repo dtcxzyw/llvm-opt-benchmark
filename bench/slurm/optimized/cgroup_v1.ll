@@ -1270,7 +1270,7 @@ declare ptr @gres_device_id2str(ptr noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_task_cg_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @_find_task_cg_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -2073,7 +2073,7 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   store i32 2, ptr %9, align 4
   %77 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @g_task_list, i64 0, i64 2), align 16
   %78 = call i32 @list_for_each(ptr noundef %77, ptr noundef nonnull @_acct_task, ptr noundef nonnull %9) #11
-  %79 = call fastcc i32 @_get_oom_kill_from_file(ptr noundef nonnull getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4)), !range !12
+  %79 = call fastcc i32 @_get_oom_kill_from_file(ptr noundef nonnull getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4))
   %.not46 = icmp eq i32 %79, 0
   br i1 %.not46, label %88, label %80
 
@@ -2161,7 +2161,7 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %117, %114
-  br label %.lr.ph.split.us, !llvm.loop !13
+  br label %.lr.ph.split.us, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.split.us, %109, %.split73.us
   %118 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -2288,7 +2288,7 @@ define internal noundef i32 @_acct_task(ptr noundef %0, ptr noundef readonly %1)
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @_get_oom_kill_from_file(ptr noundef %0), !range !12
+  %10 = tail call fastcc i32 @_get_oom_kill_from_file(ptr noundef %0)
   br label %11
 
 11:                                               ; preds = %9, %6, %2
@@ -2296,7 +2296,7 @@ define internal noundef i32 @_acct_task(ptr noundef %0, ptr noundef readonly %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_oom_kill_from_file(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_oom_kill_from_file(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -2735,5 +2735,4 @@ attributes #14 = { noreturn nounwind }
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = !{i32 -1, i32 1}
-!13 = distinct !{!13, !8}
+!12 = distinct !{!12, !8}

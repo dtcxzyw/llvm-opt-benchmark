@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @scsi_cmd_allowed(ptr nocapture noundef read
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @put_sg_io_hdr(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @put_sg_io_hdr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.compat_sg_io_hdr, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
@@ -390,7 +390,7 @@ define dso_local i32 @put_sg_io_hdr(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @get_sg_io_hdr(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @get_sg_io_hdr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.compat_sg_io_hdr, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !6
@@ -1397,7 +1397,7 @@ declare dso_local i32 @scsi_test_unit_ready(ptr noundef, i32 noundef, i32 nounde
 declare dso_local i32 @scsi_ioctl_reset(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_ioctl_block_when_processing_errors(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @scsi_ioctl_block_when_processing_errors(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq i32 %1, 8836
   %5 = and i1 %4, %2
   br i1 %5, label %6, label %17

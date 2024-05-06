@@ -88,7 +88,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.59 = private unnamed_addr constant [29 x i8] c"Device properties not found.\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @lg4ff_adjust_input_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @lg4ff_adjust_input_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -168,7 +168,7 @@ declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @lg4ff_raw_event(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @lg4ff_raw_event(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -759,7 +759,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local i32 @input_ff_create_memless(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lg4ff_play(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @lg4ff_play(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 6472
@@ -1026,7 +1026,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lg4ff_led_get_brightness(ptr noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
@@ -1241,7 +1241,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @lg4ff_deinit(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @lg4ff_deinit(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 6472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1402,7 +1402,7 @@ define internal fastcc noundef ptr @lg4ff_get_mode_switch_command(i16 noundef ze
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6472
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1640,7 +1640,7 @@ define internal void @lg4ff_set_range_g25(ptr noundef %0, i16 noundef zeroext %1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @lg4ff_combine_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_combine_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1716,7 +1716,7 @@ declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) loc
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @lg4ff_range_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_range_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1814,7 +1814,7 @@ define internal noundef i64 @lg4ff_range_store(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @lg4ff_real_id_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_real_id_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1866,7 +1866,7 @@ define internal noundef i64 @lg4ff_real_id_store(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @lg4ff_alternate_modes_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

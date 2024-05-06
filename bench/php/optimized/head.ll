@@ -277,7 +277,7 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_header() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @php_header() local_unnamed_addr #0 {
   %1 = tail call i32 @sapi_send_headers() #9
   %2 = icmp eq i32 %1, -1
   %3 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 8), align 8
@@ -770,7 +770,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0628 = phi i64 [ %239, %238 ], [ %245, %240 ]
   %.0627 = phi ptr [ %236, %238 ], [ %244, %240 ]
   %241 = urem i64 %.0628, 10
-  %242 = trunc i64 %241 to i8
+  %242 = trunc nuw nsw i64 %241 to i8
   %243 = or disjoint i8 %242, 48
   %244 = getelementptr inbounds i8, ptr %.0627, i64 -1
   store i8 %243, ptr %244, align 1
@@ -791,7 +791,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0626 = phi i64 [ %235, %248 ], [ %254, %249 ]
   %.0625 = phi ptr [ %236, %248 ], [ %253, %249 ]
   %250 = urem i64 %.0626, 10
-  %251 = trunc i64 %250 to i8
+  %251 = trunc nuw nsw i64 %250 to i8
   %252 = or disjoint i8 %251, 48
   %253 = getelementptr inbounds i8, ptr %.0625, i64 -1
   store i8 %252, ptr %253, align 1

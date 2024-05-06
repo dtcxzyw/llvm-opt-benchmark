@@ -386,7 +386,7 @@ if.then56.i.i:                                    ; preds = %if.end43.i.i
 
 if.end60.i.i:                                     ; preds = %if.then56.i.i, %if.end43.i.i
   %idx.1.i.i = phi i32 [ 4, %if.then56.i.i ], [ 3, %if.end43.i.i ]
-  %27 = trunc i32 %idx.1.i.i to i8
+  %27 = trunc nuw nsw i32 %idx.1.i.i to i8
   %conv61.i.i = add nsw i8 %27, -2
   %arrayidx62.i.i = getelementptr inbounds i8, ptr %19, i64 1
   store i8 %conv61.i.i, ptr %arrayidx62.i.i, align 1

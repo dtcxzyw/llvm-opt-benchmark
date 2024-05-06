@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @qapi_event_emit.event_queue = internal thread_local global %struct.anon.0 zeroinitializer, align 8
-@qapi_event_emit.reentered = internal thread_local global i8 0, align 1
+@qapi_event_emit.reentered = internal thread_local unnamed_addr global i8 0, align 1
 @mon_iothread = dso_local local_unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [21 x i8] c"monitor_accept_input\00", align 1
 @monitor_destroyed = internal unnamed_addr global i1 false, align 1
@@ -415,7 +415,7 @@ if.end2:                                          ; preds = %if.end
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef %call3)
+  %call3.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef readonly %call3)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3) #13
   br label %return
@@ -449,7 +449,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   call void %2(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef %call3.i)
+  %call3.i.i = call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef readonly %call3.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   call void @g_free(ptr noundef %call3.i) #13
   br label %monitor_vprintf.exit
@@ -547,7 +547,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef %call3.i)
+  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef readonly %call3.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3.i) #13
   br label %return
@@ -612,7 +612,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef %call3.i)
+  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef readonly %call3.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3.i) #13
   br label %return
@@ -679,8 +679,8 @@ qobject_ref_impl.exit:                            ; preds = %if.end, %if.then.i
 if.end16:                                         ; preds = %qobject_ref_impl.exit
   store i8 1, ptr %0, align 1
   %7 = load ptr, ptr %4, align 8
-  %cmp.not19 = icmp eq ptr %7, null
-  br i1 %cmp.not19, label %while.end, label %do.body18.lr.ph
+  %cmp.not20 = icmp eq ptr %7, null
+  br i1 %cmp.not20, label %while.end, label %do.body18.lr.ph
 
 do.body18.lr.ph:                                  ; preds = %if.end16
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
@@ -812,31 +812,31 @@ lor.lhs.false.i.i:                                ; preds = %if.then18.i
   %refcnt.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %25, 0
-  br i1 %tobool1.not.i.i, label %if.else.i35.i, label %land.lhs.true.i33.i
+  br i1 %tobool1.not.i.i, label %if.else.i36.i, label %land.lhs.true.i34.i
 
-if.else.i35.i:                                    ; preds = %lor.lhs.false.i.i
+if.else.i36.i:                                    ; preds = %lor.lhs.false.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #17
   unreachable
 
-land.lhs.true.i33.i:                              ; preds = %lor.lhs.false.i.i
+land.lhs.true.i34.i:                              ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %25, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
-  %cmp.i34.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i34.i, label %if.then5.i.i, label %qobject_unref_impl.exit.i
+  %cmp.i35.i = icmp eq i64 %dec.i.i, 0
+  br i1 %cmp.i35.i, label %if.then5.i.i, label %qobject_unref_impl.exit.i
 
-if.then5.i.i:                                     ; preds = %land.lhs.true.i33.i
+if.then5.i.i:                                     ; preds = %land.lhs.true.i34.i
   call void @qobject_destroy(ptr noundef nonnull %24) #13
   br label %qobject_unref_impl.exit.i
 
-qobject_unref_impl.exit.i:                        ; preds = %if.then5.i.i, %land.lhs.true.i33.i, %if.then18.i
+qobject_unref_impl.exit.i:                        ; preds = %if.then5.i.i, %land.lhs.true.i34.i, %if.then18.i
   %tobool23.not.i = icmp eq ptr %11, null
   br i1 %tobool23.not.i, label %qobject_ref_impl.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %qobject_unref_impl.exit.i
-  %refcnt.i36.i = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = load i64, ptr %refcnt.i36.i, align 8
+  %refcnt.i38.i = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = load i64, ptr %refcnt.i38.i, align 8
   %inc.i.i = add i64 %26, 1
-  store i64 %inc.i.i, ptr %refcnt.i36.i, align 8
+  store i64 %inc.i.i, ptr %refcnt.i38.i, align 8
   br label %qobject_ref_impl.exit.i
 
 qobject_ref_impl.exit.i:                          ; preds = %if.then.i.i, %qobject_unref_impl.exit.i
@@ -852,25 +852,25 @@ if.else34.i:                                      ; preds = %qobject_check_type.
   %call37.i = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
   store i32 %10, ptr %call37.i, align 8
   %tobool41.not.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %tobool41.not.i, label %qobject_ref_impl.exit40.i, label %if.then.i37.i
+  br i1 %tobool41.not.i, label %qobject_ref_impl.exit43.i, label %if.then.i40.i
 
-if.then.i37.i:                                    ; preds = %if.else34.i
-  %refcnt.i38.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %29 = load i64, ptr %refcnt.i38.i, align 8
-  %inc.i39.i = add i64 %29, 1
-  store i64 %inc.i39.i, ptr %refcnt.i38.i, align 8
-  br label %qobject_ref_impl.exit40.i
+if.then.i40.i:                                    ; preds = %if.else34.i
+  %refcnt.i41.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %29 = load i64, ptr %refcnt.i41.i, align 8
+  %inc.i42.i = add i64 %29, 1
+  store i64 %inc.i42.i, ptr %refcnt.i41.i, align 8
+  br label %qobject_ref_impl.exit43.i
 
-qobject_ref_impl.exit40.i:                        ; preds = %if.then.i37.i, %if.else34.i
+qobject_ref_impl.exit43.i:                        ; preds = %if.then.i40.i, %if.else34.i
   %data51.i = getelementptr inbounds i8, ptr %call37.i, i64 8
   store ptr %retval.0.i.i, ptr %data51.i, align 8
   %qdict52.i = getelementptr inbounds i8, ptr %call37.i, i64 24
   store ptr null, ptr %qdict52.i, align 8
   %30 = load i8, ptr @qtest_allowed, align 1
   %31 = and i8 %30, 1
-  %cond.i41.i = zext nneg i8 %31 to i32
+  %cond.i44.i = zext nneg i8 %31 to i32
   %call.i.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
-  call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef %cond.i41.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @monitor_qapi_event_handler, ptr noundef nonnull %call37.i) #13
+  call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef %cond.i44.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @monitor_qapi_event_handler, ptr noundef nonnull %call37.i) #13
   %timer55.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %call.i.i.i.i, ptr %timer55.i, align 8
   %32 = load ptr, ptr @monitor_qapi_event_state, align 8
@@ -880,28 +880,28 @@ qobject_ref_impl.exit40.i:                        ; preds = %if.then.i37.i, %if.
   call void @timer_mod_ns(ptr noundef %33, i64 noundef %add.i) #13
   br label %monitor_qapi_event_queue_no_reenter.exit
 
-monitor_qapi_event_queue_no_reenter.exit:         ; preds = %if.then3.i, %qobject_ref_impl.exit.i, %qobject_ref_impl.exit40.i
+monitor_qapi_event_queue_no_reenter.exit:         ; preds = %if.then3.i, %qobject_ref_impl.exit.i, %qobject_ref_impl.exit43.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i)
   %34 = load ptr, ptr %qdict32, align 8
   %tobool35.not = icmp eq ptr %34, null
-  br i1 %tobool35.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i15
+  br i1 %tobool35.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i16
 
-lor.lhs.false.i15:                                ; preds = %monitor_qapi_event_queue_no_reenter.exit
-  %refcnt.i16 = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load i64, ptr %refcnt.i16, align 8
+lor.lhs.false.i16:                                ; preds = %monitor_qapi_event_queue_no_reenter.exit
+  %refcnt.i17 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i = icmp eq i64 %35, 0
-  br i1 %tobool1.not.i, label %if.else.i18, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.else.i19, label %land.lhs.true.i
 
-if.else.i18:                                      ; preds = %lor.lhs.false.i15
+if.else.i19:                                      ; preds = %lor.lhs.false.i16
   call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #17
   unreachable
 
-land.lhs.true.i:                                  ; preds = %lor.lhs.false.i15
+land.lhs.true.i:                                  ; preds = %lor.lhs.false.i16
   %dec.i = add i64 %35, -1
-  store i64 %dec.i, ptr %refcnt.i16, align 8
-  %cmp.i17 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i17, label %if.then5.i, label %qobject_unref_impl.exit
+  store i64 %dec.i, ptr %refcnt.i17, align 8
+  %cmp.i18 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i18, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   call void @qobject_destroy(ptr noundef nonnull %34) #13
@@ -928,7 +928,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @monitor_suspend(ptr noundef %mon) local_unnamed_addr #0 {
+define dso_local range(i32 -25, 1) i32 @monitor_suspend(ptr noundef %mon) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %mon, i64 60
@@ -1133,7 +1133,7 @@ if.end9:                                          ; preds = %if.else7, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @monitor_can_read(ptr nocapture noundef readonly %opaque) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @monitor_can_read(ptr nocapture noundef readonly %opaque) local_unnamed_addr #7 {
 entry:
   %suspend_cnt = getelementptr inbounds i8, ptr %opaque, i64 56
   %0 = load atomic i32, ptr %suspend_cnt monotonic, align 8
@@ -1451,7 +1451,7 @@ declare void @monitor_qmp_dispatcher_co(ptr noundef) #2
 declare void @aio_co_schedule(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_init(ptr nocapture noundef %opts, i1 noundef zeroext %allow_hmp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @monitor_init(ptr nocapture noundef %opts, i1 noundef zeroext %allow_hmp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -1552,7 +1552,7 @@ declare void @monitor_init_qmp(ptr noundef, i1 noundef zeroext, ptr noundef) loc
 declare void @monitor_init_hmp(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_init_opts(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @monitor_init_opts(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %options = alloca ptr, align 8
   %call = tail call ptr @opts_visitor_new(ptr noundef %opts) #13
@@ -1563,7 +1563,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @monitor_init(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %errp), !range !10
+  %call2 = call i32 @monitor_init(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %errp)
   %1 = load ptr, ptr %options, align 8
   call void @qapi_free_MonitorOptions(ptr noundef %1) #13
   br label %return
@@ -1646,7 +1646,7 @@ for.inc:                                          ; preds = %if.end, %if.then1, 
   %entry3 = getelementptr inbounds i8, ptr %mon.08, i64 72
   %mon.0 = load ptr, ptr %entry3, align 8
   %tobool.not = icmp eq ptr %mon.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %trace_monitor_protocol_event_emit.exit
   ret void
@@ -1879,7 +1879,7 @@ if.end18:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qapi_event_throttle_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @qapi_event_throttle_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -1973,5 +1973,4 @@ attributes #18 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

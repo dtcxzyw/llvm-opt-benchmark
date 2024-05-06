@@ -642,7 +642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7510Quantifier7matchesERKNS_11ReplaceableERiia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #1 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN6icu_7510Quantifier7matchesERKNS_11ReplaceableERiia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %offset, align 4
   %maxCount = getelementptr inbounds i8, ptr %this, i64 28
@@ -709,7 +709,7 @@ return:                                           ; preds = %if.end16, %while.en
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn8_N6icu_7510Quantifier7matchesERKNS_11ReplaceableERiia(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #10 align 2 {
+define noundef range(i32 0, 3) i32 @_ZThn8_N6icu_7510Quantifier7matchesERKNS_11ReplaceableERiia(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #10 align 2 {
 entry:
   %0 = load i32, ptr %offset, align 4
   %maxCount.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7510Quantifier17matchesIndexValueEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i8 noundef zeroext %v) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510Quantifier17matchesIndexValueEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i8 noundef zeroext %v) unnamed_addr #1 align 2 {
 entry:
   %minCount = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %minCount, align 8
@@ -933,7 +933,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: uwtable
-define noundef signext i8 @_ZThn8_NK6icu_7510Quantifier17matchesIndexValueEh(ptr nocapture noundef readonly %this, i8 noundef zeroext %v) unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZThn8_NK6icu_7510Quantifier17matchesIndexValueEh(ptr nocapture noundef readonly %this, i8 noundef zeroext %v) unnamed_addr #10 align 2 {
 entry:
   %minCount.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %minCount.i, align 8

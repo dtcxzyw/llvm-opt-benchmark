@@ -169,7 +169,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_crtc_commit_wait(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @drm_crtc_commit_wait(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -248,7 +248,7 @@ define dso_local void @drm_atomic_state_default_release(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_atomic_state_init(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_atomic_state_init(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store volatile i32 1, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8

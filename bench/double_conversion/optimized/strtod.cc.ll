@@ -650,30 +650,30 @@ _ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i: ; preds = %for
   %2 = zext i32 %retval.sroa.3.0.i.i to i64
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.body.i9.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
-  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i9.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
+for.cond.i.i:                                     ; preds = %for.body.i10.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
+  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i10.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
   %3 = trunc nuw i64 %indvars.iv.i6.i to i32
   %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %for.body.i9.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
+  br i1 %cmp.i.i, label %for.body.i10.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
 
 _ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i: ; preds = %for.cond.i.i
-  %add25.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
+  %add26.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
   br label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-for.body.i9.i:                                    ; preds = %for.cond.i.i
+for.body.i10.i:                                   ; preds = %for.cond.i.i
   %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
-  %5 = load i8, ptr %arrayidx.i.i10.i, align 1
-  %cmp2.not.i11.i = icmp eq i8 %5, 48
-  br i1 %cmp2.not.i11.i, label %for.cond.i.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, !llvm.loop !11
+  %arrayidx.i.i11.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
+  %5 = load i8, ptr %arrayidx.i.i11.i, align 1
+  %cmp2.not.i12.i = icmp eq i8 %5, 48
+  br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, !llvm.loop !11
 
-_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i: ; preds = %for.body.i9.i
+_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
   %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
   %add.i = add nsw i32 %sub.i, %exponent
   %cmp.i = icmp ugt i32 %3, 780
-  br i1 %cmp.i, label %for.body.i14.i.preheader, label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
+  br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-for.body.i14.i.preheader:                         ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i
+for.body.i15.i.preheader:                         ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %copy_buffer, i64 779
   store i8 49, ptr %arrayidx1.i.i, align 1
@@ -681,10 +681,10 @@ for.body.i14.i.preheader:                         ; preds = %_ZN17double_convers
   %add.i.i = add nsw i32 %sub.i.i, %add.i
   br label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, %for.body.i14.i.preheader
-  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i14.i.preheader ], [ 0, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
-  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i14.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
-  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i14.i.preheader ], [ %add25.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, %for.body.i15.i.preheader
+  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i15.i.preheader ], [ 0, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i15.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i15.i.preheader ], [ %add26.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guess.i)
   %call.i = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0, ptr noundef nonnull %guess.i)
   %6 = load double, ptr %guess.i, align 8
@@ -802,30 +802,30 @@ _ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i: ; preds = %for
   %2 = zext i32 %retval.sroa.3.0.i.i to i64
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.body.i9.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
-  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i9.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
+for.cond.i.i:                                     ; preds = %for.body.i10.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
+  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i10.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
   %3 = trunc nuw i64 %indvars.iv.i6.i to i32
   %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %for.body.i9.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
+  br i1 %cmp.i.i, label %for.body.i10.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
 
 _ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i: ; preds = %for.cond.i.i
-  %add25.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
+  %add26.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
   br label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-for.body.i9.i:                                    ; preds = %for.cond.i.i
+for.body.i10.i:                                   ; preds = %for.cond.i.i
   %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
-  %5 = load i8, ptr %arrayidx.i.i10.i, align 1
-  %cmp2.not.i11.i = icmp eq i8 %5, 48
-  br i1 %cmp2.not.i11.i, label %for.cond.i.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, !llvm.loop !11
+  %arrayidx.i.i11.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
+  %5 = load i8, ptr %arrayidx.i.i11.i, align 1
+  %cmp2.not.i12.i = icmp eq i8 %5, 48
+  br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, !llvm.loop !11
 
-_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i: ; preds = %for.body.i9.i
+_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
   %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
   %add.i = add nsw i32 %sub.i, %exponent
   %cmp.i = icmp ugt i32 %3, 780
-  br i1 %cmp.i, label %for.body.i14.i.preheader, label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
+  br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-for.body.i14.i.preheader:                         ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i
+for.body.i15.i.preheader:                         ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %copy_buffer, i64 779
   store i8 49, ptr %arrayidx1.i.i, align 1
@@ -833,10 +833,10 @@ for.body.i14.i.preheader:                         ; preds = %_ZN17double_convers
   %add.i.i = add nsw i32 %sub.i.i, %add.i
   br label %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit
 
-_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, %for.body.i14.i.preheader
-  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i14.i.preheader ], [ 0, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
-  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i14.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
-  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i14.i.preheader ], [ %add25.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i, %for.body.i15.i.preheader
+  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i15.i.preheader ], [ 0, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i15.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
+  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i15.i.preheader ], [ %add26.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
   %call = call noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0)
   ret float %call
 }

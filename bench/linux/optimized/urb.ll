@@ -353,7 +353,7 @@ define internal fastcc void @__usb_unanchor_urb(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @usb_pipe_type_check(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
   %3 = and i32 %1, 128
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i64 1072, i64 944
@@ -384,7 +384,7 @@ define dso_local i32 @usb_pipe_type_check(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @usb_urb_ep_type_check(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local range(i32 -22, 1) i32 @usb_urb_ep_type_check(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1794,7 +1794,7 @@ __usb_unanchor_urb.exit:                          ; preds = %.thread.i, %35, %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @usb_anchor_empty(ptr noundef %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_anchor_empty(ptr noundef %0) #6 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   %4 = zext i1 %3 to i32

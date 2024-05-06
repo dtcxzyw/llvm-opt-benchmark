@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @json_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 1, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @json_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @json_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(52428800) ptr @g_malloc0(i64 noundef 52428800) #3
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %29, label %5

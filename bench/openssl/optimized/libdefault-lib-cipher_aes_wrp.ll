@@ -55,21 +55,21 @@ aes_wrap_newctx.exit:                             ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_wrap_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @aes_wrap_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @aes_wrap_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_wrap_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @aes_wrap_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @aes_wrap_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -176,7 +176,7 @@ if.then43.i:                                      ; preds = %if.end40.i
   br label %if.end10
 
 if.end44.i:                                       ; preds = %if.end40.i
-  %conv45.i = trunc i64 %call.i to i32
+  %conv45.i = trunc nuw nsw i64 %call.i to i32
   br label %if.end10
 
 aes_wrap_cipher_internal.exit:                    ; preds = %if.end17.i, %if.then26.i
@@ -199,7 +199,7 @@ return:                                           ; preds = %if.end5, %aes_wrap_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_wrap_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -274,7 +274,7 @@ declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_wrap_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
   %keylen = alloca i64, align 8
   store i64 0, ptr %keylen, align 8
@@ -729,7 +729,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @aes_wrap_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_wrap_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %keylen.i = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #3
@@ -738,7 +738,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
   %bf.shl = and i8 %bf.value, 2
@@ -913,4 +913,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

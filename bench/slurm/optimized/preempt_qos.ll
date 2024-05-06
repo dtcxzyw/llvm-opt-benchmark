@@ -158,7 +158,7 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @preempt_p_get_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   switch i32 %1, label %31 [
     i32 0, label %4
     i32 1, label %8

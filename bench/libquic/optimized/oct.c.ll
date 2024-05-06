@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/oct.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_POINT_oct2point(ptr noundef %group, ptr noundef %point, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_POINT_oct2point(ptr noundef %group, ptr noundef %point, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %point, align 8
@@ -30,7 +30,7 @@ if.end.i:                                         ; preds = %if.end
   %conv.i = zext i8 %2 to i32
   %and.i = and i32 %conv.i, 1
   %and1.i = and i32 %conv.i, 254
-  %trunc.i = trunc i32 %and1.i to i8
+  %trunc.i = trunc nuw i32 %and1.i to i8
   switch i8 %trunc.i, label %if.then9.i [
     i8 4, label %lor.lhs.false.i
     i8 2, label %lor.lhs.false.i
@@ -99,7 +99,7 @@ if.end46.i:                                       ; preds = %if.end40.i
   br i1 %cmp12.i, label %if.then49.i, label %if.else.i
 
 if.then49.i:                                      ; preds = %if.end46.i
-  %call50.i = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef nonnull %call28.i, i32 noundef %and.i, ptr noundef nonnull %ctx.addr.0.i), !range !7
+  %call50.i = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef nonnull %call28.i, i32 noundef %and.i, ptr noundef nonnull %ctx.addr.0.i)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %err.i, label %if.end70.i
 
@@ -140,7 +140,7 @@ return:                                           ; preds = %err.i, %if.then21.i
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %point, align 8
@@ -222,7 +222,7 @@ land.lhs.true36.i:                                ; preds = %if.end33.i
   br i1 %tobool38.not.i, label %if.else.i, label %if.end44.i
 
 if.else.i:                                        ; preds = %land.lhs.true36.i, %if.end33.i
-  %conv42.i = trunc i32 %form to i8
+  %conv42.i = trunc nuw i32 %form to i8
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.else.i, %land.lhs.true36.i
@@ -277,10 +277,10 @@ return:                                           ; preds = %ec_GFp_simple_point
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_point2cbb(ptr noundef %out, ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_POINT_point2cbb(ptr noundef %out, ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef null, i64 noundef 0, ptr noundef %ctx), !range !8
+  %call = tail call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef null, i64 noundef 0, ptr noundef %ctx)
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -291,7 +291,7 @@ if.end:                                           ; preds = %entry
 
 land.rhs:                                         ; preds = %if.end
   %0 = load ptr, ptr %p, align 8
-  %call2 = call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %0, i64 noundef %call, ptr noundef %ctx), !range !8
+  %call2 = call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %0, i64 noundef %call, ptr noundef %ctx)
   %cmp3 = icmp eq i64 %call2, %call
   %1 = zext i1 %cmp3 to i32
   br label %return
@@ -304,7 +304,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 declare i32 @CBB_add_space(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_negative(ptr noundef %x) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -566,7 +566,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %point, align 8
@@ -578,7 +578,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx), !range !7
+  %call = tail call i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -611,5 +611,3 @@ attributes #2 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = !{i64 0, i64 8589934592}

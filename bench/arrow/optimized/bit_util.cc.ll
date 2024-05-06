@@ -140,15 +140,15 @@ if.end24.i:                                       ; preds = %_ZN5arrow8bit_util7
 if.then62.i:                                      ; preds = %if.end24.i
   %mul.i35.i = add i64 %length, %offset
   %add48.i = sub i64 %mul.i35.i, %6
-  %conv63.i = trunc i64 %6 to i32
+  %conv63.i = trunc nsw i64 %6 to i32
   %div64.i = sdiv i64 %add48.i, 8
   %arrayidx65.i = getelementptr inbounds i8, ptr %data, i64 %div64.i
   %7 = load i8, ptr %arrayidx65.i, align 1
   %shl.i.i39.i = shl nuw nsw i32 1, %conv63.i
-  %8 = trunc i32 %shl.i.i39.i to i8
+  %8 = trunc nuw i32 %shl.i.i39.i to i8
   %conv6.i.i40.i = add i8 %8, -1
-  %or.i42.i = or i8 %7, %conv6.i.i40.i
-  store i8 %or.i42.i, ptr %arrayidx65.i, align 1
+  %or.i43.i = or i8 %7, %conv6.i.i40.i
+  store i8 %or.i43.i, ptr %arrayidx65.i, align 1
   br label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit
 
 _ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit: ; preds = %entry, %if.then10.i, %if.end24.i, %if.then62.i
@@ -207,7 +207,7 @@ if.end24.i:                                       ; preds = %_ZN5arrow8bit_util7
   %conv2.i.i.i = zext i1 %cmp.i.i33.i to i32
   %6 = and i32 %sub25.i, 7
   %shl.i.i.i = shl nuw nsw i32 %conv2.i.i.i, %6
-  %7 = trunc i32 %shl.i.i.i to i8
+  %7 = trunc nuw i32 %shl.i.i.i to i8
   %conv6.i.i.i = add i8 %7, -1
   %and52.i.i = and i8 %5, %conv6.i.i.i
   store i8 %and52.i.i, ptr %arrayidx27.i, align 1
@@ -224,7 +224,7 @@ if.end24.i:                                       ; preds = %_ZN5arrow8bit_util7
 if.then62.i:                                      ; preds = %if.end24.i
   %mul.i34.i = add i64 %length, %offset
   %add48.i = sub i64 %mul.i34.i, %8
-  %conv63.i = trunc i64 %8 to i32
+  %conv63.i = trunc nsw i64 %8 to i32
   %div64.i = sdiv i64 %add48.i, 8
   %arrayidx65.i = getelementptr inbounds i8, ptr %data, i64 %div64.i
   %9 = load i8, ptr %arrayidx65.i, align 1

@@ -3989,7 +3989,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dns_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dns_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %6 = icmp ult i32 %5, 13
   br i1 %6, label %42, label %7
@@ -6753,7 +6753,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %227, %235
   %793 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %790) #10
   %794 = add i32 %113, 10
   %795 = add nsw i32 %262, -4
-  %796 = call fastcc i32 @compute_key_id(ptr noundef %.02075, ptr noundef nonnull %4, ptr noundef %0, i32 noundef %122, i32 noundef %262, i8 noundef zeroext %793, ptr noundef nonnull %56), !range !19
+  %796 = call fastcc i32 @compute_key_id(ptr noundef %.02075, ptr noundef nonnull %4, ptr noundef %0, i32 noundef %122, i32 noundef %262, i8 noundef zeroext %793, ptr noundef nonnull %56)
   %.not2155 = icmp eq i32 %796, 0
   br i1 %.not2155, label %proto_item_set_generated.exit, label %797
 
@@ -7118,7 +7118,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1057 = add i32 %.12283, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1058 = icmp ult i64 %indvars.iv, 15
-  br i1 %1058, label %.lr.ph2284, label %._crit_edge, !llvm.loop !20
+  br i1 %1058, label %.lr.ph2284, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph2284, %.preheader
   %1059 = phi i32 [ %1051, %.preheader ], [ %1053, %.lr.ph2284 ]
@@ -7246,7 +7246,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1119 = add nsw i32 %.120902272, -1
   %1120 = add i16 %.020942271, -1
   %.not2147 = icmp eq i16 %1120, 0
-  br i1 %.not2147, label %.loopexit2205, label %.lr.ph2274, !llvm.loop !21
+  br i1 %.not2147, label %.loopexit2205, label %.lr.ph2274, !llvm.loop !20
 
 .lr.ph2267:                                       ; preds = %.preheader2206, %.lr.ph2267
   %.42266 = phi i32 [ %1123, %.lr.ph2267 ], [ %1113, %.preheader2206 ]
@@ -7258,7 +7258,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1124 = add nsw i32 %.220912265, -1
   %1125 = add i16 %.120952264, -1
   %.not2146 = icmp eq i16 %1125, 0
-  br i1 %.not2146, label %.loopexit2205, label %.lr.ph2267, !llvm.loop !22
+  br i1 %.not2146, label %.loopexit2205, label %.lr.ph2267, !llvm.loop !21
 
 .lr.ph2260:                                       ; preds = %.preheader2208, %.lr.ph2260
   %.52259 = phi i32 [ %1128, %.lr.ph2260 ], [ %1113, %.preheader2208 ]
@@ -7270,7 +7270,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1129 = add nsw i32 %.320922258, -1
   %1130 = add i16 %.220962257, -1
   %.not2145 = icmp eq i16 %1130, 0
-  br i1 %.not2145, label %.loopexit2205, label %.lr.ph2260, !llvm.loop !23
+  br i1 %.not2145, label %.loopexit2205, label %.lr.ph2260, !llvm.loop !22
 
 1131:                                             ; preds = %.preheader2210
   %1132 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %4, ptr noundef %1110, ptr noundef nonnull @ei_dns_depr_opc, ptr noundef nonnull @.str.1277, i32 noundef 8) #10
@@ -7407,7 +7407,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %.42093 = phi i32 [ %1214, %1212 ], [ %1211, %1206 ], [ %1205, %1201 ], [ %1100, %1199 ], [ %1198, %1196 ], [ %1191, %1187 ], [ %1186, %1184 ], [ %1178, %1168 ], [ %1167, %1165 ], [ %1100, %.preheader2204 ], [ %1100, %.preheader2206 ], [ %1100, %.preheader2208 ], [ %1119, %.lr.ph2274 ], [ %1124, %.lr.ph2267 ], [ %1129, %.lr.ph2260 ]
   %.6 = phi i32 [ %1213, %1212 ], [ %1210, %1206 ], [ %1204, %1201 ], [ %1113, %1199 ], [ %1197, %1196 ], [ %1190, %1187 ], [ %1185, %1184 ], [ %1177, %1168 ], [ %1166, %1165 ], [ %1113, %.preheader2204 ], [ %1113, %.preheader2206 ], [ %1113, %.preheader2208 ], [ %1118, %.lr.ph2274 ], [ %1123, %.lr.ph2267 ], [ %1128, %.lr.ph2260 ]
   %1215 = icmp sgt i32 %.42093, 0
-  br i1 %1215, label %.preheader2210, label %.loopexit, !llvm.loop !24
+  br i1 %1215, label %.preheader2210, label %.loopexit, !llvm.loop !23
 
 1216:                                             ; preds = %264
   %1217 = load ptr, ptr %123, align 8
@@ -7473,7 +7473,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1258 = add i32 %1231, %1234
   %1259 = sub nsw i32 %1232, %1234
   %1260 = icmp sgt i32 %1259, 1
-  br i1 %1260, label %.lr.ph2255, label %.loopexit, !llvm.loop !25
+  br i1 %1260, label %.lr.ph2255, label %.loopexit, !llvm.loop !24
 
 1261:                                             ; preds = %264, %264, %264
   %1262 = load i32, ptr @hf_dns_ds_key_id, align 4
@@ -7650,7 +7650,7 @@ proto_item_set_generated.exit2171:                ; preds = %950, %992, %995
   %1395 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1392) #10
   %1396 = add i32 %113, 10
   %1397 = add nsw i32 %262, -4
-  %1398 = call fastcc i32 @compute_key_id(ptr noundef %.02075, ptr noundef nonnull %4, ptr noundef %0, i32 noundef %122, i32 noundef %262, i8 noundef zeroext %1395, ptr noundef nonnull %85), !range !19
+  %1398 = call fastcc i32 @compute_key_id(ptr noundef %.02075, ptr noundef nonnull %4, ptr noundef %0, i32 noundef %122, i32 noundef %262, i8 noundef zeroext %1395, ptr noundef nonnull %85)
   %.not2139 = icmp eq i32 %1398, 0
   br i1 %.not2139, label %proto_item_set_generated.exit2174, label %1399
 
@@ -7734,7 +7734,7 @@ proto_item_set_generated.exit2174:                ; preds = %1407, %1404, %1399,
   %1454 = add i32 %.021072252, 5
   %1455 = sdiv i32 %1454, 8
   %1456 = icmp slt i32 %1455, %1446
-  br i1 %1456, label %1448, label %1457, !llvm.loop !26
+  br i1 %1456, label %1448, label %1457, !llvm.loop !25
 
 1457:                                             ; preds = %1448
   %1458 = load i32, ptr @hf_dns_nsec3_hash_value, align 4
@@ -7850,7 +7850,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1535 = add i32 %1527, %.102250
   %1536 = sub i32 %.021062249, %1527
   %1537 = icmp sgt i32 %1536, 1
-  br i1 %1537, label %.lr.ph2251, label %.loopexit, !llvm.loop !27
+  br i1 %1537, label %.lr.ph2251, label %.loopexit, !llvm.loop !26
 
 1538:                                             ; preds = %264
   %1539 = load i32, ptr @hf_dns_openpgpkey, align 4
@@ -7969,7 +7969,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1606 = add i32 %.021022243, 2
   %1607 = load i32, ptr %91, align 4
   %1608 = icmp ult i32 %1606, %1607
-  br i1 %1608, label %.lr.ph2245, label %.loopexit2215, !llvm.loop !28
+  br i1 %1608, label %.lr.ph2245, label %.loopexit2215, !llvm.loop !27
 
 .lr.ph2241:                                       ; preds = %.preheader2216, %.lr.ph2241
   %.132240 = phi i32 [ %1617, %.lr.ph2241 ], [ %1589, %.preheader2216 ]
@@ -7992,7 +7992,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1623 = add i32 %1622, %1621
   %1624 = load i32, ptr %91, align 4
   %1625 = icmp ult i32 %1623, %1624
-  br i1 %1625, label %.lr.ph2241, label %.loopexit2215, !llvm.loop !29
+  br i1 %1625, label %.lr.ph2241, label %.loopexit2215, !llvm.loop !28
 
 1626:                                             ; preds = %.lr.ph2248
   %1627 = load i32, ptr @hf_dns_svcb_param_port, align 4
@@ -8016,7 +8016,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1638 = add i32 %.221042235, 4
   %1639 = load i32, ptr %91, align 4
   %1640 = icmp ult i32 %1638, %1639
-  br i1 %1640, label %.lr.ph2237, label %.loopexit2215, !llvm.loop !30
+  br i1 %1640, label %.lr.ph2237, label %.loopexit2215, !llvm.loop !29
 
 1641:                                             ; preds = %.lr.ph2248
   %1642 = load i32, ptr %91, align 4
@@ -8040,7 +8040,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1654 = add i32 %.321052232, 16
   %1655 = load i32, ptr %91, align 4
   %1656 = icmp ult i32 %1654, %1655
-  br i1 %1656, label %.lr.ph2234, label %.loopexit2215, !llvm.loop !31
+  br i1 %1656, label %.lr.ph2234, label %.loopexit2215, !llvm.loop !30
 
 1657:                                             ; preds = %.lr.ph2248
   %1658 = load i32, ptr @hf_dns_svcb_param_dohpath, align 4
@@ -8087,7 +8087,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %.16 = phi i32 [ %1684, %1677 ], [ %1589, %1675 ], [ %1674, %1665 ], [ %1663, %1657 ], [ %1646, %1641 ], [ %1630, %1626 ], [ %1589, %.lr.ph2248 ], [ %1589, %.preheader2214 ], [ %1589, %.preheader2216 ], [ %1589, %.preheader2218 ], [ %1589, %.preheader2220 ], [ %1605, %.lr.ph2245 ], [ %1617, %.lr.ph2241 ], [ %1637, %.lr.ph2237 ], [ %1653, %.lr.ph2234 ]
   %1685 = sub i32 %.16, %122
   %1686 = icmp slt i32 %1685, %262
-  br i1 %1686, label %.lr.ph2248, label %.loopexit, !llvm.loop !32
+  br i1 %1686, label %.lr.ph2248, label %.loopexit, !llvm.loop !31
 
 .preheader2224:                                   ; preds = %264, %.preheader2224
   %.020972231 = phi i32 [ %1694, %.preheader2224 ], [ %122, %264 ]
@@ -8103,7 +8103,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1695 = xor i32 %1688, -1
   %1696 = add i32 %.020982230, %1695
   %.not2136 = icmp eq i32 %1696, 0
-  br i1 %.not2136, label %.loopexit, label %.preheader2224, !llvm.loop !33
+  br i1 %.not2136, label %.loopexit, label %.preheader2224, !llvm.loop !32
 
 1697:                                             ; preds = %264
   %1698 = load i32, ptr @hf_dns_ilnp_nodeid_preference, align 4
@@ -8406,7 +8406,7 @@ proto_item_set_generated.exit2177:                ; preds = %1457, %1461, %1464
   %1917 = icmp ne i32 %1915, 0
   %1918 = icmp ne i32 %1916, 0
   %1919 = select i1 %1917, i1 %1918, i1 false
-  br i1 %1919, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  br i1 %1919, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 1920:                                             ; preds = %264
   %1921 = load i32, ptr @hf_dns_winsr_local_flag, align 4
@@ -8553,7 +8553,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compute_key_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compute_key_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = icmp slt i32 %4, 4
   br i1 %8, label %9, label %18
 
@@ -8607,7 +8607,7 @@ define internal fastcc noundef i32 @compute_key_id(ptr noundef %0, ptr noundef %
   %37 = add nsw i32 %.03740, -2
   %38 = add i32 %.03542, 2
   %39 = icmp ugt i32 %.03740, 3
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = icmp eq i32 %37, 1
@@ -8653,7 +8653,7 @@ define internal fastcc double @rfc1867_size(ptr noundef %0, i32 noundef %1) unna
   %8 = fmul double %.079, 1.000000e+01
   %9 = add nsw i32 %.010, -1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi double [ %6, %2 ], [ %8, %.lr.ph ]
@@ -8737,13 +8737,13 @@ define internal fastcc void @dissect_type_bitmap_nxt(ptr noundef %0, ptr noundef
   %16 = lshr i32 %.02224, 1
   %17 = add i32 %.126, 1
   %exitcond.not = icmp eq i32 %17, %7
-  br i1 %exitcond.not, label %18, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %18, label %8, !llvm.loop !36
 
 18:                                               ; preds = %15
   %19 = add i32 %.030, 1
   %20 = add i32 %.02028, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %18, %4
   ret void
@@ -8770,7 +8770,7 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   %.131.lcssa = phi i32 [ %11, %.lr.ph49 ], [ %5, %.loopexit.loopexit ]
   %.1.lcssa = phi i32 [ %10, %.lr.ph49 ], [ %28, %.loopexit.loopexit ]
   %.not = icmp eq i32 %.131.lcssa, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !38
 
 .lr.ph49:                                         ; preds = %4, %.loopexit
   %.048 = phi i32 [ %.1.lcssa, %.loopexit ], [ %2, %4 ]
@@ -8817,13 +8817,13 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   %25 = add i32 %.12939, 1
   %26 = add nuw nsw i32 %.03238, 1
   %exitcond.not = icmp eq i32 %26, 8
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !40
+  br i1 %exitcond.not, label %27, label %16, !llvm.loop !39
 
 27:                                               ; preds = %23
   %28 = add i32 %.144, 1
   %29 = add nsw i32 %.03341, -1
   %.not35 = icmp eq i32 %29, 0
-  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void
@@ -8865,7 +8865,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_dns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #10
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
@@ -8923,7 +8923,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -8945,4 +8945,3 @@ attributes #12 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}

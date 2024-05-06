@@ -83,7 +83,7 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = bitcast float %conv to i32
   %shr.i.i = lshr i32 %2, 16
-  %3 = trunc i32 %shr.i.i to i16
+  %3 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %3, -32768
   %cmp.i.i = icmp ugt i32 %2, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
@@ -102,7 +102,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
   %4 = zext i1 %cmp15.i.i to i16
-  %5 = trunc i32 %shr10.i.i to i16
+  %5 = trunc nuw nsw i32 %shr10.i.i to i16
   %6 = or i16 %4, %5
   %conv19.i.i = or disjoint i16 %6, %conv6.i.i
   br label %return
@@ -132,7 +132,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %sub45.i.i = add nsw i32 %shr41.i.i, -94
   %shl.i.i = shl i32 %or44.i.i, %sub45.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
-  %conv49.i.i = trunc i32 %shr46.i.i to i16
+  %conv49.i.i = trunc nuw i32 %shr46.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 
@@ -176,7 +176,7 @@ if.end15:                                         ; preds = %if.end, %entry
   %4 = bitcast float %f to i32
   %and.i.i = bitcast float %0 to i32
   %shr.i.i = lshr i32 %4, 16
-  %5 = trunc i32 %shr.i.i to i16
+  %5 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %5, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
@@ -195,7 +195,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
   %6 = zext i1 %cmp15.i.i to i16
-  %7 = trunc i32 %shr10.i.i to i16
+  %7 = trunc nuw nsw i32 %shr10.i.i to i16
   %8 = or i16 %7, %6
   %conv19.i.i = or disjoint i16 %8, %conv6.i.i
   br label %return
@@ -233,7 +233,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
   %conv47.i.i = and i32 %shr.i.i, 32768
   %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc i32 %or48.i.i to i16
+  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 

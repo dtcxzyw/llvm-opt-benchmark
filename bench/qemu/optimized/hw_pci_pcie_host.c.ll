@@ -48,7 +48,7 @@ declare ptr @get_system_memory() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_host_mmcfg_init(ptr noundef %e, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %size), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %size)
   %tobool.not = icmp ult i32 %0, 2
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -89,7 +89,7 @@ declare void @memory_region_set_size(ptr noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_host_mmcfg_map(ptr noundef %e, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %size), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %size)
   %tobool.not.i = icmp ult i32 %0, 2
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
@@ -196,7 +196,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pcie_mmcfg_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %mmcfg_addr, i32 noundef %len) #0 {
+define internal range(i64 -1, 4294967296) i64 @pcie_mmcfg_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %mmcfg_addr, i32 noundef %len) #0 {
 entry:
   %bus = getelementptr inbounds i8, ptr %opaque, i64 1640
   %0 = load ptr, ptr %bus, align 8
@@ -277,4 +277,3 @@ attributes #5 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}

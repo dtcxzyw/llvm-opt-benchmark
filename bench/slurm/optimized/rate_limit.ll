@@ -157,7 +157,7 @@ define dso_local void @rate_limit_shutdown() local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %.b60 = load i1, ptr @rate_limit_enabled, align 1
   br i1 %.b60, label %3, label %105
@@ -285,7 +285,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr nocapture noundef r
   %71 = load ptr, ptr @user_buckets, align 8
   %72 = getelementptr inbounds %struct.user_bucket_t, ptr %71, i64 %18, i32 2
   %73 = load i32, ptr %72, align 8
-  %74 = trunc i8 %.048 to i1
+  %74 = trunc nuw i8 %.048 to i1
   %75 = select i1 %74, ptr @.str.13, ptr @.str.14
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %70, i32 noundef %.049, i32 noundef %73, ptr noundef nonnull %75) #7
   br label %76
@@ -304,7 +304,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr nocapture noundef r
   unreachable
 
 80:                                               ; preds = %76
-  %81 = trunc i8 %.1 to i1
+  %81 = trunc nuw i8 %.1 to i1
   %82 = load i32, ptr @log_freq, align 4
   %83 = icmp ne i32 %82, -1
   %or.cond = select i1 %81, i1 %83, i1 false

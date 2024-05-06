@@ -1827,7 +1827,7 @@ if.end.i47:                                       ; preds = %if.then.i
 if.end5.i135:                                     ; preds = %if.end.i47
   %shl.i136 = shl nuw i64 %and.i, 1
   %sub.i137 = add nsw i64 %shl.i136, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i137, i1 true), !range !10
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i137, i1 true)
   %sub10.i143 = sub nuw nsw i64 60, %4
   %notmask = shl nsw i64 -1, %sub10.i143
   %sub12.i147 = xor i64 %notmask, -1
@@ -1855,7 +1855,7 @@ if.end.i57:                                       ; preds = %if.end9.i
 if.end5.i114:                                     ; preds = %if.end.i57
   %shl.i = shl nuw i64 %1, 1
   %sub.i115 = add i64 %shl.i, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i115, i1 true), !range !10
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i115, i1 true)
   %sub10.i = sub nuw nsw i64 60, %5
   %notmask68 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask68, -1
@@ -2034,7 +2034,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %9 = load i32, ptr @nhbins, align 4
   %10 = zext i32 %9 to i64
   %cmp7 = icmp ult i64 %indvars.iv.next, %10
-  br i1 %cmp7, label %for.body, label %for.cond22.preheader, !llvm.loop !11
+  br i1 %cmp7, label %for.body, label %for.cond22.preheader, !llvm.loop !10
 
 for.body26:                                       ; preds = %for.body26.preheader, %for.body26
   %indvars.iv7 = phi i64 [ %5, %for.body26.preheader ], [ %indvars.iv.next8, %for.body26 ]
@@ -2046,7 +2046,7 @@ for.body26:                                       ; preds = %for.body26.preheade
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %12 = and i64 %indvars.iv.next8, 4294967295
   %exitcond.not = icmp eq i64 %12, 39
-  br i1 %exitcond.not, label %for.end35.loopexit, label %for.body26, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end35.loopexit, label %for.body26, !llvm.loop !11
 
 for.end35.loopexit:                               ; preds = %for.body26
   %.pre = load i32, ptr @nhbins, align 4
@@ -2099,7 +2099,7 @@ if.end.i32:                                       ; preds = %if.then.i
 if.end5.i120:                                     ; preds = %if.end.i32
   %shl.i121 = shl nuw i64 %and.i, 1
   %sub.i122 = add nsw i64 %shl.i121, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i122, i1 true), !range !10
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i122, i1 true)
   %sub10.i128 = sub nuw nsw i64 60, %4
   %notmask = shl nsw i64 -1, %sub10.i128
   %sub12.i132 = xor i64 %notmask, -1
@@ -2123,7 +2123,7 @@ if.end9.i:                                        ; preds = %if.end5.i
 if.end5.i99:                                      ; preds = %if.end9.i
   %shl.i = shl nuw nsw i64 %and, 1
   %sub.i100 = add nsw i64 %shl.i, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i100, i1 true), !range !10
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i100, i1 true)
   %sub10.i = sub nuw nsw i64 60, %5
   %notmask61 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask61, -1
@@ -2294,7 +2294,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %2 = load i32, ptr @nhbins, align 4
   %3 = zext i32 %2 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %3
-  br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !13
+  br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !12
 
 tcache_flush_cache.exit:                          ; preds = %for.inc.i, %entry
   ret void
@@ -2354,7 +2354,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %3 = load i32, ptr @nhbins, align 4
   %4 = zext i32 %3 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
-  br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !13
+  br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !12
 
 tcache_flush_cache.exit:                          ; preds = %for.inc.i, %entry
   %arena2 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2543,7 +2543,7 @@ if.end:                                           ; preds = %if.else, %malloc_mu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end, %entry
   ret void
@@ -2815,7 +2815,7 @@ sz_s2u.exit.thread:                               ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %0, 1
   %sub.i = add i64 %shl.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !10
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub10.i = sub nuw nsw i64 60, %3
   %notmask = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask, -1
@@ -2845,7 +2845,7 @@ if.end.i35:                                       ; preds = %sz_s2u.exit
 if.end5.i18:                                      ; preds = %if.end.i35
   %shl.i19 = shl nuw i64 %retval.i.0, 1
   %sub.i20 = add i64 %shl.i19, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i20, i1 true), !range !10
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i20, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %6, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252
@@ -2939,7 +2939,7 @@ tcache_ncached_max_compute.exit:                  ; preds = %do.end.i, %if.end.i
   %20 = load i32, ptr @nhbins, align 4
   %21 = zext i32 %20 to i64
   %cmp12 = icmp ult i64 %indvars.iv.next, %21
-  br i1 %cmp12, label %for.body, label %for.cond17.preheader, !llvm.loop !15
+  br i1 %cmp12, label %for.body, label %for.cond17.preheader, !llvm.loop !14
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.body21
   %indvars.iv38 = phi i64 [ %12, %for.body21.preheader ], [ %indvars.iv.next39, %for.body21 ]
@@ -2949,7 +2949,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %23 = and i64 %indvars.iv.next39, 4294967295
   %exitcond.not = icmp eq i64 %23, 39
-  br i1 %exitcond.not, label %for.end28.loopexit, label %for.body21, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end28.loopexit, label %for.body21, !llvm.loop !15
 
 for.end28.loopexit:                               ; preds = %for.body21
   %.pre = load i32, ptr @nhbins, align 4
@@ -3078,7 +3078,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3086,7 +3086,7 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i:                                      ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !18
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !17
   %shr.i69 = lshr i64 %10, 48
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 1
@@ -3199,7 +3199,7 @@ if.then71.i.i:                                    ; preds = %for.body.i.i
 if.end137.i.i:                                    ; preds = %for.body.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i.i, label %for.body.i.i, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %if.end137.i.i
   %call141.i.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef nonnull %tsd, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3211,13 +3211,13 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %for.end.i.i, %if.th
   store ptr %retval.i.i.0, ptr %arrayidx.i, align 8
   %inc.i = add nuw i64 %i.i.088, 1
   %exitcond94.not = icmp eq i64 %inc.i, %nflush
-  br i1 %exitcond94.not, label %for.body8.i, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond94.not, label %for.body8.i, label %for.body.i, !llvm.loop !20
 
 for.body8.i:                                      ; preds = %rtree_leaf_elm_lookup.exit.i, %for.body8.i
   %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %arrayidx9.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i5.i.090
   %13 = load ptr, ptr %arrayidx9.i, align 8
-  %14 = load atomic i64, ptr %13 monotonic, align 8, !noalias !22
+  %14 = load atomic i64, ptr %13 monotonic, align 8, !noalias !21
   %shl.i100.i = shl i64 %14, 16
   %shr10.i.i = ashr exact i64 %shl.i100.i, 16
   %and11.i.i = and i64 %shr10.i.i, -128
@@ -3229,7 +3229,7 @@ for.body8.i:                                      ; preds = %rtree_leaf_elm_look
   tail call void @llvm.prefetch.p0(ptr nonnull %16, i32 1, i32 3, i32 1)
   %inc19.i = add nuw nsw i64 %i5.i.090, 1
   %exitcond95.not = icmp eq i64 %inc19.i, %nflush
-  br i1 %exitcond95.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !25
+  br i1 %exitcond95.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !24
 
 emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry
   ret void
@@ -3337,7 +3337,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3345,29 +3345,29 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i:                                      ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !26
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !25
   %shr.i69 = lshr i64 %10, 48
   %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !29
+  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !28
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   %11 = trunc i64 %10 to i8
   %frombool.i73 = and i8 %11, 1
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !29
+  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !28
   %is_head.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %12 = lshr i8 %11, 1
   %frombool5.i = and i8 %12, 1
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !29
+  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !28
   %13 = trunc i64 %10 to i32
   %14 = lshr i32 %13, 2
   %conv8.i = and i32 %14, 7
   %state.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !29
+  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !28
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
   %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !29
+  store ptr %15, ptr %agg.result, align 8, !alias.scope !28
   ret void
 }
 
@@ -3587,25 +3587,24 @@ attributes #13 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 65}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"rtree_leaf_elm_read: %agg.result"}
-!20 = distinct !{!20, !"rtree_leaf_elm_read"}
-!21 = distinct !{!21, !6}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"rtree_leaf_elm_read: %agg.result"}
-!24 = distinct !{!24, !"rtree_leaf_elm_read"}
-!25 = distinct !{!25, !6}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"rtree_leaf_elm_read: %agg.result"}
-!28 = distinct !{!28, !"rtree_leaf_elm_read"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!31 = distinct !{!31, !"rtree_leaf_elm_bits_decode"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"rtree_leaf_elm_read: %agg.result"}
+!19 = distinct !{!19, !"rtree_leaf_elm_read"}
+!20 = distinct !{!20, !6}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"rtree_leaf_elm_read: %agg.result"}
+!23 = distinct !{!23, !"rtree_leaf_elm_read"}
+!24 = distinct !{!24, !6}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"rtree_leaf_elm_read: %agg.result"}
+!27 = distinct !{!27, !"rtree_leaf_elm_read"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"rtree_leaf_elm_bits_decode: %agg.result"}
+!30 = distinct !{!30, !"rtree_leaf_elm_bits_decode"}

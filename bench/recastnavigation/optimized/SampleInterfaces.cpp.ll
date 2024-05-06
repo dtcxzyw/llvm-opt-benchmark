@@ -57,7 +57,7 @@ _ZN9rcContext11resetTimersEv.exit:
   %4 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8004) %4, i8 0, i64 8004, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %5, i8 -1, i64 224, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %5, i8 -1, i64 224, i1 false)
   ret void
 }
 
@@ -179,9 +179,9 @@ declare noundef i32 @_Z15getPerfTimeUsecl(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #6 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %putchar = call i32 @putchar(i32 10)
   %5 = getelementptr inbounds i8, ptr %0, i64 8464
   %6 = load i32, ptr %5, align 8
@@ -259,27 +259,21 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr nocapture noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+; Function Attrs: nofree nounwind
+declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK12BuildContext11getLogCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef i32 @_ZNK12BuildContext11getLogCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8464
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK12BuildContext10getLogTextEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull ptr @_ZNK12BuildContext10getLogTextEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [1000 x ptr], ptr %3, i64 0, i64 %4
@@ -289,7 +283,7 @@ define dso_local noundef nonnull ptr @_ZNK12BuildContext10getLogTextEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16GLCheckerTextureD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN16GLCheckerTextureD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
@@ -310,7 +304,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTextureD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #11
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11DebugDrawGL9depthMaskEb(ptr nocapture nonnull readnone align 8 %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 {
@@ -515,7 +509,7 @@ define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -532,10 +526,10 @@ define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #18
   unreachable
@@ -546,10 +540,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -567,7 +561,7 @@ _ZN6FileIOD2Ev.exit:                              ; preds = %1, %4
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
@@ -593,7 +587,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr nocapture 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
@@ -619,7 +613,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK6FileIO9isWritingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK6FileIO9isWritingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -627,7 +621,7 @@ define dso_local noundef zeroext i1 @_ZNK6FileIO9isWritingEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK6FileIO9isReadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK6FileIO9isReadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -654,7 +648,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO5writeEPKvm(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #6 align 2 {
@@ -678,27 +672,27 @@ define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr nocapture noundef n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12BuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16472) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN12BuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16472) %0) unnamed_addr #9 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12BuildContextD0Ev(ptr noundef nonnull align 8 dereferenceable(16472) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN12BuildContextD0Ev(ptr noundef nonnull align 8 dereferenceable(16472) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11DebugDrawGLD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11DebugDrawGLD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11DebugDrawGLD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11DebugDrawGLD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
@@ -717,14 +711,20 @@ declare void @glTexImage2D(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare void @glTexParameteri(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_SampleInterfaces.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_SampleInterfaces.cpp() #14 section ".text.startup" {
   store i32 0, ptr @_ZL5g_tex, align 4
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN16GLCheckerTextureD2Ev, ptr nonnull @_ZL5g_tex, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
@@ -736,15 +736,15 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }

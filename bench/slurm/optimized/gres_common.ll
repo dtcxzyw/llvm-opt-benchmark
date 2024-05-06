@@ -790,7 +790,7 @@ declare i64 @slurm_bit_fls(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_match_dev_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @_match_dev_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
@@ -799,7 +799,7 @@ define internal i32 @_match_dev_inx(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @gres_common_set_env_types_on_node_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @gres_common_set_env_types_on_node_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 32
   %.not = icmp eq i32 %4, 0

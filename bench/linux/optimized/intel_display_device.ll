@@ -139,7 +139,7 @@ define dso_local void @intel_display_device_probe(ptr noundef %0) local_unnamed_
 
 29:                                               ; preds = %20
   %30 = lshr i32 %.fr, 22
-  %31 = trunc i32 %30 to i16
+  %31 = trunc nuw nsw i32 %30 to i16
   %32 = lshr i32 %.fr, 14
   %33 = trunc i32 %32 to i16
   %34 = and i16 %33, 255

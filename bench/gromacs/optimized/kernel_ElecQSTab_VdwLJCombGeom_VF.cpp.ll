@@ -129,7 +129,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %invariant.gep2444 = getelementptr i8, ptr %54, i64 32
   %68 = getelementptr inbounds i8, ptr %.val520.val, i64 32
   %69 = getelementptr inbounds i8, ptr %.val520.val, i64 68
-  %invariant.gep3033 = getelementptr i8, ptr %3, i64 4
+  %invariant.gep3033 = getelementptr inbounds i8, ptr %3, i64 4
   br label %70
 
 70:                                               ; preds = %.lr.ph2650, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit
@@ -153,7 +153,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %85 = insertelement <8 x float> poison, float %84, i64 0
   %86 = shufflevector <8 x float> %85, <8 x float> poison, <8 x i32> zeroinitializer
   %87 = zext nneg i32 %74 to i64
-  %gep3034 = getelementptr float, ptr %invariant.gep3033, i64 %87
+  %gep3034 = getelementptr inbounds float, ptr %invariant.gep3033, i64 %87
   %88 = load float, ptr %gep3034, align 4
   %89 = insertelement <8 x float> poison, float %88, i64 0
   %90 = shufflevector <8 x float> %89, <8 x float> poison, <8 x i32> zeroinitializer

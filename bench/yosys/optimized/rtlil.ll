@@ -18805,7 +18805,7 @@ _ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %47, i64 -120
-  %52 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %52 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull readonly align 4 dereferenceable(4) %31)
           to label %_ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit unwind label %.loopexit
 
 _ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit: ; preds = %50
@@ -20425,7 +20425,7 @@ _ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %22, i64 -120
-  %27 = tail call noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %27 = tail call noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull readonly align 4 dereferenceable(4) %3)
   br label %_ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit
 
 _ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit: ; preds = %_ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %19, %25
@@ -20857,7 +20857,7 @@ _ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %90, i64 -120
-  %95 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %94, ptr noundef nonnull align 4 dereferenceable(4) %32)
+  %95 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(120) %94, ptr noundef nonnull readonly align 4 dereferenceable(4) %32)
           to label %_ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit unwind label %.loopexit
 
 _ZNK5Yosys5RTLIL6Design15selected_moduleERKNS0_8IdStringE.exit: ; preds = %93
@@ -22331,7 +22331,7 @@ define void @_ZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8ha
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %28 = load ptr, ptr %18, align 8
   %29 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %28, i64 %indvars.iv.next.i.i, i32 0, i32 1
-  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %29)
+  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %29)
   %30 = and i64 %indvars.iv.next.i.i, 4294967295
   %.not.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL4Cell17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS4_8hash_opsIS7_EEEEE16DeleteWireWorkerEEvRT_.exit.i, label %.lr.ph.i.i
@@ -22366,7 +22366,7 @@ _ZN5Yosys5RTLIL4Cell17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIP
   %44 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %43, i64 %indvars.iv.next77.i, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 72
-  call fastcc void @_ZN5Yosys5RTLIL8CaseRule17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS4_8hash_opsIS7_EEEEE16DeleteWireWorkerEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call fastcc void @_ZN5Yosys5RTLIL8CaseRule17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS4_8hash_opsIS7_EEEEE16DeleteWireWorkerEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %46, ptr noundef nonnull readonly align 8 dereferenceable(16) %3)
   %47 = getelementptr inbounds i8, ptr %45, i64 200
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %45, i64 208
@@ -22378,7 +22378,7 @@ _ZN5Yosys5RTLIL4Cell17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIP
   %.sroa.097.0109.i.i = phi ptr [ %486, %_ZN5Yosys5RTLIL8SyncRule17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS4_8hash_opsIS7_EEEEE16DeleteWireWorkerEEvRT_.exit.i.i ], [ %48, %42 ]
   %51 = load ptr, ptr %.sroa.097.0109.i.i, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
-  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %52)
+  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %52)
   %53 = getelementptr inbounds i8, ptr %51, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %51, i64 80
@@ -23214,11 +23214,11 @@ _ZN5Yosys5RTLIL7SigSpec7remove2ERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_E
 .lr.ph28.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph28.i.i.i
   %.sroa.015.026.i.i.i = phi ptr [ %485, %.lr.ph28.i.i.i ], [ %479, %._crit_edge.i.i.i ]
   %482 = getelementptr inbounds i8, ptr %.sroa.015.026.i.i.i, i64 64
-  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %482)
+  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %482)
   %483 = getelementptr inbounds i8, ptr %.sroa.015.026.i.i.i, i64 128
-  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %483)
+  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %483)
   %484 = getelementptr inbounds i8, ptr %.sroa.015.026.i.i.i, i64 192
-  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %484)
+  call fastcc void @_ZZN5Yosys5RTLIL6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS2_8hash_opsIS5_EEEEEN16DeleteWireWorkerclERNS0_7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %484)
   %485 = getelementptr inbounds i8, ptr %.sroa.015.026.i.i.i, i64 288
   %.not22.i.i.i = icmp eq ptr %485, %481
   br i1 %.not22.i.i.i, label %_ZN5Yosys5RTLIL8SyncRule17rewrite_sigspecs2IZNS0_6Module6removeERKNS_7hashlib4poolIPNS0_4WireENS4_8hash_opsIS7_EEEEE16DeleteWireWorkerEEvRT_.exit.i.i, label %.lr.ph28.i.i.i
@@ -25146,7 +25146,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZNKS0_6Module9cloneIntoEPS3_E20RewriteSig
   %455 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %454, i64 %indvars.iv.next300.i, i32 0, i32 1
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr inbounds i8, ptr %456, i64 72
-  call fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIZNKS0_6Module9cloneIntoEPS3_E20RewriteSigSpecWorkerEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %457, ptr noundef nonnull align 8 dereferenceable(8) %25)
+  call fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIZNKS0_6Module9cloneIntoEPS3_E20RewriteSigSpecWorkerEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %457, ptr noundef nonnull readonly align 8 dereferenceable(8) %25)
   %458 = getelementptr inbounds i8, ptr %456, i64 200
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds i8, ptr %456, i64 208
@@ -29535,7 +29535,7 @@ _ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %52, i64 -120
-  %57 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_memberERKNS0_8IdStringES4_(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %57 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_memberERKNS0_8IdStringES4_(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull readonly align 4 dereferenceable(4) %33)
           to label %_ZNK5Yosys5RTLIL6Design8selectedIKNS0_6ModuleENS0_4WireEEEbPT_PT0_.exit unwind label %.loopexit
 
 _ZNK5Yosys5RTLIL6Design8selectedIKNS0_6ModuleENS0_4WireEEEbPT_PT0_.exit: ; preds = %55
@@ -29759,7 +29759,7 @@ _ZNK5Yosys5RTLIL8IdStringneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %52, i64 -120
-  %57 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_memberERKNS0_8IdStringES4_(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %57 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL9Selection15selected_memberERKNS0_8IdStringES4_(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull readonly align 4 dereferenceable(4) %33)
           to label %_ZNK5Yosys5RTLIL6Design8selectedIKNS0_6ModuleENS0_4CellEEEbPT_PT0_.exit unwind label %.loopexit
 
 _ZNK5Yosys5RTLIL6Design8selectedIKNS0_6ModuleENS0_4CellEEEbPT_PT0_.exit: ; preds = %55

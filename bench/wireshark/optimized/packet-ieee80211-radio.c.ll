@@ -1728,15 +1728,15 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %731 = load i32, ptr %730, align 8
   %.not720 = icmp eq i32 %731, 0
   %spec.select763 = select i1 %.not720, i32 %718, i32 0
-  %732 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %731, ptr noundef nonnull %.1623, i32 noundef %.1593), !range !6
+  %732 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %731, ptr noundef nonnull %.1623, i32 noundef %.1593)
   %733 = add i32 %731, %spec.select
-  %734 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %733, ptr noundef nonnull %.1623, i32 noundef %.1593), !range !6
+  %734 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %733, ptr noundef nonnull %.1623, i32 noundef %.1593)
   %735 = sub nsw i32 %734, %732
   %736 = add i32 %735, %spec.select763
   br label %778
 
 737:                                              ; preds = %727, %725
-  %738 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %spec.select, ptr noundef nonnull %.1623, i32 noundef %.1593), !range !6
+  %738 = tail call fastcc i32 @calculate_11n_duration(i32 noundef %spec.select, ptr noundef nonnull %.1623, i32 noundef %.1593)
   %739 = add i32 %738, %718
   br label %778
 
@@ -2283,7 +2283,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @calculate_11n_duration(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 {
   %4 = shl i32 %0, 3
   %5 = add i32 %4, 16
   %6 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2394,4 +2394,3 @@ attributes #9 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 429496730}

@@ -589,8 +589,8 @@ $_ZTIPFN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_delete
 @_ZTVN5arrow7compute6detail12FunctionImplINS0_12ScalarKernelEEE = linkonce_odr unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTIN5arrow7compute6detail12FunctionImplINS0_12ScalarKernelEEE, ptr @_ZN5arrow7compute6detail12FunctionImplINS0_12ScalarKernelEED2Ev, ptr @_ZN5arrow7compute6detail12FunctionImplINS0_12ScalarKernelEED0Ev, ptr @_ZNK5arrow7compute6detail12FunctionImplINS0_12ScalarKernelEE11num_kernelsEv, ptr @_ZNK5arrow7compute8Function13DispatchExactERKSt6vectorINS_10TypeHolderESaIS3_EE, ptr @_ZNK5arrow7compute8Function12DispatchBestEPSt6vectorINS_10TypeHolderESaIS3_EE, ptr @_ZNK5arrow7compute8Function15GetBestExecutorESt6vectorINS_10TypeHolderESaIS3_EE, ptr @_ZNK5arrow7compute8Function7ExecuteERKSt6vectorINS_5DatumESaIS3_EEPKNS0_15FunctionOptionsEPNS0_11ExecContextE, ptr @_ZNK5arrow7compute8Function7ExecuteERKNS0_9ExecBatchEPKNS0_15FunctionOptionsEPNS0_11ExecContextE, ptr @_ZNK5arrow7compute8Function8ValidateEv] }, comdat, align 8
 @_ZTVN5arrow7compute8FunctionE = external unnamed_addr constant { [11 x ptr] }, align 8
 @_ZN5arrow7compute8internal12_GLOBAL__N_122cast_table_initializedE = internal global %"struct.std::once_flag" zeroinitializer, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.18 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS0_11CastOptionsEJNS_8internal18DataMemberPropertyIS3_NS_10TypeHolderEEENS5_IS3_bEES8_S8_S8_S8_S8_EEEPKNS0_19FunctionOptionsTypeEDpRKT0_E8instance = linkonce_odr global %class.OptionsType { %"class.arrow::compute::internal::GenericOptionsType" zeroinitializer, %"struct.arrow::internal::PropertyTuple" { %"class.std::tuple.170" { %"struct.std::_Tuple_impl.171" { %"struct.std::_Tuple_impl.172" { %"struct.std::_Tuple_impl.173" { %"struct.std::_Tuple_impl.174" { %"struct.std::_Tuple_impl.175" { %"struct.std::_Tuple_impl.176" { %"struct.std::_Tuple_impl.177" { %"struct.std::_Head_base.178" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.179" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.180" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.181" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.182" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.183" { %"struct.arrow::internal::DataMemberProperty.8" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } }, %"struct.std::_Head_base.184" { %"struct.arrow::internal::DataMemberProperty" { %"class.std::basic_string_view" zeroinitializer, i64 -1 } } } } } }, comdat, align 8
 @_ZGVZN5arrow7compute8internal22GetFunctionOptionsTypeINS0_11CastOptionsEJNS_8internal18DataMemberPropertyIS3_NS_10TypeHolderEEENS5_IS3_bEES8_S8_S8_S8_S8_EEEPKNS0_19FunctionOptionsTypeEDpRKT0_E8instance = linkonce_odr global i64 0, comdat, align 8
@@ -10974,7 +10974,7 @@ lpad.i.i:                                         ; preds = %_ZNSt12_Vector_base
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = call ptr @__cxa_begin_catch(ptr %9) #21
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
@@ -11036,11 +11036,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad.i.i
+if.then.i32:                                      ; preds = %lpad.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad17
 

@@ -149,7 +149,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [42 x i8] c"POWER: power_save: handle failed nodes %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @power_job_reboot(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @power_job_reboot(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @bitmap2node_name(ptr noundef %0) #12
   store ptr %5, ptr %4, align 8
@@ -2016,7 +2016,7 @@ _rl_spend_token.exit246.i:                        ; preds = %452, %450, %446
   %465 = getelementptr inbounds i8, ptr %300, i64 344
   store i64 %65, ptr %465, align 8
   %466 = load i8, ptr @idle_on_node_suspend, align 1
-  %467 = trunc i8 %466 to i1
+  %467 = trunc nuw i8 %466 to i1
   br i1 %467, label %468, label %_node_state_should_suspend.exit.thread.i
 
 468:                                              ; preds = %_rl_spend_token.exit246.i

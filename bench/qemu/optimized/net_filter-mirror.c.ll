@@ -553,7 +553,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @filter_redirector_receive_iov(ptr noundef %nf, ptr nocapture readnone %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @filter_redirector_receive_iov(ptr noundef %nf, ptr nocapture readnone %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
   %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168

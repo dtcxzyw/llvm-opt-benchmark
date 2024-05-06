@@ -10,18 +10,18 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [3 x i8] c"h2\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z37grpc_chttp2_is_alpn_version_supportedPKcm(ptr nocapture noundef readonly %version, i64 noundef %size) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z37grpc_chttp2_is_alpn_version_supportedPKcm(ptr nocapture noundef readonly %version, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %entry
-  %cmp = phi i1 [ false, %entry ], [ true, %for.body ]
+  %cmp.not = phi i1 [ false, %entry ], [ true, %for.body ]
   %i.03 = phi i64 [ 0, %entry ], [ 1, %for.body ]
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @_ZL18supported_versions, i64 0, i64 %i.03
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strncmp(ptr noundef %version, ptr noundef %0, i64 noundef %size) #5
   %tobool.not = icmp eq i32 %call, 0
-  %brmerge = or i1 %tobool.not, %cmp
+  %brmerge = or i1 %tobool.not, %cmp.not
   br i1 %brmerge, label %return, label %for.body
 
 return:                                           ; preds = %for.body

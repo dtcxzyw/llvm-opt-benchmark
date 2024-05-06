@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inet_pton6.xdigits_u = internal constant [17 x i8] c"0123456789ABCDEF\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_inet_ntop(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -97, 1) i32 @uv_inet_ntop(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [46 x i8], align 16
   %7 = alloca [8 x i32], align 16
@@ -90,7 +90,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 44:                                               ; preds = %.preheader.i
   %45 = add nsw i32 %.sroa.8.0103.i, 1
   %spec.select89.i = select i1 %43, i32 1, i32 %45
-  %46 = trunc i64 %indvars.iv137.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv137.i to i32
   %spec.select90.i = select i1 %43, i32 %46, i32 %.sroa.0.0104.i
   br label %51
 
@@ -387,7 +387,7 @@ inet_ntop6.exit:                                  ; preds = %inet_ntop4.exit.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_inet_pton(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [16 x i8], align 16
   %6 = alloca [4 x i8], align 4
@@ -438,7 +438,7 @@ define dso_local noundef i32 @uv_inet_pton(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond31.i, label %inet_pton4.exit, label %26
 
 26:                                               ; preds = %17
-  %27 = trunc i32 %23 to i8
+  %27 = trunc nuw i32 %23 to i8
   store i8 %27, ptr %.01940.i, align 1
   br i1 %.not29.i, label %38, label %28
 
@@ -644,7 +644,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   br i1 %or.cond31.i.i, label %inet_pton4.exit.thread.i, label %102
 
 102:                                              ; preds = %93
-  %103 = trunc i32 %99 to i8
+  %103 = trunc nuw i32 %99 to i8
   store i8 %103, ptr %.01940.i.i, align 1
   br i1 %.not29.i.i, label %114, label %104
 
@@ -752,7 +752,7 @@ inet_pton4.exit.thread.i:                         ; preds = %108, %104, %93, %._
   br i1 %.not86.i, label %.thread100.i, label %inet_pton6.exit
 
 .thread100.i:                                     ; preds = %.lr.ph.i26, %142, %.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %77, %75, %78, %.thread.i, %59, %86, %inet_pton4.exit.thread.i, %120, %129, %142, %.thread100.i

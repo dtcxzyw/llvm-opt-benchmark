@@ -31,7 +31,7 @@ $_ZNSt6vectorIlSaIlEE17_M_default_appendEm = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_Z8dim2chari(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 88, 91) i8 @_Z8dim2chari(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %3 = icmp ult i32 %0, 3
   br i1 %3, label %switch.lookup, label %4

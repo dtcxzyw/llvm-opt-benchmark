@@ -1621,7 +1621,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i365, %815
   br i1 %exitcond177.not.i, label %.critedge.i, label %910, !llvm.loop !12
 
 .critedge.split.loop.exit.i:                      ; preds = %910, %910
-  %923 = trunc i64 %indvars.iv.i to i32
+  %923 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %913, %.critedge.split.loop.exit.i
@@ -3188,7 +3188,7 @@ define hidden void @Mate_set_debug(i32 noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Mate_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @Mate_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3213,7 +3213,7 @@ define hidden noundef i32 @Mate_lex_init(ptr noundef writeonly %0) local_unnamed
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Mate_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @Mate_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

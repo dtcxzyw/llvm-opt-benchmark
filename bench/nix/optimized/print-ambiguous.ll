@@ -1442,7 +1442,7 @@ _ZNSt6vectorIPKN3nix4AttrESaIS3_EED2Ev.exit:      ; preds = %.loopexit.split-lp,
   %54 = ptrtoint ptr %44 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
-  %57 = tail call i64 @llvm.ctlz.i64(i64 %56, i1 true), !range !11
+  %57 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %56, i1 true)
   %58 = shl nuw nsw i64 %57, 1
   %59 = xor i64 %58, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_T0_T1_(ptr %44, ptr nonnull %43, i64 noundef %59, ptr nonnull %2)
@@ -1469,7 +1469,7 @@ _ZNSt6vectorIPKN3nix4AttrESaIS3_EED2Ev.exit:      ; preds = %.loopexit.split-lp,
 .noexc14:                                         ; preds = %.lr.ph.i.i.i.i
   %64 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i, i64 8
   %65 = icmp eq ptr %64, %43
-  br i1 %65, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEEZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EvT_SG_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %65, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEEZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EvT_SG_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 66:                                               ; preds = %.noexc12
   invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_T0_(ptr %44, ptr nonnull %43, ptr nonnull %2)
@@ -1802,7 +1802,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 12:                                               ; preds = %.lr.ph41
   %13 = icmp eq i64 %28, 0
-  br i1 %13, label %.split.i.i, label %.lr.ph41, !llvm.loop !13
+  br i1 %13, label %.split.i.i, label %.lr.ph41, !llvm.loop !12
 
 .split.i.i:                                       ; preds = %12, %.lr.ph
   %.lcssa37 = phi i64 [ %8, %.lr.ph ], [ %35, %12 ]
@@ -1819,7 +1819,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %.lcssa37, ptr noundef %16, ptr %3)
   %17 = icmp eq i64 %.0.i.i, 0
   %18 = add nsw i64 %.0.i.i, -1
-  br i1 %17, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, label %.split9.i.i, !llvm.loop !14
+  br i1 %17, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, label %.split9.i.i, !llvm.loop !13
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %.split9.i.i
   %19 = icmp sgt i64 %.lcssa, 8
@@ -1836,7 +1836,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_Sa
   %25 = ashr exact i64 %24, 3
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %25, ptr noundef %21, ptr %3)
   %26 = icmp sgt i64 %24, 8
-  br i1 %26, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !15
+  br i1 %26, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !14
 
 .lr.ph41:                                         ; preds = %.lr.ph, %12
   %storemerge2240 = phi ptr [ %32, %12 ], [ %1, %.lr.ph ]
@@ -1853,7 +1853,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_Sa
   %34 = sub i64 %33, %5
   %35 = ashr exact i64 %34, 3
   %36 = icmp sgt i64 %35, 16
-  br i1 %36, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !13
+  br i1 %36, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !12
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph41, %.lr.ph.i.i, %4, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit
   ret void
@@ -1947,7 +1947,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_
   %52 = getelementptr inbounds ptr, ptr %0, i64 %.036
   store ptr %51, ptr %52, align 8
   %53 = icmp slt i64 %spec.select, %8
-  br i1 %53, label %12, label %._crit_edge, !llvm.loop !16
+  br i1 %53, label %12, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit ]
@@ -2058,7 +2058,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK3nix8Bindings18lexicographicOrderERKNS2_1
   %43 = getelementptr inbounds ptr, ptr %0, i64 %.021
   store ptr %8, ptr %43, align 8
   %44 = icmp sgt i64 %.0922, %2
-  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !17
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %42, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0922, %42 ], [ %.021, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
@@ -2399,7 +2399,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader: ; preds = %_ZN9__gnu_c
   %.sroa.07.0.copyload.i.i = load i32, ptr %46, align 8
   %47 = add i32 %.sroa.07.0.copyload.i.i, -1
   %or.cond.not.i.i.i = icmp ult i32 %47, %13
-  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %._crit_edge, !llvm.loop !18
+  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %._crit_edge, !llvm.loop !17
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11:   ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22
   %.sroa.024.0.pn = phi ptr [ %.sroa.024.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22 ], [ %.sroa.024.051, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader ]
@@ -2443,7 +2443,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18: ; preds = %_ZNSt11c
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18
   %.0.i.i.i.i17 = phi i32 [ %.0.i4.i.i.i.i21, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18 ], [ %61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i16 ]
   %64 = icmp slt i32 %.0.i.i.i.i17, 0
-  br i1 %64, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11, label %65, !llvm.loop !19
+  br i1 %64, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11, label %65, !llvm.loop !18
 
 65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22
   %.not = icmp ult ptr %.sroa.027.147, %.sroa.024.1
@@ -2462,7 +2462,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_
   %.sroa.07.0.copyload.i.i45 = load i32, ptr %71, align 8
   %72 = add i32 %.sroa.07.0.copyload.i.i45, -1
   %or.cond.not.i.i.i46 = icmp ult i32 %72, %70
-  br i1 %or.cond.not.i.i.i46, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %or.cond.not.i.i.i46, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph, label %._crit_edge, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2569,7 +2569,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_Sa
 48:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %47
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 8
   %49 = icmp eq ptr %.sroa.0.0, %1
-  br i1 %49, label %.loopexit, label %9, !llvm.loop !21
+  br i1 %49, label %.loopexit, label %9, !llvm.loop !20
 
 .loopexit:                                        ; preds = %48, %.preheader, %3
   ret void
@@ -2657,7 +2657,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_1
   %40 = freeze i32 %39
   %41 = add i32 %.sroa.07.0.copyload.i.i, -1
   %or.cond.not.i.i.i = icmp ult i32 %41, %40
-  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %._crit_edge, !llvm.loop !22
+  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %._crit_edge, !llvm.loop !21
 
 42:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit
   store ptr %3, ptr %.sroa.05.013, align 8
@@ -2741,7 +2741,7 @@ attributes #25 = { builtin allocsize(0) }
 !8 = distinct !{!8, !"_ZNSt23enable_shared_from_thisIN3nix13InputAccessorEE16shared_from_thisEv"}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i64 0, i64 65}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -2752,4 +2752,3 @@ attributes #25 = { builtin allocsize(0) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

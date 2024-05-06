@@ -324,7 +324,7 @@ BufferGetPage.exit.i.i:                           ; preds = %81, %75
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %46, i8 noundef zeroext 8) #8
   %158 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 112) #8
   %159 = lshr i64 %158, 32
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw i64 %159 to i32
   store i32 %160, ptr %.0.i.i.i.i, align 4
   %161 = trunc i64 %158 to i32
   %162 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4
@@ -1094,7 +1094,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br label %165
 
 158:                                              ; preds = %151
-  %159 = trunc i8 %.0102142 to i1
+  %159 = trunc nuw i8 %.0102142 to i1
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %158
@@ -1140,7 +1140,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br label %181
 
 174:                                              ; preds = %._crit_edge146
-  %175 = trunc i8 %.0102.lcssa to i1
+  %175 = trunc nuw i8 %.0102.lcssa to i1
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %174
@@ -1323,7 +1323,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %2, i8 noundef zeroext 8) #8
   %275 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 96) #8
   %276 = lshr i64 %275, 32
-  %277 = trunc i64 %276 to i32
+  %277 = trunc nuw i64 %276 to i32
   store i32 %277, ptr %.0.i.i, align 4
   %278 = trunc i64 %275 to i32
   store i32 %278, ptr %invariant.gep180, align 4
@@ -1495,7 +1495,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   store i16 0, ptr %92, align 2
   %93 = zext i16 %62 to i64
   %94 = getelementptr [408 x i16], ptr %4, i64 0, i64 %93
-  %95 = trunc i64 %indvars.iv to i16
+  %95 = trunc nuw i64 %indvars.iv to i16
   store i16 %95, ptr %94, align 2
   %96 = add i16 %62, 1
   store i16 %96, ptr %6, align 4
@@ -1510,7 +1510,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %101 = and i32 %98, 3
   %102 = icmp ne i32 %101, 3
   %.159 = select i1 %102, i1 true, i1 %.05880
-  %103 = trunc i64 %indvars.iv to i16
+  %103 = trunc nuw i64 %indvars.iv to i16
   %.157 = select i1 %.159, i16 %.05681, i16 %103
   %104 = add i16 %.082, -1
   %.not68 = icmp eq i16 %104, 0
@@ -1591,7 +1591,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %2, i8 noundef zeroext 8) #8
   %140 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext -128) #8
   %141 = lshr i64 %140, 32
-  %142 = trunc i64 %141 to i32
+  %142 = trunc nuw i64 %141 to i32
   store i32 %142, ptr %.0.i.i, align 4
   %143 = trunc i64 %140 to i32
   %144 = getelementptr inbounds i8, ptr %.0.i.i, i64 4

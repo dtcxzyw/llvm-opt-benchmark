@@ -9,14 +9,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_asn1.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_SESSION_to_bytes(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_SESSION_to_bytes(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef %for_ticket) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef %for_ticket) unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %session = alloca %struct.cbb_st, align 8
@@ -159,7 +159,7 @@ if.then63:                                        ; preds = %land.lhs.true
 
 if.end67:                                         ; preds = %if.then63
   %12 = load ptr, ptr %peer, align 8
-  %call69 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %12), !range !7
+  %call69 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %12)
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %err, label %if.end73
 
@@ -450,13 +450,13 @@ for.cond:                                         ; preds = %for.body
   %39 = load ptr, ptr %cert_chain, align 8
   %call268 = call i64 @sk_num(ptr noundef %39) #6
   %cmp269 = icmp ult i64 %inc, %call268
-  br i1 %cmp269, label %for.body, label %if.end277, !llvm.loop !8
+  br i1 %cmp269, label %for.body, label %if.end277, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.053 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %40 = load ptr, ptr %cert_chain, align 8
   %call272 = call ptr @sk_value(ptr noundef %40, i64 noundef %i.053) #6
-  %call273 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %call272), !range !7
+  %call273 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %call272)
   %tobool274.not = icmp eq i32 %call273, 0
   br i1 %tobool274.not, label %err, label %for.cond
 
@@ -480,9 +480,9 @@ return:                                           ; preds = %if.end277, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef 1), !range !7
+  %call = tail call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef %out_data, ptr noundef %out_len, i32 noundef 1)
   ret i32 %call
 }
 
@@ -491,7 +491,7 @@ define hidden i32 @i2d_SSL_SESSION(ptr noundef %in, ptr noundef %pp) local_unnam
 entry:
   %out = alloca ptr, align 8
   %len = alloca i64, align 8
-  %call.i = call fastcc noundef i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef nonnull %out, ptr noundef nonnull %len, i32 noundef 0), !range !7
+  %call.i = call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef nonnull %out, ptr noundef nonnull %len, i32 noundef 0)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -698,13 +698,13 @@ if.end49:                                         ; preds = %lor.lhs.false44
   store i32 %conv60, ptr %master_key_length, align 4
   %time = getelementptr inbounds i8, ptr %call, i64 176
   %call61 = call i64 @time(ptr noundef null) #6
-  %call62 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %time, i32 noundef 161, i64 noundef %call61), !range !7
+  %call62 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %time, i32 noundef 161, i64 noundef %call61)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.then67, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %if.end49
   %timeout = getelementptr inbounds i8, ptr %call, i64 168
-  %call65 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %timeout, i32 noundef 162, i64 noundef 3), !range !7
+  %call65 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %timeout, i32 noundef 162, i64 noundef 3)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then67, label %if.end68
 
@@ -748,25 +748,25 @@ if.then87:                                        ; preds = %if.end83
 if.end89:                                         ; preds = %if.end83, %if.end72
   %sid_ctx = getelementptr inbounds i8, ptr %call, i64 104
   %sid_ctx_length = getelementptr inbounds i8, ptr %call, i64 100
-  %call91 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %sid_ctx, ptr noundef nonnull %sid_ctx_length, i32 noundef 32, i32 noundef 164), !range !7
+  %call91 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %sid_ctx, ptr noundef nonnull %sid_ctx_length, i32 noundef 32, i32 noundef 164)
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %err, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %if.end89
   %verify_result = getelementptr inbounds i8, ptr %call, i64 160
-  %call94 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %verify_result, i32 noundef 165, i64 noundef 0), !range !7
+  %call94 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef nonnull %session, ptr noundef nonnull %verify_result, i32 noundef 165, i64 noundef 0)
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %err, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %lor.lhs.false93
   %tlsext_hostname = getelementptr inbounds i8, ptr %call, i64 216
-  %call97 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_hostname, i32 noundef 166), !range !7
+  %call97 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_hostname, i32 noundef 166)
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %err, label %lor.lhs.false99
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false96
   %psk_identity = getelementptr inbounds i8, ptr %call, i64 136
-  %call100 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef nonnull %session, ptr noundef nonnull %psk_identity, i32 noundef 168), !range !7
+  %call100 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef nonnull %session, ptr noundef nonnull %psk_identity, i32 noundef 168)
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %err, label %lor.lhs.false102
 
@@ -779,7 +779,7 @@ lor.lhs.false102:                                 ; preds = %lor.lhs.false99
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
   %tlsext_tick = getelementptr inbounds i8, ptr %call, i64 224
   %tlsext_ticklen = getelementptr inbounds i8, ptr %call, i64 232
-  %call106 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_tick, ptr noundef nonnull %tlsext_ticklen, i32 noundef 170), !range !7
+  %call106 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_tick, ptr noundef nonnull %tlsext_ticklen, i32 noundef 170)
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %err, label %if.end109
 
@@ -832,21 +832,21 @@ if.else:                                          ; preds = %if.end109
 if.end135:                                        ; preds = %if.else, %if.end127
   %original_handshake_hash = getelementptr inbounds i8, ptr %call, i64 304
   %original_handshake_hash_len = getelementptr inbounds i8, ptr %call, i64 368
-  %call137 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %original_handshake_hash, ptr noundef nonnull %original_handshake_hash_len, i32 noundef 64, i32 noundef 174), !range !7
+  %call137 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %original_handshake_hash, ptr noundef nonnull %original_handshake_hash_len, i32 noundef 64, i32 noundef 174)
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %err, label %lor.lhs.false139
 
 lor.lhs.false139:                                 ; preds = %if.end135
   %tlsext_signed_cert_timestamp_list = getelementptr inbounds i8, ptr %call, i64 248
   %tlsext_signed_cert_timestamp_list_length = getelementptr inbounds i8, ptr %call, i64 240
-  %call140 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_signed_cert_timestamp_list, ptr noundef nonnull %tlsext_signed_cert_timestamp_list_length, i32 noundef 175), !range !7
+  %call140 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %tlsext_signed_cert_timestamp_list, ptr noundef nonnull %tlsext_signed_cert_timestamp_list_length, i32 noundef 175)
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %err, label %lor.lhs.false142
 
 lor.lhs.false142:                                 ; preds = %lor.lhs.false139
   %ocsp_response = getelementptr inbounds i8, ptr %call, i64 264
   %ocsp_response_length = getelementptr inbounds i8, ptr %call, i64 256
-  %call143 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %ocsp_response, ptr noundef nonnull %ocsp_response_length, i32 noundef 176), !range !7
+  %call143 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef nonnull %session, ptr noundef nonnull %ocsp_response, ptr noundef nonnull %ocsp_response_length, i32 noundef 176)
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
@@ -919,7 +919,7 @@ if.end183:                                        ; preds = %while.body
   %9 = load ptr, ptr %cert_chain165, align 8
   %call185 = call i64 @sk_push(ptr noundef %9, ptr noundef nonnull %call179) #6
   %tobool186.not = icmp eq i64 %call185, 0
-  br i1 %tobool186.not, label %if.then187, label %while.cond, !llvm.loop !10
+  br i1 %tobool186.not, label %if.then187, label %while.cond, !llvm.loop !9
 
 if.then187:                                       ; preds = %if.end183
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 664) #6
@@ -1001,7 +1001,7 @@ declare i32 @CBB_add_u16(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_X509(ptr noundef %cbb, ptr noundef %x509) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_X509(ptr noundef %cbb, ptr noundef %x509) unnamed_addr #0 {
 entry:
   %buf = alloca ptr, align 8
   %call = tail call i32 @i2d_X509(ptr noundef %x509, ptr noundef null) #6
@@ -1064,7 +1064,7 @@ declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @SSL_get_cipher_by_value(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_parse_long(ptr noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag, i64 noundef %default_value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_long(ptr noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag, i64 noundef %default_value) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @CBS_get_optional_asn1_uint64(ptr noundef %cbs, ptr noundef nonnull %value, i32 noundef %tag, i64 noundef %default_value) #6
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef %cbs, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %max_out, i32 noundef %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef %cbs, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %max_out, i32 noundef %tag) unnamed_addr #0 {
 entry:
   %value = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef %cbs, ptr noundef nonnull %value, ptr noundef null, i32 noundef %tag) #6
@@ -1161,7 +1161,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_parse_string(ptr noundef %cbs, ptr noundef %out, i32 noundef %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_string(ptr noundef %cbs, ptr noundef %out, i32 noundef %tag) unnamed_addr #0 {
 entry:
   %value = alloca %struct.cbs_st, align 8
   %present = alloca i32, align 4
@@ -1208,7 +1208,7 @@ return:                                           ; preds = %if.else, %if.end6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_parse_u32(ptr noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32(ptr noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @CBS_get_optional_asn1_uint64(ptr noundef %cbs, ptr noundef nonnull %value, i32 noundef %tag, i64 noundef 0) #6
@@ -1233,7 +1233,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SSL_SESSION_parse_octet_string(ptr noundef %cbs, ptr noundef %out_ptr, ptr noundef %out_len, i32 noundef %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_octet_string(ptr noundef %cbs, ptr noundef %out_ptr, ptr noundef %out_len, i32 noundef %tag) unnamed_addr #0 {
 entry:
   %value = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef %cbs, ptr noundef nonnull %value, ptr noundef null, i32 noundef %tag) #6
@@ -1300,7 +1300,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

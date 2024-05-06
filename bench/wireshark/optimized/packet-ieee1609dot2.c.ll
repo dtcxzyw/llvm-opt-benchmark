@@ -1284,7 +1284,7 @@ define internal void @ieee1609dot2_Time64_fmt(ptr nocapture noundef writeonly %0
   %5 = add nuw nsw i64 %4, 1072915195
   store i64 %5, ptr %3, align 8
   %6 = urem i64 %1, 1000000
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = call ptr @gmtime(ptr noundef nonnull %3) #6
   %9 = getelementptr inbounds i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4

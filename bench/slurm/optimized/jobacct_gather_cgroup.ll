@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [61 x i8] c"%s: %s: failed to collect cgroup memory stats pid %d ppid %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = tail call zeroext i1 @slurm_running_in_slurmd() #3
   br i1 %1, label %2, label %8
 
@@ -271,7 +271,7 @@ define noundef i32 @jobacct_gather_p_endpoll() local_unnamed_addr #0 {
 declare void @jag_common_fini() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @jobacct_gather_p_add_task(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_p_add_task(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @is_first_task, align 1
   br i1 %.b, label %13, label %3
 

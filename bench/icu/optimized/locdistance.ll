@@ -1222,7 +1222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSRE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %lsr) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSRE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %lsr) local_unnamed_addr #0 align 2 {
 entry:
   %paradigmLSRs = getelementptr inbounds i8, ptr %this, i64 56
   %paradigmLSRsLength = getelementptr inbounds i8, ptr %this, i64 64

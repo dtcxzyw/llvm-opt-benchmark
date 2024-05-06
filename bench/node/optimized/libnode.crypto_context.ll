@@ -3841,7 +3841,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i51
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %36, i64 %sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i53, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i
 
@@ -7652,7 +7652,7 @@ entry:
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto13SecureContext27TicketCompatibilityCallbackEP6ssl_stPhS4_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %ssl, ptr nocapture noundef %name, ptr noundef %iv, ptr noundef %ectx, ptr noundef %hctx, i32 noundef %enc) #3 align 2 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN4node6crypto13SecureContext27TicketCompatibilityCallbackEP6ssl_stPhS4_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %ssl, ptr nocapture noundef %name, ptr noundef %iv, ptr noundef %ectx, ptr noundef %hctx, i32 noundef %enc) #3 align 2 {
 entry:
   %call = tail call ptr @SSL_get_SSL_CTX(ptr noundef %ssl) #20
   %call1 = tail call ptr @SSL_CTX_get_ex_data(ptr noundef %call, i32 noundef 0) #20

@@ -96,7 +96,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 75:                                               ; preds = %72
   %76 = shl nuw i32 %70, 1
   %77 = or disjoint i32 %76, 1
-  %78 = mul nsw i32 %70, 3
+  %78 = mul nuw nsw i32 %70, 3
   %79 = add nuw nsw i32 %78, 1
   %80 = mul i32 %70, 12
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 1)

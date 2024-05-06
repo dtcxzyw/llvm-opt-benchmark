@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"PSA\00KEY\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_is_key_present_in_storage(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @psa_is_key_present_in_storage(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.psa_storage_info_t, align 4
   %3 = zext i32 %0 to i64
   %4 = call i32 @psa_its_get_info(i64 noundef %3, ptr noundef nonnull %2) #9
@@ -20,7 +20,7 @@ define hidden i32 @psa_is_key_present_in_storage(i32 noundef %0) local_unnamed_a
 declare i32 @psa_its_get_info(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_destroy_persistent_key(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -153, 1) i32 @psa_destroy_persistent_key(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.psa_storage_info_t, align 4
   %3 = zext i32 %0 to i64
   %4 = call i32 @psa_its_get_info(i64 noundef %3, ptr noundef nonnull %2) #9
@@ -173,12 +173,12 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef i32 @psa_parse_key_data_from_storage(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define hidden range(i32 -153, 1) i32 @psa_parse_key_data_from_storage(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
   %6 = icmp ult i64 %1, 36
   br i1 %6, label %55, label %7
 
 7:                                                ; preds = %5
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %8, label %55
 
@@ -377,7 +377,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %84 = getelementptr inbounds i8, ptr %12, i64 33
   store i8 %83, ptr %84, align 1
   %85 = getelementptr inbounds i8, ptr %12, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %85, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   %87 = load i32, ptr %86, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -496,7 +496,7 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   br i1 %22, label %psa_parse_key_data_from_storage.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %14, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %14, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %24, label %psa_parse_key_data_from_storage.exit.thread
 
@@ -544,7 +544,7 @@ psa_crypto_storage_load.exit:                     ; preds = %18
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %14, i64 36
   %52 = load i64, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %51, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %51, i64 %52, i1 false)
   br label %53
 
 53:                                               ; preds = %50, %46

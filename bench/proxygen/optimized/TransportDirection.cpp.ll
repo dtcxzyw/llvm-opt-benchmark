@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN8proxygenntENS_18TransportDirectionE(i8 noundef zeroext %dir) local_unnamed_addr #0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN8proxygenntENS_18TransportDirectionE(i8 noundef zeroext %dir) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i8 %dir, 0
   %cond = zext i1 %cmp to i8

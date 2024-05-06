@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -193,7 +193,7 @@ for.body62.i:                                     ; preds = %for.body62.i, %for.
 
 for.end71.i:                                      ; preds = %for.body62.i
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %5 = trunc i64 %indvars.iv.next115.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.next115.i to i32
   %call72.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %5)
   br label %for.body77.i
 
@@ -358,7 +358,7 @@ declare i32 @opt_next() local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_ecb_raw(i32 noundef %n) #1 {
+define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %n) #1 {
 entry:
   %key = alloca %struct.bf_key_st, align 4
   %data = alloca [2 x i32], align 8
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_ecb(i32 noundef %n) #1 {
+define internal range(i32 0, 2) i32 @test_bf_ecb(i32 noundef %n) #1 {
 entry:
   %key = alloca %struct.bf_key_st, align 4
   %out = alloca [8 x i8], align 1
@@ -404,7 +404,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_set_key(i32 noundef %n) #1 {
+define internal range(i32 0, 2) i32 @test_bf_set_key(i32 noundef %n) #1 {
 entry:
   %key = alloca %struct.bf_key_st, align 4
   %out = alloca [8 x i8], align 1
@@ -422,7 +422,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_cbc() #1 {
+define internal range(i32 0, 2) i32 @test_bf_cbc() #1 {
 entry:
   %cbc_in = alloca [40 x i8], align 16
   %cbc_out = alloca [40 x i8], align 16
@@ -450,7 +450,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_cfb64() #1 {
+define internal range(i32 0, 2) i32 @test_bf_cfb64() #1 {
 entry:
   %cbc_in = alloca [40 x i8], align 16
   %cbc_out = alloca [40 x i8], align 16
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bf_ofb64() #1 {
+define internal range(i32 0, 2) i32 @test_bf_ofb64() #1 {
 entry:
   %cbc_in = alloca [40 x i8], align 16
   %cbc_out = alloca [40 x i8], align 16

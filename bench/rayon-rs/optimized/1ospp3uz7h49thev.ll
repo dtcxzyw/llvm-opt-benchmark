@@ -616,13 +616,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h5d50922026c73
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !101
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !101
   %16 = trunc i32 %1 to i8
@@ -634,7 +634,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h5d50922026c73
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !101
   %24 = lshr i32 %1, 6

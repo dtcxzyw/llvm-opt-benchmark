@@ -25,7 +25,7 @@ entry:
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_SignFinal(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_SignFinal(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %m_len = alloca i32, align 4
   %call = tail call i32 @EVP_PKEY_get_size(ptr noundef %pkey) #2

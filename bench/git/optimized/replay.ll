@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [7 x i8] c"author\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_replay(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_replay(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %key.sroa.5.i = alloca [32 x i8], align 4
   %tmp.sroa.2.i = alloca [32 x i8], align 4
@@ -736,7 +736,7 @@ if.end128:                                        ; preds = %if.end123
   %58 = load ptr, ptr %56, align 8
   %oid.i.i59 = getelementptr inbounds i8, ptr %58, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp4.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp4.i.i, ptr noundef nonnull align 4 dereferenceable(36) %oid.i.i59, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp4.i.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid.i.i59, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i.i)
   %59 = load i32, ptr %call.i58, align 8
   %tobool.not.i.i.i = icmp eq i32 %59, 0
@@ -796,11 +796,11 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %bcmp3.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i.i.i, ptr noundef nonnull dereferenceable(32) %byval-temp4.i.i, i64 32)
+  %bcmp3.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp4.i.i, i64 32)
   br label %oideq_by_value.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i.i.i, ptr noundef nonnull dereferenceable(20) %byval-temp4.i.i, i64 20)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4.i.i, i64 20)
   br label %oideq_by_value.exit.i.i.i
 
 oideq_by_value.exit.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1239,11 +1239,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i83
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp74, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp74, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i83:                                 ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp74, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp74, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i83, %if.then.i.i.i.i
@@ -1298,7 +1298,7 @@ if.then81.i:                                      ; preds = %if.end71.i77
   %148 = load ptr, ptr %keys.i.i.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %148, i64 %idxprom83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp74, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp74, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
   %not.i = xor i32 %shl87.i, -1
   %149 = load ptr, ptr %flags.i.i.i, align 8
@@ -1320,7 +1320,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %153 = load ptr, ptr %keys.i.i.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %153, i64 %idxprom110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp74, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp74, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
   %not116.i = xor i32 %shl115.i, -1
   %154 = load ptr, ptr %flags.i.i.i, align 8

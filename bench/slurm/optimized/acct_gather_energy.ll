@@ -235,7 +235,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @acct_gather_energy_fini() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -459,7 +459,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @acct_gather_energy_unpack(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @acct_gather_energy_unpack(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   br i1 %3, label %6, label %8
 
@@ -1209,7 +1209,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   %14 = load ptr, ptr @ops, align 8
   %15 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %14, i64 %indvars.iv, i32 4
   %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %16(i32 noundef %17, ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre18 = load i32, ptr @g_context_num, align 4

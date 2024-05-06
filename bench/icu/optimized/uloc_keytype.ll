@@ -518,7 +518,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define ptr @ulocimp_toBcpKey_75(ptr noundef %key) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL4initv(), !range !4
+  %call = tail call fastcc noundef signext i8 @_ZL4initv()
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -539,7 +539,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL4initv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL4initv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 if.end.i:
   %len.i164.i = alloca i32, align 4
   %agg.tmp.i165.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -725,30 +725,30 @@ if.end76.i:                                       ; preds = %invoke.cont72.i
           to label %invoke.cont79.i unwind label %lpad60.i
 
 invoke.cont79.i:                                  ; preds = %if.end76.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpKeyId.i, align 8, !alias.scope !5
-  store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !5
-  store i32 0, ptr %len.i.i, align 4, !noalias !5
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpKeyId.i, align 8, !alias.scope !4
+  store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !4
+  store i32 0, ptr %len.i.i, align 4, !noalias !4
   %call.i.i = invoke ptr @ures_getString_75(ptr noundef %call71.i, ptr noundef nonnull %len.i.i, ptr noundef nonnull %sts)
-          to label %invoke.cont3.i.i unwind label %lpad.i.i, !noalias !5
+          to label %invoke.cont3.i.i unwind label %lpad.i.i, !noalias !4
 
 invoke.cont3.i.i:                                 ; preds = %invoke.cont79.i
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i.i) #12, !noalias !5, !srcloc !8
-  %8 = load i32, ptr %sts, align 4, !noalias !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i.i) #12, !noalias !4, !srcloc !7
+  %8 = load i32, ptr %sts, align 4, !noalias !4
   %cmp.i.i.i = icmp sgt i32 %8, 0
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i127.i
 
 if.then.i127.i:                                   ; preds = %invoke.cont3.i.i
-  store ptr %call.i.i, ptr %agg.tmp.i.i, align 8, !noalias !5
-  %9 = load i32, ptr %len.i.i, align 4, !noalias !5
+  store ptr %call.i.i, ptr %agg.tmp.i.i, align 8, !noalias !4
+  %9 = load i32, ptr %len.i.i, align 4, !noalias !4
   %call10.i.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %uBcpKeyId.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i, i32 noundef %9)
           to label %invoke.cont9.i.i unwind label %lpad8.i.i
 
 invoke.cont9.i.i:                                 ; preds = %if.then.i127.i
-  %10 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !5
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #12, !srcloc !8
+  %10 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !4
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #12, !srcloc !7
   br label %invoke.cont83.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %invoke.cont79.i
@@ -759,8 +759,8 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %invok
 lpad8.i.i:                                        ; preds = %if.then.i127.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !5
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #12, !srcloc !8
+  %13 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !4
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #12, !srcloc !7
   br label %ehcleanup.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont3.i.i
@@ -933,7 +933,7 @@ invoke.cont182.i:                                 ; preds = %if.end179.i
 while.cond161.outer.backedge.i:                   ; preds = %if.end192.i, %if.end187.i, %invoke.cont182.i
   %.sink.i = phi i32 [ 2, %if.end187.i ], [ 4, %if.end192.i ], [ 1, %invoke.cont182.i ]
   %or.i = or i32 %.sink.i, %specialTypes.0.ph.i
-  br label %while.cond161.outer.i, !llvm.loop !9
+  br label %while.cond161.outer.i, !llvm.loop !8
 
 if.end187.i:                                      ; preds = %invoke.cont182.i
   %call188.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call183.i, ptr noundef nonnull dereferenceable(13) @.str.8) #15
@@ -993,7 +993,7 @@ if.then.i163.i:                                   ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i163.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i, i64 1
   %cmp.not.i162.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
-  br i1 %cmp.not.i162.i, label %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit.loopexit.i, label %for.body.i.i, !llvm.loop !11
+  br i1 %cmp.not.i162.i, label %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit.loopexit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZSt7replaceIPccEvT_S1_RKT0_S4_.exit.loopexit.i:  ; preds = %for.inc.i.i
   %.pre389.i = load ptr, ptr %call204.i, align 8
@@ -1005,30 +1005,30 @@ _ZSt7replaceIPccEvT_S1_RKT0_S4_.exit.i:           ; preds = %_ZSt7replaceIPccEvT
   br label %if.end223.i
 
 if.end223.i:                                      ; preds = %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit.i, %if.then199.i, %if.end197.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i164.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i165.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpTypeId.i, align 8, !alias.scope !12
-  store i16 2, ptr %fUnion2.i.i166.i, align 8, !alias.scope !12
-  store i32 0, ptr %len.i164.i, align 4, !noalias !12
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %uBcpTypeId.i, align 8, !alias.scope !11
+  store i16 2, ptr %fUnion2.i.i166.i, align 8, !alias.scope !11
+  store i32 0, ptr %len.i164.i, align 4, !noalias !11
   %call.i167.i = invoke ptr @ures_getString_75(ptr noundef %call174.i, ptr noundef nonnull %len.i164.i, ptr noundef nonnull %sts)
-          to label %invoke.cont3.i171.i unwind label %lpad.i168.i, !noalias !12
+          to label %invoke.cont3.i171.i unwind label %lpad.i168.i, !noalias !11
 
 invoke.cont3.i171.i:                              ; preds = %if.end223.i
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i167.i) #12, !noalias !12, !srcloc !8
-  %38 = load i32, ptr %sts, align 4, !noalias !12
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i167.i) #12, !noalias !11, !srcloc !7
+  %38 = load i32, ptr %sts, align 4, !noalias !11
   %cmp.i.i172.i = icmp sgt i32 %38, 0
   br i1 %cmp.i.i172.i, label %if.else.i177.i, label %if.then.i173.i
 
 if.then.i173.i:                                   ; preds = %invoke.cont3.i171.i
-  store ptr %call.i167.i, ptr %agg.tmp.i165.i, align 8, !noalias !12
-  %39 = load i32, ptr %len.i164.i, align 4, !noalias !12
+  store ptr %call.i167.i, ptr %agg.tmp.i165.i, align 8, !noalias !11
+  %39 = load i32, ptr %len.i164.i, align 4, !noalias !11
   %call10.i174.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %uBcpTypeId.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i165.i, i32 noundef %39)
           to label %invoke.cont9.i176.i unwind label %lpad8.i175.i
 
 invoke.cont9.i176.i:                              ; preds = %if.then.i173.i
-  %40 = load ptr, ptr %agg.tmp.i165.i, align 8, !noalias !12
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40) #12, !srcloc !8
+  %40 = load ptr, ptr %agg.tmp.i165.i, align 8, !noalias !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40) #12, !srcloc !7
   br label %invoke.cont226.i
 
 lpad.i168.i:                                      ; preds = %if.else.i177.i, %if.end223.i
@@ -1039,8 +1039,8 @@ lpad.i168.i:                                      ; preds = %if.else.i177.i, %if
 lpad8.i175.i:                                     ; preds = %if.then.i173.i
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %agg.tmp.i165.i, align 8, !noalias !12
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #12, !srcloc !8
+  %43 = load ptr, ptr %agg.tmp.i165.i, align 8, !noalias !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #12, !srcloc !7
   br label %ehcleanup.i169.i
 
 if.else.i177.i:                                   ; preds = %invoke.cont3.i171.i
@@ -1245,7 +1245,7 @@ if.then.i209.i:                                   ; preds = %for.body.i203.i
 for.inc.i206.i:                                   ; preds = %if.then.i209.i, %for.body.i203.i
   %incdec.ptr.i207.i = getelementptr inbounds i8, ptr %__first.addr.05.i204.i, i64 1
   %cmp.not.i208.i = icmp eq ptr %incdec.ptr.i207.i, %add.ptr329.i
-  br i1 %cmp.not.i208.i, label %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.loopexit.i, label %for.body.i203.i, !llvm.loop !11
+  br i1 %cmp.not.i208.i, label %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.loopexit.i, label %for.body.i203.i, !llvm.loop !10
 
 _ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.loopexit.i: ; preds = %for.inc.i206.i
   %.pre390.i = load ptr, ptr %call314.i, align 8
@@ -1262,7 +1262,7 @@ if.end336.i:                                      ; preds = %_ZSt7replaceIPccEvT
           to label %while.cond275.i.backedge unwind label %lpad271.loopexit.i
 
 while.cond275.i.backedge:                         ; preds = %if.end336.i, %invoke.cont300.i
-  br label %while.cond275.i, !llvm.loop !15
+  br label %while.cond275.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %invoke.cont278.i
   %cmp.i211.i = icmp slt i32 %54, 1
@@ -1349,7 +1349,7 @@ invoke.cont390.i:                                 ; preds = %if.then386.i
           to label %while.cond354.i.backedge unwind label %lpad350.loopexit.i
 
 while.cond354.i.backedge:                         ; preds = %invoke.cont390.i, %invoke.cont383.i
-  br label %while.cond354.i, !llvm.loop !16
+  br label %while.cond354.i, !llvm.loop !15
 
 while.end395.i:                                   ; preds = %invoke.cont357.i
   %cmp.i223.i = icmp slt i32 %69, 1
@@ -1722,7 +1722,7 @@ declare ptr @uhash_get_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define ptr @ulocimp_toLegacyKey_75(ptr noundef %key) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL4initv(), !range !4
+  %call = tail call fastcc noundef signext i8 @_ZL4initv()
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1760,7 +1760,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %call = tail call fastcc noundef signext i8 @_ZL4initv(), !range !4
+  %call = tail call fastcc noundef signext i8 @_ZL4initv()
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end5
 
@@ -1842,7 +1842,7 @@ if.then20.i:                                      ; preds = %switch.early.test.i
 if.end23.i:                                       ; preds = %if.then20.i, %if.then.i
   %subtagLen.1.i = phi i32 [ %inc.i, %if.then20.i ], [ 0, %if.then.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
-  br label %while.cond.i, !llvm.loop !17
+  br label %while.cond.i, !llvm.loop !16
 
 _ZL23isSpecialTypeCodepointsPKc.exit:             ; preds = %while.cond.i
   %7 = add i32 %subtagLen.0.i, -7
@@ -1880,7 +1880,7 @@ if.then5.i:                                       ; preds = %if.else.i28
 if.end8.i:                                        ; preds = %if.then5.i, %if.then.i22
   %subtagLen.1.i24 = phi i32 [ %inc.i29, %if.then5.i ], [ 0, %if.then.i22 ]
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %p.0.i21, i64 1
-  br label %while.cond.i19, !llvm.loop !18
+  br label %while.cond.i19, !llvm.loop !17
 
 _ZL24isSpecialTypeReorderCodePKc.exit:            ; preds = %while.cond.i19
   %11 = add i32 %subtagLen.0.i20, -9
@@ -1921,7 +1921,7 @@ if.then.i30:                                      ; preds = %land.lhs.true3.i, %
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %p.012.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i32, align 1
   %tobool.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i, label %_ZL23isSpecialTypeRgKeyValuePKc.exit, label %while.body.i, !llvm.loop !19
+  br i1 %tobool.not.i, label %_ZL23isSpecialTypeRgKeyValuePKc.exit, label %while.body.i, !llvm.loop !18
 
 _ZL23isSpecialTypeRgKeyValuePKc.exit:             ; preds = %if.then.i30
   %17 = icmp ne i32 %inc.i31, 6
@@ -1960,7 +1960,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %call = tail call fastcc noundef signext i8 @_ZL4initv(), !range !4
+  %call = tail call fastcc noundef signext i8 @_ZL4initv()
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end5
 
@@ -2041,7 +2041,7 @@ if.then20.i:                                      ; preds = %switch.early.test.i
 if.end23.i:                                       ; preds = %if.then20.i, %if.then.i
   %subtagLen.1.i = phi i32 [ %inc.i, %if.then20.i ], [ 0, %if.then.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
-  br label %while.cond.i, !llvm.loop !17
+  br label %while.cond.i, !llvm.loop !16
 
 _ZL23isSpecialTypeCodepointsPKc.exit:             ; preds = %while.cond.i
   %7 = add i32 %subtagLen.0.i, -7
@@ -2079,7 +2079,7 @@ if.then5.i:                                       ; preds = %if.else.i28
 if.end8.i:                                        ; preds = %if.then5.i, %if.then.i22
   %subtagLen.1.i24 = phi i32 [ %inc.i29, %if.then5.i ], [ 0, %if.then.i22 ]
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %p.0.i21, i64 1
-  br label %while.cond.i19, !llvm.loop !18
+  br label %while.cond.i19, !llvm.loop !17
 
 _ZL24isSpecialTypeReorderCodePKc.exit:            ; preds = %while.cond.i19
   %11 = add i32 %subtagLen.0.i20, -9
@@ -2120,7 +2120,7 @@ if.then.i30:                                      ; preds = %land.lhs.true3.i, %
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %p.012.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i32, align 1
   %tobool.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i, label %_ZL23isSpecialTypeRgKeyValuePKc.exit, label %while.body.i, !llvm.loop !19
+  br i1 %tobool.not.i, label %_ZL23isSpecialTypeRgKeyValuePKc.exit, label %while.body.i, !llvm.loop !18
 
 _ZL23isSpecialTypeRgKeyValuePKc.exit:             ; preds = %if.then.i30
   %17 = icmp ne i32 %inc.i31, 6
@@ -2208,7 +2208,7 @@ for.inc.i:                                        ; preds = %_ZN13LocExtKeyDataD
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = sext i32 %9 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %10
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !20
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %for.inc.i, %delete.notnull
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %1, i64 20
@@ -2267,7 +2267,7 @@ for.inc.i18:                                      ; preds = %delete.notnull.i16,
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i13, 1
   %21 = sext i32 %20 to i64
   %cmp.i20 = icmp slt i64 %indvars.iv.next.i19, %21
-  br i1 %cmp.i20, label %for.body.i12, label %for.end.i4, !llvm.loop !21
+  br i1 %cmp.i20, label %for.body.i12, label %for.end.i4, !llvm.loop !20
 
 for.end.i4:                                       ; preds = %for.inc.i18, %delete.notnull2
   %needToRelease.i.i.i5 = getelementptr inbounds i8, ptr %15, i64 20
@@ -2327,7 +2327,7 @@ for.inc.i36:                                      ; preds = %delete.notnull.i34,
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i31, 1
   %32 = sext i32 %31 to i64
   %cmp.i38 = icmp slt i64 %indvars.iv.next.i37, %32
-  br i1 %cmp.i38, label %for.body.i30, label %for.end.i22, !llvm.loop !22
+  br i1 %cmp.i38, label %for.body.i30, label %for.end.i22, !llvm.loop !21
 
 for.end.i22:                                      ; preds = %for.inc.i36, %delete.notnull5
   %needToRelease.i.i.i23 = getelementptr inbounds i8, ptr %26, i64 20
@@ -2835,22 +2835,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
-!7 = distinct !{!7, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
-!8 = !{i64 2149088397}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
-!14 = distinct !{!14, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
+!6 = distinct !{!6, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
+!7 = !{i64 2149088397}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
+!13 = distinct !{!13, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

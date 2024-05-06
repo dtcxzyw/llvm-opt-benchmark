@@ -195,7 +195,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %51 = trunc i64 %50 to i16
   store i16 %51, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 0, i32 4), align 2
   %52 = lshr i64 ptrtoint (ptr @vector_isr0 to i64), 32
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   store i32 %53, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 0, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 0, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 0, i32 1), align 2
@@ -206,7 +206,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %55 = trunc i64 %54 to i16
   store i16 %55, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 1, i32 4), align 2
   %56 = lshr i64 ptrtoint (ptr @vector_isr1 to i64), 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   store i32 %57, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 1, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 1, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 1, i32 1), align 2
@@ -217,7 +217,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %59 = trunc i64 %58 to i16
   store i16 %59, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 2, i32 4), align 2
   %60 = lshr i64 ptrtoint (ptr @vector_isr2 to i64), 32
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw i64 %60 to i32
   store i32 %61, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 2, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 2, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 2, i32 1), align 2
@@ -228,7 +228,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %63 = trunc i64 %62 to i16
   store i16 %63, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 3, i32 4), align 2
   %64 = lshr i64 ptrtoint (ptr @vector_isr3 to i64), 32
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw i64 %64 to i32
   store i32 %65, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 3, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 3, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 3, i32 1), align 2
@@ -239,7 +239,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %67 = trunc i64 %66 to i16
   store i16 %67, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 4, i32 4), align 2
   %68 = lshr i64 ptrtoint (ptr @vector_isr4 to i64), 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   store i32 %69, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 4, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 4, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 4, i32 1), align 2
@@ -250,7 +250,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %71 = trunc i64 %70 to i16
   store i16 %71, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 5, i32 4), align 2
   %72 = lshr i64 ptrtoint (ptr @vector_isr5 to i64), 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw i64 %72 to i32
   store i32 %73, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 5, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 5, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 5, i32 1), align 2
@@ -261,7 +261,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %75 = trunc i64 %74 to i16
   store i16 %75, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 6, i32 4), align 2
   %76 = lshr i64 ptrtoint (ptr @vector_isr6 to i64), 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   store i32 %77, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 6, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 6, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 6, i32 1), align 2
@@ -272,7 +272,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %79 = trunc i64 %78 to i16
   store i16 %79, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 7, i32 4), align 2
   %80 = lshr i64 ptrtoint (ptr @vector_isr7 to i64), 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   store i32 %81, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 7, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 7, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 7, i32 1), align 2
@@ -283,7 +283,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %83 = trunc i64 %82 to i16
   store i16 %83, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 8, i32 4), align 2
   %84 = lshr i64 ptrtoint (ptr @vector_isr8 to i64), 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   store i32 %85, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 8, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 8, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 8, i32 1), align 2
@@ -294,7 +294,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %87 = trunc i64 %86 to i16
   store i16 %87, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 9, i32 4), align 2
   %88 = lshr i64 ptrtoint (ptr @vector_isr9 to i64), 32
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw i64 %88 to i32
   store i32 %89, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 9, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 9, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 9, i32 1), align 2
@@ -305,7 +305,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %91 = trunc i64 %90 to i16
   store i16 %91, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 10, i32 4), align 2
   %92 = lshr i64 ptrtoint (ptr @vector_isr10 to i64), 32
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw i64 %92 to i32
   store i32 %93, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 10, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 10, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 10, i32 1), align 2
@@ -316,7 +316,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %95 = trunc i64 %94 to i16
   store i16 %95, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 11, i32 4), align 2
   %96 = lshr i64 ptrtoint (ptr @vector_isr11 to i64), 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   store i32 %97, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 11, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 11, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 11, i32 1), align 2
@@ -327,7 +327,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %99 = trunc i64 %98 to i16
   store i16 %99, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 12, i32 4), align 2
   %100 = lshr i64 ptrtoint (ptr @vector_isr12 to i64), 32
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw i64 %100 to i32
   store i32 %101, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 12, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 12, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 12, i32 1), align 2
@@ -338,7 +338,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %103 = trunc i64 %102 to i16
   store i16 %103, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 13, i32 4), align 2
   %104 = lshr i64 ptrtoint (ptr @vector_isr13 to i64), 32
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw i64 %104 to i32
   store i32 %105, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 13, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 13, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 13, i32 1), align 2
@@ -349,7 +349,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %107 = trunc i64 %106 to i16
   store i16 %107, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 14, i32 4), align 2
   %108 = lshr i64 ptrtoint (ptr @vector_isr14 to i64), 32
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw i64 %108 to i32
   store i32 %109, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 14, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 14, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 14, i32 1), align 2
@@ -360,7 +360,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %111 = trunc i64 %110 to i16
   store i16 %111, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 15, i32 4), align 2
   %112 = lshr i64 ptrtoint (ptr @vector_isr15 to i64), 32
-  %113 = trunc i64 %112 to i32
+  %113 = trunc nuw i64 %112 to i32
   store i32 %113, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 15, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 15, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 15, i32 1), align 2
@@ -371,7 +371,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %115 = trunc i64 %114 to i16
   store i16 %115, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 16, i32 4), align 2
   %116 = lshr i64 ptrtoint (ptr @vector_isr16 to i64), 32
-  %117 = trunc i64 %116 to i32
+  %117 = trunc nuw i64 %116 to i32
   store i32 %117, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 16, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 16, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 16, i32 1), align 2
@@ -382,7 +382,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %119 = trunc i64 %118 to i16
   store i16 %119, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 17, i32 4), align 2
   %120 = lshr i64 ptrtoint (ptr @vector_isr17 to i64), 32
-  %121 = trunc i64 %120 to i32
+  %121 = trunc nuw i64 %120 to i32
   store i32 %121, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 17, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 17, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 17, i32 1), align 2
@@ -393,7 +393,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %123 = trunc i64 %122 to i16
   store i16 %123, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 18, i32 4), align 2
   %124 = lshr i64 ptrtoint (ptr @vector_isr18 to i64), 32
-  %125 = trunc i64 %124 to i32
+  %125 = trunc nuw i64 %124 to i32
   store i32 %125, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 18, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 18, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 18, i32 1), align 2
@@ -404,7 +404,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %127 = trunc i64 %126 to i16
   store i16 %127, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 19, i32 4), align 2
   %128 = lshr i64 ptrtoint (ptr @vector_isr19 to i64), 32
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw i64 %128 to i32
   store i32 %129, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 19, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 19, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 19, i32 1), align 2
@@ -415,7 +415,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %131 = trunc i64 %130 to i16
   store i16 %131, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 20, i32 4), align 2
   %132 = lshr i64 ptrtoint (ptr @vector_isr20 to i64), 32
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw i64 %132 to i32
   store i32 %133, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 20, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 20, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 20, i32 1), align 2
@@ -426,7 +426,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %135 = trunc i64 %134 to i16
   store i16 %135, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 21, i32 4), align 2
   %136 = lshr i64 ptrtoint (ptr @vector_isr21 to i64), 32
-  %137 = trunc i64 %136 to i32
+  %137 = trunc nuw i64 %136 to i32
   store i32 %137, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 21, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 21, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 21, i32 1), align 2
@@ -437,7 +437,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %139 = trunc i64 %138 to i16
   store i16 %139, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 22, i32 4), align 2
   %140 = lshr i64 ptrtoint (ptr @vector_isr22 to i64), 32
-  %141 = trunc i64 %140 to i32
+  %141 = trunc nuw i64 %140 to i32
   store i32 %141, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 22, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 22, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 22, i32 1), align 2
@@ -448,7 +448,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %143 = trunc i64 %142 to i16
   store i16 %143, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 23, i32 4), align 2
   %144 = lshr i64 ptrtoint (ptr @vector_isr23 to i64), 32
-  %145 = trunc i64 %144 to i32
+  %145 = trunc nuw i64 %144 to i32
   store i32 %145, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 23, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 23, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 23, i32 1), align 2
@@ -459,7 +459,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %147 = trunc i64 %146 to i16
   store i16 %147, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 24, i32 4), align 2
   %148 = lshr i64 ptrtoint (ptr @vector_isr24 to i64), 32
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw i64 %148 to i32
   store i32 %149, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 24, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 24, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 24, i32 1), align 2
@@ -470,7 +470,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %151 = trunc i64 %150 to i16
   store i16 %151, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 25, i32 4), align 2
   %152 = lshr i64 ptrtoint (ptr @vector_isr25 to i64), 32
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw i64 %152 to i32
   store i32 %153, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 25, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 25, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 25, i32 1), align 2
@@ -481,7 +481,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %155 = trunc i64 %154 to i16
   store i16 %155, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 26, i32 4), align 2
   %156 = lshr i64 ptrtoint (ptr @vector_isr26 to i64), 32
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw i64 %156 to i32
   store i32 %157, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 26, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 26, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 26, i32 1), align 2
@@ -492,7 +492,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %159 = trunc i64 %158 to i16
   store i16 %159, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 27, i32 4), align 2
   %160 = lshr i64 ptrtoint (ptr @vector_isr27 to i64), 32
-  %161 = trunc i64 %160 to i32
+  %161 = trunc nuw i64 %160 to i32
   store i32 %161, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 27, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 27, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 27, i32 1), align 2
@@ -503,7 +503,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %163 = trunc i64 %162 to i16
   store i16 %163, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 28, i32 4), align 2
   %164 = lshr i64 ptrtoint (ptr @vector_isr28 to i64), 32
-  %165 = trunc i64 %164 to i32
+  %165 = trunc nuw i64 %164 to i32
   store i32 %165, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 28, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 28, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 28, i32 1), align 2
@@ -514,7 +514,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %167 = trunc i64 %166 to i16
   store i16 %167, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 29, i32 4), align 2
   %168 = lshr i64 ptrtoint (ptr @vector_isr29 to i64), 32
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw i64 %168 to i32
   store i32 %169, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 29, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 29, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 29, i32 1), align 2
@@ -525,7 +525,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %171 = trunc i64 %170 to i16
   store i16 %171, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 30, i32 4), align 2
   %172 = lshr i64 ptrtoint (ptr @vector_isr30 to i64), 32
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nuw i64 %172 to i32
   store i32 %173, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 30, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 30, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 30, i32 1), align 2
@@ -536,7 +536,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %175 = trunc i64 %174 to i16
   store i16 %175, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 31, i32 4), align 2
   %176 = lshr i64 ptrtoint (ptr @vector_isr31 to i64), 32
-  %177 = trunc i64 %176 to i32
+  %177 = trunc nuw i64 %176 to i32
   store i32 %177, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 31, i32 5), align 8
   store i8 2, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 31, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 31, i32 1), align 2
@@ -547,7 +547,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %179 = trunc i64 %178 to i16
   store i16 %179, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 32, i32 4), align 2
   %180 = lshr i64 ptrtoint (ptr @vector_irq0 to i64), 32
-  %181 = trunc i64 %180 to i32
+  %181 = trunc nuw i64 %180 to i32
   store i32 %181, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 32, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 32, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 32, i32 1), align 2
@@ -558,7 +558,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %183 = trunc i64 %182 to i16
   store i16 %183, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 33, i32 4), align 2
   %184 = lshr i64 ptrtoint (ptr @vector_irq1 to i64), 32
-  %185 = trunc i64 %184 to i32
+  %185 = trunc nuw i64 %184 to i32
   store i32 %185, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 33, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 33, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 33, i32 1), align 2
@@ -569,7 +569,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %187 = trunc i64 %186 to i16
   store i16 %187, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 34, i32 4), align 2
   %188 = lshr i64 ptrtoint (ptr @vector_irq2 to i64), 32
-  %189 = trunc i64 %188 to i32
+  %189 = trunc nuw i64 %188 to i32
   store i32 %189, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 34, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 34, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 34, i32 1), align 2
@@ -580,7 +580,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %191 = trunc i64 %190 to i16
   store i16 %191, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 35, i32 4), align 2
   %192 = lshr i64 ptrtoint (ptr @vector_irq3 to i64), 32
-  %193 = trunc i64 %192 to i32
+  %193 = trunc nuw i64 %192 to i32
   store i32 %193, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 35, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 35, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 35, i32 1), align 2
@@ -591,7 +591,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %195 = trunc i64 %194 to i16
   store i16 %195, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 36, i32 4), align 2
   %196 = lshr i64 ptrtoint (ptr @vector_irq4 to i64), 32
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw i64 %196 to i32
   store i32 %197, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 36, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 36, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 36, i32 1), align 2
@@ -602,7 +602,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %199 = trunc i64 %198 to i16
   store i16 %199, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 37, i32 4), align 2
   %200 = lshr i64 ptrtoint (ptr @vector_irq5 to i64), 32
-  %201 = trunc i64 %200 to i32
+  %201 = trunc nuw i64 %200 to i32
   store i32 %201, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 37, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 37, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 37, i32 1), align 2
@@ -613,7 +613,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %203 = trunc i64 %202 to i16
   store i16 %203, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 38, i32 4), align 2
   %204 = lshr i64 ptrtoint (ptr @vector_irq6 to i64), 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 38, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 38, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 38, i32 1), align 2
@@ -624,7 +624,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %207 = trunc i64 %206 to i16
   store i16 %207, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 39, i32 4), align 2
   %208 = lshr i64 ptrtoint (ptr @vector_irq7 to i64), 32
-  %209 = trunc i64 %208 to i32
+  %209 = trunc nuw i64 %208 to i32
   store i32 %209, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 39, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 39, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 39, i32 1), align 2
@@ -635,7 +635,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %211 = trunc i64 %210 to i16
   store i16 %211, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 40, i32 4), align 2
   %212 = lshr i64 ptrtoint (ptr @vector_irq8 to i64), 32
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nuw i64 %212 to i32
   store i32 %213, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 40, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 40, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 40, i32 1), align 2
@@ -646,7 +646,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %215 = trunc i64 %214 to i16
   store i16 %215, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 41, i32 4), align 2
   %216 = lshr i64 ptrtoint (ptr @vector_irq9 to i64), 32
-  %217 = trunc i64 %216 to i32
+  %217 = trunc nuw i64 %216 to i32
   store i32 %217, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 41, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 41, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 41, i32 1), align 2
@@ -657,7 +657,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %219 = trunc i64 %218 to i16
   store i16 %219, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 42, i32 4), align 2
   %220 = lshr i64 ptrtoint (ptr @vector_irq10 to i64), 32
-  %221 = trunc i64 %220 to i32
+  %221 = trunc nuw i64 %220 to i32
   store i32 %221, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 42, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 42, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 42, i32 1), align 2
@@ -668,7 +668,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %223 = trunc i64 %222 to i16
   store i16 %223, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 43, i32 4), align 2
   %224 = lshr i64 ptrtoint (ptr @vector_irq11 to i64), 32
-  %225 = trunc i64 %224 to i32
+  %225 = trunc nuw i64 %224 to i32
   store i32 %225, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 43, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 43, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 43, i32 1), align 2
@@ -679,7 +679,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %227 = trunc i64 %226 to i16
   store i16 %227, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 44, i32 4), align 2
   %228 = lshr i64 ptrtoint (ptr @vector_irq12 to i64), 32
-  %229 = trunc i64 %228 to i32
+  %229 = trunc nuw i64 %228 to i32
   store i32 %229, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 44, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 44, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 44, i32 1), align 2
@@ -690,7 +690,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %231 = trunc i64 %230 to i16
   store i16 %231, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 45, i32 4), align 2
   %232 = lshr i64 ptrtoint (ptr @vector_irq13 to i64), 32
-  %233 = trunc i64 %232 to i32
+  %233 = trunc nuw i64 %232 to i32
   store i32 %233, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 45, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 45, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 45, i32 1), align 2
@@ -701,7 +701,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %235 = trunc i64 %234 to i16
   store i16 %235, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 46, i32 4), align 2
   %236 = lshr i64 ptrtoint (ptr @vector_irq14 to i64), 32
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw i64 %236 to i32
   store i32 %237, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 46, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 46, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 46, i32 1), align 2
@@ -712,7 +712,7 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   %239 = trunc i64 %238 to i16
   store i16 %239, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 47, i32 4), align 2
   %240 = lshr i64 ptrtoint (ptr @vector_irq15 to i64), 32
-  %241 = trunc i64 %240 to i32
+  %241 = trunc nuw i64 %240 to i32
   store i32 %241, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 47, i32 5), align 8
   store i8 1, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 47, i32 2), align 4
   store i16 8, ptr getelementptr inbounds ([256 x %struct.idt_entry_s], ptr @g_idt_entries, i64 0, i64 47, i32 1), align 2

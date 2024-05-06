@@ -63,7 +63,7 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @code_to_mbclen(i32 noundef %0) #3 {
+define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
   %2 = icmp ult i32 %0, 256
   br i1 %2, label %3, label %8
 
@@ -268,7 +268,7 @@ code_to_mbclen.exit:                              ; preds = %32, %26, %19, %13, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp ult i32 %0, 15
   br i1 %4, label %12, label %5
 
@@ -340,7 +340,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
@@ -351,7 +351,7 @@ define internal i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #6 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #6 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %switch.early.test35._crit_edge
 

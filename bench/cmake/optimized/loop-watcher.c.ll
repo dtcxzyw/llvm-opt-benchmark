@@ -28,7 +28,7 @@ define dso_local noundef i32 @uv_prepare_init(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_prepare_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @uv_prepare_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -243,7 +243,7 @@ define dso_local noundef i32 @uv_check_init(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_check_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @uv_check_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -458,7 +458,7 @@ define dso_local noundef i32 @uv_idle_init(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_idle_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @uv_idle_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4

@@ -5900,7 +5900,7 @@ return:                                           ; preds = %if.end39, %if.end3,
 define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %cmp = icmp eq i64 %col_offset, -5
   %add = add nsw i64 %col_offset, 1
   %cond = select i1 %cmp, i64 -5, i64 %add
@@ -5908,7 +5908,7 @@ entry:
   %add4 = add nsw i64 %end_col_offset, 1
   %cond6 = select i1 %cmp1, i64 -5, i64 %add4
   %call = call ptr @_PyPegen_raise_error_known_location(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %cond, i64 noundef %end_lineno, i64 noundef %cond6, ptr noundef %errmsg, ptr noundef nonnull %va) #4
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -29568,13 +29568,7 @@ declare ptr @_PyAST_Lambda(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 
 declare ptr @_PyPegen_empty_arguments(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @decorators_rule(ptr noundef %p) unnamed_addr #0 {
@@ -55518,6 +55512,12 @@ return:                                           ; preds = %if.then13, %if.end1
   store i32 %storemerge, ptr %level, align 8
   ret ptr %retval.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3

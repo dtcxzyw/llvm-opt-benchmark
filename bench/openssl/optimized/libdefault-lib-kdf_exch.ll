@@ -51,7 +51,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_derive(ptr nocapture noundef readonly %vpkdfctx, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) #0 {
+define internal range(i32 0, 2) i32 @kdf_derive(ptr nocapture noundef readonly %vpkdfctx, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0

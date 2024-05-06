@@ -195,7 +195,7 @@ if.else41:                                        ; preds = %ossl_strtouint64.ex
   %conv35 = trunc i64 %ret.0.i26 to i32
   store i32 %conv35, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
   %shr43 = lshr i64 %ret.0.i26, 32
-  %conv44 = trunc i64 %shr43 to i32
+  %conv44 = trunc nuw i64 %shr43 to i32
   store i32 %conv44, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
   br label %if.end50
 
@@ -214,7 +214,7 @@ if.end50:                                         ; preds = %if.else46, %if.else
   %or = or i32 %conv51, 1024
   store i32 %or, ptr @OPENSSL_ia32cap_P, align 16
   %shr52 = lshr i64 %vec.1, 32
-  %conv53 = trunc i64 %shr52 to i32
+  %conv53 = trunc nuw i64 %shr52 to i32
   store i32 %conv53, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
   br label %return
 

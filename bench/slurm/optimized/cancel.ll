@@ -14,13 +14,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_kill_job(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @_slurm_kill_job_internal(i32 noundef %0, ptr noundef null, ptr noundef null, i16 noundef zeroext %1, i16 noundef zeroext %2), !range !6
+define range(i32 -1, 1) i32 @slurm_kill_job(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @_slurm_kill_job_internal(i32 noundef %0, ptr noundef null, ptr noundef null, i16 noundef zeroext %1, i16 noundef zeroext %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_slurm_kill_job_internal(i32 noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_slurm_kill_job_internal(i32 noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.slurm_msg, align 8
   %8 = alloca %struct.job_step_kill_msg, align 8
@@ -93,7 +93,7 @@ define internal fastcc i32 @_slurm_kill_job_internal(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_kill_job_step(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_kill_job_step(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.job_step_kill_msg, align 8
@@ -147,8 +147,8 @@ declare i32 @slurm_send_recv_controller_rc_msg(ptr noundef, ptr noundef, ptr nou
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_kill_job2(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @_slurm_kill_job_internal(i32 noundef 0, ptr noundef %0, ptr noundef %3, i16 noundef zeroext %1, i16 noundef zeroext %2), !range !6
+define range(i32 -1, 1) i32 @slurm_kill_job2(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call fastcc i32 @_slurm_kill_job_internal(i32 noundef 0, ptr noundef %0, ptr noundef %3, i16 noundef zeroext %1, i16 noundef zeroext %2)
   ret i32 %5
 }
 
@@ -176,4 +176,3 @@ attributes #5 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}

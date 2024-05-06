@@ -267,7 +267,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_sysctl_ipv4_init914], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @sysctl_ipv4_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @sysctl_ipv4_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @register_net_sysctl_sz(ptr noundef nonnull @init_net, ptr noundef nonnull @.str, ptr noundef nonnull @ipv4_table, i64 noundef 16) #11
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3
@@ -359,7 +359,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ipv4_sysctl_init_net(ptr noundef %0) #3 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef %0) #3 align 16 {
   %2 = icmp eq ptr %0, @init_net
   br i1 %2, label %.loopexit, label %3
 

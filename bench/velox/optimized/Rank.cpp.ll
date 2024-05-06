@@ -3828,7 +3828,7 @@ _ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14defaul
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !19
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_112RankFunctionILNS2_8RankTypeE0ElEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !19
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store i32 0, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !19
@@ -4323,9 +4323,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !23
   %11 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !23
   %cmp.not.i9.i = icmp ult i64 %11, %6
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIlEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIlEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 
@@ -4734,7 +4734,7 @@ _ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14defaul
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !36
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_112RankFunctionILNS2_8RankTypeE0EiEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !36
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store i32 0, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !36
@@ -5130,9 +5130,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !40
   %11 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !40
   %cmp.not.i9.i = icmp ult i64 %11, %6
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIiEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIiEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 
@@ -5332,7 +5332,7 @@ _ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14defaul
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !53
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_112RankFunctionILNS2_8RankTypeE1ElEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !53
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store i32 0, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !53
@@ -5699,7 +5699,7 @@ _ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14defaul
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !67
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !67
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !67
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_112RankFunctionILNS2_8RankTypeE1EiEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !67
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store i32 0, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !67
@@ -6067,7 +6067,7 @@ _ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14defaul
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !81
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !81
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_112RankFunctionILNS2_8RankTypeE2EdEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !81
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store i32 0, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !81
@@ -6477,9 +6477,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !85
   %11 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !85
   %cmp.not.i9.i = icmp ult i64 %11, %6
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIdEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIdEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 

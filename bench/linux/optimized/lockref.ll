@@ -213,7 +213,7 @@ define dso_local i32 @lockref_put_return(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @lockref_put_or_lock(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @lockref_put_or_lock(ptr noundef %0) #0 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   br label %3
 

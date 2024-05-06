@@ -248,7 +248,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 147:                                              ; preds = %144
   %148 = load i32, ptr %12, align 4, !tbaa !3
-  %149 = mul nsw i32 %134, %42
+  %149 = mul nuw nsw i32 %134, %42
   %150 = add nuw nsw i32 %149, 4160
   %151 = icmp slt i32 %148, %150
   br i1 %151, label %152, label %.thread24

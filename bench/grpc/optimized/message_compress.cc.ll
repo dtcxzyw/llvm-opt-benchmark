@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [16 x i8] c"outbuf.refcount\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17grpc_msg_compress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z17grpc_msg_compress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   switch i32 %algorithm, label %sw.epilog.i [
     i32 0, label %if.then
@@ -37,7 +37,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 _ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit: ; preds = %entry, %sw.bb2.i
   %.sink = phi i32 [ 1, %sw.bb2.i ], [ 0, %entry ]
-  %call.i = tail call fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef %.sink), !range !4
+  %call.i = tail call fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr noundef readonly %input, ptr noundef %output, i32 noundef %.sink)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.then, label %return
 
@@ -68,7 +68,7 @@ _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.
   %inc.i = add nuw i64 %i.05.i, 1
   %4 = load i64, ptr %count.i, align 8
   %cmp.i = icmp ult i64 %inc.i, %4
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !5
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !4
 
 return:                                           ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %if.then, %_ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit
   %retval.0 = phi i32 [ 1, %_ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit ], [ 0, %if.then ], [ 0, %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i ]
@@ -76,7 +76,7 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19grpc_msg_decompress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z19grpc_msg_decompress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   switch i32 %algorithm, label %sw.epilog [
     i32 0, label %sw.bb
@@ -111,14 +111,14 @@ _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.
   %inc.i = add nuw i64 %i.05.i, 1
   %4 = load i64, ptr %count.i, align 8
   %cmp.i = icmp ult i64 %inc.i, %4
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !5
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !4
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef 0), !range !4
+  %call2 = tail call fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef 0)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef 1), !range !4
+  %call4 = tail call fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef 1)
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -131,7 +131,7 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds i8, ptr %output, i64 16
@@ -154,7 +154,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @inflate), !range !4
+  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @inflate)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %for.cond.preheader, label %if.end8
 
@@ -190,7 +190,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %fo
   %inc = add nuw i64 %i.013, 1
   %7 = load i64, ptr %count, align 8
   %cmp5 = icmp ult i64 %inc, %7
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %for.cond.preheader
   store i64 %0, ptr %count, align 8
@@ -205,7 +205,7 @@ if.end8:                                          ; preds = %for.end, %do.end
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds i8, ptr %output, i64 16
@@ -228,7 +228,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @deflate), !range !4
+  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @deflate)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %for.cond.preheader, label %land.rhs
 
@@ -271,7 +271,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %fo
   %inc = add nuw i64 %i.015, 1
   %9 = load i64, ptr %count, align 8
   %cmp9 = icmp ult i64 %inc, %9
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %for.cond.preheader
   store i64 %0, ptr %count, align 8
@@ -309,7 +309,7 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef %zs, ptr nocapture noundef readonly %input, ptr noundef %output, ptr nocapture noundef readonly %flate) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef %zs, ptr nocapture noundef readonly %input, ptr noundef %output, ptr nocapture noundef readonly %flate) unnamed_addr #0 {
 entry:
   %outbuf = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %struct.grpc_slice, align 8
@@ -353,7 +353,7 @@ for.cond:                                         ; preds = %do.end142
   %inc = add nuw i64 %i.047, 1
   %4 = load i64, ptr %count, align 8
   %cmp25 = icmp ult i64 %inc, %4
-  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %.pr = phi i32 [ %conv15, %for.body.lr.ph ], [ %17, %for.cond ]
@@ -386,7 +386,7 @@ cond.false61:                                     ; preds = %for.body
 
 cond.end67:                                       ; preds = %cond.end44, %cond.false61
   %cond68 = phi i64 [ %conv66, %cond.false61 ], [ %8, %cond.end44 ]
-  %conv69 = trunc i64 %cond68 to i32
+  %conv69 = trunc nuw i64 %cond68 to i32
   store i32 %conv69, ptr %avail_in, align 8
   %10 = load ptr, ptr %slices, align 8
   %arrayidx71 = getelementptr inbounds %struct.grpc_slice, ptr %10, i64 %i.047
@@ -440,7 +440,7 @@ do.end108:                                        ; preds = %if.then90
   br label %if.end134
 
 if.end134:                                        ; preds = %do.end108, %do.body87
-  %call135 = call noundef i32 %flate(ptr noundef nonnull %zs, i32 noundef %spec.select), !callees !10
+  %call135 = call noundef i32 %flate(ptr noundef nonnull %zs, i32 noundef %spec.select), !callees !9
   %cmp136 = icmp slt i32 %call135, 0
   %cmp137 = icmp ne i32 %call135, -5
   %or.cond = and i1 %cmp136, %cmp137
@@ -453,7 +453,7 @@ if.then138:                                       ; preds = %if.end134
 do.cond:                                          ; preds = %if.end134
   %17 = load i32, ptr %avail_out, align 8
   %cmp141 = icmp eq i32 %17, 0
-  br i1 %cmp141, label %do.body87, label %do.end142, !llvm.loop !11
+  br i1 %cmp141, label %do.body87, label %do.end142, !llvm.loop !10
 
 do.end142:                                        ; preds = %do.cond
   %18 = load i32, ptr %avail_in, align 8
@@ -547,11 +547,10 @@ attributes #5 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{ptr @deflate, ptr @inflate}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{ptr @deflate, ptr @inflate}
+!10 = distinct !{!10, !5}

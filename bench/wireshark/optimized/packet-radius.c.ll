@@ -1866,7 +1866,7 @@ proto_item_set_generated.exit472:                 ; preds = %294, %291, %287, %2
   br i1 %or.cond25, label %361, label %.thread483
 
 361:                                              ; preds = %357
-  %362 = call fastcc i32 @valid_authenticator(ptr noundef %2, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.1), !range !8
+  %362 = call fastcc i32 @valid_authenticator(ptr noundef %2, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.1)
   %363 = icmp sgt i32 %362, -1
   br i1 %363, label %364, label %367
 
@@ -2003,7 +2003,7 @@ define internal i32 @radius_vsa_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @radius_vsa_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @radius_vsa_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2144,7 +2144,7 @@ define internal fastcc void @add_avp_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %61 = add i8 %.0151, 1
   %62 = zext i8 %61 to i32
   %63 = icmp ugt i32 %spec.select, %62
-  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %46
   %.3 = phi i32 [ %.0135, %46 ], [ %spec.select, %.preheader ]
@@ -2224,7 +2224,7 @@ declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @valid_authenticator(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
@@ -2352,7 +2352,7 @@ define hidden void @free_radius_attr_info(ptr noundef %0) #0 {
   %13 = getelementptr i8, ptr %.017, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %15 = load ptr, ptr %2, align 8
@@ -2819,7 +2819,7 @@ proto_item_set_generated.exit:                    ; preds = %135, %132, %proto_i
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %109, i64 8
-  %147 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %146, i32 noundef 0, i32 noundef 4), !range !8
+  %147 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %146, i32 noundef 0, i32 noundef 4)
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %149, label %151
 
@@ -3077,7 +3077,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds i8, ptr %249, i64 8
-  %282 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %281, i32 noundef 0, i32 noundef 4), !range !8
+  %282 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %281, i32 noundef 0, i32 noundef 4)
   %283 = icmp sgt i32 %282, -1
   br i1 %283, label %284, label %286
 
@@ -3715,7 +3715,7 @@ define internal i32 @radius_call_hash(ptr nocapture noundef readonly %0) #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3901,7 +3901,7 @@ define internal noundef i32 @radius_call_equal(ptr nocapture noundef readonly %0
 declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @radiusstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @radiusstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %7, -1
@@ -4153,7 +4153,7 @@ define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly 
   store i8 %50, ptr %51, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !10
 
 .critedge:                                        ; preds = %45, %42
   %52 = load ptr, ptr %10, align 8
@@ -4172,7 +4172,7 @@ define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %60, i64 16, i1 false)
   %61 = add i32 %.037, 16
   %62 = icmp slt i32 %61, %33
-  br i1 %62, label %.preheader, label %._crit_edge, !llvm.loop !12
+  br i1 %62, label %.preheader, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge, %28
   %63 = load ptr, ptr %10, align 8
@@ -4289,7 +4289,7 @@ define internal void @register_attrs(ptr nocapture readnone %0, ptr noundef %1, 
 
 14:                                               ; preds = %.sink.split, %10
   %15 = add i32 %.0, 1
-  br label %10, !llvm.loop !13
+  br label %10, !llvm.loop !12
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %1, i64 52
@@ -4922,9 +4922,8 @@ attributes #18 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

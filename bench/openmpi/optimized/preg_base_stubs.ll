@@ -385,7 +385,7 @@ define i32 @pmix_preg_base_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_preg_base_release(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_preg_base_release(ptr noundef %0) local_unnamed_addr #0 {
   %.08 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1, i32 1), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds (%struct.pmix_preg_globals_t, ptr @pmix_preg_globals, i64 0, i32 0, i32 1)
   br i1 %.not9, label %._crit_edge, label %.lr.ph

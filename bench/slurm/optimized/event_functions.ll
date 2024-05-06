@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.42 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sacctmgr_list_event(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.tm, align 8
@@ -1090,7 +1090,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @slurm_parse_char_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_addto_state_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @_addto_state_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %6 = trunc i64 %5 to i32

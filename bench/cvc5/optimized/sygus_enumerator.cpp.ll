@@ -24033,7 +24033,7 @@ try.cont:                                         ; preds = %invoke.cont.i.i.i.i
   %d_index.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 76
   %d_master.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 88
   store ptr null, ptr %d_master.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %d_index.i.i.i.i.i, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(9) %d_index.i.i.i.i.i, i8 0, i64 9, i1 false)
   ret void
 
 eh.resume:                                        ; preds = %lpad7
@@ -24303,7 +24303,7 @@ try.cont:                                         ; preds = %invoke.cont.i.i.i.i
   %d_index.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 76
   %d_master.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 88
   store ptr null, ptr %d_master.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %d_index.i.i.i.i.i, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(9) %d_index.i.i.i.i.i, i8 0, i64 9, i1 false)
   ret void
 
 eh.resume:                                        ; preds = %lpad7

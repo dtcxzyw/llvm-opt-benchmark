@@ -197,7 +197,7 @@ define internal i32 @dissect_netanalyzer(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %8 = tail call fastcc i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
@@ -223,7 +223,7 @@ define internal i32 @dissect_netanalyzer_transparent(ptr noundef %0, ptr noundef
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %8 = tail call fastcc i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %21, label %9
 
@@ -269,7 +269,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_netanalyzer_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %160, label %4
 
@@ -338,7 +338,7 @@ define internal fastcc noundef i32 @dissect_netanalyzer_common(ptr noundef %0, p
 48:                                               ; preds = %42, %57
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %57 ]
   %.0132144 = phi i32 [ 1, %42 ], [ %.2, %57 ]
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = shl nuw nsw i32 1, %49
   %51 = and i32 %50, %37
   %.not139 = icmp eq i32 %51, 0
@@ -362,7 +362,7 @@ define internal fastcc noundef i32 @dissect_netanalyzer_common(ptr noundef %0, p
   %.2 = phi i32 [ 0, %54 ], [ %.0132144, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %58, label %48, !llvm.loop !5
+  br i1 %exitcond.not, label %58, label %48, !llvm.loop !4
 
 58:                                               ; preds = %57
   %59 = tail call ptr @wmem_strbuf_get_str(ptr noundef %47) #3
@@ -597,6 +597,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

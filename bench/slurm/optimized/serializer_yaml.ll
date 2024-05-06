@@ -148,7 +148,7 @@ define noundef i32 @serializer_p_fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @serialize_p_data_to_string(ptr nocapture noundef writeonly %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr nocapture noundef writeonly %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = alloca %struct.yaml_version_directive_s, align 8
   %7 = alloca %struct.yaml_emitter_s, align 8
@@ -192,7 +192,7 @@ define i32 @serialize_p_data_to_string(ptr nocapture noundef writeonly %0, ptr n
   br i1 %.not25.i, label %.sink.split, label %21
 
 21:                                               ; preds = %19
-  %22 = call fastcc i32 @_data_to_yaml(ptr noundef %2, ptr noundef nonnull %7), !range !6
+  %22 = call fastcc i32 @_data_to_yaml(ptr noundef %2, ptr noundef nonnull %7)
   %.not26.i = icmp eq i32 %22, 0
   br i1 %.not26.i, label %23, label %34
 
@@ -271,7 +271,7 @@ declare void @yaml_emitter_delete(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xfer_buf_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @serialize_p_string_to_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @serialize_p_string_to_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.yaml_parser_s, align 8
   %.not = icmp eq i64 %2, 0
@@ -307,7 +307,7 @@ define noundef i32 @serialize_p_string_to_data(ptr nocapture noundef writeonly %
 _parse_yaml.exit:                                 ; preds = %13
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @yaml_parser_set_input_string(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %15) #6
-  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %4), !range !7
+  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %4)
   %17 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not16 = icmp eq i32 %17, 0
@@ -357,7 +357,7 @@ declare void @yaml_emitter_set_break(ptr noundef, i32 noundef) local_unnamed_add
 declare void @yaml_emitter_set_output(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_yaml_write_handler(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 1, 0) i32 @_yaml_write_handler(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = trunc i64 %2 to i32
   %5 = add i32 %4, 1
   %6 = tail call i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %5) #6
@@ -393,7 +393,7 @@ declare i32 @yaml_emitter_emit(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @yaml_document_start_event_initialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.yaml_event_s, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -643,7 +643,7 @@ define internal fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1) unname
 
 132:                                              ; preds = %6
   %133 = tail call ptr @data_get_string_const(ptr noundef nonnull %0) #6
-  %134 = tail call fastcc i32 @_emit_string(ptr noundef %133, ptr noundef %1), !range !6
+  %134 = tail call fastcc i32 @_emit_string(ptr noundef %133, ptr noundef %1)
   br label %135
 
 135:                                              ; preds = %10, %16, %24, %30, %36, %50, %56, %70, %76, %82, %88, %95, %101, %108, %114, %121, %127, %6, %74, %54, %34, %14, %2, %132, %131, %105, %64, %44
@@ -679,13 +679,13 @@ declare i32 @yaml_mapping_start_event_initialize(ptr noundef, ptr noundef, ptr n
 declare i32 @data_dict_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_convert_dict_yaml(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call fastcc i32 @_emit_string(ptr noundef %0, ptr noundef %2), !range !6
+define internal range(i32 1, 5) i32 @_convert_dict_yaml(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call fastcc i32 @_emit_string(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @_data_to_yaml(ptr noundef %1, ptr noundef %2), !range !6
+  %6 = tail call fastcc i32 @_data_to_yaml(ptr noundef %1, ptr noundef %2)
   %.not5 = icmp eq i32 %6, 0
   %. = select i1 %.not5, i32 1, i32 4
   br label %7
@@ -702,8 +702,8 @@ declare i32 @yaml_sequence_start_event_initialize(ptr noundef, ptr noundef, ptr 
 declare i32 @data_list_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_convert_list_yaml(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1), !range !6
+define internal range(i32 1, 5) i32 @_convert_list_yaml(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = tail call fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i32 1, i32 4
   ret i32 %.
@@ -712,7 +712,7 @@ define internal i32 @_convert_list_yaml(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @yaml_sequence_end_event_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_emit_string(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_emit_string(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.yaml_event_s, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %8
@@ -758,7 +758,7 @@ declare i32 @yaml_parser_initialize(ptr noundef) local_unnamed_addr #1
 declare void @yaml_parser_set_input_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = icmp sgt i32 %0, 64
   br i1 %6, label %10, label %.preheader
@@ -812,7 +812,7 @@ define internal fastcc noundef i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1
 32:                                               ; preds = %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.not.i, label %37, label %33, !llvm.loop !8
+  br i1 %exitcond.not.i, label %37, label %33, !llvm.loop !6
 
 33:                                               ; preds = %32, %23
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %32 ]
@@ -834,7 +834,7 @@ _yaml_event_type_string.exit:                     ; preds = %33
 40:                                               ; preds = %20, %_yaml_event_type_string.exit
   %41 = call fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3)
   %42 = icmp eq i32 %41, 3
-  br i1 %42, label %43, label %12, !llvm.loop !10
+  br i1 %42, label %43, label %12, !llvm.loop !8
 
 43:                                               ; preds = %40
   %44 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -863,7 +863,7 @@ declare void @yaml_event_delete(ptr noundef) local_unnamed_addr #1
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %3) #6
   %7 = icmp eq i32 %6, 2
   %8 = load i32, ptr %2, align 8
@@ -965,7 +965,7 @@ thread-pre-split:                                 ; preds = %5
 
 41:                                               ; preds = %40, %37, %33
   %42 = add nsw i32 %0, 1
-  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef %1, ptr noundef %34, ptr noundef %4), !range !7
+  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef %1, ptr noundef %34, ptr noundef %4)
   br label %common.ret4
 
 44:                                               ; preds = %28
@@ -996,7 +996,7 @@ thread-pre-split:                                 ; preds = %5
 53:                                               ; preds = %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %54, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %54, !llvm.loop !9
 
 54:                                               ; preds = %.preheader, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader ]
@@ -1029,7 +1029,7 @@ _yaml_tag_to_type.exit:                           ; preds = %54
 65:                                               ; preds = %thread-pre-split
   %66 = tail call ptr @data_set_list(ptr noundef %3) #6
   %67 = add nsw i32 %0, 1
-  %68 = tail call fastcc i32 @_yaml_to_data(i32 noundef %67, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !7
+  %68 = tail call fastcc i32 @_yaml_to_data(i32 noundef %67, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %69 = icmp eq i32 %68, 2
   %70 = select i1 %69, i32 3, i32 %68
   br label %common.ret4
@@ -1040,7 +1040,7 @@ _yaml_tag_to_type.exit:                           ; preds = %54
 72:                                               ; preds = %thread-pre-split
   %73 = tail call ptr @data_set_dict(ptr noundef %3) #6
   %74 = add nsw i32 %0, 1
-  %75 = tail call fastcc i32 @_yaml_to_data(i32 noundef %74, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !7
+  %75 = tail call fastcc i32 @_yaml_to_data(i32 noundef %74, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %76 = icmp eq i32 %75, 2
   %77 = select i1 %76, i32 3, i32 %75
   br label %common.ret4
@@ -1094,9 +1094,7 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = !{i32 2, i32 6}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -467,7 +467,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call2.i = tail call ptr %48(ptr noundef nonnull align 8 dereferenceable(872) %47) #12
   %call21 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, ptr %call2.i) #12
   %ref.tmp8.sroa.314.0.extract.shift = lshr i64 %call21, 32
-  %ref.tmp8.sroa.314.0.extract.trunc = trunc i64 %ref.tmp8.sroa.314.0.extract.shift to i32
+  %ref.tmp8.sroa.314.0.extract.trunc = trunc nuw i64 %ref.tmp8.sroa.314.0.extract.shift to i32
   %tobool.i112 = trunc i64 %call21 to i1
   br i1 %tobool.i112, label %do.body, label %return
 

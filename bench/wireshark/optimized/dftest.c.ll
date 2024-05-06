@@ -426,7 +426,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   %123 = load ptr, ptr @stderr, align 8
   %124 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nsw i64 %indvars.iv to i32
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.23, i32 noundef %126, ptr noundef %125) #18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %128 = load i32, ptr %6, align 4
@@ -459,7 +459,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   br label %143
 
 143:                                              ; preds = %141, %139
-  %144 = call fastcc i32 @compile_filter(ptr noundef nonnull %137, ptr noundef nonnull %7), !range !8
+  %144 = call fastcc i32 @compile_filter(ptr noundef nonnull %137, ptr noundef nonnull %7)
   %.not57 = icmp eq i32 %144, 0
   br i1 %.not57, label %167, label %145
 
@@ -675,7 +675,7 @@ define internal fastcc ptr @expand_filter(ptr noundef %0) unnamed_addr #7 {
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compile_filter(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load i64, ptr @opt_optimize, align 8
@@ -750,7 +750,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %.01523, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.016.lcssa = phi i32 [ 0, %1 ], [ %5, %.lr.ph ]
@@ -776,7 +776,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   %17 = load i32, ptr %10, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp ult i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph26, label %.loopexit, !llvm.loop !10
+  br i1 %19, label %.lr.ph26, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph26, %9, %._crit_edge
   %.2 = phi i32 [ %.016.lcssa, %9 ], [ %.016.lcssa, %._crit_edge ], [ %16, %.lr.ph26 ]
@@ -836,7 +836,7 @@ define internal fastcc void @putloc(ptr nocapture noundef %0, i64 %1, i64 %2) un
   %5 = tail call i32 @fputc(i32 noundef 32, ptr noundef %0)
   %6 = add nuw nsw i64 %.078, 1
   %exitcond.not = icmp eq i64 %6, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %7 = tail call i32 @fputc(i32 noundef 94, ptr noundef %0)
@@ -848,7 +848,7 @@ define internal fastcc void @putloc(ptr nocapture noundef %0, i64 %1, i64 %2) un
   %9 = tail call i32 @fputc(i32 noundef 126, ptr noundef %0)
   %10 = add i64 %.09, -1
   %11 = icmp ugt i64 %10, 1
-  br i1 %11, label %.lr.ph11, label %._crit_edge12, !llvm.loop !12
+  br i1 %11, label %.lr.ph11, label %._crit_edge12, !llvm.loop !11
 
 ._crit_edge12:                                    ; preds = %.lr.ph11, %._crit_edge
   %12 = tail call i32 @fputc(i32 noundef 10, ptr noundef %0)
@@ -910,8 +910,7 @@ attributes #19 = { cold }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

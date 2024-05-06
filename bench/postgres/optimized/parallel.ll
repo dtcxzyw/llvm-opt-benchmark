@@ -678,11 +678,11 @@ lockTableForWorker.exit.i:                        ; preds = %65, %45
 buildWorkerResponse.exit.i:                       ; preds = %77, %73
   %79 = phi i32 [ %78, %77 ], [ 0, %73 ]
   %80 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef %.val13.i, i32 noundef %.1.i, i32 noundef %79) #18
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %81 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
   %82 = shl i64 %81, 32
   %sext.i.i = add i64 %82, 4294967296
   %83 = ashr exact i64 %sext.i.i, 32
-  %84 = call i64 @write(i32 noundef %9, ptr noundef nonnull %5, i64 noundef %83) #18
+  %84 = call i64 @write(i32 noundef %9, ptr noundef nonnull readonly %5, i64 noundef %83) #18
   %.not.i15.i = icmp eq i64 %84, %83
   br i1 %.not.i15.i, label %sendMessageToLeader.exit.i, label %85
 
@@ -902,7 +902,7 @@ GetIdleWorker.exit.thread:                        ; preds = %17, %9, %GetIdleWor
 
 buildWorkerCommand.exit:                          ; preds = %20, %.sink.split.i
   %.val = phi ptr [ %12, %20 ], [ %.val.pre, %.sink.split.i ]
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
+  %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #20
   %sext = shl i64 %indvars.iv.i, 32
   %26 = ashr exact i64 %sext, 32
   %27 = getelementptr %struct.ParallelSlot, ptr %.val, i64 %26, i32 5
@@ -910,7 +910,7 @@ buildWorkerCommand.exit:                          ; preds = %20, %.sink.split.i
   %29 = shl i64 %25, 32
   %sext.i = add i64 %29, 4294967296
   %30 = ashr exact i64 %sext.i, 32
-  %31 = call i64 @write(i32 noundef %28, ptr noundef nonnull %7, i64 noundef %30) #18
+  %31 = call i64 @write(i32 noundef %28, ptr noundef nonnull readonly %7, i64 noundef %30) #18
   %.not.i = icmp eq i64 %31, %30
   br i1 %.not.i, label %sendMessageToWorker.exit, label %32
 

@@ -2036,7 +2036,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %cond.end.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK3ue213RoseBuildImpl13minLiteralLenENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr nocapture readonly %v.coerce0, i64 %v.coerce1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK3ue213RoseBuildImpl13minLiteralLenENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr nocapture readonly %v.coerce0, i64 %v.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %literals = getelementptr inbounds i8, ptr %v.coerce0, i64 24
   %0 = load ptr, ptr %literals, align 8, !noalias !125
@@ -7282,7 +7282,7 @@ _ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3ue211roseQualityERKNS_13RoseResourcesEPK10RoseEngine(ptr nocapture noundef nonnull readonly align 1 dereferenceable(13) %res, ptr nocapture noundef readonly %t) local_unnamed_addr #8 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3ue211roseQualityERKNS_13RoseResourcesEPK10RoseEngine(ptr nocapture noundef nonnull readonly align 1 dereferenceable(13) %res, ptr nocapture noundef readonly %t) local_unnamed_addr #8 {
 entry:
   %has_anchored = getelementptr inbounds i8, ptr %res, i64 8
   %0 = load i8, ptr %has_anchored, align 1, !range !219, !noundef !125

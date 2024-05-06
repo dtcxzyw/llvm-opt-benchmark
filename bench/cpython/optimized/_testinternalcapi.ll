@@ -1355,7 +1355,7 @@ entry:
   br i1 %cmp.not.i, label %do.body1, label %check_popcount.exit.thread
 
 check_popcount.exit.thread:                       ; preds = %entry
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i), !range !4
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i)
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call1.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef 0, i32 noundef %0, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.i)
@@ -1366,7 +1366,7 @@ do.body1:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i1)
   store volatile i32 1, ptr %u.i1, align 4
   %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2 = load volatile i32, ptr %u.i1, align 4
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2), !range !4
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2)
   %cmp.not.i3 = icmp eq i32 %2, 1
   br i1 %cmp.not.i3, label %do.body7, label %check_popcount.exit7.thread
 
@@ -1381,7 +1381,7 @@ do.body7:                                         ; preds = %do.body1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i8)
   store volatile i32 134744072, ptr %u.i8, align 4
   %u.i8.0.u.i8.0.u.i8.0.u.0.u.0.u.0..i9 = load volatile i32, ptr %u.i8, align 4
-  %4 = tail call i32 @llvm.ctpop.i32(i32 %u.i8.0.u.i8.0.u.i8.0.u.0.u.0.u.0..i9), !range !4
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i8.0.u.i8.0.u.i8.0.u.0.u.0.u.0..i9)
   %cmp.not.i10 = icmp eq i32 %4, 4
   br i1 %cmp.not.i10, label %do.body13, label %check_popcount.exit14.thread
 
@@ -1396,7 +1396,7 @@ do.body13:                                        ; preds = %do.body7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i15)
   store volatile i32 268435457, ptr %u.i15, align 4
   %u.i15.0.u.i15.0.u.i15.0.u.0.u.0.u.0..i16 = load volatile i32, ptr %u.i15, align 4
-  %6 = tail call i32 @llvm.ctpop.i32(i32 %u.i15.0.u.i15.0.u.i15.0.u.0.u.0.u.0..i16), !range !4
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i15.0.u.i15.0.u.i15.0.u.0.u.0.u.0..i16)
   %cmp.not.i17 = icmp eq i32 %6, 2
   br i1 %cmp.not.i17, label %do.body19, label %check_popcount.exit21.thread
 
@@ -1411,7 +1411,7 @@ do.body19:                                        ; preds = %do.body13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i22)
   store volatile i32 269488144, ptr %u.i22, align 4
   %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23 = load volatile i32, ptr %u.i22, align 4
-  %8 = tail call i32 @llvm.ctpop.i32(i32 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23), !range !4
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23)
   %cmp.not.i24 = icmp eq i32 %8, 4
   br i1 %cmp.not.i24, label %do.body25, label %check_popcount.exit28.thread
 
@@ -1426,7 +1426,7 @@ do.body25:                                        ; preds = %do.body19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i29)
   store volatile i32 270549120, ptr %u.i29, align 4
   %u.i29.0.u.i29.0.u.i29.0.u.0.u.0.u.0..i30 = load volatile i32, ptr %u.i29, align 4
-  %10 = tail call i32 @llvm.ctpop.i32(i32 %u.i29.0.u.i29.0.u.i29.0.u.0.u.0.u.0..i30), !range !4
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i29.0.u.i29.0.u.i29.0.u.0.u.0.u.0..i30)
   %cmp.not.i31 = icmp eq i32 %10, 4
   br i1 %cmp.not.i31, label %do.body31, label %check_popcount.exit35.thread
 
@@ -1441,7 +1441,7 @@ do.body31:                                        ; preds = %do.body25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i36)
   store volatile i32 -559035650, ptr %u.i36, align 4
   %u.i36.0.u.i36.0.u.i36.0.u.0.u.0.u.0..i37 = load volatile i32, ptr %u.i36, align 4
-  %12 = tail call i32 @llvm.ctpop.i32(i32 %u.i36.0.u.i36.0.u.i36.0.u.0.u.0.u.0..i37), !range !4
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i36.0.u.i36.0.u.i36.0.u.0.u.0.u.0..i37)
   %cmp.not.i38 = icmp eq i32 %12, 22
   br i1 %cmp.not.i38, label %do.body37, label %check_popcount.exit42.thread
 
@@ -1464,7 +1464,7 @@ check_popcount.exit49:                            ; preds = %do.body37
   br label %return
 
 14:                                               ; preds = %do.body37
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %u.i43.0.u.i43.0.u.i43.0.u.0.u.0.u.0..i44), !range !4
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i43.0.u.i43.0.u.i43.0.u.0.u.0.u.0..i44)
   %16 = load ptr, ptr @PyExc_AssertionError, align 8
   %call1.i47 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.62, i64 noundef 4294967295, i32 noundef %15, i32 noundef 32) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.i43)
@@ -1492,7 +1492,7 @@ entry:
   br i1 %cmp.not.i.i, label %do.body1, label %check_bit_length.exit.thread
 
 check_bit_length.exit.thread:                     ; preds = %entry
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i, i1 true), !range !5
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i, i1 true)
   %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
@@ -1506,7 +1506,7 @@ do.body1:                                         ; preds = %entry
   store volatile i64 1, ptr %u.i1, align 8
   %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2 = load volatile i64, ptr %u.i1, align 8
   %cmp.not.i.i3 = icmp eq i64 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2, 0
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2, i1 true), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2, i1 true)
   %cast.i.i4 = trunc nuw nsw i64 %2 to i32
   %sub.i.i5 = sub nuw nsw i32 64, %cast.i.i4
   %retval.0.i.i6 = select i1 %cmp.not.i.i3, i32 0, i32 %sub.i.i5
@@ -1525,7 +1525,7 @@ do.body7:                                         ; preds = %do.body1
   store volatile i64 4096, ptr %u.i11, align 8
   %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12 = load volatile i64, ptr %u.i11, align 8
   %cmp.not.i.i13 = icmp eq i64 %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12, 0
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12, i1 true), !range !5
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12, i1 true)
   %cast.i.i14 = trunc nuw nsw i64 %4 to i32
   %sub.i.i15 = sub nuw nsw i32 64, %cast.i.i14
   %retval.0.i.i16 = select i1 %cmp.not.i.i13, i32 0, i32 %sub.i.i15
@@ -1544,7 +1544,7 @@ do.body13:                                        ; preds = %do.body7
   store volatile i64 4660, ptr %u.i22, align 8
   %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23 = load volatile i64, ptr %u.i22, align 8
   %cmp.not.i.i24 = icmp eq i64 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23, 0
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23, i1 true), !range !5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23, i1 true)
   %cast.i.i25 = trunc nuw nsw i64 %6 to i32
   %sub.i.i26 = sub nuw nsw i32 64, %cast.i.i25
   %retval.0.i.i27 = select i1 %cmp.not.i.i24, i32 0, i32 %sub.i.i26
@@ -1563,7 +1563,7 @@ do.body19:                                        ; preds = %do.body13
   store volatile i64 344865, ptr %u.i33, align 8
   %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34 = load volatile i64, ptr %u.i33, align 8
   %cmp.not.i.i35 = icmp eq i64 %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34, 0
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34, i1 true), !range !5
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34, i1 true)
   %cast.i.i36 = trunc nuw nsw i64 %8 to i32
   %sub.i.i37 = sub nuw nsw i32 64, %cast.i.i36
   %retval.0.i.i38 = select i1 %cmp.not.i.i35, i32 0, i32 %sub.i.i37
@@ -1582,7 +1582,7 @@ do.body25:                                        ; preds = %do.body19
   store volatile i64 2147483647, ptr %u.i44, align 8
   %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45 = load volatile i64, ptr %u.i44, align 8
   %cmp.not.i.i46 = icmp eq i64 %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45, 0
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45, i1 true), !range !5
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45, i1 true)
   %cast.i.i47 = trunc nuw nsw i64 %10 to i32
   %sub.i.i48 = sub nuw nsw i32 64, %cast.i.i47
   %retval.0.i.i49 = select i1 %cmp.not.i.i46, i32 0, i32 %sub.i.i48
@@ -1601,7 +1601,7 @@ do.body31:                                        ; preds = %do.body25
   store volatile i64 4294967295, ptr %u.i55, align 8
   %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56 = load volatile i64, ptr %u.i55, align 8
   %cmp.not.i.i57 = icmp eq i64 %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56, 0
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56, i1 true), !range !5
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56, i1 true)
   %cast.i.i58 = trunc nuw nsw i64 %12 to i32
   %sub.i.i59 = sub nuw nsw i32 64, %cast.i.i58
   %retval.0.i.i60 = select i1 %cmp.not.i.i57, i32 0, i32 %sub.i.i59
@@ -1666,7 +1666,7 @@ cond.false10:                                     ; preds = %cond.end6
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 123
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %cond.end6, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 97, %cond.end6 ]
@@ -1707,7 +1707,7 @@ cond.false34:                                     ; preds = %cond.end28
 for.cond36:                                       ; preds = %cond.end55
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 123
-  br i1 %exitcond47.not, label %for.body73, label %for.body40, !llvm.loop !8
+  br i1 %exitcond47.not, label %for.body73, label %for.body40, !llvm.loop !6
 
 for.body40:                                       ; preds = %for.cond36.preheader, %for.cond36
   %indvars.iv44 = phi i64 [ 97, %for.cond36.preheader ], [ %indvars.iv.next45, %for.cond36 ]
@@ -1746,7 +1746,7 @@ cond.false64:                                     ; preds = %cond.end55
 for.cond69:                                       ; preds = %for.body73
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 123
-  br i1 %exitcond51.not, label %for.end87, label %for.body73, !llvm.loop !9
+  br i1 %exitcond51.not, label %for.end87, label %for.body73, !llvm.loop !7
 
 for.body73:                                       ; preds = %for.cond36, %for.cond69
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.cond69 ], [ 97, %for.cond36 ]
@@ -1899,99 +1899,99 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_edit_cost(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @test_edit_cost(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
-  %call = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i64 noundef 0), !range !10
+  %call = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i64 noundef 0)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %call2 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef 2), !range !10
+  %call2 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef 2)
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %return, label %do.body7
 
 do.body7:                                         ; preds = %do.body1
-  %call8 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef 1), !range !10
+  %call8 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef 1)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %do.body13
 
 do.body13:                                        ; preds = %do.body7
-  %call14 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i64 noundef 2), !range !10
+  %call14 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i64 noundef 2)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %return, label %do.body19
 
 do.body19:                                        ; preds = %do.body13
-  %call20 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i64 noundef 6), !range !10
+  %call20 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i64 noundef 6)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %return, label %do.body25
 
 do.body25:                                        ; preds = %do.body19
-  %call26 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef 2), !range !10
+  %call26 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef 2)
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %return, label %do.body31
 
 do.body31:                                        ; preds = %do.body25
-  %call32 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i64 noundef 2), !range !10
+  %call32 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i64 noundef 2)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %return, label %do.body37
 
 do.body37:                                        ; preds = %do.body31
-  %call38 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, i64 noundef 6), !range !10
+  %call38 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, i64 noundef 6)
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %return, label %do.body43
 
 do.body43:                                        ; preds = %do.body37
-  %call44 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, i64 noundef 4), !range !10
+  %call44 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, i64 noundef 4)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %return, label %do.body49
 
 do.body49:                                        ; preds = %do.body43
-  %call50 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i64 noundef 5), !range !10
+  %call50 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i64 noundef 5)
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %return, label %do.body55
 
 do.body55:                                        ; preds = %do.body49
-  %call56 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i64 noundef 2), !range !10
+  %call56 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i64 noundef 2)
   %cmp57 = icmp slt i32 %call56, 0
   br i1 %cmp57, label %return, label %do.body61
 
 do.body61:                                        ; preds = %do.body55
-  %call62 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.98, i64 noundef 8), !range !10
+  %call62 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.98, i64 noundef 8)
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %return, label %do.body67
 
 do.body67:                                        ; preds = %do.body61
-  %call68 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, i64 noundef 12), !range !10
+  %call68 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, i64 noundef 12)
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %return, label %do.body73
 
 do.body73:                                        ; preds = %do.body67
-  %call74 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, i64 noundef 8), !range !10
+  %call74 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, i64 noundef 8)
   %cmp75 = icmp slt i32 %call74, 0
   br i1 %cmp75, label %return, label %do.body79
 
 do.body79:                                        ; preds = %do.body73
-  %call80 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i64 noundef 7), !range !10
+  %call80 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i64 noundef 7)
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %return, label %do.body85
 
 do.body85:                                        ; preds = %do.body79
-  %call86 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, i64 noundef 10), !range !10
+  %call86 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, i64 noundef 10)
   %cmp87 = icmp slt i32 %call86, 0
   br i1 %cmp87, label %return, label %do.body91
 
 do.body91:                                        ; preds = %do.body85
-  %call92 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.106, i64 noundef 11), !range !10
+  %call92 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.106, i64 noundef 11)
   %cmp93 = icmp slt i32 %call92, 0
   br i1 %cmp93, label %return, label %do.body97
 
 do.body97:                                        ; preds = %do.body91
-  %call98 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, i64 noundef 2), !range !10
+  %call98 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, i64 noundef 2)
   %cmp99 = icmp slt i32 %call98, 0
   br i1 %cmp99, label %return, label %do.body103
 
 do.body103:                                       ; preds = %do.body97
-  %call104 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.109, i64 noundef 10), !range !10
+  %call104 = tail call fastcc i32 @check_edit_cost(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.109, i64 noundef 10)
   %cmp105 = icmp slt i32 %call104, 0
   %._Py_NoneStruct = select i1 %cmp105, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -2002,119 +2002,119 @@ return:                                           ; preds = %do.body103, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_bytes_find(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @test_bytes_find(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
-  %call = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i32 noundef 0, i64 noundef 0), !range !10
+  %call = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i32 noundef 0, i64 noundef 0)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %call2 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 0, i64 noundef 0), !range !10
+  %call2 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 0, i64 noundef 0)
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %return, label %do.body7
 
 do.body7:                                         ; preds = %do.body1
-  %call8 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 3, i64 noundef 3), !range !10
+  %call8 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 3, i64 noundef 3)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %do.body13
 
 do.body13:                                        ; preds = %do.body7
-  %call14 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 6, i64 noundef 6), !range !10
+  %call14 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.79, i32 noundef 6, i64 noundef 6)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %return, label %do.body19
 
 do.body19:                                        ; preds = %do.body13
-  %call20 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.113, i32 noundef 0, i64 noundef 1), !range !10
+  %call20 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.113, i32 noundef 0, i64 noundef 1)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %return, label %do.body25
 
 do.body25:                                        ; preds = %do.body19
-  %call26 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.113, i32 noundef 1, i64 noundef 1), !range !10
+  %call26 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.113, i32 noundef 1, i64 noundef 1)
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %return, label %do.body31
 
 do.body31:                                        ; preds = %do.body25
-  %call32 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.113, i32 noundef 2, i64 noundef -1), !range !10
+  %call32 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.113, i32 noundef 2, i64 noundef -1)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %return, label %do.body37
 
 do.body37:                                        ; preds = %do.body31
-  %call38 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.115, i32 noundef 0, i64 noundef 2), !range !10
+  %call38 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.115, i32 noundef 0, i64 noundef 2)
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %return, label %do.body43
 
 do.body43:                                        ; preds = %do.body37
-  %call44 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef 1, i64 noundef 2), !range !10
+  %call44 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef 1, i64 noundef 2)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %return, label %do.body49
 
 do.body49:                                        ; preds = %do.body43
-  %call50 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.115, i32 noundef 2, i64 noundef 2), !range !10
+  %call50 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.115, i32 noundef 2, i64 noundef 2)
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %return, label %do.body55
 
 do.body55:                                        ; preds = %do.body49
-  %call56 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.115, i32 noundef 3, i64 noundef -1), !range !10
+  %call56 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.115, i32 noundef 3, i64 noundef -1)
   %cmp57 = icmp slt i32 %call56, 0
   br i1 %cmp57, label %return, label %do.body61
 
 do.body61:                                        ; preds = %do.body55
-  %call62 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, i32 noundef 0, i64 noundef -1), !range !10
+  %call62 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, i32 noundef 0, i64 noundef -1)
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %return, label %do.body67
 
 do.body67:                                        ; preds = %do.body61
-  %call68 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, i32 noundef 0, i64 noundef -1), !range !10
+  %call68 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, i32 noundef 0, i64 noundef -1)
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %return, label %do.body73
 
 do.body73:                                        ; preds = %do.body67
-  %call74 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.121, i32 noundef 0, i64 noundef -1), !range !10
+  %call74 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.121, i32 noundef 0, i64 noundef -1)
   %cmp75 = icmp slt i32 %call74, 0
   br i1 %cmp75, label %return, label %do.body79
 
 do.body79:                                        ; preds = %do.body73
-  %call80 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.93, i32 noundef 0, i64 noundef -1), !range !10
+  %call80 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.93, i32 noundef 0, i64 noundef -1)
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %return, label %do.body85
 
 do.body85:                                        ; preds = %do.body79
-  %call86 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i32 noundef 0, i64 noundef 30), !range !10
+  %call86 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i32 noundef 0, i64 noundef 30)
   %cmp87 = icmp slt i32 %call86, 0
   br i1 %cmp87, label %return, label %do.body91
 
 do.body91:                                        ; preds = %do.body85
-  %call92 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 0, i64 noundef 30), !range !10
+  %call92 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 0, i64 noundef 30)
   %cmp93 = icmp slt i32 %call92, 0
   br i1 %cmp93, label %return, label %do.body97
 
 do.body97:                                        ; preds = %do.body91
-  %call98 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.93, i32 noundef 0, i64 noundef 30), !range !10
+  %call98 = tail call fastcc i32 @check_bytes_find(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.93, i32 noundef 0, i64 noundef 30)
   %cmp99 = icmp slt i32 %call98, 0
   br i1 %cmp99, label %return, label %do.end102
 
 do.end102:                                        ; preds = %do.body97
-  %call103 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 2048, i64 noundef 2, ptr noundef nonnull @.str.120), !range !10
+  %call103 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 2048, i64 noundef 2, ptr noundef nonnull @.str.120)
   %cmp104 = icmp slt i32 %call103, 0
   br i1 %cmp104, label %return, label %if.end106
 
 if.end106:                                        ; preds = %do.end102
-  %call107 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 4096, i64 noundef 16, ptr noundef nonnull @.str.125), !range !10
+  %call107 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 4096, i64 noundef 16, ptr noundef nonnull @.str.125)
   %cmp108 = icmp slt i32 %call107, 0
   br i1 %cmp108, label %return, label %if.end110
 
 if.end110:                                        ; preds = %if.end106
-  %call111 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 8192, i64 noundef 2, ptr noundef nonnull @.str.120), !range !10
+  %call111 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 8192, i64 noundef 2, ptr noundef nonnull @.str.120)
   %cmp112 = icmp slt i32 %call111, 0
   br i1 %cmp112, label %return, label %if.end114
 
 if.end114:                                        ; preds = %if.end110
-  %call115 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 16384, i64 noundef 4, ptr noundef nonnull @.str.126), !range !10
+  %call115 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 16384, i64 noundef 4, ptr noundef nonnull @.str.126)
   %cmp116 = icmp slt i32 %call115, 0
   br i1 %cmp116, label %return, label %if.end118
 
 if.end118:                                        ; preds = %if.end114
-  %call119 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 32768, i64 noundef 2, ptr noundef nonnull @.str.120), !range !10
+  %call119 = tail call fastcc i32 @check_bytes_find_large(i64 noundef 32768, i64 noundef 2, ptr noundef nonnull @.str.120)
   %cmp120 = icmp slt i32 %call119, 0
   %._Py_NoneStruct = select i1 %cmp120, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -3314,7 +3314,7 @@ do.body:                                          ; preds = %if.then4, %do.body
   %call10 = call i32 @_PyEval_AddPendingCall(ptr noundef %0, ptr noundef nonnull @_pending_callback, ptr noundef %8, i32 noundef 0) #9
   call void @PyEval_RestoreThread(ptr noundef %call9) #9
   %cmp11 = icmp slt i32 %call10, 0
-  br i1 %cmp11, label %do.body, label %return, !llvm.loop !11
+  br i1 %cmp11, label %do.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %do.body, %Py_INCREF.exit, %if.end.i, %if.then1.i, %if.then6, %entry
   %retval.0 = phi ptr [ null, %entry ], [ @_Py_FalseStruct, %if.then6 ], [ @_Py_FalseStruct, %if.then1.i ], [ @_Py_FalseStruct, %if.end.i ], [ @_Py_TrueStruct, %Py_INCREF.exit ], [ @_Py_TrueStruct, %do.body ]
@@ -3360,7 +3360,7 @@ do.body:                                          ; preds = %do.body, %if.end11
   %call14 = call i32 @_PyEval_AddPendingCall(ptr noundef nonnull %call1, ptr noundef nonnull @_pending_identify_callback, ptr noundef nonnull %call8, i32 noundef 0) #9
   call void @PyEval_RestoreThread(ptr noundef %call13) #9
   %cmp15 = icmp slt i32 %call14, 0
-  br i1 %cmp15, label %do.body, label %do.end, !llvm.loop !12
+  br i1 %cmp15, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body
   %call16 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %call8, i32 noundef 1) #9
@@ -3629,8 +3629,8 @@ _PyObject_DictOrValuesPointer.exit:               ; preds = %entry
   %add.ptr.i = getelementptr i8, ptr %obj, i64 -24
   %dorv.sroa.0.0.copyload = load ptr, ptr %add.ptr.i, align 8
   %3 = ptrtoint ptr %dorv.sroa.0.0.copyload to i64
-  %conv.i1723 = and i64 %3, 1
-  %tobool4.not = icmp eq i64 %conv.i1723, 0
+  %conv.i1724 = and i64 %3, 1
+  %tobool4.not = icmp eq i64 %conv.i1724, 0
   br i1 %tobool4.not, label %return, label %_PyDictOrValues_GetValues.exit
 
 _PyDictOrValues_GetValues.exit:                   ; preds = %_PyObject_DictOrValuesPointer.exit
@@ -3662,8 +3662,8 @@ cond.end13:                                       ; preds = %cond.end
   br i1 %cmp16, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cond.end13
-  %cmp2024.not = icmp eq i32 %conv, 0
-  br i1 %cmp2024.not, label %return, label %for.body.lr.ph
+  %cmp2025.not = icmp eq i32 %conv, 0
+  br i1 %cmp2025.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %6 = getelementptr i8, ptr %call15, i64 8
@@ -3696,9 +3696,9 @@ if.end26:                                         ; preds = %for.body, %if.end.i
   %call.val.i = load i64, ptr %9, align 8
   %10 = and i64 %call.val.i, 67108864
   %tobool.not.i21 = icmp eq i64 %10, 0
-  br i1 %tobool.not.i21, label %cond.false.i22, label %cond.end.i
+  br i1 %tobool.not.i21, label %cond.false.i23, label %cond.end.i
 
-cond.false.i22:                                   ; preds = %if.end26
+cond.false.i23:                                   ; preds = %if.end26
   tail call void @__assert_fail(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #10
   unreachable
 
@@ -3732,7 +3732,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   store ptr %item.0, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 return:                                           ; preds = %PyTuple_SET_ITEM.exit, %for.cond.preheader, %cond.end13, %_PyObject_DictOrValuesPointer.exit, %entry
   %retval.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ @_Py_NoneStruct, %_PyObject_DictOrValuesPointer.exit ], [ null, %cond.end13 ], [ %call15, %for.cond.preheader ], [ %call15, %PyTuple_SET_ITEM.exit ]
@@ -4097,7 +4097,7 @@ entry:
 for.cond.i:                                       ; preds = %if.end9.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 15
-  br i1 %exitcond.not.i, label %_testinternalcapi_test_long_numbits_impl.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_testinternalcapi_test_long_numbits_impl.exit, label %for.body.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %i.01.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
@@ -4185,7 +4185,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 declare ptr @_Py_hashtable_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i64 @hash_char(ptr noundef %key) #2 {
+define internal range(i64 -128, 128) i64 @hash_char(ptr noundef %key) #2 {
 entry:
   %0 = ptrtoint ptr %key to i64
   %sext = shl i64 %0, 56
@@ -4251,7 +4251,7 @@ declare i32 @_PyInterpreterState_SetConfig(ptr noundef) local_unnamed_addr #1
 declare void @_PyPathConfig_ClearGlobal() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_edit_cost(ptr noundef %a, ptr noundef %b, i64 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %a, ptr noundef %b, i64 noundef %expected) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %a) #9
   %cmp = icmp eq ptr %call, null
@@ -4281,7 +4281,7 @@ while.body:                                       ; preds = %while.cond
   %div29 = lshr i64 %max_edits.0, 1
   %call11 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %call, ptr noundef nonnull %call1, i64 noundef %div29) #9
   %cmp12.not = icmp sgt i64 %call11, %div29
-  br i1 %cmp12.not, label %while.cond, label %if.then13, !llvm.loop !15
+  br i1 %cmp12.not, label %while.cond, label %if.then13, !llvm.loop !12
 
 if.then13:                                        ; preds = %while.body
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
@@ -4349,7 +4349,7 @@ declare i64 @_Py_UTF8_Edit_Cost(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_bytes_find(ptr noundef %haystack0, ptr noundef %needle0, i32 noundef %offset, i64 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_bytes_find(ptr noundef %haystack0, ptr noundef %needle0, i32 noundef %offset, i64 noundef %expected) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %haystack0) #11
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %needle0) #11
@@ -4402,7 +4402,7 @@ return:                                           ; preds = %if.end16, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_bytes_find_large(i64 noundef %len_haystack, i64 noundef %len_needle, ptr noundef %needle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_bytes_find_large(i64 noundef %len_haystack, i64 noundef %len_needle, ptr noundef %needle) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyMem_RawCalloc(i64 noundef %len_haystack, i64 noundef 1) #9
   %cmp = icmp eq ptr %call, null
@@ -4635,7 +4635,7 @@ declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 declare i32 @_PyEval_AddPendingCall(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_pending_callback(ptr noundef %arg) #0 {
+define internal range(i32 -1, 1) i32 @_pending_callback(ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyObject_CallNoArgs(ptr noundef %arg) #9
   %0 = load i64, ptr %arg, align 8
@@ -4819,7 +4819,7 @@ declare i32 @_PyLong_Sign(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyType_GetModuleName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @module_exec(ptr noundef %module) #0 {
+define internal range(i32 0, 2) i32 @module_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call i32 @_PyTestInternalCapi_Init_Lock(ptr noundef %module) #9
   %cmp = icmp slt i32 %call, 0
@@ -4900,15 +4900,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i32 -1, i32 1}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

@@ -1455,7 +1455,7 @@ define internal i32 @dissect_atp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_asp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 7) i32 @dissect_asp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %111, label %6
 
@@ -2293,7 +2293,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #0
 declare ptr @wmem_file_scope() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @asp_hash(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 65536) i32 @asp_hash(ptr nocapture noundef readonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -2301,7 +2301,7 @@ define internal i32 @asp_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @asp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @asp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4

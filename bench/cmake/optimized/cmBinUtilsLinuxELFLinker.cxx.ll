@@ -1230,24 +1230,24 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %25
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %67, %64
   %69 = icmp ult i64 %61, %68
-  br i1 %69, label %70, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit19
+  br i1 %69, label %70, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit21
 
 70:                                               ; preds = %59
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13, i64 noundef %68, i64 noundef %61) #16
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit19: ; preds = %59
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit21: ; preds = %59
   %71 = load ptr, ptr %6, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %72, %64
-  %.sroa.speculated.i14 = call i64 @llvm.umin.i64(i64 %61, i64 %73)
+  %.sroa.speculated.i15 = call i64 @llvm.umin.i64(i64 %61, i64 %73)
   %74 = extractvalue { i64, ptr } %60, 1
   %75 = sub i64 %61, %68
   %76 = getelementptr inbounds i8, ptr %74, i64 %68
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  store i64 %.sroa.speculated.i14, ptr %4, align 8, !alias.scope !26, !noalias !29
-  %.sroa.2.0..sroa_idx.i7.i23 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %74, ptr %.sroa.2.0..sroa_idx.i7.i23, align 8, !alias.scope !26, !noalias !29
+  store i64 %.sroa.speculated.i15, ptr %4, align 8, !alias.scope !26, !noalias !29
+  %.sroa.2.0..sroa_idx.i7.i25 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %74, ptr %.sroa.2.0..sroa_idx.i7.i25, align 8, !alias.scope !26, !noalias !29
   %77 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %77, align 8, !alias.scope !26, !noalias !29
   %78 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1255,14 +1255,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit19: ; preds = %59
   %80 = extractvalue { i64, ptr } %79, 0
   %81 = extractvalue { i64, ptr } %79, 1
   store i64 %80, ptr %78, align 8, !alias.scope !32, !noalias !29
-  %.sroa.2.0..sroa_idx.i12.i24 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %81, ptr %.sroa.2.0..sroa_idx.i12.i24, align 8, !alias.scope !32, !noalias !29
+  %.sroa.2.0..sroa_idx.i12.i26 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %81, ptr %.sroa.2.0..sroa_idx.i12.i26, align 8, !alias.scope !32, !noalias !29
   %82 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %82, align 8, !alias.scope !32, !noalias !29
   %83 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 %75, ptr %83, align 8, !alias.scope !35, !noalias !29
-  %.sroa.2.0..sroa_idx.i22.i28 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %76, ptr %.sroa.2.0..sroa_idx.i22.i28, align 8, !alias.scope !35, !noalias !29
+  %.sroa.2.0..sroa_idx.i22.i30 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %76, ptr %.sroa.2.0..sroa_idx.i22.i30, align 8, !alias.scope !35, !noalias !29
   %84 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %84, align 8, !alias.scope !35, !noalias !29
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
@@ -1273,7 +1273,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit19: ; preds = %59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %86
 
-86:                                               ; preds = %85, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+86:                                               ; preds = %85, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   ret void
 
 87:                                               ; preds = %54, %52

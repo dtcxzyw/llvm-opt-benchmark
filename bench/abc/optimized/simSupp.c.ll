@@ -122,7 +122,7 @@ define ptr @Sim_ComputeStrSupp(ptr nocapture noundef readonly %0) local_unnamed_
   %.val62.val = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds ptr, ptr %.val62.val, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
-  %57 = trunc i64 %indvars.iv to i32
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = and i32 %57, 31
   %59 = shl nuw i32 1, %58
   %60 = load ptr, ptr %14, align 8
@@ -774,13 +774,13 @@ Vec_VecSizeSize.exit98:                           ; preds = %273
   %286 = getelementptr i8, ptr %285, i64 4
   %.val.i99 = load i32, ptr %286, align 4
   %287 = zext i32 %.val.i99 to i64
-  %288 = trunc i64 %indvars.iv88.i to i32
+  %288 = trunc nuw nsw i64 %indvars.iv88.i to i32
   br label %289
 
 289:                                              ; preds = %437, %.lr.ph81.i
   %indvars.iv84.i = phi i64 [ %290, %437 ], [ %287, %.lr.ph81.i ]
   %290 = add nsw i64 %indvars.iv84.i, -1
-  %291 = trunc i64 %indvars.iv84.i to i32
+  %291 = trunc nuw i64 %indvars.iv84.i to i32
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %293, label %.critedge.i
 
@@ -900,7 +900,7 @@ Abc_Clock.exit69.i:                               ; preds = %331, %Abc_Clock.exi
 
 353:                                              ; preds = %356, %341
   %indvars.iv.i.i108 = phi i64 [ %357, %356 ], [ %352, %341 ]
-  %354 = trunc i64 %indvars.iv.i.i108 to i32
+  %354 = trunc nuw i64 %indvars.iv.i.i108 to i32
   %355 = icmp sgt i32 %354, 0
   br i1 %355, label %356, label %362
 
@@ -970,7 +970,7 @@ Vec_PtrRemove.exit.i:                             ; preds = %365, %362
   br i1 %.not.i, label %399, label %389
 
 389:                                              ; preds = %385
-  %390 = trunc i64 %indvars.iv.i105 to i32
+  %390 = trunc nuw nsw i64 %indvars.iv.i105 to i32
   %391 = and i32 %390, 31
   %392 = shl nuw i32 1, %391
   %393 = load ptr, ptr %384, align 8
@@ -1150,7 +1150,7 @@ Sim_SolveTargetsUsingSat.exit:                    ; preds = %.critedge.i, %437, 
   %486 = getelementptr inbounds ptr, ptr %482, i64 %485
   %487 = load ptr, ptr %486, align 8
   %488 = load ptr, ptr %462, align 8
-  %489 = trunc i64 %indvars.iv105.i to i32
+  %489 = trunc nuw nsw i64 %indvars.iv105.i to i32
   %490 = lshr i64 %indvars.iv105.i, 5
   %491 = and i64 %490, 134217727
   %492 = getelementptr inbounds i32, ptr %488, i64 %491
@@ -1206,7 +1206,7 @@ Sim_SolveTargetsUsingSat.exit:                    ; preds = %.critedge.i, %437, 
   %515 = getelementptr inbounds ptr, ptr %511, i64 %514
   %516 = load ptr, ptr %515, align 8
   %517 = load ptr, ptr %462, align 8
-  %518 = trunc i64 %indvars.iv.i111 to i32
+  %518 = trunc nuw nsw i64 %indvars.iv.i111 to i32
   %519 = lshr i64 %indvars.iv.i111, 5
   %520 = and i64 %519, 134217727
   %521 = getelementptr inbounds i32, ptr %517, i64 %520
@@ -1407,7 +1407,7 @@ Abc_Clock.exit19:                                 ; preds = %Abc_Clock.exit, %13
   br i1 %44, label %48, label %.split16
 
 .split16:                                         ; preds = %.lr.ph.split
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nsw i64 %indvars.iv to i32
   %46 = call fastcc i32 @Sim_ComputeSuppRoundNode(ptr noundef nonnull %0, i32 noundef %45, i32 noundef 1)
   %47 = add nsw i32 %46, %.01522
   %.pre = load i32, ptr %26, align 8
@@ -1992,7 +1992,7 @@ Abc_Clock.exit148:                                ; preds = %Abc_Clock.exit146, 
 
 229:                                              ; preds = %232, %223
   %indvars.iv.i = phi i64 [ %233, %232 ], [ %228, %223 ]
-  %230 = trunc i64 %indvars.iv.i to i32
+  %230 = trunc nuw i64 %indvars.iv.i to i32
   %231 = icmp sgt i32 %230, 0
   br i1 %231, label %232, label %237
 
@@ -2119,7 +2119,7 @@ Vec_PtrRemove.exit:                               ; preds = %240, %237
   br i1 %.not118, label %322, label %312
 
 312:                                              ; preds = %296
-  %313 = trunc i64 %indvars.iv219 to i32
+  %313 = trunc nuw nsw i64 %indvars.iv219 to i32
   %314 = and i32 %313, 31
   %315 = shl nuw i32 1, %314
   %316 = load ptr, ptr %295, align 8

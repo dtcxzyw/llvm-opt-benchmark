@@ -321,7 +321,7 @@ Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_Truths
   br i1 %187, label %Extra_ProgressBarUpdate.exit, label %188
 
 188:                                              ; preds = %184, %._crit_edge
-  %189 = trunc i64 %indvars.iv to i32
+  %189 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %10, i32 noundef %189, ptr noundef nonnull @.str) #3
   br label %Extra_ProgressBarUpdate.exit
 

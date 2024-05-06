@@ -24,7 +24,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509v3_get_ext_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @X509v3_get_ext_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #5
   %cmp = icmp eq ptr %call, null
@@ -56,7 +56,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp9.i, label %return.loopexit.split.loop.exit.i, label %for.cond.i, !llvm.loop !7
 
 return.loopexit.split.loop.exit.i:                ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %return
 
 return:                                           ; preds = %for.cond.i, %return.loopexit.split.loop.exit.i, %if.end, %entry
@@ -67,7 +67,7 @@ return:                                           ; preds = %for.cond.i, %return
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509v3_get_ext_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @X509v3_get_ext_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -94,7 +94,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp9, label %return.loopexit.split.loop.exit, label %for.cond, !llvm.loop !7
 
 return.loopexit.split.loop.exit:                  ; preds = %for.body
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nsw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %for.cond, %return.loopexit.split.loop.exit, %entry
@@ -107,7 +107,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509v3_get_ext_by_critical(ptr noundef %sk, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @X509v3_get_ext_by_critical(ptr noundef %sk, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -136,7 +136,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %or.cond11, label %for.cond, label %return.loopexit.split.loop.exit, !llvm.loop !9
 
 return.loopexit.split.loop.exit:                  ; preds = %for.body
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nsw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %for.cond, %return.loopexit.split.loop.exit, %entry
@@ -367,7 +367,7 @@ return:                                           ; preds = %lor.lhs.false21, %i
 declare ptr @X509_EXTENSION_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_EXTENSION_set_object(ptr noundef %ex, ptr noundef %obj) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_object(ptr noundef %ex, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   %cmp1 = icmp eq ptr %obj, null
@@ -389,7 +389,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @X509_EXTENSION_set_critical(ptr noundef writeonly %ex, i32 noundef %crit) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_critical(ptr noundef writeonly %ex, i32 noundef %crit) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end
@@ -407,7 +407,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_EXTENSION_set_data(ptr noundef readonly %ex, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef readonly %ex, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end
@@ -466,7 +466,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @X509_EXTENSION_get_critical(ptr noundef readonly %ex) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @X509_EXTENSION_get_critical(ptr noundef readonly %ex) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end

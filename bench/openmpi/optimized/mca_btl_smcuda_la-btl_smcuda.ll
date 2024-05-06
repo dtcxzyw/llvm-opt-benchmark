@@ -238,7 +238,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %48
   %73 = getelementptr inbounds i8, ptr %38, i64 156
   store i32 0, ptr %73, align 4
   %74 = add nsw i32 %.080138, 1
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
   %76 = tail call i32 @opal_bitmap_set_bit(ptr noundef %4, i32 noundef %75) #21
   %.not106 = icmp eq i32 %76, 0
   br i1 %.not106, label %77, label %sm_fifo_init.exit
@@ -872,7 +872,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   %373 = getelementptr inbounds %struct.sm_fifo_t, ptr %372, i64 %indvars.iv180
   %374 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 20), align 4
   %375 = add nsw i32 %368, -1
-  %376 = call i32 @llvm.ctlz.i32(i32 %375, i1 true), !range !9
+  %376 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %375, i1 true)
   %narrow.i.i = sub nuw nsw i32 32, %376
   %377 = shl nuw i32 1, %narrow.i.i
   %.inv.i.i = icmp sgt i32 %368, 1
@@ -904,7 +904,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   store ptr inttoptr (i64 -2 to ptr), ptr %389, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i113, label %._crit_edge.loopexit.i, label %.lr.ph.i112, !llvm.loop !10
+  br i1 %exitcond.not.i113, label %._crit_edge.loopexit.i, label %.lr.ph.i112, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i112
   %.pre.i = load ptr, ptr %385, align 8
@@ -949,7 +949,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   %412 = add nsw i32 %411, %409
   %413 = sext i32 %412 to i64
   %414 = icmp slt i64 %indvars.iv.next181, %413
-  br i1 %414, label %367, label %._crit_edge150, !llvm.loop !11
+  br i1 %414, label %367, label %._crit_edge150, !llvm.loop !10
 
 ._crit_edge150:                                   ; preds = %390, %._crit_edge146
   fence release
@@ -975,7 +975,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   %430 = getelementptr inbounds i8, ptr %429, i64 4
   %431 = load volatile i32, ptr %430, align 4
   %432 = icmp sgt i32 %.181, %431
-  br i1 %432, label %.lr.ph152, label %._crit_edge153, !llvm.loop !12
+  br i1 %432, label %.lr.ph152, label %._crit_edge153, !llvm.loop !11
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %._crit_edge150
   %.lcssa121 = phi ptr [ %420, %._crit_edge150 ], [ %427, %.lr.ph152 ]
@@ -1060,7 +1060,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   %472 = getelementptr inbounds ptr, ptr %471, i64 %indvars.iv183
   %473 = load ptr, ptr %472, align 8
   %474 = icmp eq ptr %473, null
-  br i1 %474, label %.lr.ph156, label %._crit_edge157, !llvm.loop !13
+  br i1 %474, label %.lr.ph156, label %._crit_edge157, !llvm.loop !12
 
 ._crit_edge157:                                   ; preds = %.lr.ph156, %465
   %.lcssa = phi ptr [ %468, %465 ], [ %473, %.lr.ph156 ]
@@ -1085,7 +1085,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %345
   %490 = add nsw i32 %489, %.181
   %491 = sext i32 %490 to i64
   %492 = icmp slt i64 %indvars.iv.next184, %491
-  br i1 %492, label %465, label %._crit_edge163, !llvm.loop !14
+  br i1 %492, label %465, label %._crit_edge163, !llvm.loop !13
 
 ._crit_edge163:                                   ; preds = %._crit_edge157, %454
   %.lcssa120 = phi i32 [ %460, %454 ], [ %490, %._crit_edge157 ]
@@ -1124,7 +1124,7 @@ define noundef i32 @mca_btl_smcuda_del_procs(ptr nocapture readnone %0, i64 noun
 13:                                               ; preds = %.lr.ph, %9
   %14 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %4
   ret i32 0
@@ -1388,7 +1388,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i8 noundef zeroext %3) #0 {
+define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i8 noundef zeroext %3) #0 {
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 30), align 16
   %6 = shl nsw i32 %5, 1
   %7 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 19), align 16
@@ -1479,7 +1479,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %30, %32
   br i1 %56, label %.preheader.i.backedge, label %57
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %57
-  br label %.preheader.i, !llvm.loop !16
+  br label %.preheader.i, !llvm.loop !15
 
 57:                                               ; preds = %.preheader.i
   %58 = cmpxchg volatile ptr %52, i32 0, i32 1 acquire monotonic, align 4
@@ -1597,7 +1597,7 @@ add_pending.exit:                                 ; preds = %97, %109
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_smcuda_sendi(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
+define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
   %11 = alloca i64, align 8
   %12 = alloca %struct.iovec, align 8
   %13 = alloca i32, align 4
@@ -1743,7 +1743,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %64, %66
   br i1 %90, label %.preheader.i.backedge, label %91
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %91
-  br label %.preheader.i, !llvm.loop !16
+  br label %.preheader.i, !llvm.loop !15
 
 91:                                               ; preds = %.preheader.i
   %92 = cmpxchg volatile ptr %86, i32 0, i32 1 acquire monotonic, align 4
@@ -1916,7 +1916,7 @@ define void @mca_btl_smcuda_dump(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
   %23 = getelementptr inbounds i8, ptr %.017, i64 16
   %.0 = load volatile ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2038,7 +2038,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -2285,7 +2285,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %60, %62
   br i1 %96, label %.preheader.i.backedge, label %97
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %97
-  br label %.preheader.i, !llvm.loop !16
+  br label %.preheader.i, !llvm.loop !15
 
 97:                                               ; preds = %.preheader.i
   %98 = cmpxchg volatile ptr %92, i32 0, i32 1 acquire monotonic, align 4
@@ -2540,7 +2540,7 @@ define i32 @mca_btl_smcuda_get_cuda(ptr nocapture noundef readnone %0, ptr nound
   %90 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i, label %mca_btl_smcuda_wait_stream_synchronize.exit, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %mca_btl_smcuda_wait_stream_synchronize.exit, label %.lr.ph.i.i, !llvm.loop !17
 
 opal_obj_run_destructors.exit.sink.split.i:       ; preds = %81, %75, %69
   %.str.24.sink.i = phi ptr [ @.str.22, %69 ], [ @.str.23, %75 ], [ @.str.24, %81 ]
@@ -2698,7 +2698,7 @@ attributes #25 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -2707,4 +2707,3 @@ attributes #25 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

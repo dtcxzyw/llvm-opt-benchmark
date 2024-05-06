@@ -107,7 +107,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
   br i1 %18, label %chdir_or_fail.exit, label %19
 
 19:                                               ; preds = %17
-  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.53, ptr noundef %15)
   unreachable
 
 chdir_or_fail.exit:                               ; preds = %17
@@ -115,7 +115,7 @@ chdir_or_fail.exit:                               ; preds = %17
   br i1 %20, label %create_file_or_fail.exit, label %21
 
 21:                                               ; preds = %chdir_or_fail.exit
-  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.25)
+  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.25)
   unreachable
 
 create_file_or_fail.exit:                         ; preds = %chdir_or_fail.exit
@@ -126,7 +126,7 @@ create_file_or_fail.exit:                         ; preds = %chdir_or_fail.exit
   br i1 %24, label %mkdir_or_fail.exit, label %25
 
 25:                                               ; preds = %create_file_or_fail.exit
-  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.27)
+  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.27)
   unreachable
 
 mkdir_or_fail.exit:                               ; preds = %create_file_or_fail.exit
@@ -155,7 +155,7 @@ mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit,
   br i1 %34, label %30, label %35
 
 35:                                               ; preds = %mkdir_or_fail.exit24
-  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %32)
+  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef readonly %0, ptr noundef nonnull @.str.54, ptr noundef %32)
   unreachable
 
 36:                                               ; preds = %30

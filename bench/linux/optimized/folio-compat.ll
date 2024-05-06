@@ -456,7 +456,7 @@ define dso_local zeroext i1 @set_page_dirty(ptr noundef %0) #0 align 16 {
 declare dso_local zeroext i1 @folio_mark_dirty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__set_page_dirty_nobuffers(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @__set_page_dirty_nobuffers(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1

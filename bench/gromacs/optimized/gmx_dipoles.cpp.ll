@@ -940,7 +940,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   %295 = zext nneg i32 %.034.lcssa.i to i64
   %296 = getelementptr inbounds i32, ptr %294, i64 %295
   %297 = load i32, ptr %296, align 4
-  %298 = getelementptr i8, ptr %296, i64 4
+  %298 = getelementptr inbounds i8, ptr %296, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = icmp slt i32 %297, %299
   br i1 %300, label %.lr.ph53.preheader.i, label %._crit_edge.i
@@ -3375,7 +3375,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %657
   br i1 %593, label %.preheader.lr.ph, label %.preheader125
 
 .preheader.lr.ph:                                 ; preds = %.preheader126
-  %670 = mul nsw i64 %indvars.iv347, 3
+  %670 = mul nuw nsw i64 %indvars.iv347, 3
   br label %.preheader
 
 .preheader125:                                    ; preds = %1017, %.preheader126
@@ -3884,14 +3884,14 @@ _ZL8mol_quadiiPA3_fPK6t_atomPf.exit:              ; preds = %.noexc851
   %893 = getelementptr inbounds [3 x float], ptr %343, i64 %indvars.iv331, i64 1
   %894 = load float, ptr %893, align 4
   %895 = load ptr, ptr %890, align 8
-  %896 = getelementptr float, ptr %895, i64 %670
-  %897 = getelementptr i8, ptr %896, i64 4
+  %896 = getelementptr inbounds float, ptr %895, i64 %670
+  %897 = getelementptr inbounds i8, ptr %896, i64 4
   store float %894, ptr %897, align 4
   %898 = getelementptr inbounds [3 x float], ptr %343, i64 %indvars.iv331, i64 2
   %899 = load float, ptr %898, align 4
   %900 = load ptr, ptr %890, align 8
-  %901 = getelementptr float, ptr %900, i64 %670
-  %902 = getelementptr i8, ptr %901, i64 8
+  %901 = getelementptr inbounds float, ptr %900, i64 %670
+  %902 = getelementptr inbounds i8, ptr %901, i64 8
   store float %899, ptr %902, align 4
   br label %.preheader59
 
@@ -4805,7 +4805,7 @@ _ZL6do_gkrP8t_gkrbiniPiPS1_PKiPA3_fS6_7PbcTypePA3_KfPK6t_atomS4_.exit: ; preds =
   br i1 %327, label %1419, label %1435
 
 1419:                                             ; preds = %1418
-  %1420 = mul nsw i64 %indvars.iv347, 3
+  %1420 = mul nuw nsw i64 %indvars.iv347, 3
   %1421 = load double, ptr %137, align 16
   %1422 = fptrunc double %1421 to float
   %1423 = load ptr, ptr %.079, align 8
@@ -4814,14 +4814,14 @@ _ZL6do_gkrP8t_gkrbiniPiPS1_PKiPA3_fS6_7PbcTypePA3_KfPK6t_atomS4_.exit: ; preds =
   %1425 = load double, ptr %627, align 8
   %1426 = fptrunc double %1425 to float
   %1427 = load ptr, ptr %.079, align 8
-  %1428 = getelementptr float, ptr %1427, i64 %1420
-  %1429 = getelementptr i8, ptr %1428, i64 4
+  %1428 = getelementptr inbounds float, ptr %1427, i64 %1420
+  %1429 = getelementptr inbounds i8, ptr %1428, i64 4
   store float %1426, ptr %1429, align 4
   %1430 = load double, ptr %628, align 16
   %1431 = fptrunc double %1430 to float
   %1432 = load ptr, ptr %.079, align 8
-  %1433 = getelementptr float, ptr %1432, i64 %1420
-  %1434 = getelementptr i8, ptr %1433, i64 8
+  %1433 = getelementptr inbounds float, ptr %1432, i64 %1420
+  %1434 = getelementptr inbounds i8, ptr %1433, i64 8
   store float %1431, ptr %1434, align 4
   br label %1435
 

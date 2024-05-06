@@ -2267,7 +2267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getNumColorSpacesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getNumColorSpacesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -2951,7 +2951,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getNumEncodingsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getNumEncodingsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8

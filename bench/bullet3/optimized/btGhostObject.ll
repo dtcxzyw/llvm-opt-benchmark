@@ -178,7 +178,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp eq i32 %1, %4
   br i1 %cmp, label %if.then, label %if.end
 
@@ -296,7 +296,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %1, %4
   br i1 %cmp, label %if.then, label %if.end
 
@@ -532,7 +532,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp eq i32 %2, %5
   br i1 %cmp, label %if.then, label %if.end
 
@@ -660,7 +660,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %2, %5
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1189,7 +1189,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %for.body.i, !llvm.loop !12
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.inc.i, %entry, %for.end.loopexit.split.loop.exit.i
@@ -1226,8 +1226,8 @@ entry:
   %2 = load float, ptr %arrayidx15.i.i, align 4, !noalias !13
   %3 = load float, ptr %arrayidx.i.i, align 4, !noalias !13
   %4 = load float, ptr %transform0, align 4, !noalias !13
-  %arrayidx5.i20.i = getelementptr inbounds i8, ptr %transform0, i64 4
-  %5 = load float, ptr %arrayidx5.i20.i, align 4, !noalias !13
+  %arrayidx5.i25.i = getelementptr inbounds i8, ptr %transform0, i64 4
+  %5 = load float, ptr %arrayidx5.i25.i, align 4, !noalias !13
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %transform0, i64 8
   %6 = load float, ptr %arrayidx10.i.i, align 4, !noalias !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -1284,18 +1284,18 @@ entry:
   %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
   %48 = fmul <2 x float> %36, %47
   %49 = extractelement <2 x float> %19, i64 0
-  %neg.i33.i = fmul float %0, %49
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %5, float %2, float %neg.i33.i)
+  %neg.i40.i = fmul float %0, %49
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %5, float %2, float %neg.i40.i)
   %mul15.i = fmul float %50, %div.i
   %51 = fmul <2 x float> %26, %47
   %52 = extractelement <2 x float> %40, i64 0
-  %neg.i42.i = fmul float %2, %52
-  %53 = tail call noundef float @llvm.fmuladd.f32(float %6, float %3, float %neg.i42.i)
+  %neg.i55.i = fmul float %2, %52
+  %53 = tail call noundef float @llvm.fmuladd.f32(float %6, float %3, float %neg.i55.i)
   %mul24.i = fmul float %53, %div.i
   %54 = fmul <2 x float> %43, %47
   %55 = extractelement <2 x float> %30, i64 0
-  %neg.i51.i = fmul float %3, %55
-  %56 = tail call noundef float @llvm.fmuladd.f32(float %4, float %0, float %neg.i51.i)
+  %neg.i70.i = fmul float %3, %55
+  %56 = tail call noundef float @llvm.fmuladd.f32(float %4, float %0, float %neg.i70.i)
   %mul33.i = fmul float %56, %div.i
   %57 = insertelement <2 x float> poison, float %8, i64 0
   %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer

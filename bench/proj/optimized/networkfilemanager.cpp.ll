@@ -8131,17 +8131,17 @@ _ZN5osgeo4projL8checkRetEP6pj_ctx8CURLcodei.exit83: ; preds = %54, %55
   br i1 %or.cond5.i, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) @.str.89) #29
+  %68 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) @.str.89) #29
   %.not.i84 = icmp eq ptr %68, null
   br i1 %.not.i84, label %69, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 
 69:                                               ; preds = %67, %64
-  %70 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.90) #29
+  %70 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.90) #29
   %.not21.i = icmp eq ptr %70, null
   br i1 %.not21.i, label %71, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 
 71:                                               ; preds = %69
-  %72 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.91) #29
+  %72 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.91) #29
   %.not22.i = icmp eq ptr %72, null
   br i1 %.not22.i, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit.thread, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 
@@ -8548,17 +8548,17 @@ _ZN5osgeo4projL8checkRetEP6pj_ctx8CURLcodei.exit69: ; preds = %44, %45
   br i1 %or.cond5.i, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.89) #29
+  %58 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.89) #29
   %.not.i70 = icmp eq ptr %58, null
   br i1 %.not.i70, label %59, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 
 59:                                               ; preds = %57, %54
-  %60 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.90) #29
+  %60 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.90) #29
   %.not21.i = icmp eq ptr %60, null
   br i1 %.not21.i, label %61, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 
 61:                                               ; preds = %59
-  %62 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.91) #29
+  %62 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.91) #29
   %.not22.i = icmp eq ptr %62, null
   br i1 %.not22.i, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit.thread, label %_ZN5osgeo4projL16GetNewRetryDelayEidPKcS2_.exit
 

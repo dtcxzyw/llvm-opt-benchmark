@@ -59,7 +59,7 @@ define internal void @mca_coll_han_module_construct(ptr nocapture noundef writeo
   %5 = getelementptr inbounds i8, ptr %0, i64 816
   %6 = getelementptr inbounds i8, ptr %0, i64 876
   %7 = getelementptr inbounds i8, ptr %0, i64 648
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %7, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %7, i8 0, i64 160, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %4, i8 0, i64 33, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %5, i8 0, i64 57, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 28, i1 false)
@@ -506,7 +506,7 @@ opal_obj_run_destructors.exit127:                 ; preds = %opal_obj_run_destru
 
 197:                                              ; preds = %172, %opal_thread_add_fetch_32.exit122, %opal_obj_run_destructors.exit127
   %198 = getelementptr inbounds i8, ptr %0, i64 648
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %198, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %198, i8 0, i64 160, i1 false)
   br label %199
 
 199:                                              ; preds = %1, %197
@@ -826,7 +826,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare zeroext i1 @ompi_group_have_remote_peers(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @han_module_enable(ptr noundef %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @han_module_enable(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2100,7 +2100,7 @@ opal_obj_run_destructors.exit119:                 ; preds = %opal_obj_run_destru
 
 202:                                              ; preds = %177, %opal_thread_add_fetch_32.exit114, %opal_obj_run_destructors.exit119
   %203 = getelementptr inbounds i8, ptr %0, i64 648
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %203, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %203, i8 0, i64 160, i1 false)
   ret i32 0
 }
 

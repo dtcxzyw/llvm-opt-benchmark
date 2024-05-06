@@ -224,7 +224,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %value to i16
+  %conv = trunc nuw nsw i64 %value to i16
   br label %if.end60
 
 if.else:                                          ; preds = %entry
@@ -239,7 +239,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %sh_prom = zext nneg i32 %add to i64
   %value.addr.0.highbits = lshr i64 %value.addr.023, %sh_prom
   %cmp8.not = icmp eq i64 %value.addr.0.highbits, 0
-  %0 = trunc i32 %offset.025 to i16
+  %0 = trunc nuw nsw i32 %offset.025 to i16
   %sh_prom15 = zext nneg i32 %offset.025 to i64
   %shr = select i1 %cmp8.not, i64 0, i64 %sh_prom15
   %value.addr.1 = lshr i64 %value.addr.023, %shr
@@ -333,7 +333,7 @@ if.end7:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %call8, i64 %call9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %call8, i64 %call9, i1 false)
   %8 = load i64, ptr %length_.i.i.i, align 8
   %add.i = add i64 %8, %call9
   store i64 %add.i, ptr %length_.i.i.i, align 8

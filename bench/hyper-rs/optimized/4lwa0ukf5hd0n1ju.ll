@@ -17,7 +17,7 @@ define internal fastcc void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mutex..
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -235,7 +235,7 @@ common.resume:                                    ; preds = %34, %27
   %.sroa.528.0.copyload = load ptr, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.820)
-  %trunc.i8 = trunc i64 %37 to i1
+  %trunc.i8 = trunc nuw i64 %37 to i1
   br i1 %trunc.i8, label %42, label %40
 
 40:                                               ; preds = %39
@@ -280,7 +280,7 @@ common.resume:                                    ; preds = %34, %27
   br label %50
 
 50:                                               ; preds = %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit", %48
-  %51 = trunc i8 %.0.i.i.i to i1
+  %51 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %51, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %52
 
 52:                                               ; preds = %50

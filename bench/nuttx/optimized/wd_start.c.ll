@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_wdtickbase = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null

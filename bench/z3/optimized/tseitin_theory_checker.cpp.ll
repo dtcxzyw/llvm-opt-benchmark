@@ -263,8 +263,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %jst, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not968 = icmp eq i32 %0, 0
   br i1 %cmp.not968, label %return, label %for.body
 
@@ -763,8 +763,8 @@ if.then114:                                       ; preds = %land.lhs.true111
   %79 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i295 = zext i32 %79 to i64
   %add.ptr.i296.idx = shl nuw nsw i64 %idx.ext.i295, 3
-  %80 = getelementptr i8, ptr %jst, i64 %add.ptr.i296.idx
-  %add.ptr.i296.ptr = getelementptr i8, ptr %80, i64 32
+  %80 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i296.idx
+  %add.ptr.i296.ptr = getelementptr inbounds i8, ptr %80, i64 32
   %cmp125.not986 = icmp eq i32 %79, 0
   br i1 %cmp125.not986, label %invoke.cont132, label %for.body126
 
@@ -988,8 +988,8 @@ if.then153:                                       ; preds = %_ZNK11ast_manager6i
   %118 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i387 = zext i32 %118 to i64
   %add.ptr.i388.idx = shl nuw nsw i64 %idx.ext.i387, 3
-  %119 = getelementptr i8, ptr %jst, i64 %add.ptr.i388.idx
-  %add.ptr.i388.ptr = getelementptr i8, ptr %119, i64 32
+  %119 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i388.idx
+  %add.ptr.i388.ptr = getelementptr inbounds i8, ptr %119, i64 32
   %cmp164.not988 = icmp eq i32 %118, 0
   br i1 %cmp164.not988, label %invoke.cont171, label %for.body165
 
@@ -1164,8 +1164,8 @@ if.then194:                                       ; preds = %land.lhs.true191
   %149 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i461 = zext i32 %149 to i64
   %add.ptr.i462.idx = shl nuw nsw i64 %idx.ext.i461, 3
-  %150 = getelementptr i8, ptr %jst, i64 %add.ptr.i462.idx
-  %add.ptr.i462.ptr = getelementptr i8, ptr %150, i64 32
+  %150 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i462.idx
+  %add.ptr.i462.ptr = getelementptr inbounds i8, ptr %150, i64 32
   %cmp205.not990 = icmp eq i32 %149, 0
   br i1 %cmp205.not990, label %invoke.cont212, label %for.body206
 
@@ -1457,8 +1457,8 @@ if.then269:                                       ; preds = %land.lhs.true.i531
   %184 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i540 = zext i32 %184 to i64
   %add.ptr.i541.idx = shl nuw nsw i64 %idx.ext.i540, 3
-  %185 = getelementptr i8, ptr %jst, i64 %add.ptr.i541.idx
-  %add.ptr.i541.ptr = getelementptr i8, ptr %185, i64 32
+  %185 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i541.idx
+  %add.ptr.i541.ptr = getelementptr inbounds i8, ptr %185, i64 32
   %cmp280.not992 = icmp eq i32 %184, 0
   br i1 %cmp280.not992, label %invoke.cont287, label %for.body281
 
@@ -1619,8 +1619,8 @@ if.then302:                                       ; preds = %_ZNK11ast_manager6i
   %211 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i609 = zext i32 %211 to i64
   %add.ptr.i610.idx = shl nuw nsw i64 %idx.ext.i609, 3
-  %212 = getelementptr i8, ptr %jst, i64 %add.ptr.i610.idx
-  %add.ptr.i610.ptr = getelementptr i8, ptr %212, i64 32
+  %212 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i610.idx
+  %add.ptr.i610.ptr = getelementptr inbounds i8, ptr %212, i64 32
   %cmp313.not994 = icmp eq i32 %211, 0
   br i1 %cmp313.not994, label %for.end319, label %for.body314
 
@@ -1807,8 +1807,8 @@ if.then355:                                       ; preds = %land.lhs.true.i681
   %241 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i690 = zext i32 %241 to i64
   %add.ptr.i691.idx = shl nuw nsw i64 %idx.ext.i690, 3
-  %242 = getelementptr i8, ptr %jst, i64 %add.ptr.i691.idx
-  %add.ptr.i691.ptr = getelementptr i8, ptr %242, i64 32
+  %242 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i691.idx
+  %add.ptr.i691.ptr = getelementptr inbounds i8, ptr %242, i64 32
   %cmp362.not1000 = icmp eq i32 %241, 0
   %m_kind.i.i.i702.phi.trans.insert = getelementptr inbounds i8, ptr %240, i64 4
   br i1 %cmp362.not1000, label %if.then355.for.end370_crit_edge, label %for.body363.lr.ph
@@ -2017,8 +2017,8 @@ for.end387:                                       ; preds = %for.inc385, %if.the
   %268 = load i32, ptr %m_num_args.i729, align 8
   %idx.ext.i730 = zext i32 %268 to i64
   %add.ptr.i731.idx = shl nuw nsw i64 %idx.ext.i730, 3
-  %269 = getelementptr i8, ptr %240, i64 %add.ptr.i731.idx
-  %add.ptr.i731.ptr = getelementptr i8, ptr %269, i64 32
+  %269 = getelementptr inbounds i8, ptr %240, i64 %add.ptr.i731.idx
+  %add.ptr.i731.ptr = getelementptr inbounds i8, ptr %269, i64 32
   %cmp398.not.not1004 = icmp eq i32 %268, 0
   br i1 %cmp398.not.not1004, label %cleanup408.thread, label %invoke.cont401.preheader
 
@@ -2077,8 +2077,8 @@ if.then415:                                       ; preds = %_ZNK11ast_manager5i
   %277 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i751 = zext i32 %277 to i64
   %add.ptr.i752.idx = shl nuw nsw i64 %idx.ext.i751, 3
-  %278 = getelementptr i8, ptr %jst, i64 %add.ptr.i752.idx
-  %add.ptr.i752.ptr = getelementptr i8, ptr %278, i64 32
+  %278 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i752.idx
+  %add.ptr.i752.ptr = getelementptr inbounds i8, ptr %278, i64 32
   %cmp426.not1006 = icmp eq i32 %277, 0
   br i1 %cmp426.not1006, label %for.end432, label %for.body427.lr.ph
 
@@ -2184,8 +2184,8 @@ for.end432:                                       ; preds = %for.inc430, %if.the
   %289 = load i32, ptr %m_num_args.i797, align 8
   %idx.ext.i798 = zext i32 %289 to i64
   %add.ptr.i799.idx = shl nuw nsw i64 %idx.ext.i798, 3
-  %290 = getelementptr i8, ptr %240, i64 %add.ptr.i799.idx
-  %add.ptr.i799.ptr = getelementptr i8, ptr %290, i64 32
+  %290 = getelementptr inbounds i8, ptr %240, i64 %add.ptr.i799.idx
+  %add.ptr.i799.ptr = getelementptr inbounds i8, ptr %290, i64 32
   %cmp443.not1008 = icmp eq i32 %289, 0
   br i1 %cmp443.not1008, label %cleanup457, label %invoke.cont446.lr.ph
 
@@ -2235,8 +2235,8 @@ if.then465:                                       ; preds = %land.lhs.true462
   %298 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i807 = zext i32 %298 to i64
   %add.ptr.i808.idx = shl nuw nsw i64 %idx.ext.i807, 3
-  %299 = getelementptr i8, ptr %jst, i64 %add.ptr.i808.idx
-  %add.ptr.i808.ptr = getelementptr i8, ptr %299, i64 32
+  %299 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i808.idx
+  %add.ptr.i808.ptr = getelementptr inbounds i8, ptr %299, i64 32
   %cmp476.not1013 = icmp eq i32 %298, 0
   br i1 %cmp476.not1013, label %invoke.cont483, label %for.body477
 
@@ -2347,8 +2347,8 @@ if.then507:                                       ; preds = %land.lhs.true504
   %316 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i835 = zext i32 %316 to i64
   %add.ptr.i836.idx = shl nuw nsw i64 %idx.ext.i835, 3
-  %317 = getelementptr i8, ptr %jst, i64 %add.ptr.i836.idx
-  %add.ptr.i836.ptr = getelementptr i8, ptr %317, i64 32
+  %317 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i836.idx
+  %add.ptr.i836.ptr = getelementptr inbounds i8, ptr %317, i64 32
   %cmp518.not1015 = icmp eq i32 %316, 0
   br i1 %cmp518.not1015, label %for.end524, label %for.body519
 
@@ -2442,8 +2442,8 @@ if.then553:                                       ; preds = %if.end550
   %329 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i855 = zext i32 %329 to i64
   %add.ptr.i856.idx = shl nuw nsw i64 %idx.ext.i855, 3
-  %330 = getelementptr i8, ptr %jst, i64 %add.ptr.i856.idx
-  %add.ptr.i856.ptr = getelementptr i8, ptr %330, i64 32
+  %330 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i856.idx
+  %add.ptr.i856.ptr = getelementptr inbounds i8, ptr %330, i64 32
   %cmp564.not1017 = icmp eq i32 %329, 0
   br i1 %cmp564.not1017, label %for.end570, label %for.body565
 
@@ -2525,8 +2525,8 @@ if.then585:                                       ; preds = %_ZNK11ast_manager6i
   %340 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i876 = zext i32 %340 to i64
   %add.ptr.i877.idx = shl nuw nsw i64 %idx.ext.i876, 3
-  %341 = getelementptr i8, ptr %jst, i64 %add.ptr.i877.idx
-  %add.ptr.i877.ptr = getelementptr i8, ptr %341, i64 32
+  %341 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i877.idx
+  %add.ptr.i877.ptr = getelementptr inbounds i8, ptr %341, i64 32
   %cmp596.not1019 = icmp eq i32 %340, 0
   br i1 %cmp596.not1019, label %for.end602, label %for.body597
 

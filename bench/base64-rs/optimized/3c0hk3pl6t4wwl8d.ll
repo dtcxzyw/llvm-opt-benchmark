@@ -78,13 +78,13 @@ define noundef zeroext i1 @"_ZN80_$LT$base64..display..FormatterSink$u20$as$u20$
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i64, ptr %5, align 8, !range !9, !alias.scope !6, !noundef !4
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.exit"
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.563ef019a64827af2993a0386c5e69fb.6, i64 noundef 24, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.8) #7, !noalias !6
   unreachable
 

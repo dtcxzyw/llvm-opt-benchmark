@@ -62,7 +62,7 @@ declare void @cli_regfree(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @allow_list_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
@@ -259,7 +259,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @cli_regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @allowed(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @allowed(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %wto.val = load ptr, ptr @wto, align 8
   %wfrom.val = load ptr, ptr @wfrom, align 8
@@ -287,7 +287,7 @@ define dso_local noundef i32 @allowed(ptr noundef %0, i32 noundef %1) local_unna
 declare i32 @cli_regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @smtpauth_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #9
   %.not = icmp eq i32 %3, 0
@@ -353,7 +353,7 @@ define dso_local noundef i32 @smtpauth_init(ptr noundef %0) local_unnamed_addr #
   br i1 %.not98, label %.outer._crit_edge, label %10
 
 24:                                               ; preds = %._crit_edge
-  %25 = mul nsw i32 %21, 3
+  %25 = mul nuw nsw i32 %21, 3
   %.not102 = icmp slt i32 %25, %.079.ph158
   br i1 %.not102, label %36, label %26
 
@@ -528,7 +528,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @smtpauthed(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @smtpauthed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @skipauth, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3

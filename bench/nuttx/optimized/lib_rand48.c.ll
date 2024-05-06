@@ -35,7 +35,7 @@ define void @lcong48(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @jrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i64 0, 4294967296) i64 @jrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 2
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -67,7 +67,7 @@ define i64 @jrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i64 @mrand48() local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @mrand48() local_unnamed_addr #0 {
   %1 = load i32, ptr @g_seed48, align 4
   %2 = zext i32 %1 to i64
   %3 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4
@@ -97,7 +97,7 @@ define i64 @mrand48() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @nrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i64 0, 2147483648) i64 @nrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 2
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -130,7 +130,7 @@ define i64 @nrand48(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i64 @lrand48() local_unnamed_addr #0 {
+define range(i64 0, 2147483648) i64 @lrand48() local_unnamed_addr #0 {
   %1 = load i32, ptr @g_seed48, align 4
   %2 = zext i32 %1 to i64
   %3 = load i16, ptr getelementptr inbounds ([7 x i16], ptr @g_seed48, i64 0, i64 2), align 4

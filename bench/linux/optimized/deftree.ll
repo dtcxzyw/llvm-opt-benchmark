@@ -917,7 +917,7 @@ thread-pre-split:                                 ; preds = %94, %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 172
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -2845,7 +2845,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @zlib_tr_tally(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = trunc i32 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 5880
   %6 = load ptr, ptr %5, align 8

@@ -693,7 +693,7 @@ define dso_local i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef 
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %0, 644
   br i1 %3, label %8, label %4
 
@@ -710,7 +710,7 @@ define dso_local noundef i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
   store i32 0, ptr %1, align 4
   %5 = icmp sgt i32 %0, 644
   br i1 %5, label %onigenc_unicode_ctype_code_range.exit, label %6
@@ -728,7 +728,7 @@ onigenc_unicode_ctype_code_range.exit:            ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -223, -2147483648) i32 @onigenc_unicode_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [46 x i8], align 16
   %5 = icmp ult ptr %1, %2
   br i1 %5, label %.lr.ph, label %uniname2ctype.exit.thread
@@ -913,7 +913,7 @@ uniname2ctype_hash.exit.i.i:                      ; preds = %78, %37
 112:                                              ; preds = %107
   %113 = getelementptr inbounds i8, ptr %4, i64 1
   %114 = getelementptr i8, ptr %109, i64 1
-  %115 = call i32 @strncmp(ptr noundef nonnull %113, ptr noundef %114, i64 noundef %36) #7
+  %115 = call i32 @strncmp(ptr noundef nonnull readonly %113, ptr noundef %114, i64 noundef %36) #7
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %116, label %uniname2ctype.exit.thread
 

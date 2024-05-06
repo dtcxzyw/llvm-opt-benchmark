@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.61 = private unnamed_addr constant [124 x i8] c"In non-Linux environments, use this value as a maximum number of file descriptors to close when forking a new child process\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_register_params() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @pmix_register_params() local_unnamed_addr #0 {
   %.b4 = load i1, ptr @pmix_register_done, align 1
   br i1 %.b4, label %42, label %1
 

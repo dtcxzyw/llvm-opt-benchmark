@@ -211,7 +211,7 @@ $_ZTI7Handler = comdat any
 @_ZTISt9exception = external constant ptr
 @_ZTI13BaseException = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13BaseException, ptr @_ZTISt9exception }, comdat, align 8
 @_ZTI12ResolveError = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12ResolveError, ptr @_ZTI13BaseException }, comdat, align 8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.36 = private unnamed_addr constant [30 x i8] c"** Creating server Connection\00", align 1
 @.str.37 = private unnamed_addr constant [30 x i8] c"** Creating client Connection\00", align 1
 @.str.38 = private unnamed_addr constant [23 x i8] c"hand_server.count == 0\00", align 1

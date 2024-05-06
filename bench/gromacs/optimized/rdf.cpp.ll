@@ -1420,7 +1420,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.2, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %8, i64 24
   %69 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %69, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_113NormalizationEEE, i64 0, i32 0, i64 2), ptr %8, align 8
   %70 = getelementptr inbounds i8, ptr %8, i64 88
   %71 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1521,7 +1521,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.62, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %13, i64 24
   %130 = getelementptr inbounds i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %130, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_111SurfaceTypeEEE, i64 0, i32 0, i64 2), ptr %13, align 8
   %131 = getelementptr inbounds i8, ptr %13, i64 88
   %132 = getelementptr inbounds i8, ptr %13, i64 96
@@ -4520,7 +4520,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE
   br i1 %47, label %48, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %.val, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %46, ptr align 4 %.val, i64 %34, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_M_allocateEm.exit.i
@@ -4687,7 +4687,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE
   br i1 %70, label %71, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 71:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %.val17.i.i.i, i64 %56, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %68, ptr align 4 %.val17.i.i.i, i64 %56, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %71, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_113NormalizationESaIS3_EE11_M_allocateEm.exit.i.i.i
@@ -5128,7 +5128,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11
   br i1 %47, label %48, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %.val, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %46, ptr align 4 %.val, i64 %34, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_M_allocateEm.exit.i
@@ -5295,7 +5295,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11
   br i1 %70, label %71, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 71:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %.val17.i.i.i, i64 %56, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %68, ptr align 4 %.val17.i.i.i, i64 %56, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %71, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111SurfaceTypeESaIS3_EE11_M_allocateEm.exit.i.i.i

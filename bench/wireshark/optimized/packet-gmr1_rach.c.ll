@@ -666,7 +666,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %137 = getelementptr [5 x i16], ptr %5, i64 0, i64 %136
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
-  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %133, i64 noundef %135, ptr noundef nonnull @.str.145, i32 noundef %139) #7
+  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %133, i64 noundef %135, ptr noundef nonnull @.str.145, i32 noundef %139) #7
   br label %_parse_dialed_number.exit.i
 
 141:                                              ; preds = %130
@@ -679,7 +679,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %148 = load i16, ptr %147, align 2
   %149 = udiv i16 %148, 10
   %150 = zext nneg i16 %149 to i32
-  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %143, i64 noundef %145, ptr noundef nonnull @.str.214, i32 noundef %150) #7
+  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %143, i64 noundef %145, ptr noundef nonnull @.str.214, i32 noundef %150) #7
   br label %_parse_dialed_number.exit.i
 
 152:                                              ; preds = %130
@@ -692,7 +692,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %159 = load i16, ptr %158, align 2
   %160 = udiv i16 %159, 100
   %161 = zext nneg i16 %160 to i32
-  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %154, i64 noundef %156, ptr noundef nonnull @.str.215, i32 noundef %161) #7
+  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %154, i64 noundef %156, ptr noundef nonnull @.str.215, i32 noundef %161) #7
   br label %_parse_dialed_number.exit.i
 
 163:                                              ; preds = %130
@@ -707,12 +707,12 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %168 = getelementptr i8, ptr %6, i64 %167
   %169 = sub i32 32, %.088104.i.i
   %170 = sext i32 %169 to i64
-  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %168, i64 noundef %170, ptr noundef nonnull @.str.145, i32 noundef %125) #7
+  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %168, i64 noundef %170, ptr noundef nonnull @.str.145, i32 noundef %125) #7
   %.1117.i.i = add i32 %171, %.088104.i.i
   br label %.loopexit.i.i
 
 172:                                              ; preds = %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @.str.205, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @.str.205, i64 10, i1 false)
   br label %_parse_dialed_number.exit.i
 
 173:                                              ; preds = %126
@@ -723,7 +723,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %178 = getelementptr [5 x i16], ptr %5, i64 0, i64 %indvars.iv.i.i
   %179 = load i16, ptr %178, align 2
   %180 = zext i16 %179 to i32
-  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %175, i64 noundef %177, ptr noundef nonnull @.str.145, i32 noundef %180) #7
+  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %175, i64 noundef %177, ptr noundef nonnull @.str.145, i32 noundef %180) #7
   %.1.i.i = add i32 %181, %.088104.i.i
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.i.i, label %.loopexit.i.i, label %126, !llvm.loop !4
@@ -739,7 +739,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %186 = getelementptr i8, ptr %6, i64 %185
   %187 = sub i32 32, %.1119.i.i
   %188 = sext i32 %187 to i64
-  %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %186, i64 noundef %188, ptr noundef nonnull @.str.145, i32 noundef %182) #7
+  %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %186, i64 noundef %188, ptr noundef nonnull @.str.145, i32 noundef %182) #7
   br label %_parse_dialed_number.exit.i
 
 190:                                              ; preds = %.loopexit.i.i
@@ -753,7 +753,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %195 = sub i32 32, %.1119.i.i
   %196 = sext i32 %195 to i64
   %197 = add nsw i32 %182, -1100
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %194, i64 noundef %196, ptr noundef nonnull @.str.214, i32 noundef %197) #7
+  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %194, i64 noundef %196, ptr noundef nonnull @.str.214, i32 noundef %197) #7
   br label %_parse_dialed_number.exit.i
 
 199:                                              ; preds = %190
@@ -767,11 +767,11 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %204 = sub i32 32, %.1119.i.i
   %205 = sext i32 %204 to i64
   %206 = add nsw i32 %182, -1200
-  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.215, i32 noundef %206) #7
+  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %203, i64 noundef %205, ptr noundef nonnull @.str.215, i32 noundef %206) #7
   br label %_parse_dialed_number.exit.i
 
 208:                                              ; preds = %199
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @.str.205, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @.str.205, i64 10, i1 false)
   br label %_parse_dialed_number.exit.i
 
 _parse_dialed_number.exit.i:                      ; preds = %208, %201, %192, %184, %172, %152, %141, %131

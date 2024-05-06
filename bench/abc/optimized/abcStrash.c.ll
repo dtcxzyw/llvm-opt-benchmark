@@ -952,7 +952,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val99 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val99, 2
   br i1 %.not, label %4, label %6
@@ -1425,7 +1425,7 @@ define ptr @Abc_NodeStrash(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call ptr @Hop_IthVar(ptr noundef %6, i32 noundef %30) #11
   store ptr %29, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2349,7 +2349,7 @@ Vec_PtrUniqify.exit:                              ; preds = %Vec_PtrFree.exit92,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @Vec_CompareNodeIds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @Vec_CompareNodeIds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2

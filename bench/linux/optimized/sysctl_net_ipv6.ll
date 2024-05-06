@@ -163,7 +163,7 @@ declare dso_local i32 @proc_dointvec(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare dso_local i32 @proc_dointvec_minmax(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ipv6_sysctl_net_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ipv6_sysctl_net_init(ptr noundef %0) #0 align 16 {
   %2 = tail call dereferenceable_or_null(1344) ptr @kmemdup(ptr noundef nonnull @ipv6_table_template, i64 noundef 1344, i32 noundef 3264) #4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %34, label %4

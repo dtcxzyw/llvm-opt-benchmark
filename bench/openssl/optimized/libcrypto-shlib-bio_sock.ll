@@ -99,7 +99,7 @@ declare void @BIO_ADDRINFO_free(ptr noundef) local_unnamed_addr #2
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_get_port(ptr noundef %str, ptr nocapture noundef writeonly %port_ptr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_get_port(ptr noundef %str, ptr nocapture noundef writeonly %port_ptr) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   store ptr null, ptr %res, align 8
@@ -397,7 +397,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_set_tcp_ndelay(i32 noundef %s, i32 noundef %on) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_set_tcp_ndelay(i32 noundef %s, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr = alloca i32, align 4
   store i32 %on, ptr %on.addr, align 4
@@ -411,7 +411,7 @@ entry:
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_socket_nbio(i32 noundef %s, i32 noundef %mode) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_socket_nbio(i32 noundef %s, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   store i32 %mode, ptr %l, align 4
@@ -434,7 +434,7 @@ BIO_socket_ioctl.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
 entry:
   %addr_len = alloca i32, align 4
   %cond = icmp eq i32 %type, 0

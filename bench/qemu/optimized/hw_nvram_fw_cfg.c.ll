@@ -311,7 +311,7 @@ if.else15.i:                                      ; preds = %if.end.i
 
 fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
   store ptr %data, ptr %data11.i, align 8
-  %conv23.i = trunc i64 %len to i32
+  %conv23.i = trunc nuw i64 %len to i32
   %11 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx28.i = getelementptr %struct.FWCfgEntry, ptr %11, i64 %idxprom9.i
   store i32 %conv23.i, ptr %arrayidx28.i, align 8
@@ -927,7 +927,7 @@ for.inc:                                          ; preds = %land.rhs
 
 for.cond22:                                       ; preds = %for.cond22.preheader, %land.rhs25
   %indvars.iv = phi i64 [ %7, %for.cond22.preheader ], [ %15, %land.rhs25 ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %cmp23 = icmp sgt i32 %14, 0
   br i1 %cmp23, label %land.rhs25, label %if.end38
 
@@ -1069,7 +1069,7 @@ if.else15.i:                                      ; preds = %if.end.i
 
 fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
   store ptr %data, ptr %data11.i, align 8
-  %conv23.i = trunc i64 %len to i32
+  %conv23.i = trunc nuw i64 %len to i32
   %35 = load ptr, ptr %arrayidx.i80, align 8
   %arrayidx28.i = getelementptr %struct.FWCfgEntry, ptr %35, i64 %idxprom9.i
   store i32 %conv23.i, ptr %arrayidx28.i, align 8
@@ -1142,7 +1142,7 @@ trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_ca
   %52 = tail call noundef i32 @llvm.bswap.i32(i32 %add151)
   %53 = load ptr, ptr %files, align 16
   store i32 %52, ptr %53, align 4
-  %call.i82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
+  %call.i82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
   %tobool.not.i = icmp eq i32 %call.i82, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i83
 
@@ -1152,7 +1152,7 @@ if.then.i:                                        ; preds = %trace_fw_cfg_add_fi
   br label %fw_cfg_acpi_mr_save.exit
 
 if.else.i83:                                      ; preds = %trace_fw_cfg_add_file.exit
-  %call1.i84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
+  %call1.i84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
   %tobool2.not.i = icmp eq i32 %call1.i84, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
@@ -1162,7 +1162,7 @@ if.then3.i:                                       ; preds = %if.else.i83
   br label %fw_cfg_acpi_mr_save.exit
 
 if.else4.i:                                       ; preds = %if.else.i83
-  %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
+  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.then7.i, label %fw_cfg_acpi_mr_save.exit
 
@@ -1261,7 +1261,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 2
   %7 = load ptr, ptr %data11.i, align 8
   store ptr %data, ptr %data11.i, align 8
-  %conv18.i = trunc i64 %len to i32
+  %conv18.i = trunc nuw i64 %len to i32
   %8 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx23.i = getelementptr %struct.FWCfgEntry, ptr %8, i64 %idxprom9.i
   store i32 %conv18.i, ptr %arrayidx23.i, align 8
@@ -1276,7 +1276,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
   %f10 = getelementptr inbounds i8, ptr %12, i64 4
   %arrayidx12 = getelementptr [0 x %struct.fw_cfg_file], ptr %f10, i64 0, i64 %indvars.iv
   store i32 %11, ptr %arrayidx12, align 4
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i19
 
@@ -1286,7 +1286,7 @@ if.then.i:                                        ; preds = %fw_cfg_modify_bytes
   br label %return
 
 if.else.i19:                                      ; preds = %fw_cfg_modify_bytes_read.exit
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
@@ -1296,7 +1296,7 @@ if.then3.i:                                       ; preds = %if.else.i19
   br label %return
 
 if.else4.i:                                       ; preds = %if.else.i19
-  %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
+  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.then7.i, label %return
 
@@ -2265,7 +2265,7 @@ if.then3.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i = trunc i64 %9 to i16
+  %conv.i = trunc nuw i64 %9 to i16
   store i16 %conv.i, ptr %bst_le16.i, align 2
   %call4.i = call dereferenceable_or_null(2) ptr @g_memdup(ptr noundef nonnull %bst_le16.i, i32 noundef 2) #22
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.60, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call4.i, i64 noundef 2, i1 noundef zeroext true)
@@ -2440,7 +2440,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @fw_cfg_dma_mem_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size) #1 {
+define internal range(i64 0, 5856171918474036808) i64 @fw_cfg_dma_mem_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size) #1 {
 entry:
   %0 = trunc i64 %addr to i32
   %.tr = add i32 %0, %size
@@ -2579,7 +2579,7 @@ if.end:                                           ; preds = %entry
 
 if.then72:                                        ; preds = %if.end
   %shr = lshr i32 %8, 16
-  %conv = trunc i32 %shr to i16
+  %conv = trunc nuw i32 %shr to i16
   call fastcc void @fw_cfg_select(ptr noundef nonnull %s, i16 noundef zeroext %conv)
   br label %if.end75
 
@@ -2776,7 +2776,7 @@ if.end301:                                        ; preds = %if.end168, %if.then
   %add303 = add i64 %34, %len.1
   store i64 %add303, ptr %address, align 8
   %35 = load i32, ptr %length, align 4
-  %36 = trunc i64 %len.1 to i32
+  %36 = trunc nuw i64 %len.1 to i32
   %conv307 = sub i32 %35, %36
   store i32 %conv307, ptr %length, align 4
   %cmp108 = icmp ne i32 %conv307, 0

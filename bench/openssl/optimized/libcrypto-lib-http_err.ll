@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [24 x i8] c"unexpected content type\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_HTTP_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_HTTP_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 511705196) #2
   %cmp = icmp eq ptr %call, null

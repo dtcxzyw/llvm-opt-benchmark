@@ -352,7 +352,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   store ptr %call, ptr %arrayidx.i, align 8
   %6 = load ptr, ptr %req_list.i, align 16
   %slot.i = getelementptr %struct.UfsRequest, ptr %6, i64 %indvars.iv.i, i32 2
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %7, ptr %slot.i, align 4
   %8 = load ptr, ptr %req_list.i, align 16
   %sg.i = getelementptr %struct.UfsRequest, ptr %8, i64 %indvars.iv.i, i32 6
@@ -391,8 +391,8 @@ ufs_init_state.exit:                              ; preds = %for.body.i, %if.end
   %shl57.i56.i = zext nneg i8 %15 to i32
   %and6.i.i = shl nuw nsw i32 %shl57.i56.i, 16
   %or.i.i = or disjoint i32 %and6.i.i, %shl57.i.i
-  %or.i59.i = or disjoint i32 %or.i.i, 16777728
-  store i32 %or.i59.i, ptr %reg.i, align 16
+  %or.i60.i = or disjoint i32 %or.i.i, 16777728
+  store i32 %or.i60.i, ptr %reg.i, align 16
   %ver.i = getelementptr inbounds i8, ptr %call, i64 3016
   store i32 784, ptr %ver.i, align 8
   %device_desc.i = getelementptr inbounds i8, ptr %call, i64 5384
@@ -638,12 +638,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %9) #14
   br label %trace_ufs_process_req.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %10) #14
   br label %trace_ufs_process_req.exit
 
@@ -1882,7 +1882,7 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %lor.lhs.false
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %33
   %not = xor i32 %shl, -1
   %34 = load i32, ptr %utrldbr, align 8
@@ -2351,7 +2351,7 @@ sw.bb11.i19:                                      ; preds = %if.else
 
 sw.bb14.i17:                                      ; preds = %if.else
   %56 = lshr i32 %54, 16
-  %57 = trunc i32 %56 to i16
+  %57 = trunc nuw i32 %56 to i16
   %exception_event_control.i18 = getelementptr inbounds i8, ptr %0, i64 5580
   store i16 %57, ptr %exception_event_control.i18, align 4
   br label %if.end7
@@ -2557,7 +2557,7 @@ trace_ufs_err_query_invalid_opcode.exit:          ; preds = %if.else27, %land.lh
 
 if.end33:                                         ; preds = %if.else, %if.end, %if.then6, %if.then16, %if.then20
   %value.0 = phi i32 [ %conv8, %if.then6 ], [ 0, %if.then16 ], [ %lnot.ext, %if.then20 ], [ 0, %if.end ], [ 1, %if.else ]
-  %conv34 = trunc i32 %value.0 to i8
+  %conv34 = trunc nuw i32 %value.0 to i8
   %flags35 = getelementptr inbounds i8, ptr %0, i64 5612
   %add.ptr38 = getelementptr i8, ptr %flags35, i64 %idxprom.i
   store i8 %conv34, ptr %add.ptr38, align 1
@@ -2683,7 +2683,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @pci_allocate_irq(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ufs_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, 4294967296) i64 @ufs_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2779,9 +2779,9 @@ return:                                           ; preds = %trace_ufs_mmio_read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ufs_mmio_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #2 {
 entry:
-  %_now.i.i64.i = alloca %struct.timeval, align 8
+  %_now.i.i65.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i50.i = alloca %struct.timeval, align 8
+  %_now.i.i.i51.i = alloca %struct.timeval, align 8
   %_now.i.i29.i.i = alloca %struct.timeval, align 8
   %_now.i.i15.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
@@ -2955,19 +2955,19 @@ sw.bb49.i:                                        ; preds = %trace_ufs_mmio_writ
   %utrldbr.i.i = getelementptr inbounds i8, ptr %opaque, i64 3096
   %18 = load i32, ptr %utrldbr.i.i, align 8
   %not.i.i = xor i32 %18, -1
-  %and.i49.i = and i32 %not.i.i, %conv3
-  %tobool.not.i.i = icmp eq i32 %and.i49.i, 0
+  %and.i50.i = and i32 %not.i.i, %conv3
+  %tobool.not.i.i = icmp eq i32 %and.i50.i, 0
   br i1 %tobool.not.i.i, label %ufs_process_db.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb49.i
-  %conv2.i.i = zext i32 %and.i49.i to i64
+  %conv2.i.i = zext i32 %and.i50.i to i64
   store i64 %conv2.i.i, ptr %doorbell.i.i, align 8
   %conv3.i.i = zext i8 %17 to i64
   %cmp10.not.i.i.i = icmp eq i8 %17, 0
-  %19 = tail call i64 @llvm.cttz.i64(i64 %conv2.i.i, i1 true), !range !12
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %conv2.i.i, i1 true)
   %cond.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %conv3.i.i)
   %retval.0.i.i.i = select i1 %cmp10.not.i.i.i, i64 0, i64 %cond.i.i.i
-  %slot.049.i.i = trunc i64 %retval.0.i.i.i to i32
+  %slot.049.i.i = trunc nuw nsw i64 %retval.0.i.i.i to i32
   %cmp50.i.i = icmp ult i32 %slot.049.i.i, %conv.i.i
   br i1 %cmp50.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
@@ -3107,7 +3107,7 @@ trace_ufs_process_db.exit.i.i:                    ; preds = %if.else.i.i38.i.i, 
   %call22.i.i = call i64 @find_next_bit(ptr noundef nonnull %doorbell.i.i, i64 noundef %conv3.i.i, i64 noundef %conv21.i.i) #14
   %slot.0.i.i = trunc i64 %call22.i.i to i32
   %cmp.i.i = icmp ult i32 %slot.0.i.i, %conv.i.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !13
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %trace_ufs_process_db.exit.i.i, %if.end.i.i
   %doorbell_bh.i.i = getelementptr inbounds i8, ptr %opaque, i64 5640
@@ -3153,40 +3153,40 @@ sw.bb62.i:                                        ; preds = %trace_ufs_mmio_writ
   %46 = load i32, ptr %ucmdarg2.i.i, align 8
   %ucmdarg3.i.i = getelementptr inbounds i8, ptr %opaque, i64 3164
   %47 = load i32, ptr %ucmdarg3.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i50.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i51.i)
   %48 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i51.i = icmp ne i32 %48, 0
+  %tobool.i.i.i52.i = icmp ne i32 %48, 0
   %49 = load i16, ptr @_TRACE_UFS_PROCESS_UICCMD_DSTATE, align 2
-  %tobool4.i.i.i52.i = icmp ne i16 %49, 0
-  %or.cond.i.i.i53.i = select i1 %tobool.i.i.i51.i, i1 %tobool4.i.i.i52.i, i1 false
-  br i1 %or.cond.i.i.i53.i, label %land.lhs.true5.i.i.i54.i, label %trace_ufs_process_uiccmd.exit.i.i
+  %tobool4.i.i.i53.i = icmp ne i16 %49, 0
+  %or.cond.i.i.i54.i = select i1 %tobool.i.i.i52.i, i1 %tobool4.i.i.i53.i, i1 false
+  br i1 %or.cond.i.i.i54.i, label %land.lhs.true5.i.i.i55.i, label %trace_ufs_process_uiccmd.exit.i.i
 
-land.lhs.true5.i.i.i54.i:                         ; preds = %sw.bb62.i
+land.lhs.true5.i.i.i55.i:                         ; preds = %sw.bb62.i
   %50 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i55.i = and i32 %50, 32768
-  %cmp.i.not.i.i.i56.i = icmp eq i32 %and.i.i.i.i55.i, 0
-  br i1 %cmp.i.not.i.i.i56.i, label %trace_ufs_process_uiccmd.exit.i.i, label %if.then.i.i.i57.i
+  %and.i.i.i.i56.i = and i32 %50, 32768
+  %cmp.i.not.i.i.i57.i = icmp eq i32 %and.i.i.i.i56.i, 0
+  br i1 %cmp.i.not.i.i.i57.i, label %trace_ufs_process_uiccmd.exit.i.i, label %if.then.i.i.i58.i
 
-if.then.i.i.i57.i:                                ; preds = %land.lhs.true5.i.i.i54.i
+if.then.i.i.i58.i:                                ; preds = %land.lhs.true5.i.i.i55.i
   %51 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i58.i = trunc i8 %51 to i1
-  br i1 %tobool7.i.i.i58.i, label %if.then8.i.i.i60.i, label %if.else.i.i.i59.i
+  %tobool7.i.i.i59.i = trunc i8 %51 to i1
+  br i1 %tobool7.i.i.i59.i, label %if.then8.i.i.i61.i, label %if.else.i.i.i60.i
 
-if.then8.i.i.i60.i:                               ; preds = %if.then.i.i.i57.i
-  %call9.i.i.i61.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i50.i, ptr noundef null) #14
-  %call10.i.i.i62.i = tail call i32 @qemu_get_thread_id() #14
-  %52 = load i64, ptr %_now.i.i.i50.i, align 8
-  %tv_usec.i.i.i63.i = getelementptr inbounds i8, ptr %_now.i.i.i50.i, i64 8
-  %53 = load i64, ptr %tv_usec.i.i.i63.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i.i62.i, i64 noundef %52, i64 noundef %53, i32 noundef %conv3, i32 noundef %45, i32 noundef %46, i32 noundef %47) #14
+if.then8.i.i.i61.i:                               ; preds = %if.then.i.i.i58.i
+  %call9.i.i.i62.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i51.i, ptr noundef null) #14
+  %call10.i.i.i63.i = tail call i32 @qemu_get_thread_id() #14
+  %52 = load i64, ptr %_now.i.i.i51.i, align 8
+  %tv_usec.i.i.i64.i = getelementptr inbounds i8, ptr %_now.i.i.i51.i, i64 8
+  %53 = load i64, ptr %tv_usec.i.i.i64.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i.i63.i, i64 noundef %52, i64 noundef %53, i32 noundef %conv3, i32 noundef %45, i32 noundef %46, i32 noundef %47) #14
   br label %trace_ufs_process_uiccmd.exit.i.i
 
-if.else.i.i.i59.i:                                ; preds = %if.then.i.i.i57.i
+if.else.i.i.i60.i:                                ; preds = %if.then.i.i.i58.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %conv3, i32 noundef %45, i32 noundef %46, i32 noundef %47) #14
   br label %trace_ufs_process_uiccmd.exit.i.i
 
-trace_ufs_process_uiccmd.exit.i.i:                ; preds = %if.else.i.i.i59.i, %if.then8.i.i.i60.i, %land.lhs.true5.i.i.i54.i, %sw.bb62.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i50.i)
+trace_ufs_process_uiccmd.exit.i.i:                ; preds = %if.else.i.i.i60.i, %if.then8.i.i.i61.i, %land.lhs.true5.i.i.i55.i, %sw.bb62.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i51.i)
   switch i32 %conv3, label %ufs_process_uiccmd.exit.i [
     i32 22, label %sw.bb.i.i
     i32 23, label %sw.bb30.i.i
@@ -3289,40 +3289,40 @@ trace_ufs_err_unsupport_register_offset.exit.i:   ; preds = %if.else.i.i.i, %if.
 
 sw.default.i:                                     ; preds = %trace_ufs_mmio_write.exit
   %conv70.i = trunc i64 %addr to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i64.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i65.i)
   %66 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i65.i = icmp ne i32 %66, 0
+  %tobool.i.i66.i = icmp ne i32 %66, 0
   %67 = load i16, ptr @_TRACE_UFS_ERR_INVALID_REGISTER_OFFSET_DSTATE, align 2
-  %tobool4.i.i66.i = icmp ne i16 %67, 0
-  %or.cond.i.i67.i = select i1 %tobool.i.i65.i, i1 %tobool4.i.i66.i, i1 false
-  br i1 %or.cond.i.i67.i, label %land.lhs.true5.i.i68.i, label %trace_ufs_err_invalid_register_offset.exit.i
+  %tobool4.i.i67.i = icmp ne i16 %67, 0
+  %or.cond.i.i68.i = select i1 %tobool.i.i66.i, i1 %tobool4.i.i67.i, i1 false
+  br i1 %or.cond.i.i68.i, label %land.lhs.true5.i.i69.i, label %trace_ufs_err_invalid_register_offset.exit.i
 
-land.lhs.true5.i.i68.i:                           ; preds = %sw.default.i
+land.lhs.true5.i.i69.i:                           ; preds = %sw.default.i
   %68 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i69.i = and i32 %68, 32768
-  %cmp.i.not.i.i70.i = icmp eq i32 %and.i.i.i69.i, 0
-  br i1 %cmp.i.not.i.i70.i, label %trace_ufs_err_invalid_register_offset.exit.i, label %if.then.i.i71.i
+  %and.i.i.i70.i = and i32 %68, 32768
+  %cmp.i.not.i.i71.i = icmp eq i32 %and.i.i.i70.i, 0
+  br i1 %cmp.i.not.i.i71.i, label %trace_ufs_err_invalid_register_offset.exit.i, label %if.then.i.i72.i
 
-if.then.i.i71.i:                                  ; preds = %land.lhs.true5.i.i68.i
+if.then.i.i72.i:                                  ; preds = %land.lhs.true5.i.i69.i
   %69 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i72.i = trunc i8 %69 to i1
-  br i1 %tobool7.i.i72.i, label %if.then8.i.i74.i, label %if.else.i.i73.i
+  %tobool7.i.i73.i = trunc i8 %69 to i1
+  br i1 %tobool7.i.i73.i, label %if.then8.i.i75.i, label %if.else.i.i74.i
 
-if.then8.i.i74.i:                                 ; preds = %if.then.i.i71.i
-  %call9.i.i75.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64.i, ptr noundef null) #14
-  %call10.i.i76.i = tail call i32 @qemu_get_thread_id() #14
-  %70 = load i64, ptr %_now.i.i64.i, align 8
-  %tv_usec.i.i77.i = getelementptr inbounds i8, ptr %_now.i.i64.i, i64 8
-  %71 = load i64, ptr %tv_usec.i.i77.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i76.i, i64 noundef %70, i64 noundef %71, i32 noundef %conv70.i) #14
+if.then8.i.i75.i:                                 ; preds = %if.then.i.i72.i
+  %call9.i.i76.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i65.i, ptr noundef null) #14
+  %call10.i.i77.i = tail call i32 @qemu_get_thread_id() #14
+  %70 = load i64, ptr %_now.i.i65.i, align 8
+  %tv_usec.i.i78.i = getelementptr inbounds i8, ptr %_now.i.i65.i, i64 8
+  %71 = load i64, ptr %tv_usec.i.i78.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i77.i, i64 noundef %70, i64 noundef %71, i32 noundef %conv70.i) #14
   br label %trace_ufs_err_invalid_register_offset.exit.i
 
-if.else.i.i73.i:                                  ; preds = %if.then.i.i71.i
+if.else.i.i74.i:                                  ; preds = %if.then.i.i72.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %conv70.i) #14
   br label %trace_ufs_err_invalid_register_offset.exit.i
 
-trace_ufs_err_invalid_register_offset.exit.i:     ; preds = %if.else.i.i73.i, %if.then8.i.i74.i, %land.lhs.true5.i.i68.i, %sw.default.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i64.i)
+trace_ufs_err_invalid_register_offset.exit.i:     ; preds = %if.else.i.i74.i, %if.then8.i.i75.i, %land.lhs.true5.i.i69.i, %sw.default.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i65.i)
   br label %return
 
 return:                                           ; preds = %trace_ufs_err_invalid_register_offset.exit.i, %trace_ufs_err_unsupport_register_offset.exit.i, %sw.bb67.i, %sw.bb65.i, %sw.bb63.i, %ufs_process_uiccmd.exit.i, %sw.bb60.i, %sw.bb57.i, %sw.bb53.i, %sw.bb51.i, %ufs_process_db.exit.i, %sw.bb47.i, %sw.bb44.i, %if.then29.i, %land.lhs.true26.i, %if.then.i, %land.lhs.true.i, %sw.bb1.i, %sw.bb.i, %trace_ufs_err_invalid_register_offset.exit
@@ -3434,5 +3434,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i64 0, i64 65}
-!13 = distinct !{!13, !6}
+!12 = distinct !{!12, !6}

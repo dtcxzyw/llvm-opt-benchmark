@@ -747,10 +747,10 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit.i: ; preds = %129
 
 _ZL26convertOldToNewGroupFormatP12t_swapcoordsRK10gmx_mtop_tbP9t_commrec.exit: ; preds = %._crit_edge.i, %159
   %164 = getelementptr inbounds i8, ptr %83, i64 96
-  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %100, i32 noundef %.027.lcssa.i, ptr noundef nonnull %164, ptr noundef %6)
+  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %100, i32 noundef %.027.lcssa.i, ptr noundef nonnull %164, ptr noundef readonly %6)
   %165 = load ptr, ptr %82, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 128
-  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %103, i32 noundef %.026.lcssa.i, ptr noundef nonnull %166, ptr noundef %6)
+  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %103, i32 noundef %.026.lcssa.i, ptr noundef nonnull %166, ptr noundef readonly %6)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.4, i32 noundef 1507, ptr noundef %100)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.4, i32 noundef 1508, ptr noundef %103)
   %.pre = load i32, ptr %79, align 8
@@ -1093,8 +1093,8 @@ _ZNSt10unique_ptrI13swaphistory_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %2
   %indvars.iv.i349 = phi i64 [ 0, %.lr.ph.i348 ], [ %indvars.iv.next.i350, %338 ]
   %339 = load ptr, ptr %332, align 8
   %340 = load ptr, ptr %337, align 8
-  %341 = getelementptr %struct.t_swapGroup, ptr %340, i64 %indvars.iv.i349
-  %342 = getelementptr i8, ptr %341, i64 104
+  %341 = getelementptr inbounds %struct.t_swapGroup, ptr %340, i64 %indvars.iv.i349
+  %342 = getelementptr inbounds i8, ptr %341, i64 104
   %343 = load i32, ptr %342, align 8
   %344 = getelementptr inbounds %struct.swapstateIons_t, ptr %339, i64 %indvars.iv.i349, i32 8
   store i32 %343, ptr %344, align 8
@@ -2242,7 +2242,7 @@ _ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.threa
 
 ._crit_edge.i385:                                 ; preds = %969, %963
   %988 = load ptr, ptr %960, align 8
-  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %965, ptr noundef %6, ptr noundef %.val338, ptr noundef nonnull %46, ptr noundef nonnull %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
+  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %965, ptr noundef readonly %6, ptr noundef readonly %.val338, ptr noundef nonnull %46, ptr noundef nonnull readonly %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
   %989 = getelementptr inbounds i8, ptr %965, i64 112
   br label %990
 
@@ -4822,9 +4822,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -4832,9 +4832,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #23
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #24
           to label %44 unwind label %37
 
@@ -4848,7 +4848,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #20
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 

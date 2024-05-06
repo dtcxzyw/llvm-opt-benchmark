@@ -585,10 +585,10 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_WecFreeP.exit, 
   br i1 %.not.i90, label %Abc_UtilStrsav.exit, label %50
 
 50:                                               ; preds = %48
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
   %52 = add i64 %51, 1
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #22
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %0) #26
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %0) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %48, %50
@@ -4361,10 +4361,10 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not.i245, label %Abc_UtilStrsav.exit, label %88
 
 88:                                               ; preds = %83
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #24
+  %89 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %87) #24
   %90 = add i64 %89, 1
   %91 = call noalias ptr @malloc(i64 noundef %90) #22
-  %92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %87) #26
+  %92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) %87) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %83, %88
@@ -4376,10 +4376,10 @@ Abc_UtilStrsav.exit:                              ; preds = %83, %88
   br i1 %.not.i246, label %Abc_UtilStrsav.exit247, label %96
 
 96:                                               ; preds = %Abc_UtilStrsav.exit
-  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #24
+  %97 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %95) #24
   %98 = add i64 %97, 1
   %99 = call noalias ptr @malloc(i64 noundef %98) #22
-  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %95) #26
+  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(1) %95) #26
   br label %Abc_UtilStrsav.exit247
 
 Abc_UtilStrsav.exit247:                           ; preds = %Abc_UtilStrsav.exit, %96
@@ -5136,10 +5136,10 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.
   br i1 %.not.i225, label %Abc_UtilStrsav.exit, label %78
 
 78:                                               ; preds = %73
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #24
+  %79 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %77) #24
   %80 = add i64 %79, 1
   %81 = call noalias ptr @malloc(i64 noundef %80) #22
-  %82 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %77) #26
+  %82 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull readonly dereferenceable(1) %77) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %73, %78
@@ -5151,10 +5151,10 @@ Abc_UtilStrsav.exit:                              ; preds = %73, %78
   br i1 %.not.i226, label %Abc_UtilStrsav.exit227, label %86
 
 86:                                               ; preds = %Abc_UtilStrsav.exit
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #24
+  %87 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #24
   %88 = add i64 %87, 1
   %89 = call noalias ptr @malloc(i64 noundef %88) #22
-  %90 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %85) #26
+  %90 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(1) %85) #26
   br label %Abc_UtilStrsav.exit227
 
 Abc_UtilStrsav.exit227:                           ; preds = %Abc_UtilStrsav.exit, %86

@@ -83,7 +83,7 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_hw_get_mode() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 1, 3) i32 @acpi_hw_get_mode() local_unnamed_addr #0 align 16 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1

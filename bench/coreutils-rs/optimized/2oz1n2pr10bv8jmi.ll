@@ -355,7 +355,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !12, !noalias !17, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !12, !noalias !17, !noundef !5
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !12, !noalias !17
@@ -480,7 +480,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1654467671232783
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !25, !noalias !30, !nonnull !5, !noundef !5
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !25, !noalias !30, !noundef !5
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !25, !noalias !30
@@ -2369,7 +2369,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i77: ; preds = %723
   %742 = phi i64 [ %734, %731 ], [ %.pre.i.i.i.i78, %.noexc81 ]
   %743 = load ptr, ptr %115, align 8, !alias.scope !167, !noalias !174, !nonnull !5, !noundef !5
   %744 = getelementptr inbounds i8, ptr %743, i64 %742
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %744, ptr noundef nonnull align 1 dereferenceable(3) %733, i64 3, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %744, ptr noundef nonnull readonly align 1 dereferenceable(3) %733, i64 3, i1 false), !noalias !180
   %745 = load i64, ptr %114, align 8, !alias.scope !167, !noalias !174, !noundef !5
   %746 = add i64 %745, 3
   store i64 %746, ptr %114, align 8, !alias.scope !167, !noalias !174
@@ -2417,7 +2417,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i: ; preds = %74
   %768 = phi i64 [ %760, %755 ], [ %.pre.i.i.i271.i, %.noexc85 ]
   %769 = load ptr, ptr %115, align 8, !alias.scope !181, !noalias !188, !nonnull !5, !noundef !5
   %770 = getelementptr inbounds i8, ptr %769, i64 %768
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %770, ptr nonnull align 1 %757, i64 %759, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %770, ptr nonnull readonly align 1 %757, i64 %759, i1 false), !noalias !180
   %771 = load i64, ptr %114, align 8, !alias.scope !181, !noalias !188, !noundef !5
   %772 = add i64 %771, %759
   store i64 %772, ptr %114, align 8, !alias.scope !181, !noalias !188
@@ -2449,7 +2449,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit.i76: ; preds = 
   %782 = phi i64 [ %774, %_ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit.i76 ], [ %.pre.i.i.i273.i, %.noexc88 ]
   %783 = load ptr, ptr %115, align 8, !alias.scope !194, !noalias !201, !nonnull !5, !noundef !5
   %784 = getelementptr inbounds i8, ptr %783, i64 %782
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %784, ptr noundef nonnull align 1 dereferenceable(3) %773, i64 3, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %784, ptr noundef nonnull readonly align 1 dereferenceable(3) %773, i64 3, i1 false), !noalias !180
   %785 = load i64, ptr %114, align 8, !alias.scope !194, !noalias !201, !noundef !5
   %786 = add i64 %785, 3
   store i64 %786, ptr %114, align 8, !alias.scope !194, !noalias !201
@@ -2482,7 +2482,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i: ; preds =
   %797 = phi i64 [ %789, %_ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i ], [ %.pre.i.i.i278.i, %.noexc90 ]
   %798 = load ptr, ptr %115, align 8, !alias.scope !207, !noalias !214, !nonnull !5, !noundef !5
   %799 = getelementptr inbounds i8, ptr %798, i64 %797
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %799, ptr nonnull align 1 %787, i64 %788, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %799, ptr nonnull readonly align 1 %787, i64 %788, i1 false), !noalias !180
   %800 = load i64, ptr %114, align 8, !alias.scope !207, !noalias !214, !noundef !5
   %801 = add i64 %800, %788
   store i64 %801, ptr %114, align 8, !alias.scope !207, !noalias !214
@@ -3220,7 +3220,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit.i171: ; preds =
   %979 = phi i64 [ %971, %_ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit.i171 ], [ %.pre.i.i.i.i176, %.noexc178 ]
   %980 = load ptr, ptr %115, align 8, !alias.scope !352, !noalias !359, !nonnull !5, !noundef !5
   %981 = getelementptr inbounds i8, ptr %980, i64 %979
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %981, ptr noundef nonnull align 1 dereferenceable(3) %970, i64 3, i1 false), !noalias !365
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %981, ptr noundef nonnull readonly align 1 dereferenceable(3) %970, i64 3, i1 false), !noalias !365
   %982 = load i64, ptr %114, align 8, !alias.scope !352, !noalias !359, !noundef !5
   %983 = add i64 %982, 3
   store i64 %983, ptr %114, align 8, !alias.scope !352, !noalias !359
@@ -3339,7 +3339,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit78.i: ; preds = %.no
   %1035 = phi i64 [ %1020, %1025 ], [ %.pre.i.i.i79.i, %.noexc186 ]
   %1036 = load ptr, ptr %115, align 8, !alias.scope !396, !noalias !393, !nonnull !5, !noundef !5
   %1037 = getelementptr inbounds i8, ptr %1036, i64 %1035
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1037, ptr noundef nonnull align 1 dereferenceable(3) %1027, i64 3, i1 false), !noalias !365
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1037, ptr noundef nonnull readonly align 1 dereferenceable(3) %1027, i64 3, i1 false), !noalias !365
   %1038 = load i64, ptr %114, align 8, !alias.scope !396, !noalias !393, !noundef !5
   %1039 = add i64 %1038, 3
   store i64 %1039, ptr %114, align 8, !alias.scope !396, !noalias !393
@@ -3857,7 +3857,7 @@ _ZN6chrono6format10formatting14write_hundreds17h11a4511f0181ba2eE.exit.i: ; pred
   %1167 = phi i64 [ %1159, %1158 ], [ %.pre.i.i.i, %.noexc122 ]
   %1168 = load ptr, ptr %115, align 8, !alias.scope !448, !noalias !455, !nonnull !5, !noundef !5
   %1169 = getelementptr inbounds i8, ptr %1168, i64 %1167
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1169, ptr nonnull align 1 %.sroa.0.0, i64 %.sroa.3.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1169, ptr nonnull readonly align 1 %.sroa.0.0, i64 %.sroa.3.0, i1 false)
   %1170 = load i64, ptr %114, align 8, !alias.scope !448, !noalias !455, !noundef !5
   %1171 = add i64 %1170, %.sroa.3.0
   store i64 %1171, ptr %114, align 8, !alias.scope !448, !noalias !455
@@ -3890,7 +3890,7 @@ _ZN6chrono6format10formatting14write_hundreds17h11a4511f0181ba2eE.exit.i: ; pred
   %1183 = phi i64 [ %1175, %1172 ], [ %.pre.i.i.i123, %.noexc125 ]
   %1184 = load ptr, ptr %115, align 8, !alias.scope !461, !noalias !468, !nonnull !5, !noundef !5
   %1185 = getelementptr inbounds i8, ptr %1184, i64 %1183
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1185, ptr nonnull align 1 %1173, i64 %1174, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1185, ptr nonnull readonly align 1 %1173, i64 %1174, i1 false)
   %1186 = load i64, ptr %114, align 8, !alias.scope !461, !noalias !468, !noundef !5
   %1187 = add i64 %1186, %1174
   store i64 %1187, ptr %114, align 8, !alias.scope !461, !noalias !468

@@ -57,7 +57,7 @@ define dso_local noundef nonnull ptr @BZ2_bzlibVersion() local_unnamed_addr #2 {
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BZ2_bzCompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @BZ2_bzCompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   %6 = add i32 %1, -10
   %7 = icmp ult i32 %6, -9
@@ -244,7 +244,7 @@ define internal void @default_bzfree(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @BZ2_bzCompress(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %isempty_RL.exit.thread, label %4
 
@@ -429,7 +429,7 @@ isempty_RL.exit.thread:                           ; preds = %.preheader.split.us
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @handle_compress(ptr %.48.val) unnamed_addr #4 {
+define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) unnamed_addr #4 {
   %1 = getelementptr inbounds i8, ptr %.48.val, i64 92
   %2 = getelementptr inbounds i8, ptr %.48.val, i64 96
   %3 = getelementptr inbounds i8, ptr %.48.val, i64 12
@@ -891,7 +891,7 @@ isempty_RL.exit:                                  ; preds = %82, %79, %70, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BZ2_bzCompressEnd(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 -2, 1) i32 @BZ2_bzCompressEnd(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 
@@ -964,7 +964,7 @@ define dso_local noundef i32 @BZ2_bzCompressEnd(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %2, 1
   %or.cond38 = or i1 %4, %or.cond
@@ -2515,7 +2515,7 @@ unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %30, %816, %unRLE_ob
 declare i32 @BZ2_decompress(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 
@@ -2660,7 +2660,7 @@ define dso_local noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly %0, ptr noun
   %33 = icmp eq i32 %4, 0
   %spec.store.select = select i1 %33, i32 30, i32 %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
-  %34 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %31, i32 noundef %2, i32 noundef %3, i32 noundef %spec.store.select), !range !7
+  %34 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %31, i32 noundef %2, i32 noundef %3, i32 noundef %spec.store.select)
   %.not71 = icmp eq i32 %34, 0
   br i1 %.not71, label %38, label %35
 
@@ -3370,10 +3370,10 @@ define dso_local noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly %0, ptr nound
   %45 = getelementptr inbounds i8, ptr %.07485, i64 1
   %46 = add nsw i32 %.07386, -1
   %47 = icmp ugt i32 %.07386, 1
-  br i1 %47, label %38, label %._crit_edge, !llvm.loop !8
+  br i1 %47, label %38, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %38, %29
-  %48 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %34, i32 noundef %2, i32 noundef %3), !range !7
+  %48 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %34, i32 noundef %2, i32 noundef %3)
   %.not83 = icmp eq i32 %48, 0
   br i1 %.not83, label %52, label %49
 
@@ -3813,7 +3813,7 @@ define dso_local void @BZ2_bzReadGetUnused(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define dso_local i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca %struct.bz_stream, align 8
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
@@ -3836,7 +3836,7 @@ define dso_local noundef i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds i8, ptr %8, i64 64
   %20 = getelementptr inbounds i8, ptr %8, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %21 = call i32 @BZ2_bzCompressInit(ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, i32 noundef %spec.store.select), !range !7
+  %21 = call i32 @BZ2_bzCompressInit(ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, i32 noundef %spec.store.select)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %BZ2_bzCompressEnd.exit
 
@@ -4368,7 +4368,7 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i
   %.134 = phi i32 [ %.033, %9 ], [ %.033, %8 ], [ %spec.select, %10 ], [ %.033, %.preheader ]
   %.1 = phi i32 [ 1, %9 ], [ %.031, %8 ], [ %.031, %10 ], [ %.031, %.preheader ]
   %20 = getelementptr inbounds i8, ptr %.032, i64 1
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !8
 
 21:                                               ; preds = %.preheader
   %.not42 = icmp eq i32 %.037, 0
@@ -4438,7 +4438,7 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i
   %49 = getelementptr inbounds i8, ptr %42, i64 5016
   %50 = getelementptr inbounds i8, ptr %42, i64 5072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
-  %51 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %49, i32 noundef %spec.store.select1, i32 noundef 0, i32 noundef 30), !range !7
+  %51 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %49, i32 noundef %spec.store.select1, i32 noundef 0, i32 noundef 30)
   %.not71.i = icmp eq i32 %51, 0
   br i1 %.not71.i, label %52, label %.sink.split
 
@@ -4471,7 +4471,7 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i
   %64 = getelementptr inbounds i8, ptr %57, i64 5016
   %65 = getelementptr inbounds i8, ptr %57, i64 5072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
-  %66 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %64, i32 noundef 0, i32 noundef %.031), !range !7
+  %66 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %64, i32 noundef 0, i32 noundef %.031)
   %.not83.i = icmp eq i32 %66, 0
   br i1 %.not83.i, label %67, label %.sink.split
 
@@ -4795,7 +4795,7 @@ define internal fastcc void @add_pair_to_block(ptr nocapture noundef %0) unnamed
   store i32 %18, ptr %8, align 8
   %19 = add nuw nsw i32 %.057, 1
   %exitcond.not = icmp eq i32 %19, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %10, %1
   %20 = getelementptr inbounds i8, ptr %0, i64 128
@@ -4974,7 +4974,6 @@ attributes #24 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -3, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

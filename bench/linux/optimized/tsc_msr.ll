@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__tracepoint_read_msr = external dso_local global %struct.tracepoint, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_khz_from_msr() local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @cpu_khz_from_msr() local_unnamed_addr #0 align 16 {
   %1 = tail call ptr @x86_match_cpu(ptr noundef nonnull @tsc_msr_cpu_ids) #3
   %2 = icmp eq ptr %1, null
   br i1 %2, label %74, label %3
@@ -76,7 +76,7 @@ define dso_local i64 @cpu_khz_from_msr() local_unnamed_addr #0 align 16 {
 
 27:                                               ; preds = %26, %20
   %28 = lshr i64 %25, 40
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = and i32 %29, 31
   br label %31
 

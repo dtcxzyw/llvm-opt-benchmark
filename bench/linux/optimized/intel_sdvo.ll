@@ -1446,7 +1446,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %205 = phi ptr [ %204, %203 ], [ %22, %199 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %17, i8 0, i64 16, i1 false), !annotation !11
   %206 = getelementptr inbounds i8, ptr %17, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %206, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %206, i8 0, i64 3, i1 false)
   %207 = getelementptr inbounds i8, ptr %205, i64 4
   %208 = load i16, ptr %207, align 4
   %209 = getelementptr inbounds i8, ptr %205, i64 14
@@ -1762,7 +1762,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
 
 intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
   %398 = getelementptr inbounds i8, ptr %16, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %398, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %398, i8 0, i64 3, i1 false)
   %399 = getelementptr inbounds i8, ptr %2, i64 612
   %400 = load i16, ptr %399, align 4
   %401 = getelementptr inbounds i8, ptr %2, i64 622
@@ -3179,7 +3179,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mo
 
 intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %4, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %8, i8 0, i64 3, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 14
@@ -4293,7 +4293,7 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
 declare dso_local void @intel_crtc_wait_for_next_vblank(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @intel_sdvo_read_infoframe(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -4520,7 +4520,7 @@ define internal i32 @intel_sdvo_hotplug(ptr noundef %0, ptr noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_sdvo_connector_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @intel_sdvo_connector_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2720
   %5 = load i16, ptr %4, align 8
@@ -4680,7 +4680,7 @@ define internal zeroext i1 @intel_sdvo_connector_get_hw_state(ptr nocapture noun
 declare dso_local void @intel_connector_attach_encoder(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_sdvo_detect(ptr noundef %0, i1 zeroext %1) #0 align 16 {
+define internal range(i32 1, 4) i32 @intel_sdvo_detect(ptr noundef %0, i1 zeroext %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = load ptr, ptr %0, align 8

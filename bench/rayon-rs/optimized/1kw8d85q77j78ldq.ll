@@ -62,7 +62,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17ha6c874a7af07769cE
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %21 = load i64, ptr %1, align 8, !range !5, !noundef !4
-  %trunc = trunc i64 %21 to i1
+  %trunc = trunc nuw i64 %21 to i1
   br i1 %trunc, label %24, label %22
 
 22:                                               ; preds = %4
@@ -109,7 +109,7 @@ _ZN4core3ops8function6FnOnce9call_once17h464f8eed5ebbeffeE.exit: ; preds = %22, 
 
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.67303f06dd5c8e910f75e734f9332f5f.0, i64 noundef 47, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67303f06dd5c8e910f75e734f9332f5f.5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67303f06dd5c8e910f75e734f9332f5f.2) #14
           to label %37 unwind label %35, !noalias !6
 
@@ -200,7 +200,7 @@ _ZN4core3ops8function6FnOnce9call_once17h464f8eed5ebbeffeE.exit: ; preds = %22, 
   unreachable
 
 .noexc70:                                         ; preds = %71, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hc6e90a3f351adae0E.exit82"
-  %63 = trunc i8 %.3 to i1
+  %63 = trunc nuw i8 %.3 to i1
   br i1 %63, label %.noexc70..thread98_crit_edge, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17he65898e30c55f790E.exit84"
 
 .noexc70..thread98_crit_edge:                     ; preds = %.noexc70
@@ -345,7 +345,7 @@ _ZN4core3ops8function6FnOnce9call_once17h464f8eed5ebbeffeE.exit: ; preds = %22, 
 
 109:                                              ; preds = %108
   %110 = load i64, ptr %9, align 8, !range !5, !noundef !4
-  %trunc57 = trunc i64 %110 to i1
+  %trunc57 = trunc nuw i64 %110 to i1
   %111 = getelementptr inbounds i8, ptr %9, i64 8
   %112 = load ptr, ptr %111, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -498,7 +498,7 @@ _ZN4core3ops8function6FnOnce9call_once17h464f8eed5ebbeffeE.exit: ; preds = %22, 
           to label %.thread92.thread unwind label %133
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb3b397642cdb3d69E.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17he65898e30c55f790E.exit84", %52
-  %154 = trunc i8 %.1 to i1
+  %154 = trunc nuw i8 %.1 to i1
   br i1 %154, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb3b397642cdb3d69E.exit.thread", label %"_ZN4core3ptr144drop_in_place$LT$$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$rayon_core..registry..ThreadSpawn$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1ae2b47a0ded9c1aE.exit"
 
 .thread92.thread:                                 ; preds = %35, %.thread95, %153

@@ -2834,7 +2834,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ppp_usb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_ppp_usb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [4 x i8], align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.dissect_ppp_usb.buf1, i64 3, i1 false)
@@ -3390,7 +3390,7 @@ define internal i32 @dissect_lcp_vendor_opt(ptr noundef %0, ptr noundef %1, ptr 
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_lcp_option_vendor, align 4
   %9 = load i32, ptr @ett_lcp_vendor_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %22, label %11
 
@@ -3421,7 +3421,7 @@ define internal i32 @dissect_lcp_mru_opt(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_mru, align 4
   %9 = load i32, ptr @ett_lcp_mru_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -3450,7 +3450,7 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_async_map, align 4
   %8 = load i32, ptr @ett_lcp_asyncmap_opt, align 4
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %26, label %10
 
@@ -3480,7 +3480,7 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
 .preheader:                                       ; preds = %10, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 31, %10 ]
   %.02126 = phi i32 [ %.1, %24 ], [ 0, %10 ]
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = shl nuw i32 1, %19
   %21 = and i32 %20, %11
   %.not24 = icmp eq i32 %21, 0
@@ -3498,7 +3498,7 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
   %.1 = phi i32 [ %.02126, %.preheader ], [ 1, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %25, label %.preheader, !llvm.loop !8
+  br i1 %.not29, label %25, label %.preheader, !llvm.loop !7
 
 25:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1313) #6
@@ -3517,7 +3517,7 @@ define internal i32 @dissect_lcp_authprot_opt(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %9 = load i32, ptr @proto_lcp_option_authprot, align 4
   %10 = load i32, ptr @ett_lcp_authprot_opt, align 4
-  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
@@ -3577,7 +3577,7 @@ define internal i32 @dissect_lcp_qualprot_opt(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %9 = load i32, ptr @proto_lcp_option_qualprot, align 4
   %10 = load i32, ptr @ett_lcp_qualprot_opt, align 4
-  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
@@ -3619,7 +3619,7 @@ define internal i32 @dissect_lcp_magicnumber_opt(ptr noundef %0, ptr noundef %1,
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_magicnumber, align 4
   %9 = load i32, ptr @ett_lcp_magicnumber_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -3649,7 +3649,7 @@ define internal i32 @dissect_lcp_linkqualmon_opt(ptr noundef %0, ptr noundef %1,
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_linkqualmon, align 4
   %9 = load i32, ptr @ett_lcp_linkqualmon_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -3692,7 +3692,7 @@ define internal i32 @dissect_lcp_field_compress(ptr noundef %0, ptr noundef %1, 
   %8 = load i32, ptr @ett_lcp_pcomp_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3707,7 +3707,7 @@ define internal i32 @dissect_lcp_addr_field_compress(ptr noundef %0, ptr noundef
   %8 = load i32, ptr @ett_lcp_acccomp_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3720,7 +3720,7 @@ define internal i32 @dissect_lcp_fcs_alternatives_opt(ptr noundef %0, ptr nounde
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_fcs_alternatives, align 4
   %8 = load i32, ptr @ett_lcp_fcs_alternatives_opt, align 4
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %18, label %10
 
@@ -3747,7 +3747,7 @@ define internal i32 @dissect_lcp_self_describing_pad_opt(ptr noundef %0, ptr nou
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_self_desc_pad, align 4
   %9 = load i32, ptr @ett_lcp_self_desc_pad_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -3790,7 +3790,7 @@ define internal i32 @dissect_lcp_numbered_mode_opt(ptr noundef %0, ptr noundef %
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %9 = load i32, ptr @proto_lcp_option_numbered_mode, align 4
   %10 = load i32, ptr @ett_lcp_numbered_mode_opt, align 4
-  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
@@ -3844,7 +3844,7 @@ define internal i32 @dissect_lcp_callback_opt(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %9 = load i32, ptr @proto_lcp_option_callback, align 4
   %10 = load i32, ptr @ett_lcp_callback_opt, align 4
-  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
@@ -3886,7 +3886,7 @@ define internal i32 @dissect_lcp_compound_frames_opt(ptr noundef %0, ptr noundef
   %8 = load i32, ptr @ett_lcp_compound_frames_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3901,7 +3901,7 @@ define internal i32 @dissect_lcp_nomdataencap_opt(ptr noundef %0, ptr noundef %1
   %8 = load i32, ptr @ett_lcp_nomdataencap_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3915,7 +3915,7 @@ define internal i32 @dissect_lcp_multilink_mrru_opt(ptr noundef %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_multilink_mrru, align 4
   %9 = load i32, ptr @ett_lcp_multilink_mrru_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -3946,7 +3946,7 @@ define internal i32 @dissect_lcp_multilink_ssnh_opt(ptr noundef %0, ptr noundef 
   %8 = load i32, ptr @ett_lcp_multilink_ssnh_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3961,7 +3961,7 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %9 = load i32, ptr @proto_lcp_option_multilink_ep_disc, align 4
   %10 = load i32, ptr @ett_lcp_multilink_ep_disc_opt, align 4
-  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %11 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %10, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
@@ -4059,7 +4059,7 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   %63 = add nsw i32 %.056, -4
   %64 = add nuw nsw i32 %.05055, 4
   %65 = icmp ugt i32 %.056, 7
-  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 66:                                               ; preds = %24
   %67 = load i32, ptr @hf_lcp_opt_psndn, align 4
@@ -4088,7 +4088,7 @@ define internal i32 @dissect_lcp_dce_identifier_opt(ptr noundef %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_dce_identifier, align 4
   %9 = load i32, ptr @ett_lcp_dce_identifier_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -4118,7 +4118,7 @@ define internal i32 @dissect_lcp_multilink_pp_opt(ptr noundef %0, ptr noundef %1
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_multilink_pp, align 4
   %8 = load i32, ptr @ett_lcp_multilink_pp_opt, align 4
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4140,7 +4140,7 @@ define internal i32 @dissect_lcp_bacp_link_discriminator_opt(ptr noundef %0, ptr
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_link_discrim, align 4
   %9 = load i32, ptr @ett_lcp_bacp_link_discrim_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -4170,7 +4170,7 @@ define internal i32 @dissect_lcp_auth_opt(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca i32, align 4
   %8 = load i32, ptr @proto_lcp_option_auth, align 4
   %9 = load i32, ptr @ett_lcp_auth_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -4209,7 +4209,7 @@ define internal i32 @dissect_lcp_cobs_opt(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_cobs, align 4
   %8 = load i32, ptr @ett_lcp_cobs_opt, align 4
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
@@ -4232,7 +4232,7 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_lcp_option_prefix_elision, align 4
   %9 = load i32, ptr @ett_lcp_prefix_elision_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   %or.cond = icmp slt i32 %7, 4
   %or.cond27 = select i1 %.not, i1 true, i1 %or.cond
@@ -4258,7 +4258,7 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
   %22 = sub nsw i32 %.024, %18
   %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %13, label %.loopexit, !llvm.loop !10
+  br i1 %23, label %13, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %13, %4
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -4271,7 +4271,7 @@ define internal i32 @dissect_lcp_multilink_hdr_fmt_opt(ptr noundef %0, ptr nound
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_multilink_hdr_fmt, align 4
   %8 = load i32, ptr @ett_multilink_hdr_fmt_opt, align 4
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -4295,7 +4295,7 @@ define internal i32 @dissect_lcp_internationalization_opt(ptr noundef %0, ptr no
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_lcp_option_internationalization, align 4
   %9 = load i32, ptr @ett_lcp_internationalization_opt, align 4
-  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 7, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 7, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %18, label %11
 
@@ -4321,7 +4321,7 @@ define internal i32 @dissect_lcp_sonet_sdh_opt(ptr noundef %0, ptr noundef %1, p
   %8 = load i32, ptr @ett_lcp_sonet_sdh_opt, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4469,7 +4469,7 @@ define internal i32 @dissect_vsncp_pdnid_opt(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_pdnid, align 4
   %8 = load i32, ptr @ett_vsncp_pdnid_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4529,7 +4529,7 @@ define internal i32 @dissect_vsncp_apname_opt(ptr noundef %0, ptr nocapture noun
   %38 = add nuw nsw i32 %37, %26
   %39 = and i32 %38, 255
   %40 = icmp ult i32 %39, %19
-  br i1 %40, label %21, label %.loopexit, !llvm.loop !11
+  br i1 %40, label %21, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %21, %4
   %41 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -4542,7 +4542,7 @@ define internal i32 @dissect_vsncp_pdntype_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_pdntype, align 4
   %8 = load i32, ptr @ett_vsncp_pdntype_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4713,7 +4713,7 @@ define internal i32 @dissect_vsncp_pco_opt(ptr noundef %0, ptr nocapture readnon
   %35 = add nuw nsw i32 %33, %20
   %36 = and i32 %35, 255
   %37 = icmp ult i32 %36, %18
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %32, %4
   %38 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -4762,7 +4762,7 @@ define internal i32 @dissect_vsncp_attachtype_opt(ptr noundef %0, ptr noundef %1
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_attachtype, align 4
   %8 = load i32, ptr @ett_vsncp_attachtype_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4783,7 +4783,7 @@ define internal i32 @dissect_vsncp_ipv4address_opt(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_ipv4address, align 4
   %8 = load i32, ptr @ett_vsncp_ipv4address_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4804,7 +4804,7 @@ define internal i32 @dissect_vsncp_addressalloc_opt(ptr noundef %0, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_addressalloc, align 4
   %8 = load i32, ptr @ett_vsncp_addressalloc_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -4847,7 +4847,7 @@ define internal i32 @dissect_vsncp_ipv6_hsgw_lla_iid_opt(ptr noundef %0, ptr nou
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_vsncp_option_ipv6_hsgw_lla_iid, align 4
   %8 = load i32, ptr @ett_vsncp_ipv6_hsgw_lla_iid_opt, align 4
-  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5049,7 +5049,7 @@ define internal i32 @dissect_ipcp_addrs_opt(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_addrs, align 4
   %8 = load i32, ptr @ett_ipcp_ipaddrs_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -5171,7 +5171,7 @@ define internal i32 @dissect_ipcp_addr_opt(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_addr, align 4
   %8 = load i32, ptr @ett_ipcp_ipaddr_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5192,7 +5192,7 @@ define internal i32 @dissect_ipcp_mobileipv4_opt(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_mobileipv4, align 4
   %8 = load i32, ptr @ett_ipcp_mobileipv4_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5213,7 +5213,7 @@ define internal i32 @dissect_ipcp_pri_dns_opt(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_pri_dns, align 4
   %8 = load i32, ptr @ett_ipcp_pridns_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5234,7 +5234,7 @@ define internal i32 @dissect_ipcp_pri_nbns_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_pri_nbns, align 4
   %8 = load i32, ptr @ett_ipcp_prinbns_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5255,7 +5255,7 @@ define internal i32 @dissect_ipcp_sec_dns_opt(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_sec_dns, align 4
   %8 = load i32, ptr @ett_ipcp_secdns_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5276,7 +5276,7 @@ define internal i32 @dissect_ipcp_sec_nbns_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_option_sec_nbns, align 4
   %8 = load i32, ptr @ett_ipcp_secnbns_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5317,7 +5317,7 @@ define internal i32 @dissect_ipcp_rohc_profiles_opt(ptr noundef %0, ptr nocaptur
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef 0) #6
   %20 = add nuw nsw i32 %.024, 2
   %21 = icmp ugt i32 %.020.in23, 5
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -5330,7 +5330,7 @@ define internal i32 @dissect_ipcp_iphc_rtp_compress(ptr noundef %0, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_iphc_option_rtp_compress, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_rtp_compress_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -5341,7 +5341,7 @@ define internal i32 @dissect_ipcp_iphc_enhanced_rtp_compress(ptr noundef %0, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_iphc_option_enhanced_rtp_compress, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_enhanced_rtp_compress_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -5352,7 +5352,7 @@ define internal i32 @dissect_ipcp_iphc_neghdrcomp_opt(ptr noundef %0, ptr nounde
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ipcp_iphc_option_neghdrcomp, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_neghdrcomp_opt, align 4
-  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5596,7 +5596,7 @@ define internal i32 @dissect_bcp_ncp_bridge_id(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_bridge_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_bridge_id_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -5619,7 +5619,7 @@ define internal i32 @dissect_bcp_ncp_line_id(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_line_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_line_id_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -5642,7 +5642,7 @@ define internal i32 @dissect_bcp_ncp_mac_sup(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_mac_sup, align 4
   %8 = load i32, ptr @ett_bcp_ncp_mac_sup_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5663,7 +5663,7 @@ define internal i32 @dissect_bcp_ncp_tinygram_comp(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_tinygram_comp, align 4
   %8 = load i32, ptr @ett_bcp_ncp_tinygram_comp_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5684,7 +5684,7 @@ define internal i32 @dissect_bcp_ncp_lan_id(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_lan_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_lan_id_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -5695,7 +5695,7 @@ define internal i32 @dissect_bcp_ncp_mac_addr(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_mac_addr, align 4
   %8 = load i32, ptr @ett_bcp_ncp_mac_addr_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %18, label %10
 
@@ -5741,7 +5741,7 @@ define internal i32 @dissect_bcp_ncp_stp(ptr noundef %0, ptr nocapture readnone 
   %21 = add i32 %.020, -1
   %22 = add i32 %.01719, 1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %23 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -5754,7 +5754,7 @@ define internal i32 @dissect_bcp_ncp_ieee_802_tagged_frame(ptr noundef %0, ptr n
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_ieee_802_tagged_frame, align 4
   %8 = load i32, ptr @ett_bcp_ncp_ieee_802_tagged_frame_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -5775,7 +5775,7 @@ define internal i32 @dissect_bcp_ncp_management_inline(ptr noundef %0, ptr nound
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_management_inline, align 4
   %8 = load i32, ptr @ett_bcp_ncp_management_inline_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -5786,7 +5786,7 @@ define internal i32 @dissect_bcp_ncp_bcp_ncp_bcp_ind(ptr noundef %0, ptr noundef
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bcp_ncp_option_bcp_ind, align 4
   %8 = load i32, ptr @ett_bcp_ncp_bcp_ind_opt, align 4
-  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -6002,7 +6002,7 @@ define internal i32 @dissect_ccp_oui_opt(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_ccp_option_oui, align 4
   %9 = load i32, ptr @ett_ccp_oui_opt, align 4
-  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %22, label %11
 
@@ -6068,7 +6068,7 @@ define internal i32 @dissect_ccp_stac_opt(ptr noundef %0, ptr noundef %1, ptr no
   %10 = load i32, ptr @proto_ccp_option_stac, align 4
   %11 = select i1 %8, i32 %9, i32 %10
   %12 = load i32, ptr @ett_ccp_stac_opt, align 4
-  %13 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, i32 noundef %12, i32 noundef 5, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %13 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, i32 noundef %12, i32 noundef 5, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %25, label %14
 
@@ -6100,7 +6100,7 @@ define internal i32 @dissect_ccp_mppe_opt(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_mppe, align 4
   %8 = load i32, ptr @ett_ccp_mppe_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
@@ -6123,7 +6123,7 @@ define internal i32 @dissect_ccp_gfza_opt(ptr noundef %0, ptr noundef %1, ptr no
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_ccp_option_gfza, align 4
   %9 = load i32, ptr @ett_ccp_gfza_opt, align 4
-  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %20, label %11
 
@@ -6159,7 +6159,7 @@ define internal i32 @dissect_ccp_bsdcomp_opt(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_bsdcomp, align 4
   %8 = load i32, ptr @ett_ccp_bsdcomp_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
@@ -6181,7 +6181,7 @@ define internal i32 @dissect_ccp_lzsdcp_opt(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_lzsdcp, align 4
   %8 = load i32, ptr @ett_ccp_lzsdcp_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %18, label %10
 
@@ -6206,7 +6206,7 @@ define internal i32 @dissect_ccp_mvrca_opt(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_mvrca, align 4
   %8 = load i32, ptr @ett_ccp_mvrca_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %10
 
@@ -6233,7 +6233,7 @@ define internal i32 @dissect_ccp_dce_opt(ptr noundef %0, ptr noundef %1, ptr nou
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_dce, align 4
   %8 = load i32, ptr @ett_ccp_dce_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -6254,7 +6254,7 @@ define internal i32 @dissect_ccp_deflate_opt(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_ccp_option_deflate, align 4
   %8 = load i32, ptr @ett_ccp_deflate_opt, align 4
-  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -6286,7 +6286,7 @@ define internal i32 @dissect_ccp_v44lzjh_opt(ptr noundef %0, ptr noundef %1, ptr
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_ccp_option_v44lzjh, align 4
   %9 = load i32, ptr @ett_ccp_v44lzjh_opt, align 4
-  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %23, label %11
 
@@ -6710,7 +6710,7 @@ define internal i32 @dissect_bap_link_type_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bap_option_link_type, align 4
   %8 = load i32, ptr @ett_bap_link_type_opt, align 4
-  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -6734,7 +6734,7 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_bap_option_phone_delta, align 4
   %9 = load i32, ptr @ett_bap_phone_delta_opt, align 4
-  %10 = call fastcc i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.loopexit, label %11
 
@@ -6847,7 +6847,7 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
   %69 = add i32 %.06878, %19
   %70 = sub nsw i32 %.06977, %19
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %15, label %.loopexit, !llvm.loop !15
+  br i1 %71, label %15, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %68, %29, %33, %11, %4
   %72 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -6860,7 +6860,7 @@ define internal i32 @dissect_bap_no_phone_opt(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bap_option_no_phone, align 4
   %8 = load i32, ptr @ett_bap_no_phone_opt, align 4
-  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %10
 }
@@ -6872,7 +6872,7 @@ define internal i32 @dissect_bap_reason_opt(ptr noundef %0, ptr noundef %1, ptr 
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %8 = load i32, ptr @proto_bap_option_reason, align 4
   %9 = load i32, ptr @ett_bap_reason_opt, align 4
-  %10 = call fastcc i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %10 = call fastcc i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
@@ -6894,7 +6894,7 @@ define internal i32 @dissect_bap_link_disc_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bap_option_link_disc, align 4
   %8 = load i32, ptr @ett_bap_link_disc_opt, align 4
-  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -6915,7 +6915,7 @@ define internal i32 @dissect_bap_call_status_opt(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_bap_option_call_status, align 4
   %8 = load i32, ptr @ett_bap_call_status_opt, align 4
-  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !7
+  %9 = call fastcc i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -7424,7 +7424,7 @@ define internal i32 @dissect_pppmux(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 proto_item_set_generated.exit:                    ; preds = %60, %57, %39
   %64 = add i32 %40, %.07887
-  %65 = trunc i32 %.0 to i16
+  %65 = trunc nuw nsw i32 %.0 to i16
   %66 = sub nsw i16 %.079, %65
   %67 = zext i16 %66 to i32
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %64, i32 noundef %67) #6
@@ -7447,7 +7447,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %57, %39
   %79 = add nuw nsw i32 %40, %67
   %80 = sub nsw i32 %.07788, %79
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %77, %4
   %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -7872,7 +7872,7 @@ define internal i32 @dissect_iphc_crtp_cs(ptr noundef %0, ptr nocapture noundef 
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #6
   %33 = add nuw nsw i32 %25, 2
   %34 = icmp ult i32 %33, %.036
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -8144,7 +8144,7 @@ define internal fastcc void @ppp_dissect_options(ptr noundef %0, i32 noundef %1,
   %25 = add i32 %.086.us, %16
   %26 = sub i32 %.06284.us, %16
   %.not.us = icmp eq i32 %26, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %.086 = phi i32 [ %61, %60 ], [ %1, %.lr.ph ]
@@ -8226,7 +8226,7 @@ define internal fastcc void @ppp_dissect_options(ptr noundef %0, i32 noundef %1,
   %61 = add i32 %.086, %42
   %62 = sub i32 %.06284, %42
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %60, %22, %6, %.split95.us, %.split89.us, %.split.us
   ret void
@@ -8460,7 +8460,7 @@ declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %10 = icmp slt i32 %9, %5
   br i1 %10, label %11, label %18
@@ -8496,7 +8496,7 @@ define internal fastcc noundef i32 @dissect_lcp_var_opt(ptr noundef %0, ptr noun
 declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8533,7 +8533,7 @@ declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr nounde
 declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8586,7 +8586,7 @@ declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8619,7 +8619,7 @@ ppp_option_len_check.exit:                        ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8656,7 +8656,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8689,7 +8689,7 @@ ppp_option_len_check.exit:                        ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_ccp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %10 = icmp slt i32 %9, %5
   br i1 %10, label %11, label %17
@@ -8748,7 +8748,7 @@ define internal fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8815,7 +8815,7 @@ define internal fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr
   %26 = add i32 %19, %17
   %27 = sub nsw i32 %18, %19
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %23, %4, %21
   %29 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -8829,7 +8829,7 @@ declare i32 @tvb_strsize(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not.i = icmp eq i32 %9, %5
   br i1 %.not.i, label %ppp_option_len_check.exit, label %ppp_option_len_check.exit.thread
@@ -8862,7 +8862,7 @@ ppp_option_len_check.exit:                        ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_bap_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %10 = icmp slt i32 %9, %5
   br i1 %10, label %11, label %17
@@ -8938,7 +8938,7 @@ attributes #7 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -8950,4 +8950,3 @@ attributes #7 = { noreturn nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

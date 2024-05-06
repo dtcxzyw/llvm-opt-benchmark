@@ -384,7 +384,7 @@ define hidden void @proto_reg_handoff_hislip() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_hislip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_hislip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %11, label %7
@@ -963,7 +963,7 @@ decode_messagepara.exit:                          ; preds = %235, %240, %246, %2
 
 273:                                              ; preds = %272, %272, %272
   %274 = icmp ult i64 %11, 61
-  %275 = trunc i64 %11 to i32
+  %275 = trunc nuw nsw i64 %11 to i32
   %spec.select.i = select i1 %274, i32 %275, i32 60
   %276 = load ptr, ptr %5, align 8
   %277 = getelementptr inbounds i8, ptr %1, i64 408

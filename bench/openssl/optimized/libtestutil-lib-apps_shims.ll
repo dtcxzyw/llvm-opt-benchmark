@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [37 x i8] c"Could not allocate %zu bytes for %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @app_malloc(i64 noundef %sz, ptr noundef %what) local_unnamed_addr #0 {
+define noundef ptr @app_malloc(i64 noundef %sz, ptr noundef %what) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %sz, ptr noundef nonnull @.str, i32 noundef 25) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef %call) #4
@@ -34,25 +34,25 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @opt_legacy_okay() local_unnamed_addr #3 {
+define noundef i32 @opt_legacy_okay() local_unnamed_addr #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @opt_provider_option_given() local_unnamed_addr #3 {
+define noundef i32 @opt_provider_option_given() local_unnamed_addr #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias ptr @app_get0_propq() local_unnamed_addr #3 {
+define noalias noundef ptr @app_get0_propq() local_unnamed_addr #3 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias ptr @app_get0_libctx() local_unnamed_addr #3 {
+define noalias noundef ptr @app_get0_libctx() local_unnamed_addr #3 {
 entry:
   ret ptr null
 }

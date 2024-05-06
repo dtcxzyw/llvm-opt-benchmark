@@ -2588,7 +2588,7 @@ define hidden void @_ZN8rawspeed10MosDecoder22decodeMetaDataInternalEPKNS_14Came
 
 107:                                              ; preds = %103
   %108 = trunc i64 %40 to i32
-  %109 = trunc i64 %41 to i32
+  %109 = trunc nuw nsw i64 %41 to i32
   store i32 %109, ptr %29, align 8, !tbaa !59
   %110 = add nuw i32 %108, 44
   %111 = icmp ugt i32 %110, %28

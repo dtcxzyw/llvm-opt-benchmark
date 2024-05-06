@@ -591,7 +591,7 @@ proto_item_set_generated.exit239:                 ; preds = %163, %166, %169
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_dfu_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 10) i32 @dissect_usb_dfu_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %44, label %5
 

@@ -4,15 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %ctx), !range !4
+  %call = tail call i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %ctx)
   tail call void @bn_correct_top(ptr noundef %r) #3
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
   %top = getelementptr inbounds i8, ptr %a, i64 8
@@ -195,7 +195,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr14 = getelementptr inbounds i8, ptr %rp.136, i64 16
   %dec15 = add nsw i32 %i.034, -1
   %cmp7 = icmp ugt i32 %i.034, 1
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry, %if.end
   %call16 = tail call i64 @bn_add_words(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %mul) #3
@@ -306,7 +306,7 @@ do.body:                                          ; preds = %if.then54, %do.body
   %add64 = add i64 %1, 1
   store i64 %add64, ptr %incdec.ptr, align 8
   %cmp66 = icmp eq i64 %add64, 0
-  br i1 %cmp66, label %do.body, label %if.end69, !llvm.loop !7
+  br i1 %cmp66, label %do.body, label %if.end69, !llvm.loop !6
 
 if.end69:                                         ; preds = %do.body, %if.then54, %if.end30, %if.then5, %if.then2, %if.then
   ret void
@@ -342,7 +342,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

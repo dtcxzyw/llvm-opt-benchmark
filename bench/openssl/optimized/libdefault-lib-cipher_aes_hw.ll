@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aesni_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_aesni_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %ks1 = getelementptr inbounds i8, ptr %dat, i64 192
   %ks2 = getelementptr inbounds i8, ptr %dat, i64 176
@@ -215,7 +215,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aes_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_aes_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %ks1 = getelementptr inbounds i8, ptr %dat, i64 192
   %ks2 = getelementptr inbounds i8, ptr %dat, i64 176

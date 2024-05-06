@@ -98,7 +98,7 @@ define internal i32 @stats_parse_request(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_prepare_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @stats_prepare_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -220,7 +220,7 @@ define internal i32 @stats_prepare_data(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal i32 @stats_reply_size(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 8, 1353) i32 @stats_reply_size(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -231,21 +231,21 @@ define internal i32 @stats_reply_size(ptr noundef %0, ptr nocapture readnone %1)
   %10 = icmp eq i64 %9, 0
   %11 = add nuw nsw i32 %7, 23
   %12 = lshr exact i64 %9, 1
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = add nuw nsw i32 %6, %13
   %15 = select i1 %10, i32 %7, i32 %11
   %16 = load volatile i64, ptr %3, align 8
   %17 = and i64 %16, 4
   %18 = lshr exact i64 %17, 2
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = add nuw nsw i32 %14, %19
-  %21 = trunc i64 %17 to i32
+  %21 = trunc nuw nsw i64 %17 to i32
   %22 = add nuw nsw i32 %15, %21
   %23 = load volatile i64, ptr %3, align 8
   %24 = and i64 %23, 8
   %25 = icmp eq i64 %24, 0
   %26 = lshr exact i64 %24, 3
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = add nuw nsw i32 %20, %27
   %29 = select i1 %25, i32 8, i32 408
   %30 = mul nuw nsw i32 %28, 20
@@ -258,7 +258,7 @@ define internal i32 @stats_reply_size(ptr noundef %0, ptr nocapture readnone %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @stats_fill_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @stats_fill_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -627,7 +627,7 @@ declare dso_local zeroext i1 @__ethtool_dev_mm_supported(ptr noundef) local_unna
 declare dso_local void @ethnl_ops_complete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @stats_put_stats(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_stats(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 192
@@ -703,7 +703,7 @@ define internal fastcc noundef i32 @stats_put_stats(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_put_mac_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_mac_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext 0, i64 noundef %4)
@@ -864,7 +864,7 @@ define internal i32 @stats_put_mac_stats(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_put_ctrl_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_ctrl_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 216
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext 0, i64 noundef %4)
@@ -892,7 +892,7 @@ define internal i32 @stats_put_ctrl_stats(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_put_rmon_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_rmon_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 248
   %4 = getelementptr inbounds i8, ptr %1, i64 280
   %5 = getelementptr inbounds i8, ptr %1, i64 440
@@ -1018,7 +1018,7 @@ define internal fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext %1, i64
 declare dso_local i32 @nla_put_64bit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

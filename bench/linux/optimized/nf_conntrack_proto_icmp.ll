@@ -132,7 +132,7 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_icmp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 2
@@ -165,7 +165,7 @@ define dso_local noundef i32 @nf_conntrack_icmp_packet(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_inet_error(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.nf_conntrack_tuple, align 4
   %8 = alloca %struct.nf_conntrack_tuple, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
@@ -290,7 +290,7 @@ declare dso_local ptr @nf_conntrack_find_get(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @nf_l4proto_log_invalid(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_icmpv4_error(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %union.nf_inet_addr, align 4
   %6 = alloca %struct.icmphdr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
@@ -401,7 +401,7 @@ define dso_local void @nf_conntrack_icmp_init_net(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @icmp_tuple_to_nlattr(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @icmp_tuple_to_nlattr(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
@@ -459,7 +459,7 @@ define internal i32 @icmp_nlattr_tuple_size() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @icmp_nlattr_to_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
+define internal noundef range(i32 -22, 1) i32 @icmp_nlattr_to_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
   %4 = and i32 %2, 64
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %20, label %6

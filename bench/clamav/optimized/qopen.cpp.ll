@@ -411,7 +411,7 @@ _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %74, %78
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   %80 = getelementptr inbounds i8, ptr %0, i64 2656
   store i64 0, ptr %80, align 8
-  %81 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0), !range !6
+  %81 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0)
   br label %82
 
 82:                                               ; preds = %_ZN5ArrayIhE5ResetEv.exit, %73, %32
@@ -423,7 +423,7 @@ declare noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 deref
 declare noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516), i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48
@@ -522,7 +522,7 @@ define noundef zeroext i1 @_ZN9QuickOpen4ReadEPvmRm(ptr noundef nonnull align 8 
 
 16:                                               ; preds = %11
   %17 = tail call noundef zeroext i1 @_ZN9QuickOpen8ReadNextEv(ptr noundef nonnull align 8 dereferenceable(2673) %0)
-  br i1 %17, label %11, label %18, !llvm.loop !7
+  br i1 %17, label %11, label %18, !llvm.loop !6
 
 18:                                               ; preds = %16, %11
   %19 = getelementptr inbounds i8, ptr %0, i64 2624
@@ -833,7 +833,7 @@ define noundef zeroext i1 @_ZN9QuickOpen7ReadRawER7RawRead(ptr noundef nonnull a
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %10, i1 false)
   store i64 0, ptr %3, align 8
   store i64 %10, ptr %8, align 8
-  %14 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0), !range !6
+  %14 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0)
   %.pre = load i64, ptr %3, align 8
   br label %15
 
@@ -896,9 +896,9 @@ define noundef zeroext i1 @_ZN9QuickOpen7ReadRawER7RawRead(ptr noundef nonnull a
 
 50:                                               ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %51 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0), !range !6
+  %51 = tail call noundef i32 @_ZN9QuickOpen10ReadBufferEv(ptr noundef nonnull align 8 dereferenceable(2673) %0)
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %52, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %53 = tail call noundef i32 @_ZN7RawRead8GetCRC50Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -980,6 +980,5 @@ attributes #19 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 -2147483648}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

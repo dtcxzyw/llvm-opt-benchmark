@@ -55,7 +55,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local4laz
 5:                                                ; preds = %3, %2
   %6 = tail call noundef i64 @_ZN12tokio_stream10stream_map4rand4loom4rand4seed17h234306adff59a14dE(), !noalias !7
   %7 = lshr i64 %6, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   br label %"_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f708b302d7e0bf2E.llvm.4037922962136383949.exit"
@@ -118,7 +118,7 @@ define hidden { i32, i32 } @"_ZN12tokio_stream10stream_map4rand12thread_rng_n10T
 4:                                                ; preds = %2, %1
   %5 = tail call noundef i64 @_ZN12tokio_stream10stream_map4rand4loom4rand4seed17h234306adff59a14dE()
   %6 = lshr i64 %5, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %5 to i32
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
   br label %9

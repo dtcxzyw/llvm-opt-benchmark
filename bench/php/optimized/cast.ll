@@ -93,7 +93,7 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca [5 x i8], align 1
   %7 = and i32 %1, 536870911
@@ -386,7 +386,7 @@ define ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32
   br i1 %8, label %28, label %9
 
 9:                                                ; preds = %4
-  %10 = call i32 @_php_stream_cast(ptr noundef nonnull %7, i32 noundef -1073741824, ptr noundef nonnull %5, i32 noundef 8), !range !4
+  %10 = call i32 @_php_stream_cast(ptr noundef nonnull %7, i32 noundef -1073741824, ptr noundef nonnull %5, i32 noundef 8)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %26
 
@@ -432,7 +432,7 @@ define ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %30, label %5
 
@@ -515,7 +515,7 @@ define internal i64 @stream_cookie_writer(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stream_cookie_seeker(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @stream_cookie_seeker(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
   %4 = load i64, ptr %1, align 8
   %5 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %4, i32 noundef %2) #7
   %6 = sext i32 %5 to i64
@@ -562,4 +562,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

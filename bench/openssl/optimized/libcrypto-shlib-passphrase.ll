@@ -70,7 +70,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pw_set_passphrase(ptr noundef %data, ptr noundef %passphrase, i64 noundef %passphrase_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_passphrase(ptr noundef %data, ptr noundef %passphrase, i64 noundef %passphrase_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %passphrase, null
@@ -143,7 +143,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pw_set_pem_password_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_pem_password_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %cb, null
@@ -189,7 +189,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %cb, null
@@ -235,7 +235,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pw_set_ui_method(ptr noundef %data, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_ui_method(ptr noundef %data, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %ui_method, null
@@ -530,7 +530,7 @@ if.then56.i:                                      ; preds = %sw.default.i
 if.end57.i:                                       ; preds = %sw.default.i
   %conv58.i = zext nneg i32 %call53.i to i64
   store i64 %conv58.i, ptr %pass_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pass, ptr nonnull align 1 %call24.i, i64 %conv58.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pass, ptr nonnull align 1 %call24.i, i64 %conv58.i, i1 false)
   br label %end.i
 
 end.i:                                            ; preds = %if.end57.i, %if.then56.i, %sw.bb52.i, %sw.bb.i, %if.then48.i, %if.then36.i, %if.then33.i, %if.end23.i, %if.then22.i

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [39 x i8] c"Lit_GroupLiterals with op not defined.\00", align 1
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noundef i32 @Rpo_CheckANDGroup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Rpo_CheckANDGroup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 6
   %5 = add nsw i32 %2, -5
   %6 = shl nuw i32 1, %5
@@ -99,7 +99,7 @@ select.unfold.i52.preheader:                      ; preds = %select.unfold.i48, 
 
 select.unfold.i52:                                ; preds = %select.unfold.i52.preheader, %41
   %indvars.iv.i53 = phi i64 [ %42, %41 ], [ %31, %select.unfold.i52.preheader ]
-  %39 = trunc i64 %indvars.iv.i53 to i32
+  %39 = trunc nuw i64 %indvars.iv.i53 to i32
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %Kit_TruthIsConst0.exit
 
@@ -132,7 +132,7 @@ select.unfold.i61.preheader:                      ; preds = %select.unfold.i56, 
 
 select.unfold.i61:                                ; preds = %select.unfold.i61.preheader, %55
   %indvars.iv.i62 = phi i64 [ %56, %55 ], [ %31, %select.unfold.i61.preheader ]
-  %53 = trunc i64 %indvars.iv.i62 to i32
+  %53 = trunc nuw i64 %indvars.iv.i62 to i32
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %Kit_TruthIsConst0.exit65
 
@@ -187,7 +187,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noundef i32 @Rpo_CheckORGroup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Rpo_CheckORGroup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 6
   %5 = add nsw i32 %2, -5
   %6 = shl nuw i32 1, %5
@@ -221,7 +221,7 @@ select.unfold.i25.preheader:                      ; preds = %select.unfold.i, %3
 
 select.unfold.i25:                                ; preds = %select.unfold.i25.preheader, %26
   %indvars.iv.i26 = phi i64 [ %27, %26 ], [ %16, %select.unfold.i25.preheader ]
-  %24 = trunc i64 %indvars.iv.i26 to i32
+  %24 = trunc nuw i64 %indvars.iv.i26 to i32
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %Kit_TruthIsConst0.exit
 
@@ -256,7 +256,7 @@ select.unfold.i34.preheader:                      ; preds = %select.unfold.i29, 
 
 select.unfold.i34:                                ; preds = %select.unfold.i34.preheader, %42
   %indvars.iv.i35 = phi i64 [ %43, %42 ], [ %16, %select.unfold.i34.preheader ]
-  %40 = trunc i64 %indvars.iv.i35 to i32
+  %40 = trunc nuw i64 %indvars.iv.i35 to i32
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %Kit_TruthIsConst0.exit38
 
@@ -346,9 +346,9 @@ define i32 @Rpo_computeMinEdgeCost(ptr nocapture noundef readonly %0, i32 nounde
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %13
   %. = tail call i64 @llvm.umin.i64(i64 %11, i64 %14)
-  %18 = trunc i64 %. to i32
+  %18 = trunc nuw nsw i64 %. to i32
   %19 = icmp ult i32 %17, %.02936
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %19, label %24, label %21
 
 21:                                               ; preds = %9
@@ -379,7 +379,7 @@ define void @Rpo_PrintEdge(ptr nocapture noundef readonly %0) local_unnamed_addr
   %4 = trunc i64 %3 to i32
   %5 = and i32 %4, 1073741823
   %6 = lshr i64 %2, 34
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = trunc i64 %2 to i32
   %9 = lshr i32 %8, 1
   %10 = and i32 %9, 3
@@ -396,7 +396,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -415,7 +415,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -436,7 +436,7 @@ define ptr @Rpo_Factorize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 select.unfold.i:                                  ; preds = %13, %4
   %indvars.iv.i = phi i64 [ %10, %4 ], [ %14, %13 ]
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw i64 %indvars.iv.i to i32
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %Kit_TruthIsConst0.exit
 
@@ -468,7 +468,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
 
 select.unfold.i64:                                ; preds = %13, %27
   %indvars.iv.i65 = phi i64 [ %28, %27 ], [ %10, %13 ]
-  %25 = trunc i64 %indvars.iv.i65 to i32
+  %25 = trunc nuw i64 %indvars.iv.i65 to i32
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %Kit_TruthIsConst1.exit
 
@@ -776,7 +776,7 @@ Lit_TruthPositiveTransition.exit:                 ; preds = %Lit_TruthPositiveTr
 
 select.unfold.i:                                  ; preds = %54, %Lit_TruthPositiveTransition.exit
   %indvars.iv.i = phi i64 [ %51, %Lit_TruthPositiveTransition.exit ], [ %55, %54 ]
-  %52 = trunc i64 %indvars.iv.i to i32
+  %52 = trunc nuw i64 %indvars.iv.i to i32
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %Kit_TruthIsConst0.exit
 
@@ -820,7 +820,7 @@ select.unfold.i:                                  ; preds = %54, %Lit_TruthPosit
 
 69:                                               ; preds = %69, %.lr.ph.i
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
-  %70 = trunc i64 %indvars.iv.i48 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.i48 to i32
   %71 = and i32 %63, %70
   %.not.i49 = icmp ne i32 %71, 0
   %spec.select.i50 = sext i1 %.not.i49 to i32
@@ -867,8 +867,8 @@ Vec_StrPutC.exit68:                               ; preds = %Vec_StrPutC.exit, %
   %88 = or disjoint i32 %83, 2
   store i32 %88, ptr %74, align 4
   %89 = zext nneg i32 %83 to i64
-  %90 = getelementptr i8, ptr %75, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 1
+  %90 = getelementptr inbounds i8, ptr %75, i64 %89
+  %91 = getelementptr inbounds i8, ptr %90, i64 1
   store i8 0, ptr %91, align 1
   %92 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
   %93 = getelementptr inbounds i8, ptr %92, i64 8
@@ -943,7 +943,7 @@ define ptr @Rpo_Recursion(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
 
 select.unfold.i:                                  ; preds = %31, %26
   %indvars.iv.i = phi i64 [ %22, %26 ], [ %32, %31 ]
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i to i32
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %Kit_TruthIsEqual.exit
 
@@ -1108,7 +1108,7 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %96, align 8
-  %106 = tail call i32 @Rpo_CheckANDGroup(ptr noundef %105, ptr noundef nonnull %102, i32 noundef %4), !range !18
+  %106 = tail call i32 @Rpo_CheckANDGroup(ptr noundef %105, ptr noundef nonnull %102, i32 noundef %4)
   %107 = load ptr, ptr %96, align 8
   %108 = load ptr, ptr %101, align 8
   %109 = tail call noalias ptr @malloc(i64 noundef %92) #14
@@ -1136,7 +1136,7 @@ select.unfold.i25.i.preheader:                    ; preds = %select.unfold.i.i18
 
 select.unfold.i25.i:                              ; preds = %select.unfold.i25.i.preheader, %123
   %indvars.iv.i26.i = phi i64 [ %124, %123 ], [ %94, %select.unfold.i25.i.preheader ]
-  %121 = trunc i64 %indvars.iv.i26.i to i32
+  %121 = trunc nuw i64 %indvars.iv.i26.i to i32
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %123, label %Kit_TruthIsConst0.exit.i
 
@@ -1171,7 +1171,7 @@ select.unfold.i34.i.preheader:                    ; preds = %select.unfold.i29.i
 
 select.unfold.i34.i:                              ; preds = %select.unfold.i34.i.preheader, %139
   %indvars.iv.i35.i = phi i64 [ %140, %139 ], [ %94, %select.unfold.i34.i.preheader ]
-  %137 = trunc i64 %indvars.iv.i35.i to i32
+  %137 = trunc nuw i64 %indvars.iv.i35.i to i32
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %139, label %Kit_TruthIsConst0.exit38.i
 
@@ -1294,13 +1294,13 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %.3 = phi i32 [ %.1155216, %100 ], [ %185, %175 ], [ %.2, %166 ]
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count244
-  br i1 %exitcond.not, label %.loopexit212, label %100, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit212, label %100, !llvm.loop !18
 
 .loopexit212:                                     ; preds = %188, %95
   %.4 = phi i32 [ %.0154219, %95 ], [ %.3, %188 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge224, label %95, !llvm.loop !20
+  br i1 %exitcond245.not, label %._crit_edge224, label %95, !llvm.loop !19
 
 ._crit_edge224:                                   ; preds = %.loopexit212, %86
   %.0154.lcssa = phi i32 [ 0, %86 ], [ %.4, %.loopexit212 ]
@@ -1348,9 +1348,9 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %214 = load i32, ptr %213, align 4
   %215 = add nsw i32 %214, %211
   %..i = tail call i64 @llvm.umin.i64(i64 %209, i64 %212)
-  %216 = trunc i64 %..i to i32
+  %216 = trunc nuw nsw i64 %..i to i32
   %217 = icmp ult i32 %215, %.02936.i
-  %218 = trunc i64 %indvars.iv.i189 to i32
+  %218 = trunc nuw nsw i64 %indvars.iv.i189 to i32
   br i1 %217, label %222, label %219
 
 219:                                              ; preds = %207
@@ -1374,7 +1374,7 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %.02638.i.be = phi i32 [ %.1.i, %222 ], [ -1, %Lit_Free.exit ]
   %.02737.i.be = phi i32 [ %.128.i, %222 ], [ -1, %Lit_Free.exit ]
   %.02936.i.be = phi i32 [ %.130.i, %222 ], [ -1, %Lit_Free.exit ]
-  br label %.lr.ph.i, !llvm.loop !21
+  br label %.lr.ph.i, !llvm.loop !20
 
 Rpo_computeMinEdgeCost.exit:                      ; preds = %222
   %223 = icmp slt i32 %.1.i, 0
@@ -1398,7 +1398,7 @@ Rpo_computeMinEdgeCost.exit.thread.split:         ; preds = %Rpo_computeMinEdgeC
   %232 = trunc i64 %231 to i32
   %233 = and i32 %232, 1073741823
   %234 = lshr i64 %229, 34
-  %235 = trunc i64 %234 to i32
+  %235 = trunc nuw nsw i64 %234 to i32
   %. = tail call i32 @llvm.umin.i32(i32 %233, i32 %235)
   %236 = tail call i32 @llvm.umax.i32(i32 %233, i32 %235)
   %237 = zext nneg i32 %. to i64
@@ -1484,7 +1484,7 @@ select.unfold.i34.i193:                           ; preds = %278, %select.unfold
   %288 = getelementptr inbounds i32, ptr %246, i64 %indvars.iv.next.i36.i
   store i32 %287, ptr %288, align 4
   %289 = icmp ugt i64 %indvars.iv.i35.i194, 1
-  br i1 %289, label %select.unfold.i34.i193, label %Kit_TruthAnd.exit.i195, !llvm.loop !22
+  br i1 %289, label %select.unfold.i34.i193, label %Kit_TruthAnd.exit.i195, !llvm.loop !21
 
 290:                                              ; preds = %Vec_StrAlloc.exit.i
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20)
@@ -1507,7 +1507,7 @@ select.unfold.i39.i:                              ; preds = %Kit_TruthAnd.exit.i
   %298 = getelementptr inbounds i32, ptr %247, i64 %indvars.iv.next.i41.i
   store i32 %297, ptr %298, align 4
   %299 = icmp ugt i64 %indvars.iv.i40.i, 1
-  br i1 %299, label %select.unfold.i39.i, label %Kit_TruthOr.exit42.i, !llvm.loop !22
+  br i1 %299, label %select.unfold.i39.i, label %Kit_TruthOr.exit42.i, !llvm.loop !21
 
 Kit_TruthOr.exit42.i:                             ; preds = %select.unfold.i39.i, %Kit_TruthAnd.exit.i195, %278, %266
   %.065.i = phi i8 [ %.0.i196, %Kit_TruthAnd.exit.i195 ], [ 43, %278 ], [ 42, %266 ], [ %.0.i196, %select.unfold.i39.i ]
@@ -1831,7 +1831,7 @@ Lit_Free.exit:                                    ; preds = %407, %411
 420:                                              ; preds = %419, %.lr.ph229
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count.i
-  br i1 %exitcond250.not, label %._crit_edge230.thread, label %.lr.ph229, !llvm.loop !23
+  br i1 %exitcond250.not, label %._crit_edge230.thread, label %.lr.ph229, !llvm.loop !22
 
 ._crit_edge230:                                   ; preds = %416
   %.not174 = icmp eq ptr %84, null
@@ -1850,33 +1850,27 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #6
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_StrAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #16
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %Vec_StrPrintStr.exit
@@ -1954,11 +1948,17 @@ Vec_StrPush.exit.i:                               ; preds = %30, %Vec_StrGrow.ex
   store i8 %9, ptr %36, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_StrPrintStr.exit, label %7, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Vec_StrPrintStr.exit, label %7, !llvm.loop !23
 
 Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i, %2
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
@@ -1979,11 +1979,11 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(write, argmem: 
 attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind allocsize(0) }
@@ -2011,10 +2011,9 @@ attributes #17 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

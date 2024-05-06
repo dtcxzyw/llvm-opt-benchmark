@@ -885,14 +885,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [43 x i8] c"Failed to read %zi bytes from /dev/urandom\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyOS_URandom(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyOS_URandom(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef 1, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef %blocking, i32 noundef %raise) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef %blocking, i32 noundef %raise) unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 16
   %cmp = icmp slt i64 %size, 0
@@ -932,7 +932,7 @@ if.end40.split.us.split.us.us.us.i:               ; preds = %while.body.us.us.us
   %add.ptr.us.us.i = getelementptr i8, ptr %dest.0.ph173.us.us.i, i64 %.us-phi142.us.us.i
   %sub.us.us.i = sub nsw i64 %size.addr.0.ph165.us.us.i, %.us-phi142.us.us.i
   %cmp.us.us.i = icmp sgt i64 %sub.us.us.i, 0
-  br i1 %cmp.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i, label %return, !llvm.loop !6
+  br i1 %cmp.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i, label %return, !llvm.loop !5
 
 while.body.lr.ph.split.us.split.split.us.split.us.us.us.i: ; preds = %while.body.lr.ph.lr.ph.split.us.i, %if.end40.split.us.split.us.us.us.i
   %dest.0.ph173.us.us.i = phi ptr [ %add.ptr.us.us.i, %if.end40.split.us.split.us.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.us.i ]
@@ -961,7 +961,7 @@ if.end40.split.us.split.us189.i:                  ; preds = %while.body.us.us109
   %add.ptr.us.i = getelementptr i8, ptr %dest.0.ph173.us.i, i64 %.us-phi118.us.i
   %sub.us.i = sub nsw i64 %size.addr.0.ph165.us.i, %.us-phi118.us.i
   %cmp.us.i = icmp sgt i64 %sub.us.i, 0
-  br i1 %cmp.us.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %return, !llvm.loop !6
+  br i1 %cmp.us.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %return, !llvm.loop !5
 
 while.body.lr.ph.split.us.split.split.split.us.us.i: ; preds = %while.body.lr.ph.lr.ph.split.us.i, %if.end40.split.us.split.us189.i
   %dest.0.ph173.us.i = phi ptr [ %add.ptr.us.i, %if.end40.split.us.split.us189.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.us.i ]
@@ -994,7 +994,7 @@ if.end40.split.split.us.us.i:                     ; preds = %while.body.us27.us.
   %add.ptr.us203.i = getelementptr i8, ptr %dest.0.ph173.us201.i, i64 %.us-phi85.us.i
   %sub.us204.i = sub nsw i64 %size.addr.0.ph165.us202.i, %.us-phi85.us.i
   %cmp.us205.i = icmp sgt i64 %sub.us204.i, 0
-  br i1 %cmp.us205.i, label %while.body.lr.ph.split.split.us.split.us.us.i, label %return, !llvm.loop !6
+  br i1 %cmp.us205.i, label %while.body.lr.ph.split.split.us.split.us.us.i, label %return, !llvm.loop !5
 
 while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %while.body.lr.ph.lr.ph.split.i, %if.end40.split.split.us.us.i
   %dest.0.ph173.us201.i = phi ptr [ %add.ptr.us203.i, %if.end40.split.split.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.i ]
@@ -1073,7 +1073,7 @@ if.end40.split.split.i:                           ; preds = %while.body.us47.i, 
   %add.ptr.i = getelementptr i8, ptr %dest.0.ph173.i, i64 %.us-phi61.i
   %sub.i = sub nsw i64 %size.addr.0.ph165.i, %.us-phi61.i
   %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.lr.ph.split.split.split.us.i, label %return, !llvm.loop !6
+  br i1 %cmp.i, label %while.body.lr.ph.split.split.split.us.i, label %return, !llvm.loop !5
 
 if.end12:                                         ; preds = %if.then11.us51.i, %if.then11.us.us112.us.i, %if.end5, %if.then16.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
@@ -1182,7 +1182,7 @@ if.end49.i:                                       ; preds = %do.body.i
   %add.ptr.i10 = getelementptr i8, ptr %buffer.addr.0.i, i64 %call42.i
   %sub.i11 = sub i64 %size.addr.0.i, %call42.i
   %cmp50.i = icmp sgt i64 %sub.i11, 0
-  br i1 %cmp50.i, label %do.body.i, label %dev_urandom.exit, !llvm.loop !8
+  br i1 %cmp50.i, label %do.body.i, label %dev_urandom.exit, !llvm.loop !7
 
 if.else51.i:                                      ; preds = %if.end12
   %call52.i = tail call i32 @_Py_open_noraise(ptr noundef nonnull @.str.2, i32 noundef 0) #6
@@ -1203,7 +1203,7 @@ land.rhs.i:                                       ; preds = %do.body57.i
   %call61.i = tail call ptr @__errno_location() #7
   %19 = load i32, ptr %call61.i, align 4
   %cmp62.i = icmp eq i32 %19, 4
-  br i1 %cmp62.i, label %do.body57.i, label %if.then65.i, !llvm.loop !9
+  br i1 %cmp62.i, label %do.body57.i, label %if.then65.i, !llvm.loop !8
 
 do.end63.i:                                       ; preds = %do.body57.i
   %cmp64.i = icmp eq i64 %call58.i, 0
@@ -1217,7 +1217,7 @@ if.end67.i:                                       ; preds = %do.end63.i
   %add.ptr68.i = getelementptr i8, ptr %buffer.addr.134.i, i64 %call58.i
   %sub69.i = sub nsw i64 %size.addr.133.i, %call58.i
   %cmp56.i = icmp sgt i64 %sub69.i, 0
-  br i1 %cmp56.i, label %do.body57.preheader.i, label %while.end.i, !llvm.loop !10
+  br i1 %cmp56.i, label %do.body57.preheader.i, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %if.end67.i
   %call70.i = tail call i32 @close(i32 noundef %call52.i) #6
@@ -1234,9 +1234,9 @@ return:                                           ; preds = %if.end40.split.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyOS_URandomNonblock(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyOS_URandomNonblock(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef 0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
@@ -1282,10 +1282,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %inc.i = add nuw nsw i64 %index.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 24
-  br i1 %exitcond.not.i, label %if.end12, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %if.end12, label %for.body.i, !llvm.loop !10
 
 if.else6:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @pyurandom(ptr noundef nonnull @_Py_HashSecret, i64 noundef 24, i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @pyurandom(ptr noundef nonnull @_Py_HashSecret, i64 noundef 24, i32 noundef 0, i32 noundef 0)
   %cmp7 = icmp slt i32 %call, 0
   br i1 %cmp7, label %if.then9, label %if.end12
 
@@ -1380,10 +1380,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

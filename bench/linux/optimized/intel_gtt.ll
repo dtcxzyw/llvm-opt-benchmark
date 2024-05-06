@@ -674,7 +674,7 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
 28:                                               ; preds = %.thread4, %21
   %29 = phi i64 [ %22, %21 ], [ 4096, %.thread4 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = trunc i64 %29 to i32
+  %31 = trunc nuw nsw i64 %29 to i32
   %32 = tail call ptr %30(ptr noundef %0, i32 noundef %31) #10
   %33 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
   br i1 %33, label %.thread4, label %34

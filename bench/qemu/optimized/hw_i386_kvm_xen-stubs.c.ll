@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @xen_evtchn_deliver_pirq_msi(i64 noundef %address, i32 noundef %data) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @xen_evtchn_deliver_pirq_msi(i64 noundef %address, i32 noundef %data) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_enable_interpreter_slack = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @acpi_ps_get_opcode_size(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 3) i32 @acpi_ps_get_opcode_size(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i32 %0, 255
   %3 = select i1 %2, i32 2, i32 1
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i16 @acpi_ps_peek_opcode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext range(i16 0, 23552) i16 @acpi_ps_peek_opcode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -38,7 +38,7 @@ define dso_local zeroext i16 @acpi_ps_peek_opcode(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ps_complete_this_op(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 5) i32 @acpi_ps_complete_this_op(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %114, label %4
 

@@ -139,7 +139,7 @@ if.then.i.i:                                      ; preds = %if.end.i6
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i6, %if.then.i.i
   %6 = load ptr, ptr @tdatas, align 8
-  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
+  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull readonly @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %7 = load i64, ptr %tdata_count, align 8
@@ -203,7 +203,7 @@ if.end.i16:                                       ; preds = %if.end3
 if.end5.i:                                        ; preds = %if.end.i16
   %shl.i = shl nuw i64 %add, 1
   %sub.i = add i64 %shl.i, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !5
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %2 = trunc nuw nsw i64 %1 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %2, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252
@@ -557,13 +557,13 @@ for.body20.i:                                     ; preds = %if.then15.i, %for.b
   %arrayidx25.i = getelementptr inbounds i8, ptr %pathp.128.i, i64 16
   store ptr %11, ptr %arrayidx25.i, align 8
   %cmp19.not.i = icmp eq ptr %11, null
-  br i1 %cmp19.not.i, label %do.end.i, label %for.body20.i, !llvm.loop !6
+  br i1 %cmp19.not.i, label %do.end.i, label %for.body20.i, !llvm.loop !5
 
 for.inc29.i:                                      ; preds = %if.else.i, %if.then.i
   %.pr.i = phi ptr [ %6, %if.then.i ], [ %9, %if.else.i ]
   %incdec.ptr30.i = getelementptr inbounds i8, ptr %pathp.026.i, i64 16
   %cmp.not.i = icmp eq ptr %.pr.i, null
-  br i1 %cmp.not.i, label %do.end.i, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %do.end.i, label %for.body.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %for.inc29.i, %for.body20.i, %if.then15.i, %entry
   %nodep.0.i = phi ptr [ %pathp.026.i, %if.then15.i ], [ null, %entry ], [ %pathp.026.i, %for.body20.i ], [ null, %for.inc29.i ]
@@ -1258,7 +1258,7 @@ do.body880.i:                                     ; preds = %land.lhs.true808.i,
 for.inc891.i:                                     ; preds = %do.body880.i, %do.body467.i
   %incdec.ptr892.i = getelementptr inbounds i8, ptr %pathp.335.i, i64 -16
   %cmp202.not.i = icmp ult ptr %incdec.ptr892.i, %path.i
-  br i1 %cmp202.not.i, label %for.end893.i, label %do.end206.i, !llvm.loop !9
+  br i1 %cmp202.not.i, label %for.end893.i, label %do.end206.i, !llvm.loop !8
 
 for.end893.i:                                     ; preds = %for.inc891.i, %if.end197.i
   %246 = load ptr, ptr %path.i, align 16
@@ -1584,13 +1584,13 @@ for.body20.i.i:                                   ; preds = %if.then15.i.i, %for
   %arrayidx25.i.i = getelementptr inbounds i8, ptr %pathp.1274.i.i, i64 16
   store ptr %30, ptr %arrayidx25.i.i, align 8
   %cmp19.not.i.i = icmp eq ptr %30, null
-  br i1 %cmp19.not.i.i, label %do.end.i.i, label %for.body20.i.i, !llvm.loop !10
+  br i1 %cmp19.not.i.i, label %do.end.i.i, label %for.body20.i.i, !llvm.loop !9
 
 for.inc29.i.i:                                    ; preds = %if.else.i.i, %if.then.i125.i
   %.pr.i.i = phi ptr [ %25, %if.then.i125.i ], [ %28, %if.else.i.i ]
   %incdec.ptr30.i.i = getelementptr inbounds i8, ptr %pathp.0272.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp.not.i.i, label %do.end.i.i, label %for.body.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i, label %do.end.i.i, label %for.body.i.i, !llvm.loop !10
 
 do.end.i.i:                                       ; preds = %for.inc29.i.i, %for.body20.i.i, %if.then15.i.i, %sw.bb.i
   %nodep.0.i.i = phi ptr [ %pathp.0272.i.i, %if.then15.i.i ], [ null, %sw.bb.i ], [ %pathp.0272.i.i, %for.body20.i.i ], [ null, %for.inc29.i.i ]
@@ -2285,7 +2285,7 @@ do.body880.i.i:                                   ; preds = %land.lhs.true808.i.
 for.inc891.i.i:                                   ; preds = %do.body880.i.i, %do.body467.i.i
   %incdec.ptr892.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp202.not.i.i = icmp ult ptr %incdec.ptr892.i.i, %path.i.i
-  br i1 %cmp202.not.i.i, label %for.end893.i.i, label %do.end206.i.i, !llvm.loop !12
+  br i1 %cmp202.not.i.i, label %for.end893.i.i, label %do.end206.i.i, !llvm.loop !11
 
 for.end893.i.i:                                   ; preds = %for.inc891.i.i, %if.end197.i.i
   %265 = load ptr, ptr %path.i.i, align 16
@@ -2473,7 +2473,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #11
@@ -2481,29 +2481,29 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !14
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !13
   %shr.i69 = lshr i64 %10, 48
   %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !17
+  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !16
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   %11 = trunc i64 %10 to i8
   %frombool.i73 = and i8 %11, 1
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !17
+  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !16
   %is_head.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %12 = lshr i8 %11, 1
   %frombool5.i = and i8 %12, 1
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !17
+  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !16
   %13 = trunc i64 %10 to i32
   %14 = lshr i32 %13, 2
   %conv8.i = and i32 %14, 7
   %state.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !17
+  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !16
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
   %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !17
+  store ptr %15, ptr %agg.result, align 8, !alias.scope !16
   ret void
 }
 
@@ -2582,7 +2582,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #11
@@ -2590,7 +2590,7 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !20
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !19
   %shr.i69 = lshr i64 %10, 48
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 1
@@ -2686,7 +2686,7 @@ if.else:                                          ; preds = %entry, %if.end
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.else
-  %call2 = tail call ptr %cb(ptr noundef nonnull @tdatas, ptr noundef nonnull %node.tr2, ptr noundef %arg) #11, !callees !23
+  %call2 = tail call ptr %cb(ptr noundef nonnull @tdatas, ptr noundef nonnull %node.tr2, ptr noundef %arg) #11, !callees !22
   %cmp3.not = icmp eq ptr %call2, null
   br i1 %cmp3.not, label %if.end, label %return
 
@@ -2738,22 +2738,21 @@ attributes #12 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"rtree_leaf_elm_read: %agg.result"}
-!16 = distinct !{!16, !"rtree_leaf_elm_read"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!19 = distinct !{!19, !"rtree_leaf_elm_bits_decode"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"rtree_leaf_elm_read: %agg.result"}
-!22 = distinct !{!22, !"rtree_leaf_elm_read"}
-!23 = distinct !{ptr @prof_tdata_count_iter, null, null, null}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"rtree_leaf_elm_read: %agg.result"}
+!15 = distinct !{!15, !"rtree_leaf_elm_read"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rtree_leaf_elm_bits_decode: %agg.result"}
+!18 = distinct !{!18, !"rtree_leaf_elm_bits_decode"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"rtree_leaf_elm_read: %agg.result"}
+!21 = distinct !{!21, !"rtree_leaf_elm_read"}
+!22 = distinct !{ptr @prof_tdata_count_iter, null, null, null}

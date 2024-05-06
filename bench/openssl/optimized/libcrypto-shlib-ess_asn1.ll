@@ -39,7 +39,7 @@ entry:
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ESS_ISSUER_SERIAL_it() #2 {
+define internal noundef nonnull ptr @ESS_ISSUER_SERIAL_it() #2 {
 entry:
   ret ptr @ESS_ISSUER_SERIAL_it.local_it
 }
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ESS_CERT_ID_it() #2 {
+define internal noundef nonnull ptr @ESS_CERT_ID_it() #2 {
 entry:
   ret ptr @ESS_CERT_ID_it.local_it
 }
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ESS_SIGNING_CERT_it() local_unnamed_addr #2 {
+define noundef nonnull ptr @ESS_SIGNING_CERT_it() local_unnamed_addr #2 {
 entry:
   ret ptr @ESS_SIGNING_CERT_it.local_it
 }
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ESS_CERT_ID_V2_it() #2 {
+define internal noundef nonnull ptr @ESS_CERT_ID_V2_it() #2 {
 entry:
   ret ptr @ESS_CERT_ID_V2_it.local_it
 }
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ESS_SIGNING_CERT_V2_it() local_unnamed_addr #2 {
+define noundef nonnull ptr @ESS_SIGNING_CERT_V2_it() local_unnamed_addr #2 {
 entry:
   ret ptr @ESS_SIGNING_CERT_V2_it.local_it
 }

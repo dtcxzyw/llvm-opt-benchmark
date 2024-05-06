@@ -224,7 +224,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %132 = getelementptr [2 x i8], ptr %123, i64 0, i64 %126
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
-  %135 = trunc i64 %126 to i32
+  %135 = trunc nuw nsw i64 %126 to i32
   %136 = tail call i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef %127, i32 noundef %134, i32 noundef %135) #3
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %144, label %.thread

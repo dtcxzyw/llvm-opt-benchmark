@@ -395,7 +395,7 @@ for.cond1.preheader:                              ; preds = %entry, %for.inc10
 for.body3:                                        ; preds = %for.cond1.preheader, %for.body3
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.body3 ]
   %2 = add nuw nsw i64 %indvars.iv, %indvars.iv31
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %rem = and i32 %3, 3
   %call4 = tail call ptr @aml_package(i8 noundef zeroext 4) #3
   %call5 = tail call ptr @aml_int(i64 noundef %1) #3
@@ -423,7 +423,7 @@ for.end12:                                        ; preds = %for.inc10
 
 for.body17:                                       ; preds = %for.end12, %for.body17
   %indvars.iv37 = phi i64 [ 0, %for.end12 ], [ %indvars.iv.next38, %for.body17 ]
-  %4 = trunc i64 %indvars.iv37 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv37 to i32
   %add18 = add i32 %4, %irq
   store i32 %add18, ptr %irqs, align 4
   %call19 = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str.20, i32 noundef %4) #3

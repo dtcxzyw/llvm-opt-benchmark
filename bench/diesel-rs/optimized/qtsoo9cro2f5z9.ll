@@ -634,7 +634,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   %.0 = phi i8 [ 1, %51 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %59 ], [ %.157, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ], [ %.157, %.noexc45 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = trunc i8 %.0 to i1
+  %48 = trunc nuw i8 %.0 to i1
   br label %.body
 
 .body:                                            ; preds = %41, %46
@@ -771,11 +771,11 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
 83:                                               ; preds = %80
   %84 = landingpad { ptr, i32 }
           cleanup
-  %85 = trunc i8 %.15665 to i1
+  %85 = trunc nuw i8 %.15665 to i1
   br i1 %85, label %91, label %114
 
 86:                                               ; preds = %80
-  %87 = trunc i8 %.15665 to i1
+  %87 = trunc nuw i8 %.15665 to i1
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %73, %82, %89, %86
@@ -808,7 +808,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %114 unwind label %93
 
 98:                                               ; preds = %95
-  %99 = trunc i8 %.15665 to i1
+  %99 = trunc nuw i8 %.15665 to i1
   br i1 %99, label %100, label %114
 
 100:                                              ; preds = %98
@@ -954,7 +954,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   %.0 = phi i8 [ 1, %51 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %59 ], [ %.157, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ], [ %.157, %.noexc45 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = trunc i8 %.0 to i1
+  %48 = trunc nuw i8 %.0 to i1
   br label %.body
 
 .body:                                            ; preds = %41, %46
@@ -1092,11 +1092,11 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
 84:                                               ; preds = %81
   %85 = landingpad { ptr, i32 }
           cleanup
-  %86 = trunc i8 %.15665 to i1
+  %86 = trunc nuw i8 %.15665 to i1
   br i1 %86, label %92, label %115
 
 87:                                               ; preds = %81
-  %88 = trunc i8 %.15665 to i1
+  %88 = trunc nuw i8 %.15665 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %74, %83, %90, %87
@@ -1129,7 +1129,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %115 unwind label %94
 
 99:                                               ; preds = %96
-  %100 = trunc i8 %.15665 to i1
+  %100 = trunc nuw i8 %.15665 to i1
   br i1 %100, label %101, label %115
 
 101:                                              ; preds = %99

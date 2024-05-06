@@ -128,7 +128,7 @@ declare dso_local i32 @inet_current_timestamp() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__ip_options_echo(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 4
@@ -976,7 +976,7 @@ define dso_local noundef i32 @__ip_options_compile(ptr noundef %0, ptr noundef %
 .thread19:                                        ; preds = %248
   %252 = add nuw nsw i32 %249, 16
   %253 = or disjoint i32 %252, %246
-  %254 = trunc i32 %253 to i8
+  %254 = trunc nuw i32 %253 to i8
   store i8 %254, ptr %243, align 1
   %255 = load i8, ptr %34, align 4
   %256 = or i8 %255, 4
@@ -1253,7 +1253,7 @@ define dso_local void @ip_options_undo(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_options_get(ptr noundef %0, ptr nocapture noundef %1, ptr %2, i8 %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_options_get(ptr noundef %0, ptr nocapture noundef %1, ptr %2, i8 %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = add i32 %4, 3
   %8 = and i32 %7, -4
@@ -1534,7 +1534,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 declare dso_local void @ip_send_check(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_options_rcv_srr(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 180

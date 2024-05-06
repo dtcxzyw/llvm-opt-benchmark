@@ -895,7 +895,7 @@ define internal void @__uc_fini(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__uc_check_hw(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -5, 1) i32 @__uc_check_hw(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2953
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -1074,7 +1074,7 @@ define internal i32 @__uc_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__uc_init_hw(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @__uc_init_hw(ptr noundef %0) #0 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8

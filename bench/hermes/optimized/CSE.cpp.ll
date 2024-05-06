@@ -340,7 +340,7 @@ if.end12.i.i.i.i:                                 ; preds = %_ZNK4llvh15ScopedHa
   store ptr %__begin1.sroa.0.017.i.i.i.i, ptr %ref.tmp14.i.i.i.i, align 8
   %add.ptr16.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.017.i.i.i.i, i64 16
   %21 = load ptr, ptr %CurScope.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %availableValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14.i.i.i.i)
+  %call.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %availableValues_.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp14.i.i.i.i)
   %22 = getelementptr i8, ptr %21, i64 16
   %S.val.i.i.i.i.i.i = load ptr, ptr %22, align 8
   %23 = load ptr, ptr %call.i.i.i.i.i.i, align 8
@@ -1320,7 +1320,7 @@ entry:
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %2 = trunc i64 %or8.i.i to i32
+  %2 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %2, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i, align 8

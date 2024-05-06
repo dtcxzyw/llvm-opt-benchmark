@@ -22,7 +22,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_release_evnt
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_release_evntsel_nmi373, ptr @__UNIQUE_ID___addressable_release_perfctr_nmi371, ptr @__UNIQUE_ID___addressable_reserve_evntsel_nmi372, ptr @__UNIQUE_ID___addressable_reserve_perfctr_nmi370], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reserve_perfctr_nmi(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @reserve_perfctr_nmi(i32 noundef %0) #0 align 16 {
   %2 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   switch i8 %2, label %.thread [
     i8 9, label %3
@@ -173,7 +173,7 @@ define dso_local void @release_perfctr_nmi(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reserve_evntsel_nmi(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @reserve_evntsel_nmi(i32 noundef %0) #0 align 16 {
   %2 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   switch i8 %2, label %.thread [
     i8 9, label %3

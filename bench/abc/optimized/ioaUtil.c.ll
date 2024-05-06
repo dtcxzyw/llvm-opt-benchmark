@@ -48,10 +48,10 @@ define noundef ptr @Ioa_FileNameGeneric(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #12
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2

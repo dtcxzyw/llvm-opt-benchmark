@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Ivy_MultiPlus.pEvals = internal unnamed_addr global [128 x %struct.Ivy_Eva_t_] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val, 32

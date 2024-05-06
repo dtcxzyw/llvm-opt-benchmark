@@ -1567,7 +1567,7 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @trackpoint_show_int_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_int_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr i8, ptr %4, i64 %5

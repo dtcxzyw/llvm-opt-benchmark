@@ -16927,7 +16927,7 @@ define void @_ZNK6casadi8Function4foldExRKSt3mapINSt7__cxx1112basic_stringIcSt11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !150
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %13), !noalias !150
-  invoke void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExxRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Function") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExxRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Function") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %2, i64 noundef 1, ptr noundef nonnull readonly align 8 dereferenceable(48) %3)
           to label %_ZNK6casadi8Function8mapaccumExRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit unwind label %14
 
 common.resume:                                    ; preds = %82, %14
@@ -17178,7 +17178,7 @@ define void @_ZNK6casadi8Function8mapaccumExRKSt3mapINSt7__cxx1112basic_stringIc
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  invoke void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExxRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE(ptr dead_on_unwind writable sret(%"class.casadi::Function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExxRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE(ptr dead_on_unwind writable sret(%"class.casadi::Function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %2, i64 noundef 1, ptr noundef nonnull readonly align 8 dereferenceable(48) %3)
           to label %_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE.exit unwind label %7
 
 _ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEExRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SA_EEE.exit: ; preds = %4
@@ -45655,7 +45655,7 @@ define noundef i64 @_ZNK6casadi8Function7n_nodesEv(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi8Function8checkoutEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6casadi8Function8checkoutEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi8FunctionptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = tail call noundef i32 @_ZNK6casadi13ProtoFunction8checkoutEv(ptr noundef nonnull align 8 dereferenceable(168) %2)
   %4 = sext i32 %3 to i64

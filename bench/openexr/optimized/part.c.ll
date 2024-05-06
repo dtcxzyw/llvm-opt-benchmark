@@ -267,7 +267,7 @@ if.end50:                                         ; preds = %if.end40
   %16 = load ptr, ptr %name46, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
-  %conv47 = trunc i64 %call34 to i32
+  %conv47 = trunc nuw nsw i64 %call34 to i32
   %call48 = call i32 @exr_attr_string_create_with_length(ptr noundef nonnull %ctxt, ptr noundef %18, ptr noundef nonnull %spec.store.select, i32 noundef %conv47) #5
   %cmp51 = icmp eq i32 %call48, 0
   br i1 %cmp51, label %land.lhs.true53, label %if.else86

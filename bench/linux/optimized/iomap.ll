@@ -89,7 +89,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_iounmap:
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_ioport_map380, ptr @__UNIQUE_ID___addressable_ioport_unmap381, ptr @__UNIQUE_ID___addressable_ioread16357, ptr @__UNIQUE_ID___addressable_ioread16_rep375, ptr @__UNIQUE_ID___addressable_ioread16be358, ptr @__UNIQUE_ID___addressable_ioread32359, ptr @__UNIQUE_ID___addressable_ioread32_rep376, ptr @__UNIQUE_ID___addressable_ioread32be360, ptr @__UNIQUE_ID___addressable_ioread64_hi_lo362, ptr @__UNIQUE_ID___addressable_ioread64_lo_hi361, ptr @__UNIQUE_ID___addressable_ioread64be_hi_lo364, ptr @__UNIQUE_ID___addressable_ioread64be_lo_hi363, ptr @__UNIQUE_ID___addressable_ioread8356, ptr @__UNIQUE_ID___addressable_ioread8_rep374, ptr @__UNIQUE_ID___addressable_iowrite16366, ptr @__UNIQUE_ID___addressable_iowrite16_rep378, ptr @__UNIQUE_ID___addressable_iowrite16be367, ptr @__UNIQUE_ID___addressable_iowrite32368, ptr @__UNIQUE_ID___addressable_iowrite32_rep379, ptr @__UNIQUE_ID___addressable_iowrite32be369, ptr @__UNIQUE_ID___addressable_iowrite64_hi_lo371, ptr @__UNIQUE_ID___addressable_iowrite64_lo_hi370, ptr @__UNIQUE_ID___addressable_iowrite64be_hi_lo373, ptr @__UNIQUE_ID___addressable_iowrite64be_lo_hi372, ptr @__UNIQUE_ID___addressable_iowrite8365, ptr @__UNIQUE_ID___addressable_iowrite8_rep377, ptr @__UNIQUE_ID___addressable_pci_iounmap382], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ioread8(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 256) i32 @ioread8(ptr noundef %0) #0 align 16 {
   %2 = ptrtoint ptr %0 to i64
   %3 = icmp ugt ptr %0, inttoptr (i64 262143 to ptr)
   br i1 %3, label %4, label %6
@@ -130,7 +130,7 @@ define dso_local i32 @ioread8(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ioread16(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @ioread16(ptr noundef %0) #0 align 16 {
   %2 = ptrtoint ptr %0 to i64
   %3 = icmp ugt ptr %0, inttoptr (i64 262143 to ptr)
   br i1 %3, label %4, label %6
@@ -171,7 +171,7 @@ define dso_local i32 @ioread16(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ioread16be(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @ioread16be(ptr noundef %0) #0 align 16 {
   %2 = ptrtoint ptr %0 to i64
   %3 = icmp ugt ptr %0, inttoptr (i64 262143 to ptr)
   br i1 %3, label %4, label %7
@@ -710,7 +710,7 @@ define dso_local void @iowrite64_lo_hi(i64 noundef %0, ptr noundef %1) #0 align 
   %10 = trunc i64 %3 to i16
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %9, i16 %10) #4, !srcloc !22
   %11 = lshr i64 %0, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = add i16 %10, 4
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %12, i16 %13) #4, !srcloc !22
   br label %19
@@ -751,7 +751,7 @@ define dso_local void @iowrite64_hi_lo(i64 noundef %0, ptr noundef %1) #0 align 
 
 8:                                                ; preds = %6
   %9 = lshr i64 %0, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = trunc i64 %3 to i16
   %12 = add i16 %11, 4
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %10, i16 %12) #4, !srcloc !22
@@ -801,7 +801,7 @@ define dso_local void @iowrite64be_lo_hi(i64 noundef %0, ptr noundef %1) #0 alig
   %13 = add i16 %12, 4
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %11, i16 %13) #4, !srcloc !22
   %14 = lshr i64 %0, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = tail call i32 @llvm.bswap.i32(i32 %15)
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %16, i16 %12) #4, !srcloc !22
   br label %22
@@ -843,7 +843,7 @@ define dso_local void @iowrite64be_hi_lo(i64 noundef %0, ptr noundef %1) #0 alig
 
 9:                                                ; preds = %7
   %10 = lshr i64 %0, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
   %13 = trunc i64 %3 to i16
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %12, i16 %13) #4, !srcloc !22

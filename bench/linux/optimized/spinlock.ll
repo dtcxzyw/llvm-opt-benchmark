@@ -89,7 +89,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_in_lock_func
 @llvm.compiler.used = appending global [42 x ptr] [ptr @__UNIQUE_ID___addressable__raw_read_lock108, ptr @__UNIQUE_ID___addressable__raw_read_lock_bh111, ptr @__UNIQUE_ID___addressable__raw_read_lock_irq110, ptr @__UNIQUE_ID___addressable__raw_read_lock_irqsave109, ptr @__UNIQUE_ID___addressable__raw_read_trylock107, ptr @__UNIQUE_ID___addressable__raw_read_unlock112, ptr @__UNIQUE_ID___addressable__raw_read_unlock_bh115, ptr @__UNIQUE_ID___addressable__raw_read_unlock_irq114, ptr @__UNIQUE_ID___addressable__raw_read_unlock_irqrestore113, ptr @__UNIQUE_ID___addressable__raw_spin_lock99, ptr @__UNIQUE_ID___addressable__raw_spin_lock_bh102, ptr @__UNIQUE_ID___addressable__raw_spin_lock_irq101, ptr @__UNIQUE_ID___addressable__raw_spin_lock_irqsave100, ptr @__UNIQUE_ID___addressable__raw_spin_trylock97, ptr @__UNIQUE_ID___addressable__raw_spin_trylock_bh98, ptr @__UNIQUE_ID___addressable__raw_spin_unlock103, ptr @__UNIQUE_ID___addressable__raw_spin_unlock_bh106, ptr @__UNIQUE_ID___addressable__raw_spin_unlock_irq105, ptr @__UNIQUE_ID___addressable__raw_spin_unlock_irqrestore104, ptr @__UNIQUE_ID___addressable__raw_write_lock117, ptr @__UNIQUE_ID___addressable__raw_write_lock_bh121, ptr @__UNIQUE_ID___addressable__raw_write_lock_irq120, ptr @__UNIQUE_ID___addressable__raw_write_lock_irqsave119, ptr @__UNIQUE_ID___addressable__raw_write_lock_nested118, ptr @__UNIQUE_ID___addressable__raw_write_trylock116, ptr @__UNIQUE_ID___addressable__raw_write_unlock122, ptr @__UNIQUE_ID___addressable__raw_write_unlock_bh125, ptr @__UNIQUE_ID___addressable__raw_write_unlock_irq124, ptr @__UNIQUE_ID___addressable__raw_write_unlock_irqrestore123, ptr @__UNIQUE_ID___addressable_in_lock_functions126, ptr @__raw_read_trylock.__UNIQUE_ID___addressable___SCK__preempt_schedule56, ptr @__raw_read_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule59, ptr @__raw_read_unlock_irq.__UNIQUE_ID___addressable___SCK__preempt_schedule61, ptr @__raw_read_unlock_irqrestore.__UNIQUE_ID___addressable___SCK__preempt_schedule60, ptr @__raw_spin_trylock.__UNIQUE_ID___addressable___SCK__preempt_schedule52, ptr @__raw_spin_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule53, ptr @__raw_spin_unlock_irq.__UNIQUE_ID___addressable___SCK__preempt_schedule55, ptr @__raw_spin_unlock_irqrestore.__UNIQUE_ID___addressable___SCK__preempt_schedule54, ptr @__raw_write_trylock.__UNIQUE_ID___addressable___SCK__preempt_schedule57, ptr @__raw_write_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule58, ptr @__raw_write_unlock_irq.__UNIQUE_ID___addressable___SCK__preempt_schedule63, ptr @__raw_write_unlock_irqrestore.__UNIQUE_ID___addressable___SCK__preempt_schedule62], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @_raw_spin_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_raw_spin_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
   %2 = load volatile i32, ptr %0, align 4
@@ -124,7 +124,7 @@ define dso_local noundef i32 @_raw_spin_trylock(ptr noundef %0) #0 section ".spi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @_raw_spin_trylock_bh(ptr noundef %0) #0 section ".spinlock.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_raw_spin_trylock_bh(ptr noundef %0) #0 section ".spinlock.text" align 16 {
   %2 = tail call ptr @llvm.returnaddress(i32 0)
   %3 = ptrtoint ptr %2 to i64
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 513, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !13
@@ -322,7 +322,7 @@ define dso_local void @_raw_spin_unlock_bh(ptr noundef %0) #0 section ".spinlock
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @_raw_read_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_raw_read_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !30
   %2 = load volatile i32, ptr %0, align 4
@@ -515,7 +515,7 @@ define dso_local void @_raw_read_unlock_bh(ptr noundef %0) #0 section ".spinlock
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @_raw_write_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_raw_write_trylock(ptr noundef %0) #0 section ".spinlock.text" align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !44
   %2 = load volatile i32, ptr %0, align 4
@@ -736,7 +736,7 @@ define dso_local void @_raw_write_unlock_bh(ptr noundef %0) #0 section ".spinloc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @in_lock_functions(i64 noundef %0) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @in_lock_functions(i64 noundef %0) #1 align 16 {
   %2 = icmp uge i64 %0, ptrtoint (ptr @__lock_text_start to i64)
   %3 = icmp ult i64 %0, ptrtoint (ptr @__lock_text_end to i64)
   %4 = and i1 %2, %3

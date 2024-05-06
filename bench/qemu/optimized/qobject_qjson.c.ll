@@ -70,9 +70,9 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local ptr @qobject_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %ap_copy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy(ptr nonnull %ap_copy, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap_copy, ptr %ap)
   %call = call fastcc ptr @qobject_from_jsonv(ptr noundef %string, ptr noundef nonnull %ap_copy, ptr noundef nonnull @error_abort)
-  call void @llvm.va_end(ptr nonnull %ap_copy)
+  call void @llvm.va_end.p0(ptr nonnull %ap_copy)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %if.end
 
@@ -84,25 +84,19 @@ if.end:                                           ; preds = %entry
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qobject_from_jsonf_nofail(ptr noundef %string, ...) local_unnamed_addr #0 {
 entry:
   %ap_copy.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap_copy.i)
-  call void @llvm.va_copy(ptr nonnull %ap_copy.i, ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap_copy.i, ptr nonnull %ap)
   %call.i = call fastcc ptr @qobject_from_jsonv(ptr noundef %string, ptr noundef nonnull %ap_copy.i, ptr noundef nonnull @error_abort)
-  call void @llvm.va_end(ptr nonnull %ap_copy.i)
+  call void @llvm.va_end.p0(ptr nonnull %ap_copy.i)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.else.i, label %qobject_from_vjsonf_nofail.exit
 
@@ -112,21 +106,18 @@ if.else.i:                                        ; preds = %entry
 
 qobject_from_vjsonf_nofail.exit:                  ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap_copy.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdict_from_vjsonf_nofail(ptr noundef %string, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %ap_copy.i = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap_copy.i)
-  call void @llvm.va_copy(ptr nonnull %ap_copy.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap_copy.i, ptr %ap)
   %call.i = call fastcc ptr @qobject_from_jsonv(ptr noundef %string, ptr noundef nonnull %ap_copy.i, ptr noundef nonnull @error_abort)
-  call void @llvm.va_end(ptr nonnull %ap_copy.i)
+  call void @llvm.va_end.p0(ptr nonnull %ap_copy.i)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
@@ -162,11 +153,11 @@ define dso_local ptr @qdict_from_jsonf_nofail(ptr noundef %string, ...) local_un
 entry:
   %ap_copy.i.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap_copy.i.i)
-  call void @llvm.va_copy(ptr nonnull %ap_copy.i.i, ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap_copy.i.i, ptr nonnull %ap)
   %call.i.i = call fastcc ptr @qobject_from_jsonv(ptr noundef %string, ptr noundef nonnull %ap_copy.i.i, ptr noundef nonnull @error_abort)
-  call void @llvm.va_end(ptr nonnull %ap_copy.i.i)
+  call void @llvm.va_end.p0(ptr nonnull %ap_copy.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
@@ -194,7 +185,7 @@ if.else.i:                                        ; preds = %qobject_type.exit.i
   unreachable
 
 qdict_from_vjsonf_nofail.exit:                    ; preds = %qobject_type.exit.i.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
 
@@ -207,7 +198,7 @@ entry:
   ret ptr %call1
 }
 
-declare ptr @json_writer_new(i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @json_writer_new(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @to_json(ptr noundef %writer, ptr noundef %name, ptr noundef %obj) unnamed_addr #0 {
@@ -322,7 +313,7 @@ sw.epilog35:                                      ; preds = %sw.bb3, %sw.bb4, %s
   ret void
 }
 
-declare ptr @json_writer_get_and_free(ptr noundef) local_unnamed_addr #3
+declare ptr @json_writer_get_and_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qobject_to_json(ptr noundef %obj) local_unnamed_addr #0 {
@@ -334,9 +325,9 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-declare void @json_message_parser_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @json_message_parser_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @consume_json(ptr noundef %opaque, ptr noundef %json, ptr noundef %err) #0 {
@@ -398,29 +389,29 @@ if.end18:                                         ; preds = %if.end, %qobject_un
   br i1 %tobool20.not, label %if.end32, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  br i1 %tobool.not, label %qobject_unref_impl.exit23, label %lor.lhs.false.i15
+  br i1 %tobool.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
-lor.lhs.false.i15:                                ; preds = %if.then21
-  %refcnt.i16 = getelementptr inbounds i8, ptr %json, i64 8
-  %5 = load i64, ptr %refcnt.i16, align 8
-  %tobool1.not.i17 = icmp eq i64 %5, 0
-  br i1 %tobool1.not.i17, label %if.else.i22, label %land.lhs.true.i18
+lor.lhs.false.i16:                                ; preds = %if.then21
+  %refcnt.i17 = getelementptr inbounds i8, ptr %json, i64 8
+  %5 = load i64, ptr %refcnt.i17, align 8
+  %tobool1.not.i18 = icmp eq i64 %5, 0
+  br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19
 
-if.else.i22:                                      ; preds = %lor.lhs.false.i15
+if.else.i23:                                      ; preds = %lor.lhs.false.i16
   tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #9
   unreachable
 
-land.lhs.true.i18:                                ; preds = %lor.lhs.false.i15
-  %dec.i19 = add i64 %5, -1
-  store i64 %dec.i19, ptr %refcnt.i16, align 8
-  %cmp.i20 = icmp eq i64 %dec.i19, 0
-  br i1 %cmp.i20, label %if.then5.i21, label %qobject_unref_impl.exit23
+land.lhs.true.i19:                                ; preds = %lor.lhs.false.i16
+  %dec.i20 = add i64 %5, -1
+  store i64 %dec.i20, ptr %refcnt.i17, align 8
+  %cmp.i21 = icmp eq i64 %dec.i20, 0
+  br i1 %cmp.i21, label %if.then5.i22, label %qobject_unref_impl.exit24
 
-if.then5.i21:                                     ; preds = %land.lhs.true.i18
+if.then5.i22:                                     ; preds = %land.lhs.true.i19
   tail call void @qobject_destroy(ptr noundef nonnull %json) #7
-  br label %qobject_unref_impl.exit23
+  br label %qobject_unref_impl.exit24
 
-qobject_unref_impl.exit23:                        ; preds = %if.then21, %land.lhs.true.i18, %if.then5.i21
+qobject_unref_impl.exit24:                        ; preds = %if.then21, %land.lhs.true.i19, %if.then5.i22
   tail call void @error_free(ptr noundef %err) #7
   br label %return
 
@@ -429,61 +420,70 @@ if.end32:                                         ; preds = %if.end18
   store ptr %err, ptr %err19, align 8
   br label %return
 
-return:                                           ; preds = %if.end32, %qobject_unref_impl.exit23
+return:                                           ; preds = %if.end32, %qobject_unref_impl.exit24
   ret void
 }
 
-declare void @json_message_parser_feed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @json_message_parser_feed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
-declare void @json_message_parser_flush(ptr noundef) local_unnamed_addr #3
+declare void @json_message_parser_flush(ptr noundef) local_unnamed_addr #2
 
-declare void @json_message_parser_destroy(ptr noundef) local_unnamed_addr #3
+declare void @json_message_parser_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @error_free(ptr noundef) local_unnamed_addr #3
+declare void @error_free(ptr noundef) local_unnamed_addr #2
 
-declare void @qobject_destroy(ptr noundef) local_unnamed_addr #3
+declare void @qobject_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_null(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @json_writer_null(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_int64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @json_writer_int64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @json_writer_uint64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @json_writer_uint64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @json_writer_double(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #3
+declare void @json_writer_double(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+declare void @abort() local_unnamed_addr #1
 
-declare void @json_writer_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @json_writer_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #3
+declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_start_object(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @json_writer_start_object(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @qdict_first(ptr noundef) local_unnamed_addr #3
+declare ptr @qdict_first(ptr noundef) local_unnamed_addr #2
 
-declare ptr @qdict_entry_key(ptr noundef) local_unnamed_addr #3
+declare ptr @qdict_entry_key(ptr noundef) local_unnamed_addr #2
 
-declare ptr @qdict_entry_value(ptr noundef) local_unnamed_addr #3
+declare ptr @qdict_entry_value(ptr noundef) local_unnamed_addr #2
 
-declare ptr @qdict_next(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @qdict_next(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_end_object(ptr noundef) local_unnamed_addr #3
+declare void @json_writer_end_object(ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_start_array(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @json_writer_start_array(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_end_array(ptr noundef) local_unnamed_addr #3
+declare void @json_writer_end_array(ptr noundef) local_unnamed_addr #2
 
-declare void @json_writer_bool(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @json_writer_bool(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
@@ -492,11 +492,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

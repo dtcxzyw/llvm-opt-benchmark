@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.output_x11.13 = private unnamed_addr constant [3 x ptr] [ptr @str.2, ptr @str.1, ptr @str], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_x11(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -1305,7 +1305,7 @@ declare i32 @XCloseDisplay(ptr noundef) local_unnamed_addr #2
 declare void @destroy_colors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_png(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1418,7 +1418,7 @@ declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @cairo_surface_write_to_png_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @topo_cairo_write(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #9 {
+define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #9 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %4, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -1430,7 +1430,7 @@ define internal noundef i32 @topo_cairo_write(ptr nocapture noundef %0, ptr noca
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_pdf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1536,7 +1536,7 @@ declare ptr @cairo_pdf_surface_create_for_stream(ptr noundef, ptr noundef, doubl
 declare void @cairo_surface_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_ps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1640,7 +1640,7 @@ define hidden noundef i32 @output_ps(ptr noundef %0, ptr noundef %1) local_unnam
 declare ptr @cairo_ps_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_cairosvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8

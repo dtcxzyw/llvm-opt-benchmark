@@ -599,7 +599,7 @@ define dso_local void @FreeAccessStrategy(ptr noundef %0) local_unnamed_addr #1 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @IOContextForStrategy(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 4) i32 @IOContextForStrategy(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

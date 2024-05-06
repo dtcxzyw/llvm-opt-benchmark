@@ -251,7 +251,7 @@ define dso_local i32 @psched_server_init(ptr nocapture noundef readnone %0) loca
 13:                                               ; preds = %12, %9
   store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 1, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 1, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 1, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 1, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
@@ -280,7 +280,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
 23:                                               ; preds = %22, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i95 = icmp eq ptr %25, null
@@ -542,7 +542,7 @@ pmix_obj_run_constructors.exit99:                 ; preds = %.lr.ph.i96, %23
   %135 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %136, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %136, i8 0, i64 64, i1 false)
   %137 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %138 = load ptr, ptr %137, align 8
   %.not6.i100 = icmp eq ptr %138, null
@@ -677,20 +677,20 @@ declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr nocapture readnone %3, i64 %4, ptr nocapture readnone %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
-  %.026 = load ptr, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 1, i32 1), align 8
-  %.not27 = icmp eq ptr %.026, getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 1)
-  br i1 %.not27, label %.loopexit, label %.lr.ph
+  %.027 = load ptr, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 1, i32 1), align 8
+  %.not28 = icmp eq ptr %.027, getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 1)
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %46
-  %.028 = phi ptr [ %13, %46 ], [ %.026, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.028, i64 144
+  %.029 = phi ptr [ %13, %46 ], [ %.027, %9 ]
+  %10 = getelementptr inbounds i8, ptr %.029, i64 144
   %11 = tail call zeroext i1 @PMIx_Check_procid(ptr noundef nonnull %10, ptr noundef %2) #9
-  %12 = getelementptr inbounds i8, ptr %.028, i64 120
+  %12 = getelementptr inbounds i8, ptr %.029, i64 120
   %13 = load ptr, ptr %12, align 8
   br i1 %11, label %14, label %46
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.028, i64 128
+  %15 = getelementptr inbounds i8, ptr %.029, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 120
   store volatile ptr %13, ptr %17, align 8
@@ -700,7 +700,7 @@ define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr n
   %20 = load volatile i64, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 2), align 8
   %21 = add i64 %20, -1
   store volatile i64 %21, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 2, i32 2), align 8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef %.028) #9
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef %.029) #9
   %23 = icmp eq i32 %22, 35
   br i1 %23, label %24, label %26
 
@@ -712,16 +712,16 @@ define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr n
   unreachable
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %.028, i64 48
+  %27 = getelementptr inbounds i8, ptr %.029, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %27, align 8
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef %.028) #9
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef %.029) #9
   %31 = icmp eq i32 %29, 0
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %.028, i64 40
+  %33 = getelementptr inbounds i8, ptr %.029, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
@@ -732,25 +732,25 @@ define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr n
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %38 = phi ptr [ %40, %.lr.ph.i ], [ %37, %32 ]
   %.07.i = phi ptr [ %39, %.lr.ph.i ], [ %36, %32 ]
-  tail call void %38(ptr noundef %.028) #9
+  tail call void %38(ptr noundef %.029) #9
   %39 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
-  %41 = getelementptr inbounds i8, ptr %.028, i64 96
+  %41 = getelementptr inbounds i8, ptr %.029, i64 96
   %42 = load ptr, ptr %41, align 8
   %.not23 = icmp eq ptr %42, null
   br i1 %.not23, label %45, label %43
 
 43:                                               ; preds = %pmix_obj_run_destructors.exit
-  %44 = getelementptr inbounds i8, ptr %.028, i64 56
-  tail call void %42(ptr noundef nonnull %44, ptr noundef nonnull %.028) #9
+  %44 = getelementptr inbounds i8, ptr %.029, i64 56
+  tail call void %42(ptr noundef nonnull %44, ptr noundef nonnull %.029) #9
   br label %.loopexit
 
 45:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.028) #9
+  tail call void @free(ptr noundef nonnull %.029) #9
   br label %.loopexit
 
 46:                                               ; preds = %.lr.ph

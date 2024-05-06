@@ -602,7 +602,7 @@ define hidden void @zend_clean_module_rsrc_dtors(i32 noundef %0) local_unnamed_a
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_clean_module_rsrc_dtors_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @zend_clean_module_rsrc_dtors_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -839,7 +839,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @clean_module_resource(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 0, 2) i32 @clean_module_resource(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load i32, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

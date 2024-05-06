@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_dh_init(ptr nocapture noundef writeonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_dh_init(ptr nocapture noundef writeonly %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 58) #6
   %cmp = icmp eq ptr %call, null
@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_dh_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_dh_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 58) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -388,7 +388,7 @@ return:                                           ; preds = %land.lhs.true15, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dh_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_dh_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -649,7 +649,7 @@ if.end38:                                         ; preds = %sw.bb35
   br i1 %or.cond2, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end38
-  %conv45 = trunc i32 %p1 to i8
+  %conv45 = trunc nuw i32 %p1 to i8
   %kdf_type46 = getelementptr inbounds i8, ptr %0, i64 44
   store i8 %conv45, ptr %kdf_type46, align 4
   br label %return

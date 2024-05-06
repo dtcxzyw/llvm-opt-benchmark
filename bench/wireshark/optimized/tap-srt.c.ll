@@ -305,12 +305,12 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
   %62 = udiv i64 %44, 1000000000
   %63 = trunc i64 %62 to i32
   %64 = urem i64 %45, 1000000
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %66 = udiv i64 %40, 1000000000
   %67 = trunc i64 %66 to i32
   %68 = urem i64 %41, 1000000
-  %69 = trunc i64 %68 to i32
-  %70 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw nsw i64 %68 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %70, ptr noundef %47, i32 noundef %30, i32 noundef %50, i32 noundef %54, i32 noundef %57, i32 noundef %61, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %69)
   %.pre51 = load i32, ptr %4, align 8
   br label %72

@@ -161,7 +161,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %sw.e
   %8 = or disjoint i64 %7, %5
   %retval.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %8)
   %head.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i, 32
-  %head.sroa.2.0.extract.trunc = trunc i64 %head.sroa.2.0.extract.shift to i32
+  %head.sroa.2.0.extract.trunc = trunc nuw i64 %head.sroa.2.0.extract.shift to i32
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr313, i64 %head.sroa.2.0.extract.shift
   %cmp8 = icmp ugt ptr %add.ptr7, %add.ptr
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -3213,7 +3213,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt7__cxx114listIN6Assimp3LWO6ShaderESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit
-  %__first.sroa.0.07 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %5, %_ZNSt7__cxx114listIN6Assimp3LWO6ShaderESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit ]
+  %__first.sroa.0.07 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %4, %_ZNSt7__cxx114listIN6Assimp3LWO6ShaderESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07, i64 16
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
@@ -3246,14 +3246,14 @@ _ZNSt7__cxx114listIN6Assimp3LWO6ShaderESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_
   %enabled.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 80
   %enabled4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07, i64 80
   %2 = load i8, ptr %enabled4.i.i.i.i.i.i, align 8
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %enabled.i.i.i.i.i.i, align 8
+  %frombool.i.i.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i.i.i, ptr %enabled.i.i.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %this) #15
-  %4 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %4, 1
+  %3 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %3, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %5 = load ptr, ptr %__first.sroa.0.07, align 8
-  %cmp.i.not = icmp eq ptr %5, %__last.coerce
+  %4 = load ptr, ptr %__first.sroa.0.07, align 8
+  %cmp.i.not = icmp eq ptr %4, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %_ZNSt7__cxx114listIN6Assimp3LWO6ShaderESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit, %entry

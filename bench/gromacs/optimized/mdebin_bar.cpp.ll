@@ -2127,8 +2127,8 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv
   %44 = load double, ptr %43, align 8
   %45 = load ptr, ptr %16, align 8
-  %46 = getelementptr double, ptr %45, i64 %indvars.iv
-  %47 = getelementptr i8, ptr %46, i64 40
+  %46 = getelementptr inbounds double, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds i8, ptr %46, i64 40
   store double %44, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %37, align 8
@@ -2175,8 +2175,8 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %74 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv76
   %75 = load i32, ptr %74, align 4
   %76 = load ptr, ptr %67, align 8
-  %77 = getelementptr i32, ptr %76, i64 %indvars.iv76
-  %78 = getelementptr i8, ptr %77, i64 8
+  %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv76
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
   store i32 %75, ptr %78, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %79 = load i32, ptr %51, align 8
@@ -2571,8 +2571,8 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   %284 = getelementptr inbounds double, ptr %283, i64 %indvars.iv150.i
   %285 = load double, ptr %284, align 8
   %286 = load ptr, ptr %277, align 8
-  %287 = getelementptr double, ptr %286, i64 %indvars.iv150.i
-  %288 = getelementptr i8, ptr %287, i64 16
+  %287 = getelementptr inbounds double, ptr %286, i64 %indvars.iv150.i
+  %288 = getelementptr inbounds i8, ptr %287, i64 16
   store double %285, ptr %288, align 8
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %289 = load i32, ptr %267, align 8

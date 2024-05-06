@@ -34,7 +34,7 @@ declare i32 @pthread_rwlock_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_read_lock(ptr noundef %lock) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_read_lock(ptr noundef %lock) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_rwlock_rdlock(ptr noundef %lock) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -46,7 +46,7 @@ entry:
 declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_write_lock(ptr noundef %lock) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_write_lock(ptr noundef %lock) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_rwlock_wrlock(ptr noundef %lock) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -58,7 +58,7 @@ entry:
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_unlock(ptr noundef %lock) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_unlock(ptr noundef %lock) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_rwlock_unlock(ptr noundef %lock) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @pthread_rwlock_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_run_once(ptr noundef %once, ptr noundef %init) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_run_once(ptr noundef %once, ptr noundef %init) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_once(ptr noundef %once, ptr noundef %init) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -99,7 +99,7 @@ entry:
 declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_init_local(ptr noundef %key, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_init_local(ptr noundef %key, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_key_create(ptr noundef %key, ptr noundef %cleanup) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -122,7 +122,7 @@ entry:
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_set_local(ptr nocapture noundef readonly %key, ptr noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_set_local(ptr nocapture noundef readonly %key, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %call = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %val) #7
@@ -135,7 +135,7 @@ entry:
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_THREAD_cleanup_local(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_THREAD_cleanup_local(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %call = tail call i32 @pthread_key_delete(i32 noundef %0) #7
@@ -168,7 +168,7 @@ entry:
 declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @CRYPTO_atomic_add(ptr nocapture noundef %val, i32 noundef %amount, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
+define noundef i32 @CRYPTO_atomic_add(ptr nocapture noundef %val, i32 noundef %amount, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
 entry:
   %0 = atomicrmw add ptr %val, i32 %amount acq_rel, align 4
   %1 = add i32 %0, %amount
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @CRYPTO_atomic_or(ptr nocapture noundef %val, i64 noundef %op, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
+define noundef i32 @CRYPTO_atomic_or(ptr nocapture noundef %val, i64 noundef %op, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
 entry:
   %0 = atomicrmw or ptr %val, i64 %op acq_rel, align 8
   %1 = or i64 %0, %op
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @CRYPTO_atomic_load(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
+define noundef i32 @CRYPTO_atomic_load(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
 entry:
   %0 = load atomic i64, ptr %val acquire, align 8
   store i64 %0, ptr %ret, align 8
@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @CRYPTO_atomic_load_int(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
+define noundef i32 @CRYPTO_atomic_load_int(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %ret, ptr nocapture noundef readnone %lock) local_unnamed_addr #5 {
 entry:
   %0 = load atomic i32, ptr %val acquire, align 4
   store i32 %0, ptr %ret, align 4
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @openssl_init_fork_handlers() local_unnamed_addr #6 {
+define noundef i32 @openssl_init_fork_handlers() local_unnamed_addr #6 {
 entry:
   ret i32 1
 }

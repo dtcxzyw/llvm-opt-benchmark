@@ -27,7 +27,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not45, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = trunc i32 %1 to i16
+  %14 = trunc nuw nsw i32 %1 to i16
   %15 = getelementptr inbounds i8, ptr %0, i64 28
   store i16 %14, ptr %15, align 4
   %16 = tail call ptr @_nc_First_Active_Field(ptr noundef nonnull %0) #4
@@ -139,7 +139,7 @@ declare i32 @_nc_Set_Form_Page(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @_nc_Refresh_Current_Field(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @form_page(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 -32768, 32768) i32 @form_page(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

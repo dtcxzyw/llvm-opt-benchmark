@@ -834,7 +834,7 @@ declare void @PyExpat_XML_SetUserData(ptr noundef, ptr noundef) #1
 declare void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PyUnknownEncodingHandler(ptr nocapture readnone %encodingHandlerData, ptr noundef %name, ptr nocapture noundef writeonly %info) #0 {
+define internal range(i32 0, 2) i32 @PyUnknownEncodingHandler(ptr nocapture readnone %encodingHandlerData, ptr noundef %name, ptr nocapture noundef writeonly %info) #0 {
 entry:
   %call = tail call ptr @PyErr_Occurred() #8
   %tobool.not = icmp eq ptr %call, null
@@ -1004,7 +1004,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.end70, label %if.end6
@@ -1028,7 +1028,7 @@ while.cond:                                       ; preds = %if.end6, %while.con
   %6 = load ptr, ptr %arrayidx, align 8
   %cmp10.not = icmp eq ptr %6, null
   %add = add i32 %max.0, 2
-  br i1 %cmp10.not, label %if.end11, label %while.cond, !llvm.loop !9
+  br i1 %cmp10.not, label %if.end11, label %while.cond, !llvm.loop !8
 
 if.end11:                                         ; preds = %while.cond, %if.then8
   %max.1 = phi i32 [ %call9, %if.then8 ], [ %max.0, %while.cond ]
@@ -1390,7 +1390,7 @@ if.then1.i95:                                     ; preds = %if.end.i92
 for.inc:                                          ; preds = %if.then41, %if.end.i92, %if.then1.i95, %Py_DECREF.exit106
   %add52 = add i32 %i.0138, 2
   %cmp22 = icmp slt i32 %add52, %max.1
-  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call53 = tail call fastcc ptr @string_intern(ptr noundef nonnull %userData, ptr noundef %name)
@@ -1498,7 +1498,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -1704,7 +1704,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -1896,7 +1896,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef %data, i32 noundef %len), !range !8
+  %call2 = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef %data, i32 noundef %len)
   br label %if.end25
 
 if.else:                                          ; preds = %if.end
@@ -1913,7 +1913,7 @@ lor.lhs.false.i:                                  ; preds = %if.else
   br i1 %cmp1.i, label %if.end8, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %0, i32 noundef %1), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %0, i32 noundef %1)
   store i32 0, ptr %buffer_used, align 4
   %cmp6 = icmp slt i32 %call.i, 0
   br i1 %cmp6, label %if.end25, label %if.end8
@@ -1937,7 +1937,7 @@ if.end13:                                         ; preds = %if.end8.if.end13_cr
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.end13
-  %call17 = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef %data, i32 noundef %len), !range !8
+  %call17 = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef %data, i32 noundef %len)
   store i32 0, ptr %buffer_used, align 4
   br label %if.end25
 
@@ -1986,7 +1986,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -2196,7 +2196,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -2405,7 +2405,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -2612,7 +2612,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -2818,7 +2818,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -3023,7 +3023,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -3228,7 +3228,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -3433,7 +3433,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -3648,7 +3648,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -3863,7 +3863,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -4072,7 +4072,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %4), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %4)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -4283,7 +4283,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -4491,7 +4491,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -4696,7 +4696,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -4916,7 +4916,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -5121,7 +5121,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %Py_XDECREF.exit, label %if.end6
@@ -5411,7 +5411,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -5618,7 +5618,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.end6, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %userData, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
@@ -5951,7 +5951,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @call_character_handler(ptr nocapture noundef %self, ptr noundef %buffer, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_character_handler(ptr nocapture noundef %self, ptr noundef %buffer, i32 noundef %len) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 64
   %self.val = load ptr, ptr %0, align 8
@@ -6048,22 +6048,22 @@ flag_error.exit:                                  ; preds = %do.end.us.i.i, %Py_
   br label %return
 
 if.end7:                                          ; preds = %if.end3, %conv_string_len_to_unicode.exit
-  %retval.0.i56 = phi ptr [ %call.i, %conv_string_len_to_unicode.exit ], [ @_Py_NoneStruct, %if.end3 ]
+  %retval.0.i58 = phi ptr [ %call.i, %conv_string_len_to_unicode.exit ], [ @_Py_NoneStruct, %if.end3 ]
   %ob_item.i = getelementptr inbounds i8, ptr %call1, i64 24
-  store ptr %retval.0.i56, ptr %ob_item.i, align 8
+  store ptr %retval.0.i58, ptr %ob_item.i, align 8
   %in_callback = getelementptr inbounds i8, ptr %self, i64 32
   store i32 1, ptr %in_callback, align 8
   %14 = load ptr, ptr %0, align 8
   %arrayidx = getelementptr i8, ptr %14, i64 24
   %15 = load ptr, ptr %arrayidx, align 8
-  %call.i26 = tail call ptr @PyObject_Call(ptr noundef %15, ptr noundef nonnull %call1, ptr noundef null) #8
-  %cmp.i27 = icmp eq ptr %call.i26, null
-  br i1 %cmp.i27, label %if.then.i, label %call_with_frame.exit
+  %call.i27 = tail call ptr @PyObject_Call(ptr noundef %15, ptr noundef nonnull %call1, ptr noundef null) #8
+  %cmp.i29 = icmp eq ptr %call.i27, null
+  br i1 %cmp.i29, label %if.then.i, label %call_with_frame.exit
 
 if.then.i:                                        ; preds = %if.end7
   tail call void @_PyTraceback_Add(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.42, i32 noundef 279) #8
-  %itself.i29 = getelementptr inbounds i8, ptr %self, i64 16
-  %16 = load ptr, ptr %itself.i29, align 8
+  %itself.i31 = getelementptr inbounds i8, ptr %self, i64 16
+  %16 = load ptr, ptr %itself.i31, align 8
   %call1.i = tail call i32 @PyExpat_XML_StopParser(ptr noundef %16, i8 noundef zeroext 0) #8
   br label %call_with_frame.exit
 
@@ -6085,82 +6085,82 @@ if.then1.i20:                                     ; preds = %if.end.i17
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %call_with_frame.exit, %if.then1.i20, %if.end.i17
-  br i1 %cmp.i27, label %if.then11, label %if.end13
+  br i1 %cmp.i29, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %Py_DECREF.exit22
   %19 = load ptr, ptr @handler_info, align 16
-  %cmp.not11.i.i30 = icmp eq ptr %19, null
-  br i1 %cmp.not11.i.i30, label %flag_error.exit53, label %for.body.lr.ph.i.i31
+  %cmp.not11.i.i32 = icmp eq ptr %19, null
+  br i1 %cmp.not11.i.i32, label %flag_error.exit55, label %for.body.lr.ph.i.i33
 
-for.body.lr.ph.i.i31:                             ; preds = %if.then11
-  %itself.i.i33 = getelementptr inbounds i8, ptr %self, i64 16
-  br label %for.body.us.i.i34
+for.body.lr.ph.i.i33:                             ; preds = %if.then11
+  %itself.i.i35 = getelementptr inbounds i8, ptr %self, i64 16
+  br label %for.body.us.i.i36
 
-for.body.us.i.i34:                                ; preds = %do.end.us.i.i42, %for.body.lr.ph.i.i31
-  %arrayidx14.us.i.i35 = phi ptr [ %arrayidx.us.i.i46, %do.end.us.i.i42 ], [ @handler_info, %for.body.lr.ph.i.i31 ]
-  %idxprom13.us.i.i36 = phi i64 [ %idxprom.us.i.i45, %do.end.us.i.i42 ], [ 0, %for.body.lr.ph.i.i31 ]
-  %i.012.us.i.i37 = phi i32 [ %inc.us.i.i44, %do.end.us.i.i42 ], [ 0, %for.body.lr.ph.i.i31 ]
+for.body.us.i.i36:                                ; preds = %do.end.us.i.i44, %for.body.lr.ph.i.i33
+  %arrayidx14.us.i.i37 = phi ptr [ %arrayidx.us.i.i48, %do.end.us.i.i44 ], [ @handler_info, %for.body.lr.ph.i.i33 ]
+  %idxprom13.us.i.i38 = phi i64 [ %idxprom.us.i.i47, %do.end.us.i.i44 ], [ 0, %for.body.lr.ph.i.i33 ]
+  %i.012.us.i.i39 = phi i32 [ %inc.us.i.i46, %do.end.us.i.i44 ], [ 0, %for.body.lr.ph.i.i33 ]
   %20 = load ptr, ptr %0, align 8
-  %arrayidx5.us.i.i38 = getelementptr ptr, ptr %20, i64 %idxprom13.us.i.i36
-  %21 = load ptr, ptr %arrayidx5.us.i.i38, align 8
-  %cmp6.not.us.i.i39 = icmp eq ptr %21, null
-  br i1 %cmp6.not.us.i.i39, label %do.end.us.i.i42, label %if.then7.us.i.i40
+  %arrayidx5.us.i.i40 = getelementptr ptr, ptr %20, i64 %idxprom13.us.i.i38
+  %21 = load ptr, ptr %arrayidx5.us.i.i40, align 8
+  %cmp6.not.us.i.i41 = icmp eq ptr %21, null
+  br i1 %cmp6.not.us.i.i41, label %do.end.us.i.i44, label %if.then7.us.i.i42
 
-if.then7.us.i.i40:                                ; preds = %for.body.us.i.i34
-  store ptr null, ptr %arrayidx5.us.i.i38, align 8
+if.then7.us.i.i42:                                ; preds = %for.body.us.i.i36
+  store ptr null, ptr %arrayidx5.us.i.i40, align 8
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2147483648
-  %cmp.i12.not.us.i.i41 = icmp eq i64 %23, 0
-  br i1 %cmp.i12.not.us.i.i41, label %if.end.i.us.i.i49, label %do.end.us.i.i42
+  %cmp.i12.not.us.i.i43 = icmp eq i64 %23, 0
+  br i1 %cmp.i12.not.us.i.i43, label %if.end.i.us.i.i51, label %do.end.us.i.i44
 
-if.end.i.us.i.i49:                                ; preds = %if.then7.us.i.i40
-  %dec.i.us.i.i50 = add i64 %22, -1
-  store i64 %dec.i.us.i.i50, ptr %21, align 8
-  %cmp.i.us.i.i51 = icmp eq i64 %dec.i.us.i.i50, 0
-  br i1 %cmp.i.us.i.i51, label %if.then1.i.us.i.i52, label %do.end.us.i.i42
+if.end.i.us.i.i51:                                ; preds = %if.then7.us.i.i42
+  %dec.i.us.i.i52 = add i64 %22, -1
+  store i64 %dec.i.us.i.i52, ptr %21, align 8
+  %cmp.i.us.i.i53 = icmp eq i64 %dec.i.us.i.i52, 0
+  br i1 %cmp.i.us.i.i53, label %if.then1.i.us.i.i54, label %do.end.us.i.i44
 
-if.then1.i.us.i.i52:                              ; preds = %if.end.i.us.i.i49
+if.then1.i.us.i.i54:                              ; preds = %if.end.i.us.i.i51
   tail call void @_Py_Dealloc(ptr noundef nonnull %21) #8
-  br label %do.end.us.i.i42
+  br label %do.end.us.i.i44
 
-do.end.us.i.i42:                                  ; preds = %if.then1.i.us.i.i52, %if.end.i.us.i.i49, %if.then7.us.i.i40, %for.body.us.i.i34
-  %setter.us.i.i43 = getelementptr inbounds i8, ptr %arrayidx14.us.i.i35, i64 8
-  %24 = load ptr, ptr %setter.us.i.i43, align 8
-  %25 = load ptr, ptr %itself.i.i33, align 8
+do.end.us.i.i44:                                  ; preds = %if.then1.i.us.i.i54, %if.end.i.us.i.i51, %if.then7.us.i.i42, %for.body.us.i.i36
+  %setter.us.i.i45 = getelementptr inbounds i8, ptr %arrayidx14.us.i.i37, i64 8
+  %24 = load ptr, ptr %setter.us.i.i45, align 8
+  %25 = load ptr, ptr %itself.i.i35, align 8
   tail call void %24(ptr noundef %25, ptr noundef null) #8
-  %inc.us.i.i44 = add i32 %i.012.us.i.i37, 1
-  %idxprom.us.i.i45 = sext i32 %inc.us.i.i44 to i64
-  %arrayidx.us.i.i46 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom.us.i.i45
-  %26 = load ptr, ptr %arrayidx.us.i.i46, align 16
-  %cmp.not.us.i.i47 = icmp eq ptr %26, null
-  br i1 %cmp.not.us.i.i47, label %flag_error.exit53, label %for.body.us.i.i34, !llvm.loop !6
+  %inc.us.i.i46 = add i32 %i.012.us.i.i39, 1
+  %idxprom.us.i.i47 = sext i32 %inc.us.i.i46 to i64
+  %arrayidx.us.i.i48 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom.us.i.i47
+  %26 = load ptr, ptr %arrayidx.us.i.i48, align 16
+  %cmp.not.us.i.i49 = icmp eq ptr %26, null
+  br i1 %cmp.not.us.i.i49, label %flag_error.exit55, label %for.body.us.i.i36, !llvm.loop !6
 
-flag_error.exit53:                                ; preds = %do.end.us.i.i42, %if.then11
-  %itself.i48 = getelementptr inbounds i8, ptr %self, i64 16
-  %27 = load ptr, ptr %itself.i48, align 8
+flag_error.exit55:                                ; preds = %do.end.us.i.i44, %if.then11
+  %itself.i50 = getelementptr inbounds i8, ptr %self, i64 16
+  %27 = load ptr, ptr %itself.i50, align 8
   tail call void @PyExpat_XML_SetExternalEntityRefHandler(ptr noundef %27, ptr noundef nonnull @error_external_entity_ref_handler) #8
-  %28 = load ptr, ptr %itself.i48, align 8
+  %28 = load ptr, ptr %itself.i50, align 8
   tail call void @PyExpat_XML_SetCharacterDataHandler(ptr noundef %28, ptr noundef nonnull @noop_character_data_handler) #8
   br label %return
 
 if.end13:                                         ; preds = %Py_DECREF.exit22
-  %29 = load i64, ptr %call.i26, align 8
+  %29 = load i64, ptr %call.i27, align 8
   %30 = and i64 %29, 2147483648
   %cmp.i40.not = icmp eq i64 %30, 0
   br i1 %cmp.i40.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end13
   %dec.i = add i64 %29, -1
-  store i64 %dec.i, ptr %call.i26, align 8
+  store i64 %dec.i, ptr %call.i27, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i26) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i27) #8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then1.i, %if.end13, %if.end, %entry, %flag_error.exit53, %flag_error.exit
-  %retval.0 = phi i32 [ -1, %flag_error.exit ], [ -1, %flag_error.exit53 ], [ -1, %entry ], [ -1, %if.end ], [ 0, %if.end13 ], [ 0, %if.then1.i ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.then1.i, %if.end13, %if.end, %entry, %flag_error.exit55, %flag_error.exit
+  %retval.0 = phi i32 [ -1, %flag_error.exit ], [ -1, %flag_error.exit55 ], [ -1, %entry ], [ -1, %if.end ], [ 0, %if.end13 ], [ 0, %if.then1.i ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -6244,7 +6244,7 @@ if.end:                                           ; preds = %for.body
   %5 = load i32, ptr %numchildren, align 8
   %6 = sext i32 %5 to i64
   %cmp3 = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %if.end, %for.cond.preheader
   %7 = load i32, ptr %model, align 8
@@ -6267,7 +6267,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @PyExpat_XML_ErrorString(i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pyexpat_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @pyexpat_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #8
   %call1 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.76) #8
@@ -6349,7 +6349,7 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
   %arrayidx.i = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i, label %if.end11, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.end11, label %for.body.i, !llvm.loop !11
 
 if.end11:                                         ; preds = %for.inc.i, %if.end7
   %call12 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.77, ptr noundef null, ptr noundef null) #8
@@ -6399,12 +6399,12 @@ if.end42:                                         ; preds = %if.end36
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end42
-  %call47 = tail call fastcc i32 @add_errors_module(ptr noundef %mod), !range !8
+  %call47 = tail call fastcc i32 @add_errors_module(ptr noundef %mod)
   %cmp48 = icmp slt i32 %call47, 0
   br i1 %cmp48, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.end46
-  %call51 = tail call fastcc i32 @add_model_module(ptr noundef %mod), !range !8
+  %call51 = tail call fastcc i32 @add_model_module(ptr noundef %mod)
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %return, label %if.end54
 
@@ -6514,7 +6514,7 @@ declare { i64, i32 } @PyExpat_XML_ExpatVersionInfo() local_unnamed_addr #1
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_errors_module(ptr noundef %mod) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_errors_module(ptr noundef %mod) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @add_submodule(ptr noundef %mod, ptr noundef nonnull @.str.132)
   %cmp = icmp eq ptr %call, null
@@ -6633,7 +6633,7 @@ add_error.exit:                                   ; preds = %Py_DECREF.exit38.i,
 for.inc:                                          ; preds = %add_error.exit, %for.body
   %inc = add nuw nsw i64 %error_index.037, 1
   %exitcond.not = icmp eq i64 %inc, 44
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   %call17 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %call, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134) #8
@@ -6711,7 +6711,7 @@ return:                                           ; preds = %if.then1.i.i32, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_model_module(ptr noundef %mod) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_model_module(ptr noundef %mod) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @add_submodule(ptr noundef %mod, ptr noundef nonnull @.str.223)
   %cmp = icmp eq ptr %call, null
@@ -6795,7 +6795,7 @@ for.cond:                                         ; preds = %Py_DECREF.exit22
   %arrayidx = getelementptr %struct.XML_Feature, ptr %call1, i64 %inc
   %1 = load i32, ptr %arrayidx, align 8
   %cmp2.not = icmp eq i32 %1, 0
-  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.016 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -7057,7 +7057,7 @@ for.inc:                                          ; preds = %if.then, %do.body
   %arrayidx = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 16
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %do.body9, label %do.body, !llvm.loop !15
+  br i1 %cmp.not, label %do.body9, label %do.body, !llvm.loop !14
 
 do.body9:                                         ; preds = %for.inc, %entry
   %4 = getelementptr i8, ptr %op, i64 8
@@ -7253,7 +7253,7 @@ if.end17.i:                                       ; preds = %while.body.i
   %sub.i = add i64 %11, -1048576
   store i64 %sub.i, ptr %slen.i, align 8
   %cmp12.i = icmp sgt i64 %sub.i, 1048576
-  br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !16
+  br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %if.end17.i, %if.end11.i
   %.lcssa.i = phi i64 [ %.pr.i, %if.end11.i ], [ %sub.i, %if.end17.i ]
@@ -7288,7 +7288,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %14 = load ptr, ptr %itself.i.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %14) #8
   %self.val.i.i = load ptr, ptr %itself.i.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_Parse_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -7304,7 +7304,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end4.i.i
   br i1 %cmp1.i.i.i, label %if.end8.i.i, label %flush_character_buffer.exit.i.i
 
 flush_character_buffer.exit.i.i:                  ; preds = %lor.lhs.false.i.i.i
-  %call.i.i.i = call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %15, i32 noundef %16), !range !8
+  %call.i.i.i = call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %15, i32 noundef %16)
   store i32 0, ptr %buffer_used.i.i.i, align 4
   %cmp6.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp6.i.i, label %pyexpat_xmlparser_Parse_impl.exit, label %if.end8.i.i
@@ -7404,7 +7404,7 @@ if.end.i14.i:                                     ; preds = %Py_XDECREF.exit.i
   %9 = load ptr, ptr %itself.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %9) #8
   %self.val.i.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end9.i:                                        ; preds = %for.cond.i
@@ -7470,7 +7470,7 @@ if.then17.i.i:                                    ; preds = %if.end13.i.i
 if.end19.i.i:                                     ; preds = %if.end13.i.i, %if.then7.i.i
   %ptr.029.i.i = phi ptr [ %ptr.0.i.i, %if.end13.i.i ], [ @_PyByteArray_empty_string, %if.then7.i.i ]
   %call.val1828.i.i = phi i64 [ %call.val18.i.i, %if.end13.i.i ], [ 0, %if.then7.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i, ptr align 1 %ptr.029.i.i, i64 %call.val1828.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call5.i, ptr align 1 %ptr.029.i.i, i64 %call.val1828.i.i, i1 false)
   %19 = load i64, ptr %call.i16.i, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i22.not.i.i = icmp eq i64 %20, 0
@@ -7592,7 +7592,7 @@ if.then1.i48.i:                                   ; preds = %if.end.i45.i
   %33 = load ptr, ptr %itself.i, align 8
   %call2.i50.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %33) #8
   %self.val.i51.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i45.i
@@ -7608,7 +7608,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end4.i.i
   br i1 %cmp1.i.i.i, label %if.end8.i.i, label %flush_character_buffer.exit.i.i
 
 flush_character_buffer.exit.i.i:                  ; preds = %lor.lhs.false.i.i.i
-  %call.i.i.i = call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %34, i32 noundef %35), !range !8
+  %call.i.i.i = call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %34, i32 noundef %35)
   store i32 0, ptr %buffer_used.i.i.i, align 4
   %cmp6.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp6.i.i, label %pyexpat_xmlparser_ParseFile_impl.exit, label %if.end8.i.i
@@ -7946,7 +7946,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   %29 = load ptr, ptr %arrayidx.i, align 16
   %cmp28.not.i = icmp eq ptr %29, null
   %inc.i = add i32 %i.0.i, 1
-  br i1 %cmp28.not.i, label %for.end.i, label %for.cond.i, !llvm.loop !17
+  br i1 %cmp28.not.i, label %for.end.i, label %for.cond.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.cond.i
   %cmp31.i = icmp slt i32 %i.0.i, 0
@@ -8048,7 +8048,7 @@ for.inc65.i:                                      ; preds = %_Py_NewRef.exit.i, 
   %arrayidx43.i = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom42.i
   %43 = load ptr, ptr %arrayidx43.i, align 16
   %cmp45.not.i = icmp eq ptr %43, null
-  br i1 %cmp45.not.i, label %for.end67.i, label %for.body47.i, !llvm.loop !18
+  br i1 %cmp45.not.i, label %for.end67.i, label %for.body47.i, !llvm.loop !17
 
 for.end67.i:                                      ; preds = %for.inc65.i, %clear_handlers.exit.i, %if.end40.i
   call void @PyObject_GC_Track(ptr noundef %call1.i) #8
@@ -8443,7 +8443,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_buffer_size_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_buffer_size_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8511,7 +8511,7 @@ if.then23:                                        ; preds = %if.end20
   br i1 %cmp24.not, label %if.end32, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %if.then23
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %8, i32 noundef %9), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %8, i32 noundef %9)
   store i32 0, ptr %buffer_used, align 4
   %cmp28 = icmp slt i32 %call.i, 0
   br i1 %cmp28, label %return, label %flush_character_buffer.exit.if.end32_crit_edge
@@ -8557,7 +8557,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_buffer_text_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_buffer_text_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8610,7 +8610,7 @@ lor.lhs.false.i:                                  ; preds = %if.else
   br i1 %cmp1.i, label %if.end24, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %1, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %1, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp21 = icmp slt i32 %call.i, 0
   br i1 %cmp21, label %return, label %flush_character_buffer.exit.if.end24_crit_edge
@@ -8651,7 +8651,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_namespace_prefixes_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_namespace_prefixes_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8690,7 +8690,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_ordered_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_ordered_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8726,7 +8726,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_specified_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_specified_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8784,7 +8784,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_handler_setter(ptr nocapture noundef %self, ptr noundef %v, ptr noundef %hi) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_handler_setter(ptr nocapture noundef %self, ptr noundef %v, ptr noundef %hi) #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %hi to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @handler_info to i64)
@@ -8814,7 +8814,7 @@ lor.lhs.false.i:                                  ; preds = %if.then4
   br i1 %cmp1.i, label %if.end9, label %flush_character_buffer.exit
 
 flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %2, i32 noundef %3), !range !8
+  %call.i = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %self, ptr noundef nonnull %2, i32 noundef %3)
   store i32 0, ptr %buffer_used.i, align 4
   %cmp5 = icmp slt i32 %call.i, 0
   br i1 %cmp5, label %return, label %if.end9
@@ -9040,7 +9040,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -9050,4 +9050,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

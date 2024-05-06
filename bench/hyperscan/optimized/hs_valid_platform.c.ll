@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nosync nounwind memory(none) uwtable
-define dso_local i32 @hs_valid_platform() local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @hs_valid_platform() local_unnamed_addr #0 {
 entry:
   %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #1, !srcloc !5
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2

@@ -492,7 +492,7 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.else.i.i.i
   %40 = xor i32 %36, -1
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw i64 %indvars.iv.i to i32
   %sub9.i.i.i = add i32 %40, %41
   %42 = load i32, ptr %m_num_decls.i.i.i.i.i.i, align 4
   %idx.ext.i.i.i7.i.i.i = zext i32 %42 to i64
@@ -506,7 +506,7 @@ invoke.cont73.i.i:                                ; preds = %if.else6.i.i.i, %if
   %retval.0.in.i.i.i = phi ptr [ %arrayidx.i.i188.i.i, %if.then4.i.i.i ], [ %arrayidx.i11.i.i.i, %if.else6.i.i.i ], [ %m_expr.i.i.i.i, %while.body71.i.i ]
   %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = trunc i64 %indvars.iv.next.i to i32
+  %43 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %43, ptr %second69.i.i, align 8
   %m_ref_count.i190.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %44 = load i32, ptr %m_ref_count.i190.i.i, align 4
@@ -1198,7 +1198,7 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.else.i.i.i
   %42 = xor i32 %38, -1
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw i64 %indvars.iv.i to i32
   %sub9.i.i.i = add i32 %42, %43
   %44 = load i32, ptr %m_num_decls.i.i.i.i.i.i, align 4
   %idx.ext.i.i.i7.i.i.i = zext i32 %44 to i64
@@ -1212,7 +1212,7 @@ invoke.cont63.i.i:                                ; preds = %if.else6.i.i.i, %if
   %retval.0.in.i.i.i = phi ptr [ %arrayidx.i.i174.i.i, %if.then4.i.i.i ], [ %arrayidx.i11.i.i.i, %if.else6.i.i.i ], [ %m_expr.i.i.i.i, %while.body61.i.i ]
   %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = trunc i64 %indvars.iv.next.i to i32
+  %45 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %45, ptr %second59.i.i, align 8
   %m_ref_count.i176.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %46 = load i32, ptr %m_ref_count.i176.i.i, align 4
@@ -2325,8 +2325,8 @@ if.then10:                                        ; preds = %invoke.cont8
   %20 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %20 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %21 = getelementptr i8, ptr %17, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %21, i64 32
+  %21 = getelementptr inbounds i8, ptr %17, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %21, i64 32
   %cmp.not278 = icmp eq i32 %20, 0
   br i1 %cmp.not278, label %if.then28, label %for.body.preheader
 

@@ -127,15 +127,15 @@ define internal i32 @pg_popcount64_fast(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @pg_popcount32_slow(i32 noundef %0) #1 {
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !11
+define internal range(i32 0, 33) i32 @pg_popcount32_slow(i32 noundef %0) #1 {
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @pg_popcount64_slow(i64 noundef %0) #1 {
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !12
-  %3 = trunc i64 %2 to i32
+define internal range(i32 0, 65) i32 @pg_popcount64_slow(i64 noundef %0) #1 {
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = trunc nuw nsw i64 %2 to i32
   ret i32 %3
 }
 
@@ -164,5 +164,3 @@ attributes #4 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = !{i64 5962}
 !10 = !{i64 6240}
-!11 = !{i32 0, i32 33}
-!12 = !{i64 0, i64 65}

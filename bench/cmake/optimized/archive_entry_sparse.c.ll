@@ -219,7 +219,7 @@ archive_entry_sparse_count.exit:                  ; preds = %1, %._crit_edge, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @archive_entry_sparse_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define dso_local range(i32 -20, 1) i32 @archive_entry_sparse_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

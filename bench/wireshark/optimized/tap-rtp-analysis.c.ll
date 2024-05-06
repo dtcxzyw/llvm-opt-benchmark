@@ -415,7 +415,7 @@ get_clock_rate.exit.thread321:                    ; preds = %179, %get_clock_rat
   %197 = getelementptr inbounds i8, ptr %0, i64 4848
   store i32 %.0267324, ptr %197, align 8
   %198 = udiv i32 %.0267324, 1000
-  %199 = uitofp i32 %198 to double
+  %199 = uitofp nneg i32 %198 to double
   %200 = fdiv double %196, %199
   %201 = load i32, ptr %0, align 8
   %.not292 = icmp eq i32 %201, 0

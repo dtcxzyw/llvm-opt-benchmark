@@ -44,13 +44,13 @@ target triple = "x86_64-pc-linux-gnu"
 @lxb_encoding_range_index_gb18030 = external local_unnamed_addr constant [207 x %struct.lxb_encoding_range_index_t], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_default(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @lxb_encoding_encode_utf_8(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_default(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @lxb_encoding_encode_utf_8(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit.sink.split
@@ -77,7 +77,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, p
   br i1 %18, label %.loopexit.sink.split, label %19
 
 19:                                               ; preds = %14
-  %20 = trunc i32 %12 to i8
+  %20 = trunc nuw nsw i32 %12 to i8
   %21 = load ptr, ptr %10, align 8
   store i64 %16, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %15
@@ -97,7 +97,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, p
 
 30:                                               ; preds = %25
   %31 = lshr i32 %12, 6
-  %32 = trunc i32 %31 to i8
+  %32 = trunc nuw i32 %31 to i8
   %33 = or disjoint i8 %32, -64
   %34 = load ptr, ptr %10, align 8
   %35 = add i64 %26, 1
@@ -128,7 +128,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, p
 
 51:                                               ; preds = %46
   %52 = lshr i32 %12, 12
-  %53 = trunc i32 %52 to i8
+  %53 = trunc nuw i32 %52 to i8
   %54 = or disjoint i8 %53, -32
   %55 = load ptr, ptr %10, align 8
   %56 = add i64 %47, 1
@@ -169,7 +169,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_8(ptr nocapture noundef %0, p
 
 80:                                               ; preds = %75
   %81 = lshr i32 %12, 18
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   %83 = or disjoint i8 %82, -16
   %84 = load ptr, ptr %10, align 8
   %85 = add i64 %76, 1
@@ -260,7 +260,7 @@ define hidden noundef i32 @lxb_encoding_encode_undefined(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_big5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_big5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %1, align 8
@@ -286,7 +286,7 @@ define hidden noundef i32 @lxb_encoding_encode_big5(ptr nocapture noundef %0, pt
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %10, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %5, align 8
@@ -297,7 +297,7 @@ define hidden noundef i32 @lxb_encoding_encode_big5(ptr nocapture noundef %0, pt
 24:                                               ; preds = %11
   %25 = urem i32 %13, 20172
   %.zext = zext nneg i32 %25 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23033 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_big5, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23033 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_big5, i64 0, i64 1, i32 0), i64 %.zext
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -357,7 +357,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %26
   store i8 %58, ptr %61, align 1
   %62 = urem i32 %55, 157
   %63 = icmp ult i32 %62, 63
-  %64 = trunc i32 %62 to i8
+  %64 = trunc nuw i32 %62 to i8
   %65 = load ptr, ptr %10, align 8
   %66 = load i64, ptr %5, align 8
   %67 = add i64 %66, 1
@@ -391,7 +391,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %26
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_euc_jp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_euc_jp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
@@ -417,7 +417,7 @@ define hidden noundef i32 @lxb_encoding_encode_euc_jp(ptr nocapture noundef %0, 
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %9, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %4, align 8
@@ -492,7 +492,7 @@ define hidden noundef i32 @lxb_encoding_encode_euc_jp(ptr nocapture noundef %0, 
   %spec.store.select = select i1 %60, i32 65293, i32 %13
   %61 = urem i32 %spec.store.select, 9253
   %.zext = zext nneg i32 %61 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
   br label %62
 
 62:                                               ; preds = %65, %59
@@ -551,7 +551,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %62
   %97 = getelementptr inbounds i8, ptr %95, i64 %85
   store i8 %94, ptr %97, align 1
   %98 = urem i32 %91, 94
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = add nuw nsw i8 %99, -95
   %101 = load ptr, ptr %9, align 8
   %102 = load i64, ptr %4, align 8
@@ -574,7 +574,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_euc_kr(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_euc_kr(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %1, align 8
@@ -600,7 +600,7 @@ define hidden noundef i32 @lxb_encoding_encode_euc_kr(ptr nocapture noundef %0, 
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %10, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %5, align 8
@@ -611,7 +611,7 @@ define hidden noundef i32 @lxb_encoding_encode_euc_kr(ptr nocapture noundef %0, 
 24:                                               ; preds = %11
   %25 = urem i32 %13, 28041
   %.zext = zext nneg i32 %25 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([30109 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_euc_kr, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([30109 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_euc_kr, i64 0, i64 1, i32 0), i64 %.zext
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -670,7 +670,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %26
   %61 = getelementptr inbounds i8, ptr %59, i64 %49
   store i8 %58, ptr %61, align 1
   %62 = urem i32 %55, 190
-  %63 = trunc i32 %62 to i8
+  %63 = trunc nuw i32 %62 to i8
   %64 = add nuw i8 %63, 65
   %65 = load ptr, ptr %10, align 8
   %66 = load i64, ptr %5, align 8
@@ -693,7 +693,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_gbk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_gbk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
@@ -719,7 +719,7 @@ define hidden noundef i32 @lxb_encoding_encode_gbk(ptr nocapture noundef %0, ptr
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %9, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %4, align 8
@@ -773,7 +773,7 @@ define hidden noundef i32 @lxb_encoding_encode_gbk(ptr nocapture noundef %0, ptr
 48:                                               ; preds = %24
   %49 = urem i32 %13, 19950
   %.zext = zext nneg i32 %49 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23941 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_gb18030, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23941 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_gb18030, i64 0, i64 1, i32 0), i64 %.zext
   br label %50
 
 50:                                               ; preds = %53, %48
@@ -837,7 +837,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %50
   %.cmp60 = icmp ult i32 %85, 190
   %86 = select i1 %.cmp60, i32 %85, i32 %.urem
   %87 = icmp ult i32 %86, 63
-  %88 = trunc i32 %86 to i8
+  %88 = trunc nuw i32 %86 to i8
   %89 = load ptr, ptr %9, align 8
   %90 = load i64, ptr %4, align 8
   %91 = add i64 %90, 1
@@ -868,7 +868,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_ibm866(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_ibm866(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -894,7 +894,7 @@ define hidden noundef i32 @lxb_encoding_encode_ibm866(ptr nocapture noundef %0, 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -905,7 +905,7 @@ define hidden noundef i32 @lxb_encoding_encode_ibm866(ptr nocapture noundef %0, 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_ibm866, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_ibm866, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -978,7 +978,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1028,7 +1028,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef
   br i1 %24, label %.loopexit137, label %25
 
 25:                                               ; preds = %21
-  %26 = trunc i32 %.0124 to i8
+  %26 = trunc nuw nsw i32 %.0124 to i8
   %27 = load ptr, ptr %10, align 8
   %28 = add i64 %22, 1
   store i64 %28, ptr %8, align 8
@@ -1094,7 +1094,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef
   br i1 %53, label %.loopexit137, label %54
 
 54:                                               ; preds = %50
-  %55 = trunc i32 %.0124 to i8
+  %55 = trunc nuw nsw i32 %.0124 to i8
   %56 = load ptr, ptr %10, align 8
   %57 = add i64 %51, 1
   store i64 %57, ptr %8, align 8
@@ -1115,7 +1115,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef
   %66 = getelementptr inbounds i8, ptr %65, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %66, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %67 = load i64, ptr %8, align 8
-  %68 = trunc i32 %.0124 to i8
+  %68 = trunc nuw nsw i32 %.0124 to i8
   %69 = load ptr, ptr %10, align 8
   %70 = add i64 %67, 4
   store i64 %70, ptr %8, align 8
@@ -1141,7 +1141,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef
   %82 = getelementptr inbounds i8, ptr %81, i64 %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %82, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %83 = load i64, ptr %8, align 8
-  %84 = trunc i32 %.0124 to i8
+  %84 = trunc nuw nsw i32 %.0124 to i8
   %85 = load ptr, ptr %10, align 8
   %86 = add i64 %83, 4
   store i64 %86, ptr %8, align 8
@@ -1208,7 +1208,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp(ptr nocapture noundef
   %.1 = phi i32 [ %117, %114 ], [ %spec.store.select, %110 ]
   %119 = urem i32 %.1, 9253
   %.zext = zext nneg i32 %119 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
   br label %120
 
 120:                                              ; preds = %123, %118
@@ -1257,7 +1257,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %120
   %145 = getelementptr inbounds i8, ptr %143, i64 %106
   store i8 %142, ptr %145, align 1
   %146 = urem i32 %139, 94
-  %147 = trunc i32 %146 to i8
+  %147 = trunc nuw nsw i32 %146 to i8
   %148 = add nuw nsw i8 %147, 33
   %149 = load ptr, ptr %10, align 8
   %150 = load i64, ptr %8, align 8
@@ -1318,7 +1318,7 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %123, %lexbor_shs_ha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1349,7 +1349,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_10(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_10(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1375,7 +1375,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_10(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1386,7 +1386,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_10(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_10, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_10, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1459,7 +1459,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_13(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_13(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1485,7 +1485,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_13(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1496,7 +1496,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_13(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 345
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([346 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_13, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([346 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_13, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1569,7 +1569,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_14(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_14(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1595,7 +1595,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_14(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1606,7 +1606,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_14(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 407
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([408 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_14, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([408 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_14, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1679,7 +1679,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_15(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_15(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1705,7 +1705,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_15(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1716,7 +1716,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_15(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_15, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_15, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1789,7 +1789,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_16(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_16(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1815,7 +1815,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_16(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1826,7 +1826,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_16(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 413
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([414 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_16, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([414 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_16, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1899,7 +1899,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -1925,7 +1925,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -1936,7 +1936,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 368
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([369 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_2, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([369 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_2, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2009,7 +2009,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2035,7 +2035,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2046,7 +2046,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_3, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_3, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2119,7 +2119,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2145,7 +2145,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2156,7 +2156,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_4, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_4, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2229,7 +2229,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2255,7 +2255,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2266,7 +2266,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_5, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_5, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2339,7 +2339,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2365,7 +2365,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2376,7 +2376,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_6, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([344 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_6, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2449,7 +2449,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2475,7 +2475,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2486,7 +2486,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_7, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([345 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_7, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2559,7 +2559,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2585,7 +2585,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture noundef 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2596,7 +2596,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture noundef 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 347
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([348 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_8, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([348 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_8, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2669,7 +2669,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2695,7 +2695,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2706,7 +2706,7 @@ define hidden noundef i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 347
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([348 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_8, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([348 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_iso_8859_8, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2779,7 +2779,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_koi8_r(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_r(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2805,7 +2805,7 @@ define hidden noundef i32 @lxb_encoding_encode_koi8_r(ptr nocapture noundef %0, 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2816,7 +2816,7 @@ define hidden noundef i32 @lxb_encoding_encode_koi8_r(ptr nocapture noundef %0, 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 486
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([487 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_koi8_r, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([487 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_koi8_r, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2889,7 +2889,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_koi8_u(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_u(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2915,7 +2915,7 @@ define hidden noundef i32 @lxb_encoding_encode_koi8_u(ptr nocapture noundef %0, 
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -2926,7 +2926,7 @@ define hidden noundef i32 @lxb_encoding_encode_koi8_u(ptr nocapture noundef %0, 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 380
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([381 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_koi8_u, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([381 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_koi8_u, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2999,7 +2999,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_shift_jis(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_shift_jis(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
@@ -3025,7 +3025,7 @@ define hidden noundef i32 @lxb_encoding_encode_shift_jis(ptr nocapture noundef %
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw i32 %13 to i8
   %21 = load ptr, ptr %9, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %4, align 8
@@ -3164,7 +3164,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %61
   %98 = icmp ult i32 %90, 63
   %99 = select i1 %98, i32 64, i32 65
   %100 = add nuw nsw i32 %99, %90
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw i32 %100 to i8
   %102 = load ptr, ptr %9, align 8
   %103 = load i64, ptr %4, align 8
   %104 = add i64 %103, 1
@@ -3186,7 +3186,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_utf_16be(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_16be(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %1, align 8
   %6 = icmp ult ptr %5, %2
@@ -3254,7 +3254,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_16be(ptr nocapture noundef %0
 
 47:                                               ; preds = %44
   %48 = lshr i32 %10, 8
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nuw i32 %48 to i8
   %50 = load ptr, ptr %8, align 8
   %51 = add i64 %12, 1
   store i64 %51, ptr %4, align 8
@@ -3282,7 +3282,7 @@ lxb_encoding_encode_utf_16.exit:                  ; preds = %14, %44, %lxb_encod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_utf_16le(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_16le(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %1, align 8
   %6 = icmp ult ptr %5, %2
@@ -3314,7 +3314,7 @@ define hidden noundef i32 @lxb_encoding_encode_utf_16le(ptr nocapture noundef %0
   %21 = getelementptr inbounds i8, ptr %19, i64 %12
   store i8 %18, ptr %21, align 1
   %22 = lshr i32 %10, 8
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = load ptr, ptr %8, align 8
   %25 = load i64, ptr %4, align 8
   %26 = add i64 %25, 1
@@ -3378,7 +3378,7 @@ lxb_encoding_encode_utf_16.exit:                  ; preds = %14, %28, %lxb_encod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_gb18030(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_gb18030(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
@@ -3404,7 +3404,7 @@ define hidden noundef i32 @lxb_encoding_encode_gb18030(ptr nocapture noundef %0,
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %9, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %4, align 8
@@ -3442,7 +3442,7 @@ define hidden noundef i32 @lxb_encoding_encode_gb18030(ptr nocapture noundef %0,
 41:                                               ; preds = %24
   %42 = urem i32 %13, 19950
   %.zext = zext nneg i32 %42 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23941 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_gb18030, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([23941 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_gb18030, i64 0, i64 1, i32 0), i64 %.zext
   br label %43
 
 43:                                               ; preds = %46, %41
@@ -3479,7 +3479,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
   store i8 %60, ptr %63, align 1
   %64 = urem i32 %57, 190
   %65 = icmp ult i32 %64, 63
-  %66 = trunc i32 %64 to i8
+  %66 = trunc nuw i32 %64 to i8
   %67 = load ptr, ptr %9, align 8
   %68 = load i64, ptr %4, align 8
   %69 = add i64 %68, 1
@@ -3572,9 +3572,9 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
   %115 = getelementptr inbounds i8, ptr %113, i64 %76
   store i8 %112, ptr %115, align 1
   %116 = urem i32 %.0.i58, 12600
-  %.lhs.trunc62 = trunc i32 %116 to i16
+  %.lhs.trunc62 = trunc nuw nsw i32 %116 to i16
   %117 = udiv i16 %.lhs.trunc62, 1260
-  %118 = trunc i16 %117 to i8
+  %118 = trunc nuw nsw i16 %117 to i8
   %119 = or disjoint i8 %118, 48
   %120 = load ptr, ptr %9, align 8
   %121 = load i64, ptr %4, align 8
@@ -3584,7 +3584,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
   store i8 %119, ptr %123, align 1
   %124 = urem i16 %.lhs.trunc62, 1260
   %125 = udiv i16 %124, 10
-  %126 = trunc i16 %125 to i8
+  %126 = trunc nuw nsw i16 %125 to i8
   %127 = add nuw nsw i8 %126, -127
   %128 = load ptr, ptr %9, align 8
   %129 = load i64, ptr %4, align 8
@@ -3593,7 +3593,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
   %131 = getelementptr inbounds i8, ptr %128, i64 %129
   store i8 %127, ptr %131, align 1
   %132 = urem i16 %124, 10
-  %133 = trunc i16 %132 to i8
+  %133 = trunc nuw nsw i16 %132 to i8
   %134 = or disjoint i8 %133, 48
   %135 = load ptr, ptr %9, align 8
   %136 = load i64, ptr %4, align 8
@@ -3616,7 +3616,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_macintosh(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_macintosh(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3642,7 +3642,7 @@ define hidden noundef i32 @lxb_encoding_encode_macintosh(ptr nocapture noundef %
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -3653,7 +3653,7 @@ define hidden noundef i32 @lxb_encoding_encode_macintosh(ptr nocapture noundef %
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([351 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_macintosh, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([351 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_macintosh, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3732,7 +3732,7 @@ define hidden noundef i32 @lxb_encoding_encode_replacement(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1250(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1250(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3758,7 +3758,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1250(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -3769,7 +3769,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1250(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 432
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([433 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1250, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([433 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1250, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3842,7 +3842,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1251(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1251(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3868,7 +3868,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1251(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -3879,7 +3879,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1251(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 362
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([363 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1251, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([363 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1251, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3952,7 +3952,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1252(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1252(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3978,7 +3978,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1252(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -3989,7 +3989,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1252(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 373
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([374 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1252, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([374 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1252, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4062,7 +4062,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1253(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1253(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4088,7 +4088,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1253(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4099,7 +4099,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1253(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 354
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([355 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1253, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([355 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1253, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4172,7 +4172,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1254(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1254(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4198,7 +4198,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1254(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4209,7 +4209,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1254(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 354
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([355 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1254, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([355 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1254, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4282,7 +4282,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1255(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1255(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4308,7 +4308,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1255(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4319,7 +4319,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1255(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 467
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([468 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1255, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([468 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1255, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4392,7 +4392,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1256(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1256(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4418,7 +4418,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1256(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4429,7 +4429,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1256(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([357 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1256, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([357 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1256, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4502,7 +4502,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1257(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1257(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4528,7 +4528,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1257(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4539,7 +4539,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1257(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 355
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([356 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1257, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([356 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1257, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4612,7 +4612,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_1258(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1258(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4638,7 +4638,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1258(ptr nocapture nounde
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4649,7 +4649,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_1258(ptr nocapture nounde
 23:                                               ; preds = %11
   %24 = urem i32 %12, 405
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([406 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1258, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([406 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_1258, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4722,7 +4722,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_windows_874(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_874(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4748,7 +4748,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_874(ptr nocapture noundef
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4759,7 +4759,7 @@ define hidden noundef i32 @lxb_encoding_encode_windows_874(ptr nocapture noundef
 23:                                               ; preds = %11
   %24 = urem i32 %12, 359
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([360 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_874, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([360 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_windows_874, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4832,7 +4832,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4858,7 +4858,7 @@ define hidden noundef i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocapture noun
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %14
-  %19 = trunc i32 %12 to i8
+  %19 = trunc nuw nsw i32 %12 to i8
   %20 = load ptr, ptr %10, align 8
   %21 = add i64 %15, 1
   store i64 %21, ptr %7, align 8
@@ -4869,7 +4869,7 @@ define hidden noundef i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocapture noun
 23:                                               ; preds = %11
   %24 = urem i32 %12, 373
   %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([374 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([374 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 0, i64 1, i32 0), i64 %.zext
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4942,7 +4942,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_encode_x_user_defined(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_encode_x_user_defined(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %1, align 8
@@ -4968,7 +4968,7 @@ define hidden noundef i32 @lxb_encoding_encode_x_user_defined(ptr nocapture noun
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %15
-  %20 = trunc i32 %13 to i8
+  %20 = trunc nuw nsw i32 %13 to i8
   %21 = load ptr, ptr %10, align 8
   %22 = add i64 %16, 1
   store i64 %22, ptr %5, align 8
@@ -5032,18 +5032,18 @@ define hidden noundef i32 @lxb_encoding_encode_x_user_defined(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_default_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = tail call signext i8 @lxb_encoding_encode_utf_8_single(ptr poison, ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !5
+define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_default_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+  %5 = tail call signext i8 @lxb_encoding_encode_utf_8_single(ptr poison, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i8 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_utf_8_single(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_8_single(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5062,7 +5062,7 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_8_single(ptr nocapture
 
 16:                                               ; preds = %12
   %17 = lshr i32 %3, 6
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw i32 %17 to i8
   %19 = or disjoint i8 %18, -64
   %20 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %20, ptr %1, align 8
@@ -5088,7 +5088,7 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_8_single(ptr nocapture
 
 32:                                               ; preds = %28
   %33 = lshr i32 %3, 12
-  %34 = trunc i32 %33 to i8
+  %34 = trunc nuw i32 %33 to i8
   %35 = or disjoint i8 %34, -32
   %36 = getelementptr inbounds i8, ptr %29, i64 1
   store ptr %36, ptr %1, align 8
@@ -5122,7 +5122,7 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_8_single(ptr nocapture
 
 54:                                               ; preds = %50
   %55 = lshr i32 %3, 18
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %57 = or disjoint i8 %56, -16
   %58 = getelementptr inbounds i8, ptr %51, i64 1
   store ptr %58, ptr %1, align 8
@@ -5168,12 +5168,12 @@ define hidden noundef signext i8 @lxb_encoding_encode_undefined_single(ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_big5_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_big5_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5183,8 +5183,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_big5_single(ptr nocapture 
 10:                                               ; preds = %4
   %11 = urem i32 %3, 20172
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_big5, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_big5, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -5218,7 +5218,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %14
   store i8 %30, ptr %22, align 1
   %32 = urem i32 %27, 157
   %33 = icmp ult i32 %32, 63
-  %34 = trunc i32 %32 to i8
+  %34 = trunc nuw i32 %32 to i8
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1
   store ptr %36, ptr %1, align 8
@@ -5240,12 +5240,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %37, %39, %lexb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_euc_jp_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_euc_jp_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5298,8 +5298,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_euc_jp_single(ptr nocaptur
   %spec.store.select = select i1 %29, i32 65293, i32 %3
   %30 = urem i32 %spec.store.select, 9253
   %.zext = zext nneg i32 %30 to i64
-  %31 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %.zext
-  %32 = getelementptr i8, ptr %31, i64 12
+  %31 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %.zext
+  %32 = getelementptr inbounds i8, ptr %31, i64 12
   br label %33
 
 33:                                               ; preds = %36, %28
@@ -5326,7 +5326,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %33
   store ptr %46, ptr %1, align 8
   store i8 %45, ptr %11, align 1
   %47 = urem i32 %42, 94
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = add nuw nsw i8 %48, -95
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 1
@@ -5340,12 +5340,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %36, %16, %lexbor_sh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_euc_kr_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_euc_kr_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5361,8 +5361,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_euc_kr_single(ptr nocaptur
 14:                                               ; preds = %10
   %15 = urem i32 %3, 28041
   %.zext = zext nneg i32 %15 to i64
-  %16 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_euc_kr, i64 %.zext
-  %17 = getelementptr i8, ptr %16, i64 12
+  %16 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_euc_kr, i64 %.zext
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   br label %18
 
 18:                                               ; preds = %21, %14
@@ -5389,7 +5389,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %18
   store ptr %31, ptr %1, align 8
   store i8 %30, ptr %11, align 1
   %32 = urem i32 %27, 190
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw i32 %32 to i8
   %34 = add nuw i8 %33, 65
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1
@@ -5403,12 +5403,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %21, %10, %lexbor_sh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_gbk_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_gbk_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5431,8 +5431,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_gbk_single(ptr nocapture n
 14:                                               ; preds = %10
   %15 = urem i32 %3, 19950
   %.zext = zext nneg i32 %15 to i64
-  %16 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
-  %17 = getelementptr i8, ptr %16, i64 12
+  %16 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
+  %17 = getelementptr inbounds i8, ptr %16, i64 12
   br label %18
 
 18:                                               ; preds = %21, %14
@@ -5470,7 +5470,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %18
   %.cmp23 = icmp ult i32 %35, 190
   %36 = select i1 %.cmp23, i32 %35, i32 %.urem
   %37 = icmp ult i32 %36, 63
-  %38 = trunc i32 %36 to i8
+  %38 = trunc nuw i32 %36 to i8
   %39 = load ptr, ptr %1, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 1
   store ptr %40, ptr %1, align 8
@@ -5492,12 +5492,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %21, %41, %43, %lexb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_ibm866_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_ibm866_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5507,8 +5507,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_ibm866_single(ptr nocaptur
 10:                                               ; preds = %4
   %11 = urem i32 %3, 344
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_ibm866, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_ibm866, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -5568,7 +5568,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %10
-  %13 = trunc i32 %.0107 to i8
+  %13 = trunc nuw nsw i32 %.0107 to i8
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1
   store ptr %15, ptr %1, align 8
@@ -5627,7 +5627,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   ]
 
 36:                                               ; preds = %35
-  %37 = trunc i32 %.0107 to i8
+  %37 = trunc nuw nsw i32 %.0107 to i8
   %38 = load ptr, ptr %1, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 1
   store ptr %39, ptr %1, align 8
@@ -5647,7 +5647,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %46, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 3
-  %49 = trunc i32 %.0107 to i8
+  %49 = trunc nuw nsw i32 %.0107 to i8
   %50 = getelementptr inbounds i8, ptr %47, i64 4
   store ptr %50, ptr %1, align 8
   store i8 %49, ptr %48, align 1
@@ -5670,7 +5670,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %59, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %60 = load ptr, ptr %1, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 3
-  %62 = trunc i32 %.0107 to i8
+  %62 = trunc nuw nsw i32 %.0107 to i8
   %63 = getelementptr inbounds i8, ptr %60, i64 4
   store ptr %63, ptr %1, align 8
   store i8 %62, ptr %61, align 1
@@ -5733,7 +5733,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %.1 = phi i32 [ %91, %88 ], [ %spec.store.select, %84 ]
   %93 = urem i32 %.1, 9253
   %.zext = zext nneg i32 %93 to i64
-  %gep = getelementptr %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds ([11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 1, i32 0), i64 %.zext
   br label %94
 
 94:                                               ; preds = %97, %92
@@ -5778,7 +5778,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %94
   store ptr %115, ptr %1, align 8
   store i8 %114, ptr %81, align 1
   %116 = urem i32 %111, 94
-  %117 = trunc i32 %116 to i8
+  %117 = trunc nuw nsw i32 %116 to i8
   %118 = add nuw nsw i8 %117, 33
   %119 = load ptr, ptr %1, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 1
@@ -5814,7 +5814,7 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %97, %lexbor_shs_has
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_2022_jp_eof_single(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 {
+define hidden signext range(i8 -2, 4) i8 @lxb_encoding_encode_iso_2022_jp_eof_single(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -5840,12 +5840,12 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_2022_jp_eof_single(ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_10_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_10_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5855,8 +5855,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_10_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_10, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_10, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -5889,12 +5889,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_13_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_13_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5904,8 +5904,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_13_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 345
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_13, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_13, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -5938,12 +5938,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_14_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_14_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -5953,8 +5953,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_14_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 407
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_14, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_14, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -5987,12 +5987,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_15_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_15_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6002,8 +6002,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_15_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 344
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_15, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_15, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6036,12 +6036,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_16_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_16_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6051,8 +6051,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_16_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 413
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_16, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_16, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6085,12 +6085,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_2_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_2_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6100,8 +6100,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_2_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 368
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_2, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_2, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6134,12 +6134,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_3_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_3_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6149,8 +6149,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_3_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_3, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_3, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6183,12 +6183,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_4_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_4_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6198,8 +6198,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_4_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_4, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_4, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6232,12 +6232,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_5_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_5_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6247,8 +6247,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_5_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_5, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_5, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6281,12 +6281,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_6_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_6_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6296,8 +6296,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_6_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_6, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_6, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6330,12 +6330,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_7_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_7_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6345,8 +6345,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_7_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 344
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_7, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_7, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6379,12 +6379,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_8_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_8_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6394,8 +6394,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_8_single(ptr noca
 10:                                               ; preds = %4
   %11 = urem i32 %3, 347
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6428,12 +6428,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_8_i_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_8_i_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6443,8 +6443,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_iso_8859_8_i_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 347
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6477,12 +6477,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_koi8_r_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_koi8_r_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6492,8 +6492,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_koi8_r_single(ptr nocaptur
 10:                                               ; preds = %4
   %11 = urem i32 %3, 486
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_r, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_r, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6526,12 +6526,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_koi8_u_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_koi8_u_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6541,8 +6541,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_koi8_u_single(ptr nocaptur
 10:                                               ; preds = %4
   %11 = urem i32 %3, 380
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_u, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_u, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -6575,12 +6575,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_shift_jis_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_shift_jis_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 129
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6671,7 +6671,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %32
   %51 = icmp ult i32 %45, 63
   %52 = select i1 %51, i32 64, i32 65
   %53 = add nuw nsw i32 %52, %45
-  %54 = trunc i32 %53 to i8
+  %54 = trunc nuw i32 %53 to i8
   %55 = load ptr, ptr %1, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 1
   store ptr %56, ptr %1, align 8
@@ -6684,7 +6684,7 @@ lxb_encoding_encode_shift_jis_index.exit.thread:  ; preds = %37, %lxb_encoding_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_utf_16be_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_16be_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = icmp ugt ptr %6, %2
@@ -6696,7 +6696,7 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_16be_single(ptr nocapt
 
 10:                                               ; preds = %8
   %11 = lshr i32 %3, 8
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %13, ptr %1, align 8
   store i8 %12, ptr %5, align 1
@@ -6747,7 +6747,7 @@ lxb_encoding_encode_utf_16_single.exit:           ; preds = %4, %10, %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_utf_16le_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_16le_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = icmp ugt ptr %6, %2
@@ -6763,7 +6763,7 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_16le_single(ptr nocapt
   store ptr %12, ptr %1, align 8
   store i8 %11, ptr %5, align 1
   %13 = lshr i32 %3, 8
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %16, ptr %1, align 8
@@ -6810,7 +6810,7 @@ lxb_encoding_encode_utf_16_single.exit:           ; preds = %4, %10, %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_utf_8_length(i32 noundef %0) local_unnamed_addr #5 {
+define hidden signext range(i8 0, 5) i8 @lxb_encoding_encode_utf_8_length(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp ult i32 %0, 128
   br i1 %2, label %9, label %3
 
@@ -6833,12 +6833,12 @@ define hidden noundef signext i8 @lxb_encoding_encode_utf_8_length(i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_gb18030_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_gb18030_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -6852,8 +6852,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_gb18030_single(ptr nocaptu
 12:                                               ; preds = %10
   %13 = urem i32 %3, 19950
   %.zext = zext nneg i32 %13 to i64
-  %14 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
-  %15 = getelementptr i8, ptr %14, i64 12
+  %14 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
+  %15 = getelementptr inbounds i8, ptr %14, i64 12
   br label %16
 
 16:                                               ; preds = %19, %12
@@ -6887,7 +6887,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   store i8 %32, ptr %24, align 1
   %34 = urem i32 %29, 190
   %35 = icmp ult i32 %34, 63
-  %36 = trunc i32 %34 to i8
+  %36 = trunc nuw i32 %34 to i8
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1
   store ptr %38, ptr %1, align 8
@@ -6975,9 +6975,9 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %.thread.i
   store ptr %80, ptr %1, align 8
   store i8 %79, ptr %44, align 1
   %81 = urem i32 %.0.i31, 12600
-  %.lhs.trunc35 = trunc i32 %81 to i16
+  %.lhs.trunc35 = trunc nuw nsw i32 %81 to i16
   %82 = udiv i16 %.lhs.trunc35, 1260
-  %83 = trunc i16 %82 to i8
+  %83 = trunc nuw nsw i16 %82 to i8
   %84 = or disjoint i8 %83, 48
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 1
@@ -6985,14 +6985,14 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %.thread.i
   store i8 %84, ptr %85, align 1
   %87 = urem i16 %.lhs.trunc35, 1260
   %88 = udiv i16 %87, 10
-  %89 = trunc i16 %88 to i8
+  %89 = trunc nuw nsw i16 %88 to i8
   %90 = add nuw nsw i8 %89, -127
   %91 = load ptr, ptr %1, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1
   store ptr %92, ptr %1, align 8
   store i8 %90, ptr %91, align 1
   %93 = urem i16 %87, 10
-  %94 = trunc i16 %93 to i8
+  %94 = trunc nuw nsw i16 %93 to i8
   %95 = or disjoint i8 %94, 48
   %96 = load ptr, ptr %1, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 1
@@ -7006,12 +7006,12 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %.thread.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_macintosh_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_macintosh_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7021,8 +7021,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_macintosh_single(ptr nocap
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_macintosh, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_macintosh, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7063,12 +7063,12 @@ define hidden noundef signext i8 @lxb_encoding_encode_replacement_single(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1250_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1250_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7078,8 +7078,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1250_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 432
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1250, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1250, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7112,12 +7112,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1251_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1251_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7127,8 +7127,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1251_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 362
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1251, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1251, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7161,12 +7161,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1252_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1252_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7176,8 +7176,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1252_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 373
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1252, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1252, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7210,12 +7210,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1253_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1253_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7225,8 +7225,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1253_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 354
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1253, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1253, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7259,12 +7259,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1254_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1254_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7274,8 +7274,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1254_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 354
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1254, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1254, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7308,12 +7308,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1255_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1255_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7323,8 +7323,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1255_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 467
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1255, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1255, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7357,12 +7357,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1256_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1256_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7372,8 +7372,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1256_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 343
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1256, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1256, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7406,12 +7406,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1257_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1257_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7421,8 +7421,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1257_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 355
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1257, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1257, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7455,12 +7455,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_1258_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1258_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7470,8 +7470,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_1258_single(ptr no
 10:                                               ; preds = %4
   %11 = urem i32 %3, 405
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1258, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1258, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7504,12 +7504,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_windows_874_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_874_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7519,8 +7519,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_windows_874_single(ptr noc
 10:                                               ; preds = %4
   %11 = urem i32 %3, 359
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_874, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_874, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7553,12 +7553,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_x_mac_cyrillic_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_x_mac_cyrillic_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7568,8 +7568,8 @@ define hidden noundef signext i8 @lxb_encoding_encode_x_mac_cyrillic_single(ptr 
 10:                                               ; preds = %4
   %11 = urem i32 %3, 373
   %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 %.zext
-  %13 = getelementptr i8, ptr %12, i64 12
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 %.zext
+  %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
 14:                                               ; preds = %17, %10
@@ -7602,12 +7602,12 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %lexbor_shs_has
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @lxb_encoding_encode_x_user_defined_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_x_user_defined_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %3, 128
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %3 to i8
+  %7 = trunc nuw nsw i32 %3 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
@@ -7647,5 +7647,3 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 16}
-!5 = !{i8 -2, i8 5}

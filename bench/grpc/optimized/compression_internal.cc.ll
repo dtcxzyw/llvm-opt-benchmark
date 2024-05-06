@@ -647,17 +647,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %7, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %7, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i: ; preds = %for.body
-  %bcmp.i9.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %7, ptr noundef nonnull dereferenceable(7) @.str.1, i64 7)
+  %bcmp.i9.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %7, ptr noundef nonnull dereferenceable(7) @.str.1, i64 7)
   %cmp.i.i10.i = icmp eq i32 %bcmp.i9.i, 0
   br i1 %cmp.i.i10.i, label %if.then.i, label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i: ; preds = %for.body
-  %bcmp.i20.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i20.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %cmp.i.i21.i = icmp eq i32 %bcmp.i20.i, 0
   br i1 %cmp.i.i21.i, label %if.then.i, label %for.inc
 
@@ -769,17 +769,17 @@ if.then9:                                         ; preds = %_ZNK9grpc_core11Cha
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %if.then9
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %payload_.i, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %payload_.i, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else13.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i: ; preds = %if.then9
-  %bcmp.i9.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %payload_.i, ptr noundef nonnull dereferenceable(7) @.str.1, i64 7)
+  %bcmp.i9.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %payload_.i, ptr noundef nonnull dereferenceable(7) @.str.1, i64 7)
   %cmp.i.i10.i = icmp eq i32 %bcmp.i9.i, 0
   br i1 %cmp.i.i10.i, label %if.then.i, label %if.else13.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i: ; preds = %if.then9
-  %bcmp.i20.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %payload_.i, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i20.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %payload_.i, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %cmp.i.i21.i = icmp eq i32 %bcmp.i20.i, 0
   br i1 %cmp.i.i21.i, label %if.then.i, label %if.else13.i
 

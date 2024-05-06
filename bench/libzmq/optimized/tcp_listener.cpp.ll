@@ -355,7 +355,7 @@ _ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 {
 entry:
   %flag = alloca i32, align 4
   %options = getelementptr inbounds i8, ptr %this, i64 24
@@ -447,7 +447,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i32 @_ZN3zmq22stream_listener_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14tcp_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i = alloca %struct.sockaddr_storage, align 8
   %addr.i.i = alloca %"class.zmq::tcp_address_t", align 4
@@ -464,7 +464,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %call = tail call noundef i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_), !range !9
+  %call = tail call noundef i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_)
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %return, label %if.else.if.end6_crit_edge
 
@@ -476,9 +476,9 @@ if.else.if.end6_crit_edge:                        ; preds = %if.else
 if.end6:                                          ; preds = %if.else.if.end6_crit_edge, %if.then
   %1 = phi i32 [ %.pre, %if.else.if.end6_crit_edge ], [ %0, %if.then ]
   %_s7 = getelementptr inbounds i8, ptr %this, i64 1464
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ss.i.i), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %addr.i.i), !noalias !10
-  %call.i.i = call noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef %1, i32 noundef 0, ptr noundef nonnull %ss.i.i), !noalias !13
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ss.i.i), !noalias !9
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %addr.i.i), !noalias !9
+  %call.i.i = call noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef %1, i32 noundef 0, ptr noundef nonnull %ss.i.i), !noalias !12
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -487,7 +487,7 @@ if.then.i.i:                                      ; preds = %if.end6
   br label %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
 
 if.end.i.i:                                       ; preds = %if.end6
-  call void @_ZN3zmq13tcp_address_tC1EPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(57) %addr.i.i, ptr noundef nonnull %ss.i.i, i32 noundef %call.i.i), !noalias !13
+  call void @_ZN3zmq13tcp_address_tC1EPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(57) %addr.i.i, ptr noundef nonnull %ss.i.i, i32 noundef %call.i.i), !noalias !12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   %call1.i.i = invoke noundef i32 @_ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(57) %addr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit unwind label %lpad.i.i
@@ -504,8 +504,8 @@ lpad.i.i:                                         ; preds = %if.end.i.i
   br label %common.resume
 
 _ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ss.i.i), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %addr.i.i), !noalias !10
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ss.i.i), !noalias !9
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %addr.i.i), !noalias !9
   %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_endpoint, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
@@ -682,10 +682,9 @@ attributes #14 = { builtin nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE: %agg.result"}
 !8 = distinct !{!8, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE"}
-!9 = !{i32 -1, i32 1}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE: %agg.result"}
-!12 = distinct !{!12, !"_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE"}
-!13 = !{!14, !11}
-!14 = distinct !{!14, !15, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE: %agg.result"}
-!15 = distinct !{!15, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE: %agg.result"}
+!11 = distinct !{!11, !"_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE"}
+!12 = !{!13, !10}
+!13 = distinct !{!13, !14, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE: %agg.result"}
+!14 = distinct !{!14, !"_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE"}

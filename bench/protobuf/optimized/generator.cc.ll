@@ -445,7 +445,7 @@ $_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15Fi
 @_ZTSN6google8protobuf2io19AnnotationCollectorE = linkonce_odr hidden constant [43 x i8] c"N6google8protobuf2io19AnnotationCollectorE\00", comdat, align 1
 @_ZTIN6google8protobuf2io19AnnotationCollectorE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf2io19AnnotationCollectorE }, comdat, align 8
 @_ZTIN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE, ptr @_ZTIN6google8protobuf2io19AnnotationCollectorE }, comdat, align 8
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @.str.76 = private unnamed_addr constant [7 x i8] c"Field \00", align 1
 @.str.77 = private unnamed_addr constant [48 x i8] c" has a closed enum type with implicit presence.\00", align 1
 @.str.78 = private unnamed_addr constant [65 x i8] c" specifies the legacy_closed_enum feature but has non-enum type.\00", align 1
@@ -1016,7 +1016,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i, %for.body
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %.noexc.i ]
   %37 = load ptr, ptr %message_types_.i.i.i.i, align 8, !noalias !13
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %37, i64 %indvars.iv.i.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i.i)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i.i)
           to label %.noexc.i unwind label %lpad.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %for.body.i.i.i
@@ -1034,7 +1034,7 @@ for.body16.i.i.i:                                 ; preds = %.noexc1.i, %for.bod
   %indvars.iv30.i.i.i = phi i64 [ 0, %for.body16.lr.ph.i.i.i ], [ %indvars.iv.next31.i.i.i, %.noexc1.i ]
   %40 = load ptr, ptr %extensions_.i.i.i.i, align 8, !noalias !13
   %add.ptr.i22.i.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %40, i64 %indvars.iv30.i.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i.i)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i.i)
           to label %.noexc1.i unwind label %lpad.loopexit.i
 
 .noexc1.i:                                        ; preds = %for.body16.i.i.i
@@ -2958,7 +2958,7 @@ for.body.i.i:                                     ; preds = %.noexc, %for.body.l
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc ]
   %2 = load ptr, ptr %message_types_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %2, i64 %indvars.iv.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %for.body.i.i
@@ -2976,7 +2976,7 @@ for.body16.i.i:                                   ; preds = %.noexc1, %for.body1
   %indvars.iv30.i.i = phi i64 [ 0, %for.body16.lr.ph.i.i ], [ %indvars.iv.next31.i.i, %.noexc1 ]
   %5 = load ptr, ptr %extensions_.i.i.i, align 8
   %add.ptr.i22.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %5, i64 %indvars.iv30.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNKS0_8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i)
           to label %.noexc1 unwind label %lpad.loopexit
 
 .noexc1:                                          ; preds = %for.body16.i.i
@@ -3291,7 +3291,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i.i.i)
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE7emplaceIJRKSF_IS7_SB_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESF_INSJ_8iteratorEbEDpOSP_.exit.i.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16initialize_slotsEv.exit.i.i
+for.body.i.i:                                     ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16initialize_slotsEv.exit.i.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE7emplaceIJRKSF_IS7_SB_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESF_INSJ_8iteratorEbEDpOSP_.exit.i.i
   %first.addr.04.i.i.idx = phi i64 [ %first.addr.04.i.i.add, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE7emplaceIJRKSF_IS7_SB_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESF_INSJ_8iteratorEbEDpOSP_.exit.i.i ], [ 0, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16initialize_slotsEv.exit.i.i ]
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %first.addr.04.i.i.idx
   %call.i.i.i.i.i.i.i5.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.04.i.i.ptr)

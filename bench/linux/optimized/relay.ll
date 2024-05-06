@@ -69,7 +69,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_relay_file_o
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_relay_buf_full342, ptr @__UNIQUE_ID___addressable_relay_close357, ptr @__UNIQUE_ID___addressable_relay_file_operations361, ptr @__UNIQUE_ID___addressable_relay_flush358, ptr @__UNIQUE_ID___addressable_relay_late_setup_files354, ptr @__UNIQUE_ID___addressable_relay_open344, ptr @__UNIQUE_ID___addressable_relay_reset343, ptr @__UNIQUE_ID___addressable_relay_subbufs_consumed356, ptr @__UNIQUE_ID___addressable_relay_switch_subbuf355, ptr @relay_late_setup_files.__UNIQUE_ID___addressable___SCK__preempt_schedule353], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @relay_buf_full(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @relay_buf_full(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -264,7 +264,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @relay_prepare_cpu(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @relay_prepare_cpu(i32 noundef %0) local_unnamed_addr #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @relay_channels_mutex) #15
   %2 = load ptr, ptr @relay_channels, align 8
   %3 = icmp eq ptr %2, @relay_channels
@@ -1758,7 +1758,7 @@ define internal i64 @relay_file_read(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @relay_file_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 0, 66) i32 @relay_file_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 132
@@ -1804,7 +1804,7 @@ define internal i32 @relay_file_poll(ptr noundef %0, ptr noundef %1) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @relay_file_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @relay_file_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2206,7 +2206,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @relay_buf_fault(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 3) i32 @relay_buf_fault(ptr nocapture noundef %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load ptr, ptr %3, align 8

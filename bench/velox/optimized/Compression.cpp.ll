@@ -95,7 +95,7 @@ entry:
 declare void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::unique_ptr") align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
+define noundef range(i64 0, 7) i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
 entry:
   %switch.tableidx = add nsw i32 %type, -1
   %switch.maskindex = trunc i32 %switch.tableidx to i16
@@ -943,7 +943,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %while.end.i.i.i.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i.i.i.i, ptr %buffer.i.i.i.i.i, align 16
   br label %_ZN5folly8toAppendIJA11_cN8facebook5velox6common15CompressionKindEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXaagesZT_Li3Esr12IsSomeStringINSt14remove_pointerINS_6detail11LastElementIJDpRKT_EE4typeEE4typeEEE5valueEvE4typeESK_.exit
 

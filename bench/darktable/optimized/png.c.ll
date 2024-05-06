@@ -37,7 +37,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @write_image(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
@@ -611,7 +611,7 @@ declare void @png_write_image(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @png_write_end(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @read_image(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @read_image(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = call ptr @png_set_longjmp_fn(ptr noundef %4, ptr noundef nonnull @longjmp, i64 noundef 200) #20
@@ -781,7 +781,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !45
@@ -836,7 +836,7 @@ define i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define range(i32 256, 259) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !16
   %4 = icmp eq i32 %3, 8

@@ -92,7 +92,7 @@ for.body.preheader:                               ; preds = %cond.end21
 
 for.body:                                         ; preds = %for.body.preheader, %if.end31
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end31 ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %14, 18
   %cmp28 = icmp eq i32 %rem, 0
   br i1 %cmp28, label %if.then29, label %if.end31

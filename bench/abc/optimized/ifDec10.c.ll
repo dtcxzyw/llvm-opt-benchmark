@@ -383,7 +383,7 @@ define void @If_Dec10Cofactors(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i64], align 16
   %5 = alloca [16 x i64], align 16
   %6 = alloca [16 x i64], align 16
@@ -1624,7 +1624,7 @@ If_Dec10CofCount2.exit.thread:                    ; preds = %534, %552
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @If_CutPerformCheck10(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @If_CutPerformCheck10(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #3 {
   %6 = alloca [16 x i64], align 16
   %7 = icmp slt i32 %3, 7
   br i1 %7, label %If_Dec10Support.exit.thread, label %8
@@ -1759,7 +1759,7 @@ If_Dec10Support.exit:                             ; preds = %If_Dec10HasVar.exit
   br i1 %.not15, label %57, label %If_Dec10Support.exit.thread
 
 57:                                               ; preds = %54
-  %58 = call i32 @If_Dec10Perform(ptr noundef nonnull %6, i32 noundef %3, i32 poison), !range !37
+  %58 = call i32 @If_Dec10Perform(ptr noundef nonnull %6, i32 noundef %3, i32 poison)
   br label %If_Dec10Support.exit.thread
 
 If_Dec10Support.exit.thread:                      ; preds = %.lr.ph.i12, %57, %If_Dec10Support.exit, %54, %5
@@ -1840,4 +1840,3 @@ attributes #9 = { nounwind }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = !{i32 0, i32 2}

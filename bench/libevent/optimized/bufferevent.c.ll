@@ -321,7 +321,7 @@ if.then.i4.i:                                     ; preds = %bufferevent_incref_
   br label %bufferevent_trigger.exit
 
 bufferevent_trigger.exit:                         ; preds = %bufferevent_incref_and_lock_.exit.i, %if.then.i4.i
-  %call.i12 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call.i12 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   br label %if.end8
 
 if.end8:                                          ; preds = %bufferevent_trigger.exit, %if.end3.i, %if.end.i, %if.else, %if.then11.i, %do.end4.i, %do.end4.thread.i, %if.then2, %entry
@@ -550,7 +550,7 @@ if.else.i:                                        ; preds = %if.end.i6
   br label %bufferevent_trigger_nolock_.exit
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %if.else.i, %if.then11.i.i, %do.end4.i.i, %do.end4.thread.i.i, %if.then2.i, %if.then15.i, %if.end.i, %lor.lhs.false10.i
-  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   ret void
 }
 
@@ -576,7 +576,7 @@ do.end4:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_decref_and_unlock_(ptr noundef %bufev) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
   %cbs = alloca [16 x ptr], align 16
   %refcnt = getelementptr inbounds i8, ptr %bufev, i64 444
@@ -819,12 +819,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %bufferevent_run_eventcb_.exit
 
 bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_incref_and_lock_.exit, %if.then2.i, %do.end4.thread.i.i, %do.end4.i.i, %if.then11.i.i, %if.else.i
-  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_init_common_(ptr noundef %bufev_private, ptr noundef %base, ptr noundef %ops, i32 noundef %options) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_init_common_(ptr noundef %bufev_private, ptr noundef %base, ptr noundef %ops, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %input = getelementptr inbounds i8, ptr %bufev_private, i64 256
   %0 = load ptr, ptr %input, align 8
@@ -869,7 +869,7 @@ if.end19:                                         ; preds = %if.end11
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call22 = tail call i32 @bufferevent_enable_locking_(ptr noundef nonnull %bufev_private, ptr noundef null), !range !6
+  %call22 = tail call i32 @bufferevent_enable_locking_(ptr noundef nonnull %bufev_private, ptr noundef null)
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %err, label %if.end26
 
@@ -930,7 +930,7 @@ declare ptr @evbuffer_new() local_unnamed_addr #1
 declare i32 @bufferevent_ratelim_init_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_enable_locking_(ptr noundef %bufev, ptr noundef %lock) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_enable_locking_(ptr noundef %bufev, ptr noundef %lock) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %union.bufferevent_ctrl_data, align 8
   %lock1 = getelementptr inbounds i8, ptr %bufev, i64 448
@@ -1043,7 +1043,7 @@ land.lhs.true41:                                  ; preds = %if.end37
   br i1 %tobool44.not, label %if.then45, label %return
 
 if.then45:                                        ; preds = %land.lhs.true41
-  %call46 = call i32 @bufferevent_enable_locking_(ptr noundef nonnull %11, ptr noundef nonnull %lock.addr.0), !range !6
+  %call46 = call i32 @bufferevent_enable_locking_(ptr noundef nonnull %11, ptr noundef nonnull %lock.addr.0)
   br label %return
 
 return:                                           ; preds = %if.then15, %if.end37, %land.lhs.true41, %if.then45, %cond.end, %entry
@@ -1194,7 +1194,7 @@ if.then.i4.i.i:                                   ; preds = %bufferevent_incref_
   br label %bufferevent_trigger.exit.i
 
 bufferevent_trigger.exit.i:                       ; preds = %if.then.i4.i.i, %bufferevent_incref_and_lock_.exit.i.i
-  %call.i.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg), !range !5
+  %call.i.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg)
   br label %if.end78
 
 if.end78:                                         ; preds = %bufferevent_trigger.exit.i, %if.end3.i, %if.end.i, %do.end77, %land.lhs.true42, %if.end40
@@ -1275,7 +1275,7 @@ if.then158:                                       ; preds = %do.end151
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then158, %do.end151, %land.lhs.true125, %if.end121
-  %call166 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg), !range !5
+  %call166 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg)
   ret void
 }
 
@@ -1379,7 +1379,7 @@ if.then.i4.i.i:                                   ; preds = %bufferevent_incref_
   br label %bufferevent_trigger.exit.i
 
 bufferevent_trigger.exit.i:                       ; preds = %if.then.i4.i.i, %bufferevent_incref_and_lock_.exit.i.i
-  %call.i.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg), !range !5
+  %call.i.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg)
   br label %if.end22
 
 if.end22:                                         ; preds = %bufferevent_trigger.exit.i, %if.end3.i, %if.end.i, %if.then16, %land.lhs.true14, %if.end12
@@ -1427,7 +1427,7 @@ if.then44:                                        ; preds = %land.lhs.true41
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then44, %land.lhs.true41, %if.end37
-  %call54 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg), !range !5
+  %call54 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %arg)
   ret void
 }
 
@@ -1596,7 +1596,7 @@ declare i32 @event_initialized(ptr noundef) local_unnamed_addr #1
 declare i32 @event_get_priority(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_write(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_write(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %output = getelementptr inbounds i8, ptr %bufev, i64 264
   %0 = load ptr, ptr %output, align 8
@@ -1609,7 +1609,7 @@ entry:
 declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_write_buffer(ptr nocapture noundef readonly %bufev, ptr noundef %buf) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_write_buffer(ptr nocapture noundef readonly %bufev, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %output = getelementptr inbounds i8, ptr %bufev, i64 264
   %0 = load ptr, ptr %output, align 8
@@ -1622,7 +1622,7 @@ entry:
 declare i32 @evbuffer_add_buffer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bufferevent_read(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bufferevent_read(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %input = getelementptr inbounds i8, ptr %bufev, i64 256
   %0 = load ptr, ptr %input, align 8
@@ -1645,7 +1645,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_enable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_enable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
   %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
@@ -1699,7 +1699,7 @@ if.then19:                                        ; preds = %if.end15
 
 if.end22:                                         ; preds = %bufferevent_incref_and_lock_.exit, %if.then19, %if.end15
   %r.021 = phi i32 [ %call.lobit, %if.then19 ], [ %call.lobit, %if.end15 ], [ 0, %bufferevent_incref_and_lock_.exit ]
-  %call23 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call23 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   ret i32 %r.021
 }
 
@@ -1817,7 +1817,7 @@ do.end3.i:                                        ; preds = %if.then.i, %if.end5
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.end3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read6.i, ptr noundef nonnull align 8 dereferenceable(16) %ptv_read.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read6.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ptv_read.0, i64 16, i1 false)
   br label %if.end8.i
 
 if.else.i:                                        ; preds = %do.end3.i
@@ -1830,7 +1830,7 @@ if.end8.i:                                        ; preds = %if.else.i, %if.then
   br i1 %tobool9.not.i, label %if.else11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write12.i, ptr noundef nonnull align 8 dereferenceable(16) %ptv_write.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write12.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ptv_write.0, i64 16, i1 false)
   br label %if.end16.i
 
 if.else11.i:                                      ; preds = %if.end8.i
@@ -1867,7 +1867,7 @@ bufferevent_set_timeouts.exit:                    ; preds = %do.body23.i, %if.th
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_disable_hard_(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_disable_hard_(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1909,7 +1909,7 @@ do.end22:                                         ; preds = %if.then17, %do.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_disable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_disable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2262,7 +2262,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
 declare i32 @evbuffer_cb_clear_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_getwatermark(ptr nocapture noundef readonly %bufev, i16 noundef signext %events, ptr noundef writeonly %lowmark, ptr noundef writeonly %highmark) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr nocapture noundef readonly %bufev, i16 noundef signext %events, ptr noundef writeonly %lowmark, ptr noundef writeonly %highmark) local_unnamed_addr #0 {
 entry:
   switch i16 %events, label %return [
     i16 4, label %do.body
@@ -2542,7 +2542,7 @@ if.then.i28:                                      ; preds = %if.then46
   br label %bufferevent_decref.exit
 
 bufferevent_decref.exit:                          ; preds = %if.then46, %if.then.i28
-  %call4.i = call noundef i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %cond.i), !range !5
+  %call4.i = call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %cond.i)
   br label %if.end48
 
 if.end48:                                         ; preds = %bufferevent_decref.exit, %if.end42
@@ -2550,7 +2550,7 @@ if.end48:                                         ; preds = %bufferevent_decref.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_decref(ptr noundef %bufev) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bufferevent_decref(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2563,7 +2563,7 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %call4 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call4 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   ret i32 %call4
 }
 
@@ -2640,7 +2640,7 @@ if.then16.i:                                      ; preds = %do.body10.i
 
 bufferevent_cancel_all_.exit:                     ; preds = %do.body10.i, %if.then16.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
-  %call4 = call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev), !range !5
+  %call4 = call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev)
   ret void
 }
 
@@ -3075,7 +3075,7 @@ if.else.i:                                        ; preds = %if.end.i
   br label %bufferevent_run_eventcb_.exit
 
 bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_disable.exit, %if.then2.i, %do.end4.thread.i.i, %do.end4.i.i, %if.then11.i.i, %if.else.i
-  %call1 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %ctx), !range !5
+  %call1 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %ctx)
   ret void
 }
 
@@ -3202,12 +3202,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %bufferevent_run_eventcb_.exit
 
 bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_disable.exit, %if.then2.i, %do.end4.thread.i.i, %do.end4.i.i, %if.then11.i.i, %if.else.i
-  %call1 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %ctx), !range !5
+  %call1 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %ctx)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_generic_adj_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_generic_adj_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
   %enabled1 = getelementptr inbounds i8, ptr %bev, i64 368
   %0 = load i16, ptr %enabled1, align 8
@@ -3299,7 +3299,7 @@ declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
   %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
   %call = tail call i32 @event_pending(ptr noundef nonnull %ev_read, i16 noundef signext 2, ptr noundef null) #7
@@ -3415,7 +3415,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_unlock(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %bev), !range !5
+  %call = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %bev)
   ret void
 }
 
@@ -3446,5 +3446,3 @@ attributes #8 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 -1, i32 1}

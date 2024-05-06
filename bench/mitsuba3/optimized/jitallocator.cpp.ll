@@ -59,7 +59,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %33 = icmp ult i32 %32, 2
   %34 = select i1 %31, i1 %33, i1 false
   %35 = lshr i64 %3, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = select i1 %34, i32 %8, i32 %36
   %38 = trunc i64 %3 to i32
   %39 = tail call i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() #9
@@ -91,7 +91,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   store i16 %54, ptr %53, align 4, !tbaa !27
   %55 = getelementptr inbounds i8, ptr %24, i64 126
   %56 = tail call noundef i32 @llvm.cttz.i32(i32 %21, i1 true), !range !12
-  %57 = trunc i32 %56 to i8
+  %57 = trunc nuw nsw i32 %56 to i8
   store i8 %57, ptr %55, align 2, !tbaa !31
   %58 = getelementptr inbounds i8, ptr %24, i64 127
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %58, i8 0, i64 25, i1 false)
@@ -106,7 +106,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   store i16 %63, ptr %62, align 4, !tbaa !27
   %64 = getelementptr inbounds i8, ptr %24, i64 182
   %65 = tail call noundef i32 @llvm.cttz.i32(i32 %61, i1 true), !range !12
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw nsw i32 %65 to i8
   store i8 %66, ptr %64, align 2, !tbaa !31
   %67 = getelementptr inbounds i8, ptr %24, i64 183
   %68 = shl nuw nsw i32 %21, 2
@@ -116,7 +116,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   store i16 %70, ptr %69, align 4, !tbaa !27
   %71 = getelementptr inbounds i8, ptr %24, i64 238
   %72 = tail call noundef i32 @llvm.cttz.i32(i32 %68, i1 true), !range !12
-  %73 = trunc i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   store i8 %73, ptr %71, align 2, !tbaa !31
   %74 = getelementptr inbounds i8, ptr %24, i64 239
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %74, i8 0, i64 25, i1 false)
@@ -775,7 +775,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.asmjit::_abi_1_10::Support::Compare", align 1
   %6 = alloca %"struct.asmjit::_abi_1_10::VirtMem::DualMapping", align 16
   %7 = load ptr, ptr %0, align 8, !tbaa !34
@@ -843,7 +843,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(p
   %52 = load i8, ptr %51, align 2, !tbaa !31
   %53 = zext nneg i8 %52 to i64
   %54 = lshr i64 %50, %53
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = load ptr, ptr %46, align 8, !tbaa !37
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit31, label %58
@@ -1020,9 +1020,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(p
 175:                                              ; preds = %.thread
   %176 = trunc i64 %105 to i32
   store i32 %176, ptr %85, align 8, !tbaa !64
-  %177 = trunc i64 %173 to i32
+  %177 = trunc nuw i64 %173 to i32
   store i32 %177, ptr %88, align 4, !tbaa !65
-  %178 = trunc i64 %106 to i32
+  %178 = trunc nuw i64 %106 to i32
   %179 = getelementptr inbounds i8, ptr %61, i64 76
   store i32 %178, ptr %179, align 4, !tbaa !63
   %180 = and i32 %74, -3
@@ -1432,7 +1432,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.asmjit::_abi_1_10::Support::Compare", align 1
   %4 = load ptr, ptr %0, align 8, !tbaa !34
   %5 = icmp eq ptr %4, @_ZN6asmjit9_abi_1_10L21JitAllocatorImpl_noneE
@@ -1810,7 +1810,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !34
   %5 = icmp eq ptr %4, @_ZN6asmjit9_abi_1_10L21JitAllocatorImpl_noneE
   br i1 %5, label %207, label %6, !prof !13
@@ -1824,7 +1824,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr 
   br i1 %9, label %10, label %12, !prof !13
 
 10:                                               ; preds = %8
-  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #9, !range !93
+  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #9
   br label %207
 
 12:                                               ; preds = %8
@@ -2065,7 +2065,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr 
   store <8 x i32> %189, ptr %195, align 4, !tbaa !55
   %196 = add nuw i64 %191, 32
   %197 = icmp eq i64 %196, %187
-  br i1 %197, label %198, label %190, !llvm.loop !94
+  br i1 %197, label %198, label %190, !llvm.loop !93
 
 198:                                              ; preds = %190
   %199 = icmp eq i64 %182, %187
@@ -2081,7 +2081,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr 
   store i32 %181, ptr %202, align 4, !tbaa !55
   %203 = add nuw nsw i64 %201, 1
   %204 = icmp eq i64 %203, %182
-  br i1 %204, label %.loopexit, label %200, !llvm.loop !95
+  br i1 %204, label %.loopexit, label %200, !llvm.loop !94
 
 .loopexit:                                        ; preds = %200, %198, %170
   tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
@@ -2099,7 +2099,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator6shrinkEPvm(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1012JitAllocator5queryEPvPS2_S3_Pm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocator5queryEPvPS2_S3_Pm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
   store ptr null, ptr %2, align 8, !tbaa !37
   store ptr null, ptr %3, align 8, !tbaa !37
   store i64 0, ptr %4, align 8, !tbaa !51
@@ -2448,7 +2448,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %142 = load i64, ptr %141, align 8, !tbaa !51
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr
-  br label %15, !llvm.loop !96
+  br label %15, !llvm.loop !95
 
 145:                                              ; preds = %131
   %146 = load i64, ptr %10, align 8, !tbaa !51
@@ -2753,7 +2753,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %200 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %30
   %201 = load i64, ptr %200, align 8, !tbaa !51
   %202 = icmp ugt i64 %201, 1
-  br i1 %202, label %11, label %203, !llvm.loop !97
+  br i1 %202, label %11, label %203, !llvm.loop !96
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds i8, ptr %199, i64 8
@@ -2825,7 +2825,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %252 = and i64 %251, -2
   %253 = inttoptr i64 %252 to ptr
   %254 = icmp eq ptr %33, %253
-  br i1 %254, label %.loopexit, label %.preheader, !llvm.loop !98
+  br i1 %254, label %.loopexit, label %.preheader, !llvm.loop !97
 
 255:                                              ; preds = %.loopexit, %203
   %256 = load i64, ptr %7, align 8, !tbaa !51
@@ -2979,9 +2979,8 @@ attributes #10 = { nounwind allocsize(0) }
 !90 = distinct !{!90, !33}
 !91 = distinct !{!91, !33, !57, !58}
 !92 = distinct !{!92, !33, !58, !57}
-!93 = !{i32 0, i32 6}
-!94 = distinct !{!94, !33, !57, !58}
-!95 = distinct !{!95, !33, !58, !57}
+!93 = distinct !{!93, !33, !57, !58}
+!94 = distinct !{!94, !33, !58, !57}
+!95 = distinct !{!95, !33}
 !96 = distinct !{!96, !33}
 !97 = distinct !{!97, !33}
-!98 = distinct !{!98, !33}

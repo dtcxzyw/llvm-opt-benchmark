@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_5_18 = internal constant [2 x i8] c"ou", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @porter_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -427,7 +427,7 @@ define hidden i32 @porter_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not107.i, label %163, label %170
 
 163:                                              ; preds = %.thread115.i
-  %164 = tail call fastcc i32 @r_shortv(ptr noundef nonnull %0), !range !4
+  %164 = tail call fastcc i32 @r_shortv(ptr noundef nonnull %0)
   %.not108.not.i = icmp eq i32 %164, 0
   br i1 %.not108.not.i, label %170, label %165
 
@@ -924,7 +924,7 @@ declare i32 @insert_s(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr no
 declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_shortv(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_shortv(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @out_grouping_b_U(ptr noundef %0, ptr noundef nonnull @g_v_WXY, i32 noundef 89, i32 noundef 121, i32 noundef 0) #2
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %7
@@ -957,4 +957,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

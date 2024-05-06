@@ -705,7 +705,7 @@ declare ptr @getgrent() local_unnamed_addr #1
 declare void @endgrent() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @grpmodule_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @grpmodule_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %call1 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @struct_group_type_desc) #4

@@ -1425,9 +1425,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont3
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call7)
-          to label %invoke.cont9 unwind label %ehcleanup.thread314
+          to label %invoke.cont9 unwind label %ehcleanup.thread315
 
-ehcleanup.thread314:                              ; preds = %invoke.cont6
+ehcleanup.thread315:                              ; preds = %invoke.cont6
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
@@ -1438,7 +1438,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont12, %if.end, %if.then
-  %cachedFile.sroa.7.0308 = phi ptr [ %untypedCachedFile.val21, %invoke.cont12 ], [ %untypedCachedFile.val21, %if.end ], [ null, %if.then ]
+  %cachedFile.sroa.7.0309 = phi ptr [ %untypedCachedFile.val21, %invoke.cont12 ], [ %untypedCachedFile.val21, %if.end ], [ null, %if.then ]
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup157
@@ -1459,13 +1459,13 @@ ehcleanup:                                        ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup10
 
-cleanup.action:                                   ; preds = %ehcleanup.thread314, %ehcleanup.thread
-  %.pn313 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %6, %ehcleanup.thread314 ]
+cleanup.action:                                   ; preds = %ehcleanup.thread315, %ehcleanup.thread
+  %.pn314 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %6, %ehcleanup.thread315 ]
   call void @__cxa_free_exception(ptr %exception) #15
   br label %ehcleanup10
 
 ehcleanup10:                                      ; preds = %ehcleanup, %cleanup.action, %lpad2
-  %.pn.pn = phi { ptr, i32 } [ %.pn313, %cleanup.action ], [ %10, %ehcleanup ], [ %8, %lpad2 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn314, %cleanup.action ], [ %10, %ehcleanup ], [ %8, %lpad2 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #15
   br label %ehcleanup157
 
@@ -2430,9 +2430,9 @@ ehcleanup156:                                     ; preds = %ehcleanup154, %lpad
   br label %ehcleanup157
 
 ehcleanup157:                                     ; preds = %ehcleanup156, %lpad17, %ehcleanup10, %lpad
-  %cachedFile.sroa.7.0307 = phi ptr [ %untypedCachedFile.val21, %ehcleanup156 ], [ %untypedCachedFile.val21, %lpad17 ], [ %cachedFile.sroa.7.0308, %lpad ], [ null, %ehcleanup10 ]
+  %cachedFile.sroa.7.0308 = phi ptr [ %untypedCachedFile.val21, %ehcleanup156 ], [ %untypedCachedFile.val21, %lpad17 ], [ %cachedFile.sroa.7.0309, %lpad ], [ null, %ehcleanup10 ]
   %.pn16.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn, %ehcleanup156 ], [ %55, %lpad17 ], [ %7, %lpad ], [ %.pn.pn, %ehcleanup10 ]
-  call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev(ptr %cachedFile.sroa.7.0307) #15
+  call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev(ptr %cachedFile.sroa.7.0308) #15
   resume { ptr, i32 } %.pn16.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont147, %invoke.cont90, %invoke.cont9
@@ -3615,7 +3615,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev12XmlFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -3850,7 +3850,7 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

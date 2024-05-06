@@ -229,7 +229,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef %slice_in) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i64 = alloca %struct.grpc_slice, align 8
+  %ref.tmp.i65 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i62 = alloca %struct.grpc_slice, align 8
   %agg.tmp.i = alloca %struct.grpc_slice, align 8
   %ref.tmp12.i = alloca %struct.grpc_slice, align 8
@@ -247,17 +247,17 @@ entry:
   %conv.i = and i64 %2, 255
   %cond17.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %cond17.i
-  %cmp.not.not85 = icmp eq i64 %cond17.i, 0
-  br i1 %cmp.not.not85, label %if.then3, label %for.body
+  %cmp.not.not86 = icmp eq i64 %cond17.i, 0
+  br i1 %cmp.not.not86, label %if.then3, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.086, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.087, i64 1
   %cmp.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not.not, label %if.then3, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin1.086 = phi ptr [ %incdec.ptr, %for.cond ], [ %cond.i, %entry ]
-  %3 = load i8, ptr %__begin1.086, align 1
+  %__begin1.087 = phi ptr [ %incdec.ptr, %for.cond ], [ %cond.i, %entry ]
+  %3 = load i8, ptr %__begin1.087, align 1
   %cmp2 = icmp eq i8 %3, 37
   br i1 %cmp2, label %if.end4, label %for.cond
 
@@ -309,15 +309,15 @@ invoke.cont6:                                     ; preds = %if.then.i, %if.then
   %conv.i.i = and i64 %7, 255
   %cond.i2.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %7
   %add.ptr.i31 = getelementptr inbounds i8, ptr %cond.i.i, i64 %cond.i2.i
-  %cmp10.not87 = icmp eq i64 %cond.i2.i, 0
-  br i1 %cmp10.not87, label %invoke.cont39, label %while.body
+  %cmp10.not88 = icmp eq i64 %cond.i2.i, 0
+  br i1 %cmp10.not88, label %invoke.cont39, label %while.body
 
 while.body:                                       ; preds = %invoke.cont6, %if.end38
-  %p.089 = phi ptr [ %p.1, %if.end38 ], [ %cond.i.i, %invoke.cont6 ]
-  %q.088 = phi ptr [ %q.1, %if.end38 ], [ %cond.i.i, %invoke.cont6 ]
-  %8 = load i8, ptr %p.089, align 1
+  %p.090 = phi ptr [ %p.1, %if.end38 ], [ %cond.i.i, %invoke.cont6 ]
+  %q.089 = phi ptr [ %q.1, %if.end38 ], [ %cond.i.i, %invoke.cont6 ]
+  %8 = load i8, ptr %p.090, align 1
   %cmp12 = icmp eq i8 %8, 37
-  %add.ptr = getelementptr inbounds i8, ptr %p.089, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %p.090, i64 1
   br i1 %cmp12, label %if.then13, label %if.else35
 
 if.then13:                                        ; preds = %while.body
@@ -326,13 +326,13 @@ if.then13:                                        ; preds = %while.body
 
 if.end.i:                                         ; preds = %if.then13
   %9 = load i8, ptr %add.ptr, align 1
-  %.fr81 = freeze i8 %9
-  %10 = add i8 %.fr81, -48
+  %.fr82 = freeze i8 %9
+  %10 = add i8 %.fr82, -48
   %or.cond.i = icmp ult i8 %10, 10
   br i1 %or.cond.i, label %lor.lhs.false, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.end.i
-  switch i8 %.fr81, label %if.then19 [
+  switch i8 %.fr82, label %if.then19 [
     i8 102, label %lor.lhs.false
     i8 101, label %lor.lhs.false
     i8 100, label %lor.lhs.false
@@ -348,19 +348,19 @@ switch.early.test:                                ; preds = %if.end.i
   ]
 
 lor.lhs.false:                                    ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.end.i
-  %add.ptr16 = getelementptr inbounds i8, ptr %p.089, i64 2
+  %add.ptr16 = getelementptr inbounds i8, ptr %p.090, i64 2
   %cmp.not.i32 = icmp ult ptr %add.ptr16, %add.ptr.i31
   br i1 %cmp.not.i32, label %if.end.i34, label %if.then19
 
 if.end.i34:                                       ; preds = %lor.lhs.false
   %11 = load i8, ptr %add.ptr16, align 1
-  %.fr82 = freeze i8 %11
-  %12 = add i8 %.fr82, -48
+  %.fr83 = freeze i8 %11
+  %12 = add i8 %.fr83, -48
   %or.cond.i35 = icmp ult i8 %12, 10
-  br i1 %or.cond.i35, label %if.else, label %switch.early.test80
+  br i1 %or.cond.i35, label %if.else, label %switch.early.test81
 
-switch.early.test80:                              ; preds = %if.end.i34
-  switch i8 %.fr82, label %if.then19 [
+switch.early.test81:                              ; preds = %if.end.i34
+  switch i8 %.fr83, label %if.then19 [
     i8 102, label %if.else
     i8 101, label %if.else
     i8 100, label %if.else
@@ -375,8 +375,8 @@ switch.early.test80:                              ; preds = %if.end.i34
     i8 65, label %if.else
   ]
 
-if.then19:                                        ; preds = %switch.early.test80, %switch.early.test, %lor.lhs.false, %if.then13
-  store i8 37, ptr %q.088, align 1
+if.then19:                                        ; preds = %switch.early.test81, %switch.early.test, %lor.lhs.false, %if.then13
+  store i8 37, ptr %q.089, align 1
   br label %if.end38
 
 lpad:                                             ; preds = %do.body.i50.invoke, %invoke.cont39
@@ -385,51 +385,51 @@ lpad:                                             ; preds = %do.body.i50.invoke,
   call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #9
   resume { ptr, i32 } %13
 
-if.else:                                          ; preds = %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %if.end.i34
-  %14 = add nsw i8 %.fr81, -48
+if.else:                                          ; preds = %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %if.end.i34
+  %14 = add nsw i8 %.fr82, -48
   %or.cond.i41 = icmp ult i8 %14, 10
   br i1 %or.cond.i41, label %invoke.cont22, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.else
-  %15 = add nsw i8 %.fr81, -65
+  %15 = add nsw i8 %.fr82, -65
   %or.cond1.i = icmp ult i8 %15, 6
   br i1 %or.cond1.i, label %if.then10.i44, label %if.end14.i
 
 if.then10.i44:                                    ; preds = %if.end.i42
-  %add.i = add nsw i8 %.fr81, -55
+  %add.i = add nsw i8 %.fr82, -55
   br label %invoke.cont22
 
 if.end14.i:                                       ; preds = %if.end.i42
-  %16 = add nsw i8 %.fr81, -97
+  %16 = add nsw i8 %.fr82, -97
   %or.cond2.i = icmp ult i8 %16, 6
   br i1 %or.cond2.i, label %if.then20.i, label %do.body.i50.invoke
 
 if.then20.i:                                      ; preds = %if.end14.i
-  %add23.i = add nsw i8 %.fr81, -87
+  %add23.i = add nsw i8 %.fr82, -87
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %if.then20.i, %if.then10.i44, %if.else
   %retval.0.i43 = phi i8 [ %add.i, %if.then10.i44 ], [ %add23.i, %if.then20.i ], [ %14, %if.else ]
-  %17 = add nsw i8 %.fr82, -48
+  %17 = add nsw i8 %.fr83, -48
   %or.cond.i45 = icmp ult i8 %17, 10
   br i1 %or.cond.i45, label %invoke.cont28, label %if.end.i46
 
 if.end.i46:                                       ; preds = %invoke.cont22
-  %18 = add nsw i8 %.fr82, -65
+  %18 = add nsw i8 %.fr83, -65
   %or.cond1.i47 = icmp ult i8 %18, 6
   br i1 %or.cond1.i47, label %if.then10.i54, label %if.end14.i48
 
 if.then10.i54:                                    ; preds = %if.end.i46
-  %add.i55 = add nsw i8 %.fr82, -55
+  %add.i55 = add nsw i8 %.fr83, -55
   br label %invoke.cont28
 
 if.end14.i48:                                     ; preds = %if.end.i46
-  %19 = add nsw i8 %.fr82, -97
+  %19 = add nsw i8 %.fr83, -97
   %or.cond2.i49 = icmp ult i8 %19, 6
   br i1 %or.cond2.i49, label %if.then20.i51, label %do.body.i50.invoke
 
 if.then20.i51:                                    ; preds = %if.end14.i48
-  %add23.i52 = add nsw i8 %.fr82, -87
+  %add23.i52 = add nsw i8 %.fr83, -87
   br label %invoke.cont28
 
 do.body.i50.invoke:                               ; preds = %if.end14.i48, %if.end14.i
@@ -443,27 +443,27 @@ invoke.cont28:                                    ; preds = %if.then20.i51, %if.
   %retval.0.i53 = phi i8 [ %add.i55, %if.then10.i54 ], [ %add23.i52, %if.then20.i51 ], [ %17, %invoke.cont22 ]
   %20 = shl nuw i8 %retval.0.i43, 4
   %or18 = add nuw nsw i8 %retval.0.i53, %20
-  store i8 %or18, ptr %q.088, align 1
-  %add.ptr33 = getelementptr inbounds i8, ptr %p.089, i64 3
+  store i8 %or18, ptr %q.089, align 1
+  %add.ptr33 = getelementptr inbounds i8, ptr %p.090, i64 3
   br label %if.end38
 
 if.else35:                                        ; preds = %while.body
-  store i8 %8, ptr %q.088, align 1
+  store i8 %8, ptr %q.089, align 1
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then19, %invoke.cont28, %if.else35
   %p.1 = phi ptr [ %add.ptr33, %invoke.cont28 ], [ %add.ptr, %if.then19 ], [ %add.ptr, %if.else35 ]
-  %q.1 = getelementptr inbounds i8, ptr %q.088, i64 1
+  %q.1 = getelementptr inbounds i8, ptr %q.089, i64 1
   %cmp10.not = icmp eq ptr %p.1, %add.ptr.i31
   br i1 %cmp10.not, label %invoke.cont39.loopexit, label %while.body, !llvm.loop !16
 
 invoke.cont39.loopexit:                           ; preds = %if.end38
   %.pre = load ptr, ptr %out, align 8
-  %.pre90 = load ptr, ptr %bytes.i.i, align 8
+  %.pre91 = load ptr, ptr %bytes.i.i, align 8
   br label %invoke.cont39
 
 invoke.cont39:                                    ; preds = %invoke.cont39.loopexit, %invoke.cont6
-  %21 = phi ptr [ %6, %invoke.cont6 ], [ %.pre90, %invoke.cont39.loopexit ]
+  %21 = phi ptr [ %6, %invoke.cont6 ], [ %.pre91, %invoke.cont39.loopexit ]
   %22 = phi ptr [ %5, %invoke.cont6 ], [ %.pre, %invoke.cont39.loopexit ]
   %q.0.lcssa = phi ptr [ %cond.i.i, %invoke.cont6 ], [ %q.1, %invoke.cont39.loopexit ]
   %tobool.not.i.i58 = icmp eq ptr %22, null
@@ -482,34 +482,34 @@ invoke.cont43:                                    ; preds = %invoke.cont39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i62, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i64)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i64, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i8 0, i64 32, i1 false), !noalias !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i64, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i64)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i65)
   %23 = load ptr, ptr %out, align 8
-  %cmp.i.i66 = icmp ugt ptr %23, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i66, label %if.then.i.i67, label %return
+  %cmp.i.i67 = icmp ugt ptr %23, inttoptr (i64 1 to ptr)
+  br i1 %cmp.i.i67, label %if.then.i.i68, label %return
 
-if.then.i.i67:                                    ; preds = %invoke.cont43
+if.then.i.i68:                                    ; preds = %invoke.cont43
   %24 = atomicrmw sub ptr %23, i64 1 acq_rel, align 8
-  %cmp.i.i.i68 = icmp eq i64 %24, 1
-  br i1 %cmp.i.i.i68, label %if.then.i.i.i69, label %return
+  %cmp.i.i.i69 = icmp eq i64 %24, 1
+  br i1 %cmp.i.i.i69, label %if.then.i.i.i70, label %return
 
-if.then.i.i.i69:                                  ; preds = %if.then.i.i67
-  %destroyer_fn_.i.i.i70 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %destroyer_fn_.i.i.i70, align 8
+if.then.i.i.i70:                                  ; preds = %if.then.i.i68
+  %destroyer_fn_.i.i.i71 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %destroyer_fn_.i.i.i71, align 8
   invoke void %25(ptr noundef nonnull %23)
-          to label %return unwind label %terminate.lpad.i71
+          to label %return unwind label %terminate.lpad.i72
 
-terminate.lpad.i71:                               ; preds = %if.then.i.i.i69
+terminate.lpad.i72:                               ; preds = %if.then.i.i.i70
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #10
   unreachable
 
-return:                                           ; preds = %if.then.i.i.i69, %if.then.i.i67, %invoke.cont43, %if.then3
+return:                                           ; preds = %if.then.i.i.i70, %if.then.i.i68, %invoke.cont43, %if.then3
   ret void
 }
 

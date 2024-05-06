@@ -309,7 +309,7 @@ for.body:                                         ; preds = %if.end9, %for.inc
   br i1 %cmp13, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %for.body
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %7, 1
   br label %for.end
 
@@ -347,7 +347,7 @@ mem_read.exit.thread:                             ; preds = %cond.end.i
   %data.i = getelementptr inbounds i8, ptr %bm.0.i, i64 8
   %12 = load ptr, ptr %data.i, align 8
   %conv11.i = zext nneg i32 %spec.select22.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %12, i64 %conv11.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buf, ptr align 1 %12, i64 %conv11.i, i1 false)
   %13 = load i64, ptr %bm.0.i, align 8
   %sub.i = sub i64 %13, %conv11.i
   store i64 %sub.i, ptr %bm.0.i, align 8
@@ -625,14 +625,14 @@ return:                                           ; preds = %sw.bb48, %sw.bb52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @mem_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
-  %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 0), !range !6
+  %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_free(ptr noundef readonly %a) #1 {
+define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end.i
@@ -697,7 +697,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mem_init(ptr nocapture noundef writeonly %bi, i64 noundef %flags) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @mem_init(ptr nocapture noundef writeonly %bi, i64 noundef %flags) unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 111) #6
   %cmp = icmp eq ptr %call, null
@@ -750,9 +750,9 @@ declare ptr @BUF_MEM_new_ex(i64 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @secmem_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @secmem_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
-  %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 1), !range !6
+  %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 1)
   ret i32 %call
 }
 
@@ -773,4 +773,3 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

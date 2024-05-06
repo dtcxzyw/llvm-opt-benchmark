@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [52 x i8] c"successfully loaded JIT provider in current session\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_jit_available(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_jit_available(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call fastcc zeroext i1 @provider_init()
   %3 = zext i1 %2 to i64
   ret i64 %3

@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [19 x i8] c"spin: bad emucode\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7

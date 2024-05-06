@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pmdemand_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_pmdemand_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 56) #10
   %4 = icmp eq ptr %3, null
@@ -405,7 +405,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
   %153 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %152) #12, !srcloc !15
   %154 = and i32 %153, 255
   %155 = tail call i32 @llvm.umin.i32(i32 %154, i32 3)
-  %156 = trunc i32 %155 to i8
+  %156 = trunc nuw nsw i32 %155 to i8
   %157 = getelementptr inbounds i8, ptr %128, i64 46
   store i8 %156, ptr %157, align 2
   %158 = getelementptr inbounds i8, ptr %144, i64 60
@@ -414,7 +414,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
   %161 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %160) #12, !srcloc !15
   %162 = and i32 %161, 255
   %163 = tail call i32 @llvm.umin.i32(i32 %162, i32 3)
-  %164 = trunc i32 %163 to i8
+  %164 = trunc nuw nsw i32 %163 to i8
   %165 = getelementptr inbounds i8, ptr %128, i64 47
   store i8 %164, ptr %165, align 1
   %166 = tail call ptr @intel_atomic_get_cdclk_state(ptr noundef %0) #11
@@ -633,7 +633,7 @@ intel_pmdemand_update_active_non_tc_phys.exit:    ; preds = %311, %intel_pmdeman
   %319 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %318) #12, !srcloc !15
   %320 = and i32 %319, 65535
   %321 = tail call i32 @llvm.umin.i32(i32 %320, i32 7)
-  %322 = trunc i32 %321 to i8
+  %322 = trunc nuw nsw i32 %321 to i8
   %323 = getelementptr inbounds i8, ptr %128, i64 48
   store i8 %322, ptr %323, align 2
   %324 = tail call i8 @llvm.umin.i8(i8 %322, i8 6)
@@ -729,7 +729,7 @@ define dso_local void @intel_pmdemand_init_pmdemand_params(ptr noundef %0, ptr n
   %31 = load ptr, ptr %28, align 8
   %32 = tail call i32 %31(ptr noundef %8, i32 283188, i1 noundef zeroext true) #11
   %33 = lshr i32 %30, 16
-  %34 = trunc i32 %33 to i16
+  %34 = trunc nuw i32 %33 to i16
   %35 = getelementptr inbounds i8, ptr %1, i64 42
   store i16 %34, ptr %35, align 2
   %36 = lshr i32 %30, 12
@@ -754,7 +754,7 @@ define dso_local void @intel_pmdemand_init_pmdemand_params(ptr noundef %0, ptr n
   %51 = getelementptr inbounds i8, ptr %1, i64 48
   store i8 %50, ptr %51, align 2
   %52 = lshr i32 %32, 20
-  %53 = trunc i32 %52 to i16
+  %53 = trunc nuw nsw i32 %52 to i16
   %54 = and i16 %53, 2047
   %55 = getelementptr inbounds i8, ptr %1, i64 50
   store i16 %54, ptr %55, align 2

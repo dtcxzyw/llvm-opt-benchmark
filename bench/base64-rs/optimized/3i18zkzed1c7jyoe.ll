@@ -28,7 +28,7 @@ define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2b
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, i8 -1, i64 256, i1 false), !alias.scope !4, !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %4, i8 -1, i64 256, i1 false), !alias.scope !4, !noalias !7
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -37,7 +37,7 @@ define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2b
   %7 = load i8, ptr %6, align 1, !alias.scope !7, !noalias !4, !noundef !9
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %8
-  %10 = trunc i64 %.06.i to i8
+  %10 = trunc nuw nsw i64 %.06.i to i8
   store i8 %10, ptr %9, align 1, !alias.scope !4, !noalias !7
   %11 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %11, 64
@@ -512,7 +512,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %9 = getelementptr inbounds i8, ptr %1, i64 67
   %10 = getelementptr inbounds i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !range !51, !noundef !9
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %1, i64 2
   %14 = load i8, ptr %13, align 1, !range !52, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -836,7 +836,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %202 = shl nuw nsw i32 %201, 8
   %203 = or i32 %200, %202
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
-  %.sroa.01691.0.extract.trunc.i = trunc i32 %204 to i24
+  %.sroa.01691.0.extract.trunc.i = trunc nuw i32 %204 to i24
   store i24 %.sroa.01691.0.extract.trunc.i, ptr %150, align 1, !alias.scope !112, !noalias !116
   %205 = icmp ult i64 %143, 4
   br i1 %205, label %._crit_edge.i, label %141
@@ -1269,7 +1269,7 @@ define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174
   %6 = load i8, ptr %5, align 1, !noundef !9
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds [256 x i8], ptr %0, i64 0, i64 %7
-  %9 = trunc i64 %.06 to i8
+  %9 = trunc nuw nsw i64 %.06 to i8
   store i8 %9, ptr %8, align 1
   %10 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %10, 64
@@ -1314,7 +1314,7 @@ define noundef i24 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeCo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeConfig$u20$as$u20$base64..engine..Config$GT$14encode_padding17ha6871d7ae2e30b3fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !range !51, !noundef !9
-  %3 = trunc i8 %2 to i1
+  %3 = trunc nuw i8 %2 to i1
   ret i1 %3
 }
 

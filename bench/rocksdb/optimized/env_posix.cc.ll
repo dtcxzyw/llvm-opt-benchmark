@@ -736,7 +736,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_110PosixClockESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !8
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 16
   %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_110PosixClockE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %_M_impl.i.i.i.i.i.i, ptr %call, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -6084,7 +6084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_18PosixEnv11GetThreadIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZNK7rocksdb12_GLOBAL__N_18PosixEnv11GetThreadIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   %call = tail call i32 @gettid() #22
   %conv = sext i32 %call to i64
@@ -7056,7 +7056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZN7rocksdb12_GLOBAL__N_110PosixClock9CPUMicrosEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal noundef range(i64 0, 18446744073709552) i64 @_ZN7rocksdb12_GLOBAL__N_110PosixClock9CPUMicrosEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %call = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %ts) #22

@@ -27,7 +27,7 @@ define internal void @nop_trace_reset(ptr nocapture readnone %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nop_set_flag(ptr nocapture readnone %0, i32 %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @nop_set_flag(ptr nocapture readnone %0, i32 %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   switch i32 %2, label %10 [
     i32 1, label %6
     i32 2, label %5

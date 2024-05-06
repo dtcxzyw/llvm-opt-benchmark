@@ -321,7 +321,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %146 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv.i
   %147 = load i32, ptr %146, align 4
-  %148 = trunc i64 %indvars.iv.i to i32
+  %148 = trunc nuw nsw i64 %indvars.iv.i to i32
   %149 = xor i32 %148, -1
   %150 = add i32 %.val47, %149
   %151 = sext i32 %150 to i64
@@ -455,7 +455,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %53, ptr %15, align 4
   %54 = sext i32 %29 to i64
   %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %56, ptr %55, align 4
   %.val84.pre = load i32, ptr %2, align 8
   br label %57
@@ -912,7 +912,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph36.preheader.i
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph36.preheader.i ], [ %indvars.iv.next42.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph36.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %73 = trunc i64 %indvars.iv41.i to i32
+  %73 = trunc nuw nsw i64 %indvars.iv41.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -924,7 +924,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %77 = getelementptr inbounds i32, ptr %6, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %75, %78
-  %80 = trunc i64 %indvars.iv38.i to i32
+  %80 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %spec.select.i = select i1 %79, i32 %80, i32 %.03132.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i

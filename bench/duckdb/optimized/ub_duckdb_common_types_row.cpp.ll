@@ -7430,7 +7430,7 @@ _ZNK6duckdb19TupleDataCollection11SizeInBytesEv.exit: ; preds = %for.body.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb20PartitionedTupleData14PartitionCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6duckdb20PartitionedTupleData14PartitionCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #5 align 2 {
 entry:
   %partitions = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -13812,7 +13812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb18TupleDataAllocator13RowBlockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK6duckdb18TupleDataAllocator13RowBlockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #5 align 2 {
 entry:
   %row_blocks = getelementptr inbounds i8, ptr %this, i64 144
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -13826,7 +13826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb18TupleDataAllocator14HeapBlockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK6duckdb18TupleDataAllocator14HeapBlockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #5 align 2 {
 entry:
   %heap_blocks = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -19659,7 +19659,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb16TupleDataSegment10ChunkCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -60680079189834051, 60680079189834052) i64 @_ZNK6duckdb16TupleDataSegment10ChunkCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
 entry:
   %chunks = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24

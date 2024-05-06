@@ -59,7 +59,7 @@ define i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 18:                                               ; preds = %16
   %19 = sext i32 %4 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %3, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %3, i64 %19, i1 false)
   br label %fdt_setprop_inplace_namelen_partial.exit
 
 fdt_setprop_inplace_namelen_partial.exit:         ; preds = %11, %16, %18
@@ -128,7 +128,7 @@ define i32 @fdt_node_end_offset_(ptr noundef %0, i32 noundef %1) local_unnamed_a
 declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_nop_node(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @fdt_nop_node(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4

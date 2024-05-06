@@ -70,7 +70,7 @@ define internal void @ompi_grequest_destruct(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_grequest_t_class, i64 0, i32 8), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #9
   %8 = load i32, ptr @opal_class_init_epoch, align 4

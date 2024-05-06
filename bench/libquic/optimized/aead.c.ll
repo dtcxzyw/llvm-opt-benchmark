@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/cipher/aead.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_AEAD_key_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_key_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %aead, align 8
   %conv = zext i8 %0 to i64
@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_AEAD_nonce_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_nonce_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
   %nonce_len = getelementptr inbounds i8, ptr %aead, i64 1
   %0 = load i8, ptr %nonce_len, align 1
@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_AEAD_max_overhead(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_max_overhead(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
   %overhead = getelementptr inbounds i8, ptr %aead, i64 2
   %0 = load i8, ptr %overhead, align 2
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_AEAD_max_tag_len(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_max_tag_len(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
   %max_tag_len = getelementptr inbounds i8, ptr %aead, i64 3
   %0 = load i8, ptr %max_tag_len, align 1
@@ -166,7 +166,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_AEAD_CTX_seal(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @EVP_AEAD_CTX_seal(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %overhead = getelementptr inbounds i8, ptr %0, i64 2
@@ -209,7 +209,7 @@ return:                                           ; preds = %if.end3, %error
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_AEAD_CTX_open(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @EVP_AEAD_CTX_open(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) local_unnamed_addr #3 {
 entry:
   %cmp.not.i = icmp ugt ptr %out, %in
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 %in_len

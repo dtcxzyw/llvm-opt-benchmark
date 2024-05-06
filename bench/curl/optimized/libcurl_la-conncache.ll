@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_conncache_init(ptr noundef %connc, i32 noundef %size) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Curl_conncache_init(ptr noundef %connc, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @curl_easy_init() #7
   %closure_handle = getelementptr inbounds i8, ptr %connc, i64 88

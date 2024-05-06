@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_ggtt_init_hw(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @i915_ggtt_init_hw(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -450,7 +450,7 @@ define dso_local void @gen6_ggtt_invalidate(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i64 @gen8_ggtt_pte_encode(i64 noundef %0, i32 %1, i32 noundef %2) #4 align 16 {
+define dso_local noundef range(i64 1, 0) i64 @gen8_ggtt_pte_encode(i64 noundef %0, i32 %1, i32 noundef %2) #4 align 16 {
   %4 = and i32 %2, 2
   %5 = icmp eq i32 %4, 0
   %6 = select i1 %5, i64 1, i64 3
@@ -2346,7 +2346,7 @@ define internal void @gen8_ggtt_insert_entries_bind(ptr noundef %0, ptr nocaptur
   %23 = lshr i64 %20, 12
   %24 = add nuw nsw i64 %22, %23
   %25 = trunc i64 %22 to i32
-  %26 = trunc i64 %23 to i32
+  %26 = trunc nuw nsw i64 %23 to i32
   %27 = tail call fastcc zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef %0, i32 noundef %25, ptr noundef null, i32 noundef %26, i64 noundef %12)
   br i1 %27, label %28, label %52
 
@@ -2518,7 +2518,7 @@ define internal void @gen8_ggtt_invalidate(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mtl_ggtt_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i64 1, 0) i64 @mtl_ggtt_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = and i64 %0, -70368744173569
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %7, label %6, !prof !18
@@ -2962,7 +2962,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr nocapture nou
   %170 = getelementptr i8, ptr %161, i64 4
   store i32 %169, ptr %161, align 4
   %171 = lshr i64 %168, 32
-  %172 = trunc i64 %171 to i32
+  %172 = trunc nuw i64 %171 to i32
   %173 = getelementptr i8, ptr %161, i64 8
   store i32 %172, ptr %170, align 4
   %174 = add i32 %160, 1
@@ -3465,7 +3465,7 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @iris_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #4 align 16 {
+define internal range(i64 0, 4294967296) i64 @iris_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #4 align 16 {
   %4 = lshr i64 %0, 28
   %5 = and i64 %4, 2032
   %6 = or i64 %5, %0
@@ -3490,7 +3490,7 @@ define internal i64 @iris_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #4 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @hsw_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #4 align 16 {
+define internal noundef range(i64 1, 4294967296) i64 @hsw_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #4 align 16 {
   %4 = lshr i64 %0, 28
   %5 = and i64 %4, 2032
   %6 = icmp eq i32 %1, 0
@@ -3502,7 +3502,7 @@ define internal noundef i64 @hsw_pte_encode(i64 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @byt_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
+define internal range(i64 1, 4294967296) i64 @byt_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = lshr i64 %0, 28
   %5 = and i64 %4, 4080
   %6 = or i64 %5, %0
@@ -3519,7 +3519,7 @@ define internal i64 @byt_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ivb_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @ivb_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #0 align 16 {
   %4 = lshr i64 %0, 28
   %5 = and i64 %4, 4080
   %6 = or i64 %5, %0
@@ -3559,7 +3559,7 @@ define internal i64 @ivb_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snb_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @snb_pte_encode(i64 noundef %0, i32 noundef %1, i32 %2) #0 align 16 {
   %4 = lshr i64 %0, 28
   %5 = and i64 %4, 4080
   %6 = or i64 %5, %0

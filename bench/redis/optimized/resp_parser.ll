@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parseReply(ptr noundef %parser, ptr noundef %p_ctx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parseReply(ptr noundef %parser, ptr noundef %p_ctx) local_unnamed_addr #0 {
 entry:
   %len.i114 = alloca i64, align 8
   %bulklen.i106 = alloca i64, align 8

@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @smtp_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
 entry:
   %bits = getelementptr inbounds i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
@@ -1125,7 +1125,7 @@ if.end5:                                          ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_smtp_escape_eob(ptr noundef %data, i64 noundef %nread, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_smtp_escape_eob(ptr noundef %data, i64 noundef %nread, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8

@@ -62,7 +62,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [21 x ptr] [ptr @__UNIQUE_ID___addressable___mb_cache_entry_free304, ptr @__UNIQUE_ID___addressable_mb_cache_create311, ptr @__UNIQUE_ID___addressable_mb_cache_destroy314, ptr @__UNIQUE_ID___addressable_mb_cache_entry_create303, ptr @__UNIQUE_ID___addressable_mb_cache_entry_delete_or_get309, ptr @__UNIQUE_ID___addressable_mb_cache_entry_find_first306, ptr @__UNIQUE_ID___addressable_mb_cache_entry_find_next307, ptr @__UNIQUE_ID___addressable_mb_cache_entry_get308, ptr @__UNIQUE_ID___addressable_mb_cache_entry_touch310, ptr @__UNIQUE_ID___addressable_mb_cache_entry_wait_unused305, ptr @__UNIQUE_ID___addressable_mbcache_init316, ptr @__UNIQUE_ID_author317, ptr @__UNIQUE_ID_description318, ptr @__UNIQUE_ID_file319, ptr @__UNIQUE_ID_license320, ptr @__bit_spin_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule147, ptr @__exitcall_mbcache_exit, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched208, ptr @bit_spin_lock.__UNIQUE_ID___addressable___SCK__preempt_schedule144, ptr @mbcache_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mb_cache_entry_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @mb_cache_entry_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1071,7 +1071,7 @@ define internal void @mbcache_exit() #5 section ".exit.text" align 16 {
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @mbcache_init() #5 section ".init.text" align 16 {
+define internal range(i32 -12, 1) i32 @mbcache_init() #5 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.3, i32 noundef 56, i32 noundef 0, i32 noundef 1179648, ptr noundef null) #11
   store ptr %1, ptr @mb_entry_cache, align 8
   %2 = icmp eq ptr %1, null

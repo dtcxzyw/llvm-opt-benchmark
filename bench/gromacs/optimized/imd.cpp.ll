@@ -1297,16 +1297,16 @@ define void @_ZNK3gmx10ImdSession4Impl14copyToMDForcesEv(ptr nocapture noundef n
   %21 = getelementptr inbounds [3 x float], ptr %20, i64 %indvars.iv
   store float %19, ptr %21, align 4
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr float, ptr %22, i64 %16
-  %24 = getelementptr i8, ptr %23, i64 4
+  %23 = getelementptr inbounds float, ptr %22, i64 %16
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load float, ptr %24, align 4
   %26 = fmul float %25, 0x4044EB8520000000
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds [3 x float], ptr %27, i64 %indvars.iv, i64 1
   store float %26, ptr %28, align 4
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr float, ptr %29, i64 %16
-  %31 = getelementptr i8, ptr %30, i64 8
+  %30 = getelementptr inbounds float, ptr %29, i64 %16
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, 0x4044EB8520000000
   %34 = load ptr, ptr %8, align 8
@@ -1797,16 +1797,16 @@ define void @_ZN3gmx10ImdSession4Impl9syncNodesEPK9t_commrecd(ptr noundef nonnul
   %89 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv.i
   store float %87, ptr %89, align 4
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr float, ptr %90, i64 %84
-  %92 = getelementptr i8, ptr %91, i64 4
+  %91 = getelementptr inbounds float, ptr %90, i64 %84
+  %92 = getelementptr inbounds i8, ptr %91, i64 4
   %93 = load float, ptr %92, align 4
   %94 = fmul float %93, 0x4044EB8520000000
   %95 = load ptr, ptr %62, align 8
   %96 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv.i, i64 1
   store float %94, ptr %96, align 4
   %97 = load ptr, ptr %76, align 8
-  %98 = getelementptr float, ptr %97, i64 %84
-  %99 = getelementptr i8, ptr %98, i64 8
+  %98 = getelementptr inbounds float, ptr %97, i64 %84
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load float, ptr %99, align 4
   %101 = fmul float %100, 0x4044EB8520000000
   %102 = load ptr, ptr %62, align 8
@@ -4088,7 +4088,7 @@ define void @_ZN3gmx10ImdSession24sendPositionsAndEnergiesEv(ptr nocapture nound
   %15 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %12, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull align 4 dereferenceable(40) %10, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull readonly align 4 dereferenceable(40) %10, i64 40, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %8

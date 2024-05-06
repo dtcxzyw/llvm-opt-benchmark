@@ -517,7 +517,7 @@ declare double @OSQPVectorf_dot_prod(ptr noundef, ptr noundef) local_unnamed_add
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @is_primal_infeasible(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @is_primal_infeasible(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -754,7 +754,7 @@ declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noun
 declare i64 @OSQPVectorf_in_reccone(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @has_solution(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i64 0, 2) i64 @has_solution(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -7
@@ -1138,7 +1138,7 @@ define void @update_status(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 declare void @c_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @check_termination(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @check_termination(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1229,7 +1229,7 @@ compute_prim_tol.exit:                            ; preds = %35, %51
 
 65:                                               ; preds = %compute_prim_tol.exit
   %66 = extractelement <4 x double> %24, i64 1
-  %67 = tail call i64 @is_primal_infeasible(ptr noundef nonnull %0, double noundef %66), !range !4
+  %67 = tail call i64 @is_primal_infeasible(ptr noundef nonnull %0, double noundef %66)
   %68 = icmp eq i64 %67, 0
   br label %69
 
@@ -1411,7 +1411,7 @@ compute_dual_tol.exit:                            ; preds = %76, %105
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
+define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -1482,7 +1482,7 @@ define noundef i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone 
 
 .loopexit64:                                      ; preds = %49, %42
   %exitcond77.not = icmp eq i64 %44, %6
-  br i1 %exitcond77.not, label %._crit_edge, label %42, !llvm.loop !5
+  br i1 %exitcond77.not, label %._crit_edge, label %42, !llvm.loop !4
 
 42:                                               ; preds = %.lr.ph72, %.loopexit64
   %43 = phi i64 [ %.pre, %.lr.ph72 ], [ %46, %.loopexit64 ]
@@ -1500,7 +1500,7 @@ define noundef i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone 
 49:                                               ; preds = %51
   %50 = add i64 %.070, 1
   %exitcond.not = icmp eq i64 %50, %46
-  br i1 %exitcond.not, label %.loopexit64, label %51, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit64, label %51, !llvm.loop !6
 
 51:                                               ; preds = %.lr.ph, %49
   %.070 = phi i64 [ %43, %.lr.ph ], [ %50, %49 ]
@@ -1558,7 +1558,7 @@ define noundef i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone 
 81:                                               ; preds = %.lr.ph75
   %82 = add nuw nsw i64 %.174, 1
   %exitcond78.not = icmp eq i64 %82, %5
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph75, !llvm.loop !8
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph75, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %8, %12, %16, %22, %29, %39, %55, %63, %73
   %putchar58 = tail call i32 @putchar(i32 10)
@@ -1573,7 +1573,7 @@ define noundef i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone 
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @validate_linsys_solver(i64 noundef %0) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @validate_linsys_solver(i64 noundef %0) local_unnamed_addr #0 {
   switch i64 %0, label %8 [
     i64 2, label %2
     i64 1, label %5
@@ -1602,7 +1602,7 @@ define noundef i64 @validate_linsys_solver(i64 noundef %0) local_unnamed_addr #0
 declare i64 @osqp_algebra_linsys_supported() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @validate_settings(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @validate_settings(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 
@@ -1998,8 +1998,7 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

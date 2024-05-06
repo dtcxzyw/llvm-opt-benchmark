@@ -99,7 +99,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_ct_frag6_
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_nf_ct_frag6_gather930], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_ct_frag6_gather(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.frag_v6_compare_key, align 4
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
@@ -375,7 +375,7 @@ define dso_local noundef i32 @nf_ct_frag6_gather(ptr noundef %0, ptr noundef %1,
 176:                                              ; preds = %152
   %177 = load i16, ptr %156, align 2
   %178 = lshr i16 %177, 12
-  %179 = trunc i16 %178 to i8
+  %179 = trunc nuw nsw i16 %178 to i8
   %180 = and i8 %179, 3
   %181 = shl nuw nsw i8 1, %180
   %182 = getelementptr inbounds i8, ptr %1, i64 128
@@ -889,7 +889,7 @@ declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noun
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nf_ct_frag6_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   tail call void @inet_frag_kill(ptr noundef %0) #11
   %5 = getelementptr inbounds i8, ptr %0, i64 182
   %6 = load i8, ptr %5, align 2
@@ -1224,7 +1224,7 @@ define internal i32 @ip6frag_obj_hashfn(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ip6frag_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal range(i32 0, 2) i32 @ip6frag_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1235,7 +1235,7 @@ define internal i32 @ip6frag_obj_cmpfn(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nf_ct_net_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @nf_ct_net_init(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @nf_frag_pernet_id, align 4
   tail call void @__rcu_read_lock() #11
   %3 = getelementptr inbounds i8, ptr %0, i64 2536

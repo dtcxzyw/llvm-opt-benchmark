@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.inode_search_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @find_blockdriver(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -15, 1) i32 @find_blockdriver(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.inode_search_s, align 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

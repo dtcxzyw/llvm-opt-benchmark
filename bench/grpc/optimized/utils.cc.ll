@@ -84,8 +84,8 @@ entry:
   %add.i = add nsw i64 %div.i, %conv.i
   %agg.tmp3.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %add.i, i64 1)
   switch i64 %now.coerce, label %if.end11.i.i [
-    i64 9223372036854775807, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16
-    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16.fold.split
+    i64 9223372036854775807, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split
   ]
 
 if.end11.i.i:                                     ; preds = %entry
@@ -93,21 +93,21 @@ if.end11.i.i:                                     ; preds = %entry
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %now.coerce
   %cmp1.i.i.i = icmp ult i64 %sub.i.i.i, %agg.tmp3.sroa.0.0.copyload.sroa.speculated
   %or.cond = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
-  br i1 %or.cond, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+  br i1 %or.cond, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end11.i.i
   %add.i.i.i = add nsw i64 %agg.tmp3.sroa.0.0.copyload.sroa.speculated, %now.coerce
   %cmp.i.i2 = icmp eq i64 %add.i.i.i, 9223372036854775807
-  %add.i.i.i11 = add nsw i64 %add.i.i.i, 1
-  %spec.select = select i1 %cmp.i.i2, i64 9223372036854775807, i64 %add.i.i.i11
-  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16
+  %add.i.i.i13 = add nsw i64 %add.i.i.i, 1
+  %spec.select = select i1 %cmp.i.i2, i64 9223372036854775807, i64 %add.i.i.i13
+  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
 
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16.fold.split: ; preds = %entry
-  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split: ; preds = %entry
+  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
 
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16: ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end11.i.i, %entry, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16.fold.split
-  %retval.0.i.i12 = phi i64 [ %now.coerce, %entry ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit16.fold.split ], [ 9223372036854775807, %if.end11.i.i ], [ %spec.select, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ]
-  ret i64 %retval.0.i.i12
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18: ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end11.i.i, %entry, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split
+  %retval.0.i.i14 = phi i64 [ %now.coerce, %entry ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split ], [ 9223372036854775807, %if.end11.i.i ], [ %spec.select, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ]
+  ret i64 %retval.0.i.i14
 }
 
 declare i32 @__gxx_personality_v0(...)

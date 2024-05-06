@@ -53,7 +53,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32, ptr @trace_ext4_forget.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1031, ptr @trace_ext4_forget.__UNIQUE_ID___addressable___SCK__tp_func_ext4_forget1030, ptr @trace_ext4_journal_start_inode.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1381, ptr @trace_ext4_journal_start_inode.__UNIQUE_ID___addressable___SCK__tp_func_ext4_journal_start_inode1380, ptr @trace_ext4_journal_start_reserved.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1395, ptr @trace_ext4_journal_start_reserved.__UNIQUE_ID___addressable___SCK__tp_func_ext4_journal_start_reserved1394, ptr @trace_ext4_journal_start_sb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1367, ptr @trace_ext4_journal_start_sb.__UNIQUE_ID___addressable___SCK__tp_func_ext4_journal_start_sb1366], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_inode_journal_mode(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 5) i32 @ext4_inode_journal_mode(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 872
@@ -272,7 +272,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare ptr @llvm.returnaddress(i32 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ext4_journal_check_start(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @ext4_journal_check_start(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8

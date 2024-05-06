@@ -24,11 +24,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [6 x i8] c"%4ldP\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pgrsDone(ptr noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %progress = getelementptr inbounds i8, ptr %data, i64 2744
   store i64 0, ptr %progress, align 8
-  %call = tail call i32 @Curl_pgrsUpdate(ptr noundef %data), !range !4
+  %call = tail call i32 @Curl_pgrsUpdate(ptr noundef %data)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -62,7 +62,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pgrsUpdate(ptr noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %max5.i = alloca [6 x [10 x i8]], align 16
   %time_left.i = alloca [10 x i8], align 1
@@ -401,7 +401,7 @@ if.end.i.i:                                       ; preds = %if.end78.i
   br i1 %cmp1.i.i31, label %if.then2.i.i35, label %if.else.i.i32
 
 if.then2.i.i35:                                   ; preds = %if.end.i.i
-  %div.lhs.trunc.i.i = trunc i64 %cond84.i to i32
+  %div.lhs.trunc.i.i = trunc nuw i64 %cond84.i to i32
   %div17.i.i = udiv i32 %div.lhs.trunc.i.i, 3600
   %div.zext.i.i = zext nneg i32 %div17.i.i to i64
   %mul.neg.i.i = mul nsw i64 %div.zext.i.i, -3600
@@ -443,7 +443,7 @@ if.end.i58.i:                                     ; preds = %time2str.exit.i
   br i1 %cmp1.i59.i, label %if.then2.i70.i, label %if.else.i60.i
 
 if.then2.i70.i:                                   ; preds = %if.end.i58.i
-  %div.lhs.trunc.i71.i = trunc i64 %cond.i to i32
+  %div.lhs.trunc.i71.i = trunc nuw i64 %cond.i to i32
   %div17.i72.i = udiv i32 %div.lhs.trunc.i71.i, 3600
   %div.zext.i73.i = zext nneg i32 %div17.i72.i to i64
   %mul.neg.i74.i = mul nsw i64 %div.zext.i73.i, -3600
@@ -485,7 +485,7 @@ if.end.i85.i:                                     ; preds = %time2str.exit83.i
   br i1 %cmp1.i86.i, label %if.then2.i97.i, label %if.else.i87.i
 
 if.then2.i97.i:                                   ; preds = %if.end.i85.i
-  %div.lhs.trunc.i98.i = trunc i64 %div.i27 to i32
+  %div.lhs.trunc.i98.i = trunc nuw i64 %div.i27 to i32
   %div17.i99.i = udiv i32 %div.lhs.trunc.i98.i, 3600
   %div.zext.i100.i = zext nneg i32 %div17.i99.i to i64
   %mul.neg.i101.i = mul nsw i64 %div.zext.i100.i, -3600
@@ -996,7 +996,7 @@ if.else4:                                         ; preds = %if.else
 
 if.then6:                                         ; preds = %if.else4
   %div730 = lshr i64 %bytes, 20
-  %0 = trunc i64 %bytes to i32
+  %0 = trunc nuw i64 %bytes to i32
   %div8.lhs.trunc = and i32 %0, 1048575
   %div832 = udiv i32 %div8.lhs.trunc, 104857
   %div8.zext = zext nneg i32 %div832 to i64
@@ -1089,4 +1089,3 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 268435458, i32 268435457}

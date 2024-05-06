@@ -243,7 +243,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [40 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @nbd_reply_chunk_iter_receive, ptr @.str.144, ptr @.str.145, i32 1008, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_writev_all, ptr @.str.146, ptr @.str.147, i32 359, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_pdiscard, ptr @.str.144, ptr @.str.145, i32 1379, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.144, ptr @.str.148, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_do_receive_one_chunk, ptr @.str.144, ptr @.str.145, i32 851, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.146, ptr @.str.147, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_return_code, ptr @.str.144, ptr @.str.145, i32 1071, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_recv_coroutines_wake, ptr @.str.144, ptr @.str.145, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.144, ptr @.str.148, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_getlength, ptr @.str.144, ptr @.str.145, i32 2036, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_block_status, ptr @.str.144, ptr @.str.145, i32 1399, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_all, ptr @.str.146, ptr @.str.147, i32 334, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_restart_all, ptr @.str.144, ptr @.str.149, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_pwritev, ptr @.str.144, ptr @.str.145, i32 1302, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_receive_reply, ptr @.str.144, ptr @.str.150, i32 393, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_handle_updated_info, ptr @.str.144, ptr @.str.145, i32 279, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_truncate, ptr @.str.144, ptr @.str.145, i32 2017, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_one_chunk, ptr @.str.144, ptr @.str.145, i32 941, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_offset_data_payload, ptr @.str.144, ptr @.str.145, i32 758, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_cmdread_reply, ptr @.str.144, ptr @.str.145, i32 1086, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_receive_replies, ptr @.str.144, ptr @.str.145, i32 420, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_channel_error_locked, ptr @.str.144, ptr @.str.145, i32 165, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_preadv, ptr @.str.144, ptr @.str.145, i32 1244, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_wait_impl, ptr @.str.144, ptr @.str.149, i32 119, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_establish_connection, ptr @.str.144, ptr @.str.150, i32 488, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_request, ptr @.str.144, ptr @.str.145, i32 492, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_channel_error, ptr @.str.144, ptr @.str.145, i32 181, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_opts_simple, ptr @.str.144, ptr @.str.151, i32 262, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_reconnect_attempt, ptr @.str.144, ptr @.str.145, i32 374, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_structured_payload, ptr @.str.144, ptr @.str.145, i32 801, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_do_establish_connection, ptr @.str.152, ptr @.str.153, i32 90, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_do_establish_connection, ptr @.str.146, ptr @.str.153, i32 90, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_next, ptr @.str.144, ptr @.str.149, i32 128, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_recv_coroutine_wake_one, ptr @.str.144, ptr @.str.145, i32 141, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_request, ptr @.str.144, ptr @.str.145, i32 1206, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_blockstatus_reply, ptr @.str.144, ptr @.str.145, i32 1140, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.144, ptr @.str.148, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_do_establish_connection, ptr @.str.144, ptr @.str.145, i32 319, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_flush, ptr @.str.144, ptr @.str.145, i32 1363, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_client_co_pwrite_zeroes, ptr @.str.144, ptr @.str.145, i32 1327, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_co_do_establish_connection(ptr noundef %bs, i1 noundef zeroext %blocking, ptr noundef %errp) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @nbd_co_do_establish_connection(ptr noundef %bs, i1 noundef zeroext %blocking, ptr noundef %errp) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %request = alloca %struct.NBDRequest, align 8
@@ -277,7 +277,7 @@ if.end6:                                          ; preds = %if.end
   store ptr %node_name8, ptr %u, align 8
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @nbd_yank, ptr noundef nonnull %bs) #15
   %4 = load ptr, ptr %bs7, align 8
-  %call10 = call i32 @nbd_handle_updated_info(ptr noundef %4, ptr noundef null), !range !5
+  %call10 = call i32 @nbd_handle_updated_info(ptr noundef %4, ptr noundef null)
   %cmp = icmp slt i32 %call10, 0
   br i1 %cmp, label %if.then11, label %qemu_lockable_auto_unlock.exit.us
 
@@ -348,7 +348,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_handle_updated_info(ptr noundef %bs, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_handle_updated_info(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -588,7 +588,7 @@ lor.lhs.false14.if.then_crit_edge.i:              ; preds = %lor.lhs.false14.i
 for.inc.i:                                        ; preds = %lor.lhs.false14.i
   %call19.i = tail call ptr @qdict_next(ptr noundef %options, ptr noundef nonnull %e.013.i) #15
   %tobool.not.not.i = icmp eq ptr %call19.i, null
-  br i1 %tobool.not.not.i, label %if.end, label %for.body.i, !llvm.loop !6
+  br i1 %tobool.not.not.i, label %if.end, label %for.body.i, !llvm.loop !5
 
 nbd_has_filename_options_conflict.exit:           ; preds = %for.body.i, %lor.lhs.false.i, %lor.lhs.false6.i, %lor.lhs.false10.i, %lor.lhs.false14.if.then_crit_edge.i
   %1 = phi ptr [ %.pre.i, %lor.lhs.false14.if.then_crit_edge.i ], [ %0, %lor.lhs.false10.i ], [ %0, %lor.lhs.false6.i ], [ %0, %lor.lhs.false.i ], [ %0, %for.body.i ]
@@ -807,7 +807,7 @@ cleanup:                                          ; preds = %nbd_parse_uri.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @nbd_client_reopen_prepare(ptr nocapture noundef readonly %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -13, 1) i32 @nbd_client_reopen_prepare(ptr nocapture noundef readonly %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %flags, align 8
@@ -835,7 +835,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %saddr.i.i = alloca ptr, align 8
   %addr.i.i = alloca ptr, align 8
@@ -895,7 +895,7 @@ if.then10.i.i:                                    ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %call12.i.i = call ptr @qdict_next(ptr noundef %options, ptr noundef nonnull %e.024.i.i) #15
   %tobool7.not.i.i = icmp eq ptr %call12.i.i, null
-  br i1 %tobool7.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %tobool7.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i
   %or.cond2.i.i = select i1 %tobool.i.i, i1 %tobool3.i.i, i1 false
@@ -1645,7 +1645,7 @@ land.rhs:                                         ; preds = %do.body, %do.cond
   %13 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %13, 0
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
-  br i1 %cmp.i, label %do.body, label %do.end, !llvm.loop !9
+  br i1 %cmp.i, label %do.body, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %do.cond, %land.rhs
   %ret.028 = phi i32 [ %call32, %do.cond ], [ %ret.029, %land.rhs ]
@@ -2028,7 +2028,7 @@ land.rhs:                                         ; preds = %do.body, %do.cond
   %19 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %19, 0
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
-  br i1 %cmp.i, label %do.body, label %do.end.thread, !llvm.loop !10
+  br i1 %cmp.i, label %do.body, label %do.end.thread, !llvm.loop !9
 
 do.end.thread:                                    ; preds = %land.rhs
   %20 = load i32, ptr %request_ret, align 4
@@ -2098,7 +2098,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @nbd_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 %prealloc, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @nbd_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2368,7 +2368,7 @@ while.body5:                                      ; preds = %lor.rhs, %while.con
   store ptr @qemu_mutex_lock, ptr %lock, align 8
   store ptr @qemu_mutex_unlock, ptr %unlock, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %free_sema, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #15
-  br label %while.cond1, !llvm.loop !11
+  br label %while.cond1, !llvm.loop !10
 
 while.end8:                                       ; preds = %lor.rhs
   %inc = add i32 %3, 1
@@ -2400,7 +2400,7 @@ for.body:                                         ; preds = %if.end19, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %if.else, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %if.else, label %for.body, !llvm.loop !11
 
 if.else:                                          ; preds = %for.inc
   call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.1, i32 noundef 522, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_co_send_request) #16
@@ -2544,8 +2544,8 @@ entry:
   %frombool = zext i1 %cmp to i8
   %.compoundliteral.sroa.2.0.iter.sroa_idx = getelementptr inbounds i8, ptr %iter, i64 17
   store i8 %frombool, ptr %.compoundliteral.sroa.2.0.iter.sroa_idx, align 1
-  %call31 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
-  br i1 %call31, label %for.body.lr.ph, label %for.end
+  %call33 = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
+  br i1 %call33, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %type = getelementptr inbounds i8, ptr %reply, i64 6
@@ -2713,15 +2713,15 @@ if.then12:                                        ; preds = %sw.default
   %21 = inttoptr i64 %20 to ptr
   call void %21(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
   %22 = load i32, ptr %state.i.i, align 8
-  %cmp.i.i15 = icmp eq i32 %22, 2
-  br i1 %cmp.i.i15, label %if.then.i.i16, label %nbd_channel_error.exit18
+  %cmp.i.i16 = icmp eq i32 %22, 2
+  br i1 %cmp.i.i16, label %if.then.i.i17, label %nbd_channel_error.exit19
 
-if.then.i.i16:                                    ; preds = %if.then12
+if.then.i.i17:                                    ; preds = %if.then12
   %23 = load ptr, ptr %s, align 8
-  %call.i.i17 = call i32 @qio_channel_shutdown(ptr noundef %23, i32 noundef 3, ptr noundef null) #15
-  br label %nbd_channel_error.exit18
+  %call.i.i18 = call i32 @qio_channel_shutdown(ptr noundef %23, i32 noundef 3, ptr noundef null) #15
+  br label %nbd_channel_error.exit19
 
-nbd_channel_error.exit18:                         ; preds = %if.then12, %if.then.i.i16
+nbd_channel_error.exit19:                         ; preds = %if.then12, %if.then.i.i17
   store i32 3, ptr %state.i.i, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   %24 = load i16, ptr %type, align 2
@@ -2729,37 +2729,37 @@ nbd_channel_error.exit18:                         ; preds = %if.then12, %if.then
   %call16 = call ptr @nbd_reply_type_lookup(i16 noundef zeroext %24) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.nbd_co_receive_cmdread_reply, ptr noundef nonnull @.str.80, i32 noundef %conv14, ptr noundef %call16) #15
   %25 = load ptr, ptr %local_err, align 8
-  %tobool1.not.i20 = icmp eq ptr %25, null
-  br i1 %tobool1.not.i20, label %if.else.i26, label %if.end4.i21
+  %tobool1.not.i22 = icmp eq ptr %25, null
+  br i1 %tobool1.not.i22, label %if.else.i28, label %if.end4.i23
 
-if.else.i26:                                      ; preds = %nbd_channel_error.exit18
+if.else.i28:                                      ; preds = %nbd_channel_error.exit19
   call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_iter_channel_error) #16
   unreachable
 
-if.end4.i21:                                      ; preds = %nbd_channel_error.exit18
+if.end4.i23:                                      ; preds = %nbd_channel_error.exit19
   %26 = load i32, ptr %iter, align 8
-  %tobool6.not.i22 = icmp eq i32 %26, 0
-  br i1 %tobool6.not.i22, label %if.then7.i24, label %if.else9.i23
+  %tobool6.not.i24 = icmp eq i32 %26, 0
+  br i1 %tobool6.not.i24, label %if.then7.i26, label %if.else9.i25
 
-if.then7.i24:                                     ; preds = %if.end4.i21
+if.then7.i26:                                     ; preds = %if.end4.i23
   store i32 -22, ptr %iter, align 8
   call void @error_propagate(ptr noundef nonnull %err.i, ptr noundef nonnull %25) #15
-  br label %nbd_iter_channel_error.exit27
+  br label %nbd_iter_channel_error.exit29
 
-if.else9.i23:                                     ; preds = %if.end4.i21
+if.else9.i25:                                     ; preds = %if.end4.i23
   call void @error_free(ptr noundef nonnull %25) #15
-  br label %nbd_iter_channel_error.exit27
+  br label %nbd_iter_channel_error.exit29
 
-nbd_iter_channel_error.exit27:                    ; preds = %if.then7.i24, %if.else9.i23
+nbd_iter_channel_error.exit29:                    ; preds = %if.then7.i26, %if.else9.i25
   store ptr null, ptr %local_err, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.exit, %sw.default, %nbd_iter_channel_error.exit27, %nbd_iter_channel_error.exit, %if.end
+sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.exit, %sw.default, %nbd_iter_channel_error.exit29, %nbd_iter_channel_error.exit, %if.end
   %27 = load ptr, ptr %payload, align 8
   call void @g_free(ptr noundef %27) #15
   store ptr null, ptr %payload, align 8
   %call = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
-  br i1 %call, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %call, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %sw.epilog, %entry
   %err = getelementptr inbounds i8, ptr %iter, i64 8
@@ -2953,7 +2953,7 @@ if.end22:                                         ; preds = %if.then16, %if.end1
   %requests_lock = getelementptr inbounds i8, ptr %s, i64 96
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock, ptr noundef nonnull @.str.1, i32 noundef 407) #15
   %18 = load ptr, ptr %bs, align 8
-  %call25 = call i32 @nbd_co_do_establish_connection(ptr noundef %18, i1 noundef zeroext %cmp, ptr noundef null), !range !5
+  %call25 = call i32 @nbd_co_do_establish_connection(ptr noundef %18, i1 noundef zeroext %cmp, ptr noundef null)
   %19 = load ptr, ptr %bs, align 8
   %in_flight27 = getelementptr inbounds i8, ptr %19, i64 16972
   %20 = load i32, ptr %in_flight27, align 4
@@ -3122,7 +3122,7 @@ if.end:                                           ; preds = %entry
   %only_structured = getelementptr inbounds i8, ptr %iter, i64 17
   %1 = load i8, ptr %only_structured, align 1
   %tobool3 = trunc i8 %1 to i1
-  %call = call i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %tobool3, ptr noundef nonnull %request_ret, ptr noundef %qiov, ptr noundef nonnull %spec.store.select, ptr noundef %payload, ptr noundef nonnull %local_err), !range !5
+  %call = call i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %tobool3, ptr noundef nonnull %request_ret, ptr noundef %qiov, ptr noundef nonnull %spec.store.select, ptr noundef %payload, ptr noundef nonnull %local_err)
   %cmp4 = icmp slt i32 %call, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
@@ -3277,9 +3277,9 @@ declare ptr @nbd_reply_type_lookup(i16 noundef zeroext) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly %reply, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly %reply, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
-  %call = tail call i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp), !range !5
+  %call = tail call i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3340,7 +3340,7 @@ if.end:                                           ; preds = %if.else, %nbd_chann
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %nbd_recv_coroutines_wake.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %nbd_recv_coroutines_wake.exit, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -3363,7 +3363,7 @@ nbd_recv_coroutines_wake.exit:                    ; preds = %for.cond.i, %nbd_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %local_payload = alloca ptr, align 8
   store ptr null, ptr %local_payload, align 8
@@ -3376,7 +3376,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store i32 0, ptr %request_ret, align 4
-  %call = tail call i32 @nbd_receive_replies(ptr noundef %s, i64 noundef %cookie, ptr noundef %errp), !range !5
+  %call = tail call i32 @nbd_receive_replies(ptr noundef %s, i64 noundef %cookie, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then2, label %if.end3
 
@@ -3492,13 +3492,13 @@ if.end58:                                         ; preds = %if.then55
   %idxprom = ashr exact i64 %sext, 32
   %offset = getelementptr [16 x %struct.NBDClientRequest], ptr %requests, i64 0, i64 %idxprom, i32 1
   %11 = load i64, ptr %offset, align 8
-  %call59 = tail call i32 @nbd_co_receive_offset_data_payload(ptr noundef nonnull %s, i64 noundef %11, ptr noundef nonnull %qiov, ptr noundef %errp), !range !15
+  %call59 = tail call i32 @nbd_co_receive_offset_data_payload(ptr noundef nonnull %s, i64 noundef %11, ptr noundef nonnull %qiov, ptr noundef %errp)
   br label %return
 
 if.end60:                                         ; preds = %if.end37
   %tobool.i.not43 = icmp slt i16 %7, 0
   %spec.select = select i1 %tobool.i.not43, ptr %local_payload, ptr %payload
-  %call66 = call i32 @nbd_co_receive_structured_payload(ptr noundef nonnull %s, ptr noundef %spec.select, ptr noundef %errp), !range !5
+  %call66 = call i32 @nbd_co_receive_structured_payload(ptr noundef nonnull %s, ptr noundef %spec.select, ptr noundef %errp)
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %return, label %if.end70
 
@@ -3568,7 +3568,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -3591,7 +3591,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.cond, %nbd_recv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_receive_replies(ptr noundef %s, i64 noundef %cookie, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_receive_replies(ptr noundef %s, i64 noundef %cookie, ptr noundef %errp) #0 {
 entry:
   %receive_mutex = getelementptr inbounds i8, ptr %s, i64 616
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %receive_mutex) #15
@@ -3792,7 +3792,7 @@ declare i32 @nbd_errno_to_system_errno(i32 noundef) local_unnamed_addr #1
 declare i32 @qio_channel_readv_all(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_receive_offset_data_payload(ptr nocapture noundef readonly %s, i64 noundef %orig_offset, ptr noundef %qiov, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_offset_data_payload(ptr nocapture noundef readonly %s, i64 noundef %orig_offset, ptr noundef %qiov, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop.i.i = alloca %struct.ErrorPropagator, align 8
   %sub_qiov = alloca %struct.QEMUIOVector, align 8
@@ -3917,7 +3917,7 @@ return:                                           ; preds = %nbd_read64.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @nbd_co_receive_structured_payload(ptr nocapture noundef readonly %s, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_structured_payload(ptr nocapture noundef readonly %s, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %reply = getelementptr inbounds i8, ptr %s, i64 664
@@ -4163,7 +4163,7 @@ if.end.i.preheader:                               ; preds = %do.body
 
 if.end.i:                                         ; preds = %if.end.i.preheader, %nbd_reply_chunk_iter_receive.exit
   %tobool3.i = phi i1 [ false, %if.end.i.preheader ], [ true, %nbd_reply_chunk_iter_receive.exit ]
-  %call.i = call i32 @nbd_co_do_receive_one_chunk(ptr noundef %0, i64 noundef %5, i1 noundef zeroext %tobool3.i, ptr noundef nonnull %request_ret.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %local_err.i), !range !5
+  %call.i = call i32 @nbd_co_do_receive_one_chunk(ptr noundef %0, i64 noundef %5, i1 noundef zeroext %tobool3.i, ptr noundef nonnull writeonly %request_ret.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %local_err.i)
   %cmp.i23 = icmp slt i32 %call.i, 0
   br i1 %cmp.i23, label %if.then.i, label %if.else.i24
 
@@ -4221,7 +4221,7 @@ if.end.i25:                                       ; preds = %if.else.i24, %nbd_c
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %nbd_co_receive_one_chunk.exit, label %for.body.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %nbd_co_receive_one_chunk.exit, label %for.body.i.i, !llvm.loop !13
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.end.i25
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i25 ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -4322,7 +4322,7 @@ nbd_reply_chunk_iter_receive.exit:                ; preds = %if.end24.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   %tobool.i = trunc i8 %.pre to i1
-  br i1 %tobool.i, label %nbd_co_receive_return_code.exit, label %if.end.i, !llvm.loop !16
+  br i1 %tobool.i, label %nbd_co_receive_return_code.exit, label %if.end.i, !llvm.loop !14
 
 nbd_co_receive_return_code.exit:                  ; preds = %if.end9.i, %nbd_reply_chunk_iter_receive.exit, %nbd_reply_chunk_iter_receive.exit.thread, %if.then18.i
   %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -4375,7 +4375,7 @@ land.rhs:                                         ; preds = %do.body, %do.cond
   %36 = load i32, ptr %state.i.i.i, align 8
   %cmp.i = icmp eq i32 %36, 0
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
-  br i1 %cmp.i, label %do.body, label %do.end, !llvm.loop !17
+  br i1 %cmp.i, label %do.body, label %do.end, !llvm.loop !15
 
 do.end:                                           ; preds = %do.cond, %land.rhs
   %ret.044 = phi i32 [ %25, %do.cond ], [ %ret.045, %land.rhs ]
@@ -4396,7 +4396,7 @@ entry:
 
 for.cond:                                         ; preds = %for.cond, %entry
   %call = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef null, ptr noundef null, ptr noundef null)
-  br i1 %call, label %for.cond, label %for.end, !llvm.loop !16
+  br i1 %call, label %for.cond, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.cond
   %err = getelementptr inbounds i8, ptr %iter, i64 8
@@ -4880,7 +4880,7 @@ sw.epilog:                                        ; preds = %if.then85.i, %land.
   call void @g_free(ptr noundef %66) #15
   store ptr null, ptr %payload, align 8
   %call = call zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef nonnull %iter, i64 noundef %cookie, ptr noundef null, ptr noundef nonnull %reply, ptr noundef nonnull %payload)
-  br i1 %call, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %call, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %sw.epilog, %if.end
   %67 = load i64, ptr %extent, align 1
@@ -4966,17 +4966,15 @@ attributes #18 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i32 -22, i32 1}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

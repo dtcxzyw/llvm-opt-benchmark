@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @dummy_unique_L8], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPLI_shm_lhnd_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @MPLI_shm_lhnd_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %8, label %3
@@ -335,7 +335,7 @@ define noundef i32 @MPL_shm_fixed_seg_attach(ptr nocapture noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_shm_seg_detach(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @MPL_shm_seg_detach(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @munmap(ptr noundef %4, i64 noundef %2) #9
   store ptr null, ptr %1, align 8
@@ -348,7 +348,7 @@ define i32 @MPL_shm_seg_detach(ptr nocapture noundef readnone %0, ptr nocapture 
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_shm_seg_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef range(i32 0, 10) i32 @MPL_shm_seg_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @unlink(ptr noundef %3) #9

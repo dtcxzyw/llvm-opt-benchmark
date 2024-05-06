@@ -112,7 +112,7 @@ while.body:                                       ; preds = %entry, %while.body
   call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 5) #2
   %div279 = lshr i32 %index.0280, 3
   %4 = zext nneg i32 %div279 to i64
-  %5 = getelementptr i8, ptr %exponent, i64 %4
+  %5 = getelementptr inbounds i8, ptr %exponent, i64 %4
   %6 = load i16, ptr %5, align 1
   %7 = zext i16 %6 to i32
   %rem16 = and i32 %index.0280, 7

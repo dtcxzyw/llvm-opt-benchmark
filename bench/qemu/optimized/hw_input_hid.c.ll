@@ -197,11 +197,11 @@ hid_pointer_activate.exit:                        ; preds = %entry, %if.then.i
 
 if.then:                                          ; preds = %hid_pointer_activate.exit
   %.val.i = tail call i32 @llvm.smin.i32(i32 %5, i32 127)
-  %retval.0.i = tail call noundef i32 @llvm.smax.i32(i32 %.val.i, i32 -127)
+  %retval.0.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 -127)
   %ydy = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %ydy, align 4
   %.val.i72 = tail call i32 @llvm.smin.i32(i32 %6, i32 127)
-  %retval.0.i73 = tail call noundef i32 @llvm.smax.i32(i32 %.val.i72, i32 -127)
+  %retval.0.i73 = tail call i32 @llvm.smax.i32(i32 %.val.i72, i32 -127)
   %sub4 = sub i32 %5, %retval.0.i
   store i32 %sub4, ptr %arrayidx, align 4
   %sub6 = sub i32 %6, %retval.0.i73
@@ -221,7 +221,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %dz9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %dz9, align 4
   %.val.i74 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
-  %retval.0.i75 = tail call noundef i32 @llvm.smax.i32(i32 %.val.i74, i32 -127)
+  %retval.0.i75 = tail call i32 @llvm.smax.i32(i32 %.val.i74, i32 -127)
   %sub12 = sub i32 %10, %retval.0.i75
   store i32 %sub12, ptr %dz9, align 4
   %tobool14.not = icmp ne i32 %2, 0
@@ -372,7 +372,7 @@ sw.default:                                       ; preds = %if.end30
 
 sw.epilog.sink.split:                             ; preds = %if.end107, %if.end54
   %l.7.sink77 = phi i32 [ %l.2, %if.end54 ], [ %l.7, %if.end107 ]
-  %13 = trunc i32 %retval.0.i75 to i8
+  %13 = trunc nsw i32 %retval.0.i75 to i8
   %conv111 = sub i8 0, %13
   %inc112 = add nuw nsw i32 %l.7.sink77, 1
   %idxprom113 = zext nneg i32 %l.7.sink77 to i64
@@ -389,7 +389,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, -2147483648) i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
@@ -515,7 +515,7 @@ sw.bb35.i:                                        ; preds = %if.end25.i, %if.end
 if.then38.i:                                      ; preds = %sw.bb35.i
   %and40.i = and i32 %conv19.i, 15
   %shl.i = shl nuw nsw i32 1, %and40.i
-  %14 = trunc i32 %shl.i to i16
+  %14 = trunc nuw i32 %shl.i to i16
   %15 = xor i16 %14, -1
   %conv44.i = and i16 %and17.i, %15
   store i16 %conv44.i, ptr %modifiers.i, align 8
@@ -524,7 +524,7 @@ if.then38.i:                                      ; preds = %sw.bb35.i
 sw.bb46.i:                                        ; preds = %sw.bb35.i, %if.end7.i, %if.end7.i
   %and48.i = and i32 %conv19.i, 15
   %shl49.i = shl nuw nsw i32 1, %and48.i
-  %16 = trunc i32 %shl49.i to i16
+  %16 = trunc nuw i32 %shl49.i to i16
   %conv53.i = or i16 %and17.i, %16
   store i16 %conv53.i, ptr %modifiers.i, align 8
   br label %hid_keyboard_process_keycode.exit

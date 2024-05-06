@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @flat_edges(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @flat_edges(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 256
@@ -101,7 +101,7 @@ define i32 @flat_edges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.not.i, label %.backedge.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %49, %42
-  %52 = trunc i64 %indvars.iv.i to i32
+  %52 = trunc nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph
@@ -223,7 +223,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %.not.not.i139, label %.backedge.i140, label %._crit_edge.loopexit.i138
 
 ._crit_edge.loopexit.i138:                        ; preds = %118, %111
-  %121 = trunc i64 %indvars.iv.i137 to i32
+  %121 = trunc nsw i64 %indvars.iv.i137 to i32
   br label %._crit_edge.i130
 
 ._crit_edge.i130:                                 ; preds = %._crit_edge.loopexit.i138, %93
@@ -628,7 +628,7 @@ checkFlatAdjacent.exit144:                        ; preds = %.preheader.i133, %.
   br i1 %.not109, label %._crit_edge196, label %.lr.ph195
 
 ._crit_edge196:                                   ; preds = %.loopexit
-  %336 = trunc i8 %.5 to i1
+  %336 = trunc nuw i8 %.5 to i1
   br i1 %336, label %337, label %._crit_edge196.thread
 
 337:                                              ; preds = %._crit_edge196
@@ -1171,7 +1171,7 @@ define internal fastcc void @setbounds(ptr nocapture readonly %.16.val, ptr noca
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %70 = trunc i8 %.1 to i1
+  %70 = trunc nuw i8 %.1 to i1
   br i1 %.148, label %71, label %74
 
 71:                                               ; preds = %._crit_edge

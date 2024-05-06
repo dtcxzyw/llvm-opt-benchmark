@@ -3545,7 +3545,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
   %indvars.iv = phi i64 [ %indvars.iv.next, %233 ], [ 1, %.preheader292 ]
   %.1304 = phi i64 [ %234, %233 ], [ 0, %.preheader292 ]
   %.2201303 = phi i64 [ %232, %233 ], [ 0, %.preheader292 ]
-  %218 = mul nsw i64 %.1304, %202
+  %218 = mul nuw nsw i64 %.1304, %202
   %219 = getelementptr double, ptr %4, i64 %218
   %220 = getelementptr double, ptr %4, i64 %.1304
   br label %221
@@ -3561,7 +3561,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
   %227 = load double, ptr %226, align 8
   %228 = getelementptr double, ptr %219, i64 %.1190302
   store double %227, ptr %228, align 8
-  %229 = mul nsw i64 %.1190302, %202
+  %229 = mul nuw nsw i64 %.1190302, %202
   %230 = getelementptr double, ptr %220, i64 %229
   store double %227, ptr %230, align 8
   %231 = add nuw nsw i64 %.1190302, 1
@@ -3578,7 +3578,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
 .preheader279:                                    ; preds = %.preheader288, %251
   %.2312 = phi i64 [ %252, %251 ], [ 0, %.preheader288 ]
   %.4203311 = phi i64 [ %249, %251 ], [ 0, %.preheader288 ]
-  %235 = mul nsw i64 %.2312, %202
+  %235 = mul nuw nsw i64 %.2312, %202
   %236 = getelementptr double, ptr %4, i64 %235
   %237 = getelementptr double, ptr %4, i64 %.2312
   br label %238
@@ -3594,7 +3594,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
   %244 = load double, ptr %243, align 8
   %245 = getelementptr double, ptr %236, i64 %.2191310
   store double %244, ptr %245, align 8
-  %246 = mul nsw i64 %.2191310, %202
+  %246 = mul nuw nsw i64 %.2191310, %202
   %247 = getelementptr double, ptr %237, i64 %246
   store double %244, ptr %247, align 8
   %248 = add nuw nsw i64 %.2191310, 1
@@ -3635,12 +3635,12 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
 .preheader278:                                    ; preds = %.preheader287, %274
   %indvars.iv356 = phi i64 [ %indvars.iv.next357, %274 ], [ 1, %.preheader287 ]
   %.3314 = phi i64 [ %275, %274 ], [ 0, %.preheader287 ]
-  %265 = mul nsw i64 %.3314, %202
+  %265 = mul nuw nsw i64 %.3314, %202
   br label %266
 
 266:                                              ; preds = %.preheader278, %266
   %.3192313 = phi i64 [ 0, %.preheader278 ], [ %273, %266 ]
-  %267 = mul nsw i64 %.3192313, %202
+  %267 = mul nuw nsw i64 %.3192313, %202
   %268 = add nuw nsw i64 %267, %.3314
   %269 = getelementptr inbounds double, ptr %.0188, i64 %268
   %270 = load double, ptr %269, align 8
@@ -3707,7 +3707,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
   %indvars.iv360 = phi i64 [ %indvars.iv.next361, %302 ], [ 1, %.preheader285 ]
   %.5318 = phi i64 [ %303, %302 ], [ 0, %.preheader285 ]
   %.8317 = phi i64 [ %301, %302 ], [ 0, %.preheader285 ]
-  %290 = mul nsw i64 %.5318, %202
+  %290 = mul nuw nsw i64 %.5318, %202
   br label %291
 
 291:                                              ; preds = %.preheader277, %291
@@ -3736,7 +3736,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i264
 .preheader:                                       ; preds = %.preheader282, %317
   %.6328 = phi i64 [ %318, %317 ], [ 0, %.preheader282 ]
   %.10327 = phi i64 [ %315, %317 ], [ 0, %.preheader282 ]
-  %304 = mul nsw i64 %.6328, %202
+  %304 = mul nuw nsw i64 %.6328, %202
   br label %305
 
 305:                                              ; preds = %.preheader, %305
@@ -8010,7 +8010,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi10casadi_cvxIdEEixPT_S1_S1_xxS
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = mul nsw i64 %.0121135.us, %0
+  %24 = mul nuw nsw i64 %.0121135.us, %0
   %25 = getelementptr double, ptr %20, i64 %24
   store double 0.000000e+00, ptr %25, align 8
   br label %26
@@ -8066,7 +8066,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi10casadi_cvxIdEEixPT_S1_S1_xxS
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %.2139 = phi i64 [ %41, %.lr.ph141 ], [ 1, %.lr.ph141.preheader ]
   %41 = add nuw nsw i64 %.2139, 1
-  %42 = mul nsw i64 %.2139, %0
+  %42 = mul nuw nsw i64 %.2139, %0
   %43 = getelementptr double, ptr %1, i64 %41
   %44 = getelementptr double, ptr %43, i64 %42
   %45 = load double, ptr %44, align 8
@@ -8421,7 +8421,7 @@ define linkonce_odr hidden void @_ZN6casadi14casadi_cvx_triIdEEvPT_xS2_S2_(ptr n
 8:                                                ; preds = %.lr.ph, %_ZN6casadi16casadi_cvx_houseIdEET_PS1_S2_x.exit
   %.027 = phi i64 [ 0, %.lr.ph ], [ %52, %_ZN6casadi16casadi_cvx_houseIdEET_PS1_S2_x.exit ]
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %.027
-  %9 = mul nsw i64 %.027, %1
+  %9 = mul nuw nsw i64 %.027, %1
   %10 = getelementptr inbounds double, ptr %gep, i64 %9
   %11 = xor i64 %.027, -1
   %12 = add nsw i64 %11, %1

@@ -201,7 +201,7 @@ define dso_local void @i915_hwmon_register(ptr noundef %0) local_unnamed_addr #0
   %33 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 40
-  %35 = trunc i64 %25 to i32
+  %35 = trunc nuw nsw i64 %25 to i32
   %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %35) #10
   %37 = getelementptr inbounds i8, ptr %30, i64 52
   store i32 %35, ptr %37, align 4
@@ -474,7 +474,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @devm_hwmon_device_register_with_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @hwm_gt_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #4 align 16 {
+define internal zeroext range(i16 0, 293) i16 @hwm_gt_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #4 align 16 {
   %5 = icmp eq i32 %1, 5
   %6 = icmp eq i32 %2, 1
   %7 = and i1 %5, %6
@@ -571,7 +571,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @hwm_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
+define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   switch i32 %1, label %85 [
@@ -818,7 +818,7 @@ define internal i32 @hwm_read(ptr nocapture noundef readonly %0, i32 noundef %1,
   %77 = mul nuw nsw i128 %76, 1000000
   %78 = zext nneg i32 %61 to i128
   %79 = lshr i128 %77, %78
-  %80 = trunc i128 %79 to i64
+  %80 = trunc nuw nsw i128 %79 to i64
   store i64 %80, ptr %4, align 8
   %81 = load ptr, ptr %40, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 24
@@ -849,13 +849,13 @@ define internal i32 @hwm_read(ptr nocapture noundef readonly %0, i32 noundef %1,
   %102 = zext nneg i64 %101 to i128
   %103 = zext nneg i32 %100 to i128
   %104 = lshr i128 %102, %103
-  %105 = trunc i128 %104 to i64
+  %105 = trunc nuw nsw i128 %104 to i64
   %106 = lshr i64 %97, 32
   %107 = and i64 %106, 32767
   %108 = mul nuw nsw i64 %107, 1000000
   %109 = zext nneg i64 %108 to i128
   %110 = lshr i128 %109, %103
-  %111 = trunc i128 %110 to i64
+  %111 = trunc nuw nsw i128 %110 to i64
   %112 = icmp ne i64 %105, 0
   %113 = icmp ne i64 %111, 0
   %114 = select i1 %112, i1 %113, i1 false
@@ -896,7 +896,7 @@ define internal i32 @hwm_read(ptr nocapture noundef readonly %0, i32 noundef %1,
   %140 = mul nuw nsw i128 %139, 1000000
   %141 = zext nneg i32 %123 to i128
   %142 = lshr i128 %140, %141
-  %143 = trunc i128 %142 to i64
+  %143 = trunc nuw nsw i128 %142 to i64
   br label %.thread
 
 144:                                              ; preds = %37
@@ -1198,7 +1198,7 @@ define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hwm_power1_max_interval_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hwm_power1_max_interval_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1240,7 +1240,7 @@ define internal i64 @hwm_power1_max_interval_show(ptr nocapture noundef readonly
   %37 = zext nneg i64 %36 to i128
   %38 = zext nneg i32 %35 to i128
   %39 = lshr i128 %37, %38
-  %40 = trunc i128 %39 to i64
+  %40 = trunc nuw nsw i128 %39 to i64
   %41 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.13, i64 noundef %40) #10
   %42 = sext i32 %41 to i64
   ret i64 %42
@@ -1268,7 +1268,7 @@ define internal i64 @hwm_power1_max_interval_store(ptr nocapture noundef readonl
   %16 = add i32 %15, 2
   %17 = zext nneg i32 %16 to i128
   %18 = lshr i128 1048576000, %17
-  %19 = trunc i128 %18 to i64
+  %19 = trunc nuw nsw i128 %18 to i64
   %20 = load i64, ptr %5, align 8
   %21 = icmp ugt i64 %20, %19
   br i1 %21, label %63, label %22
@@ -1342,7 +1342,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hwm_gt_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @hwm_gt_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = icmp eq i32 %1, 5
   %7 = icmp eq i32 %2, 1
   %8 = and i1 %6, %7

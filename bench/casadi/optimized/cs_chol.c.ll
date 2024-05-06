@@ -117,7 +117,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %125
   %indvars.iv197 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next198, %125 ]
-  %64 = trunc i64 %indvars.iv197 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv197 to i32
   %65 = tail call i32 @cs_ereach(ptr noundef nonnull %28, i32 noundef %64, ptr noundef %23, ptr noundef nonnull %40, ptr noundef nonnull %19) #4
   %66 = getelementptr inbounds double, ptr %20, i64 %indvars.iv197
   store double 0.000000e+00, ptr %66, align 8

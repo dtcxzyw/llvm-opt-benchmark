@@ -127,7 +127,7 @@ define void @_ZNK5ZXing6Pdf41712BarcodeValue5valueEv(ptr dead_on_unwind noalias 
   br i1 %10, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %6
-  %11 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %8) #13
+  %11 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %8) #13
   %.not9.i.i = icmp eq ptr %11, %9
   br i1 %.not9.i.i, label %.lr.ph, label %.lr.ph.i.i
 

@@ -1008,7 +1008,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_sapms_opcode.exit
 
 105:                                              ; preds = %94, %94, %94
-  %106 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %98, i32 noundef 114, i8 noundef zeroext %83), !range !4
+  %106 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %98, i32 noundef 114, i8 noundef zeroext %83)
   br label %dissect_sapms_opcode.exit
 
 107:                                              ; preds = %94
@@ -1022,11 +1022,11 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph408.i:                                      ; preds = %.preheader.i, %.lr.ph408.i
   %.0407.i = phi i32 [ %112, %.lr.ph408.i ], [ 114, %.preheader.i ]
-  %111 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef %1, ptr noundef %98, i32 noundef %.0407.i, i8 noundef zeroext %83), !range !4
+  %111 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef %1, ptr noundef %98, i32 noundef %.0407.i, i8 noundef zeroext %83)
   %112 = add i32 %111, %.0407.i
   %113 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %112) #4
   %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph408.i, label %dissect_sapms_opcode.exit, !llvm.loop !5
+  br i1 %114, label %.lr.ph408.i, label %dissect_sapms_opcode.exit, !llvm.loop !4
 
 115:                                              ; preds = %94
   %116 = load i32, ptr @hf_sapms_change_ip_address, align 4
@@ -1130,7 +1130,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %176 = add i32 %.2.i, 1
   %177 = add i32 %.1354.i, -1
   %178 = icmp ugt i32 %177, 1
-  br i1 %178, label %166, label %dissect_sapms_opcode.exit, !llvm.loop !7
+  br i1 %178, label %166, label %dissect_sapms_opcode.exit, !llvm.loop !6
 
 179:                                              ; preds = %94
   %180 = load i32, ptr @hf_sapms_file_reload, align 4
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %214 = add i32 %.3403.i, 48
   %215 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %214) #4
   %216 = icmp sgt i32 %215, 47
-  br i1 %216, label %.lr.ph.i, label %dissect_sapms_opcode.exit, !llvm.loop !8
+  br i1 %216, label %.lr.ph.i, label %dissect_sapms_opcode.exit, !llvm.loop !7
 
 217:                                              ; preds = %94, %94, %94
   %218 = load i32, ptr @hf_sapms_logon_type, align 4
@@ -1303,7 +1303,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_sapms_opcode.exit
 
 288:                                              ; preds = %94, %94, %94, %94
-  %289 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %98, i32 noundef 114, i8 noundef zeroext %83), !range !4
+  %289 = tail call fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %98, i32 noundef 114, i8 noundef zeroext %83)
   %290 = add nuw nsw i32 %289, 114
   %291 = sub nsw i32 %92, %289
   %292 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %290, i32 noundef 0) #4
@@ -1604,7 +1604,7 @@ dissect_sapms_opcode.exit:                        ; preds = %.lr.ph.i, %175, %.l
   %.2.i176 = add i32 %.0119.i, 104
   %.2117.i = add nsw i32 %.0115118.i, -104
   %487 = icmp ugt i32 %.2117.i, 103
-  br i1 %487, label %.lr.ph.i175, label %dissect_sapms_adm_record.exit, !llvm.loop !9
+  br i1 %487, label %.lr.ph.i175, label %dissect_sapms_adm_record.exit, !llvm.loop !8
 
 dissect_sapms_adm_record.exit:                    ; preds = %486, %76, %dissect_sapms_opcode.exit, %77, %404, %4
   %488 = call i32 @tvb_reported_length(ptr noundef %0) #4
@@ -1709,7 +1709,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sapms_client(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 161) i32 @dissect_sapms_client(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = zext i8 %4 to i32
   %8 = icmp eq i8 %4, 1
@@ -1903,9 +1903,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 161}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

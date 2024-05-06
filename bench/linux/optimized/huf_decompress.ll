@@ -6141,7 +6141,7 @@ define dso_local i64 @HUF_decompress4X_usingDTable(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @HUF_selectDecoder(i64 noundef %0, i64 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @HUF_selectDecoder(i64 noundef %0, i64 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = icmp ult i64 %1, %0
   br i1 %3, label %4, label %8
 
@@ -6785,7 +6785,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -6929,7 +6929,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i32 @BIT_reloadDStream(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
+define internal fastcc range(i32 0, 4) i32 @BIT_reloadDStream(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 64

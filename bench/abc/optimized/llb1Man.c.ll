@@ -179,7 +179,7 @@ Vec_IntStartFull.exit91:                          ; preds = %Vec_IntAlloc.exit.t
   %.val55 = load i32, ptr %65, align 8
   %66 = getelementptr i8, ptr %.val54, i64 8
   %.val54.val = load ptr, ptr %66, align 8
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = add nsw i32 %.val55, %67
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %.val54.val, i64 %69
@@ -257,7 +257,7 @@ Vec_IntStartFull.exit91:                          ; preds = %Vec_IntAlloc.exit.t
   %119 = load ptr, ptr %28, align 8
   %120 = getelementptr i8, ptr %107, i64 104
   %.val50 = load i32, ptr %120, align 8
-  %121 = trunc i64 %indvars.iv98 to i32
+  %121 = trunc nuw nsw i64 %indvars.iv98 to i32
   %122 = add nsw i32 %.val50, %121
   %123 = getelementptr i8, ptr %119, i64 8
   %.val69 = load ptr, ptr %123, align 8
@@ -441,7 +441,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntFill.exit.lo
   br i1 %64, label %.lr.ph.preheader, label %.critedge.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph101
-  %65 = trunc i64 %indvars.iv112 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv112 to i32
   br label %.lr.ph
 
 .critedge.preheader:                              ; preds = %86, %.lr.ph101
@@ -454,7 +454,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntFill.exit.lo
   br i1 %70, label %.lr.ph93.preheader, label %.critedge2.preheader
 
 .lr.ph93.preheader:                               ; preds = %.critedge.preheader
-  %71 = trunc i64 %indvars.iv112 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv112 to i32
   br label %.lr.ph93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
@@ -503,7 +503,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntFill.exit.lo
   br i1 %94, label %.lr.ph96.preheader, label %.critedge4.preheader
 
 .lr.ph96.preheader:                               ; preds = %.critedge2.preheader
-  %95 = trunc i64 %indvars.iv112 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv112 to i32
   br label %.lr.ph96
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.critedge
@@ -551,7 +551,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntFill.exit.lo
   br i1 %116, label %.lr.ph99.preheader, label %.critedge6
 
 .lr.ph99.preheader:                               ; preds = %.critedge4.preheader
-  %117 = trunc i64 %indvars.iv112 to i32
+  %117 = trunc nuw nsw i64 %indvars.iv112 to i32
   br label %.lr.ph99
 
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.critedge2
@@ -1113,7 +1113,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 31:                                               ; preds = %28
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i32, ptr %.val19.i, i64 %32
-  %34 = trunc i64 %indvars.iv.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %34, ptr %33, align 4
   br label %35
 

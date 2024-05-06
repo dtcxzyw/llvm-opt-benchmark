@@ -283,7 +283,7 @@ for.body.i:                                       ; preds = %if.end4, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %4 = call i64 @llvm.cttz.i64(i64 %3, i1 true), !range !8
+  %4 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
   %add.i = or disjoint i64 %4, %result.012.i
   %cond.i = call i64 @llvm.umin.i64(i64 %add.i, i64 %2)
   br label %find_first_bit.exit
@@ -292,7 +292,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr i8, ptr %addr.addr.011.i, i64 8
   %add3.i = add i64 %result.012.i, 64
   %cmp.i = icmp ult i64 %add3.i, %2
-  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !8
 
 find_first_bit.exit:                              ; preds = %if.end4, %if.then.i
   %retval.0.i = phi i64 [ %cond.i, %if.then.i ], [ 0, %if.end4 ]
@@ -314,7 +314,7 @@ do.body:                                          ; preds = %find_first_bit.exit
   %call9 = call i64 @find_next_bit(ptr noundef %6, i64 noundef %7, i64 noundef %add) #8
   %8 = load i64, ptr %nbits, align 8
   %cmp6 = icmp ult i64 %call9, %8
-  br i1 %cmp6, label %do.body, label %while.end.loopexit, !llvm.loop !10
+  br i1 %cmp6, label %do.body, label %while.end.loopexit, !llvm.loop !9
 
 while.end.loopexit:                               ; preds = %do.body
   %.pre = load ptr, ptr %bitmap, align 8
@@ -370,7 +370,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %cond = call i32 @llvm.smax.i32(i32 %nbits.022, i32 %add)
   %3 = load ptr, ptr %l.023, align 8
   %tobool7.not = icmp eq ptr %3, null
-  br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %conv9 = zext nneg i32 %cond to i64
@@ -404,7 +404,7 @@ for.body13:                                       ; preds = %for.cond11.preheade
   store i64 %or.i, ptr %add.ptr.i, align 8
   %l.1 = load ptr, ptr %l.126, align 8
   %tobool12.not = icmp eq ptr %l.1, null
-  br i1 %tobool12.not, label %for.end18, label %for.body13, !llvm.loop !12
+  br i1 %tobool12.not, label %for.end18, label %for.body13, !llvm.loop !11
 
 for.end18:                                        ; preds = %for.body13, %for.cond11.preheader
   %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -510,11 +510,11 @@ for.body.us:                                      ; preds = %for.body.us.prehead
 for.inc25.us:                                     ; preds = %for.inc.us, %for.body.us
   %l.0.us = load ptr, ptr %l.034.us, align 8
   %tobool10.not.us = icmp eq ptr %l.0.us, null
-  br i1 %tobool10.not.us, label %for.end26, label %for.body.us, !llvm.loop !13
+  br i1 %tobool10.not.us, label %for.end26, label %for.body.us, !llvm.loop !12
 
 for.body19.us:                                    ; preds = %for.body.us, %for.inc.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.body.us ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call20.us = call i32 @numa_bitmask_isbitset(ptr noundef %call9, i32 noundef %4) #8
   %tobool21.not.us = icmp eq i32 %call20.us, 0
   br i1 %tobool21.not.us, label %for.inc.us, label %if.then22.us
@@ -532,7 +532,7 @@ if.then22.us:                                     ; preds = %for.body19.us
 for.inc.us:                                       ; preds = %if.then22.us, %for.body19.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc25.us, label %for.body19.us, !llvm.loop !14
+  br i1 %exitcond.not, label %for.inc25.us, label %for.body19.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %l.034 = phi ptr [ %l.0, %for.body ], [ %l.032, %for.body.lr.ph ]
@@ -543,7 +543,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call13 = call i32 @numa_node_to_cpus(i32 noundef %conv12, ptr noundef %call9) #8
   %l.0 = load ptr, ptr %l.034, align 8
   %tobool10.not = icmp eq ptr %l.0, null
-  br i1 %tobool10.not, label %for.end26, label %for.body, !llvm.loop !13
+  br i1 %tobool10.not, label %for.end26, label %for.body, !llvm.loop !12
 
 for.end26:                                        ; preds = %for.body, %for.inc25.us, %bitmap_new.exit
   call void @numa_bitmask_free(ptr noundef %call9) #8
@@ -742,10 +742,9 @@ attributes #10 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

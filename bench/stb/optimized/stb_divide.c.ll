@@ -217,14 +217,14 @@ return:                                           ; preds = %if.else21, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
 entry:
   %retval.0 = srem i32 %v1, %v2
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_mod_floor(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
+define range(i32 -2147483647, 2147483647) i32 @stb_mod_floor(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
 entry:
   %rem = srem i32 %v1, %v2
   %cmp6.inv = icmp sgt i32 %rem, 0

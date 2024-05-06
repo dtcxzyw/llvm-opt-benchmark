@@ -2359,7 +2359,7 @@ fastgetattr.exit:                                 ; preds = %86
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @lcons(ptr noundef %142, ptr noundef %139) #16
   store ptr %143, ptr %.1.ph, align 8
-  %144 = trunc i64 %indvars.iv to i32
+  %144 = trunc nuw i64 %indvars.iv to i32
   %145 = icmp sgt i32 %144, 1
   br i1 %145, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
@@ -2797,9 +2797,9 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 
 49:                                               ; preds = %46
   %50 = add i32 %40, 1
-  %51 = call i32 @llvm.ctpop.i32(i32 %50), !range !12
+  %51 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
   %52 = icmp ult i32 %51, 2
-  %53 = call i32 @llvm.ctlz.i32(i32 %50, i1 true), !range !12
+  %53 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
   %54 = xor i32 %53, 31
   %55 = shl nuw i32 2, %54
   %.0.i.i = select i1 %52, i32 %50, i32 %55
@@ -3035,9 +3035,9 @@ define dso_local void @assign_record_type_typmod(ptr noundef %0) local_unnamed_a
 
 43:                                               ; preds = %40
   %44 = add i32 %34, 1
-  %45 = call i32 @llvm.ctpop.i32(i32 %44), !range !12
+  %45 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
   %46 = icmp ult i32 %45, 2
-  %47 = call i32 @llvm.ctlz.i32(i32 %44, i1 true), !range !12
+  %47 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %48 = xor i32 %47, 31
   %49 = shl nuw i32 2, %48
   %.0.i.i = select i1 %46, i32 %44, i32 %49
@@ -3089,9 +3089,9 @@ ensure_record_cache_typmod_slot_exists.exit:      ; preds = %40, %43
 
 72:                                               ; preds = %69
   %73 = add i32 %63, 1
-  %74 = call i32 @llvm.ctpop.i32(i32 %73), !range !12
+  %74 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %73)
   %75 = icmp ult i32 %74, 2
-  %76 = call i32 @llvm.ctlz.i32(i32 %73, i1 true), !range !12
+  %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
   %77 = xor i32 %76, 31
   %78 = shl nuw i32 2, %77
   %.0.i.i19 = select i1 %75, i32 %73, i32 %78
@@ -3141,7 +3141,7 @@ define internal i32 @record_type_typmod_hash(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @record_type_typmod_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i32 0, 2) i32 @record_type_typmod_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = tail call zeroext i1 @equalTupleDescs(ptr noundef %4, ptr noundef %5) #16
@@ -3188,7 +3188,7 @@ define internal fastcc ptr @find_or_make_matching_shared_tupledesc(ptr noundef %
   %25 = getelementptr inbounds i8, ptr %15, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #16, !srcloc !13
+  %28 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #16, !srcloc !12
   store i32 %28, ptr %4, align 4
   %29 = load ptr, ptr @CurrentSession, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -3403,7 +3403,7 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef %0, ptr nounde
   %29 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %28) #16
   call void @TupleDescCopy(ptr noundef %29, ptr noundef nonnull %21) #16
   %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %31, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 8
   %33 = call ptr @dshash_find_or_insert(ptr noundef %9, ptr noundef nonnull %32, ptr noundef nonnull %5) #16
@@ -3449,7 +3449,7 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = sext i32 %49 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %17, label %._crit_edge, !llvm.loop !14
+  br i1 %52, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %48, %3
   %53 = load ptr, ptr @CurrentSession, align 8
@@ -3545,7 +3545,7 @@ define dso_local void @SharedRecordTypmodRegistryAttach(ptr noundef %0) local_un
 declare ptr @dshash_attach(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @compare_values_of_enum(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @compare_values_of_enum(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.EnumItem, align 4
   %5 = alloca %struct.EnumItem, align 4
   %6 = alloca %struct.EnumItem, align 4
@@ -3781,7 +3781,7 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   %37 = add i32 %.076101, 1
   %38 = call ptr @systable_getnext(ptr noundef %16) #16
   %.not95 = icmp eq ptr %38, null
-  br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %30, %11
   %.076.lcssa = phi i32 [ 0, %11 ], [ %37, %30 ]
@@ -3809,7 +3809,7 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   %44 = getelementptr %struct.EnumItem, ptr %.0.lcssa, i64 %indvars.iv119
   %45 = load i32, ptr %44, align 4
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %46 = trunc i64 %indvars.iv.next120 to i32
+  %46 = trunc nuw i64 %indvars.iv.next120 to i32
   %47 = icmp sgt i32 %.076.lcssa, %46
   br i1 %47, label %.lr.ph109.preheader, label %._crit_edge110
 
@@ -3847,7 +3847,7 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next117 to i32
   %exitcond.not = icmp eq i32 %.076.lcssa, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !15
 
 ._crit_edge110:                                   ; preds = %61, %.lr.ph109, %42
   %.079.lcssa = phi ptr [ %43, %42 ], [ %.079104, %.lr.ph109 ], [ %.180, %61 ]
@@ -3858,12 +3858,12 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   %..086 = select i1 %62, i32 %45, i32 %.086
   %.077.lcssa..084 = call i32 @llvm.smax.i32(i32 %.077.lcssa, i32 %.084)
   call void @bms_free(ptr noundef %.088..079.lcssa) #16
-  %63 = trunc i64 %indvars.iv119 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv119 to i32
   %64 = xor i32 %63, -1
   %65 = add i32 %.076.lcssa, %64
   %.not96 = icmp slt i32 %.077.lcssa..084, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not96, label %41, label %66, !llvm.loop !17
+  br i1 %.not96, label %41, label %66, !llvm.loop !16
 
 66:                                               ; preds = %._crit_edge110, %41
   %.290 = phi ptr [ %.079.lcssa..088, %._crit_edge110 ], [ %.088, %41 ]
@@ -4080,7 +4080,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %58, %41, %31
   %.6 = phi i32 [ 491520, %31 ], [ 0, %41 ], [ %.5, %58 ]
@@ -4226,7 +4226,7 @@ declare ptr @repalloc0(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shared_record_table_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @shared_record_table_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -4302,7 +4302,7 @@ declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @enum_oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @enum_oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4
@@ -4398,10 +4398,9 @@ attributes #20 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 33}
-!13 = !{i64 1689192, i64 1689209}
+!12 = !{i64 1689192, i64 1689209}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

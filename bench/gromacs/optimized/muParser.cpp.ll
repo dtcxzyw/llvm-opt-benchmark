@@ -1512,7 +1512,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu6Parser5IsValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu6Parser5IsValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

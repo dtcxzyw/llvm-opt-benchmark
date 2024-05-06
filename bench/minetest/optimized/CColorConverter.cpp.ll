@@ -23,7 +23,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp1153, label %for.body.us.preheader, label %for.end31
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %mul = mul nsw i32 %height, %width
+  %mul = mul nuw nsw i32 %height, %width
   %idx.ext = zext nneg i32 %mul to i64
   %out.addr.0.idx = select i1 %flip, i64 %idx.ext, i64 0
   %out.addr.0 = getelementptr inbounds i16, ptr %out, i64 %out.addr.0.idx
@@ -198,7 +198,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp1357, label %for.body.us.preheader, label %for.end35
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %mul = mul nsw i32 %height, %width
+  %mul = mul nuw nsw i32 %height, %width
   %idx.ext = zext nneg i32 %mul to i64
   %out.addr.0.idx = select i1 %flip, i64 %idx.ext, i64 0
   %out.addr.0 = getelementptr inbounds i16, ptr %out, i64 %out.addr.0.idx
@@ -231,7 +231,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %and4.i.us = lshr i32 %2, 3
   %shr5.i.us = and i32 %and4.i.us, 31
   %or3.i.us = or disjoint i32 %or.i.us, %shr5.i.us
-  %3 = trunc i32 %or3.i.us to i16
+  %3 = trunc nuw nsw i32 %or3.i.us to i16
   %conv.i.us = or disjoint i16 %3, -32768
   %arrayidx18.us = getelementptr inbounds i16, ptr %out.addr.2.us, i64 %indvars.iv
   store i16 %conv.i.us, ptr %arrayidx18.us, align 2, !tbaa !6
@@ -279,7 +279,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp1346, label %for.body.us.preheader, label %for.end27
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %mul = mul nsw i32 %height, %width
+  %mul = mul nuw nsw i32 %height, %width
   %idx.ext = zext nneg i32 %mul to i64
   %out.addr.0.idx = select i1 %flip, i64 %idx.ext, i64 0
   %out.addr.0 = getelementptr inbounds i16, ptr %out, i64 %out.addr.0.idx
@@ -308,7 +308,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %and4.i.us = lshr i32 %1, 3
   %shr5.i.us = and i32 %and4.i.us, 31
   %or3.i.us = or disjoint i32 %or.i.us, %shr5.i.us
-  %2 = trunc i32 %or3.i.us to i16
+  %2 = trunc nuw nsw i32 %or3.i.us to i16
   %conv.i.us = or disjoint i16 %2, -32768
   %arrayidx17.us = getelementptr inbounds i16, ptr %out.addr.2.us, i64 %indvars.iv
   store i16 %conv.i.us, ptr %arrayidx17.us, align 2, !tbaa !6
@@ -1402,7 +1402,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %7, label %middle.block, label %vector.body, !llvm.loop !44
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end16 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader23
@@ -1530,7 +1530,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %24, label %middle.block, label %vector.body, !llvm.loop !47
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end7 = getelementptr i8, ptr %dP, i64 %1
   %ind.end9 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
@@ -1628,7 +1628,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %13, label %middle.block, label %vector.body, !llvm.loop !49
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end11 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader18
@@ -1893,8 +1893,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %23 = and <4 x i32> %21, <i32 31, i32 31, i32 31, i32 31>
   %24 = or disjoint <4 x i32> %18, %22
   %25 = or disjoint <4 x i32> %19, %23
-  %26 = trunc <4 x i32> %24 to <4 x i16>
-  %27 = trunc <4 x i32> %25 to <4 x i16>
+  %26 = trunc nuw <4 x i32> %24 to <4 x i16>
+  %27 = trunc nuw <4 x i32> %25 to <4 x i16>
   %28 = getelementptr i8, ptr %next.gep, i64 8
   store <4 x i16> %26, ptr %next.gep, align 2, !tbaa !6
   store <4 x i16> %27, ptr %28, align 2, !tbaa !6
@@ -1903,7 +1903,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %29, label %middle.block, label %vector.body, !llvm.loop !53
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end7 = getelementptr i8, ptr %dP, i64 %1
   %ind.end9 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
@@ -1929,7 +1929,7 @@ for.body:                                         ; preds = %for.body.preheader1
   %and6.i = lshr i32 %30, 3
   %shr7.i = and i32 %and6.i, 31
   %or8.i = or disjoint i32 %or5.i, %shr7.i
-  %conv.i = trunc i32 %or8.i to i16
+  %conv.i = trunc nuw i32 %or8.i to i16
   %incdec.ptr1 = getelementptr inbounds i8, ptr %dB.05, i64 2
   store i16 %conv.i, ptr %dB.05, align 2, !tbaa !6
   %inc = add nuw nsw i32 %x.06, 1
@@ -2007,7 +2007,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %7
-  %ind.end30 = trunc i64 %n.vec to i32
+  %ind.end30 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -2066,7 +2066,7 @@ for.body.preheader1:                              ; preds = %for.body.preheader3
 
 for.body.preheader35.loopexit:                    ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %9
-  %ind.end24 = trunc i64 %n.vec to i32
+  %ind.end24 = trunc nsw i64 %n.vec to i32
   br label %for.body.preheader1
 
 vector.memcheck:                                  ; preds = %for.body.preheader
@@ -2431,7 +2431,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %156, label %vec.epilog.iter.check, label %vector.body, !llvm.loop !74
 
 vec.epilog.iter.check:                            ; preds = %vector.body
-  %ind.end54 = trunc i64 %n.vec to i32
+  %ind.end54 = trunc nsw i64 %n.vec to i32
   %ind.end51 = getelementptr i8, ptr %dP, i64 %n.vec
   %157 = shl nsw i64 %n.vec, 2
   %ind.end49 = getelementptr i8, ptr %sP, i64 %157
@@ -2440,7 +2440,7 @@ vec.epilog.iter.check:                            ; preds = %vector.body
 
 for.body.preheader.loopexit:                      ; preds = %vec.epilog.vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %170
-  %ind.end53 = trunc i64 %n.vec48 to i32
+  %ind.end53 = trunc nsw i64 %n.vec48 to i32
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.preheader.loopexit, %vec.epilog.iter.check, %vector.memcheck, %iter.check
@@ -2772,7 +2772,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %7
-  %ind.end25 = trunc i64 %n.vec to i32
+  %ind.end25 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -2911,7 +2911,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %7, label %middle.block, label %vector.body, !llvm.loop !91
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end13 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader20
@@ -3034,7 +3034,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !94
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end17 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader24
@@ -3322,7 +3322,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %7
-  %ind.end24 = trunc i64 %n.vec to i32
+  %ind.end24 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -3389,7 +3389,7 @@ for.body.epil:                                    ; preds = %for.body.preheader,
   %dB.021.unr4 = phi ptr [ %add.ptr11.1, %for.cond.cleanup.loopexit.unr-lcssa ], [ %dP, %for.body.preheader ]
   %1 = load i16, ptr %sB.020.unr5, align 2, !tbaa !6
   %2 = lshr i16 %1, 8
-  %3 = trunc i16 %2 to i8
+  %3 = trunc nuw i16 %2 to i8
   %conv1.epil = and i8 %3, -8
   store i8 %conv1.epil, ptr %dB.021.unr4, align 1, !tbaa !3
   %4 = load i16, ptr %sB.020.unr5, align 2, !tbaa !6
@@ -3414,7 +3414,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %niter = phi i32 [ 0, %for.body.preheader.new ], [ %niter.next.1, %for.body ]
   %8 = load i16, ptr %sB.020, align 2, !tbaa !6
   %9 = lshr i16 %8, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %conv1 = and i8 %10, -8
   store i8 %conv1, ptr %dB.021, align 1, !tbaa !3
   %11 = load i16, ptr %sB.020, align 2, !tbaa !6
@@ -3432,7 +3432,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %add.ptr11 = getelementptr inbounds i8, ptr %dB.021, i64 3
   %15 = load i16, ptr %add.ptr, align 2, !tbaa !6
   %16 = lshr i16 %15, 8
-  %17 = trunc i16 %16 to i8
+  %17 = trunc nuw i16 %16 to i8
   %conv1.1 = and i8 %17, -8
   store i8 %conv1.1, ptr %add.ptr11, align 1, !tbaa !3
   %18 = load i16, ptr %add.ptr, align 2, !tbaa !6
@@ -3477,7 +3477,7 @@ for.body.epil:                                    ; preds = %for.body.preheader,
   %dB.021.unr4 = phi ptr [ %add.ptr11.1, %for.cond.cleanup.loopexit.unr-lcssa ], [ %dP, %for.body.preheader ]
   %1 = load i16, ptr %sB.020.unr5, align 2, !tbaa !6
   %2 = lshr i16 %1, 8
-  %3 = trunc i16 %2 to i8
+  %3 = trunc nuw i16 %2 to i8
   %conv1.epil = and i8 %3, -8
   %arrayidx.epil = getelementptr inbounds i8, ptr %dB.021.unr4, i64 2
   store i8 %conv1.epil, ptr %arrayidx.epil, align 1, !tbaa !3
@@ -3502,7 +3502,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %niter = phi i32 [ 0, %for.body.preheader.new ], [ %niter.next.1, %for.body ]
   %8 = load i16, ptr %sB.020, align 2, !tbaa !6
   %9 = lshr i16 %8, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %conv1 = and i8 %10, -8
   %arrayidx = getelementptr inbounds i8, ptr %dB.021, i64 2
   store i8 %conv1, ptr %arrayidx, align 1, !tbaa !3
@@ -3520,7 +3520,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %add.ptr11 = getelementptr inbounds i8, ptr %dB.021, i64 3
   %15 = load i16, ptr %add.ptr, align 2, !tbaa !6
   %16 = lshr i16 %15, 8
-  %17 = trunc i16 %16 to i8
+  %17 = trunc nuw i16 %16 to i8
   %conv1.1 = and i8 %17, -8
   %arrayidx.1 = getelementptr inbounds i8, ptr %dB.021, i64 5
   store i8 %conv1.1, ptr %arrayidx.1, align 1, !tbaa !3
@@ -3601,7 +3601,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %25, label %middle.block, label %vector.body, !llvm.loop !107
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end7 = getelementptr i8, ptr %dP, i64 %1
   %ind.end9 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
@@ -3681,7 +3681,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !109
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw nsw i64 %n.vec to i32
   %ind.end11 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader18
@@ -3846,7 +3846,7 @@ vector.body433:                                   ; preds = %vector.body433, %ve
   br i1 %13, label %middle.block420, label %vector.body433, !llvm.loop !111
 
 middle.block420:                                  ; preds = %vector.body433
-  %ind.end426 = trunc i64 %n.vec425 to i32
+  %ind.end426 = trunc nuw nsw i64 %n.vec425 to i32
   %ind.end430 = getelementptr i8, ptr %sP, i64 %2
   %cmp.n432 = icmp eq i64 %n.vec425, %0
   br i1 %cmp.n432, label %sw.epilog27, label %for.body.i.preheader445
@@ -3953,7 +3953,7 @@ vector.body408:                                   ; preds = %vector.body408, %ve
   br i1 %44, label %middle.block395, label %vector.body408, !llvm.loop !113
 
 middle.block395:                                  ; preds = %vector.body408
-  %ind.end401 = trunc i64 %n.vec400 to i32
+  %ind.end401 = trunc nuw nsw i64 %n.vec400 to i32
   %ind.end403 = getelementptr i8, ptr %dP, i64 %21
   %ind.end405 = getelementptr i8, ptr %sP, i64 %22
   %cmp.n407 = icmp eq i64 %n.vec400, %20
@@ -4107,7 +4107,7 @@ vector.body384:                                   ; preds = %vector.body384, %ve
   br i1 %76, label %middle.block371, label %vector.body384, !llvm.loop !115
 
 middle.block371:                                  ; preds = %vector.body384
-  %ind.end377 = trunc i64 %n.vec376 to i32
+  %ind.end377 = trunc nuw nsw i64 %n.vec376 to i32
   %ind.end381 = getelementptr i8, ptr %sP, i64 %63
   %cmp.n383 = icmp eq i64 %n.vec376, %61
   br i1 %cmp.n383, label %sw.epilog27, label %for.body.i91.preheader449
@@ -4224,7 +4224,7 @@ vector.body357:                                   ; preds = %vector.body357, %ve
   br i1 %108, label %middle.block344, label %vector.body357, !llvm.loop !117
 
 middle.block344:                                  ; preds = %vector.body357
-  %ind.end350 = trunc i64 %n.vec349 to i32
+  %ind.end350 = trunc nuw nsw i64 %n.vec349 to i32
   %ind.end352 = getelementptr i8, ptr %dP, i64 %84
   %ind.end354 = getelementptr i8, ptr %sP, i64 %85
   %cmp.n356 = icmp eq i64 %n.vec349, %83
@@ -4277,7 +4277,7 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
   %niter471 = phi i32 [ 0, %for.body.i120.preheader.new ], [ %niter471.next.1, %for.body.i120 ]
   %111 = load i16, ptr %sB.020.i123, align 2, !tbaa !6
   %112 = lshr i16 %111, 8
-  %113 = trunc i16 %112 to i8
+  %113 = trunc nuw i16 %112 to i8
   %conv1.i124 = and i8 %113, -8
   store i8 %conv1.i124, ptr %dB.021.i122, align 1, !tbaa !3
   %114 = load i16, ptr %sB.020.i123, align 2, !tbaa !6
@@ -4295,7 +4295,7 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
   %add.ptr11.i130 = getelementptr inbounds i8, ptr %dB.021.i122, i64 3
   %118 = load i16, ptr %add.ptr.i129, align 2, !tbaa !6
   %119 = lshr i16 %118, 8
-  %120 = trunc i16 %119 to i8
+  %120 = trunc nuw i16 %119 to i8
   %conv1.i124.1 = and i8 %120, -8
   store i8 %conv1.i124.1, ptr %add.ptr11.i130, align 1, !tbaa !3
   %121 = load i16, ptr %add.ptr.i129, align 2, !tbaa !6
@@ -4369,8 +4369,8 @@ vector.body334:                                   ; preds = %vector.body334, %ve
   %148 = and <4 x i32> %146, <i32 31, i32 31, i32 31, i32 31>
   %149 = or disjoint <4 x i32> %143, %147
   %150 = or disjoint <4 x i32> %144, %148
-  %151 = trunc <4 x i32> %149 to <4 x i16>
-  %152 = trunc <4 x i32> %150 to <4 x i16>
+  %151 = trunc nuw <4 x i32> %149 to <4 x i16>
+  %152 = trunc nuw <4 x i32> %150 to <4 x i16>
   %153 = getelementptr i8, ptr %next.gep337, i64 8
   store <4 x i16> %151, ptr %next.gep337, align 2, !tbaa !6
   store <4 x i16> %152, ptr %153, align 2, !tbaa !6
@@ -4379,7 +4379,7 @@ vector.body334:                                   ; preds = %vector.body334, %ve
   br i1 %154, label %middle.block321, label %vector.body334, !llvm.loop !119
 
 middle.block321:                                  ; preds = %vector.body334
-  %ind.end327 = trunc i64 %n.vec326 to i32
+  %ind.end327 = trunc nuw nsw i64 %n.vec326 to i32
   %ind.end329 = getelementptr i8, ptr %dP, i64 %126
   %ind.end331 = getelementptr i8, ptr %sP, i64 %127
   %cmp.n333 = icmp eq i64 %n.vec326, %125
@@ -4408,7 +4408,7 @@ for.body.i134:                                    ; preds = %for.body.i134.prehe
   %and6.i.i144 = lshr i32 %155, 3
   %shr7.i.i = and i32 %and6.i.i144, 31
   %or8.i.i145 = or disjoint i32 %or5.i.i, %shr7.i.i
-  %conv.i.i146 = trunc i32 %or8.i.i145 to i16
+  %conv.i.i146 = trunc nuw i32 %or8.i.i145 to i16
   %incdec.ptr1.i147 = getelementptr inbounds i8, ptr %dB.05.i136, i64 2
   store i16 %conv.i.i146, ptr %dB.05.i136, align 2, !tbaa !6
   %inc.i148 = add nuw nsw i32 %x.06.i135, 1
@@ -4549,7 +4549,7 @@ vector.body307:                                   ; preds = %vector.body307, %ve
 
 for.body.i150.preheader456.loopexit:              ; preds = %vector.body307
   %ind.end301 = getelementptr i8, ptr %sP, i64 %165
-  %ind.end305 = trunc i64 %n.vec300 to i32
+  %ind.end305 = trunc nsw i64 %n.vec300 to i32
   br label %for.body.i150.preheader64
 
 for.body.i150.preheader64:                        ; preds = %for.body.i150.preheader456.loopexit, %vector.memcheck289, %for.body.i150.preheader
@@ -4699,7 +4699,7 @@ vector.body278:                                   ; preds = %vector.body278, %ve
 
 middle.block265:                                  ; preds = %vector.body278
   %ind.end271 = getelementptr i8, ptr %sP, i64 %269
-  %ind.end275 = trunc i64 %n.vec270 to i32
+  %ind.end275 = trunc nuw nsw i64 %n.vec270 to i32
   %cmp.n277 = icmp eq i64 %n.vec270, %262
   br i1 %cmp.n277, label %sw.epilog27, label %for.body.i164.preheader66
 
@@ -4790,7 +4790,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %sP, i64 %297
-  %ind.end253 = trunc i64 %n.vec to i32
+  %ind.end253 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %290
   br i1 %cmp.n, label %sw.epilog27, label %for.body.i177.preheader68
 
@@ -4923,7 +4923,7 @@ for.body.i120.epil:                               ; preds = %for.body.i120.prehe
   %dB.021.i122.unr9 = phi ptr [ %add.ptr11.i130.1, %sw.epilog27.loopexit453.unr-lcssa ], [ %dP, %for.body.i120.preheader ]
   %330 = load i16, ptr %sB.020.i123.unr10, align 2, !tbaa !6
   %331 = lshr i16 %330, 8
-  %332 = trunc i16 %331 to i8
+  %332 = trunc nuw i16 %331 to i8
   %conv1.i124.epil = and i8 %332, -8
   store i8 %conv1.i124.epil, ptr %dB.021.i122.unr9, align 1, !tbaa !3
   %333 = load i16, ptr %sB.020.i123.unr10, align 2, !tbaa !6

@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.pkey_ecd_digestverify448 = private unnamed_addr constant [25 x i8] c"pkey_ecd_digestverify448\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_pub_decode(ptr noundef %pkey, ptr noundef %pubkey) #0 {
+define internal range(i32 0, 2) i32 @ecx_pub_decode(ptr noundef %pkey, ptr noundef %pubkey) #0 {
 entry:
   %p = alloca ptr, align 8
   %pklen = alloca i32, align 4
@@ -77,7 +77,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @ecx_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -145,7 +145,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 -2, 2) i32 @ecx_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -185,14 +185,14 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @ecx_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_key_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @ecx_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
 entry:
   %oct = alloca %struct.asn1_string_st, align 8
   %penc = alloca ptr, align 8
@@ -269,14 +269,14 @@ return:                                           ; preds = %if.end15, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @ecx_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_key_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecx_size(ptr nocapture noundef readonly %pkey) #1 {
+define internal range(i32 32, 58) i32 @ecx_size(ptr nocapture noundef readonly %pkey) #1 {
 entry:
   %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
@@ -297,7 +297,7 @@ cond.end:                                         ; preds = %entry, %entry, %con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecx_bits(ptr nocapture noundef readonly %pkey) #1 {
+define internal range(i32 253, 457) i32 @ecx_bits(ptr nocapture noundef readonly %pkey) #1 {
 entry:
   %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
@@ -320,7 +320,7 @@ return:                                           ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ecx_security_bits(ptr nocapture noundef readonly %pkey) #1 {
+define internal range(i32 128, 225) i32 @ecx_security_bits(ptr nocapture noundef readonly %pkey) #1 {
 entry:
   %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_ctrl(ptr noundef %pkey, i32 noundef %op, i64 noundef %arg1, ptr noundef %arg2) #0 {
+define internal range(i32 -2, 58) i32 @ecx_ctrl(ptr noundef %pkey, i32 noundef %op, i64 noundef %arg1, ptr noundef %arg2) #0 {
 entry:
   switch i32 %op, label %return [
     i32 9, label %sw.bb
@@ -417,7 +417,7 @@ return:                                           ; preds = %entry, %sw.bb5, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_set_priv_key(ptr noundef %pkey, ptr noundef %priv, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @ecx_set_priv_key(ptr noundef %pkey, ptr noundef %priv, i64 noundef %len) #0 {
 entry:
   %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
@@ -451,7 +451,7 @@ return:                                           ; preds = %if.end, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_set_pub_key(ptr noundef %pkey, ptr noundef %pub, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @ecx_set_pub_key(ptr noundef %pkey, ptr noundef %pub, i64 noundef %len) #0 {
 entry:
   %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
@@ -485,7 +485,7 @@ return:                                           ; preds = %if.end, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecx_get_priv_key(ptr nocapture noundef readonly %pkey, ptr noundef writeonly %priv, ptr nocapture noundef %len) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr nocapture noundef readonly %pkey, ptr noundef writeonly %priv, ptr nocapture noundef %len) #3 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecx_get_pub_key(ptr nocapture noundef readonly %pkey, ptr noundef writeonly %pub, ptr nocapture noundef %len) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr nocapture noundef readonly %pkey, ptr noundef writeonly %pub, ptr nocapture noundef %len) #3 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -692,9 +692,9 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x25519_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
+define internal range(i32 0, 2) i32 @x25519_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1034), !range !4
+  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1034)
   ret i32 %call
 }
 
@@ -728,7 +728,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_priv_decode_ex(ptr noundef %pkey, ptr noundef %p8, ptr noundef %libctx, ptr noundef %propq) #0 {
+define internal range(i32 0, 2) i32 @ecx_priv_decode_ex(ptr noundef %pkey, ptr noundef %p8, ptr noundef %libctx, ptr noundef %propq) #0 {
 entry:
   %call = tail call ptr @ossl_ecx_key_from_pkcs8(ptr noundef %p8, ptr noundef %libctx, ptr noundef %propq) #7
   %cmp.not = icmp eq ptr %call, null
@@ -747,9 +747,9 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x448_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
+define internal range(i32 0, 2) i32 @x448_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1035), !range !4
+  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1035)
   ret i32 %call
 }
 
@@ -760,7 +760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ecd_ctrl(ptr nocapture readnone %pkey, i32 noundef %op, i64 %arg1, ptr nocapture noundef writeonly %arg2) #4 {
+define internal range(i32 -2, 3) i32 @ecd_ctrl(ptr nocapture readnone %pkey, i32 noundef %op, i64 %arg1, ptr nocapture noundef writeonly %arg2) #4 {
 entry:
   %cond = icmp eq i32 %op, 3
   br i1 %cond, label %sw.bb, label %return
@@ -775,7 +775,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecd_item_verify(ptr noundef %ctx, ptr nocapture readnone %it, ptr nocapture readnone %asn, ptr noundef %sigalg, ptr nocapture readnone %str, ptr noundef %pkey) #0 {
+define internal range(i32 0, 3) i32 @ecd_item_verify(ptr noundef %ctx, ptr nocapture readnone %it, ptr nocapture readnone %asn, ptr noundef %sigalg, ptr nocapture readnone %str, ptr noundef %pkey) #0 {
 entry:
   %obj = alloca ptr, align 8
   %ptype = alloca i32, align 4
@@ -831,9 +831,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed25519_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
+define internal range(i32 0, 2) i32 @ed25519_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1087), !range !4
+  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1087)
   ret i32 %call
 }
 
@@ -868,9 +868,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed448_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
+define internal range(i32 0, 2) i32 @ed448_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1088), !range !4
+  %call = tail call fastcc i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef 1088)
   ret i32 %call
 }
 
@@ -921,7 +921,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_key_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef %op) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -1055,7 +1055,7 @@ declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #5
 declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef %keytype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef %keytype) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #7
   %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
@@ -1129,7 +1129,7 @@ declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare void @X509_SIG_INFO_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecx_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #0 {
+define internal range(i32 0, 2) i32 @pkey_ecx_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #0 {
 entry:
   %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth, align 8
@@ -1150,7 +1150,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecx_derive25519(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef writeonly %keylen) #0 {
+define internal range(i32 0, 2) i32 @pkey_ecx_derive25519(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef writeonly %keylen) #0 {
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
@@ -1179,7 +1179,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pkey_ecx_ctrl(ptr nocapture readnone %ctx, i32 noundef %type, i32 %p1, ptr nocapture readnone %p2) #2 {
+define internal noundef range(i32 -2, 2) i32 @pkey_ecx_ctrl(ptr nocapture readnone %ctx, i32 noundef %type, i32 %p1, ptr nocapture readnone %p2) #2 {
 entry:
   %cmp = icmp eq i32 %type, 2
   %. = select i1 %cmp, i32 1, i32 -2
@@ -1187,7 +1187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_ecx_derive(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %privkey, ptr nocapture noundef writeonly %pubkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_ecx_derive(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %privkey, ptr nocapture noundef writeonly %pubkey) unnamed_addr #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey, align 8
@@ -1251,7 +1251,7 @@ declare i32 @ossl_x25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @evp_pkey_get_legacy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecx_derive448(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef writeonly %keylen) #0 {
+define internal range(i32 0, 2) i32 @pkey_ecx_derive448(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef writeonly %keylen) #0 {
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
@@ -1282,7 +1282,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare i32 @ossl_x448(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecd_ctrl(ptr nocapture readnone %ctx, i32 noundef %type, i32 %p1, ptr noundef readnone %p2) #0 {
+define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr nocapture readnone %ctx, i32 noundef %type, i32 %p1, ptr noundef readnone %p2) #0 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 1, label %sw.bb
@@ -1313,7 +1313,7 @@ return:                                           ; preds = %entry, %sw.bb, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecd_digestsign25519(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @pkey_ecd_digestsign25519(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %ctx) #7
   %pkey = getelementptr inbounds i8, ptr %call, i64 136
@@ -1406,7 +1406,7 @@ declare i32 @ossl_ed25519_sign(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare i32 @ossl_ed25519_verify(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ecd_digestsign448(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @pkey_ecd_digestsign448(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %ctx) #7
   %pkey = getelementptr inbounds i8, ptr %call, i64 136
@@ -1512,4 +1512,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [27 x i8] c"ERROR in %s (%s:%lld): %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i64 @_osqp_error(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @_osqp_error(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %9, label %3
 
@@ -41,7 +41,7 @@ define noundef i64 @_osqp_error(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i64 @_osqp_error_line(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @_osqp_error_line(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %11, label %5
 

@@ -77,7 +77,7 @@ entry:
   store i8 0, ptr %DeleteMipMapsMemory.i, align 1, !tbaa !17
   %5 = trunc i64 %4 to i32
   %6 = lshr i64 %4, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = icmp ult i32 %format, 17
   br i1 %8, label %switch.lookup, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
 
@@ -171,7 +171,7 @@ entry:
   store i8 0, ptr %DeleteMipMapsMemory.i, align 1, !tbaa !17
   %2 = trunc i64 %1 to i32
   %3 = lshr i64 %1, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = icmp ult i32 %format, 17
   br i1 %5, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread
 
@@ -714,7 +714,7 @@ sw.bb:                                            ; preds = %if.end
   %and6.i = lshr i32 %5, 3
   %shr7.i = and i32 %and6.i, 31
   %or8.i = or disjoint i32 %or5.i, %shr7.i
-  %conv.i = trunc i32 %or8.i to i16
+  %conv.i = trunc nuw i32 %or8.i to i16
   store i16 %conv.i, ptr %add.ptr5, align 2, !tbaa !27
   br label %sw.epilog
 
@@ -738,7 +738,7 @@ sw.bb7:                                           ; preds = %if.end
   %and3.i72 = lshr i32 %8, 3
   %shr4.i73 = and i32 %and3.i72, 31
   %or5.i74 = or disjoint i32 %or.i71, %shr4.i73
-  %conv.i75 = trunc i32 %or5.i74 to i16
+  %conv.i75 = trunc nuw i32 %or5.i74 to i16
   store i16 %conv.i75, ptr %add.ptr16, align 2, !tbaa !27
   br label %sw.epilog
 
@@ -996,7 +996,7 @@ if.end16:                                         ; preds = %if.then11, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, ptr noundef readonly %destPos, ptr noundef readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, ptr noundef readonly %destPos, ptr noundef readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #0 {
 entry:
   %job = alloca %"struct.irr::SBlitJob", align 16
   %tobool.not.i = icmp eq ptr %source, null
@@ -2519,7 +2519,7 @@ for.body9.us.us:                                  ; preds = %for.body9.us.us, %f
   %or.i92.us.us = or disjoint i32 %shr7.i.us.us, %shr2.i.us.us
   %or5.i.us.us = or disjoint i32 %or.i92.us.us, %shr.i90.us.us
   %or8.i.us.us = or disjoint i32 %or5.i.us.us, %shr4.i.us.us
-  %conv.i.us.us = trunc i32 %or8.i.us.us to i16
+  %conv.i.us.us = trunc nuw i32 %or8.i.us.us to i16
   %arrayidx18.us.us = getelementptr inbounds i16, ptr %dst.0122.us.us, i64 %indvars.iv.us
   store i16 %conv.i.us.us, ptr %arrayidx18.us.us, align 2, !tbaa !27
   %indvars.iv.next.us = add nuw nsw i64 %indvars.iv.us, 1
@@ -2597,7 +2597,7 @@ vector.body:                                      ; preds = %for.body.us, %vecto
   %60 = or disjoint <4 x i32> %59, %56
   %61 = or disjoint <4 x i32> %60, %54
   %62 = or disjoint <4 x i32> %61, %58
-  %63 = trunc <4 x i32> %62 to <4 x i16>
+  %63 = trunc nuw <4 x i32> %62 to <4 x i16>
   %64 = getelementptr inbounds i16, ptr %dst.0122.us, i64 %index
   store <4 x i16> %63, ptr %64, align 2, !tbaa !27
   %index.next = add nuw nsw i64 %index, 4
@@ -2636,7 +2636,7 @@ for.body9.us:                                     ; preds = %middle.block, %for.
   %or.i92.us = or disjoint i32 %shr7.i.us, %shr2.i.us
   %or5.i.us = or disjoint i32 %or.i92.us, %shr.i90.us
   %or8.i.us = or disjoint i32 %or5.i.us, %shr4.i.us
-  %conv.i.us = trunc i32 %or8.i.us to i16
+  %conv.i.us = trunc nuw i32 %or8.i.us to i16
   %arrayidx18.us = getelementptr inbounds i16, ptr %dst.0122.us, i64 %indvars.iv
   store i16 %conv.i.us, ptr %arrayidx18.us, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2701,7 +2701,7 @@ for.body33.us:                                    ; preds = %for.body33.us, %for
   %or.i109.us = or disjoint i32 %shr7.i114.us, %shr2.i108.us
   %or5.i112.us = or disjoint i32 %or.i109.us, %shr.i106.us
   %or8.i115.us = or disjoint i32 %or5.i112.us, %shr4.i111.us
-  %conv.i116.us = trunc i32 %or8.i115.us to i16
+  %conv.i116.us = trunc nuw i32 %or8.i115.us to i16
   %arrayidx44.us = getelementptr inbounds i16, ptr %dst.1126.us, i64 %indvars.iv134.us
   store i16 %conv.i116.us, ptr %arrayidx44.us, align 2, !tbaa !27
   %indvars.iv.next135.us = add nuw nsw i64 %indvars.iv134.us, 1
@@ -2745,7 +2745,7 @@ vector.body147:                                   ; preds = %for.cond30.preheade
   %91 = or disjoint <4 x i32> %90, %87
   %92 = or disjoint <4 x i32> %91, %85
   %93 = or disjoint <4 x i32> %92, %89
-  %94 = trunc <4 x i32> %93 to <4 x i16>
+  %94 = trunc nuw <4 x i32> %93 to <4 x i16>
   %95 = getelementptr inbounds i16, ptr %dst.1126, i64 %index148
   store <4 x i16> %94, ptr %95, align 2, !tbaa !27
   %index.next149 = add nuw nsw i64 %index148, 4
@@ -2786,7 +2786,7 @@ for.body33:                                       ; preds = %middle.block139, %f
   %or.i109 = or disjoint i32 %shr7.i114, %shr2.i108
   %or5.i112 = or disjoint i32 %or.i109, %shr.i106
   %or8.i115 = or disjoint i32 %or5.i112, %shr4.i111
-  %conv.i116 = trunc i32 %or8.i115 to i16
+  %conv.i116 = trunc nuw i32 %or8.i115 to i16
   %arrayidx44 = getelementptr inbounds i16, ptr %dst.1126, i64 %indvars.iv134
   store i16 %conv.i116, ptr %arrayidx44, align 2, !tbaa !27
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
@@ -3625,11 +3625,11 @@ for.body9.us:                                     ; preds = %for.body9.us, %for.
   %idxprom14.us = and i64 %mul13.us, 4294967295
   %arrayidx15.us = getelementptr inbounds i8, ptr %dst.0131.us, i64 %idxprom14.us
   %shr.us = lshr exact i32 %or7.i.us, 16
-  %conv16.us = trunc i32 %shr.us to i8
+  %conv16.us = trunc nuw i32 %shr.us to i8
   %incdec.ptr.us = getelementptr inbounds i8, ptr %arrayidx15.us, i64 1
   store i8 %conv16.us, ptr %arrayidx15.us, align 1, !tbaa !29
   %shr17.us = lshr exact i16 %10, 8
-  %conv19.us = trunc i16 %shr17.us to i8
+  %conv19.us = trunc nuw i16 %shr17.us to i8
   %incdec.ptr20.us = getelementptr inbounds i8, ptr %arrayidx15.us, i64 2
   store i8 %conv19.us, ptr %incdec.ptr.us, align 1, !tbaa !29
   %conv22.us = trunc i16 %11 to i8
@@ -3694,11 +3694,11 @@ for.body38.us:                                    ; preds = %for.body38.us, %for
   %mul44.us = mul nuw nsw i64 %indvars.iv143.us, 3
   %arrayidx46.us = getelementptr inbounds i8, ptr %dst.1136.us, i64 %mul44.us
   %shr47.us = lshr exact i32 %or7.i113.us, 16
-  %conv49.us = trunc i32 %shr47.us to i8
+  %conv49.us = trunc nuw i32 %shr47.us to i8
   %incdec.ptr50.us = getelementptr inbounds i8, ptr %arrayidx46.us, i64 1
   store i8 %conv49.us, ptr %arrayidx46.us, align 1, !tbaa !29
   %shr51.us = lshr exact i16 %18, 8
-  %conv53.us = trunc i16 %shr51.us to i8
+  %conv53.us = trunc nuw i16 %shr51.us to i8
   %incdec.ptr54.us = getelementptr inbounds i8, ptr %arrayidx46.us, i64 2
   store i8 %conv53.us, ptr %incdec.ptr50.us, align 1, !tbaa !29
   %conv56.us = trunc i16 %19 to i8
@@ -3756,9 +3756,9 @@ vector.body:                                      ; preds = %for.cond35.preheade
   %39 = and i64 %38, 4294967288
   %40 = getelementptr inbounds i8, ptr %dst.1136, i64 %39
   %41 = lshr exact <8 x i32> %28, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %42 = trunc <8 x i32> %41 to <8 x i8>
+  %42 = trunc nuw <8 x i32> %41 to <8 x i8>
   %43 = lshr exact <8 x i16> %33, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %44 = trunc <8 x i16> %43 to <8 x i8>
+  %44 = trunc nuw <8 x i16> %43 to <8 x i8>
   %45 = trunc <8 x i16> %37 to <8 x i8>
   %46 = shufflevector <8 x i8> %42, <8 x i8> %44, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %47 = shufflevector <8 x i8> %45, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -3805,11 +3805,11 @@ for.body38:                                       ; preds = %for.body38.preheade
   %idxprom45 = and i64 %mul44, 4294967295
   %arrayidx46 = getelementptr inbounds i8, ptr %dst.1136, i64 %idxprom45
   %shr47 = lshr exact i32 %or7.i113, 16
-  %conv49 = trunc i32 %shr47 to i8
+  %conv49 = trunc nuw i32 %shr47 to i8
   %incdec.ptr50 = getelementptr inbounds i8, ptr %arrayidx46, i64 1
   store i8 %conv49, ptr %arrayidx46, align 1, !tbaa !29
   %shr51 = lshr exact i16 %52, 8
-  %conv53 = trunc i16 %shr51 to i8
+  %conv53 = trunc nuw i16 %shr51 to i8
   %incdec.ptr54 = getelementptr inbounds i8, ptr %arrayidx46, i64 2
   store i8 %conv53, ptr %incdec.ptr50, align 1, !tbaa !29
   %conv56 = trunc i16 %53 to i8
@@ -3899,7 +3899,7 @@ for.body.us.preheader.split:                      ; preds = %for.body.us.prehead
   br i1 %lcmp.mod.not, label %for.body.us.us4, label %for.body.us.preheader24
 
 for.body.us.preheader24:                          ; preds = %for.body.us.preheader.split
-  %11 = trunc i64 %unroll_iter to i32
+  %11 = trunc nuw i64 %unroll_iter to i32
   %conv10.us.epil = uitofp i32 %11 to float
   %mul11.us.epil = fmul float %4, %conv10.us.epil
   %conv12.us.epil = fptoui float %mul11.us.epil to i32
@@ -4471,7 +4471,7 @@ if.end.us:                                        ; preds = %for.body7.us
   %or.i41.us = or disjoint i32 %shr17.i.us, %shr.i
   %or18.i.us = or disjoint i32 %or.i41.us, %shr10.i.us
   %or23.i.us = or disjoint i32 %or18.i.us, %shr.i40.us
-  %conv24.i.us = trunc i32 %or23.i.us to i16
+  %conv24.i.us = trunc nuw i32 %or23.i.us to i16
   %arrayidx13.us = getelementptr inbounds i16, ptr %dst.047.us, i64 %indvars.iv
   store i16 %conv24.i.us, ptr %arrayidx13.us, align 2, !tbaa !27
   br label %cleanup.us
@@ -4647,7 +4647,7 @@ entry:
   %and6.i = lshr i32 %0, 3
   %shr7.i = and i32 %and6.i, 31
   %or8.i = or disjoint i32 %or5.i, %shr7.i
-  %conv.i = trunc i32 %or8.i to i16
+  %conv.i = trunc nuw i32 %or8.i to i16
   %dst1 = getelementptr inbounds i8, ptr %job, i64 48
   %1 = load ptr, ptr %dst1, align 8, !tbaa !49
   %height = getelementptr inbounds i8, ptr %job, i64 60
@@ -5253,7 +5253,7 @@ for.body10.us:                                    ; preds = %for.body10.us, %for
   %and23.i.us = and i32 %add.i35.us, 31775
   %and24.i.us = and i32 %add22.i.us, 992
   %or.i36.us = or disjoint i32 %and23.i.us, %and24.i.us
-  %conv25.i.us = trunc i32 %or.i36.us to i16
+  %conv25.i.us = trunc nuw nsw i32 %or.i36.us to i16
   store i16 %conv25.i.us, ptr %arrayidx.us, align 2, !tbaa !27
   %indvars.iv.next.us = add nuw nsw i64 %indvars.iv.us, 1
   %cmp8.not.us = icmp eq i64 %indvars.iv.next.us, %6
@@ -5289,7 +5289,7 @@ vector.body:                                      ; preds = %for.cond7.preheader
   %22 = and <8 x i32> %20, <i32 31775, i32 31775, i32 31775, i32 31775, i32 31775, i32 31775, i32 31775, i32 31775>
   %23 = and <8 x i32> %21, <i32 992, i32 992, i32 992, i32 992, i32 992, i32 992, i32 992, i32 992>
   %24 = or disjoint <8 x i32> %22, %23
-  %25 = trunc <8 x i32> %24 to <8 x i16>
+  %25 = trunc nuw nsw <8 x i32> %24 to <8 x i16>
   store <8 x i16> %25, ptr %9, align 2, !tbaa !27
   %index.next = add nuw nsw i64 %index, 8
   %26 = icmp eq i64 %index.next, %n.vec
@@ -5323,7 +5323,7 @@ for.body10:                                       ; preds = %middle.block, %for.
   %and23.i = and i32 %add.i35, 31775
   %and24.i = and i32 %add22.i, 992
   %or.i36 = or disjoint i32 %and23.i, %and24.i
-  %conv25.i = trunc i32 %or.i36 to i16
+  %conv25.i = trunc nuw nsw i32 %or.i36 to i16
   store i16 %conv25.i, ptr %arrayidx, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp8.not = icmp eq i64 %indvars.iv.next, %6
@@ -5897,7 +5897,7 @@ for.body7.us:                                     ; preds = %for.body7.us, %for.
   %or.i37.us = or disjoint i32 %shr17.i.us, %and22.i.us
   %or18.i.us = or disjoint i32 %or.i37.us, %shr10.i.us
   %or23.i.us = or disjoint i32 %or18.i.us, %shr.i36.us
-  %conv24.i.us = trunc i32 %or23.i.us to i16
+  %conv24.i.us = trunc nuw i32 %or23.i.us to i16
   %cmp.not2.i.us = icmp slt i16 %conv24.i.us, 0
   %c2.c1.i.us = select i1 %cmp.not2.i.us, i16 %conv24.i.us, i16 %17
   store i16 %c2.c1.i.us, ptr %arrayidx9.us, align 2, !tbaa !27
@@ -5983,7 +5983,7 @@ for.body7:                                        ; preds = %middle.block, %for.
   %or.i37 = or disjoint i32 %shr17.i, %and22.i
   %or18.i = or disjoint i32 %or.i37, %shr10.i
   %or23.i = or disjoint i32 %or18.i, %shr.i36
-  %conv24.i = trunc i32 %or23.i to i16
+  %conv24.i = trunc nuw i32 %or23.i to i16
   %cmp.not2.i = icmp slt i16 %conv24.i, 0
   %c2.c1.i = select i1 %cmp.not2.i, i16 %conv24.i, i16 %41
   store i16 %c2.c1.i, ptr %arrayidx9, align 2, !tbaa !27
@@ -6109,7 +6109,7 @@ if.then24.us:                                     ; preds = %for.body9.us
   %incdec.ptr.us = getelementptr inbounds i8, ptr %arrayidx19.us, i64 1
   store i8 0, ptr %arrayidx19.us, align 1, !tbaa !29
   %shr26189.us = lshr i32 %or23.i143.us, 8
-  %conv28.us = trunc i32 %shr26189.us to i8
+  %conv28.us = trunc nuw i32 %shr26189.us to i8
   %incdec.ptr29.us = getelementptr inbounds i8, ptr %arrayidx19.us, i64 2
   store i8 %conv28.us, ptr %incdec.ptr.us, align 1, !tbaa !29
   %conv31.us = trunc i32 %or18.i.us to i8
@@ -6187,7 +6187,7 @@ if.then63:                                        ; preds = %for.body47
   %incdec.ptr67 = getelementptr inbounds i8, ptr %arrayidx58, i64 1
   store i8 0, ptr %arrayidx58, align 1, !tbaa !29
   %shr68190 = lshr i32 %or23.i186, 8
-  %conv70 = trunc i32 %shr68190 to i8
+  %conv70 = trunc nuw i32 %shr68190 to i8
   %incdec.ptr71 = getelementptr inbounds i8, ptr %arrayidx58, i64 2
   store i8 %conv70, ptr %incdec.ptr67, align 1, !tbaa !29
   %conv73 = trunc i32 %or18.i185 to i8

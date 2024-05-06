@@ -142,7 +142,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z13grpc_is_vsockPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z13grpc_is_vsockPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %cmp = icmp eq i16 %0, 40

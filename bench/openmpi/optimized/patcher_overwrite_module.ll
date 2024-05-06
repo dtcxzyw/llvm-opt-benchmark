@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_patcher_overwrite_patch_symbol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 -13, 1) i32 @mca_patcher_overwrite_patch_symbol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %0) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12
@@ -82,7 +82,7 @@ mca_patcher_is_function_patched.exit:             ; preds = %22
   br label %33
 
 mca_patcher_is_function_patched.exit.thread:      ; preds = %15, %18, %22, %mca_patcher_is_function_patched.exit
-  %32 = tail call i32 @mca_patcher_overwrite_patch_address(i64 noundef %13, i64 noundef %1), !range !4
+  %32 = tail call i32 @mca_patcher_overwrite_patch_address(i64 noundef %13, i64 noundef %1)
   br label %33
 
 33:                                               ; preds = %31, %29, %mca_patcher_is_function_patched.exit.thread, %11
@@ -91,7 +91,7 @@ mca_patcher_is_function_patched.exit.thread:      ; preds = %15, %18, %22, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_patcher_overwrite_patch_address(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_patcher_base_patch_t_class, i64 0, i32 8), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #5
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -123,7 +123,7 @@ define internal noundef i32 @mca_patcher_overwrite_patch_address(i64 noundef %0,
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
   %16 = getelementptr inbounds i8, ptr %4, i64 56
@@ -201,6 +201,5 @@ attributes #5 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -161,13 +161,13 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [33 x ptr] [ptr @__UNIQUE_ID___addressable___srcu_read_lock698, ptr @__UNIQUE_ID___addressable___srcu_read_unlock699, ptr @__UNIQUE_ID___addressable_call_srcu746, ptr @__UNIQUE_ID___addressable_cleanup_srcu_struct696, ptr @__UNIQUE_ID___addressable_get_state_synchronize_srcu749, ptr @__UNIQUE_ID___addressable_init_srcu_module_notifier791, ptr @__UNIQUE_ID___addressable_init_srcu_struct658, ptr @__UNIQUE_ID___addressable_poll_state_synchronize_srcu751, ptr @__UNIQUE_ID___addressable_srcu_barrier754, ptr @__UNIQUE_ID___addressable_srcu_batches_completed756, ptr @__UNIQUE_ID___addressable_srcu_bootup_announce781, ptr @__UNIQUE_ID___addressable_srcu_torture_stats_print779, ptr @__UNIQUE_ID___addressable_srcutorture_get_gp_data777, ptr @__UNIQUE_ID___addressable_start_poll_synchronize_srcu750, ptr @__UNIQUE_ID___addressable_synchronize_srcu748, ptr @__UNIQUE_ID___addressable_synchronize_srcu_expedited747, ptr @__UNIQUE_ID_big_cpu_limtype646, ptr @__UNIQUE_ID_convert_to_bigtype645, ptr @__UNIQUE_ID_counter_wrap_checktype644, ptr @__UNIQUE_ID_exp_holdofftype643, ptr @__UNIQUE_ID_small_contention_limtype647, ptr @__UNIQUE_ID_srcu_max_nodelay_phasetype673, ptr @__UNIQUE_ID_srcu_max_nodelaytype674, ptr @__UNIQUE_ID_srcu_retry_check_delaytype672, ptr @__param_big_cpu_lim, ptr @__param_convert_to_big, ptr @__param_counter_wrap_check, ptr @__param_exp_holdoff, ptr @__param_small_contention_lim, ptr @__param_srcu_max_nodelay, ptr @__param_srcu_max_nodelay_phase, ptr @__param_srcu_retry_check_delay, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @init_srcu_struct(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @init_srcu_struct(ptr noundef %0) #0 align 16 {
   %2 = tail call fastcc i32 @init_srcu_struct_fields(ptr noundef %0, i1 noundef zeroext false), !range !5
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @init_srcu_struct_fields(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @init_srcu_struct_fields(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = zext i1 %1 to i8
   br i1 %1, label %4, label %.thread
 
@@ -654,7 +654,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__srcu_read_lock(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @__srcu_read_lock(ptr noundef %0) #0 align 16 {
   %2 = load volatile i32, ptr %0, align 8
   %3 = and i32 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -857,7 +857,7 @@ define dso_local void @synchronize_srcu(ptr noundef %0) #0 align 16 {
 declare dso_local zeroext i1 @rcu_gp_is_expedited() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @get_state_synchronize_srcu(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i64 0, -3) i64 @get_state_synchronize_srcu(ptr nocapture noundef readonly %0) #0 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -870,13 +870,13 @@ define dso_local i64 @get_state_synchronize_srcu(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @start_poll_synchronize_srcu(ptr noundef %0) #0 align 16 {
+define dso_local range(i64 0, -3) i64 @start_poll_synchronize_srcu(ptr noundef %0) #0 align 16 {
   %2 = tail call fastcc i64 @srcu_gp_start_if_needed(ptr noundef %0, ptr noundef null, i1 noundef zeroext true), !range !41
   ret i64 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @srcu_gp_start_if_needed(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1796,7 +1796,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #2
 declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @srcu_batches_completed(ptr noundef %0) #4 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @srcu_batches_completed(ptr noundef %0) #4 align 16 {
   %2 = load volatile i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   ret i64 %3
@@ -3706,7 +3706,7 @@ declare void @llvm.assume(i1 noundef) #11
 declare dso_local i32 @register_module_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @srcu_module_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @srcu_module_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   switch i64 %1, label %.loopexit [
     i64 1, label %4
     i64 2, label %24

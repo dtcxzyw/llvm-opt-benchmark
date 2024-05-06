@@ -1400,7 +1400,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb13GetGroupIndexERNS_9DataChunkEmRi(ptr noundef nonnull align 8 dereferenceable(64) %args, i64 noundef %row, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6duckdb13GetGroupIndexERNS_9DataChunkEmRi(ptr noundef nonnull align 8 dereferenceable(64) %args, i64 noundef %row, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %format = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %args, i64 8

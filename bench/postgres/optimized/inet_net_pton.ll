@@ -506,7 +506,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %226
-  %229 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef %1, ptr noundef %2, i64 noundef 16)
+  %229 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef 16)
   br label %inet_net_pton_ipv4.exit
 
 230:                                              ; preds = %226
@@ -683,7 +683,7 @@ define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef re
 
 67:                                               ; preds = %62
   %68 = icmp eq i8 %48, 47
-  %69 = trunc i32 %.029.i to i8
+  %69 = trunc nuw i32 %.029.i to i8
   store i8 %69, ptr %.031.ph.i, align 1
   br i1 %68, label %.preheader.i, label %87
 
@@ -735,7 +735,7 @@ define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef re
   br i1 %or.cond43.i, label %.thread109, label %getv4.exit.thread114.thread
 
 getv4.exit.thread114.thread:                      ; preds = %89
-  %94 = trunc i32 %.029.i to i8
+  %94 = trunc nuw i32 %.029.i to i8
   store i8 %94, ptr %.031.ph.i, align 1
   br label %getv4.exit.thread114.thread297
 

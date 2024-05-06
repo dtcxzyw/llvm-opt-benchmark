@@ -1149,7 +1149,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %land.lhs.true
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %mDataStart, align 8
   br label %if.end6
 
@@ -1189,7 +1189,7 @@ if.else29:                                        ; preds = %if.end6
 if.then32:                                        ; preds = %if.else29
   %add.ptr34 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store ptr %add.ptr34, ptr %oldPtr, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nsw i32 %5, %10
   store i32 %sub, ptr %len, align 4
   %11 = load i32, ptr %mVersion, align 4
@@ -1356,7 +1356,7 @@ for.body.i:                                       ; preds = %_ZN6bParse5bFile14f
   %43 = ptrtoint ptr %42 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i.i = trunc i64 %43 to i32
   %ref.tmp.sroa.0.4.extract.shift.i.i = lshr i64 %43, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i.i to i32
   %add.i.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i.i, %ref.tmp.sroa.0.0.extract.trunc.i.i
   %shl.i.i.i.i.i = shl i32 %add.i.i.i.i.i, 15
   %not.i.i.i.i.i = xor i32 %shl.i.i.i.i.i, -1
@@ -1720,7 +1720,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = ptrtoint ptr %2 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %3, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %add.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i, %ref.tmp.sroa.0.0.extract.trunc.i
   %shl.i.i.i.i = shl i32 %add.i.i.i.i, 15
   %not.i.i.i.i = xor i32 %shl.i.i.i.i, -1
@@ -2433,7 +2433,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %14 = trunc i16 %13 to i8
   %arrayidx43 = getelementptr inbounds i8, ptr %arrayidx35, i64 1
   %15 = lshr i16 %13, 8
-  %16 = trunc i16 %15 to i8
+  %16 = trunc nuw i16 %15 to i8
   store i8 %16, ptr %arrayidx35, align 1
   store i8 %14, ptr %arrayidx43, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2682,12 +2682,12 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 _ZN6bParse4bDNA14getElementSizeEss.exit.i:        ; preds = %cond.false.i.i, %cond.true.i.i
   %conv5.sink.i.i = phi i32 [ %conv5.i.i, %cond.false.i.i ], [ %30, %cond.true.i.i ]
-  %call12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(1) %call7.i) #28
+  %call12.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(1) %call7.i) #28
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit.i
-  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) %call13) #28
+  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) %call13) #28
   %cmp15.i = icmp ne i32 %call14.i, 0
   %tobool.not = icmp eq ptr %data.addr.017.i, null
   %or.cond95 = select i1 %cmp15.i, i1 true, i1 %tobool.not
@@ -3704,7 +3704,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = ptrtoint ptr %5 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %6, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %add.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i, %ref.tmp.sroa.0.0.extract.trunc.i
   %shl.i.i.i.i = shl i32 %add.i.i.i.i, 15
   %not.i.i.i.i = xor i32 %shl.i.i.i.i, -1
@@ -3785,7 +3785,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %20 = ptrtoint ptr %19 to i64
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %20 to i32
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %20, 32
-  %ref.tmp.sroa.0.4.extract.trunc = trunc i64 %ref.tmp.sroa.0.4.extract.shift to i32
+  %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
   %add.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc, %ref.tmp.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -3850,7 +3850,7 @@ if.then15:                                        ; preds = %_ZN9b3HashMapI9b3Ha
   %32 = ptrtoint ptr %31 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i30 = trunc i64 %32 to i32
   %ref.tmp.sroa.0.4.extract.shift.i31 = lshr i64 %32, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i32 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i31 to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i32 = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i31 to i32
   %add.i.i.i.i33 = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i32, %ref.tmp.sroa.0.0.extract.trunc.i30
   %shl.i.i.i.i34 = shl i32 %add.i.i.i.i33, 15
   %not.i.i.i.i35 = xor i32 %shl.i.i.i.i34, -1
@@ -3942,7 +3942,7 @@ if.end.i77:                                       ; preds = %if.end.i77.lr.ph, %
 
 if.then4.i:                                       ; preds = %if.end.i77
   %conv.i = sext i32 %call.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.sroa.0, ptr nonnull align 1 %oldPtr.0141, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %dp.sroa.0, ptr nonnull readonly align 1 %oldPtr.0141, i64 %conv.i, i1 false)
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
 if.else.i:                                        ; preds = %if.end.i77
@@ -4041,7 +4041,7 @@ _ZN6bParse5bFile11safeSwapPtrEPcPKc.exit:         ; preds = %if.then4.i, %if.the
   %53 = ptrtoint ptr %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0. to i64
   %ref.tmp.sroa.0.0.extract.trunc.i78 = trunc i64 %53 to i32
   %ref.tmp.sroa.0.4.extract.shift.i79 = lshr i64 %53, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i80 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i79 to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i80 = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i79 to i32
   %add.i.i.i.i81 = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i80, %ref.tmp.sroa.0.0.extract.trunc.i78
   %shl.i.i.i.i82 = shl i32 %add.i.i.i.i81, 15
   %not.i.i.i.i83 = xor i32 %shl.i.i.i.i82, -1
@@ -4129,7 +4129,7 @@ entry:
   %0 = ptrtoint ptr %ptr to i64
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %0, 32
-  %ref.tmp.sroa.0.4.extract.trunc = trunc i64 %ref.tmp.sroa.0.4.extract.shift to i32
+  %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
   %add.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc, %ref.tmp.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -4219,7 +4219,7 @@ entry:
   %5 = ptrtoint ptr %4 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %5, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %add.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i, %ref.tmp.sroa.0.0.extract.trunc.i
   %shl.i.i.i.i = shl i32 %add.i.i.i.i, 15
   %not.i.i.i.i = xor i32 %shl.i.i.i.i, -1
@@ -4412,7 +4412,7 @@ if.end:                                           ; preds = %for.end, %for.body2
   %13 = ptrtoint ptr %12 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %13, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %add.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i, %ref.tmp.sroa.0.0.extract.trunc.i
   %shl.i.i.i.i = shl i32 %add.i.i.i.i, 15
   %not.i.i.i.i = xor i32 %shl.i.i.i.i, -1
@@ -4503,7 +4503,7 @@ if.end57:                                         ; preds = %for.end51, %if.else
   %23 = ptrtoint ptr %22 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i105 = trunc i64 %23 to i32
   %ref.tmp.sroa.0.4.extract.shift.i106 = lshr i64 %23, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i107 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i106 to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i107 = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i106 to i32
   %add.i.i.i.i108 = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i107, %ref.tmp.sroa.0.0.extract.trunc.i105
   %shl.i.i.i.i109 = shl i32 %add.i.i.i.i108, 15
   %not.i.i.i.i110 = xor i32 %shl.i.i.i.i109, -1
@@ -4582,7 +4582,7 @@ while.body:                                       ; preds = %if.then67, %if.end7
   %35 = ptrtoint ptr %34 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i152 = trunc i64 %35 to i32
   %ref.tmp.sroa.0.4.extract.shift.i153 = lshr i64 %35, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i154 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i153 to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i154 = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i153 to i32
   %add.i.i.i.i155 = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i154, %ref.tmp.sroa.0.0.extract.trunc.i152
   %shl.i.i.i.i156 = shl i32 %add.i.i.i.i155, 15
   %not.i.i.i.i157 = xor i32 %shl.i.i.i.i156, -1
@@ -4655,7 +4655,7 @@ if.else84:                                        ; preds = %for.body
   br i1 %cmp90.not, label %if.else140, label %if.then91
 
 if.then91:                                        ; preds = %if.else84
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
   %conv.i = trunc i64 %call.i to i32
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %conv.i, i32 1024)
   %cmp16.i = icmp sgt i32 %conv.i, 0
@@ -4785,7 +4785,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   br i1 %cmp153, label %if.then158, label %if.then197
 
 if.then158:                                       ; preds = %lor.lhs.false, %if.else147, %lor.rhs
-  %call.i205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
+  %call.i205 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
   %conv.i206 = trunc i64 %call.i205 to i32
   %.sroa.speculated.i207 = call i32 @llvm.smin.i32(i32 %conv.i206, i32 1024)
   %cmp16.i208 = icmp sgt i32 %conv.i206, 0
@@ -4872,7 +4872,7 @@ for.body201:                                      ; preds = %if.then197, %for.bo
   br i1 %exitcond293.not, label %for.end205, label %for.body201, !llvm.loop !49
 
 for.end205:                                       ; preds = %for.body201, %if.then197
-  %call.i224 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
+  %call.i224 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
   %conv.i225 = trunc i64 %call.i224 to i32
   %.sroa.speculated.i226 = call i32 @llvm.smin.i32(i32 %conv.i225, i32 1024)
   %cmp16.i227 = icmp sgt i32 %conv.i225, 0
@@ -5018,7 +5018,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %7 = load i16, ptr %call10, align 2
   %conv = sext i16 %7 to i32
   %call12 = call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %dna, i32 noundef %conv)
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %call13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %8, ptr noundef %call12)
   %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %codestr)
   %oldPtr = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -5130,7 +5130,7 @@ cond.true34:                                      ; preds = %if.end
   %17 = ptrtoint ptr %16 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %17 to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %17, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %add.i.i.i.i = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i, %ref.tmp.sroa.0.0.extract.trunc.i
   %shl.i.i.i.i = shl i32 %add.i.i.i.i, 15
   %not.i.i.i.i = xor i32 %shl.i.i.i.i, -1
@@ -5435,7 +5435,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %15, ptr %arrayidx.i41, align 4
   %17 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i37
-  %18 = trunc i64 %indvars.iv57 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %18, ptr %arrayidx.i44, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60

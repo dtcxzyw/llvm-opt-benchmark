@@ -42,7 +42,7 @@ $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_col
 @.str.3 = private unnamed_addr constant [23 x i8] c"num_unqueued_bufs <= 2\00", align 1
 @.str.4 = private unnamed_addr constant [121 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/client/sound/playing_sound.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZN5sound12PlayingSound10stepStreamEv = private unnamed_addr constant [39 x i8] c"bool sound::PlayingSound::stepStream()\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.5 = private unnamed_addr constant [54 x i8] c"PlayingSound::stepStream: Sound queue ran empty for \22\00", align 1
 @.str.6 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.7 = private unnamed_addr constant [27 x i8] c"PlayingSound::updatePosVel\00", align 1

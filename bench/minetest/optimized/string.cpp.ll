@@ -84,7 +84,7 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 @.str = private unnamed_addr constant [8 x i8] c"WCHAR_T\00", align 1
 @DEFAULT_ENCODING = dso_local local_unnamed_addr global ptr @.str, align 8
 @.str.1 = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.2 = private unnamed_addr constant [33 x i8] c"Couldn't convert UTF-8 string 0x\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c" into wstring\00", align 1
 @.str.4 = private unnamed_addr constant [23 x i32] [i32 60, i32 105, i32 110, i32 118, i32 97, i32 108, i32 105, i32 100, i32 32, i32 85, i32 84, i32 70, i32 45, i32 56, i32 32, i32 115, i32 116, i32 114, i32 105, i32 110, i32 103, i32 62, i32 0], align 4
@@ -221,7 +221,7 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 @.str.158 = private unnamed_addr constant [11 x i8] c"whitesmoke\00", align 1
 @.str.159 = private unnamed_addr constant [7 x i8] c"yellow\00", align 1
 @.str.160 = private unnamed_addr constant [12 x i8] c"yellowgreen\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.161 = private unnamed_addr constant [17 x i8] c"Invalid color: \22\00", align 1
 @.str.162 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.164 = private unnamed_addr constant [2 x i8] c"\1B\00", align 1

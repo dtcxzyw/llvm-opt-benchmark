@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"iter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_asc_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_asc_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %unipass = alloca ptr, align 8
   %uniplen = alloca i32, align 4
@@ -47,7 +47,7 @@ if.then1:                                         ; preds = %if.else
 if.end2:                                          ; preds = %if.else.if.end2_crit_edge, %if.then
   %0 = phi i32 [ %.pre2, %if.else.if.end2_crit_edge ], [ 0, %if.then ]
   %1 = phi ptr [ %.pre, %if.else.if.end2_crit_edge ], [ null, %if.then ]
-  %call3 = call i32 @PKCS12_key_gen_uni_ex(ptr noundef %1, i32 noundef %0, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq), !range !4
+  %call3 = call i32 @PKCS12_key_gen_uni_ex(ptr noundef %1, i32 noundef %0, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq)
   %2 = load ptr, ptr %unipass, align 8
   %3 = load i32, ptr %uniplen, align 4
   %conv = sext i32 %3 to i64
@@ -68,7 +68,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_uni_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_uni_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %id.addr = alloca i32, align 4
   %iter.addr = alloca i32, align 4
@@ -131,14 +131,14 @@ return:                                           ; preds = %if.end3, %if.end, %
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_asc(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_asc(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PKCS12_key_gen_asc_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @PKCS12_key_gen_asc_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_utf8_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_utf8_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %unipass = alloca ptr, align 8
   %uniplen = alloca i32, align 4
@@ -169,7 +169,7 @@ if.then1:                                         ; preds = %if.else
 if.end2:                                          ; preds = %if.else.if.end2_crit_edge, %if.then
   %0 = phi i32 [ %.pre2, %if.else.if.end2_crit_edge ], [ 0, %if.then ]
   %1 = phi ptr [ %.pre, %if.else.if.end2_crit_edge ], [ null, %if.then ]
-  %call3 = call i32 @PKCS12_key_gen_uni_ex(ptr noundef %1, i32 noundef %0, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq), !range !4
+  %call3 = call i32 @PKCS12_key_gen_uni_ex(ptr noundef %1, i32 noundef %0, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef %ctx, ptr noundef %propq)
   %2 = load ptr, ptr %unipass, align 8
   %3 = load i32, ptr %uniplen, align 4
   %conv = sext i32 %3 to i64
@@ -184,9 +184,9 @@ return:                                           ; preds = %if.end2, %if.then1
 declare ptr @OPENSSL_utf82uni(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_utf8(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_utf8(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PKCS12_key_gen_utf8_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @PKCS12_key_gen_utf8_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -214,9 +214,9 @@ declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) 
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_key_gen_uni(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_key_gen_uni(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PKCS12_key_gen_uni_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @PKCS12_key_gen_uni_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %id, i32 noundef %iter, i32 noundef %n, ptr noundef %out, ptr noundef %md_type, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -231,4 +231,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

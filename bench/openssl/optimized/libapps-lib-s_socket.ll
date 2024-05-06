@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [192 x i8] c"assertion failed: (family == AF_UNSPEC || family == BIO_ADDRINFO_family(res)) && (type == 0 || type == BIO_ADDRINFO_socktype(res)) && (protocol == 0 || protocol == BIO_ADDRINFO_protocol(res))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init_client(ptr nocapture noundef %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly %ba_ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @init_client(ptr nocapture noundef %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly %ba_ret) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %bindaddr = alloca ptr, align 8
@@ -392,7 +392,7 @@ declare ptr @BIO_ADDR_service_string(ptr noundef, i32 noundef) local_unnamed_add
 declare void @BIO_ADDR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @report_server_accept(ptr noundef %out, i32 noundef %asock, i32 noundef %with_address, i32 noundef %with_pid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @report_server_accept(ptr noundef %out, i32 noundef %asock, i32 noundef %with_address, i32 noundef %with_pid) local_unnamed_addr #0 {
 entry:
   %info.i = alloca %union.BIO_sock_info_u, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.9) #9
@@ -627,7 +627,7 @@ if.end68:                                         ; preds = %lor.lhs.false60
   store ptr null, ptr %res, align 8
   %cmp70 = icmp eq i16 %call69, 0
   %conv71 = zext i1 %cmp70 to i32
-  %call72 = call i32 @report_server_accept(ptr noundef %bio_s_out, i32 noundef %asock.089, i32 noundef %conv71, i32 noundef 0), !range !7
+  %call72 = call i32 @report_server_accept(ptr noundef %bio_s_out, i32 noundef %asock.089, i32 noundef %conv71, i32 noundef 0)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.then74, label %if.end76
 
@@ -692,7 +692,7 @@ do.body103.us:                                    ; preds = %land.rhs119.us, %if
 land.rhs119.us:                                   ; preds = %do.body103.us
   %call120.us = call i64 @read(i32 noundef %call90.us, ptr noundef nonnull %sink, i64 noundef 64) #9
   %cmp121.us = icmp sgt i64 %call120.us, 0
-  br i1 %cmp121.us, label %do.body103.us, label %do.end124.us, !llvm.loop !8
+  br i1 %cmp121.us, label %do.body103.us, label %do.end124.us, !llvm.loop !7
 
 do.end124.us:                                     ; preds = %land.rhs119.us, %do.body103.us
   %call125.us = call i32 @BIO_closesocket(i32 noundef %call90.us) #9
@@ -707,7 +707,7 @@ do.end124.us:                                     ; preds = %land.rhs119.us, %do
 land.rhs.us:                                      ; preds = %do.body.us
   %call93.us = call i32 @BIO_sock_should_retry(i32 noundef %call90.us) #9
   %tobool94.not.us = icmp eq i32 %call93.us, 0
-  br i1 %tobool94.not.us, label %if.then97, label %do.body.us, !llvm.loop !9
+  br i1 %tobool94.not.us, label %if.then97, label %do.body.us, !llvm.loop !8
 
 for.cond:                                         ; preds = %if.end80, %for.cond
   %naccept.addr.0 = phi i32 [ %spec.select68, %for.cond ], [ %naccept, %if.end80 ]
@@ -805,7 +805,7 @@ if.then:                                          ; preds = %entry, %do.cond
 do.cond:                                          ; preds = %if.then, %if.then, %if.then, %if.then
   %call = tail call i32 @SSL_shutdown(ptr noundef %ssl) #9
   %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %do.end.critedge, !llvm.loop !10
+  br i1 %cmp, label %if.then, label %do.end.critedge, !llvm.loop !9
 
 do.end.critedge:                                  ; preds = %do.cond, %if.then, %entry
   ret void
@@ -846,7 +846,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

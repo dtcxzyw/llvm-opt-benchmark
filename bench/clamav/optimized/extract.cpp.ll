@@ -436,9 +436,9 @@ define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereference
   br label %45
 
 45:                                               ; preds = %45, %44
-  %46 = call noundef i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 8 dereferenceable(16800) %0), !range !7
+  %46 = call noundef i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 8 dereferenceable(16800) %0)
   %.not2.not = icmp eq i32 %46, 0
-  br i1 %.not2.not, label %47, label %45, !llvm.loop !8
+  br i1 %.not2.not, label %47, label %45, !llvm.loop !7
 
 47:                                               ; preds = %45
   %48 = load i64, ptr %35, align 8
@@ -447,7 +447,7 @@ define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereference
   store i64 %50, ptr %36, align 8
   %51 = load ptr, ptr %5, align 8
   %52 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %51, ptr noundef nonnull %30, i32 noundef 2048)
-  br i1 %52, label %37, label %._crit_edge, !llvm.loop !9
+  br i1 %52, label %37, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %47, %.loopexit
   %53 = load ptr, ptr %5, align 8
@@ -494,7 +494,7 @@ define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereference
   store ptr @.str, ptr %74, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %73, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %73, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %73
   %75 = getelementptr inbounds i8, ptr %2, i64 64
@@ -531,7 +531,7 @@ declare void @_ZN10StringList6RewindEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 8 dereferenceable(16800) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 8 dereferenceable(16800) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.Archive, align 8
   %3 = alloca [2048 x i32], align 16
   %4 = alloca [2048 x i32], align 16
@@ -740,7 +740,7 @@ define noundef i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 
 101:                                              ; preds = %100
   %102 = load i64, ptr %93, align 8
   %103 = add i64 %102, %.06
-  br label %94, !llvm.loop !11
+  br label %94, !llvm.loop !10
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %0, i64 272
@@ -855,7 +855,7 @@ define noundef i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr noundef nonnull align 
           to label %156 unwind label %.loopexit
 
 156:                                              ; preds = %154
-  br i1 %155, label %152, label %.loopexit14, !llvm.loop !12
+  br i1 %155, label %152, label %.loopexit14, !llvm.loop !11
 
 .loopexit14:                                      ; preds = %156, %58, %26, %24, %25, %17, %86
   %.0 = phi i32 [ 1, %86 ], [ 0, %17 ], [ 0, %25 ], [ 0, %24 ], [ 0, %26 ], [ 0, %58 ], [ 0, %156 ]
@@ -1180,7 +1180,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
 114:                                              ; preds = %116
   %115 = add nuw i64 %.04084, 1
   %exitcond.not = icmp eq i64 %115, %112
-  br i1 %exitcond.not, label %.critedge, label %116, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %116, !llvm.loop !12
 
 116:                                              ; preds = %.lr.ph, %114
   %.04084 = phi i64 [ 0, %.lr.ph ], [ %115, %114 ]
@@ -1300,7 +1300,7 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
   %.337 = phi i1 [ %.236, %159 ], [ %.135, %78 ]
   %.3 = phi i1 [ %.2, %159 ], [ %.1, %78 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %6)
-          to label %74 unwind label %.loopexit, !llvm.loop !14
+          to label %74 unwind label %.loopexit, !llvm.loop !13
 
 .loopexit73:                                      ; preds = %159, %82, %76, %80
   %.143 = phi i8 [ %81, %80 ], [ 1, %159 ], [ 0, %82 ], [ 0, %76 ]
@@ -1683,7 +1683,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   store ptr @.str, ptr %205, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %.thread433, label %204, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.thread433, label %204, !llvm.loop !9
 
 .thread433:                                       ; preds = %204
   %206 = getelementptr inbounds i8, ptr %1, i64 52
@@ -1725,7 +1725,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 218:                                              ; preds = %220
   %219 = add nuw i64 %.0265422, 1
   %exitcond.not = icmp eq i64 %219, %216
-  br i1 %exitcond.not, label %.loopexit, label %220, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %220, !llvm.loop !14
 
 220:                                              ; preds = %.lr.ph, %218
   %.0265422 = phi i64 [ 0, %.lr.ph ], [ %219, %218 ]
@@ -1901,7 +1901,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   store ptr @.str, ptr %320, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %321, label %319, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %321, label %319, !llvm.loop !9
 
 321:                                              ; preds = %319
   %322 = getelementptr inbounds i8, ptr %12, i64 64
@@ -2036,7 +2036,7 @@ _ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread: ; preds = %306
   store ptr @.str, ptr %392, align 8
   %indvars.iv.next.i.i337 = add nuw nsw i64 %indvars.iv.i.i336, 1
   %exitcond.not.i.i338 = icmp eq i64 %indvars.iv.next.i.i337, 8
-  br i1 %exitcond.not.i.i338, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %391, !llvm.loop !10
+  br i1 %exitcond.not.i.i338, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %391, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %391
   %393 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2072,7 +2072,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit339: ; preds = %_Z9uiMsgBaseIR
   store ptr @.str, ptr %402, align 8
   %indvars.iv.next.i.i341 = add nuw nsw i64 %indvars.iv.i.i340, 1
   %exitcond.not.i.i342 = icmp eq i64 %indvars.iv.next.i.i341, 8
-  br i1 %exitcond.not.i.i342, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i343, label %401, !llvm.loop !10
+  br i1 %exitcond.not.i.i342, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i343, label %401, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i343: ; preds = %401
   %403 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2302,7 +2302,7 @@ switch.early.test:                                ; preds = %455
   store ptr @.str, ptr %496, align 8
   %indvars.iv.next.i.i346 = add nuw nsw i64 %indvars.iv.i.i345, 1
   %exitcond.not.i.i347 = icmp eq i64 %indvars.iv.next.i.i346, 8
-  br i1 %exitcond.not.i.i347, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i348, label %495, !llvm.loop !10
+  br i1 %exitcond.not.i.i347, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i348, label %495, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i348: ; preds = %495
   %497 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2534,7 +2534,7 @@ _Z13SlashToNativePKwPwm.exit:                     ; preds = %578
   store ptr @.str, ptr %612, align 8
   %indvars.iv.next.i.i351 = add nuw nsw i64 %indvars.iv.i.i350, 1
   %exitcond.not.i.i352 = icmp eq i64 %indvars.iv.next.i.i351, 8
-  br i1 %exitcond.not.i.i352, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i353, label %611, !llvm.loop !10
+  br i1 %exitcond.not.i.i352, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i353, label %611, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i353: ; preds = %611
   %613 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2714,7 +2714,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i353: ; preds = %611
   store ptr @.str, ptr %699, align 8
   %indvars.iv.next.i.i356 = add nuw nsw i64 %indvars.iv.i.i355, 1
   %exitcond.not.i.i357 = icmp eq i64 %indvars.iv.next.i.i356, 8
-  br i1 %exitcond.not.i.i357, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i358, label %698, !llvm.loop !10
+  br i1 %exitcond.not.i.i357, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i358, label %698, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i358: ; preds = %698
   %700 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2744,7 +2744,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit359: ; preds = %_Z9uiMsgBaseIR
   store ptr @.str, ptr %707, align 8
   %indvars.iv.next.i.i361 = add nuw nsw i64 %indvars.iv.i.i360, 1
   %exitcond.not.i.i362 = icmp eq i64 %indvars.iv.next.i.i361, 8
-  br i1 %exitcond.not.i.i362, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i363, label %706, !llvm.loop !10
+  br i1 %exitcond.not.i.i362, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i363, label %706, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i363: ; preds = %706
   %708 = getelementptr inbounds i8, ptr %1, i64 52
@@ -2897,7 +2897,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit364: ; preds = %_Z9uiMsgBaseIR
   store ptr @.str, ptr %780, align 8
   %indvars.iv.next.i.i366 = add nuw nsw i64 %indvars.iv.i.i365, 1
   %exitcond.not.i.i367 = icmp eq i64 %indvars.iv.next.i.i366, 8
-  br i1 %exitcond.not.i.i367, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i368, label %779, !llvm.loop !10
+  br i1 %exitcond.not.i.i367, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i368, label %779, !llvm.loop !9
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i368: ; preds = %779
   %781 = getelementptr inbounds i8, ptr %1, i64 52
@@ -3138,7 +3138,7 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr nocapture noun
   %63 = load i32, ptr %.0, align 4
   %64 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %63)
   %65 = getelementptr inbounds i8, ptr %.0, i64 4
-  br i1 %64, label %62, label %66, !llvm.loop !16
+  br i1 %64, label %62, label %66, !llvm.loop !15
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %.0, align 4
@@ -3264,7 +3264,7 @@ define noundef zeroext i1 @_ZN10CmdExtract11CheckUnpVerER7ArchivePKw(ptr nocaptu
   store ptr @.str, ptr %18, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %17, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %17, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %17
   %19 = getelementptr inbounds i8, ptr %4, i64 64
@@ -3494,7 +3494,7 @@ define void @_ZN10CmdExtract13ExtrCreateDirER7ArchivePKw(ptr noundef nonnull ali
   store ptr @.str, ptr %51, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %50, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %50, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %50
   %52 = getelementptr inbounds i8, ptr %1, i64 52
@@ -3518,7 +3518,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %50
   store ptr @.str, ptr %57, align 8
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i27, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, 8
-  br i1 %exitcond.not.i.i29, label %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit, label %56, !llvm.loop !10
+  br i1 %exitcond.not.i.i29, label %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit, label %56, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
   %58 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3600,7 +3600,7 @@ _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
   store ptr @.str, ptr %102, align 8
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 8
-  br i1 %exitcond.not.i.i32, label %103, label %101, !llvm.loop !10
+  br i1 %exitcond.not.i.i32, label %103, label %101, !llvm.loop !9
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds i8, ptr %1, i64 52
@@ -3718,7 +3718,7 @@ define noundef zeroext i1 @_ZN10CmdExtract14ExtrCreateFileER7ArchiveR4File(ptr n
   store ptr @.str, ptr %36, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit, label %35, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit, label %35, !llvm.loop !9
 
 _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %35
   %37 = getelementptr inbounds i8, ptr %6, i64 64
@@ -3746,7 +3746,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %35
   store ptr @.str, ptr %45, align 8
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, 8
-  br i1 %exitcond.not.i.i18, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %44, !llvm.loop !10
+  br i1 %exitcond.not.i.i18, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %44, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %44
   %46 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3800,7 +3800,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %44
   store ptr @.str, ptr %72, align 8
   %indvars.iv.next.i.i20 = add nuw nsw i64 %indvars.iv.i.i19, 1
   %exitcond.not.i.i21 = icmp eq i64 %indvars.iv.next.i.i20, 8
-  br i1 %exitcond.not.i.i21, label %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit, label %71, !llvm.loop !10
+  br i1 %exitcond.not.i.i21, label %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit, label %71, !llvm.loop !9
 
 _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %71
   %73 = getelementptr inbounds i8, ptr %4, i64 64
@@ -3950,7 +3950,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 61:                                               ; preds = %17, %22
   %62 = add nuw i64 %.03059, 1
   %exitcond.not = icmp eq i64 %62, %15
-  br i1 %exitcond.not, label %.critedge38, label %17, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge38, label %17, !llvm.loop !16
 
 .critedge38:                                      ; preds = %61, %.preheader, %60
   %.057 = phi ptr [ %32, %60 ], [ %5, %.preheader ], [ %5, %61 ]
@@ -3967,7 +3967,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   store ptr @.str, ptr %65, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRPwJS1_S1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %64, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRPwJS1_S1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %64, !llvm.loop !9
 
 _Z9uiMsgBaseIRPwJS1_S1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %64
   %66 = getelementptr inbounds i8, ptr %10, i64 64
@@ -3995,7 +3995,7 @@ _Z9uiMsgBaseIRPwJS1_S1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %64
   store ptr @.str, ptr %73, align 8
   %indvars.iv.next.i.i40 = add nuw nsw i64 %indvars.iv.i.i39, 1
   %exitcond.not.i.i41 = icmp eq i64 %indvars.iv.next.i.i40, 8
-  br i1 %exitcond.not.i.i41, label %_Z9uiMsgBaseIRPwJEEvR10uiMsgStoreOT_DpOT0_.exit.i, label %72, !llvm.loop !10
+  br i1 %exitcond.not.i.i41, label %_Z9uiMsgBaseIRPwJEEvR10uiMsgStoreOT_DpOT0_.exit.i, label %72, !llvm.loop !9
 
 _Z9uiMsgBaseIRPwJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %72
   %74 = getelementptr inbounds i8, ptr %9, i64 64
@@ -4061,7 +4061,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
 
 95:                                               ; preds = %92
   %96 = add nsw i64 %.027, %93
-  br label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !18
+  br label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !17
 
 97:                                               ; preds = %86
   br i1 %82, label %_ZN5ArrayIhED2Ev.exit43, label %98
@@ -4137,7 +4137,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %9, %10
   %13 = icmp sgt i64 %.0.ph, %12
   %14 = select i1 %13, i32 %6, i32 %5
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !19
+  br i1 %15, label %16, label %_ZN5ArrayIhEC2Em.exit, !llvm.loop !18
 
 16:                                               ; preds = %11
   %17 = zext nneg i32 %14 to i64
@@ -4146,7 +4146,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %9, %10
 
 18:                                               ; preds = %16
   %19 = sub nsw i64 %.0.ph, %17
-  br label %_ZN5ArrayIhEC2Em.exit.outer, !llvm.loop !19
+  br label %_ZN5ArrayIhEC2Em.exit.outer, !llvm.loop !18
 
 20:                                               ; preds = %7
   br i1 %3, label %_ZN5ArrayIhED2Ev.exit15, label %21
@@ -4275,7 +4275,7 @@ define void @_ZN10CmdExtract20GetFirstVolIfFullSetEPKwbPwm(ptr nocapture nonnull
   call void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %7, i32 noundef 2048, i1 noundef zeroext %12)
   %16 = call i32 @wcscmp(ptr noundef %1, ptr noundef nonnull %7) #22
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %._crit_edge, label %13, !llvm.loop !20
+  br i1 %17, label %._crit_edge, label %13, !llvm.loop !19
 
 .loopexit:                                        ; preds = %13, %._crit_edge
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %3, ptr noundef nonnull %8, i64 noundef %4)
@@ -4543,7 +4543,7 @@ attributes #24 = { noreturn }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -4556,4 +4556,3 @@ attributes #24 = { noreturn }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

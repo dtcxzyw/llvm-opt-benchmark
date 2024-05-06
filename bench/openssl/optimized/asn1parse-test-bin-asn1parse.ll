@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bio_out = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_null() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2
@@ -36,7 +36,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @CRYPTO_free_ex_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @bio_out, align 8
   %call = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %buf, i64 noundef %len, i32 noundef 0, i32 noundef 0) #2

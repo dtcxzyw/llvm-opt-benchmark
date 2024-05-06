@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [38 x i8] c"archive_write_set_passphrase_callback\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_passphrase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_passphrase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #4
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %17, label %5
@@ -56,7 +56,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_passphrase_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_passphrase_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.3) #4
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %9, label %6

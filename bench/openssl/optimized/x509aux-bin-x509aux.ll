@@ -41,13 +41,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.31 = private unnamed_addr constant [42 x i8] c"encoded cert content does not match input\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -81,7 +81,7 @@ declare i64 @test_get_argument_count() local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_certs(i32 noundef %num) #1 {
+define internal range(i32 0, 2) i32 @test_certs(i32 noundef %num) #1 {
 entry:
   %name = alloca ptr, align 8
   %header = alloca ptr, align 8

@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @qio_channel_fd_source_check(ptr nocapture noundef readonly %source) #1 {
+define internal range(i32 0, 65536) i32 @qio_channel_fd_source_check(ptr nocapture noundef readonly %source) #1 {
 entry:
   %revents = getelementptr inbounds i8, ptr %source, i64 102
   %0 = load i16, ptr %revents, align 2
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @qio_channel_fd_pair_source_check(ptr nocapture noundef readonly %source) #1 {
+define internal range(i32 0, 65536) i32 @qio_channel_fd_pair_source_check(ptr nocapture noundef readonly %source) #1 {
 entry:
   %revents = getelementptr inbounds i8, ptr %source, i64 102
   %0 = load i16, ptr %revents, align 2

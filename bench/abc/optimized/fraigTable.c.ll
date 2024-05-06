@@ -33,7 +33,7 @@ define noalias noundef ptr @Fraig_HashTableCreate(i32 noundef %0) local_unnamed_
 
 5:                                                ; preds = %.lr.ph.i
   %6 = add nuw nsw i32 %.01116.i, 2
-  %7 = mul nsw i32 %6, %6
+  %7 = mul nuw nsw i32 %6, %6
   %.not.i = icmp ugt i32 %7, %3
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -72,7 +72,7 @@ define void @Fraig_HashTableFree(ptr nocapture noundef %0) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -157,7 +157,7 @@ define noundef i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %1, ptr n
 
 48:                                               ; preds = %.lr.ph.i.i
   %49 = add nuw nsw i32 %.01116.i.i, 2
-  %50 = mul nsw i32 %49, %49
+  %50 = mul nuw nsw i32 %49, %49
   %.not.i.i = icmp ugt i32 %50, %46
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -429,7 +429,7 @@ Fraig_CompareSimInfo.exit41:                      ; preds = %Fraig_CompareSimInf
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fraig_CompareSimInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Fraig_CompareSimInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %21, label %5
 
@@ -535,7 +535,7 @@ Abc_Clock.exit:
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nuw nsw i32 %.01116.i, 2
-  %12 = mul nsw i32 %11, %11
+  %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -797,7 +797,7 @@ define i32 @Fraig_FindFirstDiff(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not85.not, label %31, label %35
 
 31:                                               ; preds = %.preheader96
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = shl nsw i32 %32, 5
   %34 = add nuw nsw i32 %.0108, %33
   br label %.loopexit87
@@ -830,7 +830,7 @@ define i32 @Fraig_FindFirstDiff(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not83.not, label %45, label %49
 
 45:                                               ; preds = %.preheader92
-  %46 = trunc i64 %indvars.iv133 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv133 to i32
   %47 = shl nsw i32 %46, 5
   %48 = add nuw nsw i32 %.1110, %47
   br label %.loopexit87
@@ -891,7 +891,7 @@ define i32 @Fraig_FindFirstDiff(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not80, label %73, label %69
 
 69:                                               ; preds = %66
-  %70 = trunc i64 %indvars.iv139 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv139 to i32
   %71 = shl nsw i32 %70, 5
   %72 = add nuw nsw i32 %.2113, %71
   br label %.loopexit87
@@ -927,7 +927,7 @@ define i32 @Fraig_FindFirstDiff(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not78, label %88, label %84
 
 84:                                               ; preds = %81
-  %85 = trunc i64 %indvars.iv145 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv145 to i32
   %86 = shl nsw i32 %85, 5
   %87 = add nuw nsw i32 %.3116, %86
   br label %.loopexit87
@@ -948,7 +948,7 @@ define i32 @Fraig_FindFirstDiff(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fraig_CompareSimInfoUnderMask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Fraig_CompareSimInfoUnderMask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #5 {
   %.not = icmp eq i32 %3, 0
   %.in.v = select i1 %.not, i64 112, i64 104
   %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
@@ -1057,7 +1057,7 @@ define void @Fraig_TablePrintStatsS(ptr nocapture noundef readonly %0) local_unn
   br i1 %17, label %18, label %._crit_edge.thread
 
 18:                                               ; preds = %15
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %19)
   br label %._crit_edge.thread
 
@@ -1143,7 +1143,7 @@ define void @Fraig_TablePrintStatsF0(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

@@ -117,12 +117,12 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @register_earlycon(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc i32 @parse_options(ptr noundef nonnull %0) #7, !range !9
+  %5 = tail call fastcc i32 @parse_options(ptr noundef nonnull %0) #7
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr null, ptr %0
   br label %8
@@ -217,12 +217,12 @@ declare dso_local void @console_list_lock() local_unnamed_addr #3
 declare dso_local void @console_list_unlock() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @parse_options(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !9
   %4 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %37
@@ -316,7 +316,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
   %10 = load i8, ptr %9, align 1
   %11 = add i8 %10, -48
   %12 = icmp ult i8 %11, 10
-  br i1 %12, label %5, label %13, !llvm.loop !11
+  br i1 %12, label %5, label %13, !llvm.loop !10
 
 13:                                               ; preds = %8, %5
   %14 = load i8, ptr %6, align 1
@@ -438,6 +438,5 @@ attributes #8 = { cold nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = !{i32 -2147483648, i32 1}
-!9 = !{i32 -22, i32 1}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7}

@@ -190,8 +190,8 @@ $_ZTINSt13__future_base13_State_baseV27_SetterIbNS0_19__exception_ptr_tagEEE = c
 @_ZTSNSt13__future_base7_ResultIbEE = linkonce_odr constant [31 x i8] c"NSt13__future_base7_ResultIbEE\00", comdat, align 1
 @_ZTINSt13__future_base12_Result_baseE = external constant ptr
 @_ZTINSt13__future_base7_ResultIbEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base7_ResultIbEE, ptr @_ZTINSt13__future_base12_Result_baseE }, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSNSt13__future_base13_State_baseV27_SetterIbObEE = linkonce_odr constant [48 x i8] c"NSt13__future_base13_State_baseV27_SetterIbObEE\00", comdat, align 1
 @_ZTINSt13__future_base13_State_baseV27_SetterIbObEE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base13_State_baseV27_SetterIbObEE }, comdat, align 8
 @.str.1 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
@@ -280,7 +280,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i: ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %26 = getelementptr inbounds i8, ptr %5, i64 16
   %27 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN5faiss12WorkerThreadC1EvE3$_0E9_M_invokeERKSt9_Any_data", ptr %27, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN5faiss12WorkerThreadC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %26, align 8
   invoke void @_ZN5faiss12WorkerThread3addESt8functionIFvvEE(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %4, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %5)
@@ -1632,7 +1632,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaI
   %16 = load ptr, ptr %.045, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt4pairISt8functionIFvvEESt7promiseIbEEEvPT_.exit.i.i.i, %15
+.lr.ph.i.i.i:                                     ; preds = %15, %_ZSt8_DestroyISt4pairISt8functionIFvvEESt7promiseIbEEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt4pairISt8functionIFvvEESt7promiseIbEEEvPT_.exit.i.i.i ], [ 0, %15 ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %16, i64 %.05.i.i.i.idx
   %17 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 32

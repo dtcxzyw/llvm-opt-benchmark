@@ -1540,7 +1540,7 @@ _ZSt11make_uniqueIN4LIEF5MachO7SectionEJRKS2_EENSt8__detail9_MakeUniqIT_E15__sin
   %72 = extractvalue { ptr, i64 } %69, 1
   %73 = getelementptr inbounds i8, ptr %3, i64 16
   %74 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5MachO14SegmentCommand11add_sectionERKNS6_7SectionEE3$_0E9_M_invokeERKSt9_Any_dataS3_OmSG_", ptr %74, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5MachO14SegmentCommand11add_sectionERKNS6_7SectionEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %73, align 8
   %75 = load ptr, ptr %0, align 8
@@ -1973,7 +1973,7 @@ define void @_ZN4LIEF5MachO14SegmentCommand14content_insertEmm(ptr noundef nonnu
   %4 = alloca %"class.std::function.71", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0E9_M_invokeERKSt9_Any_dataS3_OmSD_", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -2500,7 +2500,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIh
   %9 = ptrtoint ptr %.val8.i to i64
   %10 = ptrtoint ptr %.val7.i to i64
   %11 = sub i64 %9, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, %.val7.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc3.thread.i.i.i, label %15
 
@@ -2633,7 +2633,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

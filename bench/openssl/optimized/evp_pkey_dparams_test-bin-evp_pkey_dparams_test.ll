@@ -42,7 +42,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @params_bio_test(i32 noundef %id) #0 {
+define internal range(i32 0, 2) i32 @params_bio_test(i32 noundef %id) #0 {
 entry:
   %in_key = alloca ptr, align 8
   %out_bin = alloca ptr, align 8
@@ -181,7 +181,7 @@ if.end57:                                         ; preds = %land.rhs45, %if.the
   br i1 %ret.1.in, label %for.inc, label %for.inc.thread
 
 for.inc.thread:                                   ; preds = %if.end57
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.13, i32 noundef %10) #2
   br label %for.end
 

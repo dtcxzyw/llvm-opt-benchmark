@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @c_cleanup_user_nonce = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_prov_seeding_from_dispatch(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_seeding_from_dispatch(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
 entry:
   %c_cleanup_user_nonce.promoted = load ptr, ptr @c_cleanup_user_nonce, align 8
   %c_cleanup_nonce.promoted = load ptr, ptr @c_cleanup_nonce, align 8

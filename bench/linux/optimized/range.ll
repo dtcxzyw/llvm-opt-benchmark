@@ -242,7 +242,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %21, label %16, label %.loopexit5, !llvm.loop !10
 
 .loopexit5.loopexit.split.loop.exit:              ; preds = %16
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %20, %.loopexit5.loopexit.split.loop.exit, %11
@@ -292,7 +292,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %46 = trunc i64 %indvars.iv13 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv13 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %.loopexit.loopexit.split.loop.exit, %.loopexit9
@@ -306,7 +306,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @cmp_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 -1, 2) i32 @cmp_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp ult i64 %3, %4

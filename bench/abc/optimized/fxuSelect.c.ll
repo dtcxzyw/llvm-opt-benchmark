@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FxuListDouble = type { ptr, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fxu_Select(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = alloca [10 x i32], align 16
   %6 = alloca i32, align 4
@@ -37,7 +37,7 @@ define i32 @Fxu_Select(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
   br i1 %exitcond.not, label %.lr.ph, label %13, !llvm.loop !4
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %.not124 = icmp eq i32 %20, 0
   br i1 %.not124, label %.preheader107, label %.lr.ph
 
@@ -88,7 +88,7 @@ define i32 @Fxu_Select(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
   br i1 %exitcond138.not, label %.lr.ph112, label %29, !llvm.loop !7
 
 35:                                               ; preds = %29
-  %36 = trunc i64 %indvars.iv135 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv135 to i32
   %.not125 = icmp eq i32 %36, 0
   br i1 %.not125, label %.preheader106, label %.lr.ph112
 
@@ -716,7 +716,7 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Fxu_MatrixGetDoubleVars.exit.preheader
@@ -742,7 +742,7 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
   br i1 %exitcond67.not, label %._crit_edge58, label %.lr.ph48, !llvm.loop !15
 
 ._crit_edge49.loopexit:                           ; preds = %.lr.ph48
-  %76 = trunc i64 %indvars.iv63 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %._crit_edge49
 
 ._crit_edge49:                                    ; preds = %._crit_edge49.loopexit, %.preheader
@@ -764,7 +764,7 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
 declare i32 @Fxu_PairHashKeyArray(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.04796 = load ptr, ptr %5, align 8
   %.not97 = icmp eq ptr %.04796, null

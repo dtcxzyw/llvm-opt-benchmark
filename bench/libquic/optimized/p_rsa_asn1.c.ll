@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_rsa_asn1.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_pub_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
+define internal range(i32 0, 2) i32 @rsa_pub_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
 entry:
   %null = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_asn1(ptr noundef %params, ptr noundef nonnull %null, i32 noundef 5) #2
@@ -57,7 +57,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_pub_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
+define internal range(i32 0, 2) i32 @rsa_pub_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
 entry:
   %spki = alloca %struct.cbb_st, align 8
   %algorithm = alloca %struct.cbb_st, align 8
@@ -120,7 +120,7 @@ return:                                           ; preds = %lor.lhs.false21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @rsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %pkey, align 8
@@ -152,7 +152,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_priv_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
+define internal range(i32 0, 2) i32 @rsa_priv_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
 entry:
   %null = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_asn1(ptr noundef %params, ptr noundef nonnull %null, i32 noundef 5) #2
@@ -198,7 +198,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_priv_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
+define internal range(i32 0, 2) i32 @rsa_priv_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
 entry:
   %pkcs8 = alloca %struct.cbb_st, align 8
   %algorithm = alloca %struct.cbb_st, align 8

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [6 x i8] c"bdata\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -49,7 +49,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_addr_copy_dup(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_addr_copy_dup(i32 noundef %idx) #0 {
 entry:
   %alen.i = alloca i64, align 8
   %blen.i = alloca i64, align 8

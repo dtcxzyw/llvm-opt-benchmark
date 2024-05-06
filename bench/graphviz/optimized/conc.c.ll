@@ -58,7 +58,7 @@ define void @dot_concentrate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %.lr.ph.preheader, label %.loopexit101
 
 .lr.ph.preheader:                                 ; preds = %.preheader100
-  %21 = trunc i64 %indvars.iv169 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv169 to i32
   br label %.lr.ph
 
 .preheader96.loopexit:                            ; preds = %.loopexit101
@@ -265,14 +265,14 @@ bothdowncandidates.exit:                          ; preds = %samedir.exit.i
   br i1 %155, label %.preheader98, label %bothdowncandidates.exit.thread
 
 bothdowncandidates.exit.thread:                   ; preds = %104, %.critedge2.i.i, %50, %63, %67, %downcandidate.exit.i, %74, %samedir.exit.i, %bothdowncandidates.exit, %.preheader98, %92, %.critedge.i.i
-  %156 = trunc i64 %indvars.iv.next164 to i32
-  %157 = trunc i64 %indvars.iv to i32
+  %156 = trunc nuw nsw i64 %indvars.iv.next164 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv to i32
   %158 = sub nsw i32 %156, %157
   %159 = icmp sgt i32 %158, 1
   br i1 %159, label %160, label %downcandidate.exit.thread
 
 160:                                              ; preds = %bothdowncandidates.exit.thread
-  %161 = trunc i64 %indvars.iv163 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv163 to i32
   tail call fastcc void @mergevirtual(ptr noundef %0, i32 noundef %21, i32 noundef %157, i32 noundef %161, i32 noundef 1)
   br label %downcandidate.exit.thread
 
@@ -298,7 +298,7 @@ downcandidate.exit.thread:                        ; preds = %.lr.ph, %32, %36, %
   br i1 %174, label %.lr.ph130.preheader, label %._crit_edge
 
 .lr.ph130.preheader:                              ; preds = %.preheader95
-  %175 = trunc i64 %indvars.iv180 to i32
+  %175 = trunc nuw nsw i64 %indvars.iv180 to i32
   br label %.lr.ph130
 
 .preheader:                                       ; preds = %._crit_edge
@@ -507,14 +507,14 @@ bothupcandidates.exit:                            ; preds = %samedir.exit.i85
   br i1 %310, label %.preheader93, label %bothupcandidates.exit.thread
 
 bothupcandidates.exit.thread:                     ; preds = %259, %.critedge2.i.i84, %205, %218, %222, %upcandidate.exit.i, %229, %samedir.exit.i85, %bothupcandidates.exit, %.preheader93, %247, %.critedge.i.i82
-  %311 = trunc i64 %indvars.iv.next177 to i32
-  %312 = trunc i64 %indvars.iv174 to i32
+  %311 = trunc nuw nsw i64 %indvars.iv.next177 to i32
+  %312 = trunc nuw nsw i64 %indvars.iv174 to i32
   %313 = sub nsw i32 %311, %312
   %314 = icmp sgt i32 %313, 1
   br i1 %314, label %315, label %upcandidate.exit.thread
 
 315:                                              ; preds = %bothupcandidates.exit.thread
-  %316 = trunc i64 %indvars.iv176 to i32
+  %316 = trunc nuw nsw i64 %indvars.iv176 to i32
   tail call fastcc void @mergevirtual(ptr noundef %0, i32 noundef %175, i32 noundef %312, i32 noundef %316, i32 noundef 0)
   br label %upcandidate.exit.thread
 
@@ -551,7 +551,7 @@ upcandidate.exit.thread:                          ; preds = %.lr.ph130, %187, %1
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr inbounds ptr, ptr %333, i64 %indvars.iv183
   %335 = load ptr, ptr %334, align 8
-  %336 = tail call fastcc i32 @rebuild_vlists(ptr noundef %335), !range !4
+  %336 = tail call fastcc i32 @rebuild_vlists(ptr noundef %335)
   %.not65 = icmp eq i32 %336, 0
   br i1 %.not65, label %326, label %337
 
@@ -834,7 +834,7 @@ define internal fastcc void @mergevirtual(ptr noundef %0, i32 noundef %1, i32 no
   %137 = getelementptr inbounds i8, ptr %135, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 364
-  %140 = trunc i64 %indvars.iv161 to i32
+  %140 = trunc nsw i64 %indvars.iv161 to i32
   store i32 %140, ptr %139, align 4
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
@@ -848,7 +848,7 @@ define internal fastcc void @mergevirtual(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %147, label %.lr.ph137, label %._crit_edge138.loopexit
 
 ._crit_edge138.loopexit:                          ; preds = %.lr.ph137
-  %148 = trunc i64 %indvars.iv.next162 to i32
+  %148 = trunc nsw i64 %indvars.iv.next162 to i32
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %.preheader
@@ -867,7 +867,7 @@ define internal fastcc void @mergevirtual(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rebuild_vlists(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @rebuild_vlists(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 344
@@ -1060,7 +1060,7 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %.lr.ph159
-  %105 = trunc i64 %indvars.iv175 to i32
+  %105 = trunc nsw i64 %indvars.iv175 to i32
   %106 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %105) #2
   br label %.loopexit
 
@@ -1084,7 +1084,7 @@ infuse.exit128:                                   ; preds = %69, %77
 
 122:                                              ; preds = %107
   %123 = getelementptr inbounds i8, ptr %102, i64 16
-  %124 = trunc i64 %indvars.iv175 to i32
+  %124 = trunc nsw i64 %indvars.iv175 to i32
   %125 = tail call ptr @agnameof(ptr noundef nonnull %102) #2
   %126 = load ptr, ptr %123, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 364
@@ -1145,7 +1145,7 @@ infuse.exit128:                                   ; preds = %69, %77
 170:                                              ; preds = %164
   %171 = tail call i32 @agcontains(ptr noundef nonnull %0, ptr noundef nonnull %162) #2
   %.not121 = icmp eq i32 %171, 0
-  %172 = trunc i64 %indvars.iv172 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv172 to i32
   br i1 %.not121, label %._crit_edge151, label %.critedge126
 
 173:                                              ; preds = %164
@@ -1189,7 +1189,7 @@ infuse.exit128:                                   ; preds = %69, %77
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 @agcontains(ptr noundef %0, ptr noundef %196) #2
   %.not120 = icmp eq i32 %197, 0
-  %198 = trunc i64 %indvars.iv172 to i32
+  %198 = trunc nuw nsw i64 %indvars.iv172 to i32
   %spec.select = select i1 %.not120, i32 %.0101148, i32 %198
   br label %.critedge126
 
@@ -1212,7 +1212,7 @@ infuse.exit128:                                   ; preds = %69, %77
 
 ._crit_edge151.thread:                            ; preds = %130, %._crit_edge151
   %207 = tail call ptr @agnameof(ptr noundef nonnull %0) #2
-  %208 = trunc i64 %indvars.iv175 to i32
+  %208 = trunc nsw i64 %indvars.iv175 to i32
   %209 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %207, i32 noundef %208) #2
   br label %210
 
@@ -1248,7 +1248,7 @@ infuse.exit128:                                   ; preds = %69, %77
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds ptr, ptr %227, i64 %indvars.iv178
   %229 = load ptr, ptr %228, align 8
-  %230 = tail call fastcc i32 @rebuild_vlists(ptr noundef %229), !range !4
+  %230 = tail call fastcc i32 @rebuild_vlists(ptr noundef %229)
   %.not114 = icmp eq i32 %230, 0
   br i1 %.not114, label %220, label %.loopexit
 
@@ -1295,4 +1295,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

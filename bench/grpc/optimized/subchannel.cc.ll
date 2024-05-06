@@ -343,16 +343,16 @@ $_ZTIN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherE = comdat any
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
 @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct.183" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E), align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE = linkonce_odr constant %"struct.grpc_core::arena_promise_detail::Vtable" { ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE8PollOnceEPNS0_7ArgTypeE, ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7DestroyEPNS0_7ArgTypeE }, comdat, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.32 = private unnamed_addr constant [40 x i8] c"grpc.testing.fixed_reconnect_backoff_ms\00", align 1
 @.str.33 = private unnamed_addr constant [34 x i8] c"grpc.initial_reconnect_backoff_ms\00", align 1
 @.str.34 = private unnamed_addr constant [30 x i8] c"grpc.min_reconnect_backoff_ms\00", align 1
 @.str.35 = private unnamed_addr constant [30 x i8] c"grpc.max_reconnect_backoff_ms\00", align 1
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @_ZN9grpc_core17CoreConfiguration7config_E = external local_unnamed_addr global %"struct.std::atomic.295", align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN4absl12lts_202308026Status16kMovedFromStringE = linkonce_odr constant [28 x i8] c"Status accessed after move.\00", comdat, align 16
 @.str.36 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 @_ZTVN9grpc_core23ChannelStackBuilderImplE = external unnamed_addr constant { [4 x ptr] }, align 8
@@ -363,13 +363,13 @@ $_ZTIN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherE = comdat any
 @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_8OnCancelINS_14promise_detail3SeqINS_12ArenaPromiseIS6_EEJZNS_19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEE3$_0EEEZNSC_15MakeCallPromiseESD_E3$_1EEDaT_T0_EUlvE_E6vtableE" = internal constant %"struct.grpc_core::arena_promise_detail::Vtable" { ptr @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_8OnCancelINS_14promise_detail3SeqINS_12ArenaPromiseIS6_EEJZNS_19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEE3$_0EEEZNSC_15MakeCallPromiseESD_E3$_1EEDaT_T0_EUlvE_E8PollOnceEPNS0_7ArgTypeE", ptr @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_8OnCancelINS_14promise_detail3SeqINS_12ArenaPromiseIS6_EEJZNS_19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEE3$_0EEEZNSC_15MakeCallPromiseESD_E3$_1EEDaT_T0_EUlvE_E7DestroyEPNS0_7ArgTypeE" }, align 8
 @.str.39 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.40 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @"_ZTSZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEE3$_0" = internal constant [130 x i8] c"ZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEE3$_0\00", align 1
 @"_ZTIZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEE3$_0" }, align 8
 @.str.41 = private unnamed_addr constant [27 x i8] c"grpc.internal.event_engine\00", align 1
 @"_ZTSZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedPtrINS0_33ConnectivityStateWatcherInterfaceEEEE3$_0" = internal constant [116 x i8] c"ZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedPtrINS0_33ConnectivityStateWatcherInterfaceEEEE3$_0\00", align 1
 @"_ZTIZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedPtrINS0_33ConnectivityStateWatcherInterfaceEEEE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedPtrINS0_33ConnectivityStateWatcherInterfaceEEEE3$_0" }, align 8
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
@@ -380,7 +380,7 @@ $_ZTIN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherE = comdat any
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_9TransportEvE6VTableEvE3tbl = linkonce_odr constant %struct.grpc_arg_pointer_vtable { ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_9TransportEvE6VTableEvENUlPvE_8__invokeES3_, ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_9TransportEvE6VTableEvENUlPvE0_8__invokeES3_, ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_9TransportEvE6VTableEvENUlPvS3_E_8__invokeES3_S3_ }, comdat, align 8
 @.str.42 = private unnamed_addr constant [24 x i8] c"grpc.internal.transport\00", align 1
 @_ZTVN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherE, ptr @_ZN9grpc_core33ConnectivityStateWatcherInterface6OrphanEv, ptr @_ZN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherD2Ev, ptr @_ZN9grpc_core10Subchannel31ConnectedSubchannelStateWatcherD0Ev, ptr @_ZN9grpc_core38AsyncConnectivityStateWatcherInterface6NotifyE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE, ptr @_ZN9grpc_core10Subchannel31ConnectedSubchannelStateWatcher25OnConnectivityStateChangeE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE] }, comdat, align 8
@@ -687,7 +687,7 @@ invoke.cont17:                                    ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %state.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 48
   store i8 0, ptr %state.i.i.i, align 16, !alias.scope !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %agg.tmp3, align 16, !noalias !7
   %next_factory.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 32
   %22 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !10
@@ -698,7 +698,7 @@ invoke.cont17:                                    ; preds = %if.end
   %23 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %state.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   store i8 0, ptr %state.i.i.i.i, align 16, !alias.scope !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %agg.tmp2, align 16, !noalias !13
   %next_factory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %this, ptr %next_factory.i.i.i.i, align 16, !alias.scope !13
@@ -756,7 +756,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i:         ; preds = %if.else.i.i.i.i.i, 
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %23, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %23, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %23, align 16
   br label %tail0.i.i.i.i.i.i.i.i.i
 
@@ -2309,7 +2309,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %call.i.i2.i.noexc unwind label %lpad7
 
@@ -4385,7 +4385,7 @@ if.then.i.i:                                      ; preds = %invoke.cont7
 
 invoke.cont9:                                     ; preds = %if.then.i.i, %invoke.cont7
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %invoke.cont11 unwind label %lpad10
 

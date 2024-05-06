@@ -549,7 +549,7 @@ declare void @_ZN18cmCTestTestHandler10InitializeEv(ptr noundef nonnull align 8 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN22cmCTestMemCheckHandler17PreProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(4760) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN22cmCTestMemCheckHandler17PreProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(4760) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef zeroext i1 @_ZN22cmCTestMemCheckHandler24InitializeMemoryCheckingEv(ptr noundef nonnull align 8 dereferenceable(4760) %0)
@@ -4224,7 +4224,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN22cmCTestMemCheckHandler18PostProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(4760) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN22cmCTestMemCheckHandler18PostProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(4760) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4736
@@ -13610,7 +13610,7 @@ define linkonce_odr dso_local void @_ZN21cmBoundsCheckerParser10ParseErrorEPPKc(
 
 _ZN21cmBoundsCheckerParser12GetAttributeEPKcPS1_.exit: ; preds = %.lr.ph.i
   %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
-  %13 = getelementptr i8, ptr %12, i64 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %_ZN21cmBoundsCheckerParser12GetAttributeEPKcPS1_.exit.thread, label %.lr.ph

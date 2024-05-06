@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dir_iterator_advance(ptr noundef %dir_iterator) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @dir_iterator_advance(ptr noundef %dir_iterator) local_unnamed_addr #0 {
 entry:
   %st_mode = getelementptr inbounds i8, ptr %dir_iterator, i64 64
   %0 = load i32, ptr %st_mode, align 8

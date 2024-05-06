@@ -62,7 +62,7 @@ define internal void @stdoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stdoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2147483647, -2147483648) i32 @stdoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   br label %6

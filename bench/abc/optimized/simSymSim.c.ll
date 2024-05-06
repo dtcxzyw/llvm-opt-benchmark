@@ -39,7 +39,7 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds ptr, ptr %.val23.i, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = trunc i64 %indvars.iv40.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv40.i to i32
   %26 = lshr i64 %indvars.iv40.i, 5
   %27 = and i64 %26, 134217727
   %28 = getelementptr inbounds i32, ptr %1, i64 %27

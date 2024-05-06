@@ -292,14 +292,14 @@ Vec_IntPush.exit51:                               ; preds = %.Vec_IntGrow.exit10
   %106 = getelementptr inbounds i32, ptr %.val.us, i64 %indvars.iv.next78
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %105, %107
-  %109 = trunc i64 %indvars.iv77 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv77 to i32
   br i1 %108, label %.lr.ph61.us, label %._crit_edge62.us, !llvm.loop !6
 
 110:                                              ; preds = %.lr.ph57.us, %110
   %indvars.iv74 = phi i64 [ %96, %.lr.ph57.us ], [ %indvars.iv.next75, %110 ]
   %111 = getelementptr inbounds i32, ptr %.val.us, i64 %indvars.iv74
   %112 = load i32, ptr %111, align 4
-  %113 = trunc i64 %indvars.iv74 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv74 to i32
   %114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %113, i32 noundef %112)
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %115 = icmp sgt i64 %indvars.iv74, 1
@@ -342,7 +342,7 @@ Vec_IntPush.exit51.split:                         ; preds = %Vec_IntPush.exit51,
   %135 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv.next
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %134, %136
-  %138 = trunc i64 %indvars.iv to i32
+  %138 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %137, label %.lr.ph61, label %._crit_edge62, !llvm.loop !6
 
 ._crit_edge62:                                    ; preds = %.lr.ph61, %Vec_IntPush.exit51.split
@@ -367,7 +367,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge62, %._c
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @generateCombinatorialStabil(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @generateCombinatorialStabil(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = add nsw i32 %5, 3
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %9 = add nsw i32 %5, 2
@@ -734,7 +734,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %174 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv.next93
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %173, %175
-  %177 = trunc i64 %indvars.iv92 to i32
+  %177 = trunc nuw nsw i64 %indvars.iv92 to i32
   br i1 %176, label %.lr.ph80, label %._crit_edge81, !llvm.loop !10
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %Vec_PtrPush.exit
@@ -757,7 +757,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge81
 declare ptr @Aig_Or(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @generateCombinatorialStabilExhaust(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @generateCombinatorialStabilExhaust(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, 3
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %8 = add nsw i32 %4, 2
@@ -1108,7 +1108,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %164 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv.next88
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %163, %165
-  %167 = trunc i64 %indvars.iv87 to i32
+  %167 = trunc nuw nsw i64 %indvars.iv87 to i32
   br i1 %166, label %.lr.ph75, label %._crit_edge76, !llvm.loop !13
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %Vec_PtrPush.exit

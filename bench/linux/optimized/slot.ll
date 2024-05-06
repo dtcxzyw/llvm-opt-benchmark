@@ -397,7 +397,7 @@ define dso_local void @pci_hp_remove_module_link(ptr noundef %0) #0 align 16 {
 declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_slot_init() #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_slot_init() #0 align 16 {
   %1 = tail call ptr @bus_get_kset(ptr noundef nonnull @pci_bus_type) #7
   %2 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef %2) #7
@@ -527,7 +527,7 @@ define internal i64 @pci_slot_attr_store(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @address_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @address_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, -1
@@ -559,7 +559,7 @@ define internal i64 @address_read_file(ptr nocapture noundef readonly %0, ptr no
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @max_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @max_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 218
   %5 = load i8, ptr %4, align 2
@@ -574,7 +574,7 @@ define internal i64 @max_speed_read_file(ptr nocapture noundef readonly %0, ptr 
 declare dso_local ptr @pci_speed_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cur_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cur_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 219
   %5 = load i8, ptr %4, align 1

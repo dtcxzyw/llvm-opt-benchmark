@@ -247,7 +247,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4YAML5Utils19ComputeStringFormatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EMITTER_MANIPENS_8FlowType5valueEb(ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %strFormat, i32 noundef %flowType, i1 noundef zeroext %escapeNonAscii) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN4YAML5Utils19ComputeStringFormatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EMITTER_MANIPENS_8FlowType5valueEb(ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %strFormat, i32 noundef %flowType, i1 noundef zeroext %escapeNonAscii) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %source.i.i.i = alloca %"class.YAML::StringCharSource", align 8
   %ref.tmp.i = alloca %"class.std::reverse_iterator", align 8
@@ -4428,8 +4428,8 @@ for.cond.i11.preheader:                           ; preds = %entry
   %_M_finish.i28 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i28, align 8
   %2 = load ptr, ptr %m_params.i12, align 8
-  %cmp.i1437.not = icmp eq ptr %1, %2
-  br i1 %cmp.i1437.not, label %common.ret, label %for.body.i16
+  %cmp.i1438.not = icmp eq ptr %1, %2
+  br i1 %cmp.i1438.not, label %common.ret, label %for.body.i16
 
 sw.bb:                                            ; preds = %entry
   %m_offset.i.i.i = getelementptr inbounds i8, ptr %source, i64 16
@@ -4473,33 +4473,33 @@ sw.bb6:                                           ; preds = %entry
   %17 = load ptr, ptr %m_params.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i27.not41 = icmp eq ptr %17, %18
-  br i1 %cmp.i27.not41, label %common.ret, label %for.body.i
+  %cmp.i27.not42 = icmp eq ptr %17, %18
+  br i1 %cmp.i27.not42, label %common.ret, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.042, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.043, i64 32
   %cmp.i27.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i27.not, label %common.ret, label %for.body.i
 
 for.body.i:                                       ; preds = %sw.bb6, %for.cond.i
-  %__begin2.i.sroa.0.042 = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %17, %sw.bb6 ]
-  %call6.i = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.i.sroa.0.042, ptr noundef nonnull align 8 dereferenceable(24) %source)
+  %__begin2.i.sroa.0.043 = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %17, %sw.bb6 ]
+  %call6.i = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.i.sroa.0.043, ptr noundef nonnull align 8 dereferenceable(24) %source)
   %cmp.i10 = icmp sgt i32 %call6.i, -1
   br i1 %cmp.i10, label %common.ret, label %for.cond.i
 
 for.body.i16:                                     ; preds = %for.cond.i11.preheader, %if.end.i
   %19 = phi ptr [ %21, %if.end.i ], [ %2, %for.cond.i11.preheader ]
-  %i.0.i39 = phi i64 [ %inc.i, %if.end.i ], [ 0, %for.cond.i11.preheader ]
-  %first.0.i38 = phi i32 [ %spec.select.i, %if.end.i ], [ -1, %for.cond.i11.preheader ]
-  %add.ptr.i = getelementptr inbounds %"class.YAML::RegEx", ptr %19, i64 %i.0.i39
+  %i.0.i40 = phi i64 [ %inc.i, %if.end.i ], [ 0, %for.cond.i11.preheader ]
+  %first.0.i39 = phi i32 [ %spec.select.i, %if.end.i ], [ -1, %for.cond.i11.preheader ]
+  %add.ptr.i = getelementptr inbounds %"class.YAML::RegEx", ptr %19, i64 %i.0.i40
   %call4.i17 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %source)
   %cmp5.i = icmp eq i32 %call4.i17, -1
   br i1 %cmp5.i, label %common.ret, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i16
-  %cmp6.i18 = icmp eq i64 %i.0.i39, 0
-  %spec.select.i = select i1 %cmp6.i18, i32 %call4.i17, i32 %first.0.i38
-  %inc.i = add nuw i64 %i.0.i39, 1
+  %cmp6.i18 = icmp eq i64 %i.0.i40, 0
+  %spec.select.i = select i1 %cmp6.i18, i32 %call4.i17, i32 %first.0.i39
+  %inc.i = add nuw i64 %i.0.i40, 1
   %20 = load ptr, ptr %_M_finish.i28, align 8
   %21 = load ptr, ptr %m_params.i12, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %20 to i64
@@ -4518,7 +4518,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp.i.i, label %common.ret, label %if.end.i21
 
 common.ret:                                       ; preds = %for.cond.i11.preheader, %sw.bb6, %sw.bb, %sw.bb2, %sw.bb4, %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, %entry, %sw.bb10, %for.body.i, %for.cond.i, %for.body.i16, %if.end.i, %if.end.i21
-  %common.ret.op = phi i32 [ %..i25, %if.end.i21 ], [ %retval.0.i53, %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit ], [ %retval.0.i, %sw.bb4 ], [ %..i, %sw.bb2 ], [ %cond.i, %sw.bb ], [ -1, %entry ], [ -1, %sw.bb10 ], [ -1, %sw.bb6 ], [ -1, %for.cond.i11.preheader ], [ -1, %for.cond.i ], [ %call6.i, %for.body.i ], [ %spec.select.i, %if.end.i ], [ -1, %for.body.i16 ]
+  %common.ret.op = phi i32 [ %..i25, %if.end.i21 ], [ %retval.0.i54, %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit ], [ %retval.0.i, %sw.bb4 ], [ %..i, %sw.bb2 ], [ %cond.i, %sw.bb ], [ -1, %entry ], [ -1, %sw.bb10 ], [ -1, %sw.bb6 ], [ -1, %for.cond.i11.preheader ], [ -1, %for.cond.i ], [ %call6.i, %for.body.i ], [ %spec.select.i, %if.end.i ], [ -1, %for.body.i16 ]
   ret i32 %common.ret.op
 
 if.end.i21:                                       ; preds = %sw.bb10
@@ -4529,30 +4529,30 @@ if.end.i21:                                       ; preds = %sw.bb10
 
 sw.bb12:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %m_params.i49 = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = load ptr, ptr %m_params.i49, align 8
-  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load ptr, ptr %_M_finish.i.i50, align 8
+  %m_params.i50 = getelementptr inbounds i8, ptr %this, i64 8
+  %24 = load ptr, ptr %m_params.i50, align 8
+  %_M_finish.i.i51 = getelementptr inbounds i8, ptr %this, i64 16
+  %25 = load ptr, ptr %_M_finish.i.i51, align 8
   %cmp.i.not10.i = icmp eq ptr %24, %25
   br i1 %cmp.i.not10.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb12
-  %m_offset.i.i51 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %m_offset.i.i52 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  br label %for.body.i52
+  br label %for.body.i53
 
-for.body.i52:                                     ; preds = %if.end.i55, %for.body.lr.ph.i
-  %offset.012.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add.i, %if.end.i55 ]
-  %__begin2.sroa.0.011.i = phi ptr [ %24, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %if.end.i55 ]
+for.body.i53:                                     ; preds = %if.end.i56, %for.body.lr.ph.i
+  %offset.012.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add.i, %if.end.i56 ]
+  %__begin2.sroa.0.011.i = phi ptr [ %24, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %if.end.i56 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %source, i64 24, i1 false)
-  %26 = load i64, ptr %m_offset.i.i51, align 8, !alias.scope !27
+  %26 = load i64, ptr %m_offset.i.i52, align 8, !alias.scope !27
   %conv.i.i = trunc i64 %26 to i32
   %add.i.i = add nsw i32 %offset.012.i, %conv.i.i
   %cmp.i5.i = icmp sgt i32 %add.i.i, -1
   %conv2.i.i = sext i32 %offset.012.i to i64
   %add4.i.i = add i64 %26, %conv2.i.i
   %storemerge.i.i = select i1 %cmp.i5.i, i64 %add4.i.i, i64 0
-  store i64 %storemerge.i.i, ptr %m_offset.i.i51, align 8, !alias.scope !27
+  store i64 %storemerge.i.i, ptr %m_offset.i.i52, align 8, !alias.scope !27
   %27 = load i32, ptr %__begin2.sroa.0.011.i, align 8
   %28 = add i32 %27, -3
   %switch.i.i.i = icmp ult i32 %28, -2
@@ -4561,19 +4561,19 @@ for.body.i52:                                     ; preds = %if.end.i55, %for.bo
   %retval.0.i.i.i = select i1 %switch.i.i.i, i1 true, i1 %cmp.i.i.i.i
   br i1 %retval.0.i.i.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit
 
-_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i: ; preds = %for.body.i52
+_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i: ; preds = %for.body.i53
   %call2.i.i = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.011.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-  %cmp.i54 = icmp eq i32 %call2.i.i, -1
-  br i1 %cmp.i54, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %if.end.i55
+  %cmp.i55 = icmp eq i32 %call2.i.i, -1
+  br i1 %cmp.i55, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %if.end.i56
 
-if.end.i55:                                       ; preds = %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i
+if.end.i56:                                       ; preds = %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i
   %add.i = add nsw i32 %call2.i.i, %offset.012.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %for.body.i52
+  br i1 %cmp.i.not.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %for.body.i53
 
-_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit: ; preds = %for.body.i52, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i, %if.end.i55, %sw.bb12
-  %retval.0.i53 = phi i32 [ 0, %sw.bb12 ], [ -1, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i ], [ %add.i, %if.end.i55 ], [ -1, %for.body.i52 ]
+_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit: ; preds = %for.body.i53, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i, %if.end.i56, %sw.bb12
+  %retval.0.i54 = phi i32 [ 0, %sw.bb12 ], [ -1, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i ], [ %add.i, %if.end.i56 ], [ -1, %for.body.i53 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %common.ret
 }

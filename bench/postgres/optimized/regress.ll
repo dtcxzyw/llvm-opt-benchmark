@@ -216,7 +216,7 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %29 = add i32 %27, -1
   %30 = sext i32 %29 to i64
   %31 = icmp sge i64 %indvars.iv.next33, %30
-  %32 = trunc i8 %.1.lcssa to i1
+  %32 = trunc nuw i8 %.1.lcssa to i1
   %.not23 = select i1 %31, i1 true, i1 %32
   br i1 %.not23, label %._crit_edge, label %33, !llvm.loop !4
 
@@ -240,7 +240,7 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   store double %43, ptr %19, align 8
   %44 = add i32 %35, -1
   %45 = icmp slt i32 %44, 1
-  %46 = trunc i8 %.029 to i1
+  %46 = trunc nuw i8 %.029 to i1
   %.not2425 = select i1 %45, i1 true, i1 %46
   br i1 %.not2425, label %.loopexit, label %.lr.ph
 
@@ -267,7 +267,7 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %57 = add i32 %56, -1
   %58 = sext i32 %57 to i64
   %59 = icmp sge i64 %indvars.iv.next, %58
-  %60 = trunc i8 %spec.select to i1
+  %60 = trunc nuw i8 %spec.select to i1
   %.not24 = select i1 %59, i1 true, i1 %60
   br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -300,7 +300,7 @@ define noundef nonnull ptr @pg_finfo_overpaid() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @overpaid(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @overpaid(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -444,7 +444,7 @@ define noundef nonnull ptr @pg_finfo_pt_in_widget() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @pt_in_widget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @pt_in_widget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -487,7 +487,7 @@ define i64 @reverse_name(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !8
 
 .critedge.thread:                                 ; preds = %6
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = and i64 %indvars.iv, 4294967295
   %12 = getelementptr i8, ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1
@@ -843,7 +843,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 145:                                              ; preds = %.lr.ph, %145
   %indvars.iv157 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next158, %145 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %146 = trunc i64 %indvars.iv.next158 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.next158 to i32
   %147 = call i64 @SPI_getbinval(ptr noundef %144, ptr noundef nonnull %57, i32 noundef %146, ptr noundef nonnull %4) #18
   %148 = getelementptr i64, ptr %141, i64 %indvars.iv157
   store i64 %147, ptr %148, align 8
@@ -1009,7 +1009,7 @@ define noundef nonnull ptr @pg_finfo_set_ttdummy() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define noundef i64 @set_ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i64 -2147483648, 2147483648) i64 @set_ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.b3 = load i1, ptr @ttoff, align 1
@@ -1449,7 +1449,7 @@ define noundef nonnull ptr @pg_finfo_test_atomic_ops() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @test_atomic_ops(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = alloca [219 x %struct.pg_atomic_uint32], align 16
   %4 = alloca [219 x %struct.pg_atomic_uint64], align 16
@@ -2285,7 +2285,7 @@ test_spinlock.exit:                               ; preds = %338
 .preheader.i7:                                    ; preds = %342, %345
   %indvars.iv86.i = phi i64 [ %indvars.iv.next87.i, %345 ], [ 0, %342 ]
   %346 = getelementptr [219 x %struct.pg_atomic_uint32], ptr %3, i64 0, i64 %indvars.iv86.i
-  %347 = trunc i64 %indvars.iv86.i to i32
+  %347 = trunc nuw nsw i64 %indvars.iv86.i to i32
   %348 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %346, i32 %347, ptr elementtype(i32) %346) #18, !srcloc !17
   %.not50.i = icmp eq i32 %348, 0
   br i1 %.not50.i, label %352, label %349
@@ -2330,7 +2330,7 @@ test_spinlock.exit:                               ; preds = %338
 363:                                              ; preds = %.preheader, %362
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %362 ], [ 0, %.preheader ]
   %364 = getelementptr [219 x %struct.pg_atomic_uint32], ptr %3, i64 0, i64 %indvars.iv90.i
-  %365 = trunc i64 %indvars.iv90.i to i32
+  %365 = trunc nuw nsw i64 %indvars.iv90.i to i32
   %366 = atomicrmw sub ptr %364, i32 %365 seq_cst, align 4
   %367 = zext i32 %366 to i64
   %.not46.i = icmp eq i64 %indvars.iv90.i, %367
@@ -2714,7 +2714,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %100 = or disjoint i64 %99, 1
   %101 = load ptr, ptr @CurrentMemoryContext, align 8
   %102 = call ptr @MemoryContextAlloc(ptr noundef %101, i64 noundef %100) #18
-  %103 = trunc i64 %100 to i32
+  %103 = trunc nuw nsw i64 %100 to i32
   %104 = call i32 @pg_do_encoding_conversion_buf(i32 noundef %83, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %65, i32 noundef %92, ptr noundef %102, i32 noundef %103, i1 noundef zeroext %19) #18
   %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #20
   %106 = trunc i64 %105 to i32
@@ -2776,7 +2776,7 @@ define noundef nonnull ptr @pg_finfo_binary_coercible() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @binary_coercible(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @binary_coercible(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32

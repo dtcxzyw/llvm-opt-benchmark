@@ -655,7 +655,7 @@ if.end5.i:                                        ; preds = %if.then4.i, %do.end
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.then13.i
 
 land.lhs.true9.i:                                 ; preds = %if.end5.i
-  %19 = call i32 @llvm.ctpop.i32(i32 %18), !range !5
+  %19 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
   %cmp10.i = icmp ult i32 %19, 2
   %cmp12.i = icmp ugt i32 %18, 4095
   %or.cond1.i = and i1 %cmp12.i, %cmp10.i
@@ -1102,18 +1102,18 @@ if.then:                                          ; preds = %sw.bb7
   ]
 
 sw.bb14:                                          ; preds = %if.then
-  %call15 = tail call fastcc i32 @write_erst_record(ptr noundef nonnull %opaque), !range !6
-  %conv16 = trunc i32 %call15 to i8
+  %call15 = tail call fastcc i32 @write_erst_record(ptr noundef nonnull %opaque)
+  %conv16 = trunc nuw nsw i32 %call15 to i8
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %if.then
-  %call18 = tail call fastcc i32 @read_erst_record(ptr noundef nonnull %opaque), !range !7
-  %conv19 = trunc i32 %call18 to i8
+  %call18 = tail call fastcc i32 @read_erst_record(ptr noundef nonnull %opaque)
+  %conv19 = trunc nuw nsw i32 %call18 to i8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.then
-  %call22 = tail call fastcc i32 @clear_erst_record(ptr noundef nonnull %opaque), !range !7
-  %conv23 = trunc i32 %call22 to i8
+  %call22 = tail call fastcc i32 @clear_erst_record(ptr noundef nonnull %opaque)
+  %conv23 = trunc nuw nsw i32 %call22 to i8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then
@@ -1198,7 +1198,7 @@ sw.epilog66:                                      ; preds = %trace_acpi_erst_reg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @write_erst_record(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @write_erst_record(ptr noundef %s) unnamed_addr #0 {
 entry:
   %exchange_mr = getelementptr inbounds i8, ptr %s, i64 2912
   %call = tail call i64 @memory_region_size(ptr noundef nonnull %exchange_mr) #10
@@ -1265,10 +1265,10 @@ if.end.i:                                         ; preds = %for.body.i
   %cmp2.i = icmp ult i64 %indvars.iv.next.i, %9
   %cmp3.i = icmp ult i32 %spec.select.i, %4
   %11 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
-  br i1 %11, label %for.body.i, label %if.else, !llvm.loop !8
+  br i1 %11, label %for.body.i, label %if.else, !llvm.loop !5
 
 lookup_erst_record.exit:                          ; preds = %for.body.i
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw i64 %indvars.iv.i to i32
   %tobool.not.not = icmp eq i32 %12, 0
   br i1 %tobool.not.not, label %if.else, label %if.then25
 
@@ -1303,10 +1303,10 @@ for.body.i40:                                     ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i40
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i40, !llvm.loop !10
+  br i1 %exitcond.not.i, label %return, label %for.body.i40, !llvm.loop !7
 
 find_next_empty_record_index.exit:                ; preds = %for.body.i40
-  %17 = trunc i64 %indvars.iv.i41 to i32
+  %17 = trunc nuw i64 %indvars.iv.i41 to i32
   %tobool28.not = icmp eq i32 %17, 0
   br i1 %tobool28.not, label %return, label %if.end33
 
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %for.inc.i, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @read_erst_record(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @read_erst_record(ptr noundef %s) unnamed_addr #0 {
 entry:
   %header = getelementptr inbounds i8, ptr %s, i64 3216
   %0 = load ptr, ptr %header, align 16
@@ -1418,7 +1418,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then7.i:                                       ; preds = %for.body.i
   %arrayidx.i.le = getelementptr [0 x i64], ptr %map.i, i64 0, i64 %indvars.iv.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw i64 %indvars.iv.i to i32
   %add.i = add nuw i32 %9, 1
   store i32 %add.i, ptr %next_record_index.i, align 16
   %10 = load i64, ptr %arrayidx.i.le, align 1
@@ -1428,7 +1428,7 @@ if.then7.i:                                       ; preds = %for.body.i
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !8
 
 if.end7:                                          ; preds = %if.then7.i, %if.end
   %11 = phi i64 [ %10, %if.then7.i ], [ %2, %if.end ]
@@ -1487,10 +1487,10 @@ if.end.i:                                         ; preds = %for.body.i27
   %cmp2.i = icmp ult i64 %indvars.iv.next.i30, %19
   %cmp3.i = icmp ult i32 %spec.select.i, %14
   %21 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
-  br i1 %21, label %for.body.i27, label %if.else, !llvm.loop !8
+  br i1 %21, label %for.body.i27, label %if.else, !llvm.loop !5
 
 lookup_erst_record.exit:                          ; preds = %for.body.i27
-  %22 = trunc i64 %indvars.iv.i28 to i32
+  %22 = trunc nuw i64 %indvars.iv.i28 to i32
   %tobool.not = icmp eq i32 %22, 0
   br i1 %tobool.not, label %if.else, label %if.then19
 
@@ -1564,7 +1564,7 @@ for.body.i48:                                     ; preds = %for.inc.i55, %for.b
 
 if.then7.i52:                                     ; preds = %for.body.i48
   %arrayidx.i50.le = getelementptr [0 x i64], ptr %map.i46, i64 0, i64 %indvars.iv.i49
-  %36 = trunc i64 %indvars.iv.i49 to i32
+  %36 = trunc nuw i64 %indvars.iv.i49 to i32
   %add.i54 = add nuw i32 %36, 1
   store i32 %add.i54, ptr %next_record_index.i34, align 16
   %37 = load i64, ptr %arrayidx.i50.le, align 1
@@ -1574,7 +1574,7 @@ if.then7.i52:                                     ; preds = %for.body.i48
 for.inc.i55:                                      ; preds = %for.body.i48
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i47
-  br i1 %exitcond.not.i57, label %return, label %for.body.i48, !llvm.loop !11
+  br i1 %exitcond.not.i57, label %return, label %for.body.i48, !llvm.loop !8
 
 return:                                           ; preds = %for.inc.i, %for.inc.i55, %if.else, %for.cond.preheader.i40, %for.cond.preheader.i, %if.then4, %if.then7.i52, %if.then37, %get_nvram_ptr_by_index.exit, %if.end12, %if.end7, %entry
   %retval.0 = phi i32 [ 4, %entry ], [ 3, %if.end7 ], [ 3, %if.end12 ], [ 0, %if.then37 ], [ 3, %get_nvram_ptr_by_index.exit ], [ 5, %if.then7.i52 ], [ 3, %if.then4 ], [ 3, %for.cond.preheader.i ], [ 5, %for.cond.preheader.i40 ], [ 5, %if.else ], [ 5, %for.inc.i55 ], [ 3, %for.inc.i ]
@@ -1582,7 +1582,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @clear_erst_record(ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc range(i32 0, 6) i32 @clear_erst_record(ptr nocapture noundef readonly %s) unnamed_addr #4 {
 entry:
   %record_identifier = getelementptr inbounds i8, ptr %s, i64 3208
   %0 = load i64, ptr %record_identifier, align 8
@@ -1627,10 +1627,10 @@ if.end.i:                                         ; preds = %for.body.i
   %cmp2.i = icmp ult i64 %indvars.iv.next.i, %7
   %cmp3.i = icmp ult i32 %spec.select.i, %2
   %9 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
-  br i1 %9, label %for.body.i, label %return, !llvm.loop !8
+  br i1 %9, label %for.body.i, label %return, !llvm.loop !5
 
 lookup_erst_record.exit:                          ; preds = %for.body.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw i64 %indvars.iv.i to i32
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %return, label %if.then4
 
@@ -1709,7 +1709,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then7:                                         ; preds = %for.body
   %arrayidx.le = getelementptr [0 x i64], ptr %map, i64 0, i64 %indvars.iv
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %add = add nuw i32 %7, 1
   store i32 %add, ptr %next_record_index1, align 16
   %8 = load i64, ptr %arrayidx.le, align 1
@@ -1719,7 +1719,7 @@ if.then7:                                         ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then17, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.then17, label %for.body, !llvm.loop !8
 
 if.then17:                                        ; preds = %for.inc, %for.cond.preheader, %if.end
   %first_record_index18 = getelementptr inbounds i8, ptr %s, i64 3224
@@ -1855,10 +1855,7 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = !{i32 0, i32 4}
-!7 = !{i32 0, i32 6}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

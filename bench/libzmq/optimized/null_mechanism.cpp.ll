@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_ready_command_sent = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_ready_command_sent, align 8
@@ -343,13 +343,13 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n32_N3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef %this, ptr noundef %msg_) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZTv0_n32_N3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef %this, ptr noundef %msg_) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %call = tail call noundef i32 @_ZN3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %3, ptr noundef %msg_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %3, ptr noundef %msg_)
   ret i32 %call
 }
 
@@ -403,7 +403,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true
   br i1 %tobool16.not, label %if.then17, label %if.end28.thread
 
 if.then17:                                        ; preds = %land.lhs.true14
-  %call18 = tail call noundef i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %call7, i64 noundef %call8), !range !4
+  %call18 = tail call noundef i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %call7, i64 noundef %call8)
   br label %if.end28
 
 if.end28.thread:                                  ; preds = %land.lhs.true14, %if.end
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i64 %data_size_, 7
   br i1 %cmp, label %if.then, label %if.end
@@ -547,7 +547,7 @@ declare noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonn
 declare void @_ZN3zmq16mechanism_base_t19handle_error_reasonEPKcm(ptr noundef nonnull align 8 dereferenceable(1496), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq16null_mechanism_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #0 align 2 {
 entry:
   %_zap_reply_received = getelementptr inbounds i8, ptr %this, i64 77
   %0 = load i8, ptr %_zap_reply_received, align 1
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.end5, %if.then
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n64_N3zmq16null_mechanism_t17zap_msg_availableEv(ptr noundef %this) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZTv0_n64_N3zmq16null_mechanism_t17zap_msg_availableEv(ptr noundef %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -64
@@ -615,7 +615,7 @@ _ZN3zmq16null_mechanism_t17zap_msg_availableEv.exit: ; preds = %if.then.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq16null_mechanism_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1576) %this) unnamed_addr #10 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK3zmq16null_mechanism_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1576) %this) unnamed_addr #10 align 2 {
 entry:
   %_ready_command_sent = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_ready_command_sent, align 8
@@ -647,7 +647,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZTv0_n72_NK3zmq16null_mechanism_t6statusEv(ptr nocapture noundef readonly %this) unnamed_addr #11 align 2 {
+define noundef range(i32 0, 3) i32 @_ZTv0_n72_NK3zmq16null_mechanism_t6statusEv(ptr nocapture noundef readonly %this) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -72
@@ -781,4 +781,3 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

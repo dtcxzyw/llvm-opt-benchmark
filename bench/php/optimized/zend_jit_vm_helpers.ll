@@ -420,7 +420,7 @@ define hidden noundef i32 @zend_jit_leave_top_func_helper(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_jit_leave_func_helper(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 3) i32 @zend_jit_leave_func_helper(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 131072
@@ -1233,7 +1233,7 @@ define hidden i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not697, label %65, label %56
 
 56:                                               ; preds = %55
-  %57 = tail call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
+  %57 = tail call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %10, ptr noundef nonnull writeonly %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %65
 
@@ -2184,7 +2184,7 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i821, %474
   br i1 %.not761, label %547, label %494
 
 494:                                              ; preds = %490
-  %495 = call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %435, ptr noundef %2, i32 noundef %470, i32 noundef 0, i32 noundef 0)
+  %495 = call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %435, ptr noundef writeonly %2, i32 noundef %470, i32 noundef 0, i32 noundef 0)
   %496 = icmp slt i32 %495, 0
   br i1 %496, label %zend_jit_trace_bad_stop_event.exit.thread, label %547
 

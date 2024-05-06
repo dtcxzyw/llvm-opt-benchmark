@@ -80,7 +80,7 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %digest_hex.i14 = alloca [129 x i8], align 16
   %digest_hex.i = alloca [129 x i8], align 16

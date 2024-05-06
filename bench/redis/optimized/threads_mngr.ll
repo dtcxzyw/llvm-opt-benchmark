@@ -58,7 +58,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ThreadsManager_runOnThreads(ptr nocapture noundef readonly %tids, i64 noundef %tids_len, ptr noundef %callback) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ThreadsManager_runOnThreads(ptr nocapture noundef readonly %tids, i64 noundef %tids_len, ptr noundef %callback) local_unnamed_addr #0 {
 entry:
   %timeout_time.i = alloca %struct.timespec, align 8
   %curr_time.i = alloca %struct.timespec, align 8

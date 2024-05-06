@@ -409,7 +409,7 @@ define internal i32 @dissect_teap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_teap_tlv.exit
 
 108:                                              ; preds = %37
-  %109 = tail call fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef %33, i16 noundef zeroext %18), !range !4
+  %109 = tail call fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef %33, i16 noundef zeroext %18)
   %110 = add i32 %109, %33
   br label %dissect_teap_tlv.exit
 
@@ -504,7 +504,7 @@ dissect_teap_tlv.exit:                            ; preds = %38, %42, %46, %50, 
   %.0.i = phi i32 [ %172, %171 ], [ %163, %147 ], [ %146, %143 ], [ %33, %142 ], [ %141, %140 ], [ %110, %108 ], [ %107, %103 ], [ %101, %98 ], [ %97, %93 ], [ %91, %84 ], [ %83, %79 ], [ %77, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %58 ], [ %56, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ]
   %173 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %174 = icmp slt i32 %.0.i, %173
-  br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %dissect_teap_tlv.exit, %4
   %175 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
@@ -550,7 +550,7 @@ declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   tail call void @increment_dissection_depth(ptr noundef %1) #2
   %6 = zext i16 %4 to i32
   %.not = icmp eq i16 %4, 0
@@ -635,7 +635,7 @@ define internal fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1,
   br label %dissect_pac_attr.exit
 
 54:                                               ; preds = %.lr.ph
-  %55 = tail call fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, i16 noundef zeroext %9), !range !4
+  %55 = tail call fastcc i32 @dissect_teap_tlv_pac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, i16 noundef zeroext %9)
   %56 = add i32 %55, %14
   br label %dissect_pac_attr.exit
 
@@ -657,7 +657,7 @@ dissect_pac_attr.exit:                            ; preds = %15, %20, %25, %29, 
   %.0.i = phi i32 [ %66, %62 ], [ %61, %57 ], [ %56, %54 ], [ %53, %49 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %25 ], [ %24, %20 ], [ %19, %15 ]
   %67 = sub i32 %.0.i, %3
   %68 = icmp slt i32 %67, %6
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %dissect_pac_attr.exit, %5
   %.lcssa = phi i32 [ 0, %5 ], [ %67, %dissect_pac_attr.exit ]
@@ -681,7 +681,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 -2147483648}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

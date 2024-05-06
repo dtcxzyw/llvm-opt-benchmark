@@ -74,7 +74,7 @@ entry:
   store i8 %conv, ptr %incdec.ptr5, align 1
   %incdec.ptr12 = getelementptr inbounds i8, ptr %cond, i64 9
   %shr = lshr i64 %opaque_8bytes, 56
-  %conv13 = trunc i64 %shr to i8
+  %conv13 = trunc nuw i64 %shr to i8
   %incdec.ptr14 = getelementptr inbounds i8, ptr %cond, i64 10
   store i32 0, ptr %incdec.ptr8, align 1
   store i8 %conv13, ptr %incdec.ptr12, align 1

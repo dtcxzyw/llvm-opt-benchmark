@@ -129,7 +129,7 @@ define internal noundef i32 @link_rcec_helper(ptr nocapture noundef %0, ptr noca
   %39 = lshr i32 %38, 3
   %40 = and i32 %39, 31
   %41 = icmp eq i32 %40, %35
-  %42 = add i64 %34, 1
+  %42 = add nuw nsw i64 %34, 1
   br i1 %41, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %8
@@ -262,7 +262,7 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr nocapture noun
   %39 = lshr i32 %38, 3
   %40 = and i32 %39, 31
   %41 = icmp eq i32 %40, %35
-  %42 = add i64 %34, 1
+  %42 = add nuw nsw i64 %34, 1
   br i1 %41, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %7

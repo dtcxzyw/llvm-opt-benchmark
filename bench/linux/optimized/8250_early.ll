@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___earlycon_ns16550355, ptr @__UNIQUE_ID___earlycon_ns16550a356, ptr @__UNIQUE_ID___earlycon_uart354, ptr @__UNIQUE_ID___earlycon_uart357, ptr @__UNIQUE_ID___earlycon_uart358, ptr @__UNIQUE_ID___earlycon_uart8250353], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @early_serial8250_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @early_serial8250_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -139,7 +139,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
   ]
 
 10:                                               ; preds = %3
-  %11 = trunc i32 %2 to i8
+  %11 = trunc nuw i32 %2 to i8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %7 to i64
@@ -148,7 +148,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
   br label %39
 
 16:                                               ; preds = %3
-  %17 = trunc i32 %2 to i16
+  %17 = trunc nuw nsw i32 %2 to i16
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %7 to i64
@@ -173,7 +173,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
   br label %39
 
 32:                                               ; preds = %3
-  %33 = trunc i32 %2 to i8
+  %33 = trunc nuw i32 %2 to i8
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = zext i32 %7 to i64

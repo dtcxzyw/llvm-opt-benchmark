@@ -537,7 +537,7 @@ define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture nounde
   %23 = load i32, ptr %18, align 8
   %24 = load i32, ptr %19, align 4
   %25 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %23, ptr %5, align 8
   %26 = icmp eq i32 %24, 0
   br i1 %26, label %copy_address_wmem.exit, label %27
@@ -580,7 +580,7 @@ copy_address_wmem.exit:                           ; preds = %12, %27
   %46 = load i32, ptr %41, align 8
   %47 = load i32, ptr %42, align 4
   %48 = load ptr, ptr %43, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %46, ptr %5, align 8
   %49 = icmp eq i32 %47, 0
   br i1 %49, label %copy_address_wmem.exit31, label %50

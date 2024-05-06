@@ -720,7 +720,7 @@ for.body17:                                       ; preds = %for.cond15.preheade
   br i1 %cmp20.not, label %for.inc50, label %for.body23.preheader
 
 for.body23.preheader:                             ; preds = %for.body17
-  %1 = trunc i64 %indvars.iv92 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv92 to i32
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.inc46
@@ -742,7 +742,7 @@ if.then27:                                        ; preds = %for.body23
   br i1 %cmp33, label %for.inc46, label %if.then34
 
 if.then34:                                        ; preds = %if.then27
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.inc46
 
 if.else:                                          ; preds = %for.body23
@@ -2273,8 +2273,8 @@ if.end50:                                         ; preds = %if.else, %if.then27
 
 if.then55:                                        ; preds = %if.end50
   %mul58 = fmul float %sub15, %sub56
-  %arrayidx.i47 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv52
-  %10 = load float, ptr %arrayidx.i47, align 4
+  %arrayidx.i49 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv52
+  %10 = load float, ptr %arrayidx.i49, align 4
   %sub62 = fsub float %10, %5
   %div63 = fdiv float %mul58, %sub62
   %sub65 = fsub float %9, %div63
@@ -2290,8 +2290,8 @@ if.else67:                                        ; preds = %if.end50
 
 return.sink.split:                                ; preds = %if.else67, %if.then55
   %div63.sink = phi float [ %div63, %if.then55 ], [ 0.000000e+00, %if.else67 ]
-  %arrayidx.i49 = getelementptr inbounds i8, ptr %weights.coerce0, i64 12
-  store float %div63.sink, ptr %arrayidx.i49, align 4
+  %arrayidx.i51 = getelementptr inbounds i8, ptr %weights.coerce0, i64 12
+  store float %div63.sink, ptr %arrayidx.i51, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %do.end, %land.lhs.true
@@ -2630,22 +2630,22 @@ cond.end45:                                       ; preds = %cond.false43, %cond
   %add18.i.i = fadd float %add15.i.i, %mul17.i.i
   %mul22.i.i = fmul float %10, 0.000000e+00
   %sub39.i.i = fsub float %add18.i.i, %u
-  %add10.i28.i = fadd float %mul22.i.i, %11
-  %add15.i30.i = fadd float %add10.i28.i, %mul14.i.i
-  %add18.i32.i = fadd float %add15.i30.i, %mul17.i.i
-  %sub39.i38.i = fsub float %add18.i32.i, %u
+  %add10.i29.i = fadd float %mul22.i.i, %11
+  %add15.i31.i = fadd float %add10.i29.i, %mul14.i.i
+  %add18.i33.i = fadd float %add15.i31.i, %mul17.i.i
+  %sub39.i40.i = fsub float %add18.i33.i, %u
   %16 = tail call noundef float @llvm.fabs.f32(float %sub39.i.i)
   %cmp.i30 = fcmp olt float %16, 0x3EB0C6F7A0000000
   br i1 %cmp.i30, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end45
-  %17 = tail call noundef float @llvm.fabs.f32(float %sub39.i38.i)
+  %17 = tail call noundef float @llvm.fabs.f32(float %sub39.i40.i)
   %cmp6.i = fcmp olt float %17, 0x3EB0C6F7A0000000
   br i1 %cmp6.i, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %cmp9.i = fcmp olt float %sub39.i.i, 0.000000e+00
-  %sub10.i = fsub float %sub39.i38.i, %sub39.i.i
+  %sub10.i = fsub float %sub39.i40.i, %sub39.i.i
   %18 = fdiv float %sub39.i.i, %sub10.i
   %add.i31 = fsub float 0.000000e+00, %18
   br label %while.body.i32
@@ -2666,48 +2666,48 @@ while.body.i32:                                   ; preds = %if.end32.i, %if.end
   %mul4.i.i = fmul float %mul.i.i, 3.000000e+00
   %sub.i.i = fsub float %mul3.i.i, %mul4.i.i
   %add.i.i = fadd float %sub.i.i, 1.000000e+00
-  %mul5.i41.i = fmul float %10, %add.i.i
+  %mul5.i43.i = fmul float %10, %add.i.i
   %19 = fsub float %mul4.i.i, %mul3.i.i
-  %mul9.i42.i = fmul float %11, %19
-  %add10.i43.i = fadd float %mul9.i42.i, %mul5.i41.i
+  %mul9.i44.i = fmul float %11, %19
+  %add10.i45.i = fadd float %mul9.i44.i, %mul5.i43.i
   %mul11.i.i = fmul float %mul.i.i, 2.000000e+00
   %sub12.i.i = fsub float %mul2.i.i, %mul11.i.i
   %add13.i.i = fadd float %xMid.1.i, %sub12.i.i
-  %mul14.i44.i = fmul float %cond, %add13.i.i
-  %add15.i45.i = fadd float %mul14.i44.i, %add10.i43.i
+  %mul14.i46.i = fmul float %cond, %add13.i.i
+  %add15.i47.i = fadd float %mul14.i46.i, %add10.i45.i
   %sub16.i.i = fsub float %mul2.i.i, %mul.i.i
-  %mul17.i46.i = fmul float %cond46, %sub16.i.i
-  %add18.i47.i = fadd float %mul17.i46.i, %add15.i45.i
-  %sub39.i55.i = fsub float %add18.i47.i, %u
-  %20 = fcmp uge float %sub39.i55.i, 0.000000e+00
+  %mul17.i48.i = fmul float %cond46, %sub16.i.i
+  %add18.i49.i = fadd float %mul17.i48.i, %add15.i47.i
+  %sub39.i57.i = fsub float %add18.i49.i, %u
+  %20 = fcmp uge float %sub39.i57.i, 0.000000e+00
   %cmp23.i = xor i1 %cmp9.i, %20
   %x1.addr.1.i = select i1 %cmp23.i, float %x1.addr.0.i, float %xMid.1.i
   %x0.addr.1.i = select i1 %cmp23.i, float %xMid.1.i, float %x0.addr.0.i
   %sub26.i = fsub float %x1.addr.1.i, %x0.addr.1.i
   %cmp27.i = fcmp olt float %sub26.i, 0x3EB0C6F7A0000000
-  %21 = tail call float @llvm.fabs.f32(float %sub39.i55.i)
+  %21 = tail call float @llvm.fabs.f32(float %sub39.i57.i)
   %cmp30.i = fcmp olt float %21, 0x3EB0C6F7A0000000
-  %or.cond58.i = or i1 %cmp30.i, %cmp27.i
-  br i1 %or.cond58.i, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end32.i
+  %or.cond60.i = or i1 %cmp30.i, %cmp27.i
+  br i1 %or.cond60.i, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end32.i
 
 if.end32.i:                                       ; preds = %while.body.i32
   %mul19.i.i = fmul float %mul.i.i, 6.000000e+00
   %mul20.i.i = fmul float %xMid.1.i, 6.000000e+00
   %sub21.i.i = fsub float %mul19.i.i, %mul20.i.i
-  %mul22.i48.i = fmul float %10, %sub21.i.i
+  %mul22.i50.i = fmul float %10, %sub21.i.i
   %22 = fsub float %mul20.i.i, %mul19.i.i
-  %mul26.i49.i = fmul float %11, %22
-  %add27.i50.i = fadd float %mul22.i48.i, %mul26.i49.i
+  %mul26.i51.i = fmul float %11, %22
+  %add27.i52.i = fadd float %mul22.i50.i, %mul26.i51.i
   %mul29.i.i = fmul float %xMid.1.i, 4.000000e+00
   %sub30.i.i = fsub float %mul4.i.i, %mul29.i.i
   %add31.i.i = fadd float %sub30.i.i, 1.000000e+00
-  %mul32.i51.i = fmul float %cond, %add31.i.i
-  %add33.i52.i = fadd float %add27.i50.i, %mul32.i51.i
+  %mul32.i53.i = fmul float %cond, %add31.i.i
+  %add33.i54.i = fadd float %add27.i52.i, %mul32.i53.i
   %mul35.i.i = fmul float %xMid.1.i, 2.000000e+00
   %sub36.i.i = fsub float %mul4.i.i, %mul35.i.i
-  %mul37.i53.i = fmul float %cond46, %sub36.i.i
-  %add38.i54.i = fadd float %mul37.i53.i, %add33.i52.i
-  %div34.i = fdiv float %sub39.i55.i, %add38.i54.i
+  %mul37.i55.i = fmul float %cond46, %sub36.i.i
+  %add38.i56.i = fadd float %mul37.i55.i, %add33.i54.i
+  %div34.i = fdiv float %sub39.i57.i, %add38.i56.i
   %sub35.i = fsub float %xMid.1.i, %div34.i
   br label %while.body.i32, !llvm.loop !67
 
@@ -2982,10 +2982,10 @@ if.end14:                                         ; preds = %if.else, %if.then7,
   br i1 %cmp16, label %if.then17, label %if.else24
 
 if.then17:                                        ; preds = %if.end14
-  %uv.sroa.0.0.vec.extract21 = extractelement <2 x float> %uv.sroa.0.0, i64 0
-  %sub19 = fsub float 1.000000e+00, %uv.sroa.0.0.vec.extract21
+  %uv.sroa.0.0.vec.extract28 = extractelement <2 x float> %uv.sroa.0.0, i64 0
+  %sub19 = fsub float 1.000000e+00, %uv.sroa.0.0.vec.extract28
   %3 = fneg <2 x float> %uv.sroa.0.0
-  %uv.sroa.0.4.vec.insert38 = insertelement <2 x float> %3, float %sub19, i64 0
+  %uv.sroa.0.4.vec.insert45 = insertelement <2 x float> %3, float %sub19, i64 0
   br label %if.end35
 
 if.else24:                                        ; preds = %if.end14
@@ -2997,7 +2997,7 @@ if.then27:                                        ; preds = %if.else24
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else24, %if.then27, %if.then17
-  %uv.sroa.0.1 = phi <2 x float> [ %uv.sroa.0.4.vec.insert38, %if.then17 ], [ %4, %if.then27 ], [ %uv.sroa.0.0, %if.else24 ]
+  %uv.sroa.0.1 = phi <2 x float> [ %uv.sroa.0.4.vec.insert45, %if.then17 ], [ %4, %if.then27 ], [ %uv.sroa.0.0, %if.else24 ]
   ret <2 x float> %uv.sroa.0.1
 }
 

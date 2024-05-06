@@ -453,12 +453,12 @@ Sle_SetCutIsContainedOrder.exit.thread.i98:       ; preds = %176, %.lr.ph.i.i102
 Sle_SetAddCut.exit:                               ; preds = %Sle_SetCutIsContainedOrder.exit.thread.i98, %._crit_edge136.i.Sle_SetAddCut.exit_crit_edge
   %.pre-phi183 = phi i32 [ %.pre182, %._crit_edge136.i.Sle_SetAddCut.exit_crit_edge ], [ %128, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
   %183 = add nuw nsw i32 %.pre-phi183, 1
-  %wide.trip.count.i127 = zext nneg i32 %183 to i64
+  %wide.trip.count.i128 = zext nneg i32 %183 to i64
   br label %184
 
 184:                                              ; preds = %Vec_IntPush.exit.i, %Sle_SetAddCut.exit
-  %indvars.iv.i128 = phi i64 [ 0, %Sle_SetAddCut.exit ], [ %indvars.iv.next.i129, %Vec_IntPush.exit.i ]
-  %185 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i128
+  %indvars.iv.i129 = phi i64 [ 0, %Sle_SetAddCut.exit ], [ %indvars.iv.next.i130, %Vec_IntPush.exit.i ]
+  %185 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i129
   %186 = load i32, ptr %185, align 4
   %187 = load i32, ptr %40, align 4
   %188 = load i32, ptr %3, align 8
@@ -522,9 +522,9 @@ Vec_IntPush.exit.i:                               ; preds = %208, %Vec_IntGrow.e
   %213 = sext i32 %211 to i64
   %214 = getelementptr inbounds i32, ptr %210, i64 %213
   store i32 %186, ptr %214, align 4
-  %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 1
-  %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %wide.trip.count.i127
-  br i1 %exitcond.not.i130, label %Vec_IntPushArray.exit, label %184, !llvm.loop !10
+  %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i129, 1
+  %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, %wide.trip.count.i128
+  br i1 %exitcond.not.i131, label %Vec_IntPushArray.exit, label %184, !llvm.loop !10
 
 Vec_IntPushArray.exit:                            ; preds = %Vec_IntPush.exit.i
   %.val28.i = load ptr, ptr %39, align 8

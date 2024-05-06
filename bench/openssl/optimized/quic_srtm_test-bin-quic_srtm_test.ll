@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @token_2 = internal constant { <{ i8, i8, i8, i8, [12 x i8] }> } { <{ i8, i8, i8, i8, [12 x i8] }> <{ i8 1, i8 2, i8 3, i8 5, [12 x i8] zeroinitializer }> }, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_srtm) #2
   ret i32 1
@@ -49,7 +49,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_srtm() #0 {
+define internal range(i32 0, 2) i32 @test_srtm() #0 {
 entry:
   %opaque = alloca ptr, align 8
   %seq_num = alloca i64, align 8

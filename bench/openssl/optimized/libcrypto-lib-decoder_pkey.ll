@@ -316,7 +316,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_decoder_cache_flush(ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_decoder_cache_flush(ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 20) #6
   %cmp = icmp eq ptr %call, null
@@ -1059,7 +1059,7 @@ declare i32 @OSSL_DECODER_CTX_get_num_decoders(ptr noundef) local_unnamed_addr #
 declare i32 @OSSL_DECODER_CTX_set_construct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decoder_construct_pkey(ptr noundef %decoder_inst, ptr noundef %params, ptr nocapture noundef %construct_data) #0 {
+define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %decoder_inst, ptr noundef %params, ptr nocapture noundef %construct_data) #0 {
 entry:
   %object_type = alloca ptr, align 8
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8

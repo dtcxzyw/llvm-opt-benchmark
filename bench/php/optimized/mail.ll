@@ -2267,7 +2267,7 @@ thread-pre-split483:                              ; preds = %82
   %.not431 = icmp eq ptr %190, null
   %198 = getelementptr inbounds i8, ptr %190, i64 24
   %199 = select i1 %.not431, ptr null, ptr %198
-  %200 = call i32 @php_mail(ptr noundef nonnull %.0337, ptr noundef nonnull %.0336, ptr noundef nonnull %63, ptr noundef %197, ptr noundef %199), !range !4
+  %200 = call i32 @php_mail(ptr noundef nonnull %.0337, ptr noundef nonnull %.0336, ptr noundef nonnull %63, ptr noundef %197, ptr noundef %199)
   %.not432 = icmp eq i32 %200, 0
   %spec.select556 = select i1 %.not432, i32 2, i32 3
   %201 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2365,7 +2365,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 declare ptr @php_escape_shell_cmd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_mail(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @php_mail(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2809,4 +2809,3 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

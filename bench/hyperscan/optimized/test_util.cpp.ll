@@ -97,7 +97,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z9record_cbjyyjPv(i32 noundef %id, i64 noundef %0, i64 noundef %to, i32 noundef %1, ptr nocapture noundef %ctxt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_Z9record_cbjyyjPv(i32 noundef %id, i64 noundef %0, i64 noundef %to, i32 noundef %1, ptr nocapture noundef %ctxt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %ctxt, i64 16
   %2 = load ptr, ptr %_M_finish.i, align 8

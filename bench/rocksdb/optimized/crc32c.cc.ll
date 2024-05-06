@@ -172,7 +172,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %if.end6.i, %if.then
   %add.ptr = getelementptr inbounds i64, ptr %next.2, i64 %block_size.0
   %add.ptr7 = getelementptr inbounds i64, ptr %add.ptr, i64 %block_size.0
   %add.ptr8 = getelementptr inbounds i64, ptr %add.ptr7, i64 %block_size.0
-  %trunc = trunc i64 %block_size.0 to i8
+  %trunc = trunc nuw i64 %block_size.0 to i8
   switch i8 %trunc, label %if.end910 [
     i8 -128, label %do.body
     i8 127, label %sw.bb14
@@ -3168,7 +3168,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %not.i = xor i32 %crc1, -1
-  %call.i.i = call noundef i32 @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm(i32 noundef %not.i, ptr noundef nonnull %zeros, i64 noundef %and), !callees !6
+  %call.i.i = call noundef i32 @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm(i32 noundef %not.i, ptr noundef nonnull readonly %zeros, i64 noundef %and), !callees !6
   %not.i1.i = xor i32 %call.i.i, -1
   br label %if.end
 
@@ -3185,7 +3185,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %crc.addr.04.i = phi i32 [ %xor.i.i.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %tmp.0, %while.body.i.preheader ]
   %len_bits.03.i = phi i64 [ %shr3.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %div4, %while.body.i.preheader ]
   %powers.02.i = phi ptr [ %incdec.ptr.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ @_ZN7rocksdb6crc32cL13crc32c_powersE, %while.body.i.preheader ]
-  %0 = call i64 @llvm.cttz.i64(i64 %len_bits.03.i, i1 true), !range !7
+  %0 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %len_bits.03.i, i1 true)
   %add.ptr.i = getelementptr inbounds i32, ptr %powers.02.i, i64 %0
   %1 = load i32, ptr %add.ptr.i, align 4
   br label %cond.false.i.i.i
@@ -3213,7 +3213,7 @@ _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %cond.false.i.i.i
   %shr3.i = lshr i64 %shr.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr.i, 2
-  br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !7
 
 _ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, %if.end
   %crc.addr.0.lcssa.i = phi i32 [ %tmp.0, %if.end ], [ %xor.i.i.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ]
@@ -3280,5 +3280,4 @@ attributes #8 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{ptr @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

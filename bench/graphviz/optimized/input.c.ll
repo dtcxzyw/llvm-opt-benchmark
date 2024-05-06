@@ -774,7 +774,7 @@ getFlagOpt.exit152:                               ; preds = %173, %169
 185:                                              ; preds = %getFlagOpt.exit152
   %186 = load ptr, ptr @stderr, align 8
   %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0.i151) #24
-  %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i151, ptr noundef nonnull dereferenceable(4) @.str.18) #26
+  %188 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i151, ptr noundef nonnull readonly dereferenceable(4) @.str.18) #26
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %193
 
@@ -996,22 +996,22 @@ getFlagOpt.exit158:                               ; preds = %236, %232
 
 ._crit_edge235.thread:                            ; preds = %gv_calloc.exit, %._crit_edge235
   %294 = load ptr, ptr %28, align 8
-  %295 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %294, ptr noundef nonnull dereferenceable(11) @.str.26) #26
+  %295 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %294, ptr noundef nonnull readonly dereferenceable(11) @.str.26) #26
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %308, label %297
 
 297:                                              ; preds = %._crit_edge235.thread
-  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %294, ptr noundef nonnull dereferenceable(13) @.str.27) #26
+  %298 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %294, ptr noundef nonnull readonly dereferenceable(13) @.str.27) #26
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %308, label %300
 
 300:                                              ; preds = %297
-  %301 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %294, ptr noundef nonnull dereferenceable(7) @.str.28) #26
+  %301 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %294, ptr noundef nonnull readonly dereferenceable(7) @.str.28) #26
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %308, label %303
 
 303:                                              ; preds = %300
-  %304 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %294, ptr noundef nonnull dereferenceable(16) @.str.29) #26
+  %304 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %294, ptr noundef nonnull readonly dereferenceable(16) @.str.29) #26
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %308, label %306
 
@@ -1032,7 +1032,7 @@ getFlagOpt.exit158:                               ; preds = %236, %232
 312:                                              ; preds = %309
   %313 = load ptr, ptr @stderr, align 8
   %314 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0104) #24
-  %315 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0104, ptr noundef nonnull dereferenceable(4) @.str.18) #26
+  %315 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0104, ptr noundef nonnull readonly dereferenceable(4) @.str.18) #26
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %320
 
@@ -1125,8 +1125,8 @@ define internal fastcc void @global_def(ptr noundef %0, i32 noundef %1) unnamed_
   br label %14
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
-  %13 = call fastcc i64 @agxbput_n(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %12)
+  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #26
+  %13 = call fastcc i64 @agxbput_n(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %12)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -1679,7 +1679,7 @@ sub_2181:                                         ; preds = %sub_1180
   br i1 %.not.i172, label %setRatio.exit, label %148
 
 148:                                              ; preds = %128
-  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(5) @.str.151) #26
+  %149 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %147, ptr noundef nonnull readonly dereferenceable(5) @.str.151) #26
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %156
 
@@ -1692,7 +1692,7 @@ sub_2181:                                         ; preds = %sub_1180
   br label %setRatio.exit
 
 156:                                              ; preds = %148
-  %157 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(9) @.str.152) #26
+  %157 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %147, ptr noundef nonnull readonly dereferenceable(9) @.str.152) #26
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %164
 
@@ -1705,7 +1705,7 @@ sub_2181:                                         ; preds = %sub_1180
   br label %setRatio.exit
 
 164:                                              ; preds = %156
-  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(7) @.str.153) #26
+  %165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %147, ptr noundef nonnull readonly dereferenceable(7) @.str.153) #26
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %172
 
@@ -1718,7 +1718,7 @@ sub_2181:                                         ; preds = %sub_1180
   br label %setRatio.exit
 
 172:                                              ; preds = %164
-  %173 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(5) @.str.154) #26
+  %173 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %147, ptr noundef nonnull readonly dereferenceable(5) @.str.154) #26
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %180
 

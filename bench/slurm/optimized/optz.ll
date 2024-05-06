@@ -33,7 +33,7 @@ define void @optz_destroy(ptr noundef %0) local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @optz_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @optz_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %3, align 8
@@ -70,7 +70,7 @@ define noundef i32 @optz_add(ptr nocapture noundef %0, ptr nocapture noundef rea
   %19 = zext nneg i32 %.013.lcssa to i64
   %20 = getelementptr inbounds %struct.option, ptr %18, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %21 = getelementptr i8, ptr %20, i64 32
+  %21 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   store ptr %18, ptr %0, align 8
   br label %22
@@ -154,7 +154,7 @@ define noundef i32 @optz_append(ptr nocapture noundef %0, ptr noundef readonly %
   br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph46, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph46
-  %24 = trunc i64 %indvars.iv.next to i32
+  %24 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge2

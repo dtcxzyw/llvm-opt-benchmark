@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [48 x i8] c"ERROR -- your job may abort or behave erraticly\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hwloc_base_memory_set(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_hwloc_base_memory_set(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [65 x i8], align 16
   %4 = alloca [65 x i8], align 16
   %5 = tail call i32 @opal_hwloc_base_get_topology() #4
@@ -126,7 +126,7 @@ declare i32 @hwloc_set_area_membind(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hwloc_base_membind(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_hwloc_base_membind(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [65 x i8], align 16
   %5 = alloca [65 x i8], align 16
   %6 = tail call i32 @opal_hwloc_base_get_topology() #4

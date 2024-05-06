@@ -1929,7 +1929,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %144, %150, %get_typ
   %155 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %154, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 2, i32 noundef 0) #8
   %156 = add i32 %.0.lcssa.i, 2
   %157 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %156, i32 noundef %157, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef null, ptr noundef %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %156, i32 noundef %157, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef null, ptr noundef readonly %3)
   %158 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %64, ptr noundef nonnull %1, i32 noundef %156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %54)
@@ -2017,7 +2017,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %144, %150, %get_typ
   %.086110.i = phi ptr [ %180, %176 ], [ null, %.thread.i ], [ null, %.lr.ph.split.us.i ], [ %180, %.lr.ph.split.i ]
   %.083.lcssa.i = phi i32 [ 9, %176 ], [ 9, %.thread.i ], [ %183, %.lr.ph.split.us.i ], [ %188, %.lr.ph.split.i ]
   %190 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %190, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %43, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %44, ptr noundef null, ptr noundef %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %190, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %43, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %44, ptr noundef null, ptr noundef readonly %3)
   %191 = load i32, ptr %42, align 4
   %.not90.i = icmp eq i32 %191, 0
   br i1 %.not90.i, label %194, label %192
@@ -2338,7 +2338,7 @@ get_uuids.exit.i:                                 ; preds = %317
   br label %.lr.ph.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %335, %330, %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %40, ptr noundef nonnull align 2 dereferenceable(20) %327, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %40, ptr noundef nonnull align 2 dereferenceable(20) %327, i64 20, i1 false)
   br label %dissect_sdp_service_attribute_request.exit
 
 ._crit_edge.thread.i.i:                           ; preds = %325, %get_uuids.exit.i, %get_uuids.exit.thread.i
@@ -2350,7 +2350,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %336 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %64, ptr noundef %0, i32 noundef 11, ptr noundef %1, ptr noundef nonnull %39)
   %337 = add i32 %336, 11
   %338 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %337, i32 noundef %338, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %38, ptr noundef nonnull %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %337, i32 noundef %338, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %38, ptr noundef nonnull readonly %3)
   %339 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %64, ptr noundef %1, i32 noundef %337)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39)
@@ -2371,7 +2371,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %344 = zext i16 %343 to i32
   %345 = add nuw nsw i32 %344, 7
   %346 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %345, i32 noundef %346, i32 noundef 0, i32 noundef 7, i32 noundef %344, i32 noundef 1, ptr noundef nonnull %27, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %345, i32 noundef %346, i32 noundef 0, i32 noundef 7, i32 noundef %344, i32 noundef 1, ptr noundef nonnull %27, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull readonly %3)
   %347 = load i32, ptr %26, align 4
   %.not.i75 = icmp eq i32 %347, 0
   br i1 %.not.i75, label %348, label %.thread.i76
@@ -2524,7 +2524,7 @@ get_uuids.exit.i85:                               ; preds = %390
   br label %.lr.ph.i.i87, !llvm.loop !12
 
 .thread.i.i93:                                    ; preds = %408, %403, %.lr.ph.i.i87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %30, ptr noundef nonnull align 2 dereferenceable(20) %400, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %30, ptr noundef nonnull align 2 dereferenceable(20) %400, i64 20, i1 false)
   br label %409
 
 ._crit_edge.thread.i.i83:                         ; preds = %398, %get_uuids.exit.i85, %get_uuids.exit.thread.i82
@@ -2545,7 +2545,7 @@ get_uuids.exit.i85:                               ; preds = %390
   br i1 %or.cond.i84, label %415, label %413
 
 413:                                              ; preds = %409
-  %414 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %64, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef nonnull %29, ptr noundef nonnull %3)
+  %414 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %64, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef nonnull %29, ptr noundef nonnull readonly %3)
   br label %418
 
 415:                                              ; preds = %409, %.thread.i76
@@ -2610,7 +2610,7 @@ proto_item_set_generated.exit.i79:                ; preds = %443, %440, %428
 
 448:                                              ; preds = %proto_item_set_generated.exit.i79
   %449 = load ptr, ptr %27, align 8
-  %450 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %439, ptr noundef %449, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %29, ptr noundef %3)
+  %450 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %439, ptr noundef %449, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %29, ptr noundef readonly %3)
   br label %dissect_sdp_service_attribute_response.exit
 
 dissect_sdp_service_attribute_response.exit:      ; preds = %422, %proto_item_set_generated.exit.i79, %448
@@ -2836,7 +2836,7 @@ get_type_length.exit55.i:                         ; preds = %512, %508, %504, %5
   br label %.lr.ph.i.i107, !llvm.loop !12
 
 .thread.i.i113:                                   ; preds = %536, %531, %.lr.ph.i.i107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %17, ptr noundef nonnull align 2 dereferenceable(20) %528, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %17, ptr noundef nonnull align 2 dereferenceable(20) %528, i64 20, i1 false)
   br label %dissect_sdp_service_search_attribute_request.exit
 
 ._crit_edge.thread.i.i117:                        ; preds = %526, %._crit_edge.i103
@@ -2849,7 +2849,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %538 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %64, ptr noundef %0, i32 noundef %537, ptr noundef %1, ptr noundef nonnull %15)
   %539 = add i32 %538, %537
   %540 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %539, i32 noundef %540, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %14, ptr noundef null, ptr noundef %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %539, i32 noundef %540, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %14, ptr noundef null, ptr noundef readonly %3)
   %541 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %64, ptr noundef %1, i32 noundef %539)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -2874,7 +2874,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %546 = zext i16 %545 to i32
   %547 = add nuw nsw i32 %546, 7
   %548 = zext i16 %78 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %547, i32 noundef %548, i32 noundef 0, i32 noundef 7, i32 noundef %546, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %547, i32 noundef %548, i32 noundef 0, i32 noundef 7, i32 noundef %546, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull readonly %3)
   %549 = getelementptr inbounds i8, ptr %1, i64 408
   %550 = load ptr, ptr %549, align 8
   %551 = load ptr, ptr %9, align 8
@@ -2917,7 +2917,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   br label %.lr.ph.i.i121, !llvm.loop !12
 
 .thread.i.i127:                                   ; preds = %562, %557, %.lr.ph.i.i121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %10, ptr noundef nonnull align 2 dereferenceable(20) %554, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %10, ptr noundef nonnull align 2 dereferenceable(20) %554, i64 20, i1 false)
   br label %get_specified_uuid.exit.i
 
 ._crit_edge.thread.i.i137:                        ; preds = %552, %542
@@ -2934,7 +2934,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br i1 %or.cond.i128, label %568, label %567
 
 567:                                              ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %64, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %546, ptr noundef nonnull %8, ptr noundef %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %64, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %546, ptr noundef nonnull %8, ptr noundef readonly %3)
   br label %571
 
 568:                                              ; preds = %get_specified_uuid.exit.i
@@ -3000,7 +3000,7 @@ proto_item_set_generated.exit.i132:               ; preds = %596, %593, %581
 601:                                              ; preds = %proto_item_set_generated.exit.i132
   %602 = load ptr, ptr %7, align 8
   %603 = call i32 @tvb_reported_length(ptr noundef %602) #8
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %592, ptr noundef %602, i32 noundef 0, ptr noundef %1, i32 noundef %603, ptr noundef nonnull %8, ptr noundef %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %592, ptr noundef %602, i32 noundef 0, ptr noundef %1, i32 noundef %603, ptr noundef nonnull %8, ptr noundef readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %575, %proto_item_set_generated.exit.i132, %601
@@ -7112,7 +7112,7 @@ define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef 
   ]
 
 .thread:                                          ; preds = %11, %34, %18, %41, %41, %41
-  %47 = trunc i32 %4 to i8
+  %47 = trunc nuw i32 %4 to i8
   %48 = getelementptr inbounds i8, ptr %5, i64 2
   store i8 %47, ptr %48, align 2
   %49 = getelementptr inbounds i8, ptr %5, i64 3
@@ -7687,7 +7687,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   store i32 %7, ptr %295, align 4
   %296 = getelementptr inbounds i8, ptr %280, i64 40
   store ptr %267, ptr %296, align 8
-  %297 = trunc i32 %.0347 to i8
+  %297 = trunc nuw nsw i32 %.0347 to i8
   %298 = getelementptr inbounds i8, ptr %280, i64 48
   store i8 %297, ptr %298, align 8
   br label %.sink.split
@@ -7853,7 +7853,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   %384 = getelementptr inbounds i8, ptr %1, i64 408
   %385 = load ptr, ptr %384, align 8
   %386 = call noalias ptr @wmem_alloc0(ptr noundef %385, i64 noundef 20) #8
-  %387 = trunc i32 %.0347 to i8
+  %387 = trunc nuw nsw i32 %.0347 to i8
   store i8 %387, ptr %386, align 1
   %388 = getelementptr i8, ptr %386, i64 1
   %389 = zext nneg i32 %.0347 to i64
@@ -10051,7 +10051,7 @@ get_type_length.exit118:                          ; preds = %101, %104, %107, %1
   br i1 %exitcond.not.old.i, label %.thread.i, label %.lr.ph.i.backedge
 
 .thread.i:                                        ; preds = %135, %130, %.lr.ph.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, ptr noundef nonnull align 2 dereferenceable(20) %127, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %19, ptr noundef nonnull align 2 dereferenceable(20) %127, i64 20, i1 false)
   br label %get_specified_uuid.exit
 
 ._crit_edge.thread.i:                             ; preds = %125, %._crit_edge

@@ -320,7 +320,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !56, !noalias !59, !nonnull !4, !align !17, !noundef !4
   %17 = load i8, ptr %16, align 1, !range !61, !noalias !62, !noundef !4
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hf0865b8aec4b7b8bE.exit.thread.i", label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %14
@@ -389,7 +389,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i128 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i129 = load ptr, ptr %.sroa.6.0.in.i128, align 8, !alias.scope !90, !noalias !93, !nonnull !4, !align !17, !noundef !4
   %32 = load i8, ptr %31, align 1, !range !61, !noalias !107, !noundef !4
-  %33 = trunc i8 %32 to i1
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hf0865b8aec4b7b8bE.exit.thread.i148", label %.critedge.thread.i145
 
 .critedge.thread.i145:                            ; preds = %29
@@ -456,7 +456,7 @@ thread-pre-split:                                 ; preds = %3, %3
   %.sroa.6.0.in.i155 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i156 = load ptr, ptr %.sroa.6.0.in.i155, align 8, !alias.scope !125, !noalias !128, !nonnull !4, !align !17, !noundef !4
   %44 = load i8, ptr %43, align 1, !range !61, !noalias !130, !noundef !4
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hf0865b8aec4b7b8bE.exit.thread.i180", label %.critedge.thread.i174
 
 .critedge.thread.i174:                            ; preds = %41
@@ -599,7 +599,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6diesel18expre
 define hidden void @_ZN6diesel5mysql10connection4bind22PreparedStatementBinds15from_input_data17h060d53d9e8fd1e33E(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 {
   %.sroa.0 = alloca { { i64, ptr }, i64 }, align 8
   %3 = alloca { { { ptr, i64, ptr, ptr, {}, { {} } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64, i64, i64 }, {} }, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !alias.scope !161
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %3, ptr noundef nonnull readonly align 8 dereferenceable(88) %1, i64 88, i1 false), !alias.scope !161
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17hc46d8ad21c66fe43E"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
@@ -621,7 +621,7 @@ define hidden void @"_ZN119_$LT$diesel_demo_step_3_mysql..schema..posts..columns
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !17, !noundef !4
   %11 = load i8, ptr %10, align 1, !range !61, !noundef !4
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !4
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hf0865b8aec4b7b8bE.exit.thread", label %.critedge.thread
@@ -719,7 +719,7 @@ define internal fastcc void @"_ZN126_$LT$diesel_demo_step_3_mysql..schema..posts
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !17, !noundef !4
   %10 = load i8, ptr %9, align 1, !range !61, !noundef !4
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !4
   br i1 %11, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hf0865b8aec4b7b8bE.exit.thread", label %.critedge.thread

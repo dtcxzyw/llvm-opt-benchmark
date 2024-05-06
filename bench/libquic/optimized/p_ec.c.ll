@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_ec.c\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @pkey_ec_init(ptr nocapture noundef writeonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @pkey_ec_init(ptr nocapture noundef writeonly %ctx) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #7
   %tobool.not = icmp eq ptr %call, null
@@ -27,7 +27,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @pkey_ec_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_ec_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #7
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #3 {
+define internal range(i32 0, 2) i32 @pkey_ec_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #3 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey1, align 8
@@ -109,7 +109,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #3 {
+define internal range(i32 0, 2) i32 @pkey_ec_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #3 {
 entry:
   %sltmp = alloca i32, align 4
   %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #3 {
+define internal range(i32 0, 2) i32 @pkey_ec_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #3 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey, align 8
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.end7, %if.end14,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 %p1, ptr noundef %p2) #3 {
+define internal range(i32 0, 2) i32 @pkey_ec_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 %p1, ptr noundef %p2) #3 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8

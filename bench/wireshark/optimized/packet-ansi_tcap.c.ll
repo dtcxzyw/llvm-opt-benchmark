@@ -866,7 +866,7 @@ define internal i32 @dissect_ansi_tcap_OperationCode(i1 zeroext %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_invoke_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !4
+  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -960,7 +960,7 @@ define internal i32 @dissect_ansi_tcap_T_private(i1 noundef zeroext %0, ptr noun
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @find_tcap_subdissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i64 0, i32 6), align 8
   %5 = icmp eq i32 %4, 1
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1207,7 +1207,7 @@ define internal i32 @dissect_ansi_tcap_T_componentID(i1 noundef zeroext %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_returnResult_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !4
+  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1235,7 +1235,7 @@ define internal i32 @dissect_ansi_tcap_ErrorCode(i1 zeroext %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_returnError_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !4
+  %7 = tail call fastcc i32 @find_tcap_subdissector(ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1332,4 +1332,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

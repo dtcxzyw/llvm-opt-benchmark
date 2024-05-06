@@ -1095,7 +1095,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %120 = select i1 %119, i64 %118, i64 %117
   %121 = tail call i64 @llvm.smax.i64(i64 %120, i64 -32768)
   %122 = tail call i64 @llvm.smin.i64(i64 %121, i64 32767)
-  %123 = trunc i64 %122 to i16
+  %123 = trunc nsw i64 %122 to i16
   %124 = getelementptr [9 x i16], ptr %107, i64 0, i64 %111
   store i16 %123, ptr %124, align 2
   %125 = add nuw nsw i64 %111, 1
@@ -2096,21 +2096,21 @@ define internal void @chv_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %102 = mul nuw nsw i32 %101, 65535
   %103 = add nuw nsw i32 %102, 8191
   %104 = udiv i32 %103, 16383
-  %105 = trunc i32 %104 to i16
+  %105 = trunc nuw i32 %104 to i16
   %106 = getelementptr inbounds i8, ptr %99, i64 2
   store i16 %105, ptr %106, align 2
   %107 = and i32 %43, 16383
   %108 = mul nuw nsw i32 %107, 65535
   %109 = add nuw nsw i32 %108, 8191
   %110 = udiv i32 %109, 16383
-  %111 = trunc i32 %110 to i16
+  %111 = trunc nuw i32 %110 to i16
   %112 = getelementptr inbounds i8, ptr %99, i64 4
   store i16 %111, ptr %112, align 2
   %113 = and i32 %76, 16383
   %114 = mul nuw nsw i32 %113, 65535
   %115 = add nuw nsw i32 %114, 8191
   %116 = udiv i32 %115, 16383
-  %117 = trunc i32 %116 to i16
+  %117 = trunc nuw i32 %116 to i16
   store i16 %117, ptr %99, align 2
   %118 = add nuw nsw i64 %30, 1
   %119 = icmp eq i64 %118, %28
@@ -2279,21 +2279,21 @@ define internal void @chv_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %221 = mul nuw nsw i32 %220, 65535
   %222 = add nuw nsw i32 %221, 511
   %223 = udiv i32 %222, 1023
-  %224 = trunc i32 %223 to i16
+  %224 = trunc nuw i32 %223 to i16
   %225 = getelementptr inbounds i8, ptr %218, i64 2
   store i16 %224, ptr %225, align 2
   %226 = and i32 %162, 1023
   %227 = mul nuw nsw i32 %226, 65535
   %228 = add nuw nsw i32 %227, 511
   %229 = udiv i32 %228, 1023
-  %230 = trunc i32 %229 to i16
+  %230 = trunc nuw i32 %229 to i16
   %231 = getelementptr inbounds i8, ptr %218, i64 4
   store i16 %230, ptr %231, align 2
   %232 = and i32 %195, 1023
   %233 = mul nuw nsw i32 %232, 65535
   %234 = add nuw nsw i32 %233, 511
   %235 = udiv i32 %234, 1023
-  %236 = trunc i32 %235 to i16
+  %236 = trunc nuw i32 %235 to i16
   store i16 %236, ptr %218, align 2
   %237 = add nuw nsw i64 %149, 1
   %238 = icmp eq i64 %237, %147
@@ -2674,7 +2674,7 @@ define internal void @chv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %48 = trunc i32 %25 to i16
   store i16 %48, ptr %8, align 2
   %49 = lshr i32 %25, 16
-  %50 = trunc i32 %49 to i16
+  %50 = trunc nuw i32 %49 to i16
   %51 = getelementptr i8, ptr %0, i64 754
   store i16 %50, ptr %51, align 2
   %52 = add i32 %12, 1997060
@@ -2738,7 +2738,7 @@ define internal void @chv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %87 = getelementptr i8, ptr %0, i64 756
   store i16 %86, ptr %87, align 2
   %88 = lshr i32 %63, 16
-  %89 = trunc i32 %88 to i16
+  %89 = trunc nuw i32 %88 to i16
   %90 = getelementptr i8, ptr %0, i64 758
   store i16 %89, ptr %90, align 2
   %91 = add i32 %12, 1997064
@@ -2802,7 +2802,7 @@ define internal void @chv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %126 = getelementptr i8, ptr %0, i64 760
   store i16 %125, ptr %126, align 2
   %127 = lshr i32 %102, 16
-  %128 = trunc i32 %127 to i16
+  %128 = trunc nuw i32 %127 to i16
   %129 = getelementptr i8, ptr %0, i64 762
   store i16 %128, ptr %129, align 2
   %130 = add i32 %12, 1997068
@@ -2866,7 +2866,7 @@ define internal void @chv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %165 = getelementptr i8, ptr %0, i64 764
   store i16 %164, ptr %165, align 2
   %166 = lshr i32 %141, 16
-  %167 = trunc i32 %166 to i16
+  %167 = trunc nuw i32 %166 to i16
   %168 = getelementptr i8, ptr %0, i64 766
   store i16 %167, ptr %168, align 2
   %169 = add i32 %12, 1997072
@@ -3128,7 +3128,7 @@ define internal fastcc i32 @intel_color_add_affected_planes(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_check_luts(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @_check_luts(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 352
@@ -4010,13 +4010,13 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %124 = lshr i32 %61, 16
   %125 = and i32 %124, 255
   %126 = or disjoint i32 %123, %125
-  %127 = trunc i32 %126 to i16
+  %127 = trunc nuw i32 %126 to i16
   store i16 %127, ptr %121, align 2
   %128 = and i32 %98, 65280
   %129 = lshr i32 %61, 8
   %130 = and i32 %129, 255
   %131 = or disjoint i32 %128, %130
-  %132 = trunc i32 %131 to i16
+  %132 = trunc nuw i32 %131 to i16
   %133 = getelementptr inbounds i8, ptr %121, i64 2
   store i16 %132, ptr %133, align 2
   %134 = shl i32 %98, 8
@@ -4100,7 +4100,7 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
 
 186:                                              ; preds = %183, %179, %166, %159
   %187 = tail call i32 @llvm.umin.i32(i32 %164, i32 65535)
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nuw i32 %187 to i16
   %189 = getelementptr %struct.drm_color_lut, ptr %31, i64 %141
   store i16 %188, ptr %189, align 2
   %190 = load ptr, ptr %19, align 8
@@ -4170,7 +4170,7 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
 
 232:                                              ; preds = %229, %225, %212, %205
   %233 = tail call i32 @llvm.umin.i32(i32 %210, i32 65535)
-  %234 = trunc i32 %233 to i16
+  %234 = trunc nuw i32 %233 to i16
   %235 = getelementptr inbounds i8, ptr %189, i64 2
   store i16 %234, ptr %235, align 2
   %236 = load ptr, ptr %19, align 8
@@ -4240,7 +4240,7 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
 
 278:                                              ; preds = %275, %271, %258, %251
   %279 = tail call i32 @llvm.umin.i32(i32 %256, i32 65535)
-  %280 = trunc i32 %279 to i16
+  %280 = trunc nuw i32 %279 to i16
   %281 = getelementptr inbounds i8, ptr %189, i64 4
   store i16 %280, ptr %281, align 2
   br label %282
@@ -4354,21 +4354,21 @@ define internal fastcc ptr @i9xx_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed
   %57 = mul nuw nsw i32 %56, 65535
   %58 = add nuw nsw i32 %57, 127
   %59 = udiv i32 %58, 255
-  %60 = trunc i32 %59 to i16
+  %60 = trunc nuw i32 %59 to i16
   store i16 %60, ptr %54, align 2
   %61 = lshr i32 %31, 8
   %62 = and i32 %61, 255
   %63 = mul nuw nsw i32 %62, 65535
   %64 = add nuw nsw i32 %63, 127
   %65 = udiv i32 %64, 255
-  %66 = trunc i32 %65 to i16
+  %66 = trunc nuw i32 %65 to i16
   %67 = getelementptr inbounds i8, ptr %54, i64 2
   store i16 %66, ptr %67, align 2
   %68 = and i32 %31, 255
   %69 = mul nuw nsw i32 %68, 65535
   %70 = add nuw nsw i32 %69, 127
   %71 = udiv i32 %70, 255
-  %72 = trunc i32 %71 to i16
+  %72 = trunc nuw i32 %71 to i16
   %73 = getelementptr inbounds i8, ptr %54, i64 4
   store i16 %72, ptr %73, align 2
   %74 = add nuw nsw i64 %14, 1
@@ -4569,7 +4569,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %90 = select i1 %89, i64 %88, i64 %87
   %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2048)
   %92 = tail call i64 @llvm.smin.i64(i64 %91, i64 2047)
-  %93 = trunc i64 %92 to i16
+  %93 = trunc nsw i64 %92 to i16
   %94 = and i16 %93, 4095
   %95 = getelementptr [9 x i16], ptr %77, i64 0, i64 %81
   store i16 %94, ptr %95, align 2
@@ -5346,7 +5346,7 @@ define internal void @vlv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %57 = trunc i32 %34 to i16
   store i16 %57, ptr %7, align 2
   %58 = lshr i32 %34, 16
-  %59 = trunc i32 %58 to i16
+  %59 = trunc nuw i32 %58 to i16
   %60 = getelementptr i8, ptr %0, i64 754
   store i16 %59, ptr %60, align 2
   %61 = load ptr, ptr %11, align 8
@@ -5488,7 +5488,7 @@ define internal void @vlv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %150 = getelementptr i8, ptr %0, i64 758
   store i16 %149, ptr %150, align 2
   %151 = lshr i32 %126, 16
-  %152 = trunc i32 %151 to i16
+  %152 = trunc nuw i32 %151 to i16
   %153 = getelementptr i8, ptr %0, i64 760
   store i16 %152, ptr %153, align 2
   %154 = load ptr, ptr %11, align 8
@@ -5630,7 +5630,7 @@ define internal void @vlv_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %243 = getelementptr i8, ptr %0, i64 764
   store i16 %242, ptr %243, align 2
   %244 = lshr i32 %219, 16
-  %245 = trunc i32 %244 to i16
+  %245 = trunc nuw i32 %244 to i16
   %246 = getelementptr i8, ptr %0, i64 766
   store i16 %245, ptr %246, align 2
   %247 = load ptr, ptr %11, align 8
@@ -6427,18 +6427,18 @@ define internal void @i9xx_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %134 = mul nuw nsw i32 %125, 65535
   %135 = add nuw nsw i32 %134, 511
   %136 = udiv i32 %135, 1023
-  %137 = trunc i32 %136 to i16
+  %137 = trunc nuw i32 %136 to i16
   store i16 %137, ptr %120, align 2
   %138 = mul nuw nsw i32 %129, 65535
   %139 = add nuw nsw i32 %138, 511
   %140 = udiv i32 %139, 1023
-  %141 = trunc i32 %140 to i16
+  %141 = trunc nuw i32 %140 to i16
   %142 = getelementptr inbounds i8, ptr %120, i64 2
   store i16 %141, ptr %142, align 2
   %143 = mul nuw nsw i32 %133, 65535
   %144 = add nuw nsw i32 %143, 511
   %145 = udiv i32 %144, 1023
-  %146 = trunc i32 %145 to i16
+  %146 = trunc nuw i32 %145 to i16
   %147 = getelementptr inbounds i8, ptr %120, i64 4
   store i16 %146, ptr %147, align 2
   %148 = add nuw i32 %43, 1
@@ -6482,30 +6482,30 @@ define internal void @i9xx_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %181 = mul nuw nsw i32 %172, 65535
   %182 = add nuw nsw i32 %181, 511
   %183 = udiv i32 %182, 1023
-  %184 = trunc i32 %183 to i16
+  %184 = trunc nuw i32 %183 to i16
   %185 = mul nuw nsw i32 %176, 65535
   %186 = add nuw nsw i32 %185, 511
   %187 = udiv i32 %186, 1023
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nuw i32 %187 to i16
   %189 = getelementptr inbounds i8, ptr %155, i64 2
   %190 = mul nuw nsw i32 %180, 65535
   %191 = add nuw nsw i32 %190, 511
   %192 = udiv i32 %191, 1023
-  %193 = trunc i32 %192 to i16
+  %193 = trunc nuw i32 %192 to i16
   %194 = getelementptr inbounds i8, ptr %155, i64 4
   %195 = xor i32 %157, 3
   %196 = shl nuw nsw i32 %159, %195
-  %197 = trunc i32 %196 to i16
+  %197 = trunc nuw nsw i32 %196 to i16
   %198 = add i16 %184, %197
   store i16 %198, ptr %155, align 2
   %199 = xor i32 %161, 3
   %200 = shl nuw nsw i32 %163, %199
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nuw nsw i32 %200 to i16
   %202 = add i16 %188, %201
   store i16 %202, ptr %189, align 2
   %203 = xor i32 %165, 3
   %204 = shl nuw nsw i32 %167, %203
-  %205 = trunc i32 %204 to i16
+  %205 = trunc nuw nsw i32 %204 to i16
   %206 = add i16 %193, %205
   store i16 %206, ptr %194, align 2
   br label %207
@@ -6702,7 +6702,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @icl_color_check(ptr noundef %0) #0 align 16 {
+define internal range(i32 -22, 1) i32 @icl_color_check(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2624
@@ -10321,14 +10321,14 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %175 = lshr i32 %118, 24
   %176 = and i32 %175, 63
   %177 = or disjoint i32 %174, %176
-  %178 = trunc i32 %177 to i16
+  %178 = trunc nuw i32 %177 to i16
   store i16 %178, ptr %172, align 2
   %179 = lshr i32 %149, 4
   %180 = and i32 %179, 65472
   %181 = lshr i32 %118, 14
   %182 = and i32 %181, 63
   %183 = or disjoint i32 %180, %182
-  %184 = trunc i32 %183 to i16
+  %184 = trunc nuw i32 %183 to i16
   %185 = getelementptr inbounds i8, ptr %172, i64 2
   store i16 %184, ptr %185, align 2
   %186 = shl i32 %149, 6
@@ -10972,7 +10972,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 161:                                              ; preds = %158, %154, %141, %134
   %162 = lshr i32 %139, 16
-  %163 = trunc i32 %162 to i16
+  %163 = trunc nuw i32 %162 to i16
   store i16 %163, ptr %14, align 2
   %164 = trunc i32 %139 to i16
   %165 = getelementptr i8, ptr %0, i64 784
@@ -11035,7 +11035,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 199:                                              ; preds = %196, %192, %179, %172
   %200 = lshr i32 %177, 16
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nuw i32 %200 to i16
   %202 = getelementptr i8, ptr %0, i64 786
   store i16 %201, ptr %202, align 2
   %203 = add i32 %18, 299096
@@ -11096,7 +11096,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 236:                                              ; preds = %233, %229, %216, %209
   %237 = lshr i32 %214, 16
-  %238 = trunc i32 %237 to i16
+  %238 = trunc nuw i32 %237 to i16
   %239 = getelementptr i8, ptr %0, i64 788
   store i16 %238, ptr %239, align 2
   %240 = trunc i32 %214 to i16
@@ -11160,7 +11160,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 275:                                              ; preds = %272, %268, %255, %248
   %276 = lshr i32 %253, 16
-  %277 = trunc i32 %276 to i16
+  %277 = trunc nuw i32 %276 to i16
   %278 = getelementptr i8, ptr %0, i64 792
   store i16 %277, ptr %278, align 2
   %279 = add i32 %18, 299104
@@ -11221,7 +11221,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 312:                                              ; preds = %309, %305, %292, %285
   %313 = lshr i32 %290, 16
-  %314 = trunc i32 %313 to i16
+  %314 = trunc nuw i32 %313 to i16
   %315 = getelementptr i8, ptr %0, i64 794
   store i16 %314, ptr %315, align 2
   %316 = trunc i32 %290 to i16
@@ -11285,7 +11285,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 
 351:                                              ; preds = %348, %344, %331, %324
   %352 = lshr i32 %329, 16
-  %353 = trunc i32 %352 to i16
+  %353 = trunc nuw i32 %352 to i16
   %354 = getelementptr i8, ptr %0, i64 798
   store i16 %353, ptr %354, align 2
   %355 = add i32 %18, 299124
@@ -11589,7 +11589,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   store i16 0, ptr %34, align 2
   %35 = load i64, ptr %30, align 8
   %36 = lshr i64 %35, 48
-  %37 = trunc i64 %36 to i16
+  %37 = trunc nuw i64 %36 to i16
   %38 = and i16 %37, -32768
   %39 = icmp ult i64 %32, 536870912
   br i1 %39, label %40, label %49
@@ -11597,7 +11597,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 40:                                               ; preds = %28
   %41 = icmp ugt i64 %32, 536215551
   %42 = lshr i64 %33, 17
-  %43 = trunc i64 %42 to i16
+  %43 = trunc nuw i64 %42 to i16
   %44 = add nuw nsw i16 %43, 4
   %45 = and i16 %44, 4088
   %46 = select i1 %41, i16 4088, i16 %45
@@ -11612,7 +11612,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 51:                                               ; preds = %49
   %52 = icmp ugt i64 %32, 1072431103
   %53 = lshr i64 %33, 18
-  %54 = trunc i64 %53 to i16
+  %54 = trunc nuw i64 %53 to i16
   %55 = add nuw nsw i16 %54, 4
   %56 = and i16 %55, 4088
   %57 = select i1 %52, i16 4088, i16 %56
@@ -11627,7 +11627,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 62:                                               ; preds = %60
   %63 = icmp ugt i64 %32, 2144862207
   %64 = lshr i64 %33, 19
-  %65 = trunc i64 %64 to i16
+  %65 = trunc nuw nsw i64 %64 to i16
   %66 = add nuw nsw i16 %65, 4
   %67 = and i16 %66, 4088
   %68 = select i1 %63, i16 4088, i16 %67
@@ -11642,7 +11642,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 73:                                               ; preds = %71
   %74 = icmp ugt i64 %32, 4289724415
   %75 = lshr i64 %33, 20
-  %76 = trunc i64 %75 to i16
+  %76 = trunc nuw nsw i64 %75 to i16
   %77 = add nuw nsw i16 %76, 4
   %78 = and i16 %77, 4088
   %79 = select i1 %74, i16 4088, i16 %78
@@ -11656,7 +11656,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 83:                                               ; preds = %81
   %84 = icmp ugt i64 %32, 8579448831
   %85 = lshr i64 %33, 21
-  %86 = trunc i64 %85 to i16
+  %86 = trunc nuw nsw i64 %85 to i16
   %87 = add nuw nsw i16 %86, 4
   %88 = and i16 %87, 4088
   %89 = select i1 %84, i16 4088, i16 %88
@@ -11667,7 +11667,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 92:                                               ; preds = %81
   %93 = icmp ugt i64 %32, 17158897663
   %94 = lshr i64 %33, 22
-  %95 = trunc i64 %94 to i16
+  %95 = trunc nuw nsw i64 %94 to i16
   %96 = add nuw nsw i16 %95, 4
   %97 = and i16 %96, 4088
   %98 = select i1 %93, i16 4088, i16 %97
@@ -12634,7 +12634,7 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
   %108 = mul nuw nsw i64 %107, 16777215
   %109 = add nuw nsw i64 %108, 32767
   %110 = udiv i64 %109, 65535
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   br label %114
 
 112:                                              ; preds = %100
@@ -13564,12 +13564,12 @@ define internal fastcc ptr @glk_read_degamma_lut(ptr %.0.val, i32 %.1648.val) un
   %122 = mul nuw nsw i64 %121, 65535
   %123 = add nuw nsw i64 %122, 8388607
   %124 = udiv i64 %123, 16777215
-  %125 = trunc i64 %124 to i16
+  %125 = trunc nuw i64 %124 to i16
   br label %129
 
 126:                                              ; preds = %115
   %127 = tail call i32 @llvm.umin.i32(i32 %93, i32 65535)
-  %128 = trunc i32 %127 to i16
+  %128 = trunc nuw i32 %127 to i16
   br label %129
 
 129:                                              ; preds = %126, %119
@@ -13728,21 +13728,21 @@ define internal fastcc ptr @ilk_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_
   %52 = mul nuw nsw i32 %51, 65535
   %53 = add nuw nsw i32 %52, 127
   %54 = udiv i32 %53, 255
-  %55 = trunc i32 %54 to i16
+  %55 = trunc nuw i32 %54 to i16
   store i16 %55, ptr %49, align 2
   %56 = lshr i32 %26, 8
   %57 = and i32 %56, 255
   %58 = mul nuw nsw i32 %57, 65535
   %59 = add nuw nsw i32 %58, 127
   %60 = udiv i32 %59, 255
-  %61 = trunc i32 %60 to i16
+  %61 = trunc nuw i32 %60 to i16
   %62 = getelementptr inbounds i8, ptr %49, i64 2
   store i16 %61, ptr %62, align 2
   %63 = and i32 %26, 255
   %64 = mul nuw nsw i32 %63, 65535
   %65 = add nuw nsw i32 %64, 127
   %66 = udiv i32 %65, 255
-  %67 = trunc i32 %66 to i16
+  %67 = trunc nuw i32 %66 to i16
   %68 = getelementptr inbounds i8, ptr %49, i64 4
   store i16 %67, ptr %68, align 2
   %69 = add nuw nsw i64 %12, 1
@@ -13950,21 +13950,21 @@ define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
   %118 = mul nuw nsw i32 %117, 65535
   %119 = add nuw nsw i32 %118, 511
   %120 = udiv i32 %119, 1023
-  %121 = trunc i32 %120 to i16
+  %121 = trunc nuw i32 %120 to i16
   store i16 %121, ptr %115, align 2
   %122 = lshr i32 %92, 10
   %123 = and i32 %122, 1023
   %124 = mul nuw nsw i32 %123, 65535
   %125 = add nuw nsw i32 %124, 511
   %126 = udiv i32 %125, 1023
-  %127 = trunc i32 %126 to i16
+  %127 = trunc nuw i32 %126 to i16
   %128 = getelementptr inbounds i8, ptr %115, i64 2
   store i16 %127, ptr %128, align 2
   %129 = and i32 %92, 1023
   %130 = mul nuw nsw i32 %129, 65535
   %131 = add nuw nsw i32 %130, 511
   %132 = udiv i32 %131, 1023
-  %133 = trunc i32 %132 to i16
+  %133 = trunc nuw i32 %132 to i16
   %134 = getelementptr inbounds i8, ptr %115, i64 4
   store i16 %133, ptr %134, align 2
   %135 = add nuw nsw i64 %83, 1
@@ -14274,7 +14274,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 145:                                              ; preds = %142, %138, %125, %118
   %146 = lshr i32 %123, 16
-  %147 = trunc i32 %146 to i16
+  %147 = trunc nuw i32 %146 to i16
   store i16 %147, ptr %0, align 2
   %148 = trunc i32 %123 to i16
   %149 = getelementptr i8, ptr %0, i64 2
@@ -14337,7 +14337,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 183:                                              ; preds = %180, %176, %163, %156
   %184 = lshr i32 %161, 16
-  %185 = trunc i32 %184 to i16
+  %185 = trunc nuw i32 %184 to i16
   %186 = getelementptr i8, ptr %0, i64 4
   store i16 %185, ptr %186, align 2
   %187 = add i32 %2, 299032
@@ -14398,7 +14398,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 220:                                              ; preds = %217, %213, %200, %193
   %221 = lshr i32 %198, 16
-  %222 = trunc i32 %221 to i16
+  %222 = trunc nuw i32 %221 to i16
   %223 = getelementptr i8, ptr %0, i64 6
   store i16 %222, ptr %223, align 2
   %224 = trunc i32 %198 to i16
@@ -14462,7 +14462,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 259:                                              ; preds = %256, %252, %239, %232
   %260 = lshr i32 %237, 16
-  %261 = trunc i32 %260 to i16
+  %261 = trunc nuw i32 %260 to i16
   %262 = getelementptr i8, ptr %0, i64 10
   store i16 %261, ptr %262, align 2
   %263 = add i32 %2, 299040
@@ -14523,7 +14523,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 296:                                              ; preds = %293, %289, %276, %269
   %297 = lshr i32 %274, 16
-  %298 = trunc i32 %297 to i16
+  %298 = trunc nuw i32 %297 to i16
   %299 = getelementptr i8, ptr %0, i64 12
   store i16 %298, ptr %299, align 2
   %300 = trunc i32 %274 to i16
@@ -14587,7 +14587,7 @@ define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i
 
 335:                                              ; preds = %332, %328, %315, %308
   %336 = lshr i32 %313, 16
-  %337 = trunc i32 %336 to i16
+  %337 = trunc nuw i32 %336 to i16
   %338 = getelementptr i8, ptr %0, i64 16
   store i16 %337, ptr %338, align 2
   %339 = getelementptr inbounds i8, ptr %.0.val, i64 2632
@@ -15211,7 +15211,7 @@ ilk_csc_limited_range.exit:                       ; preds = %87, %94, %99, %103
   %239 = zext i16 %238 to i32
   %240 = mul nuw i32 %239, 56064
   %241 = udiv i32 %240, 65535
-  %242 = trunc i32 %241 to i16
+  %242 = trunc nuw i32 %241 to i16
   %243 = add nuw i16 %242, 4096
   %244 = getelementptr %struct.drm_color_lut, ptr %226, i64 %232
   store i16 %243, ptr %244, align 2
@@ -15220,7 +15220,7 @@ ilk_csc_limited_range.exit:                       ; preds = %87, %94, %99, %103
   %247 = zext i16 %246 to i32
   %248 = mul nuw i32 %247, 56064
   %249 = udiv i32 %248, 65535
-  %250 = trunc i32 %249 to i16
+  %250 = trunc nuw i32 %249 to i16
   %251 = add nuw i16 %250, 4096
   %252 = getelementptr inbounds i8, ptr %244, i64 2
   store i16 %251, ptr %252, align 2
@@ -15229,7 +15229,7 @@ ilk_csc_limited_range.exit:                       ; preds = %87, %94, %99, %103
   %255 = zext i16 %254 to i32
   %256 = mul nuw i32 %255, 56064
   %257 = udiv i32 %256, 65535
-  %258 = trunc i32 %257 to i16
+  %258 = trunc nuw i32 %257 to i16
   %259 = add nuw i16 %258, 4096
   %260 = getelementptr inbounds i8, ptr %244, i64 4
   store i16 %259, ptr %260, align 2
@@ -17033,7 +17033,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %304 = zext i16 %303 to i32
   %305 = mul nuw i32 %304, 56064
   %306 = udiv i32 %305, 65535
-  %307 = trunc i32 %306 to i16
+  %307 = trunc nuw i32 %306 to i16
   %308 = add nuw i16 %307, 4096
   %309 = getelementptr %struct.drm_color_lut, ptr %295, i64 %297
   store i16 %308, ptr %309, align 2
@@ -17042,7 +17042,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %312 = zext i16 %311 to i32
   %313 = mul nuw i32 %312, 56064
   %314 = udiv i32 %313, 65535
-  %315 = trunc i32 %314 to i16
+  %315 = trunc nuw i32 %314 to i16
   %316 = add nuw i16 %315, 4096
   %317 = getelementptr inbounds i8, ptr %309, i64 2
   store i16 %316, ptr %317, align 2
@@ -17051,7 +17051,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %320 = zext i16 %319 to i32
   %321 = mul nuw i32 %320, 56064
   %322 = udiv i32 %321, 65535
-  %323 = trunc i32 %322 to i16
+  %323 = trunc nuw i32 %322 to i16
   %324 = add nuw i16 %323, 4096
   %325 = getelementptr inbounds i8, ptr %309, i64 4
   store i16 %324, ptr %325, align 2
@@ -18144,7 +18144,7 @@ define internal fastcc i32 @ilk_assign_luts(ptr noundef %0) unnamed_addr #0 alig
   %64 = zext i16 %63 to i32
   %65 = mul nuw i32 %64, 56064
   %66 = udiv i32 %65, 65535
-  %67 = trunc i32 %66 to i16
+  %67 = trunc nuw i32 %66 to i16
   %68 = add nuw i16 %67, 4096
   %69 = getelementptr %struct.drm_color_lut, ptr %51, i64 %57
   store i16 %68, ptr %69, align 2
@@ -18153,7 +18153,7 @@ define internal fastcc i32 @ilk_assign_luts(ptr noundef %0) unnamed_addr #0 alig
   %72 = zext i16 %71 to i32
   %73 = mul nuw i32 %72, 56064
   %74 = udiv i32 %73, 65535
-  %75 = trunc i32 %74 to i16
+  %75 = trunc nuw i32 %74 to i16
   %76 = add nuw i16 %75, 4096
   %77 = getelementptr inbounds i8, ptr %69, i64 2
   store i16 %76, ptr %77, align 2
@@ -18162,7 +18162,7 @@ define internal fastcc i32 @ilk_assign_luts(ptr noundef %0) unnamed_addr #0 alig
   %80 = zext i16 %79 to i32
   %81 = mul nuw i32 %80, 56064
   %82 = udiv i32 %81, 65535
-  %83 = trunc i32 %82 to i16
+  %83 = trunc nuw i32 %82 to i16
   %84 = add nuw i16 %83, 4096
   %85 = getelementptr inbounds i8, ptr %69, i64 4
   store i16 %84, ptr %85, align 2
@@ -19411,21 +19411,21 @@ define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
   %87 = mul nuw nsw i32 %86, 65535
   %88 = add nuw nsw i32 %87, 511
   %89 = udiv i32 %88, 1023
-  %90 = trunc i32 %89 to i16
+  %90 = trunc nuw i32 %89 to i16
   store i16 %90, ptr %84, align 2
   %91 = lshr i32 %61, 10
   %92 = and i32 %91, 1023
   %93 = mul nuw nsw i32 %92, 65535
   %94 = add nuw nsw i32 %93, 511
   %95 = udiv i32 %94, 1023
-  %96 = trunc i32 %95 to i16
+  %96 = trunc nuw i32 %95 to i16
   %97 = getelementptr inbounds i8, ptr %84, i64 2
   store i16 %96, ptr %97, align 2
   %98 = and i32 %61, 1023
   %99 = mul nuw nsw i32 %98, 65535
   %100 = add nuw nsw i32 %99, 511
   %101 = udiv i32 %100, 1023
-  %102 = trunc i32 %101 to i16
+  %102 = trunc nuw i32 %101 to i16
   %103 = getelementptr inbounds i8, ptr %84, i64 4
   store i16 %102, ptr %103, align 2
   %104 = add nuw nsw i64 %20, 1
@@ -20161,21 +20161,21 @@ define internal void @ilk_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %89 = mul nuw nsw i32 %88, 65535
   %90 = add nuw nsw i32 %89, 511
   %91 = udiv i32 %90, 1023
-  %92 = trunc i32 %91 to i16
+  %92 = trunc nuw i32 %91 to i16
   store i16 %92, ptr %86, align 2
   %93 = lshr i32 %63, 10
   %94 = and i32 %93, 1023
   %95 = mul nuw nsw i32 %94, 65535
   %96 = add nuw nsw i32 %95, 511
   %97 = udiv i32 %96, 1023
-  %98 = trunc i32 %97 to i16
+  %98 = trunc nuw i32 %97 to i16
   %99 = getelementptr inbounds i8, ptr %86, i64 2
   store i16 %98, ptr %99, align 2
   %100 = and i32 %63, 1023
   %101 = mul nuw nsw i32 %100, 65535
   %102 = add nuw nsw i32 %101, 511
   %103 = udiv i32 %102, 1023
-  %104 = trunc i32 %103 to i16
+  %104 = trunc nuw i32 %103 to i16
   %105 = getelementptr inbounds i8, ptr %86, i64 4
   store i16 %104, ptr %105, align 2
   %106 = add nuw nsw i64 %50, 1

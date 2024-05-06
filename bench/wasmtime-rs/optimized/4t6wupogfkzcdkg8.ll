@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN24cranelift_codegen_shared13constant_hash11simple_hash17h2f59253aace235ffE(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13constant_hash11simple_hash17h2f59253aace235ffE(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, ptr, {} } }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp ne ptr %0, null

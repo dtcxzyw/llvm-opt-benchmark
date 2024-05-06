@@ -103,7 +103,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal range(i32 0, 2) i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   %cmp = icmp eq i32 %operation, 1
   br i1 %cmp, label %if.then, label %if.end3

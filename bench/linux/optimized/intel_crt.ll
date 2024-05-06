@@ -397,7 +397,7 @@ define internal void @hsw_crt_get_config(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local zeroext i1 @intel_ddi_get_hw_state(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hsw_crt_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @hsw_crt_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 632
   %6 = load i32, ptr %5, align 8
@@ -826,7 +826,7 @@ declare dso_local zeroext i1 @hsw_ddi_is_clock_enabled(ptr noundef) #1
 declare dso_local void @intel_ddi_buf_trans_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pch_crt_compute_config(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pch_crt_compute_config(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 632
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -924,7 +924,7 @@ define internal void @pch_post_disable_crt(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @intel_crt_compute_config(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_crt_compute_config(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 632
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -1966,7 +1966,7 @@ intel_crt_get_edid.exit.thread:                   ; preds = %9, %intel_crt_get_e
 declare dso_local ptr @intel_load_detect_get_pipe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_crt_load_detect(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.0.val, null
   br i1 %2, label %6, label %3
 

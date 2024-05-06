@@ -196,7 +196,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %71
-  %75 = trunc i32 %2 to i8
+  %75 = trunc nuw nsw i32 %2 to i8
   %76 = icmp eq i8 %75, 0
   %77 = icmp eq i8 %75, 4
   %78 = icmp eq i8 %75, 6
@@ -311,7 +311,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   br i1 %153, label %154, label %177
 
 154:                                              ; preds = %.loopexit
-  %155 = trunc i32 %2 to i8
+  %155 = trunc nuw nsw i32 %2 to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
   %156 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %156, align 8, !annotation !5
@@ -437,7 +437,7 @@ define dso_local i32 @mtrr_add(i64 noundef %0, i64 noundef %1, i32 noundef %2, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mtrr_del_page(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, -2147483648) i32 @mtrr_del_page(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.set_mtrr_data, align 8
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
@@ -554,7 +554,7 @@ define dso_local noundef i32 @mtrr_del_page(i32 noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mtrr_del(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, -2147483648) i32 @mtrr_del(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr @mtrr_if, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %21, label %6
@@ -591,7 +591,7 @@ define dso_local noundef i32 @mtrr_del(i32 noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @arch_phys_wc_add(i64 noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i32 1000, 1) i32 @arch_phys_wc_add(i64 noundef %0, i64 noundef %1) #0 align 16 {
   %3 = tail call zeroext i1 @pat_enabled() #7
   %4 = load ptr, ptr @mtrr_if, align 8
   %5 = icmp eq ptr %4, null
@@ -676,7 +676,7 @@ define dso_local void @arch_phys_wc_del(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @arch_phys_wc_index(i32 noundef %0) #4 align 16 {
+define dso_local range(i32 -2147483648, 2147482648) i32 @arch_phys_wc_index(i32 noundef %0) #4 align 16 {
   %2 = icmp slt i32 %0, 1000
   %3 = add nsw i32 %0, -1000
   %4 = select i1 %2, i32 -1, i32 %3

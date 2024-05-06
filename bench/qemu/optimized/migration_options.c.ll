@@ -768,7 +768,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_multifd_compression() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @migrate_multifd_compression() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %multifd_compression = getelementptr inbounds i8, ptr %call, i64 716
@@ -838,7 +838,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %tail.08 = phi ptr [ %head, %entry ], [ %2, %for.body ]
   %call1 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #10
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %0, ptr %call1, align 4
   %arrayidx = getelementptr [23 x i8], ptr %capabilities, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
@@ -969,7 +969,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_compress_level() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_compress_level() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %compress_level = getelementptr inbounds i8, ptr %call, i64 585
@@ -979,7 +979,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_compress_threads() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_compress_threads() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %compress_threads = getelementptr inbounds i8, ptr %call, i64 587
@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_compress_wait_thread() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @migrate_compress_wait_thread() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %compress_wait_thread = getelementptr inbounds i8, ptr %call, i64 589
@@ -1028,7 +1028,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_decompress_threads() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_decompress_threads() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %decompress_threads = getelementptr inbounds i8, ptr %call, i64 591
@@ -1092,7 +1092,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_multifd_channels() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_multifd_channels() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %multifd_channels = getelementptr inbounds i8, ptr %call, i64 683
@@ -1105,7 +1105,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_multifd_zlib_level() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_multifd_zlib_level() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %multifd_zlib_level = getelementptr inbounds i8, ptr %call, i64 721
@@ -1115,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_multifd_zstd_level() local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @migrate_multifd_zstd_level() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %multifd_zstd_level = getelementptr inbounds i8, ptr %call, i64 723
@@ -1699,7 +1699,7 @@ land.lhs.true103:                                 ; preds = %if.end100
 
 lor.lhs.false106:                                 ; preds = %land.lhs.true103
   %25 = load i64, ptr %xbzrle_cache_size, align 8
-  %26 = tail call i64 @llvm.ctpop.i64(i64 %25), !range !10
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
   %or.cond84 = icmp eq i64 %26, 1
   br i1 %or.cond84, label %if.end110, label %if.then109
 
@@ -2027,7 +2027,7 @@ qobject_unref_impl.exit45:                        ; preds = %if.then39, %land.lh
 if.end57:                                         ; preds = %qobject_unref_impl.exit45, %land.lhs.true35, %if.end33
   %call.i = tail call ptr @migrate_get_current() #8
   %parameters.i = getelementptr inbounds i8, ptr %call.i, i64 520
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %tmp, ptr noundef nonnull align 8 dereferenceable(256) %parameters.i, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %tmp, ptr noundef nonnull align 8 dereferenceable(256) %parameters.i, i64 256, i1 false)
   %has_compress_level.i = getelementptr inbounds i8, ptr %params, i64 64
   %18 = load i8, ptr %has_compress_level.i, align 8
   %tobool.i = trunc i8 %18 to i1
@@ -2902,4 +2902,3 @@ attributes #10 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 65}

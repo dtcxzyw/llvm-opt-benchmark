@@ -636,7 +636,7 @@ list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.
   %.fca.1.extract.i = extractvalue { i64, i32 } %317, 1
   call void @CommandCounterIncrement() #6
   %318 = lshr i64 %.fca.0.extract.i, 32
-  %319 = trunc i64 %318 to i32
+  %319 = trunc nuw i64 %318 to i32
   %320 = call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
   %321 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %13) #6
   %322 = call { i64, i32 } @DefineQueryRewrite(ptr noundef %320, i32 noundef %319, ptr noundef null, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext %138, ptr noundef %321) #6

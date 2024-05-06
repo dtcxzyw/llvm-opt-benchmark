@@ -528,7 +528,7 @@ define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zer
   %34 = select i1 %32, i64 0, i64 %33
   %35 = getelementptr i8, ptr %30, i64 %31
   call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %34, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %3, i64 %31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %3, i64 %31, i1 false)
   %36 = and i64 %8, 7
   %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %lowpan_pfxcpy.exit, label %37
@@ -614,7 +614,7 @@ define hidden void @proto_register_6lowpan() local_unnamed_addr #0 {
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @lowpan_context_hash(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 16777216) i32 @lowpan_context_hash(ptr nocapture noundef readonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 2
   %4 = zext i8 %3 to i32
@@ -626,7 +626,7 @@ define internal i32 @lowpan_context_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @lowpan_context_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @lowpan_context_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp eq i16 %3, %4
@@ -696,7 +696,7 @@ define internal i32 @dissect_6lowpan(ptr noundef %0, ptr noundef %1, ptr noundef
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %1, i64 120
   %25 = load ptr, ptr %24, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %25, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %25, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %48, label %26
 
@@ -816,7 +816,7 @@ lowpan_dlsrc_to_ifcid.exit:                       ; preds = %17, %26, %46, %48, 
 89:                                               ; preds = %lowpan_dlsrc_to_ifcid.exit
   %90 = getelementptr inbounds i8, ptr %1, i64 144
   %91 = load ptr, ptr %90, align 8
-  %bcmp.i.i88 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %91, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
+  %bcmp.i.i88 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %91, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
   %.not.i.i89 = icmp eq i32 %bcmp.i.i88, 0
   br i1 %.not.i.i89, label %114, label %92
 
@@ -1207,7 +1207,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %232, %267
   br i1 %.not.i96, label %322, label %324
 
 322:                                              ; preds = %300
-  %323 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %321, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %317, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %323 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %321, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %317, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   br label %324
 
 324:                                              ; preds = %322, %300
@@ -1346,7 +1346,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %364
   %400 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %400, ptr noundef %.2, i32 noundef 4) #10
   %401 = call ptr @tvb_new_subset_length(ptr noundef %.2, i32 noundef 4, i32 noundef %394) #10
-  %402 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %401, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %395, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %402 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %401, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %395, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   %403 = icmp eq ptr %402, null
   br i1 %403, label %dissect_6lowpan_frag_first.exit, label %404
 
@@ -2007,7 +2007,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_6lowpan_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_6lowpan_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #10
   %.not39 = icmp eq i32 %5, 0
   br i1 %.not39, label %.loopexit, label %.lr.ph
@@ -2474,7 +2474,7 @@ proto_item_set_generated.exit:                    ; preds = %117, %114, %109, %.
   %192 = load i8, ptr %191, align 4
   %193 = zext i8 %192 to i64
   %194 = lshr i64 %193, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %173, ptr nonnull align 1 %190, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %173, ptr nonnull readonly align 1 %190, i64 %194, i1 false)
   %195 = and i64 %193, 7
   %.not.i398 = icmp eq i64 %195, 0
   br i1 %.not.i398, label %lowpan_pfxcpy.exit, label %196
@@ -2752,7 +2752,7 @@ proto_item_set_generated.exit407:                 ; preds = %246, %243, %240, %p
   %340 = load i8, ptr %339, align 4
   %341 = zext i8 %340 to i64
   %342 = lshr i64 %341, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %251, ptr nonnull align 1 %338, i64 %342, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %251, ptr nonnull readonly align 1 %338, i64 %342, i1 false)
   %343 = and i64 %341, 7
   %.not.i408 = icmp eq i64 %343, 0
   br i1 %.not.i408, label %359, label %344
@@ -2915,7 +2915,7 @@ proto_item_set_generated.exit418:                 ; preds = %400, %397, %394, %p
   br label %.lr.ph.i.preheader
 
 426:                                              ; preds = %proto_item_set_generated.exit418
-  %427 = call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %404), !range !20
+  %427 = call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %404)
   %428 = getelementptr inbounds i8, ptr %9, i64 6
   store i8 %427, ptr %428, align 2
   %429 = add i32 %3, -40
@@ -2939,7 +2939,7 @@ proto_item_set_generated.exit418:                 ; preds = %400, %397, %394, %p
   %436 = add i32 %435, %.02831.i
   %437 = load ptr, ptr %.033.i, align 8
   %.not.i419 = icmp eq ptr %437, null
-  br i1 %.not.i419, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i419, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %438 = add i32 %433, 40
@@ -2976,7 +2976,7 @@ proto_item_set_generated.exit418:                 ; preds = %400, %397, %394, %p
   %449 = getelementptr i8, ptr %.02636.i, i64 %448
   %450 = load ptr, ptr %.137.i, align 8
   %.not29.i = icmp eq ptr %450, null
-  br i1 %.not29.i, label %lowpan_reassemble_ipv6.exit, label %.lr.ph39.i, !llvm.loop !22
+  br i1 %.not29.i, label %lowpan_reassemble_ipv6.exit, label %.lr.ph39.i, !llvm.loop !21
 
 lowpan_reassemble_ipv6.exit:                      ; preds = %.lr.ph39.i, %._crit_edge.i
   %451 = add i32 %.028.lcssa.i, 40
@@ -3048,7 +3048,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = add nuw nsw i32 %.0218261, 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit258, label %.preheader257, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit258, label %.preheader257, !llvm.loop !22
 
 43:                                               ; preds = %31
   store i64 33022, ptr %39, align 4
@@ -3073,7 +3073,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %49 = add nuw nsw i32 %.2263, 8
   %exitcond282.not = icmp eq i64 %indvars.iv.next280, 16
-  br i1 %exitcond282.not, label %.loopexit256, label %46, !llvm.loop !24
+  br i1 %exitcond282.not, label %.loopexit256, label %46, !llvm.loop !23
 
 50:                                               ; preds = %.loopexit258
   %51 = getelementptr inbounds i8, ptr %8, i64 16
@@ -3104,7 +3104,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %64 = add nuw nsw i32 %.4265, 8
   %exitcond286.not = icmp eq i64 %indvars.iv.next284, 8
-  br i1 %exitcond286.not, label %.loopexit254, label %.preheader253, !llvm.loop !25
+  br i1 %exitcond286.not, label %.loopexit254, label %.preheader253, !llvm.loop !24
 
 65:                                               ; preds = %.loopexit256
   store i64 33022, ptr %61, align 4
@@ -3129,7 +3129,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %71 = add nuw nsw i32 %.6267, 8
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 16
-  br i1 %exitcond290.not, label %.loopexit, label %68, !llvm.loop !26
+  br i1 %exitcond290.not, label %.loopexit, label %68, !llvm.loop !25
 
 72:                                               ; preds = %.loopexit254
   %73 = getelementptr inbounds i8, ptr %8, i64 32
@@ -3413,7 +3413,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %243 = add i32 %242, %.02831.i
   %244 = load ptr, ptr %.033.i, align 8
   %.not.i = icmp eq ptr %244, null
-  br i1 %.not.i, label %.lr.ph39.preheader.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %.lr.ph39.preheader.i, label %.lr.ph.i, !llvm.loop !20
 
 .lr.ph39.preheader.i:                             ; preds = %.lr.ph.i
   %245 = add i32 %240, 40
@@ -3440,7 +3440,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %256 = getelementptr i8, ptr %.02636.i, i64 %255
   %257 = load ptr, ptr %.137.i, align 8
   %.not29.i = icmp eq ptr %257, null
-  br i1 %.not29.i, label %lowpan_reassemble_ipv6.exit, label %.lr.ph39.i, !llvm.loop !22
+  br i1 %.not29.i, label %lowpan_reassemble_ipv6.exit, label %.lr.ph39.i, !llvm.loop !21
 
 lowpan_reassemble_ipv6.exit:                      ; preds = %.lr.ph39.i
   %258 = add i32 %243, 40
@@ -3610,7 +3610,7 @@ declare ptr @address_with_resolution_to_str(ptr noundef, ptr noundef) local_unna
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, -120) i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 1) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4
@@ -3702,7 +3702,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_iphc_nhc(ptr noundef %0, ptr
 
 48:                                               ; preds = %45
   store i16 0, ptr %.sroa.0, align 2
-  %49 = tail call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %3), !range !20
+  %49 = tail call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %3)
   %50 = load i32, ptr @ett_6lowpan_nhc_ext, align 4
   %51 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.226) #10
   %52 = load i32, ptr @hf_6lowpan_nhc_pattern, align 4
@@ -3780,7 +3780,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_iphc_nhc(ptr noundef %0, ptr
 
 95:                                               ; preds = %87
   %96 = add i32 %.1, %.pre315
-  %97 = tail call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %96), !range !20
+  %97 = tail call fastcc zeroext i8 @lowpan_parse_nhc_proto(ptr noundef %0, i32 noundef %96)
   store i8 %97, ptr %.sroa.0, align 2
   br label %._crit_edge
 
@@ -4157,10 +4157,9 @@ attributes #10 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i8 0, i8 -120}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

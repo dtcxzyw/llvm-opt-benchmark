@@ -58,7 +58,7 @@ $_ZTVN7rocksdb11WriteThreadE = comdat any
 @.str.8 = private unnamed_addr constant [15 x i8] c"EnterUnbatched\00", align 1
 @_ZN7rocksdbL8wfmw_ctxE = internal global %"struct.rocksdb::WriteThread::AdaptationContext" zeroinitializer, align 8
 @.str.10 = private unnamed_addr constant [23 x i8] c"WaitForMemTableWriters\00", align 1
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
 @.str.11 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_write_thread.cc, ptr null }]
 

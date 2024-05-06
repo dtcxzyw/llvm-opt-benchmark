@@ -84,7 +84,7 @@ define void @dspevd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %27, label %51, label %57
 
 51:                                               ; preds = %50
-  %52 = mul nsw i32 %38, 5
+  %52 = mul nuw nsw i32 %38, 5
   %53 = add nuw nsw i32 %52, 3
   store i32 %38, ptr %13, align 4, !tbaa !3
   %54 = add nuw i32 %38, 6

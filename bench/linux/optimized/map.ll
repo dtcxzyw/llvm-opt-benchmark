@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kobj_map(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @kobj_map(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = zext i32 %1 to i64
   %9 = add i64 %2, 4503599627370495
   %10 = add i64 %9, %8
@@ -192,7 +192,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @kobj_lookup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2040
   %5 = lshr i32 %1, 20
-  %.lhs.trunc = trunc i32 %5 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %5 to i16
   %6 = urem i16 %.lhs.trunc, 255
   %7 = zext nneg i16 %6 to i64
   %8 = getelementptr [255 x ptr], ptr %0, i64 0, i64 %7

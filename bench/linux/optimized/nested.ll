@@ -263,7 +263,7 @@ define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_nested_cache_invalidate_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.iommu_hwpt_vtd_s1_invalidate, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7

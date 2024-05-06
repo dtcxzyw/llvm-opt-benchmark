@@ -1041,7 +1041,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategy28ComputeTraditionalDogleg
   %27 = getelementptr inbounds i8, ptr %17, i64 16
   %28 = load <2 x double>, ptr %27, align 16
   %29 = fmul <2 x double> %28, %28
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %17, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %30 = icmp ugt i64 %13, 7
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -1054,7 +1054,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategy28ComputeTraditionalDogleg
   %32 = load <2 x double>, ptr %31, align 16
   %33 = fmul <2 x double> %32, %32
   %34 = fadd <2 x double> %.07275.i.i.i.i.i, %33
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %35 = load <2 x double>, ptr %gep.i.i.i.i.i, align 16
   %36 = fmul <2 x double> %35, %35
   %37 = fadd <2 x double> %storemerge76.i.i.i.i.i, %36
@@ -1131,7 +1131,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   %76 = getelementptr inbounds i8, ptr %66, i64 16
   %77 = load <2 x double>, ptr %76, align 16
   %78 = fmul <2 x double> %77, %77
-  %invariant.gep.i.i.i.i.i64 = getelementptr i8, ptr %66, i64 48
+  %invariant.gep.i.i.i.i.i64 = getelementptr inbounds i8, ptr %66, i64 48
   %79 = icmp ugt i64 %63, 7
   br i1 %79, label %.lr.ph.i.i.i.i.i68, label %._crit_edge.i.i.i.i.i65
 
@@ -1144,7 +1144,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   %81 = load <2 x double>, ptr %80, align 16
   %82 = fmul <2 x double> %81, %81
   %83 = fadd <2 x double> %.07275.i.i.i.i.i72, %82
-  %gep.i.i.i.i.i73 = getelementptr double, ptr %invariant.gep.i.i.i.i.i64, i64 %.054.in77.i.i.i.i.i70
+  %gep.i.i.i.i.i73 = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i64, i64 %.054.in77.i.i.i.i.i70
   %84 = load <2 x double>, ptr %gep.i.i.i.i.i73, align 16
   %85 = fmul <2 x double> %84, %84
   %86 = fadd <2 x double> %storemerge76.i.i.i.i.i71, %85
@@ -1739,7 +1739,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %394 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 16
   %395 = load <2 x double>, ptr %394, align 1
   %396 = fmul <2 x double> %395, %395
-  %invariant.gep.i.i.i.i.i127 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i, i64 48
+  %invariant.gep.i.i.i.i.i127 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 48
   %397 = icmp ugt i64 %.sroa.2.0.copyload.i.i, 7
   br i1 %397, label %.lr.ph.i.i.i.i.i131, label %._crit_edge.i.i.i.i.i128
 
@@ -1752,7 +1752,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %399 = load <2 x double>, ptr %398, align 1
   %400 = fmul <2 x double> %399, %399
   %401 = fadd <2 x double> %.07275.i.i.i.i.i135, %400
-  %gep.i.i.i.i.i136 = getelementptr double, ptr %invariant.gep.i.i.i.i.i127, i64 %.054.in77.i.i.i.i.i133
+  %gep.i.i.i.i.i136 = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i127, i64 %.054.in77.i.i.i.i.i133
   %402 = load <2 x double>, ptr %gep.i.i.i.i.i136, align 1
   %403 = fmul <2 x double> %402, %402
   %404 = fadd <2 x double> %storemerge76.i.i.i.i.i134, %403
@@ -1971,7 +1971,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategy25ComputeSubspaceDoglegSte
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load <2 x double>, ptr %31, align 16
   %33 = fmul <2 x double> %32, %32
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %21, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   %34 = icmp ugt i64 %18, 7
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -1984,7 +1984,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategy25ComputeSubspaceDoglegSte
   %36 = load <2 x double>, ptr %35, align 16
   %37 = fmul <2 x double> %36, %36
   %38 = fadd <2 x double> %.07275.i.i.i.i.i, %37
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %39 = load <2 x double>, ptr %gep.i.i.i.i.i, align 16
   %40 = fmul <2 x double> %39, %39
   %41 = fadd <2 x double> %storemerge76.i.i.i.i.i, %40
@@ -2242,7 +2242,7 @@ _ZN5Eigen9ArrayBaseINS_12ArrayWrapperINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1E
   %167 = getelementptr inbounds i8, ptr %.pre, i64 16
   %168 = load <2 x double>, ptr %167, align 16
   %169 = fmul <2 x double> %168, %168
-  %invariant.gep.i.i.i.i.i47 = getelementptr i8, ptr %.pre, i64 48
+  %invariant.gep.i.i.i.i.i47 = getelementptr inbounds i8, ptr %.pre, i64 48
   %170 = icmp ugt i64 %14, 7
   br i1 %170, label %.lr.ph.i.i.i.i.i51, label %._crit_edge.i.i.i.i.i48
 
@@ -2255,7 +2255,7 @@ _ZN5Eigen9ArrayBaseINS_12ArrayWrapperINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1E
   %172 = load <2 x double>, ptr %171, align 16
   %173 = fmul <2 x double> %172, %172
   %174 = fadd <2 x double> %.07275.i.i.i.i.i55, %173
-  %gep.i.i.i.i.i56 = getelementptr double, ptr %invariant.gep.i.i.i.i.i47, i64 %.054.in77.i.i.i.i.i53
+  %gep.i.i.i.i.i56 = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i47, i64 %.054.in77.i.i.i.i.i53
   %175 = load <2 x double>, ptr %gep.i.i.i.i.i56, align 16
   %176 = fmul <2 x double> %175, %175
   %177 = fadd <2 x double> %storemerge76.i.i.i.i.i54, %176
@@ -2864,7 +2864,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread: ; preds = %11, 
   %39 = getelementptr inbounds i8, ptr %29, i64 16
   %40 = load <2 x double>, ptr %39, align 16
   %41 = fmul <2 x double> %40, %40
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %29, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 48
   %42 = icmp ugt i64 %26, 7
   br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -2877,7 +2877,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread: ; preds = %11, 
   %44 = load <2 x double>, ptr %43, align 16
   %45 = fmul <2 x double> %44, %44
   %46 = fadd <2 x double> %.07275.i.i.i.i, %45
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %47 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %48 = fmul <2 x double> %47, %47
   %49 = fadd <2 x double> %storemerge76.i.i.i.i, %48
@@ -2946,7 +2946,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   %80 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 16
   %81 = load <2 x double>, ptr %80, align 16
   %82 = fmul <2 x double> %81, %81
-  %invariant.gep.i.i.i.i14 = getelementptr i8, ptr %.sroa.029.039, i64 48
+  %invariant.gep.i.i.i.i14 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 48
   %83 = icmp ugt i32 %8, 7
   br i1 %83, label %.lr.ph.i.i.i.i18, label %._crit_edge.i.i.i.i15
 
@@ -2959,7 +2959,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   %85 = load <2 x double>, ptr %84, align 16
   %86 = fmul <2 x double> %85, %85
   %87 = fadd <2 x double> %.07275.i.i.i.i22, %86
-  %gep.i.i.i.i23 = getelementptr double, ptr %invariant.gep.i.i.i.i14, i64 %.054.in77.i.i.i.i20
+  %gep.i.i.i.i23 = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i14, i64 %.054.in77.i.i.i.i20
   %88 = load <2 x double>, ptr %gep.i.i.i.i23, align 16
   %89 = fmul <2 x double> %88, %88
   %90 = fadd <2 x double> %storemerge76.i.i.i.i21, %89
@@ -5404,7 +5404,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %41, i64 16
   %53 = load <2 x double>, ptr %52, align 16
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %41, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 48
   %54 = icmp ugt i64 %43, 7
   br i1 %54, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -5416,7 +5416,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
   %55 = getelementptr inbounds double, ptr %41, i64 %.05475.i.i.i.i
   %56 = load <2 x double>, ptr %55, align 16
   %57 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.06972.i.i.i.i, <2 x double> %56) #28, !srcloc !83
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
   %58 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %59 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge73.i.i.i.i, <2 x double> %58) #28, !srcloc !83
   %.054.i.i.i.i = add nuw nsw i64 %.05475.i.i.i.i, 4
@@ -7181,7 +7181,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %27, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %28 = mul nsw i64 %.0810.i, %21
+  %28 = mul nuw nsw i64 %.0810.i, %21
   %29 = getelementptr double, ptr %22, i64 %28
   br label %.lr.ph.i
 
@@ -15808,7 +15808,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %29, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %30 = mul nsw i64 %.0810.i, %22
+  %30 = mul nuw nsw i64 %.0810.i, %22
   %31 = getelementptr double, ptr %24, i64 %30
   %invariant.gep = getelementptr double, ptr %4, i64 %.0810.i
   br label %.lr.ph.i

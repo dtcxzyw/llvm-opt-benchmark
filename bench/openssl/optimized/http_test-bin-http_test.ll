@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -215,19 +215,19 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_url_path_query() #0 {
+define internal range(i32 0, 2) i32 @test_http_url_path_query() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63), !range !5
+  %call = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65), !range !5
+  %call1 = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call3 = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67), !range !5
+  %call3 = tail call fastcc i32 @test_http_url_path_query_ok(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
@@ -257,21 +257,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_url_invalid_prefix() #0 {
+define internal range(i32 0, 2) i32 @test_http_url_invalid_prefix() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.81), !range !5
+  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.81)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_url_invalid_port() #0 {
+define internal range(i32 0, 2) i32 @test_http_url_invalid_port() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.83), !range !5
+  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.83)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call1 = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.84), !range !5
+  %call1 = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.84)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -280,93 +280,93 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_url_invalid_path() #0 {
+define internal range(i32 0, 2) i32 @test_http_url_invalid_path() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.85), !range !5
+  %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.85)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_get_txt() #0 {
+define internal range(i32 0, 2) i32 @test_http_get_txt() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_method(i32 noundef 1, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_method(i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_post_txt() #0 {
+define internal range(i32 0, 2) i32 @test_http_post_txt() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_method(i32 noundef 0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_method(i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_get_x509() #0 {
+define internal range(i32 0, 2) i32 @test_http_get_x509() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_method(i32 noundef 1, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_method(i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_post_x509() #0 {
+define internal range(i32 0, 2) i32 @test_http_post_x509() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_method(i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_method(i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_0_no_no() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_0_no_no() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_1_no_no() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_1_no_no() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_0_prefer_yes() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_0_prefer_yes() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 1, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_1_prefer_yes() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_1_prefer_yes() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 1, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_0_require_yes() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_0_require_yes() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_1_require_yes() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_1_require_yes() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_0_require_no() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_0_require_no() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_http_keep_alive_1_require_no() #0 {
+define internal range(i32 0, 2) i32 @test_http_keep_alive_1_require_no() #0 {
 entry:
-  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 0)
   ret i32 %call
 }
 
@@ -495,7 +495,7 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_http_url_path_query_ok(ptr noundef %url, ptr noundef %exp_path_qu) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_url_path_query_ok(ptr noundef %url, ptr noundef %exp_path_qu) unnamed_addr #0 {
 entry:
   %host = alloca ptr, align 8
   %path = alloca ptr, align 8
@@ -529,7 +529,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_http_url_invalid(ptr noundef %url) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_url_invalid(ptr noundef %url) unnamed_addr #0 {
 entry:
   %host = alloca ptr, align 8
   %port = alloca ptr, align 8
@@ -585,7 +585,7 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_http_method(i32 noundef %do_get, i32 noundef %do_txt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef %do_get, i32 noundef %do_txt) unnamed_addr #0 {
 entry:
   %mock_args = alloca %struct.server_args, align 8
   %rtext78 = alloca [7 x i8], align 1
@@ -725,7 +725,7 @@ declare ptr @ASN1_item_i2d_mem_bio(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @http_bio_cb_ex(ptr noundef %bio, i32 noundef %oper, ptr nocapture readnone %argp, i64 %len, i32 noundef %cmd, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr noundef %bio, i32 noundef %oper, ptr nocapture readnone %argp, i64 %len, i32 noundef %cmd, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #0 {
 entry:
   %req.i = alloca ptr, align 8
   %call = tail call ptr @BIO_get_callback_arg(ptr noundef %bio) #7
@@ -976,7 +976,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_http_keep_alive(i8 noundef signext %version, i32 noundef %keep_alive, i32 noundef %kept_alive) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef signext %version, i32 noundef %keep_alive, i32 noundef %kept_alive) unnamed_addr #0 {
 entry:
   %mock_args = alloca %struct.server_args, align 8
   %rctx = alloca ptr, align 8
@@ -1045,7 +1045,7 @@ if.end33:                                         ; preds = %land.lhs.true23, %l
   %inc = add nuw nsw i32 %i.021, 1
   %cmp8 = icmp ult i32 %i.021, 2
   %2 = select i1 %res.1.in, i1 %cmp8, i1 false
-  br i1 %2, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end33
   %res.1 = zext i1 %res.1.in to i32
@@ -1087,6 +1087,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

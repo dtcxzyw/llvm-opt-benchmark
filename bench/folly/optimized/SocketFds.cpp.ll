@@ -842,7 +842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5folly9SocketFds17getFdSocketSeqNumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK5folly9SocketFds17getFdSocketSeqNumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %ref.tmp15 = alloca %"class.google::LogMessage", align 8

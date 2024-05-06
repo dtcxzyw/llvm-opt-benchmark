@@ -3919,9 +3919,9 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit:
 
 .thread:                                          ; preds = %38
   tail call void @_ZN23nbnxn_atomdata_output_tD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #20
-  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
 
-42:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+42:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -3929,9 +3929,9 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit:
 
 44:                                               ; preds = %38
   tail call void @_ZdlPv(ptr noundef nonnull %25) #31
-  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
 
-_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %44, %.thread
+_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %44, %.thread
   invoke void @__cxa_rethrow() #28
           to label %49 unwind label %42
 
@@ -3945,7 +3945,7 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit3
   tail call void @__clang_call_terminate(ptr %48) #29
   unreachable
 
-49:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+49:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
   unreachable
 }
 
@@ -5743,7 +5743,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %123 = zext i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 2
   %125 = add nuw nsw i64 %124, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i45, i8 0, i64 %125, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %scevgep.i45, i8 0, i64 %125, i1 false)
   br label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
 _ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit: ; preds = %._crit_edge.us60.i, %._crit_edge.us.i, %.lr.ph.preheader.i, %.preheader.i, %.lr.ph54.split.preheader.i, %.preheader49.i, %._crit_edge.thread
@@ -6233,7 +6233,7 @@ define void @_ZN16nbnxn_atomdata_t16clearForceBufferEi(ptr nocapture noundef non
   %15 = getelementptr inbounds %struct.nbnxn_atomdata_output_t, ptr %14, i64 %13, i32 0, i32 0, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %17 = srem i32 %1, 64
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18
@@ -6309,7 +6309,7 @@ _ZL19bitmask_is_disjointSt5arrayImLm2EES0_.exit.i: ; preds = %30
 _ZL14clearBufferAllN3gmx8ArrayRefIfEE.exit.i:     ; preds = %_ZL19bitmask_is_disjointSt5arrayImLm2EES0_.exit.i, %_ZL19bitmask_is_disjointSt5arrayImLm2EES0_.exit.thread.i
   %35 = mul i64 %.016.i, 48
   %36 = getelementptr inbounds float, ptr %16, i64 %35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %36, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(192) %36, i8 0, i64 192, i1 false)
   br label %37
 
 37:                                               ; preds = %_ZL14clearBufferAllN3gmx8ArrayRefIfEE.exit.i, %_ZL19bitmask_is_disjointSt5arrayImLm2EES0_.exit.i

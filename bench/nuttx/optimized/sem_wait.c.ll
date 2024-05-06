@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsem_wait(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -32767, 32769) i32 @nxsem_wait(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @g_readytorun, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -105,9 +105,9 @@ define i32 @nxsem_wait_uninterruptible(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = tail call i32 @nxsem_wait(ptr noundef %0), !range !9
+  %3 = tail call i32 @nxsem_wait(ptr noundef %0)
   %4 = icmp eq i32 %3, -4
-  br i1 %4, label %2, label %5, !llvm.loop !10
+  br i1 %4, label %2, label %5, !llvm.loop !9
 
 5:                                                ; preds = %2
   ret i32 %3
@@ -135,6 +135,5 @@ attributes #3 = { nounwind }
 !6 = !{i64 157745, i64 157763}
 !7 = !{i64 158364}
 !8 = !{i64 158485}
-!9 = !{i32 -32767, i32 32769}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}

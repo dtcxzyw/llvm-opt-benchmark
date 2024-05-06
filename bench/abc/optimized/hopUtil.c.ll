@@ -396,7 +396,7 @@ define void @Hop_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Hop_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Hop_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val31 = load i32, ptr %2, align 8
   %3 = and i32 %.val31, 7
@@ -503,7 +503,7 @@ define i32 @Hop_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Hop_ObjRecognizeExor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Hop_ObjRecognizeExor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val48 = load i32, ptr %4, align 8
   %5 = and i32 %.val48, 6
@@ -1081,12 +1081,12 @@ Vec_VecExpand.exit:                               ; preds = %24, %._crit_edge.i
   br label %common.ret158
 
 75:                                               ; preds = %23
-  %76 = tail call i32 @Hop_ObjIsMuxType(ptr noundef nonnull %12), !range !12
+  %76 = tail call i32 @Hop_ObjIsMuxType(ptr noundef nonnull %12)
   %.not107 = icmp eq i32 %76, 0
   br i1 %.not107, label %.critedge119, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 @Hop_ObjRecognizeExor(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !12
+  %78 = call i32 @Hop_ObjRecognizeExor(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not108 = icmp eq i32 %78, 0
   br i1 %.not108, label %91, label %79
 
@@ -1244,7 +1244,7 @@ Vec_VecExpand.exit144:                            ; preds = %.critedge119, %._cr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = sext i32 %.val120 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %141, label %.critedge2, !llvm.loop !13
+  br i1 %154, label %141, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %152, %Vec_VecExpand.exit144
   %155 = select i1 %135, ptr @.str.3, ptr @.str.9
@@ -1324,7 +1324,7 @@ define void @Hop_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val18 = load i32, ptr %13, align 4
   %14 = sext i32 %.val18 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !14
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -1349,7 +1349,7 @@ define void @Hop_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val = load i32, ptr %17, align 4
   %23 = sext i32 %.val to i64
   %24 = icmp slt i64 %indvars.iv.next28, %23
-  br i1 %24, label %20, label %.critedge2, !llvm.loop !15
+  br i1 %24, label %20, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %20, %.critedge
   %putchar16 = tail call i32 @putchar(i32 10)
@@ -1392,7 +1392,7 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %11, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %12 = trunc i64 %indvars.iv.next to i32
+  %12 = trunc nuw i64 %indvars.iv.next to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %6
@@ -1425,10 +1425,10 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %.val114 = load i32, ptr %24, align 4
   %25 = sext i32 %.val114 to i64
   %26 = icmp slt i64 %indvars.iv.next167, %25
-  br i1 %26, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !15
 
 .critedge2.preheader.loopexit:                    ; preds = %.critedge
-  %27 = trunc i64 %indvars.iv.next172 to i32
+  %27 = trunc nuw i64 %indvars.iv.next172 to i32
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %.critedge.preheader
@@ -1460,7 +1460,7 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %.val113 = load i32, ptr %38, align 4
   %39 = sext i32 %.val113 to i64
   %40 = icmp slt i64 %indvars.iv.next174, %39
-  br i1 %40, label %.critedge, label %.critedge2.preheader.loopexit, !llvm.loop !17
+  br i1 %40, label %.critedge, label %.critedge2.preheader.loopexit, !llvm.loop !16
 
 .critedge2:                                       ; preds = %.lr.ph146, %.critedge2
   %indvars.iv180 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next181, %.critedge2 ]
@@ -1475,10 +1475,10 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %.val112 = load i32, ptr %28, align 4
   %44 = sext i32 %.val112 to i64
   %45 = icmp slt i64 %indvars.iv.next181, %44
-  br i1 %45, label %.critedge2, label %.critedge4.loopexit, !llvm.loop !18
+  br i1 %45, label %.critedge2, label %.critedge4.loopexit, !llvm.loop !17
 
 .critedge4.loopexit:                              ; preds = %.critedge2
-  %46 = trunc i64 %indvars.iv.next179 to i32
+  %46 = trunc nuw i64 %indvars.iv.next179 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2.preheader
@@ -1496,7 +1496,7 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %49 = udiv i32 %.0812.i, 10
   %50 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Hop_Base10Log.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %Hop_Base10Log.exit, label %.lr.ph.i, !llvm.loop !18
 
 Hop_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedge4
   %.09.i = phi i32 [ 1, %.critedge4 ], [ %50, %.lr.ph.i ]
@@ -1528,7 +1528,7 @@ Hop_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val111 = load i32, ptr %68, align 4
   %69 = sext i32 %.val111 to i64
   %70 = icmp slt i64 %indvars.iv.next186, %69
-  br i1 %70, label %.lr.ph150, label %.critedge6, !llvm.loop !20
+  br i1 %70, label %.lr.ph150, label %.critedge6, !llvm.loop !19
 
 .critedge6:                                       ; preds = %.lr.ph150, %Hop_Base10Log.exit
   %fputc = tail call i32 @fputc(i32 10, ptr %51)
@@ -1556,7 +1556,7 @@ Hop_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val110 = load i32, ptr %84, align 4
   %85 = sext i32 %.val110 to i64
   %86 = icmp slt i64 %indvars.iv.next189, %85
-  br i1 %86, label %.lr.ph153, label %.critedge8, !llvm.loop !21
+  br i1 %86, label %.lr.ph153, label %.critedge8, !llvm.loop !20
 
 .critedge8:                                       ; preds = %.lr.ph153, %.critedge6
   %fputc102 = tail call i32 @fputc(i32 10, ptr %51)
@@ -1615,7 +1615,7 @@ Hop_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val109 = load i32, ptr %28, align 4
   %122 = sext i32 %.val109 to i64
   %123 = icmp slt i64 %indvars.iv.next192, %122
-  br i1 %123, label %92, label %.critedge10.preheader, !llvm.loop !22
+  br i1 %123, label %92, label %.critedge10.preheader, !llvm.loop !21
 
 .lr.ph160:                                        ; preds = %.critedge10.preheader, %.critedge10
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.critedge10 ], [ 0, %.critedge10.preheader ]
@@ -1665,7 +1665,7 @@ Hop_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val108 = load i32, ptr %151, align 4
   %152 = sext i32 %.val108 to i64
   %153 = icmp slt i64 %indvars.iv.next195, %152
-  br i1 %153, label %.lr.ph160, label %.critedge12, !llvm.loop !23
+  br i1 %153, label %.lr.ph160, label %.critedge12, !llvm.loop !22
 
 .critedge12:                                      ; preds = %.critedge10
   %.not = icmp eq ptr %.1101, null
@@ -1762,7 +1762,7 @@ attributes #15 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -1773,4 +1773,3 @@ attributes #15 = { nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

@@ -255,7 +255,7 @@ define internal i32 @atkbd_connect(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %50 = load i8, ptr @atkbd_extra, align 1, !range !5, !noundef !6
   %51 = zext nneg i8 %50 to i32
   %52 = tail call fastcc i32 @atkbd_select_set(ptr noundef nonnull %5, i32 noundef %49, i32 noundef %51), !range !8
-  %53 = trunc i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = getelementptr inbounds i8, ptr %5, i64 1304
   store i8 %53, ptr %54, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
@@ -356,7 +356,7 @@ define internal i32 @atkbd_connect(ptr noundef %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @atkbd_reconnect(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -1, 1) i32 @atkbd_reconnect(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 304
@@ -962,7 +962,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @serio_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @atkbd_probe(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #17
   %3 = load i8, ptr @atkbd_reset, align 1, !range !5, !noundef !6
@@ -1083,7 +1083,7 @@ define internal fastcc noundef i32 @atkbd_probe(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @atkbd_select_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 2, 4) i32 @atkbd_select_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 1306
@@ -1749,7 +1749,7 @@ define internal fastcc void @atkbd_set_repeat_rate(ptr noundef %0) unnamed_addr 
   br i1 %67, label %.loopexit, label %59, !llvm.loop !26
 
 68:                                               ; preds = %59
-  %69 = trunc i64 %60 to i8
+  %69 = trunc nuw nsw i64 %60 to i8
   %70 = shl nuw nsw i8 %69, 5
   %71 = sext i16 %62 to i32
   br label %.loopexit
@@ -1795,7 +1795,7 @@ declare dso_local i32 @device_property_read_u32_array(ptr noundef, ptr noundef, 
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @atkbd_event(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3) #2 align 16 {
+define internal noundef range(i32 -1, 1) i32 @atkbd_event(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 664
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1307
@@ -1905,7 +1905,7 @@ define internal i64 @atkbd_do_show_function_row_physmap(ptr nocapture noundef re
 declare dso_local i64 @vivaldi_function_row_physmap_show(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_extra(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_extra(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1306
@@ -1917,7 +1917,7 @@ define internal noundef i64 @atkbd_do_show_extra(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_extra(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_extra(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca [1 x i8], align 1
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 120
@@ -1983,7 +1983,7 @@ define internal i64 @atkbd_do_set_extra(ptr nocapture noundef readonly %0, ptr n
   %44 = zext i8 %43 to i32
   %45 = load i32, ptr %6, align 4
   %46 = call fastcc i32 @atkbd_select_set(ptr noundef %.val, i32 noundef %44, i32 noundef %45), !range !8
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw nsw i32 %46 to i8
   store i8 %47, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1
@@ -2022,7 +2022,7 @@ define internal i64 @atkbd_do_set_extra(ptr nocapture noundef readonly %0, ptr n
   store ptr %37, ptr %36, align 8
   %64 = zext i8 %39 to i32
   %65 = call fastcc i32 @atkbd_select_set(ptr noundef %.val, i32 noundef %64, i32 noundef %33), !range !8
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw nsw i32 %65 to i8
   store i8 %66, ptr %38, align 8
   call fastcc void @atkbd_set_keycode_table(ptr noundef %.val)
   call fastcc void @atkbd_set_device_attrs(ptr noundef %.val)
@@ -2063,7 +2063,7 @@ declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_show_force_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483647, 2147483649) i64 @atkbd_do_show_force_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1240
@@ -2078,7 +2078,7 @@ define internal i64 @atkbd_do_show_force_release(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_force_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_force_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca [8 x i64], align 16
   %6 = getelementptr i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -2142,7 +2142,7 @@ declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) loc
 declare dso_local i32 @bitmap_parselist(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_scroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_scroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1310
@@ -2154,7 +2154,7 @@ define internal noundef i64 @atkbd_do_show_scroll(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_scroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_scroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %6, align 8
@@ -2252,7 +2252,7 @@ atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_scro
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1304
@@ -2264,7 +2264,7 @@ define internal noundef i64 @atkbd_do_show_set(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca [1 x i8], align 1
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 120
@@ -2331,7 +2331,7 @@ define internal i64 @atkbd_do_set_set(ptr nocapture noundef readonly %0, ptr noc
   %45 = load i8, ptr %39, align 2, !range !5, !noundef !6
   %46 = zext nneg i8 %45 to i32
   %47 = call fastcc i32 @atkbd_select_set(ptr noundef %.val, i32 noundef %44, i32 noundef %46), !range !8
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   store i8 %48, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1
@@ -2370,7 +2370,7 @@ define internal i64 @atkbd_do_set_set(ptr nocapture noundef readonly %0, ptr noc
   store ptr %38, ptr %37, align 8
   %65 = zext nneg i8 %40 to i32
   %66 = call fastcc i32 @atkbd_select_set(ptr noundef %.val, i32 noundef %34, i32 noundef %65), !range !8
-  %67 = trunc i32 %66 to i8
+  %67 = trunc nuw nsw i32 %66 to i8
   store i8 %67, ptr %32, align 8
   call fastcc void @atkbd_set_keycode_table(ptr noundef %.val)
   call fastcc void @atkbd_set_device_attrs(ptr noundef %.val)
@@ -2402,7 +2402,7 @@ atkbd_attr_set_helper.exit:                       ; preds = %11, %atkbd_set_set.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_softrepeat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_softrepeat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1308
@@ -2414,7 +2414,7 @@ define internal noundef i64 @atkbd_do_show_softrepeat(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_softrepeat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_softrepeat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %6, align 8
@@ -2526,7 +2526,7 @@ atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_soft
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_softraw(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_softraw(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1309
@@ -2538,7 +2538,7 @@ define internal noundef i64 @atkbd_do_show_softraw(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @atkbd_do_set_softraw(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @atkbd_do_set_softraw(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %6, align 8
@@ -2634,7 +2634,7 @@ atkbd_attr_set_helper.exit:                       ; preds = %10, %atkbd_set_soft
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @atkbd_do_show_err_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @atkbd_do_show_err_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1344

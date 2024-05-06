@@ -155,7 +155,7 @@ define void @QuESTAssert(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @isComplexUnit(double %0, double %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @isComplexUnit(double %0, double %1) local_unnamed_addr #4 {
   %3 = fmul double %1, %1
   %4 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %3)
   %sqrt = tail call double @llvm.sqrt.f64(double %4)
@@ -173,7 +173,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @isVectorUnit(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @isVectorUnit(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = fmul double %1, %1
   %5 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %5)
@@ -186,7 +186,7 @@ define i32 @isVectorUnit(double noundef %0, double noundef %1, double noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @isComplexPairUnitary(double %0, double %1, double %2, double %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @isComplexPairUnitary(double %0, double %1, double %2, double %3) local_unnamed_addr #4 {
   %5 = tail call double @llvm.fmuladd.f64(double %0, double %0, double -1.000000e+00)
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %6)
@@ -198,7 +198,7 @@ define i32 @isComplexPairUnitary(double %0, double %1, double %2, double %3) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @isMatrix2Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isMatrix2Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   br label %.preheader38
 
@@ -261,7 +261,7 @@ define noundef i32 @isMatrix2Unitary(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @isMatrix4Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isMatrix4Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   br label %.preheader38
 
@@ -327,7 +327,7 @@ define noundef i32 @isMatrix4Unitary(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @isMatrixNUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0) local_unnamed_addr #7 {
 .split:
   %1 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %1, 31
@@ -412,7 +412,7 @@ define noundef i32 @isMatrixNUnitary(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @isCompletelyPositiveMap2(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader60.us.preheader, label %.loopexit
 
@@ -491,7 +491,7 @@ define noundef i32 @isCompletelyPositiveMap2(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @isCompletelyPositiveMap4(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader60.us.preheader, label %.loopexit
 
@@ -573,7 +573,7 @@ define noundef i32 @isCompletelyPositiveMap4(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @isCompletelyPositiveMapN(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
 .split:
   %2 = load i32, ptr %0, align 8
   %3 = shl nuw i32 1, %2
@@ -671,14 +671,14 @@ define noundef i32 @isCompletelyPositiveMapN(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @isValidPauliCode(i32 noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @isValidPauliCode(i32 noundef %0) local_unnamed_addr #4 {
   %narrow = icmp ult i32 %0, 4
   %2 = zext i1 %narrow to i32
   ret i32 %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @areUniqueQubits(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @areUniqueQubits(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 

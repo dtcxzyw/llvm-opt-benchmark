@@ -188,24 +188,24 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %.not6.i52 = icmp eq ptr %42, null
-  br i1 %.not6.i52, label %pmix_obj_run_destructors.exit56, label %.lr.ph.i53
+  %.not6.i53 = icmp eq ptr %42, null
+  br i1 %.not6.i53, label %pmix_obj_run_destructors.exit57, label %.lr.ph.i54
 
-.lr.ph.i53:                                       ; preds = %._crit_edge, %.lr.ph.i53
-  %43 = phi ptr [ %45, %.lr.ph.i53 ], [ %42, %._crit_edge ]
-  %.07.i54 = phi ptr [ %44, %.lr.ph.i53 ], [ %41, %._crit_edge ]
+.lr.ph.i54:                                       ; preds = %._crit_edge, %.lr.ph.i54
+  %43 = phi ptr [ %45, %.lr.ph.i54 ], [ %42, %._crit_edge ]
+  %.07.i55 = phi ptr [ %44, %.lr.ph.i54 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3)) #10
-  %44 = getelementptr inbounds i8, ptr %.07.i54, i64 8
+  %44 = getelementptr inbounds i8, ptr %.07.i55, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not.i55 = icmp eq ptr %45, null
-  br i1 %.not.i55, label %pmix_obj_run_destructors.exit56, label %.lr.ph.i53, !llvm.loop !4
+  %.not.i56 = icmp eq ptr %45, null
+  br i1 %.not.i56, label %pmix_obj_run_destructors.exit57, label %.lr.ph.i54, !llvm.loop !4
 
-pmix_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %._crit_edge
+pmix_obj_run_destructors.exit57:                  ; preds = %.lr.ph.i54, %._crit_edge
   %46 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %._crit_edge88, label %.lr.ph87
+  br i1 %47, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph87:                                         ; preds = %pmix_obj_run_destructors.exit56, %81
+.lr.ph90:                                         ; preds = %pmix_obj_run_destructors.exit57, %81
   %48 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
   %49 = add i64 %48, -1
   store volatile i64 %49, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
@@ -222,14 +222,14 @@ pmix_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %._crit
   %58 = icmp eq i32 %57, 35
   br i1 %58, label %59, label %61
 
-59:                                               ; preds = %.lr.ph87
+59:                                               ; preds = %.lr.ph90
   %60 = tail call ptr @__errno_location() #11
   store i32 35, ptr %60, align 4
   tail call void @perror(ptr noundef nonnull @.str.22) #12
   tail call void @abort() #13
   unreachable
 
-61:                                               ; preds = %.lr.ph87
+61:                                               ; preds = %.lr.ph90
   %62 = getelementptr inbounds i8, ptr %50, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = add nsw i32 %63, -1
@@ -244,61 +244,61 @@ pmix_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %._crit
   %70 = getelementptr inbounds i8, ptr %69, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %71, align 8
-  %.not6.i59 = icmp eq ptr %72, null
-  br i1 %.not6.i59, label %pmix_obj_run_destructors.exit63, label %.lr.ph.i60
+  %.not6.i60 = icmp eq ptr %72, null
+  br i1 %.not6.i60, label %pmix_obj_run_destructors.exit64, label %.lr.ph.i61
 
-.lr.ph.i60:                                       ; preds = %67, %.lr.ph.i60
-  %73 = phi ptr [ %75, %.lr.ph.i60 ], [ %72, %67 ]
-  %.07.i61 = phi ptr [ %74, %.lr.ph.i60 ], [ %71, %67 ]
+.lr.ph.i61:                                       ; preds = %67, %.lr.ph.i61
+  %73 = phi ptr [ %75, %.lr.ph.i61 ], [ %72, %67 ]
+  %.07.i62 = phi ptr [ %74, %.lr.ph.i61 ], [ %71, %67 ]
   tail call void %73(ptr noundef %50) #10
-  %74 = getelementptr inbounds i8, ptr %.07.i61, i64 8
+  %74 = getelementptr inbounds i8, ptr %.07.i62, i64 8
   %75 = load ptr, ptr %74, align 8
-  %.not.i62 = icmp eq ptr %75, null
-  br i1 %.not.i62, label %pmix_obj_run_destructors.exit63, label %.lr.ph.i60, !llvm.loop !4
+  %.not.i63 = icmp eq ptr %75, null
+  br i1 %.not.i63, label %pmix_obj_run_destructors.exit64, label %.lr.ph.i61, !llvm.loop !4
 
-pmix_obj_run_destructors.exit63:                  ; preds = %.lr.ph.i60, %67
+pmix_obj_run_destructors.exit64:                  ; preds = %.lr.ph.i61, %67
   %76 = getelementptr inbounds i8, ptr %50, i64 96
   %77 = load ptr, ptr %76, align 8
   %.not50 = icmp eq ptr %77, null
   br i1 %.not50, label %80, label %78
 
-78:                                               ; preds = %pmix_obj_run_destructors.exit63
+78:                                               ; preds = %pmix_obj_run_destructors.exit64
   %79 = getelementptr inbounds i8, ptr %50, i64 56
   tail call void %77(ptr noundef nonnull %79, ptr noundef nonnull %50) #10
   br label %81
 
-80:                                               ; preds = %pmix_obj_run_destructors.exit63
+80:                                               ; preds = %pmix_obj_run_destructors.exit64
   tail call void @free(ptr noundef nonnull %50) #10
   br label %81
 
 81:                                               ; preds = %78, %80, %61
   %82 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 2), align 8
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %._crit_edge88, label %.lr.ph87, !llvm.loop !7
+  br i1 %83, label %._crit_edge91, label %.lr.ph90, !llvm.loop !7
 
-._crit_edge88:                                    ; preds = %81, %pmix_obj_run_destructors.exit56
+._crit_edge91:                                    ; preds = %81, %pmix_obj_run_destructors.exit57
   %84 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 0, i32 1), align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 48
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %86, align 8
-  %.not6.i64 = icmp eq ptr %87, null
-  br i1 %.not6.i64, label %pmix_obj_run_destructors.exit68, label %.lr.ph.i65
+  %.not6.i66 = icmp eq ptr %87, null
+  br i1 %.not6.i66, label %pmix_obj_run_destructors.exit70, label %.lr.ph.i67
 
-.lr.ph.i65:                                       ; preds = %._crit_edge88, %.lr.ph.i65
-  %88 = phi ptr [ %90, %.lr.ph.i65 ], [ %87, %._crit_edge88 ]
-  %.07.i66 = phi ptr [ %89, %.lr.ph.i65 ], [ %86, %._crit_edge88 ]
+.lr.ph.i67:                                       ; preds = %._crit_edge91, %.lr.ph.i67
+  %88 = phi ptr [ %90, %.lr.ph.i67 ], [ %87, %._crit_edge91 ]
+  %.07.i68 = phi ptr [ %89, %.lr.ph.i67 ], [ %86, %._crit_edge91 ]
   tail call void %88(ptr noundef nonnull getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4)) #10
-  %89 = getelementptr inbounds i8, ptr %.07.i66, i64 8
+  %89 = getelementptr inbounds i8, ptr %.07.i68, i64 8
   %90 = load ptr, ptr %89, align 8
-  %.not.i67 = icmp eq ptr %90, null
-  br i1 %.not.i67, label %pmix_obj_run_destructors.exit68, label %.lr.ph.i65, !llvm.loop !4
+  %.not.i69 = icmp eq ptr %90, null
+  br i1 %.not.i69, label %pmix_obj_run_destructors.exit70, label %.lr.ph.i67, !llvm.loop !4
 
-pmix_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %._crit_edge88
+pmix_obj_run_destructors.exit70:                  ; preds = %.lr.ph.i67, %._crit_edge91
   %91 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %._crit_edge90, label %.lr.ph89
+  br i1 %92, label %._crit_edge93, label %.lr.ph92
 
-.lr.ph89:                                         ; preds = %pmix_obj_run_destructors.exit68, %126
+.lr.ph92:                                         ; preds = %pmix_obj_run_destructors.exit70, %126
   %93 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
   %94 = add i64 %93, -1
   store volatile i64 %94, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
@@ -315,14 +315,14 @@ pmix_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %._crit
   %103 = icmp eq i32 %102, 35
   br i1 %103, label %104, label %106
 
-104:                                              ; preds = %.lr.ph89
+104:                                              ; preds = %.lr.ph92
   %105 = tail call ptr @__errno_location() #11
   store i32 35, ptr %105, align 4
   tail call void @perror(ptr noundef nonnull @.str.22) #12
   tail call void @abort() #13
   unreachable
 
-106:                                              ; preds = %.lr.ph89
+106:                                              ; preds = %.lr.ph92
   %107 = getelementptr inbounds i8, ptr %95, i64 48
   %108 = load i32, ptr %107, align 8
   %109 = add nsw i32 %108, -1
@@ -337,65 +337,65 @@ pmix_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %._crit
   %115 = getelementptr inbounds i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
-  %.not6.i71 = icmp eq ptr %117, null
-  br i1 %.not6.i71, label %pmix_obj_run_destructors.exit75, label %.lr.ph.i72
+  %.not6.i73 = icmp eq ptr %117, null
+  br i1 %.not6.i73, label %pmix_obj_run_destructors.exit77, label %.lr.ph.i74
 
-.lr.ph.i72:                                       ; preds = %112, %.lr.ph.i72
-  %118 = phi ptr [ %120, %.lr.ph.i72 ], [ %117, %112 ]
-  %.07.i73 = phi ptr [ %119, %.lr.ph.i72 ], [ %116, %112 ]
+.lr.ph.i74:                                       ; preds = %112, %.lr.ph.i74
+  %118 = phi ptr [ %120, %.lr.ph.i74 ], [ %117, %112 ]
+  %.07.i75 = phi ptr [ %119, %.lr.ph.i74 ], [ %116, %112 ]
   tail call void %118(ptr noundef %95) #10
-  %119 = getelementptr inbounds i8, ptr %.07.i73, i64 8
+  %119 = getelementptr inbounds i8, ptr %.07.i75, i64 8
   %120 = load ptr, ptr %119, align 8
-  %.not.i74 = icmp eq ptr %120, null
-  br i1 %.not.i74, label %pmix_obj_run_destructors.exit75, label %.lr.ph.i72, !llvm.loop !4
+  %.not.i76 = icmp eq ptr %120, null
+  br i1 %.not.i76, label %pmix_obj_run_destructors.exit77, label %.lr.ph.i74, !llvm.loop !4
 
-pmix_obj_run_destructors.exit75:                  ; preds = %.lr.ph.i72, %112
+pmix_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %112
   %121 = getelementptr inbounds i8, ptr %95, i64 96
   %122 = load ptr, ptr %121, align 8
   %.not49 = icmp eq ptr %122, null
   br i1 %.not49, label %125, label %123
 
-123:                                              ; preds = %pmix_obj_run_destructors.exit75
+123:                                              ; preds = %pmix_obj_run_destructors.exit77
   %124 = getelementptr inbounds i8, ptr %95, i64 56
   tail call void %122(ptr noundef nonnull %124, ptr noundef nonnull %95) #10
   br label %126
 
-125:                                              ; preds = %pmix_obj_run_destructors.exit75
+125:                                              ; preds = %pmix_obj_run_destructors.exit77
   tail call void @free(ptr noundef nonnull %95) #10
   br label %126
 
 126:                                              ; preds = %123, %125, %106
   %127 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
   %128 = icmp eq i64 %127, 0
-  br i1 %128, label %._crit_edge90, label %.lr.ph89, !llvm.loop !8
+  br i1 %128, label %._crit_edge93, label %.lr.ph92, !llvm.loop !8
 
-._crit_edge90:                                    ; preds = %126, %pmix_obj_run_destructors.exit68
+._crit_edge93:                                    ; preds = %126, %pmix_obj_run_destructors.exit70
   %129 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 0, i32 1), align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 48
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
-  %.not6.i76 = icmp eq ptr %132, null
-  br i1 %.not6.i76, label %pmix_obj_run_destructors.exit80, label %.lr.ph.i77
+  %.not6.i79 = icmp eq ptr %132, null
+  br i1 %.not6.i79, label %pmix_obj_run_destructors.exit83, label %.lr.ph.i80
 
-.lr.ph.i77:                                       ; preds = %._crit_edge90, %.lr.ph.i77
-  %133 = phi ptr [ %135, %.lr.ph.i77 ], [ %132, %._crit_edge90 ]
-  %.07.i78 = phi ptr [ %134, %.lr.ph.i77 ], [ %131, %._crit_edge90 ]
+.lr.ph.i80:                                       ; preds = %._crit_edge93, %.lr.ph.i80
+  %133 = phi ptr [ %135, %.lr.ph.i80 ], [ %132, %._crit_edge93 ]
+  %.07.i81 = phi ptr [ %134, %.lr.ph.i80 ], [ %131, %._crit_edge93 ]
   tail call void %133(ptr noundef nonnull getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6)) #10
-  %134 = getelementptr inbounds i8, ptr %.07.i78, i64 8
+  %134 = getelementptr inbounds i8, ptr %.07.i81, i64 8
   %135 = load ptr, ptr %134, align 8
-  %.not.i79 = icmp eq ptr %135, null
-  br i1 %.not.i79, label %pmix_obj_run_destructors.exit80, label %.lr.ph.i77, !llvm.loop !4
+  %.not.i82 = icmp eq ptr %135, null
+  br i1 %.not.i82, label %pmix_obj_run_destructors.exit83, label %.lr.ph.i80, !llvm.loop !4
 
-pmix_obj_run_destructors.exit80:                  ; preds = %.lr.ph.i77, %._crit_edge90
+pmix_obj_run_destructors.exit83:                  ; preds = %.lr.ph.i80, %._crit_edge93
   %136 = load i32, ptr @prte_rml_base, align 8
   %137 = icmp sgt i32 %136, -1
   br i1 %137, label %138, label %139
 
-138:                                              ; preds = %pmix_obj_run_destructors.exit80
+138:                                              ; preds = %pmix_obj_run_destructors.exit83
   tail call void @pmix_output_close(i32 noundef %136) #10
   br label %139
 
-139:                                              ; preds = %138, %pmix_obj_run_destructors.exit80
+139:                                              ; preds = %138, %pmix_obj_run_destructors.exit83
   ret void
 }
 
@@ -418,7 +418,7 @@ define void @prte_rml_open() local_unnamed_addr #0 {
 4:                                                ; preds = %3, %0
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 3, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -446,7 +446,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 13:                                               ; preds = %12, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 4, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i3 = icmp eq ptr %15, null
@@ -474,7 +474,7 @@ pmix_obj_run_constructors.exit7:                  ; preds = %.lr.ph.i4, %13
 22:                                               ; preds = %21, %pmix_obj_run_constructors.exit7
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i8 = icmp eq ptr %24, null
@@ -715,7 +715,7 @@ define internal void @send_req_cons(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_send_t_class, i64 0, i32 6), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
@@ -944,7 +944,7 @@ define internal void @rtcon(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_bitmap_t_class, i64 0, i32 6), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null

@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.module_init = private unnamed_addr constant [12 x i8] c"module_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CONF_modules_load(ptr noundef %cnf, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @CONF_modules_load(ptr noundef %cnf, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cnf, null
   br i1 %tobool.not, label %return, label %if.end
@@ -437,7 +437,7 @@ land.lhs.true:                                    ; preds = %if.then17
   br label %err
 
 if.end24:                                         ; preds = %if.end13
-  %call25 = tail call i32 @CONF_modules_load(ptr noundef nonnull %call9, ptr noundef %appname, i64 noundef %flags), !range !7
+  %call25 = tail call i32 @CONF_modules_load(ptr noundef nonnull %call9, ptr noundef %appname, i64 noundef %flags)
   %call.i16 = tail call i64 @_CONF_get_number(ptr noundef nonnull %call9, ptr noundef null, ptr noundef nonnull @.str.8) #6
   %cmp.i = icmp ne i64 %call.i16, 0
   br label %err
@@ -527,7 +527,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @CONF_modules_unload(i32 noundef %all) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @conf_modules_finish_int(), !range !8
+  %call = tail call fastcc i32 @conf_modules_finish_int()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -562,7 +562,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i7.us, ptr noundef nonnull @.str.1, i32 noundef 516) #6
   %i.0.us = add nsw i32 %i.013.us, -1
   %cmp.us.not = icmp eq i32 %i.013.us, 0
-  br i1 %cmp.us.not, label %for.end, label %for.body.us, !llvm.loop !9
+  br i1 %cmp.us.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.body.us14:                                    ; preds = %for.body.lr.ph, %for.inc.us25
   %i.013.us15 = phi i32 [ %i.0.us26, %for.inc.us25 ], [ %i.011, %for.body.lr.ph ]
@@ -592,7 +592,7 @@ if.end11.us21:                                    ; preds = %lor.lhs.false.us19
 for.inc.us25:                                     ; preds = %for.body.us14, %if.end11.us21, %lor.lhs.false.us19
   %i.0.us26 = add nsw i32 %i.013.us15, -1
   %cmp.us27 = icmp sgt i32 %i.013.us15, 0
-  br i1 %cmp.us27, label %for.body.us14, label %for.end, !llvm.loop !9
+  br i1 %cmp.us27, label %for.body.us14, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body.us, %for.inc.us25, %if.end4
   %12 = load ptr, ptr @supported_modules, align 8
@@ -616,7 +616,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @conf_modules_finish_int() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @conf_modules_finish_int() unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init_module_list_lock, ptr noundef nonnull @do_init_module_list_lock_ossl_) #6
   %tobool = icmp ne i32 %call, 0
@@ -678,7 +678,7 @@ module_finish.exit:                               ; preds = %while.body, %if.end
   %10 = load ptr, ptr @initialized_modules, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #6
   %cmp7 = icmp sgt i32 %call.i, 0
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %module_finish.exit, %while.cond.preheader
   %11 = load ptr, ptr @initialized_modules, align 8
@@ -700,12 +700,12 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @CONF_modules_finish() local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @conf_modules_finish_int(), !range !8
+  %call = tail call fastcc i32 @conf_modules_finish_int()
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CONF_module_add(ptr noundef %name, ptr noundef %ifunc, ptr noundef %ffunc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CONF_module_add(ptr noundef %name, ptr noundef %ifunc, ptr noundef %ffunc) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @module_add(ptr noundef null, ptr noundef %name, ptr noundef %ifunc, ptr noundef %ffunc)
   %tobool.not = icmp ne ptr %call, null
@@ -887,7 +887,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CONF_parse_list(ptr noundef %list_, i32 noundef %sep, i32 noundef %nospc, ptr nocapture noundef readonly %list_cb, ptr noundef %arg) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %list_, i32 noundef %sep, i32 noundef %nospc, ptr nocapture noundef readonly %list_cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %list_, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -972,7 +972,7 @@ while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %lstart.122, i64 1
   %7 = load i8, ptr %incdec.ptr, align 1
   %tobool2.not = icmp eq i8 %7, 0
-  br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !11
+  br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !9
 
 if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
   %cmp11 = phi i1 [ true, %for.cond ], [ %tobool5.not, %while.body ], [ %tobool5.not, %land.rhs ]
@@ -1010,7 +1010,7 @@ while.cond24:                                     ; preds = %while.cond24, %if.e
   %10 = load i16, ptr %arrayidx28, align 2
   %11 = and i16 %10, 8192
   %tobool31.not = icmp eq i16 %11, 0
-  br i1 %tobool31.not, label %if.end35.loopexit, label %while.cond24, !llvm.loop !12
+  br i1 %tobool31.not, label %if.end35.loopexit, label %while.cond24, !llvm.loop !10
 
 if.end35.loopexit:                                ; preds = %while.cond24
   %sub.ptr.lhs.cast = ptrtoint ptr %tmpend.1 to i64
@@ -1130,9 +1130,7 @@ attributes #8 = { nounwind willreturn memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -2147483648, i32 2}
-!8 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

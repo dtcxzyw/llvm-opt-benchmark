@@ -1789,7 +1789,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %userKey, null
   %tobool1 = icmp ne ptr %key, null
@@ -2222,9 +2222,9 @@ return:                                           ; preds = %while.body267, %whi
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @QEMU_AES_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key), !range !5
+  %call = tail call i32 @QEMU_AES_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2284,7 +2284,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %cmp1 = icmp slt i64 %indvars.iv.next74, %indvars.iv.next
-  br i1 %cmp1, label %for.body, label %for.cond44.preheader.loopexit, !llvm.loop !6
+  br i1 %cmp1, label %for.body, label %for.cond44.preheader.loopexit, !llvm.loop !5
 
 for.body47:                                       ; preds = %for.cond44.preheader, %for.body47
   %rk.069 = phi ptr [ %add.ptr, %for.body47 ], [ %key, %for.cond44.preheader ]
@@ -2452,7 +2452,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %inc = add nuw nsw i32 %i.168, 1
   %53 = load i32, ptr %rounds, align 4
   %cmp46 = icmp slt i32 %inc, %53
-  br i1 %cmp46, label %for.body47, label %return, !llvm.loop !8
+  br i1 %cmp46, label %for.body47, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body47, %for.cond44.preheader, %entry
   %retval.0 = phi i32 [ %call, %entry ], [ 0, %for.cond44.preheader ], [ 0, %for.body47 ]
@@ -2800,7 +2800,7 @@ for.end:                                          ; preds = %for.cond
   %68 = load i32, ptr %add.ptr149, align 4
   %xor251 = xor i32 %xor249, %68
   %shr252 = lshr i32 %xor251, 24
-  %conv253 = trunc i32 %shr252 to i8
+  %conv253 = trunc nuw i32 %shr252 to i8
   store i8 %conv253, ptr %out, align 1
   %shr255 = lshr i32 %xor251, 16
   %conv256 = trunc i32 %shr255 to i8
@@ -2842,7 +2842,7 @@ for.end:                                          ; preds = %for.cond
   %73 = load i32, ptr %arrayidx284, align 4
   %xor285 = xor i32 %xor283, %73
   %shr286 = lshr i32 %xor285, 24
-  %conv287 = trunc i32 %shr286 to i8
+  %conv287 = trunc nuw i32 %shr286 to i8
   %add.ptr288 = getelementptr i8, ptr %out, i64 4
   store i8 %conv287, ptr %add.ptr288, align 1
   %shr290 = lshr i32 %xor285, 16
@@ -2885,7 +2885,7 @@ for.end:                                          ; preds = %for.cond
   %78 = load i32, ptr %arrayidx322, align 4
   %xor323 = xor i32 %xor321, %78
   %shr324 = lshr i32 %xor323, 24
-  %conv325 = trunc i32 %shr324 to i8
+  %conv325 = trunc nuw i32 %shr324 to i8
   %add.ptr326 = getelementptr i8, ptr %out, i64 8
   store i8 %conv325, ptr %add.ptr326, align 1
   %shr328 = lshr i32 %xor323, 16
@@ -2928,7 +2928,7 @@ for.end:                                          ; preds = %for.cond
   %83 = load i32, ptr %arrayidx360, align 4
   %xor361 = xor i32 %xor359, %83
   %shr362 = lshr i32 %xor361, 24
-  %conv363 = trunc i32 %shr362 to i8
+  %conv363 = trunc nuw i32 %shr362 to i8
   %add.ptr364 = getelementptr i8, ptr %out, i64 12
   store i8 %conv363, ptr %add.ptr364, align 1
   %shr366 = lshr i32 %xor361, 16
@@ -3289,7 +3289,7 @@ for.end:                                          ; preds = %for.cond
   %68 = load i32, ptr %add.ptr149, align 4
   %xor251 = xor i32 %xor249, %68
   %shr252 = lshr i32 %xor251, 24
-  %conv253 = trunc i32 %shr252 to i8
+  %conv253 = trunc nuw i32 %shr252 to i8
   store i8 %conv253, ptr %out, align 1
   %shr255 = lshr i32 %xor251, 16
   %conv256 = trunc i32 %shr255 to i8
@@ -3331,7 +3331,7 @@ for.end:                                          ; preds = %for.cond
   %73 = load i32, ptr %arrayidx284, align 4
   %xor285 = xor i32 %xor283, %73
   %shr286 = lshr i32 %xor285, 24
-  %conv287 = trunc i32 %shr286 to i8
+  %conv287 = trunc nuw i32 %shr286 to i8
   %add.ptr288 = getelementptr i8, ptr %out, i64 4
   store i8 %conv287, ptr %add.ptr288, align 1
   %shr290 = lshr i32 %xor285, 16
@@ -3374,7 +3374,7 @@ for.end:                                          ; preds = %for.cond
   %78 = load i32, ptr %arrayidx322, align 4
   %xor323 = xor i32 %xor321, %78
   %shr324 = lshr i32 %xor323, 24
-  %conv325 = trunc i32 %shr324 to i8
+  %conv325 = trunc nuw i32 %shr324 to i8
   %add.ptr326 = getelementptr i8, ptr %out, i64 8
   store i8 %conv325, ptr %add.ptr326, align 1
   %shr328 = lshr i32 %xor323, 16
@@ -3417,7 +3417,7 @@ for.end:                                          ; preds = %for.cond
   %83 = load i32, ptr %arrayidx360, align 4
   %xor361 = xor i32 %xor359, %83
   %shr362 = lshr i32 %xor361, 24
-  %conv363 = trunc i32 %shr362 to i8
+  %conv363 = trunc nuw i32 %shr362 to i8
   %add.ptr364 = getelementptr i8, ptr %out, i64 12
   store i8 %conv363, ptr %add.ptr364, align 1
   %shr366 = lshr i32 %xor361, 16
@@ -3455,7 +3455,6 @@ attributes #6 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

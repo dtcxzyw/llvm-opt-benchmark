@@ -879,7 +879,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %_ZNK6casadi6MXNode3
 
 .preheader.us:                                    ; preds = %_ZNK6casadi6MXNode3depEx.exit20, %._crit_edge.us
   %.01622.us = phi i64 [ %29, %._crit_edge.us ], [ 0, %_ZNK6casadi6MXNode3depEx.exit20 ]
-  %22 = mul nsw i64 %.01622.us, %12
+  %22 = mul nuw nsw i64 %.01622.us, %12
   %invariant.gep.us = getelementptr double, ptr %18, i64 %22
   %23 = getelementptr double, ptr %19, i64 %.01622.us
   br label %24
@@ -888,7 +888,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %_ZNK6casadi6MXNode3
   %.021.us = phi i64 [ 0, %.preheader.us ], [ %28, %24 ]
   %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %.021.us
   %25 = load double, ptr %gep.us, align 8
-  %26 = mul nsw i64 %.021.us, %17
+  %26 = mul nuw nsw i64 %.021.us, %17
   %27 = getelementptr double, ptr %23, i64 %26
   store double %25, ptr %27, align 8
   %28 = add nuw nsw i64 %.021.us, 1
@@ -1021,7 +1021,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %_ZNK6casadi6MXNode3
 
 .preheader.us:                                    ; preds = %_ZNK6casadi6MXNode3depEx.exit20, %._crit_edge.us
   %.01622.us = phi i64 [ %29, %._crit_edge.us ], [ 0, %_ZNK6casadi6MXNode3depEx.exit20 ]
-  %22 = mul nsw i64 %.01622.us, %12
+  %22 = mul nuw nsw i64 %.01622.us, %12
   %invariant.gep.us = getelementptr %"class.casadi::SXElem", ptr %18, i64 %22
   %23 = getelementptr %"class.casadi::SXElem", ptr %19, i64 %.01622.us
   br label %24
@@ -1029,7 +1029,7 @@ _ZNK6casadi6MXNode3depEx.exit20:                  ; preds = %_ZNK6casadi6MXNode3
 24:                                               ; preds = %.preheader.us, %24
   %.021.us = phi i64 [ 0, %.preheader.us ], [ %28, %24 ]
   %gep.us = getelementptr %"class.casadi::SXElem", ptr %invariant.gep.us, i64 %.021.us
-  %25 = mul nsw i64 %.021.us, %17
+  %25 = mul nuw nsw i64 %.021.us, %17
   %26 = getelementptr %"class.casadi::SXElem", ptr %23, i64 %25
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %gep.us)
   %28 = add nuw nsw i64 %.021.us, 1
@@ -1224,7 +1224,7 @@ _ZNK6casadi6MXNode3depEx.exit17:                  ; preds = %_ZNK6casadi6MXNode3
 23:                                               ; preds = %.preheader.us, %23
   %.019.us = phi i64 [ 0, %.preheader.us ], [ %28, %23 ]
   %.118.us = phi ptr [ %.01420.us, %.preheader.us ], [ %27, %23 ]
-  %24 = mul nsw i64 %.019.us, %14
+  %24 = mul nuw nsw i64 %.019.us, %14
   %25 = getelementptr i64, ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %.118.us, i64 8
@@ -1287,7 +1287,7 @@ _ZNK6casadi6MXNode3depEx.exit18:                  ; preds = %_ZNK6casadi6MXNode3
   %.020.us = phi i64 [ 0, %.preheader.us ], [ %30, %23 ]
   %.119.us = phi ptr [ %.01521.us, %.preheader.us ], [ %29, %23 ]
   %24 = load i64, ptr %.119.us, align 8
-  %25 = mul nsw i64 %.020.us, %14
+  %25 = mul nuw nsw i64 %.020.us, %14
   %26 = getelementptr i64, ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, %24

@@ -268,7 +268,7 @@ if.end:                                           ; preds = %self_test_setparams
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_SELF_TEST_oncorrupt_byte(ptr noundef %st, ptr nocapture noundef %bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_SELF_TEST_oncorrupt_byte(ptr noundef %st, ptr nocapture noundef %bytes) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.ossl_param_st, align 8
   %tmp4.i = alloca %struct.ossl_param_st, align 8

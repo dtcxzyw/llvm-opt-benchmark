@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZN5sound21OggVorbisBufferSource14s_ov_callbacksE = dso_local local_unnamed_addr constant %struct.ov_callbacks { ptr @_ZN5sound21OggVorbisBufferSource9read_funcEPvmmS1_, ptr @_ZN5sound21OggVorbisBufferSource9seek_funcEPvli, ptr @_ZN5sound21OggVorbisBufferSource10close_funcEPv, ptr @_ZN5sound21OggVorbisBufferSource9tell_funcEPv }, align 8
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [56 x i8] c"Audio: Can't decode. Sound is neither mono nor stereo: \00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"Audio: Error decoding (could not seek) \00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"Audio: Error decoding \00", align 1
@@ -86,7 +86,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN5sound21OggVorbisBufferSource9seek_funcEPvli(ptr nocapture noundef %datasource, i64 noundef %offset, i32 noundef %whence) #6 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN5sound21OggVorbisBufferSource9seek_funcEPvli(ptr nocapture noundef %datasource, i64 noundef %offset, i32 noundef %whence) #6 align 2 {
 entry:
   switch i32 %whence, label %cleanup [
     i32 0, label %if.then

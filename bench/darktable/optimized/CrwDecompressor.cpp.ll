@@ -1519,7 +1519,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %15 = getelementptr inbounds i8, ptr %4, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !147, !noalias !142
   %17 = ashr i32 %16, 1
-  %18 = mul nsw i32 %17, %14
+  %18 = mul nuw nsw i32 %17, %14
   %19 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %14, -1
@@ -1537,7 +1537,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   tail call void @llvm.assume(i1 %26)
   %27 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %27)
-  %28 = mul nsw i32 %12, %14
+  %28 = mul nuw nsw i32 %12, %14
   %29 = and i32 %28, 60
   %30 = icmp eq i32 %29, 0
   tail call void @llvm.assume(i1 %30)
@@ -1648,7 +1648,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   call void @llvm.assume(i1 %92)
   %93 = icmp ugt i32 %14, %81
   call void @llvm.assume(i1 %93)
-  %94 = mul nsw i32 %81, %17
+  %94 = mul nuw nsw i32 %81, %17
   %95 = add nuw nsw i32 %94, %12
   %96 = icmp ule i32 %95, %18
   call void @llvm.assume(i1 %96)
@@ -1684,7 +1684,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   call void @llvm.assume(i1 %118)
   %119 = icmp ugt i32 %14, %110
   call void @llvm.assume(i1 %119)
-  %120 = mul nsw i32 %110, %17
+  %120 = mul nuw nsw i32 %110, %17
   %121 = add nuw nsw i32 %120, %12
   %122 = icmp ule i32 %121, %18
   call void @llvm.assume(i1 %122)
@@ -1706,7 +1706,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %135 = lshr exact i32 %12, 2
   %136 = icmp sgt i32 %134, -1
   call void @llvm.assume(i1 %136)
-  %137 = mul nsw i32 %135, %14
+  %137 = mul nuw nsw i32 %135, %14
   %138 = icmp eq i32 %137, %134
   call void @llvm.assume(i1 %138)
   %139 = icmp eq i32 %12, 2672

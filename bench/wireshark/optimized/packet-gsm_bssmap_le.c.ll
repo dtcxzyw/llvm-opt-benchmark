@@ -335,7 +335,7 @@ define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_location_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal zeroext range(i16 1, 3) i16 @de_bmaple_location_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_bssmap_le_location_inf, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %10 = icmp eq i32 %4, 1

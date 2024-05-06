@@ -212,7 +212,7 @@ mock_scram_secret.exit:                           ; preds = %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) #0 {
+define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) #0 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16

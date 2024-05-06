@@ -1133,7 +1133,7 @@ define hidden noundef zeroext i1 @_ZN5ceres41IsSparseLinearAlgebraLibraryTypeAva
   resume { ptr, i32 } %12
 
 switch.lookup:                                    ; preds = %1
-  %switch.cast = trunc i32 %0 to i5
+  %switch.cast = trunc nuw i32 %0 to i5
   %switch.downshift = lshr i5 -6, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   br label %13

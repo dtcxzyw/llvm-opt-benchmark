@@ -1399,10 +1399,10 @@ define ptr @Cec5_ManStartNew(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #27
   %7 = add i64 %6, 1
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #23
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %4) #24
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %4) #24
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %5
@@ -1414,10 +1414,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %5
   br i1 %.not.i30, label %Abc_UtilStrsav.exit31, label %13
 
 13:                                               ; preds = %Abc_UtilStrsav.exit
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #27
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #27
   %15 = add i64 %14, 1
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #23
-  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %12) #24
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %12) #24
   br label %Abc_UtilStrsav.exit31
 
 Abc_UtilStrsav.exit31:                            ; preds = %Abc_UtilStrsav.exit, %13
@@ -12888,7 +12888,7 @@ define ptr @Cec5_ManSimulateTest3(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %5 = alloca %struct.Cec_ParFra_t_, align 16
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %6, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(100) %6, i8 0, i64 76, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   store i32 1, ptr %7, align 16
   store <4 x i32> <i32 2, i32 4, i32 10, i32 2000>, ptr %5, align 16

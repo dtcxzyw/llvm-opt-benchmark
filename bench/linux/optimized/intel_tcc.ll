@@ -169,7 +169,7 @@ define dso_local i32 @intel_tcc_set_offset(i32 noundef %0, i32 noundef %1) #0 al
   %17 = trunc i64 %11 to i32
   store i32 %17, ptr %3, align 4
   %18 = lshr i64 %.pre-phi5, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   store i32 %19, ptr %4, align 4
   br label %22
 

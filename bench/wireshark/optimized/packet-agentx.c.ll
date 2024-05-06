@@ -1105,7 +1105,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
 
 27:                                               ; preds = %26
   %28 = sext i8 %10 to i32
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 2048, ptr noundef nonnull @.str.178, i32 noundef %28) #6
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 2048, ptr noundef nonnull @.str.178, i32 noundef %28) #6
   %30 = icmp slt i32 %29, 2048
   br i1 %30, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread60
 
@@ -1123,7 +1123,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %35 = sext i32 %34 to i64
   %36 = getelementptr i32, ptr %6, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.179, i32 noundef %37) #6
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %33, i64 noundef %35, ptr noundef nonnull @.str.179, i32 noundef %37) #6
   %39 = add i32 %38, %.136.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = icmp ult i64 %indvars.iv.next.i, %31

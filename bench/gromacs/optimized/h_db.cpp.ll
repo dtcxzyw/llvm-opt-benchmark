@@ -1206,7 +1206,7 @@ _ZN13MoleculePatchD2Ev.exit.i:                    ; preds = %279, %_ZNSt5arrayIN
   %294 = ptrtoint ptr %289 to i64
   %295 = sub i64 %293, %294
   %296 = sdiv exact i64 %295, 280
-  %297 = call i64 @llvm.ctlz.i64(i64 %296, i1 true), !range !30
+  %297 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %296, i1 true)
   %298 = shl nuw nsw i64 %297, 1
   %299 = xor i64 %298, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_T0_T1_"(ptr %289, ptr %290, i64 noundef %299)
@@ -1298,7 +1298,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i: ; preds = %309
   %343 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i56, i64 1
   %344 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i57, i64 1
   %.not.i.i.i60 = icmp eq ptr %343, %spec.select.i.i.i.i50
-  br i1 %.not.i.i.i60, label %._crit_edge.i.i.i61, label %.lr.ph.i.i.i55, !llvm.loop !31
+  br i1 %.not.i.i.i60, label %._crit_edge.i.i.i61, label %.lr.ph.i.i.i55, !llvm.loop !30
 
 ._crit_edge.i.i.i61:                              ; preds = %342, %_ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i
   %.sroa.013.0.lcssa.i.i.i62 = phi ptr [ %324, %_ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i ], [ %scevgep.i.i.i54, %342 ]
@@ -1345,7 +1345,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   %361 = sext i8 %.val1.i.i.i.i to i32
   %362 = call i32 @toupper(i32 noundef %361) #24
   %363 = icmp slt i32 %360, %362
-  br i1 %363, label %_ZN21MoleculePatchDatabaseC2EOS_.exit.i.backedge, label %364, !llvm.loop !32
+  br i1 %363, label %_ZN21MoleculePatchDatabaseC2EOS_.exit.i.backedge, label %364, !llvm.loop !31
 
 364:                                              ; preds = %.lr.ph.i.i.i
   %365 = icmp slt i32 %362, %360
@@ -1355,7 +1355,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   %367 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i, i64 1
   %368 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i, i64 1
   %.not.i.i.i49 = icmp eq ptr %367, %spec.select.i.i.i.i
-  br i1 %.not.i.i.i49, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i49, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 ._crit_edge.i.i.i:                                ; preds = %366, %_ZN21MoleculePatchDatabaseC2EOS_.exit.i
   %.sroa.013.0.lcssa.i.i.i = phi ptr [ %348, %_ZN21MoleculePatchDatabaseC2EOS_.exit.i ], [ %scevgep.i.i.i, %366 ]
@@ -1363,7 +1363,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   br i1 %.not71, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit", label %_ZN21MoleculePatchDatabaseC2EOS_.exit.i.backedge
 
 _ZN21MoleculePatchDatabaseC2EOS_.exit.i.backedge: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i
-  br label %_ZN21MoleculePatchDatabaseC2EOS_.exit.i, !llvm.loop !32
+  br label %_ZN21MoleculePatchDatabaseC2EOS_.exit.i, !llvm.loop !31
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit": ; preds = %340, %._crit_edge.i.i.i, %364, %._crit_edge.i.i.i61
   %.sroa.03.0.lcssa.i = phi ptr [ %.sroa.0.07.i.i.i.i.i, %._crit_edge.i.i.i61 ], [ %.sroa.0.08.i, %364 ], [ %.sroa.0.08.i, %._crit_edge.i.i.i ], [ %.sroa.0.07.i.i.i.i.i, %340 ]
@@ -1472,7 +1472,7 @@ _ZN21MoleculePatchDatabaseD2Ev.exit48:            ; preds = %_ZSt8_DestroyIP13Mo
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3)
   %396 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 280
   %.not.i.i.i.i44.i = icmp eq ptr %396, %290
-  br i1 %.not.i.i.i.i44.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEEZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EvT_SF_T0_.exit.i", label %.lr.ph.i.i.i.i.i10, !llvm.loop !33
+  br i1 %.not.i.i.i.i44.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEEZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EvT_SF_T0_.exit.i", label %.lr.ph.i.i.i.i.i10, !llvm.loop !32
 
 397:                                              ; preds = %292
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_T0_"(ptr %289, ptr %290)
@@ -1571,7 +1571,7 @@ _ZSt8_DestroyINSt10filesystem7__cxx114pathEEvPT_.exit.i.i.i.i: ; preds = %413, %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #18
   %414 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i13 = icmp eq ptr %414, %.pre103
-  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !33
 
 _ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt10filesystem7__cxx114pathEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %17, align 8
@@ -1696,7 +1696,7 @@ _ZSt8_DestroyINSt10filesystem7__cxx114pathEEvPT_.exit.i.i.i: ; preds = %7, %.lr.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #18
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %8, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !33
 
 _ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyINSt10filesystem7__cxx114pathEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1960,21 +1960,21 @@ _ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %72, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %71, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #18
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49) #18
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
-  %52 = load <2 x ptr>, ptr %51, align 8, !alias.scope !38, !noalias !35
-  store <2 x ptr> %52, ptr %50, align 8, !alias.scope !35, !noalias !38
+  %52 = load <2 x ptr>, ptr %51, align 8, !alias.scope !37, !noalias !34
+  store <2 x ptr> %52, ptr %50, align 8, !alias.scope !34, !noalias !37
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
-  %55 = load ptr, ptr %54, align 8, !alias.scope !38, !noalias !35
-  store ptr %55, ptr %53, align 8, !alias.scope !35, !noalias !38
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false), !alias.scope !38, !noalias !35
+  %55 = load ptr, ptr %54, align 8, !alias.scope !37, !noalias !34
+  store ptr %55, ptr %53, align 8, !alias.scope !34, !noalias !37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
   %56 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
   %57 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
   br label %58
@@ -1983,17 +1983,17 @@ _ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT
   %59 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %69, %58 ]
   %60 = getelementptr inbounds %struct.BondedInteractionList, ptr %56, i64 %59
   %61 = getelementptr inbounds [6 x %struct.BondedInteractionList], ptr %57, i64 0, i64 %59
-  %62 = load i32, ptr %61, align 8, !alias.scope !38, !noalias !35
-  store i32 %62, ptr %60, align 8, !alias.scope !35, !noalias !38
+  %62 = load i32, ptr %61, align 8, !alias.scope !37, !noalias !34
+  store i32 %62, ptr %60, align 8, !alias.scope !34, !noalias !37
   %63 = getelementptr inbounds i8, ptr %60, i64 8
   %64 = getelementptr inbounds i8, ptr %61, i64 8
-  %65 = load <2 x ptr>, ptr %64, align 8, !alias.scope !38, !noalias !35
-  store <2 x ptr> %65, ptr %63, align 8, !alias.scope !35, !noalias !38
+  %65 = load <2 x ptr>, ptr %64, align 8, !alias.scope !37, !noalias !34
+  store <2 x ptr> %65, ptr %63, align 8, !alias.scope !34, !noalias !37
   %66 = getelementptr inbounds i8, ptr %60, i64 24
   %67 = getelementptr inbounds i8, ptr %61, i64 24
-  %68 = load ptr, ptr %67, align 8, !alias.scope !38, !noalias !35
-  store ptr %68, ptr %66, align 8, !alias.scope !35, !noalias !38
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false), !alias.scope !38, !noalias !35
+  %68 = load ptr, ptr %67, align 8, !alias.scope !37, !noalias !34
+  store ptr %68, ptr %66, align 8, !alias.scope !34, !noalias !37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
   %69 = add nuw nsw i64 %59, 1
   %70 = icmp eq i64 %69, 6
   br i1 %70, label %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, label %58
@@ -2003,7 +2003,7 @@ _ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.
   %71 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 280
   %72 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 280
   %.not.i.i.i = icmp eq ptr %71, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
 
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit ], [ %72, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -2014,21 +2014,21 @@ _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ;
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20
   %.012.i.i.i18 = phi ptr [ %98, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %73, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   %.0911.i.i.i19 = phi ptr [ %97, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %1, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #18
   %74 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
   %75 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75) #18
   %76 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 64
   %77 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 64
-  %78 = load <2 x ptr>, ptr %77, align 8, !alias.scope !44, !noalias !41
-  store <2 x ptr> %78, ptr %76, align 8, !alias.scope !41, !noalias !44
+  %78 = load <2 x ptr>, ptr %77, align 8, !alias.scope !43, !noalias !40
+  store <2 x ptr> %78, ptr %76, align 8, !alias.scope !40, !noalias !43
   %79 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 80
   %80 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 80
-  %81 = load ptr, ptr %80, align 8, !alias.scope !44, !noalias !41
-  store ptr %81, ptr %79, align 8, !alias.scope !41, !noalias !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false), !alias.scope !44, !noalias !41
+  %81 = load ptr, ptr %80, align 8, !alias.scope !43, !noalias !40
+  store ptr %81, ptr %79, align 8, !alias.scope !40, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 88
   %83 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 88
   br label %84
@@ -2037,17 +2037,17 @@ _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ;
   %85 = phi i64 [ 0, %.lr.ph.i.i.i17 ], [ %95, %84 ]
   %86 = getelementptr inbounds %struct.BondedInteractionList, ptr %82, i64 %85
   %87 = getelementptr inbounds [6 x %struct.BondedInteractionList], ptr %83, i64 0, i64 %85
-  %88 = load i32, ptr %87, align 8, !alias.scope !44, !noalias !41
-  store i32 %88, ptr %86, align 8, !alias.scope !41, !noalias !44
+  %88 = load i32, ptr %87, align 8, !alias.scope !43, !noalias !40
+  store i32 %88, ptr %86, align 8, !alias.scope !40, !noalias !43
   %89 = getelementptr inbounds i8, ptr %86, i64 8
   %90 = getelementptr inbounds i8, ptr %87, i64 8
-  %91 = load <2 x ptr>, ptr %90, align 8, !alias.scope !44, !noalias !41
-  store <2 x ptr> %91, ptr %89, align 8, !alias.scope !41, !noalias !44
+  %91 = load <2 x ptr>, ptr %90, align 8, !alias.scope !43, !noalias !40
+  store <2 x ptr> %91, ptr %89, align 8, !alias.scope !40, !noalias !43
   %92 = getelementptr inbounds i8, ptr %86, i64 24
   %93 = getelementptr inbounds i8, ptr %87, i64 24
-  %94 = load ptr, ptr %93, align 8, !alias.scope !44, !noalias !41
-  store ptr %94, ptr %92, align 8, !alias.scope !41, !noalias !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false), !alias.scope !44, !noalias !41
+  %94 = load ptr, ptr %93, align 8, !alias.scope !43, !noalias !40
+  store ptr %94, ptr %92, align 8, !alias.scope !40, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
   %95 = add nuw nsw i64 %85, 1
   %96 = icmp eq i64 %95, 6
   br i1 %96, label %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20, label %84
@@ -2057,7 +2057,7 @@ _ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.
   %97 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 280
   %98 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 280
   %.not.i.i.i21 = icmp eq ptr %97, %5
-  br i1 %.not.i.i.i21, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23, label %.lr.ph.i.i.i17, !llvm.loop !40
+  br i1 %.not.i.i.i21, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23, label %.lr.ph.i.i.i17, !llvm.loop !39
 
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23: ; preds = %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %.0.lcssa.i.i.i22 = phi ptr [ %73, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %98, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20 ]
@@ -2304,7 +2304,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6)
   %124 = icmp sgt i64 %122, 280
-  br i1 %124, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !46
+  br i1 %124, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !45
 
 125:                                              ; preds = %19
   %126 = add nsw i64 %.031, -1
@@ -2382,7 +2382,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   %159 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i.i.i, i64 1
   %160 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %159, %spec.select.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !30
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i": ; preds = %158, %137
   %.sroa.013.0.lcssa.i.i.i.i.i = phi ptr [ %140, %137 ], [ %scevgep.i.i.i.i.i, %158 ]
@@ -2391,7 +2391,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread.i.i": ; preds = %.lr.ph.i.i.i.i.i, %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i"
   %161 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i, i64 280
-  br label %137, !llvm.loop !47
+  br label %137, !llvm.loop !46
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.preheader": ; preds = %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i", %156
   br label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i"
@@ -2431,7 +2431,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   %177 = sext i8 %.val1.i.i.i.i17.i.i to i32
   %178 = call i32 @toupper(i32 noundef %177) #24
   %179 = icmp slt i32 %176, %178
-  br i1 %179, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.backedge", label %180, !llvm.loop !48
+  br i1 %179, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.backedge", label %180, !llvm.loop !47
 
 180:                                              ; preds = %.lr.ph.i.i.i13.i.i
   %181 = icmp slt i32 %178, %176
@@ -2441,7 +2441,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   %183 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i14.i.i, i64 1
   %184 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i15.i.i, i64 1
   %.not.i.i.i18.i.i = icmp eq ptr %183, %spec.select.i.i.i.i8.i.i
-  br i1 %.not.i.i.i18.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i", label %.lr.ph.i.i.i13.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i18.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i", label %.lr.ph.i.i.i13.i.i, !llvm.loop !30
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i": ; preds = %182, %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i"
   %.sroa.013.0.lcssa.i.i.i20.i.i = phi ptr [ %164, %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i" ], [ %scevgep.i.i.i12.i.i, %182 ]
@@ -2449,7 +2449,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   br i1 %.not34.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.thread32.i.i", label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.backedge"
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.backedge": ; preds = %.lr.ph.i.i.i13.i.i, %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i"
-  br label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i", !llvm.loop !48
+  br label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i", !llvm.loop !47
 
 "_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.thread32.i.i": ; preds = %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i", %180
   %185 = icmp ult ptr %.sroa.025.1.i.i, %.sroa.0.1.i.i
@@ -2595,14 +2595,14 @@ _ZN21MoleculePatchDatabaseD2Ev.exit:              ; preds = %_ZSt8_DestroyIP13Mo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4)
   %234 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i, i64 280
-  br label %136, !llvm.loop !49
+  br label %136, !llvm.loop !48
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEET_SI_SI_T0_.exit": ; preds = %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.thread32.i.i"
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_T0_T1_"(ptr nonnull %.sroa.025.1.i.i, ptr %storemerge30, i64 noundef %126)
   %235 = ptrtoint ptr %.sroa.025.1.i.i to i64
   %236 = sub i64 %235, %9
   %237 = icmp sgt i64 %236, 4480
-  br i1 %237, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !50
+  br i1 %237, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !49
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_SI_SI_RT0_.exit", %3
   ret void
@@ -2629,7 +2629,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %16 = getelementptr inbounds %struct.MoleculePatchDatabase, ptr %0, i64 %.034
   %17 = tail call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %16, ptr noundef nonnull align 8 dereferenceable(280) %15) #18
   %18 = icmp slt i64 %spec.select, %7
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
@@ -2705,7 +2705,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit:            ; preds = %42
   %59 = getelementptr inbounds %struct.MoleculePatchDatabase, ptr %0, i64 %.010.i
   %60 = call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %59, ptr noundef nonnull align 8 dereferenceable(280) %56) #18
   %61 = icmp sgt i64 %.0911.i, %1
-  br i1 %61, label %.lr.ph.i, label %.loopexit, !llvm.loop !52
+  br i1 %61, label %.lr.ph.i, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %58, %.lr.ph.i, %_ZN21MoleculePatchDatabaseC2EOS_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN21MoleculePatchDatabaseC2EOS_.exit ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %58 ]
@@ -2836,7 +2836,7 @@ _ZSt8_DestroyIP17BondedInteractionS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i: ; preds = %
 _ZN21BondedInteractionListaSEOS_.exit.i:          ; preds = %50, %_ZSt8_DestroyIP17BondedInteractionS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i
   %51 = add nuw nsw i64 %.05.i, 1
   %.not.i = icmp eq i64 %51, 6
-  br i1 %.not.i, label %_ZN3gmx16EnumerationArrayI11BondedTypes21BondedInteractionListLS1_6EEaSEOS3_.exit, label %29, !llvm.loop !53
+  br i1 %.not.i, label %_ZN3gmx16EnumerationArrayI11BondedTypes21BondedInteractionListLS1_6EEaSEOS3_.exit, label %29, !llvm.loop !52
 
 _ZN3gmx16EnumerationArrayI11BondedTypes21BondedInteractionListLS1_6EEaSEOS3_.exit: ; preds = %_ZN21BondedInteractionListaSEOS_.exit.i
   ret ptr %0
@@ -2882,7 +2882,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL14read_h_db_fileRKNSt10filesyste
   %21 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i, i64 1
   %22 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i, i64 1
   %.not.i.i = icmp eq ptr %21, %spec.select.i.i.i
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %20, %2
   %.sroa.013.0.lcssa.i.i = phi ptr [ %5, %2 ], [ %scevgep.i.i, %20 ]
@@ -3034,7 +3034,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit:            ; preds = %19
   %39 = call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %38, ptr noundef nonnull align 8 dereferenceable(280) %37) #18
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
   %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !54
+  br i1 %41, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN21MoleculePatchDatabaseC2EOS_.exit
   %42 = call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %3) #18
@@ -3048,7 +3048,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit:            ; preds = %19
 44:                                               ; preds = %.loopexit, %43
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 280
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit16, label %10, !llvm.loop !55
+  br i1 %.not, label %.loopexit16, label %10, !llvm.loop !54
 
 .loopexit16:                                      ; preds = %44, %.preheader, %2
   ret void
@@ -3104,7 +3104,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit:            ; preds = %_ZN21MoleculePatchD
   %27 = call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %.sroa.03.07, ptr noundef nonnull align 8 dereferenceable(280) %.sroa.0.08) #18
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 -280
   %28 = call fastcc noundef zeroext i1 @"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_"(ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef nonnull align 8 dereferenceable(280) %.sroa.0.0)
-  br i1 %28, label %_ZN21MoleculePatchDatabaseC2EOS_.exit, label %_ZN21MoleculePatchDatabaseC2EOS_.exit._crit_edge, !llvm.loop !32
+  br i1 %28, label %_ZN21MoleculePatchDatabaseC2EOS_.exit, label %_ZN21MoleculePatchDatabaseC2EOS_.exit._crit_edge, !llvm.loop !31
 
 _ZN21MoleculePatchDatabaseC2EOS_.exit._crit_edge: ; preds = %_ZN21MoleculePatchDatabaseC2EOS_.exit, %_ZN21MoleculePatchDatabaseC2EOS_.exit.preheader
   %.sroa.03.0.lcssa = phi ptr [ %0, %_ZN21MoleculePatchDatabaseC2EOS_.exit.preheader ], [ %.sroa.0.08, %_ZN21MoleculePatchDatabaseC2EOS_.exit ]
@@ -3148,7 +3148,7 @@ define ptr @_Z11search_h_dbN3gmx8ArrayRefIK21MoleculePatchDatabaseEEPKc(ptr %0, 
   %21 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 1120
   %22 = add nsw i64 %.043.i.i.i, -1
   %23 = icmp sgt i64 %.043.i.i.i, 1
-  br i1 %23, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !56
+  br i1 %23, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !55
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %20
   %.pre.i.i.i = ptrtoint ptr %21 to i64
@@ -3433,22 +3433,22 @@ attributes #24 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = !{i64 0, i64 65}
+!30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!37 = distinct !{!37, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_"}
-!38 = !{!39}
-!39 = distinct !{!39, !37, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!40 = distinct !{!40, !6}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!43 = distinct !{!43, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!36 = distinct !{!36, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_"}
+!37 = !{!38}
+!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!39 = distinct !{!39, !6}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!42 = distinct !{!42, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_"}
+!43 = !{!44}
+!44 = distinct !{!44, !42, !"_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
@@ -3459,4 +3459,3 @@ attributes #24 = { nounwind willreturn memory(read) }
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}

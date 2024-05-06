@@ -6562,7 +6562,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
 50:                                               ; preds = %41, %34, %25
   %.1 = phi i8 [ %49, %41 ], [ %spec.select, %34 ], [ %spec.select, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = trunc i64 %indvars.iv.next to i32
+  %51 = trunc nuw i64 %indvars.iv.next to i32
   %52 = icmp ult i64 %indvars.iv.next, %16
   %53 = and i1 %52, %24
   br i1 %53, label %17, label %._crit_edge, !llvm.loop !7
@@ -6764,7 +6764,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
 62:                                               ; preds = %54, %48, %45, %29
   %.1 = phi i32 [ %61, %54 ], [ %.pre, %48 ], [ %.0128, %45 ], [ %.0128, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = trunc i64 %indvars.iv.next to i32
+  %63 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
 
@@ -7022,7 +7022,7 @@ define internal noundef signext i16 @callback_init_luMode_Cell_Sel_Param_FREQUEN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext i16 @cb_parse_mi(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @cb_parse_mi(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7036,7 +7036,7 @@ define internal signext i16 @cb_parse_mi(ptr noundef %0, ptr noundef %1, ptr noc
   br label %14
 
 14:                                               ; preds = %11, %7
-  %15 = trunc i32 %10 to i16
+  %15 = trunc nuw nsw i32 %10 to i16
   ret i16 %15
 }
 
@@ -7047,7 +7047,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef signext i16 @callback_call_handover_to_utran_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @callback_call_handover_to_utran_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7067,14 +7067,14 @@ define internal noundef signext i16 @callback_call_handover_to_utran_cmd(ptr nou
   br label %20
 
 20:                                               ; preds = %15, %7
-  %21 = trunc i32 %10 to i16
+  %21 = trunc nuw nsw i32 %10 to i16
   ret i16 %21
 }
 
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef signext i16 @callback_call_eutran_dl_dcch(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @callback_call_eutran_dl_dcch(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7094,7 +7094,7 @@ define internal noundef signext i16 @callback_call_eutran_dl_dcch(ptr noundef %0
   br label %20
 
 20:                                               ; preds = %15, %7
-  %21 = trunc i32 %10 to i16
+  %21 = trunc nuw nsw i32 %10 to i16
   ret i16 %21
 }
 

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_uprobe_analyze_insn(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -524, 1) i32 @arch_uprobe_analyze_insn(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.insn, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false), !annotation !5
@@ -625,7 +625,7 @@ define dso_local i32 @arch_uprobe_post_xol(ptr noundef %0, ptr noundef %1) local
 declare dso_local i32 @send_sig(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @arch_uprobe_exception_notify(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 32770) i32 @arch_uprobe_exception_notify(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1117,7 +1117,7 @@ define internal noundef i32 @default_pre_xol_op(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @default_post_xol_op(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -85, 1) i32 @default_post_xol_op(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !11
   %5 = inttoptr i64 %4 to ptr

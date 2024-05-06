@@ -65,7 +65,7 @@ define internal noundef i32 @mca_part_base_register(i32 %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_part_base_open(i32 noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @mca_part_base_open(i32 noundef %0) #1 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 4), align 8
   %.not = icmp eq i32 %2, %3

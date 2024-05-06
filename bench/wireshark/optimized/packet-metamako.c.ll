@@ -448,7 +448,7 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   %129 = add i32 %117, 3
   %130 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %129) #6
   %131 = and i32 %130, 16777215
-  %132 = uitofp i32 %131 to double
+  %132 = uitofp nneg i32 %131 to double
   %133 = fmul double %132, 0x3E70000000000000
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.81, double noundef %133) #6
   br label %.loopexit

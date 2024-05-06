@@ -125,7 +125,7 @@ define dso_local i32 @idr_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 9:                                                ; preds = %5
   %10 = icmp sgt i32 %3, 0
-  %11 = add i32 %3, -1
+  %11 = add nsw i32 %3, -1
   %12 = select i1 %10, i32 %11, i32 2147483647
   %13 = zext nneg i32 %12 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
@@ -190,7 +190,7 @@ define dso_local i32 @idr_alloc_cyclic(ptr noundef %0, ptr noundef %1, i32 nound
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %3, 0
-  %11 = add i32 %3, -1
+  %11 = add nsw i32 %3, -1
   %12 = select i1 %10, i32 %11, i32 2147483647
   %13 = tail call i32 @llvm.smax.i32(i32 %9, i32 %2)
   %14 = zext nneg i32 %12 to i64
@@ -386,7 +386,7 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr nocapture noundef readonl
   br label %.loopexit
 
 22:                                               ; preds = %17
-  %23 = trunc i64 %20 to i32
+  %23 = trunc nuw nsw i64 %20 to i32
   %24 = load volatile ptr, ptr %19, align 8
   %25 = call i32 %1(i32 noundef %23, ptr noundef %24, ptr noundef %2) #7
   %.not = icmp eq i32 %25, 0
@@ -631,7 +631,7 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr nocapture noundef %1) #0 
   br label %57
 
 55:                                               ; preds = %.loopexit
-  %56 = trunc i64 %52 to i32
+  %56 = trunc nuw nsw i64 %52 to i32
   store i32 %56, ptr %1, align 4
   br label %57
 

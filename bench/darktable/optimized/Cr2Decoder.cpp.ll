@@ -1721,7 +1721,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %136 = phi i32 [ %127, %122 ], [ %116, %111 ]
   %137 = phi i32 [ %129, %122 ], [ %118, %111 ]
   call void @llvm.assume(i1 %134)
-  %138 = mul nsw i32 %135, %103
+  %138 = mul nuw nsw i32 %135, %103
   %139 = icmp eq i32 %138, %136
   call void @llvm.assume(i1 %139)
   %140 = icmp sgt i32 %135, -1
@@ -1881,7 +1881,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %230 = getelementptr inbounds i8, ptr %214, i64 48
   %231 = load i32, ptr %230, align 8, !tbaa !190, !noalias !198
   %232 = ashr i32 %231, 1
-  %233 = mul nsw i32 %232, %229
+  %233 = mul nuw nsw i32 %232, %229
   %234 = icmp sgt i32 %227, -1
   call void @llvm.assume(i1 %234)
   %235 = icmp sgt i32 %229, -1
@@ -2726,13 +2726,13 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
   %117 = icmp ne i32 %109, 0
   %118 = xor i1 %116, %117
   tail call void @llvm.assume(i1 %118)
-  %119 = mul nsw i32 %112, %109
+  %119 = mul nuw nsw i32 %112, %109
   %120 = icmp eq i32 %103, %119
   tail call void @llvm.assume(i1 %120)
   %121 = icmp eq i32 %109, 1
   %122 = icmp eq i32 %112, %106
   %123 = or i1 %121, %122
-  %124 = mul nsw i32 %109, %106
+  %124 = mul nuw nsw i32 %109, %106
   tail call void @llvm.assume(i1 %123)
   %125 = trunc i64 %76 to i32
   %126 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %125)

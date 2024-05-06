@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_daemon_init_callback(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @prte_daemon_init_callback(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @fork() #6
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %31, label %5

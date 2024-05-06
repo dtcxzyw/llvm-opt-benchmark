@@ -31,14 +31,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @_PyTokenizer_syntaxerror(ptr nocapture noundef %tok, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   call fastcc void @_syntaxerror_range(ptr noundef %tok, ptr noundef %format, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 64
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_syntaxerror_range(ptr nocapture noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %vargs) unnamed_addr #0 {
@@ -162,21 +159,18 @@ return:                                           ; preds = %entry, %Py_XDECREF.
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @_PyTokenizer_syntaxerror_known_range(ptr nocapture noundef %tok, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   call fastcc void @_syntaxerror_range(ptr noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef %tok) local_unnamed_addr #2 {
+define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef %tok) local_unnamed_addr #1 {
 entry:
   %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 18, ptr %done, align 8
@@ -221,10 +215,10 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   ret ptr null
 }
 
-declare void @PyMem_Free(ptr noundef) local_unnamed_addr #3
+declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr nocapture noundef %tok, i32 noundef %first_invalid_escape_char) local_unnamed_addr #0 {
+define hidden range(i32 -1, 65) i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr nocapture noundef %tok, i32 noundef %first_invalid_escape_char) local_unnamed_addr #0 {
 entry:
   %report_warnings = getelementptr inbounds i8, ptr %tok, i64 2848
   %0 = load i32, ptr %report_warnings, align 8
@@ -293,16 +287,16 @@ return:                                           ; preds = %if.end.i, %if.then1
   ret i32 %retval.0
 }
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @PyErr_WarnExplicitObject(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PyErr_WarnExplicitObject(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #3
+declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #2
 
-declare void @PyErr_Clear() local_unnamed_addr #3
+declare void @PyErr_Clear() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_parser_warn(ptr nocapture noundef %tok, ptr noundef %category, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTokenizer_parser_warn(ptr nocapture noundef %tok, ptr noundef %category, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %report_warnings = getelementptr inbounds i8, ptr %tok, i64 2848
@@ -311,9 +305,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #9
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %tobool3.not = icmp eq ptr %call, null
   br i1 %tobool3.not, label %Py_XDECREF.exit, label %if.end5
 
@@ -378,7 +372,7 @@ return:                                           ; preds = %if.end.i, %if.then1
   ret i32 %retval.0
 }
 
-declare ptr @PyUnicode_FromFormatV(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_FromFormatV(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_new_string(ptr nocapture noundef readonly %s, i64 noundef %len, ptr nocapture noundef writeonly %tok) local_unnamed_addr #0 {
@@ -403,10 +397,10 @@ return:                                           ; preds = %if.end, %if.then
   ret ptr %call
 }
 
-declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #3
+declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_translate_into_utf8(ptr noundef %str, ptr noundef %enc) local_unnamed_addr #0 {
@@ -438,12 +432,12 @@ return:                                           ; preds = %if.end.i, %if.then1
   ret ptr %retval.0
 }
 
-declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
-declare ptr @PyUnicode_AsUTF8String(ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_AsUTF8String(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_translate_newlines(ptr nocapture noundef readonly %s, i32 noundef %exec_input, i32 noundef %preserve_crlf, ptr nocapture noundef writeonly %tok) local_unnamed_addr #0 {
@@ -549,10 +543,10 @@ return:                                           ; preds = %if.end31, %if.then4
   ret ptr %retval.0
 }
 
-declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_check_bom(ptr nocapture noundef readonly %get_char, ptr nocapture noundef readonly %unget_char, ptr nocapture noundef readnone %set_readline, ptr noundef %tok) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr nocapture noundef readonly %get_char, ptr nocapture noundef readonly %unget_char, ptr nocapture noundef readnone %set_readline, ptr noundef %tok) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 %get_char(ptr noundef %tok) #9
   %decoding_state = getelementptr inbounds i8, ptr %tok, i64 2744
@@ -608,7 +602,7 @@ if.then.i:                                        ; preds = %if.end16
   br label %_PyTokenizer_new_string.exit
 
 if.end.i:                                         ; preds = %if.end16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 5
   store i8 0, ptr %arrayidx.i, align 1
   br label %_PyTokenizer_new_string.exit
@@ -624,7 +618,7 @@ return:                                           ; preds = %_PyTokenizer_new_st
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_check_coding_spec(ptr noundef %line, i64 noundef %size, ptr noundef %tok, ptr nocapture noundef readonly %set_readline) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %line, i64 noundef %size, ptr noundef %tok, ptr nocapture noundef readonly %set_readline) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [13 x i8], align 1
   %cont_line = getelementptr inbounds i8, ptr %tok, i64 2760
@@ -735,7 +729,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %if.then69.i
   br label %return
 
 if.end73.i:                                       ; preds = %if.then69.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %incdec.ptr.i, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %incdec.ptr.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i.i = getelementptr i8, ptr %call.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %buf.i.i)
@@ -829,7 +823,7 @@ _PyTokenizer_new_string.exit49.thread.i:          ; preds = %if.then77.i
   br label %return
 
 _PyTokenizer_new_string.exit49.i:                 ; preds = %if.then77.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr align 1 %retval.0.i.i, i64 %call78.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr readonly align 1 %retval.0.i.i, i64 %call78.i, i1 false)
   %arrayidx.i46.i = getelementptr i8, ptr %call.i43.i, i64 %call78.i
   store i8 0, ptr %arrayidx.i46.i, align 1
   br label %if.end35
@@ -945,12 +939,12 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_ensure_utf8(ptr nocapture noundef readonly %line, ptr nocapture noundef readonly %tok) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr nocapture noundef readonly %line, ptr nocapture noundef readonly %tok) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %line, align 1
   %tobool.not17 = icmp eq i8 %0, 0
@@ -1051,16 +1045,22 @@ return:                                           ; preds = %for.inc, %entry, %i
   ret i32 %retval.0
 }
 
-declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
-declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #3
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
@@ -1075,11 +1075,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

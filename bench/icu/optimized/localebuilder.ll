@@ -623,7 +623,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 do.body.i.i:                                      ; preds = %if.else.i.i
   %conv.i.i = sext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %language_.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %language_.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %language_.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx12.i.i, align 1
   br label %_ZN6icu_7513LocaleBuilder11setLanguageENS_11StringPieceE.exit
@@ -657,7 +657,7 @@ if.else.i.i12:                                    ; preds = %if.end.i.i10
 
 do.body.i.i15:                                    ; preds = %if.else.i.i12
   %conv.i.i16 = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %script_.i, ptr align 1 %7, i64 %conv.i.i16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %script_.i, ptr align 1 %7, i64 %conv.i.i16, i1 false)
   %arrayidx12.i.i17 = getelementptr inbounds i8, ptr %script_.i, i64 %conv.i.i16
   store i8 0, ptr %arrayidx12.i.i17, align 1
   br label %_ZN6icu_7513LocaleBuilder9setScriptENS_11StringPieceE.exit
@@ -691,7 +691,7 @@ if.else.i.i25:                                    ; preds = %if.end.i.i23
 
 do.body.i.i28:                                    ; preds = %if.else.i.i25
   %conv.i.i29 = sext i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %region_.i, ptr align 1 %11, i64 %conv.i.i29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %region_.i, ptr align 1 %11, i64 %conv.i.i29, i1 false)
   %arrayidx12.i.i30 = getelementptr inbounds i8, ptr %region_.i, i64 %conv.i.i29
   store i8 0, ptr %arrayidx12.i.i30, align 1
   br label %_ZN6icu_7513LocaleBuilder9setRegionENS_11StringPieceE.exit
@@ -789,7 +789,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 do.body.i:                                        ; preds = %if.else.i
   %conv.i = sext i32 %language.coerce1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %language_, ptr align 1 %language.coerce0, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %language_, ptr align 1 %language.coerce0, i64 %conv.i, i1 false)
   %arrayidx12.i = getelementptr inbounds i8, ptr %language_, i64 %conv.i
   store i8 0, ptr %arrayidx12.i, align 1
   br label %_ZN6icu_75L8setFieldENS_11StringPieceEPcR10UErrorCodePFaPKciE.exit
@@ -828,7 +828,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 do.body.i:                                        ; preds = %if.else.i
   %conv.i = sext i32 %script.coerce1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %script_, ptr align 1 %script.coerce0, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %script_, ptr align 1 %script.coerce0, i64 %conv.i, i1 false)
   %arrayidx12.i = getelementptr inbounds i8, ptr %script_, i64 %conv.i
   store i8 0, ptr %arrayidx12.i, align 1
   br label %_ZN6icu_75L8setFieldENS_11StringPieceEPcR10UErrorCodePFaPKciE.exit
@@ -865,7 +865,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 do.body.i:                                        ; preds = %if.else.i
   %conv.i = sext i32 %region.coerce1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %region_, ptr align 1 %region.coerce0, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %region_, ptr align 1 %region.coerce0, i64 %conv.i, i1 false)
   %arrayidx12.i = getelementptr inbounds i8, ptr %region_, i64 %conv.i
   store i8 0, ptr %arrayidx12.i, align 1
   br label %_ZN6icu_75L8setFieldENS_11StringPieceEPcR10UErrorCodePFaPKciE.exit
@@ -2788,7 +2788,7 @@ declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 deref
 declare void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZNK6icu_7513LocaleBuilder11copyErrorToER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %outErrorCode) local_unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513LocaleBuilder11copyErrorToER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %outErrorCode) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i32, ptr %outErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

@@ -222,7 +222,7 @@ return:                                           ; preds = %rc2_magic_to_meth.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef writeonly %ptr) #1 {
+define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef writeonly %ptr) #1 {
 entry:
   switch i32 %type, label %return [
     i32 0, label %sw.bb

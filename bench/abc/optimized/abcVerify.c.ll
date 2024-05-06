@@ -243,7 +243,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
 
 24:                                               ; preds = %.lr.ph97
   %25 = icmp eq i32 %.094, -1
-  %26 = trunc i64 %indvars.iv114 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv114 to i32
   %spec.select = select i1 %25, i32 %26, i32 %.094
   %27 = getelementptr i8, ptr %.val81124, i64 8
   %.val82.val = load ptr, ptr %27, align 8
@@ -1232,7 +1232,7 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
   %51 = getelementptr i8, ptr %46, i64 124
   %.val68 = load i32, ptr %51, align 4
   %52 = call i32 @Abc_AigLevel(ptr noundef %46) #14
-  %53 = trunc i64 %45 to i32
+  %53 = trunc nuw nsw i64 %45 to i32
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %53, i32 noundef %.val63, i32 noundef %.val67.val, i32 noundef %.val66.val, i32 noundef %.val68, i32 noundef %52)
   %55 = load ptr, ptr @stdout, align 8
   %56 = call i32 @fflush(ptr noundef %55)
@@ -1474,7 +1474,7 @@ define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 declare ptr @Abc_NtkFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Fraig_ParamsStruct_t_, align 8
   %7 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %8 = icmp eq ptr %7, null
@@ -1661,7 +1661,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   %.0206312.us = phi i32 [ %.2208.us, %..critedge_crit_edge.us ], [ 0, %.preheader293.lr.ph.split.us ]
   %.0218310.us = phi i32 [ %.2220.us, %..critedge_crit_edge.us ], [ -1, %.preheader293.lr.ph.split.us ]
   %.0221309.us = phi i32 [ %.2223.us, %..critedge_crit_edge.us ], [ -1, %.preheader293.lr.ph.split.us ]
-  %25 = trunc i64 %indvars.iv385 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv385 to i32
   br label %26
 
 26:                                               ; preds = %.preheader293.us, %55
@@ -1703,7 +1703,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   %51 = zext i1 %50 to i32
   %52 = icmp ne i32 %44, 0
   %53 = zext i1 %52 to i32
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   br label %55
 
 55:                                               ; preds = %49, %46, %26
@@ -2019,7 +2019,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 198:                                              ; preds = %.lr.ph370, %.critedge18
   %indvars.iv415 = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next416, %.critedge18 ]
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
-  %199 = trunc i64 %indvars.iv.next416 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv.next416 to i32
   %200 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %199)
   %201 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48)
   %.0227.val273351 = load ptr, ptr %115, align 8
@@ -2488,7 +2488,7 @@ define void @Abc_NtkGetSeqPoSupp(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %74 = getelementptr inbounds ptr, ptr %.val73.val, i64 %indvars.iv111
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 64
-  %77 = trunc i64 %indvars.iv111 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv111 to i32
   br label %78
 
 78:                                               ; preds = %.lr.ph93, %89
@@ -2762,7 +2762,7 @@ declare i32 @Saig_ManVerifyCex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkIsValidCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Abc_NtkIsValidCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -2786,7 +2786,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2805,7 +2805,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2816,19 +2816,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
@@ -2854,8 +2854,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

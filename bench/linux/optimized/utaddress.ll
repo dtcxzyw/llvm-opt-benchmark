@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_add_address_range(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ut_add_address_range(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ugt i8 %0, 1
   br i1 %6, label %25, label %7
@@ -118,10 +118,10 @@ define dso_local i32 @acpi_ut_check_address_range(i8 noundef zeroext %0, i64 nou
 14:                                               ; preds = %6
   %15 = icmp eq i8 %3, 0
   %16 = lshr i64 %1, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = trunc i64 %1 to i32
   %19 = lshr i64 %11, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %11 to i32
   br i1 %15, label %.split.us, label %.split
 
@@ -169,11 +169,11 @@ define dso_local i32 @acpi_ut_check_address_range(i8 noundef zeroext %0, i64 nou
   %50 = tail call ptr @acpi_ut_get_region_name(i8 noundef zeroext %0) #4
   %51 = load i64, ptr %42, align 8
   %52 = lshr i64 %51, 32
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   %54 = trunc i64 %51 to i32
   %55 = load i64, ptr %38, align 8
   %56 = lshr i64 %55, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %55 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 204, ptr noundef nonnull @.str, ptr noundef %50, i32 noundef %17, i32 noundef %18, i32 noundef %20, i32 noundef %21, i32 noundef %53, i32 noundef %54, i32 noundef %57, i32 noundef %58, ptr noundef %49) #4
   tail call void @kfree(ptr noundef %49) #4

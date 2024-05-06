@@ -82,7 +82,7 @@ define dso_local noundef ptr @statext_mcv_build(ptr noundef %0, double noundef %
 26:                                               ; preds = %11
   %27 = getelementptr inbounds i8, ptr %14, i64 24
   %28 = load i32, ptr %27, align 8
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @multi_sort_add_dimension(ptr noundef %8, i32 noundef %29, i32 noundef %19, i32 noundef %28) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -197,7 +197,7 @@ build_distinct_groups.exit:                       ; preds = %53, %count_distinct
   br i1 %69, label %thread-pre-split, label %72
 
 thread-pre-split:                                 ; preds = %.lr.ph
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %70, ptr %4, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.critedge, label %thread-pre-split.thread
@@ -281,7 +281,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 116:                                              ; preds = %111
   %117 = icmp slt i32 %113, 0
-  %118 = sub i32 0, %113
+  %118 = sub nsw i32 0, %113
   br i1 %117, label %.sort_item_compare.exit.thread.us_crit_edge.i, label %sort_item_compare.exit.us.i
 
 .sort_item_compare.exit.thread.us_crit_edge.i:    ; preds = %116
@@ -2663,7 +2663,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   br label %222
 
 204:                                              ; preds = %191
-  %205 = trunc i8 %.0235280 to i1
+  %205 = trunc nuw i8 %.0235280 to i1
   br i1 %200, label %206, label %207
 
 206:                                              ; preds = %204
@@ -2681,7 +2681,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %214 = icmp ne i64 %213, 0
   %215 = load i8, ptr %157, align 4
   %216 = trunc i8 %215 to i1
-  %217 = trunc i8 %.0235280 to i1
+  %217 = trunc nuw i8 %.0235280 to i1
   br i1 %216, label %218, label %220
 
 218:                                              ; preds = %208
@@ -3120,7 +3120,7 @@ declare ptr @multi_sort_init(i32 noundef) local_unnamed_addr #1
 declare void @multi_sort_add_dimension(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_sort_item_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #9 {
+define internal range(i32 -1, 2) i32 @compare_sort_item_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16

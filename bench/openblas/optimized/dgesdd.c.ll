@@ -152,7 +152,7 @@ define void @dgesdd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %100, label %101, label %235
 
 101:                                              ; preds = %93
-  %102 = mul nsw i32 %63, 3
+  %102 = mul nuw nsw i32 %63, 3
   %103 = add nuw i32 %102, 4
   %104 = select i1 %57, i32 7, i32 %103
   %105 = mul i32 %104, %63
@@ -349,7 +349,7 @@ define void @dgesdd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %99, label %236, label %370
 
 236:                                              ; preds = %235
-  %237 = mul nsw i32 %60, 3
+  %237 = mul nuw nsw i32 %60, 3
   %238 = add nuw i32 %237, 4
   %239 = select i1 %57, i32 7, i32 %238
   %240 = mul i32 %239, %60

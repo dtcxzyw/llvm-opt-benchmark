@@ -920,7 +920,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [53 x i8] c"thread is not supported for isolated subinterpreters\00", align 1
 @.str.23 = private unnamed_addr constant [48 x i8] c"can't create new thread at interpreter shutdown\00", align 1
 @.str.24 = private unnamed_addr constant [23 x i8] c"can't start new thread\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_SystemExit = external local_unnamed_addr global ptr, align 8
 @.str.25 = private unnamed_addr constant [42 x i8] c"Exception ignored in thread started by %R\00", align 1
 @.str.26 = private unnamed_addr constant [33 x i8] c"thread function must be callable\00", align 1
@@ -1970,7 +1970,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_start_new_thread(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef %joinable, ptr noundef %ident, ptr noundef %handle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_new_thread(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef %joinable, ptr noundef %ident, ptr noundef %handle) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2448,7 +2448,7 @@ declare i32 @_PyFile_Flush(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @thread_module_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @thread_module_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -2861,7 +2861,7 @@ declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 define internal ptr @lock_PyThread_acquire_lock(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout), !range !5
+  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2951,7 +2951,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef %timeout) unnamed_addr #0 {
 entry:
   %kwlist = alloca [3 x ptr], align 16
   %blocking = alloca i32, align 4
@@ -3187,7 +3187,7 @@ return:                                           ; preds = %if.then, %do.end
 define internal ptr @rlock_acquire(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout), !range !5
+  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -3837,7 +3837,7 @@ if.then.i39:                                      ; preds = %PyMutex_LockFlags.e
 
 PyMutex_Unlock.exit41:                            ; preds = %PyMutex_LockFlags.exit38, %if.then.i39
   %tobool26.not = icmp eq ptr %call38, null
-  br i1 %tobool26.not, label %if.end41, label %while.body, !llvm.loop !6
+  br i1 %tobool26.not, label %if.end41, label %while.body, !llvm.loop !5
 
 if.end41:                                         ; preds = %PyMutex_Unlock.exit41, %PyMutex_Unlock.exit, %do.end21
   ret i32 0
@@ -4350,6 +4350,5 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

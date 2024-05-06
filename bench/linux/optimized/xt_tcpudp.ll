@@ -188,7 +188,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @tcp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @tcp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 11
@@ -284,7 +284,7 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @udp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @udp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -378,7 +378,7 @@ define internal zeroext i1 @icmp_match(ptr noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @icmp_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @icmp_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 3
@@ -463,7 +463,7 @@ define internal zeroext i1 @icmp6_match(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @icmp6_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @icmp6_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 3

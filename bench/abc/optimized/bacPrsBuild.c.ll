@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [38 x i8] c"Network with name %s already exists.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Psr_ManIsMapped(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Psr_ManIsMapped(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Abc_FrameReadLibGen() #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge, label %.preheader
@@ -178,7 +178,7 @@ define void @Psr_ManRemapOne(ptr nocapture noundef readonly %0, ptr nocapture no
   %.val65 = load ptr, ptr %7, align 8
   %12 = sext i32 %10 to i64
   %13 = getelementptr inbounds i32, ptr %.val65, i64 %12
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %14, ptr %13, align 4
   %.val60 = load i32, ptr %5, align 4
   %15 = sext i32 %.val60 to i64
@@ -207,7 +207,7 @@ define void @Psr_ManRemapOne(ptr nocapture noundef readonly %0, ptr nocapture no
 24:                                               ; preds = %21
   %.val61 = load i32, ptr %5, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %25 = trunc i64 %indvars.iv.next90 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.next90 to i32
   %26 = add i32 %.val61, %25
   %.val66 = load ptr, ptr %20, align 8
   %27 = sext i32 %23 to i64
@@ -644,7 +644,7 @@ Bac_NtkStartNames.exit:                           ; preds = %23, %Vec_IntGrow.ex
   br i1 %.not306, label %41, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37, i32 noundef %39)
   br label %41
 
@@ -1507,7 +1507,7 @@ Vec_IntSetEntry.exit:                             ; preds = %392, %._crit_edge.i
   %Psr_BoxSignals.V.val312 = phi i32 [ %Psr_BoxSignals.V.val312763, %378 ], [ %Psr_BoxSignals.V.val312.pre, %Vec_IntSetEntry.exit ]
   %Psr_BoxSignals.V.val338760 = phi ptr [ %Psr_BoxSignals.V.val338, %378 ], [ %Psr_BoxSignals.V.val338.pre, %Vec_IntSetEntry.exit ]
   %indvars.iv.next733 = add nuw nsw i64 %indvars.iv732, 2
-  %429 = trunc i64 %indvars.iv.next733 to i32
+  %429 = trunc nuw i64 %indvars.iv.next733 to i32
   %430 = icmp sgt i32 %Psr_BoxSignals.V.val312, %429
   br i1 %430, label %378, label %.critedge4, !llvm.loop !23
 
@@ -2185,7 +2185,7 @@ Bac_ObjAlloc.exit556:                             ; preds = %.Vec_IntGrow.exit10
   %729 = phi i32 [ %.pre774, %Bac_ObjAlloc.exit556 ], [ %667, %.lr.ph696 ]
   %.3268 = phi i32 [ %spec.select, %Bac_ObjAlloc.exit556 ], [ %.1266694, %.lr.ph696 ]
   %.2 = phi i32 [ %727, %Bac_ObjAlloc.exit556 ], [ %.1695, %.lr.ph696 ]
-  %730 = trunc i64 %661 to i32
+  %730 = trunc nuw nsw i64 %661 to i32
   %731 = sub i32 %654, %730
   %732 = load i32, ptr %71, align 4
   %.not.i.not.i557 = icmp sgt i32 %732, %664
@@ -2837,7 +2837,7 @@ Bac_ObjAlloc.exit622:                             ; preds = %.Vec_IntGrow.exit10
   %1003 = phi i32 [ %.pre777, %Bac_ObjAlloc.exit622 ], [ %887, %.lr.ph703 ]
   %.10275 = phi i32 [ %spec.select308, %Bac_ObjAlloc.exit622 ], [ %.8273701, %.lr.ph703 ]
   %.7 = phi i32 [ %1001, %Bac_ObjAlloc.exit622 ], [ %.6702, %.lr.ph703 ]
-  %1004 = trunc i64 %881 to i32
+  %1004 = trunc nuw nsw i64 %881 to i32
   %1005 = sub i32 %874, %1004
   %1006 = load i32, ptr %71, align 4
   %.not.i.not.i638 = icmp sgt i32 %1006, %884
@@ -3668,10 +3668,10 @@ Psr_ManRoot.exit:                                 ; preds = %2, %6
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit.i, label %12
 
 12:                                               ; preds = %Psr_ManRoot.exit
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %14 = add i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #18
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #16
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %12, %Psr_ManRoot.exit

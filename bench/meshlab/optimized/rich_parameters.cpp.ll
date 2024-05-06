@@ -1830,7 +1830,7 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
 
 613:                                              ; preds = %.preheader
   store ptr %612, ptr %66, align 8
-  %614 = trunc i64 %indvars.iv to i32
+  %614 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %67, i32 noundef %614, i32 noundef 10)
           to label %615 unwind label %648
 

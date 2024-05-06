@@ -243,7 +243,7 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal i32 @linear_prepare_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @linear_prepare_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

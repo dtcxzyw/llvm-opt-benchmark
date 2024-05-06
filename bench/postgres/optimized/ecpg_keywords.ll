@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ScanECPGKeywords_hash_func.h = internal unnamed_addr constant [83 x i8] c"\00\18\7F\7F\03\0D\EB\7F\00\14\02\12\18 \7F\00\7F\7F\16\7F\7F\7F\E9\7F\7F\00\7F\7F\7F\F8\16\01\00\07\00\06\10\22\7F\7F\10\00,\7F\7F\7F\F4\7F\15\12\00\7F\F7\1C\07\04\7F\1A\7F\0E\7F\F8\7F\1D\7F\00\00&\7F\09\19\00\00\7F\0F\14\7F\07\FF\05\13\7F\0B", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ScanECPGKeywordLookup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 65536) i32 @ScanECPGKeywordLookup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @ScanKeywordLookup(ptr noundef %0, ptr noundef nonnull @ScanKeywords) #3
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %4, label %7
@@ -48,7 +48,7 @@ define dso_local i32 @ScanECPGKeywordLookup(ptr noundef %0) local_unnamed_addr #
 declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ScanECPGKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #2 {
+define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #2 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

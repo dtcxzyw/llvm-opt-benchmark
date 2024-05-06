@@ -180,7 +180,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN11conformance18ConformanceRequestC2Ev.exit:    ; preds = %entry, %if.then.i.i.i.i
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 17, i1 false)
   store i32 0, ptr getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 52), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN11conformance37_ConformanceRequest_default_instance_E)
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 1), align 8
@@ -887,7 +887,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %conv.i.i = trunc i64 %0 to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %1, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -897,7 +897,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add8 = add i64 %add.i.i, %conv.i.i.i
   %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %call4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ %conv.i, %entry ], [ %add8, %for.body ]
@@ -2660,7 +2660,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141.thread: ; preds = %if.th
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141.thread, %if.end54, %if.end95, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN11conformance18JspbEncodingConfigEEEPKcPT_S7_.exit
   %ptr.addr.0.be = phi ptr [ %call185, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %69, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141 ], [ %call149, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ %call126, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN11conformance18JspbEncodingConfigEEEPKcPT_S7_.exit ], [ %retval.0.i.i61190, %if.end95 ], [ %call68, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit ], [ %retval.0.i.i38185, %if.end54 ], [ %call28, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ %call11, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ %retval.0.i.i135.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141.thread ]
-  br label %while.cond, !llvm.loop !11
+  br label %while.cond, !llvm.loop !10
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141: ; preds = %if.end.i.i125
   %call.i.i.i133 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %retval.0.i180, i32 noundef %add.i.i130)
@@ -2814,8 +2814,8 @@ lor.rhs.i:                                        ; preds = %if.then5
   %12 = load ptr, ptr %stream, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %target.addr.0 to i64
-  %reass.sub214 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub3.i = add i64 %reass.sub214, 14
+  %reass.sub235 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub3.i = add i64 %reass.sub235, 14
   %cmp4.i = icmp slt i64 %sub3.i, %11
   br i1 %cmp4.i, label %if.then.i51, label %if.end.i
 
@@ -2848,11 +2848,11 @@ if.then15:                                        ; preds = %if.end13
 
 if.then.i52:                                      ; preds = %if.then15
   %call.i53 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.1)
-  %.pr211 = load i32, ptr %requested_output_format_.i.i, align 8
+  %.pr232 = load i32, ptr %requested_output_format_.i.i, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.then15, %if.then.i52
-  %16 = phi i32 [ %14, %if.then15 ], [ %.pr211, %if.then.i52 ]
+  %16 = phi i32 [ %14, %if.then15 ], [ %.pr232, %if.then.i52 ]
   %retval.0.i54 = phi ptr [ %target.addr.1, %if.then15 ], [ %call.i53, %if.then.i52 ]
   store i8 24, ptr %retval.0.i54, align 1
   %add.ptr.i.i56 = getelementptr inbounds i8, ptr %retval.0.i54, i64 1
@@ -2893,7 +2893,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
   %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
-  br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !12
+  br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !11
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
@@ -2924,8 +2924,8 @@ lor.rhs.i64:                                      ; preds = %if.then23
   %23 = load ptr, ptr %stream, align 8
   %sub.ptr.lhs.cast.i65 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i66 = ptrtoint ptr %target.addr.2 to i64
-  %reass.sub215 = sub i64 %sub.ptr.lhs.cast.i65, %sub.ptr.rhs.cast.i66
-  %sub3.i67 = add i64 %reass.sub215, 14
+  %reass.sub236 = sub i64 %sub.ptr.lhs.cast.i65, %sub.ptr.rhs.cast.i66
+  %sub3.i67 = add i64 %reass.sub236, 14
   %cmp4.i68 = icmp slt i64 %sub3.i67, %22
   br i1 %cmp4.i68, label %if.then.i76, label %if.end.i69
 
@@ -2958,11 +2958,11 @@ if.then35:                                        ; preds = %if.end32
 
 if.then.i80:                                      ; preds = %if.then35
   %call.i81 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.3)
-  %.pr212 = load i32, ptr %test_category_.i.i, align 4
+  %.pr233 = load i32, ptr %test_category_.i.i, align 4
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit83
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit83: ; preds = %if.then35, %if.then.i80
-  %27 = phi i32 [ %25, %if.then35 ], [ %.pr212, %if.then.i80 ]
+  %27 = phi i32 [ %25, %if.then35 ], [ %.pr233, %if.then.i80 ]
   %retval.0.i82 = phi ptr [ %target.addr.3, %if.then35 ], [ %call.i81, %if.then.i80 ]
   store i8 40, ptr %retval.0.i82, align 1
   %add.ptr.i.i85 = getelementptr inbounds i8, ptr %retval.0.i82, i64 1
@@ -3003,7 +3003,7 @@ do.body.i.i.i95:                                  ; preds = %do.body.i.i.i95, %i
   %shr11.i.i.i99 = lshr i64 %value.addr.i.0.i.i97, 7
   %incdec.ptr12.i.i.i100 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i96, i64 1
   %cmp13.i.i.i101 = icmp ugt i64 %value.addr.i.0.i.i97, 16383
-  br i1 %cmp13.i.i.i101, label %do.body.i.i.i95, label %do.end.i.i.i102, !llvm.loop !12
+  br i1 %cmp13.i.i.i101, label %do.body.i.i.i95, label %do.end.i.i.i102, !llvm.loop !11
 
 do.end.i.i.i102:                                  ; preds = %do.body.i.i.i95
   %conv15.i.i.i103 = trunc nuw nsw i64 %shr11.i.i.i99 to i8
@@ -3073,7 +3073,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
   %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
-  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !13
+  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !12
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
@@ -3151,8 +3151,8 @@ lor.rhs.i150:                                     ; preds = %if.then47
   %48 = load ptr, ptr %stream, align 8
   %sub.ptr.lhs.cast.i151 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i152 = ptrtoint ptr %target.addr.5 to i64
-  %reass.sub216 = sub i64 %sub.ptr.lhs.cast.i151, %sub.ptr.rhs.cast.i152
-  %sub3.i153 = add i64 %reass.sub216, 14
+  %reass.sub237 = sub i64 %sub.ptr.lhs.cast.i151, %sub.ptr.rhs.cast.i152
+  %sub3.i153 = add i64 %reass.sub237, 14
   %cmp4.i154 = icmp slt i64 %sub3.i153, %47
   br i1 %cmp4.i154, label %if.then.i163, label %if.end.i155
 
@@ -3173,11 +3173,11 @@ if.end.i155:                                      ; preds = %lor.rhs.i150
 
 if.end56thread-pre-split:                         ; preds = %if.then.i163, %if.end.i155
   %target.addr.6.ph = phi ptr [ %add.ptr.i161, %if.end.i155 ], [ %call6.i164, %if.then.i163 ]
-  %.pr213 = load i32, ptr %_oneof_case_.i.i, align 4
+  %.pr234 = load i32, ptr %_oneof_case_.i.i, align 4
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56thread-pre-split, %if.end45
-  %50 = phi i32 [ %.pr213, %if.end56thread-pre-split ], [ %41, %if.end45 ]
+  %50 = phi i32 [ %.pr234, %if.end56thread-pre-split ], [ %41, %if.end45 ]
   %target.addr.6 = phi ptr [ %target.addr.6.ph, %if.end56thread-pre-split ], [ %target.addr.5, %if.end45 ]
   %cmp.i167 = icmp eq i32 %50, 8
   br i1 %cmp.i167, label %if.then58, label %if.end67
@@ -3203,8 +3203,8 @@ lor.rhs.i183:                                     ; preds = %if.then58
   %57 = load ptr, ptr %stream, align 8
   %sub.ptr.lhs.cast.i184 = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i185 = ptrtoint ptr %target.addr.6 to i64
-  %reass.sub217 = sub i64 %sub.ptr.lhs.cast.i184, %sub.ptr.rhs.cast.i185
-  %sub3.i186 = add i64 %reass.sub217, 14
+  %reass.sub238 = sub i64 %sub.ptr.lhs.cast.i184, %sub.ptr.rhs.cast.i185
+  %sub3.i186 = add i64 %reass.sub238, 14
   %cmp4.i187 = icmp slt i64 %sub3.i186, %56
   br i1 %cmp4.i187, label %if.then.i196, label %if.end.i188
 
@@ -3237,21 +3237,21 @@ if.then71:                                        ; preds = %if.end67
 
 if.then.i200:                                     ; preds = %if.then71
   %call.i201 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.7)
-  %.pre218 = load i8, ptr %print_unknown_fields_.i.i, align 8
+  %.pre239 = load i8, ptr %print_unknown_fields_.i.i, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit203
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit203: ; preds = %if.then71, %if.then.i200
-  %61 = phi i8 [ %.pre218, %if.then.i200 ], [ %59, %if.then71 ]
+  %61 = phi i8 [ %.pre239, %if.then.i200 ], [ %59, %if.then71 ]
   %retval.0.i202 = phi ptr [ %call.i201, %if.then.i200 ], [ %target.addr.7, %if.then71 ]
   store i8 72, ptr %retval.0.i202, align 1
   %add.ptr.i.i205 = getelementptr inbounds i8, ptr %retval.0.i202, i64 1
-  %conv.i.i207 = and i8 %61, 1
-  store i8 %conv.i.i207, ptr %add.ptr.i.i205, align 1
-  %add.ptr.i.i209 = getelementptr inbounds i8, ptr %retval.0.i202, i64 2
+  %conv.i.i208 = and i8 %61, 1
+  store i8 %conv.i.i208, ptr %add.ptr.i.i205, align 1
+  %add.ptr.i.i231 = getelementptr inbounds i8, ptr %retval.0.i202, i64 2
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit203, %if.end67
-  %target.addr.8 = phi ptr [ %add.ptr.i.i209, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit203 ], [ %target.addr.7, %if.end67 ]
+  %target.addr.8 = phi ptr [ %add.ptr.i.i231, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit203 ], [ %target.addr.7, %if.end67 ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %62 = load ptr, ptr %_internal_metadata_, align 8
   %63 = ptrtoint ptr %62 to i64
@@ -3284,7 +3284,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i.i = trunc i64 %1 to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %2, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -3331,7 +3331,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11conformance18JspbEn
   %conv.i.pre-phi.i = phi i32 [ %.pre.i, %if.then4.i.i ], [ %conv.i.i.i19, %if.end7.i.i ]
   %retval.0.i.i = phi i64 [ %call6.i.i, %if.then4.i.i ], [ %spec.select.i.i, %if.end7.i.i ]
   %or.i.i.i13 = or i32 %conv.i.pre-phi.i, 1
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i13, i1 true), !range !9
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i13, i1 true)
   %xor.i.i.i.i14 = xor i32 %8, 31
   %mul.i.i.i15 = mul nuw nsw i32 %xor.i.i.i.i14, 9
   %add.i.i.i16 = add nuw nsw i32 %mul.i.i.i15, 73
@@ -3355,7 +3355,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.else.i.i:                                      ; preds = %if.then14
   %or.i.i.i20 = or i32 %9, 1
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true), !range !9
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true)
   %xor.i.i.i.i21 = xor i32 %10, 31
   %mul.i.i.i22 = mul nuw nsw i32 %xor.i.i.i.i21, 9
   %add.i.i.i23 = add nuw nsw i32 %mul.i.i.i22, 73
@@ -3382,7 +3382,7 @@ if.then22:                                        ; preds = %if.end19
 
 if.else.i.i28:                                    ; preds = %if.then22
   %or.i.i.i29 = or i32 %12, 1
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i29, i1 true), !range !9
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i29, i1 true)
   %xor.i.i.i.i30 = xor i32 %13, 31
   %mul.i.i.i31 = mul nuw nsw i32 %xor.i.i.i.i30, 9
   %add.i.i.i32 = add nuw nsw i32 %mul.i.i.i31, 73
@@ -3419,7 +3419,7 @@ sw.bb:                                            ; preds = %if.end27
   %18 = load i64, ptr %_M_string_length.i.i38, align 8
   %conv.i.i39 = trunc i64 %18 to i32
   %or.i.i.i40 = or i32 %conv.i.i39, 1
-  %19 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i40, i1 true), !range !9
+  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i40, i1 true)
   %xor.i.i.i.i41 = xor i32 %19, 31
   %mul.i.i.i42 = mul nuw nsw i32 %xor.i.i.i.i41, 9
   %add.i.i.i43 = add nuw nsw i32 %mul.i.i.i42, 73
@@ -3437,7 +3437,7 @@ sw.bb38:                                          ; preds = %if.end27
   %21 = load i64, ptr %_M_string_length.i.i51, align 8
   %conv.i.i52 = trunc i64 %21 to i32
   %or.i.i.i53 = or i32 %conv.i.i52, 1
-  %22 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true), !range !9
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true)
   %xor.i.i.i.i54 = xor i32 %22, 31
   %mul.i.i.i55 = mul nuw nsw i32 %xor.i.i.i.i54, 9
   %add.i.i.i56 = add nuw nsw i32 %mul.i.i.i55, 73
@@ -3455,7 +3455,7 @@ sw.bb43:                                          ; preds = %if.end27
   %24 = load i64, ptr %_M_string_length.i.i64, align 8
   %conv.i.i65 = trunc i64 %24 to i32
   %or.i.i.i66 = or i32 %conv.i.i65, 1
-  %25 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i66, i1 true), !range !9
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i66, i1 true)
   %xor.i.i.i.i67 = xor i32 %25, 31
   %mul.i.i.i68 = mul nuw nsw i32 %xor.i.i.i.i67, 9
   %add.i.i.i69 = add nuw nsw i32 %mul.i.i.i68, 73
@@ -3473,7 +3473,7 @@ sw.bb48:                                          ; preds = %if.end27
   %27 = load i64, ptr %_M_string_length.i.i77, align 8
   %conv.i.i78 = trunc i64 %27 to i32
   %or.i.i.i79 = or i32 %conv.i.i78, 1
-  %28 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i79, i1 true), !range !9
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i79, i1 true)
   %xor.i.i.i.i80 = xor i32 %28, 31
   %mul.i.i.i81 = mul nuw nsw i32 %xor.i.i.i.i80, 9
   %add.i.i.i82 = add nuw nsw i32 %mul.i.i.i81, 73
@@ -5362,7 +5362,7 @@ _ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11
 
 while.cond.backedge:                              ; preds = %_ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11conformance19ConformanceResponse29_internal_mutable_parse_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse31_internal_mutable_runtime_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_json_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse25_internal_mutable_skippedB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse33_internal_mutable_serialize_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_jspb_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_text_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse31_internal_mutable_timeout_errorB5cxx11Ev.exit
   %ptr.addr.0.be = phi ptr [ %call208, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call189, %_ZN11conformance19ConformanceResponse31_internal_mutable_timeout_errorB5cxx11Ev.exit ], [ %call166, %_ZN11conformance19ConformanceResponse30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ %call143, %_ZN11conformance19ConformanceResponse30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ %call120, %_ZN11conformance19ConformanceResponse33_internal_mutable_serialize_errorB5cxx11Ev.exit ], [ %call97, %_ZN11conformance19ConformanceResponse25_internal_mutable_skippedB5cxx11Ev.exit ], [ %call74, %_ZN11conformance19ConformanceResponse30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ %call56, %_ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ %call33, %_ZN11conformance19ConformanceResponse31_internal_mutable_runtime_errorB5cxx11Ev.exit ], [ %call11, %_ZN11conformance19ConformanceResponse29_internal_mutable_parse_errorB5cxx11Ev.exit ]
-  br label %while.cond, !llvm.loop !14
+  br label %while.cond, !llvm.loop !13
 
 sw.bb64:                                          ; preds = %if.end
   %conv66 = and i32 %tag.0189, 255
@@ -6162,7 +6162,7 @@ sw.bb:                                            ; preds = %entry
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %conv.i.i = trunc i64 %2 to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %3, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -6179,7 +6179,7 @@ sw.bb5:                                           ; preds = %entry
   %5 = load i64, ptr %_M_string_length.i.i17, align 8
   %conv.i.i18 = trunc i64 %5 to i32
   %or.i.i.i19 = or i32 %conv.i.i18, 1
-  %6 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i19, i1 true), !range !9
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i19, i1 true)
   %xor.i.i.i.i20 = xor i32 %6, 31
   %mul.i.i.i21 = mul nuw nsw i32 %xor.i.i.i.i20, 9
   %add.i.i.i22 = add nuw nsw i32 %mul.i.i.i21, 73
@@ -6196,7 +6196,7 @@ sw.bb10:                                          ; preds = %entry
   %8 = load i64, ptr %_M_string_length.i.i30, align 8
   %conv.i.i31 = trunc i64 %8 to i32
   %or.i.i.i32 = or i32 %conv.i.i31, 1
-  %9 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i32, i1 true), !range !9
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i32, i1 true)
   %xor.i.i.i.i33 = xor i32 %9, 31
   %mul.i.i.i34 = mul nuw nsw i32 %xor.i.i.i.i33, 9
   %add.i.i.i35 = add nuw nsw i32 %mul.i.i.i34, 73
@@ -6213,7 +6213,7 @@ sw.bb15:                                          ; preds = %entry
   %11 = load i64, ptr %_M_string_length.i.i43, align 8
   %conv.i.i44 = trunc i64 %11 to i32
   %or.i.i.i45 = or i32 %conv.i.i44, 1
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i45, i1 true), !range !9
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i45, i1 true)
   %xor.i.i.i.i46 = xor i32 %12, 31
   %mul.i.i.i47 = mul nuw nsw i32 %xor.i.i.i.i46, 9
   %add.i.i.i48 = add nuw nsw i32 %mul.i.i.i47, 73
@@ -6230,7 +6230,7 @@ sw.bb20:                                          ; preds = %entry
   %14 = load i64, ptr %_M_string_length.i.i56, align 8
   %conv.i.i57 = trunc i64 %14 to i32
   %or.i.i.i58 = or i32 %conv.i.i57, 1
-  %15 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i58, i1 true), !range !9
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i58, i1 true)
   %xor.i.i.i.i59 = xor i32 %15, 31
   %mul.i.i.i60 = mul nuw nsw i32 %xor.i.i.i.i59, 9
   %add.i.i.i61 = add nuw nsw i32 %mul.i.i.i60, 73
@@ -6247,7 +6247,7 @@ sw.bb25:                                          ; preds = %entry
   %17 = load i64, ptr %_M_string_length.i.i69, align 8
   %conv.i.i70 = trunc i64 %17 to i32
   %or.i.i.i71 = or i32 %conv.i.i70, 1
-  %18 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i71, i1 true), !range !9
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i71, i1 true)
   %xor.i.i.i.i72 = xor i32 %18, 31
   %mul.i.i.i73 = mul nuw nsw i32 %xor.i.i.i.i72, 9
   %add.i.i.i74 = add nuw nsw i32 %mul.i.i.i73, 73
@@ -6264,7 +6264,7 @@ sw.bb30:                                          ; preds = %entry
   %20 = load i64, ptr %_M_string_length.i.i82, align 8
   %conv.i.i83 = trunc i64 %20 to i32
   %or.i.i.i84 = or i32 %conv.i.i83, 1
-  %21 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i84, i1 true), !range !9
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i84, i1 true)
   %xor.i.i.i.i85 = xor i32 %21, 31
   %mul.i.i.i86 = mul nuw nsw i32 %xor.i.i.i.i85, 9
   %add.i.i.i87 = add nuw nsw i32 %mul.i.i.i86, 73
@@ -6281,7 +6281,7 @@ sw.bb35:                                          ; preds = %entry
   %23 = load i64, ptr %_M_string_length.i.i95, align 8
   %conv.i.i96 = trunc i64 %23 to i32
   %or.i.i.i97 = or i32 %conv.i.i96, 1
-  %24 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i97, i1 true), !range !9
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i97, i1 true)
   %xor.i.i.i.i98 = xor i32 %24, 31
   %mul.i.i.i99 = mul nuw nsw i32 %xor.i.i.i.i98, 9
   %add.i.i.i100 = add nuw nsw i32 %mul.i.i.i99, 73
@@ -6298,7 +6298,7 @@ sw.bb40:                                          ; preds = %entry
   %26 = load i64, ptr %_M_string_length.i.i108, align 8
   %conv.i.i109 = trunc i64 %26 to i32
   %or.i.i.i110 = or i32 %conv.i.i109, 1
-  %27 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i110, i1 true), !range !9
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i110, i1 true)
   %xor.i.i.i.i111 = xor i32 %27, 31
   %mul.i.i.i112 = mul nuw nsw i32 %xor.i.i.i.i111, 9
   %add.i.i.i113 = add nuw nsw i32 %mul.i.i.i112, 73
@@ -7322,7 +7322,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %if.then.
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
   %ptr.addr.0.be = phi ptr [ %12, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %call24, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %retval.0.i.i8.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ]
-  br label %while.cond, !llvm.loop !15
+  br label %while.cond, !llvm.loop !14
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %if.end.i.i6
   %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %retval.0.i33, i32 noundef %add.i.i)
@@ -8017,7 +8017,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequ
   %message_type_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %message_type_.i.i.i, align 8
   %jspb_encoding_options_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i, i8 0, i64 17, i1 false)
   %_oneof_case_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 60
   store i32 0, ptr %_oneof_case_.i.i.i.i, align 4
   ret ptr %call.i.sink13
@@ -8219,7 +8219,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11conformance18ConformanceRequest
   %message_type_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %message_type_.i.i.i.i, align 8
   %jspb_encoding_options_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i.i, i8 0, i64 17, i1 false)
   %_oneof_case_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 60
   store i32 0, ptr %_oneof_case_.i.i.i.i.i, align 4
   ret ptr %call.i.i
@@ -8758,10 +8758,9 @@ attributes #25 = { noreturn }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

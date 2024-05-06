@@ -112,8 +112,8 @@ new.notnull:                                      ; preds = %entry
           to label %if.end9 unwind label %lpad
 
 if.then7:                                         ; preds = %entry
-  %fRangeList93 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr null, ptr %fRangeList93, align 8
+  %fRangeList94 = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr null, ptr %fRangeList94, align 8
   %fStatus8 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fStatus8, align 8
   store i32 7, ptr %1, align 4
@@ -139,52 +139,52 @@ if.end9:                                          ; preds = %new.notnull
 
 for.cond.preheader:                               ; preds = %if.end9
   %6 = load ptr, ptr %this, align 8
-  %fUSetNodes118 = getelementptr inbounds i8, ptr %6, i64 168
-  %7 = load ptr, ptr %fUSetNodes118, align 8
-  %call18119 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
-  %cmp19120 = icmp eq ptr %call18119, null
-  br i1 %cmp19120, label %for.cond81.preheader, label %if.end21
+  %fUSetNodes119 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = load ptr, ptr %fUSetNodes119, align 8
+  %call18120 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
+  %cmp19121 = icmp eq ptr %call18120, null
+  br i1 %cmp19121, label %for.cond81.preheader, label %if.end21
 
 for.cond81.preheader:                             ; preds = %for.inc, %for.cond.preheader
-  %rlRange.2126 = load ptr, ptr %fRangeList, align 8
-  %cmp82.not127 = icmp eq ptr %rlRange.2126, null
-  %fGroupCount118151 = getelementptr inbounds i8, ptr %this, i64 44
-  br i1 %cmp82.not127, label %for.end117.thread, label %for.cond84.preheader
+  %rlRange.2127 = load ptr, ptr %fRangeList, align 8
+  %cmp82.not128 = icmp eq ptr %rlRange.2127, null
+  %fGroupCount118152 = getelementptr inbounds i8, ptr %this, i64 44
+  br i1 %cmp82.not128, label %for.end117.thread, label %for.cond84.preheader
 
 for.end117.thread:                                ; preds = %for.cond81.preheader
-  %8 = load i32, ptr %fGroupCount118151, align 4
-  %add119152 = add nsw i32 %8, 3
-  %fDictCategoriesStart153 = getelementptr inbounds i8, ptr %this, i64 48
-  store i32 %add119152, ptr %fDictCategoriesStart153, align 8
+  %8 = load i32, ptr %fGroupCount118152, align 4
+  %add119153 = add nsw i32 %8, 3
+  %fDictCategoriesStart154 = getelementptr inbounds i8, ptr %this, i64 48
+  store i32 %add119153, ptr %fDictCategoriesStart154, align 8
   br label %for.end139
 
 if.end21:                                         ; preds = %for.cond.preheader, %for.inc
-  %call18122 = phi ptr [ %call18, %for.inc ], [ %call18119, %for.cond.preheader ]
-  %ni.0121 = phi i32 [ %inc68, %for.inc ], [ 0, %for.cond.preheader ]
-  %fInputSet = getelementptr inbounds i8, ptr %call18122, i64 32
+  %call18123 = phi ptr [ %call18, %for.inc ], [ %call18120, %for.cond.preheader ]
+  %ni.0122 = phi i32 [ %inc68, %for.inc ], [ 0, %for.cond.preheader ]
+  %fInputSet = getelementptr inbounds i8, ptr %call18123, i64 32
   %9 = load ptr, ptr %fInputSet, align 8
   %call22 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeCountEv(ptr noundef nonnull align 8 dereferenceable(200) %9)
-  %cmp25.not115 = icmp sgt i32 %call22, 0
-  br i1 %cmp25.not115, label %for.cond24.outer.split, label %for.inc
+  %cmp25.not116 = icmp sgt i32 %call22, 0
+  br i1 %cmp25.not116, label %for.cond24.outer.split, label %for.inc
 
 for.cond24.outer.split:                           ; preds = %if.end21, %if.end62
-  %rlRange.0.ph117.in = phi ptr [ %fNext67, %if.end62 ], [ %fRangeList, %if.end21 ]
-  %inputSetRangeIndex.0.ph116 = phi i32 [ %spec.select, %if.end62 ], [ 0, %if.end21 ]
-  %rlRange.0.ph117 = load ptr, ptr %rlRange.0.ph117.in, align 8
+  %rlRange.0.ph118.in = phi ptr [ %fNext67, %if.end62 ], [ %fRangeList, %if.end21 ]
+  %inputSetRangeIndex.0.ph117 = phi i32 [ %spec.select, %if.end62 ], [ 0, %if.end21 ]
+  %rlRange.0.ph118 = load ptr, ptr %rlRange.0.ph118.in, align 8
   br label %for.cond24
 
 for.cond24:                                       ; preds = %for.cond24.outer.split, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit
-  %rlRange.0 = phi ptr [ %rlRange.1.lcssa109, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit ], [ %rlRange.0.ph117, %for.cond24.outer.split ]
-  %call28 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeStartEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %inputSetRangeIndex.0.ph116)
-  %call29 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet11getRangeEndEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %inputSetRangeIndex.0.ph116)
-  %fEndChar30110 = getelementptr inbounds i8, ptr %rlRange.0, i64 4
-  %10 = load i32, ptr %fEndChar30110, align 4
-  %cmp31111 = icmp slt i32 %10, %call28
-  br i1 %cmp31111, label %while.body, label %while.end
+  %rlRange.0 = phi ptr [ %rlRange.1.lcssa110, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit ], [ %rlRange.0.ph118, %for.cond24.outer.split ]
+  %call28 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeStartEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %inputSetRangeIndex.0.ph117)
+  %call29 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet11getRangeEndEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %inputSetRangeIndex.0.ph117)
+  %fEndChar30111 = getelementptr inbounds i8, ptr %rlRange.0, i64 4
+  %10 = load i32, ptr %fEndChar30111, align 4
+  %cmp31112 = icmp slt i32 %10, %call28
+  br i1 %cmp31112, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.cond24, %while.body
-  %rlRange.1112 = phi ptr [ %11, %while.body ], [ %rlRange.0, %for.cond24 ]
-  %fNext = getelementptr inbounds i8, ptr %rlRange.1112, i64 24
+  %rlRange.1113 = phi ptr [ %11, %while.body ], [ %rlRange.0, %for.cond24 ]
+  %fNext = getelementptr inbounds i8, ptr %rlRange.1113, i64 24
   %11 = load ptr, ptr %fNext, align 8
   %fEndChar30 = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %fEndChar30, align 4
@@ -192,10 +192,10 @@ while.body:                                       ; preds = %for.cond24, %while.
   br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %for.cond24
-  %rlRange.1.lcssa109 = phi ptr [ %rlRange.0, %for.cond24 ], [ %11, %while.body ]
+  %rlRange.1.lcssa110 = phi ptr [ %rlRange.0, %for.cond24 ], [ %11, %while.body ]
   %.lcssa = phi i32 [ %10, %for.cond24 ], [ %12, %while.body ]
-  %fEndChar30.le = getelementptr inbounds i8, ptr %rlRange.1.lcssa109, i64 4
-  %13 = load i32, ptr %rlRange.1.lcssa109, align 8
+  %fEndChar30.le = getelementptr inbounds i8, ptr %rlRange.1.lcssa110, i64 4
+  %13 = load i32, ptr %rlRange.1.lcssa110, align 8
   %cmp33 = icmp slt i32 %13, %call28
   br i1 %cmp33, label %if.then34, label %if.end41
 
@@ -206,15 +206,15 @@ if.then34:                                        ; preds = %while.end
   br i1 %new.isnull.i, label %if.then.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then34
-  invoke void @_ZN6icu_7515RangeDescriptorC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %rlRange.1.lcssa109, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  invoke void @_ZN6icu_7515RangeDescriptorC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %rlRange.1.lcssa110, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %if.end.i unwind label %lpad.i
 
 if.then.i:                                        ; preds = %if.then34
   store i32 7, ptr %14, align 4
   br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit
 
-common.resume:                                    ; preds = %ehcleanup, %lpad, %lpad.i80, %lpad.i64, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %21, %lpad.i64 ], [ %48, %lpad.i80 ], [ %.pn, %ehcleanup ], [ %2, %lpad ]
+common.resume:                                    ; preds = %ehcleanup, %lpad, %lpad.i81, %lpad.i64, %lpad.i
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %21, %lpad.i64 ], [ %48, %lpad.i81 ], [ %.pn, %ehcleanup ], [ %2, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -237,7 +237,7 @@ if.end4.i:                                        ; preds = %if.end.i
   store i32 %call28, ptr %call.i, align 8
   %sub.i = add nsw i32 %call28, -1
   store i32 %sub.i, ptr %fEndChar30.le, align 4
-  %fNext.i = getelementptr inbounds i8, ptr %rlRange.1.lcssa109, i64 24
+  %fNext.i = getelementptr inbounds i8, ptr %rlRange.1.lcssa110, i64 24
   %17 = load ptr, ptr %fNext.i, align 8
   %fNext5.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %17, ptr %fNext5.i, align 8
@@ -259,15 +259,15 @@ if.then44:                                        ; preds = %if.end41
   %20 = load ptr, ptr %fStatus, align 8
   %call.i61 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #10
   %new.isnull.i62 = icmp eq ptr %call.i61, null
-  br i1 %new.isnull.i62, label %if.then.i72, label %new.notnull.i63
+  br i1 %new.isnull.i62, label %if.then.i73, label %new.notnull.i63
 
 new.notnull.i63:                                  ; preds = %if.then44
-  invoke void @_ZN6icu_7515RangeDescriptorC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call.i61, ptr noundef nonnull align 8 dereferenceable(32) %rlRange.1.lcssa109, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  invoke void @_ZN6icu_7515RangeDescriptorC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call.i61, ptr noundef nonnull align 8 dereferenceable(32) %rlRange.1.lcssa110, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %if.end.i65 unwind label %lpad.i64
 
-if.then.i72:                                      ; preds = %if.then44
+if.then.i73:                                      ; preds = %if.then44
   store i32 7, ptr %20, align 4
-  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73
+  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74
 
 lpad.i64:                                         ; preds = %new.notnull.i63
   %21 = landingpad { ptr, i32 }
@@ -283,51 +283,51 @@ if.end.i65:                                       ; preds = %new.notnull.i63
 delete.notnull.i67:                               ; preds = %if.end.i65
   tail call void @_ZN6icu_7515RangeDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i61) #10
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call.i61) #10
-  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73
+  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74
 
 if.end4.i68:                                      ; preds = %if.end.i65
   store i32 %add, ptr %call.i61, align 8
   store i32 %call29, ptr %fEndChar30.le, align 4
-  %fNext.i70 = getelementptr inbounds i8, ptr %rlRange.1.lcssa109, i64 24
-  %23 = load ptr, ptr %fNext.i70, align 8
-  %fNext5.i71 = getelementptr inbounds i8, ptr %call.i61, i64 24
-  store ptr %23, ptr %fNext5.i71, align 8
-  store ptr %call.i61, ptr %fNext.i70, align 8
-  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73
+  %fNext.i71 = getelementptr inbounds i8, ptr %rlRange.1.lcssa110, i64 24
+  %23 = load ptr, ptr %fNext.i71, align 8
+  %fNext5.i72 = getelementptr inbounds i8, ptr %call.i61, i64 24
+  store ptr %23, ptr %fNext5.i72, align 8
+  store ptr %call.i61, ptr %fNext.i71, align 8
+  br label %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74
 
-_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73: ; preds = %if.then.i72, %delete.notnull.i67, %if.end4.i68
+_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74: ; preds = %if.then.i73, %delete.notnull.i67, %if.end4.i68
   %24 = load ptr, ptr %fStatus, align 8
   %25 = load i32, ptr %24, align 4
-  %cmp.i74 = icmp slt i32 %25, 1
-  br i1 %cmp.i74, label %if.end51, label %return
+  %cmp.i75 = icmp slt i32 %25, 1
+  br i1 %cmp.i75, label %if.end51, label %return
 
-if.end51:                                         ; preds = %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73, %if.end41
-  %fIncludesSets = getelementptr inbounds i8, ptr %rlRange.1.lcssa109, i64 16
+if.end51:                                         ; preds = %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74, %if.end41
+  %fIncludesSets = getelementptr inbounds i8, ptr %rlRange.1.lcssa110, i64 16
   %26 = load ptr, ptr %fIncludesSets, align 8
-  %call52 = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %call18122, i32 noundef 0)
+  %call52 = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %call18123, i32 noundef 0)
   %cmp53 = icmp eq i32 %call52, -1
   br i1 %cmp53, label %if.then54, label %if.end62
 
 if.then54:                                        ; preds = %if.end51
   %27 = load ptr, ptr %fIncludesSets, align 8
   %28 = load ptr, ptr %fStatus, align 8
-  tail call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %call18122, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  tail call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %call18123, ptr noundef nonnull align 4 dereferenceable(4) %28)
   %29 = load ptr, ptr %fStatus, align 8
   %30 = load i32, ptr %29, align 4
-  %cmp.i76 = icmp slt i32 %30, 1
-  br i1 %cmp.i76, label %if.end62, label %return
+  %cmp.i77 = icmp slt i32 %30, 1
+  br i1 %cmp.i77, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.then54, %if.end51
   %31 = load i32, ptr %fEndChar30.le, align 4
   %cmp64 = icmp eq i32 %call29, %31
   %inc = zext i1 %cmp64 to i32
-  %spec.select = add nuw nsw i32 %inputSetRangeIndex.0.ph116, %inc
-  %fNext67 = getelementptr inbounds i8, ptr %rlRange.1.lcssa109, i64 24
+  %spec.select = add nuw nsw i32 %inputSetRangeIndex.0.ph117, %inc
+  %fNext67 = getelementptr inbounds i8, ptr %rlRange.1.lcssa110, i64 24
   %cmp25.not = icmp slt i32 %spec.select, %call22
   br i1 %cmp25.not, label %for.cond24.outer.split, label %for.inc, !llvm.loop !7
 
 for.inc:                                          ; preds = %if.end62, %if.end21
-  %inc68 = add nuw nsw i32 %ni.0121, 1
+  %inc68 = add nuw nsw i32 %ni.0122, 1
   %32 = load ptr, ptr %this, align 8
   %fUSetNodes = getelementptr inbounds i8, ptr %32, i64 168
   %33 = load ptr, ptr %fUSetNodes, align 8
@@ -336,53 +336,53 @@ for.inc:                                          ; preds = %if.end62, %if.end21
   br i1 %cmp19, label %for.cond81.preheader, label %if.end21, !llvm.loop !8
 
 for.cond84.preheader:                             ; preds = %for.cond81.preheader, %for.inc115
-  %rlRange.2129 = phi ptr [ %rlRange.2, %for.inc115 ], [ %rlRange.2126, %for.cond81.preheader ]
-  %dictGroupCount.0128 = phi i32 [ %dictGroupCount.1, %for.inc115 ], [ 0, %for.cond81.preheader ]
-  %rlSearchRange.0123 = load ptr, ptr %fRangeList, align 8
-  %cmp85.not124 = icmp eq ptr %rlSearchRange.0123, %rlRange.2129
-  br i1 %cmp85.not124, label %for.end98, label %for.body86.lr.ph
+  %rlRange.2130 = phi ptr [ %rlRange.2, %for.inc115 ], [ %rlRange.2127, %for.cond81.preheader ]
+  %dictGroupCount.0129 = phi i32 [ %dictGroupCount.1, %for.inc115 ], [ 0, %for.cond81.preheader ]
+  %rlSearchRange.0124 = load ptr, ptr %fRangeList, align 8
+  %cmp85.not125 = icmp eq ptr %rlSearchRange.0124, %rlRange.2130
+  br i1 %cmp85.not125, label %for.end98, label %for.body86.lr.ph
 
 for.body86.lr.ph:                                 ; preds = %for.cond84.preheader
-  %fIncludesSets87 = getelementptr inbounds i8, ptr %rlRange.2129, i64 16
+  %fIncludesSets87 = getelementptr inbounds i8, ptr %rlRange.2130, i64 16
   br label %for.body86
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.inc96
-  %rlSearchRange.0125 = phi ptr [ %rlSearchRange.0123, %for.body86.lr.ph ], [ %rlSearchRange.0, %for.inc96 ]
+  %rlSearchRange.0126 = phi ptr [ %rlSearchRange.0124, %for.body86.lr.ph ], [ %rlSearchRange.0, %for.inc96 ]
   %34 = load ptr, ptr %fIncludesSets87, align 8
-  %fIncludesSets88 = getelementptr inbounds i8, ptr %rlSearchRange.0125, i64 16
+  %fIncludesSets88 = getelementptr inbounds i8, ptr %rlSearchRange.0126, i64 16
   %35 = load ptr, ptr %fIncludesSets88, align 8
   %call89 = tail call noundef signext i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35)
   %tobool90.not = icmp eq i8 %call89, 0
   br i1 %tobool90.not, label %for.inc96, label %if.then91
 
 if.then91:                                        ; preds = %for.body86
-  %fNum = getelementptr inbounds i8, ptr %rlSearchRange.0125, i64 8
+  %fNum = getelementptr inbounds i8, ptr %rlSearchRange.0126, i64 8
   %36 = load i32, ptr %fNum, align 8
-  %fNum92 = getelementptr inbounds i8, ptr %rlRange.2129, i64 8
+  %fNum92 = getelementptr inbounds i8, ptr %rlRange.2130, i64 8
   store i32 %36, ptr %fNum92, align 8
-  %fIncludesDict = getelementptr inbounds i8, ptr %rlSearchRange.0125, i64 12
+  %fIncludesDict = getelementptr inbounds i8, ptr %rlSearchRange.0126, i64 12
   %37 = load i8, ptr %fIncludesDict, align 4
-  %fIncludesDict94 = getelementptr inbounds i8, ptr %rlRange.2129, i64 12
+  %fIncludesDict94 = getelementptr inbounds i8, ptr %rlRange.2130, i64 12
   %frombool = and i8 %37, 1
   store i8 %frombool, ptr %fIncludesDict94, align 4
   br label %for.end98
 
 for.inc96:                                        ; preds = %for.body86
-  %fNext97 = getelementptr inbounds i8, ptr %rlSearchRange.0125, i64 24
+  %fNext97 = getelementptr inbounds i8, ptr %rlSearchRange.0126, i64 24
   %rlSearchRange.0 = load ptr, ptr %fNext97, align 8
-  %cmp85.not = icmp eq ptr %rlSearchRange.0, %rlRange.2129
+  %cmp85.not = icmp eq ptr %rlSearchRange.0, %rlRange.2130
   br i1 %cmp85.not, label %for.end98, label %for.body86, !llvm.loop !9
 
 for.end98:                                        ; preds = %for.inc96, %for.cond84.preheader, %if.then91
-  %fNum99 = getelementptr inbounds i8, ptr %rlRange.2129, i64 8
+  %fNum99 = getelementptr inbounds i8, ptr %rlRange.2130, i64 8
   %38 = load i32, ptr %fNum99, align 8
   %cmp100 = icmp eq i32 %38, 0
   br i1 %cmp100, label %if.then101, label %for.inc115
 
 if.then101:                                       ; preds = %for.end98
-  %fFirstInGroup = getelementptr inbounds i8, ptr %rlRange.2129, i64 13
+  %fFirstInGroup = getelementptr inbounds i8, ptr %rlRange.2130, i64 13
   store i8 1, ptr %fFirstInGroup, align 1
-  %fIncludesSets.i = getelementptr inbounds i8, ptr %rlRange.2129, i64 16
+  %fIncludesSets.i = getelementptr inbounds i8, ptr %rlRange.2130, i64 16
   %39 = load ptr, ptr %fIncludesSets.i, align 8
   %count.i11.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i32, ptr %count.i11.i, align 8
@@ -396,15 +396,15 @@ for.body.i:                                       ; preds = %if.then101, %for.in
   %fParent.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %42 = load ptr, ptr %fParent.i, align 8
   %cmp4.not.i = icmp eq ptr %42, null
-  br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i78
+  br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i79
 
-if.then.i78:                                      ; preds = %for.body.i
+if.then.i79:                                      ; preds = %for.body.i
   %fParent5.i = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load ptr, ptr %fParent5.i, align 8
   %tobool.not.i = icmp eq ptr %43, null
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.then.i78
+land.lhs.true.i:                                  ; preds = %if.then.i79
   %44 = load i32, ptr %43, align 8
   %cmp6.i = icmp eq i32 %44, 2
   br i1 %cmp6.i, label %if.then7.i, label %for.inc.i
@@ -420,75 +420,75 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   %47 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %47, i32 %shr.i.i.i.i
   %call3.i7.i = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fText.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef -1)
-          to label %invoke.cont.i unwind label %lpad.i80
+          to label %invoke.cont.i unwind label %lpad.i81
 
 invoke.cont.i:                                    ; preds = %if.then7.i
   %cmp9.i = icmp eq i8 %call3.i7.i, 0
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6) #10, !srcloc !10
   br i1 %cmp9.i, label %if.then103, label %for.inc.i
 
-lpad.i80:                                         ; preds = %if.then7.i
+lpad.i81:                                         ; preds = %if.then7.i
   %48 = landingpad { ptr, i32 }
           cleanup
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6) #10, !srcloc !10
   br label %common.resume
 
-for.inc.i:                                        ; preds = %invoke.cont.i, %land.lhs.true.i, %if.then.i78, %for.body.i
+for.inc.i:                                        ; preds = %invoke.cont.i, %land.lhs.true.i, %if.then.i79, %for.body.i
   %inc.i = add nuw nsw i32 %i.013.i, 1
   %49 = load ptr, ptr %fIncludesSets.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load i32, ptr %count.i.i, align 8
-  %cmp.i79 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i79, label %for.body.i, label %if.else, !llvm.loop !11
+  %cmp.i80 = icmp slt i32 %inc.i, %50
+  br i1 %cmp.i80, label %for.body.i, label %if.else, !llvm.loop !11
 
 if.then103:                                       ; preds = %invoke.cont.i
-  %inc104 = add nsw i32 %dictGroupCount.0128, 1
+  %inc104 = add nsw i32 %dictGroupCount.0129, 1
   store i32 %inc104, ptr %fNum99, align 8
-  %fIncludesDict106 = getelementptr inbounds i8, ptr %rlRange.2129, i64 12
+  %fIncludesDict106 = getelementptr inbounds i8, ptr %rlRange.2130, i64 12
   store i8 1, ptr %fIncludesDict106, align 4
   br label %for.inc115
 
 if.else:                                          ; preds = %for.inc.i, %if.then101
-  %51 = load i32, ptr %fGroupCount118151, align 4
+  %51 = load i32, ptr %fGroupCount118152, align 4
   %inc107 = add nsw i32 %51, 1
-  store i32 %inc107, ptr %fGroupCount118151, align 4
+  store i32 %inc107, ptr %fGroupCount118152, align 4
   %add109 = add nsw i32 %51, 3
   store i32 %add109, ptr %fNum99, align 8
   %52 = load ptr, ptr %fIncludesSets.i, align 8
-  %count.i.i81 = getelementptr inbounds i8, ptr %52, i64 8
-  %53 = load i32, ptr %count.i.i81, align 8
+  %count.i.i82 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load i32, ptr %count.i.i82, align 8
   %cmp4.i = icmp sgt i32 %53, 0
-  br i1 %cmp4.i, label %for.body.i82, label %for.inc115
+  br i1 %cmp4.i, label %for.body.i83, label %for.inc115
 
-for.body.i82:                                     ; preds = %if.else, %for.body.i82
-  %ix.05.i = phi i32 [ %inc.i83, %for.body.i82 ], [ 0, %if.else ]
+for.body.i83:                                     ; preds = %if.else, %for.body.i83
+  %ix.05.i = phi i32 [ %inc.i84, %for.body.i83 ], [ 0, %if.else ]
   %call2.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %52, i32 noundef %ix.05.i)
-  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %call2.i, i32 noundef %add109)
-  %inc.i83 = add nuw nsw i32 %ix.05.i, 1
-  %54 = load i32, ptr %count.i.i81, align 8
-  %cmp.i84 = icmp slt i32 %inc.i83, %54
-  br i1 %cmp.i84, label %for.body.i82, label %for.inc115, !llvm.loop !12
+  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull readonly align 8 dereferenceable(53) %this, ptr noundef %call2.i, i32 noundef %add109)
+  %inc.i84 = add nuw nsw i32 %ix.05.i, 1
+  %54 = load i32, ptr %count.i.i82, align 8
+  %cmp.i85 = icmp slt i32 %inc.i84, %54
+  br i1 %cmp.i85, label %for.body.i83, label %for.inc115, !llvm.loop !12
 
-for.inc115:                                       ; preds = %for.body.i82, %if.else, %for.end98, %if.then103
-  %dictGroupCount.1 = phi i32 [ %inc104, %if.then103 ], [ %dictGroupCount.0128, %for.end98 ], [ %dictGroupCount.0128, %if.else ], [ %dictGroupCount.0128, %for.body.i82 ]
-  %fNext116 = getelementptr inbounds i8, ptr %rlRange.2129, i64 24
+for.inc115:                                       ; preds = %for.body.i83, %if.else, %for.end98, %if.then103
+  %dictGroupCount.1 = phi i32 [ %inc104, %if.then103 ], [ %dictGroupCount.0129, %for.end98 ], [ %dictGroupCount.0129, %if.else ], [ %dictGroupCount.0129, %for.body.i83 ]
+  %fNext116 = getelementptr inbounds i8, ptr %rlRange.2130, i64 24
   %rlRange.2 = load ptr, ptr %fNext116, align 8
   %cmp82.not = icmp eq ptr %rlRange.2, null
   br i1 %cmp82.not, label %for.end117, label %for.cond84.preheader, !llvm.loop !13
 
 for.end117:                                       ; preds = %for.inc115
-  %rlRange.3131.pre = load ptr, ptr %fRangeList, align 8
+  %rlRange.3132.pre = load ptr, ptr %fRangeList, align 8
   %fGroupCount118 = getelementptr inbounds i8, ptr %this, i64 44
   %55 = load i32, ptr %fGroupCount118, align 4
   %add119 = add nsw i32 %55, 3
   %fDictCategoriesStart = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %add119, ptr %fDictCategoriesStart, align 8
-  %cmp122.not132 = icmp eq ptr %rlRange.3131.pre, null
-  br i1 %cmp122.not132, label %for.end139, label %for.body123
+  %cmp122.not133 = icmp eq ptr %rlRange.3132.pre, null
+  br i1 %cmp122.not133, label %for.end139, label %for.body123
 
 for.body123:                                      ; preds = %for.end117, %for.inc137
-  %rlRange.3133 = phi ptr [ %rlRange.3, %for.inc137 ], [ %rlRange.3131.pre, %for.end117 ]
-  %fIncludesDict124 = getelementptr inbounds i8, ptr %rlRange.3133, i64 12
+  %rlRange.3134 = phi ptr [ %rlRange.3, %for.inc137 ], [ %rlRange.3132.pre, %for.end117 ]
+  %fIncludesDict124 = getelementptr inbounds i8, ptr %rlRange.3134, i64 12
   %56 = load i8, ptr %fIncludesDict124, align 4
   %tobool125 = trunc i8 %56 to i1
   br i1 %tobool125, label %if.then126, label %for.inc137
@@ -496,34 +496,34 @@ for.body123:                                      ; preds = %for.end117, %for.in
 if.then126:                                       ; preds = %for.body123
   %57 = load i32, ptr %fDictCategoriesStart, align 8
   %sub = add nsw i32 %57, -1
-  %fNum128 = getelementptr inbounds i8, ptr %rlRange.3133, i64 8
+  %fNum128 = getelementptr inbounds i8, ptr %rlRange.3134, i64 8
   %58 = load i32, ptr %fNum128, align 8
   %add129 = add nsw i32 %sub, %58
   store i32 %add129, ptr %fNum128, align 8
-  %fFirstInGroup130 = getelementptr inbounds i8, ptr %rlRange.3133, i64 13
+  %fFirstInGroup130 = getelementptr inbounds i8, ptr %rlRange.3134, i64 13
   %59 = load i8, ptr %fFirstInGroup130, align 1
   %tobool131 = trunc i8 %59 to i1
   br i1 %tobool131, label %if.then132, label %for.inc137
 
 if.then132:                                       ; preds = %if.then126
-  %fIncludesSets133 = getelementptr inbounds i8, ptr %rlRange.3133, i64 16
+  %fIncludesSets133 = getelementptr inbounds i8, ptr %rlRange.3134, i64 16
   %60 = load ptr, ptr %fIncludesSets133, align 8
-  %count.i.i85 = getelementptr inbounds i8, ptr %60, i64 8
-  %61 = load i32, ptr %count.i.i85, align 8
-  %cmp4.i86 = icmp sgt i32 %61, 0
-  br i1 %cmp4.i86, label %for.body.i87, label %for.inc137
+  %count.i.i86 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = load i32, ptr %count.i.i86, align 8
+  %cmp4.i87 = icmp sgt i32 %61, 0
+  br i1 %cmp4.i87, label %for.body.i88, label %for.inc137
 
-for.body.i87:                                     ; preds = %if.then132, %for.body.i87
-  %ix.05.i88 = phi i32 [ %inc.i90, %for.body.i87 ], [ 0, %if.then132 ]
-  %call2.i89 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef %ix.05.i88)
-  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %call2.i89, i32 noundef %add129)
-  %inc.i90 = add nuw nsw i32 %ix.05.i88, 1
-  %62 = load i32, ptr %count.i.i85, align 8
-  %cmp.i91 = icmp slt i32 %inc.i90, %62
-  br i1 %cmp.i91, label %for.body.i87, label %for.inc137, !llvm.loop !12
+for.body.i88:                                     ; preds = %if.then132, %for.body.i88
+  %ix.05.i89 = phi i32 [ %inc.i91, %for.body.i88 ], [ 0, %if.then132 ]
+  %call2.i90 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef %ix.05.i89)
+  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull readonly align 8 dereferenceable(53) %this, ptr noundef %call2.i90, i32 noundef %add129)
+  %inc.i91 = add nuw nsw i32 %ix.05.i89, 1
+  %62 = load i32, ptr %count.i.i86, align 8
+  %cmp.i92 = icmp slt i32 %inc.i91, %62
+  br i1 %cmp.i92, label %for.body.i88, label %for.inc137, !llvm.loop !12
 
-for.inc137:                                       ; preds = %for.body.i87, %if.then132, %for.body123, %if.then126
-  %fNext138 = getelementptr inbounds i8, ptr %rlRange.3133, i64 24
+for.inc137:                                       ; preds = %for.body.i88, %if.then132, %for.body123, %if.then126
+  %fNext138 = getelementptr inbounds i8, ptr %rlRange.3134, i64 24
   %rlRange.3 = load ptr, ptr %fNext138, align 8
   %cmp122.not = icmp eq ptr %rlRange.3, null
   br i1 %cmp122.not, label %for.end139.loopexit, label %for.body123, !llvm.loop !14
@@ -533,11 +533,11 @@ for.end139.loopexit:                              ; preds = %for.inc137
   br label %for.end139
 
 for.end139:                                       ; preds = %for.end117.thread, %for.end139.loopexit, %for.end117
-  %fGroupCount118156 = phi ptr [ %fGroupCount118, %for.end139.loopexit ], [ %fGroupCount118, %for.end117 ], [ %fGroupCount118151, %for.end117.thread ]
-  %dictGroupCount.0.lcssa155 = phi i32 [ %dictGroupCount.1, %for.end139.loopexit ], [ %dictGroupCount.1, %for.end117 ], [ 0, %for.end117.thread ]
+  %fGroupCount118157 = phi ptr [ %fGroupCount118, %for.end139.loopexit ], [ %fGroupCount118, %for.end117 ], [ %fGroupCount118152, %for.end117.thread ]
+  %dictGroupCount.0.lcssa156 = phi i32 [ %dictGroupCount.1, %for.end139.loopexit ], [ %dictGroupCount.1, %for.end117 ], [ 0, %for.end117.thread ]
   %63 = phi i32 [ %.pre, %for.end139.loopexit ], [ %55, %for.end117 ], [ %8, %for.end117.thread ]
-  %add141 = add nsw i32 %63, %dictGroupCount.0.lcssa155
-  store i32 %add141, ptr %fGroupCount118156, align 4
+  %add141 = add nsw i32 %63, %dictGroupCount.0.lcssa156
+  store i32 %add141, ptr %fGroupCount118157, align 4
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %eofString, ptr noundef nonnull @.str.2)
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %bofString, ptr noundef nonnull @.str.3)
           to label %for.cond144.preheader unwind label %lpad142
@@ -608,7 +608,7 @@ for.end169:                                       ; preds = %invoke.cont148
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %eofString) #10
   br label %return
 
-return:                                           ; preds = %if.then54, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit73, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit, %if.end9, %for.end169, %if.then7
+return:                                           ; preds = %if.then54, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit74, %_ZN6icu_7515RangeDescriptor5splitEiR10UErrorCode.exit, %if.end9, %for.end169, %if.then7
   ret void
 
 ehcleanup:                                        ; preds = %lpad147, %lpad142
@@ -905,7 +905,7 @@ define void @_ZN6icu_7514RBBISetBuilder15mergeCategoriesESt4pairIiiE(ptr nocaptu
 entry:
   %categories.sroa.0.0.extract.trunc = trunc i64 %categories.coerce to i32
   %categories.sroa.2.0.extract.shift = lshr i64 %categories.coerce, 32
-  %categories.sroa.2.0.extract.trunc = trunc i64 %categories.sroa.2.0.extract.shift to i32
+  %categories.sroa.2.0.extract.trunc = trunc nuw i64 %categories.sroa.2.0.extract.shift to i32
   %fRangeList = getelementptr inbounds i8, ptr %this, i64 16
   %rd.09 = load ptr, ptr %fRangeList, align 8
   %cmp.not10 = icmp eq ptr %rd.09, null
@@ -1004,7 +1004,7 @@ return:                                           ; preds = %entry, %if.end17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483645, -2147483648) i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fGroupCount = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %fGroupCount, align 4

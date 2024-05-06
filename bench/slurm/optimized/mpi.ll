@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.66 = private unnamed_addr constant [39 x i8] c"MPI: Unable to destroy context plugin.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_process_env(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mpi_process_env(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @slurm_getenvp(ptr noundef %2, ptr noundef nonnull @.str) #8
   %.not = icmp eq ptr %3, null
@@ -382,7 +382,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 60
   %74 = load i32, ptr %73, align 4
-  %75 = trunc i64 %indvars.iv.i to i32
+  %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.25, i32 noundef %75, i32 noundef %74) #8
   br label %76
 
@@ -410,7 +410,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %88 = getelementptr inbounds i16, ptr %87, i64 %indvars.iv58.i
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i32
-  %91 = trunc i64 %indvars.iv58.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv58.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.26, i32 noundef %91, i32 noundef %90) #8
   br label %92
 
@@ -515,7 +515,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %142 = getelementptr inbounds i16, ptr %141, i64 %indvars.iv61.i
   %143 = load i16, ptr %142, align 2
   %144 = zext i16 %143 to i32
-  %145 = trunc i64 %indvars.iv61.i to i32
+  %145 = trunc nuw nsw i64 %indvars.iv61.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.30, i32 noundef %145, i32 noundef %144) #8
   br label %146
 
@@ -730,7 +730,7 @@ define i32 @mpi_g_client_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @_mpi_init(ptr noundef %0), !range !11
+  %4 = tail call fastcc i32 @_mpi_init(ptr noundef %0)
   %.pre = load i32, ptr @client_plugin_id, align 4
   br label %5
 
@@ -740,7 +740,7 @@ define i32 @mpi_g_client_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_mpi_init(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_mpi_init(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @context_lock) #8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -757,7 +757,7 @@ define internal fastcc noundef i32 @_mpi_init(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not7, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @_mpi_init_locked(ptr noundef %0), !range !11
+  %8 = tail call fastcc i32 @_mpi_init_locked(ptr noundef %0)
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -958,7 +958,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   %92 = getelementptr inbounds i16, ptr %91, i64 %indvars.iv46.i
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
-  %95 = trunc i64 %indvars.iv46.i to i32
+  %95 = trunc nuw nsw i64 %indvars.iv46.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef %95, i32 noundef %94) #8
   br label %96
 
@@ -970,7 +970,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %96
-  %100 = trunc i64 %indvars.iv46.i to i32
+  %100 = trunc nuw nsw i64 %indvars.iv46.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %113, %.lr.ph.preheader.i
@@ -991,7 +991,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
-  %112 = trunc i64 %indvars.iv.i to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.43, i32 noundef %100, i32 noundef %112, i32 noundef %111) #8
   br label %113
 
@@ -1002,14 +1002,14 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i64
   %118 = icmp ult i64 %indvars.iv.next.i, %117
-  br i1 %118, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %118, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %113, %96
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %119 = load i32, ptr %80, align 8
   %120 = zext i32 %119 to i64
   %121 = icmp ult i64 %indvars.iv.next47.i, %120
-  br i1 %121, label %84, label %.loopexit.i, !llvm.loop !13
+  br i1 %121, label %84, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %79, %44
   %122 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -1089,8 +1089,8 @@ define i32 @mpi_g_client_fini(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_g_daemon_init() local_unnamed_addr #0 {
-  %1 = tail call fastcc i32 @_mpi_init(ptr noundef null), !range !11
+define range(i32 -1, 1) i32 @mpi_g_daemon_init() local_unnamed_addr #0 {
+  %1 = tail call fastcc i32 @_mpi_init(ptr noundef null)
   ret i32 %1
 }
 
@@ -1131,7 +1131,7 @@ define ptr @mpi_g_conf_get_printable() local_unnamed_addr #0 {
   %15 = load i32, ptr @g_context_cnt, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14, %4
   %18 = tail call i32 @slurm_list_count(ptr noundef %5) #8
@@ -1182,7 +1182,7 @@ declare void @slurm_destroy_config_key_pair(ptr noundef) #1
 declare i32 @slurm_list_transfer_unique(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_match_keys(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_match_keys(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @slurm_xstrcmp(ptr noundef %3, ptr noundef %4) #8
@@ -1203,7 +1203,7 @@ declare i32 @slurm_sort_key_pairs(ptr noundef, ptr noundef) #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4
@@ -1264,7 +1264,7 @@ define noundef i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1) local_un
   br label %.lr.ph214.split.us.backedge
 
 .lr.ph214.split.us.backedge:                      ; preds = %27, %24
-  br label %.lr.ph214.split.us, !llvm.loop !15
+  br label %.lr.ph214.split.us, !llvm.loop !14
 
 28:                                               ; preds = %2
   %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @context_lock) #8
@@ -1298,7 +1298,7 @@ define noundef i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1) local_un
 41:                                               ; preds = %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_plugin_idx.exit.thread, label %36, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_plugin_idx.exit.thread, label %36, !llvm.loop !15
 
 _plugin_idx.exit:                                 ; preds = %36
   %42 = and i64 %indvars.iv.i, 2147483648
@@ -1381,7 +1381,7 @@ _plugin_idx.exit.thread:                          ; preds = %41, %32, %_plugin_i
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %77, %74
-  br label %.lr.ph.split.us, !llvm.loop !17
+  br label %.lr.ph.split.us, !llvm.loop !16
 
 .split165:                                        ; preds = %94
   %78 = tail call i32 @slurm_get_log_level() #8
@@ -1411,7 +1411,7 @@ _plugin_idx.exit.thread:                          ; preds = %41, %32, %_plugin_i
   br label %.lr.ph159.split.us.backedge
 
 .lr.ph159.split.us.backedge:                      ; preds = %88, %85
-  br label %.lr.ph159.split.us, !llvm.loop !18
+  br label %.lr.ph159.split.us, !llvm.loop !17
 
 .lr.ph159.split.us:                               ; preds = %.preheader118, %.lr.ph159.split.us.backedge
   %.084.ph175 = phi ptr [ %82, %.lr.ph159.split.us.backedge ], [ %52, %.preheader118 ]
@@ -1516,7 +1516,7 @@ _plugin_idx.exit.thread:                          ; preds = %41, %32, %_plugin_i
   br label %.lr.ph177.split.us.backedge
 
 .lr.ph177.split.us.backedge:                      ; preds = %129, %126
-  br label %.lr.ph177.split.us, !llvm.loop !19
+  br label %.lr.ph177.split.us, !llvm.loop !18
 
 .outer117._crit_edge:                             ; preds = %.split180.us
   %130 = icmp sgt i32 %storemerge, 0
@@ -1585,7 +1585,7 @@ _plugin_idx.exit.thread:                          ; preds = %41, %32, %_plugin_i
   br label %.lr.ph196.split.us.backedge
 
 .lr.ph196.split.us.backedge:                      ; preds = %157, %154
-  br label %.lr.ph196.split.us, !llvm.loop !20
+  br label %.lr.ph196.split.us, !llvm.loop !19
 
 .loopexit115:                                     ; preds = %.split198.us, %.outer117._crit_edge
   %158 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #8
@@ -1624,7 +1624,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -1743,7 +1743,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %41, %38
-  br label %.lr.ph, !llvm.loop !21
+  br label %.lr.ph, !llvm.loop !20
 
 .outer117._crit_edge:                             ; preds = %.split159.us
   %.pre = load i32, ptr %2, align 4
@@ -1874,7 +1874,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph206.backedge
 
 .lr.ph206.backedge:                               ; preds = %84, %81
-  br label %.lr.ph206, !llvm.loop !22
+  br label %.lr.ph206, !llvm.loop !21
 
 .split274:                                        ; preds = %.lr.ph260.split.split.us, %119
   %85 = tail call i32 @slurm_get_log_level() #8
@@ -1923,7 +1923,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph260.backedge
 
 .lr.ph260.backedge:                               ; preds = %101, %98
-  br label %.lr.ph260, !llvm.loop !23
+  br label %.lr.ph260, !llvm.loop !22
 
 .lr.ph260:                                        ; preds = %.lr.ph260.backedge, %.lr.ph260.preheader
   %.083.ph313 = phi ptr [ %2, %.lr.ph260.preheader ], [ %95, %.lr.ph260.backedge ]
@@ -2120,7 +2120,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph315.backedge
 
 .lr.ph315.backedge:                               ; preds = %166, %163
-  br label %.lr.ph315, !llvm.loop !24
+  br label %.lr.ph315, !llvm.loop !23
 
 .outer._crit_edge:                                ; preds = %.split321.us, %124
   %167 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @context_lock) #8
@@ -2137,7 +2137,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %171 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 691, ptr noundef nonnull @__func__.mpi_conf_recv_stepd) #8
   store ptr %171, ptr @mpi_confs, align 8
   store ptr %125, ptr %171, align 8
-  %172 = call fastcc i32 @_mpi_init_locked(ptr noundef nonnull %3), !range !11
+  %172 = call fastcc i32 @_mpi_init_locked(ptr noundef nonnull %3)
   %173 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #8
   %.not106 = icmp eq i32 %173, 0
   br i1 %.not106, label %176, label %174
@@ -2153,7 +2153,7 @@ define noundef i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not107, label %179, label %180
 
 177:                                              ; preds = %.outer115._crit_edge
-  %178 = call fastcc i32 @_mpi_init(ptr noundef nonnull %3), !range !11
+  %178 = call fastcc i32 @_mpi_init(ptr noundef nonnull %3)
   %.not104 = icmp eq i32 %178, 0
   br i1 %.not104, label %179, label %.thread
 
@@ -2190,7 +2190,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
 declare ptr @slurm_init_buf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_mpi_init_locked(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_mpi_init_locked(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2396,7 +2396,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %100 = load i32, ptr @g_context_cnt, align 4
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %99, %.critedge
   %103 = tail call ptr @slurm_get_extra_conf_path(ptr noundef nonnull @.str.50) #8
@@ -2458,7 +2458,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next124, %125
-  br i1 %126, label %.lr.ph110, label %.loopexit, !llvm.loop !26
+  br i1 %126, label %.lr.ph110, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %123, %114, %106, %109
   call void @slurm_xfree(ptr noundef nonnull %5) #8
@@ -2529,7 +2529,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %162 = load i32, ptr @g_context_cnt, align 4
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next127, %163
-  br i1 %164, label %.lr.ph114, label %._crit_edge115, !llvm.loop !27
+  br i1 %164, label %.lr.ph114, label %._crit_edge115, !llvm.loop !26
 
 ._crit_edge115:                                   ; preds = %161
   %165 = icmp eq i32 %.3, 0
@@ -2566,7 +2566,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %176 = load i32, ptr %173, align 4
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next130, %177
-  br i1 %178, label %.lr.ph117, label %._crit_edge118, !llvm.loop !28
+  br i1 %178, label %.lr.ph117, label %._crit_edge118, !llvm.loop !27
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %.preheader
   %179 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv132
@@ -2578,7 +2578,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %182 = load i32, ptr @g_context_cnt, align 4
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next133, %183
-  br i1 %184, label %.preheader, label %._crit_edge121, !llvm.loop !29
+  br i1 %184, label %.preheader, label %._crit_edge121, !llvm.loop !28
 
 ._crit_edge121:                                   ; preds = %._crit_edge118, %166
   call void @slurm_xfree(ptr noundef nonnull %4) #8
@@ -2652,7 +2652,7 @@ _is_none_plugin.exit:                             ; preds = %2
   %26 = load i32, ptr @g_context_cnt, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %25, %.preheader, %19
   %.012 = phi i32 [ %24, %19 ], [ -1, %.preheader ], [ -1, %25 ]
@@ -2742,7 +2742,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %10 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %9, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull @mpi_confs) #8
@@ -2771,7 +2771,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
   %25 = load i32, ptr @g_context_cnt, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next21, %26
-  br i1 %27, label %.lr.ph17, label %._crit_edge18, !llvm.loop !32
+  br i1 %27, label %.lr.ph17, label %._crit_edge18, !llvm.loop !31
 
 ._crit_edge18:                                    ; preds = %24, %15
   %.010.lcssa = phi i32 [ 0, %15 ], [ %21, %24 ]
@@ -2878,7 +2878,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -2899,4 +2899,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}

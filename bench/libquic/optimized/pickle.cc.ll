@@ -320,8 +320,8 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i: ; preds = %en
 if.end.i:                                         ; preds = %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %1
   %3 = load i8, ptr %add.ptr.i.i, align 1
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %result, align 1
+  %frombool.i = and i8 %3, 1
+  store i8 %frombool.i, ptr %result, align 1
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit
 
 _ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %entry, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i, %if.end.i
@@ -1337,7 +1337,7 @@ return:                                           ; preds = %if.then30.i.i.i, %i
   %10 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
   store i32 %conv.i.i.i, ptr %10, align 4
   store i64 %add.i.i.i, ptr %write_offset_.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 1 %call3, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr readonly align 1 %call3, i64 %conv.i, i1 false)
   ret i1 true
 }
 
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %if.then30.i.i.i, %i
   %10 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
   store i32 %conv.i.i.i, ptr %10, align 4
   store i64 %add.i.i.i, ptr %write_offset_.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 1 %call3, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr readonly align 1 %call3, i64 %conv.i, i1 false)
   ret i1 true
 }
 
@@ -1542,7 +1542,7 @@ _ZN4base6Pickle10WriteBytesEPKvi.exit:            ; preds = %land.rhs, %if.then3
   %10 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
   store i32 %conv.i.i.i, ptr %10, align 4
   store i64 %add.i.i.i, ptr %write_offset_.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 1 %data, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr readonly align 1 %data, i64 %conv.i, i1 false)
   br label %land.end
 
 land.end:                                         ; preds = %_ZN4base6Pickle10WriteBytesEPKvi.exit, %entry

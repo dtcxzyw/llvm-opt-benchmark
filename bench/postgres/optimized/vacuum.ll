@@ -2883,7 +2883,7 @@ declare ptr @index_vacuum_cleanup(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @vac_max_items_to_alloc_size(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local range(i64 -12884901880, 12884901891) i64 @vac_max_items_to_alloc_size(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
   %3 = mul nsw i64 %2, 6
   %4 = add nsw i64 %3, 8
@@ -2952,7 +2952,7 @@ declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @vac_cmp_itemptr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @vac_cmp_itemptr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val16 = load i16, ptr %3, align 2

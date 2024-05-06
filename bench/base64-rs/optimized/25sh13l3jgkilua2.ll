@@ -47,7 +47,7 @@ define { i64, i64 } @_ZN6base646encode11encoded_len17h07374af11e56c9c4E(i64 noun
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6490feE(i64 noundef %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6490feE(i64 noundef %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = sub i64 0, %0
   %5 = and i64 %4, 3
   %.not = icmp eq i64 %5, 0

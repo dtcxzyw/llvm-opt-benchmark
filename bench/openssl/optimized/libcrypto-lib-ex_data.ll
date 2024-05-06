@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_and_lock = private unnamed_addr constant [13 x i8] c"get_and_lock\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_do_ex_data_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_do_ex_data_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -75,7 +75,7 @@ entry:
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_free_ex_index_ex(ptr noundef %ctx, i32 noundef %class_index, i32 noundef %idx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_free_ex_index_ex(ptr noundef %ctx, i32 noundef %class_index, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -161,14 +161,14 @@ entry:
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_free_ex_index(i32 noundef %class_index, i32 noundef %idx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_free_ex_index(i32 noundef %class_index, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_crypto_free_ex_index_ex(ptr noundef null, i32 noundef %class_index, i32 noundef %idx), !range !6
+  %call = tail call i32 @ossl_crypto_free_ex_index_ex(ptr noundef null, i32 noundef %class_index, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_get_ex_new_index_ex(ptr noundef %ctx, i32 noundef %class_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %new_func, ptr noundef %dup_func, ptr noundef %free_func, i32 noundef %priority) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @ossl_crypto_get_ex_new_index_ex(ptr noundef %ctx, i32 noundef %class_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %new_func, ptr noundef %dup_func, ptr noundef %free_func, i32 noundef %priority) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -285,14 +285,14 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_get_ex_new_index(i32 noundef %class_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %new_func, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @CRYPTO_get_ex_new_index(i32 noundef %class_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %new_func, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_crypto_get_ex_new_index_ex(ptr noundef null, i32 noundef %class_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %new_func, ptr noundef %dup_func, ptr noundef %free_func, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_new_ex_data_ex(ptr noundef %ctx, i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %ctx, i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad) local_unnamed_addr #0 {
 entry:
   %stack = alloca [10 x ptr], align 16
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %ctx) #8
@@ -350,13 +350,13 @@ for.body.preheader:                               ; preds = %if.then8, %if.end12
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i36 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %3) #8
   %arrayidx = getelementptr inbounds ptr, ptr %storage.053, i64 %indvars.iv
   store ptr %call.i36, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end21, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %if.end21, label %for.body, !llvm.loop !6
 
 if.end21:                                         ; preds = %for.body, %if.end12, %if.end4
   %storage.1 = phi ptr [ null, %if.end12 ], [ null, %if.end4 ], [ %storage.053, %for.body ]
@@ -399,7 +399,7 @@ lor.lhs.false.i:                                  ; preds = %if.then42
 
 if.end.i38:                                       ; preds = %lor.lhs.false.i
   %9 = load ptr, ptr %sk, align 8
-  %10 = trunc i64 %indvars.iv46 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv46 to i32
   %call6.i = call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %10) #8
   br label %CRYPTO_get_ex_data.exit
 
@@ -411,14 +411,14 @@ CRYPTO_get_ex_data.exit:                          ; preds = %if.then42, %lor.lhs
   %13 = load i64, ptr %11, align 8
   %argp = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load ptr, ptr %argp, align 8
-  %15 = trunc i64 %indvars.iv46 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv46 to i32
   call void %12(ptr noundef %obj, ptr noundef %retval.0.i37, ptr noundef nonnull %ad, i32 noundef %15, i64 noundef %13, ptr noundef %14) #8
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.body32, %land.lhs.true37, %CRYPTO_get_ex_data.exit
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %for.end54, label %for.body32, !llvm.loop !8
+  br i1 %exitcond50.not, label %for.end54, label %for.body32, !llvm.loop !7
 
 for.end54:                                        ; preds = %for.inc52, %for.cond29.preheader
   %cmp56.not = icmp eq ptr %storage.1, %stack
@@ -457,14 +457,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_new_ex_data(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_new_ex_data(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_crypto_new_ex_data_ex(ptr noundef null, i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad), !range !6
+  %call = tail call i32 @ossl_crypto_new_ex_data_ex(ptr noundef null, i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_dup_ex_data(i32 noundef %class_index, ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %class_index, ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %stack = alloca [10 x ptr], align 16
@@ -536,13 +536,13 @@ if.end36.thread:                                  ; preds = %if.end22
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i47 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %7) #8
   %arrayidx = getelementptr inbounds ptr, ptr %storage.080, i64 %indvars.iv
   store ptr %call.i47, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end31, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.end31, label %for.body, !llvm.loop !8
 
 if.end31:                                         ; preds = %for.body, %if.end9
   %storage.1 = phi ptr [ null, %if.end9 ], [ %storage.080, %for.body ]
@@ -574,7 +574,7 @@ if.end.i49:                                       ; preds = %lor.lhs.false.i
 
 CRYPTO_get_ex_data.exit:                          ; preds = %if.end40, %lor.lhs.false.i, %if.end.i49
   %retval.0.i48 = phi ptr [ %call6.i, %if.end.i49 ], [ null, %lor.lhs.false.i ], [ null, %if.end40 ]
-  %call43 = call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %to, i32 noundef %sub, ptr noundef %retval.0.i48), !range !6
+  %call43 = call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %to, i32 noundef %sub, ptr noundef %retval.0.i48)
   %tobool.not = icmp eq i32 %call43, 0
   %brmerge = or i1 %tobool.not, %cmp17
   %not.tobool.not = xor i1 %tobool.not, true
@@ -599,7 +599,7 @@ lor.lhs.false.i52:                                ; preds = %for.body49
 
 if.end.i56:                                       ; preds = %lor.lhs.false.i52
   %13 = load ptr, ptr %sk, align 8
-  %14 = trunc i64 %indvars.iv73 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv73 to i32
   %call6.i57 = call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %14) #8
   br label %CRYPTO_get_ex_data.exit58
 
@@ -621,7 +621,7 @@ if.then59:                                        ; preds = %land.lhs.true
   %17 = load i64, ptr %15, align 8
   %argp = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %argp, align 8
-  %19 = trunc i64 %indvars.iv73 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv73 to i32
   %call67 = call i32 %16(ptr noundef nonnull %to, ptr noundef nonnull %from, ptr noundef nonnull %ptr, i32 noundef %19, i64 noundef %17, ptr noundef %18) #8
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %err, label %if.then59.if.end71_crit_edge
@@ -632,11 +632,11 @@ if.then59.if.end71_crit_edge:                     ; preds = %if.then59
 
 if.end71:                                         ; preds = %if.then59.if.end71_crit_edge, %land.lhs.true, %CRYPTO_get_ex_data.exit58
   %20 = phi ptr [ %.pre, %if.then59.if.end71_crit_edge ], [ %retval.0.i55, %land.lhs.true ], [ %retval.0.i55, %CRYPTO_get_ex_data.exit58 ]
-  %21 = trunc i64 %indvars.iv73 to i32
-  %call72 = call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %to, i32 noundef %21, ptr noundef %20), !range !6
+  %21 = trunc nuw nsw i64 %indvars.iv73 to i32
+  %call72 = call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %to, i32 noundef %21, ptr noundef %20)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %err, label %for.body49, !llvm.loop !10
+  br i1 %exitcond77.not, label %err, label %for.body49, !llvm.loop !9
 
 err:                                              ; preds = %if.then59, %if.end71, %CRYPTO_get_ex_data.exit
   %toret.0 = phi i32 [ %.mux, %CRYPTO_get_ex_data.exit ], [ 0, %if.then59 ], [ 1, %if.end71 ]
@@ -655,7 +655,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %idx, ptr noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %idx, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %sk = getelementptr inbounds i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk, align 8
@@ -677,7 +677,7 @@ if.end4:                                          ; preds = %if.then, %entry
 for.cond:                                         ; preds = %for.body
   %inc = add i32 %i.09, 1
   %exitcond.not = icmp eq i32 %i.09, %idx
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %if.end4, %for.cond
   %i.09 = phi i32 [ %inc, %for.cond ], [ %call7, %if.end4 ]
@@ -762,7 +762,7 @@ for.body.preheader:                               ; preds = %if.then7, %if.end11
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i39 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %4) #8
   %arrayidx = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv
   store ptr %call.i39, ptr %arrayidx, align 8
@@ -770,7 +770,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %4, ptr %index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.body31.lr.ph, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.body31.lr.ph, label %for.body, !llvm.loop !11
 
 if.end52.thread:                                  ; preds = %if.end4, %if.end11
   %5 = load ptr, ptr %call, align 8
@@ -830,7 +830,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %if.then39, %lor.lhs
 for.inc49:                                        ; preds = %for.body31, %land.lhs.true, %CRYPTO_get_ex_data.exit
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count60
-  br i1 %exitcond61.not, label %if.end52, label %for.body31, !llvm.loop !13
+  br i1 %exitcond61.not, label %if.end52, label %for.body31, !llvm.loop !12
 
 if.end52:                                         ; preds = %for.inc49
   %cmp54.not = icmp eq ptr %storage.064, %stack
@@ -853,7 +853,7 @@ err:                                              ; preds = %if.end4.i, %if.end.
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ex_callback_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @ex_callback_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -889,7 +889,7 @@ return:                                           ; preds = %if.end9, %if.end5, 
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_alloc_ex_data(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad, i32 noundef %idx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_alloc_ex_data(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %sk.i = getelementptr inbounds i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk.i, align 8
@@ -908,7 +908,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %lor.lhs.false.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %lor.lhs.false.i, %CRYPTO_get_ex_data.exit
-  %call1 = tail call i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %class_index, ptr noundef %obj, ptr noundef nonnull %ad, i32 noundef %idx), !range !6
+  %call1 = tail call i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %class_index, ptr noundef %obj, ptr noundef nonnull %ad, i32 noundef %idx)
   br label %return
 
 return:                                           ; preds = %CRYPTO_get_ex_data.exit, %if.end
@@ -917,7 +917,7 @@ return:                                           ; preds = %CRYPTO_get_ex_data.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad, i32 noundef %idx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ad, align 8
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %0) #8
@@ -1017,11 +1017,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

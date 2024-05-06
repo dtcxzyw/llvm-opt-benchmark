@@ -2707,7 +2707,7 @@ ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ri_NullCheck(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 168
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -4654,7 +4654,7 @@ quoteOneName.exit116:                             ; preds = %157
 declare ptr @pg_get_partconstrdef_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @RI_FKey_trigger_type(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 3) i32 @RI_FKey_trigger_type(i32 noundef %0) local_unnamed_addr #5 {
   %switch.tableidx = add i32 %0, -1644
   %2 = icmp ult i32 %switch.tableidx, 12
   br i1 %2, label %switch.lookup, label %4

@@ -252,7 +252,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_seed_src_functions = external constant [0 x %struct.ossl_dispatch_st], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_base_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_base_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_bio_from_dispatch(ptr noundef %in) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @base_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @base_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null

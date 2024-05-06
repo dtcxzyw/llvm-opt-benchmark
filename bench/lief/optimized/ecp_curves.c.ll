@@ -1481,14 +1481,14 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = icmp ult i32 %7, %11
   %.neg.i = sext i1 %12 to i32
   %13 = sub i32 %7, %11
   %14 = getelementptr inbounds i8, ptr %5, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = icmp ult i32 %13, %17
   %.neg.i176 = sext i1 %18 to i32
   %19 = add nsw i32 %.neg.i176, %.neg.i
@@ -1503,7 +1503,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %26 = load ptr, ptr %4, align 8
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %27, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = or i1 %12, %18
   br i1 %30, label %31, label %35
 
@@ -1572,7 +1572,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %73 = getelementptr inbounds i8, ptr %58, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = lshr i64 %74, 32
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw i64 %75 to i32
   %77 = icmp ult i32 %.1, %76
   %.neg.i181 = sext i1 %77 to i8
   %78 = add nsw i8 %.1284, %.neg.i181
@@ -1580,7 +1580,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %80 = getelementptr inbounds i8, ptr %58, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = lshr i64 %81, 32
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw i64 %82 to i32
   %84 = icmp ult i32 %79, %83
   %.neg.i182 = sext i1 %84 to i8
   %85 = add nsw i8 %78, %.neg.i182
@@ -1597,7 +1597,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = sext i8 %85 to i32
   %99 = icmp slt i8 %85, 0
   br i1 %99, label %100, label %104
@@ -1628,13 +1628,13 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %115 = getelementptr inbounds i8, ptr %93, i64 24
   %116 = load i64, ptr %115, align 8
   %117 = lshr i64 %116, 32
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nuw i64 %117 to i32
   %119 = add i32 %114, %118
   %120 = icmp ult i32 %119, %118
   %121 = zext i1 %120 to i8
   %122 = add nsw i8 %113, %121
   %123 = lshr i64 %110, 32
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw i64 %123 to i32
   %125 = add i32 %119, %124
   %126 = icmp ult i32 %125, %124
   %127 = zext i1 %126 to i8
@@ -1675,7 +1675,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %151 = getelementptr inbounds i8, ptr %136, i64 40
   %152 = load i64, ptr %151, align 8
   %153 = lshr i64 %152, 32
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nuw i64 %153 to i32
   %155 = icmp ult i32 %.3, %154
   %.neg.i186 = sext i1 %155 to i8
   %156 = add nsw i8 %.3286, %.neg.i186
@@ -1706,7 +1706,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %179 = getelementptr inbounds i8, ptr %178, i64 16
   %180 = load i64, ptr %179, align 8
   %181 = lshr i64 %180, 32
-  %182 = trunc i64 %181 to i32
+  %182 = trunc nuw i64 %181 to i32
   %183 = sext i8 %171 to i32
   %184 = icmp slt i8 %171, 0
   br i1 %184, label %185, label %189
@@ -1737,13 +1737,13 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %200 = getelementptr inbounds i8, ptr %178, i64 32
   %201 = load i64, ptr %200, align 8
   %202 = lshr i64 %201, 32
-  %203 = trunc i64 %202 to i32
+  %203 = trunc nuw i64 %202 to i32
   %204 = add i32 %199, %203
   %205 = icmp ult i32 %204, %203
   %206 = zext i1 %205 to i8
   %207 = add nsw i8 %198, %206
   %208 = lshr i64 %195, 32
-  %209 = trunc i64 %208 to i32
+  %209 = trunc nuw i64 %208 to i32
   %210 = add i32 %204, %209
   %211 = icmp ult i32 %210, %209
   %212 = zext i1 %211 to i8
@@ -1784,7 +1784,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %236 = getelementptr inbounds i8, ptr %221, i64 48
   %237 = load i64, ptr %236, align 8
   %238 = lshr i64 %237, 32
-  %239 = trunc i64 %238 to i32
+  %239 = trunc nuw i64 %238 to i32
   %240 = icmp ult i32 %.5, %239
   %.neg.i190 = sext i1 %240 to i8
   %241 = add nsw i8 %.5288, %.neg.i190
@@ -1909,7 +1909,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %12 = icmp ult i32 %11, %10
   %13 = zext i1 %12 to i8
   %14 = lshr i64 %9, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = add i32 %11, %15
   %17 = icmp ult i32 %16, %15
   %18 = zext i1 %17 to i8
@@ -1917,7 +1917,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %20 = getelementptr inbounds i8, ptr %5, i64 40
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = icmp ult i32 %16, %23
   %.neg.i = sext i1 %24 to i8
   %25 = add nsw i8 %19, %.neg.i
@@ -1930,7 +1930,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %31 = add nsw i8 %25, %.neg.i234
   %32 = sub i32 %26, %29
   %33 = lshr i64 %28, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = icmp ult i32 %32, %34
   %.neg.i235 = sext i1 %35 to i8
   %36 = add nsw i8 %31, %.neg.i235
@@ -1952,7 +1952,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %49 = load ptr, ptr %4, align 8
   %50 = load i64, ptr %49, align 8
   %51 = lshr i64 %50, 32
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = sext i8 %42 to i32
   %54 = icmp slt i8 %42, 0
   br i1 %54, label %55, label %59
@@ -1976,7 +1976,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %64 = getelementptr inbounds i8, ptr %49, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = lshr i64 %65, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = add i32 %.0452, %67
   %69 = icmp ult i32 %68, %67
   %70 = zext i1 %69 to i8
@@ -1996,7 +1996,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %83 = add nsw i8 %78, %.neg.i238
   %84 = sub i32 %75, %81
   %85 = lshr i64 %80, 32
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   %87 = icmp ult i32 %84, %86
   %.neg.i239 = sext i1 %87 to i8
   %88 = add nsw i8 %83, %.neg.i239
@@ -2009,7 +2009,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %94 = add nsw i8 %88, %.neg.i240
   %95 = sub i32 %89, %92
   %96 = lshr i64 %91, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = icmp ult i32 %95, %97
   %.neg.i241 = sext i1 %98 to i8
   %99 = add nsw i8 %94, %.neg.i241
@@ -2054,7 +2054,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %127 = zext i1 %126 to i8
   %128 = add nsw i8 %.1454, %127
   %129 = lshr i64 %123, 32
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw i64 %129 to i32
   %131 = add i32 %125, %130
   %132 = icmp ult i32 %131, %130
   %133 = zext i1 %132 to i8
@@ -2062,7 +2062,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %135 = getelementptr inbounds i8, ptr %107, i64 48
   %136 = load i64, ptr %135, align 8
   %137 = lshr i64 %136, 32
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw i64 %137 to i32
   %139 = icmp ult i32 %131, %138
   %.neg.i243 = sext i1 %139 to i8
   %140 = add nsw i8 %134, %.neg.i243
@@ -2075,7 +2075,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %146 = add nsw i8 %140, %.neg.i244
   %147 = sub i32 %141, %144
   %148 = lshr i64 %143, 32
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw i64 %148 to i32
   %150 = icmp ult i32 %147, %149
   %.neg.i245 = sext i1 %150 to i8
   %151 = add nsw i8 %146, %.neg.i245
@@ -2092,7 +2092,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   %161 = load i64, ptr %160, align 8
   %162 = lshr i64 %161, 32
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw i64 %162 to i32
   %164 = sext i8 %151 to i32
   %165 = icmp slt i8 %151, 0
   br i1 %165, label %166, label %170
@@ -2116,7 +2116,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %175 = getelementptr inbounds i8, ptr %159, i64 40
   %176 = load i64, ptr %175, align 8
   %177 = lshr i64 %176, 32
-  %178 = trunc i64 %177 to i32
+  %178 = trunc nuw i64 %177 to i32
   %179 = add i32 %.2, %178
   %180 = icmp ult i32 %179, %178
   %181 = zext i1 %180 to i8
@@ -2137,7 +2137,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %196 = zext i1 %195 to i8
   %197 = add nsw i8 %193, %196
   %198 = lshr i64 %188, 32
-  %199 = trunc i64 %198 to i32
+  %199 = trunc nuw i64 %198 to i32
   %200 = add i32 %194, %199
   %201 = icmp ult i32 %200, %199
   %202 = zext i1 %201 to i8
@@ -2145,7 +2145,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %204 = getelementptr inbounds i8, ptr %159, i64 56
   %205 = load i64, ptr %204, align 8
   %206 = lshr i64 %205, 32
-  %207 = trunc i64 %206 to i32
+  %207 = trunc nuw i64 %206 to i32
   %208 = icmp ult i32 %200, %207
   %.neg.i247 = sext i1 %208 to i8
   %209 = add nsw i8 %203, %.neg.i247
@@ -2158,7 +2158,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %215 = add nsw i8 %209, %.neg.i248
   %216 = sub i32 %210, %213
   %217 = lshr i64 %212, 32
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw i64 %217 to i32
   %219 = icmp ult i32 %216, %218
   %.neg.i249 = sext i1 %219 to i8
   %220 = add nsw i8 %215, %.neg.i249
@@ -2208,7 +2208,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %253 = zext i1 %252 to i8
   %254 = add nsw i8 %250, %253
   %255 = lshr i64 %245, 32
-  %256 = trunc i64 %255 to i32
+  %256 = trunc nuw i64 %255 to i32
   %257 = add i32 %251, %256
   %258 = icmp ult i32 %257, %256
   %259 = zext i1 %258 to i8
@@ -2227,7 +2227,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %272 = getelementptr inbounds i8, ptr %229, i64 32
   %273 = load i64, ptr %272, align 8
   %274 = lshr i64 %273, 32
-  %275 = trunc i64 %274 to i32
+  %275 = trunc nuw i64 %274 to i32
   %276 = icmp ult i32 %268, %275
   %.neg.i251 = sext i1 %276 to i8
   %277 = add nsw i8 %271, %.neg.i251
@@ -2251,7 +2251,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %292 = getelementptr inbounds i8, ptr %291, i64 16
   %293 = load i64, ptr %292, align 8
   %294 = lshr i64 %293, 32
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw i64 %294 to i32
   %296 = sext i8 %283 to i32
   %297 = icmp slt i8 %283, 0
   br i1 %297, label %298, label %302
@@ -2275,7 +2275,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %307 = getelementptr inbounds i8, ptr %291, i64 48
   %308 = load i64, ptr %307, align 8
   %309 = lshr i64 %308, 32
-  %310 = trunc i64 %309 to i32
+  %310 = trunc nuw i64 %309 to i32
   %311 = add i32 %.4, %310
   %312 = icmp ult i32 %311, %310
   %313 = zext i1 %312 to i8
@@ -2296,7 +2296,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %328 = zext i1 %327 to i8
   %329 = add nsw i8 %325, %328
   %330 = lshr i64 %320, 32
-  %331 = trunc i64 %330 to i32
+  %331 = trunc nuw i64 %330 to i32
   %332 = add i32 %326, %331
   %333 = icmp ult i32 %332, %331
   %334 = zext i1 %333 to i8
@@ -2309,7 +2309,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %340 = add nsw i8 %335, %.neg.i254
   %341 = sub i32 %332, %338
   %342 = lshr i64 %337, 32
-  %343 = trunc i64 %342 to i32
+  %343 = trunc nuw i64 %342 to i32
   %344 = icmp ult i32 %341, %343
   %.neg.i255 = sext i1 %344 to i8
   %345 = add nsw i8 %340, %.neg.i255
@@ -2359,7 +2359,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %378 = zext i1 %377 to i8
   %379 = add nsw i8 %375, %378
   %380 = lshr i64 %370, 32
-  %381 = trunc i64 %380 to i32
+  %381 = trunc nuw i64 %380 to i32
   %382 = add i32 %376, %381
   %383 = icmp ult i32 %382, %381
   %384 = zext i1 %383 to i8
@@ -2375,7 +2375,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %394 = getelementptr inbounds i8, ptr %354, i64 48
   %395 = load i64, ptr %394, align 8
   %396 = lshr i64 %395, 32
-  %397 = trunc i64 %396 to i32
+  %397 = trunc nuw i64 %396 to i32
   %398 = add i32 %390, %397
   %399 = icmp ult i32 %398, %397
   %400 = zext i1 %399 to i8
@@ -2388,7 +2388,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %406 = add nsw i8 %401, %.neg.i257
   %407 = sub i32 %398, %404
   %408 = lshr i64 %403, 32
-  %409 = trunc i64 %408 to i32
+  %409 = trunc nuw i64 %408 to i32
   %410 = icmp ult i32 %407, %409
   %.neg.i258 = sext i1 %410 to i8
   %411 = add nsw i8 %406, %.neg.i258
@@ -2405,7 +2405,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %420 = getelementptr inbounds i8, ptr %419, i64 24
   %421 = load i64, ptr %420, align 8
   %422 = lshr i64 %421, 32
-  %423 = trunc i64 %422 to i32
+  %423 = trunc nuw i64 %422 to i32
   %424 = sext i8 %411 to i32
   %425 = icmp slt i8 %411, 0
   br i1 %425, label %426, label %430
@@ -2429,7 +2429,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %435 = getelementptr inbounds i8, ptr %419, i64 56
   %436 = load i64, ptr %435, align 8
   %437 = lshr i64 %436, 32
-  %438 = trunc i64 %437 to i32
+  %438 = trunc nuw i64 %437 to i32
   %439 = add i32 %.6, %438
   %440 = icmp ult i32 %439, %438
   %441 = zext i1 %440 to i8
@@ -2457,7 +2457,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %462 = add nsw i8 %457, %.neg.i260
   %463 = sub i32 %454, %460
   %464 = lshr i64 %459, 32
-  %465 = trunc i64 %464 to i32
+  %465 = trunc nuw i64 %464 to i32
   %466 = icmp ult i32 %463, %465
   %.neg.i261 = sext i1 %466 to i8
   %467 = add nsw i8 %462, %.neg.i261
@@ -2470,7 +2470,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %473 = add nsw i8 %467, %.neg.i262
   %474 = sub i32 %468, %471
   %475 = lshr i64 %470, 32
-  %476 = trunc i64 %475 to i32
+  %476 = trunc nuw i64 %475 to i32
   %477 = icmp ult i32 %474, %476
   %.neg.i263 = sext i1 %477 to i8
   %478 = add nsw i8 %473, %.neg.i263
@@ -2588,7 +2588,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %14 = getelementptr inbounds i8, ptr %5, i64 80
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = add i32 %11, %17
   %19 = icmp ult i32 %18, %17
   %20 = zext i1 %19 to i8
@@ -2601,7 +2601,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %27 = getelementptr inbounds i8, ptr %5, i64 88
   %28 = load i64, ptr %27, align 8
   %29 = lshr i64 %28, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = icmp ult i32 %23, %30
   %.neg.i = sext i1 %31 to i8
   %32 = add nsw i8 %26, %.neg.i
@@ -2616,7 +2616,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %39 = load ptr, ptr %4, align 8
   %40 = load i64, ptr %39, align 8
   %41 = lshr i64 %40, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = sext i8 %32 to i32
   %44 = icmp slt i8 %32, 0
   br i1 %44, label %45, label %49
@@ -2640,7 +2640,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %54 = getelementptr inbounds i8, ptr %39, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = lshr i64 %55, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = add i32 %.0585, %57
   %59 = icmp ult i32 %58, %57
   %60 = zext i1 %59 to i8
@@ -2653,7 +2653,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %67 = zext i1 %66 to i8
   %68 = add nsw i8 %61, %67
   %69 = lshr i64 %63, 32
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %71 = add i32 %65, %70
   %72 = icmp ult i32 %71, %70
   %73 = zext i1 %72 to i8
@@ -2712,7 +2712,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %113 = getelementptr inbounds i8, ptr %91, i64 88
   %114 = load i64, ptr %113, align 8
   %115 = lshr i64 %114, 32
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw i64 %115 to i32
   %117 = add i32 %109, %116
   %118 = icmp ult i32 %117, %116
   %119 = zext i1 %118 to i8
@@ -2720,7 +2720,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %121 = getelementptr inbounds i8, ptr %91, i64 48
   %122 = load i64, ptr %121, align 8
   %123 = lshr i64 %122, 32
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw i64 %123 to i32
   %125 = icmp ult i32 %117, %124
   %.neg.i329 = sext i1 %125 to i8
   %126 = add nsw i8 %120, %.neg.i329
@@ -2728,7 +2728,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %128 = getelementptr inbounds i8, ptr %91, i64 80
   %129 = load i64, ptr %128, align 8
   %130 = lshr i64 %129, 32
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw i64 %130 to i32
   %132 = icmp ult i32 %127, %131
   %.neg.i330 = sext i1 %132 to i8
   %133 = add nsw i8 %126, %.neg.i330
@@ -2745,7 +2745,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %142 = getelementptr inbounds i8, ptr %141, i64 8
   %143 = load i64, ptr %142, align 8
   %144 = lshr i64 %143, 32
-  %145 = trunc i64 %144 to i32
+  %145 = trunc nuw i64 %144 to i32
   %146 = sext i8 %133 to i32
   %147 = icmp slt i8 %133, 0
   br i1 %147, label %148, label %152
@@ -2769,7 +2769,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %157 = getelementptr inbounds i8, ptr %141, i64 56
   %158 = load i64, ptr %157, align 8
   %159 = lshr i64 %158, 32
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw i64 %159 to i32
   %161 = add i32 %.2, %160
   %162 = icmp ult i32 %161, %160
   %163 = zext i1 %162 to i8
@@ -2789,7 +2789,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %177 = zext i1 %176 to i8
   %178 = add nsw i8 %171, %177
   %179 = lshr i64 %173, 32
-  %180 = trunc i64 %179 to i32
+  %180 = trunc nuw i64 %179 to i32
   %181 = add i32 %175, %180
   %182 = icmp ult i32 %181, %180
   %183 = zext i1 %182 to i8
@@ -2807,7 +2807,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %193 = add nsw i8 %187, %.neg.i333
   %194 = sub i32 %188, %191
   %195 = lshr i64 %190, 32
-  %196 = trunc i64 %195 to i32
+  %196 = trunc nuw i64 %195 to i32
   %197 = icmp ult i32 %194, %196
   %.neg.i334 = sext i1 %197 to i8
   %198 = add nsw i8 %193, %.neg.i334
@@ -2848,7 +2848,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %222 = getelementptr inbounds i8, ptr %207, i64 80
   %223 = load i64, ptr %222, align 8
   %224 = lshr i64 %223, 32
-  %225 = trunc i64 %224 to i32
+  %225 = trunc nuw i64 %224 to i32
   %226 = add i32 %.3, %225
   %227 = icmp ult i32 %226, %225
   %228 = zext i1 %227 to i8
@@ -2867,7 +2867,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %241 = getelementptr inbounds i8, ptr %207, i64 48
   %242 = load i64, ptr %241, align 8
   %243 = lshr i64 %242, 32
-  %244 = trunc i64 %243 to i32
+  %244 = trunc nuw i64 %243 to i32
   %245 = add i32 %237, %244
   %246 = icmp ult i32 %245, %244
   %247 = zext i1 %246 to i8
@@ -2892,13 +2892,13 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %266 = getelementptr inbounds i8, ptr %207, i64 56
   %267 = load i64, ptr %266, align 8
   %268 = lshr i64 %267, 32
-  %269 = trunc i64 %268 to i32
+  %269 = trunc nuw i64 %268 to i32
   %270 = icmp ult i32 %262, %269
   %.neg.i336 = sext i1 %270 to i8
   %271 = add nsw i8 %265, %.neg.i336
   %272 = sub i32 %262, %269
   %273 = lshr i64 %260, 32
-  %274 = trunc i64 %273 to i32
+  %274 = trunc nuw i64 %273 to i32
   %275 = icmp ult i32 %272, %274
   %.neg.i337 = sext i1 %275 to i8
   %276 = add nsw i8 %271, %.neg.i337
@@ -2919,7 +2919,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %288 = getelementptr inbounds i8, ptr %287, i64 16
   %289 = load i64, ptr %288, align 8
   %290 = lshr i64 %289, 32
-  %291 = trunc i64 %290 to i32
+  %291 = trunc nuw i64 %290 to i32
   %292 = sext i8 %279 to i32
   %293 = icmp slt i8 %279, 0
   br i1 %293, label %294, label %298
@@ -2954,7 +2954,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %314 = getelementptr inbounds i8, ptr %287, i64 64
   %315 = load i64, ptr %314, align 8
   %316 = lshr i64 %315, 32
-  %317 = trunc i64 %316 to i32
+  %317 = trunc nuw i64 %316 to i32
   %318 = add i32 %310, %317
   %319 = icmp ult i32 %318, %317
   %320 = zext i1 %319 to i8
@@ -2969,7 +2969,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %329 = getelementptr inbounds i8, ptr %287, i64 48
   %330 = load i64, ptr %329, align 8
   %331 = lshr i64 %330, 32
-  %332 = trunc i64 %331 to i32
+  %332 = trunc nuw i64 %331 to i32
   %333 = add i32 %325, %332
   %334 = icmp ult i32 %333, %332
   %335 = zext i1 %334 to i8
@@ -2977,13 +2977,13 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %337 = getelementptr inbounds i8, ptr %287, i64 80
   %338 = load i64, ptr %337, align 8
   %339 = lshr i64 %338, 32
-  %340 = trunc i64 %339 to i32
+  %340 = trunc nuw i64 %339 to i32
   %341 = add i32 %333, %340
   %342 = icmp ult i32 %341, %340
   %343 = zext i1 %342 to i8
   %344 = add nsw i8 %336, %343
   %345 = lshr i64 %304, 32
-  %346 = trunc i64 %345 to i32
+  %346 = trunc nuw i64 %345 to i32
   %347 = add i32 %341, %346
   %348 = icmp ult i32 %347, %346
   %349 = zext i1 %348 to i8
@@ -3029,7 +3029,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %377 = getelementptr inbounds i8, ptr %362, i64 88
   %378 = load i64, ptr %377, align 8
   %379 = lshr i64 %378, 32
-  %380 = trunc i64 %379 to i32
+  %380 = trunc nuw i64 %379 to i32
   %381 = add i32 %.5, %380
   %382 = icmp ult i32 %381, %380
   %383 = zext i1 %382 to i8
@@ -3048,7 +3048,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %396 = getelementptr inbounds i8, ptr %362, i64 56
   %397 = load i64, ptr %396, align 8
   %398 = lshr i64 %397, 32
-  %399 = trunc i64 %398 to i32
+  %399 = trunc nuw i64 %398 to i32
   %400 = add i32 %392, %399
   %401 = icmp ult i32 %400, %399
   %402 = zext i1 %401 to i8
@@ -3066,7 +3066,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %414 = getelementptr inbounds i8, ptr %362, i64 64
   %415 = load i64, ptr %414, align 8
   %416 = lshr i64 %415, 32
-  %417 = trunc i64 %416 to i32
+  %417 = trunc nuw i64 %416 to i32
   %418 = icmp ult i32 %410, %417
   %.neg.i342 = sext i1 %418 to i8
   %419 = add nsw i8 %413, %.neg.i342
@@ -3083,7 +3083,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %428 = getelementptr inbounds i8, ptr %427, i64 24
   %429 = load i64, ptr %428, align 8
   %430 = lshr i64 %429, 32
-  %431 = trunc i64 %430 to i32
+  %431 = trunc nuw i64 %430 to i32
   %432 = sext i8 %419 to i32
   %433 = icmp slt i8 %419, 0
   br i1 %433, label %434, label %438
@@ -3107,7 +3107,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %443 = getelementptr inbounds i8, ptr %427, i64 72
   %444 = load i64, ptr %443, align 8
   %445 = lshr i64 %444, 32
-  %446 = trunc i64 %445 to i32
+  %446 = trunc nuw i64 %445 to i32
   %447 = add i32 %.6, %446
   %448 = icmp ult i32 %447, %446
   %449 = zext i1 %448 to i8
@@ -3122,7 +3122,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %458 = getelementptr inbounds i8, ptr %427, i64 56
   %459 = load i64, ptr %458, align 8
   %460 = lshr i64 %459, 32
-  %461 = trunc i64 %460 to i32
+  %461 = trunc nuw i64 %460 to i32
   %462 = add i32 %454, %461
   %463 = icmp ult i32 %462, %461
   %464 = zext i1 %463 to i8
@@ -3130,7 +3130,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %466 = getelementptr inbounds i8, ptr %427, i64 88
   %467 = load i64, ptr %466, align 8
   %468 = lshr i64 %467, 32
-  %469 = trunc i64 %468 to i32
+  %469 = trunc nuw i64 %468 to i32
   %470 = add i32 %462, %469
   %471 = icmp ult i32 %470, %469
   %472 = zext i1 %471 to i8
@@ -3183,7 +3183,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %507 = getelementptr inbounds i8, ptr %485, i64 64
   %508 = load i64, ptr %507, align 8
   %509 = lshr i64 %508, 32
-  %510 = trunc i64 %509 to i32
+  %510 = trunc nuw i64 %509 to i32
   %511 = add i32 %503, %510
   %512 = icmp ult i32 %511, %510
   %513 = zext i1 %512 to i8
@@ -3196,7 +3196,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %520 = getelementptr inbounds i8, ptr %485, i64 72
   %521 = load i64, ptr %520, align 8
   %522 = lshr i64 %521, 32
-  %523 = trunc i64 %522 to i32
+  %523 = trunc nuw i64 %522 to i32
   %524 = icmp ult i32 %516, %523
   %.neg.i346 = sext i1 %524 to i8
   %525 = add nsw i8 %519, %.neg.i346
@@ -3213,7 +3213,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %534 = getelementptr inbounds i8, ptr %533, i64 32
   %535 = load i64, ptr %534, align 8
   %536 = lshr i64 %535, 32
-  %537 = trunc i64 %536 to i32
+  %537 = trunc nuw i64 %536 to i32
   %538 = sext i8 %525 to i32
   %539 = icmp slt i8 %525, 0
   br i1 %539, label %540, label %544
@@ -3237,7 +3237,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %549 = getelementptr inbounds i8, ptr %533, i64 80
   %550 = load i64, ptr %549, align 8
   %551 = lshr i64 %550, 32
-  %552 = trunc i64 %551 to i32
+  %552 = trunc nuw i64 %551 to i32
   %553 = add i32 %.8, %552
   %554 = icmp ult i32 %553, %552
   %555 = zext i1 %554 to i8
@@ -3252,7 +3252,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %564 = getelementptr inbounds i8, ptr %533, i64 64
   %565 = load i64, ptr %564, align 8
   %566 = lshr i64 %565, 32
-  %567 = trunc i64 %566 to i32
+  %567 = trunc nuw i64 %566 to i32
   %568 = add i32 %560, %567
   %569 = icmp ult i32 %568, %567
   %570 = zext i1 %569 to i8
@@ -3305,7 +3305,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %605 = getelementptr inbounds i8, ptr %583, i64 72
   %606 = load i64, ptr %605, align 8
   %607 = lshr i64 %606, 32
-  %608 = trunc i64 %607 to i32
+  %608 = trunc nuw i64 %607 to i32
   %609 = add i32 %601, %608
   %610 = icmp ult i32 %609, %608
   %611 = zext i1 %610 to i8
@@ -3318,7 +3318,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %618 = getelementptr inbounds i8, ptr %583, i64 80
   %619 = load i64, ptr %618, align 8
   %620 = lshr i64 %619, 32
-  %621 = trunc i64 %620 to i32
+  %621 = trunc nuw i64 %620 to i32
   %622 = icmp ult i32 %614, %621
   %.neg.i350 = sext i1 %622 to i8
   %623 = add nsw i8 %617, %.neg.i350
@@ -3335,7 +3335,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %632 = getelementptr inbounds i8, ptr %631, i64 40
   %633 = load i64, ptr %632, align 8
   %634 = lshr i64 %633, 32
-  %635 = trunc i64 %634 to i32
+  %635 = trunc nuw i64 %634 to i32
   %636 = sext i8 %623 to i32
   %637 = icmp slt i8 %623, 0
   br i1 %637, label %638, label %642
@@ -3359,7 +3359,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %647 = getelementptr inbounds i8, ptr %631, i64 88
   %648 = load i64, ptr %647, align 8
   %649 = lshr i64 %648, 32
-  %650 = trunc i64 %649 to i32
+  %650 = trunc nuw i64 %649 to i32
   %651 = add i32 %.10, %650
   %652 = icmp ult i32 %651, %650
   %653 = zext i1 %652 to i8
@@ -3374,7 +3374,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %662 = getelementptr inbounds i8, ptr %631, i64 72
   %663 = load i64, ptr %662, align 8
   %664 = lshr i64 %663, 32
-  %665 = trunc i64 %664 to i32
+  %665 = trunc nuw i64 %664 to i32
   %666 = add i32 %658, %665
   %667 = icmp ult i32 %666, %665
   %668 = zext i1 %667 to i8
@@ -3552,7 +3552,7 @@ define internal i32 @ecp_mod_p256k1(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecp_mod_p255(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -20352, 1) i32 @ecp_mod_p255(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca [4 x i64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

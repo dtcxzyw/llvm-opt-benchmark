@@ -18,7 +18,7 @@ define hidden void @_ZN5alloc6string6String4push17he3da2a2878519a9bE(ptr align 8
   br label %10
 
 .critedge:                                        ; preds = %2
-  %9 = trunc i32 %1 to i8
+  %9 = trunc nuw i32 %1 to i8
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd6123d8e343bc8f7E"(ptr align 8 %0, i8 %9)
   br label %10
 

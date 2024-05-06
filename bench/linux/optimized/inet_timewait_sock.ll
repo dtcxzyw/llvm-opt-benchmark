@@ -335,9 +335,9 @@ define internal fastcc ptr @inet_bhashfn_portaddr(ptr nocapture noundef readonly
   %18 = trunc i64 %15 to i32
   %19 = trunc i64 %13 to i32
   %20 = lshr i64 %13, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = lshr i64 %15, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   br i1 %17, label %24, label %46
 
 24:                                               ; preds = %8

@@ -711,7 +711,7 @@ for.body.i.i:                                     ; preds = %_ZNK4YAML4Node6Scal
   %99 = load i8, ptr %__first.sroa.0.06.i.i, align 1
   %100 = add i8 %99, -65
   %101 = icmp ult i8 %100, 26
-  %sub.i.i = add i8 %99, 32
+  %sub.i.i = add nuw nsw i8 %99, 32
   %cond.i.i34 = select i1 %101, i8 %sub.i.i, i8 %99
   store i8 %cond.i.i34, ptr %__result.sroa.0.07.i.i, align 1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
@@ -802,7 +802,7 @@ for.body.i.i60:                                   ; preds = %_ZNK4YAML4Node6Scal
   %108 = load i8, ptr %__first.sroa.0.06.i.i62, align 1
   %109 = add i8 %108, -65
   %110 = icmp ult i8 %109, 26
-  %sub.i.i63 = add i8 %108, 32
+  %sub.i.i63 = add nuw nsw i8 %108, 32
   %cond.i.i64 = select i1 %110, i8 %sub.i.i63, i8 %108
   store i8 %cond.i.i64, ptr %__result.sroa.0.07.i.i61, align 1
   %incdec.ptr.i.i.i65 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i62, i64 1

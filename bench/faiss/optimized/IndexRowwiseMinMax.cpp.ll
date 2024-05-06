@@ -1379,7 +1379,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   %147 = select i1 %146, i32 %138, i32 %144
   %148 = or i32 %147, %145
   %149 = bitcast i32 %148 to float
-  %150 = mul nsw i64 %.057119.us.i, %110
+  %150 = mul nuw nsw i64 %.057119.us.i, %110
   %151 = getelementptr inbounds float, ptr %2, i64 %150
   br label %152
 
@@ -1802,8 +1802,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
 
 .lr.ph142.i.us.us:                                ; preds = %.lr.ph151.i.split.us, %.loopexit.i.us.us
   %.074140.i.us.us = phi i64 [ %78, %.loopexit.i.us.us ], [ 0, %.lr.ph151.i.split.us ]
-  %58 = mul nsw i64 %.074140.i.us.us, %39
-  %59 = mul nsw i64 %.074140.i.us.us, %19
+  %58 = mul nuw nsw i64 %.074140.i.us.us, %39
+  %59 = mul nuw nsw i64 %.074140.i.us.us, %19
   %60 = getelementptr inbounds float, ptr %.071150.i.us, i64 %59
   br label %.lr.ph.i.us.us
 
@@ -2101,7 +2101,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %56 = load float, ptr %55, align 4
   %.sroa_idx.us.us.i = getelementptr inbounds i8, ptr %55, i64 4
   %57 = load float, ptr %.sroa_idx.us.us.i, align 4
-  %58 = mul nsw i64 %.054100.us.us.i, %38
+  %58 = mul nuw nsw i64 %.054100.us.us.i, %38
   %59 = getelementptr inbounds float, ptr %.057105.us.i, i64 %58
   br label %60
 
@@ -2384,7 +2384,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
   %60 = load float, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4
-  %63 = mul nsw i64 %.057119.us.i, %57
+  %63 = mul nuw nsw i64 %.057119.us.i, %57
   %64 = getelementptr inbounds float, ptr %2, i64 %63
   br label %65
 

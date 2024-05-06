@@ -463,14 +463,14 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
   br i1 %cmp.i.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
+  tail call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
   br label %_ZN6google8protobuf8compiler4rust12_GLOBAL__N_118ThunkMapOrRepeatedB5cxx11ENS2_7ContextINS0_15FieldDescriptorEEESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 if.end.i:                                         ; preds = %if.then
   store i64 1, ptr %ref.tmp.i, align 8, !noalias !6
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.1, ptr %10, align 8, !noalias !6
-  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_111FieldPrefixINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EE(ptr noalias nonnull align 8 %ref.tmp3.i, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field)
+  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_111FieldPrefixINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EE(ptr noalias nonnull align 8 %ref.tmp3.i, ptr noundef nonnull readonly byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field)
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #19, !noalias !6
   %11 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %11, ptr %ref.tmp2.i, align 8, !noalias !6
@@ -610,7 +610,7 @@ invoke.cont23.i:                                  ; preds = %land.rhs.i36.i
   br label %if.end31.i
 
 if.else26.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %invoke.cont5.i
-  invoke fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
+  invoke fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
           to label %cleanup.i unwind label %lpad11.i
 
 if.end31.i:                                       ; preds = %invoke.cont23.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i, %invoke.cont14.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i

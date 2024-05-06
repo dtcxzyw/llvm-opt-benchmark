@@ -500,7 +500,7 @@ if.end32:                                         ; preds = %_ZNK6icu_7513Unicod
 for.body:                                         ; preds = %if.end32, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end32 ]
   %26 = phi ptr [ %28, %for.body ], [ %24, %if.end32 ]
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %call70 = call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %26, i32 noundef %27)
   %arrayidx71 = getelementptr inbounds i32, ptr %add.ptr65, i64 %indvars.iv
   store i32 %call70, ptr %arrayidx71, align 4

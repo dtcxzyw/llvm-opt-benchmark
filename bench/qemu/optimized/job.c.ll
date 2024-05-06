@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef %verb, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef %verb, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %status = getelementptr inbounds i8, ptr %job, i64 124
@@ -399,7 +399,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %switch.cast = trunc i32 %0 to i11
+  %switch.cast = trunc nuw i32 %0 to i11
   %switch.downshift = lshr i11 48, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
   ret i1 %switch.masked
@@ -421,7 +421,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %switch.cast = trunc i32 %2 to i11
+  %switch.cast = trunc nuw i32 %2 to i11
   %switch.downshift = lshr i11 48, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
@@ -441,7 +441,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %switch.cast = trunc i32 %0 to i11
+  %switch.cast = trunc nuw i32 %0 to i11
   %switch.downshift = lshr i11 -64, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
   ret i1 %switch.masked
@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %job_id, ptr noundef nonnull dereferenceable(1) %2) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %job_id, ptr noundef nonnull dereferenceable(1) %2) #19
   %tobool4.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool4.not.i, label %if.then9, label %for.inc.i
 
@@ -1598,7 +1598,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_user_pause_locked(ptr noundef %job, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef 1, ptr noundef %errp), !range !8
+  %call = tail call i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef 1, ptr noundef %errp)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1701,7 +1701,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %do.
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %call7 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 2, ptr noundef %errp), !range !8
+  %call7 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 2, ptr noundef %errp)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %return
 
@@ -1746,7 +1746,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %0, i32 noundef 5, ptr noundef %errp), !range !8
+  %call = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %0, i32 noundef 5, ptr noundef %errp)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end.i, label %return
 
@@ -1898,7 +1898,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 6, ptr noundef %errp), !range !8
+  %call = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 6, ptr noundef %errp)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -2021,7 +2021,7 @@ if.end10.i.i:                                     ; preds = %if.then6.i.i, %if.t
 job_prepare_locked.exit:                          ; preds = %land.lhs.true.i, %job_is_cancelled_locked.exit.i.i, %if.end10.i.i
   %15 = phi i32 [ %.pre.i, %if.end10.i.i ], [ 0, %job_is_cancelled_locked.exit.i.i ], [ 0, %land.lhs.true.i ]
   %tobool2.not.i = icmp eq i32 %15, 0
-  br i1 %tobool2.not.i, label %for.cond.i, label %if.then3, !llvm.loop !9
+  br i1 %tobool2.not.i, label %for.cond.i, label %if.then3, !llvm.loop !8
 
 if.then3:                                         ; preds = %do.end.i, %job_prepare_locked.exit
   tail call void @job_unref_locked(ptr noundef %job)
@@ -2046,9 +2046,9 @@ for.cond.i9:                                      ; preds = %land.rhs.i12, %if.e
 land.rhs.i12:                                     ; preds = %for.cond.i9
   %txn_list.i13 = getelementptr inbounds i8, ptr %other_job.0.i10, i64 264
   %19 = load ptr, ptr %txn_list.i13, align 8
-  %call.i14 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %other_job.0.i10) #16, !callees !10
+  %call.i14 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %other_job.0.i10) #16, !callees !9
   %tobool2.not.i15 = icmp eq i32 %call.i14, 0
-  br i1 %tobool2.not.i15, label %for.cond.i9, label %job_txn_apply_locked.exit17, !llvm.loop !9
+  br i1 %tobool2.not.i15, label %for.cond.i9, label %job_txn_apply_locked.exit17, !llvm.loop !8
 
 job_txn_apply_locked.exit17:                      ; preds = %for.cond.i9, %land.rhs.i12
   tail call void @job_unref_locked(ptr noundef %job)
@@ -2568,7 +2568,7 @@ for.cond.i:                                       ; preds = %if.end.i
   %txn_list.i = getelementptr inbounds i8, ptr %other_job.027.i, i64 264
   %other_job.0.i = load ptr, ptr %txn_list.i, align 8
   %tobool.not.i12 = icmp eq ptr %other_job.0.i, null
-  br i1 %tobool.not.i12, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %tobool.not.i12, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.else6, %for.cond.i
   %other_job.027.i = phi ptr [ %other_job.0.i, %for.cond.i ], [ %other_job.025.i, %if.else6 ]
@@ -2630,7 +2630,7 @@ if.then.i.i14:                                    ; preds = %land.rhs.i.i
 
 job_transition_to_pending_locked.exit.i:          ; preds = %if.then.i.i14, %land.rhs.i.i
   %tobool.not.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i, label %job_txn_apply_locked.exit.i, label %land.rhs.i.i, !llvm.loop !9
+  br i1 %tobool.not.i.i, label %job_txn_apply_locked.exit.i, label %land.rhs.i.i, !llvm.loop !8
 
 job_txn_apply_locked.exit.i:                      ; preds = %job_transition_to_pending_locked.exit.i, %for.end.i
   tail call void @job_unref_locked(ptr noundef nonnull %job)
@@ -2653,7 +2653,7 @@ land.rhs.i15.i:                                   ; preds = %for.cond.i12.i
   %24 = load i8, ptr %auto_finalize.i21.i, align 8
   %25 = and i8 %24, 1
   %tobool2.not.i18.not.i = icmp eq i8 %25, 0
-  br i1 %tobool2.not.i18.not.i, label %job_txn_apply_locked.exit20.i, label %for.cond.i12.i, !llvm.loop !9
+  br i1 %tobool2.not.i18.not.i, label %job_txn_apply_locked.exit20.i, label %for.cond.i12.i, !llvm.loop !8
 
 job_txn_apply_locked.exit20.i:                    ; preds = %land.rhs.i15.i
   tail call void @job_unref_locked(ptr noundef nonnull %job)
@@ -2710,7 +2710,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
   %txn_list = getelementptr inbounds i8, ptr %other_job.023, i64 264
   %other_job.0 = load ptr, ptr %txn_list, align 8
   %tobool3.not = icmp eq ptr %other_job.0, null
-  br i1 %tobool3.not, label %while.cond.preheader, label %for.body, !llvm.loop !12
+  br i1 %tobool3.not, label %while.cond.preheader, label %for.body, !llvm.loop !11
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end16
   %4 = phi ptr [ %7, %if.end16 ], [ %.pre, %while.cond.preheader ]
@@ -2752,7 +2752,7 @@ if.end16:                                         ; preds = %while.body, %while.
   %call17 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %4)
   %7 = load ptr, ptr %jobs, align 8
   %cmp8.not = icmp eq ptr %7, null
-  br i1 %cmp8.not, label %land.lhs.true.i, label %while.body, !llvm.loop !13
+  br i1 %cmp8.not, label %land.lhs.true.i, label %while.body, !llvm.loop !12
 
 land.lhs.true.i:                                  ; preds = %if.end16, %if.end, %while.cond.preheader
   tail call void @job_unref_locked(ptr noundef %job)
@@ -2773,7 +2773,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_user_cancel_locked(ptr noundef %job, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef 0, ptr noundef %errp), !range !8
+  %call = tail call i32 @job_apply_verb_locked(ptr noundef %job, i32 noundef 0, ptr noundef %errp)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2910,7 +2910,7 @@ do.body.i.i:                                      ; preds = %job_enter.exit
 while.body:                                       ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   %call10 = call zeroext i1 @aio_poll(ptr noundef nonnull %1, i1 noundef zeroext true) #16
-  br label %while.cond, !llvm.loop !14
+  br label %while.cond, !llvm.loop !13
 
 if.else11:                                        ; preds = %if.end.i, %if.then3.i, %if.end5
   %call12 = call ptr @qemu_get_current_aio_context() #16
@@ -2987,7 +2987,7 @@ while.body20:                                     ; preds = %job_enter.exit27, %
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   %call21 = call ptr @qemu_get_aio_context() #16
   %call22 = call zeroext i1 @aio_poll(ptr noundef %call21, i1 noundef zeroext true) #16
-  br label %while.cond17, !llvm.loop !15
+  br label %while.cond17, !llvm.loop !14
 
 if.end24:                                         ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit27, %job_enter.exit27, %job_enter.exit27, %job_enter.exit27, %job_enter.exit27
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
@@ -3065,7 +3065,7 @@ while.body:                                       ; preds = %entry, %while.body
   %call1.i = tail call i32 @job_finish_sync_locked(ptr noundef nonnull %retval.0.i3, ptr noundef nonnull @job_force_cancel_err_locked, ptr noundef null)
   %retval.0.i = load ptr, ptr @jobs, align 8
   %tobool.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !16
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !15
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %while.body, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
@@ -3099,7 +3099,7 @@ if.else2:                                         ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %call4 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 4, ptr noundef %errp), !range !8
+  %call4 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 4, ptr noundef %errp)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -3544,12 +3544,11 @@ attributes #20 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
-!9 = distinct !{!9, !6}
-!10 = distinct !{ptr @job_finalize_single_locked, null, null, null}
+!8 = distinct !{!8, !6}
+!9 = distinct !{ptr @job_finalize_single_locked, null, null, null}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

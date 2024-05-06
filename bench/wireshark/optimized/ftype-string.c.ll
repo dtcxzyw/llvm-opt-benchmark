@@ -125,7 +125,7 @@ define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef %0,
   br label %13
 
 10:                                               ; preds = %3
-  %11 = trunc i64 %1 to i8
+  %11 = trunc nuw i64 %1 to i8
   %12 = tail call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef null) #9
   store ptr %12, ptr %4, align 8
   tail call void @wmem_strbuf_append_c(ptr noundef %12, i8 noundef signext %11) #9
@@ -233,7 +233,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %14, label %5
 

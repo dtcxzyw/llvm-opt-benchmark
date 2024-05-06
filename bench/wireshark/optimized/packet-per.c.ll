@@ -1683,7 +1683,7 @@ proto_item_set_hidden.exit136:                    ; preds = %77, %74, %69, %70
   br label %121
 
 109:                                              ; preds = %121
-  %110 = trunc i32 %131 to i16
+  %110 = trunc nuw nsw i32 %131 to i16
   %111 = and i16 %110, 255
   %112 = icmp ugt i16 %111, %9
   %113 = icmp ult i16 %111, %8
@@ -6000,7 +6000,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
 
 106:                                              ; preds = %.lr.ph, %119
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %119 ]
-  %107 = trunc i64 %indvars.iv to i32
+  %107 = trunc nuw i64 %indvars.iv to i32
   %108 = shl i32 %107, 3
   %109 = icmp ult i32 %108, %6
   br i1 %109, label %110, label %113
@@ -6123,7 +6123,7 @@ declare void @asn1_param_push_boolean(ptr noundef, i1 noundef zeroext) local_unn
 declare void @asn1_stack_frame_pop(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @get_size_constraint_from_stack(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @get_size_constraint_from_stack(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6
 

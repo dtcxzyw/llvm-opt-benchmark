@@ -15,7 +15,7 @@ define void @LAPACKE_set_nancheck(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @LAPACKE_get_nancheck() local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @LAPACKE_get_nancheck() local_unnamed_addr #1 {
   %1 = load i32, ptr @nancheck_flag, align 4, !tbaa !3
   %2 = icmp eq i32 %1, -1
   br i1 %2, label %3, label %13

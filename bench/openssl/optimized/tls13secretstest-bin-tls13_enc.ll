@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.derive_secret_key_and_iv = private unnamed_addr constant [25 x i8] c"derive_secret_key_and_iv\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_hkdf_expand_ex(ptr noundef %libctx, ptr noundef %propq, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %raise_error) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_hkdf_expand_ex(ptr noundef %libctx, ptr noundef %propq, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %raise_error) local_unnamed_addr #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %mode = alloca i32, align 4
@@ -187,7 +187,7 @@ declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) 
 declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_hkdf_expand(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %fatal) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_hkdf_expand(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %fatal) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -197,7 +197,7 @@ entry:
   %tobool = icmp ne i32 %fatal, 0
   %lnot = xor i1 %tobool, true
   %lnot.ext = zext i1 %lnot to i32
-  %call = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %lnot.ext), !range !5
+  %call = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen, i32 noundef %lnot.ext)
   %cmp = icmp eq i32 %call, 0
   %or.cond = and i1 %tobool, %cmp
   br i1 %or.cond, label %if.then, label %if.end
@@ -215,14 +215,14 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_derive_key(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_derive_key(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %ctx.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx.i, align 8
   %1 = load ptr, ptr %0, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key, i64 noundef %keylen, i32 noundef 0), !range !5
+  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key, i64 noundef %keylen, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %tls13_hkdf_expand.exit
 
@@ -237,14 +237,14 @@ tls13_hkdf_expand.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_derive_iv(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %iv, i64 noundef %ivlen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_derive_iv(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %iv, i64 noundef %ivlen) local_unnamed_addr #0 {
 entry:
   %ctx.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx.i, align 8
   %1 = load ptr, ptr %0, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %iv, i64 noundef %ivlen, i32 noundef 0), !range !5
+  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %iv, i64 noundef %ivlen, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %tls13_hkdf_expand.exit
 
@@ -259,14 +259,14 @@ tls13_hkdf_expand.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_derive_finishedkey(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %fin, i64 noundef %finlen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_derive_finishedkey(ptr noundef %s, ptr noundef %md, ptr noundef %secret, ptr noundef %fin, i64 noundef %finlen) local_unnamed_addr #0 {
 entry:
   %ctx.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx.i, align 8
   %1 = load ptr, ptr %0, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef %fin, i64 noundef %finlen, i32 noundef 0), !range !5
+  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef %fin, i64 noundef %finlen, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %tls13_hkdf_expand.exit
 
@@ -281,7 +281,7 @@ tls13_hkdf_expand.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %md, ptr noundef %prevsecret, ptr noundef %insecret, i64 noundef %insecretlen, ptr noundef %outsecret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %md, ptr noundef %prevsecret, ptr noundef %insecret, i64 noundef %insecretlen, ptr noundef %outsecret) local_unnamed_addr #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %mode = alloca i32, align 4
@@ -382,25 +382,25 @@ return:                                           ; preds = %if.end39, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @tls13_generate_handshake_secret(ptr noundef %s, ptr noundef %insecret, i64 noundef %insecretlen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_generate_handshake_secret(ptr noundef %s, ptr noundef %insecret, i64 noundef %insecretlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ssl_handshake_md(ptr noundef %s) #3
   %early_secret = getelementptr inbounds i8, ptr %s, i64 1276
   %handshake_secret = getelementptr inbounds i8, ptr %s, i64 1340
-  %call1 = tail call i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %call, ptr noundef nonnull %early_secret, ptr noundef %insecret, i64 noundef %insecretlen, ptr noundef nonnull %handshake_secret), !range !5
+  %call1 = tail call i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %call, ptr noundef nonnull %early_secret, ptr noundef %insecret, i64 noundef %insecretlen, ptr noundef nonnull %handshake_secret)
   ret i32 %call1
 }
 
 declare ptr @ssl_handshake_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ssl_handshake_md(ptr noundef %s) #3
   %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #3
   %conv = sext i32 %call1 to i64
   store i64 %conv, ptr %secret_size, align 8
-  %call2 = tail call i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %call, ptr noundef %prev, ptr noundef null, i64 noundef 0, ptr noundef %out), !range !5
+  %call2 = tail call i32 @tls13_generate_secret(ptr noundef %s, ptr noundef %call, ptr noundef %prev, ptr noundef null, i64 noundef 0, ptr noundef %out)
   ret i32 %call2
 }
 
@@ -479,7 +479,7 @@ if.else22:                                        ; preds = %lor.lhs.false
   %9 = load ptr, ptr %8, align 8
   %propq.i.i = getelementptr inbounds i8, ptr %8, i64 1096
   %10 = load ptr, ptr %propq.i.i, align 8
-  %call.i.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %call, ptr noundef nonnull %client_app_traffic_secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef nonnull %finsecret, i64 noundef %7, i32 noundef 0), !range !5
+  %call.i.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %call, ptr noundef nonnull %client_app_traffic_secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef nonnull %finsecret, i64 noundef %7, i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %tls13_derive_finishedkey.exit.thread, label %if.end31
 
@@ -523,7 +523,7 @@ declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @tls13_setup_key_block(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_setup_key_block(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %c = alloca ptr, align 8
   %hash = alloca ptr, align 8
@@ -571,7 +571,7 @@ declare void @ssl_evp_cipher_free(ptr noundef) local_unnamed_addr #1
 declare void @ssl_evp_md_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   %key = alloca [64 x i8], align 16
@@ -730,7 +730,7 @@ if.end65:                                         ; preds = %lor.lhs.false60
   store i64 %conv66, ptr %hashlen, align 8
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call42) #3
   %early_exporter_master_secret = getelementptr inbounds i8, ptr %s, i64 1980
-  %call69 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %s, ptr noundef nonnull %call51, ptr noundef nonnull %early_secret, ptr noundef nonnull @tls13_change_cipher_state.early_exporter_master_secret, i64 noundef 12, ptr noundef nonnull %hashval, i64 noundef %conv66, ptr noundef nonnull %early_exporter_master_secret, i64 noundef %conv66, i32 noundef 1), !range !5
+  %call69 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %s, ptr noundef nonnull %call51, ptr noundef nonnull %early_secret, ptr noundef nonnull @tls13_change_cipher_state.early_exporter_master_secret, i64 noundef 12, ptr noundef nonnull %hashval, i64 noundef %conv66, ptr noundef nonnull %early_exporter_master_secret, i64 noundef %conv66, i32 noundef 1)
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %if.then71, label %if.end72
 
@@ -842,7 +842,7 @@ if.then138:                                       ; preds = %if.end135
   %19 = load ptr, ptr %18, align 8
   %propq.i = getelementptr inbounds i8, ptr %18, i64 1096
   %20 = load ptr, ptr %propq.i, align 8
-  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %19, ptr noundef %20, ptr noundef %call139, ptr noundef nonnull %insecret.0, ptr noundef nonnull @tls13_change_cipher_state.resumption_master_secret, i64 noundef 10, ptr noundef nonnull %hashval, i64 noundef %17, ptr noundef nonnull %resumption_master_secret, i64 noundef %17, i32 noundef 0), !range !5
+  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %19, ptr noundef %20, ptr noundef %call139, ptr noundef nonnull %insecret.0, ptr noundef nonnull @tls13_change_cipher_state.resumption_master_secret, i64 noundef 10, ptr noundef nonnull %hashval, i64 noundef %17, ptr noundef nonnull %resumption_master_secret, i64 noundef %17, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %tls13_hkdf_expand.exit.thread, label %if.end146
 
@@ -858,7 +858,7 @@ if.end146:                                        ; preds = %if.then138, %if.end
   br i1 %cmp147.not, label %err, label %if.end158
 
 if.end158:                                        ; preds = %if.end146
-  %call162 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef nonnull %s, ptr noundef %md.1, ptr noundef nonnull %21, ptr noundef nonnull %insecret.0, ptr noundef nonnull %hash.0, ptr noundef nonnull %label.0, i64 noundef %labellen.0, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen), !range !5
+  %call162 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef nonnull %s, ptr noundef %md.1, ptr noundef nonnull %21, ptr noundef nonnull %insecret.0, ptr noundef nonnull %hash.0, ptr noundef nonnull %label.0, i64 noundef %labellen.0, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen)
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %err, label %if.end165
 
@@ -876,7 +876,7 @@ if.then168:                                       ; preds = %if.end165
   %25 = load ptr, ptr %24, align 8
   %propq.i100 = getelementptr inbounds i8, ptr %24, i64 1096
   %26 = load ptr, ptr %propq.i100, align 8
-  %call.i101 = call i32 @tls13_hkdf_expand_ex(ptr noundef %25, ptr noundef %26, ptr noundef %call171, ptr noundef nonnull %insecret.0, ptr noundef nonnull @tls13_change_cipher_state.exporter_master_secret, i64 noundef 10, ptr noundef nonnull %hash.0, i64 noundef %23, ptr noundef nonnull %exporter_master_secret, i64 noundef %23, i32 noundef 0), !range !5
+  %call.i101 = call i32 @tls13_hkdf_expand_ex(ptr noundef %25, ptr noundef %26, ptr noundef %call171, ptr noundef nonnull %insecret.0, ptr noundef nonnull @tls13_change_cipher_state.exporter_master_secret, i64 noundef 10, ptr noundef nonnull %hash.0, i64 noundef %23, ptr noundef nonnull %exporter_master_secret, i64 noundef %23, i32 noundef 0)
   %cmp.i102 = icmp eq i32 %call.i101, 0
   br i1 %cmp.i102, label %tls13_hkdf_expand.exit104.thread, label %if.end176
 
@@ -921,7 +921,7 @@ land.lhs.true198:                                 ; preds = %if.end195
   %30 = load ptr, ptr %29, align 8
   %propq.i.i = getelementptr inbounds i8, ptr %29, i64 1096
   %31 = load ptr, ptr %propq.i.i, align 8
-  %call.i.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %30, ptr noundef %31, ptr noundef %call199, ptr noundef nonnull %secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef nonnull %finsecret.0, i64 noundef %finsecretlen.0, i32 noundef 0), !range !5
+  %call.i.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %30, ptr noundef %31, ptr noundef %call199, ptr noundef nonnull %secret, ptr noundef nonnull @tls13_derive_finishedkey.finishedlabel, i64 noundef 8, ptr noundef null, i64 noundef 0, ptr noundef nonnull %finsecret.0, i64 noundef %finsecretlen.0, i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %tls13_derive_finishedkey.exit.thread, label %if.end204
 
@@ -1007,7 +1007,7 @@ declare i32 @ssl_log_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef %labellen, ptr noundef %secret, ptr noundef %key, ptr nocapture noundef %keylen, ptr noundef %iv, ptr nocapture noundef %ivlen, ptr nocapture noundef writeonly %taglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef %labellen, ptr noundef %secret, ptr noundef %key, ptr nocapture noundef %keylen, ptr noundef %iv, ptr nocapture noundef %ivlen, ptr nocapture noundef writeonly %taglen) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %md) #3
   %cmp = icmp sgt i32 %call, -1
@@ -1026,7 +1026,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %insecret, ptr noundef %label, i64 noundef %labellen, ptr noundef %hash, i64 noundef %conv5, ptr noundef %secret, i64 noundef %conv5, i32 noundef 0), !range !5
+  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %insecret, ptr noundef %label, i64 noundef %labellen, ptr noundef %hash, i64 noundef %conv5, ptr noundef %secret, i64 noundef %conv5, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %tls13_hkdf_expand.exit.thread, label %if.end9
 
@@ -1116,7 +1116,7 @@ if.end59:                                         ; preds = %if.then44, %if.else
   %10 = load ptr, ptr %9, align 8
   %propq.i.i = getelementptr inbounds i8, ptr %9, i64 1096
   %11 = load ptr, ptr %propq.i.i, align 8
-  %call.i.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key, i64 noundef %8, i32 noundef 0), !range !5
+  %call.i.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key, i64 noundef %8, i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %tls13_derive_key.exit.thread, label %lor.lhs.false
 
@@ -1132,7 +1132,7 @@ lor.lhs.false:                                    ; preds = %if.end59
   %14 = load ptr, ptr %13, align 8
   %propq.i.i34 = getelementptr inbounds i8, ptr %13, i64 1096
   %15 = load ptr, ptr %propq.i.i34, align 8
-  %call.i.i35 = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %iv, i64 noundef %12, i32 noundef 0), !range !5
+  %call.i.i35 = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %iv, i64 noundef %12, i32 noundef 0)
   %cmp.i.i36.not = icmp eq i32 %call.i.i35, 0
   br i1 %cmp.i.i36.not, label %if.then.i.i37, label %return
 
@@ -1150,7 +1150,7 @@ return:                                           ; preds = %if.then.i.i37, %lor
 declare i32 @ssl_set_new_record_layer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_update_key(ptr noundef %s, i32 noundef %sending) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_update_key(ptr noundef %s, i32 noundef %sending) local_unnamed_addr #0 {
 entry:
   %key = alloca [64 x i8], align 16
   %secret = alloca [64 x i8], align 16
@@ -1180,7 +1180,7 @@ if.end:                                           ; preds = %entry
   %insecret.0 = getelementptr inbounds i8, ptr %s, i64 %insecret.0.v
   %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
   %1 = load ptr, ptr %new_sym_enc, align 8
-  %call10 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %call, ptr noundef %1, ptr noundef nonnull %insecret.0, ptr noundef null, ptr noundef nonnull @tls13_update_key.application_traffic, i64 noundef 11, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen), !range !5
+  %call10 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %call, ptr noundef %1, ptr noundef nonnull %insecret.0, ptr noundef null, ptr noundef nonnull @tls13_update_key.application_traffic, i64 noundef 11, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 
@@ -1236,7 +1236,7 @@ return:                                           ; preds = %entry, %entry, %if.
 declare i32 @tls1_alert_code(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
   %exportsecret = alloca [64 x i8], align 16
   %hash = alloca [64 x i8], align 16
@@ -1293,7 +1293,7 @@ lor.lhs.false23:                                  ; preds = %lor.lhs.false19
   %3 = load ptr, ptr %2, align 8
   %propq.i = getelementptr inbounds i8, ptr %2, i64 1096
   %4 = load ptr, ptr %propq.i, align 8
-  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call, ptr noundef nonnull %exporter_master_secret, ptr noundef %label, i64 noundef %llen, ptr noundef nonnull %data, i64 noundef %conv, ptr noundef nonnull %exportsecret, i64 noundef %conv27, i32 noundef 1), !range !5
+  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call, ptr noundef nonnull %exporter_master_secret, ptr noundef %label, i64 noundef %llen, ptr noundef nonnull %data, i64 noundef %conv, ptr noundef nonnull %exportsecret, i64 noundef %conv27, i32 noundef 1)
   %tobool29.not = icmp eq i32 %call.i, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
 
@@ -1304,7 +1304,7 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false23
   %7 = load ptr, ptr %6, align 8
   %propq.i17 = getelementptr inbounds i8, ptr %6, i64 1096
   %8 = load ptr, ptr %propq.i17, align 8
-  %call.i18 = call i32 @tls13_hkdf_expand_ex(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %call, ptr noundef nonnull %exportsecret, ptr noundef nonnull @tls13_export_keying_material.exporterlabel, i64 noundef 8, ptr noundef nonnull %hash, i64 noundef %conv33, ptr noundef %out, i64 noundef %olen, i32 noundef 1), !range !5
+  %call.i18 = call i32 @tls13_hkdf_expand_ex(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %call, ptr noundef nonnull %exportsecret, ptr noundef nonnull @tls13_export_keying_material.exporterlabel, i64 noundef 8, ptr noundef nonnull %hash, i64 noundef %conv33, ptr noundef %out, i64 noundef %olen, i32 noundef 1)
   br label %err
 
 err:                                              ; preds = %lor.lhs.false30, %if.end, %lor.lhs.false10, %lor.lhs.false13, %lor.lhs.false16, %lor.lhs.false19, %lor.lhs.false23, %entry, %lor.lhs.false3
@@ -1316,7 +1316,7 @@ err:                                              ; preds = %lor.lhs.false30, %i
 declare i32 @ossl_statem_export_allowed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tls13_export_keying_material_early(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls13_export_keying_material_early(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen) local_unnamed_addr #0 {
 entry:
   %exportsecret = alloca [64 x i8], align 16
   %hash = alloca [64 x i8], align 16
@@ -1403,7 +1403,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false27
   %10 = load ptr, ptr %9, align 8
   %propq.i = getelementptr inbounds i8, ptr %9, i64 1096
   %11 = load ptr, ptr %propq.i, align 8
-  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %call13, ptr noundef nonnull %early_exporter_master_secret, ptr noundef %label, i64 noundef %llen, ptr noundef nonnull %data, i64 noundef %conv, ptr noundef nonnull %exportsecret, i64 noundef %conv35, i32 noundef 1), !range !5
+  %call.i = call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %call13, ptr noundef nonnull %early_exporter_master_secret, ptr noundef %label, i64 noundef %llen, ptr noundef nonnull %data, i64 noundef %conv, ptr noundef nonnull %exportsecret, i64 noundef %conv35, i32 noundef 1)
   %tobool37.not = icmp eq i32 %call.i, 0
   br i1 %tobool37.not, label %err, label %lor.lhs.false38
 
@@ -1414,7 +1414,7 @@ lor.lhs.false38:                                  ; preds = %lor.lhs.false31
   %14 = load ptr, ptr %13, align 8
   %propq.i21 = getelementptr inbounds i8, ptr %13, i64 1096
   %15 = load ptr, ptr %propq.i21, align 8
-  %call.i22 = call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %call13, ptr noundef nonnull %exportsecret, ptr noundef nonnull @tls13_export_keying_material_early.exporterlabel, i64 noundef 8, ptr noundef nonnull %hash, i64 noundef %conv41, ptr noundef %out, i64 noundef %olen, i32 noundef 1), !range !5
+  %call.i22 = call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %call13, ptr noundef nonnull %exportsecret, ptr noundef nonnull @tls13_export_keying_material_early.exporterlabel, i64 noundef 8, ptr noundef nonnull %hash, i64 noundef %conv41, ptr noundef %out, i64 noundef %olen, i32 noundef 1)
   br label %err
 
 err:                                              ; preds = %lor.lhs.false38, %if.end11, %lor.lhs.false15, %lor.lhs.false18, %lor.lhs.false21, %lor.lhs.false24, %lor.lhs.false27, %lor.lhs.false31, %entry, %lor.lhs.false
@@ -1443,4 +1443,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

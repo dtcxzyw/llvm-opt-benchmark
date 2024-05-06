@@ -121,7 +121,7 @@ define dso_local noundef i64 @intel_runtime_pm_get(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @intel_runtime_pm_get_if_in_use(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -1, 1) i64 @intel_runtime_pm_get_if_in_use(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @pm_runtime_get_if_active(ptr noundef %3, i1 noundef zeroext false) #3
@@ -139,7 +139,7 @@ define dso_local noundef i64 @intel_runtime_pm_get_if_in_use(ptr noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @intel_runtime_pm_get_if_active(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -1, 1) i64 @intel_runtime_pm_get_if_active(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @pm_runtime_get_if_active(ptr noundef %3, i1 noundef zeroext true) #3

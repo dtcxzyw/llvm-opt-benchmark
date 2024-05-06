@@ -92,7 +92,7 @@ define void @_ZN3vcg9TrackballC2Ev(ptr noundef nonnull align 8 dereferenceable(5
   store float 1.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   store float 1.000000e+00, ptr %4, align 4
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %3, align 4

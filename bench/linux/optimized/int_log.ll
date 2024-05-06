@@ -55,7 +55,7 @@ define dso_local i32 @intlog2(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intlog10(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 0, 1292913986) i32 @intlog10(i32 noundef %0) #0 align 16 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %3, label %4, !prof !5
 
@@ -92,7 +92,7 @@ define dso_local i32 @intlog10(i32 noundef %0) #0 align 16 {
   %28 = zext i32 %27 to i64
   %29 = mul nuw nsw i64 %28, 646456993
   %30 = lshr i64 %29, 31
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   br label %32
 
 32:                                               ; preds = %4, %3

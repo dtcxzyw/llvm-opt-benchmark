@@ -60,8 +60,8 @@ ompi_file_invalid.exit:                           ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
-  %.not72 = icmp eq i32 %19, 0
-  br i1 %.not72, label %20, label %ompi_file_invalid.exit.thread
+  %.not73 = icmp eq i32 %19, 0
+  br i1 %.not73, label %20, label %ompi_file_invalid.exit.thread
 
 20:                                               ; preds = %ompi_file_invalid.exit
   %21 = icmp eq ptr %2, null
@@ -73,8 +73,8 @@ ompi_file_invalid.exit:                           ; preds = %14
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i16, ptr %24, align 8
   %25 = and i16 %.val, 5
-  %or.cond73 = icmp eq i16 %25, 4
-  br i1 %or.cond73, label %26, label %ompi_file_invalid.exit.thread
+  %or.cond74 = icmp eq i16 %25, 4
+  br i1 %or.cond74, label %26, label %ompi_file_invalid.exit.thread
 
 26:                                               ; preds = %23
   %27 = and i16 %.val, 1024
@@ -107,8 +107,8 @@ ompi_file_invalid.exit:                           ; preds = %14
   %39 = getelementptr i8, ptr %3, i64 16
   %.val55 = load i16, ptr %39, align 8
   %40 = and i16 %.val55, 5
-  %or.cond74 = icmp eq i16 %40, 4
-  br i1 %or.cond74, label %41, label %ompi_file_invalid.exit.thread
+  %or.cond75 = icmp eq i16 %40, 4
+  br i1 %or.cond75, label %41, label %ompi_file_invalid.exit.thread
 
 41:                                               ; preds = %38
   %42 = and i16 %.val55, 1024
@@ -183,8 +183,8 @@ ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %67 ], [ 0, %.preheader.i ]
   %71 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
   %72 = sext i32 %71 to i64
-  %.not.i64 = icmp slt i64 %indvars.iv.i, %72
-  br i1 %.not.i64, label %73, label %opal_pointer_array_get_item.exit.i
+  %.not.i65 = icmp slt i64 %indvars.iv.i, %72
+  br i1 %.not.i65, label %73, label %opal_pointer_array_get_item.exit.i
 
 73:                                               ; preds = %.lr.ph.i
   %74 = load i8, ptr @opal_uses_threads, align 1

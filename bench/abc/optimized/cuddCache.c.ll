@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Extra_UtilMMoutOfMemory = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddInitCache(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddInitCache(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 1
@@ -1204,7 +1204,7 @@ define ptr @cuddConstantLookup(ptr nocapture noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96

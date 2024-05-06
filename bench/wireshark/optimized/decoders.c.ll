@@ -258,7 +258,7 @@ define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1,
 declare i32 @extract_ui64(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_gtcp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   %6 = alloca i64, align 8

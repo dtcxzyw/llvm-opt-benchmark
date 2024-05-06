@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z13tMPI_In_groupP11tmpi_group_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z13tMPI_In_groupP11tmpi_group_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
@@ -58,7 +58,7 @@ define noundef i32 @_Z15tMPI_Group_sizeP11tmpi_group_Pi(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15tMPI_Group_rankP11tmpi_group_Pi(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z15tMPI_Group_rankP11tmpi_group_Pi(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

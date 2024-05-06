@@ -171,7 +171,7 @@ define dso_local i32 @cookie_v6_init_sequence(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__cookie_v6_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.anon.68, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.anon.68, align 8

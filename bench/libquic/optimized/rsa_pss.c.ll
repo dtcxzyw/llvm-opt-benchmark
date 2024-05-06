@@ -66,7 +66,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @x509_rsa_ctx_to_pss(ptr nocapture noundef readonly %ctx, ptr noundef %algor) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr nocapture noundef readonly %ctx, ptr noundef %algor) local_unnamed_addr #0 {
 entry:
   %stmp.i = alloca ptr, align 8
   %sigmd = alloca ptr, align 8
@@ -276,7 +276,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @x509_rsa_pss_to_ctx(ptr noundef %ctx, ptr nocapture noundef readonly %sigalg, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %ctx, ptr nocapture noundef readonly %sigalg, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %p.i.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -493,7 +493,7 @@ declare i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef, ptr noundef) local_unname
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr nocapture noundef readonly %sigalg, i32 noundef %indent, ptr nocapture noundef readnone %pctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr nocapture noundef readonly %sigalg, i32 noundef %indent, ptr nocapture noundef readnone %pctx) local_unnamed_addr #0 {
 entry:
   %p.i.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8

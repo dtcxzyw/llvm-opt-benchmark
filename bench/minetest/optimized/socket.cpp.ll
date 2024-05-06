@@ -83,7 +83,7 @@ $_ZTV19SendFailedException = comdat any
 @__dso_handle = external hidden global i8
 @socket_enable_debug_output = dso_local local_unnamed_addr global i8 0, align 1
 @_ZL21g_sockets_initialized = internal unnamed_addr global i1 false, align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [24 x i8] c"Sockets not initialized\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Cannot initialize socket twice\00", align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -2038,7 +2038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN9UDPSocket7ReceiveER7AddressPvi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN9UDPSocket7ReceiveER7AddressPvi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 {
 entry:
   %address = alloca %struct.sockaddr_in6, align 4
   %address_len = alloca i32, align 4

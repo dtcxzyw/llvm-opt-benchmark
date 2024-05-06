@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #1 {
+define dso_local range(i32 0, 256) i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #1 {
 entry:
   %hookmask = getelementptr inbounds i8, ptr %L, i64 100
   %0 = load i8, ptr %hookmask, align 4, !tbaa !15
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lua_getstack(ptr nocapture noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 2) i32 @lua_getstack(ptr nocapture noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #2 {
 entry:
   %ci1 = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %ci1, align 8, !tbaa !16
@@ -375,7 +375,7 @@ if.end:                                           ; preds = %if.then, %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_getinfo(ptr noundef %L, ptr noundef readonly %what, ptr noundef %ar) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @lua_getinfo(ptr noundef %L, ptr noundef readonly %what, ptr noundef %ar) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %what, align 1, !tbaa !20
   %cmp = icmp eq i8 %0, 62
@@ -829,7 +829,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare hidden void @luaD_growstack(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @luaG_checkopenop(i32 noundef %i) local_unnamed_addr #7 {
+define hidden noundef range(i32 0, 2) i32 @luaG_checkopenop(i32 noundef %i) local_unnamed_addr #7 {
 entry:
   %and = and i32 %i, 63
   switch i32 %and, label %return [
@@ -850,7 +850,7 @@ return:                                           ; preds = %sw.bb, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @luaG_checkcode(ptr nocapture noundef readonly %pt) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @luaG_checkcode(ptr nocapture noundef readonly %pt) local_unnamed_addr #8 {
 entry:
   %sizecode = getelementptr inbounds i8, ptr %pt, i64 80
   %0 = load i32, ptr %sizecode, align 8, !tbaa !51

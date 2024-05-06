@@ -162,7 +162,7 @@ declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr @Curl_cfree, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -276,7 +276,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 42:                                               ; preds = %40
   %43 = load ptr, ptr %10, align 8
   %.pre = load i32, ptr %8, align 4
-  %.pre156 = load i32, ptr %3, align 8
+  %.pre157 = load i32, ptr %3, align 8
   br label %52
 
 44:                                               ; preds = %22
@@ -299,7 +299,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br label %52
 
 52:                                               ; preds = %49, %42
-  %53 = phi i32 [ %.pre156, %42 ], [ %51, %49 ]
+  %53 = phi i32 [ %.pre157, %42 ], [ %51, %49 ]
   %54 = phi i32 [ %.pre, %42 ], [ 24, %49 ]
   %.0123 = phi ptr [ %43, %42 ], [ %9, %49 ]
   %.0118 = select i1 %.not, i64 11, i64 22
@@ -328,7 +328,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   %75 = and i32 %74, 255
   %76 = lshr i32 %74, 8
   %77 = and i32 %76, 255
-  %78 = trunc i64 %.0118 to i32
+  %78 = trunc nuw nsw i64 %.0118 to i32
   %79 = trunc i64 %59 to i32
   %80 = and i32 %79, 255
   %81 = lshr i32 %79, 8
@@ -385,7 +385,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 112:                                              ; preds = %110
   %113 = and i64 %.0, 9223372036854775807
   %.not.i = icmp eq i64 %113, 0
-  br i1 %.not.i, label %unicodecpy.exit.thread154, label %.lr.ph.i
+  br i1 %.not.i, label %unicodecpy.exit.thread155, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112, %.lr.ph.i
   %.08.i = phi i64 [ %120, %.lr.ph.i ], [ 0, %112 ]
@@ -409,21 +409,21 @@ unicodecpy.exit.thread:                           ; preds = %110
   %123 = add i64 %121, %27
   %124 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %124, ptr noundef nonnull align 16 dereferenceable(11) %11, i64 11, i1 false)
-  br label %unicodecpy.exit153
+  br label %unicodecpy.exit154
 
 unicodecpy.exit:                                  ; preds = %.lr.ph.i
   %125 = add i64 %98, %.1
-  br label %unicodecpy.exit.thread154
+  br label %unicodecpy.exit.thread155
 
-unicodecpy.exit.thread154:                        ; preds = %unicodecpy.exit, %112
+unicodecpy.exit.thread155:                        ; preds = %unicodecpy.exit, %112
   %126 = phi i64 [ %125, %unicodecpy.exit ], [ %98, %112 ]
   %127 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %126
   %128 = and i64 %27, 9223372036854775807
   %.not.i145 = icmp eq i64 %128, 0
-  br i1 %.not.i145, label %unicodecpy.exit149.thread155, label %.lr.ph.i146
+  br i1 %.not.i145, label %unicodecpy.exit149.thread156, label %.lr.ph.i146
 
-.lr.ph.i146:                                      ; preds = %unicodecpy.exit.thread154, %.lr.ph.i146
-  %.08.i147 = phi i64 [ %135, %.lr.ph.i146 ], [ 0, %unicodecpy.exit.thread154 ]
+.lr.ph.i146:                                      ; preds = %unicodecpy.exit.thread155, %.lr.ph.i146
+  %.08.i147 = phi i64 [ %135, %.lr.ph.i146 ], [ 0, %unicodecpy.exit.thread155 ]
   %129 = getelementptr inbounds i8, ptr %.1121, i64 %.08.i147
   %130 = load i8, ptr %129, align 1
   %131 = shl nuw i64 %.08.i147, 1
@@ -438,29 +438,29 @@ unicodecpy.exit.thread154:                        ; preds = %unicodecpy.exit, %1
 
 unicodecpy.exit149:                               ; preds = %.lr.ph.i146
   %136 = add i64 %126, %.0117
-  br label %unicodecpy.exit149.thread155
+  br label %unicodecpy.exit149.thread156
 
-unicodecpy.exit149.thread155:                     ; preds = %unicodecpy.exit149, %unicodecpy.exit.thread154
-  %137 = phi i64 [ %136, %unicodecpy.exit149 ], [ %126, %unicodecpy.exit.thread154 ]
+unicodecpy.exit149.thread156:                     ; preds = %unicodecpy.exit149, %unicodecpy.exit.thread155
+  %137 = phi i64 [ %136, %unicodecpy.exit149 ], [ %126, %unicodecpy.exit.thread155 ]
   %138 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %137
-  br label %.lr.ph.i150
+  br label %.lr.ph.i151
 
-.lr.ph.i150:                                      ; preds = %.lr.ph.i150, %unicodecpy.exit149.thread155
-  %.08.i151 = phi i64 [ %145, %.lr.ph.i150 ], [ 0, %unicodecpy.exit149.thread155 ]
-  %139 = getelementptr inbounds i8, ptr %11, i64 %.08.i151
+.lr.ph.i151:                                      ; preds = %unicodecpy.exit149.thread156, %.lr.ph.i151
+  %.08.i152 = phi i64 [ %145, %.lr.ph.i151 ], [ 0, %unicodecpy.exit149.thread156 ]
+  %139 = getelementptr inbounds i8, ptr %11, i64 %.08.i152
   %140 = load i8, ptr %139, align 1
-  %141 = shl nuw i64 %.08.i151, 1
+  %141 = shl nuw i64 %.08.i152, 1
   %142 = getelementptr inbounds i8, ptr %138, i64 %141
   store i8 %140, ptr %142, align 1
   %143 = or disjoint i64 %141, 1
   %144 = getelementptr inbounds i8, ptr %138, i64 %143
   store i8 0, ptr %144, align 1
-  %145 = add nuw nsw i64 %.08.i151, 1
-  %exitcond.not.i152 = icmp eq i64 %145, 11
-  br i1 %exitcond.not.i152, label %unicodecpy.exit153, label %.lr.ph.i150, !llvm.loop !5
+  %145 = add nuw nsw i64 %.08.i152, 1
+  %exitcond.not.i153 = icmp eq i64 %145, 11
+  br i1 %exitcond.not.i153, label %unicodecpy.exit154, label %.lr.ph.i151, !llvm.loop !5
 
-unicodecpy.exit153:                               ; preds = %.lr.ph.i150, %unicodecpy.exit.thread
-  %146 = phi i64 [ %123, %unicodecpy.exit.thread ], [ %137, %.lr.ph.i150 ]
+unicodecpy.exit154:                               ; preds = %.lr.ph.i151, %unicodecpy.exit.thread
+  %146 = phi i64 [ %123, %unicodecpy.exit.thread ], [ %137, %.lr.ph.i151 ]
   %147 = add i64 %146, %.0118
   %148 = call i32 @Curl_bufref_memdup(ptr noundef %4, ptr noundef nonnull %6, i64 noundef %147) #7
   %149 = load ptr, ptr @Curl_cfree, align 8
@@ -472,8 +472,8 @@ unicodecpy.exit153:                               ; preds = %.lr.ph.i150, %unico
   store i32 0, ptr %152, align 4
   br label %153
 
-153:                                              ; preds = %46, %44, %40, %37, %35, %33, %31, %unicodecpy.exit153, %109, %100
-  %.0122 = phi i32 [ 27, %100 ], [ 27, %109 ], [ %148, %unicodecpy.exit153 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %45, %44 ], [ %48, %46 ]
+153:                                              ; preds = %46, %44, %40, %37, %35, %33, %31, %unicodecpy.exit154, %109, %100
+  %.0122 = phi i32 [ 27, %100 ], [ 27, %109 ], [ %148, %unicodecpy.exit154 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %45, %44 ], [ %48, %46 ]
   ret i32 %.0122
 }
 

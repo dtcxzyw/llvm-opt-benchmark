@@ -419,7 +419,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @ucol_getBound_75(ptr noundef readonly %source, i32 noundef %sourceLength, i32 noundef %boundType, i32 noundef %noOfLevels, ptr noundef writeonly %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_75(ptr noundef readonly %source, i32 noundef %sourceLength, i32 noundef %boundType, i32 noundef %noOfLevels, ptr noundef writeonly %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -491,8 +491,8 @@ sw.bb34:                                          ; preds = %do.body26
   store i8 -1, ptr %arrayidx37, align 1
   %inc38 = add nuw nsw i32 %sourceIndex.047, 3
   %4 = and i64 %indvars.iv, 4294967295
-  %5 = getelementptr i8, ptr %result, i64 %4
-  %arrayidx40 = getelementptr i8, ptr %5, i64 2
+  %5 = getelementptr inbounds i8, ptr %result, i64 %4
+  %arrayidx40 = getelementptr inbounds i8, ptr %5, i64 2
   store i8 -1, ptr %arrayidx40, align 1
   br label %sw.epilog
 
@@ -813,7 +813,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucol_greater_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucol_greater_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
@@ -829,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucol_greaterOrEqual_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucol_greaterOrEqual_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
@@ -845,7 +845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucol_equal_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucol_equal_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
@@ -1109,7 +1109,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucol_equals_75(ptr noundef %source, ptr noundef %target) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucol_equals_75(ptr noundef %source, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %source, %target
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -1127,7 +1127,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i8 %conv
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -1146,7 +1146,7 @@ attributes #3 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }

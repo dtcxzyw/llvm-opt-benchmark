@@ -43,7 +43,7 @@ define dso_local void @jbd2_journal_destroy_revoke_table_cache() local_unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @jbd2_journal_init_revoke_record_cache() local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke_record_cache() local_unnamed_addr #2 section ".init.text" align 16 {
   %1 = load ptr, ptr @jbd2_revoke_record_cache, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3, !prof !5
@@ -75,7 +75,7 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @jbd2_journal_init_revoke_table_cache() local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke_table_cache() local_unnamed_addr #2 section ".init.text" align 16 {
   %1 = load ptr, ptr @jbd2_revoke_table_cache, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3, !prof !5
@@ -101,7 +101,7 @@ define dso_local noundef i32 @jbd2_journal_init_revoke_table_cache() local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_init_revoke(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -387,7 +387,7 @@ define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_revoke(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
@@ -543,7 +543,7 @@ declare dso_local i32 @jbd2_journal_forget(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_cancel_revoke(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1050,7 +1050,7 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_set_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1139,7 +1139,7 @@ define dso_local noundef i32 @jbd2_journal_set_revoke(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_journal_test_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

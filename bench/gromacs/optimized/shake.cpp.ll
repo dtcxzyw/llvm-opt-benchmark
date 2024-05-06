@@ -147,7 +147,7 @@ _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.
 
 .preheader117.lr.ph:                              ; preds = %.noexc60, %_ZNSt6vectorIN3gmx11t_sortblockESaIS1_EEC2EmRKS2_.exit
   %.0.i.i.i.i.i161 = phi ptr [ %38, %_ZNSt6vectorIN3gmx11t_sortblockESaIS1_EEC2EmRKS2_.exit ], [ %39, %.noexc60 ]
-  %invariant.gep162 = getelementptr i8, ptr %31, i64 4
+  %invariant.gep162 = getelementptr inbounds i8, ptr %31, i64 4
   %43 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %.preheader117
@@ -156,12 +156,12 @@ _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.
   %indvars.iv128 = phi i64 [ 0, %.preheader117.lr.ph ], [ %indvars.iv.next129, %52 ]
   %44 = mul nuw nsw i64 %indvars.iv128, 3
   %45 = getelementptr inbounds %"struct.gmx::t_sortblock", ptr %37, i64 %indvars.iv128
-  %invariant.gep167 = getelementptr i32, ptr %31, i64 %44
+  %invariant.gep167 = getelementptr inbounds i32, ptr %31, i64 %44
   br label %46
 
 46:                                               ; preds = %.preheader117, %46
   %indvars.iv = phi i64 [ 0, %.preheader117 ], [ %indvars.iv.next, %46 ]
-  %gep168 = getelementptr i32, ptr %invariant.gep167, i64 %indvars.iv
+  %gep168 = getelementptr inbounds i32, ptr %invariant.gep167, i64 %indvars.iv
   %47 = load i32, ptr %gep168, align 4
   %48 = getelementptr inbounds [3 x i32], ptr %45, i64 0, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
@@ -196,7 +196,7 @@ _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.
   br label %_ZNSt6vectorIN3gmx11t_sortblockESaIS1_EED2Ev.exit
 
 52:                                               ; preds = %46
-  %gep = getelementptr i32, ptr %invariant.gep162, i64 %44
+  %gep = getelementptr inbounds i32, ptr %invariant.gep162, i64 %44
   %53 = load i32, ptr %gep, align 4
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %43, i64 %54
@@ -289,14 +289,14 @@ _ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit64: ; 
   %indvars.iv137 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next138, %97 ]
   %92 = getelementptr inbounds %"struct.gmx::t_sortblock", ptr %.sroa.093.0157, i64 %indvars.iv137
   %93 = mul nuw nsw i64 %indvars.iv137, 3
-  %invariant.gep169 = getelementptr i32, ptr %31, i64 %93
+  %invariant.gep169 = getelementptr inbounds i32, ptr %31, i64 %93
   br label %94
 
 94:                                               ; preds = %.preheader, %94
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %94 ]
   %95 = getelementptr inbounds [3 x i32], ptr %92, i64 0, i64 %indvars.iv133
   %96 = load i32, ptr %95, align 4
-  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv133
+  %gep170 = getelementptr inbounds i32, ptr %invariant.gep169, i64 %indvars.iv133
   store i32 %96, ptr %gep170, align 4
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 3
@@ -1039,10 +1039,10 @@ define void @_ZN3gmx6cshakeEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEEP
   %36 = load <2 x float>, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %35, i64 8
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr i32, ptr %0, i64 %34
-  %40 = getelementptr i8, ptr %39, i64 4
+  %39 = getelementptr inbounds i32, ptr %0, i64 %34
+  %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr i8, ptr %39, i64 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds %"class.gmx::BasicVector", ptr %22, i64 %44
@@ -1631,7 +1631,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit146.i:          ; preds = %149, %147, %145, %1
   store ptr %168, ptr %86, align 8
   store ptr %.sroa.031.053, ptr %24, align 8
   store ptr %106, ptr %87, align 8
-  call void @_ZN3gmx6cshakeEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEEPK5t_pbcNS3_IKS7_EES5_fS5_S5_NS3_IfEES2_(ptr noundef %.08857, i32 noundef %97, ptr noundef nonnull %17, i32 noundef 1000, ptr %150, ptr poison, ptr noundef nonnull byval(%"class.gmx::ArrayRef.32") align 8 %19, ptr noundef %6, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %20, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %21, float noundef %101, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.38") align 8 %24, ptr noundef nonnull %18)
+  call void @_ZN3gmx6cshakeEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEEPK5t_pbcNS3_IKS7_EES5_fS5_S5_NS3_IfEES2_(ptr noundef readonly %.08857, i32 noundef %97, ptr noundef nonnull %17, i32 noundef 1000, ptr %150, ptr poison, ptr noundef nonnull byval(%"class.gmx::ArrayRef.32") align 8 %19, ptr noundef %6, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %20, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %21, float noundef %101, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef.29") align 8 %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.38") align 8 %24, ptr noundef nonnull %18)
   %.pr.i = load i32, ptr %17, align 4
   br label %324
 
@@ -1651,10 +1651,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit146.i:          ; preds = %149, %147, %145, %1
   %250 = load <2 x float>, ptr %249, align 4
   %251 = getelementptr inbounds i8, ptr %249, i64 8
   %252 = load float, ptr %251, align 4
-  %253 = getelementptr i32, ptr %.08857, i64 %248
-  %254 = getelementptr i8, ptr %253, i64 4
+  %253 = getelementptr inbounds i32, ptr %.08857, i64 %248
+  %254 = getelementptr inbounds i8, ptr %253, i64 4
   %255 = load i32, ptr %254, align 4
-  %256 = getelementptr i8, ptr %253, i64 8
+  %256 = getelementptr inbounds i8, ptr %253, i64 8
   %257 = load i32, ptr %256, align 4
   %258 = sext i32 %255 to i64
   %259 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.0.val1, i64 %258

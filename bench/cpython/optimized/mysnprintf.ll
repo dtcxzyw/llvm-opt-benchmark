@@ -6,15 +6,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @PyOS_snprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyOS_snprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %cmp.i = icmp ugt i64 %size, 2147483646
   br i1 %cmp.i, label %if.then2.i, label %Done.i
 
 Done.i:                                           ; preds = %entry
-  %call.i = call i32 @vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef %format, ptr noundef nonnull %va) #3
+  %call.i = call i32 @vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef readonly %format, ptr noundef nonnull %va) #3
   %cmp1.not.i = icmp eq i64 %size, 0
   br i1 %cmp1.not.i, label %PyOS_vsnprintf.exit, label %if.then2.i
 
@@ -27,15 +27,12 @@ if.then2.i:                                       ; preds = %Done.i, %entry
 
 PyOS_vsnprintf.exit:                              ; preds = %Done.i, %if.then2.i
   %len.08.i = phi i32 [ %len.07.i, %if.then2.i ], [ %call.i, %Done.i ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %len.08.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @PyOS_vsnprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ptr noundef %va) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyOS_vsnprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ptr noundef %va) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %size, 2147483646
   br i1 %cmp, label %if.then2, label %Done
@@ -57,15 +54,18 @@ if.end3:                                          ; preds = %if.then2, %Done
   ret i32 %len.08
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

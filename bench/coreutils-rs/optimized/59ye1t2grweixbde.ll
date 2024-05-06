@@ -496,7 +496,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !63
   %8 = getelementptr inbounds i8, ptr %5, i64 %1
   store i8 0, ptr %8, align 1, !noalias !59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !59
@@ -515,7 +515,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !59, !nonnull !4, !align !17, !noundef !4
-  %18 = call noundef i32 @lstat(ptr noundef nonnull %17, ptr noundef nonnull %2), !noalias !64
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !64
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -542,7 +542,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !65
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !69
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !69
   %8 = getelementptr inbounds i8, ptr %5, i64 %1
   store i8 0, ptr %8, align 1, !noalias !65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !65
@@ -561,7 +561,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !65, !nonnull !4, !align !17, !noundef !4
-  %18 = call noundef i32 @stat(ptr noundef nonnull %17, ptr noundef nonnull %2), !noalias !70
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !70
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -795,7 +795,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hf1633d9c2c15846fE.llvm.10461450130873317783.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hf1633d9c2c15846fE.llvm.10461450130873317783.exit": ; preds = %25, %"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h6d86c9017dcb3cfbE.llvm.10461450130873317783.exit.thread3.sink.split.i"
-  call void @_ZN5alloc11collections5btree3mem7replace17ha169270839164c31E.llvm.10461450130873317783(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
+  call void @_ZN5alloc11collections5btree3mem7replace17ha169270839164c31E.llvm.10461450130873317783(ptr noalias nocapture noundef nonnull writeonly sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %37

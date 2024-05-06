@@ -15,7 +15,7 @@ define dso_local ptr @php_pcre2_match_data_create(i32 noundef %0, ptr noundef %1
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = trunc i32 %spec.store.select1 to i16
+  %8 = trunc nuw i32 %spec.store.select1 to i16
   %9 = getelementptr inbounds i8, ptr %5, i64 98
   store i16 %8, ptr %9, align 2
   %10 = getelementptr inbounds i8, ptr %5, i64 97
@@ -119,7 +119,7 @@ define dso_local nonnull ptr @php_pcre2_get_ovector_pointer(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @php_pcre2_get_ovector_count(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @php_pcre2_get_ovector_count(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 98
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -134,7 +134,7 @@ define dso_local i64 @php_pcre2_get_startchar(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @pcre2_get_match_data_size_8(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 104, 1048665) i64 @pcre2_get_match_data_size_8(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 98
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i64

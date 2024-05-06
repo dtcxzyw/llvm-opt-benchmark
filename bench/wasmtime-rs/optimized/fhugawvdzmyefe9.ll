@@ -654,7 +654,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw19capacity_to_buckets17h567a2737feb
 10:                                               ; preds = %8
   %11 = udiv i64 %4, 7
   %12 = add nsw i64 %11, -1
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !5
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %14 = lshr i64 -1, %13
   %15 = add nuw nsw i64 %14, 1
   br label %16
@@ -757,4 +757,3 @@ attributes #11 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{i64 0, i64 65}

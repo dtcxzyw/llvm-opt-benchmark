@@ -749,7 +749,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
+define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
 entry:
   %argc.addr = alloca i32, align 4
   %argv.addr = alloca ptr, align 8

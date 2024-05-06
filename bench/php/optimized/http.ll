@@ -454,7 +454,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %202 = phi ptr [ %.pre.i, %199 ], [ %192, %193 ]
   %203 = getelementptr inbounds i8, ptr %202, i64 24
   %204 = getelementptr inbounds i8, ptr %203, i64 %201
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull align 1 %37, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull readonly align 1 %37, i64 %194, i1 false)
   %205 = load ptr, ptr %1, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 16
   store i64 %197, ptr %206, align 8
@@ -491,7 +491,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1429.i = phi i64 [ %.0428.i, %216 ], [ %214, %211 ]
   %220 = getelementptr inbounds i8, ptr %219, i64 24
   %221 = getelementptr inbounds i8, ptr %220, i64 %218
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %33, i64 %209, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull readonly align 1 %33, i64 %209, i1 false)
   %222 = load ptr, ptr %1, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 16
   store i64 %.1429.i, ptr %223, align 8
@@ -596,7 +596,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1433.i = phi i64 [ %.0432.i, %263 ], [ %261, %258 ]
   %267 = getelementptr inbounds i8, ptr %266, i64 24
   %268 = getelementptr inbounds i8, ptr %267, i64 %265
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %269 = load ptr, ptr %1, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 16
   store i64 %.1433.i, ptr %270, align 8
@@ -615,7 +615,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0415.i = phi i64 [ %274, %273 ], [ %280, %275 ]
   %.0414.i = phi ptr [ %40, %273 ], [ %279, %275 ]
   %276 = urem i64 %.0415.i, 10
-  %277 = trunc i64 %276 to i8
+  %277 = trunc nuw nsw i64 %276 to i8
   %278 = or disjoint i8 %277, 48
   %279 = getelementptr inbounds i8, ptr %.0414.i, i64 -1
   store i8 %278, ptr %279, align 1
@@ -636,7 +636,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0413.i = phi i64 [ %.0197, %283 ], [ %289, %284 ]
   %.0412.i = phi ptr [ %40, %283 ], [ %288, %284 ]
   %285 = urem i64 %.0413.i, 10
-  %286 = trunc i64 %285 to i8
+  %286 = trunc nuw nsw i64 %285 to i8
   %287 = or disjoint i8 %286, 48
   %288 = getelementptr inbounds i8, ptr %.0412.i, i64 -1
   store i8 %287, ptr %288, align 1
@@ -837,7 +837,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0411.i = phi i64 [ %376, %375 ], [ %382, %377 ]
   %.0410.i = phi ptr [ %42, %375 ], [ %381, %377 ]
   %378 = urem i64 %.0411.i, 10
-  %379 = trunc i64 %378 to i8
+  %379 = trunc nuw nsw i64 %378 to i8
   %380 = or disjoint i8 %379, 48
   %381 = getelementptr inbounds i8, ptr %.0410.i, i64 -1
   store i8 %380, ptr %381, align 1
@@ -858,7 +858,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0409.i = phi i64 [ %373, %385 ], [ %391, %386 ]
   %.0408.i = phi ptr [ %42, %385 ], [ %390, %386 ]
   %387 = urem i64 %.0409.i, 10
-  %388 = trunc i64 %387 to i8
+  %388 = trunc nuw nsw i64 %387 to i8
   %389 = or disjoint i8 %388, 48
   %390 = getelementptr inbounds i8, ptr %.0408.i, i64 -1
   store i8 %389, ptr %390, align 1
@@ -1725,7 +1725,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cache_request_parse_body_option(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cache_request_parse_body_option(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %4

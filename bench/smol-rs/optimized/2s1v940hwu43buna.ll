@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3175fb8d09b4a1a925f412bbfdb736fa.7.llvm.9207735705138050903 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN16concurrent_queue6single15Single$LT$T$GT$3len17h67fbf3b1b49efb03E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2) i64 @"_ZN16concurrent_queue6single15Single$LT$T$GT$3len17h67fbf3b1b49efb03E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = load atomic i64, ptr %0 seq_cst, align 8
   %3 = lshr i64 %2, 1
   %.lobit = and i64 %3, 1
@@ -509,13 +509,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h27d6df33f58dc
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !24
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !24
   %16 = trunc i32 %1 to i8
@@ -527,7 +527,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h27d6df33f58dc
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !24
   %24 = lshr i32 %1, 6

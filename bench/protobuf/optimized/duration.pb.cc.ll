@@ -89,7 +89,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %from, i64 16
   %3 = load i64, ptr %2, align 8
   %cmp.not.i.i = icmp eq i64 %3, 0
@@ -304,7 +304,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal14WireFormatLite26WriteInt64ToArrayWithFieldILi1EEEPhPNS0_2io19EpsCopyOutputStreamElS4_.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %incdec.ptr2.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i64 [ %1, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %shr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i64 %value.addr.i.0.lcssa.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i64 %value.addr.i.0.lcssa.i.i to i8
   %incdec.ptr2.i.i4.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   br label %if.end
@@ -347,7 +347,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal14WireFormatLite26WriteInt32ToArrayWithFieldILi2EEEPhPNS0_2io19EpsCopyOutputStreamEiS4_.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i10
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %incdec.ptr2.i.i.i12, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i10 ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
   %value.addr.i.0.lcssa.i.i.i = phi i64 [ %conv.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i10 ], [ %shr.i.i.i.i, %while.body.i.i.i.i ]
-  %conv1.i.i.i.i = trunc i64 %value.addr.i.0.lcssa.i.i.i to i8
+  %conv1.i.i.i.i = trunc nuw nsw i64 %value.addr.i.0.lcssa.i.i.i to i8
   %incdec.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i.i, i64 1
   store i8 %conv1.i.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i.i, align 1
   br label %if.end9
@@ -384,7 +384,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %or.i.i = or i64 %1, 1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !6
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
   %sub.i.i = xor i64 %2, 63
   %mul.i.i = mul nuw nsw i64 %sub.i.i, 9
   %add1.i.i = add nuw nsw i64 %mul.i.i, 137
@@ -401,7 +401,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then6:                                         ; preds = %if.end
   %4 = or i32 %3, 1
   %or.i.i.i = sext i32 %4 to i64
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !6
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %sub.i.i.i = xor i64 %5, 63
   %mul.i.i.i = mul nuw nsw i64 %sub.i.i.i, 9
   %add1.i.i.i = add nuw nsw i64 %mul.i.i.i, 137
@@ -493,22 +493,22 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr i8, ptr %other, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %3, %entry ]
   %__first1.addr.06.i.idx.i = phi i64 [ %__first1.addr.06.i.add.i, %for.body.i.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr.i = getelementptr inbounds i8, ptr %2, i64 %__first1.addr.06.i.idx.i
-  %4 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
-  %5 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
-  store i8 %5, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
-  store i8 %4, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
+  %4 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
+  %5 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
+  store i8 %5, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
+  store i8 %4, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
   %__first1.addr.06.i.add.i = add nuw nsw i64 %__first1.addr.06.i.idx.i, 1
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %__first1.addr.06.i.add.i, 12
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !11
 
 _ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit: ; preds = %for.body.i.i
   ret void
@@ -609,10 +609,9 @@ attributes #18 = { allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 0, i64 65}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
-!9 = distinct !{!9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
-!10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
-!12 = distinct !{!12, !5}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
+!8 = distinct !{!8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
+!9 = !{!10}
+!10 = distinct !{!10, !8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
+!11 = distinct !{!11, !5}

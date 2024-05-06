@@ -40,7 +40,7 @@ entry:
   %add.i = add i64 %vertex_count, 1
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i.i = icmp ugt i64 %add.i, 4611686018427387903
-  %mul.i.i = shl i64 %add.i, 2
+  %mul.i.i = shl nuw i64 %add.i, 2
   %cond.i.i = select i1 %cmp.i.i, i64 -1, i64 %mul.i.i
   %call.i.i115 = invoke noundef ptr %0(i64 noundef %cond.i.i)
           to label %call.i.i.noexc unwind label %lpad
@@ -51,7 +51,7 @@ call.i.i.noexc:                                   ; preds = %entry
   store ptr %call.i.i115, ptr %allocator, align 8
   %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i3.i = icmp ugt i64 %index_count, 2305843009213693951
-  %mul.i4.i = shl i64 %index_count, 3
+  %mul.i4.i = shl nuw i64 %index_count, 3
   %cond.i5.i = select i1 %cmp.i3.i, i64 -1, i64 %mul.i4.i
   %call.i6.i116 = invoke noundef ptr %1(i64 noundef %cond.i5.i)
           to label %invoke.cont unwind label %lpad
@@ -239,7 +239,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %conv.i11.i.i = zext i32 %22 to i64
   %mul.i13.i.i = mul i64 %div28.i, %conv.i11.i.i
   %add.ptr.i14.i.i = getelementptr inbounds float, ptr %vertex_positions_data, i64 %mul.i13.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %add.ptr.i14.i.i, ptr noundef nonnull dereferenceable(12) %add.ptr.i.i.i, i64 12)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %add.ptr.i14.i.i, ptr noundef nonnull readonly dereferenceable(12) %add.ptr.i.i.i, i64 12)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i, label %_ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i.split.loop.exit798, label %if.end4.i.i
 
@@ -604,7 +604,7 @@ for.inc142.i:                                     ; preds = %if.then139.i, %for.
 invoke.cont12:                                    ; preds = %for.inc142.i, %for.end130.i, %invoke.cont10
   %59 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i182 = icmp ugt i64 %vertex_count, 1537228672809129301
-  %mul.i183 = mul i64 %vertex_count, 12
+  %mul.i183 = mul nuw i64 %vertex_count, 12
   %cond.i184 = select i1 %cmp.i182, i64 -1, i64 %mul.i183
   %call.i188 = invoke noundef ptr %59(i64 noundef %cond.i184)
           to label %invoke.cont13 unwind label %lpad
@@ -623,7 +623,7 @@ if.then:                                          ; preds = %invoke.cont13
   %mul = mul i64 %attribute_count, %vertex_count
   %61 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i189 = icmp ugt i64 %mul, 4611686018427387903
-  %mul.i190 = shl i64 %mul, 2
+  %mul.i190 = shl nuw i64 %mul, 2
   %cond.i191 = select i1 %cmp.i189, i64 -1, i64 %mul.i190
   %call.i195 = invoke noundef ptr %61(i64 noundef %cond.i191)
           to label %invoke.cont17 unwind label %lpad
@@ -1418,7 +1418,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %if.e
   %add10.i = sub i64 %sub9.i, %dual_count.0.lcssa.i
   %389 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i409 = icmp ugt i64 %add10.i, 1537228672809129301
-  %mul.i410 = mul i64 %add10.i, 12
+  %mul.i410 = mul nuw i64 %add10.i, 12
   %cond.i411 = select i1 %cmp.i409, i64 -1, i64 %mul.i410
   %call.i415 = invoke noundef ptr %389(i64 noundef %cond.i411)
           to label %invoke.cont45 unwind label %lpad
@@ -1431,7 +1431,7 @@ invoke.cont45:                                    ; preds = %_ZN7meshoptL18bound
   store ptr %call.i415, ptr %arrayidx.i414, align 8
   %391 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i416 = icmp ugt i64 %add10.i, 4611686018427387903
-  %mul.i417 = shl i64 %add10.i, 2
+  %mul.i417 = shl nuw i64 %add10.i, 2
   %cond.i418 = select i1 %cmp.i416, i64 -1, i64 %mul.i417
   %call.i422 = invoke noundef ptr %391(i64 noundef %cond.i418)
           to label %invoke.cont47 unwind label %lpad
@@ -2708,7 +2708,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 1537228672809129301
-  %mul.i = mul i64 %vertex_count, 12
+  %mul.i = mul nuw i64 %vertex_count, 12
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
   %call.i79 = invoke noundef ptr %0(i64 noundef %cond.i)
           to label %invoke.cont unwind label %lpad
@@ -2720,7 +2720,7 @@ invoke.cont:                                      ; preds = %entry
   tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %call.i79, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
   %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i80 = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i81 = shl i64 %vertex_count, 2
+  %mul.i81 = shl nuw i64 %vertex_count, 2
   %cond.i82 = select i1 %cmp.i80, i64 -1, i64 %mul.i81
   %call.i86 = invoke noundef ptr %1(i64 noundef %cond.i82)
           to label %invoke.cont3 unwind label %lpad
@@ -2810,14 +2810,14 @@ lpad:                                             ; preds = %_ZN7meshoptL12hashB
 
 if.end:                                           ; preds = %for.body.i89, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit, %invoke.cont3
   %min_triangles.0 = phi i64 [ 0, %invoke.cont3 ], [ 0, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit ], [ %add17.i, %for.body.i89 ]
-  %conv11 = uitofp i64 %div to float
+  %conv11 = uitofp nneg i64 %div to float
   %sqrt = tail call float @llvm.sqrt.f32(float %conv11)
   %add = fadd float %sqrt, 5.000000e-01
   %conv13 = fptosi float %add to i32
   %div15 = udiv i64 %target_index_count, 3
   %cmp8.not.i94 = icmp eq i64 %vertex_count, 0
   %cmp15.not.i111 = icmp eq i64 %index_count, 0
-  %conv36 = uitofp i64 %div15 to float
+  %conv36 = uitofp nneg i64 %div15 to float
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %cond.end56
@@ -3635,7 +3635,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 1537228672809129301
-  %mul.i = mul i64 %vertex_count, 12
+  %mul.i = mul nuw i64 %vertex_count, 12
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
   %call.i63 = invoke noundef ptr %0(i64 noundef %cond.i)
           to label %invoke.cont unwind label %lpad
@@ -3647,7 +3647,7 @@ invoke.cont:                                      ; preds = %if.end
   tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %call.i63, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
   %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i64 = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i65 = shl i64 %vertex_count, 2
+  %mul.i65 = shl nuw i64 %vertex_count, 2
   %cond.i66 = select i1 %cmp.i64, i64 -1, i64 %mul.i65
   %call.i70 = invoke noundef ptr %1(i64 noundef %cond.i66)
           to label %invoke.cont3 unwind label %lpad

@@ -77,7 +77,7 @@ gv_calloc.exit44:                                 ; preds = %gv_calloc.exit
 
 _max.exit.i:                                      ; preds = %36, %32, %gv_calloc.exit44
   %.sink.i.i = phi ptr [ %21, %gv_calloc.exit44 ], [ %..i.i, %36 ], [ %25, %32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
   %41 = tail call fastcc ptr @gv_recalloc(ptr noundef nonnull %22, i64 noundef 2, i64 noundef 3, i64 noundef 40)
   %42 = getelementptr inbounds i8, ptr %41, i64 76
   store i32 2, ptr %42, align 4
@@ -112,7 +112,7 @@ _max.exit.i:                                      ; preds = %36, %32, %gv_calloc
 init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %56
   %.sink.i158.i = phi ptr [ %21, %_max.exit.i ], [ %..i157.i, %56 ], [ %25, %52 ]
   %60 = getelementptr inbounds i8, ptr %45, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i158.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i158.i, i64 16, i1 false)
   %61 = getelementptr inbounds i8, ptr %45, i64 148
   store i32 1, ptr %61, align 4
   %62 = tail call fastcc ptr @gv_recalloc(ptr noundef nonnull %45, i64 noundef 4, i64 noundef 5, i64 noundef 40)
@@ -289,17 +289,17 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %125
 134:                                              ; preds = %141, %math_N.exit
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %141 ], [ %133, %math_N.exit ]
   %.137.in = phi i32 [ %.137, %141 ], [ %132, %math_N.exit ]
-  br label %.lr.ph.i46
+  br label %.lr.ph.i47
 
-.lr.ph.i46:                                       ; preds = %.lr.ph.i46, %134
-  %.08.i47 = phi double [ %135, %.lr.ph.i46 ], [ %117, %134 ]
-  %.067.i48 = phi i32 [ %136, %.lr.ph.i46 ], [ 0, %134 ]
-  %135 = call double @log2(double noundef %.08.i47) #18
-  %136 = add nuw nsw i32 %.067.i48, 1
-  %exitcond.not.i49 = icmp eq i32 %136, %.03579
-  br i1 %exitcond.not.i49, label %math_N.exit51, label %.lr.ph.i46
+.lr.ph.i47:                                       ; preds = %134, %.lr.ph.i47
+  %.08.i48 = phi double [ %135, %.lr.ph.i47 ], [ %117, %134 ]
+  %.067.i49 = phi i32 [ %136, %.lr.ph.i47 ], [ 0, %134 ]
+  %135 = call double @log2(double noundef %.08.i48) #18
+  %136 = add nuw nsw i32 %.067.i49, 1
+  %exitcond.not.i50 = icmp eq i32 %136, %.03579
+  br i1 %exitcond.not.i50, label %math_N.exit51, label %.lr.ph.i47
 
-math_N.exit51:                                    ; preds = %.lr.ph.i46
+math_N.exit51:                                    ; preds = %.lr.ph.i47
   %137 = fdiv double %117, %135
   %138 = call double @llvm.ceil.f64(double %137)
   %139 = fptosi double %138 to i32
@@ -330,7 +330,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i46
   %149 = getelementptr inbounds i8, ptr %144, i64 16
   %150 = getelementptr inbounds i8, ptr %144, i64 36
   %151 = load i32, ptr %150, align 4
-  %152 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %144, ptr noundef nonnull %149, i32 noundef %151, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %152 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %144, ptr noundef nonnull %149, i32 noundef %151, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   store i32 %152, ptr %150, align 4
   %153 = load ptr, ptr %12, align 8
   %154 = sext i32 %152 to i64
@@ -339,7 +339,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i46
   store i32 %156, ptr %150, align 4
   %157 = getelementptr inbounds i8, ptr %144, i64 40
   %158 = load i32, ptr %157, align 8
-  %159 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %149, ptr noundef nonnull %144, i32 noundef %158, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %159 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %149, ptr noundef nonnull %144, i32 noundef %158, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   store i32 %159, ptr %157, align 8
   %160 = load ptr, ptr %12, align 8
   %161 = sext i32 %159 to i64

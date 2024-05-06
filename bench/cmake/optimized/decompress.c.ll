@@ -4118,7 +4118,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %.not2754, label %2903, label %2898, !llvm.loop !18
 
 2903:                                             ; preds = %2898
-  %2904 = trunc i64 %indvars.iv2535 to i32
+  %2904 = trunc nsw i64 %indvars.iv2535 to i32
   %2905 = getelementptr inbounds [16 x i32], ptr %2895, i64 0, i64 %indvars.iv2539
   store i32 %2904, ptr %2905, align 4
   %indvars.iv.next2540 = add nsw i64 %indvars.iv2539, -1
@@ -5008,11 +5008,11 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %3415, label %3410, label %.loopexit1913.loopexit, !llvm.loop !22
 
 .loopexit1913.loopexit:                           ; preds = %3411
-  %3416 = trunc i64 %indvars.iv.next2572 to i32
+  %3416 = trunc nsw i64 %indvars.iv.next2572 to i32
   br label %.loopexit1913
 
 .loopexit1913.loopexit2425:                       ; preds = %3405
-  %3417 = trunc i64 %indvars.iv.next2566 to i32
+  %3417 = trunc nsw i64 %indvars.iv.next2566 to i32
   br label %.loopexit1913
 
 3418:                                             ; preds = %3143
@@ -5081,7 +5081,7 @@ makeMaps_d.exit:                                  ; preds = %2167
 
 .lr.ph2275:                                       ; preds = %.lr.ph2275.preheader, %.lr.ph2275
   %indvars.iv2561 = phi i64 [ %3432, %.lr.ph2275.preheader ], [ %indvars.iv.next2562, %.lr.ph2275 ]
-  %3455 = trunc i64 %indvars.iv2561 to i32
+  %3455 = trunc nuw i64 %indvars.iv2561 to i32
   %3456 = add i32 %3424, %3455
   %3457 = add i32 %3456, -1
   %3458 = zext i32 %3457 to i64
@@ -5196,7 +5196,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %.not2757, label %3518, label %3510, !llvm.loop !27
 
 3518:                                             ; preds = %3510
-  %3519 = trunc i64 %indvars.iv2549 to i32
+  %3519 = trunc nsw i64 %indvars.iv2549 to i32
   store i32 %3519, ptr %3508, align 4
   %indvars.iv.next2554 = add nsw i64 %indvars.iv2553, -1
   %.not2758 = icmp eq i64 %indvars.iv2553, 0
@@ -5961,7 +5961,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   %3968 = load ptr, ptr %3795, align 8
   %3969 = getelementptr inbounds i32, ptr %3968, i64 %indvars.iv2614
   %3970 = load i32, ptr %3969, align 4
-  %3971 = trunc i64 %indvars.iv2614 to i32
+  %3971 = trunc nuw nsw i64 %indvars.iv2614 to i32
   %3972 = shl i32 %3971, 8
   %3973 = and i32 %3970, 255
   %3974 = zext nneg i32 %3973 to i64
@@ -7145,15 +7145,15 @@ makeMaps_d.exit:                                  ; preds = %2167
   br label %.loopexit
 
 .loopexit.loopexit2419:                           ; preds = %.preheader1904
-  %4879 = trunc i64 %indvars.iv2598 to i32
+  %4879 = trunc nuw nsw i64 %indvars.iv2598 to i32
   br label %.loopexit
 
 .loopexit.loopexit2420:                           ; preds = %.preheader1906
-  %4880 = trunc i64 %indvars.iv2593 to i32
+  %4880 = trunc nuw nsw i64 %indvars.iv2593 to i32
   br label %.loopexit
 
 .loopexit.loopexit2421:                           ; preds = %3753
-  %4881 = trunc i64 %indvars.iv2578 to i32
+  %4881 = trunc nuw nsw i64 %indvars.iv2578 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %159, %252, %347, %466, %559, %652, %745, %838, %931, %1040, %1137, %1234, %1331, %1427, %1524, %1621, %1719, %2227, %2317, %2963, %3600, %3705, %3229, %3404, %3410, %3334, %3074, %2576, %2749, %2836, %2442, %.lr.ph2343, %2062, %1871, %4081, %4174, %4267, %4360, %4453, %4552, %4649, %4746, %4843, %.loopexit.loopexit2421, %.loopexit.loopexit2420, %.loopexit.loopexit2419, %._crit_edge2379, %._crit_edge2374, %._crit_edge2369, %._crit_edge2364, %._crit_edge2359, %3944, %3934, %4016, %4000, %3748, %3740, %3634, %3545, %3418, %3369, %3263, %3174, %3144, %3109, %2997, %2906, %2654, %._crit_edge2221, %._crit_edge2216, %._crit_edge2216, %._crit_edge2216, %makeMaps_d.exit, %1754, %._crit_edge2210, %._crit_edge2170, %._crit_edge2165, %._crit_edge2160, %._crit_edge2155, %._crit_edge2150, %._crit_edge2145, %404, %390, %._crit_edge2140, %._crit_edge2135, %._crit_edge2130, %._crit_edge, %4878, %._crit_edge2399

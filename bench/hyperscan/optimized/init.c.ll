@@ -288,14 +288,14 @@ if.then.i124:                                     ; preds = %if.then.i
   %rem.i = and i32 %33, 7
   %shl.i = shl nuw nsw i32 1, %rem.i
   %34 = load i8, ptr %add.ptr.i132, align 1
-  %35 = trunc i32 %shl.i to i8
+  %35 = trunc nuw i32 %shl.i to i8
   %conv7.i137 = or i8 %34, %35
   store i8 %conv7.i137, ptr %add.ptr.i132, align 1
   br label %init_outfixes.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %sub.i = add i32 %32, -1
-  %36 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !11
+  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %idxprom.i162 = zext nneg i32 %36 to i64
   %arrayidx.i163 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i162
   %37 = load i8, ptr %arrayidx.i163, align 1
@@ -316,7 +316,7 @@ do.body.i:                                        ; preds = %if.end.i152, %if.el
   %42 = add nsw i64 %41, 3
   %shr.i171 = lshr i64 %conv.i169, %42
   %add.ptr.i172 = getelementptr inbounds i8, ptr %add.ptr.i219, i64 %shr.i171
-  %43 = trunc i64 %41 to i32
+  %43 = trunc nsw i64 %41 to i32
   %shr.i177 = lshr i32 %33, %43
   %and.i178 = and i32 %shr.i177, 7
   %shl.i144 = shl nuw nsw i32 1, %and.i178
@@ -328,8 +328,8 @@ do.body.i:                                        ; preds = %if.end.i152, %if.el
 
 if.then.i153:                                     ; preds = %do.body.i
   %add.ptr.i172.le = getelementptr inbounds i8, ptr %add.ptr.i219, i64 %shr.i171
-  %45 = trunc i64 %indvars.iv156 to i32
-  %46 = trunc i32 %shl.i144 to i8
+  %45 = trunc nuw nsw i64 %indvars.iv156 to i32
+  %46 = trunc nuw i32 %shl.i144 to i8
   %conv11.i = or i8 %44, %46
   store i8 %conv11.i, ptr %add.ptr.i172.le, align 1
   %cmp.i157.not129 = icmp eq i32 %45, %conv.i164
@@ -357,12 +357,12 @@ while.body.i:                                     ; preds = %if.then.i153, %whil
   %shl.i192 = shl nuw i64 1, %sh_prom.i191
   store i64 %shl.i192, ptr %add.ptr.i190, align 1
   %cmp.i157.not = icmp eq i32 %inc.i156, %conv.i164
-  br i1 %cmp.i157.not, label %init_outfixes.exit, label %while.body.i, !llvm.loop !12
+  br i1 %cmp.i157.not, label %init_outfixes.exit, label %while.body.i, !llvm.loop !11
 
 if.end.i152:                                      ; preds = %do.body.i
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %cmp17.i.not = icmp eq i64 %indvars.iv156, %38
-  br i1 %cmp17.i.not, label %init_outfixes.exit, label %do.body.i, !llvm.loop !13
+  br i1 %cmp17.i.not, label %init_outfixes.exit, label %do.body.i, !llvm.loop !12
 
 init_outfixes.exit:                               ; preds = %if.end.i152, %while.body.i, %if.then.i153, %if.then.i124, %for.end.i
   ret void
@@ -391,6 +391,5 @@ attributes #3 = { nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 33}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

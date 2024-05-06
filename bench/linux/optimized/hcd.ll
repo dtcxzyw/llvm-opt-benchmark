@@ -475,7 +475,7 @@ define dso_local void @usb_hcd_end_port_resume(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i64 @usb_calc_bus_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #5 align 16 {
+define dso_local range(i64 -242189558632, 18446744073709557) i64 @usb_calc_bus_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #5 align 16 {
   switch i32 %0, label %45 [
     i32 1, label %5
     i32 2, label %20
@@ -542,7 +542,7 @@ define dso_local i64 @usb_calc_bus_time(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usb_hcd_link_urb_to_ep(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -113, 1) i32 @usb_hcd_link_urb_to_ep(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @hcd_urb_list_lock) #17
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load volatile i32, ptr %3, align 4
@@ -594,7 +594,7 @@ define dso_local noundef i32 @usb_hcd_link_urb_to_ep(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @usb_hcd_check_unlink_urb(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #6 align 16 {
+define dso_local noundef range(i32 -43, 1) i32 @usb_hcd_check_unlink_urb(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #6 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -812,7 +812,7 @@ declare dso_local void @dma_unmap_sg_attrs(ptr noundef, ptr noundef, i32 noundef
 declare dso_local void @dma_unmap_page_attrs(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usb_hcd_map_urb_for_dma(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @usb_hcd_map_urb_for_dma(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 3
@@ -1695,7 +1695,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   br label %290
 
 288:                                              ; preds = %280
-  %289 = tail call i32 @usb_hcd_map_urb_for_dma(ptr noundef %6, ptr noundef %0, i32 noundef %1), !range !43
+  %289 = tail call i32 @usb_hcd_map_urb_for_dma(ptr noundef %6, ptr noundef %0, i32 noundef %1)
   br label %290
 
 290:                                              ; preds = %288, %286
@@ -1729,7 +1729,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
 306:                                              ; preds = %121, %89
   %307 = phi i32 [ %90, %89 ], [ %123, %121 ]
   %308 = icmp eq i32 %307, 0
-  br i1 %308, label %.thread27, label %.thread25, !prof !44
+  br i1 %308, label %.thread27, label %.thread25, !prof !43
 
 .thread25:                                        ; preds = %305, %304, %22, %290, %306
   %309 = phi i32 [ %307, %306 ], [ %297, %305 ], [ %297, %304 ], [ -22, %22 ], [ %291, %290 ]
@@ -1751,10 +1751,10 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   store volatile ptr %318, ptr %318, align 8
   %319 = getelementptr inbounds i8, ptr %0, i64 32
   store volatile ptr %318, ptr %319, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #17, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #17, !srcloc !44
   %320 = load ptr, ptr %3, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 1272
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %321, ptr elementtype(i32) %321) #17, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %321, ptr elementtype(i32) %321) #17, !srcloc !44
   %322 = getelementptr inbounds i8, ptr %0, i64 20
   %323 = load volatile i32, ptr %322, align 4
   %324 = icmp eq i32 %323, 0
@@ -1983,7 +1983,7 @@ define internal fastcc void @__usb_hcd_giveback_urb(ptr noundef %0) unnamed_addr
   tail call void %44(ptr noundef %0) #17
   tail call void @usb_anchor_resume_wakeups(ptr noundef %7) #17
   %45 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #17, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #17, !srcloc !44
   %46 = getelementptr inbounds i8, ptr %0, i64 20
   %47 = load volatile i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
@@ -2040,7 +2040,7 @@ define dso_local void @usb_hcd_flush_endpoint(ptr nocapture noundef readonly %0,
 
 .preheader5.backedge:                             ; preds = %22, %16
   %.be = phi ptr [ %24, %22 ], [ %20, %16 ]
-  br label %.preheader5, !llvm.loop !46
+  br label %.preheader5, !llvm.loop !45
 
 .loopexit6:                                       ; preds = %22, %16, %4
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hcd_urb_list_lock) #17
@@ -2074,7 +2074,7 @@ define dso_local void @usb_hcd_flush_endpoint(ptr nocapture noundef readonly %0,
 36:                                               ; preds = %.thread, %35, %30
   %37 = load volatile ptr, ptr %8, align 8
   %38 = icmp eq ptr %37, %8
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %36, %.loopexit6, %2
   ret void
@@ -2135,7 +2135,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
 38:                                               ; preds = %33, %29
   %39 = add nuw nsw i64 %20, 1
   %40 = icmp eq i64 %39, 16
-  br i1 %40, label %41, label %19, !llvm.loop !48
+  br i1 %40, label %41, label %19, !llvm.loop !47
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %7, align 8
@@ -2195,12 +2195,12 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
 78:                                               ; preds = %72, %68
   %79 = add nuw nsw i64 %58, 1
   %80 = icmp eq i64 %79, 16
-  br i1 %80, label %52, label %57, !llvm.loop !49
+  br i1 %80, label %52, label %57, !llvm.loop !48
 
 .loopexit41:                                      ; preds = %.preheader, %83
   %81 = add nuw nsw i64 %84, 1
   %82 = icmp eq i64 %81, %56
-  br i1 %82, label %.loopexit44, label %83, !llvm.loop !50
+  br i1 %82, label %.loopexit44, label %83, !llvm.loop !49
 
 83:                                               ; preds = %.loopexit41, %54
   %84 = phi i64 [ 0, %54 ], [ %81, %.loopexit41 ]
@@ -2234,7 +2234,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %106 = load i8, ptr %94, align 4
   %107 = zext i8 %106 to i64
   %108 = icmp ult i64 %105, %107
-  br i1 %108, label %109, label %.loopexit41, !llvm.loop !51
+  br i1 %108, label %109, label %.loopexit41, !llvm.loop !50
 
 109:                                              ; preds = %.preheader
   %110 = load ptr, ptr %7, align 8
@@ -2244,7 +2244,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %114 = getelementptr %struct.usb_host_endpoint, ptr %113, i64 %105
   %115 = tail call i32 %112(ptr noundef %6, ptr noundef %0, ptr noundef %114) #17
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %.thread39, label %.preheader, !llvm.loop !51
+  br i1 %116, label %.thread39, label %.preheader, !llvm.loop !50
 
 .loopexit44:                                      ; preds = %.loopexit41, %52, %46
   %117 = icmp ne ptr %3, null
@@ -2291,7 +2291,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %144 = load i8, ptr %137, align 4
   %145 = zext i8 %144 to i64
   %146 = icmp ult i64 %143, %145
-  br i1 %146, label %152, label %.loopexit, !llvm.loop !52
+  br i1 %146, label %152, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %142, %135
   %147 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2319,7 +2319,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %163 = load i8, ptr %147, align 4
   %164 = zext i8 %163 to i64
   %165 = icmp ult i64 %162, %164
-  br i1 %165, label %166, label %.thread33, !llvm.loop !53
+  br i1 %165, label %166, label %.thread33, !llvm.loop !52
 
 166:                                              ; preds = %161, %150
   %167 = phi i64 [ 0, %150 ], [ %162, %161 ]
@@ -2469,7 +2469,7 @@ define dso_local i32 @usb_alloc_streams(ptr nocapture noundef readonly %0, ptr n
 30:                                               ; preds = %41
   %31 = add nuw i32 %33, 1
   %32 = icmp eq i32 %31, %2
-  br i1 %32, label %.loopexit4, label %.preheader2, !llvm.loop !54
+  br i1 %32, label %.loopexit4, label %.preheader2, !llvm.loop !53
 
 .preheader2:                                      ; preds = %28, %30
   %33 = phi i32 [ %31, %30 ], [ 0, %28 ]
@@ -2504,7 +2504,7 @@ define dso_local i32 @usb_alloc_streams(ptr nocapture noundef readonly %0, ptr n
   store i32 %45, ptr %53, align 8
   %54 = add nuw i32 %49, 1
   %55 = icmp eq i32 %54, %2
-  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %41, %.preheader2, %.preheader, %.loopexit4, %24, %20, %16, %5
   %56 = phi i32 [ -22, %16 ], [ -22, %5 ], [ -22, %20 ], [ -19, %24 ], [ %45, %.loopexit4 ], [ %45, %.preheader ], [ -22, %.preheader2 ], [ -22, %41 ]
@@ -2530,7 +2530,7 @@ define dso_local i32 @usb_free_streams(ptr nocapture noundef readonly %0, ptr no
 15:                                               ; preds = %23
   %16 = add nuw i32 %18, 1
   %17 = icmp eq i32 %16, %2
-  br i1 %17, label %.loopexit4, label %.preheader2, !llvm.loop !56
+  br i1 %17, label %.loopexit4, label %.preheader2, !llvm.loop !55
 
 .preheader2:                                      ; preds = %13, %15
   %18 = phi i32 [ %16, %15 ], [ 0, %13 ]
@@ -2566,7 +2566,7 @@ define dso_local i32 @usb_free_streams(ptr nocapture noundef readonly %0, ptr no
   store i32 0, ptr %39, align 8
   %40 = add nuw i32 %35, 1
   %41 = icmp eq i32 %40, %2
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %23, %.preheader2, %.preheader, %.loopexit4, %4
   %42 = phi i32 [ -22, %4 ], [ %31, %.loopexit4 ], [ %31, %.preheader ], [ -22, %.preheader2 ], [ -22, %23 ]
@@ -2811,7 +2811,7 @@ define dso_local i32 @hcd_bus_resume(ptr noundef %0, i32 %1) local_unnamed_addr 
   %69 = tail call ptr @usb_hub_find_child(ptr noundef %0, i32 noundef %68) #17
   %70 = load i32, ptr %51, align 8
   %71 = icmp sgt i32 %68, %70
-  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !58
+  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .thread:                                          ; preds = %31, %35
   %72 = phi i32 [ %38, %35 ], [ %33, %31 ]
@@ -2938,7 +2938,7 @@ define dso_local void @usb_hcd_resume_root_hub(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_hcd_irq(i32 %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_hcd_irq(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 65
@@ -2967,7 +2967,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @usb_kick_hub_wq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @usb_hcd_is_primary_hcd(ptr noundef readonly %0) #9 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_hcd_is_primary_hcd(ptr noundef readonly %0) #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3164,7 +3164,7 @@ define dso_local noundef ptr @usb_get_hcd(ptr noundef returned %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 144
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #17, !srcloc !59
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #17, !srcloc !58
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7, !prof !5
 
@@ -3190,7 +3190,7 @@ define dso_local void @usb_put_hcd(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 144
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #17, !srcloc !60
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #17, !srcloc !59
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %10, label %7
 
@@ -3203,7 +3203,7 @@ define dso_local void @usb_put_hcd(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 10:                                               ; preds = %3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !60
   tail call void @mutex_lock(ptr noundef nonnull @usb_port_peer_mutex) #17
   %11 = getelementptr i8, ptr %0, i64 544
   %12 = load ptr, ptr %11, align 8
@@ -4059,14 +4059,14 @@ declare dso_local ptr @devm_memremap(ptr noundef, i64 noundef, i64 noundef, i64 
 declare dso_local ptr @dmam_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usb_mon_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @usb_mon_register(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr @mon_ops, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
   store ptr %0, ptr @mon_ops, align 8
-  tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !62
+  tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !61
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -4086,7 +4086,7 @@ define dso_local void @usb_mon_deregister() #0 align 16 {
 
 5:                                                ; preds = %0
   store ptr null, ptr @mon_ops, align 8
-  tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !63
+  tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !62
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -4124,7 +4124,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @device_set_wakeup_enable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc i32 @rh_string(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #11 align 16 {
   %5 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %5, i8 0, i64 100, i1 false), !annotation !6
@@ -4190,14 +4190,14 @@ default.unreachable:                              ; preds = %4
   %39 = add nsw i32 %33, -2
   %40 = getelementptr i8, ptr %34, i64 1
   %41 = lshr i32 %32, 8
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = getelementptr i8, ptr %34, i64 2
   store i8 %42, ptr %40, align 1
   %44 = getelementptr i8, ptr %35, i64 1
   %45 = load i8, ptr %35, align 1
   %46 = zext i8 %45 to i32
   %47 = icmp eq i32 %39, 0
-  br i1 %47, label %.loopexit, label %31, !llvm.loop !64
+  br i1 %47, label %.loopexit, label %31, !llvm.loop !63
 
 .loopexit:                                        ; preds = %38, %31, %20, %6
   %48 = phi i32 [ %7, %6 ], [ 0, %20 ], [ %27, %31 ], [ %27, %38 ]
@@ -4321,7 +4321,7 @@ define internal void @usb_giveback_urb_bh(ptr noundef %0) #0 align 16 {
   store ptr null, ptr %14, align 8
   %24 = load volatile ptr, ptr %2, align 8
   %25 = icmp eq ptr %24, %2
-  br i1 %25, label %.loopexit, label %15, !llvm.loop !65
+  br i1 %25, label %.loopexit, label %15, !llvm.loop !64
 
 .loopexit:                                        ; preds = %15, %1
   call void @_raw_spin_lock_irq(ptr noundef %4) #17
@@ -4471,9 +4471,9 @@ attributes #21 = { nounwind allocsize(2) }
 !40 = !{i64 2154762313, i64 2154762124, i64 2154762174, i64 2154762220, i64 2154762248}
 !41 = !{i64 2154762619, i64 2154762430, i64 2154762480, i64 2154762526, i64 2154762554}
 !42 = !{i32 0, i32 65536}
-!43 = !{i32 -22, i32 1}
-!44 = !{!"branch_weights", i32 -2147483648, i32 0}
-!45 = !{i64 2148899042, i64 2148899081, i64 2148899102, i64 2148899139, i64 2148899162, i64 2148899032}
+!43 = !{!"branch_weights", i32 -2147483648, i32 0}
+!44 = !{i64 2148899042, i64 2148899081, i64 2148899102, i64 2148899139, i64 2148899162, i64 2148899032}
+!45 = distinct !{!45, !17, !18}
 !46 = distinct !{!46, !17, !18}
 !47 = distinct !{!47, !17, !18}
 !48 = distinct !{!48, !17, !18}
@@ -4486,11 +4486,10 @@ attributes #21 = { nounwind allocsize(2) }
 !55 = distinct !{!55, !17, !18}
 !56 = distinct !{!56, !17, !18}
 !57 = distinct !{!57, !17, !18}
-!58 = distinct !{!58, !17, !18}
-!59 = !{i64 2148909167, i64 2148909206, i64 2148909227, i64 2148909264, i64 2148909287, i64 2148909296}
-!60 = !{i64 2148911352, i64 2148911391, i64 2148911412, i64 2148911449, i64 2148911472, i64 2148911481}
-!61 = !{i64 2150437702}
-!62 = !{i64 2156834739}
-!63 = !{i64 2156836943}
+!58 = !{i64 2148909167, i64 2148909206, i64 2148909227, i64 2148909264, i64 2148909287, i64 2148909296}
+!59 = !{i64 2148911352, i64 2148911391, i64 2148911412, i64 2148911449, i64 2148911472, i64 2148911481}
+!60 = !{i64 2150437702}
+!61 = !{i64 2156834739}
+!62 = !{i64 2156836943}
+!63 = distinct !{!63, !17, !18}
 !64 = distinct !{!64, !17, !18}
-!65 = distinct !{!65, !17, !18}

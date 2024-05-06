@@ -20,7 +20,7 @@ define i32 @softfloat_approxRecip32_1(i32 noundef %0) local_unnamed_addr #0 {
   %11 = and i32 %4, 65535
   %12 = mul nuw i32 %11, %10
   %13 = lshr i32 %12, 20
-  %14 = trunc i32 %13 to i16
+  %14 = trunc nuw nsw i32 %13 to i16
   %15 = sub i16 %7, %14
   %16 = zext i16 %15 to i64
   %17 = zext i32 %0 to i64

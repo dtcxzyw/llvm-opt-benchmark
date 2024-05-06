@@ -494,7 +494,7 @@ declare ptr @panel_below(ptr noundef) local_unnamed_addr #1
 declare void @update_panels() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_curses_panel_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @_curses_panel_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #3
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @PyCursesPanel_Type_spec, ptr noundef null) #3

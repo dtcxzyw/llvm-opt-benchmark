@@ -46,7 +46,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_default_cipherlist_implicit() #0 {
+define internal range(i32 0, 2) i32 @test_default_cipherlist_implicit() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -55,14 +55,14 @@ entry:
 if.then2:                                         ; preds = %entry
   %server.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %server.i, align 8
-  %call.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %0), !range !5
+  %call.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %tear_down.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then2
   %client.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %client.i, align 8
-  %call1.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %1), !range !5
+  %call1.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %1)
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %if.then2, %land.rhs.i
@@ -82,7 +82,7 @@ return:                                           ; preds = %entry, %tear_down.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_default_cipherlist_explicit() #0 {
+define internal range(i32 0, 2) i32 @test_default_cipherlist_explicit() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.1)
   %cmp = icmp eq ptr %call, null
@@ -116,13 +116,13 @@ if.end10.thread:                                  ; preds = %if.end, %lor.lhs.fa
 
 if.then13:                                        ; preds = %lor.lhs.false
   %3 = load ptr, ptr %server, align 8
-  %call.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %3), !range !5
+  %call.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %3)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %tear_down.exit13, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then13
   %4 = load ptr, ptr %client, align 8
-  %call1.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %4), !range !5
+  %call1.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %4)
   br label %tear_down.exit13
 
 tear_down.exit13:                                 ; preds = %if.then13, %land.rhs.i
@@ -146,7 +146,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_default_cipherlist_clear() #0 {
+define internal range(i32 0, 2) i32 @test_default_cipherlist_clear() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.2)
   %cmp = icmp eq ptr %call, null
@@ -216,7 +216,7 @@ return:                                           ; preds = %entry, %tear_down.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_stdname_cipherlist() #0 {
+define internal range(i32 0, 2) i32 @test_stdname_cipherlist() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.3)
   %cmp = icmp eq ptr %call, null
@@ -312,7 +312,7 @@ declare ptr @TLS_server_method() local_unnamed_addr #1
 declare ptr @TLS_client_method() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_default_cipherlist(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_default_cipherlist(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -347,7 +347,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [30 x i32], ptr @default_ciphers_in_order, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call15 = tail call ptr @OPENSSL_sk_value(ptr noundef %call2, i32 noundef %1) #3
   %call16 = tail call i32 @SSL_CIPHER_get_id(ptr noundef %call15) #3
   %call17 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 170, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %call16, i32 noundef %0) #3
@@ -361,7 +361,7 @@ if.then19:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !5
 
 err:                                              ; preds = %for.inc, %for.cond.preheader, %if.end6, %if.end, %lor.lhs.false, %if.then19
   %ret.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.end6 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 1, %for.cond.preheader ], [ 1, %for.inc ]
@@ -420,6 +420,5 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

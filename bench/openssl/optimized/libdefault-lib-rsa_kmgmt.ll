@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @ossl_rsa_get0_pss_params_30(ptr noundef %key) #5
   %call1 = tail call i32 @RSA_test_flags(ptr noundef %key, i32 noundef 61440) #5
@@ -419,7 +419,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_has(ptr noundef %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @rsa_has(ptr noundef %keydata, i32 noundef %selection) #0 {
 entry:
   %cmp = icmp eq ptr %keydata, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -470,7 +470,7 @@ return:                                           ; preds = %if.end20, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -542,7 +542,7 @@ return:                                           ; preds = %land.rhs, %if.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
+define internal range(i32 0, 2) i32 @rsa_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -595,7 +595,7 @@ return:                                           ; preds = %if.end18, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %pss_defaults_set = alloca i32, align 4
   store i32 0, ptr %pss_defaults_set, align 4
@@ -872,7 +872,7 @@ if.end14:                                         ; preds = %lor.lhs.false
   store i64 2, ptr %primes, align 8
   %rsa_type15 = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 %rsa_type, ptr %rsa_type15, align 8
-  %call17 = tail call i32 @rsa_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params), !range !4
+  %call17 = tail call i32 @rsa_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then22, label %return
 
@@ -1031,4 +1031,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

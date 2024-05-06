@@ -25,9 +25,9 @@ define noundef i32 @_ZN3gmx16computeFepPeriodERK10t_inputrecRK25ReplicaExchangeP
 
 15:                                               ; preds = %13
   %.0.i4.i = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %16 = tail call noundef i32 @llvm.cttz.i32(i32 %11, i1 true), !range !5
+  %16 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %11, i1 true)
   %17 = lshr i32 %11, %16
-  %18 = tail call noundef i32 @llvm.cttz.i32(i32 %9, i1 true), !range !5
+  %18 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
   %19 = lshr i32 %.0.i4.i, %18
   %20 = tail call i32 @llvm.umin.i32(i32 %16, i32 %18)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %19)
@@ -45,11 +45,11 @@ define noundef i32 @_ZN3gmx16computeFepPeriodERK10t_inputrecRK25ReplicaExchangeP
   %.02835.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %19, %15 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %23 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %24 = tail call noundef i32 @llvm.cttz.i32(i32 %23, i1 true), !range !5
+  %24 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
   %25 = lshr i32 %23, %24
   %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %25)
   %26 = icmp eq i32 %spec.select3337.i.i, %25
-  br i1 %26, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %26, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %._crit_edge.i.i, %13, %6
   %.0 = phi i32 [ %9, %6 ], [ %22, %._crit_edge.i.i ], [ %11, %13 ]
@@ -72,9 +72,9 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %._crit_edge.i
   br i1 %36, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call noundef i32 @llvm.cttz.i32(i32 %33, i1 true), !range !5
+  %38 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %33, i1 true)
   %39 = lshr i32 %.0.i.i18, %38
-  %40 = tail call noundef i32 @llvm.cttz.i32(i32 %.0, i1 true), !range !5
+  %40 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0, i1 true)
   %41 = lshr i32 %.0.i4.i19, %40
   %42 = tail call i32 @llvm.umin.i32(i32 %38, i32 %40)
   %spec.select3334.i.i20 = tail call i32 @llvm.umin.i32(i32 %39, i32 %41)
@@ -92,11 +92,11 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %._crit_edge.i
   %.02835.i.i24 = phi i32 [ %47, %.lr.ph.i.i21 ], [ %41, %37 ]
   %spec.select.i.i25 = tail call i32 @llvm.umax.i32(i32 %.02736.i.i23, i32 %.02835.i.i24)
   %45 = sub i32 %spec.select.i.i25, %spec.select3337.i.i22
-  %46 = tail call noundef i32 @llvm.cttz.i32(i32 %45, i1 true), !range !5
+  %46 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %45, i1 true)
   %47 = lshr i32 %45, %46
   %spec.select33.i.i26 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i22, i32 %47)
   %48 = icmp eq i32 %spec.select3337.i.i22, %47
-  br i1 %48, label %._crit_edge.i.i27, label %.lr.ph.i.i21, !llvm.loop !6
+  br i1 %48, label %._crit_edge.i.i27, label %.lr.ph.i.i21, !llvm.loop !5
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30: ; preds = %._crit_edge.i.i27, %35, %30, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit
   %.1 = phi i32 [ %.0, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit ], [ %44, %._crit_edge.i.i27 ], [ %.0.i4.i19, %30 ], [ %.0.i.i18, %35 ]
@@ -110,9 +110,9 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30: ; preds = %._crit_edge
 
 53:                                               ; preds = %51
   %.0.i4.i32 = tail call noundef i32 @llvm.abs.i32(i32 %.1, i1 true)
-  %54 = tail call noundef i32 @llvm.cttz.i32(i32 %49, i1 true), !range !5
+  %54 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %49, i1 true)
   %55 = lshr i32 %49, %54
-  %56 = tail call noundef i32 @llvm.cttz.i32(i32 %.1, i1 true), !range !5
+  %56 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.1, i1 true)
   %57 = lshr i32 %.0.i4.i32, %56
   %58 = tail call i32 @llvm.umin.i32(i32 %54, i32 %56)
   %spec.select3334.i.i33 = tail call i32 @llvm.umin.i32(i32 %55, i32 %57)
@@ -130,11 +130,11 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30: ; preds = %._crit_edge
   %.02835.i.i37 = phi i32 [ %63, %.lr.ph.i.i34 ], [ %57, %53 ]
   %spec.select.i.i38 = tail call i32 @llvm.umax.i32(i32 %.02736.i.i36, i32 %.02835.i.i37)
   %61 = sub i32 %spec.select.i.i38, %spec.select3337.i.i35
-  %62 = tail call noundef i32 @llvm.cttz.i32(i32 %61, i1 true), !range !5
+  %62 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %61, i1 true)
   %63 = lshr i32 %61, %62
   %spec.select33.i.i39 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i35, i32 %63)
   %64 = icmp eq i32 %spec.select3337.i.i35, %63
-  br i1 %64, label %._crit_edge.i.i40, label %.lr.ph.i.i34, !llvm.loop !6
+  br i1 %64, label %._crit_edge.i.i40, label %.lr.ph.i.i34, !llvm.loop !5
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit43: ; preds = %._crit_edge.i.i40, %51, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30
   %.2 = phi i32 [ %.1, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit30 ], [ %60, %._crit_edge.i.i40 ], [ %49, %51 ]
@@ -158,9 +158,9 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit43: ; preds = %._crit_edge
   br i1 %75, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit56, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call noundef i32 @llvm.cttz.i32(i32 %72, i1 true), !range !5
+  %77 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %72, i1 true)
   %78 = lshr i32 %.0.i.i44, %77
-  %79 = tail call noundef i32 @llvm.cttz.i32(i32 %.2, i1 true), !range !5
+  %79 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.2, i1 true)
   %80 = lshr i32 %.0.i4.i45, %79
   %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
   %spec.select3334.i.i46 = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
@@ -178,11 +178,11 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit43: ; preds = %._crit_edge
   %.02835.i.i50 = phi i32 [ %86, %.lr.ph.i.i47 ], [ %80, %76 ]
   %spec.select.i.i51 = tail call i32 @llvm.umax.i32(i32 %.02736.i.i49, i32 %.02835.i.i50)
   %84 = sub i32 %spec.select.i.i51, %spec.select3337.i.i48
-  %85 = tail call noundef i32 @llvm.cttz.i32(i32 %84, i1 true), !range !5
+  %85 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %84, i1 true)
   %86 = lshr i32 %84, %85
   %spec.select33.i.i52 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i48, i32 %86)
   %87 = icmp eq i32 %spec.select3337.i.i48, %86
-  br i1 %87, label %._crit_edge.i.i53, label %.lr.ph.i.i47, !llvm.loop !6
+  br i1 %87, label %._crit_edge.i.i53, label %.lr.ph.i.i47, !llvm.loop !5
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit56: ; preds = %._crit_edge.i.i53, %74, %68, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit43, %2
   %.015 = phi i32 [ 0, %2 ], [ %.2, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit43 ], [ %83, %._crit_edge.i.i53 ], [ %.0.i4.i45, %68 ], [ %.0.i.i44, %74 ]
@@ -214,6 +214,5 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

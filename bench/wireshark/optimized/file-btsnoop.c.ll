@@ -251,7 +251,7 @@ define internal i32 @dissect_btsnoop(ptr noundef %0, ptr noundef %1, ptr noundef
   %79 = and i64 %78, 4294967295
   store i64 %79, ptr %5, align 8
   %80 = urem i64 %77, 1000000
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw nsw i64 %80 to i32
   %82 = mul nuw nsw i32 %81, 1000
   store i32 %82, ptr %25, align 8
   %83 = load i32, ptr @hf_btsnoop_timestamp_microseconds, align 4
@@ -333,7 +333,7 @@ define internal i32 @dissect_btsnoop(ptr noundef %0, ptr noundef %1, ptr noundef
   %120 = getelementptr inbounds i8, ptr %119, i64 2
   store i16 %118, ptr %120, align 2
   %121 = lshr i32 %52, 16
-  %122 = trunc i32 %121 to i16
+  %122 = trunc nuw i32 %121 to i16
   %123 = load ptr, ptr %28, align 8
   store i16 %122, ptr %123, align 8
   %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %85, i32 noundef %46) #3
@@ -396,7 +396,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btsnoop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_btsnoop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @dissect_btsnoop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32

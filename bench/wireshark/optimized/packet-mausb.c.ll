@@ -482,7 +482,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.323 = private unnamed_addr constant [10 x i8] c" ReqID=%u\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mausb_is_from_host(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 17) i32 @mausb_is_from_host(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 4
   %3 = and i8 %2, 16
   %4 = zext nneg i8 %3 to i32
@@ -490,14 +490,14 @@ define hidden i32 @mausb_is_from_host(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @mausb_ep_handle_ep_d(i16 noundef zeroext %0) local_unnamed_addr #1 {
+define hidden noundef zeroext range(i8 0, 2) i8 @mausb_ep_handle_ep_d(i16 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = trunc i16 %0 to i8
   %3 = and i8 %2, 1
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @mausb_ep_handle_ep_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
+define hidden noundef zeroext range(i8 0, 16) i8 @mausb_ep_handle_ep_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = trunc i16 %0 to i8
   %3 = lshr i8 %2, 1
   %4 = and i8 %3, 15
@@ -505,7 +505,7 @@ define hidden noundef zeroext i8 @mausb_ep_handle_ep_num(i16 noundef zeroext %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @mausb_ep_handle_dev_addr(i16 noundef zeroext %0) local_unnamed_addr #1 {
+define hidden noundef zeroext range(i8 0, -128) i8 @mausb_ep_handle_dev_addr(i16 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = lshr i16 %0, 5
   %3 = trunc i16 %2 to i8
   %4 = and i8 %3, 127
@@ -513,7 +513,7 @@ define hidden noundef zeroext i8 @mausb_ep_handle_dev_addr(i16 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i8 @mausb_ep_handle_bus_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
+define hidden zeroext range(i8 0, 16) i8 @mausb_ep_handle_bus_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = lshr i16 %0, 12
   %3 = trunc nuw nsw i16 %2 to i8
   ret i8 %3
@@ -667,7 +667,7 @@ define internal i32 @dissect_mausb(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mausb_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
   %5 = alloca %struct.mausb_header, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 32, i1 false)
@@ -843,7 +843,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   ]
 
 92:                                               ; preds = %87
-  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
+  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
   br label %127
 
 94:                                               ; preds = %87
@@ -1058,7 +1058,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mausb_get_pkt_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 0, 65536) i32 @mausb_get_pkt_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #3 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i16 %6 to i32

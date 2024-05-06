@@ -1898,14 +1898,14 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   %add = add i64 %10, %9
   store i64 %add, ptr %high_pri_pool_usage_, align 16
   %high_pri_pool_capacity_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %conv4.i = uitofp i64 %add to double
+  %conv6.i = uitofp i64 %add to double
   %11 = load double, ptr %high_pri_pool_capacity_.i, align 16
-  %cmp5.i = fcmp olt double %11, %conv4.i
-  br i1 %cmp5.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
+  %cmp7.i = fcmp olt double %11, %conv6.i
+  br i1 %cmp7.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
 
 entry.while.cond9.preheader_crit_edge.i:          ; preds = %if.then
   %low_pri_pool_usage_10.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre8.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
+  %.pre10.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
   br label %while.cond9.preheader.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
@@ -1915,17 +1915,17 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.cond9.preheader.i:                          ; preds = %while.body.i, %entry.while.cond9.preheader_crit_edge.i
-  %12 = phi i64 [ %.pre8.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.body.i ]
+  %12 = phi i64 [ %.pre10.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.body.i ]
   %low_pri_pool_usage_10.i = getelementptr inbounds i8, ptr %this, i64 24
   %low_pri_pool_capacity_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %conv116.i = uitofp i64 %12 to double
+  %conv118.i = uitofp i64 %12 to double
   %13 = load double, ptr %low_pri_pool_capacity_.i, align 64
-  %cmp127.i = fcmp olt double %13, %conv116.i
-  br i1 %cmp127.i, label %while.body13.lr.ph.i, label %if.end44
+  %cmp129.i = fcmp olt double %13, %conv118.i
+  br i1 %cmp129.i, label %while.body13.lr.ph.i, label %if.end44
 
 while.body13.lr.ph.i:                             ; preds = %while.cond9.preheader.i
   %lru_bottom_pri_.i = getelementptr inbounds i8, ptr %this, i64 152
-  %.pre9.i = load ptr, ptr %lru_bottom_pri_.i, align 8
+  %.pre11.i = load ptr, ptr %lru_bottom_pri_.i, align 8
   br label %while.body13.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -1958,7 +1958,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i, label %while.body.i, label %while.cond9.preheader.i, !llvm.loop !19
 
 while.body13.i:                                   ; preds = %while.body13.i, %while.body13.lr.ph.i
-  %26 = phi ptr [ %.pre9.i, %while.body13.lr.ph.i ], [ %33, %while.body13.i ]
+  %26 = phi ptr [ %.pre11.i, %while.body13.lr.ph.i ], [ %33, %while.body13.i ]
   %next14.i = getelementptr inbounds i8, ptr %26, i64 24
   %27 = load ptr, ptr %next14.i, align 8
   store ptr %27, ptr %lru_bottom_pri_.i, align 8
@@ -1967,10 +1967,10 @@ while.body13.i:                                   ; preds = %while.body13.i, %wh
   %29 = and i8 %28, -5
   store i8 %29, ptr %m_flags.i2.i, align 8
   %30 = load ptr, ptr %lru_bottom_pri_.i, align 8
-  %m_flags.i3.i = getelementptr inbounds i8, ptr %30, i64 64
-  %31 = load i8, ptr %m_flags.i3.i, align 8
+  %m_flags.i4.i = getelementptr inbounds i8, ptr %30, i64 64
+  %31 = load i8, ptr %m_flags.i4.i, align 8
   %32 = and i8 %31, -9
-  store i8 %32, ptr %m_flags.i3.i, align 8
+  store i8 %32, ptr %m_flags.i4.i, align 8
   %33 = load ptr, ptr %lru_bottom_pri_.i, align 8
   %total_charge19.i = getelementptr inbounds i8, ptr %33, i64 40
   %34 = load i64, ptr %total_charge19.i, align 8
@@ -1989,18 +1989,18 @@ if.else:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp9, label %land.lhs.true10, label %if.else28
 
 land.lhs.true10:                                  ; preds = %if.else
-  %im_flags.i38 = getelementptr inbounds i8, ptr %e, i64 65
-  %38 = load i8, ptr %im_flags.i38, align 1
+  %im_flags.i39 = getelementptr inbounds i8, ptr %e, i64 65
+  %38 = load i8, ptr %im_flags.i39, align 1
   %39 = and i8 %38, 3
   %or.cond.not = icmp eq i8 %39, 0
   br i1 %or.cond.not, label %lor.lhs.false14, label %if.then16
 
 lor.lhs.false14:                                  ; preds = %land.lhs.true10
-  %m_flags.i42 = getelementptr inbounds i8, ptr %e, i64 64
-  %40 = load i8, ptr %m_flags.i42, align 8
+  %m_flags.i43 = getelementptr inbounds i8, ptr %e, i64 64
+  %40 = load i8, ptr %m_flags.i43, align 8
   %41 = and i8 %40, 2
-  %tobool.i43.not = icmp eq i8 %41, 0
-  br i1 %tobool.i43.not, label %if.else28, label %if.then16
+  %tobool.i44.not = icmp eq i8 %41, 0
+  br i1 %tobool.i44.not, label %if.else28, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false14, %land.lhs.true10
   %lru_low_pri_ = getelementptr inbounds i8, ptr %this, i64 144
@@ -2017,97 +2017,97 @@ if.then16:                                        ; preds = %lor.lhs.false14, %l
   %45 = load ptr, ptr %next18, align 8
   %prev24 = getelementptr inbounds i8, ptr %45, i64 32
   store ptr %e, ptr %prev24, align 8
-  %m_flags.i44 = getelementptr inbounds i8, ptr %e, i64 64
-  %46 = load i8, ptr %m_flags.i44, align 8
+  %m_flags.i45 = getelementptr inbounds i8, ptr %e, i64 64
+  %46 = load i8, ptr %m_flags.i45, align 8
   %47 = and i8 %46, -13
-  %.sink.i46 = or disjoint i8 %47, 8
-  store i8 %.sink.i46, ptr %m_flags.i44, align 8
+  %.sink.i48 = or disjoint i8 %47, 8
+  store i8 %.sink.i48, ptr %m_flags.i45, align 8
   %total_charge25 = getelementptr inbounds i8, ptr %e, i64 40
   %48 = load i64, ptr %total_charge25, align 8
   %low_pri_pool_usage_ = getelementptr inbounds i8, ptr %this, i64 24
   %49 = load i64, ptr %low_pri_pool_usage_, align 8
   %add26 = add i64 %49, %48
   store i64 %add26, ptr %low_pri_pool_usage_, align 8
-  %high_pri_pool_usage_.i47 = getelementptr inbounds i8, ptr %this, i64 16
-  %high_pri_pool_capacity_.i48 = getelementptr inbounds i8, ptr %this, i64 48
-  %50 = load i64, ptr %high_pri_pool_usage_.i47, align 16
-  %conv4.i49 = uitofp i64 %50 to double
-  %51 = load double, ptr %high_pri_pool_capacity_.i48, align 16
-  %cmp5.i50 = fcmp olt double %51, %conv4.i49
-  br i1 %cmp5.i50, label %while.body.lr.ph.i70, label %while.cond9.preheader.i54
+  %high_pri_pool_usage_.i49 = getelementptr inbounds i8, ptr %this, i64 16
+  %high_pri_pool_capacity_.i50 = getelementptr inbounds i8, ptr %this, i64 48
+  %50 = load i64, ptr %high_pri_pool_usage_.i49, align 16
+  %conv6.i51 = uitofp i64 %50 to double
+  %51 = load double, ptr %high_pri_pool_capacity_.i50, align 16
+  %cmp7.i52 = fcmp olt double %51, %conv6.i51
+  br i1 %cmp7.i52, label %while.body.lr.ph.i72, label %while.cond9.preheader.i56
 
-while.body.lr.ph.i70:                             ; preds = %if.then16
-  %.pre.i73 = load ptr, ptr %lru_low_pri_, align 16
-  br label %while.body.i74
+while.body.lr.ph.i72:                             ; preds = %if.then16
+  %.pre.i75 = load ptr, ptr %lru_low_pri_, align 16
+  br label %while.body.i76
 
-while.cond9.preheader.i54:                        ; preds = %while.body.i74, %if.then16
-  %52 = phi i64 [ %add26, %if.then16 ], [ %add.i81, %while.body.i74 ]
-  %low_pri_pool_capacity_.i56 = getelementptr inbounds i8, ptr %this, i64 64
-  %conv116.i57 = uitofp i64 %52 to double
-  %53 = load double, ptr %low_pri_pool_capacity_.i56, align 64
-  %cmp127.i58 = fcmp olt double %53, %conv116.i57
-  br i1 %cmp127.i58, label %while.body13.lr.ph.i59, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit84
+while.cond9.preheader.i56:                        ; preds = %while.body.i76, %if.then16
+  %52 = phi i64 [ %add26, %if.then16 ], [ %add.i83, %while.body.i76 ]
+  %low_pri_pool_capacity_.i58 = getelementptr inbounds i8, ptr %this, i64 64
+  %conv118.i59 = uitofp i64 %52 to double
+  %53 = load double, ptr %low_pri_pool_capacity_.i58, align 64
+  %cmp129.i60 = fcmp olt double %53, %conv118.i59
+  br i1 %cmp129.i60, label %while.body13.lr.ph.i61, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit86
 
-while.body13.lr.ph.i59:                           ; preds = %while.cond9.preheader.i54
-  %lru_bottom_pri_.i60 = getelementptr inbounds i8, ptr %this, i64 152
-  %.pre9.i61 = load ptr, ptr %lru_bottom_pri_.i60, align 8
-  br label %while.body13.i62
+while.body13.lr.ph.i61:                           ; preds = %while.cond9.preheader.i56
+  %lru_bottom_pri_.i62 = getelementptr inbounds i8, ptr %this, i64 152
+  %.pre11.i63 = load ptr, ptr %lru_bottom_pri_.i62, align 8
+  br label %while.body13.i64
 
-while.body.i74:                                   ; preds = %while.body.i74, %while.body.lr.ph.i70
-  %54 = phi ptr [ %.pre.i73, %while.body.lr.ph.i70 ], [ %60, %while.body.i74 ]
-  %next.i75 = getelementptr inbounds i8, ptr %54, i64 24
-  %55 = load ptr, ptr %next.i75, align 8
+while.body.i76:                                   ; preds = %while.body.i76, %while.body.lr.ph.i72
+  %54 = phi ptr [ %.pre.i75, %while.body.lr.ph.i72 ], [ %60, %while.body.i76 ]
+  %next.i77 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = load ptr, ptr %next.i77, align 8
   store ptr %55, ptr %lru_low_pri_, align 16
-  %m_flags.i.i76 = getelementptr inbounds i8, ptr %55, i64 64
-  %56 = load i8, ptr %m_flags.i.i76, align 8
+  %m_flags.i.i78 = getelementptr inbounds i8, ptr %55, i64 64
+  %56 = load i8, ptr %m_flags.i.i78, align 8
   %57 = and i8 %56, -5
-  store i8 %57, ptr %m_flags.i.i76, align 8
+  store i8 %57, ptr %m_flags.i.i78, align 8
   %58 = load ptr, ptr %lru_low_pri_, align 16
-  %m_flags.i1.i77 = getelementptr inbounds i8, ptr %58, i64 64
-  %59 = load i8, ptr %m_flags.i1.i77, align 8
-  %.sink.i.i78 = or i8 %59, 8
-  store i8 %.sink.i.i78, ptr %m_flags.i1.i77, align 8
+  %m_flags.i1.i79 = getelementptr inbounds i8, ptr %58, i64 64
+  %59 = load i8, ptr %m_flags.i1.i79, align 8
+  %.sink.i.i80 = or i8 %59, 8
+  store i8 %.sink.i.i80, ptr %m_flags.i1.i79, align 8
   %60 = load ptr, ptr %lru_low_pri_, align 16
-  %total_charge.i79 = getelementptr inbounds i8, ptr %60, i64 40
-  %61 = load i64, ptr %total_charge.i79, align 8
-  %62 = load i64, ptr %high_pri_pool_usage_.i47, align 16
-  %sub.i80 = sub i64 %62, %61
-  store i64 %sub.i80, ptr %high_pri_pool_usage_.i47, align 16
-  %63 = load i64, ptr %total_charge.i79, align 8
+  %total_charge.i81 = getelementptr inbounds i8, ptr %60, i64 40
+  %61 = load i64, ptr %total_charge.i81, align 8
+  %62 = load i64, ptr %high_pri_pool_usage_.i49, align 16
+  %sub.i82 = sub i64 %62, %61
+  store i64 %sub.i82, ptr %high_pri_pool_usage_.i49, align 16
+  %63 = load i64, ptr %total_charge.i81, align 8
   %64 = load i64, ptr %low_pri_pool_usage_, align 8
-  %add.i81 = add i64 %64, %63
-  store i64 %add.i81, ptr %low_pri_pool_usage_, align 8
-  %conv.i82 = uitofp i64 %sub.i80 to double
-  %65 = load double, ptr %high_pri_pool_capacity_.i48, align 16
-  %cmp.i83 = fcmp olt double %65, %conv.i82
-  br i1 %cmp.i83, label %while.body.i74, label %while.cond9.preheader.i54, !llvm.loop !19
+  %add.i83 = add i64 %64, %63
+  store i64 %add.i83, ptr %low_pri_pool_usage_, align 8
+  %conv.i84 = uitofp i64 %sub.i82 to double
+  %65 = load double, ptr %high_pri_pool_capacity_.i50, align 16
+  %cmp.i85 = fcmp olt double %65, %conv.i84
+  br i1 %cmp.i85, label %while.body.i76, label %while.cond9.preheader.i56, !llvm.loop !19
 
-while.body13.i62:                                 ; preds = %while.body13.i62, %while.body13.lr.ph.i59
-  %66 = phi ptr [ %.pre9.i61, %while.body13.lr.ph.i59 ], [ %73, %while.body13.i62 ]
-  %next14.i63 = getelementptr inbounds i8, ptr %66, i64 24
-  %67 = load ptr, ptr %next14.i63, align 8
-  store ptr %67, ptr %lru_bottom_pri_.i60, align 8
-  %m_flags.i2.i64 = getelementptr inbounds i8, ptr %67, i64 64
-  %68 = load i8, ptr %m_flags.i2.i64, align 8
+while.body13.i64:                                 ; preds = %while.body13.i64, %while.body13.lr.ph.i61
+  %66 = phi ptr [ %.pre11.i63, %while.body13.lr.ph.i61 ], [ %73, %while.body13.i64 ]
+  %next14.i65 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = load ptr, ptr %next14.i65, align 8
+  store ptr %67, ptr %lru_bottom_pri_.i62, align 8
+  %m_flags.i2.i66 = getelementptr inbounds i8, ptr %67, i64 64
+  %68 = load i8, ptr %m_flags.i2.i66, align 8
   %69 = and i8 %68, -5
-  store i8 %69, ptr %m_flags.i2.i64, align 8
-  %70 = load ptr, ptr %lru_bottom_pri_.i60, align 8
-  %m_flags.i3.i65 = getelementptr inbounds i8, ptr %70, i64 64
-  %71 = load i8, ptr %m_flags.i3.i65, align 8
+  store i8 %69, ptr %m_flags.i2.i66, align 8
+  %70 = load ptr, ptr %lru_bottom_pri_.i62, align 8
+  %m_flags.i4.i67 = getelementptr inbounds i8, ptr %70, i64 64
+  %71 = load i8, ptr %m_flags.i4.i67, align 8
   %72 = and i8 %71, -9
-  store i8 %72, ptr %m_flags.i3.i65, align 8
-  %73 = load ptr, ptr %lru_bottom_pri_.i60, align 8
-  %total_charge19.i66 = getelementptr inbounds i8, ptr %73, i64 40
-  %74 = load i64, ptr %total_charge19.i66, align 8
+  store i8 %72, ptr %m_flags.i4.i67, align 8
+  %73 = load ptr, ptr %lru_bottom_pri_.i62, align 8
+  %total_charge19.i68 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = load i64, ptr %total_charge19.i68, align 8
   %75 = load i64, ptr %low_pri_pool_usage_, align 8
-  %sub21.i67 = sub i64 %75, %74
-  store i64 %sub21.i67, ptr %low_pri_pool_usage_, align 8
-  %conv11.i68 = uitofp i64 %sub21.i67 to double
-  %76 = load double, ptr %low_pri_pool_capacity_.i56, align 64
-  %cmp12.i69 = fcmp olt double %76, %conv11.i68
-  br i1 %cmp12.i69, label %while.body13.i62, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit84, !llvm.loop !20
+  %sub21.i69 = sub i64 %75, %74
+  store i64 %sub21.i69, ptr %low_pri_pool_usage_, align 8
+  %conv11.i70 = uitofp i64 %sub21.i69 to double
+  %76 = load double, ptr %low_pri_pool_capacity_.i58, align 64
+  %cmp12.i71 = fcmp olt double %76, %conv11.i70
+  br i1 %cmp12.i71, label %while.body13.i64, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit86, !llvm.loop !20
 
-_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit84: ; preds = %while.body13.i62, %while.cond9.preheader.i54
+_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit86: ; preds = %while.body13.i64, %while.cond9.preheader.i56
   store ptr %e, ptr %lru_low_pri_, align 16
   br label %if.end44
 
@@ -2126,10 +2126,10 @@ if.else28:                                        ; preds = %lor.lhs.false14, %i
   %80 = load ptr, ptr %next30, align 8
   %prev36 = getelementptr inbounds i8, ptr %80, i64 32
   store ptr %e, ptr %prev36, align 8
-  %m_flags.i85 = getelementptr inbounds i8, ptr %e, i64 64
-  %81 = load i8, ptr %m_flags.i85, align 8
+  %m_flags.i87 = getelementptr inbounds i8, ptr %e, i64 64
+  %81 = load i8, ptr %m_flags.i87, align 8
   %82 = and i8 %81, -13
-  store i8 %82, ptr %m_flags.i85, align 8
+  store i8 %82, ptr %m_flags.i87, align 8
   %83 = load ptr, ptr %lru_bottom_pri_, align 8
   %lru_low_pri_38 = getelementptr inbounds i8, ptr %this, i64 144
   %84 = load ptr, ptr %lru_low_pri_38, align 16
@@ -2144,7 +2144,7 @@ if.end:                                           ; preds = %if.then40, %if.else
   store ptr %e, ptr %lru_bottom_pri_, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %while.body13.i, %while.cond9.preheader.i, %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit84, %if.end
+if.end44:                                         ; preds = %while.body13.i, %while.cond9.preheader.i, %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit86, %if.end
   %total_charge45 = getelementptr inbounds i8, ptr %e, i64 40
   %85 = load i64, ptr %total_charge45, align 8
   %lru_usage_ = getelementptr inbounds i8, ptr %this, i64 200
@@ -2160,14 +2160,14 @@ entry:
   %high_pri_pool_usage_ = getelementptr inbounds i8, ptr %this, i64 16
   %high_pri_pool_capacity_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %high_pri_pool_usage_, align 16
-  %conv4 = uitofp i64 %0 to double
+  %conv6 = uitofp i64 %0 to double
   %1 = load double, ptr %high_pri_pool_capacity_, align 16
-  %cmp5 = fcmp olt double %1, %conv4
-  br i1 %cmp5, label %while.body.lr.ph, label %entry.while.cond9.preheader_crit_edge
+  %cmp7 = fcmp olt double %1, %conv6
+  br i1 %cmp7, label %while.body.lr.ph, label %entry.while.cond9.preheader_crit_edge
 
 entry.while.cond9.preheader_crit_edge:            ; preds = %entry
   %low_pri_pool_usage_10.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre8 = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert, align 8
+  %.pre10 = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert, align 8
   br label %while.cond9.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -2177,17 +2177,17 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.cond9.preheader:                            ; preds = %while.body, %entry.while.cond9.preheader_crit_edge
-  %2 = phi i64 [ %.pre8, %entry.while.cond9.preheader_crit_edge ], [ %add, %while.body ]
+  %2 = phi i64 [ %.pre10, %entry.while.cond9.preheader_crit_edge ], [ %add, %while.body ]
   %low_pri_pool_usage_10 = getelementptr inbounds i8, ptr %this, i64 24
   %low_pri_pool_capacity_ = getelementptr inbounds i8, ptr %this, i64 64
-  %conv116 = uitofp i64 %2 to double
+  %conv118 = uitofp i64 %2 to double
   %3 = load double, ptr %low_pri_pool_capacity_, align 64
-  %cmp127 = fcmp olt double %3, %conv116
-  br i1 %cmp127, label %while.body13.lr.ph, label %while.end22
+  %cmp129 = fcmp olt double %3, %conv118
+  br i1 %cmp129, label %while.body13.lr.ph, label %while.end22
 
 while.body13.lr.ph:                               ; preds = %while.cond9.preheader
   %lru_bottom_pri_ = getelementptr inbounds i8, ptr %this, i64 152
-  %.pre9 = load ptr, ptr %lru_bottom_pri_, align 8
+  %.pre11 = load ptr, ptr %lru_bottom_pri_, align 8
   br label %while.body13
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -2220,7 +2220,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.body, label %while.cond9.preheader, !llvm.loop !19
 
 while.body13:                                     ; preds = %while.body13.lr.ph, %while.body13
-  %16 = phi ptr [ %.pre9, %while.body13.lr.ph ], [ %23, %while.body13 ]
+  %16 = phi ptr [ %.pre11, %while.body13.lr.ph ], [ %23, %while.body13 ]
   %next14 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %next14, align 8
   store ptr %17, ptr %lru_bottom_pri_, align 8
@@ -2229,10 +2229,10 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %19 = and i8 %18, -5
   store i8 %19, ptr %m_flags.i2, align 8
   %20 = load ptr, ptr %lru_bottom_pri_, align 8
-  %m_flags.i3 = getelementptr inbounds i8, ptr %20, i64 64
-  %21 = load i8, ptr %m_flags.i3, align 8
+  %m_flags.i4 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = load i8, ptr %m_flags.i4, align 8
   %22 = and i8 %21, -9
-  store i8 %22, ptr %m_flags.i3, align 8
+  store i8 %22, ptr %m_flags.i4, align 8
   %23 = load ptr, ptr %lru_bottom_pri_, align 8
   %total_charge19 = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %total_charge19, align 8
@@ -3326,13 +3326,13 @@ entry:
   store double %mul, ptr %high_pri_pool_capacity_, align 16
   %high_pri_pool_usage_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %high_pri_pool_usage_.i, align 16
-  %conv4.i = uitofp i64 %1 to double
-  %cmp5.i = fcmp olt double %mul, %conv4.i
-  br i1 %cmp5.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
+  %conv6.i = uitofp i64 %1 to double
+  %cmp7.i = fcmp olt double %mul, %conv6.i
+  br i1 %cmp7.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
 
 entry.while.cond9.preheader_crit_edge.i:          ; preds = %entry
   %low_pri_pool_usage_10.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre8.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
+  %.pre10.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
   br label %while.cond9.preheader.i
 
 while.body.lr.ph.i:                               ; preds = %entry
@@ -3342,17 +3342,17 @@ while.body.lr.ph.i:                               ; preds = %entry
   br label %while.body.i
 
 while.cond9.preheader.i:                          ; preds = %while.body.i, %entry.while.cond9.preheader_crit_edge.i
-  %2 = phi i64 [ %.pre8.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.body.i ]
+  %2 = phi i64 [ %.pre10.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.body.i ]
   %low_pri_pool_usage_10.i = getelementptr inbounds i8, ptr %this, i64 24
   %low_pri_pool_capacity_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %conv116.i = uitofp i64 %2 to double
+  %conv118.i = uitofp i64 %2 to double
   %3 = load double, ptr %low_pri_pool_capacity_.i, align 64
-  %cmp127.i = fcmp olt double %3, %conv116.i
-  br i1 %cmp127.i, label %while.body13.lr.ph.i, label %invoke.cont
+  %cmp129.i = fcmp olt double %3, %conv118.i
+  br i1 %cmp129.i, label %while.body13.lr.ph.i, label %invoke.cont
 
 while.body13.lr.ph.i:                             ; preds = %while.cond9.preheader.i
   %lru_bottom_pri_.i = getelementptr inbounds i8, ptr %this, i64 152
-  %.pre9.i = load ptr, ptr %lru_bottom_pri_.i, align 8
+  %.pre11.i = load ptr, ptr %lru_bottom_pri_.i, align 8
   br label %while.body13.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -3385,7 +3385,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i, label %while.body.i, label %while.cond9.preheader.i, !llvm.loop !19
 
 while.body13.i:                                   ; preds = %while.body13.i, %while.body13.lr.ph.i
-  %16 = phi ptr [ %.pre9.i, %while.body13.lr.ph.i ], [ %23, %while.body13.i ]
+  %16 = phi ptr [ %.pre11.i, %while.body13.lr.ph.i ], [ %23, %while.body13.i ]
   %next14.i = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %next14.i, align 8
   store ptr %17, ptr %lru_bottom_pri_.i, align 8
@@ -3394,10 +3394,10 @@ while.body13.i:                                   ; preds = %while.body13.i, %wh
   %19 = and i8 %18, -5
   store i8 %19, ptr %m_flags.i2.i, align 8
   %20 = load ptr, ptr %lru_bottom_pri_.i, align 8
-  %m_flags.i3.i = getelementptr inbounds i8, ptr %20, i64 64
-  %21 = load i8, ptr %m_flags.i3.i, align 8
+  %m_flags.i4.i = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = load i8, ptr %m_flags.i4.i, align 8
   %22 = and i8 %21, -9
-  store i8 %22, ptr %m_flags.i3.i, align 8
+  store i8 %22, ptr %m_flags.i4.i, align 8
   %23 = load ptr, ptr %lru_bottom_pri_.i, align 8
   %total_charge19.i = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %total_charge19.i, align 8
@@ -3440,14 +3440,14 @@ entry:
   %high_pri_pool_usage_.i = getelementptr inbounds i8, ptr %this, i64 16
   %high_pri_pool_capacity_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %high_pri_pool_usage_.i, align 16
-  %conv4.i = uitofp i64 %1 to double
+  %conv6.i = uitofp i64 %1 to double
   %2 = load double, ptr %high_pri_pool_capacity_.i, align 16
-  %cmp5.i = fcmp olt double %2, %conv4.i
-  br i1 %cmp5.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
+  %cmp7.i = fcmp olt double %2, %conv6.i
+  br i1 %cmp7.i, label %while.body.lr.ph.i, label %entry.while.cond9.preheader_crit_edge.i
 
 entry.while.cond9.preheader_crit_edge.i:          ; preds = %entry
   %low_pri_pool_usage_10.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre8.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
+  %.pre10.i = load i64, ptr %low_pri_pool_usage_10.phi.trans.insert.i, align 8
   br label %while.cond9.preheader.i
 
 while.body.lr.ph.i:                               ; preds = %entry
@@ -3462,15 +3462,15 @@ while.cond9.preheader.i.loopexit:                 ; preds = %while.body.i
 
 while.cond9.preheader.i:                          ; preds = %while.cond9.preheader.i.loopexit, %entry.while.cond9.preheader_crit_edge.i
   %3 = phi double [ %mul, %entry.while.cond9.preheader_crit_edge.i ], [ %.pre, %while.cond9.preheader.i.loopexit ]
-  %4 = phi i64 [ %.pre8.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.cond9.preheader.i.loopexit ]
+  %4 = phi i64 [ %.pre10.i, %entry.while.cond9.preheader_crit_edge.i ], [ %add.i, %while.cond9.preheader.i.loopexit ]
   %low_pri_pool_usage_10.i = getelementptr inbounds i8, ptr %this, i64 24
-  %conv116.i = uitofp i64 %4 to double
-  %cmp127.i = fcmp olt double %3, %conv116.i
-  br i1 %cmp127.i, label %while.body13.lr.ph.i, label %invoke.cont
+  %conv118.i = uitofp i64 %4 to double
+  %cmp129.i = fcmp olt double %3, %conv118.i
+  br i1 %cmp129.i, label %while.body13.lr.ph.i, label %invoke.cont
 
 while.body13.lr.ph.i:                             ; preds = %while.cond9.preheader.i
   %lru_bottom_pri_.i = getelementptr inbounds i8, ptr %this, i64 152
-  %.pre9.i = load ptr, ptr %lru_bottom_pri_.i, align 8
+  %.pre11.i = load ptr, ptr %lru_bottom_pri_.i, align 8
   br label %while.body13.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -3503,7 +3503,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i, label %while.body.i, label %while.cond9.preheader.i.loopexit, !llvm.loop !19
 
 while.body13.i:                                   ; preds = %while.body13.i, %while.body13.lr.ph.i
-  %17 = phi ptr [ %.pre9.i, %while.body13.lr.ph.i ], [ %24, %while.body13.i ]
+  %17 = phi ptr [ %.pre11.i, %while.body13.lr.ph.i ], [ %24, %while.body13.i ]
   %next14.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %next14.i, align 8
   store ptr %18, ptr %lru_bottom_pri_.i, align 8
@@ -3512,10 +3512,10 @@ while.body13.i:                                   ; preds = %while.body13.i, %wh
   %20 = and i8 %19, -5
   store i8 %20, ptr %m_flags.i2.i, align 8
   %21 = load ptr, ptr %lru_bottom_pri_.i, align 8
-  %m_flags.i3.i = getelementptr inbounds i8, ptr %21, i64 64
-  %22 = load i8, ptr %m_flags.i3.i, align 8
+  %m_flags.i4.i = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = load i8, ptr %m_flags.i4.i, align 8
   %23 = and i8 %22, -9
-  store i8 %23, ptr %m_flags.i3.i, align 8
+  store i8 %23, ptr %m_flags.i4.i, align 8
   %24 = load ptr, ptr %lru_bottom_pri_.i, align 8
   %total_charge19.i = getelementptr inbounds i8, ptr %24, i64 40
   %25 = load i64, ptr %total_charge19.i, align 8
@@ -4438,7 +4438,7 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb12Sharde
   store ptr %1, ptr %alloc, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %invoke.cont5 unwind label %lpad
 
@@ -4599,7 +4599,7 @@ entry:
   %ref.tmp = alloca %"class.std::function.23", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNS1_8LRUCache15TEST_GetLRUSizeEvE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNS1_8LRUCache15TEST_GetLRUSizeEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
@@ -6414,7 +6414,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

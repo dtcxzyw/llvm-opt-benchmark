@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.range_lob = private unnamed_addr constant [28 x i8] c"uint64_t range_lob(Range *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %a.val = load i64, ptr %a, align 8
   %0 = getelementptr i8, ptr %a, i64 8
@@ -113,7 +113,7 @@ if.else:                                          ; preds = %range_is_empty.exit
 land.rhs:                                         ; preds = %for.cond.preheader, %for.inc
   %l.027 = phi ptr [ %2, %for.inc ], [ %list, %for.cond.preheader ]
   %1 = load ptr, ptr %l.027, align 8
-  %call2 = tail call i32 @range_compare(ptr noundef %1, ptr noundef nonnull %data), !range !5
+  %call2 = tail call i32 @range_compare(ptr noundef %1, ptr noundef nonnull %data)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %for.inc, label %lor.lhs.false
 
@@ -121,11 +121,11 @@ for.inc:                                          ; preds = %land.rhs
   %next = getelementptr inbounds i8, ptr %l.027, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %if.then7, label %land.rhs, !llvm.loop !6
+  br i1 %tobool.not, label %if.then7, label %land.rhs, !llvm.loop !5
 
 lor.lhs.false:                                    ; preds = %land.rhs
   %3 = load ptr, ptr %l.027, align 8
-  %call5 = tail call i32 @range_compare(ptr noundef %3, ptr noundef nonnull %data), !range !5
+  %call5 = tail call i32 @range_compare(ptr noundef %3, ptr noundef nonnull %data)
   %cmp6 = icmp sgt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end9
 
@@ -149,7 +149,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 land.rhs13:                                       ; preds = %while.cond
   %6 = load ptr, ptr %l.027, align 8
   %7 = load ptr, ptr %5, align 8
-  %call17 = tail call i32 @range_compare(ptr noundef %6, ptr noundef %7), !range !5
+  %call17 = tail call i32 @range_compare(ptr noundef %6, ptr noundef %7)
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %while.body, label %return
 
@@ -164,7 +164,7 @@ while.body:                                       ; preds = %land.rhs13
   %13 = load ptr, ptr %next11, align 8
   %call26 = tail call ptr @g_list_delete_link(ptr noundef nonnull %list, ptr noundef %13) #7
   %cmp27 = icmp eq ptr %call26, %list
-  br i1 %cmp27, label %while.cond, label %if.else29, !llvm.loop !8
+  br i1 %cmp27, label %while.cond, label %if.else29, !llvm.loop !7
 
 if.else29:                                        ; preds = %while.body
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @__PRETTY_FUNCTION__.range_list_insert) #6
@@ -298,7 +298,7 @@ for.inc:                                          ; preds = %range_upb.exit
   %next = getelementptr inbounds i8, ptr %l.0172, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.then, label %land.rhs, !llvm.loop !9
+  br i1 %tobool.not, label %if.then, label %land.rhs, !llvm.loop !8
 
 if.then:                                          ; preds = %for.inc, %entry
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
@@ -400,7 +400,7 @@ range_lob.exit87:                                 ; preds = %range_is_empty.exit
   br i1 %cmp19.not, label %if.end21, label %exit
 
 if.end21:                                         ; preds = %range_lob.exit87
-  %call22 = tail call i32 @range_compare(ptr noundef nonnull %6, ptr noundef %7), !range !5
+  %call22 = tail call i32 @range_compare(ptr noundef nonnull %6, ptr noundef %7)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %for.inc36, label %if.then24
 
@@ -481,7 +481,7 @@ for.inc36:                                        ; preds = %if.end21, %append_n
   %next12 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %next12, align 8
   %tobool13.not = icmp eq ptr %11, null
-  br i1 %tobool13.not, label %for.end38, label %for.body14, !llvm.loop !10
+  br i1 %tobool13.not, label %for.end38, label %for.body14, !llvm.loop !9
 
 for.end38:                                        ; preds = %for.inc36, %if.end10
   %out.1.lcssa = phi ptr [ %out.0, %if.end10 ], [ %out.2, %for.inc36 ]
@@ -562,9 +562,8 @@ attributes #8 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

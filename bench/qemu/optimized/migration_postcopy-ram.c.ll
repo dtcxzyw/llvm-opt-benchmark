@@ -719,7 +719,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @postcopy_ram_incoming_init(ptr nocapture noundef readnone %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_init(ptr nocapture noundef readnone %mis) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @foreach_not_ignored_block(ptr noundef nonnull @init_range, ptr noundef null) #16
   %tobool.not = icmp ne i32 %call, 0
@@ -730,7 +730,7 @@ entry:
 declare i32 @foreach_not_ignored_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @init_range(ptr noundef %rb, ptr nocapture readnone %opaque) #0 {
+define internal range(i32 -1, 1) i32 @init_range(ptr noundef %rb, ptr nocapture readnone %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qemu_ram_get_idstr(ptr noundef %rb) #16
@@ -780,7 +780,7 @@ trace_postcopy_init_range.exit:                   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @postcopy_ram_incoming_cleanup(ptr noundef %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_cleanup(ptr noundef %mis) local_unnamed_addr #0 {
 entry:
   %_now.i.i69 = alloca %struct.timeval, align 8
   %_now.i.i55 = alloca %struct.timeval, align 8
@@ -1191,7 +1191,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cleanup_range(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -1, 1) i32 @cleanup_range(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %range_struct = alloca %struct.uffdio_range, align 8
@@ -1262,7 +1262,7 @@ declare i32 @os_mlock() local_unnamed_addr #1
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @postcopy_ram_prepare_discard(ptr noundef %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_prepare_discard(ptr noundef %mis) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @foreach_not_ignored_block(ptr noundef nonnull @nhp_range, ptr noundef %mis) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1535,7 +1535,7 @@ return:                                           ; preds = %cond.false, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @postcopy_ram_incoming_setup(ptr noundef %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_setup(ptr noundef %mis) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
@@ -1616,7 +1616,7 @@ for.body.i:                                       ; preds = %if.end12.i, %if.end
   br i1 %cmp7.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %for.body.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call10.i = tail call ptr @__errno_location() #18
   %8 = load i32, ptr %call10.i, align 4
   %call11.i = call ptr @strerror(i32 noundef %8) #16
@@ -2575,7 +2575,7 @@ trace_postcopy_ram_fault_thread_exit.exit:        ; preds = %while.end163, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ram_block_enable_notify(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -1, 1) i32 @ram_block_enable_notify(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %reg_struct = alloca %struct.uffdio_register, align 8
   %call = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #16
@@ -3096,7 +3096,7 @@ while.end.i:                                      ; preds = %for.body.i
   %26 = atomicrmw xchg ptr %arrayidx15.i, i64 0 seq_cst, align 8
   %sub.i = sub i32 %conv.i.i, %22
   %add.i = add i32 %affected_cpu.029.i, 1
-  %tobool18.i = trunc i8 %vcpu_total_blocktime.028.i to i1
+  %tobool18.i = trunc nuw i8 %vcpu_total_blocktime.028.i to i1
   br i1 %tobool18.i, label %if.end23.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.end.i
@@ -3122,7 +3122,7 @@ for.inc.i:                                        ; preds = %if.end23.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %for.inc.i
-  %30 = trunc i8 %vcpu_total_blocktime.2.i to i1
+  %30 = trunc nuw i8 %vcpu_total_blocktime.2.i to i1
   %31 = atomicrmw sub ptr %smp_cpus_down.i, i32 %affected_cpu.1.i seq_cst, align 4
   br i1 %30, label %if.then32.i, label %for.end.if.end37_crit_edge.i
 
@@ -3493,7 +3493,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %if.then3, label %for.inc
 
 if.then3:                                         ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %call4 = tail call ptr @g_array_remove_index(ptr noundef nonnull %0, i32 noundef %5) #16
   store ptr %call4, ptr %postcopy_remote_fds, align 8
   br label %for.end
@@ -3560,7 +3560,7 @@ declare void @qemu_file_set_blocking(ptr noundef, i1 noundef zeroext) local_unna
 declare void @qemu_sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @postcopy_preempt_establish_channel(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_preempt_establish_channel(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_postcopy_preempt() #16
   br i1 %call, label %if.end, label %return

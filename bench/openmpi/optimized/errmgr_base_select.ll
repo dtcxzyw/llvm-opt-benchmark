@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_errmgr = external local_unnamed_addr global %struct.prte_errmgr_base_module_2_3_0_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_errmgr_base_select() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @prte_errmgr_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

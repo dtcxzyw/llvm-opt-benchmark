@@ -190,7 +190,7 @@ define ptr @agstrdup_html(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agstrfree(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agstrfree(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.refstr_t, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %34, label %5
@@ -257,7 +257,7 @@ refdict.exit:                                     ; preds = %10, %13
 declare i32 @agdtdelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -265,7 +265,7 @@ define i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 63
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   br label %8
 
 8:                                                ; preds = %1, %3

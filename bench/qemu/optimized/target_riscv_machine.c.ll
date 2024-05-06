@@ -192,7 +192,7 @@ if.end.sink.split.i.i:                            ; preds = %sw.default.i.i, %if
   %mstatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 15264
   %2 = load i64, ptr %mstatus.i.i, align 16
   %and.i.i = lshr i64 %2, %.sink7.i.i
-  %3 = trunc i64 %and.i.i to i32
+  %3 = trunc nuw i64 %and.i.i to i32
   %conv.i.i = and i32 %3, 3
   br label %cpu_recompute_xl.exit
 

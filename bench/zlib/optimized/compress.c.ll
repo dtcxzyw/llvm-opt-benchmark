@@ -42,7 +42,7 @@ do.body:                                          ; preds = %do.bodythread-pre-s
 
 if.then3:                                         ; preds = %do.body
   %cond12 = call i64 @llvm.umin.i64(i64 %left.0, i64 4294967295)
-  %cond = trunc i64 %cond12 to i32
+  %cond = trunc nuw i64 %cond12 to i32
   store i32 %cond, ptr %avail_out, align 8
   %sub = sub i64 %left.0, %cond12
   br label %if.end8
@@ -55,7 +55,7 @@ if.end8:                                          ; preds = %if.then3, %do.body
 
 if.then12:                                        ; preds = %if.end8
   %cond1913 = call i64 @llvm.umin.i64(i64 %sourceLen.addr.0, i64 4294967295)
-  %cond19 = trunc i64 %cond1913 to i32
+  %cond19 = trunc nuw i64 %cond1913 to i32
   store i32 %cond19, ptr %avail_in, align 8
   %sub23 = sub i64 %sourceLen.addr.0, %cond1913
   br label %if.end24
@@ -124,7 +124,7 @@ do.body.i:                                        ; preds = %do.bodythread-pre-s
 
 if.then3.i:                                       ; preds = %do.body.i
   %cond12.i = call i64 @llvm.umin.i64(i64 %left.0.i, i64 4294967295)
-  %cond.i = trunc i64 %cond12.i to i32
+  %cond.i = trunc nuw i64 %cond12.i to i32
   store i32 %cond.i, ptr %avail_out.i, align 8
   %sub.i = sub i64 %left.0.i, %cond12.i
   br label %if.end8.i
@@ -137,7 +137,7 @@ if.end8.i:                                        ; preds = %if.then3.i, %do.bod
 
 if.then12.i:                                      ; preds = %if.end8.i
   %cond1913.i = call i64 @llvm.umin.i64(i64 %sourceLen.addr.0.i, i64 4294967295)
-  %cond19.i = trunc i64 %cond1913.i to i32
+  %cond19.i = trunc nuw i64 %cond1913.i to i32
   store i32 %cond19.i, ptr %avail_in.i, align 8
   %sub23.i = sub i64 %sourceLen.addr.0.i, %cond1913.i
   br label %if.end24.i

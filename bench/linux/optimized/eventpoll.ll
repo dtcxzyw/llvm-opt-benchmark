@@ -371,7 +371,7 @@ define dso_local ptr @get_epoll_tfile_raw_ptr(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_epoll_create1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_epoll_create1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -381,7 +381,7 @@ define dso_local i64 @__x64_sys_epoll_create1(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_epoll_create1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_epoll_create1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -391,7 +391,7 @@ define dso_local i64 @__ia32_sys_epoll_create1(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_epoll_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_epoll_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -409,7 +409,7 @@ define dso_local i64 @__x64_sys_epoll_create(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_epoll_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_epoll_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -755,7 +755,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ep_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.name_snapshot, align 8
   %7 = alloca %struct.ep_pqueue, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
@@ -1490,7 +1490,7 @@ define dso_local noundef i64 @__ia32_sys_epoll_ctl(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_epoll_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_epoll_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1548,7 +1548,7 @@ define dso_local i64 @__x64_sys_epoll_wait(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_epoll_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_epoll_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1607,7 +1607,7 @@ define dso_local i64 @__ia32_sys_epoll_wait(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1714,7 +1714,7 @@ do_epoll_pwait.exit:                              ; preds = %34, %47, %51, %55, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1824,7 +1824,7 @@ do_epoll_pwait.exit:                              ; preds = %34, %50, %54, %58, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -1918,7 +1918,7 @@ do_epoll_pwait.exit:                              ; preds = %30, %39, %43, %47, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2016,7 +2016,7 @@ do_epoll_pwait.exit:                              ; preds = %34, %43, %47, %51, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_epoll_pwait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2126,7 +2126,7 @@ do_compat_epoll_pwait.exit:                       ; preds = %34, %50, %54, %58, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_epoll_pwait2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2308,7 +2308,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ep_eventpoll_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 66) i32 @ep_eventpoll_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @__ep_eventpoll_poll(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !34
   ret i32 %3
 }
@@ -2380,7 +2380,7 @@ define internal void @ep_show_fdinfo(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ep_eventpoll_poll(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 66) i32 @__ep_eventpoll_poll(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.poll_table_struct, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -2846,7 +2846,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ep_loop_check_proc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @ep_loop_check_proc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef %0) #11
   %3 = load i64, ptr @loop_check_gen, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3108,7 +3108,7 @@ declare dso_local void @take_dentry_name_snapshot(ptr noundef, ptr noundef) loca
 declare dso_local void @release_dentry_name_snapshot(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ep_poll_callback(ptr noundef %0, i32 %1, i32 %2, ptr noundef %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @ep_poll_callback(ptr noundef %0, i32 %1, i32 %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 72

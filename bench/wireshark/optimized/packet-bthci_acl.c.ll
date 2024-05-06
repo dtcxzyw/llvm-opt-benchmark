@@ -648,7 +648,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1387) #8
   %238 = trunc i64 %237 to i32
   %239 = add i32 %238, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
   store i32 7, ptr %236, align 8
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %alloc_address_wmem.exit, label %241
@@ -668,7 +668,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 alloc_address_wmem.exit:                          ; preds = %234, %241
   %247 = phi ptr [ %235, %234 ], [ %.pre, %241 ]
   %248 = getelementptr inbounds i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
   store i32 1, ptr %248, align 8
   %249 = call noalias ptr @wmem_memdup(ptr noundef %247, ptr noundef nonnull %.1389, i64 noundef 6) #7
   %250 = getelementptr inbounds i8, ptr %1, i64 128
@@ -682,7 +682,7 @@ alloc_address_wmem.exit:                          ; preds = %234, %241
   %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1385) #8
   %256 = trunc i64 %255 to i32
   %257 = add i32 %256, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %254, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %254, i8 0, i64 24, i1 false)
   store i32 7, ptr %254, align 8
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %alloc_address_wmem.exit457, label %259
@@ -705,7 +705,7 @@ alloc_address_wmem.exit457:                       ; preds = %alloc_address_wmem.
   %267 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1381) #8
   %268 = trunc i64 %267 to i32
   %269 = add i32 %268, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %266, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %266, i8 0, i64 24, i1 false)
   store i32 7, ptr %266, align 8
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %alloc_address_wmem.exit458, label %271
@@ -725,7 +725,7 @@ alloc_address_wmem.exit457:                       ; preds = %alloc_address_wmem.
 alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.exit457, %271
   %277 = phi ptr [ %265, %alloc_address_wmem.exit457 ], [ %.pre525, %271 ]
   %278 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %278, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %278, i8 0, i64 24, i1 false)
   store i32 1, ptr %278, align 8
   %279 = call noalias ptr @wmem_memdup(ptr noundef %277, ptr noundef nonnull %.1383, i64 noundef 6) #7
   %280 = getelementptr inbounds i8, ptr %1, i64 152
@@ -739,7 +739,7 @@ alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.
   %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1379) #8
   %286 = trunc i64 %285 to i32
   %287 = add i32 %286, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %284, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %284, i8 0, i64 24, i1 false)
   store i32 7, ptr %284, align 8
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %alloc_address_wmem.exit459, label %289

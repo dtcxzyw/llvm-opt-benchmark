@@ -40,8 +40,8 @@ define void @Rwr_ManPrecompute(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %16 = ptrtoint ptr %13 to i64
   %17 = xor i64 %16, 1
   %18 = inttoptr i64 %17 to ptr
-  %19 = trunc i64 %indvars.iv144 to i32
-  %20 = trunc i64 %indvars.iv144 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv144 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv144 to i32
   br label %24
 
 21:                                               ; preds = %89
@@ -169,7 +169,7 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   br i1 %93, label %94, label %21
 
 94:                                               ; preds = %89
-  %95 = trunc i64 %indvars.iv144 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv144 to i32
   %96 = load i32, ptr %7, align 4
   %97 = sdiv i32 %96, 1000000
   %98 = load i32, ptr %8, align 4

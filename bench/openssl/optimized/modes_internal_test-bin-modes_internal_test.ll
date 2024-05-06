@@ -144,21 +144,21 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_aes_cts128(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_aes_cts128(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @execute_cts128(ptr noundef nonnull @test_aes_cts128.fixture_cts128, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @execute_cts128(ptr noundef nonnull @test_aes_cts128.fixture_cts128, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_aes_cts128_nist(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_aes_cts128_nist(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @execute_cts128(ptr noundef nonnull @test_aes_cts128_nist.fixture_cts128_nist, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @execute_cts128(ptr noundef nonnull @test_aes_cts128_nist.fixture_cts128_nist, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_gcm128(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %idx) #0 {
 entry:
   %out = alloca [512 x i8], align 16
   %ctx = alloca %struct.gcm128_context, align 8
@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end89, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @last_blocks_correction(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
+define internal range(i64 16, 33) i64 @last_blocks_correction(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %len, i1 false)
   %rem = and i64 %len, 15
@@ -292,7 +292,7 @@ declare i64 @CRYPTO_cts128_decrypt_block(ptr noundef, ptr noundef, i64 noundef, 
 declare i64 @CRYPTO_cts128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cts128(ptr nocapture noundef readonly %fixture, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_cts128(ptr nocapture noundef readonly %fixture, i32 noundef %num) unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   %cleartext = alloca [64 x i8], align 16
@@ -495,4 +495,3 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

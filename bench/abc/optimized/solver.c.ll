@@ -270,7 +270,7 @@ clause_fetch.exit.i.i:                            ; preds = %112, %clause_fetch.
 clause_act_rescale.exit.i:                        ; preds = %clause_fetch.exit.i.i, %112
   %134 = load i32, ptr %105, align 8
   %135 = lshr i32 %134, 10
-  %136 = tail call noundef i32 @llvm.umax.i32(i32 %135, i32 2048)
+  %136 = tail call i32 @llvm.umax.i32(i32 %135, i32 2048)
   store i32 %136, ptr %105, align 8
   br label %clause_act_bump.exit
 
@@ -1264,7 +1264,7 @@ watch_list_grow.exit:                             ; preds = %28, %19, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef signext i8 @solver_search(ptr noundef %0) local_unnamed_addr #0 {
+define signext range(i8 -1, 2) i8 @solver_search(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load i32, ptr %3, align 8
@@ -1440,7 +1440,7 @@ solver_block_rst.exit:                            ; preds = %111
 126:                                              ; preds = %solver_block_rst.exit
   %127 = getelementptr inbounds i8, ptr %112, i64 8
   store i32 0, ptr %112, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
   br label %solver_block_rst.exit.thread
 
 solver_block_rst.exit.thread:                     ; preds = %b_queue_push.exit, %111, %126, %solver_block_rst.exit
@@ -1611,7 +1611,7 @@ clause_fetch.exit.i.i.i.i:                        ; preds = %196, %clause_fetch.
 clause_act_rescale.exit.i.i.i:                    ; preds = %clause_fetch.exit.i.i.i.i, %196
   %218 = load i32, ptr %18, align 8
   %219 = lshr i32 %218, 10
-  %220 = call noundef i32 @llvm.umax.i32(i32 %219, i32 2048)
+  %220 = call i32 @llvm.umax.i32(i32 %219, i32 2048)
   store i32 %220, ptr %18, align 8
   %.pre301.i.i = load i32, ptr %165, align 4
   %.pre309.i.i = and i32 %.pre301.i.i, 1
@@ -3434,7 +3434,7 @@ solver_check_limits.exit.thread:                  ; preds = %1108, %solver_stop.
   %1131 = phi ptr [ %.pre, %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge ], [ %1091, %solver_rst.exit ], [ %1091, %solver_check_limits.exit ], [ %1091, %solver_stop.exit ], [ %1091, %1108 ]
   %1132 = getelementptr inbounds i8, ptr %1131, i64 8
   store i32 0, ptr %1131, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1132, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1132, i8 0, i64 16, i1 false)
   call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef 0)
   br label %solver_analyze_final.exit
 
@@ -5890,7 +5890,7 @@ declare signext i8 @satoko_var_polarity(ptr noundef, i32 noundef) local_unnamed_
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @vec_uint_asc_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @vec_uint_asc_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4

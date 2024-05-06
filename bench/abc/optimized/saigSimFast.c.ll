@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [46 x i8] c"Setting the total number of frames to be %d.\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Faig_ManIsCorrect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Faig_ManIsCorrect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 4
@@ -319,7 +319,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
   br i1 %19, label %.lr.ph104, label %.preheader92
 
 .preheader95.loopexit:                            ; preds = %42
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader95
 
 .preheader95:                                     ; preds = %.preheader95.loopexit, %.preheader97
@@ -382,7 +382,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
   %indvars.iv134 = phi i64 [ %30, %.lr.ph101.split ], [ %indvars.iv.next135, %48 ]
   %49 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv134
   %50 = load i32, ptr %49, align 4
-  %51 = trunc i64 %indvars.iv134 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv134 to i32
   %.neg.i = sub i32 %51, %21
   %52 = add i32 %.neg.i, %.val81
   %53 = sext i32 %52 to i64
@@ -397,7 +397,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
   br i1 %exitcond.not, label %.loopexit93, label %48, !llvm.loop !8
 
 .preheader92.loopexit:                            ; preds = %.lr.ph104
-  %59 = trunc i64 %indvars.iv.next143 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.next143 to i32
   br label %.preheader92
 
 .preheader92:                                     ; preds = %.preheader92.loopexit, %.preheader94
@@ -429,7 +429,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
 
 69:                                               ; preds = %68
   %.val83 = load i32, ptr %5, align 4
-  %70 = trunc i64 %indvars.iv145 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv145 to i32
   %.neg.i84 = sub i32 %70, %60
   %71 = add i32 %.neg.i84, %.val83
   %72 = sext i32 %71 to i64
@@ -539,7 +539,7 @@ Faig_SimulateNode.exit:                           ; preds = %104, %111, %123, %1
 
 129:                                              ; preds = %.lr.ph114, %129
   %indvars.iv155 = phi i64 [ %85, %.lr.ph114 ], [ %indvars.iv.next156, %129 ]
-  %130 = trunc i64 %indvars.iv155 to i32
+  %130 = trunc nsw i64 %indvars.iv155 to i32
   %131 = sub i32 %130, %78
   %132 = add nsw i32 %131, %84
   %133 = sext i32 %132 to i64
@@ -787,7 +787,7 @@ Abc_Clock.exit212:                                ; preds = %30, %29
   br label %.lr.ph232
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph232
-  %54 = trunc i64 %indvars.iv.next263 to i32
+  %54 = trunc nuw i64 %indvars.iv.next263 to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %39
@@ -924,7 +924,7 @@ Abc_Clock.exit212:                                ; preds = %30, %29
   br label %.lr.ph
 
 .critedge6.preheader.loopexit:                    ; preds = %.lr.ph
-  %124 = trunc i64 %indvars.iv.next to i32
+  %124 = trunc nuw i64 %indvars.iv.next to i32
   br label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %110

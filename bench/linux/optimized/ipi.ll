@@ -262,7 +262,7 @@ define dso_local void @apic_send_nmi_to_offline_cpu(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @apic_mem_wait_icr_idle_timeout() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4097) i32 @apic_mem_wait_icr_idle_timeout() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %6, %0

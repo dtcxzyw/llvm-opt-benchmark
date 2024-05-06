@@ -57,7 +57,7 @@ $_ZTIN8proxygen13HTTPExceptionE = comdat any
 @_ZN8proxygen13HTTPExceptionC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen13HTTPExceptionC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN8proxygen16toHTTP3ErrorCodeENS_9ErrorCodeE(i8 noundef zeroext %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 256, 513) i64 @_ZN8proxygen16toHTTP3ErrorCodeENS_9ErrorCodeE(i8 noundef zeroext %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ult i8 %err, 12
   br i1 %0, label %switch.lookup, label %return
@@ -302,7 +302,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8proxygen13HTTPException19inferHTTP3ErrorCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 256, 513) i64 @_ZNK8proxygen13HTTPException19inferHTTP3ErrorCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %httpStatusCode_.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %httpStatusCode_.i, align 4

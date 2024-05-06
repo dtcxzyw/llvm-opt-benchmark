@@ -54,7 +54,7 @@ define dso_local noundef double @_ZN4base10RandDoubleEv() local_unnamed_addr #0 
 entry:
   %call = tail call noundef i64 @_ZN4base10RandUint64Ev()
   %and.i = and i64 %call, 9007199254740991
-  %conv.i = uitofp i64 %and.i to double
+  %conv.i = uitofp nneg i64 %and.i to double
   %call.i = tail call noundef double @ldexp(double noundef %conv.i, i32 noundef -53) #5
   ret double %call.i
 }
@@ -63,7 +63,7 @@ entry:
 define dso_local noundef double @_ZN4base27BitsToOpenEndedUnitIntervalEm(i64 noundef %bits) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 if.end13:
   %and = and i64 %bits, 9007199254740991
-  %conv = uitofp i64 %and to double
+  %conv = uitofp nneg i64 %and to double
   %call = tail call double @ldexp(double noundef %conv, i32 noundef -53) #5
   ret double %call
 }

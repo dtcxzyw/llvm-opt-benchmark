@@ -239,7 +239,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i64 @ctucan_pci_id_cra_io_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, 3221225475) i64 @ctucan_pci_id_cra_io_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %cmp = icmp ugt i64 %addr, 3
   br i1 %cmp, label %return, label %if.end

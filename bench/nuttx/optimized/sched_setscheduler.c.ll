@@ -70,7 +70,7 @@ declare i32 @nxsched_reprioritize(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @sched_setscheduler(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @sched_setscheduler(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %or.cond.i = icmp ugt i32 %1, 1
   br i1 %or.cond.i, label %nxsched_set_scheduler.exit.thread, label %5

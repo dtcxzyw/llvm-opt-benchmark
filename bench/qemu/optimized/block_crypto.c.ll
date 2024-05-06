@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_open_luks(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_open_luks(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %ret.i.i = alloca ptr, align 8
   %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_create_luks(ptr nocapture noundef readonly %create_options, ptr noundef %errp) #0 {
+define internal range(i32 -5, 1) i32 @block_crypto_co_create_luks(ptr nocapture noundef readonly %create_options, ptr noundef %errp) #0 {
 entry:
   %data.i = alloca %struct.BlockCryptoCreateData, align 8
   %create_opts = alloca %struct.QCryptoBlockCreateOptions, align 8
@@ -429,7 +429,7 @@ return:                                           ; preds = %if.end, %block_cryp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_create_opts_luks(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_co_create_opts_luks(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %data.i = alloca %struct.BlockCryptoCreateData, align 8
   %ret.i = alloca ptr, align 8
@@ -493,12 +493,12 @@ if.end.i23:                                       ; preds = %if.end14
   store i32 %spec.store.select.i, ptr %.compoundliteral.sroa.3.0.data.sroa_idx.i, align 8
   %call6.i = call ptr @qcrypto_block_create(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @block_crypto_create_init_func, ptr noundef nonnull @block_crypto_create_write_func, ptr noundef nonnull %data.i, ptr noundef %errp) #9
   %tobool7.not.i = icmp eq ptr %call6.i, null
-  %spec.select39 = select i1 %tobool7.not.i, i32 -5, i32 0
+  %spec.select40 = select i1 %tobool7.not.i, i32 -5, i32 0
   br label %fail
 
 fail:                                             ; preds = %if.end.i23, %if.end14
   %crypto.0.i = phi ptr [ null, %if.end14 ], [ %call6.i, %if.end.i23 ]
-  %ret.0.i = phi i32 [ -1, %if.end14 ], [ %spec.select39, %if.end.i23 ]
+  %ret.0.i = phi i32 [ -1, %if.end14 ], [ %spec.select40, %if.end.i23 ]
   call void @qcrypto_block_free(ptr noundef %crypto.0.i) #9
   call void @blk_co_unref(ptr noundef %call.i21) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %data.i)
@@ -506,20 +506,20 @@ fail:                                             ; preds = %if.end.i23, %if.end
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %block_crypto_create_opts_init.exit.thread, %if.end10, %block_crypto_create_opts_init.exit, %if.end7, %fail
-  %bs.036 = phi ptr [ %call11, %fail ], [ null, %if.end7 ], [ null, %block_crypto_create_opts_init.exit ], [ null, %if.end10 ], [ null, %block_crypto_create_opts_init.exit.thread ]
-  %ret.034 = phi i32 [ %ret.0.i, %fail ], [ %call8, %if.end7 ], [ -22, %block_crypto_create_opts_init.exit ], [ -22, %if.end10 ], [ -22, %block_crypto_create_opts_init.exit.thread ]
-  %retval.0.i2732 = phi ptr [ %1, %fail ], [ %1, %if.end7 ], [ null, %block_crypto_create_opts_init.exit ], [ %1, %if.end10 ], [ null, %block_crypto_create_opts_init.exit.thread ]
+  %bs.037 = phi ptr [ %call11, %fail ], [ null, %if.end7 ], [ null, %block_crypto_create_opts_init.exit ], [ null, %if.end10 ], [ null, %block_crypto_create_opts_init.exit.thread ]
+  %ret.035 = phi i32 [ %ret.0.i, %fail ], [ %call8, %if.end7 ], [ -22, %block_crypto_create_opts_init.exit ], [ -22, %if.end10 ], [ -22, %block_crypto_create_opts_init.exit.thread ]
+  %retval.0.i2833 = phi ptr [ %1, %fail ], [ %1, %if.end7 ], [ null, %block_crypto_create_opts_init.exit ], [ %1, %if.end10 ], [ null, %block_crypto_create_opts_init.exit.thread ]
   call void @bdrv_graph_co_rdlock() #9
-  call void @bdrv_co_delete_file_noerr(ptr noundef %bs.036) #9
+  call void @bdrv_co_delete_file_noerr(ptr noundef %bs.037) #9
   call void @bdrv_graph_co_rdunlock() #9
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %fail
-  %bs.037 = phi ptr [ %bs.036, %if.then20 ], [ %call11, %fail ]
-  %ret.035 = phi i32 [ %ret.034, %if.then20 ], [ 0, %fail ]
-  %retval.0.i2733 = phi ptr [ %retval.0.i2732, %if.then20 ], [ %1, %fail ]
-  call void @bdrv_co_unref(ptr noundef %bs.037) #9
-  call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef %retval.0.i2733) #9
+  %bs.038 = phi ptr [ %bs.037, %if.then20 ], [ %call11, %fail ]
+  %ret.036 = phi i32 [ %ret.035, %if.then20 ], [ 0, %fail ]
+  %retval.0.i2834 = phi ptr [ %retval.0.i2833, %if.then20 ], [ %1, %fail ]
+  call void @bdrv_co_unref(ptr noundef %bs.038) #9
+  call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef %retval.0.i2834) #9
   %tobool22.not = icmp eq ptr %call3, null
   br i1 %tobool22.not, label %return, label %lor.lhs.false.i
 
@@ -536,15 +536,15 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i24 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i24, label %if.then5.i, label %return
+  %cmp.i25 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i25, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   call void @qobject_destroy(ptr noundef nonnull %call3) #9
   br label %return
 
 return:                                           ; preds = %if.then5.i, %land.lhs.true.i, %if.end21, %if.then
-  %retval.0 = phi i32 [ -22, %if.then ], [ %ret.035, %if.end21 ], [ %ret.035, %land.lhs.true.i ], [ %ret.035, %if.then5.i ]
+  %retval.0 = phi i32 [ -22, %if.then ], [ %ret.036, %if.end21 ], [ %ret.036, %land.lhs.true.i ], [ %ret.036, %if.then5.i ]
   ret i32 %retval.0
 }
 
@@ -621,58 +621,58 @@ if.end10:                                         ; preds = %qobject_unref_impl.
   store i8 1, ptr %updating_keys.i, align 8
   %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file.i, align 8
-  %call.i13 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %5, ptr noundef %errp) #9
-  %cmp.i14 = icmp slt i32 %call.i13, 0
-  br i1 %cmp.i14, label %block_crypto_amend_prepare.exit.thread, label %block_crypto_amend_prepare.exit
+  %call.i14 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %5, ptr noundef %errp) #9
+  %cmp.i15 = icmp slt i32 %call.i14, 0
+  br i1 %cmp.i15, label %block_crypto_amend_prepare.exit.thread, label %block_crypto_amend_prepare.exit
 
 block_crypto_amend_prepare.exit.thread:           ; preds = %if.end10
   store i8 0, ptr %updating_keys.i, align 8
   br label %perm_cleanup
 
 block_crypto_amend_prepare.exit:                  ; preds = %if.end10
-  %tobool12.not = icmp eq i32 %call.i13, 0
+  %tobool12.not = icmp eq i32 %call.i14, 0
   br i1 %tobool12.not, label %if.end14, label %perm_cleanup
 
 if.end14:                                         ; preds = %block_crypto_amend_prepare.exit
   %6 = load ptr, ptr %opaque, align 8
-  %tobool.not.i17 = icmp eq ptr %6, null
-  br i1 %tobool.not.i17, label %if.else.i21, label %if.end.i18
+  %tobool.not.i18 = icmp eq ptr %6, null
+  br i1 %tobool.not.i18, label %if.else.i22, label %if.end.i19
 
-if.else.i21:                                      ; preds = %if.end14
+if.else.i22:                                      ; preds = %if.end14
   call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.29, i32 noundef 829, ptr noundef nonnull @__PRETTY_FUNCTION__.block_crypto_amend_options_generic_luks) #10
   unreachable
 
-if.end.i18:                                       ; preds = %if.end14
+if.end.i19:                                       ; preds = %if.end14
   %7 = load ptr, ptr %6, align 8
-  %tobool1.not.i19 = icmp eq ptr %7, null
-  br i1 %tobool1.not.i19, label %if.else3.i, label %block_crypto_amend_options_generic_luks.exit
+  %tobool1.not.i20 = icmp eq ptr %7, null
+  br i1 %tobool1.not.i20, label %if.else3.i, label %block_crypto_amend_options_generic_luks.exit
 
-if.else3.i:                                       ; preds = %if.end.i18
+if.else3.i:                                       ; preds = %if.end.i19
   call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.29, i32 noundef 830, ptr noundef nonnull @__PRETTY_FUNCTION__.block_crypto_amend_options_generic_luks) #10
   unreachable
 
-block_crypto_amend_options_generic_luks.exit:     ; preds = %if.end.i18
-  %call.i20 = call i32 @qcrypto_block_amend_options(ptr noundef nonnull %7, ptr noundef nonnull @block_crypto_read_func, ptr noundef nonnull @block_crypto_write_func, ptr noundef nonnull %bs, ptr noundef nonnull %retval.0.i, i1 noundef zeroext %force, ptr noundef %errp) #9
+block_crypto_amend_options_generic_luks.exit:     ; preds = %if.end.i19
+  %call.i21 = call i32 @qcrypto_block_amend_options(ptr noundef nonnull %7, ptr noundef nonnull @block_crypto_read_func, ptr noundef nonnull @block_crypto_write_func, ptr noundef nonnull %bs, ptr noundef nonnull %retval.0.i, i1 noundef zeroext %force, ptr noundef %errp) #9
   br label %perm_cleanup
 
 perm_cleanup:                                     ; preds = %block_crypto_amend_prepare.exit.thread, %block_crypto_amend_prepare.exit, %block_crypto_amend_options_generic_luks.exit
-  %ret.0 = phi i32 [ %call.i13, %block_crypto_amend_prepare.exit ], [ %call.i20, %block_crypto_amend_options_generic_luks.exit ], [ %call.i13, %block_crypto_amend_prepare.exit.thread ]
+  %ret.0 = phi i32 [ %call.i14, %block_crypto_amend_prepare.exit ], [ %call.i21, %block_crypto_amend_options_generic_luks.exit ], [ %call.i14, %block_crypto_amend_prepare.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errp.i)
   %8 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %errp.i, align 8
-  %updating_keys.i23 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 0, ptr %updating_keys.i23, align 8
+  %updating_keys.i24 = getelementptr inbounds i8, ptr %8, i64 8
+  store i8 0, ptr %updating_keys.i24, align 8
   %9 = load ptr, ptr %file.i, align 8
-  %call.i25 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %9, ptr noundef nonnull %errp.i) #9
+  %call.i26 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %9, ptr noundef nonnull %errp.i) #9
   %10 = load ptr, ptr %errp.i, align 8
-  %tobool.not.i26 = icmp eq ptr %10, null
-  br i1 %tobool.not.i26, label %block_crypto_amend_cleanup.exit, label %if.then.i27
+  %tobool.not.i27 = icmp eq ptr %10, null
+  br i1 %tobool.not.i27, label %block_crypto_amend_cleanup.exit, label %if.then.i28
 
-if.then.i27:                                      ; preds = %perm_cleanup
+if.then.i28:                                      ; preds = %perm_cleanup
   call void @error_report_err(ptr noundef nonnull %10) #9
   br label %block_crypto_amend_cleanup.exit
 
-block_crypto_amend_cleanup.exit:                  ; preds = %perm_cleanup, %if.then.i27
+block_crypto_amend_cleanup.exit:                  ; preds = %perm_cleanup, %if.then.i28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errp.i)
   br label %cleanup
 
@@ -728,7 +728,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_probe_luks(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #0 {
+define internal range(i32 0, 101) i32 @block_crypto_probe_luks(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #0 {
 entry:
   %conv.i = sext i32 %buf_size to i64
   %call.i = tail call zeroext i1 @qcrypto_block_has_format(i32 noundef 1, ptr noundef %buf, i64 noundef %conv.i) #9
@@ -1025,7 +1025,7 @@ if.then3:                                         ; preds = %if.then
   %0 = trunc i64 %call2 to i32
   %conv = sub i32 0, %0
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.29, i32 noundef 583, ptr noundef nonnull @__func__.block_crypto_measure, i32 noundef %conv, ptr noundef nonnull @.str.45) #9
-  br label %cleanup.thread18
+  br label %cleanup.thread19
 
 if.end4:                                          ; preds = %if.then, %entry
   %size.0 = phi i64 [ %call1, %entry ], [ %call2, %if.then ]
@@ -1070,7 +1070,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %block_crypto_create_opts_init.exit, %land.lhs.true.i, %if.then5.i
   %tobool9.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool9.not, label %cleanup.thread18, label %if.end11
+  br i1 %tobool9.not, label %cleanup.thread19, label %if.end11
 
 if.end11:                                         ; preds = %qobject_unref_impl.exit
   %call12 = call zeroext i1 @qcrypto_block_calculate_payload_offset(ptr noundef nonnull %retval.0.i, ptr noundef null, ptr noundef nonnull %luks_payload_size, ptr noundef nonnull %local_err) #9
@@ -1085,7 +1085,7 @@ cleanup.thread:                                   ; preds = %if.end11
   store i64 %add, ptr %call15, align 8
   br label %if.then.i.i
 
-cleanup.thread18:                                 ; preds = %qobject_unref_impl.exit, %if.then3
+cleanup.thread19:                                 ; preds = %qobject_unref_impl.exit, %if.then3
   %4 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %4) #9
   br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit
@@ -1096,13 +1096,13 @@ cleanup:                                          ; preds = %if.end11
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup, %cleanup.thread
-  %retval.016 = phi ptr [ %call15, %cleanup.thread ], [ null, %cleanup ]
+  %retval.017 = phi ptr [ %call15, %cleanup.thread ], [ null, %cleanup ]
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %retval.0.i) #9
   br label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit
 
-glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %cleanup.thread18, %if.then.i.i
-  %retval.017 = phi ptr [ %retval.016, %if.then.i.i ], [ null, %cleanup.thread18 ]
-  ret ptr %retval.017
+glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %cleanup.thread19, %if.then.i.i
+  %retval.018 = phi ptr [ %retval.017, %if.then.i.i ], [ null, %cleanup.thread19 ]
+  ret ptr %retval.018
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1233,7 +1233,7 @@ declare ptr @bdrv_co_open_blockdev_ref(ptr noundef, ptr noundef) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_create_generic(ptr noundef %bs, i64 noundef %size, ptr noundef %opts, i32 noundef %prealloc, ptr noundef %errp) #0 {
+define internal range(i32 -5, 1) i32 @block_crypto_co_create_generic(ptr noundef %bs, i64 noundef %size, ptr noundef %opts, i32 noundef %prealloc, ptr noundef %errp) #0 {
 entry:
   %data = alloca %struct.BlockCryptoCreateData, align 8
   %call = tail call ptr @blk_co_new_with_bs(ptr noundef %bs, i64 noundef 10, i64 noundef 15, ptr noundef %errp) #9
@@ -1268,7 +1268,7 @@ declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr nound
 declare ptr @qcrypto_block_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_create_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_create_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %local_error = alloca ptr, align 8
   store ptr null, ptr %local_error, align 8

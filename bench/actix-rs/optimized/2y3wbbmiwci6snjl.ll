@@ -1593,7 +1593,7 @@ _ZN10actix_http10extensions10Extensions3get17h9337d6242685a3faE.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @"_ZN106_$LT$actix_multipart..error..MultipartError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hdb1ef9fdea6a3d8dE"(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
+define noundef range(i16 1, 0) i16 @"_ZN106_$LT$actix_multipart..error..MultipartError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hdb1ef9fdea6a3d8dE"(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !314, !noundef !4
   %3 = icmp eq i64 %2, 9
   br i1 %3, label %4, label %12

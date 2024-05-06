@@ -97,7 +97,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @wtap_max_snaplen_for_encap(i32 noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 262144, 134217729) i32 @wtap_max_snaplen_for_encap(i32 noundef %0) local_unnamed_addr #1 {
   switch i32 %0, label %3 [
     i32 146, label %4
     i32 204, label %2
@@ -732,7 +732,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %215
   %260 = and i64 %259, 4294967296
   %261 = add nuw nsw i64 %260, %258
   %262 = lshr i64 %261, 32
-  %263 = trunc i64 %262 to i32
+  %263 = trunc nuw nsw i64 %262 to i32
   %264 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %263, ptr %264, align 8
   %265 = icmp ugt i32 %263, 999999999
@@ -1657,7 +1657,7 @@ define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.64.val, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wtap_encap_requires_phdr(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @wtap_encap_requires_phdr(i32 noundef %0) local_unnamed_addr #1 {
   switch i32 %0, label %2 [
     i32 13, label %3
     i32 44, label %3
@@ -1775,7 +1775,7 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.i2c_linux_file_hdr, align 1
   %6 = alloca [16 x i8], align 16
   %7 = alloca [4 x i8], align 2
@@ -1855,7 +1855,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   %40 = getelementptr inbounds i8, ptr %2, i64 10
   %41 = load i16, ptr %40, align 2
   %42 = lshr i16 %41, 8
-  %43 = trunc i16 %42 to i8
+  %43 = trunc nuw i16 %42 to i8
   %44 = getelementptr inbounds i8, ptr %17, i64 2
   store i8 %43, ptr %44, align 1
   %45 = trunc i16 %41 to i8
@@ -1871,7 +1871,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %49 = lshr i16 %.val, 8
-  %50 = trunc i16 %49 to i8
+  %50 = trunc nuw i16 %49 to i8
   store i8 %50, ptr %16, align 16
   %51 = trunc i16 %.val to i8
   %52 = getelementptr inbounds i8, ptr %16, i64 1
@@ -1894,7 +1894,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   %60 = getelementptr inbounds i8, ptr %2, i64 2
   %61 = load i16, ptr %60, align 2
   %62 = lshr i16 %61, 8
-  %63 = trunc i16 %62 to i8
+  %63 = trunc nuw i16 %62 to i8
   %64 = getelementptr inbounds i8, ptr %15, i64 2
   store i8 %63, ptr %64, align 1
   %65 = trunc i16 %61 to i8
@@ -1912,7 +1912,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %70 = lshr i16 %.val44, 8
-  %71 = trunc i16 %70 to i8
+  %71 = trunc nuw i16 %70 to i8
   store i8 %71, ptr %14, align 16
   %72 = trunc i16 %.val44 to i8
   %73 = getelementptr inbounds i8, ptr %14, i64 1
@@ -2023,7 +2023,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   %118 = getelementptr inbounds i8, ptr %6, i64 6
   store i8 %117, ptr %118, align 2
   %119 = lshr i64 %99, 56
-  %120 = trunc i64 %119 to i8
+  %120 = trunc nuw i64 %119 to i8
   %121 = getelementptr inbounds i8, ptr %6, i64 7
   store i8 %120, ptr %121, align 1
   %122 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2268,14 +2268,14 @@ pcap_get_phdr_size.exit102.i:                     ; preds = %201, %199, %197, %.
   %208 = getelementptr inbounds i8, ptr %2, i64 12
   %209 = load i16, ptr %208, align 4
   %210 = lshr i16 %209, 8
-  %211 = trunc i16 %210 to i8
+  %211 = trunc nuw i16 %210 to i8
   %212 = getelementptr inbounds i8, ptr %6, i64 12
   store i8 %211, ptr %212, align 4
   %213 = trunc i16 %209 to i8
   %214 = getelementptr inbounds i8, ptr %6, i64 13
   store i8 %213, ptr %214, align 1
   %215 = lshr i16 %132, 8
-  %216 = trunc i16 %215 to i8
+  %216 = trunc nuw i16 %215 to i8
   %217 = getelementptr inbounds i8, ptr %6, i64 14
   store i8 %216, ptr %217, align 2
   %218 = trunc i16 %132 to i8
@@ -2306,7 +2306,7 @@ pcap_get_phdr_size.exit102.i:                     ; preds = %201, %199, %197, %.
   %232 = getelementptr [16 x %struct.erf_ehdr], ptr %223, i64 0, i64 %indvars.iv.i
   %233 = load i64, ptr %232, align 8
   %234 = lshr i64 %233, 56
-  %235 = trunc i64 %234 to i8
+  %235 = trunc nuw i64 %234 to i8
   store i8 %235, ptr %8, align 1
   %236 = lshr i64 %233, 48
   %237 = trunc i64 %236 to i8
@@ -2374,7 +2374,7 @@ pcap_get_phdr_size.exit102.i:                     ; preds = %201, %199, %197, %.
   %261 = getelementptr inbounds i8, ptr %2, i64 144
   %262 = load i32, ptr %261, align 8
   %263 = lshr i32 %262, 24
-  %264 = trunc i32 %263 to i8
+  %264 = trunc nuw i32 %263 to i8
   store i8 %264, ptr %7, align 2
   %265 = lshr i32 %262, 16
   %266 = trunc i32 %265 to i8
@@ -2395,7 +2395,7 @@ pcap_get_phdr_size.exit102.i:                     ; preds = %201, %199, %197, %.
   %275 = getelementptr inbounds i8, ptr %2, i64 144
   %276 = load i32, ptr %275, align 8
   %277 = lshr i32 %276, 24
-  %278 = trunc i32 %277 to i8
+  %278 = trunc nuw i32 %277 to i8
   store i8 %278, ptr %7, align 2
   %279 = lshr i32 %276, 16
   %280 = trunc i32 %279 to i8
@@ -2444,7 +2444,7 @@ pcap_write_erf_pseudoheader.exit:                 ; preds = %.loopexit103.i, %26
   %298 = getelementptr inbounds i8, ptr %2, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = lshr i32 %299, 24
-  %301 = trunc i32 %300 to i8
+  %301 = trunc nuw i32 %300 to i8
   %302 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %301, ptr %302, align 1
   %303 = lshr i32 %299, 16

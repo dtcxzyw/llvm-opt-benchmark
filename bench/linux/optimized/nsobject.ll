@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [14 x i8] c"Null Node ptr\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_attach_object(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ns_attach_object(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -273,7 +273,7 @@ define dso_local ptr @acpi_ns_get_secondary_object(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_attach_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 8) i32 @acpi_ns_attach_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit3, label %.preheader
@@ -321,7 +321,7 @@ define dso_local noundef i32 @acpi_ns_attach_data(ptr nocapture noundef %0, ptr 
 declare dso_local ptr @acpi_ut_create_internal_object_dbg(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_detach_data(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 6) i32 @acpi_ns_detach_data(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -359,7 +359,7 @@ define dso_local noundef i32 @acpi_ns_detach_data(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @acpi_ns_get_attached_data(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 6) i32 @acpi_ns_get_attached_data(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader

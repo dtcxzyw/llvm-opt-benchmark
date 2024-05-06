@@ -112,7 +112,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyPickleBuffer_Release(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyPickleBuffer_Release(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val3 = load ptr, ptr %0, align 8

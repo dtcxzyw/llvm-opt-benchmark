@@ -44,7 +44,7 @@ declare i32 @file_allocate(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i
 declare i32 @file_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dup(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @dup(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.file, align 8
   %3 = alloca ptr, align 8
   %4 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #4

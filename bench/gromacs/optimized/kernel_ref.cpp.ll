@@ -66,7 +66,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %52 = zext nneg i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %53 = sext i32 %51 to i64
-  %invariant.gep871 = getelementptr float, ptr %3, i64 %52
+  %invariant.gep871 = getelementptr inbounds float, ptr %3, i64 %52
   br label %.preheader664
 
 .preheader668:                                    ; preds = %166
@@ -237,7 +237,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %indvars.iv = phi i64 [ 0, %.preheader664 ], [ %indvars.iv.next, %160 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %161 = load float, ptr %gep, align 4
-  %gep872 = getelementptr float, ptr %invariant.gep871, i64 %indvars.iv
+  %gep872 = getelementptr inbounds float, ptr %invariant.gep871, i64 %indvars.iv
   %162 = load float, ptr %gep872, align 4
   %163 = fadd float %161, %162
   %164 = add nuw nsw i64 %indvars.iv, %159
@@ -866,7 +866,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 
 .preheader.preheader:                             ; preds = %589
   %590 = zext nneg i32 %41 to i64
-  %invariant.gep887 = getelementptr float, ptr %12, i64 %590
+  %invariant.gep887 = getelementptr inbounds float, ptr %12, i64 %590
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %598
@@ -879,7 +879,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %593 = add nuw nsw i64 %indvars.iv835, %591
   %594 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %593
   %595 = load float, ptr %594, align 4
-  %gep888 = getelementptr float, ptr %invariant.gep887, i64 %indvars.iv835
+  %gep888 = getelementptr inbounds float, ptr %invariant.gep887, i64 %indvars.iv835
   %596 = load float, ptr %gep888, align 4
   %597 = fadd float %595, %596
   store float %597, ptr %gep888, align 4
@@ -972,7 +972,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %60 = zext nneg i32 %50 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1063 = getelementptr float, ptr %3, i64 %60
+  %invariant.gep1063 = getelementptr inbounds float, ptr %3, i64 %60
   br label %.preheader800
 
 .preheader800:                                    ; preds = %46, %71
@@ -987,7 +987,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %indvars.iv = phi i64 [ 0, %.preheader800 ], [ %indvars.iv.next, %65 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %66 = load float, ptr %gep, align 4
-  %gep1064 = getelementptr float, ptr %invariant.gep1063, i64 %indvars.iv
+  %gep1064 = getelementptr inbounds float, ptr %invariant.gep1063, i64 %indvars.iv
   %67 = load float, ptr %gep1064, align 4
   %68 = fadd float %66, %67
   %69 = add nuw nsw i64 %indvars.iv, %64
@@ -1910,7 +1910,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 .preheader.preheader:                             ; preds = %690
   %691 = zext nneg i32 %50 to i64
-  %invariant.gep1081 = getelementptr float, ptr %12, i64 %691
+  %invariant.gep1081 = getelementptr inbounds float, ptr %12, i64 %691
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %699
@@ -1923,7 +1923,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %694 = add nuw nsw i64 %indvars.iv1018, %692
   %695 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %694
   %696 = load float, ptr %695, align 4
-  %gep1082 = getelementptr float, ptr %invariant.gep1081, i64 %indvars.iv1018
+  %gep1082 = getelementptr inbounds float, ptr %invariant.gep1081, i64 %indvars.iv1018
   %697 = load float, ptr %gep1082, align 4
   %698 = fadd float %696, %697
   store float %698, ptr %gep1082, align 4
@@ -2036,7 +2036,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %74 = zext nneg i32 %71 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %75 = sext i32 %73 to i64
-  %invariant.gep1050 = getelementptr float, ptr %3, i64 %74
+  %invariant.gep1050 = getelementptr inbounds float, ptr %3, i64 %74
   br label %.preheader833
 
 76:                                               ; preds = %49, %76
@@ -2064,7 +2064,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv925 = phi i64 [ 0, %.preheader833 ], [ %indvars.iv.next926, %86 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv925
   %87 = load float, ptr %gep, align 4
-  %gep1051 = getelementptr float, ptr %invariant.gep1050, i64 %indvars.iv925
+  %gep1051 = getelementptr inbounds float, ptr %invariant.gep1050, i64 %indvars.iv925
   %88 = load float, ptr %gep1051, align 4
   %89 = fadd float %87, %88
   %90 = add nuw nsw i64 %indvars.iv925, %85
@@ -3111,7 +3111,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %849
   %850 = zext nneg i32 %71 to i64
-  %invariant.gep1068 = getelementptr float, ptr %13, i64 %850
+  %invariant.gep1068 = getelementptr inbounds float, ptr %13, i64 %850
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %858
@@ -3124,7 +3124,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %853 = add nuw nsw i64 %indvars.iv1009, %851
   %854 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %853
   %855 = load float, ptr %854, align 4
-  %gep1069 = getelementptr float, ptr %invariant.gep1068, i64 %indvars.iv1009
+  %gep1069 = getelementptr inbounds float, ptr %invariant.gep1068, i64 %indvars.iv1009
   %856 = load float, ptr %gep1069, align 4
   %857 = fadd float %855, %856
   store float %857, ptr %gep1069, align 4
@@ -3212,7 +3212,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %57 = zext nneg i32 %46 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %58 = sext i32 %56 to i64
-  %invariant.gep997 = getelementptr float, ptr %3, i64 %57
+  %invariant.gep997 = getelementptr inbounds float, ptr %3, i64 %57
   br label %.preheader790
 
 .preheader794:                                    ; preds = %192
@@ -3404,7 +3404,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader790 ], [ %indvars.iv.next, %186 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %187 = load float, ptr %gep, align 4
-  %gep998 = getelementptr float, ptr %invariant.gep997, i64 %indvars.iv
+  %gep998 = getelementptr inbounds float, ptr %invariant.gep997, i64 %indvars.iv
   %188 = load float, ptr %gep998, align 4
   %189 = fadd float %187, %188
   %190 = add nuw nsw i64 %indvars.iv, %185
@@ -4138,7 +4138,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %720
   %721 = zext nneg i32 %46 to i64
-  %invariant.gep1013 = getelementptr float, ptr %12, i64 %721
+  %invariant.gep1013 = getelementptr inbounds float, ptr %12, i64 %721
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %729
@@ -4151,7 +4151,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %724 = add nuw nsw i64 %indvars.iv961, %722
   %725 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %724
   %726 = load float, ptr %725, align 4
-  %gep1014 = getelementptr float, ptr %invariant.gep1013, i64 %indvars.iv961
+  %gep1014 = getelementptr inbounds float, ptr %invariant.gep1013, i64 %indvars.iv961
   %727 = load float, ptr %gep1014, align 4
   %728 = fadd float %726, %727
   store float %728, ptr %gep1014, align 4
@@ -4246,7 +4246,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %65 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1277 = getelementptr float, ptr %3, i64 %65
+  %invariant.gep1277 = getelementptr inbounds float, ptr %3, i64 %65
   br label %.preheader1014
 
 .preheader1014:                                   ; preds = %51, %76
@@ -4261,7 +4261,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader1014 ], [ %indvars.iv.next, %70 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %71 = load float, ptr %gep, align 4
-  %gep1278 = getelementptr float, ptr %invariant.gep1277, i64 %indvars.iv
+  %gep1278 = getelementptr inbounds float, ptr %invariant.gep1277, i64 %indvars.iv
   %72 = load float, ptr %gep1278, align 4
   %73 = fadd float %71, %72
   %74 = add nuw nsw i64 %indvars.iv, %69
@@ -5406,7 +5406,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %917
   %918 = zext nneg i32 %55 to i64
-  %invariant.gep1295 = getelementptr float, ptr %12, i64 %918
+  %invariant.gep1295 = getelementptr inbounds float, ptr %12, i64 %918
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %926
@@ -5419,7 +5419,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %921 = add nuw nsw i64 %indvars.iv1232, %919
   %922 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %921
   %923 = load float, ptr %922, align 4
-  %gep1296 = getelementptr float, ptr %invariant.gep1295, i64 %indvars.iv1232
+  %gep1296 = getelementptr inbounds float, ptr %invariant.gep1295, i64 %indvars.iv1232
   %924 = load float, ptr %gep1296, align 4
   %925 = fadd float %923, %924
   store float %925, ptr %gep1296, align 4
@@ -5537,7 +5537,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %79 = zext nneg i32 %76 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %80 = sext i32 %78 to i64
-  %invariant.gep1266 = getelementptr float, ptr %3, i64 %79
+  %invariant.gep1266 = getelementptr inbounds float, ptr %3, i64 %79
   br label %.preheader1049
 
 81:                                               ; preds = %54, %81
@@ -5565,7 +5565,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv1141 = phi i64 [ 0, %.preheader1049 ], [ %indvars.iv.next1142, %91 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1141
   %92 = load float, ptr %gep, align 4
-  %gep1267 = getelementptr float, ptr %invariant.gep1266, i64 %indvars.iv1141
+  %gep1267 = getelementptr inbounds float, ptr %invariant.gep1266, i64 %indvars.iv1141
   %93 = load float, ptr %gep1267, align 4
   %94 = fadd float %92, %93
   %95 = add nuw nsw i64 %indvars.iv1141, %90
@@ -6834,7 +6834,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %1076
   %1077 = zext nneg i32 %76 to i64
-  %invariant.gep1284 = getelementptr float, ptr %13, i64 %1077
+  %invariant.gep1284 = getelementptr inbounds float, ptr %13, i64 %1077
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1085
@@ -6847,7 +6847,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %1080 = add nuw nsw i64 %indvars.iv1225, %1078
   %1081 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1080
   %1082 = load float, ptr %1081, align 4
-  %gep1285 = getelementptr float, ptr %invariant.gep1284, i64 %indvars.iv1225
+  %gep1285 = getelementptr inbounds float, ptr %invariant.gep1284, i64 %indvars.iv1225
   %1083 = load float, ptr %gep1285, align 4
   %1084 = fadd float %1082, %1083
   store float %1084, ptr %gep1285, align 4
@@ -6942,7 +6942,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %64 = zext nneg i32 %53 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %65 = sext i32 %63 to i64
-  %invariant.gep1090 = getelementptr float, ptr %3, i64 %64
+  %invariant.gep1090 = getelementptr inbounds float, ptr %3, i64 %64
   br label %.preheader883
 
 .preheader887:                                    ; preds = %206
@@ -7143,7 +7143,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader883 ], [ %indvars.iv.next, %200 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %201 = load float, ptr %gep, align 4
-  %gep1091 = getelementptr float, ptr %invariant.gep1090, i64 %indvars.iv
+  %gep1091 = getelementptr inbounds float, ptr %invariant.gep1090, i64 %indvars.iv
   %202 = load float, ptr %gep1091, align 4
   %203 = fadd float %201, %202
   %204 = add nuw nsw i64 %indvars.iv, %199
@@ -7919,7 +7919,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %766
   %767 = zext nneg i32 %53 to i64
-  %invariant.gep1106 = getelementptr float, ptr %12, i64 %767
+  %invariant.gep1106 = getelementptr inbounds float, ptr %12, i64 %767
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %775
@@ -7932,7 +7932,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %770 = add nuw nsw i64 %indvars.iv1054, %768
   %771 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %770
   %772 = load float, ptr %771, align 4
-  %gep1107 = getelementptr float, ptr %invariant.gep1106, i64 %indvars.iv1054
+  %gep1107 = getelementptr inbounds float, ptr %invariant.gep1106, i64 %indvars.iv1054
   %773 = load float, ptr %gep1107, align 4
   %774 = fadd float %772, %773
   store float %774, ptr %gep1107, align 4
@@ -8032,7 +8032,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %70 = zext nneg i32 %60 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %71 = sext i32 %69 to i64
-  %invariant.gep1235 = getelementptr float, ptr %3, i64 %70
+  %invariant.gep1235 = getelementptr inbounds float, ptr %3, i64 %70
   br label %.preheader972
 
 .preheader972:                                    ; preds = %56, %81
@@ -8047,7 +8047,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader972 ], [ %indvars.iv.next, %75 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 4
-  %gep1236 = getelementptr float, ptr %invariant.gep1235, i64 %indvars.iv
+  %gep1236 = getelementptr inbounds float, ptr %invariant.gep1235, i64 %indvars.iv
   %77 = load float, ptr %gep1236, align 4
   %78 = fadd float %76, %77
   %79 = add nuw nsw i64 %indvars.iv, %74
@@ -9090,7 +9090,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %820
   %821 = zext nneg i32 %60 to i64
-  %invariant.gep1253 = getelementptr float, ptr %12, i64 %821
+  %invariant.gep1253 = getelementptr inbounds float, ptr %12, i64 %821
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %829
@@ -9103,7 +9103,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %824 = add nuw nsw i64 %indvars.iv1190, %822
   %825 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %824
   %826 = load float, ptr %825, align 4
-  %gep1254 = getelementptr float, ptr %invariant.gep1253, i64 %indvars.iv1190
+  %gep1254 = getelementptr inbounds float, ptr %invariant.gep1253, i64 %indvars.iv1190
   %827 = load float, ptr %gep1254, align 4
   %828 = fadd float %826, %827
   store float %828, ptr %gep1254, align 4
@@ -9226,7 +9226,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %84 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %85 = sext i32 %83 to i64
-  %invariant.gep1224 = getelementptr float, ptr %3, i64 %84
+  %invariant.gep1224 = getelementptr inbounds float, ptr %3, i64 %84
   br label %.preheader1007
 
 86:                                               ; preds = %59, %86
@@ -9254,7 +9254,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv1099 = phi i64 [ 0, %.preheader1007 ], [ %indvars.iv.next1100, %96 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1099
   %97 = load float, ptr %gep, align 4
-  %gep1225 = getelementptr float, ptr %invariant.gep1224, i64 %indvars.iv1099
+  %gep1225 = getelementptr inbounds float, ptr %invariant.gep1224, i64 %indvars.iv1099
   %98 = load float, ptr %gep1225, align 4
   %99 = fadd float %97, %98
   %100 = add nuw nsw i64 %indvars.iv1099, %95
@@ -10421,7 +10421,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %979
   %980 = zext nneg i32 %81 to i64
-  %invariant.gep1242 = getelementptr float, ptr %13, i64 %980
+  %invariant.gep1242 = getelementptr inbounds float, ptr %13, i64 %980
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %988
@@ -10434,7 +10434,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %983 = add nuw nsw i64 %indvars.iv1183, %981
   %984 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %983
   %985 = load float, ptr %984, align 4
-  %gep1243 = getelementptr float, ptr %invariant.gep1242, i64 %indvars.iv1183
+  %gep1243 = getelementptr inbounds float, ptr %invariant.gep1242, i64 %indvars.iv1183
   %986 = load float, ptr %gep1243, align 4
   %987 = fadd float %985, %986
   store float %987, ptr %gep1243, align 4
@@ -10525,7 +10525,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %60 = zext nneg i32 %49 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1006 = getelementptr float, ptr %3, i64 %60
+  %invariant.gep1006 = getelementptr inbounds float, ptr %3, i64 %60
   br label %.preheader799
 
 .preheader803:                                    ; preds = %198
@@ -10720,7 +10720,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %indvars.iv = phi i64 [ 0, %.preheader799 ], [ %indvars.iv.next, %192 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %193 = load float, ptr %gep, align 4
-  %gep1007 = getelementptr float, ptr %invariant.gep1006, i64 %indvars.iv
+  %gep1007 = getelementptr inbounds float, ptr %invariant.gep1006, i64 %indvars.iv
   %194 = load float, ptr %gep1007, align 4
   %195 = fadd float %193, %194
   %196 = add nuw nsw i64 %indvars.iv, %191
@@ -11458,7 +11458,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %732
   %733 = zext nneg i32 %49 to i64
-  %invariant.gep1022 = getelementptr float, ptr %12, i64 %733
+  %invariant.gep1022 = getelementptr inbounds float, ptr %12, i64 %733
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %741
@@ -11471,7 +11471,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %736 = add nuw nsw i64 %indvars.iv970, %734
   %737 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %736
   %738 = load float, ptr %737, align 4
-  %gep1023 = getelementptr float, ptr %invariant.gep1022, i64 %indvars.iv970
+  %gep1023 = getelementptr inbounds float, ptr %invariant.gep1022, i64 %indvars.iv970
   %739 = load float, ptr %gep1023, align 4
   %740 = fadd float %738, %739
   store float %740, ptr %gep1023, align 4
@@ -11578,7 +11578,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %71 = zext nneg i32 %61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %72 = sext i32 %70 to i64
-  %invariant.gep1248 = getelementptr float, ptr %3, i64 %71
+  %invariant.gep1248 = getelementptr inbounds float, ptr %3, i64 %71
   br label %.preheader986
 
 .preheader986:                                    ; preds = %57, %82
@@ -11593,7 +11593,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader986 ], [ %indvars.iv.next, %76 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %77 = load float, ptr %gep, align 4
-  %gep1249 = getelementptr float, ptr %invariant.gep1248, i64 %indvars.iv
+  %gep1249 = getelementptr inbounds float, ptr %invariant.gep1248, i64 %indvars.iv
   %78 = load float, ptr %gep1249, align 4
   %79 = fadd float %77, %78
   %80 = add nuw nsw i64 %indvars.iv, %75
@@ -12681,7 +12681,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %875
   %876 = zext nneg i32 %61 to i64
-  %invariant.gep1264 = getelementptr float, ptr %12, i64 %876
+  %invariant.gep1264 = getelementptr inbounds float, ptr %12, i64 %876
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %884
@@ -12694,7 +12694,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %879 = add nuw nsw i64 %indvars.iv1203, %877
   %880 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %879
   %881 = load float, ptr %880, align 4
-  %gep1265 = getelementptr float, ptr %invariant.gep1264, i64 %indvars.iv1203
+  %gep1265 = getelementptr inbounds float, ptr %invariant.gep1264, i64 %indvars.iv1203
   %882 = load float, ptr %gep1265, align 4
   %883 = fadd float %881, %882
   store float %883, ptr %gep1265, align 4
@@ -12818,7 +12818,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %85 = zext nneg i32 %82 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %86 = sext i32 %84 to i64
-  %invariant.gep1237 = getelementptr float, ptr %3, i64 %85
+  %invariant.gep1237 = getelementptr inbounds float, ptr %3, i64 %85
   br label %.preheader1020
 
 87:                                               ; preds = %60, %87
@@ -12846,7 +12846,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %indvars.iv1112 = phi i64 [ 0, %.preheader1020 ], [ %indvars.iv.next1113, %97 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1112
   %98 = load float, ptr %gep, align 4
-  %gep1238 = getelementptr float, ptr %invariant.gep1237, i64 %indvars.iv1112
+  %gep1238 = getelementptr inbounds float, ptr %invariant.gep1237, i64 %indvars.iv1112
   %99 = load float, ptr %gep1238, align 4
   %100 = fadd float %98, %99
   %101 = add nuw nsw i64 %indvars.iv1112, %96
@@ -14058,7 +14058,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1033
   %1034 = zext nneg i32 %82 to i64
-  %invariant.gep1253 = getelementptr float, ptr %13, i64 %1034
+  %invariant.gep1253 = getelementptr inbounds float, ptr %13, i64 %1034
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1042
@@ -14071,7 +14071,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %1037 = add nuw nsw i64 %indvars.iv1196, %1035
   %1038 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1037
   %1039 = load float, ptr %1038, align 4
-  %gep1254 = getelementptr float, ptr %invariant.gep1253, i64 %indvars.iv1196
+  %gep1254 = getelementptr inbounds float, ptr %invariant.gep1253, i64 %indvars.iv1196
   %1040 = load float, ptr %gep1254, align 4
   %1041 = fadd float %1039, %1040
   store float %1041, ptr %gep1254, align 4
@@ -14162,7 +14162,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %60 = zext nneg i32 %49 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1078 = getelementptr float, ptr %3, i64 %60
+  %invariant.gep1078 = getelementptr inbounds float, ptr %3, i64 %60
   br label %.preheader871
 
 .preheader875:                                    ; preds = %211
@@ -14370,7 +14370,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %indvars.iv = phi i64 [ 0, %.preheader871 ], [ %indvars.iv.next, %205 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %206 = load float, ptr %gep, align 4
-  %gep1079 = getelementptr float, ptr %invariant.gep1078, i64 %indvars.iv
+  %gep1079 = getelementptr inbounds float, ptr %invariant.gep1078, i64 %indvars.iv
   %207 = load float, ptr %gep1079, align 4
   %208 = fadd float %206, %207
   %209 = add nuw nsw i64 %indvars.iv, %204
@@ -15173,7 +15173,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 
 .preheader.preheader:                             ; preds = %810
   %811 = zext nneg i32 %49 to i64
-  %invariant.gep1094 = getelementptr float, ptr %12, i64 %811
+  %invariant.gep1094 = getelementptr inbounds float, ptr %12, i64 %811
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %819
@@ -15186,7 +15186,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %814 = add nuw nsw i64 %indvars.iv1042, %812
   %815 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %814
   %816 = load float, ptr %815, align 4
-  %gep1095 = getelementptr float, ptr %invariant.gep1094, i64 %indvars.iv1042
+  %gep1095 = getelementptr inbounds float, ptr %invariant.gep1094, i64 %indvars.iv1042
   %817 = load float, ptr %gep1095, align 4
   %818 = fadd float %816, %817
   store float %818, ptr %gep1095, align 4
@@ -15287,7 +15287,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %71 = zext nneg i32 %61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %72 = sext i32 %70 to i64
-  %invariant.gep1320 = getelementptr float, ptr %3, i64 %71
+  %invariant.gep1320 = getelementptr inbounds float, ptr %3, i64 %71
   br label %.preheader1058
 
 .preheader1058:                                   ; preds = %57, %82
@@ -15302,7 +15302,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %indvars.iv = phi i64 [ 0, %.preheader1058 ], [ %indvars.iv.next, %76 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %77 = load float, ptr %gep, align 4
-  %gep1321 = getelementptr float, ptr %invariant.gep1320, i64 %indvars.iv
+  %gep1321 = getelementptr inbounds float, ptr %invariant.gep1320, i64 %indvars.iv
   %78 = load float, ptr %gep1321, align 4
   %79 = fadd float %77, %78
   %80 = add nuw nsw i64 %indvars.iv, %75
@@ -16468,7 +16468,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 .preheader.preheader:                             ; preds = %953
   %954 = zext nneg i32 %61 to i64
-  %invariant.gep1336 = getelementptr float, ptr %12, i64 %954
+  %invariant.gep1336 = getelementptr inbounds float, ptr %12, i64 %954
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %962
@@ -16481,7 +16481,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %957 = add nuw nsw i64 %indvars.iv1275, %955
   %958 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %957
   %959 = load float, ptr %958, align 4
-  %gep1337 = getelementptr float, ptr %invariant.gep1336, i64 %indvars.iv1275
+  %gep1337 = getelementptr inbounds float, ptr %invariant.gep1336, i64 %indvars.iv1275
   %960 = load float, ptr %gep1337, align 4
   %961 = fadd float %959, %960
   store float %961, ptr %gep1337, align 4
@@ -16605,7 +16605,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %85 = zext nneg i32 %82 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %86 = sext i32 %84 to i64
-  %invariant.gep1309 = getelementptr float, ptr %3, i64 %85
+  %invariant.gep1309 = getelementptr inbounds float, ptr %3, i64 %85
   br label %.preheader1092
 
 87:                                               ; preds = %60, %87
@@ -16633,7 +16633,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %indvars.iv1184 = phi i64 [ 0, %.preheader1092 ], [ %indvars.iv.next1185, %97 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1184
   %98 = load float, ptr %gep, align 4
-  %gep1310 = getelementptr float, ptr %invariant.gep1309, i64 %indvars.iv1184
+  %gep1310 = getelementptr inbounds float, ptr %invariant.gep1309, i64 %indvars.iv1184
   %99 = load float, ptr %gep1310, align 4
   %100 = fadd float %98, %99
   %101 = add nuw nsw i64 %indvars.iv1184, %96
@@ -17923,7 +17923,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 
 .preheader.preheader:                             ; preds = %1111
   %1112 = zext nneg i32 %82 to i64
-  %invariant.gep1325 = getelementptr float, ptr %13, i64 %1112
+  %invariant.gep1325 = getelementptr inbounds float, ptr %13, i64 %1112
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1120
@@ -17936,7 +17936,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %1115 = add nuw nsw i64 %indvars.iv1268, %1113
   %1116 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1115
   %1117 = load float, ptr %1116, align 4
-  %gep1326 = getelementptr float, ptr %invariant.gep1325, i64 %indvars.iv1268
+  %gep1326 = getelementptr inbounds float, ptr %invariant.gep1325, i64 %indvars.iv1268
   %1118 = load float, ptr %gep1326, align 4
   %1119 = fadd float %1117, %1118
   store float %1119, ptr %gep1326, align 4
@@ -18021,7 +18021,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %54 = zext nneg i32 %43 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %55 = sext i32 %53 to i64
-  %invariant.gep920 = getelementptr float, ptr %3, i64 %54
+  %invariant.gep920 = getelementptr inbounds float, ptr %3, i64 %54
   br label %.preheader713
 
 .preheader717:                                    ; preds = %183
@@ -18207,7 +18207,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader713 ], [ %indvars.iv.next, %177 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %178 = load float, ptr %gep, align 4
-  %gep921 = getelementptr float, ptr %invariant.gep920, i64 %indvars.iv
+  %gep921 = getelementptr inbounds float, ptr %invariant.gep920, i64 %indvars.iv
   %179 = load float, ptr %gep921, align 4
   %180 = fadd float %178, %179
   %181 = add nuw nsw i64 %indvars.iv, %176
@@ -18881,7 +18881,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %651
   %652 = zext nneg i32 %43 to i64
-  %invariant.gep936 = getelementptr float, ptr %12, i64 %652
+  %invariant.gep936 = getelementptr inbounds float, ptr %12, i64 %652
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %660
@@ -18894,7 +18894,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %655 = add nuw nsw i64 %indvars.iv884, %653
   %656 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %655
   %657 = load float, ptr %656, align 4
-  %gep937 = getelementptr float, ptr %invariant.gep936, i64 %indvars.iv884
+  %gep937 = getelementptr inbounds float, ptr %invariant.gep936, i64 %indvars.iv884
   %658 = load float, ptr %gep937, align 4
   %659 = fadd float %657, %658
   store float %659, ptr %gep937, align 4
@@ -18986,7 +18986,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %62 = zext nneg i32 %52 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1131 = getelementptr float, ptr %3, i64 %62
+  %invariant.gep1131 = getelementptr inbounds float, ptr %3, i64 %62
   br label %.preheader868
 
 .preheader868:                                    ; preds = %48, %73
@@ -19001,7 +19001,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader868 ], [ %indvars.iv.next, %67 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %68 = load float, ptr %gep, align 4
-  %gep1132 = getelementptr float, ptr %invariant.gep1131, i64 %indvars.iv
+  %gep1132 = getelementptr inbounds float, ptr %invariant.gep1131, i64 %indvars.iv
   %69 = load float, ptr %gep1132, align 4
   %70 = fadd float %68, %69
   %71 = add nuw nsw i64 %indvars.iv, %66
@@ -20016,7 +20016,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %784
   %785 = zext nneg i32 %52 to i64
-  %invariant.gep1149 = getelementptr float, ptr %12, i64 %785
+  %invariant.gep1149 = getelementptr inbounds float, ptr %12, i64 %785
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %793
@@ -20029,7 +20029,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %788 = add nuw nsw i64 %indvars.iv1086, %786
   %789 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %788
   %790 = load float, ptr %789, align 4
-  %gep1150 = getelementptr float, ptr %invariant.gep1149, i64 %indvars.iv1086
+  %gep1150 = getelementptr inbounds float, ptr %invariant.gep1149, i64 %indvars.iv1086
   %791 = load float, ptr %gep1150, align 4
   %792 = fadd float %790, %791
   store float %792, ptr %gep1150, align 4
@@ -20144,7 +20144,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %76 = zext nneg i32 %73 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1118 = getelementptr float, ptr %3, i64 %76
+  %invariant.gep1118 = getelementptr inbounds float, ptr %3, i64 %76
   br label %.preheader901
 
 78:                                               ; preds = %51, %78
@@ -20172,7 +20172,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv993 = phi i64 [ 0, %.preheader901 ], [ %indvars.iv.next994, %88 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv993
   %89 = load float, ptr %gep, align 4
-  %gep1119 = getelementptr float, ptr %invariant.gep1118, i64 %indvars.iv993
+  %gep1119 = getelementptr inbounds float, ptr %invariant.gep1118, i64 %indvars.iv993
   %90 = load float, ptr %gep1119, align 4
   %91 = fadd float %89, %90
   %92 = add nuw nsw i64 %indvars.iv993, %87
@@ -21311,7 +21311,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %943
   %944 = zext nneg i32 %73 to i64
-  %invariant.gep1136 = getelementptr float, ptr %13, i64 %944
+  %invariant.gep1136 = getelementptr inbounds float, ptr %13, i64 %944
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %952
@@ -21324,7 +21324,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %947 = add nuw nsw i64 %indvars.iv1077, %945
   %948 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %947
   %949 = load float, ptr %948, align 4
-  %gep1137 = getelementptr float, ptr %invariant.gep1136, i64 %indvars.iv1077
+  %gep1137 = getelementptr inbounds float, ptr %invariant.gep1136, i64 %indvars.iv1077
   %950 = load float, ptr %gep1137, align 4
   %951 = fadd float %949, %950
   store float %951, ptr %gep1137, align 4
@@ -21414,7 +21414,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %59 = zext nneg i32 %48 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %60 = sext i32 %58 to i64
-  %invariant.gep1048 = getelementptr float, ptr %3, i64 %59
+  %invariant.gep1048 = getelementptr inbounds float, ptr %3, i64 %59
   br label %.preheader837
 
 .preheader841:                                    ; preds = %208
@@ -21625,7 +21625,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %indvars.iv = phi i64 [ 0, %.preheader837 ], [ %indvars.iv.next, %202 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %203 = load float, ptr %gep, align 4
-  %gep1049 = getelementptr float, ptr %invariant.gep1048, i64 %indvars.iv
+  %gep1049 = getelementptr inbounds float, ptr %invariant.gep1048, i64 %indvars.iv
   %204 = load float, ptr %gep1049, align 4
   %205 = fadd float %203, %204
   %206 = add nuw nsw i64 %indvars.iv, %201
@@ -22406,7 +22406,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 
 .preheader.preheader:                             ; preds = %778
   %779 = zext nneg i32 %48 to i64
-  %invariant.gep1064 = getelementptr float, ptr %12, i64 %779
+  %invariant.gep1064 = getelementptr inbounds float, ptr %12, i64 %779
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %787
@@ -22419,7 +22419,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %782 = add nuw nsw i64 %indvars.iv1008, %780
   %783 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %782
   %784 = load float, ptr %783, align 4
-  %gep1065 = getelementptr float, ptr %invariant.gep1064, i64 %indvars.iv1008
+  %gep1065 = getelementptr inbounds float, ptr %invariant.gep1064, i64 %indvars.iv1008
   %785 = load float, ptr %gep1065, align 4
   %786 = fadd float %784, %785
   store float %786, ptr %gep1065, align 4
@@ -22516,7 +22516,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %67 = zext nneg i32 %57 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %68 = sext i32 %66 to i64
-  %invariant.gep1349 = getelementptr float, ptr %3, i64 %67
+  %invariant.gep1349 = getelementptr inbounds float, ptr %3, i64 %67
   br label %.preheader1082
 
 .preheader1082:                                   ; preds = %53, %78
@@ -22531,7 +22531,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv = phi i64 [ 0, %.preheader1082 ], [ %indvars.iv.next, %72 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %73 = load float, ptr %gep, align 4
-  %gep1350 = getelementptr float, ptr %invariant.gep1349, i64 %indvars.iv
+  %gep1350 = getelementptr inbounds float, ptr %invariant.gep1349, i64 %indvars.iv
   %74 = load float, ptr %gep1350, align 4
   %75 = fadd float %73, %74
   %76 = add nuw nsw i64 %indvars.iv, %71
@@ -23774,7 +23774,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %1007
   %1008 = zext nneg i32 %57 to i64
-  %invariant.gep1367 = getelementptr float, ptr %12, i64 %1008
+  %invariant.gep1367 = getelementptr inbounds float, ptr %12, i64 %1008
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1016
@@ -23787,7 +23787,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %1011 = add nuw nsw i64 %indvars.iv1300, %1009
   %1012 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1011
   %1013 = load float, ptr %1012, align 4
-  %gep1368 = getelementptr float, ptr %invariant.gep1367, i64 %indvars.iv1300
+  %gep1368 = getelementptr inbounds float, ptr %invariant.gep1367, i64 %indvars.iv1300
   %1014 = load float, ptr %gep1368, align 4
   %1015 = fadd float %1013, %1014
   store float %1015, ptr %gep1368, align 4
@@ -23907,7 +23907,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %81 = zext nneg i32 %78 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %82 = sext i32 %80 to i64
-  %invariant.gep1338 = getelementptr float, ptr %3, i64 %81
+  %invariant.gep1338 = getelementptr inbounds float, ptr %3, i64 %81
   br label %.preheader1117
 
 83:                                               ; preds = %56, %83
@@ -23935,7 +23935,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %indvars.iv1209 = phi i64 [ 0, %.preheader1117 ], [ %indvars.iv.next1210, %93 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1209
   %94 = load float, ptr %gep, align 4
-  %gep1339 = getelementptr float, ptr %invariant.gep1338, i64 %indvars.iv1209
+  %gep1339 = getelementptr inbounds float, ptr %invariant.gep1338, i64 %indvars.iv1209
   %95 = load float, ptr %gep1339, align 4
   %96 = fadd float %94, %95
   %97 = add nuw nsw i64 %indvars.iv1209, %92
@@ -25296,7 +25296,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %1166
   %1167 = zext nneg i32 %78 to i64
-  %invariant.gep1356 = getelementptr float, ptr %13, i64 %1167
+  %invariant.gep1356 = getelementptr inbounds float, ptr %13, i64 %1167
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1175
@@ -25309,7 +25309,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1170 = add nuw nsw i64 %indvars.iv1293, %1168
   %1171 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1170
   %1172 = load float, ptr %1171, align 4
-  %gep1357 = getelementptr float, ptr %invariant.gep1356, i64 %indvars.iv1293
+  %gep1357 = getelementptr inbounds float, ptr %invariant.gep1356, i64 %indvars.iv1293
   %1173 = load float, ptr %gep1357, align 4
   %1174 = fadd float %1172, %1173
   store float %1174, ptr %gep1357, align 4
@@ -25406,7 +25406,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %66 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %67 = sext i32 %65 to i64
-  %invariant.gep1141 = getelementptr float, ptr %3, i64 %66
+  %invariant.gep1141 = getelementptr inbounds float, ptr %3, i64 %66
   br label %.preheader930
 
 .preheader934:                                    ; preds = %222
@@ -25626,7 +25626,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %indvars.iv = phi i64 [ 0, %.preheader930 ], [ %indvars.iv.next, %216 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %217 = load float, ptr %gep, align 4
-  %gep1142 = getelementptr float, ptr %invariant.gep1141, i64 %indvars.iv
+  %gep1142 = getelementptr inbounds float, ptr %invariant.gep1141, i64 %indvars.iv
   %218 = load float, ptr %gep1142, align 4
   %219 = fadd float %217, %218
   %220 = add nuw nsw i64 %indvars.iv, %215
@@ -26449,7 +26449,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 
 .preheader.preheader:                             ; preds = %824
   %825 = zext nneg i32 %55 to i64
-  %invariant.gep1157 = getelementptr float, ptr %12, i64 %825
+  %invariant.gep1157 = getelementptr inbounds float, ptr %12, i64 %825
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %833
@@ -26462,7 +26462,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %828 = add nuw nsw i64 %indvars.iv1101, %826
   %829 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %828
   %830 = load float, ptr %829, align 4
-  %gep1158 = getelementptr float, ptr %invariant.gep1157, i64 %indvars.iv1101
+  %gep1158 = getelementptr inbounds float, ptr %invariant.gep1157, i64 %indvars.iv1101
   %831 = load float, ptr %gep1158, align 4
   %832 = fadd float %830, %831
   store float %832, ptr %gep1158, align 4
@@ -26564,7 +26564,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %72 = zext nneg i32 %62 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %73 = sext i32 %71 to i64
-  %invariant.gep1307 = getelementptr float, ptr %3, i64 %72
+  %invariant.gep1307 = getelementptr inbounds float, ptr %3, i64 %72
   br label %.preheader1040
 
 .preheader1040:                                   ; preds = %58, %83
@@ -26579,7 +26579,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv = phi i64 [ 0, %.preheader1040 ], [ %indvars.iv.next, %77 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %78 = load float, ptr %gep, align 4
-  %gep1308 = getelementptr float, ptr %invariant.gep1307, i64 %indvars.iv
+  %gep1308 = getelementptr inbounds float, ptr %invariant.gep1307, i64 %indvars.iv
   %79 = load float, ptr %gep1308, align 4
   %80 = fadd float %78, %79
   %81 = add nuw nsw i64 %indvars.iv, %76
@@ -27720,7 +27720,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %910
   %911 = zext nneg i32 %62 to i64
-  %invariant.gep1325 = getelementptr float, ptr %12, i64 %911
+  %invariant.gep1325 = getelementptr inbounds float, ptr %12, i64 %911
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %919
@@ -27733,7 +27733,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %914 = add nuw nsw i64 %indvars.iv1258, %912
   %915 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %914
   %916 = load float, ptr %915, align 4
-  %gep1326 = getelementptr float, ptr %invariant.gep1325, i64 %indvars.iv1258
+  %gep1326 = getelementptr inbounds float, ptr %invariant.gep1325, i64 %indvars.iv1258
   %917 = load float, ptr %gep1326, align 4
   %918 = fadd float %916, %917
   store float %918, ptr %gep1326, align 4
@@ -27858,7 +27858,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %86 = zext nneg i32 %83 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %87 = sext i32 %85 to i64
-  %invariant.gep1296 = getelementptr float, ptr %3, i64 %86
+  %invariant.gep1296 = getelementptr inbounds float, ptr %3, i64 %86
   br label %.preheader1075
 
 88:                                               ; preds = %61, %88
@@ -27886,7 +27886,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %indvars.iv1167 = phi i64 [ 0, %.preheader1075 ], [ %indvars.iv.next1168, %98 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1167
   %99 = load float, ptr %gep, align 4
-  %gep1297 = getelementptr float, ptr %invariant.gep1296, i64 %indvars.iv1167
+  %gep1297 = getelementptr inbounds float, ptr %invariant.gep1296, i64 %indvars.iv1167
   %100 = load float, ptr %gep1297, align 4
   %101 = fadd float %99, %100
   %102 = add nuw nsw i64 %indvars.iv1167, %97
@@ -29145,7 +29145,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %1069
   %1070 = zext nneg i32 %83 to i64
-  %invariant.gep1314 = getelementptr float, ptr %13, i64 %1070
+  %invariant.gep1314 = getelementptr inbounds float, ptr %13, i64 %1070
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1078
@@ -29158,7 +29158,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1073 = add nuw nsw i64 %indvars.iv1251, %1071
   %1074 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1073
   %1075 = load float, ptr %1074, align 4
-  %gep1315 = getelementptr float, ptr %invariant.gep1314, i64 %indvars.iv1251
+  %gep1315 = getelementptr inbounds float, ptr %invariant.gep1314, i64 %indvars.iv1251
   %1076 = load float, ptr %gep1315, align 4
   %1077 = fadd float %1075, %1076
   store float %1077, ptr %gep1315, align 4
@@ -29251,7 +29251,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1055 = getelementptr float, ptr %3, i64 %62
+  %invariant.gep1055 = getelementptr inbounds float, ptr %3, i64 %62
   br label %.preheader848
 
 .preheader852:                                    ; preds = %215
@@ -29461,7 +29461,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader848 ], [ %indvars.iv.next, %209 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %210 = load float, ptr %gep, align 4
-  %gep1056 = getelementptr float, ptr %invariant.gep1055, i64 %indvars.iv
+  %gep1056 = getelementptr inbounds float, ptr %invariant.gep1055, i64 %indvars.iv
   %211 = load float, ptr %gep1056, align 4
   %212 = fadd float %210, %211
   %213 = add nuw nsw i64 %indvars.iv, %208
@@ -30244,7 +30244,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %794
   %795 = zext nneg i32 %51 to i64
-  %invariant.gep1071 = getelementptr float, ptr %12, i64 %795
+  %invariant.gep1071 = getelementptr inbounds float, ptr %12, i64 %795
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %803
@@ -30257,7 +30257,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %798 = add nuw nsw i64 %indvars.iv1019, %796
   %799 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %798
   %800 = load float, ptr %799, align 4
-  %gep1072 = getelementptr float, ptr %invariant.gep1071, i64 %indvars.iv1019
+  %gep1072 = getelementptr inbounds float, ptr %invariant.gep1071, i64 %indvars.iv1019
   %801 = load float, ptr %gep1072, align 4
   %802 = fadd float %800, %801
   store float %802, ptr %gep1072, align 4
@@ -30360,7 +30360,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %73 = zext nneg i32 %63 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %74 = sext i32 %72 to i64
-  %invariant.gep1316 = getelementptr float, ptr %3, i64 %73
+  %invariant.gep1316 = getelementptr inbounds float, ptr %3, i64 %73
   br label %.preheader1054
 
 .preheader1054:                                   ; preds = %59, %84
@@ -30375,7 +30375,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1054 ], [ %indvars.iv.next, %78 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %79 = load float, ptr %gep, align 4
-  %gep1317 = getelementptr float, ptr %invariant.gep1316, i64 %indvars.iv
+  %gep1317 = getelementptr inbounds float, ptr %invariant.gep1316, i64 %indvars.iv
   %80 = load float, ptr %gep1317, align 4
   %81 = fadd float %79, %80
   %82 = add nuw nsw i64 %indvars.iv, %77
@@ -31555,7 +31555,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %969
   %970 = zext nneg i32 %63 to i64
-  %invariant.gep1332 = getelementptr float, ptr %12, i64 %970
+  %invariant.gep1332 = getelementptr inbounds float, ptr %12, i64 %970
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %978
@@ -31568,7 +31568,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %973 = add nuw nsw i64 %indvars.iv1271, %971
   %974 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %973
   %975 = load float, ptr %974, align 4
-  %gep1333 = getelementptr float, ptr %invariant.gep1332, i64 %indvars.iv1271
+  %gep1333 = getelementptr inbounds float, ptr %invariant.gep1332, i64 %indvars.iv1271
   %976 = load float, ptr %gep1333, align 4
   %977 = fadd float %975, %976
   store float %977, ptr %gep1333, align 4
@@ -31694,7 +31694,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %87 = zext nneg i32 %84 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %88 = sext i32 %86 to i64
-  %invariant.gep1305 = getelementptr float, ptr %3, i64 %87
+  %invariant.gep1305 = getelementptr inbounds float, ptr %3, i64 %87
   br label %.preheader1088
 
 89:                                               ; preds = %62, %89
@@ -31722,7 +31722,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %indvars.iv1180 = phi i64 [ 0, %.preheader1088 ], [ %indvars.iv.next1181, %99 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1180
   %100 = load float, ptr %gep, align 4
-  %gep1306 = getelementptr float, ptr %invariant.gep1305, i64 %indvars.iv1180
+  %gep1306 = getelementptr inbounds float, ptr %invariant.gep1305, i64 %indvars.iv1180
   %101 = load float, ptr %gep1306, align 4
   %102 = fadd float %100, %101
   %103 = add nuw nsw i64 %indvars.iv1180, %98
@@ -33026,7 +33026,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1127
   %1128 = zext nneg i32 %84 to i64
-  %invariant.gep1321 = getelementptr float, ptr %13, i64 %1128
+  %invariant.gep1321 = getelementptr inbounds float, ptr %13, i64 %1128
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1136
@@ -33039,7 +33039,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %1131 = add nuw nsw i64 %indvars.iv1264, %1129
   %1132 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1131
   %1133 = load float, ptr %1132, align 4
-  %gep1322 = getelementptr float, ptr %invariant.gep1321, i64 %indvars.iv1264
+  %gep1322 = getelementptr inbounds float, ptr %invariant.gep1321, i64 %indvars.iv1264
   %1134 = load float, ptr %gep1322, align 4
   %1135 = fadd float %1133, %1134
   store float %1135, ptr %gep1322, align 4
@@ -33132,7 +33132,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1127 = getelementptr float, ptr %3, i64 %62
+  %invariant.gep1127 = getelementptr inbounds float, ptr %3, i64 %62
   br label %.preheader920
 
 .preheader924:                                    ; preds = %228
@@ -33355,7 +33355,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader920 ], [ %indvars.iv.next, %222 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %223 = load float, ptr %gep, align 4
-  %gep1128 = getelementptr float, ptr %invariant.gep1127, i64 %indvars.iv
+  %gep1128 = getelementptr inbounds float, ptr %invariant.gep1127, i64 %indvars.iv
   %224 = load float, ptr %gep1128, align 4
   %225 = fadd float %223, %224
   %226 = add nuw nsw i64 %indvars.iv, %221
@@ -34203,7 +34203,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %872
   %873 = zext nneg i32 %51 to i64
-  %invariant.gep1143 = getelementptr float, ptr %12, i64 %873
+  %invariant.gep1143 = getelementptr inbounds float, ptr %12, i64 %873
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %881
@@ -34216,7 +34216,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %876 = add nuw nsw i64 %indvars.iv1091, %874
   %877 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %876
   %878 = load float, ptr %877, align 4
-  %gep1144 = getelementptr float, ptr %invariant.gep1143, i64 %indvars.iv1091
+  %gep1144 = getelementptr inbounds float, ptr %invariant.gep1143, i64 %indvars.iv1091
   %879 = load float, ptr %gep1144, align 4
   %880 = fadd float %878, %879
   store float %880, ptr %gep1144, align 4
@@ -34319,7 +34319,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %73 = zext nneg i32 %63 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %74 = sext i32 %72 to i64
-  %invariant.gep1388 = getelementptr float, ptr %3, i64 %73
+  %invariant.gep1388 = getelementptr inbounds float, ptr %3, i64 %73
   br label %.preheader1126
 
 .preheader1126:                                   ; preds = %59, %84
@@ -34334,7 +34334,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %indvars.iv = phi i64 [ 0, %.preheader1126 ], [ %indvars.iv.next, %78 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %79 = load float, ptr %gep, align 4
-  %gep1389 = getelementptr float, ptr %invariant.gep1388, i64 %indvars.iv
+  %gep1389 = getelementptr inbounds float, ptr %invariant.gep1388, i64 %indvars.iv
   %80 = load float, ptr %gep1389, align 4
   %81 = fadd float %79, %80
   %82 = add nuw nsw i64 %indvars.iv, %77
@@ -35592,7 +35592,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 .preheader.preheader:                             ; preds = %1047
   %1048 = zext nneg i32 %63 to i64
-  %invariant.gep1404 = getelementptr float, ptr %12, i64 %1048
+  %invariant.gep1404 = getelementptr inbounds float, ptr %12, i64 %1048
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1056
@@ -35605,7 +35605,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %1051 = add nuw nsw i64 %indvars.iv1343, %1049
   %1052 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1051
   %1053 = load float, ptr %1052, align 4
-  %gep1405 = getelementptr float, ptr %invariant.gep1404, i64 %indvars.iv1343
+  %gep1405 = getelementptr inbounds float, ptr %invariant.gep1404, i64 %indvars.iv1343
   %1054 = load float, ptr %gep1405, align 4
   %1055 = fadd float %1053, %1054
   store float %1055, ptr %gep1405, align 4
@@ -35731,7 +35731,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %87 = zext nneg i32 %84 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %88 = sext i32 %86 to i64
-  %invariant.gep1377 = getelementptr float, ptr %3, i64 %87
+  %invariant.gep1377 = getelementptr inbounds float, ptr %3, i64 %87
   br label %.preheader1160
 
 89:                                               ; preds = %62, %89
@@ -35759,7 +35759,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %indvars.iv1252 = phi i64 [ 0, %.preheader1160 ], [ %indvars.iv.next1253, %99 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1252
   %100 = load float, ptr %gep, align 4
-  %gep1378 = getelementptr float, ptr %invariant.gep1377, i64 %indvars.iv1252
+  %gep1378 = getelementptr inbounds float, ptr %invariant.gep1377, i64 %indvars.iv1252
   %101 = load float, ptr %gep1378, align 4
   %102 = fadd float %100, %101
   %103 = add nuw nsw i64 %indvars.iv1252, %98
@@ -37141,7 +37141,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 
 .preheader.preheader:                             ; preds = %1205
   %1206 = zext nneg i32 %84 to i64
-  %invariant.gep1393 = getelementptr float, ptr %13, i64 %1206
+  %invariant.gep1393 = getelementptr inbounds float, ptr %13, i64 %1206
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1214
@@ -37154,7 +37154,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %1209 = add nuw nsw i64 %indvars.iv1336, %1207
   %1210 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1209
   %1211 = load float, ptr %1210, align 4
-  %gep1394 = getelementptr float, ptr %invariant.gep1393, i64 %indvars.iv1336
+  %gep1394 = getelementptr inbounds float, ptr %invariant.gep1393, i64 %indvars.iv1336
   %1212 = load float, ptr %gep1394, align 4
   %1213 = fadd float %1211, %1212
   store float %1213, ptr %gep1394, align 4
@@ -37242,7 +37242,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %57 = zext nneg i32 %46 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %58 = sext i32 %56 to i64
-  %invariant.gep944 = getelementptr float, ptr %3, i64 %57
+  %invariant.gep944 = getelementptr inbounds float, ptr %3, i64 %57
   br label %.preheader737
 
 .preheader741:                                    ; preds = %189
@@ -37431,7 +37431,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %indvars.iv = phi i64 [ 0, %.preheader737 ], [ %indvars.iv.next, %183 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %184 = load float, ptr %gep, align 4
-  %gep945 = getelementptr float, ptr %invariant.gep944, i64 %indvars.iv
+  %gep945 = getelementptr inbounds float, ptr %invariant.gep944, i64 %indvars.iv
   %185 = load float, ptr %gep945, align 4
   %186 = fadd float %184, %185
   %187 = add nuw nsw i64 %indvars.iv, %182
@@ -38120,7 +38120,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %672
   %673 = zext nneg i32 %46 to i64
-  %invariant.gep960 = getelementptr float, ptr %12, i64 %673
+  %invariant.gep960 = getelementptr inbounds float, ptr %12, i64 %673
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %681
@@ -38133,7 +38133,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %676 = add nuw nsw i64 %indvars.iv908, %674
   %677 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %676
   %678 = load float, ptr %677, align 4
-  %gep961 = getelementptr float, ptr %invariant.gep960, i64 %indvars.iv908
+  %gep961 = getelementptr inbounds float, ptr %invariant.gep960, i64 %indvars.iv908
   %679 = load float, ptr %gep961, align 4
   %680 = fadd float %678, %679
   store float %680, ptr %gep961, align 4
@@ -38228,7 +38228,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %65 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1155 = getelementptr float, ptr %3, i64 %65
+  %invariant.gep1155 = getelementptr inbounds float, ptr %3, i64 %65
   br label %.preheader892
 
 .preheader892:                                    ; preds = %51, %76
@@ -38243,7 +38243,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader892 ], [ %indvars.iv.next, %70 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %71 = load float, ptr %gep, align 4
-  %gep1156 = getelementptr float, ptr %invariant.gep1155, i64 %indvars.iv
+  %gep1156 = getelementptr inbounds float, ptr %invariant.gep1155, i64 %indvars.iv
   %72 = load float, ptr %gep1156, align 4
   %73 = fadd float %71, %72
   %74 = add nuw nsw i64 %indvars.iv, %69
@@ -39276,7 +39276,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %805
   %806 = zext nneg i32 %55 to i64
-  %invariant.gep1173 = getelementptr float, ptr %12, i64 %806
+  %invariant.gep1173 = getelementptr inbounds float, ptr %12, i64 %806
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %814
@@ -39289,7 +39289,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %809 = add nuw nsw i64 %indvars.iv1110, %807
   %810 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %809
   %811 = load float, ptr %810, align 4
-  %gep1174 = getelementptr float, ptr %invariant.gep1173, i64 %indvars.iv1110
+  %gep1174 = getelementptr inbounds float, ptr %invariant.gep1173, i64 %indvars.iv1110
   %812 = load float, ptr %gep1174, align 4
   %813 = fadd float %811, %812
   store float %813, ptr %gep1174, align 4
@@ -39407,7 +39407,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %79 = zext nneg i32 %76 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %80 = sext i32 %78 to i64
-  %invariant.gep1144 = getelementptr float, ptr %3, i64 %79
+  %invariant.gep1144 = getelementptr inbounds float, ptr %3, i64 %79
   br label %.preheader927
 
 81:                                               ; preds = %54, %81
@@ -39435,7 +39435,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %indvars.iv1019 = phi i64 [ 0, %.preheader927 ], [ %indvars.iv.next1020, %91 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1019
   %92 = load float, ptr %gep, align 4
-  %gep1145 = getelementptr float, ptr %invariant.gep1144, i64 %indvars.iv1019
+  %gep1145 = getelementptr inbounds float, ptr %invariant.gep1144, i64 %indvars.iv1019
   %93 = load float, ptr %gep1145, align 4
   %94 = fadd float %92, %93
   %95 = add nuw nsw i64 %indvars.iv1019, %90
@@ -40592,7 +40592,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %964
   %965 = zext nneg i32 %76 to i64
-  %invariant.gep1162 = getelementptr float, ptr %13, i64 %965
+  %invariant.gep1162 = getelementptr inbounds float, ptr %13, i64 %965
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %973
@@ -40605,7 +40605,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %968 = add nuw nsw i64 %indvars.iv1103, %966
   %969 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %968
   %970 = load float, ptr %969, align 4
-  %gep1163 = getelementptr float, ptr %invariant.gep1162, i64 %indvars.iv1103
+  %gep1163 = getelementptr inbounds float, ptr %invariant.gep1162, i64 %indvars.iv1103
   %971 = load float, ptr %gep1163, align 4
   %972 = fadd float %970, %971
   store float %972, ptr %gep1163, align 4
@@ -40698,7 +40698,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1068 = getelementptr float, ptr %3, i64 %62
+  %invariant.gep1068 = getelementptr inbounds float, ptr %3, i64 %62
   br label %.preheader857
 
 .preheader861:                                    ; preds = %214
@@ -40912,7 +40912,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader857 ], [ %indvars.iv.next, %208 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %209 = load float, ptr %gep, align 4
-  %gep1069 = getelementptr float, ptr %invariant.gep1068, i64 %indvars.iv
+  %gep1069 = getelementptr inbounds float, ptr %invariant.gep1068, i64 %indvars.iv
   %210 = load float, ptr %gep1069, align 4
   %211 = fadd float %209, %210
   %212 = add nuw nsw i64 %indvars.iv, %207
@@ -41708,7 +41708,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %799
   %800 = zext nneg i32 %51 to i64
-  %invariant.gep1084 = getelementptr float, ptr %12, i64 %800
+  %invariant.gep1084 = getelementptr inbounds float, ptr %12, i64 %800
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %808
@@ -41721,7 +41721,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %803 = add nuw nsw i64 %indvars.iv1028, %801
   %804 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %803
   %805 = load float, ptr %804, align 4
-  %gep1085 = getelementptr float, ptr %invariant.gep1084, i64 %indvars.iv1028
+  %gep1085 = getelementptr inbounds float, ptr %invariant.gep1084, i64 %indvars.iv1028
   %806 = load float, ptr %gep1085, align 4
   %807 = fadd float %805, %806
   store float %807, ptr %gep1085, align 4
@@ -41821,7 +41821,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %70 = zext nneg i32 %60 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %71 = sext i32 %69 to i64
-  %invariant.gep1369 = getelementptr float, ptr %3, i64 %70
+  %invariant.gep1369 = getelementptr inbounds float, ptr %3, i64 %70
   br label %.preheader1102
 
 .preheader1102:                                   ; preds = %56, %81
@@ -41836,7 +41836,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1102 ], [ %indvars.iv.next, %75 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 4
-  %gep1370 = getelementptr float, ptr %invariant.gep1369, i64 %indvars.iv
+  %gep1370 = getelementptr inbounds float, ptr %invariant.gep1369, i64 %indvars.iv
   %77 = load float, ptr %gep1370, align 4
   %78 = fadd float %76, %77
   %79 = add nuw nsw i64 %indvars.iv, %74
@@ -43097,7 +43097,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1028
   %1029 = zext nneg i32 %60 to i64
-  %invariant.gep1387 = getelementptr float, ptr %12, i64 %1029
+  %invariant.gep1387 = getelementptr inbounds float, ptr %12, i64 %1029
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1037
@@ -43110,7 +43110,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %1032 = add nuw nsw i64 %indvars.iv1320, %1030
   %1033 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1032
   %1034 = load float, ptr %1033, align 4
-  %gep1388 = getelementptr float, ptr %invariant.gep1387, i64 %indvars.iv1320
+  %gep1388 = getelementptr inbounds float, ptr %invariant.gep1387, i64 %indvars.iv1320
   %1035 = load float, ptr %gep1388, align 4
   %1036 = fadd float %1034, %1035
   store float %1036, ptr %gep1388, align 4
@@ -43233,7 +43233,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %84 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %85 = sext i32 %83 to i64
-  %invariant.gep1358 = getelementptr float, ptr %3, i64 %84
+  %invariant.gep1358 = getelementptr inbounds float, ptr %3, i64 %84
   br label %.preheader1137
 
 86:                                               ; preds = %59, %86
@@ -43261,7 +43261,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %indvars.iv1229 = phi i64 [ 0, %.preheader1137 ], [ %indvars.iv.next1230, %96 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1229
   %97 = load float, ptr %gep, align 4
-  %gep1359 = getelementptr float, ptr %invariant.gep1358, i64 %indvars.iv1229
+  %gep1359 = getelementptr inbounds float, ptr %invariant.gep1358, i64 %indvars.iv1229
   %98 = load float, ptr %gep1359, align 4
   %99 = fadd float %97, %98
   %100 = add nuw nsw i64 %indvars.iv1229, %95
@@ -44640,7 +44640,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1187
   %1188 = zext nneg i32 %81 to i64
-  %invariant.gep1376 = getelementptr float, ptr %13, i64 %1188
+  %invariant.gep1376 = getelementptr inbounds float, ptr %13, i64 %1188
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1196
@@ -44653,7 +44653,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %1191 = add nuw nsw i64 %indvars.iv1313, %1189
   %1192 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1191
   %1193 = load float, ptr %1192, align 4
-  %gep1377 = getelementptr float, ptr %invariant.gep1376, i64 %indvars.iv1313
+  %gep1377 = getelementptr inbounds float, ptr %invariant.gep1376, i64 %indvars.iv1313
   %1194 = load float, ptr %gep1377, align 4
   %1195 = fadd float %1193, %1194
   store float %1195, ptr %gep1377, align 4
@@ -44753,7 +44753,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %69 = zext nneg i32 %58 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %70 = sext i32 %68 to i64
-  %invariant.gep1161 = getelementptr float, ptr %3, i64 %69
+  %invariant.gep1161 = getelementptr inbounds float, ptr %3, i64 %69
   br label %.preheader950
 
 .preheader954:                                    ; preds = %228
@@ -44976,7 +44976,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader950 ], [ %indvars.iv.next, %222 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %223 = load float, ptr %gep, align 4
-  %gep1162 = getelementptr float, ptr %invariant.gep1161, i64 %indvars.iv
+  %gep1162 = getelementptr inbounds float, ptr %invariant.gep1161, i64 %indvars.iv
   %224 = load float, ptr %gep1162, align 4
   %225 = fadd float %223, %224
   %226 = add nuw nsw i64 %indvars.iv, %221
@@ -45814,7 +45814,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %845
   %846 = zext nneg i32 %58 to i64
-  %invariant.gep1177 = getelementptr float, ptr %12, i64 %846
+  %invariant.gep1177 = getelementptr inbounds float, ptr %12, i64 %846
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %854
@@ -45827,7 +45827,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %849 = add nuw nsw i64 %indvars.iv1121, %847
   %850 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %849
   %851 = load float, ptr %850, align 4
-  %gep1178 = getelementptr float, ptr %invariant.gep1177, i64 %indvars.iv1121
+  %gep1178 = getelementptr inbounds float, ptr %invariant.gep1177, i64 %indvars.iv1121
   %852 = load float, ptr %gep1178, align 4
   %853 = fadd float %851, %852
   store float %853, ptr %gep1178, align 4
@@ -45932,7 +45932,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %75 = zext nneg i32 %65 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %76 = sext i32 %74 to i64
-  %invariant.gep1327 = getelementptr float, ptr %3, i64 %75
+  %invariant.gep1327 = getelementptr inbounds float, ptr %3, i64 %75
   br label %.preheader1060
 
 .preheader1060:                                   ; preds = %61, %86
@@ -45947,7 +45947,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1060 ], [ %indvars.iv.next, %80 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %81 = load float, ptr %gep, align 4
-  %gep1328 = getelementptr float, ptr %invariant.gep1327, i64 %indvars.iv
+  %gep1328 = getelementptr inbounds float, ptr %invariant.gep1327, i64 %indvars.iv
   %82 = load float, ptr %gep1328, align 4
   %83 = fadd float %81, %82
   %84 = add nuw nsw i64 %indvars.iv, %79
@@ -47106,7 +47106,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %931
   %932 = zext nneg i32 %65 to i64
-  %invariant.gep1345 = getelementptr float, ptr %12, i64 %932
+  %invariant.gep1345 = getelementptr inbounds float, ptr %12, i64 %932
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %940
@@ -47119,7 +47119,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %935 = add nuw nsw i64 %indvars.iv1278, %933
   %936 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %935
   %937 = load float, ptr %936, align 4
-  %gep1346 = getelementptr float, ptr %invariant.gep1345, i64 %indvars.iv1278
+  %gep1346 = getelementptr inbounds float, ptr %invariant.gep1345, i64 %indvars.iv1278
   %938 = load float, ptr %gep1346, align 4
   %939 = fadd float %937, %938
   store float %939, ptr %gep1346, align 4
@@ -47247,7 +47247,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %89 = zext nneg i32 %86 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %90 = sext i32 %88 to i64
-  %invariant.gep1316 = getelementptr float, ptr %3, i64 %89
+  %invariant.gep1316 = getelementptr inbounds float, ptr %3, i64 %89
   br label %.preheader1095
 
 91:                                               ; preds = %64, %91
@@ -47275,7 +47275,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %indvars.iv1187 = phi i64 [ 0, %.preheader1095 ], [ %indvars.iv.next1188, %101 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1187
   %102 = load float, ptr %gep, align 4
-  %gep1317 = getelementptr float, ptr %invariant.gep1316, i64 %indvars.iv1187
+  %gep1317 = getelementptr inbounds float, ptr %invariant.gep1316, i64 %indvars.iv1187
   %103 = load float, ptr %gep1317, align 4
   %104 = fadd float %102, %103
   %105 = add nuw nsw i64 %indvars.iv1187, %100
@@ -48552,7 +48552,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1090
   %1091 = zext nneg i32 %86 to i64
-  %invariant.gep1334 = getelementptr float, ptr %13, i64 %1091
+  %invariant.gep1334 = getelementptr inbounds float, ptr %13, i64 %1091
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1099
@@ -48565,7 +48565,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %1094 = add nuw nsw i64 %indvars.iv1271, %1092
   %1095 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1094
   %1096 = load float, ptr %1095, align 4
-  %gep1335 = getelementptr float, ptr %invariant.gep1334, i64 %indvars.iv1271
+  %gep1335 = getelementptr inbounds float, ptr %invariant.gep1334, i64 %indvars.iv1271
   %1097 = load float, ptr %gep1335, align 4
   %1098 = fadd float %1096, %1097
   store float %1098, ptr %gep1335, align 4
@@ -48661,7 +48661,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %65 = zext nneg i32 %54 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1079 = getelementptr float, ptr %3, i64 %65
+  %invariant.gep1079 = getelementptr inbounds float, ptr %3, i64 %65
   br label %.preheader872
 
 .preheader876:                                    ; preds = %221
@@ -48874,7 +48874,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %indvars.iv = phi i64 [ 0, %.preheader872 ], [ %indvars.iv.next, %215 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %216 = load float, ptr %gep, align 4
-  %gep1080 = getelementptr float, ptr %invariant.gep1079, i64 %indvars.iv
+  %gep1080 = getelementptr inbounds float, ptr %invariant.gep1079, i64 %indvars.iv
   %217 = load float, ptr %gep1080, align 4
   %218 = fadd float %216, %217
   %219 = add nuw nsw i64 %indvars.iv, %214
@@ -49672,7 +49672,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 
 .preheader.preheader:                             ; preds = %815
   %816 = zext nneg i32 %54 to i64
-  %invariant.gep1095 = getelementptr float, ptr %12, i64 %816
+  %invariant.gep1095 = getelementptr inbounds float, ptr %12, i64 %816
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %824
@@ -49685,7 +49685,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %819 = add nuw nsw i64 %indvars.iv1043, %817
   %820 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %819
   %821 = load float, ptr %820, align 4
-  %gep1096 = getelementptr float, ptr %invariant.gep1095, i64 %indvars.iv1043
+  %gep1096 = getelementptr inbounds float, ptr %invariant.gep1095, i64 %indvars.iv1043
   %822 = load float, ptr %gep1096, align 4
   %823 = fadd float %821, %822
   store float %823, ptr %gep1096, align 4
@@ -49791,7 +49791,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %76 = zext nneg i32 %66 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1340 = getelementptr float, ptr %3, i64 %76
+  %invariant.gep1340 = getelementptr inbounds float, ptr %3, i64 %76
   br label %.preheader1078
 
 .preheader1078:                                   ; preds = %62, %87
@@ -49806,7 +49806,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %indvars.iv = phi i64 [ 0, %.preheader1078 ], [ %indvars.iv.next, %81 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %82 = load float, ptr %gep, align 4
-  %gep1341 = getelementptr float, ptr %invariant.gep1340, i64 %indvars.iv
+  %gep1341 = getelementptr inbounds float, ptr %invariant.gep1340, i64 %indvars.iv
   %83 = load float, ptr %gep1341, align 4
   %84 = fadd float %82, %83
   %85 = add nuw nsw i64 %indvars.iv, %80
@@ -51004,7 +51004,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 .preheader.preheader:                             ; preds = %990
   %991 = zext nneg i32 %66 to i64
-  %invariant.gep1356 = getelementptr float, ptr %12, i64 %991
+  %invariant.gep1356 = getelementptr inbounds float, ptr %12, i64 %991
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %999
@@ -51017,7 +51017,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %994 = add nuw nsw i64 %indvars.iv1295, %992
   %995 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %994
   %996 = load float, ptr %995, align 4
-  %gep1357 = getelementptr float, ptr %invariant.gep1356, i64 %indvars.iv1295
+  %gep1357 = getelementptr inbounds float, ptr %invariant.gep1356, i64 %indvars.iv1295
   %997 = load float, ptr %gep1357, align 4
   %998 = fadd float %996, %997
   store float %998, ptr %gep1357, align 4
@@ -51146,7 +51146,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %90 = zext nneg i32 %87 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %91 = sext i32 %89 to i64
-  %invariant.gep1331 = getelementptr float, ptr %3, i64 %90
+  %invariant.gep1331 = getelementptr inbounds float, ptr %3, i64 %90
   br label %.preheader1114
 
 92:                                               ; preds = %65, %92
@@ -51174,7 +51174,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %indvars.iv1206 = phi i64 [ 0, %.preheader1114 ], [ %indvars.iv.next1207, %102 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1206
   %103 = load float, ptr %gep, align 4
-  %gep1332 = getelementptr float, ptr %invariant.gep1331, i64 %indvars.iv1206
+  %gep1332 = getelementptr inbounds float, ptr %invariant.gep1331, i64 %indvars.iv1206
   %104 = load float, ptr %gep1332, align 4
   %105 = fadd float %103, %104
   %106 = add nuw nsw i64 %indvars.iv1206, %101
@@ -52496,7 +52496,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 
 .preheader.preheader:                             ; preds = %1148
   %1149 = zext nneg i32 %87 to i64
-  %invariant.gep1347 = getelementptr float, ptr %13, i64 %1149
+  %invariant.gep1347 = getelementptr inbounds float, ptr %13, i64 %1149
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1157
@@ -52509,7 +52509,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %1152 = add nuw nsw i64 %indvars.iv1290, %1150
   %1153 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1152
   %1154 = load float, ptr %1153, align 4
-  %gep1348 = getelementptr float, ptr %invariant.gep1347, i64 %indvars.iv1290
+  %gep1348 = getelementptr inbounds float, ptr %invariant.gep1347, i64 %indvars.iv1290
   %1155 = load float, ptr %gep1348, align 4
   %1156 = fadd float %1154, %1155
   store float %1156, ptr %gep1348, align 4
@@ -52605,7 +52605,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %65 = zext nneg i32 %54 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1151 = getelementptr float, ptr %3, i64 %65
+  %invariant.gep1151 = getelementptr inbounds float, ptr %3, i64 %65
   br label %.preheader944
 
 .preheader948:                                    ; preds = %234
@@ -52831,7 +52831,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %indvars.iv = phi i64 [ 0, %.preheader944 ], [ %indvars.iv.next, %228 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %229 = load float, ptr %gep, align 4
-  %gep1152 = getelementptr float, ptr %invariant.gep1151, i64 %indvars.iv
+  %gep1152 = getelementptr inbounds float, ptr %invariant.gep1151, i64 %indvars.iv
   %230 = load float, ptr %gep1152, align 4
   %231 = fadd float %229, %230
   %232 = add nuw nsw i64 %indvars.iv, %227
@@ -53694,7 +53694,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 
 .preheader.preheader:                             ; preds = %893
   %894 = zext nneg i32 %54 to i64
-  %invariant.gep1167 = getelementptr float, ptr %12, i64 %894
+  %invariant.gep1167 = getelementptr inbounds float, ptr %12, i64 %894
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %902
@@ -53707,7 +53707,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %897 = add nuw nsw i64 %indvars.iv1115, %895
   %898 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %897
   %899 = load float, ptr %898, align 4
-  %gep1168 = getelementptr float, ptr %invariant.gep1167, i64 %indvars.iv1115
+  %gep1168 = getelementptr inbounds float, ptr %invariant.gep1167, i64 %indvars.iv1115
   %900 = load float, ptr %gep1168, align 4
   %901 = fadd float %899, %900
   store float %901, ptr %gep1168, align 4
@@ -53813,7 +53813,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %76 = zext nneg i32 %66 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1412 = getelementptr float, ptr %3, i64 %76
+  %invariant.gep1412 = getelementptr inbounds float, ptr %3, i64 %76
   br label %.preheader1150
 
 .preheader1150:                                   ; preds = %62, %87
@@ -53828,7 +53828,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %indvars.iv = phi i64 [ 0, %.preheader1150 ], [ %indvars.iv.next, %81 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %82 = load float, ptr %gep, align 4
-  %gep1413 = getelementptr float, ptr %invariant.gep1412, i64 %indvars.iv
+  %gep1413 = getelementptr inbounds float, ptr %invariant.gep1412, i64 %indvars.iv
   %83 = load float, ptr %gep1413, align 4
   %84 = fadd float %82, %83
   %85 = add nuw nsw i64 %indvars.iv, %80
@@ -55104,7 +55104,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 .preheader.preheader:                             ; preds = %1068
   %1069 = zext nneg i32 %66 to i64
-  %invariant.gep1428 = getelementptr float, ptr %12, i64 %1069
+  %invariant.gep1428 = getelementptr inbounds float, ptr %12, i64 %1069
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1077
@@ -55117,7 +55117,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %1072 = add nuw nsw i64 %indvars.iv1367, %1070
   %1073 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1072
   %1074 = load float, ptr %1073, align 4
-  %gep1429 = getelementptr float, ptr %invariant.gep1428, i64 %indvars.iv1367
+  %gep1429 = getelementptr inbounds float, ptr %invariant.gep1428, i64 %indvars.iv1367
   %1075 = load float, ptr %gep1429, align 4
   %1076 = fadd float %1074, %1075
   store float %1076, ptr %gep1429, align 4
@@ -55246,7 +55246,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %90 = zext nneg i32 %87 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %91 = sext i32 %89 to i64
-  %invariant.gep1403 = getelementptr float, ptr %3, i64 %90
+  %invariant.gep1403 = getelementptr inbounds float, ptr %3, i64 %90
   br label %.preheader1186
 
 92:                                               ; preds = %65, %92
@@ -55274,7 +55274,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %indvars.iv1278 = phi i64 [ 0, %.preheader1186 ], [ %indvars.iv.next1279, %102 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1278
   %103 = load float, ptr %gep, align 4
-  %gep1404 = getelementptr float, ptr %invariant.gep1403, i64 %indvars.iv1278
+  %gep1404 = getelementptr inbounds float, ptr %invariant.gep1403, i64 %indvars.iv1278
   %104 = load float, ptr %gep1404, align 4
   %105 = fadd float %103, %104
   %106 = add nuw nsw i64 %indvars.iv1278, %101
@@ -56674,7 +56674,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 
 .preheader.preheader:                             ; preds = %1226
   %1227 = zext nneg i32 %87 to i64
-  %invariant.gep1419 = getelementptr float, ptr %13, i64 %1227
+  %invariant.gep1419 = getelementptr inbounds float, ptr %13, i64 %1227
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1235
@@ -56687,7 +56687,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %1230 = add nuw nsw i64 %indvars.iv1362, %1228
   %1231 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1230
   %1232 = load float, ptr %1231, align 4
-  %gep1420 = getelementptr float, ptr %invariant.gep1419, i64 %indvars.iv1362
+  %gep1420 = getelementptr inbounds float, ptr %invariant.gep1419, i64 %indvars.iv1362
   %1233 = load float, ptr %gep1420, align 4
   %1234 = fadd float %1232, %1233
   store float %1234, ptr %gep1420, align 4

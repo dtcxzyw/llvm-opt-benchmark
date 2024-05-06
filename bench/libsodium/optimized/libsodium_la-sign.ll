@@ -114,7 +114,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_sign_ed25519(ptr noundef nonnull %sm, ptr noundef writeonly %smlen_p, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr noundef nonnull %sk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_sign_ed25519(ptr noundef nonnull %sm, ptr noundef writeonly %smlen_p, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr noundef nonnull %sk) local_unnamed_addr #0 {
 entry:
   %siglen = alloca i64, align 8
   %add.ptr = getelementptr i8, ptr %sm, i64 64

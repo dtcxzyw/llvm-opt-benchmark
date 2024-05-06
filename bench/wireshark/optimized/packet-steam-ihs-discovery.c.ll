@@ -336,7 +336,7 @@ steamdiscover_dissect_header.exit.thread:         ; preds = %26
   br i1 %exitcond.not.i.i, label %protobuf_iter_next.exit.i, label %47
 
 47:                                               ; preds = %46
-  %48 = trunc i64 %indvars.iv.i.i to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %49 = add i32 %45, %48
   %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #4
   %51 = and i8 %50, 127
@@ -387,7 +387,7 @@ protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
   br label %76
 
 66:                                               ; preds = %64
-  %67 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %7)
+  %67 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %7)
   %68 = load ptr, ptr %7, align 8
   %69 = zext nneg i8 %60 to i32
   %70 = icmp ult i8 %60, 6
@@ -418,7 +418,7 @@ protobuf_verify_wiretype.exit.i:                  ; preds = %71, %66
   br i1 %exitcond76.not.i, label %get_varint64.exit.i, label %78
 
 78:                                               ; preds = %77
-  %79 = trunc i64 %indvars.iv70.i to i32
+  %79 = trunc nuw nsw i64 %indvars.iv70.i to i32
   %80 = add i32 %61, %79
   %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %80) #4
   %82 = and i8 %81, 127
@@ -453,7 +453,7 @@ protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
   br label %103
 
 93:                                               ; preds = %91
-  %94 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6)
+  %94 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6)
   %95 = load ptr, ptr %6, align 8
   %96 = zext nneg i8 %60 to i32
   %97 = icmp ult i8 %60, 6
@@ -484,7 +484,7 @@ protobuf_verify_wiretype.exit27.i:                ; preds = %98, %93
   br i1 %exitcond69.not.i, label %get_varint64.exit30.i, label %105
 
 105:                                              ; preds = %104
-  %106 = trunc i64 %indvars.iv63.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %107 = add i32 %61, %106
   %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %107) #4
   %109 = and i8 %108, 127
@@ -519,7 +519,7 @@ protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
   br label %130
 
 120:                                              ; preds = %118
-  %121 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
+  %121 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
   %122 = load ptr, ptr %5, align 8
   %123 = zext nneg i8 %60 to i32
   %124 = icmp ult i8 %60, 6
@@ -550,7 +550,7 @@ protobuf_verify_wiretype.exit34.i:                ; preds = %125, %120
   br i1 %exitcond.not.i, label %get_varint64.exit37.i, label %132
 
 132:                                              ; preds = %131
-  %133 = trunc i64 %indvars.iv.i to i32
+  %133 = trunc nuw nsw i64 %indvars.iv.i to i32
   %134 = add i32 %61, %133
   %135 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %134) #4
   %136 = and i8 %135, 127
@@ -741,7 +741,7 @@ define internal fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %21
 
 21:                                               ; preds = %20
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %19, %22
   %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %23) #4
   %25 = and i8 %24, 127
@@ -791,7 +791,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %38
   br label %50
 
 40:                                               ; preds = %38
-  %41 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %41 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %42 = load ptr, ptr %7, align 8
   %43 = zext nneg i8 %34 to i32
   %44 = icmp ult i8 %34, 6
@@ -823,7 +823,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %40, %45
   br i1 %exitcond49.not, label %get_varint64.exit, label %53
 
 53:                                               ; preds = %52
-  %54 = trunc i64 %indvars.iv43 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv43 to i32
   %55 = add i32 %35, %54
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #4
   %57 = and i8 %56, 127
@@ -861,7 +861,7 @@ protobuf_verify_wiretype.exit22.thread:           ; preds = %68
   br label %80
 
 70:                                               ; preds = %68
-  %71 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %71 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %72 = load ptr, ptr %6, align 8
   %73 = zext nneg i8 %34 to i32
   %74 = icmp ult i8 %34, 6
@@ -893,7 +893,7 @@ protobuf_verify_wiretype.exit22:                  ; preds = %70, %75
   br i1 %exitcond.not, label %get_varint64.exit25, label %83
 
 83:                                               ; preds = %82
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = add i32 %35, %84
   %86 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %85) #4
   %87 = and i8 %86, 127
@@ -987,7 +987,7 @@ define internal fastcc void @steamdiscover_dissect_body_status(ptr noundef %0, p
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %38
 
 38:                                               ; preds = %37
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = add i32 %35, %39
   %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %40) #4
   %42 = and i8 %41, 127
@@ -1048,7 +1048,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %55
   br label %67
 
 57:                                               ; preds = %55
-  %58 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17)
+  %58 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17)
   %59 = load ptr, ptr %17, align 8
   %60 = zext nneg i8 %51 to i32
   %61 = icmp ult i8 %51, 6
@@ -1079,7 +1079,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %57, %62
   br i1 %exitcond360.not, label %get_varint64.exit, label %69
 
 69:                                               ; preds = %68
-  %70 = trunc i64 %indvars.iv354 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv354 to i32
   %71 = add i32 %52, %70
   %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %71) #4
   %73 = and i8 %72, 127
@@ -1115,7 +1115,7 @@ protobuf_verify_wiretype.exit103.thread:          ; preds = %83
   br label %95
 
 85:                                               ; preds = %83
-  %86 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
+  %86 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
   %87 = load ptr, ptr %16, align 8
   %88 = zext nneg i8 %51 to i32
   %89 = icmp ult i8 %51, 6
@@ -1146,7 +1146,7 @@ protobuf_verify_wiretype.exit103:                 ; preds = %85, %90
   br i1 %exitcond353.not, label %get_varint64.exit106, label %97
 
 97:                                               ; preds = %96
-  %98 = trunc i64 %indvars.iv347 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv347 to i32
   %99 = add i32 %52, %98
   %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %99) #4
   %101 = and i8 %100, 127
@@ -1182,7 +1182,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %111
   br label %123
 
 113:                                              ; preds = %111
-  %114 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
+  %114 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
   %115 = load ptr, ptr %15, align 8
   %116 = zext nneg i8 %51 to i32
   %117 = icmp ult i8 %51, 6
@@ -1213,7 +1213,7 @@ protobuf_verify_wiretype.exit110:                 ; preds = %113, %118
   br i1 %exitcond346.not, label %get_varint64.exit113, label %125
 
 125:                                              ; preds = %124
-  %126 = trunc i64 %indvars.iv340 to i32
+  %126 = trunc nuw nsw i64 %indvars.iv340 to i32
   %127 = add i32 %52, %126
   %128 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %127) #4
   %129 = and i8 %128, 127
@@ -1255,7 +1255,7 @@ get_varint64.exit113:                             ; preds = %124, %get_varint64.
   br i1 %exitcond339.not, label %get_varint64.exit116, label %143
 
 143:                                              ; preds = %142
-  %144 = trunc i64 %indvars.iv333 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv333 to i32
   %145 = add i32 %52, %144
   %146 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %145) #4
   %147 = and i8 %146, 127
@@ -1309,7 +1309,7 @@ protobuf_verify_wiretype.exit120.thread:          ; preds = %165
   br label %177
 
 167:                                              ; preds = %165
-  %168 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
+  %168 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
   %169 = load ptr, ptr %14, align 8
   %170 = zext nneg i8 %51 to i32
   %171 = icmp ult i8 %51, 6
@@ -1340,7 +1340,7 @@ protobuf_verify_wiretype.exit120:                 ; preds = %167, %172
   br i1 %exitcond332.not, label %get_varint64.exit123, label %179
 
 179:                                              ; preds = %178
-  %180 = trunc i64 %indvars.iv326 to i32
+  %180 = trunc nuw nsw i64 %indvars.iv326 to i32
   %181 = add i32 %52, %180
   %182 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %181) #4
   %183 = and i8 %182, 127
@@ -1376,7 +1376,7 @@ protobuf_verify_wiretype.exit127.thread:          ; preds = %193
   br label %205
 
 195:                                              ; preds = %193
-  %196 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
+  %196 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %197 = load ptr, ptr %13, align 8
   %198 = zext nneg i8 %51 to i32
   %199 = icmp ult i8 %51, 6
@@ -1407,7 +1407,7 @@ protobuf_verify_wiretype.exit127:                 ; preds = %195, %200
   br i1 %exitcond325.not, label %get_varint64.exit130, label %207
 
 207:                                              ; preds = %206
-  %208 = trunc i64 %indvars.iv319 to i32
+  %208 = trunc nuw nsw i64 %indvars.iv319 to i32
   %209 = add i32 %52, %208
   %210 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %209) #4
   %211 = and i8 %210, 127
@@ -1443,7 +1443,7 @@ protobuf_verify_wiretype.exit134.thread:          ; preds = %221
   br label %233
 
 223:                                              ; preds = %221
-  %224 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
+  %224 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %225 = load ptr, ptr %12, align 8
   %226 = zext nneg i8 %51 to i32
   %227 = icmp ult i8 %51, 6
@@ -1474,7 +1474,7 @@ protobuf_verify_wiretype.exit134:                 ; preds = %223, %228
   br i1 %exitcond318.not, label %get_varint64.exit137, label %235
 
 235:                                              ; preds = %234
-  %236 = trunc i64 %indvars.iv312 to i32
+  %236 = trunc nuw nsw i64 %indvars.iv312 to i32
   %237 = add i32 %52, %236
   %238 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %237) #4
   %239 = and i8 %238, 127
@@ -1517,7 +1517,7 @@ get_varint64.exit137:                             ; preds = %234, %get_varint64.
   br i1 %exitcond304.not, label %get_varint64.exit140, label %253
 
 253:                                              ; preds = %252
-  %254 = trunc i64 %indvars.iv298 to i32
+  %254 = trunc nuw nsw i64 %indvars.iv298 to i32
   %255 = add i32 %52, %254
   %256 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %255) #4
   %257 = and i8 %256, 127
@@ -1564,7 +1564,7 @@ get_varint64.exit140:                             ; preds = %252, %get_varint64.
   br i1 %exitcond.not.i144, label %protobuf_iter_next.exit152, label %275
 
 275:                                              ; preds = %274
-  %276 = trunc i64 %indvars.iv.i142 to i32
+  %276 = trunc nuw nsw i64 %indvars.iv.i142 to i32
   %277 = add i32 %273, %276
   %278 = call zeroext i8 @tvb_get_guint8(ptr noundef %270, i32 noundef %277) #4
   %279 = and i8 %278, 127
@@ -1614,7 +1614,7 @@ protobuf_verify_wiretype.exit156.thread:          ; preds = %292
   br label %304
 
 294:                                              ; preds = %292
-  %295 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %11)
+  %295 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %11)
   %296 = load ptr, ptr %11, align 8
   %297 = zext nneg i8 %288 to i32
   %298 = icmp ult i8 %288, 6
@@ -1652,7 +1652,7 @@ protobuf_verify_wiretype.exit160.thread:          ; preds = %309
   br label %321
 
 311:                                              ; preds = %309
-  %312 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %10)
+  %312 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %10)
   %313 = load ptr, ptr %10, align 8
   %314 = zext nneg i8 %288 to i32
   %315 = icmp ult i8 %288, 6
@@ -1684,7 +1684,7 @@ protobuf_verify_wiretype.exit160:                 ; preds = %311, %316
   br i1 %exitcond311.not, label %get_varint64.exit163, label %324
 
 324:                                              ; preds = %323
-  %325 = trunc i64 %indvars.iv305 to i32
+  %325 = trunc nuw nsw i64 %indvars.iv305 to i32
   %326 = add i32 %289, %325
   %327 = call zeroext i8 @tvb_get_guint8(ptr noundef %270, i32 noundef %326) #4
   %328 = and i8 %327, 127
@@ -1735,7 +1735,7 @@ protobuf_verify_wiretype.exit167.thread:          ; preds = %345
   br label %357
 
 347:                                              ; preds = %345
-  %348 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %348 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %349 = load ptr, ptr %9, align 8
   %350 = zext nneg i8 %51 to i32
   %351 = icmp ult i8 %51, 6
@@ -1766,7 +1766,7 @@ protobuf_verify_wiretype.exit167:                 ; preds = %347, %352
   br i1 %exitcond297.not, label %get_varint64.exit170, label %359
 
 359:                                              ; preds = %358
-  %360 = trunc i64 %indvars.iv291 to i32
+  %360 = trunc nuw nsw i64 %indvars.iv291 to i32
   %361 = add i32 %52, %360
   %362 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %361) #4
   %363 = and i8 %362, 127
@@ -1802,7 +1802,7 @@ protobuf_verify_wiretype.exit174.thread:          ; preds = %373
   br label %385
 
 375:                                              ; preds = %373
-  %376 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %376 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %377 = load ptr, ptr %8, align 8
   %378 = zext nneg i8 %51 to i32
   %379 = icmp ult i8 %51, 6
@@ -1833,7 +1833,7 @@ protobuf_verify_wiretype.exit174:                 ; preds = %375, %380
   br i1 %exitcond290.not, label %get_varint64.exit177, label %387
 
 387:                                              ; preds = %386
-  %388 = trunc i64 %indvars.iv284 to i32
+  %388 = trunc nuw nsw i64 %indvars.iv284 to i32
   %389 = add i32 %52, %388
   %390 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %389) #4
   %391 = and i8 %390, 127
@@ -1870,7 +1870,7 @@ protobuf_verify_wiretype.exit181.thread:          ; preds = %400
   br label %412
 
 402:                                              ; preds = %400
-  %403 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %403 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %404 = load ptr, ptr %7, align 8
   %405 = zext nneg i8 %51 to i32
   %406 = icmp ult i8 %51, 6
@@ -1901,7 +1901,7 @@ protobuf_verify_wiretype.exit181:                 ; preds = %402, %407
   br i1 %exitcond283.not, label %get_varint64.exit184, label %414
 
 414:                                              ; preds = %413
-  %415 = trunc i64 %indvars.iv277 to i32
+  %415 = trunc nuw nsw i64 %indvars.iv277 to i32
   %416 = add i32 %52, %415
   %417 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %416) #4
   %418 = and i8 %417, 127
@@ -1938,7 +1938,7 @@ protobuf_verify_wiretype.exit188.thread:          ; preds = %428
   br label %440
 
 430:                                              ; preds = %428
-  %431 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %431 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %432 = load ptr, ptr %6, align 8
   %433 = zext nneg i8 %51 to i32
   %434 = icmp ult i8 %51, 6
@@ -1969,7 +1969,7 @@ protobuf_verify_wiretype.exit188:                 ; preds = %430, %435
   br i1 %exitcond276.not, label %get_varint64.exit191, label %442
 
 442:                                              ; preds = %441
-  %443 = trunc i64 %indvars.iv270 to i32
+  %443 = trunc nuw nsw i64 %indvars.iv270 to i32
   %444 = add i32 %52, %443
   %445 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %444) #4
   %446 = and i8 %445, 127
@@ -2012,7 +2012,7 @@ get_varint64.exit191:                             ; preds = %441, %get_varint64.
   br i1 %exitcond.not, label %get_varint64.exit194, label %460
 
 460:                                              ; preds = %459
-  %461 = trunc i64 %indvars.iv to i32
+  %461 = trunc nuw nsw i64 %indvars.iv to i32
   %462 = add i32 %52, %461
   %463 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %462) #4
   %464 = and i8 %463, 127
@@ -2088,7 +2088,7 @@ define internal fastcc void @steamdiscover_dissect_body_authrequest(ptr noundef 
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %22 = add i32 %18, %21
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %24 = and i8 %23, 127
@@ -2146,7 +2146,7 @@ protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.e
   br i1 %exitcond71.not, label %get_varint64.exit, label %41
 
 41:                                               ; preds = %40
-  %42 = trunc i64 %indvars.iv65 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv65 to i32
   %43 = add i32 %34, %42
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #4
   %45 = and i8 %44, 127
@@ -2191,7 +2191,7 @@ get_varint64.exit:                                ; preds = %40, %get_varint64.e
   br i1 %exitcond64.not, label %get_varint64.exit34, label %61
 
 61:                                               ; preds = %60
-  %62 = trunc i64 %indvars.iv58 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv58 to i32
   %63 = add i32 %34, %62
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #4
   %65 = and i8 %64, 127
@@ -2252,7 +2252,7 @@ get_varint64.exit34:                              ; preds = %60, %get_varint64.e
   br i1 %exitcond.not, label %get_varint64.exit37, label %87
 
 87:                                               ; preds = %86
-  %88 = trunc i64 %indvars.iv to i32
+  %88 = trunc nuw nsw i64 %indvars.iv to i32
   %89 = add i32 %34, %88
   %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %89) #4
   %91 = and i8 %90, 127
@@ -2328,7 +2328,7 @@ define internal fastcc void @steamdiscover_dissect_body_authresponse(ptr noundef
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %22 = add i32 %18, %21
   %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %24 = and i8 %23, 127
@@ -2376,7 +2376,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   br label %49
 
 39:                                               ; preds = %37
-  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
   %43 = icmp ult i8 %33, 6
@@ -2408,7 +2408,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   br i1 %exitcond.not, label %get_varint64.exit, label %52
 
 52:                                               ; preds = %51
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = add i32 %34, %53
   %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #4
   %56 = and i8 %55, 127
@@ -2491,7 +2491,7 @@ define internal fastcc void @steamdiscover_dissect_body_streamingrequest(ptr nou
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %27
 
 27:                                               ; preds = %26
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = add i32 %25, %28
   %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #4
   %31 = and i8 %30, 127
@@ -2550,7 +2550,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %44
   br label %56
 
 46:                                               ; preds = %44
-  %47 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
+  %47 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %48 = load ptr, ptr %13, align 8
   %49 = zext nneg i8 %40 to i32
   %50 = icmp ult i8 %40, 6
@@ -2582,7 +2582,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %46, %51
   br i1 %exitcond249.not, label %get_varint64.exit, label %59
 
 59:                                               ; preds = %58
-  %60 = trunc i64 %indvars.iv243 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv243 to i32
   %61 = add i32 %41, %60
   %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #4
   %63 = and i8 %62, 127
@@ -2620,7 +2620,7 @@ protobuf_verify_wiretype.exit73.thread:           ; preds = %74
   br label %86
 
 76:                                               ; preds = %74
-  %77 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
+  %77 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %78 = load ptr, ptr %12, align 8
   %79 = zext nneg i8 %40 to i32
   %80 = icmp ult i8 %40, 6
@@ -2652,7 +2652,7 @@ protobuf_verify_wiretype.exit73:                  ; preds = %76, %81
   br i1 %exitcond242.not, label %get_varint64.exit76, label %89
 
 89:                                               ; preds = %88
-  %90 = trunc i64 %indvars.iv236 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv236 to i32
   %91 = add i32 %41, %90
   %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %91) #4
   %93 = and i8 %92, 127
@@ -2688,7 +2688,7 @@ protobuf_verify_wiretype.exit80.thread:           ; preds = %103
   br label %115
 
 105:                                              ; preds = %103
-  %106 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
+  %106 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
   %107 = load ptr, ptr %11, align 8
   %108 = zext nneg i8 %40 to i32
   %109 = icmp ult i8 %40, 6
@@ -2720,7 +2720,7 @@ protobuf_verify_wiretype.exit80:                  ; preds = %105, %110
   br i1 %exitcond235.not, label %get_varint64.exit83, label %118
 
 118:                                              ; preds = %117
-  %119 = trunc i64 %indvars.iv229 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv229 to i32
   %120 = add i32 %41, %119
   %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %120) #4
   %122 = and i8 %121, 127
@@ -2756,7 +2756,7 @@ protobuf_verify_wiretype.exit87.thread:           ; preds = %132
   br label %144
 
 134:                                              ; preds = %132
-  %135 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
+  %135 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
   %136 = load ptr, ptr %10, align 8
   %137 = zext nneg i8 %40 to i32
   %138 = icmp ult i8 %40, 6
@@ -2788,7 +2788,7 @@ protobuf_verify_wiretype.exit87:                  ; preds = %134, %139
   br i1 %exitcond228.not, label %get_varint64.exit90, label %147
 
 147:                                              ; preds = %146
-  %148 = trunc i64 %indvars.iv222 to i32
+  %148 = trunc nuw nsw i64 %indvars.iv222 to i32
   %149 = add i32 %41, %148
   %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #4
   %151 = and i8 %150, 127
@@ -2831,7 +2831,7 @@ get_varint64.exit90:                              ; preds = %146, %get_varint64.
   br i1 %exitcond221.not, label %get_varint64.exit93, label %165
 
 165:                                              ; preds = %164
-  %166 = trunc i64 %indvars.iv215 to i32
+  %166 = trunc nuw nsw i64 %indvars.iv215 to i32
   %167 = add i32 %41, %166
   %168 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %167) #4
   %169 = and i8 %168, 127
@@ -2869,7 +2869,7 @@ protobuf_verify_wiretype.exit97.thread:           ; preds = %181
   br label %193
 
 183:                                              ; preds = %181
-  %184 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %184 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %185 = load ptr, ptr %9, align 8
   %186 = zext nneg i8 %40 to i32
   %187 = icmp ult i8 %40, 6
@@ -2901,7 +2901,7 @@ protobuf_verify_wiretype.exit97:                  ; preds = %183, %188
   br i1 %exitcond214.not, label %get_varint64.exit100, label %196
 
 196:                                              ; preds = %195
-  %197 = trunc i64 %indvars.iv208 to i32
+  %197 = trunc nuw nsw i64 %indvars.iv208 to i32
   %198 = add i32 %41, %197
   %199 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %198) #4
   %200 = and i8 %199, 127
@@ -2945,7 +2945,7 @@ get_varint64.exit100:                             ; preds = %195, %get_varint64.
   br i1 %exitcond207.not, label %get_varint64.exit103, label %214
 
 214:                                              ; preds = %213
-  %215 = trunc i64 %indvars.iv201 to i32
+  %215 = trunc nuw nsw i64 %indvars.iv201 to i32
   %216 = add i32 %41, %215
   %217 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %216) #4
   %218 = and i8 %217, 127
@@ -2990,7 +2990,7 @@ get_varint64.exit103:                             ; preds = %213, %get_varint64.
   br i1 %exitcond200.not, label %get_varint64.exit106, label %234
 
 234:                                              ; preds = %233
-  %235 = trunc i64 %indvars.iv194 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv194 to i32
   %236 = add i32 %41, %235
   %237 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %236) #4
   %238 = and i8 %237, 127
@@ -3028,7 +3028,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %250
   br label %262
 
 252:                                              ; preds = %250
-  %253 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %253 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %254 = load ptr, ptr %8, align 8
   %255 = zext nneg i8 %40 to i32
   %256 = icmp ult i8 %40, 6
@@ -3060,7 +3060,7 @@ protobuf_verify_wiretype.exit110:                 ; preds = %252, %257
   br i1 %exitcond193.not, label %get_varint64.exit113, label %265
 
 265:                                              ; preds = %264
-  %266 = trunc i64 %indvars.iv187 to i32
+  %266 = trunc nuw nsw i64 %indvars.iv187 to i32
   %267 = add i32 %41, %266
   %268 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %267) #4
   %269 = and i8 %268, 127
@@ -3097,7 +3097,7 @@ protobuf_verify_wiretype.exit117.thread:          ; preds = %279
   br label %291
 
 281:                                              ; preds = %279
-  %282 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %282 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %283 = load ptr, ptr %7, align 8
   %284 = zext nneg i8 %40 to i32
   %285 = icmp ult i8 %40, 6
@@ -3129,7 +3129,7 @@ protobuf_verify_wiretype.exit117:                 ; preds = %281, %286
   br i1 %exitcond186.not, label %get_varint64.exit120, label %294
 
 294:                                              ; preds = %293
-  %295 = trunc i64 %indvars.iv180 to i32
+  %295 = trunc nuw nsw i64 %indvars.iv180 to i32
   %296 = add i32 %41, %295
   %297 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %296) #4
   %298 = and i8 %297, 127
@@ -3166,7 +3166,7 @@ protobuf_verify_wiretype.exit124.thread:          ; preds = %308
   br label %320
 
 310:                                              ; preds = %308
-  %311 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %311 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %312 = load ptr, ptr %6, align 8
   %313 = zext nneg i8 %40 to i32
   %314 = icmp ult i8 %40, 6
@@ -3198,7 +3198,7 @@ protobuf_verify_wiretype.exit124:                 ; preds = %310, %315
   br i1 %exitcond.not, label %get_varint64.exit127, label %323
 
 323:                                              ; preds = %322
-  %324 = trunc i64 %indvars.iv to i32
+  %324 = trunc nuw nsw i64 %indvars.iv to i32
   %325 = add i32 %41, %324
   %326 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %325) #4
   %327 = and i8 %326, 127
@@ -3273,7 +3273,7 @@ define internal fastcc void @steamdiscover_dissect_body_streamingcancelrequest(p
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %22 = add i32 %18, %21
   %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %24 = and i8 %23, 127
@@ -3321,7 +3321,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   br label %49
 
 39:                                               ; preds = %37
-  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
   %43 = icmp ult i8 %33, 6
@@ -3353,7 +3353,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   br i1 %exitcond.not, label %get_varint64.exit, label %52
 
 52:                                               ; preds = %51
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = add i32 %34, %53
   %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #4
   %56 = and i8 %55, 127
@@ -3432,7 +3432,7 @@ define internal fastcc void @steamdiscover_dissect_body_streamingresponse(ptr no
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %23
 
 23:                                               ; preds = %22
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   %25 = add i32 %21, %24
   %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #4
   %27 = and i8 %26, 127
@@ -3485,7 +3485,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %40
   br label %52
 
 42:                                               ; preds = %40
-  %43 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %43 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %44 = load ptr, ptr %9, align 8
   %45 = zext nneg i8 %36 to i32
   %46 = icmp ult i8 %36, 6
@@ -3517,7 +3517,7 @@ protobuf_verify_wiretype.exit:                    ; preds = %42, %47
   br i1 %exitcond119.not, label %get_varint64.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = trunc i64 %indvars.iv113 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv113 to i32
   %57 = add i32 %37, %56
   %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #4
   %59 = and i8 %58, 127
@@ -3555,7 +3555,7 @@ protobuf_verify_wiretype.exit43.thread:           ; preds = %70
   br label %82
 
 72:                                               ; preds = %70
-  %73 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %73 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %74 = load ptr, ptr %8, align 8
   %75 = zext nneg i8 %36 to i32
   %76 = icmp ult i8 %36, 6
@@ -3587,7 +3587,7 @@ protobuf_verify_wiretype.exit43:                  ; preds = %72, %77
   br i1 %exitcond112.not, label %get_varint64.exit46, label %85
 
 85:                                               ; preds = %84
-  %86 = trunc i64 %indvars.iv106 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv106 to i32
   %87 = add i32 %37, %86
   %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #4
   %89 = and i8 %88, 127
@@ -3625,7 +3625,7 @@ protobuf_verify_wiretype.exit50.thread:           ; preds = %100
   br label %112
 
 102:                                              ; preds = %100
-  %103 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %103 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %104 = load ptr, ptr %7, align 8
   %105 = zext nneg i8 %36 to i32
   %106 = icmp ult i8 %36, 6
@@ -3657,7 +3657,7 @@ protobuf_verify_wiretype.exit50:                  ; preds = %102, %107
   br i1 %exitcond105.not, label %get_varint64.exit53, label %115
 
 115:                                              ; preds = %114
-  %116 = trunc i64 %indvars.iv99 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv99 to i32
   %117 = add i32 %37, %116
   %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #4
   %119 = and i8 %118, 127
@@ -3702,7 +3702,7 @@ get_varint64.exit53:                              ; preds = %114, %get_varint64.
   br i1 %exitcond98.not, label %get_varint64.exit56, label %134
 
 134:                                              ; preds = %133
-  %135 = trunc i64 %indvars.iv92 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv92 to i32
   %136 = add i32 %37, %135
   %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %136) #4
   %138 = and i8 %137, 127
@@ -3740,7 +3740,7 @@ protobuf_verify_wiretype.exit60.thread:           ; preds = %150
   br label %162
 
 152:                                              ; preds = %150
-  %153 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %153 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %154 = load ptr, ptr %6, align 8
   %155 = zext nneg i8 %36 to i32
   %156 = icmp ult i8 %36, 6
@@ -3772,7 +3772,7 @@ protobuf_verify_wiretype.exit60:                  ; preds = %152, %157
   br i1 %exitcond.not, label %get_varint64.exit63, label %165
 
 165:                                              ; preds = %164
-  %166 = trunc i64 %indvars.iv to i32
+  %166 = trunc nuw nsw i64 %indvars.iv to i32
   %167 = add i32 %37, %166
   %168 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %167) #4
   %169 = and i8 %168, 127
@@ -3844,7 +3844,7 @@ define internal fastcc void @steamdiscover_dissect_body_proofrequest(ptr noundef
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = add i32 %16, %19
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #4
   %22 = and i8 %21, 127
@@ -3899,7 +3899,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %exitcond.not, label %get_varint64.exit, label %39
 
 39:                                               ; preds = %38
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = add i32 %32, %40
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #4
   %43 = and i8 %42, 127
@@ -3973,7 +3973,7 @@ define internal fastcc void @steamdiscover_dissect_body_proofresponse(ptr nounde
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = add i32 %16, %19
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #4
   %22 = and i8 %21, 127
@@ -4028,7 +4028,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %exitcond.not, label %get_varint64.exit, label %39
 
 39:                                               ; preds = %38
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = add i32 %32, %40
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #4
   %43 = and i8 %42, 127
@@ -4102,7 +4102,7 @@ define internal fastcc void @steamdiscover_dissect_body_unknown(ptr noundef %0, 
   br i1 %exitcond.not.i, label %protobuf_iter_next.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = add i32 %16, %19
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #4
   %22 = and i8 %21, 127
@@ -4178,7 +4178,7 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef reado
   br i1 %exitcond.not, label %get_varint64.exit, label %19
 
 19:                                               ; preds = %18
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add i32 %15, %20
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %21) #4
   %23 = and i8 %22, 127
@@ -4216,7 +4216,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   br label %78
 
 42:                                               ; preds = %get_varint64.exit
-  %43 = trunc i64 %.1.i to i32
+  %43 = trunc nuw nsw i64 %.1.i to i32
   %44 = load i32, ptr %16, align 4
   %45 = sub i32 %44, %.1
   %46 = icmp slt i32 %45, %43
@@ -4304,7 +4304,7 @@ define internal fastcc i32 @protobuf_dissect_unknown_field(ptr nocapture noundef
   br i1 %exitcond82.not, label %get_varint64.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = trunc i64 %indvars.iv76 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv76 to i32
   %17 = add i32 %11, %16
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %9, i32 noundef %17) #4
   %19 = and i8 %18, 127
@@ -4384,7 +4384,7 @@ protobuf_get_wiretype_name.exit61:                ; preds = %38, %48
   br i1 %exitcond.not, label %get_varint64.exit64, label %60
 
 60:                                               ; preds = %59
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = add i32 %56, %61
   %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %54, i32 noundef %62) #4
   %64 = and i8 %63, 127

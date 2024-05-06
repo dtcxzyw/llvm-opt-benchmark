@@ -50002,7 +50002,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
   br label %111
 
 127:                                              ; preds = %122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !6695
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !6695
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !6686
   br label %236
 
@@ -50148,7 +50148,7 @@ common.resume.i:                                  ; preds = %240, %.thread166.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !6686
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !6686
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !noalias !6686
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17ha51b987ba5b15efeE"(ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17ha51b987ba5b15efeE"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !6686
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6686
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !6686
@@ -50338,7 +50338,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !6686
   store i8 %185, ptr %0, align 4, !alias.scope !6681, !noalias !6695
   %.sroa.4128.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.i, i64 15, i1 false), !noalias !6695
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.i, i64 15, i1 false), !noalias !6695
   %.sroa.5129.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %193, ptr %.sroa.5129.0..sroa_idx.i, align 4, !alias.scope !6681, !noalias !6695
   %.sroa.6130.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20
@@ -50748,7 +50748,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6743
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6743
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !6733
   br label %240
 
@@ -50895,7 +50895,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6733
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !6733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !6733
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h0912ef18acdbb1a7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h0912ef18acdbb1a7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !6733
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6733
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6733
@@ -51106,7 +51106,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6733
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !6733
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6743
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6743
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !6733
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !6733
@@ -51478,7 +51478,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6788
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6788
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !6778
   br label %240
 
@@ -51625,7 +51625,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6778
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !6778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !6778
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h9aafb0c3db6f5936E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h9aafb0c3db6f5936E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !6778
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6778
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6778
@@ -51836,7 +51836,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6778
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !6778
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6788
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6788
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !6778
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !6778
@@ -52207,7 +52207,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !6833
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !6833
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !6823
   br label %255
 
@@ -52354,7 +52354,7 @@ common.resume.i:                                  ; preds = %.thread162.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !6823
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !6823
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !6823
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h6e0eac435cc41d90E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h6e0eac435cc41d90E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !6823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !6823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !6823
@@ -52610,7 +52610,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6823
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !6823
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6833
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6833
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6823
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !6823
@@ -53026,7 +53026,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !6890
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !6890
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !6880
   br label %227
 
@@ -53173,7 +53173,7 @@ common.resume.i:                                  ; preds = %.thread153.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !6880
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !6880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !6880
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hbf5b4ff3c9cc13c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hbf5b4ff3c9cc13c4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !6880
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6880
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !6880
@@ -53353,7 +53353,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6880
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !6880
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !6890
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !6890
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !6880
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6880
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !6880
@@ -53771,7 +53771,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6932
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !6932
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !6922
   br label %240
 
@@ -53918,7 +53918,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6922
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !6922
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !6922
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hdf26c619a58a58c3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hdf26c619a58a58c3E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !6922
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6922
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6922
@@ -54129,7 +54129,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6922
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !6922
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6932
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !6932
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !6922
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !6922
@@ -54502,7 +54502,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false), !noalias !6977
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false), !noalias !6977
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !6967
   br label %255
 
@@ -54649,7 +54649,7 @@ common.resume.i:                                  ; preds = %.thread168.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !6967
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !6967
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !6967
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h76843702de2e0f09E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %175, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %86, i32 noundef %176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 8 %173, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h76843702de2e0f09E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %175, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %86, i32 noundef %176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 8 %173, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !6967
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !6967
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !6967
@@ -54903,7 +54903,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit114
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6967
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !6967
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6977
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !6977
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !6967
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !6967
@@ -55286,7 +55286,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
   br label %111
 
 127:                                              ; preds = %122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !7032
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !7032
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !7023
   br label %236
 
@@ -55432,7 +55432,7 @@ common.resume.i:                                  ; preds = %240, %.thread166.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7023
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !7023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !noalias !7023
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h0c2c68ffe14fbe89E"(ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h0c2c68ffe14fbe89E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !7023
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7023
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !7023
@@ -55622,7 +55622,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !7023
   store i8 %185, ptr %0, align 4, !alias.scope !7018, !noalias !7032
   %.sroa.4128.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.i, i64 15, i1 false), !noalias !7032
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4128.i, i64 15, i1 false), !noalias !7032
   %.sroa.5129.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %193, ptr %.sroa.5129.0..sroa_idx.i, align 4, !alias.scope !7018, !noalias !7032
   %.sroa.6130.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20
@@ -56032,7 +56032,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7080
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7080
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7070
   br label %240
 
@@ -56179,7 +56179,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7070
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7070
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7070
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h6975d9d09808bdb0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h6975d9d09808bdb0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7070
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7070
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7070
@@ -56390,7 +56390,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7070
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7070
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7080
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7080
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7070
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7070
@@ -56762,7 +56762,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7125
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7115
   br label %240
 
@@ -56909,7 +56909,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7115
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h1cd18e979b340455E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h1cd18e979b340455E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7115
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7115
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7115
@@ -57120,7 +57120,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7115
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7115
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7115
@@ -57492,7 +57492,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7170
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7160
   br label %240
 
@@ -57639,7 +57639,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7160
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h21f22bc21f976c3fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h21f22bc21f976c3fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7160
@@ -57850,7 +57850,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7160
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7160
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7160
@@ -58222,7 +58222,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7215
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7215
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7205
   br label %240
 
@@ -58369,7 +58369,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7205
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7205
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h63bc3706217ace6bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h63bc3706217ace6bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7205
@@ -58580,7 +58580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7205
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7215
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7205
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7205
@@ -58951,7 +58951,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7260
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !7250
   br label %255
 
@@ -59098,7 +59098,7 @@ common.resume.i:                                  ; preds = %.thread162.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !7250
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !7250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !7250
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17he0ea1075f8e33f7eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17he0ea1075f8e33f7eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !7250
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !7250
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !7250
@@ -59354,7 +59354,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7250
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !7250
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7250
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !7250
@@ -59772,7 +59772,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7317
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7307
   br label %240
 
@@ -59919,7 +59919,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7307
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7307
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h96beb35eb3b410acE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h96beb35eb3b410acE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7307
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7307
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7307
@@ -60130,7 +60130,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7307
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7317
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7307
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7307
@@ -60502,7 +60502,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7362
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7352
   br label %240
 
@@ -60649,7 +60649,7 @@ common.resume.i:                                  ; preds = %245, %.thread163.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7352
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7352
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hb88707f8788cbd70E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hb88707f8788cbd70E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7352
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7352
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7352
@@ -60860,7 +60860,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7352
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7352
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7362
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7352
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7352
@@ -61237,7 +61237,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7413
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7413
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7403
   br label %240
 
@@ -61384,7 +61384,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7403
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7403
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h9a7ddd666cb30c50E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h9a7ddd666cb30c50E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7403
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7403
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7403
@@ -61595,7 +61595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7403
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7403
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7413
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7413
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7403
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7403
@@ -61967,7 +61967,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7458
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7458
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7448
   br label %240
 
@@ -62114,7 +62114,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7448
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7448
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h108b9ff4838cc0e4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h108b9ff4838cc0e4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7448
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7448
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7448
@@ -62325,7 +62325,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7448
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7458
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7458
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7448
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7448
@@ -62697,7 +62697,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7503
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7493
   br label %240
 
@@ -62844,7 +62844,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7493
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7493
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7493
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hcce61ac0f2c6c28dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hcce61ac0f2c6c28dE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7493
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7493
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7493
@@ -63055,7 +63055,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7493
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7493
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7503
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7493
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7493
@@ -63426,7 +63426,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7548
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7548
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !7538
   br label %255
 
@@ -63573,7 +63573,7 @@ common.resume.i:                                  ; preds = %.thread162.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !7538
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !7538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !7538
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17he6a6ab9017dec34aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17he6a6ab9017dec34aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !7538
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !7538
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !7538
@@ -63829,7 +63829,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7538
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !7538
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7548
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7548
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7538
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !7538
@@ -64247,7 +64247,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7605
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7605
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !7595
   br label %242
 
@@ -64394,7 +64394,7 @@ common.resume.i:                                  ; preds = %.thread156.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7595
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !7595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false), !noalias !7595
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h77e5b7e52011843eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h77e5b7e52011843eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !7595
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7595
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7595
@@ -64614,7 +64614,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %236
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7595
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !7595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7605
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7605
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !7595
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7595
@@ -64986,7 +64986,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7650
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7650
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7640
   br label %240
 
@@ -65133,7 +65133,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7640
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7640
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h7d1e1ea267a1b462E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h7d1e1ea267a1b462E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7640
@@ -65344,7 +65344,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7640
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7640
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7650
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7650
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7640
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7640
@@ -66474,7 +66474,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7740
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7740
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7730
   br label %241
 
@@ -66621,7 +66621,7 @@ common.resume.i:                                  ; preds = %.thread156.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7730
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !7730
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !noalias !7730
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h2d91dd73671c4e38E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h2d91dd73671c4e38E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !7730
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7730
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7730
@@ -66837,7 +66837,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %235
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7730
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !7730
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7740
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7740
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7730
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.11.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7730
@@ -67207,7 +67207,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7785
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7785
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !7775
   br label %227
 
@@ -67354,7 +67354,7 @@ common.resume.i:                                  ; preds = %.thread153.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !7775
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !7775
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !noalias !7775
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h215155728102276bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h215155728102276bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !7775
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7775
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !7775
@@ -67534,7 +67534,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7775
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !7775
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7785
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7785
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !7775
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7775
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20), !noalias !7775
@@ -67952,7 +67952,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7827
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !7827
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !7817
   br label %240
 
@@ -68099,7 +68099,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7817
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !7817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !noalias !7817
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h78c0a9eae30575ceE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h78c0a9eae30575ceE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !7817
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7817
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7817
@@ -68314,7 +68314,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7817
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !7817
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7827
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7827
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !7817
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7817
@@ -68699,7 +68699,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
   br label %113
 
 129:                                              ; preds = %124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !7873
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !7873
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !7864
   br label %237
 
@@ -68844,7 +68844,7 @@ common.resume.i:                                  ; preds = %241, %.thread168.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !7864
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !7864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false), !noalias !7864
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17haeb7b55a20da9964E"(ptr noalias nocapture noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %86, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17haeb7b55a20da9964E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %86, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !7864
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7864
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !7864
@@ -69036,7 +69036,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !7864
   store i32 %194, ptr %0, align 4, !alias.scope !7859, !noalias !7873
   %.sroa.4128.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(22) %.sroa.4128.i, i64 22, i1 false), !noalias !7873
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(22) %.sroa.4128.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(22) %.sroa.4128.i, i64 22, i1 false), !noalias !7873
   %.sroa.5129.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 26
   store i8 %186, ptr %.sroa.5129.0..sroa_idx.i, align 2, !alias.scope !7859, !noalias !7873
   %.sroa.6130.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 27
@@ -69447,7 +69447,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7925
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7925
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7915
   br label %240
 
@@ -69594,7 +69594,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7915
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7915
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7915
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hca29893b60d386e6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hca29893b60d386e6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7915
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7915
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7915
@@ -69805,7 +69805,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7915
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7915
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7925
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7925
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7915
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7915
@@ -70177,7 +70177,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7970
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !7970
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !7960
   br label %240
 
@@ -70324,7 +70324,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !7960
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !7960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !7960
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hd0c18de637fdc797E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hd0c18de637fdc797E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !7960
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !7960
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7960
@@ -70535,7 +70535,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7960
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !7960
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7970
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !7970
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !7960
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !7960
@@ -70907,7 +70907,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8015
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8015
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8005
   br label %240
 
@@ -71054,7 +71054,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8005
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8005
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8005
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4f60b80cd12dc506E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4f60b80cd12dc506E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8005
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8005
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8005
@@ -71265,7 +71265,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8005
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8005
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8015
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8015
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8005
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8005
@@ -71637,7 +71637,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8060
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8060
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8050
   br label %242
 
@@ -71784,7 +71784,7 @@ common.resume.i:                                  ; preds = %.thread156.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8050
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !8050
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !noalias !8050
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4f774cd67efaeaa0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4f774cd67efaeaa0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !8050
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8050
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8050
@@ -72003,7 +72003,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %236
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8050
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !8050
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8060
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8050
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.11.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8050
@@ -72375,7 +72375,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8095
   br label %240
 
@@ -72522,7 +72522,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8095
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8095
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8095
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h5058857af2cee66aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h5058857af2cee66aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8095
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8095
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8095
@@ -72733,7 +72733,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8095
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8095
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8095
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8095
@@ -73105,7 +73105,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8150
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8150
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8140
   br label %240
 
@@ -73252,7 +73252,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8140
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8140
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h80630b0879e11fa0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h80630b0879e11fa0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8140
@@ -73463,7 +73463,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8140
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8150
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8140
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8140
@@ -73846,7 +73846,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
   br label %117
 
 134:                                              ; preds = %128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !8195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !8195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !8185
   br label %252
 
@@ -73993,7 +73993,7 @@ common.resume.i:                                  ; preds = %256, %.thread157.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8185
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !8185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false), !noalias !8185
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17ha106edc222971dcaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %181, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %91, i32 noundef %182, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %180, ptr noundef nonnull align 8 %179, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17ha106edc222971dcaE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %181, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %91, i32 noundef %182, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %180, ptr noundef nonnull align 8 %179, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !8185
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8185
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8185
@@ -74039,7 +74039,7 @@ common.resume.i:                                  ; preds = %256, %.thread157.i,
   %201 = icmp ne ptr %200, null
   call void @llvm.assume(i1 %201)
   %202 = shl i64 %197, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr nonnull align 4 %196, i64 %202, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr nonnull readonly align 4 %196, i64 %202, i1 false)
   %203 = icmp eq i64 %199, -9223372036854775808
   br i1 %203, label %"_ZN5salsa7derived4slot13Memo$LT$V$GT$12verify_value17h932c1ae1fcd3f3d0E.exit.thread.i", label %"_ZN5salsa7derived4slot13Memo$LT$V$GT$12verify_value17h932c1ae1fcd3f3d0E.exit.i"
 
@@ -74212,7 +74212,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %246
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8185
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !8185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !8195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !8195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !8185
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.13.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8185
@@ -74595,7 +74595,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8248
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8248
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8238
   br label %240
 
@@ -74742,7 +74742,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8238
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8238
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h00f876d0973b38cfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h00f876d0973b38cfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8238
@@ -74953,7 +74953,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8238
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8248
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8248
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8238
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8238
@@ -75322,7 +75322,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %20, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false), !noalias !8294
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false), !noalias !8294
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !8285
   br label %235
 
@@ -75468,7 +75468,7 @@ common.resume.i:                                  ; preds = %239, %.thread166.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !8285
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false), !noalias !8285
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h28d5a4a14d68801bE"(ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 %172, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %83, i32 noundef %173, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %171, ptr noundef nonnull align 8 %170, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h28d5a4a14d68801bE"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 %172, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %83, i32 noundef %173, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %171, ptr noundef nonnull align 8 %170, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8285
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8285
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !8285
@@ -76073,7 +76073,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8342
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !8342
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8332
   br label %240
 
@@ -76220,7 +76220,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8332
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8332
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hfc86d44b367ffe66E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17hfc86d44b367ffe66E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %85, i32 noundef %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %173, ptr noundef nonnull align 8 %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8332
@@ -76431,7 +76431,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8332
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8342
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8342
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8332
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8332
@@ -76809,7 +76809,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock24try_lock_upgradable_fast17h959a58af0fbc3
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false), !noalias !8387
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false), !noalias !8387
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8377
   br label %243
 
@@ -76956,7 +76956,7 @@ common.resume.i:                                  ; preds = %.thread157.i, %"_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !8377
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !8377
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !8377
-  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4ffc9015b3ee6122E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %177, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %88, i32 noundef %178, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %176, ptr noundef nonnull align 8 %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  call fastcc void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$7execute17h4ffc9015b3ee6122E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %177, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %88, i32 noundef %178, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 %176, ptr noundef nonnull align 8 %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !8377
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8377
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !8377
@@ -77167,7 +77167,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
 "_ZN4core3ptr66drop_in_place$LT$salsa..runtime..local_state..ActiveQueryGuard$GT$17h14c204ca2789f977E.exit.i": ; preds = %237
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !8377
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !8377
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8387
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !8387
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !8377
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.10.i)
   call void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !8377
@@ -83416,7 +83416,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %109 = icmp ne ptr %108, null
   call void @llvm.assume(i1 %109)
   %110 = shl i64 %97, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %108, ptr nonnull align 4 %96, i64 %110, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %108, ptr nonnull readonly align 4 %96, i64 %110, i1 false)
   store i64 %107, ptr %14, align 8
   %.sroa.4103.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %108, ptr %.sroa.4103.0..sroa_idx, align 8
@@ -84624,7 +84624,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %100 = load i8, ptr %99, align 4, !noundef !343
   %101 = getelementptr inbounds i8, ptr %4, i64 24
   %102 = load i32, ptr %101, align 8, !range !2586, !noundef !343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %88, i64 16, i1 false)
   %103 = getelementptr inbounds i8, ptr %14, i64 20
   store i8 %100, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %14, i64 16
@@ -90458,7 +90458,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %97 = load i8, ptr %96, align 4, !noundef !343
   %98 = getelementptr inbounds i8, ptr %4, i64 24
   %99 = load i32, ptr %98, align 8, !range !2586, !noundef !343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %85, i64 16, i1 false)
   %100 = getelementptr inbounds i8, ptr %14, i64 20
   store i8 %97, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %14, i64 16
@@ -92493,7 +92493,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %103 = getelementptr inbounds i8, ptr %4, i64 24
   %104 = load i32, ptr %103, align 8, !range !2586, !noundef !343
   %105 = getelementptr inbounds i8, ptr %14, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %105, ptr noundef nonnull readonly align 8 dereferenceable(24) %100, i64 24, i1 false)
   %106 = getelementptr inbounds i8, ptr %14, i64 28
   store i8 %102, ptr %106, align 4
   store i32 %104, ptr %14, align 4
@@ -95616,7 +95616,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %100 = load i8, ptr %99, align 4, !noundef !343
   %101 = getelementptr inbounds i8, ptr %4, i64 24
   %102 = load i32, ptr %101, align 8, !range !2586, !noundef !343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %88, i64 16, i1 false)
   %103 = getelementptr inbounds i8, ptr %14, i64 20
   store i8 %100, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %14, i64 16
@@ -103685,7 +103685,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %112 = icmp ne ptr %111, null
   call void @llvm.assume(i1 %112)
   %113 = shl i64 %100, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr nonnull align 4 %99, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr nonnull readonly align 4 %99, i64 %113, i1 false)
   store i64 %110, ptr %14, align 8
   %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %111, ptr %.sroa.4104.0..sroa_idx, align 8
@@ -104875,7 +104875,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %100 = getelementptr inbounds i8, ptr %4, i64 24
   %101 = load i32, ptr %100, align 8, !range !2586, !noundef !343
   %102 = getelementptr inbounds i8, ptr %14, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %102, ptr noundef nonnull readonly align 8 dereferenceable(24) %97, i64 24, i1 false)
   %103 = getelementptr inbounds i8, ptr %14, i64 28
   store i8 %99, ptr %103, align 4
   store i32 %101, ptr %14, align 4
@@ -107328,7 +107328,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %97 = load i8, ptr %96, align 4, !noundef !343
   %98 = getelementptr inbounds i8, ptr %4, i64 24
   %99 = load i32, ptr %98, align 8, !range !2586, !noundef !343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %85, i64 16, i1 false)
   %100 = getelementptr inbounds i8, ptr %14, i64 20
   store i8 %97, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %14, i64 16
@@ -133281,7 +133281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit244
   %246 = icmp ne ptr %245, null
   call void @llvm.assume(i1 %246)
   %247 = shl i64 %241, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %245, ptr nonnull align 4 %240, i64 %247, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %245, ptr nonnull readonly align 4 %240, i64 %247, i1 false)
   store i64 %244, ptr %25, align 8
   %.sroa.4303.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %245, ptr %.sroa.4303.0..sroa_idx, align 8

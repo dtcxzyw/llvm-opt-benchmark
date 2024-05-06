@@ -339,7 +339,7 @@ define dso_local void @intel_engine_set_hwsp_writemask(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_clamp_heartbeat_interval_ms(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @intel_clamp_heartbeat_interval_ms(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @jiffies_to_msecs(i64 noundef 9223372036854775807) #18
   %4 = zext i32 %3 to i64
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
@@ -350,7 +350,7 @@ define dso_local i64 @intel_clamp_heartbeat_interval_ms(ptr nocapture noundef re
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_clamp_max_busywait_duration_ns(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967295001) i64 @intel_clamp_max_busywait_duration_ns(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @jiffies_to_usecs(i64 noundef 2) #18
   %4 = zext i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 1000
@@ -359,7 +359,7 @@ define dso_local i64 @intel_clamp_max_busywait_duration_ns(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_clamp_preempt_timeout_ms(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @intel_clamp_preempt_timeout_ms(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1897
@@ -374,7 +374,7 @@ define dso_local i64 @intel_clamp_preempt_timeout_ms(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_clamp_stop_timeout_ms(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @intel_clamp_stop_timeout_ms(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @jiffies_to_msecs(i64 noundef 9223372036854775807) #18
   %4 = zext i32 %3 to i64
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
@@ -382,7 +382,7 @@ define dso_local i64 @intel_clamp_stop_timeout_ms(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_clamp_timeslice_duration_ms(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @intel_clamp_timeslice_duration_ms(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1897
@@ -3225,7 +3225,7 @@ define dso_local i64 @intel_engine_get_last_batch_head(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_engine_stop_cs(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -110, 1) i32 @intel_engine_stop_cs(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7176

@@ -317,7 +317,7 @@ __archive_ensure_cloexec_flag.exit:               ; preds = %8, %4, %1
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_utility_string_sort(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_utility_string_sort(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -330,12 +330,12 @@ define dso_local i32 @archive_utility_string_sort(ptr nocapture noundef %0) loca
   br i1 %.not, label %7, label %2, !llvm.loop !5
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef nonnull %0, i32 noundef %.0), !range !7
+  %8 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef nonnull %0, i32 noundef %.0)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @archive_utility_string_sort_helper(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %43, label %4
 
@@ -395,10 +395,10 @@ define internal fastcc i32 @archive_utility_string_sort_helper(ptr nocapture nou
   store ptr %24, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %27, label %6, !llvm.loop !8
+  br i1 %exitcond.not, label %27, label %6, !llvm.loop !7
 
 27:                                               ; preds = %23
-  %28 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.164, i32 noundef %.160), !range !7
+  %28 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.164, i32 noundef %.160)
   %.not89 = icmp eq i32 %.160, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
 
@@ -414,14 +414,14 @@ define internal fastcc i32 @archive_utility_string_sort_helper(ptr nocapture nou
   store ptr %30, ptr %31, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count99, %.lr.ph ]
   tail call void @free(ptr noundef %.164) #17
   %32 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
   store ptr %5, ptr %32, align 8
-  %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.162, i32 noundef %.166), !range !7
+  %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.162, i32 noundef %.166)
   %.not90 = icmp eq i32 %.166, 0
   br i1 %.not90, label %._crit_edge88, label %.lr.ph87
 
@@ -441,7 +441,7 @@ define internal fastcc i32 @archive_utility_string_sort_helper(ptr nocapture nou
   store ptr %37, ptr %41, align 8
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge88, label %35, !llvm.loop !10
+  br i1 %exitcond105.not, label %._crit_edge88, label %35, !llvm.loop !9
 
 ._crit_edge88:                                    ; preds = %35, %._crit_edge
   tail call void @free(ptr noundef %.162) #17
@@ -508,7 +508,6 @@ attributes #20 = { nounwind allocsize(1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -30, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

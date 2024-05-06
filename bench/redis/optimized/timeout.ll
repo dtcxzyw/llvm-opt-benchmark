@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [20 x i8] c"timeout is negative\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkBlockedClientTimeout(ptr noundef %c, i64 noundef %now) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkBlockedClientTimeout(ptr noundef %c, i64 noundef %now) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -53,7 +53,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare void @unblockClientOnTimeout(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clientsCronHandleTimeout(ptr noundef %c, i64 noundef %now_ms) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clientsCronHandleTimeout(ptr noundef %c, i64 noundef %now_ms) local_unnamed_addr #0 {
 entry:
   %div = sdiv i64 %now_ms, 1000
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 157), align 4
@@ -305,7 +305,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getTimeoutFromObjectOrReply(ptr noundef %c, ptr noundef %object, ptr nocapture noundef writeonly %timeout, i32 noundef %unit) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %c, ptr noundef %object, ptr nocapture noundef writeonly %timeout, i32 noundef %unit) local_unnamed_addr #0 {
 entry:
   %tval = alloca i64, align 8
   %ftval = alloca x86_fp80, align 16

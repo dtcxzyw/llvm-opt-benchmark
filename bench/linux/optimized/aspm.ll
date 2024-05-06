@@ -832,7 +832,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %435 = select i1 %428, i32 536870912, i32 %432
   %436 = add nuw nsw i64 %433, %427
   %437 = lshr i64 %436, %434
-  %438 = trunc i64 %437 to i32
+  %438 = trunc nuw nsw i64 %437 to i32
   %439 = shl nuw nsw i32 %367, 8
   %440 = shl i32 %438, 16
   %441 = and i32 %440, 67043328
@@ -1456,7 +1456,7 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   br i1 %41, label %84, label %81
 
 81:                                               ; preds = %80
-  %82 = trunc i32 %45 to i16
+  %82 = trunc nuw nsw i32 %45 to i16
   %83 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %5, i32 noundef 16, i16 noundef zeroext 3, i16 noundef zeroext %82) #14
   br label %84
 
@@ -1467,7 +1467,7 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   br i1 %87, label %.loopexit, label %88
 
 88:                                               ; preds = %84
-  %89 = trunc i32 %43 to i16
+  %89 = trunc nuw nsw i32 %43 to i16
   br label %90
 
 90:                                               ; preds = %90, %88
@@ -1481,7 +1481,7 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   br i1 %41, label %95, label %98
 
 95:                                               ; preds = %.loopexit
-  %96 = trunc i32 %45 to i16
+  %96 = trunc nuw nsw i32 %45 to i16
   %97 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %5, i32 noundef 16, i16 noundef zeroext 3, i16 noundef zeroext %96) #14
   br label %98
 
@@ -1881,13 +1881,13 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_disable_link_state_locked(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_disable_link_state_locked(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @__pci_disable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true), !range !28
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__pci_disable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 100
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -2119,19 +2119,19 @@ define internal fastcc noundef i32 @__pci_disable_link_state(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_disable_link_state(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_disable_link_state(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @__pci_disable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false), !range !28
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_enable_link_state(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_enable_link_state(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @__pci_enable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false), !range !28
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__pci_enable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 100
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -2307,7 +2307,7 @@ define internal fastcc noundef i32 @__pci_enable_link_state(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_enable_link_state_locked(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_enable_link_state_locked(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @__pci_enable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true), !range !28
   ret i32 %3
 }
@@ -2656,7 +2656,7 @@ declare dso_local i32 @sysfs_update_group(ptr noundef, ptr noundef) local_unname
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcie_aspm_set_policy(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @pcie_aspm_set_policy(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = load i1, ptr @aspm_disabled, align 4
   br i1 %3, label %62, label %4
 
@@ -2819,7 +2819,7 @@ declare dso_local i32 @__sysfs_match_string(ptr noundef, i64 noundef, ptr nounde
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @clkpm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @clkpm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -2989,7 +2989,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @kstrtobool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l0s_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l0s_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -3160,7 +3160,7 @@ define internal fastcc noundef i64 @aspm_attr_store_common(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l1_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l1_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -3209,7 +3209,7 @@ define internal noundef i64 @l1_aspm_store(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l1_1_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l1_1_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -3258,7 +3258,7 @@ define internal noundef i64 @l1_1_aspm_store(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l1_2_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l1_2_aspm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -3307,7 +3307,7 @@ define internal noundef i64 @l1_2_aspm_store(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l1_1_pcipm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l1_1_pcipm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -3356,7 +3356,7 @@ define internal noundef i64 @l1_1_pcipm_store(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @l1_2_pcipm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @l1_2_pcipm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -84
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0

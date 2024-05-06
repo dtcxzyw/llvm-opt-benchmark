@@ -39,7 +39,7 @@ define dso_local noundef zeroext i1 @ItemPointerEquals(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ItemPointerCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @ItemPointerCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val12 = load i16, ptr %3, align 2

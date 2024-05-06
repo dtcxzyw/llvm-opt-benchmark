@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.lru_crawler_crawl = private unnamed_addr constant [3 x i32] [i32 4, i32 1, i32 3], align 4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @crawler_expired_init(ptr nocapture noundef writeonly %cm, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @crawler_expired_init(ptr nocapture noundef writeonly %cm, ptr noundef %data) #0 {
 entry:
   %cmp.not = icmp eq ptr %data, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -269,7 +269,7 @@ if.else61:                                        ; preds = %if.else55
   br i1 %cmp64, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %if.else61
-  %div.lhs.trunc = trunc i32 %sub63 to i16
+  %div.lhs.trunc = trunc nuw i32 %sub63 to i16
   %div37 = udiv i16 %div.lhs.trunc, 60
   %idxprom67 = zext nneg i16 %div37 to i64
   %arrayidx68 = getelementptr inbounds [61 x i64], ptr %arrayidx, i64 0, i64 %idxprom67
@@ -441,7 +441,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @lru_crawler_write(ptr noundef nonnull %c), !range !8
+  %call = tail call fastcc i32 @lru_crawler_write(ptr noundef nonnull %c)
   %buf = getelementptr inbounds i8, ptr %cm, i64 32
   %1 = load ptr, ptr %buf, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
@@ -550,7 +550,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @lru_crawler_write(ptr noundef nonnull %c), !range !8
+  %call = tail call fastcc i32 @lru_crawler_write(ptr noundef nonnull %c)
   %buf = getelementptr inbounds i8, ptr %cm, i64 32
   %1 = load ptr, ptr %buf, align 8
   store i32 168644165, ptr %1, align 1
@@ -565,7 +565,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @stop_item_crawler_thread(i1 noundef zeroext %wait) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @stop_item_crawler_thread(i1 noundef zeroext %wait) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_crawler_lock) #17
   %0 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
@@ -617,7 +617,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_item_crawler_thread() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @start_item_crawler_thread() local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 28), align 2
   %tobool = trunc i8 %0 to i1
@@ -714,7 +714,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end12.i
 
 if.then5.i:                                       ; preds = %if.then3.i
-  %call6.i = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1)), !range !8
+  %call6.i = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1))
   %cmp7.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.not.i, label %if.end12.i, label %item_crawl_hash.exit
 
@@ -753,7 +753,7 @@ while.cond.outer.backedge.i:                      ; preds = %if.end44.i, %if.the
   %items.0.ph.be.i = phi i32 [ %inc46.i, %if.end44.i ], [ %items.1.i, %if.else19.i ], [ %items.1.i, %if.then21.i ], [ %items.1.i, %if.then15.i ]
   %crawls_persleep.0.ph.be.i = phi i32 [ %dec45.i, %if.end44.i ], [ %crawls_persleep.0.ph12.i, %if.else19.i ], [ %crawls_persleep.0.ph12.i, %if.then21.i ], [ %13, %if.then15.i ]
   %call19.i = call zeroext i1 @assoc_iterate(ptr noundef %call.i, ptr noundef nonnull %it.i) #17
-  br i1 %call19.i, label %while.body.lr.ph.i, label %item_crawl_hash.exit, !llvm.loop !9
+  br i1 %call19.i, label %while.body.lr.ph.i, label %item_crawl_hash.exit, !llvm.loop !8
 
 if.end26.i:                                       ; preds = %while.body.i
   %refcount.i = getelementptr inbounds i8, ptr %7, i64 36
@@ -766,7 +766,7 @@ if.end26.i:                                       ; preds = %while.body.i
 if.then29.i:                                      ; preds = %if.end26.i
   store i16 %14, ptr %refcount.i, align 4
   %call1.i = call zeroext i1 @assoc_iterate(ptr noundef %call.i, ptr noundef nonnull %it.i) #17
-  br i1 %call1.i, label %while.body.i, label %item_crawl_hash.exit, !llvm.loop !9
+  br i1 %call1.i, label %while.body.i, label %item_crawl_hash.exit, !llvm.loop !8
 
 if.end31.i:                                       ; preds = %if.end26.i
   %15 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1), align 8
@@ -837,7 +837,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %cmp17, label %if.then19, label %if.end30
 
 if.then19:                                        ; preds = %if.then16
-  %call20 = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1)), !range !8
+  %call20 = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1))
   %cmp21.not = icmp eq i32 %call20, 0
   br i1 %cmp21.not, label %if.end30, label %if.then23
 
@@ -853,7 +853,7 @@ if.then23:                                        ; preds = %if.then19
   %28 = load i64, ptr %unfetched.i, align 8
   %checked.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %29 = load i64, ptr %checked.i, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   call void @do_item_stats_add_crawl(i32 noundef %30, i64 noundef %27, i64 noundef %28, i64 noundef %29) #17
   %arrayidx10.i = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
   %call.i31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx10.i) #17
@@ -886,7 +886,7 @@ if.then28:                                        ; preds = %if.else26
   %37 = load i64, ptr %unfetched.i38, align 8
   %checked.i39 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %38 = load i64, ptr %checked.i39, align 8
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   call void @do_item_stats_add_crawl(i32 noundef %39, i64 noundef %36, i64 noundef %37, i64 noundef %38) #17
   %arrayidx10.i40 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx10.i40) #17
@@ -925,12 +925,12 @@ if.then47:                                        ; preds = %land.lhs.true, %if.
   br i1 %cmp48, label %if.then50, label %if.then47.if.end52_crit_edge
 
 if.then47.if.end52_crit_edge:                     ; preds = %if.then47
-  %.pre80 = trunc i64 %indvars.iv to i32
+  %.pre80 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end52
 
 if.then50:                                        ; preds = %if.then47
   %44 = load ptr, ptr @stderr, align 8
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.18, i32 noundef %45) #18
   br label %if.end52
 
@@ -1014,7 +1014,7 @@ if.end88:                                         ; preds = %if.then84, %if.end7
   %61 = phi ptr [ %.pre, %if.then84 ], [ %59, %if.end79 ]
   %eval = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load ptr, ptr %eval, align 8
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   call void %62(ptr noundef nonnull @active_crawler_mod, ptr noundef nonnull %call36, i32 noundef %call58, i32 noundef %63) #17
   call void @item_trylock_unlock(ptr noundef nonnull %call59) #17
   %64 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 2), align 8
@@ -1059,7 +1059,7 @@ for.inc:                                          ; preds = %if.then.i57, %if.en
 
 for.body.backedge:                                ; preds = %for.inc, %while.cond6thread-pre-split
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %while.cond6thread-pre-split ]
-  br label %for.body, !llvm.loop !10
+  br label %for.body, !llvm.loop !9
 
 if.end116:                                        ; preds = %while.cond6thread-pre-split, %while.body, %item_crawl_hash.exit
   %crawls_persleep.4 = phi i32 [ %crawls_persleep.072, %item_crawl_hash.exit ], [ %crawls_persleep.072, %while.body ], [ %crawls_persleep.3, %while.cond6thread-pre-split ]
@@ -1086,13 +1086,13 @@ if.end124:                                        ; preds = %if.then122, %if.the
   br i1 %73, label %while.body130, label %while.end132
 
 while.body130:                                    ; preds = %if.end124, %while.body130
-  %call131 = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1)), !range !8
+  %call131 = call fastcc i32 @lru_crawler_write(ptr noundef nonnull getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1))
   %74 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1), align 8
   %cmp126 = icmp ne ptr %74, null
   %75 = load i32, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i64 0, i32 1, i32 3), align 8
   %cmp128 = icmp ne i32 %75, 0
   %76 = select i1 %cmp126, i1 %cmp128, i1 false
-  br i1 %76, label %while.body130, label %while.end132, !llvm.loop !11
+  br i1 %76, label %while.body130, label %while.end132, !llvm.loop !10
 
 while.end132:                                     ; preds = %while.body130, %if.end124
   %.lcssa = phi ptr [ %71, %if.end124 ], [ %74, %while.body130 ]
@@ -1127,7 +1127,7 @@ if.end142:                                        ; preds = %if.then140, %if.end
   call void @STATS_UNLOCK() #17
   %81 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
   %tobool.not = icmp eq i32 %81, 0
-  br i1 %tobool.not, label %while.end143, label %while.body, !llvm.loop !12
+  br i1 %tobool.not, label %while.end143, label %while.body, !llvm.loop !11
 
 while.end143:                                     ; preds = %if.end142, %if.end
   %call144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17
@@ -1240,12 +1240,12 @@ if.then.i.us:                                     ; preds = %if.then50.us
   br i1 %cmp4.i.us, label %if.then6.i.us, label %if.then.i.us.if.end.i20.us_crit_edge
 
 if.then.i.us.if.end.i20.us_crit_edge:             ; preds = %if.then.i.us
-  %.pre43 = trunc i64 %indvars.iv39 to i32
+  %.pre43 = trunc nuw nsw i64 %indvars.iv39 to i32
   br label %if.end.i20.us
 
 if.then6.i.us:                                    ; preds = %if.then.i.us
   %11 = load ptr, ptr @stderr, align 8
-  %12 = trunc i64 %indvars.iv39 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv39 to i32
   %call7.i.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.21, i32 noundef %12) #18
   br label %if.end.i20.us
 
@@ -1265,7 +1265,7 @@ if.end.i20.us:                                    ; preds = %if.then.i.us.if.end
   %spec.select.i.us = select i1 %tobool.not.i.us, i32 0, i32 %inc.i.us
   %remaining30.i.us = getelementptr inbounds i8, ptr %arrayidx2.i.us, i64 44
   store i32 %spec.select.i.us, ptr %remaining30.i.us, align 4
-  %conv31.i.us = trunc i32 %.pre-phi to i8
+  %conv31.i.us = trunc nuw i32 %.pre-phi to i8
   %slabs_clsid.i.us = getelementptr inbounds i8, ptr %arrayidx2.i.us, i64 40
   store i8 %conv31.i.us, ptr %slabs_clsid.i.us, align 8
   %reclaimed.i.us = getelementptr inbounds i8, ptr %arrayidx2.i.us, i64 48
@@ -1286,7 +1286,7 @@ for.inc.us:                                       ; preds = %do_lru_crawler_star
   %starts.1.us = phi i32 [ %add52.us, %do_lru_crawler_start.exit.us ], [ %starts.034.us, %for.body.us ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 256
-  br i1 %exitcond42.not, label %if.end54, label %for.body.us, !llvm.loop !13
+  br i1 %exitcond42.not, label %if.end54, label %for.body.us, !llvm.loop !12
 
 for.cond.preheader.split:                         ; preds = %for.cond.preheader
   %tobool.not.i = icmp eq i32 %remaining, 0
@@ -1379,12 +1379,12 @@ if.then.i:                                        ; preds = %if.then50
   br i1 %cmp4.i, label %if.then6.i, label %if.then.i.if.end.i20_crit_edge
 
 if.then.i.if.end.i20_crit_edge:                   ; preds = %if.then.i
-  %.pre44 = trunc i64 %indvars.iv to i32
+  %.pre44 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end.i20
 
 if.then6.i:                                       ; preds = %if.then.i
   %22 = load ptr, ptr @stderr, align 8
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %call7.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, i32 noundef %23) #18
   br label %if.end.i20
 
@@ -1400,7 +1400,7 @@ if.end.i20:                                       ; preds = %if.then.i.if.end.i2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i, i8 0, i64 16, i1 false)
   %remaining30.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 44
   store i32 %spec.select.i, ptr %remaining30.i, align 4
-  %conv31.i = trunc i32 %.pre-phi45 to i8
+  %conv31.i = trunc nuw i32 %.pre-phi45 to i8
   %slabs_clsid.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 40
   store i8 %conv31.i, ptr %slabs_clsid.i, align 8
   %reclaimed.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 48
@@ -1421,7 +1421,7 @@ for.inc:                                          ; preds = %for.body, %do_lru_c
   %starts.1 = phi i32 [ %add52, %do_lru_crawler_start.exit ], [ %starts.034, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %if.end54, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %if.end54, label %for.body, !llvm.loop !12
 
 if.end54:                                         ; preds = %for.inc, %for.inc.us
   %.us-phi = phi i32 [ %starts.1.us, %for.inc.us ], [ %starts.1, %for.inc ]
@@ -1454,7 +1454,7 @@ declare void @STATS_LOCK() local_unnamed_addr #2
 declare void @STATS_UNLOCK() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lru_crawler_crawl(ptr noundef %slabs, i32 noundef %type, ptr noundef %c, i32 noundef %sfd, i32 noundef %remaining) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %slabs, i32 noundef %type, ptr noundef %c, i32 noundef %sfd, i32 noundef %remaining) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   %sid = alloca i32, align 4
@@ -1508,7 +1508,7 @@ if.end:                                           ; preds = %for.body9
   store i8 1, ptr %arrayidx25, align 1
   %call27 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %b) #17
   %cmp8.not = icmp eq ptr %call27, null
-  br i1 %cmp8.not, label %if.end30, label %for.body9, !llvm.loop !14
+  br i1 %cmp8.not, label %if.end30, label %for.body9, !llvm.loop !13
 
 if.end30:                                         ; preds = %if.end, %if.else5, %for.body.preheader, %if.else
   %hash_crawl.0 = phi ptr [ null, %if.else ], [ %tocrawl, %for.body.preheader ], [ %tocrawl, %if.else5 ], [ %tocrawl, %if.end ]
@@ -1595,7 +1595,7 @@ declare zeroext i1 @uriencode(ptr noundef, ptr noundef, i64 noundef, i64 noundef
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lru_crawler_write(ptr nocapture noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr nocapture noundef %c) unnamed_addr #0 {
 entry:
   %to_poll = alloca [1 x %struct.pollfd], align 4
   %buf = alloca [1 x i8], align 1
@@ -1719,7 +1719,7 @@ if.end69:                                         ; preds = %if.then45, %if.then
 if.end71:                                         ; preds = %if.else, %if.end69
   %sent.1 = phi i32 [ %add, %if.end69 ], [ %sent.023, %if.else ]
   %cmp6 = icmp ult i32 %sent.1, %0
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !15
+  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end71
   store i32 0, ptr %bufused, align 8
@@ -1831,11 +1831,10 @@ attributes #22 = { nounwind willreturn memory(none) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

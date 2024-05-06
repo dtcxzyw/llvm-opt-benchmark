@@ -239,7 +239,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   %38 = add i64 %.0410.i, -1
   %39 = icmp ult i16 %32, 12
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr i8, ptr %36, i64 8
+  %40 = getelementptr inbounds i8, ptr %36, i64 8
   %41 = load ptr, ptr %40, align 8, !noalias !14, !nonnull !7, !noundef !7
   %42 = getelementptr inbounds i8, ptr %41, i64 186
   %43 = load i16, ptr %42, align 2, !noundef !7
@@ -284,7 +284,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
 _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ; preds = %51
   %60 = getelementptr inbounds { [2 x i64] }, ptr %37, i64 %56
   %61 = shl nuw nsw i64 %57, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %60, i64 %61, i1 false), !alias.scope !21, !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %41, ptr nonnull readonly align 8 %60, i64 %61, i1 false), !alias.scope !21, !noalias !18
   %62 = getelementptr inbounds { [2 x i64] }, ptr %37, i64 %52
   %63 = load ptr, ptr %62, align 8, !noalias !18, !nonnull !7, !align !25, !noundef !7
   %64 = getelementptr inbounds i8, ptr %62, i64 8
@@ -311,7 +311,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i: ;
   %76 = getelementptr inbounds i8, ptr %37, i64 192
   %77 = getelementptr inbounds ptr, ptr %76, i64 %56
   %78 = shl nuw nsw i64 %47, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 8 %77, i64 %78, i1 false), !alias.scope !29, !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %72, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !29, !noalias !18
   br label %79
 
 79:                                               ; preds = %79, %_ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i
@@ -689,7 +689,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
   %.0.lcssa.i = phi ptr [ %13, %10 ], [ %16, %.lr.ph.i ]
   store ptr %.0.lcssa.i, ptr %0, align 8, !alias.scope !72
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !alias.scope !72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !alias.scope !72
   br label %19
 
 19:                                               ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hb69681f139acea42E.llvm.3445034086816132918.exit", %6

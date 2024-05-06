@@ -809,7 +809,7 @@ define dso_local void @scsi_exit_devinfo() local_unnamed_addr #0 align 16 {
 declare dso_local void @remove_proc_entry(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_dev_info_remove_list(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_dev_info_remove_list(i32 noundef %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -859,7 +859,7 @@ define dso_local noundef i32 @scsi_dev_info_remove_list(i32 noundef %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_dev_info_add_list(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1048,7 +1048,7 @@ define internal i32 @proc_scsi_devinfo_open(ptr nocapture readnone %0, ptr nound
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @proc_scsi_devinfo_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 4097) i64 @proc_scsi_devinfo_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = icmp eq ptr %1, null
   %6 = icmp ugt i64 %2, 4096
   %7 = or i1 %5, %6

@@ -119,7 +119,7 @@ define internal noundef i32 @raid_setup(ptr noundef %0) #0 section ".init.text" 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @md_setup(ptr noundef %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @md_setup(ptr noundef %0) #1 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

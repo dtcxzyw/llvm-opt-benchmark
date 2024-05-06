@@ -806,11 +806,11 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 67:                                               ; preds = %65
   %68 = lshr i64 %0, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   %70 = trunc i64 %0 to i32
   %71 = load i64, ptr %61, align 8
   %72 = lshr i64 %71, 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw i64 %72 to i32
   %74 = trunc i64 %71 to i32
   %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %69, i32 noundef %70, i32 noundef %73, i32 noundef %74) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 583, ptr noundef nonnull @__func__.CreateDecodingContext) #10
@@ -879,7 +879,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   %107 = zext nneg i8 %106 to i32
   %108 = and i32 %103, %107
   %.not54 = icmp eq i32 %108, 0
-  %109 = trunc i32 %108 to i8
+  %109 = trunc nuw nsw i32 %108 to i8
   store i8 %109, ptr %104, align 1
   br i1 %.not54, label %121, label %110
 
@@ -926,12 +926,12 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   %131 = getelementptr inbounds i8, ptr %10, i64 120
   %132 = load i64, ptr %131, align 8
   %133 = lshr i64 %132, 32
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw i64 %133 to i32
   %135 = trunc i64 %132 to i32
   %136 = getelementptr inbounds i8, ptr %10, i64 104
   %137 = load i64, ptr %136, align 8
   %138 = lshr i64 %137, 32
-  %139 = trunc i64 %138 to i32
+  %139 = trunc nuw i64 %138 to i32
   %140 = trunc i64 %137 to i32
   %141 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.17, i32 noundef %134, i32 noundef %135, i32 noundef %139, i32 noundef %140) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__func__.CreateDecodingContext) #10
@@ -974,7 +974,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
 10:                                               ; preds = %1
   %11 = load i64, ptr %7, align 8
   %12 = lshr i64 %11, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = trunc i64 %11 to i32
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %13, i32 noundef %14) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 652, ptr noundef nonnull @__func__.DecodingContextFindStartpoint) #10
@@ -1255,7 +1255,7 @@ define internal void @output_plugin_error_callback(ptr nocapture noundef readonl
 12:                                               ; preds = %1
   %13 = load i64, ptr %2, align 8
   %14 = lshr i64 %13, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = trunc i64 %13 to i32
   %17 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.72, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %11, i32 noundef %15, i32 noundef %16) #10
   br label %20
@@ -1336,7 +1336,7 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
 
 21:                                               ; preds = %18
   %22 = lshr i64 %0, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = trunc i64 %0 to i32
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %1, i32 noundef %23, i32 noundef %24) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1740, ptr noundef nonnull @__func__.LogicalIncreaseXminForSlot) #10
@@ -1550,10 +1550,10 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
 
 23:                                               ; preds = %20
   %24 = lshr i64 %1, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = trunc i64 %1 to i32
   %27 = lshr i64 %0, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %0 to i32
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %25, i32 noundef %26, i32 noundef %28, i32 noundef %29) #10
   br label %.sink.split
@@ -1570,19 +1570,19 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
 
 37:                                               ; preds = %31
   %38 = lshr i64 %1, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = trunc i64 %1 to i32
   %41 = lshr i64 %0, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = trunc i64 %0 to i32
   %44 = lshr i64 %33, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = trunc i64 %33 to i32
   %47 = lshr i64 %18, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %18 to i32
   %50 = lshr i64 %35, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = trunc i64 %35 to i32
   %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %52) #10
   br label %.sink.split

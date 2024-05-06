@@ -3559,10 +3559,10 @@ sub_229:                                          ; preds = %sub_128
   br i1 %.not21, label %73, label %38
 
 38:                                               ; preds = %36
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
+  %39 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #19
   %40 = add i64 %39, 1
   %41 = call noalias ptr @malloc(i64 noundef %40) #18
-  %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %14) #17
+  %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %14) #17
   %43 = load i32, ptr %4, align 4
   %44 = load i32, ptr %3, align 8
   %45 = icmp eq i32 %43, %44

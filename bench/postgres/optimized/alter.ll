@@ -188,7 +188,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %.fca.0.extract = extractvalue { i64, i32 } %54, 0
   %.sroa.072.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.14.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.14.0.extract.trunc = trunc i64 %.sroa.14.0.extract.shift to i32
+  %.sroa.14.0.extract.trunc = trunc nuw i64 %.sroa.14.0.extract.shift to i32
   %55 = call ptr @table_open(i32 noundef %.sroa.072.0.extract.trunc, i32 noundef 3) #7
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
@@ -606,7 +606,7 @@ define dso_local { i64, i32 } @ExecAlterObjectDependsStmt(ptr nocapture noundef 
   %.not = icmp eq ptr %17, null
   %18 = trunc i64 %.fca.0.extract7 to i32
   %19 = lshr i64 %.fca.0.extract7, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %2
@@ -624,7 +624,7 @@ define dso_local { i64, i32 } @ExecAlterObjectDependsStmt(ptr nocapture noundef 
   store i32 %.fca.1.extract, ptr %.sroa.24.0..sroa_idx, align 8
   %.not23 = icmp eq ptr %1, null
   %26 = lshr i64 %.fca.0.extract, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = trunc i64 %.fca.0.extract to i32
   br i1 %.not23, label %30, label %29
 
@@ -747,7 +747,7 @@ define dso_local { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef %0, ptr nou
   %.fca.0.extract = extractvalue { i64, i32 } %26, 0
   %.sroa.027.sroa.0.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.027.sroa.6.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.027.sroa.6.0.extract.trunc = trunc i64 %.sroa.027.sroa.6.0.extract.shift to i32
+  %.sroa.027.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.027.sroa.6.0.extract.shift to i32
   %27 = call ptr @table_open(i32 noundef %.sroa.027.sroa.0.0.extract.trunc, i32 noundef 3) #7
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -1195,7 +1195,7 @@ define dso_local { i64, i32 } @ExecAlterOwnerStmt(ptr nocapture noundef readonly
   %.fca.0.extract = extractvalue { i64, i32 } %57, 0
   %.sroa.058.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.11.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.11.0.extract.trunc = trunc i64 %.sroa.11.0.extract.shift to i32
+  %.sroa.11.0.extract.trunc = trunc nuw i64 %.sroa.11.0.extract.shift to i32
   call void @AlterObjectOwner_internal(i32 noundef %.sroa.058.0.extract.trunc, i32 noundef %.sroa.11.0.extract.trunc, i32 noundef %5)
   br label %62
 

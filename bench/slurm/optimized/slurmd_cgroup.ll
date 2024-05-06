@@ -39,7 +39,7 @@ declare i32 @cgroup_g_initialize(i32 noundef) local_unnamed_addr #1
 declare i32 @cgroup_g_system_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init_system_memory_cgroup() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init_system_memory_cgroup() local_unnamed_addr #0 {
   %1 = tail call i32 @cgroup_g_initialize(i32 noundef 2) #3
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %11

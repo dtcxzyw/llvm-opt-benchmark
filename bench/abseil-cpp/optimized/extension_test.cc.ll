@@ -831,7 +831,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = trunc i64 %sub to i32
+  %2 = trunc nuw i64 %sub to i32
   %conv4 = add nuw i32 %2, 1
   %call.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %__urng)
   %conv.i = zext i32 %conv4 to i64
@@ -864,7 +864,7 @@ if.else:                                          ; preds = %entry
 
 do.body.preheader:                                ; preds = %if.else
   %div13 = lshr i64 %sub, 32
-  %conv9 = trunc i64 %div13 to i32
+  %conv9 = trunc nuw i64 %div13 to i32
   %_M_b.i14 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   br label %do.body
 

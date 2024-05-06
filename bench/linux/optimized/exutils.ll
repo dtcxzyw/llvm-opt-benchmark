@@ -81,7 +81,7 @@ define dso_local void @acpi_ex_exit_interpreter() local_unnamed_addr #0 align 16
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ex_truncate_for32bit_table(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 
@@ -172,12 +172,12 @@ define dso_local void @acpi_ex_eisa_id_to_string(ptr nocapture noundef writeonly
   br i1 %3, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre = trunc i64 %1 to i32
+  %.pre = trunc nuw i64 %1 to i32
   br label %8
 
 4:                                                ; preds = %2
   %5 = lshr i64 %1, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %1 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 298, ptr noundef nonnull @.str.6, i32 noundef %6, i32 noundef %7) #5
   br label %8
@@ -187,7 +187,7 @@ define dso_local void @acpi_ex_eisa_id_to_string(ptr nocapture noundef writeonly
   %9 = tail call i32 @acpi_ut_dword_byte_swap(i32 noundef %.pre-phi) #5
   %10 = zext i32 %9 to i64
   %11 = lshr i32 %9, 26
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = and i8 %12, 31
   %14 = or disjoint i8 %13, 64
   store i8 %14, ptr %0, align 1
@@ -332,7 +332,7 @@ define dso_local void @acpi_ex_pci_cls_to_string(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i8 @acpi_is_valid_space_id(i8 noundef zeroext %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_is_valid_space_id(i8 noundef zeroext %0) local_unnamed_addr #4 align 16 {
   %2 = add i8 %0, -126
   %3 = icmp ult i8 %2, -114
   %4 = zext i1 %3 to i8

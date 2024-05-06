@@ -890,7 +890,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_UnicodeTranslateError = external local_unnamed_addr global ptr, align 8
 @.str.12 = private unnamed_addr constant [5 x i8] c"(Nn)\00", align 1
 @.str.13 = private unnamed_addr constant [5 x i8] c"(Cn)\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_OverflowError = external local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [20 x i8] c"string is too large\00", align 1
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
@@ -943,7 +943,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init(), !range !5
+  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init()
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -976,7 +976,7 @@ return:                                           ; preds = %if.then3, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_PyCodecRegistry_Init() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_PyCodecRegistry_Init() unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1010,7 +1010,7 @@ if.end11:                                         ; preds = %if.end6
 for.cond:                                         ; preds = %Py_DECREF.exit38
   %inc = add nuw nsw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end11, %for.cond
   %i.021 = phi i64 [ %inc, %for.cond ], [ 0, %if.end11 ]
@@ -1031,7 +1031,7 @@ if.end20:                                         ; preds = %for.body
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.end.i19
 
 land.lhs.true.i:                                  ; preds = %if.end20
-  %call1.i = tail call fastcc i32 @_PyCodecRegistry_Init(), !range !5
+  %call1.i = tail call fastcc i32 @_PyCodecRegistry_Init()
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.end.i19, label %PyCodec_RegisterError.exit
 
@@ -1159,7 +1159,7 @@ if.end9:                                          ; preds = %if.then7, %if.then5
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc, %.val
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %if.end, %entry, %if.end9
   %retval.0 = phi i32 [ %call10, %if.end9 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %for.inc ]
@@ -1193,7 +1193,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @_PyCodecRegistry_Init(), !range !5
+  %call3 = tail call fastcc i32 @_PyCodecRegistry_Init()
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end5, label %return
 
@@ -1360,7 +1360,7 @@ if.then1.i78:                                     ; preds = %if.end.i75
 for.inc:                                          ; preds = %if.end.i84, %if.then1.i87, %if.then36
   %inc = add nuw nsw i64 %i.035, 1
   %exitcond.not = icmp eq i64 %inc, %call18
-  br i1 %exitcond.not, label %if.then46, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.then46, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %lor.lhs.false
   %cmp45 = icmp eq i64 %i.035, %call18
@@ -1454,7 +1454,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCodec_KnownEncoding(ptr noundef %encoding) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyCodec_KnownEncoding(ptr noundef %encoding) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCodec_Lookup(ptr noundef %encoding)
   %tobool.not = icmp eq ptr %call, null
@@ -2458,7 +2458,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init(), !range !5
+  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init()
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2499,7 +2499,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init(), !range !5
+  %call1 = tail call fastcc i32 @_PyCodecRegistry_Init()
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2783,7 +2783,7 @@ for.body44:                                       ; preds = %PyUnicode_DATA.exit
   store i16 -3, ptr %arrayidx45, align 2
   %inc47 = add nuw nsw i64 %i.153, 1
   %exitcond.not = icmp eq i64 %inc47, %sub36
-  br i1 %exitcond.not, label %for.end48, label %for.body44, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end48, label %for.body44, !llvm.loop !9
 
 for.end48:                                        ; preds = %for.body44, %PyUnicode_DATA.exit45
   %18 = load i64, ptr %end, align 8
@@ -2930,7 +2930,7 @@ for.inc.us:                                       ; preds = %PyUnicode_READ_CHAR
   %add18.us = add i64 %ressize.093.us, %.sink
   %inc.us = add nsw i64 %i.092.us, 1
   %exitcond104.not = icmp eq i64 %inc.us, %4
-  br i1 %exitcond104.not, label %for.end, label %for.body.us, !llvm.loop !11
+  br i1 %exitcond104.not, label %for.end, label %for.body.us, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %ressize.093 = phi i64 [ %add18, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -2988,7 +2988,7 @@ for.inc:                                          ; preds = %if.else34, %if.else
   %add18 = add i64 %ressize.093, %.sink107
   %inc = add nsw i64 %i.092, 1
   %exitcond.not = icmp eq i64 %inc, %4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end13
   %ressize.0.lcssa = phi i64 [ 0, %if.end13 ], [ %add18.us, %for.inc.us ], [ %add18, %for.inc ]
@@ -3168,7 +3168,7 @@ while.body:                                       ; preds = %while.body.preheade
   %rem = urem i32 %ch.095, %base.197
   %div83 = sdiv i32 %base.197, 10
   %cmp80 = icmp ugt i32 %digits.196, 1
-  br i1 %cmp80, label %while.body, label %while.end, !llvm.loop !12
+  br i1 %cmp80, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body
   %incdec.ptr84 = getelementptr i8, ptr %outp.194, i64 2
@@ -3176,7 +3176,7 @@ while.end:                                        ; preds = %while.body
   %inc86 = add nsw i64 %i.199, 1
   %31 = load i64, ptr %end, align 8
   %cmp52 = icmp slt i64 %inc86, %31
-  br i1 %cmp52, label %for.body53, label %for.end87, !llvm.loop !13
+  br i1 %cmp52, label %for.body53, label %for.end87, !llvm.loop !12
 
 for.end87:                                        ; preds = %while.end, %PyUnicode_DATA.exit
   %.lcssa = phi i64 [ %21, %PyUnicode_DATA.exit ], [ %31, %while.end ]
@@ -3321,7 +3321,7 @@ for.body:                                         ; preds = %PyUnicode_DATA.exit
   %add.ptr = getelementptr i8, ptr %outp.0202, i64 4
   %17 = load i64, ptr %end, align 8
   %cmp17 = icmp slt i64 %inc, %17
-  br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %PyUnicode_DATA.exit
   %18 = load i64, ptr %call8, align 8
@@ -3463,7 +3463,7 @@ for.body71.us166.us:                              ; preds = %for.body71.us166.us
   %ressize.1.us179.us = add i32 %ressize.0164.us167.us, %ressize.1.us179.us.v
   %inc87.us180.us = add nsw i64 %i.1161.us168.us, 1
   %exitcond207.not = icmp eq i64 %inc87.us180.us, %27
-  br i1 %exitcond207.not, label %for.end88, label %for.body71.us166.us, !llvm.loop !15
+  br i1 %exitcond207.not, label %for.end88, label %for.body71.us166.us, !llvm.loop !14
 
 for.body71.us166:                                 ; preds = %for.body71.lr.ph.split.us165, %for.body71.us166
   %ressize.0164.us167 = phi i32 [ %ressize.1.us179, %for.body71.us166 ], [ 0, %for.body71.lr.ph.split.us165 ]
@@ -3475,7 +3475,7 @@ for.body71.us166:                                 ; preds = %for.body71.lr.ph.sp
   %ressize.1.us179 = add i32 %ressize.0164.us167, %ressize.1.us179.v
   %inc87.us180 = add nsw i64 %i.1161.us168, 1
   %exitcond.not = icmp eq i64 %inc87.us180, %27
-  br i1 %exitcond.not, label %for.end88, label %for.body71.us166, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end88, label %for.body71.us166, !llvm.loop !14
 
 for.body71.lr.ph.split:                           ; preds = %for.body71.lr.ph
   br i1 %tobool.not.i18.i, label %for.body71.lr.ph.split.split.us, label %for.body71
@@ -3496,7 +3496,7 @@ for.body71.us184:                                 ; preds = %for.body71.us184, %
   %add76.us = add i32 %ressize.0164.us185, %.sink
   %inc87.us190 = add nsw i64 %i.1161.us186, 1
   %exitcond209.not = icmp eq i64 %inc87.us190, %27
-  br i1 %exitcond209.not, label %for.end88, label %for.body71.us184, !llvm.loop !15
+  br i1 %exitcond209.not, label %for.end88, label %for.body71.us184, !llvm.loop !14
 
 for.body71:                                       ; preds = %for.body71.lr.ph.split, %for.body71
   %ressize.0164 = phi i32 [ %add76, %for.body71 ], [ 0, %for.body71.lr.ph.split ]
@@ -3510,7 +3510,7 @@ for.body71:                                       ; preds = %for.body71.lr.ph.sp
   %add76 = add i32 %ressize.0164, %.sink213
   %inc87 = add nsw i64 %i.1161, 1
   %exitcond208.not = icmp eq i64 %inc87, %27
-  br i1 %exitcond208.not, label %for.end88, label %for.body71, !llvm.loop !15
+  br i1 %exitcond208.not, label %for.end88, label %for.body71, !llvm.loop !14
 
 for.end88:                                        ; preds = %for.body71.us166, %for.body71.us166.us, %for.body71, %for.body71.us184, %for.body71.us.preheader, %if.end67
   %ressize.0.lcssa = phi i32 [ 0, %if.end67 ], [ %34, %for.body71.us.preheader ], [ %add76.us, %for.body71.us184 ], [ %add76, %for.body71 ], [ %ressize.1.us179.us, %for.body71.us166.us ], [ %ressize.1.us179, %for.body71.us166 ]
@@ -3753,7 +3753,7 @@ if.end153:                                        ; preds = %if.then138, %if.els
   %inc164 = add nsw i64 %i.2196, 1
   %75 = load i64, ptr %end, align 8
   %cmp97 = icmp slt i64 %inc164, %75
-  br i1 %cmp97, label %for.body99, label %for.end165, !llvm.loop !16
+  br i1 %cmp97, label %for.body99, label %for.end165, !llvm.loop !15
 
 for.end165:                                       ; preds = %if.end153, %PyUnicode_DATA.exit103
   %76 = load i64, ptr %object.0, align 8
@@ -3944,7 +3944,7 @@ if.end38:                                         ; preds = %if.end33
   %inc = add nsw i64 %i.0102, 1
   %13 = load i64, ptr %end, align 8
   %cmp15 = icmp slt i64 %inc, %13
-  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %if.end38, %if.end33, %if.end14
   %i.0.lcssa = phi i64 [ %2, %if.end14 ], [ %i.0102, %if.end33 ], [ %inc, %if.end38 ]
@@ -4189,7 +4189,7 @@ for.inc123:                                       ; preds = %if.end113, %if.then
   %inc124 = add nsw i64 %i.1108, 1
   %49 = load i64, ptr %end, align 8
   %cmp48 = icmp slt i64 %inc124, %49
-  br i1 %cmp48, label %for.body50, label %for.end125, !llvm.loop !18
+  br i1 %cmp48, label %for.body50, label %for.end125, !llvm.loop !17
 
 for.end125:                                       ; preds = %for.inc123, %PyUnicode_DATA.exit
   %.lcssa = phi i64 [ %19, %PyUnicode_DATA.exit ], [ %49, %for.inc123 ]
@@ -4414,7 +4414,7 @@ if.then1.i332.i:                                  ; preds = %if.end.i329.i
   br label %PyCodec_SurrogatePassErrors.exit
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %call20.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call16.i, ptr noundef nonnull %bytelength.i), !range !19
+  %call20.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call16.i, ptr noundef nonnull %bytelength.i)
   %8 = load i64, ptr %call12.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i365.not.i = icmp eq i64 %9, 0
@@ -4647,14 +4647,14 @@ sw.bb54.i:                                        ; preds = %if.end44.i
   %incdec.ptr56.i = getelementptr i8, ptr %outp.0150.i, i64 1
   store i8 %conv55.i, ptr %outp.0150.i, align 1
   %shr57.i = lshr i32 %retval.0.i.i, 8
-  %conv58.i = trunc i32 %shr57.i to i8
+  %conv58.i = trunc nuw i32 %shr57.i to i8
   %incdec.ptr59.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv58.i, ptr %incdec.ptr56.i, align 1
   br label %for.inc.i
 
 sw.bb60.i:                                        ; preds = %if.end44.i
   %shr61.i = lshr i32 %retval.0.i.i, 8
-  %conv62.i = trunc i32 %shr61.i to i8
+  %conv62.i = trunc nuw i32 %shr61.i to i8
   %incdec.ptr63.i = getelementptr i8, ptr %outp.0150.i, i64 1
   store i8 %conv62.i, ptr %outp.0150.i, align 1
   %conv64.i = trunc i32 %retval.0.i.i to i8
@@ -4667,7 +4667,7 @@ sw.bb66.i:                                        ; preds = %if.end44.i
   %incdec.ptr68.i = getelementptr i8, ptr %outp.0150.i, i64 1
   store i8 %conv67.i, ptr %outp.0150.i, align 1
   %shr69.i = lshr i32 %retval.0.i.i, 8
-  %conv70.i = trunc i32 %shr69.i to i8
+  %conv70.i = trunc nuw i32 %shr69.i to i8
   %incdec.ptr71.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv70.i, ptr %incdec.ptr68.i, align 1
   %incdec.ptr74.i = getelementptr i8, ptr %outp.0150.i, i64 3
@@ -4682,7 +4682,7 @@ sw.bb78.i:                                        ; preds = %if.end44.i
   %incdec.ptr84.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 0, ptr %incdec.ptr81.i, align 1
   %shr85.i = lshr i32 %retval.0.i.i, 8
-  %conv86.i = trunc i32 %shr85.i to i8
+  %conv86.i = trunc nuw i32 %shr85.i to i8
   %incdec.ptr87.i = getelementptr i8, ptr %outp.0150.i, i64 3
   store i8 %conv86.i, ptr %incdec.ptr84.i, align 1
   %conv88.i = trunc i32 %retval.0.i.i to i8
@@ -4698,7 +4698,7 @@ for.inc.i:                                        ; preds = %sw.bb78.i, %sw.bb66
   %inc.i = add nsw i64 %i.0149.i, 1
   %36 = load i64, ptr %end.i, align 8
   %cmp37.i = icmp slt i64 %inc.i, %36
-  br i1 %cmp37.i, label %for.body.i, label %for.end.i, !llvm.loop !20
+  br i1 %cmp37.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end35.i
   %.lcssa.i = phi i64 [ %18, %if.end35.i ], [ %36, %for.inc.i ]
@@ -4820,7 +4820,7 @@ if.then1.i242.i:                                  ; preds = %if.end.i239.i
   br label %PyCodec_SurrogatePassErrors.exit
 
 if.end115.i:                                      ; preds = %if.end111.i
-  %call116.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call112.i, ptr noundef nonnull %bytelength.i), !range !19
+  %call116.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call112.i, ptr noundef nonnull %bytelength.i)
   %48 = load i64, ptr %call108.i, align 8
   %49 = and i64 %48, 2147483648
   %cmp.i405.not.i = icmp eq i64 %49, 0
@@ -5197,7 +5197,7 @@ if.end22.i:                                       ; preds = %PyUnicode_READ_CHAR
   %inc.i = add nsw i64 %i.066.i, 1
   %21 = load i64, ptr %end.i, align 8
   %cmp.i = icmp slt i64 %inc.i, %21
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !21
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %if.end22.i, %if.end15.i
   %.lcssa.i = phi i64 [ %7, %if.end15.i ], [ %21, %if.end22.i ]
@@ -5287,10 +5287,10 @@ if.end53.i:                                       ; preds = %while.body.i
   store i16 %add58.i, ptr %arrayidx60.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond69.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !22
+  br i1 %exitcond69.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !20
 
 while.end.split.loop.exit71.i:                    ; preds = %while.body.i
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.end53.i, %land.rhs.i, %while.end.split.loop.exit71.i
@@ -5360,7 +5360,7 @@ declare ptr @PyUnicodeEncodeError_GetEncoding(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_standard_encoding(ptr nocapture noundef readonly %encoding, ptr nocapture noundef writeonly %bytelength) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr nocapture noundef readonly %encoding, ptr nocapture noundef writeonly %bytelength) unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %encoding, align 1
   %idxprom = zext i8 %0 to i64
@@ -5571,21 +5571,19 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{i32 -1, i32 5}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

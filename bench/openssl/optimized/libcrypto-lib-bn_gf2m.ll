@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_GF2m_mod_solve_quad = private unnamed_addr constant [23 x i8] c"BN_GF2m_mod_solve_quad\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_add(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -97,7 +97,7 @@ declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly %a, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly %a, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.then2, %while.en
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_mod(ptr noundef %r, ptr noundef %a, ptr noundef %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %r, ptr noundef %a, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %arr = alloca [6 x i32], align 16
   %call.i = tail call i32 @BN_is_zero(ptr noundef %p) #4
@@ -437,7 +437,7 @@ if.then:                                          ; preds = %entry, %BN_GF2m_pol
   br label %return
 
 if.end:                                           ; preds = %BN_GF2m_poly2arr.exit
-  %call2 = call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %arr), !range !13
+  %call2 = call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %arr)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -539,14 +539,14 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %zz = alloca [4 x i64], align 16
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx), !range !13
+  %call = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -588,7 +588,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 0, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond12.preheader, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.cond12.preheader, label %for.body, !llvm.loop !13
 
 for.body15:                                       ; preds = %for.cond12.preheader, %for.inc60
   %4 = phi i32 [ %24, %for.inc60 ], [ %2, %for.cond12.preheader ]
@@ -638,22 +638,22 @@ for.body46:                                       ; preds = %cond.end42, %for.bo
   %arrayidx48 = getelementptr inbounds [4 x i64], ptr %zz, i64 0, i64 %indvars.iv49
   %17 = load i64, ptr %arrayidx48, align 8
   %18 = load ptr, ptr %call1, align 8
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv54
-  %20 = getelementptr i64, ptr %19, i64 %indvars.iv59
-  %arrayidx53 = getelementptr i64, ptr %20, i64 %indvars.iv49
+  %19 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv54
+  %20 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv59
+  %arrayidx53 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv49
   %21 = load i64, ptr %arrayidx53, align 8
   %xor = xor i64 %21, %17
   store i64 %xor, ptr %arrayidx53, align 8
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, 4
-  br i1 %exitcond53.not, label %for.inc57, label %for.body46, !llvm.loop !15
+  br i1 %exitcond53.not, label %for.inc57, label %for.body46, !llvm.loop !14
 
 for.inc57:                                        ; preds = %for.body46
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 2
   %22 = load i32, ptr %top, align 8
   %23 = trunc nuw i64 %indvars.iv.next55 to i32
   %cmp28 = icmp sgt i32 %22, %23
-  br i1 %cmp28, label %for.body29, label %for.inc60.loopexit, !llvm.loop !16
+  br i1 %cmp28, label %for.body29, label %for.inc60.loopexit, !llvm.loop !15
 
 for.inc60.loopexit:                               ; preds = %for.inc57
   %.pre = load i32, ptr %top5, align 8
@@ -664,11 +664,11 @@ for.inc60:                                        ; preds = %for.inc60.loopexit,
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 2
   %25 = trunc nuw i64 %indvars.iv.next60 to i32
   %cmp14 = icmp sgt i32 %24, %25
-  br i1 %cmp14, label %for.body15, label %for.end62, !llvm.loop !17
+  br i1 %cmp14, label %for.body15, label %for.end62, !llvm.loop !16
 
 for.end62:                                        ; preds = %for.inc60, %for.cond12.preheader
   call void @bn_correct_top(ptr noundef nonnull %call1) #4
-  %call63 = call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef nonnull %call1, ptr noundef %p), !range !13
+  %call63 = call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef nonnull %call1, ptr noundef %p)
   br label %err
 
 err:                                              ; preds = %for.end62, %if.end4, %if.end
@@ -682,7 +682,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -839,7 +839,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx446 = getelementptr inbounds i64, ptr %70, i64 %36
   store i64 %op.rdx158, ptr %arrayidx446, align 8
   %cmp5 = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !18
+  br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load i32, ptr %top, align 8
@@ -851,7 +851,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %top449 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %mul448, ptr %top449, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %call) #4
-  %call450 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef nonnull %call, ptr noundef %p), !range !13
+  %call450 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef nonnull %call, ptr noundef %p)
   br label %err
 
 err:                                              ; preds = %for.end, %if.end, %entry
@@ -1093,7 +1093,7 @@ if.then6:                                         ; preds = %if.end, %BN_GF2m_po
   br label %err
 
 if.end7:                                          ; preds = %BN_GF2m_poly2arr.exit
-  %call8 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call1, ptr noundef %ctx), !range !13
+  %call8 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call1, ptr noundef %ctx)
   br label %err
 
 err:                                              ; preds = %if.end7, %if.then6
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1131,7 +1131,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 do.cond:                                          ; preds = %do.body
   %call8 = tail call i32 @BN_is_zero(ptr noundef nonnull %call) #4
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %do.end, label %do.body, !llvm.loop !19
+  br i1 %tobool9.not, label %do.end, label %do.body, !llvm.loop !18
 
 do.end:                                           ; preds = %do.cond
   %call10 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call, ptr noundef %p, ptr noundef %ctx)
@@ -1148,7 +1148,7 @@ if.end13:                                         ; preds = %do.end
   br i1 %cmp.i, label %BN_GF2m_mod_inv_vartime.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end13
-  %call4.i = tail call i32 @BN_GF2m_mod(ptr noundef %call2.i, ptr noundef %r, ptr noundef %p), !range !13
+  %call4.i = tail call i32 @BN_GF2m_mod(ptr noundef %call2.i, ptr noundef %r, ptr noundef %p)
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %BN_GF2m_mod_inv_vartime.exit.thread, label %if.end6.i
 
@@ -1292,7 +1292,7 @@ for.body69.i:                                     ; preds = %while.body59.i, %fo
   %arrayidx89.i = getelementptr inbounds i64, ptr %bdp.0.i, i64 %indvars.iv.i
   store i64 %or86.i, ptr %arrayidx89.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !19
 
 for.end92.i:                                      ; preds = %for.body69.i, %while.body59.i
   %i.3.lcssa.i = phi i32 [ 0, %while.body59.i ], [ %sub67.i, %for.body69.i ]
@@ -1307,7 +1307,7 @@ for.end92.i:                                      ; preds = %for.body69.i, %whil
   store i64 %shr96.i, ptr %arrayidx98.i, align 8
   %dec.i = add nsw i32 %ubits.1122.i, -1
   %tobool56.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool56.not.i, label %while.end.thread.i, label %land.rhs.i, !llvm.loop !21
+  br i1 %tobool56.not.i, label %while.end.thread.i, label %land.rhs.i, !llvm.loop !20
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp99.i = icmp slt i32 %ubits.1122.i, 65
@@ -1360,7 +1360,7 @@ for.body117.i:                                    ; preds = %if.end114.i, %for.b
   store i64 %xor127.i, ptr %arrayidx126.i, align 8
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next137.i, %15
-  br i1 %exitcond140.not.i, label %for.end130.i, label %for.body117.i, !llvm.loop !22
+  br i1 %exitcond140.not.i, label %for.end130.i, label %for.body117.i, !llvm.loop !21
 
 for.end130.i:                                     ; preds = %for.body117.i, %if.end114.i
   %cmp131.i = icmp eq i32 %vbits.0.i, %ubits.1105.i
@@ -1380,7 +1380,7 @@ while.cond134.i:                                  ; preds = %while.cond134.i, %i
   %35 = icmp ne i64 %indvars.iv141.i, 0
   %36 = and i1 %35, %cmp137.i
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, -1
-  br i1 %36, label %while.cond134.i, label %while.end143.i, !llvm.loop !23
+  br i1 %36, label %while.cond134.i, label %while.end143.i, !llvm.loop !22
 
 while.end143.i:                                   ; preds = %while.cond134.i
   %37 = trunc nsw i64 %indvars.iv141.i to i32
@@ -1421,7 +1421,7 @@ declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1439,7 +1439,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds i32, ptr %p, i64 %indvars.iv.next.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %1, -1
-  br i1 %cmp.not.i, label %if.end3, label %for.body.i, !llvm.loop !24
+  br i1 %cmp.not.i, label %if.end3, label %for.body.i, !llvm.loop !23
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end ]
@@ -1449,7 +1449,7 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   br i1 %cmp3.i, label %err, label %for.cond.i
 
 if.end3:                                          ; preds = %for.cond.i, %if.end
-  %call4 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef %xx, ptr noundef nonnull %call, ptr noundef %ctx), !range !13
+  %call4 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef %xx, ptr noundef nonnull %call, ptr noundef %ctx)
   br label %err
 
 err:                                              ; preds = %for.body.i, %entry, %if.end3
@@ -1459,7 +1459,7 @@ err:                                              ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_GF2m_arr2poly(ptr nocapture noundef readonly %p, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_arr2poly(ptr nocapture noundef readonly %p, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   tail call void @BN_zero_ex(ptr noundef %a) #4
   %0 = load i32, ptr %p, align 4
@@ -1471,7 +1471,7 @@ for.cond:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds i32, ptr %p, i64 %indvars.iv.next
   %1 = load i32, ptr %arrayidx, align 4
   %cmp.not = icmp eq i32 %1, -1
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !24
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !23
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
@@ -1486,7 +1486,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_div(ptr noundef %r, ptr noundef %y, ptr noundef %x, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_div(ptr noundef %r, ptr noundef %y, ptr noundef %x, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1494,7 +1494,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @BN_GF2m_mod_inv(ptr noundef nonnull %call, ptr noundef %x, ptr noundef %p, ptr noundef %ctx), !range !13
+  %call1 = tail call i32 @BN_GF2m_mod_inv(ptr noundef nonnull %call, ptr noundef %x, ptr noundef %p, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end3
 
@@ -1511,7 +1511,7 @@ err:                                              ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef %yy, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef %yy, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1529,7 +1529,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds i32, ptr %p, i64 %indvars.iv.next.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %1, -1
-  br i1 %cmp.not.i, label %if.end3, label %for.body.i, !llvm.loop !24
+  br i1 %cmp.not.i, label %if.end3, label %for.body.i, !llvm.loop !23
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end ]
@@ -1545,7 +1545,7 @@ if.end3:                                          ; preds = %for.cond.i, %if.end
   br i1 %cmp.i, label %BN_GF2m_mod_div.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %call1.i = tail call i32 @BN_GF2m_mod_inv(ptr noundef nonnull %call.i5, ptr noundef %xx, ptr noundef nonnull %call, ptr noundef %ctx), !range !13
+  %call1.i = tail call i32 @BN_GF2m_mod_inv(ptr noundef nonnull %call.i5, ptr noundef %xx, ptr noundef nonnull %call, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %BN_GF2m_mod_div.exit, label %if.end3.i
 
@@ -1595,7 +1595,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = tail call i32 @BN_GF2m_mod_arr(ptr noundef nonnull %call7, ptr noundef %a, ptr noundef %p), !range !13
+  %call12 = tail call i32 @BN_GF2m_mod_arr(ptr noundef nonnull %call7, ptr noundef %a, ptr noundef %p)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %err, label %if.end15
 
@@ -1610,7 +1610,7 @@ for.body.preheader:                               ; preds = %if.end15
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.022 = phi i32 [ %dec, %for.inc ], [ %sub17, %for.body.preheader ]
-  %call20 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %p, ptr noundef %ctx), !range !13
+  %call20 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %p, ptr noundef %ctx)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %err, label %if.end23
 
@@ -1627,7 +1627,7 @@ if.then26:                                        ; preds = %if.end23
 for.inc:                                          ; preds = %if.end23, %if.then26
   %dec = add nsw i32 %i.022, -1
   %cmp18 = icmp sgt i32 %i.022, 0
-  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !25
+  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %if.end15
   %call32 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %call7) #4
@@ -1933,7 +1933,7 @@ if.end3.i:                                        ; preds = %if.end.i10
   br i1 %tobool.not.i12, label %err.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %call8.i = tail call i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call.i11, ptr noundef nonnull %call1, ptr noundef %ctx)
+  %call8.i = tail call i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call.i11, ptr noundef nonnull readonly %call1, ptr noundef %ctx)
   br label %err.i
 
 err.i:                                            ; preds = %if.end7.i, %if.end3.i, %if.end.i10
@@ -1952,7 +1952,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a_, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a_, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -1971,7 +1971,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %call, ptr noundef %a_, ptr noundef nonnull %p), !range !13
+  %call6 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %call, ptr noundef %a_, ptr noundef nonnull %p)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %err, label %if.end8
 
@@ -2007,12 +2007,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %j.0152 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call22 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx), !range !13
+  %call22 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %err, label %if.end25
 
 if.end25:                                         ; preds = %for.body
-  %call26 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx), !range !13
+  %call26 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %if.end29
 
@@ -2089,7 +2089,7 @@ for.inc:                                          ; preds = %for.body17.i, %for.
   %sub = add nsw i32 %22, -1
   %div = sdiv i32 %sub, 2
   %cmp21.not.not = icmp slt i32 %j.0152, %div
-  br i1 %cmp21.not.not, label %for.body, label %if.end89, !llvm.loop !26
+  br i1 %cmp21.not.not, label %for.body, label %if.end89, !llvm.loop !25
 
 if.else:                                          ; preds = %if.end12
   %call34 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -2114,7 +2114,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %tobool42.not, label %err, label %if.end44
 
 if.end44:                                         ; preds = %do.body
-  %call45 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %call34, ptr noundef %call34, ptr noundef nonnull %p), !range !13
+  %call45 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %call34, ptr noundef %call34, ptr noundef nonnull %p)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %err, label %if.end48
 
@@ -2131,12 +2131,12 @@ for.cond53.preheader:                             ; preds = %if.end48
 
 for.body57:                                       ; preds = %for.cond53.preheader, %for.inc78
   %j.1154 = phi i32 [ %inc79, %for.inc78 ], [ 1, %for.cond53.preheader ]
-  %call58 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx), !range !13
+  %call58 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call1, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %err, label %if.end61
 
 if.end61:                                         ; preds = %for.body57
-  %call62 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call35, ptr noundef nonnull %call2, ptr noundef nonnull %p, ptr noundef %ctx), !range !13
+  %call62 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef %call35, ptr noundef nonnull %call2, ptr noundef nonnull %p, ptr noundef %ctx)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %if.end65
 
@@ -2283,7 +2283,7 @@ for.inc78:                                        ; preds = %for.body17.i123, %f
   %inc79 = add nuw nsw i32 %j.1154, 1
   %63 = load i32, ptr %p, align 4
   %cmp56.not.not = icmp slt i32 %inc79, %63
-  br i1 %cmp56.not.not, label %for.body57, label %for.end80, !llvm.loop !27
+  br i1 %cmp56.not.not, label %for.body57, label %for.end80, !llvm.loop !26
 
 for.end80:                                        ; preds = %for.inc78, %for.cond53.preheader
   %inc81 = add nuw nsw i32 %count.0, 1
@@ -2291,7 +2291,7 @@ for.end80:                                        ; preds = %for.inc78, %for.con
   %tobool83 = icmp ne i32 %call82, 0
   %cmp84 = icmp ult i32 %count.0, 49
   %64 = select i1 %tobool83, i1 %cmp84, i1 false
-  br i1 %64, label %do.body, label %do.end, !llvm.loop !28
+  br i1 %64, label %do.body, label %do.end, !llvm.loop !27
 
 do.end:                                           ; preds = %for.end80
   %call85 = tail call i32 @BN_is_zero(ptr noundef nonnull %call2) #4
@@ -2305,12 +2305,12 @@ if.then87:                                        ; preds = %do.end
   br label %err
 
 if.end89:                                         ; preds = %for.inc, %for.cond.preheader, %do.end
-  %call90 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef nonnull %call2, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx), !range !13
+  %call90 = tail call i32 @BN_GF2m_mod_sqr_arr(ptr noundef nonnull %call2, ptr noundef %call1, ptr noundef nonnull %p, ptr noundef %ctx)
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %err, label %if.end93
 
 if.end93:                                         ; preds = %if.end89
-  %call94 = tail call i32 @BN_GF2m_add(ptr noundef nonnull %call2, ptr noundef %call1, ptr noundef nonnull %call2), !range !13
+  %call94 = tail call i32 @BN_GF2m_add(ptr noundef nonnull %call2, ptr noundef %call1, ptr noundef nonnull %call2)
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %err, label %if.end97
 
@@ -2446,7 +2446,7 @@ if.then6:                                         ; preds = %if.end, %BN_GF2m_po
   br label %err
 
 if.end7:                                          ; preds = %BN_GF2m_poly2arr.exit
-  %call8 = tail call i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call1, ptr noundef %ctx), !range !13
+  %call8 = tail call i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call1, ptr noundef %ctx)
   br label %err
 
 err:                                              ; preds = %entry, %if.end7, %if.then6
@@ -2487,7 +2487,7 @@ attributes #4 = { nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -2502,4 +2502,3 @@ attributes #4 = { nounwind }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

@@ -309,12 +309,12 @@ define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
-  %18 = getelementptr i8, ptr %14, i64 1
+  %18 = getelementptr inbounds i8, ptr %14, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %21, %17
-  %23 = getelementptr i8, ptr %14, i64 2
+  %23 = getelementptr inbounds i8, ptr %14, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
@@ -746,12 +746,12 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %indvars.iv256 = phi i64 [ 0, %.preheader189.preheader ], [ %indvars.iv.next257, %204 ]
   %.2182213 = phi ptr [ %98, %.preheader189.preheader ], [ %.11, %204 ]
   %108 = mul nuw nsw i64 %indvars.iv256, 3
-  %invariant.gep = getelementptr i32, ptr %1, i64 %108
+  %invariant.gep = getelementptr inbounds i32, ptr %1, i64 %108
   br label %109
 
 109:                                              ; preds = %.preheader189, %119
   %indvars.iv252 = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next253, %119 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv252
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv252
   %110 = load i32, ptr %gep, align 4
   %111 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv252
   store i32 0, ptr %111, align 4
@@ -1287,12 +1287,12 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 .preheader.us.preheader.i:                        ; preds = %66
   %69 = mul nuw nsw i64 %indvar.i, 3
-  %invariant.gep.i = getelementptr i32, ptr %2, i64 %69
+  %invariant.gep.i = getelementptr inbounds i32, ptr %2, i64 %69
   br label %.preheader.us.i
 
 .preheader.preheader.i48:                         ; preds = %66
   %scevgep.i = getelementptr i8, ptr %2, i64 %57
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false)
   br label %.split22.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge14.us.i, %.preheader.us.preheader.i
@@ -1327,7 +1327,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %79 = lshr i32 %78, 1
   %80 = sub nsw i32 0, %79
   %spec.select74.us.i = select i1 %.not69.us.i, i32 %79, i32 %80
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i45
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv.i45
   store i32 %spec.select74.us.i, ptr %gep.i, align 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next.i47, 3

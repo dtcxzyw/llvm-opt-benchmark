@@ -257,7 +257,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.thread.i
 
 109:                                              ; preds = %._crit_edge.i, %._crit_edge.i, %._crit_edge.i
-  %110 = getelementptr i8, ptr %72, i64 1
+  %110 = getelementptr inbounds i8, ptr %72, i64 1
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = call i32 @toupper(i32 noundef %112) #12
@@ -291,7 +291,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.thread.i
 
 128:                                              ; preds = %._crit_edge.i
-  %129 = getelementptr i8, ptr %72, i64 1
+  %129 = getelementptr inbounds i8, ptr %72, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = call i32 @toupper(i32 noundef %131) #12

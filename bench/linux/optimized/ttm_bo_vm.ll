@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_bo_mmap_
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_bo_mmap_obj420, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_access419, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_close414, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_dummy_page409, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_fault410, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_fault_reserved408, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_open413, ptr @__UNIQUE_ID___addressable_ttm_bo_vm_reserve407], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_bo_vm_reserve(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 1025) i32 @ttm_bo_vm_reserve(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @ww_mutex_trylock(ptr noundef %4, ptr noundef null) #7
@@ -757,7 +757,7 @@ define dso_local i32 @ttm_bo_vm_access(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_bo_mmap_obj(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ttm_bo_mmap_obj(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 40

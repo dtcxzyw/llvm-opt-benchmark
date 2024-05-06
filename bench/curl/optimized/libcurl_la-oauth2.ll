@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [25 x i8] c"user=%s\01auth=Bearer %s\01\01\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_create_oauth_bearer_message(ptr noundef %user, ptr noundef %host, i64 noundef %port, ptr noundef %bearer, ptr noundef %out) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_oauth_bearer_message(ptr noundef %user, ptr noundef %host, i64 noundef %port, ptr noundef %bearer, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   switch i64 %port, label %if.else [
     i64 80, label %if.then
@@ -48,7 +48,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @curl_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_create_xoauth_bearer_message(ptr noundef %user, ptr noundef %bearer, ptr noundef %out) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_xoauth_bearer_message(ptr noundef %user, ptr noundef %bearer, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.2, ptr noundef %user, ptr noundef %bearer) #3
   %tobool.not = icmp eq ptr %call, null

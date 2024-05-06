@@ -486,9 +486,9 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %73
-  %86 = getelementptr i8, ptr %76, i64 %82
-  %87 = getelementptr i8, ptr %86, i64 1
-  %88 = tail call i64 @strcspn(ptr noundef %87, ptr noundef nonnull @.str.14)
+  %86 = getelementptr inbounds i8, ptr %76, i64 %82
+  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %88 = tail call i64 @strcspn(ptr noundef nonnull %87, ptr noundef nonnull @.str.14)
   %89 = trunc i64 %88 to i8
   %90 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 %89, ptr %90, align 8

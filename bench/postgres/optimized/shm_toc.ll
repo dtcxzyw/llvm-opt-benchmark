@@ -238,7 +238,7 @@ define dso_local ptr @shm_toc_lookup(ptr noundef %0, i64 noundef %1, i1 noundef 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @shm_toc_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -31) i64 @shm_toc_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 16) #5

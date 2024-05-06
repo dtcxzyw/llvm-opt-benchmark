@@ -1014,15 +1014,15 @@ if.end6:                                          ; preds = %if.end.i, %if.then3
   br i1 %cmp.i.i, label %if.else55, label %for.body
 
 for.body:                                         ; preds = %if.end6, %for.inc
-  %meshCount.0109 = phi i32 [ %meshCount.1, %for.inc ], [ 0, %if.end6 ]
-  %childCount.0108 = phi i32 [ %childCount.1, %for.inc ], [ 0, %if.end6 ]
-  %__begin2.sroa.0.0107 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %3, %if.end6 ]
-  %5 = load ptr, ptr %__begin2.sroa.0.0107, align 8
+  %meshCount.0110 = phi i32 [ %meshCount.1, %for.inc ], [ 0, %if.end6 ]
+  %childCount.0109 = phi i32 [ %childCount.1, %for.inc ], [ 0, %if.end6 ]
+  %__begin2.sroa.0.0108 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %3, %if.end6 ]
+  %5 = load ptr, ptr %__begin2.sroa.0.0108, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %for.inc, label %if.then15
 
 if.then15:                                        ; preds = %for.body
-  %inc = add i32 %childCount.0108, 1
+  %inc = add i32 %childCount.0109, 1
   %m_Meshes = getelementptr inbounds i8, ptr %5, i64 120
   %_M_finish.i56 = getelementptr inbounds i8, ptr %5, i64 128
   %6 = load ptr, ptr %_M_finish.i56, align 8
@@ -1032,13 +1032,13 @@ if.then15:                                        ; preds = %for.body
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %add = add i32 %meshCount.0109, %conv
+  %add = add i32 %meshCount.0110, %conv
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then15
-  %childCount.1 = phi i32 [ %inc, %if.then15 ], [ %childCount.0108, %for.body ]
-  %meshCount.1 = phi i32 [ %add, %if.then15 ], [ %meshCount.0109, %for.body ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0107, i64 8
+  %childCount.1 = phi i32 [ %inc, %if.then15 ], [ %childCount.0109, %for.body ]
+  %meshCount.1 = phi i32 [ %add, %if.then15 ], [ %meshCount.0110, %for.body ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0108, i64 8
   %cmp.i55.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i55.not, label %for.end, label %for.body
 
@@ -1057,41 +1057,41 @@ for.end:                                          ; preds = %for.inc
 
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i: ; preds = %for.end
   %mul.i.i.i.i = shl nuw nsw i64 %conv22, 3
-  %call5.i.i.i.i59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #21
+  %call5.i.i.i.i60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i unwind label %lpad23.loopexit.split-lp
 
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i58 = getelementptr inbounds i8, ptr %MeshArray, i64 8
-  store ptr %call5.i.i.i.i59, ptr %MeshArray, align 8
-  store ptr %call5.i.i.i.i59, ptr %_M_finish.i.i58, align 8
-  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i59, i64 %conv22
+  %_M_finish.i.i59 = getelementptr inbounds i8, ptr %MeshArray, i64 8
+  store ptr %call5.i.i.i.i60, ptr %MeshArray, align 8
+  store ptr %call5.i.i.i.i60, ptr %_M_finish.i.i59, align 8
+  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i60, i64 %conv22
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %for.end, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %11 = load ptr, ptr %mObjects, align 8
-  %cmp28114.not = icmp eq ptr %10, %11
-  br i1 %cmp28114.not, label %for.end37, label %for.body29
+  %cmp28115.not = icmp eq ptr %10, %11
+  br i1 %cmp28115.not, label %for.end37, label %for.body29
 
 for.body29:                                       ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit, %for.inc35
   %12 = phi ptr [ %16, %for.inc35 ], [ %11, %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit ]
-  %index.0115 = phi i64 [ %inc36, %for.inc35 ], [ 0, %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit ]
-  %add.ptr.i65 = getelementptr inbounds ptr, ptr %12, i64 %index.0115
-  %13 = load ptr, ptr %add.ptr.i65, align 8
+  %index.0116 = phi i64 [ %inc36, %for.inc35 ], [ 0, %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit ]
+  %add.ptr.i66 = getelementptr inbounds ptr, ptr %12, i64 %index.0116
+  %13 = load ptr, ptr %add.ptr.i66, align 8
   %14 = load ptr, ptr %mRootNode, align 8
   %call34 = invoke noundef ptr @_ZN6Assimp15ObjFileImporter11createNodesEPKNS_7ObjFile5ModelEPKNS1_6ObjectEP6aiNodeP7aiSceneRSt6vectorIP6aiMeshSaISE_EE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull %pModel, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %pScene, ptr noundef nonnull align 8 dereferenceable(24) %MeshArray)
           to label %for.inc35 unwind label %lpad23.loopexit
 
 for.inc35:                                        ; preds = %for.body29
-  %inc36 = add nuw i64 %index.0115, 1
+  %inc36 = add nuw i64 %index.0116, 1
   %15 = load ptr, ptr %_M_finish.i.i, align 8
   %16 = load ptr, ptr %mObjects, align 8
-  %sub.ptr.lhs.cast.i61 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i62 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub.i63 = sub i64 %sub.ptr.lhs.cast.i61, %sub.ptr.rhs.cast.i62
-  %sub.ptr.div.i64 = ashr exact i64 %sub.ptr.sub.i63, 3
-  %cmp28 = icmp ult i64 %inc36, %sub.ptr.div.i64
+  %sub.ptr.lhs.cast.i62 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i63 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i64 = sub i64 %sub.ptr.lhs.cast.i62, %sub.ptr.rhs.cast.i63
+  %sub.ptr.div.i65 = ashr exact i64 %sub.ptr.sub.i64, 3
+  %cmp28 = icmp ult i64 %inc36, %sub.ptr.div.i65
   br i1 %cmp28, label %for.body29, label %for.end37, !llvm.loop !7
 
 lpad23.loopexit:                                  ; preds = %for.body29
@@ -1121,36 +1121,36 @@ for.end37:                                        ; preds = %for.inc35, %_ZNSt6v
   br i1 %cmp38.not, label %if.end53, label %if.then39
 
 if.then39:                                        ; preds = %for.end37
-  %_M_finish.i66 = getelementptr inbounds i8, ptr %MeshArray, i64 8
-  %19 = load ptr, ptr %_M_finish.i66, align 8
+  %_M_finish.i67 = getelementptr inbounds i8, ptr %MeshArray, i64 8
+  %19 = load ptr, ptr %_M_finish.i67, align 8
   %20 = load ptr, ptr %MeshArray, align 8
-  %sub.ptr.lhs.cast.i67 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i68 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
-  %sub.ptr.div.i70 = ashr exact i64 %sub.ptr.sub.i69, 3
-  %21 = icmp ugt i64 %sub.ptr.div.i70, 2305843009213693951
-  %22 = select i1 %21, i64 -1, i64 %sub.ptr.sub.i69
+  %sub.ptr.lhs.cast.i68 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i69 = ptrtoint ptr %20 to i64
+  %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
+  %sub.ptr.div.i71 = ashr exact i64 %sub.ptr.sub.i70, 3
+  %21 = icmp ugt i64 %sub.ptr.div.i71, 2305843009213693951
+  %22 = select i1 %21, i64 -1, i64 %sub.ptr.sub.i70
   %call42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #21
           to label %invoke.cont41 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %if.then39
   %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   store ptr %call42, ptr %mMeshes, align 8
-  %cmp46116.not = icmp eq ptr %19, %20
-  br i1 %cmp46116.not, label %if.end53, label %for.body47.preheader
+  %cmp46117.not = icmp eq ptr %19, %20
+  br i1 %cmp46117.not, label %if.end53, label %for.body47.preheader
 
 for.body47.preheader:                             ; preds = %invoke.cont41
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i70, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i71, i64 1)
   br label %for.body47
 
 for.body47:                                       ; preds = %for.body47.preheader, %for.body47
-  %index43.0117 = phi i64 [ %inc51, %for.body47 ], [ 0, %for.body47.preheader ]
-  %add.ptr.i76 = getelementptr inbounds ptr, ptr %20, i64 %index43.0117
-  %23 = load ptr, ptr %add.ptr.i76, align 8
+  %index43.0118 = phi i64 [ %inc51, %for.body47 ], [ 0, %for.body47.preheader ]
+  %add.ptr.i77 = getelementptr inbounds ptr, ptr %20, i64 %index43.0118
+  %23 = load ptr, ptr %add.ptr.i77, align 8
   %24 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %24, i64 %index43.0117
+  %arrayidx = getelementptr inbounds ptr, ptr %24, i64 %index43.0118
   store ptr %23, ptr %arrayidx, align 8
-  %inc51 = add nuw i64 %index43.0117, 1
+  %inc51 = add nuw i64 %index43.0118, 1
   %exitcond.not = icmp eq i64 %inc51, %umax
   br i1 %exitcond.not, label %if.end53, label %for.body47, !llvm.loop !8
 
@@ -1160,20 +1160,20 @@ if.end53:                                         ; preds = %for.body47, %invoke
 
 invoke.cont54:                                    ; preds = %if.end53
   %25 = load ptr, ptr %MeshArray, align 8
-  %tobool.not.i.i.i77 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i77, label %if.end164, label %if.then.i.i.i78
+  %tobool.not.i.i.i78 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i.i78, label %if.end164, label %if.then.i.i.i79
 
-if.then.i.i.i78:                                  ; preds = %invoke.cont54
+if.then.i.i.i79:                                  ; preds = %invoke.cont54
   tail call void @_ZdlPv(ptr noundef nonnull %25) #19
   br label %if.end164
 
 if.else55:                                        ; preds = %if.end6
   %mVertices = getelementptr inbounds i8, ptr %pModel, i64 104
   %26 = load ptr, ptr %mVertices, align 8
-  %_M_finish.i.i80 = getelementptr inbounds i8, ptr %pModel, i64 112
-  %27 = load ptr, ptr %_M_finish.i.i80, align 8
-  %cmp.i.i81 = icmp eq ptr %26, %27
-  br i1 %cmp.i.i81, label %if.end164, label %if.end58
+  %_M_finish.i.i81 = getelementptr inbounds i8, ptr %pModel, i64 112
+  %27 = load ptr, ptr %_M_finish.i.i81, align 8
+  %cmp.i.i82 = icmp eq ptr %26, %27
+  br i1 %cmp.i.i82, label %if.end164, label %if.end58
 
 if.end58:                                         ; preds = %if.else55
   %call59 = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #21
@@ -1192,13 +1192,13 @@ if.end58:                                         ; preds = %if.else55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mAnimMeshes.i, i8 0, i64 36, i1 false)
   store ptr %call59, ptr %mesh, align 8
   store i32 1, ptr %call59, align 8
-  %sub.ptr.lhs.cast.i83 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i84 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i85 = sub i64 %sub.ptr.lhs.cast.i83, %sub.ptr.rhs.cast.i84
-  %sub.ptr.div.i86 = sdiv exact i64 %sub.ptr.sub.i85, 12
-  %conv63 = trunc i64 %sub.ptr.div.i86 to i32
+  %sub.ptr.lhs.cast.i84 = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i85 = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
+  %sub.ptr.div.i87 = sdiv exact i64 %sub.ptr.sub.i86, 12
+  %conv63 = trunc i64 %sub.ptr.div.i87 to i32
   store i32 %conv63, ptr %mNumVertices.i, align 4
-  %conv65 = and i64 %sub.ptr.div.i86, 4294967295
+  %conv65 = and i64 %sub.ptr.div.i87, 4294967295
   %28 = mul nuw nsw i64 %conv65, 12
   %call68 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %28) #21
           to label %invoke.cont67 unwind label %lpad66
@@ -1220,10 +1220,10 @@ arrayctor.cont:                                   ; preds = %new.ctorloop, %invo
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call68, ptr align 4 %26, i64 %28, i1 false)
   %mNormals = getelementptr inbounds i8, ptr %pModel, i64 128
   %33 = load ptr, ptr %mNormals, align 8
-  %_M_finish.i.i87 = getelementptr inbounds i8, ptr %pModel, i64 136
-  %34 = load ptr, ptr %_M_finish.i.i87, align 8
-  %cmp.i.i88 = icmp eq ptr %33, %34
-  br i1 %cmp.i.i88, label %if.end105, label %if.then77
+  %_M_finish.i.i88 = getelementptr inbounds i8, ptr %pModel, i64 136
+  %34 = load ptr, ptr %_M_finish.i.i88, align 8
+  %cmp.i.i89 = icmp eq ptr %33, %34
+  br i1 %cmp.i.i89, label %if.end105, label %if.then77
 
 if.then77:                                        ; preds = %arrayctor.cont
   %call80 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %28) #21
@@ -1243,11 +1243,11 @@ new.ctorloop82:                                   ; preds = %invoke.cont79
 arrayctor.cont88:                                 ; preds = %new.ctorloop82, %invoke.cont79
   %mNormals90 = getelementptr inbounds i8, ptr %call59, i64 24
   store ptr %call80, ptr %mNormals90, align 8
-  %sub.ptr.lhs.cast.i92 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i93 = ptrtoint ptr %33 to i64
-  %sub.ptr.sub.i94 = sub i64 %sub.ptr.lhs.cast.i92, %sub.ptr.rhs.cast.i93
-  %sub.ptr.div.i95 = sdiv exact i64 %sub.ptr.sub.i94, 12
-  %cmp94 = icmp ult i64 %sub.ptr.div.i95, %conv65
+  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %33 to i64
+  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
+  %sub.ptr.div.i96 = sdiv exact i64 %sub.ptr.sub.i95, 12
+  %cmp94 = icmp ult i64 %sub.ptr.div.i96, %conv65
   br i1 %cmp94, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %arrayctor.cont88
@@ -1273,13 +1273,13 @@ if.end98:                                         ; preds = %arrayctor.cont88
 if.end105:                                        ; preds = %if.end98, %arrayctor.cont
   %mVertexColors = getelementptr inbounds i8, ptr %pModel, i64 152
   %41 = load ptr, ptr %mVertexColors, align 8
-  %_M_finish.i.i96 = getelementptr inbounds i8, ptr %pModel, i64 160
-  %42 = load ptr, ptr %_M_finish.i.i96, align 8
-  %cmp.i.i97 = icmp eq ptr %41, %42
-  br i1 %cmp.i.i97, label %if.end147, label %if.then107
+  %_M_finish.i.i97 = getelementptr inbounds i8, ptr %pModel, i64 160
+  %42 = load ptr, ptr %_M_finish.i.i97, align 8
+  %cmp.i.i98 = icmp eq ptr %41, %42
+  br i1 %cmp.i.i98, label %if.end147, label %if.then107
 
 if.then107:                                       ; preds = %if.end105
-  %conv110 = and i64 %sub.ptr.div.i86, 4294967295
+  %conv110 = and i64 %sub.ptr.div.i87, 4294967295
   %43 = shl nuw nsw i64 %conv110, 4
   %call112 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %43) #21
           to label %invoke.cont111 unwind label %lpad66
@@ -1289,8 +1289,8 @@ invoke.cont111:                                   ; preds = %if.then107
   br i1 %isempty113, label %arrayctor.cont120.thread, label %for.body125.preheader
 
 arrayctor.cont120.thread:                         ; preds = %invoke.cont111
-  %mColors122 = getelementptr inbounds i8, ptr %call59, i64 48
-  store ptr %call112, ptr %mColors122, align 8
+  %mColors123 = getelementptr inbounds i8, ptr %call59, i64 48
+  store ptr %call112, ptr %mColors123, align 8
   br label %if.end147
 
 for.body125.preheader:                            ; preds = %invoke.cont111
@@ -1301,30 +1301,30 @@ for.body125.preheader:                            ; preds = %invoke.cont111
 
 for.body125:                                      ; preds = %for.body125.preheader, %if.then130
   %indvars.iv = phi i64 [ 0, %for.body125.preheader ], [ %indvars.iv.next, %if.then130 ]
-  %44 = load ptr, ptr %_M_finish.i.i96, align 8
+  %44 = load ptr, ptr %_M_finish.i.i97, align 8
   %45 = load ptr, ptr %mVertexColors, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %45 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %sub.ptr.div.i102 = sdiv exact i64 %sub.ptr.sub.i101, 12
-  %cmp129 = icmp ugt i64 %sub.ptr.div.i102, %indvars.iv
+  %sub.ptr.lhs.cast.i100 = ptrtoint ptr %44 to i64
+  %sub.ptr.rhs.cast.i101 = ptrtoint ptr %45 to i64
+  %sub.ptr.sub.i102 = sub i64 %sub.ptr.lhs.cast.i100, %sub.ptr.rhs.cast.i101
+  %sub.ptr.div.i103 = sdiv exact i64 %sub.ptr.sub.i102, 12
+  %cmp129 = icmp ugt i64 %sub.ptr.div.i103, %indvars.iv
   br i1 %cmp129, label %if.then130, label %if.else139
 
 if.then130:                                       ; preds = %for.body125
-  %add.ptr.i103 = getelementptr inbounds %class.aiVector3t, ptr %45, i64 %indvars.iv
-  %z = getelementptr inbounds i8, ptr %add.ptr.i103, i64 8
+  %add.ptr.i104 = getelementptr inbounds %class.aiVector3t, ptr %45, i64 %indvars.iv
+  %z = getelementptr inbounds i8, ptr %add.ptr.i104, i64 8
   %46 = load float, ptr %z, align 4
   %47 = load ptr, ptr %mColors, align 8
   %arrayidx138 = getelementptr inbounds %class.aiColor4t, ptr %47, i64 %indvars.iv
-  %48 = load <2 x float>, ptr %add.ptr.i103, align 4
+  %48 = load <2 x float>, ptr %add.ptr.i104, align 4
   store <2 x float> %48, ptr %arrayidx138, align 4
   %ref.tmp.sroa.3.0.arrayidx138.sroa_idx = getelementptr inbounds i8, ptr %arrayidx138, i64 8
   store float %46, ptr %ref.tmp.sroa.3.0.arrayidx138.sroa_idx, align 4
   %ref.tmp.sroa.4.0.arrayidx138.sroa_idx = getelementptr inbounds i8, ptr %arrayidx138, i64 12
   store float 1.000000e+00, ptr %ref.tmp.sroa.4.0.arrayidx138.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next, %conv110
-  br i1 %exitcond121.not, label %if.end147, label %for.body125, !llvm.loop !9
+  %exitcond122.not = icmp eq i64 %indvars.iv.next, %conv110
+  br i1 %exitcond122.not, label %if.end147, label %for.body125, !llvm.loop !9
 
 if.else139:                                       ; preds = %for.body125
   %exception140 = tail call ptr @__cxa_allocate_exception(i64 16) #18
@@ -1376,7 +1376,7 @@ ehcleanup:                                        ; preds = %lpad141, %lpad96, %
   call void @_ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #18
   br label %eh.resume
 
-if.end164:                                        ; preds = %if.then.i.i.i78, %invoke.cont54, %if.else55, %entry, %_ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit
+if.end164:                                        ; preds = %if.then.i.i.i79, %invoke.cont54, %if.else55, %entry, %_ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad23, %ehcleanup, %lpad
@@ -1693,18 +1693,18 @@ return:                                           ; preds = %for.body33, %if.the
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp15ObjFileImporter15createMaterialsEPKNS_7ObjFile5ModelEP7aiScene(ptr nocapture nonnull readnone align 8 %this, ptr noundef %pModel, ptr noundef %pScene) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %clampMode.addr.i217 = alloca i32, align 4
-  %clampMode.addr.i213 = alloca i32, align 4
+  %clampMode.addr.i229 = alloca i32, align 4
+  %clampMode.addr.i224 = alloca i32, align 4
+  %clampMode.addr.i219 = alloca i32, align 4
+  %clampMode.addr.i214 = alloca i32, align 4
   %clampMode.addr.i209 = alloca i32, align 4
-  %clampMode.addr.i205 = alloca i32, align 4
-  %clampMode.addr.i201 = alloca i32, align 4
-  %clampMode.addr.i197 = alloca i32, align 4
-  %clampMode.addr.i193 = alloca i32, align 4
+  %clampMode.addr.i204 = alloca i32, align 4
+  %clampMode.addr.i199 = alloca i32, align 4
+  %clampMode.addr.i194 = alloca i32, align 4
   %clampMode.addr.i189 = alloca i32, align 4
-  %clampMode.addr.i185 = alloca i32, align 4
-  %clampMode.addr.i180 = alloca i32, align 4
-  %clampMode.addr.i175 = alloca i32, align 4
-  %clampMode.addr.i170 = alloca i32, align 4
+  %clampMode.addr.i183 = alloca i32, align 4
+  %clampMode.addr.i177 = alloca i32, align 4
+  %clampMode.addr.i171 = alloca i32, align 4
   %clampMode.addr.i = alloca i32, align 4
   %sm = alloca i32, align 4
   %uvwIndex = alloca i32, align 4
@@ -1739,8 +1739,8 @@ if.end6:                                          ; preds = %if.end
   %mMaterials = getelementptr inbounds i8, ptr %pScene, i64 40
   store ptr %call8, ptr %mMaterials, align 8
   %5 = and i64 %sub.ptr.sub.i, 137438953440
-  %cmp9225.not = icmp eq i64 %5, 0
-  br i1 %cmp9225.not, label %for.end261, label %for.body.lr.ph
+  %cmp9238.not = icmp eq i64 %5, 0
+  br i1 %cmp9238.not, label %for.end261, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %pModel, i64 344
@@ -1759,9 +1759,9 @@ for.bodythread-pre-split:                         ; preds = %for.inc259
 
 for.body:                                         ; preds = %for.bodythread-pre-split, %for.body.preheader
   %8 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %6, %for.body.preheader ]
-  %indvars.iv230 = phi i64 [ %indvars.iv.next231, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
+  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
   %9 = load ptr, ptr %mMaterialLib, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %indvars.iv230
+  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %indvars.iv243
   %cmp.not6.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not6.i.i.i, label %for.inc259, label %while.body.i.i.i
 
@@ -1955,18 +1955,18 @@ if.end76:                                         ; preds = %if.then70, %if.then
 
 if.then79:                                        ; preds = %if.end76
   %call81 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureAmbient, ptr noundef nonnull @.str.40, i32 noundef 3, i32 noundef 0)
-  %call.i169 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 0, i32 noundef 4)
+  %call.i170 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 0, i32 noundef 4)
   %arrayidx84 = getelementptr inbounds i8, ptr %14, i64 20562
   %25 = load i8, ptr %arrayidx84, align 2
   %tobool85 = trunc i8 %25 to i1
   br i1 %tobool85, label %if.then86, label %if.end88
 
 if.then86:                                        ; preds = %if.then79
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i170)
-  store i32 1, ptr %clampMode.addr.i170, align 4
-  %call.i.i171 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i170, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 3, i32 noundef 0, i32 noundef 4)
-  %call.i5.i172 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i170, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 3, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i170)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i171)
+  store i32 1, ptr %clampMode.addr.i171, align 4
+  %call.i.i173 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i171, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 3, i32 noundef 0, i32 noundef 4)
+  %call.i5.i174 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i171, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 3, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i171)
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then79, %if.then86, %if.end76
@@ -1977,7 +1977,7 @@ if.end88:                                         ; preds = %if.then79, %if.then
 
 if.then91:                                        ; preds = %if.end88
   %call93 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureEmissive, ptr noundef nonnull @.str.40, i32 noundef 4, i32 noundef 0)
-  %call.i173 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 4, i32 noundef 0, i32 noundef 4)
+  %call.i175 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 4, i32 noundef 0, i32 noundef 4)
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then91, %if.end88
@@ -1988,18 +1988,18 @@ if.end95:                                         ; preds = %if.then91, %if.end8
 
 if.then98:                                        ; preds = %if.end95
   %call100 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureSpecular, ptr noundef nonnull @.str.40, i32 noundef 2, i32 noundef 0)
-  %call.i174 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 2, i32 noundef 0, i32 noundef 4)
+  %call.i176 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 2, i32 noundef 0, i32 noundef 4)
   %arrayidx103 = getelementptr inbounds i8, ptr %14, i64 20561
   %28 = load i8, ptr %arrayidx103, align 1
   %tobool104 = trunc i8 %28 to i1
   br i1 %tobool104, label %if.then105, label %if.end107
 
 if.then105:                                       ; preds = %if.then98
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i175)
-  store i32 1, ptr %clampMode.addr.i175, align 4
-  %call.i.i176 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i175, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 0, i32 noundef 4)
-  %call.i5.i177 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i175, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i175)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i177)
+  store i32 1, ptr %clampMode.addr.i177, align 4
+  %call.i.i179 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i177, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 0, i32 noundef 4)
+  %call.i5.i180 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i177, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i177)
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then98, %if.then105, %if.end95
@@ -2010,14 +2010,14 @@ if.end107:                                        ; preds = %if.then98, %if.then
 
 if.then110:                                       ; preds = %if.end107
   %call112 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureBump, ptr noundef nonnull @.str.40, i32 noundef 5, i32 noundef 0)
-  %call.i178 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 5, i32 noundef 0, i32 noundef 4)
+  %call.i181 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 5, i32 noundef 0, i32 noundef 4)
   %bump_multiplier = getelementptr inbounds i8, ptr %14, i64 20708
   %30 = load float, ptr %bump_multiplier, align 4
   %cmp115 = fcmp une float %30, 1.000000e+00
   br i1 %cmp115, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %if.then110
-  %call.i179 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %bump_multiplier, i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef 5, i32 noundef 0, i32 noundef 1)
+  %call.i182 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %bump_multiplier, i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef 5, i32 noundef 0, i32 noundef 1)
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.then110
@@ -2027,11 +2027,11 @@ if.end119:                                        ; preds = %if.then116, %if.the
   br i1 %tobool122, label %if.then123, label %if.end125
 
 if.then123:                                       ; preds = %if.end119
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i180)
-  store i32 1, ptr %clampMode.addr.i180, align 4
-  %call.i.i181 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i180, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 5, i32 noundef 0, i32 noundef 4)
-  %call.i5.i182 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i180, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 5, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i180)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i183)
+  store i32 1, ptr %clampMode.addr.i183, align 4
+  %call.i.i185 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i183, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 5, i32 noundef 0, i32 noundef 4)
+  %call.i5.i186 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i183, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 5, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i183)
   br label %if.end125
 
 if.end125:                                        ; preds = %if.end119, %if.then123, %if.end107
@@ -2042,14 +2042,14 @@ if.end125:                                        ; preds = %if.end119, %if.then
 
 if.then128:                                       ; preds = %if.end125
   %call130 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureNormal, ptr noundef nonnull @.str.40, i32 noundef 6, i32 noundef 0)
-  %call.i183 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 6, i32 noundef 0, i32 noundef 4)
+  %call.i187 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 6, i32 noundef 0, i32 noundef 4)
   %bump_multiplier132 = getelementptr inbounds i8, ptr %14, i64 20708
   %33 = load float, ptr %bump_multiplier132, align 4
   %cmp134 = fcmp une float %33, 1.000000e+00
   br i1 %cmp134, label %if.then135, label %if.end138
 
 if.then135:                                       ; preds = %if.then128
-  %call.i184 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %bump_multiplier132, i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef 6, i32 noundef 0, i32 noundef 1)
+  %call.i188 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %bump_multiplier132, i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef 6, i32 noundef 0, i32 noundef 1)
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then135, %if.then128
@@ -2059,11 +2059,11 @@ if.end138:                                        ; preds = %if.then135, %if.the
   br i1 %tobool141, label %if.then142, label %if.end144
 
 if.then142:                                       ; preds = %if.end138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i185)
-  store i32 1, ptr %clampMode.addr.i185, align 4
-  %call.i.i186 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i185, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 6, i32 noundef 0, i32 noundef 4)
-  %call.i5.i187 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i185, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 6, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i185)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i189)
+  store i32 1, ptr %clampMode.addr.i189, align 4
+  %call.i.i191 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i189, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 6, i32 noundef 0, i32 noundef 4)
+  %call.i5.i192 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i189, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 6, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i189)
   br label %if.end144
 
 if.end144:                                        ; preds = %if.end138, %if.then142, %if.end125
@@ -2084,25 +2084,25 @@ if.then148:                                       ; preds = %if.end144
 for.body157:                                      ; preds = %if.then148, %for.inc
   %indvars.iv = phi i64 [ 0, %if.then148 ], [ %indvars.iv.next, %for.inc ]
   %arrayidx159 = getelementptr inbounds [6 x %struct.aiString], ptr %textureReflection, i64 0, i64 %indvars.iv
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %call160 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %arrayidx159, ptr noundef nonnull @.str.40, i32 noundef 11, i32 noundef %37)
-  %call.i188 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 11, i32 noundef %37, i32 noundef 4)
+  %call.i193 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 11, i32 noundef %37, i32 noundef 4)
   %38 = load i8, ptr %arrayidx164, align 1
   %tobool165 = trunc i8 %38 to i1
   br i1 %tobool165, label %if.then166, label %for.inc
 
 if.then166:                                       ; preds = %for.body157
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i189)
-  store i32 1, ptr %clampMode.addr.i189, align 4
-  %call.i.i190 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i189, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 11, i32 noundef %37, i32 noundef 4)
-  %call.i5.i191 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i189, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 11, i32 noundef %37, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i189)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i194)
+  store i32 1, ptr %clampMode.addr.i194, align 4
+  %call.i.i196 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i194, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 11, i32 noundef %37, i32 noundef 4)
+  %call.i5.i197 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i194, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 11, i32 noundef %37, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i194)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body157, %if.then166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp156227 = icmp ult i64 %indvars.iv, 5
-  %cmp156 = and i1 %cmp152.not, %cmp156227
+  %cmp156240 = icmp ult i64 %indvars.iv, 5
+  %cmp156 = and i1 %cmp152.not, %cmp156240
   br i1 %cmp156, label %for.body157, label %if.end168, !llvm.loop !13
 
 if.end168:                                        ; preds = %for.inc, %if.end144
@@ -2113,18 +2113,18 @@ if.end168:                                        ; preds = %for.inc, %if.end144
 
 if.then171:                                       ; preds = %if.end168
   %call173 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureDisp, ptr noundef nonnull @.str.40, i32 noundef 9, i32 noundef 0)
-  %call.i192 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  %call.i198 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 9, i32 noundef 0, i32 noundef 4)
   %arrayidx176 = getelementptr inbounds i8, ptr %14, i64 20575
   %40 = load i8, ptr %arrayidx176, align 1
   %tobool177 = trunc i8 %40 to i1
   br i1 %tobool177, label %if.then178, label %if.end180
 
 if.then178:                                       ; preds = %if.then171
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i193)
-  store i32 1, ptr %clampMode.addr.i193, align 4
-  %call.i.i194 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i193, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 9, i32 noundef 0, i32 noundef 4)
-  %call.i5.i195 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i193, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 9, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i193)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i199)
+  store i32 1, ptr %clampMode.addr.i199, align 4
+  %call.i.i201 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i199, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  %call.i5.i202 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i199, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i199)
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then171, %if.then178, %if.end168
@@ -2135,18 +2135,18 @@ if.end180:                                        ; preds = %if.then171, %if.the
 
 if.then183:                                       ; preds = %if.end180
   %call185 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureOpacity, ptr noundef nonnull @.str.40, i32 noundef 8, i32 noundef 0)
-  %call.i196 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  %call.i203 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 8, i32 noundef 0, i32 noundef 4)
   %arrayidx188 = getelementptr inbounds i8, ptr %14, i64 20574
   %42 = load i8, ptr %arrayidx188, align 2
   %tobool189 = trunc i8 %42 to i1
   br i1 %tobool189, label %if.then190, label %if.end192
 
 if.then190:                                       ; preds = %if.then183
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i197)
-  store i32 1, ptr %clampMode.addr.i197, align 4
-  %call.i.i198 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i197, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 8, i32 noundef 0, i32 noundef 4)
-  %call.i5.i199 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i197, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 8, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i197)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i204)
+  store i32 1, ptr %clampMode.addr.i204, align 4
+  %call.i.i206 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i204, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  %call.i5.i207 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i204, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i204)
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then183, %if.then190, %if.end180
@@ -2157,18 +2157,18 @@ if.end192:                                        ; preds = %if.then183, %if.the
 
 if.then195:                                       ; preds = %if.end192
   %call197 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureSpecularity, ptr noundef nonnull @.str.40, i32 noundef 7, i32 noundef 0)
-  %call.i200 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  %call.i208 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 7, i32 noundef 0, i32 noundef 4)
   %arrayidx200 = getelementptr inbounds i8, ptr %14, i64 20573
   %44 = load i8, ptr %arrayidx200, align 1
   %tobool201 = trunc i8 %44 to i1
   br i1 %tobool201, label %if.then202, label %if.end204
 
 if.then202:                                       ; preds = %if.then195
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i201)
-  store i32 1, ptr %clampMode.addr.i201, align 4
-  %call.i.i202 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i201, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 7, i32 noundef 0, i32 noundef 4)
-  %call.i5.i203 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i201, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 7, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i201)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i209)
+  store i32 1, ptr %clampMode.addr.i209, align 4
+  %call.i.i211 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i209, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  %call.i5.i212 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i209, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i209)
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then195, %if.then202, %if.end192
@@ -2179,18 +2179,18 @@ if.end204:                                        ; preds = %if.then195, %if.the
 
 if.then207:                                       ; preds = %if.end204
   %call209 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureRoughness, ptr noundef nonnull @.str.40, i32 noundef 16, i32 noundef 0)
-  %call.i204 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  %call.i213 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 16, i32 noundef 0, i32 noundef 4)
   %arrayidx212 = getelementptr inbounds i8, ptr %14, i64 20576
   %46 = load i8, ptr %arrayidx212, align 4
   %tobool213 = trunc i8 %46 to i1
   br i1 %tobool213, label %if.then214, label %if.end216
 
 if.then214:                                       ; preds = %if.then207
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i205)
-  store i32 1, ptr %clampMode.addr.i205, align 4
-  %call.i.i206 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i205, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 16, i32 noundef 0, i32 noundef 4)
-  %call.i5.i207 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i205, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i205)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i214)
+  store i32 1, ptr %clampMode.addr.i214, align 4
+  %call.i.i216 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i214, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  %call.i5.i217 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i214, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i214)
   br label %if.end216
 
 if.end216:                                        ; preds = %if.then207, %if.then214, %if.end204
@@ -2201,18 +2201,18 @@ if.end216:                                        ; preds = %if.then207, %if.the
 
 if.then219:                                       ; preds = %if.end216
   %call221 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureMetallic, ptr noundef nonnull @.str.40, i32 noundef 15, i32 noundef 0)
-  %call.i208 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  %call.i218 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 15, i32 noundef 0, i32 noundef 4)
   %arrayidx224 = getelementptr inbounds i8, ptr %14, i64 20577
   %48 = load i8, ptr %arrayidx224, align 1
   %tobool225 = trunc i8 %48 to i1
   br i1 %tobool225, label %if.then226, label %if.end228
 
 if.then226:                                       ; preds = %if.then219
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i209)
-  store i32 1, ptr %clampMode.addr.i209, align 4
-  %call.i.i210 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i209, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 15, i32 noundef 0, i32 noundef 4)
-  %call.i5.i211 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i209, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 15, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i209)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i219)
+  store i32 1, ptr %clampMode.addr.i219, align 4
+  %call.i.i221 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i219, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  %call.i5.i222 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i219, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i219)
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then219, %if.then226, %if.end216
@@ -2223,18 +2223,18 @@ if.end228:                                        ; preds = %if.then219, %if.the
 
 if.then231:                                       ; preds = %if.end228
   %call233 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureSheen, ptr noundef nonnull @.str.40, i32 noundef 19, i32 noundef 0)
-  %call.i212 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  %call.i223 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 19, i32 noundef 0, i32 noundef 4)
   %arrayidx236 = getelementptr inbounds i8, ptr %14, i64 20578
   %50 = load i8, ptr %arrayidx236, align 2
   %tobool237 = trunc i8 %50 to i1
   br i1 %tobool237, label %if.then238, label %if.end240
 
 if.then238:                                       ; preds = %if.then231
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i213)
-  store i32 1, ptr %clampMode.addr.i213, align 4
-  %call.i.i214 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i213, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 19, i32 noundef 0, i32 noundef 4)
-  %call.i5.i215 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i213, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 19, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i213)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i224)
+  store i32 1, ptr %clampMode.addr.i224, align 4
+  %call.i.i226 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i224, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  %call.i5.i227 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i224, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i224)
   br label %if.end240
 
 if.end240:                                        ; preds = %if.then231, %if.then238, %if.end228
@@ -2245,18 +2245,18 @@ if.end240:                                        ; preds = %if.then231, %if.the
 
 if.then243:                                       ; preds = %if.end240
   %call245 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %textureRMA, ptr noundef nonnull @.str.40, i32 noundef 18, i32 noundef 0)
-  %call.i216 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  %call.i228 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %uvwIndex, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 18, i32 noundef 0, i32 noundef 4)
   %arrayidx248 = getelementptr inbounds i8, ptr %14, i64 20579
   %52 = load i8, ptr %arrayidx248, align 1
   %tobool249 = trunc i8 %52 to i1
   br i1 %tobool249, label %if.then250, label %if.end252
 
 if.then250:                                       ; preds = %if.then243
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i217)
-  store i32 1, ptr %clampMode.addr.i217, align 4
-  %call.i.i218 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i217, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 18, i32 noundef 0, i32 noundef 4)
-  %call.i5.i219 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i217, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 18, i32 noundef 0, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i217)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clampMode.addr.i229)
+  store i32 1, ptr %clampMode.addr.i229, align 4
+  %call.i.i231 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i229, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  %call.i5.i232 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call21, ptr noundef nonnull %clampMode.addr.i229, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clampMode.addr.i229)
   br label %if.end252
 
 if.end252:                                        ; preds = %if.then243, %if.then250, %if.end240
@@ -2271,8 +2271,8 @@ if.end252:                                        ; preds = %if.then243, %if.the
   br label %for.inc259
 
 for.inc259:                                       ; preds = %for.body, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %if.end252
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count
+  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count
   br i1 %exitcond.not, label %for.end261, label %for.bodythread-pre-split, !llvm.loop !14
 
 for.end261:                                       ; preds = %for.inc259, %for.body.lr.ph, %if.end6, %entry, %if.then4
@@ -3234,7 +3234,7 @@ if.end94:                                         ; preds = %if.end87
   %idxprom = zext i32 %newIndex.1220 to i64
   %arrayidx99 = getelementptr inbounds %class.aiVector3t, ptr %34, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx99, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i127, i64 12, i1 false)
-  %tobool100 = trunc i8 %normalsok.1222 to i1
+  %tobool100 = trunc nuw i8 %normalsok.1222 to i1
   br i1 %tobool100, label %land.lhs.true101, label %if.end123
 
 land.lhs.true101:                                 ; preds = %if.end94
@@ -3297,7 +3297,7 @@ if.then128:                                       ; preds = %if.end123
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then128, %if.end123
-  %tobool137 = trunc i8 %uvok.1221 to i1
+  %tobool137 = trunc nuw i8 %uvok.1221 to i1
   br i1 %tobool137, label %land.lhs.true138, label %if.end165
 
 land.lhs.true138:                                 ; preds = %if.end136
@@ -3502,8 +3502,8 @@ for.inc257:                                       ; preds = %if.end252, %for.bod
   br i1 %cmp.i.not, label %for.end259, label %for.body
 
 for.end259:                                       ; preds = %for.inc257
-  %74 = trunc i8 %normalsok.1.lcssa to i1
-  %75 = trunc i8 %uvok.1.lcssa to i1
+  %74 = trunc nuw i8 %normalsok.1.lcssa to i1
+  %75 = trunc nuw i8 %uvok.1.lcssa to i1
   br i1 %74, label %if.end264, label %if.then261
 
 if.then261:                                       ; preds = %for.end259
@@ -4367,7 +4367,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #18
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
@@ -4379,11 +4379,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #19
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 

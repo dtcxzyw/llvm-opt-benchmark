@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [68 x i8] c"Issue while setting TUNSETSTEERINGEBPF: %s with fd: %d, prog_fd: %d\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_open(ptr noundef %ifname, i32 noundef %ifname_size, ptr nocapture noundef %vnet_hdr, i32 noundef %vnet_hdr_required, i32 noundef %mq_required, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @tap_open(ptr noundef %ifname, i32 noundef %ifname_size, ptr nocapture noundef %vnet_hdr, i32 noundef %vnet_hdr_required, i32 noundef %mq_required, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   %len = alloca i32, align 4
@@ -259,7 +259,7 @@ if.end15:                                         ; preds = %if.then13, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tap_probe_vnet_hdr(i32 noundef %fd, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 16385) i32 @tap_probe_vnet_hdr(i32 noundef %fd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ifr, i8 0, i64 40, i1 false)
@@ -286,7 +286,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tap_probe_has_ufo(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tap_probe_has_ufo(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef 17) #8
   %cmp = icmp sgt i32 %call, -1
@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tap_probe_has_uso(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tap_probe_has_uso(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef 97) #8
   %cmp = icmp sgt i32 %call, -1
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_probe_vnet_hdr_len(i32 noundef %fd, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tap_probe_vnet_hdr_len(i32 noundef %fd, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %len.addr = alloca i32, align 4
   %orig = alloca i32, align 4
@@ -366,7 +366,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_fd_set_vnet_le(i32 noundef %fd, i32 noundef %is_le) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @tap_fd_set_vnet_le(i32 noundef %fd, i32 noundef %is_le) local_unnamed_addr #0 {
 entry:
   %arg = alloca i32, align 4
   %tobool.not = icmp ne i32 %is_le, 0
@@ -396,7 +396,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_fd_set_vnet_be(i32 noundef %fd, i32 noundef %is_be) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @tap_fd_set_vnet_be(i32 noundef %fd, i32 noundef %is_be) local_unnamed_addr #0 {
 entry:
   %arg = alloca i32, align 4
   %tobool.not = icmp ne i32 %is_be, 0
@@ -532,7 +532,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_fd_get_ifname(i32 noundef %fd, ptr noundef %ifname) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @tap_fd_get_ifname(i32 noundef %fd, ptr noundef %ifname) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 2147767506, ptr noundef nonnull %ifr) #8
@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tap_fd_set_steering_ebpf(i32 noundef %fd, i32 noundef %prog_fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @tap_fd_set_steering_ebpf(i32 noundef %fd, i32 noundef %prog_fd) local_unnamed_addr #0 {
 entry:
   %prog_fd.addr = alloca i32, align 4
   store i32 %prog_fd, ptr %prog_fd.addr, align 4

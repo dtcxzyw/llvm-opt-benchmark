@@ -168,7 +168,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12LuaAreaStore10l_get_areaEP9lua_State(ptr noundef %L) #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12LuaAreaStore10l_get_areaEP9lua_State(ptr noundef %L) #3 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12LuaAreaStore9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -392,13 +392,13 @@ entry:
   %minp.sroa.7.0.extract.shift = lshr i48 %call1, 16
   %minp.sroa.7.0.extract.trunc = trunc i48 %minp.sroa.7.0.extract.shift to i16
   %minp.sroa.9.0.extract.shift = lshr i48 %call1, 32
-  %minp.sroa.9.0.extract.trunc = trunc i48 %minp.sroa.9.0.extract.shift to i16
+  %minp.sroa.9.0.extract.trunc = trunc nuw i48 %minp.sroa.9.0.extract.shift to i16
   %call2 = tail call i48 @_Z11check_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 3)
   %maxp.sroa.0.0.extract.trunc = trunc i48 %call2 to i16
   %maxp.sroa.7.0.extract.shift = lshr i48 %call2, 16
   %maxp.sroa.7.0.extract.trunc = trunc i48 %maxp.sroa.7.0.extract.shift to i16
   %maxp.sroa.9.0.extract.shift = lshr i48 %call2, 32
-  %maxp.sroa.9.0.extract.trunc = trunc i48 %maxp.sroa.9.0.extract.shift to i16
+  %maxp.sroa.9.0.extract.trunc = trunc nuw i48 %maxp.sroa.9.0.extract.shift to i16
   %spec.select = tail call i16 @llvm.smin.i16(i16 %minp.sroa.0.0.extract.trunc, i16 %maxp.sroa.0.0.extract.trunc)
   %spec.select26 = tail call i16 @llvm.smax.i16(i16 %minp.sroa.0.0.extract.trunc, i16 %maxp.sroa.0.0.extract.trunc)
   %minp.sroa.7.0 = tail call i16 @llvm.smin.i16(i16 %minp.sroa.7.0.extract.trunc, i16 %maxp.sroa.7.0.extract.trunc)
@@ -545,7 +545,7 @@ declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare noundef zeroext i1 @_ZN9LuaHelper9readParamIbEET_P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12LuaAreaStore13l_insert_areaEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12LuaAreaStore13l_insert_areaEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %a = alloca %struct.Area, align 8
@@ -576,9 +576,9 @@ entry:
   %7 = lshr i48 %call3, 16
   %8 = trunc i48 %7 to i16
   %9 = lshr i48 %call1, 32
-  %10 = trunc i48 %9 to i16
+  %10 = trunc nuw i48 %9 to i16
   %11 = lshr i48 %call3, 32
-  %12 = trunc i48 %11 to i16
+  %12 = trunc nuw i48 %11 to i16
   br i1 %cmp.i.i, label %do.body.i.i, label %if.end.i.i
 
 do.body.i.i:                                      ; preds = %entry
@@ -1690,7 +1690,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare noundef zeroext i1 @_ZN2fs15safeWriteToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12LuaAreaStore13l_from_stringEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN12LuaAreaStore13l_from_stringEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %len = alloca i64, align 8
@@ -1871,7 +1871,7 @@ ehcleanup11:                                      ; preds = %lpad7, %ehcleanup
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL22deserialization_helperP9lua_StateP9AreaStoreRSi(ptr noundef %L, ptr noundef nonnull %as, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 3) i32 @_ZL22deserialization_helperP9lua_StateP9AreaStoreRSi(ptr noundef %L, ptr noundef nonnull %as, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN9AreaStore11deserializeERSi(ptr noundef nonnull align 8 dereferenceable(160) %as, ptr noundef nonnull align 8 dereferenceable(16) %is)
           to label %try.cont unwind label %lpad
@@ -1932,7 +1932,7 @@ terminate.lpad:                                   ; preds = %lpad1
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12LuaAreaStore11l_from_fileEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN12LuaAreaStore11l_from_fileEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8

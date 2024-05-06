@@ -720,7 +720,7 @@ define hidden void @proto_reg_handoff_iscsi() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iscsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_iscsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   %6 = icmp ult i32 %5, 48
   br i1 %6, label %11, label %7
@@ -2374,7 +2374,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 290:                                              ; preds = %288
   %291 = sub i32 %.1.i, %269
-  %292 = call fastcc i32 @handleDataDigest(ptr noundef nonnull %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %269, i32 noundef %291)
+  %292 = call fastcc i32 @handleDataDigest(ptr noundef nonnull readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %269, i32 noundef %291)
   br label %proto_item_set_generated.exit1619
 
 293:                                              ; preds = %245
@@ -2449,7 +2449,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 339:                                              ; preds = %337
   %340 = sub i32 %.1.i1595, %318
-  %341 = call fastcc i32 @handleDataDigest(ptr noundef nonnull %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %318, i32 noundef %340)
+  %341 = call fastcc i32 @handleDataDigest(ptr noundef nonnull readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %318, i32 noundef %340)
   br label %proto_item_set_generated.exit1619
 
 342:                                              ; preds = %245
@@ -2629,7 +2629,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 447:                                              ; preds = %445
   %448 = sub i32 %.1.i1602, %426
-  %449 = call fastcc i32 @handleDataDigest(ptr noundef %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %426, i32 noundef %448)
+  %449 = call fastcc i32 @handleDataDigest(ptr noundef readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %426, i32 noundef %448)
   br label %handleDataSegment.exit1606
 
 handleDataSegment.exit1606:                       ; preds = %.loopexit, %445, %447

@@ -1926,7 +1926,7 @@ declare dso_local void @up(ptr noundef) local_unnamed_addr #4
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hid_debug_events_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.wait_queue_entry, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 200
@@ -2043,7 +2043,7 @@ define internal i64 @hid_debug_events_read(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hid_debug_events_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 66) i32 @hid_debug_events_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32

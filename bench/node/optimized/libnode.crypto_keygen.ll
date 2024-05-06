@@ -762,7 +762,7 @@ declare noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1
 declare noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto18SecretKeyGenTraits8DoKeyGenEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigE(ptr nocapture readnone %env, ptr noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4node6crypto18SecretKeyGenTraits8DoKeyGenEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigE(ptr nocapture readnone %env, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp4 = alloca %"class.node::crypto::ByteSource", align 8
   %length = getelementptr inbounds i8, ptr %params, i64 8
@@ -5910,7 +5910,7 @@ define linkonce_odr dso_local void @_ZN4node6crypto9KeyGenJobINS0_18SecretKeyGen
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %params_.i = getelementptr inbounds i8, ptr %this, i64 248
-  %call3 = tail call noundef i32 @_ZN4node6crypto18SecretKeyGenTraits8DoKeyGenEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigE(ptr poison, ptr noundef nonnull %params_.i), !range !57
+  %call3 = tail call noundef i32 @_ZN4node6crypto18SecretKeyGenTraits8DoKeyGenEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigE(ptr poison, ptr noundef nonnull %params_.i)
   %trunc = trunc nuw i32 %call3 to i1
   br i1 %trunc, label %sw.bb4, label %sw.bb
 
@@ -6545,4 +6545,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
 !56 = distinct !{!56, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!57 = !{i32 0, i32 2}

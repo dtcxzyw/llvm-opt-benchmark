@@ -59,7 +59,7 @@ default.unreachable22:                            ; preds = %13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i64 %3, 31
   %6 = select i1 %5, i32 2, i32 1
   %7 = icmp ugt i64 %3, 4095
@@ -161,7 +161,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 38:                                               ; preds = %35, %32, %30
   %39 = getelementptr inbounds i8, ptr %0, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %39, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 40:                                               ; preds = %12
@@ -216,7 +216,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 68:                                               ; preds = %65, %62, %60
   %69 = getelementptr inbounds i8, ptr %0, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %69, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 70:                                               ; preds = %40
@@ -301,7 +301,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 114:                                              ; preds = %111, %108, %106
   %115 = getelementptr inbounds i8, ptr %0, i64 %102
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %115, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 116:                                              ; preds = %71
@@ -331,7 +331,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 allBytesIdentical.exit.thread:                    ; preds = %123, %120, %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
-  %127 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %0, i64 poison, ptr noundef %2, i64 noundef %3), !range !8
+  %127 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %0, i64 poison, ptr noundef %2, i64 noundef %3)
   br label %ZSTD_noCompressLiterals.exit
 
 allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %116
@@ -426,4 +426,3 @@ attributes #5 = { nounwind }
 !5 = !{ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2, i64 5}

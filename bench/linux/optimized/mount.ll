@@ -81,7 +81,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kernfs_destroy_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sysfs_init_fs_context(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sysfs_init_fs_context(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4194304

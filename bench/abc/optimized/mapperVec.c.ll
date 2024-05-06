@@ -222,7 +222,7 @@ Map_NodeVecGrow.exit11:                           ; preds = %.Map_NodeVecGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_NodeVecPushUnique(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Map_NodeVecPushUnique(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -353,7 +353,7 @@ define void @Map_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone %1
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %7
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %._crit_edge.loopexit.split.loop.exit, %2
@@ -378,9 +378,9 @@ define void @Map_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone %1
   store ptr %18, ptr %20, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %21 = load i32, ptr %3, align 8
-  %22 = trunc i64 %indvars.iv.next29 to i32
+  %22 = trunc nuw i64 %indvars.iv.next29 to i32
   %23 = icmp sgt i32 %21, %22
-  %24 = trunc i64 %indvars.iv28 to i32
+  %24 = trunc nuw i64 %indvars.iv28 to i32
   br i1 %23, label %.lr.ph23, label %._crit_edge24, !llvm.loop !7
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %._crit_edge
@@ -422,7 +422,7 @@ define void @Map_NodeVecSortByLevel(ptr nocapture noundef readonly %0) local_unn
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @Map_NodeVecCompareLevels(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @Map_NodeVecCompareLevels(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2

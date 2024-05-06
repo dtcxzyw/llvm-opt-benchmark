@@ -2999,7 +2999,7 @@ return:                                           ; preds = %if.end, %entry
 declare noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base8FilePath17CompareIgnoreCaseENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr %string1.coerce0, i64 %string1.coerce1, ptr %string2.coerce0, i64 %string2.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN4base8FilePath17CompareIgnoreCaseENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr %string1.coerce0, i64 %string1.coerce1, ptr %string2.coerce0, i64 %string2.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %string1 = alloca %"class.base::BasicStringPiece", align 8
   %string2 = alloca %"class.base::BasicStringPiece", align 8

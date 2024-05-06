@@ -758,7 +758,7 @@ for.body42:                                       ; preds = %if.end34, %for.body
   %18 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i71, float %sub.i.i71, float %mul3.i.i75)
   %cmp46 = fcmp ogt float %18, %dsq1.0197
   %dsq1.1 = select i1 %cmp46, float %18, float %dsq1.0197
-  %19 = trunc i64 %indvars.iv230 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv230 to i32
   %i1.1 = select i1 %cmp46, i32 %19, i32 %i1.0198
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count
@@ -799,7 +799,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   %29 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i81, float %sub.i.i81, float %mul3.i.i85)
   %cmp70 = fcmp ogt float %29, %dsq2.0201
   %dsq2.1 = select i1 %cmp70, float %29, float %dsq2.0201
-  %30 = trunc i64 %indvars.iv234 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv234 to i32
   %i2.1 = select i1 %cmp70, i32 %30, i32 %i2.0202
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %idxprom54
@@ -970,7 +970,7 @@ for.cond170:                                      ; preds = %for.cond170.prehead
 
 for.body173:                                      ; preds = %for.cond170
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
-  %59 = trunc i64 %indvars.iv.next255 to i32
+  %59 = trunc nuw i64 %indvars.iv.next255 to i32
   %rem = urem i32 %59, %57
   %60 = trunc i64 %indvars.iv254 to i32
   %61 = add i32 %60, 2
@@ -1029,7 +1029,7 @@ for.body205:                                      ; preds = %for.body205.prehead
   store i64 %79, ptr %arrayidx212, align 4
   %80 = load i32, ptr %count1, align 4
   %sub203 = add nsw i32 %80, -1
-  %81 = trunc i64 %indvars.iv.next265 to i32
+  %81 = trunc nuw i64 %indvars.iv.next265 to i32
   %cmp204 = icmp sgt i32 %sub203, %81
   br i1 %cmp204, label %for.body205, label %for.end215, !llvm.loop !20
 
@@ -1127,7 +1127,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %17 = tail call noundef float @llvm.fmuladd.f32(float %sub.i32, float %e.sroa.0.4.vec.extract48, float %neg.i40)
   %cmp18 = fcmp ogt float %17, %bestDistance.063
   %bestDistance.1 = select i1 %cmp18, float %17, float %bestDistance.063
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %bestIndex.1 = select i1 %cmp18, i32 %18, i32 %bestIndex.064
   %cmp21 = fcmp ogt float %17, 0.000000e+00
   br i1 %cmp21, label %if.then22, label %for.inc
@@ -1306,7 +1306,7 @@ for.cond32:                                       ; preds = %for.cond32.preheade
 
 for.body35:                                       ; preds = %for.cond32
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %19 = trunc i64 %indvars.iv.next102 to i32
+  %19 = trunc nuw i64 %indvars.iv.next102 to i32
   %rem = urem i32 %19, %0
   %20 = trunc i64 %indvars.iv101 to i32
   %21 = add i32 %20, 2

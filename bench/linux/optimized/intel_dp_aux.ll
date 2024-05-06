@@ -397,7 +397,7 @@ define internal i32 @xelpdp_aux_data_reg(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tgl_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 413696) i32 @tgl_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 9
@@ -455,7 +455,7 @@ define internal i32 @tgl_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skl_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 411648) i32 @skl_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 6
@@ -513,7 +513,7 @@ define internal i32 @skl_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 933904, 933649) i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %7 [
@@ -584,7 +584,7 @@ define internal noundef i32 @ilk_aux_data_reg(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vlv_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 1982480, 0) i32 @vlv_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -644,7 +644,7 @@ define internal i32 @vlv_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @g4x_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 0) i32 @g4x_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -704,14 +704,14 @@ define internal i32 @g4x_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @skl_get_aux_clock_divider(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @skl_get_aux_clock_divider(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @hsw_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define internal range(i32 0, 2147484) i32 @hsw_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -392
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 3516
@@ -752,7 +752,7 @@ define internal i32 @hsw_get_aux_clock_divider(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ilk_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define internal range(i32 0, 2147484) i32 @ilk_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %15
 
@@ -775,7 +775,7 @@ define internal i32 @ilk_get_aux_clock_divider(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @g4x_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define internal range(i32 0, 2147484) i32 @g4x_get_aux_clock_divider(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %11
 
@@ -794,7 +794,7 @@ define internal i32 @g4x_get_aux_clock_divider(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skl_get_aux_send_ctl(ptr noundef %0, i32 noundef %1, i32 %2) #2 align 16 {
+define internal range(i32 -33553857, 0) i32 @skl_get_aux_send_ctl(ptr noundef %0, i32 noundef %1, i32 %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -392
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %1, 20
@@ -810,7 +810,7 @@ define internal i32 @skl_get_aux_send_ctl(ptr noundef %0, i32 noundef %1, i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @g4x_get_aux_send_ctl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
+define internal range(i32 -234881024, -134217728) i32 @g4x_get_aux_send_ctl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -392
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 7184

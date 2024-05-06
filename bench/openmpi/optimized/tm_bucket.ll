@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.partial_update_val = private unnamed_addr constant [19 x i8] c"partial_update_val\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tm_try_add_edge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tm_try_add_edge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   switch i32 %2, label %105 [
     i32 2, label %7
     i32 3, label %24
@@ -754,12 +754,12 @@ display_pivots.exit:                              ; preds = %228, %223
   tail call void @tm_get_time() #15
   %254 = zext nneg i32 %.0104149 to i64
   %255 = getelementptr inbounds %struct._tm_tree_t, ptr %2, i64 %254
-  %256 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef %255, i32 noundef %3, i32 noundef %.pre, i32 noundef %.pre186, ptr noundef nonnull %8), !range !17
+  %256 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef %255, i32 noundef %3, i32 noundef %.pre, i32 noundef %.pre186, ptr noundef nonnull %8)
   %spec.select = add nuw nsw i32 %256, %.0104149
   %257 = tail call double @tm_time_diff() #15
   %258 = fadd double %.0109147, %257
   %259 = icmp slt i32 %spec.select, %4
-  br i1 %259, label %.lr.ph150, label %.loopexit142, !llvm.loop !18
+  br i1 %259, label %.lr.ph150, label %.loopexit142, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader143, %.lr.ph
   %.2106146 = phi i32 [ %spec.select117, %.lr.ph ], [ 0, %.preheader143 ]
@@ -768,10 +768,10 @@ display_pivots.exit:                              ; preds = %228, %223
   %261 = getelementptr inbounds %struct._tm_tree_t, ptr %2, i64 %260
   %262 = load i32, ptr %6, align 4
   %263 = load i32, ptr %7, align 4
-  %264 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef %261, i32 noundef %3, i32 noundef %262, i32 noundef %263, ptr noundef nonnull %8), !range !17
+  %264 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef %261, i32 noundef %3, i32 noundef %262, i32 noundef %263, ptr noundef nonnull %8)
   %spec.select117 = add nuw nsw i32 %264, %.2106146
   %265 = icmp slt i32 %spec.select117, %4
-  br i1 %265, label %.lr.ph, label %.loopexit142, !llvm.loop !19
+  br i1 %265, label %.lr.ph, label %.loopexit142, !llvm.loop !18
 
 .loopexit142:                                     ; preds = %.lr.ph, %251, %.preheader143, %.preheader141
   %.1110 = phi double [ 0.000000e+00, %.preheader141 ], [ 0.000000e+00, %.preheader143 ], [ %258, %251 ], [ 0.000000e+00, %.lr.ph ]
@@ -807,10 +807,10 @@ display_pivots.exit:                              ; preds = %228, %223
   call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %276 = load i32, ptr %6, align 4
   %277 = load i32, ptr %7, align 4
-  %278 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef null, i32 noundef %3, i32 noundef %276, i32 noundef %277, ptr noundef nonnull %8), !range !17
+  %278 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef null, i32 noundef %3, i32 noundef %276, i32 noundef %277, ptr noundef nonnull %8)
   %279 = load i32, ptr %8, align 4
   %280 = icmp slt i32 %279, %4
-  br i1 %280, label %.lr.ph154, label %._crit_edge, !llvm.loop !20
+  br i1 %280, label %.lr.ph154, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph154, %.thread135
   %.lcssa = phi i32 [ %274, %.thread135 ], [ %279, %.lr.ph154 ]
@@ -908,7 +908,7 @@ display_pivots.exit:                              ; preds = %228, %223
   %326 = trunc nuw nsw i64 %indvars.iv176 to i32
   %327 = tail call i32 @tm_submit_work(ptr noundef %319, i32 noundef %326) #15
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %.preheader, label %303, !llvm.loop !21
+  br i1 %exitcond180.not, label %.preheader, label %303, !llvm.loop !20
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv181 = phi i64 [ 0, %.lr.ph165.preheader ], [ %indvars.iv.next182, %.lr.ph165 ]
@@ -925,7 +925,7 @@ display_pivots.exit:                              ; preds = %228, %223
   tail call void @tm_destroy_work(ptr noundef %329) #15
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !22
+  br i1 %exitcond185.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !21
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %291, %.preheader
   %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %291 ], [ %332, %.lr.ph165 ]
@@ -945,7 +945,7 @@ display_pivots.exit:                              ; preds = %228, %223
   %338 = fadd double %.1157, %337
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph158, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph158, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph158, %.preheader140, %._crit_edge166
   %.2 = phi double [ %.0.lcssa, %._crit_edge166 ], [ 0.000000e+00, %.preheader140 ], [ %338, %.lr.ph158 ]
@@ -999,7 +999,7 @@ display_pivots.exit:                              ; preds = %228, %223
   tail call void @free(ptr noundef %363) #15
   %indvars.iv.next.i.i126 = add nuw nsw i64 %indvars.iv.i.i125, 1
   %exitcond.not.i.i127 = icmp eq i64 %indvars.iv.next.i.i126, %wide.trip.count.i.i123
-  br i1 %exitcond.not.i.i127, label %free_bucket_list.exit, label %.lr.ph.i.i124, !llvm.loop !24
+  br i1 %exitcond.not.i.i127, label %free_bucket_list.exit, label %.lr.ph.i.i124, !llvm.loop !23
 
 free_bucket_list.exit:                            ; preds = %.lr.ph.i.i124, %.thread139
   tail call void @free(ptr noundef %358) #15
@@ -1053,7 +1053,7 @@ define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noun
   %19 = getelementptr inbounds i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
   %.not.us = icmp sgt i32 %20, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %21 = phi i32 [ %38, %36 ], [ %14, %.lr.ph ]
@@ -1085,7 +1085,7 @@ define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noun
   %39 = getelementptr inbounds i8, ptr %27, i64 12
   %40 = load i32, ptr %39, align 4
   %.not = icmp sgt i32 %40, %37
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %36, %3
   %41 = phi i32 [ %13, %3 ], [ %37, %36 ], [ 0, %.lr.ph.split.us ]
@@ -1184,7 +1184,7 @@ define internal void @partial_update_val(i32 noundef %0, ptr nocapture noundef r
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %6, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   ret void
@@ -1207,7 +1207,7 @@ declare hidden i64 @tm_genrand_int32() local_unnamed_addr #3
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @tab_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @tab_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr @global_bl, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1329,7 +1329,7 @@ attributes #18 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -1337,7 +1337,6 @@ attributes #18 = { nounwind allocsize(1) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5, !27}
-!27 = !{!"llvm.loop.unswitch.partial.disable"}
-!28 = distinct !{!28, !5}
+!25 = distinct !{!25, !5, !26}
+!26 = !{!"llvm.loop.unswitch.partial.disable"}
+!27 = distinct !{!27, !5}

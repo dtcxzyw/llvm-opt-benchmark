@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [18 x i8] c"state[%d] = %08x\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.cli_exe_section, align 4
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %318, label %11
@@ -137,8 +137,8 @@ define noundef i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   %72 = getelementptr inbounds i8, ptr %62, i64 39
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr i8, ptr %72, i64 %74
-  %76 = getelementptr i8, ptr %75, i64 11
+  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 11
   br label %97
 
 77:                                               ; preds = %36
@@ -611,7 +611,7 @@ define noundef i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 315:                                              ; preds = %312
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  %316 = tail call i32 @unupack399(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %.4899, i32 noundef 0, ptr noundef %.7902, ptr noundef %.0891, i32 noundef %200, ptr noundef %291), !range !4
+  %316 = tail call i32 @unupack399(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %.4899, i32 noundef 0, ptr noundef %.7902, ptr noundef %.0891, i32 noundef %200, ptr noundef %291)
   %317 = icmp eq i32 %316, -1
   br i1 %317, label %632, label %555
 
@@ -1050,7 +1050,7 @@ define noundef i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   %.08941166 = phi ptr [ %.0894, %540 ], [ null, %499 ]
   %.79111165 = phi ptr [ %.7911, %540 ], [ %322, %499 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  %543 = tail call i32 @unupack399(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %.08941166, i32 noundef 0, ptr noundef %.08831169, ptr noundef %.18921167, i32 noundef %365, ptr noundef %.08851168), !range !4
+  %543 = tail call i32 @unupack399(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %.08941166, i32 noundef 0, ptr noundef %.08831169, ptr noundef %.18921167, i32 noundef %365, ptr noundef %.08851168)
   %544 = icmp eq i32 %543, -1
   br i1 %544, label %632, label %545
 
@@ -1274,7 +1274,7 @@ define noundef i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.lzmastate, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -1295,7 +1295,7 @@ define noundef i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 
 .preheader354:                                    ; preds = %33
   %invariant.gep = getelementptr inbounds i8, ptr %3, i64 88
-  %invariant.gep375 = getelementptr i8, ptr %3, i64 888
+  %invariant.gep375 = getelementptr inbounds i8, ptr %3, i64 888
   %invariant.gep377 = getelementptr inbounds i8, ptr %3, i64 376
   %invariant.gep379 = getelementptr i8, ptr %3, i64 4104
   %21 = getelementptr inbounds i8, ptr %14, i64 8
@@ -1380,8 +1380,8 @@ define noundef i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   store i32 %66, ptr %11, align 4
   %67 = shl nuw nsw i32 %spec.select, 8
   %68 = zext nneg i32 %67 to i64
-  %gep376 = getelementptr i8, ptr %invariant.gep375, i64 %68
-  %69 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 64, ptr noundef nonnull %15, ptr noundef %gep376, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #3
+  %gep376 = getelementptr inbounds i8, ptr %invariant.gep375, i64 %68
+  %69 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 64, ptr noundef nonnull %15, ptr noundef nonnull %gep376, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #3
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %.loopexit353.split, label %71
 
@@ -1882,4 +1882,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

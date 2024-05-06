@@ -6266,8 +6266,8 @@ sw.bb:                                            ; preds = %while.body
   %12 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i39 = zext i32 %12 to i64
   %add.ptr.i40.idx = shl nuw nsw i64 %idx.ext.i39, 3
-  %13 = getelementptr i8, ptr %9, i64 %add.ptr.i40.idx
-  %add.ptr.i40.ptr = getelementptr i8, ptr %13, i64 32
+  %13 = getelementptr inbounds i8, ptr %9, i64 %add.ptr.i40.idx
+  %add.ptr.i40.ptr = getelementptr inbounds i8, ptr %13, i64 32
   %cmp.not360 = icmp eq i32 %12, 0
   br i1 %cmp.not360, label %if.end34, label %for.body.preheader
 
@@ -7737,8 +7737,8 @@ if.then34:                                        ; preds = %invoke.cont32
   %30 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i58 = zext i32 %30 to i64
   %add.ptr.i59.idx = shl nuw nsw i64 %idx.ext.i58, 3
-  %31 = getelementptr i8, ptr %22, i64 %add.ptr.i59.idx
-  %add.ptr.i59.ptr = getelementptr i8, ptr %31, i64 32
+  %31 = getelementptr inbounds i8, ptr %22, i64 %add.ptr.i59.idx
+  %add.ptr.i59.ptr = getelementptr inbounds i8, ptr %31, i64 32
   %cmp41.not164 = icmp eq i32 %30, 0
   %.pr.pre181 = load i32, ptr %m_pos.i.i, align 8
   br i1 %cmp41.not164, label %while.condthread-pre-split, label %for.body.preheader, !llvm.loop !39

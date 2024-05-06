@@ -101,7 +101,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.92 = private unnamed_addr constant [66 x i8] c"keydata = evp_pkey_export_to_provider(pkey, NULL, &keymgmt, NULL)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @test_get_argument(i64 noundef 0) #3
   store ptr %call, ptr @cert_filename, align 8
@@ -206,7 +206,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_evp_pkey_export_to_provider(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_evp_pkey_export_to_provider(i32 noundef %n) #0 {
 entry:
   %keymgmt = alloca ptr, align 8
   store ptr null, ptr %keymgmt, align 8
@@ -666,7 +666,7 @@ declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @export_cb(ptr noundef %params, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @export_cb(ptr noundef %params, ptr noundef %arg) #0 {
 entry:
   %n.i58 = alloca ptr, align 8
   %n.i45 = alloca ptr, align 8
@@ -826,7 +826,7 @@ lor.lhs.false40:                                  ; preds = %get_ulong_via_BN.ex
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false40
   %arrayidx45 = getelementptr inbounds i8, ptr %arg, i64 32
-  %call46 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call41, ptr noundef nonnull %arrayidx45), !range !8
+  %call46 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call41, ptr noundef nonnull %arrayidx45)
   %call49 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 120, ptr noundef nonnull @.str.64, i32 noundef %call46) #3
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %return, label %lor.lhs.false51
@@ -839,7 +839,7 @@ lor.lhs.false51:                                  ; preds = %lor.lhs.false44
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
   %arrayidx56 = getelementptr inbounds i8, ptr %arg, i64 40
-  %call57 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call52, ptr noundef nonnull %arrayidx56), !range !8
+  %call57 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call52, ptr noundef nonnull %arrayidx56)
   %call60 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.67, i32 noundef %call57) #3
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %return, label %if.end63
@@ -852,7 +852,7 @@ if.end63:                                         ; preds = %lor.lhs.false55
 
 lor.lhs.false67:                                  ; preds = %if.end63
   %arrayidx68 = getelementptr inbounds i8, ptr %arg, i64 48
-  %call69 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call64, ptr noundef nonnull %arrayidx68), !range !8
+  %call69 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call64, ptr noundef nonnull %arrayidx68)
   %call72 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @.str.70, i32 noundef %call69) #3
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %lor.lhs.false74
@@ -865,7 +865,7 @@ lor.lhs.false74:                                  ; preds = %lor.lhs.false67
 
 lor.lhs.false78:                                  ; preds = %lor.lhs.false74
   %arrayidx79 = getelementptr inbounds i8, ptr %arg, i64 56
-  %call80 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call75, ptr noundef nonnull %arrayidx79), !range !8
+  %call80 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call75, ptr noundef nonnull %arrayidx79)
   %call83 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.73, i32 noundef %call80) #3
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %return, label %lor.lhs.false85
@@ -878,7 +878,7 @@ lor.lhs.false85:                                  ; preds = %lor.lhs.false78
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false85
   %arrayidx90 = getelementptr inbounds i8, ptr %arg, i64 64
-  %call91 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call86, ptr noundef nonnull %arrayidx90), !range !8
+  %call91 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call86, ptr noundef nonnull %arrayidx90)
   %call94 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.76, i32 noundef %call91) #3
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %return, label %if.end97
@@ -891,7 +891,7 @@ if.end97:                                         ; preds = %lor.lhs.false89
 
 lor.lhs.false101:                                 ; preds = %if.end97
   %arrayidx102 = getelementptr inbounds i8, ptr %arg, i64 72
-  %call103 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call98, ptr noundef nonnull %arrayidx102), !range !8
+  %call103 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call98, ptr noundef nonnull %arrayidx102)
   %call106 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @.str.79, i32 noundef %call103) #3
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %return, label %lor.lhs.false108
@@ -904,7 +904,7 @@ lor.lhs.false108:                                 ; preds = %lor.lhs.false101
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
   %arrayidx113 = getelementptr inbounds i8, ptr %arg, i64 80
-  %call114 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call109, ptr noundef nonnull %arrayidx113), !range !8
+  %call114 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call109, ptr noundef nonnull %arrayidx113)
   %call117 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 136, ptr noundef nonnull @.str.82, i32 noundef %call114) #3
   %tobool118.not = icmp ne i32 %call117, 0
   %spec.select = zext i1 %tobool118.not to i32
@@ -934,7 +934,7 @@ declare void @EVP_KEYMGMT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_ulong_via_BN(ptr noundef %p, ptr noundef %goal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_ulong_via_BN(ptr noundef %p, ptr noundef %goal) unnamed_addr #0 {
 entry:
   %n = alloca ptr, align 8
   store ptr null, ptr %n, align 8
@@ -1011,4 +1011,3 @@ attributes #3 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}

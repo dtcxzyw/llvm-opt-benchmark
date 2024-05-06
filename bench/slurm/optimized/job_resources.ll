@@ -64,12 +64,12 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define void @job_res_add_cores(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !6
+  %3 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_handle_job_res(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @_handle_job_res(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
@@ -117,7 +117,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %25 = load i32, ptr @node_record_count, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.loopexit78, !llvm.loop !7
+  br i1 %27, label %.lr.ph, label %.loopexit78, !llvm.loop !6
 
 .loopexit78:                                      ; preds = %_create_core_bitmap.exit, %11, %6
   %.059 = phi ptr [ %8, %6 ], [ %12, %11 ], [ %12, %_create_core_bitmap.exit ]
@@ -175,7 +175,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %53 = call i32 @bit_test(ptr noundef %51, i64 noundef %52) #3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph83.split.us.split.us, !llvm.loop !9
+  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph83.split.us.split.us, !llvm.loop !8
 
 .lr.ph83.split.us.split:                          ; preds = %.lr.ph83.split.us, %60
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %60 ], [ 0, %.lr.ph83.split.us ]
@@ -193,7 +193,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 60:                                               ; preds = %57, %.lr.ph83.split.us.split
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count110
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph83.split.us.split, !llvm.loop !9
+  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph83.split.us.split, !llvm.loop !8
 
 61:                                               ; preds = %33
   %.not73 = icmp eq ptr %.fr, null
@@ -274,7 +274,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 88:                                               ; preds = %.sink.split, %84, %.lr.ph83.split
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count110
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %88, %60, %.lr.ph83.split.us.split.us, %.preheader
   %89 = add nsw i32 %.05886, %49
@@ -291,7 +291,7 @@ default.unreachable:                              ; preds = %65, %81
   %93 = load ptr, ptr %28, align 8
   %94 = call ptr @next_node_bitmap(ptr noundef %93, ptr noundef nonnull %4) #3
   %.not68 = icmp eq ptr %94, null
-  br i1 %.not68, label %.loopexit, label %33, !llvm.loop !10
+  br i1 %.not68, label %.loopexit, label %33, !llvm.loop !9
 
 .loopexit:                                        ; preds = %76, %90, %84, %.loopexit78, %9, %3
   %.056 = phi i32 [ 1, %3 ], [ 1, %9 ], [ 1, %.loopexit78 ], [ 0, %84 ], [ 0, %76 ], [ 1, %90 ]
@@ -300,12 +300,12 @@ default.unreachable:                              ; preds = %65, %81
 
 ; Function Attrs: nounwind uwtable
 define void @job_res_rm_cores(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef %1, i32 noundef 1), !range !6
+  %3 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_res_fit_in_row(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @job_res_fit_in_row(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -318,7 +318,7 @@ define noundef i32 @job_res_fit_in_row(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2), !range !6
+  %10 = tail call fastcc i32 @_handle_job_res(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2)
   br label %11
 
 11:                                               ; preds = %2, %6, %9
@@ -327,7 +327,7 @@ define noundef i32 @job_res_fit_in_row(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_res_add_job(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @job_res_add_job(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
@@ -402,7 +402,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %35 = load ptr, ptr %24, align 8
   %36 = call ptr @next_node_bitmap(ptr noundef %35, ptr noundef nonnull %3) #3
   %.not94.us = icmp eq ptr %36, null
-  br i1 %.not94.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not94.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ -1, %.lr.ph ]
@@ -430,7 +430,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
 
 49:                                               ; preds = %41, %46
   %.080 = phi ptr [ %48, %46 ], [ %45, %41 ]
-  %50 = trunc i64 %indvars.iv.next to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.next to i32
   %51 = call ptr @copy_job_resources_node(ptr noundef nonnull %6, i32 noundef %50) #3
   store ptr %51, ptr %4, align 8
   %52 = load ptr, ptr %28, align 8
@@ -512,7 +512,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %101 = load ptr, ptr %24, align 8
   %102 = call ptr @next_node_bitmap(ptr noundef %101, ptr noundef nonnull %3) #3
   %.not94 = icmp eq ptr %102, null
-  br i1 %.not94, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not94, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %98, %.lr.ph.split.us, %21
   %cond = icmp eq i32 %1, 2
@@ -544,7 +544,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %111, align 8
   %117 = icmp eq ptr %115, %116
-  br i1 %117, label %122, label %112, !llvm.loop !12
+  br i1 %117, label %122, label %112, !llvm.loop !11
 
 .critedge:                                        ; preds = %112
   %118 = load ptr, ptr %111, align 8
@@ -595,7 +595,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   br i1 %.not.i, label %job_res_fit_in_row.exit.thread, label %job_res_fit_in_row.exit
 
 job_res_fit_in_row.exit:                          ; preds = %140
-  %143 = call fastcc i32 @_handle_job_res(ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2), !range !6
+  %143 = call fastcc i32 @_handle_job_res(ptr noundef nonnull readonly %6, ptr noundef nonnull %136, i32 noundef 2)
   %.not101 = icmp eq i32 %143, 0
   br i1 %.not101, label %156, label %job_res_fit_in_row.exit.thread
 
@@ -629,7 +629,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph121, %140, %j
   %159 = load i16, ptr %132, align 8
   %160 = zext i16 %159 to i32
   %161 = icmp slt i32 %158, %160
-  br i1 %161, label %.lr.ph121, label %.loopexit, !llvm.loop !13
+  br i1 %161, label %.lr.ph121, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %156, %131, %151
   %162 = phi i16 [ %.pre139, %151 ], [ 0, %131 ], [ %159, %156 ]
@@ -682,7 +682,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph121, %140, %j
   %189 = load ptr, ptr %24, align 8
   %190 = call ptr @next_node_bitmap(ptr noundef %189, ptr noundef nonnull %3) #3
   %.not104 = icmp eq ptr %190, null
-  br i1 %.not104, label %._crit_edge126, label %172, !llvm.loop !14
+  br i1 %.not104, label %._crit_edge126, label %172, !llvm.loop !13
 
 ._crit_edge126:                                   ; preds = %186, %167
   %191 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -737,7 +737,7 @@ declare void @part_data_add_job_to_row(ptr noundef, ptr noundef) local_unnamed_a
 declare void @part_data_dump_res(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_res_rm_job(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @job_res_rm_job(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 440
   %9 = load ptr, ptr %8, align 8
@@ -867,7 +867,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %60 = load ptr, ptr %51, align 8
   %61 = call ptr @next_node_bitmap(ptr noundef %60, ptr noundef nonnull %7) #3
   %.not127.us.us = icmp eq ptr %61, null
-  br i1 %.not127.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !15
+  br i1 %.not127.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !14
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %62 = load i32, ptr %7, align 4
@@ -879,7 +879,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %67 = load ptr, ptr %51, align 8
   %68 = call ptr @next_node_bitmap(ptr noundef %67, ptr noundef nonnull %7) #3
   %.not127.us = icmp eq ptr %68, null
-  br i1 %.not127.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !15
+  br i1 %.not127.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ -1, %.lr.ph ]
@@ -924,7 +924,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %87 = load i32, ptr %56, align 8
   %88 = getelementptr inbounds i8, ptr %69, i64 256
   %89 = load ptr, ptr %88, align 8
-  %90 = trunc i64 %indvars.iv.next to i32
+  %90 = trunc nsw i64 %indvars.iv.next to i32
   %91 = call i32 @gres_ctld_job_dealloc(ptr noundef %86, ptr noundef %.0102, i32 noundef %90, i32 noundef %87, ptr noundef %89, i1 noundef zeroext %50, i1 noundef zeroext false) #3
   %92 = load ptr, ptr %88, align 8
   call void @gres_node_state_log(ptr noundef %.0102, ptr noundef %92) #3
@@ -959,7 +959,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %112 = load ptr, ptr %51, align 8
   %113 = call ptr @next_node_bitmap(ptr noundef %112, ptr noundef nonnull %7) #3
   %.not127 = icmp eq ptr %113, null
-  br i1 %.not127, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
+  br i1 %.not127, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %109, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %46
   %.not128 = icmp eq i32 %4, 1
@@ -989,7 +989,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
 122:                                              ; preds = %.lr.ph158
   %123 = load ptr, ptr %.0101157, align 8
   %.not130 = icmp eq ptr %123, null
-  br i1 %.not130, label %.critedge, label %.lr.ph158, !llvm.loop !16
+  br i1 %.not130, label %.critedge, label %.lr.ph158, !llvm.loop !15
 
 .critedge:                                        ; preds = %122, %.preheader148
   %124 = getelementptr inbounds i8, ptr %116, i64 224
@@ -1041,7 +1041,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   br i1 %.not140, label %144, label %174
 
 144:                                              ; preds = %141
-  %145 = trunc i64 %indvars.iv186 to i32
+  %145 = trunc nuw i64 %indvars.iv186 to i32
   %146 = call i32 @get_log_level() #3
   %147 = icmp sgt i32 %146, 6
   br i1 %147, label %148, label %153
@@ -1081,18 +1081,18 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %171 = add i32 %170, -1
   %172 = zext i32 %171 to i64
   %173 = icmp ult i64 %indvars.iv.next191, %172
-  br i1 %173, label %.lr.ph163, label %.loopexit146.thread, !llvm.loop !17
+  br i1 %173, label %.lr.ph163, label %.loopexit146.thread, !llvm.loop !16
 
 174:                                              ; preds = %141
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit146, label %141, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit146, label %141, !llvm.loop !17
 
 .loopexit146:                                     ; preds = %174, %.preheader
   %175 = add nsw i32 %storemerge132167, 1
   store i32 %175, ptr %7, align 4
   %176 = icmp slt i32 %175, %134
-  br i1 %176, label %.preheader, label %._crit_edge169, !llvm.loop !19
+  br i1 %176, label %.preheader, label %._crit_edge169, !llvm.loop !18
 
 .loopexit146.thread:                              ; preds = %.lr.ph163, %153
   %.1.lcssa = phi i64 [ %indvars.iv186, %153 ], [ %indvars.iv.next191, %.lr.ph163 ]
@@ -1112,7 +1112,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   store i32 %186, ptr %7, align 4
   %187 = zext i16 %184 to i32
   %188 = icmp ult i32 %186, %187
-  br i1 %188, label %.preheader.outer, label %._crit_edge169.thread201, !llvm.loop !19
+  br i1 %188, label %.preheader.outer, label %._crit_edge169.thread201, !llvm.loop !18
 
 ._crit_edge169:                                   ; preds = %.loopexit146
   br i1 %133, label %.loopexit, label %._crit_edge169.thread201
@@ -1184,7 +1184,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %224 = load ptr, ptr %51, align 8
   %225 = call ptr @next_node_bitmap(ptr noundef %224, ptr noundef nonnull %7) #3
   %.not135 = icmp eq ptr %225, null
-  br i1 %.not135, label %.loopexit, label %193, !llvm.loop !20
+  br i1 %.not135, label %.loopexit, label %193, !llvm.loop !19
 
 .loopexit:                                        ; preds = %221, %.preheader147, %._crit_edge169.thread201, %._crit_edge169, %._crit_edge
   %226 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -1241,18 +1241,17 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

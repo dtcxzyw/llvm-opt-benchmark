@@ -118,7 +118,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.40 = private unnamed_addr constant [46 x i8] c"Invalid arguments to handshaker_client_next()\00", align 1
 @.str.41 = private unnamed_addr constant [29 x i8] c"get_serialized_next() failed\00", align 1
 @grpc__gcp__NextHandshakeMessageReq_msg_init = external local_unnamed_addr global %struct.upb_MiniTable, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.42 = private unnamed_addr constant [84 x i8] c"alts_grpc_handshaker_client:%p on_status_received status:%d details:|%s| error:|%s|\00", align 1
 @.str.43 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
@@ -1061,7 +1061,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit.i.i:    ; preds = %cleanup.i.i
   br i1 %cmp.i.not.i.i, label %_ZN12_GLOBAL__N_113HandshakeDoneEb.exit, label %cleanup.cont.i.i
 
 cleanup.cont.i.i:                                 ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit.i.i
-  %call5.i.i = call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %client.0.i.i, i1 noundef zeroext true), !range !6
+  %call5.i.i = call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %client.0.i.i, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_113HandshakeDoneEb.exit
 
 _ZN12_GLOBAL__N_113HandshakeDoneEb.exit:          ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit.i.i, %cleanup.cont.i.i
@@ -1890,7 +1890,7 @@ lor.rhs:                                          ; preds = %if.end15
   br i1 %cmp19.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15, %lor.rhs
-  %tobool23 = trunc i8 %3 to i1
+  %tobool23 = trunc nuw i8 %3 to i1
   br i1 %tobool23, label %if.end25, label %cleanup
 
 if.end25:                                         ; preds = %land.lhs.true, %lor.rhs
@@ -1958,7 +1958,7 @@ declare ptr @upb_Arena_Init(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30handshaker_client_start_clientP22alts_handshaker_client(ptr noundef %c) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 8) i32 @_ZL30handshaker_client_start_clientP22alts_handshaker_client(ptr noundef %c) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i.i = alloca ptr, align 8
   %buf_length.i.i = alloca i64, align 8
@@ -2265,7 +2265,7 @@ if.end3:                                          ; preds = %_ZL27get_serialized
   %34 = load ptr, ptr %send_buffer.i, align 8
   call void @grpc_byte_buffer_destroy(ptr noundef %34)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
-  %call4 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true), !range !6
+  %call4 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true)
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %return, label %if.then6
 
@@ -2279,7 +2279,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30handshaker_client_start_serverP22alts_handshaker_clientP10grpc_slice(ptr noundef %c, ptr noundef %bytes_received) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 8) i32 @_ZL30handshaker_client_start_serverP22alts_handshaker_clientP10grpc_slice(ptr noundef %c, ptr noundef %bytes_received) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i.i = alloca ptr, align 8
   %buf_length.i.i = alloca i64, align 8
@@ -2616,7 +2616,7 @@ if.end4:                                          ; preds = %_ZL27get_serialized
   %40 = load ptr, ptr %send_buffer.i, align 8
   call void @grpc_byte_buffer_destroy(ptr noundef %40)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
-  %call5 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true), !range !6
+  %call5 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true)
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %return, label %if.then7
 
@@ -2630,7 +2630,7 @@ return:                                           ; preds = %if.end4, %if.then7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22handshaker_client_nextP22alts_handshaker_clientP10grpc_slice(ptr noundef %c, ptr noundef %bytes_received) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 8) i32 @_ZL22handshaker_client_nextP22alts_handshaker_clientP10grpc_slice(ptr noundef %c, ptr noundef %bytes_received) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i.i = alloca ptr, align 8
   %buf_length.i.i = alloca i64, align 8
@@ -2862,7 +2862,7 @@ if.end7:                                          ; preds = %_ZL19get_serialized
   %29 = load ptr, ptr %send_buffer.i, align 8
   call void @grpc_byte_buffer_destroy(ptr noundef %29)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
-  %call.i = call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext false), !range !6
+  %call.i = call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext false)
   %cmp9.not = icmp eq i32 %call.i, 0
   br i1 %cmp9.not, label %return, label %if.then10
 
@@ -2943,7 +2943,7 @@ if.else:                                          ; preds = %_ZN9grpc_core7ExecC
   store ptr %call.i, ptr %cb_arg2.i.i, align 8
   %error_data.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 0, ptr %error_data.i.i, align 8
-  store i64 0, ptr %agg.tmp, align 8, !alias.scope !7
+  store i64 0, ptr %agg.tmp, align 8, !alias.scope !6
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %wrapper.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2975,7 +2975,7 @@ if.end10:                                         ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef %c, i1 noundef zeroext %is_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef %c, i1 noundef zeroext %is_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   br i1 %is_start, label %if.then1, label %if.else
 
@@ -3043,11 +3043,11 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3.i.i:   ; preds = %cleanup.i.i
   br i1 %cmp.not.i.i, label %return, label %cleanup.cont.i.i
 
 cleanup.cont.i.i:                                 ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit3.i.i
-  %call.i.i = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true), !range !6
+  %call.i.i = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %c, i1 noundef zeroext false), !range !6
+  %call = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %c, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %cleanup.cont.i.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit3.i.i, %if.else
@@ -3486,7 +3486,7 @@ declare ptr @grpc_raw_byte_buffer_create(ptr noundef, i64 noundef) local_unnamed
 declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %client, i1 noundef zeroext %is_start) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %client, i1 noundef zeroext %is_start) unnamed_addr #3 {
 entry:
   %ops = alloca [4 x %struct.grpc_op], align 16
   %cmp.not = icmp eq ptr %client, null
@@ -4022,7 +4022,6 @@ attributes #22 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 8}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
-!9 = distinct !{!9, !"_ZN4absl12lts_202308028OkStatusEv"}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
+!8 = distinct !{!8, !"_ZN4absl12lts_202308028OkStatusEv"}

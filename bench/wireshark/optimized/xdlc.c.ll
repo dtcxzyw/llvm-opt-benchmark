@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_xdlc_control = private unnamed_addr constant [4 x ptr] [ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @get_xdlc_control(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @get_xdlc_control(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -110,7 +110,7 @@ define hidden i32 @get_xdlc_control(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #1 {
+define range(i32 0, 65536) i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #1 {
   %14 = getelementptr inbounds i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 80) #4

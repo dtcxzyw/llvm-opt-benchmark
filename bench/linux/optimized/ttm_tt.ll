@@ -58,7 +58,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_tt_pages
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_kmap_iter_tt_init457, ptr @__UNIQUE_ID___addressable_ttm_sg_tt_init453, ptr @__UNIQUE_ID___addressable_ttm_tt_fini452, ptr @__UNIQUE_ID___addressable_ttm_tt_init449, ptr @__UNIQUE_ID___addressable_ttm_tt_pages_limit458, ptr @__UNIQUE_ID___addressable_ttm_tt_populate455, ptr @__UNIQUE_ID_dma32_pages_limit445, ptr @__UNIQUE_ID_dma32_pages_limittype446, ptr @__UNIQUE_ID_pages_limit443, ptr @__UNIQUE_ID_pages_limittype444, ptr @__param_dma32_pages_limit, ptr @__param_pages_limit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_tt_create(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ttm_tt_create(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -134,7 +134,7 @@ define dso_local void @ttm_tt_destroy(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_tt_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_tt_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 216
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 4095
@@ -223,7 +223,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #3
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_sg_tt_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_sg_tt_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 216
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 4095

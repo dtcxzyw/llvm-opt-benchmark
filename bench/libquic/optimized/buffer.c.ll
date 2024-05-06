@@ -114,7 +114,7 @@ if.then17:                                        ; preds = %if.then14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx23, ptr align 1 %in.addr.091, i64 %conv24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.091, i64 %conv24
   %sub25 = sub nsw i32 %inl.addr.092, %sub95
-  %add26 = add nsw i32 %sub95, %num.093
+  %add26 = add nuw nsw i32 %sub95, %num.093
   %11 = load i32, ptr %obuf_len, align 8
   %add28 = add nsw i32 %11, %sub95
   store i32 %add28, ptr %obuf_len, align 8
@@ -192,7 +192,7 @@ if.then68:                                        ; preds = %if.then65
   br label %return
 
 if.end76:                                         ; preds = %while.body
-  %add77 = add nsw i32 %call62, %num.3
+  %add77 = add nuw nsw i32 %call62, %num.3
   %idx.ext78 = zext nneg i32 %call62 to i64
   %add.ptr79 = getelementptr inbounds i8, ptr %in.addr.3, i64 %idx.ext78
   %sub80 = sub nsw i32 %inl.addr.3, %call62
@@ -391,7 +391,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp12, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %6, 1
   %.pre56 = load i32, ptr %ibuf_len, align 8
   br label %for.end
@@ -406,7 +406,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %9, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then3, %if.then14
@@ -702,7 +702,7 @@ return:                                           ; preds = %if.end, %sw.bb3, %i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define internal noundef i32 @buffer_new(ptr nocapture noundef writeonly %bio) #3 {
+define internal range(i32 0, 2) i32 @buffer_new(ptr nocapture noundef writeonly %bio) #3 {
 entry:
   %calloc = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
   %cmp = icmp eq ptr %calloc, null
@@ -746,7 +746,7 @@ return:                                           ; preds = %entry, %err1, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @buffer_free(ptr noundef %bio) #4 {
+define internal range(i32 0, 2) i32 @buffer_free(ptr noundef %bio) #4 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %lor.lhs.false

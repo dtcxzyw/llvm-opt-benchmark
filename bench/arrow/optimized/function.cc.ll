@@ -13552,7 +13552,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #18
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i48
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i51
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZN5arrow7compute6KernelD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #18
@@ -13564,11 +13564,11 @@ lpad21:                                           ; preds = %invoke.cont23
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i48:                                      ; preds = %lpad
+if.then.i51:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #19
   br label %invoke.cont23
 
-invoke.cont23:                                    ; preds = %if.then.i48, %if.end.thread
+invoke.cont23:                                    ; preds = %if.then.i51, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad21
 
@@ -14279,7 +14279,7 @@ lpad.body.i.i:                                    ; preds = %if.then.i.i.i.i, %l
   %14 = extractvalue { ptr, i32 } %7, 0
   %15 = call ptr @__cxa_begin_catch(ptr %14) #18
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i59
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i62
 
 invoke.cont:                                      ; preds = %_ZN5arrow7compute6KernelC2ESt10shared_ptrINS0_15KernelSignatureEESt8functionIFNS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsEEE.exit.i.i.i, %_ZN5arrow7compute6KernelC2ESt10shared_ptrINS0_15KernelSignatureEESt8functionIFNS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsEEE.exit.thread.i.i.i
   %16 = phi ptr [ %11, %_ZN5arrow7compute6KernelC2ESt10shared_ptrINS0_15KernelSignatureEESt8functionIFNS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsEEE.exit.i.i.i ], [ %13, %_ZN5arrow7compute6KernelC2ESt10shared_ptrINS0_15KernelSignatureEESt8functionIFNS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsEEE.exit.thread.i.i.i ]
@@ -14490,11 +14490,11 @@ lpad21:                                           ; preds = %invoke.cont23
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i59:                                      ; preds = %lpad.body.i.i
+if.then.i62:                                      ; preds = %lpad.body.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #19
   br label %invoke.cont23
 
-invoke.cont23:                                    ; preds = %if.then.i59, %if.end.thread
+invoke.cont23:                                    ; preds = %if.then.i62, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad21
 

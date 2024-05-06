@@ -218,7 +218,7 @@ mcpe_get_session_state.exit:                      ; preds = %4, %9
   br label %.sink.split
 
 29:                                               ; preds = %15, %mcpe_get_session_state.exit
-  %30 = tail call i32 @dissect_mcpe_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !6
+  %30 = tail call i32 @dissect_mcpe_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not20 = icmp eq i32 %30, 0
   br i1 %.not20, label %32, label %.sink.split
 
@@ -257,7 +257,7 @@ define hidden void @proto_reg_handoff_mcpe() #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef %5, ptr noundef %9) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !6
 
 10:                                               ; preds = %.preheader
   %11 = load i32, ptr @proto_mcpe, align 4
@@ -284,7 +284,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mcpe_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mcpe_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.69, i64 noundef 1) #3
@@ -679,5 +679,4 @@ attributes #4 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

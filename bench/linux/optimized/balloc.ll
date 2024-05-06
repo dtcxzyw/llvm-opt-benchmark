@@ -116,7 +116,7 @@ define dso_local void @ext4_get_group_no_and_offset(ptr nocapture noundef readon
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %4
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nuw i64 %17 to i32
   %21 = getelementptr inbounds i8, ptr %6, i64 84
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %20, %22
@@ -325,7 +325,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 120:                                              ; preds = %98
   %121 = urem i64 %.pre-phi, %103
   %122 = sub nuw nsw i64 %.pre-phi, %121
-  %123 = trunc i64 %122 to i32
+  %123 = trunc nuw i64 %122 to i32
   %124 = add i64 %122, %103
   %125 = trunc i64 %124 to i32
   %126 = add i32 %125, -1
@@ -952,7 +952,7 @@ declare dso_local void @__ext4_warning(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @unlock_buffer(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ext4_init_block_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @ext4_init_block_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i64, ptr %1, align 8
@@ -1117,7 +1117,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 106:                                              ; preds = %83
   %107 = urem i64 %84, %89
   %108 = sub nuw nsw i64 %84, %107
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw i64 %108 to i32
   %110 = add i64 %108, %89
   %111 = trunc i64 %110 to i32
   %112 = add i32 %111, -1
@@ -1457,7 +1457,7 @@ declare dso_local void @ext4_read_bh_nowait(ptr noundef, i32 noundef, ptr nounde
 declare dso_local void @ext4_end_bitmap_read(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ext4_validate_block_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 168
@@ -1809,7 +1809,7 @@ ext4_valid_block_bitmap_padding.exit.thread:      ; preds = %201, %213
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_wait_block_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @ext4_wait_block_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   %4 = load volatile i64, ptr %2, align 8
   %5 = and i64 %4, 32
   %6 = icmp eq i64 %5, 0
@@ -1879,7 +1879,7 @@ define dso_local ptr @ext4_read_block_bitmap(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_claim_free_clusters(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @ext4_claim_free_clusters(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = tail call fastcc i32 @ext4_has_free_clusters(ptr noundef %0, i64 noundef %1, i32 noundef %2), !range !40
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
@@ -1896,7 +1896,7 @@ define dso_local noundef i32 @ext4_claim_free_clusters(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_has_free_clusters(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_has_free_clusters(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   %6 = getelementptr inbounds i8, ptr %0, i64 232
@@ -2012,7 +2012,7 @@ define internal fastcc i32 @ext4_has_free_clusters(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_should_retry_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 2) i32 @ext4_should_retry_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 552
@@ -2232,7 +2232,7 @@ define dso_local i64 @ext4_count_free_clusters(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @ext4_free_group_clusters(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ext4_bg_has_super(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @ext4_bg_has_super(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
@@ -2456,7 +2456,7 @@ ext4_bg_has_super.exit.thread:                    ; preds = %.preheader7.i, %.pr
 
 78:                                               ; preds = %15
   %79 = sub nuw nsw i64 %16, %18
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   %81 = add i64 %79, %10
   %82 = trunc i64 %81 to i32
   %83 = add i32 %82, -1
@@ -2613,7 +2613,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 89:                                               ; preds = %66
   %90 = urem i64 %67, %72
   %91 = sub nuw nsw i64 %67, %90
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   %93 = add i64 %91, %72
   %94 = trunc i64 %93 to i32
   %95 = add i32 %94, -1

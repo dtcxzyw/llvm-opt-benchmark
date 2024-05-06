@@ -170,7 +170,7 @@ define internal fastcc void @zend_weakref_register(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_weakrefs_hash_del(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_weakrefs_hash_del(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %4, 0
@@ -1445,7 +1445,7 @@ zend_weakmap_has_dimension.exit:                  ; preds = %20, %21, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 10
@@ -2148,7 +2148,7 @@ define internal void @zend_weakmap_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_weakmap_iterator_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -56

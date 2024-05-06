@@ -280,7 +280,7 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
   %11 = getelementptr i8, ptr %6, i64 220
   %.val80 = load i32, ptr %11, align 4
   %12 = icmp eq i32 %.val.val, 0
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %.val.val, i1 true), !range !7
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %13
   %14 = shl nuw i32 1, %narrow.i
   %15 = ashr i32 %14, 1
@@ -324,7 +324,7 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
 34:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %35 = shl i32 %.06887, 1
   %36 = icmp slt i32 %35, %.val.val
-  br i1 %36, label %37, label %.loopexit, !llvm.loop !8
+  br i1 %36, label %37, label %.loopexit, !llvm.loop !7
 
 37:                                               ; preds = %.lr.ph, %34
   %.06788 = phi i32 [ %.val80, %.lr.ph ], [ %.1, %34 ]
@@ -399,7 +399,7 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %30 = fdiv double %29, 0x3FE62E42FEFA39EF
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
-  %33 = tail call i32 @llvm.cttz.i32(i32 %.val.val, i1 true), !range !7
+  %33 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val.val, i1 true)
   %34 = lshr i32 %.val.val, %33
   %35 = xor i32 %34, -1
   %36 = or i32 %35, 1
@@ -467,7 +467,7 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %79 = tail call i32 %73(ptr noundef %76, i64 noundef %44, ptr noundef %5, i32 noundef %50, i32 noundef %77, ptr noundef %6, ptr noundef %78) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %59, %46
   %.085.lcssa = phi i32 [ 0, %46 ], [ %54, %59 ]
@@ -480,7 +480,7 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %86 = sub nsw i32 %85, %53
   %87 = add nuw nsw i32 %.099, 1
   %exitcond105.not = icmp eq i32 %87, %32
-  br i1 %exitcond105.not, label %._crit_edge102, label %46, !llvm.loop !10
+  br i1 %exitcond105.not, label %._crit_edge102, label %46, !llvm.loop !9
 
 ._crit_edge102:                                   ; preds = %._crit_edge, %24
   tail call void @free(ptr noundef %27) #8
@@ -565,12 +565,12 @@ ompi_coll_base_sendrecv.exit.us:                  ; preds = %.lr.ph, %46
 46:                                               ; preds = %ompi_coll_base_sendrecv.exit.us
   %47 = add nuw nsw i32 %.05060.us, 1
   %exitcond65.not = icmp eq i32 %47, %27
-  br i1 %exitcond65.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit.us, !llvm.loop !11
+  br i1 %exitcond65.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit.us, !llvm.loop !10
 
 48:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %49 = add nuw nsw i32 %.05060, 1
   %exitcond.not = icmp eq i32 %49, %27
-  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit, !llvm.loop !10
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %48
   %.05060 = phi i32 [ %49, %48 ], [ 0, %.lr.ph ]
@@ -699,7 +699,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %55, %57
 64:                                               ; preds = %ompi_coll_base_sendrecv.exit98
   %65 = add nuw nsw i32 %.085101, 1
   %exitcond.not = icmp eq i32 %65, %60
-  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !11
 
 66:                                               ; preds = %.lr.ph, %64
   %.1102 = phi i32 [ %44, %.lr.ph ], [ %75, %64 ]
@@ -920,9 +920,8 @@ attributes #10 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 33}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

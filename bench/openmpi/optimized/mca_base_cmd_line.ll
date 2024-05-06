@@ -81,7 +81,7 @@ define noundef i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr noundef %
   %.037 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %16 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.037, i32 noundef 0) #7
   %17 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.037, i32 noundef 1) #7
-  %18 = call fastcc i32 @process_arg(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !6
+  %18 = call fastcc i32 @process_arg(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not29 = icmp eq i32 %18, 0
   br i1 %.not29, label %14, label %.loopexit
 
@@ -111,7 +111,7 @@ define noundef i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr noundef %
   %29 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.next.i
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %add_to_env.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %add_to_env.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 add_to_env.exit.loopexit:                         ; preds = %.lr.ph.i
   %.pre44 = load ptr, ptr %6, align 8
@@ -135,13 +135,13 @@ add_to_env.exit:                                  ; preds = %add_to_env.exit.loo
 35:                                               ; preds = %.lr.ph40
   %36 = add nuw nsw i32 %.138, 1
   %exitcond43.not = icmp eq i32 %36, %33
-  br i1 %exitcond43.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !8
+  br i1 %exitcond43.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !7
 
 .lr.ph40:                                         ; preds = %._crit_edge.thread, %35
   %.138 = phi i32 [ %36, %35 ], [ 0, %._crit_edge.thread ]
   %37 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.138, i32 noundef 0) #7
   %38 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.138, i32 noundef 1) #7
-  %39 = call fastcc i32 @process_arg(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !6
+  %39 = call fastcc i32 @process_arg(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not28 = icmp eq i32 %39, 0
   br i1 %.not28, label %35, label %.loopexit
 
@@ -171,7 +171,7 @@ add_to_env.exit:                                  ; preds = %add_to_env.exit.loo
   %50 = getelementptr inbounds ptr, ptr %.pre45, i64 %indvars.iv.next.i33
   %51 = load ptr, ptr %50, align 8
   %.not.i34 = icmp eq ptr %51, null
-  br i1 %.not.i34, label %add_to_env.exit35.loopexit, label %.lr.ph.i31, !llvm.loop !7
+  br i1 %.not.i34, label %add_to_env.exit35.loopexit, label %.lr.ph.i31, !llvm.loop !6
 
 add_to_env.exit35.loopexit:                       ; preds = %.lr.ph.i31
   %.pre46 = load ptr, ptr %6, align 8
@@ -195,7 +195,7 @@ declare zeroext i1 @opal_cmd_line_is_taken(ptr noundef, ptr noundef) local_unnam
 declare i32 @opal_cmd_line_get_ninsts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 34
   br i1 %6, label %7, label %19
@@ -373,6 +373,5 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

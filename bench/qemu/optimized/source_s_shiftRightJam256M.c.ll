@@ -12,7 +12,7 @@ entry:
 if.then:                                          ; preds = %entry
   %shr = lshr i64 %dist, 6
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %shr, i64 4)
-  %conv = trunc i64 %spec.store.select to i8
+  %conv = trunc nuw nsw i64 %spec.store.select to i8
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
@@ -81,7 +81,7 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %while.body.i
   br i1 %tobool16.not, label %wordJam37, label %if.end27
 
 if.else:                                          ; preds = %if.then9
-  %5 = trunc i64 %wordDist.036 to i8
+  %5 = trunc nuw nsw i64 %wordDist.036 to i8
   %tobool23.not37 = icmp eq i8 %5, 4
   br i1 %tobool23.not37, label %if.end27, label %for.body.preheader
 
@@ -97,7 +97,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %6, ptr %ptr.238, align 8
   %add.ptr24 = getelementptr i8, ptr %aPtr.addr.040, i64 8
   %add.ptr25 = getelementptr i8, ptr %ptr.238, i64 8
-  %dec26 = add i8 %i.139, -1
+  %dec26 = add nsw i8 %i.139, -1
   %tobool23.not = icmp eq i8 %dec26, 0
   br i1 %tobool23.not, label %if.end27, label %for.body
 

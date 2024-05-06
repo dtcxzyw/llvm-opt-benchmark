@@ -512,7 +512,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_sqrt(ptr noundef %out_sqrt, ptr noundef %in, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_sqrt(ptr noundef %out_sqrt, ptr noundef %in, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %in, i64 16
   %0 = load i32, ptr %neg, align 8

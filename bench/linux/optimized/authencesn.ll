@@ -315,7 +315,7 @@ define internal i32 @crypto_authenc_esn_setkey(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @crypto_authenc_esn_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
+define internal noundef range(i32 -22, 1) i32 @crypto_authenc_esn_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
   %3 = add i32 %1, -1
   %4 = icmp ult i32 %3, 3
   %5 = select i1 %4, i32 -22, i32 0

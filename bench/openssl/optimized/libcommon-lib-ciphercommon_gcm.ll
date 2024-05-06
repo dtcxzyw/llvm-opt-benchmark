@@ -39,14 +39,14 @@ entry:
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -113,7 +113,7 @@ if.end20:                                         ; preds = %if.end15
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end20, %if.end9
-  %call22 = tail call i32 @ossl_gcm_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call22 = tail call i32 @ossl_gcm_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end15, %entry, %if.end21, %if.then14, %if.then5
@@ -122,14 +122,14 @@ return:                                           ; preds = %if.end15, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %params, align 8
   %cmp.not48 = icmp eq ptr %0, null
@@ -296,7 +296,7 @@ if.end.i:                                         ; preds = %lor.lhs.false6.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iv.i, i64 %24
   %idx.neg.i = sub i64 0, %olen.addr.0.i
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %add.ptr17.i, i64 %olen.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %17, ptr nonnull align 1 %add.ptr17.i, i64 %olen.addr.0.i, i1 false)
   %26 = load i64, ptr %ivlen.i, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %26
   br label %do.body.i.i
@@ -311,7 +311,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %cmp.i.i = icmp eq i8 %inc.i.i, 0
   %cmp4.i.i = icmp ugt i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %cmp4.i.i, %cmp.i.i
-  br i1 %or.cond.i.i, label %do.body.i.i, label %getivgen.exit, !llvm.loop !5
+  br i1 %or.cond.i.i, label %do.body.i.i, label %getivgen.exit, !llvm.loop !4
 
 getivgen.exit:                                    ; preds = %do.body.i.i
   store i32 2, ptr %iv_state.i, align 8
@@ -321,7 +321,7 @@ for.inc:                                          ; preds = %getivgen.exit, %for
   %incdec.ptr = getelementptr inbounds i8, ptr %p.049, i64 40
   %28 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %28, null
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !6
 
 return.sink.split:                                ; preds = %if.end70, %sw.bb60, %lor.lhs.false64, %lor.lhs.false66, %sw.bb55, %land.lhs.true48, %if.end37, %land.lhs.true, %if.end19, %sw.bb8, %sw.bb3, %sw.bb
   %.sink56 = phi i32 [ 159, %sw.bb ], [ 166, %sw.bb3 ], [ 177, %sw.bb8 ], [ 187, %if.end19 ], [ 192, %land.lhs.true ], [ 201, %if.end37 ], [ 206, %land.lhs.true48 ], [ 213, %sw.bb55 ], [ 224, %lor.lhs.false66 ], [ 224, %lor.lhs.false64 ], [ 224, %sw.bb60 ], [ 228, %if.end70 ]
@@ -351,7 +351,7 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %vp = alloca ptr, align 8
@@ -458,7 +458,7 @@ if.end31:                                         ; preds = %sw.bb28
   br i1 %or.cond.i, label %if.then35, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %buf1.i, ptr noundef nonnull align 1 dereferenceable(13) %8, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %buf1.i, ptr noundef nonnull readonly align 1 dereferenceable(13) %8, i64 13, i1 false)
   store i64 13, ptr %tls_aad_len.i, align 8
   %10 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %10 to i64
@@ -515,7 +515,7 @@ if.end42:                                         ; preds = %sw.bb37
 
 if.then.i:                                        ; preds = %if.end42
   %15 = load i64, ptr %ivlen.i39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr align 1 %13, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %15, i1 false)
   br label %return.sink.split.sink.split.i
 
 if.end.i30:                                       ; preds = %if.end42
@@ -531,7 +531,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i30
   br i1 %cmp5.i, label %return.sink.split, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr align 1 %13, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %14, i1 false)
   %bf.load15.i = load i8, ptr %iv_gen.i35, align 4
   %bf.clear16.i = and i8 %bf.load15.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear16.i, 0
@@ -581,7 +581,7 @@ if.end.i38:                                       ; preds = %lor.lhs.false58
   %add.ptr.i40 = getelementptr inbounds i8, ptr %iv.i, i64 %22
   %idx.neg.i = sub i64 0, %21
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i40, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11.i, ptr nonnull align 1 %18, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11.i, ptr nonnull readonly align 1 %18, i64 %21, i1 false)
   %23 = load ptr, ptr %hw.i, align 8
   %setiv.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %setiv.i, align 8
@@ -598,7 +598,7 @@ for.inc:                                          ; preds = %setivinv.exit, %gcm
   %incdec.ptr = getelementptr inbounds i8, ptr %p.050, i64 40
   %26 = load ptr, ptr %incdec.ptr, align 8
   %cmp1.not = icmp eq ptr %26, null
-  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !7
 
 return.sink.split:                                ; preds = %land.lhs.true.i, %if.end.i30, %lor.lhs.false.i, %sw.bb37, %sw.bb28, %if.end14, %sw.bb10, %if.end5, %lor.lhs.false, %sw.bb, %if.then35
   %.sink55 = phi i32 [ 298, %if.then35 ], [ 264, %sw.bb ], [ 268, %lor.lhs.false ], [ 268, %if.end5 ], [ 276, %sw.bb10 ], [ 280, %if.end14 ], [ 293, %sw.bb28 ], [ 306, %sw.bb37 ], [ 310, %lor.lhs.false.i ], [ 310, %if.end.i30 ], [ 310, %land.lhs.true.i ]
@@ -618,7 +618,7 @@ declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %inl, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -638,7 +638,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i64 noundef %inl), !range !4
+  %call = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i64 noundef %inl)
   %cmp4.not.not = icmp eq i32 %call, 0
   br i1 %cmp4.not.not, label %if.then5, label %return
 
@@ -654,7 +654,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gcm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gcm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %hw1 = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %hw1, align 8
@@ -723,7 +723,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false6.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %iv.i.i, i64 %8
   %idx.neg.i.i = sub nsw i64 0, %olen.addr.0.i.i
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr17.i.i, i64 %olen.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %out, ptr nonnull align 1 %add.ptr17.i.i, i64 %olen.addr.0.i.i, i1 false)
   %9 = load i64, ptr %ivlen.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %iv.i.i, i64 %9
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i, i64 -8
@@ -739,7 +739,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %cmp.i.i.i = icmp eq i8 %inc.i.i.i, 0
   %cmp4.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
   %or.cond.i.i.i = and i1 %cmp4.i.i.i, %cmp.i.i.i
-  br i1 %or.cond.i.i.i, label %do.body.i.i.i, label %if.end27.i, !llvm.loop !5
+  br i1 %or.cond.i.i.i, label %do.body.i.i.i, label %if.end27.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.end5.i
   %11 = and i8 %bf.load.i, 20
@@ -922,14 +922,14 @@ return:                                           ; preds = %finish, %if.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef null, i64 noundef 0), !range !4
+  %call1 = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef null, i64 noundef 0)
   %cmp.not.not = icmp eq i32 %call1, 0
   br i1 %cmp.not.not, label %return, label %if.end3
 
@@ -945,7 +945,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -962,7 +962,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i64 noundef %inl), !range !4
+  %call3 = tail call fastcc i32 @gcm_cipher_internal(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i64 noundef %inl)
   %cmp4.not.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not.not, label %return, label %if.end6
 
@@ -997,8 +997,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

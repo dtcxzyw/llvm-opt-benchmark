@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @zisofs_read_folio(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.z_stream_s, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -924,7 +924,7 @@ thread-pre-split:                                 ; preds = %.preheader
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @zisofs_init() local_unnamed_addr #1 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @zisofs_init() local_unnamed_addr #1 section ".init.text" align 16 {
   %1 = tail call i32 @zlib_inflate_workspacesize() #9
   %2 = sext i32 %1 to i64
   %3 = tail call noalias ptr @vmalloc(i64 noundef %2) #10

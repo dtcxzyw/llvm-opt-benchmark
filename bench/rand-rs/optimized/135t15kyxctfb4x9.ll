@@ -70,7 +70,7 @@ define hidden void @"_ZN112_$LT$rand..rngs..adapter..reseeding..ReseedingCore$LT
   call void @_ZN9rand_core11SeedableRng8from_rng17h59b001a877b6a596E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 16 dereferenceable(64) %3, ptr noalias noundef nonnull align 1 %17), !noalias !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %18 = load i64, ptr %3, align 16, !range !17, !alias.scope !14, !noalias !18, !noundef !4
-  %trunc.i.i.i = trunc i64 %18 to i1
+  %trunc.i.i.i = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   br i1 %trunc.i.i.i, label %20, label %30
 
@@ -113,7 +113,7 @@ common.resume.i:                                  ; preds = %26
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 16, !alias.scope !5, !noalias !13, !noundef !4
   store i64 %32, ptr %6, align 8, !alias.scope !28, !noalias !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %19, i64 48, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %19, i64 48, i1 false), !noalias !33
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !11
   br label %"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h1bf87fbaa5c74e0aE.llvm.392524116762929623.exit"
 
@@ -173,7 +173,7 @@ define hidden void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$
   call void @_ZN9rand_core11SeedableRng8from_rng17h59b001a877b6a596E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 16 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %7 = load i64, ptr %4, align 16, !range !17, !alias.scope !40, !noalias !43, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %trunc.i.i, label %9, label %19
 
@@ -217,7 +217,7 @@ common.resume:                                    ; preds = %15
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 16, !noundef !4
   store i64 %22, ptr %20, align 8, !alias.scope !37, !noalias !50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %8, i64 48, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %8, i64 48, i1 false), !noalias !54
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !37
   br label %23
 

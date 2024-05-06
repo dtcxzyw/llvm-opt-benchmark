@@ -154,7 +154,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load float, ptr %1, align 4
@@ -374,12 +374,12 @@ define noundef i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %27, ptr %28, align 8
-  %29 = call noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %5), !range !7
+  %29 = call noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %5)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %10
-  %32 = tail call noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef null), !range !8
+  %32 = tail call noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef null)
   br label %33
 
 33:                                               ; preds = %10, %7, %4, %31
@@ -388,7 +388,7 @@ define noundef i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 align 2 {
   %7 = alloca [32 x ptr], align 16
   %8 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %8, 1145979222
@@ -487,7 +487,7 @@ define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull 
   %79 = getelementptr inbounds i8, ptr %.019.i, i64 96
   %.0.i = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %78, %47
   %.not134 = icmp eq i32 %4, 0
@@ -534,7 +534,7 @@ define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull 
   %102 = icmp ne ptr %.0125, %98
   %103 = select i1 %101, i1 %102, i1 false
   %104 = getelementptr inbounds i8, ptr %.0125, i64 96
-  br i1 %103, label %100, label %105, !llvm.loop !10
+  br i1 %103, label %100, label %105, !llvm.loop !8
 
 105:                                              ; preds = %100
   br i1 %102, label %_ZNK9dtNavMesh9getTileAtEiii.exit, label %106
@@ -667,7 +667,7 @@ define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull 
   %191 = add nsw i32 %190, -1
   %192 = sext i32 %191 to i64
   %193 = icmp slt i64 %indvars.iv.next, %192
-  br i1 %193, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %193, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %179
   %194 = getelementptr inbounds i8, ptr %.1.ph, i64 8
@@ -708,7 +708,7 @@ define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull 
 206:                                              ; preds = %.lr.ph161, %205
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph161, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph161, !llvm.loop !10
 
 .preheader.preheader:                             ; preds = %206, %._crit_edge
   br label %.preheader
@@ -813,7 +813,7 @@ define noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr nocapture noundef nonnull 
   %254 = getelementptr inbounds i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %254, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
   %255 = icmp sgt i32 %.1.i.i, 0
@@ -834,12 +834,12 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
   tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.1.ph, i32 noundef %256)
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %._crit_edge164, label %257, !llvm.loop !14
+  br i1 %exitcond174.not, label %._crit_edge164, label %257, !llvm.loop !12
 
 ._crit_edge164:                                   ; preds = %257, %229, %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit
   %260 = add nuw nsw i32 %.0121165, 1
   %exitcond175.not = icmp eq i32 %260, 8
-  br i1 %exitcond175.not, label %261, label %.preheader, !llvm.loop !15
+  br i1 %exitcond175.not, label %261, label %.preheader, !llvm.loop !13
 
 261:                                              ; preds = %._crit_edge164
   %.not140 = icmp eq ptr %5, null
@@ -1165,7 +1165,7 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88:     ; preds = %._Z12overlapSlabsPK
   %.sroa.3.3 = phi float [ %.sroa.3.197, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88_crit_edge ], [ %.sroa.3.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit75 ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.3.197, %_ZL12getSlabCoordPKfi.exit60 ]
   %.sroa.0.3 = phi float [ %.sroa.0.198, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88_crit_edge ], [ %.sroa.0.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit75 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.0.198, %_ZL12getSlabCoordPKfi.exit60 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %72
-  br i1 %exitcond.not, label %.loopexit, label %73, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %73, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88, %63, %148, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
   %164 = phi ptr [ %.pre, %148 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %64, %63 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
@@ -1179,7 +1179,7 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88:     ; preds = %._Z12overlapSlabsPK
   %166 = load i32, ptr %165, align 4
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next115, %167
-  br i1 %168, label %63, label %.loopexit90, !llvm.loop !17
+  br i1 %168, label %63, label %.loopexit90, !llvm.loop !15
 
 .loopexit90:                                      ; preds = %.loopexit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.1, %.loopexit ]
@@ -1299,7 +1299,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
 57:                                               ; preds = %.lr.ph, %50
   %.1 = phi i32 [ %.02836, %50 ], [ %.02935, %.lr.ph ]
   %.not = icmp eq i32 %49, -1
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %57
   %.pre = load ptr, ptr %25, align 8
@@ -1312,7 +1312,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %33, label %.loopexit, !llvm.loop !19
+  br i1 %62, label %33, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, %3
   ret void
@@ -1540,12 +1540,12 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %72, %92
 _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread.sink.split, %60, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread, %.lr.ph, %32, %29, %25
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %24
-  br i1 %exitcond109.not, label %._crit_edge.loopexit, label %25, !llvm.loop !22
+  br i1 %exitcond109.not, label %._crit_edge.loopexit, label %25, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %7, align 8
@@ -1558,7 +1558,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMe
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next111, %134
-  br i1 %135, label %16, label %.loopexit96, !llvm.loop !23
+  br i1 %135, label %16, label %.loopexit96, !llvm.loop !21
 
 .loopexit96:                                      ; preds = %._crit_edge, %.preheader, %4
   ret void
@@ -1761,7 +1761,7 @@ _Z9allocLinkP10dtMeshTile.exit72.thread:          ; preds = %99, %_Z9allocLinkP1
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next, %137
-  br i1 %138, label %34, label %.loopexit, !llvm.loop !24
+  br i1 %138, label %34, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit72.thread, %7, %4
   ret void
@@ -1858,7 +1858,7 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
   %.1 = phi i32 [ %31, %61 ], [ %.02229, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %62, %5
   %.022.lcssa = phi i32 [ 0, %5 ], [ %.1, %62 ]
@@ -1964,7 +1964,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 
 _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %41, %44, %38
   %61 = icmp ugt i64 %indvars.iv, 1
-  br i1 %61, label %38, label %.loopexit, !llvm.loop !26
+  br i1 %61, label %38, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread, %33, %27
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1973,7 +1973,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %41, %44, %38
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next47, %65
-  br i1 %66, label %27, label %.loopexit39, !llvm.loop !27
+  br i1 %66, label %27, label %.loopexit39, !llvm.loop !25
 
 .loopexit39:                                      ; preds = %.loopexit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %2
   ret void
@@ -2132,7 +2132,7 @@ _Z9allocLinkP10dtMeshTile.exit61:                 ; preds = %78, %66, %88, %49, 
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %35, label %.loopexit, !llvm.loop !28
+  br i1 %111, label %35, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit61, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %2
   ret void
@@ -2196,7 +2196,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %31, %14
   %46 = call noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef %3, ptr noundef nonnull %8, i32 noundef %27)
@@ -2227,7 +2227,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %59 = load i8, ptr %48, align 1
   %60 = zext i8 %59 to i32
   %61 = icmp ult i32 %58, %60
-  br i1 %61, label %62, label %._crit_edge56, !llvm.loop !30
+  br i1 %61, label %62, label %._crit_edge56, !llvm.loop !28
 
 62:                                               ; preds = %.lr.ph55, %57
   %.04554 = phi i32 [ 0, %.lr.ph55 ], [ %58, %57 ]
@@ -2275,7 +2275,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   store ptr %.sink, ptr %93, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
-  br i1 %exitcond63.not, label %94, label %71, !llvm.loop !31
+  br i1 %exitcond63.not, label %94, label %71, !llvm.loop !29
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %9, align 16
@@ -2363,7 +2363,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   store ptr %.sink.i, ptr %148, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %126, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.preheader.i, label %126, !llvm.loop !30
 
 149:                                              ; preds = %171, %.preheader.i
   %indvars.iv76.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next77.i, %171 ]
@@ -2410,14 +2410,14 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %172 = trunc nuw nsw i64 %indvars.iv76.i to i32
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 3
-  br i1 %exitcond79.not.i, label %173, label %149, !llvm.loop !33
+  br i1 %exitcond79.not.i, label %173, label %149, !llvm.loop !31
 
 173:                                              ; preds = %171
   %174 = add nuw nsw i32 %.05469.i, 1
   %175 = load i8, ptr %108, align 1
   %176 = zext i8 %175 to i32
   %177 = icmp ult i32 %174, %176
-  br i1 %177, label %116, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !34
+  br i1 %177, label %116, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !32
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %173
   %178 = getelementptr inbounds i8, ptr %.253.i, i64 4
@@ -2622,7 +2622,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   store ptr %.sink.i, ptr %129, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %107, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.preheader.i, label %107, !llvm.loop !33
 
 .preheader.i:                                     ; preds = %128, %146
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %146 ], [ 0, %128 ]
@@ -2661,7 +2661,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %147 = trunc nuw nsw i64 %indvars.iv77.i to i32
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond80.not.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !34
 
 .loopexit.loopexit.i:                             ; preds = %146
   %.pre.i = load i8, ptr %84, align 1
@@ -2676,7 +2676,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %149 = add nuw nsw i32 %.05370.i, 1
   %150 = zext i8 %148 to i32
   %151 = icmp ult i32 %149, %150
-  br i1 %151, label %93, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !37
+  br i1 %151, label %93, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !35
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %.loopexit.i
   %152 = load float, ptr %.352.i, align 4
@@ -2923,7 +2923,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
   %.199125 = phi i32 [ %.199126, %142 ], [ %.098130, %144 ]
   %.1 = phi ptr [ %143, %142 ], [ %147, %144 ]
   %149 = icmp ult ptr %.1, %14
-  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit108: ; preds = %6
   %150 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3015,7 +3015,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit108: ; preds = %6
   %216 = select i1 %215, float %.sroa.8.0135, float %210
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph139, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph139, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph139
   %217 = extractelement <2 x float> %214, i64 1
@@ -3089,7 +3089,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %235, %239, %244, %1
   %252 = load i32, ptr %251, align 4
   %253 = sext i32 %252 to i64
   %254 = icmp slt i64 %indvars.iv.next158, %253
-  br i1 %254, label %177, label %.loopexit, !llvm.loop !40
+  br i1 %254, label %177, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %148, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit108
   %.093 = phi i32 [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit108 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.197, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.199125, %148 ]
@@ -3144,7 +3144,7 @@ define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull r
   %30 = getelementptr inbounds i8, ptr %.019, i64 96
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %25, %29, %4
   %.0.lcssa = phi ptr [ null, %4 ], [ null, %29 ], [ %.019, %25 ]
@@ -3201,7 +3201,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture n
   %32 = getelementptr inbounds i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %31, %5
   %.016.lcssa = phi i32 [ 0, %5 ], [ %.1, %31 ]
@@ -3308,7 +3308,7 @@ define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr n
   %54 = getelementptr inbounds i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit: ; preds = %53, %27
   %.016.lcssa.i = phi i32 [ 0, %27 ], [ %.1.i, %53 ]
@@ -3365,7 +3365,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture 
   %32 = getelementptr inbounds i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %31, %5
   %.016.lcssa = phi i32 [ 0, %5 ], [ %.1, %31 ]
@@ -3436,7 +3436,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %25
   %46 = getelementptr inbounds i8, ptr %.020, i64 96
   %.0 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %45, %4, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
   %.014 = phi i32 [ %44, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ 0, %4 ], [ 0, %45 ]
@@ -3539,7 +3539,7 @@ define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull 
 declare float @llvm.floor.f32(float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %42, label %5
 
@@ -3659,7 +3659,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [32 x ptr], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %277, label %6
@@ -3722,7 +3722,7 @@ define noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr nocapture noundef nonnu
 
 .lr.ph:                                           ; preds = %.lr.ph154
   %46 = icmp eq ptr %.073, %26
-  br i1 %46, label %.loopexit.sink.split, label %.lr.ph154, !llvm.loop !43
+  br i1 %46, label %.loopexit.sink.split, label %.lr.ph154, !llvm.loop !41
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph.preheader
   %.073123.lcssa = phi ptr [ %.073120, %.lr.ph.preheader ], [ %.073, %.lr.ph ]
@@ -3740,7 +3740,7 @@ define noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr nocapture noundef nonnu
   %50 = getelementptr inbounds i8, ptr %.073123153, i64 96
   %.073 = load ptr, ptr %50, align 8
   %.not86 = icmp eq ptr %.073, null
-  br i1 %.not86, label %.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not86, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph154, %.loopexit.sink.split, %28
   %51 = load ptr, ptr %29, align 8
@@ -3794,7 +3794,7 @@ define noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr nocapture noundef nonnu
   %80 = getelementptr inbounds i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %80, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit: ; preds = %79
   %81 = icmp sgt i32 %.1.i, 0
@@ -3900,7 +3900,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph125.split
 134:                                              ; preds = %127, %.lr.ph.i95
   %.1.i96 = phi i32 [ %.02836.i, %127 ], [ %.02935.i, %.lr.ph.i95 ]
   %.not.i97 = icmp eq i32 %126, -1
-  br i1 %.not.i97, label %._crit_edge.loopexit.i, label %.lr.ph.i95, !llvm.loop !18
+  br i1 %.not.i97, label %._crit_edge.loopexit.i, label %.lr.ph.i95, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %134
   %.pre.i = load ptr, ptr %102, align 8
@@ -3913,12 +3913,12 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph125.split
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next.i, %138
-  br i1 %139, label %110, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit, !llvm.loop !19
+  br i1 %139, label %110, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit, !llvm.loop !17
 
 _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit: ; preds = %._crit_edge.i, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i, %.lr.ph125.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph125.split, !llvm.loop !44
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph125.split, !llvm.loop !42
 
 140:                                              ; preds = %.preheader, %._crit_edge
   %.071129 = phi i32 [ 0, %.preheader ], [ %248, %._crit_edge ]
@@ -4023,7 +4023,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit: ; preds = %._crit_edge.i, %
   %191 = getelementptr inbounds i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %191, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %190
   %192 = icmp slt i32 %.1.i.i, 1
@@ -4114,7 +4114,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph127.split
 242:                                              ; preds = %235, %.lr.ph.i106
   %.1.i110 = phi i32 [ %.02836.i107, %235 ], [ %.02935.i108, %.lr.ph.i106 ]
   %.not.i111 = icmp eq i32 %234, -1
-  br i1 %.not.i111, label %._crit_edge.loopexit.i112, label %.lr.ph.i106, !llvm.loop !18
+  br i1 %.not.i111, label %._crit_edge.loopexit.i112, label %.lr.ph.i106, !llvm.loop !16
 
 ._crit_edge.loopexit.i112:                        ; preds = %242
   %.pre.i113 = load ptr, ptr %210, align 8
@@ -4127,17 +4127,17 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph127.split
   %245 = load i32, ptr %244, align 4
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next.i115, %246
-  br i1 %247, label %218, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117, !llvm.loop !19
+  br i1 %247, label %218, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117, !llvm.loop !17
 
 _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117: ; preds = %._crit_edge.i114, %.lr.ph127.split, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %.lr.ph127.split, !llvm.loop !45
+  br i1 %exitcond143.not, label %._crit_edge, label %.lr.ph127.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117, %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, %166
   %248 = add nuw nsw i32 %.071129, 1
   %exitcond144.not = icmp eq i32 %248, 8
-  br i1 %exitcond144.not, label %249, label %140, !llvm.loop !46
+  br i1 %exitcond144.not, label %249, label %140, !llvm.loop !44
 
 249:                                              ; preds = %._crit_edge
   %250 = getelementptr inbounds i8, ptr %26, i64 92
@@ -4232,7 +4232,7 @@ define noundef i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh14storeTileStateEPK10dtMeshTilePhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1073741824, -2147483631) i32 @_ZNK9dtNavMesh14storeTileStateEPK10dtMeshTilePhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
@@ -4303,7 +4303,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16get
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %38, label %.loopexit, !llvm.loop !47
+  br i1 %52, label %38, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %38, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
   %.0 = phi i32 [ -2147483632, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit ], [ 1073741824, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ 1073741824, %38 ]
@@ -4311,7 +4311,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN9dtNavMesh16restoreTileStateEP10dtMeshTilePKhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh16restoreTileStateEP10dtMeshTilePKhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
@@ -4397,7 +4397,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %43, label %.loopexit, !llvm.loop !48
+  br i1 %60, label %43, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %43, %.preheader, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, %17, %13, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
   %.0 = phi i32 [ -2147483640, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit ], [ -2147483647, %13 ], [ -2147483646, %17 ], [ -2147483640, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ 1073741824, %.preheader ], [ 1073741824, %43 ]
@@ -4405,7 +4405,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh33getOffMeshConnectionPolyEndPointsEjjPfS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMeshConnectionPolyEndPointsEjjPfS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %84, label %6
 
@@ -4496,7 +4496,7 @@ define noundef i32 @_ZNK9dtNavMesh33getOffMeshConnectionPolyEndPointsEjjPfS0_(pt
   %55 = getelementptr inbounds i8, ptr %48, i64 4
   %.0 = load i32, ptr %55, align 4
   %.not34 = icmp eq i32 %.0, -1
-  br i1 %.not34, label %.loopexit, label %46, !llvm.loop !49
+  br i1 %.not34, label %.loopexit, label %46, !llvm.loop !47
 
 .loopexit:                                        ; preds = %54, %.preheader, %52
   %.024 = phi i64 [ %spec.select, %52 ], [ 0, %.preheader ], [ 0, %54 ]
@@ -4636,7 +4636,7 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN9dtNavMesh12setPolyFlagsEjt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFlagsEjt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #15 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %40, label %4
 
@@ -4699,7 +4699,7 @@ define noundef i32 @_ZN9dtNavMesh12setPolyFlagsEjt(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %41, label %4
 
@@ -4763,7 +4763,7 @@ define noundef i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN9dtNavMesh11setPolyAreaEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAreaEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #15 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %44, label %4
 
@@ -4830,7 +4830,7 @@ define noundef i32 @_ZN9dtNavMesh11setPolyAreaEjh(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh11getPolyAreaEjPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAreaEjPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %42, label %4
 
@@ -4940,8 +4940,8 @@ attributes #20 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 1073741824, i32 -2147483639}
-!8 = !{i32 1073741824, i32 -2147483519}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -4951,10 +4951,10 @@ attributes #20 = { noreturn nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = distinct !{!18, !5, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
@@ -4981,5 +4981,3 @@ attributes #20 = { noreturn nounwind }
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}

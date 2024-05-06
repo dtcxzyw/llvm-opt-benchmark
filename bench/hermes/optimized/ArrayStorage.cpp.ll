@@ -825,7 +825,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_11HermesVa
   %12 = load atomic i32, ptr %size_.i.i monotonic, align 4
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %3, i32 %12)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %add.ptr.i.i.i29.ptr.i = getelementptr i8, ptr %9, i64 8
+  %add.ptr.i.i.i29.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %idx.ext16.i = zext i32 %.sroa.speculated.i to i64
   %add.ptr17.idx.i = shl nuw nsw i64 %idx.ext16.i, 3
   %youngGen_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -924,8 +924,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_11HermesVa
   %add.ptr.i.i.i29.ptr = getelementptr inbounds i8, ptr %5, i64 8
   %idx.ext14 = zext i32 %toFirst to i64
   %add.ptr15.idx = shl nuw nsw i64 %idx.ext14, 3
-  %9 = getelementptr i8, ptr %5, i64 %add.ptr15.idx
-  %add.ptr15.ptr = getelementptr i8, ptr %9, i64 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 %add.ptr15.idx
+  %add.ptr15.ptr = getelementptr inbounds i8, ptr %9, i64 8
   %idx.ext16 = zext i32 %.sroa.speculated to i64
   %add.ptr17.idx = shl nuw nsw i64 %idx.ext16, 3
   %youngGen_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -1003,7 +1003,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %size_.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %add.ptr.i.i.i66.ptr.i = getelementptr i8, ptr %1, i64 8
+  %add.ptr.i.i.i66.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %heapStorage_.i68.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %cmp45.i = icmp ult i32 %3, %newSize
   br i1 %cmp45.i, label %if.then46.i, label %if.end60.i
@@ -1101,7 +1101,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_11HermesVa
   %18 = load atomic i32, ptr %size_.i.i1 monotonic, align 4
   %.sroa.speculated.i2 = tail call i32 @llvm.umin.i32(i32 %newSize, i32 %18)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %add.ptr.i.i.i29.ptr.i = getelementptr i8, ptr %15, i64 8
+  %add.ptr.i.i.i29.ptr.i = getelementptr inbounds i8, ptr %15, i64 8
   %idx.ext16.i = zext i32 %.sroa.speculated.i2 to i64
   %add.ptr17.idx.i = shl nuw nsw i64 %idx.ext16.i, 3
   %youngGen_.i.i.i.i3 = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -1226,8 +1226,8 @@ if.end37.thread:                                  ; preds = %if.then21
   %add.ptr.i.i.i66.ptr103 = getelementptr inbounds i8, ptr %1, i64 8
   %idx.ext40104 = zext i32 %toFirst to i64
   %add.ptr41.idx105 = shl nuw nsw i64 %idx.ext40104, 3
-  %7 = getelementptr i8, ptr %1, i64 %add.ptr41.idx105
-  %add.ptr41.ptr106 = getelementptr i8, ptr %7, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 %add.ptr41.idx105
+  %add.ptr41.ptr106 = getelementptr inbounds i8, ptr %7, i64 8
   %heapStorage_.i68107 = getelementptr inbounds i8, ptr %runtime, i64 840
   br label %for.body5.lr.ph.i
 
@@ -1266,8 +1266,8 @@ if.end37:                                         ; preds = %_ZN6hermes2vm17GCHe
   %add.ptr.i.i.i66.ptr = getelementptr inbounds i8, ptr %1, i64 8
   %idx.ext40 = zext i32 %toFirst to i64
   %add.ptr41.idx = shl nuw nsw i64 %idx.ext40, 3
-  %11 = getelementptr i8, ptr %1, i64 %add.ptr41.idx
-  %add.ptr41.ptr = getelementptr i8, ptr %11, i64 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 %add.ptr41.idx
+  %add.ptr41.ptr = getelementptr inbounds i8, ptr %11, i64 8
   %heapStorage_.i68 = getelementptr inbounds i8, ptr %runtime, i64 840
   %cmp.not17.i = icmp eq i32 %toFirst, 0
   br i1 %cmp.not17.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit, label %for.body5.lr.ph.i
@@ -2315,7 +2315,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_13HermesVa
   %12 = load atomic i32, ptr %size_.i.i monotonic, align 4
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %3, i32 %12)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %add.ptr.i.i.i29.ptr.i = getelementptr i8, ptr %9, i64 8
+  %add.ptr.i.i.i29.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %idx.ext16.i = zext i32 %.sroa.speculated.i to i64
   %add.ptr17.idx.i = shl nuw nsw i64 %idx.ext16.i, 2
   %youngGen_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -2414,8 +2414,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_13HermesVa
   %add.ptr.i.i.i29.ptr = getelementptr inbounds i8, ptr %5, i64 8
   %idx.ext14 = zext i32 %toFirst to i64
   %add.ptr15.idx = shl nuw nsw i64 %idx.ext14, 2
-  %9 = getelementptr i8, ptr %5, i64 %add.ptr15.idx
-  %add.ptr15.ptr = getelementptr i8, ptr %9, i64 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 %add.ptr15.idx
+  %add.ptr15.ptr = getelementptr inbounds i8, ptr %9, i64 8
   %idx.ext16 = zext i32 %.sroa.speculated to i64
   %add.ptr17.idx = shl nuw nsw i64 %idx.ext16, 2
   %youngGen_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -2493,7 +2493,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %size_.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %add.ptr.i.i.i66.ptr.i = getelementptr i8, ptr %1, i64 8
+  %add.ptr.i.i.i66.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %heapStorage_.i68.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %cmp45.i = icmp ult i32 %3, %newSize
   br i1 %cmp45.i, label %if.then46.i, label %if.end60.i
@@ -2591,7 +2591,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16ArrayStorageBaseINS0_13HermesVa
   %18 = load atomic i32, ptr %size_.i.i1 monotonic, align 4
   %.sroa.speculated.i2 = tail call i32 @llvm.umin.i32(i32 %newSize, i32 %18)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %add.ptr.i.i.i29.ptr.i = getelementptr i8, ptr %15, i64 8
+  %add.ptr.i.i.i29.ptr.i = getelementptr inbounds i8, ptr %15, i64 8
   %idx.ext16.i = zext i32 %.sroa.speculated.i2 to i64
   %add.ptr17.idx.i = shl nuw nsw i64 %idx.ext16.i, 2
   %youngGen_.i.i.i.i3 = getelementptr inbounds i8, ptr %runtime, i64 1640
@@ -2716,8 +2716,8 @@ if.end37.thread:                                  ; preds = %if.then21
   %add.ptr.i.i.i66.ptr103 = getelementptr inbounds i8, ptr %1, i64 8
   %idx.ext40104 = zext i32 %toFirst to i64
   %add.ptr41.idx105 = shl nuw nsw i64 %idx.ext40104, 2
-  %7 = getelementptr i8, ptr %1, i64 %add.ptr41.idx105
-  %add.ptr41.ptr106 = getelementptr i8, ptr %7, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 %add.ptr41.idx105
+  %add.ptr41.ptr106 = getelementptr inbounds i8, ptr %7, i64 8
   %heapStorage_.i68107 = getelementptr inbounds i8, ptr %runtime, i64 840
   br label %for.body5.lr.ph.i
 
@@ -2756,8 +2756,8 @@ if.end37:                                         ; preds = %_ZN6hermes2vm17GCHe
   %add.ptr.i.i.i66.ptr = getelementptr inbounds i8, ptr %1, i64 8
   %idx.ext40 = zext i32 %toFirst to i64
   %add.ptr41.idx = shl nuw nsw i64 %idx.ext40, 2
-  %11 = getelementptr i8, ptr %1, i64 %add.ptr41.idx
-  %add.ptr41.ptr = getelementptr i8, ptr %11, i64 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 %add.ptr41.idx
+  %add.ptr41.ptr = getelementptr inbounds i8, ptr %11, i64 8
   %heapStorage_.i68 = getelementptr inbounds i8, ptr %runtime, i64 840
   %cmp.not17.i = icmp eq i32 %toFirst, 0
   br i1 %cmp.not17.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit, label %for.body5.lr.ph.i

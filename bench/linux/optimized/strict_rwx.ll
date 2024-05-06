@@ -224,7 +224,7 @@ define dso_local void @module_enable_nx(ptr nocapture noundef readonly %0) local
 declare dso_local i32 @set_memory_nx(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @module_enforce_rwx_sections(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -8, 1) i32 @module_enforce_rwx_sections(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   %6 = load i16, ptr %5, align 4
   %7 = icmp eq i16 %6, 0

@@ -421,7 +421,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
 57:                                               ; preds = %.lr.ph176, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next, %57 ]
   %58 = add nuw nsw i64 %indvars.iv, %53
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw nsw i64 %58 to i32
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #2
   %61 = shl nuw nsw i64 %indvars.iv, 1
   %62 = getelementptr [15 x i32], ptr @hf_sndcp_xid_comp, i64 0, i64 %61

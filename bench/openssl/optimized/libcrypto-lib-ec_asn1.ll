@@ -906,7 +906,7 @@ if.end77:                                         ; preds = %if.end67
   br i1 %tobool80.not, label %if.then329, label %if.end82
 
 if.end82:                                         ; preds = %if.end77
-  %conv83 = trunc i64 %call69 to i32
+  %conv83 = trunc nuw nsw i64 %call69 to i32
   %call84 = tail call i32 @BN_set_bit(ptr noundef nonnull %call56, i32 noundef %conv83) #8
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then329, label %if.end87
@@ -2323,7 +2323,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ECDSA_SIG_set0(ptr nocapture noundef %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ECDSA_SIG_set0(ptr nocapture noundef %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   %cmp1 = icmp eq ptr %s, null

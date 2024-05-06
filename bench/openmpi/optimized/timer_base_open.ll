@@ -27,7 +27,7 @@ define internal noundef i32 @mca_timer_base_register(i32 %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @opal_timer_base_open(i32 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @opal_timer_base_open(i32 noundef %0) #0 {
   %2 = tail call i32 @mca_base_framework_components_open(ptr noundef nonnull @opal_timer_base_framework, i32 noundef %0) #3
   %.not = icmp ne i32 %2, 0
   %. = sext i1 %.not to i32

@@ -20,7 +20,7 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %16, label %17, label %85
 
 17:                                               ; preds = %13
-  %18 = mul nsw i32 %2, %0
+  %18 = mul nuw nsw i32 %2, %0
   %19 = fcmp olt double %9, 0.000000e+00
   br i1 %19, label %60, label %20
 

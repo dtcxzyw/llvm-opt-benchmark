@@ -111,7 +111,7 @@ _pcre2_memctl_malloc_8.exit.thread11:             ; preds = %3
   br label %_pcre2_memctl_malloc_8.exit.thread
 
 11:                                               ; preds = %.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) @_pcre2_default_compile_context_8, i64 72, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   br label %_pcre2_memctl_malloc_8.exit.thread
@@ -144,7 +144,7 @@ _pcre2_memctl_malloc_8.exit.thread11:             ; preds = %3
   br label %_pcre2_memctl_malloc_8.exit.thread
 
 11:                                               ; preds = %.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) @_pcre2_default_match_context_8, i64 96, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   br label %_pcre2_memctl_malloc_8.exit.thread
@@ -177,7 +177,7 @@ _pcre2_memctl_malloc_8.exit.thread11:             ; preds = %3
   br label %_pcre2_memctl_malloc_8.exit.thread
 
 11:                                               ; preds = %.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_pcre2_default_convert_context_8, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   br label %_pcre2_memctl_malloc_8.exit.thread
@@ -331,13 +331,13 @@ define noundef i32 @php_pcre2_set_character_tables(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc i32 %1 to i16
+  %4 = trunc nuw i32 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store i16 %4, ptr %5, align 8
   br label %6
@@ -355,13 +355,13 @@ define noundef i32 @php_pcre2_set_max_pattern_length(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_newline(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 6
   br i1 %switch, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc i32 %1 to i16
+  %4 = trunc nuw i32 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 58
   store i16 %4, ptr %5, align 2
   br label %6
@@ -460,7 +460,7 @@ define noundef i32 @php_pcre2_set_recursion_memory_management(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_glob_separator(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_glob_separator(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   switch i32 %1, label %5 [
     i32 92, label %3
     i32 47, label %3
@@ -478,7 +478,7 @@ define noundef i32 @php_pcre2_set_glob_separator(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @php_pcre2_set_glob_escape(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -29, 1) i32 @php_pcre2_set_glob_escape(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ugt i32 %1, 255
   br i1 %3, label %14, label %4
 

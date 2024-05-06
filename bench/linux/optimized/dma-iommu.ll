@@ -108,7 +108,7 @@ define internal i32 @iommu_dma_forcedac_setup(ptr noundef %0) #0 section ".init.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iommu_dma_init_fq(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 224
@@ -353,7 +353,7 @@ define internal void @fq_flush_timeout(ptr noundef %0) #1 align 16 {
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iommu_get_dma_cookie(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @iommu_get_dma_cookie(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -389,7 +389,7 @@ define dso_local noundef i32 @iommu_get_dma_cookie(ptr nocapture noundef %0) loc
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iommu_get_msi_cookie(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @iommu_get_msi_cookie(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %17
@@ -973,7 +973,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
 declare dso_local ptr @iommu_get_domain_for_dev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iommu_dma_prepare_msi(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @iommu_dma_prepare_msi(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @iommu_get_domain_for_dev(ptr noundef %4) #15
@@ -1316,7 +1316,7 @@ declare dso_local ptr @pci_find_host_bridge(ptr noundef) local_unnamed_addr #4
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @iommu_dma_ranges_sort(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #11 align 16 {
+define internal range(i32 0, 2) i32 @iommu_dma_ranges_sort(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8

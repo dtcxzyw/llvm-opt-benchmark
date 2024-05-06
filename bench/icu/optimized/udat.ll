@@ -1093,7 +1093,7 @@ land.lhs.true.i:
   br i1 %0, label %if.then, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %2 = icmp eq ptr %1, null
   br i1 %2, label %if.then, label %if.end
 
@@ -1138,7 +1138,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
 
@@ -1223,7 +1223,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 
@@ -1253,7 +1253,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 
@@ -1415,7 +1415,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %invoke.cont2, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = call ptr @__dynamic_cast(ptr nonnull %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %invoke.cont2, label %if.end
 
@@ -1961,7 +1961,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 
@@ -3345,7 +3345,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 
@@ -3436,7 +3436,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 
@@ -3529,7 +3529,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.then.i, label %if.end
 

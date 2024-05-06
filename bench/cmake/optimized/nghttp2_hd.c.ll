@@ -210,13 +210,13 @@ define dso_local noundef i32 @nghttp2_hd_deflate_init(ptr nocapture noundef writ
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 127, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 1104
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -247,13 +247,13 @@ define dso_local noundef i32 @nghttp2_hd_deflate_init2(ptr nocapture noundef wri
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 127, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
   %15 = icmp ult i64 %1, 4096
   br i1 %15, label %16, label %17
 
@@ -293,7 +293,7 @@ define dso_local noundef i32 @nghttp2_hd_inflate_init(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 127, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 56
@@ -578,7 +578,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_inflate_change_table_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
   %switch = icmp ult i32 %4, 2
@@ -722,7 +722,7 @@ define dso_local i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef %0, ptr noundef %1,
   br i1 %21, label %count_encoded_length.exit.thread.thread.i, label %24
 
 count_encoded_length.exit.thread.thread.i:        ; preds = %20
-  %22 = trunc i64 %16 to i8
+  %22 = trunc nuw i64 %16 to i8
   %23 = or disjoint i8 %22, 32
   store i8 %23, ptr %8, align 16
   br label %emit_table_size.exit
@@ -777,7 +777,7 @@ count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_lengt
   %.011.i131922.i = phi i64 [ 2, %count_encoded_length.exit.thread.thread17.thread.i ], [ %35, %._crit_edge.i.i.loopexit ]
   %.025.lcssa.i.i = phi i64 [ %25, %count_encoded_length.exit.thread.thread17.thread.i ], [ %33, %._crit_edge.i.i.loopexit ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i21.i, %count_encoded_length.exit.thread.thread17.thread.i ], [ %.024.i.i, %._crit_edge.i.i.loopexit ]
-  %36 = trunc i64 %.025.lcssa.i.i to i8
+  %36 = trunc nuw nsw i64 %.025.lcssa.i.i to i8
   store i8 %36, ptr %.024.lcssa.i.i, align 1
   br label %emit_table_size.exit
 
@@ -799,7 +799,7 @@ thread-pre-split:                                 ; preds = %emit_table_size.exi
   br i1 %40, label %count_encoded_length.exit.thread.thread.i52, label %43
 
 count_encoded_length.exit.thread.thread.i52:      ; preds = %38
-  %41 = trunc i64 %39 to i8
+  %41 = trunc nuw i64 %39 to i8
   %42 = or disjoint i8 %41, 32
   store i8 %42, ptr %7, align 16
   br label %emit_table_size.exit53
@@ -854,7 +854,7 @@ count_encoded_length.exit.thread.thread17.i46:    ; preds = %count_encoded_lengt
   %.011.i131922.i36 = phi i64 [ 2, %count_encoded_length.exit.thread.thread17.thread.i33 ], [ %54, %._crit_edge.i.i35.loopexit ]
   %.025.lcssa.i.i37 = phi i64 [ %44, %count_encoded_length.exit.thread.thread17.thread.i33 ], [ %52, %._crit_edge.i.i35.loopexit ]
   %.024.lcssa.i.i38 = phi ptr [ %.02428.i21.i34, %count_encoded_length.exit.thread.thread17.thread.i33 ], [ %.024.i.i51, %._crit_edge.i.i35.loopexit ]
-  %55 = trunc i64 %.025.lcssa.i.i37 to i8
+  %55 = trunc nuw nsw i64 %.025.lcssa.i.i37 to i8
   store i8 %55, ptr %.024.lcssa.i.i38, align 1
   br label %emit_table_size.exit53
 
@@ -895,7 +895,7 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
   %72 = load ptr, ptr %70, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 16
   %74 = load i64, ptr %73, align 8
-  %75 = call fastcc i32 @lookup_token(ptr noundef %72, i64 noundef %74), !range !12
+  %75 = call fastcc i32 @lookup_token(ptr noundef %72, i64 noundef %74)
   %76 = icmp eq i32 %75, -1
   br i1 %76, label %77, label %84
 
@@ -913,7 +913,7 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
   %82 = mul i32 %81, 16777619
   %83 = add nuw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %83, %74
-  br i1 %exitcond.not.i.i, label %name_hash.exit.i, label %.lr.ph.i.i55, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %name_hash.exit.i, label %.lr.ph.i.i55, !llvm.loop !12
 
 84:                                               ; preds = %69
   %85 = icmp ult i32 %75, 61
@@ -1013,7 +1013,7 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %98, %97, %97, %97, 
 name_eq.exit.us.us.i.i.i:                         ; preds = %118
   %122 = getelementptr inbounds i8, ptr %.019.val.us.us.i.i.i, i64 16
   %123 = load ptr, ptr %122, align 8
-  %bcmp.i.i.us.us.i.i.i = call i32 @bcmp(ptr %123, ptr %72, i64 %74)
+  %bcmp.i.i.us.us.i.i.i = call i32 @bcmp(ptr readonly %123, ptr readonly %72, i64 %74)
   %.not31.us.us.i.i.i = icmp eq i32 %bcmp.i.i.us.us.i.i.i, 0
   br i1 %.not31.us.us.i.i.i, label %124, label %name_eq.exit.thread.us.us.i.i.i
 
@@ -1032,7 +1032,7 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %124
   %130 = getelementptr inbounds i8, ptr %.019.val27.us.us.i.i.i, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %112, align 8
-  %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr %131, ptr %132, i64 %127)
+  %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr readonly %131, ptr readonly %132, i64 %127)
   %.not32.us.us.i.i.i = icmp eq i32 %bcmp.i.i28.us.us.i.i.i, 0
   br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread125.i, label %name_eq.exit.thread.us.us.i.i.i
 
@@ -1041,7 +1041,7 @@ name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us
   %133 = getelementptr inbounds i8, ptr %.01937.us.us.i.i.i, i64 64
   %.019.us.us.i.i.i = load ptr, ptr %133, align 8
   %.not.us.us.i.i.i = icmp eq ptr %.019.us.us.i.i.i, null
-  br i1 %.not.us.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.us.i.i.i, !llvm.loop !14
+  br i1 %.not.us.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.us.i.i.i, !llvm.loop !13
 
 .lr.ph.split.us.split.i.i.i:                      ; preds = %.lr.ph.split.us.i.i.i, %name_eq.exit.thread.us.i.i.i
   %.01937.us.i.i.i = phi ptr [ %.019.us.i.i.i, %name_eq.exit.thread.us.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.us.i.i.i ]
@@ -1066,7 +1066,7 @@ name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us
 name_eq.exit.us.i.i.i:                            ; preds = %139
   %143 = getelementptr inbounds i8, ptr %.019.val.us.i.i.i, i64 16
   %144 = load ptr, ptr %143, align 8
-  %bcmp.i.i.us.i.i.i = call i32 @bcmp(ptr %144, ptr %72, i64 %74)
+  %bcmp.i.i.us.i.i.i = call i32 @bcmp(ptr readonly %144, ptr readonly %72, i64 %74)
   %.not31.us.i.i.i = icmp eq i32 %bcmp.i.i.us.i.i.i, 0
   br i1 %.not31.us.i.i.i, label %hd_map_find.exit.i.i, label %name_eq.exit.thread.us.i.i.i
 
@@ -1074,7 +1074,7 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %name_eq.exit.us.i.i
   %145 = getelementptr inbounds i8, ptr %.01937.us.i.i.i, i64 64
   %.019.us.i.i.i = load ptr, ptr %145, align 8
   %.not.us.i.i.i = icmp eq ptr %.019.us.i.i.i, null
-  br i1 %.not.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.i.i.i, !llvm.loop !14
+  br i1 %.not.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.i.i.i, !llvm.loop !13
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %.not.i71.i, label %.lr.ph.split.split.i.i.i, label %.lr.ph.split.split.us.i.i.i
@@ -1102,7 +1102,7 @@ value_eq.exit.us48.i.i.i:                         ; preds = %148
   %154 = getelementptr inbounds i8, ptr %.019.val27.us47.i.i.i, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %112, align 8
-  %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr %155, ptr %156, i64 %151)
+  %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %155, ptr readonly %156, i64 %151)
   %.not32.us50.i.i.i = icmp eq i32 %bcmp.i.i28.us49.i.i.i, 0
   br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread125.i, label %name_eq.exit.thread.us51.i.i.i
 
@@ -1111,7 +1111,7 @@ name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.
   %157 = getelementptr inbounds i8, ptr %.01937.us42.i.i.i, i64 64
   %.019.us53.i.i.i = load ptr, ptr %157, align 8
   %.not.us54.i.i.i = icmp eq ptr %.019.us53.i.i.i, null
-  br i1 %.not.us54.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.us.i.i.i, !llvm.loop !14
+  br i1 %.not.us54.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.us.i.i.i, !llvm.loop !13
 
 .lr.ph.split.split.i.i.i:                         ; preds = %.lr.ph.split.i.i.i, %name_eq.exit.thread.i.i.i
   %.01937.i.i.i = phi ptr [ %.019.i.i.i, %name_eq.exit.thread.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.i.i.i ]
@@ -1124,7 +1124,7 @@ name_eq.exit.thread.i.i.i:                        ; preds = %.lr.ph.split.split.
   %160 = getelementptr inbounds i8, ptr %.01937.i.i.i, i64 64
   %.019.i.i.i = load ptr, ptr %160, align 8
   %.not.i.i.i = icmp eq ptr %.019.i.i.i, null
-  br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !13
 
 hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread.us51.i.i.i, %name_eq.exit.thread.i.i.i, %.lr.ph.split.split.i.i.i, %name_eq.exit.thread.us.us.i.i.i, %name_eq.exit.thread.us.i.i.i, %name_eq.exit.us.i.i.i, %hd_deflate_decide_indexing.exit.i
   %.3.i.i.i = phi ptr [ null, %hd_deflate_decide_indexing.exit.i ], [ %.01937.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %name_eq.exit.thread.us.i.i.i ], [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ null, %name_eq.exit.thread.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
@@ -1165,9 +1165,9 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
 
 181:                                              ; preds = %176, %171
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %182 = trunc i64 %indvars.iv.i.i.i to i32
+  %182 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %183 = icmp slt i32 %182, 60
-  br i1 %183, label %166, label %search_hd_table.exit.thread.i, !llvm.loop !15
+  br i1 %183, label %166, label %search_hd_table.exit.thread.i, !llvm.loop !14
 
 184:                                              ; preds = %hd_map_find.exit.i.i
   %185 = icmp eq ptr %.3.i.i.i, null
@@ -1223,7 +1223,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i73.i
   br i1 %208, label %emit_indexed_block.exit.i, label %.lr.ph.i11.i.preheader.i
 
 209:                                              ; preds = %search_hd_table.exit.thread87.i
-  %210 = trunc i64 %200 to i8
+  %210 = trunc nuw i64 %200 to i8
   %211 = or disjoint i8 %210, -128
   store i8 %211, ptr %5, align 16
   br label %encode_length.exit.i.i
@@ -1251,7 +1251,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i73.i
   %.011.i131922.i.i = phi i64 [ 2, %count_encoded_length.exit.thread.thread17.thread.i.i ], [ %216, %._crit_edge.i.i.i.loopexit ]
   %.025.lcssa.i.i.i = phi i64 [ %203, %count_encoded_length.exit.thread.thread17.thread.i.i ], [ %214, %._crit_edge.i.i.i.loopexit ]
   %.024.lcssa.i.i.i = phi ptr [ %.02428.i21.i.i, %count_encoded_length.exit.thread.thread17.thread.i.i ], [ %.024.i.i.i, %._crit_edge.i.i.i.loopexit ]
-  %217 = trunc i64 %.025.lcssa.i.i.i to i8
+  %217 = trunc nuw nsw i64 %.025.lcssa.i.i.i to i8
   store i8 %217, ptr %.024.lcssa.i.i.i, align 1
   br label %encode_length.exit.i.i
 
@@ -1282,13 +1282,13 @@ search_hd_table.exit.thread.thread95.i:           ; preds = %184
 
 222:                                              ; preds = %220
   %223 = add nsw i64 %.sroa.024.0.i84.i, -61
-  %224 = load ptr, ptr %0, align 8, !noalias !16
-  %225 = load i64, ptr %62, align 8, !noalias !16
+  %224 = load ptr, ptr %0, align 8, !noalias !15
+  %225 = load i64, ptr %62, align 8, !noalias !15
   %226 = add i64 %223, %225
-  %227 = load i64, ptr %63, align 8, !noalias !16
+  %227 = load i64, ptr %63, align 8, !noalias !15
   %228 = and i64 %226, %227
   %229 = getelementptr inbounds ptr, ptr %224, i64 %228
-  %230 = load ptr, ptr %229, align 8, !noalias !16
+  %230 = load ptr, ptr %229, align 8, !noalias !15
   %.sroa.0.0.copyload.i = load ptr, ptr %230, align 8
   br label %nghttp2_hd_table_get.exit.i
 
@@ -1363,7 +1363,7 @@ pack_first_byte.exit.i.i:                         ; preds = %249, %247, %search_
 
 .thread101.i:                                     ; preds = %247, %search_hd_table.exit.thread.i, %162
   %.sroa.024.0.i85103.i = phi i64 [ %.sroa.024.0.i86.i, %247 ], [ %.sroa.024.0.i84.i, %search_hd_table.exit.thread.i ], [ %163, %162 ]
-  %261 = call fastcc i32 @emit_indname_block(ptr noundef %1, i64 noundef %.sroa.024.0.i85103.i, ptr noundef nonnull %70, i32 noundef %107)
+  %261 = call fastcc i32 @emit_indname_block(ptr noundef %1, i64 noundef %.sroa.024.0.i85103.i, ptr noundef nonnull readonly %70, i32 noundef %107)
   br label %deflate_nv.exit
 
 deflate_nv.exit.thread:                           ; preds = %233, %243, %pack_first_byte.exit.i.i, %251, %241
@@ -1482,7 +1482,7 @@ define dso_local i64 @nghttp2_hd_deflate_bound(ptr nocapture noundef readnone %0
   %12 = add i64 %11, %10
   %13 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i64 [ %5, %3 ], [ %12, %.lr.ph ]
@@ -1512,13 +1512,13 @@ define dso_local noundef i32 @nghttp2_hd_deflate_new(ptr nocapture noundef write
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 127, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %17, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %17, i8 0, i64 1024, i1 false)
   %18 = icmp ult i64 %1, 4096
   br i1 %18, label %19, label %20
 
@@ -1577,13 +1577,13 @@ define dso_local noundef i32 @nghttp2_hd_deflate_new2(ptr nocapture noundef writ
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 127, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 56
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %21, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %21, i8 0, i64 1024, i1 false)
   %22 = icmp ult i64 %1, 4096
   br i1 %22, label %23, label %24
 
@@ -1919,7 +1919,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br i1 %83, label %hd_inflate_read_len.exit.thread, label %84
 
 84:                                               ; preds = %.lr.ph.i.i
-  %85 = trunc i64 %.04969.i.i to i32
+  %85 = trunc nuw nsw i64 %.04969.i.i to i32
   %86 = lshr i32 -1, %85
   %87 = icmp ult i32 %86, %82
   br i1 %87, label %hd_inflate_read_len.exit.thread, label %88
@@ -1939,7 +1939,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   %96 = getelementptr inbounds i8, ptr %.15168.i.i, i64 1
   %97 = add nuw nsw i64 %.04969.i.i, 7
   %.not58.i.i = icmp eq ptr %96, %7
-  br i1 %.not58.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not58.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i:                         ; preds = %95
   %.pre.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -2094,7 +2094,7 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i
   br i1 %162, label %hd_inflate_read_len.exit.thread, label %163
 
 163:                                              ; preds = %.lr.ph.i.i263
-  %164 = trunc i64 %.04969.i.i265 to i32
+  %164 = trunc nuw nsw i64 %.04969.i.i265 to i32
   %165 = lshr i32 -1, %164
   %166 = icmp ult i32 %165, %161
   br i1 %166, label %hd_inflate_read_len.exit.thread, label %167
@@ -2114,7 +2114,7 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i
   %175 = getelementptr inbounds i8, ptr %.15168.i.i266, i64 1
   %176 = add nuw nsw i64 %.04969.i.i265, 7
   %.not58.i.i267 = icmp eq ptr %175, %7
-  br i1 %.not58.i.i267, label %._crit_edge.loopexit.i.i268, label %.lr.ph.i.i263, !llvm.loop !20
+  br i1 %.not58.i.i267, label %._crit_edge.loopexit.i.i268, label %.lr.ph.i.i263, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i268:                      ; preds = %174
   %.pre.i.i269 = ptrtoint ptr %scevgep.i.i262 to i64
@@ -2243,7 +2243,7 @@ hd_inflate_read_len.exit282:                      ; preds = %decode_length.exit.
   br i1 %217, label %hd_inflate_read_len.exit.thread, label %218
 
 218:                                              ; preds = %.lr.ph.i.i289
-  %219 = trunc i64 %.04969.i.i291 to i32
+  %219 = trunc nuw nsw i64 %.04969.i.i291 to i32
   %220 = lshr i32 -1, %219
   %221 = icmp ult i32 %220, %216
   br i1 %221, label %hd_inflate_read_len.exit.thread, label %222
@@ -2263,7 +2263,7 @@ hd_inflate_read_len.exit282:                      ; preds = %decode_length.exit.
   %230 = getelementptr inbounds i8, ptr %.15168.i.i292, i64 1
   %231 = add nuw nsw i64 %.04969.i.i291, 7
   %.not58.i.i293 = icmp eq ptr %230, %7
-  br i1 %.not58.i.i293, label %._crit_edge.loopexit.i.i294, label %.lr.ph.i.i289, !llvm.loop !20
+  br i1 %.not58.i.i293, label %._crit_edge.loopexit.i.i294, label %.lr.ph.i.i289, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i294:                      ; preds = %229
   %.pre.i.i295 = ptrtoint ptr %scevgep.i.i288 to i64
@@ -2470,7 +2470,7 @@ hd_inflate_read_len.exit308:                      ; preds = %decode_length.exit.
   br i1 %322, label %hd_inflate_read_len.exit.thread, label %323
 
 323:                                              ; preds = %.lr.ph.i.i316
-  %324 = trunc i64 %.04969.i.i318 to i32
+  %324 = trunc nuw nsw i64 %.04969.i.i318 to i32
   %325 = lshr i32 -1, %324
   %326 = icmp ult i32 %325, %321
   br i1 %326, label %hd_inflate_read_len.exit.thread, label %327
@@ -2490,7 +2490,7 @@ hd_inflate_read_len.exit308:                      ; preds = %decode_length.exit.
   %335 = getelementptr inbounds i8, ptr %.15168.i.i319, i64 1
   %336 = add nuw nsw i64 %.04969.i.i318, 7
   %.not58.i.i320 = icmp eq ptr %335, %7
-  br i1 %.not58.i.i320, label %._crit_edge.loopexit.i.i321, label %.lr.ph.i.i316, !llvm.loop !20
+  br i1 %.not58.i.i320, label %._crit_edge.loopexit.i.i321, label %.lr.ph.i.i316, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i321:                      ; preds = %334
   %.pre.i.i322 = ptrtoint ptr %scevgep.i.i315 to i64
@@ -2598,7 +2598,7 @@ hd_inflate_read_len.exit335:                      ; preds = %decode_length.exit.
   br label %389
 
 387:                                              ; preds = %372
-  %388 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1), !range !21
+  %388 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
   br label %389
 
 389:                                              ; preds = %387, %385
@@ -2657,7 +2657,7 @@ hd_inflate_read_len.exit335:                      ; preds = %decode_length.exit.
   br label %423
 
 421:                                              ; preds = %408
-  %422 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1), !range !21
+  %422 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
   br label %423
 
 423:                                              ; preds = %421, %419
@@ -2681,7 +2681,7 @@ hd_inflate_read_len.exit335:                      ; preds = %decode_length.exit.
   %431 = phi i1 [ false, %40 ], [ true, %360 ], [ false, %296 ], [ false, %276 ], [ false, %255 ], [ false, %198 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %63 ]
   %432 = icmp ne ptr %.2, %7
   %433 = or i1 %432, %431
-  br i1 %433, label %40, label %._crit_edge, !llvm.loop !22
+  br i1 %433, label %40, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %430, %12
   %.0207.lcssa = phi ptr [ %3, %12 ], [ %7, %430 ]
@@ -2750,15 +2750,15 @@ define internal fastcc void @hd_inflate_commit_indexed(ptr nocapture noundef rea
 
 6:                                                ; preds = %2
   %7 = add i64 %4, -61
-  %8 = load ptr, ptr %0, align 8, !noalias !23
+  %8 = load ptr, ptr %0, align 8, !noalias !21
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !noalias !23
+  %10 = load i64, ptr %9, align 8, !noalias !21
   %11 = add i64 %7, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !noalias !23
+  %13 = load i64, ptr %12, align 8, !noalias !21
   %14 = and i64 %11, %13
   %15 = getelementptr inbounds ptr, ptr %8, i64 %14
-  %16 = load ptr, ptr %15, align 8, !noalias !23
+  %16 = load ptr, ptr %15, align 8, !noalias !21
   %17 = load <2 x ptr>, ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2772,7 +2772,7 @@ define internal fastcc void @hd_inflate_commit_indexed(ptr nocapture noundef rea
   %19 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %4
   %20 = getelementptr inbounds i8, ptr %19, i64 40
   %21 = getelementptr inbounds i8, ptr %19, i64 120
-  %22 = load i32, ptr %21, align 8, !noalias !23
+  %22 = load i32, ptr %21, align 8, !noalias !21
   %23 = insertelement <2 x ptr> poison, ptr %19, i64 0
   %24 = insertelement <2 x ptr> %23, ptr %20, i64 1
   br label %nghttp2_hd_table_get.exit
@@ -2851,7 +2851,7 @@ define internal fastcc noundef i32 @hd_inflate_commit_newname(ptr nocapture noun
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = tail call fastcc i32 @lookup_token(ptr noundef %13, i64 noundef %15), !range !12
+  %16 = tail call fastcc i32 @lookup_token(ptr noundef %13, i64 noundef %15)
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 233
@@ -2865,7 +2865,7 @@ define internal fastcc noundef i32 @hd_inflate_commit_newname(ptr nocapture noun
   br i1 %.not16, label %22, label %25
 
 22:                                               ; preds = %20, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
   %23 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %8, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2879,7 +2879,7 @@ define internal fastcc noundef i32 @hd_inflate_commit_newname(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hd_inflate_commit_indname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.nghttp2_hd_nv, align 8
   %.sroa.6 = alloca [3 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -2889,15 +2889,15 @@ define internal fastcc noundef i32 @hd_inflate_commit_indname(ptr nocapture noun
 
 7:                                                ; preds = %2
   %8 = add i64 %5, -61
-  %9 = load ptr, ptr %0, align 8, !noalias !26
+  %9 = load ptr, ptr %0, align 8, !noalias !24
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noalias !26
+  %11 = load i64, ptr %10, align 8, !noalias !24
   %12 = add i64 %8, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !noalias !26
+  %14 = load i64, ptr %13, align 8, !noalias !24
   %15 = and i64 %12, %14
   %16 = getelementptr inbounds ptr, ptr %9, i64 %15
-  %17 = load ptr, ptr %16, align 8, !noalias !26
+  %17 = load ptr, ptr %16, align 8, !noalias !24
   %.sroa.0.0.copyload13 = load ptr, ptr %17, align 8
   %.sroa.4.0..sroa_idx16 = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.4.0.copyload17 = load i32, ptr %.sroa.4.0..sroa_idx16, align 8
@@ -2908,7 +2908,7 @@ define internal fastcc noundef i32 @hd_inflate_commit_indname(ptr nocapture noun
 18:                                               ; preds = %2
   %19 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5
   %20 = getelementptr inbounds i8, ptr %19, i64 120
-  %21 = load i32, ptr %20, align 8, !noalias !26
+  %21 = load i32, ptr %20, align 8, !noalias !24
   br label %nghttp2_hd_table_get.exit
 
 nghttp2_hd_table_get.exit:                        ; preds = %7, %18
@@ -2945,7 +2945,7 @@ nghttp2_hd_table_get.exit:                        ; preds = %7, %18
   br label %34
 
 31:                                               ; preds = %28, %nghttp2_hd_table_get.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
   %32 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %.sroa.0.0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 176
@@ -3013,7 +3013,7 @@ nghttp2_hd_inflate_init.exit:                     ; preds = %9
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 127, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 56
@@ -3092,7 +3092,7 @@ define internal fastcc i32 @emit_indname_block(ptr noundef %0, i64 noundef %1, p
   br i1 %16, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !9
 
 count_encoded_length.exit:                        ; preds = %.lr.ph.i
-  %17 = add nuw i64 %.016.i, 2
+  %17 = add nuw nsw i64 %.016.i, 2
   %18 = icmp ugt i64 %.016.i, 14
   br i1 %18, label %42, label %count_encoded_length.exit.thread
 
@@ -3104,7 +3104,7 @@ count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_enco
   %switch.downshift = lshr i24 1048640, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %.0.i = select i1 %19, i8 %switch.masked, i8 0
-  %20 = trunc i32 %notmask.i to i8
+  %20 = trunc nsw i32 %notmask.i to i8
   %21 = and i8 %.0.i, %20
   br i1 %10, label %22, label %25
 
@@ -3115,7 +3115,7 @@ count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_enco
   br label %encode_length.exit
 
 25:                                               ; preds = %count_encoded_length.exit.thread
-  %26 = trunc i32 %8 to i8
+  %26 = trunc nuw nsw i32 %8 to i8
   %27 = or i8 %21, %26
   store i8 %27, ptr %5, align 16
   %28 = sub i64 %7, %9
@@ -3137,7 +3137,7 @@ count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_enco
 ._crit_edge.i:                                    ; preds = %.lr.ph.i26, %25
   %.025.lcssa.i = phi i64 [ %28, %25 ], [ %32, %.lr.ph.i26 ]
   %.024.lcssa.i = phi ptr [ %.02428.i, %25 ], [ %.024.i, %.lr.ph.i26 ]
-  %34 = trunc i64 %.025.lcssa.i to i8
+  %34 = trunc nuw nsw i64 %.025.lcssa.i to i8
   store i8 %34, ptr %.024.lcssa.i, align 1
   br label %encode_length.exit
 
@@ -3201,7 +3201,7 @@ define dso_local i32 @nghttp2_hd_emit_table_size(ptr noundef %0, i64 noundef %1)
   br i1 %4, label %count_encoded_length.exit.thread.thread.i, label %7
 
 count_encoded_length.exit.thread.thread.i:        ; preds = %2
-  %5 = trunc i64 %1 to i8
+  %5 = trunc nuw i64 %1 to i8
   %6 = or disjoint i8 %5, 32
   store i8 %6, ptr %3, align 16
   br label %encode_length.exit.i
@@ -3252,7 +3252,7 @@ count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_lengt
   %.011.i131922.i = phi i64 [ 2, %count_encoded_length.exit.thread.thread17.thread.i ], [ %18, %._crit_edge.i.i.loopexit ]
   %.025.lcssa.i.i = phi i64 [ %8, %count_encoded_length.exit.thread.thread17.thread.i ], [ %16, %._crit_edge.i.i.loopexit ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i21.i, %count_encoded_length.exit.thread.thread17.thread.i ], [ %.024.i.i, %._crit_edge.i.i.loopexit ]
-  %19 = trunc i64 %.025.lcssa.i.i to i8
+  %19 = trunc nuw nsw i64 %.025.lcssa.i.i to i8
   store i8 %19, ptr %.024.lcssa.i.i, align 1
   br label %encode_length.exit.i
 
@@ -3323,7 +3323,7 @@ define dso_local i64 @nghttp2_hd_decode_length(ptr nocapture noundef writeonly %
   br i1 %28, label %decode_length.exit, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = trunc i64 %.04969.i to i32
+  %30 = trunc nuw nsw i64 %.04969.i to i32
   %31 = lshr i32 -1, %30
   %32 = icmp ult i32 %31, %27
   br i1 %32, label %decode_length.exit, label %33
@@ -3343,7 +3343,7 @@ define dso_local i64 @nghttp2_hd_decode_length(ptr nocapture noundef writeonly %
   %41 = getelementptr inbounds i8, ptr %.15168.i, i64 1
   %42 = add nuw nsw i64 %.04969.i, 7
   %.not58.i = icmp eq ptr %41, %6
-  br i1 %.not58.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not58.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %40
   %.pre.i = ptrtoint ptr %scevgep.i to i64
@@ -3504,7 +3504,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i32 @nghttp2_bufs_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #9 {
   switch i64 %1, label %122 [
     i64 2, label %3
     i64 3, label %7
@@ -3548,12 +3548,12 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 10:                                               ; preds = %7
-  %bcmp.i143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.68, ptr noundef nonnull dereferenceable(2) %0, i64 2)
+  %bcmp.i143 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @.str.68, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
   %.not257 = icmp eq i32 %bcmp.i143, 0
   br i1 %.not257, label %123, label %122
 
 11:                                               ; preds = %7
-  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.69, ptr noundef nonnull dereferenceable(2) %0, i64 2)
+  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @.str.69, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
   %.not256 = icmp eq i32 %bcmp.i144, 0
   br i1 %.not256, label %123, label %122
 
@@ -3570,32 +3570,32 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 15:                                               ; preds = %12
-  %bcmp.i145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.70, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i145 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.70, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not255 = icmp eq i32 %bcmp.i145, 0
   br i1 %.not255, label %123, label %122
 
 16:                                               ; preds = %12
-  %bcmp.i146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.71, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i146 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.71, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not254 = icmp eq i32 %bcmp.i146, 0
   br i1 %.not254, label %123, label %122
 
 17:                                               ; preds = %12
-  %bcmp.i147 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.72, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i147 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.72, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not253 = icmp eq i32 %bcmp.i147, 0
   br i1 %.not253, label %123, label %122
 
 18:                                               ; preds = %12
-  %bcmp.i148 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.73, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i148 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.73, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not252 = icmp eq i32 %bcmp.i148, 0
   br i1 %.not252, label %123, label %122
 
 19:                                               ; preds = %12
-  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.74, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.74, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not251 = icmp eq i32 %bcmp.i149, 0
   br i1 %.not251, label %123, label %122
 
 20:                                               ; preds = %12
-  %bcmp.i150 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.75, ptr noundef nonnull dereferenceable(3) %0, i64 3)
+  %bcmp.i150 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.75, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not250 = icmp eq i32 %bcmp.i150, 0
   br i1 %.not250, label %123, label %122
 
@@ -3609,17 +3609,17 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 24:                                               ; preds = %21
-  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.76, ptr noundef nonnull dereferenceable(4) %0, i64 4)
+  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.76, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not249 = icmp eq i32 %bcmp.i151, 0
   br i1 %.not249, label %123, label %122
 
 25:                                               ; preds = %21
-  %bcmp.i152 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.77, ptr noundef nonnull dereferenceable(4) %0, i64 4)
+  %bcmp.i152 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.77, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not248 = icmp eq i32 %bcmp.i152, 0
   br i1 %.not248, label %123, label %122
 
 26:                                               ; preds = %21
-  %bcmp.i153 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.78, ptr noundef nonnull dereferenceable(4) %0, i64 4)
+  %bcmp.i153 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.78, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not247 = icmp eq i32 %bcmp.i153, 0
   br i1 %.not247, label %123, label %122
 
@@ -3633,22 +3633,22 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 30:                                               ; preds = %27
-  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.79, ptr noundef nonnull dereferenceable(5) %0, i64 5)
+  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.79, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not246 = icmp eq i32 %bcmp.i154, 0
   br i1 %.not246, label %123, label %122
 
 31:                                               ; preds = %27
-  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.80, ptr noundef nonnull dereferenceable(5) %0, i64 5)
+  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.80, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not245 = icmp eq i32 %bcmp.i155, 0
   br i1 %.not245, label %123, label %122
 
 32:                                               ; preds = %27
-  %bcmp.i156 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.81, ptr noundef nonnull dereferenceable(5) %0, i64 5)
+  %bcmp.i156 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.81, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not243 = icmp eq i32 %bcmp.i156, 0
   br i1 %.not243, label %123, label %33
 
 33:                                               ; preds = %32
-  %bcmp.i157 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.82, ptr noundef nonnull dereferenceable(5) %0, i64 5)
+  %bcmp.i157 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.82, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not244 = icmp eq i32 %bcmp.i157, 0
   br i1 %.not244, label %123, label %122
 
@@ -3664,37 +3664,37 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 37:                                               ; preds = %34
-  %bcmp.i158 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.83, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i158 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.83, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not242 = icmp eq i32 %bcmp.i158, 0
   br i1 %.not242, label %123, label %122
 
 38:                                               ; preds = %34
-  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.84, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.84, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not240 = icmp eq i32 %bcmp.i159, 0
   br i1 %.not240, label %123, label %39
 
 39:                                               ; preds = %38
-  %bcmp.i160 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.85, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i160 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.85, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not241 = icmp eq i32 %bcmp.i160, 0
   br i1 %.not241, label %123, label %122
 
 40:                                               ; preds = %34
-  %bcmp.i161 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.86, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i161 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.86, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not239 = icmp eq i32 %bcmp.i161, 0
   br i1 %.not239, label %123, label %122
 
 41:                                               ; preds = %34
-  %bcmp.i162 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.87, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i162 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.87, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not238 = icmp eq i32 %bcmp.i162, 0
   br i1 %.not238, label %123, label %122
 
 42:                                               ; preds = %34
-  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.88, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.88, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not236 = icmp eq i32 %bcmp.i163, 0
   br i1 %.not236, label %123, label %43
 
 43:                                               ; preds = %42
-  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.89, ptr noundef nonnull dereferenceable(6) %0, i64 6)
+  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.89, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not237 = icmp eq i32 %bcmp.i164, 0
   br i1 %.not237, label %123, label %122
 
@@ -3709,22 +3709,22 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 47:                                               ; preds = %44
-  %bcmp.i165 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.90, ptr noundef nonnull dereferenceable(7) %0, i64 7)
+  %bcmp.i165 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.90, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not235 = icmp eq i32 %bcmp.i165, 0
   br i1 %.not235, label %123, label %122
 
 48:                                               ; preds = %44
-  %bcmp.i166 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.91, ptr noundef nonnull dereferenceable(7) %0, i64 7)
+  %bcmp.i166 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.91, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not234 = icmp eq i32 %bcmp.i166, 0
   br i1 %.not234, label %123, label %122
 
 49:                                               ; preds = %44
-  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.92, ptr noundef nonnull dereferenceable(7) %0, i64 7)
+  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.92, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not233 = icmp eq i32 %bcmp.i167, 0
   br i1 %.not233, label %123, label %122
 
 50:                                               ; preds = %44
-  %bcmp.i168 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.93, ptr noundef nonnull dereferenceable(7) %0, i64 7)
+  %bcmp.i168 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.93, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not232 = icmp eq i32 %bcmp.i168, 0
   br i1 %.not232, label %123, label %122
 
@@ -3735,7 +3735,7 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   br i1 %cond4, label %54, label %122
 
 54:                                               ; preds = %51
-  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) @.str.94, ptr noundef nonnull dereferenceable(8) %0, i64 8)
+  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) @.str.94, ptr noundef nonnull readonly dereferenceable(8) %0, i64 8)
   %.not231 = icmp eq i32 %bcmp.i169, 0
   br i1 %.not231, label %123, label %122
 
@@ -3750,27 +3750,27 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 58:                                               ; preds = %55
-  %bcmp.i170 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.95, ptr noundef nonnull dereferenceable(9) %0, i64 9)
+  %bcmp.i170 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.95, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not229 = icmp eq i32 %bcmp.i170, 0
   br i1 %.not229, label %123, label %59
 
 59:                                               ; preds = %58
-  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.96, ptr noundef nonnull dereferenceable(9) %0, i64 9)
+  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.96, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not230 = icmp eq i32 %bcmp.i171, 0
   br i1 %.not230, label %123, label %122
 
 60:                                               ; preds = %55
-  %bcmp.i172 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.97, ptr noundef nonnull dereferenceable(9) %0, i64 9)
+  %bcmp.i172 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.97, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not228 = icmp eq i32 %bcmp.i172, 0
   br i1 %.not228, label %123, label %122
 
 61:                                               ; preds = %55
-  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.98, ptr noundef nonnull dereferenceable(9) %0, i64 9)
+  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.98, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not227 = icmp eq i32 %bcmp.i173, 0
   br i1 %.not227, label %123, label %122
 
 62:                                               ; preds = %55
-  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.99, ptr noundef nonnull dereferenceable(9) %0, i64 9)
+  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.99, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not226 = icmp eq i32 %bcmp.i174, 0
   br i1 %.not226, label %123, label %122
 
@@ -3781,7 +3781,7 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   br i1 %cond3, label %66, label %122
 
 66:                                               ; preds = %63
-  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @.str.100, ptr noundef nonnull dereferenceable(10) %0, i64 10)
+  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.100, ptr noundef nonnull readonly dereferenceable(10) %0, i64 10)
   %.not225 = icmp eq i32 %bcmp.i175, 0
   br i1 %.not225, label %123, label %122
 
@@ -3794,12 +3794,12 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 70:                                               ; preds = %67
-  %bcmp.i176 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.101, ptr noundef nonnull dereferenceable(11) %0, i64 11)
+  %bcmp.i176 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) @.str.101, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
   %.not224 = icmp eq i32 %bcmp.i176, 0
   br i1 %.not224, label %123, label %122
 
 71:                                               ; preds = %67
-  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.102, ptr noundef nonnull dereferenceable(11) %0, i64 11)
+  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) @.str.102, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
   %.not223 = icmp eq i32 %bcmp.i177, 0
   br i1 %.not223, label %123, label %122
 
@@ -3816,32 +3816,32 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 75:                                               ; preds = %72
-  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.103, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.103, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not222 = icmp eq i32 %bcmp.i178, 0
   br i1 %.not222, label %123, label %122
 
 76:                                               ; preds = %72
-  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.104, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.104, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not221 = icmp eq i32 %bcmp.i179, 0
   br i1 %.not221, label %123, label %122
 
 77:                                               ; preds = %72
-  %bcmp.i180 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.105, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i180 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.105, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not220 = icmp eq i32 %bcmp.i180, 0
   br i1 %.not220, label %123, label %122
 
 78:                                               ; preds = %72
-  %bcmp.i181 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.106, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i181 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.106, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not219 = icmp eq i32 %bcmp.i181, 0
   br i1 %.not219, label %123, label %122
 
 79:                                               ; preds = %72
-  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.107, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.107, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not218 = icmp eq i32 %bcmp.i182, 0
   br i1 %.not218, label %123, label %122
 
 80:                                               ; preds = %72
-  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.108, ptr noundef nonnull dereferenceable(12) %0, i64 12)
+  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.108, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not217 = icmp eq i32 %bcmp.i183, 0
   br i1 %.not217, label %123, label %122
 
@@ -3854,12 +3854,12 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 84:                                               ; preds = %81
-  %bcmp.i184 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @.str.109, ptr noundef nonnull dereferenceable(13) %0, i64 13)
+  %bcmp.i184 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @.str.109, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
   %.not216 = icmp eq i32 %bcmp.i184, 0
   br i1 %.not216, label %123, label %122
 
 85:                                               ; preds = %81
-  %bcmp.i185 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @.str.110, ptr noundef nonnull dereferenceable(13) %0, i64 13)
+  %bcmp.i185 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @.str.110, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
   %.not215 = icmp eq i32 %bcmp.i185, 0
   br i1 %.not215, label %123, label %122
 
@@ -3872,12 +3872,12 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 89:                                               ; preds = %86
-  %bcmp.i186 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.111, ptr noundef nonnull dereferenceable(14) %0, i64 14)
+  %bcmp.i186 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @.str.111, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
   %.not214 = icmp eq i32 %bcmp.i186, 0
   br i1 %.not214, label %123, label %122
 
 90:                                               ; preds = %86
-  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.112, ptr noundef nonnull dereferenceable(14) %0, i64 14)
+  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @.str.112, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
   %.not213 = icmp eq i32 %bcmp.i187, 0
   br i1 %.not213, label %123, label %122
 
@@ -3891,27 +3891,27 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 94:                                               ; preds = %91
-  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.113, ptr noundef nonnull dereferenceable(15) %0, i64 15)
+  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.113, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not211 = icmp eq i32 %bcmp.i188, 0
   br i1 %.not211, label %123, label %95
 
 95:                                               ; preds = %94
-  %bcmp.i189 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.114, ptr noundef nonnull dereferenceable(15) %0, i64 15)
+  %bcmp.i189 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.114, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not212 = icmp eq i32 %bcmp.i189, 0
   br i1 %.not212, label %123, label %122
 
 96:                                               ; preds = %91
-  %bcmp.i190 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.115, ptr noundef nonnull dereferenceable(15) %0, i64 15)
+  %bcmp.i190 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.115, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not210 = icmp eq i32 %bcmp.i190, 0
   br i1 %.not210, label %123, label %122
 
 97:                                               ; preds = %91
-  %bcmp.i191 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.116, ptr noundef nonnull dereferenceable(15) %0, i64 15)
+  %bcmp.i191 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.116, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not208 = icmp eq i32 %bcmp.i191, 0
   br i1 %.not208, label %123, label %98
 
 98:                                               ; preds = %97
-  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.117, ptr noundef nonnull dereferenceable(15) %0, i64 15)
+  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.117, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not209 = icmp eq i32 %bcmp.i192, 0
   br i1 %.not209, label %123, label %122
 
@@ -3924,12 +3924,12 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 102:                                              ; preds = %99
-  %bcmp.i193 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @.str.118, ptr noundef nonnull dereferenceable(16) %0, i64 16)
+  %bcmp.i193 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.118, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
   %.not207 = icmp eq i32 %bcmp.i193, 0
   br i1 %.not207, label %123, label %122
 
 103:                                              ; preds = %99
-  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @.str.119, ptr noundef nonnull dereferenceable(16) %0, i64 16)
+  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.119, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
   %.not206 = icmp eq i32 %bcmp.i194, 0
   br i1 %.not206, label %123, label %122
 
@@ -3940,7 +3940,7 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   br i1 %cond2, label %107, label %122
 
 107:                                              ; preds = %104
-  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.120, ptr noundef nonnull dereferenceable(17) %0, i64 17)
+  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.120, ptr noundef nonnull readonly dereferenceable(17) %0, i64 17)
   %.not205 = icmp eq i32 %bcmp.i195, 0
   br i1 %.not205, label %123, label %122
 
@@ -3953,17 +3953,17 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   ]
 
 111:                                              ; preds = %108
-  %bcmp.i196 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.121, ptr noundef nonnull dereferenceable(18) %0, i64 18)
+  %bcmp.i196 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.121, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not204 = icmp eq i32 %bcmp.i196, 0
   br i1 %.not204, label %123, label %122
 
 112:                                              ; preds = %108
-  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.122, ptr noundef nonnull dereferenceable(18) %0, i64 18)
+  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.122, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not202 = icmp eq i32 %bcmp.i197, 0
   br i1 %.not202, label %123, label %113
 
 113:                                              ; preds = %112
-  %bcmp.i198 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.123, ptr noundef nonnull dereferenceable(18) %0, i64 18)
+  %bcmp.i198 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.123, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not203 = icmp eq i32 %bcmp.i198, 0
   br i1 %.not203, label %123, label %122
 
@@ -3974,7 +3974,7 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   br i1 %cond1, label %117, label %122
 
 117:                                              ; preds = %114
-  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) @.str.124, ptr noundef nonnull dereferenceable(24) %0, i64 24)
+  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) @.str.124, ptr noundef nonnull readonly dereferenceable(24) %0, i64 24)
   %.not201 = icmp eq i32 %bcmp.i199, 0
   br i1 %.not201, label %123, label %122
 
@@ -3985,7 +3985,7 @@ define internal fastcc noundef i32 @lookup_token(ptr nocapture noundef readonly 
   br i1 %cond, label %121, label %122
 
 121:                                              ; preds = %118
-  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) @.str.125, ptr noundef nonnull dereferenceable(26) %0, i64 26)
+  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(26) @.str.125, ptr noundef nonnull readonly dereferenceable(26) %0, i64 26)
   %.not = icmp eq i32 %bcmp.i200, 0
   br i1 %.not, label %123, label %122
 
@@ -4035,7 +4035,7 @@ define internal fastcc noundef i32 @add_hd_table_incremental(ptr nocapture nound
 26:                                               ; preds = %hd_map_remove.exit.us
   %27 = load i64, ptr %16, align 8
   %.not.us = icmp eq i64 %27, 0
-  br i1 %.not.us, label %.critedge, label %hd_map_remove.exit.us, !llvm.loop !29
+  br i1 %.not.us, label %.critedge, label %hd_map_remove.exit.us, !llvm.loop !27
 
 hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, %26
   %28 = phi i64 [ %27, %26 ], [ %25, %.lr.ph59.split.us ]
@@ -4069,7 +4069,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
   %50 = add i64 %49, %15
   %51 = load i64, ptr %18, align 8
   %52 = icmp ugt i64 %50, %51
-  br i1 %52, label %26, label %.critedge, !llvm.loop !29
+  br i1 %52, label %26, label %.critedge, !llvm.loop !27
 
 .lr.ph59.split:                                   ; preds = %.lr.ph59
   br i1 %.not.us72, label %.critedge, label %.lr.ph69
@@ -4077,7 +4077,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
 53:                                               ; preds = %hd_map_remove.exit
   %54 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %.critedge, label %.lr.ph69, !llvm.loop !29
+  br i1 %.not, label %.critedge, label %.lr.ph69, !llvm.loop !27
 
 .lr.ph69:                                         ; preds = %.lr.ph59.split, %53
   %55 = phi i64 [ %54, %53 ], [ %25, %.lr.ph59.split ]
@@ -4148,7 +4148,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %89 = add i64 %88, %15
   %90 = load i64, ptr %18, align 8
   %91 = icmp ugt i64 %89, %90
-  br i1 %91, label %53, label %.critedge, !llvm.loop !29
+  br i1 %91, label %53, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %53, %hd_map_remove.exit, %26, %hd_map_remove.exit.us, %.lr.ph59.split.us, %.lr.ph59.split, %4
   %.lcssa = phi i64 [ %21, %4 ], [ %21, %.lr.ph59.split.us ], [ %21, %.lr.ph59.split ], [ %51, %hd_map_remove.exit.us ], [ %51, %26 ], [ %90, %hd_map_remove.exit ], [ %90, %53 ]
@@ -4161,7 +4161,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   br i1 %95, label %174, label %96
 
 96:                                               ; preds = %93
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %97 = load ptr, ptr %1, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
@@ -4214,7 +4214,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %.022.i.i = phi i64 [ %128, %.preheader26.i.i ], [ 1, %96 ]
   %127 = icmp ult i64 %.022.i.i, %122
   %128 = shl i64 %.022.i.i, 1
-  br i1 %127, label %.preheader26.i.i, label %129, !llvm.loop !30
+  br i1 %127, label %.preheader26.i.i, label %129, !llvm.loop !28
 
 129:                                              ; preds = %.preheader26.i.i
   %130 = shl i64 %.022.i.i, 3
@@ -4245,7 +4245,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %144 = add nuw i64 %.02327.i.i, 1
   %145 = load i64, ptr %16, align 8
   %146 = icmp ult i64 %144, %145
-  br i1 %146, label %135, label %._crit_edge.i.i, !llvm.loop !31
+  br i1 %146, label %135, label %._crit_edge.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %135, %.preheader.i.i
   %147 = load ptr, ptr %0, align 8
@@ -4329,7 +4329,7 @@ define internal fastcc i32 @emit_string(ptr noundef %0, ptr noundef %1, i64 noun
 
 count_encoded_length.exit.thread.thread:          ; preds = %3
   %7 = select i1 %.not, i8 -128, i8 0
-  %8 = trunc i64 %. to i8
+  %8 = trunc nuw i64 %. to i8
   %9 = or disjoint i8 %7, %8
   store i8 %9, ptr %4, align 16
   br label %encode_length.exit
@@ -4379,7 +4379,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %.011.i333942 = phi i64 [ %19, %18 ], [ 2, %.thread ], [ %19, %.lr.ph.i31 ]
   %.025.lcssa.i = phi i64 [ %11, %18 ], [ %11, %.thread ], [ %23, %.lr.ph.i31 ]
   %.024.lcssa.i = phi ptr [ %.02428.i, %18 ], [ %.02428.i41, %.thread ], [ %.024.i, %.lr.ph.i31 ]
-  %25 = trunc i64 %.025.lcssa.i to i8
+  %25 = trunc nuw nsw i64 %.025.lcssa.i to i8
   store i8 %25, ptr %.024.lcssa.i, align 1
   br label %encode_length.exit
 
@@ -4452,23 +4452,21 @@ attributes #13 = { nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 -1, i32 68}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"nghttp2_hd_table_get: argument 0"}
-!18 = distinct !{!18, !"nghttp2_hd_table_get"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"nghttp2_hd_table_get: argument 0"}
+!17 = distinct !{!17, !"nghttp2_hd_table_get"}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i32 -901, i32 1}
-!22 = distinct !{!22, !6}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"nghttp2_hd_table_get: argument 0"}
-!25 = distinct !{!25, !"nghttp2_hd_table_get"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"nghttp2_hd_table_get: argument 0"}
-!28 = distinct !{!28, !"nghttp2_hd_table_get"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"nghttp2_hd_table_get: argument 0"}
+!23 = distinct !{!23, !"nghttp2_hd_table_get"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"nghttp2_hd_table_get: argument 0"}
+!26 = distinct !{!26, !"nghttp2_hd_table_get"}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}

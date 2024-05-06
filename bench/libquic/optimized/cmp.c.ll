@@ -22,7 +22,7 @@ if.end:                                           ; preds = %entry
 
 for.cond:                                         ; preds = %for.body, %if.end
   %indvars.iv = phi i64 [ %6, %for.body ], [ %4, %if.end ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %cmp5 = icmp sgt i32 %5, 0
   br i1 %cmp5, label %for.body, label %return
 
@@ -46,7 +46,7 @@ return:                                           ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_cmp(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -89,7 +89,7 @@ for.cond.preheader:                               ; preds = %if.end22
 for.cond:                                         ; preds = %for.cond.preheader, %if.end35
   %indvars.iv = phi i64 [ %4, %for.cond.preheader ], [ %5, %if.end35 ]
   %5 = add nsw i64 %indvars.iv, -1
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %cmp29 = icmp sgt i32 %6, 0
   br i1 %cmp29, label %for.body, label %return
 
@@ -113,7 +113,7 @@ return:                                           ; preds = %for.cond, %if.end35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @bn_cmp_words(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %n) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @bn_cmp_words(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %n) local_unnamed_addr #1 {
 entry:
   %sub = add nsw i32 %n, -1
   %idxprom = sext i32 %sub to i64
@@ -163,7 +163,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @bn_cmp_part_words(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %cl, i32 noundef %dl) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @bn_cmp_part_words(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %cl, i32 noundef %dl) local_unnamed_addr #1 {
 entry:
   %sub = add nsw i32 %cl, -1
   %cmp = icmp slt i32 %dl, 0
@@ -261,7 +261,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_abs_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @BN_abs_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
 entry:
   %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
@@ -287,7 +287,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @BN_is_zero(ptr nocapture noundef readonly %bn) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @BN_is_zero(ptr nocapture noundef readonly %bn) local_unnamed_addr #3 {
 entry:
   %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_is_one(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @BN_is_one(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
 entry:
   %neg = getelementptr inbounds i8, ptr %bn, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -323,7 +323,7 @@ land.end:                                         ; preds = %sw.bb.i, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @BN_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
 entry:
   %top.i = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top.i, align 8
@@ -359,7 +359,7 @@ land.end:                                         ; preds = %sw.bb1.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_is_odd(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @BN_is_odd(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
 entry:
   %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8

@@ -168,7 +168,7 @@ define zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_g_init() local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -414,7 +414,7 @@ declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @auth_g_fini() local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
   %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @context_lock) #11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -1016,7 +1016,7 @@ define ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   br i1 %.not19, label %34, label %20
 
 20:                                               ; preds = %16
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %21, ptr %19, align 4
   br label %34
 

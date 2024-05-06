@@ -4262,7 +4262,7 @@ declare void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z19calculateResultWearjt(i32 noundef %uses, i16 noundef zeroext %initial_wear) local_unnamed_addr #9 {
+define dso_local noundef range(i32 0, 65538) i32 @_Z19calculateResultWearjt(i32 noundef %uses, i16 noundef zeroext %initial_wear) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i32 %uses, 0
   br i1 %cmp, label %return, label %if.end

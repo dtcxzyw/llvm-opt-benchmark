@@ -170,7 +170,7 @@ X509_REQ_get0_pubkey.exit:                        ; preds = %entry, %if.end.i
 declare i32 @ossl_x509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @X509_REQ_extension_nid(i32 noundef %req_nid) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %req_nid) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @ext_nids, align 8
   %1 = load i32, ptr %0, align 4
@@ -178,7 +178,7 @@ entry:
   br i1 %cmp3, label %return, label %if.else
 
 for.cond:                                         ; preds = %if.else
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %2 = load i32, ptr %arrayidx, align 4
   %cmp = icmp eq i32 %2, 0
@@ -308,7 +308,7 @@ declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 declare ptr @X509_EXTENSIONS_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add_extensions_nid(ptr noundef %req, ptr noundef %exts, i32 noundef %nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %req, ptr noundef %exts, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   %ext = alloca ptr, align 8
   store ptr null, ptr %ext, align 8
@@ -353,7 +353,7 @@ return:                                           ; preds = %entry, %X509_REQ_ad
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add1_attr_by_NID(ptr noundef %req, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr noundef %req, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -383,9 +383,9 @@ return:                                           ; preds = %if.end, %if.end2, %
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add_extensions(ptr noundef %req, ptr noundef %exts) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr noundef %req, ptr noundef %exts) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_REQ_add_extensions_nid(ptr noundef %req, ptr noundef %exts, i32 noundef 172), !range !6
+  %call = tail call i32 @X509_REQ_add_extensions_nid(ptr noundef %req, ptr noundef %exts, i32 noundef 172)
   ret i32 %call
 }
 
@@ -447,7 +447,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add1_attr(ptr noundef %req, ptr noundef %attr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr noundef %req, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -477,7 +477,7 @@ return:                                           ; preds = %if.end, %if.end2, %
 declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef %req, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef %req, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -509,7 +509,7 @@ declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_add1_attr_by_txt(ptr noundef %req, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr noundef %req, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -664,4 +664,3 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

@@ -371,7 +371,7 @@ define dso_local i64 @intel_guc_get_log_buffer_offset(ptr nocapture noundef %0, 
 11:                                               ; preds = %intel_guc_get_log_buffer_size.exit, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %intel_guc_get_log_buffer_size.exit ], [ 0, %4 ]
   %12 = phi i64 [ %23, %intel_guc_get_log_buffer_size.exit ], [ 4096, %4 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %13, label %20 [
     i32 0, label %14
     i32 1, label %16
@@ -679,7 +679,7 @@ define dso_local zeroext i1 @intel_guc_log_relay_created(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_log_relay_open(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_guc_log_relay_open(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -789,7 +789,7 @@ define dso_local noundef i32 @intel_guc_log_relay_open(ptr noundef %0) local_unn
 declare dso_local zeroext i1 @i915_memcpy_from_wc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_log_relay_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @intel_guc_log_relay_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 73
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
@@ -1284,7 +1284,7 @@ define dso_local void @intel_guc_log_info(ptr nocapture noundef readonly %0, ptr
 
 11:                                               ; preds = %16, %7
   %12 = phi i64 [ 0, %7 ], [ %22, %16 ]
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   switch i32 %13, label %default.unreachable [
     i32 0, label %16
     i32 1, label %14
@@ -1462,7 +1462,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local ptr @relay_open(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
   %5 = tail call i32 @relay_buf_full(ptr noundef %0) #11
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32

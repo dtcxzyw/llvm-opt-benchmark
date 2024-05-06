@@ -1235,7 +1235,7 @@ define dso_local i32 @ext4_mark_inode_used(ptr noundef %0, i32 noundef %1) local
 declare dso_local i32 @sync_dirty_buffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_has_group_desc_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_has_group_desc_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104
@@ -1524,7 +1524,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %148 = getelementptr inbounds i8, ptr %147, i64 32
   %149 = load i64, ptr %148, align 32
   %150 = udiv i64 %146, %149
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw i64 %150 to i32
   store i32 %151, ptr %13, align 4
   %152 = urem i64 %146, %149
   store i64 %152, ptr %14, align 8
@@ -1629,7 +1629,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %210 = add i64 %208, %209
   %211 = zext i32 %163 to i64
   %212 = urem i64 %210, %211
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nuw i64 %212 to i32
   br label %.preheader65
 
 .preheader65:                                     ; preds = %.preheader65.preheader, %228
@@ -2440,7 +2440,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %686, label %691, label %687
 
 687:                                              ; preds = %679
-  %688 = trunc i32 %513 to i16
+  %688 = trunc nuw i32 %513 to i16
   switch i16 %688, label %691 [
     i16 -24576, label %689
     i16 -32768, label %689
@@ -2592,7 +2592,7 @@ define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @find_group_orlov(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.dx_hash_info, align 8
   %7 = getelementptr i8, ptr %1, i64 -224
   %8 = load i32, ptr %7, align 8
@@ -2926,7 +2926,7 @@ get_orlov_stats.exit12.thread:                    ; preds = %.split, %get_orlov_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @find_inode_bit(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @find_inode_bit(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 552
@@ -3072,7 +3072,7 @@ declare dso_local i32 @insert_inode_locked(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @get_random_u32() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_has_metadata_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_has_metadata_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104

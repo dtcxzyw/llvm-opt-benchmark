@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -205,7 +205,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pathlen() #1 {
+define internal range(i32 0, 2) i32 @test_pathlen() #1 {
 entry:
   %0 = load ptr, ptr @infile, align 8
   %call = tail call ptr @BIO_new_file(ptr noundef %0, ptr noundef nonnull @.str.24) #5
@@ -236,7 +236,7 @@ end:                                              ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_asid() #1 {
+define internal range(i32 0, 2) i32 @test_asid() #1 {
 entry:
   %call = tail call ptr @ASIdentifiers_new() #5
   %call1 = tail call ptr @ASIdentifiers_new() #5
@@ -495,7 +495,7 @@ err:                                              ; preds = %lor.lhs.false174, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_addr_ranges() #1 {
+define internal range(i32 0, 2) i32 @test_addr_ranges() #1 {
 entry:
   br label %for.body
 
@@ -647,7 +647,7 @@ end:                                              ; preds = %if.end20.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ext_syntax() #1 {
+define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
 entry:
   %ctx = alloca %struct.v3_ext_ctx, align 8
   %eline = alloca i64, align 8
@@ -734,7 +734,7 @@ return:                                           ; preds = %if.end43, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_addr_fam_len() #1 {
+define internal range(i32 0, 2) i32 @test_addr_fam_len() #1 {
 entry:
   %key = alloca [6 x i8], align 4
   %call = tail call ptr @OPENSSL_sk_new_null() #5
@@ -894,7 +894,7 @@ end:                                              ; preds = %if.end120, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_addr_subset() #1 {
+define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 entry:
   %addr = alloca [3 x ptr], align 16
   %ip1 = alloca [3 x ptr], align 16

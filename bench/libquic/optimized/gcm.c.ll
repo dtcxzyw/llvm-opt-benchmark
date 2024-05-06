@@ -51,7 +51,7 @@ if.else:                                          ; preds = %if.then14
 
 if.end26:                                         ; preds = %entry
   %Htable27 = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Htable27, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Htable27, i8 0, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 224
   store i64 %1, ptr %arrayidx6.i, align 8
   %V.sroa.27.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 232
@@ -169,7 +169,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3 {
 entry:
   %0 = load <2 x i32>, ptr @OPENSSL_ia32cap_P, align 16
   %1 = and <2 x i32> %0, <i32 16777216, i32 2>
@@ -310,7 +310,7 @@ if.end87:                                         ; preds = %if.then43, %if.then
   %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
   tail call void %12(ptr noundef nonnull %ctx, ptr noundef nonnull %EK0, ptr noundef %key) #6
   %shr = lshr i32 %ctr.0, 24
-  %conv94 = trunc i32 %shr to i8
+  %conv94 = trunc nuw i32 %shr to i8
   %add.ptr97 = getelementptr inbounds i8, ptr %ctx, i64 12
   store i8 %conv94, ptr %add.ptr97, align 1
   %shr99 = lshr i32 %ctr.0, 16
@@ -328,7 +328,7 @@ if.end87:                                         ; preds = %if.then43, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
@@ -444,7 +444,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -571,7 +571,7 @@ while.body70:                                     ; preds = %while.cond68.prehea
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi73, ptr noundef %key) #6
   %inc = add i32 %ctr.2138, 1
   %shr = lshr i32 %inc, 24
-  %conv77 = trunc i32 %shr to i8
+  %conv77 = trunc nuw i32 %shr to i8
   store i8 %conv77, ptr %add.ptr, align 1
   %shr82 = lshr i32 %inc, 16
   %conv83 = trunc i32 %shr82 to i8
@@ -626,7 +626,7 @@ while.body127:                                    ; preds = %while.body127.lr.ph
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi132, ptr noundef %key) #6
   %inc134 = add i32 %ctr.3153, 1
   %shr137 = lshr i32 %inc134, 24
-  %conv138 = trunc i32 %shr137 to i8
+  %conv138 = trunc nuw i32 %shr137 to i8
   store i8 %conv138, ptr %add.ptr, align 1
   %shr143 = lshr i32 %inc134, 16
   %conv144 = trunc i32 %shr143 to i8
@@ -673,7 +673,7 @@ if.then187:                                       ; preds = %if.end185
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi190, ptr noundef %key) #6
   %inc192 = add i32 %ctr.4, 1
   %shr195 = lshr i32 %inc192, 24
-  %conv196 = trunc i32 %shr195 to i8
+  %conv196 = trunc nuw i32 %shr195 to i8
   store i8 %conv196, ptr %add.ptr, align 1
   %shr201 = lshr i32 %inc192, 16
   %conv202 = trunc i32 %shr201 to i8
@@ -717,7 +717,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -845,7 +845,7 @@ while.body74:                                     ; preds = %while.body67, %whil
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi77, ptr noundef %key) #6
   %inc = add i32 %ctr.2140, 1
   %shr = lshr i32 %inc, 24
-  %conv81 = trunc i32 %shr to i8
+  %conv81 = trunc nuw i32 %shr to i8
   store i8 %conv81, ptr %add.ptr, align 1
   %shr86 = lshr i32 %inc, 16
   %conv87 = trunc i32 %shr86 to i8
@@ -901,7 +901,7 @@ while.body130:                                    ; preds = %while.body130.lr.ph
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi135, ptr noundef %key) #6
   %inc137 = add i32 %ctr.3155, 1
   %shr140 = lshr i32 %inc137, 24
-  %conv141 = trunc i32 %shr140 to i8
+  %conv141 = trunc nuw i32 %shr140 to i8
   store i8 %conv141, ptr %add.ptr, align 1
   %shr146 = lshr i32 %inc137, 16
   %conv147 = trunc i32 %shr146 to i8
@@ -940,7 +940,7 @@ if.then185:                                       ; preds = %if.end183
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi188, ptr noundef %key) #6
   %inc190 = add i32 %ctr.4, 1
   %shr193 = lshr i32 %inc190, 24
-  %conv194 = trunc i32 %shr193 to i8
+  %conv194 = trunc nuw i32 %shr193 to i8
   store i8 %conv194, ptr %add.ptr, align 1
   %shr199 = lshr i32 %inc190, 16
   %conv200 = trunc i32 %shr199 to i8
@@ -984,7 +984,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1120,7 +1120,7 @@ while.body76:                                     ; preds = %while.body76.lr.ph,
   tail call void %stream(ptr noundef %in.addr.3145, ptr noundef %out.addr.3144, i64 noundef 192, ptr noundef %key, ptr noundef nonnull %ctx) #6
   %add79 = add i32 %ctr.1142, 192
   %shr = lshr i32 %add79, 24
-  %conv82 = trunc i32 %shr to i8
+  %conv82 = trunc nuw i32 %shr to i8
   store i8 %conv82, ptr %add.ptr47, align 1
   %shr87 = lshr i32 %add79, 16
   %conv88 = trunc i32 %shr87 to i8
@@ -1149,10 +1149,10 @@ while.end115:                                     ; preds = %while.body76, %if.e
 if.then118:                                       ; preds = %while.end115
   %div126 = lshr i64 %len.addr.3.lcssa, 4
   tail call void %stream(ptr noundef %in.addr.3.lcssa, ptr noundef %out.addr.3.lcssa, i64 noundef %div126, ptr noundef %key, ptr noundef nonnull %ctx) #6
-  %conv121 = trunc i64 %div126 to i32
+  %conv121 = trunc nuw nsw i64 %div126 to i32
   %add122 = add i32 %ctr.1.lcssa, %conv121
   %shr125 = lshr i32 %add122, 24
-  %conv126 = trunc i32 %shr125 to i8
+  %conv126 = trunc nuw i32 %shr125 to i8
   store i8 %conv126, ptr %add.ptr47, align 1
   %shr131 = lshr i32 %add122, 16
   %conv132 = trunc i32 %shr131 to i8
@@ -1185,7 +1185,7 @@ if.then161:                                       ; preds = %if.end159
   tail call void %14(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi164, ptr noundef %key) #6
   %inc = add i32 %ctr.2, 1
   %shr168 = lshr i32 %inc, 24
-  %conv169 = trunc i32 %shr168 to i8
+  %conv169 = trunc nuw i32 %shr168 to i8
   store i8 %conv169, ptr %add.ptr47, align 1
   %shr174 = lshr i32 %inc, 16
   %conv175 = trunc i32 %shr174 to i8
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @aesni_gcm_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1368,7 +1368,7 @@ while.body76:                                     ; preds = %while.body76.lr.ph,
   tail call void %stream(ptr noundef %in.addr.3147, ptr noundef %out.addr.3146, i64 noundef 192, ptr noundef %key, ptr noundef nonnull %ctx) #6
   %add83 = add i32 %ctr.1144, 192
   %shr = lshr i32 %add83, 24
-  %conv86 = trunc i32 %shr to i8
+  %conv86 = trunc nuw i32 %shr to i8
   store i8 %conv86, ptr %add.ptr47, align 1
   %shr91 = lshr i32 %add83, 16
   %conv92 = trunc i32 %shr91 to i8
@@ -1399,10 +1399,10 @@ if.then118:                                       ; preds = %while.end115
   %Htable121 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi119, ptr noundef nonnull %Htable121, ptr noundef %in.addr.3.lcssa, i64 noundef %and) #6
   tail call void %stream(ptr noundef %in.addr.3.lcssa, ptr noundef %out.addr.3.lcssa, i64 noundef %div128, ptr noundef %key, ptr noundef nonnull %ctx) #6
-  %conv125 = trunc i64 %div128 to i32
+  %conv125 = trunc nuw nsw i64 %div128 to i32
   %add126 = add i32 %ctr.1.lcssa, %conv125
   %shr129 = lshr i32 %add126, 24
-  %conv130 = trunc i32 %shr129 to i8
+  %conv130 = trunc nuw i32 %shr129 to i8
   store i8 %conv130, ptr %add.ptr47, align 1
   %shr135 = lshr i32 %add126, 16
   %conv136 = trunc i32 %shr135 to i8
@@ -1432,7 +1432,7 @@ if.then161:                                       ; preds = %if.end159
   tail call void %14(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi164, ptr noundef %key) #6
   %inc = add i32 %ctr.2, 1
   %shr168 = lshr i32 %inc, 24
-  %conv169 = trunc i32 %shr168 to i8
+  %conv169 = trunc nuw i32 %shr168 to i8
   store i8 %conv169, ptr %add.ptr47, align 1
   %shr174 = lshr i32 %inc, 16
   %conv175 = trunc i32 %shr174 to i8
@@ -1478,7 +1478,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @aesni_gcm_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %tag, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %tag, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i64, ptr %len1, align 8

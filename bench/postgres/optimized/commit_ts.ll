@@ -98,7 +98,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %._crit_edge.loopexit.split.loop.exit.loopexit, %.lr.ph.preheader
   %indvars.iv.lcssa = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge.loopexit.split.loop.exit.loopexit ]
   %.lcssa43 = phi i1 [ true, %.lr.ph.preheader ], [ %31, %._crit_edge.loopexit.split.loop.exit.loopexit ]
-  %32 = trunc i64 %indvars.iv.lcssa to i32
+  %32 = trunc nsw i64 %indvars.iv.lcssa to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph49, %._crit_edge.loopexit.split.loop.exit, %19

@@ -83,7 +83,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_cleanup_module286, ptr @__UNIQUE_ID___addressable_init_module285, ptr @__UNIQUE_ID_author289, ptr @__UNIQUE_ID_description288, ptr @__UNIQUE_ID_import_ns287, ptr @__UNIQUE_ID_license290, ptr @__UNIQUE_ID_notify_delay_ms281, ptr @__UNIQUE_ID_notify_delay_mstype280, ptr @__param_notify_delay_ms], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @init_module() #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @init_module() #0 section ".init.text" align 16 {
   %1 = tail call ptr @x86_match_cpu(ptr noundef nonnull @__mod_x86cpu__pkg_temp_thermal_ids_device_table) #8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %21, label %3
@@ -324,7 +324,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %104 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %103, ptr %104, align 8
   %105 = lshr i64 %102, 32
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nuw i64 %105 to i32
   %107 = getelementptr inbounds i8, ptr %47, i64 12
   store i32 %106, ptr %107, align 4
   %108 = getelementptr inbounds i8, ptr %47, i64 120
@@ -526,7 +526,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #3 align 16 {
 12:                                               ; preds = %11, %1
   %13 = trunc i64 %7 to i32
   %14 = lshr i64 %10, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = and i32 %13, -8421377
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 434, i32 %16, i32 %15) #8, !srcloc !15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
@@ -665,7 +665,7 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr nocapture readnone 
   %40 = or i32 %37, 8388608
   %41 = select i1 %39, i32 %37, i32 %40
   %42 = lshr i64 %30, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 434, i32 %41, i32 %43) #8, !srcloc !15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
           to label %48 [label %44], !srcloc !16
@@ -749,7 +749,7 @@ declare dso_local void @thermal_zone_device_update(ptr noundef, i32 noundef) loc
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sys_get_curr_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal range(i32 -2147483648, 1) i32 @sys_get_curr_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @intel_tcc_get_temp(i32 noundef %4, i1 noundef zeroext true) #8

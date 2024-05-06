@@ -410,7 +410,7 @@ define dso_local noundef i32 @sysrq_toggle_support(i32 noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_sysrq_key(i8 noundef zeroext %0, ptr noundef %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @register_sysrq_key(i8 noundef zeroext %0, ptr noundef %1) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysrq_key_table_lock) #17
   %3 = tail call fastcc i32 @sysrq_key_table_key2index(i8 noundef zeroext %0), !range !6
   %4 = icmp eq i32 %3, -1
@@ -435,7 +435,7 @@ define dso_local noundef i32 @register_sysrq_key(i8 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_sysrq_key(i8 noundef zeroext %0, ptr noundef readnone %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @unregister_sysrq_key(i8 noundef zeroext %0, ptr noundef readnone %1) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysrq_key_table_lock) #17
   %3 = tail call fastcc i32 @sysrq_key_table_key2index(i8 noundef zeroext %0), !range !6
   %4 = icmp eq i32 %3, -1
@@ -508,7 +508,7 @@ declare dso_local void @emergency_restart() local_unnamed_addr #4
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc i32 @sysrq_key_table_key2index(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 -87, 227) i32 @sysrq_key_table_key2index(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
   %2 = zext i8 %0 to i32
   switch i8 %0, label %9 [
     i8 48, label %3
@@ -916,7 +916,7 @@ declare dso_local void @ftrace_dump(i32 noundef) local_unnamed_addr #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sysrq_reset_seq_param_set(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @sysrq_reset_seq_param_set(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8, !annotation !16

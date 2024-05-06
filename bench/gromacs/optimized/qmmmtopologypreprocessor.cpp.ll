@@ -6737,8 +6737,8 @@ _ZL11IS_CHEMBONDi.exit.thread:                    ; preds = %88, %_ZNSt6vectorIi
   %.sroa.13.3199 = phi ptr [ %.sroa.13.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit118 ], [ %.sroa.13.2205, %.lr.ph.preheader ]
   %.sroa.7.3198 = phi ptr [ %.sroa.7.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit118 ], [ %.sroa.7.2204, %.lr.ph.preheader ]
   %188 = load ptr, ptr %47, align 8
-  %189 = getelementptr i32, ptr %188, i64 %indvars.iv
-  %190 = getelementptr i32, ptr %189, i64 %indvars.iv241
+  %189 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv
+  %190 = getelementptr inbounds i32, ptr %189, i64 %indvars.iv241
   %.not.i108 = icmp eq ptr %.sroa.7.3198, %.sroa.13.3199
   br i1 %.not.i108, label %193, label %191
 
@@ -7826,8 +7826,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %72, %73
   %.sroa.7.397 = phi ptr [ %.sroa.7.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.7.2105, %.lr.ph100.preheader ]
   %.sroa.0.396 = phi ptr [ %.sroa.0.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.0.2104, %.lr.ph100.preheader ]
   %78 = load ptr, ptr %43, align 8
-  %79 = getelementptr i32, ptr %78, i64 %indvars.iv134
-  %80 = getelementptr i32, ptr %79, i64 %indvars.iv139
+  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv134
+  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv139
   %.not.i = icmp eq ptr %.sroa.7.397, %.sroa.13.398
   br i1 %.not.i, label %83, label %81
 
@@ -8046,11 +8046,11 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor13buildQMMMLinkEP10gmx_mtop_t(ptr 
   %58 = phi ptr [ %178, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit105.thread ], [ %56, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit105.thread ], [ 0, %.preheader ]
   %59 = phi ptr [ %180, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit105.thread ], [ %46, %.preheader ]
-  %60 = getelementptr i32, ptr %59, i64 %indvars.iv
-  %61 = getelementptr i8, ptr %60, i64 4
+  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, %35
-  %64 = getelementptr i8, ptr %60, i64 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, %35
   %67 = sext i32 %63 to i64

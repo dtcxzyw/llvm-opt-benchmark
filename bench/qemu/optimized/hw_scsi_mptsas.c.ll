@@ -1173,7 +1173,7 @@ while.end:                                        ; preds = %mptsas_fetch_reques
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @mptsas_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2295,7 +2295,7 @@ sw.bb4:                                           ; preds = %trace_mptsas_proces
   %host_mfa_high_addr.i35 = getelementptr inbounds i8, ptr %s, i64 6592
   %65 = load i64, ptr %host_mfa_high_addr.i35, align 16
   %shr.i = lshr i64 %65, 32
-  %conv.i36 = trunc i64 %shr.i to i32
+  %conv.i36 = trunc nuw i64 %shr.i to i32
   %CurrentHostMfaHighAddr.i = getelementptr inbounds i8, ptr %reply.i30, i64 32
   store i32 %conv.i36, ptr %CurrentHostMfaHighAddr.i, align 2
   %GlobalCredits.i = getelementptr inbounds i8, ptr %reply.i30, i64 36
@@ -2305,7 +2305,7 @@ sw.bb4:                                           ; preds = %trace_mptsas_proces
   %sense_buffer_high_addr.i37 = getelementptr inbounds i8, ptr %s, i64 6600
   %66 = load i64, ptr %sense_buffer_high_addr.i37, align 8
   %shr3.i = lshr i64 %66, 32
-  %conv4.i = trunc i64 %shr3.i to i32
+  %conv4.i = trunc nuw i64 %shr3.i to i32
   %CurrentSenseBufferHighAddr.i = getelementptr inbounds i8, ptr %reply.i30, i64 40
   store i32 %conv4.i, ptr %CurrentSenseBufferHighAddr.i, align 2
   %reply_frame_size.i38 = getelementptr inbounds i8, ptr %s, i64 6612
@@ -3229,7 +3229,7 @@ declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #2
 declare void @msi_uninit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @mptsas_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #8 {
+define internal range(i32 -22, 1) i32 @mptsas_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #8 {
 entry:
   %doorbell_idx = getelementptr inbounds i8, ptr %opaque, i64 4484
   %0 = load i32, ptr %doorbell_idx, align 4

@@ -327,7 +327,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %exitcond.not, label %.thread, label %9, !llvm.loop !6
 
 13:                                               ; preds = %9
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %15 = load ptr, ptr %4, align 8
   %16 = tail call ptr @g_slist_nth(ptr noundef %15, i32 noundef %14) #7
   %17 = load ptr, ptr %16, align 8
@@ -427,7 +427,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
   br i1 %exitcond.not, label %.thread, label %12, !llvm.loop !7
 
 16:                                               ; preds = %12
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = load ptr, ptr %5, align 8
   %19 = tail call ptr @g_slist_nth(ptr noundef %18, i32 noundef %17) #7
   %20 = load ptr, ptr %19, align 8

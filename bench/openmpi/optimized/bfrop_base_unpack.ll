@@ -352,7 +352,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @pmix_bfrop_get_data_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_unpack_bool(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix_bfrops_base_unpack_bool(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1566,7 +1566,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %10, %18, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_unpack_byte(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix_bfrops_base_unpack_byte(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1611,7 +1611,7 @@ define noundef i32 @pmix_bfrops_base_unpack_byte(ptr nocapture noundef readnone 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_unpack_int16(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix_bfrops_base_unpack_int16(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1670,7 +1670,7 @@ define noundef i32 @pmix_bfrops_base_unpack_int16(ptr nocapture noundef readnone
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_unpack_int32(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix_bfrops_base_unpack_int32(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1755,7 +1755,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_unpack_int64(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix_bfrops_base_unpack_int64(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1812,7 +1812,7 @@ pmix_ntoh64.exit:                                 ; preds = %.lr.ph, %pmix_ntoh6
   %.0.copyload = load i64, ptr %31, align 1
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0.copyload to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0.copyload, 32
-  %.sroa.22.0.extract.trunc.i = trunc i64 %.sroa.22.0.extract.shift.i to i32
+  %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
   %32 = tail call i32 @ntohl(i32 noundef %.sroa.22.0.extract.trunc.i) #12
   %33 = tail call i32 @ntohl(i32 noundef %.sroa.01.0.extract.trunc.i) #12
   %.sroa.2.0.insert.ext.i = zext i32 %33 to i64
@@ -3216,7 +3216,7 @@ define i32 @pmix_bfrops_base_unpack_buf(ptr noundef %0, ptr noundef %1, ptr noun
   %19 = getelementptr inbounds i8, ptr %17, i64 48
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   %21 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_buffer_t_class, i64 0, i32 6), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i = icmp eq ptr %22, null
@@ -3386,7 +3386,7 @@ define i32 @pmix_bfrops_base_unpack_proc(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @pmix_output(i32 noundef %23, ptr noundef nonnull @.str.23, i32 noundef %30) #10
   br label %31
 
@@ -3816,7 +3816,7 @@ define i32 @pmix_bfrops_base_unpack_kval(ptr noundef %0, ptr noundef %1, ptr nou
   %28 = getelementptr inbounds i8, ptr %26, i64 48
   store i32 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_kval_t_class, i64 0, i32 6), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i = icmp eq ptr %31, null

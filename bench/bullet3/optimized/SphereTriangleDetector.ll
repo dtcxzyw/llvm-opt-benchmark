@@ -72,18 +72,18 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %input, i64 16
   %arrayidx11.i3.i = getelementptr inbounds i8, ptr %input, i64 96
   %arrayidx.i27.i.i = getelementptr inbounds i8, ptr %input, i64 32
-  %arrayidx.i33.i.i = getelementptr inbounds i8, ptr %input, i64 8
-  %6 = load float, ptr %arrayidx.i33.i.i, align 4, !noalias !8
-  %arrayidx.i35.i.i = getelementptr inbounds i8, ptr %input, i64 24
-  %7 = load float, ptr %arrayidx.i35.i.i, align 4, !noalias !8
-  %arrayidx.i37.i.i = getelementptr inbounds i8, ptr %input, i64 40
-  %8 = load float, ptr %arrayidx.i37.i.i, align 4, !noalias !8
-  %arrayidx.i59.i.i = getelementptr inbounds i8, ptr %input, i64 72
-  %9 = load float, ptr %arrayidx.i59.i.i, align 4, !noalias !5
-  %arrayidx.i60.i.i = getelementptr inbounds i8, ptr %input, i64 88
-  %10 = load float, ptr %arrayidx.i60.i.i, align 4, !noalias !5
-  %arrayidx.i62.i.i = getelementptr inbounds i8, ptr %input, i64 104
-  %11 = load float, ptr %arrayidx.i62.i.i, align 4, !noalias !5
+  %arrayidx.i35.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %6 = load float, ptr %arrayidx.i35.i.i, align 4, !noalias !8
+  %arrayidx.i37.i.i = getelementptr inbounds i8, ptr %input, i64 24
+  %7 = load float, ptr %arrayidx.i37.i.i, align 4, !noalias !8
+  %arrayidx.i39.i.i = getelementptr inbounds i8, ptr %input, i64 40
+  %8 = load float, ptr %arrayidx.i39.i.i, align 4, !noalias !8
+  %arrayidx.i64.i.i = getelementptr inbounds i8, ptr %input, i64 72
+  %9 = load float, ptr %arrayidx.i64.i.i, align 4, !noalias !5
+  %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %input, i64 88
+  %10 = load float, ptr %arrayidx.i66.i.i, align 4, !noalias !5
+  %arrayidx.i68.i.i = getelementptr inbounds i8, ptr %input, i64 104
+  %11 = load float, ptr %arrayidx.i68.i.i, align 4, !noalias !5
   %mul145.i.i = fmul float %7, %10
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %6, float %mul145.i.i)
   %13 = tail call float @llvm.fmuladd.f32(float %11, float %8, float %12)
@@ -166,22 +166,22 @@ entry:
   br i1 %call2, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i41.i.i = getelementptr inbounds i8, ptr %input, i64 100
-  %arrayidx.i39.i.i = getelementptr inbounds i8, ptr %input, i64 84
-  %arrayidx.i38.i.i = getelementptr inbounds i8, ptr %input, i64 68
+  %arrayidx.i44.i.i = getelementptr inbounds i8, ptr %input, i64 100
+  %arrayidx.i42.i.i = getelementptr inbounds i8, ptr %input, i64 84
+  %arrayidx.i40.i.i = getelementptr inbounds i8, ptr %input, i64 68
   %63 = load <4 x float>, ptr %m_transformB, align 4
   %64 = shufflevector <4 x float> %63, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %65 = load float, ptr %normal, align 4
-  %66 = load <4 x float>, ptr %arrayidx.i38.i.i, align 4
+  %66 = load <4 x float>, ptr %arrayidx.i40.i.i, align 4
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %arrayidx7.i.i9 = getelementptr inbounds i8, ptr %normal, i64 4
   %68 = load float, ptr %arrayidx7.i.i9, align 4
-  %69 = load <4 x float>, ptr %arrayidx.i59.i.i, align 4
+  %69 = load <4 x float>, ptr %arrayidx.i64.i.i, align 4
   %70 = shufflevector <4 x float> %69, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %normal, i64 8
   %71 = load float, ptr %arrayidx12.i.i, align 4
   %72 = load float, ptr %arrayidx5.i2.i, align 4
-  %73 = load float, ptr %arrayidx.i39.i.i, align 4
+  %73 = load float, ptr %arrayidx.i42.i.i, align 4
   %74 = insertelement <2 x float> poison, float %68, i64 0
   %75 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> zeroinitializer
   %76 = insertelement <2 x float> %67, float %73, i64 1
@@ -190,16 +190,16 @@ if.then:                                          ; preds = %entry
   %79 = insertelement <2 x float> poison, float %65, i64 0
   %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
   %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %80, <2 x float> %77)
-  %82 = load float, ptr %arrayidx.i60.i.i, align 4
+  %82 = load float, ptr %arrayidx.i66.i.i, align 4
   %83 = insertelement <2 x float> %70, float %82, i64 1
   %84 = insertelement <2 x float> poison, float %71, i64 0
   %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
   %86 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %83, <2 x float> %85, <2 x float> %81)
   %87 = load float, ptr %arrayidx11.i3.i, align 4
-  %88 = load float, ptr %arrayidx.i41.i.i, align 4
+  %88 = load float, ptr %arrayidx.i44.i.i, align 4
   %mul8.i13.i = fmul float %68, %88
   %89 = tail call float @llvm.fmuladd.f32(float %87, float %65, float %mul8.i13.i)
-  %90 = load float, ptr %arrayidx.i62.i.i, align 4
+  %90 = load float, ptr %arrayidx.i68.i.i, align 4
   %91 = tail call noundef float @llvm.fmuladd.f32(float %90, float %71, float %89)
   br i1 %swapResults, label %if.then3, label %if.else
 
@@ -392,11 +392,11 @@ if.end:                                           ; preds = %if.then21, %if.then
 if.then25:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lnormal.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
   store <2 x float> %normal.sroa.0.0, ptr %lnormal.i, align 8
   %normal.sroa.17.0.lnormal.i.sroa_idx = getelementptr inbounds i8, ptr %lnormal.i, i64 8
   store <2 x float> %normal.sroa.17.0, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
-  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef nonnull %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
+  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lnormal.i)
   br i1 %call.i61, label %if.end47.thread152, label %if.else

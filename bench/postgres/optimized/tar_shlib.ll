@@ -143,7 +143,7 @@ define i32 @tarChecksum(ptr nocapture noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @tarCreateHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #3 {
+define range(i32 0, 3) i32 @tarCreateHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #3 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %10 = icmp ugt i64 %9, 99
   br i1 %10, label %print_tar_number.exit115, label %11

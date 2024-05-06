@@ -375,7 +375,7 @@ proto_item_set_generated.exit.i:                  ; preds = %62, %59, %50
   store i32 %129, ptr %127, align 8
   %130 = getelementptr inbounds i8, ptr %127, i64 8
   %131 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull readonly align 8 dereferenceable(16) %131, i64 16, i1 false)
   %132 = getelementptr inbounds i8, ptr %127, i64 24
   store i16 %18, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %127, i64 26
@@ -406,7 +406,7 @@ proto_item_set_generated.exit.i:                  ; preds = %62, %59, %50
   %149 = load i32, ptr %148, align 4
   %150 = getelementptr inbounds i8, ptr %1, i64 216
   %151 = load ptr, ptr %150, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %143, i8 0, i64 24, i1 false)
   store i32 %147, ptr %143, align 8
   %152 = icmp eq i32 %149, 0
   br i1 %152, label %copy_address_wmem.exit.i, label %153

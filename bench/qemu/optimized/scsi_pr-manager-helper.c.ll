@@ -134,13 +134,13 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %lock = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 267) #7
-  %call1 = tail call fastcc i32 @pr_manager_helper_initialize(ptr noundef %call.i, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @pr_manager_helper_initialize(ptr noundef %call.i, ptr noundef %errp)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 269) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr nocapture noundef %io_hdr) #0 {
+define internal range(i32 -2147483648, 1) i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr nocapture noundef %io_hdr) #0 {
 entry:
   %resp = alloca %struct.PRHelperResponse, align 4
   %cdb = alloca [16 x i8], align 16
@@ -198,7 +198,7 @@ for.body:                                         ; preds = %while.end, %for.inc
   br i1 %tobool34.not, label %if.then35, label %if.end51
 
 if.then35:                                        ; preds = %for.body
-  %call36 = call fastcc i32 @pr_manager_helper_initialize(ptr noundef nonnull %call.i, ptr noundef null), !range !5
+  %call36 = call fastcc i32 @pr_manager_helper_initialize(ptr noundef nonnull %call.i, ptr noundef null)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %if.then39, label %if.end51
 
@@ -211,7 +211,7 @@ if.then39:                                        ; preds = %if.then35
   br label %for.inc
 
 if.end51:                                         ; preds = %if.then35, %for.body
-  %call53 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %call.i, i32 noundef %fd, ptr noundef nonnull %cdb, i32 noundef 16, ptr noundef null), !range !6
+  %call53 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %call.i, i32 noundef %fd, ptr noundef nonnull %cdb, i32 noundef 16, ptr noundef null)
   %cmp54 = icmp sgt i32 %call53, -1
   br i1 %cmp54, label %if.end61, label %for.inc
 
@@ -219,7 +219,7 @@ for.inc:                                          ; preds = %if.end51, %if.then3
   %ret.1 = phi i32 [ %call53, %if.end51 ], [ %call36, %if.then39 ]
   %inc = add nuw nsw i32 %attempts.062, 1
   %exitcond.not = icmp eq i32 %inc, 5
-  br i1 %exitcond.not, label %if.then129, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %if.then129, label %for.body, !llvm.loop !5
 
 if.end61:                                         ; preds = %if.end51
   br i1 %cmp6, label %if.then64, label %if.end71
@@ -231,7 +231,7 @@ if.then64:                                        ; preds = %if.end61
   store i32 %sub, ptr %resid, align 8
   %dxferp = getelementptr inbounds i8, ptr %io_hdr, i64 16
   %13 = load ptr, ptr %dxferp, align 8
-  %call66 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %call.i, i32 noundef -1, ptr noundef %13, i32 noundef %call24, ptr noundef null), !range !6
+  %call66 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %call.i, i32 noundef -1, ptr noundef %13, i32 noundef %call24, ptr noundef null)
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %if.then129, label %if.end71
 
@@ -279,7 +279,7 @@ if.else90:                                        ; preds = %if.then84
 if.end91:                                         ; preds = %if.then84
   %dxferp92 = getelementptr inbounds i8, ptr %io_hdr, i64 16
   %23 = load ptr, ptr %dxferp92, align 8
-  %call94 = call fastcc i32 @pr_manager_helper_read(ptr noundef nonnull %call.i, ptr noundef %23, i32 noundef %20, ptr noundef null), !range !6
+  %call94 = call fastcc i32 @pr_manager_helper_read(ptr noundef nonnull %call.i, ptr noundef %23, i32 noundef %20, ptr noundef null)
   %cmp95 = icmp slt i32 %call94, 0
   br i1 %cmp95, label %if.then129, label %if.end98
 
@@ -374,7 +374,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pr_manager_helper_initialize(ptr noundef %pr_mgr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @pr_manager_helper_initialize(ptr noundef %pr_mgr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.SocketAddress, align 8
   %local_err = alloca ptr, align 8
@@ -438,7 +438,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end14:                                         ; preds = %if.end8
   store i32 0, ptr %flags, align 4
-  %call15 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %pr_mgr, i32 noundef -1, ptr noundef nonnull %flags, i32 noundef 4, ptr noundef %errp), !range !6
+  %call15 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %pr_mgr, i32 noundef -1, ptr noundef nonnull %flags, i32 noundef 4, ptr noundef %errp)
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %out_close, label %if.end18
 
@@ -484,7 +484,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @pr_manager_helper_read(ptr noundef %pr_mgr, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @pr_manager_helper_read(ptr noundef %pr_mgr, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %ioc = getelementptr inbounds i8, ptr %pr_mgr, i64 96
   %0 = load ptr, ptr %ioc, align 8
@@ -513,7 +513,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pr_manager_helper_write(ptr noundef %pr_mgr, i32 noundef %fd, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @pr_manager_helper_write(ptr noundef %pr_mgr, i32 noundef %fd, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %iov = alloca %struct.iovec, align 8
@@ -575,7 +575,7 @@ if.end16:                                         ; preds = %while.body
   %3 = trunc i64 %call5 to i32
   %conv18 = sub i32 %sz.addr.014, %3
   %cmp2 = icmp sgt i32 %conv18, 0
-  br i1 %cmp2, label %while.body, label %return, !llvm.loop !9
+  br i1 %cmp2, label %while.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %if.end16, %entry, %pr_manager_send_status_changed_event.exit
   %retval.0 = phi i32 [ %cond15, %pr_manager_send_status_changed_event.exit ], [ 0, %entry ], [ 0, %if.end16 ]
@@ -625,8 +625,6 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = !{i32 -22, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

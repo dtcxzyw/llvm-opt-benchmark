@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @sgemm_direct_performant(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @sgemm_direct_performant(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = mul nsw i64 %1, %0
   %5 = mul nsw i64 %4, %2
   %6 = icmp ugt i64 %5, 7340031

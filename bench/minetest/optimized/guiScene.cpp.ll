@@ -1221,9 +1221,9 @@ if.end29:                                         ; preds = %if.then15, %if.end
   %retval.sroa.2.0.copyload.i76 = load i64, ptr %retval.sroa.2.0.AbsoluteClippingRect.sroa_idx.i, align 8, !tbaa.struct !91
   %sub.i.i = sub i64 %retval.sroa.2.0.copyload.i76, %retval.sroa.0.0.copyload.i74
   %ref.tmp30.sroa.5.12.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i76, 32
-  %ref.tmp30.sroa.5.12.extract.trunc = trunc i64 %ref.tmp30.sroa.5.12.extract.shift to i32
+  %ref.tmp30.sroa.5.12.extract.trunc = trunc nuw i64 %ref.tmp30.sroa.5.12.extract.shift to i32
   %ref.tmp30.sroa.0.4.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i74, 32
-  %ref.tmp30.sroa.0.4.extract.trunc = trunc i64 %ref.tmp30.sroa.0.4.extract.shift to i32
+  %ref.tmp30.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp30.sroa.0.4.extract.shift to i32
   %sub.i4.i = sub nsw i32 %ref.tmp30.sroa.5.12.extract.trunc, %ref.tmp30.sroa.0.4.extract.trunc
   %size.sroa.0.0.extract.trunc = trunc i64 %sub.i.i to i32
   %m_smgr = getelementptr inbounds i8, ptr %this, i64 312
@@ -1448,49 +1448,49 @@ if.then49:                                        ; preds = %if.end47
   %add4.i.i117 = fadd nsz float %dtime_ms.0, %storemerge39.i.i.i103
   %retval.sroa.0.0.vec.insert.i.i119 = insertelement <2 x float> poison, float %storemerge41.i.i.i114, i64 0
   %retval.sroa.0.4.vec.insert.i.i120 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i119, float %add4.i.i117, i64 1
-  %cmp.i.i4 = fcmp nsz olt float %storemerge41.i.i.i114, 9.000000e+01
-  br i1 %cmp.i.i4, label %if.then.i.i35, label %if.else.i.i5
+  %cmp.i.i5 = fcmp nsz olt float %storemerge41.i.i.i114, 9.000000e+01
+  br i1 %cmp.i.i5, label %if.then.i.i36, label %if.else.i.i6
 
-if.then.i.i35:                                    ; preds = %if.then49
-  %cmp3.i.i36 = fcmp nsz ogt float %storemerge41.i.i.i114, 6.000000e+01
-  br i1 %cmp3.i.i36, label %cleanup.sink.split.i.i32, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37
+if.then.i.i36:                                    ; preds = %if.then49
+  %cmp3.i.i37 = fcmp nsz ogt float %storemerge41.i.i.i114, 6.000000e+01
+  br i1 %cmp3.i.i37, label %cleanup.sink.split.i.i33, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit38
 
-if.else.i.i5:                                     ; preds = %if.then49
-  %cmp7.i.i6 = fcmp nsz olt float %storemerge41.i.i.i114, 3.000000e+02
-  br i1 %cmp7.i.i6, label %cleanup.sink.split.i.i32, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37
+if.else.i.i6:                                     ; preds = %if.then49
+  %cmp7.i.i7 = fcmp nsz olt float %storemerge41.i.i.i114, 3.000000e+02
+  br i1 %cmp7.i.i7, label %cleanup.sink.split.i.i33, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit38
 
-cleanup.sink.split.i.i32:                         ; preds = %if.else.i.i5, %if.then.i.i35
-  %.sink.i.i33 = phi float [ 6.000000e+01, %if.then.i.i35 ], [ 3.000000e+02, %if.else.i.i5 ]
-  %rot.sroa.0.0.vec.insert.i34 = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i.i120, float %.sink.i.i33, i64 0
-  br label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37
+cleanup.sink.split.i.i33:                         ; preds = %if.else.i.i6, %if.then.i.i36
+  %.sink.i.i34 = phi float [ 6.000000e+01, %if.then.i.i36 ], [ 3.000000e+02, %if.else.i.i6 ]
+  %rot.sroa.0.0.vec.insert.i35 = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i.i120, float %.sink.i.i34, i64 0
+  br label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit38
 
-_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37: ; preds = %if.then.i.i35, %if.else.i.i5, %cleanup.sink.split.i.i32
-  %rot.sroa.0.0.vec.extract16.pre-phi.i7 = phi float [ %storemerge41.i.i.i114, %if.then.i.i35 ], [ %storemerge41.i.i.i114, %if.else.i.i5 ], [ %.sink.i.i33, %cleanup.sink.split.i.i32 ]
-  %rot.sroa.0.0.i8 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i120, %if.then.i.i35 ], [ %retval.sroa.0.4.vec.insert.i.i120, %if.else.i.i5 ], [ %rot.sroa.0.0.vec.insert.i34, %cleanup.sink.split.i.i32 ]
-  %mul.i.i.i9 = fmul nsz float %rot.sroa.0.0.vec.extract16.pre-phi.i7, 0x3F91DF46A0000000
-  %rot.sroa.0.4.vec.extract.i10 = extractelement <2 x float> %rot.sroa.0.0.i8, i64 1
-  %mul2.i.i.i11 = fmul nsz float %rot.sroa.0.4.vec.extract.i10, 0x3F91DF46A0000000
-  %conv.i.i.i12 = fpext float %mul.i.i.i9 to double
-  %108 = call nsz double @llvm.cos.f64(double %conv.i.i.i12)
-  %109 = call nsz double @llvm.sin.f64(double %conv.i.i.i12)
-  %conv4.i.i.i13 = fpext float %mul2.i.i.i11 to double
-  %110 = call nsz double @llvm.cos.f64(double %conv4.i.i.i13)
-  %111 = call nsz double @llvm.sin.f64(double %conv4.i.i.i13)
+_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit38: ; preds = %if.then.i.i36, %if.else.i.i6, %cleanup.sink.split.i.i33
+  %rot.sroa.0.0.vec.extract16.pre-phi.i8 = phi float [ %storemerge41.i.i.i114, %if.then.i.i36 ], [ %storemerge41.i.i.i114, %if.else.i.i6 ], [ %.sink.i.i34, %cleanup.sink.split.i.i33 ]
+  %rot.sroa.0.0.i9 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i120, %if.then.i.i36 ], [ %retval.sroa.0.4.vec.insert.i.i120, %if.else.i.i6 ], [ %rot.sroa.0.0.vec.insert.i35, %cleanup.sink.split.i.i33 ]
+  %mul.i.i.i10 = fmul nsz float %rot.sroa.0.0.vec.extract16.pre-phi.i8, 0x3F91DF46A0000000
+  %rot.sroa.0.4.vec.extract.i11 = extractelement <2 x float> %rot.sroa.0.0.i9, i64 1
+  %mul2.i.i.i12 = fmul nsz float %rot.sroa.0.4.vec.extract.i11, 0x3F91DF46A0000000
+  %conv.i.i.i13 = fpext float %mul.i.i.i10 to double
+  %108 = call nsz double @llvm.cos.f64(double %conv.i.i.i13)
+  %109 = call nsz double @llvm.sin.f64(double %conv.i.i.i13)
+  %conv4.i.i.i14 = fpext float %mul2.i.i.i12 to double
+  %110 = call nsz double @llvm.cos.f64(double %conv4.i.i.i14)
+  %111 = call nsz double @llvm.sin.f64(double %conv4.i.i.i14)
   %112 = fptrunc double %111 to float
-  %conv15.i.i.i14 = fneg nsz float %112
-  %mul18.i.i.i15 = fmul nsz double %109, %111
-  %mul19.i.i.i16 = fmul nsz double %108, %111
+  %conv15.i.i.i15 = fneg nsz float %112
+  %mul18.i.i.i16 = fmul nsz double %109, %111
+  %mul19.i.i.i17 = fmul nsz double %108, %111
   %113 = fneg nsz double %108
-  %mul30.i.i.i17 = fmul nsz double %109, %110
-  %conv31.i.i.i18 = fptrunc double %mul30.i.i.i17 to float
+  %mul30.i.i.i18 = fmul nsz double %109, %110
+  %conv31.i.i.i19 = fptrunc double %mul30.i.i.i18 to float
   %114 = fneg nsz double %109
-  %mul45.i.i.i19 = fmul nsz double %108, %110
-  %conv46.i.i.i20 = fptrunc double %mul45.i.i.i19 to float
-  %m_cam_distance.i21 = getelementptr inbounds i8, ptr %this, i64 352
-  %115 = load float, ptr %m_cam_distance.i21, align 8, !tbaa !7
-  %mul28.i.i24 = fmul nsz float %conv31.i.i.i18, 0.000000e+00
-  %116 = call nsz float @llvm.fmuladd.f32(float %conv15.i.i.i14, float 0.000000e+00, float %mul28.i.i24)
-  %117 = call nsz float @llvm.fmuladd.f32(float %115, float %conv46.i.i.i20, float %116)
+  %mul45.i.i.i20 = fmul nsz double %108, %110
+  %conv46.i.i.i21 = fptrunc double %mul45.i.i.i20 to float
+  %m_cam_distance.i22 = getelementptr inbounds i8, ptr %this, i64 352
+  %115 = load float, ptr %m_cam_distance.i22, align 8, !tbaa !7
+  %mul28.i.i25 = fmul nsz float %conv31.i.i.i19, 0.000000e+00
+  %116 = call nsz float @llvm.fmuladd.f32(float %conv15.i.i.i15, float 0.000000e+00, float %mul28.i.i25)
+  %117 = call nsz float @llvm.fmuladd.f32(float %115, float %conv46.i.i.i21, float %116)
   %118 = insertelement <2 x double> poison, double %110, i64 0
   %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
   %120 = fmul nsz <2 x double> %119, <double 1.000000e+00, double 0.000000e+00>
@@ -1498,14 +1498,14 @@ _ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37: ; preds = %if.th
   %122 = insertelement <2 x double> poison, double %113, i64 0
   %123 = insertelement <2 x double> %122, double %108, i64 1
   %124 = fmul nsz <2 x double> %123, <double 0.000000e+00, double 1.000000e+00>
-  %125 = insertelement <2 x double> poison, double %mul18.i.i.i15, i64 0
+  %125 = insertelement <2 x double> poison, double %mul18.i.i.i16, i64 0
   %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> zeroinitializer
   %127 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %126, <2 x double> <double 1.000000e+00, double 0.000000e+00>, <2 x double> %124)
   %128 = fptrunc <2 x double> %127 to <2 x float>
   %129 = insertelement <2 x double> poison, double %109, i64 0
   %130 = insertelement <2 x double> %129, double %114, i64 1
   %131 = fmul nsz <2 x double> %130, <double 0.000000e+00, double 1.000000e+00>
-  %132 = insertelement <2 x double> poison, double %mul19.i.i.i16, i64 0
+  %132 = insertelement <2 x double> poison, double %mul19.i.i.i17, i64 0
   %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> zeroinitializer
   %134 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %133, <2 x double> <double 1.000000e+00, double 0.000000e+00>, <2 x double> %131)
   %135 = fptrunc <2 x double> %134 to <2 x float>
@@ -1517,19 +1517,19 @@ _ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37: ; preds = %if.th
   %141 = load <2 x float>, ptr %m_target_pos.i.i85, align 4, !tbaa !42
   %142 = fadd nsz <2 x float> %141, %140
   store <2 x float> %142, ptr %m_cam_pos.i.i84, align 8, !tbaa !42
-  %add6.i.i27 = fadd nsz float %93, %117
-  store float %add6.i.i27, ptr %Z.i.i.i90, align 8, !tbaa !43
-  %m_cam.i28 = getelementptr inbounds i8, ptr %this, i64 328
-  %143 = load ptr, ptr %m_cam.i28, align 8, !tbaa !44
-  %vtable.i29 = load ptr, ptr %143, align 8, !tbaa !4
-  %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 224
-  %144 = load ptr, ptr %vfn.i30, align 8
+  %add6.i.i28 = fadd nsz float %93, %117
+  store float %add6.i.i28, ptr %Z.i.i.i90, align 8, !tbaa !43
+  %m_cam.i29 = getelementptr inbounds i8, ptr %this, i64 328
+  %143 = load ptr, ptr %m_cam.i29, align 8, !tbaa !44
+  %vtable.i30 = load ptr, ptr %143, align 8, !tbaa !4
+  %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 224
+  %144 = load ptr, ptr %vfn.i31, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(222) %143, ptr noundef nonnull align 4 dereferenceable(12) %m_cam_pos.i.i84)
-  %m_update_cam.i31 = getelementptr inbounds i8, ptr %this, i64 429
-  store i8 0, ptr %m_update_cam.i31, align 1, !tbaa !94
+  %m_update_cam.i32 = getelementptr inbounds i8, ptr %this, i64 429
+  store i8 0, ptr %m_update_cam.i32, align 1, !tbaa !94
   br label %if.end52
 
-if.end52:                                         ; preds = %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit37, %if.end47
+if.end52:                                         ; preds = %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit38, %if.end47
   %145 = load ptr, ptr %m_smgr, align 8, !tbaa !41
   %vtable54 = load ptr, ptr %145, align 8, !tbaa !4
   %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 144
@@ -1583,50 +1583,50 @@ if.then58:                                        ; preds = %if.end52
   %166 = fadd nsz <2 x float> %164, <float -3.600000e+02, float -3.600000e+02>
   %167 = select <2 x i1> %165, <2 x float> %164, <2 x float> %166
   %168 = fadd nsz <2 x float> %158, %167
-  %rot.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %168, i64 0
-  %cmp.i.i39 = fcmp nsz olt float %rot.sroa.0.0.vec.extract.i38, 9.000000e+01
-  br i1 %cmp.i.i39, label %if.then.i.i70, label %if.else.i.i40
+  %rot.sroa.0.0.vec.extract.i39 = extractelement <2 x float> %168, i64 0
+  %cmp.i.i40 = fcmp nsz olt float %rot.sroa.0.0.vec.extract.i39, 9.000000e+01
+  br i1 %cmp.i.i40, label %if.then.i.i71, label %if.else.i.i41
 
-if.then.i.i70:                                    ; preds = %if.then58
-  %cmp3.i.i71 = fcmp nsz ogt float %rot.sroa.0.0.vec.extract.i38, 6.000000e+01
-  br i1 %cmp3.i.i71, label %cleanup.sink.split.i.i67, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72
+if.then.i.i71:                                    ; preds = %if.then58
+  %cmp3.i.i72 = fcmp nsz ogt float %rot.sroa.0.0.vec.extract.i39, 6.000000e+01
+  br i1 %cmp3.i.i72, label %cleanup.sink.split.i.i68, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit73
 
-if.else.i.i40:                                    ; preds = %if.then58
-  %cmp7.i.i41 = fcmp nsz olt float %rot.sroa.0.0.vec.extract.i38, 3.000000e+02
-  br i1 %cmp7.i.i41, label %cleanup.sink.split.i.i67, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72
+if.else.i.i41:                                    ; preds = %if.then58
+  %cmp7.i.i42 = fcmp nsz olt float %rot.sroa.0.0.vec.extract.i39, 3.000000e+02
+  br i1 %cmp7.i.i42, label %cleanup.sink.split.i.i68, label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit73
 
-cleanup.sink.split.i.i67:                         ; preds = %if.else.i.i40, %if.then.i.i70
-  %.sink.i.i68 = phi float [ 6.000000e+01, %if.then.i.i70 ], [ 3.000000e+02, %if.else.i.i40 ]
-  %rot.sroa.0.0.vec.insert.i69 = insertelement <2 x float> %168, float %.sink.i.i68, i64 0
-  br label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72
+cleanup.sink.split.i.i68:                         ; preds = %if.else.i.i41, %if.then.i.i71
+  %.sink.i.i69 = phi float [ 6.000000e+01, %if.then.i.i71 ], [ 3.000000e+02, %if.else.i.i41 ]
+  %rot.sroa.0.0.vec.insert.i70 = insertelement <2 x float> %168, float %.sink.i.i69, i64 0
+  br label %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit73
 
-_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72: ; preds = %if.then.i.i70, %if.else.i.i40, %cleanup.sink.split.i.i67
-  %rot.sroa.0.0.vec.extract16.pre-phi.i42 = phi float [ %rot.sroa.0.0.vec.extract.i38, %if.then.i.i70 ], [ %rot.sroa.0.0.vec.extract.i38, %if.else.i.i40 ], [ %.sink.i.i68, %cleanup.sink.split.i.i67 ]
-  %rot.sroa.0.0.i43 = phi <2 x float> [ %168, %if.then.i.i70 ], [ %168, %if.else.i.i40 ], [ %rot.sroa.0.0.vec.insert.i69, %cleanup.sink.split.i.i67 ]
-  %mul.i.i.i44 = fmul nsz float %rot.sroa.0.0.vec.extract16.pre-phi.i42, 0x3F91DF46A0000000
-  %rot.sroa.0.4.vec.extract.i45 = extractelement <2 x float> %rot.sroa.0.0.i43, i64 1
-  %mul2.i.i.i46 = fmul nsz float %rot.sroa.0.4.vec.extract.i45, 0x3F91DF46A0000000
-  %conv.i.i.i47 = fpext float %mul.i.i.i44 to double
-  %169 = call nsz double @llvm.cos.f64(double %conv.i.i.i47)
-  %170 = call nsz double @llvm.sin.f64(double %conv.i.i.i47)
-  %conv4.i.i.i48 = fpext float %mul2.i.i.i46 to double
-  %171 = call nsz double @llvm.cos.f64(double %conv4.i.i.i48)
-  %172 = call nsz double @llvm.sin.f64(double %conv4.i.i.i48)
+_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit73: ; preds = %if.then.i.i71, %if.else.i.i41, %cleanup.sink.split.i.i68
+  %rot.sroa.0.0.vec.extract16.pre-phi.i43 = phi float [ %rot.sroa.0.0.vec.extract.i39, %if.then.i.i71 ], [ %rot.sroa.0.0.vec.extract.i39, %if.else.i.i41 ], [ %.sink.i.i69, %cleanup.sink.split.i.i68 ]
+  %rot.sroa.0.0.i44 = phi <2 x float> [ %168, %if.then.i.i71 ], [ %168, %if.else.i.i41 ], [ %rot.sroa.0.0.vec.insert.i70, %cleanup.sink.split.i.i68 ]
+  %mul.i.i.i45 = fmul nsz float %rot.sroa.0.0.vec.extract16.pre-phi.i43, 0x3F91DF46A0000000
+  %rot.sroa.0.4.vec.extract.i46 = extractelement <2 x float> %rot.sroa.0.0.i44, i64 1
+  %mul2.i.i.i47 = fmul nsz float %rot.sroa.0.4.vec.extract.i46, 0x3F91DF46A0000000
+  %conv.i.i.i48 = fpext float %mul.i.i.i45 to double
+  %169 = call nsz double @llvm.cos.f64(double %conv.i.i.i48)
+  %170 = call nsz double @llvm.sin.f64(double %conv.i.i.i48)
+  %conv4.i.i.i49 = fpext float %mul2.i.i.i47 to double
+  %171 = call nsz double @llvm.cos.f64(double %conv4.i.i.i49)
+  %172 = call nsz double @llvm.sin.f64(double %conv4.i.i.i49)
   %173 = fptrunc double %172 to float
-  %conv15.i.i.i49 = fneg nsz float %173
-  %mul18.i.i.i50 = fmul nsz double %170, %172
-  %mul19.i.i.i51 = fmul nsz double %169, %172
+  %conv15.i.i.i50 = fneg nsz float %173
+  %mul18.i.i.i51 = fmul nsz double %170, %172
+  %mul19.i.i.i52 = fmul nsz double %169, %172
   %174 = fneg nsz double %169
-  %mul30.i.i.i52 = fmul nsz double %170, %171
-  %conv31.i.i.i53 = fptrunc double %mul30.i.i.i52 to float
+  %mul30.i.i.i53 = fmul nsz double %170, %171
+  %conv31.i.i.i54 = fptrunc double %mul30.i.i.i53 to float
   %175 = fneg nsz double %170
-  %mul45.i.i.i54 = fmul nsz double %169, %171
-  %conv46.i.i.i55 = fptrunc double %mul45.i.i.i54 to float
-  %m_cam_distance.i56 = getelementptr inbounds i8, ptr %this, i64 352
-  %176 = load float, ptr %m_cam_distance.i56, align 8, !tbaa !7
-  %mul28.i.i59 = fmul nsz float %conv31.i.i.i53, 0.000000e+00
-  %177 = call nsz float @llvm.fmuladd.f32(float %conv15.i.i.i49, float 0.000000e+00, float %mul28.i.i59)
-  %178 = call nsz float @llvm.fmuladd.f32(float %176, float %conv46.i.i.i55, float %177)
+  %mul45.i.i.i55 = fmul nsz double %169, %171
+  %conv46.i.i.i56 = fptrunc double %mul45.i.i.i55 to float
+  %m_cam_distance.i57 = getelementptr inbounds i8, ptr %this, i64 352
+  %176 = load float, ptr %m_cam_distance.i57, align 8, !tbaa !7
+  %mul28.i.i60 = fmul nsz float %conv31.i.i.i54, 0.000000e+00
+  %177 = call nsz float @llvm.fmuladd.f32(float %conv15.i.i.i50, float 0.000000e+00, float %mul28.i.i60)
+  %178 = call nsz float @llvm.fmuladd.f32(float %176, float %conv46.i.i.i56, float %177)
   %179 = insertelement <2 x double> poison, double %171, i64 0
   %180 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> zeroinitializer
   %181 = fmul nsz <2 x double> %180, <double 1.000000e+00, double 0.000000e+00>
@@ -1634,14 +1634,14 @@ _ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72: ; preds = %if.th
   %183 = insertelement <2 x double> poison, double %174, i64 0
   %184 = insertelement <2 x double> %183, double %169, i64 1
   %185 = fmul nsz <2 x double> %184, <double 0.000000e+00, double 1.000000e+00>
-  %186 = insertelement <2 x double> poison, double %mul18.i.i.i50, i64 0
+  %186 = insertelement <2 x double> poison, double %mul18.i.i.i51, i64 0
   %187 = shufflevector <2 x double> %186, <2 x double> poison, <2 x i32> zeroinitializer
   %188 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %187, <2 x double> <double 1.000000e+00, double 0.000000e+00>, <2 x double> %185)
   %189 = fptrunc <2 x double> %188 to <2 x float>
   %190 = insertelement <2 x double> poison, double %170, i64 0
   %191 = insertelement <2 x double> %190, double %175, i64 1
   %192 = fmul nsz <2 x double> %191, <double 0.000000e+00, double 1.000000e+00>
-  %193 = insertelement <2 x double> poison, double %mul19.i.i.i51, i64 0
+  %193 = insertelement <2 x double> poison, double %mul19.i.i.i52, i64 0
   %194 = shufflevector <2 x double> %193, <2 x double> poison, <2 x i32> zeroinitializer
   %195 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %194, <2 x double> <double 1.000000e+00, double 0.000000e+00>, <2 x double> %192)
   %196 = fptrunc <2 x double> %195 to <2 x float>
@@ -1653,21 +1653,21 @@ _ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72: ; preds = %if.th
   %202 = load <2 x float>, ptr %m_target_pos.i.i124, align 4, !tbaa !42
   %203 = fadd nsz <2 x float> %202, %201
   store <2 x float> %203, ptr %m_cam_pos.i.i123, align 8, !tbaa !42
-  %add6.i.i62 = fadd nsz float %154, %178
-  store float %add6.i.i62, ptr %Z.i.i.i129, align 8, !tbaa !43
-  %m_cam.i63 = getelementptr inbounds i8, ptr %this, i64 328
-  %204 = load ptr, ptr %m_cam.i63, align 8, !tbaa !44
-  %vtable.i64 = load ptr, ptr %204, align 8, !tbaa !4
-  %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 224
-  %205 = load ptr, ptr %vfn.i65, align 8
+  %add6.i.i63 = fadd nsz float %154, %178
+  store float %add6.i.i63, ptr %Z.i.i.i129, align 8, !tbaa !43
+  %m_cam.i64 = getelementptr inbounds i8, ptr %this, i64 328
+  %204 = load ptr, ptr %m_cam.i64, align 8, !tbaa !44
+  %vtable.i65 = load ptr, ptr %204, align 8, !tbaa !4
+  %vfn.i66 = getelementptr inbounds i8, ptr %vtable.i65, i64 224
+  %205 = load ptr, ptr %vfn.i66, align 8
   call void %205(ptr noundef nonnull align 8 dereferenceable(222) %204, ptr noundef nonnull align 4 dereferenceable(12) %m_cam_pos.i.i123)
-  %m_update_cam.i66 = getelementptr inbounds i8, ptr %this, i64 429
-  store i8 0, ptr %m_update_cam.i66, align 1, !tbaa !94
+  %m_update_cam.i67 = getelementptr inbounds i8, ptr %this, i64 429
+  store i8 0, ptr %m_update_cam.i67, align 1, !tbaa !94
   call void @_ZN8GUIScene19calcOptimalDistanceEv(ptr noundef nonnull align 8 dereferenceable(436) %this)
   store i8 0, ptr %m_initial_rotation, align 1, !tbaa !100
   br label %if.end62
 
-if.end62:                                         ; preds = %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit72, %if.end52
+if.end62:                                         ; preds = %_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE.exit73, %if.end52
   %206 = load ptr, ptr %m_driver, align 8, !tbaa !40
   %vtable64 = load ptr, ptr %206, align 8, !tbaa !4
   %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 328
@@ -3478,18 +3478,18 @@ if.end:                                           ; preds = %for.body, %if.then,
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, i64 %absoluteMovement.coerce) unnamed_addr #3 comdat align 2 {
 entry:
   %absoluteMovement.sroa.2.0.extract.shift = lshr i64 %absoluteMovement.coerce, 32
-  %absoluteMovement.sroa.2.0.extract.trunc = trunc i64 %absoluteMovement.sroa.2.0.extract.shift to i32
+  %absoluteMovement.sroa.2.0.extract.trunc = trunc nuw i64 %absoluteMovement.sroa.2.0.extract.shift to i32
   %DesiredRect = getelementptr inbounds i8, ptr %this, i64 96
   %ret.sroa.0.0.copyload.i = load i64, ptr %DesiredRect, align 8, !tbaa.struct !47
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 104
   %ret.sroa.8.0.copyload.i = load i64, ptr %ret.sroa.8.0.this.sroa_idx.i, align 8, !tbaa.struct !91
   %add.i.i.i = add i64 %ret.sroa.0.0.copyload.i, %absoluteMovement.coerce
   %add4.i.i.i = add nsw i32 %ret.sroa.0.sroa.6.0.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %add.i4.i.i = add i64 %ret.sroa.8.0.copyload.i, %absoluteMovement.coerce
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %ret.sroa.8.12.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %ref.tmp.sroa.0.sroa.0.0.extract.trunc = trunc i64 %add.i.i.i to i32
   %Parent.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3504,9 +3504,9 @@ if.then.i:                                        ; preds = %entry
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !91
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -4580,7 +4580,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %ret.sroa.0.0.copyload.i = load i64, ptr %RelativeRect, align 8, !tbaa.struct !47
   %ret.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %ret.sroa.0.0.copyload.i to i32
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.copyload.i = load i64, ptr %LowerRightCorner.i232, align 8, !tbaa.struct !91
   %add.i.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.0.sroa.0.0.extract.trunc.i
   %add4.i.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.0.sroa.6.0.extract.trunc.i
@@ -4588,7 +4588,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %add.i4.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.8.8.extract.trunc.i
   %ret.sroa.8.8.insert.ext.i = zext i32 %add.i4.i.i to i64
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.8.12.extract.trunc.i
   %ret.sroa.8.12.insert.ext.i = zext i32 %add4.i7.i.i to i64
   %ret.sroa.8.12.insert.shift.i = shl nuw i64 %ret.sroa.8.12.insert.ext.i, 32

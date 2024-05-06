@@ -328,7 +328,7 @@ declare void @g_source_add_child_source(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @g_source_new(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @fd_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture readnone %timeout_) #5 {
+define internal range(i32 0, 2) i32 @fd_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture readnone %timeout_) #5 {
 entry:
   %cond = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load i32, ptr %cond, align 8
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @fd_source_check(ptr nocapture noundef readonly %source) #5 {
+define internal range(i32 0, 2) i32 @fd_source_check(ptr nocapture noundef readonly %source) #5 {
 entry:
   %cond = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load i32, ptr %cond, align 8
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @fd_chr_read(ptr noundef %chan, i32 %cond, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @fd_chr_read(ptr noundef %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #7

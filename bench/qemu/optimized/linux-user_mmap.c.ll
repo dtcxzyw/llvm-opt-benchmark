@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.shmid_ds = type { %struct.ipc_perm, i64, i64, i64, i64, i32, i32, i64, i64, i64 }
 %struct.ipc_perm = type { i32, i32, i32, i32, i32, i32, i16, i16, i64, i64 }
 
-@mmap_lock_count = internal thread_local global i32 0, align 4
+@mmap_lock_count = internal thread_local unnamed_addr global i32 0, align 4
 @mmap_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @.str = private unnamed_addr constant [20 x i8] c"mmap_lock_count > 0\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/linux-user/mmap.c\00", align 1
@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.mmap_find_vma = private unnamed_addr constant [57 x i8] c"abi_ulong mmap_find_vma(abi_ulong, abi_ulong, abi_ulong)\00", align 1
 @task_unmapped_base = dso_local local_unnamed_addr global i64 0, align 8
 @mmap_min_addr = external local_unnamed_addr global i64, align 8
-@thread_cpu = external thread_local global ptr, align 8
+@thread_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [22 x i8] c"h2g_valid(host_start)\00", align 1
 @__PRETTY_FUNCTION__.target_mmap = private unnamed_addr constant [65 x i8] c"abi_long target_mmap(abi_ulong, abi_ulong, int, int, int, off_t)\00", align 1
 @.str.4 = private unnamed_addr constant [9 x i8] c"ret == 0\00", align 1
@@ -1935,7 +1935,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 declare ptr @mremap(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @target_madvise(i64 noundef %start, i64 noundef %len_in, i32 noundef %advice) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @target_madvise(i64 noundef %start, i64 noundef %len_in, i32 noundef %advice) local_unnamed_addr #0 {
 entry:
   %and = and i64 %start, 4095
   %tobool.not = icmp eq i64 %and, 0

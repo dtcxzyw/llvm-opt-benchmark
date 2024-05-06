@@ -211,9 +211,9 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %22 = select i1 %21, double 0x41F0000000000000, double %20
   %23 = fptoui double %22 to i64
   %24 = tail call i64 @llvm.umax.i64(i64 %23, i64 2)
-  %25 = tail call i64 @llvm.ctpop.i64(i64 %24), !range !7
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
   %26 = icmp ult i64 %25, 2
-  %27 = tail call i64 @llvm.ctlz.i64(i64 %24, i1 true), !range !7
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %28 = sub nuw nsw i64 64, %27
   %29 = shl nuw i64 1, %28
   %.0.i.i.i.i = select i1 %26, i64 %24, i64 %29
@@ -233,9 +233,9 @@ memoize_compute_size.exit.i.i:                    ; preds = %8
   %36 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %35, ptr %36, align 8
   %37 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %38 = tail call i64 @llvm.ctpop.i64(i64 %37), !range !7
+  %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
   %39 = icmp ult i64 %38, 2
-  %40 = tail call i64 @llvm.ctlz.i64(i64 %37, i1 true), !range !7
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %37, i1 true)
   %41 = sub nuw nsw i64 64, %40
   %42 = shl nuw i64 1, %41
   %.0.i.i.i.i.i = select i1 %39, i64 %37, i64 %42
@@ -308,7 +308,7 @@ build_hash_table.exit:                            ; preds = %memoize_compute_siz
   store i64 %83, ptr %85, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %prepare_probe_slot.exit.i, label %75, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %prepare_probe_slot.exit.i, label %75, !llvm.loop !7
 
 prepare_probe_slot.exit.i:                        ; preds = %75, %56
   store ptr %70, ptr @CurrentMemoryContext, align 8
@@ -348,9 +348,9 @@ prepare_probe_slot.exit.i:                        ; preds = %75, %56
   %105 = shl i64 %99, 1
   %106 = load ptr, ptr %92, align 8
   %107 = tail call i64 @llvm.umax.i64(i64 %105, i64 2)
-  %108 = tail call i64 @llvm.ctpop.i64(i64 %107), !range !7
+  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
   %109 = icmp ult i64 %108, 2
-  %110 = tail call i64 @llvm.ctlz.i64(i64 %107, i1 true), !range !7
+  %110 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %107, i1 true)
   %111 = sub nuw nsw i64 64, %110
   %112 = shl nuw i64 1, %111
   %.0.i.i.i.i.i.i = select i1 %109, i64 %107, i64 %112
@@ -370,9 +370,9 @@ memoize_compute_size.exit.i.i.i.i:                ; preds = %104
   %118 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i.i, i64 noundef %113, i32 noundef 5) #10
   store ptr %118, ptr %92, align 8
   %119 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i.i, i64 2)
-  %120 = tail call i64 @llvm.ctpop.i64(i64 %119), !range !7
+  %120 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %119)
   %121 = icmp ult i64 %120, 2
-  %122 = tail call i64 @llvm.ctlz.i64(i64 %119, i1 true), !range !7
+  %122 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %119, i1 true)
   %123 = sub nuw nsw i64 64, %122
   %124 = shl nuw i64 1, %123
   %.0.i.i.i.i.i.i.i = select i1 %121, i64 %119, i64 %124
@@ -421,7 +421,7 @@ memoize_update_parameters.exit.i.i.i.i:           ; preds = %memoize_compute_siz
   %145 = add i32 %.058.i.i.i.i, 1
   %146 = zext i32 %145 to i64
   %147 = icmp ugt i64 %99, %146
-  br i1 %147, label %.lr.ph.i.i.i.i, label %.lr.ph66.i.i.i.i.preheader, !llvm.loop !9
+  br i1 %147, label %.lr.ph.i.i.i.i, label %.lr.ph66.i.i.i.i.preheader, !llvm.loop !8
 
 .lr.ph66.i.i.i.i.preheader:                       ; preds = %144, %140, %.lr.ph.i.i.i.i
   %.04963.i.i.i.i.ph = phi i32 [ %.058.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.058.i.i.i.i, %140 ], [ 0, %144 ]
@@ -466,7 +466,7 @@ memoize_update_parameters.exit.i.i.i.i:           ; preds = %memoize_compute_siz
   %166 = add i32 %.164.i.i.i.i, 1
   %167 = zext i32 %166 to i64
   %168 = icmp ugt i64 %99, %167
-  br i1 %168, label %.lr.ph66.i.i.i.i, label %memoize_grow.exit.i.i.i, !llvm.loop !10
+  br i1 %168, label %.lr.ph66.i.i.i.i, label %memoize_grow.exit.i.i.i, !llvm.loop !9
 
 memoize_grow.exit.i.i.i:                          ; preds = %163, %memoize_update_parameters.exit.i.i.i.i
   tail call void @pfree(ptr noundef %106) #10
@@ -590,7 +590,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %189, %187
   %223 = getelementptr %struct.MemoizeEntry, ptr %170, i64 %222
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.08065.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %223, i64 24, i1 false)
   %.not82.i.i.i = icmp eq i32 %221, %.07636.i.i.i
-  br i1 %.not82.i.i.i, label %._crit_edge68.i.i.i, label %.lr.ph67.i.i.i, !llvm.loop !11
+  br i1 %.not82.i.i.i, label %._crit_edge68.i.i.i, label %.lr.ph67.i.i.i, !llvm.loop !10
 
 ._crit_edge68.i.i.i:                              ; preds = %.lr.ph67.i.i.i, %.preheader.i.i.i
   %224 = load i32, ptr %90, align 8
@@ -884,7 +884,7 @@ cache_lookup.exit:                                ; preds = %dlist_push_tail.exi
   tail call void @pfree(ptr noundef nonnull %389) #10
   tail call void @pfree(ptr noundef nonnull %.014.i) #10
   %.not.i88 = icmp eq ptr %388, null
-  br i1 %.not.i88, label %entry_purge_tuples.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i88, label %entry_purge_tuples.exit, label %.lr.ph.i, !llvm.loop !11
 
 entry_purge_tuples.exit:                          ; preds = %.lr.ph.i, %382
   %.011.lcssa.i = phi i64 [ 0, %382 ], [ %393, %.lr.ph.i ]
@@ -1580,7 +1580,7 @@ define internal fastcc void @prepare_probe_slot(ptr nocapture noundef readonly %
   store i64 %32, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %24, %14
   store ptr %19, ptr @CurrentMemoryContext, align 8
@@ -1769,7 +1769,7 @@ memoize_lookup.exit.thread42:                     ; preds = %slot_getallattrs.ex
   %90 = xor i8 %89, %86
   %91 = and i8 %90, 1
   %.not.i = icmp eq i8 %91, 0
-  br i1 %.not.i, label %.lr.ph, label %._crit_edge.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph, label %._crit_edge.i, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %83
   %92 = phi i8 [ %86, %83 ], [ %78, %.lr.ph.i ]
@@ -1801,7 +1801,7 @@ memoize_lookup.exit.thread42:                     ; preds = %slot_getallattrs.ex
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i57, 1
   %113 = icmp uge i64 %indvars.iv.next.i, %76
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %76
-  br i1 %exitcond.i, label %._crit_edge.i, label %83, !llvm.loop !13
+  br i1 %exitcond.i, label %._crit_edge.i, label %83, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %83, %95, %112
   %.lcssa.i = phi i1 [ %113, %112 ], [ %93, %95 ], [ %113, %83 ]
@@ -1907,7 +1907,7 @@ memoize_lookup.exit.thread38:                     ; preds = %._crit_edge.i, %Mem
   call void @pfree(ptr noundef nonnull %155) #10
   call void @pfree(ptr noundef nonnull %.014.i.i) #10
   %.not.i.i = icmp eq ptr %154, null
-  br i1 %.not.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i33, !llvm.loop !12
+  br i1 %.not.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i33, !llvm.loop !11
 
 entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i33, %143
   %.011.lcssa.i.i = phi i64 [ 0, %143 ], [ %159, %.lr.ph.i.i33 ]
@@ -1982,7 +1982,7 @@ remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %191,
   %202 = load i64, ptr %4, align 8
   %203 = load i64, ptr %15, align 8
   %.not32 = icmp ugt i64 %202, %203
-  br i1 %.not32, label %16, label %204, !llvm.loop !14
+  br i1 %.not32, label %16, label %204, !llvm.loop !13
 
 204:                                              ; preds = %remove_cache_entry.exit, %16
   %.127 = phi i64 [ %201, %remove_cache_entry.exit ], [ %.026, %16 ]
@@ -2057,7 +2057,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr nocapture readonly %.40.val) un
   %.1 = phi i32 [ %18, %17 ], [ %37, %23 ]
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count13
-  br i1 %exitcond14.not, label %.loopexit, label %17, !llvm.loop !15
+  br i1 %exitcond14.not, label %.loopexit, label %17, !llvm.loop !14
 
 39:                                               ; preds = %0
   %40 = getelementptr inbounds i8, ptr %.40.val, i64 280
@@ -2099,7 +2099,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr nocapture readonly %.40.val) un
   %.3 = phi i32 [ %48, %47 ], [ %62, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !15
 
 .loopexit:                                        ; preds = %63, %38, %39, %.preheader
   %.4 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.3, %63 ]
@@ -2202,7 +2202,7 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   %53 = xor i8 %52, %49
   %54 = and i8 %53, 1
   %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %.lr.ph8, label %._crit_edge, !llvm.loop !13
+  br i1 %.not, label %.lr.ph8, label %._crit_edge, !llvm.loop !12
 
 .lr.ph8:                                          ; preds = %.lr.ph, %46
   %55 = phi i8 [ %49, %46 ], [ %41, %.lr.ph ]
@@ -2234,7 +2234,7 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
   %76 = icmp uge i64 %indvars.iv.next, %39
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %46, !llvm.loop !13
+  br i1 %exitcond, label %._crit_edge, label %46, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %58, %46, %75, %.lr.ph, %slot_getallattrs.exit39
   %.lcssa = phi i1 [ true, %slot_getallattrs.exit39 ], [ false, %.lr.ph ], [ %76, %75 ], [ %76, %46 ], [ %56, %58 ]
@@ -2321,7 +2321,7 @@ attributes #11 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -2330,4 +2330,3 @@ attributes #11 = { cold nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

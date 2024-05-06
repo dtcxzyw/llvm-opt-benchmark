@@ -3205,7 +3205,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit411.i:     ; preds = %1152, %1149
 
 .noexc351:                                        ; preds = %1193
   %1195 = icmp eq i32 %1194, 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %48, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %48, i8 0, i64 32, i1 false)
   %1196 = getelementptr inbounds i8, ptr %48, i64 32
   store float 1.000000e+00, ptr %1196, align 16
   %1197 = getelementptr inbounds i8, ptr %48, i64 16
@@ -3605,7 +3605,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit415.i:     ; preds = %1355, %1352
   br label %.loopexit463.i
 
 .loopexit463.i:                                   ; preds = %._crit_edge515.i, %1404, %1364
-  %1406 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %213) #18
+  %1406 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %213) #18
   %1407 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 46) #22
   %1408 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %1407) #18
   %1409 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1407, ptr noundef nonnull dereferenceable(1) @.str.218, ptr noundef nonnull %37) #18
@@ -3634,7 +3634,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit415.i:     ; preds = %1355, %1352
   br i1 %1411, label %1422, label %1424
 
 1422:                                             ; preds = %1421
-  %1423 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %213) #18
+  %1423 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %213) #18
   br label %1432
 
 1424:                                             ; preds = %1421

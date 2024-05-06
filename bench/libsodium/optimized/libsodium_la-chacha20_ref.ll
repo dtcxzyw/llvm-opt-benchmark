@@ -83,7 +83,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %shr = lshr i64 %ic, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %conv1 = trunc i64 %ic to i32
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16

@@ -2040,7 +2040,7 @@ define internal void @fat32_ent_set_ptr(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @fat_ent_bread(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @fat_ent_bread(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 272
@@ -2100,7 +2100,7 @@ define internal noundef i32 @fat_ent_bread(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fat32_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 268435456) i32 @fat32_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -2149,7 +2149,7 @@ define internal void @fat32_ent_put(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal i32 @fat32_ent_next(ptr nocapture noundef %0) #6 align 16 {
+define internal range(i32 0, 2) i32 @fat32_ent_next(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2208,7 +2208,7 @@ define internal void @fat16_ent_set_ptr(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fat16_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 268435456) i32 @fat16_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 2
@@ -2245,7 +2245,7 @@ define internal void @fat16_ent_put(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal i32 @fat16_ent_next(ptr nocapture noundef %0) #6 align 16 {
+define internal range(i32 0, 2) i32 @fat16_ent_next(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2378,7 +2378,7 @@ define internal void @fat12_ent_set_ptr(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @fat12_ent_bread(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @fat12_ent_bread(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 872
   %7 = load ptr, ptr %6, align 8
@@ -2518,7 +2518,7 @@ define internal noundef i32 @fat12_ent_bread(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fat12_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 268435456) i32 @fat12_ent_get(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @fat12_entry_lock) #9
   %3 = load i32, ptr %0, align 8
@@ -2624,7 +2624,7 @@ define internal void @fat12_ent_put(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @fat12_ent_next(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @fat12_ent_next(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 16

@@ -177,7 +177,7 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %87 = add nsw i32 %.0254280, 1
   %88 = sext i32 %.0254280 to i64
   %89 = getelementptr inbounds i32, ptr %27, i64 %88
-  %90 = trunc i64 %indvars.iv to i32
+  %90 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %90, ptr %89, align 4
   br label %.critedge
 

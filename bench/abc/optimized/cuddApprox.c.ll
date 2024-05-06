@@ -179,7 +179,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %98 = fmul double %97, %96
   %99 = extractelement <2 x double> %93, i64 0
   %100 = call double @llvm.fmuladd.f64(double %94, double %99, double %98)
-  %101 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
+  %101 = call fastcc i32 @computeSavings(ptr noundef readonly %0, ptr noundef %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %104
 
@@ -229,7 +229,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %133 = load double, ptr %64, align 8
   %134 = fsub double %133, %100
   store double %134, ptr %64, align 8
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
+  call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
   br label %.backedge.i
 
 135:                                              ; preds = %112
@@ -1182,7 +1182,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 32:                                               ; preds = %24
   %33 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 2, i32 noundef 2) #10
-  %34 = tail call fastcc i32 @BAapplyBias(ptr noundef %0, ptr noundef nonnull %21, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %33), !range !12
+  %34 = tail call fastcc i32 @BAapplyBias(ptr noundef %0, ptr noundef nonnull %21, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %33)
   %35 = icmp eq i32 %34, 3
   br i1 %35, label %36, label %47
 
@@ -1328,7 +1328,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .backedge.i:                                      ; preds = %.thread303.thread.i.thread, %414, %410, %403, %398, %384, %381, %.thread310.i, %.thread.i, %110
   %112 = load ptr, ptr %52, align 8
   %.not292.i = icmp eq ptr %112, null
-  br i1 %.not292.i, label %.loopexit, label %85, !llvm.loop !13
+  br i1 %.not292.i, label %.loopexit, label %85, !llvm.loop !12
 
 113:                                              ; preds = %94
   %114 = getelementptr inbounds i8, ptr %90, i64 16
@@ -1906,7 +1906,7 @@ define ptr @Cudd_BiasedOverApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = tail call ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6)
   %14 = load i32, ptr %11, align 8
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %12, label %16, !llvm.loop !14
+  br i1 %15, label %12, label %16, !llvm.loop !13
 
 16:                                               ; preds = %12
   %17 = ptrtoint ptr %13 to i64
@@ -2510,7 +2510,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 declare ptr @cuddHashTableInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @BAapplyBias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -2653,7 +2653,7 @@ define internal fastcc i32 @BAapplyBias(ptr noundef %0, ptr noundef %1, ptr noun
 90:                                               ; preds = %76, %77, %83
   %.064 = phi ptr [ %89, %83 ], [ %81, %77 ], [ %2, %76 ]
   %.063 = phi ptr [ %86, %83 ], [ %79, %77 ], [ %2, %76 ]
-  %91 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %.061, ptr noundef %.063, ptr noundef nonnull %3, ptr noundef %4), !range !12
+  %91 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %.061, ptr noundef %.063, ptr noundef nonnull %3, ptr noundef %4)
   %92 = icmp eq i32 %91, 3
   br i1 %92, label %117, label %93
 
@@ -2661,7 +2661,7 @@ define internal fastcc i32 @BAapplyBias(ptr noundef %0, ptr noundef %1, ptr noun
   %94 = ptrtoint ptr %.062 to i64
   %95 = and i64 %94, -2
   %96 = inttoptr i64 %95 to ptr
-  %97 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %.064, ptr noundef nonnull %3, ptr noundef %4), !range !12
+  %97 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %.064, ptr noundef nonnull %3, ptr noundef %4)
   %98 = icmp eq i32 %97, 3
   br i1 %98, label %117, label %99
 
@@ -2988,7 +2988,7 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 .backedge:                                        ; preds = %47, %51
   %50 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.loopexit, label %36, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %36, !llvm.loop !14
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %26, align 8
@@ -3054,7 +3054,7 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 .outer:                                           ; preds = %91, %76
   %95 = load ptr, ptr %4, align 8
   %.not59 = icmp eq ptr %95, null
-  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.outer, %84, %65, %.backedge, %25, %21
   %.045 = phi i32 [ 0, %21 ], [ 0, %25 ], [ %.0.ph62, %.backedge ], [ %60, %.outer ], [ 0, %84 ], [ 0, %65 ]
@@ -3143,7 +3143,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not55, label %58, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %51, %93, %78
-  br label %.outer, !llvm.loop !16
+  br label %.outer, !llvm.loop !15
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %43, i64 16
@@ -3261,8 +3261,7 @@ attributes #11 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -128, i32 128}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

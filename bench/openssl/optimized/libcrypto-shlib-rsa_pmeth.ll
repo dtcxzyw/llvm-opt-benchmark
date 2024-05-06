@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_init(ptr nocapture noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_init(ptr nocapture noundef %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 64) #8
   %cmp = icmp eq ptr %call, null
@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 64) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -318,7 +318,7 @@ return:                                           ; preds = %if.then27, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %sltmp = alloca i32, align 4
   %sltmp48 = alloca i32, align 4
@@ -387,7 +387,7 @@ if.then28:                                        ; preds = %if.then23
   br label %return
 
 if.end29:                                         ; preds = %if.then23
-  %call30 = tail call fastcc i32 @setup_tbuf(ptr noundef nonnull %0, ptr noundef nonnull %ctx), !range !4
+  %call30 = tail call fastcc i32 @setup_tbuf(ptr noundef nonnull %0, ptr noundef nonnull %ctx)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %if.end33
 
@@ -527,7 +527,7 @@ if.end12:                                         ; preds = %if.end
   ]
 
 if.then16:                                        ; preds = %if.end12
-  %call17 = call i32 @pkey_rsa_verifyrecover(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull %rslen, ptr noundef %sig, i64 noundef %siglen), !range !5
+  %call17 = call i32 @pkey_rsa_verifyrecover(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull %rslen, ptr noundef %sig, i64 noundef %siglen)
   %cmp18 = icmp slt i32 %call17, 1
   br i1 %cmp18, label %return, label %if.then16.if.end59_crit_edge
 
@@ -615,7 +615,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_verifyrecover(ptr nocapture noundef readonly %ctx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, ptr noundef %sig, i64 noundef %siglen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_verifyrecover(ptr nocapture noundef readonly %ctx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, ptr noundef %sig, i64 noundef %siglen) #1 {
 entry:
   %sltmp = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.end49, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_encrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_encrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -879,18 +879,18 @@ if.end23:                                         ; preds = %if.end20, %if.end8
   %conv24 = sext i32 %ret.0 to i64
   %shr.neg.i = ashr i64 %conv24, 63
   %12 = load i64, ptr %outlen, align 8
-  %13 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shr.neg.i) #9, !srcloc !6
+  %13 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shr.neg.i) #9, !srcloc !4
   %and.i = and i64 %13, %12
   %not.i = xor i64 %shr.neg.i, -1
-  %14 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i) #9, !srcloc !6
+  %14 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i) #9, !srcloc !4
   %and2.i = and i64 %14, %conv24
   %or.i = or i64 %and2.i, %and.i
   store i64 %or.i, ptr %outlen, align 8
   %shr.neg.i27 = ashr i32 %ret.0, 31
-  %15 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i27) #9, !srcloc !7
+  %15 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i27) #9, !srcloc !5
   %and.i.i = and i32 %15, %ret.0
   %not.i.i = xor i32 %shr.neg.i27, -1
-  %16 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #9, !srcloc !7
+  %16 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #9, !srcloc !5
   %and2.i.i = and i32 %16, 1
   %or.i.i = or i32 %and2.i.i, %and.i.i
   br label %return
@@ -940,7 +940,7 @@ sw.bb:                                            ; preds = %entry
 if.then:                                          ; preds = %sw.bb
   %md = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %md, align 8
-  %call = tail call fastcc i32 @check_padding_md(ptr noundef %2, i32 noundef %p1), !range !4
+  %call = tail call fastcc i32 @check_padding_md(ptr noundef %2, i32 noundef %p1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1162,7 +1162,7 @@ if.else98:                                        ; preds = %if.end94
 sw.bb101:                                         ; preds = %entry
   %pad_mode102 = getelementptr inbounds i8, ptr %0, i64 28
   %19 = load i32, ptr %pad_mode102, align 4
-  %call103 = tail call fastcc i32 @check_padding_md(ptr noundef %p2, i32 noundef %19), !range !4
+  %call103 = tail call fastcc i32 @check_padding_md(ptr noundef %p2, i32 noundef %19)
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %return, label %if.end106
 
@@ -1608,7 +1608,7 @@ declare i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef, ptr noundef, i32 noundef, p
 declare i32 @RSA_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
 entry:
   %tbuf = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %tbuf, align 8
@@ -1662,7 +1662,7 @@ declare i32 @RSA_private_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_padding_md(ptr noundef %md, i32 noundef %padding) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_padding_md(ptr noundef %md, i32 noundef %padding) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %md, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1746,7 +1746,7 @@ declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_pss_init(ptr nocapture noundef readonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_pss_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
   %md = alloca ptr, align 8
   %mgf1md = alloca ptr, align 8
@@ -1839,7 +1839,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -2147483648, i32 2}
-!6 = !{i64 69085}
-!7 = !{i64 68313}
+!4 = !{i64 69085}
+!5 = !{i64 68313}

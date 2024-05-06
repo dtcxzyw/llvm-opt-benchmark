@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_fsgnj_qP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fsgnj_qP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -203,7 +203,7 @@ define noundef i64 @_Z18fast_rv64i_fsgnj_qP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_fsgnj_qP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fsgnj_qP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -301,8 +301,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %53 = shl i64 %2, 32
   %54 = add i64 %53, 17179869184
   %55 = ashr exact i64 %54, 32
-  %.0.i.i22 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.sroa.04.0.copyload, ptr %.0.i.i22, align 8
+  %.0.i.i24 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %.sroa.04.0.copyload, ptr %.0.i.i24, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %52, ptr %.sroa.3.0..sroa_idx, align 8
   %56 = getelementptr inbounds [32 x %struct.float128_t], ptr %16, i64 0, i64 %24
@@ -412,8 +412,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %51 = and i64 %.sroa.25.0.copyload, 9223372036854775807
   %52 = or disjoint i64 %50, %51
   %53 = add i64 %2, 4
-  %.0.i.i22 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.sroa.04.0.copyload, ptr %.0.i.i22, align 8
+  %.0.i.i24 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %.sroa.04.0.copyload, ptr %.0.i.i24, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %52, ptr %.sroa.3.0..sroa_idx, align 8
   %54 = getelementptr inbounds [32 x %struct.float128_t], ptr %16, i64 0, i64 %24
@@ -427,7 +427,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_fsgnj_qP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fsgnj_qP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -535,7 +535,7 @@ define noundef i64 @_Z18fast_rv64e_fsgnj_qP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_fsgnj_qP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fsgnj_qP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -633,8 +633,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %53 = shl i64 %2, 32
   %54 = add i64 %53, 17179869184
   %55 = ashr exact i64 %54, 32
-  %.0.i.i22 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.sroa.04.0.copyload, ptr %.0.i.i22, align 8
+  %.0.i.i24 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %.sroa.04.0.copyload, ptr %.0.i.i24, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %52, ptr %.sroa.3.0..sroa_idx, align 8
   %56 = getelementptr inbounds [32 x %struct.float128_t], ptr %16, i64 0, i64 %24
@@ -744,8 +744,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %51 = and i64 %.sroa.25.0.copyload, 9223372036854775807
   %52 = or disjoint i64 %50, %51
   %53 = add i64 %2, 4
-  %.0.i.i22 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.sroa.04.0.copyload, ptr %.0.i.i22, align 8
+  %.0.i.i24 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %.sroa.04.0.copyload, ptr %.0.i.i24, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %52, ptr %.sroa.3.0..sroa_idx, align 8
   %54 = getelementptr inbounds [32 x %struct.float128_t], ptr %16, i64 0, i64 %24

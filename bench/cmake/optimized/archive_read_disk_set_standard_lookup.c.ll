@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [29 x i8] c"Can't lookup group for id %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_standard_lookup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_standard_lookup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(2072) ptr @malloc(i64 noundef 2072) #9
   %3 = tail call noalias dereferenceable_or_null(2072) ptr @malloc(i64 noundef 2072) #9
   %4 = icmp eq ptr %2, null

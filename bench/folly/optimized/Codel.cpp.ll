@@ -166,7 +166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
+define range(i64 0, -1) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %mul.i = shl nsw i64 %delay.coerce, 1
   ret i64 %mul.i
@@ -175,7 +175,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5folly5Codel7getLoadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 101) i32 @_ZN5folly5Codel7getLoadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %interval_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %interval_.i monotonic, align 8

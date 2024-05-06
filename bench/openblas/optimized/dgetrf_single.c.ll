@@ -134,7 +134,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr nocapture readnone %1, ptr noundef
   %101 = phi i64 [ %109, %.preheader ], [ 0, %.preheader10 ]
   %102 = sub nsw i64 %59, %101
   %103 = call i64 @llvm.smin.i64(i64 %102, i64 192)
-  %104 = mul nsw i64 %101, %59
+  %104 = mul nuw nsw i64 %101, %59
   %105 = getelementptr inbounds double, ptr %4, i64 %104
   %106 = add i64 %101, %95
   %107 = getelementptr inbounds double, ptr %30, i64 %106

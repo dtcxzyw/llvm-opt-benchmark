@@ -1212,7 +1212,7 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr nocapture noundef readonly %0, i64 
   %.090128 = phi i64 [ 0, %.lr.ph130 ], [ %73, %.loopexit ]
   %9 = getelementptr inbounds ptr, ptr %0, i64 %.090128
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr double, ptr %10, i64 %.090128
+  %11 = getelementptr inbounds double, ptr %10, i64 %.090128
   %12 = load double, ptr %11, align 8
   store double 1.000000e+00, ptr %4, align 8
   %13 = sub nsw i64 %1, %.090128
@@ -1222,7 +1222,7 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr nocapture noundef readonly %0, i64 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.091101 = phi i64 [ %18, %.lr.ph ], [ 1, %8 ]
   %.092100 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %8 ]
-  %gep = getelementptr double, ptr %11, i64 %.091101
+  %gep = getelementptr inbounds double, ptr %11, i64 %.091101
   %15 = load double, ptr %gep, align 8
   %16 = getelementptr inbounds double, ptr %4, i64 %.091101
   store double %15, ptr %16, align 8
@@ -1284,13 +1284,13 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr nocapture noundef readonly %0, i64 
   %.0120 = phi i64 [ %.090128, %.lr.ph122 ], [ %66, %._crit_edge119 ]
   %48 = getelementptr inbounds ptr, ptr %0, i64 %.0120
   %49 = load ptr, ptr %48, align 8
-  %invariant.gep106 = getelementptr double, ptr %49, i64 %.090128
+  %invariant.gep106 = getelementptr inbounds double, ptr %49, i64 %.090128
   br i1 %45, label %.lr.ph111, label %._crit_edge119
 
 .lr.ph111:                                        ; preds = %47, %.lr.ph111
   %.2109 = phi i64 [ %54, %.lr.ph111 ], [ 0, %47 ]
   %.193108 = phi double [ %53, %.lr.ph111 ], [ 0.000000e+00, %47 ]
-  %gep107 = getelementptr double, ptr %invariant.gep106, i64 %.2109
+  %gep107 = getelementptr inbounds double, ptr %invariant.gep106, i64 %.2109
   %50 = load double, ptr %gep107, align 8
   %51 = getelementptr inbounds double, ptr %4, i64 %.2109
   %52 = load double, ptr %51, align 8
@@ -1312,7 +1312,7 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr nocapture noundef readonly %0, i64 
   %.3116 = phi i64 [ 0, %.lr.ph118 ], [ %64, %59 ]
   %60 = getelementptr inbounds double, ptr %4, i64 %.3116
   %61 = load double, ptr %60, align 8
-  %gep115 = getelementptr double, ptr %invariant.gep106, i64 %.3116
+  %gep115 = getelementptr inbounds double, ptr %invariant.gep106, i64 %.3116
   %62 = load double, ptr %gep115, align 8
   %63 = tail call double @llvm.fmuladd.f64(double %58, double %61, double %62)
   store double %63, ptr %gep115, align 8
@@ -1334,7 +1334,7 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr nocapture noundef readonly %0, i64 
   %.4126 = phi i64 [ %71, %.lr.ph127 ], [ 1, %._crit_edge123 ]
   %69 = getelementptr inbounds double, ptr %4, i64 %.4126
   %70 = load double, ptr %69, align 8
-  %gep125 = getelementptr double, ptr %11, i64 %.4126
+  %gep125 = getelementptr inbounds double, ptr %11, i64 %.4126
   store double %70, ptr %gep125, align 8
   %71 = add nuw nsw i64 %.4126, 1
   %72 = icmp slt i64 %71, %13

@@ -638,7 +638,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %224 = fmul reassoc nsz arcp contract afn <4 x float> %221, %223
   %225 = fadd reassoc nsz arcp contract afn <4 x float> %220, %224
   store <4 x float> %225, ptr %6, align 16, !tbaa !13
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %181, ptr noundef nonnull %180, i32 noundef %211)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly %181, ptr noundef nonnull readonly %180, i32 noundef %211)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
   %226 = load float, ptr %7, align 16, !tbaa !13
   br label %dt_ioppr_uncompensate_middle_grey.exit
@@ -692,7 +692,7 @@ dt_ioppr_uncompensate_middle_grey.exit:           ; preds = %210, %227
   %263 = fmul reassoc nsz arcp contract afn <4 x float> %260, %262
   %264 = fadd reassoc nsz arcp contract afn <4 x float> %259, %263
   store <4 x float> %264, ptr %4, align 16, !tbaa !13
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %181, ptr noundef nonnull %180, i32 noundef %250)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %181, ptr noundef nonnull readonly %180, i32 noundef %250)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
   %265 = load float, ptr %5, align 16, !tbaa !13
   br label %dt_ioppr_uncompensate_middle_grey.exit12
@@ -3768,7 +3768,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_button_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 680
   %6 = load ptr, ptr %5, align 8, !tbaa !29
@@ -4806,7 +4806,7 @@ define internal noundef i32 @_area_leave_notify_callback(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca double, align 8
   %5 = alloca %struct._cairo_rectangle_int, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 680
@@ -4937,7 +4937,7 @@ define internal noundef i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_key_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !21
   %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !67
@@ -7239,7 +7239,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !222
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

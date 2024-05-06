@@ -389,7 +389,7 @@ invoke.cont5:
   %first.i = getelementptr inbounds i8, ptr %centerCallback, i64 8
   store i8 1, ptr %first.i, align 8
   %ref.i = getelementptr inbounds i8, ptr %centerCallback, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.i, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %ref.i, i8 0, i64 36, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   store <4 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0.000000e+00>, ptr %aabbMax, align 16
   %m_stridingMesh = getelementptr inbounds i8, ptr %this, i64 120
@@ -440,7 +440,7 @@ invoke.cont17:                                    ; preds = %cond.false.i, %cond
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i64 0, i32 0, i64 2), ptr %inertiaCallback, align 8
   %sum.i13 = getelementptr inbounds i8, ptr %inertiaCallback, i64 8
   %center10.i = getelementptr inbounds i8, ptr %inertiaCallback, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)
   store <2 x float> %retval.sroa.0.0.i, ptr %center10.i, align 8
   %center.sroa.3.0.center10.i.sroa_idx = getelementptr inbounds i8, ptr %inertiaCallback, i64 64
   store <2 x float> %retval.sroa.3.0.i, ptr %center.sroa.3.0.center10.i.sroa_idx, align 8
@@ -1047,16 +1047,16 @@ entry:
   br label %for.cond12.preheader
 
 for.cond12.preheader:                             ; preds = %entry, %for.inc88
-  %indvars.iv91 = phi i64 [ 0, %entry ], [ %indvars.iv.next92, %for.inc88 ]
-  %indvars.iv89 = phi i64 [ 1, %entry ], [ %indvars.iv.next90, %for.inc88 ]
-  %arrayidx16 = getelementptr inbounds float, ptr %a, i64 %indvars.iv91
+  %indvars.iv95 = phi i64 [ 0, %entry ], [ %indvars.iv.next96, %for.inc88 ]
+  %indvars.iv93 = phi i64 [ 1, %entry ], [ %indvars.iv.next94, %for.inc88 ]
+  %arrayidx16 = getelementptr inbounds float, ptr %a, i64 %indvars.iv95
   %29 = load float, ptr %arrayidx16, align 4
-  %arrayidx23 = getelementptr inbounds float, ptr %b, i64 %indvars.iv91
+  %arrayidx23 = getelementptr inbounds float, ptr %b, i64 %indvars.iv95
   %30 = load float, ptr %arrayidx23, align 4
-  %arrayidx30 = getelementptr inbounds float, ptr %c, i64 %indvars.iv91
+  %arrayidx30 = getelementptr inbounds float, ptr %c, i64 %indvars.iv95
   %31 = load float, ptr %arrayidx30, align 4
-  %invariant.gep = getelementptr inbounds float, ptr %i, i64 %indvars.iv91
-  %arrayidx.i58 = getelementptr inbounds [3 x %class.btVector3], ptr %i, i64 0, i64 %indvars.iv91
+  %invariant.gep = getelementptr inbounds float, ptr %i, i64 %indvars.iv95
+  %arrayidx.i58 = getelementptr inbounds [3 x %class.btVector3], ptr %i, i64 0, i64 %indvars.iv95
   br label %for.body14
 
 for.body14:                                       ; preds = %for.cond12.preheader, %for.body14
@@ -1084,23 +1084,23 @@ for.body14:                                       ; preds = %for.cond12.preheade
   %arrayidx87 = getelementptr inbounds float, ptr %arrayidx.i58, i64 %indvars.iv
   store float %mul79, ptr %arrayidx87, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv89
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv93
   br i1 %exitcond.not, label %for.inc88, label %for.body14, !llvm.loop !12
 
 for.inc88:                                        ; preds = %for.body14
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next92, 3
-  br i1 %exitcond96.not, label %for.end90, label %for.cond12.preheader, !llvm.loop !13
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next96, 3
+  br i1 %exitcond100.not, label %for.end90, label %for.cond12.preheader, !llvm.loop !13
 
 for.end90:                                        ; preds = %for.inc88
   %43 = load float, ptr %i, align 4
   %fneg94 = fneg float %43
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %i, i64 16
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %i, i64 16
   %arrayidx97 = getelementptr inbounds i8, ptr %i, i64 20
   %44 = load float, ptr %arrayidx97, align 4
   %fneg98 = fneg float %44
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %i, i64 32
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %i, i64 32
   %arrayidx101 = getelementptr inbounds i8, ptr %i, i64 40
   %45 = load float, ptr %arrayidx101, align 4
   %fneg102 = fneg float %45
@@ -1108,8 +1108,8 @@ for.end90:                                        ; preds = %for.inc88
   %add106 = fsub float %fneg94, %45
   %add110 = fsub float %fneg98, %43
   %sum = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx5.i63 = getelementptr inbounds i8, ptr %i, i64 4
-  %46 = load float, ptr %arrayidx5.i63, align 4
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %i, i64 4
+  %46 = load float, ptr %arrayidx5.i67, align 4
   %47 = load <2 x float>, ptr %sum, align 8
   %48 = insertelement <2 x float> poison, float %add, i64 0
   %49 = insertelement <2 x float> %48, float %46, i64 1
@@ -1117,32 +1117,32 @@ for.end90:                                        ; preds = %for.inc88
   store <2 x float> %50, ptr %sum, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %i, i64 8
   %51 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %52 = load float, ptr %arrayidx12.i65, align 8
+  %arrayidx12.i69 = getelementptr inbounds i8, ptr %this, i64 16
+  %52 = load float, ptr %arrayidx12.i69, align 8
   %add13.i = fadd float %51, %52
-  store float %add13.i, ptr %arrayidx12.i65, align 8
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %this, i64 24
-  %53 = load <4 x float>, ptr %arrayidx.i59, align 4
+  store float %add13.i, ptr %arrayidx12.i69, align 8
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %this, i64 24
+  %53 = load <4 x float>, ptr %arrayidx.i60, align 4
   %54 = shufflevector <4 x float> %53, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %55 = load <2 x float>, ptr %arrayidx.i67, align 8
+  %55 = load <2 x float>, ptr %arrayidx.i71, align 8
   %56 = insertelement <2 x float> %54, float %add106, i64 1
   %57 = fadd <2 x float> %56, %55
-  store <2 x float> %57, ptr %arrayidx.i67, align 8
-  %arrayidx10.i72 = getelementptr inbounds i8, ptr %i, i64 24
-  %58 = load float, ptr %arrayidx10.i72, align 4
-  %arrayidx12.i73 = getelementptr inbounds i8, ptr %this, i64 32
-  %59 = load float, ptr %arrayidx12.i73, align 8
-  %add13.i74 = fadd float %58, %59
-  store float %add13.i74, ptr %arrayidx12.i73, align 8
-  %arrayidx.i76 = getelementptr inbounds i8, ptr %this, i64 40
-  %60 = load <2 x float>, ptr %arrayidx.i60, align 4
-  %61 = load <2 x float>, ptr %arrayidx.i76, align 8
+  store <2 x float> %57, ptr %arrayidx.i71, align 8
+  %arrayidx10.i76 = getelementptr inbounds i8, ptr %i, i64 24
+  %58 = load float, ptr %arrayidx10.i76, align 4
+  %arrayidx12.i77 = getelementptr inbounds i8, ptr %this, i64 32
+  %59 = load float, ptr %arrayidx12.i77, align 8
+  %add13.i78 = fadd float %58, %59
+  store float %add13.i78, ptr %arrayidx12.i77, align 8
+  %arrayidx.i80 = getelementptr inbounds i8, ptr %this, i64 40
+  %60 = load <2 x float>, ptr %arrayidx.i61, align 4
+  %61 = load <2 x float>, ptr %arrayidx.i80, align 8
   %62 = fadd <2 x float> %60, %61
-  store <2 x float> %62, ptr %arrayidx.i76, align 8
-  %arrayidx12.i82 = getelementptr inbounds i8, ptr %this, i64 48
-  %63 = load float, ptr %arrayidx12.i82, align 8
-  %add13.i83 = fadd float %add110, %63
-  store float %add13.i83, ptr %arrayidx12.i82, align 8
+  store <2 x float> %62, ptr %arrayidx.i80, align 8
+  %arrayidx12.i86 = getelementptr inbounds i8, ptr %this, i64 48
+  %63 = load float, ptr %arrayidx12.i86, align 8
+  %add13.i87 = fadd float %add110, %63
+  store float %add13.i87, ptr %arrayidx12.i86, align 8
   ret void
 }
 

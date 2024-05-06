@@ -383,7 +383,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   store i8 0, ptr %8, align 1, !annotation !5
   %21 = icmp sgt i32 %4, 1
   %22 = select i1 %21, i32 15000, i32 30000
-  %23 = trunc i32 %3 to i16
+  %23 = trunc nuw nsw i32 %3 to i16
   %24 = call i32 @ata_timing_compute(ptr noundef %1, i16 noundef zeroext %23, ptr noundef nonnull %6, i32 noundef 30000, i32 noundef %22) #8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %27
@@ -496,7 +496,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
 
 102:                                              ; preds = %63
   %103 = call i16 @llvm.umax.i16(i16 %100, i16 1)
-  %104 = trunc i16 %103 to i8
+  %104 = trunc nuw nsw i16 %103 to i8
   %105 = add nsw i8 %104, -1
   br label %106
 
@@ -523,7 +523,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
 
 116:                                              ; preds = %114
   %117 = call i16 @llvm.umax.i16(i16 %111, i16 2)
-  %118 = trunc i16 %117 to i8
+  %118 = trunc nuw nsw i16 %117 to i8
   %119 = add nuw nsw i8 %118, 62
   %120 = or i8 %119, -64
   br label %121
@@ -699,7 +699,7 @@ define internal void @amd100_set_dmamode(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @amd_cable_detect(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 14776
   %4 = load ptr, ptr %3, align 8

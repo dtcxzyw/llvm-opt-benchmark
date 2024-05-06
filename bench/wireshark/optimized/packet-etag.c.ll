@@ -114,13 +114,13 @@ define internal i32 @dissect_etag(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %17 = shl i64 %6, 4
   %18 = and i64 %17, 1044480
   %19 = or disjoint i64 %16, %18
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = lshr i64 %6, 16
   %22 = and i64 %21, 4095
   %23 = shl i64 %6, 12
   %.masked = and i64 %23, 1044480
   %24 = or disjoint i64 %22, %.masked
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.38, i64 noundef %6, i32 noundef %20, i32 noundef %25) #2
   br label %26
 

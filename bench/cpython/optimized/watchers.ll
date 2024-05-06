@@ -97,7 +97,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.clear_func_watcher = private unnamed_addr constant [53 x i8] c"PyObject *clear_func_watcher(PyObject *, PyObject *)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Watchers(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Watchers(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #6
   %cmp = icmp slt i32 %call, 0
@@ -877,7 +877,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %call to i32
+  %conv = trunc nsw i64 %call to i32
   %call2 = tail call i32 @PyFunction_ClearWatcher(i32 noundef %conv) #6
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %return, label %for.body
@@ -1060,7 +1060,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_watch_callback_second(i32 %event, ptr nocapture readnone %dict, ptr nocapture readnone %key, ptr nocapture readnone %new_value) #0 {
+define internal range(i32 -1, 1) i32 @dict_watch_callback_second(i32 %event, ptr nocapture readnone %dict, ptr nocapture readnone %key, ptr nocapture readnone %new_value) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.28) #6
   %cmp = icmp eq ptr %call, null
@@ -1102,7 +1102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dict_watch_callback(i32 noundef %event, ptr nocapture readnone %dict, ptr noundef %key, ptr noundef %new_value) #0 {
+define internal range(i32 -1, 1) i32 @dict_watch_callback(i32 noundef %event, ptr nocapture readnone %dict, ptr noundef %key, ptr noundef %new_value) #0 {
 entry:
   switch i32 %event, label %sw.default [
     i32 4, label %sw.bb
@@ -1225,7 +1225,7 @@ declare i32 @PyDict_Unwatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @type_modified_callback_wrap(ptr noundef %type) #0 {
+define internal range(i32 -1, 1) i32 @type_modified_callback_wrap(ptr noundef %type) #0 {
 entry:
   %0 = load ptr, ptr @g_type_modified_events, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -1308,7 +1308,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @type_modified_callback(ptr noundef %type) #0 {
+define internal range(i32 -1, 1) i32 @type_modified_callback(ptr noundef %type) #0 {
 entry:
   %0 = load ptr, ptr @g_type_modified_events, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -1338,7 +1338,7 @@ declare i32 @PyType_Unwatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyCode_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @first_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
+define internal range(i32 -1, 1) i32 @first_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
   switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
@@ -1361,7 +1361,7 @@ handle_code_object_event.exit:                    ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @second_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
+define internal range(i32 -1, 1) i32 @second_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
   switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
@@ -1411,23 +1411,23 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 declare i32 @PyFunction_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @first_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
+define internal range(i32 -1, 1) i32 @first_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
 entry:
   %0 = load ptr, ptr @pyfunc_watchers, align 16
-  %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value), !range !12
+  %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @second_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
+define internal range(i32 -1, 1) i32 @second_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @pyfunc_watchers, i64 0, i64 1), align 8
-  %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value), !range !12
+  %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @call_pyfunc_watcher(ptr noundef %watcher, i32 noundef %event, ptr noundef %func, ptr noundef %new_value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_pyfunc_watcher(ptr noundef %watcher, i32 noundef %event, ptr noundef %func, ptr noundef %new_value) unnamed_addr #0 {
 entry:
   %stack.i = alloca [1 x ptr], align 8
   %stack = alloca [3 x ptr], align 16
@@ -1681,4 +1681,3 @@ attributes #7 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -1, i32 1}

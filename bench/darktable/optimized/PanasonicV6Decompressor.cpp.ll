@@ -198,7 +198,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
   br label %102
 
 74:                                               ; preds = %51
-  %75 = trunc i64 %56 to i32
+  %75 = trunc nuw i64 %56 to i32
   %76 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %66, i32 %75)
   %77 = extractvalue { i32, i1 } %76, 1
   br i1 %77, label %85, label %78
@@ -564,7 +564,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %43 = getelementptr inbounds i8, ptr %6, i64 48
   %44 = load i32, ptr %43, align 8, !tbaa !124, !noalias !119
   %45 = ashr i32 %44, 1
-  %46 = mul nsw i32 %45, %42
+  %46 = mul nuw nsw i32 %45, %42
   %47 = icmp sgt i32 %40, -1
   tail call void @llvm.assume(i1 %47)
   %48 = icmp sgt i32 %42, -1
@@ -630,7 +630,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %88 = insertelement <2 x i32> poison, i32 %83, i64 0
   %89 = shufflevector <2 x i32> %88, <2 x i32> poison, <2 x i32> zeroinitializer
   %90 = lshr <2 x i32> %89, <i32 24, i32 16>
-  %91 = trunc <2 x i32> %90 to <2 x i16>
+  %91 = trunc nuw <2 x i32> %90 to <2 x i16>
   %92 = and <2 x i16> %91, <i16 3, i16 255>
   store <2 x i16> %92, ptr %57, align 2, !tbaa !125
   %93 = getelementptr inbounds i8, ptr %82, i64 4
@@ -638,7 +638,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %95 = shl i32 %94, 6
   %96 = and i32 %95, 192
   %97 = or disjoint i32 %96, %87
-  %98 = trunc i32 %97 to i16
+  %98 = trunc nuw nsw i32 %97 to i16
   store i16 %98, ptr %58, align 2, !tbaa !125
   %99 = lshr i32 %94, 10
   %100 = trunc i32 %94 to i16
@@ -648,7 +648,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %104 = insertelement <2 x i32> poison, i32 %94, i64 0
   %105 = shufflevector <2 x i32> %104, <2 x i32> poison, <2 x i32> zeroinitializer
   %106 = lshr <2 x i32> %105, <i32 20, i32 18>
-  %107 = trunc <2 x i32> %106 to <2 x i16>
+  %107 = trunc nuw <2 x i32> %106 to <2 x i16>
   %108 = shufflevector <2 x i16> %107, <2 x i16> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %109 = insertelement <4 x i16> %108, i16 %102, i64 2
   %110 = insertelement <4 x i16> %109, i16 %101, i64 3
@@ -659,7 +659,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %114 = shl i32 %113, 4
   %115 = and i32 %114, 240
   %116 = or disjoint i32 %115, %103
-  %117 = trunc i32 %116 to i16
+  %117 = trunc nuw nsw i32 %116 to i16
   store i16 %117, ptr %60, align 2, !tbaa !125
   %118 = trunc i32 %113 to i16
   %119 = lshr i16 %118, 4
@@ -679,7 +679,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %132 = shl i32 %131, 2
   %133 = and i32 %132, 252
   %134 = or disjoint i32 %133, %130
-  %135 = trunc i32 %134 to i16
+  %135 = trunc nuw nsw i32 %134 to i16
   store i16 %135, ptr %62, align 2, !tbaa !125
   %136 = lshr i32 %131, 8
   %137 = trunc i32 %131 to i16
@@ -690,7 +690,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %141 = trunc i32 %136 to i16
   %142 = and i16 %141, 4095
   store i16 %142, ptr %64, align 2, !tbaa !125
-  %143 = trunc i32 %140 to i16
+  %143 = trunc nuw nsw i32 %140 to i16
   store i16 %143, ptr %3, align 2, !tbaa !125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store i64 0, ptr %4, align 8
@@ -878,7 +878,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %43 = getelementptr inbounds i8, ptr %6, i64 48
   %44 = load i32, ptr %43, align 8, !tbaa !124, !noalias !132
   %45 = ashr i32 %44, 1
-  %46 = mul nsw i32 %45, %42
+  %46 = mul nuw nsw i32 %45, %42
   %47 = icmp sgt i32 %40, -1
   tail call void @llvm.assume(i1 %47)
   %48 = icmp sgt i32 %42, -1
@@ -950,7 +950,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %94 = shl i32 %93, 8
   %95 = and i32 %94, 768
   %96 = or disjoint i32 %95, %89
-  %97 = trunc i32 %96 to i16
+  %97 = trunc nuw nsw i32 %96 to i16
   store i16 %97, ptr %57, align 2, !tbaa !125
   %98 = trunc i32 %93 to i16
   %99 = lshr i32 %93, 14
@@ -968,7 +968,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %109 = shl i32 %108, 8
   %110 = and i32 %109, 768
   %111 = or disjoint i32 %110, %104
-  %112 = trunc i32 %111 to i16
+  %112 = trunc nuw nsw i32 %111 to i16
   store i16 %112, ptr %60, align 2, !tbaa !125
   %113 = trunc i32 %108 to i16
   %114 = lshr i32 %108, 14
@@ -986,7 +986,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %124 = shl i32 %123, 8
   %125 = and i32 %124, 768
   %126 = or disjoint i32 %125, %122
-  %127 = trunc i32 %126 to i16
+  %127 = trunc nuw nsw i32 %126 to i16
   store i16 %127, ptr %63, align 2, !tbaa !125
   %128 = lshr i32 %123, 4
   %129 = trunc i32 %123 to i16
@@ -997,7 +997,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %133 = trunc i32 %128 to i16
   %134 = and i16 %133, 16383
   store i16 %134, ptr %65, align 2, !tbaa !125
-  %135 = trunc i32 %132 to i16
+  %135 = trunc nuw nsw i32 %132 to i16
   store i16 %135, ptr %3, align 2, !tbaa !125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store i64 0, ptr %4, align 8

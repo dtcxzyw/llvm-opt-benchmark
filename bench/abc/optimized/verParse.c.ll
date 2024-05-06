@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [9 x i8] c" \09\0A\0D(),;\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ver_ParseSkipComments(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseSkipComments(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @Ver_StreamSkipChars(ptr noundef %3, ptr noundef nonnull @.str) #4
@@ -95,7 +95,7 @@ define ptr @Ver_ParseGetName(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %0), !range !6
+  %7 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %0)
   %.not25 = icmp eq i32 %7, 0
   br i1 %.not25, label %31, label %8
 
@@ -127,7 +127,7 @@ define ptr @Ver_ParseGetName(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %20, ptr %.030, align 1
   %22 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %3) #4
   %.not26 = icmp eq i8 %22, 93
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.0.lcssa = phi ptr [ %18, %16 ], [ %21, %.lr.ph ]
@@ -147,7 +147,7 @@ define ptr @Ver_ParseGetName(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i32 @Ver_ParseSkipComments(ptr noundef %0), !range !6
+  %29 = tail call i32 @Ver_ParseSkipComments(ptr noundef %0)
   %.not28 = icmp eq i32 %29, 0
   br i1 %.not28, label %31, label %30
 
@@ -182,5 +182,4 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

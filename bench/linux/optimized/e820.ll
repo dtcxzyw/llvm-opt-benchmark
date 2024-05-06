@@ -523,7 +523,7 @@ define internal fastcc void @e820_print_type(i32 noundef %0) unnamed_addr #3 sec
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @e820__update_table(ptr noundef %0) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0) local_unnamed_addr #3 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4
   %4 = icmp ult i32 %3, 2
@@ -764,7 +764,7 @@ define dso_local noundef i32 @e820__update_table(ptr noundef %0) local_unnamed_a
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, inaccessiblemem: none)
-define internal i32 @cpcompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 section ".init.text" align 16 {
+define internal range(i32 -1, 2) i32 @cpcompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 section ".init.text" align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1058,7 +1058,7 @@ define dso_local void @e820__setup_pci_gap() local_unnamed_addr #3 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i32 @e820_search_gap(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @e820_search_gap(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #9 section ".init.text" align 16 {
   %3 = load ptr, ptr @e820_table, align 8
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -1172,7 +1172,7 @@ define dso_local void @e820__memory_setup_extended(i64 noundef %0, i32 noundef %
   %6 = load i32, ptr %5, align 4
   %7 = udiv i32 %6, 20
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = tail call fastcc i32 @__append_e820_table(ptr noundef %8, i32 noundef %7) #15, !range !23
+  %9 = tail call fastcc i32 @__append_e820_table(ptr noundef %8, i32 noundef %7) #15
   %10 = load ptr, ptr @e820_table, align 8
   %11 = tail call i32 @e820__update_table(ptr noundef %10) #15, !range !23
   %12 = load ptr, ptr @e820_table_kexec, align 8
@@ -1190,7 +1190,7 @@ define dso_local void @e820__memory_setup_extended(i64 noundef %0, i32 noundef %
 declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @__append_e820_table(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread, label %.lr.ph
 
@@ -1344,7 +1344,7 @@ define dso_local i64 @e820__memblock_alloc_reserved(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i64 @e820__end_of_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i64 0, 1099511627777) i64 @e820__end_of_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #17
           to label %2 [label %2, label %1], !srcloc !36
 
@@ -1353,12 +1353,12 @@ define dso_local noundef i64 @e820__end_of_ram_pfn() local_unnamed_addr #3 secti
 
 2:                                                ; preds = %1, %0, %0
   %3 = phi i64 [ 17179869184, %1 ], [ 1099511627776, %0 ], [ 1099511627776, %0 ]
-  %4 = tail call fastcc i64 @e820_end_pfn(i64 noundef %3) #15, !range !37
+  %4 = tail call fastcc i64 @e820_end_pfn(i64 noundef %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #17
           to label %3 [label %3, label %2], !srcloc !36
 
@@ -1408,7 +1408,7 @@ define internal fastcc noundef i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3
   %31 = phi i64 [ %29, %28 ], [ %12, %10 ], [ %12, %18 ]
   %32 = add nuw i32 %11, 1
   %33 = icmp eq i32 %32, %6
-  br i1 %33, label %.thread, label %10, !llvm.loop !38
+  br i1 %33, label %.thread, label %10, !llvm.loop !37
 
 .thread:                                          ; preds = %26, %30, %3
   %34 = phi i64 [ 0, %3 ], [ %0, %26 ], [ %31, %30 ]
@@ -1418,13 +1418,13 @@ define internal fastcc noundef i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i64 @e820__end_of_low_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = tail call fastcc i64 @e820_end_pfn(i64 noundef 1048576) #15, !range !37
+define dso_local noundef range(i64 0, 1099511627777) i64 @e820__end_of_low_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
+  %1 = tail call fastcc i64 @e820_end_pfn(i64 noundef 1048576) #15
   ret i64 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @parse_memopt(ptr noundef %0) #3 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @parse_memopt(ptr noundef %0) #3 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -1475,7 +1475,7 @@ define internal noundef i32 @parse_memmap_opt(ptr noundef %0) #3 section ".init.
   store i8 0, ptr %4, align 1
   tail call fastcc void @parse_memmap_one(ptr noundef nonnull %3) #15
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %6, %.thread, %1
   ret i32 0
@@ -1560,7 +1560,7 @@ define dso_local void @e820__reserve_setup_data() local_unnamed_addr #3 section 
   %50 = zext i32 %48 to i64
   tail call void @early_memunmap(ptr noundef nonnull %49, i64 noundef %50) #17
   %51 = icmp eq i64 %9, 0
-  br i1 %51, label %52, label %.preheader, !llvm.loop !40
+  br i1 %51, label %52, label %.preheader, !llvm.loop !39
 
 52:                                               ; preds = %.thread
   %53 = load ptr, ptr @e820_table, align 8
@@ -1686,7 +1686,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   %51 = load ptr, ptr @e820_table, align 8
   %52 = load i32, ptr %51, align 4
   %53 = icmp ult i32 %50, %52
-  br i1 %53, label %.preheader4, label %.loopexit5, !llvm.loop !41
+  br i1 %53, label %.preheader4, label %.loopexit5, !llvm.loop !40
 
 .preheader:                                       ; preds = %.loopexit5, %.preheader
   %54 = phi ptr [ %67, %.preheader ], [ %16, %.loopexit5 ]
@@ -1706,7 +1706,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   %67 = load ptr, ptr @e820_table_firmware, align 8
   %68 = load i32, ptr %67, align 4
   %69 = icmp ult i32 %66, %68
-  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !42
+  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit5
   ret void
@@ -1759,7 +1759,7 @@ define internal fastcc noundef nonnull ptr @e820_type_to_string(i32 %.16.val) un
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(none)
-define internal fastcc noundef i64 @e820_type_to_iores_desc(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc noundef range(i64 0, 9) i64 @e820_type_to_iores_desc(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
   switch i32 %.16.val, label %6 [
     i32 3, label %7
     i32 4, label %1
@@ -1841,7 +1841,7 @@ define dso_local void @e820__reserve_resources_late() local_unnamed_addr #3 sect
   %23 = getelementptr i8, ptr %11, i64 64
   %24 = add nuw i32 %10, 1
   %25 = icmp ult i32 %24, %21
-  br i1 %25, label %7, label %.loopexit4, !llvm.loop !43
+  br i1 %25, label %7, label %.loopexit4, !llvm.loop !42
 
 .preheader:                                       ; preds = %.loopexit4, %49
   %26 = phi i32 [ %50, %49 ], [ %21, %.loopexit4 ]
@@ -1881,7 +1881,7 @@ define dso_local void @e820__reserve_resources_late() local_unnamed_addr #3 sect
   %51 = phi ptr [ %.pre6, %47 ], [ %27, %35 ], [ %27, %.preheader ]
   %52 = add nuw i32 %28, 1
   %53 = icmp ult i32 %52, %50
-  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !44
+  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %49, %0, %.loopexit4
   ret void
@@ -1901,7 +1901,7 @@ define dso_local nonnull ptr @e820__memory_setup_default() local_unnamed_addr #3
 
 3:                                                ; preds = %0
   %4 = zext i8 %1 to i32
-  %5 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 31), i32 noundef %4) #15, !range !23
+  %5 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 31), i32 noundef %4) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %31
 
@@ -2010,7 +2010,7 @@ define dso_local void @e820__memblock_setup() local_unnamed_addr #3 section ".in
   %25 = load ptr, ptr @e820_table, align 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %24, %26
-  br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !45
+  br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %23, %0
   tail call void @memblock_trim_memory(i64 noundef 4096) #17
@@ -2267,7 +2267,7 @@ attributes #19 = { cold noreturn nounwind }
 !34 = distinct !{!34, !6, !7}
 !35 = distinct !{!35, !6, !7}
 !36 = !{i64 2149449398, i64 2149449431, i64 2149449437, i64 2149449453, i64 2149449472, i64 2149449503, i64 2149450456, i64 2149449045, i64 2149450462, i64 2149450510, i64 2149450574, i64 2149450638, i64 2149450695, i64 2149450902, i64 2149450950, i64 2149451014, i64 2149451078, i64 2149451135, i64 2149449163, i64 2149449188, i64 2149451345, i64 2149451473, i64 2149451406, i64 2149451487, i64 2149451501, i64 2149451617, i64 2149451562, i64 2149451631, i64 2149449322, i64 1963819, i64 1963859, i64 1963868, i64 1963918, i64 1963939, i64 1963959}
-!37 = !{i64 0, i64 1099511627777}
+!37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
 !39 = distinct !{!39, !6, !7}
 !40 = distinct !{!40, !6, !7}
@@ -2275,4 +2275,3 @@ attributes #19 = { cold noreturn nounwind }
 !42 = distinct !{!42, !6, !7}
 !43 = distinct !{!43, !6, !7}
 !44 = distinct !{!44, !6, !7}
-!45 = distinct !{!45, !6, !7}

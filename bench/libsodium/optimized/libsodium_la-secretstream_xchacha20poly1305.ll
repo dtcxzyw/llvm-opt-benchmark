@@ -197,7 +197,7 @@ declare void @sodium_increment(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_secretstream_xchacha20poly1305_pull(ptr noundef nonnull %state, ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef writeonly %tag_p, ptr noundef %in, i64 noundef %inlen, ptr noundef %ad, i64 noundef %adlen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_secretstream_xchacha20poly1305_pull(ptr noundef nonnull %state, ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef writeonly %tag_p, ptr noundef %in, i64 noundef %inlen, ptr noundef %ad, i64 noundef %adlen) local_unnamed_addr #0 {
 entry:
   %new_key_and_inonce.i = alloca [40 x i8], align 16
   %poly1305_state = alloca %struct.crypto_onetimeauth_poly1305_state, align 16

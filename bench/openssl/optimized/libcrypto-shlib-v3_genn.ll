@@ -407,7 +407,7 @@ return:                                           ; preds = %if.end, %return.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GENERAL_NAME_set0_othername(ptr nocapture noundef writeonly %gen, ptr noundef %oid, ptr noundef %value) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GENERAL_NAME_set0_othername(ptr nocapture noundef writeonly %gen, ptr noundef %oid, ptr noundef %value) local_unnamed_addr #1 {
 entry:
   %call1.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @OTHERNAME_it.local_it) #6
   %cmp = icmp eq ptr %call1.i, null
@@ -432,7 +432,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @GENERAL_NAME_get0_otherName(ptr nocapture noundef readonly %gen, ptr noundef writeonly %poid, ptr noundef writeonly %pvalue) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @GENERAL_NAME_get0_otherName(ptr nocapture noundef readonly %gen, ptr noundef writeonly %poid, ptr noundef writeonly %pvalue) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %gen, align 8
   %cmp.not = icmp eq i32 %0, 0

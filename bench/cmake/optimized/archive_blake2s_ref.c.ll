@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -38,14 +38,14 @@ define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @blake2s_init(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.blake2s_param__], align 16
   %4 = add i64 %1, -33
   %or.cond = icmp ult i64 %4, -32
   br i1 %or.cond, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc i64 %1 to i8
+  %6 = trunc nuw nsw i64 %1 to i8
   store i8 %6, ptr %3, align 16
   %7 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %7, align 1
@@ -56,8 +56,8 @@ define dso_local noundef i32 @blake2s_init(ptr nocapture noundef %0, i64 noundef
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %12
 
 12:                                               ; preds = %12, %5
@@ -87,7 +87,7 @@ blake2s_init_param.exit:                          ; preds = %12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @blake2s_init_key(ptr nocapture noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [64 x i8], align 16
   %7 = add i64 %1, -33
@@ -102,9 +102,9 @@ define dso_local noundef i32 @blake2s_init_key(ptr nocapture noundef %0, i64 nou
   br i1 %or.cond5, label %65, label %12
 
 12:                                               ; preds = %8
-  %13 = trunc i64 %1 to i8
+  %13 = trunc nuw nsw i64 %1 to i8
   store i8 %13, ptr %5, align 16
-  %14 = trunc i64 %3 to i8
+  %14 = trunc nuw nsw i64 %3 to i8
   %15 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %5, i64 2
@@ -114,8 +114,8 @@ define dso_local noundef i32 @blake2s_init_key(ptr nocapture noundef %0, i64 nou
   %18 = getelementptr inbounds i8, ptr %5, i64 4
   %19 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %19, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %19, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %20
 
 20:                                               ; preds = %20, %12
@@ -150,7 +150,7 @@ blake2s_init_param.exit:                          ; preds = %20
   store i64 0, ptr %33, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 48
   %39 = getelementptr inbounds i8, ptr %38, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 16 %6, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 16 %6, i64 %35, i1 false)
   %40 = load i32, ptr %19, align 8
   %41 = add i32 %40, 64
   store i32 %41, ptr %19, align 8
@@ -1592,7 +1592,7 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @blake2s_final(ptr nocapture noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr nocapture noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = icmp eq ptr %1, null
@@ -1660,7 +1660,7 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
   %42 = getelementptr inbounds i8, ptr %33, i64 2
   store i8 %41, ptr %42, align 2
   %43 = lshr i32 %35, 24
-  %44 = trunc i32 %43 to i8
+  %44 = trunc nuw i32 %43 to i8
   %45 = getelementptr inbounds i8, ptr %33, i64 3
   store i8 %44, ptr %45, align 1
   %46 = add nuw nsw i64 %.023, 1
@@ -1679,7 +1679,7 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @blake2s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [1 x %struct.blake2s_param__], align 16
   %9 = alloca [1 x %struct.blake2s_state__], align 16
@@ -1705,13 +1705,13 @@ define dso_local noundef i32 @blake2s(ptr noundef writeonly %0, i64 noundef %1, 
   br i1 %15, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = call i32 @blake2s_init_key(ptr noundef nonnull %9, i64 noundef %1, ptr noundef %4, i64 noundef %5), !range !10
+  %20 = call i32 @blake2s_init_key(ptr noundef nonnull %9, i64 noundef %1, ptr noundef %4, i64 noundef %5)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %116, label %38
 
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %23 = trunc i64 %1 to i8
+  %23 = trunc nuw nsw i64 %1 to i8
   store i8 %23, ptr %8, align 16
   %24 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 0, ptr %24, align 1
@@ -1722,8 +1722,8 @@ define dso_local noundef i32 @blake2s(ptr noundef writeonly %0, i64 noundef %1, 
   %27 = getelementptr inbounds i8, ptr %8, i64 4
   %28 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %29
 
 29:                                               ; preds = %29, %22
@@ -1760,7 +1760,7 @@ blake2s_init.exit:                                ; preds = %29
   store i64 0, ptr %40, align 16
   %45 = getelementptr inbounds i8, ptr %9, i64 48
   %46 = getelementptr inbounds i8, ptr %45, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %2, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %2, i64 %42, i1 false)
   %47 = getelementptr inbounds i8, ptr %9, i64 32
   %48 = load i32, ptr %47, align 16
   %49 = add i32 %48, 64
@@ -1870,7 +1870,7 @@ blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
   %108 = getelementptr inbounds i8, ptr %99, i64 2
   store i8 %107, ptr %108, align 2
   %109 = lshr i32 %101, 24
-  %110 = trunc i32 %109 to i8
+  %110 = trunc nuw i32 %109 to i8
   %111 = getelementptr inbounds i8, ptr %99, i64 3
   store i8 %110, ptr %111, align 1
   %112 = add nuw nsw i64 %.023.i, 1
@@ -1878,7 +1878,7 @@ blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
   br i1 %exitcond.not.i, label %113, label %97, !llvm.loop !9
 
 113:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
   %114 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
   %115 = call ptr %114(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #8
   br label %blake2s_final.exit
@@ -1926,4 +1926,3 @@ attributes #8 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}

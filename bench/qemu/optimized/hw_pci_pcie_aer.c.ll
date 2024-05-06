@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [12 x i8] c"HL_OVERFLOW\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @pcie_aer_init(ptr noundef %dev, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @pcie_aer_init(ptr noundef %dev, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 1, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) #13
   %aer_cap = getelementptr inbounds i8, ptr %dev, i64 2172
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @pcie_aer_inject_error(ptr noundef %dev, ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -38, 1) i32 @pcie_aer_inject_error(ptr noundef %dev, ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
 entry:
   %header_log_overflow = alloca %struct.PCIEAERErr, align 4
   %0 = load i32, ptr %err, align 4
@@ -248,7 +248,7 @@ if.end:                                           ; preds = %entry
   %and3 = and i32 %0, 61889
   %and4 = and i32 %0, 67104816
   %error_status.0 = select i1 %tobool1.not, i32 %and4, i32 %and3
-  %4 = tail call i32 @llvm.ctpop.i32(i32 %error_status.0), !range !5
+  %4 = tail call range(i32 0, 21) i32 @llvm.ctpop.i32(i32 %error_status.0)
   %or.cond = icmp eq i32 %4, 1
   br i1 %or.cond, label %if.end10, label %return
 
@@ -411,7 +411,7 @@ if.else.i.i:                                      ; preds = %if.then28.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then28.i
-  %18 = tail call i32 @llvm.ctpop.i32(i32 %17), !range !6
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
   %tobool6.not.i.i = icmp ult i32 %18, 2
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.else8.i.i
 
@@ -445,14 +445,14 @@ aer_log_add_err.exit.i.i:                         ; preds = %if.then16.i.i
   %21 = load ptr, ptr %log.i.i.i, align 8
   %idxprom.i.i.i = zext i16 %19 to i64
   %arrayidx.i.i.i = getelementptr %struct.PCIEAERErr, ptr %21, i64 %idxprom.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %err, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %err, i64 40, i1 false)
   %22 = load i16, ptr %aer_log.i.i, align 8
   %inc.i.i.i = add i16 %22, 1
   store i16 %inc.i.i.i, ptr %aer_log.i.i, align 8
   br label %if.end33.i
 
 if.end22.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end9.i.i
-  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull %err)
+  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull readonly %err)
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then16.i.i, %aer_log_add_err.exit.i.i, %if.end22.i.i, %if.end20.i51
@@ -522,7 +522,7 @@ if.else.i.i114:                                   ; preds = %if.end28.i
   unreachable
 
 if.end.i.i84:                                     ; preds = %if.end28.i
-  %33 = tail call i32 @llvm.ctpop.i32(i32 %32), !range !6
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
   %tobool6.not.i.i85 = icmp ult i32 %33, 2
   br i1 %tobool6.not.i.i85, label %if.end9.i.i87, label %if.else8.i.i86
 
@@ -556,14 +556,14 @@ aer_log_add_err.exit.i.i100:                      ; preds = %if.then16.i.i96
   %36 = load ptr, ptr %log.i.i.i101, align 8
   %idxprom.i.i.i102 = zext i16 %34 to i64
   %arrayidx.i.i.i103 = getelementptr %struct.PCIEAERErr, ptr %36, i64 %idxprom.i.i.i102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i103, ptr noundef nonnull align 4 dereferenceable(40) %err, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i103, ptr noundef nonnull readonly align 4 dereferenceable(40) %err, i64 40, i1 false)
   %37 = load i16, ptr %aer_log.i.i97, align 8
   %inc.i.i.i104 = add i16 %37, 1
   store i16 %inc.i.i.i104, ptr %aer_log.i.i97, align 8
   br label %pcie_aer_record_error.exit.i105
 
 if.end22.i.i113:                                  ; preds = %land.lhs.true.i.i90, %if.end9.i.i87
-  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull %err)
+  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull readonly %err)
   br label %pcie_aer_record_error.exit.i105
 
 pcie_aer_record_error.exit.i105:                  ; preds = %if.end22.i.i113, %aer_log_add_err.exit.i.i100, %if.then16.i.i96
@@ -844,7 +844,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
   %call23.i = tail call ptr @pci_bridge_get_device(ptr noundef %call.i1.i.i) #13
   %tobool.not.i = icmp eq ptr %call23.i, null
-  br i1 %tobool.not.i, label %pcie_aer_msg.exit, label %while.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %pcie_aer_msg.exit, label %while.body.i, !llvm.loop !5
 
 pcie_aer_msg.exit:                                ; preds = %while.body.i, %pcie_aer_msg_vbridge.exit.i, %land.lhs.true22.i.i, %pcie_aer_msg_alldev.exit.i, %if.end21.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then.i.i.i, %if.then3.i.i.i, %if.else5.i.i.i, %if.then7.i.i.i
   br i1 %inj.sroa.46.5, label %if.then84, label %return
@@ -855,7 +855,7 @@ if.then84:                                        ; preds = %pcie_aer_msg.exit
   store i32 32768, ptr %header_log_overflow, align 4
   %61 = getelementptr inbounds i8, ptr %header_log_overflow, i64 6
   store i16 1, ptr %61, align 2
-  %call85 = call i32 @pcie_aer_inject_error(ptr noundef %dev, ptr noundef nonnull %header_log_overflow), !range !9
+  %call85 = call i32 @pcie_aer_inject_error(ptr noundef %dev, ptr noundef nonnull %header_log_overflow)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %return, label %if.else88
 
@@ -928,7 +928,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %5 = load i16, ptr %aer_log4.i, align 8
   %6 = zext i16 %5 to i64
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %6
-  br i1 %cmp.i.i, label %for.body.i.i, label %pcie_aer_update_uncor_status.exit.i, !llvm.loop !10
+  br i1 %cmp.i.i, label %for.body.i.i, label %pcie_aer_update_uncor_status.exit.i, !llvm.loop !7
 
 pcie_aer_update_uncor_status.exit.i:              ; preds = %for.body.i.i
   %tobool.not.i.i = icmp eq i16 %5, 0
@@ -940,7 +940,7 @@ if.else.i.i:                                      ; preds = %pcie_aer_update_unc
 
 aer_log_del_err.exit.i:                           ; preds = %pcie_aer_update_uncor_status.exit.i
   %7 = load ptr, ptr %log.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %err.i, ptr noundef nonnull align 4 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %err.i, ptr noundef nonnull align 4 dereferenceable(40) %7, i64 40, i1 false)
   %dec.i.i = add i16 %5, -1
   store i16 %dec.i.i, ptr %aer_log4.i, align 8
   %arrayidx5.i.i = getelementptr i8, ptr %7, i64 40
@@ -981,7 +981,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %11 = load i16, ptr %aer_log, align 8
   %12 = zext i16 %11 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %12
-  br i1 %cmp.i, label %for.body.i, label %if.end11, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %if.end11, !llvm.loop !7
 
 if.else9:                                         ; preds = %if.else
   store i16 0, ptr %aer_log, align 8
@@ -1138,14 +1138,14 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @pcie_aer_parse_error_string(ptr nocapture noundef readonly %error_name, ptr nocapture noundef writeonly %status, ptr nocapture noundef writeonly %correctable) local_unnamed_addr #7 {
+define dso_local range(i32 -22, 1) i32 @pcie_aer_parse_error_string(ptr nocapture noundef readonly %error_name, ptr nocapture noundef writeonly %status, ptr nocapture noundef writeonly %correctable) local_unnamed_addr #7 {
 entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -1190,7 +1190,7 @@ entry:
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
   %2 = load i32, ptr %err, align 4
-  %3 = tail call i32 @llvm.cttz.i32(i32 %2, i1 false), !range !6
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 false)
   %add.ptr3 = getelementptr i8, ptr %add.ptr, i64 24
   %add.ptr3.val = load i32, ptr %add.ptr3, align 1
   %tobool.not = icmp eq i32 %2, 0
@@ -1201,7 +1201,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %4 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !6
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %tobool8.not = icmp ult i32 %4, 2
   br i1 %tobool8.not, label %if.end11, label %if.else10
 
@@ -1235,7 +1235,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i32 %7, ptr %add.ptr23, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %if.end33, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %if.end33, label %for.body, !llvm.loop !9
 
 if.else24:                                        ; preds = %if.end11
   %and27 = and i32 %conv15, 8
@@ -1283,7 +1283,7 @@ for.body52:                                       ; preds = %for.cond48.preheade
   store i32 %13, ptr %add.ptr56, align 1
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 4
-  br i1 %exitcond33.not, label %for.end61, label %for.body52, !llvm.loop !13
+  br i1 %exitcond33.not, label %for.end61, label %for.body52, !llvm.loop !10
 
 for.end61:                                        ; preds = %for.body52
   %or62 = or disjoint i32 %or, 2048
@@ -1353,12 +1353,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 21}
-!6 = !{i32 0, i32 33}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -38, i32 1}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

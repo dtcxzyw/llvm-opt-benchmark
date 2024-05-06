@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_thermal_acpi
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_active_trip_temp317, ptr @__UNIQUE_ID___addressable_acpi_critical_trip_temp320, ptr @__UNIQUE_ID___addressable_acpi_hot_trip_temp319, ptr @__UNIQUE_ID___addressable_acpi_passive_trip_temp318, ptr @__UNIQUE_ID___addressable_thermal_acpi_active_trip_temp321, ptr @__UNIQUE_ID___addressable_thermal_acpi_critical_trip_temp324, ptr @__UNIQUE_ID___addressable_thermal_acpi_hot_trip_temp323, ptr @__UNIQUE_ID___addressable_thermal_acpi_passive_trip_temp322], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_active_trip_temp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @acpi_active_trip_temp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #3
@@ -80,7 +80,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_passive_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @acpi_passive_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5
@@ -106,7 +106,7 @@ define dso_local noundef i32 @acpi_passive_trip_temp(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_hot_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @acpi_hot_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5
@@ -132,7 +132,7 @@ define dso_local noundef i32 @acpi_hot_trip_temp(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_critical_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @acpi_critical_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5
@@ -158,7 +158,7 @@ define dso_local noundef i32 @acpi_critical_trip_temp(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_acpi_active_trip_temp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -61, 1) i32 @thermal_acpi_active_trip_temp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #3
@@ -211,7 +211,7 @@ define dso_local noundef i32 @thermal_acpi_active_trip_temp(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_acpi_passive_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @thermal_acpi_passive_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5
@@ -241,7 +241,7 @@ define dso_local noundef i32 @thermal_acpi_passive_trip_temp(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_acpi_hot_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @thermal_acpi_hot_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5
@@ -271,7 +271,7 @@ define dso_local noundef i32 @thermal_acpi_hot_trip_temp(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_acpi_critical_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @thermal_acpi_critical_trip_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
   store i64 0, ptr %3, align 8, !annotation !5

@@ -1519,7 +1519,7 @@ for.body.i:                                       ; preds = %if.then25, %for.inc
 
 if.then.i51:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i32 32, %rem4.i
-  %arrayidx16.i = getelementptr i8, ptr %arrayidx6.i, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %13 = load i32, ptr %arrayidx16.i, align 4
   %not18.i = ashr i32 -1024, %sub.i
   %and19.i = and i32 %13, %not18.i
@@ -1859,7 +1859,7 @@ for.body.i:                                       ; preds = %if.then24, %for.inc
 
 if.then.i:                                        ; preds = %for.body.i
   %sub.i = sub nuw nsw i32 32, %rem4.i
-  %arrayidx16.i = getelementptr i8, ptr %arrayidx6.i, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %10 = load i32, ptr %arrayidx16.i, align 4
   %not18.i = ashr i32 -1024, %sub.i
   %and19.i = and i32 %10, %not18.i
@@ -2257,7 +2257,7 @@ for.body.i:                                       ; preds = %if.then25, %for.inc
 
 if.then.i45:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i32 32, %rem4.i
-  %arrayidx16.i = getelementptr i8, ptr %arrayidx6.i, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %12 = load i32, ptr %arrayidx16.i, align 4
   %not18.i = ashr i32 -4096, %sub.i
   %and19.i = and i32 %12, %not18.i
@@ -2472,7 +2472,7 @@ for.body.i:                                       ; preds = %if.then24, %for.inc
 
 if.then.i:                                        ; preds = %for.body.i
   %sub.i = sub nuw nsw i32 32, %rem4.i
-  %arrayidx16.i = getelementptr i8, ptr %arrayidx6.i, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %9 = load i32, ptr %arrayidx16.i, align 4
   %not18.i = ashr i32 -4096, %sub.i
   %and19.i = and i32 %9, %not18.i

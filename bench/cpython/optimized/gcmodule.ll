@@ -957,7 +957,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.44 = private unnamed_addr constant [20 x i8] c"DEBUG_UNCOLLECTABLE\00", align 1
 @.str.45 = private unnamed_addr constant [14 x i8] c"DEBUG_SAVEALL\00", align 1
 @.str.46 = private unnamed_addr constant [11 x i8] c"DEBUG_LEAK\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.47 = private unnamed_addr constant [6 x i8] c"start\00", align 1
 @.str.48 = private unnamed_addr constant [33 x i8] c"gc: collecting generation %d...\0A\00", align 1
 @.str.49 = private unnamed_addr constant [12 x i8] c"collectable\00", align 1
@@ -2541,7 +2541,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_IS_GC(ptr noundef %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyObject_IS_GC(ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -2704,7 +2704,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %7, i64 1044
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
   %8 = load i32, ptr %count.i.i, align 4
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %count.i.i, align 4
@@ -2843,7 +2843,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %8, i64 1044
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
   %9 = load i32, ptr %count.i.i, align 4
   %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %count.i.i, align 4
@@ -2974,7 +2974,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %7, i64 1044
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr.i.i.i, i8 0, i64 16, i1 false)
   %8 = load i32, ptr %count.i.i, align 4
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %count.i.i, align 4
@@ -3183,7 +3183,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_GC_IsTracked(ptr noundef %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyObject_GC_IsTracked(ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3219,7 +3219,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_GC_IsFinalized(ptr noundef %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyObject_GC_IsFinalized(ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -4241,7 +4241,7 @@ declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef i32 @referrersvisit(ptr noundef readnone %obj, ptr nocapture noundef readonly %arg) #11 {
+define internal range(i32 0, 2) i32 @referrersvisit(ptr noundef readnone %obj, ptr nocapture noundef readonly %arg) #11 {
 entry:
   %ob_item = getelementptr inbounds i8, ptr %arg, i64 24
   %0 = getelementptr i8, ptr %arg, i64 16
@@ -4267,7 +4267,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @referentsvisit(ptr noundef %obj, ptr noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @referentsvisit(ptr noundef %obj, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyList_Append(ptr noundef %arg, ptr noundef %obj) #15
   %call.lobit = lshr i32 %call, 31
@@ -4275,7 +4275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gcmodule_exec(ptr noundef %module) #1 {
+define internal range(i32 -1, 1) i32 @gcmodule_exec(ptr noundef %module) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

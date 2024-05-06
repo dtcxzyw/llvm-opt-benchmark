@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [13 x i8] c"ASN1_SET_ANY\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_OCTET_STRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_OCTET_STRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_OCTET_STRING_it.local_it
 }
@@ -106,7 +106,7 @@ entry:
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_INTEGER_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_INTEGER_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_INTEGER_it.local_it
 }
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_ENUMERATED_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_ENUMERATED_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_ENUMERATED_it.local_it
 }
@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_BIT_STRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_BIT_STRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_BIT_STRING_it.local_it
 }
@@ -208,7 +208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_UTF8STRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_UTF8STRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_UTF8STRING_it.local_it
 }
@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_PRINTABLESTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_PRINTABLESTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_PRINTABLESTRING_it.local_it
 }
@@ -276,7 +276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_T61STRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_T61STRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_T61STRING_it.local_it
 }
@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_IA5STRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_IA5STRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_IA5STRING_it.local_it
 }
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_GENERALSTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_GENERALSTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_GENERALSTRING_it.local_it
 }
@@ -378,7 +378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_UTCTIME_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_UTCTIME_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_UTCTIME_it.local_it
 }
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_GENERALIZEDTIME_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_GENERALIZEDTIME_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_GENERALIZEDTIME_it.local_it
 }
@@ -446,7 +446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_VISIBLESTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_VISIBLESTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_VISIBLESTRING_it.local_it
 }
@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_UNIVERSALSTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_UNIVERSALSTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_UNIVERSALSTRING_it.local_it
 }
@@ -514,7 +514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_BMPSTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_BMPSTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_BMPSTRING_it.local_it
 }
@@ -548,7 +548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_NULL_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_NULL_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_NULL_it.local_it
 }
@@ -586,19 +586,19 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_OBJECT_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_OBJECT_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_OBJECT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_ANY_it() #0 {
+define noundef nonnull ptr @ASN1_ANY_it() #0 {
 entry:
   ret ptr @ASN1_ANY_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_SEQUENCE_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_SEQUENCE_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_SEQUENCE_it.local_it
 }
@@ -632,7 +632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_PRINTABLE_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_PRINTABLE_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_PRINTABLE_it.local_it
 }
@@ -666,7 +666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DISPLAYTEXT_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @DISPLAYTEXT_it() local_unnamed_addr #0 {
 entry:
   ret ptr @DISPLAYTEXT_it.local_it
 }
@@ -700,7 +700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DIRECTORYSTRING_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @DIRECTORYSTRING_it() local_unnamed_addr #0 {
 entry:
   ret ptr @DIRECTORYSTRING_it.local_it
 }
@@ -734,37 +734,37 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_BOOLEAN_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_BOOLEAN_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_BOOLEAN_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_TBOOLEAN_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_TBOOLEAN_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_TBOOLEAN_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_FBOOLEAN_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_FBOOLEAN_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_FBOOLEAN_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_OCTET_STRING_NDEF_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_OCTET_STRING_NDEF_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_OCTET_STRING_NDEF_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_SEQUENCE_ANY_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_SEQUENCE_ANY_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_SEQUENCE_ANY_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ASN1_SET_ANY_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ASN1_SET_ANY_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ASN1_SET_ANY_it.local_it
 }

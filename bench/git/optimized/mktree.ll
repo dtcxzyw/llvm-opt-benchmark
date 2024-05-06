@@ -316,7 +316,7 @@ st_add.exit13.i.i:                                ; preds = %st_add.exit.i.i
   %len6.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 40
   store i32 %conv.i.i, ptr %len6.i.i, align 4
   %oid7.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid7.i.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid7.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %16 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 36
   store i32 %16, ptr %algo3.i.i.i, align 4

@@ -2795,7 +2795,7 @@ _ZN12_GLOBAL__N_19JnyWriter13escape_stringENSt7__cxx1112basic_stringIcSt11char_t
 
 777:                                              ; preds = %775
   %778 = getelementptr inbounds i8, ptr %726, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %778, i16 noundef zeroext 10)
+  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull readonly align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %778, i16 noundef zeroext 10)
           to label %779 unwind label %792
 
 779:                                              ; preds = %777
@@ -2884,7 +2884,7 @@ _ZN12_GLOBAL__N_19JnyWriter13escape_stringENSt7__cxx1112basic_stringIcSt11char_t
           to label %816 unwind label %.loopexit.split-lp.i27.i.i
 
 816:                                              ; preds = %814
-  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter11write_pramsERN5Yosys7hashlib4dictINS1_5RTLIL8IdStringENS4_5ConstENS2_8hash_opsIS5_EEEEt(ptr noundef nonnull align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(49) %665, i16 noundef zeroext 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter11write_pramsERN5Yosys7hashlib4dictINS1_5RTLIL8IdStringENS4_5ConstENS2_8hash_opsIS5_EEEEt(ptr noundef nonnull readonly align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(49) %665, i16 noundef zeroext 8)
           to label %817 unwind label %.loopexit.split-lp.i27.i.i
 
 817:                                              ; preds = %816
@@ -2921,7 +2921,7 @@ _ZN12_GLOBAL__N_19JnyWriter13escape_stringENSt7__cxx1112basic_stringIcSt11char_t
 
 835:                                              ; preds = %833
   %836 = getelementptr inbounds i8, ptr %665, i64 136
-  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter11write_pramsERN5Yosys7hashlib4dictINS1_5RTLIL8IdStringENS4_5ConstENS2_8hash_opsIS5_EEEEt(ptr noundef nonnull align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(49) %836, i16 noundef zeroext 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter11write_pramsERN5Yosys7hashlib4dictINS1_5RTLIL8IdStringENS4_5ConstENS2_8hash_opsIS5_EEEEt(ptr noundef nonnull readonly align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(49) %836, i16 noundef zeroext 8)
           to label %837 unwind label %.loopexit.split-lp.i27.i.i
 
 837:                                              ; preds = %835
@@ -3111,7 +3111,7 @@ _ZN12_GLOBAL__N_19JnyWriter10gen_indentB5cxx11Et.exit.i48.i: ; preds = %898
           to label %908 unwind label %927
 
 908:                                              ; preds = %906
-  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.092.0146.i, i16 noundef zeroext 6)
+  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull readonly align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.092.0146.i, i16 noundef zeroext 6)
           to label %909 unwind label %927
 
 909:                                              ; preds = %908
@@ -3121,7 +3121,7 @@ _ZN12_GLOBAL__N_19JnyWriter10gen_indentB5cxx11Et.exit.i48.i: ; preds = %898
 
 912:                                              ; preds = %909
   %913 = getelementptr inbounds i8, ptr %.sroa.092.0146.i, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %913, i16 noundef zeroext 6)
+  invoke fastcc void @_ZN12_GLOBAL__N_19JnyWriter13write_sigspecERKN5Yosys5RTLIL7SigSpecEt(ptr noundef nonnull readonly align 8 dereferenceable(75) %0, ptr noundef nonnull align 8 dereferenceable(64) %913, i16 noundef zeroext 6)
           to label %914 unwind label %927
 
 914:                                              ; preds = %912

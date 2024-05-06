@@ -101,7 +101,7 @@ declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_e_aon_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_e_aon_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %cmp = icmp ult i64 %addr, 64
   br i1 %cmp, label %if.then, label %if.else
@@ -223,7 +223,7 @@ do.body.i:                                        ; preds = %if.then
   br i1 %cmp.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %conv16.i = trunc i64 %addr to i32
+  %conv16.i = trunc nuw nsw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.sifive_e_aon_wdt_read, i32 noundef %conv16.i) #4
   br label %return
 
@@ -238,7 +238,7 @@ do.body:                                          ; preds = %if.else
   br i1 %cmp.i.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %do.body
-  %conv6 = trunc i64 %addr to i32
+  %conv6 = trunc nuw nsw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.sifive_e_aon_read, i32 noundef %conv6) #4
   br label %return
 
@@ -396,7 +396,7 @@ do.body.i:                                        ; preds = %if.then
   br i1 %cmp.i.not.i, label %sw.epilog.i, label %if.then97.i
 
 if.then97.i:                                      ; preds = %do.body.i
-  %conv98.i = trunc i64 %addr to i32
+  %conv98.i = trunc nuw nsw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.sifive_e_aon_wdt_write, i32 noundef %conv98.i, i32 noundef %conv.i) #4
   br label %sw.epilog.i
 
@@ -415,7 +415,7 @@ do.body:                                          ; preds = %if.else
   br i1 %cmp.i6.not, label %if.end20, label %if.then4
 
 if.then4:                                         ; preds = %do.body
-  %conv5 = trunc i64 %addr to i32
+  %conv5 = trunc nuw nsw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.sifive_e_aon_write, i32 noundef %conv5) #4
   br label %if.end20
 
@@ -470,11 +470,11 @@ if.end.i:                                         ; preds = %entry
   %and.i = and i32 %conv7.i, 2147483647
   store i32 %and.i, ptr %wdogcount.i, align 8
   store i64 %call4.i, ptr %wdog_restart_time.i, align 16
-  %.pre37 = load i32, ptr %wdogcfg.i, align 16
+  %.pre38 = load i32, ptr %wdogcfg.i, align 16
   br label %sifive_e_aon_wdt_update_wdogcount.exit
 
 sifive_e_aon_wdt_update_wdogcount.exit:           ; preds = %entry.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge, %if.end.i
-  %6 = phi i32 [ %0, %entry.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge ], [ %.pre37, %if.end.i ]
+  %6 = phi i32 [ %0, %entry.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge ], [ %.pre38, %if.end.i ]
   %7 = phi i32 [ %.pre, %entry.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge ], [ %and.i, %if.end.i ]
   %wdogcount = getelementptr inbounds i8, ptr %r, i64 1128
   %and.i22 = and i32 %6, 15
@@ -503,18 +503,18 @@ if.then11:                                        ; preds = %if.then, %if.then8
 
 if.then16:                                        ; preds = %if.then11
   tail call void @watchdog_perform_action() #4
-  %.pre38 = load i32, ptr %wdogcfg.i, align 16
+  %.pre39 = load i32, ptr %wdogcfg.i, align 16
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.then11
-  %11 = phi i32 [ %.pre38, %if.then16 ], [ %6, %if.then11 ]
+  %11 = phi i32 [ %.pre39, %if.then16 ], [ %6, %if.then11 ]
   %or.i = or i32 %11, 268435456
   store i32 %or.i, ptr %wdogcfg.i, align 16
-  %.pre39 = and i32 %wdogs.0.ph, 65535
+  %.pre40 = and i32 %wdogs.0.ph, 65535
   br label %if.end21
 
 if.end21:                                         ; preds = %sifive_e_aon_wdt_update_wdogcount.exit, %if.end17
-  %conv24.pre-phi = phi i32 [ %conv1, %sifive_e_aon_wdt_update_wdogcount.exit ], [ %.pre39, %if.end17 ]
+  %conv24.pre-phi = phi i32 [ %conv1, %sifive_e_aon_wdt_update_wdogcount.exit ], [ %.pre40, %if.end17 ]
   %12 = phi i32 [ %6, %sifive_e_aon_wdt_update_wdogcount.exit ], [ %or.i, %if.end17 ]
   %wdog_irq = getelementptr inbounds i8, ptr %r, i64 1096
   %13 = load ptr, ptr %wdog_irq, align 8
@@ -538,8 +538,8 @@ if.then37:                                        ; preds = %land.lhs.true
   %conv40 = zext i16 %17 to i32
   %sub = sub nsw i32 %conv40, %conv24.pre-phi
   %18 = load i32, ptr %wdogcfg.i, align 16
-  %and.i33 = and i32 %18, 15
-  %shl = shl nsw i32 %sub, %and.i33
+  %and.i34 = and i32 %18, 15
+  %shl = shl nsw i32 %sub, %and.i34
   %conv44 = sext i32 %shl to i64
   %wdogclk_freq = getelementptr inbounds i8, ptr %r, i64 1112
   %19 = load i64, ptr %wdogclk_freq, align 8
@@ -553,10 +553,10 @@ if.then37:                                        ; preds = %land.lhs.true
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end21, %land.lhs.true, %if.then37
-  %.sink40 = phi i64 [ %add, %if.then37 ], [ 9223372036854775807, %land.lhs.true ], [ 9223372036854775807, %if.end21 ]
+  %.sink41 = phi i64 [ %add, %if.then37 ], [ 9223372036854775807, %land.lhs.true ], [ 9223372036854775807, %if.end21 ]
   %wdog_timer47 = getelementptr inbounds i8, ptr %r, i64 1088
   %20 = load ptr, ptr %wdog_timer47, align 16
-  tail call void @timer_mod(ptr noundef %20, i64 noundef %.sink40) #4
+  tail call void @timer_mod(ptr noundef %20, i64 noundef %.sink41) #4
   ret void
 }
 

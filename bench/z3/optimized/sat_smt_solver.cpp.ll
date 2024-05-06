@@ -3732,8 +3732,8 @@ if.then:                                          ; preds = %_ZNK11ast_manager6i
   %20 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %20 to i64
   %add.ptr.i18.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %21 = getelementptr i8, ptr %a, i64 %add.ptr.i18.idx
-  %add.ptr.i18.ptr = getelementptr i8, ptr %21, i64 32
+  %21 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i18.idx
+  %add.ptr.i18.ptr = getelementptr inbounds i8, ptr %21, i64 32
   %cmp.not118 = icmp eq i32 %20, 0
   br i1 %cmp.not118, label %if.end, label %for.body.lr.ph
 

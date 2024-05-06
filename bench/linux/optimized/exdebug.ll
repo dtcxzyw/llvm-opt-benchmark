@@ -185,7 +185,7 @@ define dso_local void @acpi_ex_do_debug_object(ptr noundef %0, i32 noundef %1, i
 
 79:                                               ; preds = %72
   %80 = lshr i64 %76, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = trunc i64 %76 to i32
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.10, i32 noundef %81, i32 noundef %82) #3
   br label %.loopexit

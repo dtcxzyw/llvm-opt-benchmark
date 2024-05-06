@@ -432,7 +432,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   %131 = load i32, ptr @ett_classicstun_att_type, align 4
   %132 = call ptr @proto_item_add_subtree(ptr noundef %130, i32 noundef %131) #4
   %133 = lshr i32 %127, 16
-  %134 = trunc i32 %133 to i16
+  %134 = trunc nuw i32 %133 to i16
   %135 = call i32 @llvm.bswap.i32(i32 %127)
   br label %136
 
@@ -770,7 +770,7 @@ proto_item_set_generated.exit278:                 ; preds = %245, %.preheader, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_classicstun_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_classicstun_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp ne i32 %5, 0
   %. = zext i1 %6 to i32

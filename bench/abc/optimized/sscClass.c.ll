@@ -74,7 +74,7 @@ define void @Ssc_GiaSimClassCreate(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssc_GiaSimClassRefineOneBit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssc_GiaSimClassRefineOneBit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -167,14 +167,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %48 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val27, i64 %47
   %49 = load i64, ptr %46, align 4
   %50 = lshr i64 %49, 63
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = trunc i64 %49 to i32
   %53 = lshr i32 %52, 30
   %54 = and i32 %53, 1
   %55 = xor i32 %54, %51
   %56 = load i64, ptr %48, align 4
   %57 = lshr i64 %56, 63
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = trunc i64 %56 to i32
   %60 = lshr i32 %59, 30
   %61 = and i32 %60, 1
@@ -913,7 +913,7 @@ define void @Ssc_GiaSimProcessRefined(ptr nocapture noundef readonly %0, ptr noc
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nuw nsw i32 %.01116.i, 2
-  %12 = mul nsw i32 %11, %11
+  %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !11
 
@@ -1290,7 +1290,7 @@ Gia_ObjIsTail.exit.thread:                        ; preds = %Gia_ObjIsTail.exit
   %37 = sub nsw i32 %.val3.val.i.i, %.val2.i.i
   %38 = sdiv i32 %.val.i.i, %37
   %39 = load ptr, ptr %15, align 8
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = mul nsw i32 %38, %40
   %42 = getelementptr i8, ptr %39, i64 8
   %.val.i17.i = load ptr, ptr %42, align 8

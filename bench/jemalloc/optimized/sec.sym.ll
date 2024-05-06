@@ -33,8 +33,8 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp ne i64 %and, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
   %1 = add nsw i64 %and, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 true), !range !4
-  %3 = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %3)
   %cmp4.i = icmp ugt i32 %3, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -92,11 +92,11 @@ for.body18:                                       ; preds = %if.end14, %for.body
   %arrayidx20 = getelementptr inbounds %struct.sec_bin_s, ptr %8, i64 %indvars.iv
   store i8 0, ptr %arrayidx20, align 8
   %bytes_cur.i = getelementptr inbounds i8, ptr %arrayidx20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_cur.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes_cur.i, i8 0, i64 16, i1 false)
   %incdec.ptr21 = getelementptr inbounds i8, ptr %bin_cur.137, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body18
   %bytes_cur = getelementptr inbounds i8, ptr %shard_cur.041, i64 128
@@ -106,7 +106,7 @@ for.end:                                          ; preds = %for.body18
   %inc23 = add nuw i64 %i.042, 1
   %9 = load i64, ptr %opts, align 8
   %cmp10 = icmp ult i64 %inc23, %9
-  br i1 %cmp10, label %for.body, label %do.end28, !llvm.loop !7
+  br i1 %cmp10, label %for.body, label %do.end28, !llvm.loop !6
 
 do.end28:                                         ; preds = %for.end, %if.end
   %fallback29 = getelementptr inbounds i8, ptr %sec, i64 56
@@ -176,8 +176,8 @@ if.end.i:                                         ; preds = %if.end
   %cmp.i.i = icmp ne i64 %size, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
   %4 = add nsw i64 %size, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !4
-  %6 = trunc i64 %5 to i32
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
+  %6 = trunc nuw nsw i64 %5 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i = icmp ugt i32 %6, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -488,7 +488,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %edata_list_active_concat.exit.i
-  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
+  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
   br label %sec_batch_fill_and_alloc.exit
 
 if.else.i:                                        ; preds = %edata_list_active_concat.exit.i
@@ -649,8 +649,8 @@ if.end.i.i:                                       ; preds = %if.then4
   %cmp.i.i.i = icmp ne i64 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %15 = add nsw i64 %and.i.i, -1
-  %16 = tail call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !4
-  %17 = trunc i64 %16 to i32
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
+  %17 = trunc nuw nsw i64 %16 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %17)
   %cmp4.i.i = icmp ugt i32 %17, 49
   %add.i.i21 = add nuw nsw i32 %cond.i.i, 11
@@ -715,7 +715,7 @@ edata_list_active_prepend.exit.i:                 ; preds = %do.body2.i.i, %sz_p
   br i1 %cmp.i23, label %if.then.i26, label %if.else.i
 
 if.then.i26:                                      ; preds = %edata_list_active_prepend.exit.i
-  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
+  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
   br label %if.end7
 
 if.else.i:                                        ; preds = %edata_list_active_prepend.exit.i
@@ -864,7 +864,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   %26 = load i32, ptr %npsizes.i, align 8
   %27 = zext i32 %26 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %27
-  br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !7
 
 sec_flush_all_locked.exit:                        ; preds = %edata_list_active_concat.exit.i, %malloc_mutex_lock.exit
   store i8 0, ptr %deferred_work_generated.i, align 1
@@ -883,7 +883,7 @@ sec_flush_all_locked.exit:                        ; preds = %edata_list_active_c
   %inc = add nuw i64 %i.013, 1
   %31 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %31
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %sec_flush_all_locked.exit, %entry
   ret void
@@ -1015,7 +1015,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   %27 = load i32, ptr %npsizes.i, align 8
   %28 = zext i32 %27 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %sec_flush_all_locked.exit, !llvm.loop !7
 
 sec_flush_all_locked.exit:                        ; preds = %edata_list_active_concat.exit.i, %malloc_mutex_lock.exit
   store i8 0, ptr %deferred_work_generated.i, align 1
@@ -1034,7 +1034,7 @@ sec_flush_all_locked.exit:                        ; preds = %edata_list_active_c
   %inc = add nuw i64 %i.015, 1
   %32 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %32
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %sec_flush_all_locked.exit, %entry
   ret void
@@ -1099,7 +1099,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %inc = add nuw i64 %i.013, 1
   %7 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %malloc_mutex_lock.exit, %entry
   %sum.0.lcssa = phi i64 [ 0, %entry ], [ %add, %malloc_mutex_lock.exit ]
@@ -1216,7 +1216,7 @@ malloc_mutex_prof_accum.exit:                     ; preds = %if.end.i10, %if.the
   %inc = add nuw i64 %i.014, 1
   %17 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %17
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %malloc_mutex_prof_accum.exit, %entry
   ret void
@@ -1242,7 +1242,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.05, 1
   %2 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1270,7 +1270,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.05, 1
   %2 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1298,7 +1298,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.05, 1
   %2 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %inc, %2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1403,7 +1403,7 @@ do.end13:                                         ; preds = %do.end51.sink.split
   %25 = load i64, ptr %bytes_cur, align 8
   %26 = load i64, ptr %bytes_after_flush, align 8
   %cmp = icmp ugt i64 %25, %26
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %do.end13, %entry
   %locked.i = getelementptr inbounds i8, ptr %shard, i64 64
@@ -1462,16 +1462,15 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

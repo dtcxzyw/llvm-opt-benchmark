@@ -208,7 +208,7 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr %9, align 8
-  %52 = call i32 @plugin_load_from_file(ptr noundef nonnull %5, ptr noundef %51), !range !9
+  %52 = call i32 @plugin_load_from_file(ptr noundef nonnull %5, ptr noundef %51)
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %75
 
@@ -331,7 +331,7 @@ define void @plugin_unload(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @plugin_peek(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 8011) i32 @plugin_peek(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @dlerror() #10
   %5 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 1) #10
   %.not = icmp eq ptr %5, null
@@ -348,7 +348,7 @@ define noundef i32 @plugin_peek(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br label %14
 
 11:                                               ; preds = %3
-  %12 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @__func__.plugin_peek, ptr noundef %0), !range !9
+  %12 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @__func__.plugin_peek, ptr noundef %0)
   %13 = tail call i32 @dlclose(ptr noundef nonnull %5) #10
   br label %14
 
@@ -368,7 +368,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_verify_syms(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @dlsym(ptr noundef %0, ptr noundef nonnull @.str.11) #10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %12
@@ -462,7 +462,7 @@ define internal fastcc noundef i32 @_verify_syms(ptr noundef %0, ptr noundef %1,
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @plugin_load_from_file(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 8011) i32 @plugin_load_from_file(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = tail call ptr @dlerror() #10
   %4 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 1) #10
@@ -475,7 +475,7 @@ define noundef i32 @plugin_load_from_file(ptr nocapture noundef writeonly %0, pt
   br label %20
 
 9:                                                ; preds = %2
-  %10 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @__func__.plugin_load_from_file, ptr noundef %1), !range !9
+  %10 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @__func__.plugin_load_from_file, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
 
@@ -712,7 +712,7 @@ declare i32 @plugrack_read_dir(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @plugrack_use_by_type(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @plugin_context_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @plugin_context_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -863,7 +863,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   %46 = call i32 @closedir(ptr noundef nonnull %15)
   %47 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
   %.not20 = icmp eq ptr %47, null
-  br i1 %.not20, label %.loopexit, label %.lr.ph40, !llvm.loop !10
+  br i1 %.not20, label %.loopexit, label %.lr.ph40, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.outer._crit_edge, %11, %17, %9
   %.3 = phi ptr [ %.038, %17 ], [ null, %9 ], [ null, %11 ], [ %.1.ph.lcssa, %.outer._crit_edge ]
@@ -939,5 +939,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = !{i32 0, i32 8011}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7}

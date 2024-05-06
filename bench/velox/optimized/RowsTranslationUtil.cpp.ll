@@ -90,9 +90,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %5 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !10
   %6 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !10
   %cmp.not.i9.i.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i9.i.i, label %if.then.i11.i.i, label %if.end.i.i.i
+  br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
 
-if.then.i11.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
+if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
   tail call void @llvm.trap()
   unreachable
 
@@ -104,11 +104,11 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call6.i.i, align 8, !noalias !10
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !10
-  %call.i.i12.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
+  %call.i.i13.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !10
 
 call.i.i.noexc.i.i:                               ; preds = %if.then6.i.i.i
-  br i1 %call.i.i12.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
+  br i1 %call.i.i13.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.trap()
@@ -262,7 +262,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i4.i
   %32 = load i32, ptr %arrayidx3.i.i, align 4
   %33 = sext i32 %32 to i64
   %wide.trip.count.i.i = zext nneg i32 %31 to i64
-  %34 = trunc i64 %indvars.iv.i to i32
+  %34 = trunc nsw i64 %indvars.iv.i to i32
   %invariant.gep35 = getelementptr i32, ptr %12, i64 %33
   br label %for.body.i.i
 
@@ -329,8 +329,8 @@ while.body.i.i.i.i.i.preheader:                   ; preds = %if.then3.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i.preheader, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i.i.i.i.i"
   %word.0.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i.i.i.i.i" ], [ %and.i.i.i.i.i, %while.body.i.i.i.i.i.preheader ]
-  %43 = tail call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true), !range !15
-  %cast.i.i.i.i.i = trunc i64 %43 to i32
+  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %43 to i32
   %add.i26.i.i.i.i = or disjoint i32 %41, %cast.i.i.i.i.i
   %.pre.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i to i64
   br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i
@@ -400,8 +400,8 @@ while.body.preheader.i40.i.i.i.i:                 ; preds = %if.then10.i.i.i.i
 
 while.body.i42.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i58.i.i.i.i", %while.body.preheader.i40.i.i.i.i
   %word.0.i43.i.i.i.i = phi i64 [ %and6.i60.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i58.i.i.i.i" ], [ %and.i38.i.i.i.i, %while.body.preheader.i40.i.i.i.i ]
-  %49 = tail call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true), !range !15
-  %cast.i44.i.i.i.i = trunc i64 %49 to i32
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
+  %cast.i44.i.i.i.i = trunc nuw nsw i64 %49 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
   %.pre.i.i47.i.i.i.i = sext i32 %add.i45.i.i.i.i to i64
   br i1 %tobool.not.i.i46.i.i.i.i, label %if.end.i.i55.i.i.i.i, label %land.lhs.true.i.i48.i.i.i.i
@@ -510,7 +510,7 @@ for.body.i.i92.i.i.i.i.us:                        ; preds = %for.body.i.i92.i.i.
 "_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i.us": ; preds = %for.body.i.i92.i.i.i.i.us, %for.body.i.i.i.i.i.us
   %inc.i.i.i.i.i.us = add nuw i64 %row.036.i.i.i.i.i.us, 1
   %cmp6.i.i.i.i.i.us = icmp ult i64 %inc.i.i.i.i.i.us, %conv5.i.i.i.i.i
-  br i1 %cmp6.i.i.i.i.i.us, label %for.body.i.i.i.i.i.us, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !16
+  br i1 %cmp6.i.i.i.i.i.us, label %for.body.i.i.i.i.i.us, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !15
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.lr.ph.i.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i"
   %row.036.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i" ], [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ]
@@ -551,12 +551,12 @@ for.body.i.i92.i.i.i.i:                           ; preds = %for.body.i.i92.i.i.
 "_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i": ; preds = %for.body.i.i92.i.i.i.i, %if.end.i.i85.i.i.i.i, %for.body.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw i64 %row.036.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
-  br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !16
+  br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !15
 
 while.body.i97.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit31.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i
   %word.034.i.i.i.i.i = phi i64 [ %54, %while.body.lr.ph.i.i.i.i.i ], [ %and.i100.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit31.i.i.i.i.i" ]
-  %62 = tail call i64 @llvm.cttz.i64(i64 %word.034.i.i.i.i.i, i1 true), !range !15
-  %cast.i98.i.i.i.i = trunc i64 %62 to i32
+  %62 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.034.i.i.i.i.i, i1 true)
+  %cast.i98.i.i.i.i = trunc nuw nsw i64 %62 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i98.i.i.i.i
   %.pre.i12.i.i.i.i.i = sext i32 %add10.i.i.i.i.i to i64
   br i1 %tobool.not.i.i76.i.i.i.i, label %if.end.i20.i.i.i.i.i, label %land.lhs.true.i13.i.i.i.i.i
@@ -597,12 +597,12 @@ for.body.i26.i.i.i.i.i:                           ; preds = %for.body.i26.i.i.i.
   %sub.i99.i.i.i.i = add i64 %word.034.i.i.i.i.i, -1
   %and.i100.i.i.i.i = and i64 %sub.i99.i.i.i.i, %word.034.i.i.i.i.i
   %tobool8.not.i.i.i.i.i = icmp eq i64 %and.i100.i.i.i.i, 0
-  br i1 %tobool8.not.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", label %while.body.i97.i.i.i.i, !llvm.loop !17
+  br i1 %tobool8.not.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", label %while.body.i97.i.i.i.i, !llvm.loop !16
 
 "_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i": ; preds = %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i", %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i.us", %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit31.i.i.i.i.i", %if.then.i.i.i.i.i, %for.body.i.i.i10.i
   %add.i.i.i.i = add nsw i32 %add146.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %41
-  br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i11.i, label %for.body.i.i.i10.i, !llvm.loop !18
+  br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i11.i, label %for.body.i.i.i10.i, !llvm.loop !17
 
 for.end.i.i.i11.i:                                ; preds = %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", %if.end14.i.i.i.i
   %cmp18.not.i.i.i.i = icmp eq i32 %41, %39
@@ -627,8 +627,8 @@ while.body.i112.i.i.i.i.preheader:                ; preds = %if.then19.i.i.i.i
 
 while.body.i112.i.i.i.i:                          ; preds = %while.body.i112.i.i.i.i.preheader, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i128.i.i.i.i"
   %word.0.i113.i.i.i.i = phi i64 [ %and6.i130.i.i.i.i, %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i128.i.i.i.i" ], [ %and.i108.i.i.i.i, %while.body.i112.i.i.i.i.preheader ]
-  %68 = tail call i64 @llvm.cttz.i64(i64 %word.0.i113.i.i.i.i, i1 true), !range !15
-  %cast.i114.i.i.i.i = trunc i64 %68 to i32
+  %68 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i113.i.i.i.i, i1 true)
+  %cast.i114.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add.i115.i.i.i.i = or disjoint i32 %41, %cast.i114.i.i.i.i
   %.pre.i.i117.i.i.i.i = sext i32 %add.i115.i.i.i.i to i64
   br i1 %tobool.not.i.i116.i.i.i.i, label %if.end.i.i125.i.i.i.i, label %land.lhs.true.i.i118.i.i.i.i
@@ -947,7 +947,6 @@ attributes #11 = { builtin nounwind }
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
 !14 = distinct !{!14, !12}
-!15 = !{i64 0, i64 65}
+!15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}

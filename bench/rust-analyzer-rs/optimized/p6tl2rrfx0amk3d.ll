@@ -689,7 +689,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %.sroa.0.0.copyload1.i, ptr %0, align 8, !alias.scope !111, !noalias !128
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx2.i, i64 72, i1 false), !noalias !128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx2.i, i64 72, i1 false), !noalias !128
   store i64 0, ptr %1, align 8, !noalias !129
   ret void
 

@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [21 x i8] c"browser_name_pattern\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @OnChangeBrowscap(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
   switch i32 %5, label %14 [
     i32 1, label %15
     i32 4, label %7
@@ -214,7 +214,7 @@ define internal fastcc void @browscap_bdata_dtor(ptr nocapture noundef %0, i32 n
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_browscap(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_browscap(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @zend_ini_string_ex(ptr noundef nonnull @.str, i64 noundef 8, i32 noundef 0, ptr noundef null) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -225,7 +225,7 @@ define hidden noundef i32 @zm_startup_browscap(i32 noundef %0, i32 noundef %1) l
   br i1 %.not4, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @browscap_read_file(ptr noundef nonnull %3, ptr noundef nonnull @global_bdata, i32 noundef 1), !range !4
+  %7 = tail call fastcc i32 @browscap_read_file(ptr noundef nonnull %3, ptr noundef nonnull @global_bdata, i32 noundef 1)
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %10, label %9
 
@@ -240,7 +240,7 @@ define hidden noundef i32 @zm_startup_browscap(i32 noundef %0, i32 noundef %1) l
 declare ptr @zend_ini_string_ex(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @browscap_read_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @browscap_read_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zend_file_handle, align 8
   %5 = alloca %struct._browscap_parser_ctx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -459,7 +459,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %33
-  %37 = call fastcc i32 @browscap_read_file(ptr noundef nonnull getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), ptr noundef nonnull @browscap_globals, i32 noundef 0), !range !4
+  %37 = call fastcc i32 @browscap_read_file(ptr noundef nonnull getelementptr inbounds (%struct._zend_browscap_globals, ptr @browscap_globals, i64 0, i32 0, i32 4), ptr noundef nonnull @browscap_globals, i32 noundef 0)
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %45
 
@@ -523,7 +523,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not203, label %70, label %68
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %67, align 8, !nonnull !5, !noundef !5
+  %69 = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
   store ptr %69, ptr %8, align 8
   br label %132
 
@@ -610,7 +610,7 @@ browscap_get_minimum_length.exit:                 ; preds = %93
   br i1 %.not206, label %101, label %.loopexit259
 
 .critedge217:                                     ; preds = %101, %.preheader
-  %113 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %87, ptr noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !6
+  %113 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %87, ptr noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not208 = icmp ne i32 %113, 0
   %114 = getelementptr inbounds i8, ptr %.0185264, i64 32
   %.not205 = icmp eq ptr %114, %77
@@ -638,7 +638,7 @@ browscap_get_minimum_length.exit:                 ; preds = %93
   br i1 %.not209, label %120, label %118
 
 118:                                              ; preds = %._crit_edge.thread
-  %119 = load ptr, ptr %117, align 8, !nonnull !5, !noundef !5
+  %119 = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
   store ptr %119, ptr %8, align 8
   br label %132
 
@@ -1084,7 +1084,7 @@ browscap_entry_to_array.exit:                     ; preds = %295, %278
   br i1 %.not212, label %.thread255, label %329
 
 329:                                              ; preds = %325
-  %330 = load ptr, ptr %328, align 8, !nonnull !5, !noundef !5
+  %330 = load ptr, ptr %328, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %331 = getelementptr inbounds i8, ptr %330, i64 16
   %332 = load i32, ptr %331, align 8
@@ -1154,7 +1154,7 @@ declare zeroext i1 @zend_is_auto_global(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @browser_reg_compare(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1875,7 +1875,7 @@ define internal void @php_browscap_parser_cb(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i, label %85, label %77
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %76, align 8, !nonnull !5, !noundef !5
+  %78 = load ptr, ptr %76, align 8, !nonnull !4, !noundef !4
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 64
@@ -2383,7 +2383,7 @@ define internal fastcc noundef ptr @browscap_intern_str_ci(ptr noundef %0, ptr n
   br i1 %.not, label %33, label %25
 
 25:                                               ; preds = %14
-  %26 = load ptr, ptr %24, align 8, !nonnull !5, !noundef !5
+  %26 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 64
@@ -2525,6 +2525,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
-!6 = !{i32 0, i32 2}
+!4 = !{}

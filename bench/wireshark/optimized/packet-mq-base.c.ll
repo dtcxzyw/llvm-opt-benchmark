@@ -3447,7 +3447,7 @@ define hidden i32 @strip_trailing_blanks(ptr noundef %0, i32 noundef %1) local_u
   br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.preheader, %2

@@ -60,24 +60,24 @@ pmix_tma_free.exit:                               ; preds = %7, %10
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %2, ptr noundef nonnull %13) #6
-  br label %pmix_tma_free.exit12
+  br label %pmix_tma_free.exit14
 
 18:                                               ; preds = %14
   tail call void @free(ptr noundef nonnull %13) #6
-  br label %pmix_tma_free.exit12
+  br label %pmix_tma_free.exit14
 
-pmix_tma_free.exit12:                             ; preds = %15, %18
+pmix_tma_free.exit14:                             ; preds = %15, %18
   store ptr null, ptr %12, align 8
   br label %19
 
-19:                                               ; preds = %pmix_tma_free.exit12, %11
+19:                                               ; preds = %pmix_tma_free.exit14, %11
   %20 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %20, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pointer_array_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_pointer_array_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, %3
   %or.cond = or i1 %5, %6
@@ -105,7 +105,7 @@ pmix_tma_calloc.exit:                             ; preds = %7
   %19 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
-  br i1 %20, label %46, label %pmix_tma_calloc.exit32
+  br i1 %20, label %46, label %pmix_tma_calloc.exit34
 
 pmix_tma_calloc.exit.thread:                      ; preds = %7
   %21 = getelementptr inbounds i8, ptr %0, i64 64
@@ -114,9 +114,9 @@ pmix_tma_calloc.exit.thread:                      ; preds = %7
   %24 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
-  br i1 %25, label %46, label %pmix_tma_calloc.exit32.thread
+  br i1 %25, label %46, label %pmix_tma_calloc.exit34.thread
 
-pmix_tma_calloc.exit32:                           ; preds = %pmix_tma_calloc.exit
+pmix_tma_calloc.exit34:                           ; preds = %pmix_tma_calloc.exit
   %26 = add nsw i64 %17, 63
   %27 = lshr i64 %26, 6
   %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #7
@@ -125,7 +125,7 @@ pmix_tma_calloc.exit32:                           ; preds = %pmix_tma_calloc.exi
   %30 = icmp eq ptr %28, null
   br i1 %30, label %41, label %43
 
-pmix_tma_calloc.exit32.thread:                    ; preds = %pmix_tma_calloc.exit.thread
+pmix_tma_calloc.exit34.thread:                    ; preds = %pmix_tma_calloc.exit.thread
   %31 = add nsw i64 %17, 63
   %32 = lshr i64 %31, 6
   %33 = load ptr, ptr %21, align 8
@@ -135,14 +135,14 @@ pmix_tma_calloc.exit32.thread:                    ; preds = %pmix_tma_calloc.exi
   %36 = icmp eq ptr %34, null
   br i1 %36, label %37, label %43
 
-37:                                               ; preds = %pmix_tma_calloc.exit32.thread
+37:                                               ; preds = %pmix_tma_calloc.exit34.thread
   %38 = load ptr, ptr %24, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %8, ptr noundef %38) #6
   br label %pmix_tma_free.exit
 
-41:                                               ; preds = %pmix_tma_calloc.exit32
+41:                                               ; preds = %pmix_tma_calloc.exit34
   tail call void @free(ptr noundef nonnull %18) #6
   br label %pmix_tma_free.exit
 
@@ -151,7 +151,7 @@ pmix_tma_free.exit:                               ; preds = %37, %41
   store ptr null, ptr %42, align 8
   br label %46
 
-43:                                               ; preds = %pmix_tma_calloc.exit32.thread, %pmix_tma_calloc.exit32
+43:                                               ; preds = %pmix_tma_calloc.exit34.thread, %pmix_tma_calloc.exit34
   %44 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %16, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %0, i64 128
@@ -362,54 +362,54 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   %49 = getelementptr inbounds i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %3, ptr noundef %46, i64 noundef %47) #6
-  br label %pmix_tma_realloc.exit53
+  br label %pmix_tma_realloc.exit55
 
 52:                                               ; preds = %44
   %53 = tail call ptr @realloc(ptr noundef %46, i64 noundef %47) #8
-  br label %pmix_tma_realloc.exit53
+  br label %pmix_tma_realloc.exit55
 
-pmix_tma_realloc.exit53:                          ; preds = %48, %52
-  %.0.i52 = phi ptr [ %51, %48 ], [ %53, %52 ]
-  %54 = icmp eq ptr %.0.i52, null
+pmix_tma_realloc.exit55:                          ; preds = %48, %52
+  %.0.i54 = phi ptr [ %51, %48 ], [ %53, %52 ]
+  %54 = icmp eq ptr %.0.i54, null
   br i1 %54, label %65, label %55
 
-55:                                               ; preds = %pmix_tma_realloc.exit53
-  store ptr %.0.i52, ptr %45, align 8
+55:                                               ; preds = %pmix_tma_realloc.exit55
+  store ptr %.0.i54, ptr %45, align 8
   %56 = load i32, ptr %26, align 8
   %57 = sext i32 %56 to i64
   %58 = add nsw i64 %57, 63
   %59 = lshr i64 %58, 6
   %60 = trunc i64 %59 to i32
   %61 = icmp slt i32 %60, %39
-  br i1 %61, label %.lr.ph57.preheader, label %.loopexit
+  br i1 %61, label %.lr.ph59.preheader, label %.loopexit
 
-.lr.ph57.preheader:                               ; preds = %55
-  %sext64 = shl i64 %59, 32
-  %62 = ashr exact i64 %sext64, 32
-  %sext65 = shl i64 %38, 32
-  %wide.trip.count62 = ashr exact i64 %sext65, 32
-  br label %.lr.ph57
+.lr.ph59.preheader:                               ; preds = %55
+  %sext66 = shl i64 %59, 32
+  %62 = ashr exact i64 %sext66, 32
+  %sext67 = shl i64 %38, 32
+  %wide.trip.count64 = ashr exact i64 %sext67, 32
+  br label %.lr.ph59
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
-  %indvars.iv59 = phi i64 [ %62, %.lr.ph57.preheader ], [ %indvars.iv.next60, %.lr.ph57 ]
+.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
+  %indvars.iv61 = phi i64 [ %62, %.lr.ph59.preheader ], [ %indvars.iv.next62, %.lr.ph59 ]
   %63 = load ptr, ptr %45, align 8
-  %64 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv59
+  %64 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv61
   store i64 0, ptr %64, align 8
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph57, !llvm.loop !7
+  %indvars.iv.next62 = add nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph59, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph57, %55, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph59, %55, %._crit_edge
   store i32 %.042, ptr %26, align 8
   br label %65
 
-65:                                               ; preds = %pmix_tma_realloc.exit53, %pmix_tma_realloc.exit, %12, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %12 ], [ false, %pmix_tma_realloc.exit ], [ false, %pmix_tma_realloc.exit53 ]
+65:                                               ; preds = %pmix_tma_realloc.exit55, %pmix_tma_realloc.exit, %12, %.loopexit
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %12 ], [ false, %pmix_tma_realloc.exit ], [ false, %pmix_tma_realloc.exit55 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %95, label %5
 
@@ -680,7 +680,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, %1

@@ -572,7 +572,7 @@ psa_rsa_decode_md_type.exit:                      ; preds = %27, %24
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr @mbedtls_psa_random_state, align 8
-  %39 = trunc i64 %5 to i32
+  %39 = trunc nuw i64 %5 to i32
   %40 = tail call i32 @mbedtls_rsa_pkcs1_sign(ptr noundef %30, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %38, i32 noundef %22, i32 noundef %39, ptr noundef %4, ptr noundef %6) #7
   br label %48
 
@@ -583,7 +583,7 @@ psa_rsa_decode_md_type.exit:                      ; preds = %27, %24
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr @mbedtls_psa_random_state, align 8
-  %46 = trunc i64 %5 to i32
+  %46 = trunc nuw i64 %5 to i32
   %47 = tail call i32 @mbedtls_rsa_rsassa_pss_sign(ptr noundef %30, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %45, i32 noundef 0, i32 noundef %46, ptr noundef %4, ptr noundef %6) #7
   br label %48
 
@@ -692,7 +692,7 @@ psa_rsa_decode_md_type.exit:                      ; preds = %26, %23
   br i1 %34, label %35, label %51
 
 35:                                               ; preds = %32
-  %36 = trunc i64 %5 to i32
+  %36 = trunc nuw i64 %5 to i32
   %37 = tail call i32 @mbedtls_rsa_pkcs1_verify(ptr noundef %29, i32 noundef %21, i32 noundef %36, ptr noundef %4, ptr noundef %6) #7
   br label %51
 
@@ -706,13 +706,13 @@ psa_rsa_decode_md_type.exit:                      ; preds = %26, %23
   br i1 %42, label %.rsa_pss_expected_salt_len.exit_crit_edge, label %43
 
 .rsa_pss_expected_salt_len.exit_crit_edge:        ; preds = %41
-  %.pre = trunc i64 %5 to i32
+  %.pre = trunc nuw i64 %5 to i32
   br label %rsa_pss_expected_salt_len.exit
 
 43:                                               ; preds = %41
   %44 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %29) #7
   %45 = trunc i64 %44 to i32
-  %46 = trunc i64 %5 to i32
+  %46 = trunc nuw i64 %5 to i32
   %reass.sub.i = sub i32 %45, %46
   %47 = add i32 %reass.sub.i, -2
   %48 = icmp slt i32 %47, 0

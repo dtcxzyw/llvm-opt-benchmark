@@ -333,7 +333,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %_ZNSt6vectorIhSaIhE
 
 call5.i.i.i.i1.i.i1.i.i1.i.noexc.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !16
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i, i64 %div1.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i, i64 %div1.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2.i.i.i.i, i64 32
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !16
   store i8 0, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i, align 1, !noalias !16
@@ -1084,7 +1084,7 @@ if.end.i11.i.i.i.i:                               ; preds = %_ZN3ue215small_colo
 
 if.end10.i.i.i.i.i:                               ; preds = %if.end.i11.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i104.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i104.i.i, i64 32, i1 false)
   %93 = load <2 x i64>, ptr %props.i.i.i, align 8, !noalias !96
   %94 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i, align 16, !alias.scope !96
   %95 = and <2 x i64> %94, %93
@@ -1093,7 +1093,7 @@ if.end10.i.i.i.i.i:                               ; preds = %if.end.i11.i.i.i.i
   %97 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i, align 16, !alias.scope !96
   %98 = and <2 x i64> %97, %96
   store <2 x i64> %98, ptr %arrayidx.i.i22.i.i.i.i.i.i.i, align 16, !alias.scope !96
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i104.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i104.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i, label %invoke.cont10.i.i.i.i.i, label %do.end17.i.invoke.i.i.i.i
 
@@ -1523,7 +1523,7 @@ if.end.i.i.i.i125.i.i:                            ; preds = %invoke.cont102.i.i.
 
 if.end10.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i125.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, i64 32, i1 false)
   %156 = load <2 x i64>, ptr %props.i.i.i, align 8, !noalias !122
   %157 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i.i, align 16, !alias.scope !122
   %158 = and <2 x i64> %157, %156
@@ -1532,7 +1532,7 @@ if.end10.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i125.i
   %160 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i.i, align 16, !alias.scope !122
   %161 = and <2 x i64> %160, %159
   store <2 x i64> %161, ptr %arrayidx.i.i22.i.i.i.i.i.i.i.i, align 16, !alias.scope !122
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i, label %invoke.cont109.i.i.i.i.i, label %do.end17.i.invoke.i.i.i.i
 
@@ -2315,7 +2315,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i67:        ; preds = %_ZNSt6vectorIhSaIhE
 
 call5.i.i.i.i1.i.i1.i.i1.i.noexc.i.i.i.i.i.i.i.i70: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i67
   store ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i68, ptr %_M_impl.i.i.i.i.i.i.i.i.i.i65, align 8, !noalias !161
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i68, i64 %div1.i.i.i.i55
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr i8, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i68, i64 %div1.i.i.i.i55
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2.i.i.i.i56, i64 32
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i72, align 8, !noalias !161
   store i8 0, ptr %call5.i.i.i.i1.i.i1.i.i1.i4.i.i.i.i.i.i.i.i68, align 1, !noalias !161
@@ -3062,7 +3062,7 @@ if.end.i11.i.i.i.i219:                            ; preds = %_ZN3ue215small_colo
 
 if.end10.i.i.i.i.i251:                            ; preds = %if.end.i11.i.i.i.i219
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i10, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i105.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i10, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i105.i.i, i64 32, i1 false)
   %344 = load <2 x i64>, ptr %props.i.i.i.i, align 8, !noalias !241
   %345 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i10, align 16, !alias.scope !241
   %346 = and <2 x i64> %345, %344
@@ -3071,7 +3071,7 @@ if.end10.i.i.i.i.i251:                            ; preds = %if.end.i11.i.i.i.i2
   %348 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i33, align 16, !alias.scope !241
   %349 = and <2 x i64> %348, %347
   store <2 x i64> %349, ptr %arrayidx.i.i22.i.i.i.i.i.i.i33, align 16, !alias.scope !241
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i105.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i10, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i105.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i10, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i257 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i257, label %invoke.cont9.i.i.i.i.i, label %do.end16.i.invoke.i.i.i.i
 
@@ -3502,7 +3502,7 @@ if.end.i.i.i.i126.i.i:                            ; preds = %invoke.cont103.i.i.
 
 if.end10.i.i.i.i.i.i371:                          ; preds = %if.end.i.i.i.i126.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, i64 32, i1 false)
   %407 = load <2 x i64>, ptr %props.i.i.i.i, align 8, !noalias !269
   %408 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i.i11, align 16, !alias.scope !269
   %409 = and <2 x i64> %408, %407
@@ -3511,7 +3511,7 @@ if.end10.i.i.i.i.i.i371:                          ; preds = %if.end.i.i.i.i126.i
   %411 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i.i40, align 16, !alias.scope !269
   %412 = and <2 x i64> %411, %410
   store <2 x i64> %412, ptr %arrayidx.i.i22.i.i.i.i.i.i.i.i40, align 16, !alias.scope !269
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i377 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i377, label %invoke.cont110.i.i.i.i.i, label %do.end16.i.invoke.i.i.i.i
 

@@ -107,7 +107,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %call26.i = tail call fastcc ptr @ZSTDMT_createCCtxPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cctxPool.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 24
   store ptr %call26.i, ptr %cctxPool.i, align 8
-  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
+  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %cond.i, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cmp.i.i = icmp eq ptr %call.i39.i, null
   br i1 %cmp.i.i, label %ZSTDMT_createSeqPool.exit.i, label %if.end.i40.i
 
@@ -874,7 +874,7 @@ return:                                           ; preds = %entry, %cond.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTDMT_initCStream_internal(ptr noundef %mtctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, ptr noundef %cdict, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTDMT_initCStream_internal(ptr noundef %mtctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, ptr noundef %cdict, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #0 {
 entry:
   %params101 = alloca %struct.ZSTD_CCtx_params_s, align 8
   %cMem.i.i.i = alloca %struct.ZSTD_customMem, align 8
@@ -1323,7 +1323,7 @@ if.end70:                                         ; preds = %ZSTDMT_computeTarge
 if.then72:                                        ; preds = %if.end70
   %shr = lshr i64 %47, 10
   %conv74 = trunc i64 %shr to i32
-  %49 = tail call i32 @llvm.ctlz.i32(i32 %conv74, i1 true), !range !14
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv74, i1 true)
   %add = sub nuw nsw i32 41, %49
   %rsync = getelementptr inbounds i8, ptr %mtctx, i64 2984
   store i64 0, ptr %rsync, align 8
@@ -1786,7 +1786,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then6
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw i32 %jobID.023.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %6
-  br i1 %exitcond.not.i.i, label %ZSTDMT_getInputDataInUse.exit.i, label %for.body.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %ZSTDMT_getInputDataInUse.exit.i, label %for.body.i.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %7 = phi ptr [ %.pre.i.i, %for.body.lr.ph.i.i ], [ %11, %for.cond.i.i ]
@@ -1920,7 +1920,7 @@ ZSTDMT_doesOverlapWindow.exit.i.i:                ; preds = %lor.rhs.i.i.i
 
 do.end6.i.i:                                      ; preds = %ZSTDMT_doesOverlapWindow.exit.i.i, %ZSTDMT_isOverlapped.exit.i.i.i
   %call8.i.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %ldmWindowCond.i.i, ptr noundef nonnull %ldmWindowMutex.i.i) #14
-  br label %while.cond.i.i, !llvm.loop !16
+  br label %while.cond.i.i, !llvm.loop !15
 
 do.end10.i.i:                                     ; preds = %ZSTDMT_doesOverlapWindow.exit.i.i, %lor.rhs.i.i.i, %if.then.i30.i
   %call11.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ldmWindowMutex.i.i) #14
@@ -2016,7 +2016,7 @@ ZSTDMT_doesOverlapWindow.exit.i92.i:              ; preds = %lor.rhs.i.i86.i
 
 do.end6.i84.i:                                    ; preds = %ZSTDMT_doesOverlapWindow.exit.i92.i, %ZSTDMT_isOverlapped.exit.i.i75.i
   %call8.i85.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %ldmWindowCond.i63.i, ptr noundef nonnull %ldmWindowMutex.i54.i) #14
-  br label %while.cond.i66.i, !llvm.loop !16
+  br label %while.cond.i66.i, !llvm.loop !15
 
 do.end10.i96.i:                                   ; preds = %ZSTDMT_doesOverlapWindow.exit.i92.i, %lor.rhs.i.i86.i, %if.then.i52.i
   %call11.i97.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ldmWindowMutex.i54.i) #14
@@ -2099,7 +2099,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %add2.i.i.i = add i64 %add.i.i.i, %conv.i.i.i53
   %inc.i.i.i = add nuw nsw i64 %pos.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 32
-  br i1 %exitcond.not.i.i.i, label %if.end64.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %if.end64.i, label %for.body.i.i.i, !llvm.loop !16
 
 if.else.i:                                        ; preds = %if.then32.i
   %add.ptr43.i = getelementptr inbounds i8, ptr %24, i64 %28
@@ -2119,7 +2119,7 @@ for.body.i.i42.i:                                 ; preds = %for.body.i.i42.i, %
   %add2.i.i49.i = add i64 %add.i.i48.i, %conv.i.i47.i
   %inc.i.i50.i = add nuw nsw i64 %pos.07.i.i43.i, 1
   %exitcond.not.i.i51.i = icmp eq i64 %pos.07.i.i43.i, %31
-  br i1 %exitcond.not.i.i51.i, label %for.body.i.i50, label %for.body.i.i42.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i51.i, label %for.body.i.i50, label %for.body.i.i42.i, !llvm.loop !16
 
 for.body.i.i50:                                   ; preds = %for.body.i.i42.i, %for.body.i.i50
   %pos.07.i.i = phi i64 [ %inc.i.i51, %for.body.i.i50 ], [ 0, %for.body.i.i42.i ]
@@ -2132,7 +2132,7 @@ for.body.i.i50:                                   ; preds = %for.body.i.i42.i, %
   %add2.i.i = add i64 %add.i.i, %conv.i.i
   %inc.i.i51 = add nuw nsw i64 %pos.07.i.i, 1
   %exitcond.not.i.i52 = icmp eq i64 %inc.i.i51, %sub35.i
-  br i1 %exitcond.not.i.i52, label %if.end64.i, label %for.body.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i52, label %if.end64.i, label %for.body.i.i50, !llvm.loop !16
 
 if.else50.i:                                      ; preds = %if.end28.i
   %add.ptr56.i = getelementptr inbounds i8, ptr %24, i64 %28
@@ -2150,7 +2150,7 @@ for.body.i.i53.i:                                 ; preds = %for.body.i.i53.i, %
   %add2.i.i60.i = add i64 %add.i.i59.i, %conv.i.i58.i
   %inc.i.i61.i = add nuw nsw i64 %pos.07.i.i54.i, 1
   %exitcond.not.i.i62.i = icmp eq i64 %inc.i.i61.i, 32
-  br i1 %exitcond.not.i.i62.i, label %ZSTD_rollingHash_compute.exit64.i, label %for.body.i.i53.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i62.i, label %ZSTD_rollingHash_compute.exit64.i, label %for.body.i.i53.i, !llvm.loop !16
 
 ZSTD_rollingHash_compute.exit64.i:                ; preds = %for.body.i.i53.i
   %and.i = and i64 %add2.i.i60.i, %26
@@ -2189,7 +2189,7 @@ for.body.i:                                       ; preds = %if.end64.i, %for.in
 
 for.inc.i:                                        ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %add82.i, %sub.sub6.i
-  br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %for.body.i, !llvm.loop !17
 
 findSynchronizationPoint.exit:                    ; preds = %for.inc.i, %for.body.i, %if.then19, %if.end.i49, %ZSTD_rollingHash_compute.exit64.i, %if.end64.i
   %retval.sroa.0.0.i = phi i64 [ %sub.sub6.i, %if.end.i49 ], [ %sub.sub6.i, %if.then19 ], [ 0, %ZSTD_rollingHash_compute.exit64.i ], [ %sub.sub6.i, %if.end64.i ], [ %sub.sub6.i, %for.inc.i ], [ %add82.i, %for.body.i ]
@@ -2502,7 +2502,7 @@ while.body.i:                                     ; preds = %do.end20.i
   %size.i101 = getelementptr inbounds i8, ptr %arrayidx4.i, i64 176
   %101 = load i64, ptr %size.i101, align 8
   %cmp15.i = icmp eq i64 %100, %101
-  br i1 %cmp15.i, label %if.end29.i, label %do.end20.i, !llvm.loop !19
+  br i1 %cmp15.i, label %if.end29.i, label %do.end20.i, !llvm.loop !18
 
 do.end20.i:                                       ; preds = %while.body.i.preheader, %while.body.i
   %arrayidx4104.i116 = phi ptr [ %arrayidx4.i, %while.body.i ], [ %arrayidx4100.i, %while.body.i.preheader ]
@@ -2516,7 +2516,7 @@ do.end20.i:                                       ; preds = %while.body.i.prehea
   %cSize.i103 = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
   %104 = load i64, ptr %cSize.i103, align 8
   %cmp8.i = icmp eq i64 %103, %104
-  br i1 %cmp8.i, label %while.body.i, label %if.end29.i, !llvm.loop !19
+  br i1 %cmp8.i, label %while.body.i, label %if.end29.i, !llvm.loop !18
 
 if.end29.i:                                       ; preds = %while.body.i, %do.end20.i, %while.body.i.preheader, %while.cond.preheader.i, %land.lhs.true.i, %entry.if.end29_crit_edge.i
   %105 = phi ptr [ %.pre.i104, %entry.if.end29_crit_edge.i ], [ %.pre105.i, %while.cond.preheader.i ], [ %.pre105.i, %land.lhs.true.i ], [ %.pre105.i, %while.body.i.preheader ], [ %102, %do.end20.i ], [ %102, %while.body.i ]
@@ -2801,7 +2801,7 @@ declare ptr @POOL_create_advanced(i64 noundef, i64 noundef, ptr noundef byval(%s
 define internal fastcc noundef ptr @ZSTDMT_createJobsTable(ptr nocapture noundef %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %nbJobsPtr, align 4
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !14
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %sub.i = xor i32 %1, 31
   %shl = shl nuw i32 2, %sub.i
   %2 = sub nuw nsw i32 32, %1
@@ -2844,7 +2844,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %or9 = or i32 %5, %call8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %cmp10.not = icmp eq i32 %or9, 0
@@ -3150,21 +3150,21 @@ ZSTDMT_getCCtx.exit:                              ; preds = %if.then.i, %if.end.
   %retval.0.i = phi ptr [ %3, %if.then.i ], [ %call9.i, %if.end.i ]
   %seqPool = getelementptr inbounds i8, ptr %jobDescription, i64 120
   %4 = load ptr, ptr %seqPool, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %bufferSize.i = getelementptr inbounds i8, ptr %4, i64 40
-  %5 = load i64, ptr %bufferSize.i, align 8, !noalias !21
+  %5 = load i64, ptr %bufferSize.i, align 8, !noalias !20
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.then.i126, label %if.end.i124
 
 if.then.i126:                                     ; preds = %ZSTDMT_getCCtx.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rawSeqStore.sroa.5, i8 0, i64 24, i1 false), !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rawSeqStore.sroa.5, i8 0, i64 24, i1 false), !alias.scope !20
   br label %ZSTDMT_getSeq.exit
 
 if.end.i124:                                      ; preds = %ZSTDMT_getCCtx.exit
-  %call.i125 = tail call fastcc { ptr, i64 } @ZSTDMT_getBuffer(ptr noundef nonnull %4), !noalias !21
+  %call.i125 = tail call fastcc { ptr, i64 } @ZSTDMT_getBuffer(ptr noundef nonnull %4), !noalias !20
   %6 = extractvalue { ptr, i64 } %call.i125, 0
   %7 = extractvalue { ptr, i64 } %call.i125, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rawSeqStore.sroa.5, i8 0, i64 24, i1 false), !alias.scope !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rawSeqStore.sroa.5, i8 0, i64 24, i1 false), !alias.scope !23
   %div.i.i = udiv i64 %7, 12
   br label %ZSTDMT_getSeq.exit
 
@@ -3348,7 +3348,7 @@ do.end.i:                                         ; preds = %do.end.i, %do.end.l
   %call2.i = call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %19) #14
   %25 = load i32, ptr %nextJobID.i, align 8
   %cmp.i138 = icmp ult i32 %25, %20
-  br i1 %cmp.i138, label %do.end.i, label %while.end.i, !llvm.loop !27
+  br i1 %cmp.i138, label %do.end.i, label %while.end.i, !llvm.loop !26
 
 while.end.i:                                      ; preds = %do.end.i, %if.end99
   %.lcssa.i = phi i32 [ %24, %if.end99 ], [ %25, %do.end.i ]
@@ -3544,7 +3544,7 @@ if.end145:                                        ; preds = %for.body
   %call157 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %job_mutex148) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %if.end145, %if.end122
   %op.0.lcssa = phi ptr [ %dstBuff.sroa.0.0, %if.end122 ], [ %add.ptr147, %if.end145 ]
@@ -3891,18 +3891,17 @@ attributes #17 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 33}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"ZSTDMT_getSeq: %agg.result"}
-!23 = distinct !{!23, !"ZSTDMT_getSeq"}
-!24 = !{!25, !22}
-!25 = distinct !{!25, !26, !"bufferToSeq: %agg.result"}
-!26 = distinct !{!26, !"bufferToSeq"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"ZSTDMT_getSeq: %agg.result"}
+!22 = distinct !{!22, !"ZSTDMT_getSeq"}
+!23 = !{!24, !21}
+!24 = distinct !{!24, !25, !"bufferToSeq: %agg.result"}
+!25 = distinct !{!25, !"bufferToSeq"}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

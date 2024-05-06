@@ -87,7 +87,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dev_mc_init:
 @llvm.compiler.used = appending global [28 x ptr] [ptr @__UNIQUE_ID___addressable___hw_addr_init524, ptr @__UNIQUE_ID___addressable___hw_addr_ref_sync_dev520, ptr @__UNIQUE_ID___addressable___hw_addr_ref_unsync_dev521, ptr @__UNIQUE_ID___addressable___hw_addr_sync517, ptr @__UNIQUE_ID___addressable___hw_addr_sync_dev519, ptr @__UNIQUE_ID___addressable___hw_addr_unsync518, ptr @__UNIQUE_ID___addressable___hw_addr_unsync_dev522, ptr @__UNIQUE_ID___addressable_dev_addr_add536, ptr @__UNIQUE_ID___addressable_dev_addr_del541, ptr @__UNIQUE_ID___addressable_dev_addr_mod531, ptr @__UNIQUE_ID___addressable_dev_mc_add551, ptr @__UNIQUE_ID___addressable_dev_mc_add_excl550, ptr @__UNIQUE_ID___addressable_dev_mc_add_global552, ptr @__UNIQUE_ID___addressable_dev_mc_del553, ptr @__UNIQUE_ID___addressable_dev_mc_del_global554, ptr @__UNIQUE_ID___addressable_dev_mc_flush558, ptr @__UNIQUE_ID___addressable_dev_mc_init559, ptr @__UNIQUE_ID___addressable_dev_mc_sync555, ptr @__UNIQUE_ID___addressable_dev_mc_sync_multiple556, ptr @__UNIQUE_ID___addressable_dev_mc_unsync557, ptr @__UNIQUE_ID___addressable_dev_uc_add543, ptr @__UNIQUE_ID___addressable_dev_uc_add_excl542, ptr @__UNIQUE_ID___addressable_dev_uc_del544, ptr @__UNIQUE_ID___addressable_dev_uc_flush548, ptr @__UNIQUE_ID___addressable_dev_uc_init549, ptr @__UNIQUE_ID___addressable_dev_uc_sync545, ptr @__UNIQUE_ID___addressable_dev_uc_sync_multiple546, ptr @__UNIQUE_ID___addressable_dev_uc_unsync547], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__hw_addr_sync(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__hw_addr_sync(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6
@@ -1113,7 +1113,7 @@ declare dso_local i32 @dev_pre_changeaddr_notify(ptr noundef, ptr noundef, ptr n
 declare dso_local i32 @call_netdevice_notifiers(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_addr_del(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @dev_addr_del(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = tail call i32 @rtnl_is_locked() #9
   %5 = icmp ne i32 %4, 0
   %6 = load i1, ptr @dev_addr_del.__already_done, align 1
@@ -1360,7 +1360,7 @@ define dso_local noundef i32 @dev_uc_add(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_uc_del(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @dev_uc_del(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #9, !srcloc !45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !46
@@ -1445,7 +1445,7 @@ define dso_local noundef i32 @dev_uc_del(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_uc_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dev_uc_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 813
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 813
@@ -1478,7 +1478,7 @@ define dso_local noundef i32 @dev_uc_sync(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 813
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 813
@@ -1493,7 +1493,7 @@ define dso_local noundef i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %
   %11 = getelementptr inbounds i8, ptr %1, i64 832
   %12 = load i8, ptr %3, align 1
   %13 = zext i8 %12 to i32
-  %14 = tail call fastcc i32 @__hw_addr_sync_multiple(ptr noundef %10, ptr noundef %11, i32 noundef %13), !range !51
+  %14 = tail call fastcc i32 @__hw_addr_sync_multiple(ptr noundef %10, ptr noundef %11, i32 noundef %13)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -1511,7 +1511,7 @@ define dso_local noundef i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__hw_addr_sync_multiple(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__hw_addr_sync_multiple(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6
@@ -1820,7 +1820,7 @@ define dso_local noundef i32 @dev_mc_add_global(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_mc_del(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @dev_mc_del(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #9, !srcloc !45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !46
@@ -1905,7 +1905,7 @@ define dso_local noundef i32 @dev_mc_del(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_mc_del_global(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @dev_mc_del_global(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #9, !srcloc !45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !46
@@ -1922,7 +1922,7 @@ define dso_local noundef i32 @dev_mc_del_global(ptr noundef %0, ptr nocapture no
 .lr.ph.split.i:                                   ; preds = %2, %25
   %11 = phi ptr [ %28, %25 ], [ %9, %2 ]
   %12 = getelementptr i8, ptr %11, i64 24
-  %13 = tail call i32 @memcmp(ptr noundef %1, ptr noundef %12, i64 noundef %8)
+  %13 = tail call i32 @memcmp(ptr noundef readonly %1, ptr noundef %12, i64 noundef %8)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 
@@ -1997,7 +1997,7 @@ __hw_addr_del_ex.exit.thread:                     ; preds = %25, %2, %32, %.spli
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_mc_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dev_mc_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 813
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 813
@@ -2030,7 +2030,7 @@ define dso_local noundef i32 @dev_mc_sync(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dev_mc_sync_multiple(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dev_mc_sync_multiple(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 813
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 813
@@ -2045,7 +2045,7 @@ define dso_local noundef i32 @dev_mc_sync_multiple(ptr noundef %0, ptr noundef %
   %11 = getelementptr inbounds i8, ptr %1, i64 864
   %12 = load i8, ptr %3, align 1
   %13 = zext i8 %12 to i32
-  %14 = tail call fastcc i32 @__hw_addr_sync_multiple(ptr noundef %10, ptr noundef %11, i32 noundef %13), !range !51
+  %14 = tail call fastcc i32 @__hw_addr_sync_multiple(ptr noundef %10, ptr noundef %11, i32 noundef %13)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -2213,7 +2213,7 @@ define dso_local void @dev_mc_init(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__hw_addr_del_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @__hw_addr_del_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = sext i32 %2 to i64
   %9 = zext i8 %3 to i32

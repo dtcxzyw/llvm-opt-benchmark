@@ -118,7 +118,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @memtest_addressing(ptr noundef %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @memtest_addressing(ptr noundef %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #2 {
 entry:
   %div23 = lshr i64 %bytes, 3
   %cmp37.not = icmp ult i64 %bytes, 8
@@ -507,7 +507,7 @@ for.end28:                                        ; preds = %for.cond12.for.inc2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @memtest_compare(ptr noundef %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @memtest_compare(ptr noundef %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #2 {
 entry:
   %div117 = lshr i64 %bytes, 4
   %and = and i64 %bytes, 4095
@@ -658,7 +658,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %errors.017 = phi i32 [ %add12, %for.body ], [ 0, %for.body.lr.ph ]
   %j.016 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.11, i32 noundef %pass)
-  %call6 = tail call i32 @memtest_compare(ptr noundef %m, i64 noundef %bytes, i32 noundef %interactive), !range !16
+  %call6 = tail call i32 @memtest_compare(ptr noundef %m, i64 noundef %bytes, i32 noundef %interactive)
   %add12 = add nuw nsw i32 %call6, %errors.017
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %inc = add nuw nsw i32 %j.016, 1
@@ -933,7 +933,7 @@ if.end25.us.us:                                   ; preds = %if.end.us.i140.us.u
   %phi.call49.us.us = phi i32 [ 0, %if.end22.split.us.us ], [ 0, %if.end14.split.us.us ], [ 0, %if.end6.split.us.us ], [ 0, %while.body.us.us ], [ %add.us.i142.us.us, %if.end.us.i140.us.us ]
   %add27.us.us = add nsw i32 %phi.call49.us.us, %add19187.us.us212214
   %cmp.not.us.us = icmp eq i32 %inc.us.us, %passes
-  br i1 %cmp.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !17
+  br i1 %cmp.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !16
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us
   br i1 %cmp37.not.i, label %cond.false.i, label %for.body.us.i.us
@@ -953,7 +953,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %pass.0201 = phi i32 [ %inc, %while.body ], [ 0, %while.body.lr.ph ]
   %inc = add nuw nsw i32 %pass.0201, 1
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.12, i32 noundef %inc)
-  %call40 = tail call i32 @memtest_addressing(ptr noundef %m, i64 noundef %bytes, i32 noundef %interactive), !range !16
+  %call40 = tail call i32 @memtest_addressing(ptr noundef %m, i64 noundef %bytes, i32 noundef %interactive)
   %add159 = add nsw i32 %call40, %errors.0202
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.13, i32 noundef %inc)
@@ -972,7 +972,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call2648 = tail call i32 @memtest_compare_times(ptr noundef %m, i64 noundef %bytes, i32 noundef %inc, i32 noundef 4, i32 noundef %interactive)
   %add27 = add nsw i32 %call2648, %add19191
   %cmp.not = icmp eq i32 %inc, %passes
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
 
 cond.false.i:                                     ; preds = %for.body.us.i.us, %while.body.us
   tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 156) #14
@@ -1022,7 +1022,7 @@ if.end7.us:                                       ; preds = %if.then5.us, %while
   %sub39.us = sub i64 %left.1.us, %spec.select.us
   %div4055.us = lshr i64 %spec.select.us, 3
   %add.ptr41.us = getelementptr inbounds i64, ptr %p.1.us, i64 %div4055.us
-  br label %while.cond.us, !llvm.loop !18
+  br label %while.cond.us, !llvm.loop !17
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond13.while.end_crit_edge.split.us
   %p.0 = phi ptr [ %add.ptr41, %while.cond13.while.end_crit_edge.split.us ], [ %m, %while.cond.preheader ]
@@ -1293,13 +1293,13 @@ memtest_compare_times.exit289.us:                 ; preds = %if.end.us.i278.us, 
   %errors.0.lcssa.i283.us = phi i32 [ 0, %memtest_fill_value.exit215.us ], [ 0, %memtest_fill_value.exit.us ], [ 0, %memtest_fill_random.exit.us ], [ 0, %while.body15.us ], [ %add.us.i280.us, %if.end.us.i278.us ]
   %add37.us = add nsw i32 %errors.0.lcssa.i283.us, %add30295.us318
   %cmp14.not.us = icmp eq i32 %inc.us, %passes
-  br i1 %cmp14.not.us, label %while.cond13.while.end_crit_edge.split.us, label %while.body15.us, !llvm.loop !19
+  br i1 %cmp14.not.us, label %while.cond13.while.end_crit_edge.split.us, label %while.body15.us, !llvm.loop !18
 
 while.cond13.while.end_crit_edge.split.us:        ; preds = %memtest_compare_times.exit289.us
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %p.1, ptr nonnull align 16 %backup, i64 %spec.select, i1 false)
   %sub39 = sub i64 %left.1, %spec.select
   %add.ptr41 = getelementptr inbounds i64, ptr %p.1, i64 %div23.i
-  br label %while.cond, !llvm.loop !18
+  br label %while.cond, !llvm.loop !17
 
 while.body15:                                     ; preds = %if.end7
   br i1 %cmp37.not.i, label %memtest_addressing.exit, label %for.body.us.i
@@ -1436,7 +1436,6 @@ attributes #17 = { cold nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

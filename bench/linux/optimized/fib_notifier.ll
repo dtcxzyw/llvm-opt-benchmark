@@ -30,7 +30,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_call_fib_notifier511, ptr @__UNIQUE_ID___addressable_call_fib_notifiers512, ptr @__UNIQUE_ID___addressable_fib_notifier_init525, ptr @__UNIQUE_ID___addressable_fib_notifier_ops_register519, ptr @__UNIQUE_ID___addressable_fib_notifier_ops_unregister521, ptr @__UNIQUE_ID___addressable_register_fib_notifier517, ptr @__UNIQUE_ID___addressable_unregister_fib_notifier518], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @call_fib_notifier(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 32770, 2) i32 @call_fib_notifier(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = zext i32 %1 to i64
   %6 = tail call i32 %4(ptr noundef %0, i64 noundef %5, ptr noundef %2) #4
@@ -42,7 +42,7 @@ define dso_local i32 @call_fib_notifier(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @call_fib_notifiers(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 32770, 2) i32 @call_fib_notifiers(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr @fib_notifier_net_id, align 4
   tail call void @__rcu_read_lock() #4
   %5 = getelementptr inbounds i8, ptr %0, i64 2536

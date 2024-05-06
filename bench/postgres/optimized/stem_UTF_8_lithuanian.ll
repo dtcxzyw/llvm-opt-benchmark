@@ -304,7 +304,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_4_0 = internal constant [2 x i8] c"gd", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lithuanian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -489,7 +489,7 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
 94:                                               ; preds = %87, %r_fix_conflicts.exit, %88, %91
   %95 = load i32, ptr %2, align 4
   store i32 %95, ptr %6, align 8
-  %96 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0), !range !4
+  %96 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %r_step1.exit, label %98
 
@@ -529,7 +529,7 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
 .loopexit:                                        ; preds = %101, %109
   %114 = load i32, ptr %2, align 4
   store i32 %114, ptr %6, align 8
-  %115 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0), !range !4
+  %115 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0)
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %r_step1.exit, label %117
 
@@ -581,7 +581,7 @@ declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_fix_chdz(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_chdz(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -666,4 +666,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

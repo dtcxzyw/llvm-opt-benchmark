@@ -40,7 +40,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core3ops8func
   %4 = load i8, ptr %3, align 8, !range !15, !alias.scope !16, !noundef !4
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i.i.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i.i.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -104,7 +104,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core3ops8fun
   %4 = load i8, ptr %3, align 8, !range !15, !alias.scope !30, !noundef !4
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i.i.i.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i.i.i.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i
@@ -141,7 +141,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %5 = load i8, ptr %4, align 8, !range !15, !alias.scope !34, !noalias !31, !noundef !4
   %6 = and i8 %5, -2
   %7 = icmp eq i8 %6, -126
-  %8 = add i8 %5, 127
+  %8 = add nsw i8 %5, 127
   %trunc.i.i = select i1 %7, i8 %8, i8 0
   switch i8 %trunc.i.i, label %9 [
     i8 0, label %"_ZN12typst_syntax4node10SyntaxNode6errors28_$u7b$$u7b$closure$u7d$$u7d$17hc06879414176e74cE.llvm.5444024693429055459.exit"
@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %11 = load ptr, ptr %3, align 8, !alias.scope !34, !noalias !31, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load i8, ptr %12, align 8, !range !37, !noalias !38, !noundef !4
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   br label %"_ZN12typst_syntax4node10SyntaxNode6errors28_$u7b$$u7b$closure$u7d$$u7d$17hc06879414176e74cE.llvm.5444024693429055459.exit"
 
 15:                                               ; preds = %2
@@ -492,11 +492,11 @@ define hidden void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE
   br i1 %.not.i, label %7, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph.preheader.i
-  %8 = trunc i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %4, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
@@ -555,7 +555,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   br i1 %.not.i.i.i, label %9, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !100
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !100
   %.0..0..0..0..0..sroa.0.0.copyload1.pre.i = load ptr, ptr %5, align 8, !noalias !101
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..sroa.5.0.copyload3.pre.i = load i56, ptr %.8..8..8..8..8..sroa_idx, align 8, !noalias !101
@@ -923,9 +923,9 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc4sync16
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 32
   store i64 %.val1.i.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !122
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i64 16, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i64 16, i1 false), !noalias !122
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false), !noalias !122
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
@@ -1715,7 +1715,7 @@ define hidden void @"_ZN78_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   br i1 %.not.i.i, label %8, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !236
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !236
   %.0..0..0..sroa.0.0.copyload1.pre = load ptr, ptr %4, align 8, !noalias !237
   %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.8..8..8..sroa.5.0.copyload3.pre = load i56, ptr %.8..8..8..sroa_idx, align 8, !noalias !237
@@ -2144,7 +2144,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode5error17h82c29375bb089b0eE
   %6 = alloca { { { [2 x i64] } } }, align 8
   %7 = alloca { { i64 }, { i64 }, { { i64, { ptr, i64, {} }, { { { [2 x i64] } } } }, { { { [2 x i64] } } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !250
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !alias.scope !255, !noalias !262
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !alias.scope !255, !noalias !262
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5)
   %8 = icmp ugt i64 %2, 15
   br i1 %8, label %18, label %15
@@ -2167,7 +2167,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode5error17h82c29375bb089b0eE
   br i1 %.not.i.i.i.i.i, label %17, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !281
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !281
   %.0..0..0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i.i = load ptr, ptr %5, align 8, !noalias !282
   %.8..8..8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i.i = load i56, ptr %.8..8..8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !282
@@ -2272,7 +2272,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E
   br i1 %.not.i.i.i.i.i, label %10, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %2, i64 %3, i1 false), !noalias !301
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !noalias !301
   %.0..0..0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i.i = load ptr, ptr %5, align 8, !noalias !302
   %.8..8..8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i.i = load i56, ptr %.8..8..8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !302
@@ -2381,7 +2381,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !322, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2423,7 +2423,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !329, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2459,7 +2459,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !336, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2495,7 +2495,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !343, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2537,7 +2537,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !350, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2573,7 +2573,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !357, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2609,7 +2609,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !364, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2651,7 +2651,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !371, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2687,7 +2687,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !378, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -2927,7 +2927,7 @@ define hidden noundef zeroext i1 @"_ZN12typst_syntax4node10SyntaxNode6errors28_$
   %5 = load i8, ptr %4, align 8, !range !15, !alias.scope !414, !noundef !4
   %6 = and i8 %5, -2
   %7 = icmp eq i8 %6, -126
-  %8 = add i8 %5, 127
+  %8 = add nsw i8 %5, 127
   %trunc.i = select i1 %7, i8 %8, i8 0
   switch i8 %trunc.i, label %9 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
@@ -2942,7 +2942,7 @@ define hidden noundef zeroext i1 @"_ZN12typst_syntax4node10SyntaxNode6errors28_$
   %11 = load ptr, ptr %3, align 8, !alias.scope !414, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load i8, ptr %12, align 8, !range !37, !noalias !414, !noundef !4
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
 
 15:                                               ; preds = %2
@@ -3085,7 +3085,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode4hint17h8a90de950cf36e1cE(
   br i1 %.not.i.i.i.i, label %14, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !460
   %.0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i = load ptr, ptr %4, align 8, !noalias !461
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !461
@@ -3180,7 +3180,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17h12cde
   %8 = load i8, ptr %7, align 8, !range !15, !alias.scope !474, !noundef !4
   %9 = and i8 %8, -2
   %10 = icmp eq i8 %9, -126
-  %11 = add i8 %8, 127
+  %11 = add nsw i8 %8, 127
   %trunc.i = select i1 %10, i8 %11, i8 0
   switch i8 %trunc.i, label %12 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -3243,7 +3243,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   %7 = load i8, ptr %6, align 8, !range !15, !alias.scope !477, !noundef !4
   %8 = and i8 %7, -2
   %9 = icmp eq i8 %8, -126
-  %10 = add i8 %7, 127
+  %10 = add nsw i8 %7, 127
   %trunc.i = select i1 %9, i8 %10, i8 0
   switch i8 %trunc.i, label %11 [
     i8 0, label %16
@@ -3292,7 +3292,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   %.sroa.58.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
   store i64 0, ptr %.sroa.58.0..sroa_idx.i, align 8, !noalias !480
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !485
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !485
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !486
   %23 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #31, !noalias !486
   %24 = icmp eq ptr %23, null
@@ -3384,7 +3384,7 @@ define hidden void @_ZN12typst_syntax4node8LeafNode3new17hc8fd4c5495e18b98E(ptr 
   br i1 %.not.i.i.i.i, label %10, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 1 %2, i64 %3, i1 false), !noalias !513
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !noalias !513
   %.0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i = load ptr, ptr %6, align 8, !noalias !514
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !514
@@ -3448,7 +3448,7 @@ define hidden void @_ZN12typst_syntax4node9ErrorNode3new17h39ce4c1af22f56c9E.llv
   br i1 %.not.i.i.i.i, label %9, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %2, i64 %3, i1 false), !noalias !525
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !noalias !525
   %.0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i = load ptr, ptr %5, align 8, !noalias !526
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !526
@@ -3518,7 +3518,7 @@ define hidden void @_ZN12typst_syntax4node9ErrorNode3new17hbb1563f92a24e58dE.llv
   %5 = alloca [15 x i8], align 8
   %6 = alloca { { { [2 x i64] } } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !alias.scope !534
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !alias.scope !534
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5)
   %7 = icmp ugt i64 %2, 15
   br i1 %7, label %17, label %14
@@ -3541,7 +3541,7 @@ define hidden void @_ZN12typst_syntax4node9ErrorNode3new17hbb1563f92a24e58dE.llv
   br i1 %.not.i.i.i.i, label %16, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !558
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !558
   %.0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i = load ptr, ptr %5, align 8, !noalias !559
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !559
@@ -3650,7 +3650,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h16b1a9d16db94455E(ptr noal
 22:                                               ; preds = %.backedge, %25, %19
   %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !563, !noundef !4
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
 
 25:                                               ; preds = %21
@@ -3676,7 +3676,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h16b1a9d16db94455E(ptr noal
   %36 = add i8 %35, -42
   %switch.i.i = icmp ult i8 %36, -6
   %37 = load i8, ptr %11, align 8, !range !37, !alias.scope !568, !noundef !4
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = and i1 %switch.i.i, %38
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %11, align 8, !alias.scope !568
@@ -3795,7 +3795,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h4b5dd6a70ddecc82E(ptr noal
 22:                                               ; preds = %.backedge, %25, %19
   %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !597, !noundef !4
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
 
 25:                                               ; preds = %21
@@ -3821,7 +3821,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h4b5dd6a70ddecc82E(ptr noal
   %36 = add i8 %35, -42
   %switch.i.i = icmp ult i8 %36, -6
   %37 = load i8, ptr %11, align 8, !range !37, !alias.scope !602, !noundef !4
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = and i1 %switch.i.i, %38
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %11, align 8, !alias.scope !602
@@ -3940,7 +3940,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h646625ff28a70e1dE(ptr noal
 22:                                               ; preds = %.backedge, %25, %19
   %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !629, !noundef !4
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
 
 25:                                               ; preds = %21
@@ -3966,7 +3966,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h646625ff28a70e1dE(ptr noal
   %36 = add i8 %35, -42
   %switch.i.i = icmp ult i8 %36, -6
   %37 = load i8, ptr %11, align 8, !range !37, !alias.scope !634, !noundef !4
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = and i1 %switch.i.i, %38
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %11, align 8, !alias.scope !634
@@ -4089,7 +4089,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17ha168f1988de96cecE(ptr noal
 24:                                               ; preds = %19, %27, %21
   %.1 = phi i64 [ %28, %27 ], [ %22, %21 ], [ %.0, %19 ]
   %25 = load i8, ptr %10, align 8, !range !37, !alias.scope !661, !noundef !4
-  %26 = trunc i8 %25 to i1
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %36, label %29
 
 27:                                               ; preds = %23
@@ -4116,7 +4116,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17ha168f1988de96cecE(ptr noal
   %39 = add i8 %38, -42
   %switch.i.i = icmp ult i8 %39, -6
   %40 = load i8, ptr %11, align 8, !range !37, !alias.scope !669, !noundef !4
-  %41 = trunc i8 %40 to i1
+  %41 = trunc nuw i8 %40 to i1
   %42 = and i1 %switch.i.i, %41
   %43 = zext i1 %42 to i8
   store i8 %43, ptr %11, align 8, !alias.scope !669
@@ -4220,7 +4220,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hb3d844f7eaa9aa67E(ptr noal
 .lr.ph:                                           ; preds = %3, %.backedge
   %19 = phi i8 [ %38, %.backedge ], [ %18, %3 ]
   %20 = load i8, ptr %10, align 8, !range !37, !alias.scope !696, !noundef !4
-  %21 = trunc i8 %20 to i1
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %.lr.ph
@@ -4242,7 +4242,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hb3d844f7eaa9aa67E(ptr noal
   %31 = add i8 %30, -42
   %switch.i.i = icmp ult i8 %31, -6
   %32 = load i8, ptr %11, align 8, !range !37, !alias.scope !701, !noundef !4
-  %33 = trunc i8 %32 to i1
+  %33 = trunc nuw i8 %32 to i1
   %34 = and i1 %switch.i.i, %33
   %35 = zext i1 %34 to i8
   store i8 %35, ptr %11, align 8, !alias.scope !701
@@ -4372,7 +4372,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd0d7b7a47f8a619fE(ptr noal
 28:                                               ; preds = %19, %31, %25
   %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !728, !noundef !4
-  %30 = trunc i8 %29 to i1
+  %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
 
 31:                                               ; preds = %27
@@ -4398,7 +4398,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd0d7b7a47f8a619fE(ptr noal
   %42 = add i8 %41, -42
   %switch.i.i = icmp ult i8 %42, -6
   %43 = load i8, ptr %11, align 8, !range !37, !alias.scope !733, !noundef !4
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   %45 = and i1 %switch.i.i, %44
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %11, align 8, !alias.scope !733
@@ -4526,7 +4526,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd1ab4c609d964494E(ptr noal
 28:                                               ; preds = %19, %31, %25
   %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !760, !noundef !4
-  %30 = trunc i8 %29 to i1
+  %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
 
 31:                                               ; preds = %27
@@ -4552,7 +4552,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd1ab4c609d964494E(ptr noal
   %42 = add i8 %41, -42
   %switch.i.i = icmp ult i8 %42, -6
   %43 = load i8, ptr %11, align 8, !range !37, !alias.scope !765, !noundef !4
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   %45 = and i1 %switch.i.i, %44
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %11, align 8, !alias.scope !765
@@ -4671,7 +4671,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hdde1bc05e4fdf4f7E(ptr noal
 22:                                               ; preds = %.backedge, %25, %19
   %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !792, !noundef !4
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
 
 25:                                               ; preds = %21
@@ -4697,7 +4697,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hdde1bc05e4fdf4f7E(ptr noal
   %36 = add i8 %35, -42
   %switch.i.i = icmp ult i8 %36, -6
   %37 = load i8, ptr %11, align 8, !range !37, !alias.scope !797, !noundef !4
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = and i1 %switch.i.i, %38
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %11, align 8, !alias.scope !797
@@ -4825,7 +4825,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17he5edf4753af34dc7E(ptr noal
 28:                                               ; preds = %19, %31, %25
   %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !824, !noundef !4
-  %30 = trunc i8 %29 to i1
+  %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
 
 31:                                               ; preds = %27
@@ -4851,7 +4851,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17he5edf4753af34dc7E(ptr noal
   %42 = add i8 %41, -42
   %switch.i.i = icmp ult i8 %42, -6
   %43 = load i8, ptr %11, align 8, !range !37, !alias.scope !829, !noundef !4
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   %45 = and i1 %switch.i.i, %44
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %11, align 8, !alias.scope !829
@@ -4962,7 +4962,7 @@ define hidden void @_ZN12typst_syntax6parser14reparse_markup17h13767a8a82cd7ff0E
   %24 = phi i64 [ %17, %8 ], [ %46, %.backedge ], [ %29, %33 ]
   %25 = getelementptr inbounds i8, ptr %12, i64 256
   %26 = load i8, ptr %25, align 8, !range !37, !noundef !4
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %63, label %.thread20
 
 .thread20:                                        ; preds = %._crit_edge
@@ -4996,7 +4996,7 @@ define hidden void @_ZN12typst_syntax6parser14reparse_markup17h13767a8a82cd7ff0E
 36:                                               ; preds = %.sink.split, %33
   %37 = phi i64 [ %31, %33 ], [ %35, %.sink.split ]
   %38 = load i8, ptr %20, align 8, !range !37, !alias.scope !853, !noundef !4
-  %39 = trunc i8 %38 to i1
+  %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %36
@@ -5056,7 +5056,7 @@ define hidden void @_ZN12typst_syntax6parser14reparse_markup17h13767a8a82cd7ff0E
   %56 = add i8 %55, -42
   %switch.i.i = icmp ult i8 %56, -6
   %57 = load i8, ptr %21, align 8, !range !37, !alias.scope !866, !noundef !4
-  %58 = trunc i8 %57 to i1
+  %58 = trunc nuw i8 %57 to i1
   %59 = and i1 %switch.i.i, %58
   %60 = zext i1 %59 to i8
   store i8 %60, ptr %21, align 8, !alias.scope !866
@@ -5187,14 +5187,14 @@ define hidden noundef zeroext i1 @"_ZN12typst_syntax6parser7heading28_$u7b$$u7b$
   %27 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %27)
   %28 = shl i64 %23, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %22, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull readonly align 8 %22, i64 %28, i1 false)
   store i64 %25, ptr %3, align 8, !alias.scope !893, !noalias !894
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %26, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !893, !noalias !894
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %23, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !893, !noalias !894
   %29 = load i64, ptr %1, align 8, !range !895, !alias.scope !878, !noalias !875, !noundef !4
-  %trunc.i = trunc i64 %29 to i1
+  %trunc.i = trunc nuw i64 %29 to i1
   br i1 %trunc.i, label %30, label %"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone..Clone$GT$5clone17ha00c0f4f9a43ed24E.llvm.5444024693429055459.exit"
 
 30:                                               ; preds = %15
@@ -5248,13 +5248,13 @@ common.resume:                                    ; preds = %51, %41
   %.sroa.0.0.i = phi i64 [ 0, %15 ], [ 1, %36 ], [ 1, %35 ], [ 1, %30 ]
   %45 = getelementptr inbounds i8, ptr %1, i64 48
   %46 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !alias.scope !880
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %46, ptr noundef nonnull readonly align 8 dereferenceable(24) %45, i64 24, i1 false), !alias.scope !880
   %47 = getelementptr inbounds i8, ptr %4, i64 73
   store i8 %17, ptr %47, align 1, !alias.scope !875, !noalias !878
   %48 = getelementptr inbounds i8, ptr %4, i64 72
   store i8 %19, ptr %48, align 8, !alias.scope !875, !noalias !878
   %49 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !878
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !878
   store i64 %.sroa.0.0.i, ptr %4, align 8, !alias.scope !875, !noalias !878
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.sroa.5.sroa.0.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !875, !noalias !878
@@ -5358,7 +5358,7 @@ define hidden void @_ZN12typst_syntax6parser4math17h0184979eba315b07E(ptr noalia
   %16 = add i8 %15, -42
   %switch.i.i = icmp ult i8 %16, -6
   %17 = load i8, ptr %5, align 8, !range !37, !alias.scope !923, !noundef !4
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   %19 = and i1 %switch.i.i, %18
   %20 = zext i1 %19 to i8
   store i8 %20, ptr %5, align 8, !alias.scope !923
@@ -5408,7 +5408,7 @@ define hidden void @_ZN12typst_syntax6parser4math17h3948247f3730044dE(ptr noalia
   %17 = add i8 %16, -42
   %switch.i.i = icmp ult i8 %17, -6
   %18 = load i8, ptr %7, align 8, !range !37, !alias.scope !929, !noundef !4
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   %20 = and i1 %switch.i.i, %19
   %21 = zext i1 %20 to i8
   store i8 %21, ptr %7, align 8, !alias.scope !929
@@ -5538,7 +5538,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread2: ; preds
   %43 = load i8, ptr %42, align 8, !range !15, !alias.scope !966, !noalias !958, !noundef !4
   %44 = and i8 %43, -2
   %45 = icmp eq i8 %44, -126
-  %46 = add i8 %43, 127
+  %46 = add nsw i8 %43, 127
   %trunc.i.i.i = select i1 %45, i8 %46, i8 0
   switch i8 %trunc.i.i.i, label %47 [
     i8 0, label %_ZN12typst_syntax6parser6Parser11after_error17h4621bd2aec97a1ddE.llvm.17794941744620341598.exit.i
@@ -5586,7 +5586,7 @@ _ZN12typst_syntax6parser6Parser11after_error17h4621bd2aec97a1ddE.llvm.1779494174
   %62 = add i8 %61, -42
   %switch.i.i = icmp ult i8 %62, -6
   %63 = load i8, ptr %8, align 8, !range !37, !alias.scope !970, !noundef !4
-  %64 = trunc i8 %63 to i1
+  %64 = trunc nuw i8 %63 to i1
   %65 = and i1 %switch.i.i, %64
   %66 = zext i1 %65 to i8
   store i8 %66, ptr %8, align 8, !alias.scope !970
@@ -5716,7 +5716,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread4: ; preds
   %59 = load i8, ptr %58, align 8, !range !15, !alias.scope !998, !noalias !991, !noundef !4
   %60 = and i8 %59, -2
   %61 = icmp eq i8 %60, -126
-  %62 = add i8 %59, 127
+  %62 = add nsw i8 %59, 127
   %trunc.i.i.i = select i1 %61, i8 %62, i8 0
   switch i8 %trunc.i.i.i, label %63 [
     i8 0, label %_ZN12typst_syntax6parser6Parser11after_error17h4621bd2aec97a1ddE.llvm.17794941744620341598.exit.i
@@ -5764,7 +5764,7 @@ _ZN12typst_syntax6parser6Parser11after_error17h4621bd2aec97a1ddE.llvm.1779494174
   %78 = add i8 %77, -42
   %switch.i.i = icmp ult i8 %78, -6
   %79 = load i8, ptr %8, align 8, !range !37, !alias.scope !1002, !noundef !4
-  %80 = trunc i8 %79 to i1
+  %80 = trunc nuw i8 %79 to i1
   %81 = and i1 %switch.i.i, %80
   %82 = zext i1 %81 to i8
   store i8 %82, ptr %8, align 8, !alias.scope !1002
@@ -5804,7 +5804,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN72_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1011, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -5839,7 +5839,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1014, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -5874,7 +5874,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN74_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1017, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -5909,7 +5909,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN70_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1020, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -5944,7 +5944,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN71_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1023, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -5979,7 +5979,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN70_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1026, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6014,7 +6014,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN78_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1029, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6049,7 +6049,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN70_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1032, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6084,7 +6084,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN72_$LT$typst_
   %3 = load i8, ptr %2, align 8, !range !15, !alias.scope !1035, !noundef !4
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6133,14 +6133,14 @@ define hidden void @"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   %16 = shl i64 %11, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %10, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 8 %10, i64 %16, i1 false)
   store i64 %13, ptr %3, align 8, !alias.scope !1048, !noalias !1049
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %14, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1048, !noalias !1049
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %11, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1048, !noalias !1049
   %17 = load i64, ptr %1, align 8, !range !895, !noundef !4
-  %trunc = trunc i64 %17 to i1
+  %trunc = trunc nuw i64 %17 to i1
   br i1 %trunc, label %18, label %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit"
 
 18:                                               ; preds = %2
@@ -6277,7 +6277,7 @@ define hidden void @"_ZN67_$LT$typst_syntax..node..SyntaxNode$u20$as$u20$core..h
   br label %_ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.exit
 
 _ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.exit: ; preds = %22, %48
-  %trunc = trunc i64 %9 to i8
+  %trunc = trunc nuw i64 %9 to i8
   switch i8 %trunc, label %50 [
     i8 0, label %51
     i8 1, label %52
@@ -6440,7 +6440,7 @@ define hidden void @"_ZN61_$LT$typst_syntax..node..Repr$u20$as$u20$core..hash..H
   br label %_ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.exit
 
 _ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.exit: ; preds = %22, %48
-  %trunc = trunc i64 %9 to i8
+  %trunc = trunc nuw i64 %9 to i8
   switch i8 %trunc, label %50 [
     i8 0, label %51
     i8 1, label %52

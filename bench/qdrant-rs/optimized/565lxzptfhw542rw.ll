@@ -275,7 +275,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heba96e4de7a30730E.ex
   %113 = getelementptr inbounds i8, ptr %111, i64 %.0.i.i
   %114 = load i8, ptr %113, align 1, !noundef !3
   %115 = lshr i64 %63, 57
-  %116 = trunc i64 %115 to i8
+  %116 = trunc nuw nsw i64 %115 to i8
   %117 = add i64 %.0.i.i, -16
   %118 = and i64 %104, %117
   store i8 %116, ptr %113, align 1
@@ -288,7 +288,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heba96e4de7a30730E.ex
 
 123:                                              ; preds = %103
   %124 = lshr i64 %63, 57
-  %125 = trunc i64 %124 to i8
+  %125 = trunc nuw nsw i64 %124 to i8
   %126 = add i64 %.sroa.03.042, -16
   %127 = and i64 %104, %126
   %128 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
@@ -417,7 +417,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hcae390b0153ab603E.exit: ; p
   %46 = getelementptr inbounds i8, ptr %45, i64 %.0.i.i
   %47 = load i8, ptr %46, align 1, !noundef !3
   %48 = lshr i64 %1, 57
-  %49 = trunc i64 %48 to i8
+  %49 = trunc nuw nsw i64 %48 to i8
   %50 = add i64 %.0.i.i, -16
   %51 = and i64 %44, %50
   store i8 %49, ptr %46, align 1
@@ -448,7 +448,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %18 = alloca <2 x i64>, align 16
   %19 = alloca i16, align 2
   %20 = lshr i64 %1, 57
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !3
   %24 = and i64 %23, %1

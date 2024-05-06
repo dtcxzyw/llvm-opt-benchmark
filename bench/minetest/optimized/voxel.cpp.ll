@@ -470,7 +470,7 @@ if.else92:                                        ; preds = %for.body84
   %n.sroa.5.0.extract.shift = lshr i32 %31, 16
   %n.sroa.5.0.extract.trunc = trunc i32 %n.sroa.5.0.extract.shift to i8
   %n.sroa.6.0.extract.shift = lshr i32 %31, 24
-  %n.sroa.6.0.extract.trunc = trunc i32 %n.sroa.6.0.extract.shift to i8
+  %n.sroa.6.0.extract.trunc = trunc nuw i32 %n.sroa.6.0.extract.shift to i8
   switch i32 %mode, label %if.end161 [
     i32 1, label %if.then102
     i32 2, label %if.then112
@@ -788,7 +788,7 @@ if.end18:                                         ; preds = %if.end.i, %if.then1
   %conv3.i = ashr i32 %new_area.sroa.26.12.extract.trunc, 16
   %mul.i = mul nsw i32 %conv.i, %conv3.i
   %sh.diff = lshr i48 %new_area.sroa.26.1, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv5.i = ashr i32 %tr.sh.diff, 16
   %mul6.i = mul nsw i32 %mul.i, %conv5.i
   %conv = sext i32 %mul6.i to i64
@@ -1011,7 +1011,7 @@ define dso_local void @_ZN16VoxelManipulator8copyFromEP7MapNodeRK9VoxelAreaN3irr
 entry:
   %to_pos.sroa.0.0.extract.trunc = trunc i48 %to_pos.coerce to i32
   %to_pos.sroa.7.0.extract.shift = lshr i48 %to_pos.coerce, 32
-  %to_pos.sroa.7.0.extract.trunc = trunc i48 %to_pos.sroa.7.0.extract.shift to i16
+  %to_pos.sroa.7.0.extract.trunc = trunc nuw i48 %to_pos.sroa.7.0.extract.shift to i16
   %m_cache_extent.i = getelementptr inbounds i8, ptr %src_area, i64 12
   %0 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !16
   %m_area = getelementptr inbounds i8, ptr %this, i64 8
@@ -1067,7 +1067,7 @@ for.cond31.preheader.preheader:                   ; preds = %for.cond31.preheade
   %conv19.i108 = sext i16 %9 to i32
   %sub20.i109 = sub nsw i32 %conv16.i107, %conv19.i108
   %sh.diff = lshr i48 %from_pos.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv.i92 = ashr i32 %tr.sh.diff, 16
   %Z.i93 = getelementptr inbounds i8, ptr %src_area, i64 4
   %10 = load i16, ptr %Z.i93, align 2, !tbaa !43
@@ -1186,9 +1186,9 @@ for.cond4.preheader.lr.ph:                        ; preds = %entry
 
 for.cond4.preheader.preheader:                    ; preds = %for.cond4.preheader.lr.ph
   %sum.shift69 = lshr i48 %from_pos.coerce, 32
-  %conv2670 = trunc i48 %sum.shift69 to i16
+  %conv2670 = trunc nuw i48 %sum.shift69 to i16
   %sum.shift = lshr i48 %dst_pos.coerce, 32
-  %conv1567 = trunc i48 %sum.shift to i16
+  %conv1567 = trunc nuw i48 %sum.shift to i16
   %.pre10 = load i16, ptr %size, align 2
   br label %for.cond4.preheader
 

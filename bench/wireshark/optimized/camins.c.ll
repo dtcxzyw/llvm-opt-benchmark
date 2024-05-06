@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @camins_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @camins_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca [2 x i8], align 1
@@ -146,19 +146,19 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @camins_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @camins_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #4
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc i32 @camins_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %3, ptr noundef %4), !range !6
+  %12 = tail call fastcc i32 @camins_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %3, ptr noundef %4)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @camins_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @camins_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
@@ -167,7 +167,7 @@ define internal noundef i32 @camins_seek_read(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @camins_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef %5), !range !6
+  %13 = tail call fastcc i32 @camins_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -194,7 +194,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @camins_read_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @camins_read_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [2 x i8], align 1
   %8 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
@@ -446,7 +446,7 @@ process_timestamp.exit.us.i:                      ; preds = %105, %104, %102
   %.126.us.i = phi ptr [ %107, %105 ], [ %.02534.us.i, %104 ], [ %.02534.us.i, %102 ]
   %.1.us.i = phi i16 [ %108, %105 ], [ %.035.us.i, %104 ], [ %.035.us.i, %102 ]
   %109 = icmp ult i16 %.1.us.i, %.us-phi94.sink
-  br i1 %109, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %109, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %process_timestamp.exit.i42
   %.035.i = phi i16 [ %.1.i, %process_timestamp.exit.i42 ], [ 0, %.lr.ph.i ]
@@ -509,7 +509,7 @@ process_timestamp.exit.i42:                       ; preds = %134, %120, %114
   %.126.i = phi ptr [ %116, %114 ], [ %.02534.i, %134 ], [ %.02534.i, %120 ]
   %.1.i = phi i16 [ %117, %114 ], [ %.035.i, %134 ], [ %.035.i, %120 ]
   %137 = icmp ult i16 %.1.i, %.us-phi94.sink
-  br i1 %137, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %137, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !6
 
 read_packet_data.exit.thread:                     ; preds = %83, %.split.us.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
@@ -583,5 +583,4 @@ attributes #5 = { nounwind allocsize(0,1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

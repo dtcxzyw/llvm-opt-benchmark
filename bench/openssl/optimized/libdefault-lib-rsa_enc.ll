@@ -57,14 +57,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_encrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 512), !range !4
+  %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 512)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_encrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -175,14 +175,14 @@ return:                                           ; preds = %if.end44, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_decrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_decrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 1024), !range !4
+  %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 1024)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_decrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef %outlen, i64 noundef %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 0, 2) i32 @rsa_decrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef %outlen, i64 noundef %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %rsa = getelementptr inbounds i8, ptr %vprsactx, i64 8
   %0 = load ptr, ptr %rsa, align 8
@@ -346,17 +346,17 @@ if.end89:                                         ; preds = %if.else76, %if.end7
   %conv90 = sext i32 %ret.1 to i64
   %shr.neg.i = ashr i64 %conv90, 63
   %15 = load i64, ptr %outlen, align 8
-  %16 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shr.neg.i) #7, !srcloc !5
+  %16 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shr.neg.i) #7, !srcloc !4
   %and.i = and i64 %16, %15
   %not.i = xor i64 %shr.neg.i, -1
-  %17 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i) #7, !srcloc !5
+  %17 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i) #7, !srcloc !4
   %and2.i = and i64 %17, %conv90
   %or.i = or i64 %and2.i, %and.i
   store i64 %or.i, ptr %outlen, align 8
   %shr.neg.i52 = ashr i32 %ret.1, 31
-  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i52) #7, !srcloc !6
+  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i52) #7, !srcloc !5
   %not.i.i = xor i32 %shr.neg.i52, -1
-  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !6
+  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !5
   %and2.i.i = and i32 %19, 1
   br label %return
 
@@ -453,7 +453,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_get_ctx_params(ptr noundef readonly %vprsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly %vprsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -488,13 +488,13 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %indvars.iv54 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv54, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %if.else, label %for.body, !llvm.loop !7
+  br i1 %exitcond, label %if.else, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx, align 16
   %cmp12 = icmp eq i32 %1, %3
-  br i1 %cmp12, label %for.end, label %for.cond, !llvm.loop !7
+  br i1 %cmp12, label %for.end, label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %arrayidx48.lcssa = phi ptr [ @padding_item, %for.cond.preheader ], [ %arrayidx, %for.body ]
@@ -628,7 +628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_set_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
 entry:
   %mdname = alloca [50 x i8], align 16
   %mdprops = alloca [256 x i8], align 16
@@ -718,7 +718,7 @@ for.cond:                                         ; preds = %for.body.preheader,
   %indvars.iv63 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %if.end64, label %for.body, !llvm.loop !9
+  br i1 %exitcond, label %if.end64, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
@@ -726,7 +726,7 @@ for.body:                                         ; preds = %for.cond
   %4 = load ptr, ptr %ptr, align 8
   %call42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #8
   %cmp43 = icmp eq i32 %call42, 0
-  br i1 %cmp43, label %for.body.if.then44_crit_edge, label %for.cond, !llvm.loop !9
+  br i1 %cmp43, label %for.body.if.then44_crit_edge, label %for.cond, !llvm.loop !8
 
 for.body.if.then44_crit_edge:                     ; preds = %for.body
   %5 = load i32, ptr %arrayidx, align 16
@@ -892,7 +892,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -929,7 +929,7 @@ if.end10:                                         ; preds = %if.end6
 sw.bb:                                            ; preds = %if.end10
   %pad_mode = getelementptr inbounds i8, ptr %vprsactx, i64 16
   store i32 1, ptr %pad_mode, align 8
-  %call15 = tail call i32 @rsa_set_ctx_params(ptr noundef nonnull %vprsactx, ptr noundef %params), !range !4
+  %call15 = tail call i32 @rsa_set_ctx_params(ptr noundef nonnull %vprsactx, ptr noundef %params)
   br label %return
 
 sw.default:                                       ; preds = %if.end10
@@ -1026,9 +1026,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i64 1713995}
-!6 = !{i64 1713223}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!4 = !{i64 1713995}
+!5 = !{i64 1713223}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

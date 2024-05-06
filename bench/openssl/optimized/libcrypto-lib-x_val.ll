@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"notAfter\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_VAL_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_VAL_it() local_unnamed_addr #0 {
 entry:
   ret ptr @X509_VAL_it.local_it
 }

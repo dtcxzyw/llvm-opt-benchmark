@@ -485,7 +485,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lg8979_simple(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_lg8979_simple(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %11, label %7
@@ -524,7 +524,7 @@ define hidden void @proto_reg_handoff_lg8979() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lg8979_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_lg8979_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %11, label %7

@@ -385,7 +385,7 @@ define dso_local void @pci_dev_put(ptr noundef %0) #0 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_bus_match(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @pci_bus_match(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 1504
   %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %5 = icmp eq i8 %4, 0
@@ -407,7 +407,7 @@ define internal i32 @pci_bus_match(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_uevent(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %55, label %4
 
@@ -784,7 +784,7 @@ define internal void @pci_dma_cleanup(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef i32 @pcie_port_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @pcie_port_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @pcie_port_bus_type
@@ -1471,7 +1471,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #2
 declare dso_local i64 @work_on_cpu_key(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @local_pci_probe(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i64 -2147483648, 1) i64 @local_pci_probe(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

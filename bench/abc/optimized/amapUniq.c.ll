@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [8 x i8] c"%d(%d) \00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Amap_LibFindNode(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -32768, 32768) i32 @Amap_LibFindNode(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = sext i32 %1 to i64
   br i1 %.not, label %26, label %6
@@ -137,7 +137,7 @@ define i32 @Amap_LibFindMux(ptr nocapture noundef readonly %0, i32 noundef %1, i
 
 29:                                               ; preds = %10, %14, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %30 = trunc i64 %indvars.iv.next to i32
+  %30 = trunc nuw i64 %indvars.iv.next to i32
   %31 = icmp sgt i32 %.val, %30
   br i1 %31, label %10, label %.loopexit, !llvm.loop !6
 
@@ -529,7 +529,7 @@ define noundef i32 @Amap_LibCreateVar(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Amap_LibCreateNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 65536) i32 @Amap_LibCreateNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %spec.select60 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %5 = tail call ptr @Amap_LibCreateObj(ptr noundef %0)
@@ -661,7 +661,7 @@ Vec_IntGrow.exit.i:                               ; preds = %67, %56, %55
   br i1 %83, label %75, label %Vec_IntPushOrderWithMask.exit, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %75
-  %84 = trunc i64 %indvars.iv.i to i32
+  %84 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Vec_IntPushOrderWithMask.exit
 
 85:                                               ; preds = %45
@@ -726,7 +726,7 @@ Vec_IntGrow.exit.i66:                             ; preds = %97, %86, %85
   br i1 %113, label %105, label %Vec_IntPushOrderWithMask.exit76, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i71:         ; preds = %105
-  %114 = trunc i64 %indvars.iv.i69 to i32
+  %114 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   br label %Vec_IntPushOrderWithMask.exit76
 
 Vec_IntPushOrderWithMask.exit76:                  ; preds = %111, %Vec_IntGrow.exit.i66, %._crit_edge.loopexit.split.loop.exit.i71
@@ -809,7 +809,7 @@ Vec_IntGrow.exit.i77:                             ; preds = %141, %130, %Vec_Int
   br i1 %157, label %149, label %Vec_IntPushOrderWithMask.exit, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i82:         ; preds = %149
-  %158 = trunc i64 %indvars.iv.i80 to i32
+  %158 = trunc nuw nsw i64 %indvars.iv.i80 to i32
   br label %Vec_IntPushOrderWithMask.exit
 
 159:                                              ; preds = %39
@@ -887,7 +887,7 @@ Vec_IntGrow.exit.i88:                             ; preds = %181, %170, %169
   br i1 %197, label %189, label %Vec_IntPushOrderWithMask.exit, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i93:         ; preds = %189
-  %198 = trunc i64 %indvars.iv.i91 to i32
+  %198 = trunc nuw nsw i64 %indvars.iv.i91 to i32
   br label %Vec_IntPushOrderWithMask.exit
 
 199:                                              ; preds = %159
@@ -952,7 +952,7 @@ Vec_IntGrow.exit.i99:                             ; preds = %211, %200, %199
   br i1 %227, label %219, label %Vec_IntPushOrderWithMask.exit109, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i104:        ; preds = %219
-  %228 = trunc i64 %indvars.iv.i102 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv.i102 to i32
   br label %Vec_IntPushOrderWithMask.exit109
 
 Vec_IntPushOrderWithMask.exit109:                 ; preds = %225, %Vec_IntGrow.exit.i99, %._crit_edge.loopexit.split.loop.exit.i104
@@ -1035,7 +1035,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %255, %244, %Vec_Int
   br i1 %271, label %263, label %Vec_IntPushOrderWithMask.exit, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit.i115:        ; preds = %263
-  %272 = trunc i64 %indvars.iv.i113 to i32
+  %272 = trunc nuw nsw i64 %indvars.iv.i113 to i32
   br label %Vec_IntPushOrderWithMask.exit
 
 Vec_IntPushOrderWithMask.exit:                    ; preds = %155, %81, %269, %195, %._crit_edge.loopexit.split.loop.exit.i115, %Vec_IntGrow.exit.i110, %._crit_edge.loopexit.split.loop.exit.i93, %Vec_IntGrow.exit.i88, %._crit_edge.loopexit.split.loop.exit.i82, %Vec_IntGrow.exit.i77, %._crit_edge.loopexit.split.loop.exit.i, %Vec_IntGrow.exit.i
@@ -1055,7 +1055,7 @@ Vec_IntPushOrderWithMask.exit:                    ; preds = %155, %81, %269, %19
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Amap_LibCreateMux(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 65536) i32 @Amap_LibCreateMux(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = tail call ptr @Amap_LibCreateObj(ptr noundef %0)
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
@@ -1497,7 +1497,7 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
   %.val51 = load i32, ptr %48, align 4
   %49 = add i32 %.04764, 1
   %50 = add i32 %49, %.val51
-  %51 = trunc i64 %indvars.iv74 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv74 to i32
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %51)
   %.val5059 = load i32, ptr %48, align 4
   %53 = icmp sgt i32 %.val5059, 0

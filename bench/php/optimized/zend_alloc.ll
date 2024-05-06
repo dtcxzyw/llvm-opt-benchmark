@@ -1012,7 +1012,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
 11:                                               ; preds = %4
   %12 = trunc nuw i64 %1 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %13, i1 true), !range !4
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %15 = sub nuw nsw i32 29, %14
   %16 = lshr i32 %13, %15
   %17 = shl nuw nsw i32 %14, 2
@@ -1296,7 +1296,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 45:                                               ; preds = %38
   %46 = trunc i64 %2 to i32
   %47 = add i32 %46, -1
-  %48 = tail call i32 @llvm.ctlz.i32(i32 %47, i1 true), !range !4
+  %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
   %49 = sub nuw nsw i32 29, %48
   %50 = lshr i32 %47, %49
   %51 = shl nuw nsw i32 %48, 2
@@ -1364,7 +1364,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 85:                                               ; preds = %77
   %86 = trunc nuw i64 %2 to i32
   %87 = add nsw i32 %86, -1
-  %88 = tail call i32 @llvm.ctlz.i32(i32 %87, i1 true), !range !4
+  %88 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %87, i1 true)
   %89 = sub nuw nsw i32 29, %88
   %90 = lshr i32 %87, %89
   %91 = shl nuw nsw i32 %88, 2
@@ -1861,7 +1861,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 46:                                               ; preds = %39
   %47 = trunc i64 %2 to i32
   %48 = add i32 %47, -1
-  %49 = tail call i32 @llvm.ctlz.i32(i32 %48, i1 true), !range !4
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %50 = sub nuw nsw i32 29, %49
   %51 = lshr i32 %48, %50
   %52 = shl nuw nsw i32 %49, 2
@@ -1930,7 +1930,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 87:                                               ; preds = %79
   %88 = trunc nuw i64 %2 to i32
   %89 = add nsw i32 %88, -1
-  %90 = tail call i32 @llvm.ctlz.i32(i32 %89, i1 true), !range !4
+  %90 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %89, i1 true)
   %91 = sub nuw nsw i32 29, %90
   %92 = lshr i32 %89, %91
   %93 = shl nuw nsw i32 %90, 2
@@ -6496,7 +6496,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
 17:                                               ; preds = %10
   %18 = trunc nuw i64 %0 to i32
   %19 = add nsw i32 %18, -1
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !4
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 29, %20
   %22 = lshr i32 %19, %21
   %23 = shl nuw nsw i32 %20, 2
@@ -6804,7 +6804,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 51:                                               ; preds = %44
   %52 = trunc i64 %1 to i32
   %53 = add i32 %52, -1
-  %54 = tail call i32 @llvm.ctlz.i32(i32 %53, i1 true), !range !4
+  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %55 = sub nuw nsw i32 29, %54
   %56 = lshr i32 %53, %55
   %57 = shl nuw nsw i32 %54, 2
@@ -6872,7 +6872,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 91:                                               ; preds = %83
   %92 = trunc nuw i64 %1 to i32
   %93 = add nsw i32 %92, -1
-  %94 = tail call i32 @llvm.ctlz.i32(i32 %93, i1 true), !range !4
+  %94 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
   %95 = sub nuw nsw i32 29, %94
   %96 = lshr i32 %93, %95
   %97 = shl nuw nsw i32 %94, 2
@@ -7320,7 +7320,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 52:                                               ; preds = %45
   %53 = trunc i64 %1 to i32
   %54 = add i32 %53, -1
-  %55 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !4
+  %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %56 = sub nuw nsw i32 29, %55
   %57 = lshr i32 %54, %56
   %58 = shl nuw nsw i32 %55, 2
@@ -7389,7 +7389,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 93:                                               ; preds = %85
   %94 = trunc nuw i64 %1 to i32
   %95 = add nsw i32 %94, -1
-  %96 = tail call i32 @llvm.ctlz.i32(i32 %95, i1 true), !range !4
+  %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %95, i1 true)
   %97 = sub nuw nsw i32 29, %96
   %98 = lshr i32 %95, %97
   %99 = shl nuw nsw i32 %96, 2
@@ -7849,7 +7849,7 @@ _zend_mm_block_size.exit:                         ; preds = %4, %8, %14, %zend_m
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @_safe_emalloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !5
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !4
   %.024 = extractvalue { i64, i64 } %4, 1
   %.not.not = icmp eq i64 %.024, 0
   br i1 %.not.not, label %6, label %5
@@ -7866,7 +7866,7 @@ define noalias ptr @_safe_emalloc(i64 noundef %0, i64 noundef %1, i64 noundef %2
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @_safe_malloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !5
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !4
   %.024 = extractvalue { i64, i64 } %4, 1
   %.not.not = icmp eq i64 %.024, 0
   br i1 %.not.not, label %6, label %5
@@ -7909,7 +7909,7 @@ define noalias noundef ptr @__zend_malloc(i64 noundef %0) #9 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @_safe_erealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !5
+  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !4
   %.025 = extractvalue { i64, i64 } %5, 1
   %.not.not = icmp eq i64 %.025, 0
   br i1 %.not.not, label %7, label %6
@@ -7926,7 +7926,7 @@ define ptr @_safe_erealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @_safe_realloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !5
+  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !4
   %.025 = extractvalue { i64, i64 } %5, 1
   %.not.not = icmp eq i64 %.025, 0
   br i1 %.not.not, label %7, label %6
@@ -7969,7 +7969,7 @@ define noalias noundef ptr @__zend_realloc(ptr nocapture noundef %0, i64 noundef
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
 define noalias ptr @_ecalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !6
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !5
   %4 = extractvalue { i64, i64 } %3, 1
   %.not.not = icmp eq i64 %4, 0
   br i1 %.not.not, label %6, label %5
@@ -8074,7 +8074,7 @@ define internal fastcc void @zend_out_of_memory() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @alloc_globals.0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 272
   %4 = load i64, ptr %3, align 8
@@ -8579,7 +8579,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
 define noalias noundef ptr @__zend_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !6
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !5
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   %.not.not = icmp eq i64 %5, 0
@@ -8888,7 +8888,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
 15:                                               ; preds = %8
   %16 = trunc nuw i64 %2 to i32
   %17 = add nsw i32 %16, -1
-  %18 = tail call i32 @llvm.ctlz.i32(i32 %17, i1 true), !range !4
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %19 = sub nuw nsw i32 29, %18
   %20 = lshr i32 %17, %19
   %21 = shl nuw nsw i32 %18, 2
@@ -9254,7 +9254,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %.1172.lcssa = phi i64 [ %.0171, %16 ], [ %24, %22 ]
   %.1.lcssa = phi i32 [ %.0170, %16 ], [ %18, %22 ]
   %26 = xor i64 %.1172.lcssa, -1
-  %27 = tail call i64 @llvm.cttz.i64(i64 %26, i1 true), !range !7
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 true)
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = add i32 %.1.lcssa, %28
   %30 = add nuw i64 %.1172.lcssa, 1
@@ -9302,7 +9302,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %.2176.lcssa = phi ptr [ %.1175.lcssa, %._crit_edge ], [ %44, %43 ]
   %.2173.lcssa = phi i64 [ %31, %._crit_edge ], [ %45, %43 ]
   %.2.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %33, %43 ]
-  %47 = tail call i64 @llvm.cttz.i64(i64 %.2173.lcssa, i1 true), !range !7
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.2173.lcssa, i1 true)
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = sub i32 %.2.lcssa, %29
   %50 = add i32 %49, %48
@@ -10239,7 +10239,5 @@ attributes #46 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = !{i64 2802398, i64 2802419, i64 2802438}
-!6 = !{i64 2802267, i64 2802288}
-!7 = !{i64 0, i64 65}
+!4 = !{i64 2802398, i64 2802419, i64 2802438}
+!5 = !{i64 2802267, i64 2802288}

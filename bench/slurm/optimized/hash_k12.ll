@@ -45,7 +45,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hash_p_compute(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 33) i32 @hash_p_compute(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i8, ptr %4, i64 1
   %8 = sext i32 %3 to i64

@@ -131,7 +131,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %skeleton, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %skeletonString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -220,7 +220,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %pattern, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -302,7 +302,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %pattern, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -384,7 +384,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %patternLength.lobit = lshr i32 %patternLength, 31
-  %conv = trunc i32 %patternLength.lobit to i8
+  %conv = trunc nuw nsw i32 %patternLength.lobit to i8
   store ptr %pattern, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %patternLength)
           to label %invoke.cont6 unwind label %lpad
@@ -460,7 +460,7 @@ entry:
   %valueString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %value, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %valueString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -549,7 +549,7 @@ entry:
   %valueString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %value, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %valueString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -706,7 +706,7 @@ entry:
   %dtFormatString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %dtFormat, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %dtFormatString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -867,7 +867,7 @@ if.then1:                                         ; preds = %if.else
 
 if.end2:                                          ; preds = %if.else
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %dateTimeFormat, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %dtFormatString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -913,7 +913,7 @@ entry:
   %decimalString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %decimal, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %decimalString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -1034,7 +1034,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
 
 if.end6:                                          ; preds = %lor.lhs.false
   %patternLength.lobit = lshr i32 %patternLength, 31
-  %conv = trunc i32 %patternLength.lobit to i8
+  %conv = trunc nuw nsw i32 %patternLength.lobit to i8
   store ptr %pattern, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %patternLength)
           to label %invoke.cont unwind label %lpad
@@ -1043,7 +1043,7 @@ invoke.cont:                                      ; preds = %if.end6
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #4, !srcloc !4
   %skeletonLength.lobit = lshr i32 %skeletonLength, 31
-  %conv9 = trunc i32 %skeletonLength.lobit to i8
+  %conv9 = trunc nuw nsw i32 %skeletonLength.lobit to i8
   store ptr %skeleton, ptr %agg.tmp10, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %skeletonString, i8 noundef signext %conv9, ptr noundef nonnull %agg.tmp10, i32 noundef %skeletonLength)
           to label %invoke.cont14 unwind label %lpad13
@@ -1143,7 +1143,7 @@ entry:
   %skeletonString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %skeletonLength.lobit = lshr i32 %skeletonLength, 31
-  %conv = trunc i32 %skeletonLength.lobit to i8
+  %conv = trunc nuw nsw i32 %skeletonLength.lobit to i8
   store ptr %skeleton, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %skeletonString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %skeletonLength)
           to label %invoke.cont unwind label %lpad

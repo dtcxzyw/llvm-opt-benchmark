@@ -8,7 +8,7 @@ $_Z5root3f = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @_Z7SolveP2Pfff(ptr nocapture noundef writeonly %x, float noundef %a, float noundef %b) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z7SolveP2Pfff(ptr nocapture noundef writeonly %x, float noundef %a, float noundef %b) local_unnamed_addr #0 {
 entry:
   %conv = fpext float %a to double
   %mul = fmul double %conv, 2.500000e-01
@@ -49,7 +49,7 @@ return:                                           ; preds = %if.end, %if.then
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP3Pffff(ptr nocapture noundef writeonly %x, float noundef %a, float noundef %b, float noundef %c) local_unnamed_addr #2 {
+define dso_local noundef range(i32 1, 4) i32 @_Z7SolveP3Pffff(ptr nocapture noundef writeonly %x, float noundef %a, float noundef %b, float noundef %c) local_unnamed_addr #2 {
 entry:
   %mul = fmul float %a, %a
   %0 = tail call float @llvm.fmuladd.f32(float %b, float -3.000000e+00, float %mul)
@@ -359,7 +359,7 @@ if.end12:                                         ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @_Z9SolveP4BiPfff(ptr nocapture noundef writeonly %x, float noundef %b, float noundef %d) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4BiPfff(ptr nocapture noundef writeonly %x, float noundef %b, float noundef %d) local_unnamed_addr #0 {
 entry:
   %neg = fmul float %d, -4.000000e+00
   %0 = tail call float @llvm.fmuladd.f32(float %b, float %b, float %neg)
@@ -491,7 +491,7 @@ return:                                           ; preds = %_Z5CSqrtffRfS_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z9SolveP4DePffff(ptr nocapture noundef %x, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4DePffff(ptr nocapture noundef %x, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
 entry:
   %0 = tail call noundef float @llvm.fabs.f32(float %c)
   %conv = fpext float %0 to double
@@ -504,7 +504,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call noundef i32 @_Z9SolveP4BiPfff(ptr noundef %x, float noundef %b, float noundef %d), !range !8
+  %call4 = tail call noundef i32 @_Z9SolveP4BiPfff(ptr noundef %x, float noundef %b, float noundef %d)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -513,7 +513,7 @@ if.end:                                           ; preds = %entry
   %3 = tail call float @llvm.fmuladd.f32(float %b, float %b, float %neg)
   %fneg = fneg float %c
   %mul8 = fmul float %fneg, %c
-  %call9 = tail call noundef i32 @_Z7SolveP3Pffff(ptr noundef %x, float noundef %mul5, float noundef %3, float noundef %mul8), !range !9
+  %call9 = tail call noundef i32 @_Z7SolveP3Pffff(ptr noundef %x, float noundef %mul5, float noundef %3, float noundef %mul8)
   %cmp10 = icmp ugt i32 %call9, 1
   br i1 %cmp10, label %if.then11, label %if.end99
 
@@ -719,7 +719,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP4Pfffff(ptr nocapture noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 5) i32 @_Z7SolveP4Pfffff(ptr nocapture noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
 entry:
   %conv = fpext float %d to double
   %conv1 = fpext float %a to double
@@ -742,7 +742,7 @@ entry:
   %neg31 = fmul double %conv1, -3.750000e-01
   %6 = tail call double @llvm.fmuladd.f64(double %neg31, double %conv1, double %conv2)
   %conv32 = fptrunc double %6 to float
-  %call = tail call noundef i32 @_Z9SolveP4DePffff(ptr noundef %x, float noundef %conv32, float noundef %conv25, float noundef %conv14), !range !8
+  %call = tail call noundef i32 @_Z9SolveP4DePffff(ptr noundef %x, float noundef %conv32, float noundef %conv25, float noundef %conv14)
   %div55 = fmul float %a, 2.500000e-01
   %7 = load float, ptr %x, align 4
   %sub57 = fsub float %7, %div55
@@ -957,7 +957,7 @@ if.end52:                                         ; preds = %for.body
   %div.x1.1 = select i1 %cmp53, float %div, float %x1.199
   %inc57 = add nuw nsw i32 %cnt.097, 1
   %exitcond.not = icmp eq i32 %inc57, 10
-  br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !8
 
 do.body:                                          ; preds = %do.body.preheader, %if.end76
   %cnt.1 = phi i32 [ %inc58, %if.end76 ], [ 10, %do.body.preheader ]
@@ -1001,7 +1001,7 @@ if.end76:                                         ; preds = %if.end61
   %dx.1 = select i1 %cmp89, float %dx.0, float %div92
   %29 = tail call noundef float @llvm.fabs.f32(float %dx.1)
   %cmp94 = fcmp ogt float %29, 0x3E80000000000000
-  br i1 %cmp94, label %do.body, label %return, !llvm.loop !11
+  br i1 %cmp94, label %do.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body, %if.end76, %do.body, %if.end61, %if.end37, %if.end33, %entry
   %retval.0 = phi float [ 0.000000e+00, %entry ], [ %x0.0, %if.end33 ], [ %x1.0, %if.end37 ], [ %x2.4, %if.end76 ], [ %x2.2, %do.body ], [ %x2.3, %if.end61 ], [ %div, %for.body ]
@@ -1009,7 +1009,7 @@ return:                                           ; preds = %for.body, %if.end76
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP5Pffffff(ptr nocapture noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) local_unnamed_addr #2 {
+define dso_local noundef range(i32 1, 6) i32 @_Z7SolveP5Pffffff(ptr nocapture noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) local_unnamed_addr #2 {
 entry:
   %call = tail call noundef float @_Z9SolveP5_1fffff(float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e)
   store float %call, ptr %x, align 4
@@ -1018,7 +1018,7 @@ entry:
   %1 = tail call float @llvm.fmuladd.f32(float %call, float %0, float %c)
   %2 = tail call float @llvm.fmuladd.f32(float %call, float %1, float %d)
   %add.ptr = getelementptr inbounds i8, ptr %x, i64 4
-  %call1 = tail call noundef i32 @_Z7SolveP4Pfffff(ptr noundef nonnull %add.ptr, float noundef %add, float noundef %0, float noundef %1, float noundef %2), !range !8
+  %call1 = tail call noundef i32 @_Z7SolveP4Pfffff(ptr noundef nonnull %add.ptr, float noundef %add, float noundef %0, float noundef %1, float noundef %2)
   %add2 = add nuw nsw i32 %call1, 1
   ret i32 %add2
 }
@@ -1056,7 +1056,5 @@ attributes #6 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 5}
-!9 = !{i32 1, i32 4}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

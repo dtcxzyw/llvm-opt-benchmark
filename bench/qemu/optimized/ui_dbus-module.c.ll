@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [28 x i8] c"D-Bus display isn't enabled\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qemu_dbus_display_add_client(i32 %csock, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qemu_dbus_display_add_client(i32 %csock, ptr noundef %errp) #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 29, ptr noundef nonnull @__func__.qemu_dbus_display_add_client, ptr noundef nonnull @.str.1) #2
   ret i1 false

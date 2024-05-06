@@ -372,13 +372,13 @@ define dso_local i32 @parse_option_end(ptr noundef readonly %0) local_unnamed_ad
   ]
 
 4:                                                ; preds = %.preheader
-  %5 = getelementptr i8, ptr %2, i64 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 61
   br i1 %7, label %.thread24, label %.thread
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr i8, ptr %2, i64 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 61
   br i1 %11, label %.thread24, label %.thread
@@ -841,7 +841,7 @@ define dso_local void @notice_thread_fini() local_unnamed_addr #1 {
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @commit_check(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @commit_check(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.termios, align 4
   %3 = alloca %struct.termios, align 4
   %4 = alloca %struct.fd_set, align 8
@@ -1001,7 +1001,7 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
   br label %23
 
 23:                                               ; preds = %17, %14
-  %24 = tail call i32 @commit_check(ptr noundef nonnull @.str.17), !range !11
+  %24 = tail call i32 @commit_check(ptr noundef nonnull @.str.17)
   %.not87 = icmp eq i32 %24, 0
   br i1 %.not87, label %25, label %26
 
@@ -1068,7 +1068,7 @@ sacctmgr_find_cluster_from_list.exit.thread105:   ; preds = %48
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 @xstrcasecmp(ptr noundef nonnull %46, ptr noundef %52) #20
   %.not13.i = icmp eq i32 %53, 0
-  br i1 %.not13.i, label %56, label %48, !llvm.loop !12
+  br i1 %.not13.i, label %56, label %48, !llvm.loop !11
 
 sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmgr_find_cluster_from_list.exit.thread105
   %54 = phi ptr [ %46, %sacctmgr_find_cluster_from_list.exit.thread105 ], [ %45, %.lr.ph136 ]
@@ -1117,13 +1117,13 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   call void @list_append(ptr noundef %70, ptr noundef nonnull %66) #20
   %71 = call ptr @list_next(ptr noundef %36) #20
   %.not98 = icmp eq ptr %71, null
-  br i1 %.not98, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not98, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   call void @list_iterator_reset(ptr noundef %36) #20
   %72 = call ptr @list_next(ptr noundef nonnull %.069) #20
   %.not95 = icmp eq ptr %72, null
-  br i1 %.not95, label %._crit_edge129, label %.preheader, !llvm.loop !14
+  br i1 %.not95, label %._crit_edge129, label %.preheader, !llvm.loop !13
 
 ._crit_edge129:                                   ; preds = %._crit_edge, %.preheader109
   call void @list_iterator_reset(ptr noundef nonnull %.069) #20
@@ -1145,7 +1145,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   call void @list_append(ptr noundef %78, ptr noundef nonnull %74) #20
   %79 = call ptr @list_next(ptr noundef %36) #20
   %.not93 = icmp eq ptr %79, null
-  br i1 %.not93, label %._crit_edge132, label %.lr.ph131, !llvm.loop !15
+  br i1 %.not93, label %._crit_edge132, label %.lr.ph131, !llvm.loop !14
 
 ._crit_edge132:                                   ; preds = %77, %.preheader108
   call void @list_iterator_reset(ptr noundef %36) #20
@@ -1185,7 +1185,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
 95:                                               ; preds = %94, %93
   %96 = call ptr @list_next(ptr noundef %34) #20
   %.not90 = icmp eq ptr %96, null
-  br i1 %.not90, label %.loopexit, label %.lr.ph136.split, !llvm.loop !16
+  br i1 %.not90, label %.loopexit, label %.lr.ph136.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %95, %44, %75, %67, %sacctmgr_find_cluster_from_list.exit.thread
   %.2 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %44 ], [ %.1, %95 ]
@@ -1260,7 +1260,7 @@ define dso_local ptr @sacctmgr_find_cluster_from_list(ptr noundef %0, ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef %11) #20
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %13, label %7, !llvm.loop !12
+  br i1 %.not13, label %13, label %7, !llvm.loop !11
 
 13:                                               ; preds = %9, %7
   tail call void @list_iterator_destroy(ptr noundef %6) #20
@@ -1349,7 +1349,7 @@ define dso_local ptr @sacctmgr_find_assoc_from_list(ptr noundef %0, ptr noundef 
 .backedge.us:                                     ; preds = %.critedge.us, %12, %14, %16, %19, %.critedge56.us, %24, %26, %27
   %30 = tail call ptr @list_next(ptr noundef %7) #20
   %.not38.us = icmp eq ptr %30, null
-  br i1 %.not38.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not38.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not39, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1411,7 +1411,7 @@ define dso_local ptr @sacctmgr_find_assoc_from_list(ptr noundef %0, ptr noundef 
 .backedge.us72:                                   ; preds = %48, %51, %.lr.ph.split.split.us, %35, %38, %.critedge56.us68, %43, %45
   %53 = tail call ptr @list_next(ptr noundef %7) #20
   %.not38.us73 = icmp eq ptr %53, null
-  br i1 %.not38.us73, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
+  br i1 %.not38.us73, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not46, label %.critedge.us77, label %.critedge
@@ -1467,7 +1467,7 @@ define dso_local ptr @sacctmgr_find_assoc_from_list(ptr noundef %0, ptr noundef 
 .backedge.us86:                                   ; preds = %70, %73, %.critedge.us77, %57, %60, %63, %65
   %75 = tail call ptr @list_next(ptr noundef %7) #20
   %.not38.us87 = icmp eq ptr %75, null
-  br i1 %.not38.us87, label %._crit_edge, label %.critedge.us77, !llvm.loop !17
+  br i1 %.not38.us87, label %._crit_edge, label %.critedge.us77, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph.split.split, %.backedge
   %76 = phi ptr [ %91, %.backedge ], [ %8, %.lr.ph.split.split ]
@@ -1509,7 +1509,7 @@ define dso_local ptr @sacctmgr_find_assoc_from_list(ptr noundef %0, ptr noundef 
 .backedge:                                        ; preds = %94, %97, %.critedge, %79, %82, %85, %.critedge56, %89
   %91 = tail call ptr @list_next(ptr noundef %7) #20
   %.not38 = icmp eq ptr %91, null
-  br i1 %.not38, label %._crit_edge, label %.critedge, !llvm.loop !17
+  br i1 %.not38, label %._crit_edge, label %.critedge, !llvm.loop !16
 
 92:                                               ; preds = %89
   %93 = load i8, ptr %4, align 1
@@ -1573,7 +1573,7 @@ define dso_local i32 @sacctmgr_update_qos_usage(ptr noundef %0, x86_fp80 noundef
   br label %15
 
 15:                                               ; preds = %10, %8
-  %16 = tail call i32 @commit_check(ptr noundef nonnull @.str.23), !range !11
+  %16 = tail call i32 @commit_check(ptr noundef nonnull @.str.23)
   %.not57 = icmp eq i32 %16, 0
   br i1 %.not57, label %17, label %18
 
@@ -1623,7 +1623,7 @@ sacctmgr_find_cluster_from_list.exit.thread72:    ; preds = %31
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @xstrcasecmp(ptr noundef nonnull %29, ptr noundef %35) #20
   %.not13.i = icmp eq i32 %36, 0
-  br i1 %.not13.i, label %39, label %31, !llvm.loop !12
+  br i1 %.not13.i, label %39, label %31, !llvm.loop !11
 
 sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph107, %sacctmgr_find_cluster_from_list.exit.thread72
   %37 = phi ptr [ %28, %.lr.ph107 ], [ %29, %sacctmgr_find_cluster_from_list.exit.thread72 ]
@@ -1676,7 +1676,7 @@ sacctmgr_find_qos_from_list.exit.thread76:        ; preds = %51
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @xstrcasecmp(ptr noundef nonnull %.0.i68, ptr noundef %55) #20
   %.not19.i = icmp eq i32 %56, 0
-  br i1 %.not19.i, label %59, label %51, !llvm.loop !18
+  br i1 %.not19.i, label %59, label %51, !llvm.loop !17
 
 sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_find_qos_from_list.exit.thread76
   %57 = phi ptr [ %45, %sacctmgr_find_qos_from_list.exit.thread76 ], [ %44, %.lr.ph ]
@@ -1704,7 +1704,7 @@ sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_f
   call void @list_append(ptr noundef %67, ptr noundef nonnull %52) #20
   %68 = call ptr @list_next(ptr noundef %27) #20
   %.not60 = icmp eq ptr %68, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %64, %39
   call void @list_iterator_reset(ptr noundef %27) #20
@@ -1743,7 +1743,7 @@ sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_f
   %85 = call ptr @list_next(ptr noundef %24) #20
   store ptr %85, ptr %3, align 8
   %.not58 = icmp eq ptr %85, null
-  br i1 %.not58, label %.loopexit, label %.lr.ph107.split, !llvm.loop !20
+  br i1 %.not58, label %.loopexit, label %.lr.ph107.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %84, %18, %sacctmgr_find_qos_from_list.exit.thread, %sacctmgr_find_cluster_from_list.exit.thread
   %.147 = phi ptr [ %40, %sacctmgr_find_qos_from_list.exit.thread ], [ null, %sacctmgr_find_cluster_from_list.exit.thread ], [ null, %18 ], [ null, %84 ]
@@ -1809,7 +1809,7 @@ define dso_local ptr @sacctmgr_find_qos_from_list(ptr noundef %0, ptr noundef %1
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @xstrcasecmp(ptr noundef nonnull %.0, ptr noundef %15) #20
   %.not19 = icmp eq i32 %16, 0
-  br i1 %.not19, label %17, label %11, !llvm.loop !18
+  br i1 %.not19, label %17, label %11, !llvm.loop !17
 
 17:                                               ; preds = %13, %11
   tail call void @list_iterator_destroy(ptr noundef %10) #20
@@ -2064,7 +2064,7 @@ define dso_local ptr @sacctmgr_find_account_base_assoc_from_list(ptr noundef %0,
 20:                                               ; preds = %16, %12, %.lr.ph
   %21 = tail call ptr @list_next(ptr noundef %7) #20
   %.not20 = icmp eq ptr %21, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %20, %16, %6
   %.lcssa = phi ptr [ null, %6 ], [ %9, %16 ], [ null, %20 ]
@@ -2123,7 +2123,7 @@ define dso_local ptr @sacctmgr_find_res_from_list(ptr noundef %0, i32 noundef %1
 26:                                               ; preds = %22, %18
   %27 = tail call ptr @list_next(ptr noundef %10) #20
   %.not.us = icmp eq ptr %27, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %28 = phi ptr [ %33, %32 ], [ %11, %.lr.ph ]
@@ -2135,7 +2135,7 @@ define dso_local ptr @sacctmgr_find_res_from_list(ptr noundef %0, i32 noundef %1
 32:                                               ; preds = %.lr.ph.split
   %33 = tail call ptr @list_next(ptr noundef %10) #20
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph.split, %26, %22, %.lr.ph.split.us, %9
   %.lcssa = phi ptr [ null, %9 ], [ %14, %.lr.ph.split.us ], [ %14, %22 ], [ null, %26 ], [ %28, %.lr.ph.split ], [ null, %32 ]
@@ -2168,7 +2168,7 @@ define dso_local ptr @sacctmgr_find_user_from_list(ptr noundef %0, ptr noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef %11) #20
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %13, label %7, !llvm.loop !23
+  br i1 %.not13, label %13, label %7, !llvm.loop !22
 
 13:                                               ; preds = %9, %7
   tail call void @list_iterator_destroy(ptr noundef %6) #20
@@ -2200,7 +2200,7 @@ define dso_local ptr @sacctmgr_find_account_from_list(ptr noundef %0, ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef %11) #20
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %13, label %7, !llvm.loop !24
+  br i1 %.not13, label %13, label %7, !llvm.loop !23
 
 13:                                               ; preds = %9, %7
   tail call void @list_iterator_destroy(ptr noundef %6) #20
@@ -2250,7 +2250,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %11, %.lr.ph.split.us.split.us.split.us
   %15 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us.us.us = icmp eq ptr %15, null
-  br i1 %.not30.us.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !25
+  br i1 %.not30.us.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !24
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %27
   %16 = phi ptr [ %28, %27 ], [ %7, %.lr.ph.split.us.split.us ]
@@ -2279,7 +2279,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 27:                                               ; preds = %24, %22, %19, %.lr.ph.split.us.split.us.split
   %28 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us.us = icmp eq ptr %28, null
-  br i1 %.not30.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !25
+  br i1 %.not30.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !24
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %.not35, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
@@ -2305,7 +2305,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 36:                                               ; preds = %34, %.critedge43.us.us, %.lr.ph.split.us.split.split.us
   %37 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us.us75 = icmp eq ptr %37, null
-  br i1 %.not30.us.us75, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !25
+  br i1 %.not30.us.us75, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !24
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %50
   %38 = phi ptr [ %51, %50 ], [ %7, %.lr.ph.split.us.split ]
@@ -2339,7 +2339,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 50:                                               ; preds = %48, %.critedge43.us, %44, %41, %.lr.ph.split.us.split.split
   %51 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us = icmp eq ptr %51, null
-  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !25
+  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not38, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -2368,7 +2368,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 60:                                               ; preds = %57, %55, %.critedge.us.us
   %61 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us54.us = icmp eq ptr %61, null
-  br i1 %.not30.us54.us, label %._crit_edge, label %.critedge.us.us, !llvm.loop !25
+  br i1 %.not30.us54.us, label %._crit_edge, label %.critedge.us.us, !llvm.loop !24
 
 .critedge.us:                                     ; preds = %.lr.ph.split.split.us, %75
   %62 = phi ptr [ %76, %75 ], [ %7, %.lr.ph.split.split.us ]
@@ -2402,7 +2402,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 75:                                               ; preds = %72, %70, %67, %65, %.critedge.us
   %76 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us54 = icmp eq ptr %76, null
-  br i1 %.not30.us54, label %._crit_edge, label %.critedge.us, !llvm.loop !25
+  br i1 %.not30.us54, label %._crit_edge, label %.critedge.us, !llvm.loop !24
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not35, label %.critedge.us59, label %.critedge
@@ -2433,7 +2433,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 86:                                               ; preds = %84, %.critedge43.us62, %80, %.critedge.us59
   %87 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30.us65 = icmp eq ptr %87, null
-  br i1 %.not30.us65, label %._crit_edge, label %.critedge.us59, !llvm.loop !25
+  br i1 %.not30.us65, label %._crit_edge, label %.critedge.us59, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph.split.split, %102
   %88 = phi ptr [ %103, %102 ], [ %7, %.lr.ph.split.split ]
@@ -2472,7 +2472,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 102:                                              ; preds = %100, %.critedge43, %96, %93, %91, %.critedge
   %103 = tail call ptr @list_next(ptr noundef %6) #20
   %.not30 = icmp eq ptr %103, null
-  br i1 %.not30, label %._crit_edge, label %.critedge, !llvm.loop !25
+  br i1 %.not30, label %._crit_edge, label %.critedge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %102, %100, %86, %84, %75, %72, %60, %57, %50, %48, %36, %34, %27, %24, %14, %11, %5
   %.lcssa = phi ptr [ null, %5 ], [ %8, %11 ], [ null, %14 ], [ %16, %24 ], [ null, %27 ], [ %29, %34 ], [ null, %36 ], [ %38, %48 ], [ null, %50 ], [ %52, %57 ], [ null, %60 ], [ %62, %72 ], [ null, %75 ], [ %77, %84 ], [ null, %86 ], [ %88, %100 ], [ null, %102 ]
@@ -2485,7 +2485,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_uint(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2533,7 +2533,7 @@ define dso_local noundef i32 @get_uint(ptr noundef %0, ptr nocapture noundef wri
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_uint16(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint16(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2578,7 +2578,7 @@ define dso_local noundef i32 @get_uint16(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_uint64(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint64(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2624,7 +2624,7 @@ define dso_local noundef i32 @get_uint64(ptr noundef %0, ptr nocapture noundef w
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_double(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_double(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2691,7 +2691,7 @@ define dso_local i32 @addto_action_char_list(ptr noundef %0, ptr noundef %1) loc
 declare i32 @slurm_parse_char_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_addto_action_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
+define internal range(i32 -1, 2) i32 @_addto_action_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @str_2_slurmdbd_msg_type(ptr noundef %1) #20
   %6 = icmp eq i32 %5, -2
@@ -2782,7 +2782,7 @@ define dso_local void @sacctmgr_print_coord_list(ptr nocapture noundef readonly 
 25:                                               ; preds = %23, %22
   %26 = call ptr @list_next(ptr noundef %17) #20
   %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %25, %16
   call void @list_iterator_destroy(ptr noundef %17) #20
@@ -2850,7 +2850,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sort_coord_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define dso_local range(i32 -1, 2) i32 @sort_coord_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %3, align 8
@@ -3666,7 +3666,7 @@ define dso_local void @sacctmgr_print_federation(ptr noundef readonly %0) local_
 33:                                               ; preds = %31, %27
   %34 = call ptr @list_next(ptr noundef %20) #20
   %.not33 = icmp eq ptr %34, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %33, %19
   call void @list_iterator_destroy(ptr noundef %20) #20
@@ -6150,7 +6150,7 @@ _get_print_field.exit:                            ; preds = %801, %799
   tail call void @list_append(ptr noundef %2, ptr noundef nonnull %6) #20
   %802 = tail call ptr @list_next(ptr noundef %3) #20
   %.not = icmp eq ptr %802, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_get_print_field.exit, %1
   tail call void @list_iterator_destroy(ptr noundef %3) #20
@@ -6163,7 +6163,7 @@ declare void @destroy_print_field(ptr noundef) #3
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sacctmgr_validate_cluster_list(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_validate_cluster_list(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.slurmdb_cluster_cond_t, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %2, i1 noundef zeroext false) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -6191,7 +6191,7 @@ define dso_local i32 @sacctmgr_validate_cluster_list(ptr noundef %0) local_unnam
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @xstrcasecmp(ptr noundef %14, ptr noundef nonnull %9) #20
   %.not25 = icmp eq i32 %15, 0
-  br i1 %.not25, label %16, label %10, !llvm.loop !29
+  br i1 %.not25, label %16, label %10, !llvm.loop !28
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %11, i64 224
@@ -6214,7 +6214,7 @@ define dso_local i32 @sacctmgr_validate_cluster_list(ptr noundef %0) local_unnam
 23:                                               ; preds = %.sink.split, %16
   %24 = call ptr @list_next(ptr noundef %6) #20
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %23, %1
   call void @list_iterator_destroy(ptr noundef %7) #20
@@ -6341,7 +6341,7 @@ attributes #23 = { cold nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
@@ -6360,4 +6360,3 @@ attributes #23 = { cold nounwind }
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}

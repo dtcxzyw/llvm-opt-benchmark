@@ -161,7 +161,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   store i8 %.sroa.030.1, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %30, align 8
-  %31 = trunc i8 %.sroa.030.1 to i1
+  %31 = trunc nuw i8 %.sroa.030.1 to i1
   br i1 %31, label %32, label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
 
 32:                                               ; preds = %28

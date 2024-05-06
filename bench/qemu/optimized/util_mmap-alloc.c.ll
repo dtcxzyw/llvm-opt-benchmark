@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [102 x i8] c"Skipping reservation of swap space is not supported: Could not read: \22/proc/sys/vm/overcommit_memory\22\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fd_getfs(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @qemu_fd_getfs(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %fs = alloca %struct.statfs, align 8
   %cmp = icmp slt i32 %fd, 0
@@ -109,7 +109,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %align), !range !8
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align)
   %or.cond = icmp eq i64 %0, 1
   br i1 %or.cond, label %if.end4, label %if.else
 
@@ -390,4 +390,3 @@ attributes #13 = { cold }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}

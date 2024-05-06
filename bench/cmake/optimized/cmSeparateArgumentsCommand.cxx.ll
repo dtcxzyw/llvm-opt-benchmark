@@ -281,7 +281,7 @@ _ZN16cmArgumentParserIZ26cmSeparateArgumentsCommandRKSt6vectorINSt7__cxx1112basi
   %87 = load ptr, ptr %32, align 8
   %88 = getelementptr inbounds i8, ptr %86, i64 32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
   store ptr @_ZZ26cmSeparateArgumentsCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE6parser, ptr %3, align 8
   %89 = getelementptr inbounds i8, ptr %3, i64 8

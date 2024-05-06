@@ -140,7 +140,7 @@ define dso_local i64 @kallsyms_lookup_name(ptr noundef %0) local_unnamed_addr #1
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @kallsyms_lookup_names(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #3 align 16 {
   %4 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false), !annotation !5
@@ -890,7 +890,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kallsyms_lookup_size_offset(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @kallsyms_lookup_size_offset(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
   %5 = icmp uge i64 %0, ptrtoint (ptr @_stext to i64)
@@ -1596,7 +1596,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare dso_local ptr @proc_create(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kallsyms_open(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @kallsyms_open(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
   %3 = tail call ptr @__seq_open_private(ptr noundef %1, ptr noundef nonnull @kallsyms_op, i32 noundef 624) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
@@ -1747,7 +1747,7 @@ define internal noundef i32 @s_show(ptr noundef %0, ptr nocapture readnone %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @update_iter(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = load i32, ptr @kallsyms_num_syms, align 4
   %4 = zext i32 %3 to i64
   %5 = icmp sgt i64 %4, %1

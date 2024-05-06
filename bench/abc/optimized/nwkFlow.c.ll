@@ -98,7 +98,7 @@ define void @Nwk_ManMarkTfoCone_rec(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val24 = load i32, ptr %3, align 8
@@ -149,7 +149,7 @@ define noundef i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr noundef %1) l
   br i1 %.not22, label %.critedge, label %26
 
 26:                                               ; preds = %19
-  %27 = tail call i32 @Nwk_ManPushForwardFast_rec(ptr noundef nonnull %25, ptr noundef nonnull %0), !range !8
+  %27 = tail call i32 @Nwk_ManPushForwardFast_rec(ptr noundef nonnull %25, ptr noundef nonnull %0)
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %15, label %28
 
@@ -171,7 +171,7 @@ define noundef i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val23 = load i32, ptr %3, align 8
@@ -208,7 +208,7 @@ define noundef i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) 
   %15 = load i32, ptr %10, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %18, label %.critedge, !llvm.loop !9
+  br i1 %17, label %18, label %.critedge, !llvm.loop !8
 
 18:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
@@ -219,7 +219,7 @@ define noundef i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) 
   br i1 %.not21, label %.critedge, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @Nwk_ManPushBackwardFast_rec(ptr noundef nonnull %21, ptr noundef nonnull %0), !range !8
+  %23 = tail call i32 @Nwk_ManPushBackwardFast_rec(ptr noundef nonnull %21, ptr noundef nonnull %0)
   %.not22 = icmp eq i32 %23, 0
   br i1 %.not22, label %14, label %24
 
@@ -241,7 +241,7 @@ define noundef i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Nwk_ManVerifyCut_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManVerifyCut_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
@@ -282,7 +282,7 @@ Nwk_ObjIsLo.exit.thread:                          ; preds = %5
   %19 = load i32, ptr %15, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %13, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %13 ]
@@ -293,7 +293,7 @@ Nwk_ObjIsLo.exit.thread:                          ; preds = %5
   br i1 %.not14, label %.critedge, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call i32 @Nwk_ManVerifyCut_rec(ptr noundef nonnull %24), !range !8
+  %26 = tail call i32 @Nwk_ManVerifyCut_rec(ptr noundef nonnull %24)
   %.not15 = icmp eq i32 %26, 0
   br i1 %.not15, label %.critedge, label %18
 
@@ -326,7 +326,7 @@ define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture 
   %.val = load i32, ptr %3, align 4
   %12 = sext i32 %.val to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %6, label %.critedge, !llvm.loop !11
+  br i1 %13, label %6, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %6, %2
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #13
@@ -353,7 +353,7 @@ define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture 
   %.val25 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds ptr, ptr %.val25, i64 %indvars.iv36
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @Nwk_ManVerifyCut_rec(ptr noundef %23), !range !8
+  %24 = tail call i32 @Nwk_ManVerifyCut_rec(ptr noundef %23)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %26
 
@@ -368,7 +368,7 @@ define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture 
   %.val22 = load i32, ptr %28, align 4
   %29 = sext i32 %.val22 to i64
   %30 = icmp slt i64 %indvars.iv.next37, %29
-  br i1 %30, label %.lr.ph31, label %.critedge2.preheader, !llvm.loop !12
+  br i1 %30, label %.lr.ph31, label %.critedge2.preheader, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.lr.ph34, %.critedge2
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next40, %.critedge2 ]
@@ -383,7 +383,7 @@ define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture 
   %.val23 = load i32, ptr %3, align 4
   %36 = sext i32 %.val23 to i64
   %37 = icmp slt i64 %indvars.iv.next40, %36
-  br i1 %37, label %.critedge2, label %.critedge4, !llvm.loop !13
+  br i1 %37, label %.critedge2, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   ret i32 1
@@ -469,7 +469,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val94 = load i32, ptr %34, align 4
   %35 = sext i32 %.val94 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !14
+  br i1 %36, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph113, %.critedge
   %indvars.iv129 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next130, %.critedge ]
@@ -483,7 +483,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %41 = load i32, ptr %15, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next130, %42
-  br i1 %43, label %.critedge, label %.critedge2, !llvm.loop !15
+  br i1 %43, label %.critedge, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #13
@@ -508,7 +508,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds ptr, ptr %.val98, i64 %52
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 @Nwk_ManPushForwardFast_rec(ptr noundef %54, ptr noundef null), !range !8
+  %55 = call i32 @Nwk_ManPushForwardFast_rec(ptr noundef %54, ptr noundef null)
   %.not91 = icmp eq i32 %55, 0
   br i1 %.not91, label %58, label %56
 
@@ -524,7 +524,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %59 = add nuw nsw i32 %.286114, 1
   %60 = load i32, ptr %12, align 8
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %47, label %.critedge4, !llvm.loop !16
+  br i1 %61, label %47, label %.critedge4, !llvm.loop !15
 
 .critedge4:                                       ; preds = %58, %.critedge2
   %.082.lcssa = phi i32 [ 0, %.critedge2 ], [ %.183, %58 ]
@@ -558,7 +558,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %73 = sext i32 %71 to i64
   %74 = getelementptr inbounds ptr, ptr %.val97, i64 %73
   %75 = load ptr, ptr %74, align 8
-  %76 = call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef %75, ptr noundef null), !range !8
+  %76 = call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef %75, ptr noundef null)
   %.not90 = icmp eq i32 %76, 0
   br i1 %.not90, label %79, label %77
 
@@ -574,7 +574,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %80 = add nuw nsw i32 %.387117, 1
   %81 = load i32, ptr %12, align 8
   %82 = icmp slt i32 %80, %81
-  br i1 %82, label %68, label %.critedge6, !llvm.loop !17
+  br i1 %82, label %68, label %.critedge6, !llvm.loop !16
 
 .critedge6:                                       ; preds = %79, %64
   %.0.lcssa = phi i32 [ 0, %64 ], [ %.1, %79 ]
@@ -611,11 +611,11 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %97 = sext i32 %95 to i64
   %98 = getelementptr inbounds ptr, ptr %.val96, i64 %97
   %99 = load ptr, ptr %98, align 8
-  %100 = call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef %99, ptr noundef null), !range !8
+  %100 = call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef %99, ptr noundef null)
   %101 = add nuw nsw i32 %.4121, 1
   %102 = load i32, ptr %12, align 8
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %92, label %.critedge8, !llvm.loop !18
+  br i1 %103, label %92, label %.critedge8, !llvm.loop !17
 
 .critedge8:                                       ; preds = %92, %88, %86
   %104 = add nsw i32 %.0.lcssa, %.082.lcssa
@@ -746,7 +746,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val93 = load i32, ptr %162, align 4
   %163 = sext i32 %.val93 to i64
   %164 = icmp slt i64 %indvars.iv.next133, %163
-  br i1 %164, label %.lr.ph126, label %.critedge10, !llvm.loop !19
+  br i1 %164, label %.lr.ph126, label %.critedge10, !llvm.loop !18
 
 .critedge10:                                      ; preds = %160, %Vec_PtrAlloc.exit
   %.2.lcssa = phi i32 [ 0, %Vec_PtrAlloc.exit ], [ %.3, %160 ]
@@ -785,7 +785,7 @@ Abc_Clock.exit106:                                ; preds = %165, %169
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Nwk_ManPushForwardBot_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardBot_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.val28 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val29 = load i32, ptr %3, align 8
@@ -825,12 +825,12 @@ Nwk_ObjSetVisitedBot.exit:                        ; preds = %10, %.sink.split.i
   br i1 %.not24, label %25, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call fastcc i32 @Nwk_ManPushForwardTop_rec(ptr noundef nonnull %.val30, ptr noundef nonnull %.val30), !range !8
+  %18 = tail call fastcc i32 @Nwk_ManPushForwardTop_rec(ptr noundef nonnull %.val30, ptr noundef nonnull %.val30)
   %.not25 = icmp eq i32 %18, 0
   br i1 %.not25, label %25, label %.critedge.sink.split
 
 19:                                               ; preds = %Nwk_ObjSetVisitedBot.exit
-  %20 = tail call fastcc i32 @Nwk_ManPushForwardTop_rec(ptr noundef nonnull %0, ptr noundef nonnull %0), !range !8
+  %20 = tail call fastcc i32 @Nwk_ManPushForwardTop_rec(ptr noundef nonnull %0, ptr noundef nonnull %0)
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %25, label %21
 
@@ -853,7 +853,7 @@ Nwk_ObjSetVisitedBot.exit:                        ; preds = %10, %.sink.split.i
   %31 = load i32, ptr %27, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %25, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
@@ -864,7 +864,7 @@ Nwk_ObjSetVisitedBot.exit:                        ; preds = %10, %.sink.split.i
   br i1 %.not26, label %.critedge, label %37
 
 37:                                               ; preds = %.lr.ph
-  %38 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %36, ptr noundef %1), !range !8
+  %38 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %36, ptr noundef %1)
   %.not27 = icmp eq i32 %38, 0
   br i1 %.not27, label %30, label %.critedge
 
@@ -889,7 +889,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -908,7 +908,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -985,7 +985,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val116 = load i32, ptr %34, align 4
   %35 = sext i32 %.val116 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !21
+  br i1 %36, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !20
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %37 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1007,7 +1007,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %45 = load i32, ptr %18, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next189, %46
-  br i1 %47, label %.critedge, label %.critedge2.preheader, !llvm.loop !22
+  br i1 %47, label %.critedge, label %.critedge2.preheader, !llvm.loop !21
 
 .lr.ph170:                                        ; preds = %.critedge2.preheader, %.critedge2
   %48 = phi ptr [ %61, %.critedge2 ], [ %38, %.critedge2.preheader ]
@@ -1045,7 +1045,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val115 = load i32, ptr %62, align 4
   %63 = sext i32 %.val115 to i64
   %64 = icmp slt i64 %indvars.iv.next192, %63
-  br i1 %64, label %.lr.ph170, label %.critedge4, !llvm.loop !23
+  br i1 %64, label %.lr.ph170, label %.critedge4, !llvm.loop !22
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #13
@@ -1073,7 +1073,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %76 = getelementptr i8, ptr %75, i64 72
   %.val133 = load ptr, ptr %76, align 8
   %.val133.val = load ptr, ptr %.val133, align 8
-  %77 = call i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %.val133.val, ptr noundef null), !range !8
+  %77 = call i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %.val133.val, ptr noundef null)
   %.not112 = icmp eq i32 %77, 0
   br i1 %.not112, label %80, label %78
 
@@ -1089,7 +1089,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %81 = add nuw nsw i32 %.3106171, 1
   %82 = load i32, ptr %12, align 8
   %83 = icmp slt i32 %81, %82
-  br i1 %83, label %68, label %.critedge6, !llvm.loop !24
+  br i1 %83, label %68, label %.critedge6, !llvm.loop !23
 
 .critedge6:                                       ; preds = %80, %.critedge4
   %.0101.lcssa = phi i32 [ 0, %.critedge4 ], [ %.1102, %80 ]
@@ -1165,12 +1165,12 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %1
   br i1 %.not15.i, label %Nwk_ManPushBackwardBot_rec.exit.thread, label %113
 
 113:                                              ; preds = %111
-  %114 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i, ptr noundef nonnull %.val19.i), !range !8
+  %114 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i, ptr noundef nonnull %.val19.i)
   %.not16.i = icmp eq i32 %114, 0
   br i1 %.not16.i, label %Nwk_ManPushBackwardBot_rec.exit.thread, label %121
 
 115:                                              ; preds = %Nwk_ObjSetVisitedBot.exit.i
-  %116 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val134.val, ptr noundef nonnull %.val134.val), !range !8
+  %116 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val134.val, ptr noundef nonnull %.val134.val)
   %.not14.i = icmp eq i32 %116, 0
   br i1 %.not14.i, label %Nwk_ManPushBackwardBot_rec.exit.thread, label %117
 
@@ -1195,7 +1195,7 @@ Nwk_ManPushBackwardBot_rec.exit.thread:           ; preds = %113, %111, %115, %9
   %123 = add nuw nsw i32 %.4174, 1
   %124 = load i32, ptr %12, align 8
   %125 = icmp slt i32 %123, %124
-  br i1 %125, label %90, label %.critedge8, !llvm.loop !25
+  br i1 %125, label %90, label %.critedge8, !llvm.loop !24
 
 .critedge8:                                       ; preds = %Nwk_ManPushBackwardBot_rec.exit.thread, %86
   %.0.lcssa = phi i32 [ 0, %86 ], [ %.1, %Nwk_ManPushBackwardBot_rec.exit.thread ]
@@ -1274,12 +1274,12 @@ Nwk_ObjSetVisitedBot.exit.i143:                   ; preds = %.sink.split.i.i152,
   br i1 %.not15.i147, label %Nwk_ManPushBackwardBot_rec.exit154, label %158
 
 158:                                              ; preds = %156
-  %159 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i146, ptr noundef nonnull %.val19.i146), !range !8
+  %159 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i146, ptr noundef nonnull %.val19.i146)
   %.not16.i148 = icmp eq i32 %159, 0
   br i1 %.not16.i148, label %Nwk_ManPushBackwardBot_rec.exit154, label %.sink.split.i149
 
 160:                                              ; preds = %Nwk_ObjSetVisitedBot.exit.i143
-  %161 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val135.val, ptr noundef nonnull %.val135.val), !range !8
+  %161 = call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val135.val, ptr noundef nonnull %.val135.val)
   %.not14.i151 = icmp eq i32 %161, 0
   br i1 %.not14.i151, label %Nwk_ManPushBackwardBot_rec.exit154, label %162
 
@@ -1299,7 +1299,7 @@ Nwk_ManPushBackwardBot_rec.exit154:               ; preds = %135, %156, %158, %1
   %166 = add nuw nsw i32 %.5178, 1
   %167 = load i32, ptr %12, align 8
   %168 = icmp slt i32 %166, %167
-  br i1 %168, label %135, label %.critedge10, !llvm.loop !26
+  br i1 %168, label %135, label %.critedge10, !llvm.loop !25
 
 .critedge10:                                      ; preds = %Nwk_ManPushBackwardBot_rec.exit154, %131, %129
   %169 = add nsw i32 %.0.lcssa, %.0101.lcssa
@@ -1437,7 +1437,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val114 = load i32, ptr %228, align 4
   %229 = sext i32 %.val114 to i64
   %230 = icmp slt i64 %indvars.iv.next195, %229
-  br i1 %230, label %.lr.ph182, label %.critedge12.preheader, !llvm.loop !27
+  br i1 %230, label %.lr.ph182, label %.critedge12.preheader, !llvm.loop !26
 
 .critedge12:                                      ; preds = %.lr.ph185, %.critedge12
   %indvars.iv197 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next198, %.critedge12 ]
@@ -1458,7 +1458,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %spec.select = add nuw nsw i32 %.2184, %236
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge14, label %.critedge12, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge14, label %.critedge12, !llvm.loop !27
 
 .critedge14:                                      ; preds = %.critedge12, %.critedge12.preheader
   %.2.lcssa = phi i32 [ 0, %.critedge12.preheader ], [ %spec.select, %.critedge12 ]
@@ -1500,7 +1500,7 @@ Abc_Clock.exit156:                                ; preds = %237, %241
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Nwk_ManPushForwardTop_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardTop_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.val28 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val29 = load i32, ptr %3, align 8
@@ -1548,7 +1548,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
   %21 = add nuw nsw i32 %.032, 1
   %22 = load i32, ptr %15, align 8
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %24, label %.critedge.loopexit, !llvm.loop !29
+  br i1 %23, label %24, label %.critedge.loopexit, !llvm.loop !28
 
 24:                                               ; preds = %.lr.ph, %20
   %.032 = phi i32 [ 0, %.lr.ph ], [ %21, %20 ]
@@ -1562,7 +1562,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
   br i1 %.not20, label %.critedge.loopexit, label %31
 
 31:                                               ; preds = %24
-  %32 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %30, ptr noundef %1), !range !8
+  %32 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %30, ptr noundef %1)
   %.not24 = icmp eq i32 %32, 0
   br i1 %.not24, label %20, label %.loopexit
 
@@ -1582,7 +1582,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
 35:                                               ; preds = %.critedge
   %36 = getelementptr i8, ptr %0, i64 16
   %.val27 = load ptr, ptr %36, align 8
-  %37 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %0, ptr noundef %.val27), !range !8
+  %37 = tail call fastcc i32 @Nwk_ManPushForwardBot_rec(ptr noundef nonnull %0, ptr noundef %.val27)
   %.not23 = icmp eq i32 %37, 0
   br i1 %.not23, label %.loopexit, label %38
 
@@ -1608,25 +1608,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Nwk_ManPushBackwardTop_rec(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushBackwardTop_rec(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.val42 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val43 = load i32, ptr %3, align 8
@@ -1717,7 +1711,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   br i1 %.not15.i, label %49, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i, ptr noundef nonnull %.val19.i), !range !8
+  %39 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val19.i, ptr noundef nonnull %.val19.i)
   %.not16.i = icmp eq i32 %39, 0
   br i1 %.not16.i, label %49, label %40
 
@@ -1727,7 +1721,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   br label %Nwk_ManPushBackwardBot_rec.exit
 
 42:                                               ; preds = %Nwk_ObjSetVisitedBot.exit.i
-  %43 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %22, ptr noundef nonnull %22), !range !8
+  %43 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %22, ptr noundef nonnull %22)
   %.not14.i = icmp eq i32 %43, 0
   br i1 %.not14.i, label %49, label %44
 
@@ -1745,7 +1739,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   %50 = load i32, ptr %15, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %19, label %.critedge, !llvm.loop !30
+  br i1 %52, label %19, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %19, %49, %.preheader
   %53 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1776,7 +1770,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   br i1 %.not, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %64, ptr noundef %1), !range !8
+  %68 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %64, ptr noundef %1)
   %.not37 = icmp eq i32 %68, 0
   br i1 %.not37, label %._crit_edge, label %Nwk_ManPushBackwardBot_rec.exit
 
@@ -1788,7 +1782,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   %70 = phi i32 [ %.pre, %._crit_edge ], [ %58, %65 ]
   %71 = add nuw nsw i32 %.182, 1
   %72 = icmp slt i32 %71, %70
-  br i1 %72, label %57, label %.critedge2, !llvm.loop !31
+  br i1 %72, label %57, label %.critedge2, !llvm.loop !30
 
 .critedge2:                                       ; preds = %57, %69, %.critedge
   %.val = load i32, ptr %13, align 8
@@ -1828,7 +1822,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   br label %Nwk_ObjSetVisitedBot.exit.i51
 
 Nwk_ObjSetVisitedBot.exit.i51:                    ; preds = %.sink.split.i.i60, %83
-  %86 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val41, ptr noundef nonnull %.val41), !range !8
+  %86 = tail call fastcc i32 @Nwk_ManPushBackwardTop_rec(ptr noundef nonnull %.val41, ptr noundef nonnull %.val41)
   %.not16.i58 = icmp eq i32 %86, 0
   br i1 %.not16.i58, label %Nwk_ManPushBackwardBot_rec.exit, label %87
 
@@ -1843,6 +1837,12 @@ Nwk_ManPushBackwardBot_rec.exit:                  ; preds = %67, %Nwk_ObjSetVisi
   %.027 = phi i32 [ 1, %87 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %74 ], [ 0, %.critedge2 ], [ 1, %40 ], [ 1, %44 ], [ 0, %76 ], [ 0, %Nwk_ObjSetVisitedBot.exit.i51 ], [ 1, %67 ]
   ret i32 %.027
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
@@ -1861,9 +1861,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
@@ -1881,7 +1881,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1904,4 +1904,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

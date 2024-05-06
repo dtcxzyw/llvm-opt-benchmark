@@ -882,7 +882,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @mbedtls_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -985,8 +985,8 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   store i8 -128, ptr %7, align 1
   %8 = icmp ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr i8, ptr %5, i64 %9
-  %11 = getelementptr i8, ptr %10, i64 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 %9
+  %11 = getelementptr inbounds i8, ptr %10, i64 1
   br i1 %8, label %12, label %15
 
 12:                                               ; preds = %2
@@ -1010,7 +1010,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %20, i32 3)
   %24 = shl i32 %20, 3
   %25 = lshr i32 %23, 24
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw i32 %25 to i8
   %27 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 %26, ptr %27, align 4
   %28 = lshr i32 %23, 16
@@ -1025,7 +1025,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %35 = getelementptr inbounds i8, ptr %0, i64 99
   store i8 %34, ptr %35, align 1
   %36 = lshr i32 %24, 24
-  %37 = trunc i32 %36 to i8
+  %37 = trunc nuw i32 %36 to i8
   %38 = getelementptr inbounds i8, ptr %0, i64 100
   store i8 %37, ptr %38, align 4
   %39 = lshr i32 %24, 16
@@ -1043,7 +1043,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 24
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw i32 %50 to i8
   store i8 %51, ptr %1, align 1
   %52 = load i32, ptr %48, align 4
   %53 = lshr i32 %52, 16
@@ -1062,7 +1062,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %63 = getelementptr inbounds i8, ptr %0, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = lshr i32 %64, 24
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw i32 %65 to i8
   %67 = getelementptr inbounds i8, ptr %1, i64 4
   store i8 %66, ptr %67, align 1
   %68 = load i32, ptr %63, align 4
@@ -1082,7 +1082,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %79 = getelementptr inbounds i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = lshr i32 %80, 24
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 %82, ptr %83, align 1
   %84 = load i32, ptr %79, align 4
@@ -1102,7 +1102,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %95 = getelementptr inbounds i8, ptr %0, i64 20
   %96 = load i32, ptr %95, align 4
   %97 = lshr i32 %96, 24
-  %98 = trunc i32 %97 to i8
+  %98 = trunc nuw i32 %97 to i8
   %99 = getelementptr inbounds i8, ptr %1, i64 12
   store i8 %98, ptr %99, align 1
   %100 = load i32, ptr %95, align 4
@@ -1122,7 +1122,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %111 = getelementptr inbounds i8, ptr %0, i64 24
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, 24
-  %114 = trunc i32 %113 to i8
+  %114 = trunc nuw i32 %113 to i8
   %115 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 %114, ptr %115, align 1
   %116 = load i32, ptr %111, align 4
@@ -1142,7 +1142,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %127 = getelementptr inbounds i8, ptr %0, i64 28
   %128 = load i32, ptr %127, align 4
   %129 = lshr i32 %128, 24
-  %130 = trunc i32 %129 to i8
+  %130 = trunc nuw i32 %129 to i8
   %131 = getelementptr inbounds i8, ptr %1, i64 20
   store i8 %130, ptr %131, align 1
   %132 = load i32, ptr %127, align 4
@@ -1162,7 +1162,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %143 = getelementptr inbounds i8, ptr %0, i64 32
   %144 = load i32, ptr %143, align 4
   %145 = lshr i32 %144, 24
-  %146 = trunc i32 %145 to i8
+  %146 = trunc nuw i32 %145 to i8
   %147 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 %146, ptr %147, align 1
   %148 = load i32, ptr %143, align 4
@@ -1188,7 +1188,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %163 = getelementptr inbounds i8, ptr %0, i64 36
   %164 = load i32, ptr %163, align 4
   %165 = lshr i32 %164, 24
-  %166 = trunc i32 %165 to i8
+  %166 = trunc nuw i32 %165 to i8
   %167 = getelementptr inbounds i8, ptr %1, i64 28
   store i8 %166, ptr %167, align 1
   %168 = load i32, ptr %163, align 4
@@ -1212,7 +1212,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha256(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @mbedtls_sha256(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #2 {
 mbedtls_sha256_starts.exit:
   %4 = alloca %struct.mbedtls_sha256_context, align 4
   %5 = icmp eq i32 %3, 0
@@ -1282,7 +1282,7 @@ mbedtls_sha256_update.exit:                       ; preds = %mbedtls_internal_sh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha256_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.mbedtls_sha256_context, align 4
   %4 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 1024, i64 noundef 1) #13
@@ -1299,7 +1299,7 @@ define hidden noundef i32 @mbedtls_sha256_self_test(i32 noundef %0) local_unname
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %9, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(108) %9, i8 0, i64 64, i1 false)
   %.not37 = icmp eq i32 %0, 0
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1362,7 +1362,7 @@ mbedtls_sha256_starts.exit:                       ; preds = %17, %.backedge
 36:                                               ; preds = %35
   %37 = zext nneg i32 %27 to i64
   %38 = getelementptr inbounds i8, ptr %14, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %29, i1 false)
   %39 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef nonnull %14)
   %40 = getelementptr inbounds i8, ptr %4, i64 %29
   %41 = sub nuw nsw i64 1000, %29

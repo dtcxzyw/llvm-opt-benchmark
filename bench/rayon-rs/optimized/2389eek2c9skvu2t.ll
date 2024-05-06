@@ -29,7 +29,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17h66eef620ee1c692aE(i64 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN5rayon4iter6blocks16exponential_size17h03f7ef056616f518E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !noundef !4
-  %3 = shl i64 %2, 1
+  %3 = shl nuw i64 %2, 1
   %.inv.i = icmp sgt i64 %2, -1
   %spec.select.i = select i1 %.inv.i, i64 %3, i64 -1
   %4 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %spec.select.i, 1

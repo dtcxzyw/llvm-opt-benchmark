@@ -264,10 +264,10 @@ define noundef i32 @dgedmd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 165:                                              ; preds = %163
   %166 = tail call i32 @llvm.umin.i32(i32 %119, i32 %122)
-  %167 = mul nsw i32 %166, 3
+  %167 = mul nuw nsw i32 %166, 3
   %168 = tail call i32 @llvm.umax.i32(i32 %119, i32 %122)
   %169 = add nsw i32 %167, %168
-  %170 = mul nsw i32 %166, 5
+  %170 = mul nuw nsw i32 %166, 5
   %171 = tail call i32 @llvm.smax.i32(i32 %169, i32 %170)
   %172 = tail call i32 @llvm.smax.i32(i32 %171, i32 1)
   store i32 %164, ptr %31, align 4, !tbaa !3
@@ -291,11 +291,11 @@ define noundef i32 @dgedmd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 183:                                              ; preds = %163
   %184 = tail call i32 @llvm.umax.i32(i32 %119, i32 %122)
   %185 = tail call i32 @llvm.umin.i32(i32 %119, i32 %122)
-  %186 = mul nsw i32 %185, 5
+  %186 = mul nuw nsw i32 %185, 5
   %187 = add nuw i32 %186, 4
   %188 = mul i32 %187, %185
-  %189 = mul nsw i32 %185, 3
-  %190 = mul nsw i32 %189, %185
+  %189 = mul nuw nsw i32 %185, 3
+  %190 = mul nuw nsw i32 %189, %185
   %191 = tail call i32 @llvm.smax.i32(i32 %184, i32 %188)
   %192 = add nsw i32 %191, %190
   store i32 %164, ptr %31, align 4, !tbaa !3

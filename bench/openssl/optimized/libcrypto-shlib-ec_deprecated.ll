@@ -33,7 +33,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EC_POINT_bn2point(ptr noundef %group, ptr noundef %bn, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef ptr @EC_POINT_bn2point(ptr noundef %group, ptr noundef %bn, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %bn) #2
   %add = add nsw i32 %call, 7

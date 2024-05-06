@@ -570,7 +570,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %12, %12, %12, %12
   %67 = getelementptr inbounds i8, ptr %64, i64 20
   store <2 x float> zeroinitializer, ptr %66, align 4
   %68 = getelementptr inbounds i8, ptr %64, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %68, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(72) %68, i8 0, i64 72, i1 false)
   %.val58 = load i32, ptr %31, align 8
   switch i32 %.val58, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit [
     i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
@@ -1251,7 +1251,7 @@ define internal void @_ZN24CpuPpLongRangeNonbondeds9calculateEP9gmx_pme_tPK9t_co
   %53 = getelementptr inbounds i8, ptr %50, i64 16
   store <2 x float> zeroinitializer, ptr %53, align 4
   %54 = getelementptr inbounds i8, ptr %50, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %54, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(72) %54, i8 0, i64 72, i1 false)
   br label %64
 
 55:                                               ; preds = %64

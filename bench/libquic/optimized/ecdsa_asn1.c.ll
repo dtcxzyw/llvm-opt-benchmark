@@ -305,7 +305,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ECDSA_SIG_marshal(ptr noundef %cbb, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_SIG_marshal(ptr noundef %cbb, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #6
@@ -346,7 +346,7 @@ declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ECDSA_SIG_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_SIG_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
 entry:
   %child.i = alloca %struct.cbb_st, align 8
   %cbb = alloca %struct.cbb_st, align 8

@@ -155,7 +155,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pbkdf1_derive(ptr noundef %vctx, ptr nocapture noundef writeonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pbkdf1_derive(ptr noundef %vctx, ptr nocapture noundef writeonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %md_tmp.i = alloca [64 x i8], align 16
   %call = tail call i32 @ossl_prov_is_running() #6
@@ -163,7 +163,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -249,7 +249,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %if.end25.i
   %inc.i = add nuw i64 %i.014.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %6
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.014.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -268,7 +268,7 @@ if.end25.i:                                       ; preds = %if.end20.i
   br i1 %tobool28.not.i, label %kdf_pbkdf1_do_derive.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %key, ptr nonnull align 16 %md_tmp.i, i64 %keylen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %key, ptr nonnull align 16 %md_tmp.i, i64 %keylen, i1 false)
   br label %kdf_pbkdf1_do_derive.exit
 
 kdf_pbkdf1_do_derive.exit:                        ; preds = %for.body.i, %if.end20.i, %if.end25.i, %if.then.i, %if.end.i, %lor.lhs.false.i, %lor.lhs.false4.i, %lor.lhs.false7.i, %if.end11.i, %for.end.i
@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
@@ -483,6 +483,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

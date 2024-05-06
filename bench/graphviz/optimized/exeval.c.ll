@@ -994,7 +994,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %common.ret
 
 431:                                              ; preds = %13
-  %432 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 0), !range !4
+  %432 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 0)
   %433 = zext nneg i32 %432 to i64
   %434 = inttoptr i64 %433 to ptr
   br label %common.ret
@@ -1006,7 +1006,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not929, label %442, label %438
 
 438:                                              ; preds = %435
-  %439 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 1), !range !4
+  %439 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 1)
   %440 = zext nneg i32 %439 to i64
   %441 = inttoptr i64 %440 to ptr
   br label %common.ret
@@ -1285,7 +1285,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %common.ret
 
 586:                                              ; preds = %13
-  %587 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef null), !range !5
+  %587 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef null)
   %588 = sext i32 %587 to i64
   %589 = inttoptr i64 %588 to ptr
   br label %common.ret
@@ -1320,7 +1320,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   unreachable
 
 606:                                              ; preds = %600
-  %607 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef nonnull %601), !range !5
+  %607 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef nonnull %601)
   %608 = tail call i64 @ftell(ptr noundef nonnull %601)
   tail call void @rewind(ptr noundef nonnull %601)
   %609 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3421,7 +3421,7 @@ agxblen.exit.i:                                   ; preds = %60
   %.val.i25.i98 = phi i8 [ %.val.i25.pre.i, %66 ], [ 0, %agxblen.exit.i ]
   %67 = zext i8 %.val.i25.i98 to i64
   %68 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 1 %9, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr readonly align 1 %9, i64 %61, i1 false)
   %69 = trunc i32 %52 to i8
   %70 = load i8, ptr %63, align 1
   %71 = add i8 %70, %69
@@ -3432,7 +3432,7 @@ agxblen.exit.i:                                   ; preds = %60
   %73 = load i64, ptr %64, align 8
   %74 = load ptr, ptr %6, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %9, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr readonly align 1 %9, i64 %61, i1 false)
   %76 = add i64 %73, %61
   store i64 %76, ptr %64, align 8
   br label %agxbput_n.exit
@@ -3494,7 +3494,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
 96:                                               ; preds = %95
   %97 = zext i8 %.val.i25.i82.us to i64
   %98 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %.06392.us, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.06392.us, i64 %87, i1 false)
   %99 = trunc i32 %86 to i8
   %100 = load i8, ptr %83, align 1
   %101 = add i8 %100, %99
@@ -3505,7 +3505,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
   %103 = load i64, ptr %85, align 8
   %104 = load ptr, ptr %6, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 %103
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %.06392.us, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr readonly align 1 %.06392.us, i64 %87, i1 false)
   %106 = add i64 %103, %87
   store i64 %106, ptr %85, align 8
   br label %agxbput_n.exit85.us
@@ -3551,7 +3551,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
 122:                                              ; preds = %121
   %123 = zext i8 %.val.i25.i82 to i64
   %124 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %123
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr align 1 %.06392, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr readonly align 1 %.06392, i64 %113, i1 false)
   %125 = trunc i32 %112 to i8
   %126 = load i8, ptr %83, align 1
   %127 = add i8 %126, %125
@@ -3562,7 +3562,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
   %129 = load i64, ptr %85, align 8
   %130 = load ptr, ptr %6, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %.06392, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr readonly align 1 %.06392, i64 %113, i1 false)
   %132 = add i64 %129, %113
   store i64 %132, ptr %85, align 8
   br label %agxbput_n.exit85
@@ -3578,7 +3578,7 @@ agxbput_n.exit85:                                 ; preds = %.lr.ph.split, %122,
 
 .loopexit:                                        ; preds = %agxbput_n.exit85, %agxbput_n.exit85.us, %.preheader, %78
   %.164 = phi ptr [ %81, %78 ], [ %81, %.preheader ], [ %109, %agxbput_n.exit85.us ], [ %135, %agxbput_n.exit85 ]
-  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.164) #26
+  %137 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.164) #26
   %138 = icmp eq i64 %137, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i86.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -3610,7 +3610,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
 148:                                              ; preds = %147
   %149 = zext i8 %.val.i25.i.i to i64
   %150 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %149
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr align 1 %.164, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr readonly align 1 %.164, i64 %137, i1 false)
   %151 = trunc i64 %137 to i8
   %152 = load i8, ptr %.phi.trans.insert, align 1
   %153 = add i8 %152, %151
@@ -3621,7 +3621,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
   %155 = load i64, ptr %142, align 8
   %156 = load ptr, ptr %6, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 %155
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %.164, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr readonly align 1 %.164, i64 %137, i1 false)
   %158 = add i64 %155, %137
   store i64 %158, ptr %142, align 8
   br label %agxbput.exit
@@ -3798,7 +3798,7 @@ declare i32 @strmatch(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @dtsize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evaldyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %union.EX_STYPE, align 8
   %6 = alloca [32 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3898,7 +3898,7 @@ define internal fastcc void @prints(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @print(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.Fmt_t, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %20
@@ -4660,24 +4660,24 @@ define internal fastcc ptr @str_mpy(ptr %.104.val, ptr nocapture noundef readonl
 define internal ptr @exprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %4, ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %3)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #21
   %6 = add nsw i32 %5, 1
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %7 = sext i32 %6 to i64
   %8 = call ptr @vmalloc(ptr noundef %0, i64 noundef %7) #21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %11 = call ptr @exnospace() #21
   br label %14
 
 12:                                               ; preds = %2
   %13 = call i32 @vsnprintf(ptr noundef nonnull %8, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -4817,7 +4817,7 @@ define internal fastcc ptr @lexname(i32 noundef %0, i32 noundef %1) unnamed_addr
   br i1 %or.cond7, label %34, label %35
 
 34:                                               ; preds = %32
-  %char = trunc i32 %0 to i8
+  %char = trunc nuw i32 %0 to i8
   store i8 %char, ptr %13, align 1
   %nul = getelementptr inbounds i8, ptr %13, i64 1
   store i8 0, ptr %nul, align 1
@@ -4937,7 +4937,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
 42:                                               ; preds = %41
   %43 = zext i8 %.val.i25.i to i64
   %44 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %25, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr readonly align 1 %25, i64 %31, i1 false)
   %45 = trunc i32 %30 to i8
   %46 = load i8, ptr %6, align 1
   %47 = add i8 %46, %45
@@ -4948,7 +4948,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
   %49 = load i64, ptr %8, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %25, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %25, i64 %31, i1 false)
   %52 = load i64, ptr %8, align 8
   %53 = add i64 %52, %31
   store i64 %53, ptr %8, align 8
@@ -5543,7 +5543,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 194:                                              ; preds = %190
   %195 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 10)
-  %196 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.33, i64 noundef %195) #26
+  %196 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.33, i64 noundef %195) #26
   %.not.i.i.i = icmp eq i32 %196, 0
   %197 = icmp eq i64 %.sroa.10.0, 10
   %spec.select.i.i = and i1 %197, %.not.i.i.i
@@ -5597,7 +5597,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 219:                                              ; preds = %194
   %220 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 6)
-  %221 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.34, i64 noundef %220) #26
+  %221 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.34, i64 noundef %220) #26
   %.not.i.i.i169 = icmp eq i32 %221, 0
   %222 = icmp eq i64 %.sroa.10.0, 6
   %spec.select.i.i170 = and i1 %222, %.not.i.i.i169
@@ -5643,7 +5643,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 239:                                              ; preds = %219
   %240 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 5)
-  %241 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.35, i64 noundef %240) #26
+  %241 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.35, i64 noundef %240) #26
   %.not.i.i.i172 = icmp eq i32 %241, 0
   %242 = icmp eq i64 %.sroa.10.0, 5
   %spec.select.i.i173 = and i1 %242, %.not.i.i.i172
@@ -5810,7 +5810,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64
 strview.exit:                                     ; preds = %4, %5
   %.sroa.3.0.i = phi i64 [ %strlen.i, %4 ], [ %6, %5 ]
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
-  %8 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %2, i64 noundef %7) #26
+  %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #26
   %.not.i.i = icmp eq i32 %8, 0
   %9 = icmp eq i64 %.sroa.3.0.i, %1
   %spec.select.i = and i1 %9, %.not.i.i
@@ -5839,7 +5839,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @scformat(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6001,21 +6001,21 @@ define internal noundef i32 @scformat(ptr nocapture noundef writeonly %0, ptr no
 
 declare i32 @sfscanf(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #17
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
 
 declare ptr @extypename(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @exop(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
@@ -6070,5 +6070,3 @@ attributes #30 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 1}

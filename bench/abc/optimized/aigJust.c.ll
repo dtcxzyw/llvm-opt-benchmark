@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 24
   %.val139145 = load i64, ptr %6, align 8
   %7 = and i64 %.val139145, 7
@@ -154,7 +154,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 68:                                               ; preds = %61
   %69 = xor i32 %67, 1
-  %70 = tail call i32 @Aig_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %69, ptr noundef %3, i32 noundef %.tr119.ph149), !range !4
+  %70 = tail call i32 @Aig_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %69, ptr noundef %3, i32 noundef %.tr119.ph149)
   %.not66 = icmp eq i32 %70, 0
   br i1 %.not66, label %Aig_ObjSatValue.exit, label %71
 
@@ -258,7 +258,7 @@ Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailre
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ObjFindSatAssign(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_ObjFindSatAssign(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 24
   %.val1822 = load i64, ptr %5, align 8
   %6 = and i64 %.val1822, 7
@@ -291,13 +291,13 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
 17:                                               ; preds = %19
   %18 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %18, 8
-  br i1 %exitcond.not, label %21, label %19, !llvm.loop !5
+  br i1 %exitcond.not, label %21, label %19, !llvm.loop !4
 
 19:                                               ; preds = %.preheader, %17
   %.027 = phi i32 [ 0, %.preheader ], [ %18, %17 ]
   store i32 0, ptr %7, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
-  %20 = tail call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa, i32 noundef %.tr20.lcssa, ptr noundef %3, i32 noundef %.027), !range !4
+  %20 = tail call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa, i32 noundef %.tr20.lcssa, ptr noundef %3, i32 noundef %.027)
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %17, label %21
 
@@ -309,7 +309,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 7
@@ -346,7 +346,7 @@ define i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr nocapture noundef %1) loc
   %17 = ptrtoint ptr %.val29 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef nonnull %0, ptr noundef %19), !range !7
+  %20 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef nonnull %0, ptr noundef %19)
   %.val30 = load ptr, ptr %16, align 8
   %21 = ptrtoint ptr %.val30 to i64
   %22 = and i64 %21, 1
@@ -381,7 +381,7 @@ common.ret42:                                     ; preds = %2, %27, %13, %8, %3
   %34 = ptrtoint ptr %.val31 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef nonnull %0, ptr noundef %36), !range !7
+  %37 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef nonnull %0, ptr noundef %36)
   %.val32 = load ptr, ptr %33, align 8
   %38 = ptrtoint ptr %.val32 to i64
   %39 = and i64 %38, 1
@@ -407,7 +407,7 @@ common.ret42:                                     ; preds = %2, %27, %13, %8, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
   %4 = getelementptr i8, ptr %2, i64 4
   %.val1316 = load i32, ptr %4, align 4
@@ -447,10 +447,10 @@ define i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture noundef %1, ptr noc
   %.val13 = load i32, ptr %4, align 4
   %24 = sext i32 %.val13 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %9, label %.critedge, !llvm.loop !8
+  br i1 %25, label %9, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %9, %3
-  %26 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef %1), !range !7
+  %26 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef %1)
   ret i32 %26
 }
 
@@ -554,13 +554,13 @@ tailrecurse.i:                                    ; preds = %33, %tailrecurse.i
 43:                                               ; preds = %45
   %44 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %44, 8
-  br i1 %exitcond.not.i, label %49, label %45, !llvm.loop !5
+  br i1 %exitcond.not.i, label %49, label %45, !llvm.loop !4
 
 45:                                               ; preds = %43, %.preheader.i
   %.027.i = phi i32 [ 0, %.preheader.i ], [ %44, %43 ]
   store i32 0, ptr %11, align 4
   call void @Aig_ManIncrementTravId(ptr noundef %0) #13
-  %46 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i, i32 noundef %.tr20.lcssa.i, ptr noundef nonnull %10, i32 noundef %.027.i), !range !4
+  %46 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i, i32 noundef %.tr20.lcssa.i, ptr noundef nonnull %10, i32 noundef %.027.i)
   %.not16.i = icmp eq i32 %46, 0
   br i1 %.not16.i, label %43, label %Aig_ObjFindSatAssign.exit
 
@@ -603,13 +603,13 @@ tailrecurse.i70:                                  ; preds = %51, %tailrecurse.i7
 61:                                               ; preds = %63
   %62 = add nuw nsw i32 %.027.i66, 1
   %exitcond.not.i69 = icmp eq i32 %62, 8
-  br i1 %exitcond.not.i69, label %67, label %63, !llvm.loop !5
+  br i1 %exitcond.not.i69, label %67, label %63, !llvm.loop !4
 
 63:                                               ; preds = %61, %.preheader.i63
   %.027.i66 = phi i32 [ 0, %.preheader.i63 ], [ %62, %61 ]
   store i32 0, ptr %11, align 4
   call void @Aig_ManIncrementTravId(ptr noundef %0) #13
-  %64 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i64, i32 noundef %.tr20.lcssa.i65, ptr noundef nonnull %10, i32 noundef %.027.i66), !range !4
+  %64 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i64, i32 noundef %.tr20.lcssa.i65, ptr noundef nonnull %10, i32 noundef %.027.i66)
   %.not16.i67 = icmp eq i32 %64, 0
   br i1 %.not16.i67, label %61, label %Aig_ObjFindSatAssign.exit76
 
@@ -634,7 +634,7 @@ Aig_ObjFindSatAssign.exit76:                      ; preds = %63
   %.val54 = load i32, ptr %16, align 4
   %70 = sext i32 %.val54 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %20, label %.critedge.loopexit, !llvm.loop !9
+  br i1 %71, label %20, label %.critedge.loopexit, !llvm.loop !7
 
 .critedge.loopexit:                               ; preds = %69
   %.pre = load ptr, ptr %13, align 8
@@ -738,7 +738,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -757,7 +757,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -768,19 +768,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
@@ -796,8 +796,8 @@ attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind allocsize(1) }
 attributes #12 = { nounwind allocsize(0) }
@@ -810,9 +810,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 4}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

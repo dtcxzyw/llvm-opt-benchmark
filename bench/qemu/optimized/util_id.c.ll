@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"net\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @id_wellformed(ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @id_wellformed(ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__ctype_b_loc() #6
   %0 = load ptr, ptr %call, align 8

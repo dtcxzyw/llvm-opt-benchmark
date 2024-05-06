@@ -247,7 +247,7 @@ if.end17:                                         ; preds = %entry
 
 if.then19:                                        ; preds = %if.end17
   %shr = lshr i32 %targetCapacity.0, 4
-  %8 = trunc i32 %. to i16
+  %8 = trunc nuw nsw i32 %. to i16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then19
@@ -425,7 +425,7 @@ if.end172:                                        ; preds = %if.end172.loopexit,
   br i1 %cmp174175, label %land.rhs.preheader, label %noMoreInput
 
 land.rhs.preheader:                               ; preds = %if.end172
-  %53 = trunc i32 %. to i16
+  %53 = trunc nuw nsw i32 %. to i16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body179
@@ -555,7 +555,7 @@ if.end237:                                        ; preds = %if.then236, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL19_Latin1GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #1 {
+define internal noundef range(i32 0, 65536) i32 @_ZL19_Latin1GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #1 {
 entry:
   %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8
@@ -640,7 +640,7 @@ land.lhs.true15:                                  ; preds = %if.else11
 
 if.then20:                                        ; preds = %land.lhs.true15
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
-  %c.0.tr = trunc i32 %6 to i8
+  %c.0.tr = trunc nuw i32 %6 to i8
   %9 = shl i8 %c.0.tr, 6
   %conv22 = or i8 %8, %9
   %incdec.ptr23 = getelementptr inbounds i8, ptr %3, i64 1
@@ -997,7 +997,7 @@ if.end126:                                        ; preds = %while.body121, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL18_ASCIIGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #3 {
+define internal noundef range(i32 0, 65536) i32 @_ZL18_ASCIIGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #3 {
 entry:
   %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8

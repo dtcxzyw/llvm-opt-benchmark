@@ -112,7 +112,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %43 = trunc i64 %42 to i16
   %44 = getelementptr [512 x %struct.prefix_code_symbol], ptr %4, i64 0, i64 %42
   store i16 %43, ptr %44, align 8
-  %45 = trunc i64 %indvars.iv74.i.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv74.i.i to i32
   %46 = add i32 %45, %1
   %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #10
   %48 = and i8 %47, 15
@@ -214,7 +214,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   br i1 %95, label %PrefixCodeTreeRebuild.exit.thread.i, label %96
 
 96:                                               ; preds = %94
-  %97 = trunc i32 %.026.i.i.i to i16
+  %97 = trunc nuw nsw i32 %.026.i.i.i to i16
   store i16 %97, ptr %91, align 2
   %98 = zext nneg i32 %.026.i.i.i to i64
   %99 = getelementptr [1024 x %struct.prefix_code_node], ptr %34, i64 0, i64 %98, i32 1
@@ -234,7 +234,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   br i1 %narrow.i.not.i.i.i, label %PrefixCodeTreeRebuild.exit.thread.i, label %83, !llvm.loop !8
 
 106:                                              ; preds = %83
-  %107 = trunc i32 %.05364.i.i to i16
+  %107 = trunc nuw i32 %.05364.i.i to i16
   %108 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 4
   %109 = and i32 %81, 1
   %110 = zext nneg i32 %109 to i64
@@ -321,7 +321,7 @@ bitstring_skip.exit.i.i:                          ; preds = %128, %bitstring_loo
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %148
-  %153 = trunc i16 %149 to i8
+  %153 = trunc nuw i16 %149 to i8
   store i8 %153, ptr %6, align 1
   call void @wmem_array_append(ptr noundef %16, ptr noundef nonnull %6, i32 noundef 1) #10
   br label %.loopexit.i.backedge
@@ -565,7 +565,7 @@ declare i32 @wmem_array_try_index(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_symbols(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @compare_symbols(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 2

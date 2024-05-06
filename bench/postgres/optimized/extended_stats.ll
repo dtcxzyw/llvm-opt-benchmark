@@ -3342,20 +3342,20 @@ define internal fastcc noundef zeroext i1 @statext_is_compatible_clause_internal
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %5
   %8 = phi i32 [ %.pre, %5 ], [ 6, %tailrecurse.backedge ]
-  %.tr116 = phi ptr [ %1, %5 ], [ %.tr116.be, %tailrecurse.backedge ]
+  %.tr118 = phi ptr [ %1, %5 ], [ %.tr118.be, %tailrecurse.backedge ]
   %9 = icmp eq i32 %8, 25
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds i8, ptr %.tr116, i64 8
+  %11 = getelementptr inbounds i8, ptr %.tr118, i64 8
   %12 = load ptr, ptr %11, align 8
   %.pr = load i32, ptr %12, align 4
   br label %13
 
 13:                                               ; preds = %10, %tailrecurse
   %14 = phi i32 [ %.pr, %10 ], [ %8, %tailrecurse ]
-  %.069 = phi ptr [ %12, %10 ], [ %.tr116, %tailrecurse ]
-  switch i32 %14, label %.thread115 [
+  %.069 = phi ptr [ %12, %10 ], [ %.tr118, %tailrecurse ]
+  switch i32 %14, label %.thread117 [
     i32 6, label %15
     i32 15, label %29
     i32 18, label %76
@@ -3442,7 +3442,7 @@ list_length.exit:                                 ; preds = %29
   br i1 %58, label %59, label %examine_opclause_args.exit
 
 59:                                               ; preds = %56, %53
-  %.097.ph = phi ptr [ %.021.i, %53 ], [ %.0.i, %56 ]
+  %.099.ph = phi ptr [ %.021.i, %53 ], [ %.0.i, %56 ]
   %60 = getelementptr inbounds i8, ptr %.069, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @get_oprrest(i32 noundef %61) #10
@@ -3468,17 +3468,17 @@ list_length.exit:                                 ; preds = %29
   br i1 %69, label %70, label %examine_opclause_args.exit
 
 70:                                               ; preds = %66, %63
-  %71 = load i32, ptr %.097.ph, align 4
+  %71 = load i32, ptr %.099.ph, align 4
   %72 = icmp eq i32 %71, 6
   br i1 %72, label %tailrecurse.backedge, label %73
 
 tailrecurse.backedge:                             ; preds = %70, %114, %137
-  %.tr116.be = phi ptr [ %.097.ph, %70 ], [ %.021.i84, %114 ], [ %139, %137 ]
+  %.tr118.be = phi ptr [ %.099.ph, %70 ], [ %.021.i85, %114 ], [ %139, %137 ]
   br label %tailrecurse
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %4, align 8
-  %75 = tail call ptr @lappend(ptr noundef %74, ptr noundef nonnull %.097.ph) #10
+  %75 = tail call ptr @lappend(ptr noundef %74, ptr noundef nonnull %.099.ph) #10
   store ptr %75, ptr %4, align 8
   br label %examine_opclause_args.exit
 
@@ -3488,20 +3488,20 @@ tailrecurse.backedge:                             ; preds = %70, %114, %137
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %.069, i64 32
   %81 = load ptr, ptr %80, align 8
-  %.not.i81 = icmp eq ptr %81, null
-  br i1 %.not.i81, label %examine_opclause_args.exit, label %list_length.exit82
+  %.not.i82 = icmp eq ptr %81, null
+  br i1 %.not.i82, label %examine_opclause_args.exit, label %list_length.exit83
 
-list_length.exit82:                               ; preds = %76
+list_length.exit83:                               ; preds = %76
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %.not74 = icmp eq i32 %83, 2
   br i1 %.not74, label %84, label %examine_opclause_args.exit
 
-84:                                               ; preds = %list_length.exit82
+84:                                               ; preds = %list_length.exit83
   %85 = getelementptr i8, ptr %81, i64 16
-  %.val.i83 = load ptr, ptr %85, align 8
-  %86 = load ptr, ptr %.val.i83, align 8
-  %87 = getelementptr i8, ptr %.val.i83, i64 8
+  %.val.i84 = load ptr, ptr %85, align 8
+  %86 = load ptr, ptr %.val.i84, align 8
+  %87 = getelementptr i8, ptr %.val.i84, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %86, align 4
   %90 = icmp eq i32 %89, 25
@@ -3513,7 +3513,7 @@ list_length.exit82:                               ; preds = %76
   br label %94
 
 94:                                               ; preds = %91, %84
-  %.021.i84 = phi ptr [ %93, %91 ], [ %86, %84 ]
+  %.021.i85 = phi ptr [ %93, %91 ], [ %86, %84 ]
   %95 = load i32, ptr %88, align 4
   %96 = icmp eq i32 %95, 25
   br i1 %96, label %97, label %100
@@ -3521,11 +3521,11 @@ list_length.exit82:                               ; preds = %76
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %88, i64 8
   %99 = load ptr, ptr %98, align 8
-  %.pr.i89 = load i32, ptr %99, align 4
+  %.pr.i91 = load i32, ptr %99, align 4
   br label %100
 
 100:                                              ; preds = %97, %94
-  %101 = phi i32 [ %.pr.i89, %97 ], [ %95, %94 ]
+  %101 = phi i32 [ %.pr.i91, %97 ], [ %95, %94 ]
   %102 = icmp eq i32 %101, 7
   br i1 %102, label %103, label %examine_opclause_args.exit
 
@@ -3555,13 +3555,13 @@ list_length.exit82:                               ; preds = %76
   br i1 %113, label %114, label %examine_opclause_args.exit
 
 114:                                              ; preds = %110, %107
-  %115 = load i32, ptr %.021.i84, align 4
+  %115 = load i32, ptr %.021.i85, align 4
   %116 = icmp eq i32 %115, 6
   br i1 %116, label %tailrecurse.backedge, label %117
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %4, align 8
-  %119 = tail call ptr @lappend(ptr noundef %118, ptr noundef nonnull %.021.i84) #10
+  %119 = tail call ptr @lappend(ptr noundef %118, ptr noundef nonnull %.021.i85) #10
   store ptr %119, ptr %4, align 8
   br label %examine_opclause_args.exit
 
@@ -3569,7 +3569,7 @@ is_andclause.exit:                                ; preds = %13
   %120 = getelementptr inbounds i8, ptr %.069, i64 4
   %121 = load i32, ptr %120, align 4
   %switch = icmp ult i32 %121, 3
-  br i1 %switch, label %122, label %.thread115
+  br i1 %switch, label %122, label %.thread117
 
 122:                                              ; preds = %is_andclause.exit
   %123 = getelementptr inbounds i8, ptr %.069, i64 8
@@ -3582,16 +3582,16 @@ is_andclause.exit:                                ; preds = %13
   %126 = getelementptr inbounds i8, ptr %124, i64 16
   %127 = load i32, ptr %125, align 4
   %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %.lr.ph136, label %examine_opclause_args.exit
+  br i1 %128, label %.lr.ph138, label %examine_opclause_args.exit
 
-129:                                              ; preds = %.lr.ph136
+129:                                              ; preds = %.lr.ph138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load i32, ptr %125, align 4
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %.lr.ph136, label %examine_opclause_args.exit
+  br i1 %132, label %.lr.ph138, label %examine_opclause_args.exit
 
-.lr.ph136:                                        ; preds = %.lr.ph, %129
+.lr.ph138:                                        ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph ]
   %133 = load ptr, ptr %126, align 8
   %134 = getelementptr %union.ListCell, ptr %133, i64 %indvars.iv
@@ -3612,14 +3612,14 @@ is_andclause.exit:                                ; preds = %13
   store ptr %144, ptr %4, align 8
   br label %examine_opclause_args.exit
 
-.thread115:                                       ; preds = %13, %is_andclause.exit
+.thread117:                                       ; preds = %13, %is_andclause.exit
   %145 = load ptr, ptr %4, align 8
   %146 = tail call ptr @lappend(ptr noundef %145, ptr noundef nonnull %.069) #10
   store ptr %146, ptr %4, align 8
   br label %examine_opclause_args.exit
 
-examine_opclause_args.exit:                       ; preds = %100, %76, %29, %56, %110, %103, %list_length.exit82, %66, %59, %list_length.exit, %.lr.ph136, %129, %122, %.lr.ph, %21, %18, %15, %.thread115, %142, %117, %73, %25
-  %.0 = phi i1 [ true, %25 ], [ true, %73 ], [ true, %117 ], [ true, %142 ], [ true, %.thread115 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ true, %122 ], [ true, %.lr.ph ], [ %136, %129 ], [ %136, %.lr.ph136 ], [ false, %list_length.exit ], [ false, %59 ], [ false, %66 ], [ false, %list_length.exit82 ], [ false, %103 ], [ false, %110 ], [ false, %56 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
+examine_opclause_args.exit:                       ; preds = %100, %76, %29, %56, %110, %103, %list_length.exit83, %66, %59, %list_length.exit, %.lr.ph138, %129, %122, %.lr.ph, %21, %18, %15, %.thread117, %142, %117, %73, %25
+  %.0 = phi i1 [ true, %25 ], [ true, %73 ], [ true, %117 ], [ true, %142 ], [ true, %.thread117 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ true, %122 ], [ true, %.lr.ph ], [ %136, %129 ], [ %136, %.lr.ph138 ], [ false, %list_length.exit ], [ false, %59 ], [ false, %66 ], [ false, %list_length.exit83 ], [ false, %103 ], [ false, %110 ], [ false, %56 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
   ret i1 %.0
 }
 

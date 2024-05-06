@@ -621,7 +621,7 @@ define noalias ptr @plugins_file_suffix(i32 noundef %0) local_unnamed_addr #0 {
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @plugins_abi_version(i32 noundef %0) local_unnamed_addr #7 {
+define noundef range(i32 -1, 2) i32 @plugins_abi_version(i32 noundef %0) local_unnamed_addr #7 {
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 3
   %spec.select = select i1 %switch, i32 1, i32 -1
@@ -629,7 +629,7 @@ define noundef i32 @plugins_abi_version(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @plugins_api_max_level(i32 noundef %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @plugins_api_max_level(i32 noundef %0) local_unnamed_addr #7 {
   %cond = icmp eq i32 %0, 3
   %. = zext i1 %cond to i32
   ret i32 %.

@@ -757,7 +757,7 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509name_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 -1, 5) i64 @ossl_x509name_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @cX509Name, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #9
   %.not = icmp eq i64 %4, 0
@@ -801,7 +801,7 @@ ossl_x509name_cmp0.exit:                          ; preds = %9
 declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509name_eql(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509name_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @cX509Name, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #9
   %.not = icmp eq i64 %4, 0

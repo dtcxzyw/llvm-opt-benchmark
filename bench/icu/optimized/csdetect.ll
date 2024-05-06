@@ -1121,7 +1121,7 @@ entry:
 declare void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7515CharsetDetector18getDetectableCountEv() local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 29) i32 @_ZN6icu_7515CharsetDetector18getDetectableCountEv() local_unnamed_addr #0 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

@@ -36,7 +36,7 @@ entry:
 define noundef i32 @ossl_sha256_192_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %c, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 4
@@ -120,7 +120,7 @@ if.end38.i:                                       ; preds = %if.then35.i, %if.en
 
 if.then41.i:                                      ; preds = %if.end38.i
   %data42.i = getelementptr inbounds i8, ptr %c, i64 40
-  %conv44.i = trunc i64 %len.addr.1.i to i32
+  %conv44.i = trunc nuw i64 %len.addr.1.i to i32
   store i32 %conv44.i, ptr %num.i, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42.i, ptr align 1 %data.1.i, i64 %len.addr.1.i, i1 false)
   br label %SHA256_Update.exit
@@ -205,7 +205,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
 
 if.then41:                                        ; preds = %if.end38
   %data42 = getelementptr inbounds i8, ptr %c, i64 40
-  %conv44 = trunc i64 %len.addr.1 to i32
+  %conv44 = trunc nuw i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
@@ -215,14 +215,14 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SHA224_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SHA224_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @SHA256_Final(ptr noundef %md, ptr noundef %c), !range !4
+  %call = tail call i32 @SHA256_Final(ptr noundef %md, ptr noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %c, i64 40
   %num = getelementptr inbounds i8, ptr %c, i64 104
@@ -250,7 +250,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nh = getelementptr inbounds i8, ptr %c, i64 36
   %1 = load i32, ptr %Nh, align 4
   %shr = lshr i32 %1, 24
-  %conv5 = trunc i32 %shr to i8
+  %conv5 = trunc nuw i32 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 97
   store i8 %conv5, ptr %add.ptr4, align 1
   %shr7 = lshr i32 %1, 16
@@ -267,7 +267,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nl = getelementptr inbounds i8, ptr %c, i64 32
   %2 = load i32, ptr %Nl, align 4
   %shr21 = lshr i32 %2, 24
-  %conv23 = trunc i32 %shr21 to i8
+  %conv23 = trunc nuw i32 %shr21 to i8
   %incdec.ptr24 = getelementptr inbounds i8, ptr %c, i64 101
   store i8 %conv23, ptr %incdec.ptr19, align 1
   %shr26 = lshr i32 %2, 16
@@ -297,7 +297,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx44 = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %indvars.iv104
   %4 = load i32, ptr %arrayidx44, align 4
   %shr46 = lshr i32 %4, 24
-  %conv48 = trunc i32 %shr46 to i8
+  %conv48 = trunc nuw i32 %shr46 to i8
   %incdec.ptr49 = getelementptr inbounds i8, ptr %md.addr.090, i64 1
   store i8 %conv48, ptr %md.addr.090, align 1
   %shr50 = lshr i32 %4, 16
@@ -313,7 +313,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store i8 %conv59, ptr %incdec.ptr57, align 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 6
-  br i1 %exitcond107.not, label %return, label %for.body, !llvm.loop !5
+  br i1 %exitcond107.not, label %return, label %for.body, !llvm.loop !4
 
 for.body66:                                       ; preds = %if.end, %for.body66
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %for.body66 ], [ 0, %if.end ]
@@ -321,7 +321,7 @@ for.body66:                                       ; preds = %if.end, %for.body66
   %arrayidx69 = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %indvars.iv100
   %5 = load i32, ptr %arrayidx69, align 4
   %shr71 = lshr i32 %5, 24
-  %conv73 = trunc i32 %shr71 to i8
+  %conv73 = trunc nuw i32 %shr71 to i8
   %incdec.ptr74 = getelementptr inbounds i8, ptr %md.addr.188, i64 1
   store i8 %conv73, ptr %md.addr.188, align 1
   %shr75 = lshr i32 %5, 16
@@ -337,7 +337,7 @@ for.body66:                                       ; preds = %if.end, %for.body66
   store i8 %conv84, ptr %incdec.ptr82, align 1
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 7
-  br i1 %exitcond103.not, label %return, label %for.body66, !llvm.loop !7
+  br i1 %exitcond103.not, label %return, label %for.body66, !llvm.loop !6
 
 for.body93:                                       ; preds = %if.end, %for.body93
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body93 ], [ 0, %if.end ]
@@ -345,7 +345,7 @@ for.body93:                                       ; preds = %if.end, %for.body93
   %arrayidx96 = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx96, align 4
   %shr98 = lshr i32 %6, 24
-  %conv100 = trunc i32 %shr98 to i8
+  %conv100 = trunc nuw i32 %shr98 to i8
   %incdec.ptr101 = getelementptr inbounds i8, ptr %md.addr.286, i64 1
   store i8 %conv100, ptr %md.addr.286, align 1
   %shr102 = lshr i32 %6, 16
@@ -361,7 +361,7 @@ for.body93:                                       ; preds = %if.end, %for.body93
   store i8 %conv111, ptr %incdec.ptr109, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %return, label %for.body93, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body93, !llvm.loop !7
 
 sw.default:                                       ; preds = %if.end
   %cmp117 = icmp ugt i32 %3, 32
@@ -377,7 +377,7 @@ for.body125:                                      ; preds = %for.cond121.prehead
   %arrayidx128 = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %indvars.iv108
   %7 = load i32, ptr %arrayidx128, align 4
   %shr130 = lshr i32 %7, 24
-  %conv132 = trunc i32 %shr130 to i8
+  %conv132 = trunc nuw i32 %shr130 to i8
   %incdec.ptr133 = getelementptr inbounds i8, ptr %md.addr.394, i64 1
   store i8 %conv132, ptr %md.addr.394, align 1
   %shr134 = lshr i32 %7, 16
@@ -396,7 +396,7 @@ for.body125:                                      ; preds = %for.cond121.prehead
   %div82 = lshr i32 %8, 2
   %9 = zext nneg i32 %div82 to i64
   %cmp123 = icmp ult i64 %indvars.iv.next109, %9
-  br i1 %cmp123, label %for.body125, label %return, !llvm.loop !9
+  br i1 %cmp123, label %for.body125, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body93, %for.body66, %for.body, %for.body125, %for.cond121.preheader, %sw.default
   %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %for.cond121.preheader ], [ 1, %for.body125 ], [ 1, %for.body ], [ 1, %for.body66 ], [ 1, %for.body93 ]
@@ -430,9 +430,8 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sdw_intel_ac
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_sdw_intel_acpi_scan372, ptr @__UNIQUE_ID_description375, ptr @__UNIQUE_ID_file373, ptr @__UNIQUE_ID_license374, ptr @__UNIQUE_ID_sdw_link_mask366, ptr @__UNIQUE_ID_sdw_link_masktype365, ptr @__param_sdw_link_mask], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sdw_intel_acpi_scan(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sdw_intel_acpi_scan(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -160,7 +160,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sdw_intel_acpi_cb(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 0, 16388) i32 @sdw_intel_acpi_cb(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store i64 0, ptr %5, align 8, !annotation !5

@@ -834,7 +834,7 @@ _srun_set_addr.exit:                              ; preds = %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @srun_user_message(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2038) i32 @srun_user_message(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255

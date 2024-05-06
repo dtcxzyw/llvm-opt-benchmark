@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [65 x i8] c"mca_fs_base_file_delete: Could not remove file %s errno = %d %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_fs_base_file_delete(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 43) i32 @mca_fs_base_file_delete(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call i32 @unlink(ptr noundef %0) #5
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %11

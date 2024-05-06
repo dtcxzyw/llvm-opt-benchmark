@@ -18,7 +18,7 @@ entry:
   %conv4 = add i32 %0, 56
   %shl = and i32 %conv4, 56
   %or = or disjoint i32 %and, %shl
-  %conv6 = trunc i32 %or to i8
+  %conv6 = trunc nuw nsw i32 %or to i8
   store i8 %conv6, ptr %ctx, align 8
   %blocks = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 0, ptr %blocks, align 8
@@ -33,7 +33,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @CRYPTO_ccm128_setiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_setiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %ctx, align 8
   %1 = and i8 %0, 7
@@ -48,7 +48,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %shr = lshr i64 %mlen, 56
-  %conv7 = trunc i64 %shr to i8
+  %conv7 = trunc nuw i64 %shr to i8
   %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i8 %conv7, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %mlen, 48
@@ -125,7 +125,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %shr = lshr i64 %alen, 8
-  %conv8 = trunc i64 %shr to i8
+  %conv8 = trunc nuw i64 %shr to i8
   %5 = load i8, ptr %cmac, align 8
   %xor = xor i8 %5, %conv8
   store i8 %xor, ptr %cmac, align 8
@@ -145,7 +145,7 @@ if.then23:                                        ; preds = %if.else
   %9 = xor i8 %8, -1
   store i8 %9, ptr %arrayidx30, align 1
   %shr34 = lshr i64 %alen, 56
-  %conv35 = trunc i64 %shr34 to i8
+  %conv35 = trunc nuw i64 %shr34 to i8
   %10 = load i8, ptr %arrayidx38, align 2
   %xor40 = xor i8 %10, %conv35
   store i8 %xor40, ptr %arrayidx38, align 2
@@ -191,7 +191,7 @@ if.else97:                                        ; preds = %if.else
   %23 = xor i8 %8, -2
   store i8 %23, ptr %arrayidx30, align 1
   %shr108 = lshr i64 %alen, 24
-  %conv109 = trunc i64 %shr108 to i8
+  %conv109 = trunc nuw i64 %shr108 to i8
   %24 = load i8, ptr %arrayidx38, align 2
   %xor114 = xor i8 %24, %conv109
   store i8 %xor114, ptr %arrayidx38, align 2
@@ -259,7 +259,7 @@ do.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.0, align 16
   %0 = load i8, ptr %ctx, align 8
@@ -283,7 +283,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %and6 = and i32 %conv, 7
-  %conv7 = trunc i32 %and6 to i8
+  %conv7 = trunc nuw nsw i32 %and6 to i8
   store i8 %conv7, ptr %ctx, align 8
   %sub = xor i32 %and6, 15
   %cmp76.not = icmp eq i32 %and6, 0
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.end27, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.1, align 16
   %0 = load i8, ptr %ctx, align 8
@@ -472,7 +472,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %and6 = and i32 %conv, 7
-  %conv7 = trunc i32 %and6 to i8
+  %conv7 = trunc nuw nsw i32 %and6 to i8
   store i8 %conv7, ptr %ctx, align 8
   %sub = xor i32 %and6, 15
   %cmp65.not = icmp eq i32 %and6, 0
@@ -618,7 +618,7 @@ return:                                           ; preds = %for.end, %for.end98
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.2, align 16
   %0 = load i8, ptr %ctx, align 8
@@ -642,7 +642,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %and6 = and i32 %conv, 7
-  %conv7 = trunc i32 %and6 to i8
+  %conv7 = trunc nuw nsw i32 %and6 to i8
   store i8 %conv7, ptr %ctx, align 8
   %sub = xor i32 %and6, 15
   %cmp79.not = icmp eq i32 %and6, 0
@@ -794,7 +794,7 @@ return:                                           ; preds = %if.end27, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.3, align 16
   %0 = load i8, ptr %ctx, align 8
@@ -814,7 +814,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %and6 = and i32 %conv, 7
-  %conv7 = trunc i32 %and6 to i8
+  %conv7 = trunc nuw nsw i32 %and6 to i8
   store i8 %conv7, ptr %ctx, align 8
   %sub = xor i32 %and6, 15
   %cmp69.not = icmp eq i32 %and6, 0
@@ -947,7 +947,7 @@ return:                                           ; preds = %for.end, %for.end86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @CRYPTO_ccm128_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #2 {
+define range(i64 0, 17) i64 @CRYPTO_ccm128_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %ctx, align 8
   %1 = lshr i8 %0, 2

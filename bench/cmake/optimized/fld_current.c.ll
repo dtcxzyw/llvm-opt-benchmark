@@ -170,7 +170,7 @@ define dso_local ptr @current_field(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @field_index(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 -32768, 32768) i32 @field_index(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

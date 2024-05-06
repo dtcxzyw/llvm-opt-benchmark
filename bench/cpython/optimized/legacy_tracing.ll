@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyLegacyEventHandler_Type = hidden global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str, i64 32, i64 0, ptr @PyObject_Free, i64 16, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyVectorcall_Call, ptr null, ptr null, ptr null, ptr null, i64 3200, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
 @.str.1 = private unnamed_addr constant [15 x i8] c"sys.setprofile\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"sys.settrace\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
 @PyExc_SystemError = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [45 x i8] c"Missing frame when calling profile function.\00", align 1
@@ -93,7 +93,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i8 1, ptr %sys_profile_initialized, align 1
-  %call5 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_start, i32 noundef 0, i32 noundef 0, i32 noundef 1), !range !5
+  %call5 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_start, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
@@ -144,27 +144,27 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end12
 
 if.end12:                                         ; preds = %Py_XDECREF.exit.i, %if.then1.i.i, %if.end.i.i
-  %call13 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_return, i32 noundef 3, i32 noundef 2, i32 noundef 3), !range !5
+  %call13 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_return, i32 noundef 3, i32 noundef 2, i32 noundef 3)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_unwind, i32 noundef 3, i32 noundef 12, i32 noundef -1), !range !5
+  %call17 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_unwind, i32 noundef 3, i32 noundef 12, i32 noundef -1)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end16
-  %call21 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 4, i32 noundef 4, i32 noundef -1), !range !5
+  %call21 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 4, i32 noundef 4, i32 noundef -1)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end20
-  %call25 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 6, i32 noundef 15, i32 noundef -1), !range !5
+  %call25 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 6, i32 noundef 15, i32 noundef -1)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 5, i32 noundef 16, i32 noundef -1), !range !5
+  %call29 = tail call fastcc i32 @set_callbacks(i32 noundef 6, ptr noundef nonnull @sys_profile_call_or_return, i32 noundef 5, i32 noundef 16, i32 noundef -1)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end33, label %return
 
@@ -235,7 +235,7 @@ return:                                           ; preds = %if.end8, %if.end28,
 declare i32 @_PySys_Audit(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_callbacks(i32 noundef %tool, ptr noundef %vectorcall, i32 noundef %legacy_event, i32 noundef %event1, i32 noundef %event2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_callbacks(i32 noundef %tool, ptr noundef %vectorcall, i32 noundef %legacy_event, i32 noundef %event1, i32 noundef %event2) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef nonnull @_PyLegacyEventHandler_Type) #4
   %cmp = icmp eq ptr %call, null
@@ -750,7 +750,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i8 1, ptr %sys_trace_initialized, align 8
-  %call5 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_start, i32 noundef 0, i32 noundef 0, i32 noundef 1), !range !5
+  %call5 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_start, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
@@ -847,32 +847,32 @@ if.then1.i.i26:                                   ; preds = %if.end.i.i23
   br label %if.end16
 
 if.end16:                                         ; preds = %Py_XDECREF.exit.i20, %if.then1.i.i26, %if.end.i.i23
-  %call17 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_yield, i32 noundef 3, i32 noundef 3, i32 noundef -1), !range !5
+  %call17 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_yield, i32 noundef 3, i32 noundef 3, i32 noundef -1)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end16
-  %call21 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_exception_func, i32 noundef 1, i32 noundef 10, i32 noundef 9), !range !5
+  %call21 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_exception_func, i32 noundef 1, i32 noundef 10, i32 noundef 9)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end20
-  %call25 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_line_func, i32 noundef 2, i32 noundef 5, i32 noundef -1), !range !5
+  %call25 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_line_func, i32 noundef 2, i32 noundef 5, i32 noundef -1)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_unwind, i32 noundef 3, i32 noundef 12, i32 noundef -1), !range !5
+  %call29 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_unwind, i32 noundef 3, i32 noundef 12, i32 noundef -1)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end28
-  %call33 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_jump_func, i32 noundef 2, i32 noundef 7, i32 noundef -1), !range !5
+  %call33 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_jump_func, i32 noundef 2, i32 noundef 7, i32 noundef -1)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.end32
-  %call37 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_instruction_func, i32 noundef 7, i32 noundef 6, i32 noundef -1), !range !5
+  %call37 = tail call fastcc i32 @set_callbacks(i32 noundef 7, ptr noundef nonnull @sys_trace_instruction_func, i32 noundef 7, i32 noundef 6, i32 noundef -1)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end41, label %return
 
@@ -1505,4 +1505,3 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

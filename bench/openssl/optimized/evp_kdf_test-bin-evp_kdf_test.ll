@@ -433,7 +433,7 @@ return:                                           ; preds = %err, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_kdf_kbkdf_6803_128() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_128() #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %result = alloca [16 x i8], align 16
@@ -505,7 +505,7 @@ return:                                           ; preds = %for.cond, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_kdf_kbkdf_6803_256() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_256() #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %result = alloca [32 x i8], align 16
@@ -577,7 +577,7 @@ return:                                           ; preds = %for.cond, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_invalid_digest() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_digest() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
@@ -615,7 +615,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_invalid_mac() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_mac() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_invalid_r() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_r() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 31, ptr %r, align 4
@@ -691,7 +691,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_zero_output_size() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_zero_output_size() #0 {
 entry:
   %result = alloca [32 x i8], align 16
   %r = alloca i32, align 4
@@ -737,7 +737,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_empty_key() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_empty_key() #0 {
 entry:
   %result = alloca [32 x i8], align 16
   %r = alloca i32, align 4
@@ -783,7 +783,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_1byte_key() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_1byte_key() #0 {
 entry:
   %result = alloca [32 x i8], align 16
   %r = alloca i32, align 4
@@ -821,7 +821,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_8009_prf1() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_8009_prf1() #0 {
 entry:
   %params = alloca [6 x %struct.ossl_param_st], align 16
   %result = alloca [32 x i8], align 16
@@ -875,7 +875,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_8009_prf2() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_8009_prf2() #0 {
 entry:
   %params = alloca [6 x %struct.ossl_param_st], align 16
   %result = alloca [48 x i8], align 16
@@ -929,7 +929,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_fixedinfo() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_fixedinfo() #0 {
 entry:
   %params = alloca [8 x %struct.ossl_param_st], align 16
   %use_l = alloca i32, align 4
@@ -997,7 +997,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i32 @fips_provider_version_ge(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_kbkdf_kmac() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_kbkdf_kmac() #0 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %result = alloca [309 x i8], align 16
@@ -1053,7 +1053,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_get_kdf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_get_kdf() #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef 69) #6
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1710, ptr noundef nonnull @.str.103, ptr noundef %call) #6
@@ -1075,7 +1075,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool10.not, label %if.end, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false5
-  %call12 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call2, ptr noundef %call8), !range !8
+  %call12 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call2, ptr noundef %call8)
   br label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false11, %entry, %lor.lhs.false, %lor.lhs.false5
@@ -1096,7 +1096,7 @@ lor.lhs.false17:                                  ; preds = %if.end
   br i1 %tobool20.not, label %if.end25, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false17
-  %call22 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call14, ptr noundef %call18), !range !8
+  %call22 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call14, ptr noundef %call18)
   %tobool23.not = icmp eq i32 %call22, 0
   %spec.select10 = select i1 %tobool23.not, i32 0, i32 %ok.0
   br label %if.end25
@@ -1112,7 +1112,7 @@ if.end25:                                         ; preds = %lor.lhs.false21, %i
   br i1 %tobool29.not, label %if.then33, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end25
-  %call31 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call14, ptr noundef %call27), !range !8
+  %call31 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call14, ptr noundef %call27)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
@@ -1127,7 +1127,7 @@ if.end34:                                         ; preds = %if.then33, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.79)
@@ -1164,7 +1164,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_invalid_digest() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_invalid_digest() #0 {
 entry:
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.79)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 90, ptr noundef nonnull @.str.60, ptr noundef %call) #6
@@ -1197,7 +1197,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_zero_output_size() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_zero_output_size() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.79)
@@ -1237,7 +1237,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_empty_secret() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_empty_secret() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.79)
@@ -1269,7 +1269,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_1byte_secret() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_1byte_secret() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.79)
@@ -1301,7 +1301,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_empty_seed() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_empty_seed() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.120)
@@ -1341,7 +1341,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf_1byte_seed() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf_1byte_seed() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %call = tail call fastcc ptr @construct_tls1_prf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.121)
@@ -1373,7 +1373,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, i64 noundef 6, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.122)
@@ -1410,7 +1410,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_invalid_digest() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_invalid_digest() #0 {
 entry:
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.116, i64 noundef 6, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.122)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 310, ptr noundef nonnull @.str.60, ptr noundef %call) #6
@@ -1443,7 +1443,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_zero_output_size() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_zero_output_size() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, i64 noundef 6, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.122)
@@ -1483,7 +1483,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_empty_key() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_empty_key() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.120, i64 noundef 0, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.122)
@@ -1515,7 +1515,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_1byte_key() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_1byte_key() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.121, i64 noundef 1, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.122)
@@ -1547,7 +1547,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_empty_salt() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_empty_salt() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %call = tail call fastcc ptr @construct_hkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.116, i64 noundef 6, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.122)
@@ -1579,28 +1579,28 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_gettables() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_gettables() #0 {
 entry:
-  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 0, i32 noundef 1), !range !8
+  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_gettables_expandonly() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_gettables_expandonly() #0 {
 entry:
-  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 1, i32 noundef 1), !range !8
+  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_gettables_no_digest() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_gettables_no_digest() #0 {
 entry:
-  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 1, i32 noundef 0), !range !8
+  %call = tail call fastcc i32 @do_kdf_hkdf_gettables(i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_derive_set_params_fail() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_derive_set_params_fail() #0 {
 entry:
   %i = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1634,7 +1634,7 @@ end:                                              ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_set_invalid_mode() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_set_invalid_mode() #0 {
 entry:
   %bad_mode = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1676,24 +1676,24 @@ end:                                              ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf_set_ctx_param_fail() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf_set_ctx_param_fail() #0 {
 entry:
-  %call = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.76, i32 noundef 5), !range !8
+  %call = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.76, i32 noundef 5)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.78, i32 noundef 4), !range !8
+  %call1 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.78, i32 noundef 4)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.69, i32 noundef 4), !range !8
+  %call4 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.69, i32 noundef 4)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true3
-  %call6 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.91, i32 noundef 4), !range !8
+  %call6 = tail call fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef nonnull @.str.91, i32 noundef 4)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true3, %land.lhs.true, %entry
@@ -1702,7 +1702,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2() #0 {
 entry:
   %out = alloca [25 x i8], align 16
   %iterations = alloca i32, align 4
@@ -1745,7 +1745,7 @@ err:                                              ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_small_output() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_output() #0 {
 entry:
   %out = alloca [25 x i8], align 16
   %iterations = alloca i32, align 4
@@ -1789,7 +1789,7 @@ err:                                              ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_large_output() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_large_output() #0 {
 entry:
   %iterations = alloca i32, align 4
   %mode = alloca i32, align 4
@@ -1826,7 +1826,7 @@ err:                                              ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_small_salt() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_salt() #0 {
 entry:
   %iterations = alloca i32, align 4
   %mode = alloca i32, align 4
@@ -1863,7 +1863,7 @@ err:                                              ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_small_iterations() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_iterations() #0 {
 entry:
   %iterations = alloca i32, align 4
   %mode = alloca i32, align 4
@@ -1900,7 +1900,7 @@ err:                                              ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_small_salt_pkcs5() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_salt_pkcs5() #0 {
 entry:
   %out = alloca [25 x i8], align 16
   %iterations = alloca i32, align 4
@@ -1967,7 +1967,7 @@ err:                                              ; preds = %lor.lhs.false21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_small_iterations_pkcs5() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_iterations_pkcs5() #0 {
 entry:
   %out = alloca [25 x i8], align 16
   %iterations = alloca i32, align 4
@@ -2034,7 +2034,7 @@ err:                                              ; preds = %lor.lhs.false21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_pbkdf2_invalid_digest() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_invalid_digest() #0 {
 entry:
   %iterations = alloca i32, align 4
   %mode = alloca i32, align 4
@@ -2071,7 +2071,7 @@ err:                                              ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_scrypt() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %out = alloca [64 x i8], align 16
@@ -2160,7 +2160,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_ss_hash() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_ss_hash() #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %out = alloca [14 x i8], align 1
@@ -2205,7 +2205,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_ss_hmac() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_ss_hmac() #0 {
 entry:
   %params = alloca [6 x %struct.ossl_param_st], align 16
   %out = alloca [16 x i8], align 16
@@ -2258,7 +2258,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_ss_kmac() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_ss_kmac() #0 {
 entry:
   %params = alloca [7 x %struct.ossl_param_st], align 16
   %out = alloca [64 x i8], align 16
@@ -2340,7 +2340,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_sshkdf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_sshkdf() #0 {
 entry:
   %params = alloca [6 x %struct.ossl_param_st], align 16
   %kdftype = alloca i8, align 1
@@ -2395,7 +2395,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_x963() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_x963() #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %out = alloca [128 x i8], align 16
@@ -2440,7 +2440,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_x942_asn1() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_x942_asn1() #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %out = alloca [24 x i8], align 16
@@ -2485,7 +2485,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_krb5kdf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_krb5kdf() #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %out = alloca [16 x i8], align 16
@@ -2530,7 +2530,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hmac_drbg_settables() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 entry:
   %j = alloca i32, align 4
   %params = alloca [5 x %struct.ossl_param_st], align 16
@@ -2601,7 +2601,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %arrayidx10 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx10, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end9
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp33, ptr noundef nonnull @.str.179, ptr noundef nonnull @test_kdf_hmac_drbg_settables.ent, i64 noundef 32) #6
@@ -2679,7 +2679,7 @@ err:                                              ; preds = %if.then16, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_kdf_hmac_drbg_gettables() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
 entry:
   %j = alloca i32, align 4
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -2714,7 +2714,7 @@ for.cond:                                         ; preds = %for.body
   %arrayidx5 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %for.cond16.preheader, label %for.body, !llvm.loop !10
+  br i1 %cmp.not, label %for.cond16.preheader, label %for.body, !llvm.loop !9
 
 for.cond16.preheader:                             ; preds = %for.cond
   %.pre = load ptr, ptr %call2, align 8
@@ -2736,7 +2736,7 @@ for.cond16:                                       ; preds = %for.body21
   %arrayidx18 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next22
   %3 = load ptr, ptr %arrayidx18, align 8
   %cmp20.not = icmp eq ptr %3, null
-  br i1 %cmp20.not, label %err, label %for.body21, !llvm.loop !11
+  br i1 %cmp20.not, label %err, label %for.body21, !llvm.loop !10
 
 for.body21:                                       ; preds = %for.cond16.preheader, %for.cond16
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.cond16 ], [ 0, %for.cond16.preheader ]
@@ -2867,7 +2867,7 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_kdfs_same(ptr noundef %kdf1, ptr noundef %kdf2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_kdfs_same(ptr noundef %kdf1, ptr noundef %kdf2) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %kdf1, %kdf2
   br i1 %cmp, label %return, label %if.end
@@ -2988,7 +2988,7 @@ return:                                           ; preds = %entry, %if.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_kdf_hkdf_gettables(i32 noundef %expand_only, i32 noundef %has_digest) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef %expand_only, i32 noundef %has_digest) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %params_get = alloca [2 x %struct.ossl_param_st], align 16
@@ -3085,7 +3085,7 @@ declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 
 declare i32 @EVP_KDF_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_kdf_hkdf_set_invalid_param(ptr noundef %key, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_set_invalid_param(ptr noundef %key, i32 noundef %type) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %buf = alloca [2 x i8], align 1
@@ -3206,7 +3206,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

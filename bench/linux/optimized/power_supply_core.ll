@@ -374,7 +374,7 @@ define dso_local i32 @power_supply_get_property_from_supplier(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @__power_supply_get_supplier_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -589,7 +589,7 @@ power_supply_battery_info_get_prop.exit.thread:   ; preds = %21, %39, %79, %77, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @power_supply_set_battery_charged(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @power_supply_set_battery_charged(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
@@ -640,7 +640,7 @@ define dso_local ptr @power_supply_get_by_name(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @power_supply_match_device_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @power_supply_match_device_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1103,7 +1103,7 @@ define dso_local zeroext i1 @power_supply_battery_info_has_prop(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @power_supply_battery_info_get_prop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_prop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %39, label %5
 

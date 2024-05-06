@@ -343,7 +343,7 @@ define dso_local i32 @fd_statfs(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -375,7 +375,7 @@ define dso_local i64 @__x64_sys_statfs(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -409,7 +409,7 @@ define dso_local i64 @__ia32_sys_statfs(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs64, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -451,7 +451,7 @@ define dso_local i64 @__x64_sys_statfs64(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs64, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -496,7 +496,7 @@ define dso_local i64 @__ia32_sys_statfs64(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -528,7 +528,7 @@ define dso_local i64 @__x64_sys_fstatfs(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -561,7 +561,7 @@ define dso_local i64 @__ia32_sys_fstatfs(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs64, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -603,7 +603,7 @@ define dso_local i64 @__x64_sys_fstatfs64(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.statfs64, align 8
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -647,7 +647,7 @@ define dso_local i64 @__ia32_sys_fstatfs64(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -657,7 +657,7 @@ define dso_local i64 @__x64_sys_ustat(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_ustat(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ustat(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ustat, align 8
   %4 = alloca %struct.kstatfs, align 8
   %5 = trunc i64 %0 to i32
@@ -746,7 +746,7 @@ define internal fastcc i64 @__se_sys_ustat(i64 noundef %0, i64 noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -758,7 +758,7 @@ define dso_local i64 @__ia32_sys_ustat(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_statfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_statfs, align 4
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -845,7 +845,7 @@ define dso_local i64 @__ia32_compat_sys_statfs(ptr nocapture noundef readonly %0
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %64, ptr %65, align 4
-  %66 = trunc i64 %27 to i32
+  %66 = trunc nuw i64 %27 to i32
   %67 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %66, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %3, i64 80
@@ -871,7 +871,7 @@ define dso_local i64 @__ia32_compat_sys_statfs(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_fstatfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_statfs, align 4
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -957,7 +957,7 @@ define dso_local i64 @__ia32_compat_sys_fstatfs(ptr nocapture noundef readonly %
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %63, ptr %64, align 4
-  %65 = trunc i64 %26 to i32
+  %65 = trunc nuw i64 %26 to i32
   %66 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %65, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %3, i64 80
@@ -1012,7 +1012,7 @@ define dso_local i32 @kcompat_sys_statfs64(ptr noundef %0, i32 noundef %1, ptr n
   %19 = load i64, ptr %5, align 8
   %20 = trunc i64 %19 to i32
   store i32 %20, ptr %4, align 4
-  %21 = trunc i64 %12 to i32
+  %21 = trunc nuw i64 %12 to i32
   %22 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1048,7 +1048,7 @@ define dso_local i32 @kcompat_sys_statfs64(ptr noundef %0, i32 noundef %1, ptr n
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 %46, ptr %47, align 4
-  %48 = trunc i64 %14 to i32
+  %48 = trunc nuw i64 %14 to i32
   %49 = getelementptr inbounds i8, ptr %4, i64 60
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %5, i64 80
@@ -1073,7 +1073,7 @@ define dso_local i32 @kcompat_sys_statfs64(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_statfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_statfs64, align 4
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1113,7 +1113,7 @@ define dso_local i64 @__ia32_compat_sys_statfs64(ptr nocapture noundef readonly 
   %28 = load i64, ptr %3, align 8
   %29 = trunc i64 %28 to i32
   store i32 %29, ptr %2, align 4
-  %30 = trunc i64 %21 to i32
+  %30 = trunc nuw i64 %21 to i32
   %31 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1149,7 +1149,7 @@ define dso_local i64 @__ia32_compat_sys_statfs64(ptr nocapture noundef readonly 
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds i8, ptr %2, i64 52
   store i32 %55, ptr %56, align 4
-  %57 = trunc i64 %23 to i32
+  %57 = trunc nuw i64 %23 to i32
   %58 = getelementptr inbounds i8, ptr %2, i64 60
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %3, i64 80
@@ -1204,7 +1204,7 @@ define dso_local i32 @kcompat_sys_fstatfs64(i32 noundef %0, i32 noundef %1, ptr 
   %19 = load i64, ptr %5, align 8
   %20 = trunc i64 %19 to i32
   store i32 %20, ptr %4, align 4
-  %21 = trunc i64 %12 to i32
+  %21 = trunc nuw i64 %12 to i32
   %22 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1240,7 +1240,7 @@ define dso_local i32 @kcompat_sys_fstatfs64(i32 noundef %0, i32 noundef %1, ptr 
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 %46, ptr %47, align 4
-  %48 = trunc i64 %14 to i32
+  %48 = trunc nuw i64 %14 to i32
   %49 = getelementptr inbounds i8, ptr %4, i64 60
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %5, i64 80
@@ -1265,7 +1265,7 @@ define dso_local i32 @kcompat_sys_fstatfs64(i32 noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_fstatfs64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_statfs64, align 4
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1304,7 +1304,7 @@ define dso_local i64 @__ia32_compat_sys_fstatfs64(ptr nocapture noundef readonly
   %27 = load i64, ptr %3, align 8
   %28 = trunc i64 %27 to i32
   store i32 %28, ptr %2, align 4
-  %29 = trunc i64 %20 to i32
+  %29 = trunc nuw i64 %20 to i32
   %30 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %29, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1340,7 +1340,7 @@ define dso_local i64 @__ia32_compat_sys_fstatfs64(ptr nocapture noundef readonly
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i8, ptr %2, i64 52
   store i32 %54, ptr %55, align 4
-  %56 = trunc i64 %22 to i32
+  %56 = trunc nuw i64 %22 to i32
   %57 = getelementptr inbounds i8, ptr %2, i64 60
   store i32 %56, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %3, i64 80
@@ -1366,7 +1366,7 @@ kcompat_sys_fstatfs64.exit:                       ; preds = %1, %14, %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ustat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_ustat, align 4
   %3 = alloca %struct.kstatfs, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

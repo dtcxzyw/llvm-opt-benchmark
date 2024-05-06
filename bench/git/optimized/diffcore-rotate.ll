@@ -73,7 +73,7 @@ if.then16:                                        ; preds = %if.then13
   unreachable
 
 do.body:                                          ; preds = %if.end6, %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp2530 = icmp sgt i32 %0, %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
   br i1 %cmp2530, label %for.body26, label %for.cond33.preheader
@@ -95,7 +95,7 @@ for.body26:                                       ; preds = %do.body, %for.body2
   call void @diff_q(ptr noundef nonnull %outq, ptr noundef %11) #10
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %12 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
-  %13 = trunc i64 %indvars.iv.next38 to i32
+  %13 = trunc nuw i64 %indvars.iv.next38 to i32
   %cmp25 = icmp sgt i32 %12, %13
   br i1 %cmp25, label %for.body26, label %for.cond33.preheader, !llvm.loop !7
 

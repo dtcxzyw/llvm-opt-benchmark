@@ -125,7 +125,7 @@ load_actions.exit:                                ; preds = %24
   br label %325
 
 39:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false)
   %40 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %2, i64 40
@@ -872,7 +872,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtf_object_begin(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 21) i32 @rtf_object_begin(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6

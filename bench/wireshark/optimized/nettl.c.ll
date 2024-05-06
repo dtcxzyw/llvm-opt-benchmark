@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [9 x i8] c"9000/800\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nettl_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @nettl_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.nettl_file_hdr, align 2
   %5 = alloca [2 x i16], align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -162,12 +162,12 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nettl_read(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nettl_read(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #8
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @nettl_read_rec(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = tail call fastcc i32 @nettl_read_rec(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %18, label %11
 
@@ -194,7 +194,7 @@ define internal noundef i32 @nettl_read(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nettl_seek_read(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nettl_seek_read(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #8
@@ -203,7 +203,7 @@ define internal noundef i32 @nettl_seek_read(ptr nocapture noundef %0, i64 nound
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @nettl_read_rec(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @nettl_read_rec(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -240,7 +240,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nettl_read_rec(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nettlrec_hdr, align 4
   %8 = alloca %struct.nettlrec_ns_ls_drv_eth_hdr, align 1
   %9 = alloca [16 x i8], align 16
@@ -823,7 +823,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nettl_dump_can_write_encap(i32 noundef %0) #4 {
+define internal range(i32 -8, 1) i32 @nettl_dump_can_write_encap(i32 noundef %0) #4 {
   switch i32 %0, label %2 [
     i32 1, label %3
     i32 6, label %3
@@ -849,7 +849,7 @@ define internal noundef i32 @nettl_dump_can_write_encap(i32 noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nettl_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @nettl_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.nettl_file_hdr, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @nettl_dump, ptr %5, align 8
@@ -877,7 +877,7 @@ define internal i32 @nettl_dump_open(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nettl_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @nettl_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.nettlrec_hdr, align 4
   %7 = alloca [24 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %1, i64 64
@@ -914,7 +914,7 @@ define internal i32 @nettl_dump(ptr noundef %0, ptr nocapture noundef readonly %
   br label %85
 
 21:                                               ; preds = %16
-  %trunc = trunc i64 %19 to i32
+  %trunc = trunc nuw i64 %19 to i32
   %22 = tail call i32 @llvm.bswap.i32(i32 %trunc)
   %23 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 %22, ptr %23, align 4
@@ -1094,4 +1094,3 @@ attributes #9 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

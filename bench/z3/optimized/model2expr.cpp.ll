@@ -953,7 +953,7 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   %indvars.iv847 = phi i64 [ 0, %for.body63.lr.ph ], [ %indvars.iv.next848, %for.inc70 ]
   %arrayidx.i159 = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv847
   %69 = load ptr, ptr %arrayidx.i159, align 8
-  %70 = trunc i64 %indvars.iv847 to i32
+  %70 = trunc nuw i64 %indvars.iv847 to i32
   %call67 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef %70, ptr noundef %69)
           to label %invoke.cont66 unwind label %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1509,7 +1509,7 @@ invoke.cont186:                                   ; preds = %.noexc305, %lor.lhs
   %136 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %136, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %137 = trunc i64 %indvars.iv858 to i32
+  %137 = trunc nuw i64 %indvars.iv858 to i32
   %138 = xor i32 %137, -1
   %sub189 = add i32 %126, %138
   %139 = load ptr, ptr %arrayidx.i301, align 8
@@ -2448,7 +2448,7 @@ if.else:                                          ; preds = %land.lhs.true, %inv
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.else
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %call12 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef %6, ptr noundef %call10)
           to label %invoke.cont11 unwind label %lpad
 

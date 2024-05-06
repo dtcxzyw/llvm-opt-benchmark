@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [29 x i8] c"packed %s from %s is corrupt\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @check_pack_crc(ptr noundef %p, ptr noundef %w_curs, i64 noundef %offset, i64 noundef %len, i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @check_pack_crc(ptr noundef %p, ptr noundef %w_curs, i64 noundef %offset, i64 noundef %len, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %avail = alloca i64, align 8
   %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #8
@@ -82,7 +82,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @use_pack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @verify_pack_index(ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verify_pack_index(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @open_pack_index(ptr noundef %p) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -236,11 +236,11 @@ do.end.i:                                         ; preds = %if.end13.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash.i, ptr noundef nonnull dereferenceable(32) %call19.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %hash.i, ptr noundef nonnull readonly dereferenceable(32) %call19.i, i64 32)
   br label %hasheq.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash.i, ptr noundef nonnull dereferenceable(20) %call19.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %hash.i, ptr noundef nonnull readonly dereferenceable(20) %call19.i, i64 20)
   br label %hasheq.exit.i
 
 hasheq.exit.i:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -271,11 +271,11 @@ if.end28.i:                                       ; preds = %if.then23.i, %hashe
   br i1 %cmp.i.i91.i, label %if.then.i.i97.i, label %if.end.i.i92.i
 
 if.then.i.i97.i:                                  ; preds = %if.end28.i
-  %bcmp3.i.i98.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %add.ptr30.i, ptr noundef nonnull dereferenceable(32) %call19.i, i64 32)
+  %bcmp3.i.i98.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr30.i, ptr noundef nonnull readonly dereferenceable(32) %call19.i, i64 32)
   br label %hasheq.exit99.i
 
 if.end.i.i92.i:                                   ; preds = %if.end28.i
-  %bcmp.i.i93.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %add.ptr30.i, ptr noundef nonnull dereferenceable(20) %call19.i, i64 20)
+  %bcmp.i.i93.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr30.i, ptr noundef nonnull readonly dereferenceable(20) %call19.i, i64 20)
   br label %hasheq.exit99.i
 
 hasheq.exit99.i:                                  ; preds = %if.end.i.i92.i, %if.then.i.i97.i
@@ -305,7 +305,7 @@ if.end38.i:                                       ; preds = %if.then33.i, %hashe
 
 for.body.i:                                       ; preds = %if.end38.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end38.i ]
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw i64 %indvars.iv.i to i32
   %call46.i = call i64 @nth_packed_object_offset(ptr noundef %p, i32 noundef %21) #8
   %arrayidx48.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv.i
   store i64 %call46.i, ptr %arrayidx48.i, align 8
@@ -327,7 +327,7 @@ for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qs
   %index_version.i = getelementptr inbounds i8, ptr %p, i64 128
   %pack_name91.i = getelementptr inbounds i8, ptr %p, i64 240
   %tobool148.not.i = icmp eq ptr %fn, null
-  %invariant.gep.i = getelementptr i8, ptr %call42.i, i64 16
+  %invariant.gep.i = getelementptr inbounds i8, ptr %call42.i, i64 16
   br label %for.body56.i
 
 for.body56.i:                                     ; preds = %if.end164.i, %for.body56.lr.ph.i
@@ -353,7 +353,7 @@ if.end70.i:                                       ; preds = %for.body56.i
 
 if.then73.i:                                      ; preds = %if.end70.i
   %25 = load i64, ptr %arrayidx58.i, align 8
-  %gep.i = getelementptr %struct.idx_entry, ptr %invariant.gep.i, i64 %indvars.iv125.i
+  %gep.i = getelementptr inbounds %struct.idx_entry, ptr %invariant.gep.i, i64 %indvars.iv125.i
   %26 = load i64, ptr %gep.i, align 8
   %sub82.i = sub nsw i64 %26, %25
   %27 = load i32, ptr %nr59.i, align 8
@@ -481,7 +481,7 @@ if.then149.i:                                     ; preds = %if.else147.i
 if.end157.i:                                      ; preds = %if.then149.i, %if.else147.i, %if.then141.i, %if.then129.i, %if.then114.i
   %err.4.i = phi i32 [ -1, %if.then129.i ], [ %err.3.i, %if.else147.i ], [ -1, %if.then141.i ], [ -1, %if.then114.i ], [ %or.i, %if.then149.i ]
   %data.1.i = phi ptr [ %call109.i, %if.then129.i ], [ %data.0109113.i, %if.else147.i ], [ null, %if.then141.i ], [ null, %if.then114.i ], [ %spec.select.i, %if.then149.i ]
-  %51 = trunc i64 %indvars.iv125.i to i32
+  %51 = trunc nuw i64 %indvars.iv125.i to i32
   %add158.i = add i32 %51, %base_count
   %and.i = and i32 %add158.i, 1023
   %cmp159.i = icmp eq i32 %and.i, 0
@@ -534,7 +534,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare i64 @nth_packed_object_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_entries(ptr nocapture noundef readonly %e1, ptr nocapture noundef readonly %e2) #2 {
+define internal range(i32 -1, 2) i32 @compare_entries(ptr nocapture noundef readonly %e1, ptr nocapture noundef readonly %e2) #2 {
 entry:
   %0 = load i64, ptr %e1, align 8
   %1 = load i64, ptr %e2, align 8

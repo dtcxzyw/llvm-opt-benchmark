@@ -169,7 +169,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @thpool_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @thpool_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9

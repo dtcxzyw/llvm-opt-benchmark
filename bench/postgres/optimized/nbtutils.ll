@@ -198,13 +198,13 @@ BTreeTupleGetHeapTID.exit:                        ; preds = %BTreeTupleIsPosting
 75:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = trunc i64 %indvars.iv.next to i16
+  %76 = trunc nuw nsw i64 %indvars.iv.next to i16
   %77 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %76, i16 noundef zeroext 1) #14
   %78 = icmp slt i64 %indvars.iv, %74
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %75
-  %80 = trunc i64 %indvars.iv.next to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.next to i32
   %81 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %80, ptr noundef %5, ptr noundef nonnull %3)
   %.pre58 = load i8, ptr %3, align 1
   br label %83
@@ -747,7 +747,7 @@ _bt_sort_array_elements.exit:                     ; preds = %109, %._crit_edge.l
   %173 = load ptr, ptr %58, align 8
   %174 = sext i32 %.293 to i64
   %175 = getelementptr %struct.BTArrayKeyInfo, ptr %173, i64 %174
-  %176 = trunc i64 %indvars.iv109 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv109 to i32
   store i32 %176, ptr %175, align 8
   %177 = load i32, ptr %6, align 4
   %178 = load ptr, ptr %58, align 8
@@ -2443,7 +2443,7 @@ BufferGetPage.exit:                               ; preds = %19, %13, %46
   br i1 %or.cond, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %67
-  %77 = trunc i64 %.pre to i32
+  %77 = trunc nuw nsw i64 %.pre to i32
   br label %78
 
 78:                                               ; preds = %.lr.ph94, %120
@@ -2517,7 +2517,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %78
   br i1 %exitcond.not, label %._crit_edge.thread, label %95, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %95
-  %114 = trunc i64 %indvars.iv to i32
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %91
@@ -3109,7 +3109,7 @@ BTreeTupleIsPosting.exit.i44:                     ; preds = %BTreeTupleGetHeapTI
 
 BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleGetHeapTID.exit, %BTreeTupleIsPosting.exit.i44, %88
   %.0.i47 = phi ptr [ %98, %88 ], [ %1, %BTreeTupleIsPosting.exit.i44 ], [ %1, %BTreeTupleGetHeapTID.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.0.i43, ptr noundef nonnull align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %.0.i43, ptr noundef nonnull readonly align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
   br label %99
 
 99:                                               ; preds = %BTreeTupleGetMaxHeapTID.exit, %51

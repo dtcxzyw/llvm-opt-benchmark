@@ -89,7 +89,7 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 
 select.unfold.i:                                  ; preds = %51, %36
   %indvars.iv.i = phi i64 [ %48, %36 ], [ %52, %51 ]
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw i64 %indvars.iv.i to i32
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %Kit_TruthIsDisjoint.exit
 
@@ -334,7 +334,7 @@ declare i32 @Kit_TruthVarIsVacuous(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare void @Kit_TruthExist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bdc_DecomposeUpdateRight(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Bdc_DecomposeUpdateRight(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %4 to i64
@@ -464,7 +464,7 @@ Kit_TruthSharp.exit:                              ; preds = %Kit_TruthSharp.exit
 
 select.unfold.i50:                                ; preds = %80, %Kit_TruthSharp.exit
   %indvars.iv.i51 = phi i64 [ %77, %Kit_TruthSharp.exit ], [ %81, %80 ]
-  %78 = trunc i64 %indvars.iv.i51 to i32
+  %78 = trunc nuw i64 %indvars.iv.i51 to i32
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %Kit_TruthIsConst0.exit
 
@@ -535,7 +535,7 @@ Kit_TruthAnd.exit:                                ; preds = %Kit_TruthAnd.exit.l
 
 select.unfold.i58:                                ; preds = %121, %Kit_TruthAnd.exit
   %indvars.iv.i59 = phi i64 [ %118, %Kit_TruthAnd.exit ], [ %122, %121 ]
-  %119 = trunc i64 %indvars.iv.i59 to i32
+  %119 = trunc nuw i64 %indvars.iv.i59 to i32
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %121, label %Kit_TruthIsConst0.exit
 
@@ -554,7 +554,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %121, %select.unfold
 declare void @Kit_TruthExistSet(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -642,7 +642,7 @@ define noundef i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef readonl
 
 select.unfold.i:                                  ; preds = %52, %.lr.ph43
   %indvars.iv.i = phi i64 [ %49, %.lr.ph43 ], [ %53, %52 ]
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw i64 %indvars.iv.i to i32
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %63
 
@@ -726,7 +726,7 @@ define i32 @Bdc_DecomposeWeakOr(ptr nocapture noundef readonly %0, ptr nocapture
 
 select.unfold.i:                                  ; preds = %30, %18
   %indvars.iv.i = phi i64 [ %27, %18 ], [ %31, %30 ]
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw i64 %indvars.iv.i to i32
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %Kit_TruthIsImply.exit
 
@@ -1015,7 +1015,7 @@ Bdc_IsfStart.exit116:                             ; preds = %Vec_IntFetch.exit.i
   %.0.i8.i115 = phi ptr [ %79, %72 ], [ null, %Vec_IntFetch.exit.i113 ], [ null, %66 ]
   %80 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %.0.i8.i115, ptr %80, align 8
-  %81 = tail call i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !20
+  %81 = tail call i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not = icmp eq i32 %81, 0
   br i1 %.not, label %82, label %84
 
@@ -1089,7 +1089,7 @@ Bdc_IsfStart.exit116:                             ; preds = %Vec_IntFetch.exit.i
 
 select.unfold.i:                                  ; preds = %131, %126
   %indvars.iv.i = phi i64 [ %125, %126 ], [ %132, %131 ]
-  %129 = trunc i64 %indvars.iv.i to i32
+  %129 = trunc nuw i64 %indvars.iv.i to i32
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %Kit_TruthIsDisjoint3.exit
 
@@ -1142,7 +1142,7 @@ select.unfold.i118:                               ; preds = %select.unfold.i118,
 
 select.unfold.i121:                               ; preds = %161, %156
   %indvars.iv.i122 = phi i64 [ %125, %156 ], [ %162, %161 ]
-  %159 = trunc i64 %indvars.iv.i122 to i32
+  %159 = trunc nuw i64 %indvars.iv.i122 to i32
   %160 = icmp sgt i32 %159, 0
   br i1 %160, label %161, label %Kit_TruthIsDisjoint3.exit125
 
@@ -1195,7 +1195,7 @@ select.unfold.i128:                               ; preds = %select.unfold.i128,
 
 select.unfold.i133:                               ; preds = %191, %186
   %indvars.iv.i134 = phi i64 [ %125, %186 ], [ %192, %191 ]
-  %189 = trunc i64 %indvars.iv.i134 to i32
+  %189 = trunc nuw i64 %indvars.iv.i134 to i32
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %191, label %Kit_TruthIsDisjoint3.exit137
 
@@ -1248,7 +1248,7 @@ select.unfold.i140:                               ; preds = %select.unfold.i140,
 
 select.unfold.i145:                               ; preds = %221, %216
   %indvars.iv.i146 = phi i64 [ %125, %216 ], [ %222, %221 ]
-  %219 = trunc i64 %indvars.iv.i146 to i32
+  %219 = trunc nuw i64 %indvars.iv.i146 to i32
   %220 = icmp sgt i32 %219, 0
   br i1 %220, label %221, label %Kit_TruthIsDisjoint3.exit149
 
@@ -1300,7 +1300,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i140,
   %246 = add nuw nsw i32 %.0105192, 1
   %247 = load i32, ptr %89, align 8
   %248 = icmp slt i32 %246, %247
-  br i1 %248, label %108, label %._crit_edge, !llvm.loop !21
+  br i1 %248, label %108, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %Kit_TruthCopy.exit, %84
   %.0103.lcssa = phi i32 [ 1, %84 ], [ %.1104, %Kit_TruthCopy.exit ]
@@ -1456,7 +1456,7 @@ Kit_TruthCopy.exit178:                            ; preds = %Kit_TruthCopy.exit1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Bdc_Isf_t_, align 8
   %6 = alloca %struct.Bdc_Isf_t_, align 8
   %7 = alloca %struct.Bdc_Isf_t_, align 8
@@ -1834,7 +1834,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
 68:                                               ; preds = %22
   %69 = add nuw nsw i32 %.06074, 1
   %exitcond.not = icmp eq i32 %69, %19
-  br i1 %exitcond.not, label %.thread, label %22, !llvm.loop !22
+  br i1 %exitcond.not, label %.thread, label %22, !llvm.loop !21
 
 .thread:                                          ; preds = %68, %17, %26
   %.06167 = phi i32 [ %.06074, %26 ], [ -1, %17 ], [ -1, %68 ]
@@ -2204,7 +2204,7 @@ select.unfold.i79:                                ; preds = %select.unfold.i79, 
   %152 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv.next.i81
   store i32 %151, ptr %152, align 4
   %153 = icmp ugt i64 %indvars.iv.i80, 1
-  br i1 %153, label %select.unfold.i79, label %Kit_TruthOr.exit.loopexit, !llvm.loop !23
+  br i1 %153, label %select.unfold.i79, label %Kit_TruthOr.exit.loopexit, !llvm.loop !22
 
 Kit_TruthOr.exit.loopexit:                        ; preds = %select.unfold.i79
   %.pre = load ptr, ptr %42, align 8
@@ -2371,7 +2371,7 @@ Abc_Clock.exit89:                                 ; preds = %48, %51
 
 58:                                               ; preds = %Abc_Clock.exit89, %44
   %.1 = phi i64 [ %.0.i88, %Abc_Clock.exit89 ], [ %.0, %44 ]
-  %59 = call i32 @Bdc_DecomposeStep(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !24
+  %59 = call i32 @Bdc_DecomposeStep(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
@@ -2506,7 +2506,7 @@ Abc_Clock.exit95:                                 ; preds = %98, %101
   br i1 %136, label %148, label %137
 
 137:                                              ; preds = %134
-  %138 = call i32 @Bdc_DecomposeUpdateRight(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %135, i32 noundef %59), !range !20
+  %138 = call i32 @Bdc_DecomposeUpdateRight(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %135, i32 noundef %59)
   %.not83 = icmp eq i32 %138, 0
   br i1 %.not83, label %143, label %139
 
@@ -2587,8 +2587,6 @@ attributes #7 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 2}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = !{i32 3, i32 7}

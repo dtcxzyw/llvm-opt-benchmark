@@ -58,13 +58,13 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.0", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_byte_buffer_reader.cc, ptr null }]
 
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @grpc_byte_buffer_reader_peek(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @grpc_byte_buffer_reader_peek(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   %type = getelementptr inbounds i8, ptr %0, i64 8
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %sw.bb, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @grpc_byte_buffer_reader_next(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @grpc_byte_buffer_reader_next(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   %type = getelementptr inbounds i8, ptr %0, i64 8
@@ -314,7 +314,7 @@ if.then.i.i6:                                     ; preds = %if.then.i
 
 while.body:                                       ; preds = %if.then.i.i6, %if.then.i
   %23 = phi i32 [ %.pre, %if.then.i.i6 ], [ %18, %if.then.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %in_slice, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %in_slice, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %add.i = add i32 %23, 1
   store i32 %add.i, ptr %current.i, align 8
   %24 = load ptr, ptr %in_slice, align 8

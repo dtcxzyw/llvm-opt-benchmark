@@ -536,7 +536,7 @@ define internal noundef i32 @php_sockop_flush(ptr nocapture readnone %0) #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_sockop_cast(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
+define internal range(i32 -1, 1) i32 @php_sockop_cast(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -587,7 +587,7 @@ define internal noundef i32 @php_sockop_stat(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_sockop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -128, 128) i32 @php_sockop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -857,7 +857,7 @@ switch.early.test:                                ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_tcp_sockop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.sockaddr_un, align 2
@@ -871,7 +871,7 @@ define internal i32 @php_tcp_sockop_set_option(ptr nocapture noundef readonly %0
   br i1 %cond, label %15, label %.split
 
 .split:                                           ; preds = %4
-  %14 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3), !range !6
+  %14 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   br label %296
 
 15:                                               ; preds = %4
@@ -884,7 +884,7 @@ define internal i32 @php_tcp_sockop_set_option(ptr nocapture noundef readonly %0
   ]
 
 .split20:                                         ; preds = %15
-  %17 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef 7, i32 noundef %2, ptr noundef nonnull %3), !range !6
+  %17 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef 7, i32 noundef %2, ptr noundef nonnull %3)
   br label %296
 
 18:                                               ; preds = %15, %15
@@ -922,7 +922,7 @@ define internal i32 @php_tcp_sockop_set_option(ptr nocapture noundef readonly %0
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds i8, ptr %11, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %34, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(110) %34, i8 0, i64 108, i1 false)
   store i16 1, ptr %11, align 2
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load i64, ptr %35, align 8
@@ -941,7 +941,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %40 = phi i64 [ %.pre.i.i, %38 ], [ %36, %33 ]
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %34, ptr align 1 %42, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %34, ptr align 1 %42, i64 %40, i1 false)
   %43 = trunc i64 %40 to i32
   %44 = add i32 %43, 2
   %45 = load i32, ptr %3, align 8
@@ -972,7 +972,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %66 = and i8 %65, 1
   %67 = zext nneg i8 %66 to i32
   %68 = getelementptr inbounds i8, ptr %3, i64 104
-  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef nonnull %8, i32 noundef %67, ptr noundef nonnull %68)
+  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef nonnull writeonly %8, i32 noundef %67, ptr noundef nonnull %68)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %php_tcp_sockop_connect.exit, label %71
 
@@ -1184,7 +1184,7 @@ php_tcp_sockop_connect.exit:                      ; preds = %26, %30, %58, %87, 
 
 173:                                              ; preds = %156
   %174 = getelementptr inbounds i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %174, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(110) %174, i8 0, i64 108, i1 false)
   store i16 1, ptr %7, align 2
   %175 = getelementptr inbounds i8, ptr %3, i64 16
   %176 = load i64, ptr %175, align 8
@@ -1203,7 +1203,7 @@ parse_unix_address.exit.i28:                      ; preds = %178, %173
   %180 = phi i64 [ %.pre.i.i29, %178 ], [ %176, %173 ]
   %181 = getelementptr inbounds i8, ptr %3, i64 8
   %182 = load ptr, ptr %181, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %174, ptr align 1 %182, i64 %180, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %174, ptr align 1 %182, i64 %180, i1 false)
   %183 = trunc i64 %180 to i32
   %184 = add i32 %183, 2
   %185 = call i32 @bind(i32 noundef %179, ptr nonnull %7, i32 noundef %184) #14
@@ -1220,7 +1220,7 @@ parse_unix_address.exit.i28:                      ; preds = %178, %173
   %194 = and i8 %193, 1
   %195 = zext nneg i8 %194 to i32
   %196 = getelementptr inbounds i8, ptr %3, i64 104
-  %197 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %188, i64 noundef %190, ptr noundef nonnull %5, i32 noundef %195, ptr noundef nonnull %196)
+  %197 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %188, i64 noundef %190, ptr noundef nonnull writeonly %5, i32 noundef %195, ptr noundef nonnull %196)
   %198 = icmp eq ptr %197, null
   br i1 %198, label %php_tcp_sockop_bind.exit, label %199
 
@@ -1387,7 +1387,7 @@ php_tcp_sockop_bind.exit:                         ; preds = %160, %164, %parse_u
 
 281:                                              ; preds = %.critedge.i33
   %282 = tail call noalias ptr @_emalloc_40() #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 40, i1 false)
   store i32 %279, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 4
   store i8 1, ptr %283, align 4
@@ -1757,4 +1757,3 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{}
-!6 = !{i32 -128, i32 128}

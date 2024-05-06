@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [19 x i8] c"AbstractSyntaxTree\00", align 1
 @.str.17 = private unnamed_addr constant [5 x i8] c"Node\00", align 1
 @rb_cNode = internal unnamed_addr global i64 0, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @rb_node_type = internal constant %struct.rb_data_type_struct { ptr @.str.18, %struct.anon.12 { ptr @node_gc_mark, ptr inttoptr (i64 -1 to ptr), ptr @node_memsize, ptr null, [1 x ptr] zeroinitializer }, ptr null, ptr null, i64 1 }, align 8
 @.str.18 = private unnamed_addr constant [9 x i8] c"AST/node\00", align 1
 @.str.19 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -390,7 +390,7 @@ rb_obj_is_iseq.exit.thread:                       ; preds = %tailrecurse.i, %tai
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @node_id_for_backtrace_location(ptr nocapture readnone %0, i64 %1, i64 noundef %2) #0 {
+define internal range(i64 1, 0) i64 @node_id_for_backtrace_location(ptr nocapture readnone %0, i64 %1, i64 noundef %2) #0 {
   %4 = tail call i32 @rb_frame_info_p(i64 noundef %2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -426,7 +426,7 @@ define internal i64 @ast_node_type(ptr nocapture readnone %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_first_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_first_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -439,7 +439,7 @@ define internal i64 @ast_node_first_lineno(ptr nocapture readnone %0, i64 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_first_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_first_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -452,7 +452,7 @@ define internal i64 @ast_node_first_column(ptr nocapture readnone %0, i64 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_last_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_last_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -465,7 +465,7 @@ define internal i64 @ast_node_last_lineno(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_last_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_last_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -524,7 +524,7 @@ define internal noundef i64 @ast_node_inspect(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_node_id(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_node_id(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -931,7 +931,7 @@ define internal i64 @lex_array(i64 noundef %0, i32 noundef %1) #0 {
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %7
-  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %10) #11
+  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %10) #11
   %.not3.i = icmp eq i32 %12, 0
   br i1 %.not3.i, label %rb_enc_asciicompat.exit._crit_edge, label %rb_enc_asciicompat.exit.thread
 

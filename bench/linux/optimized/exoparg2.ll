@@ -359,7 +359,7 @@ define dso_local i32 @acpi_ex_opcode_2A_1T_1R(ptr noundef %0) local_unnamed_addr
   %134 = getelementptr inbounds i8, ptr %84, i64 %130
   store ptr %131, ptr %134, align 8
   %135 = lshr i64 %90, 32
-  %136 = trunc i64 %135 to i32
+  %136 = trunc nuw i64 %135 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_bios_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 393, i32 noundef %132, ptr noundef nonnull @.str.3, i32 noundef %136, i32 noundef %91, i32 noundef %133) #4
   br label %.thread19
 

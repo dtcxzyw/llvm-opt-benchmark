@@ -70,7 +70,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_dm_dirty_log_create403, ptr @__UNIQUE_ID___addressable_dm_dirty_log_destroy404, ptr @__UNIQUE_ID___addressable_dm_dirty_log_init406, ptr @__UNIQUE_ID___addressable_dm_dirty_log_type_register401, ptr @__UNIQUE_ID___addressable_dm_dirty_log_type_unregister402, ptr @__UNIQUE_ID_author408, ptr @__UNIQUE_ID_description407, ptr @__UNIQUE_ID_file409, ptr @__UNIQUE_ID_license410, ptr @__exitcall_dm_dirty_log_exit, ptr @dm_dirty_log_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_dirty_log_type_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @dm_dirty_log_type_register(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @_lock) #16
   %2 = load ptr, ptr %0, align 8
   br label %3
@@ -117,7 +117,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_dirty_log_type_unregister(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dm_dirty_log_type_unregister(ptr nocapture noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @_lock) #16
   %2 = load ptr, ptr %0, align 8
   br label %3
@@ -380,7 +380,7 @@ define internal void @dm_dirty_log_exit() #3 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @dm_dirty_log_init() #3 section ".init.text" align 16 {
+define internal noundef range(i32 -17, 1) i32 @dm_dirty_log_init() #3 section ".init.text" align 16 {
   %1 = tail call i32 @dm_dirty_log_type_register(ptr noundef nonnull @_core_type), !range !10
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3
@@ -867,7 +867,7 @@ define internal i32 @core_get_region_size(ptr nocapture noundef readonly %0) #7 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @core_is_clean(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @core_is_clean(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -882,7 +882,7 @@ define internal i32 @core_is_clean(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @core_in_sync(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @core_in_sync(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -934,7 +934,7 @@ define internal void @core_clear_region(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @core_get_resync_work(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @core_get_resync_work(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %61 = lshr i64 %60, 3
   %62 = and i64 %61, 536870904
   %63 = lshr exact i64 %62, 2
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = getelementptr inbounds i8, ptr %47, i64 40
   store i32 %64, ptr %65, align 8
   %66 = icmp eq ptr %4, null

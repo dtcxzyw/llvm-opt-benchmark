@@ -1589,7 +1589,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN8facebook5velox9connector22stringToCommitStrategyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %strategy) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN8facebook5velox9connector22stringToCommitStrategyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %strategy) local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %strategy, ptr noundef nonnull @.str.1) #19
   %cmp.i = icmp eq i32 %call.i, 0

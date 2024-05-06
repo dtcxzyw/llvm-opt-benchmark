@@ -1103,7 +1103,7 @@ entry:
 declare void @_ZN6duckdb15GlobalSortState13AddLocalStateERNS_14LocalSortStateE(ptr noundef nonnull align 8 dereferenceable(688), ptr noundef nonnull align 8 dereferenceable(208)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb13PhysicalOrder8FinalizeERNS_8PipelineERNS_5EventERNS_13ClientContextERNS_25OperatorSinkFinalizeInputE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(113) %event, ptr nocapture nonnull readnone align 8 %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb13PhysicalOrder8FinalizeERNS_8PipelineERNS_5EventERNS_13ClientContextERNS_25OperatorSinkFinalizeInputE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(113) %event, ptr nocapture nonnull readnone align 8 %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8, !tbaa !175
   %sorted_blocks = getelementptr inbounds i8, ptr %0, i64 552
@@ -1524,7 +1524,7 @@ _ZNSt10unique_ptrIN6duckdb29PhysicalOrderLocalSourceStateESt14default_deleteIS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb13PhysicalOrder7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb13PhysicalOrder7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %input, align 8, !tbaa !215
   %local_state = getelementptr inbounds i8, ptr %input, i64 8
@@ -5284,7 +5284,7 @@ _ZNSt10unique_ptrIN6duckdb17TopNOperatorStateESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb12PhysicalTopN7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb12PhysicalTopN7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
 entry:
   %limit = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %limit, align 8, !tbaa !274

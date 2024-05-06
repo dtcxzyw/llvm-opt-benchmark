@@ -35,11 +35,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [63 x i8] c"backend with PID %d did not terminate within %lld milliseconds\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_cancel_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_cancel_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call fastcc i32 @pg_signal_backend(i32 noundef %4, i32 noundef 2), !range !5
+  %5 = tail call fastcc i32 @pg_signal_backend(i32 noundef %4, i32 noundef 2)
   switch i32 %5, label %16 [
     i32 3, label %6
     i32 2, label %11
@@ -70,7 +70,7 @@ define dso_local noundef i64 @pg_cancel_backend(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pg_signal_backend(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @pg_signal_backend(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @BackendPidGetProc(i32 noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -140,7 +140,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_terminate_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_terminate_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -159,7 +159,7 @@ define dso_local noundef i64 @pg_terminate_backend(ptr nocapture noundef readonl
   unreachable
 
 13:                                               ; preds = %1
-  %14 = tail call fastcc i32 @pg_signal_backend(i32 noundef %4, i32 noundef 15), !range !5
+  %14 = tail call fastcc i32 @pg_signal_backend(i32 noundef %4, i32 noundef 15)
   switch i32 %14, label %25 [
     i32 3, label %15
     i32 2, label %20
@@ -231,7 +231,7 @@ define dso_local noundef i64 @pg_terminate_backend(ptr nocapture noundef readonl
   tail call void @ResetLatch(ptr noundef %47) #8
   %48 = sub nsw i64 %.0.i, %spec.select.i
   %49 = icmp sgt i64 %48, 0
-  br i1 %49, label %30, label %50, !llvm.loop !6
+  br i1 %49, label %30, label %50, !llvm.loop !5
 
 50:                                               ; preds = %44
   %51 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
@@ -249,7 +249,7 @@ pg_wait_until_termination.exit:                   ; preds = %25, %52, %50, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_reload_conf(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_reload_conf(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @PostmasterPid, align 4
   %3 = tail call i32 @kill(i32 noundef %2, i32 noundef 1) #8
   %.not = icmp eq i32 %3, 0
@@ -273,7 +273,7 @@ define dso_local noundef i64 @pg_reload_conf(ptr nocapture noundef readnone %0) 
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_rotate_logfile(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_rotate_logfile(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @superuser() #8
   br i1 %2, label %8, label %3
 
@@ -316,7 +316,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_rotate_logfile_v2(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_rotate_logfile_v2(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @Logging_collector, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -382,6 +382,5 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 4}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

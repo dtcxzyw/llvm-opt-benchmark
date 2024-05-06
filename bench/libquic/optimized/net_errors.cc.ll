@@ -1184,7 +1184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %file_error) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %file_error) local_unnamed_addr #2 {
 entry:
   switch i32 %file_error, label %sw.default [
     i32 0, label %return

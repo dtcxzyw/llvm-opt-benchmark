@@ -133,7 +133,7 @@ declare void @dpy_gl_scanout_disable(ptr noundef) local_unnamed_addr #1
 declare void @dpy_gfx_update_full(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vfio_display_probe(ptr noundef %vdev, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vfio_display_probe(ptr noundef %vdev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i28.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8

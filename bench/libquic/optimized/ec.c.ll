@@ -183,7 +183,7 @@ return:                                           ; preds = %entry, %EC_POINT_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #1 {
 entry:
   %curve_name = getelementptr inbounds i8, ptr %group, i64 64
   %0 = load i32, ptr %curve_name, align 8
@@ -353,12 +353,12 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %if.end.i20
 
 lor.lhs.false:                                    ; preds = %if.end3.i
-  %call7 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %gx, ptr noundef %gy, ptr noundef nonnull %call), !range !7
+  %call7 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %gx, ptr noundef %gy, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %EC_POINT_free.exit18.thread, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %call9 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %order, ptr noundef %cofactor), !range !7
+  %call9 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %order, ptr noundef %cofactor)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %EC_POINT_free.exit18.thread, label %EC_POINT_free.exit
 
@@ -419,7 +419,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @BN_CTX_new() local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %point, align 8
@@ -486,13 +486,13 @@ for.cond:                                         ; preds = %entry, %for.body
   %indvars.iv22 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv22, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %if.then7, label %for.body, !llvm.loop !8
+  br i1 %exitcond, label %if.then7, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv.next
   %0 = load i32, ptr %arrayidx, align 16
   %cmp5 = icmp eq i32 %0, %nid
-  br i1 %cmp5, label %if.then, label %for.cond, !llvm.loop !8
+  br i1 %cmp5, label %if.then, label %for.cond, !llvm.loop !7
 
 if.then:                                          ; preds = %for.body, %entry
   %indvars.iv.lcssa = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
@@ -615,7 +615,7 @@ if.then59.i:                                      ; preds = %lor.lhs.false52.i, 
   br label %if.end.i47.i
 
 if.end60.i:                                       ; preds = %lor.lhs.false52.i
-  %call61.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group.0.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call50.i, ptr noundef nonnull %call57.i, ptr noundef nonnull %call.i), !range !7
+  %call61.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group.0.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call50.i, ptr noundef nonnull %call57.i, ptr noundef nonnull %call.i)
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %if.end64.i
 
@@ -950,7 +950,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EC_GROUP_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readnone %ignored) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readnone %ignored) local_unnamed_addr #4 {
 entry:
   %curve_name = getelementptr inbounds i8, ptr %a, i64 64
   %0 = load i32, ptr %curve_name, align 8
@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
 entry:
   %order.i = getelementptr inbounds i8, ptr %group, i64 16
   %call1 = tail call ptr @BN_copy(ptr noundef %order, ptr noundef nonnull %order.i) #10
@@ -999,7 +999,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
 entry:
   %cofactor1 = getelementptr inbounds i8, ptr %group, i64 40
   %call = tail call ptr @BN_copy(ptr noundef %cofactor, ptr noundef nonnull %cofactor1) #10
@@ -1255,7 +1255,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %num
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.07 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -1500,7 +1500,7 @@ if.end:                                           ; preds = %entry
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @EC_get_builtin_curves(ptr nocapture noundef writeonly %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr nocapture noundef writeonly %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #7 {
 entry:
   %cmp211.not = icmp eq i64 %max_num_curves, 0
   br i1 %cmp211.not, label %for.end19, label %for.body.preheader
@@ -1523,7 +1523,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %3, ptr %arrayidx9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %umin
-  br i1 %exitcond.not, label %for.end19, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end19, label %for.body, !llvm.loop !10
 
 for.end19:                                        ; preds = %for.body, %entry
   ret i64 4
@@ -1581,7 +1581,7 @@ if.end33:                                         ; preds = %lor.lhs.false29
   store ptr %call21, ptr %arrayidx35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !11
 
 err:                                              ; preds = %if.end25, %lor.lhs.false29, %for.body, %if.end4
   %mont_ctx.0 = phi ptr [ null, %if.end4 ], [ %call21, %if.end25 ], [ %call21, %lor.lhs.false29 ], [ null, %for.body ]
@@ -1637,9 +1637,8 @@ attributes #12 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

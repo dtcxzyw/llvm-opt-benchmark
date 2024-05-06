@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN71_$LT$ordered_float..OrderedFloat$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9f83a969a9da7109E"(ptr readonly align 4 %0, ptr readonly align 4 %1) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN71_$LT$ordered_float..OrderedFloat$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9f83a969a9da7109E"(ptr readonly align 4 %0, ptr readonly align 4 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ne ptr %1, null

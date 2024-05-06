@@ -292,174 +292,174 @@ define internal i32 @dissect_rsip(ptr noundef %0, ptr nocapture noundef readonly
 
 .preheader:                                       ; preds = %11, %.preheader
   %.0.i = phi i32 [ %24, %.preheader ], [ 4, %11 ]
-  %23 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i, i32 noundef %22), !range !4
+  %23 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i, i32 noundef %22)
   %24 = add i32 %23, %.0.i
   %25 = icmp ne i32 %23, 0
   %26 = icmp slt i32 %24, %22
   %27 = and i1 %25, %26
-  br i1 %27, label %.preheader, label %rsip_message_error_response.exit, !llvm.loop !5
+  br i1 %27, label %.preheader, label %rsip_message_error_response.exit, !llvm.loop !4
 
 .preheader107:                                    ; preds = %11, %.preheader107
   %.0.i74 = phi i32 [ %29, %.preheader107 ], [ 4, %11 ]
-  %28 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i74, i32 noundef %22), !range !4
+  %28 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i74, i32 noundef %22)
   %29 = add i32 %28, %.0.i74
   %30 = icmp ne i32 %28, 0
   %31 = icmp slt i32 %29, %22
   %32 = and i1 %30, %31
-  br i1 %32, label %.preheader107, label %rsip_message_error_response.exit, !llvm.loop !7
+  br i1 %32, label %.preheader107, label %rsip_message_error_response.exit, !llvm.loop !6
 
 .preheader109:                                    ; preds = %11, %.preheader109
   %.0.i76 = phi i32 [ %34, %.preheader109 ], [ 4, %11 ]
-  %33 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i76, i32 noundef %22), !range !4
+  %33 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i76, i32 noundef %22)
   %34 = add i32 %33, %.0.i76
   %35 = icmp ne i32 %33, 0
   %36 = icmp slt i32 %34, %22
   %37 = and i1 %35, %36
-  br i1 %37, label %.preheader109, label %rsip_message_error_response.exit, !llvm.loop !8
+  br i1 %37, label %.preheader109, label %rsip_message_error_response.exit, !llvm.loop !7
 
 .preheader111:                                    ; preds = %11, %.preheader111
   %.0.i78 = phi i32 [ %39, %.preheader111 ], [ 4, %11 ]
-  %38 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i78, i32 noundef %22), !range !4
+  %38 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i78, i32 noundef %22)
   %39 = add i32 %38, %.0.i78
   %40 = icmp ne i32 %38, 0
   %41 = icmp slt i32 %39, %22
   %42 = and i1 %40, %41
-  br i1 %42, label %.preheader111, label %rsip_message_error_response.exit, !llvm.loop !9
+  br i1 %42, label %.preheader111, label %rsip_message_error_response.exit, !llvm.loop !8
 
 .preheader113:                                    ; preds = %11, %.preheader113
   %.0.i.i = phi i32 [ %44, %.preheader113 ], [ 4, %11 ]
-  %43 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i.i, i32 noundef %22), !range !4
+  %43 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i.i, i32 noundef %22)
   %44 = add i32 %43, %.0.i.i
   %45 = icmp ne i32 %43, 0
   %46 = icmp slt i32 %44, %22
   %47 = and i1 %45, %46
-  br i1 %47, label %.preheader113, label %rsip_message_error_response.exit, !llvm.loop !9
+  br i1 %47, label %.preheader113, label %rsip_message_error_response.exit, !llvm.loop !8
 
 .preheader115:                                    ; preds = %11, %.preheader115
   %.0.i80 = phi i32 [ %49, %.preheader115 ], [ 4, %11 ]
-  %48 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i80, i32 noundef %22), !range !4
+  %48 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i80, i32 noundef %22)
   %49 = add i32 %48, %.0.i80
   %50 = icmp ne i32 %48, 0
   %51 = icmp slt i32 %49, %22
   %52 = and i1 %50, %51
-  br i1 %52, label %.preheader115, label %rsip_message_error_response.exit, !llvm.loop !10
+  br i1 %52, label %.preheader115, label %rsip_message_error_response.exit, !llvm.loop !9
 
 .preheader117:                                    ; preds = %11, %.preheader117
   %.0.i82 = phi i32 [ %54, %.preheader117 ], [ 4, %11 ]
-  %53 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i82, i32 noundef %22), !range !4
+  %53 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i82, i32 noundef %22)
   %54 = add i32 %53, %.0.i82
   %55 = icmp ne i32 %53, 0
   %56 = icmp slt i32 %54, %22
   %57 = and i1 %55, %56
-  br i1 %57, label %.preheader117, label %rsip_message_error_response.exit, !llvm.loop !11
+  br i1 %57, label %.preheader117, label %rsip_message_error_response.exit, !llvm.loop !10
 
 .preheader119:                                    ; preds = %11, %.preheader119
   %.0.i84 = phi i32 [ %59, %.preheader119 ], [ 4, %11 ]
-  %58 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i84, i32 noundef %22), !range !4
+  %58 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i84, i32 noundef %22)
   %59 = add i32 %58, %.0.i84
   %60 = icmp ne i32 %58, 0
   %61 = icmp slt i32 %59, %22
   %62 = and i1 %60, %61
-  br i1 %62, label %.preheader119, label %rsip_message_error_response.exit, !llvm.loop !12
+  br i1 %62, label %.preheader119, label %rsip_message_error_response.exit, !llvm.loop !11
 
 .preheader121:                                    ; preds = %11, %.preheader121
   %.0.i86 = phi i32 [ %64, %.preheader121 ], [ 4, %11 ]
-  %63 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i86, i32 noundef %22), !range !4
+  %63 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i86, i32 noundef %22)
   %64 = add i32 %63, %.0.i86
   %65 = icmp ne i32 %63, 0
   %66 = icmp slt i32 %64, %22
   %67 = and i1 %65, %66
-  br i1 %67, label %.preheader121, label %rsip_message_error_response.exit, !llvm.loop !13
+  br i1 %67, label %.preheader121, label %rsip_message_error_response.exit, !llvm.loop !12
 
 .preheader123:                                    ; preds = %11, %.preheader123
   %.0.i88 = phi i32 [ %69, %.preheader123 ], [ 4, %11 ]
-  %68 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i88, i32 noundef %22), !range !4
+  %68 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i88, i32 noundef %22)
   %69 = add i32 %68, %.0.i88
   %70 = icmp ne i32 %68, 0
   %71 = icmp slt i32 %69, %22
   %72 = and i1 %70, %71
-  br i1 %72, label %.preheader123, label %rsip_message_error_response.exit, !llvm.loop !14
+  br i1 %72, label %.preheader123, label %rsip_message_error_response.exit, !llvm.loop !13
 
 .preheader125:                                    ; preds = %11, %.preheader125
   %.0.i90 = phi i32 [ %74, %.preheader125 ], [ 4, %11 ]
-  %73 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i90, i32 noundef %22), !range !4
+  %73 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i90, i32 noundef %22)
   %74 = add i32 %73, %.0.i90
   %75 = icmp ne i32 %73, 0
   %76 = icmp slt i32 %74, %22
   %77 = and i1 %75, %76
-  br i1 %77, label %.preheader125, label %rsip_message_error_response.exit, !llvm.loop !15
+  br i1 %77, label %.preheader125, label %rsip_message_error_response.exit, !llvm.loop !14
 
 .preheader127:                                    ; preds = %11, %.preheader127
   %.0.i92 = phi i32 [ %79, %.preheader127 ], [ 4, %11 ]
-  %78 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i92, i32 noundef %22), !range !4
+  %78 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i92, i32 noundef %22)
   %79 = add i32 %78, %.0.i92
   %80 = icmp ne i32 %78, 0
   %81 = icmp slt i32 %79, %22
   %82 = and i1 %80, %81
-  br i1 %82, label %.preheader127, label %rsip_message_error_response.exit, !llvm.loop !16
+  br i1 %82, label %.preheader127, label %rsip_message_error_response.exit, !llvm.loop !15
 
 .preheader129:                                    ; preds = %11, %.preheader129
   %.0.i94 = phi i32 [ %84, %.preheader129 ], [ 4, %11 ]
-  %83 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i94, i32 noundef %22), !range !4
+  %83 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i94, i32 noundef %22)
   %84 = add i32 %83, %.0.i94
   %85 = icmp ne i32 %83, 0
   %86 = icmp slt i32 %84, %22
   %87 = and i1 %85, %86
-  br i1 %87, label %.preheader129, label %rsip_message_error_response.exit, !llvm.loop !17
+  br i1 %87, label %.preheader129, label %rsip_message_error_response.exit, !llvm.loop !16
 
 .preheader131:                                    ; preds = %11, %.preheader131
   %.0.i96 = phi i32 [ %89, %.preheader131 ], [ 4, %11 ]
-  %88 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i96, i32 noundef %22), !range !4
+  %88 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i96, i32 noundef %22)
   %89 = add i32 %88, %.0.i96
   %90 = icmp ne i32 %88, 0
   %91 = icmp slt i32 %89, %22
   %92 = and i1 %90, %91
-  br i1 %92, label %.preheader131, label %rsip_message_error_response.exit, !llvm.loop !18
+  br i1 %92, label %.preheader131, label %rsip_message_error_response.exit, !llvm.loop !17
 
 .preheader133:                                    ; preds = %11, %.preheader133
   %.0.i98 = phi i32 [ %94, %.preheader133 ], [ 4, %11 ]
-  %93 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i98, i32 noundef %22), !range !4
+  %93 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i98, i32 noundef %22)
   %94 = add i32 %93, %.0.i98
   %95 = icmp ne i32 %93, 0
   %96 = icmp slt i32 %94, %22
   %97 = and i1 %95, %96
-  br i1 %97, label %.preheader133, label %rsip_message_error_response.exit, !llvm.loop !19
+  br i1 %97, label %.preheader133, label %rsip_message_error_response.exit, !llvm.loop !18
 
 .preheader135:                                    ; preds = %11, %.preheader135
   %.0.i100 = phi i32 [ %99, %.preheader135 ], [ 4, %11 ]
-  %98 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i100, i32 noundef %22), !range !4
+  %98 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i100, i32 noundef %22)
   %99 = add i32 %98, %.0.i100
   %100 = icmp ne i32 %98, 0
   %101 = icmp slt i32 %99, %22
   %102 = and i1 %100, %101
-  br i1 %102, label %.preheader135, label %rsip_message_error_response.exit, !llvm.loop !20
+  br i1 %102, label %.preheader135, label %rsip_message_error_response.exit, !llvm.loop !19
 
 .preheader137:                                    ; preds = %11, %.preheader137
   %.0.i102 = phi i32 [ %104, %.preheader137 ], [ 4, %11 ]
-  %103 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i102, i32 noundef %22), !range !4
+  %103 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i102, i32 noundef %22)
   %104 = add i32 %103, %.0.i102
   %105 = icmp ne i32 %103, 0
   %106 = icmp slt i32 %104, %22
   %107 = and i1 %105, %106
-  br i1 %107, label %.preheader137, label %rsip_message_error_response.exit, !llvm.loop !21
+  br i1 %107, label %.preheader137, label %rsip_message_error_response.exit, !llvm.loop !20
 
 .preheader139:                                    ; preds = %11, %.preheader139
   %.0.i104 = phi i32 [ %109, %.preheader139 ], [ 4, %11 ]
-  %108 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i104, i32 noundef %22), !range !4
+  %108 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i104, i32 noundef %22)
   %109 = add i32 %108, %.0.i104
   %110 = icmp ne i32 %108, 0
   %111 = icmp slt i32 %109, %22
   %112 = and i1 %110, %111
-  br i1 %112, label %.preheader139, label %rsip_message_error_response.exit, !llvm.loop !22
+  br i1 %112, label %.preheader139, label %rsip_message_error_response.exit, !llvm.loop !21
 
 .preheader141:                                    ; preds = %11, %.preheader141
   %.0.i106 = phi i32 [ %114, %.preheader141 ], [ 4, %11 ]
-  %113 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i106, i32 noundef %22), !range !4
+  %113 = tail call fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %15, i32 noundef %.0.i106, i32 noundef %22)
   %114 = add i32 %113, %.0.i106
   %115 = icmp ne i32 %113, 0
   %116 = icmp slt i32 %114, %22
   %117 = and i1 %115, %116
-  br i1 %117, label %.preheader141, label %rsip_message_error_response.exit, !llvm.loop !23
+  br i1 %117, label %.preheader141, label %rsip_message_error_response.exit, !llvm.loop !22
 
 rsip_message_error_response.exit:                 ; preds = %.preheader141, %.preheader139, %.preheader137, %.preheader135, %.preheader133, %.preheader131, %.preheader129, %.preheader127, %.preheader125, %.preheader123, %.preheader121, %.preheader119, %.preheader117, %.preheader115, %.preheader113, %.preheader111, %.preheader109, %.preheader107, %.preheader, %11, %4
   %118 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
@@ -494,7 +494,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65539) i32 @rsip_parameter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp slt i32 %2, %3
   br i1 %.not, label %6, label %190
@@ -698,7 +698,7 @@ define internal fastcc i32 @rsip_parameter(ptr noundef %0, ptr noundef %1, i32 n
   %109 = add i32 %.0179194, 2
   %110 = add nsw i32 %.0180193, -2
   %111 = icmp sgt i32 %.0180193, 2
-  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %112 = load ptr, ptr %5, align 8
@@ -845,24 +845,23 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 65539}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

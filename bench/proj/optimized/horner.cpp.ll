@@ -293,7 +293,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   %109 = add nuw nsw i32 %108, 2
   %110 = getelementptr inbounds i8, ptr %59, i64 72
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull @.str.13, i32 noundef %109), !range !4
+  %112 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull @.str.13, i32 noundef %109)
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %116
 
@@ -308,7 +308,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 117:                                              ; preds = %116
   %118 = getelementptr inbounds i8, ptr %59, i64 80
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef %109), !range !4
+  %120 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef %109)
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %.critedge117
 
@@ -328,7 +328,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   %130 = lshr i32 %129, 1
   %131 = getelementptr inbounds i8, ptr %59, i64 40
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull @.str.16, i32 noundef %130), !range !4
+  %133 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull @.str.16, i32 noundef %130)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %137
 
@@ -340,7 +340,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 137:                                              ; preds = %124
   %138 = getelementptr inbounds i8, ptr %59, i64 48
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @.str.18, i32 noundef %130), !range !4
+  %140 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @.str.18, i32 noundef %130)
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %144
 
@@ -355,7 +355,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 145:                                              ; preds = %144
   %146 = getelementptr inbounds i8, ptr %59, i64 56
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @.str.7, i32 noundef %130), !range !4
+  %148 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @.str.7, i32 noundef %130)
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %152
 
@@ -367,7 +367,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 152:                                              ; preds = %145
   %153 = getelementptr inbounds i8, ptr %59, i64 64
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull @.str.8, i32 noundef %130), !range !4
+  %155 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull @.str.8, i32 noundef %130)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %.critedge117
 
@@ -379,7 +379,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 .critedge117:                                     ; preds = %144, %152, %116, %117
   %.0106130142 = phi i1 [ false, %144 ], [ true, %152 ], [ false, %116 ], [ true, %117 ]
   %159 = load ptr, ptr %67, align 8
-  %160 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull @.str.22, i32 noundef 2), !range !4
+  %160 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull @.str.22, i32 noundef 2)
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %164
 
@@ -393,7 +393,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 
 165:                                              ; preds = %164
   %166 = load ptr, ptr %69, align 8
-  %167 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull @.str.9, i32 noundef 2), !range !4
+  %167 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull @.str.9, i32 noundef 2)
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %171
 
@@ -404,7 +404,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 
 171:                                              ; preds = %165, %164
   %172 = getelementptr inbounds i8, ptr %59, i64 16
-  %173 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull @.str.25, i32 noundef 1), !range !4
+  %173 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull @.str.25, i32 noundef 1)
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %176
 
@@ -414,7 +414,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 
 176:                                              ; preds = %175, %171
   %177 = getelementptr inbounds i8, ptr %59, i64 32
-  %178 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull @.str.26, i32 noundef 1), !range !4
+  %178 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull @.str.26, i32 noundef 1)
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %181
 
@@ -553,7 +553,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %45 = load <2 x double>, ptr %40, align 8
   %46 = fadd <2 x double> %44, %45
   %47 = icmp ugt ptr %40, %23
-  br i1 %47, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !5
+  br i1 %47, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !4
 
 _ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %21, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %48 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %21 ], [ %31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %46, %.lr.ph.i.i ]
@@ -631,7 +631,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %45 = load <2 x double>, ptr %40, align 8
   %46 = fadd <2 x double> %44, %45
   %47 = icmp ugt ptr %40, %23
-  br i1 %47, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !5
+  br i1 %47, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !4
 
 _ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %21, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %48 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %21 ], [ %31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %46, %.lr.ph.i.i ]
@@ -709,7 +709,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %45 = load <2 x double>, ptr %40, align 8
   %46 = fadd <2 x double> %44, %45
   %47 = icmp ugt ptr %40, %31
-  br i1 %47, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, !llvm.loop !5
+  br i1 %47, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, !llvm.loop !4
 
 _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %24
   %48 = phi <2 x double> [ %33, %24 ], [ %46, %.lr.ph.i.i ]
@@ -729,7 +729,7 @@ _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %24
   %61 = add nsw i32 %25, -1
   %62 = icmp eq i32 %25, 0
   %.not36.i = select i1 %62, i1 true, i1 %60
-  br i1 %.not36.i, label %63, label %24, !llvm.loop !7
+  br i1 %.not36.i, label %63, label %24, !llvm.loop !6
 
 63:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
   br i1 %60, label %66, label %64
@@ -833,7 +833,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %42, <2 x double> %48)
   %50 = add i32 %.045.i.i, -1
   %.not.i.i = icmp ult i32 %50, %.03453.i.i
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph55.i.i
   %.139.lcssa.i.i = phi ptr [ %36, %.lr.ph55.i.i ], [ %43, %.lr.ph.i.i ]
@@ -842,7 +842,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %52 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %35, <2 x double> %51)
   %53 = add i32 %.03453.i.i, -1
   %.not31.i = icmp eq i32 %53, 0
-  br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !9
+  br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !8
 
 _ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %16, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %54 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %16 ], [ %34, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %52, %._crit_edge.i.i ]
@@ -926,7 +926,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %42, <2 x double> %48)
   %50 = add i32 %.045.i.i, -1
   %.not.i.i = icmp ult i32 %50, %.03453.i.i
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph55.i.i
   %.139.lcssa.i.i = phi ptr [ %36, %.lr.ph55.i.i ], [ %43, %.lr.ph.i.i ]
@@ -935,7 +935,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %52 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %35, <2 x double> %51)
   %53 = add i32 %.03453.i.i, -1
   %.not31.i = icmp eq i32 %53, 0
-  br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !9
+  br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !8
 
 _ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %16, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %54 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %16 ], [ %34, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %52, %._crit_edge.i.i ]
@@ -1038,7 +1038,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %61 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %54, <2 x double> %60)
   %62 = add i32 %.045.i.us.i, -1
   %.not.i.us.i = icmp ult i32 %62, %.03453.i.us.i
-  br i1 %.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !8
+  br i1 %.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !7
 
 ._crit_edge.i.us.i:                               ; preds = %.lr.ph.i.us.i, %.lr.ph55.i.us.i
   %.139.lcssa.i.us.i = phi ptr [ %48, %.lr.ph55.i.us.i ], [ %55, %.lr.ph.i.us.i ]
@@ -1047,7 +1047,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %47, <2 x double> %63)
   %65 = add i32 %.03453.i.us.i, -1
   %66 = icmp ugt i32 %65, 1
-  br i1 %66, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i.preheader, !llvm.loop !9
+  br i1 %66, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i.preheader, !llvm.loop !8
 
 .lr.ph.i65.us.i.preheader:                        ; preds = %._crit_edge.i.us.i
   %67 = extractelement <2 x double> %45, i64 0
@@ -1062,7 +1062,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %70 = tail call double @llvm.fmuladd.f64(double %67, double %.01114.i.us.i, double %69)
   %71 = add i32 %.015.i.us.i, -1
   %72 = icmp ugt i32 %71, 1
-  br i1 %72, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i.preheader, !llvm.loop !10
+  br i1 %72, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i.preheader, !llvm.loop !9
 
 .lr.ph.i68.us.i.preheader:                        ; preds = %.lr.ph.i65.us.i
   %73 = extractelement <2 x double> %45, i64 1
@@ -1077,7 +1077,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %76 = tail call double @llvm.fmuladd.f64(double %73, double %.01114.i70.us.i, double %75)
   %77 = add i32 %.015.i69.us.i, -1
   %78 = icmp ugt i32 %77, 1
-  br i1 %78, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !10
+  br i1 %78, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !9
 
 _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.us.i
   %79 = fneg <2 x double> %64
@@ -1103,7 +1103,7 @@ _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.u
   %98 = add nsw i32 %44, -1
   %99 = icmp eq i32 %44, 0
   %.not63.us.i = select i1 %99, i1 true, i1 %97
-  br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !11
+  br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !10
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %100 = insertelement <2 x double> poison, double %34, i64 0
@@ -1137,7 +1137,7 @@ _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double
   %125 = add nsw i32 %117, -1
   %126 = icmp eq i32 %117, 0
   %.not63.i = select i1 %126, i1 true, i1 %124
-  br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !11
+  br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !10
 
 .split.us.i:                                      ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
   %.us-phi.i = phi i1 [ %97, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %124, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
@@ -1162,7 +1162,7 @@ _ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
@@ -1235,7 +1235,7 @@ define internal fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef
   store double %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %34, %20, %31, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %19 ], [ 0, %31 ], [ 1, %20 ], [ 1, %34 ]
@@ -1296,12 +1296,11 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

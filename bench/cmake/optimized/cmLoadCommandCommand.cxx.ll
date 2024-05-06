@@ -797,7 +797,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .noexc88:                                         ; preds = %182
   %185 = getelementptr inbounds i8, ptr %184, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false), !noalias !67
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 0, i32 0, i64 2), ptr %184, align 8, !noalias !67
   %186 = getelementptr inbounds i8, ptr %184, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -5388,7 +5388,7 @@ _ZN19cmCustomCommandLineD2Ev.exit:                ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15cmCommandExistsPvPKc(ptr noundef nonnull %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL15cmCommandExistsPvPKc(ptr noundef nonnull %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.263", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -5470,7 +5470,7 @@ _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16cmExecuteCommandPvPKciPS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL16cmExecuteCommandPvPKciPS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::vector.494", align 16
@@ -6215,7 +6215,7 @@ define internal noundef ptr @_ZL25cmGetStartOutputDirectoryPv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL6cmIsOnPvPKc(ptr noundef %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL6cmIsOnPvPKc(ptr noundef %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #30
@@ -7018,7 +7018,7 @@ _ZNK7cmValue7GetCStrEv.exit27:                    ; preds = %45, %47
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL29cmSourceFileGetPropertyAsBoolPvPKc(ptr noundef %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL29cmSourceFileGetPropertyAsBoolPvPKc(ptr noundef %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8

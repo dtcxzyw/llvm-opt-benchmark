@@ -299,7 +299,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4
-  %69 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %67), !range !9
+  %69 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %67)
   %.val22.i = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %.val22.i, 0
   br i1 %70, label %.lr.ph.i, label %.critedge.i
@@ -324,7 +324,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
   %.val.i = load i32, ptr %68, align 4
   %81 = sext i32 %.val.i to i64
   %82 = icmp slt i64 %indvars.iv.next.i, %81
-  br i1 %82, label %72, label %.critedge.i, !llvm.loop !10
+  br i1 %82, label %72, label %.critedge.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %72, %64
   %.pr = phi i32 [ %.val22.i, %64 ], [ %.val.i, %72 ]
@@ -384,7 +384,7 @@ Hop_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %.val = load i32, ptr %68, align 4
   %112 = sext i32 %.val to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %96, label %._crit_edge, !llvm.loop !11
+  br i1 %113, label %96, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %96, %92
   %114 = getelementptr i8, ptr %1, i64 32
@@ -408,7 +408,7 @@ declare ptr @Hop_ObjCreatePo(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Hop_ManCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -433,7 +433,7 @@ define i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
 15:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !11
 
 .preheader:                                       ; preds = %15
   br i1 %12, label %.lr.ph54, label %.loopexit
@@ -456,7 +456,7 @@ define i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
 24:                                               ; preds = %25
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %.loopexit, label %25, !llvm.loop !13
+  br i1 %exitcond64.not, label %.loopexit, label %25, !llvm.loop !12
 
 25:                                               ; preds = %.lr.ph54, %24
   %indvars.iv60 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next61, %24 ]
@@ -567,10 +567,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 75:                                               ; preds = %38, %29
   %76 = getelementptr i8, ptr %1, i64 16
   %.val45 = load ptr, ptr %76, align 8
-  %77 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %.val45, ptr noundef %2), !range !9
+  %77 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %.val45, ptr noundef %2)
   %78 = getelementptr i8, ptr %1, i64 24
   %.val46 = load ptr, ptr %78, align 8
-  %79 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %.val46, ptr noundef %2), !range !9
+  %79 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %.val46, ptr noundef %2)
   %80 = icmp eq i32 %77, -1
   %81 = icmp eq i32 %79, -1
   %or.cond = select i1 %80, i1 true, i1 %81
@@ -589,7 +589,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Hop_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define range(i32 -1, 2) i32 @Hop_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -695,10 +695,10 @@ Vec_PtrSort.exit:                                 ; preds = %4
 39:                                               ; preds = %32
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %40 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %40, label %32, label %Hop_NodeBalanceFindLeft.exit, !llvm.loop !14
+  br i1 %40, label %32, label %Hop_NodeBalanceFindLeft.exit, !llvm.loop !13
 
 ._crit_edge.split.loop.exit26.i:                  ; preds = %32
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   %42 = add nsw i32 %41, 1
   br label %Hop_NodeBalanceFindLeft.exit
 
@@ -740,7 +740,7 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
 66:                                               ; preds = %75
   %indvars.iv.next.i17 = add nsw i64 %indvars.iv.i16, -1
   %.not.not.i = icmp sgt i64 %indvars.iv.i16, %65
-  br i1 %.not.not.i, label %67, label %Hop_NodeBalancePermute.exit, !llvm.loop !15
+  br i1 %.not.not.i, label %67, label %Hop_NodeBalancePermute.exit, !llvm.loop !14
 
 67:                                               ; preds = %66, %.lr.ph.i15
   %indvars.iv.i16 = phi i64 [ %64, %.lr.ph.i15 ], [ %indvars.iv.next.i17, %66 ]
@@ -814,7 +814,7 @@ Hop_NodeBalancePermute.exit:                      ; preds = %66, %Hop_NodeBalanc
 102:                                              ; preds = %103
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %103, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %103, !llvm.loop !15
 
 103:                                              ; preds = %102, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %102 ]
@@ -923,7 +923,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %115, %113
   %156 = getelementptr inbounds ptr, ptr %155, i64 %141
   store ptr %140, ptr %156, align 8
   %157 = icmp ugt i64 %indvars.iv.i19, 2
-  br i1 %157, label %.lr.ph.i18, label %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !17
+  br i1 %157, label %.lr.ph.i18, label %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !16
 
 Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit: ; preds = %154, %.lr.ph.i18
   %.pre41 = load i32, ptr %5, align 4
@@ -932,7 +932,7 @@ Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit: ; preds = %154, %.lr.ph.i18
 Hop_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %103, %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit
   %158 = phi i32 [ %.pre41, %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit ], [ %99, %103 ]
   %159 = icmp sgt i32 %158, 1
-  br i1 %159, label %19, label %._crit_edge, !llvm.loop !18
+  br i1 %159, label %19, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %129, %Hop_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %160 = getelementptr i8, ptr %1, i64 8
@@ -987,7 +987,7 @@ attributes #11 = { nounwind allocsize(1) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -996,4 +996,3 @@ attributes #11 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

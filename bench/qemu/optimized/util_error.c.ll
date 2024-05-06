@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @error_set_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %err_class, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call.i, align 4
   %cmp.i = icmp eq ptr %errp, null
@@ -57,21 +57,15 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %error_setv.exit
 
 error_setv.exit:                                  ; preds = %entry, %if.end3.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @error_setg_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call.i, align 4
   %cmp.i = icmp eq ptr %errp, null
@@ -103,7 +97,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %error_setv.exit
 
 error_setv.exit:                                  ; preds = %entry, %if.end3.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -113,7 +107,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %cmp.not = icmp eq i32 %os_errno, 0
   br i1 %cmp.not, label %cond.end, label %cond.true
 
@@ -163,16 +157,16 @@ if.end11.i:                                       ; preds = %if.then6.i, %if.end
   br label %error_setv.exit
 
 error_setv.exit:                                  ; preds = %cond.end, %if.end11.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   store i32 %0, ptr %call, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @error_setg_file_open_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef %filename) local_unnamed_addr #0 {
@@ -205,21 +199,21 @@ return:                                           ; preds = %entry, %if.end
   ret void
 }
 
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #4
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #3
 
-declare void @g_string_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_string_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @g_free(ptr noundef) local_unnamed_addr #4
+declare void @g_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @error_prepend(ptr noundef readonly %errp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %tobool.not.i = icmp eq ptr %errp, null
   br i1 %tobool.not.i, label %error_vprepend.exit, label %if.end.i
 
@@ -238,7 +232,7 @@ if.end.i:                                         ; preds = %entry
   br label %error_vprepend.exit
 
 error_vprepend.exit:                              ; preds = %entry, %if.end.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -276,10 +270,10 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end5
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %3 = load ptr, ptr %hint, align 8
   call void @g_string_append_vprintf(ptr noundef %3, ptr noundef %fmt, ptr noundef nonnull %ap) #12
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   store i32 %0, ptr %call, align 4
   br label %return
 
@@ -288,9 +282,9 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @error_copy(ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
@@ -328,12 +322,12 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @error_get_class(ptr nocapture noundef readonly %err) local_unnamed_addr #7 {
+define dso_local i32 @error_get_class(ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
 entry:
   %err_class = getelementptr inbounds i8, ptr %err, i64 8
   %0 = load i32, ptr %err_class, align 8
@@ -341,7 +335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @error_get_pretty(ptr nocapture noundef readonly %err) local_unnamed_addr #7 {
+define dso_local ptr @error_get_pretty(ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %err, align 8
   ret ptr %0
@@ -378,9 +372,9 @@ error_free.exit:                                  ; preds = %if.then.i, %if.then
   ret void
 }
 
-declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
+declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @error_printf(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @error_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @error_free(ptr noundef %err) local_unnamed_addr #0 {
@@ -439,13 +433,13 @@ error_free.exit:                                  ; preds = %if.then.i, %if.then
   ret void
 }
 
-declare void @warn_report(ptr noundef, ...) local_unnamed_addr #4
+declare void @warn_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @error_reportf_err(ptr noundef %err, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call ptr @g_string_new(ptr noundef null) #12
   call void @g_string_vprintf(ptr noundef %call.i, ptr noundef %fmt, ptr noundef nonnull %ap) #12
   %0 = load ptr, ptr %err, align 8
@@ -454,7 +448,7 @@ entry:
   call void @g_free(ptr noundef %1) #12
   %call3.i = call ptr @g_string_free(ptr noundef %call.i, i32 noundef 0) #12
   store ptr %call3.i, ptr %err, align 8
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %2 = load ptr, ptr %err, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef %2) #12
   %hint.i = getelementptr inbounds i8, ptr %err, i64 40
@@ -487,7 +481,7 @@ error_report_err.exit:                            ; preds = %if.then.i.i, %if.th
 define dso_local void @warn_reportf_err(ptr noundef %err, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call ptr @g_string_new(ptr noundef null) #12
   call void @g_string_vprintf(ptr noundef %call.i, ptr noundef %fmt, ptr noundef nonnull %ap) #12
   %0 = load ptr, ptr %err, align 8
@@ -496,7 +490,7 @@ entry:
   call void @g_free(ptr noundef %1) #12
   %call3.i = call ptr @g_string_free(ptr noundef %call.i, i32 noundef 0) #12
   store ptr %call3.i, ptr %err, align 8
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %2 = load ptr, ptr %err, align 8
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef %2) #12
   %hint.i = getelementptr inbounds i8, ptr %err, i64 40
@@ -694,7 +688,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call ptr @g_string_new(ptr noundef null) #12
   call void @g_string_vprintf(ptr noundef %call.i, ptr noundef %fmt, ptr noundef nonnull %ap) #12
   %1 = load ptr, ptr %err, align 8
@@ -703,7 +697,7 @@ if.end.thread:                                    ; preds = %land.lhs.true
   call void @g_free(ptr noundef %2) #12
   %call3.i = call ptr @g_string_free(ptr noundef %call.i, i32 noundef 0) #12
   store ptr %call3.i, ptr %err, align 8
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end.i
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -718,28 +712,34 @@ error_propagate.exit:                             ; preds = %if.end, %if.end.i
   ret void
 }
 
-declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind willreturn memory(none) }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind allocsize(0) }

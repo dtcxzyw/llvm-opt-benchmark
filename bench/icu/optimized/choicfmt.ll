@@ -974,7 +974,7 @@ return:                                           ; preds = %entry, %if.end17, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, double noundef %number) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483646, -2147483648) i32 @_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, double noundef %number) local_unnamed_addr #1 align 2 {
 entry:
   %partsLength.i = getelementptr inbounds i8, ptr %pattern, i64 96
   %0 = load i32, ptr %partsLength.i, align 8

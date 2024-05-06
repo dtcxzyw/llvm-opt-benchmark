@@ -1292,7 +1292,7 @@ decode_PublicOpenRes.exit:                        ; preds = %321, %326
   call void @col_append_str(ptr noundef %338, i32 noundef 25, ptr noundef nonnull @.str.268) #5
   %339 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %339, ptr noundef nonnull @.str.269) #5
-  %340 = call fastcc i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %284, ptr noundef nonnull %2), !range !6
+  %340 = call fastcc i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %284, ptr noundef nonnull %2)
   br label %1648
 
 341:                                              ; preds = %get_length.exit359
@@ -1474,7 +1474,7 @@ get_length.exit197.i:                             ; preds = %397, %392, %381
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %407, ptr noundef nonnull %2, ptr noundef nonnull %40, ptr noundef nonnull %41)
   %426 = add nuw i32 %.0169265.i, 1
   %exitcond.not.i = icmp eq i32 %426, %402
-  br i1 %exitcond.not.i, label %427, label %425, !llvm.loop !7
+  br i1 %exitcond.not.i, label %427, label %425, !llvm.loop !6
 
 427:                                              ; preds = %425
   %428 = load ptr, ptr %34, align 8
@@ -1626,7 +1626,7 @@ get_length.exit209.i:                             ; preds = %496, %491, %480
   call void @proto_item_set_end(ptr noundef %509, ptr noundef %0, i32 noundef %510) #5
   %511 = add nuw i32 %.1270.i, 1
   %exitcond306.not.i = icmp eq i32 %511, %453
-  br i1 %exitcond306.not.i, label %512, label %476, !llvm.loop !8
+  br i1 %exitcond306.not.i, label %512, label %476, !llvm.loop !7
 
 512:                                              ; preds = %get_length.exit209.i
   %513 = load ptr, ptr %37, align 8
@@ -1973,7 +1973,7 @@ get_length.exit239.i:                             ; preds = %690, %685, %674
   call void @proto_item_set_end(ptr noundef null, ptr noundef %0, i32 noundef %703) #5
   %704 = add nuw i32 %.0281.i, 1
   %exitcond307.not.i = icmp eq i32 %704, %647
-  br i1 %exitcond307.not.i, label %705, label %670, !llvm.loop !9
+  br i1 %exitcond307.not.i, label %705, label %670, !llvm.loop !8
 
 705:                                              ; preds = %get_length.exit239.i
   %706 = load ptr, ptr %39, align 8
@@ -1985,7 +1985,7 @@ get_length.exit239.i:                             ; preds = %690, %685, %674
   call void @proto_item_set_end(ptr noundef %708, ptr noundef %0, i32 noundef %709) #5
   %710 = add nuw i32 %.2282.i, 1
   %exitcond308.not.i = icmp eq i32 %710, %539
-  br i1 %exitcond308.not.i, label %711, label %562, !llvm.loop !10
+  br i1 %exitcond308.not.i, label %711, label %562, !llvm.loop !9
 
 711:                                              ; preds = %705
   %712 = load ptr, ptr %35, align 8
@@ -2085,7 +2085,7 @@ decode_GetProfilePackRes.exit:                    ; preds = %414, %419, %465, %4
   call void @col_append_str(ptr noundef %758, i32 noundef 25, ptr noundef nonnull @.str.272) #5
   %759 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %759, ptr noundef nonnull @.str.273) #5
-  %760 = call fastcc i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %284, ptr noundef nonnull %2), !range !6
+  %760 = call fastcc i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %284, ptr noundef nonnull %2)
   br label %1648
 
 761:                                              ; preds = %get_length.exit359
@@ -2257,7 +2257,7 @@ get_length.exit118.i:                             ; preds = %812, %807, %796
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %822, ptr noundef nonnull %2, ptr noundef nonnull %31, ptr noundef nonnull %32)
   %841 = add nuw i32 %.0158.i, 1
   %exitcond.not.i375 = icmp eq i32 %841, %817
-  br i1 %exitcond.not.i375, label %842, label %840, !llvm.loop !11
+  br i1 %exitcond.not.i375, label %842, label %840, !llvm.loop !10
 
 842:                                              ; preds = %840
   %843 = load ptr, ptr %28, align 8
@@ -2485,7 +2485,7 @@ get_length.exit136.i:                             ; preds = %950, %945, %934
   call void @proto_item_set_end(ptr noundef %958, ptr noundef %0, i32 noundef %959) #5
   %960 = add nuw i32 %.1171.i, 1
   %exitcond191.not.i = icmp eq i32 %960, %907
-  br i1 %exitcond191.not.i, label %961, label %930, !llvm.loop !12
+  br i1 %exitcond191.not.i, label %961, label %930, !llvm.loop !11
 
 961:                                              ; preds = %get_length.exit136.i
   %962 = load ptr, ptr %29, align 8
@@ -2611,7 +2611,7 @@ get_length.exit.i382:                             ; preds = %986, %981, %970
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %996, ptr noundef nonnull %2, ptr noundef nonnull %25, ptr noundef nonnull %26)
   %1015 = add nuw i32 %.064.i, 1
   %exitcond.not.i384 = icmp eq i32 %1015, %991
-  br i1 %exitcond.not.i384, label %1016, label %1014, !llvm.loop !13
+  br i1 %exitcond.not.i384, label %1016, label %1014, !llvm.loop !12
 
 1016:                                             ; preds = %1014
   %1017 = load ptr, ptr %24, align 8
@@ -2799,7 +2799,7 @@ get_length.exit.i391:                             ; preds = %1083, %1078, %1067
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1093, ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef nonnull %23)
   %1112 = add nuw i32 %.057.i, 1
   %exitcond.not.i393 = icmp eq i32 %1112, %1088
-  br i1 %exitcond.not.i393, label %1113, label %1111, !llvm.loop !14
+  br i1 %exitcond.not.i393, label %1113, label %1111, !llvm.loop !13
 
 1113:                                             ; preds = %1111
   %1114 = load ptr, ptr %20, align 8
@@ -3003,7 +3003,7 @@ get_length.exit.i400:                             ; preds = %1182, %1177, %1166
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1192, ptr noundef nonnull %2, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %1211 = add nuw i32 %.063.i, 1
   %exitcond.not.i402 = icmp eq i32 %1211, %1187
-  br i1 %exitcond.not.i402, label %1212, label %1210, !llvm.loop !15
+  br i1 %exitcond.not.i402, label %1212, label %1210, !llvm.loop !14
 
 1212:                                             ; preds = %1210
   %1213 = load ptr, ptr %16, align 8
@@ -3433,7 +3433,7 @@ get_length.exit134.i:                             ; preds = %1398, %1393, %1382
   call void @proto_item_set_end(ptr noundef %1418, ptr noundef %0, i32 noundef %1419) #5
   %1420 = add nuw i32 %.0182.i, 1
   %exitcond.not.i411 = icmp eq i32 %1420, %1327
-  br i1 %exitcond.not.i411, label %1421, label %1350, !llvm.loop !16
+  br i1 %exitcond.not.i411, label %1421, label %1350, !llvm.loop !15
 
 1421:                                             ; preds = %1417
   %1422 = load ptr, ptr %10, align 8
@@ -4030,7 +4030,7 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
   %1739 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %storemerge) #5
   %1740 = icmp eq i8 %1739, 0
   %1741 = add i32 %storemerge327, 1
-  br i1 %1740, label %.preheader, label %1742, !llvm.loop !17
+  br i1 %1740, label %.preheader, label %1742, !llvm.loop !16
 
 1742:                                             ; preds = %.preheader
   store i32 %storemerge327, ptr %53, align 4
@@ -4118,7 +4118,7 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
   br label %.backedge
 
 .backedge:                                        ; preds = %1793, %1795
-  br label %81, !llvm.loop !18
+  br label %81, !llvm.loop !17
 
 1795:                                             ; preds = %1791
   %1796 = load i32, ptr @hf_sml_new_file_marker, align 4
@@ -4252,7 +4252,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4569,7 +4569,7 @@ get_length.exit146:                               ; preds = %131, %142, %147
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %157, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %176 = add nuw i32 %.0172, 1
   %exitcond.not = icmp eq i32 %176, %152
-  br i1 %exitcond.not, label %177, label %175, !llvm.loop !19
+  br i1 %exitcond.not, label %177, label %175, !llvm.loop !18
 
 177:                                              ; preds = %175
   %178 = load ptr, ptr %6, align 8
@@ -4740,7 +4740,7 @@ field_ObjReqEntry.exit:                           ; preds = %240, %251, %256
   store i32 %273, ptr %3, align 4
   %274 = add nuw i32 %.1173, 1
   %exitcond186.not = icmp eq i32 %274, %215
-  br i1 %exitcond186.not, label %275, label %236, !llvm.loop !20
+  br i1 %exitcond186.not, label %275, label %236, !llvm.loop !19
 
 275:                                              ; preds = %field_ObjReqEntry.exit
   %276 = load ptr, ptr %7, align 8
@@ -6565,7 +6565,7 @@ get_length.exit285:                               ; preds = %295, %306, %314
   call void @proto_item_set_end(ptr noundef %345, ptr noundef %0, i32 noundef %346) #5
   %347 = add nuw i32 %.0291, 1
   %exitcond.not = icmp eq i32 %347, %321
-  br i1 %exitcond.not, label %348, label %333, !llvm.loop !21
+  br i1 %exitcond.not, label %348, label %333, !llvm.loop !20
 
 348:                                              ; preds = %342
   %349 = load ptr, ptr %9, align 8
@@ -8586,7 +8586,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -8601,4 +8601,3 @@ attributes #5 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

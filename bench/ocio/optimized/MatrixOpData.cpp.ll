@@ -740,7 +740,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7setRGBAIdEEv
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %values, i64 128, i1 false)
   ret void
 }
 
@@ -2819,7 +2819,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %5 = load ptr, ptr %invMatrixArray, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false), !alias.scope !40
   %vtable.i = load ptr, ptr %5, align 8, !noalias !40
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8, !noalias !40
@@ -2861,7 +2861,7 @@ for.end.i:                                        ; preds = %for.body5.i
   br i1 %exitcond15.not.i, label %invoke.cont6, label %for.cond3.preheader.i, !llvm.loop !15
 
 invoke.cont6:                                     ; preds = %for.end.i, %call.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %invOffsets, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %invOffsets, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont6
@@ -2904,9 +2904,9 @@ invoke.cont20:                                    ; preds = %if.end8
   %20 = load ptr, ptr %m_data.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %18, i64 192
   %21 = load ptr, ptr %m_data.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(128) %20, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull readonly align 8 dereferenceable(128) %20, i64 128, i1 false)
   %m_offsets.i7 = getelementptr inbounds i8, ptr %18, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i7, ptr noundef nonnull align 8 dereferenceable(32) %invOffsets, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_offsets.i7, ptr noundef nonnull readonly align 8 dereferenceable(32) %invOffsets, i64 32, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_metadata.i8 = getelementptr inbounds i8, ptr %18, i64 48
   %call29 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i8, ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
@@ -3757,7 +3757,7 @@ invoke.cont48:                                    ; preds = %invoke.cont42
   %m_array51 = getelementptr inbounds i8, ptr %17, i64 168
   %m_offsets.i = getelementptr inbounds i8, ptr %this, i64 216
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %offs, i8 0, i64 32, i1 false), !alias.scope !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %offs, i8 0, i64 32, i1 false), !alias.scope !55
   %vtable.i = load ptr, ptr %m_array51, align 8, !noalias !55
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %18 = load ptr, ptr %vfn.i, align 8, !noalias !55
@@ -3871,7 +3871,7 @@ for.end86:                                        ; preds = %for.body76, %invoke
   %max_val.0.lcssa59 = phi double [ 0.000000e+00, %invoke.cont54 ], [ %cond72, %for.body76 ]
   %34 = load ptr, ptr %agg.result, align 8
   %m_offsets.i42 = getelementptr inbounds i8, ptr %34, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i42, ptr noundef nonnull align 8 dereferenceable(32) %offs, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_offsets.i42, ptr noundef nonnull readonly align 8 dereferenceable(32) %offs, i64 32, i1 false)
   %m_array.i.i = getelementptr inbounds i8, ptr %34, i64 168
   %m_data.i.i43 = getelementptr inbounds i8, ptr %34, i64 192
   %vtable.i44 = load ptr, ptr %m_array.i.i, align 8
@@ -4214,7 +4214,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %m_offsets = getelementptr inbounds i8, ptr %this, i64 216
   %m_offsets3 = getelementptr inbounds i8, ptr %other, i64 216
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %m_offsets, ptr noundef nonnull dereferenceable(32) %m_offsets3, i64 32)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %m_offsets, ptr noundef nonnull readonly dereferenceable(32) %m_offsets3, i64 32)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %land.rhs, label %return
 
@@ -4865,17 +4865,17 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store double 0.000000e+00, ptr %add.ptr, align 8
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 8
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 8
   %6 = shl nuw nsw i64 %__n, 3
   %7 = add nsw i64 %6, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
 
@@ -4884,14 +4884,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
 
 _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #32
-  br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit31
+  br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit32
 
-_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit31: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit32: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds double, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -4899,7 +4899,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit31: ; preds = %_ZNSt6vectorId
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit32, %entry
   ret void
 }
 
@@ -5049,8 +5049,8 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 0, i32 0, i64 2), ptr %m_array.i.i.i, align 8
   %m_offsets.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %m_offsets3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_offsets3.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_offsets.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_offsets.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %m_offsets3.i.i.i, i64 32, i1 false)
   %m_fileInBitDepth.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %m_fileInBitDepth6.i.i.i = getelementptr inbounds i8, ptr %__args, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %m_fileInBitDepth.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %m_fileInBitDepth6.i.i.i, i64 12, i1 false)

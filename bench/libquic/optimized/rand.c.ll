@@ -233,11 +233,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @RAND_load_file(ptr nocapture noundef readnone %path, i64 noundef %num) local_unnamed_addr #5 {
+define hidden range(i32 0, -2147483648) i32 @RAND_load_file(ptr nocapture noundef readnone %path, i64 noundef %num) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i64 %num, 0
   %cmp1 = icmp ult i64 %num, 2147483648
-  %conv = trunc i64 %num to i32
+  %conv = trunc nuw nsw i64 %num to i32
   %spec.select = select i1 %cmp1, i32 %conv, i32 2147483647
   %retval.0 = select i1 %cmp, i32 1, i32 %spec.select
   ret i32 %retval.0

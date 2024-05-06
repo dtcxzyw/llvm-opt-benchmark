@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_5_18 = internal constant [2 x i8] c"ou", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @porter_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -419,7 +419,7 @@ define hidden i32 @porter_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not104.i, label %158, label %165
 
 158:                                              ; preds = %.thread113.i
-  %159 = tail call fastcc i32 @r_shortv(ptr noundef nonnull %0), !range !4
+  %159 = tail call fastcc i32 @r_shortv(ptr noundef nonnull %0)
   %.not105.not.i = icmp eq i32 %159, 0
   br i1 %.not105.not.i, label %165, label %160
 
@@ -847,7 +847,7 @@ r_shortv.exit.thread.i:                           ; preds = %r_shortv.exit.i, %3
 
 352:                                              ; preds = %364, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %364 ], [ %351, %.preheader ]
-  %353 = trunc i64 %indvars.iv to i32
+  %353 = trunc nsw i64 %indvars.iv to i32
   store i32 %353, ptr %7, align 4
   %354 = icmp eq i64 %indvars.iv, %sext
   br i1 %354, label %363, label %355
@@ -873,7 +873,7 @@ r_shortv.exit.thread.i:                           ; preds = %r_shortv.exit.i, %3
 
 364:                                              ; preds = %363
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %365 = trunc i64 %indvars.iv.next to i32
+  %365 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %365, ptr %5, align 8
   br label %352
 
@@ -917,7 +917,7 @@ declare i32 @out_grouping_b(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare i32 @insert_s(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_shortv(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_shortv(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @out_grouping_b(ptr noundef %0, ptr noundef nonnull @g_v_WXY, i32 noundef 89, i32 noundef 121, i32 noundef 0) #3
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %7
@@ -954,4 +954,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

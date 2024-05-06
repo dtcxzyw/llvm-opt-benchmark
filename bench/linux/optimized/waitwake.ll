@@ -1453,7 +1453,7 @@ declare dso_local ptr @futex_setup_timer(ptr noundef, ptr noundef, i32 noundef, 
 declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @futex_wait_restart(ptr nocapture noundef %0) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @futex_wait_restart(ptr nocapture noundef %0) #0 align 16 {
   %2 = alloca %struct.hrtimer_sleeper, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

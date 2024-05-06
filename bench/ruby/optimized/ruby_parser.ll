@@ -89,7 +89,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
 
 22:                                               ; preds = %rb_float_value_inline.exit
   %23 = lshr i64 %21, 60
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 7
   %26 = add nsw i32 %25, -3
   %.not7.i = icmp ult i32 %26, 2
@@ -182,7 +182,7 @@ rb_float_value_inline.exit26:                     ; preds = %35
 
 73:                                               ; preds = %rb_float_value_inline.exit26
   %74 = lshr i64 %72, 60
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw nsw i64 %74 to i32
   %76 = and i32 %75, 7
   %77 = add nsw i32 %76, -3
   %.not7.i28 = icmp ult i32 %77, 2
@@ -228,7 +228,7 @@ define dso_local i64 @rb_node_float_literal_val(ptr nocapture noundef readonly %
 
 9:                                                ; preds = %1
   %10 = lshr i64 %8, 60
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = and i32 %11, 7
   %13 = add nsw i32 %12, -3
   %.not7.i = icmp ult i32 %13, 2
@@ -340,7 +340,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
 
 15:                                               ; preds = %10
   %16 = lshr i64 %14, 60
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 7
   %19 = add nsw i32 %18, -3
   %.not7.i = icmp ult i32 %19, 2
@@ -485,7 +485,7 @@ define dso_local i64 @rb_node_regx_string_val(ptr nocapture noundef readonly %0)
 declare i64 @rb_reg_compile(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @rb_node_line_lineno_val(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64

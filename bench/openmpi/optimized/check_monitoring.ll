@@ -1360,7 +1360,7 @@ pvar_coll_check.exit:                             ; preds = %574
   br i1 %626, label %.lr.ph.i93, label %pvar_pml_check.exit
 
 .lr.ph.i93:                                       ; preds = %._crit_edge167
-  %627 = mul nsw i32 %.lcssa146, 13
+  %627 = mul nuw nsw i32 %.lcssa146, 13
   %628 = zext nneg i32 %627 to i64
   %629 = zext i32 %619 to i64
   %630 = getelementptr inbounds i64, ptr %623, i64 %629
@@ -1625,7 +1625,7 @@ pvar_osc_s_read.exit.i:                           ; preds = %773, %770
   br i1 %777, label %.lr.ph.i109, label %._crit_edge.i107
 
 .lr.ph.i109:                                      ; preds = %pvar_osc_s_read.exit.i
-  %778 = mul nsw i32 %733, 13
+  %778 = mul nuw nsw i32 %733, 13
   %779 = zext nneg i32 %778 to i64
   br label %780
 
@@ -1740,7 +1740,7 @@ pvar_osc_r_read.exit.i:                           ; preds = %832, %829
   br i1 %837, label %.lr.ph71.i, label %._crit_edge72.i
 
 .lr.ph71.i:                                       ; preds = %pvar_osc_r_read.exit.i
-  %838 = mul nsw i32 %733, 13
+  %838 = mul nuw nsw i32 %733, 13
   %839 = zext nneg i32 %838 to i64
   br label %840
 

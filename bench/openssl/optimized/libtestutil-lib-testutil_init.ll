@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @global_init() local_unnamed_addr #0 {
+define noundef i32 @global_init() local_unnamed_addr #0 {
 entry:
   ret i32 1
 }

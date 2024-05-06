@@ -46,7 +46,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @Curl_dyn_tail(ptr nocapture noundef %s, i64 noundef %trail) local_unnamed_addr #3 {
+define hidden range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %s, i64 noundef %trail) local_unnamed_addr #3 {
 entry:
   %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -94,7 +94,7 @@ return:                                           ; preds = %Curl_dyn_reset.exit
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dyn_addn(ptr nocapture noundef %s, ptr nocapture noundef readonly %mem, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %s, ptr nocapture noundef readonly %mem, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %leng.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng.i, align 8
@@ -167,7 +167,7 @@ if.end41.i:                                       ; preds = %if.end38.i, %if.end
 
 if.then43.i:                                      ; preds = %if.end41.i
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre34.i, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %mem, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %mem, i64 %len, i1 false)
   %.pre.i = load ptr, ptr %s, align 8
   br label %if.end45.i
 
@@ -184,7 +184,7 @@ dyn_nappend.exit:                                 ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dyn_add(ptr nocapture noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #12
   %leng.i = getelementptr inbounds i8, ptr %s, i64 8
@@ -258,7 +258,7 @@ if.end41.i:                                       ; preds = %if.end38.i, %if.end
 
 if.then43.i:                                      ; preds = %if.end41.i
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre34.i, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %str, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %str, i64 %call, i1 false)
   %.pre.i = load ptr, ptr %s, align 8
   br label %if.end45.i
 
@@ -278,7 +278,7 @@ dyn_nappend.exit:                                 ; preds = %if.then.i, %if.then
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_dyn_vaddf(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_vaddf(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @Curl_dyn_vprintf(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) #11
   %switch.selectcmp = icmp eq i32 %call, 2
@@ -291,41 +291,35 @@ entry:
 declare i32 @Curl_dyn_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_dyn_addf(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_addf(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call i32 @Curl_dyn_vprintf(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull %ap) #11
   %switch.selectcmp.i = icmp eq i32 %call.i, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 100, i32 27
   %switch.selectcmp2.i = icmp eq i32 %call.i, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 0, i32 %switch.select.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %switch.select3.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %s) local_unnamed_addr #8 {
+define hidden ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %s) local_unnamed_addr #8 {
+define hidden ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @Curl_dyn_len(ptr nocapture noundef readonly %s) local_unnamed_addr #8 {
+define hidden i64 @Curl_dyn_len(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
 entry:
   %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -333,7 +327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @Curl_dyn_setlen(ptr nocapture noundef %s, i64 noundef %set) local_unnamed_addr #2 {
+define hidden range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %s, i64 noundef %set) local_unnamed_addr #2 {
 entry:
   %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -355,6 +349,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
@@ -371,8 +371,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

@@ -29,7 +29,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_badblocks_ex
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_ack_all_badblocks349, ptr @__UNIQUE_ID___addressable_badblocks_check346, ptr @__UNIQUE_ID___addressable_badblocks_clear348, ptr @__UNIQUE_ID___addressable_badblocks_exit354, ptr @__UNIQUE_ID___addressable_badblocks_init352, ptr @__UNIQUE_ID___addressable_badblocks_set347, ptr @__UNIQUE_ID___addressable_badblocks_show350, ptr @__UNIQUE_ID___addressable_badblocks_store351, ptr @__UNIQUE_ID___addressable_devm_init_badblocks353], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @badblocks_check(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
@@ -236,7 +236,7 @@ prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit
   %132 = load i64, ptr %131, align 8
   %133 = icmp sgt i64 %132, -1
   %134 = lshr i64 %132, 63
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw nsw i64 %134 to i32
   %136 = add i32 %35, %135
   %137 = zext i1 %133 to i32
   %138 = add i32 %36, %137
@@ -377,7 +377,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %16, align 8
   %38 = tail call i64 @llvm.umin.i64(i64 %33, i64 512)
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = shl i64 %32, 9
   %41 = add nsw i64 %38, -1
   %42 = or i64 %40, %41
@@ -410,7 +410,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
   %60 = zext nneg i32 %59 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %57, i64 %60, i1 false)
   %61 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 512)
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = shl i64 %32, 9
   %64 = add nsw i64 %61, -1
   %65 = or i64 %63, %64
@@ -440,7 +440,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
   %82 = add nsw i64 %81, %74
   %83 = icmp ult i64 %82, 513
   %84 = lshr i64 %72, 63
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = icmp eq i32 %85, %3
   %87 = and i1 %86, %83
   br i1 %87, label %93, label %88
@@ -565,13 +565,13 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
 
 163:                                              ; preds = %158, %135
   %164 = lshr i64 %136, 63
-  %165 = trunc i64 %164 to i32
+  %165 = trunc nuw nsw i64 %164 to i32
   %166 = icmp eq i32 %165, %3
   br i1 %166, label %334, label %343
 
 167:                                              ; preds = %158
   %168 = lshr i64 %136, 63
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = icmp eq i32 %169, %3
   br i1 %170, label %171, label %176
 
@@ -803,7 +803,7 @@ default.unreachable87:                            ; preds = %195
   br label %437
 
 332:                                              ; preds = %320, %297, %288, %281, %277
-  %333 = trunc i64 %191 to i32
+  %333 = trunc nsw i64 %191 to i32
   br label %437
 
 334:                                              ; preds = %163
@@ -953,7 +953,7 @@ default.unreachable87:                            ; preds = %195
 ._crit_edge84:                                    ; preds = %403, %421
   %426 = phi i64 [ %.ph, %421 ], [ %33, %403 ]
   %427 = tail call i64 @llvm.umin.i64(i64 %426, i64 512)
-  %428 = trunc i64 %427 to i32
+  %428 = trunc nuw nsw i64 %427 to i32
   %429 = shl i64 %32, 9
   %430 = add nsw i64 %427, -1
   %431 = or i64 %429, %430
@@ -1135,7 +1135,7 @@ default.unreachable87:                            ; preds = %195
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @badblocks_clear(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 0
@@ -1337,7 +1337,7 @@ define dso_local noundef i32 @badblocks_clear(ptr noundef %0, i64 noundef %1, i3
   br label %167
 
 143:                                              ; preds = %134
-  %144 = trunc i64 %88 to i32
+  %144 = trunc nuw nsw i64 %88 to i32
   %145 = add nuw nsw i32 %144, 1
   br i1 %51, label %146, label %167
 
@@ -1767,7 +1767,7 @@ define dso_local noundef i64 @badblocks_store(ptr noundef %0, ptr nocapture noun
 declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @badblocks_init(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @badblocks_init(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -1799,7 +1799,7 @@ define dso_local noundef i32 @badblocks_init(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @devm_init_badblocks(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @devm_init_badblocks(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %21, label %4
 

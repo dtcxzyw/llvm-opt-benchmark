@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z13fast_rv32i_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z13fast_rv32i_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 2
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -276,7 +276,7 @@ define noundef i64 @_Z13fast_rv64i_shP11processor_t6insn_tm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15logged_rv32i_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15logged_rv32i_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 2
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -466,7 +466,7 @@ define noundef i64 @_Z15logged_rv64i_shP11processor_t6insn_tm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z13fast_rv32e_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z13fast_rv32e_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 2
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -731,7 +731,7 @@ define noundef i64 @_Z13fast_rv64e_shP11processor_t6insn_tm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15logged_rv32e_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15logged_rv32e_shP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 2
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40

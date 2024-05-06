@@ -289,7 +289,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   %7 = and i16 %6, 8
   %cond.i = zext nneg i16 %7 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %data.i, i64 %cond.i
-  %bcmp.i = tail call i32 @bcmp(ptr %key, ptr nonnull %add.ptr.i, i64 %nkey)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %key, ptr nonnull %add.ptr.i, i64 %nkey)
   %tobool17.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool17.not.i, label %if.then, label %while.body.i
 
@@ -311,7 +311,7 @@ if.end:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_assoc_maintenance_thread() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @start_assoc_maintenance_thread() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.1) #18
   %cmp.not = icmp eq ptr %call, null

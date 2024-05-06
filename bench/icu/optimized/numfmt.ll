@@ -1876,7 +1876,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end8.i:                                        ; preds = %if.then.i, %if.then
   %kind.addr.0.i = phi i32 [ %kind, %if.then ], [ %spec.select.i, %if.then.i ]
-  %call9.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i = icmp eq i8 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end13.i, label %if.then11.i
 
@@ -1997,7 +1997,7 @@ entry:
   %.not.i.i.i = icmp eq i64 %lhsv.i.i.i, 32772547957449569
   %or.cond7.i.i.i = select i1 %or.cond.i.i.i, i1 %.not.i.i.i, i1 false
   %spec.select.i.i.i = select i1 %or.cond7.i.i.i, i32 12, i32 2
-  %call9.i.i.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i.i = icmp eq i8 %call9.i.i.i, 0
   br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %if.then11.i.i.i
 
@@ -2035,7 +2035,7 @@ entry:
   %.not.i.i = icmp eq i64 %lhsv.i.i, 32772547957449569
   %or.cond7.i.i = select i1 %or.cond.i.i, i1 %.not.i.i, i1 false
   %spec.select.i.i = select i1 %or.cond7.i.i, i32 12, i32 2
-  %call9.i.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i = icmp eq i8 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end13.i.i, label %if.then11.i.i
 
@@ -2059,7 +2059,7 @@ _ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UEr
 define noundef ptr @_ZN6icu_7512NumberFormat21createPercentInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
-  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i = icmp eq i8 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end13.i.i, label %if.then11.i.i
 
@@ -2080,7 +2080,7 @@ _ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UEr
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7512NumberFormat21createPercentInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %inLocale, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i = icmp eq i8 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end13.i.i, label %if.then11.i.i
 
@@ -2102,7 +2102,7 @@ _ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UEr
 define noundef ptr @_ZN6icu_7512NumberFormat24createScientificInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
-  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i = icmp eq i8 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end13.i.i, label %if.then11.i.i
 
@@ -2123,7 +2123,7 @@ _ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UEr
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7512NumberFormat24createScientificInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %inLocale, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9.i.i = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not.i.i = icmp eq i8 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end13.i.i, label %if.then11.i.i
 
@@ -2355,7 +2355,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool2.not = icmp eq i8 %call1, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
 
@@ -2377,7 +2377,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L11haveServiceEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZL16gServiceInitOnce acquire, align 4
   %cmp.i.not = icmp eq i32 %0, 0
@@ -2499,7 +2499,7 @@ if.then:                                          ; preds = %entry
 
 if.end8:                                          ; preds = %if.then, %entry
   %kind.addr.0 = phi i32 [ %kind, %entry ], [ %spec.select, %if.then ]
-  %call9 = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv(), !range !5
+  %call9 = call fastcc noundef signext i8 @_ZN6icu_75L11haveServiceEv()
   %tobool10.not = icmp eq i8 %call9, 0
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
@@ -2934,7 +2934,7 @@ lpad:                                             ; preds = %_ZN6icu_7514LocaleC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7512NumberFormat16isStyleSupportedE18UNumberFormatStyle(i32 noundef %style) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512NumberFormat16isStyleSupportedE18UNumberFormatStyle(i32 noundef %style) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = zext nneg i32 %style to i64
   %0 = lshr i64 81182, %idxprom
@@ -4134,7 +4134,7 @@ _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %f
   %10 = load i32, ptr %count, align 4
   %11 = sext i32 %10 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp, label %for.body, label %if.end12.loopexit, !llvm.loop !6
+  br i1 %cmp, label %for.body, label %if.end12.loopexit, !llvm.loop !5
 
 lpad:                                             ; preds = %if.then5.i.i, %if.end.i.i
   %12 = landingpad { ptr, i32 }
@@ -4676,6 +4676,5 @@ attributes #21 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 2148272481}
-!5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

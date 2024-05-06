@@ -10,7 +10,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @FSE_isError(i64 noundef %code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FSE_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @HUF_isError(i64 noundef %code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HUF_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -114,7 +114,7 @@ for.cond.i.i:                                     ; preds = %if.end161.i.i, %if.
 if.then18.i.i:                                    ; preds = %for.cond.i.i
   %not.i.i = xor i32 %bitStream.i.0.i, -1
   %or.i.i = or i32 %not.i.i, -2147483648
-  %1 = tail call i32 @llvm.cttz.i32(i32 %or.i.i, i1 true), !range !4
+  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or.i.i, i1 true)
   %cmp21.i.i11 = icmp ugt i32 %1, 23
   br i1 %cmp21.i.i11, label %while.body.i.i, label %while.end.i.i
 
@@ -137,9 +137,9 @@ while.body.i.i:                                   ; preds = %if.then18.i.i, %whi
   %shr38.i.i = lshr i32 %memPtr.val.i7, %bitCount.i.2.i
   %not39.i.i = xor i32 %shr38.i.i, -1
   %or40.i.i = or i32 %not39.i.i, -2147483648
-  %2 = tail call i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true), !range !4
+  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
   %cmp21.i.i = icmp ugt i32 %2, 23
-  br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !5
+  br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then18.i.i
   %charnum.i.1.i.lcssa = phi i32 [ %charnum.i.0.i, %if.then18.i.i ], [ %add23.i.i, %while.body.i.i ]
@@ -236,10 +236,10 @@ if.then120.i.i:                                   ; preds = %if.end107.i.i
   br i1 %cmp121.i.i, label %for.end.i.i, label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.then120.i.i
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %remaining.i.1.i, i1 true), !range !4
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %remaining.i.1.i, i1 true)
   %sub.i = xor i32 %4, 31
   %add126.i.i = sub nuw nsw i32 32, %4
-  %shl128.i.i = shl nuw i32 1, %sub.i
+  %shl128.i.i = shl nuw nsw i32 1, %sub.i
   br label %if.end129.i.i
 
 if.end129.i.i:                                    ; preds = %if.end124.i.i, %if.end107.i.i
@@ -374,7 +374,7 @@ for.cond.i:                                       ; preds = %if.end161.i, %if.en
 if.then18.i:                                      ; preds = %for.cond.i
   %not.i = xor i32 %bitStream.i.0, -1
   %or.i = or i32 %not.i, -2147483648
-  %1 = tail call i32 @llvm.cttz.i32(i32 %or.i, i1 true), !range !4
+  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or.i, i1 true)
   %cmp21.i113 = icmp ugt i32 %1, 23
   br i1 %cmp21.i113, label %while.body.i, label %while.end.i
 
@@ -397,9 +397,9 @@ while.body.i:                                     ; preds = %if.then18.i, %while
   %shr38.i = lshr i32 %memPtr.val.i109, %bitCount.i.2
   %not39.i = xor i32 %shr38.i, -1
   %or40.i = or i32 %not39.i, -2147483648
-  %2 = tail call i32 @llvm.cttz.i32(i32 %or40.i, i1 true), !range !4
+  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
   %cmp21.i = icmp ugt i32 %2, 23
-  br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !5
+  br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %if.then18.i
   %charnum.i.1.lcssa = phi i32 [ %charnum.i.0, %if.then18.i ], [ %add23.i, %while.body.i ]
@@ -495,10 +495,10 @@ if.then120.i:                                     ; preds = %if.end107.i
   br i1 %cmp121.i, label %for.end.i, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then120.i
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %remaining.i.1, i1 true), !range !4
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %remaining.i.1, i1 true)
   %sub.i111 = xor i32 %4, 31
   %add126.i = sub nuw nsw i32 32, %4
-  %shl128.i = shl nuw i32 1, %sub.i111
+  %shl128.i = shl nuw nsw i32 1, %sub.i111
   br label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.end124.i, %if.end107.i
@@ -641,7 +641,7 @@ for.body.i.i:                                     ; preds = %if.end11.i.i, %for.
   store i8 %5, ptr %arrayidx28.i.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %7 = icmp ult i64 %indvars.iv.next.i, %sub.i.i
-  br i1 %7, label %for.body.i.i, label %if.end41.i.i, !llvm.loop !7
+  br i1 %7, label %for.body.i.i, label %if.end41.i.i, !llvm.loop !6
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %cmp31.i.not.i = icmp ult i64 %conv.i.i, %srcSize
@@ -684,14 +684,14 @@ if.end54.i.i:                                     ; preds = %for.body47.i.i
   %inc65.i.i = add i32 %n42.i.057.i, 1
   %conv44.i.i = zext i32 %inc65.i.i to i64
   %cmp45.i.i = icmp ugt i64 %oSize.i.0.i, %conv44.i.i
-  br i1 %cmp45.i.i, label %for.body47.i.i, label %for.end66.i.i, !llvm.loop !8
+  br i1 %cmp45.i.i, label %for.body47.i.i, label %for.end66.i.i, !llvm.loop !7
 
 for.end66.i.i:                                    ; preds = %if.end54.i.i
   %cmp67.i.i = icmp eq i32 %add63.i.i, 0
   br i1 %cmp67.i.i, label %return, label %if.end70.i.i
 
 if.end70.i.i:                                     ; preds = %for.end66.i.i
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %add63.i.i, i1 true), !range !4
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add63.i.i, i1 true)
   %sub.i49.i = xor i32 %11, 31
   %cmp73.i.i = icmp ugt i32 %sub.i49.i, 11
   br i1 %cmp73.i.i, label %return, label %if.end76.i.i
@@ -701,7 +701,7 @@ if.end76.i.i:                                     ; preds = %if.end70.i.i
   store i32 %add72.i.i, ptr %tableLogPtr, align 4
   %shl77.i.i = shl nuw nsw i32 2, %sub.i49.i
   %sub78.i.i = sub i32 %shl77.i.i, %add63.i.i
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %sub78.i.i, i1 true), !range !4
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub78.i.i, i1 true)
   %sub.i50.i = xor i32 %12, 31
   %shl80.i.i = shl nuw i32 1, %sub.i50.i
   %cmp83.i.not.i = icmp eq i32 %shl80.i.i, %sub78.i.i
@@ -709,7 +709,7 @@ if.end76.i.i:                                     ; preds = %if.end70.i.i
 
 if.end86.i.i:                                     ; preds = %if.end76.i.i
   %add82.i.i = sub nuw nsw i32 32, %12
-  %conv87.i.i = trunc i32 %add82.i.i to i8
+  %conv87.i.i = trunc nuw nsw i32 %add82.i.i to i8
   %arrayidx88.i.i = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.i.0.i
   store i8 %conv87.i.i, ptr %arrayidx88.i.i, align 1
   %idxprom89.i.i = zext nneg i32 %add82.i.i to i64
@@ -770,7 +770,7 @@ if.end41.i.thread:                                ; preds = %if.end11.i
   br label %HUF_readStats_body.exit
 
 for.body.i.preheader:                             ; preds = %if.end11.i
-  %1 = trunc i64 %sub.i to i32
+  %1 = trunc nuw nsw i64 %sub.i to i32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -789,7 +789,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %cmp13.i = icmp ugt i32 %1, %indvars
-  br i1 %cmp13.i, label %for.body.i, label %if.end41.i, !llvm.loop !7
+  br i1 %cmp13.i, label %for.body.i, label %if.end41.i, !llvm.loop !6
 
 if.else.i:                                        ; preds = %if.end.i
   %cmp31.i.not = icmp ult i64 %conv.i, %srcSize
@@ -832,14 +832,14 @@ if.end54.i:                                       ; preds = %for.body47.i
   %inc65.i = add i32 %n42.i.057, 1
   %conv44.i = zext i32 %inc65.i to i64
   %cmp45.i = icmp ugt i64 %oSize.i.0, %conv44.i
-  br i1 %cmp45.i, label %for.body47.i, label %for.end66.i, !llvm.loop !8
+  br i1 %cmp45.i, label %for.body47.i, label %for.end66.i, !llvm.loop !7
 
 for.end66.i:                                      ; preds = %if.end54.i
   %cmp67.i = icmp eq i32 %add63.i, 0
   br i1 %cmp67.i, label %HUF_readStats_body.exit, label %if.end70.i
 
 if.end70.i:                                       ; preds = %for.end66.i
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %add63.i, i1 true), !range !4
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add63.i, i1 true)
   %sub.i49 = xor i32 %11, 31
   %cmp73.i = icmp ugt i32 %sub.i49, 11
   br i1 %cmp73.i, label %HUF_readStats_body.exit, label %if.end76.i
@@ -849,7 +849,7 @@ if.end76.i:                                       ; preds = %if.end70.i
   store i32 %add72.i, ptr %tableLogPtr, align 4
   %shl77.i = shl nuw nsw i32 2, %sub.i49
   %sub78.i = sub i32 %shl77.i, %add63.i
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %sub78.i, i1 true), !range !4
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub78.i, i1 true)
   %sub.i50 = xor i32 %12, 31
   %shl80.i = shl nuw i32 1, %sub.i50
   %cmp83.i.not = icmp eq i32 %shl80.i, %sub78.i
@@ -857,7 +857,7 @@ if.end76.i:                                       ; preds = %if.end70.i
 
 if.end86.i:                                       ; preds = %if.end76.i
   %add82.i = sub nuw nsw i32 32, %12
-  %conv87.i = trunc i32 %add82.i to i8
+  %conv87.i = trunc nuw nsw i32 %add82.i to i8
   %arrayidx88.i = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.i.0
   store i8 %conv87.i, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext nneg i32 %add82.i to i64
@@ -925,8 +925,7 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

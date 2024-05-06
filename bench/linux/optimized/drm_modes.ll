@@ -1930,7 +1930,7 @@ define dso_local i32 @drm_mode_validate_driver(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef i32 @drm_mode_validate_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %10
 
@@ -1961,7 +1961,7 @@ define dso_local noundef i32 @drm_mode_validate_size(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_validate_ycbcr420(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 37) i32 @drm_mode_validate_ycbcr420(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 151
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -3820,7 +3820,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local i64 @strscpy_pad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_convert_umode(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @drm_mode_convert_umode(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %109, label %6

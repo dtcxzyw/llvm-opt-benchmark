@@ -7891,7 +7891,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %.sroa.044.063.i.i.i = phi ptr [ %37, %36 ], [ %12, %.lr.ph.preheader.i.i.i ]
   %.val1.i.i.i.i = load ptr, ptr %.sroa.044.063.i.i.i, align 8
   %.val1.val.i.i.i.i = load ptr, ptr %.val1.i.i.i.i, align 8
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit", label %24
 
@@ -7899,7 +7899,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %25 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 7680
   %.val1.i22.i.i.i = load ptr, ptr %25, align 8
   %.val1.val.i23.i.i.i = load ptr, ptr %.val1.i22.i.i.i, align 8
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i23.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i23.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit", label %28
 
@@ -7907,7 +7907,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %29 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 15360
   %.val1.i24.i.i.i = load ptr, ptr %29, align 8
   %.val1.val.i25.i.i.i = load ptr, ptr %.val1.i24.i.i.i, align 8
-  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i25.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i25.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit32", label %32
 
@@ -7915,7 +7915,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %33 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 23040
   %.val1.i26.i.i.i = load ptr, ptr %33, align 8
   %.val1.val.i27.i.i.i = load ptr, ptr %.val1.i26.i.i.i, align 8
-  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i27.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %34 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i27.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit34", label %36
 
@@ -7943,7 +7943,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
 41:                                               ; preds = %._crit_edge.i.i.i
   %.val1.i28.i.i.i = load ptr, ptr %.sroa.044.0.lcssa.i.i.i, align 8
   %.val1.val.i29.i.i.i = load ptr, ptr %.val1.i28.i.i.i, align 8
-  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i29.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %42 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i29.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit", label %44
 
@@ -7955,7 +7955,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %45, %44 ]
   %.val1.i30.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i, align 8
   %.val1.val.i31.i.i.i = load ptr, ptr %.val1.i30.i.i.i, align 8
-  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i31.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %47 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i31.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit", label %49
 
@@ -7967,7 +7967,7 @@ define void @_Z9push_moltP8t_symtabPSt6vectorI19MoleculeInformationSaIS2_EEPcP14
   %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
   %.val1.i32.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i, align 8
   %.val1.val.i33.i.i.i = load ptr, ptr %.val1.i32.i.i.i, align 8
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.val.i33.i.i.i, ptr noundef nonnull dereferenceable(1) %5) #29
+  %52 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.val.i33.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %5) #29
   %53 = icmp eq i32 %52, 0
   %spec.select.i.i.i = select i1 %53, ptr %.sroa.044.2.i.i.i, ptr %14
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP19MoleculeInformationSt6vectorIS2_SaIS2_EEEEZ9push_moltP8t_symtabPS6_PcP14WarningHandlerE3$_0ET_SF_SF_T0_.exit"

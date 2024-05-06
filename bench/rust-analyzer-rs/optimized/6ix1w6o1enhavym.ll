@@ -169,7 +169,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !39
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !43
   %9 = getelementptr inbounds { i32, i16, i16 }, ptr %6, i64 %8
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h8d455ea7770ed904E.llvm.17596014262530528876(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, ptr noundef nonnull %9), !noalias !32
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h8d455ea7770ed904E.llvm.17596014262530528876(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %9), !noalias !32
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !39
   ret i1 %11
@@ -557,7 +557,7 @@ define noundef i32 @_ZN5salsa9intern_id8InternId13new_unchecked17h3c5d884dfe5773
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i32 @_ZN5salsa9intern_id8InternId6as_u3217h594288ac3cecdb86E(i32 noundef %0) unnamed_addr #6 {
+define noundef range(i32 0, -1) i32 @_ZN5salsa9intern_id8InternId6as_u3217h594288ac3cecdb86E(i32 noundef %0) unnamed_addr #6 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, -1
@@ -565,7 +565,7 @@ define noundef i32 @_ZN5salsa9intern_id8InternId6as_u3217h594288ac3cecdb86E(i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %0) unnamed_addr #6 {
+define noundef range(i64 0, 4294967295) i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %0) unnamed_addr #6 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, -1
@@ -574,7 +574,7 @@ define noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i32 @"_ZN5salsa9intern_id87_$LT$impl$u20$core..convert..From$LT$salsa..intern_id..InternId$GT$$u20$for$u20$u32$GT$4from17h9c3911cba6be92d2E"(i32 noundef %0) unnamed_addr #6 {
+define noundef range(i32 0, -1) i32 @"_ZN5salsa9intern_id87_$LT$impl$u20$core..convert..From$LT$salsa..intern_id..InternId$GT$$u20$for$u20$u32$GT$4from17h9c3911cba6be92d2E"(i32 noundef %0) unnamed_addr #6 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, -1
@@ -582,7 +582,7 @@ define noundef i32 @"_ZN5salsa9intern_id87_$LT$impl$u20$core..convert..From$LT$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i64 @"_ZN5salsa9intern_id89_$LT$impl$u20$core..convert..From$LT$salsa..intern_id..InternId$GT$$u20$for$u20$usize$GT$4from17h7fb79aadc69da6a4E"(i32 noundef %0) unnamed_addr #6 {
+define noundef range(i64 0, 4294967295) i64 @"_ZN5salsa9intern_id89_$LT$impl$u20$core..convert..From$LT$salsa..intern_id..InternId$GT$$u20$for$u20$usize$GT$4from17h7fb79aadc69da6a4E"(i32 noundef %0) unnamed_addr #6 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, -1
@@ -675,7 +675,7 @@ define noundef i32 @"_ZN73_$LT$salsa..intern_id..InternId$u20$as$u20$salsa..inte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN73_$LT$salsa..intern_id..InternId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h867836fa542912b8E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #7 {
+define noundef range(i32 1, 0) i32 @"_ZN73_$LT$salsa..intern_id..InternId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h867836fa542912b8E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #7 {
   %2 = load i32, ptr %0, align 4, !range !92, !noundef !4
   ret i32 %2
 }

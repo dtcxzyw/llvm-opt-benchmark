@@ -2759,8 +2759,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mBegin.i = getelementptr inbounds i8, ptr %range, i64 8
   %10 = load i64, ptr %mBegin.i, align 8
   %11 = load i64, ptr %range, align 8
-  %cmp.i.i1030 = icmp ult i64 %10, %11
-  br i1 %cmp.i.i1030, label %for.body.lr.ph, label %for.end45
+  %cmp.i.i1031 = icmp ult i64 %10, %11
+  br i1 %cmp.i.i1031, label %for.body.lr.ph, label %for.end45
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16checkInterrupterEv.exit
   %mLeafManager.i.i = getelementptr inbounds i8, ptr %range, i64 24
@@ -2770,21 +2770,21 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05t
   %ref.tmp.sroa.2.0.mCenter.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 144
   %mValues.i = getelementptr inbounds i8, ptr %this, i64 112
   %mAcc.i = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 140
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %mKeys.i.i.i400 = getelementptr inbounds i8, ptr %this, i64 40
-  %arrayidx.i.i.i3.i.i469 = getelementptr inbounds i8, ptr %this, i64 44
-  %arrayidx.i.i.i5.i.i474 = getelementptr inbounds i8, ptr %this, i64 48
-  %add.ptr.i.i477 = getelementptr inbounds i8, ptr %this, i64 32
-  %arrayidx.i.i.i.i404 = getelementptr inbounds i8, ptr %this, i64 52
-  %arrayidx.i.i.i4.i12.i456 = getelementptr inbounds i8, ptr %this, i64 56
-  %arrayidx.i.i.i7.i.i461 = getelementptr inbounds i8, ptr %this, i64 60
-  %arrayidx.i.i.i20.i408 = getelementptr inbounds i8, ptr %this, i64 64
-  %arrayidx.i.i.i4.i26.i417 = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx.i.i.i7.i31.i422 = getelementptr inbounds i8, ptr %this, i64 72
-  %mNodes.i.i411 = getelementptr inbounds i8, ptr %this, i64 80
-  %add.ptr.i.i.i.i5.i975 = getelementptr inbounds i8, ptr %this, i64 88
-  %add.ptr.i.i.i.i.i.i1003 = getelementptr inbounds i8, ptr %this, i64 96
+  %mKeys.i.i.i401 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx.i.i.i3.i.i470 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx.i.i.i5.i.i475 = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i.i478 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i.i.i.i405 = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx.i.i.i4.i12.i457 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx.i.i.i7.i.i462 = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx.i.i.i20.i409 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx.i.i.i4.i26.i418 = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx.i.i.i7.i31.i423 = getelementptr inbounds i8, ptr %this, i64 72
+  %mNodes.i.i412 = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i5.i976 = getelementptr inbounds i8, ptr %this, i64 88
+  %add.ptr.i.i.i.i.i.i1004 = getelementptr inbounds i8, ptr %this, i64 96
   %tmp.coerce9.sroa.2.0.coerce.dive8.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
   %tmp.coerce16.sroa.2.0.coerce.dive15.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 8
   %tmp.coerce23.sroa.2.0.coerce.dive22.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp19.i, i64 8
@@ -2794,11 +2794,11 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
-  %leafIter.sroa.3.01031 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
+  %leafIter.sroa.3.01032 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
   %12 = load ptr, ptr %mLeafManager.i.i, align 8
   %mLeafs.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load ptr, ptr %mLeafs.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.01031
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.01032
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %mValueMask.i = getelementptr inbounds i8, ptr %14, i64 16
@@ -2831,11 +2831,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit: ; preds = %land.r
   store ptr %14, ptr %voxelIter, align 8, !alias.scope !27
   store i32 %add.i.i.i, ptr %mMaskIter.i.i.i.i, align 8, !alias.scope !27
   store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8, !alias.scope !27
-  %cmp.i.i.i.not1026 = icmp eq i32 %add.i.i.i, 512
-  br i1 %cmp.i.i.i.not1026, label %for.end, label %for.body11
+  %cmp.i.i.i.not1027 = icmp eq i32 %add.i.i.i, 512
+  br i1 %cmp.i.i.i.not1027, label %for.end, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
-  %18 = phi i32 [ %retval.0.i.i.i.i23, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
+  %18 = phi i32 [ %retval.0.i.i.i.i24, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
   %19 = phi <2 x double> [ %296, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ zeroinitializer, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %voxelIter)
   %mOutOfCore.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -2917,7 +2917,7 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeIN
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp33.i)
   %32 = load i32, ptr %mCenter.i, align 8
   %add.i.i = add nsw i32 %32, -1
-  %33 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %33 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %34 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %33 to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -2925,277 +2925,277 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeIN
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %ref.tmp.i, align 8
   store i32 %34, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i, align 8
-  %and.i.i.i399 = and i32 %add.i.i, -8
-  %35 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i401 = icmp eq i32 %and.i.i.i399, %35
-  br i1 %cmp.i.i.i401, label %land.lhs.true.i.i.i466, label %if.end.i.i402
+  %and.i.i.i400 = and i32 %add.i.i, -8
+  %35 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i402 = icmp eq i32 %and.i.i.i400, %35
+  br i1 %cmp.i.i.i402, label %land.lhs.true.i.i.i467, label %if.end.i.i403
 
-land.lhs.true.i.i.i466:                           ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit
-  %and5.i.i.i468 = and i32 %33, -8
-  %36 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i470 = icmp eq i32 %and5.i.i.i468, %36
-  br i1 %cmp9.i.i.i470, label %land.rhs.i.i.i471, label %if.end.i.i402
+land.lhs.true.i.i.i467:                           ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit
+  %and5.i.i.i469 = and i32 %33, -8
+  %36 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i471 = icmp eq i32 %and5.i.i.i469, %36
+  br i1 %cmp9.i.i.i471, label %land.rhs.i.i.i472, label %if.end.i.i403
 
-land.rhs.i.i.i471:                                ; preds = %land.lhs.true.i.i.i466
-  %and11.i.i.i473 = and i32 %34, -8
-  %37 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i475 = icmp eq i32 %and11.i.i.i473, %37
-  br i1 %cmp15.i.i.i475, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i476, label %if.end.i.i402
+land.rhs.i.i.i472:                                ; preds = %land.lhs.true.i.i.i467
+  %and11.i.i.i474 = and i32 %34, -8
+  %37 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i476 = icmp eq i32 %and11.i.i.i474, %37
+  br i1 %cmp15.i.i.i476, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i477, label %if.end.i.i403
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i476: ; preds = %land.rhs.i.i.i471
-  %38 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i478 = shl i32 %add.i.i, 6
-  %shl.i.i.i479 = and i32 %and.i6.i.i478, 448
-  %and2.i.i.i480 = shl i32 %33, 3
-  %shl3.i.i.i481 = and i32 %and2.i.i.i480, 56
-  %and5.i7.i.i483 = and i32 %34, 7
-  %add.i.i.i482 = or disjoint i32 %shl.i.i.i479, %and5.i7.i.i483
-  %add6.i.i.i484 = or disjoint i32 %add.i.i.i482, %shl3.i.i.i481
-  %idxprom.i.i485 = zext nneg i32 %add6.i.i.i484 to i64
-  %arrayidx.i.i486 = getelementptr inbounds float, ptr %38, i64 %idxprom.i.i485
-  %tobool.i.not.i487 = icmp eq ptr %38, null
-  br i1 %tobool.i.not.i487, label %if.end.i.i402, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i477: ; preds = %land.rhs.i.i.i472
+  %38 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i479 = shl i32 %add.i.i, 6
+  %shl.i.i.i480 = and i32 %and.i6.i.i479, 448
+  %and2.i.i.i481 = shl i32 %33, 3
+  %shl3.i.i.i482 = and i32 %and2.i.i.i481, 56
+  %and5.i7.i.i484 = and i32 %34, 7
+  %add.i.i.i483 = or disjoint i32 %shl.i.i.i480, %and5.i7.i.i484
+  %add6.i.i.i485 = or disjoint i32 %add.i.i.i483, %shl3.i.i.i482
+  %idxprom.i.i486 = zext nneg i32 %add6.i.i.i485 to i64
+  %arrayidx.i.i487 = getelementptr inbounds float, ptr %38, i64 %idxprom.i.i486
+  %tobool.i.not.i488 = icmp eq ptr %38, null
+  br i1 %tobool.i.not.i488, label %if.end.i.i403, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i.i402:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i476, %land.rhs.i.i.i471, %land.lhs.true.i.i.i466, %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit
-  %and.i.i6.i403 = and i32 %add.i.i, -128
-  %39 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i405 = icmp eq i32 %and.i.i6.i403, %39
-  br i1 %cmp.i.i7.i405, label %land.lhs.true.i.i9.i453, label %if.end.i16.i406
+if.end.i.i403:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i477, %land.rhs.i.i.i472, %land.lhs.true.i.i.i467, %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit
+  %and.i.i6.i404 = and i32 %add.i.i, -128
+  %39 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i406 = icmp eq i32 %and.i.i6.i404, %39
+  br i1 %cmp.i.i7.i406, label %land.lhs.true.i.i9.i454, label %if.end.i16.i407
 
-land.lhs.true.i.i9.i453:                          ; preds = %if.end.i.i402
-  %and5.i.i11.i455 = and i32 %33, -128
-  %40 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i457 = icmp eq i32 %and5.i.i11.i455, %40
-  br i1 %cmp9.i.i13.i457, label %land.rhs.i.i14.i458, label %if.end.i16.i406
+land.lhs.true.i.i9.i454:                          ; preds = %if.end.i.i403
+  %and5.i.i11.i456 = and i32 %33, -128
+  %40 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i458 = icmp eq i32 %and5.i.i11.i456, %40
+  br i1 %cmp9.i.i13.i458, label %land.rhs.i.i14.i459, label %if.end.i16.i407
 
-land.rhs.i.i14.i458:                              ; preds = %land.lhs.true.i.i9.i453
-  %and11.i.i16.i460 = and i32 %34, -128
-  %41 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i462 = icmp eq i32 %and11.i.i16.i460, %41
-  br i1 %cmp15.i.i17.i462, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i463, label %if.end.i16.i406
+land.rhs.i.i14.i459:                              ; preds = %land.lhs.true.i.i9.i454
+  %and11.i.i16.i461 = and i32 %34, -128
+  %41 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i463 = icmp eq i32 %and11.i.i16.i461, %41
+  br i1 %cmp15.i.i17.i463, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i464, label %if.end.i16.i407
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i463: ; preds = %land.rhs.i.i14.i458
-  %42 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i465 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %42, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i464: ; preds = %land.rhs.i.i14.i459
+  %42 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i466 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %42, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i16.i406:                                  ; preds = %land.rhs.i.i14.i458, %land.lhs.true.i.i9.i453, %if.end.i.i402
-  %and.i.i19.i407 = and i32 %add.i.i, -4096
-  %43 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i409 = icmp eq i32 %and.i.i19.i407, %43
-  br i1 %cmp.i.i21.i409, label %land.lhs.true.i.i23.i414, label %if.end.i27.i410
+if.end.i16.i407:                                  ; preds = %land.rhs.i.i14.i459, %land.lhs.true.i.i9.i454, %if.end.i.i403
+  %and.i.i19.i408 = and i32 %add.i.i, -4096
+  %43 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i410 = icmp eq i32 %and.i.i19.i408, %43
+  br i1 %cmp.i.i21.i410, label %land.lhs.true.i.i23.i415, label %if.end.i27.i411
 
-land.lhs.true.i.i23.i414:                         ; preds = %if.end.i16.i406
-  %and5.i.i25.i416 = and i32 %33, -4096
-  %44 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i418 = icmp eq i32 %and5.i.i25.i416, %44
-  br i1 %cmp9.i.i27.i418, label %land.rhs.i.i28.i419, label %if.end.i27.i410
+land.lhs.true.i.i23.i415:                         ; preds = %if.end.i16.i407
+  %and5.i.i25.i417 = and i32 %33, -4096
+  %44 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i419 = icmp eq i32 %and5.i.i25.i417, %44
+  br i1 %cmp9.i.i27.i419, label %land.rhs.i.i28.i420, label %if.end.i27.i411
 
-land.rhs.i.i28.i419:                              ; preds = %land.lhs.true.i.i23.i414
-  %and11.i.i30.i421 = and i32 %34, -4096
-  %45 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i423 = icmp eq i32 %and11.i.i30.i421, %45
-  br i1 %cmp15.i.i32.i423, label %if.end.i33.i424, label %if.end.i27.i410
+land.rhs.i.i28.i420:                              ; preds = %land.lhs.true.i.i23.i415
+  %and11.i.i30.i422 = and i32 %34, -4096
+  %45 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i424 = icmp eq i32 %and11.i.i30.i422, %45
+  br i1 %cmp15.i.i32.i424, label %if.end.i33.i425, label %if.end.i27.i411
 
-if.end.i33.i424:                                  ; preds = %land.rhs.i.i28.i419
-  %46 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i425:                                  ; preds = %land.rhs.i.i28.i420
+  %46 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %47 = shl i32 %add.i.i, 3
-  %shl.i.i.i.i426 = and i32 %47, 31744
+  %shl.i.i.i.i427 = and i32 %47, 31744
   %48 = lshr i32 %33, 2
-  %shl4.i.i.i.i427 = and i32 %48, 992
-  %add.i.i.i.i428 = or disjoint i32 %shl4.i.i.i.i427, %shl.i.i.i.i426
-  %and6.i.i.i.i429 = lshr i32 %34, 7
-  %shr7.i.i.i.i430 = and i32 %and6.i.i.i.i429, 31
-  %add8.i.i.i.i431 = or disjoint i32 %add.i.i.i.i428, %shr7.i.i.i.i430
-  %mChildMask.i.i.i.i432 = getelementptr inbounds i8, ptr %46, i64 262144
-  %shr.i.i.i.i.i433 = lshr i32 %add.i.i.i.i428, 6
-  %idxprom.i.i.i.i.i434 = zext nneg i32 %shr.i.i.i.i.i433 to i64
-  %arrayidx.i.i.i8.i.i435 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i432, i64 0, i64 %idxprom.i.i.i.i.i434
-  %49 = load i64, ptr %arrayidx.i.i.i8.i.i435, align 8
-  %and.i.i.i.i.i436 = and i32 %add8.i.i.i.i431, 63
-  %sh_prom.i.i.i.i.i437 = zext nneg i32 %and.i.i.i.i.i436 to i64
-  %shl.i.i.i.i.i438 = shl nuw i64 1, %sh_prom.i.i.i.i.i437
-  %and2.i.i.i.i.i439 = and i64 %49, %shl.i.i.i.i.i438
-  %cmp.i.i.not.i.i.i440 = icmp eq i64 %and2.i.i.i.i.i439, 0
-  %idxprom10.i.i.i441 = zext nneg i32 %add8.i.i.i.i431 to i64
-  %arrayidx11.i.i.i442 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %46, i64 0, i64 %idxprom10.i.i.i441
-  br i1 %cmp.i.i.not.i.i.i440, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488, label %if.then.i.i.i443
+  %shl4.i.i.i.i428 = and i32 %48, 992
+  %add.i.i.i.i429 = or disjoint i32 %shl4.i.i.i.i428, %shl.i.i.i.i427
+  %and6.i.i.i.i430 = lshr i32 %34, 7
+  %shr7.i.i.i.i431 = and i32 %and6.i.i.i.i430, 31
+  %add8.i.i.i.i432 = or disjoint i32 %add.i.i.i.i429, %shr7.i.i.i.i431
+  %mChildMask.i.i.i.i433 = getelementptr inbounds i8, ptr %46, i64 262144
+  %shr.i.i.i.i.i434 = lshr i32 %add.i.i.i.i429, 6
+  %idxprom.i.i.i.i.i435 = zext nneg i32 %shr.i.i.i.i.i434 to i64
+  %arrayidx.i.i.i8.i.i436 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i433, i64 0, i64 %idxprom.i.i.i.i.i435
+  %49 = load i64, ptr %arrayidx.i.i.i8.i.i436, align 8
+  %and.i.i.i.i.i437 = and i32 %add8.i.i.i.i432, 63
+  %sh_prom.i.i.i.i.i438 = zext nneg i32 %and.i.i.i.i.i437 to i64
+  %shl.i.i.i.i.i439 = shl nuw i64 1, %sh_prom.i.i.i.i.i438
+  %and2.i.i.i.i.i440 = and i64 %49, %shl.i.i.i.i.i439
+  %cmp.i.i.not.i.i.i441 = icmp eq i64 %and2.i.i.i.i.i440, 0
+  %idxprom10.i.i.i442 = zext nneg i32 %add8.i.i.i.i432 to i64
+  %arrayidx11.i.i.i443 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %46, i64 0, i64 %idxprom10.i.i.i442
+  br i1 %cmp.i.i.not.i.i.i441, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489, label %if.then.i.i.i444
 
-if.then.i.i.i443:                                 ; preds = %if.end.i33.i424
-  %50 = load ptr, ptr %arrayidx11.i.i.i442, align 8
-  %and4.i.i.i.i444 = and i32 %33, -128
-  %and7.i.i.i.i445 = and i32 %34, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i446 = zext i32 %and4.i.i.i.i444 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i447 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i446, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i448 = zext i32 %and.i.i6.i403 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i449 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i447, %retval.sroa.0.0.insert.ext.i.i.i.i448
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i449, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i445, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %50, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %51 = load ptr, ptr %arrayidx11.i.i.i442, align 8
-  %call8.i.i.i452 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %51, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i.i.i444:                                 ; preds = %if.end.i33.i425
+  %50 = load ptr, ptr %arrayidx11.i.i.i443, align 8
+  %and4.i.i.i.i445 = and i32 %33, -128
+  %and7.i.i.i.i446 = and i32 %34, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i447 = zext i32 %and4.i.i.i.i445 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i448 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i447, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i449 = zext i32 %and.i.i6.i404 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i450 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i448, %retval.sroa.0.0.insert.ext.i.i.i.i449
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i450, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i446, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %50, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %51 = load ptr, ptr %arrayidx11.i.i.i443, align 8
+  %call8.i.i.i453 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %51, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i27.i410:                                  ; preds = %land.rhs.i.i28.i419, %land.lhs.true.i.i23.i414, %if.end.i16.i406
-  %52 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i912 = getelementptr inbounds i8, ptr %52, i64 52
-  %53 = load i32, ptr %mOrigin.i.i.i912, align 4
-  %sub.i.i.i.i913 = sub nsw i32 %add.i.i, %53
-  %arrayidx.i.i.i.i.i.i.i915 = getelementptr inbounds i8, ptr %52, i64 56
-  %54 = load i32, ptr %arrayidx.i.i.i.i.i.i.i915, align 4
-  %sub6.i.i.i.i916 = sub nsw i32 %33, %54
-  %arrayidx.i.i.i4.i.i.i.i918 = getelementptr inbounds i8, ptr %52, i64 60
-  %55 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i918, align 4
-  %sub10.i.i.i.i919 = sub nsw i32 %34, %55
-  %and.i.i.i.i920 = and i32 %sub.i.i.i.i913, -4096
-  %and4.i.i.i.i921 = and i32 %sub6.i.i.i.i916, -4096
-  %and7.i.i.i.i922 = and i32 %sub10.i.i.i.i919, -4096
-  %_M_parent.i.i.i.i.i923 = getelementptr inbounds i8, ptr %52, i64 16
-  %56 = load ptr, ptr %_M_parent.i.i.i.i.i923, align 8
-  %add.ptr.i.i.i.i.i924 = getelementptr inbounds i8, ptr %52, i64 8
-  %cmp.not9.i.i.i.i.i925 = icmp eq ptr %56, null
-  br i1 %cmp.not9.i.i.i.i.i925, label %if.then.i1008, label %while.body.i.i.i.i.i926
+if.end.i27.i411:                                  ; preds = %land.rhs.i.i28.i420, %land.lhs.true.i.i23.i415, %if.end.i16.i407
+  %52 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i913 = getelementptr inbounds i8, ptr %52, i64 52
+  %53 = load i32, ptr %mOrigin.i.i.i913, align 4
+  %sub.i.i.i.i914 = sub nsw i32 %add.i.i, %53
+  %arrayidx.i.i.i.i.i.i.i916 = getelementptr inbounds i8, ptr %52, i64 56
+  %54 = load i32, ptr %arrayidx.i.i.i.i.i.i.i916, align 4
+  %sub6.i.i.i.i917 = sub nsw i32 %33, %54
+  %arrayidx.i.i.i4.i.i.i.i919 = getelementptr inbounds i8, ptr %52, i64 60
+  %55 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i919, align 4
+  %sub10.i.i.i.i920 = sub nsw i32 %34, %55
+  %and.i.i.i.i921 = and i32 %sub.i.i.i.i914, -4096
+  %and4.i.i.i.i922 = and i32 %sub6.i.i.i.i917, -4096
+  %and7.i.i.i.i923 = and i32 %sub10.i.i.i.i920, -4096
+  %_M_parent.i.i.i.i.i924 = getelementptr inbounds i8, ptr %52, i64 16
+  %56 = load ptr, ptr %_M_parent.i.i.i.i.i924, align 8
+  %add.ptr.i.i.i.i.i925 = getelementptr inbounds i8, ptr %52, i64 8
+  %cmp.not9.i.i.i.i.i926 = icmp eq ptr %56, null
+  br i1 %cmp.not9.i.i.i.i.i926, label %if.then.i1009, label %while.body.i.i.i.i.i927
 
-while.body.i.i.i.i.i926:                          ; preds = %if.end.i27.i410, %if.end.i.i.i.i.i941
-  %__x.addr.011.i.i.i.i.i927 = phi ptr [ %__x.addr.1.i.i.i.i.i945, %if.end.i.i.i.i.i941 ], [ %56, %if.end.i27.i410 ]
-  %__y.addr.010.i.i.i.i.i928 = phi ptr [ %__y.addr.1.i.i.i.i.i943, %if.end.i.i.i.i.i941 ], [ %add.ptr.i.i.i.i.i924, %if.end.i27.i410 ]
-  %_M_storage.i.i.i.i.i.i.i929 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 32
-  %57 = load i32, ptr %_M_storage.i.i.i.i.i.i.i929, align 4
-  %cmp.i.i.i.i.i.i.i930 = icmp slt i32 %57, %and.i.i.i.i920
-  br i1 %cmp.i.i.i.i.i.i.i930, label %if.else.i.i.i.i.i1010, label %cond.false.i.i.i.i.i.i.i931
+while.body.i.i.i.i.i927:                          ; preds = %if.end.i27.i411, %if.end.i.i.i.i.i942
+  %__x.addr.011.i.i.i.i.i928 = phi ptr [ %__x.addr.1.i.i.i.i.i946, %if.end.i.i.i.i.i942 ], [ %56, %if.end.i27.i411 ]
+  %__y.addr.010.i.i.i.i.i929 = phi ptr [ %__y.addr.1.i.i.i.i.i944, %if.end.i.i.i.i.i942 ], [ %add.ptr.i.i.i.i.i925, %if.end.i27.i411 ]
+  %_M_storage.i.i.i.i.i.i.i930 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 32
+  %57 = load i32, ptr %_M_storage.i.i.i.i.i.i.i930, align 4
+  %cmp.i.i.i.i.i.i.i931 = icmp slt i32 %57, %and.i.i.i.i921
+  br i1 %cmp.i.i.i.i.i.i.i931, label %if.else.i.i.i.i.i1011, label %cond.false.i.i.i.i.i.i.i932
 
-cond.false.i.i.i.i.i.i.i931:                      ; preds = %while.body.i.i.i.i.i926
-  %cmp5.i.i.i.i.i.i.i932 = icmp sgt i32 %57, %and.i.i.i.i920
-  br i1 %cmp5.i.i.i.i.i.i.i932, label %if.end.i.i.i.i.i941, label %cond.false7.i.i.i.i.i.i.i933
+cond.false.i.i.i.i.i.i.i932:                      ; preds = %while.body.i.i.i.i.i927
+  %cmp5.i.i.i.i.i.i.i933 = icmp sgt i32 %57, %and.i.i.i.i921
+  br i1 %cmp5.i.i.i.i.i.i.i933, label %if.end.i.i.i.i.i942, label %cond.false7.i.i.i.i.i.i.i934
 
-cond.false7.i.i.i.i.i.i.i933:                     ; preds = %cond.false.i.i.i.i.i.i.i931
-  %arrayidx.i.i.i.i.i.i.i.i.i.i934 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 36
-  %58 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i934, align 4
-  %cmp10.i.i.i.i.i.i.i935 = icmp slt i32 %58, %and4.i.i.i.i921
-  br i1 %cmp10.i.i.i.i.i.i.i935, label %if.else.i.i.i.i.i1010, label %cond.false12.i.i.i.i.i.i.i936
+cond.false7.i.i.i.i.i.i.i934:                     ; preds = %cond.false.i.i.i.i.i.i.i932
+  %arrayidx.i.i.i.i.i.i.i.i.i.i935 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 36
+  %58 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i935, align 4
+  %cmp10.i.i.i.i.i.i.i936 = icmp slt i32 %58, %and4.i.i.i.i922
+  br i1 %cmp10.i.i.i.i.i.i.i936, label %if.else.i.i.i.i.i1011, label %cond.false12.i.i.i.i.i.i.i937
 
-cond.false12.i.i.i.i.i.i.i936:                    ; preds = %cond.false7.i.i.i.i.i.i.i933
-  %cmp15.i.i.i.i.i.i.i937 = icmp sgt i32 %58, %and4.i.i.i.i921
-  br i1 %cmp15.i.i.i.i.i.i.i937, label %if.end.i.i.i.i.i941, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938
+cond.false12.i.i.i.i.i.i.i937:                    ; preds = %cond.false7.i.i.i.i.i.i.i934
+  %cmp15.i.i.i.i.i.i.i938 = icmp sgt i32 %58, %and4.i.i.i.i922
+  br i1 %cmp15.i.i.i.i.i.i.i938, label %if.end.i.i.i.i.i942, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938: ; preds = %cond.false12.i.i.i.i.i.i.i936
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i939 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 40
-  %59 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i939, align 4
-  %cmp20.i.i.i.i.i.i.i940 = icmp slt i32 %59, %and7.i.i.i.i922
-  br i1 %cmp20.i.i.i.i.i.i.i940, label %if.else.i.i.i.i.i1010, label %if.end.i.i.i.i.i941
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939: ; preds = %cond.false12.i.i.i.i.i.i.i937
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i940 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 40
+  %59 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i940, align 4
+  %cmp20.i.i.i.i.i.i.i941 = icmp slt i32 %59, %and7.i.i.i.i923
+  br i1 %cmp20.i.i.i.i.i.i.i941, label %if.else.i.i.i.i.i1011, label %if.end.i.i.i.i.i942
 
-if.else.i.i.i.i.i1010:                            ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938, %cond.false7.i.i.i.i.i.i.i933, %while.body.i.i.i.i.i926
-  br label %if.end.i.i.i.i.i941
+if.else.i.i.i.i.i1011:                            ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939, %cond.false7.i.i.i.i.i.i.i934, %while.body.i.i.i.i.i927
+  br label %if.end.i.i.i.i.i942
 
-if.end.i.i.i.i.i941:                              ; preds = %if.else.i.i.i.i.i1010, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938, %cond.false12.i.i.i.i.i.i.i936, %cond.false.i.i.i.i.i.i.i931
-  %.sink.i.i.i.i.i942 = phi i64 [ 24, %if.else.i.i.i.i.i1010 ], [ 16, %cond.false12.i.i.i.i.i.i.i936 ], [ 16, %cond.false.i.i.i.i.i.i.i931 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938 ]
-  %__y.addr.1.i.i.i.i.i943 = phi ptr [ %__y.addr.010.i.i.i.i.i928, %if.else.i.i.i.i.i1010 ], [ %__x.addr.011.i.i.i.i.i927, %cond.false12.i.i.i.i.i.i.i936 ], [ %__x.addr.011.i.i.i.i.i927, %cond.false.i.i.i.i.i.i.i931 ], [ %__x.addr.011.i.i.i.i.i927, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938 ]
-  %_M_right.i.i.i.i.i.i944 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 %.sink.i.i.i.i.i942
-  %__x.addr.1.i.i.i.i.i945 = load ptr, ptr %_M_right.i.i.i.i.i.i944, align 8
-  %cmp.not.i.i.i.i.i946 = icmp eq ptr %__x.addr.1.i.i.i.i.i945, null
-  br i1 %cmp.not.i.i.i.i.i946, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947, label %while.body.i.i.i.i.i926, !llvm.loop !31
+if.end.i.i.i.i.i942:                              ; preds = %if.else.i.i.i.i.i1011, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939, %cond.false12.i.i.i.i.i.i.i937, %cond.false.i.i.i.i.i.i.i932
+  %.sink.i.i.i.i.i943 = phi i64 [ 24, %if.else.i.i.i.i.i1011 ], [ 16, %cond.false12.i.i.i.i.i.i.i937 ], [ 16, %cond.false.i.i.i.i.i.i.i932 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939 ]
+  %__y.addr.1.i.i.i.i.i944 = phi ptr [ %__y.addr.010.i.i.i.i.i929, %if.else.i.i.i.i.i1011 ], [ %__x.addr.011.i.i.i.i.i928, %cond.false12.i.i.i.i.i.i.i937 ], [ %__x.addr.011.i.i.i.i.i928, %cond.false.i.i.i.i.i.i.i932 ], [ %__x.addr.011.i.i.i.i.i928, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939 ]
+  %_M_right.i.i.i.i.i.i945 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 %.sink.i.i.i.i.i943
+  %__x.addr.1.i.i.i.i.i946 = load ptr, ptr %_M_right.i.i.i.i.i.i945, align 8
+  %cmp.not.i.i.i.i.i947 = icmp eq ptr %__x.addr.1.i.i.i.i.i946, null
+  br i1 %cmp.not.i.i.i.i.i947, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948, label %while.body.i.i.i.i.i927, !llvm.loop !31
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947: ; preds = %if.end.i.i.i.i.i941
-  %cmp.i.i.i.i.i948 = icmp eq ptr %__y.addr.1.i.i.i.i.i943, %add.ptr.i.i.i.i.i924
-  br i1 %cmp.i.i.i.i.i948, label %if.then.i1008, label %lor.lhs.false.i.i.i.i949
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948: ; preds = %if.end.i.i.i.i.i942
+  %cmp.i.i.i.i.i949 = icmp eq ptr %__y.addr.1.i.i.i.i.i944, %add.ptr.i.i.i.i.i925
+  br i1 %cmp.i.i.i.i.i949, label %if.then.i1009, label %lor.lhs.false.i.i.i.i950
 
-lor.lhs.false.i.i.i.i949:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947
-  %_M_storage.i.i.i3.i.i.i.i950 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 32
-  %60 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i950, align 4
-  %cmp.i.i.i.i.i.i951 = icmp slt i32 %and.i.i.i.i920, %60
-  br i1 %cmp.i.i.i.i.i.i951, label %if.then.i1008, label %cond.false.i.i.i.i.i.i952
+lor.lhs.false.i.i.i.i950:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948
+  %_M_storage.i.i.i3.i.i.i.i951 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 32
+  %60 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i951, align 4
+  %cmp.i.i.i.i.i.i952 = icmp slt i32 %and.i.i.i.i921, %60
+  br i1 %cmp.i.i.i.i.i.i952, label %if.then.i1009, label %cond.false.i.i.i.i.i.i953
 
-cond.false.i.i.i.i.i.i952:                        ; preds = %lor.lhs.false.i.i.i.i949
-  %cmp5.i.i.i.i.i.i953 = icmp sgt i32 %and.i.i.i.i920, %60
-  br i1 %cmp5.i.i.i.i.i.i953, label %if.end.i962, label %cond.false7.i.i.i.i.i.i954
+cond.false.i.i.i.i.i.i953:                        ; preds = %lor.lhs.false.i.i.i.i950
+  %cmp5.i.i.i.i.i.i954 = icmp sgt i32 %and.i.i.i.i921, %60
+  br i1 %cmp5.i.i.i.i.i.i954, label %if.end.i963, label %cond.false7.i.i.i.i.i.i955
 
-cond.false7.i.i.i.i.i.i954:                       ; preds = %cond.false.i.i.i.i.i.i952
-  %arrayidx.i.i.i5.i.i.i.i.i.i955 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 36
-  %61 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i955, align 4
-  %cmp10.i.i.i.i.i.i956 = icmp slt i32 %and4.i.i.i.i921, %61
-  br i1 %cmp10.i.i.i.i.i.i956, label %if.then.i1008, label %cond.false12.i.i.i.i.i.i957
+cond.false7.i.i.i.i.i.i955:                       ; preds = %cond.false.i.i.i.i.i.i953
+  %arrayidx.i.i.i5.i.i.i.i.i.i956 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 36
+  %61 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i956, align 4
+  %cmp10.i.i.i.i.i.i957 = icmp slt i32 %and4.i.i.i.i922, %61
+  br i1 %cmp10.i.i.i.i.i.i957, label %if.then.i1009, label %cond.false12.i.i.i.i.i.i958
 
-cond.false12.i.i.i.i.i.i957:                      ; preds = %cond.false7.i.i.i.i.i.i954
-  %cmp15.i.i.i.i.i.i958 = icmp sgt i32 %and4.i.i.i.i921, %61
-  br i1 %cmp15.i.i.i.i.i.i958, label %if.end.i962, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959
+cond.false12.i.i.i.i.i.i958:                      ; preds = %cond.false7.i.i.i.i.i.i955
+  %cmp15.i.i.i.i.i.i959 = icmp sgt i32 %and4.i.i.i.i922, %61
+  br i1 %cmp15.i.i.i.i.i.i959, label %if.end.i963, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959: ; preds = %cond.false12.i.i.i.i.i.i957
-  %arrayidx.i.i.i9.i.i.i.i.i.i960 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 40
-  %62 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i960, align 4
-  %cmp20.i.i.i.i.i.i961 = icmp slt i32 %and7.i.i.i.i922, %62
-  br i1 %cmp20.i.i.i.i.i.i961, label %if.then.i1008, label %if.end.i962
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960: ; preds = %cond.false12.i.i.i.i.i.i958
+  %arrayidx.i.i.i9.i.i.i.i.i.i961 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 40
+  %62 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i961, align 4
+  %cmp20.i.i.i.i.i.i962 = icmp slt i32 %and7.i.i.i.i923, %62
+  br i1 %cmp20.i.i.i.i.i.i962, label %if.then.i1009, label %if.end.i963
 
-if.then.i1008:                                    ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959, %cond.false7.i.i.i.i.i.i954, %lor.lhs.false.i.i.i.i949, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947, %if.end.i27.i410
-  %mBackground.i1009 = getelementptr inbounds i8, ptr %52, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i1009:                                    ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960, %cond.false7.i.i.i.i.i.i955, %lor.lhs.false.i.i.i.i950, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948, %if.end.i27.i411
+  %mBackground.i1010 = getelementptr inbounds i8, ptr %52, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i962:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959, %cond.false12.i.i.i.i.i.i957, %cond.false.i.i.i.i.i.i952
-  %second.i.i963 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 48
-  %63 = load ptr, ptr %second.i.i963, align 8
-  %cmp.i.i.not.i964 = icmp eq ptr %63, null
-  br i1 %cmp.i.i.not.i964, label %if.end10.i1006, label %if.then6.i965
+if.end.i963:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960, %cond.false12.i.i.i.i.i.i958, %cond.false.i.i.i.i.i.i953
+  %second.i.i964 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 48
+  %63 = load ptr, ptr %second.i.i964, align 8
+  %cmp.i.i.not.i965 = icmp eq ptr %63, null
+  br i1 %cmp.i.i.not.i965, label %if.end10.i1007, label %if.then6.i966
 
-if.then6.i965:                                    ; preds = %if.end.i962
-  %and4.i.i967 = and i32 %33, -4096
-  %and7.i.i968 = and i32 %34, -4096
-  %retval.sroa.2.0.insert.ext.i.i969 = zext i32 %and4.i.i967 to i64
-  %retval.sroa.2.0.insert.shift.i.i970 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i969, 32
-  %retval.sroa.0.0.insert.ext.i.i971 = zext i32 %and.i.i19.i407 to i64
-  %retval.sroa.0.0.insert.insert.i.i972 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i970, %retval.sroa.0.0.insert.ext.i.i971
-  store i64 %retval.sroa.0.0.insert.insert.i.i972, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i968, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %63, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %64 = load ptr, ptr %second.i.i963, align 8
+if.then6.i966:                                    ; preds = %if.end.i963
+  %and4.i.i968 = and i32 %33, -4096
+  %and7.i.i969 = and i32 %34, -4096
+  %retval.sroa.2.0.insert.ext.i.i970 = zext i32 %and4.i.i968 to i64
+  %retval.sroa.2.0.insert.shift.i.i971 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i970, 32
+  %retval.sroa.0.0.insert.ext.i.i972 = zext i32 %and.i.i19.i408 to i64
+  %retval.sroa.0.0.insert.insert.i.i973 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i971, %retval.sroa.0.0.insert.ext.i.i972
+  store i64 %retval.sroa.0.0.insert.insert.i.i973, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i969, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %63, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %64 = load ptr, ptr %second.i.i964, align 8
   %65 = shl i32 %add.i.i, 3
-  %shl.i.i.i976 = and i32 %65, 31744
+  %shl.i.i.i977 = and i32 %65, 31744
   %66 = lshr i32 %33, 2
-  %shl4.i.i.i977 = and i32 %66, 992
-  %add.i.i.i978 = or disjoint i32 %shl4.i.i.i977, %shl.i.i.i976
-  %and6.i.i.i979 = lshr i32 %34, 7
-  %shr7.i.i.i980 = and i32 %and6.i.i.i979, 31
-  %add8.i.i.i981 = or disjoint i32 %add.i.i.i978, %shr7.i.i.i980
-  %mChildMask.i.i.i982 = getelementptr inbounds i8, ptr %64, i64 262144
-  %shr.i.i.i.i983 = lshr i32 %add.i.i.i978, 6
-  %idxprom.i.i.i.i984 = zext nneg i32 %shr.i.i.i.i983 to i64
-  %arrayidx.i.i.i8.i985 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i982, i64 0, i64 %idxprom.i.i.i.i984
-  %67 = load i64, ptr %arrayidx.i.i.i8.i985, align 8
-  %and.i.i.i9.i986 = and i32 %add8.i.i.i981, 63
-  %sh_prom.i.i.i.i987 = zext nneg i32 %and.i.i.i9.i986 to i64
-  %shl.i.i.i.i988 = shl nuw i64 1, %sh_prom.i.i.i.i987
-  %and2.i.i.i.i989 = and i64 %67, %shl.i.i.i.i988
-  %cmp.i.i.not.i.i990 = icmp eq i64 %and2.i.i.i.i989, 0
-  %idxprom10.i.i991 = zext nneg i32 %add8.i.i.i981 to i64
-  %arrayidx11.i.i992 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %64, i64 0, i64 %idxprom10.i.i991
-  br i1 %cmp.i.i.not.i.i990, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488, label %if.then.i.i993
+  %shl4.i.i.i978 = and i32 %66, 992
+  %add.i.i.i979 = or disjoint i32 %shl4.i.i.i978, %shl.i.i.i977
+  %and6.i.i.i980 = lshr i32 %34, 7
+  %shr7.i.i.i981 = and i32 %and6.i.i.i980, 31
+  %add8.i.i.i982 = or disjoint i32 %add.i.i.i979, %shr7.i.i.i981
+  %mChildMask.i.i.i983 = getelementptr inbounds i8, ptr %64, i64 262144
+  %shr.i.i.i.i984 = lshr i32 %add.i.i.i979, 6
+  %idxprom.i.i.i.i985 = zext nneg i32 %shr.i.i.i.i984 to i64
+  %arrayidx.i.i.i8.i986 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i983, i64 0, i64 %idxprom.i.i.i.i985
+  %67 = load i64, ptr %arrayidx.i.i.i8.i986, align 8
+  %and.i.i.i9.i987 = and i32 %add8.i.i.i982, 63
+  %sh_prom.i.i.i.i988 = zext nneg i32 %and.i.i.i9.i987 to i64
+  %shl.i.i.i.i989 = shl nuw i64 1, %sh_prom.i.i.i.i988
+  %and2.i.i.i.i990 = and i64 %67, %shl.i.i.i.i989
+  %cmp.i.i.not.i.i991 = icmp eq i64 %and2.i.i.i.i990, 0
+  %idxprom10.i.i992 = zext nneg i32 %add8.i.i.i982 to i64
+  %arrayidx11.i.i993 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %64, i64 0, i64 %idxprom10.i.i992
+  br i1 %cmp.i.i.not.i.i991, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489, label %if.then.i.i994
 
-if.then.i.i993:                                   ; preds = %if.then6.i965
-  %68 = load ptr, ptr %arrayidx11.i.i992, align 8
-  %and4.i.i.i995 = and i32 %33, -128
-  %and7.i.i.i996 = and i32 %34, -128
-  %retval.sroa.2.0.insert.ext.i.i.i997 = zext i32 %and4.i.i.i995 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i998 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i997, 32
-  %retval.sroa.0.0.insert.ext.i.i.i999 = zext i32 %and.i.i6.i403 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i1000 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i998, %retval.sroa.0.0.insert.ext.i.i.i999
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i1000, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i996, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %68, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %69 = load ptr, ptr %arrayidx11.i.i992, align 8
-  %call8.i.i1004 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %69, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i.i994:                                   ; preds = %if.then6.i966
+  %68 = load ptr, ptr %arrayidx11.i.i993, align 8
+  %and4.i.i.i996 = and i32 %33, -128
+  %and7.i.i.i997 = and i32 %34, -128
+  %retval.sroa.2.0.insert.ext.i.i.i998 = zext i32 %and4.i.i.i996 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i999 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i998, 32
+  %retval.sroa.0.0.insert.ext.i.i.i1000 = zext i32 %and.i.i6.i404 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i1001 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i999, %retval.sroa.0.0.insert.ext.i.i.i1000
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i1001, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i997, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %68, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %69 = load ptr, ptr %arrayidx11.i.i993, align 8
+  %call8.i.i1005 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %69, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end10.i1006:                                   ; preds = %if.end.i962
-  %tile.i.i1007 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.end10.i1007:                                   ; preds = %if.end.i963
+  %tile.i.i1008 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488: ; preds = %if.end10.i1006, %if.then.i.i993, %if.then6.i965, %if.then.i1008, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i476, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i463, %if.end.i33.i424, %if.then.i.i.i443
-  %retval.i.0.i413 = phi ptr [ %arrayidx.i.i486, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i476 ], [ %call3.i.i465, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i463 ], [ %call8.i.i.i452, %if.then.i.i.i443 ], [ %arrayidx11.i.i.i442, %if.end.i33.i424 ], [ %mBackground.i1009, %if.then.i1008 ], [ %tile.i.i1007, %if.end10.i1006 ], [ %call8.i.i1004, %if.then.i.i993 ], [ %arrayidx11.i.i992, %if.then6.i965 ]
-  %70 = load float, ptr %retval.i.0.i413, align 4
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489: ; preds = %if.end10.i1007, %if.then.i.i994, %if.then6.i966, %if.then.i1009, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i477, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i464, %if.end.i33.i425, %if.then.i.i.i444
+  %retval.i.0.i414 = phi ptr [ %arrayidx.i.i487, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i477 ], [ %call3.i.i466, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i464 ], [ %call8.i.i.i453, %if.then.i.i.i444 ], [ %arrayidx11.i.i.i443, %if.end.i33.i425 ], [ %mBackground.i1010, %if.then.i1009 ], [ %tile.i.i1008, %if.end10.i1007 ], [ %call8.i.i1005, %if.then.i.i994 ], [ %arrayidx11.i.i993, %if.then6.i966 ]
+  %70 = load float, ptr %retval.i.0.i414, align 4
   %71 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %71, i64 4
   store float %70, ptr %add.ptr.i.i.i, align 4
   %72 = load i32, ptr %mCenter.i, align 8
   %add.i6.i = add nsw i32 %72, 1
-  %73 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %73 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %74 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %retval.sroa.2.0.insert.ext.i9.i = zext i32 %73 to i64
   %retval.sroa.2.0.insert.shift.i10.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i9.i, 32
@@ -3203,1186 +3203,1186 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %retval.sroa.0.0.insert.insert.i12.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i10.i, %retval.sroa.0.0.insert.ext.i11.i
   store i64 %retval.sroa.0.0.insert.insert.i12.i, ptr %ref.tmp5.i, align 8
   store i32 %74, ptr %tmp.coerce9.sroa.2.0.coerce.dive8.sroa_idx.i, align 8
-  %and.i.i.i309 = and i32 %add.i6.i, -8
-  %75 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i311 = icmp eq i32 %and.i.i.i309, %75
-  br i1 %cmp.i.i.i311, label %land.lhs.true.i.i.i376, label %if.end.i.i312
+  %and.i.i.i310 = and i32 %add.i6.i, -8
+  %75 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i312 = icmp eq i32 %and.i.i.i310, %75
+  br i1 %cmp.i.i.i312, label %land.lhs.true.i.i.i377, label %if.end.i.i313
 
-land.lhs.true.i.i.i376:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
-  %and5.i.i.i378 = and i32 %73, -8
-  %76 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i380 = icmp eq i32 %and5.i.i.i378, %76
-  br i1 %cmp9.i.i.i380, label %land.rhs.i.i.i381, label %if.end.i.i312
+land.lhs.true.i.i.i377:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
+  %and5.i.i.i379 = and i32 %73, -8
+  %76 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i381 = icmp eq i32 %and5.i.i.i379, %76
+  br i1 %cmp9.i.i.i381, label %land.rhs.i.i.i382, label %if.end.i.i313
 
-land.rhs.i.i.i381:                                ; preds = %land.lhs.true.i.i.i376
-  %and11.i.i.i383 = and i32 %74, -8
-  %77 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i385 = icmp eq i32 %and11.i.i.i383, %77
-  br i1 %cmp15.i.i.i385, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i386, label %if.end.i.i312
+land.rhs.i.i.i382:                                ; preds = %land.lhs.true.i.i.i377
+  %and11.i.i.i384 = and i32 %74, -8
+  %77 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i386 = icmp eq i32 %and11.i.i.i384, %77
+  br i1 %cmp15.i.i.i386, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i387, label %if.end.i.i313
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i386: ; preds = %land.rhs.i.i.i381
-  %78 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i388 = shl i32 %add.i6.i, 6
-  %shl.i.i.i389 = and i32 %and.i6.i.i388, 448
-  %and2.i.i.i390 = shl i32 %73, 3
-  %shl3.i.i.i391 = and i32 %and2.i.i.i390, 56
-  %and5.i7.i.i393 = and i32 %74, 7
-  %add.i.i.i392 = or disjoint i32 %shl.i.i.i389, %and5.i7.i.i393
-  %add6.i.i.i394 = or disjoint i32 %add.i.i.i392, %shl3.i.i.i391
-  %idxprom.i.i395 = zext nneg i32 %add6.i.i.i394 to i64
-  %arrayidx.i.i396 = getelementptr inbounds float, ptr %78, i64 %idxprom.i.i395
-  %tobool.i.not.i397 = icmp eq ptr %78, null
-  br i1 %tobool.i.not.i397, label %if.end.i.i312, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i387: ; preds = %land.rhs.i.i.i382
+  %78 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i389 = shl i32 %add.i6.i, 6
+  %shl.i.i.i390 = and i32 %and.i6.i.i389, 448
+  %and2.i.i.i391 = shl i32 %73, 3
+  %shl3.i.i.i392 = and i32 %and2.i.i.i391, 56
+  %and5.i7.i.i394 = and i32 %74, 7
+  %add.i.i.i393 = or disjoint i32 %shl.i.i.i390, %and5.i7.i.i394
+  %add6.i.i.i395 = or disjoint i32 %add.i.i.i393, %shl3.i.i.i392
+  %idxprom.i.i396 = zext nneg i32 %add6.i.i.i395 to i64
+  %arrayidx.i.i397 = getelementptr inbounds float, ptr %78, i64 %idxprom.i.i396
+  %tobool.i.not.i398 = icmp eq ptr %78, null
+  br i1 %tobool.i.not.i398, label %if.end.i.i313, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i.i312:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i386, %land.rhs.i.i.i381, %land.lhs.true.i.i.i376, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
-  %and.i.i6.i313 = and i32 %add.i6.i, -128
-  %79 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i315 = icmp eq i32 %and.i.i6.i313, %79
-  br i1 %cmp.i.i7.i315, label %land.lhs.true.i.i9.i363, label %if.end.i16.i316
+if.end.i.i313:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i387, %land.rhs.i.i.i382, %land.lhs.true.i.i.i377, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
+  %and.i.i6.i314 = and i32 %add.i6.i, -128
+  %79 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i316 = icmp eq i32 %and.i.i6.i314, %79
+  br i1 %cmp.i.i7.i316, label %land.lhs.true.i.i9.i364, label %if.end.i16.i317
 
-land.lhs.true.i.i9.i363:                          ; preds = %if.end.i.i312
-  %and5.i.i11.i365 = and i32 %73, -128
-  %80 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i367 = icmp eq i32 %and5.i.i11.i365, %80
-  br i1 %cmp9.i.i13.i367, label %land.rhs.i.i14.i368, label %if.end.i16.i316
+land.lhs.true.i.i9.i364:                          ; preds = %if.end.i.i313
+  %and5.i.i11.i366 = and i32 %73, -128
+  %80 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i368 = icmp eq i32 %and5.i.i11.i366, %80
+  br i1 %cmp9.i.i13.i368, label %land.rhs.i.i14.i369, label %if.end.i16.i317
 
-land.rhs.i.i14.i368:                              ; preds = %land.lhs.true.i.i9.i363
-  %and11.i.i16.i370 = and i32 %74, -128
-  %81 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i372 = icmp eq i32 %and11.i.i16.i370, %81
-  br i1 %cmp15.i.i17.i372, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i373, label %if.end.i16.i316
+land.rhs.i.i14.i369:                              ; preds = %land.lhs.true.i.i9.i364
+  %and11.i.i16.i371 = and i32 %74, -128
+  %81 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i373 = icmp eq i32 %and11.i.i16.i371, %81
+  br i1 %cmp15.i.i17.i373, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i374, label %if.end.i16.i317
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i373: ; preds = %land.rhs.i.i14.i368
-  %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i375 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %82, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i374: ; preds = %land.rhs.i.i14.i369
+  %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i376 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %82, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i16.i316:                                  ; preds = %land.rhs.i.i14.i368, %land.lhs.true.i.i9.i363, %if.end.i.i312
-  %and.i.i19.i317 = and i32 %add.i6.i, -4096
-  %83 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i319 = icmp eq i32 %and.i.i19.i317, %83
-  br i1 %cmp.i.i21.i319, label %land.lhs.true.i.i23.i324, label %if.end.i27.i320
+if.end.i16.i317:                                  ; preds = %land.rhs.i.i14.i369, %land.lhs.true.i.i9.i364, %if.end.i.i313
+  %and.i.i19.i318 = and i32 %add.i6.i, -4096
+  %83 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i320 = icmp eq i32 %and.i.i19.i318, %83
+  br i1 %cmp.i.i21.i320, label %land.lhs.true.i.i23.i325, label %if.end.i27.i321
 
-land.lhs.true.i.i23.i324:                         ; preds = %if.end.i16.i316
-  %and5.i.i25.i326 = and i32 %73, -4096
-  %84 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i328 = icmp eq i32 %and5.i.i25.i326, %84
-  br i1 %cmp9.i.i27.i328, label %land.rhs.i.i28.i329, label %if.end.i27.i320
+land.lhs.true.i.i23.i325:                         ; preds = %if.end.i16.i317
+  %and5.i.i25.i327 = and i32 %73, -4096
+  %84 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i329 = icmp eq i32 %and5.i.i25.i327, %84
+  br i1 %cmp9.i.i27.i329, label %land.rhs.i.i28.i330, label %if.end.i27.i321
 
-land.rhs.i.i28.i329:                              ; preds = %land.lhs.true.i.i23.i324
-  %and11.i.i30.i331 = and i32 %74, -4096
-  %85 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i333 = icmp eq i32 %and11.i.i30.i331, %85
-  br i1 %cmp15.i.i32.i333, label %if.end.i33.i334, label %if.end.i27.i320
+land.rhs.i.i28.i330:                              ; preds = %land.lhs.true.i.i23.i325
+  %and11.i.i30.i332 = and i32 %74, -4096
+  %85 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i334 = icmp eq i32 %and11.i.i30.i332, %85
+  br i1 %cmp15.i.i32.i334, label %if.end.i33.i335, label %if.end.i27.i321
 
-if.end.i33.i334:                                  ; preds = %land.rhs.i.i28.i329
-  %86 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i335:                                  ; preds = %land.rhs.i.i28.i330
+  %86 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %87 = shl i32 %add.i6.i, 3
-  %shl.i.i.i.i336 = and i32 %87, 31744
+  %shl.i.i.i.i337 = and i32 %87, 31744
   %88 = lshr i32 %73, 2
-  %shl4.i.i.i.i337 = and i32 %88, 992
-  %add.i.i.i.i338 = or disjoint i32 %shl4.i.i.i.i337, %shl.i.i.i.i336
-  %and6.i.i.i.i339 = lshr i32 %74, 7
-  %shr7.i.i.i.i340 = and i32 %and6.i.i.i.i339, 31
-  %add8.i.i.i.i341 = or disjoint i32 %add.i.i.i.i338, %shr7.i.i.i.i340
-  %mChildMask.i.i.i.i342 = getelementptr inbounds i8, ptr %86, i64 262144
-  %shr.i.i.i.i.i343 = lshr i32 %add.i.i.i.i338, 6
-  %idxprom.i.i.i.i.i344 = zext nneg i32 %shr.i.i.i.i.i343 to i64
-  %arrayidx.i.i.i8.i.i345 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i342, i64 0, i64 %idxprom.i.i.i.i.i344
-  %89 = load i64, ptr %arrayidx.i.i.i8.i.i345, align 8
-  %and.i.i.i.i.i346 = and i32 %add8.i.i.i.i341, 63
-  %sh_prom.i.i.i.i.i347 = zext nneg i32 %and.i.i.i.i.i346 to i64
-  %shl.i.i.i.i.i348 = shl nuw i64 1, %sh_prom.i.i.i.i.i347
-  %and2.i.i.i.i.i349 = and i64 %89, %shl.i.i.i.i.i348
-  %cmp.i.i.not.i.i.i350 = icmp eq i64 %and2.i.i.i.i.i349, 0
-  %idxprom10.i.i.i351 = zext nneg i32 %add8.i.i.i.i341 to i64
-  %arrayidx11.i.i.i352 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %86, i64 0, i64 %idxprom10.i.i.i351
-  br i1 %cmp.i.i.not.i.i.i350, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398, label %if.then.i.i.i353
+  %shl4.i.i.i.i338 = and i32 %88, 992
+  %add.i.i.i.i339 = or disjoint i32 %shl4.i.i.i.i338, %shl.i.i.i.i337
+  %and6.i.i.i.i340 = lshr i32 %74, 7
+  %shr7.i.i.i.i341 = and i32 %and6.i.i.i.i340, 31
+  %add8.i.i.i.i342 = or disjoint i32 %add.i.i.i.i339, %shr7.i.i.i.i341
+  %mChildMask.i.i.i.i343 = getelementptr inbounds i8, ptr %86, i64 262144
+  %shr.i.i.i.i.i344 = lshr i32 %add.i.i.i.i339, 6
+  %idxprom.i.i.i.i.i345 = zext nneg i32 %shr.i.i.i.i.i344 to i64
+  %arrayidx.i.i.i8.i.i346 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i343, i64 0, i64 %idxprom.i.i.i.i.i345
+  %89 = load i64, ptr %arrayidx.i.i.i8.i.i346, align 8
+  %and.i.i.i.i.i347 = and i32 %add8.i.i.i.i342, 63
+  %sh_prom.i.i.i.i.i348 = zext nneg i32 %and.i.i.i.i.i347 to i64
+  %shl.i.i.i.i.i349 = shl nuw i64 1, %sh_prom.i.i.i.i.i348
+  %and2.i.i.i.i.i350 = and i64 %89, %shl.i.i.i.i.i349
+  %cmp.i.i.not.i.i.i351 = icmp eq i64 %and2.i.i.i.i.i350, 0
+  %idxprom10.i.i.i352 = zext nneg i32 %add8.i.i.i.i342 to i64
+  %arrayidx11.i.i.i353 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %86, i64 0, i64 %idxprom10.i.i.i352
+  br i1 %cmp.i.i.not.i.i.i351, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399, label %if.then.i.i.i354
 
-if.then.i.i.i353:                                 ; preds = %if.end.i33.i334
-  %90 = load ptr, ptr %arrayidx11.i.i.i352, align 8
-  %and4.i.i.i.i354 = and i32 %73, -128
-  %and7.i.i.i.i355 = and i32 %74, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i356 = zext i32 %and4.i.i.i.i354 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i357 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i356, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i358 = zext i32 %and.i.i6.i313 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i359 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i357, %retval.sroa.0.0.insert.ext.i.i.i.i358
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i359, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i355, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %90, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %91 = load ptr, ptr %arrayidx11.i.i.i352, align 8
-  %call8.i.i.i362 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %91, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i.i.i354:                                 ; preds = %if.end.i33.i335
+  %90 = load ptr, ptr %arrayidx11.i.i.i353, align 8
+  %and4.i.i.i.i355 = and i32 %73, -128
+  %and7.i.i.i.i356 = and i32 %74, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i357 = zext i32 %and4.i.i.i.i355 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i358 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i357, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i359 = zext i32 %and.i.i6.i314 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i360 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i358, %retval.sroa.0.0.insert.ext.i.i.i.i359
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i360, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i356, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %90, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %91 = load ptr, ptr %arrayidx11.i.i.i353, align 8
+  %call8.i.i.i363 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %91, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i27.i320:                                  ; preds = %land.rhs.i.i28.i329, %land.lhs.true.i.i23.i324, %if.end.i16.i316
-  %92 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i812 = getelementptr inbounds i8, ptr %92, i64 52
-  %93 = load i32, ptr %mOrigin.i.i.i812, align 4
-  %sub.i.i.i.i813 = sub nsw i32 %add.i6.i, %93
-  %arrayidx.i.i.i.i.i.i.i815 = getelementptr inbounds i8, ptr %92, i64 56
-  %94 = load i32, ptr %arrayidx.i.i.i.i.i.i.i815, align 4
-  %sub6.i.i.i.i816 = sub nsw i32 %73, %94
-  %arrayidx.i.i.i4.i.i.i.i818 = getelementptr inbounds i8, ptr %92, i64 60
-  %95 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i818, align 4
-  %sub10.i.i.i.i819 = sub nsw i32 %74, %95
-  %and.i.i.i.i820 = and i32 %sub.i.i.i.i813, -4096
-  %and4.i.i.i.i821 = and i32 %sub6.i.i.i.i816, -4096
-  %and7.i.i.i.i822 = and i32 %sub10.i.i.i.i819, -4096
-  %_M_parent.i.i.i.i.i823 = getelementptr inbounds i8, ptr %92, i64 16
-  %96 = load ptr, ptr %_M_parent.i.i.i.i.i823, align 8
-  %add.ptr.i.i.i.i.i824 = getelementptr inbounds i8, ptr %92, i64 8
-  %cmp.not9.i.i.i.i.i825 = icmp eq ptr %96, null
-  br i1 %cmp.not9.i.i.i.i.i825, label %if.then.i908, label %while.body.i.i.i.i.i826
+if.end.i27.i321:                                  ; preds = %land.rhs.i.i28.i330, %land.lhs.true.i.i23.i325, %if.end.i16.i317
+  %92 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i813 = getelementptr inbounds i8, ptr %92, i64 52
+  %93 = load i32, ptr %mOrigin.i.i.i813, align 4
+  %sub.i.i.i.i814 = sub nsw i32 %add.i6.i, %93
+  %arrayidx.i.i.i.i.i.i.i816 = getelementptr inbounds i8, ptr %92, i64 56
+  %94 = load i32, ptr %arrayidx.i.i.i.i.i.i.i816, align 4
+  %sub6.i.i.i.i817 = sub nsw i32 %73, %94
+  %arrayidx.i.i.i4.i.i.i.i819 = getelementptr inbounds i8, ptr %92, i64 60
+  %95 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i819, align 4
+  %sub10.i.i.i.i820 = sub nsw i32 %74, %95
+  %and.i.i.i.i821 = and i32 %sub.i.i.i.i814, -4096
+  %and4.i.i.i.i822 = and i32 %sub6.i.i.i.i817, -4096
+  %and7.i.i.i.i823 = and i32 %sub10.i.i.i.i820, -4096
+  %_M_parent.i.i.i.i.i824 = getelementptr inbounds i8, ptr %92, i64 16
+  %96 = load ptr, ptr %_M_parent.i.i.i.i.i824, align 8
+  %add.ptr.i.i.i.i.i825 = getelementptr inbounds i8, ptr %92, i64 8
+  %cmp.not9.i.i.i.i.i826 = icmp eq ptr %96, null
+  br i1 %cmp.not9.i.i.i.i.i826, label %if.then.i909, label %while.body.i.i.i.i.i827
 
-while.body.i.i.i.i.i826:                          ; preds = %if.end.i27.i320, %if.end.i.i.i.i.i841
-  %__x.addr.011.i.i.i.i.i827 = phi ptr [ %__x.addr.1.i.i.i.i.i845, %if.end.i.i.i.i.i841 ], [ %96, %if.end.i27.i320 ]
-  %__y.addr.010.i.i.i.i.i828 = phi ptr [ %__y.addr.1.i.i.i.i.i843, %if.end.i.i.i.i.i841 ], [ %add.ptr.i.i.i.i.i824, %if.end.i27.i320 ]
-  %_M_storage.i.i.i.i.i.i.i829 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 32
-  %97 = load i32, ptr %_M_storage.i.i.i.i.i.i.i829, align 4
-  %cmp.i.i.i.i.i.i.i830 = icmp slt i32 %97, %and.i.i.i.i820
-  br i1 %cmp.i.i.i.i.i.i.i830, label %if.else.i.i.i.i.i910, label %cond.false.i.i.i.i.i.i.i831
+while.body.i.i.i.i.i827:                          ; preds = %if.end.i27.i321, %if.end.i.i.i.i.i842
+  %__x.addr.011.i.i.i.i.i828 = phi ptr [ %__x.addr.1.i.i.i.i.i846, %if.end.i.i.i.i.i842 ], [ %96, %if.end.i27.i321 ]
+  %__y.addr.010.i.i.i.i.i829 = phi ptr [ %__y.addr.1.i.i.i.i.i844, %if.end.i.i.i.i.i842 ], [ %add.ptr.i.i.i.i.i825, %if.end.i27.i321 ]
+  %_M_storage.i.i.i.i.i.i.i830 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 32
+  %97 = load i32, ptr %_M_storage.i.i.i.i.i.i.i830, align 4
+  %cmp.i.i.i.i.i.i.i831 = icmp slt i32 %97, %and.i.i.i.i821
+  br i1 %cmp.i.i.i.i.i.i.i831, label %if.else.i.i.i.i.i911, label %cond.false.i.i.i.i.i.i.i832
 
-cond.false.i.i.i.i.i.i.i831:                      ; preds = %while.body.i.i.i.i.i826
-  %cmp5.i.i.i.i.i.i.i832 = icmp sgt i32 %97, %and.i.i.i.i820
-  br i1 %cmp5.i.i.i.i.i.i.i832, label %if.end.i.i.i.i.i841, label %cond.false7.i.i.i.i.i.i.i833
+cond.false.i.i.i.i.i.i.i832:                      ; preds = %while.body.i.i.i.i.i827
+  %cmp5.i.i.i.i.i.i.i833 = icmp sgt i32 %97, %and.i.i.i.i821
+  br i1 %cmp5.i.i.i.i.i.i.i833, label %if.end.i.i.i.i.i842, label %cond.false7.i.i.i.i.i.i.i834
 
-cond.false7.i.i.i.i.i.i.i833:                     ; preds = %cond.false.i.i.i.i.i.i.i831
-  %arrayidx.i.i.i.i.i.i.i.i.i.i834 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 36
-  %98 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i834, align 4
-  %cmp10.i.i.i.i.i.i.i835 = icmp slt i32 %98, %and4.i.i.i.i821
-  br i1 %cmp10.i.i.i.i.i.i.i835, label %if.else.i.i.i.i.i910, label %cond.false12.i.i.i.i.i.i.i836
+cond.false7.i.i.i.i.i.i.i834:                     ; preds = %cond.false.i.i.i.i.i.i.i832
+  %arrayidx.i.i.i.i.i.i.i.i.i.i835 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 36
+  %98 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i835, align 4
+  %cmp10.i.i.i.i.i.i.i836 = icmp slt i32 %98, %and4.i.i.i.i822
+  br i1 %cmp10.i.i.i.i.i.i.i836, label %if.else.i.i.i.i.i911, label %cond.false12.i.i.i.i.i.i.i837
 
-cond.false12.i.i.i.i.i.i.i836:                    ; preds = %cond.false7.i.i.i.i.i.i.i833
-  %cmp15.i.i.i.i.i.i.i837 = icmp sgt i32 %98, %and4.i.i.i.i821
-  br i1 %cmp15.i.i.i.i.i.i.i837, label %if.end.i.i.i.i.i841, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838
+cond.false12.i.i.i.i.i.i.i837:                    ; preds = %cond.false7.i.i.i.i.i.i.i834
+  %cmp15.i.i.i.i.i.i.i838 = icmp sgt i32 %98, %and4.i.i.i.i822
+  br i1 %cmp15.i.i.i.i.i.i.i838, label %if.end.i.i.i.i.i842, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838: ; preds = %cond.false12.i.i.i.i.i.i.i836
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i839 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 40
-  %99 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i839, align 4
-  %cmp20.i.i.i.i.i.i.i840 = icmp slt i32 %99, %and7.i.i.i.i822
-  br i1 %cmp20.i.i.i.i.i.i.i840, label %if.else.i.i.i.i.i910, label %if.end.i.i.i.i.i841
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839: ; preds = %cond.false12.i.i.i.i.i.i.i837
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i840 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 40
+  %99 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i840, align 4
+  %cmp20.i.i.i.i.i.i.i841 = icmp slt i32 %99, %and7.i.i.i.i823
+  br i1 %cmp20.i.i.i.i.i.i.i841, label %if.else.i.i.i.i.i911, label %if.end.i.i.i.i.i842
 
-if.else.i.i.i.i.i910:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838, %cond.false7.i.i.i.i.i.i.i833, %while.body.i.i.i.i.i826
-  br label %if.end.i.i.i.i.i841
+if.else.i.i.i.i.i911:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839, %cond.false7.i.i.i.i.i.i.i834, %while.body.i.i.i.i.i827
+  br label %if.end.i.i.i.i.i842
 
-if.end.i.i.i.i.i841:                              ; preds = %if.else.i.i.i.i.i910, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838, %cond.false12.i.i.i.i.i.i.i836, %cond.false.i.i.i.i.i.i.i831
-  %.sink.i.i.i.i.i842 = phi i64 [ 24, %if.else.i.i.i.i.i910 ], [ 16, %cond.false12.i.i.i.i.i.i.i836 ], [ 16, %cond.false.i.i.i.i.i.i.i831 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838 ]
-  %__y.addr.1.i.i.i.i.i843 = phi ptr [ %__y.addr.010.i.i.i.i.i828, %if.else.i.i.i.i.i910 ], [ %__x.addr.011.i.i.i.i.i827, %cond.false12.i.i.i.i.i.i.i836 ], [ %__x.addr.011.i.i.i.i.i827, %cond.false.i.i.i.i.i.i.i831 ], [ %__x.addr.011.i.i.i.i.i827, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838 ]
-  %_M_right.i.i.i.i.i.i844 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 %.sink.i.i.i.i.i842
-  %__x.addr.1.i.i.i.i.i845 = load ptr, ptr %_M_right.i.i.i.i.i.i844, align 8
-  %cmp.not.i.i.i.i.i846 = icmp eq ptr %__x.addr.1.i.i.i.i.i845, null
-  br i1 %cmp.not.i.i.i.i.i846, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847, label %while.body.i.i.i.i.i826, !llvm.loop !31
+if.end.i.i.i.i.i842:                              ; preds = %if.else.i.i.i.i.i911, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839, %cond.false12.i.i.i.i.i.i.i837, %cond.false.i.i.i.i.i.i.i832
+  %.sink.i.i.i.i.i843 = phi i64 [ 24, %if.else.i.i.i.i.i911 ], [ 16, %cond.false12.i.i.i.i.i.i.i837 ], [ 16, %cond.false.i.i.i.i.i.i.i832 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839 ]
+  %__y.addr.1.i.i.i.i.i844 = phi ptr [ %__y.addr.010.i.i.i.i.i829, %if.else.i.i.i.i.i911 ], [ %__x.addr.011.i.i.i.i.i828, %cond.false12.i.i.i.i.i.i.i837 ], [ %__x.addr.011.i.i.i.i.i828, %cond.false.i.i.i.i.i.i.i832 ], [ %__x.addr.011.i.i.i.i.i828, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839 ]
+  %_M_right.i.i.i.i.i.i845 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 %.sink.i.i.i.i.i843
+  %__x.addr.1.i.i.i.i.i846 = load ptr, ptr %_M_right.i.i.i.i.i.i845, align 8
+  %cmp.not.i.i.i.i.i847 = icmp eq ptr %__x.addr.1.i.i.i.i.i846, null
+  br i1 %cmp.not.i.i.i.i.i847, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848, label %while.body.i.i.i.i.i827, !llvm.loop !31
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847: ; preds = %if.end.i.i.i.i.i841
-  %cmp.i.i.i.i.i848 = icmp eq ptr %__y.addr.1.i.i.i.i.i843, %add.ptr.i.i.i.i.i824
-  br i1 %cmp.i.i.i.i.i848, label %if.then.i908, label %lor.lhs.false.i.i.i.i849
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848: ; preds = %if.end.i.i.i.i.i842
+  %cmp.i.i.i.i.i849 = icmp eq ptr %__y.addr.1.i.i.i.i.i844, %add.ptr.i.i.i.i.i825
+  br i1 %cmp.i.i.i.i.i849, label %if.then.i909, label %lor.lhs.false.i.i.i.i850
 
-lor.lhs.false.i.i.i.i849:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847
-  %_M_storage.i.i.i3.i.i.i.i850 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 32
-  %100 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i850, align 4
-  %cmp.i.i.i.i.i.i851 = icmp slt i32 %and.i.i.i.i820, %100
-  br i1 %cmp.i.i.i.i.i.i851, label %if.then.i908, label %cond.false.i.i.i.i.i.i852
+lor.lhs.false.i.i.i.i850:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848
+  %_M_storage.i.i.i3.i.i.i.i851 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 32
+  %100 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i851, align 4
+  %cmp.i.i.i.i.i.i852 = icmp slt i32 %and.i.i.i.i821, %100
+  br i1 %cmp.i.i.i.i.i.i852, label %if.then.i909, label %cond.false.i.i.i.i.i.i853
 
-cond.false.i.i.i.i.i.i852:                        ; preds = %lor.lhs.false.i.i.i.i849
-  %cmp5.i.i.i.i.i.i853 = icmp sgt i32 %and.i.i.i.i820, %100
-  br i1 %cmp5.i.i.i.i.i.i853, label %if.end.i862, label %cond.false7.i.i.i.i.i.i854
+cond.false.i.i.i.i.i.i853:                        ; preds = %lor.lhs.false.i.i.i.i850
+  %cmp5.i.i.i.i.i.i854 = icmp sgt i32 %and.i.i.i.i821, %100
+  br i1 %cmp5.i.i.i.i.i.i854, label %if.end.i863, label %cond.false7.i.i.i.i.i.i855
 
-cond.false7.i.i.i.i.i.i854:                       ; preds = %cond.false.i.i.i.i.i.i852
-  %arrayidx.i.i.i5.i.i.i.i.i.i855 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 36
-  %101 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i855, align 4
-  %cmp10.i.i.i.i.i.i856 = icmp slt i32 %and4.i.i.i.i821, %101
-  br i1 %cmp10.i.i.i.i.i.i856, label %if.then.i908, label %cond.false12.i.i.i.i.i.i857
+cond.false7.i.i.i.i.i.i855:                       ; preds = %cond.false.i.i.i.i.i.i853
+  %arrayidx.i.i.i5.i.i.i.i.i.i856 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 36
+  %101 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i856, align 4
+  %cmp10.i.i.i.i.i.i857 = icmp slt i32 %and4.i.i.i.i822, %101
+  br i1 %cmp10.i.i.i.i.i.i857, label %if.then.i909, label %cond.false12.i.i.i.i.i.i858
 
-cond.false12.i.i.i.i.i.i857:                      ; preds = %cond.false7.i.i.i.i.i.i854
-  %cmp15.i.i.i.i.i.i858 = icmp sgt i32 %and4.i.i.i.i821, %101
-  br i1 %cmp15.i.i.i.i.i.i858, label %if.end.i862, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859
+cond.false12.i.i.i.i.i.i858:                      ; preds = %cond.false7.i.i.i.i.i.i855
+  %cmp15.i.i.i.i.i.i859 = icmp sgt i32 %and4.i.i.i.i822, %101
+  br i1 %cmp15.i.i.i.i.i.i859, label %if.end.i863, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859: ; preds = %cond.false12.i.i.i.i.i.i857
-  %arrayidx.i.i.i9.i.i.i.i.i.i860 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 40
-  %102 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i860, align 4
-  %cmp20.i.i.i.i.i.i861 = icmp slt i32 %and7.i.i.i.i822, %102
-  br i1 %cmp20.i.i.i.i.i.i861, label %if.then.i908, label %if.end.i862
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860: ; preds = %cond.false12.i.i.i.i.i.i858
+  %arrayidx.i.i.i9.i.i.i.i.i.i861 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 40
+  %102 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i861, align 4
+  %cmp20.i.i.i.i.i.i862 = icmp slt i32 %and7.i.i.i.i823, %102
+  br i1 %cmp20.i.i.i.i.i.i862, label %if.then.i909, label %if.end.i863
 
-if.then.i908:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859, %cond.false7.i.i.i.i.i.i854, %lor.lhs.false.i.i.i.i849, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847, %if.end.i27.i320
-  %mBackground.i909 = getelementptr inbounds i8, ptr %92, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i909:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860, %cond.false7.i.i.i.i.i.i855, %lor.lhs.false.i.i.i.i850, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848, %if.end.i27.i321
+  %mBackground.i910 = getelementptr inbounds i8, ptr %92, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i862:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859, %cond.false12.i.i.i.i.i.i857, %cond.false.i.i.i.i.i.i852
-  %second.i.i863 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 48
-  %103 = load ptr, ptr %second.i.i863, align 8
-  %cmp.i.i.not.i864 = icmp eq ptr %103, null
-  br i1 %cmp.i.i.not.i864, label %if.end10.i906, label %if.then6.i865
+if.end.i863:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860, %cond.false12.i.i.i.i.i.i858, %cond.false.i.i.i.i.i.i853
+  %second.i.i864 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 48
+  %103 = load ptr, ptr %second.i.i864, align 8
+  %cmp.i.i.not.i865 = icmp eq ptr %103, null
+  br i1 %cmp.i.i.not.i865, label %if.end10.i907, label %if.then6.i866
 
-if.then6.i865:                                    ; preds = %if.end.i862
-  %and4.i.i867 = and i32 %73, -4096
-  %and7.i.i868 = and i32 %74, -4096
-  %retval.sroa.2.0.insert.ext.i.i869 = zext i32 %and4.i.i867 to i64
-  %retval.sroa.2.0.insert.shift.i.i870 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i869, 32
-  %retval.sroa.0.0.insert.ext.i.i871 = zext i32 %and.i.i19.i317 to i64
-  %retval.sroa.0.0.insert.insert.i.i872 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i870, %retval.sroa.0.0.insert.ext.i.i871
-  store i64 %retval.sroa.0.0.insert.insert.i.i872, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i868, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %103, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %104 = load ptr, ptr %second.i.i863, align 8
+if.then6.i866:                                    ; preds = %if.end.i863
+  %and4.i.i868 = and i32 %73, -4096
+  %and7.i.i869 = and i32 %74, -4096
+  %retval.sroa.2.0.insert.ext.i.i870 = zext i32 %and4.i.i868 to i64
+  %retval.sroa.2.0.insert.shift.i.i871 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i870, 32
+  %retval.sroa.0.0.insert.ext.i.i872 = zext i32 %and.i.i19.i318 to i64
+  %retval.sroa.0.0.insert.insert.i.i873 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i871, %retval.sroa.0.0.insert.ext.i.i872
+  store i64 %retval.sroa.0.0.insert.insert.i.i873, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i869, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %103, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %104 = load ptr, ptr %second.i.i864, align 8
   %105 = shl i32 %add.i6.i, 3
-  %shl.i.i.i876 = and i32 %105, 31744
+  %shl.i.i.i877 = and i32 %105, 31744
   %106 = lshr i32 %73, 2
-  %shl4.i.i.i877 = and i32 %106, 992
-  %add.i.i.i878 = or disjoint i32 %shl4.i.i.i877, %shl.i.i.i876
-  %and6.i.i.i879 = lshr i32 %74, 7
-  %shr7.i.i.i880 = and i32 %and6.i.i.i879, 31
-  %add8.i.i.i881 = or disjoint i32 %add.i.i.i878, %shr7.i.i.i880
-  %mChildMask.i.i.i882 = getelementptr inbounds i8, ptr %104, i64 262144
-  %shr.i.i.i.i883 = lshr i32 %add.i.i.i878, 6
-  %idxprom.i.i.i.i884 = zext nneg i32 %shr.i.i.i.i883 to i64
-  %arrayidx.i.i.i8.i885 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i882, i64 0, i64 %idxprom.i.i.i.i884
-  %107 = load i64, ptr %arrayidx.i.i.i8.i885, align 8
-  %and.i.i.i9.i886 = and i32 %add8.i.i.i881, 63
-  %sh_prom.i.i.i.i887 = zext nneg i32 %and.i.i.i9.i886 to i64
-  %shl.i.i.i.i888 = shl nuw i64 1, %sh_prom.i.i.i.i887
-  %and2.i.i.i.i889 = and i64 %107, %shl.i.i.i.i888
-  %cmp.i.i.not.i.i890 = icmp eq i64 %and2.i.i.i.i889, 0
-  %idxprom10.i.i891 = zext nneg i32 %add8.i.i.i881 to i64
-  %arrayidx11.i.i892 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %104, i64 0, i64 %idxprom10.i.i891
-  br i1 %cmp.i.i.not.i.i890, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398, label %if.then.i.i893
+  %shl4.i.i.i878 = and i32 %106, 992
+  %add.i.i.i879 = or disjoint i32 %shl4.i.i.i878, %shl.i.i.i877
+  %and6.i.i.i880 = lshr i32 %74, 7
+  %shr7.i.i.i881 = and i32 %and6.i.i.i880, 31
+  %add8.i.i.i882 = or disjoint i32 %add.i.i.i879, %shr7.i.i.i881
+  %mChildMask.i.i.i883 = getelementptr inbounds i8, ptr %104, i64 262144
+  %shr.i.i.i.i884 = lshr i32 %add.i.i.i879, 6
+  %idxprom.i.i.i.i885 = zext nneg i32 %shr.i.i.i.i884 to i64
+  %arrayidx.i.i.i8.i886 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i883, i64 0, i64 %idxprom.i.i.i.i885
+  %107 = load i64, ptr %arrayidx.i.i.i8.i886, align 8
+  %and.i.i.i9.i887 = and i32 %add8.i.i.i882, 63
+  %sh_prom.i.i.i.i888 = zext nneg i32 %and.i.i.i9.i887 to i64
+  %shl.i.i.i.i889 = shl nuw i64 1, %sh_prom.i.i.i.i888
+  %and2.i.i.i.i890 = and i64 %107, %shl.i.i.i.i889
+  %cmp.i.i.not.i.i891 = icmp eq i64 %and2.i.i.i.i890, 0
+  %idxprom10.i.i892 = zext nneg i32 %add8.i.i.i882 to i64
+  %arrayidx11.i.i893 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %104, i64 0, i64 %idxprom10.i.i892
+  br i1 %cmp.i.i.not.i.i891, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399, label %if.then.i.i894
 
-if.then.i.i893:                                   ; preds = %if.then6.i865
-  %108 = load ptr, ptr %arrayidx11.i.i892, align 8
-  %and4.i.i.i895 = and i32 %73, -128
-  %and7.i.i.i896 = and i32 %74, -128
-  %retval.sroa.2.0.insert.ext.i.i.i897 = zext i32 %and4.i.i.i895 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i898 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i897, 32
-  %retval.sroa.0.0.insert.ext.i.i.i899 = zext i32 %and.i.i6.i313 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i900 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i898, %retval.sroa.0.0.insert.ext.i.i.i899
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i900, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i896, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %108, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %109 = load ptr, ptr %arrayidx11.i.i892, align 8
-  %call8.i.i904 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %109, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i.i894:                                   ; preds = %if.then6.i866
+  %108 = load ptr, ptr %arrayidx11.i.i893, align 8
+  %and4.i.i.i896 = and i32 %73, -128
+  %and7.i.i.i897 = and i32 %74, -128
+  %retval.sroa.2.0.insert.ext.i.i.i898 = zext i32 %and4.i.i.i896 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i899 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i898, 32
+  %retval.sroa.0.0.insert.ext.i.i.i900 = zext i32 %and.i.i6.i314 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i901 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i899, %retval.sroa.0.0.insert.ext.i.i.i900
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i901, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i897, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %108, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %109 = load ptr, ptr %arrayidx11.i.i893, align 8
+  %call8.i.i905 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %109, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end10.i906:                                    ; preds = %if.end.i862
-  %tile.i.i907 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.end10.i907:                                    ; preds = %if.end.i863
+  %tile.i.i908 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398: ; preds = %if.end10.i906, %if.then.i.i893, %if.then6.i865, %if.then.i908, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i386, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i373, %if.end.i33.i334, %if.then.i.i.i353
-  %retval.i.0.i323 = phi ptr [ %arrayidx.i.i396, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i386 ], [ %call3.i.i375, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i373 ], [ %call8.i.i.i362, %if.then.i.i.i353 ], [ %arrayidx11.i.i.i352, %if.end.i33.i334 ], [ %mBackground.i909, %if.then.i908 ], [ %tile.i.i907, %if.end10.i906 ], [ %call8.i.i904, %if.then.i.i893 ], [ %arrayidx11.i.i892, %if.then6.i865 ]
-  %110 = load float, ptr %retval.i.0.i323, align 4
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399: ; preds = %if.end10.i907, %if.then.i.i894, %if.then6.i866, %if.then.i909, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i387, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i374, %if.end.i33.i335, %if.then.i.i.i354
+  %retval.i.0.i324 = phi ptr [ %arrayidx.i.i397, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i387 ], [ %call3.i.i376, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i374 ], [ %call8.i.i.i363, %if.then.i.i.i354 ], [ %arrayidx11.i.i.i353, %if.end.i33.i335 ], [ %mBackground.i910, %if.then.i909 ], [ %tile.i.i908, %if.end10.i907 ], [ %call8.i.i905, %if.then.i.i894 ], [ %arrayidx11.i.i893, %if.then6.i866 ]
+  %110 = load float, ptr %retval.i.0.i324, align 4
   %111 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i16.i = getelementptr inbounds i8, ptr %111, i64 8
   store float %110, ptr %add.ptr.i.i16.i, align 4
   %112 = load i32, ptr %mCenter.i, align 8
-  %113 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %113 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %add4.i.i = add nsw i32 %113, -1
   %114 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %retval.sroa.2.0.insert.ext.i19.i = zext i32 %add4.i.i to i64
-  %retval.sroa.2.0.insert.shift.i20.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i19.i, 32
-  %retval.sroa.0.0.insert.ext.i21.i = zext i32 %112 to i64
-  %retval.sroa.0.0.insert.insert.i22.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i20.i, %retval.sroa.0.0.insert.ext.i21.i
-  store i64 %retval.sroa.0.0.insert.insert.i22.i, ptr %ref.tmp12.i, align 8
+  %retval.sroa.2.0.insert.ext.i20.i = zext i32 %add4.i.i to i64
+  %retval.sroa.2.0.insert.shift.i21.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i20.i, 32
+  %retval.sroa.0.0.insert.ext.i22.i = zext i32 %112 to i64
+  %retval.sroa.0.0.insert.insert.i23.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i21.i, %retval.sroa.0.0.insert.ext.i22.i
+  store i64 %retval.sroa.0.0.insert.insert.i23.i, ptr %ref.tmp12.i, align 8
   store i32 %114, ptr %tmp.coerce16.sroa.2.0.coerce.dive15.sroa_idx.i, align 8
-  %and.i.i.i219 = and i32 %112, -8
-  %115 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i221 = icmp eq i32 %and.i.i.i219, %115
-  br i1 %cmp.i.i.i221, label %land.lhs.true.i.i.i286, label %if.end.i.i222
+  %and.i.i.i220 = and i32 %112, -8
+  %115 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i222 = icmp eq i32 %and.i.i.i220, %115
+  br i1 %cmp.i.i.i222, label %land.lhs.true.i.i.i287, label %if.end.i.i223
 
-land.lhs.true.i.i.i286:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
-  %and5.i.i.i288 = and i32 %add4.i.i, -8
-  %116 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i290 = icmp eq i32 %and5.i.i.i288, %116
-  br i1 %cmp9.i.i.i290, label %land.rhs.i.i.i291, label %if.end.i.i222
+land.lhs.true.i.i.i287:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
+  %and5.i.i.i289 = and i32 %add4.i.i, -8
+  %116 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i291 = icmp eq i32 %and5.i.i.i289, %116
+  br i1 %cmp9.i.i.i291, label %land.rhs.i.i.i292, label %if.end.i.i223
 
-land.rhs.i.i.i291:                                ; preds = %land.lhs.true.i.i.i286
-  %and11.i.i.i293 = and i32 %114, -8
-  %117 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i295 = icmp eq i32 %and11.i.i.i293, %117
-  br i1 %cmp15.i.i.i295, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i296, label %if.end.i.i222
+land.rhs.i.i.i292:                                ; preds = %land.lhs.true.i.i.i287
+  %and11.i.i.i294 = and i32 %114, -8
+  %117 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i296 = icmp eq i32 %and11.i.i.i294, %117
+  br i1 %cmp15.i.i.i296, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i297, label %if.end.i.i223
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i296: ; preds = %land.rhs.i.i.i291
-  %118 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i298 = shl i32 %112, 6
-  %shl.i.i.i299 = and i32 %and.i6.i.i298, 448
-  %and2.i.i.i300 = shl i32 %add4.i.i, 3
-  %shl3.i.i.i301 = and i32 %and2.i.i.i300, 56
-  %and5.i7.i.i303 = and i32 %114, 7
-  %add.i.i.i302 = or disjoint i32 %shl.i.i.i299, %and5.i7.i.i303
-  %add6.i.i.i304 = or disjoint i32 %add.i.i.i302, %shl3.i.i.i301
-  %idxprom.i.i305 = zext nneg i32 %add6.i.i.i304 to i64
-  %arrayidx.i.i306 = getelementptr inbounds float, ptr %118, i64 %idxprom.i.i305
-  %tobool.i.not.i307 = icmp eq ptr %118, null
-  br i1 %tobool.i.not.i307, label %if.end.i.i222, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i297: ; preds = %land.rhs.i.i.i292
+  %118 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i299 = shl i32 %112, 6
+  %shl.i.i.i300 = and i32 %and.i6.i.i299, 448
+  %and2.i.i.i301 = shl i32 %add4.i.i, 3
+  %shl3.i.i.i302 = and i32 %and2.i.i.i301, 56
+  %and5.i7.i.i304 = and i32 %114, 7
+  %add.i.i.i303 = or disjoint i32 %shl.i.i.i300, %and5.i7.i.i304
+  %add6.i.i.i305 = or disjoint i32 %add.i.i.i303, %shl3.i.i.i302
+  %idxprom.i.i306 = zext nneg i32 %add6.i.i.i305 to i64
+  %arrayidx.i.i307 = getelementptr inbounds float, ptr %118, i64 %idxprom.i.i306
+  %tobool.i.not.i308 = icmp eq ptr %118, null
+  br i1 %tobool.i.not.i308, label %if.end.i.i223, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i.i222:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i296, %land.rhs.i.i.i291, %land.lhs.true.i.i.i286, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
-  %and.i.i6.i223 = and i32 %112, -128
-  %119 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i225 = icmp eq i32 %and.i.i6.i223, %119
-  br i1 %cmp.i.i7.i225, label %land.lhs.true.i.i9.i273, label %if.end.i16.i226
+if.end.i.i223:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i297, %land.rhs.i.i.i292, %land.lhs.true.i.i.i287, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
+  %and.i.i6.i224 = and i32 %112, -128
+  %119 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i226 = icmp eq i32 %and.i.i6.i224, %119
+  br i1 %cmp.i.i7.i226, label %land.lhs.true.i.i9.i274, label %if.end.i16.i227
 
-land.lhs.true.i.i9.i273:                          ; preds = %if.end.i.i222
-  %and5.i.i11.i275 = and i32 %add4.i.i, -128
-  %120 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i277 = icmp eq i32 %and5.i.i11.i275, %120
-  br i1 %cmp9.i.i13.i277, label %land.rhs.i.i14.i278, label %if.end.i16.i226
+land.lhs.true.i.i9.i274:                          ; preds = %if.end.i.i223
+  %and5.i.i11.i276 = and i32 %add4.i.i, -128
+  %120 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i278 = icmp eq i32 %and5.i.i11.i276, %120
+  br i1 %cmp9.i.i13.i278, label %land.rhs.i.i14.i279, label %if.end.i16.i227
 
-land.rhs.i.i14.i278:                              ; preds = %land.lhs.true.i.i9.i273
-  %and11.i.i16.i280 = and i32 %114, -128
-  %121 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i282 = icmp eq i32 %and11.i.i16.i280, %121
-  br i1 %cmp15.i.i17.i282, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i283, label %if.end.i16.i226
+land.rhs.i.i14.i279:                              ; preds = %land.lhs.true.i.i9.i274
+  %and11.i.i16.i281 = and i32 %114, -128
+  %121 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i283 = icmp eq i32 %and11.i.i16.i281, %121
+  br i1 %cmp15.i.i17.i283, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i284, label %if.end.i16.i227
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i283: ; preds = %land.rhs.i.i14.i278
-  %122 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i285 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %122, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i284: ; preds = %land.rhs.i.i14.i279
+  %122 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %122, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i16.i226:                                  ; preds = %land.rhs.i.i14.i278, %land.lhs.true.i.i9.i273, %if.end.i.i222
-  %and.i.i19.i227 = and i32 %112, -4096
-  %123 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i229 = icmp eq i32 %and.i.i19.i227, %123
-  br i1 %cmp.i.i21.i229, label %land.lhs.true.i.i23.i234, label %if.end.i27.i230
+if.end.i16.i227:                                  ; preds = %land.rhs.i.i14.i279, %land.lhs.true.i.i9.i274, %if.end.i.i223
+  %and.i.i19.i228 = and i32 %112, -4096
+  %123 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i230 = icmp eq i32 %and.i.i19.i228, %123
+  br i1 %cmp.i.i21.i230, label %land.lhs.true.i.i23.i235, label %if.end.i27.i231
 
-land.lhs.true.i.i23.i234:                         ; preds = %if.end.i16.i226
-  %and5.i.i25.i236 = and i32 %add4.i.i, -4096
-  %124 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i238 = icmp eq i32 %and5.i.i25.i236, %124
-  br i1 %cmp9.i.i27.i238, label %land.rhs.i.i28.i239, label %if.end.i27.i230
+land.lhs.true.i.i23.i235:                         ; preds = %if.end.i16.i227
+  %and5.i.i25.i237 = and i32 %add4.i.i, -4096
+  %124 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i239 = icmp eq i32 %and5.i.i25.i237, %124
+  br i1 %cmp9.i.i27.i239, label %land.rhs.i.i28.i240, label %if.end.i27.i231
 
-land.rhs.i.i28.i239:                              ; preds = %land.lhs.true.i.i23.i234
-  %and11.i.i30.i241 = and i32 %114, -4096
-  %125 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i243 = icmp eq i32 %and11.i.i30.i241, %125
-  br i1 %cmp15.i.i32.i243, label %if.end.i33.i244, label %if.end.i27.i230
+land.rhs.i.i28.i240:                              ; preds = %land.lhs.true.i.i23.i235
+  %and11.i.i30.i242 = and i32 %114, -4096
+  %125 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i244 = icmp eq i32 %and11.i.i30.i242, %125
+  br i1 %cmp15.i.i32.i244, label %if.end.i33.i245, label %if.end.i27.i231
 
-if.end.i33.i244:                                  ; preds = %land.rhs.i.i28.i239
-  %126 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i245:                                  ; preds = %land.rhs.i.i28.i240
+  %126 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %127 = shl i32 %112, 3
-  %shl.i.i.i.i246 = and i32 %127, 31744
+  %shl.i.i.i.i247 = and i32 %127, 31744
   %128 = lshr i32 %add4.i.i, 2
-  %shl4.i.i.i.i247 = and i32 %128, 992
-  %add.i.i.i.i248 = or disjoint i32 %shl4.i.i.i.i247, %shl.i.i.i.i246
-  %and6.i.i.i.i249 = lshr i32 %114, 7
-  %shr7.i.i.i.i250 = and i32 %and6.i.i.i.i249, 31
-  %add8.i.i.i.i251 = or disjoint i32 %add.i.i.i.i248, %shr7.i.i.i.i250
-  %mChildMask.i.i.i.i252 = getelementptr inbounds i8, ptr %126, i64 262144
-  %shr.i.i.i.i.i253 = lshr i32 %add.i.i.i.i248, 6
-  %idxprom.i.i.i.i.i254 = zext nneg i32 %shr.i.i.i.i.i253 to i64
-  %arrayidx.i.i.i8.i.i255 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i252, i64 0, i64 %idxprom.i.i.i.i.i254
-  %129 = load i64, ptr %arrayidx.i.i.i8.i.i255, align 8
-  %and.i.i.i.i.i256 = and i32 %add8.i.i.i.i251, 63
-  %sh_prom.i.i.i.i.i257 = zext nneg i32 %and.i.i.i.i.i256 to i64
-  %shl.i.i.i.i.i258 = shl nuw i64 1, %sh_prom.i.i.i.i.i257
-  %and2.i.i.i.i.i259 = and i64 %129, %shl.i.i.i.i.i258
-  %cmp.i.i.not.i.i.i260 = icmp eq i64 %and2.i.i.i.i.i259, 0
-  %idxprom10.i.i.i261 = zext nneg i32 %add8.i.i.i.i251 to i64
-  %arrayidx11.i.i.i262 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %126, i64 0, i64 %idxprom10.i.i.i261
-  br i1 %cmp.i.i.not.i.i.i260, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308, label %if.then.i.i.i263
+  %shl4.i.i.i.i248 = and i32 %128, 992
+  %add.i.i.i.i249 = or disjoint i32 %shl4.i.i.i.i248, %shl.i.i.i.i247
+  %and6.i.i.i.i250 = lshr i32 %114, 7
+  %shr7.i.i.i.i251 = and i32 %and6.i.i.i.i250, 31
+  %add8.i.i.i.i252 = or disjoint i32 %add.i.i.i.i249, %shr7.i.i.i.i251
+  %mChildMask.i.i.i.i253 = getelementptr inbounds i8, ptr %126, i64 262144
+  %shr.i.i.i.i.i254 = lshr i32 %add.i.i.i.i249, 6
+  %idxprom.i.i.i.i.i255 = zext nneg i32 %shr.i.i.i.i.i254 to i64
+  %arrayidx.i.i.i8.i.i256 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i253, i64 0, i64 %idxprom.i.i.i.i.i255
+  %129 = load i64, ptr %arrayidx.i.i.i8.i.i256, align 8
+  %and.i.i.i.i.i257 = and i32 %add8.i.i.i.i252, 63
+  %sh_prom.i.i.i.i.i258 = zext nneg i32 %and.i.i.i.i.i257 to i64
+  %shl.i.i.i.i.i259 = shl nuw i64 1, %sh_prom.i.i.i.i.i258
+  %and2.i.i.i.i.i260 = and i64 %129, %shl.i.i.i.i.i259
+  %cmp.i.i.not.i.i.i261 = icmp eq i64 %and2.i.i.i.i.i260, 0
+  %idxprom10.i.i.i262 = zext nneg i32 %add8.i.i.i.i252 to i64
+  %arrayidx11.i.i.i263 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %126, i64 0, i64 %idxprom10.i.i.i262
+  br i1 %cmp.i.i.not.i.i.i261, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309, label %if.then.i.i.i264
 
-if.then.i.i.i263:                                 ; preds = %if.end.i33.i244
-  %130 = load ptr, ptr %arrayidx11.i.i.i262, align 8
-  %and4.i.i.i.i264 = and i32 %add4.i.i, -128
-  %and7.i.i.i.i265 = and i32 %114, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i266 = zext i32 %and4.i.i.i.i264 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i267 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i266, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i268 = zext i32 %and.i.i6.i223 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i269 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i267, %retval.sroa.0.0.insert.ext.i.i.i.i268
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i269, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i265, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %130, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %131 = load ptr, ptr %arrayidx11.i.i.i262, align 8
-  %call8.i.i.i272 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %131, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i.i.i264:                                 ; preds = %if.end.i33.i245
+  %130 = load ptr, ptr %arrayidx11.i.i.i263, align 8
+  %and4.i.i.i.i265 = and i32 %add4.i.i, -128
+  %and7.i.i.i.i266 = and i32 %114, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i267 = zext i32 %and4.i.i.i.i265 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i268 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i267, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i269 = zext i32 %and.i.i6.i224 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i270 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i268, %retval.sroa.0.0.insert.ext.i.i.i.i269
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i270, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i266, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %130, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %131 = load ptr, ptr %arrayidx11.i.i.i263, align 8
+  %call8.i.i.i273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %131, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i27.i230:                                  ; preds = %land.rhs.i.i28.i239, %land.lhs.true.i.i23.i234, %if.end.i16.i226
-  %132 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i712 = getelementptr inbounds i8, ptr %132, i64 52
-  %133 = load i32, ptr %mOrigin.i.i.i712, align 4
-  %sub.i.i.i.i713 = sub nsw i32 %112, %133
-  %arrayidx.i.i.i.i.i.i.i715 = getelementptr inbounds i8, ptr %132, i64 56
-  %134 = load i32, ptr %arrayidx.i.i.i.i.i.i.i715, align 4
-  %sub6.i.i.i.i716 = sub nsw i32 %add4.i.i, %134
-  %arrayidx.i.i.i4.i.i.i.i718 = getelementptr inbounds i8, ptr %132, i64 60
-  %135 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i718, align 4
-  %sub10.i.i.i.i719 = sub nsw i32 %114, %135
-  %and.i.i.i.i720 = and i32 %sub.i.i.i.i713, -4096
-  %and4.i.i.i.i721 = and i32 %sub6.i.i.i.i716, -4096
-  %and7.i.i.i.i722 = and i32 %sub10.i.i.i.i719, -4096
-  %_M_parent.i.i.i.i.i723 = getelementptr inbounds i8, ptr %132, i64 16
-  %136 = load ptr, ptr %_M_parent.i.i.i.i.i723, align 8
-  %add.ptr.i.i.i.i.i724 = getelementptr inbounds i8, ptr %132, i64 8
-  %cmp.not9.i.i.i.i.i725 = icmp eq ptr %136, null
-  br i1 %cmp.not9.i.i.i.i.i725, label %if.then.i808, label %while.body.i.i.i.i.i726
+if.end.i27.i231:                                  ; preds = %land.rhs.i.i28.i240, %land.lhs.true.i.i23.i235, %if.end.i16.i227
+  %132 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i713 = getelementptr inbounds i8, ptr %132, i64 52
+  %133 = load i32, ptr %mOrigin.i.i.i713, align 4
+  %sub.i.i.i.i714 = sub nsw i32 %112, %133
+  %arrayidx.i.i.i.i.i.i.i716 = getelementptr inbounds i8, ptr %132, i64 56
+  %134 = load i32, ptr %arrayidx.i.i.i.i.i.i.i716, align 4
+  %sub6.i.i.i.i717 = sub nsw i32 %add4.i.i, %134
+  %arrayidx.i.i.i4.i.i.i.i719 = getelementptr inbounds i8, ptr %132, i64 60
+  %135 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i719, align 4
+  %sub10.i.i.i.i720 = sub nsw i32 %114, %135
+  %and.i.i.i.i721 = and i32 %sub.i.i.i.i714, -4096
+  %and4.i.i.i.i722 = and i32 %sub6.i.i.i.i717, -4096
+  %and7.i.i.i.i723 = and i32 %sub10.i.i.i.i720, -4096
+  %_M_parent.i.i.i.i.i724 = getelementptr inbounds i8, ptr %132, i64 16
+  %136 = load ptr, ptr %_M_parent.i.i.i.i.i724, align 8
+  %add.ptr.i.i.i.i.i725 = getelementptr inbounds i8, ptr %132, i64 8
+  %cmp.not9.i.i.i.i.i726 = icmp eq ptr %136, null
+  br i1 %cmp.not9.i.i.i.i.i726, label %if.then.i809, label %while.body.i.i.i.i.i727
 
-while.body.i.i.i.i.i726:                          ; preds = %if.end.i27.i230, %if.end.i.i.i.i.i741
-  %__x.addr.011.i.i.i.i.i727 = phi ptr [ %__x.addr.1.i.i.i.i.i745, %if.end.i.i.i.i.i741 ], [ %136, %if.end.i27.i230 ]
-  %__y.addr.010.i.i.i.i.i728 = phi ptr [ %__y.addr.1.i.i.i.i.i743, %if.end.i.i.i.i.i741 ], [ %add.ptr.i.i.i.i.i724, %if.end.i27.i230 ]
-  %_M_storage.i.i.i.i.i.i.i729 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 32
-  %137 = load i32, ptr %_M_storage.i.i.i.i.i.i.i729, align 4
-  %cmp.i.i.i.i.i.i.i730 = icmp slt i32 %137, %and.i.i.i.i720
-  br i1 %cmp.i.i.i.i.i.i.i730, label %if.else.i.i.i.i.i810, label %cond.false.i.i.i.i.i.i.i731
+while.body.i.i.i.i.i727:                          ; preds = %if.end.i27.i231, %if.end.i.i.i.i.i742
+  %__x.addr.011.i.i.i.i.i728 = phi ptr [ %__x.addr.1.i.i.i.i.i746, %if.end.i.i.i.i.i742 ], [ %136, %if.end.i27.i231 ]
+  %__y.addr.010.i.i.i.i.i729 = phi ptr [ %__y.addr.1.i.i.i.i.i744, %if.end.i.i.i.i.i742 ], [ %add.ptr.i.i.i.i.i725, %if.end.i27.i231 ]
+  %_M_storage.i.i.i.i.i.i.i730 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 32
+  %137 = load i32, ptr %_M_storage.i.i.i.i.i.i.i730, align 4
+  %cmp.i.i.i.i.i.i.i731 = icmp slt i32 %137, %and.i.i.i.i721
+  br i1 %cmp.i.i.i.i.i.i.i731, label %if.else.i.i.i.i.i811, label %cond.false.i.i.i.i.i.i.i732
 
-cond.false.i.i.i.i.i.i.i731:                      ; preds = %while.body.i.i.i.i.i726
-  %cmp5.i.i.i.i.i.i.i732 = icmp sgt i32 %137, %and.i.i.i.i720
-  br i1 %cmp5.i.i.i.i.i.i.i732, label %if.end.i.i.i.i.i741, label %cond.false7.i.i.i.i.i.i.i733
+cond.false.i.i.i.i.i.i.i732:                      ; preds = %while.body.i.i.i.i.i727
+  %cmp5.i.i.i.i.i.i.i733 = icmp sgt i32 %137, %and.i.i.i.i721
+  br i1 %cmp5.i.i.i.i.i.i.i733, label %if.end.i.i.i.i.i742, label %cond.false7.i.i.i.i.i.i.i734
 
-cond.false7.i.i.i.i.i.i.i733:                     ; preds = %cond.false.i.i.i.i.i.i.i731
-  %arrayidx.i.i.i.i.i.i.i.i.i.i734 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 36
-  %138 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i734, align 4
-  %cmp10.i.i.i.i.i.i.i735 = icmp slt i32 %138, %and4.i.i.i.i721
-  br i1 %cmp10.i.i.i.i.i.i.i735, label %if.else.i.i.i.i.i810, label %cond.false12.i.i.i.i.i.i.i736
+cond.false7.i.i.i.i.i.i.i734:                     ; preds = %cond.false.i.i.i.i.i.i.i732
+  %arrayidx.i.i.i.i.i.i.i.i.i.i735 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 36
+  %138 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i735, align 4
+  %cmp10.i.i.i.i.i.i.i736 = icmp slt i32 %138, %and4.i.i.i.i722
+  br i1 %cmp10.i.i.i.i.i.i.i736, label %if.else.i.i.i.i.i811, label %cond.false12.i.i.i.i.i.i.i737
 
-cond.false12.i.i.i.i.i.i.i736:                    ; preds = %cond.false7.i.i.i.i.i.i.i733
-  %cmp15.i.i.i.i.i.i.i737 = icmp sgt i32 %138, %and4.i.i.i.i721
-  br i1 %cmp15.i.i.i.i.i.i.i737, label %if.end.i.i.i.i.i741, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738
+cond.false12.i.i.i.i.i.i.i737:                    ; preds = %cond.false7.i.i.i.i.i.i.i734
+  %cmp15.i.i.i.i.i.i.i738 = icmp sgt i32 %138, %and4.i.i.i.i722
+  br i1 %cmp15.i.i.i.i.i.i.i738, label %if.end.i.i.i.i.i742, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738: ; preds = %cond.false12.i.i.i.i.i.i.i736
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i739 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 40
-  %139 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i739, align 4
-  %cmp20.i.i.i.i.i.i.i740 = icmp slt i32 %139, %and7.i.i.i.i722
-  br i1 %cmp20.i.i.i.i.i.i.i740, label %if.else.i.i.i.i.i810, label %if.end.i.i.i.i.i741
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739: ; preds = %cond.false12.i.i.i.i.i.i.i737
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i740 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 40
+  %139 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i740, align 4
+  %cmp20.i.i.i.i.i.i.i741 = icmp slt i32 %139, %and7.i.i.i.i723
+  br i1 %cmp20.i.i.i.i.i.i.i741, label %if.else.i.i.i.i.i811, label %if.end.i.i.i.i.i742
 
-if.else.i.i.i.i.i810:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738, %cond.false7.i.i.i.i.i.i.i733, %while.body.i.i.i.i.i726
-  br label %if.end.i.i.i.i.i741
+if.else.i.i.i.i.i811:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739, %cond.false7.i.i.i.i.i.i.i734, %while.body.i.i.i.i.i727
+  br label %if.end.i.i.i.i.i742
 
-if.end.i.i.i.i.i741:                              ; preds = %if.else.i.i.i.i.i810, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738, %cond.false12.i.i.i.i.i.i.i736, %cond.false.i.i.i.i.i.i.i731
-  %.sink.i.i.i.i.i742 = phi i64 [ 24, %if.else.i.i.i.i.i810 ], [ 16, %cond.false12.i.i.i.i.i.i.i736 ], [ 16, %cond.false.i.i.i.i.i.i.i731 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738 ]
-  %__y.addr.1.i.i.i.i.i743 = phi ptr [ %__y.addr.010.i.i.i.i.i728, %if.else.i.i.i.i.i810 ], [ %__x.addr.011.i.i.i.i.i727, %cond.false12.i.i.i.i.i.i.i736 ], [ %__x.addr.011.i.i.i.i.i727, %cond.false.i.i.i.i.i.i.i731 ], [ %__x.addr.011.i.i.i.i.i727, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738 ]
-  %_M_right.i.i.i.i.i.i744 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 %.sink.i.i.i.i.i742
-  %__x.addr.1.i.i.i.i.i745 = load ptr, ptr %_M_right.i.i.i.i.i.i744, align 8
-  %cmp.not.i.i.i.i.i746 = icmp eq ptr %__x.addr.1.i.i.i.i.i745, null
-  br i1 %cmp.not.i.i.i.i.i746, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747, label %while.body.i.i.i.i.i726, !llvm.loop !31
+if.end.i.i.i.i.i742:                              ; preds = %if.else.i.i.i.i.i811, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739, %cond.false12.i.i.i.i.i.i.i737, %cond.false.i.i.i.i.i.i.i732
+  %.sink.i.i.i.i.i743 = phi i64 [ 24, %if.else.i.i.i.i.i811 ], [ 16, %cond.false12.i.i.i.i.i.i.i737 ], [ 16, %cond.false.i.i.i.i.i.i.i732 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739 ]
+  %__y.addr.1.i.i.i.i.i744 = phi ptr [ %__y.addr.010.i.i.i.i.i729, %if.else.i.i.i.i.i811 ], [ %__x.addr.011.i.i.i.i.i728, %cond.false12.i.i.i.i.i.i.i737 ], [ %__x.addr.011.i.i.i.i.i728, %cond.false.i.i.i.i.i.i.i732 ], [ %__x.addr.011.i.i.i.i.i728, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739 ]
+  %_M_right.i.i.i.i.i.i745 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 %.sink.i.i.i.i.i743
+  %__x.addr.1.i.i.i.i.i746 = load ptr, ptr %_M_right.i.i.i.i.i.i745, align 8
+  %cmp.not.i.i.i.i.i747 = icmp eq ptr %__x.addr.1.i.i.i.i.i746, null
+  br i1 %cmp.not.i.i.i.i.i747, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748, label %while.body.i.i.i.i.i727, !llvm.loop !31
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747: ; preds = %if.end.i.i.i.i.i741
-  %cmp.i.i.i.i.i748 = icmp eq ptr %__y.addr.1.i.i.i.i.i743, %add.ptr.i.i.i.i.i724
-  br i1 %cmp.i.i.i.i.i748, label %if.then.i808, label %lor.lhs.false.i.i.i.i749
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748: ; preds = %if.end.i.i.i.i.i742
+  %cmp.i.i.i.i.i749 = icmp eq ptr %__y.addr.1.i.i.i.i.i744, %add.ptr.i.i.i.i.i725
+  br i1 %cmp.i.i.i.i.i749, label %if.then.i809, label %lor.lhs.false.i.i.i.i750
 
-lor.lhs.false.i.i.i.i749:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747
-  %_M_storage.i.i.i3.i.i.i.i750 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 32
-  %140 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i750, align 4
-  %cmp.i.i.i.i.i.i751 = icmp slt i32 %and.i.i.i.i720, %140
-  br i1 %cmp.i.i.i.i.i.i751, label %if.then.i808, label %cond.false.i.i.i.i.i.i752
+lor.lhs.false.i.i.i.i750:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748
+  %_M_storage.i.i.i3.i.i.i.i751 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 32
+  %140 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i751, align 4
+  %cmp.i.i.i.i.i.i752 = icmp slt i32 %and.i.i.i.i721, %140
+  br i1 %cmp.i.i.i.i.i.i752, label %if.then.i809, label %cond.false.i.i.i.i.i.i753
 
-cond.false.i.i.i.i.i.i752:                        ; preds = %lor.lhs.false.i.i.i.i749
-  %cmp5.i.i.i.i.i.i753 = icmp sgt i32 %and.i.i.i.i720, %140
-  br i1 %cmp5.i.i.i.i.i.i753, label %if.end.i762, label %cond.false7.i.i.i.i.i.i754
+cond.false.i.i.i.i.i.i753:                        ; preds = %lor.lhs.false.i.i.i.i750
+  %cmp5.i.i.i.i.i.i754 = icmp sgt i32 %and.i.i.i.i721, %140
+  br i1 %cmp5.i.i.i.i.i.i754, label %if.end.i763, label %cond.false7.i.i.i.i.i.i755
 
-cond.false7.i.i.i.i.i.i754:                       ; preds = %cond.false.i.i.i.i.i.i752
-  %arrayidx.i.i.i5.i.i.i.i.i.i755 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 36
-  %141 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i755, align 4
-  %cmp10.i.i.i.i.i.i756 = icmp slt i32 %and4.i.i.i.i721, %141
-  br i1 %cmp10.i.i.i.i.i.i756, label %if.then.i808, label %cond.false12.i.i.i.i.i.i757
+cond.false7.i.i.i.i.i.i755:                       ; preds = %cond.false.i.i.i.i.i.i753
+  %arrayidx.i.i.i5.i.i.i.i.i.i756 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 36
+  %141 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i756, align 4
+  %cmp10.i.i.i.i.i.i757 = icmp slt i32 %and4.i.i.i.i722, %141
+  br i1 %cmp10.i.i.i.i.i.i757, label %if.then.i809, label %cond.false12.i.i.i.i.i.i758
 
-cond.false12.i.i.i.i.i.i757:                      ; preds = %cond.false7.i.i.i.i.i.i754
-  %cmp15.i.i.i.i.i.i758 = icmp sgt i32 %and4.i.i.i.i721, %141
-  br i1 %cmp15.i.i.i.i.i.i758, label %if.end.i762, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759
+cond.false12.i.i.i.i.i.i758:                      ; preds = %cond.false7.i.i.i.i.i.i755
+  %cmp15.i.i.i.i.i.i759 = icmp sgt i32 %and4.i.i.i.i722, %141
+  br i1 %cmp15.i.i.i.i.i.i759, label %if.end.i763, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759: ; preds = %cond.false12.i.i.i.i.i.i757
-  %arrayidx.i.i.i9.i.i.i.i.i.i760 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 40
-  %142 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i760, align 4
-  %cmp20.i.i.i.i.i.i761 = icmp slt i32 %and7.i.i.i.i722, %142
-  br i1 %cmp20.i.i.i.i.i.i761, label %if.then.i808, label %if.end.i762
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760: ; preds = %cond.false12.i.i.i.i.i.i758
+  %arrayidx.i.i.i9.i.i.i.i.i.i761 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 40
+  %142 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i761, align 4
+  %cmp20.i.i.i.i.i.i762 = icmp slt i32 %and7.i.i.i.i723, %142
+  br i1 %cmp20.i.i.i.i.i.i762, label %if.then.i809, label %if.end.i763
 
-if.then.i808:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759, %cond.false7.i.i.i.i.i.i754, %lor.lhs.false.i.i.i.i749, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747, %if.end.i27.i230
-  %mBackground.i809 = getelementptr inbounds i8, ptr %132, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i809:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760, %cond.false7.i.i.i.i.i.i755, %lor.lhs.false.i.i.i.i750, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748, %if.end.i27.i231
+  %mBackground.i810 = getelementptr inbounds i8, ptr %132, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i762:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759, %cond.false12.i.i.i.i.i.i757, %cond.false.i.i.i.i.i.i752
-  %second.i.i763 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 48
-  %143 = load ptr, ptr %second.i.i763, align 8
-  %cmp.i.i.not.i764 = icmp eq ptr %143, null
-  br i1 %cmp.i.i.not.i764, label %if.end10.i806, label %if.then6.i765
+if.end.i763:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760, %cond.false12.i.i.i.i.i.i758, %cond.false.i.i.i.i.i.i753
+  %second.i.i764 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 48
+  %143 = load ptr, ptr %second.i.i764, align 8
+  %cmp.i.i.not.i765 = icmp eq ptr %143, null
+  br i1 %cmp.i.i.not.i765, label %if.end10.i807, label %if.then6.i766
 
-if.then6.i765:                                    ; preds = %if.end.i762
-  %and4.i.i767 = and i32 %add4.i.i, -4096
-  %and7.i.i768 = and i32 %114, -4096
-  %retval.sroa.2.0.insert.ext.i.i769 = zext i32 %and4.i.i767 to i64
-  %retval.sroa.2.0.insert.shift.i.i770 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i769, 32
-  %retval.sroa.0.0.insert.ext.i.i771 = zext i32 %and.i.i19.i227 to i64
-  %retval.sroa.0.0.insert.insert.i.i772 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i770, %retval.sroa.0.0.insert.ext.i.i771
-  store i64 %retval.sroa.0.0.insert.insert.i.i772, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i768, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %143, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %144 = load ptr, ptr %second.i.i763, align 8
+if.then6.i766:                                    ; preds = %if.end.i763
+  %and4.i.i768 = and i32 %add4.i.i, -4096
+  %and7.i.i769 = and i32 %114, -4096
+  %retval.sroa.2.0.insert.ext.i.i770 = zext i32 %and4.i.i768 to i64
+  %retval.sroa.2.0.insert.shift.i.i771 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i770, 32
+  %retval.sroa.0.0.insert.ext.i.i772 = zext i32 %and.i.i19.i228 to i64
+  %retval.sroa.0.0.insert.insert.i.i773 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i771, %retval.sroa.0.0.insert.ext.i.i772
+  store i64 %retval.sroa.0.0.insert.insert.i.i773, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i769, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %143, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %144 = load ptr, ptr %second.i.i764, align 8
   %145 = shl i32 %112, 3
-  %shl.i.i.i776 = and i32 %145, 31744
+  %shl.i.i.i777 = and i32 %145, 31744
   %146 = lshr i32 %add4.i.i, 2
-  %shl4.i.i.i777 = and i32 %146, 992
-  %add.i.i.i778 = or disjoint i32 %shl4.i.i.i777, %shl.i.i.i776
-  %and6.i.i.i779 = lshr i32 %114, 7
-  %shr7.i.i.i780 = and i32 %and6.i.i.i779, 31
-  %add8.i.i.i781 = or disjoint i32 %add.i.i.i778, %shr7.i.i.i780
-  %mChildMask.i.i.i782 = getelementptr inbounds i8, ptr %144, i64 262144
-  %shr.i.i.i.i783 = lshr i32 %add.i.i.i778, 6
-  %idxprom.i.i.i.i784 = zext nneg i32 %shr.i.i.i.i783 to i64
-  %arrayidx.i.i.i8.i785 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i782, i64 0, i64 %idxprom.i.i.i.i784
-  %147 = load i64, ptr %arrayidx.i.i.i8.i785, align 8
-  %and.i.i.i9.i786 = and i32 %add8.i.i.i781, 63
-  %sh_prom.i.i.i.i787 = zext nneg i32 %and.i.i.i9.i786 to i64
-  %shl.i.i.i.i788 = shl nuw i64 1, %sh_prom.i.i.i.i787
-  %and2.i.i.i.i789 = and i64 %147, %shl.i.i.i.i788
-  %cmp.i.i.not.i.i790 = icmp eq i64 %and2.i.i.i.i789, 0
-  %idxprom10.i.i791 = zext nneg i32 %add8.i.i.i781 to i64
-  %arrayidx11.i.i792 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %144, i64 0, i64 %idxprom10.i.i791
-  br i1 %cmp.i.i.not.i.i790, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308, label %if.then.i.i793
+  %shl4.i.i.i778 = and i32 %146, 992
+  %add.i.i.i779 = or disjoint i32 %shl4.i.i.i778, %shl.i.i.i777
+  %and6.i.i.i780 = lshr i32 %114, 7
+  %shr7.i.i.i781 = and i32 %and6.i.i.i780, 31
+  %add8.i.i.i782 = or disjoint i32 %add.i.i.i779, %shr7.i.i.i781
+  %mChildMask.i.i.i783 = getelementptr inbounds i8, ptr %144, i64 262144
+  %shr.i.i.i.i784 = lshr i32 %add.i.i.i779, 6
+  %idxprom.i.i.i.i785 = zext nneg i32 %shr.i.i.i.i784 to i64
+  %arrayidx.i.i.i8.i786 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i783, i64 0, i64 %idxprom.i.i.i.i785
+  %147 = load i64, ptr %arrayidx.i.i.i8.i786, align 8
+  %and.i.i.i9.i787 = and i32 %add8.i.i.i782, 63
+  %sh_prom.i.i.i.i788 = zext nneg i32 %and.i.i.i9.i787 to i64
+  %shl.i.i.i.i789 = shl nuw i64 1, %sh_prom.i.i.i.i788
+  %and2.i.i.i.i790 = and i64 %147, %shl.i.i.i.i789
+  %cmp.i.i.not.i.i791 = icmp eq i64 %and2.i.i.i.i790, 0
+  %idxprom10.i.i792 = zext nneg i32 %add8.i.i.i782 to i64
+  %arrayidx11.i.i793 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %144, i64 0, i64 %idxprom10.i.i792
+  br i1 %cmp.i.i.not.i.i791, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309, label %if.then.i.i794
 
-if.then.i.i793:                                   ; preds = %if.then6.i765
-  %148 = load ptr, ptr %arrayidx11.i.i792, align 8
-  %and4.i.i.i795 = and i32 %add4.i.i, -128
-  %and7.i.i.i796 = and i32 %114, -128
-  %retval.sroa.2.0.insert.ext.i.i.i797 = zext i32 %and4.i.i.i795 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i798 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i797, 32
-  %retval.sroa.0.0.insert.ext.i.i.i799 = zext i32 %and.i.i6.i223 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i800 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i798, %retval.sroa.0.0.insert.ext.i.i.i799
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i800, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i796, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %148, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %149 = load ptr, ptr %arrayidx11.i.i792, align 8
-  %call8.i.i804 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %149, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i.i794:                                   ; preds = %if.then6.i766
+  %148 = load ptr, ptr %arrayidx11.i.i793, align 8
+  %and4.i.i.i796 = and i32 %add4.i.i, -128
+  %and7.i.i.i797 = and i32 %114, -128
+  %retval.sroa.2.0.insert.ext.i.i.i798 = zext i32 %and4.i.i.i796 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i799 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i798, 32
+  %retval.sroa.0.0.insert.ext.i.i.i800 = zext i32 %and.i.i6.i224 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i801 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i799, %retval.sroa.0.0.insert.ext.i.i.i800
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i801, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i797, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %148, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %149 = load ptr, ptr %arrayidx11.i.i793, align 8
+  %call8.i.i805 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %149, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end10.i806:                                    ; preds = %if.end.i762
-  %tile.i.i807 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.end10.i807:                                    ; preds = %if.end.i763
+  %tile.i.i808 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308: ; preds = %if.end10.i806, %if.then.i.i793, %if.then6.i765, %if.then.i808, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i296, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i283, %if.end.i33.i244, %if.then.i.i.i263
-  %retval.i.0.i233 = phi ptr [ %arrayidx.i.i306, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i296 ], [ %call3.i.i285, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i283 ], [ %call8.i.i.i272, %if.then.i.i.i263 ], [ %arrayidx11.i.i.i262, %if.end.i33.i244 ], [ %mBackground.i809, %if.then.i808 ], [ %tile.i.i807, %if.end10.i806 ], [ %call8.i.i804, %if.then.i.i793 ], [ %arrayidx11.i.i792, %if.then6.i765 ]
-  %150 = load float, ptr %retval.i.0.i233, align 4
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309: ; preds = %if.end10.i807, %if.then.i.i794, %if.then6.i766, %if.then.i809, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i297, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i284, %if.end.i33.i245, %if.then.i.i.i264
+  %retval.i.0.i234 = phi ptr [ %arrayidx.i.i307, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i297 ], [ %call3.i.i286, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i284 ], [ %call8.i.i.i273, %if.then.i.i.i264 ], [ %arrayidx11.i.i.i263, %if.end.i33.i245 ], [ %mBackground.i810, %if.then.i809 ], [ %tile.i.i808, %if.end10.i807 ], [ %call8.i.i805, %if.then.i.i794 ], [ %arrayidx11.i.i793, %if.then6.i766 ]
+  %150 = load float, ptr %retval.i.0.i234, align 4
   %151 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i26.i = getelementptr inbounds i8, ptr %151, i64 12
-  store float %150, ptr %add.ptr.i.i26.i, align 4
+  %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %151, i64 12
+  store float %150, ptr %add.ptr.i.i27.i, align 4
   %152 = load i32, ptr %mCenter.i, align 8
-  %153 = load i32, ptr %arrayidx.i.i.i.i26, align 4
-  %add4.i28.i = add nsw i32 %153, 1
+  %153 = load i32, ptr %arrayidx.i.i.i.i27, align 4
+  %add4.i30.i = add nsw i32 %153, 1
   %154 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %retval.sroa.2.0.insert.ext.i30.i = zext i32 %add4.i28.i to i64
-  %retval.sroa.2.0.insert.shift.i31.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i30.i, 32
-  %retval.sroa.0.0.insert.ext.i32.i = zext i32 %152 to i64
-  %retval.sroa.0.0.insert.insert.i33.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i31.i, %retval.sroa.0.0.insert.ext.i32.i
-  store i64 %retval.sroa.0.0.insert.insert.i33.i, ptr %ref.tmp19.i, align 8
+  %retval.sroa.2.0.insert.ext.i32.i = zext i32 %add4.i30.i to i64
+  %retval.sroa.2.0.insert.shift.i33.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i32.i, 32
+  %retval.sroa.0.0.insert.ext.i34.i = zext i32 %152 to i64
+  %retval.sroa.0.0.insert.insert.i35.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i33.i, %retval.sroa.0.0.insert.ext.i34.i
+  store i64 %retval.sroa.0.0.insert.insert.i35.i, ptr %ref.tmp19.i, align 8
   store i32 %154, ptr %tmp.coerce23.sroa.2.0.coerce.dive22.sroa_idx.i, align 8
-  %and.i.i.i129 = and i32 %152, -8
-  %155 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i131 = icmp eq i32 %and.i.i.i129, %155
-  br i1 %cmp.i.i.i131, label %land.lhs.true.i.i.i196, label %if.end.i.i132
+  %and.i.i.i130 = and i32 %152, -8
+  %155 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i132 = icmp eq i32 %and.i.i.i130, %155
+  br i1 %cmp.i.i.i132, label %land.lhs.true.i.i.i197, label %if.end.i.i133
 
-land.lhs.true.i.i.i196:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
-  %and5.i.i.i198 = and i32 %add4.i28.i, -8
-  %156 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i200 = icmp eq i32 %and5.i.i.i198, %156
-  br i1 %cmp9.i.i.i200, label %land.rhs.i.i.i201, label %if.end.i.i132
+land.lhs.true.i.i.i197:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
+  %and5.i.i.i199 = and i32 %add4.i30.i, -8
+  %156 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i201 = icmp eq i32 %and5.i.i.i199, %156
+  br i1 %cmp9.i.i.i201, label %land.rhs.i.i.i202, label %if.end.i.i133
 
-land.rhs.i.i.i201:                                ; preds = %land.lhs.true.i.i.i196
-  %and11.i.i.i203 = and i32 %154, -8
-  %157 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i205 = icmp eq i32 %and11.i.i.i203, %157
-  br i1 %cmp15.i.i.i205, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i206, label %if.end.i.i132
+land.rhs.i.i.i202:                                ; preds = %land.lhs.true.i.i.i197
+  %and11.i.i.i204 = and i32 %154, -8
+  %157 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i206 = icmp eq i32 %and11.i.i.i204, %157
+  br i1 %cmp15.i.i.i206, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i207, label %if.end.i.i133
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i206: ; preds = %land.rhs.i.i.i201
-  %158 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i208 = shl i32 %152, 6
-  %shl.i.i.i209 = and i32 %and.i6.i.i208, 448
-  %and2.i.i.i210 = shl i32 %add4.i28.i, 3
-  %shl3.i.i.i211 = and i32 %and2.i.i.i210, 56
-  %and5.i7.i.i213 = and i32 %154, 7
-  %add.i.i.i212 = or disjoint i32 %shl.i.i.i209, %and5.i7.i.i213
-  %add6.i.i.i214 = or disjoint i32 %add.i.i.i212, %shl3.i.i.i211
-  %idxprom.i.i215 = zext nneg i32 %add6.i.i.i214 to i64
-  %arrayidx.i.i216 = getelementptr inbounds float, ptr %158, i64 %idxprom.i.i215
-  %tobool.i.not.i217 = icmp eq ptr %158, null
-  br i1 %tobool.i.not.i217, label %if.end.i.i132, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i207: ; preds = %land.rhs.i.i.i202
+  %158 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i209 = shl i32 %152, 6
+  %shl.i.i.i210 = and i32 %and.i6.i.i209, 448
+  %and2.i.i.i211 = shl i32 %add4.i30.i, 3
+  %shl3.i.i.i212 = and i32 %and2.i.i.i211, 56
+  %and5.i7.i.i214 = and i32 %154, 7
+  %add.i.i.i213 = or disjoint i32 %shl.i.i.i210, %and5.i7.i.i214
+  %add6.i.i.i215 = or disjoint i32 %add.i.i.i213, %shl3.i.i.i212
+  %idxprom.i.i216 = zext nneg i32 %add6.i.i.i215 to i64
+  %arrayidx.i.i217 = getelementptr inbounds float, ptr %158, i64 %idxprom.i.i216
+  %tobool.i.not.i218 = icmp eq ptr %158, null
+  br i1 %tobool.i.not.i218, label %if.end.i.i133, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i.i132:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i206, %land.rhs.i.i.i201, %land.lhs.true.i.i.i196, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
-  %and.i.i6.i133 = and i32 %152, -128
-  %159 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i135 = icmp eq i32 %and.i.i6.i133, %159
-  br i1 %cmp.i.i7.i135, label %land.lhs.true.i.i9.i183, label %if.end.i16.i136
+if.end.i.i133:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i207, %land.rhs.i.i.i202, %land.lhs.true.i.i.i197, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
+  %and.i.i6.i134 = and i32 %152, -128
+  %159 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i136 = icmp eq i32 %and.i.i6.i134, %159
+  br i1 %cmp.i.i7.i136, label %land.lhs.true.i.i9.i184, label %if.end.i16.i137
 
-land.lhs.true.i.i9.i183:                          ; preds = %if.end.i.i132
-  %and5.i.i11.i185 = and i32 %add4.i28.i, -128
-  %160 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i187 = icmp eq i32 %and5.i.i11.i185, %160
-  br i1 %cmp9.i.i13.i187, label %land.rhs.i.i14.i188, label %if.end.i16.i136
+land.lhs.true.i.i9.i184:                          ; preds = %if.end.i.i133
+  %and5.i.i11.i186 = and i32 %add4.i30.i, -128
+  %160 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i188 = icmp eq i32 %and5.i.i11.i186, %160
+  br i1 %cmp9.i.i13.i188, label %land.rhs.i.i14.i189, label %if.end.i16.i137
 
-land.rhs.i.i14.i188:                              ; preds = %land.lhs.true.i.i9.i183
-  %and11.i.i16.i190 = and i32 %154, -128
-  %161 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i192 = icmp eq i32 %and11.i.i16.i190, %161
-  br i1 %cmp15.i.i17.i192, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i193, label %if.end.i16.i136
+land.rhs.i.i14.i189:                              ; preds = %land.lhs.true.i.i9.i184
+  %and11.i.i16.i191 = and i32 %154, -128
+  %161 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i193 = icmp eq i32 %and11.i.i16.i191, %161
+  br i1 %cmp15.i.i17.i193, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i194, label %if.end.i16.i137
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i193: ; preds = %land.rhs.i.i14.i188
-  %162 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i195 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %162, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i194: ; preds = %land.rhs.i.i14.i189
+  %162 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i196 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %162, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i16.i136:                                  ; preds = %land.rhs.i.i14.i188, %land.lhs.true.i.i9.i183, %if.end.i.i132
-  %and.i.i19.i137 = and i32 %152, -4096
-  %163 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i139 = icmp eq i32 %and.i.i19.i137, %163
-  br i1 %cmp.i.i21.i139, label %land.lhs.true.i.i23.i144, label %if.end.i27.i140
+if.end.i16.i137:                                  ; preds = %land.rhs.i.i14.i189, %land.lhs.true.i.i9.i184, %if.end.i.i133
+  %and.i.i19.i138 = and i32 %152, -4096
+  %163 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i140 = icmp eq i32 %and.i.i19.i138, %163
+  br i1 %cmp.i.i21.i140, label %land.lhs.true.i.i23.i145, label %if.end.i27.i141
 
-land.lhs.true.i.i23.i144:                         ; preds = %if.end.i16.i136
-  %and5.i.i25.i146 = and i32 %add4.i28.i, -4096
-  %164 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i148 = icmp eq i32 %and5.i.i25.i146, %164
-  br i1 %cmp9.i.i27.i148, label %land.rhs.i.i28.i149, label %if.end.i27.i140
+land.lhs.true.i.i23.i145:                         ; preds = %if.end.i16.i137
+  %and5.i.i25.i147 = and i32 %add4.i30.i, -4096
+  %164 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i149 = icmp eq i32 %and5.i.i25.i147, %164
+  br i1 %cmp9.i.i27.i149, label %land.rhs.i.i28.i150, label %if.end.i27.i141
 
-land.rhs.i.i28.i149:                              ; preds = %land.lhs.true.i.i23.i144
-  %and11.i.i30.i151 = and i32 %154, -4096
-  %165 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i153 = icmp eq i32 %and11.i.i30.i151, %165
-  br i1 %cmp15.i.i32.i153, label %if.end.i33.i154, label %if.end.i27.i140
+land.rhs.i.i28.i150:                              ; preds = %land.lhs.true.i.i23.i145
+  %and11.i.i30.i152 = and i32 %154, -4096
+  %165 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i154 = icmp eq i32 %and11.i.i30.i152, %165
+  br i1 %cmp15.i.i32.i154, label %if.end.i33.i155, label %if.end.i27.i141
 
-if.end.i33.i154:                                  ; preds = %land.rhs.i.i28.i149
-  %166 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i155:                                  ; preds = %land.rhs.i.i28.i150
+  %166 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %167 = shl i32 %152, 3
-  %shl.i.i.i.i156 = and i32 %167, 31744
-  %168 = lshr i32 %add4.i28.i, 2
-  %shl4.i.i.i.i157 = and i32 %168, 992
-  %add.i.i.i.i158 = or disjoint i32 %shl4.i.i.i.i157, %shl.i.i.i.i156
-  %and6.i.i.i.i159 = lshr i32 %154, 7
-  %shr7.i.i.i.i160 = and i32 %and6.i.i.i.i159, 31
-  %add8.i.i.i.i161 = or disjoint i32 %add.i.i.i.i158, %shr7.i.i.i.i160
-  %mChildMask.i.i.i.i162 = getelementptr inbounds i8, ptr %166, i64 262144
-  %shr.i.i.i.i.i163 = lshr i32 %add.i.i.i.i158, 6
-  %idxprom.i.i.i.i.i164 = zext nneg i32 %shr.i.i.i.i.i163 to i64
-  %arrayidx.i.i.i8.i.i165 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i162, i64 0, i64 %idxprom.i.i.i.i.i164
-  %169 = load i64, ptr %arrayidx.i.i.i8.i.i165, align 8
-  %and.i.i.i.i.i166 = and i32 %add8.i.i.i.i161, 63
-  %sh_prom.i.i.i.i.i167 = zext nneg i32 %and.i.i.i.i.i166 to i64
-  %shl.i.i.i.i.i168 = shl nuw i64 1, %sh_prom.i.i.i.i.i167
-  %and2.i.i.i.i.i169 = and i64 %169, %shl.i.i.i.i.i168
-  %cmp.i.i.not.i.i.i170 = icmp eq i64 %and2.i.i.i.i.i169, 0
-  %idxprom10.i.i.i171 = zext nneg i32 %add8.i.i.i.i161 to i64
-  %arrayidx11.i.i.i172 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %166, i64 0, i64 %idxprom10.i.i.i171
-  br i1 %cmp.i.i.not.i.i.i170, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218, label %if.then.i.i.i173
+  %shl.i.i.i.i157 = and i32 %167, 31744
+  %168 = lshr i32 %add4.i30.i, 2
+  %shl4.i.i.i.i158 = and i32 %168, 992
+  %add.i.i.i.i159 = or disjoint i32 %shl4.i.i.i.i158, %shl.i.i.i.i157
+  %and6.i.i.i.i160 = lshr i32 %154, 7
+  %shr7.i.i.i.i161 = and i32 %and6.i.i.i.i160, 31
+  %add8.i.i.i.i162 = or disjoint i32 %add.i.i.i.i159, %shr7.i.i.i.i161
+  %mChildMask.i.i.i.i163 = getelementptr inbounds i8, ptr %166, i64 262144
+  %shr.i.i.i.i.i164 = lshr i32 %add.i.i.i.i159, 6
+  %idxprom.i.i.i.i.i165 = zext nneg i32 %shr.i.i.i.i.i164 to i64
+  %arrayidx.i.i.i8.i.i166 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i163, i64 0, i64 %idxprom.i.i.i.i.i165
+  %169 = load i64, ptr %arrayidx.i.i.i8.i.i166, align 8
+  %and.i.i.i.i.i167 = and i32 %add8.i.i.i.i162, 63
+  %sh_prom.i.i.i.i.i168 = zext nneg i32 %and.i.i.i.i.i167 to i64
+  %shl.i.i.i.i.i169 = shl nuw i64 1, %sh_prom.i.i.i.i.i168
+  %and2.i.i.i.i.i170 = and i64 %169, %shl.i.i.i.i.i169
+  %cmp.i.i.not.i.i.i171 = icmp eq i64 %and2.i.i.i.i.i170, 0
+  %idxprom10.i.i.i172 = zext nneg i32 %add8.i.i.i.i162 to i64
+  %arrayidx11.i.i.i173 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %166, i64 0, i64 %idxprom10.i.i.i172
+  br i1 %cmp.i.i.not.i.i.i171, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219, label %if.then.i.i.i174
 
-if.then.i.i.i173:                                 ; preds = %if.end.i33.i154
-  %170 = load ptr, ptr %arrayidx11.i.i.i172, align 8
-  %and4.i.i.i.i174 = and i32 %add4.i28.i, -128
-  %and7.i.i.i.i175 = and i32 %154, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i176 = zext i32 %and4.i.i.i.i174 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i177 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i176, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i178 = zext i32 %and.i.i6.i133 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i179 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i177, %retval.sroa.0.0.insert.ext.i.i.i.i178
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i179, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i175, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %170, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %171 = load ptr, ptr %arrayidx11.i.i.i172, align 8
-  %call8.i.i.i182 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %171, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i.i.i174:                                 ; preds = %if.end.i33.i155
+  %170 = load ptr, ptr %arrayidx11.i.i.i173, align 8
+  %and4.i.i.i.i175 = and i32 %add4.i30.i, -128
+  %and7.i.i.i.i176 = and i32 %154, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i177 = zext i32 %and4.i.i.i.i175 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i178 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i177, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i179 = zext i32 %and.i.i6.i134 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i180 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i178, %retval.sroa.0.0.insert.ext.i.i.i.i179
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i180, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i176, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %170, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %171 = load ptr, ptr %arrayidx11.i.i.i173, align 8
+  %call8.i.i.i183 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %171, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i27.i140:                                  ; preds = %land.rhs.i.i28.i149, %land.lhs.true.i.i23.i144, %if.end.i16.i136
-  %172 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i612 = getelementptr inbounds i8, ptr %172, i64 52
-  %173 = load i32, ptr %mOrigin.i.i.i612, align 4
-  %sub.i.i.i.i613 = sub nsw i32 %152, %173
-  %arrayidx.i.i.i.i.i.i.i615 = getelementptr inbounds i8, ptr %172, i64 56
-  %174 = load i32, ptr %arrayidx.i.i.i.i.i.i.i615, align 4
-  %sub6.i.i.i.i616 = sub nsw i32 %add4.i28.i, %174
-  %arrayidx.i.i.i4.i.i.i.i618 = getelementptr inbounds i8, ptr %172, i64 60
-  %175 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i618, align 4
-  %sub10.i.i.i.i619 = sub nsw i32 %154, %175
-  %and.i.i.i.i620 = and i32 %sub.i.i.i.i613, -4096
-  %and4.i.i.i.i621 = and i32 %sub6.i.i.i.i616, -4096
-  %and7.i.i.i.i622 = and i32 %sub10.i.i.i.i619, -4096
-  %_M_parent.i.i.i.i.i623 = getelementptr inbounds i8, ptr %172, i64 16
-  %176 = load ptr, ptr %_M_parent.i.i.i.i.i623, align 8
-  %add.ptr.i.i.i.i.i624 = getelementptr inbounds i8, ptr %172, i64 8
-  %cmp.not9.i.i.i.i.i625 = icmp eq ptr %176, null
-  br i1 %cmp.not9.i.i.i.i.i625, label %if.then.i708, label %while.body.i.i.i.i.i626
+if.end.i27.i141:                                  ; preds = %land.rhs.i.i28.i150, %land.lhs.true.i.i23.i145, %if.end.i16.i137
+  %172 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i613 = getelementptr inbounds i8, ptr %172, i64 52
+  %173 = load i32, ptr %mOrigin.i.i.i613, align 4
+  %sub.i.i.i.i614 = sub nsw i32 %152, %173
+  %arrayidx.i.i.i.i.i.i.i616 = getelementptr inbounds i8, ptr %172, i64 56
+  %174 = load i32, ptr %arrayidx.i.i.i.i.i.i.i616, align 4
+  %sub6.i.i.i.i617 = sub nsw i32 %add4.i30.i, %174
+  %arrayidx.i.i.i4.i.i.i.i619 = getelementptr inbounds i8, ptr %172, i64 60
+  %175 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i619, align 4
+  %sub10.i.i.i.i620 = sub nsw i32 %154, %175
+  %and.i.i.i.i621 = and i32 %sub.i.i.i.i614, -4096
+  %and4.i.i.i.i622 = and i32 %sub6.i.i.i.i617, -4096
+  %and7.i.i.i.i623 = and i32 %sub10.i.i.i.i620, -4096
+  %_M_parent.i.i.i.i.i624 = getelementptr inbounds i8, ptr %172, i64 16
+  %176 = load ptr, ptr %_M_parent.i.i.i.i.i624, align 8
+  %add.ptr.i.i.i.i.i625 = getelementptr inbounds i8, ptr %172, i64 8
+  %cmp.not9.i.i.i.i.i626 = icmp eq ptr %176, null
+  br i1 %cmp.not9.i.i.i.i.i626, label %if.then.i709, label %while.body.i.i.i.i.i627
 
-while.body.i.i.i.i.i626:                          ; preds = %if.end.i27.i140, %if.end.i.i.i.i.i641
-  %__x.addr.011.i.i.i.i.i627 = phi ptr [ %__x.addr.1.i.i.i.i.i645, %if.end.i.i.i.i.i641 ], [ %176, %if.end.i27.i140 ]
-  %__y.addr.010.i.i.i.i.i628 = phi ptr [ %__y.addr.1.i.i.i.i.i643, %if.end.i.i.i.i.i641 ], [ %add.ptr.i.i.i.i.i624, %if.end.i27.i140 ]
-  %_M_storage.i.i.i.i.i.i.i629 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 32
-  %177 = load i32, ptr %_M_storage.i.i.i.i.i.i.i629, align 4
-  %cmp.i.i.i.i.i.i.i630 = icmp slt i32 %177, %and.i.i.i.i620
-  br i1 %cmp.i.i.i.i.i.i.i630, label %if.else.i.i.i.i.i710, label %cond.false.i.i.i.i.i.i.i631
+while.body.i.i.i.i.i627:                          ; preds = %if.end.i27.i141, %if.end.i.i.i.i.i642
+  %__x.addr.011.i.i.i.i.i628 = phi ptr [ %__x.addr.1.i.i.i.i.i646, %if.end.i.i.i.i.i642 ], [ %176, %if.end.i27.i141 ]
+  %__y.addr.010.i.i.i.i.i629 = phi ptr [ %__y.addr.1.i.i.i.i.i644, %if.end.i.i.i.i.i642 ], [ %add.ptr.i.i.i.i.i625, %if.end.i27.i141 ]
+  %_M_storage.i.i.i.i.i.i.i630 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 32
+  %177 = load i32, ptr %_M_storage.i.i.i.i.i.i.i630, align 4
+  %cmp.i.i.i.i.i.i.i631 = icmp slt i32 %177, %and.i.i.i.i621
+  br i1 %cmp.i.i.i.i.i.i.i631, label %if.else.i.i.i.i.i711, label %cond.false.i.i.i.i.i.i.i632
 
-cond.false.i.i.i.i.i.i.i631:                      ; preds = %while.body.i.i.i.i.i626
-  %cmp5.i.i.i.i.i.i.i632 = icmp sgt i32 %177, %and.i.i.i.i620
-  br i1 %cmp5.i.i.i.i.i.i.i632, label %if.end.i.i.i.i.i641, label %cond.false7.i.i.i.i.i.i.i633
+cond.false.i.i.i.i.i.i.i632:                      ; preds = %while.body.i.i.i.i.i627
+  %cmp5.i.i.i.i.i.i.i633 = icmp sgt i32 %177, %and.i.i.i.i621
+  br i1 %cmp5.i.i.i.i.i.i.i633, label %if.end.i.i.i.i.i642, label %cond.false7.i.i.i.i.i.i.i634
 
-cond.false7.i.i.i.i.i.i.i633:                     ; preds = %cond.false.i.i.i.i.i.i.i631
-  %arrayidx.i.i.i.i.i.i.i.i.i.i634 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 36
-  %178 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i634, align 4
-  %cmp10.i.i.i.i.i.i.i635 = icmp slt i32 %178, %and4.i.i.i.i621
-  br i1 %cmp10.i.i.i.i.i.i.i635, label %if.else.i.i.i.i.i710, label %cond.false12.i.i.i.i.i.i.i636
+cond.false7.i.i.i.i.i.i.i634:                     ; preds = %cond.false.i.i.i.i.i.i.i632
+  %arrayidx.i.i.i.i.i.i.i.i.i.i635 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 36
+  %178 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i635, align 4
+  %cmp10.i.i.i.i.i.i.i636 = icmp slt i32 %178, %and4.i.i.i.i622
+  br i1 %cmp10.i.i.i.i.i.i.i636, label %if.else.i.i.i.i.i711, label %cond.false12.i.i.i.i.i.i.i637
 
-cond.false12.i.i.i.i.i.i.i636:                    ; preds = %cond.false7.i.i.i.i.i.i.i633
-  %cmp15.i.i.i.i.i.i.i637 = icmp sgt i32 %178, %and4.i.i.i.i621
-  br i1 %cmp15.i.i.i.i.i.i.i637, label %if.end.i.i.i.i.i641, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638
+cond.false12.i.i.i.i.i.i.i637:                    ; preds = %cond.false7.i.i.i.i.i.i.i634
+  %cmp15.i.i.i.i.i.i.i638 = icmp sgt i32 %178, %and4.i.i.i.i622
+  br i1 %cmp15.i.i.i.i.i.i.i638, label %if.end.i.i.i.i.i642, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638: ; preds = %cond.false12.i.i.i.i.i.i.i636
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i639 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 40
-  %179 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i639, align 4
-  %cmp20.i.i.i.i.i.i.i640 = icmp slt i32 %179, %and7.i.i.i.i622
-  br i1 %cmp20.i.i.i.i.i.i.i640, label %if.else.i.i.i.i.i710, label %if.end.i.i.i.i.i641
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639: ; preds = %cond.false12.i.i.i.i.i.i.i637
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i640 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 40
+  %179 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i640, align 4
+  %cmp20.i.i.i.i.i.i.i641 = icmp slt i32 %179, %and7.i.i.i.i623
+  br i1 %cmp20.i.i.i.i.i.i.i641, label %if.else.i.i.i.i.i711, label %if.end.i.i.i.i.i642
 
-if.else.i.i.i.i.i710:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638, %cond.false7.i.i.i.i.i.i.i633, %while.body.i.i.i.i.i626
-  br label %if.end.i.i.i.i.i641
+if.else.i.i.i.i.i711:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639, %cond.false7.i.i.i.i.i.i.i634, %while.body.i.i.i.i.i627
+  br label %if.end.i.i.i.i.i642
 
-if.end.i.i.i.i.i641:                              ; preds = %if.else.i.i.i.i.i710, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638, %cond.false12.i.i.i.i.i.i.i636, %cond.false.i.i.i.i.i.i.i631
-  %.sink.i.i.i.i.i642 = phi i64 [ 24, %if.else.i.i.i.i.i710 ], [ 16, %cond.false12.i.i.i.i.i.i.i636 ], [ 16, %cond.false.i.i.i.i.i.i.i631 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638 ]
-  %__y.addr.1.i.i.i.i.i643 = phi ptr [ %__y.addr.010.i.i.i.i.i628, %if.else.i.i.i.i.i710 ], [ %__x.addr.011.i.i.i.i.i627, %cond.false12.i.i.i.i.i.i.i636 ], [ %__x.addr.011.i.i.i.i.i627, %cond.false.i.i.i.i.i.i.i631 ], [ %__x.addr.011.i.i.i.i.i627, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638 ]
-  %_M_right.i.i.i.i.i.i644 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 %.sink.i.i.i.i.i642
-  %__x.addr.1.i.i.i.i.i645 = load ptr, ptr %_M_right.i.i.i.i.i.i644, align 8
-  %cmp.not.i.i.i.i.i646 = icmp eq ptr %__x.addr.1.i.i.i.i.i645, null
-  br i1 %cmp.not.i.i.i.i.i646, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647, label %while.body.i.i.i.i.i626, !llvm.loop !31
+if.end.i.i.i.i.i642:                              ; preds = %if.else.i.i.i.i.i711, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639, %cond.false12.i.i.i.i.i.i.i637, %cond.false.i.i.i.i.i.i.i632
+  %.sink.i.i.i.i.i643 = phi i64 [ 24, %if.else.i.i.i.i.i711 ], [ 16, %cond.false12.i.i.i.i.i.i.i637 ], [ 16, %cond.false.i.i.i.i.i.i.i632 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639 ]
+  %__y.addr.1.i.i.i.i.i644 = phi ptr [ %__y.addr.010.i.i.i.i.i629, %if.else.i.i.i.i.i711 ], [ %__x.addr.011.i.i.i.i.i628, %cond.false12.i.i.i.i.i.i.i637 ], [ %__x.addr.011.i.i.i.i.i628, %cond.false.i.i.i.i.i.i.i632 ], [ %__x.addr.011.i.i.i.i.i628, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639 ]
+  %_M_right.i.i.i.i.i.i645 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 %.sink.i.i.i.i.i643
+  %__x.addr.1.i.i.i.i.i646 = load ptr, ptr %_M_right.i.i.i.i.i.i645, align 8
+  %cmp.not.i.i.i.i.i647 = icmp eq ptr %__x.addr.1.i.i.i.i.i646, null
+  br i1 %cmp.not.i.i.i.i.i647, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648, label %while.body.i.i.i.i.i627, !llvm.loop !31
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647: ; preds = %if.end.i.i.i.i.i641
-  %cmp.i.i.i.i.i648 = icmp eq ptr %__y.addr.1.i.i.i.i.i643, %add.ptr.i.i.i.i.i624
-  br i1 %cmp.i.i.i.i.i648, label %if.then.i708, label %lor.lhs.false.i.i.i.i649
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648: ; preds = %if.end.i.i.i.i.i642
+  %cmp.i.i.i.i.i649 = icmp eq ptr %__y.addr.1.i.i.i.i.i644, %add.ptr.i.i.i.i.i625
+  br i1 %cmp.i.i.i.i.i649, label %if.then.i709, label %lor.lhs.false.i.i.i.i650
 
-lor.lhs.false.i.i.i.i649:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647
-  %_M_storage.i.i.i3.i.i.i.i650 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 32
-  %180 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i650, align 4
-  %cmp.i.i.i.i.i.i651 = icmp slt i32 %and.i.i.i.i620, %180
-  br i1 %cmp.i.i.i.i.i.i651, label %if.then.i708, label %cond.false.i.i.i.i.i.i652
+lor.lhs.false.i.i.i.i650:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648
+  %_M_storage.i.i.i3.i.i.i.i651 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 32
+  %180 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i651, align 4
+  %cmp.i.i.i.i.i.i652 = icmp slt i32 %and.i.i.i.i621, %180
+  br i1 %cmp.i.i.i.i.i.i652, label %if.then.i709, label %cond.false.i.i.i.i.i.i653
 
-cond.false.i.i.i.i.i.i652:                        ; preds = %lor.lhs.false.i.i.i.i649
-  %cmp5.i.i.i.i.i.i653 = icmp sgt i32 %and.i.i.i.i620, %180
-  br i1 %cmp5.i.i.i.i.i.i653, label %if.end.i662, label %cond.false7.i.i.i.i.i.i654
+cond.false.i.i.i.i.i.i653:                        ; preds = %lor.lhs.false.i.i.i.i650
+  %cmp5.i.i.i.i.i.i654 = icmp sgt i32 %and.i.i.i.i621, %180
+  br i1 %cmp5.i.i.i.i.i.i654, label %if.end.i663, label %cond.false7.i.i.i.i.i.i655
 
-cond.false7.i.i.i.i.i.i654:                       ; preds = %cond.false.i.i.i.i.i.i652
-  %arrayidx.i.i.i5.i.i.i.i.i.i655 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 36
-  %181 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i655, align 4
-  %cmp10.i.i.i.i.i.i656 = icmp slt i32 %and4.i.i.i.i621, %181
-  br i1 %cmp10.i.i.i.i.i.i656, label %if.then.i708, label %cond.false12.i.i.i.i.i.i657
+cond.false7.i.i.i.i.i.i655:                       ; preds = %cond.false.i.i.i.i.i.i653
+  %arrayidx.i.i.i5.i.i.i.i.i.i656 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 36
+  %181 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i656, align 4
+  %cmp10.i.i.i.i.i.i657 = icmp slt i32 %and4.i.i.i.i622, %181
+  br i1 %cmp10.i.i.i.i.i.i657, label %if.then.i709, label %cond.false12.i.i.i.i.i.i658
 
-cond.false12.i.i.i.i.i.i657:                      ; preds = %cond.false7.i.i.i.i.i.i654
-  %cmp15.i.i.i.i.i.i658 = icmp sgt i32 %and4.i.i.i.i621, %181
-  br i1 %cmp15.i.i.i.i.i.i658, label %if.end.i662, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659
+cond.false12.i.i.i.i.i.i658:                      ; preds = %cond.false7.i.i.i.i.i.i655
+  %cmp15.i.i.i.i.i.i659 = icmp sgt i32 %and4.i.i.i.i622, %181
+  br i1 %cmp15.i.i.i.i.i.i659, label %if.end.i663, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659: ; preds = %cond.false12.i.i.i.i.i.i657
-  %arrayidx.i.i.i9.i.i.i.i.i.i660 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 40
-  %182 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i660, align 4
-  %cmp20.i.i.i.i.i.i661 = icmp slt i32 %and7.i.i.i.i622, %182
-  br i1 %cmp20.i.i.i.i.i.i661, label %if.then.i708, label %if.end.i662
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660: ; preds = %cond.false12.i.i.i.i.i.i658
+  %arrayidx.i.i.i9.i.i.i.i.i.i661 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 40
+  %182 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i661, align 4
+  %cmp20.i.i.i.i.i.i662 = icmp slt i32 %and7.i.i.i.i623, %182
+  br i1 %cmp20.i.i.i.i.i.i662, label %if.then.i709, label %if.end.i663
 
-if.then.i708:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659, %cond.false7.i.i.i.i.i.i654, %lor.lhs.false.i.i.i.i649, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647, %if.end.i27.i140
-  %mBackground.i709 = getelementptr inbounds i8, ptr %172, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i709:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660, %cond.false7.i.i.i.i.i.i655, %lor.lhs.false.i.i.i.i650, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648, %if.end.i27.i141
+  %mBackground.i710 = getelementptr inbounds i8, ptr %172, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i662:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659, %cond.false12.i.i.i.i.i.i657, %cond.false.i.i.i.i.i.i652
-  %second.i.i663 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 48
-  %183 = load ptr, ptr %second.i.i663, align 8
-  %cmp.i.i.not.i664 = icmp eq ptr %183, null
-  br i1 %cmp.i.i.not.i664, label %if.end10.i706, label %if.then6.i665
+if.end.i663:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660, %cond.false12.i.i.i.i.i.i658, %cond.false.i.i.i.i.i.i653
+  %second.i.i664 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 48
+  %183 = load ptr, ptr %second.i.i664, align 8
+  %cmp.i.i.not.i665 = icmp eq ptr %183, null
+  br i1 %cmp.i.i.not.i665, label %if.end10.i707, label %if.then6.i666
 
-if.then6.i665:                                    ; preds = %if.end.i662
-  %and4.i.i667 = and i32 %add4.i28.i, -4096
-  %and7.i.i668 = and i32 %154, -4096
-  %retval.sroa.2.0.insert.ext.i.i669 = zext i32 %and4.i.i667 to i64
-  %retval.sroa.2.0.insert.shift.i.i670 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i669, 32
-  %retval.sroa.0.0.insert.ext.i.i671 = zext i32 %and.i.i19.i137 to i64
-  %retval.sroa.0.0.insert.insert.i.i672 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i670, %retval.sroa.0.0.insert.ext.i.i671
-  store i64 %retval.sroa.0.0.insert.insert.i.i672, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i668, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %183, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %184 = load ptr, ptr %second.i.i663, align 8
+if.then6.i666:                                    ; preds = %if.end.i663
+  %and4.i.i668 = and i32 %add4.i30.i, -4096
+  %and7.i.i669 = and i32 %154, -4096
+  %retval.sroa.2.0.insert.ext.i.i670 = zext i32 %and4.i.i668 to i64
+  %retval.sroa.2.0.insert.shift.i.i671 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i670, 32
+  %retval.sroa.0.0.insert.ext.i.i672 = zext i32 %and.i.i19.i138 to i64
+  %retval.sroa.0.0.insert.insert.i.i673 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i671, %retval.sroa.0.0.insert.ext.i.i672
+  store i64 %retval.sroa.0.0.insert.insert.i.i673, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i669, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %183, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %184 = load ptr, ptr %second.i.i664, align 8
   %185 = shl i32 %152, 3
-  %shl.i.i.i676 = and i32 %185, 31744
-  %186 = lshr i32 %add4.i28.i, 2
-  %shl4.i.i.i677 = and i32 %186, 992
-  %add.i.i.i678 = or disjoint i32 %shl4.i.i.i677, %shl.i.i.i676
-  %and6.i.i.i679 = lshr i32 %154, 7
-  %shr7.i.i.i680 = and i32 %and6.i.i.i679, 31
-  %add8.i.i.i681 = or disjoint i32 %add.i.i.i678, %shr7.i.i.i680
-  %mChildMask.i.i.i682 = getelementptr inbounds i8, ptr %184, i64 262144
-  %shr.i.i.i.i683 = lshr i32 %add.i.i.i678, 6
-  %idxprom.i.i.i.i684 = zext nneg i32 %shr.i.i.i.i683 to i64
-  %arrayidx.i.i.i8.i685 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i682, i64 0, i64 %idxprom.i.i.i.i684
-  %187 = load i64, ptr %arrayidx.i.i.i8.i685, align 8
-  %and.i.i.i9.i686 = and i32 %add8.i.i.i681, 63
-  %sh_prom.i.i.i.i687 = zext nneg i32 %and.i.i.i9.i686 to i64
-  %shl.i.i.i.i688 = shl nuw i64 1, %sh_prom.i.i.i.i687
-  %and2.i.i.i.i689 = and i64 %187, %shl.i.i.i.i688
-  %cmp.i.i.not.i.i690 = icmp eq i64 %and2.i.i.i.i689, 0
-  %idxprom10.i.i691 = zext nneg i32 %add8.i.i.i681 to i64
-  %arrayidx11.i.i692 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %184, i64 0, i64 %idxprom10.i.i691
-  br i1 %cmp.i.i.not.i.i690, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218, label %if.then.i.i693
+  %shl.i.i.i677 = and i32 %185, 31744
+  %186 = lshr i32 %add4.i30.i, 2
+  %shl4.i.i.i678 = and i32 %186, 992
+  %add.i.i.i679 = or disjoint i32 %shl4.i.i.i678, %shl.i.i.i677
+  %and6.i.i.i680 = lshr i32 %154, 7
+  %shr7.i.i.i681 = and i32 %and6.i.i.i680, 31
+  %add8.i.i.i682 = or disjoint i32 %add.i.i.i679, %shr7.i.i.i681
+  %mChildMask.i.i.i683 = getelementptr inbounds i8, ptr %184, i64 262144
+  %shr.i.i.i.i684 = lshr i32 %add.i.i.i679, 6
+  %idxprom.i.i.i.i685 = zext nneg i32 %shr.i.i.i.i684 to i64
+  %arrayidx.i.i.i8.i686 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i683, i64 0, i64 %idxprom.i.i.i.i685
+  %187 = load i64, ptr %arrayidx.i.i.i8.i686, align 8
+  %and.i.i.i9.i687 = and i32 %add8.i.i.i682, 63
+  %sh_prom.i.i.i.i688 = zext nneg i32 %and.i.i.i9.i687 to i64
+  %shl.i.i.i.i689 = shl nuw i64 1, %sh_prom.i.i.i.i688
+  %and2.i.i.i.i690 = and i64 %187, %shl.i.i.i.i689
+  %cmp.i.i.not.i.i691 = icmp eq i64 %and2.i.i.i.i690, 0
+  %idxprom10.i.i692 = zext nneg i32 %add8.i.i.i682 to i64
+  %arrayidx11.i.i693 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %184, i64 0, i64 %idxprom10.i.i692
+  br i1 %cmp.i.i.not.i.i691, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219, label %if.then.i.i694
 
-if.then.i.i693:                                   ; preds = %if.then6.i665
-  %188 = load ptr, ptr %arrayidx11.i.i692, align 8
-  %and4.i.i.i695 = and i32 %add4.i28.i, -128
-  %and7.i.i.i696 = and i32 %154, -128
-  %retval.sroa.2.0.insert.ext.i.i.i697 = zext i32 %and4.i.i.i695 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i698 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i697, 32
-  %retval.sroa.0.0.insert.ext.i.i.i699 = zext i32 %and.i.i6.i133 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i700 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i698, %retval.sroa.0.0.insert.ext.i.i.i699
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i700, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i696, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %188, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %189 = load ptr, ptr %arrayidx11.i.i692, align 8
-  %call8.i.i704 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %189, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i.i694:                                   ; preds = %if.then6.i666
+  %188 = load ptr, ptr %arrayidx11.i.i693, align 8
+  %and4.i.i.i696 = and i32 %add4.i30.i, -128
+  %and7.i.i.i697 = and i32 %154, -128
+  %retval.sroa.2.0.insert.ext.i.i.i698 = zext i32 %and4.i.i.i696 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i699 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i698, 32
+  %retval.sroa.0.0.insert.ext.i.i.i700 = zext i32 %and.i.i6.i134 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i701 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i699, %retval.sroa.0.0.insert.ext.i.i.i700
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i701, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i697, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %188, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %189 = load ptr, ptr %arrayidx11.i.i693, align 8
+  %call8.i.i705 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %189, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end10.i706:                                    ; preds = %if.end.i662
-  %tile.i.i707 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.end10.i707:                                    ; preds = %if.end.i663
+  %tile.i.i708 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218: ; preds = %if.end10.i706, %if.then.i.i693, %if.then6.i665, %if.then.i708, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i206, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i193, %if.end.i33.i154, %if.then.i.i.i173
-  %retval.i.0.i143 = phi ptr [ %arrayidx.i.i216, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i206 ], [ %call3.i.i195, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i193 ], [ %call8.i.i.i182, %if.then.i.i.i173 ], [ %arrayidx11.i.i.i172, %if.end.i33.i154 ], [ %mBackground.i709, %if.then.i708 ], [ %tile.i.i707, %if.end10.i706 ], [ %call8.i.i704, %if.then.i.i693 ], [ %arrayidx11.i.i692, %if.then6.i665 ]
-  %190 = load float, ptr %retval.i.0.i143, align 4
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219: ; preds = %if.end10.i707, %if.then.i.i694, %if.then6.i666, %if.then.i709, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i207, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i194, %if.end.i33.i155, %if.then.i.i.i174
+  %retval.i.0.i144 = phi ptr [ %arrayidx.i.i217, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i207 ], [ %call3.i.i196, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i194 ], [ %call8.i.i.i183, %if.then.i.i.i174 ], [ %arrayidx11.i.i.i173, %if.end.i33.i155 ], [ %mBackground.i710, %if.then.i709 ], [ %tile.i.i708, %if.end10.i707 ], [ %call8.i.i705, %if.then.i.i694 ], [ %arrayidx11.i.i693, %if.then6.i666 ]
+  %190 = load float, ptr %retval.i.0.i144, align 4
   %191 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i37.i = getelementptr inbounds i8, ptr %191, i64 16
-  store float %190, ptr %add.ptr.i.i37.i, align 4
+  %add.ptr.i.i39.i = getelementptr inbounds i8, ptr %191, i64 16
+  store float %190, ptr %add.ptr.i.i39.i, align 4
   %192 = load i64, ptr %mCenter.i, align 8
   %193 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %add7.i.i = add nsw i32 %193, -1
   store i64 %192, ptr %ref.tmp26.i, align 8
   store i32 %add7.i.i, ptr %tmp.coerce30.sroa.2.0.coerce.dive29.sroa_idx.i, align 8
   %194 = trunc i64 %192 to i32
-  %and.i.i.i39 = and i32 %194, -8
-  %195 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i41 = icmp eq i32 %and.i.i.i39, %195
+  %and.i.i.i40 = and i32 %194, -8
+  %195 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i42 = icmp eq i32 %and.i.i.i40, %195
   %196 = lshr i64 %192, 32
   %197 = trunc nuw i64 %196 to i32
-  br i1 %cmp.i.i.i41, label %land.lhs.true.i.i.i106, label %if.end.i.i42
+  br i1 %cmp.i.i.i42, label %land.lhs.true.i.i.i107, label %if.end.i.i43
 
-land.lhs.true.i.i.i106:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
-  %and5.i.i.i108 = and i32 %197, -8
-  %198 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i110 = icmp eq i32 %and5.i.i.i108, %198
-  br i1 %cmp9.i.i.i110, label %land.rhs.i.i.i111, label %if.end.i.i42
+land.lhs.true.i.i.i107:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
+  %and5.i.i.i109 = and i32 %197, -8
+  %198 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i111 = icmp eq i32 %and5.i.i.i109, %198
+  br i1 %cmp9.i.i.i111, label %land.rhs.i.i.i112, label %if.end.i.i43
 
-land.rhs.i.i.i111:                                ; preds = %land.lhs.true.i.i.i106
-  %and11.i.i.i113 = and i32 %add7.i.i, -8
-  %199 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i115 = icmp eq i32 %and11.i.i.i113, %199
-  br i1 %cmp15.i.i.i115, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i116, label %if.end.i.i42
+land.rhs.i.i.i112:                                ; preds = %land.lhs.true.i.i.i107
+  %and11.i.i.i114 = and i32 %add7.i.i, -8
+  %199 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i116 = icmp eq i32 %and11.i.i.i114, %199
+  br i1 %cmp15.i.i.i116, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i117, label %if.end.i.i43
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i116: ; preds = %land.rhs.i.i.i111
-  %200 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i118 = shl i32 %194, 6
-  %shl.i.i.i119 = and i32 %and.i6.i.i118, 448
-  %and2.i.i.i120 = shl i32 %197, 3
-  %shl3.i.i.i121 = and i32 %and2.i.i.i120, 56
-  %and5.i7.i.i123 = and i32 %add7.i.i, 7
-  %add.i.i.i122 = or disjoint i32 %shl.i.i.i119, %and5.i7.i.i123
-  %add6.i.i.i124 = or disjoint i32 %add.i.i.i122, %shl3.i.i.i121
-  %idxprom.i.i125 = zext nneg i32 %add6.i.i.i124 to i64
-  %arrayidx.i.i126 = getelementptr inbounds float, ptr %200, i64 %idxprom.i.i125
-  %tobool.i.not.i127 = icmp eq ptr %200, null
-  br i1 %tobool.i.not.i127, label %if.end.i.i42, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i117: ; preds = %land.rhs.i.i.i112
+  %200 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i119 = shl i32 %194, 6
+  %shl.i.i.i120 = and i32 %and.i6.i.i119, 448
+  %and2.i.i.i121 = shl i32 %197, 3
+  %shl3.i.i.i122 = and i32 %and2.i.i.i121, 56
+  %and5.i7.i.i124 = and i32 %add7.i.i, 7
+  %add.i.i.i123 = or disjoint i32 %shl.i.i.i120, %and5.i7.i.i124
+  %add6.i.i.i125 = or disjoint i32 %add.i.i.i123, %shl3.i.i.i122
+  %idxprom.i.i126 = zext nneg i32 %add6.i.i.i125 to i64
+  %arrayidx.i.i127 = getelementptr inbounds float, ptr %200, i64 %idxprom.i.i126
+  %tobool.i.not.i128 = icmp eq ptr %200, null
+  br i1 %tobool.i.not.i128, label %if.end.i.i43, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i.i42:                                     ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i116, %land.rhs.i.i.i111, %land.lhs.true.i.i.i106, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
-  %and.i.i6.i43 = and i32 %194, -128
-  %201 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i45 = icmp eq i32 %and.i.i6.i43, %201
-  br i1 %cmp.i.i7.i45, label %land.lhs.true.i.i9.i93, label %if.end.i16.i46
+if.end.i.i43:                                     ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i117, %land.rhs.i.i.i112, %land.lhs.true.i.i.i107, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
+  %and.i.i6.i44 = and i32 %194, -128
+  %201 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i46 = icmp eq i32 %and.i.i6.i44, %201
+  br i1 %cmp.i.i7.i46, label %land.lhs.true.i.i9.i94, label %if.end.i16.i47
 
-land.lhs.true.i.i9.i93:                           ; preds = %if.end.i.i42
-  %and5.i.i11.i95 = and i32 %197, -128
-  %202 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i97 = icmp eq i32 %and5.i.i11.i95, %202
-  br i1 %cmp9.i.i13.i97, label %land.rhs.i.i14.i98, label %if.end.i16.i46
+land.lhs.true.i.i9.i94:                           ; preds = %if.end.i.i43
+  %and5.i.i11.i96 = and i32 %197, -128
+  %202 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i98 = icmp eq i32 %and5.i.i11.i96, %202
+  br i1 %cmp9.i.i13.i98, label %land.rhs.i.i14.i99, label %if.end.i16.i47
 
-land.rhs.i.i14.i98:                               ; preds = %land.lhs.true.i.i9.i93
-  %and11.i.i16.i100 = and i32 %add7.i.i, -128
-  %203 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i102 = icmp eq i32 %and11.i.i16.i100, %203
-  br i1 %cmp15.i.i17.i102, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i103, label %if.end.i16.i46
+land.rhs.i.i14.i99:                               ; preds = %land.lhs.true.i.i9.i94
+  %and11.i.i16.i101 = and i32 %add7.i.i, -128
+  %203 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i103 = icmp eq i32 %and11.i.i16.i101, %203
+  br i1 %cmp15.i.i17.i103, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i104, label %if.end.i16.i47
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i103: ; preds = %land.rhs.i.i14.i98
-  %204 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i105 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %204, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i104: ; preds = %land.rhs.i.i14.i99
+  %204 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i106 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %204, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i16.i46:                                   ; preds = %land.rhs.i.i14.i98, %land.lhs.true.i.i9.i93, %if.end.i.i42
-  %and.i.i19.i47 = and i32 %194, -4096
-  %205 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i49 = icmp eq i32 %and.i.i19.i47, %205
-  br i1 %cmp.i.i21.i49, label %land.lhs.true.i.i23.i54, label %if.end.i27.i50
+if.end.i16.i47:                                   ; preds = %land.rhs.i.i14.i99, %land.lhs.true.i.i9.i94, %if.end.i.i43
+  %and.i.i19.i48 = and i32 %194, -4096
+  %205 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i50 = icmp eq i32 %and.i.i19.i48, %205
+  br i1 %cmp.i.i21.i50, label %land.lhs.true.i.i23.i55, label %if.end.i27.i51
 
-land.lhs.true.i.i23.i54:                          ; preds = %if.end.i16.i46
-  %and5.i.i25.i56 = and i32 %197, -4096
-  %206 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i58 = icmp eq i32 %and5.i.i25.i56, %206
-  br i1 %cmp9.i.i27.i58, label %land.rhs.i.i28.i59, label %if.end.i27.i50
+land.lhs.true.i.i23.i55:                          ; preds = %if.end.i16.i47
+  %and5.i.i25.i57 = and i32 %197, -4096
+  %206 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i59 = icmp eq i32 %and5.i.i25.i57, %206
+  br i1 %cmp9.i.i27.i59, label %land.rhs.i.i28.i60, label %if.end.i27.i51
 
-land.rhs.i.i28.i59:                               ; preds = %land.lhs.true.i.i23.i54
-  %and11.i.i30.i61 = and i32 %add7.i.i, -4096
-  %207 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i63 = icmp eq i32 %and11.i.i30.i61, %207
-  br i1 %cmp15.i.i32.i63, label %if.end.i33.i64, label %if.end.i27.i50
+land.rhs.i.i28.i60:                               ; preds = %land.lhs.true.i.i23.i55
+  %and11.i.i30.i62 = and i32 %add7.i.i, -4096
+  %207 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i64 = icmp eq i32 %and11.i.i30.i62, %207
+  br i1 %cmp15.i.i32.i64, label %if.end.i33.i65, label %if.end.i27.i51
 
-if.end.i33.i64:                                   ; preds = %land.rhs.i.i28.i59
-  %208 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i65:                                   ; preds = %land.rhs.i.i28.i60
+  %208 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %209 = shl i32 %194, 3
-  %shl.i.i.i.i66 = and i32 %209, 31744
+  %shl.i.i.i.i67 = and i32 %209, 31744
   %210 = lshr i32 %197, 2
-  %shl4.i.i.i.i67 = and i32 %210, 992
-  %add.i.i.i.i68 = or disjoint i32 %shl4.i.i.i.i67, %shl.i.i.i.i66
-  %and6.i.i.i.i69 = lshr i32 %add7.i.i, 7
-  %shr7.i.i.i.i70 = and i32 %and6.i.i.i.i69, 31
-  %add8.i.i.i.i71 = or disjoint i32 %add.i.i.i.i68, %shr7.i.i.i.i70
-  %mChildMask.i.i.i.i72 = getelementptr inbounds i8, ptr %208, i64 262144
-  %shr.i.i.i.i.i73 = lshr i32 %add.i.i.i.i68, 6
-  %idxprom.i.i.i.i.i74 = zext nneg i32 %shr.i.i.i.i.i73 to i64
-  %arrayidx.i.i.i8.i.i75 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i72, i64 0, i64 %idxprom.i.i.i.i.i74
-  %211 = load i64, ptr %arrayidx.i.i.i8.i.i75, align 8
-  %and.i.i.i.i.i76 = and i32 %add8.i.i.i.i71, 63
-  %sh_prom.i.i.i.i.i77 = zext nneg i32 %and.i.i.i.i.i76 to i64
-  %shl.i.i.i.i.i78 = shl nuw i64 1, %sh_prom.i.i.i.i.i77
-  %and2.i.i.i.i.i79 = and i64 %211, %shl.i.i.i.i.i78
-  %cmp.i.i.not.i.i.i80 = icmp eq i64 %and2.i.i.i.i.i79, 0
-  %idxprom10.i.i.i81 = zext nneg i32 %add8.i.i.i.i71 to i64
-  %arrayidx11.i.i.i82 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %208, i64 0, i64 %idxprom10.i.i.i81
-  br i1 %cmp.i.i.not.i.i.i80, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128, label %if.then.i.i.i83
+  %shl4.i.i.i.i68 = and i32 %210, 992
+  %add.i.i.i.i69 = or disjoint i32 %shl4.i.i.i.i68, %shl.i.i.i.i67
+  %and6.i.i.i.i70 = lshr i32 %add7.i.i, 7
+  %shr7.i.i.i.i71 = and i32 %and6.i.i.i.i70, 31
+  %add8.i.i.i.i72 = or disjoint i32 %add.i.i.i.i69, %shr7.i.i.i.i71
+  %mChildMask.i.i.i.i73 = getelementptr inbounds i8, ptr %208, i64 262144
+  %shr.i.i.i.i.i74 = lshr i32 %add.i.i.i.i69, 6
+  %idxprom.i.i.i.i.i75 = zext nneg i32 %shr.i.i.i.i.i74 to i64
+  %arrayidx.i.i.i8.i.i76 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i73, i64 0, i64 %idxprom.i.i.i.i.i75
+  %211 = load i64, ptr %arrayidx.i.i.i8.i.i76, align 8
+  %and.i.i.i.i.i77 = and i32 %add8.i.i.i.i72, 63
+  %sh_prom.i.i.i.i.i78 = zext nneg i32 %and.i.i.i.i.i77 to i64
+  %shl.i.i.i.i.i79 = shl nuw i64 1, %sh_prom.i.i.i.i.i78
+  %and2.i.i.i.i.i80 = and i64 %211, %shl.i.i.i.i.i79
+  %cmp.i.i.not.i.i.i81 = icmp eq i64 %and2.i.i.i.i.i80, 0
+  %idxprom10.i.i.i82 = zext nneg i32 %add8.i.i.i.i72 to i64
+  %arrayidx11.i.i.i83 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %208, i64 0, i64 %idxprom10.i.i.i82
+  br i1 %cmp.i.i.not.i.i.i81, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129, label %if.then.i.i.i84
 
-if.then.i.i.i83:                                  ; preds = %if.end.i33.i64
-  %212 = load ptr, ptr %arrayidx11.i.i.i82, align 8
-  %and7.i.i.i.i85 = and i32 %add7.i.i, -128
-  %retval.sroa.0.0.insert.insert.i.i.i.i89 = and i64 %192, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i89, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i85, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %212, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %213 = load ptr, ptr %arrayidx11.i.i.i82, align 8
-  %call8.i.i.i92 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %213, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i.i.i84:                                  ; preds = %if.end.i33.i65
+  %212 = load ptr, ptr %arrayidx11.i.i.i83, align 8
+  %and7.i.i.i.i86 = and i32 %add7.i.i, -128
+  %retval.sroa.0.0.insert.insert.i.i.i.i90 = and i64 %192, -545460846720
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i90, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i86, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %212, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %213 = load ptr, ptr %arrayidx11.i.i.i83, align 8
+  %call8.i.i.i93 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %213, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i27.i50:                                   ; preds = %land.rhs.i.i28.i59, %land.lhs.true.i.i23.i54, %if.end.i16.i46
-  %214 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i512 = getelementptr inbounds i8, ptr %214, i64 52
-  %215 = load i32, ptr %mOrigin.i.i.i512, align 4
-  %sub.i.i.i.i513 = sub nsw i32 %194, %215
-  %arrayidx.i.i.i.i.i.i.i515 = getelementptr inbounds i8, ptr %214, i64 56
-  %216 = load i32, ptr %arrayidx.i.i.i.i.i.i.i515, align 4
-  %sub6.i.i.i.i516 = sub nsw i32 %197, %216
-  %arrayidx.i.i.i4.i.i.i.i518 = getelementptr inbounds i8, ptr %214, i64 60
-  %217 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i518, align 4
-  %sub10.i.i.i.i519 = sub nsw i32 %add7.i.i, %217
-  %and.i.i.i.i520 = and i32 %sub.i.i.i.i513, -4096
-  %and4.i.i.i.i521 = and i32 %sub6.i.i.i.i516, -4096
-  %and7.i.i.i.i522 = and i32 %sub10.i.i.i.i519, -4096
-  %_M_parent.i.i.i.i.i523 = getelementptr inbounds i8, ptr %214, i64 16
-  %218 = load ptr, ptr %_M_parent.i.i.i.i.i523, align 8
-  %add.ptr.i.i.i.i.i524 = getelementptr inbounds i8, ptr %214, i64 8
-  %cmp.not9.i.i.i.i.i525 = icmp eq ptr %218, null
-  br i1 %cmp.not9.i.i.i.i.i525, label %if.then.i608, label %while.body.i.i.i.i.i526
+if.end.i27.i51:                                   ; preds = %land.rhs.i.i28.i60, %land.lhs.true.i.i23.i55, %if.end.i16.i47
+  %214 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i513 = getelementptr inbounds i8, ptr %214, i64 52
+  %215 = load i32, ptr %mOrigin.i.i.i513, align 4
+  %sub.i.i.i.i514 = sub nsw i32 %194, %215
+  %arrayidx.i.i.i.i.i.i.i516 = getelementptr inbounds i8, ptr %214, i64 56
+  %216 = load i32, ptr %arrayidx.i.i.i.i.i.i.i516, align 4
+  %sub6.i.i.i.i517 = sub nsw i32 %197, %216
+  %arrayidx.i.i.i4.i.i.i.i519 = getelementptr inbounds i8, ptr %214, i64 60
+  %217 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i519, align 4
+  %sub10.i.i.i.i520 = sub nsw i32 %add7.i.i, %217
+  %and.i.i.i.i521 = and i32 %sub.i.i.i.i514, -4096
+  %and4.i.i.i.i522 = and i32 %sub6.i.i.i.i517, -4096
+  %and7.i.i.i.i523 = and i32 %sub10.i.i.i.i520, -4096
+  %_M_parent.i.i.i.i.i524 = getelementptr inbounds i8, ptr %214, i64 16
+  %218 = load ptr, ptr %_M_parent.i.i.i.i.i524, align 8
+  %add.ptr.i.i.i.i.i525 = getelementptr inbounds i8, ptr %214, i64 8
+  %cmp.not9.i.i.i.i.i526 = icmp eq ptr %218, null
+  br i1 %cmp.not9.i.i.i.i.i526, label %if.then.i609, label %while.body.i.i.i.i.i527
 
-while.body.i.i.i.i.i526:                          ; preds = %if.end.i27.i50, %if.end.i.i.i.i.i541
-  %__x.addr.011.i.i.i.i.i527 = phi ptr [ %__x.addr.1.i.i.i.i.i545, %if.end.i.i.i.i.i541 ], [ %218, %if.end.i27.i50 ]
-  %__y.addr.010.i.i.i.i.i528 = phi ptr [ %__y.addr.1.i.i.i.i.i543, %if.end.i.i.i.i.i541 ], [ %add.ptr.i.i.i.i.i524, %if.end.i27.i50 ]
-  %_M_storage.i.i.i.i.i.i.i529 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 32
-  %219 = load i32, ptr %_M_storage.i.i.i.i.i.i.i529, align 4
-  %cmp.i.i.i.i.i.i.i530 = icmp slt i32 %219, %and.i.i.i.i520
-  br i1 %cmp.i.i.i.i.i.i.i530, label %if.else.i.i.i.i.i610, label %cond.false.i.i.i.i.i.i.i531
+while.body.i.i.i.i.i527:                          ; preds = %if.end.i27.i51, %if.end.i.i.i.i.i542
+  %__x.addr.011.i.i.i.i.i528 = phi ptr [ %__x.addr.1.i.i.i.i.i546, %if.end.i.i.i.i.i542 ], [ %218, %if.end.i27.i51 ]
+  %__y.addr.010.i.i.i.i.i529 = phi ptr [ %__y.addr.1.i.i.i.i.i544, %if.end.i.i.i.i.i542 ], [ %add.ptr.i.i.i.i.i525, %if.end.i27.i51 ]
+  %_M_storage.i.i.i.i.i.i.i530 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 32
+  %219 = load i32, ptr %_M_storage.i.i.i.i.i.i.i530, align 4
+  %cmp.i.i.i.i.i.i.i531 = icmp slt i32 %219, %and.i.i.i.i521
+  br i1 %cmp.i.i.i.i.i.i.i531, label %if.else.i.i.i.i.i611, label %cond.false.i.i.i.i.i.i.i532
 
-cond.false.i.i.i.i.i.i.i531:                      ; preds = %while.body.i.i.i.i.i526
-  %cmp5.i.i.i.i.i.i.i532 = icmp sgt i32 %219, %and.i.i.i.i520
-  br i1 %cmp5.i.i.i.i.i.i.i532, label %if.end.i.i.i.i.i541, label %cond.false7.i.i.i.i.i.i.i533
+cond.false.i.i.i.i.i.i.i532:                      ; preds = %while.body.i.i.i.i.i527
+  %cmp5.i.i.i.i.i.i.i533 = icmp sgt i32 %219, %and.i.i.i.i521
+  br i1 %cmp5.i.i.i.i.i.i.i533, label %if.end.i.i.i.i.i542, label %cond.false7.i.i.i.i.i.i.i534
 
-cond.false7.i.i.i.i.i.i.i533:                     ; preds = %cond.false.i.i.i.i.i.i.i531
-  %arrayidx.i.i.i.i.i.i.i.i.i.i534 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 36
-  %220 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i534, align 4
-  %cmp10.i.i.i.i.i.i.i535 = icmp slt i32 %220, %and4.i.i.i.i521
-  br i1 %cmp10.i.i.i.i.i.i.i535, label %if.else.i.i.i.i.i610, label %cond.false12.i.i.i.i.i.i.i536
+cond.false7.i.i.i.i.i.i.i534:                     ; preds = %cond.false.i.i.i.i.i.i.i532
+  %arrayidx.i.i.i.i.i.i.i.i.i.i535 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 36
+  %220 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i535, align 4
+  %cmp10.i.i.i.i.i.i.i536 = icmp slt i32 %220, %and4.i.i.i.i522
+  br i1 %cmp10.i.i.i.i.i.i.i536, label %if.else.i.i.i.i.i611, label %cond.false12.i.i.i.i.i.i.i537
 
-cond.false12.i.i.i.i.i.i.i536:                    ; preds = %cond.false7.i.i.i.i.i.i.i533
-  %cmp15.i.i.i.i.i.i.i537 = icmp sgt i32 %220, %and4.i.i.i.i521
-  br i1 %cmp15.i.i.i.i.i.i.i537, label %if.end.i.i.i.i.i541, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538
+cond.false12.i.i.i.i.i.i.i537:                    ; preds = %cond.false7.i.i.i.i.i.i.i534
+  %cmp15.i.i.i.i.i.i.i538 = icmp sgt i32 %220, %and4.i.i.i.i522
+  br i1 %cmp15.i.i.i.i.i.i.i538, label %if.end.i.i.i.i.i542, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538: ; preds = %cond.false12.i.i.i.i.i.i.i536
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 40
-  %221 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i539, align 4
-  %cmp20.i.i.i.i.i.i.i540 = icmp slt i32 %221, %and7.i.i.i.i522
-  br i1 %cmp20.i.i.i.i.i.i.i540, label %if.else.i.i.i.i.i610, label %if.end.i.i.i.i.i541
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539: ; preds = %cond.false12.i.i.i.i.i.i.i537
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i540 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 40
+  %221 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i540, align 4
+  %cmp20.i.i.i.i.i.i.i541 = icmp slt i32 %221, %and7.i.i.i.i523
+  br i1 %cmp20.i.i.i.i.i.i.i541, label %if.else.i.i.i.i.i611, label %if.end.i.i.i.i.i542
 
-if.else.i.i.i.i.i610:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538, %cond.false7.i.i.i.i.i.i.i533, %while.body.i.i.i.i.i526
-  br label %if.end.i.i.i.i.i541
+if.else.i.i.i.i.i611:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539, %cond.false7.i.i.i.i.i.i.i534, %while.body.i.i.i.i.i527
+  br label %if.end.i.i.i.i.i542
 
-if.end.i.i.i.i.i541:                              ; preds = %if.else.i.i.i.i.i610, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538, %cond.false12.i.i.i.i.i.i.i536, %cond.false.i.i.i.i.i.i.i531
-  %.sink.i.i.i.i.i542 = phi i64 [ 24, %if.else.i.i.i.i.i610 ], [ 16, %cond.false12.i.i.i.i.i.i.i536 ], [ 16, %cond.false.i.i.i.i.i.i.i531 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538 ]
-  %__y.addr.1.i.i.i.i.i543 = phi ptr [ %__y.addr.010.i.i.i.i.i528, %if.else.i.i.i.i.i610 ], [ %__x.addr.011.i.i.i.i.i527, %cond.false12.i.i.i.i.i.i.i536 ], [ %__x.addr.011.i.i.i.i.i527, %cond.false.i.i.i.i.i.i.i531 ], [ %__x.addr.011.i.i.i.i.i527, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538 ]
-  %_M_right.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 %.sink.i.i.i.i.i542
-  %__x.addr.1.i.i.i.i.i545 = load ptr, ptr %_M_right.i.i.i.i.i.i544, align 8
-  %cmp.not.i.i.i.i.i546 = icmp eq ptr %__x.addr.1.i.i.i.i.i545, null
-  br i1 %cmp.not.i.i.i.i.i546, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547, label %while.body.i.i.i.i.i526, !llvm.loop !31
+if.end.i.i.i.i.i542:                              ; preds = %if.else.i.i.i.i.i611, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539, %cond.false12.i.i.i.i.i.i.i537, %cond.false.i.i.i.i.i.i.i532
+  %.sink.i.i.i.i.i543 = phi i64 [ 24, %if.else.i.i.i.i.i611 ], [ 16, %cond.false12.i.i.i.i.i.i.i537 ], [ 16, %cond.false.i.i.i.i.i.i.i532 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539 ]
+  %__y.addr.1.i.i.i.i.i544 = phi ptr [ %__y.addr.010.i.i.i.i.i529, %if.else.i.i.i.i.i611 ], [ %__x.addr.011.i.i.i.i.i528, %cond.false12.i.i.i.i.i.i.i537 ], [ %__x.addr.011.i.i.i.i.i528, %cond.false.i.i.i.i.i.i.i532 ], [ %__x.addr.011.i.i.i.i.i528, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539 ]
+  %_M_right.i.i.i.i.i.i545 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 %.sink.i.i.i.i.i543
+  %__x.addr.1.i.i.i.i.i546 = load ptr, ptr %_M_right.i.i.i.i.i.i545, align 8
+  %cmp.not.i.i.i.i.i547 = icmp eq ptr %__x.addr.1.i.i.i.i.i546, null
+  br i1 %cmp.not.i.i.i.i.i547, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548, label %while.body.i.i.i.i.i527, !llvm.loop !31
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547: ; preds = %if.end.i.i.i.i.i541
-  %cmp.i.i.i.i.i548 = icmp eq ptr %__y.addr.1.i.i.i.i.i543, %add.ptr.i.i.i.i.i524
-  br i1 %cmp.i.i.i.i.i548, label %if.then.i608, label %lor.lhs.false.i.i.i.i549
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548: ; preds = %if.end.i.i.i.i.i542
+  %cmp.i.i.i.i.i549 = icmp eq ptr %__y.addr.1.i.i.i.i.i544, %add.ptr.i.i.i.i.i525
+  br i1 %cmp.i.i.i.i.i549, label %if.then.i609, label %lor.lhs.false.i.i.i.i550
 
-lor.lhs.false.i.i.i.i549:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547
-  %_M_storage.i.i.i3.i.i.i.i550 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 32
-  %222 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i550, align 4
-  %cmp.i.i.i.i.i.i551 = icmp slt i32 %and.i.i.i.i520, %222
-  br i1 %cmp.i.i.i.i.i.i551, label %if.then.i608, label %cond.false.i.i.i.i.i.i552
+lor.lhs.false.i.i.i.i550:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548
+  %_M_storage.i.i.i3.i.i.i.i551 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 32
+  %222 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i551, align 4
+  %cmp.i.i.i.i.i.i552 = icmp slt i32 %and.i.i.i.i521, %222
+  br i1 %cmp.i.i.i.i.i.i552, label %if.then.i609, label %cond.false.i.i.i.i.i.i553
 
-cond.false.i.i.i.i.i.i552:                        ; preds = %lor.lhs.false.i.i.i.i549
-  %cmp5.i.i.i.i.i.i553 = icmp sgt i32 %and.i.i.i.i520, %222
-  br i1 %cmp5.i.i.i.i.i.i553, label %if.end.i562, label %cond.false7.i.i.i.i.i.i554
+cond.false.i.i.i.i.i.i553:                        ; preds = %lor.lhs.false.i.i.i.i550
+  %cmp5.i.i.i.i.i.i554 = icmp sgt i32 %and.i.i.i.i521, %222
+  br i1 %cmp5.i.i.i.i.i.i554, label %if.end.i563, label %cond.false7.i.i.i.i.i.i555
 
-cond.false7.i.i.i.i.i.i554:                       ; preds = %cond.false.i.i.i.i.i.i552
-  %arrayidx.i.i.i5.i.i.i.i.i.i555 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 36
-  %223 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i555, align 4
-  %cmp10.i.i.i.i.i.i556 = icmp slt i32 %and4.i.i.i.i521, %223
-  br i1 %cmp10.i.i.i.i.i.i556, label %if.then.i608, label %cond.false12.i.i.i.i.i.i557
+cond.false7.i.i.i.i.i.i555:                       ; preds = %cond.false.i.i.i.i.i.i553
+  %arrayidx.i.i.i5.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 36
+  %223 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i556, align 4
+  %cmp10.i.i.i.i.i.i557 = icmp slt i32 %and4.i.i.i.i522, %223
+  br i1 %cmp10.i.i.i.i.i.i557, label %if.then.i609, label %cond.false12.i.i.i.i.i.i558
 
-cond.false12.i.i.i.i.i.i557:                      ; preds = %cond.false7.i.i.i.i.i.i554
-  %cmp15.i.i.i.i.i.i558 = icmp sgt i32 %and4.i.i.i.i521, %223
-  br i1 %cmp15.i.i.i.i.i.i558, label %if.end.i562, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559
+cond.false12.i.i.i.i.i.i558:                      ; preds = %cond.false7.i.i.i.i.i.i555
+  %cmp15.i.i.i.i.i.i559 = icmp sgt i32 %and4.i.i.i.i522, %223
+  br i1 %cmp15.i.i.i.i.i.i559, label %if.end.i563, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559: ; preds = %cond.false12.i.i.i.i.i.i557
-  %arrayidx.i.i.i9.i.i.i.i.i.i560 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 40
-  %224 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i560, align 4
-  %cmp20.i.i.i.i.i.i561 = icmp slt i32 %and7.i.i.i.i522, %224
-  br i1 %cmp20.i.i.i.i.i.i561, label %if.then.i608, label %if.end.i562
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560: ; preds = %cond.false12.i.i.i.i.i.i558
+  %arrayidx.i.i.i9.i.i.i.i.i.i561 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 40
+  %224 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i561, align 4
+  %cmp20.i.i.i.i.i.i562 = icmp slt i32 %and7.i.i.i.i523, %224
+  br i1 %cmp20.i.i.i.i.i.i562, label %if.then.i609, label %if.end.i563
 
-if.then.i608:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559, %cond.false7.i.i.i.i.i.i554, %lor.lhs.false.i.i.i.i549, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547, %if.end.i27.i50
-  %mBackground.i609 = getelementptr inbounds i8, ptr %214, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i609:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560, %cond.false7.i.i.i.i.i.i555, %lor.lhs.false.i.i.i.i550, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548, %if.end.i27.i51
+  %mBackground.i610 = getelementptr inbounds i8, ptr %214, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i562:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559, %cond.false12.i.i.i.i.i.i557, %cond.false.i.i.i.i.i.i552
-  %second.i.i563 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 48
-  %225 = load ptr, ptr %second.i.i563, align 8
-  %cmp.i.i.not.i564 = icmp eq ptr %225, null
-  br i1 %cmp.i.i.not.i564, label %if.end10.i606, label %if.then6.i565
+if.end.i563:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560, %cond.false12.i.i.i.i.i.i558, %cond.false.i.i.i.i.i.i553
+  %second.i.i564 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 48
+  %225 = load ptr, ptr %second.i.i564, align 8
+  %cmp.i.i.not.i565 = icmp eq ptr %225, null
+  br i1 %cmp.i.i.not.i565, label %if.end10.i607, label %if.then6.i566
 
-if.then6.i565:                                    ; preds = %if.end.i562
-  %and7.i.i568 = and i32 %add7.i.i, -4096
-  %retval.sroa.0.0.insert.insert.i.i572 = and i64 %192, -17587891081216
-  store i64 %retval.sroa.0.0.insert.insert.i.i572, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i568, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %225, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %226 = load ptr, ptr %second.i.i563, align 8
+if.then6.i566:                                    ; preds = %if.end.i563
+  %and7.i.i569 = and i32 %add7.i.i, -4096
+  %retval.sroa.0.0.insert.insert.i.i573 = and i64 %192, -17587891081216
+  store i64 %retval.sroa.0.0.insert.insert.i.i573, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i569, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %225, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %226 = load ptr, ptr %second.i.i564, align 8
   %227 = shl i32 %194, 3
-  %shl.i.i.i576 = and i32 %227, 31744
+  %shl.i.i.i577 = and i32 %227, 31744
   %228 = lshr i32 %197, 2
-  %shl4.i.i.i577 = and i32 %228, 992
-  %add.i.i.i578 = or disjoint i32 %shl4.i.i.i577, %shl.i.i.i576
-  %and6.i.i.i579 = lshr i32 %add7.i.i, 7
-  %shr7.i.i.i580 = and i32 %and6.i.i.i579, 31
-  %add8.i.i.i581 = or disjoint i32 %add.i.i.i578, %shr7.i.i.i580
-  %mChildMask.i.i.i582 = getelementptr inbounds i8, ptr %226, i64 262144
-  %shr.i.i.i.i583 = lshr i32 %add.i.i.i578, 6
-  %idxprom.i.i.i.i584 = zext nneg i32 %shr.i.i.i.i583 to i64
-  %arrayidx.i.i.i8.i585 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i582, i64 0, i64 %idxprom.i.i.i.i584
-  %229 = load i64, ptr %arrayidx.i.i.i8.i585, align 8
-  %and.i.i.i9.i586 = and i32 %add8.i.i.i581, 63
-  %sh_prom.i.i.i.i587 = zext nneg i32 %and.i.i.i9.i586 to i64
-  %shl.i.i.i.i588 = shl nuw i64 1, %sh_prom.i.i.i.i587
-  %and2.i.i.i.i589 = and i64 %229, %shl.i.i.i.i588
-  %cmp.i.i.not.i.i590 = icmp eq i64 %and2.i.i.i.i589, 0
-  %idxprom10.i.i591 = zext nneg i32 %add8.i.i.i581 to i64
-  %arrayidx11.i.i592 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %226, i64 0, i64 %idxprom10.i.i591
-  br i1 %cmp.i.i.not.i.i590, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128, label %if.then.i.i593
+  %shl4.i.i.i578 = and i32 %228, 992
+  %add.i.i.i579 = or disjoint i32 %shl4.i.i.i578, %shl.i.i.i577
+  %and6.i.i.i580 = lshr i32 %add7.i.i, 7
+  %shr7.i.i.i581 = and i32 %and6.i.i.i580, 31
+  %add8.i.i.i582 = or disjoint i32 %add.i.i.i579, %shr7.i.i.i581
+  %mChildMask.i.i.i583 = getelementptr inbounds i8, ptr %226, i64 262144
+  %shr.i.i.i.i584 = lshr i32 %add.i.i.i579, 6
+  %idxprom.i.i.i.i585 = zext nneg i32 %shr.i.i.i.i584 to i64
+  %arrayidx.i.i.i8.i586 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i583, i64 0, i64 %idxprom.i.i.i.i585
+  %229 = load i64, ptr %arrayidx.i.i.i8.i586, align 8
+  %and.i.i.i9.i587 = and i32 %add8.i.i.i582, 63
+  %sh_prom.i.i.i.i588 = zext nneg i32 %and.i.i.i9.i587 to i64
+  %shl.i.i.i.i589 = shl nuw i64 1, %sh_prom.i.i.i.i588
+  %and2.i.i.i.i590 = and i64 %229, %shl.i.i.i.i589
+  %cmp.i.i.not.i.i591 = icmp eq i64 %and2.i.i.i.i590, 0
+  %idxprom10.i.i592 = zext nneg i32 %add8.i.i.i582 to i64
+  %arrayidx11.i.i593 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %226, i64 0, i64 %idxprom10.i.i592
+  br i1 %cmp.i.i.not.i.i591, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129, label %if.then.i.i594
 
-if.then.i.i593:                                   ; preds = %if.then6.i565
-  %230 = load ptr, ptr %arrayidx11.i.i592, align 8
-  %and7.i.i.i596 = and i32 %add7.i.i, -128
-  %retval.sroa.0.0.insert.insert.i.i.i600 = and i64 %192, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i600, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i596, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %230, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %231 = load ptr, ptr %arrayidx11.i.i592, align 8
-  %call8.i.i604 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %231, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i.i594:                                   ; preds = %if.then6.i566
+  %230 = load ptr, ptr %arrayidx11.i.i593, align 8
+  %and7.i.i.i597 = and i32 %add7.i.i, -128
+  %retval.sroa.0.0.insert.insert.i.i.i601 = and i64 %192, -545460846720
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i601, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i597, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %230, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %231 = load ptr, ptr %arrayidx11.i.i593, align 8
+  %call8.i.i605 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %231, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end10.i606:                                    ; preds = %if.end.i562
-  %tile.i.i607 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.end10.i607:                                    ; preds = %if.end.i563
+  %tile.i.i608 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128: ; preds = %if.end10.i606, %if.then.i.i593, %if.then6.i565, %if.then.i608, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i103, %if.end.i33.i64, %if.then.i.i.i83
-  %retval.i.0.i53 = phi ptr [ %arrayidx.i.i126, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i116 ], [ %call3.i.i105, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i103 ], [ %call8.i.i.i92, %if.then.i.i.i83 ], [ %arrayidx11.i.i.i82, %if.end.i33.i64 ], [ %mBackground.i609, %if.then.i608 ], [ %tile.i.i607, %if.end10.i606 ], [ %call8.i.i604, %if.then.i.i593 ], [ %arrayidx11.i.i592, %if.then6.i565 ]
-  %232 = load float, ptr %retval.i.0.i53, align 4
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129: ; preds = %if.end10.i607, %if.then.i.i594, %if.then6.i566, %if.then.i609, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i117, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i104, %if.end.i33.i65, %if.then.i.i.i84
+  %retval.i.0.i54 = phi ptr [ %arrayidx.i.i127, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i117 ], [ %call3.i.i106, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i104 ], [ %call8.i.i.i93, %if.then.i.i.i84 ], [ %arrayidx11.i.i.i83, %if.end.i33.i65 ], [ %mBackground.i610, %if.then.i609 ], [ %tile.i.i608, %if.end10.i607 ], [ %call8.i.i605, %if.then.i.i594 ], [ %arrayidx11.i.i593, %if.then6.i566 ]
+  %232 = load float, ptr %retval.i.0.i54, align 4
   %233 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i47.i = getelementptr inbounds i8, ptr %233, i64 20
-  store float %232, ptr %add.ptr.i.i47.i, align 4
+  %add.ptr.i.i51.i = getelementptr inbounds i8, ptr %233, i64 20
+  store float %232, ptr %add.ptr.i.i51.i, align 4
   %234 = load i64, ptr %mCenter.i, align 8
   %235 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %add7.i50.i = add nsw i32 %235, 1
+  %add7.i56.i = add nsw i32 %235, 1
   store i64 %234, ptr %ref.tmp33.i, align 8
-  store i32 %add7.i50.i, ptr %tmp.coerce37.sroa.2.0.coerce.dive36.sroa_idx.i, align 8
+  store i32 %add7.i56.i, ptr %tmp.coerce37.sroa.2.0.coerce.dive36.sroa_idx.i, align 8
   %236 = trunc i64 %234 to i32
   %and.i.i.i = and i32 %236, -8
-  %237 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i27 = icmp eq i32 %and.i.i.i, %237
+  %237 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i28 = icmp eq i32 %and.i.i.i, %237
   %238 = lshr i64 %234, 32
   %239 = trunc nuw i64 %238 to i32
-  br i1 %cmp.i.i.i27, label %land.lhs.true.i.i.i, label %if.end.i.i
+  br i1 %cmp.i.i.i28, label %land.lhs.true.i.i.i, label %if.end.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
   %and5.i.i.i = and i32 %239, -8
-  %240 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
+  %240 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
   %cmp9.i.i.i = icmp eq i32 %and5.i.i.i, %240
-  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i34, label %if.end.i.i
+  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i35, label %if.end.i.i
 
-land.rhs.i.i.i34:                                 ; preds = %land.lhs.true.i.i.i
-  %and11.i.i.i = and i32 %add7.i50.i, -8
-  %241 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
+land.rhs.i.i.i35:                                 ; preds = %land.lhs.true.i.i.i
+  %and11.i.i.i = and i32 %add7.i56.i, -8
+  %241 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
   %cmp15.i.i.i = icmp eq i32 %and11.i.i.i, %241
   br i1 %cmp15.i.i.i, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, label %if.end.i.i
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i: ; preds = %land.rhs.i.i.i34
-  %242 = load ptr, ptr %add.ptr.i.i477, align 8
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i: ; preds = %land.rhs.i.i.i35
+  %242 = load ptr, ptr %add.ptr.i.i478, align 8
   %and.i6.i.i = shl i32 %236, 6
-  %shl.i.i.i36 = and i32 %and.i6.i.i, 448
+  %shl.i.i.i37 = and i32 %and.i6.i.i, 448
   %and2.i.i.i = shl i32 %239, 3
   %shl3.i.i.i = and i32 %and2.i.i.i, 56
-  %and5.i7.i.i = and i32 %add7.i50.i, 7
-  %add.i.i.i37 = or disjoint i32 %shl.i.i.i36, %and5.i7.i.i
-  %add6.i.i.i = or disjoint i32 %add.i.i.i37, %shl3.i.i.i
+  %and5.i7.i.i = and i32 %add7.i56.i, 7
+  %add.i.i.i38 = or disjoint i32 %shl.i.i.i37, %and5.i7.i.i
+  %add6.i.i.i = or disjoint i32 %add.i.i.i38, %shl3.i.i.i
   %idxprom.i.i = zext nneg i32 %add6.i.i.i to i64
-  %arrayidx.i.i38 = getelementptr inbounds float, ptr %242, i64 %idxprom.i.i
+  %arrayidx.i.i39 = getelementptr inbounds float, ptr %242, i64 %idxprom.i.i
   %tobool.i.not.i = icmp eq ptr %242, null
   br i1 %tobool.i.not.i, label %if.end.i.i, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
-if.end.i.i:                                       ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %land.rhs.i.i.i34, %land.lhs.true.i.i.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.end.i.i:                                       ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %land.rhs.i.i.i35, %land.lhs.true.i.i.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
   %and.i.i6.i = and i32 %236, -128
-  %243 = load i32, ptr %arrayidx.i.i.i.i404, align 4
+  %243 = load i32, ptr %arrayidx.i.i.i.i405, align 4
   %cmp.i.i7.i = icmp eq i32 %and.i.i6.i, %243
   br i1 %cmp.i.i7.i, label %land.lhs.true.i.i9.i, label %if.end.i16.i
 
 land.lhs.true.i.i9.i:                             ; preds = %if.end.i.i
   %and5.i.i11.i = and i32 %239, -128
-  %244 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
+  %244 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
   %cmp9.i.i13.i = icmp eq i32 %and5.i.i11.i, %244
   br i1 %cmp9.i.i13.i, label %land.rhs.i.i14.i, label %if.end.i16.i
 
 land.rhs.i.i14.i:                                 ; preds = %land.lhs.true.i.i9.i
-  %and11.i.i16.i = and i32 %add7.i50.i, -128
-  %245 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
+  %and11.i.i16.i = and i32 %add7.i56.i, -128
+  %245 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
   %cmp15.i.i17.i = icmp eq i32 %and11.i.i16.i, %245
   br i1 %cmp15.i.i17.i, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, label %if.end.i16.i
 
 _ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i: ; preds = %land.rhs.i.i14.i
-  %246 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  %246 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %call3.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %246, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 if.end.i16.i:                                     ; preds = %land.rhs.i.i14.i, %land.lhs.true.i.i9.i, %if.end.i.i
   %and.i.i19.i = and i32 %236, -4096
-  %247 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
+  %247 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
   %cmp.i.i21.i = icmp eq i32 %and.i.i19.i, %247
   br i1 %cmp.i.i21.i, label %land.lhs.true.i.i23.i, label %if.end.i27.i
 
 land.lhs.true.i.i23.i:                            ; preds = %if.end.i16.i
   %and5.i.i25.i = and i32 %239, -4096
-  %248 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
+  %248 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
   %cmp9.i.i27.i = icmp eq i32 %and5.i.i25.i, %248
   br i1 %cmp9.i.i27.i, label %land.rhs.i.i28.i, label %if.end.i27.i
 
 land.rhs.i.i28.i:                                 ; preds = %land.lhs.true.i.i23.i
-  %and11.i.i30.i = and i32 %add7.i50.i, -4096
-  %249 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
+  %and11.i.i30.i = and i32 %add7.i56.i, -4096
+  %249 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
   %cmp15.i.i32.i = icmp eq i32 %and11.i.i30.i, %249
   br i1 %cmp15.i.i32.i, label %if.end.i33.i, label %if.end.i27.i
 
 if.end.i33.i:                                     ; preds = %land.rhs.i.i28.i
-  %250 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+  %250 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %251 = shl i32 %236, 3
-  %shl.i.i.i.i29 = and i32 %251, 31744
+  %shl.i.i.i.i30 = and i32 %251, 31744
   %252 = lshr i32 %239, 2
   %shl4.i.i.i.i = and i32 %252, 992
-  %add.i.i.i.i30 = or disjoint i32 %shl4.i.i.i.i, %shl.i.i.i.i29
-  %and6.i.i.i.i = lshr i32 %add7.i50.i, 7
+  %add.i.i.i.i31 = or disjoint i32 %shl4.i.i.i.i, %shl.i.i.i.i30
+  %and6.i.i.i.i = lshr i32 %add7.i56.i, 7
   %shr7.i.i.i.i = and i32 %and6.i.i.i.i, 31
-  %add8.i.i.i.i = or disjoint i32 %add.i.i.i.i30, %shr7.i.i.i.i
+  %add8.i.i.i.i = or disjoint i32 %add.i.i.i.i31, %shr7.i.i.i.i
   %mChildMask.i.i.i.i = getelementptr inbounds i8, ptr %250, i64 262144
-  %shr.i.i.i.i.i = lshr i32 %add.i.i.i.i30, 6
+  %shr.i.i.i.i.i = lshr i32 %add.i.i.i.i31, 6
   %idxprom.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i to i64
   %arrayidx.i.i.i8.i.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %253 = load i64, ptr %arrayidx.i.i.i8.i.i, align 8
@@ -4397,61 +4397,61 @@ if.end.i33.i:                                     ; preds = %land.rhs.i.i28.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i33.i
   %254 = load ptr, ptr %arrayidx11.i.i.i, align 8
-  %and7.i.i.i.i31 = and i32 %add7.i50.i, -128
+  %and7.i.i.i.i32 = and i32 %add7.i56.i, -128
   %retval.sroa.0.0.insert.insert.i.i.i.i = and i64 %234, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i31, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %254, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %254, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %255 = load ptr, ptr %arrayidx11.i.i.i, align 8
   %call8.i.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %255, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 if.end.i27.i:                                     ; preds = %land.rhs.i.i28.i, %land.lhs.true.i.i23.i, %if.end.i16.i
-  %256 = load ptr, ptr %mNodes.i.i411, align 8
+  %256 = load ptr, ptr %mNodes.i.i412, align 8
   %mOrigin.i.i.i = getelementptr inbounds i8, ptr %256, i64 52
   %257 = load i32, ptr %mOrigin.i.i.i, align 4
   %sub.i.i.i.i = sub nsw i32 %236, %257
-  %arrayidx.i.i.i.i.i.i.i490 = getelementptr inbounds i8, ptr %256, i64 56
-  %258 = load i32, ptr %arrayidx.i.i.i.i.i.i.i490, align 4
+  %arrayidx.i.i.i.i.i.i.i491 = getelementptr inbounds i8, ptr %256, i64 56
+  %258 = load i32, ptr %arrayidx.i.i.i.i.i.i.i491, align 4
   %sub6.i.i.i.i = sub nsw i32 %239, %258
-  %arrayidx.i.i.i4.i.i.i.i491 = getelementptr inbounds i8, ptr %256, i64 60
-  %259 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i491, align 4
-  %sub10.i.i.i.i = sub nsw i32 %add7.i50.i, %259
-  %and.i.i.i.i492 = and i32 %sub.i.i.i.i, -4096
-  %and4.i.i.i.i493 = and i32 %sub6.i.i.i.i, -4096
-  %and7.i.i.i.i494 = and i32 %sub10.i.i.i.i, -4096
+  %arrayidx.i.i.i4.i.i.i.i492 = getelementptr inbounds i8, ptr %256, i64 60
+  %259 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i492, align 4
+  %sub10.i.i.i.i = sub nsw i32 %add7.i56.i, %259
+  %and.i.i.i.i493 = and i32 %sub.i.i.i.i, -4096
+  %and4.i.i.i.i494 = and i32 %sub6.i.i.i.i, -4096
+  %and7.i.i.i.i495 = and i32 %sub10.i.i.i.i, -4096
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %256, i64 16
   %260 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %256, i64 8
   %cmp.not9.i.i.i.i.i = icmp eq ptr %260, null
-  br i1 %cmp.not9.i.i.i.i.i, label %if.then.i511, label %while.body.i.i.i.i.i
+  br i1 %cmp.not9.i.i.i.i.i, label %if.then.i512, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i27.i, %if.end.i.i.i.i.i
   %__x.addr.011.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %260, %if.end.i27.i ]
   %__y.addr.010.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i27.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 32
   %261 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i = icmp slt i32 %261, %and.i.i.i.i492
+  %cmp.i.i.i.i.i.i.i = icmp slt i32 %261, %and.i.i.i.i493
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp sgt i32 %261, %and.i.i.i.i492
+  %cmp5.i.i.i.i.i.i.i = icmp sgt i32 %261, %and.i.i.i.i493
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %cond.false7.i.i.i.i.i.i.i
 
 cond.false7.i.i.i.i.i.i.i:                        ; preds = %cond.false.i.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 36
   %262 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i = icmp slt i32 %262, %and4.i.i.i.i493
+  %cmp10.i.i.i.i.i.i.i = icmp slt i32 %262, %and4.i.i.i.i494
   br i1 %cmp10.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %cond.false12.i.i.i.i.i.i.i
 
 cond.false12.i.i.i.i.i.i.i:                       ; preds = %cond.false7.i.i.i.i.i.i.i
-  %cmp15.i.i.i.i.i.i.i = icmp sgt i32 %262, %and4.i.i.i.i493
+  %cmp15.i.i.i.i.i.i.i = icmp sgt i32 %262, %and4.i.i.i.i494
   br i1 %cmp15.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i
 
 _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i: ; preds = %cond.false12.i.i.i.i.i.i.i
   %arrayidx.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 40
   %263 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i, align 4
-  %cmp20.i.i.i.i.i.i.i = icmp slt i32 %263, %and7.i.i.i.i494
+  %cmp20.i.i.i.i.i.i.i = icmp slt i32 %263, %and7.i.i.i.i495
   br i1 %cmp20.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i, %cond.false7.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
@@ -4466,36 +4466,36 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !31
 
 _ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %cmp.i.i.i.i.i495 = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i495, label %if.then.i511, label %lor.lhs.false.i.i.i.i
+  %cmp.i.i.i.i.i496 = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i496, label %if.then.i512, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %264 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp slt i32 %and.i.i.i.i492, %264
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i511, label %cond.false.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp slt i32 %and.i.i.i.i493, %264
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i512, label %cond.false.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i
-  %cmp5.i.i.i.i.i.i = icmp sgt i32 %and.i.i.i.i492, %264
+  %cmp5.i.i.i.i.i.i = icmp sgt i32 %and.i.i.i.i493, %264
   br i1 %cmp5.i.i.i.i.i.i, label %if.end.i, label %cond.false7.i.i.i.i.i.i
 
 cond.false7.i.i.i.i.i.i:                          ; preds = %cond.false.i.i.i.i.i.i
   %arrayidx.i.i.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 36
   %265 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i, align 4
-  %cmp10.i.i.i.i.i.i = icmp slt i32 %and4.i.i.i.i493, %265
-  br i1 %cmp10.i.i.i.i.i.i, label %if.then.i511, label %cond.false12.i.i.i.i.i.i
+  %cmp10.i.i.i.i.i.i = icmp slt i32 %and4.i.i.i.i494, %265
+  br i1 %cmp10.i.i.i.i.i.i, label %if.then.i512, label %cond.false12.i.i.i.i.i.i
 
 cond.false12.i.i.i.i.i.i:                         ; preds = %cond.false7.i.i.i.i.i.i
-  %cmp15.i.i.i.i.i.i = icmp sgt i32 %and4.i.i.i.i493, %265
+  %cmp15.i.i.i.i.i.i = icmp sgt i32 %and4.i.i.i.i494, %265
   br i1 %cmp15.i.i.i.i.i.i, label %if.end.i, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i
 
 _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i: ; preds = %cond.false12.i.i.i.i.i.i
   %arrayidx.i.i.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %266 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i, align 4
-  %cmp20.i.i.i.i.i.i = icmp slt i32 %and7.i.i.i.i494, %266
-  br i1 %cmp20.i.i.i.i.i.i, label %if.then.i511, label %if.end.i
+  %cmp20.i.i.i.i.i.i = icmp slt i32 %and7.i.i.i.i495, %266
+  br i1 %cmp20.i.i.i.i.i.i, label %if.then.i512, label %if.end.i
 
-if.then.i511:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false7.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, %if.end.i27.i
+if.then.i512:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false7.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, %if.end.i27.i
   %mBackground.i = getelementptr inbounds i8, ptr %256, i64 48
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
@@ -4506,41 +4506,41 @@ if.end.i:                                         ; preds = %_ZNKSt4lessIN7openv
   br i1 %cmp.i.i.not.i, label %if.end10.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %and7.i.i = and i32 %add7.i50.i, -4096
-  %retval.sroa.0.0.insert.insert.i.i499 = and i64 %234, -17587891081216
-  store i64 %retval.sroa.0.0.insert.insert.i.i499, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %267, ptr %add.ptr.i.i.i.i5.i975, align 8
+  %and7.i.i = and i32 %add7.i56.i, -4096
+  %retval.sroa.0.0.insert.insert.i.i500 = and i64 %234, -17587891081216
+  store i64 %retval.sroa.0.0.insert.insert.i.i500, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %267, ptr %add.ptr.i.i.i.i5.i976, align 8
   %268 = load ptr, ptr %second.i.i, align 8
   %269 = shl i32 %236, 3
-  %shl.i.i.i501 = and i32 %269, 31744
+  %shl.i.i.i502 = and i32 %269, 31744
   %270 = lshr i32 %239, 2
   %shl4.i.i.i = and i32 %270, 992
-  %add.i.i.i502 = or disjoint i32 %shl4.i.i.i, %shl.i.i.i501
-  %and6.i.i.i = lshr i32 %add7.i50.i, 7
+  %add.i.i.i503 = or disjoint i32 %shl4.i.i.i, %shl.i.i.i502
+  %and6.i.i.i = lshr i32 %add7.i56.i, 7
   %shr7.i.i.i = and i32 %and6.i.i.i, 31
-  %add8.i.i.i = or disjoint i32 %add.i.i.i502, %shr7.i.i.i
+  %add8.i.i.i = or disjoint i32 %add.i.i.i503, %shr7.i.i.i
   %mChildMask.i.i.i = getelementptr inbounds i8, ptr %268, i64 262144
-  %shr.i.i.i.i503 = lshr i32 %add.i.i.i502, 6
-  %idxprom.i.i.i.i504 = zext nneg i32 %shr.i.i.i.i503 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i, i64 0, i64 %idxprom.i.i.i.i504
+  %shr.i.i.i.i504 = lshr i32 %add.i.i.i503, 6
+  %idxprom.i.i.i.i505 = zext nneg i32 %shr.i.i.i.i504 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i, i64 0, i64 %idxprom.i.i.i.i505
   %271 = load i64, ptr %arrayidx.i.i.i8.i, align 8
   %and.i.i.i9.i = and i32 %add8.i.i.i, 63
-  %sh_prom.i.i.i.i505 = zext nneg i32 %and.i.i.i9.i to i64
-  %shl.i.i.i.i506 = shl nuw i64 1, %sh_prom.i.i.i.i505
-  %and2.i.i.i.i507 = and i64 %271, %shl.i.i.i.i506
-  %cmp.i.i.not.i.i = icmp eq i64 %and2.i.i.i.i507, 0
+  %sh_prom.i.i.i.i506 = zext nneg i32 %and.i.i.i9.i to i64
+  %shl.i.i.i.i507 = shl nuw i64 1, %sh_prom.i.i.i.i506
+  %and2.i.i.i.i508 = and i64 %271, %shl.i.i.i.i507
+  %cmp.i.i.not.i.i = icmp eq i64 %and2.i.i.i.i508, 0
   %idxprom10.i.i = zext nneg i32 %add8.i.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.245"], ptr %268, i64 0, i64 %idxprom10.i.i
   br i1 %cmp.i.i.not.i.i, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %272 = load ptr, ptr %arrayidx11.i.i, align 8
-  %and7.i.i.i = and i32 %add7.i50.i, -128
+  %and7.i.i.i = and i32 %add7.i56.i, -128
   %retval.sroa.0.0.insert.insert.i.i.i = and i64 %234, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %272, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %272, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %273 = load ptr, ptr %arrayidx11.i.i, align 8
   %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %273, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
@@ -4549,12 +4549,12 @@ if.end10.i:                                       ; preds = %if.end.i
   %tile.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 56
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then.i.i, %if.then6.i, %if.then.i511, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, %if.end.i33.i, %if.then.i.i.i
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i38, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %call3.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %call8.i.i.i, %if.then.i.i.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i511 ], [ %tile.i.i, %if.end10.i ], [ %call8.i.i, %if.then.i.i ], [ %arrayidx11.i.i, %if.then6.i ]
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then.i.i, %if.then6.i, %if.then.i512, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, %if.end.i33.i, %if.then.i.i.i
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i39, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %call3.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %call8.i.i.i, %if.then.i.i.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i512 ], [ %tile.i.i, %if.end10.i ], [ %call8.i.i, %if.then.i.i ], [ %arrayidx11.i.i, %if.then6.i ]
   %274 = load float, ptr %retval.i.0.i, align 4
   %275 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i58.i = getelementptr inbounds i8, ptr %275, i64 24
-  store float %274, ptr %add.ptr.i.i58.i, align 4
+  %add.ptr.i.i64.i = getelementptr inbounds i8, ptr %275, i64 24
+  store float %274, ptr %add.ptr.i.i64.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp12.i)
@@ -4590,7 +4590,7 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %286 = load i32, ptr %mCenter.i, align 8
   %conv25 = sitofp i32 %286 to double
   %conv28 = fpext float %mul4.i.i.i to double
-  %287 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %287 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %conv30 = sitofp i32 %287 to double
   %mul31 = fmul double %conv28, %conv30
   %288 = call double @llvm.fmuladd.f64(double %conv23, double %conv25, double %mul31)
@@ -4609,17 +4609,17 @@ for.inc:                                          ; preds = %_ZNK7openvdb5v11_04
   %296 = phi <2 x double> [ %295, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit ], [ %19, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %19, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit ]
   %297 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8
   %298 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %add.i.i.i20 = add i32 %298, 1
-  %shr.i.i.i.i21 = lshr i32 %add.i.i.i20, 6
-  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i20, 511
+  %add.i.i.i21 = add i32 %298, 1
+  %shr.i.i.i.i22 = lshr i32 %add.i.i.i21, 6
+  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i21, 511
   br i1 %cmp.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.inc
-  %and.i.i.i.i22 = and i32 %add.i.i.i20, 63
-  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i21 to i64
+  %and.i.i.i.i23 = and i32 %add.i.i.i21, 63
+  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i22 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [8 x i64], ptr %297, i64 0, i64 %idxprom.i.i.i.i
   %299 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i22 to i64
+  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i23 to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %and2.i.i.i.i = and i64 %299, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
@@ -4648,12 +4648,12 @@ cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i21, %if.end4.i.i.i.i ], [ %301, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i22, %if.end4.i.i.i.i ], [ %301, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %300, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %302 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %303 = trunc nuw nsw i64 %302 to i32
-  %add.i.i.i.i24 = or disjoint i32 %shl14.i.i.i.i, %303
+  %add.i.i.i.i25 = or disjoint i32 %shl14.i.i.i.i, %303
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread: ; preds = %for.inc, %land.rhs.i.i.i.i
@@ -4661,9 +4661,9 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br label %for.end
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit: ; preds = %if.end.i.i.i.i, %cond.false.i.i.i.i
-  %retval.0.i.i.i.i23 = phi i32 [ %add.i.i.i20, %if.end.i.i.i.i ], [ %add.i.i.i.i24, %cond.false.i.i.i.i ]
-  store i32 %retval.0.i.i.i.i23, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i23, 512
+  %retval.0.i.i.i.i24 = phi i32 [ %add.i.i.i21, %if.end.i.i.i.i ], [ %add.i.i.i.i25, %cond.false.i.i.i.i ]
+  store i32 %retval.0.i.i.i.i24, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i24, 512
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body11, !llvm.loop !33
 
 for.end:                                          ; preds = %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit
@@ -4671,13 +4671,13 @@ for.end:                                          ; preds = %_ZN7openvdb5v11_04t
   %305 = load ptr, ptr %this, align 8
   %mBuffer = getelementptr inbounds i8, ptr %305, i64 24
   %306 = load ptr, ptr %mBuffer, align 8
-  %add.ptr = getelementptr inbounds double, ptr %306, i64 %leafIter.sroa.3.01031
+  %add.ptr = getelementptr inbounds double, ptr %306, i64 %leafIter.sroa.3.01032
   %307 = extractelement <2 x double> %304, i64 1
   store double %307, ptr %add.ptr, align 8
   %add.ptr42 = getelementptr inbounds double, ptr %add.ptr, i64 %9
   %308 = extractelement <2 x double> %304, i64 0
   store double %308, ptr %add.ptr42, align 8
-  %inc.i = add nuw i64 %leafIter.sroa.3.01031, 1
+  %inc.i = add nuw i64 %leafIter.sroa.3.01032, 1
   %309 = load i64, ptr %range, align 8
   %cmp.i.i = icmp ult i64 %inc.i, %309
   br i1 %cmp.i.i, label %for.body, label %for.end45, !llvm.loop !34
@@ -5186,14 +5186,14 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %62 = fadd <2 x float> %61, %60
   %63 = fpext <2 x float> %62 to <2 x double>
   %64 = call float @llvm.fmuladd.f32(float %56, float -2.000000e+00, float %39)
-  %add.i76.i = fadd float %40, %64
-  %conv.i77.i = fpext float %add.i76.i to double
-  %add.ptr.i.i79.i = getelementptr inbounds i8, ptr %34, i64 40
-  %65 = load float, ptr %add.ptr.i.i79.i, align 4
-  %add.ptr.i1.i80.i = getelementptr inbounds i8, ptr %34, i64 32
-  %66 = load float, ptr %add.ptr.i1.i80.i, align 4
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %34, i64 28
-  %67 = load float, ptr %add.ptr.i2.i.i, align 4
+  %add.i75.i = fadd float %40, %64
+  %conv.i76.i = fpext float %add.i75.i to double
+  %add.ptr.i.i78.i = getelementptr inbounds i8, ptr %34, i64 40
+  %65 = load float, ptr %add.ptr.i.i78.i, align 4
+  %add.ptr.i1.i79.i = getelementptr inbounds i8, ptr %34, i64 32
+  %66 = load float, ptr %add.ptr.i1.i79.i, align 4
+  %add.ptr.i2.i81.i = getelementptr inbounds i8, ptr %34, i64 28
+  %67 = load float, ptr %add.ptr.i2.i81.i, align 4
   %add.ptr.i3.i.i = getelementptr inbounds i8, ptr %34, i64 36
   %68 = load float, ptr %add.ptr.i3.i.i, align 4
   %add.ptr.i.i86.i = getelementptr inbounds i8, ptr %34, i64 56
@@ -5231,9 +5231,9 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %88 = fpext <2 x float> %87 to <2 x double>
   %89 = fmul <2 x double> %88, <double 2.500000e-01, double 2.500000e-01>
   %90 = extractelement <2 x double> %63, i64 1
-  %add14.i = fadd double %90, %conv.i77.i
+  %add14.i = fadd double %90, %conv.i76.i
   %91 = extractelement <2 x double> %63, i64 0
-  %add16.i = fadd double %91, %conv.i77.i
+  %add16.i = fadd double %91, %conv.i76.i
   %add18.i = fadd double %91, %90
   %92 = extractelement <2 x double> %52, i64 1
   %mul23.i = fmul double %mul.i57.i, %92
@@ -5241,10 +5241,10 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %mul24.i = fmul double %mul23.i, %93
   %94 = fneg double %93
   %neg.i = fmul double %93, %94
-  %95 = call double @llvm.fmuladd.f64(double %90, double %conv.i77.i, double %neg.i)
+  %95 = call double @llvm.fmuladd.f64(double %90, double %conv.i76.i, double %neg.i)
   %96 = fneg double %mul.i94.i
   %neg31.i = fmul double %mul.i94.i, %96
-  %97 = call double @llvm.fmuladd.f64(double %91, double %conv.i77.i, double %neg31.i)
+  %97 = call double @llvm.fmuladd.f64(double %91, double %conv.i76.i, double %neg31.i)
   %98 = insertelement <2 x double> poison, double %mul4.i, i64 0
   %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> zeroinitializer
   %100 = insertelement <2 x double> poison, double %97, i64 0
@@ -5263,7 +5263,7 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %mul46.i = fmul double %mul42.i, %108
   %109 = call double @llvm.fmuladd.f64(double %mul23.i, double %106, double %mul46.i)
   %mul47.i = fmul double %107, %mul.i57.i
-  %110 = insertelement <2 x double> %52, double %conv.i77.i, i64 0
+  %110 = insertelement <2 x double> %52, double %conv.i76.i, i64 0
   %111 = insertelement <2 x double> poison, double %104, i64 0
   %112 = insertelement <2 x double> %111, double %mul.i94.i, i64 1
   %113 = fmul <2 x double> %110, %112
@@ -6610,8 +6610,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mBegin.i = getelementptr inbounds i8, ptr %range, i64 8
   %10 = load i64, ptr %mBegin.i, align 8
   %11 = load i64, ptr %range, align 8
-  %cmp.i.i1028 = icmp ult i64 %10, %11
-  br i1 %cmp.i.i1028, label %for.body.lr.ph, label %for.end38
+  %cmp.i.i1029 = icmp ult i64 %10, %11
+  br i1 %cmp.i.i1029, label %for.body.lr.ph, label %for.end38
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16checkInterrupterEv.exit
   %mLeafManager.i.i = getelementptr inbounds i8, ptr %range, i64 24
@@ -6621,21 +6621,21 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05t
   %ref.tmp.sroa.2.0.mCenter.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 144
   %mValues.i = getelementptr inbounds i8, ptr %this, i64 112
   %mAcc.i = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 140
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %mKeys.i.i.i400 = getelementptr inbounds i8, ptr %this, i64 40
-  %arrayidx.i.i.i3.i.i469 = getelementptr inbounds i8, ptr %this, i64 44
-  %arrayidx.i.i.i5.i.i474 = getelementptr inbounds i8, ptr %this, i64 48
-  %add.ptr.i.i477 = getelementptr inbounds i8, ptr %this, i64 32
-  %arrayidx.i.i.i.i404 = getelementptr inbounds i8, ptr %this, i64 52
-  %arrayidx.i.i.i4.i12.i456 = getelementptr inbounds i8, ptr %this, i64 56
-  %arrayidx.i.i.i7.i.i461 = getelementptr inbounds i8, ptr %this, i64 60
-  %arrayidx.i.i.i20.i408 = getelementptr inbounds i8, ptr %this, i64 64
-  %arrayidx.i.i.i4.i26.i417 = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx.i.i.i7.i31.i422 = getelementptr inbounds i8, ptr %this, i64 72
-  %mNodes.i.i411 = getelementptr inbounds i8, ptr %this, i64 80
-  %add.ptr.i.i.i.i5.i975 = getelementptr inbounds i8, ptr %this, i64 88
-  %add.ptr.i.i.i.i.i.i1003 = getelementptr inbounds i8, ptr %this, i64 96
+  %mKeys.i.i.i401 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx.i.i.i3.i.i470 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx.i.i.i5.i.i475 = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i.i478 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i.i.i.i405 = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx.i.i.i4.i12.i457 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx.i.i.i7.i.i462 = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx.i.i.i20.i409 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx.i.i.i4.i26.i418 = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx.i.i.i7.i31.i423 = getelementptr inbounds i8, ptr %this, i64 72
+  %mNodes.i.i412 = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i5.i976 = getelementptr inbounds i8, ptr %this, i64 88
+  %add.ptr.i.i.i.i.i.i1004 = getelementptr inbounds i8, ptr %this, i64 96
   %tmp.coerce9.sroa.2.0.coerce.dive8.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
   %tmp.coerce16.sroa.2.0.coerce.dive15.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 8
   %tmp.coerce23.sroa.2.0.coerce.dive22.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp19.i, i64 8
@@ -6645,11 +6645,11 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
-  %leafIter.sroa.3.01029 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
+  %leafIter.sroa.3.01030 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
   %12 = load ptr, ptr %mLeafManager.i.i, align 8
   %mLeafs.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load ptr, ptr %mLeafs.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.01029
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.01030
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %mValueMask.i = getelementptr inbounds i8, ptr %14, i64 16
@@ -6682,11 +6682,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit: ; preds = %land.r
   store ptr %14, ptr %voxelIter, align 8, !alias.scope !74
   store i32 %add.i.i.i, ptr %mMaskIter.i.i.i.i, align 8, !alias.scope !74
   store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8, !alias.scope !74
-  %cmp.i.i.i.not1024 = icmp eq i32 %add.i.i.i, 512
-  br i1 %cmp.i.i.i.not1024, label %for.end, label %for.body11
+  %cmp.i.i.i.not1025 = icmp eq i32 %add.i.i.i, 512
+  br i1 %cmp.i.i.i.not1025, label %for.end, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
-  %18 = phi i32 [ %retval.0.i.i.i.i23, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
+  %18 = phi i32 [ %retval.0.i.i.i.i24, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
   %19 = phi <2 x double> [ %296, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ zeroinitializer, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %voxelIter)
   %mOutOfCore.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -6767,7 +6767,7 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeIN
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp33.i)
   %32 = load i32, ptr %mCenter.i, align 8
   %add.i.i = add nsw i32 %32, -1
-  %33 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %33 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %34 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %33 to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -6775,277 +6775,277 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeIN
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %ref.tmp.i, align 8
   store i32 %34, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i, align 8
-  %and.i.i.i399 = and i32 %add.i.i, -8
-  %35 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i401 = icmp eq i32 %and.i.i.i399, %35
-  br i1 %cmp.i.i.i401, label %land.lhs.true.i.i.i466, label %if.end.i.i402
+  %and.i.i.i400 = and i32 %add.i.i, -8
+  %35 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i402 = icmp eq i32 %and.i.i.i400, %35
+  br i1 %cmp.i.i.i402, label %land.lhs.true.i.i.i467, label %if.end.i.i403
 
-land.lhs.true.i.i.i466:                           ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
-  %and5.i.i.i468 = and i32 %33, -8
-  %36 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i470 = icmp eq i32 %and5.i.i.i468, %36
-  br i1 %cmp9.i.i.i470, label %land.rhs.i.i.i471, label %if.end.i.i402
+land.lhs.true.i.i.i467:                           ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
+  %and5.i.i.i469 = and i32 %33, -8
+  %36 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i471 = icmp eq i32 %and5.i.i.i469, %36
+  br i1 %cmp9.i.i.i471, label %land.rhs.i.i.i472, label %if.end.i.i403
 
-land.rhs.i.i.i471:                                ; preds = %land.lhs.true.i.i.i466
-  %and11.i.i.i473 = and i32 %34, -8
-  %37 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i475 = icmp eq i32 %and11.i.i.i473, %37
-  br i1 %cmp15.i.i.i475, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i476, label %if.end.i.i402
+land.rhs.i.i.i472:                                ; preds = %land.lhs.true.i.i.i467
+  %and11.i.i.i474 = and i32 %34, -8
+  %37 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i476 = icmp eq i32 %and11.i.i.i474, %37
+  br i1 %cmp15.i.i.i476, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i477, label %if.end.i.i403
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i476: ; preds = %land.rhs.i.i.i471
-  %38 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i478 = shl i32 %add.i.i, 6
-  %shl.i.i.i479 = and i32 %and.i6.i.i478, 448
-  %and2.i.i.i480 = shl i32 %33, 3
-  %shl3.i.i.i481 = and i32 %and2.i.i.i480, 56
-  %and5.i7.i.i483 = and i32 %34, 7
-  %add.i.i.i482 = or disjoint i32 %shl.i.i.i479, %and5.i7.i.i483
-  %add6.i.i.i484 = or disjoint i32 %add.i.i.i482, %shl3.i.i.i481
-  %idxprom.i.i485 = zext nneg i32 %add6.i.i.i484 to i64
-  %arrayidx.i.i486 = getelementptr inbounds double, ptr %38, i64 %idxprom.i.i485
-  %tobool.i.not.i487 = icmp eq ptr %38, null
-  br i1 %tobool.i.not.i487, label %if.end.i.i402, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i477: ; preds = %land.rhs.i.i.i472
+  %38 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i479 = shl i32 %add.i.i, 6
+  %shl.i.i.i480 = and i32 %and.i6.i.i479, 448
+  %and2.i.i.i481 = shl i32 %33, 3
+  %shl3.i.i.i482 = and i32 %and2.i.i.i481, 56
+  %and5.i7.i.i484 = and i32 %34, 7
+  %add.i.i.i483 = or disjoint i32 %shl.i.i.i480, %and5.i7.i.i484
+  %add6.i.i.i485 = or disjoint i32 %add.i.i.i483, %shl3.i.i.i482
+  %idxprom.i.i486 = zext nneg i32 %add6.i.i.i485 to i64
+  %arrayidx.i.i487 = getelementptr inbounds double, ptr %38, i64 %idxprom.i.i486
+  %tobool.i.not.i488 = icmp eq ptr %38, null
+  br i1 %tobool.i.not.i488, label %if.end.i.i403, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i.i402:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i476, %land.rhs.i.i.i471, %land.lhs.true.i.i.i466, %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
-  %and.i.i6.i403 = and i32 %add.i.i, -128
-  %39 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i405 = icmp eq i32 %and.i.i6.i403, %39
-  br i1 %cmp.i.i7.i405, label %land.lhs.true.i.i9.i453, label %if.end.i16.i406
+if.end.i.i403:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i477, %land.rhs.i.i.i472, %land.lhs.true.i.i.i467, %_ZN7openvdb5v11_04math11BaseStencilINS1_11GradStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
+  %and.i.i6.i404 = and i32 %add.i.i, -128
+  %39 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i406 = icmp eq i32 %and.i.i6.i404, %39
+  br i1 %cmp.i.i7.i406, label %land.lhs.true.i.i9.i454, label %if.end.i16.i407
 
-land.lhs.true.i.i9.i453:                          ; preds = %if.end.i.i402
-  %and5.i.i11.i455 = and i32 %33, -128
-  %40 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i457 = icmp eq i32 %and5.i.i11.i455, %40
-  br i1 %cmp9.i.i13.i457, label %land.rhs.i.i14.i458, label %if.end.i16.i406
+land.lhs.true.i.i9.i454:                          ; preds = %if.end.i.i403
+  %and5.i.i11.i456 = and i32 %33, -128
+  %40 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i458 = icmp eq i32 %and5.i.i11.i456, %40
+  br i1 %cmp9.i.i13.i458, label %land.rhs.i.i14.i459, label %if.end.i16.i407
 
-land.rhs.i.i14.i458:                              ; preds = %land.lhs.true.i.i9.i453
-  %and11.i.i16.i460 = and i32 %34, -128
-  %41 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i462 = icmp eq i32 %and11.i.i16.i460, %41
-  br i1 %cmp15.i.i17.i462, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i463, label %if.end.i16.i406
+land.rhs.i.i14.i459:                              ; preds = %land.lhs.true.i.i9.i454
+  %and11.i.i16.i461 = and i32 %34, -128
+  %41 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i463 = icmp eq i32 %and11.i.i16.i461, %41
+  br i1 %cmp15.i.i17.i463, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i464, label %if.end.i16.i407
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i463: ; preds = %land.rhs.i.i14.i458
-  %42 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i465 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %42, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i464: ; preds = %land.rhs.i.i14.i459
+  %42 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i466 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %42, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i16.i406:                                  ; preds = %land.rhs.i.i14.i458, %land.lhs.true.i.i9.i453, %if.end.i.i402
-  %and.i.i19.i407 = and i32 %add.i.i, -4096
-  %43 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i409 = icmp eq i32 %and.i.i19.i407, %43
-  br i1 %cmp.i.i21.i409, label %land.lhs.true.i.i23.i414, label %if.end.i27.i410
+if.end.i16.i407:                                  ; preds = %land.rhs.i.i14.i459, %land.lhs.true.i.i9.i454, %if.end.i.i403
+  %and.i.i19.i408 = and i32 %add.i.i, -4096
+  %43 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i410 = icmp eq i32 %and.i.i19.i408, %43
+  br i1 %cmp.i.i21.i410, label %land.lhs.true.i.i23.i415, label %if.end.i27.i411
 
-land.lhs.true.i.i23.i414:                         ; preds = %if.end.i16.i406
-  %and5.i.i25.i416 = and i32 %33, -4096
-  %44 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i418 = icmp eq i32 %and5.i.i25.i416, %44
-  br i1 %cmp9.i.i27.i418, label %land.rhs.i.i28.i419, label %if.end.i27.i410
+land.lhs.true.i.i23.i415:                         ; preds = %if.end.i16.i407
+  %and5.i.i25.i417 = and i32 %33, -4096
+  %44 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i419 = icmp eq i32 %and5.i.i25.i417, %44
+  br i1 %cmp9.i.i27.i419, label %land.rhs.i.i28.i420, label %if.end.i27.i411
 
-land.rhs.i.i28.i419:                              ; preds = %land.lhs.true.i.i23.i414
-  %and11.i.i30.i421 = and i32 %34, -4096
-  %45 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i423 = icmp eq i32 %and11.i.i30.i421, %45
-  br i1 %cmp15.i.i32.i423, label %if.end.i33.i424, label %if.end.i27.i410
+land.rhs.i.i28.i420:                              ; preds = %land.lhs.true.i.i23.i415
+  %and11.i.i30.i422 = and i32 %34, -4096
+  %45 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i424 = icmp eq i32 %and11.i.i30.i422, %45
+  br i1 %cmp15.i.i32.i424, label %if.end.i33.i425, label %if.end.i27.i411
 
-if.end.i33.i424:                                  ; preds = %land.rhs.i.i28.i419
-  %46 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i425:                                  ; preds = %land.rhs.i.i28.i420
+  %46 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %47 = shl i32 %add.i.i, 3
-  %shl.i.i.i.i426 = and i32 %47, 31744
+  %shl.i.i.i.i427 = and i32 %47, 31744
   %48 = lshr i32 %33, 2
-  %shl4.i.i.i.i427 = and i32 %48, 992
-  %add.i.i.i.i428 = or disjoint i32 %shl4.i.i.i.i427, %shl.i.i.i.i426
-  %and6.i.i.i.i429 = lshr i32 %34, 7
-  %shr7.i.i.i.i430 = and i32 %and6.i.i.i.i429, 31
-  %add8.i.i.i.i431 = or disjoint i32 %add.i.i.i.i428, %shr7.i.i.i.i430
-  %mChildMask.i.i.i.i432 = getelementptr inbounds i8, ptr %46, i64 262144
-  %shr.i.i.i.i.i433 = lshr i32 %add.i.i.i.i428, 6
-  %idxprom.i.i.i.i.i434 = zext nneg i32 %shr.i.i.i.i.i433 to i64
-  %arrayidx.i.i.i8.i.i435 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i432, i64 0, i64 %idxprom.i.i.i.i.i434
-  %49 = load i64, ptr %arrayidx.i.i.i8.i.i435, align 8
-  %and.i.i.i.i.i436 = and i32 %add8.i.i.i.i431, 63
-  %sh_prom.i.i.i.i.i437 = zext nneg i32 %and.i.i.i.i.i436 to i64
-  %shl.i.i.i.i.i438 = shl nuw i64 1, %sh_prom.i.i.i.i.i437
-  %and2.i.i.i.i.i439 = and i64 %49, %shl.i.i.i.i.i438
-  %cmp.i.i.not.i.i.i440 = icmp eq i64 %and2.i.i.i.i.i439, 0
-  %idxprom10.i.i.i441 = zext nneg i32 %add8.i.i.i.i431 to i64
-  %arrayidx11.i.i.i442 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %46, i64 0, i64 %idxprom10.i.i.i441
-  br i1 %cmp.i.i.not.i.i.i440, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488, label %if.then.i.i.i443
+  %shl4.i.i.i.i428 = and i32 %48, 992
+  %add.i.i.i.i429 = or disjoint i32 %shl4.i.i.i.i428, %shl.i.i.i.i427
+  %and6.i.i.i.i430 = lshr i32 %34, 7
+  %shr7.i.i.i.i431 = and i32 %and6.i.i.i.i430, 31
+  %add8.i.i.i.i432 = or disjoint i32 %add.i.i.i.i429, %shr7.i.i.i.i431
+  %mChildMask.i.i.i.i433 = getelementptr inbounds i8, ptr %46, i64 262144
+  %shr.i.i.i.i.i434 = lshr i32 %add.i.i.i.i429, 6
+  %idxprom.i.i.i.i.i435 = zext nneg i32 %shr.i.i.i.i.i434 to i64
+  %arrayidx.i.i.i8.i.i436 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i433, i64 0, i64 %idxprom.i.i.i.i.i435
+  %49 = load i64, ptr %arrayidx.i.i.i8.i.i436, align 8
+  %and.i.i.i.i.i437 = and i32 %add8.i.i.i.i432, 63
+  %sh_prom.i.i.i.i.i438 = zext nneg i32 %and.i.i.i.i.i437 to i64
+  %shl.i.i.i.i.i439 = shl nuw i64 1, %sh_prom.i.i.i.i.i438
+  %and2.i.i.i.i.i440 = and i64 %49, %shl.i.i.i.i.i439
+  %cmp.i.i.not.i.i.i441 = icmp eq i64 %and2.i.i.i.i.i440, 0
+  %idxprom10.i.i.i442 = zext nneg i32 %add8.i.i.i.i432 to i64
+  %arrayidx11.i.i.i443 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %46, i64 0, i64 %idxprom10.i.i.i442
+  br i1 %cmp.i.i.not.i.i.i441, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489, label %if.then.i.i.i444
 
-if.then.i.i.i443:                                 ; preds = %if.end.i33.i424
-  %50 = load ptr, ptr %arrayidx11.i.i.i442, align 8
-  %and4.i.i.i.i444 = and i32 %33, -128
-  %and7.i.i.i.i445 = and i32 %34, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i446 = zext i32 %and4.i.i.i.i444 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i447 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i446, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i448 = zext i32 %and.i.i6.i403 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i449 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i447, %retval.sroa.0.0.insert.ext.i.i.i.i448
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i449, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i445, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %50, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %51 = load ptr, ptr %arrayidx11.i.i.i442, align 8
-  %call8.i.i.i452 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %51, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i.i.i444:                                 ; preds = %if.end.i33.i425
+  %50 = load ptr, ptr %arrayidx11.i.i.i443, align 8
+  %and4.i.i.i.i445 = and i32 %33, -128
+  %and7.i.i.i.i446 = and i32 %34, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i447 = zext i32 %and4.i.i.i.i445 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i448 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i447, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i449 = zext i32 %and.i.i6.i404 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i450 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i448, %retval.sroa.0.0.insert.ext.i.i.i.i449
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i450, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i446, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %50, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %51 = load ptr, ptr %arrayidx11.i.i.i443, align 8
+  %call8.i.i.i453 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %51, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i27.i410:                                  ; preds = %land.rhs.i.i28.i419, %land.lhs.true.i.i23.i414, %if.end.i16.i406
-  %52 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i912 = getelementptr inbounds i8, ptr %52, i64 56
-  %53 = load i32, ptr %mOrigin.i.i.i912, align 4
-  %sub.i.i.i.i913 = sub nsw i32 %add.i.i, %53
-  %arrayidx.i.i.i.i.i.i.i915 = getelementptr inbounds i8, ptr %52, i64 60
-  %54 = load i32, ptr %arrayidx.i.i.i.i.i.i.i915, align 4
-  %sub6.i.i.i.i916 = sub nsw i32 %33, %54
-  %arrayidx.i.i.i4.i.i.i.i918 = getelementptr inbounds i8, ptr %52, i64 64
-  %55 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i918, align 4
-  %sub10.i.i.i.i919 = sub nsw i32 %34, %55
-  %and.i.i.i.i920 = and i32 %sub.i.i.i.i913, -4096
-  %and4.i.i.i.i921 = and i32 %sub6.i.i.i.i916, -4096
-  %and7.i.i.i.i922 = and i32 %sub10.i.i.i.i919, -4096
-  %_M_parent.i.i.i.i.i923 = getelementptr inbounds i8, ptr %52, i64 16
-  %56 = load ptr, ptr %_M_parent.i.i.i.i.i923, align 8
-  %add.ptr.i.i.i.i.i924 = getelementptr inbounds i8, ptr %52, i64 8
-  %cmp.not9.i.i.i.i.i925 = icmp eq ptr %56, null
-  br i1 %cmp.not9.i.i.i.i.i925, label %if.then.i1008, label %while.body.i.i.i.i.i926
+if.end.i27.i411:                                  ; preds = %land.rhs.i.i28.i420, %land.lhs.true.i.i23.i415, %if.end.i16.i407
+  %52 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i913 = getelementptr inbounds i8, ptr %52, i64 56
+  %53 = load i32, ptr %mOrigin.i.i.i913, align 4
+  %sub.i.i.i.i914 = sub nsw i32 %add.i.i, %53
+  %arrayidx.i.i.i.i.i.i.i916 = getelementptr inbounds i8, ptr %52, i64 60
+  %54 = load i32, ptr %arrayidx.i.i.i.i.i.i.i916, align 4
+  %sub6.i.i.i.i917 = sub nsw i32 %33, %54
+  %arrayidx.i.i.i4.i.i.i.i919 = getelementptr inbounds i8, ptr %52, i64 64
+  %55 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i919, align 4
+  %sub10.i.i.i.i920 = sub nsw i32 %34, %55
+  %and.i.i.i.i921 = and i32 %sub.i.i.i.i914, -4096
+  %and4.i.i.i.i922 = and i32 %sub6.i.i.i.i917, -4096
+  %and7.i.i.i.i923 = and i32 %sub10.i.i.i.i920, -4096
+  %_M_parent.i.i.i.i.i924 = getelementptr inbounds i8, ptr %52, i64 16
+  %56 = load ptr, ptr %_M_parent.i.i.i.i.i924, align 8
+  %add.ptr.i.i.i.i.i925 = getelementptr inbounds i8, ptr %52, i64 8
+  %cmp.not9.i.i.i.i.i926 = icmp eq ptr %56, null
+  br i1 %cmp.not9.i.i.i.i.i926, label %if.then.i1009, label %while.body.i.i.i.i.i927
 
-while.body.i.i.i.i.i926:                          ; preds = %if.end.i27.i410, %if.end.i.i.i.i.i941
-  %__x.addr.011.i.i.i.i.i927 = phi ptr [ %__x.addr.1.i.i.i.i.i945, %if.end.i.i.i.i.i941 ], [ %56, %if.end.i27.i410 ]
-  %__y.addr.010.i.i.i.i.i928 = phi ptr [ %__y.addr.1.i.i.i.i.i943, %if.end.i.i.i.i.i941 ], [ %add.ptr.i.i.i.i.i924, %if.end.i27.i410 ]
-  %_M_storage.i.i.i.i.i.i.i929 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 32
-  %57 = load i32, ptr %_M_storage.i.i.i.i.i.i.i929, align 4
-  %cmp.i.i.i.i.i.i.i930 = icmp slt i32 %57, %and.i.i.i.i920
-  br i1 %cmp.i.i.i.i.i.i.i930, label %if.else.i.i.i.i.i1010, label %cond.false.i.i.i.i.i.i.i931
+while.body.i.i.i.i.i927:                          ; preds = %if.end.i27.i411, %if.end.i.i.i.i.i942
+  %__x.addr.011.i.i.i.i.i928 = phi ptr [ %__x.addr.1.i.i.i.i.i946, %if.end.i.i.i.i.i942 ], [ %56, %if.end.i27.i411 ]
+  %__y.addr.010.i.i.i.i.i929 = phi ptr [ %__y.addr.1.i.i.i.i.i944, %if.end.i.i.i.i.i942 ], [ %add.ptr.i.i.i.i.i925, %if.end.i27.i411 ]
+  %_M_storage.i.i.i.i.i.i.i930 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 32
+  %57 = load i32, ptr %_M_storage.i.i.i.i.i.i.i930, align 4
+  %cmp.i.i.i.i.i.i.i931 = icmp slt i32 %57, %and.i.i.i.i921
+  br i1 %cmp.i.i.i.i.i.i.i931, label %if.else.i.i.i.i.i1011, label %cond.false.i.i.i.i.i.i.i932
 
-cond.false.i.i.i.i.i.i.i931:                      ; preds = %while.body.i.i.i.i.i926
-  %cmp5.i.i.i.i.i.i.i932 = icmp sgt i32 %57, %and.i.i.i.i920
-  br i1 %cmp5.i.i.i.i.i.i.i932, label %if.end.i.i.i.i.i941, label %cond.false7.i.i.i.i.i.i.i933
+cond.false.i.i.i.i.i.i.i932:                      ; preds = %while.body.i.i.i.i.i927
+  %cmp5.i.i.i.i.i.i.i933 = icmp sgt i32 %57, %and.i.i.i.i921
+  br i1 %cmp5.i.i.i.i.i.i.i933, label %if.end.i.i.i.i.i942, label %cond.false7.i.i.i.i.i.i.i934
 
-cond.false7.i.i.i.i.i.i.i933:                     ; preds = %cond.false.i.i.i.i.i.i.i931
-  %arrayidx.i.i.i.i.i.i.i.i.i.i934 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 36
-  %58 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i934, align 4
-  %cmp10.i.i.i.i.i.i.i935 = icmp slt i32 %58, %and4.i.i.i.i921
-  br i1 %cmp10.i.i.i.i.i.i.i935, label %if.else.i.i.i.i.i1010, label %cond.false12.i.i.i.i.i.i.i936
+cond.false7.i.i.i.i.i.i.i934:                     ; preds = %cond.false.i.i.i.i.i.i.i932
+  %arrayidx.i.i.i.i.i.i.i.i.i.i935 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 36
+  %58 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i935, align 4
+  %cmp10.i.i.i.i.i.i.i936 = icmp slt i32 %58, %and4.i.i.i.i922
+  br i1 %cmp10.i.i.i.i.i.i.i936, label %if.else.i.i.i.i.i1011, label %cond.false12.i.i.i.i.i.i.i937
 
-cond.false12.i.i.i.i.i.i.i936:                    ; preds = %cond.false7.i.i.i.i.i.i.i933
-  %cmp15.i.i.i.i.i.i.i937 = icmp sgt i32 %58, %and4.i.i.i.i921
-  br i1 %cmp15.i.i.i.i.i.i.i937, label %if.end.i.i.i.i.i941, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938
+cond.false12.i.i.i.i.i.i.i937:                    ; preds = %cond.false7.i.i.i.i.i.i.i934
+  %cmp15.i.i.i.i.i.i.i938 = icmp sgt i32 %58, %and4.i.i.i.i922
+  br i1 %cmp15.i.i.i.i.i.i.i938, label %if.end.i.i.i.i.i942, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938: ; preds = %cond.false12.i.i.i.i.i.i.i936
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i939 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 40
-  %59 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i939, align 4
-  %cmp20.i.i.i.i.i.i.i940 = icmp slt i32 %59, %and7.i.i.i.i922
-  br i1 %cmp20.i.i.i.i.i.i.i940, label %if.else.i.i.i.i.i1010, label %if.end.i.i.i.i.i941
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939: ; preds = %cond.false12.i.i.i.i.i.i.i937
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i940 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 40
+  %59 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i940, align 4
+  %cmp20.i.i.i.i.i.i.i941 = icmp slt i32 %59, %and7.i.i.i.i923
+  br i1 %cmp20.i.i.i.i.i.i.i941, label %if.else.i.i.i.i.i1011, label %if.end.i.i.i.i.i942
 
-if.else.i.i.i.i.i1010:                            ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938, %cond.false7.i.i.i.i.i.i.i933, %while.body.i.i.i.i.i926
-  br label %if.end.i.i.i.i.i941
+if.else.i.i.i.i.i1011:                            ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939, %cond.false7.i.i.i.i.i.i.i934, %while.body.i.i.i.i.i927
+  br label %if.end.i.i.i.i.i942
 
-if.end.i.i.i.i.i941:                              ; preds = %if.else.i.i.i.i.i1010, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938, %cond.false12.i.i.i.i.i.i.i936, %cond.false.i.i.i.i.i.i.i931
-  %.sink.i.i.i.i.i942 = phi i64 [ 24, %if.else.i.i.i.i.i1010 ], [ 16, %cond.false12.i.i.i.i.i.i.i936 ], [ 16, %cond.false.i.i.i.i.i.i.i931 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938 ]
-  %__y.addr.1.i.i.i.i.i943 = phi ptr [ %__y.addr.010.i.i.i.i.i928, %if.else.i.i.i.i.i1010 ], [ %__x.addr.011.i.i.i.i.i927, %cond.false12.i.i.i.i.i.i.i936 ], [ %__x.addr.011.i.i.i.i.i927, %cond.false.i.i.i.i.i.i.i931 ], [ %__x.addr.011.i.i.i.i.i927, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i938 ]
-  %_M_right.i.i.i.i.i.i944 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i927, i64 %.sink.i.i.i.i.i942
-  %__x.addr.1.i.i.i.i.i945 = load ptr, ptr %_M_right.i.i.i.i.i.i944, align 8
-  %cmp.not.i.i.i.i.i946 = icmp eq ptr %__x.addr.1.i.i.i.i.i945, null
-  br i1 %cmp.not.i.i.i.i.i946, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947, label %while.body.i.i.i.i.i926, !llvm.loop !77
+if.end.i.i.i.i.i942:                              ; preds = %if.else.i.i.i.i.i1011, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939, %cond.false12.i.i.i.i.i.i.i937, %cond.false.i.i.i.i.i.i.i932
+  %.sink.i.i.i.i.i943 = phi i64 [ 24, %if.else.i.i.i.i.i1011 ], [ 16, %cond.false12.i.i.i.i.i.i.i937 ], [ 16, %cond.false.i.i.i.i.i.i.i932 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939 ]
+  %__y.addr.1.i.i.i.i.i944 = phi ptr [ %__y.addr.010.i.i.i.i.i929, %if.else.i.i.i.i.i1011 ], [ %__x.addr.011.i.i.i.i.i928, %cond.false12.i.i.i.i.i.i.i937 ], [ %__x.addr.011.i.i.i.i.i928, %cond.false.i.i.i.i.i.i.i932 ], [ %__x.addr.011.i.i.i.i.i928, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i939 ]
+  %_M_right.i.i.i.i.i.i945 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i928, i64 %.sink.i.i.i.i.i943
+  %__x.addr.1.i.i.i.i.i946 = load ptr, ptr %_M_right.i.i.i.i.i.i945, align 8
+  %cmp.not.i.i.i.i.i947 = icmp eq ptr %__x.addr.1.i.i.i.i.i946, null
+  br i1 %cmp.not.i.i.i.i.i947, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948, label %while.body.i.i.i.i.i927, !llvm.loop !77
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947: ; preds = %if.end.i.i.i.i.i941
-  %cmp.i.i.i.i.i948 = icmp eq ptr %__y.addr.1.i.i.i.i.i943, %add.ptr.i.i.i.i.i924
-  br i1 %cmp.i.i.i.i.i948, label %if.then.i1008, label %lor.lhs.false.i.i.i.i949
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948: ; preds = %if.end.i.i.i.i.i942
+  %cmp.i.i.i.i.i949 = icmp eq ptr %__y.addr.1.i.i.i.i.i944, %add.ptr.i.i.i.i.i925
+  br i1 %cmp.i.i.i.i.i949, label %if.then.i1009, label %lor.lhs.false.i.i.i.i950
 
-lor.lhs.false.i.i.i.i949:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947
-  %_M_storage.i.i.i3.i.i.i.i950 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 32
-  %60 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i950, align 4
-  %cmp.i.i.i.i.i.i951 = icmp slt i32 %and.i.i.i.i920, %60
-  br i1 %cmp.i.i.i.i.i.i951, label %if.then.i1008, label %cond.false.i.i.i.i.i.i952
+lor.lhs.false.i.i.i.i950:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948
+  %_M_storage.i.i.i3.i.i.i.i951 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 32
+  %60 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i951, align 4
+  %cmp.i.i.i.i.i.i952 = icmp slt i32 %and.i.i.i.i921, %60
+  br i1 %cmp.i.i.i.i.i.i952, label %if.then.i1009, label %cond.false.i.i.i.i.i.i953
 
-cond.false.i.i.i.i.i.i952:                        ; preds = %lor.lhs.false.i.i.i.i949
-  %cmp5.i.i.i.i.i.i953 = icmp sgt i32 %and.i.i.i.i920, %60
-  br i1 %cmp5.i.i.i.i.i.i953, label %if.end.i962, label %cond.false7.i.i.i.i.i.i954
+cond.false.i.i.i.i.i.i953:                        ; preds = %lor.lhs.false.i.i.i.i950
+  %cmp5.i.i.i.i.i.i954 = icmp sgt i32 %and.i.i.i.i921, %60
+  br i1 %cmp5.i.i.i.i.i.i954, label %if.end.i963, label %cond.false7.i.i.i.i.i.i955
 
-cond.false7.i.i.i.i.i.i954:                       ; preds = %cond.false.i.i.i.i.i.i952
-  %arrayidx.i.i.i5.i.i.i.i.i.i955 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 36
-  %61 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i955, align 4
-  %cmp10.i.i.i.i.i.i956 = icmp slt i32 %and4.i.i.i.i921, %61
-  br i1 %cmp10.i.i.i.i.i.i956, label %if.then.i1008, label %cond.false12.i.i.i.i.i.i957
+cond.false7.i.i.i.i.i.i955:                       ; preds = %cond.false.i.i.i.i.i.i953
+  %arrayidx.i.i.i5.i.i.i.i.i.i956 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 36
+  %61 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i956, align 4
+  %cmp10.i.i.i.i.i.i957 = icmp slt i32 %and4.i.i.i.i922, %61
+  br i1 %cmp10.i.i.i.i.i.i957, label %if.then.i1009, label %cond.false12.i.i.i.i.i.i958
 
-cond.false12.i.i.i.i.i.i957:                      ; preds = %cond.false7.i.i.i.i.i.i954
-  %cmp15.i.i.i.i.i.i958 = icmp sgt i32 %and4.i.i.i.i921, %61
-  br i1 %cmp15.i.i.i.i.i.i958, label %if.end.i962, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959
+cond.false12.i.i.i.i.i.i958:                      ; preds = %cond.false7.i.i.i.i.i.i955
+  %cmp15.i.i.i.i.i.i959 = icmp sgt i32 %and4.i.i.i.i922, %61
+  br i1 %cmp15.i.i.i.i.i.i959, label %if.end.i963, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959: ; preds = %cond.false12.i.i.i.i.i.i957
-  %arrayidx.i.i.i9.i.i.i.i.i.i960 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 40
-  %62 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i960, align 4
-  %cmp20.i.i.i.i.i.i961 = icmp slt i32 %and7.i.i.i.i922, %62
-  br i1 %cmp20.i.i.i.i.i.i961, label %if.then.i1008, label %if.end.i962
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960: ; preds = %cond.false12.i.i.i.i.i.i958
+  %arrayidx.i.i.i9.i.i.i.i.i.i961 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 40
+  %62 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i961, align 4
+  %cmp20.i.i.i.i.i.i962 = icmp slt i32 %and7.i.i.i.i923, %62
+  br i1 %cmp20.i.i.i.i.i.i962, label %if.then.i1009, label %if.end.i963
 
-if.then.i1008:                                    ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959, %cond.false7.i.i.i.i.i.i954, %lor.lhs.false.i.i.i.i949, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i947, %if.end.i27.i410
-  %mBackground.i1009 = getelementptr inbounds i8, ptr %52, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i1009:                                    ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960, %cond.false7.i.i.i.i.i.i955, %lor.lhs.false.i.i.i.i950, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i948, %if.end.i27.i411
+  %mBackground.i1010 = getelementptr inbounds i8, ptr %52, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end.i962:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i959, %cond.false12.i.i.i.i.i.i957, %cond.false.i.i.i.i.i.i952
-  %second.i.i963 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 48
-  %63 = load ptr, ptr %second.i.i963, align 8
-  %cmp.i.i.not.i964 = icmp eq ptr %63, null
-  br i1 %cmp.i.i.not.i964, label %if.end10.i1006, label %if.then6.i965
+if.end.i963:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i960, %cond.false12.i.i.i.i.i.i958, %cond.false.i.i.i.i.i.i953
+  %second.i.i964 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 48
+  %63 = load ptr, ptr %second.i.i964, align 8
+  %cmp.i.i.not.i965 = icmp eq ptr %63, null
+  br i1 %cmp.i.i.not.i965, label %if.end10.i1007, label %if.then6.i966
 
-if.then6.i965:                                    ; preds = %if.end.i962
-  %and4.i.i967 = and i32 %33, -4096
-  %and7.i.i968 = and i32 %34, -4096
-  %retval.sroa.2.0.insert.ext.i.i969 = zext i32 %and4.i.i967 to i64
-  %retval.sroa.2.0.insert.shift.i.i970 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i969, 32
-  %retval.sroa.0.0.insert.ext.i.i971 = zext i32 %and.i.i19.i407 to i64
-  %retval.sroa.0.0.insert.insert.i.i972 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i970, %retval.sroa.0.0.insert.ext.i.i971
-  store i64 %retval.sroa.0.0.insert.insert.i.i972, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i968, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %63, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %64 = load ptr, ptr %second.i.i963, align 8
+if.then6.i966:                                    ; preds = %if.end.i963
+  %and4.i.i968 = and i32 %33, -4096
+  %and7.i.i969 = and i32 %34, -4096
+  %retval.sroa.2.0.insert.ext.i.i970 = zext i32 %and4.i.i968 to i64
+  %retval.sroa.2.0.insert.shift.i.i971 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i970, 32
+  %retval.sroa.0.0.insert.ext.i.i972 = zext i32 %and.i.i19.i408 to i64
+  %retval.sroa.0.0.insert.insert.i.i973 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i971, %retval.sroa.0.0.insert.ext.i.i972
+  store i64 %retval.sroa.0.0.insert.insert.i.i973, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i969, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %63, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %64 = load ptr, ptr %second.i.i964, align 8
   %65 = shl i32 %add.i.i, 3
-  %shl.i.i.i976 = and i32 %65, 31744
+  %shl.i.i.i977 = and i32 %65, 31744
   %66 = lshr i32 %33, 2
-  %shl4.i.i.i977 = and i32 %66, 992
-  %add.i.i.i978 = or disjoint i32 %shl4.i.i.i977, %shl.i.i.i976
-  %and6.i.i.i979 = lshr i32 %34, 7
-  %shr7.i.i.i980 = and i32 %and6.i.i.i979, 31
-  %add8.i.i.i981 = or disjoint i32 %add.i.i.i978, %shr7.i.i.i980
-  %mChildMask.i.i.i982 = getelementptr inbounds i8, ptr %64, i64 262144
-  %shr.i.i.i.i983 = lshr i32 %add.i.i.i978, 6
-  %idxprom.i.i.i.i984 = zext nneg i32 %shr.i.i.i.i983 to i64
-  %arrayidx.i.i.i8.i985 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i982, i64 0, i64 %idxprom.i.i.i.i984
-  %67 = load i64, ptr %arrayidx.i.i.i8.i985, align 8
-  %and.i.i.i9.i986 = and i32 %add8.i.i.i981, 63
-  %sh_prom.i.i.i.i987 = zext nneg i32 %and.i.i.i9.i986 to i64
-  %shl.i.i.i.i988 = shl nuw i64 1, %sh_prom.i.i.i.i987
-  %and2.i.i.i.i989 = and i64 %67, %shl.i.i.i.i988
-  %cmp.i.i.not.i.i990 = icmp eq i64 %and2.i.i.i.i989, 0
-  %idxprom10.i.i991 = zext nneg i32 %add8.i.i.i981 to i64
-  %arrayidx11.i.i992 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %64, i64 0, i64 %idxprom10.i.i991
-  br i1 %cmp.i.i.not.i.i990, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488, label %if.then.i.i993
+  %shl4.i.i.i978 = and i32 %66, 992
+  %add.i.i.i979 = or disjoint i32 %shl4.i.i.i978, %shl.i.i.i977
+  %and6.i.i.i980 = lshr i32 %34, 7
+  %shr7.i.i.i981 = and i32 %and6.i.i.i980, 31
+  %add8.i.i.i982 = or disjoint i32 %add.i.i.i979, %shr7.i.i.i981
+  %mChildMask.i.i.i983 = getelementptr inbounds i8, ptr %64, i64 262144
+  %shr.i.i.i.i984 = lshr i32 %add.i.i.i979, 6
+  %idxprom.i.i.i.i985 = zext nneg i32 %shr.i.i.i.i984 to i64
+  %arrayidx.i.i.i8.i986 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i983, i64 0, i64 %idxprom.i.i.i.i985
+  %67 = load i64, ptr %arrayidx.i.i.i8.i986, align 8
+  %and.i.i.i9.i987 = and i32 %add8.i.i.i982, 63
+  %sh_prom.i.i.i.i988 = zext nneg i32 %and.i.i.i9.i987 to i64
+  %shl.i.i.i.i989 = shl nuw i64 1, %sh_prom.i.i.i.i988
+  %and2.i.i.i.i990 = and i64 %67, %shl.i.i.i.i989
+  %cmp.i.i.not.i.i991 = icmp eq i64 %and2.i.i.i.i990, 0
+  %idxprom10.i.i992 = zext nneg i32 %add8.i.i.i982 to i64
+  %arrayidx11.i.i993 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %64, i64 0, i64 %idxprom10.i.i992
+  br i1 %cmp.i.i.not.i.i991, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489, label %if.then.i.i994
 
-if.then.i.i993:                                   ; preds = %if.then6.i965
-  %68 = load ptr, ptr %arrayidx11.i.i992, align 8
-  %and4.i.i.i995 = and i32 %33, -128
-  %and7.i.i.i996 = and i32 %34, -128
-  %retval.sroa.2.0.insert.ext.i.i.i997 = zext i32 %and4.i.i.i995 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i998 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i997, 32
-  %retval.sroa.0.0.insert.ext.i.i.i999 = zext i32 %and.i.i6.i403 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i1000 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i998, %retval.sroa.0.0.insert.ext.i.i.i999
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i1000, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i996, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %68, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %69 = load ptr, ptr %arrayidx11.i.i992, align 8
-  %call8.i.i1004 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %69, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.then.i.i994:                                   ; preds = %if.then6.i966
+  %68 = load ptr, ptr %arrayidx11.i.i993, align 8
+  %and4.i.i.i996 = and i32 %33, -128
+  %and7.i.i.i997 = and i32 %34, -128
+  %retval.sroa.2.0.insert.ext.i.i.i998 = zext i32 %and4.i.i.i996 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i999 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i998, 32
+  %retval.sroa.0.0.insert.ext.i.i.i1000 = zext i32 %and.i.i6.i404 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i1001 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i999, %retval.sroa.0.0.insert.ext.i.i.i1000
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i1001, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i997, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %68, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %69 = load ptr, ptr %arrayidx11.i.i993, align 8
+  %call8.i.i1005 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %69, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-if.end10.i1006:                                   ; preds = %if.end.i962
-  %tile.i.i1007 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i943, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
+if.end10.i1007:                                   ; preds = %if.end.i963
+  %tile.i.i1008 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i944, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488: ; preds = %if.end10.i1006, %if.then.i.i993, %if.then6.i965, %if.then.i1008, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i476, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i463, %if.end.i33.i424, %if.then.i.i.i443
-  %retval.i.0.i413 = phi ptr [ %arrayidx.i.i486, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i476 ], [ %call3.i.i465, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i463 ], [ %call8.i.i.i452, %if.then.i.i.i443 ], [ %arrayidx11.i.i.i442, %if.end.i33.i424 ], [ %mBackground.i1009, %if.then.i1008 ], [ %tile.i.i1007, %if.end10.i1006 ], [ %call8.i.i1004, %if.then.i.i993 ], [ %arrayidx11.i.i992, %if.then6.i965 ]
-  %70 = load double, ptr %retval.i.0.i413, align 8
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489: ; preds = %if.end10.i1007, %if.then.i.i994, %if.then6.i966, %if.then.i1009, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i477, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i464, %if.end.i33.i425, %if.then.i.i.i444
+  %retval.i.0.i414 = phi ptr [ %arrayidx.i.i487, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i477 ], [ %call3.i.i466, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i464 ], [ %call8.i.i.i453, %if.then.i.i.i444 ], [ %arrayidx11.i.i.i443, %if.end.i33.i425 ], [ %mBackground.i1010, %if.then.i1009 ], [ %tile.i.i1008, %if.end10.i1007 ], [ %call8.i.i1005, %if.then.i.i994 ], [ %arrayidx11.i.i993, %if.then6.i966 ]
+  %70 = load double, ptr %retval.i.0.i414, align 8
   %71 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
   store double %70, ptr %add.ptr.i.i.i, align 8
   %72 = load i32, ptr %mCenter.i, align 8
   %add.i6.i = add nsw i32 %72, 1
-  %73 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %73 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %74 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %retval.sroa.2.0.insert.ext.i9.i = zext i32 %73 to i64
   %retval.sroa.2.0.insert.shift.i10.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i9.i, 32
@@ -7053,1186 +7053,1186 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %retval.sroa.0.0.insert.insert.i12.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i10.i, %retval.sroa.0.0.insert.ext.i11.i
   store i64 %retval.sroa.0.0.insert.insert.i12.i, ptr %ref.tmp5.i, align 8
   store i32 %74, ptr %tmp.coerce9.sroa.2.0.coerce.dive8.sroa_idx.i, align 8
-  %and.i.i.i309 = and i32 %add.i6.i, -8
-  %75 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i311 = icmp eq i32 %and.i.i.i309, %75
-  br i1 %cmp.i.i.i311, label %land.lhs.true.i.i.i376, label %if.end.i.i312
+  %and.i.i.i310 = and i32 %add.i6.i, -8
+  %75 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i312 = icmp eq i32 %and.i.i.i310, %75
+  br i1 %cmp.i.i.i312, label %land.lhs.true.i.i.i377, label %if.end.i.i313
 
-land.lhs.true.i.i.i376:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
-  %and5.i.i.i378 = and i32 %73, -8
-  %76 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i380 = icmp eq i32 %and5.i.i.i378, %76
-  br i1 %cmp9.i.i.i380, label %land.rhs.i.i.i381, label %if.end.i.i312
+land.lhs.true.i.i.i377:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
+  %and5.i.i.i379 = and i32 %73, -8
+  %76 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i381 = icmp eq i32 %and5.i.i.i379, %76
+  br i1 %cmp9.i.i.i381, label %land.rhs.i.i.i382, label %if.end.i.i313
 
-land.rhs.i.i.i381:                                ; preds = %land.lhs.true.i.i.i376
-  %and11.i.i.i383 = and i32 %74, -8
-  %77 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i385 = icmp eq i32 %and11.i.i.i383, %77
-  br i1 %cmp15.i.i.i385, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i386, label %if.end.i.i312
+land.rhs.i.i.i382:                                ; preds = %land.lhs.true.i.i.i377
+  %and11.i.i.i384 = and i32 %74, -8
+  %77 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i386 = icmp eq i32 %and11.i.i.i384, %77
+  br i1 %cmp15.i.i.i386, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i387, label %if.end.i.i313
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i386: ; preds = %land.rhs.i.i.i381
-  %78 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i388 = shl i32 %add.i6.i, 6
-  %shl.i.i.i389 = and i32 %and.i6.i.i388, 448
-  %and2.i.i.i390 = shl i32 %73, 3
-  %shl3.i.i.i391 = and i32 %and2.i.i.i390, 56
-  %and5.i7.i.i393 = and i32 %74, 7
-  %add.i.i.i392 = or disjoint i32 %shl.i.i.i389, %and5.i7.i.i393
-  %add6.i.i.i394 = or disjoint i32 %add.i.i.i392, %shl3.i.i.i391
-  %idxprom.i.i395 = zext nneg i32 %add6.i.i.i394 to i64
-  %arrayidx.i.i396 = getelementptr inbounds double, ptr %78, i64 %idxprom.i.i395
-  %tobool.i.not.i397 = icmp eq ptr %78, null
-  br i1 %tobool.i.not.i397, label %if.end.i.i312, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i387: ; preds = %land.rhs.i.i.i382
+  %78 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i389 = shl i32 %add.i6.i, 6
+  %shl.i.i.i390 = and i32 %and.i6.i.i389, 448
+  %and2.i.i.i391 = shl i32 %73, 3
+  %shl3.i.i.i392 = and i32 %and2.i.i.i391, 56
+  %and5.i7.i.i394 = and i32 %74, 7
+  %add.i.i.i393 = or disjoint i32 %shl.i.i.i390, %and5.i7.i.i394
+  %add6.i.i.i395 = or disjoint i32 %add.i.i.i393, %shl3.i.i.i392
+  %idxprom.i.i396 = zext nneg i32 %add6.i.i.i395 to i64
+  %arrayidx.i.i397 = getelementptr inbounds double, ptr %78, i64 %idxprom.i.i396
+  %tobool.i.not.i398 = icmp eq ptr %78, null
+  br i1 %tobool.i.not.i398, label %if.end.i.i313, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i.i312:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i386, %land.rhs.i.i.i381, %land.lhs.true.i.i.i376, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit488
-  %and.i.i6.i313 = and i32 %add.i6.i, -128
-  %79 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i315 = icmp eq i32 %and.i.i6.i313, %79
-  br i1 %cmp.i.i7.i315, label %land.lhs.true.i.i9.i363, label %if.end.i16.i316
+if.end.i.i313:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i387, %land.rhs.i.i.i382, %land.lhs.true.i.i.i377, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit489
+  %and.i.i6.i314 = and i32 %add.i6.i, -128
+  %79 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i316 = icmp eq i32 %and.i.i6.i314, %79
+  br i1 %cmp.i.i7.i316, label %land.lhs.true.i.i9.i364, label %if.end.i16.i317
 
-land.lhs.true.i.i9.i363:                          ; preds = %if.end.i.i312
-  %and5.i.i11.i365 = and i32 %73, -128
-  %80 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i367 = icmp eq i32 %and5.i.i11.i365, %80
-  br i1 %cmp9.i.i13.i367, label %land.rhs.i.i14.i368, label %if.end.i16.i316
+land.lhs.true.i.i9.i364:                          ; preds = %if.end.i.i313
+  %and5.i.i11.i366 = and i32 %73, -128
+  %80 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i368 = icmp eq i32 %and5.i.i11.i366, %80
+  br i1 %cmp9.i.i13.i368, label %land.rhs.i.i14.i369, label %if.end.i16.i317
 
-land.rhs.i.i14.i368:                              ; preds = %land.lhs.true.i.i9.i363
-  %and11.i.i16.i370 = and i32 %74, -128
-  %81 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i372 = icmp eq i32 %and11.i.i16.i370, %81
-  br i1 %cmp15.i.i17.i372, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i373, label %if.end.i16.i316
+land.rhs.i.i14.i369:                              ; preds = %land.lhs.true.i.i9.i364
+  %and11.i.i16.i371 = and i32 %74, -128
+  %81 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i373 = icmp eq i32 %and11.i.i16.i371, %81
+  br i1 %cmp15.i.i17.i373, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i374, label %if.end.i16.i317
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i373: ; preds = %land.rhs.i.i14.i368
-  %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i375 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %82, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i374: ; preds = %land.rhs.i.i14.i369
+  %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i376 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %82, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i16.i316:                                  ; preds = %land.rhs.i.i14.i368, %land.lhs.true.i.i9.i363, %if.end.i.i312
-  %and.i.i19.i317 = and i32 %add.i6.i, -4096
-  %83 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i319 = icmp eq i32 %and.i.i19.i317, %83
-  br i1 %cmp.i.i21.i319, label %land.lhs.true.i.i23.i324, label %if.end.i27.i320
+if.end.i16.i317:                                  ; preds = %land.rhs.i.i14.i369, %land.lhs.true.i.i9.i364, %if.end.i.i313
+  %and.i.i19.i318 = and i32 %add.i6.i, -4096
+  %83 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i320 = icmp eq i32 %and.i.i19.i318, %83
+  br i1 %cmp.i.i21.i320, label %land.lhs.true.i.i23.i325, label %if.end.i27.i321
 
-land.lhs.true.i.i23.i324:                         ; preds = %if.end.i16.i316
-  %and5.i.i25.i326 = and i32 %73, -4096
-  %84 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i328 = icmp eq i32 %and5.i.i25.i326, %84
-  br i1 %cmp9.i.i27.i328, label %land.rhs.i.i28.i329, label %if.end.i27.i320
+land.lhs.true.i.i23.i325:                         ; preds = %if.end.i16.i317
+  %and5.i.i25.i327 = and i32 %73, -4096
+  %84 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i329 = icmp eq i32 %and5.i.i25.i327, %84
+  br i1 %cmp9.i.i27.i329, label %land.rhs.i.i28.i330, label %if.end.i27.i321
 
-land.rhs.i.i28.i329:                              ; preds = %land.lhs.true.i.i23.i324
-  %and11.i.i30.i331 = and i32 %74, -4096
-  %85 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i333 = icmp eq i32 %and11.i.i30.i331, %85
-  br i1 %cmp15.i.i32.i333, label %if.end.i33.i334, label %if.end.i27.i320
+land.rhs.i.i28.i330:                              ; preds = %land.lhs.true.i.i23.i325
+  %and11.i.i30.i332 = and i32 %74, -4096
+  %85 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i334 = icmp eq i32 %and11.i.i30.i332, %85
+  br i1 %cmp15.i.i32.i334, label %if.end.i33.i335, label %if.end.i27.i321
 
-if.end.i33.i334:                                  ; preds = %land.rhs.i.i28.i329
-  %86 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i335:                                  ; preds = %land.rhs.i.i28.i330
+  %86 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %87 = shl i32 %add.i6.i, 3
-  %shl.i.i.i.i336 = and i32 %87, 31744
+  %shl.i.i.i.i337 = and i32 %87, 31744
   %88 = lshr i32 %73, 2
-  %shl4.i.i.i.i337 = and i32 %88, 992
-  %add.i.i.i.i338 = or disjoint i32 %shl4.i.i.i.i337, %shl.i.i.i.i336
-  %and6.i.i.i.i339 = lshr i32 %74, 7
-  %shr7.i.i.i.i340 = and i32 %and6.i.i.i.i339, 31
-  %add8.i.i.i.i341 = or disjoint i32 %add.i.i.i.i338, %shr7.i.i.i.i340
-  %mChildMask.i.i.i.i342 = getelementptr inbounds i8, ptr %86, i64 262144
-  %shr.i.i.i.i.i343 = lshr i32 %add.i.i.i.i338, 6
-  %idxprom.i.i.i.i.i344 = zext nneg i32 %shr.i.i.i.i.i343 to i64
-  %arrayidx.i.i.i8.i.i345 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i342, i64 0, i64 %idxprom.i.i.i.i.i344
-  %89 = load i64, ptr %arrayidx.i.i.i8.i.i345, align 8
-  %and.i.i.i.i.i346 = and i32 %add8.i.i.i.i341, 63
-  %sh_prom.i.i.i.i.i347 = zext nneg i32 %and.i.i.i.i.i346 to i64
-  %shl.i.i.i.i.i348 = shl nuw i64 1, %sh_prom.i.i.i.i.i347
-  %and2.i.i.i.i.i349 = and i64 %89, %shl.i.i.i.i.i348
-  %cmp.i.i.not.i.i.i350 = icmp eq i64 %and2.i.i.i.i.i349, 0
-  %idxprom10.i.i.i351 = zext nneg i32 %add8.i.i.i.i341 to i64
-  %arrayidx11.i.i.i352 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %86, i64 0, i64 %idxprom10.i.i.i351
-  br i1 %cmp.i.i.not.i.i.i350, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398, label %if.then.i.i.i353
+  %shl4.i.i.i.i338 = and i32 %88, 992
+  %add.i.i.i.i339 = or disjoint i32 %shl4.i.i.i.i338, %shl.i.i.i.i337
+  %and6.i.i.i.i340 = lshr i32 %74, 7
+  %shr7.i.i.i.i341 = and i32 %and6.i.i.i.i340, 31
+  %add8.i.i.i.i342 = or disjoint i32 %add.i.i.i.i339, %shr7.i.i.i.i341
+  %mChildMask.i.i.i.i343 = getelementptr inbounds i8, ptr %86, i64 262144
+  %shr.i.i.i.i.i344 = lshr i32 %add.i.i.i.i339, 6
+  %idxprom.i.i.i.i.i345 = zext nneg i32 %shr.i.i.i.i.i344 to i64
+  %arrayidx.i.i.i8.i.i346 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i343, i64 0, i64 %idxprom.i.i.i.i.i345
+  %89 = load i64, ptr %arrayidx.i.i.i8.i.i346, align 8
+  %and.i.i.i.i.i347 = and i32 %add8.i.i.i.i342, 63
+  %sh_prom.i.i.i.i.i348 = zext nneg i32 %and.i.i.i.i.i347 to i64
+  %shl.i.i.i.i.i349 = shl nuw i64 1, %sh_prom.i.i.i.i.i348
+  %and2.i.i.i.i.i350 = and i64 %89, %shl.i.i.i.i.i349
+  %cmp.i.i.not.i.i.i351 = icmp eq i64 %and2.i.i.i.i.i350, 0
+  %idxprom10.i.i.i352 = zext nneg i32 %add8.i.i.i.i342 to i64
+  %arrayidx11.i.i.i353 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %86, i64 0, i64 %idxprom10.i.i.i352
+  br i1 %cmp.i.i.not.i.i.i351, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399, label %if.then.i.i.i354
 
-if.then.i.i.i353:                                 ; preds = %if.end.i33.i334
-  %90 = load ptr, ptr %arrayidx11.i.i.i352, align 8
-  %and4.i.i.i.i354 = and i32 %73, -128
-  %and7.i.i.i.i355 = and i32 %74, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i356 = zext i32 %and4.i.i.i.i354 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i357 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i356, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i358 = zext i32 %and.i.i6.i313 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i359 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i357, %retval.sroa.0.0.insert.ext.i.i.i.i358
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i359, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i355, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %90, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %91 = load ptr, ptr %arrayidx11.i.i.i352, align 8
-  %call8.i.i.i362 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %91, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i.i.i354:                                 ; preds = %if.end.i33.i335
+  %90 = load ptr, ptr %arrayidx11.i.i.i353, align 8
+  %and4.i.i.i.i355 = and i32 %73, -128
+  %and7.i.i.i.i356 = and i32 %74, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i357 = zext i32 %and4.i.i.i.i355 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i358 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i357, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i359 = zext i32 %and.i.i6.i314 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i360 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i358, %retval.sroa.0.0.insert.ext.i.i.i.i359
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i360, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i356, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %90, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %91 = load ptr, ptr %arrayidx11.i.i.i353, align 8
+  %call8.i.i.i363 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %91, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i27.i320:                                  ; preds = %land.rhs.i.i28.i329, %land.lhs.true.i.i23.i324, %if.end.i16.i316
-  %92 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i812 = getelementptr inbounds i8, ptr %92, i64 56
-  %93 = load i32, ptr %mOrigin.i.i.i812, align 4
-  %sub.i.i.i.i813 = sub nsw i32 %add.i6.i, %93
-  %arrayidx.i.i.i.i.i.i.i815 = getelementptr inbounds i8, ptr %92, i64 60
-  %94 = load i32, ptr %arrayidx.i.i.i.i.i.i.i815, align 4
-  %sub6.i.i.i.i816 = sub nsw i32 %73, %94
-  %arrayidx.i.i.i4.i.i.i.i818 = getelementptr inbounds i8, ptr %92, i64 64
-  %95 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i818, align 4
-  %sub10.i.i.i.i819 = sub nsw i32 %74, %95
-  %and.i.i.i.i820 = and i32 %sub.i.i.i.i813, -4096
-  %and4.i.i.i.i821 = and i32 %sub6.i.i.i.i816, -4096
-  %and7.i.i.i.i822 = and i32 %sub10.i.i.i.i819, -4096
-  %_M_parent.i.i.i.i.i823 = getelementptr inbounds i8, ptr %92, i64 16
-  %96 = load ptr, ptr %_M_parent.i.i.i.i.i823, align 8
-  %add.ptr.i.i.i.i.i824 = getelementptr inbounds i8, ptr %92, i64 8
-  %cmp.not9.i.i.i.i.i825 = icmp eq ptr %96, null
-  br i1 %cmp.not9.i.i.i.i.i825, label %if.then.i908, label %while.body.i.i.i.i.i826
+if.end.i27.i321:                                  ; preds = %land.rhs.i.i28.i330, %land.lhs.true.i.i23.i325, %if.end.i16.i317
+  %92 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i813 = getelementptr inbounds i8, ptr %92, i64 56
+  %93 = load i32, ptr %mOrigin.i.i.i813, align 4
+  %sub.i.i.i.i814 = sub nsw i32 %add.i6.i, %93
+  %arrayidx.i.i.i.i.i.i.i816 = getelementptr inbounds i8, ptr %92, i64 60
+  %94 = load i32, ptr %arrayidx.i.i.i.i.i.i.i816, align 4
+  %sub6.i.i.i.i817 = sub nsw i32 %73, %94
+  %arrayidx.i.i.i4.i.i.i.i819 = getelementptr inbounds i8, ptr %92, i64 64
+  %95 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i819, align 4
+  %sub10.i.i.i.i820 = sub nsw i32 %74, %95
+  %and.i.i.i.i821 = and i32 %sub.i.i.i.i814, -4096
+  %and4.i.i.i.i822 = and i32 %sub6.i.i.i.i817, -4096
+  %and7.i.i.i.i823 = and i32 %sub10.i.i.i.i820, -4096
+  %_M_parent.i.i.i.i.i824 = getelementptr inbounds i8, ptr %92, i64 16
+  %96 = load ptr, ptr %_M_parent.i.i.i.i.i824, align 8
+  %add.ptr.i.i.i.i.i825 = getelementptr inbounds i8, ptr %92, i64 8
+  %cmp.not9.i.i.i.i.i826 = icmp eq ptr %96, null
+  br i1 %cmp.not9.i.i.i.i.i826, label %if.then.i909, label %while.body.i.i.i.i.i827
 
-while.body.i.i.i.i.i826:                          ; preds = %if.end.i27.i320, %if.end.i.i.i.i.i841
-  %__x.addr.011.i.i.i.i.i827 = phi ptr [ %__x.addr.1.i.i.i.i.i845, %if.end.i.i.i.i.i841 ], [ %96, %if.end.i27.i320 ]
-  %__y.addr.010.i.i.i.i.i828 = phi ptr [ %__y.addr.1.i.i.i.i.i843, %if.end.i.i.i.i.i841 ], [ %add.ptr.i.i.i.i.i824, %if.end.i27.i320 ]
-  %_M_storage.i.i.i.i.i.i.i829 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 32
-  %97 = load i32, ptr %_M_storage.i.i.i.i.i.i.i829, align 4
-  %cmp.i.i.i.i.i.i.i830 = icmp slt i32 %97, %and.i.i.i.i820
-  br i1 %cmp.i.i.i.i.i.i.i830, label %if.else.i.i.i.i.i910, label %cond.false.i.i.i.i.i.i.i831
+while.body.i.i.i.i.i827:                          ; preds = %if.end.i27.i321, %if.end.i.i.i.i.i842
+  %__x.addr.011.i.i.i.i.i828 = phi ptr [ %__x.addr.1.i.i.i.i.i846, %if.end.i.i.i.i.i842 ], [ %96, %if.end.i27.i321 ]
+  %__y.addr.010.i.i.i.i.i829 = phi ptr [ %__y.addr.1.i.i.i.i.i844, %if.end.i.i.i.i.i842 ], [ %add.ptr.i.i.i.i.i825, %if.end.i27.i321 ]
+  %_M_storage.i.i.i.i.i.i.i830 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 32
+  %97 = load i32, ptr %_M_storage.i.i.i.i.i.i.i830, align 4
+  %cmp.i.i.i.i.i.i.i831 = icmp slt i32 %97, %and.i.i.i.i821
+  br i1 %cmp.i.i.i.i.i.i.i831, label %if.else.i.i.i.i.i911, label %cond.false.i.i.i.i.i.i.i832
 
-cond.false.i.i.i.i.i.i.i831:                      ; preds = %while.body.i.i.i.i.i826
-  %cmp5.i.i.i.i.i.i.i832 = icmp sgt i32 %97, %and.i.i.i.i820
-  br i1 %cmp5.i.i.i.i.i.i.i832, label %if.end.i.i.i.i.i841, label %cond.false7.i.i.i.i.i.i.i833
+cond.false.i.i.i.i.i.i.i832:                      ; preds = %while.body.i.i.i.i.i827
+  %cmp5.i.i.i.i.i.i.i833 = icmp sgt i32 %97, %and.i.i.i.i821
+  br i1 %cmp5.i.i.i.i.i.i.i833, label %if.end.i.i.i.i.i842, label %cond.false7.i.i.i.i.i.i.i834
 
-cond.false7.i.i.i.i.i.i.i833:                     ; preds = %cond.false.i.i.i.i.i.i.i831
-  %arrayidx.i.i.i.i.i.i.i.i.i.i834 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 36
-  %98 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i834, align 4
-  %cmp10.i.i.i.i.i.i.i835 = icmp slt i32 %98, %and4.i.i.i.i821
-  br i1 %cmp10.i.i.i.i.i.i.i835, label %if.else.i.i.i.i.i910, label %cond.false12.i.i.i.i.i.i.i836
+cond.false7.i.i.i.i.i.i.i834:                     ; preds = %cond.false.i.i.i.i.i.i.i832
+  %arrayidx.i.i.i.i.i.i.i.i.i.i835 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 36
+  %98 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i835, align 4
+  %cmp10.i.i.i.i.i.i.i836 = icmp slt i32 %98, %and4.i.i.i.i822
+  br i1 %cmp10.i.i.i.i.i.i.i836, label %if.else.i.i.i.i.i911, label %cond.false12.i.i.i.i.i.i.i837
 
-cond.false12.i.i.i.i.i.i.i836:                    ; preds = %cond.false7.i.i.i.i.i.i.i833
-  %cmp15.i.i.i.i.i.i.i837 = icmp sgt i32 %98, %and4.i.i.i.i821
-  br i1 %cmp15.i.i.i.i.i.i.i837, label %if.end.i.i.i.i.i841, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838
+cond.false12.i.i.i.i.i.i.i837:                    ; preds = %cond.false7.i.i.i.i.i.i.i834
+  %cmp15.i.i.i.i.i.i.i838 = icmp sgt i32 %98, %and4.i.i.i.i822
+  br i1 %cmp15.i.i.i.i.i.i.i838, label %if.end.i.i.i.i.i842, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838: ; preds = %cond.false12.i.i.i.i.i.i.i836
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i839 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 40
-  %99 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i839, align 4
-  %cmp20.i.i.i.i.i.i.i840 = icmp slt i32 %99, %and7.i.i.i.i822
-  br i1 %cmp20.i.i.i.i.i.i.i840, label %if.else.i.i.i.i.i910, label %if.end.i.i.i.i.i841
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839: ; preds = %cond.false12.i.i.i.i.i.i.i837
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i840 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 40
+  %99 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i840, align 4
+  %cmp20.i.i.i.i.i.i.i841 = icmp slt i32 %99, %and7.i.i.i.i823
+  br i1 %cmp20.i.i.i.i.i.i.i841, label %if.else.i.i.i.i.i911, label %if.end.i.i.i.i.i842
 
-if.else.i.i.i.i.i910:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838, %cond.false7.i.i.i.i.i.i.i833, %while.body.i.i.i.i.i826
-  br label %if.end.i.i.i.i.i841
+if.else.i.i.i.i.i911:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839, %cond.false7.i.i.i.i.i.i.i834, %while.body.i.i.i.i.i827
+  br label %if.end.i.i.i.i.i842
 
-if.end.i.i.i.i.i841:                              ; preds = %if.else.i.i.i.i.i910, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838, %cond.false12.i.i.i.i.i.i.i836, %cond.false.i.i.i.i.i.i.i831
-  %.sink.i.i.i.i.i842 = phi i64 [ 24, %if.else.i.i.i.i.i910 ], [ 16, %cond.false12.i.i.i.i.i.i.i836 ], [ 16, %cond.false.i.i.i.i.i.i.i831 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838 ]
-  %__y.addr.1.i.i.i.i.i843 = phi ptr [ %__y.addr.010.i.i.i.i.i828, %if.else.i.i.i.i.i910 ], [ %__x.addr.011.i.i.i.i.i827, %cond.false12.i.i.i.i.i.i.i836 ], [ %__x.addr.011.i.i.i.i.i827, %cond.false.i.i.i.i.i.i.i831 ], [ %__x.addr.011.i.i.i.i.i827, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i838 ]
-  %_M_right.i.i.i.i.i.i844 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i827, i64 %.sink.i.i.i.i.i842
-  %__x.addr.1.i.i.i.i.i845 = load ptr, ptr %_M_right.i.i.i.i.i.i844, align 8
-  %cmp.not.i.i.i.i.i846 = icmp eq ptr %__x.addr.1.i.i.i.i.i845, null
-  br i1 %cmp.not.i.i.i.i.i846, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847, label %while.body.i.i.i.i.i826, !llvm.loop !77
+if.end.i.i.i.i.i842:                              ; preds = %if.else.i.i.i.i.i911, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839, %cond.false12.i.i.i.i.i.i.i837, %cond.false.i.i.i.i.i.i.i832
+  %.sink.i.i.i.i.i843 = phi i64 [ 24, %if.else.i.i.i.i.i911 ], [ 16, %cond.false12.i.i.i.i.i.i.i837 ], [ 16, %cond.false.i.i.i.i.i.i.i832 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839 ]
+  %__y.addr.1.i.i.i.i.i844 = phi ptr [ %__y.addr.010.i.i.i.i.i829, %if.else.i.i.i.i.i911 ], [ %__x.addr.011.i.i.i.i.i828, %cond.false12.i.i.i.i.i.i.i837 ], [ %__x.addr.011.i.i.i.i.i828, %cond.false.i.i.i.i.i.i.i832 ], [ %__x.addr.011.i.i.i.i.i828, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i839 ]
+  %_M_right.i.i.i.i.i.i845 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i828, i64 %.sink.i.i.i.i.i843
+  %__x.addr.1.i.i.i.i.i846 = load ptr, ptr %_M_right.i.i.i.i.i.i845, align 8
+  %cmp.not.i.i.i.i.i847 = icmp eq ptr %__x.addr.1.i.i.i.i.i846, null
+  br i1 %cmp.not.i.i.i.i.i847, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848, label %while.body.i.i.i.i.i827, !llvm.loop !77
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847: ; preds = %if.end.i.i.i.i.i841
-  %cmp.i.i.i.i.i848 = icmp eq ptr %__y.addr.1.i.i.i.i.i843, %add.ptr.i.i.i.i.i824
-  br i1 %cmp.i.i.i.i.i848, label %if.then.i908, label %lor.lhs.false.i.i.i.i849
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848: ; preds = %if.end.i.i.i.i.i842
+  %cmp.i.i.i.i.i849 = icmp eq ptr %__y.addr.1.i.i.i.i.i844, %add.ptr.i.i.i.i.i825
+  br i1 %cmp.i.i.i.i.i849, label %if.then.i909, label %lor.lhs.false.i.i.i.i850
 
-lor.lhs.false.i.i.i.i849:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847
-  %_M_storage.i.i.i3.i.i.i.i850 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 32
-  %100 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i850, align 4
-  %cmp.i.i.i.i.i.i851 = icmp slt i32 %and.i.i.i.i820, %100
-  br i1 %cmp.i.i.i.i.i.i851, label %if.then.i908, label %cond.false.i.i.i.i.i.i852
+lor.lhs.false.i.i.i.i850:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848
+  %_M_storage.i.i.i3.i.i.i.i851 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 32
+  %100 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i851, align 4
+  %cmp.i.i.i.i.i.i852 = icmp slt i32 %and.i.i.i.i821, %100
+  br i1 %cmp.i.i.i.i.i.i852, label %if.then.i909, label %cond.false.i.i.i.i.i.i853
 
-cond.false.i.i.i.i.i.i852:                        ; preds = %lor.lhs.false.i.i.i.i849
-  %cmp5.i.i.i.i.i.i853 = icmp sgt i32 %and.i.i.i.i820, %100
-  br i1 %cmp5.i.i.i.i.i.i853, label %if.end.i862, label %cond.false7.i.i.i.i.i.i854
+cond.false.i.i.i.i.i.i853:                        ; preds = %lor.lhs.false.i.i.i.i850
+  %cmp5.i.i.i.i.i.i854 = icmp sgt i32 %and.i.i.i.i821, %100
+  br i1 %cmp5.i.i.i.i.i.i854, label %if.end.i863, label %cond.false7.i.i.i.i.i.i855
 
-cond.false7.i.i.i.i.i.i854:                       ; preds = %cond.false.i.i.i.i.i.i852
-  %arrayidx.i.i.i5.i.i.i.i.i.i855 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 36
-  %101 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i855, align 4
-  %cmp10.i.i.i.i.i.i856 = icmp slt i32 %and4.i.i.i.i821, %101
-  br i1 %cmp10.i.i.i.i.i.i856, label %if.then.i908, label %cond.false12.i.i.i.i.i.i857
+cond.false7.i.i.i.i.i.i855:                       ; preds = %cond.false.i.i.i.i.i.i853
+  %arrayidx.i.i.i5.i.i.i.i.i.i856 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 36
+  %101 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i856, align 4
+  %cmp10.i.i.i.i.i.i857 = icmp slt i32 %and4.i.i.i.i822, %101
+  br i1 %cmp10.i.i.i.i.i.i857, label %if.then.i909, label %cond.false12.i.i.i.i.i.i858
 
-cond.false12.i.i.i.i.i.i857:                      ; preds = %cond.false7.i.i.i.i.i.i854
-  %cmp15.i.i.i.i.i.i858 = icmp sgt i32 %and4.i.i.i.i821, %101
-  br i1 %cmp15.i.i.i.i.i.i858, label %if.end.i862, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859
+cond.false12.i.i.i.i.i.i858:                      ; preds = %cond.false7.i.i.i.i.i.i855
+  %cmp15.i.i.i.i.i.i859 = icmp sgt i32 %and4.i.i.i.i822, %101
+  br i1 %cmp15.i.i.i.i.i.i859, label %if.end.i863, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859: ; preds = %cond.false12.i.i.i.i.i.i857
-  %arrayidx.i.i.i9.i.i.i.i.i.i860 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 40
-  %102 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i860, align 4
-  %cmp20.i.i.i.i.i.i861 = icmp slt i32 %and7.i.i.i.i822, %102
-  br i1 %cmp20.i.i.i.i.i.i861, label %if.then.i908, label %if.end.i862
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860: ; preds = %cond.false12.i.i.i.i.i.i858
+  %arrayidx.i.i.i9.i.i.i.i.i.i861 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 40
+  %102 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i861, align 4
+  %cmp20.i.i.i.i.i.i862 = icmp slt i32 %and7.i.i.i.i823, %102
+  br i1 %cmp20.i.i.i.i.i.i862, label %if.then.i909, label %if.end.i863
 
-if.then.i908:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859, %cond.false7.i.i.i.i.i.i854, %lor.lhs.false.i.i.i.i849, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i847, %if.end.i27.i320
-  %mBackground.i909 = getelementptr inbounds i8, ptr %92, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i909:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860, %cond.false7.i.i.i.i.i.i855, %lor.lhs.false.i.i.i.i850, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i848, %if.end.i27.i321
+  %mBackground.i910 = getelementptr inbounds i8, ptr %92, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end.i862:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i859, %cond.false12.i.i.i.i.i.i857, %cond.false.i.i.i.i.i.i852
-  %second.i.i863 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 48
-  %103 = load ptr, ptr %second.i.i863, align 8
-  %cmp.i.i.not.i864 = icmp eq ptr %103, null
-  br i1 %cmp.i.i.not.i864, label %if.end10.i906, label %if.then6.i865
+if.end.i863:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i860, %cond.false12.i.i.i.i.i.i858, %cond.false.i.i.i.i.i.i853
+  %second.i.i864 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 48
+  %103 = load ptr, ptr %second.i.i864, align 8
+  %cmp.i.i.not.i865 = icmp eq ptr %103, null
+  br i1 %cmp.i.i.not.i865, label %if.end10.i907, label %if.then6.i866
 
-if.then6.i865:                                    ; preds = %if.end.i862
-  %and4.i.i867 = and i32 %73, -4096
-  %and7.i.i868 = and i32 %74, -4096
-  %retval.sroa.2.0.insert.ext.i.i869 = zext i32 %and4.i.i867 to i64
-  %retval.sroa.2.0.insert.shift.i.i870 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i869, 32
-  %retval.sroa.0.0.insert.ext.i.i871 = zext i32 %and.i.i19.i317 to i64
-  %retval.sroa.0.0.insert.insert.i.i872 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i870, %retval.sroa.0.0.insert.ext.i.i871
-  store i64 %retval.sroa.0.0.insert.insert.i.i872, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i868, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %103, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %104 = load ptr, ptr %second.i.i863, align 8
+if.then6.i866:                                    ; preds = %if.end.i863
+  %and4.i.i868 = and i32 %73, -4096
+  %and7.i.i869 = and i32 %74, -4096
+  %retval.sroa.2.0.insert.ext.i.i870 = zext i32 %and4.i.i868 to i64
+  %retval.sroa.2.0.insert.shift.i.i871 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i870, 32
+  %retval.sroa.0.0.insert.ext.i.i872 = zext i32 %and.i.i19.i318 to i64
+  %retval.sroa.0.0.insert.insert.i.i873 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i871, %retval.sroa.0.0.insert.ext.i.i872
+  store i64 %retval.sroa.0.0.insert.insert.i.i873, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i869, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %103, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %104 = load ptr, ptr %second.i.i864, align 8
   %105 = shl i32 %add.i6.i, 3
-  %shl.i.i.i876 = and i32 %105, 31744
+  %shl.i.i.i877 = and i32 %105, 31744
   %106 = lshr i32 %73, 2
-  %shl4.i.i.i877 = and i32 %106, 992
-  %add.i.i.i878 = or disjoint i32 %shl4.i.i.i877, %shl.i.i.i876
-  %and6.i.i.i879 = lshr i32 %74, 7
-  %shr7.i.i.i880 = and i32 %and6.i.i.i879, 31
-  %add8.i.i.i881 = or disjoint i32 %add.i.i.i878, %shr7.i.i.i880
-  %mChildMask.i.i.i882 = getelementptr inbounds i8, ptr %104, i64 262144
-  %shr.i.i.i.i883 = lshr i32 %add.i.i.i878, 6
-  %idxprom.i.i.i.i884 = zext nneg i32 %shr.i.i.i.i883 to i64
-  %arrayidx.i.i.i8.i885 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i882, i64 0, i64 %idxprom.i.i.i.i884
-  %107 = load i64, ptr %arrayidx.i.i.i8.i885, align 8
-  %and.i.i.i9.i886 = and i32 %add8.i.i.i881, 63
-  %sh_prom.i.i.i.i887 = zext nneg i32 %and.i.i.i9.i886 to i64
-  %shl.i.i.i.i888 = shl nuw i64 1, %sh_prom.i.i.i.i887
-  %and2.i.i.i.i889 = and i64 %107, %shl.i.i.i.i888
-  %cmp.i.i.not.i.i890 = icmp eq i64 %and2.i.i.i.i889, 0
-  %idxprom10.i.i891 = zext nneg i32 %add8.i.i.i881 to i64
-  %arrayidx11.i.i892 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %104, i64 0, i64 %idxprom10.i.i891
-  br i1 %cmp.i.i.not.i.i890, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398, label %if.then.i.i893
+  %shl4.i.i.i878 = and i32 %106, 992
+  %add.i.i.i879 = or disjoint i32 %shl4.i.i.i878, %shl.i.i.i877
+  %and6.i.i.i880 = lshr i32 %74, 7
+  %shr7.i.i.i881 = and i32 %and6.i.i.i880, 31
+  %add8.i.i.i882 = or disjoint i32 %add.i.i.i879, %shr7.i.i.i881
+  %mChildMask.i.i.i883 = getelementptr inbounds i8, ptr %104, i64 262144
+  %shr.i.i.i.i884 = lshr i32 %add.i.i.i879, 6
+  %idxprom.i.i.i.i885 = zext nneg i32 %shr.i.i.i.i884 to i64
+  %arrayidx.i.i.i8.i886 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i883, i64 0, i64 %idxprom.i.i.i.i885
+  %107 = load i64, ptr %arrayidx.i.i.i8.i886, align 8
+  %and.i.i.i9.i887 = and i32 %add8.i.i.i882, 63
+  %sh_prom.i.i.i.i888 = zext nneg i32 %and.i.i.i9.i887 to i64
+  %shl.i.i.i.i889 = shl nuw i64 1, %sh_prom.i.i.i.i888
+  %and2.i.i.i.i890 = and i64 %107, %shl.i.i.i.i889
+  %cmp.i.i.not.i.i891 = icmp eq i64 %and2.i.i.i.i890, 0
+  %idxprom10.i.i892 = zext nneg i32 %add8.i.i.i882 to i64
+  %arrayidx11.i.i893 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %104, i64 0, i64 %idxprom10.i.i892
+  br i1 %cmp.i.i.not.i.i891, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399, label %if.then.i.i894
 
-if.then.i.i893:                                   ; preds = %if.then6.i865
-  %108 = load ptr, ptr %arrayidx11.i.i892, align 8
-  %and4.i.i.i895 = and i32 %73, -128
-  %and7.i.i.i896 = and i32 %74, -128
-  %retval.sroa.2.0.insert.ext.i.i.i897 = zext i32 %and4.i.i.i895 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i898 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i897, 32
-  %retval.sroa.0.0.insert.ext.i.i.i899 = zext i32 %and.i.i6.i313 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i900 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i898, %retval.sroa.0.0.insert.ext.i.i.i899
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i900, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i896, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %108, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %109 = load ptr, ptr %arrayidx11.i.i892, align 8
-  %call8.i.i904 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %109, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.then.i.i894:                                   ; preds = %if.then6.i866
+  %108 = load ptr, ptr %arrayidx11.i.i893, align 8
+  %and4.i.i.i896 = and i32 %73, -128
+  %and7.i.i.i897 = and i32 %74, -128
+  %retval.sroa.2.0.insert.ext.i.i.i898 = zext i32 %and4.i.i.i896 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i899 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i898, 32
+  %retval.sroa.0.0.insert.ext.i.i.i900 = zext i32 %and.i.i6.i314 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i901 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i899, %retval.sroa.0.0.insert.ext.i.i.i900
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i901, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i897, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %108, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %109 = load ptr, ptr %arrayidx11.i.i893, align 8
+  %call8.i.i905 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %109, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-if.end10.i906:                                    ; preds = %if.end.i862
-  %tile.i.i907 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i843, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
+if.end10.i907:                                    ; preds = %if.end.i863
+  %tile.i.i908 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i844, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398: ; preds = %if.end10.i906, %if.then.i.i893, %if.then6.i865, %if.then.i908, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i386, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i373, %if.end.i33.i334, %if.then.i.i.i353
-  %retval.i.0.i323 = phi ptr [ %arrayidx.i.i396, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i386 ], [ %call3.i.i375, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i373 ], [ %call8.i.i.i362, %if.then.i.i.i353 ], [ %arrayidx11.i.i.i352, %if.end.i33.i334 ], [ %mBackground.i909, %if.then.i908 ], [ %tile.i.i907, %if.end10.i906 ], [ %call8.i.i904, %if.then.i.i893 ], [ %arrayidx11.i.i892, %if.then6.i865 ]
-  %110 = load double, ptr %retval.i.0.i323, align 8
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399: ; preds = %if.end10.i907, %if.then.i.i894, %if.then6.i866, %if.then.i909, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i387, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i374, %if.end.i33.i335, %if.then.i.i.i354
+  %retval.i.0.i324 = phi ptr [ %arrayidx.i.i397, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i387 ], [ %call3.i.i376, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i374 ], [ %call8.i.i.i363, %if.then.i.i.i354 ], [ %arrayidx11.i.i.i353, %if.end.i33.i335 ], [ %mBackground.i910, %if.then.i909 ], [ %tile.i.i908, %if.end10.i907 ], [ %call8.i.i905, %if.then.i.i894 ], [ %arrayidx11.i.i893, %if.then6.i866 ]
+  %110 = load double, ptr %retval.i.0.i324, align 8
   %111 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i16.i = getelementptr inbounds i8, ptr %111, i64 16
   store double %110, ptr %add.ptr.i.i16.i, align 8
   %112 = load i32, ptr %mCenter.i, align 8
-  %113 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %113 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %add4.i.i = add nsw i32 %113, -1
   %114 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %retval.sroa.2.0.insert.ext.i19.i = zext i32 %add4.i.i to i64
-  %retval.sroa.2.0.insert.shift.i20.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i19.i, 32
-  %retval.sroa.0.0.insert.ext.i21.i = zext i32 %112 to i64
-  %retval.sroa.0.0.insert.insert.i22.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i20.i, %retval.sroa.0.0.insert.ext.i21.i
-  store i64 %retval.sroa.0.0.insert.insert.i22.i, ptr %ref.tmp12.i, align 8
+  %retval.sroa.2.0.insert.ext.i20.i = zext i32 %add4.i.i to i64
+  %retval.sroa.2.0.insert.shift.i21.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i20.i, 32
+  %retval.sroa.0.0.insert.ext.i22.i = zext i32 %112 to i64
+  %retval.sroa.0.0.insert.insert.i23.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i21.i, %retval.sroa.0.0.insert.ext.i22.i
+  store i64 %retval.sroa.0.0.insert.insert.i23.i, ptr %ref.tmp12.i, align 8
   store i32 %114, ptr %tmp.coerce16.sroa.2.0.coerce.dive15.sroa_idx.i, align 8
-  %and.i.i.i219 = and i32 %112, -8
-  %115 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i221 = icmp eq i32 %and.i.i.i219, %115
-  br i1 %cmp.i.i.i221, label %land.lhs.true.i.i.i286, label %if.end.i.i222
+  %and.i.i.i220 = and i32 %112, -8
+  %115 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i222 = icmp eq i32 %and.i.i.i220, %115
+  br i1 %cmp.i.i.i222, label %land.lhs.true.i.i.i287, label %if.end.i.i223
 
-land.lhs.true.i.i.i286:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
-  %and5.i.i.i288 = and i32 %add4.i.i, -8
-  %116 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i290 = icmp eq i32 %and5.i.i.i288, %116
-  br i1 %cmp9.i.i.i290, label %land.rhs.i.i.i291, label %if.end.i.i222
+land.lhs.true.i.i.i287:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
+  %and5.i.i.i289 = and i32 %add4.i.i, -8
+  %116 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i291 = icmp eq i32 %and5.i.i.i289, %116
+  br i1 %cmp9.i.i.i291, label %land.rhs.i.i.i292, label %if.end.i.i223
 
-land.rhs.i.i.i291:                                ; preds = %land.lhs.true.i.i.i286
-  %and11.i.i.i293 = and i32 %114, -8
-  %117 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i295 = icmp eq i32 %and11.i.i.i293, %117
-  br i1 %cmp15.i.i.i295, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i296, label %if.end.i.i222
+land.rhs.i.i.i292:                                ; preds = %land.lhs.true.i.i.i287
+  %and11.i.i.i294 = and i32 %114, -8
+  %117 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i296 = icmp eq i32 %and11.i.i.i294, %117
+  br i1 %cmp15.i.i.i296, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i297, label %if.end.i.i223
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i296: ; preds = %land.rhs.i.i.i291
-  %118 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i298 = shl i32 %112, 6
-  %shl.i.i.i299 = and i32 %and.i6.i.i298, 448
-  %and2.i.i.i300 = shl i32 %add4.i.i, 3
-  %shl3.i.i.i301 = and i32 %and2.i.i.i300, 56
-  %and5.i7.i.i303 = and i32 %114, 7
-  %add.i.i.i302 = or disjoint i32 %shl.i.i.i299, %and5.i7.i.i303
-  %add6.i.i.i304 = or disjoint i32 %add.i.i.i302, %shl3.i.i.i301
-  %idxprom.i.i305 = zext nneg i32 %add6.i.i.i304 to i64
-  %arrayidx.i.i306 = getelementptr inbounds double, ptr %118, i64 %idxprom.i.i305
-  %tobool.i.not.i307 = icmp eq ptr %118, null
-  br i1 %tobool.i.not.i307, label %if.end.i.i222, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i297: ; preds = %land.rhs.i.i.i292
+  %118 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i299 = shl i32 %112, 6
+  %shl.i.i.i300 = and i32 %and.i6.i.i299, 448
+  %and2.i.i.i301 = shl i32 %add4.i.i, 3
+  %shl3.i.i.i302 = and i32 %and2.i.i.i301, 56
+  %and5.i7.i.i304 = and i32 %114, 7
+  %add.i.i.i303 = or disjoint i32 %shl.i.i.i300, %and5.i7.i.i304
+  %add6.i.i.i305 = or disjoint i32 %add.i.i.i303, %shl3.i.i.i302
+  %idxprom.i.i306 = zext nneg i32 %add6.i.i.i305 to i64
+  %arrayidx.i.i307 = getelementptr inbounds double, ptr %118, i64 %idxprom.i.i306
+  %tobool.i.not.i308 = icmp eq ptr %118, null
+  br i1 %tobool.i.not.i308, label %if.end.i.i223, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i.i222:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i296, %land.rhs.i.i.i291, %land.lhs.true.i.i.i286, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit398
-  %and.i.i6.i223 = and i32 %112, -128
-  %119 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i225 = icmp eq i32 %and.i.i6.i223, %119
-  br i1 %cmp.i.i7.i225, label %land.lhs.true.i.i9.i273, label %if.end.i16.i226
+if.end.i.i223:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i297, %land.rhs.i.i.i292, %land.lhs.true.i.i.i287, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit399
+  %and.i.i6.i224 = and i32 %112, -128
+  %119 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i226 = icmp eq i32 %and.i.i6.i224, %119
+  br i1 %cmp.i.i7.i226, label %land.lhs.true.i.i9.i274, label %if.end.i16.i227
 
-land.lhs.true.i.i9.i273:                          ; preds = %if.end.i.i222
-  %and5.i.i11.i275 = and i32 %add4.i.i, -128
-  %120 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i277 = icmp eq i32 %and5.i.i11.i275, %120
-  br i1 %cmp9.i.i13.i277, label %land.rhs.i.i14.i278, label %if.end.i16.i226
+land.lhs.true.i.i9.i274:                          ; preds = %if.end.i.i223
+  %and5.i.i11.i276 = and i32 %add4.i.i, -128
+  %120 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i278 = icmp eq i32 %and5.i.i11.i276, %120
+  br i1 %cmp9.i.i13.i278, label %land.rhs.i.i14.i279, label %if.end.i16.i227
 
-land.rhs.i.i14.i278:                              ; preds = %land.lhs.true.i.i9.i273
-  %and11.i.i16.i280 = and i32 %114, -128
-  %121 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i282 = icmp eq i32 %and11.i.i16.i280, %121
-  br i1 %cmp15.i.i17.i282, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i283, label %if.end.i16.i226
+land.rhs.i.i14.i279:                              ; preds = %land.lhs.true.i.i9.i274
+  %and11.i.i16.i281 = and i32 %114, -128
+  %121 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i283 = icmp eq i32 %and11.i.i16.i281, %121
+  br i1 %cmp15.i.i17.i283, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i284, label %if.end.i16.i227
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i283: ; preds = %land.rhs.i.i14.i278
-  %122 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %122, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i284: ; preds = %land.rhs.i.i14.i279
+  %122 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %122, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i16.i226:                                  ; preds = %land.rhs.i.i14.i278, %land.lhs.true.i.i9.i273, %if.end.i.i222
-  %and.i.i19.i227 = and i32 %112, -4096
-  %123 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i229 = icmp eq i32 %and.i.i19.i227, %123
-  br i1 %cmp.i.i21.i229, label %land.lhs.true.i.i23.i234, label %if.end.i27.i230
+if.end.i16.i227:                                  ; preds = %land.rhs.i.i14.i279, %land.lhs.true.i.i9.i274, %if.end.i.i223
+  %and.i.i19.i228 = and i32 %112, -4096
+  %123 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i230 = icmp eq i32 %and.i.i19.i228, %123
+  br i1 %cmp.i.i21.i230, label %land.lhs.true.i.i23.i235, label %if.end.i27.i231
 
-land.lhs.true.i.i23.i234:                         ; preds = %if.end.i16.i226
-  %and5.i.i25.i236 = and i32 %add4.i.i, -4096
-  %124 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i238 = icmp eq i32 %and5.i.i25.i236, %124
-  br i1 %cmp9.i.i27.i238, label %land.rhs.i.i28.i239, label %if.end.i27.i230
+land.lhs.true.i.i23.i235:                         ; preds = %if.end.i16.i227
+  %and5.i.i25.i237 = and i32 %add4.i.i, -4096
+  %124 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i239 = icmp eq i32 %and5.i.i25.i237, %124
+  br i1 %cmp9.i.i27.i239, label %land.rhs.i.i28.i240, label %if.end.i27.i231
 
-land.rhs.i.i28.i239:                              ; preds = %land.lhs.true.i.i23.i234
-  %and11.i.i30.i241 = and i32 %114, -4096
-  %125 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i243 = icmp eq i32 %and11.i.i30.i241, %125
-  br i1 %cmp15.i.i32.i243, label %if.end.i33.i244, label %if.end.i27.i230
+land.rhs.i.i28.i240:                              ; preds = %land.lhs.true.i.i23.i235
+  %and11.i.i30.i242 = and i32 %114, -4096
+  %125 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i244 = icmp eq i32 %and11.i.i30.i242, %125
+  br i1 %cmp15.i.i32.i244, label %if.end.i33.i245, label %if.end.i27.i231
 
-if.end.i33.i244:                                  ; preds = %land.rhs.i.i28.i239
-  %126 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i245:                                  ; preds = %land.rhs.i.i28.i240
+  %126 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %127 = shl i32 %112, 3
-  %shl.i.i.i.i246 = and i32 %127, 31744
+  %shl.i.i.i.i247 = and i32 %127, 31744
   %128 = lshr i32 %add4.i.i, 2
-  %shl4.i.i.i.i247 = and i32 %128, 992
-  %add.i.i.i.i248 = or disjoint i32 %shl4.i.i.i.i247, %shl.i.i.i.i246
-  %and6.i.i.i.i249 = lshr i32 %114, 7
-  %shr7.i.i.i.i250 = and i32 %and6.i.i.i.i249, 31
-  %add8.i.i.i.i251 = or disjoint i32 %add.i.i.i.i248, %shr7.i.i.i.i250
-  %mChildMask.i.i.i.i252 = getelementptr inbounds i8, ptr %126, i64 262144
-  %shr.i.i.i.i.i253 = lshr i32 %add.i.i.i.i248, 6
-  %idxprom.i.i.i.i.i254 = zext nneg i32 %shr.i.i.i.i.i253 to i64
-  %arrayidx.i.i.i8.i.i255 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i252, i64 0, i64 %idxprom.i.i.i.i.i254
-  %129 = load i64, ptr %arrayidx.i.i.i8.i.i255, align 8
-  %and.i.i.i.i.i256 = and i32 %add8.i.i.i.i251, 63
-  %sh_prom.i.i.i.i.i257 = zext nneg i32 %and.i.i.i.i.i256 to i64
-  %shl.i.i.i.i.i258 = shl nuw i64 1, %sh_prom.i.i.i.i.i257
-  %and2.i.i.i.i.i259 = and i64 %129, %shl.i.i.i.i.i258
-  %cmp.i.i.not.i.i.i260 = icmp eq i64 %and2.i.i.i.i.i259, 0
-  %idxprom10.i.i.i261 = zext nneg i32 %add8.i.i.i.i251 to i64
-  %arrayidx11.i.i.i262 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %126, i64 0, i64 %idxprom10.i.i.i261
-  br i1 %cmp.i.i.not.i.i.i260, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308, label %if.then.i.i.i263
+  %shl4.i.i.i.i248 = and i32 %128, 992
+  %add.i.i.i.i249 = or disjoint i32 %shl4.i.i.i.i248, %shl.i.i.i.i247
+  %and6.i.i.i.i250 = lshr i32 %114, 7
+  %shr7.i.i.i.i251 = and i32 %and6.i.i.i.i250, 31
+  %add8.i.i.i.i252 = or disjoint i32 %add.i.i.i.i249, %shr7.i.i.i.i251
+  %mChildMask.i.i.i.i253 = getelementptr inbounds i8, ptr %126, i64 262144
+  %shr.i.i.i.i.i254 = lshr i32 %add.i.i.i.i249, 6
+  %idxprom.i.i.i.i.i255 = zext nneg i32 %shr.i.i.i.i.i254 to i64
+  %arrayidx.i.i.i8.i.i256 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i253, i64 0, i64 %idxprom.i.i.i.i.i255
+  %129 = load i64, ptr %arrayidx.i.i.i8.i.i256, align 8
+  %and.i.i.i.i.i257 = and i32 %add8.i.i.i.i252, 63
+  %sh_prom.i.i.i.i.i258 = zext nneg i32 %and.i.i.i.i.i257 to i64
+  %shl.i.i.i.i.i259 = shl nuw i64 1, %sh_prom.i.i.i.i.i258
+  %and2.i.i.i.i.i260 = and i64 %129, %shl.i.i.i.i.i259
+  %cmp.i.i.not.i.i.i261 = icmp eq i64 %and2.i.i.i.i.i260, 0
+  %idxprom10.i.i.i262 = zext nneg i32 %add8.i.i.i.i252 to i64
+  %arrayidx11.i.i.i263 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %126, i64 0, i64 %idxprom10.i.i.i262
+  br i1 %cmp.i.i.not.i.i.i261, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309, label %if.then.i.i.i264
 
-if.then.i.i.i263:                                 ; preds = %if.end.i33.i244
-  %130 = load ptr, ptr %arrayidx11.i.i.i262, align 8
-  %and4.i.i.i.i264 = and i32 %add4.i.i, -128
-  %and7.i.i.i.i265 = and i32 %114, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i266 = zext i32 %and4.i.i.i.i264 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i267 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i266, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i268 = zext i32 %and.i.i6.i223 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i269 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i267, %retval.sroa.0.0.insert.ext.i.i.i.i268
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i269, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i265, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %130, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %131 = load ptr, ptr %arrayidx11.i.i.i262, align 8
-  %call8.i.i.i272 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %131, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i.i.i264:                                 ; preds = %if.end.i33.i245
+  %130 = load ptr, ptr %arrayidx11.i.i.i263, align 8
+  %and4.i.i.i.i265 = and i32 %add4.i.i, -128
+  %and7.i.i.i.i266 = and i32 %114, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i267 = zext i32 %and4.i.i.i.i265 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i268 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i267, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i269 = zext i32 %and.i.i6.i224 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i270 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i268, %retval.sroa.0.0.insert.ext.i.i.i.i269
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i270, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i266, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %130, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %131 = load ptr, ptr %arrayidx11.i.i.i263, align 8
+  %call8.i.i.i273 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %131, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i27.i230:                                  ; preds = %land.rhs.i.i28.i239, %land.lhs.true.i.i23.i234, %if.end.i16.i226
-  %132 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i712 = getelementptr inbounds i8, ptr %132, i64 56
-  %133 = load i32, ptr %mOrigin.i.i.i712, align 4
-  %sub.i.i.i.i713 = sub nsw i32 %112, %133
-  %arrayidx.i.i.i.i.i.i.i715 = getelementptr inbounds i8, ptr %132, i64 60
-  %134 = load i32, ptr %arrayidx.i.i.i.i.i.i.i715, align 4
-  %sub6.i.i.i.i716 = sub nsw i32 %add4.i.i, %134
-  %arrayidx.i.i.i4.i.i.i.i718 = getelementptr inbounds i8, ptr %132, i64 64
-  %135 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i718, align 4
-  %sub10.i.i.i.i719 = sub nsw i32 %114, %135
-  %and.i.i.i.i720 = and i32 %sub.i.i.i.i713, -4096
-  %and4.i.i.i.i721 = and i32 %sub6.i.i.i.i716, -4096
-  %and7.i.i.i.i722 = and i32 %sub10.i.i.i.i719, -4096
-  %_M_parent.i.i.i.i.i723 = getelementptr inbounds i8, ptr %132, i64 16
-  %136 = load ptr, ptr %_M_parent.i.i.i.i.i723, align 8
-  %add.ptr.i.i.i.i.i724 = getelementptr inbounds i8, ptr %132, i64 8
-  %cmp.not9.i.i.i.i.i725 = icmp eq ptr %136, null
-  br i1 %cmp.not9.i.i.i.i.i725, label %if.then.i808, label %while.body.i.i.i.i.i726
+if.end.i27.i231:                                  ; preds = %land.rhs.i.i28.i240, %land.lhs.true.i.i23.i235, %if.end.i16.i227
+  %132 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i713 = getelementptr inbounds i8, ptr %132, i64 56
+  %133 = load i32, ptr %mOrigin.i.i.i713, align 4
+  %sub.i.i.i.i714 = sub nsw i32 %112, %133
+  %arrayidx.i.i.i.i.i.i.i716 = getelementptr inbounds i8, ptr %132, i64 60
+  %134 = load i32, ptr %arrayidx.i.i.i.i.i.i.i716, align 4
+  %sub6.i.i.i.i717 = sub nsw i32 %add4.i.i, %134
+  %arrayidx.i.i.i4.i.i.i.i719 = getelementptr inbounds i8, ptr %132, i64 64
+  %135 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i719, align 4
+  %sub10.i.i.i.i720 = sub nsw i32 %114, %135
+  %and.i.i.i.i721 = and i32 %sub.i.i.i.i714, -4096
+  %and4.i.i.i.i722 = and i32 %sub6.i.i.i.i717, -4096
+  %and7.i.i.i.i723 = and i32 %sub10.i.i.i.i720, -4096
+  %_M_parent.i.i.i.i.i724 = getelementptr inbounds i8, ptr %132, i64 16
+  %136 = load ptr, ptr %_M_parent.i.i.i.i.i724, align 8
+  %add.ptr.i.i.i.i.i725 = getelementptr inbounds i8, ptr %132, i64 8
+  %cmp.not9.i.i.i.i.i726 = icmp eq ptr %136, null
+  br i1 %cmp.not9.i.i.i.i.i726, label %if.then.i809, label %while.body.i.i.i.i.i727
 
-while.body.i.i.i.i.i726:                          ; preds = %if.end.i27.i230, %if.end.i.i.i.i.i741
-  %__x.addr.011.i.i.i.i.i727 = phi ptr [ %__x.addr.1.i.i.i.i.i745, %if.end.i.i.i.i.i741 ], [ %136, %if.end.i27.i230 ]
-  %__y.addr.010.i.i.i.i.i728 = phi ptr [ %__y.addr.1.i.i.i.i.i743, %if.end.i.i.i.i.i741 ], [ %add.ptr.i.i.i.i.i724, %if.end.i27.i230 ]
-  %_M_storage.i.i.i.i.i.i.i729 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 32
-  %137 = load i32, ptr %_M_storage.i.i.i.i.i.i.i729, align 4
-  %cmp.i.i.i.i.i.i.i730 = icmp slt i32 %137, %and.i.i.i.i720
-  br i1 %cmp.i.i.i.i.i.i.i730, label %if.else.i.i.i.i.i810, label %cond.false.i.i.i.i.i.i.i731
+while.body.i.i.i.i.i727:                          ; preds = %if.end.i27.i231, %if.end.i.i.i.i.i742
+  %__x.addr.011.i.i.i.i.i728 = phi ptr [ %__x.addr.1.i.i.i.i.i746, %if.end.i.i.i.i.i742 ], [ %136, %if.end.i27.i231 ]
+  %__y.addr.010.i.i.i.i.i729 = phi ptr [ %__y.addr.1.i.i.i.i.i744, %if.end.i.i.i.i.i742 ], [ %add.ptr.i.i.i.i.i725, %if.end.i27.i231 ]
+  %_M_storage.i.i.i.i.i.i.i730 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 32
+  %137 = load i32, ptr %_M_storage.i.i.i.i.i.i.i730, align 4
+  %cmp.i.i.i.i.i.i.i731 = icmp slt i32 %137, %and.i.i.i.i721
+  br i1 %cmp.i.i.i.i.i.i.i731, label %if.else.i.i.i.i.i811, label %cond.false.i.i.i.i.i.i.i732
 
-cond.false.i.i.i.i.i.i.i731:                      ; preds = %while.body.i.i.i.i.i726
-  %cmp5.i.i.i.i.i.i.i732 = icmp sgt i32 %137, %and.i.i.i.i720
-  br i1 %cmp5.i.i.i.i.i.i.i732, label %if.end.i.i.i.i.i741, label %cond.false7.i.i.i.i.i.i.i733
+cond.false.i.i.i.i.i.i.i732:                      ; preds = %while.body.i.i.i.i.i727
+  %cmp5.i.i.i.i.i.i.i733 = icmp sgt i32 %137, %and.i.i.i.i721
+  br i1 %cmp5.i.i.i.i.i.i.i733, label %if.end.i.i.i.i.i742, label %cond.false7.i.i.i.i.i.i.i734
 
-cond.false7.i.i.i.i.i.i.i733:                     ; preds = %cond.false.i.i.i.i.i.i.i731
-  %arrayidx.i.i.i.i.i.i.i.i.i.i734 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 36
-  %138 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i734, align 4
-  %cmp10.i.i.i.i.i.i.i735 = icmp slt i32 %138, %and4.i.i.i.i721
-  br i1 %cmp10.i.i.i.i.i.i.i735, label %if.else.i.i.i.i.i810, label %cond.false12.i.i.i.i.i.i.i736
+cond.false7.i.i.i.i.i.i.i734:                     ; preds = %cond.false.i.i.i.i.i.i.i732
+  %arrayidx.i.i.i.i.i.i.i.i.i.i735 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 36
+  %138 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i735, align 4
+  %cmp10.i.i.i.i.i.i.i736 = icmp slt i32 %138, %and4.i.i.i.i722
+  br i1 %cmp10.i.i.i.i.i.i.i736, label %if.else.i.i.i.i.i811, label %cond.false12.i.i.i.i.i.i.i737
 
-cond.false12.i.i.i.i.i.i.i736:                    ; preds = %cond.false7.i.i.i.i.i.i.i733
-  %cmp15.i.i.i.i.i.i.i737 = icmp sgt i32 %138, %and4.i.i.i.i721
-  br i1 %cmp15.i.i.i.i.i.i.i737, label %if.end.i.i.i.i.i741, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738
+cond.false12.i.i.i.i.i.i.i737:                    ; preds = %cond.false7.i.i.i.i.i.i.i734
+  %cmp15.i.i.i.i.i.i.i738 = icmp sgt i32 %138, %and4.i.i.i.i722
+  br i1 %cmp15.i.i.i.i.i.i.i738, label %if.end.i.i.i.i.i742, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738: ; preds = %cond.false12.i.i.i.i.i.i.i736
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i739 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 40
-  %139 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i739, align 4
-  %cmp20.i.i.i.i.i.i.i740 = icmp slt i32 %139, %and7.i.i.i.i722
-  br i1 %cmp20.i.i.i.i.i.i.i740, label %if.else.i.i.i.i.i810, label %if.end.i.i.i.i.i741
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739: ; preds = %cond.false12.i.i.i.i.i.i.i737
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i740 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 40
+  %139 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i740, align 4
+  %cmp20.i.i.i.i.i.i.i741 = icmp slt i32 %139, %and7.i.i.i.i723
+  br i1 %cmp20.i.i.i.i.i.i.i741, label %if.else.i.i.i.i.i811, label %if.end.i.i.i.i.i742
 
-if.else.i.i.i.i.i810:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738, %cond.false7.i.i.i.i.i.i.i733, %while.body.i.i.i.i.i726
-  br label %if.end.i.i.i.i.i741
+if.else.i.i.i.i.i811:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739, %cond.false7.i.i.i.i.i.i.i734, %while.body.i.i.i.i.i727
+  br label %if.end.i.i.i.i.i742
 
-if.end.i.i.i.i.i741:                              ; preds = %if.else.i.i.i.i.i810, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738, %cond.false12.i.i.i.i.i.i.i736, %cond.false.i.i.i.i.i.i.i731
-  %.sink.i.i.i.i.i742 = phi i64 [ 24, %if.else.i.i.i.i.i810 ], [ 16, %cond.false12.i.i.i.i.i.i.i736 ], [ 16, %cond.false.i.i.i.i.i.i.i731 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738 ]
-  %__y.addr.1.i.i.i.i.i743 = phi ptr [ %__y.addr.010.i.i.i.i.i728, %if.else.i.i.i.i.i810 ], [ %__x.addr.011.i.i.i.i.i727, %cond.false12.i.i.i.i.i.i.i736 ], [ %__x.addr.011.i.i.i.i.i727, %cond.false.i.i.i.i.i.i.i731 ], [ %__x.addr.011.i.i.i.i.i727, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i738 ]
-  %_M_right.i.i.i.i.i.i744 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i727, i64 %.sink.i.i.i.i.i742
-  %__x.addr.1.i.i.i.i.i745 = load ptr, ptr %_M_right.i.i.i.i.i.i744, align 8
-  %cmp.not.i.i.i.i.i746 = icmp eq ptr %__x.addr.1.i.i.i.i.i745, null
-  br i1 %cmp.not.i.i.i.i.i746, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747, label %while.body.i.i.i.i.i726, !llvm.loop !77
+if.end.i.i.i.i.i742:                              ; preds = %if.else.i.i.i.i.i811, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739, %cond.false12.i.i.i.i.i.i.i737, %cond.false.i.i.i.i.i.i.i732
+  %.sink.i.i.i.i.i743 = phi i64 [ 24, %if.else.i.i.i.i.i811 ], [ 16, %cond.false12.i.i.i.i.i.i.i737 ], [ 16, %cond.false.i.i.i.i.i.i.i732 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739 ]
+  %__y.addr.1.i.i.i.i.i744 = phi ptr [ %__y.addr.010.i.i.i.i.i729, %if.else.i.i.i.i.i811 ], [ %__x.addr.011.i.i.i.i.i728, %cond.false12.i.i.i.i.i.i.i737 ], [ %__x.addr.011.i.i.i.i.i728, %cond.false.i.i.i.i.i.i.i732 ], [ %__x.addr.011.i.i.i.i.i728, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i739 ]
+  %_M_right.i.i.i.i.i.i745 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i728, i64 %.sink.i.i.i.i.i743
+  %__x.addr.1.i.i.i.i.i746 = load ptr, ptr %_M_right.i.i.i.i.i.i745, align 8
+  %cmp.not.i.i.i.i.i747 = icmp eq ptr %__x.addr.1.i.i.i.i.i746, null
+  br i1 %cmp.not.i.i.i.i.i747, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748, label %while.body.i.i.i.i.i727, !llvm.loop !77
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747: ; preds = %if.end.i.i.i.i.i741
-  %cmp.i.i.i.i.i748 = icmp eq ptr %__y.addr.1.i.i.i.i.i743, %add.ptr.i.i.i.i.i724
-  br i1 %cmp.i.i.i.i.i748, label %if.then.i808, label %lor.lhs.false.i.i.i.i749
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748: ; preds = %if.end.i.i.i.i.i742
+  %cmp.i.i.i.i.i749 = icmp eq ptr %__y.addr.1.i.i.i.i.i744, %add.ptr.i.i.i.i.i725
+  br i1 %cmp.i.i.i.i.i749, label %if.then.i809, label %lor.lhs.false.i.i.i.i750
 
-lor.lhs.false.i.i.i.i749:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747
-  %_M_storage.i.i.i3.i.i.i.i750 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 32
-  %140 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i750, align 4
-  %cmp.i.i.i.i.i.i751 = icmp slt i32 %and.i.i.i.i720, %140
-  br i1 %cmp.i.i.i.i.i.i751, label %if.then.i808, label %cond.false.i.i.i.i.i.i752
+lor.lhs.false.i.i.i.i750:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748
+  %_M_storage.i.i.i3.i.i.i.i751 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 32
+  %140 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i751, align 4
+  %cmp.i.i.i.i.i.i752 = icmp slt i32 %and.i.i.i.i721, %140
+  br i1 %cmp.i.i.i.i.i.i752, label %if.then.i809, label %cond.false.i.i.i.i.i.i753
 
-cond.false.i.i.i.i.i.i752:                        ; preds = %lor.lhs.false.i.i.i.i749
-  %cmp5.i.i.i.i.i.i753 = icmp sgt i32 %and.i.i.i.i720, %140
-  br i1 %cmp5.i.i.i.i.i.i753, label %if.end.i762, label %cond.false7.i.i.i.i.i.i754
+cond.false.i.i.i.i.i.i753:                        ; preds = %lor.lhs.false.i.i.i.i750
+  %cmp5.i.i.i.i.i.i754 = icmp sgt i32 %and.i.i.i.i721, %140
+  br i1 %cmp5.i.i.i.i.i.i754, label %if.end.i763, label %cond.false7.i.i.i.i.i.i755
 
-cond.false7.i.i.i.i.i.i754:                       ; preds = %cond.false.i.i.i.i.i.i752
-  %arrayidx.i.i.i5.i.i.i.i.i.i755 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 36
-  %141 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i755, align 4
-  %cmp10.i.i.i.i.i.i756 = icmp slt i32 %and4.i.i.i.i721, %141
-  br i1 %cmp10.i.i.i.i.i.i756, label %if.then.i808, label %cond.false12.i.i.i.i.i.i757
+cond.false7.i.i.i.i.i.i755:                       ; preds = %cond.false.i.i.i.i.i.i753
+  %arrayidx.i.i.i5.i.i.i.i.i.i756 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 36
+  %141 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i756, align 4
+  %cmp10.i.i.i.i.i.i757 = icmp slt i32 %and4.i.i.i.i722, %141
+  br i1 %cmp10.i.i.i.i.i.i757, label %if.then.i809, label %cond.false12.i.i.i.i.i.i758
 
-cond.false12.i.i.i.i.i.i757:                      ; preds = %cond.false7.i.i.i.i.i.i754
-  %cmp15.i.i.i.i.i.i758 = icmp sgt i32 %and4.i.i.i.i721, %141
-  br i1 %cmp15.i.i.i.i.i.i758, label %if.end.i762, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759
+cond.false12.i.i.i.i.i.i758:                      ; preds = %cond.false7.i.i.i.i.i.i755
+  %cmp15.i.i.i.i.i.i759 = icmp sgt i32 %and4.i.i.i.i722, %141
+  br i1 %cmp15.i.i.i.i.i.i759, label %if.end.i763, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759: ; preds = %cond.false12.i.i.i.i.i.i757
-  %arrayidx.i.i.i9.i.i.i.i.i.i760 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 40
-  %142 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i760, align 4
-  %cmp20.i.i.i.i.i.i761 = icmp slt i32 %and7.i.i.i.i722, %142
-  br i1 %cmp20.i.i.i.i.i.i761, label %if.then.i808, label %if.end.i762
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760: ; preds = %cond.false12.i.i.i.i.i.i758
+  %arrayidx.i.i.i9.i.i.i.i.i.i761 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 40
+  %142 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i761, align 4
+  %cmp20.i.i.i.i.i.i762 = icmp slt i32 %and7.i.i.i.i723, %142
+  br i1 %cmp20.i.i.i.i.i.i762, label %if.then.i809, label %if.end.i763
 
-if.then.i808:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759, %cond.false7.i.i.i.i.i.i754, %lor.lhs.false.i.i.i.i749, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i747, %if.end.i27.i230
-  %mBackground.i809 = getelementptr inbounds i8, ptr %132, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i809:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760, %cond.false7.i.i.i.i.i.i755, %lor.lhs.false.i.i.i.i750, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i748, %if.end.i27.i231
+  %mBackground.i810 = getelementptr inbounds i8, ptr %132, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end.i762:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i759, %cond.false12.i.i.i.i.i.i757, %cond.false.i.i.i.i.i.i752
-  %second.i.i763 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 48
-  %143 = load ptr, ptr %second.i.i763, align 8
-  %cmp.i.i.not.i764 = icmp eq ptr %143, null
-  br i1 %cmp.i.i.not.i764, label %if.end10.i806, label %if.then6.i765
+if.end.i763:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i760, %cond.false12.i.i.i.i.i.i758, %cond.false.i.i.i.i.i.i753
+  %second.i.i764 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 48
+  %143 = load ptr, ptr %second.i.i764, align 8
+  %cmp.i.i.not.i765 = icmp eq ptr %143, null
+  br i1 %cmp.i.i.not.i765, label %if.end10.i807, label %if.then6.i766
 
-if.then6.i765:                                    ; preds = %if.end.i762
-  %and4.i.i767 = and i32 %add4.i.i, -4096
-  %and7.i.i768 = and i32 %114, -4096
-  %retval.sroa.2.0.insert.ext.i.i769 = zext i32 %and4.i.i767 to i64
-  %retval.sroa.2.0.insert.shift.i.i770 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i769, 32
-  %retval.sroa.0.0.insert.ext.i.i771 = zext i32 %and.i.i19.i227 to i64
-  %retval.sroa.0.0.insert.insert.i.i772 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i770, %retval.sroa.0.0.insert.ext.i.i771
-  store i64 %retval.sroa.0.0.insert.insert.i.i772, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i768, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %143, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %144 = load ptr, ptr %second.i.i763, align 8
+if.then6.i766:                                    ; preds = %if.end.i763
+  %and4.i.i768 = and i32 %add4.i.i, -4096
+  %and7.i.i769 = and i32 %114, -4096
+  %retval.sroa.2.0.insert.ext.i.i770 = zext i32 %and4.i.i768 to i64
+  %retval.sroa.2.0.insert.shift.i.i771 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i770, 32
+  %retval.sroa.0.0.insert.ext.i.i772 = zext i32 %and.i.i19.i228 to i64
+  %retval.sroa.0.0.insert.insert.i.i773 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i771, %retval.sroa.0.0.insert.ext.i.i772
+  store i64 %retval.sroa.0.0.insert.insert.i.i773, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i769, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %143, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %144 = load ptr, ptr %second.i.i764, align 8
   %145 = shl i32 %112, 3
-  %shl.i.i.i776 = and i32 %145, 31744
+  %shl.i.i.i777 = and i32 %145, 31744
   %146 = lshr i32 %add4.i.i, 2
-  %shl4.i.i.i777 = and i32 %146, 992
-  %add.i.i.i778 = or disjoint i32 %shl4.i.i.i777, %shl.i.i.i776
-  %and6.i.i.i779 = lshr i32 %114, 7
-  %shr7.i.i.i780 = and i32 %and6.i.i.i779, 31
-  %add8.i.i.i781 = or disjoint i32 %add.i.i.i778, %shr7.i.i.i780
-  %mChildMask.i.i.i782 = getelementptr inbounds i8, ptr %144, i64 262144
-  %shr.i.i.i.i783 = lshr i32 %add.i.i.i778, 6
-  %idxprom.i.i.i.i784 = zext nneg i32 %shr.i.i.i.i783 to i64
-  %arrayidx.i.i.i8.i785 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i782, i64 0, i64 %idxprom.i.i.i.i784
-  %147 = load i64, ptr %arrayidx.i.i.i8.i785, align 8
-  %and.i.i.i9.i786 = and i32 %add8.i.i.i781, 63
-  %sh_prom.i.i.i.i787 = zext nneg i32 %and.i.i.i9.i786 to i64
-  %shl.i.i.i.i788 = shl nuw i64 1, %sh_prom.i.i.i.i787
-  %and2.i.i.i.i789 = and i64 %147, %shl.i.i.i.i788
-  %cmp.i.i.not.i.i790 = icmp eq i64 %and2.i.i.i.i789, 0
-  %idxprom10.i.i791 = zext nneg i32 %add8.i.i.i781 to i64
-  %arrayidx11.i.i792 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %144, i64 0, i64 %idxprom10.i.i791
-  br i1 %cmp.i.i.not.i.i790, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308, label %if.then.i.i793
+  %shl4.i.i.i778 = and i32 %146, 992
+  %add.i.i.i779 = or disjoint i32 %shl4.i.i.i778, %shl.i.i.i777
+  %and6.i.i.i780 = lshr i32 %114, 7
+  %shr7.i.i.i781 = and i32 %and6.i.i.i780, 31
+  %add8.i.i.i782 = or disjoint i32 %add.i.i.i779, %shr7.i.i.i781
+  %mChildMask.i.i.i783 = getelementptr inbounds i8, ptr %144, i64 262144
+  %shr.i.i.i.i784 = lshr i32 %add.i.i.i779, 6
+  %idxprom.i.i.i.i785 = zext nneg i32 %shr.i.i.i.i784 to i64
+  %arrayidx.i.i.i8.i786 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i783, i64 0, i64 %idxprom.i.i.i.i785
+  %147 = load i64, ptr %arrayidx.i.i.i8.i786, align 8
+  %and.i.i.i9.i787 = and i32 %add8.i.i.i782, 63
+  %sh_prom.i.i.i.i788 = zext nneg i32 %and.i.i.i9.i787 to i64
+  %shl.i.i.i.i789 = shl nuw i64 1, %sh_prom.i.i.i.i788
+  %and2.i.i.i.i790 = and i64 %147, %shl.i.i.i.i789
+  %cmp.i.i.not.i.i791 = icmp eq i64 %and2.i.i.i.i790, 0
+  %idxprom10.i.i792 = zext nneg i32 %add8.i.i.i782 to i64
+  %arrayidx11.i.i793 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %144, i64 0, i64 %idxprom10.i.i792
+  br i1 %cmp.i.i.not.i.i791, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309, label %if.then.i.i794
 
-if.then.i.i793:                                   ; preds = %if.then6.i765
-  %148 = load ptr, ptr %arrayidx11.i.i792, align 8
-  %and4.i.i.i795 = and i32 %add4.i.i, -128
-  %and7.i.i.i796 = and i32 %114, -128
-  %retval.sroa.2.0.insert.ext.i.i.i797 = zext i32 %and4.i.i.i795 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i798 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i797, 32
-  %retval.sroa.0.0.insert.ext.i.i.i799 = zext i32 %and.i.i6.i223 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i800 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i798, %retval.sroa.0.0.insert.ext.i.i.i799
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i800, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i796, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %148, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %149 = load ptr, ptr %arrayidx11.i.i792, align 8
-  %call8.i.i804 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %149, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.then.i.i794:                                   ; preds = %if.then6.i766
+  %148 = load ptr, ptr %arrayidx11.i.i793, align 8
+  %and4.i.i.i796 = and i32 %add4.i.i, -128
+  %and7.i.i.i797 = and i32 %114, -128
+  %retval.sroa.2.0.insert.ext.i.i.i798 = zext i32 %and4.i.i.i796 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i799 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i798, 32
+  %retval.sroa.0.0.insert.ext.i.i.i800 = zext i32 %and.i.i6.i224 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i801 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i799, %retval.sroa.0.0.insert.ext.i.i.i800
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i801, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i797, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %148, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %149 = load ptr, ptr %arrayidx11.i.i793, align 8
+  %call8.i.i805 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %149, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-if.end10.i806:                                    ; preds = %if.end.i762
-  %tile.i.i807 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i743, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
+if.end10.i807:                                    ; preds = %if.end.i763
+  %tile.i.i808 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i744, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308: ; preds = %if.end10.i806, %if.then.i.i793, %if.then6.i765, %if.then.i808, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i296, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i283, %if.end.i33.i244, %if.then.i.i.i263
-  %retval.i.0.i233 = phi ptr [ %arrayidx.i.i306, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i296 ], [ %call3.i.i285, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i283 ], [ %call8.i.i.i272, %if.then.i.i.i263 ], [ %arrayidx11.i.i.i262, %if.end.i33.i244 ], [ %mBackground.i809, %if.then.i808 ], [ %tile.i.i807, %if.end10.i806 ], [ %call8.i.i804, %if.then.i.i793 ], [ %arrayidx11.i.i792, %if.then6.i765 ]
-  %150 = load double, ptr %retval.i.0.i233, align 8
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309: ; preds = %if.end10.i807, %if.then.i.i794, %if.then6.i766, %if.then.i809, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i297, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i284, %if.end.i33.i245, %if.then.i.i.i264
+  %retval.i.0.i234 = phi ptr [ %arrayidx.i.i307, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i297 ], [ %call3.i.i286, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i284 ], [ %call8.i.i.i273, %if.then.i.i.i264 ], [ %arrayidx11.i.i.i263, %if.end.i33.i245 ], [ %mBackground.i810, %if.then.i809 ], [ %tile.i.i808, %if.end10.i807 ], [ %call8.i.i805, %if.then.i.i794 ], [ %arrayidx11.i.i793, %if.then6.i766 ]
+  %150 = load double, ptr %retval.i.0.i234, align 8
   %151 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i26.i = getelementptr inbounds i8, ptr %151, i64 24
-  store double %150, ptr %add.ptr.i.i26.i, align 8
+  %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %151, i64 24
+  store double %150, ptr %add.ptr.i.i27.i, align 8
   %152 = load i32, ptr %mCenter.i, align 8
-  %153 = load i32, ptr %arrayidx.i.i.i.i26, align 4
-  %add4.i28.i = add nsw i32 %153, 1
+  %153 = load i32, ptr %arrayidx.i.i.i.i27, align 4
+  %add4.i30.i = add nsw i32 %153, 1
   %154 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %retval.sroa.2.0.insert.ext.i30.i = zext i32 %add4.i28.i to i64
-  %retval.sroa.2.0.insert.shift.i31.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i30.i, 32
-  %retval.sroa.0.0.insert.ext.i32.i = zext i32 %152 to i64
-  %retval.sroa.0.0.insert.insert.i33.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i31.i, %retval.sroa.0.0.insert.ext.i32.i
-  store i64 %retval.sroa.0.0.insert.insert.i33.i, ptr %ref.tmp19.i, align 8
+  %retval.sroa.2.0.insert.ext.i32.i = zext i32 %add4.i30.i to i64
+  %retval.sroa.2.0.insert.shift.i33.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i32.i, 32
+  %retval.sroa.0.0.insert.ext.i34.i = zext i32 %152 to i64
+  %retval.sroa.0.0.insert.insert.i35.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i33.i, %retval.sroa.0.0.insert.ext.i34.i
+  store i64 %retval.sroa.0.0.insert.insert.i35.i, ptr %ref.tmp19.i, align 8
   store i32 %154, ptr %tmp.coerce23.sroa.2.0.coerce.dive22.sroa_idx.i, align 8
-  %and.i.i.i129 = and i32 %152, -8
-  %155 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i131 = icmp eq i32 %and.i.i.i129, %155
-  br i1 %cmp.i.i.i131, label %land.lhs.true.i.i.i196, label %if.end.i.i132
+  %and.i.i.i130 = and i32 %152, -8
+  %155 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i132 = icmp eq i32 %and.i.i.i130, %155
+  br i1 %cmp.i.i.i132, label %land.lhs.true.i.i.i197, label %if.end.i.i133
 
-land.lhs.true.i.i.i196:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
-  %and5.i.i.i198 = and i32 %add4.i28.i, -8
-  %156 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i200 = icmp eq i32 %and5.i.i.i198, %156
-  br i1 %cmp9.i.i.i200, label %land.rhs.i.i.i201, label %if.end.i.i132
+land.lhs.true.i.i.i197:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
+  %and5.i.i.i199 = and i32 %add4.i30.i, -8
+  %156 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i201 = icmp eq i32 %and5.i.i.i199, %156
+  br i1 %cmp9.i.i.i201, label %land.rhs.i.i.i202, label %if.end.i.i133
 
-land.rhs.i.i.i201:                                ; preds = %land.lhs.true.i.i.i196
-  %and11.i.i.i203 = and i32 %154, -8
-  %157 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i205 = icmp eq i32 %and11.i.i.i203, %157
-  br i1 %cmp15.i.i.i205, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i206, label %if.end.i.i132
+land.rhs.i.i.i202:                                ; preds = %land.lhs.true.i.i.i197
+  %and11.i.i.i204 = and i32 %154, -8
+  %157 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i206 = icmp eq i32 %and11.i.i.i204, %157
+  br i1 %cmp15.i.i.i206, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i207, label %if.end.i.i133
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i206: ; preds = %land.rhs.i.i.i201
-  %158 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i208 = shl i32 %152, 6
-  %shl.i.i.i209 = and i32 %and.i6.i.i208, 448
-  %and2.i.i.i210 = shl i32 %add4.i28.i, 3
-  %shl3.i.i.i211 = and i32 %and2.i.i.i210, 56
-  %and5.i7.i.i213 = and i32 %154, 7
-  %add.i.i.i212 = or disjoint i32 %shl.i.i.i209, %and5.i7.i.i213
-  %add6.i.i.i214 = or disjoint i32 %add.i.i.i212, %shl3.i.i.i211
-  %idxprom.i.i215 = zext nneg i32 %add6.i.i.i214 to i64
-  %arrayidx.i.i216 = getelementptr inbounds double, ptr %158, i64 %idxprom.i.i215
-  %tobool.i.not.i217 = icmp eq ptr %158, null
-  br i1 %tobool.i.not.i217, label %if.end.i.i132, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i207: ; preds = %land.rhs.i.i.i202
+  %158 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i209 = shl i32 %152, 6
+  %shl.i.i.i210 = and i32 %and.i6.i.i209, 448
+  %and2.i.i.i211 = shl i32 %add4.i30.i, 3
+  %shl3.i.i.i212 = and i32 %and2.i.i.i211, 56
+  %and5.i7.i.i214 = and i32 %154, 7
+  %add.i.i.i213 = or disjoint i32 %shl.i.i.i210, %and5.i7.i.i214
+  %add6.i.i.i215 = or disjoint i32 %add.i.i.i213, %shl3.i.i.i212
+  %idxprom.i.i216 = zext nneg i32 %add6.i.i.i215 to i64
+  %arrayidx.i.i217 = getelementptr inbounds double, ptr %158, i64 %idxprom.i.i216
+  %tobool.i.not.i218 = icmp eq ptr %158, null
+  br i1 %tobool.i.not.i218, label %if.end.i.i133, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i.i132:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i206, %land.rhs.i.i.i201, %land.lhs.true.i.i.i196, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit308
-  %and.i.i6.i133 = and i32 %152, -128
-  %159 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i135 = icmp eq i32 %and.i.i6.i133, %159
-  br i1 %cmp.i.i7.i135, label %land.lhs.true.i.i9.i183, label %if.end.i16.i136
+if.end.i.i133:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i207, %land.rhs.i.i.i202, %land.lhs.true.i.i.i197, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit309
+  %and.i.i6.i134 = and i32 %152, -128
+  %159 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i136 = icmp eq i32 %and.i.i6.i134, %159
+  br i1 %cmp.i.i7.i136, label %land.lhs.true.i.i9.i184, label %if.end.i16.i137
 
-land.lhs.true.i.i9.i183:                          ; preds = %if.end.i.i132
-  %and5.i.i11.i185 = and i32 %add4.i28.i, -128
-  %160 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i187 = icmp eq i32 %and5.i.i11.i185, %160
-  br i1 %cmp9.i.i13.i187, label %land.rhs.i.i14.i188, label %if.end.i16.i136
+land.lhs.true.i.i9.i184:                          ; preds = %if.end.i.i133
+  %and5.i.i11.i186 = and i32 %add4.i30.i, -128
+  %160 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i188 = icmp eq i32 %and5.i.i11.i186, %160
+  br i1 %cmp9.i.i13.i188, label %land.rhs.i.i14.i189, label %if.end.i16.i137
 
-land.rhs.i.i14.i188:                              ; preds = %land.lhs.true.i.i9.i183
-  %and11.i.i16.i190 = and i32 %154, -128
-  %161 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i192 = icmp eq i32 %and11.i.i16.i190, %161
-  br i1 %cmp15.i.i17.i192, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i193, label %if.end.i16.i136
+land.rhs.i.i14.i189:                              ; preds = %land.lhs.true.i.i9.i184
+  %and11.i.i16.i191 = and i32 %154, -128
+  %161 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i193 = icmp eq i32 %and11.i.i16.i191, %161
+  br i1 %cmp15.i.i17.i193, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i194, label %if.end.i16.i137
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i193: ; preds = %land.rhs.i.i14.i188
-  %162 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i195 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %162, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i194: ; preds = %land.rhs.i.i14.i189
+  %162 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i196 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %162, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i16.i136:                                  ; preds = %land.rhs.i.i14.i188, %land.lhs.true.i.i9.i183, %if.end.i.i132
-  %and.i.i19.i137 = and i32 %152, -4096
-  %163 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i139 = icmp eq i32 %and.i.i19.i137, %163
-  br i1 %cmp.i.i21.i139, label %land.lhs.true.i.i23.i144, label %if.end.i27.i140
+if.end.i16.i137:                                  ; preds = %land.rhs.i.i14.i189, %land.lhs.true.i.i9.i184, %if.end.i.i133
+  %and.i.i19.i138 = and i32 %152, -4096
+  %163 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i140 = icmp eq i32 %and.i.i19.i138, %163
+  br i1 %cmp.i.i21.i140, label %land.lhs.true.i.i23.i145, label %if.end.i27.i141
 
-land.lhs.true.i.i23.i144:                         ; preds = %if.end.i16.i136
-  %and5.i.i25.i146 = and i32 %add4.i28.i, -4096
-  %164 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i148 = icmp eq i32 %and5.i.i25.i146, %164
-  br i1 %cmp9.i.i27.i148, label %land.rhs.i.i28.i149, label %if.end.i27.i140
+land.lhs.true.i.i23.i145:                         ; preds = %if.end.i16.i137
+  %and5.i.i25.i147 = and i32 %add4.i30.i, -4096
+  %164 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i149 = icmp eq i32 %and5.i.i25.i147, %164
+  br i1 %cmp9.i.i27.i149, label %land.rhs.i.i28.i150, label %if.end.i27.i141
 
-land.rhs.i.i28.i149:                              ; preds = %land.lhs.true.i.i23.i144
-  %and11.i.i30.i151 = and i32 %154, -4096
-  %165 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i153 = icmp eq i32 %and11.i.i30.i151, %165
-  br i1 %cmp15.i.i32.i153, label %if.end.i33.i154, label %if.end.i27.i140
+land.rhs.i.i28.i150:                              ; preds = %land.lhs.true.i.i23.i145
+  %and11.i.i30.i152 = and i32 %154, -4096
+  %165 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i154 = icmp eq i32 %and11.i.i30.i152, %165
+  br i1 %cmp15.i.i32.i154, label %if.end.i33.i155, label %if.end.i27.i141
 
-if.end.i33.i154:                                  ; preds = %land.rhs.i.i28.i149
-  %166 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i155:                                  ; preds = %land.rhs.i.i28.i150
+  %166 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %167 = shl i32 %152, 3
-  %shl.i.i.i.i156 = and i32 %167, 31744
-  %168 = lshr i32 %add4.i28.i, 2
-  %shl4.i.i.i.i157 = and i32 %168, 992
-  %add.i.i.i.i158 = or disjoint i32 %shl4.i.i.i.i157, %shl.i.i.i.i156
-  %and6.i.i.i.i159 = lshr i32 %154, 7
-  %shr7.i.i.i.i160 = and i32 %and6.i.i.i.i159, 31
-  %add8.i.i.i.i161 = or disjoint i32 %add.i.i.i.i158, %shr7.i.i.i.i160
-  %mChildMask.i.i.i.i162 = getelementptr inbounds i8, ptr %166, i64 262144
-  %shr.i.i.i.i.i163 = lshr i32 %add.i.i.i.i158, 6
-  %idxprom.i.i.i.i.i164 = zext nneg i32 %shr.i.i.i.i.i163 to i64
-  %arrayidx.i.i.i8.i.i165 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i162, i64 0, i64 %idxprom.i.i.i.i.i164
-  %169 = load i64, ptr %arrayidx.i.i.i8.i.i165, align 8
-  %and.i.i.i.i.i166 = and i32 %add8.i.i.i.i161, 63
-  %sh_prom.i.i.i.i.i167 = zext nneg i32 %and.i.i.i.i.i166 to i64
-  %shl.i.i.i.i.i168 = shl nuw i64 1, %sh_prom.i.i.i.i.i167
-  %and2.i.i.i.i.i169 = and i64 %169, %shl.i.i.i.i.i168
-  %cmp.i.i.not.i.i.i170 = icmp eq i64 %and2.i.i.i.i.i169, 0
-  %idxprom10.i.i.i171 = zext nneg i32 %add8.i.i.i.i161 to i64
-  %arrayidx11.i.i.i172 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %166, i64 0, i64 %idxprom10.i.i.i171
-  br i1 %cmp.i.i.not.i.i.i170, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218, label %if.then.i.i.i173
+  %shl.i.i.i.i157 = and i32 %167, 31744
+  %168 = lshr i32 %add4.i30.i, 2
+  %shl4.i.i.i.i158 = and i32 %168, 992
+  %add.i.i.i.i159 = or disjoint i32 %shl4.i.i.i.i158, %shl.i.i.i.i157
+  %and6.i.i.i.i160 = lshr i32 %154, 7
+  %shr7.i.i.i.i161 = and i32 %and6.i.i.i.i160, 31
+  %add8.i.i.i.i162 = or disjoint i32 %add.i.i.i.i159, %shr7.i.i.i.i161
+  %mChildMask.i.i.i.i163 = getelementptr inbounds i8, ptr %166, i64 262144
+  %shr.i.i.i.i.i164 = lshr i32 %add.i.i.i.i159, 6
+  %idxprom.i.i.i.i.i165 = zext nneg i32 %shr.i.i.i.i.i164 to i64
+  %arrayidx.i.i.i8.i.i166 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i163, i64 0, i64 %idxprom.i.i.i.i.i165
+  %169 = load i64, ptr %arrayidx.i.i.i8.i.i166, align 8
+  %and.i.i.i.i.i167 = and i32 %add8.i.i.i.i162, 63
+  %sh_prom.i.i.i.i.i168 = zext nneg i32 %and.i.i.i.i.i167 to i64
+  %shl.i.i.i.i.i169 = shl nuw i64 1, %sh_prom.i.i.i.i.i168
+  %and2.i.i.i.i.i170 = and i64 %169, %shl.i.i.i.i.i169
+  %cmp.i.i.not.i.i.i171 = icmp eq i64 %and2.i.i.i.i.i170, 0
+  %idxprom10.i.i.i172 = zext nneg i32 %add8.i.i.i.i162 to i64
+  %arrayidx11.i.i.i173 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %166, i64 0, i64 %idxprom10.i.i.i172
+  br i1 %cmp.i.i.not.i.i.i171, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219, label %if.then.i.i.i174
 
-if.then.i.i.i173:                                 ; preds = %if.end.i33.i154
-  %170 = load ptr, ptr %arrayidx11.i.i.i172, align 8
-  %and4.i.i.i.i174 = and i32 %add4.i28.i, -128
-  %and7.i.i.i.i175 = and i32 %154, -128
-  %retval.sroa.2.0.insert.ext.i.i.i.i176 = zext i32 %and4.i.i.i.i174 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i177 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i176, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i178 = zext i32 %and.i.i6.i133 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i179 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i177, %retval.sroa.0.0.insert.ext.i.i.i.i178
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i179, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i175, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %170, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %171 = load ptr, ptr %arrayidx11.i.i.i172, align 8
-  %call8.i.i.i182 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %171, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i.i.i174:                                 ; preds = %if.end.i33.i155
+  %170 = load ptr, ptr %arrayidx11.i.i.i173, align 8
+  %and4.i.i.i.i175 = and i32 %add4.i30.i, -128
+  %and7.i.i.i.i176 = and i32 %154, -128
+  %retval.sroa.2.0.insert.ext.i.i.i.i177 = zext i32 %and4.i.i.i.i175 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i178 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i177, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i179 = zext i32 %and.i.i6.i134 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i180 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i178, %retval.sroa.0.0.insert.ext.i.i.i.i179
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i180, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i176, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %170, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %171 = load ptr, ptr %arrayidx11.i.i.i173, align 8
+  %call8.i.i.i183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %171, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i27.i140:                                  ; preds = %land.rhs.i.i28.i149, %land.lhs.true.i.i23.i144, %if.end.i16.i136
-  %172 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i612 = getelementptr inbounds i8, ptr %172, i64 56
-  %173 = load i32, ptr %mOrigin.i.i.i612, align 4
-  %sub.i.i.i.i613 = sub nsw i32 %152, %173
-  %arrayidx.i.i.i.i.i.i.i615 = getelementptr inbounds i8, ptr %172, i64 60
-  %174 = load i32, ptr %arrayidx.i.i.i.i.i.i.i615, align 4
-  %sub6.i.i.i.i616 = sub nsw i32 %add4.i28.i, %174
-  %arrayidx.i.i.i4.i.i.i.i618 = getelementptr inbounds i8, ptr %172, i64 64
-  %175 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i618, align 4
-  %sub10.i.i.i.i619 = sub nsw i32 %154, %175
-  %and.i.i.i.i620 = and i32 %sub.i.i.i.i613, -4096
-  %and4.i.i.i.i621 = and i32 %sub6.i.i.i.i616, -4096
-  %and7.i.i.i.i622 = and i32 %sub10.i.i.i.i619, -4096
-  %_M_parent.i.i.i.i.i623 = getelementptr inbounds i8, ptr %172, i64 16
-  %176 = load ptr, ptr %_M_parent.i.i.i.i.i623, align 8
-  %add.ptr.i.i.i.i.i624 = getelementptr inbounds i8, ptr %172, i64 8
-  %cmp.not9.i.i.i.i.i625 = icmp eq ptr %176, null
-  br i1 %cmp.not9.i.i.i.i.i625, label %if.then.i708, label %while.body.i.i.i.i.i626
+if.end.i27.i141:                                  ; preds = %land.rhs.i.i28.i150, %land.lhs.true.i.i23.i145, %if.end.i16.i137
+  %172 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i613 = getelementptr inbounds i8, ptr %172, i64 56
+  %173 = load i32, ptr %mOrigin.i.i.i613, align 4
+  %sub.i.i.i.i614 = sub nsw i32 %152, %173
+  %arrayidx.i.i.i.i.i.i.i616 = getelementptr inbounds i8, ptr %172, i64 60
+  %174 = load i32, ptr %arrayidx.i.i.i.i.i.i.i616, align 4
+  %sub6.i.i.i.i617 = sub nsw i32 %add4.i30.i, %174
+  %arrayidx.i.i.i4.i.i.i.i619 = getelementptr inbounds i8, ptr %172, i64 64
+  %175 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i619, align 4
+  %sub10.i.i.i.i620 = sub nsw i32 %154, %175
+  %and.i.i.i.i621 = and i32 %sub.i.i.i.i614, -4096
+  %and4.i.i.i.i622 = and i32 %sub6.i.i.i.i617, -4096
+  %and7.i.i.i.i623 = and i32 %sub10.i.i.i.i620, -4096
+  %_M_parent.i.i.i.i.i624 = getelementptr inbounds i8, ptr %172, i64 16
+  %176 = load ptr, ptr %_M_parent.i.i.i.i.i624, align 8
+  %add.ptr.i.i.i.i.i625 = getelementptr inbounds i8, ptr %172, i64 8
+  %cmp.not9.i.i.i.i.i626 = icmp eq ptr %176, null
+  br i1 %cmp.not9.i.i.i.i.i626, label %if.then.i709, label %while.body.i.i.i.i.i627
 
-while.body.i.i.i.i.i626:                          ; preds = %if.end.i27.i140, %if.end.i.i.i.i.i641
-  %__x.addr.011.i.i.i.i.i627 = phi ptr [ %__x.addr.1.i.i.i.i.i645, %if.end.i.i.i.i.i641 ], [ %176, %if.end.i27.i140 ]
-  %__y.addr.010.i.i.i.i.i628 = phi ptr [ %__y.addr.1.i.i.i.i.i643, %if.end.i.i.i.i.i641 ], [ %add.ptr.i.i.i.i.i624, %if.end.i27.i140 ]
-  %_M_storage.i.i.i.i.i.i.i629 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 32
-  %177 = load i32, ptr %_M_storage.i.i.i.i.i.i.i629, align 4
-  %cmp.i.i.i.i.i.i.i630 = icmp slt i32 %177, %and.i.i.i.i620
-  br i1 %cmp.i.i.i.i.i.i.i630, label %if.else.i.i.i.i.i710, label %cond.false.i.i.i.i.i.i.i631
+while.body.i.i.i.i.i627:                          ; preds = %if.end.i27.i141, %if.end.i.i.i.i.i642
+  %__x.addr.011.i.i.i.i.i628 = phi ptr [ %__x.addr.1.i.i.i.i.i646, %if.end.i.i.i.i.i642 ], [ %176, %if.end.i27.i141 ]
+  %__y.addr.010.i.i.i.i.i629 = phi ptr [ %__y.addr.1.i.i.i.i.i644, %if.end.i.i.i.i.i642 ], [ %add.ptr.i.i.i.i.i625, %if.end.i27.i141 ]
+  %_M_storage.i.i.i.i.i.i.i630 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 32
+  %177 = load i32, ptr %_M_storage.i.i.i.i.i.i.i630, align 4
+  %cmp.i.i.i.i.i.i.i631 = icmp slt i32 %177, %and.i.i.i.i621
+  br i1 %cmp.i.i.i.i.i.i.i631, label %if.else.i.i.i.i.i711, label %cond.false.i.i.i.i.i.i.i632
 
-cond.false.i.i.i.i.i.i.i631:                      ; preds = %while.body.i.i.i.i.i626
-  %cmp5.i.i.i.i.i.i.i632 = icmp sgt i32 %177, %and.i.i.i.i620
-  br i1 %cmp5.i.i.i.i.i.i.i632, label %if.end.i.i.i.i.i641, label %cond.false7.i.i.i.i.i.i.i633
+cond.false.i.i.i.i.i.i.i632:                      ; preds = %while.body.i.i.i.i.i627
+  %cmp5.i.i.i.i.i.i.i633 = icmp sgt i32 %177, %and.i.i.i.i621
+  br i1 %cmp5.i.i.i.i.i.i.i633, label %if.end.i.i.i.i.i642, label %cond.false7.i.i.i.i.i.i.i634
 
-cond.false7.i.i.i.i.i.i.i633:                     ; preds = %cond.false.i.i.i.i.i.i.i631
-  %arrayidx.i.i.i.i.i.i.i.i.i.i634 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 36
-  %178 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i634, align 4
-  %cmp10.i.i.i.i.i.i.i635 = icmp slt i32 %178, %and4.i.i.i.i621
-  br i1 %cmp10.i.i.i.i.i.i.i635, label %if.else.i.i.i.i.i710, label %cond.false12.i.i.i.i.i.i.i636
+cond.false7.i.i.i.i.i.i.i634:                     ; preds = %cond.false.i.i.i.i.i.i.i632
+  %arrayidx.i.i.i.i.i.i.i.i.i.i635 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 36
+  %178 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i635, align 4
+  %cmp10.i.i.i.i.i.i.i636 = icmp slt i32 %178, %and4.i.i.i.i622
+  br i1 %cmp10.i.i.i.i.i.i.i636, label %if.else.i.i.i.i.i711, label %cond.false12.i.i.i.i.i.i.i637
 
-cond.false12.i.i.i.i.i.i.i636:                    ; preds = %cond.false7.i.i.i.i.i.i.i633
-  %cmp15.i.i.i.i.i.i.i637 = icmp sgt i32 %178, %and4.i.i.i.i621
-  br i1 %cmp15.i.i.i.i.i.i.i637, label %if.end.i.i.i.i.i641, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638
+cond.false12.i.i.i.i.i.i.i637:                    ; preds = %cond.false7.i.i.i.i.i.i.i634
+  %cmp15.i.i.i.i.i.i.i638 = icmp sgt i32 %178, %and4.i.i.i.i622
+  br i1 %cmp15.i.i.i.i.i.i.i638, label %if.end.i.i.i.i.i642, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638: ; preds = %cond.false12.i.i.i.i.i.i.i636
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i639 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 40
-  %179 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i639, align 4
-  %cmp20.i.i.i.i.i.i.i640 = icmp slt i32 %179, %and7.i.i.i.i622
-  br i1 %cmp20.i.i.i.i.i.i.i640, label %if.else.i.i.i.i.i710, label %if.end.i.i.i.i.i641
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639: ; preds = %cond.false12.i.i.i.i.i.i.i637
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i640 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 40
+  %179 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i640, align 4
+  %cmp20.i.i.i.i.i.i.i641 = icmp slt i32 %179, %and7.i.i.i.i623
+  br i1 %cmp20.i.i.i.i.i.i.i641, label %if.else.i.i.i.i.i711, label %if.end.i.i.i.i.i642
 
-if.else.i.i.i.i.i710:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638, %cond.false7.i.i.i.i.i.i.i633, %while.body.i.i.i.i.i626
-  br label %if.end.i.i.i.i.i641
+if.else.i.i.i.i.i711:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639, %cond.false7.i.i.i.i.i.i.i634, %while.body.i.i.i.i.i627
+  br label %if.end.i.i.i.i.i642
 
-if.end.i.i.i.i.i641:                              ; preds = %if.else.i.i.i.i.i710, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638, %cond.false12.i.i.i.i.i.i.i636, %cond.false.i.i.i.i.i.i.i631
-  %.sink.i.i.i.i.i642 = phi i64 [ 24, %if.else.i.i.i.i.i710 ], [ 16, %cond.false12.i.i.i.i.i.i.i636 ], [ 16, %cond.false.i.i.i.i.i.i.i631 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638 ]
-  %__y.addr.1.i.i.i.i.i643 = phi ptr [ %__y.addr.010.i.i.i.i.i628, %if.else.i.i.i.i.i710 ], [ %__x.addr.011.i.i.i.i.i627, %cond.false12.i.i.i.i.i.i.i636 ], [ %__x.addr.011.i.i.i.i.i627, %cond.false.i.i.i.i.i.i.i631 ], [ %__x.addr.011.i.i.i.i.i627, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i638 ]
-  %_M_right.i.i.i.i.i.i644 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i627, i64 %.sink.i.i.i.i.i642
-  %__x.addr.1.i.i.i.i.i645 = load ptr, ptr %_M_right.i.i.i.i.i.i644, align 8
-  %cmp.not.i.i.i.i.i646 = icmp eq ptr %__x.addr.1.i.i.i.i.i645, null
-  br i1 %cmp.not.i.i.i.i.i646, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647, label %while.body.i.i.i.i.i626, !llvm.loop !77
+if.end.i.i.i.i.i642:                              ; preds = %if.else.i.i.i.i.i711, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639, %cond.false12.i.i.i.i.i.i.i637, %cond.false.i.i.i.i.i.i.i632
+  %.sink.i.i.i.i.i643 = phi i64 [ 24, %if.else.i.i.i.i.i711 ], [ 16, %cond.false12.i.i.i.i.i.i.i637 ], [ 16, %cond.false.i.i.i.i.i.i.i632 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639 ]
+  %__y.addr.1.i.i.i.i.i644 = phi ptr [ %__y.addr.010.i.i.i.i.i629, %if.else.i.i.i.i.i711 ], [ %__x.addr.011.i.i.i.i.i628, %cond.false12.i.i.i.i.i.i.i637 ], [ %__x.addr.011.i.i.i.i.i628, %cond.false.i.i.i.i.i.i.i632 ], [ %__x.addr.011.i.i.i.i.i628, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i639 ]
+  %_M_right.i.i.i.i.i.i645 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i628, i64 %.sink.i.i.i.i.i643
+  %__x.addr.1.i.i.i.i.i646 = load ptr, ptr %_M_right.i.i.i.i.i.i645, align 8
+  %cmp.not.i.i.i.i.i647 = icmp eq ptr %__x.addr.1.i.i.i.i.i646, null
+  br i1 %cmp.not.i.i.i.i.i647, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648, label %while.body.i.i.i.i.i627, !llvm.loop !77
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647: ; preds = %if.end.i.i.i.i.i641
-  %cmp.i.i.i.i.i648 = icmp eq ptr %__y.addr.1.i.i.i.i.i643, %add.ptr.i.i.i.i.i624
-  br i1 %cmp.i.i.i.i.i648, label %if.then.i708, label %lor.lhs.false.i.i.i.i649
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648: ; preds = %if.end.i.i.i.i.i642
+  %cmp.i.i.i.i.i649 = icmp eq ptr %__y.addr.1.i.i.i.i.i644, %add.ptr.i.i.i.i.i625
+  br i1 %cmp.i.i.i.i.i649, label %if.then.i709, label %lor.lhs.false.i.i.i.i650
 
-lor.lhs.false.i.i.i.i649:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647
-  %_M_storage.i.i.i3.i.i.i.i650 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 32
-  %180 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i650, align 4
-  %cmp.i.i.i.i.i.i651 = icmp slt i32 %and.i.i.i.i620, %180
-  br i1 %cmp.i.i.i.i.i.i651, label %if.then.i708, label %cond.false.i.i.i.i.i.i652
+lor.lhs.false.i.i.i.i650:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648
+  %_M_storage.i.i.i3.i.i.i.i651 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 32
+  %180 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i651, align 4
+  %cmp.i.i.i.i.i.i652 = icmp slt i32 %and.i.i.i.i621, %180
+  br i1 %cmp.i.i.i.i.i.i652, label %if.then.i709, label %cond.false.i.i.i.i.i.i653
 
-cond.false.i.i.i.i.i.i652:                        ; preds = %lor.lhs.false.i.i.i.i649
-  %cmp5.i.i.i.i.i.i653 = icmp sgt i32 %and.i.i.i.i620, %180
-  br i1 %cmp5.i.i.i.i.i.i653, label %if.end.i662, label %cond.false7.i.i.i.i.i.i654
+cond.false.i.i.i.i.i.i653:                        ; preds = %lor.lhs.false.i.i.i.i650
+  %cmp5.i.i.i.i.i.i654 = icmp sgt i32 %and.i.i.i.i621, %180
+  br i1 %cmp5.i.i.i.i.i.i654, label %if.end.i663, label %cond.false7.i.i.i.i.i.i655
 
-cond.false7.i.i.i.i.i.i654:                       ; preds = %cond.false.i.i.i.i.i.i652
-  %arrayidx.i.i.i5.i.i.i.i.i.i655 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 36
-  %181 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i655, align 4
-  %cmp10.i.i.i.i.i.i656 = icmp slt i32 %and4.i.i.i.i621, %181
-  br i1 %cmp10.i.i.i.i.i.i656, label %if.then.i708, label %cond.false12.i.i.i.i.i.i657
+cond.false7.i.i.i.i.i.i655:                       ; preds = %cond.false.i.i.i.i.i.i653
+  %arrayidx.i.i.i5.i.i.i.i.i.i656 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 36
+  %181 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i656, align 4
+  %cmp10.i.i.i.i.i.i657 = icmp slt i32 %and4.i.i.i.i622, %181
+  br i1 %cmp10.i.i.i.i.i.i657, label %if.then.i709, label %cond.false12.i.i.i.i.i.i658
 
-cond.false12.i.i.i.i.i.i657:                      ; preds = %cond.false7.i.i.i.i.i.i654
-  %cmp15.i.i.i.i.i.i658 = icmp sgt i32 %and4.i.i.i.i621, %181
-  br i1 %cmp15.i.i.i.i.i.i658, label %if.end.i662, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659
+cond.false12.i.i.i.i.i.i658:                      ; preds = %cond.false7.i.i.i.i.i.i655
+  %cmp15.i.i.i.i.i.i659 = icmp sgt i32 %and4.i.i.i.i622, %181
+  br i1 %cmp15.i.i.i.i.i.i659, label %if.end.i663, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659: ; preds = %cond.false12.i.i.i.i.i.i657
-  %arrayidx.i.i.i9.i.i.i.i.i.i660 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 40
-  %182 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i660, align 4
-  %cmp20.i.i.i.i.i.i661 = icmp slt i32 %and7.i.i.i.i622, %182
-  br i1 %cmp20.i.i.i.i.i.i661, label %if.then.i708, label %if.end.i662
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660: ; preds = %cond.false12.i.i.i.i.i.i658
+  %arrayidx.i.i.i9.i.i.i.i.i.i661 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 40
+  %182 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i661, align 4
+  %cmp20.i.i.i.i.i.i662 = icmp slt i32 %and7.i.i.i.i623, %182
+  br i1 %cmp20.i.i.i.i.i.i662, label %if.then.i709, label %if.end.i663
 
-if.then.i708:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659, %cond.false7.i.i.i.i.i.i654, %lor.lhs.false.i.i.i.i649, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i647, %if.end.i27.i140
-  %mBackground.i709 = getelementptr inbounds i8, ptr %172, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i709:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660, %cond.false7.i.i.i.i.i.i655, %lor.lhs.false.i.i.i.i650, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i648, %if.end.i27.i141
+  %mBackground.i710 = getelementptr inbounds i8, ptr %172, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end.i662:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i659, %cond.false12.i.i.i.i.i.i657, %cond.false.i.i.i.i.i.i652
-  %second.i.i663 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 48
-  %183 = load ptr, ptr %second.i.i663, align 8
-  %cmp.i.i.not.i664 = icmp eq ptr %183, null
-  br i1 %cmp.i.i.not.i664, label %if.end10.i706, label %if.then6.i665
+if.end.i663:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i660, %cond.false12.i.i.i.i.i.i658, %cond.false.i.i.i.i.i.i653
+  %second.i.i664 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 48
+  %183 = load ptr, ptr %second.i.i664, align 8
+  %cmp.i.i.not.i665 = icmp eq ptr %183, null
+  br i1 %cmp.i.i.not.i665, label %if.end10.i707, label %if.then6.i666
 
-if.then6.i665:                                    ; preds = %if.end.i662
-  %and4.i.i667 = and i32 %add4.i28.i, -4096
-  %and7.i.i668 = and i32 %154, -4096
-  %retval.sroa.2.0.insert.ext.i.i669 = zext i32 %and4.i.i667 to i64
-  %retval.sroa.2.0.insert.shift.i.i670 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i669, 32
-  %retval.sroa.0.0.insert.ext.i.i671 = zext i32 %and.i.i19.i137 to i64
-  %retval.sroa.0.0.insert.insert.i.i672 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i670, %retval.sroa.0.0.insert.ext.i.i671
-  store i64 %retval.sroa.0.0.insert.insert.i.i672, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i668, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %183, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %184 = load ptr, ptr %second.i.i663, align 8
+if.then6.i666:                                    ; preds = %if.end.i663
+  %and4.i.i668 = and i32 %add4.i30.i, -4096
+  %and7.i.i669 = and i32 %154, -4096
+  %retval.sroa.2.0.insert.ext.i.i670 = zext i32 %and4.i.i668 to i64
+  %retval.sroa.2.0.insert.shift.i.i671 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i670, 32
+  %retval.sroa.0.0.insert.ext.i.i672 = zext i32 %and.i.i19.i138 to i64
+  %retval.sroa.0.0.insert.insert.i.i673 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i671, %retval.sroa.0.0.insert.ext.i.i672
+  store i64 %retval.sroa.0.0.insert.insert.i.i673, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i669, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %183, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %184 = load ptr, ptr %second.i.i664, align 8
   %185 = shl i32 %152, 3
-  %shl.i.i.i676 = and i32 %185, 31744
-  %186 = lshr i32 %add4.i28.i, 2
-  %shl4.i.i.i677 = and i32 %186, 992
-  %add.i.i.i678 = or disjoint i32 %shl4.i.i.i677, %shl.i.i.i676
-  %and6.i.i.i679 = lshr i32 %154, 7
-  %shr7.i.i.i680 = and i32 %and6.i.i.i679, 31
-  %add8.i.i.i681 = or disjoint i32 %add.i.i.i678, %shr7.i.i.i680
-  %mChildMask.i.i.i682 = getelementptr inbounds i8, ptr %184, i64 262144
-  %shr.i.i.i.i683 = lshr i32 %add.i.i.i678, 6
-  %idxprom.i.i.i.i684 = zext nneg i32 %shr.i.i.i.i683 to i64
-  %arrayidx.i.i.i8.i685 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i682, i64 0, i64 %idxprom.i.i.i.i684
-  %187 = load i64, ptr %arrayidx.i.i.i8.i685, align 8
-  %and.i.i.i9.i686 = and i32 %add8.i.i.i681, 63
-  %sh_prom.i.i.i.i687 = zext nneg i32 %and.i.i.i9.i686 to i64
-  %shl.i.i.i.i688 = shl nuw i64 1, %sh_prom.i.i.i.i687
-  %and2.i.i.i.i689 = and i64 %187, %shl.i.i.i.i688
-  %cmp.i.i.not.i.i690 = icmp eq i64 %and2.i.i.i.i689, 0
-  %idxprom10.i.i691 = zext nneg i32 %add8.i.i.i681 to i64
-  %arrayidx11.i.i692 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %184, i64 0, i64 %idxprom10.i.i691
-  br i1 %cmp.i.i.not.i.i690, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218, label %if.then.i.i693
+  %shl.i.i.i677 = and i32 %185, 31744
+  %186 = lshr i32 %add4.i30.i, 2
+  %shl4.i.i.i678 = and i32 %186, 992
+  %add.i.i.i679 = or disjoint i32 %shl4.i.i.i678, %shl.i.i.i677
+  %and6.i.i.i680 = lshr i32 %154, 7
+  %shr7.i.i.i681 = and i32 %and6.i.i.i680, 31
+  %add8.i.i.i682 = or disjoint i32 %add.i.i.i679, %shr7.i.i.i681
+  %mChildMask.i.i.i683 = getelementptr inbounds i8, ptr %184, i64 262144
+  %shr.i.i.i.i684 = lshr i32 %add.i.i.i679, 6
+  %idxprom.i.i.i.i685 = zext nneg i32 %shr.i.i.i.i684 to i64
+  %arrayidx.i.i.i8.i686 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i683, i64 0, i64 %idxprom.i.i.i.i685
+  %187 = load i64, ptr %arrayidx.i.i.i8.i686, align 8
+  %and.i.i.i9.i687 = and i32 %add8.i.i.i682, 63
+  %sh_prom.i.i.i.i688 = zext nneg i32 %and.i.i.i9.i687 to i64
+  %shl.i.i.i.i689 = shl nuw i64 1, %sh_prom.i.i.i.i688
+  %and2.i.i.i.i690 = and i64 %187, %shl.i.i.i.i689
+  %cmp.i.i.not.i.i691 = icmp eq i64 %and2.i.i.i.i690, 0
+  %idxprom10.i.i692 = zext nneg i32 %add8.i.i.i682 to i64
+  %arrayidx11.i.i693 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %184, i64 0, i64 %idxprom10.i.i692
+  br i1 %cmp.i.i.not.i.i691, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219, label %if.then.i.i694
 
-if.then.i.i693:                                   ; preds = %if.then6.i665
-  %188 = load ptr, ptr %arrayidx11.i.i692, align 8
-  %and4.i.i.i695 = and i32 %add4.i28.i, -128
-  %and7.i.i.i696 = and i32 %154, -128
-  %retval.sroa.2.0.insert.ext.i.i.i697 = zext i32 %and4.i.i.i695 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i698 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i697, 32
-  %retval.sroa.0.0.insert.ext.i.i.i699 = zext i32 %and.i.i6.i133 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i700 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i698, %retval.sroa.0.0.insert.ext.i.i.i699
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i700, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i696, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %188, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %189 = load ptr, ptr %arrayidx11.i.i692, align 8
-  %call8.i.i704 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %189, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.then.i.i694:                                   ; preds = %if.then6.i666
+  %188 = load ptr, ptr %arrayidx11.i.i693, align 8
+  %and4.i.i.i696 = and i32 %add4.i30.i, -128
+  %and7.i.i.i697 = and i32 %154, -128
+  %retval.sroa.2.0.insert.ext.i.i.i698 = zext i32 %and4.i.i.i696 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i699 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i698, 32
+  %retval.sroa.0.0.insert.ext.i.i.i700 = zext i32 %and.i.i6.i134 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i701 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i699, %retval.sroa.0.0.insert.ext.i.i.i700
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i701, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i697, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %188, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %189 = load ptr, ptr %arrayidx11.i.i693, align 8
+  %call8.i.i705 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %189, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-if.end10.i706:                                    ; preds = %if.end.i662
-  %tile.i.i707 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i643, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
+if.end10.i707:                                    ; preds = %if.end.i663
+  %tile.i.i708 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i644, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218: ; preds = %if.end10.i706, %if.then.i.i693, %if.then6.i665, %if.then.i708, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i206, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i193, %if.end.i33.i154, %if.then.i.i.i173
-  %retval.i.0.i143 = phi ptr [ %arrayidx.i.i216, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i206 ], [ %call3.i.i195, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i193 ], [ %call8.i.i.i182, %if.then.i.i.i173 ], [ %arrayidx11.i.i.i172, %if.end.i33.i154 ], [ %mBackground.i709, %if.then.i708 ], [ %tile.i.i707, %if.end10.i706 ], [ %call8.i.i704, %if.then.i.i693 ], [ %arrayidx11.i.i692, %if.then6.i665 ]
-  %190 = load double, ptr %retval.i.0.i143, align 8
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219: ; preds = %if.end10.i707, %if.then.i.i694, %if.then6.i666, %if.then.i709, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i207, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i194, %if.end.i33.i155, %if.then.i.i.i174
+  %retval.i.0.i144 = phi ptr [ %arrayidx.i.i217, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i207 ], [ %call3.i.i196, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i194 ], [ %call8.i.i.i183, %if.then.i.i.i174 ], [ %arrayidx11.i.i.i173, %if.end.i33.i155 ], [ %mBackground.i710, %if.then.i709 ], [ %tile.i.i708, %if.end10.i707 ], [ %call8.i.i705, %if.then.i.i694 ], [ %arrayidx11.i.i693, %if.then6.i666 ]
+  %190 = load double, ptr %retval.i.0.i144, align 8
   %191 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i37.i = getelementptr inbounds i8, ptr %191, i64 32
-  store double %190, ptr %add.ptr.i.i37.i, align 8
+  %add.ptr.i.i39.i = getelementptr inbounds i8, ptr %191, i64 32
+  store double %190, ptr %add.ptr.i.i39.i, align 8
   %192 = load i64, ptr %mCenter.i, align 8
   %193 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
   %add7.i.i = add nsw i32 %193, -1
   store i64 %192, ptr %ref.tmp26.i, align 8
   store i32 %add7.i.i, ptr %tmp.coerce30.sroa.2.0.coerce.dive29.sroa_idx.i, align 8
   %194 = trunc i64 %192 to i32
-  %and.i.i.i39 = and i32 %194, -8
-  %195 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i41 = icmp eq i32 %and.i.i.i39, %195
+  %and.i.i.i40 = and i32 %194, -8
+  %195 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i42 = icmp eq i32 %and.i.i.i40, %195
   %196 = lshr i64 %192, 32
   %197 = trunc nuw i64 %196 to i32
-  br i1 %cmp.i.i.i41, label %land.lhs.true.i.i.i106, label %if.end.i.i42
+  br i1 %cmp.i.i.i42, label %land.lhs.true.i.i.i107, label %if.end.i.i43
 
-land.lhs.true.i.i.i106:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
-  %and5.i.i.i108 = and i32 %197, -8
-  %198 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
-  %cmp9.i.i.i110 = icmp eq i32 %and5.i.i.i108, %198
-  br i1 %cmp9.i.i.i110, label %land.rhs.i.i.i111, label %if.end.i.i42
+land.lhs.true.i.i.i107:                           ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
+  %and5.i.i.i109 = and i32 %197, -8
+  %198 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
+  %cmp9.i.i.i111 = icmp eq i32 %and5.i.i.i109, %198
+  br i1 %cmp9.i.i.i111, label %land.rhs.i.i.i112, label %if.end.i.i43
 
-land.rhs.i.i.i111:                                ; preds = %land.lhs.true.i.i.i106
-  %and11.i.i.i113 = and i32 %add7.i.i, -8
-  %199 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
-  %cmp15.i.i.i115 = icmp eq i32 %and11.i.i.i113, %199
-  br i1 %cmp15.i.i.i115, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i116, label %if.end.i.i42
+land.rhs.i.i.i112:                                ; preds = %land.lhs.true.i.i.i107
+  %and11.i.i.i114 = and i32 %add7.i.i, -8
+  %199 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
+  %cmp15.i.i.i116 = icmp eq i32 %and11.i.i.i114, %199
+  br i1 %cmp15.i.i.i116, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i117, label %if.end.i.i43
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i116: ; preds = %land.rhs.i.i.i111
-  %200 = load ptr, ptr %add.ptr.i.i477, align 8
-  %and.i6.i.i118 = shl i32 %194, 6
-  %shl.i.i.i119 = and i32 %and.i6.i.i118, 448
-  %and2.i.i.i120 = shl i32 %197, 3
-  %shl3.i.i.i121 = and i32 %and2.i.i.i120, 56
-  %and5.i7.i.i123 = and i32 %add7.i.i, 7
-  %add.i.i.i122 = or disjoint i32 %shl.i.i.i119, %and5.i7.i.i123
-  %add6.i.i.i124 = or disjoint i32 %add.i.i.i122, %shl3.i.i.i121
-  %idxprom.i.i125 = zext nneg i32 %add6.i.i.i124 to i64
-  %arrayidx.i.i126 = getelementptr inbounds double, ptr %200, i64 %idxprom.i.i125
-  %tobool.i.not.i127 = icmp eq ptr %200, null
-  br i1 %tobool.i.not.i127, label %if.end.i.i42, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i117: ; preds = %land.rhs.i.i.i112
+  %200 = load ptr, ptr %add.ptr.i.i478, align 8
+  %and.i6.i.i119 = shl i32 %194, 6
+  %shl.i.i.i120 = and i32 %and.i6.i.i119, 448
+  %and2.i.i.i121 = shl i32 %197, 3
+  %shl3.i.i.i122 = and i32 %and2.i.i.i121, 56
+  %and5.i7.i.i124 = and i32 %add7.i.i, 7
+  %add.i.i.i123 = or disjoint i32 %shl.i.i.i120, %and5.i7.i.i124
+  %add6.i.i.i125 = or disjoint i32 %add.i.i.i123, %shl3.i.i.i122
+  %idxprom.i.i126 = zext nneg i32 %add6.i.i.i125 to i64
+  %arrayidx.i.i127 = getelementptr inbounds double, ptr %200, i64 %idxprom.i.i126
+  %tobool.i.not.i128 = icmp eq ptr %200, null
+  br i1 %tobool.i.not.i128, label %if.end.i.i43, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i.i42:                                     ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i116, %land.rhs.i.i.i111, %land.lhs.true.i.i.i106, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit218
-  %and.i.i6.i43 = and i32 %194, -128
-  %201 = load i32, ptr %arrayidx.i.i.i.i404, align 4
-  %cmp.i.i7.i45 = icmp eq i32 %and.i.i6.i43, %201
-  br i1 %cmp.i.i7.i45, label %land.lhs.true.i.i9.i93, label %if.end.i16.i46
+if.end.i.i43:                                     ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i117, %land.rhs.i.i.i112, %land.lhs.true.i.i.i107, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit219
+  %and.i.i6.i44 = and i32 %194, -128
+  %201 = load i32, ptr %arrayidx.i.i.i.i405, align 4
+  %cmp.i.i7.i46 = icmp eq i32 %and.i.i6.i44, %201
+  br i1 %cmp.i.i7.i46, label %land.lhs.true.i.i9.i94, label %if.end.i16.i47
 
-land.lhs.true.i.i9.i93:                           ; preds = %if.end.i.i42
-  %and5.i.i11.i95 = and i32 %197, -128
-  %202 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
-  %cmp9.i.i13.i97 = icmp eq i32 %and5.i.i11.i95, %202
-  br i1 %cmp9.i.i13.i97, label %land.rhs.i.i14.i98, label %if.end.i16.i46
+land.lhs.true.i.i9.i94:                           ; preds = %if.end.i.i43
+  %and5.i.i11.i96 = and i32 %197, -128
+  %202 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
+  %cmp9.i.i13.i98 = icmp eq i32 %and5.i.i11.i96, %202
+  br i1 %cmp9.i.i13.i98, label %land.rhs.i.i14.i99, label %if.end.i16.i47
 
-land.rhs.i.i14.i98:                               ; preds = %land.lhs.true.i.i9.i93
-  %and11.i.i16.i100 = and i32 %add7.i.i, -128
-  %203 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
-  %cmp15.i.i17.i102 = icmp eq i32 %and11.i.i16.i100, %203
-  br i1 %cmp15.i.i17.i102, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i103, label %if.end.i16.i46
+land.rhs.i.i14.i99:                               ; preds = %land.lhs.true.i.i9.i94
+  %and11.i.i16.i101 = and i32 %add7.i.i, -128
+  %203 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  %cmp15.i.i17.i103 = icmp eq i32 %and11.i.i16.i101, %203
+  br i1 %cmp15.i.i17.i103, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i104, label %if.end.i16.i47
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i103: ; preds = %land.rhs.i.i14.i98
-  %204 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %call3.i.i105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %204, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i104: ; preds = %land.rhs.i.i14.i99
+  %204 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %call3.i.i106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %204, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i16.i46:                                   ; preds = %land.rhs.i.i14.i98, %land.lhs.true.i.i9.i93, %if.end.i.i42
-  %and.i.i19.i47 = and i32 %194, -4096
-  %205 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
-  %cmp.i.i21.i49 = icmp eq i32 %and.i.i19.i47, %205
-  br i1 %cmp.i.i21.i49, label %land.lhs.true.i.i23.i54, label %if.end.i27.i50
+if.end.i16.i47:                                   ; preds = %land.rhs.i.i14.i99, %land.lhs.true.i.i9.i94, %if.end.i.i43
+  %and.i.i19.i48 = and i32 %194, -4096
+  %205 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
+  %cmp.i.i21.i50 = icmp eq i32 %and.i.i19.i48, %205
+  br i1 %cmp.i.i21.i50, label %land.lhs.true.i.i23.i55, label %if.end.i27.i51
 
-land.lhs.true.i.i23.i54:                          ; preds = %if.end.i16.i46
-  %and5.i.i25.i56 = and i32 %197, -4096
-  %206 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
-  %cmp9.i.i27.i58 = icmp eq i32 %and5.i.i25.i56, %206
-  br i1 %cmp9.i.i27.i58, label %land.rhs.i.i28.i59, label %if.end.i27.i50
+land.lhs.true.i.i23.i55:                          ; preds = %if.end.i16.i47
+  %and5.i.i25.i57 = and i32 %197, -4096
+  %206 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
+  %cmp9.i.i27.i59 = icmp eq i32 %and5.i.i25.i57, %206
+  br i1 %cmp9.i.i27.i59, label %land.rhs.i.i28.i60, label %if.end.i27.i51
 
-land.rhs.i.i28.i59:                               ; preds = %land.lhs.true.i.i23.i54
-  %and11.i.i30.i61 = and i32 %add7.i.i, -4096
-  %207 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  %cmp15.i.i32.i63 = icmp eq i32 %and11.i.i30.i61, %207
-  br i1 %cmp15.i.i32.i63, label %if.end.i33.i64, label %if.end.i27.i50
+land.rhs.i.i28.i60:                               ; preds = %land.lhs.true.i.i23.i55
+  %and11.i.i30.i62 = and i32 %add7.i.i, -4096
+  %207 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  %cmp15.i.i32.i64 = icmp eq i32 %and11.i.i30.i62, %207
+  br i1 %cmp15.i.i32.i64, label %if.end.i33.i65, label %if.end.i27.i51
 
-if.end.i33.i64:                                   ; preds = %land.rhs.i.i28.i59
-  %208 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+if.end.i33.i65:                                   ; preds = %land.rhs.i.i28.i60
+  %208 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %209 = shl i32 %194, 3
-  %shl.i.i.i.i66 = and i32 %209, 31744
+  %shl.i.i.i.i67 = and i32 %209, 31744
   %210 = lshr i32 %197, 2
-  %shl4.i.i.i.i67 = and i32 %210, 992
-  %add.i.i.i.i68 = or disjoint i32 %shl4.i.i.i.i67, %shl.i.i.i.i66
-  %and6.i.i.i.i69 = lshr i32 %add7.i.i, 7
-  %shr7.i.i.i.i70 = and i32 %and6.i.i.i.i69, 31
-  %add8.i.i.i.i71 = or disjoint i32 %add.i.i.i.i68, %shr7.i.i.i.i70
-  %mChildMask.i.i.i.i72 = getelementptr inbounds i8, ptr %208, i64 262144
-  %shr.i.i.i.i.i73 = lshr i32 %add.i.i.i.i68, 6
-  %idxprom.i.i.i.i.i74 = zext nneg i32 %shr.i.i.i.i.i73 to i64
-  %arrayidx.i.i.i8.i.i75 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i72, i64 0, i64 %idxprom.i.i.i.i.i74
-  %211 = load i64, ptr %arrayidx.i.i.i8.i.i75, align 8
-  %and.i.i.i.i.i76 = and i32 %add8.i.i.i.i71, 63
-  %sh_prom.i.i.i.i.i77 = zext nneg i32 %and.i.i.i.i.i76 to i64
-  %shl.i.i.i.i.i78 = shl nuw i64 1, %sh_prom.i.i.i.i.i77
-  %and2.i.i.i.i.i79 = and i64 %211, %shl.i.i.i.i.i78
-  %cmp.i.i.not.i.i.i80 = icmp eq i64 %and2.i.i.i.i.i79, 0
-  %idxprom10.i.i.i81 = zext nneg i32 %add8.i.i.i.i71 to i64
-  %arrayidx11.i.i.i82 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %208, i64 0, i64 %idxprom10.i.i.i81
-  br i1 %cmp.i.i.not.i.i.i80, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128, label %if.then.i.i.i83
+  %shl4.i.i.i.i68 = and i32 %210, 992
+  %add.i.i.i.i69 = or disjoint i32 %shl4.i.i.i.i68, %shl.i.i.i.i67
+  %and6.i.i.i.i70 = lshr i32 %add7.i.i, 7
+  %shr7.i.i.i.i71 = and i32 %and6.i.i.i.i70, 31
+  %add8.i.i.i.i72 = or disjoint i32 %add.i.i.i.i69, %shr7.i.i.i.i71
+  %mChildMask.i.i.i.i73 = getelementptr inbounds i8, ptr %208, i64 262144
+  %shr.i.i.i.i.i74 = lshr i32 %add.i.i.i.i69, 6
+  %idxprom.i.i.i.i.i75 = zext nneg i32 %shr.i.i.i.i.i74 to i64
+  %arrayidx.i.i.i8.i.i76 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i73, i64 0, i64 %idxprom.i.i.i.i.i75
+  %211 = load i64, ptr %arrayidx.i.i.i8.i.i76, align 8
+  %and.i.i.i.i.i77 = and i32 %add8.i.i.i.i72, 63
+  %sh_prom.i.i.i.i.i78 = zext nneg i32 %and.i.i.i.i.i77 to i64
+  %shl.i.i.i.i.i79 = shl nuw i64 1, %sh_prom.i.i.i.i.i78
+  %and2.i.i.i.i.i80 = and i64 %211, %shl.i.i.i.i.i79
+  %cmp.i.i.not.i.i.i81 = icmp eq i64 %and2.i.i.i.i.i80, 0
+  %idxprom10.i.i.i82 = zext nneg i32 %add8.i.i.i.i72 to i64
+  %arrayidx11.i.i.i83 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %208, i64 0, i64 %idxprom10.i.i.i82
+  br i1 %cmp.i.i.not.i.i.i81, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129, label %if.then.i.i.i84
 
-if.then.i.i.i83:                                  ; preds = %if.end.i33.i64
-  %212 = load ptr, ptr %arrayidx11.i.i.i82, align 8
-  %and7.i.i.i.i85 = and i32 %add7.i.i, -128
-  %retval.sroa.0.0.insert.insert.i.i.i.i89 = and i64 %192, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i89, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i85, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %212, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %213 = load ptr, ptr %arrayidx11.i.i.i82, align 8
-  %call8.i.i.i92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %213, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i.i.i84:                                  ; preds = %if.end.i33.i65
+  %212 = load ptr, ptr %arrayidx11.i.i.i83, align 8
+  %and7.i.i.i.i86 = and i32 %add7.i.i, -128
+  %retval.sroa.0.0.insert.insert.i.i.i.i90 = and i64 %192, -545460846720
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i90, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i86, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %212, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %213 = load ptr, ptr %arrayidx11.i.i.i83, align 8
+  %call8.i.i.i93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %213, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i27.i50:                                   ; preds = %land.rhs.i.i28.i59, %land.lhs.true.i.i23.i54, %if.end.i16.i46
-  %214 = load ptr, ptr %mNodes.i.i411, align 8
-  %mOrigin.i.i.i512 = getelementptr inbounds i8, ptr %214, i64 56
-  %215 = load i32, ptr %mOrigin.i.i.i512, align 4
-  %sub.i.i.i.i513 = sub nsw i32 %194, %215
-  %arrayidx.i.i.i.i.i.i.i515 = getelementptr inbounds i8, ptr %214, i64 60
-  %216 = load i32, ptr %arrayidx.i.i.i.i.i.i.i515, align 4
-  %sub6.i.i.i.i516 = sub nsw i32 %197, %216
-  %arrayidx.i.i.i4.i.i.i.i518 = getelementptr inbounds i8, ptr %214, i64 64
-  %217 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i518, align 4
-  %sub10.i.i.i.i519 = sub nsw i32 %add7.i.i, %217
-  %and.i.i.i.i520 = and i32 %sub.i.i.i.i513, -4096
-  %and4.i.i.i.i521 = and i32 %sub6.i.i.i.i516, -4096
-  %and7.i.i.i.i522 = and i32 %sub10.i.i.i.i519, -4096
-  %_M_parent.i.i.i.i.i523 = getelementptr inbounds i8, ptr %214, i64 16
-  %218 = load ptr, ptr %_M_parent.i.i.i.i.i523, align 8
-  %add.ptr.i.i.i.i.i524 = getelementptr inbounds i8, ptr %214, i64 8
-  %cmp.not9.i.i.i.i.i525 = icmp eq ptr %218, null
-  br i1 %cmp.not9.i.i.i.i.i525, label %if.then.i608, label %while.body.i.i.i.i.i526
+if.end.i27.i51:                                   ; preds = %land.rhs.i.i28.i60, %land.lhs.true.i.i23.i55, %if.end.i16.i47
+  %214 = load ptr, ptr %mNodes.i.i412, align 8
+  %mOrigin.i.i.i513 = getelementptr inbounds i8, ptr %214, i64 56
+  %215 = load i32, ptr %mOrigin.i.i.i513, align 4
+  %sub.i.i.i.i514 = sub nsw i32 %194, %215
+  %arrayidx.i.i.i.i.i.i.i516 = getelementptr inbounds i8, ptr %214, i64 60
+  %216 = load i32, ptr %arrayidx.i.i.i.i.i.i.i516, align 4
+  %sub6.i.i.i.i517 = sub nsw i32 %197, %216
+  %arrayidx.i.i.i4.i.i.i.i519 = getelementptr inbounds i8, ptr %214, i64 64
+  %217 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i519, align 4
+  %sub10.i.i.i.i520 = sub nsw i32 %add7.i.i, %217
+  %and.i.i.i.i521 = and i32 %sub.i.i.i.i514, -4096
+  %and4.i.i.i.i522 = and i32 %sub6.i.i.i.i517, -4096
+  %and7.i.i.i.i523 = and i32 %sub10.i.i.i.i520, -4096
+  %_M_parent.i.i.i.i.i524 = getelementptr inbounds i8, ptr %214, i64 16
+  %218 = load ptr, ptr %_M_parent.i.i.i.i.i524, align 8
+  %add.ptr.i.i.i.i.i525 = getelementptr inbounds i8, ptr %214, i64 8
+  %cmp.not9.i.i.i.i.i526 = icmp eq ptr %218, null
+  br i1 %cmp.not9.i.i.i.i.i526, label %if.then.i609, label %while.body.i.i.i.i.i527
 
-while.body.i.i.i.i.i526:                          ; preds = %if.end.i27.i50, %if.end.i.i.i.i.i541
-  %__x.addr.011.i.i.i.i.i527 = phi ptr [ %__x.addr.1.i.i.i.i.i545, %if.end.i.i.i.i.i541 ], [ %218, %if.end.i27.i50 ]
-  %__y.addr.010.i.i.i.i.i528 = phi ptr [ %__y.addr.1.i.i.i.i.i543, %if.end.i.i.i.i.i541 ], [ %add.ptr.i.i.i.i.i524, %if.end.i27.i50 ]
-  %_M_storage.i.i.i.i.i.i.i529 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 32
-  %219 = load i32, ptr %_M_storage.i.i.i.i.i.i.i529, align 4
-  %cmp.i.i.i.i.i.i.i530 = icmp slt i32 %219, %and.i.i.i.i520
-  br i1 %cmp.i.i.i.i.i.i.i530, label %if.else.i.i.i.i.i610, label %cond.false.i.i.i.i.i.i.i531
+while.body.i.i.i.i.i527:                          ; preds = %if.end.i27.i51, %if.end.i.i.i.i.i542
+  %__x.addr.011.i.i.i.i.i528 = phi ptr [ %__x.addr.1.i.i.i.i.i546, %if.end.i.i.i.i.i542 ], [ %218, %if.end.i27.i51 ]
+  %__y.addr.010.i.i.i.i.i529 = phi ptr [ %__y.addr.1.i.i.i.i.i544, %if.end.i.i.i.i.i542 ], [ %add.ptr.i.i.i.i.i525, %if.end.i27.i51 ]
+  %_M_storage.i.i.i.i.i.i.i530 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 32
+  %219 = load i32, ptr %_M_storage.i.i.i.i.i.i.i530, align 4
+  %cmp.i.i.i.i.i.i.i531 = icmp slt i32 %219, %and.i.i.i.i521
+  br i1 %cmp.i.i.i.i.i.i.i531, label %if.else.i.i.i.i.i611, label %cond.false.i.i.i.i.i.i.i532
 
-cond.false.i.i.i.i.i.i.i531:                      ; preds = %while.body.i.i.i.i.i526
-  %cmp5.i.i.i.i.i.i.i532 = icmp sgt i32 %219, %and.i.i.i.i520
-  br i1 %cmp5.i.i.i.i.i.i.i532, label %if.end.i.i.i.i.i541, label %cond.false7.i.i.i.i.i.i.i533
+cond.false.i.i.i.i.i.i.i532:                      ; preds = %while.body.i.i.i.i.i527
+  %cmp5.i.i.i.i.i.i.i533 = icmp sgt i32 %219, %and.i.i.i.i521
+  br i1 %cmp5.i.i.i.i.i.i.i533, label %if.end.i.i.i.i.i542, label %cond.false7.i.i.i.i.i.i.i534
 
-cond.false7.i.i.i.i.i.i.i533:                     ; preds = %cond.false.i.i.i.i.i.i.i531
-  %arrayidx.i.i.i.i.i.i.i.i.i.i534 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 36
-  %220 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i534, align 4
-  %cmp10.i.i.i.i.i.i.i535 = icmp slt i32 %220, %and4.i.i.i.i521
-  br i1 %cmp10.i.i.i.i.i.i.i535, label %if.else.i.i.i.i.i610, label %cond.false12.i.i.i.i.i.i.i536
+cond.false7.i.i.i.i.i.i.i534:                     ; preds = %cond.false.i.i.i.i.i.i.i532
+  %arrayidx.i.i.i.i.i.i.i.i.i.i535 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 36
+  %220 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i535, align 4
+  %cmp10.i.i.i.i.i.i.i536 = icmp slt i32 %220, %and4.i.i.i.i522
+  br i1 %cmp10.i.i.i.i.i.i.i536, label %if.else.i.i.i.i.i611, label %cond.false12.i.i.i.i.i.i.i537
 
-cond.false12.i.i.i.i.i.i.i536:                    ; preds = %cond.false7.i.i.i.i.i.i.i533
-  %cmp15.i.i.i.i.i.i.i537 = icmp sgt i32 %220, %and4.i.i.i.i521
-  br i1 %cmp15.i.i.i.i.i.i.i537, label %if.end.i.i.i.i.i541, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538
+cond.false12.i.i.i.i.i.i.i537:                    ; preds = %cond.false7.i.i.i.i.i.i.i534
+  %cmp15.i.i.i.i.i.i.i538 = icmp sgt i32 %220, %and4.i.i.i.i522
+  br i1 %cmp15.i.i.i.i.i.i.i538, label %if.end.i.i.i.i.i542, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538: ; preds = %cond.false12.i.i.i.i.i.i.i536
-  %arrayidx.i.i.i8.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 40
-  %221 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i539, align 4
-  %cmp20.i.i.i.i.i.i.i540 = icmp slt i32 %221, %and7.i.i.i.i522
-  br i1 %cmp20.i.i.i.i.i.i.i540, label %if.else.i.i.i.i.i610, label %if.end.i.i.i.i.i541
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539: ; preds = %cond.false12.i.i.i.i.i.i.i537
+  %arrayidx.i.i.i8.i.i.i.i.i.i.i540 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 40
+  %221 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i540, align 4
+  %cmp20.i.i.i.i.i.i.i541 = icmp slt i32 %221, %and7.i.i.i.i523
+  br i1 %cmp20.i.i.i.i.i.i.i541, label %if.else.i.i.i.i.i611, label %if.end.i.i.i.i.i542
 
-if.else.i.i.i.i.i610:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538, %cond.false7.i.i.i.i.i.i.i533, %while.body.i.i.i.i.i526
-  br label %if.end.i.i.i.i.i541
+if.else.i.i.i.i.i611:                             ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539, %cond.false7.i.i.i.i.i.i.i534, %while.body.i.i.i.i.i527
+  br label %if.end.i.i.i.i.i542
 
-if.end.i.i.i.i.i541:                              ; preds = %if.else.i.i.i.i.i610, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538, %cond.false12.i.i.i.i.i.i.i536, %cond.false.i.i.i.i.i.i.i531
-  %.sink.i.i.i.i.i542 = phi i64 [ 24, %if.else.i.i.i.i.i610 ], [ 16, %cond.false12.i.i.i.i.i.i.i536 ], [ 16, %cond.false.i.i.i.i.i.i.i531 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538 ]
-  %__y.addr.1.i.i.i.i.i543 = phi ptr [ %__y.addr.010.i.i.i.i.i528, %if.else.i.i.i.i.i610 ], [ %__x.addr.011.i.i.i.i.i527, %cond.false12.i.i.i.i.i.i.i536 ], [ %__x.addr.011.i.i.i.i.i527, %cond.false.i.i.i.i.i.i.i531 ], [ %__x.addr.011.i.i.i.i.i527, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i538 ]
-  %_M_right.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i527, i64 %.sink.i.i.i.i.i542
-  %__x.addr.1.i.i.i.i.i545 = load ptr, ptr %_M_right.i.i.i.i.i.i544, align 8
-  %cmp.not.i.i.i.i.i546 = icmp eq ptr %__x.addr.1.i.i.i.i.i545, null
-  br i1 %cmp.not.i.i.i.i.i546, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547, label %while.body.i.i.i.i.i526, !llvm.loop !77
+if.end.i.i.i.i.i542:                              ; preds = %if.else.i.i.i.i.i611, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539, %cond.false12.i.i.i.i.i.i.i537, %cond.false.i.i.i.i.i.i.i532
+  %.sink.i.i.i.i.i543 = phi i64 [ 24, %if.else.i.i.i.i.i611 ], [ 16, %cond.false12.i.i.i.i.i.i.i537 ], [ 16, %cond.false.i.i.i.i.i.i.i532 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539 ]
+  %__y.addr.1.i.i.i.i.i544 = phi ptr [ %__y.addr.010.i.i.i.i.i529, %if.else.i.i.i.i.i611 ], [ %__x.addr.011.i.i.i.i.i528, %cond.false12.i.i.i.i.i.i.i537 ], [ %__x.addr.011.i.i.i.i.i528, %cond.false.i.i.i.i.i.i.i532 ], [ %__x.addr.011.i.i.i.i.i528, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i539 ]
+  %_M_right.i.i.i.i.i.i545 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i528, i64 %.sink.i.i.i.i.i543
+  %__x.addr.1.i.i.i.i.i546 = load ptr, ptr %_M_right.i.i.i.i.i.i545, align 8
+  %cmp.not.i.i.i.i.i547 = icmp eq ptr %__x.addr.1.i.i.i.i.i546, null
+  br i1 %cmp.not.i.i.i.i.i547, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548, label %while.body.i.i.i.i.i527, !llvm.loop !77
 
-_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547: ; preds = %if.end.i.i.i.i.i541
-  %cmp.i.i.i.i.i548 = icmp eq ptr %__y.addr.1.i.i.i.i.i543, %add.ptr.i.i.i.i.i524
-  br i1 %cmp.i.i.i.i.i548, label %if.then.i608, label %lor.lhs.false.i.i.i.i549
+_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548: ; preds = %if.end.i.i.i.i.i542
+  %cmp.i.i.i.i.i549 = icmp eq ptr %__y.addr.1.i.i.i.i.i544, %add.ptr.i.i.i.i.i525
+  br i1 %cmp.i.i.i.i.i549, label %if.then.i609, label %lor.lhs.false.i.i.i.i550
 
-lor.lhs.false.i.i.i.i549:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547
-  %_M_storage.i.i.i3.i.i.i.i550 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 32
-  %222 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i550, align 4
-  %cmp.i.i.i.i.i.i551 = icmp slt i32 %and.i.i.i.i520, %222
-  br i1 %cmp.i.i.i.i.i.i551, label %if.then.i608, label %cond.false.i.i.i.i.i.i552
+lor.lhs.false.i.i.i.i550:                         ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548
+  %_M_storage.i.i.i3.i.i.i.i551 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 32
+  %222 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i551, align 4
+  %cmp.i.i.i.i.i.i552 = icmp slt i32 %and.i.i.i.i521, %222
+  br i1 %cmp.i.i.i.i.i.i552, label %if.then.i609, label %cond.false.i.i.i.i.i.i553
 
-cond.false.i.i.i.i.i.i552:                        ; preds = %lor.lhs.false.i.i.i.i549
-  %cmp5.i.i.i.i.i.i553 = icmp sgt i32 %and.i.i.i.i520, %222
-  br i1 %cmp5.i.i.i.i.i.i553, label %if.end.i562, label %cond.false7.i.i.i.i.i.i554
+cond.false.i.i.i.i.i.i553:                        ; preds = %lor.lhs.false.i.i.i.i550
+  %cmp5.i.i.i.i.i.i554 = icmp sgt i32 %and.i.i.i.i521, %222
+  br i1 %cmp5.i.i.i.i.i.i554, label %if.end.i563, label %cond.false7.i.i.i.i.i.i555
 
-cond.false7.i.i.i.i.i.i554:                       ; preds = %cond.false.i.i.i.i.i.i552
-  %arrayidx.i.i.i5.i.i.i.i.i.i555 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 36
-  %223 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i555, align 4
-  %cmp10.i.i.i.i.i.i556 = icmp slt i32 %and4.i.i.i.i521, %223
-  br i1 %cmp10.i.i.i.i.i.i556, label %if.then.i608, label %cond.false12.i.i.i.i.i.i557
+cond.false7.i.i.i.i.i.i555:                       ; preds = %cond.false.i.i.i.i.i.i553
+  %arrayidx.i.i.i5.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 36
+  %223 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i556, align 4
+  %cmp10.i.i.i.i.i.i557 = icmp slt i32 %and4.i.i.i.i522, %223
+  br i1 %cmp10.i.i.i.i.i.i557, label %if.then.i609, label %cond.false12.i.i.i.i.i.i558
 
-cond.false12.i.i.i.i.i.i557:                      ; preds = %cond.false7.i.i.i.i.i.i554
-  %cmp15.i.i.i.i.i.i558 = icmp sgt i32 %and4.i.i.i.i521, %223
-  br i1 %cmp15.i.i.i.i.i.i558, label %if.end.i562, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559
+cond.false12.i.i.i.i.i.i558:                      ; preds = %cond.false7.i.i.i.i.i.i555
+  %cmp15.i.i.i.i.i.i559 = icmp sgt i32 %and4.i.i.i.i522, %223
+  br i1 %cmp15.i.i.i.i.i.i559, label %if.end.i563, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560
 
-_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559: ; preds = %cond.false12.i.i.i.i.i.i557
-  %arrayidx.i.i.i9.i.i.i.i.i.i560 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 40
-  %224 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i560, align 4
-  %cmp20.i.i.i.i.i.i561 = icmp slt i32 %and7.i.i.i.i522, %224
-  br i1 %cmp20.i.i.i.i.i.i561, label %if.then.i608, label %if.end.i562
+_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560: ; preds = %cond.false12.i.i.i.i.i.i558
+  %arrayidx.i.i.i9.i.i.i.i.i.i561 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 40
+  %224 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i561, align 4
+  %cmp20.i.i.i.i.i.i562 = icmp slt i32 %and7.i.i.i.i523, %224
+  br i1 %cmp20.i.i.i.i.i.i562, label %if.then.i609, label %if.end.i563
 
-if.then.i608:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559, %cond.false7.i.i.i.i.i.i554, %lor.lhs.false.i.i.i.i549, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i547, %if.end.i27.i50
-  %mBackground.i609 = getelementptr inbounds i8, ptr %214, i64 48
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i609:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560, %cond.false7.i.i.i.i.i.i555, %lor.lhs.false.i.i.i.i550, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i548, %if.end.i27.i51
+  %mBackground.i610 = getelementptr inbounds i8, ptr %214, i64 48
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end.i562:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i559, %cond.false12.i.i.i.i.i.i557, %cond.false.i.i.i.i.i.i552
-  %second.i.i563 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 48
-  %225 = load ptr, ptr %second.i.i563, align 8
-  %cmp.i.i.not.i564 = icmp eq ptr %225, null
-  br i1 %cmp.i.i.not.i564, label %if.end10.i606, label %if.then6.i565
+if.end.i563:                                      ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i560, %cond.false12.i.i.i.i.i.i558, %cond.false.i.i.i.i.i.i553
+  %second.i.i564 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 48
+  %225 = load ptr, ptr %second.i.i564, align 8
+  %cmp.i.i.not.i565 = icmp eq ptr %225, null
+  br i1 %cmp.i.i.not.i565, label %if.end10.i607, label %if.then6.i566
 
-if.then6.i565:                                    ; preds = %if.end.i562
-  %and7.i.i568 = and i32 %add7.i.i, -4096
-  %retval.sroa.0.0.insert.insert.i.i572 = and i64 %192, -17587891081216
-  store i64 %retval.sroa.0.0.insert.insert.i.i572, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i568, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %225, ptr %add.ptr.i.i.i.i5.i975, align 8
-  %226 = load ptr, ptr %second.i.i563, align 8
+if.then6.i566:                                    ; preds = %if.end.i563
+  %and7.i.i569 = and i32 %add7.i.i, -4096
+  %retval.sroa.0.0.insert.insert.i.i573 = and i64 %192, -17587891081216
+  store i64 %retval.sroa.0.0.insert.insert.i.i573, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i569, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %225, ptr %add.ptr.i.i.i.i5.i976, align 8
+  %226 = load ptr, ptr %second.i.i564, align 8
   %227 = shl i32 %194, 3
-  %shl.i.i.i576 = and i32 %227, 31744
+  %shl.i.i.i577 = and i32 %227, 31744
   %228 = lshr i32 %197, 2
-  %shl4.i.i.i577 = and i32 %228, 992
-  %add.i.i.i578 = or disjoint i32 %shl4.i.i.i577, %shl.i.i.i576
-  %and6.i.i.i579 = lshr i32 %add7.i.i, 7
-  %shr7.i.i.i580 = and i32 %and6.i.i.i579, 31
-  %add8.i.i.i581 = or disjoint i32 %add.i.i.i578, %shr7.i.i.i580
-  %mChildMask.i.i.i582 = getelementptr inbounds i8, ptr %226, i64 262144
-  %shr.i.i.i.i583 = lshr i32 %add.i.i.i578, 6
-  %idxprom.i.i.i.i584 = zext nneg i32 %shr.i.i.i.i583 to i64
-  %arrayidx.i.i.i8.i585 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i582, i64 0, i64 %idxprom.i.i.i.i584
-  %229 = load i64, ptr %arrayidx.i.i.i8.i585, align 8
-  %and.i.i.i9.i586 = and i32 %add8.i.i.i581, 63
-  %sh_prom.i.i.i.i587 = zext nneg i32 %and.i.i.i9.i586 to i64
-  %shl.i.i.i.i588 = shl nuw i64 1, %sh_prom.i.i.i.i587
-  %and2.i.i.i.i589 = and i64 %229, %shl.i.i.i.i588
-  %cmp.i.i.not.i.i590 = icmp eq i64 %and2.i.i.i.i589, 0
-  %idxprom10.i.i591 = zext nneg i32 %add8.i.i.i581 to i64
-  %arrayidx11.i.i592 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %226, i64 0, i64 %idxprom10.i.i591
-  br i1 %cmp.i.i.not.i.i590, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128, label %if.then.i.i593
+  %shl4.i.i.i578 = and i32 %228, 992
+  %add.i.i.i579 = or disjoint i32 %shl4.i.i.i578, %shl.i.i.i577
+  %and6.i.i.i580 = lshr i32 %add7.i.i, 7
+  %shr7.i.i.i581 = and i32 %and6.i.i.i580, 31
+  %add8.i.i.i582 = or disjoint i32 %add.i.i.i579, %shr7.i.i.i581
+  %mChildMask.i.i.i583 = getelementptr inbounds i8, ptr %226, i64 262144
+  %shr.i.i.i.i584 = lshr i32 %add.i.i.i579, 6
+  %idxprom.i.i.i.i585 = zext nneg i32 %shr.i.i.i.i584 to i64
+  %arrayidx.i.i.i8.i586 = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i583, i64 0, i64 %idxprom.i.i.i.i585
+  %229 = load i64, ptr %arrayidx.i.i.i8.i586, align 8
+  %and.i.i.i9.i587 = and i32 %add8.i.i.i582, 63
+  %sh_prom.i.i.i.i588 = zext nneg i32 %and.i.i.i9.i587 to i64
+  %shl.i.i.i.i589 = shl nuw i64 1, %sh_prom.i.i.i.i588
+  %and2.i.i.i.i590 = and i64 %229, %shl.i.i.i.i589
+  %cmp.i.i.not.i.i591 = icmp eq i64 %and2.i.i.i.i590, 0
+  %idxprom10.i.i592 = zext nneg i32 %add8.i.i.i582 to i64
+  %arrayidx11.i.i593 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %226, i64 0, i64 %idxprom10.i.i592
+  br i1 %cmp.i.i.not.i.i591, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129, label %if.then.i.i594
 
-if.then.i.i593:                                   ; preds = %if.then6.i565
-  %230 = load ptr, ptr %arrayidx11.i.i592, align 8
-  %and7.i.i.i596 = and i32 %add7.i.i, -128
-  %retval.sroa.0.0.insert.insert.i.i.i600 = and i64 %192, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i600, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i596, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %230, ptr %add.ptr.i.i.i.i.i.i1003, align 8
-  %231 = load ptr, ptr %arrayidx11.i.i592, align 8
-  %call8.i.i604 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %231, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.then.i.i594:                                   ; preds = %if.then6.i566
+  %230 = load ptr, ptr %arrayidx11.i.i593, align 8
+  %and7.i.i.i597 = and i32 %add7.i.i, -128
+  %retval.sroa.0.0.insert.insert.i.i.i601 = and i64 %192, -545460846720
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i601, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i597, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %230, ptr %add.ptr.i.i.i.i.i.i1004, align 8
+  %231 = load ptr, ptr %arrayidx11.i.i593, align 8
+  %call8.i.i605 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %231, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp26.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-if.end10.i606:                                    ; preds = %if.end.i562
-  %tile.i.i607 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i543, i64 56
-  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.end10.i607:                                    ; preds = %if.end.i563
+  %tile.i.i608 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i544, i64 56
+  br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128: ; preds = %if.end10.i606, %if.then.i.i593, %if.then6.i565, %if.then.i608, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i103, %if.end.i33.i64, %if.then.i.i.i83
-  %retval.i.0.i53 = phi ptr [ %arrayidx.i.i126, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i116 ], [ %call3.i.i105, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i103 ], [ %call8.i.i.i92, %if.then.i.i.i83 ], [ %arrayidx11.i.i.i82, %if.end.i33.i64 ], [ %mBackground.i609, %if.then.i608 ], [ %tile.i.i607, %if.end10.i606 ], [ %call8.i.i604, %if.then.i.i593 ], [ %arrayidx11.i.i592, %if.then6.i565 ]
-  %232 = load double, ptr %retval.i.0.i53, align 8
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129: ; preds = %if.end10.i607, %if.then.i.i594, %if.then6.i566, %if.then.i609, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i117, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i104, %if.end.i33.i65, %if.then.i.i.i84
+  %retval.i.0.i54 = phi ptr [ %arrayidx.i.i127, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i117 ], [ %call3.i.i106, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i104 ], [ %call8.i.i.i93, %if.then.i.i.i84 ], [ %arrayidx11.i.i.i83, %if.end.i33.i65 ], [ %mBackground.i610, %if.then.i609 ], [ %tile.i.i608, %if.end10.i607 ], [ %call8.i.i605, %if.then.i.i594 ], [ %arrayidx11.i.i593, %if.then6.i566 ]
+  %232 = load double, ptr %retval.i.0.i54, align 8
   %233 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i47.i = getelementptr inbounds i8, ptr %233, i64 40
-  store double %232, ptr %add.ptr.i.i47.i, align 8
+  %add.ptr.i.i51.i = getelementptr inbounds i8, ptr %233, i64 40
+  store double %232, ptr %add.ptr.i.i51.i, align 8
   %234 = load i64, ptr %mCenter.i, align 8
   %235 = load i32, ptr %ref.tmp.sroa.2.0.mCenter.sroa_idx.i, align 8
-  %add7.i50.i = add nsw i32 %235, 1
+  %add7.i56.i = add nsw i32 %235, 1
   store i64 %234, ptr %ref.tmp33.i, align 8
-  store i32 %add7.i50.i, ptr %tmp.coerce37.sroa.2.0.coerce.dive36.sroa_idx.i, align 8
+  store i32 %add7.i56.i, ptr %tmp.coerce37.sroa.2.0.coerce.dive36.sroa_idx.i, align 8
   %236 = trunc i64 %234 to i32
   %and.i.i.i = and i32 %236, -8
-  %237 = load i32, ptr %mKeys.i.i.i400, align 8
-  %cmp.i.i.i27 = icmp eq i32 %and.i.i.i, %237
+  %237 = load i32, ptr %mKeys.i.i.i401, align 8
+  %cmp.i.i.i28 = icmp eq i32 %and.i.i.i, %237
   %238 = lshr i64 %234, 32
   %239 = trunc nuw i64 %238 to i32
-  br i1 %cmp.i.i.i27, label %land.lhs.true.i.i.i, label %if.end.i.i
+  br i1 %cmp.i.i.i28, label %land.lhs.true.i.i.i, label %if.end.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
   %and5.i.i.i = and i32 %239, -8
-  %240 = load i32, ptr %arrayidx.i.i.i3.i.i469, align 4
+  %240 = load i32, ptr %arrayidx.i.i.i3.i.i470, align 4
   %cmp9.i.i.i = icmp eq i32 %and5.i.i.i, %240
-  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i34, label %if.end.i.i
+  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i35, label %if.end.i.i
 
-land.rhs.i.i.i34:                                 ; preds = %land.lhs.true.i.i.i
-  %and11.i.i.i = and i32 %add7.i50.i, -8
-  %241 = load i32, ptr %arrayidx.i.i.i5.i.i474, align 8
+land.rhs.i.i.i35:                                 ; preds = %land.lhs.true.i.i.i
+  %and11.i.i.i = and i32 %add7.i56.i, -8
+  %241 = load i32, ptr %arrayidx.i.i.i5.i.i475, align 8
   %cmp15.i.i.i = icmp eq i32 %and11.i.i.i, %241
   br i1 %cmp15.i.i.i, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, label %if.end.i.i
 
-_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i: ; preds = %land.rhs.i.i.i34
-  %242 = load ptr, ptr %add.ptr.i.i477, align 8
+_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i: ; preds = %land.rhs.i.i.i35
+  %242 = load ptr, ptr %add.ptr.i.i478, align 8
   %and.i6.i.i = shl i32 %236, 6
-  %shl.i.i.i36 = and i32 %and.i6.i.i, 448
+  %shl.i.i.i37 = and i32 %and.i6.i.i, 448
   %and2.i.i.i = shl i32 %239, 3
   %shl3.i.i.i = and i32 %and2.i.i.i, 56
-  %and5.i7.i.i = and i32 %add7.i50.i, 7
-  %add.i.i.i37 = or disjoint i32 %shl.i.i.i36, %and5.i7.i.i
-  %add6.i.i.i = or disjoint i32 %add.i.i.i37, %shl3.i.i.i
+  %and5.i7.i.i = and i32 %add7.i56.i, 7
+  %add.i.i.i38 = or disjoint i32 %shl.i.i.i37, %and5.i7.i.i
+  %add6.i.i.i = or disjoint i32 %add.i.i.i38, %shl3.i.i.i
   %idxprom.i.i = zext nneg i32 %add6.i.i.i to i64
-  %arrayidx.i.i38 = getelementptr inbounds double, ptr %242, i64 %idxprom.i.i
+  %arrayidx.i.i39 = getelementptr inbounds double, ptr %242, i64 %idxprom.i.i
   %tobool.i.not.i = icmp eq ptr %242, null
   br i1 %tobool.i.not.i, label %if.end.i.i, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
-if.end.i.i:                                       ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %land.rhs.i.i.i34, %land.lhs.true.i.i.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit128
+if.end.i.i:                                       ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %land.rhs.i.i.i35, %land.lhs.true.i.i.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit129
   %and.i.i6.i = and i32 %236, -128
-  %243 = load i32, ptr %arrayidx.i.i.i.i404, align 4
+  %243 = load i32, ptr %arrayidx.i.i.i.i405, align 4
   %cmp.i.i7.i = icmp eq i32 %and.i.i6.i, %243
   br i1 %cmp.i.i7.i, label %land.lhs.true.i.i9.i, label %if.end.i16.i
 
 land.lhs.true.i.i9.i:                             ; preds = %if.end.i.i
   %and5.i.i11.i = and i32 %239, -128
-  %244 = load i32, ptr %arrayidx.i.i.i4.i12.i456, align 8
+  %244 = load i32, ptr %arrayidx.i.i.i4.i12.i457, align 8
   %cmp9.i.i13.i = icmp eq i32 %and5.i.i11.i, %244
   br i1 %cmp9.i.i13.i, label %land.rhs.i.i14.i, label %if.end.i16.i
 
 land.rhs.i.i14.i:                                 ; preds = %land.lhs.true.i.i9.i
-  %and11.i.i16.i = and i32 %add7.i50.i, -128
-  %245 = load i32, ptr %arrayidx.i.i.i7.i.i461, align 4
+  %and11.i.i16.i = and i32 %add7.i56.i, -128
+  %245 = load i32, ptr %arrayidx.i.i.i7.i.i462, align 4
   %cmp15.i.i17.i = icmp eq i32 %and11.i.i16.i, %245
   br i1 %cmp15.i.i17.i, label %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, label %if.end.i16.i
 
 _ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i: ; preds = %land.rhs.i.i14.i
-  %246 = load ptr, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  %246 = load ptr, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %246, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 if.end.i16.i:                                     ; preds = %land.rhs.i.i14.i, %land.lhs.true.i.i9.i, %if.end.i.i
   %and.i.i19.i = and i32 %236, -4096
-  %247 = load i32, ptr %arrayidx.i.i.i20.i408, align 8
+  %247 = load i32, ptr %arrayidx.i.i.i20.i409, align 8
   %cmp.i.i21.i = icmp eq i32 %and.i.i19.i, %247
   br i1 %cmp.i.i21.i, label %land.lhs.true.i.i23.i, label %if.end.i27.i
 
 land.lhs.true.i.i23.i:                            ; preds = %if.end.i16.i
   %and5.i.i25.i = and i32 %239, -4096
-  %248 = load i32, ptr %arrayidx.i.i.i4.i26.i417, align 4
+  %248 = load i32, ptr %arrayidx.i.i.i4.i26.i418, align 4
   %cmp9.i.i27.i = icmp eq i32 %and5.i.i25.i, %248
   br i1 %cmp9.i.i27.i, label %land.rhs.i.i28.i, label %if.end.i27.i
 
 land.rhs.i.i28.i:                                 ; preds = %land.lhs.true.i.i23.i
-  %and11.i.i30.i = and i32 %add7.i50.i, -4096
-  %249 = load i32, ptr %arrayidx.i.i.i7.i31.i422, align 8
+  %and11.i.i30.i = and i32 %add7.i56.i, -4096
+  %249 = load i32, ptr %arrayidx.i.i.i7.i31.i423, align 8
   %cmp15.i.i32.i = icmp eq i32 %and11.i.i30.i, %249
   br i1 %cmp15.i.i32.i, label %if.end.i33.i, label %if.end.i27.i
 
 if.end.i33.i:                                     ; preds = %land.rhs.i.i28.i
-  %250 = load ptr, ptr %add.ptr.i.i.i.i5.i975, align 8
+  %250 = load ptr, ptr %add.ptr.i.i.i.i5.i976, align 8
   %251 = shl i32 %236, 3
-  %shl.i.i.i.i29 = and i32 %251, 31744
+  %shl.i.i.i.i30 = and i32 %251, 31744
   %252 = lshr i32 %239, 2
   %shl4.i.i.i.i = and i32 %252, 992
-  %add.i.i.i.i30 = or disjoint i32 %shl4.i.i.i.i, %shl.i.i.i.i29
-  %and6.i.i.i.i = lshr i32 %add7.i50.i, 7
+  %add.i.i.i.i31 = or disjoint i32 %shl4.i.i.i.i, %shl.i.i.i.i30
+  %and6.i.i.i.i = lshr i32 %add7.i56.i, 7
   %shr7.i.i.i.i = and i32 %and6.i.i.i.i, 31
-  %add8.i.i.i.i = or disjoint i32 %add.i.i.i.i30, %shr7.i.i.i.i
+  %add8.i.i.i.i = or disjoint i32 %add.i.i.i.i31, %shr7.i.i.i.i
   %mChildMask.i.i.i.i = getelementptr inbounds i8, ptr %250, i64 262144
-  %shr.i.i.i.i.i = lshr i32 %add.i.i.i.i30, 6
+  %shr.i.i.i.i.i = lshr i32 %add.i.i.i.i31, 6
   %idxprom.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i to i64
   %arrayidx.i.i.i8.i.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %253 = load i64, ptr %arrayidx.i.i.i8.i.i, align 8
@@ -8247,61 +8247,61 @@ if.end.i33.i:                                     ; preds = %land.rhs.i.i28.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i33.i
   %254 = load ptr, ptr %arrayidx11.i.i.i, align 8
-  %and7.i.i.i.i31 = and i32 %add7.i50.i, -128
+  %and7.i.i.i.i32 = and i32 %add7.i56.i, -128
   %retval.sroa.0.0.insert.insert.i.i.i.i = and i64 %234, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i.i31, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %254, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i.i32, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %254, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %255 = load ptr, ptr %arrayidx11.i.i.i, align 8
   %call8.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %255, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 if.end.i27.i:                                     ; preds = %land.rhs.i.i28.i, %land.lhs.true.i.i23.i, %if.end.i16.i
-  %256 = load ptr, ptr %mNodes.i.i411, align 8
+  %256 = load ptr, ptr %mNodes.i.i412, align 8
   %mOrigin.i.i.i = getelementptr inbounds i8, ptr %256, i64 56
   %257 = load i32, ptr %mOrigin.i.i.i, align 4
   %sub.i.i.i.i = sub nsw i32 %236, %257
-  %arrayidx.i.i.i.i.i.i.i490 = getelementptr inbounds i8, ptr %256, i64 60
-  %258 = load i32, ptr %arrayidx.i.i.i.i.i.i.i490, align 4
+  %arrayidx.i.i.i.i.i.i.i491 = getelementptr inbounds i8, ptr %256, i64 60
+  %258 = load i32, ptr %arrayidx.i.i.i.i.i.i.i491, align 4
   %sub6.i.i.i.i = sub nsw i32 %239, %258
-  %arrayidx.i.i.i4.i.i.i.i491 = getelementptr inbounds i8, ptr %256, i64 64
-  %259 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i491, align 4
-  %sub10.i.i.i.i = sub nsw i32 %add7.i50.i, %259
-  %and.i.i.i.i492 = and i32 %sub.i.i.i.i, -4096
-  %and4.i.i.i.i493 = and i32 %sub6.i.i.i.i, -4096
-  %and7.i.i.i.i494 = and i32 %sub10.i.i.i.i, -4096
+  %arrayidx.i.i.i4.i.i.i.i492 = getelementptr inbounds i8, ptr %256, i64 64
+  %259 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i492, align 4
+  %sub10.i.i.i.i = sub nsw i32 %add7.i56.i, %259
+  %and.i.i.i.i493 = and i32 %sub.i.i.i.i, -4096
+  %and4.i.i.i.i494 = and i32 %sub6.i.i.i.i, -4096
+  %and7.i.i.i.i495 = and i32 %sub10.i.i.i.i, -4096
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %256, i64 16
   %260 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %256, i64 8
   %cmp.not9.i.i.i.i.i = icmp eq ptr %260, null
-  br i1 %cmp.not9.i.i.i.i.i, label %if.then.i511, label %while.body.i.i.i.i.i
+  br i1 %cmp.not9.i.i.i.i.i, label %if.then.i512, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i27.i, %if.end.i.i.i.i.i
   %__x.addr.011.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %260, %if.end.i27.i ]
   %__y.addr.010.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i27.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 32
   %261 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i = icmp slt i32 %261, %and.i.i.i.i492
+  %cmp.i.i.i.i.i.i.i = icmp slt i32 %261, %and.i.i.i.i493
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp sgt i32 %261, %and.i.i.i.i492
+  %cmp5.i.i.i.i.i.i.i = icmp sgt i32 %261, %and.i.i.i.i493
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %cond.false7.i.i.i.i.i.i.i
 
 cond.false7.i.i.i.i.i.i.i:                        ; preds = %cond.false.i.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 36
   %262 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i = icmp slt i32 %262, %and4.i.i.i.i493
+  %cmp10.i.i.i.i.i.i.i = icmp slt i32 %262, %and4.i.i.i.i494
   br i1 %cmp10.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %cond.false12.i.i.i.i.i.i.i
 
 cond.false12.i.i.i.i.i.i.i:                       ; preds = %cond.false7.i.i.i.i.i.i.i
-  %cmp15.i.i.i.i.i.i.i = icmp sgt i32 %262, %and4.i.i.i.i493
+  %cmp15.i.i.i.i.i.i.i = icmp sgt i32 %262, %and4.i.i.i.i494
   br i1 %cmp15.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i
 
 _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i: ; preds = %cond.false12.i.i.i.i.i.i.i
   %arrayidx.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 40
   %263 = load i32, ptr %arrayidx.i.i.i8.i.i.i.i.i.i.i, align 4
-  %cmp20.i.i.i.i.i.i.i = icmp slt i32 %263, %and7.i.i.i.i494
+  %cmp20.i.i.i.i.i.i.i = icmp slt i32 %263, %and7.i.i.i.i495
   br i1 %cmp20.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i, %cond.false7.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
@@ -8316,36 +8316,36 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !77
 
 _ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %cmp.i.i.i.i.i495 = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i495, label %if.then.i511, label %lor.lhs.false.i.i.i.i
+  %cmp.i.i.i.i.i496 = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i496, label %if.then.i512, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %264 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp slt i32 %and.i.i.i.i492, %264
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i511, label %cond.false.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp slt i32 %and.i.i.i.i493, %264
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i512, label %cond.false.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i
-  %cmp5.i.i.i.i.i.i = icmp sgt i32 %and.i.i.i.i492, %264
+  %cmp5.i.i.i.i.i.i = icmp sgt i32 %and.i.i.i.i493, %264
   br i1 %cmp5.i.i.i.i.i.i, label %if.end.i, label %cond.false7.i.i.i.i.i.i
 
 cond.false7.i.i.i.i.i.i:                          ; preds = %cond.false.i.i.i.i.i.i
   %arrayidx.i.i.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 36
   %265 = load i32, ptr %arrayidx.i.i.i5.i.i.i.i.i.i, align 4
-  %cmp10.i.i.i.i.i.i = icmp slt i32 %and4.i.i.i.i493, %265
-  br i1 %cmp10.i.i.i.i.i.i, label %if.then.i511, label %cond.false12.i.i.i.i.i.i
+  %cmp10.i.i.i.i.i.i = icmp slt i32 %and4.i.i.i.i494, %265
+  br i1 %cmp10.i.i.i.i.i.i, label %if.then.i512, label %cond.false12.i.i.i.i.i.i
 
 cond.false12.i.i.i.i.i.i:                         ; preds = %cond.false7.i.i.i.i.i.i
-  %cmp15.i.i.i.i.i.i = icmp sgt i32 %and4.i.i.i.i493, %265
+  %cmp15.i.i.i.i.i.i = icmp sgt i32 %and4.i.i.i.i494, %265
   br i1 %cmp15.i.i.i.i.i.i, label %if.end.i, label %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i
 
 _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i: ; preds = %cond.false12.i.i.i.i.i.i
   %arrayidx.i.i.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %266 = load i32, ptr %arrayidx.i.i.i9.i.i.i.i.i.i, align 4
-  %cmp20.i.i.i.i.i.i = icmp slt i32 %and7.i.i.i.i494, %266
-  br i1 %cmp20.i.i.i.i.i.i, label %if.then.i511, label %if.end.i
+  %cmp20.i.i.i.i.i.i = icmp slt i32 %and7.i.i.i.i495, %266
+  br i1 %cmp20.i.i.i.i.i.i, label %if.then.i512, label %if.end.i
 
-if.then.i511:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false7.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, %if.end.i27.i
+if.then.i512:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false7.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, %if.end.i27.i
   %mBackground.i = getelementptr inbounds i8, ptr %256, i64 48
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
@@ -8356,41 +8356,41 @@ if.end.i:                                         ; preds = %_ZNKSt4lessIN7openv
   br i1 %cmp.i.i.not.i, label %if.end10.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %and7.i.i = and i32 %add7.i50.i, -4096
-  %retval.sroa.0.0.insert.insert.i.i499 = and i64 %234, -17587891081216
-  store i64 %retval.sroa.0.0.insert.insert.i.i499, ptr %arrayidx.i.i.i20.i408, align 8
-  store i32 %and7.i.i, ptr %arrayidx.i.i.i7.i31.i422, align 8
-  store ptr %267, ptr %add.ptr.i.i.i.i5.i975, align 8
+  %and7.i.i = and i32 %add7.i56.i, -4096
+  %retval.sroa.0.0.insert.insert.i.i500 = and i64 %234, -17587891081216
+  store i64 %retval.sroa.0.0.insert.insert.i.i500, ptr %arrayidx.i.i.i20.i409, align 8
+  store i32 %and7.i.i, ptr %arrayidx.i.i.i7.i31.i423, align 8
+  store ptr %267, ptr %add.ptr.i.i.i.i5.i976, align 8
   %268 = load ptr, ptr %second.i.i, align 8
   %269 = shl i32 %236, 3
-  %shl.i.i.i501 = and i32 %269, 31744
+  %shl.i.i.i502 = and i32 %269, 31744
   %270 = lshr i32 %239, 2
   %shl4.i.i.i = and i32 %270, 992
-  %add.i.i.i502 = or disjoint i32 %shl4.i.i.i, %shl.i.i.i501
-  %and6.i.i.i = lshr i32 %add7.i50.i, 7
+  %add.i.i.i503 = or disjoint i32 %shl4.i.i.i, %shl.i.i.i502
+  %and6.i.i.i = lshr i32 %add7.i56.i, 7
   %shr7.i.i.i = and i32 %and6.i.i.i, 31
-  %add8.i.i.i = or disjoint i32 %add.i.i.i502, %shr7.i.i.i
+  %add8.i.i.i = or disjoint i32 %add.i.i.i503, %shr7.i.i.i
   %mChildMask.i.i.i = getelementptr inbounds i8, ptr %268, i64 262144
-  %shr.i.i.i.i503 = lshr i32 %add.i.i.i502, 6
-  %idxprom.i.i.i.i504 = zext nneg i32 %shr.i.i.i.i503 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i, i64 0, i64 %idxprom.i.i.i.i504
+  %shr.i.i.i.i504 = lshr i32 %add.i.i.i503, 6
+  %idxprom.i.i.i.i505 = zext nneg i32 %shr.i.i.i.i504 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds [512 x i64], ptr %mChildMask.i.i.i, i64 0, i64 %idxprom.i.i.i.i505
   %271 = load i64, ptr %arrayidx.i.i.i8.i, align 8
   %and.i.i.i9.i = and i32 %add8.i.i.i, 63
-  %sh_prom.i.i.i.i505 = zext nneg i32 %and.i.i.i9.i to i64
-  %shl.i.i.i.i506 = shl nuw i64 1, %sh_prom.i.i.i.i505
-  %and2.i.i.i.i507 = and i64 %271, %shl.i.i.i.i506
-  %cmp.i.i.not.i.i = icmp eq i64 %and2.i.i.i.i507, 0
+  %sh_prom.i.i.i.i506 = zext nneg i32 %and.i.i.i9.i to i64
+  %shl.i.i.i.i507 = shl nuw i64 1, %sh_prom.i.i.i.i506
+  %and2.i.i.i.i508 = and i64 %271, %shl.i.i.i.i507
+  %cmp.i.i.not.i.i = icmp eq i64 %and2.i.i.i.i508, 0
   %idxprom10.i.i = zext nneg i32 %add8.i.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.388"], ptr %268, i64 0, i64 %idxprom10.i.i
   br i1 %cmp.i.i.not.i.i, label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %272 = load ptr, ptr %arrayidx11.i.i, align 8
-  %and7.i.i.i = and i32 %add7.i50.i, -128
+  %and7.i.i.i = and i32 %add7.i56.i, -128
   %retval.sroa.0.0.insert.insert.i.i.i = and i64 %234, -545460846720
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx.i.i.i.i404, align 4
-  store i32 %and7.i.i.i, ptr %arrayidx.i.i.i7.i.i461, align 4
-  store ptr %272, ptr %add.ptr.i.i.i.i.i.i1003, align 8
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx.i.i.i.i405, align 4
+  store i32 %and7.i.i.i, ptr %arrayidx.i.i.i7.i.i462, align 4
+  store ptr %272, ptr %add.ptr.i.i.i.i.i.i1004, align 8
   %273 = load ptr, ptr %arrayidx11.i.i, align 8
   %call8.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %273, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i)
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
@@ -8399,12 +8399,12 @@ if.end10.i:                                       ; preds = %if.end.i
   %tile.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 56
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
-_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then.i.i, %if.then6.i, %if.then.i511, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, %if.end.i33.i, %if.then.i.i.i
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i38, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %call3.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %call8.i.i.i, %if.then.i.i.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i511 ], [ %tile.i.i, %if.end10.i ], [ %call8.i.i, %if.then.i.i ], [ %arrayidx11.i.i, %if.then6.i ]
+_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then.i.i, %if.then6.i, %if.then.i512, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, %if.end.i33.i, %if.then.i.i.i
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i39, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %call3.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %call8.i.i.i, %if.then.i.i.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i512 ], [ %tile.i.i, %if.end10.i ], [ %call8.i.i, %if.then.i.i ], [ %arrayidx11.i.i, %if.then6.i ]
   %274 = load double, ptr %retval.i.0.i, align 8
   %275 = load ptr, ptr %mValues.i, align 8
-  %add.ptr.i.i58.i = getelementptr inbounds i8, ptr %275, i64 48
-  store double %274, ptr %add.ptr.i.i58.i, align 8
+  %add.ptr.i.i64.i = getelementptr inbounds i8, ptr %275, i64 48
+  store double %274, ptr %add.ptr.i.i64.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp12.i)
@@ -8437,7 +8437,7 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %285)
   %286 = load i32, ptr %mCenter.i, align 8
   %conv = sitofp i32 %286 to double
-  %287 = load i32, ptr %arrayidx.i.i.i.i26, align 4
+  %287 = load i32, ptr %arrayidx.i.i.i.i27, align 4
   %conv24 = sitofp i32 %287 to double
   %mul25 = fmul double %mul4.i.i.i, %conv24
   %288 = call double @llvm.fmuladd.f64(double %mul.i.i.i, double %conv, double %mul25)
@@ -8455,17 +8455,17 @@ for.inc:                                          ; preds = %_ZNK7openvdb5v11_04
   %296 = phi <2 x double> [ %295, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit ], [ %19, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %19, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIdLj3EE9ValueIterIS7_KS9_KdNS9_7ValueOnEEESB_SC_EdeEv.exit ]
   %297 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8
   %298 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %add.i.i.i20 = add i32 %298, 1
-  %shr.i.i.i.i21 = lshr i32 %add.i.i.i20, 6
-  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i20, 511
+  %add.i.i.i21 = add i32 %298, 1
+  %shr.i.i.i.i22 = lshr i32 %add.i.i.i21, 6
+  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i21, 511
   br i1 %cmp.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.inc
-  %and.i.i.i.i22 = and i32 %add.i.i.i20, 63
-  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i21 to i64
+  %and.i.i.i.i23 = and i32 %add.i.i.i21, 63
+  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i22 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [8 x i64], ptr %297, i64 0, i64 %idxprom.i.i.i.i
   %299 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i22 to i64
+  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i23 to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %and2.i.i.i.i = and i64 %299, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
@@ -8494,12 +8494,12 @@ cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i21, %if.end4.i.i.i.i ], [ %301, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i22, %if.end4.i.i.i.i ], [ %301, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %300, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %302 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %303 = trunc nuw nsw i64 %302 to i32
-  %add.i.i.i.i24 = or disjoint i32 %shl14.i.i.i.i, %303
+  %add.i.i.i.i25 = or disjoint i32 %shl14.i.i.i.i, %303
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread: ; preds = %for.inc, %land.rhs.i.i.i.i
@@ -8507,9 +8507,9 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br label %for.end
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit: ; preds = %if.end.i.i.i.i, %cond.false.i.i.i.i
-  %retval.0.i.i.i.i23 = phi i32 [ %add.i.i.i20, %if.end.i.i.i.i ], [ %add.i.i.i.i24, %cond.false.i.i.i.i ]
-  store i32 %retval.0.i.i.i.i23, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i23, 512
+  %retval.0.i.i.i.i24 = phi i32 [ %add.i.i.i21, %if.end.i.i.i.i ], [ %add.i.i.i.i25, %cond.false.i.i.i.i ]
+  store i32 %retval.0.i.i.i.i24, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i24, 512
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body11, !llvm.loop !81
 
 for.end:                                          ; preds = %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit
@@ -8517,13 +8517,13 @@ for.end:                                          ; preds = %_ZN7openvdb5v11_04t
   %305 = load ptr, ptr %this, align 8
   %mBuffer = getelementptr inbounds i8, ptr %305, i64 24
   %306 = load ptr, ptr %mBuffer, align 8
-  %add.ptr = getelementptr inbounds double, ptr %306, i64 %leafIter.sroa.3.01029
+  %add.ptr = getelementptr inbounds double, ptr %306, i64 %leafIter.sroa.3.01030
   %307 = extractelement <2 x double> %304, i64 1
   store double %307, ptr %add.ptr, align 8
   %add.ptr35 = getelementptr inbounds double, ptr %add.ptr, i64 %9
   %308 = extractelement <2 x double> %304, i64 0
   store double %308, ptr %add.ptr35, align 8
-  %inc.i = add nuw i64 %leafIter.sroa.3.01029, 1
+  %inc.i = add nuw i64 %leafIter.sroa.3.01030, 1
   %309 = load i64, ptr %range, align 8
   %cmp.i.i = icmp ult i64 %inc.i, %309
   br i1 %cmp.i.i, label %for.body, label %for.end38, !llvm.loop !82
@@ -9094,13 +9094,13 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %60 = insertelement <2 x double> %44, double %38, i64 1
   %61 = fadd <2 x double> %60, %59
   %62 = call double @llvm.fmuladd.f64(double %55, double -2.000000e+00, double %39)
-  %add.i72.i = fadd double %40, %62
-  %add.ptr.i.i74.i = getelementptr inbounds i8, ptr %34, i64 80
-  %63 = load double, ptr %add.ptr.i.i74.i, align 8
-  %add.ptr.i1.i75.i = getelementptr inbounds i8, ptr %34, i64 64
-  %64 = load double, ptr %add.ptr.i1.i75.i, align 8
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %34, i64 56
-  %65 = load double, ptr %add.ptr.i2.i.i, align 8
+  %add.i71.i = fadd double %40, %62
+  %add.ptr.i.i73.i = getelementptr inbounds i8, ptr %34, i64 80
+  %63 = load double, ptr %add.ptr.i.i73.i, align 8
+  %add.ptr.i1.i74.i = getelementptr inbounds i8, ptr %34, i64 64
+  %64 = load double, ptr %add.ptr.i1.i74.i, align 8
+  %add.ptr.i2.i76.i = getelementptr inbounds i8, ptr %34, i64 56
+  %65 = load double, ptr %add.ptr.i2.i76.i, align 8
   %add.ptr.i3.i.i = getelementptr inbounds i8, ptr %34, i64 72
   %66 = load double, ptr %add.ptr.i3.i.i, align 8
   %add.ptr.i.i80.i = getelementptr inbounds i8, ptr %34, i64 112
@@ -9132,15 +9132,15 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %add.ptr.i3.i94.i = getelementptr inbounds i8, ptr %34, i64 136
   %82 = load double, ptr %add.ptr.i3.i94.i, align 8
   %83 = extractelement <2 x double> %61, i64 1
-  %add14.i = fadd double %83, %add.i72.i
+  %add14.i = fadd double %83, %add.i71.i
   %84 = extractelement <2 x double> %61, i64 0
-  %add16.i = fadd double %84, %add.i72.i
+  %add16.i = fadd double %84, %add.i71.i
   %add18.i = fadd double %84, %83
   %85 = extractelement <2 x double> %51, i64 1
   %mul23.i = fmul double %mul.i56.i, %85
   %86 = fneg double %mul.i87.i
   %neg31.i = fmul double %mul.i87.i, %86
-  %87 = call double @llvm.fmuladd.f64(double %84, double %add.i72.i, double %neg31.i)
+  %87 = call double @llvm.fmuladd.f64(double %84, double %add.i71.i, double %neg31.i)
   %88 = extractelement <2 x double> %51, i64 0
   %mul42.i = fmul double %88, %85
   %neg45.i = fmul double %83, %86
@@ -9156,7 +9156,7 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %mul24.i = fmul double %mul23.i, %94
   %95 = fneg double %94
   %neg.i = fmul double %94, %95
-  %96 = call double @llvm.fmuladd.f64(double %83, double %add.i72.i, double %neg.i)
+  %96 = call double @llvm.fmuladd.f64(double %83, double %add.i71.i, double %neg.i)
   %97 = insertelement <2 x double> poison, double %mul4.i, i64 0
   %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
   %99 = insertelement <2 x double> poison, double %87, i64 0
@@ -9179,7 +9179,7 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %114 = call double @llvm.fmuladd.f64(double %106, double %94, double %neg45.i)
   %mul46.i = fmul double %mul42.i, %114
   %115 = call double @llvm.fmuladd.f64(double %mul23.i, double %113, double %mul46.i)
-  %116 = insertelement <2 x double> poison, double %add.i72.i, i64 0
+  %116 = insertelement <2 x double> poison, double %add.i71.i, i64 0
   %117 = insertelement <2 x double> %116, double %mul.i87.i, i64 1
   %118 = insertelement <2 x double> %51, double %107, i64 0
   %119 = fmul <2 x double> %117, %118
@@ -10785,23 +10785,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i198
 
 call5.i.i.i.i.noexc207:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i208, align 4
-  %cmp.i.i.i.i.i23.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i23.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i, label %if.end.i.i.i.i.i24.i
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
 
-if.end.i.i.i.i.i24.i:                             ; preds = %call5.i.i.i.i.noexc207
-  %incdec.ptr.i.i.i22.i = getelementptr i8, ptr %call5.i.i.i.i208, i64 4
+if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc207
+  %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i208, i64 4
   %21 = add nsw i64 %mul.i.i.i.i201, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i: ; preds = %if.end.i.i.i.i.i24.i, %call5.i.i.i.i.noexc207
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc207
   store ptr %call5.i.i.i.i208, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds i32, ptr %call5.i.i.i.i208, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -19282,34 +19282,34 @@ entry:
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
   %add4.i = add nsw i32 %11, -1
   %12 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i30 = zext i32 %add4.i to i64
-  %retval.sroa.2.0.insert.shift.i31 = shl nuw i64 %retval.sroa.2.0.insert.ext.i30, 32
-  %retval.sroa.0.0.insert.ext.i32 = zext i32 %10 to i64
-  %retval.sroa.0.0.insert.insert.i33 = or disjoint i64 %retval.sroa.2.0.insert.shift.i31, %retval.sroa.0.0.insert.ext.i32
-  store i64 %retval.sroa.0.0.insert.insert.i33, ptr %ref.tmp15, align 8
+  %retval.sroa.2.0.insert.ext.i31 = zext i32 %add4.i to i64
+  %retval.sroa.2.0.insert.shift.i32 = shl nuw i64 %retval.sroa.2.0.insert.ext.i31, 32
+  %retval.sroa.0.0.insert.ext.i33 = zext i32 %10 to i64
+  %retval.sroa.0.0.insert.insert.i34 = or disjoint i64 %retval.sroa.2.0.insert.shift.i32, %retval.sroa.0.0.insert.ext.i33
+  store i64 %retval.sroa.0.0.insert.insert.i34, ptr %ref.tmp15, align 8
   %tmp.coerce19.sroa.2.0.coerce.dive18.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i32 %12, ptr %tmp.coerce19.sroa.2.0.coerce.dive18.sroa_idx, align 8
   %call20 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp15)
   %13 = load float, ptr %call20, align 4
   %14 = load ptr, ptr %mValues, align 8
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %14, i64 12
-  store float %13, ptr %add.ptr.i36, align 4
+  %add.ptr.i37 = getelementptr inbounds i8, ptr %14, i64 12
+  store float %13, ptr %add.ptr.i37, align 4
   %15 = load i32, ptr %ijk, align 4
   %16 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i38 = add nsw i32 %16, 1
+  %add4.i40 = add nsw i32 %16, 1
   %17 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i40 = zext i32 %add4.i38 to i64
-  %retval.sroa.2.0.insert.shift.i41 = shl nuw i64 %retval.sroa.2.0.insert.ext.i40, 32
-  %retval.sroa.0.0.insert.ext.i42 = zext i32 %15 to i64
-  %retval.sroa.0.0.insert.insert.i43 = or disjoint i64 %retval.sroa.2.0.insert.shift.i41, %retval.sroa.0.0.insert.ext.i42
-  store i64 %retval.sroa.0.0.insert.insert.i43, ptr %ref.tmp24, align 8
+  %retval.sroa.2.0.insert.ext.i42 = zext i32 %add4.i40 to i64
+  %retval.sroa.2.0.insert.shift.i43 = shl nuw i64 %retval.sroa.2.0.insert.ext.i42, 32
+  %retval.sroa.0.0.insert.ext.i44 = zext i32 %15 to i64
+  %retval.sroa.0.0.insert.insert.i45 = or disjoint i64 %retval.sroa.2.0.insert.shift.i43, %retval.sroa.0.0.insert.ext.i44
+  store i64 %retval.sroa.0.0.insert.insert.i45, ptr %ref.tmp24, align 8
   %tmp.coerce28.sroa.2.0.coerce.dive27.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store i32 %17, ptr %tmp.coerce28.sroa.2.0.coerce.dive27.sroa_idx, align 8
   %call29 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp24)
   %18 = load float, ptr %call29, align 4
   %19 = load ptr, ptr %mValues, align 8
-  %add.ptr.i46 = getelementptr inbounds i8, ptr %19, i64 16
-  store float %18, ptr %add.ptr.i46, align 4
+  %add.ptr.i48 = getelementptr inbounds i8, ptr %19, i64 16
+  store float %18, ptr %add.ptr.i48, align 4
   %20 = load i64, ptr %ijk, align 4
   %21 = load i32, ptr %arrayidx.i.i1.i, align 4
   %add7.i = add nsw i32 %21, -1
@@ -19319,223 +19319,223 @@ entry:
   %call38 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33)
   %22 = load float, ptr %call38, align 4
   %23 = load ptr, ptr %mValues, align 8
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %23, i64 20
-  store float %22, ptr %add.ptr.i55, align 4
+  %add.ptr.i59 = getelementptr inbounds i8, ptr %23, i64 20
+  store float %22, ptr %add.ptr.i59, align 4
   %24 = load i64, ptr %ijk, align 4
   %25 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i58 = add nsw i32 %25, 1
+  %add7.i64 = add nsw i32 %25, 1
   store i64 %24, ptr %ref.tmp42, align 8
   %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
-  store i32 %add7.i58, ptr %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx, align 8
+  store i32 %add7.i64, ptr %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx, align 8
   %call47 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp42)
   %26 = load float, ptr %call47, align 4
   %27 = load ptr, ptr %mValues, align 8
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %27, i64 24
-  store float %26, ptr %add.ptr.i65, align 4
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %27, i64 24
+  store float %26, ptr %add.ptr.i71, align 4
   %28 = load i32, ptr %ijk, align 4
-  %add.i66 = add nsw i32 %28, -1
+  %add.i72 = add nsw i32 %28, -1
   %29 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i68 = add nsw i32 %29, -1
+  %add4.i74 = add nsw i32 %29, -1
   %30 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i70 = zext i32 %add4.i68 to i64
-  %retval.sroa.2.0.insert.shift.i71 = shl nuw i64 %retval.sroa.2.0.insert.ext.i70, 32
-  %retval.sroa.0.0.insert.ext.i72 = zext i32 %add.i66 to i64
-  %retval.sroa.0.0.insert.insert.i73 = or disjoint i64 %retval.sroa.2.0.insert.shift.i71, %retval.sroa.0.0.insert.ext.i72
-  store i64 %retval.sroa.0.0.insert.insert.i73, ptr %ref.tmp51, align 8
+  %retval.sroa.2.0.insert.ext.i77 = zext i32 %add4.i74 to i64
+  %retval.sroa.2.0.insert.shift.i78 = shl nuw i64 %retval.sroa.2.0.insert.ext.i77, 32
+  %retval.sroa.0.0.insert.ext.i79 = zext i32 %add.i72 to i64
+  %retval.sroa.0.0.insert.insert.i80 = or disjoint i64 %retval.sroa.2.0.insert.shift.i78, %retval.sroa.0.0.insert.ext.i79
+  store i64 %retval.sroa.0.0.insert.insert.i80, ptr %ref.tmp51, align 8
   %tmp.coerce55.sroa.2.0.coerce.dive54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   store i32 %30, ptr %tmp.coerce55.sroa.2.0.coerce.dive54.sroa_idx, align 8
   %call56 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp51)
   %31 = load float, ptr %call56, align 4
   %32 = load ptr, ptr %mValues, align 8
-  %add.ptr.i76 = getelementptr inbounds i8, ptr %32, i64 28
-  store float %31, ptr %add.ptr.i76, align 4
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %32, i64 28
+  store float %31, ptr %add.ptr.i83, align 4
   %33 = load i32, ptr %ijk, align 4
-  %add.i77 = add nsw i32 %33, 1
+  %add.i84 = add nsw i32 %33, 1
   %34 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i79 = add nsw i32 %34, -1
+  %add4.i86 = add nsw i32 %34, -1
   %35 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i81 = zext i32 %add4.i79 to i64
-  %retval.sroa.2.0.insert.shift.i82 = shl nuw i64 %retval.sroa.2.0.insert.ext.i81, 32
-  %retval.sroa.0.0.insert.ext.i83 = zext i32 %add.i77 to i64
-  %retval.sroa.0.0.insert.insert.i84 = or disjoint i64 %retval.sroa.2.0.insert.shift.i82, %retval.sroa.0.0.insert.ext.i83
-  store i64 %retval.sroa.0.0.insert.insert.i84, ptr %ref.tmp60, align 8
+  %retval.sroa.2.0.insert.ext.i89 = zext i32 %add4.i86 to i64
+  %retval.sroa.2.0.insert.shift.i90 = shl nuw i64 %retval.sroa.2.0.insert.ext.i89, 32
+  %retval.sroa.0.0.insert.ext.i91 = zext i32 %add.i84 to i64
+  %retval.sroa.0.0.insert.insert.i92 = or disjoint i64 %retval.sroa.2.0.insert.shift.i90, %retval.sroa.0.0.insert.ext.i91
+  store i64 %retval.sroa.0.0.insert.insert.i92, ptr %ref.tmp60, align 8
   %tmp.coerce64.sroa.2.0.coerce.dive63.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   store i32 %35, ptr %tmp.coerce64.sroa.2.0.coerce.dive63.sroa_idx, align 8
   %call65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp60)
   %36 = load float, ptr %call65, align 4
   %37 = load ptr, ptr %mValues, align 8
-  %add.ptr.i87 = getelementptr inbounds i8, ptr %37, i64 32
-  store float %36, ptr %add.ptr.i87, align 4
+  %add.ptr.i95 = getelementptr inbounds i8, ptr %37, i64 32
+  store float %36, ptr %add.ptr.i95, align 4
   %38 = load i32, ptr %ijk, align 4
-  %add.i88 = add nsw i32 %38, -1
+  %add.i96 = add nsw i32 %38, -1
   %39 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i90 = add nsw i32 %39, 1
+  %add4.i98 = add nsw i32 %39, 1
   %40 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i92 = zext i32 %add4.i90 to i64
-  %retval.sroa.2.0.insert.shift.i93 = shl nuw i64 %retval.sroa.2.0.insert.ext.i92, 32
-  %retval.sroa.0.0.insert.ext.i94 = zext i32 %add.i88 to i64
-  %retval.sroa.0.0.insert.insert.i95 = or disjoint i64 %retval.sroa.2.0.insert.shift.i93, %retval.sroa.0.0.insert.ext.i94
-  store i64 %retval.sroa.0.0.insert.insert.i95, ptr %ref.tmp69, align 8
+  %retval.sroa.2.0.insert.ext.i101 = zext i32 %add4.i98 to i64
+  %retval.sroa.2.0.insert.shift.i102 = shl nuw i64 %retval.sroa.2.0.insert.ext.i101, 32
+  %retval.sroa.0.0.insert.ext.i103 = zext i32 %add.i96 to i64
+  %retval.sroa.0.0.insert.insert.i104 = or disjoint i64 %retval.sroa.2.0.insert.shift.i102, %retval.sroa.0.0.insert.ext.i103
+  store i64 %retval.sroa.0.0.insert.insert.i104, ptr %ref.tmp69, align 8
   %tmp.coerce73.sroa.2.0.coerce.dive72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp69, i64 8
   store i32 %40, ptr %tmp.coerce73.sroa.2.0.coerce.dive72.sroa_idx, align 8
   %call74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp69)
   %41 = load float, ptr %call74, align 4
   %42 = load ptr, ptr %mValues, align 8
-  %add.ptr.i98 = getelementptr inbounds i8, ptr %42, i64 36
-  store float %41, ptr %add.ptr.i98, align 4
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %42, i64 36
+  store float %41, ptr %add.ptr.i107, align 4
   %43 = load i32, ptr %ijk, align 4
-  %add.i99 = add nsw i32 %43, 1
+  %add.i108 = add nsw i32 %43, 1
   %44 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i101 = add nsw i32 %44, 1
+  %add4.i110 = add nsw i32 %44, 1
   %45 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i103 = zext i32 %add4.i101 to i64
-  %retval.sroa.2.0.insert.shift.i104 = shl nuw i64 %retval.sroa.2.0.insert.ext.i103, 32
-  %retval.sroa.0.0.insert.ext.i105 = zext i32 %add.i99 to i64
-  %retval.sroa.0.0.insert.insert.i106 = or disjoint i64 %retval.sroa.2.0.insert.shift.i104, %retval.sroa.0.0.insert.ext.i105
-  store i64 %retval.sroa.0.0.insert.insert.i106, ptr %ref.tmp78, align 8
+  %retval.sroa.2.0.insert.ext.i113 = zext i32 %add4.i110 to i64
+  %retval.sroa.2.0.insert.shift.i114 = shl nuw i64 %retval.sroa.2.0.insert.ext.i113, 32
+  %retval.sroa.0.0.insert.ext.i115 = zext i32 %add.i108 to i64
+  %retval.sroa.0.0.insert.insert.i116 = or disjoint i64 %retval.sroa.2.0.insert.shift.i114, %retval.sroa.0.0.insert.ext.i115
+  store i64 %retval.sroa.0.0.insert.insert.i116, ptr %ref.tmp78, align 8
   %tmp.coerce82.sroa.2.0.coerce.dive81.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
   store i32 %45, ptr %tmp.coerce82.sroa.2.0.coerce.dive81.sroa_idx, align 8
   %call83 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp78)
   %46 = load float, ptr %call83, align 4
   %47 = load ptr, ptr %mValues, align 8
-  %add.ptr.i109 = getelementptr inbounds i8, ptr %47, i64 40
-  store float %46, ptr %add.ptr.i109, align 4
+  %add.ptr.i119 = getelementptr inbounds i8, ptr %47, i64 40
+  store float %46, ptr %add.ptr.i119, align 4
   %48 = load i32, ptr %ijk, align 4
-  %add.i110 = add nsw i32 %48, -1
+  %add.i120 = add nsw i32 %48, -1
   %49 = load i32, ptr %arrayidx.i.i.i, align 4
   %50 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i113 = add nsw i32 %50, -1
-  %retval.sroa.2.0.insert.ext.i114 = zext i32 %49 to i64
-  %retval.sroa.2.0.insert.shift.i115 = shl nuw i64 %retval.sroa.2.0.insert.ext.i114, 32
-  %retval.sroa.0.0.insert.ext.i116 = zext i32 %add.i110 to i64
-  %retval.sroa.0.0.insert.insert.i117 = or disjoint i64 %retval.sroa.2.0.insert.shift.i115, %retval.sroa.0.0.insert.ext.i116
-  store i64 %retval.sroa.0.0.insert.insert.i117, ptr %ref.tmp87, align 8
+  %add7.i124 = add nsw i32 %50, -1
+  %retval.sroa.2.0.insert.ext.i125 = zext i32 %49 to i64
+  %retval.sroa.2.0.insert.shift.i126 = shl nuw i64 %retval.sroa.2.0.insert.ext.i125, 32
+  %retval.sroa.0.0.insert.ext.i127 = zext i32 %add.i120 to i64
+  %retval.sroa.0.0.insert.insert.i128 = or disjoint i64 %retval.sroa.2.0.insert.shift.i126, %retval.sroa.0.0.insert.ext.i127
+  store i64 %retval.sroa.0.0.insert.insert.i128, ptr %ref.tmp87, align 8
   %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
-  store i32 %add7.i113, ptr %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx, align 8
+  store i32 %add7.i124, ptr %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx, align 8
   %call92 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp87)
   %51 = load float, ptr %call92, align 4
   %52 = load ptr, ptr %mValues, align 8
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %52, i64 44
-  store float %51, ptr %add.ptr.i120, align 4
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %52, i64 44
+  store float %51, ptr %add.ptr.i131, align 4
   %53 = load i32, ptr %ijk, align 4
-  %add.i121 = add nsw i32 %53, 1
+  %add.i132 = add nsw i32 %53, 1
   %54 = load i32, ptr %arrayidx.i.i.i, align 4
   %55 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i124 = add nsw i32 %55, -1
-  %retval.sroa.2.0.insert.ext.i125 = zext i32 %54 to i64
-  %retval.sroa.2.0.insert.shift.i126 = shl nuw i64 %retval.sroa.2.0.insert.ext.i125, 32
-  %retval.sroa.0.0.insert.ext.i127 = zext i32 %add.i121 to i64
-  %retval.sroa.0.0.insert.insert.i128 = or disjoint i64 %retval.sroa.2.0.insert.shift.i126, %retval.sroa.0.0.insert.ext.i127
-  store i64 %retval.sroa.0.0.insert.insert.i128, ptr %ref.tmp96, align 8
+  %add7.i136 = add nsw i32 %55, -1
+  %retval.sroa.2.0.insert.ext.i137 = zext i32 %54 to i64
+  %retval.sroa.2.0.insert.shift.i138 = shl nuw i64 %retval.sroa.2.0.insert.ext.i137, 32
+  %retval.sroa.0.0.insert.ext.i139 = zext i32 %add.i132 to i64
+  %retval.sroa.0.0.insert.insert.i140 = or disjoint i64 %retval.sroa.2.0.insert.shift.i138, %retval.sroa.0.0.insert.ext.i139
+  store i64 %retval.sroa.0.0.insert.insert.i140, ptr %ref.tmp96, align 8
   %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
-  store i32 %add7.i124, ptr %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx, align 8
+  store i32 %add7.i136, ptr %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx, align 8
   %call101 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp96)
   %56 = load float, ptr %call101, align 4
   %57 = load ptr, ptr %mValues, align 8
-  %add.ptr.i131 = getelementptr inbounds i8, ptr %57, i64 48
-  store float %56, ptr %add.ptr.i131, align 4
+  %add.ptr.i143 = getelementptr inbounds i8, ptr %57, i64 48
+  store float %56, ptr %add.ptr.i143, align 4
   %58 = load i32, ptr %ijk, align 4
-  %add.i132 = add nsw i32 %58, -1
+  %add.i144 = add nsw i32 %58, -1
   %59 = load i32, ptr %arrayidx.i.i.i, align 4
   %60 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i135 = add nsw i32 %60, 1
-  %retval.sroa.2.0.insert.ext.i136 = zext i32 %59 to i64
-  %retval.sroa.2.0.insert.shift.i137 = shl nuw i64 %retval.sroa.2.0.insert.ext.i136, 32
-  %retval.sroa.0.0.insert.ext.i138 = zext i32 %add.i132 to i64
-  %retval.sroa.0.0.insert.insert.i139 = or disjoint i64 %retval.sroa.2.0.insert.shift.i137, %retval.sroa.0.0.insert.ext.i138
-  store i64 %retval.sroa.0.0.insert.insert.i139, ptr %ref.tmp105, align 8
+  %add7.i148 = add nsw i32 %60, 1
+  %retval.sroa.2.0.insert.ext.i149 = zext i32 %59 to i64
+  %retval.sroa.2.0.insert.shift.i150 = shl nuw i64 %retval.sroa.2.0.insert.ext.i149, 32
+  %retval.sroa.0.0.insert.ext.i151 = zext i32 %add.i144 to i64
+  %retval.sroa.0.0.insert.insert.i152 = or disjoint i64 %retval.sroa.2.0.insert.shift.i150, %retval.sroa.0.0.insert.ext.i151
+  store i64 %retval.sroa.0.0.insert.insert.i152, ptr %ref.tmp105, align 8
   %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp105, i64 8
-  store i32 %add7.i135, ptr %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx, align 8
+  store i32 %add7.i148, ptr %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx, align 8
   %call110 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp105)
   %61 = load float, ptr %call110, align 4
   %62 = load ptr, ptr %mValues, align 8
-  %add.ptr.i142 = getelementptr inbounds i8, ptr %62, i64 52
-  store float %61, ptr %add.ptr.i142, align 4
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %62, i64 52
+  store float %61, ptr %add.ptr.i155, align 4
   %63 = load i32, ptr %ijk, align 4
-  %add.i143 = add nsw i32 %63, 1
+  %add.i156 = add nsw i32 %63, 1
   %64 = load i32, ptr %arrayidx.i.i.i, align 4
   %65 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i146 = add nsw i32 %65, 1
-  %retval.sroa.2.0.insert.ext.i147 = zext i32 %64 to i64
-  %retval.sroa.2.0.insert.shift.i148 = shl nuw i64 %retval.sroa.2.0.insert.ext.i147, 32
-  %retval.sroa.0.0.insert.ext.i149 = zext i32 %add.i143 to i64
-  %retval.sroa.0.0.insert.insert.i150 = or disjoint i64 %retval.sroa.2.0.insert.shift.i148, %retval.sroa.0.0.insert.ext.i149
-  store i64 %retval.sroa.0.0.insert.insert.i150, ptr %ref.tmp114, align 8
+  %add7.i160 = add nsw i32 %65, 1
+  %retval.sroa.2.0.insert.ext.i161 = zext i32 %64 to i64
+  %retval.sroa.2.0.insert.shift.i162 = shl nuw i64 %retval.sroa.2.0.insert.ext.i161, 32
+  %retval.sroa.0.0.insert.ext.i163 = zext i32 %add.i156 to i64
+  %retval.sroa.0.0.insert.insert.i164 = or disjoint i64 %retval.sroa.2.0.insert.shift.i162, %retval.sroa.0.0.insert.ext.i163
+  store i64 %retval.sroa.0.0.insert.insert.i164, ptr %ref.tmp114, align 8
   %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
-  store i32 %add7.i146, ptr %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx, align 8
+  store i32 %add7.i160, ptr %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx, align 8
   %call119 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp114)
   %66 = load float, ptr %call119, align 4
   %67 = load ptr, ptr %mValues, align 8
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %67, i64 56
-  store float %66, ptr %add.ptr.i153, align 4
+  %add.ptr.i167 = getelementptr inbounds i8, ptr %67, i64 56
+  store float %66, ptr %add.ptr.i167, align 4
   %68 = load i32, ptr %ijk, align 4
   %69 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i155 = add nsw i32 %69, -1
+  %add4.i170 = add nsw i32 %69, -1
   %70 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i157 = add nsw i32 %70, -1
-  %retval.sroa.2.0.insert.ext.i158 = zext i32 %add4.i155 to i64
-  %retval.sroa.2.0.insert.shift.i159 = shl nuw i64 %retval.sroa.2.0.insert.ext.i158, 32
-  %retval.sroa.0.0.insert.ext.i160 = zext i32 %68 to i64
-  %retval.sroa.0.0.insert.insert.i161 = or disjoint i64 %retval.sroa.2.0.insert.shift.i159, %retval.sroa.0.0.insert.ext.i160
-  store i64 %retval.sroa.0.0.insert.insert.i161, ptr %ref.tmp123, align 8
+  %add7.i172 = add nsw i32 %70, -1
+  %retval.sroa.2.0.insert.ext.i173 = zext i32 %add4.i170 to i64
+  %retval.sroa.2.0.insert.shift.i174 = shl nuw i64 %retval.sroa.2.0.insert.ext.i173, 32
+  %retval.sroa.0.0.insert.ext.i175 = zext i32 %68 to i64
+  %retval.sroa.0.0.insert.insert.i176 = or disjoint i64 %retval.sroa.2.0.insert.shift.i174, %retval.sroa.0.0.insert.ext.i175
+  store i64 %retval.sroa.0.0.insert.insert.i176, ptr %ref.tmp123, align 8
   %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
-  store i32 %add7.i157, ptr %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx, align 8
+  store i32 %add7.i172, ptr %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx, align 8
   %call128 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp123)
   %71 = load float, ptr %call128, align 4
   %72 = load ptr, ptr %mValues, align 8
-  %add.ptr.i164 = getelementptr inbounds i8, ptr %72, i64 60
-  store float %71, ptr %add.ptr.i164, align 4
+  %add.ptr.i179 = getelementptr inbounds i8, ptr %72, i64 60
+  store float %71, ptr %add.ptr.i179, align 4
   %73 = load i32, ptr %ijk, align 4
   %74 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i166 = add nsw i32 %74, 1
+  %add4.i182 = add nsw i32 %74, 1
   %75 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i168 = add nsw i32 %75, -1
-  %retval.sroa.2.0.insert.ext.i169 = zext i32 %add4.i166 to i64
-  %retval.sroa.2.0.insert.shift.i170 = shl nuw i64 %retval.sroa.2.0.insert.ext.i169, 32
-  %retval.sroa.0.0.insert.ext.i171 = zext i32 %73 to i64
-  %retval.sroa.0.0.insert.insert.i172 = or disjoint i64 %retval.sroa.2.0.insert.shift.i170, %retval.sroa.0.0.insert.ext.i171
-  store i64 %retval.sroa.0.0.insert.insert.i172, ptr %ref.tmp132, align 8
+  %add7.i184 = add nsw i32 %75, -1
+  %retval.sroa.2.0.insert.ext.i185 = zext i32 %add4.i182 to i64
+  %retval.sroa.2.0.insert.shift.i186 = shl nuw i64 %retval.sroa.2.0.insert.ext.i185, 32
+  %retval.sroa.0.0.insert.ext.i187 = zext i32 %73 to i64
+  %retval.sroa.0.0.insert.insert.i188 = or disjoint i64 %retval.sroa.2.0.insert.shift.i186, %retval.sroa.0.0.insert.ext.i187
+  store i64 %retval.sroa.0.0.insert.insert.i188, ptr %ref.tmp132, align 8
   %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp132, i64 8
-  store i32 %add7.i168, ptr %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx, align 8
+  store i32 %add7.i184, ptr %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx, align 8
   %call137 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp132)
   %76 = load float, ptr %call137, align 4
   %77 = load ptr, ptr %mValues, align 8
-  %add.ptr.i175 = getelementptr inbounds i8, ptr %77, i64 64
-  store float %76, ptr %add.ptr.i175, align 4
+  %add.ptr.i191 = getelementptr inbounds i8, ptr %77, i64 64
+  store float %76, ptr %add.ptr.i191, align 4
   %78 = load i32, ptr %ijk, align 4
   %79 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i177 = add nsw i32 %79, -1
+  %add4.i194 = add nsw i32 %79, -1
   %80 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i179 = add nsw i32 %80, 1
-  %retval.sroa.2.0.insert.ext.i180 = zext i32 %add4.i177 to i64
-  %retval.sroa.2.0.insert.shift.i181 = shl nuw i64 %retval.sroa.2.0.insert.ext.i180, 32
-  %retval.sroa.0.0.insert.ext.i182 = zext i32 %78 to i64
-  %retval.sroa.0.0.insert.insert.i183 = or disjoint i64 %retval.sroa.2.0.insert.shift.i181, %retval.sroa.0.0.insert.ext.i182
-  store i64 %retval.sroa.0.0.insert.insert.i183, ptr %ref.tmp141, align 8
+  %add7.i196 = add nsw i32 %80, 1
+  %retval.sroa.2.0.insert.ext.i197 = zext i32 %add4.i194 to i64
+  %retval.sroa.2.0.insert.shift.i198 = shl nuw i64 %retval.sroa.2.0.insert.ext.i197, 32
+  %retval.sroa.0.0.insert.ext.i199 = zext i32 %78 to i64
+  %retval.sroa.0.0.insert.insert.i200 = or disjoint i64 %retval.sroa.2.0.insert.shift.i198, %retval.sroa.0.0.insert.ext.i199
+  store i64 %retval.sroa.0.0.insert.insert.i200, ptr %ref.tmp141, align 8
   %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
-  store i32 %add7.i179, ptr %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx, align 8
+  store i32 %add7.i196, ptr %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx, align 8
   %call146 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp141)
   %81 = load float, ptr %call146, align 4
   %82 = load ptr, ptr %mValues, align 8
-  %add.ptr.i186 = getelementptr inbounds i8, ptr %82, i64 68
-  store float %81, ptr %add.ptr.i186, align 4
+  %add.ptr.i203 = getelementptr inbounds i8, ptr %82, i64 68
+  store float %81, ptr %add.ptr.i203, align 4
   %83 = load i32, ptr %ijk, align 4
   %84 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i188 = add nsw i32 %84, 1
+  %add4.i206 = add nsw i32 %84, 1
   %85 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i190 = add nsw i32 %85, 1
-  %retval.sroa.2.0.insert.ext.i191 = zext i32 %add4.i188 to i64
-  %retval.sroa.2.0.insert.shift.i192 = shl nuw i64 %retval.sroa.2.0.insert.ext.i191, 32
-  %retval.sroa.0.0.insert.ext.i193 = zext i32 %83 to i64
-  %retval.sroa.0.0.insert.insert.i194 = or disjoint i64 %retval.sroa.2.0.insert.shift.i192, %retval.sroa.0.0.insert.ext.i193
-  store i64 %retval.sroa.0.0.insert.insert.i194, ptr %ref.tmp150, align 8
+  %add7.i208 = add nsw i32 %85, 1
+  %retval.sroa.2.0.insert.ext.i209 = zext i32 %add4.i206 to i64
+  %retval.sroa.2.0.insert.shift.i210 = shl nuw i64 %retval.sroa.2.0.insert.ext.i209, 32
+  %retval.sroa.0.0.insert.ext.i211 = zext i32 %83 to i64
+  %retval.sroa.0.0.insert.insert.i212 = or disjoint i64 %retval.sroa.2.0.insert.shift.i210, %retval.sroa.0.0.insert.ext.i211
+  store i64 %retval.sroa.0.0.insert.insert.i212, ptr %ref.tmp150, align 8
   %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
-  store i32 %add7.i190, ptr %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx, align 8
+  store i32 %add7.i208, ptr %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx, align 8
   %call155 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp150)
   %86 = load float, ptr %call155, align 4
   %87 = load ptr, ptr %mValues, align 8
-  %add.ptr.i197 = getelementptr inbounds i8, ptr %87, i64 72
-  store float %86, ptr %add.ptr.i197, align 4
+  %add.ptr.i215 = getelementptr inbounds i8, ptr %87, i64 72
+  store float %86, ptr %add.ptr.i215, align 4
   ret void
 }
 
@@ -19853,30 +19853,30 @@ define linkonce_odr void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_com
 entry:
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
-  %sub.ptr.lhs.cast22 = ptrtoint ptr %__last to i64
-  %sub.ptr.sub23 = sub i64 %sub.ptr.lhs.cast22, %sub.ptr.rhs.cast
-  %cmp24 = icmp sgt i64 %sub.ptr.sub23, 128
-  br i1 %cmp24, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast23 = ptrtoint ptr %__last to i64
+  %sub.ptr.sub24 = sub i64 %sub.ptr.lhs.cast23, %sub.ptr.rhs.cast
+  %cmp25 = icmp sgt i64 %sub.ptr.sub24, 128
+  br i1 %cmp25, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %__first, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit
-  %sub.ptr.sub27 = phi i64 [ %sub.ptr.sub23, %while.body.lr.ph ], [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
-  %__last.addr.026 = phi ptr [ %__last, %while.body.lr.ph ], [ %__first.addr.1.i.i, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
-  %__depth_limit.addr.025 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.025, 0
+  %sub.ptr.sub28 = phi i64 [ %sub.ptr.sub24, %while.body.lr.ph ], [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
+  %__last.addr.027 = phi ptr [ %__last, %while.body.lr.ph ], [ %__first.addr.1.i.i, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
+  %__depth_limit.addr.026 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.026, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_RT0_(ptr noundef %__first, ptr noundef %__last.addr.026, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_RT0_(ptr noundef %__first, ptr noundef %__last.addr.027, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_S7_RT0_.exit.i.i
-  %__last.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_S7_RT0_.exit.i.i ], [ %__last.addr.026, %if.then ]
+  %__last.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_S7_RT0_.exit.i.i ], [ %__last.addr.027, %if.then ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.addr.08.i.i, i64 -8
   %0 = load double, ptr %incdec.ptr.i.i, align 8
   %1 = load double, ptr %__first, align 8
@@ -19956,10 +19956,10 @@ _ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_S7_RT0_
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !202
 
 if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.025, -1
-  %div.i1617 = lshr i64 %sub.ptr.sub27, 4
-  %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 %div.i1617
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.026, i64 -8
+  %dec = add nsw i64 %__depth_limit.addr.026, -1
+  %div.i1718 = lshr i64 %sub.ptr.sub28, 4
+  %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 %div.i1718
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.027, i64 -8
   %8 = load double, ptr %add.ptr1.i, align 8
   %9 = load double, ptr %add.ptr.i, align 8
   %cmp.i.i.i.i12 = fcmp olt double %8, %9
@@ -20020,7 +20020,7 @@ while.body.i.i13.preheader:                       ; preds = %if.else13.i.i, %if.
   br label %while.body.i.i13
 
 while.body.i.i13:                                 ; preds = %while.body.i.i13.preheader, %if.end.i.i
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.1.i.i, %if.end.i.i ], [ %__last.addr.026, %while.body.i.i13.preheader ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.1.i.i, %if.end.i.i ], [ %__last.addr.027, %while.body.i.i13.preheader ]
   %__first.addr.0.i.i = phi ptr [ %incdec.ptr.i.i14, %if.end.i.i ], [ %add.ptr1.i, %while.body.i.i13.preheader ]
   %15 = load double, ptr %__first, align 8
   br label %while.cond1.i.i
@@ -20049,7 +20049,7 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i13, !llvm.loop !205
 
 _ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEET_S7_S7_T0_.exit: ; preds = %while.end8.i.i
-  tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_T0_T1_(ptr noundef nonnull %__first.addr.1.i.i, ptr noundef %__last.addr.026, i64 noundef %dec)
+  tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_S7_T0_T1_(ptr noundef nonnull %__first.addr.1.i.i, ptr noundef %__last.addr.027, i64 noundef %dec)
   %sub.ptr.lhs.cast = ptrtoint ptr %__first.addr.1.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
@@ -22044,23 +22044,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i198
 
 call5.i.i.i.i.noexc207:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i208, align 4
-  %cmp.i.i.i.i.i23.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i23.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i, label %if.end.i.i.i.i.i24.i
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
 
-if.end.i.i.i.i.i24.i:                             ; preds = %call5.i.i.i.i.noexc207
-  %incdec.ptr.i.i.i22.i = getelementptr i8, ptr %call5.i.i.i.i208, i64 4
+if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc207
+  %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i208, i64 4
   %21 = add nsw i64 %mul.i.i.i.i201, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i: ; preds = %if.end.i.i.i.i.i24.i, %call5.i.i.i.i.noexc207
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc207
   store ptr %call5.i.i.i.i208, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds i32, ptr %call5.i.i.i.i208, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -30068,34 +30068,34 @@ entry:
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
   %add4.i = add nsw i32 %11, -1
   %12 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i30 = zext i32 %add4.i to i64
-  %retval.sroa.2.0.insert.shift.i31 = shl nuw i64 %retval.sroa.2.0.insert.ext.i30, 32
-  %retval.sroa.0.0.insert.ext.i32 = zext i32 %10 to i64
-  %retval.sroa.0.0.insert.insert.i33 = or disjoint i64 %retval.sroa.2.0.insert.shift.i31, %retval.sroa.0.0.insert.ext.i32
-  store i64 %retval.sroa.0.0.insert.insert.i33, ptr %ref.tmp15, align 8
+  %retval.sroa.2.0.insert.ext.i31 = zext i32 %add4.i to i64
+  %retval.sroa.2.0.insert.shift.i32 = shl nuw i64 %retval.sroa.2.0.insert.ext.i31, 32
+  %retval.sroa.0.0.insert.ext.i33 = zext i32 %10 to i64
+  %retval.sroa.0.0.insert.insert.i34 = or disjoint i64 %retval.sroa.2.0.insert.shift.i32, %retval.sroa.0.0.insert.ext.i33
+  store i64 %retval.sroa.0.0.insert.insert.i34, ptr %ref.tmp15, align 8
   %tmp.coerce19.sroa.2.0.coerce.dive18.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i32 %12, ptr %tmp.coerce19.sroa.2.0.coerce.dive18.sroa_idx, align 8
   %call20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp15)
   %13 = load double, ptr %call20, align 8
   %14 = load ptr, ptr %mValues, align 8
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %14, i64 24
-  store double %13, ptr %add.ptr.i36, align 8
+  %add.ptr.i37 = getelementptr inbounds i8, ptr %14, i64 24
+  store double %13, ptr %add.ptr.i37, align 8
   %15 = load i32, ptr %ijk, align 4
   %16 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i38 = add nsw i32 %16, 1
+  %add4.i40 = add nsw i32 %16, 1
   %17 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i40 = zext i32 %add4.i38 to i64
-  %retval.sroa.2.0.insert.shift.i41 = shl nuw i64 %retval.sroa.2.0.insert.ext.i40, 32
-  %retval.sroa.0.0.insert.ext.i42 = zext i32 %15 to i64
-  %retval.sroa.0.0.insert.insert.i43 = or disjoint i64 %retval.sroa.2.0.insert.shift.i41, %retval.sroa.0.0.insert.ext.i42
-  store i64 %retval.sroa.0.0.insert.insert.i43, ptr %ref.tmp24, align 8
+  %retval.sroa.2.0.insert.ext.i42 = zext i32 %add4.i40 to i64
+  %retval.sroa.2.0.insert.shift.i43 = shl nuw i64 %retval.sroa.2.0.insert.ext.i42, 32
+  %retval.sroa.0.0.insert.ext.i44 = zext i32 %15 to i64
+  %retval.sroa.0.0.insert.insert.i45 = or disjoint i64 %retval.sroa.2.0.insert.shift.i43, %retval.sroa.0.0.insert.ext.i44
+  store i64 %retval.sroa.0.0.insert.insert.i45, ptr %ref.tmp24, align 8
   %tmp.coerce28.sroa.2.0.coerce.dive27.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store i32 %17, ptr %tmp.coerce28.sroa.2.0.coerce.dive27.sroa_idx, align 8
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp24)
   %18 = load double, ptr %call29, align 8
   %19 = load ptr, ptr %mValues, align 8
-  %add.ptr.i46 = getelementptr inbounds i8, ptr %19, i64 32
-  store double %18, ptr %add.ptr.i46, align 8
+  %add.ptr.i48 = getelementptr inbounds i8, ptr %19, i64 32
+  store double %18, ptr %add.ptr.i48, align 8
   %20 = load i64, ptr %ijk, align 4
   %21 = load i32, ptr %arrayidx.i.i1.i, align 4
   %add7.i = add nsw i32 %21, -1
@@ -30105,223 +30105,223 @@ entry:
   %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33)
   %22 = load double, ptr %call38, align 8
   %23 = load ptr, ptr %mValues, align 8
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %23, i64 40
-  store double %22, ptr %add.ptr.i55, align 8
+  %add.ptr.i59 = getelementptr inbounds i8, ptr %23, i64 40
+  store double %22, ptr %add.ptr.i59, align 8
   %24 = load i64, ptr %ijk, align 4
   %25 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i58 = add nsw i32 %25, 1
+  %add7.i64 = add nsw i32 %25, 1
   store i64 %24, ptr %ref.tmp42, align 8
   %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
-  store i32 %add7.i58, ptr %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx, align 8
+  store i32 %add7.i64, ptr %tmp.coerce46.sroa.2.0.coerce.dive45.sroa_idx, align 8
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp42)
   %26 = load double, ptr %call47, align 8
   %27 = load ptr, ptr %mValues, align 8
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %27, i64 48
-  store double %26, ptr %add.ptr.i65, align 8
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %27, i64 48
+  store double %26, ptr %add.ptr.i71, align 8
   %28 = load i32, ptr %ijk, align 4
-  %add.i66 = add nsw i32 %28, -1
+  %add.i72 = add nsw i32 %28, -1
   %29 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i68 = add nsw i32 %29, -1
+  %add4.i74 = add nsw i32 %29, -1
   %30 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i70 = zext i32 %add4.i68 to i64
-  %retval.sroa.2.0.insert.shift.i71 = shl nuw i64 %retval.sroa.2.0.insert.ext.i70, 32
-  %retval.sroa.0.0.insert.ext.i72 = zext i32 %add.i66 to i64
-  %retval.sroa.0.0.insert.insert.i73 = or disjoint i64 %retval.sroa.2.0.insert.shift.i71, %retval.sroa.0.0.insert.ext.i72
-  store i64 %retval.sroa.0.0.insert.insert.i73, ptr %ref.tmp51, align 8
+  %retval.sroa.2.0.insert.ext.i77 = zext i32 %add4.i74 to i64
+  %retval.sroa.2.0.insert.shift.i78 = shl nuw i64 %retval.sroa.2.0.insert.ext.i77, 32
+  %retval.sroa.0.0.insert.ext.i79 = zext i32 %add.i72 to i64
+  %retval.sroa.0.0.insert.insert.i80 = or disjoint i64 %retval.sroa.2.0.insert.shift.i78, %retval.sroa.0.0.insert.ext.i79
+  store i64 %retval.sroa.0.0.insert.insert.i80, ptr %ref.tmp51, align 8
   %tmp.coerce55.sroa.2.0.coerce.dive54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   store i32 %30, ptr %tmp.coerce55.sroa.2.0.coerce.dive54.sroa_idx, align 8
   %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp51)
   %31 = load double, ptr %call56, align 8
   %32 = load ptr, ptr %mValues, align 8
-  %add.ptr.i76 = getelementptr inbounds i8, ptr %32, i64 56
-  store double %31, ptr %add.ptr.i76, align 8
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %32, i64 56
+  store double %31, ptr %add.ptr.i83, align 8
   %33 = load i32, ptr %ijk, align 4
-  %add.i77 = add nsw i32 %33, 1
+  %add.i84 = add nsw i32 %33, 1
   %34 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i79 = add nsw i32 %34, -1
+  %add4.i86 = add nsw i32 %34, -1
   %35 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i81 = zext i32 %add4.i79 to i64
-  %retval.sroa.2.0.insert.shift.i82 = shl nuw i64 %retval.sroa.2.0.insert.ext.i81, 32
-  %retval.sroa.0.0.insert.ext.i83 = zext i32 %add.i77 to i64
-  %retval.sroa.0.0.insert.insert.i84 = or disjoint i64 %retval.sroa.2.0.insert.shift.i82, %retval.sroa.0.0.insert.ext.i83
-  store i64 %retval.sroa.0.0.insert.insert.i84, ptr %ref.tmp60, align 8
+  %retval.sroa.2.0.insert.ext.i89 = zext i32 %add4.i86 to i64
+  %retval.sroa.2.0.insert.shift.i90 = shl nuw i64 %retval.sroa.2.0.insert.ext.i89, 32
+  %retval.sroa.0.0.insert.ext.i91 = zext i32 %add.i84 to i64
+  %retval.sroa.0.0.insert.insert.i92 = or disjoint i64 %retval.sroa.2.0.insert.shift.i90, %retval.sroa.0.0.insert.ext.i91
+  store i64 %retval.sroa.0.0.insert.insert.i92, ptr %ref.tmp60, align 8
   %tmp.coerce64.sroa.2.0.coerce.dive63.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   store i32 %35, ptr %tmp.coerce64.sroa.2.0.coerce.dive63.sroa_idx, align 8
   %call65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp60)
   %36 = load double, ptr %call65, align 8
   %37 = load ptr, ptr %mValues, align 8
-  %add.ptr.i87 = getelementptr inbounds i8, ptr %37, i64 64
-  store double %36, ptr %add.ptr.i87, align 8
+  %add.ptr.i95 = getelementptr inbounds i8, ptr %37, i64 64
+  store double %36, ptr %add.ptr.i95, align 8
   %38 = load i32, ptr %ijk, align 4
-  %add.i88 = add nsw i32 %38, -1
+  %add.i96 = add nsw i32 %38, -1
   %39 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i90 = add nsw i32 %39, 1
+  %add4.i98 = add nsw i32 %39, 1
   %40 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i92 = zext i32 %add4.i90 to i64
-  %retval.sroa.2.0.insert.shift.i93 = shl nuw i64 %retval.sroa.2.0.insert.ext.i92, 32
-  %retval.sroa.0.0.insert.ext.i94 = zext i32 %add.i88 to i64
-  %retval.sroa.0.0.insert.insert.i95 = or disjoint i64 %retval.sroa.2.0.insert.shift.i93, %retval.sroa.0.0.insert.ext.i94
-  store i64 %retval.sroa.0.0.insert.insert.i95, ptr %ref.tmp69, align 8
+  %retval.sroa.2.0.insert.ext.i101 = zext i32 %add4.i98 to i64
+  %retval.sroa.2.0.insert.shift.i102 = shl nuw i64 %retval.sroa.2.0.insert.ext.i101, 32
+  %retval.sroa.0.0.insert.ext.i103 = zext i32 %add.i96 to i64
+  %retval.sroa.0.0.insert.insert.i104 = or disjoint i64 %retval.sroa.2.0.insert.shift.i102, %retval.sroa.0.0.insert.ext.i103
+  store i64 %retval.sroa.0.0.insert.insert.i104, ptr %ref.tmp69, align 8
   %tmp.coerce73.sroa.2.0.coerce.dive72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp69, i64 8
   store i32 %40, ptr %tmp.coerce73.sroa.2.0.coerce.dive72.sroa_idx, align 8
   %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp69)
   %41 = load double, ptr %call74, align 8
   %42 = load ptr, ptr %mValues, align 8
-  %add.ptr.i98 = getelementptr inbounds i8, ptr %42, i64 72
-  store double %41, ptr %add.ptr.i98, align 8
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %42, i64 72
+  store double %41, ptr %add.ptr.i107, align 8
   %43 = load i32, ptr %ijk, align 4
-  %add.i99 = add nsw i32 %43, 1
+  %add.i108 = add nsw i32 %43, 1
   %44 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i101 = add nsw i32 %44, 1
+  %add4.i110 = add nsw i32 %44, 1
   %45 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %retval.sroa.2.0.insert.ext.i103 = zext i32 %add4.i101 to i64
-  %retval.sroa.2.0.insert.shift.i104 = shl nuw i64 %retval.sroa.2.0.insert.ext.i103, 32
-  %retval.sroa.0.0.insert.ext.i105 = zext i32 %add.i99 to i64
-  %retval.sroa.0.0.insert.insert.i106 = or disjoint i64 %retval.sroa.2.0.insert.shift.i104, %retval.sroa.0.0.insert.ext.i105
-  store i64 %retval.sroa.0.0.insert.insert.i106, ptr %ref.tmp78, align 8
+  %retval.sroa.2.0.insert.ext.i113 = zext i32 %add4.i110 to i64
+  %retval.sroa.2.0.insert.shift.i114 = shl nuw i64 %retval.sroa.2.0.insert.ext.i113, 32
+  %retval.sroa.0.0.insert.ext.i115 = zext i32 %add.i108 to i64
+  %retval.sroa.0.0.insert.insert.i116 = or disjoint i64 %retval.sroa.2.0.insert.shift.i114, %retval.sroa.0.0.insert.ext.i115
+  store i64 %retval.sroa.0.0.insert.insert.i116, ptr %ref.tmp78, align 8
   %tmp.coerce82.sroa.2.0.coerce.dive81.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
   store i32 %45, ptr %tmp.coerce82.sroa.2.0.coerce.dive81.sroa_idx, align 8
   %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp78)
   %46 = load double, ptr %call83, align 8
   %47 = load ptr, ptr %mValues, align 8
-  %add.ptr.i109 = getelementptr inbounds i8, ptr %47, i64 80
-  store double %46, ptr %add.ptr.i109, align 8
+  %add.ptr.i119 = getelementptr inbounds i8, ptr %47, i64 80
+  store double %46, ptr %add.ptr.i119, align 8
   %48 = load i32, ptr %ijk, align 4
-  %add.i110 = add nsw i32 %48, -1
+  %add.i120 = add nsw i32 %48, -1
   %49 = load i32, ptr %arrayidx.i.i.i, align 4
   %50 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i113 = add nsw i32 %50, -1
-  %retval.sroa.2.0.insert.ext.i114 = zext i32 %49 to i64
-  %retval.sroa.2.0.insert.shift.i115 = shl nuw i64 %retval.sroa.2.0.insert.ext.i114, 32
-  %retval.sroa.0.0.insert.ext.i116 = zext i32 %add.i110 to i64
-  %retval.sroa.0.0.insert.insert.i117 = or disjoint i64 %retval.sroa.2.0.insert.shift.i115, %retval.sroa.0.0.insert.ext.i116
-  store i64 %retval.sroa.0.0.insert.insert.i117, ptr %ref.tmp87, align 8
+  %add7.i124 = add nsw i32 %50, -1
+  %retval.sroa.2.0.insert.ext.i125 = zext i32 %49 to i64
+  %retval.sroa.2.0.insert.shift.i126 = shl nuw i64 %retval.sroa.2.0.insert.ext.i125, 32
+  %retval.sroa.0.0.insert.ext.i127 = zext i32 %add.i120 to i64
+  %retval.sroa.0.0.insert.insert.i128 = or disjoint i64 %retval.sroa.2.0.insert.shift.i126, %retval.sroa.0.0.insert.ext.i127
+  store i64 %retval.sroa.0.0.insert.insert.i128, ptr %ref.tmp87, align 8
   %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
-  store i32 %add7.i113, ptr %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx, align 8
+  store i32 %add7.i124, ptr %tmp.coerce91.sroa.2.0.coerce.dive90.sroa_idx, align 8
   %call92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp87)
   %51 = load double, ptr %call92, align 8
   %52 = load ptr, ptr %mValues, align 8
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %52, i64 88
-  store double %51, ptr %add.ptr.i120, align 8
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %52, i64 88
+  store double %51, ptr %add.ptr.i131, align 8
   %53 = load i32, ptr %ijk, align 4
-  %add.i121 = add nsw i32 %53, 1
+  %add.i132 = add nsw i32 %53, 1
   %54 = load i32, ptr %arrayidx.i.i.i, align 4
   %55 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i124 = add nsw i32 %55, -1
-  %retval.sroa.2.0.insert.ext.i125 = zext i32 %54 to i64
-  %retval.sroa.2.0.insert.shift.i126 = shl nuw i64 %retval.sroa.2.0.insert.ext.i125, 32
-  %retval.sroa.0.0.insert.ext.i127 = zext i32 %add.i121 to i64
-  %retval.sroa.0.0.insert.insert.i128 = or disjoint i64 %retval.sroa.2.0.insert.shift.i126, %retval.sroa.0.0.insert.ext.i127
-  store i64 %retval.sroa.0.0.insert.insert.i128, ptr %ref.tmp96, align 8
+  %add7.i136 = add nsw i32 %55, -1
+  %retval.sroa.2.0.insert.ext.i137 = zext i32 %54 to i64
+  %retval.sroa.2.0.insert.shift.i138 = shl nuw i64 %retval.sroa.2.0.insert.ext.i137, 32
+  %retval.sroa.0.0.insert.ext.i139 = zext i32 %add.i132 to i64
+  %retval.sroa.0.0.insert.insert.i140 = or disjoint i64 %retval.sroa.2.0.insert.shift.i138, %retval.sroa.0.0.insert.ext.i139
+  store i64 %retval.sroa.0.0.insert.insert.i140, ptr %ref.tmp96, align 8
   %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
-  store i32 %add7.i124, ptr %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx, align 8
+  store i32 %add7.i136, ptr %tmp.coerce100.sroa.2.0.coerce.dive99.sroa_idx, align 8
   %call101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp96)
   %56 = load double, ptr %call101, align 8
   %57 = load ptr, ptr %mValues, align 8
-  %add.ptr.i131 = getelementptr inbounds i8, ptr %57, i64 96
-  store double %56, ptr %add.ptr.i131, align 8
+  %add.ptr.i143 = getelementptr inbounds i8, ptr %57, i64 96
+  store double %56, ptr %add.ptr.i143, align 8
   %58 = load i32, ptr %ijk, align 4
-  %add.i132 = add nsw i32 %58, -1
+  %add.i144 = add nsw i32 %58, -1
   %59 = load i32, ptr %arrayidx.i.i.i, align 4
   %60 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i135 = add nsw i32 %60, 1
-  %retval.sroa.2.0.insert.ext.i136 = zext i32 %59 to i64
-  %retval.sroa.2.0.insert.shift.i137 = shl nuw i64 %retval.sroa.2.0.insert.ext.i136, 32
-  %retval.sroa.0.0.insert.ext.i138 = zext i32 %add.i132 to i64
-  %retval.sroa.0.0.insert.insert.i139 = or disjoint i64 %retval.sroa.2.0.insert.shift.i137, %retval.sroa.0.0.insert.ext.i138
-  store i64 %retval.sroa.0.0.insert.insert.i139, ptr %ref.tmp105, align 8
+  %add7.i148 = add nsw i32 %60, 1
+  %retval.sroa.2.0.insert.ext.i149 = zext i32 %59 to i64
+  %retval.sroa.2.0.insert.shift.i150 = shl nuw i64 %retval.sroa.2.0.insert.ext.i149, 32
+  %retval.sroa.0.0.insert.ext.i151 = zext i32 %add.i144 to i64
+  %retval.sroa.0.0.insert.insert.i152 = or disjoint i64 %retval.sroa.2.0.insert.shift.i150, %retval.sroa.0.0.insert.ext.i151
+  store i64 %retval.sroa.0.0.insert.insert.i152, ptr %ref.tmp105, align 8
   %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp105, i64 8
-  store i32 %add7.i135, ptr %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx, align 8
+  store i32 %add7.i148, ptr %tmp.coerce109.sroa.2.0.coerce.dive108.sroa_idx, align 8
   %call110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp105)
   %61 = load double, ptr %call110, align 8
   %62 = load ptr, ptr %mValues, align 8
-  %add.ptr.i142 = getelementptr inbounds i8, ptr %62, i64 104
-  store double %61, ptr %add.ptr.i142, align 8
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %62, i64 104
+  store double %61, ptr %add.ptr.i155, align 8
   %63 = load i32, ptr %ijk, align 4
-  %add.i143 = add nsw i32 %63, 1
+  %add.i156 = add nsw i32 %63, 1
   %64 = load i32, ptr %arrayidx.i.i.i, align 4
   %65 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i146 = add nsw i32 %65, 1
-  %retval.sroa.2.0.insert.ext.i147 = zext i32 %64 to i64
-  %retval.sroa.2.0.insert.shift.i148 = shl nuw i64 %retval.sroa.2.0.insert.ext.i147, 32
-  %retval.sroa.0.0.insert.ext.i149 = zext i32 %add.i143 to i64
-  %retval.sroa.0.0.insert.insert.i150 = or disjoint i64 %retval.sroa.2.0.insert.shift.i148, %retval.sroa.0.0.insert.ext.i149
-  store i64 %retval.sroa.0.0.insert.insert.i150, ptr %ref.tmp114, align 8
+  %add7.i160 = add nsw i32 %65, 1
+  %retval.sroa.2.0.insert.ext.i161 = zext i32 %64 to i64
+  %retval.sroa.2.0.insert.shift.i162 = shl nuw i64 %retval.sroa.2.0.insert.ext.i161, 32
+  %retval.sroa.0.0.insert.ext.i163 = zext i32 %add.i156 to i64
+  %retval.sroa.0.0.insert.insert.i164 = or disjoint i64 %retval.sroa.2.0.insert.shift.i162, %retval.sroa.0.0.insert.ext.i163
+  store i64 %retval.sroa.0.0.insert.insert.i164, ptr %ref.tmp114, align 8
   %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
-  store i32 %add7.i146, ptr %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx, align 8
+  store i32 %add7.i160, ptr %tmp.coerce118.sroa.2.0.coerce.dive117.sroa_idx, align 8
   %call119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp114)
   %66 = load double, ptr %call119, align 8
   %67 = load ptr, ptr %mValues, align 8
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %67, i64 112
-  store double %66, ptr %add.ptr.i153, align 8
+  %add.ptr.i167 = getelementptr inbounds i8, ptr %67, i64 112
+  store double %66, ptr %add.ptr.i167, align 8
   %68 = load i32, ptr %ijk, align 4
   %69 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i155 = add nsw i32 %69, -1
+  %add4.i170 = add nsw i32 %69, -1
   %70 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i157 = add nsw i32 %70, -1
-  %retval.sroa.2.0.insert.ext.i158 = zext i32 %add4.i155 to i64
-  %retval.sroa.2.0.insert.shift.i159 = shl nuw i64 %retval.sroa.2.0.insert.ext.i158, 32
-  %retval.sroa.0.0.insert.ext.i160 = zext i32 %68 to i64
-  %retval.sroa.0.0.insert.insert.i161 = or disjoint i64 %retval.sroa.2.0.insert.shift.i159, %retval.sroa.0.0.insert.ext.i160
-  store i64 %retval.sroa.0.0.insert.insert.i161, ptr %ref.tmp123, align 8
+  %add7.i172 = add nsw i32 %70, -1
+  %retval.sroa.2.0.insert.ext.i173 = zext i32 %add4.i170 to i64
+  %retval.sroa.2.0.insert.shift.i174 = shl nuw i64 %retval.sroa.2.0.insert.ext.i173, 32
+  %retval.sroa.0.0.insert.ext.i175 = zext i32 %68 to i64
+  %retval.sroa.0.0.insert.insert.i176 = or disjoint i64 %retval.sroa.2.0.insert.shift.i174, %retval.sroa.0.0.insert.ext.i175
+  store i64 %retval.sroa.0.0.insert.insert.i176, ptr %ref.tmp123, align 8
   %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
-  store i32 %add7.i157, ptr %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx, align 8
+  store i32 %add7.i172, ptr %tmp.coerce127.sroa.2.0.coerce.dive126.sroa_idx, align 8
   %call128 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp123)
   %71 = load double, ptr %call128, align 8
   %72 = load ptr, ptr %mValues, align 8
-  %add.ptr.i164 = getelementptr inbounds i8, ptr %72, i64 120
-  store double %71, ptr %add.ptr.i164, align 8
+  %add.ptr.i179 = getelementptr inbounds i8, ptr %72, i64 120
+  store double %71, ptr %add.ptr.i179, align 8
   %73 = load i32, ptr %ijk, align 4
   %74 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i166 = add nsw i32 %74, 1
+  %add4.i182 = add nsw i32 %74, 1
   %75 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i168 = add nsw i32 %75, -1
-  %retval.sroa.2.0.insert.ext.i169 = zext i32 %add4.i166 to i64
-  %retval.sroa.2.0.insert.shift.i170 = shl nuw i64 %retval.sroa.2.0.insert.ext.i169, 32
-  %retval.sroa.0.0.insert.ext.i171 = zext i32 %73 to i64
-  %retval.sroa.0.0.insert.insert.i172 = or disjoint i64 %retval.sroa.2.0.insert.shift.i170, %retval.sroa.0.0.insert.ext.i171
-  store i64 %retval.sroa.0.0.insert.insert.i172, ptr %ref.tmp132, align 8
+  %add7.i184 = add nsw i32 %75, -1
+  %retval.sroa.2.0.insert.ext.i185 = zext i32 %add4.i182 to i64
+  %retval.sroa.2.0.insert.shift.i186 = shl nuw i64 %retval.sroa.2.0.insert.ext.i185, 32
+  %retval.sroa.0.0.insert.ext.i187 = zext i32 %73 to i64
+  %retval.sroa.0.0.insert.insert.i188 = or disjoint i64 %retval.sroa.2.0.insert.shift.i186, %retval.sroa.0.0.insert.ext.i187
+  store i64 %retval.sroa.0.0.insert.insert.i188, ptr %ref.tmp132, align 8
   %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp132, i64 8
-  store i32 %add7.i168, ptr %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx, align 8
+  store i32 %add7.i184, ptr %tmp.coerce136.sroa.2.0.coerce.dive135.sroa_idx, align 8
   %call137 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp132)
   %76 = load double, ptr %call137, align 8
   %77 = load ptr, ptr %mValues, align 8
-  %add.ptr.i175 = getelementptr inbounds i8, ptr %77, i64 128
-  store double %76, ptr %add.ptr.i175, align 8
+  %add.ptr.i191 = getelementptr inbounds i8, ptr %77, i64 128
+  store double %76, ptr %add.ptr.i191, align 8
   %78 = load i32, ptr %ijk, align 4
   %79 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i177 = add nsw i32 %79, -1
+  %add4.i194 = add nsw i32 %79, -1
   %80 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i179 = add nsw i32 %80, 1
-  %retval.sroa.2.0.insert.ext.i180 = zext i32 %add4.i177 to i64
-  %retval.sroa.2.0.insert.shift.i181 = shl nuw i64 %retval.sroa.2.0.insert.ext.i180, 32
-  %retval.sroa.0.0.insert.ext.i182 = zext i32 %78 to i64
-  %retval.sroa.0.0.insert.insert.i183 = or disjoint i64 %retval.sroa.2.0.insert.shift.i181, %retval.sroa.0.0.insert.ext.i182
-  store i64 %retval.sroa.0.0.insert.insert.i183, ptr %ref.tmp141, align 8
+  %add7.i196 = add nsw i32 %80, 1
+  %retval.sroa.2.0.insert.ext.i197 = zext i32 %add4.i194 to i64
+  %retval.sroa.2.0.insert.shift.i198 = shl nuw i64 %retval.sroa.2.0.insert.ext.i197, 32
+  %retval.sroa.0.0.insert.ext.i199 = zext i32 %78 to i64
+  %retval.sroa.0.0.insert.insert.i200 = or disjoint i64 %retval.sroa.2.0.insert.shift.i198, %retval.sroa.0.0.insert.ext.i199
+  store i64 %retval.sroa.0.0.insert.insert.i200, ptr %ref.tmp141, align 8
   %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
-  store i32 %add7.i179, ptr %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx, align 8
+  store i32 %add7.i196, ptr %tmp.coerce145.sroa.2.0.coerce.dive144.sroa_idx, align 8
   %call146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp141)
   %81 = load double, ptr %call146, align 8
   %82 = load ptr, ptr %mValues, align 8
-  %add.ptr.i186 = getelementptr inbounds i8, ptr %82, i64 136
-  store double %81, ptr %add.ptr.i186, align 8
+  %add.ptr.i203 = getelementptr inbounds i8, ptr %82, i64 136
+  store double %81, ptr %add.ptr.i203, align 8
   %83 = load i32, ptr %ijk, align 4
   %84 = load i32, ptr %arrayidx.i.i.i, align 4
-  %add4.i188 = add nsw i32 %84, 1
+  %add4.i206 = add nsw i32 %84, 1
   %85 = load i32, ptr %arrayidx.i.i1.i, align 4
-  %add7.i190 = add nsw i32 %85, 1
-  %retval.sroa.2.0.insert.ext.i191 = zext i32 %add4.i188 to i64
-  %retval.sroa.2.0.insert.shift.i192 = shl nuw i64 %retval.sroa.2.0.insert.ext.i191, 32
-  %retval.sroa.0.0.insert.ext.i193 = zext i32 %83 to i64
-  %retval.sroa.0.0.insert.insert.i194 = or disjoint i64 %retval.sroa.2.0.insert.shift.i192, %retval.sroa.0.0.insert.ext.i193
-  store i64 %retval.sroa.0.0.insert.insert.i194, ptr %ref.tmp150, align 8
+  %add7.i208 = add nsw i32 %85, 1
+  %retval.sroa.2.0.insert.ext.i209 = zext i32 %add4.i206 to i64
+  %retval.sroa.2.0.insert.shift.i210 = shl nuw i64 %retval.sroa.2.0.insert.ext.i209, 32
+  %retval.sroa.0.0.insert.ext.i211 = zext i32 %83 to i64
+  %retval.sroa.0.0.insert.insert.i212 = or disjoint i64 %retval.sroa.2.0.insert.shift.i210, %retval.sroa.0.0.insert.ext.i211
+  store i64 %retval.sroa.0.0.insert.insert.i212, ptr %ref.tmp150, align 8
   %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
-  store i32 %add7.i190, ptr %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx, align 8
+  store i32 %add7.i208, ptr %tmp.coerce154.sroa.2.0.coerce.dive153.sroa_idx, align 8
   %call155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE(ptr noundef nonnull align 8 dereferenceable(96) %mAcc, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp150)
   %86 = load double, ptr %call155, align 8
   %87 = load ptr, ptr %mValues, align 8
-  %add.ptr.i197 = getelementptr inbounds i8, ptr %87, i64 144
-  store double %86, ptr %add.ptr.i197, align 8
+  %add.ptr.i215 = getelementptr inbounds i8, ptr %87, i64 144
+  store double %86, ptr %add.ptr.i215, align 8
   ret void
 }
 

@@ -385,7 +385,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %int_size_ = getelementptr inbounds i8, ptr %this, i64 169
   %2 = load i8, ptr %int_size_, align 1
   %conv = zext i8 %2 to i64
-  %mul = mul nsw i64 %.sroa.speculated, %conv
+  %mul = mul nuw nsw i64 %.sroa.speculated, %conv
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load i64, ptr %capacity_, align 8
   %cmp = icmp eq i64 %3, 0
@@ -1032,20 +1032,20 @@ entry:
   %alignment_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %alignment, ptr %alignment_.i.i, align 8
   %null_bitmap_builder_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %pool, ptr %pool_.i.i.i.i, align 8
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %data_.i.i.i.i, align 8
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %alignment_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
   store i64 %alignment, ptr %alignment_.i.i.i.i, align 8
   %bit_length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %this, i64 144
   %start_int_size_.i = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i8 %start_int_size, ptr %start_int_size_.i, align 8
   %int_size_.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 %start_int_size, ptr %int_size_.i, align 1
@@ -3453,20 +3453,20 @@ entry:
   %alignment_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 64, ptr %alignment_.i.i, align 8
   %null_bitmap_builder_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %pool, ptr %pool_.i.i.i.i, align 8
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %data_.i.i.i.i, align 8
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %alignment_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
   store i64 64, ptr %alignment_.i.i.i.i, align 8
   %bit_length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %this, i64 144
   %start_int_size_.i = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i8 %start_int_size, ptr %start_int_size_.i, align 8
   %int_size_.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 %start_int_size, ptr %int_size_.i, align 1
@@ -4949,7 +4949,7 @@ do.end29:                                         ; preds = %nrvo.skipdtor25.thr
   %conv = zext i8 %11 to i64
   %mul = mul nsw i64 %10, %conv
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %mul
-  %mul34 = mul nsw i64 %conv, %length
+  %mul34 = mul nuw nsw i64 %conv, %length
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %mul34, i1 false)
   call void @_ZN5arrow12ArrayBuilder13UnsafeSetNullEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length)
   br label %if.end35
@@ -5072,7 +5072,7 @@ do.end29:                                         ; preds = %nrvo.skipdtor25.thr
   %conv = zext i8 %11 to i64
   %mul = mul nsw i64 %10, %conv
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %mul
-  %mul34 = mul nsw i64 %conv, %length
+  %mul34 = mul nuw nsw i64 %conv, %length
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %mul34, i1 false)
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length)
   br label %if.end35

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bufferevent_ops_pair = dso_local constant %struct.bufferevent_ops { ptr @.str, i64 0, ptr @be_pair_enable, ptr @be_pair_disable, ptr @be_pair_unlink, ptr @be_pair_destruct, ptr @bufferevent_generic_adj_timeouts_, ptr @be_pair_flush, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_pair_new(ptr noundef %base, i32 noundef %options, ptr nocapture noundef writeonly %pair) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_pair_new(ptr noundef %base, i32 noundef %options, ptr nocapture noundef writeonly %pair) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 4
   %call.i = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 536) #3
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_pair_flush(ptr noundef %bev, i16 noundef signext %iotype, i32 noundef %mode) #0 {
+define internal range(i32 -1, 1) i32 @be_pair_flush(ptr noundef %bev, i16 noundef signext %iotype, i32 noundef %mode) #0 {
 entry:
   %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -466,7 +466,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 if.then19:                                        ; preds = %if.end16
   %spec.select = select i1 %cmp7.not, i16 16, i16 18
   %and12.lobit = lshr exact i32 %and12, 2
-  %5 = trunc i32 %and12.lobit to i16
+  %5 = trunc nuw nsw i32 %and12.lobit to i16
   %what.1 = or disjoint i16 %spec.select, %5
   tail call void @bufferevent_run_eventcb_(ptr noundef %4, i16 noundef signext %what.1, i32 noundef 0) #3
   br label %if.end35

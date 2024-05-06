@@ -36,7 +36,7 @@ method_from_curve_id.exit:                        ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef i32 @ssl_nid_to_curve_id(ptr nocapture noundef writeonly %out_curve_id, i32 noundef %nid) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr nocapture noundef writeonly %out_curve_id, i32 noundef %nid) local_unnamed_addr #1 {
 entry:
   br label %for.body.i
 
@@ -64,7 +64,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_ECDH_CTX_init(ptr noundef %ctx, i16 noundef zeroext %curve_id) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @SSL_ECDH_CTX_init(ptr noundef %ctx, i16 noundef zeroext %curve_id) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_ec_point_generate_keypair(ptr nocapture noundef %ctx, ptr noundef %out) #2 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr nocapture noundef %ctx, ptr noundef %out) #2 {
 entry:
   %call = tail call ptr @BN_new() #7
   %cmp = icmp eq ptr %call, null
@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_x25519_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   store i8 80, ptr %out_alert, align 1
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_dhe_generate_keypair(ptr nocapture noundef readonly %ctx, ptr noundef %out) #2 {
+define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr nocapture noundef readonly %ctx, ptr noundef %out) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -494,7 +494,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8

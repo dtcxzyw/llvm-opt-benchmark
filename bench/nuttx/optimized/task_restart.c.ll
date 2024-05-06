@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_inactivetasks = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %55, label %4

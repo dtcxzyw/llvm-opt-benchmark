@@ -25,7 +25,7 @@ if.then:                                          ; preds = %entry
   %asmresult2.i3 = extractvalue { i32, i32, i32, i32 } %1, 2
   %asmresult3.i4 = extractvalue { i32, i32, i32, i32 } %1, 3
   %and = lshr i32 %asmresult3.i4, 26
-  %2 = trunc i32 %and to i8
+  %2 = trunc nuw nsw i32 %and to i8
   %frombool = and i8 %2, 1
   store i8 %frombool, ptr %this, align 1
   %3 = trunc i32 %asmresult2.i3 to i8
@@ -46,11 +46,11 @@ if.then:                                          ; preds = %entry
   %and19 = and i32 %asmresult2.i3, 134217728
   %tobool20.not = icmp eq i32 %and19, 0
   %and22 = lshr i32 %asmresult2.i3, 28
-  %7 = trunc i32 %and22 to i8
+  %7 = trunc nuw nsw i32 %and22 to i8
   %frombool25 = and i8 %7, 1
   store i8 %frombool25, ptr %avx, align 1
   %and26 = lshr i32 %asmresult2.i3, 29
-  %8 = trunc i32 %and26 to i8
+  %8 = trunc nuw nsw i32 %and26 to i8
   %frombool29 = and i8 %8, 1
   store i8 %frombool29, ptr %f16c, align 1
   br i1 %tobool20.not, label %if.end40.sink.split, label %if.else

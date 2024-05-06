@@ -585,7 +585,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @nodecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @nodecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

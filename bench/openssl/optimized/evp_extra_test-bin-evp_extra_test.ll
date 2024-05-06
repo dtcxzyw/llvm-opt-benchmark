@@ -893,7 +893,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -1051,7 +1051,7 @@ declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_set_default_properties() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_set_default_properties() #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 679, ptr noundef nonnull @.str.87, ptr noundef %call) #8
@@ -1708,7 +1708,7 @@ return:                                           ; preds = %out, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_Digest() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_Digest() #1 {
 entry:
   %md = alloca [64 x i8], align 16
   %call = tail call ptr @EVP_MD_CTX_new() #8
@@ -1916,7 +1916,7 @@ return:                                           ; preds = %out, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKEY_sign(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKEY_sign(i32 noundef %tst) #1 {
 entry:
   %data.addr.i.i19 = alloca ptr, align 8
   %data_len.addr.i.i20 = alloca i64, align 8
@@ -2060,7 +2060,7 @@ out:                                              ; preds = %lor.lhs.false47, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKEY_sign_with_app_method(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKEY_sign_with_app_method(i32 noundef %tst) #1 {
 entry:
   %data.addr.i.i23 = alloca ptr, align 8
   %data_len.addr.i.i24 = alloca i64, align 8
@@ -2416,7 +2416,7 @@ return:                                           ; preds = %if.end77, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_d2i_AutoPrivateKey(i32 noundef %i) #1 {
+define internal range(i32 0, 2) i32 @test_d2i_AutoPrivateKey(i32 noundef %i) #1 {
 entry:
   %p = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
@@ -2453,7 +2453,7 @@ done:                                             ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_privatekey_to_pkcs8() #1 {
+define internal range(i32 0, 2) i32 @test_privatekey_to_pkcs8() #1 {
 entry:
   %data.addr.i.i = alloca ptr, align 8
   %data_len.addr.i.i = alloca i64, align 8
@@ -2526,7 +2526,7 @@ done:                                             ; preds = %lor.lhs.false20, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKCS82PKEY_wrong_tag() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKCS82PKEY_wrong_tag() #1 {
 entry:
   %data.addr.i.i = alloca ptr, align 8
   %data_len.addr.i.i = alloca i64, align 8
@@ -2613,7 +2613,7 @@ return:                                           ; preds = %entry, %done
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKCS82PKEY() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKCS82PKEY() #1 {
 entry:
   %derp = alloca ptr, align 8
   store ptr @kExampleBadECKeyDER, ptr %derp, align 8
@@ -2644,7 +2644,7 @@ done:                                             ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EC_keygen_with_enc(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_EC_keygen_with_enc(i32 noundef %idx) #1 {
 entry:
   %params = alloca ptr, align 8
   %key = alloca ptr, align 8
@@ -2750,7 +2750,7 @@ done:                                             ; preds = %lor.lhs.false43, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_EVP_SM2() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
 entry:
   %pkey = alloca ptr, align 8
   %pkeyparams = alloca ptr, align 8
@@ -3100,7 +3100,7 @@ done:                                             ; preds = %done.loopexit.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_SM2_verify() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_SM2_verify() #1 {
 entry:
   %signature = alloca [70 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(70) %signature, ptr noundef nonnull align 16 dereferenceable(70) @__const.test_EVP_SM2_verify.signature, i64 70, i1 false)
@@ -3193,19 +3193,19 @@ done:                                             ; preds = %if.end58, %if.end50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_get_raw_keys(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_set_get_raw_keys(i32 noundef %tst) #1 {
 entry:
   %0 = load ptr, ptr @nullprov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 0, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 0, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %call1 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 0, i32 noundef 1), !range !7
+  %call1 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 0, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.lhs.true3
 
@@ -3215,12 +3215,12 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %cmp4.not, label %lor.lhs.false5, label %land.rhs
 
 lor.lhs.false5:                                   ; preds = %land.lhs.true3
-  %call6 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 1, i32 noundef 0), !range !7
+  %call6 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 1, i32 noundef 0)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.lhs.false5, %land.lhs.true3
-  %call8 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 1, i32 noundef 1), !range !7
+  %call8 = tail call fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef 1, i32 noundef 1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.lhs.false5, %land.lhs.true, %lor.lhs.false
@@ -3259,7 +3259,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @EVP_PKEY_meth_add0(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKEY_check(i32 noundef %i) #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKEY_check(i32 noundef %i) #1 {
 entry:
   %data.addr.i = alloca ptr, align 8
   %data_len.addr.i = alloca i64, align 8
@@ -3414,7 +3414,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false12
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false16
   %2 = load ptr, ptr %pkey, align 8
-  %call20 = call fastcc i32 @get_cmac_val(ptr noundef %2, ptr noundef nonnull %mac), !range !7
+  %call20 = call fastcc i32 @get_cmac_val(ptr noundef %2, ptr noundef nonnull %mac)
   %call22 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2595, ptr noundef nonnull @.str.307, i32 noundef %call20) #8
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %done, label %if.end25
@@ -3431,7 +3431,7 @@ if.end25:                                         ; preds = %lor.lhs.false19
 
 lor.lhs.false30:                                  ; preds = %if.end25
   %4 = load ptr, ptr %pkey, align 8
-  %call32 = call fastcc i32 @get_cmac_val(ptr noundef %4, ptr noundef nonnull %mac2), !range !7
+  %call32 = call fastcc i32 @get_cmac_val(ptr noundef %4, ptr noundef nonnull %mac2)
   %call35 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2607, ptr noundef nonnull @.str.308, i32 noundef %call32) #8
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %done, label %lor.lhs.false37
@@ -3455,7 +3455,7 @@ return:                                           ; preds = %done, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HKDF() #1 {
+define internal range(i32 0, 2) i32 @test_HKDF() #1 {
 entry:
   %out = alloca [20 x i8], align 16
   %outlen = alloca i64, align 8
@@ -3532,7 +3532,7 @@ done:                                             ; preds = %done.loopexit.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_emptyikm_HKDF() #1 {
+define internal range(i32 0, 2) i32 @test_emptyikm_HKDF() #1 {
 entry:
   %out = alloca [20 x i8], align 16
   %outlen = alloca i64, align 8
@@ -3603,7 +3603,7 @@ done:                                             ; preds = %lor.lhs.false29, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_X509_PUBKEY_inplace() #1 {
+define internal range(i32 0, 2) i32 @test_X509_PUBKEY_inplace() #1 {
 entry:
   %xp = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -3654,7 +3654,7 @@ done:                                             ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_X509_PUBKEY_dup() #1 {
+define internal range(i32 0, 2) i32 @test_X509_PUBKEY_dup() #1 {
 entry:
   %xp = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -3744,7 +3744,7 @@ done:                                             ; preds = %if.end34, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_invalide_ec_char2_pub_range_decode(i32 noundef %id) #1 {
+define internal range(i32 0, 2) i32 @test_invalide_ec_char2_pub_range_decode(i32 noundef %id) #1 {
 entry:
   %data.addr.i = alloca ptr, align 8
   %data_len.addr.i = alloca i64, align 8
@@ -3789,7 +3789,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_DSA_get_set_params() #1 {
+define internal range(i32 0, 2) i32 @test_DSA_get_set_params() #1 {
 entry:
   %pkey = alloca ptr, align 8
   store ptr null, ptr %pkey, align 8
@@ -3901,7 +3901,7 @@ if.end67:                                         ; preds = %lor.lhs.false62
   br i1 %tobool69.not, label %err, label %if.end71
 
 if.end71:                                         ; preds = %if.end67
-  %call72 = call fastcc i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %.pre15), !range !7
+  %call72 = call fastcc i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %.pre15)
   %.pre = load ptr, ptr %pkey, align 8
   br label %err
 
@@ -3928,14 +3928,14 @@ err:                                              ; preds = %if.end67, %if.end58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_DSA_priv_pub() #1 {
+define internal range(i32 0, 2) i32 @test_DSA_priv_pub() #1 {
 entry:
-  %call = tail call fastcc i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef nonnull @.str.129), !range !7
+  %call = tail call fastcc i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef nonnull @.str.129)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_RSA_get_set_params() #1 {
+define internal range(i32 0, 2) i32 @test_RSA_get_set_params() #1 {
 entry:
   %pkey = alloca ptr, align 8
   store ptr null, ptr %pkey, align 8
@@ -4019,7 +4019,7 @@ if.end47:                                         ; preds = %lor.lhs.false42
   br i1 %tobool49.not, label %err, label %if.end51
 
 if.end51:                                         ; preds = %if.end47
-  %call52 = call fastcc i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %.pre11), !range !7
+  %call52 = call fastcc i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %.pre11)
   %.pre = load ptr, ptr %pkey, align 8
   br label %err
 
@@ -4152,7 +4152,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_RSA_OAEP_set_null_label() #1 {
+define internal range(i32 0, 2) i32 @test_RSA_OAEP_set_null_label() #1 {
 entry:
   %data.addr.i.i = alloca ptr, align 8
   %data_len.addr.i.i = alloca i64, align 8
@@ -4225,7 +4225,7 @@ err:                                              ; preds = %if.end23, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_decrypt_null_chunks() #1 {
+define internal range(i32 0, 2) i32 @test_decrypt_null_chunks() #1 {
 entry:
   %key = alloca [32 x i8], align 16
   %iv = alloca [12 x i8], align 1
@@ -4413,14 +4413,14 @@ err:                                              ; preds = %lor.lhs.false108, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_DH_priv_pub() #1 {
+define internal range(i32 0, 2) i32 @test_DH_priv_pub() #1 {
 entry:
-  %call = tail call fastcc i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef nonnull @.str.422), !range !7
+  %call = tail call fastcc i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef nonnull @.str.422)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_PKEY_set1_DH() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_PKEY_set1_DH() #1 {
 entry:
   %pubkey = alloca ptr, align 8
   %pub = alloca [256 x i8], align 16
@@ -4615,7 +4615,7 @@ err:                                              ; preds = %lor.lhs.false110, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EC_priv_pub() #1 {
+define internal range(i32 0, 2) i32 @test_EC_priv_pub() #1 {
 entry:
   %encoded = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -4656,12 +4656,12 @@ lor.lhs.false13:                                  ; preds = %if.end9
 if.end18:                                         ; preds = %lor.lhs.false13
   tail call void @OSSL_PARAM_free(ptr noundef %call10) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call2) #8
-  %call19 = tail call fastcc i32 @test_selection(ptr noundef %call14, i32 noundef 132), !range !7
+  %call19 = tail call fastcc i32 @test_selection(ptr noundef %call14, i32 noundef 132)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.end18
-  %call22 = tail call fastcc i32 @test_selection(ptr noundef %call14, i32 noundef 3), !range !7
+  %call22 = tail call fastcc i32 @test_selection(ptr noundef %call14, i32 noundef 3)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end25, label %err
 
@@ -4702,12 +4702,12 @@ lor.lhs.false46:                                  ; preds = %if.end42
 if.end51:                                         ; preds = %lor.lhs.false46
   tail call void @OSSL_PARAM_free(ptr noundef %call43) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call26) #8
-  %call52 = tail call fastcc i32 @test_selection(ptr noundef %call47, i32 noundef 132), !range !7
+  %call52 = tail call fastcc i32 @test_selection(ptr noundef %call47, i32 noundef 132)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %if.end51
-  %call55 = tail call fastcc i32 @test_selection(ptr noundef %call47, i32 noundef 2), !range !7
+  %call55 = tail call fastcc i32 @test_selection(ptr noundef %call47, i32 noundef 2)
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %if.end58, label %err
 
@@ -4748,12 +4748,12 @@ lor.lhs.false79:                                  ; preds = %if.end75
 if.end84:                                         ; preds = %lor.lhs.false79
   tail call void @OSSL_PARAM_free(ptr noundef %call76) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call59) #8
-  %call85 = tail call fastcc i32 @test_selection(ptr noundef %call80, i32 noundef 2), !range !7
+  %call85 = tail call fastcc i32 @test_selection(ptr noundef %call80, i32 noundef 2)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %if.end84
-  %call88 = tail call fastcc i32 @test_selection(ptr noundef %call80, i32 noundef 1), !range !7
+  %call88 = tail call fastcc i32 @test_selection(ptr noundef %call80, i32 noundef 1)
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.end91, label %err
 
@@ -4800,7 +4800,7 @@ lor.lhs.false118:                                 ; preds = %if.end114
   br i1 %tobool121.not, label %err, label %if.end123
 
 if.end123:                                        ; preds = %lor.lhs.false118
-  %call124 = tail call fastcc i32 @test_selection(ptr noundef %call119, i32 noundef 135), !range !7
+  %call124 = tail call fastcc i32 @test_selection(ptr noundef %call119, i32 noundef 135)
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %if.end127
 
@@ -4928,7 +4928,7 @@ err:                                              ; preds = %if.end190, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_evp_get_ec_pub() #1 {
+define internal range(i32 0, 2) i32 @test_evp_get_ec_pub() #1 {
 entry:
   %x = alloca ptr, align 8
   %y = alloca ptr, align 8
@@ -4982,7 +4982,7 @@ lor.lhs.false25:                                  ; preds = %if.end21
   br i1 %tobool28.not, label %err, label %if.end30
 
 if.end30:                                         ; preds = %lor.lhs.false25
-  %call31 = tail call fastcc i32 @test_selection(ptr noundef %call26, i32 noundef 135), !range !7
+  %call31 = tail call fastcc i32 @test_selection(ptr noundef %call26, i32 noundef 135)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -5103,7 +5103,7 @@ if.end42:                                         ; preds = %if.end37
   %tobool45 = icmp ne i32 %call44, 0
   %cmp24 = icmp eq ptr %call38, null
   %or.cond = and i1 %cmp24, %tobool45
-  br i1 %or.cond, label %while.body, label %err, !llvm.loop !8
+  br i1 %or.cond, label %while.body, label %err, !llvm.loop !7
 
 err:                                              ; preds = %if.end42, %if.end37, %if.end30, %while.body, %if.end16, %if.end11, %if.end6, %if.end, %entry
   %ret.0 = phi i32 [ 0, %if.end16 ], [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %while.body ], [ 0, %if.end30 ], [ 0, %if.end37 ], [ %call44, %if.end42 ]
@@ -5118,7 +5118,7 @@ err:                                              ; preds = %if.end42, %if.end37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_evp_get_ec_pub_legacy() #1 {
+define internal range(i32 0, 2) i32 @test_evp_get_ec_pub_legacy() #1 {
 entry:
   %x = alloca ptr, align 8
   %y = alloca ptr, align 8
@@ -5318,7 +5318,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_ctx_fail_without_provider(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_pkey_ctx_fail_without_provider(i32 noundef %tst) #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 3292, ptr noundef nonnull @.str.494, ptr noundef %call) #8
@@ -5363,7 +5363,7 @@ err:                                              ; preds = %sw.epilog, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rand_agglomeration() #1 {
+define internal range(i32 0, 2) i32 @test_rand_agglomeration() #1 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %step = alloca i32, align 4
@@ -5824,7 +5824,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_rsa_pss_with_keygen_bits() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_rsa_pss_with_keygen_bits() #1 {
 entry:
   %pkey = alloca ptr, align 8
   store ptr null, ptr %pkey, align 8
@@ -5879,7 +5879,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_rsa_pss_set_saltlen() #1 {
+define internal range(i32 0, 2) i32 @test_EVP_rsa_pss_set_saltlen() #1 {
 entry:
   %data.addr.i.i = alloca ptr, align 8
   %data_len.addr.i.i = alloca i64, align 8
@@ -6094,7 +6094,7 @@ return:                                           ; preds = %done, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_names_do_all() #1 {
+define internal range(i32 0, 2) i32 @test_names_do_all() #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 3794, ptr noundef nonnull @.str.164, ptr noundef %call) #8
@@ -6133,7 +6133,7 @@ err:                                              ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_evp_init_seq(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_evp_init_seq(i32 noundef %idx) #1 {
 entry:
   %outlen1 = alloca i32, align 4
   %outlen2 = alloca i32, align 4
@@ -6321,7 +6321,7 @@ if.end114:                                        ; preds = %if.end102, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_evp_reset(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_evp_reset(i32 noundef %idx) #1 {
 entry:
   %outlen1 = alloca i32, align 4
   %outlen2 = alloca i32, align 4
@@ -6440,7 +6440,7 @@ if.end81:                                         ; preds = %if.then80, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_gcm_reinit(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_gcm_reinit(i32 noundef %idx) #1 {
 entry:
   %outlen1 = alloca i32, align 4
   %outlen2 = alloca i32, align 4
@@ -6624,7 +6624,7 @@ if.end126:                                        ; preds = %if.then125, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_evp_updated_iv(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_evp_updated_iv(i32 noundef %idx) #1 {
 entry:
   %outlen1 = alloca i32, align 4
   %outlen2 = alloca i32, align 4
@@ -6722,7 +6722,7 @@ if.end58:                                         ; preds = %if.end46, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ivlen_change(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_ivlen_change(i32 noundef %idx) #1 {
 entry:
   %outlen = alloca i32, align 4
   %outbuf = alloca [1024 x i8], align 16
@@ -6887,7 +6887,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_custom_pmeth(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_custom_pmeth(i32 noundef %idx) #1 {
 entry:
   %data.addr.i.i45 = alloca ptr, align 8
   %data_len.addr.i.i46 = alloca i64, align 8
@@ -7344,7 +7344,7 @@ return:                                           ; preds = %entry, %if.end176
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_evp_md_cipher_meth() #1 {
+define internal range(i32 0, 2) i32 @test_evp_md_cipher_meth() #1 {
 entry:
   %call = tail call ptr @EVP_sha256() #8
   %call1 = tail call ptr @EVP_MD_meth_dup(ptr noundef %call) #8
@@ -7593,7 +7593,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_signatures_with_engine(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_signatures_with_engine(i32 noundef %tst) #1 {
 entry:
   %badcmackey = alloca [2 x i8], align 2
   %cmackey = alloca [16 x i8], align 16
@@ -7741,7 +7741,7 @@ return:                                           ; preds = %entry, %err, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipher_with_engine() #1 {
+define internal range(i32 0, 2) i32 @test_cipher_with_engine() #1 {
 entry:
   %keyiv = alloca [16 x i8], align 16
   %msg = alloca [4 x i8], align 4
@@ -7831,7 +7831,7 @@ return:                                           ; preds = %entry, %err, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ecx_short_keys(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_ecx_short_keys(i32 noundef %tst) #1 {
 entry:
   %ecxkeydata = alloca i8, align 1
   store i8 1, ptr %ecxkeydata, align 1
@@ -7950,7 +7950,7 @@ return:                                           ; preds = %err, %if.then, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sign_continuation() #1 {
+define internal range(i32 0, 2) i32 @test_sign_continuation() #1 {
 entry:
   %pkey = alloca ptr, align 8
   %sigbuf = alloca [13 x i8], align 1
@@ -8108,7 +8108,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_aes_gcm_ivlen_change_cve_2023_5363() #1 {
+define internal range(i32 0, 2) i32 @test_aes_gcm_ivlen_change_cve_2023_5363() #1 {
 entry:
   %gcm_ivlen.addr.i1 = alloca i64, align 8
   %outlen.i2 = alloca i32, align 4
@@ -8671,7 +8671,7 @@ declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @evp_keymgmt_util_export(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
   %enc_name = alloca ptr, align 8
   store ptr null, ptr %enc_name, align 8
@@ -8690,7 +8690,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !9
+  br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.body:                                         ; preds = %lor.lhs.false, %for.cond
   %cmp5 = phi i1 [ false, %for.cond ], [ true, %lor.lhs.false ]
@@ -8763,7 +8763,7 @@ declare ptr @PEM_read_bio_PUBKEY_ex(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef %pub, i32 noundef %uselibctx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef %pub, i32 noundef %uselibctx) unnamed_addr #1 {
 entry:
   %buf = alloca [80 x i8], align 16
   %len = alloca i64, align 8
@@ -8941,7 +8941,7 @@ declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_cmac_val(ptr noundef %pkey, ptr noundef %mac) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_cmac_val(ptr noundef %pkey, ptr noundef %mac) unnamed_addr #1 {
 entry:
   %msg = alloca [12 x i8], align 1
   %maclen = alloca i64, align 8
@@ -9035,7 +9035,7 @@ declare i32 @EVP_PKEY_fromdata_init(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_fromdata(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %pkey) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_EVP_PKEY_CTX_get_set_params(ptr noundef %pkey) unnamed_addr #1 {
 entry:
   %ourparams = alloca [2 x %struct.ossl_param_st], align 16
   %md = alloca ptr, align 8
@@ -9223,7 +9223,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef %keytype) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_EVP_PKEY_ffc_priv_pub(ptr noundef %keytype) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BN_new() #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 778, ptr noundef nonnull @.str.337, ptr noundef %call) #8
@@ -9299,12 +9299,12 @@ lor.lhs.false41:                                  ; preds = %if.end37
 if.end46:                                         ; preds = %lor.lhs.false41
   tail call void @OSSL_PARAM_free(ptr noundef %call38) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call17) #8
-  %call47 = tail call fastcc i32 @test_selection(ptr noundef %call42, i32 noundef 132), !range !7
+  %call47 = tail call fastcc i32 @test_selection(ptr noundef %call42, i32 noundef 132)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %err, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %if.end46
-  %call50 = tail call fastcc i32 @test_selection(ptr noundef %call42, i32 noundef 3), !range !7
+  %call50 = tail call fastcc i32 @test_selection(ptr noundef %call42, i32 noundef 3)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.end53, label %err
 
@@ -9361,12 +9361,12 @@ lor.lhs.false86:                                  ; preds = %if.end82
 if.end91:                                         ; preds = %lor.lhs.false86
   tail call void @OSSL_PARAM_free(ptr noundef %call83) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call54) #8
-  %call92 = tail call fastcc i32 @test_selection(ptr noundef %call87, i32 noundef 1), !range !7
+  %call92 = tail call fastcc i32 @test_selection(ptr noundef %call87, i32 noundef 1)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %err, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %if.end91
-  %call95 = tail call fastcc i32 @test_selection(ptr noundef %call87, i32 noundef 2), !range !7
+  %call95 = tail call fastcc i32 @test_selection(ptr noundef %call87, i32 noundef 2)
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %if.end98, label %err
 
@@ -9423,12 +9423,12 @@ lor.lhs.false131:                                 ; preds = %if.end127
 if.end136:                                        ; preds = %lor.lhs.false131
   tail call void @OSSL_PARAM_free(ptr noundef %call128) #8
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %call99) #8
-  %call137 = tail call fastcc i32 @test_selection(ptr noundef %call132, i32 noundef 2), !range !7
+  %call137 = tail call fastcc i32 @test_selection(ptr noundef %call132, i32 noundef 2)
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %err, label %lor.lhs.false139
 
 lor.lhs.false139:                                 ; preds = %if.end136
-  %call140 = tail call fastcc i32 @test_selection(ptr noundef %call132, i32 noundef 1), !range !7
+  %call140 = tail call fastcc i32 @test_selection(ptr noundef %call132, i32 noundef 1)
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %if.end143, label %err
 
@@ -9491,7 +9491,7 @@ lor.lhs.false182:                                 ; preds = %if.end178
   br i1 %tobool185.not, label %err, label %if.end187
 
 if.end187:                                        ; preds = %lor.lhs.false182
-  %call188 = tail call fastcc i32 @test_selection(ptr noundef %call183, i32 noundef 135), !range !7
+  %call188 = tail call fastcc i32 @test_selection(ptr noundef %call183, i32 noundef 135)
   br label %err
 
 err:                                              ; preds = %if.end187, %if.end178, %lor.lhs.false182, %if.end143, %lor.lhs.false147, %lor.lhs.false153, %lor.lhs.false159, %lor.lhs.false165, %lor.lhs.false171, %if.end136, %lor.lhs.false139, %if.end127, %lor.lhs.false131, %if.end98, %lor.lhs.false102, %lor.lhs.false108, %lor.lhs.false114, %lor.lhs.false120, %if.end91, %lor.lhs.false94, %if.end82, %lor.lhs.false86, %if.end53, %lor.lhs.false57, %lor.lhs.false63, %lor.lhs.false69, %lor.lhs.false75, %if.end46, %lor.lhs.false49, %if.end37, %lor.lhs.false41, %if.end, %lor.lhs.false20, %lor.lhs.false24, %lor.lhs.false30, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9, %lor.lhs.false13
@@ -9563,7 +9563,7 @@ err:                                              ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_selection(ptr noundef %pkey, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_selection(ptr noundef %pkey, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BIO_s_mem() #8
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #8
@@ -9927,7 +9927,7 @@ declare ptr @EVP_MD_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @EVP_MD_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @custom_md_init(ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @custom_md_init(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -9972,7 +9972,7 @@ declare ptr @EVP_CIPHER_meth_new(i32 noundef, i32 noundef, i32 noundef) local_un
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @custom_ciph_init(ptr noundef %ctx, ptr nocapture readnone %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @custom_ciph_init(ptr noundef %ctx, ptr nocapture readnone %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -10069,6 +10069,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

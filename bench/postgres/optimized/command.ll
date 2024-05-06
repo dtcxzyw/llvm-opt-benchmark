@@ -366,17 +366,17 @@ sub_1.i.i:                                        ; preds = %18
   br i1 %23, label %is_branching_command.exit.thread.tail.thread.i, label %.tail.thread.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_1.i.i, %18
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.93) #19
+  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.93) #19
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %sub_0.i, label %26
 
 26:                                               ; preds = %.tail.thread.i.i
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.94) #19
+  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.94) #19
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %sub_0.i, label %is_branching_command.exit.i
 
 is_branching_command.exit.i:                      ; preds = %26
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.95) #19
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.95) #19
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %sub_0.i, label %31
 
@@ -1482,7 +1482,7 @@ prompt_for_password.exit264.i.i.i:                ; preds = %411, %409
   br i1 %460, label %param_is_newly_set.exit.thread.i.i.i, label %param_is_newly_set.exit.i.i.i
 
 param_is_newly_set.exit.i.i.i:                    ; preds = %459
-  %461 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %455, ptr noundef nonnull dereferenceable(1) %457) #19
+  %461 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %455, ptr noundef nonnull readonly dereferenceable(1) %457) #19
   %.not.i.not.i.i.i = icmp eq i32 %461, 0
   br i1 %.not.i.not.i.i.i, label %param_is_newly_set.exit.thread280.i.i.i, label %param_is_newly_set.exit.thread.i.i.i
 
@@ -1498,7 +1498,7 @@ param_is_newly_set.exit.thread280.i.i.i:          ; preds = %param_is_newly_set.
   br i1 %467, label %param_is_newly_set.exit.thread.i.i.i, label %param_is_newly_set.exit268.i.i.i
 
 param_is_newly_set.exit268.i.i.i:                 ; preds = %466
-  %468 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %462, ptr noundef nonnull dereferenceable(1) %464) #19
+  %468 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %462, ptr noundef nonnull readonly dereferenceable(1) %464) #19
   %.not.i266.not.i.i.i = icmp eq i32 %468, 0
   br i1 %.not.i266.not.i.i.i, label %.thread285.i.i.i, label %param_is_newly_set.exit.thread.i.i.i
 
@@ -6545,7 +6545,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1
   %7 = getelementptr [23 x ptr], ptr @exec_command_pset.my_list, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.43) #19
+  %9 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.43) #19
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -6556,7 +6556,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1
   br label %pset_value_string.exit
 
 15:                                               ; preds = %.preheader
-  %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.74) #19
+  %16 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.74) #19
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %21
 
@@ -6566,12 +6566,12 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1
   br label %pset_value_string.exit
 
 21:                                               ; preds = %15
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(13) @.str.54) #19
+  %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(13) @.str.54) #19
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %40
 
 24:                                               ; preds = %21
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 0, i32 15)) #19
+  %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 0, i32 15)) #19
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 3
   %28 = call ptr @pg_malloc(i64 noundef %27) #18
@@ -6617,7 +6617,7 @@ pset_quoted_string.exit.i:                        ; preds = %30
   br label %pset_value_string.exit
 
 40:                                               ; preds = %21
-  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.45) #19
+  %41 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.45) #19
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %49
 
@@ -6631,7 +6631,7 @@ pset_quoted_string.exit.i:                        ; preds = %30
   br label %pset_value_string.exit
 
 49:                                               ; preds = %40
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.59) #19
+  %50 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.59) #19
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %69
 
@@ -6639,7 +6639,7 @@ pset_quoted_string.exit.i:                        ; preds = %30
   %53 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 0, i32 13), align 8
   %.not63.i = icmp eq ptr %53, null
   %spec.select.i = select i1 %.not63.i, ptr @.str.219, ptr %53
-  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #19
+  %54 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select.i) #19
   %55 = shl i64 %54, 1
   %56 = add i64 %55, 3
   %57 = call ptr @pg_malloc(i64 noundef %56) #18
@@ -6685,7 +6685,7 @@ pset_quoted_string.exit69.i:                      ; preds = %59
   br label %pset_value_string.exit
 
 69:                                               ; preds = %49
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.60) #19
+  %70 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.60) #19
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %77
 
@@ -6697,7 +6697,7 @@ pset_quoted_string.exit69.i:                      ; preds = %59
   br label %pset_value_string.exit
 
 77:                                               ; preds = %69
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.73) #19
+  %78 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.73) #19
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %85
 
@@ -6709,7 +6709,7 @@ pset_quoted_string.exit69.i:                      ; preds = %59
   br label %pset_value_string.exit
 
 85:                                               ; preds = %77
-  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.20) #19
+  %86 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.20) #19
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %93
 
@@ -6730,7 +6730,7 @@ _align2string.exit:                               ; preds = %88, %switch.lookup
   br label %pset_value_string.exit
 
 93:                                               ; preds = %85
-  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.32) #19
+  %94 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.32) #19
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %100
 
@@ -6741,7 +6741,7 @@ _align2string.exit:                               ; preds = %88, %switch.lookup
   br label %pset_value_string.exit
 
 100:                                              ; preds = %93
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(5) @.str.58) #19
+  %101 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(5) @.str.58) #19
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %120
 
@@ -6749,7 +6749,7 @@ _align2string.exit:                               ; preds = %88, %switch.lookup
   %104 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 1), align 8
   %.not62.i = icmp eq ptr %104, null
   %spec.select64.i = select i1 %.not62.i, ptr @.str.219, ptr %104
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select64.i) #19
+  %105 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select64.i) #19
   %106 = shl i64 %105, 1
   %107 = add i64 %106, 3
   %108 = call ptr @pg_malloc(i64 noundef %107) #18
@@ -6795,7 +6795,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 120:                                              ; preds = %100
-  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.57) #19
+  %121 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.57) #19
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %128
 
@@ -6807,7 +6807,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 128:                                              ; preds = %120
-  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.69) #19
+  %129 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.69) #19
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %135
 
@@ -6818,7 +6818,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 135:                                              ; preds = %128
-  %136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(16) @.str.72) #19
+  %136 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(16) @.str.72) #19
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %141
 
@@ -6828,7 +6828,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 141:                                              ; preds = %135
-  %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.61) #19
+  %142 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.61) #19
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %147
 
@@ -6840,7 +6840,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 147:                                              ; preds = %141
-  %148 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(15) @.str.62) #19
+  %148 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(15) @.str.62) #19
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %155
 
@@ -6852,7 +6852,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 155:                                              ; preds = %147
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.68) #19
+  %156 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.68) #19
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %164
 
@@ -6870,7 +6870,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 164:                                              ; preds = %155
-  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.66) #19
+  %165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.66) #19
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %173
 
@@ -6888,7 +6888,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 173:                                              ; preds = %164
-  %174 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(12) @.str.64) #19
+  %174 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(12) @.str.64) #19
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %181
 
@@ -6900,7 +6900,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 181:                                              ; preds = %173
-  %182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.37) #19
+  %182 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.37) #19
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %187
 
@@ -6914,7 +6914,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 187:                                              ; preds = %181
-  %188 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.39) #19
+  %188 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.39) #19
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %193
 
@@ -6928,7 +6928,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 193:                                              ; preds = %187
-  %194 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.41) #19
+  %194 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(25) @.str.41) #19
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %199
 
@@ -6942,7 +6942,7 @@ pset_quoted_string.exit:                          ; preds = %110
   br label %pset_value_string.exit
 
 199:                                              ; preds = %193
-  %200 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.49) #19
+  %200 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(14) @.str.49) #19
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %214
 
@@ -8344,7 +8344,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_shell_escape(ptr nounde
   br label %13
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @system(ptr noundef nonnull %3) #18
+  %12 = tail call i32 @system(ptr noundef nonnull readonly %3) #18
   br label %13
 
 13:                                               ; preds = %11, %6

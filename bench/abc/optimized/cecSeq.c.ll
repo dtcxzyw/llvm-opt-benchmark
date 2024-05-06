@@ -103,7 +103,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
   br i1 %33, label %.lr.ph56.us, label %._crit_edge61.loopexit, !llvm.loop !6
 
 ._crit_edge61.loopexit:                           ; preds = %.lr.ph56.us
-  %34 = trunc i64 %indvars.iv.next to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %._crit_edge61.loopexit, %.loopexit
@@ -161,11 +161,11 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
   br i1 %60, label %.lr.ph63.us, label %.preheader.loopexit, !llvm.loop !8
 
 .preheader.loopexit:                              ; preds = %._crit_edge.us69
-  %61 = trunc i64 %indvars.iv.next94 to i32
+  %61 = trunc nuw i64 %indvars.iv.next94 to i32
   br label %.preheader
 
 .preheader.loopexit79:                            ; preds = %.lr.ph67.split
-  %62 = trunc i64 %indvars.iv.next87 to i32
+  %62 = trunc nuw i64 %indvars.iv.next87 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit79, %.preheader.loopexit, %._crit_edge61
@@ -201,7 +201,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
 ._crit_edge.us77:                                 ; preds = %69
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %.val52.us = load i32, ptr %63, align 4
-  %72 = trunc i64 %indvars.iv.next102 to i32
+  %72 = trunc nuw i64 %indvars.iv.next102 to i32
   %73 = icmp sgt i32 %.val52.us, %72
   br i1 %73, label %.lr.ph72.us, label %._crit_edge76, !llvm.loop !10
 
@@ -262,7 +262,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %15
 
 15:                                               ; preds = %12, %11, %9, %8
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %16 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %16, 0
   br i1 %.not9, label %23, label %17
@@ -281,7 +281,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %25
 
 25:                                               ; preds = %23, %17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %26
 
 26:                                               ; preds = %2, %25
@@ -341,7 +341,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
   %.val26.us = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds ptr, ptr %.val26.us, i64 %indvars.iv52
   %21 = load ptr, ptr %20, align 8
-  %22 = trunc i64 %indvars.iv52 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv52 to i32
   %23 = lshr i64 %indvars.iv52, 5
   %24 = and i64 %23, 134217727
   %25 = getelementptr inbounds i32, ptr %14, i64 %24
@@ -369,11 +369,11 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
   br i1 %35, label %.lr.ph.us, label %.preheader.loopexit47, !llvm.loop !11
 
 .preheader.loopexit:                              ; preds = %.lr.ph.us.us
-  %36 = trunc i64 %indvars.iv.next59 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.next59 to i32
   br label %.preheader
 
 .preheader.loopexit47:                            ; preds = %._crit_edge.split.us37
-  %37 = trunc i64 %indvars.iv.next53 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.next53 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph35, %.preheader.loopexit47, %.preheader.loopexit, %3
@@ -409,7 +409,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
 ._crit_edge.us:                                   ; preds = %44
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %.val30.us = load i32, ptr %38, align 4
-  %47 = trunc i64 %indvars.iv.next67 to i32
+  %47 = trunc nuw i64 %indvars.iv.next67 to i32
   %48 = icmp sgt i32 %.val30.us, %47
   br i1 %48, label %.lr.ph.us45, label %._crit_edge44, !llvm.loop !14
 
@@ -418,7 +418,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %.val6476 = load i32, ptr %4, align 8
@@ -434,7 +434,7 @@ define noundef i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef r
   br i1 %10, label %.lr.ph80.split, label %.preheader74
 
 .preheader74.loopexit:                            ; preds = %._crit_edge
-  %11 = trunc i64 %indvars.iv.next116 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.next116 to i32
   br label %.preheader74
 
 .preheader74:                                     ; preds = %.lr.ph80, %.preheader74.loopexit, %2
@@ -466,7 +466,7 @@ define noundef i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef r
   %.val66 = load ptr, ptr %26, align 8
   %27 = getelementptr i8, ptr %.val66, i64 4
   %.val66.val = load i32, ptr %27, align 4
-  %28 = trunc i64 %indvars.iv115 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv115 to i32
   %29 = sub i32 %28, %.val6478
   %30 = add i32 %29, %.val66.val
   %31 = getelementptr i8, ptr %25, i64 8
@@ -540,7 +540,7 @@ define noundef i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef r
   br label %.preheader
 
 .preheader.loopexit:                              ; preds = %._crit_edge84
-  %63 = trunc i64 %indvars.iv.next123 to i32
+  %63 = trunc nsw i64 %indvars.iv.next123 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph90.split.us, %.preheader.loopexit, %.preheader73
@@ -673,7 +673,7 @@ define noundef i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr nocapture noundef r
 declare i32 @Cec_ManSimSimulateRound(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSeqResimulateInfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cec_ManSeqResimulateInfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Cec_ParSim_t_, align 4
   call void @Cec_ManSimSetDefaultParams(ptr noundef nonnull %5) #13
   %6 = getelementptr i8, ptr %1, i64 4
@@ -713,7 +713,7 @@ define noundef i32 @Cec_ManSeqResimulateInfo(ptr noundef %0, ptr nocapture nound
   br label %25
 
 25:                                               ; preds = %23, %4
-  %26 = call i32 @Cec_ManSeqResimulate(ptr noundef %22, ptr noundef nonnull %1), !range !23
+  %26 = call i32 @Cec_ManSeqResimulate(ptr noundef %22, ptr noundef nonnull %1)
   %27 = getelementptr inbounds i8, ptr %22, i64 104
   store ptr null, ptr %27, align 8
   call void @Cec_ManSimStop(ptr noundef %22) #13
@@ -729,7 +729,7 @@ declare ptr @Cec_ManSimStart(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Cec_ManSimStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSeqResimulateCounter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cec_ManSeqResimulateCounter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.Cec_ParSim_t_, align 4
   %6 = alloca %struct.timespec, align 8
@@ -841,7 +841,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   store ptr %58, ptr %59, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !23
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %41
   %60 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -886,7 +886,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %41
   store i32 %67, ptr %79, align 4
   call void @Gia_ManCreateValueRefs(ptr noundef %0) #13
   %80 = call ptr @Cec_ManSimStart(ptr noundef %0, ptr noundef nonnull %5) #13
-  %81 = call i32 @Cec_ManSeqResimulate(ptr noundef %80, ptr noundef nonnull %60), !range !23
+  %81 = call i32 @Cec_ManSeqResimulate(ptr noundef %80, ptr noundef nonnull readonly %60)
   %82 = getelementptr inbounds i8, ptr %80, i64 104
   store ptr null, ptr %82, align 8
   call void @Cec_ManSimStop(ptr noundef %80) #13
@@ -990,7 +990,7 @@ define i32 @Cec_ManCountNonConstOutputs(ptr nocapture noundef readonly %0) local
   %spec.select = add nuw nsw i32 %.022, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !24
 
 .critedge:                                        ; preds = %12, %.preheader, %.lr.ph, %1
   %.012 = phi i32 [ -1, %1 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ %spec.select, %12 ]
@@ -998,7 +998,7 @@ define i32 @Cec_ManCountNonConstOutputs(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1023,7 +1023,7 @@ define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %.lr.ph84
   %.val43 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.val43, null
-  br i1 %.not, label %.critedge, label %.lr.ph84, !llvm.loop !26
+  br i1 %.not, label %.critedge, label %.lr.ph84, !llvm.loop !25
 
 .lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.val4383 = phi ptr [ %.val43, %.lr.ph ], [ %.val4379, %.lr.ph.preheader ]
@@ -1050,7 +1050,7 @@ define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %
   %22 = sub nsw i32 %.val39.val, %.val38
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !26
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph84, %.lr.ph, %.lr.ph.preheader, %.preheader
   %.val3761 = phi ptr [ %.val3949, %.preheader ], [ %.val3949, %.lr.ph.preheader ], [ %.val39, %.lr.ph ], [ %.val39, %.lr.ph84 ]
@@ -1097,7 +1097,7 @@ define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %
 38:                                               ; preds = %.lr.ph55.split, %34
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph55.split, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph55.split, !llvm.loop !26
 
 .critedge2:                                       ; preds = %38, %34, %.lr.ph55, %.critedge
   %.0 = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph55 ], [ 1, %34 ], [ 0, %38 ]
@@ -1135,7 +1135,7 @@ define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %
   %54 = sub nsw i32 %.val37.val, %.val
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next72, %55
-  br i1 %56, label %.lr.ph65, label %.critedge4, !llvm.loop !28
+  br i1 %56, label %.lr.ph65, label %.critedge4, !llvm.loop !27
 
 .critedge4:                                       ; preds = %41, %.lr.ph65, %.critedge2, %1
   %.028 = phi i32 [ 0, %1 ], [ %.0, %.critedge2 ], [ %.0, %.lr.ph65 ], [ %.0, %41 ]
@@ -1143,7 +1143,7 @@ define noundef i32 @Cec_ManCheckNonTrivialCands(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Cec_ParSim_t_, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.Cec_ParSat_t_, align 4
@@ -1213,7 +1213,7 @@ define noundef i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr nocapture noundef r
 39:                                               ; preds = %.lr.ph, %142
   %.063109 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
   %.064108 = phi i32 [ 0, %.lr.ph ], [ %.165, %142 ]
-  %40 = call i32 @Cec_ManCheckNonTrivialCands(ptr noundef nonnull %0), !range !23
+  %40 = call i32 @Cec_ManCheckNonTrivialCands(ptr noundef nonnull %0)
   %.not72 = icmp eq i32 %40, 0
   br i1 %.not72, label %.loopexit.sink.split, label %41
 
@@ -1268,7 +1268,7 @@ define noundef i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr nocapture noundef r
   store ptr %68, ptr %69, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit.loopexit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 Vec_PtrAllocSimInfo.exit.loopexit:                ; preds = %.lr.ph.i
   %.val27.val.i.pre = load ptr, ptr %64, align 8
@@ -1306,7 +1306,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   %.val26.us.i = load ptr, ptr %72, align 8
   %80 = getelementptr inbounds ptr, ptr %.val26.us.i, i64 %indvars.iv52.i
   %81 = load ptr, ptr %80, align 8
-  %82 = trunc i64 %indvars.iv52.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv52.i to i32
   %83 = lshr i64 %indvars.iv52.i, 5
   %84 = and i64 %83, 134217727
   %85 = getelementptr inbounds i32, ptr %34, i64 %84
@@ -1334,7 +1334,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   br i1 %95, label %.lr.ph.us.i, label %.preheader.loopexit47.i, !llvm.loop !11
 
 .preheader.loopexit47.i:                          ; preds = %._crit_edge.split.us37.i
-  %96 = trunc i64 %indvars.iv.next53.i to i32
+  %96 = trunc nuw nsw i64 %indvars.iv.next53.i to i32
   %.val3041.i.pre = load i32, ptr %71, align 4
   br label %.preheader.i
 
@@ -1371,7 +1371,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
 ._crit_edge.us.i:                                 ; preds = %102
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %.val30.us.i = load i32, ptr %71, align 4
-  %105 = trunc i64 %indvars.iv.next67.i to i32
+  %105 = trunc nuw i64 %indvars.iv.next67.i to i32
   %106 = icmp sgt i32 %.val30.us.i, %105
   br i1 %106, label %.lr.ph.us45.i, label %Cec_ManSeqDeriveInfoInitRandom.exit.loopexit, !llvm.loop !14
 
@@ -1421,7 +1421,7 @@ Cec_ManSeqResimulateInfo.exit:                    ; preds = %Cec_ManSeqDeriveInf
   %122 = call ptr @Cec_ManSimStart(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   %123 = getelementptr inbounds i8, ptr %122, i64 104
   store ptr %17, ptr %123, align 8
-  %124 = call i32 @Cec_ManSeqResimulate(ptr noundef %122, ptr noundef nonnull %70), !range !23
+  %124 = call i32 @Cec_ManSeqResimulate(ptr noundef %122, ptr noundef nonnull readonly %70)
   store ptr null, ptr %123, align 8
   call void @Cec_ManSimStop(ptr noundef %122) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -1479,7 +1479,7 @@ Vec_PtrFree.exit:                                 ; preds = %Cec_ManSeqResimulat
   %143 = add nuw nsw i32 %.063109, 1
   %144 = load i32, ptr %27, align 4
   %145 = icmp slt i32 %143, %144
-  br i1 %145, label %39, label %.loopexit, !llvm.loop !29
+  br i1 %145, label %39, label %.loopexit, !llvm.loop !28
 
 .loopexit.sink.split:                             ; preds = %134, %41, %39
   %.str.12.sink = phi ptr [ @.str.12, %39 ], [ @.str.13, %41 ], [ @.str.18, %134 ]
@@ -1542,7 +1542,7 @@ Vec_PtrFree.exit:                                 ; preds = %Cec_ManSeqResimulat
   %spec.select.i = add nuw nsw i32 %.022.i, %169
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i95
-  br i1 %exitcond.not.i98, label %Cec_ManCountNonConstOutputs.exit, label %157, !llvm.loop !25
+  br i1 %exitcond.not.i98, label %Cec_ManCountNonConstOutputs.exit, label %157, !llvm.loop !24
 
 Cec_ManCountNonConstOutputs.exit:                 ; preds = %157
   %.not78 = icmp eq i32 %spec.select.i, 0
@@ -1586,25 +1586,25 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -1624,10 +1624,10 @@ attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1660,10 +1660,9 @@ attributes #15 = { nounwind allocsize(0) }
 !20 = distinct !{!20, !5, !17}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 0, i32 2}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

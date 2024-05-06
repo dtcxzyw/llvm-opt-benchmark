@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @HIST_isError(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @HIST_isError(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -76,7 +76,7 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HIST_countFast_wksp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i64 %3, 1500
   br i1 %7, label %8, label %32
 
@@ -144,7 +144,7 @@ HIST_count_simple.exit.loopexit:                  ; preds = %28
   br i1 %36, label %HIST_count_simple.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4), !range !9
+  %38 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
   br label %HIST_count_simple.exit
 
 HIST_count_simple.exit:                           ; preds = %15, %HIST_count_simple.exit.loopexit, %35, %32, %37
@@ -153,7 +153,7 @@ HIST_count_simple.exit:                           ; preds = %15, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
   %.ptr = getelementptr i8, ptr %2, i64 %3
   %7 = load i32, ptr %1, align 4
   %8 = add i32 %7, 1
@@ -303,7 +303,7 @@ define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef write
   store i32 %108, ptr %106, align 4
   %.096 = getelementptr inbounds i8, ptr %.pn108, i64 20
   %109 = icmp ult ptr %.096, %.ptr115
-  br i1 %109, label %.lr.ph, label %.preheader106, !llvm.loop !10
+  br i1 %109, label %.lr.ph, label %.preheader106, !llvm.loop !9
 
 .lr.ph112:                                        ; preds = %.preheader106, %.lr.ph112
   %.1111 = phi ptr [ %110, %.lr.ph112 ], [ %.pn.lcssa, %.preheader106 ]
@@ -315,7 +315,7 @@ define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef write
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
   %116 = icmp ult ptr %110, %.ptr
-  br i1 %116, label %.lr.ph112, label %.preheader105.preheader, !llvm.loop !11
+  br i1 %116, label %.lr.ph112, label %.preheader105.preheader, !llvm.loop !10
 
 .preheader105.preheader:                          ; preds = %.lr.ph112, %.preheader106
   br label %.preheader105
@@ -338,7 +338,7 @@ define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef write
   %spec.select = tail call i32 @llvm.umax.i32(i32 %127, i32 %.097113)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader, label %.preheader105, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %.preheader105, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader105, %.preheader
   %.0 = phi i32 [ %131, %.preheader ], [ 255, %.preheader105 ]
@@ -347,7 +347,7 @@ define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef write
   %130 = load i32, ptr %129, align 4
   %.not100 = icmp eq i32 %130, 0
   %131 = add i32 %.0, -1
-  br i1 %.not100, label %.preheader, label %132, !llvm.loop !13
+  br i1 %.not100, label %.preheader, label %132, !llvm.loop !12
 
 132:                                              ; preds = %.preheader
   %.not101 = icmp eq i32 %4, 0
@@ -370,7 +370,7 @@ define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef write
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HIST_count_wksp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 3
   %.not = icmp eq i64 %8, 0
@@ -386,7 +386,7 @@ define dso_local i64 @HIST_count_wksp(ptr nocapture noundef %0, ptr nocapture no
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4), !range !9
+  %15 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %HIST_countFast_wksp.exit
 
 16:                                               ; preds = %11
@@ -444,7 +444,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %34
   br label %HIST_countFast_wksp.exit
 
 38:                                               ; preds = %16
-  %39 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4), !range !9
+  %39 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_simple.exit.loopexit.i, %21, %9, %6, %14
@@ -453,7 +453,7 @@ HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HIST_countFast(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   %6 = icmp ult i64 %3, 1500
   br i1 %6, label %7, label %31
@@ -512,7 +512,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %27
   br label %HIST_countFast_wksp.exit
 
 31:                                               ; preds = %4
-  %32 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5), !range !9
+  %32 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_simple.exit.loopexit.i, %31
@@ -521,14 +521,14 @@ HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HIST_count(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i64 -66, 4294967296) i64 @HIST_count(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   %6 = load i32, ptr %1, align 4
   %7 = icmp ult i32 %6, 255
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5), !range !9
+  %9 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5)
   br label %HIST_count_wksp.exit
 
 10:                                               ; preds = %4
@@ -586,7 +586,7 @@ HIST_count_simple.exit.loopexit.i.i:              ; preds = %28
   br label %HIST_count_wksp.exit
 
 32:                                               ; preds = %10
-  %33 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5), !range !9
+  %33 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %HIST_count_wksp.exit
 
 HIST_count_wksp.exit:                             ; preds = %8, %15, %HIST_count_simple.exit.loopexit.i.i, %32
@@ -617,8 +617,7 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 -48, i64 4294967296}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

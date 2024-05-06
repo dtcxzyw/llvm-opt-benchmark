@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %ts = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ts, i8 0, i64 56, i1 false)
@@ -535,49 +535,49 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_trusted_ok() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_trusted_ok() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_partial_chain(i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_partial_chain(i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_trusted_expired() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_trusted_expired() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_partial_chain(i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_partial_chain(i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_srvcert_missing() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_srvcert_missing() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 1, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_srvcert_wrong() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_srvcert_wrong() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_bad() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_bad() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 1, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_sender_cert_srvcert() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_sender_cert_srvcert() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_sender_cert_untrusted() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_sender_cert_untrusted() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.52)
   %cmp = icmp eq ptr %call, null
@@ -664,7 +664,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_sender_cert_trusted() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_sender_cert_trusted() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.53)
   %cmp = icmp eq ptr %call, null
@@ -751,7 +751,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_sender_cert_extracert() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_sender_cert_extracert() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.54)
   %cmp = icmp eq ptr %call, null
@@ -835,7 +835,7 @@ return:                                           ; preds = %execute_validate_ms
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_sender_cert_absent() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_sender_cert_absent() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.55)
   %cmp = icmp eq ptr %call, null
@@ -904,25 +904,25 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_expected_sender() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_expected_sender() #0 {
 entry:
   %0 = load ptr, ptr @srvcert, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %0) #6
-  %call1 = tail call fastcc i32 @test_validate_with_sender(ptr noundef %call, i32 noundef 1), !range !5
+  %call1 = tail call fastcc i32 @test_validate_with_sender(ptr noundef %call, i32 noundef 1)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_signature_unexpected_sender() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_signature_unexpected_sender() #0 {
 entry:
   %0 = load ptr, ptr @root, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %0) #6
-  %call1 = tail call fastcc i32 @test_validate_with_sender(ptr noundef %call, i32 noundef 0), !range !5
+  %call1 = tail call fastcc i32 @test_validate_with_sender(ptr noundef %call, i32 noundef 0)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_unprotected_request() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_unprotected_request() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.58)
   %cmp = icmp eq ptr %call, null
@@ -991,28 +991,28 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_mac_alg_protection_ok() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_mac_alg_protection_ok() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_mac_alg_protection_missing() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_mac_alg_protection_missing() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 1, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_mac_alg_protection_wrong() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_mac_alg_protection_wrong() #0 {
 entry:
-  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_validate_msg_mac_alg_protection_bad() #0 {
+define internal range(i32 0, 2) i32 @test_validate_msg_mac_alg_protection_bad() #0 {
 entry:
   %sec_bad = alloca [19 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %sec_bad, ptr noundef nonnull align 16 dereferenceable(19) @__const.test_validate_msg_mac_alg_protection_bad.sec_bad, i64 19, i1 false)
@@ -1211,7 +1211,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_no_protection_no_cb() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_no_protection_no_cb() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.66)
   %cmp = icmp eq ptr %call, null
@@ -1232,7 +1232,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call)
   %1 = load ptr, ptr %msg.i, align 8
   br label %return.sink.split
 
@@ -1252,7 +1252,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_no_protection_restrictive_cb() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_no_protection_restrictive_cb() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.67)
   %cmp = icmp eq ptr %call, null
@@ -1273,7 +1273,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call)
   %1 = load ptr, ptr %msg.i, align 8
   br label %return.sink.split
 
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_no_protection_permissive_cb() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_no_protection_permissive_cb() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.68)
   %cmp = icmp eq ptr %call, null
@@ -1314,7 +1314,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call)
   %1 = load ptr, ptr %msg.i, align 8
   br label %return.sink.split
 
@@ -1334,7 +1334,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_transaction_id() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_transaction_id() #0 {
 entry:
   %trans_id = alloca [16 x i8], align 16
   %fixture = alloca ptr, align 8
@@ -1351,7 +1351,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %0), !range !5
+  %call3 = call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %0)
   %msg.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %msg.i, align 8
   call void @OSSL_CMP_MSG_free(ptr noundef %1) #6
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_transaction_id_bad() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_transaction_id_bad() #0 {
 entry:
   %fixture = alloca ptr, align 8
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.70)
@@ -1382,7 +1382,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %0), !range !5
+  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %0)
   %msg.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %1) #6
@@ -1398,7 +1398,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_recipient_nonce() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_recipient_nonce() #0 {
 entry:
   %rec_nonce = alloca [16 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rec_nonce, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_msg_check_recipient_nonce.rec_nonce, i64 16, i1 false)
@@ -1429,7 +1429,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool.not.i, label %return.sink.split.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false.i
-  %call3 = call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call), !range !5
+  %call3 = call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %lor.lhs.false.i, %if.then2
@@ -1452,7 +1452,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_msg_check_recipient_nonce_bad() #0 {
+define internal range(i32 0, 2) i32 @test_msg_check_recipient_nonce_bad() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.72)
   %cmp = icmp eq ptr %call, null
@@ -1481,7 +1481,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool.not.i, label %return.sink.split.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false.i
-  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_msg_check_test(ptr noundef nonnull %call)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %lor.lhs.false.i, %if.then2
@@ -1657,7 +1657,7 @@ declare void @OSSL_CMP_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_validate_msg_signature_partial_chain(i32 noundef %expired) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_validate_msg_signature_partial_chain(i32 noundef %expired) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_validate_msg_signature_partial_chain)
   %cmp = icmp eq ptr %call, null
@@ -1760,7 +1760,7 @@ declare ptr @OSSL_CMP_CTX_get0_validatedSrvCert(ptr noundef) local_unnamed_addr 
 declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_validate_msg_signature_srvcert(i32 noundef %bad_sig, i32 noundef %miss, i32 noundef %wrong) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_validate_msg_signature_srvcert(i32 noundef %bad_sig, i32 noundef %miss, i32 noundef %wrong) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_validate_msg_signature_srvcert)
   %cmp = icmp eq ptr %call, null
@@ -1886,7 +1886,7 @@ declare i32 @X509_add_cert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @OSSL_CMP_CTX_get0_untrusted(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_validate_with_sender(ptr noundef %name, i32 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_validate_with_sender(ptr noundef %name, i32 noundef %expected) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_validate_with_sender)
   %cmp = icmp eq ptr %call, null
@@ -1980,7 +1980,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_CMP_CTX_set1_expected_sender(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_validate_msg_mac_alg_protection(i32 noundef %miss, i32 noundef %wrong) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_validate_msg_mac_alg_protection(i32 noundef %miss, i32 noundef %wrong) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_validate_msg_mac_alg_protection)
   %cmp = icmp eq ptr %call, null
@@ -2251,7 +2251,7 @@ if.end17:                                         ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_msg_check_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_msg_check_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %msg = getelementptr inbounds i8, ptr %fixture, i64 24
   %0 = load ptr, ptr %msg, align 8
@@ -2342,4 +2342,3 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

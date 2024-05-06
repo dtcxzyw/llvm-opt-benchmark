@@ -45,7 +45,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !10
   %13 = load ptr, ptr %1, align 8, !alias.scope !14, !noalias !17, !nonnull !20, !align !21, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -145,7 +145,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !41
   %13 = load ptr, ptr %1, align 8, !alias.scope !45, !noalias !48, !nonnull !20, !align !21, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -245,7 +245,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !68
   %13 = load ptr, ptr %1, align 8, !alias.scope !72, !noalias !75, !nonnull !20, !align !21, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -345,7 +345,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !95
   %13 = load ptr, ptr %1, align 8, !alias.scope !99, !noalias !102, !nonnull !20, !align !105, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -445,7 +445,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !123
   %13 = load ptr, ptr %1, align 8, !alias.scope !127, !noalias !130, !nonnull !20, !align !21, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -545,7 +545,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !150
   %13 = load ptr, ptr %1, align 8, !alias.scope !154, !noalias !157, !nonnull !20, !align !105, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -645,7 +645,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %12, align 8, !noalias !177
   %13 = load ptr, ptr %1, align 8, !alias.scope !181, !noalias !184, !nonnull !20, !align !187, !noundef !20
-  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %14 unwind label %28
 
 14:                                               ; preds = %3
@@ -734,7 +734,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !204
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %8 = load ptr, ptr %1, align 8, !alias.scope !209, !noalias !210, !nonnull !20, !align !187, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !213
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !213
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !204
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !204, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -753,7 +753,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !204
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !204
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !215
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !215
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !204
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h5f98e2ae4abceddfE.exit
 
@@ -783,7 +783,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !221
   call void @llvm.experimental.noalias.scope.decl(metadata !223)
   %8 = load ptr, ptr %1, align 8, !alias.scope !226, !noalias !227, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !230
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !230
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !221
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !221, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -802,7 +802,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !221
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !221
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !231
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !231
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !221
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17ha5e408f8777a4329E.exit
 
@@ -832,7 +832,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !237
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %8 = load ptr, ptr %1, align 8, !alias.scope !242, !noalias !243, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !246
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !246
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !237
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !237, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -851,7 +851,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !237
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !237
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !247
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !247
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !237
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17ha8308d307cb4909dE.exit
 
@@ -881,7 +881,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !253
   call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %8 = load ptr, ptr %1, align 8, !alias.scope !258, !noalias !259, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !262
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !262
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !253
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !253, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -900,7 +900,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !253
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !253
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !263
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !263
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !253
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8b1ad5d7c87ed00cE.exit
 
@@ -930,7 +930,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !269
   call void @llvm.experimental.noalias.scope.decl(metadata !271)
   %8 = load ptr, ptr %1, align 8, !alias.scope !274, !noalias !275, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !278
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !278
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !269
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !269, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -949,7 +949,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !269
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !269
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !279
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !279
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !269
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9c2554e3b1a676c5E.exit
 
@@ -979,7 +979,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !285
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %8 = load ptr, ptr %1, align 8, !alias.scope !290, !noalias !291, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !294
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !294
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !285
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !285, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -998,7 +998,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !285
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !285
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !295
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !295
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !285
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h73f1b20715a4c21dE.exit
 
@@ -1028,7 +1028,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   store ptr %2, ptr %7, align 8, !noalias !301
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %8 = load ptr, ptr %1, align 8, !alias.scope !306, !noalias !307, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !310
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !310
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !301
   %9 = load i64, ptr %5, align 8, !range !22, !noalias !301, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -1047,7 +1047,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx.i, i64 24, i1 false), !noalias !301
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !301
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !311
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !301
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h723ea141306d52a2E.exit
 
@@ -1090,7 +1090,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !312
   %17 = load i8, ptr %7, align 1, !range !214, !noalias !312, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !312
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %22, label %20
 
 19:                                               ; preds = %3
@@ -1298,7 +1298,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !351
   %18 = load i8, ptr %9, align 1, !range !214, !noalias !351, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !351
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %23, label %21
 
 20:                                               ; preds = %3
@@ -1524,7 +1524,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !427
   %20 = load i8, ptr %9, align 1, !range !214, !noalias !427, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !427
-  %21 = trunc i8 %20 to i1
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %25, label %23
 
 22:                                               ; preds = %3
@@ -1798,7 +1798,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !486
   %19 = load i8, ptr %9, align 1, !range !214, !noalias !486, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !486
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %24, label %22
 
 21:                                               ; preds = %3
@@ -2075,7 +2075,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !545
   %17 = load i8, ptr %7, align 1, !range !214, !noalias !545, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !545
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %22, label %20
 
 19:                                               ; preds = %3
@@ -2282,7 +2282,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !583
   %17 = load i8, ptr %7, align 1, !range !214, !noalias !583, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !583
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %22, label %20
 
 19:                                               ; preds = %3
@@ -2489,7 +2489,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !621
   %17 = load i8, ptr %7, align 1, !range !214, !noalias !621, !noundef !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !621
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %22, label %20
 
 19:                                               ; preds = %3
@@ -2704,7 +2704,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17h09
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
   %9 = load ptr, ptr %1, align 8, !alias.scope !659, !noalias !662, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !659
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !659
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2724,7 +2724,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17h73
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !665)
   %9 = load ptr, ptr %1, align 8, !alias.scope !665, !noalias !668, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !665
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !665
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2744,7 +2744,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17h7b
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
   %9 = load ptr, ptr %1, align 8, !alias.scope !671, !noalias !674, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !671
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !671
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2764,7 +2764,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17h99
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !677)
   %9 = load ptr, ptr %1, align 8, !alias.scope !677, !noalias !680, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !677
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !677
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2784,7 +2784,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17ha7
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
   %9 = load ptr, ptr %1, align 8, !alias.scope !683, !noalias !686, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !683
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !683
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2804,7 +2804,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17hab
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
   %9 = load ptr, ptr %1, align 8, !alias.scope !689, !noalias !692, !nonnull !20, !align !187, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !689
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !689
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2824,7 +2824,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment13collect_binds17he5
   store ptr %5, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %9 = load ptr, ptr %1, align 8, !alias.scope !695, !noalias !698, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !695
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %7), !noalias !695
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 }
@@ -2846,7 +2846,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !701)
   %8 = load ptr, ptr %1, align 8, !alias.scope !701, !noalias !704, !nonnull !20, !align !187, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !701
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !701
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -2891,7 +2891,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !707)
   %8 = load ptr, ptr %1, align 8, !alias.scope !707, !noalias !710, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !707
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !707
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -2936,7 +2936,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !713)
   %8 = load ptr, ptr %1, align 8, !alias.scope !713, !noalias !716, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !713
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !713
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -2981,7 +2981,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %8 = load ptr, ptr %1, align 8, !alias.scope !719, !noalias !722, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !719
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !719
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -3026,7 +3026,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   %8 = load ptr, ptr %1, align 8, !alias.scope !725, !noalias !728, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !725
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !725
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -3071,7 +3071,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %8 = load ptr, ptr %1, align 8, !alias.scope !731, !noalias !734, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !731
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !731
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -3116,7 +3116,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   store ptr %2, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %8 = load ptr, ptr %1, align 8, !alias.scope !737, !noalias !740, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !737
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !737
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %9 = load i64, ptr %5, align 8, !range !22, !noundef !20
   %10 = icmp eq i64 %9, -9223372036854775798
@@ -3160,7 +3160,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17h05a8ab25ff
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !743)
   %8 = load ptr, ptr %1, align 8, !alias.scope !743, !noalias !746, !nonnull !20, !align !187, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !743
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h434ad809619ac82dE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !743
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3202,7 +3202,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17h3b94874e92
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !749)
   %8 = load ptr, ptr %1, align 8, !alias.scope !749, !noalias !752, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !749
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf70d1b9e587b42efE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !749
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3264,7 +3264,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17h5019e4bd03
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !755)
   %8 = load ptr, ptr %1, align 8, !alias.scope !755, !noalias !758, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !755
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb480b5d15de3150eE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !755
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3306,7 +3306,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17h86975b28b1
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
   %8 = load ptr, ptr %1, align 8, !alias.scope !761, !noalias !764, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !761
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3ab385bfc2f33a3cE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !761
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3348,7 +3348,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17hb7447cc3ed
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !767)
   %8 = load ptr, ptr %1, align 8, !alias.scope !767, !noalias !770, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !767
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hce0229c582f984dbE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !767
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3390,7 +3390,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17he84912df8a
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !773)
   %8 = load ptr, ptr %1, align 8, !alias.scope !773, !noalias !776, !nonnull !20, !align !21, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !773
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc763dd9b692d5941E"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !773
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3432,7 +3432,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment6to_sql17hfb27da858c
   store ptr %3, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !779)
   %8 = load ptr, ptr %1, align 8, !alias.scope !779, !noalias !782, !nonnull !20, !align !105, !noundef !20
-  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5), !noalias !779
+  call void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateStatement$LT$T$C$U$C$V$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc05cfa0aeedc6a5bE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %5), !noalias !779
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void

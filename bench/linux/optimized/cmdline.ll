@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_next_arg: ; 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_get_option3, ptr @__UNIQUE_ID___addressable_get_options4, ptr @__UNIQUE_ID___addressable_memparse5, ptr @__UNIQUE_ID___addressable_next_arg6], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_option(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @get_option(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %28, label %5

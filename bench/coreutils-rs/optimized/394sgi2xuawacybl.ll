@@ -114,7 +114,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %43 = phi i64 [ %35, %34 ], [ %.pre.i.i.i.i, %.noexc24 ]
   %44 = load ptr, ptr %12, align 8, !alias.scope !20, !noalias !25, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds i8, ptr %44, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %.lcssa.i.i, i64 %17, i1 false), !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull readonly align 1 %.lcssa.i.i, i64 %17, i1 false), !noalias !19
   br label %63
 
 46:                                               ; preds = %.noexc22
@@ -166,7 +166,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %60 = phi i64 [ %53, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5017d70b9246fa81E.exit.i.i" ], [ %.pre.i.i12.i.i, %.noexc28 ]
   %61 = load ptr, ptr %12, align 8, !alias.scope !30, !noalias !35, !nonnull !4, !noundef !4
   %62 = getelementptr inbounds i8, ptr %61, i64 %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i.i, i64 %50, i1 false), !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull readonly align 1 dereferenceable(1) %.lcssa.i.i, i64 %50, i1 false), !noalias !19
   br label %63
 
 63:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit13.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit.i.i"

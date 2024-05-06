@@ -18,7 +18,7 @@ define noundef i32 @group_bind(ptr nocapture noundef writeonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @group_join(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -12, 1) i32 @group_join(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

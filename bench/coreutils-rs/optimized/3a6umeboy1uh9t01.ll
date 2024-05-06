@@ -132,7 +132,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %6, ptr %0, align 8, !alias.scope !9, !noalias !14
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !14
@@ -254,7 +254,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.17833407357621508087.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.llvm.17833407357621508087(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #8 {
+define hidden noundef range(i32 -191445272, 95845018) i32 @_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.llvm.17833407357621508087(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4, !range !16, !noundef !4
   %3 = ashr i32 %2, 13
   %4 = add nsw i32 %3, -1
@@ -337,7 +337,7 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17hbd28063a7e
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %0, ptr %9, align 8
   store i64 %6, ptr %4, align 8

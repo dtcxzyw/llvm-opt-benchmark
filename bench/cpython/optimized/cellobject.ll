@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"cell\00", align 1
 @cell_new_doc = internal constant [225 x i8] c"cell([contents])\0A--\0A\0ACreate a new cell object.\0A\0A  contents\0A    the contents of the cell. If not specified, the cell will be empty,\0A    and \0A further attempts to access its cell_contents attribute will\0A    raise a ValueError.\00", align 16
 @cell_getsetlist = internal global [2 x %struct.PyGetSetDef] [%struct.PyGetSetDef { ptr @.str.4, ptr @cell_get_contents, ptr @cell_set_contents, ptr null, ptr null }, %struct.PyGetSetDef zeroinitializer], align 16
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [20 x i8] c"<cell at %p: empty>\00", align 1
 @.str.3 = private unnamed_addr constant [33 x i8] c"<cell at %p: %.80s object at %p>\00", align 1
 @_Py_NotImplementedStruct = external global %struct._object, align 8
@@ -115,7 +115,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.t
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCell_Set(ptr nocapture noundef %op, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCell_Set(ptr nocapture noundef %op, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @free_impl = internal unnamed_addr global ptr @CRYPTO_free, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @CRYPTO_set_mem_functions(ptr noundef %malloc_fn, ptr noundef %realloc_fn, ptr noundef %free_fn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_set_mem_functions(ptr noundef %malloc_fn, ptr noundef %realloc_fn, ptr noundef %free_fn) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @allow_customize, align 4
   br i1 %.b, label %return, label %if.end

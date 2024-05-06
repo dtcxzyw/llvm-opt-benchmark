@@ -657,7 +657,7 @@ if.end14.i:                                       ; preds = %qcrypto_tls_creds_l
   br i1 %tobool15.not.i, label %if.end21.i, label %land.lhs.true16.i
 
 land.lhs.true16.i:                                ; preds = %if.end14.i
-  %call18.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef nonnull %creds, ptr noundef nonnull %cert.0.i, ptr noundef %11, i1 noundef zeroext %cmp39, i1 noundef zeroext false, ptr noundef %errp), !range !5
+  %call18.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef nonnull %creds, ptr noundef nonnull %cert.0.i, ptr noundef %11, i1 noundef zeroext %cmp39, i1 noundef zeroext false, ptr noundef %errp)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %if.then39.i, label %if.end21.i
 
@@ -668,13 +668,13 @@ if.end21.i:                                       ; preds = %land.lhs.true16.i, 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.092.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %ncacerts.1.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %if.end21.i, %for.cond.i
   %i.092.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end21.i ]
   %arrayidx.i = getelementptr [16 x ptr], ptr %cacerts.i, i64 0, i64 %i.092.i
   %35 = load ptr, ptr %arrayidx.i, align 8
-  %call24.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %35, ptr noundef %10, i1 noundef zeroext %cmp39, i1 noundef zeroext true, ptr noundef %errp), !range !5
+  %call24.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %35, ptr noundef %10, i1 noundef zeroext %cmp39, i1 noundef zeroext true, ptr noundef %errp)
   %cmp25.i = icmp slt i32 %call24.i, 0
   br i1 %cmp25.i, label %cleanup.i, label %for.cond.i
 
@@ -756,7 +756,7 @@ for.body43.i:                                     ; preds = %for.body43.i.prehea
   call void @gnutls_x509_crt_deinit(ptr noundef %45) #9
   %inc46.i = add nuw nsw i64 %i.194.i, 1
   %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.281.i64
-  br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !8
+  br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !7
 
 qcrypto_tls_creds_x509_sanity_check.exit.thread:  ; preds = %qcrypto_tls_creds_load_cert.exit.i, %qcrypto_tls_creds_load_cert.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cacerts.i)
@@ -919,7 +919,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %cert, ptr noundef %certFile, i1 noundef zeroext %isServer, i1 noundef zeroext %isCA, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %cert, ptr noundef %certFile, i1 noundef zeroext %isServer, i1 noundef zeroext %isCA, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i33.i = alloca %struct.timeval, align 8
   %_now.i.i.i46 = alloca %struct.timeval, align 8
@@ -1383,7 +1383,6 @@ attributes #12 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

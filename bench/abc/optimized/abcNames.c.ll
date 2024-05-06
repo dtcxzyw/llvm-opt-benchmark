@@ -523,10 +523,10 @@ define noalias noundef ptr @Abc_NodeGetFaninNames(ptr nocapture noundef readonly
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %23
 
 23:                                               ; preds = %9
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #16
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #16
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #15
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #14
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %22) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %9, %23
@@ -709,7 +709,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
 .lr.ph.split:                                     ; preds = %.lr.ph, %Vec_PtrPush.exit
   %.010 = phi i32 [ %81, %Vec_PtrPush.exit ], [ 0, %.lr.ph ]
   %47 = urem i32 %.010, 26
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = add nuw nsw i8 %48, 97
   store i8 %49, ptr %2, align 1
   %50 = udiv i32 %.010, 26
@@ -931,7 +931,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr nocapture noundef readonl
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeCompareNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -1265,7 +1265,7 @@ declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Abc_NamStrFindOrAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeCompareIndexes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
@@ -1501,7 +1501,7 @@ declare i32 @Abc_NamStrFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Abc_NamDeref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NodeCompareCiCo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val31 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val31, i64 4
@@ -1669,7 +1669,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %.val9.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds ptr, ptr %.val9.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i, i32 noundef %12) #14
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
@@ -1725,7 +1725,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %.val9.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds ptr, ptr %.val9.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i, i32 noundef %12) #14
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
@@ -1915,7 +1915,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   br i1 %.not79, label %65, label %108
 
 65:                                               ; preds = %.lr.ph111
-  %66 = trunc i64 %indvars.iv139 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv139 to i32
   %67 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.4, i32 noundef %.09.i, i32 noundef %66) #14
   %68 = load ptr, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 24
@@ -2035,7 +2035,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %1
   %.val9.val.i = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds ptr, ptr %.val9.val.i, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i.i, i32 noundef %23) #14
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 24
@@ -2086,7 +2086,7 @@ Abc_Base10Log.exit.i17:                           ; preds = %.lr.ph.i.i13, %Abc_
   %.val9.val.i22 = load ptr, ptr %44, align 8
   %45 = getelementptr inbounds ptr, ptr %.val9.val.i22, i64 %indvars.iv.i20
   %46 = load ptr, ptr %45, align 8
-  %47 = trunc i64 %indvars.iv.i20 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i.i18, i32 noundef %47) #14
   %49 = load ptr, ptr %46, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
@@ -3187,7 +3187,7 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
   %77 = tail call i32 @fseek(ptr noundef %8, i64 noundef %76, i32 noundef 0)
   %.not44 = icmp eq i32 %72, 0
   %78 = select i1 %.not44, ptr @.str.7, ptr @.str.12
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw nsw i64 %indvars.iv to i32
   %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %78, i32 noundef %79) #14
   %.pre = load ptr, ptr %14, align 8
   br label %.critedge

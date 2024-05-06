@@ -7662,7 +7662,7 @@ define internal fastcc range(i32 0, 3) i32 @cli_scan_structured(ptr noundef %0) 
   br i1 %.not26.i.us, label %.critedge, label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %37, i64 %spec.select.i.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 1 %37, i64 %spec.select.i.us, i1 false)
   %38 = add nsw i64 %spec.select.i.us, -1
   %or.cond.us = icmp ult i64 %38, -2
   br i1 %or.cond.us, label %39, label %.critedge
@@ -7699,7 +7699,7 @@ fmap_readn.exit.us:                               ; preds = %34
   br i1 %.not26.i, label %.critedge, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %54, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 1 %54, i64 %spec.select.i, i1 false)
   %55 = add nsw i64 %spec.select.i, -1
   %or.cond = icmp ult i64 %55, -2
   br i1 %or.cond, label %56, label %.critedge

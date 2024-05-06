@@ -1434,7 +1434,7 @@ pg_plan_query.exit:                               ; preds = %48, %45, %15
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @check_log_duration(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @check_log_duration(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load i8, ptr @log_duration, align 1
@@ -1885,7 +1885,7 @@ get_stack_depth_rlimit.exit:                      ; preds = %3, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @get_stack_depth_rlimit() local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @get_stack_depth_rlimit() local_unnamed_addr #0 {
   %1 = alloca %struct.rlimit, align 8
   %2 = load i64, ptr @get_stack_depth_rlimit.val, align 8
   %3 = icmp eq i64 %2, 0
@@ -3790,7 +3790,7 @@ pg_rewrite_query.exit144:                         ; preds = %442, %439, %499, %p
   br label %517
 
 517:                                              ; preds = %516, %513
-  %518 = call i32 @check_log_duration(ptr noundef nonnull %19, i1 noundef zeroext false), !range !17
+  %518 = call i32 @check_log_duration(ptr noundef nonnull %19, i1 noundef zeroext false)
   switch i32 %518, label %530 [
     i32 1, label %519
     i32 2, label %523
@@ -3997,7 +3997,7 @@ start_xact_command.exit126:                       ; preds = %enable_statement_ti
   store i16 %604, ptr %605, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit212.i, label %602, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.loopexit212.i, label %602, !llvm.loop !17
 
 .loopexit212.i:                                   ; preds = %602, %start_xact_command.exit126
   %.0149.i = phi ptr [ null, %start_xact_command.exit126 ], [ %601, %602 ]
@@ -4312,7 +4312,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   store i32 %675, ptr %743, align 4
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next229.i, %669
-  br i1 %exitcond232.not.i, label %._crit_edge.i72, label %672, !llvm.loop !19
+  br i1 %exitcond232.not.i, label %._crit_edge.i72, label %672, !llvm.loop !18
 
 ._crit_edge.i72:                                  ; preds = %.thread202.i
   %744 = load ptr, ptr @error_context_stack, align 8
@@ -4359,7 +4359,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   store i16 %760, ptr %761, align 2
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond237.not.i = icmp eq i64 %indvars.iv.next234.i, %wide.trip.count236.i
-  br i1 %exitcond237.not.i, label %.loopexit.i, label %758, !llvm.loop !20
+  br i1 %exitcond237.not.i, label %.loopexit.i, label %758, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %758, %.thread.i
   %.0151.i = phi ptr [ null, %.thread.i ], [ %757, %758 ]
@@ -4391,7 +4391,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %774
 
 774:                                              ; preds = %773, %768
-  %775 = call i32 @check_log_duration(ptr noundef nonnull %8, i1 noundef zeroext false), !range !17
+  %775 = call i32 @check_log_duration(ptr noundef nonnull %8, i1 noundef zeroext false)
   switch i32 %775, label %804 [
     i32 1, label %776
     i32 2, label %781
@@ -4880,7 +4880,7 @@ finish_xact_command.exit.i:                       ; preds = %981, %977, %976, %d
 
 989:                                              ; preds = %986, %finish_xact_command.exit.i
   %.1.i82 = phi ptr [ %.056.i, %finish_xact_command.exit.i ], [ %856, %986 ]
-  %990 = call i32 @check_log_duration(ptr noundef nonnull %4, i1 noundef zeroext %.0.i6477.i), !range !17
+  %990 = call i32 @check_log_duration(ptr noundef nonnull %4, i1 noundef zeroext %.0.i6477.i)
   switch i32 %990, label %1017 [
     i32 1, label %991
     i32 2, label %996
@@ -5287,20 +5287,20 @@ start_xact_command.exit136:                       ; preds = %enable_statement_ti
   %1157 = getelementptr i32, ptr %1156, i64 %indvars.iv.i98
   %1158 = load i32, ptr %1157, align 4
   call void @enlargeStringInfo(ptr noundef nonnull @row_description_buf, i32 noundef 4) #25
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %1159 = call i32 @llvm.bswap.i32(i32 %1158)
-  %1160 = load ptr, ptr @row_description_buf, align 8, !alias.scope !21
-  %1161 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @row_description_buf, i64 0, i32 1), align 8, !alias.scope !21
+  %1160 = load ptr, ptr @row_description_buf, align 8, !alias.scope !20
+  %1161 = load i32, ptr getelementptr inbounds (%struct.StringInfoData, ptr @row_description_buf, i64 0, i32 1), align 8, !alias.scope !20
   %1162 = sext i32 %1161 to i64
   %1163 = getelementptr i8, ptr %1160, i64 %1162
-  store i32 %1159, ptr %1163, align 1, !noalias !21
+  store i32 %1159, ptr %1163, align 1, !noalias !20
   %1164 = add i32 %1161, 4
-  store i32 %1164, ptr getelementptr inbounds (%struct.StringInfoData, ptr @row_description_buf, i64 0, i32 1), align 8, !alias.scope !21
+  store i32 %1164, ptr getelementptr inbounds (%struct.StringInfoData, ptr @row_description_buf, i64 0, i32 1), align 8, !alias.scope !20
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
   %1165 = load i32, ptr %1142, align 8
   %1166 = sext i32 %1165 to i64
   %1167 = icmp slt i64 %indvars.iv.next.i99, %1166
-  br i1 %1167, label %1155, label %._crit_edge.i97, !llvm.loop !24
+  br i1 %1167, label %1155, label %._crit_edge.i97, !llvm.loop !23
 
 ._crit_edge.i97:                                  ; preds = %1155, %1141
   call void @pq_endmessage_reuse(ptr noundef nonnull @row_description_buf) #25
@@ -6085,7 +6085,7 @@ finish_xact_command.exit96:                       ; preds = %disable_statement_t
   br label %187
 
 187:                                              ; preds = %186, %finish_xact_command.exit96
-  %188 = call i32 @check_log_duration(ptr noundef nonnull %2, i1 noundef zeroext %.0.i108115130), !range !17
+  %188 = call i32 @check_log_duration(ptr noundef nonnull %2, i1 noundef zeroext %.0.i108115130)
   switch i32 %188, label %224 [
     i32 1, label %189
     i32 2, label %194
@@ -6583,11 +6583,10 @@ attributes #30 = { nounwind returns_twice }
 !14 = distinct !{!14, !"pq_writeint32"}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 3}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint32: argument 0"}
-!23 = distinct !{!23, !"pq_writeint32"}
-!24 = distinct !{!24, !6}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"pq_writeint32: argument 0"}
+!22 = distinct !{!22, !"pq_writeint32"}
+!23 = distinct !{!23, !6}

@@ -46,7 +46,7 @@ if.else9.i.i:                                     ; preds = %entry
   br i1 %cmp10.not.i.i, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !4
+  %1 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %1, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -74,7 +74,7 @@ entry:
   %2 = call float @llvm.fabs.f32(float %0)
   %and.i.i = bitcast float %2 to i32
   %shr.i.i = lshr i32 %1, 16
-  %3 = trunc i32 %shr.i.i to i16
+  %3 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %3, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
@@ -93,7 +93,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
   %4 = zext i1 %cmp15.i.i to i16
-  %5 = trunc i32 %shr10.i.i to i16
+  %5 = trunc nuw nsw i32 %shr10.i.i to i16
   %6 = or i16 %5, %4
   %conv19.i.i = or disjoint i16 %6, %conv6.i.i
   br label %_ZN7openvdb5v11_04math8internal4halfC2Ef.exit
@@ -131,7 +131,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
   %conv47.i.i = and i32 %shr.i.i, 32768
   %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc i32 %or48.i.i to i16
+  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 
@@ -179,7 +179,7 @@ if.then:                                          ; preds = %for.body, %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %dec = add nsw i32 %i.06, -1
   %cmp.not = icmp eq i32 %i.06, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -211,7 +211,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %if.then, %for.body
   %dec = add nsw i32 %i.06, -1
   %cmp.not = icmp eq i32 %i.06, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -250,7 +250,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %dec = add nsw i32 %i.09, -1
   %inc5 = add nsw i32 %j.1, 1
   %cmp.not = icmp eq i32 %i.09, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 18
@@ -290,7 +290,7 @@ for.inc:                                          ; preds = %if.then, %for.body
   %dec = add nsw i32 %i.09, -1
   %inc5 = add nsw i32 %j.1, 1
   %cmp.not = icmp eq i32 %i.09, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
   %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 34
@@ -330,9 +330,8 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 9, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

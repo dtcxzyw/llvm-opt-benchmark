@@ -69,7 +69,7 @@ define dso_local i32 @inat_get_opcode_attribute(i8 noundef zeroext %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @inat_get_last_prefix_id(i8 noundef zeroext %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16) i32 @inat_get_last_prefix_id(i8 noundef zeroext %0) local_unnamed_addr #0 align 16 {
   %2 = zext i8 %0 to i64
   %3 = getelementptr [256 x i32], ptr @inat_primary_table, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4

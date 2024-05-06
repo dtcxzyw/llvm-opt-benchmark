@@ -6156,7 +6156,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %switch.lookup
-  %18 = trunc i16 %9 to i8
+  %18 = trunc nuw i16 %9 to i8
   store i8 %18, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %19, align 4
@@ -6167,7 +6167,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
   %23 = load i32, ptr @ett_netflow, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #11
-  %25 = trunc i16 %9 to i8
+  %25 = trunc nuw i16 %9 to i8
   store i8 %25, ptr %5, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %26, align 4
@@ -6767,7 +6767,7 @@ add_address_to_hash.exit17:                       ; preds = %.lr.ph.i12, %add_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @v9_v10_tmplt_table_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @v9_v10_tmplt_table_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %3, align 8
@@ -7523,7 +7523,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   br label %113
 
 113:                                              ; preds = %108, %107, %104, %86
-  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef 1)
+  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull readonly %4, ptr noundef nonnull %10, i32 noundef 1)
   %115 = icmp eq ptr %95, null
   %116 = load ptr, ptr %62, align 8
   %117 = icmp ne ptr %116, null
@@ -7538,7 +7538,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   %123 = load i32, ptr %45, align 8
   %124 = load i32, ptr %46, align 4
   %125 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
   store i32 %123, ptr %122, align 8
   %126 = icmp eq i32 %124, 0
   br i1 %126, label %copy_address_wmem.exit.i, label %127
@@ -7560,7 +7560,7 @@ copy_address_wmem.exit.i:                         ; preds = %127, %118
   %135 = load i32, ptr %52, align 8
   %136 = load i32, ptr %53, align 4
   %137 = load ptr, ptr %54, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   store i32 %135, ptr %134, align 8
   %138 = icmp eq i32 %136, 0
   br i1 %138, label %copy_address_wmem.exit94.i, label %139
@@ -7809,8 +7809,8 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %164
   br label %283
 
 283:                                              ; preds = %274, %273, %270, %268, %252
-  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 0)
-  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1)
+  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 0)
+  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 1)
   %286 = icmp eq ptr %261, null
   br i1 %286, label %287, label %322
 
@@ -7830,7 +7830,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %164
   %297 = load i32, ptr %176, align 8
   %298 = load i32, ptr %177, align 4
   %299 = load ptr, ptr %178, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %296, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %296, i8 0, i64 24, i1 false)
   store i32 %297, ptr %296, align 8
   %300 = icmp eq i32 %298, 0
   br i1 %300, label %copy_address_wmem.exit.i59, label %301
@@ -7852,7 +7852,7 @@ copy_address_wmem.exit.i59:                       ; preds = %301, %292
   %309 = load i32, ptr %183, align 8
   %310 = load i32, ptr %184, align 4
   %311 = load ptr, ptr %185, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
   store i32 %309, ptr %308, align 8
   %312 = icmp eq i32 %310, 0
   br i1 %312, label %copy_address_wmem.exit133.i, label %313
@@ -8072,13 +8072,13 @@ switch.lookup:                                    ; preds = %408
   br i1 %419, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !10
 
 420:                                              ; preds = %399
-  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 0)
+  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 0)
   %422 = add i32 %421, %.059.i
   br label %dissect_v9_v10_pdu.exit.i
 
 dissect_v9_v10_pdu.exit.i:                        ; preds = %416, %420, %399, %397, %391
   %.0.i.i = phi i32 [ %422, %420 ], [ %.059.i, %397 ], [ %.059.i, %391 ], [ %.059.i, %399 ], [ %.1.i.i.i, %416 ]
-  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 1)
+  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 1)
   %424 = load i32, ptr %5, align 4
   %425 = add i32 %424, 1
   store i32 %425, ptr %5, align 4
@@ -8477,7 +8477,7 @@ define internal fastcc noundef i32 @dissect_v9_v10_template_fields(ptr noundef %
   %52 = select i1 %.not114, i32 4, i32 8
   %53 = load i32, ptr @ett_field, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = trunc i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   %55 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.05, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %7, ptr noundef nonnull @.str.4440, i32 noundef %54, i32 noundef %21) #11
   br i1 %8, label %56, label %58
 
@@ -11033,7 +11033,7 @@ proto_item_set_hidden.exit:                       ; preds = %94, %91, %207, %204
   store i64 %330, ptr %.06185.sroa.phi64796544, align 16
   %331 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %332 = urem i64 %331, 1000
-  %333 = trunc i64 %332 to i32
+  %333 = trunc nuw nsw i64 %332 to i32
   %334 = mul nuw nsw i32 %333, 1000000
   %335 = getelementptr inbounds i8, ptr %.06185.sroa.phi64796544, i64 8
   store i32 %334, ptr %335, align 8
@@ -11046,7 +11046,7 @@ proto_item_set_hidden.exit:                       ; preds = %94, %91, %207, %204
   store i64 %338, ptr %.06185.sroa.phi64496538, align 16
   %339 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %340 = urem i64 %339, 1000
-  %341 = trunc i64 %340 to i32
+  %341 = trunc nuw nsw i64 %340 to i32
   %342 = mul nuw nsw i32 %341, 1000000
   %343 = getelementptr inbounds i8, ptr %.06185.sroa.phi64496538, i64 8
   store i32 %342, ptr %343, align 8
@@ -11082,7 +11082,7 @@ proto_item_set_hidden.exit:                       ; preds = %94, %91, %207, %204
   %354 = udiv i64 %353, 1000000
   store i64 %354, ptr %.06185.sroa.phi64646541, align 16
   %355 = urem i64 %353, 1000000
-  %356 = trunc i64 %355 to i32
+  %356 = trunc nuw nsw i64 %355 to i32
   %357 = mul nuw nsw i32 %356, 1000
   %358 = getelementptr inbounds i8, ptr %.06185.sroa.phi64646541, i64 8
   store i32 %357, ptr %358, align 8
@@ -11098,7 +11098,7 @@ proto_item_set_hidden.exit:                       ; preds = %94, %91, %207, %204
   %365 = udiv i64 %364, 1000000
   store i64 %365, ptr %.06185.sroa.phi64346535, align 16
   %366 = urem i64 %364, 1000000
-  %367 = trunc i64 %366 to i32
+  %367 = trunc nuw nsw i64 %366 to i32
   %368 = mul nuw nsw i32 %367, 1000
   %369 = getelementptr inbounds i8, ptr %.06185.sroa.phi64346535, i64 8
   store i32 %368, ptr %369, align 8
@@ -11763,7 +11763,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %791, ptr %12, align 8
   %792 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %793 = urem i64 %792, 1000
-  %794 = trunc i64 %793 to i32
+  %794 = trunc nuw nsw i64 %793 to i32
   %795 = mul nuw nsw i32 %794, 1000000
   store i32 %795, ptr %38, align 8
   %796 = load i32, ptr @hf_cflow_sys_init_time, align 4
@@ -12343,7 +12343,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %1179, ptr %12, align 8
   %1180 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %1181 = urem i64 %1180, 1000
-  %1182 = trunc i64 %1181 to i32
+  %1182 = trunc nuw nsw i64 %1181 to i32
   %1183 = mul nuw nsw i32 %1182, 1000000
   store i32 %1183, ptr %38, align 8
   %1184 = load i32, ptr @hf_cflow_collection_time_milliseconds, align 4
@@ -12433,7 +12433,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %1237, ptr %12, align 8
   %1238 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %1239 = urem i64 %1238, 1000
-  %1240 = trunc i64 %1239 to i32
+  %1240 = trunc nuw nsw i64 %1239 to i32
   %1241 = mul nuw nsw i32 %1240, 1000000
   store i32 %1241, ptr %38, align 8
   %1242 = load i32, ptr @hf_cflow_max_flow_end_milliseconds, align 4
@@ -12834,7 +12834,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %1495, ptr %12, align 8
   %1496 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %1497 = urem i64 %1496, 1000
-  %1498 = trunc i64 %1497 to i32
+  %1498 = trunc nuw nsw i64 %1497 to i32
   %1499 = mul nuw nsw i32 %1498, 1000000
   store i32 %1499, ptr %38, align 8
   %1500 = load i32, ptr @hf_cflow_observation_time_milliseconds, align 4
@@ -13088,7 +13088,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %1662, ptr %12, align 8
   %1663 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %1664 = urem i64 %1663, 1000
-  %1665 = trunc i64 %1664 to i32
+  %1665 = trunc nuw nsw i64 %1664 to i32
   %1666 = mul nuw nsw i32 %1665, 1000000
   store i32 %1666, ptr %38, align 8
   %1667 = load i32, ptr @hf_cflow_monitoring_interval_start_milliseconds, align 4
@@ -13102,7 +13102,7 @@ switch.lookup:                                    ; preds = %634
   store i64 %1672, ptr %12, align 8
   %1673 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.1) #11
   %1674 = urem i64 %1673, 1000
-  %1675 = trunc i64 %1674 to i32
+  %1675 = trunc nuw nsw i64 %1674 to i32
   %1676 = mul nuw nsw i32 %1675, 1000000
   store i32 %1676, ptr %38, align 8
   %1677 = load i32, ptr @hf_cflow_monitoring_interval_end_milliseconds, align 4
@@ -20063,7 +20063,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_netflow_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_netflow_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #11
   %6 = icmp eq i16 %5, 10
   br i1 %6, label %7, label %10

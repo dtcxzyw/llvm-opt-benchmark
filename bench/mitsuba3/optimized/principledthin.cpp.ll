@@ -8353,50 +8353,50 @@ declare float @llvm.floor.f32(float) #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden <2 x float> @_ZN5drjit3logIN7mitsuba6VectorIfLm2EEEEET_RKS4_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #16 comdat {
 .critedge:
-  %.sroa.0841 = alloca <2 x float>, align 8
-  %.sroa.0829 = alloca <2 x float>, align 8
-  %.sroa.0819 = alloca <4 x float>, align 16
-  %.sroa.0812 = alloca <2 x float>, align 8
+  %.sroa.0840 = alloca <2 x float>, align 8
+  %.sroa.0828 = alloca <2 x float>, align 8
+  %.sroa.0818 = alloca <4 x float>, align 16
+  %.sroa.0811 = alloca <2 x float>, align 8
   %1 = load <2 x float>, ptr %0, align 4
   %2 = tail call { <2 x float>, <2 x float> } @_ZN5drjit5frexpIN7mitsuba6VectorIfLm2EEEEENSt3__14pairIT_S6_EERKS6_(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %3 = extractvalue { <2 x float>, <2 x float> } %2, 0
-  store <2 x float> %3, ptr %.sroa.0819, align 16
+  store <2 x float> %3, ptr %.sroa.0818, align 16
   %4 = extractvalue { <2 x float>, <2 x float> } %2, 1
-  %.sroa.0819.8..sroa_idx824 = getelementptr inbounds i8, ptr %.sroa.0819, i64 8
-  store <2 x float> %4, ptr %.sroa.0819.8..sroa_idx824, align 8
-  %.sroa.0819.0..sroa.0819.0. = load <4 x float>, ptr %.sroa.0819, align 16
+  %.sroa.0818.8..sroa_idx823 = getelementptr inbounds i8, ptr %.sroa.0818, i64 8
+  store <2 x float> %4, ptr %.sroa.0818.8..sroa_idx823, align 8
+  %.sroa.0818.0..sroa.0818.0. = load <4 x float>, ptr %.sroa.0818, align 16
   %5 = shufflevector <2 x float> %1, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %6 = shufflevector <4 x float> %.sroa.0819.0..sroa.0819.0., <4 x float> %5, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %6 = shufflevector <4 x float> %.sroa.0818.0..sroa.0818.0., <4 x float> %5, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %7 = fcmp contract oge <4 x float> %6, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0.000000e+00, float 0.000000e+00>
   %8 = extractelement <4 x i1> %7, i64 2
   %9 = zext i1 %8 to i8
-  %.sroa.0835.0.vec.insert = insertelement <2 x i8> poison, i8 %9, i64 0
+  %.sroa.0834.0.vec.insert = insertelement <2 x i8> poison, i8 %9, i64 0
   %10 = extractelement <4 x i1> %7, i64 3
   %11 = zext i1 %10 to i8
-  %.sroa.0835.1.vec.insert = insertelement <2 x i8> %.sroa.0835.0.vec.insert, i8 %11, i64 1
+  %.sroa.0834.1.vec.insert = insertelement <2 x i8> %.sroa.0834.0.vec.insert, i8 %11, i64 1
   %12 = extractelement <4 x i1> %7, i64 0
   %13 = extractelement <4 x i1> %7, i64 1
-  %.sroa.2834.0.insert.shift = select i1 %13, i16 256, i16 0
-  %.sroa.0833.0.insert.ext = zext i1 %12 to i16
-  %.sroa.0833.0.insert.insert = or disjoint i16 %.sroa.2834.0.insert.shift, %.sroa.0833.0.insert.ext
+  %.sroa.2833.0.insert.shift = select i1 %13, i16 256, i16 0
+  %.sroa.0832.0.insert.ext = zext i1 %12 to i16
+  %.sroa.0832.0.insert.insert = or disjoint i16 %.sroa.2833.0.insert.shift, %.sroa.0832.0.insert.ext
   %14 = fadd contract <2 x float> %4, <float 1.000000e+00, float 1.000000e+00>
-  store <2 x float> %14, ptr %.sroa.0829, align 8
-  %.sroa.0829.0..sroa.0829.0..val = load float, ptr %.sroa.0829, align 8
-  %.sroa.0819.8..sroa_idx827 = getelementptr inbounds i8, ptr %.sroa.0819, i64 8
-  %.sroa.0819.8..sroa.0819.8..val801 = load float, ptr %.sroa.0819.8..sroa_idx827, align 8
-  %15 = select i1 %12, float %.sroa.0829.0..sroa.0829.0..val, float %.sroa.0819.8..sroa.0819.8..val801
-  %.sroa.0831.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
-  %.sroa.0819.12.gep818.sroa_idx828 = getelementptr inbounds i8, ptr %.sroa.0819, i64 12
-  %.sroa.0829.4.gep817.sroa_idx830 = getelementptr inbounds i8, ptr %.sroa.0829, i64 4
-  %.sroa.0829.4.gep817.sroa_idx830.val = load float, ptr %.sroa.0829.4.gep817.sroa_idx830, align 4
-  %.sroa.0819.12.gep818.sroa_idx828.val = load float, ptr %.sroa.0819.12.gep818.sroa_idx828, align 4
-  %16 = select i1 %13, float %.sroa.0829.4.gep817.sroa_idx830.val, float %.sroa.0819.12.gep818.sroa_idx828.val
-  %.sroa.0831.4.vec.insert = insertelement <2 x float> %.sroa.0831.0.vec.insert, float %16, i64 1
-  %.sroa.3.0.extract.shift = lshr exact i16 %.sroa.2834.0.insert.shift, 8
-  %.sroa.0819.8..sroa_idx825 = getelementptr inbounds i8, ptr %.sroa.0819, i64 8
-  store <2 x float> %.sroa.0831.4.vec.insert, ptr %.sroa.0819.8..sroa_idx825, align 8
+  store <2 x float> %14, ptr %.sroa.0828, align 8
+  %.sroa.0828.0..sroa.0828.0..val = load float, ptr %.sroa.0828, align 8
+  %.sroa.0818.8..sroa_idx826 = getelementptr inbounds i8, ptr %.sroa.0818, i64 8
+  %.sroa.0818.8..sroa.0818.8..val801 = load float, ptr %.sroa.0818.8..sroa_idx826, align 8
+  %15 = select i1 %12, float %.sroa.0828.0..sroa.0828.0..val, float %.sroa.0818.8..sroa.0818.8..val801
+  %.sroa.0830.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
+  %.sroa.0818.12.gep817.sroa_idx827 = getelementptr inbounds i8, ptr %.sroa.0818, i64 12
+  %.sroa.0828.4.gep816.sroa_idx829 = getelementptr inbounds i8, ptr %.sroa.0828, i64 4
+  %.sroa.0828.4.gep816.sroa_idx829.val = load float, ptr %.sroa.0828.4.gep816.sroa_idx829, align 4
+  %.sroa.0818.12.gep817.sroa_idx827.val = load float, ptr %.sroa.0818.12.gep817.sroa_idx827, align 4
+  %16 = select i1 %13, float %.sroa.0828.4.gep816.sroa_idx829.val, float %.sroa.0818.12.gep817.sroa_idx827.val
+  %.sroa.0830.4.vec.insert = insertelement <2 x float> %.sroa.0830.0.vec.insert, float %16, i64 1
+  %.sroa.3.0.extract.shift = lshr exact i16 %.sroa.2833.0.insert.shift, 8
+  %.sroa.0818.8..sroa_idx824 = getelementptr inbounds i8, ptr %.sroa.0818, i64 8
+  store <2 x float> %.sroa.0830.4.vec.insert, ptr %.sroa.0818.8..sroa_idx824, align 8
   %17 = bitcast <2 x float> %3 to <2 x i32>
-  %18 = insertelement <2 x i16> poison, i16 %.sroa.0833.0.insert.insert, i64 0
+  %18 = insertelement <2 x i16> poison, i16 %.sroa.0832.0.insert.insert, i64 0
   %19 = insertelement <2 x i16> %18, i16 %.sroa.3.0.extract.shift, i64 1
   %20 = and <2 x i16> %19, <i16 1, i16 1>
   %21 = xor <2 x i16> %20, <i16 1, i16 1>
@@ -8406,7 +8406,7 @@ define linkonce_odr hidden <2 x float> @_ZN5drjit3logIN7mitsuba6VectorIfLm2EEEEE
   %25 = bitcast <2 x i32> %24 to <2 x float>
   %26 = fadd contract <2 x float> %25, <float -1.000000e+00, float -1.000000e+00>
   %27 = fadd contract <2 x float> %26, %3
-  store <2 x float> %27, ptr %.sroa.0819, align 16
+  store <2 x float> %27, ptr %.sroa.0818, align 16
   %28 = fmul contract <2 x float> %27, <float 0xBFBD7A3700000000, float 0xBFBD7A3700000000>
   %29 = fmul contract <2 x float> %27, <float 0xBFCFFFFF80000000, float 0xBFCFFFFF80000000>
   %30 = fadd contract <2 x float> %29, <float 0x3FD5555540000000, float 0x3FD5555540000000>
@@ -8428,44 +8428,44 @@ define linkonce_odr hidden <2 x float> @_ZN5drjit3logIN7mitsuba6VectorIfLm2EEEEE
   %46 = fadd contract <2 x float> %43, %45
   %47 = fmul contract <2 x float> %27, %36
   %48 = fmul contract <2 x float> %47, %46
-  %.sroa.0819.8..sroa_idx826 = getelementptr inbounds i8, ptr %.sroa.0819, i64 8
-  %.sroa.0819.8..sroa.0819.8. = load <2 x float>, ptr %.sroa.0819.8..sroa_idx826, align 8
-  %49 = fmul contract <2 x float> %.sroa.0819.8..sroa.0819.8., <float 0x3F2BD01060000000, float 0x3F2BD01060000000>
+  %.sroa.0818.8..sroa_idx825 = getelementptr inbounds i8, ptr %.sroa.0818, i64 8
+  %.sroa.0818.8..sroa.0818.8. = load <2 x float>, ptr %.sroa.0818.8..sroa_idx825, align 8
+  %49 = fmul contract <2 x float> %.sroa.0818.8..sroa.0818.8., <float 0x3F2BD01060000000, float 0x3F2BD01060000000>
   %50 = fsub contract <2 x float> %48, %49
   %51 = fmul contract <2 x float> %36, <float 5.000000e-01, float 5.000000e-01>
   %52 = fsub contract <2 x float> %50, %51
-  %.sroa.0819.0..sroa.0819.0.820 = load <2 x float>, ptr %.sroa.0819, align 16
-  %53 = fadd contract <2 x float> %52, %.sroa.0819.0..sroa.0819.0.820
-  %54 = fmul contract <2 x float> %.sroa.0819.8..sroa.0819.8., <float 0x3FE6300000000000, float 0x3FE6300000000000>
+  %.sroa.0818.0..sroa.0818.0.819 = load <2 x float>, ptr %.sroa.0818, align 16
+  %53 = fadd contract <2 x float> %52, %.sroa.0818.0..sroa.0818.0.819
+  %54 = fmul contract <2 x float> %.sroa.0818.8..sroa.0818.8., <float 0x3FE6300000000000, float 0x3FE6300000000000>
   %55 = fadd contract <2 x float> %54, %53
-  store <2 x float> %55, ptr %.sroa.0812, align 8
+  store <2 x float> %55, ptr %.sroa.0811, align 8
   %56 = load <2 x float>, ptr %0, align 4
-  store <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %.sroa.0841, align 8
+  store <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %.sroa.0840, align 8
   %57 = shufflevector <2 x float> %56, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %58 = fcmp contract oeq <4 x float> %57, <float 0.000000e+00, float 0.000000e+00, float 0x7FF0000000000000, float 0x7FF0000000000000>
   %59 = extractelement <4 x i1> %58, i64 2
   %60 = extractelement <4 x i1> %58, i64 3
-  %.sroa.0812.0..sroa.0812.0..val803 = load float, ptr %.sroa.0812, align 8
-  %61 = select i1 %59, float 0x7FF0000000000000, float %.sroa.0812.0..sroa.0812.0..val803
-  %.sroa.0843.0.vec.insert = insertelement <2 x float> poison, float %61, i64 0
-  %.563.c.sroa.sel.v = select i1 %60, ptr %.sroa.0841, ptr %.sroa.0812
+  %.sroa.0811.0..sroa.0811.0..val803 = load float, ptr %.sroa.0811, align 8
+  %61 = select i1 %59, float 0x7FF0000000000000, float %.sroa.0811.0..sroa.0811.0..val803
+  %.sroa.0842.0.vec.insert = insertelement <2 x float> poison, float %61, i64 0
+  %.563.c.sroa.sel.v = select i1 %60, ptr %.sroa.0840, ptr %.sroa.0811
   %.563.c.sroa.sel = getelementptr inbounds i8, ptr %.563.c.sroa.sel.v, i64 4
   %62 = load float, ptr %.563.c.sroa.sel, align 4
-  %.sroa.0843.4.vec.insert = insertelement <2 x float> %.sroa.0843.0.vec.insert, float %62, i64 1
-  store <2 x float> %.sroa.0843.4.vec.insert, ptr %.sroa.0812, align 8
+  %.sroa.0842.4.vec.insert = insertelement <2 x float> %.sroa.0842.0.vec.insert, float %62, i64 1
+  store <2 x float> %.sroa.0842.4.vec.insert, ptr %.sroa.0811, align 8
   %63 = extractelement <4 x i1> %58, i64 0
   %64 = extractelement <4 x i1> %58, i64 1
-  %.sroa.0812.0..sroa.0812.0..val805848 = load i32, ptr %.sroa.0812, align 8
-  %65 = select i1 %63, i32 -8388608, i32 %.sroa.0812.0..sroa.0812.0..val805848
-  %.sroa.0846.0.vec.insert = insertelement <2 x i32> poison, i32 %65, i64 0
-  %.sroa.0812.4.gep811.sroa_idx814 = getelementptr inbounds i8, ptr %.sroa.0812, i64 4
-  %.sroa.speculate.load.false849 = load i32, ptr %.sroa.0812.4.gep811.sroa_idx814, align 4
-  %66 = select i1 %64, i32 -8388608, i32 %.sroa.speculate.load.false849
-  %.sroa.0846.4.vec.insert = insertelement <2 x i32> %.sroa.0846.0.vec.insert, i32 %66, i64 1
-  %67 = xor <2 x i8> %.sroa.0835.1.vec.insert, <i8 1, i8 1>
+  %.sroa.0811.0..sroa.0811.0..val805847 = load i32, ptr %.sroa.0811, align 8
+  %65 = select i1 %63, i32 -8388608, i32 %.sroa.0811.0..sroa.0811.0..val805847
+  %.sroa.0845.0.vec.insert = insertelement <2 x i32> poison, i32 %65, i64 0
+  %.sroa.0811.4.gep810.sroa_idx813 = getelementptr inbounds i8, ptr %.sroa.0811, i64 4
+  %.sroa.speculate.load.false848 = load i32, ptr %.sroa.0811.4.gep810.sroa_idx813, align 4
+  %66 = select i1 %64, i32 -8388608, i32 %.sroa.speculate.load.false848
+  %.sroa.0845.4.vec.insert = insertelement <2 x i32> %.sroa.0845.0.vec.insert, i32 %66, i64 1
+  %67 = xor <2 x i8> %.sroa.0834.1.vec.insert, <i8 1, i8 1>
   %68 = zext nneg <2 x i8> %67 to <2 x i32>
   %69 = sub nsw <2 x i32> zeroinitializer, %68
-  %70 = or <2 x i32> %.sroa.0846.4.vec.insert, %69
+  %70 = or <2 x i32> %.sroa.0845.4.vec.insert, %69
   %.sroa.0.4.vec.insert.i595 = bitcast <2 x i32> %70 to <2 x float>
   ret <2 x float> %.sroa.0.4.vec.insert.i595
 }

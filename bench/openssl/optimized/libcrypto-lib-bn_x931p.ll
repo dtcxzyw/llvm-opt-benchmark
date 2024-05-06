@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_odd(ptr noundef %e) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -37,12 +37,12 @@ if.end7:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp11, label %err, label %if.end13
 
 if.end13:                                         ; preds = %if.end7
-  %call14 = tail call fastcc i32 @bn_x931_derive_pi(ptr noundef %p1.addr.0, ptr noundef %Xp1, ptr noundef %ctx, ptr noundef %cb), !range !4
+  %call14 = tail call fastcc i32 @bn_x931_derive_pi(ptr noundef %p1.addr.0, ptr noundef %Xp1, ptr noundef %ctx, ptr noundef %cb)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %call18 = tail call fastcc i32 @bn_x931_derive_pi(ptr noundef %p2.addr.0, ptr noundef %Xp2, ptr noundef %ctx, ptr noundef %cb), !range !4
+  %call18 = tail call fastcc i32 @bn_x931_derive_pi(ptr noundef %p2.addr.0, ptr noundef %Xp2, ptr noundef %ctx, ptr noundef %cb)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %if.end21
 
@@ -153,7 +153,7 @@ declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bn_x931_derive_pi(ptr noundef %pi, ptr noundef %Xpi, ptr noundef %ctx, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_x931_derive_pi(ptr noundef %pi, ptr noundef %Xpi, ptr noundef %ctx, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_copy(ptr noundef %pi, ptr noundef %Xpi) #2
   %tobool.not = icmp eq ptr %call, null
@@ -223,7 +223,7 @@ declare i32 @BN_check_prime(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_X931_generate_Xpq(ptr noundef %Xp, ptr noundef %Xq, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_X931_generate_Xpq(ptr noundef %Xp, ptr noundef %Xq, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %nbits, 1023
   %and = and i32 %nbits, 255
@@ -251,7 +251,7 @@ for.cond:                                         ; preds = %if.end16
   %inc = add nuw nsw i32 %i.018, 1
   %cmp8 = icmp ult i32 %i.018, 999
   %exitcond.not = icmp eq i32 %inc, 1000
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %cmp819 = phi i1 [ true, %for.cond.preheader ], [ %cmp8, %for.cond ]
@@ -290,7 +290,7 @@ declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_X931_generate_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_X931_generate_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %cmp = icmp eq ptr %Xp1, null
@@ -327,7 +327,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool13.not, label %error, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = tail call i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef nonnull %Xp1.addr.0, ptr noundef nonnull %Xp2.addr.0, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb), !range !4
+  %call16 = tail call i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef nonnull %Xp1.addr.0, ptr noundef nonnull %Xp2.addr.0, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb)
   br label %error
 
 error:                                            ; preds = %if.end15, %if.end11, %if.end8, %if.end4
@@ -348,6 +348,5 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

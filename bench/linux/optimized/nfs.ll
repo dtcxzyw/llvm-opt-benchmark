@@ -303,7 +303,7 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @fat_encode_fh_nostale(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef readonly %3) #2 align 16 {
+define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef readonly %3) #2 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %9, label %7

@@ -2310,7 +2310,7 @@ declare void @ures_close_75(ptr noundef) local_unnamed_addr #5
 declare void @ulist_resetList_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucal_getTimeZoneTransitionDate_75(ptr noundef %cal, i32 noundef %type, ptr nocapture noundef writeonly %transition, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @ucal_getTimeZoneTransitionDate_75(ptr noundef %cal, i32 noundef %type, ptr nocapture noundef writeonly %transition, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tzt = alloca %"class.icu_75::TimeZoneTransition", align 8
   %0 = load i32, ptr %status, align 4

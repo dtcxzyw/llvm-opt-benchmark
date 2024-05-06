@@ -1157,7 +1157,7 @@ define dso_local void @icmpv6_param_prob_reason(ptr noundef %0, i8 noundef zeroe
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip6_err_gen_icmpv6_unreach(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ip6_err_gen_icmpv6_unreach(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.in6_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %6 = sext i32 %1 to i64
@@ -1378,7 +1378,7 @@ declare dso_local ptr @rt6_lookup(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @icmpv6_notify(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 1, 77) i32 @icmpv6_notify(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1530,7 +1530,7 @@ define dso_local void @icmpv6_flow_init(ptr noundef %0, ptr noundef %1, i8 nound
 declare dso_local void @security_sk_classify_flow(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @icmpv6_init() local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @icmpv6_init() local_unnamed_addr #7 section ".init.text" align 16 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
   store ptr null, ptr %1, align 8, !annotation !9
@@ -2457,7 +2457,7 @@ define internal noundef i32 @icmpv6_err(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @icmpv6_echo_reply(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 1, 3) i32 @icmpv6_echo_reply(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.icmp6hdr, align 8
   %3 = alloca %struct.flowi6, align 8
   %4 = alloca %struct.icmpv6_msg, align 8

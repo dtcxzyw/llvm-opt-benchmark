@@ -3302,7 +3302,7 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @cb_server_alpn(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %arg) #8 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #24
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arg) #24
   %cmp.i = icmp ugt i64 %call.i, 65534
   br i1 %cmp.i, label %if.then, label %if.end.i
 
@@ -3565,7 +3565,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %version) #24
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %version) #24
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %protocol_from_string.exit, label %for.cond.i
 

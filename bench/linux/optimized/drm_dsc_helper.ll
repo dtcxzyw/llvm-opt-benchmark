@@ -47,7 +47,7 @@ define dso_local void @drm_dsc_dp_pps_header_init(ptr nocapture noundef writeonl
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @drm_dsc_dp_rc_buffer_size(i8 noundef zeroext %0, i8 noundef zeroext %1) #2 align 16 {
+define dso_local range(i32 0, 16777217) i32 @drm_dsc_dp_rc_buffer_size(i8 noundef zeroext %0, i8 noundef zeroext %1) #2 align 16 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 10
   %5 = add nuw nsw i32 %4, 1024
@@ -110,7 +110,7 @@ define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly 
   %27 = getelementptr inbounds i8, ptr %1, i64 26
   %28 = load i8, ptr %27, align 2, !range !5, !noundef !6
   %29 = shl nuw nsw i8 %28, 5
-  %30 = trunc i16 %17 to i8
+  %30 = trunc nuw i16 %17 to i8
   %31 = and i8 %30, 3
   %32 = or disjoint i8 %31, %20
   %33 = or disjoint i8 %32, %23
@@ -150,7 +150,7 @@ define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly 
   %60 = getelementptr inbounds i8, ptr %1, i64 22
   %61 = load i16, ptr %60, align 2
   %62 = lshr i16 %61, 8
-  %63 = trunc i16 %62 to i8
+  %63 = trunc nuw i16 %62 to i8
   %64 = and i8 %63, 3
   %65 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %64, ptr %65, align 1
@@ -175,7 +175,7 @@ define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly 
   %80 = getelementptr inbounds i8, ptr %1, i64 110
   %81 = load i16, ptr %80, align 2
   %82 = lshr i16 %81, 8
-  %83 = trunc i16 %82 to i8
+  %83 = trunc nuw i16 %82 to i8
   %84 = and i8 %83, 15
   %85 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %84, ptr %85, align 1
@@ -364,7 +364,7 @@ define dso_local void @drm_dsc_set_rc_buf_thresh(ptr nocapture noundef %0) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dsc_setup_rc_params(ptr nocapture noundef %0, i32 noundef %1) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_dsc_setup_rc_params(ptr nocapture noundef %0, i32 noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 0
@@ -489,7 +489,7 @@ define dso_local noundef i32 @drm_dsc_setup_rc_params(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dsc_compute_rc_parameters(ptr nocapture noundef %0) #6 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 129
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -654,7 +654,7 @@ define dso_local noundef i32 @drm_dsc_compute_rc_parameters(ptr nocapture nounde
   %122 = zext i8 %119 to i32
   %123 = add nsw i32 %122, -8
   %124 = udiv i32 %37, %123
-  %125 = trunc i32 %124 to i16
+  %125 = trunc nuw nsw i32 %124 to i16
   br label %126
 
 126:                                              ; preds = %121, %118
@@ -780,7 +780,7 @@ define dso_local noundef i32 @drm_dsc_compute_rc_parameters(ptr nocapture nounde
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dsc_get_bpp_int(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 4096) i32 @drm_dsc_get_bpp_int(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 15

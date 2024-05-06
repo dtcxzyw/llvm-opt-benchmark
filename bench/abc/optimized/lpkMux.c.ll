@@ -204,7 +204,7 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not.i, label %67, label %58
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = trunc i64 %indvars.iv.i to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nsw i32 %59, 5
   br label %61
 
@@ -242,7 +242,7 @@ Kit_WordFindFirstBit.exit.i:                      ; preds = %64, %61
   br i1 %.not.i160, label %79, label %70
 
 70:                                               ; preds = %.lr.ph.i158
-  %71 = trunc i64 %indvars.iv.i159 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i159 to i32
   %72 = shl nsw i32 %71, 5
   br label %73
 
@@ -280,7 +280,7 @@ Kit_WordFindFirstBit.exit.i163:                   ; preds = %76, %73
   br i1 %.not.i174, label %91, label %82
 
 82:                                               ; preds = %.lr.ph.i172
-  %83 = trunc i64 %indvars.iv.i173 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.i173 to i32
   %84 = shl nsw i32 %83, 5
   br label %85
 
@@ -318,7 +318,7 @@ Kit_WordFindFirstBit.exit.i177:                   ; preds = %88, %85
   br i1 %.not.i186, label %103, label %94
 
 94:                                               ; preds = %.lr.ph.i184
-  %95 = trunc i64 %indvars.iv.i185 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv.i185 to i32
   %96 = shl nsw i32 %95, 5
   br label %97
 

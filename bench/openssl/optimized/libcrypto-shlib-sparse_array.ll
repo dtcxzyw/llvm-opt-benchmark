@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sa_set(ptr noundef %sa, i64 noundef %posn, ptr noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef %sa, i64 noundef %posn, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sa, null
   br i1 %cmp, label %return, label %for.cond.preheader

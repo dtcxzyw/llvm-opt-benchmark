@@ -315,8 +315,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 104:                                              ; preds = %90
-  %105 = trunc i64 %indvars.iv396 to i32
-  %106 = trunc i64 %.0.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv396 to i32
+  %106 = trunc nuw i64 %.0.i to i32
   %107 = load i32, ptr @hf_mc_nmf_via_length, align 4
   %108 = sub i32 %.1257, %105
   %109 = call ptr @proto_tree_add_uint(ptr noundef %85, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %105, i32 noundef %106) #3
@@ -372,8 +372,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 140:                                              ; preds = %126
-  %141 = trunc i64 %indvars.iv393 to i32
-  %142 = trunc i64 %.0.i129 to i32
+  %141 = trunc nuw nsw i64 %indvars.iv393 to i32
+  %142 = trunc nuw i64 %.0.i129 to i32
   %143 = load i32, ptr @hf_mc_nmf_encoding_length, align 4
   %144 = sub i32 %.3259, %141
   %145 = call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %143, ptr noundef %0, i32 noundef %144, i32 noundef %141, i32 noundef %142) #3
@@ -424,8 +424,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 169:                                              ; preds = %156
-  %170 = trunc i64 %indvars.iv390 to i32
-  %171 = trunc i64 %.0.i134 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv390 to i32
+  %171 = trunc nuw i64 %.0.i134 to i32
   %172 = load i32, ptr @hf_mc_nmf_chunk_length, align 4
   %173 = sub i32 %.6262, %170
   %174 = call ptr @proto_tree_add_uint(ptr noundef %151, i32 noundef %172, ptr noundef %0, i32 noundef %173, i32 noundef %170, i32 noundef %171) #3
@@ -481,8 +481,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 204:                                              ; preds = %190
-  %205 = trunc i64 %indvars.iv387 to i32
-  %206 = trunc i64 %.0.i139 to i32
+  %205 = trunc nuw nsw i64 %indvars.iv387 to i32
+  %206 = trunc nuw i64 %.0.i139 to i32
   %207 = load i32, ptr @hf_mc_nmf_payload_length, align 4
   %208 = sub i32 %.8264, %205
   %209 = call ptr @proto_tree_add_uint(ptr noundef %185, i32 noundef %207, ptr noundef %0, i32 noundef %208, i32 noundef %205, i32 noundef %206) #3
@@ -530,8 +530,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 234:                                              ; preds = %220
-  %235 = trunc i64 %indvars.iv384 to i32
-  %236 = trunc i64 %.0.i144 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv384 to i32
+  %236 = trunc nuw i64 %.0.i144 to i32
   %237 = load i32, ptr @hf_mc_nmf_fault_length, align 4
   %238 = sub i32 %.10266, %235
   %239 = call ptr @proto_tree_add_uint(ptr noundef %215, i32 noundef %237, ptr noundef %0, i32 noundef %238, i32 noundef %235, i32 noundef %236) #3
@@ -579,8 +579,8 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 264:                                              ; preds = %250
-  %265 = trunc i64 %indvars.iv to i32
-  %266 = trunc i64 %.0.i149 to i32
+  %265 = trunc nuw nsw i64 %indvars.iv to i32
+  %266 = trunc nuw i64 %.0.i149 to i32
   %267 = load i32, ptr @hf_mc_nmf_upgrade_length, align 4
   %268 = sub i32 %.12, %265
   %269 = call ptr @proto_tree_add_uint(ptr noundef %245, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef %265, i32 noundef %266) #3

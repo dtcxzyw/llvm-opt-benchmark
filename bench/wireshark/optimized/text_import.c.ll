@@ -329,7 +329,7 @@ parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.crite
   br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %parse_plain_data.exit
-  %93 = tail call fastcc i32 @write_current_packet(i32 noundef 1), !range !8
+  %93 = tail call fastcc i32 @write_current_packet(i32 noundef 1)
   %94 = load ptr, ptr @packet_buf, align 8
   %95 = load i32, ptr @curr_offset, align 4
   %96 = zext i32 %95 to i64
@@ -345,7 +345,7 @@ parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_current_packet(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x %struct.vec_t], align 16
   %3 = alloca [3 x %struct.vec_t], align 16
   %4 = alloca [3 x %struct.vec_t], align 16
@@ -789,7 +789,7 @@ define internal fastcc noundef i32 @write_current_packet(i32 noundef %0) unnamed
   store i8 0, ptr %201, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %197, %192
   %202 = add i32 %.0.i223, %180
@@ -1069,7 +1069,7 @@ define hidden void @parse_dir(ptr nocapture noundef readonly %0, ptr nocapture n
   %9 = getelementptr i8, ptr %.02.i, i64 1
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.critedge.preheader.i, label %14, !llvm.loop !10
+  br i1 %.not.i, label %.critedge.preheader.i, label %14, !llvm.loop !9
 
 .critedge.preheader.i:                            ; preds = %8, %4
   %11 = load i8, ptr %3, align 1
@@ -1098,7 +1098,7 @@ define hidden void @parse_dir(ptr nocapture noundef readonly %0, ptr nocapture n
   %21 = getelementptr i8, ptr %.0184.i, i64 1
   %22 = load i8, ptr %21, align 1
   %.not23.i = icmp eq i8 %22, 0
-  br i1 %.not23.i, label %.critedge._crit_edge.i, label %23, !llvm.loop !11
+  br i1 %.not23.i, label %.critedge._crit_edge.i, label %23, !llvm.loop !10
 
 23:                                               ; preds = %.critedge.i, %.lr.ph5.i
   %24 = phi i8 [ %11, %.lr.ph5.i ], [ %22, %.critedge.i ]
@@ -1145,7 +1145,7 @@ define hidden void @parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
@@ -1225,7 +1225,7 @@ define internal fastcc noundef i32 @_parse_time(ptr noundef %0, ptr noundef %1, 
   %46 = sdiv i32 %.13710, 10
   %47 = add nsw i32 %.011, -1
   %.not45 = icmp eq i32 %47, 0
-  br i1 %.not45, label %.thread2, label %.lr.ph12, !llvm.loop !12
+  br i1 %.not45, label %.thread2, label %.lr.ph12, !llvm.loop !11
 
 48:                                               ; preds = %43
   %.not446 = icmp eq i32 %37, 9
@@ -1241,7 +1241,7 @@ define internal fastcc noundef i32 @_parse_time(ptr noundef %0, ptr noundef %1, 
   %50 = mul i32 %.27, 10
   %51 = add nsw i32 %.18, -1
   %.not44 = icmp eq i32 %51, 0
-  br i1 %.not44, label %.thread2, label %.lr.ph, !llvm.loop !13
+  br i1 %.not44, label %.thread2, label %.lr.ph, !llvm.loop !12
 
 .thread2:                                         ; preds = %.lr.ph, %.lr.ph12, %23, %48, %41
   %.3 = phi i32 [ %33, %48 ], [ %33, %41 ], [ 0, %23 ], [ %46, %.lr.ph12 ], [ %50, %.lr.ph ]
@@ -1282,12 +1282,12 @@ declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @flush_packet() local_unnamed_addr #0 {
-  %1 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %1 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1308,7 +1308,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   store i8 32, ptr %11, align 1
   %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 13) #16
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.loopexit87, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit87, label %.lr.ph, !llvm.loop !13
 
 .loopexit87:                                      ; preds = %.lr.ph, %.preheader, %2
   %13 = load i32, ptr @state, align 4
@@ -1365,7 +1365,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br label %196
 
 29:                                               ; preds = %20
-  %30 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5), !range !8
+  %30 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5)
   %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %31, label %197
 
@@ -1375,7 +1375,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %33, label %34, label %196
 
 34:                                               ; preds = %31
-  %35 = tail call fastcc i32 @start_new_packet(i32 noundef 0), !range !8
+  %35 = tail call fastcc i32 @start_new_packet(i32 noundef 0)
   %.not76 = icmp eq i32 %35, 0
   br i1 %.not76, label %36, label %197
 
@@ -1391,12 +1391,12 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %40, label %41, label %196
 
 41:                                               ; preds = %38
-  %42 = tail call fastcc i32 @start_new_packet(i32 noundef 0), !range !8
+  %42 = tail call fastcc i32 @start_new_packet(i32 noundef 0)
   %.not73 = icmp eq i32 %42, 0
   br i1 %.not73, label %43, label %197
 
 43:                                               ; preds = %41
-  %44 = tail call fastcc i32 @write_byte(ptr noundef %1), !range !8
+  %44 = tail call fastcc i32 @write_byte(ptr noundef %1)
   %.not74 = icmp eq i32 %44, 0
   br i1 %.not74, label %45, label %197
 
@@ -1407,7 +1407,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br label %196
 
 47:                                               ; preds = %14
-  %48 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %48 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not72 = icmp eq i32 %48, 0
   br i1 %.not72, label %196, label %197
 
@@ -1455,7 +1455,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br label %196
 
 64:                                               ; preds = %55
-  %65 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5), !range !8
+  %65 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5)
   %.not68 = icmp eq i32 %65, 0
   br i1 %.not68, label %66, label %197
 
@@ -1465,7 +1465,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = tail call fastcc i32 @start_new_packet(i32 noundef 0), !range !8
+  %70 = tail call fastcc i32 @start_new_packet(i32 noundef 0)
   %.not71 = icmp eq i32 %70, 0
   br i1 %.not71, label %71, label %197
 
@@ -1490,7 +1490,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
 
 79:                                               ; preds = %76
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 4, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %75, i32 noundef %67) #15
-  %80 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %80 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not70 = icmp eq i32 %80, 0
   br i1 %.not70, label %81, label %197
 
@@ -1509,7 +1509,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %87, label %88, label %196
 
 88:                                               ; preds = %85
-  %89 = tail call fastcc i32 @write_byte(ptr noundef %1), !range !8
+  %89 = tail call fastcc i32 @write_byte(ptr noundef %1)
   %.not67 = icmp eq i32 %89, 0
   br i1 %.not67, label %90, label %197
 
@@ -1520,7 +1520,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br label %196
 
 92:                                               ; preds = %49
-  %93 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %93 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not66 = icmp eq i32 %93, 0
   br i1 %.not66, label %196, label %197
 
@@ -1537,7 +1537,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
 95:                                               ; preds = %94
   store i32 3, ptr @state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %96 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4), !range !8
+  %96 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %96, 0
   br i1 %.not.i, label %97, label %write_byte.exit.thread
 
@@ -1558,7 +1558,7 @@ define hidden noundef i32 @parse_token(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %.not1.i, label %write_byte.exit, label %108
 
 108:                                              ; preds = %97
-  %109 = tail call fastcc i32 @start_new_packet(i32 noundef 1), !range !8
+  %109 = tail call fastcc i32 @start_new_packet(i32 noundef 1)
   %.not2.i = icmp eq i32 %109, 0
   br i1 %.not2.i, label %write_byte.exit, label %write_byte.exit.thread
 
@@ -1579,7 +1579,7 @@ write_byte.exit:                                  ; preds = %97, %108
   br label %196
 
 112:                                              ; preds = %94
-  %113 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %113 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not64 = icmp eq i32 %113, 0
   br i1 %.not64, label %196, label %197
 
@@ -1595,7 +1595,7 @@ write_byte.exit:                                  ; preds = %97, %108
 
 115:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %116 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3), !range !8
+  %116 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3)
   %.not.i78 = icmp eq i32 %116, 0
   br i1 %.not.i78, label %117, label %write_byte.exit82.thread
 
@@ -1616,7 +1616,7 @@ write_byte.exit:                                  ; preds = %97, %108
   br i1 %.not1.i80, label %write_byte.exit82, label %128
 
 128:                                              ; preds = %117
-  %129 = tail call fastcc i32 @start_new_packet(i32 noundef 1), !range !8
+  %129 = tail call fastcc i32 @start_new_packet(i32 noundef 1)
   %.not2.i81 = icmp eq i32 %129, 0
   br i1 %.not2.i81, label %write_byte.exit82, label %write_byte.exit82.thread
 
@@ -1665,7 +1665,7 @@ write_byte.exit82:                                ; preds = %117, %128
 
 151:                                              ; preds = %169
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !14
 
 152:                                              ; preds = %.lr.ph92, %151
   %153 = phi ptr [ %.pre, %.lr.ph92 ], [ %173, %151 ]
@@ -1745,7 +1745,7 @@ write_byte.exit82:                                ; preds = %117, %128
   br label %196
 
 190:                                              ; preds = %114
-  %191 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %191 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not57 = icmp eq i32 %191, 0
   br i1 %.not57, label %196, label %197
 
@@ -1760,7 +1760,7 @@ write_byte.exit82:                                ; preds = %117, %128
   br label %196
 
 194:                                              ; preds = %192
-  %195 = tail call fastcc i32 @write_current_packet(i32 noundef 0), !range !8
+  %195 = tail call fastcc i32 @write_current_packet(i32 noundef 0)
   %.not56 = icmp eq i32 %195, 0
   br i1 %.not56, label %196, label %197
 
@@ -1837,7 +1837,7 @@ define internal fastcc void @append_to_preamble(ptr noundef %0) unnamed_addr #0 
   store i8 32, ptr %27, align 1
   %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 13) #16
   %.not13 = icmp eq ptr %28, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %13, %17, %1, %12
   ret void
@@ -1850,7 +1850,7 @@ declare void @report_warning(ptr noundef, ...) local_unnamed_addr #1
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_num(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_num(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -1907,8 +1907,8 @@ define internal fastcc noundef i32 @parse_num(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @start_new_packet(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @write_current_packet(i32 noundef %0), !range !8
+define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @write_current_packet(i32 noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %76
 
@@ -1935,7 +1935,7 @@ define internal fastcc noundef i32 @start_new_packet(i32 noundef %0) unnamed_add
   %16 = getelementptr i8, ptr %.02.i.i, i64 1
   %17 = load i8, ptr %16, align 1
   %exitcond.i = icmp eq ptr %16, getelementptr inbounds ([3 x i8], ptr @.str.30, i64 0, i64 2)
-  br i1 %exitcond.i, label %.critedge.preheader.i.i, label %18, !llvm.loop !10
+  br i1 %exitcond.i, label %.critedge.preheader.i.i, label %18, !llvm.loop !9
 
 18:                                               ; preds = %15, %12
   %19 = phi i8 [ 105, %12 ], [ %17, %15 ]
@@ -1954,7 +1954,7 @@ define internal fastcc noundef i32 @start_new_packet(i32 noundef %0) unnamed_add
   %25 = getelementptr i8, ptr %.0184.i.i, i64 1
   %26 = load i8, ptr %25, align 1
   %exitcond20.i = icmp eq ptr %25, getelementptr inbounds ([3 x i8], ptr @.str.31, i64 0, i64 2)
-  br i1 %exitcond20.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !11
+  br i1 %exitcond20.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !10
 
 .critedge.preheader.i.i:                          ; preds = %15, %.critedge.i.i
   %27 = phi i8 [ %26, %.critedge.i.i ], [ 111, %15 ]
@@ -1994,7 +1994,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 
 .critedge.i:                                      ; preds = %36, %36, %36
   %40 = add i32 %.0.i, 1
-  br label %36, !llvm.loop !17
+  br label %36, !llvm.loop !16
 
 41:                                               ; preds = %36
   %42 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %37
@@ -2061,7 +2061,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
   store i8 32, ptr %71, align 1
   %72 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) @packet_preamble, i32 noundef 13) #16
   %.not17.i = icmp eq ptr %72, null
-  br i1 %.not17.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not17.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %68
   br i1 %.not18.i, label %73, label %parse_preamble.exit
@@ -2082,9 +2082,9 @@ parse_preamble.exit:                              ; preds = %.loopexit.i, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_byte(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_byte(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = call fastcc i32 @parse_num(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2), !range !8
+  %3 = call fastcc i32 @parse_num(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %18
 
@@ -2105,7 +2105,7 @@ define internal fastcc noundef i32 @write_byte(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not1, label %17, label %15
 
 15:                                               ; preds = %4
-  %16 = tail call fastcc i32 @start_new_packet(i32 noundef 1), !range !8
+  %16 = tail call fastcc i32 @start_new_packet(i32 noundef 1)
   %.not2 = icmp eq i32 %16, 0
   br i1 %.not2, label %17, label %18
 
@@ -2131,7 +2131,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @text_import(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 9) i32 @text_import(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr @state, align 4
   store i32 0, ptr @curr_offset, align 4
   store i32 0, ptr @packet_start, align 4
@@ -2523,7 +2523,7 @@ define hidden noundef i32 @text_import_pre_open(ptr nocapture noundef %0, i32 no
   %59 = add nuw nsw i32 %.049, 1
   %60 = load i32, ptr %52, align 8
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not48 = icmp eq i32 %60, 6
@@ -2685,7 +2685,7 @@ attributes #20 = { nounwind allocsize(0,1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -2696,4 +2696,3 @@ attributes #20 = { nounwind allocsize(0,1) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

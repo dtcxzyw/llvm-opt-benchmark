@@ -27,7 +27,7 @@ define signext i8 @f16_to_i8(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %
   br label %15
 
 13:                                               ; preds = %9
-  %14 = trunc i64 %5 to i8
+  %14 = trunc nsw i64 %5 to i8
   br label %15
 
 15:                                               ; preds = %13, %11, %7

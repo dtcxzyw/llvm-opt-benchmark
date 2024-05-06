@@ -473,7 +473,7 @@ list_length.exit:                                 ; preds = %4, %6
   unreachable
 
 42:                                               ; preds = %29
-  %43 = trunc i64 %indvars.iv50 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv50 to i32
   tail call void @list_free(ptr noundef %5) #6
   ret i32 %43
 }

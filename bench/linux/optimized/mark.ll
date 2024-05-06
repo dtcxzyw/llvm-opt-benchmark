@@ -968,7 +968,7 @@ define dso_local void @fsnotify_destroy_mark(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef i32 @fsnotify_compare_groups(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @fsnotify_compare_groups(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %19, label %4
 
@@ -1003,7 +1003,7 @@ define dso_local noundef i32 @fsnotify_compare_groups(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fsnotify_add_mark_locked(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fsnotify_add_mark_locked(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 80
@@ -1087,7 +1087,7 @@ define dso_local noundef i32 @fsnotify_add_mark_locked(ptr noundef %0, ptr nound
   br i1 %47, label %48, label %55, !prof !10
 
 48:                                               ; preds = %46
-  %49 = trunc i32 %2 to i16
+  %49 = trunc nuw nsw i32 %2 to i16
   %50 = getelementptr i8, ptr %1, i64 -912
   %51 = getelementptr i8, ptr %1, i64 -248
   %52 = getelementptr i8, ptr %1, i64 -544
@@ -1392,7 +1392,7 @@ default.unreachable:                              ; preds = %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fsnotify_add_mark(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fsnotify_add_mark(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 80
@@ -1416,7 +1416,7 @@ define dso_local noundef i32 @fsnotify_add_mark(ptr noundef %0, ptr noundef %1, 
   br label %20
 
 20:                                               ; preds = %12, %4
-  %21 = tail call i32 @fsnotify_add_mark_locked(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 poison), !range !58
+  %21 = tail call i32 @fsnotify_add_mark_locked(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 poison)
   %22 = load i32, ptr %8, align 8
   %23 = and i32 %22, 4
   %24 = icmp eq i32 %23, 0
@@ -1503,7 +1503,7 @@ define dso_local ptr @fsnotify_find_mark(ptr noundef %0, ptr noundef readnone %1
   %39 = getelementptr i8, ptr %37, i64 -40
   %40 = icmp eq ptr %39, null
   %41 = or i1 %38, %40
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %35, %33, %29, %5
   %42 = phi ptr [ %12, %33 ], [ %12, %29 ], [ null, %5 ], [ null, %35 ]
@@ -1624,7 +1624,7 @@ define dso_local void @fsnotify_clear_marks_by_group(ptr noundef %0, i32 noundef
 
 40:                                               ; preds = %34, %.preheader
   %41 = icmp eq ptr %27, %23
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !60
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !59
 
 .loopexit:                                        ; preds = %40, %22
   %42 = load i32, ptr %10, align 8
@@ -1779,7 +1779,7 @@ define dso_local void @fsnotify_clear_marks_by_group(ptr noundef %0, i32 noundef
 
 130:                                              ; preds = %129, %123, %122
   call void @fsnotify_put_mark(ptr noundef %88)
-  br label %60, !llvm.loop !61
+  br label %60, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1852,11 +1852,11 @@ define dso_local void @fsnotify_destroy_marks(ptr noundef %0) local_unnamed_addr
   %36 = getelementptr i8, ptr %34, i64 -40
   %37 = icmp eq ptr %36, null
   %38 = or i1 %35, %37
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !61
 
 .loopexit:                                        ; preds = %30, %5
   %39 = phi ptr [ null, %5 ], [ %12, %30 ]
-  store i32 0, ptr %2, align 4, !annotation !63
+  store i32 0, ptr %2, align 4, !annotation !62
   %40 = call fastcc ptr @fsnotify_detach_connector_from_object(ptr noundef nonnull %3, ptr noundef nonnull %2)
   tail call void @_raw_spin_unlock(ptr noundef nonnull %3) #6
   %41 = icmp eq ptr %39, null
@@ -1970,7 +1970,7 @@ define internal void @fsnotify_connector_destroy_workfn(ptr nocapture readnone %
   %7 = load ptr, ptr @fsnotify_mark_connector_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %7, ptr noundef nonnull %4) #6
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !64
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -2038,7 +2038,7 @@ define internal void @fsnotify_mark_destroy_workfn(ptr nocapture readnone %0) #0
 
 23:                                               ; preds = %18, %17
   %24 = icmp eq ptr %10, %2
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !64
 
 .loopexit:                                        ; preds = %23, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
@@ -2138,11 +2138,10 @@ attributes #7 = { nounwind memory(none) }
 !55 = !{i64 2154780863, i64 2154780672, i64 2154780724, i64 2154780770, i64 2154780798}
 !56 = !{i64 2154780937, i64 2154780966, i64 2154781012, i64 2154781070, i64 2154781124, i64 2154781178, i64 2154781233, i64 2154781264}
 !57 = !{i64 2150227093}
-!58 = !{i32 -22, i32 1}
+!58 = distinct !{!58, !17, !18}
 !59 = distinct !{!59, !17, !18}
-!60 = distinct !{!60, !17, !18}
-!61 = distinct !{!61, !18}
-!62 = distinct !{!62, !17, !18}
-!63 = !{!"auto-init"}
+!60 = distinct !{!60, !18}
+!61 = distinct !{!61, !17, !18}
+!62 = !{!"auto-init"}
+!63 = distinct !{!63, !17, !18}
 !64 = distinct !{!64, !17, !18}
-!65 = distinct !{!65, !17, !18}

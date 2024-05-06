@@ -601,7 +601,7 @@ define void @mca_base_component_repository_release(ptr noundef %0) local_unnamed
 .lr.ph.i:                                         ; preds = %7, %14
   %.0812.i = phi ptr [ %.08.i, %14 ], [ %.0810.i, %7 ]
   %11 = getelementptr inbounds i8, ptr %.0812.i, i64 72
-  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %4) #14
+  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %4) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %find_component.exit, label %14
 
@@ -654,7 +654,7 @@ mca_base_component_repository_release_internal.exit: ; preds = %29, %26, %find_c
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_component_repository_retain_component(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -13, 1) i32 @mca_base_component_repository_retain_component(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
@@ -673,7 +673,7 @@ define noundef i32 @mca_base_component_repository_retain_component(ptr noundef %
 .lr.ph.i:                                         ; preds = %6, %13
   %.0812.i = phi ptr [ %.08.i, %13 ], [ %.0810.i, %6 ]
   %10 = getelementptr inbounds i8, ptr %.0812.i, i64 72
-  %11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #14
+  %11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %find_component.exit, label %13
 
@@ -705,7 +705,7 @@ find_component.exit:                              ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_component_repository_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -8, 1) i32 @mca_base_component_repository_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -856,25 +856,25 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %41
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %65, align 8
-  %78 = call fastcc i32 @file_exists(ptr noundef %77, ptr noundef nonnull @.str.13), !range !11
+  %78 = call fastcc i32 @file_exists(ptr noundef %77, ptr noundef nonnull @.str.13)
   %.not81 = icmp eq i32 %78, 0
   br i1 %.not81, label %79, label %88
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %65, align 8
-  %81 = call fastcc i32 @file_exists(ptr noundef %80, ptr noundef nonnull @.str.14), !range !11
+  %81 = call fastcc i32 @file_exists(ptr noundef %80, ptr noundef nonnull @.str.14)
   %.not82 = icmp eq i32 %81, 0
   br i1 %.not82, label %82, label %88
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %65, align 8
-  %84 = call fastcc i32 @file_exists(ptr noundef %83, ptr noundef nonnull @.str.15), !range !11
+  %84 = call fastcc i32 @file_exists(ptr noundef %83, ptr noundef nonnull @.str.15)
   %.not83 = icmp eq i32 %84, 0
   br i1 %.not83, label %85, label %88
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr %65, align 8
-  %87 = call fastcc i32 @file_exists(ptr noundef %86, ptr noundef nonnull @.str.16), !range !11
+  %87 = call fastcc i32 @file_exists(ptr noundef %86, ptr noundef nonnull @.str.16)
   %.not84 = icmp eq i32 %87, 0
   br i1 %.not84, label %89, label %88
 
@@ -1195,7 +1195,7 @@ declare i32 @opal_dl_open(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, p
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @file_exists(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @file_exists(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
@@ -1325,7 +1325,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %38
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load volatile i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %50, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !11
 
 opal_list_remove_first.exit.thread:               ; preds = %46, %.preheader, %.lr.ph24
   %51 = phi ptr [ %8, %.preheader ], [ %8, %.lr.ph24 ], [ %47, %46 ]
@@ -1382,7 +1382,7 @@ opal_obj_run_destructors.exit16:                  ; preds = %opal_obj_run_destru
   %73 = load ptr, ptr %2, align 8
   %74 = call i32 @opal_hash_table_get_next_key_ptr(ptr noundef nonnull @mca_base_component_repository, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull %2) #13
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.lr.ph24, label %._crit_edge, !llvm.loop !13
+  br i1 %75, label %.lr.ph24, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %72, %5
   %76 = call i32 @mca_base_framework_close(ptr noundef nonnull @opal_dl_base_framework) #13
@@ -1471,6 +1471,5 @@ attributes #15 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

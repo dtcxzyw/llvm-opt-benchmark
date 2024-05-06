@@ -3325,7 +3325,7 @@ declare dso_local void @blk_freeze_queue_start(ptr noundef) local_unnamed_addr #
 declare dso_local void @blk_mq_wake_waiters(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_queue_enter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @blk_queue_enter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = and i32 %1, 4
   %5 = icmp ne i32 %4, 0
@@ -3627,7 +3627,7 @@ declare dso_local void @schedule() local_unnamed_addr #0
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__bio_queue_enter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @__bio_queue_enter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5355,7 +5355,7 @@ define dso_local void @bio_end_io_acct_remapped(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_lld_busy(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @blk_lld_busy(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5378,7 +5378,7 @@ define dso_local i32 @blk_lld_busy(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kblockd_schedule_work(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @kblockd_schedule_work(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr @kblockd_workqueue, align 8
   %3 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %2, ptr noundef %0) #18
   %4 = zext i1 %3 to i32
@@ -5386,7 +5386,7 @@ define dso_local i32 @kblockd_schedule_work(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kblockd_mod_delayed_work_on(i32 noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @kblockd_mod_delayed_work_on(i32 noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load ptr, ptr @kblockd_workqueue, align 8
   %5 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef %0, ptr noundef %4, ptr noundef %1, i64 noundef %2) #18
   %6 = zext i1 %5 to i32
@@ -6254,7 +6254,7 @@ blk_try_enter_queue.exit:                         ; preds = %.loopexit.i
 
 .loopexit:                                        ; preds = %31, %17, %53, %20
   tail call void @__rcu_read_unlock() #18
-  %54 = tail call i32 @__bio_queue_enter(ptr noundef %10, ptr noundef %0), !range !122
+  %54 = tail call i32 @__bio_queue_enter(ptr noundef %10, ptr noundef %0)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %82, !prof !29
 
@@ -6484,4 +6484,3 @@ attributes #23 = { cold noreturn nounwind }
 !119 = distinct !{!119, !7, !8}
 !120 = !{i64 2160651015, i64 2160650824, i64 2160650876, i64 2160650922, i64 2160650950}
 !121 = !{i64 2160651089, i64 2160651118, i64 2160651164, i64 2160651222, i64 2160651276, i64 2160651330, i64 2160651385, i64 2160651416}
-!122 = !{i32 -19, i32 1}

@@ -123,7 +123,7 @@ if.end56:                                         ; preds = %if.then55, %if.end5
   br i1 %cmp46.old, label %if.end59, label %lor.lhs.false48
 
 if.end59.loopexit.split.loop.exit34:              ; preds = %lor.lhs.false48
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end56, %if.end59.loopexit.split.loop.exit34, %for.end

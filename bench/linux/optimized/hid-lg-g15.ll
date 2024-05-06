@@ -1238,10 +1238,10 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = add nuw nsw i8 %5, 5
   %7 = tail call i32 @hid_hw_raw_request(ptr noundef %4, i8 noundef zeroext %6, ptr noundef %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 4
@@ -1277,7 +1277,7 @@ define internal fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i
   %29 = mul nuw nsw i32 %28, 255
   %30 = lshr i32 %23, 1
   %31 = add nuw nsw i32 %30, %29
-  %.lhs.trunc7 = trunc i32 %31 to i16
+  %.lhs.trunc7 = trunc nuw i32 %31 to i16
   %.rhs.trunc8 = zext i8 %22 to i16
   %32 = udiv i16 %.lhs.trunc7, %.rhs.trunc8
   %33 = trunc i16 %32 to i8
@@ -1298,7 +1298,7 @@ define internal fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i
   %43 = mul nuw nsw i32 %42, 255
   %44 = lshr i32 %23, 1
   %45 = add nuw nsw i32 %44, %43
-  %.lhs.trunc4 = trunc i32 %45 to i16
+  %.lhs.trunc4 = trunc nuw i32 %45 to i16
   %.rhs.trunc5 = zext i8 %22 to i16
   %46 = udiv i16 %.lhs.trunc4, %.rhs.trunc5
   %47 = trunc i16 %46 to i8
@@ -1316,7 +1316,7 @@ define internal fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i
   %54 = mul nuw nsw i32 %53, 255
   %55 = lshr i32 %23, 1
   %56 = add nuw nsw i32 %55, %54
-  %.lhs.trunc = trunc i32 %56 to i16
+  %.lhs.trunc = trunc nuw i32 %56 to i16
   %.rhs.trunc = zext i8 %22 to i16
   %57 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %58 = trunc i16 %57 to i8
@@ -1434,7 +1434,7 @@ define internal i32 @lg_g15_led_get(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lg_g15_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -1464,7 +1464,7 @@ define internal i32 @lg_g15_led_set(ptr nocapture noundef %0, i32 noundef %1) #2
   br label %30
 
 22:                                               ; preds = %13
-  %23 = trunc i32 %17 to i8
+  %23 = trunc nuw nsw i32 %17 to i8
   %24 = add nuw nsw i8 %23, 1
   %25 = getelementptr i8, ptr %8, i64 1
   store i8 %24, ptr %25, align 1
@@ -1539,7 +1539,7 @@ define internal i32 @lg_g15_led_set(ptr nocapture noundef %0, i32 noundef %1) #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lg_g510_kbd_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2
@@ -1627,7 +1627,7 @@ define internal i32 @lg_g510_kbd_led_get(ptr nocapture noundef readonly %0) #7 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lg_g510_mkey_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -1667,7 +1667,7 @@ define internal i32 @lg_g510_mkey_led_set(ptr nocapture noundef %0, i32 noundef 
   %30 = trunc i64 %20 to i32
   %31 = add i32 %30, -2
   %32 = lshr i32 128, %31
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw i32 %32 to i8
   %34 = select i1 %29, i8 0, i8 %33
   %35 = or i8 %34, %21
   %36 = add nuw nsw i64 %20, 1
@@ -1762,7 +1762,7 @@ define internal i32 @lg_g510_mkey_led_get(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @color_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @color_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 80

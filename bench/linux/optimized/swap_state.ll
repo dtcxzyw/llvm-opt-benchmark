@@ -1564,7 +1564,7 @@ declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #3
 declare dso_local void @blk_finish_plug(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @init_swap_address_space(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @init_swap_address_space(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = add i64 %1, 16383
   %4 = lshr i64 %3, 14
   %5 = and i64 %4, 4294967295
@@ -2020,7 +2020,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vma_ra_enabled_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vma_ra_enabled_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = load i8, ptr @enable_vma_readahead, align 1, !range !24, !noundef !25
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr @.str.9, ptr @.str.8

@@ -153,7 +153,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 .noexc7:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
@@ -223,7 +223,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 .noexc7:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
@@ -287,7 +287,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 .noexc7:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
@@ -351,7 +351,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 .noexc7:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
@@ -415,7 +415,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 .noexc7:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1

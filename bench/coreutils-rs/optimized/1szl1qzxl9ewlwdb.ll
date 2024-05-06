@@ -31,7 +31,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7abab5630d1a912
   store <2 x i64> %9, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !4, !noalias !7
   store <2 x i64> %5, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !4, !noalias !7
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !4, !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !4, !noalias !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %10 = load i64, ptr %1, align 8, !alias.scope !9, !noalias !12, !noundef !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !18

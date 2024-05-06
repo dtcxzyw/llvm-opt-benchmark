@@ -87,7 +87,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @setup_tick_nohz(ptr noundef %0) #2 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @setup_tick_nohz(ptr noundef %0) #2 section ".init.text" align 16 {
   %2 = tail call i32 @kstrtobool(ptr noundef %0, ptr noundef nonnull @tick_nohz_enabled) #14
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
@@ -118,7 +118,7 @@ define dso_local zeroext i1 @tick_nohz_tick_stopped_cpu(i32 noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
+define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -222,7 +222,7 @@ define dso_local i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly
 declare dso_local i32 @nr_iowait_cpu(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @get_cpu_iowait_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
+define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iowait_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -1360,7 +1360,7 @@ define dso_local void @tick_setup_sched_timer() local_unnamed_addr #5 align 16 {
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tick_nohz_highres_handler(ptr noundef %0) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @tick_nohz_highres_handler(ptr noundef %0) #5 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
   %3 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #15, !srcloc !83
   %4 = inttoptr i64 %3 to ptr
@@ -1568,7 +1568,7 @@ define dso_local void @tick_oneshot_notify() local_unnamed_addr #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tick_check_oneshot_change(i32 noundef %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @tick_check_oneshot_change(i32 noundef %0) local_unnamed_addr #5 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !90
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 224

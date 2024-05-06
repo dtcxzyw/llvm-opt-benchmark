@@ -121,7 +121,7 @@ define dso_local ptr @curl_unescape(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i.i, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #5
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -239,7 +239,7 @@ define dso_local ptr @curl_easy_unescape(ptr nocapture noundef readnone %0, ptr 
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -374,7 +374,7 @@ declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_urldecode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_urldecode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %6, label %8
 

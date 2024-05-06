@@ -405,7 +405,7 @@ define dso_local void @__thaw_task(ptr noundef %0) local_unnamed_addr #0 align 1
 declare dso_local i32 @task_call_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @__restore_freezer_state(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @__restore_freezer_state(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -479,7 +479,7 @@ define dso_local noundef zeroext i1 @set_freezable() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__set_task_frozen(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104

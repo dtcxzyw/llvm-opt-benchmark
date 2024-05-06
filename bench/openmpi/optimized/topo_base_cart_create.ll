@@ -128,7 +128,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %45
   br label %mca_topo_base_cart_allocate.exit.thread
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = mul nsw i32 %32, %.082112.i
+  %54 = mul nuw nsw i32 %32, %.082112.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -301,8 +301,8 @@ opal_obj_run_destructors.exit109.i:               ; preds = %.lr.ph.i106.i, %121
   br label %mca_topo_base_cart_allocate.exit.thread
 
 129:                                              ; preds = %108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr align 4 %3, i64 %100, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr align 4 %4, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr readonly align 4 %3, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr readonly align 4 %4, i64 %100, i1 false)
   br i1 %30, label %.lr.ph118.preheader.i, label %mca_topo_base_cart_allocate.exit
 
 .lr.ph118.preheader.i:                            ; preds = %129

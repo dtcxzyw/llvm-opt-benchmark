@@ -6050,7 +6050,7 @@ lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds =
           cleanup
   br label %ehcleanup
 
-lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.i193, %if.else, %if.end.i.i179, %if.end.i176
+lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.i193, %if.else, %if.then.i, %if.end.i176
   %lpad.loopexit.split-lp275 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -6314,16 +6314,16 @@ if.then114:                                       ; preds = %invoke.cont112
   %m_mc115 = getelementptr inbounds i8, ptr %this, i64 120
   %103 = load ptr, ptr %m_mc115, align 8
   %cmp.i175 = icmp eq ptr %103, null
-  br i1 %cmp.i175, label %if.end.i.i179, label %if.end.i176
+  br i1 %cmp.i175, label %if.then.i, label %if.end.i176
 
 if.end.i176:                                      ; preds = %if.then114
   %vtable.i = load ptr, ptr %103, align 8
   %104 = load ptr, ptr %vtable.i, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(96) %103) #15
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %103)
-          to label %if.end.i.i179 unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %if.then.i unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end.i.i179:                                    ; preds = %if.end.i176, %if.then114
+if.then.i:                                        ; preds = %if.end.i176, %if.then114
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %101) #15
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %101)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -6372,8 +6372,8 @@ _ZN7datalog7context19add_model_converterEP15model_converter.exit: ; preds = %if.
   store ptr %call2.i194, ptr %m_mc.i182, align 8
   br label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %if.end.i.i179, %_ZN7datalog7context19add_model_converterEP15model_converter.exit
-  %112 = phi ptr [ %101, %_ZN7datalog7context19add_model_converterEP15model_converter.exit ], [ null, %if.end.i.i179 ]
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %if.then.i, %_ZN7datalog7context19add_model_converterEP15model_converter.exit
+  %112 = phi ptr [ %101, %_ZN7datalog7context19add_model_converterEP15model_converter.exit ], [ null, %if.then.i ]
   %m_mc123 = getelementptr inbounds i8, ptr %this, i64 120
   store ptr null, ptr %m_mc123, align 8
   store ptr null, ptr %result, align 8
@@ -8285,7 +8285,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   %32 = load ptr, ptr %m, align 8
   %arrayidx.i49 = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %33 = load ptr, ptr %arrayidx.i49, align 8
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw i64 %indvars.iv to i32
   %call36 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %32, i32 noundef %34, ptr noundef %33)
           to label %invoke.cont35 unwind label %lpad34.loopexit
 
@@ -8569,7 +8569,7 @@ invoke.cont54:                                    ; preds = %invoke.cont49
           to label %invoke.cont56 unwind label %lpad48.loopexit
 
 invoke.cont56:                                    ; preds = %invoke.cont54
-  %69 = trunc i64 %indvars.iv579 to i32
+  %69 = trunc nuw i64 %indvars.iv579 to i32
   %call59 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %67, i32 noundef %69, ptr noundef %call57)
           to label %invoke.cont60 unwind label %lpad48.loopexit
 
@@ -8768,7 +8768,7 @@ invoke.cont92:                                    ; preds = %.noexc122, %lor.lhs
   %inc.i.i117 = add i32 %90, 1
   store i32 %inc.i.i117, ptr %arrayidx10.i.i116, align 4
   %91 = load ptr, ptr %m, align 8
-  %92 = trunc i64 %indvars.iv582 to i32
+  %92 = trunc nuw i64 %indvars.iv582 to i32
   %call96 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %91, i32 noundef %92, ptr noundef %80)
           to label %invoke.cont97 unwind label %lpad82.loopexit.split-lp.loopexit
 

@@ -255,7 +255,7 @@ return:                                           ; preds = %err, %if.then23, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hash_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -338,7 +338,7 @@ declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 declare ptr @ossl_rand_drbg_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hash_new(ptr nocapture noundef writeonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_new(ptr nocapture noundef writeonly %ctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 376, ptr noundef nonnull @.str, i32 noundef 423) #5
   %cmp = icmp eq ptr %call, null
@@ -367,7 +367,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hash_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -392,7 +392,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %C = getelementptr inbounds i8, ptr %0, i64 151
   %3 = load i64, ptr %2, align 8
   %drbg.val11 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc noundef i32 @hash_df(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc i32 @hash_df(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
@@ -416,7 +416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hash_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %V, ptr nonnull align 1 %C, i64 %2, i1 false)
   %3 = load i64, ptr %seedlen, align 8
   %drbg.val13 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc noundef i32 @hash_df(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc i32 @hash_df(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -442,7 +442,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hash_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %counter = alloca [4 x i8], align 1
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
@@ -450,7 +450,7 @@ entry:
   %generate_counter = getelementptr inbounds i8, ptr %drbg, i64 192
   %1 = load i32, ptr %generate_counter, align 8
   %shr = lshr i32 %1, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   store i8 %conv, ptr %counter, align 1
   %shr1 = lshr i32 %1, 16
   %conv3 = trunc i32 %shr1 to i8
@@ -475,7 +475,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true18, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %land.lhs.true
-  %call = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %drbg, i8 noundef zeroext 2, ptr noundef nonnull %adin, i64 noundef %adin_len), !range !8
+  %call = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %drbg, i8 noundef zeroext 2, ptr noundef nonnull %adin, i64 noundef %adin_len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %lor.lhs.false17.land.lhs.true18_crit_edge
 
@@ -568,7 +568,7 @@ for.body18.i.i:                                   ; preds = %if.then.i.i, %for.b
   %dec27.i.i = add i64 %i.124.i.i, -1
   %cmp16.not.i.i = icmp eq i64 %dec27.i.i, 0
   %or.cond.i.i = select i1 %cmp23.not.i.i, i1 true, i1 %cmp16.not.i.i
-  br i1 %or.cond.i.i, label %add_bytes.exit.i, label %for.body18.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i, label %add_bytes.exit.i, label %for.body18.i.i, !llvm.loop !8
 
 add_bytes.exit.i:                                 ; preds = %for.body18.i.i, %if.then.i.i, %if.end30.i
   %15 = load ptr, ptr %ctx.i, align 8
@@ -578,7 +578,7 @@ add_bytes.exit.i:                                 ; preds = %for.body18.i.i, %if
   br i1 %tobool.not.i, label %land.end, label %lor.lhs.false.i
 
 land.lhs.true21:                                  ; preds = %if.end26.i, %if.end19.i, %land.lhs.true18
-  %call22 = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %drbg, i8 noundef zeroext 3, ptr noundef null, i64 noundef 0), !range !8
+  %call22 = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %drbg, i8 noundef zeroext 3, ptr noundef null, i64 noundef 0)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %land.end, label %land.lhs.true24
 
@@ -614,7 +614,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %dec.i = add i64 %i.018.i, -1
   %d.0.i = getelementptr inbounds i8, ptr %d.021.i, i64 -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
   %21 = and i32 %add6.i, 65280
@@ -636,7 +636,7 @@ for.body18.i:                                     ; preds = %for.end.i, %for.bod
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %d.125.i, i64 -1
   %cmp16.not.i = icmp eq i64 %dec27.i, 0
   %or.cond.i = select i1 %cmp23.not.i, i1 true, i1 %cmp16.not.i
-  br i1 %or.cond.i, label %add_bytes.exit.loopexit, label %for.body18.i, !llvm.loop !9
+  br i1 %or.cond.i, label %add_bytes.exit.loopexit, label %for.body18.i, !llvm.loop !8
 
 add_bytes.exit.loopexit:                          ; preds = %for.body18.i
   %.pre63 = load i64, ptr %seedlen, align 8
@@ -667,7 +667,7 @@ for.body.i21:                                     ; preds = %for.body.i21, %add_
   %dec.i33 = add nsw i64 %i.018.i25, -1
   %d.0.i34 = getelementptr inbounds i8, ptr %d.021.i22, i64 -1
   %cmp.not.i35 = icmp eq i64 %dec.i33, 0
-  br i1 %cmp.not.i35, label %for.end.i36, label %for.body.i21, !llvm.loop !10
+  br i1 %cmp.not.i35, label %for.end.i36, label %for.body.i21, !llvm.loop !9
 
 for.end.i36:                                      ; preds = %for.body.i21
   %29 = and i32 %add6.i30, 65280
@@ -691,7 +691,7 @@ for.body18.i40:                                   ; preds = %if.then.i37, %for.b
   %incdec.ptr28.i46 = getelementptr inbounds i8, ptr %d.125.i41, i64 -1
   %cmp16.not.i47 = icmp eq i64 %dec27.i45, 0
   %or.cond.i48 = select i1 %cmp23.not.i44, i1 true, i1 %cmp16.not.i47
-  br i1 %or.cond.i48, label %land.end, label %for.body18.i40, !llvm.loop !9
+  br i1 %or.cond.i48, label %land.end, label %for.body18.i40, !llvm.loop !8
 
 land.end:                                         ; preds = %if.else.i, %add_bytes.exit.i, %lor.lhs.false.i, %for.body18.i40, %if.end.i, %if.then12.i, %if.then.i37, %for.end.i36, %land.lhs.true21, %lor.lhs.false17, %entry
   %land.ext = phi i32 [ 0, %land.lhs.true21 ], [ 0, %lor.lhs.false17 ], [ 0, %entry ], [ 1, %for.end.i36 ], [ 1, %if.then.i37 ], [ 0, %if.then12.i ], [ 0, %if.end.i ], [ 1, %for.body18.i40 ], [ 0, %lor.lhs.false.i ], [ 0, %add_bytes.exit.i ], [ 0, %if.else.i ]
@@ -705,7 +705,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hash_df(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
 entry:
   %tmp = alloca [6 x i8], align 1
   %ctx1 = getelementptr inbounds i8, ptr %drbg.248.val, i64 24
@@ -961,7 +961,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ossl_prov_drbg_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_hash_to_v(ptr nocapture noundef readonly %drbg, i8 noundef zeroext %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr nocapture noundef readonly %drbg, i8 noundef zeroext %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
 entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1
@@ -1033,7 +1033,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %dec.i = add i64 %i.018.i, -1
   %d.0.i = getelementptr inbounds i8, ptr %d.021.i, i64 -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
   %9 = and i32 %add6.i, 65280
@@ -1057,7 +1057,7 @@ for.body18.i:                                     ; preds = %if.then.i, %for.bod
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %d.125.i, i64 -1
   %cmp16.not.i = icmp eq i64 %dec27.i, 0
   %or.cond.i = select i1 %cmp23.not.i, i1 true, i1 %cmp16.not.i
-  br i1 %or.cond.i, label %land.end, label %for.body18.i, !llvm.loop !9
+  br i1 %or.cond.i, label %land.end, label %for.body18.i, !llvm.loop !8
 
 land.end:                                         ; preds = %for.body18.i, %if.then.i, %for.end.i, %land.rhs, %land.lhs.true11, %lor.lhs.false, %land.lhs.true5, %land.lhs.true, %entry
   %land.ext = phi i32 [ 0, %land.lhs.true11 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true5 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 1, %land.rhs ], [ 1, %for.end.i ], [ 1, %if.then.i ], [ 1, %for.body18.i ]
@@ -1179,6 +1179,5 @@ attributes #5 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

@@ -835,7 +835,7 @@ invoke.cont:                                      ; preds = %entry
   %14 = load ptr, ptr %_data, align 8
   %part9.i = getelementptr inbounds i8, ptr %14, i64 224
   store ptr %call6, ptr %part9.i, align 8
-  tail call void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1794,7 +1794,7 @@ call.i.noexc:                                     ; preds = %invoke.cont3
   %6 = load ptr, ptr %_data, align 8
   %part9.i = getelementptr inbounds i8, ptr %6, i64 224
   store ptr %part, ptr %part9.i, align 8
-  invoke void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this)
           to label %try.cont unwind label %lpad5
 
 lpad:                                             ; preds = %entry
@@ -2831,7 +2831,7 @@ for.body137.lr.ph.i:                              ; preds = %for.cond135.prehead
   %27 = call float @llvm.fabs.f32(float %conv183.i)
   %and.i.i.i = bitcast float %27 to i32
   %shr.i.i.i = lshr i32 %26, 16
-  %28 = trunc i32 %shr.i.i.i to i16
+  %28 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %28, -32768
   %cmp.i.i182.i = icmp ugt i32 %and.i.i.i, 947912703
   %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
@@ -2844,7 +2844,7 @@ for.body137.lr.ph.i:                              ; preds = %for.cond135.prehead
   %shr46.i.i.i = lshr i32 %or44.i.i.i, %sub42.i.i.i
   %conv47.i.i.i = and i32 %shr.i.i.i, 32768
   %or48.i.i.i = or i32 %shr46.i.i.i, %conv47.i.i.i
-  %conv49.i.i.i = trunc i32 %or48.i.i.i to i16
+  %conv49.i.i.i = trunc nuw i32 %or48.i.i.i to i16
   %cmp50.i.i.i = icmp ugt i32 %shl.i.i.i, -2147483648
   %cmp51.i.i.i = icmp eq i32 %shl.i.i.i, -2147483648
   %and53.i.i.i = and i32 %shr46.i.i.i, 1
@@ -2864,7 +2864,7 @@ for.body137.lr.ph.i:                              ; preds = %for.cond135.prehead
   %shr10.i.i.i = and i32 %shr28.i.i.i, 1023
   %cmp15.i.i.i = icmp eq i32 %shr10.i.i.i, 0
   %29 = zext i1 %cmp15.i.i.i to i16
-  %30 = trunc i32 %shr10.i.i.i to i16
+  %30 = trunc nuw nsw i32 %shr10.i.i.i to i16
   %31 = or i16 %29, %30
   %conv151.i = fptoui double %toSlice.sroa.25.0.copyload.i to i32
   %brmerge.i = select i1 %cmp50.i.i.i, i1 true, i1 %or.cond.i.i.not235.i

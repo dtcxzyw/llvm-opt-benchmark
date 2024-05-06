@@ -88,7 +88,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #14
   %4 = load ptr, ptr %call.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %4, i64 98
@@ -110,7 +110,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
   %9 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %8, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i.i, ptr align 1 %8, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #14
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2

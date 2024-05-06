@@ -170,7 +170,7 @@ size_classes.exit:                                ; preds = %while.end110.i
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %sext174.i = shl i64 %indvars.iv158.i, 32
   %15 = ashr exact i64 %sext174.i, 32
-  %16 = tail call i64 @llvm.ctlz.i64(i64 %15, i1 false), !range !10
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
   %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i = sub nuw nsw i32 64, %17
   store i32 0, ptr %sc_data, align 8
@@ -277,7 +277,7 @@ if.else13.i:                                      ; preds = %if.else.i
 for.inc:                                          ; preds = %if.else13.i, %if.then10.i, %if.then7.i, %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   ret void
@@ -314,5 +314,4 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 65}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

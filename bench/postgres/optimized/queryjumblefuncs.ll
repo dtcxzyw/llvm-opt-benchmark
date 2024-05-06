@@ -70,7 +70,7 @@ define dso_local noundef ptr @CleanQuerytext(ptr noundef readonly %0, ptr nocapt
 
 24:                                               ; preds = %27, %.critedge
   %indvars.iv = phi i64 [ %28, %27 ], [ %23, %.critedge ]
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw i64 %indvars.iv to i32
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %.critedge2
 

@@ -2848,13 +2848,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx38 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %arrayidx38, align 8
   %mFilename.i31 = getelementptr inbounds i8, ptr %21, i64 32
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx19) #25
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx19) #25
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %spec.store.select.i.i.i = call i32 @llvm.smin.i32(i32 %conv.i.i.i, i32 1023)
   store i32 %spec.store.select.i.i.i, ptr %mFilename.i31, align 4
   %data.i.i.i = getelementptr inbounds i8, ptr %21, i64 36
   %conv2.i.i.i = sext i32 %spec.store.select.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr align 1 %arrayidx19, i64 %conv2.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %data.i.i.i, ptr readonly align 1 %arrayidx19, i64 %conv2.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i, i64 0, i64 %conv2.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %22 = load i32, ptr %width, align 1
@@ -2888,11 +2888,11 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %26 = load i8, ptr %arrayidx24.i, align 1
   %r.i = getelementptr inbounds i8, ptr %out.036.i, i64 2
   store i8 %26, ptr %r.i, align 1
-  %arrayidx29.i = getelementptr i8, ptr %arrayidx24.i, i64 1
+  %arrayidx29.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 1
   %27 = load i8, ptr %arrayidx29.i, align 1
   %g.i33 = getelementptr inbounds i8, ptr %out.036.i, i64 1
   store i8 %27, ptr %g.i33, align 1
-  %arrayidx35.i = getelementptr i8, ptr %arrayidx24.i, i64 2
+  %arrayidx35.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 2
   %28 = load i8, ptr %arrayidx35.i, align 1
   store i8 %28, ptr %out.036.i, align 1
   %a.i = getelementptr inbounds i8, ptr %out.036.i, i64 3
@@ -6245,8 +6245,8 @@ for.body389:                                      ; preds = %for.body389.prehead
   %indvars.iv.next2518 = add nuw nsw i64 %indvars.iv2517, 1
   %add.ptr.i643 = getelementptr inbounds i16, ptr %298, i64 %indvars.iv.next2518
   %300 = load i16, ptr %add.ptr.i643, align 2
-  %301 = getelementptr i16, ptr %298, i64 %indvars.iv2517
-  %add.ptr.i644 = getelementptr i8, ptr %301, i64 4
+  %301 = getelementptr inbounds i16, ptr %298, i64 %indvars.iv2517
+  %add.ptr.i644 = getelementptr inbounds i8, ptr %301, i64 4
   %302 = load i16, ptr %add.ptr.i644, align 2
   %cmp.not.i.i = icmp eq ptr %mesh_faces.sroa.16.61950, %mesh_faces.sroa.33.51949
   br i1 %cmp.not.i.i, label %if.else.i.i649, label %if.then.i.i647
@@ -6332,14 +6332,14 @@ for.body406:                                      ; preds = %for.body406.prehead
   %and2541 = and i64 %indvars.iv2512, 1
   %tobool407.not = icmp eq i64 %and2541, 0
   %304 = load ptr, ptr %tricmds, align 8
-  %add.ptr.i694 = getelementptr i16, ptr %304, i64 %indvars.iv2512
+  %add.ptr.i694 = getelementptr inbounds i16, ptr %304, i64 %indvars.iv2512
   br i1 %tobool407.not, label %if.else422, label %if.then408
 
 if.then408:                                       ; preds = %for.body406
-  %add.ptr.i655 = getelementptr i8, ptr %add.ptr.i694, i64 2
+  %add.ptr.i655 = getelementptr inbounds i8, ptr %add.ptr.i694, i64 2
   %305 = load i16, ptr %add.ptr.i655, align 2
   %306 = load i16, ptr %add.ptr.i694, align 2
-  %add.ptr.i657 = getelementptr i8, ptr %add.ptr.i694, i64 4
+  %add.ptr.i657 = getelementptr inbounds i8, ptr %add.ptr.i694, i64 4
   %307 = load i16, ptr %add.ptr.i657, align 2
   %cmp.not.i.i660 = icmp eq ptr %mesh_faces.sroa.16.81942, %mesh_faces.sroa.33.71941
   br i1 %cmp.not.i.i660, label %if.else.i.i663, label %if.then.i.i661
@@ -6416,7 +6416,7 @@ if.else422:                                       ; preds = %for.body406
   %310 = or disjoint i64 %indvars.iv2512, 1
   %add.ptr.i695 = getelementptr inbounds i16, ptr %304, i64 %310
   %311 = load i16, ptr %add.ptr.i695, align 2
-  %add.ptr.i696 = getelementptr i8, ptr %add.ptr.i694, i64 4
+  %add.ptr.i696 = getelementptr inbounds i8, ptr %add.ptr.i694, i64 4
   %312 = load i16, ptr %add.ptr.i696, align 2
   %cmp.not.i.i699 = icmp eq ptr %mesh_faces.sroa.16.81942, %mesh_faces.sroa.33.71941
   br i1 %cmp.not.i.i699, label %if.else.i.i702, label %if.then.i.i700
@@ -15577,11 +15577,11 @@ for.body:                                         ; preds = %entry, %for.body
   %4 = load i8, ptr %arrayidx24, align 1
   %r = getelementptr inbounds i8, ptr %out.036, i64 2
   store i8 %4, ptr %r, align 1
-  %arrayidx29 = getelementptr i8, ptr %arrayidx24, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx24, i64 1
   %5 = load i8, ptr %arrayidx29, align 1
   %g = getelementptr inbounds i8, ptr %out.036, i64 1
   store i8 %5, ptr %g, align 1
-  %arrayidx35 = getelementptr i8, ptr %arrayidx24, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx24, i64 2
   %6 = load i8, ptr %arrayidx35, align 1
   store i8 %6, ptr %out.036, align 1
   %a = getelementptr inbounds i8, ptr %out.036, i64 3

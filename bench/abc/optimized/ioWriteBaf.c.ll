@@ -163,7 +163,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %80, label %.lr.ph195, label %.critedge6.preheader
 
 .critedge6.preheader.loopexit:                    ; preds = %.lr.ph195
-  %81 = trunc i64 %indvars.iv.next220 to i32
+  %81 = trunc nuw i64 %indvars.iv.next220 to i32
   br label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %.critedge4
@@ -373,7 +373,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %134, %137
   br i1 %181, label %Extra_ProgressBarUpdate.exit173, label %182
 
 182:                                              ; preds = %178, %174
-  %183 = trunc i64 %indvars.iv232 to i32
+  %183 = trunc nsw i64 %indvars.iv232 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %118, i32 noundef %183, ptr noundef null) #5
   br label %Extra_ProgressBarUpdate.exit173
 

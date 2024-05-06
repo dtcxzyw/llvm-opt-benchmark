@@ -2444,11 +2444,11 @@ invoke.cont50.i.i:                                ; preds = %invoke.cont49.i.i
 
 invoke.cont51.i.i:                                ; preds = %invoke.cont50.i.i
   %call53.i.i = invoke fastcc noundef signext i8 @_ZL8fallbackRN6icu_7510CharStringE(ptr noundef nonnull align 8 dereferenceable(60) %locale.i.i)
-          to label %invoke.cont52.i.i unwind label %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i, !range !14
+          to label %invoke.cont52.i.i unwind label %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i
 
 invoke.cont52.i.i:                                ; preds = %invoke.cont51.i.i
   %tobool54.not.i.i = icmp eq i8 %call53.i.i, 0
-  br i1 %tobool54.not.i.i, label %invoke.cont5.i, label %for.cond.i.i, !llvm.loop !15
+  br i1 %tobool54.not.i.i, label %invoke.cont5.i, label %for.cond.i.i, !llvm.loop !14
 
 ehcleanup58.i.i:                                  ; preds = %ehcleanup.i.i, %lpad.loopexit.split-lp28.loopexit.i.split.us.i, %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.split-lp.i.i, %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.split-lp28.loopexit.i.split.i, %lpad.loopexit27.i.i
   %.pn21.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %lpad.loopexit29.i.i, %lpad.loopexit27.i.i ], [ %lpad.loopexit35.i.i, %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp36.i.i, %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit32.i.i, %lpad.loopexit.split-lp28.loopexit.i.split.i ], [ %lpad.loopexit32.i.us.i, %lpad.loopexit.split-lp28.loopexit.i.split.us.i ]
@@ -2675,7 +2675,7 @@ invoke.cont80.i:                                  ; preds = %if.else9.i.i, %if.t
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
   %currencyNameLen85.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv139, i32 2
   store i32 %cond.i.i, ptr %currencyNameLen85.i, align 8
-  br label %while.cond.i, !llvm.loop !16
+  br label %while.cond.i, !llvm.loop !15
 
 lpad61.i:                                         ; preds = %if.then59.i
   %48 = landingpad { ptr, i32 }
@@ -2764,7 +2764,7 @@ invoke.cont115.i:                                 ; preds = %invoke.cont107.i
 for.inc.i:                                        ; preds = %if.then45.invoke.i
   %inc124.i = add nuw nsw i32 %i.0166.i, 1
   %exitcond.not.i = icmp eq i32 %inc124.i, %call29.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond30.preheader.i
   %total_currency_name_count.10 = phi i32 [ %total_currency_name_count.7, %for.cond30.preheader.i ], [ %total_currency_name_count.9, %for.inc.i ]
@@ -2870,7 +2870,7 @@ invoke.cont165.i:                                 ; preds = %if.then.i136.i, %ca
   store i32 %59, ptr %currencyNameLen176.i, align 8
   %inc178.i = add nuw nsw i32 %j.0168.i, 1
   %exitcond173.not.i = icmp eq i32 %inc178.i, %call154.i
-  br i1 %exitcond173.not.i, label %for.end179.invoke.i.loopexit, label %for.body158.i, !llvm.loop !18
+  br i1 %exitcond173.not.i, label %for.end179.invoke.i.loopexit, label %for.body158.i, !llvm.loop !17
 
 for.end179.invoke.i.loopexit:                     ; preds = %invoke.cont165.i
   %60 = trunc nsw i64 %indvars.iv.next143 to i32
@@ -2884,7 +2884,7 @@ for.end179.invoke.i:                              ; preds = %for.end179.invoke.i
 for.inc181.i:                                     ; preds = %for.end179.invoke.i
   %inc182.i = add nuw nsw i32 %i129.0170.i, 1
   %exitcond174.not.i = icmp eq i32 %inc182.i, %call128.i
-  br i1 %exitcond174.not.i, label %for.end183.i, label %for.body132.i, !llvm.loop !19
+  br i1 %exitcond174.not.i, label %for.end183.i, label %for.body132.i, !llvm.loop !18
 
 for.end183.i:                                     ; preds = %for.inc181.i, %for.cond130.preheader.i
   %total_currency_name_count.14 = phi i32 [ %total_currency_name_count.10, %for.cond130.preheader.i ], [ %total_currency_name_count.13, %for.inc181.i ]
@@ -2901,12 +2901,12 @@ invoke.cont185.i:                                 ; preds = %invoke.cont184.i
 
 invoke.cont186.i:                                 ; preds = %invoke.cont185.i
   %call188.i = invoke fastcc noundef signext i8 @_ZL8fallbackRN6icu_7510CharStringE(ptr noundef nonnull align 8 dereferenceable(60) %loc.i)
-          to label %invoke.cont187.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !range !14
+          to label %invoke.cont187.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont187.i:                                 ; preds = %invoke.cont186.i
   %tobool189.not.i = icmp eq i8 %call188.i, 0
   %inc193.i = add nuw nsw i32 %localeLevel.0.i, 1
-  br i1 %tobool189.not.i, label %for.end194.i, label %for.cond.i, !llvm.loop !20
+  br i1 %tobool189.not.i, label %for.end194.i, label %for.cond.i, !llvm.loop !19
 
 for.end194.i:                                     ; preds = %invoke.cont187.i
   invoke void @uhash_close_75(ptr noundef %call20.i)
@@ -2983,7 +2983,7 @@ land.lhs.true27:                                  ; preds = %for.body23
 for.inc36:                                        ; preds = %for.body23, %land.lhs.true27
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 10
-  br i1 %exitcond148.not, label %if.then41, label %for.body23, !llvm.loop !21
+  br i1 %exitcond148.not, label %if.then41, label %for.body23, !llvm.loop !20
 
 for.end38:                                        ; preds = %land.lhs.true27
   %65 = and i64 %indvars.iv145, 255
@@ -3059,7 +3059,7 @@ if.then.i37:                                      ; preds = %for.body.i34
 for.inc.i39:                                      ; preds = %if.then.i37, %for.body.i34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit, label %for.body.i34, !llvm.loop !22
+  br i1 %exitcond.not.i40, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit, label %for.body.i34, !llvm.loop !21
 
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit: ; preds = %for.inc.i39, %if.else
   call void @uprv_free_75(ptr noundef %call7.i)
@@ -3088,7 +3088,7 @@ if.then.i51:                                      ; preds = %for.body.i45
 for.inc.i53:                                      ; preds = %if.then.i51, %for.body.i45
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i44
-  br i1 %exitcond.not.i55, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56, label %for.body.i45, !llvm.loop !22
+  br i1 %exitcond.not.i55, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56, label %for.body.i45, !llvm.loop !21
 
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56: ; preds = %for.inc.i53, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
   call void @uprv_free_75(ptr noundef %call11.i)
@@ -3210,7 +3210,7 @@ if.end45.i:                                       ; preds = %if.else33.i, %if.th
   %L.1.i = phi i32 [ %add32.i, %if.then31.i ], [ %spec.select.i, %if.else33.i ]
   %R.1.i = phi i32 [ %R.066.i, %if.then31.i ], [ %spec.select57.i, %if.else33.i ]
   %cmp23.i = icmp slt i32 %L.1.i, %R.1.i
-  br i1 %cmp23.i, label %while.body24.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp23.i, label %while.body24.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %if.end45.i, %while.cond22.preheader.i
   %L.0.lcssa.i = phi i32 [ %binarySearchBegin.0, %while.cond22.preheader.i ], [ %L.1.i, %if.end45.i ]
@@ -3249,13 +3249,13 @@ if.end71.i:                                       ; preds = %if.else58.i, %if.th
   %L.3.i = phi i32 [ %add57.i, %if.then56.i ], [ %spec.select58.i, %if.else58.i ]
   %R.3.i = phi i32 [ %R.269.i, %if.then56.i ], [ %spec.select59.i, %if.else58.i ]
   %cmp47.i = icmp slt i32 %L.3.i, %R.3.i
-  br i1 %cmp47.i, label %while.body48.i, label %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, !llvm.loop !24
+  br i1 %cmp47.i, label %while.body48.i, label %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, !llvm.loop !23
 
 if.end94.i:                                       ; preds = %if.then20.i, %if.then9.i, %if.then.i
   %last.1.i = phi i32 [ %last.062.i, %if.then.i ], [ %last.062.i, %if.then9.i ], [ %sub.i, %if.then20.i ]
   %first.1.i = phi i32 [ %add2.i, %if.then.i ], [ %add10.i, %if.then9.i ], [ %first.063.i, %if.then20.i ]
   %cmp.not.i = icmp sgt i32 %first.1.i, %last.1.i
-  br i1 %cmp.not.i, label %for.end, label %while.body.i, !llvm.loop !25
+  br i1 %cmp.not.i, label %for.end, label %while.body.i, !llvm.loop !24
 
 _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %if.end71.i, %while.end.i
   %R.2.lcssa.i = phi i32 [ %binarySearchEnd.0, %while.end.i ], [ %R.3.i, %if.end71.i ]
@@ -3295,7 +3295,7 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.then5, %if.end
   %sub8 = sub nsw i32 %storemerge.i, %L.0.lcssa.i
   %cmp9 = icmp slt i32 %sub8, 10
-  br i1 %cmp9, label %if.then10, label %for.cond, !llvm.loop !26
+  br i1 %cmp9, label %if.then10, label %for.cond, !llvm.loop !25
 
 if.then10:                                        ; preds = %if.end7
   %20 = load i32, ptr %partialMatchLen, align 4
@@ -3323,7 +3323,7 @@ land.lhs.true3.i:                                 ; preds = %for.body.i
   %25 = load ptr, ptr %currencyName.i20, align 8
   %conv.i = sext i32 %23 to i64
   %mul.i = shl nsw i64 %conv.i, 1
-  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr %text, i64 %mul.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr readonly %text, i64 %mul.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.then.i22, label %if.else.i21
 
@@ -3361,13 +3361,13 @@ if.end.i:                                         ; preds = %for.body15.i
   %.add.i = select i1 %cmp27.not.i, i32 %31, i32 %33
   store i32 %.add.i, ptr %partialMatchLen, align 4
   %exitcond.not.i = icmp eq i32 %cond13.i, %33
-  br i1 %exitcond.not.i, label %for.inc34.i, label %for.body15.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %for.inc34.i, label %for.body15.i, !llvm.loop !26
 
 for.inc34.i:                                      ; preds = %if.end.i, %for.body15.i, %if.else.i21, %if.then.i22
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, 1
   %lftr.wideiv41.i = trunc i64 %indvars.iv.next39.i to i32
   %exitcond42.not.i = icmp eq i32 %22, %lftr.wideiv41.i
-  br i1 %exitcond42.not.i, label %for.end, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond42.not.i, label %for.end, label %for.body.i, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, %for.cond, %if.end94.i, %for.inc34.i, %if.then10
   ret void
@@ -3445,7 +3445,7 @@ do.end:                                           ; preds = %for.body, %if.then1
   %10 = load i32, ptr %totalCurrencySymbolCount, align 8
   %11 = sext i32 %10 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp, label %for.body, label %for.cond25.preheader, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.cond25.preheader, !llvm.loop !28
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %do.end60
   %indvars.iv32 = phi i64 [ 0, %for.body27.lr.ph ], [ %indvars.iv.next33, %do.end60 ]
@@ -3486,7 +3486,7 @@ do.end60:                                         ; preds = %for.body27, %if.the
   %18 = load i32, ptr %totalCurrencyNameCount, align 8
   %19 = sext i32 %18 to i64
   %cmp26 = icmp slt i64 %indvars.iv.next33, %19
-  br i1 %cmp26, label %for.body27, label %for.end64, !llvm.loop !30
+  br i1 %cmp26, label %for.body27, label %for.end64, !llvm.loop !29
 
 for.end64:                                        ; preds = %do.end60, %for.cond25.preheader
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL19gCurrencyCacheMutex)
@@ -3767,7 +3767,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucurr_isAvailable_75(ptr noundef %isoCode, double noundef %from, double noundef %to, ptr noundef %eErrorCode) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucurr_isAvailable_75(ptr noundef %isoCode, double noundef %from, double noundef %to, ptr noundef %eErrorCode) local_unnamed_addr #1 {
 entry:
   %localStatus.i.i = alloca i32, align 4
   %isoLength.i.i = alloca i32, align 4
@@ -3905,7 +3905,7 @@ for.inc.i.i:                                      ; preds = %if.end45.i.i, %if.e
   %inc.i.i = add nuw nsw i32 %j.036.i.i, 1
   %call9.i.i = call i32 @ures_getSize_75(ptr noundef %call4.i.i)
   %cmp10.i.i = icmp slt i32 %inc.i.i, %call9.i.i
-  br i1 %cmp10.i.i, label %for.body11.i.i, label %if.end48.i.i, !llvm.loop !31
+  br i1 %cmp10.i.i, label %for.body11.i.i, label %if.end48.i.i, !llvm.loop !30
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   store i32 %4, ptr %eErrorCode, align 4
@@ -3916,7 +3916,7 @@ if.end48.i.i:                                     ; preds = %for.inc.i.i, %if.el
   %inc50.i.i = add nuw nsw i32 %i.039.i.i, 1
   %call3.i.i = call i32 @ures_getSize_75(ptr noundef %call1.i.i)
   %cmp.i7.i = icmp slt i32 %inc50.i.i, %call3.i.i
-  br i1 %cmp.i7.i, label %for.body.i.i, label %_ZL24ucurr_createCurrencyListP10UHashtableP10UErrorCode.exit.i, !llvm.loop !32
+  br i1 %cmp.i7.i, label %for.body.i.i, label %_ZL24ucurr_createCurrencyListP10UHashtableP10UErrorCode.exit.i, !llvm.loop !31
 
 if.else52.i.i:                                    ; preds = %if.end.i8
   store i32 %3, ptr %eErrorCode, align 4
@@ -4138,7 +4138,7 @@ if.end47:                                         ; preds = %if.else, %if.then44
   %inc48 = add nuw nsw i32 %i.037, 1
   %call16 = call i32 @ures_getSize_75(ptr noundef %call12)
   %cmp17 = icmp slt i32 %inc48, %call16
-  br i1 %cmp17, label %for.body, label %if.end49, !llvm.loop !33
+  br i1 %cmp17, label %for.body, label %if.end49, !llvm.loop !32
 
 if.end49:                                         ; preds = %if.end47, %for.cond.preheader, %if.end8
   %currCount.3 = phi i32 [ 0, %if.end8 ], [ 0, %for.cond.preheader ], [ %currCount.2, %if.end47 ]
@@ -4238,7 +4238,7 @@ for.cond:                                         ; preds = %if.end65
   %inc69 = add nuw nsw i32 %i.056, 1
   %call27 = call i32 @ures_getSize_75(ptr noundef %call17)
   %cmp28 = icmp slt i32 %inc69, %call27
-  br i1 %cmp28, label %for.body, label %if.end70.loopexit, !llvm.loop !34
+  br i1 %cmp28, label %for.body, label %if.end70.loopexit, !llvm.loop !33
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %currIndex.058 = phi i32 [ %currIndex.2, %for.cond ], [ 0, %for.cond.preheader ]
@@ -4502,12 +4502,12 @@ if.else77:                                        ; preds = %if.else69
 while.cond32.backedge:                            ; preds = %if.then68, %if.else77, %if.then76, %while.body39
   %7 = load i32, ptr %status, align 4
   %cmp.i76 = icmp sgt i32 %7, 0
-  br i1 %cmp.i76, label %if.else111, label %land.rhs35, !llvm.loop !35
+  br i1 %cmp.i76, label %if.else111, label %land.rhs35, !llvm.loop !34
 
 while.cond.backedge:                              ; preds = %land.rhs35, %if.end18
   %.pr = load i32, ptr %status, align 4
   %cmp.i70 = icmp sgt i32 %.pr, 0
-  br i1 %cmp.i70, label %if.else111, label %land.rhs, !llvm.loop !36
+  br i1 %cmp.i70, label %if.else111, label %land.rhs, !llvm.loop !35
 
 while.end80:                                      ; preds = %land.rhs
   %.pre.pre = load i32, ptr %status, align 4
@@ -4555,7 +4555,7 @@ if.then100:                                       ; preds = %while.body95
 if.end107:                                        ; preds = %if.then100, %while.body95
   %call93 = call ptr @ulist_getNext_75(ptr noundef %call2)
   %cmp94.not = icmp eq ptr %call93, null
-  br i1 %cmp94.not, label %if.end109, label %while.body95, !llvm.loop !37
+  br i1 %cmp94.not, label %if.end109, label %while.body95, !llvm.loop !36
 
 if.end109:                                        ; preds = %if.then100, %if.end107, %if.else91, %if.then85, %if.then88
   %en.0 = phi ptr [ %call89, %if.then88 ], [ %call3, %if.then85 ], [ %call3, %if.else91 ], [ %call3, %if.end107 ], [ %call3, %if.then100 ]
@@ -4691,7 +4691,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #17
   %3 = load ptr, ptr @_ZL9gCRegHead, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !38
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !37
 
 for.body.i.preheader:                             ; preds = %while.body.i, %entry
   br label %for.body.i
@@ -4711,7 +4711,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_ZL22currency_cache_cleanupv.exit, label %for.body.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %_ZL22currency_cache_cleanupv.exit, label %for.body.i, !llvm.loop !38
 
 _ZL22currency_cache_cleanupv.exit:                ; preds = %for.inc.i
   %5 = load ptr, ptr @_ZL9gIsoCodes, align 8
@@ -4794,7 +4794,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit, label %for.body.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit, label %for.body.i, !llvm.loop !21
 
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit: ; preds = %for.inc.i, %entry
   tail call void @uprv_free_75(ptr noundef %0)
@@ -4827,7 +4827,7 @@ if.then.i14:                                      ; preds = %for.body.i8
 for.inc.i16:                                      ; preds = %if.then.i14, %for.body.i8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i7
-  br i1 %exitcond.not.i18, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit19, label %for.body.i8, !llvm.loop !22
+  br i1 %exitcond.not.i18, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit19, label %for.body.i8, !llvm.loop !21
 
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit19: ; preds = %for.inc.i16, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
   tail call void @uprv_free_75(ptr noundef %4)
@@ -4991,7 +4991,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont14.i.i
   %12 = load i16, ptr %fUnion.i5.i.i.i, align 8
   %conv2.i615.i.i.i = and i16 %12, 1
   %tobool3.i.not.i.i = icmp eq i16 %conv2.i615.i.i.i, 0
-  br i1 %tobool3.i.not.i.i, label %if.end19.i.i, label %cleanup.i.i, !llvm.loop !40
+  br i1 %tobool3.i.not.i.i, label %if.end19.i.i, label %cleanup.i.i, !llvm.loop !39
 
 if.else.i.i.i:                                    ; preds = %invoke.cont14.i.i
   %cmp.i.i.i.i.i = icmp slt i16 %11, 0
@@ -5017,7 +5017,7 @@ land.rhs.i.i.i:                                   ; preds = %if.else.i.i.i
 
 invoke.cont16.i.i:                                ; preds = %land.rhs.i.i.i
   %tobool9.i.not.i.i = icmp eq i8 %call8.i11.i.i, 0
-  br i1 %tobool9.i.not.i.i, label %if.end19.i.i, label %cleanup.i.i, !llvm.loop !40
+  br i1 %tobool9.i.not.i.i, label %if.end19.i.i, label %cleanup.i.i, !llvm.loop !39
 
 lpad8.i.i:                                        ; preds = %invoke.cont12.i.i, %while.body.i.i, %while.cond.i.i
   %18 = landingpad { ptr, i32 }
@@ -5670,7 +5670,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL8fallbackRN6icu_7510CharStringE(ptr noundef nonnull align 8 dereferenceable(60) %loc) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL8fallbackRN6icu_7510CharStringE(ptr noundef nonnull align 8 dereferenceable(60) %loc) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
@@ -5757,7 +5757,7 @@ return:                                           ; preds = %if.then2, %invoke.c
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL22currencyNameComparatorPKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal noundef range(i32 -1, 2) i32 @_ZL22currencyNameComparatorPKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
 entry:
   %currencyNameLen = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %currencyNameLen, align 8
@@ -5778,7 +5778,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -5904,7 +5904,7 @@ for.body.us:                                      ; preds = %entry, %for.body.us
   %arrayidx.us = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next12
   %3 = load ptr, ptr %arrayidx.us, align 16
   %cmp.not.us = icmp eq ptr %3, null
-  br i1 %cmp.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !42
+  br i1 %cmp.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !41
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
@@ -5920,7 +5920,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrayidx, align 16
   %cmp.not = icmp eq ptr %5, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !42
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !41
 
 for.end.loopexit:                                 ; preds = %for.body.us
   %indvars14 = trunc i64 %indvars.iv.next12 to i32
@@ -5964,7 +5964,7 @@ lor.lhs.false:                                    ; preds = %while.body
   %5 = load i32, ptr %currType3, align 8
   %and = and i32 %5, %4
   %cmp6 = icmp eq i32 %and, %4
-  br i1 %cmp6, label %if.then, label %while.cond, !llvm.loop !43
+  br i1 %cmp6, label %if.then, label %while.cond, !llvm.loop !42
 
 if.then:                                          ; preds = %lor.lhs.false, %while.body
   %tobool.not = icmp eq ptr %resultLength, null
@@ -6065,7 +6065,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = !{i64 2150264408}
 !13 = distinct !{!13, !5}
-!14 = !{i8 0, i8 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -6094,4 +6094,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}

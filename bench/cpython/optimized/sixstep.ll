@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @six_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp ult i64 %n, 4294967296
   %shr.i = lshr i64 %n, 32
@@ -109,7 +109,7 @@ if.then.i:                                        ; preds = %while.body.i
   %conv1.i.i69 = zext i64 %base.addr.09.i to i128
   %mul.i.i70 = mul nuw i128 %conv1.i.i69, %conv.i.i68
   %shr.i.i71 = lshr i128 %mul.i.i70, 64
-  %conv2.i.i72 = trunc i128 %shr.i.i71 to i64
+  %conv2.i.i72 = trunc nuw i128 %shr.i.i71 to i64
   %conv3.i.i73 = trunc i128 %mul.i.i70 to i64
   br i1 %tobool.not.i63, label %if.else.i104, label %if.then.i76
 
@@ -213,7 +213,7 @@ if.end.i:                                         ; preds = %while.body.i.if.end
   %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i103, %x64_mulmod.exit162 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   br i1 %tobool.not.i63, label %if.else.i, label %if.then.i64
 
@@ -333,7 +333,7 @@ for.body25:                                       ; preds = %x64_powmod.exit, %x
   %conv1.i.i259 = zext i64 %w0.0552 to i128
   %mul.i.i260 = mul nuw i128 %conv.i.i258, %conv1.i.i259
   %shr.i.i261 = lshr i128 %mul.i.i260, 64
-  %conv2.i.i262 = trunc i128 %shr.i.i261 to i64
+  %conv2.i.i262 = trunc nuw i128 %shr.i.i261 to i64
   %conv3.i.i263 = trunc i128 %mul.i.i260 to i64
   br i1 %tobool.not.i63, label %if.else.i294, label %if.then.i266
 
@@ -434,7 +434,7 @@ x64_mulmod.exit352:                               ; preds = %if.then.i266, %if.t
   %conv1.i.i164 = zext i64 %w1.0553 to i128
   %mul.i.i165 = mul nuw i128 %conv.i.i163, %conv1.i.i164
   %shr.i.i166 = lshr i128 %mul.i.i165, 64
-  %conv2.i.i167 = trunc i128 %shr.i.i166 to i64
+  %conv2.i.i167 = trunc nuw i128 %shr.i.i166 to i64
   %conv3.i.i168 = trunc i128 %mul.i.i165 to i64
   br i1 %tobool.not.i63, label %if.else.i199, label %if.then.i171
 
@@ -533,7 +533,7 @@ x64_mulmod.exit257:                               ; preds = %if.then.i171, %if.t
   %spec.select93.i198 = sub i64 %add99.sink94.i192, %sub108.i197
   %mul.i.i450 = mul nuw i128 %conv1.i.i259, %conv1.i.i449
   %shr.i.i451 = lshr i128 %mul.i.i450, 64
-  %conv2.i.i452 = trunc i128 %shr.i.i451 to i64
+  %conv2.i.i452 = trunc nuw i128 %shr.i.i451 to i64
   %conv3.i.i453 = trunc i128 %mul.i.i450 to i64
   br i1 %tobool.not.i63, label %if.else.i484, label %if.then.i456
 
@@ -632,7 +632,7 @@ x64_mulmod.exit542:                               ; preds = %if.then.i456, %if.t
   %spec.select93.i483 = sub i64 %add99.sink94.i477, %sub108.i482
   %mul.i.i355 = mul nuw i128 %conv1.i.i164, %conv1.i.i449
   %shr.i.i356 = lshr i128 %mul.i.i355, 64
-  %conv2.i.i357 = trunc i128 %shr.i.i356 to i64
+  %conv2.i.i357 = trunc nuw i128 %shr.i.i356 to i64
   %conv3.i.i358 = trunc i128 %mul.i.i355 to i64
   br i1 %tobool.not.i63, label %if.else.i389, label %if.then.i361
 
@@ -789,7 +789,7 @@ entry:
   %conv1.i = zext i64 %b to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %and = and i64 %m, 4294967296
   %tobool.not = icmp eq i64 %and, 0
@@ -894,7 +894,7 @@ return:                                           ; preds = %if.else67, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @inv_six_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp ult i64 %n, 4294967296
   %shr.i = lshr i64 %n, 32
@@ -986,7 +986,7 @@ if.then.i:                                        ; preds = %while.body.i
   %conv1.i.i69 = zext i64 %base.addr.09.i to i128
   %mul.i.i70 = mul nuw i128 %conv1.i.i69, %conv.i.i68
   %shr.i.i71 = lshr i128 %mul.i.i70, 64
-  %conv2.i.i72 = trunc i128 %shr.i.i71 to i64
+  %conv2.i.i72 = trunc nuw i128 %shr.i.i71 to i64
   %conv3.i.i73 = trunc i128 %mul.i.i70 to i64
   br i1 %tobool.not.i63, label %if.else.i104, label %if.then.i76
 
@@ -1090,7 +1090,7 @@ if.end.i:                                         ; preds = %while.body.i.if.end
   %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i103, %x64_mulmod.exit162 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   br i1 %tobool.not.i63, label %if.else.i, label %if.then.i64
 
@@ -1210,7 +1210,7 @@ for.body18:                                       ; preds = %x64_powmod.exit, %x
   %conv1.i.i259 = zext i64 %w0.0552 to i128
   %mul.i.i260 = mul nuw i128 %conv.i.i258, %conv1.i.i259
   %shr.i.i261 = lshr i128 %mul.i.i260, 64
-  %conv2.i.i262 = trunc i128 %shr.i.i261 to i64
+  %conv2.i.i262 = trunc nuw i128 %shr.i.i261 to i64
   %conv3.i.i263 = trunc i128 %mul.i.i260 to i64
   br i1 %tobool.not.i63, label %if.else.i294, label %if.then.i266
 
@@ -1311,7 +1311,7 @@ x64_mulmod.exit352:                               ; preds = %if.then.i266, %if.t
   %conv1.i.i164 = zext i64 %w1.0553 to i128
   %mul.i.i165 = mul nuw i128 %conv.i.i163, %conv1.i.i164
   %shr.i.i166 = lshr i128 %mul.i.i165, 64
-  %conv2.i.i167 = trunc i128 %shr.i.i166 to i64
+  %conv2.i.i167 = trunc nuw i128 %shr.i.i166 to i64
   %conv3.i.i168 = trunc i128 %mul.i.i165 to i64
   br i1 %tobool.not.i63, label %if.else.i199, label %if.then.i171
 
@@ -1410,7 +1410,7 @@ x64_mulmod.exit257:                               ; preds = %if.then.i171, %if.t
   %spec.select93.i198 = sub i64 %add99.sink94.i192, %sub108.i197
   %mul.i.i450 = mul nuw i128 %conv1.i.i259, %conv1.i.i449
   %shr.i.i451 = lshr i128 %mul.i.i450, 64
-  %conv2.i.i452 = trunc i128 %shr.i.i451 to i64
+  %conv2.i.i452 = trunc nuw i128 %shr.i.i451 to i64
   %conv3.i.i453 = trunc i128 %mul.i.i450 to i64
   br i1 %tobool.not.i63, label %if.else.i484, label %if.then.i456
 
@@ -1509,7 +1509,7 @@ x64_mulmod.exit542:                               ; preds = %if.then.i456, %if.t
   %spec.select93.i483 = sub i64 %add99.sink94.i477, %sub108.i482
   %mul.i.i355 = mul nuw i128 %conv1.i.i164, %conv1.i.i449
   %shr.i.i356 = lshr i128 %mul.i.i355, 64
-  %conv2.i.i357 = trunc i128 %shr.i.i356 to i64
+  %conv2.i.i357 = trunc nuw i128 %shr.i.i356 to i64
   %conv3.i.i358 = trunc i128 %mul.i.i355 to i64
   br i1 %tobool.not.i63, label %if.else.i389, label %if.then.i361
 

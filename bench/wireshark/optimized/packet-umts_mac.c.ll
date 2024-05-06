@@ -1524,7 +1524,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %100, %103
   %136 = getelementptr ptr, ptr %132, i64 %indvars.iv.i
   store ptr %135, ptr %136, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %137 = trunc i64 %indvars.iv.next.i to i32
+  %137 = trunc nuw i64 %indvars.iv.next.i to i32
   %.b.i.i = load i1, ptr @MAX_TSN, align 4
   %138 = select i1 %.b.i.i, i32 16384, i32 64
   %139 = icmp ugt i32 %138, %137
@@ -3034,7 +3034,7 @@ define internal i32 @mac_is_fragment_hash(ptr nocapture noundef readonly %0) #5 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mac_is_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @mac_is_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -3082,7 +3082,7 @@ define internal i32 @mac_is_channel_hash(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mac_is_channel_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @mac_is_channel_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i8, ptr %0, align 4
   %4 = load i8, ptr %1, align 4
   %5 = icmp eq i8 %3, %4

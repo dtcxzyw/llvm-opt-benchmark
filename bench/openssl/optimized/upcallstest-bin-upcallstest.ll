@@ -50,7 +50,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @obj_create_test() #0 {
+define internal range(i32 0, 2) i32 @obj_create_test() #0 {
 entry:
   %digestnid = alloca i32, align 4
   %signid = alloca i32, align 4
@@ -209,7 +209,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_provider_init(ptr noundef %handle, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @obj_provider_init(ptr noundef %handle, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
 entry:
   store ptr %handle, ptr %provctx, align 8
   store ptr @obj_dispatch_table, ptr %out, align 8

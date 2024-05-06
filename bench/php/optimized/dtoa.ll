@@ -58,7 +58,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
 
 .lr.ph.preheader.i.i.i:                           ; preds = %20
   %.masked.i.i.i = and i64 %28, 9007199254740991
-  %.masked.numleadingzeros.i.i.i = tail call i64 @llvm.ctlz.i64(i64 %.masked.i.i.i, i1 true), !range !5
+  %.masked.numleadingzeros.i.i.i = tail call range(i64 11, 65) i64 @llvm.ctlz.i64(i64 %.masked.i.i.i, i1 true)
   %.masked.leadingonepos.i.i.i = xor i64 %.masked.numleadingzeros.i.i.i, 63
   %.lr.ph.tripcount.i.i.i = sub nuw nsw i64 53, %.masked.leadingonepos.i.i.i
   %30 = shl i64 %28, %.lr.ph.tripcount.i.i.i
@@ -470,8 +470,8 @@ lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.ex
 
 265:                                              ; preds = %263
   %266 = zext nneg i32 %249 to i64
-  %267 = getelementptr i8, ptr %.021, i64 %266
-  %268 = getelementptr i8, ptr %267, i64 1
+  %267 = getelementptr inbounds i8, ptr %.021, i64 %266
+  %268 = getelementptr inbounds i8, ptr %267, i64 1
   %269 = sub i32 0, %247
   %270 = sext i32 %269 to i64
   %271 = getelementptr inbounds i8, ptr %268, i64 %270
@@ -484,7 +484,7 @@ lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.ex
   br label %lexbor_prettify.exit
 
 274:                                              ; preds = %265
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %268, ptr align 1 %267, i64 %270, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %268, ptr align 1 %267, i64 %270, i1 false)
   store i8 46, ptr %267, align 1
   %275 = shl i64 %.0.i.i, 32
   %sext115.i = add i64 %275, 4294967296
@@ -577,7 +577,7 @@ lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.ex
   %314 = ptrtoint ptr %306 to i64
   %315 = ptrtoint ptr %311 to i64
   %316 = sub i64 %314, %315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %311, i64 %316, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %311, i64 %316, i1 false)
   %317 = add i64 %316, 3
   br label %lexbor_write_exponent.exit.i
 
@@ -640,7 +640,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %313, %301
   %342 = ptrtoint ptr %334 to i64
   %343 = ptrtoint ptr %339 to i64
   %344 = sub i64 %342, %343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %339, i64 %344, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %339, i64 %344, i1 false)
   %345 = add i64 %344, 1
   br label %lexbor_write_exponent.exit126.i
 
@@ -700,4 +700,3 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 11, i64 65}

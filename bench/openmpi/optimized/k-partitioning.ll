@@ -96,7 +96,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 
 39:                                               ; preds = %.preheader.i.i
   %40 = getelementptr inbounds i32, ptr %23, i64 %36
-  %41 = trunc i64 %indvars.iv101.i.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv101.i.i to i32
   store i32 %41, ptr %40, align 4
   %42 = add nsw i32 %33, 1
   store i32 %42, ptr %32, align 4
@@ -402,7 +402,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
   %indvars.iv101.i = phi i64 [ 0, %.preheader65.us.i ], [ %indvars.iv.next102.i, %146 ]
   %147 = getelementptr inbounds double, ptr %145, i64 %indvars.iv101.i
   %148 = load double, ptr %147, align 8
-  %149 = trunc i64 %indvars.iv101.i to i32
+  %149 = trunc nuw nsw i64 %indvars.iv101.i to i32
   call void @PQ_insert(ptr noundef %143, i32 noundef %149, double noundef %148) #11
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count104.i
@@ -435,7 +435,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
   %160 = getelementptr inbounds double, ptr %157, i64 %159
   %161 = load double, ptr %160, align 8
   %162 = fsub double %155, %161
-  %163 = trunc i64 %indvars.iv111.i to i32
+  %163 = trunc nuw nsw i64 %indvars.iv111.i to i32
   call void @PQ_insert(ptr noundef %153, i32 noundef %163, double noundef %162) #11
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next112.i, %wide.trip.count89.i
@@ -445,7 +445,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
   %indvars.iv116.i = phi i64 [ 0, %.lr.ph83.preheader.i ], [ %indvars.iv.next117.i, %.lr.ph83.i ]
   %164 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv116.i
   %165 = call double @PQ_findMaxKey(ptr noundef %164) #11
-  %166 = trunc i64 %indvars.iv116.i to i32
+  %166 = trunc nuw nsw i64 %indvars.iv116.i to i32
   call void @PQ_insert(ptr noundef nonnull %8, i32 noundef %166, double noundef %165) #11
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count119.i
@@ -558,7 +558,7 @@ initialization.exit:                              ; preds = %.lr.ph83.i, %.prehe
   %227 = load double, ptr %226, align 8
   %228 = fsub double %222, %227
   %229 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %225
-  %230 = trunc i64 %indvars.iv.i40 to i32
+  %230 = trunc nuw nsw i64 %indvars.iv.i40 to i32
   call void @PQ_adjustKey(ptr noundef %229, i32 noundef %230, double noundef %228) #11
   %231 = load i32, ptr %223, align 4
   %232 = sext i32 %231 to i64
@@ -630,7 +630,7 @@ algo.exit:                                        ; preds = %._crit_edge.i37, %2
   %267 = getelementptr inbounds double, ptr %264, i64 %251
   %268 = load double, ptr %267, align 8
   %269 = fsub double %266, %268
-  %270 = trunc i64 %indvars.iv.i47 to i32
+  %270 = trunc nuw nsw i64 %indvars.iv.i47 to i32
   call void @PQ_insert(ptr noundef nonnull %7, i32 noundef %270, double noundef %269) #11
   br label %271
 

@@ -1099,7 +1099,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   %68 = load ptr, ptr %67, align 8
   %69 = zext nneg i32 %62 to i64
   %70 = call ptr @tvb_memdup(ptr noundef %68, ptr noundef %1, i32 noundef %57, i64 noundef %69) #6
-  %71 = call fastcc i32 @decrypt_packet(ptr noundef %70, i32 noundef %62, i32 noundef 1), !range !6
+  %71 = call fastcc i32 @decrypt_packet(ptr noundef %70, i32 noundef %62, i32 noundef 1)
   %.not101.i = icmp eq i32 %71, 0
   br i1 %.not101.i, label %.thread225.i, label %72
 
@@ -1126,7 +1126,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br i1 %.not.i, label %95, label %84
 
 84:                                               ; preds = %77
-  %85 = call fastcc i32 @decrypt_packet(ptr noundef %82, i32 noundef %75, i32 noundef 0), !range !6
+  %85 = call fastcc i32 @decrypt_packet(ptr noundef %82, i32 noundef %75, i32 noundef 0)
   %.not99.i = icmp eq i32 %85, 0
   br i1 %.not99.i, label %86, label %95
 
@@ -1525,7 +1525,7 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
   %313 = add i32 %.079.i.i.i, 1
   %314 = add nsw i32 %.0610.i.i.i, -1
   %.not.i.i.i = icmp eq i32 %314, 0
-  br i1 %.not.i.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 315:                                              ; preds = %302
   %.not8.i.i.i = icmp eq i16 %.0343.i.i, 0
@@ -1540,7 +1540,7 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
   %318 = add i32 %.079.i359.i.i, 1
   %319 = add nsw i32 %.0610.i358.i.i, -1
   %.not.i360.i.i = icmp eq i32 %319, 0
-  br i1 %.not.i360.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i356.i.i, !llvm.loop !7
+  br i1 %.not.i360.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i356.i.i, !llvm.loop !6
 
 c1222_cksum.exit.i.i:                             ; preds = %.lr.ph.i356.i.i, %.lr.ph.i.i.i, %315
   %.pn.i.i = phi i8 [ 0, %315 ], [ %312, %.lr.ph.i.i.i ], [ %317, %.lr.ph.i356.i.i ]
@@ -1633,7 +1633,7 @@ c1222_cksum.exit.i.i:                             ; preds = %.lr.ph.i356.i.i, %.
   %374 = add i32 %.079.i366.i.i, 1
   %375 = add nsw i32 %.0610.i365.i.i, -1
   %.not.i367.i.i = icmp eq i32 %375, 0
-  br i1 %.not.i367.i.i, label %c1222_cksum.exit369.i.i, label %.lr.ph.i363.i.i, !llvm.loop !7
+  br i1 %.not.i367.i.i, label %c1222_cksum.exit369.i.i, label %.lr.ph.i363.i.i, !llvm.loop !6
 
 c1222_cksum.exit369.i.i:                          ; preds = %.lr.ph.i363.i.i, %366
   %.0.lcssa.i368.i.i = phi i8 [ 0, %366 ], [ %373, %.lr.ph.i363.i.i ]
@@ -1778,7 +1778,7 @@ parse_c1222_detailed.exit.i:                      ; preds = %462, %459, %457, %4
   %467 = add i32 %466, %.not105.ph.i
   %468 = call i32 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %467) #6
   %.not106.i = icmp eq i32 %468, 0
-  br i1 %.not106.i, label %._crit_edge.i, label %108, !llvm.loop !8
+  br i1 %.not106.i, label %._crit_edge.i, label %108, !llvm.loop !7
 
 469:                                              ; preds = %127
   %470 = call ptr @expert_add_info(ptr noundef %47, ptr noundef %45, ptr noundef nonnull @ei_c1222_epsem_field_length_error) #6
@@ -2006,7 +2006,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decrypt_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [300 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = icmp ult i32 %1, 4
@@ -2108,7 +2108,7 @@ define internal fastcc i32 @decrypt_packet(ptr noundef %0, i32 noundef %1, i32 n
   store i8 %53, ptr %.01520.i.i, align 1
   %55 = lshr i32 %.01619.i.i, 8
   %.not.i.i = icmp ult i32 %.01619.i.i, 256
-  br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %44, %26
   %.0.i.i = phi i32 [ 0, %26 ], [ 1, %44 ], [ %.3.i.i.i, %47 ], [ %.3.i.i.i, %.lr.ph.i.i ]
@@ -2150,7 +2150,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
   %75 = zext i32 %.1 to i64
   %76 = getelementptr i8, ptr %4, i64 %75
   %77 = zext i32 %.030.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %.pr.i, i64 %77, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %76, ptr align 1 %.pr.i, i64 %77, i1 false)
   br i1 %.not35.i, label %79, label %78
 
 78:                                               ; preds = %74
@@ -2163,7 +2163,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
   %81 = getelementptr i8, ptr %.03139.i, i64 56
   %82 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !10
+  br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !9
 
 canonify_unencrypted_header.exit:                 ; preds = %79
   %.not15 = icmp eq i32 %.2, 0
@@ -2186,7 +2186,7 @@ canonify_unencrypted_header.exit:                 ; preds = %79
 87:                                               ; preds = %88
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %88, !llvm.loop !11
+  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %88, !llvm.loop !10
 
 88:                                               ; preds = %87, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %87 ]
@@ -2198,7 +2198,7 @@ canonify_unencrypted_header.exit:                 ; preds = %79
 92:                                               ; preds = %88
   %93 = getelementptr inbounds i8, ptr %89, i64 8
   %94 = load ptr, ptr %93, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %94, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %94, i64 16, i1 false)
   %95 = add i32 %1, -4
   %96 = zext i32 %95 to i64
   %97 = getelementptr i8, ptr %0, i64 %96
@@ -2269,9 +2269,8 @@ attributes #8 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

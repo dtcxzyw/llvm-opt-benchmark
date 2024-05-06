@@ -879,7 +879,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %169 = add nsw i64 %167, %168
   %170 = trunc i64 %169 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %171 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %170, i64 noundef %6, ptr noundef %8), !range !6
+  %171 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %170, i64 noundef %6, ptr noundef %8)
   br label %172
 
 172:                                              ; preds = %151, %156, %149
@@ -904,7 +904,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %3, 0
   %9 = icmp ne i32 %3, 65534
   %or.cond.not = and i1 %8, %9
@@ -943,7 +943,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   %20 = tail call ptr @__errno_location() #13
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %14, label %23, !llvm.loop !7
+  br i1 %22, label %14, label %23, !llvm.loop !6
 
 23:                                               ; preds = %19
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.run_command_waitpid_timeout, i32 noundef %1) #11
@@ -961,7 +961,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %26, %44, %39, %34
-  br label %.outer, !llvm.loop !7
+  br label %.outer, !llvm.loop !6
 
 31:                                               ; preds = %25
   br i1 %.not, label %38, label %32
@@ -996,7 +996,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   %48 = shl nsw i32 %.046.ph.ph, 1
   %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 %47)
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 1000)
-  br label %.outer.outer, !llvm.loop !7
+  br label %.outer.outer, !llvm.loop !6
 
 50:                                               ; preds = %14
   br i1 %.0.ph, label %55, label %51
@@ -1053,6 +1053,5 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 -2147483648}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

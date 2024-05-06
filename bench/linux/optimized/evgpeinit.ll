@@ -293,7 +293,7 @@ define dso_local noundef i32 @acpi_ev_match_gpe_method(ptr noundef %0, i32 %1, p
   %48 = call i32 @acpi_hw_low_set_gpe(ptr noundef nonnull %36, i32 noundef 1) #4
   %49 = load i8, ptr %39, align 8
   %50 = and i8 %49, -8
-  %51 = trunc i32 %27 to i8
+  %51 = trunc nuw nsw i32 %27 to i8
   %52 = or i8 %50, %51
   %53 = or disjoint i8 %52, 1
   store i8 %53, ptr %39, align 8

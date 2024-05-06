@@ -269,7 +269,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @bsock_do_not_rev_lookup(i64 %0) #3 {
+define internal range(i64 0, 21) i64 @bsock_do_not_rev_lookup(i64 %0) #3 {
   %2 = load i32, ptr @rsock_do_not_reverse_lookup, align 4
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
@@ -844,7 +844,7 @@ define internal i64 @bsock_recv(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bsock_do_not_reverse_lookup(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @bsock_do_not_reverse_lookup(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_io_taint_check(i64 noundef %0) #10
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16

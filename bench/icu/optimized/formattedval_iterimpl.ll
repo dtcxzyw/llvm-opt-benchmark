@@ -664,7 +664,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl12nextPositionERNS_24ConstrainedFieldPositionER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl12nextPositionERNS_24ConstrainedFieldPositionER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i32, ptr %count.i, align 8

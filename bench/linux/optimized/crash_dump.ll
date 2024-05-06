@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_elfcorehdr_a
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_elfcorehdr_addr381, ptr @__setup_setup_elfcorehdr], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @setup_elfcorehdr(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal range(i32 -22, 1) i32 @setup_elfcorehdr(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
   %3 = icmp eq ptr %0, null

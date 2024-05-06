@@ -941,7 +941,7 @@ while.body:                                       ; preds = %land.lhs.true13
 
 if.then22:                                        ; preds = %while.body
   %conv23 = zext nneg i8 %8 to i32
-  %mul24 = mul nsw i32 %multiplier.028, %conv23
+  %mul24 = mul nuw nsw i32 %multiplier.028, %conv23
   %add = add nsw i32 %mul24, %weight.027
   %div = udiv i32 %multiplier.028, 10
   br label %if.end32
@@ -1357,7 +1357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_114compareLocalesE8UElementS1_(ptr nonnull %t1.coerce, ptr nonnull %t2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_114compareLocalesE8UElementS1_(ptr nonnull %t1.coerce, ptr nonnull %t2.coerce) #1 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %t1.coerce, ptr noundef nonnull align 8 dereferenceable(217) %t2.coerce)
   %conv = zext i1 %call to i8

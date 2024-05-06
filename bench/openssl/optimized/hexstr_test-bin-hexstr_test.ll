@@ -41,7 +41,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hexstr_sep_to_from(i32 noundef %test_index) #0 {
+define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %test_index) #0 {
 entry:
   %len = alloca i64, align 8
   store i64 0, ptr %len, align 8
@@ -87,7 +87,7 @@ err:                                              ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_hexstr_to_from(i32 noundef %test_index) #0 {
+define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %test_index) #0 {
 entry:
   %len = alloca i64, align 8
   store i64 0, ptr %len, align 8
@@ -154,7 +154,7 @@ err:                                              ; preds = %if.else26, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hexstr_ex_to_from(i32 noundef %test_index) #0 {
+define internal range(i32 0, 2) i32 @test_hexstr_ex_to_from(i32 noundef %test_index) #0 {
 entry:
   %len = alloca i64, align 8
   %out = alloca [64 x i8], align 16

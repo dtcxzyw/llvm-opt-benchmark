@@ -119,14 +119,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bwrite_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %written) #0 {
+define range(i32 -2147483648, 2) i32 @bwrite_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %written) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
   %method = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %method, align 8
   %bwrite_old = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %bwrite_old, align 8
-  %conv = trunc i64 %spec.store.select to i32
+  %conv = trunc nuw nsw i64 %spec.store.select to i32
   %call = tail call i32 %1(ptr noundef %bio, ptr noundef %data, i32 noundef %conv) #6
   %narrow = tail call i32 @llvm.smax.i32(i32 %call, i32 0)
   %storemerge = zext nneg i32 %narrow to i64
@@ -172,14 +172,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bread_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %readbytes) #0 {
+define range(i32 -2147483648, 2) i32 @bread_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %readbytes) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
   %method = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %method, align 8
   %bread_old = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %bread_old, align 8
-  %conv = trunc i64 %spec.store.select to i32
+  %conv = trunc nuw nsw i64 %spec.store.select to i32
   %call = tail call i32 %1(ptr noundef %bio, ptr noundef %data, i32 noundef %conv) #6
   %narrow = tail call i32 @llvm.smax.i32(i32 %call, i32 0)
   %storemerge = zext nneg i32 %narrow to i64

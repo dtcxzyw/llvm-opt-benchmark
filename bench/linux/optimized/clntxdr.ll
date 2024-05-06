@@ -55,7 +55,7 @@ define internal void @nlm_xdr_enc_testargs(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlm_xdr_dec_testres(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @nlm_xdr_dec_testres(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !5
@@ -223,7 +223,7 @@ define internal void @nlm_xdr_enc_lockargs(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlm_xdr_dec_res(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @nlm_xdr_dec_res(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !5

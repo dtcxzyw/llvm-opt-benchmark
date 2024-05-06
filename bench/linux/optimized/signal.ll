@@ -246,7 +246,7 @@ define internal noundef i32 @init_sigframe_size() #4 section ".init.text" align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i64 @get_sigframe_size() local_unnamed_addr #5 align 16 {
+define dso_local range(i64 0, 8589934593) i64 @get_sigframe_size() local_unnamed_addr #5 align 16 {
   %1 = load i64, ptr @max_frame_size, align 8
   ret i64 %1
 }
@@ -509,7 +509,7 @@ declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_a
 declare dso_local void @force_sig(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @strict_sas_size(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @strict_sas_size(ptr noundef %0) #4 section ".init.text" align 16 {
   %2 = tail call i32 @kstrtobool(ptr noundef %0, ptr noundef nonnull @strict_sigaltstack_size) #11
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32

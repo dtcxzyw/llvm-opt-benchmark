@@ -2124,7 +2124,7 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @.str.46 = private unnamed_addr constant [20 x i8] c"get file size error\00", align 1
 @.str.47 = private unnamed_addr constant [4 x i8] c"\EF\BB\BF\00", align 1
 @_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E3buf = linkonce_odr dso_local thread_local global [33 x i8] zeroinitializer, comdat, align 16
-@_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E9last_sec_ = linkonce_odr dso_local thread_local global %"class.std::chrono::duration.9" zeroinitializer, comdat, align 8
+@_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E9last_sec_ = linkonce_odr dso_local thread_local local_unnamed_addr global %"class.std::chrono::duration.9" zeroinitializer, comdat, align 8
 @_ZN7easylogL6digitsE = internal unnamed_addr constant [10 x i8] c"0123456789", align 1
 @.str.48 = private unnamed_addr constant [9 x i8] c"TRACE   \00", align 1
 @.str.49 = private unnamed_addr constant [9 x i8] c"DEBUG   \00", align 1
@@ -2134,8 +2134,8 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @.str.53 = private unnamed_addr constant [9 x i8] c"CRITICAL\00", align 1
 @.str.54 = private unnamed_addr constant [9 x i8] c"NONE    \00", align 1
 @_ZZN7easylog8appender11get_tid_bufEjE3buf = linkonce_odr dso_local thread_local global [24 x i8] zeroinitializer, comdat, align 16
-@_ZZN7easylog8appender11get_tid_bufEjE8last_tid = linkonce_odr dso_local thread_local global i32 0, comdat, align 4
-@_ZZN7easylog8appender11get_tid_bufEjE8last_len = linkonce_odr dso_local thread_local global i64 0, comdat, align 8
+@_ZZN7easylog8appender11get_tid_bufEjE8last_tid = linkonce_odr dso_local thread_local local_unnamed_addr global i32 0, comdat, align 4
+@_ZZN7easylog8appender11get_tid_bufEjE8last_len = linkonce_odr dso_local thread_local local_unnamed_addr global i64 0, comdat, align 8
 @.str.55 = private unnamed_addr constant [6 x i8] c"\1B[93m\00", align 1
 @.str.56 = private unnamed_addr constant [6 x i8] c"\1B[91m\00", align 1
 @.str.57 = private unnamed_addr constant [11 x i8] c"\1B[97m\1B[41m\00", align 1
@@ -2187,7 +2187,7 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @_ZTSN4asio6detail12posix_thread9func_baseE = linkonce_odr dso_local constant [39 x i8] c"N4asio6detail12posix_thread9func_baseE\00", comdat, align 1
 @_ZTIN4asio6detail12posix_thread9func_baseE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4asio6detail12posix_thread9func_baseE }, comdat, align 8
 @_ZTIN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, ptr @_ZTIN4asio6detail12posix_thread9func_baseE }, comdat, align 8
-@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local global ptr null, comdat, align 8
+@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTSSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr dso_local constant [71 x i8] c"St15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
@@ -2217,7 +2217,7 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @.str.73 = private unnamed_addr constant [20 x i8] c"multiple exceptions\00", align 1
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
 @_ZTISt9bad_alloc = external constant ptr
-@_ZZN7coro_io11get_currentEvE7current = linkonce_odr dso_local thread_local global ptr null, comdat, align 8
+@_ZZN7coro_io11get_currentEvE7current = linkonce_odr dso_local thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableINS_10io_context19basic_executor_typeISaIvELm0EEEEEPKNS2_10target_fnsEbPNSt9enable_ifIXntsr7is_sameIT_vEE5valueEvE4typeEE16fns_with_execute = linkonce_odr dso_local constant %"struct.asio::execution::detail::any_executor_base::target_fns" { ptr @_ZN4asio9execution6detail17any_executor_base14target_type_exINS_10io_context19basic_executor_typeISaIvELm0EEEEERKSt9type_infov, ptr @_ZN4asio9execution6detail17any_executor_base8equal_exINS_10io_context19basic_executor_typeISaIvELm0EEEEEbRKS2_S9_, ptr @_ZN4asio9execution6detail17any_executor_base10execute_exINS_10io_context19basic_executor_typeISaIvELm0EEEEEvRKS2_ONS_6detail17executor_functionE, ptr null }, comdat, align 8
 @_ZTSN4asio10io_context19basic_executor_typeISaIvELm0EEE = linkonce_odr dso_local constant [52 x i8] c"N4asio10io_context19basic_executor_typeISaIvELm0EEE\00", comdat, align 1
 @_ZTSN4asio6detail15io_context_bitsE = linkonce_odr dso_local constant [32 x i8] c"N4asio6detail15io_context_bitsE\00", comdat, align 1
@@ -2255,8 +2255,8 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @_ZTISt12future_error = external constant ptr
 @_ZTVSt12future_error = external unnamed_addr constant { [5 x ptr] }, align 8
 @.str.76 = private unnamed_addr constant [20 x i8] c"std::future_error: \00", align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED2Ev, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED0Ev, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEE6_M_runEv] }, comdat, align 8
 @_ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local constant [158 x i8] c"NSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE\00", comdat, align 1
 @_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, ptr @_ZTINSt6thread6_StateE }, comdat, align 8
@@ -2290,7 +2290,7 @@ $_ZTIZN12async_simple8Executor11TimeAwaiter13await_suspendINS_4coro6detail11Lazy
 @.str.83 = private unnamed_addr constant [29 x i8] c"client_id %d connect timeout\00", align 1
 @__const._ZZN8coro_rpc15coro_rpc_client7connectENS0_14is_reconnect_tEENKUlvE_clEv.prefix = private unnamed_addr constant %"struct.refvalue::meta_string.293" { %"struct.std::array.294" { [24 x i8] c"coro_rpc_client.hpp:404\00" } }, align 1
 @.str.85 = private unnamed_addr constant [3 x i8] c"] \00", align 1
-@_ZZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local global i32 0, comdat, align 4
+@_ZZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local local_unnamed_addr global i32 0, comdat, align 4
 @_ZGVZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local local_unnamed_addr global i64 0, comdat, align 8
 @.str.86 = private unnamed_addr constant [29 x i8] c"basic_string::_M_replace_aux\00", align 1
 @_ZZN10moodycamel7details9thread_idEvE1x = linkonce_odr dso_local thread_local global i32 0, comdat, align 4

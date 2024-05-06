@@ -933,7 +933,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %123
 
 123:                                              ; preds = %111, %115, %120, %103
-  %124 = trunc i32 %101 to i8
+  %124 = trunc nuw nsw i32 %101 to i8
   br label %133
 
 .thread357.thread:                                ; preds = %83, %.thread357
@@ -1241,7 +1241,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
 .thread373:                                       ; preds = %285
   %287 = getelementptr inbounds i8, ptr %3, i64 56
   %288 = load i16, ptr %287, align 8
-  %289 = call fastcc i32 @dissect_zbee_t2(ptr noundef nonnull %.1263, ptr noundef %17, i16 noundef zeroext %288), !range !4
+  %289 = call fastcc i32 @dissect_zbee_t2(ptr noundef nonnull %.1263, ptr noundef %17, i16 noundef zeroext %288)
   %290 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef %289) #3
   br label %453
 
@@ -1336,7 +1336,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   store i8 %335, ptr %336, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %337, label %332, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %337, label %332, !llvm.loop !4
 
 337:                                              ; preds = %332
   %338 = load i32, ptr @hf_zbee_aps_cmd_key, align 4
@@ -1653,7 +1653,7 @@ zbee_apf_transaction_len.exit.us:                 ; preds = %50, %48, %46, %44, 
   %53 = add i32 %.021.i.us, %.048.us
   %54 = add nuw nsw i32 %.04447.us, 1
   %exitcond52.not = icmp eq i32 %54, %21
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
 
 zbee_apf_transaction_len.exit:                    ; preds = %.lr.ph, %zbee_apf_transaction_len.exit
   %.048 = phi i32 [ %61, %zbee_apf_transaction_len.exit ], [ 1, %.lr.ph ]
@@ -1667,7 +1667,7 @@ zbee_apf_transaction_len.exit:                    ; preds = %.lr.ph, %zbee_apf_t
   %61 = add i32 %58, %.048
   %62 = add nuw nsw i32 %.04447, 1
   %exitcond.not = icmp eq i32 %62, %21
-  br i1 %exitcond.not, label %.loopexit, label %zbee_apf_transaction_len.exit, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %zbee_apf_transaction_len.exit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %zbee_apf_transaction_len.exit, %zbee_apf_transaction_len.exit.us, %8
   %.1 = phi i32 [ 1, %8 ], [ %53, %zbee_apf_transaction_len.exit.us ], [ %61, %zbee_apf_transaction_len.exit ]
@@ -1746,7 +1746,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_zbee_t2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 258) i32 @dissect_zbee_t2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_zbee_aps_t2, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.514) #3
   switch i16 %2, label %21 [
@@ -1823,7 +1823,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 258}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

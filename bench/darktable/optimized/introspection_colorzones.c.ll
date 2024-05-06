@@ -196,7 +196,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   switch i32 %2, label %326 [
     i32 1, label %7
     i32 2, label %82
@@ -6801,7 +6801,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %918, %920
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_button_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca [20 x float], align 16
   %5 = alloca [20 x float], align 16
   %6 = alloca %struct._cairo_rectangle_int, align 4
@@ -7666,7 +7666,7 @@ define internal noundef i32 @_area_button_press_callback(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_area_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #13 {
+define internal noundef range(i32 0, 2) i32 @_area_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #13 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !121
   %5 = getelementptr inbounds i8, ptr %4, i64 2796
   %6 = load i32, ptr %5, align 4, !tbaa !211
@@ -8335,7 +8335,7 @@ define internal noundef i32 @_area_leave_notify_callback(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._cairo_rectangle_int, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 704
@@ -8505,7 +8505,7 @@ define internal noundef i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_key_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !121
   %5 = getelementptr inbounds i8, ptr %4, i64 2796
   %6 = load i32, ptr %5, align 4, !tbaa !211
@@ -8869,7 +8869,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %182, %184
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_bottom_area_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_bottom_area_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !43
   %6 = getelementptr inbounds i8, ptr %1, i64 52
@@ -10488,7 +10488,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !313
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

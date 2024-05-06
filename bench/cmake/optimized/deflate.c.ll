@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 @cm_zlib__dist_code = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3), !range !5
+define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %6, null
   br i1 %9, label %124, label %10
 
@@ -202,7 +202,7 @@ define dso_local noundef i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef 
   store i32 666, ptr %57, align 8
   %112 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @cm_zlib_z_errmsg, i64 0, i64 6), align 16
   store ptr %112, ptr %17, align 8
-  %113 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %0), !range !6
+  %113 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %0)
   br label %124
 
 114:                                              ; preds = %107
@@ -219,7 +219,7 @@ define dso_local noundef i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef 
   store i32 %5, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %53, i64 72
   store i8 8, ptr %122, align 8
-  %123 = tail call i32 @cm_zlib_deflateReset(ptr noundef nonnull %0), !range !7
+  %123 = tail call i32 @cm_zlib_deflateReset(ptr noundef nonnull %0)
   br label %124
 
 124:                                              ; preds = %50, %40, %48, %32, %14, %8, %10, %114, %111
@@ -235,7 +235,7 @@ declare void @cm_zlib_zcfree(ptr noundef, ptr noundef) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @cm_zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %deflateStateCheck.exit.thread, label %3
 
@@ -355,8 +355,8 @@ deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %1, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @cm_zlib_deflateResetKeep(ptr noundef %0), !range !7
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @cm_zlib_deflateResetKeep(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %51
 
@@ -429,7 +429,7 @@ define dso_local noundef i32 @cm_zlib_deflateReset(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -618,7 +618,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %108 = add i32 %.078, 1
   %109 = add i32 %.077, -1
   %.not86 = icmp eq i32 %109, 0
-  br i1 %.not86, label %110, label %81, !llvm.loop !8
+  br i1 %.not86, label %110, label %81, !llvm.loop !5
 
 110:                                              ; preds = %81
   store i32 %108, ptr %69, align 4
@@ -626,7 +626,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   tail call fastcc void @fill_window(ptr noundef nonnull %15)
   %111 = load i32, ptr %63, align 4
   %112 = icmp ugt i32 %111, 2
-  br i1 %112, label %77, label %._crit_edge, !llvm.loop !10
+  br i1 %112, label %77, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %110, %62
   %.lcssa91 = phi i32 [ %67, %62 ], [ %111, %110 ]
@@ -736,7 +736,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   store i16 %56, ptr %52, align 2
   %57 = add i32 %.0.i, -1
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %58, label %51, !llvm.loop !11
+  br i1 %.not.i, label %58, label %51, !llvm.loop !8
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %14, align 8
@@ -755,7 +755,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   store i16 %67, ptr %63, align 2
   %68 = add i32 %.1.i, -1
   %.not23.i = icmp eq i32 %68, 0
-  br i1 %.not23.i, label %slide_hash.exit, label %62, !llvm.loop !12
+  br i1 %.not23.i, label %slide_hash.exit, label %62, !llvm.loop !9
 
 slide_hash.exit:                                  ; preds = %62
   %69 = add i32 %3, %29
@@ -893,7 +893,7 @@ read_buf.exit:                                    ; preds = %75, %100
   %160 = add i32 %.096115, 1
   %.not104 = icmp eq i32 %156, 0
   %or.cond = or i1 %159, %.not104
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %111, %read_buf.exit
   %161 = phi i32 [ %107, %read_buf.exit ], [ %107, %111 ], [ %157, %.lr.ph ]
@@ -905,7 +905,7 @@ read_buf.exit:                                    ; preds = %75, %100
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8
   %.not105 = icmp eq i32 %166, 0
-  br i1 %.not105, label %.critedge, label %21, !llvm.loop !14
+  br i1 %.not105, label %.critedge, label %21, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %70, %163
   %167 = getelementptr inbounds i8, ptr %0, i64 5944
@@ -959,7 +959,7 @@ read_buf.exit:                                    ; preds = %75, %100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_deflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1044,7 +1044,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %deflateStateCheck.exit.thread, label %3
 
@@ -1142,7 +1142,7 @@ declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @cm_zlib__tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %deflateStateCheck.exit.thread, label %4
 
@@ -1200,7 +1200,7 @@ deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_deflatePending(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflatePending(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1269,7 +1269,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @cm_zlib_deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1348,7 +1348,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %41 = ashr i32 %.024, %spec.select
   %42 = sub nsw i32 %.025, %spec.select
   %.not29 = icmp eq i32 %42, 0
-  br i1 %.not29, label %deflateStateCheck.exit.thread, label %31, !llvm.loop !15
+  br i1 %.not29, label %deflateStateCheck.exit.thread, label %31, !llvm.loop !12
 
 deflateStateCheck.exit.thread:                    ; preds = %31, %13, %17, %19, %3, %5, %9, %deflateStateCheck.exit, %22
   %.023 = phi i32 [ -5, %22 ], [ -5, %deflateStateCheck.exit ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ], [ 0, %31 ]
@@ -1358,7 +1358,7 @@ deflateStateCheck.exit.thread:                    ; preds = %31, %13, %17, %19, 
 declare void @cm_zlib__tr_flush_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @cm_zlib_deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1432,7 +1432,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   br i1 %.not54, label %56, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @cm_zlib_deflate(ptr noundef nonnull %0, i32 noundef 5), !range !16
+  %40 = tail call i32 @cm_zlib_deflate(ptr noundef nonnull %0, i32 noundef 5)
   %41 = icmp eq i32 %40, -2
   br i1 %41, label %deflateStateCheck.exit.thread, label %42
 
@@ -1533,7 +1533,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cm_zlib_deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 2) i32 @cm_zlib_deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %deflateStateCheck.exit.thread, label %4
 
@@ -2157,7 +2157,7 @@ thread-pre-split426:                              ; preds = %222
   %374 = zext i32 %373 to i64
   %375 = load i64, ptr %364, align 8
   %376 = icmp ult i64 %375, %374
-  br i1 %376, label %377, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %376, label %377, label %._crit_edge.loopexit, !llvm.loop !13
 
 377:                                              ; preds = %.lr.ph, %372
   %378 = phi i64 [ %367, %.lr.ph ], [ %375, %372 ]
@@ -2408,7 +2408,7 @@ flush_pending.exit416._crit_edge:                 ; preds = %flush_pending.exit4
   %519 = getelementptr inbounds i8, ptr %517, i64 %509
   store i8 %516, ptr %519, align 1
   %.not390 = icmp eq i8 %516, 0
-  br i1 %.not390, label %520, label %465, !llvm.loop !18
+  br i1 %.not390, label %520, label %465, !llvm.loop !14
 
 520:                                              ; preds = %508
   %521 = load ptr, ptr %454, align 8
@@ -2554,7 +2554,7 @@ flush_pending.exit418._crit_edge:                 ; preds = %flush_pending.exit4
   %601 = getelementptr inbounds i8, ptr %599, i64 %591
   store i8 %598, ptr %601, align 1
   %.not395 = icmp eq i8 %598, 0
-  br i1 %.not395, label %602, label %547, !llvm.loop !19
+  br i1 %.not395, label %602, label %547, !llvm.loop !15
 
 602:                                              ; preds = %590
   %603 = load ptr, ptr %536, align 8
@@ -2670,7 +2670,7 @@ flush_pending.exit418._crit_edge:                 ; preds = %flush_pending.exit4
   br i1 %658, label %659, label %661
 
 659:                                              ; preds = %655
-  %660 = tail call i32 @deflate_stored(ptr noundef nonnull %14, i32 noundef %1), !range !20
+  %660 = tail call i32 @deflate_stored(ptr noundef nonnull %14, i32 noundef %1)
   br label %673
 
 661:                                              ; preds = %655
@@ -2682,11 +2682,11 @@ flush_pending.exit418._crit_edge:                 ; preds = %flush_pending.exit4
   ]
 
 664:                                              ; preds = %661
-  %665 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %14, i32 noundef %1), !range !20
+  %665 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %14, i32 noundef %1)
   br label %673
 
 666:                                              ; preds = %661
-  %667 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %14, i32 noundef %1), !range !20
+  %667 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %14, i32 noundef %1)
   br label %673
 
 668:                                              ; preds = %661
@@ -2948,7 +2948,7 @@ define internal fastcc void @slide_hash(ptr nocapture noundef readonly %0) unnam
   store i16 %15, ptr %11, align 2
   %16 = add i32 %.0, -1
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %10, !llvm.loop !11
+  br i1 %.not, label %17, label %10, !llvm.loop !8
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2968,14 +2968,14 @@ define internal fastcc void @slide_hash(ptr nocapture noundef readonly %0) unnam
   store i16 %27, ptr %23, align 2
   %28 = add i32 %.1, -1
   %.not23 = icmp eq i32 %28, 0
-  br i1 %.not23, label %29, label %22, !llvm.loop !12
+  br i1 %.not23, label %29, label %22, !llvm.loop !9
 
 29:                                               ; preds = %22
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %deflateStateCheck.exit.thread, label %7
 
@@ -3143,7 +3143,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   %60 = getelementptr inbounds i8, ptr %.0, i64 1
   %61 = load i8, ptr %.0, align 1
   %.not51 = icmp eq i8 %61, 0
-  br i1 %.not51, label %.loopexit62, label %.preheader61, !llvm.loop !21
+  br i1 %.not51, label %.loopexit62, label %.preheader61, !llvm.loop !16
 
 .loopexit62:                                      ; preds = %.preheader61, %56
   %.2 = phi i64 [ %.042, %56 ], [ %59, %.preheader61 ]
@@ -3159,7 +3159,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   %65 = getelementptr inbounds i8, ptr %.1, i64 1
   %66 = load i8, ptr %.1, align 1
   %.not53 = icmp eq i8 %66, 0
-  br i1 %.not53, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %.not53, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit62
   %.4 = phi i64 [ %.2, %.loopexit62 ], [ %64, %.preheader ]
@@ -3256,7 +3256,7 @@ define internal fastcc void @flush_pending(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -5
@@ -3503,7 +3503,7 @@ read_buf.exit:                                    ; preds = %126, %149
   br label %168
 
 168:                                              ; preds = %125, %read_buf.exit
-  br i1 %spec.select275, label %._crit_edge, label %21, !llvm.loop !23
+  br i1 %spec.select275, label %._crit_edge, label %21, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %168
   %.pre284 = load ptr, ptr %0, align 8
@@ -3877,7 +3877,7 @@ flush_pending.exit273:                            ; preds = %345, %361, %379
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -4187,7 +4187,7 @@ flush_pending.exit61:                             ; preds = %159, %175, %193
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = icmp eq i32 %1, 0
@@ -4311,7 +4311,7 @@ define internal fastcc i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_
   %74 = icmp eq i8 %32, %73
   %75 = icmp ult i64 %.0120.idx, 250
   %or.cond133 = and i1 %75, %74
-  br i1 %or.cond133, label %44, label %thread-pre-split138.split.loop.exit, !llvm.loop !24
+  br i1 %or.cond133, label %44, label %thread-pre-split138.split.loop.exit, !llvm.loop !19
 
 thread-pre-split138.split.loop.exit:              ; preds = %72
   %.ptr.le = getelementptr inbounds i8, ptr %30, i64 %.0120.add
@@ -4701,7 +4701,7 @@ declare void @cm_zlib__tr_align(ptr noundef) local_unnamed_addr #1
 declare void @cm_zlib__tr_stored_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %deflateStateCheck.exit.thread, label %4
 
@@ -4805,7 +4805,7 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   br i1 %or.cond64, label %63, label %65
 
 63:                                               ; preds = %59, %56, %29
-  %64 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %0), !range !6
+  %64 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %0)
   br label %deflateStateCheck.exit.thread
 
 65:                                               ; preds = %59
@@ -4868,7 +4868,7 @@ deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5078,7 +5078,7 @@ define internal i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
   %152 = add i32 %151, -1
   store i32 %152, ptr %14, align 8
   %.not147 = icmp eq i32 %152, 0
-  br i1 %.not147, label %153, label %121, !llvm.loop !25
+  br i1 %.not147, label %153, label %121, !llvm.loop !20
 
 153:                                              ; preds = %121
   %154 = load i32, ptr %8, align 4
@@ -5393,7 +5393,7 @@ flush_pending.exit153:                            ; preds = %314, %329, %347
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 160
@@ -5656,7 +5656,7 @@ thread-pre-split:                                 ; preds = %70, %73, %91, %86, 
   %180 = add i32 %179, -1
   store i32 %180, ptr %6, align 8
   %.not185 = icmp eq i32 %180, 0
-  br i1 %.not185, label %181, label %146, !llvm.loop !26
+  br i1 %.not185, label %181, label %146, !llvm.loop !21
 
 181:                                              ; preds = %178
   %182 = icmp eq i32 %140, %141
@@ -6223,7 +6223,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %100 = icmp eq i8 %97, %99
   %101 = icmp ult i64 %.187.idx, 250
   %or.cond = and i1 %101, %100
-  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !27
+  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !22
 
 .critedge.split.loop.exit:                        ; preds = %54
   %102 = getelementptr inbounds i8, ptr %.187.ptr, i64 1
@@ -6295,7 +6295,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %128 = add i32 %.185, -1
   %.not109 = icmp eq i32 %128, 0
   %or.cond111 = select i1 %127, i1 true, i1 %.not109
-  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !28
+  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !23
 
 .critedge2:                                       ; preds = %121, %112
   %.291 = phi i32 [ %.190, %121 ], [ %110, %112 ]
@@ -6339,27 +6339,22 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -6, i32 1}
-!6 = !{i32 -3, i32 1}
-!7 = !{i32 -2, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{i32 -5, i32 2}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = !{i32 0, i32 4}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}

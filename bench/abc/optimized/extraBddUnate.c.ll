@@ -719,7 +719,7 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.033 = phi ptr [ %3, %.lr.ph ], [ %31, %26 ]
   %16 = load i32, ptr %.033, align 8
-  %17 = tail call i32 @Extra_bddCheckUnateNaive(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %16), !range !12
+  %17 = tail call i32 @Extra_bddCheckUnateNaive(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %16)
   %18 = load i32, ptr %.033, align 8
   %19 = getelementptr inbounds %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
@@ -751,7 +751,7 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %31, %32
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %2
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %3) #9
@@ -759,7 +759,7 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Extra_bddCheckUnateNaive(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Extra_bddCheckUnateNaive(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %2) #9
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
@@ -838,5 +838,4 @@ attributes #10 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -1, i32 2}
-!13 = distinct !{!13, !5}
+!12 = distinct !{!12, !5}

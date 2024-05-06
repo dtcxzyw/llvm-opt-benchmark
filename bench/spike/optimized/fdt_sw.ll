@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = icmp ult i32 %1, 48
   br i1 %5, label %11, label %6
@@ -35,13 +35,13 @@ define noundef i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %0, i3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @fdt_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 48
   br i1 %3, label %fdt_create_with_flags.exit, label %4
 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %0, i8 0, i64 %5, i1 false)
   store i32 302117423, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %6, align 4
@@ -58,7 +58,7 @@ fdt_create_with_flags.exit:                       ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -320,7 +320,7 @@ fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
   %83 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   %84 = getelementptr inbounds i8, ptr %81, i64 8
   store i64 %83, ptr %84, align 8
-  %85 = trunc i64 %60 to i32
+  %85 = trunc nuw i64 %60 to i32
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %85)
   store i32 %rev.i.i, ptr %41, align 4
   br label %fdt_sw_probe_memrsv_.exit.thread17
@@ -423,7 +423,7 @@ fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
 
 78:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread.i
   %79 = getelementptr inbounds i8, ptr %0, i64 %57
-  %80 = trunc i64 %58 to i32
+  %80 = trunc nuw i64 %58 to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %80)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   store i32 %rev.i.i.i, ptr %39, align 4
@@ -451,7 +451,7 @@ fdt_add_reservemap_entry.exit.thread:             ; preds = %19, %fdt_sw_probe_m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @fdt_begin_node(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -658,7 +658,7 @@ define internal fastcc ptr @fdt_grab_space_(ptr noundef %0, i64 noundef %1) unna
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @fdt_end_node(ptr noundef %0) local_unnamed_addr #6 {
+define range(i32 -9, 1) i32 @fdt_end_node(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -739,7 +739,7 @@ fdt_sw_probe_struct_.exit.thread10:               ; preds = %fdt_sw_probe_struct
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_property_placeholder(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define range(i32 -9, 1) i32 @fdt_property_placeholder(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = shl nuw i32 %6, 24
@@ -901,7 +901,7 @@ fdt_find_add_string_.exit:                        ; preds = %104, %99, %63
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = or disjoint i32 %128, %131
-  %133 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %133 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %134 = trunc i64 %133 to i32
   %.neg.i = xor i32 %134, -1
   %135 = add i32 %132, %.neg.i
@@ -1030,7 +1030,7 @@ define internal fastcc i32 @fdt_add_string_(ptr nocapture noundef %0, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define i32 @fdt_property(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca ptr, align 8
-  %6 = call i32 @fdt_property_placeholder(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5), !range !4
+  %6 = call i32 @fdt_property_placeholder(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -1045,7 +1045,7 @@ define i32 @fdt_property(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_finish(ptr noundef %0) local_unnamed_addr #7 {
+define range(i32 -2147483648, 1) i32 @fdt_finish(ptr noundef %0) local_unnamed_addr #7 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
@@ -1249,7 +1249,7 @@ fdt_sw_probe_struct_.exit.thread:                 ; preds = %20
 
 172:                                              ; preds = %135, %137
   %173 = load i32, ptr %2, align 4
-  br label %135, !llvm.loop !5
+  br label %135, !llvm.loop !4
 
 174:                                              ; preds = %135
   %175 = load i32, ptr %2, align 4
@@ -1314,6 +1314,5 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -9, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

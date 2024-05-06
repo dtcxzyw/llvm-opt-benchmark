@@ -8625,7 +8625,7 @@ define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode6asBoolEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK5Yosys3AST7AstNode7isConstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0) local_unnamed_addr #12 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK5Yosys3AST7AstNode7isConstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %switch.selectcmp = icmp eq i32 %3, 17
@@ -13582,7 +13582,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %3
   br label %_ZNSt8functionIFvPN5Yosys3AST7AstNodeEEED2Ev.exit.i
 
 ._crit_edge.i:                                    ; preds = %425, %416
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %427 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
           to label %428 unwind label %.loopexit.split-lp29.i
 
@@ -25338,7 +25338,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7Ast
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN5YosysL23rename_in_package_stmtsEPNS1_3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 

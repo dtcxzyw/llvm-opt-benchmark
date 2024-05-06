@@ -958,7 +958,7 @@ if.else.i:                                        ; preds = %if.else
   br i1 %cmp27.i, label %if.then29.i, label %if.end13
 
 if.then29.i:                                      ; preds = %if.else.i
-  tail call fastcc void @uv__epoll_ctl_flush(i32 noundef %9, ptr noundef nonnull %ctl, ptr noundef nonnull %10)
+  tail call fastcc void @uv__epoll_ctl_flush(i32 noundef %9, ptr noundef nonnull readonly %ctl, ptr noundef nonnull %10)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then.i, %if.then29.i, %if.else.i, %if.then11
@@ -2608,7 +2608,7 @@ do.end.i.i:                                       ; preds = %sw.bb.i
   %tv_nsec31.i.i.i = getelementptr inbounds i8, ptr %41, i64 264
   store i64 %conv29.i.i.i, ptr %tv_nsec31.i.i.i, align 8
   %st_flags.i.i.i = getelementptr inbounds i8, ptr %41, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %st_flags.i.i.i, i8 0, i64 16, i1 false)
   store ptr %statbuf.i.i, ptr %ptr.i.i, align 8
   br label %uv__iou_fs_statx_post.exit.i
 
@@ -2736,7 +2736,7 @@ if.else.i:                                        ; preds = %if.then80
   br i1 %cmp27.i, label %if.then29.i, label %for.inc
 
 if.then29.i:                                      ; preds = %if.else.i
-  call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep)
+  call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull readonly %ctl1, ptr noundef nonnull %prep)
   br label %for.inc
 
 if.end81:                                         ; preds = %if.end78
@@ -3890,7 +3890,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.18) #19
+  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
@@ -3945,7 +3945,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.19) #19
+  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull readonly dereferenceable(1) @.str.19) #19
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
@@ -4024,7 +4024,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 58) #19
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not10.i.i, label %if.end11.i, label %land.rhs.i.i
 
@@ -4281,7 +4281,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.end.i.i, label %uv__read_proc_meminfo.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.then3
-  %call2.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i, ptr noundef nonnull dereferenceable(1) @.str.18) #19
+  %call2.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %uv__read_proc_meminfo.exit.thread.i, label %uv__read_proc_meminfo.exit.i
 
@@ -4329,7 +4329,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not.i.i10, label %if.end.i.i20, label %uv__read_proc_meminfo.exit.thread.i11
 
 if.end.i.i20:                                     ; preds = %if.end5
-  %call2.i.i21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i7, ptr noundef nonnull dereferenceable(1) @.str.19) #19
+  %call2.i.i21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i7, ptr noundef nonnull readonly dereferenceable(1) @.str.19) #19
   %cmp.i.i22 = icmp eq ptr %call2.i.i21, null
   br i1 %cmp.i.i22, label %uv__read_proc_meminfo.exit.thread.i11, label %uv__read_proc_meminfo.exit.i23
 
@@ -4382,7 +4382,7 @@ if.then8:                                         ; preds = %uv_get_total_memory
   br i1 %tobool.not.i.i32, label %if.end.i.i43, label %uv__read_proc_meminfo.exit.thread.i33
 
 if.end.i.i43:                                     ; preds = %if.then8
-  %call2.i.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i29, ptr noundef nonnull dereferenceable(1) @.str.18) #19
+  %call2.i.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i29, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
   %cmp.i.i45 = icmp eq ptr %call2.i.i44, null
   br i1 %cmp.i.i45, label %uv__read_proc_meminfo.exit.thread.i33, label %uv__read_proc_meminfo.exit.i46
 
@@ -4428,7 +4428,7 @@ if.end10:                                         ; preds = %uv_get_total_memory
 
 if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
-  %call.i.i54 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 58) #19
+  %call.i.i54 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i54, null
   br i1 %cmp.not10.i.i, label %if.end6.i, label %land.rhs.i.i
 
@@ -5193,7 +5193,7 @@ if.end35.i:                                       ; preds = %if.then23.i, %if.en
   %11 = load ptr, ptr %rbe_parent.i, align 8
   %cmp38.i = icmp eq ptr %11, %w
   %spec.select.i = select i1 %cmp38.i, ptr %elm.addr.0.i, ptr %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %elm.addr.0.i, ptr noundef nonnull align 8 dereferenceable(32) %w, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %elm.addr.0.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %w, i64 32, i1 false)
   %rbe_parent44.i = getelementptr inbounds i8, ptr %w, i64 16
   %12 = load ptr, ptr %rbe_parent44.i, align 8
   %tobool45.not.i = icmp eq ptr %12, null
@@ -5867,7 +5867,7 @@ cond.true:                                        ; preds = %if.end19
 cond.false:                                       ; preds = %if.end19
   %path22 = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 56
   %10 = load ptr, ptr %path22, align 8
-  %call.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 47) #19
+  %call.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %10, i32 noundef 47) #19
   %cmp.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %retval.0.i = select i1 %cmp.i, ptr %10, ptr %add.ptr.i

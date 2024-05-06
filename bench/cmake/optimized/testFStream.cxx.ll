@@ -48,7 +48,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z11testFStreamiPPc(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_fstream", align 8
   %4 = alloca [45 x i8], align 16
   %5 = alloca %"class.std::basic_ofstream", align 8
@@ -113,7 +113,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   br i1 %.not.i, label %39, label %.invoke
 
 .invoke43.i:                                      ; preds = %.invoke
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %33)
           to label %.invoke.i unwind label %.loopexit.split-lp.i
 
@@ -221,7 +221,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   br i1 %74, label %80, label %.invoke64
 
 .invoke41.i:                                      ; preds = %.invoke64
-  %76 = trunc i64 %indvars.iv.i4 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.i4 to i32
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %102, i32 noundef %76)
           to label %.invoke.i9 unwind label %.loopexit.split-lp.i7
 

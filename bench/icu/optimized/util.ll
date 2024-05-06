@@ -534,7 +534,7 @@ while.body:                                       ; preds = %if.end5, %while.bod
   %nn.029 = phi i32 [ %div, %while.body ], [ %n.addr.0, %if.end5 ]
   %minDigits.addr.028 = phi i32 [ %dec, %while.body ], [ %minDigits, %if.end5 ]
   %div = udiv i32 %nn.029, %radix
-  %mul = mul nsw i32 %r.030, %radix
+  %mul = mul nuw nsw i32 %r.030, %radix
   %dec = add nsw i32 %minDigits.addr.028, -1
   %cmp6.not = icmp slt i32 %div, %radix
   br i1 %cmp6.not, label %while.cond7.preheader, label %while.body, !llvm.loop !4
@@ -576,7 +576,7 @@ return:                                           ; preds = %while.body15, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7511ICU_Utility13isUnprintableEi(i32 noundef %c) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7511ICU_Utility13isUnprintableEi(i32 noundef %c) local_unnamed_addr #6 align 2 {
 entry:
   %0 = add i32 %c, -127
   %1 = icmp ult i32 %0, -95
@@ -585,7 +585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7511ICU_Utility21shouldAlwaysBeEscapedEi(i32 noundef %c) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7511ICU_Utility21shouldAlwaysBeEscapedEi(i32 noundef %c) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %c, 32
   br i1 %cmp, label %return, label %if.else
@@ -623,7 +623,7 @@ return:                                           ; preds = %if.else16, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7511ICU_Utility17escapeUnprintableERNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7511ICU_Utility17escapeUnprintableERNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %0 = add i32 %c, -32
   %1 = icmp ult i32 %0, 95
@@ -803,7 +803,7 @@ if.end:                                           ; preds = %if.then, %_ZNK6icu_
 declare noundef ptr @_ZN6icu_7512PatternProps14skipWhiteSpaceEPKDsi(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7511ICU_Utility9parseCharERKNS_13UnicodeStringERiDs(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i16 noundef zeroext %ch) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7511ICU_Utility9parseCharERKNS_13UnicodeStringERiDs(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i16 noundef zeroext %ch) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %fUnion.i.i = getelementptr inbounds i8, ptr %id, i64 8

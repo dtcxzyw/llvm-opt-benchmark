@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"blob\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @generate_node_regex(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i64 0, i32 5), align 8
@@ -30,7 +30,7 @@ define internal noundef i32 @generate_node_regex(ptr noundef %0, ptr nocapture n
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1), !range !4
+  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1)
   %13 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %13) #12
   br label %14
@@ -41,7 +41,7 @@ define internal noundef i32 @generate_node_regex(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i64 0, i32 5), align 8
@@ -55,7 +55,7 @@ define internal noundef i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef 
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1), !range !4
+  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1)
   %13 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %13) #12
   br label %14
@@ -66,7 +66,7 @@ define internal noundef i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -118,7 +118,7 @@ define internal noundef i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_procs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -170,7 +170,7 @@ define internal noundef i32 @parse_procs(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
@@ -209,7 +209,7 @@ define internal noundef i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pack(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %26
@@ -254,7 +254,7 @@ define internal noundef i32 @pack(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -302,7 +302,7 @@ define internal noundef i32 @unpack(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @release(ptr noundef %0) #2 {
+define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -331,7 +331,7 @@ define internal noundef i32 @release(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pack_blob(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i64 noundef %1) #12
   %6 = icmp slt i32 %5, 0
@@ -423,4 +423,3 @@ attributes #15 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -32, i32 1}

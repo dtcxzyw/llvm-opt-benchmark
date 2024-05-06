@@ -246,7 +246,7 @@ define internal noundef i64 @pc_nvram_write(ptr noundef %0, i64 noundef %1, ptr 
 
 53:                                               ; preds = %43
   %54 = lshr i16 %50, 8
-  %55 = trunc i16 %54 to i8
+  %55 = trunc nuw i16 %54 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %55, i8 noundef zeroext 46) #9
   %56 = trunc i16 %50 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %56, i8 noundef zeroext 47) #9
@@ -290,7 +290,7 @@ define internal noundef i64 @pc_nvram_initialize() #1 align 16 {
 
 16:                                               ; preds = %.preheader
   %17 = lshr i16 %13, 8
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw i16 %17 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %18, i8 noundef zeroext 46) #9
   %19 = trunc i16 %13 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %19, i8 noundef zeroext 47) #9
@@ -317,7 +317,7 @@ define internal noundef i64 @pc_nvram_set_checksum() #1 align 16 {
 
 11:                                               ; preds = %1
   %12 = lshr i16 %8, 8
-  %13 = trunc i16 %12 to i8
+  %13 = trunc nuw i16 %12 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %13, i8 noundef zeroext 46) #9
   %14 = trunc i16 %8 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %14, i8 noundef zeroext 47) #9
@@ -401,7 +401,7 @@ define internal i64 @nvram_misc_llseek(ptr noundef %0, i64 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @nvram_misc_read(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
+define internal range(i64 -9223372036854775808, 2147483648) i64 @nvram_misc_read(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = load i1, ptr @nvram_size, align 8
   %7 = select i1 %6, i64 114, i64 0
@@ -483,7 +483,7 @@ define internal i64 @nvram_misc_write(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @nvram_misc_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #1 align 16 {
+define internal noundef range(i64 -25, 1) i64 @nvram_misc_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #1 align 16 {
   switch i32 %1, label %26 [
     i32 28736, label %4
     i32 28737, label %8
@@ -521,7 +521,7 @@ define internal noundef i64 @nvram_misc_ioctl(ptr nocapture readnone %0, i32 nou
 
 21:                                               ; preds = %11
   %22 = lshr i16 %18, 8
-  %23 = trunc i16 %22 to i8
+  %23 = trunc nuw i16 %22 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %23, i8 noundef zeroext 46) #9
   %24 = trunc i16 %18 to i8
   tail call void @rtc_cmos_write(i8 noundef zeroext %24, i8 noundef zeroext 47) #9
@@ -538,7 +538,7 @@ define internal noundef i64 @nvram_misc_ioctl(ptr nocapture readnone %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nvram_misc_open(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -16, 1) i32 @nvram_misc_open(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nvram_state_lock) #9
   %3 = load i32, ptr @nvram_open_cnt, align 4
   %4 = icmp eq i32 %3, 0

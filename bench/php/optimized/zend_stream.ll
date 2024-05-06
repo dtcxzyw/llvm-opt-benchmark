@@ -152,7 +152,7 @@ define i32 @zend_stream_open(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_stream_fixup(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_stream_fixup(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
@@ -286,7 +286,7 @@ zend_stream_fsize.exit:                           ; preds = %36
   ]
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = trunc i32 %.0.i.i to i8
+  %57 = trunc nsw i32 %.0.i.i to i8
   %58 = getelementptr inbounds i8, ptr %50, i64 %.024.i
   store i8 %57, ptr %58, align 1
   %59 = add nuw i64 %.024.i, 1
@@ -371,7 +371,7 @@ zend_stream_fsize.exit.thread:                    ; preds = %36, %zend_stream_fs
   ]
 
 85:                                               ; preds = %.lr.ph.i125
-  %86 = trunc i32 %.0.i.i130 to i8
+  %86 = trunc nsw i32 %.0.i.i130 to i8
   %87 = getelementptr inbounds i8, ptr %80, i64 %.024.i126
   store i8 %86, ptr %87, align 1
   %88 = add nuw i64 %.024.i126, 1
@@ -575,7 +575,7 @@ define void @zend_destroy_file_handle(ptr noundef %0) local_unnamed_addr #0 {
 declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_compare_file_handles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @zend_compare_file_handles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56

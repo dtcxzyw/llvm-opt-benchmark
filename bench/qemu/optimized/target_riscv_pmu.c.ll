@@ -61,7 +61,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @riscv_pmu_incr_ctr(ptr noundef %cpu, i32 noundef %event_idx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @riscv_pmu_incr_ctr(ptr noundef %cpu, i32 noundef %event_idx) local_unnamed_addr #0 {
 entry:
   %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
   %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 19108
@@ -367,7 +367,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @riscv_pmu_update_event_map(ptr nocapture noundef readonly %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @riscv_pmu_update_event_map(ptr nocapture noundef readonly %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %ctr_idx, -32
   %or.cond.i = icmp ult i32 %0, -29
@@ -430,7 +430,7 @@ return:                                           ; preds = %entry, %if.end13, %
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @pmu_remove_event_map(ptr nocapture readnone %key, ptr noundef %value, ptr noundef %udata) #3 {
+define internal range(i32 0, 2) i32 @pmu_remove_event_map(ptr nocapture readnone %key, ptr noundef %value, ptr noundef %udata) #3 {
 entry:
   %0 = ptrtoint ptr %value to i64
   %conv = trunc i64 %0 to i32
@@ -534,7 +534,7 @@ if.end31:                                         ; preds = %land.lhs.true.i, %r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @riscv_pmu_setup_timer(ptr nocapture noundef %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @riscv_pmu_setup_timer(ptr nocapture noundef %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
 entry:
   %pmu_ctrs = getelementptr inbounds i8, ptr %env, i64 5744
   %idxprom = zext i32 %ctr_idx to i64
@@ -650,7 +650,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !5
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %cmp = icmp ugt i32 %1, 29
   br i1 %cmp, label %if.then3, label %if.end4
 
@@ -714,4 +714,3 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}

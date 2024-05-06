@@ -458,7 +458,7 @@ if.end21:                                         ; preds = %if.end, %if.end21.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_757UVector14ensureCapacityEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %minimumCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_757UVector14ensureCapacityEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %minimumCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -632,7 +632,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
   store i64 %11, ptr %arrayidx10.i.i, align 8
   %12 = load i32, ptr %count, align 8
   %sub.i.i = add nsw i32 %12, -1
-  %13 = trunc i64 %indvars.iv.next.i.i to i32
+  %13 = trunc nuw i64 %indvars.iv.next.i.i to i32
   %cmp4.i.i = icmp sgt i32 %sub.i.i, %13
   br i1 %cmp4.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i, !llvm.loop !8
 
@@ -1293,7 +1293,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_757UVector11containsAllERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_757UVector11containsAllERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -1506,15 +1506,15 @@ for.inc29:                                        ; preds = %for.body12
   br i1 %exitcond.not, label %return, label %for.body12, !llvm.loop !14
 
 return.loopexit.split.loop.exit42:                ; preds = %for.body12.us
-  %14 = trunc i64 %indvars.iv29 to i32
+  %14 = trunc nsw i64 %indvars.iv29 to i32
   br label %return
 
 return.loopexit34.split.loop.exit40:              ; preds = %for.body12
-  %15 = trunc i64 %indvars.iv26 to i32
+  %15 = trunc nsw i64 %indvars.iv26 to i32
   br label %return
 
 return.loopexit36.split.loop.exit38:              ; preds = %for.body
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %for.inc29, %for.inc29.us, %return.loopexit36.split.loop.exit38, %return.loopexit34.split.loop.exit40, %return.loopexit.split.loop.exit42, %for.cond.preheader, %for.cond9.preheader
@@ -1523,7 +1523,7 @@ return:                                           ; preds = %for.inc, %for.inc29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_757UVector12containsNoneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_757UVector12containsNoneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -1659,7 +1659,7 @@ return:                                           ; preds = %_ZNK6icu_757UVector
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_757UVector9removeAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_757UVector9removeAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -1760,7 +1760,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
   store i64 %16, ptr %arrayidx10.i.i, align 8
   %17 = load i32, ptr %count.i5, align 8
   %sub.i.i = add nsw i32 %17, -1
-  %18 = trunc i64 %indvars.iv.next.i.i to i32
+  %18 = trunc nuw i64 %indvars.iv.next.i.i to i32
   %cmp4.i.i = icmp sgt i32 %sub.i.i, %18
   br i1 %cmp4.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i, !llvm.loop !8
 
@@ -1824,7 +1824,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   store i64 %4, ptr %arrayidx10.i, align 8
   %5 = load i32, ptr %count.i, align 8
   %sub.i = add nsw i32 %5, -1
-  %6 = trunc i64 %indvars.iv.next.i to i32
+  %6 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp4.i = icmp sgt i32 %sub.i, %6
   br i1 %cmp4.i, label %for.body.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit, !llvm.loop !8
 
@@ -1849,7 +1849,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_757UVector9retainAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_757UVector9retainAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -1953,7 +1953,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
   store i64 %20, ptr %arrayidx10.i.i, align 8
   %21 = load i32, ptr %count.i, align 8
   %sub.i.i = add nsw i32 %21, -1
-  %22 = trunc i64 %indvars.iv.next.i.i to i32
+  %22 = trunc nuw i64 %indvars.iv.next.i.i to i32
   %cmp4.i.i = icmp sgt i32 %sub.i.i, %22
   br i1 %cmp4.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i, !llvm.loop !8
 
@@ -2014,7 +2014,7 @@ for.body:                                         ; preds = %if.then, %for.body
   store i64 %4, ptr %arrayidx10, align 8
   %5 = load i32, ptr %count, align 8
   %sub = add nsw i32 %5, -1
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw i64 %indvars.iv.next to i32
   %cmp4 = icmp sgt i32 %sub, %6
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !8
 
@@ -2029,7 +2029,7 @@ if.end:                                           ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_757UVector13removeElementEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_757UVector13removeElementEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj) local_unnamed_addr #1 align 2 {
 entry:
   %comparer.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %comparer.i.i, align 8
@@ -2115,7 +2115,7 @@ for.body.i.i5:                                    ; preds = %if.then.i.i, %for.b
   store i64 %12, ptr %arrayidx10.i.i, align 8
   %13 = load i32, ptr %count10.i.i, align 8
   %sub.i.i = add nsw i32 %13, -1
-  %14 = trunc i64 %indvars.iv.next.i.i7 to i32
+  %14 = trunc nuw i64 %indvars.iv.next.i.i7 to i32
   %cmp4.i.i = icmp sgt i32 %sub.i.i, %14
   br i1 %cmp4.i.i, label %for.body.i.i5, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i, !llvm.loop !8
 
@@ -2199,11 +2199,11 @@ for.inc29.i:                                      ; preds = %for.body12.i
   br i1 %exitcond.not.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit, label %for.body12.i, !llvm.loop !14
 
 return.loopexit34.split.loop.exit40.i:            ; preds = %for.body12.i
-  %10 = trunc i64 %indvars.iv26.i to i32
+  %10 = trunc nsw i64 %indvars.iv26.i to i32
   br label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 return.loopexit36.split.loop.exit38.i:            ; preds = %for.body.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_757UVector7indexOfE8UElementia.exit:     ; preds = %for.inc.i, %for.inc29.i, %for.cond.preheader.i, %for.cond9.preheader.i, %return.loopexit34.split.loop.exit40.i, %return.loopexit36.split.loop.exit38.i
@@ -2212,7 +2212,7 @@ _ZNK6icu_757UVector7indexOfE8UElementia.exit:     ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
@@ -2347,11 +2347,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp2.i, label %for.body.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit, !llvm.loop !17
 
 return.loopexit.split.loop.exit42.i:              ; preds = %for.body12.us.i
-  %11 = trunc i64 %indvars.iv29.i to i32
+  %11 = trunc nsw i64 %indvars.iv29.i to i32
   br label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 return.loopexit36.split.loop.exit38.i:            ; preds = %for.body.i
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_757UVector7indexOfE8UElementia.exit:     ; preds = %for.inc.i, %for.inc29.us.i, %for.cond.preheader.i, %for.cond9.preheader.i, %return.loopexit.split.loop.exit42.i, %return.loopexit36.split.loop.exit38.i
@@ -2576,7 +2576,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN6icu_75L15sortiComparatorEPKvS1_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #12 {
+define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L15sortiComparatorEPKvS1_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #12 {
 entry:
   %1 = load i32, ptr %left, align 8
   %2 = load i32, ptr %right, align 8

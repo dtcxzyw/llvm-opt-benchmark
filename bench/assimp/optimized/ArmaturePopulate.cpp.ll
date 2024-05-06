@@ -245,7 +245,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %while
 
 _ZNK8aiStringeqERKS_.exit.i.i:                    ; preds = %for.body.i.i
   %data.i.i.i = getelementptr inbounds i8, ptr %12, i64 4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull %data.i.i.i, ptr nonnull %data3.i.i.i, i64 %conv.i.i.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull %data.i.i.i, ptr nonnull readonly %data3.i.i.i, i64 %conv.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.end.i, label %for.inc.i.i
 
@@ -912,7 +912,7 @@ for.body.i:                                       ; preds = %for.inc.i, %while.b
 
 _ZNK8aiStringeqERKS_.exit.i:                      ; preds = %for.body.i
   %data.i.i = getelementptr inbounds i8, ptr %2, i64 4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %data.i.i, ptr nonnull %data3.i.i, i64 %conv.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %data.i.i, ptr nonnull readonly %data3.i.i, i64 %conv.i.i)
   %cmp6.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp6.i.i, label %if.end, label %for.inc.i
 

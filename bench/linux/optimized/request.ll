@@ -107,7 +107,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
   %3 = load volatile ptr, ptr @handshake_rhashtbl, align 64
   %4 = ptrtoint ptr %0 to i64
   %5 = lshr i64 %4, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %4 to i32
   br label %8
 

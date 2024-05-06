@@ -334,7 +334,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK3ue213ReportManager10numReportsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_ZNK3ue213ReportManager10numReportsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %reportIds = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208

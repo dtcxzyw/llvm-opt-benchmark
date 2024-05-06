@@ -1417,7 +1417,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef %0) unnamed_addr #0 {
   %51 = load ptr, ptr @pbw_pool, align 8
   %52 = getelementptr ptr, ptr %29, i64 %42
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc i32 @load_all_files_in_dir(ptr noundef %51, ptr noundef %53), !range !14
+  %54 = tail call fastcc i32 @load_all_files_in_dir(ptr noundef %51, ptr noundef %53)
   %.not52 = icmp eq i32 %54, 0
   br i1 %.not52, label %55, label %56
 
@@ -1429,7 +1429,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef %0) unnamed_addr #0 {
   %57 = add i32 %.267, 1
   %58 = zext i32 %57 to i64
   %.not89 = icmp ugt i64 %27, %58
-  br i1 %.not89, label %41, label %.loopexit, !llvm.loop !15
+  br i1 %.not89, label %41, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %56, %55
   %.not95 = phi i1 [ true, %55 ], [ false, %56 ]
@@ -1480,7 +1480,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef %0) unnamed_addr #0 {
   %73 = load i32, ptr @num_protobuf_udp_message_types, align 4
   %74 = zext i32 %73 to i64
   %75 = icmp ult i64 %indvars.iv.next84, %74
-  br i1 %75, label %.lr.ph70.split, label %._crit_edge71, !llvm.loop !16
+  br i1 %75, label %.lr.ph70.split, label %._crit_edge71, !llvm.loop !15
 
 ._crit_edge71:                                    ; preds = %72, %.loopexit, %.thread
   %76 = load ptr, ptr @err_msg_buf, align 8
@@ -1676,7 +1676,7 @@ tvb_get_protobuf_field_uint.exit.i:               ; preds = %52
   %66 = add i32 %57, %.01625.i
   %67 = sub i32 %.026.i, %57
   %.not.i = icmp eq i32 %67, 0
-  br i1 %.not.i, label %tvb_get_protobuf_time.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %tvb_get_protobuf_time.exit, label %.lr.ph.i, !llvm.loop !16
 
 tvb_get_protobuf_time.exit:                       ; preds = %tvb_get_protobuf_field_uint.exit.i, %65, %44, %tvb_get_protobuf_field_uint.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
@@ -1741,7 +1741,7 @@ tvb_get_protobuf_time.exit:                       ; preds = %tvb_get_protobuf_fi
   %92 = urem i32 %90, 10
   %93 = icmp eq i32 %92, 0
   %or.cond.i = and i1 %91, %93
-  br i1 %or.cond.i, label %.lr.ph.i151, label %.critedge.i, !llvm.loop !18
+  br i1 %or.cond.i, label %.lr.ph.i151, label %.critedge.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.lr.ph.i151, %.preheader.i
   %.0.lcssa.i = phi i32 [ %85, %.preheader.i ], [ %90, %.lr.ph.i151 ]
@@ -2243,7 +2243,7 @@ proto_item_set_generated.exit198:                 ; preds = %225, %222, %219, %2
   call void @wmem_list_append(ptr noundef %295, ptr noundef nonnull %303) #11
   %307 = add i32 %298, %.079.i288
   %308 = icmp ult i32 %307, %287
-  br i1 %308, label %.lr.ph289, label %._crit_edge, !llvm.loop !19
+  br i1 %308, label %.lr.ph289, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %301, %293
   %309 = call ptr @wmem_list_head(ptr noundef %295) #11
@@ -2262,7 +2262,7 @@ proto_item_set_generated.exit198:                 ; preds = %225, %222, %219, %2
   call fastcc void @protobuf_dissect_field_value(ptr noundef %292, ptr noundef %0, i32 noundef %311, i32 noundef %313, ptr noundef %3, ptr noundef %286, i32 noundef %.0162.i, i64 noundef %315, ptr noundef nonnull %.077.i292, ptr noundef nonnull %.0229, i32 noundef 0, ptr noundef %.0123242)
   %316 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.081.i291) #11
   %.not84.i = icmp eq ptr %316, null
-  br i1 %.not84.i, label %._crit_edge295, label %.lr.ph294, !llvm.loop !20
+  br i1 %.not84.i, label %._crit_edge295, label %.lr.ph294, !llvm.loop !19
 
 ._crit_edge295:                                   ; preds = %.lr.ph294, %._crit_edge
   call void @wmem_destroy_list(ptr noundef %295) #11
@@ -2306,7 +2306,7 @@ proto_item_set_generated.exit198:                 ; preds = %225, %222, %219, %2
   call fastcc void @protobuf_dissect_field_value(ptr noundef %292, ptr noundef %0, i32 noundef %.180.i286, i32 noundef %320, ptr noundef %3, ptr noundef %286, i32 noundef %.0162.i, i64 noundef %332, ptr noundef nonnull %.1.i195287, ptr noundef nonnull %.0229, i32 noundef 0, ptr noundef %.0123242)
   %333 = add i32 %.180.i286, %320
   %334 = icmp ult i32 %333, %287
-  br i1 %334, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %334, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 335:                                              ; preds = %285
   %336 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %286, ptr noundef nonnull @ei_protobuf_wire_type_not_support_packed_repeated) #11
@@ -2351,7 +2351,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %300, %324, %335, %.
   %351 = getelementptr i32, ptr %345, i64 %350
   %352 = load i32, ptr %351, align 4
   %.not.i191 = icmp eq i32 %352, 0
-  br i1 %.not.i191, label %protobuf_try_dissect_field_value_on_multi_types.exit192, label %.lr.ph300, !llvm.loop !22
+  br i1 %.not.i191, label %protobuf_try_dissect_field_value_on_multi_types.exit192, label %.lr.ph300, !llvm.loop !21
 
 353:                                              ; preds = %339
   %354 = load i32, ptr %17, align 4
@@ -2388,7 +2388,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %300, %324, %335, %.
   %366 = getelementptr i32, ptr %20, i64 %365
   %367 = load i32, ptr %366, align 4
   %.not.i188 = icmp eq i32 %367, 0
-  br i1 %.not.i188, label %protobuf_try_dissect_field_value_on_multi_types.exit192, label %.lr.ph305, !llvm.loop !22
+  br i1 %.not.i188, label %protobuf_try_dissect_field_value_on_multi_types.exit192, label %.lr.ph305, !llvm.loop !21
 
 .thread346:                                       ; preds = %356, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -2545,7 +2545,7 @@ dissect_one_protobuf_field.exit.thread:           ; preds = %182, %259, %249, %2
   %.1119 = phi i32 [ %418, %416 ], [ %.0118308, %414 ], [ %.0118308, %.thread346 ]
   %422 = add i32 %.0164.i, %.1232
   %423 = icmp ult i32 %422, %27
-  br i1 %423, label %176, label %.loopexit263, !llvm.loop !23
+  br i1 %423, label %176, label %.loopexit263, !llvm.loop !22
 
 .loopexit263:                                     ; preds = %421, %dissect_one_protobuf_field.exit.thread
   %.0122274 = phi ptr [ %.0122307, %dissect_one_protobuf_field.exit.thread ], [ %.0229, %421 ]
@@ -2642,7 +2642,7 @@ dissect_one_protobuf_field.exit.thread:           ; preds = %182, %259, %249, %2
 462:                                              ; preds = %.preheader.i168
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i165, label %.preheader.i168, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.critedge.i165, label %.preheader.i168, !llvm.loop !23
 
 .preheader.i168:                                  ; preds = %461, %462
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %462 ], [ 0, %461 ]
@@ -3205,7 +3205,7 @@ proto_item_set_hidden.exit354.i:                  ; preds = %696, %693, %proto_i
 proto_item_set_hidden.exit357.i:                  ; preds = %.preheader.i168, %707, %704, %700, %proto_item_set_hidden.exit354.i, %proto_item_set_generated.exit345.i, %467, %457, %456, %456, %456, %449, %437
   %711 = add nuw nsw i32 %.0290360.i, 1
   %exitcond362.not.i = icmp eq i32 %711, %432
-  br i1 %exitcond362.not.i, label %add_missing_fields_with_default_values.exit, label %437, !llvm.loop !25
+  br i1 %exitcond362.not.i, label %add_missing_fields_with_default_values.exit, label %437, !llvm.loop !24
 
 add_missing_fields_with_default_values.exit:      ; preds = %proto_item_set_hidden.exit357.i, %431
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -4259,7 +4259,7 @@ define internal void @collect_fields(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %62 = trunc i64 %indvars.iv.i to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   %63 = tail call ptr @pbw_EnumDescriptor_value(ptr noundef nonnull %53, i32 noundef %62) #11
   %64 = tail call i32 @pbw_EnumValueDescriptor_number(ptr noundef %63) #11
   %65 = getelementptr %struct._value_string, ptr %60, i64 %indvars.iv.i
@@ -4270,7 +4270,7 @@ define internal void @collect_fields(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %67, ptr %68, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %enum_to_value_string.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %enum_to_value_string.exit, label %.lr.ph.i, !llvm.loop !25
 
 enum_to_value_string.exit:                        ; preds = %.lr.ph.i, %54, %57
   %.0.i = phi ptr [ null, %54 ], [ %60, %57 ], [ %60, %.lr.ph.i ]
@@ -4345,7 +4345,7 @@ default.unreachable:                              ; preds = %23
 101:                                              ; preds = %.lr.ph, %95
   %102 = add nuw nsw i32 %.070, 1
   %exitcond.not = icmp eq i32 %102, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %101, %2
   ret void
@@ -4409,7 +4409,7 @@ define internal void @buffer_error(ptr noundef %0, ...) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_all_files_in_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_all_files_in_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @g_file_test(ptr noundef %1, i32 noundef 4) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %20, label %4
@@ -4443,7 +4443,7 @@ define internal fastcc noundef i32 @load_all_files_in_dir(ptr noundef %0, ptr no
   br i1 %.not25, label %18, label %.sink.split.sink.split
 
 16:                                               ; preds = %10, %.lr.ph
-  %17 = tail call fastcc i32 @load_all_files_in_dir(ptr noundef %0, ptr noundef %8), !range !14
+  %17 = tail call fastcc i32 @load_all_files_in_dir(ptr noundef %0, ptr noundef %8)
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %.sink.split.sink.split, label %18
 
@@ -4451,7 +4451,7 @@ define internal fastcc noundef i32 @load_all_files_in_dir(ptr noundef %0, ptr no
   tail call void @g_free(ptr noundef %8) #11
   %19 = tail call ptr @g_dir_read_name(ptr noundef nonnull %5) #11
   %.not22 = icmp eq ptr %19, null
-  br i1 %.not22, label %.sink.split, label %.lr.ph, !llvm.loop !28
+  br i1 %.not22, label %.sink.split, label %.lr.ph, !llvm.loop !27
 
 .sink.split.sink.split:                           ; preds = %16, %14
   tail call void @g_free(ptr noundef %8) #11
@@ -4538,7 +4538,7 @@ attributes #14 = { nounwind allocsize(0,1) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -4552,4 +4552,3 @@ attributes #14 = { nounwind allocsize(0,1) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

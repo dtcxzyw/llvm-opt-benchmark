@@ -917,7 +917,7 @@ if.end13.i:                                       ; preds = %if.end10.i
   %and15.i = lshr i32 %29, 1
   %shr.i90 = and i32 %and15.i, 4092
   %or.i91 = or disjoint i32 %and11.i, %shr.i90
-  %call16.i = call fastcc i32 @get_dwords(ptr noundef nonnull %opaque, i32 noundef %or.i91, ptr noundef nonnull %entry1.i, i32 noundef 1), !range !11
+  %call16.i = call fastcc i32 @get_dwords(ptr noundef nonnull %opaque, i32 noundef %or.i91, ptr noundef nonnull %entry1.i, i32 noundef 1)
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %ehci_advance_periodic_state.exit, label %if.end19.i
 
@@ -963,7 +963,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.end11.i.i, %if.end.i.i, %if.then.i.i
   %tobool4.not.i.i = icmp eq ptr %38, null
-  br i1 %tobool4.not.i.i, label %ehci_advance_periodic_state.exit, label %land.rhs.i21.i, !llvm.loop !12
+  br i1 %tobool4.not.i.i, label %ehci_advance_periodic_state.exit, label %land.rhs.i21.i, !llvm.loop !11
 
 sw.default.i:                                     ; preds = %if.then34
   %43 = load ptr, ptr @stderr, align 8
@@ -982,7 +982,7 @@ if.end35:                                         ; preds = %ehci_advance_period
   %inc38 = add i32 %i.0140, 1
   %conv16 = sext i32 %inc38 to i64
   %cmp17 = icmp ugt i64 %uframes.0, %conv16
-  br i1 %cmp17, label %for.body, label %if.end44, !llvm.loop !13
+  br i1 %cmp17, label %for.body, label %if.end44, !llvm.loop !12
 
 if.else:                                          ; preds = %lor.lhs.false
   %periodic_sched_active39 = getelementptr inbounds i8, ptr %opaque, i64 2188
@@ -1209,7 +1209,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
   %tobool1.not.i = icmp eq ptr %1, null
-  br i1 %tobool1.not.i, label %if.end3, label %land.rhs.i, !llvm.loop !14
+  br i1 %tobool1.not.i, label %if.end3, label %land.rhs.i, !llvm.loop !13
 
 if.end3:                                          ; preds = %for.inc.i, %if.then2, %if.then, %entry
   ret void
@@ -1571,7 +1571,7 @@ do.body:                                          ; preds = %do.body, %trace_usb
   %inc = add i32 %packets.0, 1
   %7 = load ptr, ptr %packets1, align 8
   %cmp3.not = icmp eq ptr %7, null
-  br i1 %cmp3.not, label %leave, label %do.body, !llvm.loop !15
+  br i1 %cmp3.not, label %leave, label %do.body, !llvm.loop !14
 
 leave:                                            ; preds = %do.body, %entry
   %packets.1 = phi i32 [ 0, %entry ], [ %inc, %do.body ]
@@ -1627,12 +1627,12 @@ if.then:                                          ; preds = %land.lhs.true
   %qhaddr.i = getelementptr inbounds i8, ptr %.pre, i64 96
   %3 = load i32, ptr %qhaddr.i, align 8
   %and.i = and i32 %3, -32
-  %call.i = call fastcc i32 @get_dwords(ptr noundef %2, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12), !range !11
+  %call.i = call fastcc i32 @get_dwords(ptr noundef %2, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12)
   %4 = load ptr, ptr %.pre, align 8
   %qtdaddr.i = getelementptr inbounds i8, ptr %.pre, i64 100
   %5 = load i32, ptr %qtdaddr.i, align 4
   %and2.i = and i32 %5, -32
-  %call3.i = call fastcc i32 @get_dwords(ptr noundef %4, i32 noundef %and2.i, ptr noundef nonnull %qtd.i, i32 noundef 8), !range !11
+  %call3.i = call fastcc i32 @get_dwords(ptr noundef %4, i32 noundef %and2.i, ptr noundef nonnull %qtd.i, i32 noundef 8)
   %epchar.i = getelementptr inbounds i8, ptr %qh.i, i64 4
   %6 = load i32, ptr %epchar.i, align 4
   %and.i40 = and i32 %6, 127
@@ -1673,7 +1673,7 @@ land.lhs.true.i46:                                ; preds = %lor.lhs.false17.i
 lor.lhs.false21.i:                                ; preds = %land.lhs.true.i46, %lor.lhs.false17.i
   %altnext_qtd.i48 = getelementptr inbounds i8, ptr %qh.i, i64 20
   %altnext_qtd23.i = getelementptr inbounds i8, ptr %.pre, i64 68
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %altnext_qtd.i48, ptr noundef nonnull dereferenceable(28) %altnext_qtd23.i, i64 28)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd.i48, ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd23.i, i64 28)
   %cmp24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp24.not.i, label %lor.lhs.false25.i, label %if.then.i
 
@@ -1925,7 +1925,7 @@ declare void @usb_packet_unmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @get_dwords(ptr nocapture noundef %ehci, i32 noundef %addr, ptr noundef %buf, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @get_dwords(ptr nocapture noundef %ehci, i32 noundef %addr, ptr noundef %buf, i32 noundef %num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %as = getelementptr inbounds i8, ptr %ehci, i64 480
@@ -1989,14 +1989,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %addr.addr.021 = phi i32 [ %add, %for.body ], [ %addr, %for.cond.preheader ]
   %10 = load ptr, ptr %as, align 16
   %conv = zext i32 %addr.addr.021 to i64
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   fence seq_cst
   %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %10, i64 noundef %conv, i32 1, ptr noundef %buf.addr.022, i64 noundef 4, i1 noundef zeroext false) #17
   %inc = add nuw nsw i32 %i.023, 1
   %incdec.ptr = getelementptr i8, ptr %buf.addr.022, i64 4
   %add = add i32 %addr.addr.021, 4
   %exitcond.not = icmp eq i32 %inc, %num
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %trace_usb_ehci_dma_error.exit
   %retval.0 = phi i32 [ -1, %trace_usb_ehci_dma_error.exit ], [ %num, %for.cond.preheader ], [ %num, %for.body ]
@@ -2222,7 +2222,7 @@ if.end9:                                          ; preds = %if.then7, %land.lhs
   %32 = load ptr, ptr %q, align 8
   %33 = or disjoint i32 %and.i14, 12
   %add.ptr.i = getelementptr i8, ptr %q, i64 60
-  tail call fastcc void @put_dwords(ptr noundef %32, i32 noundef %33, ptr noundef %add.ptr.i, i32 noundef 9)
+  tail call fastcc void @put_dwords(ptr noundef %32, i32 noundef %33, ptr noundef readonly %add.ptr.i, i32 noundef 9)
   ret void
 }
 
@@ -2604,14 +2604,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i32 %10, ptr %tmp, align 4
   %11 = load ptr, ptr %as, align 16
   %conv = zext i32 %addr.addr.019 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   fence seq_cst
   %call.i.i.i = call i32 @address_space_rw(ptr noundef %11, i64 noundef %conv, i32 1, ptr noundef nonnull %tmp, i64 noundef 4, i1 noundef zeroext true) #17
   %inc = add nuw nsw i32 %i.021, 1
   %incdec.ptr = getelementptr i8, ptr %buf.addr.020, i64 4
   %add = add i32 %addr.addr.019, 4
   %exitcond.not = icmp eq i32 %inc, %num
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %trace_usb_ehci_dma_error.exit
   ret void
@@ -3217,7 +3217,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !18
 
 for.cond8.preheader:                              ; preds = %for.cond
   br i1 %cmp130.not, label %for.end26, label %for.body10.lr.ph
@@ -3261,7 +3261,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   store i32 8192, ptr %arrayidx23, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %for.end26, label %for.body10, !llvm.loop !20
+  br i1 %exitcond40.not, label %for.end26, label %for.body10, !llvm.loop !19
 
 for.end26:                                        ; preds = %for.body10, %for.cond.preheader, %for.cond8.preheader
   %companion_count = getelementptr inbounds i8, ptr %bus, i64 1312
@@ -3487,7 +3487,7 @@ if.end.i:                                         ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.end.i, %land.rhs.i
   %tobool1.not.i = icmp eq ptr %17, null
-  br i1 %tobool1.not.i, label %ehci_queues_rip_device.exit.loopexit, label %land.rhs.i, !llvm.loop !21
+  br i1 %tobool1.not.i, label %ehci_queues_rip_device.exit.loopexit, label %land.rhs.i, !llvm.loop !20
 
 ehci_queues_rip_device.exit.loopexit:             ; preds = %for.inc.i
   %.pre = load ptr, ptr %port, align 8
@@ -3515,7 +3515,7 @@ if.end.i25:                                       ; preds = %land.rhs.i18
 
 for.inc.i23:                                      ; preds = %if.end.i25, %land.rhs.i18
   %tobool1.not.i24 = icmp eq ptr %21, null
-  br i1 %tobool1.not.i24, label %ehci_queues_rip_device.exit26, label %land.rhs.i18, !llvm.loop !21
+  br i1 %tobool1.not.i24, label %ehci_queues_rip_device.exit26, label %land.rhs.i18, !llvm.loop !20
 
 ehci_queues_rip_device.exit26:                    ; preds = %for.inc.i23, %ehci_queues_rip_device.exit
   %23 = load i32, ptr %arrayidx, align 4
@@ -3580,7 +3580,7 @@ if.end.i:                                         ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.end.i, %land.rhs.i
   %tobool1.not.i = icmp eq ptr %7, null
-  br i1 %tobool1.not.i, label %ehci_queues_rip_device.exit, label %land.rhs.i, !llvm.loop !21
+  br i1 %tobool1.not.i, label %ehci_queues_rip_device.exit, label %land.rhs.i, !llvm.loop !20
 
 ehci_queues_rip_device.exit:                      ; preds = %for.inc.i, %if.end
   %cond.i9 = getelementptr inbounds i8, ptr %0, i64 1960
@@ -3603,7 +3603,7 @@ if.end.i18:                                       ; preds = %land.rhs.i11
 
 for.inc.i16:                                      ; preds = %if.end.i18, %land.rhs.i11
   %tobool1.not.i17 = icmp eq ptr %10, null
-  br i1 %tobool1.not.i17, label %return, label %land.rhs.i11, !llvm.loop !21
+  br i1 %tobool1.not.i17, label %return, label %land.rhs.i11, !llvm.loop !20
 
 return:                                           ; preds = %for.inc.i16, %ehci_queues_rip_device.exit, %if.then
   ret void
@@ -3937,7 +3937,7 @@ if.then.i:                                        ; preds = %land.rhs.i18
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i18
   %tobool1.not.i = icmp eq ptr %12, null
-  br i1 %tobool1.not.i, label %ehci_queues_rip_unseen.exit, label %land.rhs.i18, !llvm.loop !14
+  br i1 %tobool1.not.i, label %ehci_queues_rip_unseen.exit, label %land.rhs.i18, !llvm.loop !13
 
 ehci_queues_rip_unseen.exit:                      ; preds = %for.inc.i, %if.then12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -4124,7 +4124,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.end11.i.i, %if.end.i.i, %if.then.i.i
   %tobool4.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool4.not.i.i, label %for.body.i.preheader, label %land.rhs.i.i, !llvm.loop !12
+  br i1 %tobool4.not.i.i, label %for.body.i.preheader, label %land.rhs.i.i, !llvm.loop !11
 
 if.then.i:                                        ; preds = %sw.bb
   %9 = load i32, ptr %usbsts.i, align 4
@@ -4177,7 +4177,7 @@ if.end11.i40.i:                                   ; preds = %if.end.i36.i
 
 for.inc.i34.i:                                    ; preds = %if.end11.i40.i, %if.end.i36.i, %if.then.i32.i
   %tobool4.not.i35.i = icmp eq ptr %13, null
-  br i1 %tobool4.not.i35.i, label %for.body.i.preheader, label %land.rhs.i27.i, !llvm.loop !12
+  br i1 %tobool4.not.i35.i, label %for.body.i.preheader, label %land.rhs.i27.i, !llvm.loop !11
 
 for.body.i.preheader:                             ; preds = %for.inc.i34.i, %for.inc.i.i, %ehci_set_usbsts.exit.i, %entry.split.i
   br label %for.body.i
@@ -4186,7 +4186,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %entry1.049.i = phi i32 [ %19, %if.end12.i ], [ %1, %for.body.i.preheader ]
   %i.048.i = phi i32 [ %inc.i, %if.end12.i ], [ 0, %for.body.i.preheader ]
   %and.i = and i32 %entry1.049.i, -32
-  %call.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12), !range !11
+  %call.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12)
   %cmp2.i = icmp slt i32 %call.i, 0
   br i1 %cmp2.i, label %ehci_state_waitlisthead.exit, label %if.end4.i
 
@@ -4219,7 +4219,7 @@ if.end12.i:                                       ; preds = %if.end4.i
   %inc.i = add nuw nsw i32 %i.048.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 100
   %or.cond.i = select i1 %cmp14.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %for.end.i, label %for.body.i, !llvm.loop !22
+  br i1 %or.cond.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %if.end12.i
   call fastcc void @ehci_set_state(ptr noundef nonnull %ehci, i32 noundef %async, i32 noundef 1001)
@@ -4295,7 +4295,7 @@ for.inc.i.i49:                                    ; preds = %for.body.i.i
   %next.i.i50 = getelementptr inbounds i8, ptr %q.07.i.i, i64 8
   %q.0.i.i = load ptr, ptr %next.i.i50, align 8
   %tobool1.not.i.i = icmp eq ptr %q.0.i.i, null
-  br i1 %tobool1.not.i.i, label %if.then.i51, label %for.body.i.i, !llvm.loop !23
+  br i1 %tobool1.not.i.i, label %if.then.i51, label %for.body.i.i, !llvm.loop !22
 
 if.then.i51:                                      ; preds = %for.inc.i.i49, %sw.bb4
   %call.i.i = call noalias dereferenceable_or_null(136) ptr @g_malloc0(i64 noundef 136) #21
@@ -4370,7 +4370,7 @@ if.end7.i:                                        ; preds = %if.end.i52
   %qhaddr.i = getelementptr inbounds i8, ptr %q.0.i, i64 96
   %34 = load i32, ptr %qhaddr.i, align 8
   %and.i54 = and i32 %34, -32
-  %call8.i = call fastcc i32 @get_dwords(ptr noundef %ehci, i32 noundef %and.i54, ptr noundef nonnull %qh.i43, i32 noundef 12), !range !11
+  %call8.i = call fastcc i32 @get_dwords(ptr noundef %ehci, i32 noundef %and.i54, ptr noundef nonnull %qh.i43, i32 noundef 12)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %ehci_state_fetchqh.exit.thread, label %if.end11.i
 
@@ -4415,7 +4415,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false17.i.i
 
 lor.lhs.false21.i.i:                              ; preds = %land.lhs.true.i.i, %lor.lhs.false17.i.i
   %altnext_qtd23.i.i = getelementptr inbounds i8, ptr %q.0.i, i64 68
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %altnext_qtd.i.i, ptr noundef nonnull dereferenceable(28) %altnext_qtd23.i.i, i64 28)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd.i.i, ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd23.i.i, i64 28)
   %cmp24.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp24.not.i.i, label %lor.lhs.false25.i.i, label %if.then15.i
 
@@ -4554,7 +4554,7 @@ if.end.i.i58:                                     ; preds = %for.body.i84.i
 for.inc.i89.i:                                    ; preds = %if.end.i.i58, %for.body.i84.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %ehci_find_device.exit.i, label %for.body.i84.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %ehci_find_device.exit.i, label %for.body.i84.i, !llvm.loop !23
 
 ehci_find_device.exit.i:                          ; preds = %for.inc.i89.i, %if.end.i.i58
   %retval.0.i88.i = phi ptr [ %call.i87.i, %if.end.i.i58 ], [ null, %for.inc.i89.i ]
@@ -4641,7 +4641,7 @@ if.else.i62:                                      ; preds = %sw.bb11
 if.end.i63:                                       ; preds = %sw.bb11
   %cond.i.i65 = load i32, ptr %cond.in.i.i101, align 4
   %and.i66 = and i32 %cond.i.i65, -32
-  %call2.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i66, ptr noundef nonnull %itd.i, i32 noundef 16), !range !11
+  %call2.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i66, ptr noundef nonnull %itd.i, i32 noundef 16)
   %cmp.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i, label %ehci_state_fetchitd.exit, label %if.end4.i67
 
@@ -4781,7 +4781,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 6
-  br i1 %exitcond.not.i.i.i, label %if.then70.i.i, label %for.body.i.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i, label %if.then70.i.i, label %for.body.i.i.i, !llvm.loop !23
 
 if.then70.i.i:                                    ; preds = %for.inc.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
@@ -4928,7 +4928,7 @@ if.end163.i.i:                                    ; preds = %if.then162.i.i, %if
 for.inc.i.i81:                                    ; preds = %if.end163.i.i, %for.body.i.i75
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i76, 1
   %exitcond.not.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 8
-  br i1 %exitcond.not.i.i83, label %if.end9.i, label %for.body.i.i75, !llvm.loop !25
+  br i1 %exitcond.not.i.i83, label %if.end9.i, label %for.body.i.i75, !llvm.loop !24
 
 return.sink.split.i.i:                            ; preds = %if.then79.i.i, %if.then44.i.i
   call void @qemu_sglist_destroy(ptr noundef nonnull %isgl.i.i) #17
@@ -4958,7 +4958,7 @@ if.else.i99:                                      ; preds = %sw.bb13
 if.end.i100:                                      ; preds = %sw.bb13
   %cond.i.i102 = load i32, ptr %cond.in.i.i101, align 4
   %and.i103 = and i32 %cond.i.i102, -32
-  %call2.i104 = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i103, ptr noundef nonnull %sitd.i, i32 noundef 7), !range !11
+  %call2.i104 = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i103, ptr noundef nonnull %sitd.i, i32 noundef 7)
   %cmp.i105 = icmp slt i32 %call2.i104, 0
   br i1 %cmp.i105, label %ehci_state_fetchsitd.exit, label %if.end4.i106
 
@@ -5079,28 +5079,28 @@ if.end26:                                         ; preds = %sw.bb22
   %and.i130 = and i32 %121, -32
   %122 = load ptr, ptr %q.0, align 8
   %add.i = or disjoint i32 %and.i130, 8
-  %call.i132 = call fastcc i32 @get_dwords(ptr noundef %122, i32 noundef %add.i, ptr noundef nonnull %token.i131, i32 noundef 1), !range !11
+  %call.i132 = call fastcc i32 @get_dwords(ptr noundef %122, i32 noundef %add.i, ptr noundef nonnull %token.i131, i32 noundef 1)
   %cmp.i133 = icmp slt i32 %call.i132, 0
   br i1 %cmp.i133, label %ehci_state_fetchqtd.exit, label %if.end.i134
 
 if.end.i134:                                      ; preds = %if.end26
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
   %123 = load ptr, ptr %q.0, align 8
-  %call3.i = call fastcc i32 @get_dwords(ptr noundef %123, i32 noundef %and.i130, ptr noundef nonnull %qtd.i, i32 noundef 1), !range !11
+  %call3.i = call fastcc i32 @get_dwords(ptr noundef %123, i32 noundef %and.i130, ptr noundef nonnull %qtd.i, i32 noundef 1)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %ehci_state_fetchqtd.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i134
   %124 = load ptr, ptr %q.0, align 8
   %add6.i = or disjoint i32 %and.i130, 4
-  %call7.i = call fastcc i32 @get_dwords(ptr noundef %124, i32 noundef %add6.i, ptr noundef nonnull %altnext.i, i32 noundef 1), !range !11
+  %call7.i = call fastcc i32 @get_dwords(ptr noundef %124, i32 noundef %add6.i, ptr noundef nonnull %altnext.i, i32 noundef 1)
   %cmp8.i135 = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i135, label %ehci_state_fetchqtd.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false.i
   %125 = load ptr, ptr %q.0, align 8
   %add11.i = or disjoint i32 %and.i130, 12
-  %call12.i = call fastcc i32 @get_dwords(ptr noundef %125, i32 noundef %add11.i, ptr noundef nonnull %bufptr.i, i32 noundef 5), !range !11
+  %call12.i = call fastcc i32 @get_dwords(ptr noundef %125, i32 noundef %add11.i, ptr noundef nonnull %bufptr.i, i32 noundef 5)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %ehci_state_fetchqtd.exit, label %if.end15.i
 
@@ -5239,7 +5239,7 @@ sw.bb45.i:                                        ; preds = %if.then41.i
   %tql_prev47.i = getelementptr inbounds i8, ptr %149, i64 8
   %150 = load ptr, ptr %tql_prev47.i, align 8
   %151 = load ptr, ptr %150, align 8
-  %call48.i = call fastcc i32 @ehci_fill_queue(ptr noundef %151), !range !27
+  %call48.i = call fastcc i32 @ehci_fill_queue(ptr noundef %151)
   br label %return.sink.split.i
 
 sw.bb51.i:                                        ; preds = %if.then41.i
@@ -5418,7 +5418,7 @@ if.end.i.i195:                                    ; preds = %if.then15.i187
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end.i.i195, %if.then15.i187, %land.lhs.true.i197
-  %call18.i = call fastcc i32 @ehci_execute(ptr noundef nonnull %167, ptr noundef nonnull @.str.137), !range !27
+  %call18.i = call fastcc i32 @ehci_execute(ptr noundef nonnull %167, ptr noundef nonnull @.str.137)
   %cmp19.i = icmp eq i32 %call18.i, -1
   br i1 %cmp19.i, label %ehci_state_execute.exit, label %if.end21.i190
 
@@ -5435,7 +5435,7 @@ if.then23.i:                                      ; preds = %if.end21.i190
   %178 = load ptr, ptr %q.0, align 8
   %179 = or disjoint i32 %and.i24.i, 12
   %add.ptr.i.i = getelementptr i8, ptr %q.0, i64 60
-  call fastcc void @put_dwords(ptr noundef %178, i32 noundef %179, ptr noundef %add.ptr.i.i, i32 noundef 9)
+  call fastcc void @put_dwords(ptr noundef %178, i32 noundef %179, ptr noundef readonly %add.ptr.i.i, i32 noundef 9)
   %180 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %181 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5480,7 +5480,7 @@ trace_usb_ehci_packet_action.exit.i:              ; preds = %if.else.i.i.i, %if.
   br i1 %tobool28.not.i, label %ehci_state_execute.exit, label %if.then29.i
 
 if.then29.i:                                      ; preds = %trace_usb_ehci_packet_action.exit.i
-  %call30.i194 = call fastcc i32 @ehci_fill_queue(ptr noundef nonnull %167), !range !27
+  %call30.i194 = call fastcc i32 @ehci_fill_queue(ptr noundef nonnull %167)
   br label %ehci_state_execute.exit
 
 if.end33.i:                                       ; preds = %if.end21.i190
@@ -5555,7 +5555,7 @@ do.cond.thread:                                   ; preds = %sw.epilog, %if.then
 
 do.cond:                                          ; preds = %sw.epilog
   %tobool68.not = icmp eq i32 %again.0, 0
-  br i1 %tobool68.not, label %do.end69, label %do.body, !llvm.loop !28
+  br i1 %tobool68.not, label %do.end69, label %do.body, !llvm.loop !26
 
 do.end69:                                         ; preds = %do.cond, %do.cond.thread
   ret void
@@ -5791,7 +5791,7 @@ for.body:                                         ; preds = %if.end27, %for.body
   store i32 %10, ptr %arrayidx44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body
   %and47 = and i32 %7, 16384
@@ -5815,12 +5815,12 @@ if.end55:                                         ; preds = %if.then48, %for.end
   %and.i = and i32 %14, -32
   %15 = load ptr, ptr %q, align 8
   %16 = or disjoint i32 %and.i, 12
-  tail call fastcc void @put_dwords(ptr noundef %15, i32 noundef %16, ptr noundef nonnull %current_qtd, i32 noundef 9)
+  tail call fastcc void @put_dwords(ptr noundef %15, i32 noundef %16, ptr noundef nonnull readonly %current_qtd, i32 noundef 9)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ehci_fill_queue(ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ehci_fill_queue(ptr nocapture noundef readonly %p) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %qtd = alloca %struct.EHCIqtd, align 4
@@ -5851,7 +5851,7 @@ for.cond4:                                        ; preds = %for.body
   %next9 = getelementptr inbounds i8, ptr %p.addr.023, i64 8
   %p.addr.0 = load ptr, ptr %next9, align 8
   %tobool.not = icmp eq ptr %p.addr.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.body:                                         ; preds = %if.end, %for.cond4
   %p.addr.023 = phi ptr [ %p.addr.0, %for.cond4 ], [ %p.addr.021, %if.end ]
@@ -5863,7 +5863,7 @@ for.body:                                         ; preds = %if.end, %for.cond4
 for.end:                                          ; preds = %for.cond4, %if.end
   %5 = load ptr, ptr %1, align 8
   %and10 = and i32 %3, -32
-  %call = call fastcc i32 @get_dwords(ptr noundef %5, i32 noundef %and10, ptr noundef nonnull %qtd, i32 noundef 8), !range !11
+  %call = call fastcc i32 @get_dwords(ptr noundef %5, i32 noundef %and10, ptr noundef nonnull %qtd, i32 noundef 8)
   %cmp11 = icmp slt i32 %call, 0
   br i1 %cmp11, label %return, label %if.end13
 
@@ -5947,7 +5947,7 @@ if.end22:                                         ; preds = %ehci_verify_pid.exi
   store i32 %3, ptr %qtdaddr24, align 8
   %qtd25 = getelementptr inbounds i8, ptr %call23, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %qtd25, ptr noundef nonnull align 4 dereferenceable(32) %qtd, i64 32, i1 false)
-  %call26 = call fastcc i32 @ehci_execute(ptr noundef %call23, ptr noundef nonnull @.str.129), !range !27
+  %call26 = call fastcc i32 @ehci_execute(ptr noundef %call23, ptr noundef nonnull @.str.129)
   %cmp27 = icmp eq i32 %call26, -1
   br i1 %cmp27, label %return, label %if.end30
 
@@ -6035,7 +6035,7 @@ trace_usb_ehci_packet_action.exit:                ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ehci_execute(ptr noundef %p, ptr noundef %action) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ehci_execute(ptr noundef %p, ptr noundef %action) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -6242,7 +6242,7 @@ if.end.i39:                                       ; preds = %while.body.i
   tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %add.i, i64 noundef %conv22.i) #17
   %sub23.i = sub i32 %bytes.023.i, %plen.0.i
   %cmp.not.i = icmp eq i32 %sub23.i, 0
-  br i1 %cmp.not.i, label %if.end33, label %while.body.i, !llvm.loop !31
+  br i1 %cmp.not.i, label %if.end33, label %while.body.i, !llvm.loop !29
 
 ehci_init_transfer.exit:                          ; preds = %while.body.i
   %38 = load ptr, ptr @stderr, align 8
@@ -6343,7 +6343,7 @@ return:                                           ; preds = %ehci_init_transfer.
 declare void @usb_device_flush_ep_queue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @ehci_caps_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #11 {
+define internal range(i64 0, 256) i64 @ehci_caps_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #11 {
 entry:
   %caps = getelementptr inbounds i8, ptr %ptr, i64 1332
   %arrayidx = getelementptr [16 x i8], ptr %caps, i64 0, i64 %addr
@@ -6359,7 +6359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ehci_opreg_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @ehci_opreg_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cond = icmp eq i64 %addr, 12
@@ -6774,7 +6774,7 @@ if.end26.critedge.i:                              ; preds = %if.end9.i
 handle_port_owner_write.exit:                     ; preds = %for.body, %if.end.i71, %land.lhs.true19.i, %if.then22.i, %if.end26.critedge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !30
 
 sw.bb59:                                          ; preds = %trace_usb_ehci_opreg_write.exit
   %ptr.val50 = load i32, ptr %0, align 4
@@ -6857,7 +6857,7 @@ trace_usb_ehci_opreg_change.exit:                 ; preds = %addr2str.exit81, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ehci_port_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @ehci_port_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %portsc = getelementptr inbounds i8, ptr %ptr, i64 1416
@@ -7341,12 +7341,12 @@ attributes #21 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 17}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{i64 2151873358}
+!15 = !{i64 2151873358}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
@@ -7355,11 +7355,9 @@ attributes #21 = { nounwind allocsize(0) }
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = !{i64 2152781715}
-!27 = !{i32 -1, i32 2}
+!25 = !{i64 2152781715}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}

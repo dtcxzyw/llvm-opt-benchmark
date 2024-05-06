@@ -963,7 +963,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   br label %71
 
 34:                                               ; preds = %23
-  %trunc = trunc i32 %13 to i16
+  %trunc = trunc nuw i32 %13 to i16
   switch i16 %trunc, label %71 [
     i16 4, label %35
     i16 16, label %38

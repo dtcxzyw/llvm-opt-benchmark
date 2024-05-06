@@ -736,7 +736,7 @@ Aig_ObjChild0Copy.exit280:                        ; preds = %.lr.ph314, %331
   br i1 %343, label %.lr.ph314, label %.critedge12.loopexit, !llvm.loop !11
 
 .critedge12.loopexit:                             ; preds = %Aig_ObjChild0Copy.exit280
-  %344 = trunc i64 %indvars.iv.next337 to i32
+  %344 = trunc nuw nsw i64 %indvars.iv.next337 to i32
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %.critedge10.preheader
@@ -957,7 +957,7 @@ define noalias noundef ptr @findNewDisjunctiveMonotone(ptr nocapture noundef rea
   br i1 %or.cond, label %40, label %75
 
 40:                                               ; preds = %34
-  %41 = trunc i64 %indvars.iv61 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv61 to i32
   %42 = add i32 %41, %.neg
   %43 = load ptr, ptr %32, align 8
   %44 = getelementptr i8, ptr %43, i64 8
@@ -1378,7 +1378,7 @@ Vec_IntPush.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Vec_IntPushUniqueLocal(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Vec_IntPushUniqueLocal(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1995,7 +1995,7 @@ define void @printAllIntVectorsStabil(ptr nocapture noundef readonly %0, ptr noc
   %.val26 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds ptr, ptr %.val26, i64 %indvars.iv37
   %11 = load ptr, ptr %10, align 8
-  %12 = trunc i64 %indvars.iv37 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv37 to i32
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %12)
   %14 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr %4)
   %15 = getelementptr i8, ptr %11, i64 4

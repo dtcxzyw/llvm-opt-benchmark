@@ -2417,7 +2417,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %243, label %244, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit143.thread
 
 244:                                              ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit143
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %245 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
           to label %246 unwind label %.loopexit.split-lp702.loopexit
 
@@ -5877,7 +5877,7 @@ define void @_ZN3nix8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE9_M_invokeERKSt9_Any_data", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %10, align 8
   invoke void @_ZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.47") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -16002,7 +16002,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix21CreateRe
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nixL5parseERNS1_20FileSystemObjectSinkERNS1_6SourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
@@ -18380,7 +18380,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9CanonPat
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix14SourceAccessor8dumpPathERKNS1_9CanonPathERNS1_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_1E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit"
 
@@ -18799,7 +18799,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZZN3nix14Sourc
   br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix14SourceAccessor8dumpPathERKNS1_9CanonPathERNS1_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clES5_EUlmE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix14SourceAccessor8dumpPathERKNS1_9CanonPathERNS1_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clES5_EUlmE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZZN3nix14SourceAccessor8dumpPathERKNS1_9CanonPathERNS1_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clES5_EUlmE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

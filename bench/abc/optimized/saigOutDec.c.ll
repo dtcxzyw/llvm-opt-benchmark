@@ -440,7 +440,7 @@ Vec_PtrPush.exit155:                              ; preds = %.Vec_PtrGrow.exit11
 .loopexit:                                        ; preds = %224, %126, %Vec_PtrPush.exit155, %211, %130, %133
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %.val116 = load i32, ptr %20, align 4
-  %226 = trunc i64 %indvars.iv.next181 to i32
+  %226 = trunc nuw i64 %indvars.iv.next181 to i32
   %227 = icmp sgt i32 %.val116, %226
   br i1 %227, label %126, label %.critedge4, !llvm.loop !7
 
@@ -516,10 +516,10 @@ define ptr @Saig_ManDecPropertyOutput(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #12
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #10
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #9
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %10

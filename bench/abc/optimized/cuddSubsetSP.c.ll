@@ -285,7 +285,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %92
 
 83:                                               ; preds = %80
-  %84 = tail call fastcc i32 @CreateBotDist(ptr noundef nonnull %1, ptr noundef %39, ptr noundef %34, ptr noundef %38), !range !8
+  %84 = tail call fastcc i32 @CreateBotDist(ptr noundef nonnull %1, ptr noundef %39, ptr noundef %34, ptr noundef %38)
   %.not86.i = icmp eq i32 %84, 0
   br i1 %.not86.i, label %.thread, label %.preheader110.i
 
@@ -315,7 +315,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 91:                                               ; preds = %90, %87
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count142.i
-  br i1 %exitcond143.not.i, label %._crit_edge121.thread.i, label %87, !llvm.loop !9
+  br i1 %exitcond143.not.i, label %._crit_edge121.thread.i, label %87, !llvm.loop !8
 
 ._crit_edge121.i:                                 ; preds = %.preheader110.i
   %.not88.i = icmp eq ptr %.pre155.i, null
@@ -371,13 +371,13 @@ CreatePathTable.exit:                             ; preds = %._crit_edge121.i, %
   %105 = load i32, ptr %104, align 4
   %.not.i139 = icmp eq i32 %105, 0
   %106 = sub i32 %.027.i, %105
-  %107 = trunc i64 %indvars.iv.i138 to i32
+  %107 = trunc nuw i64 %indvars.iv.i138 to i32
   %spec.select.i = select i1 %.not.i139, i32 %.02026.i, i32 %107
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138, 1
   %108 = icmp ult i64 %indvars.iv.next.i140, %103
   %109 = icmp sgt i32 %106, 0
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %.lr.ph.i137, label %._crit_edge.i136, !llvm.loop !10
+  br i1 %110, label %.lr.ph.i137, label %._crit_edge.i136, !llvm.loop !9
 
 ._crit_edge.i136:                                 ; preds = %.lr.ph.i137, %98
   %.020.lcssa.i = phi i32 [ 0, %98 ], [ %spec.select.i, %.lr.ph.i137 ]
@@ -558,7 +558,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 186:                                              ; preds = %185, %182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge152.thread, label %182, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge152.thread, label %182, !llvm.loop !10
 
 ._crit_edge152:                                   ; preds = %179
   %.not129 = icmp eq ptr %.pre, null
@@ -604,7 +604,7 @@ define ptr @Cudd_SupersetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef 
   %13 = icmp ne i32 %12, 1
   %.b = load i1, ptr @memOut, align 4
   %.not9 = select i1 %13, i1 true, i1 %.b
-  br i1 %.not9, label %14, label %10, !llvm.loop !12
+  br i1 %.not9, label %14, label %10, !llvm.loop !11
 
 14:                                               ; preds = %10
   %15 = ptrtoint ptr %11 to i64
@@ -1049,7 +1049,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %.1195..0201 = select i1 %206, ptr %.1195, ptr %.0201
   %.0201..1192 = select i1 %206, ptr %.0201, ptr %.1192
   %207 = add nuw nsw i32 %.2180, 1
-  br label %135, !llvm.loop !13
+  br label %135, !llvm.loop !12
 
 208:                                              ; preds = %135
   store i32 0, ptr %132, align 4
@@ -1284,7 +1284,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
 16:                                               ; preds = %15, %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge40.thread, label %12, !llvm.loop !14
+  br i1 %exitcond51.not, label %._crit_edge40.thread, label %12, !llvm.loop !13
 
 ._crit_edge40:                                    ; preds = %.preheader
   %.not26 = icmp eq ptr %.pre54, null
@@ -1307,7 +1307,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   store ptr %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %18, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.thread, label %18, !llvm.loop !14
 
 ._crit_edge.thread:                               ; preds = %18
   store i32 %6, ptr @maxNodeDistPages, align 4
@@ -1359,7 +1359,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
 33:                                               ; preds = %32, %.lr.ph35
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !16
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !15
 
 ._crit_edge36:                                    ; preds = %33, %.preheader30
   tail call void @free(ptr noundef nonnull %25) #8
@@ -1485,7 +1485,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 48:                                               ; preds = %47, %44
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge47.thread, label %44, !llvm.loop !17
+  br i1 %exitcond80.not, label %._crit_edge47.thread, label %44, !llvm.loop !16
 
 ._crit_edge47:                                    ; preds = %.preheader
   %.not111 = icmp eq ptr %.pre84, null
@@ -1565,7 +1565,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 77:                                               ; preds = %76, %73
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge38.thread, label %73, !llvm.loop !18
+  br i1 %exitcond70.not, label %._crit_edge38.thread, label %73, !llvm.loop !17
 
 ._crit_edge38:                                    ; preds = %70
   %.not105 = icmp eq ptr %.pre82, null
@@ -1602,7 +1602,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 85:                                               ; preds = %84, %81
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge43.thread, label %81, !llvm.loop !19
+  br i1 %exitcond75.not, label %._crit_edge43.thread, label %81, !llvm.loop !18
 
 ._crit_edge43:                                    ; preds = %78
   %.not107 = icmp eq ptr %.pre83, null
@@ -1656,7 +1656,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 98:                                               ; preds = %97, %94
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge33.thread, label %94, !llvm.loop !20
+  br i1 %exitcond65.not, label %._crit_edge33.thread, label %94, !llvm.loop !19
 
 ._crit_edge33:                                    ; preds = %.preheader1
   %.not102 = icmp eq ptr %.pre81, null
@@ -1738,7 +1738,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 127:                                              ; preds = %126, %123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge29.thread, label %123, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge29.thread, label %123, !llvm.loop !20
 
 ._crit_edge29:                                    ; preds = %.preheader2
   %.not115 = icmp eq ptr %.pre, null
@@ -1780,7 +1780,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 141:                                              ; preds = %110, %100, %139, %.critedge, %30
   %.2 = phi i32 [ %.1, %30 ], [ %140, %139 ], [ %.1, %.critedge ], [ %106, %100 ], [ %.1, %110 ]
   %142 = add nsw i32 %.075, -1
-  br label %28, !llvm.loop !22
+  br label %28, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not97 = icmp eq i32 %.1, 0
@@ -1796,7 +1796,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @CreateBotDist(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -1915,7 +1915,7 @@ define internal fastcc noundef i32 @CreateBotDist(ptr noundef %0, ptr noundef %1
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %66
-  %71 = call fastcc i32 @CreateBotDist(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !8
+  %71 = call fastcc i32 @CreateBotDist(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not91 = icmp eq i32 %71, 0
   br i1 %.not91, label %.loopexit, label %74
 
@@ -1992,7 +1992,7 @@ define internal fastcc noundef i32 @CreateBotDist(ptr noundef %0, ptr noundef %1
   %109 = phi ptr [ %77, %93 ], [ %77, %86 ], [ %77, %107 ], [ %77, %100 ], [ %40, %53 ], [ %40, %55 ]
   %110 = phi ptr [ %77, %93 ], [ %77, %86 ], [ %77, %107 ], [ %77, %100 ], [ %41, %53 ], [ %40, %55 ]
   %111 = add nuw nsw i32 %.0, 1
-  br label %39, !llvm.loop !23
+  br label %39, !llvm.loop !22
 
 112:                                              ; preds = %39
   %113 = load i32, ptr %41, align 8
@@ -2130,7 +2130,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
 16:                                               ; preds = %15, %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge40.thread, label %12, !llvm.loop !24
+  br i1 %exitcond51.not, label %._crit_edge40.thread, label %12, !llvm.loop !23
 
 ._crit_edge40:                                    ; preds = %.preheader
   %.not26 = icmp eq ptr %.pre54, null
@@ -2153,7 +2153,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   store ptr %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %18, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.thread, label %18, !llvm.loop !24
 
 ._crit_edge.thread:                               ; preds = %18
   store i32 %6, ptr @maxQueuePages, align 4
@@ -2205,7 +2205,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
 33:                                               ; preds = %32, %.lr.ph35
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !26
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !25
 
 ._crit_edge36:                                    ; preds = %33, %.preheader30
   tail call void @free(ptr noundef nonnull %25) #8
@@ -2259,7 +2259,7 @@ attributes #9 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -2277,4 +2277,3 @@ attributes #9 = { nounwind allocsize(0) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

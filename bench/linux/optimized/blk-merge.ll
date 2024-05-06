@@ -1075,7 +1075,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @ll_back_merge_fn(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ll_back_merge_fn(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -1411,7 +1411,7 @@ define internal fastcc noundef ptr @attempt_merge(ptr noundef %0, ptr noundef %1
   br i1 %68, label %72, label %.thread
 
 69:                                               ; preds = %56
-  %70 = tail call fastcc i32 @ll_merge_requests_fn(ptr noundef %1, ptr noundef %2), !range !39
+  %70 = tail call fastcc i32 @ll_merge_requests_fn(ptr noundef %1, ptr noundef %2)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread, label %72
 
@@ -1573,7 +1573,7 @@ define dso_local zeroext i1 @blk_rq_merge_ok(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @blk_try_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 4) i32 @blk_try_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -1617,7 +1617,7 @@ define dso_local i32 @blk_try_merge(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !40
+  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !39
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 2120
   %7 = load ptr, ptr %6, align 8
@@ -1640,12 +1640,12 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false), !range !41
+  %19 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false), !range !40
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %28, label %.loopexit
 
 21:                                               ; preds = %14
-  %22 = load i8, ptr %13, align 4, !range !42, !noundef !43
+  %22 = load i8, ptr %13, align 4, !range !41, !noundef !42
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %.loopexit, label %24
 
@@ -1653,7 +1653,7 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
   %25 = getelementptr inbounds i8, ptr %15, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %14, !llvm.loop !44
+  br i1 %27, label %.loopexit, label %14, !llvm.loop !43
 
 .loopexit:                                        ; preds = %24, %21, %18
   br label %28
@@ -1664,7 +1664,7 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 254
@@ -1794,7 +1794,7 @@ define internal fastcc noundef i32 @blk_attempt_bio_merge(ptr noundef %0, ptr no
   br i1 %93, label %94, label %111
 
 94:                                               ; preds = %92, %85, %.thread
-  %95 = tail call fastcc i32 @bio_attempt_back_merge(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !41
+  %95 = tail call fastcc i32 @bio_attempt_back_merge(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !40
   br label %111
 
 96:                                               ; preds = %76
@@ -1817,11 +1817,11 @@ define internal fastcc noundef i32 @blk_attempt_bio_merge(ptr noundef %0, ptr no
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %106, %99, %96
-  %109 = tail call fastcc i32 @bio_attempt_front_merge(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !41
+  %109 = tail call fastcc i32 @bio_attempt_front_merge(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !40
   br label %111
 
 .thread3:                                         ; preds = %60
-  %110 = tail call fastcc i32 @bio_attempt_discard_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !41
+  %110 = tail call fastcc i32 @bio_attempt_discard_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !40
   br label %111
 
 111:                                              ; preds = %76, %.thread3, %108, %106, %94, %92, %51, %43, %35, %29, %25, %20, %15, %12, %10, %10, %10, %5
@@ -1846,11 +1846,11 @@ define dso_local noundef zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noun
 13:                                               ; preds = %5
   %14 = getelementptr i8, ptr %9, i64 -72
   %15 = add nsw i32 %6, -1
-  %16 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %14, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true), !range !41
+  %16 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %14, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true), !range !40
   switch i32 %16, label %5 [
     i32 2, label %.loopexit
     i32 0, label %.loopexit.loopexit
-  ], !llvm.loop !45
+  ], !llvm.loop !44
 
 .loopexit.loopexit:                               ; preds = %13
   br label %.loopexit
@@ -1864,7 +1864,7 @@ define dso_local noundef zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noun
 define dso_local noundef zeroext i1 @blk_mq_sched_try_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  store ptr null, ptr %5, align 8, !annotation !46
+  store ptr null, ptr %5, align 8, !annotation !45
   %6 = call i32 @elv_merge(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1) #14
   switch i32 %6, label %67 [
     i32 2, label %7
@@ -1899,7 +1899,7 @@ define dso_local noundef zeroext i1 @blk_mq_sched_try_merge(ptr noundef %0, ptr 
 
 22:                                               ; preds = %._crit_edge5, %13, %7
   %23 = phi ptr [ %.pre6, %._crit_edge5 ], [ %8, %13 ], [ %8, %7 ]
-  %24 = call fastcc i32 @bio_attempt_back_merge(ptr noundef %23, ptr noundef %1, i32 noundef %2), !range !41
+  %24 = call fastcc i32 @bio_attempt_back_merge(ptr noundef %23, ptr noundef %1, i32 noundef %2), !range !40
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %67
 
@@ -1951,7 +1951,7 @@ define dso_local noundef zeroext i1 @blk_mq_sched_try_merge(ptr noundef %0, ptr 
 
 50:                                               ; preds = %._crit_edge, %41, %35
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %36, %41 ], [ %36, %35 ]
-  %52 = call fastcc i32 @bio_attempt_front_merge(ptr noundef %51, ptr noundef %1, i32 noundef %2), !range !41
+  %52 = call fastcc i32 @bio_attempt_front_merge(ptr noundef %51, ptr noundef %1, i32 noundef %2), !range !40
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %67
 
@@ -1978,7 +1978,7 @@ define dso_local noundef zeroext i1 @blk_mq_sched_try_merge(ptr noundef %0, ptr 
 
 63:                                               ; preds = %4
   %64 = load ptr, ptr %5, align 8
-  %65 = call fastcc i32 @bio_attempt_discard_merge(ptr noundef %0, ptr noundef %64, ptr noundef %1), !range !41
+  %65 = call fastcc i32 @bio_attempt_discard_merge(ptr noundef %0, ptr noundef %64, ptr noundef %1), !range !40
   %66 = icmp eq i32 %65, 0
   br label %67
 
@@ -1992,14 +1992,14 @@ define dso_local noundef zeroext i1 @blk_mq_sched_try_merge(ptr noundef %0, ptr 
 declare dso_local i32 @elv_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bio_attempt_back_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 524288
   %7 = icmp eq i32 %6, 0
   %8 = and i32 %5, 1792
   %9 = select i1 %7, i32 %8, i32 1792
-  %10 = tail call i32 @ll_back_merge_fn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !39
+  %10 = tail call i32 @ll_back_merge_fn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !46
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %133, label %12
 
@@ -2215,7 +2215,7 @@ define internal fastcc noundef i32 @bio_attempt_back_merge(ptr noundef %0, ptr n
 declare dso_local void @elv_merged_request(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bio_attempt_front_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 524288
@@ -2596,7 +2596,7 @@ define internal fastcc noundef i32 @bio_attempt_front_merge(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bio_attempt_discard_merge(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 122
   %5 = load i16, ptr %4, align 2
   %6 = tail call i16 @llvm.umax.i16(i16 %5, i16 1)
@@ -3136,7 +3136,7 @@ define internal fastcc noundef zeroext i1 @req_attempt_discard_merge(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @ll_merge_requests_fn(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ll_merge_requests_fn(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -3494,14 +3494,14 @@ attributes #15 = { nounwind memory(none) }
 !36 = !{i64 2158145058, i64 2158145087, i64 2158145133, i64 2158145191, i64 2158145245, i64 2158145299, i64 2158145354, i64 2158145385, i64 2158145693, i64 2158145699, i64 2158145746, i64 2158145769, i64 2158145795}
 !37 = !{i64 2158146245, i64 2158146056, i64 2158146106, i64 2158146152, i64 2158146180}
 !38 = distinct !{!38, !7, !8}
-!39 = !{i32 0, i32 2}
-!40 = !{i64 2148594261}
-!41 = !{i32 0, i32 3}
-!42 = !{i8 0, i8 2}
-!43 = !{}
+!39 = !{i64 2148594261}
+!40 = !{i32 0, i32 3}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = distinct !{!43, !7, !8}
 !44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = !{!"auto-init"}
+!45 = !{!"auto-init"}
+!46 = !{i32 0, i32 2}
 !47 = !{i64 2157032114}
 !48 = !{i64 2157034977}
 !49 = !{i64 2157041624}

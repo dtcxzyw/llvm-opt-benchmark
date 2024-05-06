@@ -122,7 +122,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @BIO_meth_set_recvmmsg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @noisy_dgram_recvmmsg(ptr noundef %bio, ptr noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 noundef %flags, ptr noundef %msgs_processed) #0 {
+define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %bio, ptr noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 noundef %flags, ptr noundef %msgs_processed) #0 {
 entry:
   %call = tail call ptr @BIO_next(ptr noundef %bio) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @.str.3, ptr noundef %call) #2
@@ -272,7 +272,7 @@ if.then15.i:                                      ; preds = %cond.end.i
   %call19.i = tail call i32 @test_random() #2
   %rem20.i = and i32 %call19.i, 7
   %shl.i = shl nuw nsw i32 %add18.i, %rem20.i
-  %conv21.i = trunc i32 %shl.i to i16
+  %conv21.i = trunc nuw nsw i32 %shl.i to i16
   %call22.i = tail call i32 @test_random() #2
   %isneg = icmp slt i8 %6, 0
   %mul.i = select i1 %isneg, i32 50, i32 25
@@ -310,7 +310,7 @@ if.end5.i:                                        ; preds = %if.end62
   %shr.i = lshr i16 %flip.0, 8
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %spec.select.i
   %12 = load i8, ptr %arrayidx.i, align 1
-  %13 = trunc i16 %shr.i to i8
+  %13 = trunc nuw nsw i16 %shr.i to i8
   %conv12.i = xor i8 %12, %13
   store i8 %conv12.i, ptr %arrayidx.i, align 1
   %arrayidx15.i = getelementptr i8, ptr %arrayidx.i, i64 1
@@ -391,7 +391,7 @@ return:                                           ; preds = %if.else, %if.then8,
 declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @noisy_dgram_new(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @noisy_dgram_new(ptr noundef %bio) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef 339) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @.str.2, ptr noundef %call) #2

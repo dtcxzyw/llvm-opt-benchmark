@@ -199,7 +199,7 @@ define i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h8b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc969d67a758049f6E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc969d67a758049f6E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)

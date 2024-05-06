@@ -666,7 +666,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq9mailbox_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %cmd_, i32 noundef %timeout_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq9mailbox_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %cmd_, i32 noundef %timeout_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_active = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %_active, align 8

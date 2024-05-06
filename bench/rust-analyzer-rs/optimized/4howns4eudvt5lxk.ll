@@ -1297,7 +1297,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit12.i: ; preds = %229
   %270 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef 216), !noalias !126
   %271 = extractvalue { i32, i16 } %270, 0
   %272 = extractvalue { i32, i16 } %270, 1
-  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %271, i16 noundef %272)
+  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %271, i16 noundef %272)
   br label %273
 
 273:                                              ; preds = %269, %263

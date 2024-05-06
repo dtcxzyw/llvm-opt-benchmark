@@ -79,13 +79,13 @@ define internal void @alsa_seq_dummy_exit() #0 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @alsa_seq_dummy_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @alsa_seq_dummy_init() #0 section ".init.text" align 16 {
   %1 = tail call fastcc i32 @register_client() #10, !range !5
   ret i32 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @register_client() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @register_client() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @ports, align 4
   %2 = icmp slt i32 %1, 1
   br i1 %2, label %3, label %5

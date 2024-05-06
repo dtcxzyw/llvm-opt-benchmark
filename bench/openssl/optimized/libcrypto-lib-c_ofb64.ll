@@ -81,7 +81,7 @@ if.then:                                          ; preds = %while.body
   call void @CAST_encrypt(ptr noundef nonnull %ti, ptr noundef %schedule) #2
   %13 = load i32, ptr %ti, align 4
   %shr72 = lshr i32 %13, 24
-  %conv74 = trunc i32 %shr72 to i8
+  %conv74 = trunc nuw i32 %shr72 to i8
   store i8 %conv74, ptr %d, align 1
   %shr76 = lshr i32 %13, 16
   %conv78 = trunc i32 %shr76 to i8
@@ -93,7 +93,7 @@ if.then:                                          ; preds = %while.body
   store i8 %conv85, ptr %incdec.ptr49, align 1
   %14 = load i32, ptr %arrayidx39, align 4
   %shr88 = lshr i32 %14, 24
-  %conv90 = trunc i32 %shr88 to i8
+  %conv90 = trunc nuw i32 %shr88 to i8
   store i8 %conv90, ptr %incdec.ptr52, align 1
   %shr92 = lshr i32 %14, 16
   %conv94 = trunc i32 %shr92 to i8
@@ -129,7 +129,7 @@ while.end:                                        ; preds = %if.end
 
 if.then111:                                       ; preds = %while.end
   %shr114 = lshr i32 %16, 24
-  %conv116 = trunc i32 %shr114 to i8
+  %conv116 = trunc nuw i32 %shr114 to i8
   store i8 %conv116, ptr %ivec, align 1
   %shr118 = lshr i32 %16, 16
   %conv120 = trunc i32 %shr118 to i8
@@ -140,7 +140,7 @@ if.then111:                                       ; preds = %while.end
   %conv127 = trunc i32 %16 to i8
   store i8 %conv127, ptr %incdec.ptr7, align 1
   %shr129 = lshr i32 %15, 24
-  %conv131 = trunc i32 %shr129 to i8
+  %conv131 = trunc nuw i32 %shr129 to i8
   store i8 %conv131, ptr %incdec.ptr13, align 1
   %shr133 = lshr i32 %15, 16
   %conv135 = trunc i32 %shr133 to i8

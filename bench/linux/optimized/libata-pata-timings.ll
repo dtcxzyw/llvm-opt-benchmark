@@ -205,7 +205,7 @@ define dso_local noundef ptr @ata_timing_find_mode(i8 noundef zeroext %0) #2 ali
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_timing_compute(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
   %6 = alloca %struct.ata_timing, align 2
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
   %7 = and i16 %1, 255
@@ -552,7 +552,7 @@ define dso_local noundef i32 @ata_timing_compute(ptr nocapture noundef readonly 
 233:                                              ; preds = %221
   %234 = sub nsw i32 %231, %230
   %235 = sdiv i32 %234, 2
-  %236 = trunc i32 %235 to i16
+  %236 = trunc nsw i32 %235 to i16
   %237 = add i16 %227, %236
   store i16 %237, ptr %83, align 2
   %238 = sub i16 %225, %237
@@ -570,7 +570,7 @@ define dso_local noundef i32 @ata_timing_compute(ptr nocapture noundef readonly 
 245:                                              ; preds = %239
   %246 = sub nsw i32 %243, %242
   %247 = sdiv i32 %246, 2
-  %248 = trunc i32 %247 to i16
+  %248 = trunc nsw i32 %247 to i16
   %249 = add i16 %224, %248
   store i16 %249, ptr %119, align 2
   %250 = sub i16 %222, %249

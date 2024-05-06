@@ -325,14 +325,14 @@ if.end26:                                         ; preds = %if.then22
   %3 = load i64, ptr %len, align 8
   %conv35 = trunc i64 %3 to i32
   %.str.38.arrayidx = select i1 %cmp28.not, ptr @.str.38, ptr %arrayidx
-  %call36 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef nonnull %.str.38.arrayidx, ptr noundef nonnull %d_name, ptr noundef %2, i32 noundef %conv35), !range !7
+  %call36 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef nonnull %.str.38.arrayidx, ptr noundef nonnull %d_name, ptr noundef %2, i32 noundef %conv35)
   %4 = load ptr, ptr %val, align 8
   call void @g_free(ptr noundef %4) #12
   br label %if.end49
 
 if.then43:                                        ; preds = %if.end20
   %call46 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.35, ptr noundef %arrayidx, ptr noundef nonnull %d_name) #12
-  %call47 = call i32 @qemu_fdt_add_subnode(ptr noundef %fdt, ptr noundef %call46), !range !8
+  %call47 = call i32 @qemu_fdt_add_subnode(ptr noundef %fdt, ptr noundef %call46)
   call void @g_free(ptr noundef %call46) #12
   call fastcc void @read_fstree(ptr noundef %fdt, ptr noundef %call16)
   br label %if.end49
@@ -393,7 +393,7 @@ while.body13:                                     ; preds = %if.then7, %while.bo
   %call15 = call ptr @g_realloc(ptr noundef %path.042, i64 noundef %conv14) #12
   %call10 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef %call15, i32 noundef %add) #12
   %cmp11 = icmp eq i32 %call10, -3
-  br i1 %cmp11, label %while.body13, label %while.end, !llvm.loop !9
+  br i1 %cmp11, label %while.body13, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body13, %if.then7
   %path_len.1.lcssa = phi i32 [ %path_len.049, %if.then7 ], [ %add, %while.body13 ]
@@ -408,7 +408,7 @@ if.end17:                                         ; preds = %while.end, %lor.lhs
   %path_len.2 = phi i32 [ %path_len.1.lcssa, %while.end ], [ %path_len.049, %lor.lhs.false ]
   %call18 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef null) #12
   %cmp = icmp sgt i32 %call18, -1
-  br i1 %cmp, label %while.body, label %while.end19, !llvm.loop !10
+  br i1 %cmp, label %while.body, label %while.end19, !llvm.loop !8
 
 while.end19:                                      ; preds = %if.end17, %entry, %if.then
   %path_list.038 = phi ptr [ %path_list.045, %if.then ], [ null, %entry ], [ %path_list.1, %if.end17 ]
@@ -431,7 +431,7 @@ for.body:                                         ; preds = %if.then24, %for.bod
   %next = getelementptr inbounds i8, ptr %iter.057, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool26.not = icmp eq ptr %2, null
-  br i1 %tobool26.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %tobool26.not, label %return, label %for.body, !llvm.loop !9
 
 if.end27:                                         ; preds = %while.end19
   %add28 = add i32 %n.036, 1
@@ -454,7 +454,7 @@ for.body33:                                       ; preds = %if.end27, %for.body
   %next39 = getelementptr inbounds i8, ptr %iter.154, i64 8
   %4 = load ptr, ptr %next39, align 8
   %tobool32.not = icmp eq ptr %4, null
-  br i1 %tobool32.not, label %return, label %for.body33, !llvm.loop !12
+  br i1 %tobool32.not, label %return, label %for.body33, !llvm.loop !10
 
 return:                                           ; preds = %for.body33, %for.body, %if.end27, %if.then24
   %retval.0 = phi ptr [ null, %if.then24 ], [ %call30, %if.end27 ], [ null, %for.body ], [ %call30, %for.body33 ]
@@ -524,7 +524,7 @@ while.end.us:                                     ; preds = %while.body11.us, %i
   %inc.us = add i32 %n.047.us, 1
   %call16.us = call i32 @fdt_node_offset_by_compatible(ptr noundef %fdt, i32 noundef %offset.045.us, ptr noundef %compat) #12
   %cmp.us = icmp sgt i32 %call16.us, -1
-  br i1 %cmp.us, label %while.body.us, label %while.end17, !llvm.loop !13
+  br i1 %cmp.us, label %while.body.us, label %while.end17, !llvm.loop !11
 
 while.body11.us:                                  ; preds = %if.end.us, %while.body11.us
   %path.042.us = phi ptr [ %call13.us, %while.body11.us ], [ %call6.us, %if.end.us ]
@@ -534,7 +534,7 @@ while.body11.us:                                  ; preds = %if.end.us, %while.b
   %call13.us = call ptr @g_realloc(ptr noundef %path.042.us, i64 noundef %conv12.us) #12
   %call8.us = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.045.us, ptr noundef %call13.us, i32 noundef %add.us) #12
   %cmp9.us = icmp eq i32 %call8.us, -3
-  br i1 %cmp9.us, label %while.body11.us, label %while.end.us, !llvm.loop !14
+  br i1 %cmp9.us, label %while.body11.us, label %while.end.us, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end15
   %path_list.048 = phi ptr [ %path_list.1, %if.end15 ], [ null, %while.body.lr.ph ]
@@ -571,7 +571,7 @@ while.body11:                                     ; preds = %if.then5, %while.bo
   %call13 = call ptr @g_realloc(ptr noundef %path.042, i64 noundef %conv12) #12
   %call8 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.045, ptr noundef %call13, i32 noundef %add) #12
   %cmp9 = icmp eq i32 %call8, -3
-  br i1 %cmp9, label %while.body11, label %while.end, !llvm.loop !14
+  br i1 %cmp9, label %while.body11, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body11, %if.then5
   %path_len.1.lcssa = phi i32 [ %path_len.046, %if.then5 ], [ %add, %while.body11 ]
@@ -586,7 +586,7 @@ if.end15:                                         ; preds = %while.end, %if.end
   %path_list.1 = phi ptr [ %path_list.048, %if.end ], [ %call14, %while.end ]
   %call16 = call i32 @fdt_node_offset_by_compatible(ptr noundef %fdt, i32 noundef %offset.045, ptr noundef %compat) #12
   %cmp = icmp sgt i32 %call16, -1
-  br i1 %cmp, label %while.body, label %while.end17, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end17, !llvm.loop !11
 
 while.end17:                                      ; preds = %if.end15, %while.end.us, %entry, %if.then
   %n.037 = phi i32 [ %.us-phi, %if.then ], [ 0, %entry ], [ %inc.us, %while.end.us ], [ %n.1, %if.end15 ]
@@ -608,7 +608,7 @@ for.body:                                         ; preds = %if.then22, %for.bod
   %next = getelementptr inbounds i8, ptr %iter.060, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool24.not = icmp eq ptr %2, null
-  br i1 %tobool24.not, label %return, label %for.body, !llvm.loop !15
+  br i1 %tobool24.not, label %return, label %for.body, !llvm.loop !13
 
 if.end25:                                         ; preds = %while.end17
   %add26 = add i32 %n.037, 1
@@ -631,7 +631,7 @@ for.body31:                                       ; preds = %if.end25, %for.body
   %next37 = getelementptr inbounds i8, ptr %iter.158, i64 8
   %4 = load ptr, ptr %next37, align 8
   %tobool30.not = icmp eq ptr %4, null
-  br i1 %tobool30.not, label %return, label %for.body31, !llvm.loop !16
+  br i1 %tobool30.not, label %return, label %for.body31, !llvm.loop !14
 
 return:                                           ; preds = %for.body31, %for.body, %if.end25, %if.then22
   %retval.0 = phi ptr [ null, %if.then22 ], [ %call28, %if.end25 ], [ null, %for.body ], [ %call28, %for.body31 ]
@@ -642,7 +642,7 @@ return:                                           ; preds = %for.body31, %for.bo
 declare i32 @fdt_node_offset_by_compatible(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %val, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %val, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef %node_path) #12
   %cmp.i = icmp slt i32 %call.i, 0
@@ -672,7 +672,7 @@ if.end:                                           ; preds = %findnode_nofail.exi
 declare i32 @fdt_setprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca i32, align 4
   %call.i = tail call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef %node_path) #12
@@ -705,17 +705,17 @@ if.end:                                           ; preds = %findnode_nofail.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_u64(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i64 noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop_u64(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   %val.addr = alloca i64, align 8
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val)
   store i64 %0, ptr %val.addr, align 8
-  %call1 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef nonnull %val.addr, i32 noundef 8), !range !7
+  %call1 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef nonnull %val.addr, i32 noundef 8)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_string(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %string) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop_string(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef %node_path) #12
   %cmp.i = icmp slt i32 %call.i, 0
@@ -749,7 +749,7 @@ if.end:                                           ; preds = %findnode_nofail.exi
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_string_array(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %prop, ptr nocapture noundef readonly %array, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop_string_array(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %prop, ptr nocapture noundef readonly %array, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp15 = icmp sgt i32 %len, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end.thread
@@ -773,7 +773,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv2 = add i32 %2, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
   %conv3 = sext i32 %conv2 to i64
@@ -797,12 +797,12 @@ for.body8:                                        ; preds = %for.body8.preheader
   %add.ptr = getelementptr i8, ptr %p.019, i64 %idx.ext
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
-  br i1 %exitcond26.not, label %for.end18, label %for.body8, !llvm.loop !18
+  br i1 %exitcond26.not, label %for.end18, label %for.body8, !llvm.loop !16
 
 for.end18:                                        ; preds = %for.body8, %for.end.thread, %for.end
   %call431 = phi ptr [ %call429, %for.end.thread ], [ %call4, %for.end ], [ %call4, %for.body8 ]
   %total_len.0.lcssa30 = phi i32 [ 0, %for.end.thread ], [ %conv2, %for.end ], [ %conv2, %for.body8 ]
-  %call19 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %prop, ptr noundef %call431, i32 noundef %total_len.0.lcssa30), !range !7
+  %call19 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %prop, ptr noundef %call431, i32 noundef %total_len.0.lcssa30)
   tail call void @g_free(ptr noundef %call431) #12
   ret i32 %call19
 }
@@ -873,7 +873,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_get_phandle(ptr noundef %fdt, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @qemu_fdt_get_phandle(ptr noundef %fdt, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef %path) #12
   %cmp.i = icmp slt i32 %call.i, 0
@@ -903,10 +903,10 @@ if.end:                                           ; preds = %findnode_nofail.exi
 declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_phandle(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %target_node_path) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_setprop_phandle(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %target_node_path) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qemu_fdt_get_phandle(ptr noundef %fdt, ptr noundef %target_node_path), !range !19
-  %call1 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %call), !range !7
+  %call = tail call i32 @qemu_fdt_get_phandle(ptr noundef %fdt, ptr noundef %target_node_path)
+  %call1 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %call)
   ret i32 %call1
 }
 
@@ -934,7 +934,7 @@ if.end3:                                          ; preds = %if.end, %entry
 declare i32 @machine_phandle_start(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_nop_node(ptr noundef %fdt, ptr noundef %node_path) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @qemu_fdt_nop_node(ptr noundef %fdt, ptr noundef %node_path) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef %node_path) #12
   %cmp.i = icmp slt i32 %call.i, 0
@@ -964,7 +964,7 @@ if.end:                                           ; preds = %findnode_nofail.exi
 declare i32 @fdt_nop_node(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_add_subnode(ptr noundef %fdt, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qemu_fdt_add_subnode(ptr noundef %fdt, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef %name) #12
   %call1 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 47) #14
@@ -1076,7 +1076,7 @@ if.then20:                                        ; preds = %if.then16
 
 if.end24:                                         ; preds = %if.else, %if.then16
   %retval1.0 = phi i32 [ %call17, %if.then16 ], [ %call7, %if.else ]
-  br i1 %cmp3.not, label %return, label %do.body, !llvm.loop !20
+  br i1 %cmp3.not, label %return, label %do.body, !llvm.loop !17
 
 return:                                           ; preds = %if.end24, %entry
   %retval.0 = phi i32 [ -1, %entry ], [ %retval1.0, %if.end24 ]
@@ -1124,7 +1124,7 @@ declare i32 @g_file_set_contents(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare void @info_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %numvalues, ptr nocapture noundef readonly %values) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i32 noundef %numvalues, ptr nocapture noundef readonly %values) local_unnamed_addr #0 {
 entry:
   %mul = shl i32 %numvalues, 1
   %conv = sext i32 %mul to i64
@@ -1156,7 +1156,7 @@ if.end:                                           ; preds = %for.body
   %arrayidx10 = getelementptr i64, ptr %values, i64 %idxprom9
   %4 = load i64, ptr %arrayidx10, align 8
   %shr = lshr i64 %4, 32
-  %conv11 = trunc i64 %shr to i32
+  %conv11 = trunc nuw i64 %shr to i32
   %cmp13 = icmp ugt i32 %conv3, 1
   br i1 %cmp13, label %if.then15, label %if.else
 
@@ -1182,7 +1182,7 @@ if.end22:                                         ; preds = %if.else, %if.then15
   store i32 %6, ptr %arrayidx27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
 
 for.end.loopexit:                                 ; preds = %if.end22
   %7 = shl i32 %inc25, 2
@@ -1190,7 +1190,7 @@ for.end.loopexit:                                 ; preds = %if.end22
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %cellnum.0.lcssa = phi i32 [ 0, %entry ], [ %7, %for.end.loopexit ]
-  %call32 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %call, i32 noundef %cellnum.0.lcssa), !range !7
+  %call32 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %call, i32 noundef %cellnum.0.lcssa)
   br label %out
 
 out:                                              ; preds = %if.else, %for.body, %for.end
@@ -1332,12 +1332,12 @@ if.end:                                           ; preds = %lor.lhs.false
 for.inc:                                          ; preds = %for.body4, %lor.lhs.false, %if.end
   %call8 = call i32 @fdt_next_property_offset(ptr noundef %fdt, i32 noundef %poffset.011) #12
   %cmp3 = icmp sgt i32 %call8, -1
-  br i1 %cmp3, label %for.body4, label %for.inc9, !llvm.loop !22
+  br i1 %cmp3, label %for.body4, label %for.inc9, !llvm.loop !19
 
 for.inc9:                                         ; preds = %for.inc, %for.body
   %call10 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %noffset.013, ptr noundef null) #12
   %cmp = icmp sgt i32 %call10, -1
-  br i1 %cmp, label %for.body, label %for.end11, !llvm.loop !23
+  br i1 %cmp, label %for.body, label %for.end11, !llvm.loop !20
 
 for.end11:                                        ; preds = %for.inc9, %entry
   ret void
@@ -1411,8 +1411,8 @@ attributes #15 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 -2147483648}
-!8 = !{i32 -1, i32 -2147483648}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -1423,8 +1423,5 @@ attributes #15 = { nounwind allocsize(0,1) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = !{i32 1, i32 0}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

@@ -42,7 +42,7 @@ define dso_local void @gist_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %18 = getelementptr inbounds i8, ptr %6, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %19, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = trunc i64 %19 to i32
   %23 = getelementptr inbounds i8, ptr %6, i64 24
   %24 = load i8, ptr %23, align 8
@@ -75,7 +75,7 @@ define dso_local void @gist_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %40 = getelementptr i8, ptr %6, i64 8
   %.val13 = load i16, ptr %40, align 8
   %41 = lshr i64 %.val12, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = trunc i64 %.val12 to i32
   %44 = zext i16 %.val13 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %42, i32 noundef %43, i32 noundef %44) #3

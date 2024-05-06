@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [22 x i8] c"../openssl/fuzz/cms.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #4
   tail call void @ERR_clear_error() #4
@@ -22,7 +22,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @CRYPTO_free_ex_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end

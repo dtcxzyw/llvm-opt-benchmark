@@ -245,7 +245,7 @@ define dso_local i32 @acpi_ds_init_object_from_op(ptr noundef %0, ptr nocapture 
 57:                                               ; preds = %51
   %58 = load i64, ptr %52, align 8
   %59 = lshr i64 %58, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = trunc i64 %58 to i32
   %62 = load i64, ptr %54, align 8
   %63 = trunc i64 %62 to i32
@@ -354,7 +354,7 @@ declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_build_internal_buffer_obj(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 9) i32 @acpi_ds_build_internal_buffer_obj(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null

@@ -474,7 +474,7 @@ declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #1
 declare ptr @g_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @page_request_addr_cmp(ptr noundef readnone %ap, ptr noundef readnone %bp) #4 {
+define internal range(i32 -1, 2) i32 @page_request_addr_cmp(ptr noundef readnone %ap, ptr noundef readnone %bp) #4 {
 entry:
   %cmp = icmp ugt ptr %ap, %bp
   %conv = zext i1 %cmp to i32
@@ -1175,7 +1175,7 @@ entry:
 declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migration_incoming_enable_colo() local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @migration_incoming_enable_colo() local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_colo() #18
   br i1 %call, label %if.end, label %if.then
@@ -2673,7 +2673,7 @@ land.rhs:                                         ; preds = %migrate_get_current
   br i1 %2, label %switch.lookup, label %land.end
 
 switch.lookup:                                    ; preds = %land.rhs
-  %switch.cast = trunc i32 %1 to i14
+  %switch.cast = trunc nuw i32 %1 to i14
   %switch.downshift = lshr i14 -782, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   br label %land.end
@@ -2802,14 +2802,14 @@ declare void @error_free(ptr noundef) local_unnamed_addr #1
 declare void @migration_reset_vfio_bytes_transferred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migrate_add_blocker(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @migrate_add_blocker(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 2), !range !8
+  %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migrate_add_blocker_modes(ptr nocapture noundef %reasonp, ptr noundef %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @migrate_add_blocker_modes(ptr nocapture noundef %reasonp, ptr noundef %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i6 = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
@@ -2843,7 +2843,7 @@ if.else.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %while.body.i
   %sh_prom.i = zext nneg i32 %mode.addr.0.i to i64
   %shl.i = shl nuw nsw i64 1, %sh_prom.i
-  %2 = trunc i64 %shl.i to i32
+  %2 = trunc nuw i64 %shl.i to i32
   %conv4.i = or i32 %modes.0.i, %2
   %fits_in_gp.i = icmp ult i32 %1, 41
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
@@ -2865,7 +2865,7 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   %6 = phi i32 [ %5, %vaarg.in_reg.i ], [ %1, %vaarg.in_mem.i ]
   %vaarg.addr.i = phi ptr [ %4, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i26, %vaarg.in_mem.i ]
   %7 = load i32, ptr %vaarg.addr.i, align 4
-  br label %while.cond.i, !llvm.loop !9
+  br label %while.cond.i, !llvm.loop !8
 
 get_modes.exit.loopexit:                          ; preds = %while.cond.i
   br label %get_modes.exit
@@ -2965,7 +2965,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  br i1 %cmp.i15, label %for.body.i, label %return, !llvm.loop !10
+  br i1 %cmp.i15, label %for.body.i, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.inc.i, %is_busy.exit, %is_only_migratable.exit.thread
   %retval.0 = phi i32 [ -16, %is_busy.exit ], [ -13, %is_only_migratable.exit.thread ], [ 0, %for.inc.i ]
@@ -2973,14 +2973,14 @@ return:                                           ; preds = %for.inc.i, %is_busy
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migrate_add_blocker_normal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @migrate_add_blocker_normal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 0, i32 noundef -1), !range !8
+  %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 0, i32 noundef -1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migrate_add_blocker_internal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @migrate_add_blocker_internal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
@@ -3906,7 +3906,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @qemu_sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migration_rp_wait(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @migration_rp_wait(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %error_mutex.i = getelementptr inbounds i8, ptr %s, i64 1488
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -3972,7 +3972,7 @@ migrate_get_current.exit:                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @migration_rate_limit() local_unnamed_addr #0 {
+define dso_local zeroext i1 @migration_rate_limit() local_unnamed_addr #0 {
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4085,7 +4085,7 @@ if.else.i.i18:                                    ; preds = %if.then.i.i16
 
 trace_migration_rate_limit_post.exit:             ; preds = %if.end10, %land.lhs.true5.i.i13, %if.then8.i.i19, %if.else.i.i18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i9)
-  %17 = trunc i8 %urgent.0 to i1
+  %17 = trunc nuw i8 %urgent.0 to i1
   br label %return
 
 return:                                           ; preds = %migrate_get_current.exit, %trace_migration_rate_limit_post.exit, %if.then
@@ -4119,7 +4119,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %div6 = udiv i64 %call, 1000
-  %conv7 = uitofp i64 %div6 to double
+  %conv7 = uitofp nneg i64 %div6 to double
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %if.then5
@@ -4869,7 +4869,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
   br label %while.end
 
 if.end30:                                         ; preds = %while.body
-  %call31 = tail call fastcc i32 @migration_detect_error(ptr noundef nonnull %opaque), !range !11
+  %call31 = tail call fastcc i32 @migration_detect_error(ptr noundef nonnull %opaque)
   %cmp32 = icmp eq i32 %call31, 2
   br i1 %cmp32, label %while.end, label %if.end34
 
@@ -4880,7 +4880,7 @@ if.end34:                                         ; preds = %if.end30
   %32 = load i32, ptr %state.i, align 8
   %33 = and i32 %32, -2
   %spec.select.i = icmp eq i32 %33, 4
-  br i1 %spec.select.i, label %while.body, label %while.end, !llvm.loop !12
+  br i1 %spec.select.i, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end34, %if.end30, %if.end21, %if.end11.i.i, %trace_migration_completion_file_err.exit.i.i, %if.else.split.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i36)
@@ -5380,7 +5380,7 @@ trace_migration_completion_vm_stop.exit.i.i.i:    ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %trace_migration_completion_vm_stop.exit.i.i.i
-  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %current_active_state.i.i, i32 noundef 12), !range !13
+  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %current_active_state.i.i, i32 noundef 12)
   %cmp3.i.i.i = icmp slt i32 %call2.i.i.i, 0
   br i1 %cmp3.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %migration_completion_precopy.exit.i.i
 
@@ -5755,7 +5755,7 @@ migration_stop_vm.exit.i.i:                       ; preds = %if.else.i.i.i.i71.i
   br i1 %cmp.i.i, label %if.end69.critedge.i.i, label %if.end12.i61.i
 
 if.end12.i61.i:                                   ; preds = %migration_stop_vm.exit.i.i
-  %call13.i62.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %cur_state.i.i, i32 noundef 5), !range !13
+  %call13.i62.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %cur_state.i.i, i32 noundef 5)
   %cmp14.i.i = icmp slt i32 %call13.i62.i, 0
   br i1 %cmp14.i.i, label %if.end69.critedge.i.i, label %if.end16.i.i
 
@@ -5962,7 +5962,7 @@ migration_iteration_run.exit:                     ; preds = %postcopy_start.exit
   br i1 %spec.select.i, label %while.body, label %while.end
 
 if.end27:                                         ; preds = %lor.lhs.false, %migration_iteration_run.exit.thread
-  %call28 = call fastcc i32 @migration_detect_error(ptr noundef nonnull %opaque), !range !11
+  %call28 = call fastcc i32 @migration_detect_error(ptr noundef nonnull %opaque)
   switch i32 %call28, label %if.end35 [
     i32 2, label %while.end
     i32 1, label %if.then33
@@ -5983,7 +5983,7 @@ if.end35:                                         ; preds = %if.end27, %if.then3
   %133 = load i32, ptr %state.i, align 8
   %134 = and i32 %133, -2
   %spec.select.i69 = icmp eq i32 %134, 4
-  br i1 %spec.select.i69, label %while.body.lr.ph, label %while.end, !llvm.loop !14
+  br i1 %spec.select.i69, label %while.body.lr.ph, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end35, %if.end27, %migration_iteration_run.exit, %trace_migration_thread_setup_complete.exit, %migration_iteration_run.exit.thread58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
@@ -7113,7 +7113,7 @@ if.end89:                                         ; preds = %if.end83
 while.cond.outer.backedge:                        ; preds = %if.end89, %sw.bb57
   %start.0.ph.be = phi i64 [ %31, %sw.bb57 ], [ %start.1, %if.end89 ]
   %len.0.ph.be = phi i64 [ %conv62, %sw.bb57 ], [ %len.1, %if.end89 ]
-  br label %while.cond.outer, !llvm.loop !15
+  br label %while.cond.outer, !llvm.loop !12
 
 sw.bb94:                                          ; preds = %if.end46
   %cmp96 = icmp eq i32 %conv3.mask, 0
@@ -7186,7 +7186,7 @@ migrate_handle_rp_resume_ack.exit.thread:         ; preds = %trace_source_return
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %migrate_handle_rp_resume_ack.exit.thread, %migrate_handle_rp_recv_bitmap.exit, %trace_source_return_path_thread_switchover_acked.exit, %trace_source_return_path_thread_pong.exit
-  br label %while.cond, !llvm.loop !15
+  br label %while.cond, !llvm.loop !12
 
 migrate_handle_rp_resume_ack.exit:                ; preds = %trace_source_return_path_thread_resume_ack.exit.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.2, i32 noundef 2120, ptr noundef nonnull @__func__.migrate_handle_rp_resume_ack, ptr noundef nonnull @.str.136, i32 noundef %39) #18
@@ -7460,7 +7460,7 @@ while.body:                                       ; preds = %land.rhs
   %call3 = tail call i32 @qemu_sem_timedwait(ptr noundef nonnull %wait_unplug_sem, i32 noundef 250) #18
   %1 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %1, 13
-  br i1 %cmp, label %land.rhs, label %while.cond7.preheader, !llvm.loop !16
+  br i1 %cmp, label %land.rhs, label %while.cond7.preheader, !llvm.loop !13
 
 while.endthread-pre-split:                        ; preds = %land.rhs
   %.pr = load i32, ptr %state, align 8
@@ -7480,7 +7480,7 @@ while.body11:                                     ; preds = %land.rhs8
   %call13 = tail call i32 @qemu_sem_timedwait(ptr noundef nonnull %wait_unplug_sem12, i32 noundef 250) #18
   %dec = add nsw i32 %dec10, -1
   %tobool.not = icmp eq i32 %dec10, 0
-  br i1 %tobool.not, label %while.end14, label %land.rhs8, !llvm.loop !17
+  br i1 %tobool.not, label %while.end14, label %land.rhs8, !llvm.loop !14
 
 while.end14:                                      ; preds = %while.body11, %land.rhs8
   %call15 = tail call zeroext i1 @qemu_savevm_state_guest_unplug_pending() #18
@@ -7571,7 +7571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @migration_detect_error(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @migration_detect_error(ptr noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -7681,7 +7681,7 @@ while.cond14.i:                                   ; preds = %while.body17.i, %if
 
 while.body17.i:                                   ; preds = %while.cond14.i
   call void @qemu_sem_wait(ptr noundef nonnull %postcopy_pause_sem.i) #18
-  br label %while.cond14.i, !llvm.loop !18
+  br label %while.cond14.i, !llvm.loop !15
 
 if.then21.i:                                      ; preds = %while.cond14.i
   %call.i.i = call i32 @qemu_savevm_state_resume_prepare(ptr noundef nonnull %s) #18
@@ -7730,7 +7730,7 @@ migration_rp_wait.exit.i.i.i:                     ; preds = %while.body.i.i.i
   %24 = load atomic i64, ptr %error.i.i.i.i.i monotonic, align 8
   %tobool.i5.not.i.not.i.i.i = icmp eq i64 %24, 0
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %error_mutex.i.i.i.i.i, ptr noundef nonnull @.str.53, i32 noundef 132) #18
-  br i1 %tobool.i5.not.i.not.i.i.i, label %while.cond.i.i.i, label %if.then7.i.i, !llvm.loop !19
+  br i1 %tobool.i5.not.i.not.i.i.i, label %while.cond.i.i.i, label %if.then7.i.i, !llvm.loop !16
 
 if.then7.i.i:                                     ; preds = %migration_rp_wait.exit.i.i.i, %while.body.i.i.i, %while.cond.i.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.164, ptr noundef nonnull @__func__.postcopy_do_resume, i32 noundef -1) #18
@@ -7912,7 +7912,7 @@ declare zeroext i1 @migrate_switchover_ack() local_unnamed_addr #1
 declare zeroext i1 @runstate_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @migration_maybe_pause(ptr noundef %s, ptr nocapture noundef %current_active_state, i32 noundef %new_state) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @migration_maybe_pause(ptr noundef %s, ptr nocapture noundef %current_active_state, i32 noundef %new_state) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_pause_before_switchover() #18
   br i1 %call, label %while.cond.preheader, label %return
@@ -7924,7 +7924,7 @@ while.cond.preheader:                             ; preds = %entry
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
   %call1 = tail call i32 @qemu_sem_timedwait(ptr noundef nonnull %pause_sem, i32 noundef 1) #18
   %cmp = icmp eq i32 %call1, 0
-  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !20
+  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
   %state = getelementptr inbounds i8, ptr %s, i64 776
@@ -8112,16 +8112,13 @@ attributes #23 = { nounwind willreturn memory(none) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -16, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 3}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -22, i32 1}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

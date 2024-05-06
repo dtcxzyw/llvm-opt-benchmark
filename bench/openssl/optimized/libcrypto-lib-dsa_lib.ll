@@ -386,7 +386,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @DSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @DSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #4 {
 entry:
   %references = getelementptr inbounds i8, ptr %r, i64 136
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -414,7 +414,7 @@ entry:
 declare void @ossl_ffc_params_get0_pqg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DSA_set0_pqg(ptr noundef %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSA_set0_pqg(ptr noundef %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8

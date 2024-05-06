@@ -90,7 +90,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int_stack(i32 noundef %reserve) #0 {
+define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %reserve) #0 {
 entry:
   %call.i = tail call ptr @OPENSSL_sk_new_null() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 87, ptr noundef nonnull @.str.5, ptr noundef %call.i) #3
@@ -102,7 +102,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %for.body.preheader
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %mul = mul nsw i32 %reserve, 5
+  %mul = mul nuw nsw i32 %reserve, 5
   %call.i55 = tail call i32 @OPENSSL_sk_reserve(ptr noundef %call.i, i32 noundef %mul) #3
   %cmp3 = icmp ne i32 %call.i55, 0
   %conv = zext i1 %cmp3 to i32
@@ -116,7 +116,7 @@ for.body.preheader:                               ; preds = %land.lhs.true, %lor
 for.body:                                         ; preds = %for.body.preheader, %if.end12
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end12 ], [ 0, %for.body.preheader ]
   %call.i56 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #3
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call9 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 93, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call.i56, i32 noundef %0) #3
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end12
@@ -140,7 +140,7 @@ for.end:                                          ; preds = %if.end12
 
 for.body22:                                       ; preds = %for.end, %for.inc30
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %for.inc30 ], [ 0, %for.end ]
-  %1 = trunc i64 %indvars.iv91 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv91 to i32
   %call.i59 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %1) #3
   %add.ptr25 = getelementptr inbounds i32, ptr @test_int_stack.v, i64 %indvars.iv91
   %call26 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 104, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %call.i59, ptr noundef nonnull %add.ptr25) #3
@@ -171,7 +171,7 @@ for.body36:                                       ; preds = %for.inc30, %for.inc
   br i1 %tobool49.not, label %if.then50, label %for.inc52
 
 if.then50:                                        ; preds = %for.body36
-  %4 = trunc i64 %indvars.iv95 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv95 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 115, ptr noundef nonnull @.str.16, i32 noundef %4) #3
   br label %end
 
@@ -195,7 +195,7 @@ for.body58:                                       ; preds = %for.inc52, %for.inc
   br i1 %tobool79.not, label %if.then80, label %for.inc82
 
 if.then80:                                        ; preds = %for.body58
-  %7 = trunc i64 %indvars.iv99 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv99 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 126, ptr noundef nonnull @.str.18, i32 noundef %7) #3
   br label %end
 
@@ -233,7 +233,7 @@ for.body103:                                      ; preds = %if.end91, %for.inc1
   br i1 %tobool110.not, label %if.then111, label %for.inc113
 
 if.then111:                                       ; preds = %for.body103
-  %9 = trunc i64 %indvars.iv103 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv103 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 142, ptr noundef nonnull @.str.22, i32 noundef %9) #3
   br label %end
 
@@ -253,7 +253,7 @@ for.body119:                                      ; preds = %for.inc113, %for.in
   br i1 %tobool127.not, label %if.then128, label %for.inc130
 
 if.then128:                                       ; preds = %for.body119
-  %11 = trunc i64 %indvars.iv107 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv107 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 149, ptr noundef nonnull @.str.25, i32 noundef %11) #3
   br label %end
 
@@ -273,7 +273,7 @@ for.body136:                                      ; preds = %for.inc130, %for.in
   br i1 %tobool145.not, label %if.then146, label %for.inc148
 
 if.then146:                                       ; preds = %for.body136
-  %13 = trunc i64 %indvars.iv111 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv111 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 154, ptr noundef nonnull @.str.28, i32 noundef %13) #3
   br label %end
 
@@ -296,7 +296,7 @@ end:                                              ; preds = %for.end150, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_uchar_stack(i32 noundef %reserve) #0 {
+define internal range(i32 0, 2) i32 @test_uchar_stack(i32 noundef %reserve) #0 {
 entry:
   %call.i = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @uchar_compare) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 182, ptr noundef nonnull @.str.5, ptr noundef %call.i) #3
@@ -308,7 +308,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %for.body.preheader
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %mul = mul nsw i32 %reserve, 5
+  %mul = mul nuw nsw i32 %reserve, 5
   %call.i43 = tail call i32 @OPENSSL_sk_reserve(ptr noundef %call.i, i32 noundef %mul) #3
   %cmp3 = icmp ne i32 %call.i43, 0
   %conv = zext i1 %cmp3 to i32
@@ -322,7 +322,7 @@ for.body.preheader:                               ; preds = %land.lhs.true, %lor
 for.body:                                         ; preds = %for.body.preheader, %if.end12
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end12 ], [ 0, %for.body.preheader ]
   %call.i44 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #3
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call9 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 188, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.8, i32 noundef %call.i44, i32 noundef %0) #3
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end12
@@ -371,7 +371,7 @@ for.body34:                                       ; preds = %if.end30, %for.inc4
   br i1 %tobool39.not, label %if.then40, label %for.inc42
 
 if.then40:                                        ; preds = %for.body34
-  %1 = trunc i64 %indvars.iv75 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv75 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 210, ptr noundef nonnull @.str.36, i32 noundef %1) #3
   br label %end
 
@@ -402,7 +402,7 @@ if.end54:                                         ; preds = %if.end49
 
 for.body61:                                       ; preds = %if.end54, %for.inc69
   %indvars.iv79 = phi i64 [ 0, %if.end54 ], [ %indvars.iv.next80, %for.inc69 ]
-  %2 = trunc i64 %indvars.iv79 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv79 to i32
   %call.i57 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i49, i32 noundef %2) #3
   %add.ptr64 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 %indvars.iv79
   %call65 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 232, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.12, ptr noundef %call.i57, ptr noundef nonnull %add.ptr64) #3
@@ -437,7 +437,7 @@ if.end81:                                         ; preds = %if.end76
 for.body86:                                       ; preds = %if.end81, %for.inc94
   %cmp84 = phi i1 [ true, %if.end81 ], [ false, %for.inc94 ]
   %indvars.iv83 = phi i64 [ 0, %if.end81 ], [ 1, %for.inc94 ]
-  %3 = trunc i64 %indvars.iv83 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv83 to i32
   %call.i61 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i49, i32 noundef %3) #3
   %add.ptr89 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 %indvars.iv83
   %call90 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 246, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.12, ptr noundef %call.i61, ptr noundef nonnull %add.ptr89) #3
@@ -463,7 +463,7 @@ end:                                              ; preds = %for.inc94, %if.end7
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_SS_stack() #0 {
+define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
 entry:
   %v = alloca [10 x ptr], align 16
   %call.i = tail call ptr @OPENSSL_sk_new_null() #3
@@ -479,7 +479,7 @@ for.body:                                         ; preds = %entry, %if.end14
   br i1 %tobool.not, label %end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %0, ptr %call1, align 4
   %1 = trunc i64 %indvars.iv to i8
   %conv = add nuw nsw i8 %1, 65
@@ -521,7 +521,7 @@ if.end28:                                         ; preds = %if.end22
 
 for.body37:                                       ; preds = %if.end28, %for.inc61
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.inc61 ], [ 0, %if.end28 ]
-  %2 = trunc i64 %indvars.iv70 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv70 to i32
   %call.i49 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i48, i32 noundef %2) #3
   %arrayidx40 = getelementptr inbounds [10 x ptr], ptr %v, i64 0, i64 %indvars.iv70
   %3 = load ptr, ptr %arrayidx40, align 8
@@ -608,7 +608,7 @@ end:                                              ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_SU_stack() #0 {
+define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
 entry:
   %v = alloca [10 x %union.SU], align 16
   %call.i = tail call ptr @OPENSSL_sk_new_null() #3
@@ -616,7 +616,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end7
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end7 ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %0, 1
   %cmp1 = icmp eq i32 %and, 0
   br i1 %cmp1, label %if.then, label %if.else
@@ -658,7 +658,7 @@ for.end:                                          ; preds = %if.end7
 
 for.body17:                                       ; preds = %for.end, %for.inc26
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %for.inc26 ], [ 0, %for.end ]
-  %2 = trunc i64 %indvars.iv30 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv30 to i32
   %call.i22 = call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %2) #3
   %add.ptr21 = getelementptr inbounds %union.SU, ptr %v, i64 %indvars.iv30
   %call22 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 370, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.12, ptr noundef %call.i22, ptr noundef nonnull %add.ptr21) #3
@@ -693,7 +693,7 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @int_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -1, 2) i32 @int_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 4
@@ -731,7 +731,7 @@ declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @uchar_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -255, 256) i32 @uchar_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i8, ptr %0, align 1

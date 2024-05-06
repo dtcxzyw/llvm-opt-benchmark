@@ -217,7 +217,7 @@ declare dso_local void @acpi_tb_uninstall_table(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_get_table_header(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5

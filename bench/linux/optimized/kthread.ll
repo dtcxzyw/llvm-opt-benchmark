@@ -619,7 +619,7 @@ define dso_local void @kthread_complete_and_exit(ptr noundef %0, i64 noundef %1)
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @tsk_fork_get_node(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @tsk_fork_get_node(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = load ptr, ptr @kthreadd_task, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %4, label %8
@@ -985,7 +985,7 @@ define dso_local void @kthread_unpark(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @wake_up_state(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kthread_park(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @kthread_park(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152

@@ -487,7 +487,7 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.else.i.i.i
   %47 = xor i32 %43, -1
-  %48 = trunc i64 %indvars.iv.i to i32
+  %48 = trunc nuw i64 %indvars.iv.i to i32
   %sub9.i.i.i = add i32 %47, %48
   %49 = load i32, ptr %m_num_decls.i.i.i.i.i.i, align 4
   %idx.ext.i.i.i7.i.i.i = zext i32 %49 to i64
@@ -501,7 +501,7 @@ invoke.cont72.i.i:                                ; preds = %if.else6.i.i.i, %if
   %retval.0.in.i.i.i = phi ptr [ %arrayidx.i.i150.i.i, %if.then4.i.i.i ], [ %arrayidx.i11.i.i.i, %if.else6.i.i.i ], [ %m_expr.i.i.i.i, %while.body70.i.i ]
   %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = trunc i64 %indvars.iv.next.i to i32
+  %50 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %50, ptr %second68.i.i, align 8
   %51 = load i32, ptr %retval.0.i.i.i, align 4
   %52 = load i32, ptr %m_marks.i.i.i.i, align 8

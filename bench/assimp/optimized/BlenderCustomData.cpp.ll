@@ -383,7 +383,7 @@ return:                                           ; preds = %entry, %dynamic_cas
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
@@ -660,7 +660,7 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMEdgeEm(i64 noundef %cnt) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ugt i64 %cnt, 576460752303423487
-  %1 = shl i64 %cnt, 5
+  %1 = shl nuw i64 %cnt, 5
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #17
@@ -1161,7 +1161,7 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef nonnull ptr @_ZN6Assimp7Blender14createMTexPolyEm(i64 noundef %cnt) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ugt i64 %cnt, 576460752303423487
-  %1 = shl i64 %cnt, 5
+  %1 = shl nuw i64 %cnt, 5
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #17
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef nonnull ptr @_ZN6Assimp7Blender13createMLoopUVEm(i64 noundef %cnt) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ugt i64 %cnt, 576460752303423487
-  %1 = shl i64 %cnt, 5
+  %1 = shl nuw i64 %cnt, 5
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #17
@@ -1643,7 +1643,7 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMPolyEm(i64 noundef %cnt) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ugt i64 %cnt, 576460752303423487
-  %1 = shl i64 %cnt, 5
+  %1 = shl nuw i64 %cnt, 5
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #17
@@ -2914,7 +2914,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read) }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

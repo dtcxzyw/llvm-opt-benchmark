@@ -236,7 +236,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.7 = private unnamed_addr constant [103 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/settings.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZN8SettingsaSERKS_ = private unnamed_addr constant [48 x i8] c"Settings &Settings::operator=(const Settings &)\00", align 1
 @.str.8 = private unnamed_addr constant [6 x i8] c"=\22{}#\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.9 = private unnamed_addr constant [23 x i8] c"Invalid setting name \22\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.11 = private unnamed_addr constant [4 x i8] c"\22\22\22\00", align 1
@@ -3191,7 +3191,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit271:         ; preds = %if.then.i.i260, %_Z
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8Settings17parseConfigObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_S8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %line, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN8Settings17parseConfigObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_S8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %line, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %line, align 8, !tbaa !16
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %line, i64 8

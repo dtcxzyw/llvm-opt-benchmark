@@ -455,9 +455,9 @@ _ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirem
 
 .thread:                                          ; preds = %41
   tail call void @_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #14
-  br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit35
+  br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
 
-45:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit35
+45:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -465,9 +465,9 @@ _ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirem
 
 47:                                               ; preds = %41
   tail call void @_ZdlPv(ptr noundef nonnull %23) #17
-  br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit35
+  br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
 
-_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit35: ; preds = %47, %.thread
+_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %47, %.thread
   invoke void @__cxa_rethrow() #15
           to label %52 unwind label %45
 
@@ -481,7 +481,7 @@ _ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirem
   tail call void @__clang_call_terminate(ptr %51) #18
   unreachable
 
-52:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit35
+52:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
   unreachable
 }
 

@@ -139,7 +139,7 @@ for.body61.us:                                    ; preds = %for.body56.us, %x64
   %conv.i.i182.us = zext i64 %cond.i158.us to i128
   %mul.i.i184.us = mul nuw i128 %conv.i.i182.us, %conv1.i.i183.us
   %shr.i.i185.us = lshr i128 %mul.i.i184.us, 64
-  %conv2.i.i186.us = trunc i128 %shr.i.i185.us to i64
+  %conv2.i.i186.us = trunc nuw i128 %shr.i.i185.us to i64
   %conv3.i.i187.us = trunc i128 %mul.i.i184.us to i64
   br i1 %tobool.not.i189, label %if.else.i218.us, label %if.then.i190.us
 
@@ -239,7 +239,7 @@ x64_mulmod.exit276.us:                            ; preds = %if.else67.i250.us, 
   %conv.i.i.us = zext i64 %cond.i169.us to i128
   %mul.i.i.us = mul nuw i128 %conv.i.i.us, %conv1.i.i183.us
   %shr.i.i176.us = lshr i128 %mul.i.i.us, 64
-  %conv2.i.i.us = trunc i128 %shr.i.i176.us to i64
+  %conv2.i.i.us = trunc nuw i128 %shr.i.i176.us to i64
   %conv3.i.i.us = trunc i128 %mul.i.i.us to i64
   br i1 %tobool.not.i189, label %if.else.i.us, label %if.then.i177.us
 
@@ -463,7 +463,7 @@ entry:
   %conv1.i = zext i64 %b to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %and = and i64 %m, 4294967296
   %tobool.not = icmp eq i64 %and, 0

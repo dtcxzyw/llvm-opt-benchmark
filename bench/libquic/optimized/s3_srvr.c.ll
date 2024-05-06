@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl3_send_new_session_ticket.kTicketPlaceholder = internal unnamed_addr constant [17 x i8] c"TICKET TOO LARGE\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_accept(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_accept(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   tail call void @ERR_clear_system_error() #9
   %info_callback = getelementptr inbounds i8, ptr %ssl, i64 200
@@ -167,12 +167,12 @@ if.else35:                                        ; preds = %if.end31
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %for.cond
-  %call39 = tail call i32 @ssl3_get_initial_bytes(ptr noundef nonnull %ssl), !range !7
+  %call39 = tail call i32 @ssl3_get_initial_bytes(ptr noundef nonnull %ssl)
   %cmp40 = icmp slt i32 %call39, 1
   br i1 %cmp40, label %end, label %sw.epilog
 
 sw.bb43:                                          ; preds = %for.cond
-  %call44 = tail call i32 @ssl3_get_v2_client_hello(ptr noundef nonnull %ssl), !range !7
+  %call44 = tail call i32 @ssl3_get_v2_client_hello(ptr noundef nonnull %ssl)
   %cmp45 = icmp slt i32 %call44, 1
   br i1 %cmp45, label %end, label %if.end47
 
@@ -654,7 +654,7 @@ declare i32 @ssl_init_wbio_buffer(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @ssl3_init_handshake_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_get_initial_bytes(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_get_initial_bytes(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ssl_read_buffer_extend_to(ptr noundef %ssl, i64 noundef 5) #9
   %cmp = icmp slt i32 %call, 1
@@ -727,7 +727,7 @@ return:                                           ; preds = %entry, %if.end28, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_get_v2_client_hello(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %v2_client_hello = alloca %struct.cbs_st, align 8
   %cipher_specs = alloca %struct.cbs_st, align 8
@@ -932,7 +932,7 @@ if.end95:                                         ; preds = %while.body
 while.cond.backedge:                              ; preds = %if.end95, %if.end100
   %call89 = call i64 @CBS_len(ptr noundef nonnull %cipher_specs) #9
   %cmp90.not = icmp eq i64 %call89, 0
-  br i1 %cmp90.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %cmp90.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.end100:                                        ; preds = %if.end95
   %conv101 = trunc i32 %12 to i16
@@ -1382,7 +1382,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %j.098, 1
   %call192 = call i64 @sk_num(ptr noundef nonnull %call179) #9
   %cmp193.not = icmp ult i64 %inc, %call192
-  br i1 %cmp193.not, label %for.body, label %if.then202, !llvm.loop !10
+  br i1 %cmp193.not, label %for.body, label %if.then202, !llvm.loop !9
 
 for.body:                                         ; preds = %if.then189, %for.cond
   %j.098 = phi i64 [ %inc, %for.cond ], [ 0, %if.then189 ]
@@ -2415,7 +2415,7 @@ if.end40:                                         ; preds = %for.body
   %inc62 = add nuw i64 %i.050, 1
   %call27 = call i64 @sk_num(ptr noundef nonnull %call23) #9
   %cmp28 = icmp ult i64 %inc62, %call27
-  br i1 %cmp28, label %for.body, label %if.end63, !llvm.loop !11
+  br i1 %cmp28, label %for.body, label %if.end63, !llvm.loop !10
 
 if.end63:                                         ; preds = %if.end40, %for.cond.preheader, %if.end
   %nl.1 = phi i32 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %add61, %if.end40 ]
@@ -2660,7 +2660,7 @@ if.then67:                                        ; preds = %if.end62
 if.end68:                                         ; preds = %if.end62
   %call69 = call i64 @sk_push(ptr noundef nonnull %call25, ptr noundef nonnull %call58) #9
   %tobool70.not = icmp eq i64 %call69, 0
-  br i1 %tobool70.not, label %if.then71, label %while.cond, !llvm.loop !12
+  br i1 %tobool70.not, label %if.then71, label %while.cond, !llvm.loop !11
 
 if.then71:                                        ; preds = %if.end68
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1913) #9
@@ -3008,7 +3008,7 @@ for.body.preheader:                               ; preds = %if.end109
   %sub.i.i.i.i78 = add nsw i32 %xor.i.i.i, -1
   %shr.i.i.i.i.i96 = and i32 %sub.i.i.i.i78, %sub.i.i.i.i
   %and1217395 = ashr i32 %shr.i.i.i.i.i96, 31
-  %and12173 = trunc i32 %and1217395 to i8
+  %and12173 = trunc nsw i32 %and1217395 to i8
   %sub123 = add i64 %21, -49
   br label %for.body
 
@@ -3021,7 +3021,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and131 = select i1 %.not, i8 0, i8 %good.099
   %inc = add nuw i64 %i.0100, 1
   %exitcond.not = icmp eq i64 %inc, %sub123
-  br i1 %exitcond.not, label %for.body161.lr.ph, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.body161.lr.ph, label %for.body, !llvm.loop !12
 
 for.body161.lr.ph:                                ; preds = %for.body
   %arrayidx134 = getelementptr inbounds i8, ptr %call58, i64 %sub123
@@ -3048,7 +3048,7 @@ for.body161.lr.ph:                                ; preds = %for.body
   %shr.i.i.i8597 = and i32 %and.i.i.i, %sub.i.i.i
   %31 = and i32 %shr.i.i.i8597, %sub.i.i.i90
   %32 = ashr i32 %31, 31
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nsw i32 %32 to i8
   %and15676 = and i8 %and131, %33
   %not.i.i94 = xor i8 %and15676, -1
   br label %for.body161
@@ -3065,7 +3065,7 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   store i8 %or.i.i, ptr %arrayidx164, align 1
   %inc168 = add nuw nsw i64 %i.1103, 1
   %cmp159 = icmp ult i64 %i.1103, 47
-  br i1 %cmp159, label %for.body161, label %for.end169, !llvm.loop !14
+  br i1 %cmp159, label %for.body161, label %for.end169, !llvm.loop !13
 
 for.end169:                                       ; preds = %for.body161
   call void @free(ptr noundef nonnull %call58) #9
@@ -4335,11 +4335,10 @@ attributes #11 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -2147483648, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [29 x i8] c"X509_CRL_verify(crl, pubkey)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @pubkeydata, ptr %p, align 8
@@ -79,7 +79,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_tbs_cache() #0 {
+define internal range(i32 0, 2) i32 @test_x509_tbs_cache() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @certdata, ptr %p, align 8
@@ -111,7 +111,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_crl_tbs_cache() #0 {
+define internal range(i32 0, 2) i32 @test_x509_crl_tbs_cache() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @crldata, ptr %p, align 8

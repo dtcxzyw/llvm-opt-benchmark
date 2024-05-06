@@ -162,7 +162,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @goldfish_rtc_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @goldfish_rtc_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
@@ -182,7 +182,7 @@ sw.bb:                                            ; preds = %entry
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %2) #7
   %add.i = add i64 %call.i, %opaque.val
   %shr = lshr i64 %add.i, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %time_high = getelementptr inbounds i8, ptr %opaque, i64 1140
   store i32 %conv, ptr %time_high, align 4
   %and = and i64 %add.i, 4294967295
@@ -318,8 +318,8 @@ sw.bb8:                                           ; preds = %entry
   %7 = load i64, ptr %alarm_next, align 16
   %and.i31 = and i64 %7, -4294967296
   %shl77.i32 = and i64 %value, 4294967295
-  %or.i33 = or disjoint i64 %and.i31, %shl77.i32
-  store i64 %or.i33, ptr %alarm_next, align 16
+  %or.i34 = or disjoint i64 %and.i31, %shl77.i32
+  store i64 %or.i34, ptr %alarm_next, align 16
   %8 = getelementptr i8, ptr %opaque, i64 1104
   %s.val.i = load i64, ptr %8, align 16
   %9 = load i32, ptr @rtc_clock, align 4
@@ -356,10 +356,10 @@ if.else.i:                                        ; preds = %sw.bb8
 sw.bb11:                                          ; preds = %entry
   %alarm_next12 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %15 = load i64, ptr %alarm_next12, align 16
-  %and.i34 = and i64 %15, 4294967295
-  %shl77.i35 = shl i64 %value, 32
-  %or.i37 = or disjoint i64 %and.i34, %shl77.i35
-  store i64 %or.i37, ptr %alarm_next12, align 16
+  %and.i35 = and i64 %15, 4294967295
+  %shl77.i36 = shl i64 %value, 32
+  %or.i38 = or disjoint i64 %and.i35, %shl77.i36
+  store i64 %or.i38, ptr %alarm_next12, align 16
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
@@ -371,30 +371,30 @@ sw.bb15:                                          ; preds = %entry
   %17 = load ptr, ptr %irq.i, align 8
   %irq_pending.i = getelementptr inbounds i8, ptr %opaque, i64 1132
   %18 = load i32, ptr %irq_pending.i, align 4
-  %and.i38 = and i32 %18, %conv
-  tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %and.i38) #7
+  %and.i39 = and i32 %18, %conv
+  tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %and.i39) #7
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %timer.i39 = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %19 = load ptr, ptr %timer.i39, align 16
+  %timer.i40 = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %19 = load ptr, ptr %timer.i40, align 16
   tail call void @timer_del(ptr noundef %19) #7
-  %alarm_running.i40 = getelementptr inbounds i8, ptr %opaque, i64 1128
-  store i32 0, ptr %alarm_running.i40, align 8
+  %alarm_running.i41 = getelementptr inbounds i8, ptr %opaque, i64 1128
+  store i32 0, ptr %alarm_running.i41, align 8
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
   %irq_pending = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 0, ptr %irq_pending, align 4
-  %irq.i41 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %20 = load ptr, ptr %irq.i41, align 8
+  %irq.i42 = getelementptr inbounds i8, ptr %opaque, i64 1096
+  %20 = load ptr, ptr %irq.i42, align 8
   tail call void @qemu_set_irq(ptr noundef %20, i32 noundef 0) #7
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
   %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i47 = and i32 %21, 2048
-  %cmp.i.not = icmp eq i32 %and.i47, 0
+  %and.i48 = and i32 %21, 2048
+  %cmp.i.not = icmp eq i32 %and.i48, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %do.body
@@ -413,8 +413,8 @@ sw.epilog:                                        ; preds = %if.else.i, %if.then
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
   %24 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i48 = and i32 %24, 32768
-  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i48, 0
+  %and.i.i.i49 = and i32 %24, 32768
+  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i49, 0
   br i1 %cmp.i.not.i.i, label %trace_goldfish_rtc_write.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i

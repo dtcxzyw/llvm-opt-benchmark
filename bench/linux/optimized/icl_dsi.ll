@@ -664,7 +664,7 @@ define internal void @gen11_dsi_pre_pll_enable(ptr nocapture readnone %0, ptr no
 61:                                               ; preds = %47
   %62 = add i32 %56, 159999
   %63 = sdiv i32 %62, 160000
-  %64 = trunc i32 %63 to i16
+  %64 = trunc nsw i32 %63 to i16
   %.lhs.trunc = add nsw i16 %64, 1
   %65 = srem i16 %.lhs.trunc, 2
   %.sext = sext i16 %65 to i32
@@ -2249,7 +2249,7 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %1015 = load ptr, ptr %1014, align 8
   %1016 = getelementptr inbounds i8, ptr %1015, i64 48
   %1017 = load ptr, ptr %1016, align 8
-  %1018 = trunc i32 %1013 to i16
+  %1018 = trunc nuw nsw i32 %1013 to i16
   %1019 = tail call i32 @mipi_dsi_set_maximum_return_packet_size(ptr noundef %1017, i16 noundef zeroext %1018) #11
   %1020 = icmp slt i32 %1019, 0
   br i1 %1020, label %1021, label %1026
@@ -4191,7 +4191,7 @@ define internal zeroext i1 @gen11_dsi_get_hw_state(ptr nocapture noundef readonl
   %60 = load ptr, ptr %12, align 8
   %61 = tail call i32 %60(ptr noundef %11, i32 %59, i1 noundef zeroext true) #11
   %62 = lshr i32 %61, 31
-  %63 = trunc i32 %62 to i8
+  %63 = trunc nuw nsw i32 %62 to i8
   br label %64
 
 64:                                               ; preds = %48, %13

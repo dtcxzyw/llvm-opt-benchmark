@@ -545,8 +545,8 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.23 = private unnamed_addr constant [10 x i8] c"%s => %s\0A\00", align 1
 @.str.24 = private unnamed_addr constant [33 x i8] c"%s => error decoding blob index\0A\00", align 1
 @_ZTVN7rocksdb21InternalKeyComparatorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb21InternalKeyComparatorD2Ev, ptr @_ZN7rocksdb21InternalKeyComparatorD0Ev, ptr @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_] }, comdat, align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
-@_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
+@_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.25 = private unnamed_addr constant [3 x i8] c"/\\\00", align 1
 @_ZTVN7rocksdb32FSRandomAccessFileTracingWrapperE = external unnamed_addr constant { [14 x ptr] }, align 8
@@ -8976,7 +8976,7 @@ if.end:                                           ; preds = %entry
 
 if.then14:                                        ; preds = %if.end
   %expiration_ = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %slice.coerce0, i64 %slice.coerce1
+  %add.ptr.i = getelementptr i8, ptr %slice.coerce0, i64 %slice.coerce1
   %call2.i10 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %expiration_)
   %cmp.i.not = icmp eq ptr %call2.i10, null
   br i1 %cmp.i.not, label %if.then16, label %if.end20

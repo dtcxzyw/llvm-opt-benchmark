@@ -284,7 +284,7 @@ opal_datatype_span.exit243.i:                     ; preds = %118, %114
   %.01927.i.i = phi ptr [ %140, %138 ], [ %135, %133 ]
   %.02026.i.i = phi i64 [ %142, %138 ], [ %44, %133 ]
   %spec.select24.i.i = call i64 @llvm.umin.i64(i64 %.02026.i.i, i64 2147483647)
-  %spec.select.i.i = trunc i64 %spec.select24.i.i to i32
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select24.i.i to i32
   %137 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i.i, ptr noundef %.01927.i.i, ptr noundef %.01828.i.i) #7
   %.not22.i.i = icmp eq i32 %137, 0
   br i1 %.not22.i.i, label %138, label %ompi_datatype_copy_content_same_ddt.exit.i
@@ -403,7 +403,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   %.01927.i252.i = phi ptr [ %195, %193 ], [ %.0196.i, %190 ]
   %.02026.i253.i = phi i64 [ %197, %193 ], [ %44, %190 ]
   %spec.select24.i254.i = call i64 @llvm.umin.i64(i64 %.02026.i253.i, i64 2147483647)
-  %spec.select.i255.i = trunc i64 %spec.select24.i254.i to i32
+  %spec.select.i255.i = trunc nuw nsw i64 %spec.select24.i254.i to i32
   %192 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i255.i, ptr noundef %.01927.i252.i, ptr noundef %.01828.i251.i) #7
   %.not22.i256.i = icmp eq i32 %192, 0
   br i1 %.not22.i256.i, label %193, label %ompi_datatype_copy_content_same_ddt.exit259.i
@@ -542,7 +542,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %193, %.lr.ph.i250.i
   %257 = getelementptr inbounds i8, ptr %241, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
-  %260 = trunc i64 %indvars.iv53.i to i32
+  %260 = trunc nuw nsw i64 %indvars.iv53.i to i32
   %261 = mul nsw i32 %259, %260
   %262 = sext i32 %261 to i64
   %263 = getelementptr inbounds i8, ptr %258, i64 %262
@@ -553,7 +553,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %193, %.lr.ph.i250.i
   %265 = getelementptr inbounds i8, ptr %241, i64 8
   %266 = load ptr, ptr %265, align 8
   %267 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
-  %268 = trunc i64 %indvars.iv53.i to i32
+  %268 = trunc nuw nsw i64 %indvars.iv53.i to i32
   %269 = mul nsw i32 %267, %268
   %270 = sext i32 %269 to i64
   %271 = getelementptr inbounds i8, ptr %266, i64 %270
@@ -599,7 +599,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %193, %.lr.ph.i250.i
 
 opal_convertor_set_position.exit.i:               ; preds = %287, %286, %278, %275, %256, %237
   %.sink.i = phi ptr [ %263, %256 ], [ %236, %237 ], [ %.0198.i57, %275 ], [ %.0198.i57, %278 ], [ %.0198.i57, %286 ], [ %.0198.i57, %287 ]
-  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %234, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %234, ptr noundef %3)
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
   %289 = icmp sgt i64 %indvars.iv53.i, 0
   br i1 %289, label %237, label %._crit_edge.i, !llvm.loop !10
@@ -859,7 +859,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

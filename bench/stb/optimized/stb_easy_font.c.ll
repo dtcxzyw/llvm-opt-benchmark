@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stb_easy_font_print(float noundef %x, float noundef %y, ptr nocapture noundef readonly %text, ptr noundef readonly %color, ptr nocapture noundef writeonly %vertex_buffer, i32 noundef %vbuf_size) local_unnamed_addr #2 {
+define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %x, float noundef %y, ptr nocapture noundef readonly %text, ptr noundef readonly %color, ptr nocapture noundef writeonly %vertex_buffer, i32 noundef %vbuf_size) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %color, null
   br i1 %tobool.not, label %if.end, label %if.then

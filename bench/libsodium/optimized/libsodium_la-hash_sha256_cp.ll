@@ -1001,7 +1001,7 @@ SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader
   %arrayidx17.i.i = getelementptr i8, ptr %state, i64 97
   store i8 %conv16.i.i, ptr %arrayidx17.i.i, align 1
   %shr18.i.i = lshr i64 %9, 56
-  %conv19.i.i = trunc i64 %shr18.i.i to i8
+  %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %arrayidx28.i, align 1
   %arrayidx35.i = getelementptr inbounds i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf27.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx35.i)
@@ -1025,7 +1025,7 @@ for.body.i:                                       ; preds = %for.body.i, %SHA256
   %arrayidx5.i.i10 = getelementptr i8, ptr %add.ptr.i, i64 1
   store i8 %conv4.i.i9, ptr %arrayidx5.i.i10, align 1
   %shr6.i.i11 = lshr i32 %10, 24
-  %conv7.i.i12 = trunc i32 %shr6.i.i11 to i8
+  %conv7.i.i12 = trunc nuw i32 %shr6.i.i11 to i8
   store i8 %conv7.i.i12, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
@@ -1043,7 +1043,7 @@ entry:
   %state = alloca %struct.crypto_hash_sha256_state, align 8
   %count.i = getelementptr inbounds i8, ptr %state, i64 32
   store i64 0, ptr %count.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   %call1 = call i32 @crypto_hash_sha256_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)
   %call2 = call i32 @crypto_hash_sha256_final(ptr noundef %state, ptr noundef %out)
   ret i32 0

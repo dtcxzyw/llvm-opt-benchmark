@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @d = internal constant [257 x i8] c"j}\F2\CAc\EA\D4\DD\A1\91\D6\14\B6\B3\85\E0\D9\05j=m\\\FE\07\DB\1D\AA\BE\E0\22\DB\08!-\97a=3(\E0&|\9D\D2=xz\BD\E2\AF\CB0j\EB}\FC\E6\92F\CCs\F5\C8\7F\DF\06\03\01y\A2\11Kv}\B1\F0\83\FF\84\1C\02]}\C0\0C\D8$5\B9\A9\0FiSi\E9M\F2=,\E4X\BC;2\83\AD\8B\BA+\8F\A1\BAb\E2\DC\E9\AC\CF\F3y\9A\AE|\84\00\16\F3\BA\8E\00H\C0\B6\CCC9\AFqa\00:[\EB\86J\01d\B2\C1\C9#{d\BC\87Ui\945\1B'Pl3\D4\BC\DF\CE\0F\9CI\1A}k\06(\C7\C8R\BEO\0A\9C12\B2\ED:,\88\81\E9\AA\B0~ \E1}\EB\07F\91\BEgwv\A7\8B\\P.\05\D9\BD\DEr\12k78i^-\D1\A0\A9\8A\14$|e\D8\A7\EEyC*\09,\B0r\1A\12\DFy\8ED\F7\CF\CE\0CI\81G\A9\B1\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_rsa_mp_gen_bad_input) #2
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_rsa_mp, i32 noundef 2, i32 noundef 1) #2
@@ -73,7 +73,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_mp_gen_bad_input() #0 {
+define internal range(i32 0, 2) i32 @test_rsa_mp_gen_bad_input() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 298, ptr noundef nonnull @.str.3, ptr noundef %call) #2
@@ -124,7 +124,7 @@ err:                                              ; preds = %if.end21, %if.end16
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_mp(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_rsa_mp(i32 noundef %i) #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16

@@ -29,7 +29,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 
 $_ZNK4absl13base_internal10AtomicHookIPFvNS_11LogSeverityEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIJS2_RKS4_iRA34_S3_EEEvDpOT_ = comdat any
 
-@_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging = internal thread_local global i8 0, align 1
+@_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging = internal thread_local unnamed_addr global i8 0, align 1
 @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks = internal global %"class.absl::NoDestructor" zeroinitializer, align 8
 @_ZGVZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks = internal global i64 0, align 8
 @_ZZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSetC1EvE15stderr_log_sink = internal global %"class.absl::NoDestructor.4" zeroinitializer, align 8
@@ -48,7 +48,7 @@ $_ZNK4absl13base_internal10AtomicHookIPFvNS_11LogSeverityEPKciRKNSt7__cxx1112bas
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.4 = private unnamed_addr constant [34 x i8] c"Mismatched log sink being removed\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl12log_internal24ThreadIsLoggingToLogSinkEv() local_unnamed_addr #0 {
 entry:
   %0 = tail call noundef nonnull align 1 dereferenceable(1) ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging)
@@ -1155,7 +1155,7 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

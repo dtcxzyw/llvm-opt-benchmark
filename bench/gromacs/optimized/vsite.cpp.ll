@@ -1700,8 +1700,8 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %577 ], [ 3, %.lr.ph.split.us.i ]
   %.sroa.7.015.us.i = phi double [ %600, %577 ], [ 0.000000e+00, %.lr.ph.split.us.i ]
   %578 = phi <2 x double> [ %597, %577 ], [ zeroinitializer, %.lr.ph.split.us.i ]
-  %579 = getelementptr i32, ptr %.014964, i64 %indvars.iv32.i
-  %580 = getelementptr i8, ptr %579, i64 8
+  %579 = getelementptr inbounds i32, ptr %.014964, i64 %indvars.iv32.i
+  %580 = getelementptr inbounds i8, ptr %579, i64 8
   %581 = load i32, ptr %580, align 4
   %582 = load i32, ptr %579, align 4
   %583 = sext i32 %582 to i64
@@ -1730,8 +1730,8 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 3, %.lr.ph.i ]
   %.sroa.7.015.i = phi double [ %622, %.lr.ph.split.i ], [ 0.000000e+00, %.lr.ph.i ]
   %602 = phi <2 x double> [ %618, %.lr.ph.split.i ], [ zeroinitializer, %.lr.ph.i ]
-  %603 = getelementptr i32, ptr %.014964, i64 %indvars.iv.i
-  %604 = getelementptr i8, ptr %603, i64 8
+  %603 = getelementptr inbounds i32, ptr %.014964, i64 %indvars.iv.i
+  %604 = getelementptr inbounds i8, ptr %603, i64 8
   %605 = load i32, ptr %604, align 4
   %606 = load i32, ptr %603, align 4
   %607 = sext i32 %606 to i64
@@ -2948,8 +2948,8 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVe
   %indvars.iv.i = phi i64 [ 3, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.sroa.7.08.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %858, %.lr.ph.i ]
   %836 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i ], [ %855, %.lr.ph.i ]
-  %837 = getelementptr i32, ptr %.014993, i64 %indvars.iv.i
-  %838 = getelementptr i8, ptr %837, i64 8
+  %837 = getelementptr inbounds i32, ptr %.014993, i64 %indvars.iv.i
+  %838 = getelementptr inbounds i8, ptr %837, i64 8
   %839 = load i32, ptr %838, align 4
   %840 = load i32, ptr %837, align 4
   %841 = sext i32 %840 to i64
@@ -4361,8 +4361,8 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %.sroa.78.021.us.i = phi double [ %995, %971 ], [ 0.000000e+00, %.lr.ph.split.us.i ]
   %972 = phi <2 x double> [ %992, %971 ], [ zeroinitializer, %.lr.ph.split.us.i ]
   %973 = phi <2 x double> [ %1004, %971 ], [ zeroinitializer, %.lr.ph.split.us.i ]
-  %974 = getelementptr i32, ptr %.0149103, i64 %indvars.iv49.i
-  %975 = getelementptr i8, ptr %974, i64 8
+  %974 = getelementptr inbounds i32, ptr %.0149103, i64 %indvars.iv49.i
+  %975 = getelementptr inbounds i8, ptr %974, i64 8
   %976 = load i32, ptr %975, align 4
   %977 = load i32, ptr %974, align 4
   %978 = sext i32 %977 to i64
@@ -4405,8 +4405,8 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %.sroa.78.021.i = phi double [ %1030, %.lr.ph.split.i ], [ 0.000000e+00, %.lr.ph.i ]
   %1009 = phi <2 x double> [ %1026, %.lr.ph.split.i ], [ zeroinitializer, %.lr.ph.i ]
   %1010 = phi <2 x double> [ %1039, %.lr.ph.split.i ], [ zeroinitializer, %.lr.ph.i ]
-  %1011 = getelementptr i32, ptr %.0149103, i64 %indvars.iv.i
-  %1012 = getelementptr i8, ptr %1011, i64 8
+  %1011 = getelementptr inbounds i32, ptr %.0149103, i64 %indvars.iv.i
+  %1012 = getelementptr inbounds i8, ptr %1011, i64 8
   %1013 = load i32, ptr %1012, align 4
   %1014 = load i32, ptr %1011, align 4
   %1015 = sext i32 %1014 to i64
@@ -5378,7 +5378,7 @@ define internal fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11Bas
   br i1 %brmerge.not, label %.thread, label %96
 
 .thread:                                          ; preds = %6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
   br label %2446
 
 96:                                               ; preds = %6
@@ -6622,8 +6622,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifff
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.preheader.i.i
   %indvars.iv9.i.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i.i ], [ %indvars.iv.next10.i.i, %.lr.ph.split.us.i.i ]
-  %1056 = getelementptr i32, ptr %.077113.i, i64 %indvars.iv9.i.i
-  %1057 = getelementptr i8, ptr %1056, i64 8
+  %1056 = getelementptr inbounds i32, ptr %.077113.i, i64 %indvars.iv9.i.i
+  %1057 = getelementptr inbounds i8, ptr %1056, i64 8
   %1058 = load i32, ptr %1057, align 4
   %1059 = load i32, ptr %1056, align 4
   %1060 = sext i32 %1059 to i64
@@ -6650,8 +6650,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifff
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i102.i = phi i64 [ %indvars.iv.next.i103.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %1077 = getelementptr i32, ptr %.077113.i, i64 %indvars.iv.i102.i
-  %1078 = getelementptr i8, ptr %1077, i64 8
+  %1077 = getelementptr inbounds i32, ptr %.077113.i, i64 %indvars.iv.i102.i
+  %1078 = getelementptr inbounds i8, ptr %1077, i64 8
   %1079 = load i32, ptr %1078, align 4
   %1080 = sext i32 %1079 to i64
   %1081 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1080
@@ -8468,8 +8468,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifff
 
 .lr.ph.split.us.i.i33:                            ; preds = %.lr.ph.split.us.i.i33, %.lr.ph.split.us.preheader.i.i32
   %indvars.iv17.i.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i.i32 ], [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i33 ]
-  %2377 = getelementptr i32, ptr %.077114.i, i64 %indvars.iv17.i.i
-  %2378 = getelementptr i8, ptr %2377, i64 8
+  %2377 = getelementptr inbounds i32, ptr %.077114.i, i64 %indvars.iv17.i.i
+  %2378 = getelementptr inbounds i8, ptr %2377, i64 8
   %2379 = load i32, ptr %2378, align 4
   %2380 = load i32, ptr %2377, align 4
   %2381 = sext i32 %2380 to i64
@@ -8496,8 +8496,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifff
 
 .lr.ph.split.i.i31:                               ; preds = %.lr.ph.i.i30, %2432
   %indvars.iv.i131.i = phi i64 [ %indvars.iv.next.i132.i, %2432 ], [ 0, %.lr.ph.i.i30 ]
-  %2398 = getelementptr i32, ptr %.077114.i, i64 %indvars.iv.i131.i
-  %2399 = getelementptr i8, ptr %2398, i64 8
+  %2398 = getelementptr inbounds i32, ptr %.077114.i, i64 %indvars.iv.i131.i
+  %2399 = getelementptr inbounds i8, ptr %2398, i64 8
   %2400 = load i32, ptr %2399, align 4
   %2401 = sext i32 %2400 to i64
   %2402 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2401
@@ -10269,8 +10269,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifff
 
 .lr.ph.split.us.i.i89:                            ; preds = %.lr.ph.split.us.i.i89, %.lr.ph.split.us.preheader.i.i88
   %indvars.iv9.i.i90 = phi i64 [ 0, %.lr.ph.split.us.preheader.i.i88 ], [ %indvars.iv.next10.i.i91, %.lr.ph.split.us.i.i89 ]
-  %3620 = getelementptr i32, ptr %.077113.i47, i64 %indvars.iv9.i.i90
-  %3621 = getelementptr i8, ptr %3620, i64 8
+  %3620 = getelementptr inbounds i32, ptr %.077113.i47, i64 %indvars.iv9.i.i90
+  %3621 = getelementptr inbounds i8, ptr %3620, i64 8
   %3622 = load i32, ptr %3621, align 4
   %3623 = load i32, ptr %3620, align 4
   %3624 = sext i32 %3623 to i64
@@ -10297,8 +10297,8 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifff
 
 .lr.ph.split.i.i87:                               ; preds = %.lr.ph.i.i86, %.lr.ph.split.i.i87
   %indvars.iv.i123.i = phi i64 [ %indvars.iv.next.i124.i, %.lr.ph.split.i.i87 ], [ 0, %.lr.ph.i.i86 ]
-  %3641 = getelementptr i32, ptr %.077113.i47, i64 %indvars.iv.i123.i
-  %3642 = getelementptr i8, ptr %3641, i64 8
+  %3641 = getelementptr inbounds i32, ptr %.077113.i47, i64 %indvars.iv.i123.i
+  %3642 = getelementptr inbounds i8, ptr %3641, i64 8
   %3643 = load i32, ptr %3642, align 4
   %3644 = sext i32 %3643 to i64
   %3645 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3644
@@ -11910,7 +11910,7 @@ define void @_ZN3gmx13ThreadingInfo15setVirtualSitesENS_8ArrayRefIK15Interaction
   br i1 %68, label %.lr.ph96.preheader, label %.loopexit84
 
 .lr.ph96.preheader:                               ; preds = %59
-  %69 = mul nsw i32 %65, 3
+  %69 = mul nuw nsw i32 %65, 3
   %70 = add nsw i32 %69, %.054104
   %71 = sext i32 %70 to i64
   br label %.lr.ph96

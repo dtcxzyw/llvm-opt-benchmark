@@ -253,7 +253,7 @@ if.end53:                                         ; preds = %entry.if.end53_crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @genrand64_int63() local_unnamed_addr #3 {
+define dso_local range(i64 0, -9223372036854775808) i64 @genrand64_int63() local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @genrand64_int64()
   %shr = lshr i64 %call, 1
@@ -265,7 +265,7 @@ define dso_local double @genrand64_real1() local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @genrand64_int64()
   %shr = lshr i64 %call, 11
-  %conv = uitofp i64 %shr to double
+  %conv = uitofp nneg i64 %shr to double
   %mul = fmul double %conv, 0x3CA0000000000001
   ret double %mul
 }
@@ -275,7 +275,7 @@ define dso_local double @genrand64_real2() local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @genrand64_int64()
   %shr = lshr i64 %call, 11
-  %conv = uitofp i64 %shr to double
+  %conv = uitofp nneg i64 %shr to double
   %mul = fmul double %conv, 0x3CA0000000000000
   ret double %mul
 }
@@ -285,7 +285,7 @@ define dso_local double @genrand64_real3() local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @genrand64_int64()
   %shr = lshr i64 %call, 12
-  %conv = uitofp i64 %shr to double
+  %conv = uitofp nneg i64 %shr to double
   %add = fadd double %conv, 5.000000e-01
   %mul = fmul double %add, 0x3CB0000000000000
   ret double %mul

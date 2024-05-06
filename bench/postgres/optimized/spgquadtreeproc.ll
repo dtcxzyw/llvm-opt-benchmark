@@ -55,7 +55,7 @@ define dso_local noundef i64 @spg_quad_choose(ptr nocapture noundef readonly %0)
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   store i32 1, ptr %7, align 8
-  %18 = tail call fastcc signext i16 @getQuadrant(ptr noundef %17, ptr noundef %14), !range !5
+  %18 = tail call fastcc signext i16 @getQuadrant(ptr noundef %17, ptr noundef %14)
   %19 = zext nneg i16 %18 to i32
   %20 = add nsw i32 %19, -1
   %21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -71,7 +71,7 @@ define dso_local noundef i64 @spg_quad_choose(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i16 @getQuadrant(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
@@ -193,7 +193,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr nocapture noundef readonly 
   %29 = load i32, ptr %4, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %13, label %._crit_edge, !llvm.loop !6
+  br i1 %31, label %13, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %13, %.._crit_edge_crit_edge
   %32 = phi double [ %.pre, %.._crit_edge_crit_edge ], [ %28, %13 ]
@@ -241,7 +241,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr nocapture noundef readonly 
   %59 = getelementptr i64, ptr %58, i64 %indvars.iv44
   %60 = load i64, ptr %59, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = tail call fastcc signext i16 @getQuadrant(ptr noundef nonnull %8, ptr noundef %61), !range !5
+  %62 = tail call fastcc signext i16 @getQuadrant(ptr noundef nonnull %8, ptr noundef %61)
   %63 = zext nneg i16 %62 to i32
   %64 = add nsw i32 %63, -1
   %65 = load ptr, ptr %53, align 8
@@ -254,7 +254,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr nocapture noundef readonly 
   %69 = load i32, ptr %4, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next45, %70
-  br i1 %71, label %57, label %._crit_edge41, !llvm.loop !8
+  br i1 %71, label %57, label %._crit_edge41, !llvm.loop !7
 
 ._crit_edge41:                                    ; preds = %57, %._crit_edge
   ret i64 0
@@ -353,7 +353,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %indvars.iv144 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next145, %75 ]
   %58 = load ptr, ptr %50, align 8
   %59 = getelementptr i32, ptr %58, i64 %indvars.iv144
-  %60 = trunc i64 %indvars.iv144 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv144 to i32
   store i32 %60, ptr %59, align 4
   %61 = load i32, ptr %13, align 4
   %62 = icmp sgt i32 %61, 0
@@ -382,7 +382,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %76 = load i32, ptr %45, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next145, %77
-  br i1 %78, label %57, label %.loopexit, !llvm.loop !9
+  br i1 %78, label %57, label %.loopexit, !llvm.loop !8
 
 79:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
@@ -415,7 +415,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 89:                                               ; preds = %79
   %90 = inttoptr i64 %82 to ptr
-  %91 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef %90), !range !5
+  %91 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef %90)
   %92 = zext nneg i16 %91 to i32
   %93 = shl nuw nsw i32 1, %92
   br label %select.unfold
@@ -439,24 +439,24 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %101 = inttoptr i64 %82 to ptr
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
-  %103 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3), !range !5
+  %103 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3)
   %104 = zext nneg i16 %103 to i32
   %105 = shl nuw nsw i32 1, %104
   %106 = getelementptr inbounds i8, ptr %101, i64 8
   %107 = load double, ptr %106, align 8
   store double %107, ptr %43, align 8
-  %108 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3), !range !5
+  %108 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3)
   %109 = zext nneg i16 %108 to i32
   %110 = shl nuw nsw i32 1, %109
   %111 = or i32 %110, %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  %112 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3), !range !5
+  %112 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3)
   %113 = zext nneg i16 %112 to i32
   %114 = shl nuw nsw i32 1, %113
   %115 = or i32 %111, %114
   %116 = load double, ptr %102, align 8
   store double %116, ptr %3, align 8
-  %117 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3), !range !5
+  %117 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3)
   %118 = zext nneg i16 %117 to i32
   %119 = shl nuw nsw i32 1, %118
   %120 = or i32 %115, %119
@@ -485,7 +485,7 @@ select.unfold:                                    ; preds = %96, %94, %87, %85, 
   %129 = load i32, ptr %40, align 8
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %79, label %select.unfold._crit_edge, !llvm.loop !10
+  br i1 %131, label %79, label %select.unfold._crit_edge, !llvm.loop !9
 
 select.unfold._crit_edge:                         ; preds = %.thread, %select.unfold, %.preheader
   %.2 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.1121, %.thread ]
@@ -501,7 +501,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   store i32 1, ptr %136, align 4
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next141, 4
-  br i1 %exitcond.not, label %137, label %134, !llvm.loop !11
+  br i1 %exitcond.not, label %137, label %134, !llvm.loop !10
 
 137:                                              ; preds = %134
   %138 = call ptr @palloc(i64 noundef 16) #6
@@ -549,9 +549,9 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   ]
 
 163:                                              ; preds = %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %.0109, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0109, i64 16, i1 false)
   %164 = getelementptr inbounds i8, ptr %162, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull readonly align 8 dereferenceable(16) %12, i64 16, i1 false)
   br label %getQuadrantArea.exit
 
 165:                                              ; preds = %159
@@ -569,9 +569,9 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   br label %getQuadrantArea.exit
 
 173:                                              ; preds = %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull readonly align 8 dereferenceable(16) %12, i64 16, i1 false)
   %174 = getelementptr inbounds i8, ptr %162, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull readonly align 8 dereferenceable(16) %142, i64 16, i1 false)
   br label %getQuadrantArea.exit
 
 175:                                              ; preds = %159
@@ -616,7 +616,7 @@ getQuadrantArea.exit:                             ; preds = %159, %163, %165, %1
   %199 = phi i32 [ %149, %148 ], [ %197, %195 ]
   %200 = add nuw nsw i32 %.3132, 1
   %exitcond143.not = icmp eq i32 %200, 5
-  br i1 %exitcond143.not, label %.loopexit, label %148, !llvm.loop !12
+  br i1 %exitcond143.not, label %.loopexit, label %148, !llvm.loop !11
 
 .loopexit:                                        ; preds = %198, %75, %44
   ret i64 0
@@ -649,7 +649,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_quad_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -731,7 +731,7 @@ define dso_local noundef i64 @spg_quad_leaf_consistent(ptr nocapture noundef rea
   %40 = load i32, ptr %12, align 8
   %41 = sext i32 %40 to i64
   %.not56 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %.not56, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %.not56, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %39, %1
   %42 = getelementptr inbounds i8, ptr %4, i64 20
@@ -778,12 +778,11 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i16 1, i16 5}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

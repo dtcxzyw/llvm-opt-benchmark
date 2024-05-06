@@ -401,7 +401,7 @@ define void @_Z19add_blocks_enxframeP10t_enxframei(ptr nocapture noundef %0, i32
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds %struct.t_enxblock, ptr %16, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
@@ -494,7 +494,7 @@ define void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr nocapture noundef %0, 
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 1, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %16, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -2113,7 +2113,7 @@ _ZL11enx_warningPKc.exit215:                      ; preds = %186
   %indvars.iv.i = phi i64 [ %208, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %209 = load ptr, ptr %201, align 8
   %210 = getelementptr inbounds %struct.t_enxblock, ptr %209, i64 %indvars.iv.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %210, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %210, i8 0, i64 20, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %211 = load i32, ptr %140, align 8
   %212 = sext i32 %211 to i64
@@ -2161,7 +2161,7 @@ _Z19add_blocks_enxframeP10t_enxframei.exit:       ; preds = %._crit_edge.i, %195
   %232 = getelementptr inbounds i8, ptr %231, i64 4
   store i32 1, ptr %232, align 4
   %233 = getelementptr inbounds i8, ptr %231, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %233, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %233, i8 0, i64 72, i1 false)
   %indvars.iv.next.i220 = add nsw i64 %indvars.iv.i219, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i220, 2
   br i1 %exitcond.not.i, label %._crit_edge.i216, label %.lr.ph.i218, !llvm.loop !11
@@ -2246,7 +2246,7 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit:    ; preds = %216, %._crit_edge.i
   %276 = getelementptr inbounds i8, ptr %275, i64 4
   store i32 1, ptr %276, align 4
   %277 = getelementptr inbounds i8, ptr %275, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %277, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %277, i8 0, i64 72, i1 false)
   %indvars.iv.next.i225 = add nsw i64 %indvars.iv.i224, 1
   %exitcond.not.i226 = icmp eq i64 %indvars.iv.i224, 0
   br i1 %exitcond.not.i226, label %._crit_edge.i221, label %.lr.ph.i223, !llvm.loop !11
@@ -2451,7 +2451,7 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit227: ; preds = %._crit_edge.i221, %
   %365 = getelementptr inbounds i8, ptr %364, i64 4
   store i32 1, ptr %365, align 4
   %366 = getelementptr inbounds i8, ptr %364, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %366, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %366, i8 0, i64 72, i1 false)
   %indvars.iv.next.i232 = add nsw i64 %indvars.iv.i231, 1
   %exitcond.not.i233 = icmp eq i64 %indvars.iv.next.i232, %357
   br i1 %exitcond.not.i233, label %._crit_edge.i228, label %.lr.ph.i230, !llvm.loop !11
@@ -3803,7 +3803,7 @@ common.resume:                                    ; preds = %226, %209, %179, %_
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %4, i64 124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %65, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %65, i8 0, i64 36, i1 false)
   %66 = load i32, ptr %13, align 4
   %67 = load ptr, ptr %15, align 8
   %68 = icmp sgt i32 %66, 0

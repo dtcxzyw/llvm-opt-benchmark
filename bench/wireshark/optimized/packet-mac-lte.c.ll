@@ -2197,7 +2197,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_mac_lte_context_fields = private unnamed_addr constant [10 x i16] [i16 -2, i16 1, i16 1, i16 -1, i16 1, i16 -3, i16 -5, i16 1, i16 -5, i16 1], align 2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_mac_lte_context_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dissect_mac_lte_context_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = add i32 %6, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %6) #16
@@ -2560,7 +2560,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @is_mac_lte_frame_retx(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @is_mac_lte_frame_retx(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #16
   %4 = load i32, ptr @proto_mac_lte, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #16
@@ -3324,7 +3324,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mac_lte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @dissect_mac_lte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @wmem_file_scope() #16
@@ -5099,7 +5099,7 @@ define hidden void @proto_reg_handoff_mac_lte() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mac_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mac_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #16
   %7 = icmp slt i32 %6, 12
@@ -5121,7 +5121,7 @@ define internal noundef i32 @dissect_mac_lte_heur(ptr noundef %0, ptr noundef %1
 15:                                               ; preds = %10
   %16 = tail call ptr @wmem_file_scope() #16
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 176) #16
-  %18 = call i32 @dissect_mac_lte_context_fields(ptr noundef %17, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !12
+  %18 = call i32 @dissect_mac_lte_context_fields(ptr noundef %17, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %32, label %19
 
@@ -5143,7 +5143,7 @@ define internal noundef i32 @dissect_mac_lte_heur(ptr noundef %0, ptr noundef %1
 28:                                               ; preds = %22, %19
   %29 = phi i32 [ %27, %22 ], [ %.pre, %19 ]
   %30 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %29) #16
-  %31 = tail call i32 @dissect_mac_lte(ptr noundef %30, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !13
+  %31 = tail call i32 @dissect_mac_lte(ptr noundef %30, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %32
 
 32:                                               ; preds = %15, %8, %4, %28
@@ -5810,7 +5810,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
   %35 = getelementptr inbounds i8, ptr %8, i64 68
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %8, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false)
   br label %37
 
 37:                                               ; preds = %34, %27
@@ -5909,7 +5909,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
 89:                                               ; preds = %79, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %90, label %79, !llvm.loop !14
+  br i1 %exitcond.not, label %90, label %79, !llvm.loop !12
 
 90:                                               ; preds = %89
   %91 = load i64, ptr %42, align 8
@@ -5965,7 +5965,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
   %.not58 = icmp eq i16 %113, %14
   %.not59 = icmp eq i16 %.pre81, %16
   %or.cond = select i1 %.not58, i1 %.not59, i1 false
-  br i1 %or.cond, label %._crit_edge, label %.critedge, !llvm.loop !15
+  br i1 %or.cond, label %._crit_edge, label %.critedge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %112, %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
@@ -6501,7 +6501,7 @@ proto_item_set_generated.exit201:                 ; preds = %240, %245, %248
 253:                                              ; preds = %236, %proto_item_set_generated.exit201
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %236, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader, label %236, !llvm.loop !14
 
 254:                                              ; preds = %.preheader, %271
   %indvars.iv233 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next234, %271 ]
@@ -6541,7 +6541,7 @@ proto_item_set_generated.exit210:                 ; preds = %258, %263, %266
 271:                                              ; preds = %254, %proto_item_set_generated.exit210
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 8
-  br i1 %exitcond236.not, label %.loopexit, label %254, !llvm.loop !17
+  br i1 %exitcond236.not, label %.loopexit, label %254, !llvm.loop !15
 
 .loopexit:                                        ; preds = %271, %6
   ret void
@@ -6754,7 +6754,7 @@ get_mac_lte_rapid_description.exit:               ; preds = %73, %80, %83
   %89 = icmp slt i8 %39, 0
   %90 = icmp ult i32 %.1108, 64
   %91 = select i1 %89, i1 %90, i1 false
-  br i1 %91, label %38, label %92, !llvm.loop !18
+  br i1 %91, label %38, label %92, !llvm.loop !16
 
 92:                                               ; preds = %87
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.1490, i32 noundef %.1108) #16
@@ -7046,7 +7046,7 @@ dissect_rar_entry.exit:                           ; preds = %245, %250, %253
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %dissect_rar_entry.exit, %109
   %.1.lcssa = phi i32 [ %88, %109 ], [ %256, %dissect_rar_entry.exit ]
@@ -7174,7 +7174,7 @@ define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef 
   store i16 %51, ptr %UL_tti_info.DL_tti_info.i, align 8
   %68 = select i1 %48, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 1, i32 0), ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 1, i32 0)
   %69 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %69, i64 16, i1 false)
   %70 = select i1 %48, ptr getelementptr inbounds (%struct.tti_info_t, ptr @UL_tti_info, i64 0, i32 2), ptr getelementptr inbounds (%struct.tti_info_t, ptr @DL_tti_info, i64 0, i32 2)
   store i32 1, ptr %70, align 8
   br label %75
@@ -8277,7 +8277,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
   %623 = icmp ult i64 %indvars.iv, 1023
   %624 = select i1 %623, i1 %508, i1 false
   %indvars.iv.next2199 = add nuw nsw i16 %indvars.iv2198, 1
-  br i1 %624, label %413, label %625, !llvm.loop !20
+  br i1 %624, label %413, label %625, !llvm.loop !18
 
 625:                                              ; preds = %621
   %626 = trunc nuw nsw i64 %indvars.iv.next to i16
@@ -8460,7 +8460,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
   store i32 %741, ptr %742, align 4
   %743 = getelementptr inbounds i8, ptr %734, i64 16
   %744 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull align 8 dereferenceable(16) %744, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull readonly align 8 dereferenceable(16) %744, i64 16, i1 false)
   br label %751
 
 745:                                              ; preds = %639
@@ -8786,7 +8786,7 @@ is_data_lcid.exit1950:                            ; preds = %817
   %962 = add i32 %.52145, 1
   %963 = add nuw nsw i32 %.017372144, 1
   %exitcond2197.not = icmp eq i32 %963, %940
-  br i1 %exitcond2197.not, label %mac_lte_drx_control_element_received.exit, label %.lr.ph2146, !llvm.loop !21
+  br i1 %exitcond2197.not, label %mac_lte_drx_control_element_received.exit, label %.lr.ph2146, !llvm.loop !19
 
 964:                                              ; preds = %831
   %965 = load i32, ptr @hf_mac_lte_control_recommended_bit_rate, align 4
@@ -9401,7 +9401,7 @@ proto_item_set_generated.exit1966:                ; preds = %proto_item_set_gene
   %1378 = add i32 %.017442143, 3
   %1379 = sub i32 %1378, %.42149
   %1380 = icmp slt i32 %1379, %1352
-  br i1 %1380, label %1360, label %.loopexit, !llvm.loop !22
+  br i1 %1380, label %1360, label %.loopexit, !llvm.loop !20
 
 1381:                                             ; preds = %1360
   %1382 = load i32, ptr @hf_mac_lte_control_sidelink_reserved, align 4
@@ -9488,7 +9488,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit:           ; preds = %1392, %1398
   %1425 = add i32 %1424, %.045.i
   %1426 = add nuw nsw i32 %.03344.i, 1
   %exitcond.not.i = icmp eq i32 %1426, 8
-  br i1 %exitcond.not.i, label %1427, label %1422, !llvm.loop !23
+  br i1 %exitcond.not.i, label %1427, label %1422, !llvm.loop !21
 
 1427:                                             ; preds = %1422
   %1428 = add i32 %.42149, 1
@@ -9538,7 +9538,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit:           ; preds = %1392, %1398
   %1449 = add i32 %spec.select42.i, %1448
   %1450 = add i32 %.13446.i, 1
   %.not38.i = icmp ugt i32 %1450, %1425
-  br i1 %.not38.i, label %1451, label %1442, !llvm.loop !24
+  br i1 %.not38.i, label %1451, label %1442, !llvm.loop !22
 
 1451:                                             ; preds = %1444
   %1452 = sub i32 %1449, %.42149
@@ -9855,7 +9855,7 @@ get_dual_conn_phr_num_c_bytes.exit:               ; preds = %1442, %1410, %1451
   %.51765 = phi i32 [ %1675, %1669 ], [ %1660, %1644 ], [ %.417642141, %1637 ]
   %1677 = add nuw nsw i32 %.017592142, 1
   %exitcond2196.not = icmp eq i32 %1677, 31
-  br i1 %exitcond2196.not, label %1678, label %1637, !llvm.loop !25
+  br i1 %exitcond2196.not, label %1678, label %1637, !llvm.loop !23
 
 1678:                                             ; preds = %1676
   %1679 = sub i32 %.51765, %.42149
@@ -9967,7 +9967,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %spec.select1898 = add i8 %.017552132, %1740
   %1741 = add nuw nsw i32 %.017522133, 1
   %exitcond.not = icmp eq i32 %1741, 7
-  br i1 %exitcond.not, label %.preheader, label %1737, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader, label %1737, !llvm.loop !24
 
 1742:                                             ; preds = %.preheader, %1742
   %.017452135 = phi i32 [ %1735, %.preheader ], [ %1747, %1742 ]
@@ -9980,7 +9980,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %1747 = add i32 %spec.select1899, %1746
   %1748 = add nuw nsw i32 %.117532134, 1
   %exitcond2194.not = icmp eq i32 %.117532134, %1736
-  br i1 %exitcond2194.not, label %1749, label %1742, !llvm.loop !27
+  br i1 %exitcond2194.not, label %1749, label %1742, !llvm.loop !25
 
 1749:                                             ; preds = %1742
   %1750 = sub i32 %1747, %.42149
@@ -10157,7 +10157,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %.31751 = phi i32 [ %1860, %1853 ], [ %1845, %1829 ], [ %.217502139, %1827 ]
   %1862 = add nuw nsw i32 %.217542138, 1
   %exitcond2195.not = icmp eq i32 %1862, 8
-  br i1 %exitcond2195.not, label %1863, label %1827, !llvm.loop !28
+  br i1 %exitcond2195.not, label %1863, label %1827, !llvm.loop !26
 
 1863:                                             ; preds = %1861
   %1864 = add i32 %1709, %.42149
@@ -10541,7 +10541,7 @@ mac_lte_drx_control_element_received.exit:        ; preds = %.lr.ph2146, %939, %
   %.6 = phi i32 [ %.42149, %831 ], [ %1219, %1218 ], [ %1200, %1199 ], [ %1062, %1011 ], [ %1010, %1009 ], [ %982, %981 ], [ %932, %881 ], [ %879, %856 ], [ %855, %832 ], [ %.42149, %1231 ], [ %.42149, %1234 ], [ %.42149, %2072 ], [ %2050, %2059 ], [ %1924, %1933 ], [ %1884, %1881 ], [ %1880, %1875 ], [ %1762, %1760 ], [ %1864, %1863 ], [ %1683, %1682 ], [ %1386, %.loopexit ], [ %1344, %1343 ], [ %1325, %1274 ], [ %1272, %1249 ], [ %1248, %1241 ], [ %1240, %1235 ], [ %.42149, %1220 ], [ %.42149, %1226 ], [ %.42149, %1229 ], [ %.42149, %939 ], [ %962, %.lr.ph2146 ]
   %2075 = add nuw nsw i16 %.017122148, 1
   %exitcond2203.not = icmp eq i16 %2075, %indvars.iv2198
-  br i1 %exitcond2203.not, label %is_data_lcid.exit1950.thread, label %817, !llvm.loop !29
+  br i1 %exitcond2203.not, label %is_data_lcid.exit1950.thread, label %817, !llvm.loop !27
 
 is_data_lcid.exit1950.thread:                     ; preds = %mac_lte_drx_control_element_received.exit, %is_data_lcid.exit1950, %827, %817
   %.01712.lcssa.ph = phi i16 [ %indvars.iv2198, %mac_lte_drx_control_element_received.exit ], [ %.017122148, %is_data_lcid.exit1950 ], [ %.017122148, %827 ], [ %.017122148, %817 ]
@@ -10652,7 +10652,7 @@ proto_item_set_generated.exit1994:                ; preds = %2083, %2084, %2087
   %2133 = add i32 %2132, %.72168
   %indvars.iv.next2209 = add nuw nsw i64 %indvars.iv2208, 1
   %exitcond2214.not = icmp eq i64 %indvars.iv.next2209, %wide.trip.count
-  br i1 %exitcond2214.not, label %._crit_edge2170, label %2096, !llvm.loop !30
+  br i1 %exitcond2214.not, label %._crit_edge2170, label %2096, !llvm.loop !28
 
 ._crit_edge2170:                                  ; preds = %2131, %2096, %proto_item_set_generated.exit1994
   %.7.lcssa = phi i32 [ %.4.lcssa.ph, %proto_item_set_generated.exit1994 ], [ %.72168, %2096 ], [ %2133, %2131 ]
@@ -11018,7 +11018,7 @@ get_mac_lte_channel_priority.exit2008:            ; preds = %get_mac_lte_channel
 2326:                                             ; preds = %2327
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i2010 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i2010, label %.thread2081, label %2327, !llvm.loop !31
+  br i1 %exitcond.not.i2010, label %.thread2081, label %2327, !llvm.loop !29
 
 2327:                                             ; preds = %2326, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %2326 ]
@@ -11030,7 +11030,7 @@ get_mac_lte_channel_priority.exit2008:            ; preds = %get_mac_lte_channel
 2331:                                             ; preds = %2327
   %2332 = getelementptr inbounds i8, ptr %2328, i64 8
   %2333 = load i32, ptr %2332, align 4
-  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2333, i8 noundef zeroext %2319, ptr noundef nonnull %37, ptr noundef nonnull %38)
+  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2333, i8 noundef zeroext %2319, ptr noundef nonnull writeonly %37, ptr noundef nonnull writeonly %38)
   %2334 = getelementptr %struct.lcid_drb_mapping_t, ptr %2324, i64 %indvars.iv.i, i32 1
   br label %lookup_rlc_channel_from_lcid.exit
 
@@ -11394,7 +11394,7 @@ proto_item_set_hidden.exit2016:                   ; preds = %2422, %2424, %2427
   %2465 = phi i32 [ %2447, %2449 ], [ %2447, %2446 ], [ %.ph, %.sink.split2286 ]
   %2466 = add nuw nsw i16 %.217142161, 1
   %exitcond2207.not = icmp eq i16 %2466, %indvars.iv2198
-  br i1 %exitcond2207.not, label %._crit_edge, label %2161, !llvm.loop !32
+  br i1 %exitcond2207.not, label %._crit_edge, label %2161, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %2464, %2161, %proto_item_set_hidden.exit
   %.8.lcssa = phi i32 [ %.4.lcssa.ph, %proto_item_set_hidden.exit ], [ %.82162, %2161 ], [ %2465, %2464 ]
@@ -11972,7 +11972,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %130 = icmp ne i8 %47, 0
   %131 = select i1 %129, i1 %130, i1 false
   %indvars.iv.next341 = add nuw nsw i16 %indvars.iv340, 1
-  br i1 %131, label %33, label %132, !llvm.loop !33
+  br i1 %131, label %33, label %132, !llvm.loop !31
 
 132:                                              ; preds = %127
   %133 = trunc nuw nsw i64 %indvars.iv.next to i16
@@ -12061,7 +12061,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %173 = add i16 %.0255318, 1
   %174 = sext i16 %173 to i32
   %175 = icmp sgt i32 %161, %174
-  br i1 %175, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %175, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %171, %156
   %176 = add i32 %152, %.3320
@@ -12071,7 +12071,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %.4 = phi i32 [ %176, %._crit_edge ], [ %.3320, %143 ]
   %178 = add nuw nsw i16 %.0248319, 1
   %exitcond.not = icmp eq i16 %178, %indvars.iv340
-  br i1 %exitcond.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !33
 
 ._crit_edge323:                                   ; preds = %177, %.lr.ph322
   %.0248.lcssa.ph = phi i16 [ %indvars.iv340, %177 ], [ %.0248319, %.lr.ph322 ]
@@ -12203,7 +12203,7 @@ proto_item_set_hidden.exit291:                    ; preds = %195, %196, %199
   %245 = add i32 %244, %.5329
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
-  br i1 %exitcond347.not, label %._crit_edge331, label %207, !llvm.loop !36
+  br i1 %exitcond347.not, label %._crit_edge331, label %207, !llvm.loop !34
 
 ._crit_edge331:                                   ; preds = %243, %207, %proto_item_set_hidden.exit291
   %.5.lcssa = phi i32 [ %.3.lcssa.ph, %proto_item_set_hidden.exit291 ], [ %.5329, %207 ], [ %245, %243 ]
@@ -12584,7 +12584,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %.critedge.thread
   %137 = icmp ult i64 %indvars.iv, 1023
   %138 = and i1 %137, %129
   %indvars.iv.next274 = add nuw nsw i16 %indvars.iv273, 1
-  br i1 %138, label %47, label %139, !llvm.loop !37
+  br i1 %138, label %47, label %139, !llvm.loop !35
 
 139:                                              ; preds = %135
   %140 = trunc nuw nsw i64 %indvars.iv.next to i16
@@ -12621,7 +12621,7 @@ is_data_lcid.exit232:                             ; preds = %.lr.ph
 153:                                              ; preds = %is_data_lcid.exit232
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count
-  br i1 %exitcond.not, label %is_data_lcid.exit232.thread, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %is_data_lcid.exit232.thread, label %.lr.ph, !llvm.loop !36
 
 is_data_lcid.exit232.thread.split.loop.exit301:   ; preds = %is_data_lcid.exit232
   %154 = trunc nuw nsw i64 %indvars.iv271 to i16
@@ -12738,7 +12738,7 @@ proto_item_set_hidden.exit:                       ; preds = %172, %173, %176
   %209 = add i32 %200, %.4264
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count280
-  br i1 %exitcond281.not, label %._crit_edge, label %183, !llvm.loop !39
+  br i1 %exitcond281.not, label %._crit_edge, label %183, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %208, %183, %proto_item_set_hidden.exit
   %.4.lcssa = phi i32 [ %.3292, %proto_item_set_hidden.exit ], [ %.4264, %183 ], [ %209, %208 ]
@@ -13285,7 +13285,7 @@ define internal i32 @mac_lte_framenum_instance_hash_func(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mac_lte_framenum_instance_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @mac_lte_framenum_instance_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -13362,8 +13362,8 @@ attributes #19 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
-!13 = !{i32 -1, i32 1}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -13388,5 +13388,3 @@ attributes #19 = { noreturn nounwind }
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}

@@ -512,7 +512,7 @@ declare dso_local i32 @sock_i_uid(ptr noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_csk_get_port(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 832
@@ -1331,7 +1331,7 @@ declare dso_local ptr @inet_bind2_bucket_find(ptr noundef, ptr noundef, i16 noun
 declare dso_local ptr @inet_bind2_bucket_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @inet_csk_bind_conflict(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = tail call i32 @sock_i_uid(ptr noundef %0) #12
   tail call void @__rcu_read_lock() #12
   %7 = getelementptr inbounds i8, ptr %0, i64 720

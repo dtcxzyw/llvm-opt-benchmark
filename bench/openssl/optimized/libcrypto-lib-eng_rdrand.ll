@@ -82,7 +82,7 @@ declare i32 @ENGINE_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @rdrand_init(ptr nocapture readnone %e) #2 {
+define internal noundef i32 @rdrand_init(ptr nocapture readnone %e) #2 {
 entry:
   ret i32 1
 }
@@ -90,7 +90,7 @@ entry:
 declare i32 @ENGINE_set_RAND(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_random_bytes(ptr noundef %buf, i32 noundef %num) #0 {
+define internal range(i32 0, 2) i32 @get_random_bytes(ptr noundef %buf, i32 noundef %num) #0 {
 entry:
   %cmp = icmp slt i32 %num, 0
   br i1 %cmp, label %return, label %if.end
@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @random_status() #2 {
+define internal noundef i32 @random_status() #2 {
 entry:
   ret i32 1
 }

@@ -15,7 +15,7 @@ define dso_local void @intel_fb_bo_framebuffer_fini(ptr nocapture noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_fb_bo_framebuffer_init(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 248

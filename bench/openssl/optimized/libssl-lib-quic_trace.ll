@@ -105,7 +105,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_quic_trace.2 = private unnamed_addr constant [8 x ptr] [ptr @.str.7, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_trace(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %msglen, ptr nocapture noundef readnone %ssl, ptr noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_trace(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %msglen, ptr nocapture noundef readnone %ssl, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %frame_data.i78.i = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   %max_data.i.i = alloca i64, align 8
@@ -470,25 +470,25 @@ frame_ack.exit.i:                                 ; preds = %for.body.i.i70, %if
 
 sw.bb19.i:                                        ; preds = %if.end.i66
   %call20.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.30) #3
-  %call21.i = call fastcc i32 @frame_reset_stream(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call21.i = call fastcc i32 @frame_reset_stream(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb25.i:                                        ; preds = %if.end.i66
   %call26.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.31) #3
-  %call27.i = call fastcc i32 @frame_stop_sending(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call27.i = call fastcc i32 @frame_stop_sending(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb31.i:                                        ; preds = %if.end.i66
   %call32.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.32) #3
-  %call33.i = call fastcc i32 @frame_crypto(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call33.i = call fastcc i32 @frame_crypto(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb37.i:                                        ; preds = %if.end.i66
   %call38.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.33) #3
-  %call39.i = call fastcc i32 @frame_new_token(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call39.i = call fastcc i32 @frame_new_token(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool40.not.i = icmp eq i32 %call39.i, 0
   br i1 %tobool40.not.i, label %if.then70, label %sw.epilog.i
 
@@ -539,13 +539,13 @@ frame_stream.exit.i:                              ; preds = %if.else.i.i, %if.th
 
 sw.bb48.i:                                        ; preds = %if.end.i66
   %call49.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.34) #3
-  %call50.i = call fastcc i32 @frame_max_data(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call50.i = call fastcc i32 @frame_max_data(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb54.i:                                        ; preds = %if.end.i66
   %call55.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.35) #3
-  %call56.i = call fastcc i32 @frame_max_stream_data(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call56.i = call fastcc i32 @frame_max_stream_data(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool57.not.i = icmp eq i32 %call56.i, 0
   br i1 %tobool57.not.i, label %if.then70, label %sw.epilog.i
 
@@ -573,13 +573,13 @@ frame_max_streams.exit.i:                         ; preds = %sw.bb60.i
 
 sw.bb72.i:                                        ; preds = %if.end.i66
   %call73.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.39) #3
-  %call74.i = call fastcc i32 @frame_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call74.i = call fastcc i32 @frame_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool75.not.i = icmp eq i32 %call74.i, 0
   br i1 %tobool75.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb78.i:                                        ; preds = %if.end.i66
   %call79.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.40) #3
-  %call80.i = call fastcc i32 @frame_stream_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call80.i = call fastcc i32 @frame_stream_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool81.not.i = icmp eq i32 %call80.i, 0
   br i1 %tobool81.not.i, label %if.then70, label %sw.epilog.i
 
@@ -607,25 +607,25 @@ frame_streams_blocked.exit.i:                     ; preds = %sw.bb84.i
 
 sw.bb96.i:                                        ; preds = %if.end.i66
   %call97.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.42) #3
-  %call98.i = call fastcc i32 @frame_new_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call98.i = call fastcc i32 @frame_new_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool99.not.i = icmp eq i32 %call98.i, 0
   br i1 %tobool99.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb102.i:                                       ; preds = %if.end.i66
   %call103.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.43) #3
-  %call104.i = call fastcc i32 @frame_retire_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call104.i = call fastcc i32 @frame_retire_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool105.not.i = icmp eq i32 %call104.i, 0
   br i1 %tobool105.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb108.i:                                       ; preds = %if.end.i66
   %call109.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.44) #3
-  %call110.i = call fastcc i32 @frame_path_challenge(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call110.i = call fastcc i32 @frame_path_challenge(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool111.not.i = icmp eq i32 %call110.i, 0
   br i1 %tobool111.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb114.i:                                       ; preds = %if.end.i66
   %call115.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.45) #3
-  %call116.i = call fastcc i32 @frame_path_response(ptr noundef %arg, ptr noundef nonnull %pkt), !range !8
+  %call116.i = call fastcc i32 @frame_path_response(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool117.not.i = icmp eq i32 %call116.i, 0
   br i1 %tobool117.not.i, label %if.then70, label %sw.epilog.i
 
@@ -664,7 +664,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i81.i, %for.
   %call.i.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.83, i32 noundef %conv.i.i.i) #3
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %46
-  br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %for.body.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %for.body.i.i.i, !llvm.loop !8
 
 frame_conn_closed.exit.i:                         ; preds = %for.body.i.i.i, %if.end.i81.i
   %call3.i.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.7) #3
@@ -713,7 +713,7 @@ declare i32 @ossl_quic_wire_decode_frame_ping(ptr noundef) local_unnamed_addr #1
 declare i64 @ossl_quic_wire_decode_padding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_reset_stream(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_reset_stream(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %frame_data = alloca %struct.ossl_quic_frame_reset_stream_st, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef %pkt, ptr noundef nonnull %frame_data) #3
@@ -737,7 +737,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_stop_sending(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_stop_sending(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %frame_data = alloca %struct.ossl_quic_frame_stop_sending_st, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef %pkt, ptr noundef nonnull %frame_data) #3
@@ -758,7 +758,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_crypto(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_crypto(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %frame_data = alloca %struct.ossl_quic_frame_crypto_st, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef %pkt, i32 noundef 1, ptr noundef nonnull %frame_data) #3
@@ -779,7 +779,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_new_token(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_new_token(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %token = alloca ptr, align 8
   %token_len = alloca i64, align 8
@@ -818,7 +818,7 @@ return:                                           ; preds = %entry, %put_token.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_max_data(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_max_data(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %max_data = alloca i64, align 8
   store i64 0, ptr %max_data, align 8
@@ -837,7 +837,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_max_stream_data(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_max_stream_data(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %stream_id = alloca i64, align 8
   %max_stream_data = alloca i64, align 8
@@ -858,7 +858,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_data_blocked(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_data_blocked(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %max_data = alloca i64, align 8
   store i64 0, ptr %max_data, align 8
@@ -877,7 +877,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_stream_data_blocked(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_stream_data_blocked(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %stream_id = alloca i64, align 8
   %max_data = alloca i64, align 8
@@ -900,7 +900,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_new_conn_id(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_new_conn_id(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %frame_data = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef %pkt, ptr noundef nonnull %frame_data) #3
@@ -966,7 +966,7 @@ return:                                           ; preds = %entry, %put_data.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_retire_conn_id(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_retire_conn_id(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %seq_num = alloca i64, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef %pkt, ptr noundef nonnull %seq_num) #3
@@ -984,7 +984,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_path_challenge(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_path_challenge(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %data = alloca i64, align 8
   store i64 0, ptr %data, align 8
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @frame_path_response(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @frame_path_response(ptr noundef %bio, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %data = alloca i64, align 8
   store i64 0, ptr %data, align 8
@@ -1084,5 +1084,4 @@ attributes #3 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

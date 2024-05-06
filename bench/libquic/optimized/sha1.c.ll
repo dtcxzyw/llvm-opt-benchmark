@@ -27,7 +27,7 @@ define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr
 entry:
   %ctx = alloca %struct.sha_state_st, align 16
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
   %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 -1009589776, ptr %arrayidx4.i, align 16
@@ -58,7 +58,7 @@ if.end44.i:                                       ; preds = %if.end37.i
 if.then47.i:                                      ; preds = %if.end37.i, %if.end44.i
   %data.1.i7 = phi ptr [ %add.ptr42.i, %if.end44.i ], [ %data, %if.end37.i ]
   %len.addr.1.i6 = phi i64 [ %sub43.i, %if.end44.i ], [ %len, %if.end37.i ]
-  %conv48.i = trunc i64 %len.addr.1.i6 to i32
+  %conv48.i = trunc nuw i64 %len.addr.1.i6 to i32
   store i32 %conv48.i, ptr %num.i, align 4
   %data50.i = getelementptr inbounds i8, ptr %ctx, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data50.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
@@ -147,7 +147,7 @@ if.end44:                                         ; preds = %if.then40, %if.end3
   br i1 %cmp45.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %conv48 = trunc i64 %len.addr.1 to i32
+  %conv48 = trunc nuw i64 %len.addr.1 to i32
   store i32 %conv48, ptr %num, align 4
   %data50 = getelementptr inbounds i8, ptr %c, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data50, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
@@ -186,7 +186,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nh = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %Nh, align 4
   %shr = lshr i32 %1, 24
-  %conv14 = trunc i32 %shr to i8
+  %conv14 = trunc nuw i32 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 85
   store i8 %conv14, ptr %add.ptr13, align 1
   %shr16 = lshr i32 %1, 16
@@ -203,7 +203,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nl = getelementptr inbounds i8, ptr %c, i64 20
   %2 = load i32, ptr %Nl, align 4
   %shr29 = lshr i32 %2, 24
-  %conv31 = trunc i32 %shr29 to i8
+  %conv31 = trunc nuw i32 %shr29 to i8
   %incdec.ptr32 = getelementptr inbounds i8, ptr %c, i64 89
   store i8 %conv31, ptr %incdec.ptr28, align 1
   %shr34 = lshr i32 %2, 16
@@ -220,7 +220,7 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %data, i8 0, i64 68, i1 false)
   %3 = load i32, ptr %c, align 4
   %shr54 = lshr i32 %3, 24
-  %conv56 = trunc i32 %shr54 to i8
+  %conv56 = trunc nuw i32 %shr54 to i8
   %incdec.ptr57 = getelementptr inbounds i8, ptr %md, i64 1
   store i8 %conv56, ptr %md, align 1
   %shr58 = lshr i32 %3, 16
@@ -237,7 +237,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx69 = getelementptr inbounds i8, ptr %c, i64 4
   %4 = load i32, ptr %arrayidx69, align 4
   %shr70 = lshr i32 %4, 24
-  %conv72 = trunc i32 %shr70 to i8
+  %conv72 = trunc nuw i32 %shr70 to i8
   %incdec.ptr73 = getelementptr inbounds i8, ptr %md, i64 5
   store i8 %conv72, ptr %incdec.ptr68, align 1
   %shr74 = lshr i32 %4, 16
@@ -254,7 +254,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx85 = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i32, ptr %arrayidx85, align 4
   %shr86 = lshr i32 %5, 24
-  %conv88 = trunc i32 %shr86 to i8
+  %conv88 = trunc nuw i32 %shr86 to i8
   %incdec.ptr89 = getelementptr inbounds i8, ptr %md, i64 9
   store i8 %conv88, ptr %incdec.ptr84, align 1
   %shr90 = lshr i32 %5, 16
@@ -271,7 +271,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx101 = getelementptr inbounds i8, ptr %c, i64 12
   %6 = load i32, ptr %arrayidx101, align 4
   %shr102 = lshr i32 %6, 24
-  %conv104 = trunc i32 %shr102 to i8
+  %conv104 = trunc nuw i32 %shr102 to i8
   %incdec.ptr105 = getelementptr inbounds i8, ptr %md, i64 13
   store i8 %conv104, ptr %incdec.ptr100, align 1
   %shr106 = lshr i32 %6, 16
@@ -288,7 +288,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx117 = getelementptr inbounds i8, ptr %c, i64 16
   %7 = load i32, ptr %arrayidx117, align 4
   %shr118 = lshr i32 %7, 24
-  %conv120 = trunc i32 %shr118 to i8
+  %conv120 = trunc nuw i32 %shr118 to i8
   %incdec.ptr121 = getelementptr inbounds i8, ptr %md, i64 17
   store i8 %conv120, ptr %incdec.ptr116, align 1
   %shr122 = lshr i32 %7, 16

@@ -107,7 +107,7 @@ declare dso_local void @intel_uc_init_early(ptr noundef) local_unnamed_addr #1
 declare dso_local void @intel_rps_init_early(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_root_gt_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_root_gt_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call noalias ptr @drmm_kmalloc(ptr noundef %0, i64 noundef 5328, i32 noundef 3520) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %23, label %4
@@ -501,7 +501,7 @@ declare dso_local void @intel_mocs_init(ptr noundef) local_unnamed_addr #1
 declare dso_local void @intel_uncore_forcewake_put(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_gt_perf_limit_reasons_reg(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 1278377) i32 @intel_gt_perf_limit_reasons_reg(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 7176
   %4 = load i8, ptr %3, align 8
@@ -782,7 +782,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
   %33 = getelementptr inbounds i8, ptr %0, i64 4952
   %34 = load i32, ptr %33, align 8
   %35 = lshr i64 %25, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = trunc i64 %24 to i32
   %38 = and i32 %19, 16
   %39 = icmp eq i32 %38, 0
@@ -839,7 +839,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
   %79 = getelementptr inbounds i8, ptr %0, i64 4952
   %80 = load i32, ptr %79, align 8
   %81 = lshr i64 %71, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = trunc i64 %70 to i32
   %84 = and i32 %65, 16
   %85 = icmp eq i32 %84, 0
@@ -2140,7 +2140,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local void @__i915_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_tiles_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -18, -19) i32 @intel_gt_tiles_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9304
   br label %.backedge
 
@@ -2227,7 +2227,7 @@ declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @intel_sseu_dump(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_coherent_map_type(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @intel_gt_coherent_map_type(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @i915_gem_object_is_lmem(ptr noundef %1) #7
   br i1 %4, label %30, label %5
 

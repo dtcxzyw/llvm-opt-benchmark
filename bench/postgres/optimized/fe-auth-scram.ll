@@ -316,8 +316,8 @@ read_attr_value.exit.i:                           ; preds = %94, %98
 
 108:                                              ; preds = %102
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %93, ptr %105, i64 %106)
-  %.not.i46 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i46, label %110, label %109
+  %.not.i45 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i45, label %110, label %109
 
 109:                                              ; preds = %108, %102
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %79, ptr noundef nonnull @.str.12) #13
@@ -626,8 +626,8 @@ read_server_first_message.exit.thread:            ; preds = %83, %109, %114, %13
   %258 = call i32 @pg_b64_enc_len(i32 noundef %257) #13
   %259 = sext i32 %258 to i64
   %260 = call i32 @enlargePQExpBuffer(ptr noundef nonnull %13, i64 noundef %259) #13
-  %.not.i47 = icmp eq i32 %260, 0
-  br i1 %.not.i47, label %279, label %261
+  %.not.i46 = icmp eq i32 %260, 0
+  br i1 %.not.i46, label %279, label %261
 
 261:                                              ; preds = %.loopexit.i
   %262 = load i32, ptr %194, align 4
@@ -687,8 +687,8 @@ build_client_final_message.exit.thread:           ; preds = %168, %279, %269, %2
   %285 = tail call noalias ptr @strdup(ptr noundef %1) #13
   %286 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %285, ptr %286, align 8
-  %.not.i49 = icmp eq ptr %285, null
-  br i1 %.not.i49, label %287, label %288
+  %.not.i48 = icmp eq ptr %285, null
+  br i1 %.not.i48, label %287, label %288
 
 287:                                              ; preds = %283
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %284, ptr noundef nonnull @.str) #13
@@ -702,8 +702,8 @@ build_client_final_message.exit.thread:           ; preds = %168, %279, %269, %2
 291:                                              ; preds = %288
   %292 = getelementptr i8, ptr %1, i64 1
   %293 = load i8, ptr %292, align 1
-  %.not24.i.i51 = icmp eq i8 %293, 61
-  br i1 %.not24.i.i51, label %295, label %read_attr_value.exit.thread.i
+  %.not24.i.i50 = icmp eq i8 %293, 61
+  br i1 %.not24.i.i50, label %295, label %read_attr_value.exit.thread.i
 
 read_attr_value.exit.thread.i:                    ; preds = %291
   %294 = getelementptr inbounds i8, ptr %284, i64 1000
@@ -715,26 +715,26 @@ read_attr_value.exit.thread.i:                    ; preds = %291
   br label %297
 
 297:                                              ; preds = %299, %295
-  %.0.i.i52 = phi ptr [ %296, %295 ], [ %300, %299 ]
-  %298 = load i8, ptr %.0.i.i52, align 1
+  %.0.i.i51 = phi ptr [ %296, %295 ], [ %300, %299 ]
+  %298 = load i8, ptr %.0.i.i51, align 1
   switch i8 %298, label %299 [
-    i8 0, label %read_attr_value.exit.i53
+    i8 0, label %read_attr_value.exit.i52
     i8 44, label %301
   ]
 
 299:                                              ; preds = %297
-  %300 = getelementptr i8, ptr %.0.i.i52, i64 1
+  %300 = getelementptr i8, ptr %.0.i.i51, i64 1
   br label %297, !llvm.loop !4
 
 301:                                              ; preds = %297
-  store i8 0, ptr %.0.i.i52, align 1
-  br label %read_attr_value.exit.i53
+  store i8 0, ptr %.0.i.i51, align 1
+  br label %read_attr_value.exit.i52
 
-read_attr_value.exit.i53:                         ; preds = %297, %301
+read_attr_value.exit.i52:                         ; preds = %297, %301
   %302 = icmp eq ptr %296, null
   br i1 %302, label %read_server_final_message.exit.thread, label %303
 
-303:                                              ; preds = %read_attr_value.exit.i53
+303:                                              ; preds = %read_attr_value.exit.i52
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %284, ptr noundef nonnull @.str.25, ptr noundef nonnull %296) #13
   br label %read_server_final_message.exit.thread
 
@@ -914,13 +914,13 @@ read_attr_value.exit40.i:                         ; preds = %313, %317
   call void @pg_hmac_free(ptr noundef nonnull %342) #13
   %392 = load i32, ptr %334, align 4
   %393 = sext i32 %392 to i64
-  %bcmp.i54 = call i32 @bcmp(ptr nonnull %8, ptr nonnull %338, i64 %393)
-  %.not.i55 = icmp eq i32 %bcmp.i54, 0
-  %..i = zext i1 %.not.i55 to i8
+  %bcmp.i53 = call i32 @bcmp(ptr nonnull %8, ptr nonnull %338, i64 %393)
+  %.not.i54 = icmp eq i32 %bcmp.i53, 0
+  %..i = zext i1 %.not.i54 to i8
   store i8 %..i, ptr %6, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  br i1 %.not.i55, label %395, label %394
+  br i1 %.not.i54, label %395, label %394
 
 394:                                              ; preds = %391
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %22, ptr noundef nonnull @.str.6) #13
@@ -938,7 +938,7 @@ read_attr_value.exit40.i:                         ; preds = %313, %317
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %22, ptr noundef nonnull @.str.7) #13
   br label %read_server_final_message.exit.thread
 
-read_server_final_message.exit.thread:            ; preds = %310, %306, %read_attr_value.exit.thread.i, %read_attr_value.exit40.i, %read_attr_value.exit.i53, %287, %329, %336, %303, %build_client_final_message.exit.thread, %read_server_first_message.exit.thread, %build_client_first_message.exit.thread, %398, %389, %30, %26
+read_server_final_message.exit.thread:            ; preds = %310, %306, %read_attr_value.exit.thread.i, %read_attr_value.exit40.i, %read_attr_value.exit.i52, %287, %329, %336, %303, %build_client_final_message.exit.thread, %read_server_first_message.exit.thread, %build_client_first_message.exit.thread, %398, %389, %30, %26
   store i8 1, ptr %5, align 1
   store i8 0, ptr %6, align 1
   br label %399

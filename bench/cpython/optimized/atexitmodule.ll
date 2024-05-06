@@ -32,11 +32,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str.8 = private unnamed_addr constant [47 x i8] c"register() takes at least 1 argument (0 given)\00", align 1
 @.str.9 = private unnamed_addr constant [36 x i8] c"the first argument must be callable\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyUnstable_AtExit(ptr nocapture noundef %interp, ptr noundef %func, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnstable_AtExit(ptr nocapture noundef %interp, ptr noundef %func, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 24) #4
   %cmp = icmp eq ptr %call, null
@@ -137,7 +137,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @atexit_delete_cb(ptr nonnull %2, i32 noundef %4)
   %.pre.i = load i32, ptr %ncallbacks.i, align 8
   br label %for.inc.i
@@ -294,7 +294,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i17
 
 if.end.i17:                                       ; preds = %for.body.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @atexit_delete_cb(ptr nonnull %14, i32 noundef %16)
   %.pre.i = load i32, ptr %ncallbacks, align 8
   br label %for.inc.i
@@ -550,7 +550,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @atexit_delete_cb(ptr nonnull %5, i32 noundef %7)
   %.pre.i = load i32, ptr %ncallbacks.i, align 8
   br label %for.inc.i
@@ -603,7 +603,7 @@ if.end6:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end6
   %call.val = load ptr, ptr %callbacks, align 8
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @atexit_delete_cb(ptr %call.val, i32 noundef %7)
   br label %for.inc
 

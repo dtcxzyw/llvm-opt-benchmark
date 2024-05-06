@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_list_item_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_op_base_op_select(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @ompi_op_base_op_select(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_op_base_framework, i64 0, i32 11), align 4
   %4 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %3) #8
@@ -939,7 +939,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @avail_op_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @avail_op_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40

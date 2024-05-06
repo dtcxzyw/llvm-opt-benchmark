@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_syslog_mask = local_unnamed_addr global i8 -1, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @setlogmask(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @setlogmask(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @g_syslog_mask, align 1
   %3 = trunc i32 %0 to i8
   store i8 %3, ptr @g_syslog_mask, align 1

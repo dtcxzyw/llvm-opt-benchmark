@@ -305,7 +305,7 @@ declare dso_local void @nf_nat_helper_register(ptr noundef) local_unnamed_addr #
 declare dso_local void @nf_ct_helper_expectfn_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sip(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %union.nf_inet_addr, align 4
@@ -500,7 +500,7 @@ define internal noundef i32 @nf_nat_sip(ptr noundef %0, i32 noundef %1, i32 noun
   %.val = load i16, ptr %140, align 2
   %141 = icmp eq i16 %.val, 2
   %142 = select i1 %141, ptr @.str.17, ptr @.str.18
-  %143 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %142, ptr noundef %132) #9
+  %143 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %142, ptr noundef %132) #9
   %144 = load i32, ptr %20, align 4
   %145 = load i32, ptr %21, align 4
   %146 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %144, i32 noundef %145, ptr noundef nonnull %23, i32 noundef %143), !range !14
@@ -543,7 +543,7 @@ define internal noundef i32 @nf_nat_sip(ptr noundef %0, i32 noundef %1, i32 noun
   %.val9 = load i16, ptr %174, align 2
   %175 = icmp eq i16 %.val9, 2
   %176 = select i1 %175, ptr @.str.17, ptr @.str.19
-  %177 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %176, ptr noundef %166) #9
+  %177 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %176, ptr noundef %166) #9
   %178 = load i32, ptr %20, align 4
   %179 = load i32, ptr %21, align 4
   %180 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %178, i32 noundef %179, ptr noundef nonnull %23, i32 noundef %177), !range !14
@@ -768,7 +768,7 @@ define internal void @nf_nat_sip_seq_adjust(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sip_expect(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sip_expect(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #2 align 16 {
   %9 = alloca %union.nf_inet_addr, align 4
   %10 = alloca [57 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -951,7 +951,7 @@ define internal noundef i32 @nf_nat_sip_expect(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sdp_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #2 align 16 {
   %10 = alloca [48 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
@@ -964,7 +964,7 @@ define internal noundef i32 @nf_nat_sdp_addr(ptr noundef %0, i32 noundef %1, i32
   %17 = icmp eq i16 %16, 2
   %18 = select i1 %17, ptr @.str.17, ptr @.str.19
   %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %18, ptr noundef %8) #9
-  %20 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %10, i32 noundef %19), !range !16
+  %20 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %10, i32 noundef %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -979,7 +979,7 @@ define internal noundef i32 @nf_nat_sdp_addr(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sdp_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7) #2 align 16 {
   %9 = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, i8 0, i64 6, i1 false), !annotation !8
@@ -1039,7 +1039,7 @@ define internal noundef i32 @nf_nat_sdp_port(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sdp_session(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr noundef %6) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_session(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr noundef %6) #2 align 16 {
   %8 = alloca [48 x i8], align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
@@ -1052,12 +1052,12 @@ define internal noundef i32 @nf_nat_sdp_session(ptr noundef %0, i32 noundef %1, 
   %15 = icmp eq i16 %14, 2
   %16 = select i1 %15, ptr @.str.17, ptr @.str.19
   %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %16, ptr noundef %6) #9
-  %18 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %8, i32 noundef %17), !range !16
+  %18 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %8, i32 noundef %17)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %7
-  %21 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %8, i32 noundef %17), !range !16
+  %21 = call fastcc i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %8, i32 noundef %17)
   switch i32 %21, label %24 [
     i32 0, label %22
     i32 -2, label %22
@@ -1074,7 +1074,7 @@ define internal noundef i32 @nf_nat_sdp_session(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_nat_sdp_media(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #2 align 16 {
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -8
@@ -1165,7 +1165,7 @@ define internal noundef i32 @nf_nat_sdp_media(ptr noundef %0, i32 noundef %1, i3
 .thread4:                                         ; preds = %61, %.preheader, %63
   %64 = add i16 %51, 2
   %65 = icmp eq i16 %64, 0
-  br i1 %65, label %.thread7, label %.preheader, !llvm.loop !17
+  br i1 %65, label %.thread7, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %57, %10
   %66 = phi i16 [ %49, %10 ], [ %51, %57 ]
@@ -1205,7 +1205,7 @@ declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef,
 declare dso_local i32 @ct_sip_parse_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i16 noundef zeroext %8) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i16 noundef zeroext %8) unnamed_addr #2 align 16 {
   %10 = alloca [57 x i8], align 16
   %11 = alloca %union.nf_inet_addr, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1386,7 +1386,7 @@ declare dso_local i32 @ct_sip_parse_header_uri(ptr noundef, ptr noundef, ptr nou
 declare dso_local i32 @ct_sip_parse_address_param(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #2 align 16 {
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
@@ -1466,7 +1466,7 @@ declare dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef, i16 noundef zer
 declare dso_local void @nf_ct_unexpect_related(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @mangle_sdp_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #2 align 16 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1539,7 +1539,7 @@ define internal fastcc noundef i32 @mangle_sdp_packet(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [6 x i8], align 1
@@ -1667,5 +1667,4 @@ attributes #9 = { nounwind }
 !13 = !{!"llvm.loop.unroll.disable"}
 !14 = !{i32 0, i32 2}
 !15 = distinct !{!15, !12, !13}
-!16 = !{i32 -22, i32 1}
-!17 = distinct !{!17, !12, !13}
+!16 = distinct !{!16, !12, !13}

@@ -159,7 +159,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID_synaptics_intertouch429, ptr @__UNIQUE_ID_synaptics_intertouchtype428, ptr @__param_synaptics_intertouch], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @synaptics_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @synaptics_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
@@ -1203,7 +1203,7 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @synaptics_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.synaptics_hw_state, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 241
@@ -1555,9 +1555,9 @@ define internal i32 @synaptics_process_byte(ptr nocapture noundef readonly %0) #
   %247 = sub nuw nsw i32 64, %246
   %248 = zext nneg i32 %247 to i64
   %249 = lshr i64 -1, %248
-  %250 = trunc i64 %249 to i32
+  %250 = trunc nuw nsw i64 %249 to i32
   %251 = load i8, ptr %136, align 1
-  %252 = trunc i64 %249 to i8
+  %252 = trunc nuw i64 %249 to i8
   %253 = and i8 %251, %252
   %254 = getelementptr inbounds i8, ptr %2, i64 17
   %255 = load i8, ptr %147, align 1
@@ -2276,7 +2276,7 @@ declare dso_local i32 @input_mt_init_slots(ptr noundef, i32 noundef, i32 noundef
 declare dso_local void @input_alloc_absinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @synaptics_detect_pkt_type(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 1, 3) i32 @synaptics_detect_pkt_type(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   br label %6
 
@@ -2767,7 +2767,7 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @synaptics_show_disable_gesture(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_disable_gesture(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 69
   %6 = load i8, ptr %5, align 1, !range !6, !noundef !7
@@ -2806,7 +2806,7 @@ define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr nocapture
   br i1 %19, label %37, label %20
 
 20:                                               ; preds = %15
-  %21 = trunc i32 %13 to i8
+  %21 = trunc nuw nsw i32 %13 to i8
   store i8 %21, ptr %16, align 1
   %22 = icmp eq i32 %13, 0
   %23 = getelementptr inbounds i8, ptr %7, i64 60

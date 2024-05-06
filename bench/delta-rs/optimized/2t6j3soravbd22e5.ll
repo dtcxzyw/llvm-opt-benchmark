@@ -4351,7 +4351,7 @@ define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1057
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %11, i64 48, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5aa55d31abd96d7470c6b4ad2be7df0c.98, i64 noundef 14, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5aa55d31abd96d7470c6b4ad2be7df0c.12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5aa55d31abd96d7470c6b4ad2be7df0c.99) #20
           to label %49 unwind label %47, !noalias !1057
 

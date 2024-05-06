@@ -103,7 +103,7 @@ define internal void @mac_lte_stat_reset(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mac_lte_stat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %update_ueid_rnti_counts.exit.thread155, label %6
 
@@ -698,7 +698,7 @@ define internal void @mac_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %52 = getelementptr inbounds i8, ptr %.169, i64 48
   %53 = getelementptr inbounds i8, ptr %.169, i64 28
   %54 = load i32, ptr %53, align 4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %51, ptr noundef nonnull dereferenceable(16) %52, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %51, ptr noundef nonnull readonly dereferenceable(16) %52, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %calculate_bw.exit, label %55
 
@@ -733,7 +733,7 @@ calculate_bw.exit:                                ; preds = %.lr.ph71, %55, %71
   %77 = getelementptr inbounds i8, ptr %.169, i64 104
   %78 = getelementptr inbounds i8, ptr %.169, i64 84
   %79 = load i32, ptr %78, align 4
-  %bcmp.i60 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %76, ptr noundef nonnull dereferenceable(16) %77, i64 16)
+  %bcmp.i60 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %76, ptr noundef nonnull readonly dereferenceable(16) %77, i64 16)
   %.not.i61 = icmp eq i32 %bcmp.i60, 0
   br i1 %.not.i61, label %calculate_bw.exit63, label %80
 

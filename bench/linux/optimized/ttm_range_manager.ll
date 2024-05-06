@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_range_ma
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_range_man_fini_nocheck369, ptr @__UNIQUE_ID___addressable_ttm_range_man_init_nocheck368], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_range_man_init_nocheck(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_range_man_init_nocheck(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 368) #4
   %7 = icmp eq ptr %6, null

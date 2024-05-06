@@ -46,7 +46,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpuidle_get_
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_cpuidle_get_cpu_driver321, ptr @__UNIQUE_ID___addressable_cpuidle_get_driver320, ptr @__UNIQUE_ID___addressable_cpuidle_register_driver317, ptr @__UNIQUE_ID___addressable_cpuidle_unregister_driver318, ptr @cpuidle_get_driver.__UNIQUE_ID___addressable___SCK__preempt_schedule319], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cpuidle_register_driver(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @cpuidle_driver_lock) #6
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread7, label %3

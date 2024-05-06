@@ -657,7 +657,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @memtype_free(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = alloca %struct.pagerange_state, align 8
   %4 = load i1, ptr @pat_disabled, align 1
   br i1 %4, label %.loopexit8, label %5
@@ -935,7 +935,7 @@ define dso_local i32 @memtype_reserve_io(i64 noundef %0, i64 noundef %1, ptr noc
 declare dso_local i32 @iomem_map_sanity_check(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @memtype_kernel_map_sync(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @memtype_kernel_map_sync(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = load ptr, ptr @high_memory, align 8
   %5 = getelementptr i8, ptr %4, i64 -1
   %6 = ptrtoint ptr %5 to i64
@@ -1605,7 +1605,7 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)
-define internal fastcc noundef i32 @pat_get_cache_mode(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 6) i32 @pat_get_cache_mode(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 section ".init.text" align 16 {
   switch i32 %0, label %8 [
     i32 0, label %9
     i32 1, label %3
@@ -1651,7 +1651,7 @@ declare dso_local zeroext i8 @mtrr_type_lookup(i64 noundef, i64 noundef, ptr nou
 declare dso_local i32 @walk_system_ram_range(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @pagerange_is_ram_callback(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2) #13 align 16 {
+define internal range(i32 0, 2) i32 @pagerange_is_ram_callback(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2) #13 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp ult i64 %4, %0
   %6 = zext i1 %5 to i32

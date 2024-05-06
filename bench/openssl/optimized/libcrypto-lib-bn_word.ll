@@ -208,7 +208,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp22, label %land.rhs, label %return, !llvm.loop !7
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp25 = icmp eq i32 %2, %6
   br i1 %cmp25, label %if.then27, label %return
 
@@ -294,7 +294,7 @@ if.else.preheader:                                ; preds = %if.end21
   br label %if.else
 
 if.then25.loopexit:                               ; preds = %if.else
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %if.then25
 
 if.then25:                                        ; preds = %if.then25.loopexit, %if.end21
@@ -343,7 +343,7 @@ declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mul_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mul_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8

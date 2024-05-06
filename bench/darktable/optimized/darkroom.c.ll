@@ -1808,7 +1808,7 @@ define void @reset(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare void @dt_dev_zoom_move(ptr noundef, i32 noundef, float noundef, i32 noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [4096 x i8], align 16
   %4 = alloca i32, align 4
@@ -2148,7 +2148,7 @@ define hidden void @connect_button_press_release(ptr noundef %0, ptr noundef %1)
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_quickbutton_press_release(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_quickbutton_press_release(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -6092,7 +6092,7 @@ declare i32 @dt_masks_events_mouse_moved(ptr noundef, float noundef, float nound
 declare float @llvm.fabs.f32(float) #13
 
 ; Function Attrs: nounwind uwtable
-define i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 1, 0) i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -7411,7 +7411,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare i32 @g_idle_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_dev_load_requested_image(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 1968
   %4 = load i32, ptr %3, align 16, !tbaa !274
@@ -8657,7 +8657,7 @@ define internal noundef i32 @_second_window_scrolled_callback(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_second_window_button_pressed_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_second_window_button_pressed_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !165
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %35, label %6
@@ -8732,7 +8732,7 @@ define internal noundef i32 @_second_window_button_released_callback(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_second_window_mouse_moved_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_second_window_mouse_moved_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !298
   %6 = and i32 %5, 256

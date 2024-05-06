@@ -157,7 +157,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_fcip_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+  %5 = tail call fastcc i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %6
 }
@@ -187,8 +187,8 @@ define hidden void @proto_reg_handoff_fcip() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_fcip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !4
+define internal range(i32 0, 2) i32 @dissect_fcip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
@@ -197,7 +197,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._fc_data, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %7 = icmp slt i32 %6, 28
@@ -604,7 +604,7 @@ dissect_fcip_sf.exit:                             ; preds = %193, %192, %185, %1
   %.1106178 = phi i32 [ %.1106193, %193 ], [ %.1106193, %192 ], [ %.1106179, %185 ], [ %.1106179, %187 ]
   %215 = sub nsw i32 %.0107147, %80
   %216 = icmp sgt i32 %215, 28
-  br i1 %216, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !5
+  br i1 %216, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !4
 
 get_next_fcip_header_offset.exit.thread.loopexit242: ; preds = %get_next_fcip_header_offset.exit
   br label %get_next_fcip_header_offset.exit.thread
@@ -656,6 +656,5 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

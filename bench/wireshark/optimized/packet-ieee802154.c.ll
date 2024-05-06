@@ -3970,7 +3970,7 @@ declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ieee802154_set_trel_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @ieee802154_set_trel_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [18 x i8], align 16
@@ -4350,7 +4350,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
 183:                                              ; preds = %75
   store i8 1, ptr %6, align 16
   %184 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %184, ptr noundef nonnull align 1 dereferenceable(13) %7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %184, ptr noundef nonnull readonly align 1 dereferenceable(13) %7, i64 13, i1 false)
   br label %ccm_init_block.exit
 
 ccm_init_block.exit:                              ; preds = %183, %143, %118
@@ -4374,7 +4374,7 @@ ccm_init_block.exit:                              ; preds = %183, %143, %118
   %196 = load ptr, ptr %4, align 8
   %197 = getelementptr inbounds i8, ptr %4, i64 16
   %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @ccm_ctr_encrypt(ptr noundef %196, ptr noundef nonnull %6, ptr noundef %198, ptr noundef %195, i32 noundef %.0120), !range !11
+  %199 = call i32 @ccm_ctr_encrypt(ptr noundef %196, ptr noundef nonnull %6, ptr noundef %198, ptr noundef %195, i32 noundef %.0120)
   %.not134 = icmp eq i32 %199, 0
   %200 = getelementptr inbounds i8, ptr %4, i64 40
   br i1 %.not134, label %201, label %203
@@ -4396,7 +4396,7 @@ ccm_init_block.exit:                              ; preds = %183, %143, %118
   %207 = load ptr, ptr %4, align 8
   %208 = getelementptr inbounds i8, ptr %4, i64 16
   %209 = load ptr, ptr %208, align 8
-  %210 = call i32 @ccm_ctr_encrypt(ptr noundef %207, ptr noundef nonnull %6, ptr noundef %209, ptr noundef null, i32 noundef 0), !range !11
+  %210 = call i32 @ccm_ctr_encrypt(ptr noundef %207, ptr noundef nonnull %6, ptr noundef %209, ptr noundef null, i32 noundef 0)
   %.not133 = icmp eq i32 %210, 0
   br i1 %.not133, label %211, label %213
 
@@ -4571,7 +4571,7 @@ ccm_init_block.exit138:                           ; preds = %229
 
 316:                                              ; preds = %274
   %317 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %317, ptr noundef nonnull align 1 dereferenceable(13) %.0118144, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %317, ptr noundef nonnull readonly align 1 dereferenceable(13) %.0118144, i64 13, i1 false)
   br label %ccm_init_block.exit141
 
 ccm_init_block.exit141:                           ; preds = %316, %279, %ccm_init_block.exit138
@@ -4589,7 +4589,7 @@ ccm_init_block.exit141:                           ; preds = %316, %279, %ccm_ini
   %326 = zext i32 %.0 to i64
   %327 = call ptr @tvb_memdup(ptr noundef %325, ptr noundef %0, i32 noundef 0, i64 noundef %326) #16
   %328 = call ptr @tvb_get_ptr(ptr noundef %.0119, i32 noundef 0, i32 noundef %.0116) #16
-  %329 = call i32 @ccm_cbc_mac(ptr noundef %323, ptr noundef nonnull %6, ptr noundef %327, i32 noundef %.0, ptr noundef %328, i32 noundef %.0116, ptr noundef nonnull %8), !range !11
+  %329 = call i32 @ccm_cbc_mac(ptr noundef %323, ptr noundef nonnull %6, ptr noundef %327, i32 noundef %.0, ptr noundef %328, i32 noundef %.0116, ptr noundef nonnull %8)
   %.not136 = icmp eq i32 %329, 0
   br i1 %.not136, label %330, label %332
 
@@ -4885,7 +4885,7 @@ define internal fastcc i32 @dissect_ieee802154_payload_ie(ptr noundef %0, ptr no
   %.0..0..0..0.47 = load volatile i32, ptr %5, align 4
   %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.47) #16
   %97 = icmp sgt i32 %96, 1
-  br i1 %97, label %20, label %98, !llvm.loop !12
+  br i1 %97, label %20, label %98, !llvm.loop !11
 
 98:                                               ; preds = %91, %95
   %.0..0..0..0.48 = load volatile i32, ptr %5, align 4
@@ -5912,7 +5912,7 @@ define hidden void @ccm_init_block(ptr nocapture noundef writeonly %0, i32 nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ccm_ctr_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ccm_ctr_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = call i32 @gcry_cipher_open(ptr noundef nonnull %6, i32 noundef 7, i32 noundef 6, i32 noundef 0) #16
   %.not = icmp eq i32 %7, 0
@@ -5974,7 +5974,7 @@ declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [16 x i8], align 16
   %10 = call i32 @gcry_cipher_open(ptr noundef nonnull %8, i32 noundef 7, i32 noundef 3, i32 noundef 8) #16
@@ -6071,7 +6071,7 @@ define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocap
   %51 = icmp ult i64 %indvars.iv, 15
   %52 = icmp ugt i32 %.04965, 1
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !13
+  br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph70.preheader, %.preheader63
   %.049.lcssa89 = phi i32 [ %.049.lcssa90, %.lr.ph70.preheader ], [ %50, %.preheader63 ]
@@ -6113,7 +6113,7 @@ define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocap
   %69 = load ptr, ptr %8, align 8
   %70 = call i32 @gcry_cipher_encrypt(ptr noundef %69, ptr noundef %6, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #16
   %.not61 = icmp eq i32 %70, 0
-  br i1 %.not61, label %.preheader62, label %71, !llvm.loop !14
+  br i1 %.not61, label %.preheader62, label %71, !llvm.loop !13
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %8, align 8
@@ -6147,7 +6147,7 @@ define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocap
   %84 = load ptr, ptr %8, align 8
   %85 = call i32 @gcry_cipher_encrypt(ptr noundef %84, ptr noundef %6, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #16
   %.not60 = icmp eq i32 %85, 0
-  br i1 %.not60, label %.preheader, label %86, !llvm.loop !15
+  br i1 %.not60, label %.preheader, label %86, !llvm.loop !14
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %8, align 8
@@ -6184,7 +6184,7 @@ define hidden i32 @ieee802154_short_addr_hash(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ieee802154_short_addr_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define hidden range(i32 0, 2) i32 @ieee802154_short_addr_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp eq i16 %3, %4
@@ -6212,7 +6212,7 @@ define hidden i32 @ieee802154_long_addr_hash(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ieee802154_long_addr_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define hidden range(i32 0, 2) i32 @ieee802154_long_addr_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -6306,7 +6306,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ieee802154_short_addr_invalidate(i16 noundef zeroext %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ieee802154_short_addr_invalidate(i16 noundef zeroext %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ieee802154_short_addr, align 2
   store i16 %1, ptr %4, align 2
   %5 = getelementptr inbounds i8, ptr %4, i64 2
@@ -6327,7 +6327,7 @@ define hidden noundef i32 @ieee802154_short_addr_invalidate(i16 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ieee802154_long_addr_invalidate(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ieee802154_long_addr_invalidate(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load ptr, ptr @ieee802154_map, align 8
@@ -6618,12 +6618,12 @@ define internal void @key_uat_hash_type_set_cb(ptr nocapture noundef writeonly %
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7) #16
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !16
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !15
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -6658,12 +6658,12 @@ define internal void @key_uat_hash_type_tostr_cb(ptr nocapture noundef readonly 
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !16
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !17
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !16
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -6802,7 +6802,7 @@ define internal void @proto_init_ieee802154() #0 {
   %58 = load ptr, ptr @static_addrs, align 8
   %59 = icmp ne ptr %58, null
   %60 = select i1 %57, i1 %59, i1 false
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -6832,7 +6832,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ieee802_15_4_short_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 7, 11) i32 @ieee802_15_4_short_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.val = load i8, ptr %5, align 1
@@ -7169,7 +7169,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = zext i32 %40 to i64
   %43 = icmp ult i64 %indvars.iv.next, %42
-  br i1 %43, label %4, label %._crit_edge, !llvm.loop !19
+  br i1 %43, label %4, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %39, %0
   ret void
@@ -7845,7 +7845,7 @@ dissect_ieee802154_tap_phy_header.exit.i:         ; preds = %276, %272, %268, %2
   %301 = add i32 %300, %74
   %302 = call i32 @tvb_bytes_exist(ptr noundef %47, i32 noundef %301, i32 noundef 4) #16
   %.not.i = icmp eq i32 %302, 0
-  br i1 %.not.i, label %._crit_edge.i, label %52, !llvm.loop !20
+  br i1 %.not.i, label %._crit_edge.i, label %52, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %298
   %.pre.i = load i64, ptr %16, align 8
@@ -8056,7 +8056,7 @@ define internal noundef i32 @ieee802154_endpoint_packet(ptr noundef %0, ptr noun
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ieee802154_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @ieee802154_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @proto_is_frame_protocol(ptr noundef %4, ptr noundef nonnull @.str.725) #16
@@ -8149,7 +8149,7 @@ define internal noundef i32 @dissect_hie_time_correction(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_hie_csl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 6, 9) i32 @dissect_hie_csl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @hf_ieee802154_hie_csl, align 4
   %6 = load i32, ptr @ett_ieee802154_hie_csl, align 4
   %7 = tail call ptr @ieee802154_create_hie_tree(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
@@ -8172,7 +8172,7 @@ define internal noundef i32 @dissect_hie_csl(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_hie_rendezvous_time(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 7) i32 @dissect_hie_rendezvous_time(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @hf_ieee802154_hie_rdv, align 4
   %6 = load i32, ptr @ett_ieee802154_hie_rdv, align 4
   %7 = tail call ptr @ieee802154_create_hie_tree(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
@@ -8397,7 +8397,7 @@ define internal i32 @dissect_pie_mlme(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0..0..0..0.26 = load volatile i32, ptr %5, align 4
   %81 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
   %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %20, label %._crit_edge, !llvm.loop !21
+  br i1 %82, label %20, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %78, %4
   %.0..0..0..0.31 = load volatile i32, ptr %5, align 4
@@ -8860,7 +8860,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %136 = add nuw nsw i32 %.1212266, 4
   %137 = add nuw nsw i32 %.0207267, 1
   %exitcond.not = icmp eq i32 %137, %126
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph268, %121
   %.1212.lcssa = phi i32 [ 11, %121 ], [ %136, %.lr.ph268 ]
@@ -8888,7 +8888,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %153 = add i32 %.1215272, -4
   %154 = add i32 %.2213273, 4
   %.not235 = icmp eq i32 %153, 0
-  br i1 %.not235, label %.thread238, label %.lr.ph275, !llvm.loop !23
+  br i1 %.not235, label %.thread238, label %.lr.ph275, !llvm.loop !22
 
 .thread252:                                       ; preds = %113, %107, %119
   %.0214248258 = phi i32 [ %56, %119 ], [ %101, %107 ], [ %101, %113 ]
@@ -8915,7 +8915,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %168 = add i32 %.2216264, -4
   %169 = add i32 %.3265, 4
   %.not234 = icmp eq i32 %168, 0
-  br i1 %.not234, label %.thread238, label %.lr.ph, !llvm.loop !24
+  br i1 %.not234, label %.thread238, label %.lr.ph, !llvm.loop !23
 
 .thread238:                                       ; preds = %.lr.ph, %.lr.ph275, %.thread252, %._crit_edge, %81, %84, %117, %103, %110, %104, %113, %102, %102, %102, %102, %102, %102, %102, %102, %115, %47, %45, %60, %58, %67, %66, %79, %90, %88, %93, %11, %4
   %.0210 = phi i32 [ %8, %4 ], [ %8, %11 ], [ 9, %81 ], [ %8, %84 ], [ 7, %117 ], [ %8, %103 ], [ %8, %110 ], [ 9, %104 ], [ 7, %113 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %115 ], [ 11, %47 ], [ 7, %45 ], [ 10, %60 ], [ 7, %58 ], [ 15, %67 ], [ 7, %66 ], [ 7, %79 ], [ 9, %90 ], [ 7, %88 ], [ 7, %93 ], [ %.1212.lcssa, %._crit_edge ], [ %.0211249257, %.thread252 ], [ %154, %.lr.ph275 ], [ %169, %.lr.ph ]
@@ -9010,13 +9010,13 @@ define internal i32 @dissect_802154_tsch_slotframe_link(ptr noundef %0, ptr noca
   %42 = add i8 %.04752, -1
   %43 = add i32 %.153, 5
   %.not50 = icmp eq i8 %42, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph58
   %.1.lcssa = phi i32 [ %28, %.lr.ph58 ], [ %43, %.lr.ph ]
   %44 = add i8 %.056, 1
   %.not = icmp ugt i8 %44, %8
-  br i1 %.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !26
+  br i1 %.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !25
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %4
   %.046.lcssa = phi i32 [ 3, %4 ], [ %.1.lcssa, %._crit_edge ]
@@ -9076,7 +9076,7 @@ define internal noundef i32 @dissect_802154_tsch_timeslot(ptr noundef %0, ptr no
   %37 = add nuw nsw i32 %.03234, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %38, label %33, !llvm.loop !27
+  br i1 %exitcond.not, label %38, label %33, !llvm.loop !26
 
 38:                                               ; preds = %33
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 23) #16
@@ -9102,7 +9102,7 @@ define internal noundef i32 @dissect_802154_tsch_timeslot(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_802154_eb_filter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 3, 9) i32 @dissect_802154_eb_filter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @hf_ieee802154_psie_eb_filter, align 4
   %6 = load i32, ptr @ett_ieee802154_eb_filter, align 4
   %7 = tail call fastcc ptr @ieee802154_create_psie_tree(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
@@ -10522,7 +10522,7 @@ attributes #20 = { nounwind allocsize(1) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -10538,4 +10538,3 @@ attributes #20 = { nounwind allocsize(1) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}

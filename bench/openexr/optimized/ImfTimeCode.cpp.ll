@@ -155,27 +155,27 @@ _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCod
   store i32 %or.i.i52, ptr %this, align 4
   %_user.i = getelementptr inbounds i8, ptr %this, i64 4
   %shl35.i.i54 = and i32 %binaryGroup1, 15
-  %shl35.i.i58 = shl i32 %binaryGroup2, 4
-  %and4.i.i59 = and i32 %shl35.i.i58, 240
-  %shl35.i.i63 = shl i32 %binaryGroup3, 8
-  %and4.i.i64 = and i32 %shl35.i.i63, 3840
-  %shl35.i.i68 = shl i32 %binaryGroup4, 12
-  %and4.i.i69 = and i32 %shl35.i.i68, 61440
-  %shl35.i.i73 = shl i32 %binaryGroup5, 16
-  %and4.i.i74 = and i32 %shl35.i.i73, 983040
-  %shl35.i.i78 = shl i32 %binaryGroup6, 20
-  %and4.i.i79 = and i32 %shl35.i.i78, 15728640
-  %shl35.i.i83 = shl i32 %binaryGroup7, 24
-  %and.i.i77.masked = or disjoint i32 %and4.i.i59, %shl35.i.i54
-  %or.i.i70 = or disjoint i32 %and.i.i77.masked, %and4.i.i64
-  %or.i.i65 = or disjoint i32 %or.i.i70, %and4.i.i69
-  %or.i.i60 = or disjoint i32 %or.i.i65, %and4.i.i74
-  %or.i.i55 = or disjoint i32 %or.i.i60, %and4.i.i79
-  %shl35.i.i83.masked = and i32 %shl35.i.i83, 251658240
-  %and.i.i87 = or i32 %or.i.i55, %shl35.i.i83.masked
-  %shl35.i.i88 = shl i32 %binaryGroup8, 28
-  %or.i.i90 = add nuw nsw i32 %and.i.i87, %shl35.i.i88
-  store i32 %or.i.i90, ptr %_user.i, align 4
+  %shl35.i.i59 = shl i32 %binaryGroup2, 4
+  %and4.i.i60 = and i32 %shl35.i.i59, 240
+  %shl35.i.i64 = shl i32 %binaryGroup3, 8
+  %and4.i.i65 = and i32 %shl35.i.i64, 3840
+  %shl35.i.i69 = shl i32 %binaryGroup4, 12
+  %and4.i.i70 = and i32 %shl35.i.i69, 61440
+  %shl35.i.i74 = shl i32 %binaryGroup5, 16
+  %and4.i.i75 = and i32 %shl35.i.i74, 983040
+  %shl35.i.i79 = shl i32 %binaryGroup6, 20
+  %and4.i.i80 = and i32 %shl35.i.i79, 15728640
+  %shl35.i.i84 = shl i32 %binaryGroup7, 24
+  %and.i.i78.masked = or disjoint i32 %and4.i.i60, %shl35.i.i54
+  %or.i.i71 = or disjoint i32 %and.i.i78.masked, %and4.i.i65
+  %or.i.i66 = or disjoint i32 %or.i.i71, %and4.i.i70
+  %or.i.i61 = or disjoint i32 %or.i.i66, %and4.i.i75
+  %or.i.i56 = or disjoint i32 %or.i.i61, %and4.i.i80
+  %shl35.i.i84.masked = and i32 %shl35.i.i84, 251658240
+  %and.i.i88 = or i32 %or.i.i56, %shl35.i.i84.masked
+  %shl35.i.i89 = shl i32 %binaryGroup8, 28
+  %or.i.i91 = add nuw nsw i32 %and.i.i88, %shl35.i.i89
+  store i32 %or.i.i91, ptr %_user.i, align 4
   ret void
 }
 
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode5hoursEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 166) i32 @_ZNK7Imf_3_28TimeCode5hoursEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 24
@@ -589,7 +589,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode7minutesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 166) i32 @_ZNK7Imf_3_28TimeCode7minutesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 16
@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode7secondsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 166) i32 @_ZNK7Imf_3_28TimeCode7secondsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 8
@@ -615,7 +615,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode5frameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 166) i32 @_ZNK7Imf_3_28TimeCode5frameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i1 = and i32 %0, 15

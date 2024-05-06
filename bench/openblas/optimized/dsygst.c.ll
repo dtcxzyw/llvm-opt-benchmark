@@ -119,7 +119,7 @@ define void @dsygst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 64:                                               ; preds = %135, %61
   %65 = phi i64 [ 1, %61 ], [ %136, %135 ]
   %66 = load i32, ptr %2, align 4, !tbaa !3
-  %67 = trunc i64 %65 to i32
+  %67 = trunc nuw nsw i64 %65 to i32
   %68 = sub nsw i32 %66, %67
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %10, align 4, !tbaa !3

@@ -327,7 +327,7 @@ define void @Sat_SolverWriteDimacs(ptr nocapture noundef readonly %0, ptr nounde
   %166 = phi ptr [ %155, %.critedge.loopexit ], [ %120, %.preheader81 ]
   %167 = phi ptr [ %155, %.critedge.loopexit ], [ %121, %.preheader81 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 2
-  %168 = trunc i64 %indvars.iv.next100 to i32
+  %168 = trunc nuw i64 %indvars.iv.next100 to i32
   %.not69 = icmp slt i32 %165, %168
   br i1 %.not69, label %.preheader80, label %.preheader81, !llvm.loop !6
 
@@ -351,7 +351,7 @@ define void @Sat_SolverWriteDimacs(ptr nocapture noundef readonly %0, ptr nounde
   %180 = icmp eq i8 %178, 1
   %181 = select i1 %180, ptr @.str.4, ptr @.str.5
   %182 = add nuw nsw i64 %indvars.iv102, %132
-  %183 = trunc i64 %182 to i32
+  %183 = trunc nuw nsw i64 %182 to i32
   %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, ptr noundef nonnull %181, i32 noundef %183, ptr noundef nonnull %131) #7
   %.pre112 = load i32, ptr %0, align 8
   br label %185
@@ -701,7 +701,7 @@ define void @Sat_Solver2WriteDimacs(ptr nocapture noundef readonly %0, ptr nocap
   %155 = phi ptr [ %146, %.critedge.loopexit ], [ %111, %.preheader77 ]
   %156 = phi ptr [ %146, %.critedge.loopexit ], [ %112, %.preheader77 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 2
-  %157 = trunc i64 %indvars.iv.next96 to i32
+  %157 = trunc nuw i64 %indvars.iv.next96 to i32
   %.not = icmp slt i32 %154, %157
   br i1 %.not, label %.preheader76, label %.preheader77, !llvm.loop !12
 
@@ -725,7 +725,7 @@ define void @Sat_Solver2WriteDimacs(ptr nocapture noundef readonly %0, ptr nocap
   %169 = icmp eq i8 %167, 1
   %170 = select i1 %169, ptr @.str.4, ptr @.str.5
   %171 = add nuw nsw i64 %indvars.iv98, %123
-  %172 = trunc i64 %171 to i32
+  %172 = trunc nuw nsw i64 %171 to i32
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.3, ptr noundef nonnull %170, i32 noundef %172, ptr noundef nonnull %122) #7
   %.pre108 = load i32, ptr %0, align 8
   br label %174
@@ -777,40 +777,40 @@ define void @Sat_SolverPrintStats(ptr nocapture noundef readnone %0, ptr nocaptu
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1073741823
-  %6 = uitofp i32 %5 to double
+  %6 = uitofp nneg i32 %5 to double
   %7 = lshr i32 %4, 30
-  %8 = uitofp i32 %7 to double
-  %9 = tail call noundef double @llvm.fmuladd.f64(double %8, double 0x41D0000000000000, double %6)
+  %8 = uitofp nneg i32 %7 to double
+  %9 = tail call double @llvm.fmuladd.f64(double %8, double 0x41D0000000000000, double %6)
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %9)
   %11 = getelementptr inbounds i8, ptr %1, i64 440
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 1073741823
-  %15 = uitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   %16 = lshr i64 %12, 30
   %17 = trunc i64 %16 to i32
   %18 = uitofp i32 %17 to double
-  %19 = tail call noundef double @llvm.fmuladd.f64(double %18, double 0x41D0000000000000, double %15)
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double 0x41D0000000000000, double %15)
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %19)
   %21 = getelementptr inbounds i8, ptr %1, i64 416
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 1073741823
-  %25 = uitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = lshr i64 %22, 30
   %27 = trunc i64 %26 to i32
   %28 = uitofp i32 %27 to double
-  %29 = tail call noundef double @llvm.fmuladd.f64(double %28, double 0x41D0000000000000, double %25)
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double 0x41D0000000000000, double %25)
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %29)
   %31 = getelementptr inbounds i8, ptr %1, i64 424
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   %34 = and i32 %33, 1073741823
-  %35 = uitofp i32 %34 to double
+  %35 = uitofp nneg i32 %34 to double
   %36 = lshr i64 %32, 30
   %37 = trunc i64 %36 to i32
   %38 = uitofp i32 %37 to double
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %38, double 0x41D0000000000000, double %35)
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double 0x41D0000000000000, double %35)
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %39)
   ret void
 }

@@ -294,7 +294,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %28, %38, %pmix_poin
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_bool(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_bool(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1438,7 +1438,7 @@ pmix_pointer_array_get_item.exit188:              ; preds = %155
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_byte(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_byte(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1483,7 +1483,7 @@ define noundef i32 @pmix20_bfrop_unpack_byte(ptr nocapture noundef readnone %0, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_int16(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_int16(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1542,7 +1542,7 @@ define noundef i32 @pmix20_bfrop_unpack_int16(ptr nocapture noundef readnone %0,
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_int32(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_int32(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1627,7 +1627,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_int64(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_int64(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
@@ -1684,7 +1684,7 @@ pmix_ntoh64.exit:                                 ; preds = %.lr.ph, %pmix_ntoh6
   %.0.copyload = load i64, ptr %31, align 1
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0.copyload to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0.copyload, 32
-  %.sroa.22.0.extract.trunc.i = trunc i64 %.sroa.22.0.extract.shift.i to i32
+  %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
   %32 = tail call i32 @ntohl(i32 noundef %.sroa.22.0.extract.trunc.i) #12
   %33 = tail call i32 @ntohl(i32 noundef %.sroa.01.0.extract.trunc.i) #12
   %.sroa.2.0.insert.ext.i = zext i32 %33 to i64
@@ -2749,7 +2749,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_infodirs(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_infodirs(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -3044,7 +3044,7 @@ define i32 @pmix20_bfrop_unpack_proc(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %28, label %29, label %.lr.ph.i
 
 29:                                               ; preds = %24
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @pmix_output(i32 noundef %23, ptr noundef nonnull @.str.21, i32 noundef %30) #10
   br label %.lr.ph.i
 
@@ -3253,7 +3253,7 @@ pmix20_bfrop_unpack_byte.exit.thread:             ; preds = %26
   %30 = load ptr, ptr %10, align 8
   %31 = load i32, ptr %6, align 4
   %32 = sext i32 %31 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %30, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %17, ptr align 1 %30, i64 %32, i1 false)
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
   store ptr %33, ptr %10, align 8
   %.pre41 = load i64, ptr %7, align 8
@@ -3284,7 +3284,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %11, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_rank(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_rank(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -3963,7 +3963,7 @@ define noundef i32 @pmix20_bfrop_unpack_kval(ptr noundef %0, ptr noundef %1, ptr
   %28 = getelementptr inbounds i8, ptr %26, i64 48
   store i32 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_kval_t_class, i64 0, i32 6), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i = icmp eq ptr %31, null
@@ -4164,7 +4164,7 @@ pmix20_bfrop_unpack_byte.exit.thread:             ; preds = %36
   %40 = load ptr, ptr %18, align 8
   %41 = load i32, ptr %6, align 4
   %42 = sext i32 %41 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %40, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %26, ptr align 1 %40, i64 %42, i1 false)
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
   store ptr %43, ptr %18, align 8
   br label %44
@@ -4180,7 +4180,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %19, %44, %36, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_persist(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_persist(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -4208,7 +4208,7 @@ define noundef i32 @pmix20_bfrop_unpack_persist(ptr nocapture noundef readnone %
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -4222,7 +4222,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_scope(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_scope(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -4250,7 +4250,7 @@ define noundef i32 @pmix20_bfrop_unpack_scope(ptr nocapture noundef readnone %0,
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -4264,7 +4264,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_range(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_range(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -4292,7 +4292,7 @@ define noundef i32 @pmix20_bfrop_unpack_range(ptr nocapture noundef readnone %0,
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -4306,7 +4306,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_cmd(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_cmd(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -4334,7 +4334,7 @@ define noundef i32 @pmix20_bfrop_unpack_cmd(ptr nocapture noundef readnone %0, p
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -4422,7 +4422,7 @@ pmix20_bfrop_unpack_byte.exit.thread:             ; preds = %35
   %39 = load ptr, ptr %18, align 8
   %40 = load i32, ptr %6, align 4
   %41 = sext i32 %40 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %39, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %26, ptr align 1 %39, i64 %41, i1 false)
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
   store ptr %42, ptr %18, align 8
   br label %43
@@ -4438,7 +4438,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %19, %43, %35, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_ptr(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_ptr(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %13
@@ -4471,7 +4471,7 @@ pmix20_bfrop_unpack_byte.exit:                    ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_pstate(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_pstate(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -4499,7 +4499,7 @@ define noundef i32 @pmix20_bfrop_unpack_pstate(ptr nocapture noundef readnone %0
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -4752,7 +4752,7 @@ pmix20_bfrop_unpack_string.exit55.thread:         ; preds = %84, %pmix_pointer_a
   %115 = load ptr, ptr %24, align 8
   %116 = load i32, ptr %10, align 4
   %117 = sext i32 %116 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %115, i64 %117, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %102, ptr align 1 %115, i64 %117, i1 false)
   %118 = load ptr, ptr %24, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 %117
   store ptr %119, ptr %24, align 8
@@ -5095,7 +5095,7 @@ pmix20_bfrop_unpack_int32.exit:                   ; preds = %48, %87, %92, %98, 
 declare void @PMIx_Query_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_unpack_alloc_directive(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @pmix20_bfrop_unpack_alloc_directive(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i64 0, i32 11), align 4
   %or.cond.i = icmp ult i32 %6, 64
   br i1 %or.cond.i, label %7, label %14
@@ -5123,7 +5123,7 @@ define noundef i32 @pmix20_bfrop_unpack_alloc_directive(ptr nocapture noundef re
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %20, i64 %22, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
@@ -5178,7 +5178,7 @@ define i32 @pmix20_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef nonnull @.str.30, i32 noundef %25) #10
   br label %26
 

@@ -140,7 +140,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xx_modexec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @xx_modexec(ptr noundef %m) #0 {
 entry:
   store ptr @PyBaseObject_Type, ptr getelementptr inbounds ([4 x %struct.PyType_Slot], ptr @Null_Type_slots, i64 0, i64 0, i32 1), align 8
   store ptr @PyType_GenericNew, ptr getelementptr inbounds ([4 x %struct.PyType_Slot], ptr @Null_Type_slots, i64 0, i64 1, i32 1), align 8

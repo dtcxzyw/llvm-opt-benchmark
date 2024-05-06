@@ -26,7 +26,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z25grpc_set_socket_dualstacki(i32 noundef %fd) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z25grpc_set_socket_dualstacki(i32 noundef %fd) local_unnamed_addr #3 {
 entry:
   %off = alloca i32, align 4
   %on = alloca i32, align 4

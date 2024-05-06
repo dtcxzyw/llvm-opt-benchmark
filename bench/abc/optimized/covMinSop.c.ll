@@ -83,7 +83,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .loopexit476.i:                                   ; preds = %34
   %38 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.next.i
-  %39 = trunc i64 %indvars.iv.next.i to i32
+  %39 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %40
 
 40:                                               ; preds = %.loopexit476.i, %27
@@ -139,7 +139,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 61:                                               ; preds = %58
   %62 = and i32 %60, 1431655765
-  %63 = tail call i32 @llvm.ctpop.i32(i32 %62), !range !7
+  %63 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %62)
   %.not.i.i = icmp ult i32 %63, 2
   br i1 %.not.i.i, label %64, label %Min_CubesDistTwo.exit.i
 
@@ -180,14 +180,14 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.2.i.i = phi i32 [ %.162.i.i, %71 ], [ %78, %76 ], [ %.162.i.i, %66 ]
   %80 = add nuw nsw i32 %.04760.i.i, 2
   %81 = icmp ult i32 %.04760.i.i, 30
-  br i1 %81, label %66, label %.loopexit.i.i, !llvm.loop !8
+  br i1 %81, label %66, label %.loopexit.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %79, %48
   %.346.i.i = phi i32 [ %.04364.i.i, %48 ], [ %.245.i.i, %79 ]
   %.3.i.i = phi i32 [ %.065.i.i, %48 ], [ %.2.i.i, %79 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %48, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %48, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i
   %82 = icmp sgt i32 %.346.i.i, -1
@@ -213,7 +213,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thread.i.i, %84
   %.0227.i = load ptr, ptr %.0227491.i, align 8
   %cond.i = icmp eq ptr %.0227.i, null
-  br i1 %cond.i, label %._crit_edge.i, label %43, !llvm.loop !10
+  br i1 %cond.i, label %._crit_edge.i, label %43, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %Min_CubesDistTwo.exit.i, %40
   %89 = load i32, ptr %0, align 8
@@ -274,7 +274,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
 
 116:                                              ; preds = %113
   %117 = and i32 %115, 1431655765
-  %118 = tail call i32 @llvm.ctpop.i32(i32 %117), !range !7
+  %118 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %117)
   %.not.i280.i = icmp ult i32 %118, 2
   br i1 %.not.i280.i, label %119, label %Min_CubesDistTwo.exit281.i
 
@@ -315,14 +315,14 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
   %.2.i268.i = phi i32 [ %.162.i262.i, %126 ], [ %133, %131 ], [ %.162.i262.i, %121 ]
   %135 = add nuw nsw i32 %.04760.i264.i, 2
   %136 = icmp ult i32 %.04760.i264.i, 30
-  br i1 %136, label %121, label %.loopexit.i269.i, !llvm.loop !8
+  br i1 %136, label %121, label %.loopexit.i269.i, !llvm.loop !7
 
 .loopexit.i269.i:                                 ; preds = %134, %103
   %.346.i270.i = phi i32 [ %.04364.i259.i, %103 ], [ %.245.i267.i, %134 ]
   %.3.i271.i = phi i32 [ %.065.i258.i, %103 ], [ %.2.i268.i, %134 ]
   %indvars.iv.next.i272.i = add nuw nsw i64 %indvars.iv.i257.i, 1
   %exitcond.not.i273.i = icmp eq i64 %indvars.iv.next.i272.i, %wide.trip.count.i256.i
-  br i1 %exitcond.not.i273.i, label %._crit_edge.i274.i, label %103, !llvm.loop !9
+  br i1 %exitcond.not.i273.i, label %._crit_edge.i274.i, label %103, !llvm.loop !8
 
 ._crit_edge.i274.i:                               ; preds = %.loopexit.i269.i
   %137 = icmp sgt i32 %.346.i270.i, -1
@@ -348,7 +348,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
 Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.thread.i277.i, %139
   %.1228.i = load ptr, ptr %.1228495.i, align 8
   %.not246.i = icmp eq ptr %.1228.i, null
-  br i1 %.not246.i, label %.thread436.i, label %98, !llvm.loop !11
+  br i1 %.not246.i, label %.thread436.i, label %98, !llvm.loop !10
 
 .thread436.i:                                     ; preds = %Min_CubesDistTwo.exit281.i, %91, %._crit_edge.i
   %144 = load ptr, ptr %.1.i, align 8
@@ -470,7 +470,7 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.
 214:                                              ; preds = %215
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Min_CoverContainsCube.exit.i, label %215, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %Min_CoverContainsCube.exit.i, label %215, !llvm.loop !11
 
 215:                                              ; preds = %214, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %214 ]
@@ -485,12 +485,12 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.
 Min_CubeIsContained.exit.i.i:                     ; preds = %215, %207
   %.011.i.i = load ptr, ptr %.01122.i.i, align 8
   %.not13.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not13.i.i, label %._crit_edge.i285.i, label %207, !llvm.loop !13
+  br i1 %.not13.i.i, label %._crit_edge.i285.i, label %207, !llvm.loop !12
 
 ._crit_edge.i285.i:                               ; preds = %Min_CubeIsContained.exit.i.i, %204
   %indvars.iv.next.i286.i = add nuw nsw i64 %indvars.iv.i283.i, 1
   %exitcond.not.i287.i = icmp eq i64 %indvars.iv.next.i286.i, %wide.trip.count.i282.i
-  br i1 %exitcond.not.i287.i, label %Min_CoverContainsCube.exit.i, label %204, !llvm.loop !14
+  br i1 %exitcond.not.i287.i, label %Min_CoverContainsCube.exit.i, label %204, !llvm.loop !13
 
 Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i, %208, %214
   %221 = phi i1 [ true, %214 ], [ true, %208 ], [ false, %._crit_edge.i285.i ]
@@ -535,7 +535,7 @@ Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i,
 236:                                              ; preds = %237
   %indvars.iv.next.i.i307.i = add nuw nsw i64 %indvars.iv.i.i298.i, 1
   %exitcond.not.i.i308.i = icmp eq i64 %indvars.iv.next.i.i307.i, %wide.trip.count.i.i297.i
-  br i1 %exitcond.not.i.i308.i, label %Min_CoverContainsCube.exit309.i, label %237, !llvm.loop !12
+  br i1 %exitcond.not.i.i308.i, label %Min_CoverContainsCube.exit309.i, label %237, !llvm.loop !11
 
 237:                                              ; preds = %236, %.lr.ph.i.i296.i
   %indvars.iv.i.i298.i = phi i64 [ 0, %.lr.ph.i.i296.i ], [ %indvars.iv.next.i.i307.i, %236 ]
@@ -550,12 +550,12 @@ Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i,
 Min_CubeIsContained.exit.i300.i:                  ; preds = %237, %229
   %.011.i301.i = load ptr, ptr %.01122.i293.i, align 8
   %.not13.i302.i = icmp eq ptr %.011.i301.i, null
-  br i1 %.not13.i302.i, label %._crit_edge.i303.i, label %229, !llvm.loop !13
+  br i1 %.not13.i302.i, label %._crit_edge.i303.i, label %229, !llvm.loop !12
 
 ._crit_edge.i303.i:                               ; preds = %Min_CubeIsContained.exit.i300.i, %226
   %indvars.iv.next.i304.i = add nuw nsw i64 %indvars.iv.i289.i, 1
   %exitcond.not.i305.i = icmp eq i64 %indvars.iv.next.i304.i, %wide.trip.count.i282.i
-  br i1 %exitcond.not.i305.i, label %Min_CoverContainsCube.exit309.thread.i, label %226, !llvm.loop !14
+  br i1 %exitcond.not.i305.i, label %Min_CoverContainsCube.exit309.thread.i, label %226, !llvm.loop !13
 
 Min_CoverContainsCube.exit309.thread.i:           ; preds = %._crit_edge.i303.i
   store i32 %223, ptr %179, align 4
@@ -587,9 +587,9 @@ Min_CoverContainsCube.exit309.i:                  ; preds = %230, %236
   br label %257
 
 257:                                              ; preds = %257, %243
-  %258 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !15
+  %258 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i310.i = icmp eq i32 %258, 0
-  br i1 %.not.i310.i, label %.outer.i.backedge, label %257, !llvm.loop !16
+  br i1 %.not.i310.i, label %.outer.i.backedge, label %257, !llvm.loop !14
 
 259:                                              ; preds = %Min_CoverContainsCube.exit309.thread.i
   %260 = xor i32 %175, 3
@@ -605,9 +605,9 @@ Min_CoverContainsCube.exit309.i:                  ; preds = %230, %236
   br label %268
 
 268:                                              ; preds = %268, %259
-  %269 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !15
+  %269 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i311.i = icmp eq i32 %269, 0
-  br i1 %.not.i311.i, label %Min_SopAddCube.exit312.i, label %268, !llvm.loop !16
+  br i1 %.not.i311.i, label %Min_SopAddCube.exit312.i, label %268, !llvm.loop !14
 
 Min_SopAddCube.exit312.i:                         ; preds = %268
   %270 = xor i32 %192, 3
@@ -625,9 +625,9 @@ Min_SopAddCube.exit312.i:                         ; preds = %268
   br label %280
 
 280:                                              ; preds = %280, %Min_SopAddCube.exit312.i
-  %281 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i), !range !15
+  %281 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
   %.not.i313.i = icmp eq i32 %281, 0
-  br i1 %.not.i313.i, label %.outer.i.backedge, label %280, !llvm.loop !16
+  br i1 %.not.i313.i, label %.outer.i.backedge, label %280, !llvm.loop !14
 
 282:                                              ; preds = %Min_CoverContainsCube.exit309.i
   %283 = xor i32 %183, 3
@@ -642,9 +642,9 @@ Min_SopAddCube.exit312.i:                         ; preds = %268
   br label %290
 
 290:                                              ; preds = %290, %282
-  %291 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !15
+  %291 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i315.i = icmp eq i32 %291, 0
-  br i1 %.not.i315.i, label %Min_SopAddCube.exit316.i, label %290, !llvm.loop !16
+  br i1 %.not.i315.i, label %Min_SopAddCube.exit316.i, label %290, !llvm.loop !14
 
 Min_SopAddCube.exit316.i:                         ; preds = %290
   %292 = xor i32 %188, 3
@@ -662,19 +662,19 @@ Min_SopAddCube.exit316.i:                         ; preds = %290
   br label %302
 
 302:                                              ; preds = %302, %Min_SopAddCube.exit316.i
-  %303 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i), !range !15
+  %303 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
   %.not.i317.i = icmp eq i32 %303, 0
-  br i1 %.not.i317.i, label %.outer.i.backedge, label %302, !llvm.loop !16
+  br i1 %.not.i317.i, label %.outer.i.backedge, label %302, !llvm.loop !14
 
 .thread454.i:                                     ; preds = %Min_CoverContainsCube.exit309.thread.i, %.thread454.i
-  %304 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !15
+  %304 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i319.i = icmp eq i32 %304, 0
-  br i1 %.not.i319.i, label %Min_SopAddCube.exit320.i, label %.thread454.i, !llvm.loop !16
+  br i1 %.not.i319.i, label %Min_SopAddCube.exit320.i, label %.thread454.i, !llvm.loop !14
 
 Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_SopAddCube.exit320.i
-  %305 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i), !range !15
+  %305 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
   %.not.i321.i = icmp eq i32 %305, 0
-  br i1 %.not.i321.i, label %.outer.i.backedge, label %Min_SopAddCube.exit320.i, !llvm.loop !16
+  br i1 %.not.i321.i, label %.outer.i.backedge, label %Min_SopAddCube.exit320.i, !llvm.loop !14
 
 306:                                              ; preds = %.thread443.i
   br i1 %or.cond.i, label %307, label %308
@@ -769,7 +769,7 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
 346:                                              ; preds = %347
   %indvars.iv.next.i.i342.i = add nuw nsw i64 %indvars.iv.i.i333.i, 1
   %exitcond.not.i.i343.i = icmp eq i64 %indvars.iv.next.i.i342.i, %wide.trip.count.i.i332.i
-  br i1 %exitcond.not.i.i343.i, label %.critedge.i, label %347, !llvm.loop !12
+  br i1 %exitcond.not.i.i343.i, label %.critedge.i, label %347, !llvm.loop !11
 
 347:                                              ; preds = %346, %.lr.ph.i.i331.i
   %indvars.iv.i.i333.i = phi i64 [ 0, %.lr.ph.i.i331.i ], [ %indvars.iv.next.i.i342.i, %346 ]
@@ -784,12 +784,12 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
 Min_CubeIsContained.exit.i335.i:                  ; preds = %347, %339
   %.011.i336.i = load ptr, ptr %.01122.i328.i, align 8
   %.not13.i337.i = icmp eq ptr %.011.i336.i, null
-  br i1 %.not13.i337.i, label %._crit_edge.i338.i, label %339, !llvm.loop !13
+  br i1 %.not13.i337.i, label %._crit_edge.i338.i, label %339, !llvm.loop !12
 
 ._crit_edge.i338.i:                               ; preds = %Min_CubeIsContained.exit.i335.i, %336
   %indvars.iv.next.i339.i = add nuw nsw i64 %indvars.iv.i324.i, 1
   %exitcond.not.i340.i = icmp eq i64 %indvars.iv.next.i339.i, %wide.trip.count.i323.i
-  br i1 %exitcond.not.i340.i, label %Min_CoverContainsCube.exit344.i, label %336, !llvm.loop !14
+  br i1 %exitcond.not.i340.i, label %Min_CoverContainsCube.exit344.i, label %336, !llvm.loop !13
 
 Min_CoverContainsCube.exit344.i:                  ; preds = %._crit_edge.i338.i
   %353 = load i32, ptr %316, align 4
@@ -829,14 +829,14 @@ Min_CoverContainsCube.exit344.i:                  ; preds = %._crit_edge.i338.i
   br label %373
 
 373:                                              ; preds = %373, %.critedge.i
-  %374 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i), !range !15
+  %374 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
   %.not.i345.i = icmp eq i32 %374, 0
-  br i1 %.not.i345.i, label %.outer.i.backedge, label %373, !llvm.loop !16
+  br i1 %.not.i345.i, label %.outer.i.backedge, label %373, !llvm.loop !14
 
 375:                                              ; preds = %375, %Min_CoverContainsCube.exit344.i
-  %376 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i), !range !15
+  %376 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
   %.not.i347.i = icmp eq i32 %376, 0
-  br i1 %.not.i347.i, label %Min_SopAddCube.exit348.i, label %375, !llvm.loop !16
+  br i1 %.not.i347.i, label %Min_SopAddCube.exit348.i, label %375, !llvm.loop !14
 
 Min_SopAddCube.exit348.i:                         ; preds = %375
   %377 = load i32, ptr %2, align 8
@@ -844,9 +844,9 @@ Min_SopAddCube.exit348.i:                         ; preds = %375
   br i1 %.not251.i, label %379, label %.preheader.i
 
 .preheader.i:                                     ; preds = %Min_SopAddCube.exit348.i, %.preheader.i
-  %378 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i), !range !15
+  %378 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i)
   %.not.i349.i = icmp eq i32 %378, 0
-  br i1 %.not.i349.i, label %.outer.i.backedge, label %.preheader.i, !llvm.loop !16
+  br i1 %.not.i349.i, label %.outer.i.backedge, label %.preheader.i, !llvm.loop !14
 
 379:                                              ; preds = %Min_SopAddCube.exit348.i
   %380 = load ptr, ptr %.2.i, align 8
@@ -884,14 +884,14 @@ Min_SopAddCube.exit348.i:                         ; preds = %375
   br label %406
 
 406:                                              ; preds = %406, %379
-  %407 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i), !range !15
+  %407 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
   %.not.i351.i = icmp eq i32 %407, 0
-  br i1 %.not.i351.i, label %Min_SopAddCube.exit352.i, label %406, !llvm.loop !16
+  br i1 %.not.i351.i, label %Min_SopAddCube.exit352.i, label %406, !llvm.loop !14
 
 Min_SopAddCube.exit352.i:                         ; preds = %406, %Min_SopAddCube.exit352.i
-  %408 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i), !range !15
+  %408 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i)
   %.not.i353.i = icmp eq i32 %408, 0
-  br i1 %.not.i353.i, label %.outer.i.backedge, label %Min_SopAddCube.exit352.i, !llvm.loop !16
+  br i1 %.not.i353.i, label %.outer.i.backedge, label %Min_SopAddCube.exit352.i, !llvm.loop !14
 
 409:                                              ; preds = %310
   %410 = shl nuw i32 3, %.pre-phi60
@@ -940,7 +940,7 @@ Min_SopAddCube.exit352.i:                         ; preds = %406, %Min_SopAddCub
 430:                                              ; preds = %431
   %indvars.iv.next.i.i374.i = add nuw nsw i64 %indvars.iv.i.i365.i, 1
   %exitcond.not.i.i375.i = icmp eq i64 %indvars.iv.next.i.i374.i, %wide.trip.count.i.i364.i
-  br i1 %exitcond.not.i.i375.i, label %.loopexit.i, label %431, !llvm.loop !12
+  br i1 %exitcond.not.i.i375.i, label %.loopexit.i, label %431, !llvm.loop !11
 
 431:                                              ; preds = %430, %.lr.ph.i.i363.i
   %indvars.iv.i.i365.i = phi i64 [ 0, %.lr.ph.i.i363.i ], [ %indvars.iv.next.i.i374.i, %430 ]
@@ -955,12 +955,12 @@ Min_SopAddCube.exit352.i:                         ; preds = %406, %Min_SopAddCub
 Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
   %.011.i368.i = load ptr, ptr %.01122.i360.i, align 8
   %.not13.i369.i = icmp eq ptr %.011.i368.i, null
-  br i1 %.not13.i369.i, label %._crit_edge.i370.i, label %423, !llvm.loop !13
+  br i1 %.not13.i369.i, label %._crit_edge.i370.i, label %423, !llvm.loop !12
 
 ._crit_edge.i370.i:                               ; preds = %Min_CubeIsContained.exit.i367.i, %420
   %indvars.iv.next.i371.i = add nuw nsw i64 %indvars.iv.i356.i, 1
   %exitcond.not.i372.i = icmp eq i64 %indvars.iv.next.i371.i, %wide.trip.count.i355.i
-  br i1 %exitcond.not.i372.i, label %455, label %420, !llvm.loop !14
+  br i1 %exitcond.not.i372.i, label %455, label %420, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %424, %430
   store i32 %413, ptr %412, align 4
@@ -987,9 +987,9 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
   br label %453
 
 453:                                              ; preds = %453, %.loopexit.i
-  %454 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i), !range !15
+  %454 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
   %.not.i377.i = icmp eq i32 %454, 0
-  br i1 %.not.i377.i, label %.outer.i.backedge, label %453, !llvm.loop !16
+  br i1 %.not.i377.i, label %.outer.i.backedge, label %453, !llvm.loop !14
 
 455:                                              ; preds = %._crit_edge.i370.i
   store i32 %413, ptr %412, align 4
@@ -1025,14 +1025,14 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
   br label %481
 
 481:                                              ; preds = %481, %455
-  %482 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i), !range !15
+  %482 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
   %.not.i379.i = icmp eq i32 %482, 0
-  br i1 %.not.i379.i, label %Min_SopAddCube.exit380.i, label %481, !llvm.loop !16
+  br i1 %.not.i379.i, label %Min_SopAddCube.exit380.i, label %481, !llvm.loop !14
 
 Min_SopAddCube.exit380.i:                         ; preds = %481, %Min_SopAddCube.exit380.i
-  %483 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i), !range !15
+  %483 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i)
   %.not.i381.i = icmp eq i32 %483, 0
-  br i1 %.not.i381.i, label %.outer.i.backedge, label %Min_SopAddCube.exit380.i, !llvm.loop !16
+  br i1 %.not.i381.i, label %.outer.i.backedge, label %Min_SopAddCube.exit380.i, !llvm.loop !14
 
 Min_SopRewrite.exit:                              ; preds = %33
   %484 = load i32, ptr %2, align 8
@@ -1042,14 +1042,14 @@ Min_SopRewrite.exit:                              ; preds = %33
   %488 = sitofp i32 %10 to double
   %489 = fdiv double %487, %488
   %490 = fcmp ogt double %489, 3.000000e+00
-  br i1 %490, label %8, label %.loopexit, !llvm.loop !17
+  br i1 %490, label %8, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %Min_SopRewrite.exit, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Min_SopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Min_SopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1072,7 +1072,7 @@ define noundef i32 @Min_SopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) 
 Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
   %.072 = load ptr, ptr %.072154, align 8
   %.not = icmp eq ptr %.072, null
-  br i1 %.not, label %.preheader134, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not, label %.preheader134, label %.lr.ph.i, !llvm.loop !16
 
 .preheader134:                                    ; preds = %Min_CubesAreEqual.exit.loopexit, %2
   %.not180 = icmp ult i32 %6, 4194304
@@ -1091,7 +1091,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
 16:                                               ; preds = %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit135, label %17, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit135, label %17, !llvm.loop !17
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
@@ -1151,7 +1151,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
 36:                                               ; preds = %37
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i94
-  br i1 %exitcond.not.i98, label %.loopexit132, label %37, !llvm.loop !12
+  br i1 %exitcond.not.i98, label %.loopexit132, label %37, !llvm.loop !11
 
 37:                                               ; preds = %36, %.lr.ph.i93
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i97, %36 ]
@@ -1172,12 +1172,12 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
 Min_CubeIsContained.exit:                         ; preds = %37, %29
   %.173 = load ptr, ptr %.173157, align 8
   %.not86 = icmp eq ptr %.173, null
-  br i1 %.not86, label %._crit_edge, label %29, !llvm.loop !20
+  br i1 %.not86, label %._crit_edge, label %29, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %Min_CubeIsContained.exit, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !19
 
 .lr.ph.i99:                                       ; preds = %.lr.ph165, %Min_CubesDistOne.exit
   %.274164 = phi ptr [ %.274, %Min_CubesDistOne.exit ], [ %.072152, %.lr.ph165 ]
@@ -1207,19 +1207,19 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   %54 = lshr i32 %50, 1
   %55 = or i32 %54, %50
   %56 = and i32 %55, 1431655765
-  %57 = tail call i32 @llvm.ctpop.i32(i32 %56), !range !7
+  %57 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %56)
   %.not29.i = icmp ult i32 %57, 2
   br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
 
 58:                                               ; preds = %45
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i100
-  br i1 %exitcond.not.i104, label %._crit_edge.i, label %45, !llvm.loop !22
+  br i1 %exitcond.not.i104, label %._crit_edge.i, label %45, !llvm.loop !20
 
 .thread.i:                                        ; preds = %53
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not9.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i100
-  br i1 %exitcond.not9.i, label %.loopexit131, label %.outer.i, !llvm.loop !22
+  br i1 %exitcond.not9.i, label %.loopexit131, label %.outer.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %58
   br i1 %.not.i101, label %._crit_edge.thread.i, label %.loopexit131
@@ -1238,7 +1238,7 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
 Min_CubesDistOne.exit:                            ; preds = %52, %53
   %.274 = load ptr, ptr %.274164, align 8
   %.not78 = icmp eq ptr %.274, null
-  br i1 %.not78, label %._crit_edge166, label %.lr.ph.i99, !llvm.loop !23
+  br i1 %.not78, label %._crit_edge166, label %.lr.ph.i99, !llvm.loop !21
 
 .loopexit131:                                     ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
   %.069150 = phi ptr [ %.069151, %._crit_edge.thread.i ], [ %.069163, %._crit_edge.i ], [ %.069163, %.thread.i ]
@@ -1266,7 +1266,7 @@ Min_CubesDistOne.exit:                            ; preds = %52, %53
   store i32 %71, ptr %69, align 4
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i107
-  br i1 %exitcond.not.i110, label %Min_CubesTransformOr.exit, label %66, !llvm.loop !24
+  br i1 %exitcond.not.i110, label %Min_CubesTransformOr.exit, label %66, !llvm.loop !22
 
 Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
   %72 = and i32 %62, -4194304
@@ -1306,7 +1306,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
   %88 = and i32 %87, 1023
   %89 = zext nneg i32 %88 to i64
   %.not79.not = icmp ult i64 %indvars.iv.next194, %89
-  br i1 %.not79.not, label %90, label %._crit_edge179.loopexit, !llvm.loop !25
+  br i1 %.not79.not, label %90, label %._crit_edge179.loopexit, !llvm.loop !23
 
 90:                                               ; preds = %.lr.ph178, %.loopexit130
   %91 = phi i32 [ %6, %.lr.ph178 ], [ %87, %.loopexit130 ]
@@ -1341,7 +1341,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
 102:                                              ; preds = %103
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i114
-  br i1 %exitcond.not.i120, label %.loopexit, label %103, !llvm.loop !12
+  br i1 %exitcond.not.i120, label %.loopexit, label %103, !llvm.loop !11
 
 103:                                              ; preds = %102, %.lr.ph.i113
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i113 ], [ %indvars.iv.next.i119, %102 ]
@@ -1366,7 +1366,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
 Min_CubeIsContained.exit121:                      ; preds = %103, %.lr.ph173, %.loopexit
   %.2 = phi ptr [ %.170171, %.loopexit ], [ %.071170.sink, %.lr.ph173 ], [ %.071170.sink, %103 ]
   %.not84 = icmp eq ptr %95, null
-  br i1 %.not84, label %.loopexit130.loopexit, label %.lr.ph173, !llvm.loop !26
+  br i1 %.not84, label %.loopexit130.loopexit, label %.lr.ph173, !llvm.loop !24
 
 ._crit_edge179.loopexit:                          ; preds = %.loopexit130
   %.pre195 = load ptr, ptr %3, align 8
@@ -1399,9 +1399,9 @@ define void @Min_SopAddCube(ptr nocapture noundef %0, ptr noundef %1) local_unna
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef %1), !range !15
+  %4 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %3, !llvm.loop !16
+  br i1 %.not, label %5, label %3, !llvm.loop !14
 
 5:                                                ; preds = %3
   ret void
@@ -1428,7 +1428,7 @@ define void @Min_SopContain(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %6 = phi i32 [ %48, %.loopexit60.loopexit ], [ %27, %._crit_edge ]
   %.not.not = icmp slt i64 %indvars.iv87, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not.not, label %7, label %._crit_edge83, !llvm.loop !27
+  br i1 %.not.not, label %7, label %._crit_edge83, !llvm.loop !25
 
 7:                                                ; preds = %.lr.ph82, %.loopexit60
   %8 = phi i32 [ %2, %.lr.ph82 ], [ %6, %.loopexit60 ]
@@ -1443,7 +1443,7 @@ define void @Min_SopContain(ptr nocapture noundef %0) local_unnamed_addr #0 {
 .loopexit59:                                      ; preds = %Min_CubesAreEqual.exit
   %.040.pre = load ptr, ptr %.04067, align 8
   %.not41 = icmp eq ptr %.040.pre, null
-  br i1 %.not41, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %.not41, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %7, %.loopexit59
   %.04067 = phi ptr [ %.040.pre, %.loopexit59 ], [ %.04065, %7 ]
@@ -1473,7 +1473,7 @@ define void @Min_SopContain(ptr nocapture noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit58, label %19, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit58, label %19, !llvm.loop !17
 
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
@@ -1497,7 +1497,7 @@ define void @Min_SopContain(ptr nocapture noundef %0) local_unnamed_addr #0 {
 Min_CubesAreEqual.exit:                           ; preds = %19, %.loopexit58
   %.038 = load ptr, ptr %.03864, align 8
   %.not45 = icmp eq ptr %.038, null
-  br i1 %.not45, label %.loopexit59, label %13, !llvm.loop !29
+  br i1 %.not45, label %.loopexit59, label %13, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.preheader, %.loopexit59
   %.pre = load i32, ptr %0, align 8
@@ -1541,7 +1541,7 @@ Min_CubesAreEqual.exit:                           ; preds = %19, %.loopexit58
 37:                                               ; preds = %38
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i49
-  br i1 %exitcond.not.i53, label %.loopexit, label %38, !llvm.loop !12
+  br i1 %exitcond.not.i53, label %.loopexit, label %38, !llvm.loop !11
 
 38:                                               ; preds = %37, %.lr.ph.i48
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i52, %37 ]
@@ -1568,7 +1568,7 @@ Min_CubeIsContained.exit:                         ; preds = %38, %.loopexit
   %47 = phi i32 [ %.pre91, %.loopexit ], [ %33, %38 ]
   %.139 = load ptr, ptr %.13971, align 8
   %.not43 = icmp eq ptr %.139, null
-  br i1 %.not43, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !30
+  br i1 %.not43, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !28
 
 ._crit_edge74.loopexit:                           ; preds = %Min_CubeIsContained.exit
   %.pre93 = load i32, ptr %0, align 8
@@ -1578,9 +1578,9 @@ Min_CubeIsContained.exit:                         ; preds = %38, %.loopexit
   %48 = phi i32 [ %.pre93, %._crit_edge74.loopexit ], [ %29, %.lr.ph78 ]
   %49 = phi i32 [ %.pre93, %._crit_edge74.loopexit ], [ %30, %.lr.ph78 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %50 = trunc i64 %indvars.iv84 to i32
+  %50 = trunc nuw i64 %indvars.iv84 to i32
   %.not42.not = icmp sgt i32 %49, %50
-  br i1 %.not42.not, label %.lr.ph78, label %.loopexit60.loopexit, !llvm.loop !31
+  br i1 %.not42.not, label %.lr.ph78, label %.loopexit60.loopexit, !llvm.loop !29
 
 ._crit_edge83:                                    ; preds = %.loopexit60, %1
   ret void
@@ -1611,7 +1611,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
 .loopexit31:                                      ; preds = %Min_CubesDistOne.exit
   %.021.pre = load ptr, ptr %.02142, align 8
   %.not = icmp eq ptr %.021.pre, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %9, %.loopexit31
   %.02142 = phi ptr [ %.021.pre, %.loopexit31 ], [ %.02140, %9 ]
@@ -1659,19 +1659,19 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %28 = lshr i32 %24, 1
   %29 = or i32 %28, %24
   %30 = and i32 %29, 1431655765
-  %31 = tail call i32 @llvm.ctpop.i32(i32 %30), !range !7
+  %31 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %30)
   %.not29.i = icmp ult i32 %31, 2
   br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
 
 32:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !20
 
 .thread.i:                                        ; preds = %27
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not9.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i
-  br i1 %exitcond.not9.i, label %.loopexit, label %.outer.i, !llvm.loop !22
+  br i1 %exitcond.not9.i, label %.loopexit, label %.outer.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %32
   br i1 %.not.i, label %._crit_edge.thread.i, label %.loopexit
@@ -1727,7 +1727,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %60 = load i32, ptr %6, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i28, %61
-  br i1 %62, label %53, label %._crit_edge.i25, !llvm.loop !33
+  br i1 %62, label %53, label %._crit_edge.i25, !llvm.loop !31
 
 ._crit_edge.i25:                                  ; preds = %53, %.loopexit
   %63 = and i32 %43, 4095
@@ -1755,12 +1755,12 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %spec.select.i.i = add nsw i32 %71, %.114.i.i
   %72 = add nuw nsw i32 %.01215.i.i, 2
   %73 = icmp ult i32 %.01215.i.i, 30
-  br i1 %73, label %69, label %74, !llvm.loop !34
+  br i1 %73, label %69, label %74, !llvm.loop !32
 
 74:                                               ; preds = %69
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Min_CubeCountLits.exit.loopexit.i, label %64, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %Min_CubeCountLits.exit.loopexit.i, label %64, !llvm.loop !33
 
 Min_CubeCountLits.exit.loopexit.i:                ; preds = %74
   %75 = shl i32 %spec.select.i.i, 22
@@ -1787,12 +1787,12 @@ Min_CubesXor.exit:                                ; preds = %._crit_edge.i25, %M
 Min_CubesDistOne.exit:                            ; preds = %27, %26, %Min_CubesXor.exit
   %.022 = load ptr, ptr %.02238, align 8
   %.not23 = icmp eq ptr %.022, null
-  br i1 %.not23, label %.loopexit31, label %14, !llvm.loop !36
+  br i1 %.not23, label %.loopexit31, label %14, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.loopexit31, %.preheader, %9
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %86 = icmp sgt i64 %indvars.iv, 0
-  br i1 %86, label %9, label %._crit_edge46, !llvm.loop !37
+  br i1 %86, label %9, label %._crit_edge46, !llvm.loop !35
 
 ._crit_edge46:                                    ; preds = %._crit_edge, %1
   ret void
@@ -1867,7 +1867,7 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly %1) local_unn
 33:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %34, !llvm.loop !38
+  br i1 %exitcond.not.i, label %.loopexit, label %34, !llvm.loop !36
 
 34:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
@@ -1987,7 +1987,7 @@ Vec_IntPush.exit.i:                               ; preds = %86, %Vec_IntGrow.ex
 92:                                               ; preds = %Vec_IntPush.exit.i, %59
   %93 = add nuw nsw i32 %.02022.i, 2
   %94 = icmp ult i32 %.02022.i, 30
-  br i1 %94, label %59, label %.loopexit.loopexit.i, !llvm.loop !39
+  br i1 %94, label %59, label %.loopexit.loopexit.i, !llvm.loop !37
 
 .loopexit.loopexit.i:                             ; preds = %92
   %.pre.i = load i32, ptr %26, align 8
@@ -2000,7 +2000,7 @@ Vec_IntPush.exit.i:                               ; preds = %86, %Vec_IntGrow.ex
   %97 = and i32 %96, 4095
   %98 = zext nneg i32 %97 to i64
   %99 = icmp ult i64 %indvars.iv.next.i55, %98
-  br i1 %99, label %.lr.ph.i52, label %Min_CoverGetDisjVars.exit, !llvm.loop !40
+  br i1 %99, label %.lr.ph.i52, label %Min_CoverGetDisjVars.exit, !llvm.loop !38
 
 Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %.val.pre = load i32, ptr %5, align 4
@@ -2064,7 +2064,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %140 = load i32, ptr %17, align 4
   %141 = sext i32 %140 to i64
   %142 = shl nsw i64 %141, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %136, ptr nonnull align 4 %114, i64 %142, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %136, ptr nonnull readonly align 4 %114, i64 %142, i1 false)
   %143 = getelementptr inbounds i8, ptr %.0446382, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, -4194304
@@ -2112,12 +2112,12 @@ Min_CubesDisjoint.exit:                           ; preds = %Min_CubesDisjoint.e
   %.046 = phi ptr [ %43, %.critedge ], [ %.046.pre, %Min_CubesDisjoint.exit.loopexit ]
   %.147 = phi ptr [ %.044.lcssa, %.critedge ], [ %.04670, %Min_CubesDisjoint.exit.loopexit ]
   %.not49 = icmp eq ptr %.046, null
-  br i1 %.not49, label %._crit_edge, label %27, !llvm.loop !41
+  br i1 %.not49, label %._crit_edge, label %27, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %Min_CubesDisjoint.exit, %.preheader
   %169 = load ptr, ptr %.04373, align 8
   %.not = icmp eq ptr %169, null
-  br i1 %.not, label %._crit_edge74.loopexit75, label %.preheaderthread-pre-split, !llvm.loop !42
+  br i1 %.not, label %._crit_edge74.loopexit75, label %.preheaderthread-pre-split, !llvm.loop !40
 
 ._crit_edge74.loopexit75:                         ; preds = %._crit_edge
   %.pre = load ptr, ptr %7, align 8
@@ -2176,7 +2176,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge74, %171
 Min_CubesAreEqual.exit.loopexit.i:                ; preds = %193
   %.0.i = load ptr, ptr %.040.i, align 8
   %.not31.i = icmp eq ptr %.0.i, null
-  br i1 %.not31.i, label %.critedge.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not31.i, label %.critedge.i, label %.lr.ph.i.i, !llvm.loop !42
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i57, %Min_CubesAreEqual.exit.loopexit.i
   %.040.i = phi ptr [ %.0.i, %Min_CubesAreEqual.exit.loopexit.i ], [ %.038.i, %.lr.ph.i57 ]
@@ -2186,7 +2186,7 @@ Min_CubesAreEqual.exit.loopexit.i:                ; preds = %193
 192:                                              ; preds = %193
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i58, label %193, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %.loopexit.i58, label %193, !llvm.loop !17
 
 193:                                              ; preds = %192, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %192 ]
@@ -2214,7 +2214,7 @@ Min_CubesAreEqual.exit.loopexit.i:                ; preds = %193
 
 202:                                              ; preds = %.critedge.i, %.loopexit.i58
   %.not33.i = icmp eq ptr %.02842.i, null
-  br i1 %.not33.i, label %Min_CoverExpandRemoveEqual.exit, label %181, !llvm.loop !45
+  br i1 %.not33.i, label %Min_CoverExpandRemoveEqual.exit, label %181, !llvm.loop !43
 
 Min_CoverExpandRemoveEqual.exit:                  ; preds = %202, %173
   tail call void @Min_SopDist1Merge(ptr noundef nonnull %0)
@@ -2227,7 +2227,7 @@ Min_CoverExpandRemoveEqual.exit:                  ; preds = %202, %173
 declare ptr @Min_CoverCollect(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Min_SopCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Min_SopCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #9
@@ -2299,7 +2299,7 @@ define noundef i32 @Min_SopCheck(ptr nocapture noundef readonly %0) local_unname
 37:                                               ; preds = %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %38, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.loopexit, label %38, !llvm.loop !11
 
 38:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
@@ -2314,12 +2314,12 @@ define noundef i32 @Min_SopCheck(ptr nocapture noundef readonly %0) local_unname
 Min_CubeIsContained.exit:                         ; preds = %38, %30
   %.024 = load ptr, ptr %.02435, align 8
   %.not26 = icmp eq ptr %.024, null
-  br i1 %.not26, label %._crit_edge, label %30, !llvm.loop !46
+  br i1 %.not26, label %._crit_edge, label %30, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %Min_CubeIsContained.exit, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !45
 
 .loopexit:                                        ; preds = %._crit_edge, %31, %37, %1
   %.025 = phi i32 [ 0, %1 ], [ 1, %37 ], [ 1, %31 ], [ 0, %._crit_edge ]
@@ -2385,7 +2385,7 @@ attributes #11 = { nounwind allocsize(1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 17}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -2393,7 +2393,7 @@ attributes #11 = { nounwind allocsize(1) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 2}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
@@ -2418,11 +2418,9 @@ attributes #11 = { nounwind allocsize(1) }
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5, !43}
-!43 = !{!"llvm.loop.unswitch.partial.disable"}
+!40 = distinct !{!40, !5, !41}
+!41 = !{!"llvm.loop.unswitch.partial.disable"}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}

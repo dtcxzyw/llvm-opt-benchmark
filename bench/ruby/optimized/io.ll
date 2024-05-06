@@ -2995,7 +2995,7 @@ io_read_encoding.exit110:                         ; preds = %30, %32
   br i1 %.not.i111, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %io_read_encoding.exit110
-  %35 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.0.i109) #29
+  %35 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0.i109) #29
   %.not3.i = icmp eq i32 %35, 0
   br i1 %.not3.i, label %36, label %rb_enc_asciicompat.exit.thread
 
@@ -3032,7 +3032,7 @@ io_read_encoding.exit115:                         ; preds = %rb_enc_asciicompat.
   br i1 %.not.i117, label %rb_enc_asciicompat.exit120, label %rb_enc_asciicompat.exit120.thread
 
 rb_enc_asciicompat.exit120:                       ; preds = %46
-  %48 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.0.i114) #29
+  %48 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0.i114) #29
   %.not3.i119 = icmp eq i32 %48, 0
   br i1 %.not3.i119, label %RSTRING_PTR.exit124, label %rb_enc_asciicompat.exit120.thread
 
@@ -3337,7 +3337,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %RSTRING_PTR.exit126
   %188 = load i32, ptr %80, align 4
   %189 = sext i32 %188 to i64
   %190 = getelementptr i8, ptr %187, i64 %189
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %182, ptr align 1 %190, i64 %186, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %182, ptr align 1 %190, i64 %186, i1 false)
   %191 = load i32, ptr %80, align 4
   %192 = add i32 %191, %spec.select.i.i
   store i32 %192, ptr %80, align 4
@@ -4888,7 +4888,7 @@ define dso_local i32 @rb_io_modestr_fmode(ptr noundef %0) local_unnamed_addr #0 
   br i1 %29, label %io_encname_bom_p.exit, label %io_encname_bom_p.exit.thread
 
 io_encname_bom_p.exit:                            ; preds = %27
-  %30 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %.us-phi, ptr noundef nonnull @bom_prefix, i64 noundef 4) #29
+  %30 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef readonly %.us-phi, ptr noundef nonnull @bom_prefix, i64 noundef 4) #29
   %.fr = freeze i32 %30
   %.not32 = icmp eq i32 %.fr, 0
   %31 = or i32 %.us-phi40, 1048576
@@ -5243,7 +5243,7 @@ define internal fastcc void @parse_mode_enc(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %23, label %io_encname_bom_p.exit, label %io_encname_bom_p.exit.thread
 
 io_encname_bom_p.exit:                            ; preds = %22
-  %24 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %0, ptr noundef nonnull @bom_prefix, i64 noundef 4) #29
+  %24 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @bom_prefix, i64 noundef 4) #29
   %.not70 = icmp eq i32 %24, 0
   br i1 %.not70, label %25, label %io_encname_bom_p.exit.thread
 
@@ -5277,7 +5277,7 @@ io_encname_bom_p.exit.thread:                     ; preds = %22, %29, %31, %io_e
   br i1 %.not63, label %37, label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %.051, i64 %.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr readonly align 1 %.051, i64 %.0, i1 false)
   %36 = getelementptr [43 x i8], ptr %6, i64 0, i64 %.0
   store i8 0, ptr %36, align 1
   br label %37
@@ -5845,7 +5845,7 @@ thread-pre-split:                                 ; preds = %182, %._crit_edge
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %195
-  %198 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %196) #29
+  %198 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %196) #29
   %.not3.i.i = icmp eq i32 %198, 0
   br i1 %.not3.i.i, label %.thread.i, label %rb_enc_asciicompat.exit.thread.i
 
@@ -6014,7 +6014,7 @@ declare i32 @rb_econv_prepare_options(i64 noundef, ptr noundef, i32 noundef) loc
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call noalias noundef ptr @fdopen(i32 noundef %0, ptr noundef %1) #24
+  %3 = tail call noalias noundef ptr @fdopen(i32 noundef %0, ptr noundef readonly %1) #24
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.critedge
 
@@ -6029,7 +6029,7 @@ define dso_local noalias noundef nonnull ptr @rb_fdopen(i32 noundef %0, ptr noca
 
 7:                                                ; preds = %4, %4, %4
   tail call void @rb_gc() #24
-  %8 = tail call noalias noundef ptr @fdopen(i32 noundef %0, ptr noundef %1) #24
+  %8 = tail call noalias noundef ptr @fdopen(i32 noundef %0, ptr noundef readonly %1) #24
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %rb_gc_for_fd.exit.thread, label %.critedge
 
@@ -8186,7 +8186,7 @@ switch.lookup:                                    ; preds = %4
 
 rb_io_oflags_modestr.exit:                        ; preds = %switch.lookup, %11, %12, %13
   %.0.i = phi ptr [ @.str.210, %12 ], [ @.str.21, %11 ], [ %.str.212..str.211.i, %13 ], [ %switch.load, %switch.lookup ]
-  %16 = tail call noalias noundef ptr @fdopen(i32 noundef %9, ptr noundef nonnull %.0.i) #24
+  %16 = tail call noalias noundef ptr @fdopen(i32 noundef %9, ptr noundef nonnull readonly %.0.i) #24
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %rb_fdopen.exit
 
@@ -8201,7 +8201,7 @@ rb_io_oflags_modestr.exit:                        ; preds = %switch.lookup, %11,
 
 20:                                               ; preds = %17, %17, %17
   tail call void @rb_gc() #24
-  %21 = tail call noalias noundef ptr @fdopen(i32 noundef %9, ptr noundef nonnull %.0.i) #24
+  %21 = tail call noalias noundef ptr @fdopen(i32 noundef %9, ptr noundef nonnull readonly %.0.i) #24
   %.not9.i6 = icmp eq ptr %21, null
   br i1 %.not9.i6, label %rb_gc_for_fd.exit.thread.i, label %rb_fdopen.exit
 
@@ -13948,7 +13948,7 @@ read_buffered_data.exit:                          ; preds = %.preheader, %173
   %160 = load i32, ptr %118, align 4
   %161 = sext i32 %160 to i64
   %162 = getelementptr i8, ptr %159, i64 %161
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.091151, ptr align 1 %162, i64 %158, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.091151, ptr align 1 %162, i64 %158, i1 false)
   %163 = add i32 %160, %spec.select.i
   store i32 %163, ptr %118, align 4
   %164 = sub i32 %157, %spec.select.i
@@ -21709,7 +21709,7 @@ define internal noundef i64 @rb_file_initialize(i32 noundef %0, ptr noundef %1, 
   %29 = load ptr, ptr %10, align 8
   store volatile i64 %28, ptr %29, align 8
   %30 = load i64, ptr %4, align 8
-  call void @rb_io_extract_modeenc(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %30, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  call void @rb_io_extract_modeenc(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %30, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull writeonly %11)
   %31 = load i64, ptr %7, align 8
   %32 = icmp eq i64 %31, 4
   br i1 %32, label %rb_open_file.exit, label %33
@@ -21927,7 +21927,7 @@ read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %85, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.2.0.i, ptr align 1 %89, i64 %83, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.sroa.2.0.i, ptr align 1 %89, i64 %83, i1 false)
   %90 = load i32, ptr %86, align 4
   %91 = add i32 %90, %spec.select.i
   store i32 %91, ptr %86, align 4
@@ -23973,7 +23973,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %RSTRING_PTR.exit
   %56 = load ptr, ptr %6, align 4
   %57 = sext i32 %.pre to i64
   %58 = getelementptr i8, ptr %56, i64 %57
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %54, ptr align 1 %58, i64 %55, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %54, ptr align 1 %58, i64 %55, i1 false)
   %59 = load i32, ptr %7, align 4
   %60 = add i32 %59, %spec.select.i
   %61 = load i32, ptr %5, align 4
@@ -24822,7 +24822,7 @@ read_buffered_data.exit.i:                        ; preds = %40
   %49 = load i32, ptr %38, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %48, i64 %50
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %43, ptr align 1 %51, i64 %47, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %43, ptr align 1 %51, i64 %47, i1 false)
   %52 = load i32, ptr %38, align 4
   %53 = add i32 %52, %spec.select.i.i
   store i32 %53, ptr %38, align 4
@@ -25515,7 +25515,7 @@ thread-pre-split:                                 ; preds = %6
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %33
-  %36 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %34) #29
+  %36 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %34) #29
   %.not3.i.i = icmp eq i32 %36, 0
   br i1 %.not3.i.i, label %validate_enc_binmode.exit, label %rb_enc_asciicompat.exit.thread.i
 
@@ -26106,7 +26106,7 @@ rb_io_ext_int_to_encs.exit:                       ; preds = %55, %57
   br i1 %.not.i30, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %62
-  %65 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %63) #29
+  %65 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %63) #29
   %.not3.i = icmp eq i32 %65, 0
   br i1 %.not3.i, label %66, label %rb_enc_asciicompat.exit.thread
 
@@ -26207,7 +26207,7 @@ thread-pre-split:                                 ; preds = %RSTRING_PTR.exit34,
   br i1 %.not.i.i44, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %97
-  %100 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %98) #29
+  %100 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %98) #29
   %.not3.i.i = icmp eq i32 %100, 0
   br i1 %.not3.i.i, label %.thread.i, label %rb_enc_asciicompat.exit.thread.i
 
@@ -26828,7 +26828,7 @@ io_allocate_write_buffer.exit.i:                  ; preds = %75, %70
   %94 = load ptr, ptr %90, align 8
   %95 = load ptr, ptr %58, align 8
   %96 = getelementptr i8, ptr %95, i64 %.04359.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %94, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %96, ptr readonly align 1 %94, i64 %92, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %93, %.lr.ph61.i
@@ -27112,7 +27112,7 @@ make_writeconv.exit:                              ; preds = %.make_writeconv.exi
   br i1 %.not.i40, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %85
-  %88 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %86) #29
+  %88 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %86) #29
   %.not3.i = icmp eq i32 %88, 0
   br i1 %.not3.i, label %.thread, label %rb_enc_asciicompat.exit.thread
 
@@ -28783,7 +28783,7 @@ io_read_encoding.exit:                            ; preds = %rb_io_check_closed.
   br i1 %.not.i19, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %38
-  %40 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.0.i) #29
+  %40 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0.i) #29
   %.not3.i = icmp eq i32 %40, 0
   br i1 %.not3.i, label %50, label %rb_enc_asciicompat.exit.thread
 
@@ -29917,7 +29917,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %RSTRING_PTR.exit
   %222 = load i32, ptr %221, align 4
   %223 = sext i32 %222 to i64
   %224 = getelementptr i8, ptr %220, i64 %223
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.2.0.i, ptr align 1 %224, i64 %218, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.sroa.2.0.i, ptr align 1 %224, i64 %218, i1 false)
   %225 = load i32, ptr %221, align 4
   %226 = add i32 %225, %spec.select.i
   store i32 %226, ptr %221, align 4
@@ -30681,7 +30681,7 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %206, %164, %124
   %274 = load ptr, ptr %254, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load i32, ptr %275, align 8
-  %277 = call i64 @write(i32 noundef %276, ptr noundef %273, i64 noundef %.020.ph42.i.i) #24
+  %277 = call i64 @write(i32 noundef %276, ptr noundef readonly %273, i64 noundef %.020.ph42.i.i) #24
   %278 = icmp slt i64 %277, 0
   br i1 %278, label %.lr.ph39.i.i, label %.outer.i.i
 
@@ -30792,7 +30792,7 @@ nogvl_copy_stream_write.exit.thread.i:            ; preds = %304
   %319 = load ptr, ptr %254, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 16
   %321 = load i32, ptr %320, align 8
-  %322 = call i64 @write(i32 noundef %321, ptr noundef %273, i64 noundef %.020.ph42.i.i) #24
+  %322 = call i64 @write(i32 noundef %321, ptr noundef readonly %273, i64 noundef %.020.ph42.i.i) #24
   %323 = icmp slt i64 %322, 0
   br i1 %323, label %.lr.ph39.i.i, label %.outer.i.i
 
@@ -31792,7 +31792,7 @@ io_shift_cbuf.exit107:                            ; preds = %112, %.sink.split.i
   br i1 %.not.i108, label %rb_enc_asciicompat.exit, label %io_shift_cbuf.exit
 
 rb_enc_asciicompat.exit:                          ; preds = %122
-  %124 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.0.i) #29
+  %124 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0.i) #29
   %.not3.i = icmp eq i32 %124, 0
   br i1 %.not3.i, label %125, label %io_shift_cbuf.exit
 
@@ -31848,7 +31848,7 @@ io_enc_str.exit:                                  ; preds = %io_shift_cbuf.exit,
   br i1 %.not.i113, label %rb_enc_asciicompat.exit116, label %rb_enc_asciicompat.exit116.thread
 
 rb_enc_asciicompat.exit116:                       ; preds = %144
-  %146 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %1) #29
+  %146 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %1) #29
   %.not3.i115 = icmp eq i32 %146, 0
   br i1 %.not3.i115, label %147, label %rb_enc_asciicompat.exit116.thread
 
@@ -32444,7 +32444,7 @@ read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr i8, ptr %97, i64 %100
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.2.0.i, ptr align 1 %101, i64 %95, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.sroa.2.0.i, ptr align 1 %101, i64 %95, i1 false)
   %102 = load i32, ptr %98, align 4
   %103 = add i32 %102, %spec.select.i
   store i32 %103, ptr %98, align 4

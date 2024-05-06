@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @htmlparse() local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.HTMLSTYPE], align 16
   store i32 -2, ptr @htmlchar, align 4
@@ -71,7 +71,7 @@ define noundef i32 @htmlparse() local_unnamed_addr #0 {
   %.0172 = phi i64 [ 200, %0 ], [ %.1173, %3 ]
   %.1170 = phi i32 [ 0, %0 ], [ %.0169, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc i32 %.1 to i8
+  %6 = trunc nsw i32 %.1 to i8
   store i8 %6, ptr %.1178, align 1
   %7 = getelementptr inbounds i8, ptr %.0174, i64 %.0172
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
@@ -341,7 +341,7 @@ gv_alloc.exit.i:                                  ; preds = %107
 
 agxblen.exit.i.i:                                 ; preds = %gv_alloc.exit.i
   %115 = zext i8 %.val.i.i to i64
-  %116 = call noalias ptr @strndup(ptr noundef nonnull %108, i64 noundef %115) #16
+  %116 = call noalias ptr @strndup(ptr noundef nonnull readonly %108, i64 noundef %115) #16
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %appendFItemList.exit
 
@@ -1363,7 +1363,7 @@ define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr no
   br i1 %.not, label %17, label %21
 
 17:                                               ; preds = %3
-  %18 = call i32 @htmlparse(), !range !4
+  %18 = call i32 @htmlparse()
   %19 = call i32 @clearHTMLlexer() #16
   %20 = load ptr, ptr @HTMLstate.0, align 8
   br label %21
@@ -1716,4 +1716,3 @@ attributes #21 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

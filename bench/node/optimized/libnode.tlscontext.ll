@@ -4846,7 +4846,7 @@ declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) lo
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node4quic12_GLOBAL__N_121AlpnSelectionCallbackEP6ssl_stPPKhPhS5_jPv(ptr noundef %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #4 {
+define internal noundef range(i32 0, 4) i32 @_ZN4node4quic12_GLOBAL__N_121AlpnSelectionCallbackEP6ssl_stPPKhPhS5_jPv(ptr noundef %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #4 {
 entry:
   %requested = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #18

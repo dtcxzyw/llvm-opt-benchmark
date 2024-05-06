@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tpm_backend_init(ptr nocapture noundef %s, ptr noundef %tpmif, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @tpm_backend_init(ptr nocapture noundef %s, ptr noundef %tpmif, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tpmif1 = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load ptr, ptr %tpmif1, align 8
@@ -160,7 +160,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @thread_pool_submit_aio(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_backend_worker_thread(ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @tpm_backend_worker_thread(ptr noundef %data) #0 {
 entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %data, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND) #4

@@ -127,7 +127,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   tail call fastcc void @RTreeClose2(ptr noundef nonnull %7)
   %9 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %9) #7
-  %10 = trunc i64 %indvars.iv26 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv26 to i32
   tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %10) #7
   br label %11
 
@@ -144,7 +144,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %.preheader20
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %15) #7
   br label %16
 
@@ -241,7 +241,7 @@ RTreeLeafListAdd.exit:                            ; preds = %25, %27
 declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.Branch, align 8
   store ptr null, ptr %6, align 8

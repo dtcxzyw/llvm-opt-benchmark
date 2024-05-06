@@ -151,7 +151,7 @@ define dso_local { i64, ptr } @_Z25cmFileSetVisibilityToName19cmFileSetVisibilit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z27cmFileSetVisibilityFromNameSt17basic_string_viewIcSt11char_traitsIcEEP10cmMakefile(i64 %0, ptr %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z27cmFileSetVisibilityFromNameSt17basic_string_viewIcSt11char_traitsIcEEP10cmMakefile(i64 %0, ptr %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i64 %0, label %.thread31 [

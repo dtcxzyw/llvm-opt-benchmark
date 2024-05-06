@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_cond_wait_func = external local_unnamed_addr global ptr, align 8
 @.str.4 = private unnamed_addr constant [12 x i8] c"qemu:%s: %s\00", align 1
 @__func__.cpus_kick_thread = private unnamed_addr constant [17 x i8] c"cpus_kick_thread\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [12 x i8] c"current_cpu\00", align 1
 @__PRETTY_FUNCTION__.qemu_cpu_kick_self = private unnamed_addr constant [30 x i8] c"void qemu_cpu_kick_self(void)\00", align 1
 @__func__.qemu_mutex_lock_iothread_impl = private unnamed_addr constant [30 x i8] c"qemu_mutex_lock_iothread_impl\00", align 1
@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [27 x i8] c"Failed to re-raise SIGBUS!\00", align 1
 @__func__.qemu_cpu_stop = private unnamed_addr constant [14 x i8] c"qemu_cpu_stop\00", align 1
 @.str.23 = private unnamed_addr constant [22 x i8] c"qemu_cpu_is_self(cpu)\00", align 1
-@co_tls_iothread_locked = internal thread_local global i8 0, align 1
+@co_tls_iothread_locked = internal thread_local unnamed_addr global i8 0, align 1
 @.str.24 = private unnamed_addr constant [8 x i8] c"machine\00", align 1
 @.str.25 = private unnamed_addr constant [98 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/boards.h\00", align 1
 @__func__.MACHINE = private unnamed_addr constant [8 x i8] c"MACHINE\00", align 1
@@ -1533,7 +1533,7 @@ declare void @qemu_system_vmstop_request_prepare() local_unnamed_addr #1
 declare void @qemu_system_vmstop_request(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vm_prepare_start(i1 noundef zeroext %step_pending) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vm_prepare_start(i1 noundef zeroext %step_pending) local_unnamed_addr #0 {
 entry:
   %requested = alloca i32, align 4
   %call = call zeroext i1 @qemu_vmstop_requested(ptr noundef nonnull %requested) #15
@@ -1590,7 +1590,7 @@ declare void @vm_state_notify(i1 noundef zeroext, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vm_start() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @vm_prepare_start(i1 noundef zeroext false), !range !40
+  %call = tail call i32 @vm_prepare_start(i1 noundef zeroext false)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -1763,7 +1763,7 @@ if.end30:                                         ; preds = %if.end22
   %add = add i64 %conv17, %addr.addr.022
   %sub = sub i64 %size.addr.021, %conv17
   %cmp9.not = icmp eq i64 %sub, 0
-  br i1 %cmp9.not, label %exit, label %while.body, !llvm.loop !41
+  br i1 %cmp9.not, label %exit, label %while.body, !llvm.loop !40
 
 exit:                                             ; preds = %if.end30, %while.cond.preheader, %if.then29, %if.then21
   %call33 = call i32 @fclose(ptr noundef nonnull %call4)
@@ -1829,7 +1829,7 @@ if.end15:                                         ; preds = %while.body
   %add = add i64 %conv7, %addr.addr.016
   %sub = sub i64 %size.addr.015, %conv7
   %cmp.not = icmp eq i64 %sub, 0
-  br i1 %cmp.not, label %exit, label %while.body, !llvm.loop !42
+  br i1 %cmp.not, label %exit, label %while.body, !llvm.loop !41
 
 exit:                                             ; preds = %if.end15, %while.cond.preheader, %if.then14
   %call18 = call i32 @fclose(ptr noundef nonnull %call)
@@ -2045,6 +2045,5 @@ attributes #18 = { nounwind willreturn memory(none) }
 !37 = !{i64 2152646218}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
-!40 = !{i32 -1, i32 1}
+!40 = distinct !{!40, !8}
 !41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}

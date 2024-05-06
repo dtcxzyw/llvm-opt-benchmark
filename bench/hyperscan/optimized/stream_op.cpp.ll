@@ -2946,7 +2946,7 @@ declare noundef i32 @_Z9record_cbjyyjPv(i32 noundef, i64 noundef, i64 noundef, i
 declare i32 @hs_reset_stream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_110record_cb2EjyyjPv(i32 noundef %id, i64 %0, i64 noundef %to, i32 %1, ptr nocapture noundef %ctxt) #8 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_110record_cb2EjyyjPv(i32 noundef %id, i64 %0, i64 noundef %to, i32 %1, ptr nocapture noundef %ctxt) #8 personality ptr @__gxx_personality_v0 {
 entry:
   %add = add i64 %to, 1000
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ctxt, i64 16

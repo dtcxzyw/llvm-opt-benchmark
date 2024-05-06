@@ -70,7 +70,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %.not62, label %.critedge, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call fastcc i32 @cs_vcount(ptr noundef nonnull %22, ptr noundef nonnull %11), !range !4
+  %35 = tail call fastcc i32 @cs_vcount(ptr noundef nonnull %22, ptr noundef nonnull %11)
   %.not67 = icmp eq i32 %35, 0
   br i1 %.not67, label %.critedge, label %36
 
@@ -95,7 +95,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   store double %44, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %39
   %45 = fcmp ult double %44, 0.000000e+00
@@ -163,7 +163,7 @@ declare ptr @cs_counts(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @cs_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -236,7 +236,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
 
 .loopexit:                                        ; preds = %.lr.ph158, %.lr.ph162
   %44 = icmp sgt i64 %indvars.iv178, 1
-  br i1 %44, label %.lr.ph162, label %.preheader145, !llvm.loop !7
+  br i1 %44, label %.lr.ph162, label %.preheader145, !llvm.loop !6
 
 .preheader145:                                    ; preds = %.loopexit, %.preheader146
   br i1 %40, label %.lr.ph165.preheader, label %._crit_edge
@@ -257,7 +257,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
 
 .lr.ph158.preheader:                              ; preds = %.lr.ph162
   %51 = sext i32 %47 to i64
-  %52 = trunc i64 %indvars.iv.next179 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.next179 to i32
   br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
@@ -271,7 +271,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
   %57 = load i32, ptr %48, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph158, label %.loopexit, !llvm.loop !8
+  br i1 %59, label %.lr.ph158, label %.loopexit, !llvm.loop !7
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %77
   %indvars.iv181 = phi i64 [ %45, %.lr.ph165.preheader ], [ %indvars.iv.next182, %77 ]
@@ -293,12 +293,12 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
   br i1 %69, label %70, label %._crit_edge193
 
 ._crit_edge193:                                   ; preds = %64
-  %.pre194 = trunc i64 %indvars.iv.next182 to i32
+  %.pre194 = trunc nuw nsw i64 %indvars.iv.next182 to i32
   br label %73
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds i32, ptr %29, i64 %65
-  %72 = trunc i64 %indvars.iv.next182 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.next182 to i32
   store i32 %72, ptr %71, align 4
   br label %73
 
@@ -313,7 +313,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
 
 77:                                               ; preds = %.lr.ph165, %73
   %78 = icmp ugt i64 %indvars.iv181, 1
-  br i1 %78, label %.lr.ph165, label %._crit_edge, !llvm.loop !9
+  br i1 %78, label %.lr.ph165, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %77, %.preheader145
   %79 = getelementptr inbounds i8, ptr %1, i64 48
@@ -354,7 +354,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
   %.2 = phi i32 [ %87, %86 ], [ %82, %.lr.ph168 ]
   %90 = sext i32 %.2 to i64
   %91 = getelementptr inbounds i32, ptr %14, i64 %90
-  %92 = trunc i64 %indvars.iv184 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv184 to i32
   store i32 %92, ptr %91, align 4
   %93 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv184
   %94 = load i32, ptr %93, align 4
@@ -405,7 +405,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
 121:                                              ; preds = %97, %._crit_edge192, %89
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph168, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph168, !llvm.loop !9
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %127
   %indvars.iv187 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next188, %127 ]
@@ -424,7 +424,7 @@ define internal fastcc noundef i32 @cs_vcount(ptr nocapture noundef readonly %0,
   %.6 = phi i32 [ %126, %125 ], [ %.5169, %.lr.ph171 ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !11
+  br i1 %exitcond191.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !10
 
 ._crit_edge172:                                   ; preds = %127, %.preheader
   %128 = tail call ptr @cs_free(ptr noundef nonnull %19) #3
@@ -453,11 +453,10 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

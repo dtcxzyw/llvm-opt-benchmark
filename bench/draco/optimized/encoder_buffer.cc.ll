@@ -104,7 +104,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -276,8 +276,8 @@ define void @_ZN5draco13EncoderBuffer14EndBitEncodingEv(ptr noundef nonnull alig
   %34 = and i64 %33, 4294967295
   %35 = getelementptr inbounds i8, ptr %27, i64 %34
   %36 = getelementptr inbounds i8, ptr %27, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %36, i64 %12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %30, i64 %34, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %36, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %30, i64 %34, i1 false)
   %37 = load i64, ptr %3, align 8
   %reass.sub18 = sub i64 %37, %34
   %38 = add i64 %reass.sub18, 8

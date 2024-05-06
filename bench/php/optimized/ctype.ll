@@ -112,7 +112,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %41, label %46
 
 41:                                               ; preds = %38
-  %42 = trunc i64 %39 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = tail call i32 @isalnum(i32 noundef %42) #4
   %.not19.i = icmp eq i32 %43, 0
   %44 = select i1 %.not19.i, i32 2, i32 3
@@ -125,7 +125,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %47, label %53
 
 47:                                               ; preds = %46
-  %48 = trunc i64 %39 to i32
+  %48 = trunc nsw i64 %39 to i32
   %49 = add nsw i32 %48, 256
   %50 = tail call i32 @isalnum(i32 noundef %49) #4
   %.not.i = icmp eq i32 %50, 0
@@ -238,7 +238,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @isalpha(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -251,7 +251,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @isalpha(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -350,7 +350,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @iscntrl(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -363,7 +363,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @iscntrl(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -463,7 +463,7 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %41, label %46
 
 41:                                               ; preds = %38
-  %42 = trunc i64 %39 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = add nsw i32 %42, -58
   %isdigit61 = icmp ult i32 %43, -10
   %44 = select i1 %isdigit61, i32 2, i32 3
@@ -573,7 +573,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @islower(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -586,7 +586,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @islower(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -684,7 +684,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %39, label %44
 
 39:                                               ; preds = %37
-  %40 = trunc i64 %38 to i32
+  %40 = trunc nuw nsw i64 %38 to i32
   %41 = tail call i32 @isgraph(i32 noundef %40) #4
   %.not19.i = icmp eq i32 %41, 0
   %42 = select i1 %.not19.i, i32 2, i32 3
@@ -697,7 +697,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %45, label %51
 
 45:                                               ; preds = %44
-  %46 = trunc i64 %38 to i32
+  %46 = trunc nsw i64 %38 to i32
   %47 = add nsw i32 %46, 256
   %48 = tail call i32 @isgraph(i32 noundef %47) #4
   %.not.i = icmp eq i32 %48, 0
@@ -796,7 +796,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @isprint(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -809,7 +809,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @isprint(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -908,7 +908,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @ispunct(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -921,7 +921,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @ispunct(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -1020,7 +1020,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @isspace(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -1033,7 +1033,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @isspace(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -1132,7 +1132,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = tail call i32 @isupper(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
@@ -1145,7 +1145,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %or.cond20.i, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = trunc i64 %39 to i32
+  %47 = trunc nsw i64 %39 to i32
   %48 = add nsw i32 %47, 256
   %49 = tail call i32 @isupper(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
@@ -1245,7 +1245,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   br i1 %or.cond.i, label %41, label %46
 
 41:                                               ; preds = %38
-  %42 = trunc i64 %39 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = tail call i32 @isxdigit(i32 noundef %42) #4
   %.not19.i = icmp eq i32 %43, 0
   %44 = select i1 %.not19.i, i32 2, i32 3
@@ -1258,7 +1258,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   br i1 %or.cond20.i, label %47, label %53
 
 47:                                               ; preds = %46
-  %48 = trunc i64 %39 to i32
+  %48 = trunc nsw i64 %39 to i32
   %49 = add nsw i32 %48, 256
   %50 = tail call i32 @isxdigit(i32 noundef %49) #4
   %.not.i = icmp eq i32 %50, 0

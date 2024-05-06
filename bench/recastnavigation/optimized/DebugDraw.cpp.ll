@@ -1573,7 +1573,7 @@ define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly alig
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %8, align 8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
-  %9 = mul nsw i32 %spec.store.select, 3
+  %9 = mul nuw nsw i32 %spec.store.select, 3
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #16

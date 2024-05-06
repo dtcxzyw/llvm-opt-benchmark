@@ -45,7 +45,7 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   %14 = getelementptr inbounds i8, ptr %0, i64 216
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i16
-  %17 = trunc i64 %5 to i16
+  %17 = trunc nuw nsw i64 %5 to i16
   %18 = shl nuw nsw i16 %16, %17
   %19 = or i16 %18, %13
   %20 = icmp ult i16 %19, 256
@@ -56,7 +56,7 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   store i8 %21, ptr %4, align 1
   %23 = call i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #2
   %24 = lshr i16 %18, 8
-  %25 = trunc i16 %24 to i8
+  %25 = trunc nuw nsw i16 %24 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %22

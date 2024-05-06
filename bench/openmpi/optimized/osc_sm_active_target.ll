@@ -110,7 +110,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_start(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_start(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 272
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 232
@@ -304,7 +304,7 @@ define internal fastcc noundef ptr @ompi_osc_sm_group_ranks(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -332,7 +332,7 @@ define internal fastcc noundef ptr @ompi_osc_sm_group_ranks(ptr noundef %0, ptr 
 declare i32 @opal_progress() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   fence seq_cst
@@ -450,7 +450,7 @@ opal_thread_compare_exchange_strong_ptr.exit:     ; preds = %14, %10, %19, %1, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_post(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_post(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 272
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 232
@@ -567,7 +567,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -678,7 +678,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
@@ -799,7 +799,7 @@ declare i32 @ompi_group_translate_ranks(ptr noundef, i32 noundef, ptr noundef, p
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_ranks(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @compare_ranks(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

@@ -29,7 +29,7 @@ define dso_local noundef i32 @zlib_inflate_workspacesize() local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @zlib_inflateReset(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateReset(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -83,7 +83,7 @@ define dso_local noundef i32 @zlib_inflateReset(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @zlib_inflateInit2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateInit2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 
@@ -850,7 +850,7 @@ thread-pre-split113:                              ; preds = %346, %310
 
 421:                                              ; preds = %406
   %422 = zext i8 %418 to i32
-  %423 = trunc i64 %413 to i32
+  %423 = trunc nuw nsw i64 %413 to i32
   br label %424
 
 424:                                              ; preds = %421, %.preheader129
@@ -895,7 +895,7 @@ thread-pre-split113:                              ; preds = %346, %310
   br i1 %454, label %440, label %455, !llvm.loop !14
 
 455:                                              ; preds = %446
-  %456 = trunc i64 %453 to i32
+  %456 = trunc nuw nsw i64 %453 to i32
   br label %457
 
 457:                                              ; preds = %455, %435
@@ -969,7 +969,7 @@ thread-pre-split113:                              ; preds = %346, %310
   br i1 %501, label %487, label %502, !llvm.loop !15
 
 502:                                              ; preds = %493
-  %503 = trunc i64 %500 to i32
+  %503 = trunc nuw nsw i64 %500 to i32
   br label %504
 
 504:                                              ; preds = %502, %475
@@ -1015,7 +1015,7 @@ thread-pre-split113:                              ; preds = %346, %310
   br i1 %537, label %523, label %538, !llvm.loop !16
 
 538:                                              ; preds = %529
-  %539 = trunc i64 %536 to i32
+  %539 = trunc nuw nsw i64 %536 to i32
   br label %540
 
 540:                                              ; preds = %538, %469
@@ -1053,7 +1053,7 @@ thread-pre-split113:                              ; preds = %346, %310
   br i1 %566, label %552, label %567, !llvm.loop !17
 
 567:                                              ; preds = %558
-  %568 = trunc i64 %565 to i32
+  %568 = trunc nuw nsw i64 %565 to i32
   br label %569
 
 569:                                              ; preds = %567, %481
@@ -1231,7 +1231,7 @@ thread-pre-split113:                              ; preds = %346, %310
 
 679:                                              ; preds = %663
   %680 = zext i8 %676 to i32
-  %681 = trunc i64 %670 to i32
+  %681 = trunc nuw nsw i64 %670 to i32
   br label %682
 
 682:                                              ; preds = %679, %631
@@ -1303,7 +1303,7 @@ thread-pre-split113:                              ; preds = %346, %310
   br i1 %739, label %714, label %740, !llvm.loop !21
 
 740:                                              ; preds = %720
-  %741 = trunc i64 %727 to i32
+  %741 = trunc nuw nsw i64 %727 to i32
   br label %742
 
 742:                                              ; preds = %740, %695
@@ -1483,7 +1483,7 @@ thread-pre-split120:                              ; preds = %64
 
 866:                                              ; preds = %850
   %867 = zext i8 %863 to i32
-  %868 = trunc i64 %857 to i32
+  %868 = trunc nuw nsw i64 %857 to i32
   br label %869
 
 869:                                              ; preds = %866, %824
@@ -1554,7 +1554,7 @@ thread-pre-split120:                              ; preds = %64
   br i1 %925, label %900, label %926, !llvm.loop !24
 
 926:                                              ; preds = %906
-  %927 = trunc i64 %913 to i32
+  %927 = trunc nuw nsw i64 %913 to i32
   br label %928
 
 928:                                              ; preds = %926, %881
@@ -1870,19 +1870,19 @@ thread-pre-split122:                              ; preds = %64
   br label %.loopexit132
 
 1134:                                             ; preds = %440
-  %1135 = trunc i64 %441 to i32
+  %1135 = trunc nuw nsw i64 %441 to i32
   br label %.loopexit132
 
 1136:                                             ; preds = %552
-  %1137 = trunc i64 %553 to i32
+  %1137 = trunc nuw nsw i64 %553 to i32
   br label %.loopexit132
 
 1138:                                             ; preds = %487
-  %1139 = trunc i64 %488 to i32
+  %1139 = trunc nuw nsw i64 %488 to i32
   br label %.loopexit132
 
 1140:                                             ; preds = %523
-  %1141 = trunc i64 %524 to i32
+  %1141 = trunc nuw nsw i64 %524 to i32
   br label %.loopexit132
 
 1142:                                             ; preds = %90
@@ -2166,7 +2166,7 @@ thread-pre-split122:                              ; preds = %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i64 @zlib_adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %137, label %5
 
@@ -2339,7 +2339,7 @@ declare dso_local i32 @zlib_inflate_table(i32 noundef, ptr noundef, i32 noundef,
 declare dso_local void @inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @zlib_inflateEnd(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 -2, 1) i32 @zlib_inflateEnd(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -2356,7 +2356,7 @@ define dso_local i32 @zlib_inflateEnd(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @zlib_inflateIncomp(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @zlib_inflateIncomp(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

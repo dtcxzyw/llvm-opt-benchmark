@@ -842,7 +842,7 @@ define ptr @Hop_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2
   %.val24 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds ptr, ptr %.val24, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %23) #11
   store ptr %24, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1252,7 +1252,7 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %26, %29
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %39
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = shl nuw i32 1, %46
   %48 = and i32 %47, %2
   %.not33 = icmp eq i32 %48, 0

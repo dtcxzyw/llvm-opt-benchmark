@@ -41,7 +41,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_snapshot_device_init418], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @is_hibernate_resume_dev(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @is_hibernate_resume_dev(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @hibernation_available() #7
   %3 = load i32, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 7), align 4
   %4 = icmp eq i32 %3, %0
@@ -166,7 +166,7 @@ define internal i64 @snapshot_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snapshot_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = load i1, ptr @need_wait, align 1
   br i1 %4, label %5, label %6
 
@@ -457,7 +457,7 @@ define internal i64 @snapshot_ioctl(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snapshot_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snapshot_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   switch i32 %1, label %6 [
     i32 -2146946290, label %4
     i32 -2146946285, label %4
@@ -702,7 +702,7 @@ declare dso_local i32 @suspend_devices_and_enter(i32 noundef) local_unnamed_addr
 declare dso_local i32 @hibernation_platform_enter() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @snapshot_set_swap_area(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_resume_swap_area, align 8
   %4 = alloca %struct.resume_swap_area, align 8
   %5 = tail call i32 @swsusp_swap_in_use() #7

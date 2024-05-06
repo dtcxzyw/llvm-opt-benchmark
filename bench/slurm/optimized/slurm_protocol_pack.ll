@@ -389,10 +389,10 @@ define internal fastcc void @_pack_ret_list(ptr noundef %0, ptr noundef %1, i16 
   %23 = getelementptr inbounds i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %9, align 8
-  %25 = call i32 @pack_msg(ptr noundef nonnull %4, ptr noundef %1), !range !6
+  %25 = call i32 @pack_msg(ptr noundef nonnull %4, ptr noundef %1)
   %26 = call ptr @list_next(ptr noundef %6) #8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %21, %3
   call void @list_iterator_destroy(ptr noundef %6) #8
@@ -402,7 +402,7 @@ define internal fastcc void @_pack_ret_list(ptr noundef %0, ptr noundef %1, i16 
 declare void @slurm_pack_addr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -493,7 +493,7 @@ define noundef i32 @unpack_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 47:                                               ; preds = %45
   %48 = load i16, ptr %0, align 8
-  %49 = call fastcc i32 @_unpack_ret_list(ptr noundef nonnull %7, i16 noundef zeroext %46, ptr noundef %1, i16 noundef zeroext %48), !range !9
+  %49 = call fastcc i32 @_unpack_ret_list(ptr noundef nonnull %7, i16 noundef zeroext %46, ptr noundef %1, i16 noundef zeroext %48)
   %.not90 = icmp eq i32 %49, 0
   br i1 %.not90, label %51, label %93
 
@@ -570,7 +570,7 @@ define noundef i32 @unpack_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 84:                                               ; preds = %82
   %85 = load i16, ptr %0, align 8
-  %86 = call fastcc i32 @_unpack_ret_list(ptr noundef nonnull %7, i16 noundef zeroext %83, ptr noundef %1, i16 noundef zeroext %85), !range !9
+  %86 = call fastcc i32 @_unpack_ret_list(ptr noundef nonnull %7, i16 noundef zeroext %83, ptr noundef %1, i16 noundef zeroext %85)
   %.not77 = icmp eq i32 %86, 0
   br i1 %.not77, label %88, label %93
 
@@ -619,7 +619,7 @@ declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_ret_list(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_ret_list(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca i32, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #8
@@ -670,7 +670,7 @@ define internal fastcc noundef i32 @_unpack_ret_list(ptr nocapture noundef %0, i
   store ptr %26, ptr %27, align 8
   %28 = add nuw nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %28, %9
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
 29:                                               ; preds = %19, %17, %12
   %.not32 = icmp eq ptr %13, null
@@ -730,7 +730,7 @@ define void @packstr_with_version(ptr noundef %0, i16 noundef zeroext %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unpackstr_with_version(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpackstr_with_version(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2) #8
   %.not = icmp ne i32 %5, 0
@@ -739,7 +739,7 @@ define i32 @unpackstr_with_version(ptr noundef %0, i16 noundef zeroext %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_pack_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 0, 7007) i32 @slurm_pack_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %6
 
@@ -769,7 +769,7 @@ define noundef i32 @slurm_pack_list(ptr noundef %0, ptr nocapture noundef readon
   tail call void %1(ptr noundef nonnull %14, i16 noundef zeroext %3, ptr noundef nonnull %2) #8
   %16 = load i32, ptr %12, align 8
   %17 = icmp ugt i32 %16, -1073790976
-  br i1 %17, label %18, label %13, !llvm.loop !11
+  br i1 %17, label %18, label %13, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -796,7 +796,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_pack_list_until(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 0, 7007) i32 @slurm_pack_list_until(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -831,7 +831,7 @@ define noundef i32 @slurm_pack_list_until(ptr noundef %0, ptr nocapture noundef 
   tail call void %1(ptr noundef nonnull %21, i16 noundef zeroext %4, ptr noundef nonnull %2) #8
   %19 = load i32, ptr %14, align 8
   %20 = icmp ugt i32 %19, %3
-  br i1 %20, label %._crit_edge, label %.lr.ph47, !llvm.loop !12
+  br i1 %20, label %._crit_edge, label %.lr.ph47, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph
   %.02839.lcssa = phi i32 [ %.02836, %.lr.ph ], [ %.028, %17 ]
@@ -846,7 +846,7 @@ define noundef i32 @slurm_pack_list_until(ptr noundef %0, ptr nocapture noundef 
   %.028 = load i32, ptr %8, align 4
   %21 = tail call ptr @list_next(ptr noundef %12) #8
   %.not33 = icmp eq ptr %21, null
-  br i1 %.not33, label %.loopexit, label %17, !llvm.loop !12
+  br i1 %.not33, label %.loopexit, label %17, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph47, %11, %._crit_edge
   %.027 = phi i32 [ 7006, %._crit_edge ], [ 0, %11 ], [ 0, %.lr.ph47 ]
@@ -859,7 +859,7 @@ define noundef i32 @slurm_pack_list_until(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_unpack_list(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_unpack_list(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %3) #8
@@ -892,7 +892,7 @@ define noundef i32 @slurm_unpack_list(ptr nocapture noundef %0, ptr nocapture no
   %19 = add nuw nsw i32 %.017, 1
   %20 = load i32, ptr %6, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit16:                                      ; preds = %.lr.ph, %5
   %22 = load ptr, ptr %0, align 8
@@ -957,7 +957,7 @@ define void @pack_dep_list(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %
   tail call void @pack64(i64 noundef %23, ptr noundef %1) #8
   %24 = tail call ptr @list_next(ptr noundef %8) #8
   %.not21 = icmp eq ptr %24, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   tail call void @list_iterator_destroy(ptr noundef %8) #8
@@ -970,7 +970,7 @@ define void @pack_dep_list(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_dep_list(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_dep_list(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store ptr null, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -997,7 +997,7 @@ define noundef i32 @unpack_dep_list(ptr nocapture noundef %0, ptr noundef %1, i1
   %14 = add nuw nsw i32 %.037, 1
   %15 = load i32, ptr %4, align 4
   %16 = icmp ult i32 %14, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %10, %13
   %.037 = phi i32 [ %14, %13 ], [ 0, %10 ]
@@ -1187,7 +1187,7 @@ define void @pack_config_file(ptr noundef readonly %0, i16 noundef zeroext %1, p
 declare void @packbool(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_config_file(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_config_file(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1264,7 +1264,7 @@ define void @pack_config_response_msg(ptr nocapture noundef readonly %0, ptr nou
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @slurm_pack_list(ptr noundef %6, ptr noundef nonnull @pack_config_file, ptr noundef %1, i16 noundef zeroext %2), !range !16
+  %7 = tail call i32 @slurm_pack_list(ptr noundef %6, ptr noundef nonnull @pack_config_file, ptr noundef %1, i16 noundef zeroext %2)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -1286,7 +1286,7 @@ define void @pack_config_response_msg(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_config_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_config_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1328,7 +1328,7 @@ define noundef i32 @unpack_config_response_msg(ptr nocapture noundef writeonly %
   %21 = add nuw nsw i32 %.017.i, 1
   %22 = load i32, ptr %4, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph.i, label %.loopexit, !llvm.loop !13
+  br i1 %23, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 .loopexit16.i:                                    ; preds = %.lr.ph.i, %9
   %24 = load ptr, ptr %7, align 8
@@ -1417,7 +1417,7 @@ define void @pack_multi_core_data(ptr noundef readonly %0, ptr noundef %1, i16 n
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_multi_core_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_multi_core_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -1546,7 +1546,7 @@ define void @slurm_pack_node_alias_addrs(ptr nocapture noundef readonly %0, ptr 
 declare void @slurm_pack_addr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_unpack_node_alias_addrs(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_unpack_node_alias_addrs(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10367, ptr noundef nonnull @__func__.slurm_unpack_node_alias_addrs) #8
@@ -1587,7 +1587,7 @@ declare i32 @slurm_unpack_addr_array(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @slurm_free_node_alias_addrs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 206
   %4 = load i16, ptr %3, align 2
   %5 = icmp ult i16 %4, 9984
@@ -2057,7 +2057,7 @@ _pack_container_id_response_msg.exit:             ; preds = %12
   %132 = getelementptr inbounds i8, ptr %0, i64 192
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 @slurm_pack_list(ptr noundef %134, ptr noundef nonnull @_pack_each_container_id_step, ptr noundef %1, i16 noundef zeroext %4), !range !16
+  %135 = tail call i32 @slurm_pack_list(ptr noundef %134, ptr noundef nonnull @_pack_each_container_id_step, ptr noundef %1, i16 noundef zeroext %4)
   br label %355
 
 136:                                              ; preds = %12
@@ -2759,7 +2759,7 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
 82:                                               ; preds = %81, %78, %.lr.ph2248
   %83 = tail call ptr @list_next(ptr noundef %73) #8
   %.not2131 = icmp eq ptr %83, null
-  br i1 %.not2131, label %._crit_edge2249, label %.lr.ph2248, !llvm.loop !17
+  br i1 %.not2131, label %._crit_edge2249, label %.lr.ph2248, !llvm.loop !14
 
 ._crit_edge2249:                                  ; preds = %82, %71
   tail call void @list_iterator_destroy(ptr noundef %73) #8
@@ -3344,7 +3344,7 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   tail call void @job_defaults_pack(ptr noundef nonnull %384, i16 noundef zeroext %2, ptr noundef nonnull %1) #8
   %386 = load i32, ptr %382, align 8
   %387 = icmp ugt i32 %386, -1073790976
-  br i1 %387, label %388, label %383, !llvm.loop !11
+  br i1 %387, label %388, label %383, !llvm.loop !9
 
 388:                                              ; preds = %385
   %389 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -4714,7 +4714,7 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
 1099:                                             ; preds = %1098, %1095, %.lr.ph
   %1100 = tail call ptr @list_next(ptr noundef %1090) #8
   %.not2015 = icmp eq ptr %1100, null
-  br i1 %.not2015, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not2015, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %1099, %1088
   tail call void @list_iterator_destroy(ptr noundef %1090) #8
@@ -5301,7 +5301,7 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   tail call void @job_defaults_pack(ptr noundef nonnull %1401, i16 noundef zeroext %2, ptr noundef nonnull %1) #8
   %1403 = load i32, ptr %1399, align 8
   %1404 = icmp ugt i32 %1403, -1073790976
-  br i1 %1404, label %1405, label %1400, !llvm.loop !11
+  br i1 %1404, label %1405, label %1400, !llvm.loop !9
 
 1405:                                             ; preds = %1402
   %1406 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -6741,7 +6741,7 @@ pack_step_id.exit:                                ; preds = %pack_step_id.exit.l
   %114 = load i32, ptr %103, align 8
   %115 = zext i32 %114 to i64
   %116 = icmp ult i64 %indvars.iv.next310, %115
-  br i1 %116, label %pack_step_id.exit, label %._crit_edge305, !llvm.loop !19
+  br i1 %116, label %pack_step_id.exit, label %._crit_edge305, !llvm.loop !16
 
 ._crit_edge305:                                   ; preds = %pack_step_id.exit, %80
   %117 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6992,7 +6992,7 @@ pack_step_id.exit297:                             ; preds = %pack_step_id.exit29
   %244 = load i32, ptr %233, align 8
   %245 = zext i32 %244 to i64
   %246 = icmp ult i64 %indvars.iv.next, %245
-  br i1 %246, label %pack_step_id.exit297, label %._crit_edge, !llvm.loop !20
+  br i1 %246, label %pack_step_id.exit297, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %pack_step_id.exit297, %210
   %247 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7112,7 +7112,7 @@ define internal fastcc void @_pack_acct_gather_node_resp_msg(ptr nocapture nound
   %18 = load i16, ptr %13, align 8
   %19 = zext i16 %18 to i64
   %20 = icmp ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
   ret void
@@ -8141,7 +8141,7 @@ define internal fastcc void @_pack_job_desc_list_msg(ptr noundef %0, ptr noundef
   tail call fastcc void @_pack_job_desc_msg(ptr noundef nonnull %11, ptr noundef %1, i16 noundef zeroext %2)
   %12 = tail call ptr @list_next(ptr noundef %9) #8
   %.not12 = icmp eq ptr %12, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @list_iterator_destroy(ptr noundef %9) #8
@@ -8187,7 +8187,7 @@ define internal fastcc void @_pack_job_info_list_msg(ptr noundef %0, ptr noundef
   call fastcc void @_pack_resource_allocation_response_msg(ptr noundef nonnull %4, ptr noundef %1)
   %16 = tail call ptr @list_next(ptr noundef %11) #8
   %.not12 = icmp eq ptr %16, null
-  br i1 %.not12, label %._crit_edge, label %14, !llvm.loop !23
+  br i1 %.not12, label %._crit_edge, label %14, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %14, %10
   tail call void @list_iterator_destroy(ptr noundef %11) #8
@@ -8619,7 +8619,7 @@ define internal fastcc void @_pack_node_reg_resp(ptr nocapture noundef readonly 
   call void @slurmdb_pack_tres_rec(ptr noundef nonnull %22, i16 noundef zeroext %2, ptr noundef nonnull %1) #8
   %24 = load i32, ptr %20, align 8
   %25 = icmp ugt i32 %24, -1073790976
-  br i1 %25, label %26, label %21, !llvm.loop !11
+  br i1 %25, label %26, label %21, !llvm.loop !9
 
 26:                                               ; preds = %23
   %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -9343,7 +9343,7 @@ define internal fastcc void @_pack_will_run_response_msg(ptr nocapture noundef r
   tail call void @pack32(i32 noundef %37, ptr noundef %1) #8
   %38 = tail call ptr @list_next(ptr noundef %34) #8
   %.not46 = icmp eq ptr %38, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   tail call void @list_iterator_destroy(ptr noundef %34) #8
@@ -10441,7 +10441,7 @@ pack_step_id.exit:                                ; preds = %3
   %18 = load i16, ptr %0, align 8
   %19 = zext i16 %18 to i64
   %20 = icmp ult i64 %indvars.iv.next, %19
-  br i1 %20, label %14, label %._crit_edge, !llvm.loop !25
+  br i1 %20, label %14, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %14, %pack_step_id.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10465,7 +10465,7 @@ pack_step_id.exit:                                ; preds = %3
   %29 = load i16, ptr %21, align 8
   %30 = zext i16 %29 to i64
   %31 = icmp ult i64 %indvars.iv.next30, %30
-  br i1 %31, label %25, label %._crit_edge26, !llvm.loop !26
+  br i1 %31, label %25, label %._crit_edge26, !llvm.loop !23
 
 ._crit_edge26:                                    ; preds = %25, %._crit_edge
   %32 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10535,7 +10535,7 @@ define internal fastcc void @_pack_reattach_tasks_response_msg(ptr nocapture nou
   %30 = load i32, ptr %11, align 4
   %31 = zext i32 %30 to i64
   %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %21, label %._crit_edge, !llvm.loop !27
+  br i1 %32, label %21, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %29, %8
   ret void
@@ -10598,7 +10598,7 @@ pack_step_id.exit:                                ; preds = %3
   %33 = load i32, ptr %20, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next655, %34
-  br i1 %35, label %25, label %.loopexit597, !llvm.loop !28
+  br i1 %35, label %25, label %.loopexit597, !llvm.loop !25
 
 .loopexit597:                                     ; preds = %25, %pack_step_id.exit, %pack_step_id.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 12
@@ -10624,7 +10624,7 @@ pack_step_id.exit:                                ; preds = %3
   %44 = load i32, ptr %36, align 4
   %45 = zext i32 %44 to i64
   %46 = icmp ult i64 %indvars.iv.next658, %45
-  br i1 %46, label %40, label %.loopexit, !llvm.loop !29
+  br i1 %46, label %40, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %40, %.loopexit597, %.loopexit597
   %47 = getelementptr inbounds i8, ptr %0, i64 40
@@ -10749,7 +10749,7 @@ pack_step_id.exit:                                ; preds = %3
   %120 = load i32, ptr %76, align 4
   %121 = zext i32 %120 to i64
   %122 = icmp ult i64 %indvars.iv.next661, %121
-  br i1 %122, label %109, label %._crit_edge622, !llvm.loop !30
+  br i1 %122, label %109, label %._crit_edge622, !llvm.loop !27
 
 ._crit_edge622:                                   ; preds = %109, %93
   %123 = getelementptr inbounds i8, ptr %0, i64 280
@@ -10773,7 +10773,7 @@ pack_step_id.exit:                                ; preds = %3
   %131 = load i16, ptr %123, align 8
   %132 = zext i16 %131 to i64
   %133 = icmp ult i64 %indvars.iv.next664, %132
-  br i1 %133, label %127, label %._crit_edge626, !llvm.loop !31
+  br i1 %133, label %127, label %._crit_edge626, !llvm.loop !28
 
 ._crit_edge626:                                   ; preds = %127, %._crit_edge622
   %134 = getelementptr inbounds i8, ptr %0, i64 312
@@ -10921,7 +10921,7 @@ pack_step_id.exit:                                ; preds = %3
   %210 = load i16, ptr %202, align 8
   %211 = zext i16 %210 to i64
   %212 = icmp ult i64 %indvars.iv.next667, %211
-  br i1 %212, label %206, label %._crit_edge630, !llvm.loop !32
+  br i1 %212, label %206, label %._crit_edge630, !llvm.loop !29
 
 ._crit_edge630:                                   ; preds = %206, %201
   %213 = getelementptr inbounds i8, ptr %0, i64 512
@@ -11140,7 +11140,7 @@ pack_step_id.exit595:                             ; preds = %298
   %328 = load i32, ptr %315, align 8
   %329 = zext i32 %328 to i64
   %330 = icmp ult i64 %indvars.iv.next, %329
-  br i1 %330, label %320, label %.loopexit601, !llvm.loop !33
+  br i1 %330, label %320, label %.loopexit601, !llvm.loop !30
 
 .loopexit601:                                     ; preds = %320, %pack_step_id.exit595, %pack_step_id.exit595
   %331 = getelementptr inbounds i8, ptr %0, i64 12
@@ -11166,7 +11166,7 @@ pack_step_id.exit595:                             ; preds = %298
   %339 = load i32, ptr %331, align 4
   %340 = zext i32 %339 to i64
   %341 = icmp ult i64 %indvars.iv.next643, %340
-  br i1 %341, label %335, label %.loopexit599, !llvm.loop !34
+  br i1 %341, label %335, label %.loopexit599, !llvm.loop !31
 
 .loopexit599:                                     ; preds = %335, %.loopexit601, %.loopexit601
   %342 = getelementptr inbounds i8, ptr %0, i64 40
@@ -11284,7 +11284,7 @@ pack_step_id.exit595:                             ; preds = %298
   %409 = load i32, ptr %372, align 4
   %410 = zext i32 %409 to i64
   %411 = icmp ult i64 %indvars.iv.next646, %410
-  br i1 %411, label %398, label %._crit_edge, !llvm.loop !35
+  br i1 %411, label %398, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %398, %382
   %412 = getelementptr inbounds i8, ptr %0, i64 280
@@ -11308,7 +11308,7 @@ pack_step_id.exit595:                             ; preds = %298
   %420 = load i16, ptr %412, align 8
   %421 = zext i16 %420 to i64
   %422 = icmp ult i64 %indvars.iv.next649, %421
-  br i1 %422, label %416, label %._crit_edge610, !llvm.loop !36
+  br i1 %422, label %416, label %._crit_edge610, !llvm.loop !33
 
 ._crit_edge610:                                   ; preds = %416, %._crit_edge
   %423 = getelementptr inbounds i8, ptr %0, i64 312
@@ -11456,7 +11456,7 @@ pack_step_id.exit595:                             ; preds = %298
   %499 = load i16, ptr %491, align 8
   %500 = zext i16 %499 to i64
   %501 = icmp ult i64 %indvars.iv.next652, %500
-  br i1 %501, label %495, label %._crit_edge614, !llvm.loop !37
+  br i1 %501, label %495, label %._crit_edge614, !llvm.loop !34
 
 ._crit_edge614:                                   ; preds = %495, %490
   %502 = getelementptr inbounds i8, ptr %0, i64 512
@@ -11813,7 +11813,7 @@ define internal fastcc void @_pack_job_info_request_msg(ptr nocapture noundef re
   tail call void @pack32(i32 noundef %18, ptr noundef %1) #8
   %19 = tail call ptr @list_next(ptr noundef %15) #8
   %.not18 = icmp eq ptr %19, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   tail call void @list_iterator_destroy(ptr noundef %15) #8
@@ -11849,7 +11849,7 @@ define internal fastcc void @_pack_job_state_request_msg(ptr nocapture readonly 
   %11 = load i32, ptr %.192.val, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp ult i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %.loopexit, !llvm.loop !39
+  br i1 %13, label %7, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %7, %3, %1
   ret void
@@ -11927,7 +11927,7 @@ define internal fastcc void @_pack_job_state_response_msg(ptr nocapture readonly
   %36 = load i32, ptr %.192.val, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp ult i64 %indvars.iv.next, %37
-  br i1 %38, label %8, label %.loopexit, !llvm.loop !40
+  br i1 %38, label %8, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %33, %4, %1
   ret void
@@ -14458,7 +14458,7 @@ packstr_with_version.exit:                        ; preds = %14
   tail call void @packmem(ptr noundef nonnull %15, i32 noundef %18, ptr noundef nonnull %1) #8
   %19 = load i32, ptr %13, align 8
   %20 = icmp ugt i32 %19, -1073790976
-  br i1 %20, label %21, label %14, !llvm.loop !11
+  br i1 %20, label %21, label %14, !llvm.loop !9
 
 21:                                               ; preds = %packstr_with_version.exit
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -14505,7 +14505,7 @@ packstr_with_version.exit18:                      ; preds = %33
   tail call void @packmem(ptr noundef nonnull %34, i32 noundef %37, ptr noundef nonnull %1) #8
   %38 = load i32, ptr %32, align 8
   %39 = icmp ugt i32 %38, -1073790976
-  br i1 %39, label %40, label %33, !llvm.loop !11
+  br i1 %39, label %40, label %33, !llvm.loop !9
 
 40:                                               ; preds = %packstr_with_version.exit18
   %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.slurm_pack_list) #8
@@ -14665,7 +14665,7 @@ define internal fastcc void @_pack_shares_response_msg(ptr nocapture noundef rea
 _pack_assoc_shares_object.exit:                   ; preds = %.lr.ph, %54
   %77 = tail call ptr @list_next(ptr noundef %19) #8
   %.not23 = icmp eq ptr %77, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_pack_assoc_shares_object.exit, %17
   tail call void @list_iterator_destroy(ptr noundef %19) #8
@@ -14809,12 +14809,12 @@ _pack_priority_factors_object.exit.us:            ; preds = %61, %58
   tail call void @pack32(i32 noundef %66, ptr noundef %1) #8
   %67 = tail call ptr @list_next(ptr noundef %9) #8
   %.not14.us = icmp eq ptr %67, null
-  br i1 %.not14.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
+  br i1 %.not14.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !39
 
 _pack_priority_factors_object.exit:               ; preds = %.lr.ph, %_pack_priority_factors_object.exit
   %68 = tail call ptr @list_next(ptr noundef %9) #8
   %.not14 = icmp eq ptr %68, null
-  br i1 %.not14, label %._crit_edge, label %_pack_priority_factors_object.exit, !llvm.loop !42
+  br i1 %.not14, label %._crit_edge, label %_pack_priority_factors_object.exit, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_pack_priority_factors_object.exit, %_pack_priority_factors_object.exit.us, %7
   tail call void @list_iterator_destroy(ptr noundef %9) #8
@@ -15022,7 +15022,7 @@ _pack_kvs_host_rec.exit:                          ; preds = %7, %15
   %19 = load i16, ptr %0, align 8
   %20 = zext i16 %19 to i64
   %21 = icmp ult i64 %indvars.iv.next, %20
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !43
+  br i1 %21, label %7, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_pack_kvs_host_rec.exit, %3
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15103,14 +15103,14 @@ _pack_kvs_host_rec.exit:                          ; preds = %7, %15
   %58 = load i32, ptr %36, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp ult i64 %indvars.iv.next.i.us, %59
-  br i1 %60, label %41, label %_pack_kvs_rec.exit.us, !llvm.loop !44
+  br i1 %60, label %41, label %_pack_kvs_rec.exit.us, !llvm.loop !41
 
 _pack_kvs_rec.exit.us:                            ; preds = %57, %35
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %61 = load i16, ptr %22, align 8
   %62 = zext i16 %61 to i64
   %63 = icmp ult i64 %indvars.iv.next28, %62
-  br i1 %63, label %.lr.ph22.split.us, label %._crit_edge23, !llvm.loop !45
+  br i1 %63, label %.lr.ph22.split.us, label %._crit_edge23, !llvm.loop !42
 
 ._crit_edge23:                                    ; preds = %_pack_kvs_rec.exit.us, %.lr.ph22, %._crit_edge
   ret void
@@ -15223,7 +15223,7 @@ define internal fastcc void @_pack_trigger_msg(ptr nocapture noundef readonly %0
   %47 = load i32, ptr %0, align 8
   %48 = zext i32 %47 to i64
   %49 = icmp ult i64 %indvars.iv.next, %48
-  br i1 %49, label %9, label %.loopexit, !llvm.loop !46
+  br i1 %49, label %9, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %46, %5, %3
   ret void
@@ -15433,7 +15433,7 @@ define internal fastcc void @_pack_accounting_update_msg(ptr nocapture noundef r
   tail call void @slurmdb_pack_update_object(ptr noundef nonnull %13, i16 noundef zeroext %2, ptr noundef %1) #8
   %14 = tail call ptr @list_next(ptr noundef %11) #8
   %.not14 = icmp eq ptr %14, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   tail call void @list_iterator_destroy(ptr noundef %11) #8
@@ -15528,7 +15528,7 @@ define internal fastcc void @_pack_topo_info_msg(ptr nocapture noundef readonly 
   %46 = load i32, ptr %0, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next, %47
-  br i1 %48, label %15, label %.loopexit, !llvm.loop !48
+  br i1 %48, label %15, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %45, %11, %9, %5
   ret void
@@ -15683,7 +15683,7 @@ define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly %0, p
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next, %34
-  br i1 %35, label %13, label %.loopexit, !llvm.loop !49
+  br i1 %35, label %13, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %32, %7, %6, %3
   ret void
@@ -15724,7 +15724,7 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   tail call void @packmem(ptr noundef nonnull %11, i32 noundef %14, ptr noundef %1) #8
   %15 = tail call ptr @list_next(ptr noundef %9) #8
   %.not54 = icmp eq ptr %15, null
-  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   tail call void @list_iterator_destroy(ptr noundef %9) #8
@@ -15768,7 +15768,7 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   tail call void @packmem(ptr noundef nonnull %28, i32 noundef %31, ptr noundef %1) #8
   %32 = tail call ptr @list_next(ptr noundef %26) #8
   %.not58 = icmp eq ptr %32, null
-  br i1 %.not58, label %._crit_edge75, label %.lr.ph74, !llvm.loop !51
+  br i1 %.not58, label %._crit_edge75, label %.lr.ph74, !llvm.loop !48
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %24
   tail call void @list_iterator_destroy(ptr noundef %26) #8
@@ -15809,7 +15809,7 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   tail call void @packmem(ptr noundef nonnull %43, i32 noundef %46, ptr noundef %1) #8
   %47 = tail call ptr @list_next(ptr noundef %41) #8
   %.not62 = icmp eq ptr %47, null
-  br i1 %.not62, label %._crit_edge79, label %.lr.ph78, !llvm.loop !52
+  br i1 %.not62, label %._crit_edge79, label %.lr.ph78, !llvm.loop !49
 
 ._crit_edge79:                                    ; preds = %.lr.ph78, %39
   tail call void @list_iterator_destroy(ptr noundef %41) #8
@@ -15907,7 +15907,7 @@ define internal fastcc void @_pack_buf_list_msg(ptr nocapture noundef readonly %
   tail call void @packmem(ptr noundef %15, i32 noundef %13, ptr noundef %1) #8
   %16 = tail call ptr @list_next(ptr noundef %9) #8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   tail call void @list_iterator_destroy(ptr noundef %9) #8
@@ -16516,11 +16516,11 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @_unpack_node_info_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %17 = tail call fastcc i32 @_unpack_node_info_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @_unpack_node_info_single_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %19 = tail call fastcc i32 @_unpack_node_info_single_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 20:                                               ; preds = %13
@@ -16536,19 +16536,19 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %282
 
 26:                                               ; preds = %13
-  %27 = tail call fastcc i32 @_unpack_slurm_ctl_conf_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %27 = tail call fastcc i32 @_unpack_slurm_ctl_conf_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 28:                                               ; preds = %13
-  %29 = tail call fastcc i32 @_unpack_container_id_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %29 = tail call fastcc i32 @_unpack_container_id_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 30:                                               ; preds = %13
-  %31 = tail call fastcc i32 @_unpack_container_id_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %31 = tail call fastcc i32 @_unpack_container_id_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 32:                                               ; preds = %13
-  %33 = tail call fastcc i32 @_unpack_job_info_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %33 = tail call fastcc i32 @_unpack_job_info_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 34:                                               ; preds = %13
@@ -16556,65 +16556,65 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %282
 
 36:                                               ; preds = %13
-  %37 = tail call fastcc i32 @_unpack_partition_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %37 = tail call fastcc i32 @_unpack_partition_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 38:                                               ; preds = %13
-  %39 = tail call fastcc i32 @_unpack_node_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %39 = tail call fastcc i32 @_unpack_node_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 40:                                               ; preds = %13
-  %41 = tail call fastcc i32 @_unpack_node_registration_status_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %41 = tail call fastcc i32 @_unpack_node_registration_status_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 42:                                               ; preds = %13, %13
-  %43 = tail call fastcc i32 @_unpack_acct_gather_node_resp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %43 = tail call fastcc i32 @_unpack_acct_gather_node_resp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 44:                                               ; preds = %13, %13, %13, %13
-  %45 = tail call fastcc i32 @_unpack_job_desc_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %45 = tail call fastcc i32 @_unpack_job_desc_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 46:                                               ; preds = %13, %13
-  %47 = tail call fastcc i32 @_unpack_job_desc_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %47 = tail call fastcc i32 @_unpack_job_desc_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 48:                                               ; preds = %13
-  %49 = tail call fastcc i32 @_unpack_job_info_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %49 = tail call fastcc i32 @_unpack_job_info_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 50:                                               ; preds = %13, %13, %13
-  %51 = tail call fastcc i32 @_unpack_sib_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %51 = tail call fastcc i32 @_unpack_sib_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 52:                                               ; preds = %13
-  %53 = tail call fastcc i32 @_unpack_dep_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %53 = tail call fastcc i32 @_unpack_dep_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 54:                                               ; preds = %13
-  %55 = tail call fastcc i32 @_unpack_dep_update_origin_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %55 = tail call fastcc i32 @_unpack_dep_update_origin_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 56:                                               ; preds = %13
-  %57 = tail call fastcc i32 @_unpack_update_job_step_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %57 = tail call fastcc i32 @_unpack_update_job_step_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 58:                                               ; preds = %13, %13, %13
-  %59 = tail call fastcc i32 @_unpack_job_alloc_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %59 = tail call fastcc i32 @_unpack_job_alloc_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 _unpack_step_alloc_info_msg.exit:                 ; preds = %13
-  %60 = tail call i32 @slurm_unpack_selected_step(ptr noundef nonnull %3, i16 noundef zeroext %5, ptr noundef %1), !range !9
+  %60 = tail call i32 @slurm_unpack_selected_step(ptr noundef nonnull writeonly %3, i16 noundef zeroext %5, ptr noundef %1)
   %.not.i = icmp ne i32 %60, 0
   %..i = sext i1 %.not.i to i32
   br label %282
 
 61:                                               ; preds = %13
-  %62 = tail call fastcc i32 @_unpack_node_reg_resp(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %62 = tail call fastcc i32 @_unpack_node_reg_resp(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 63:                                               ; preds = %13
-  %64 = tail call fastcc i32 @_unpack_acct_gather_energy_req(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %64 = tail call fastcc i32 @_unpack_acct_gather_energy_req(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 65:                                               ; preds = %13
@@ -16626,7 +16626,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 69:                                               ; preds = %13
-  %70 = tail call fastcc i32 @_unpack_reboot_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %70 = tail call fastcc i32 @_unpack_reboot_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 71:                                               ; preds = %13
@@ -16634,55 +16634,55 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 73:                                               ; preds = %13
-  %74 = tail call fastcc i32 @_unpack_submit_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %74 = tail call fastcc i32 @_unpack_submit_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 75:                                               ; preds = %13, %13
-  %76 = tail call fastcc i32 @_unpack_resource_allocation_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %76 = tail call fastcc i32 @_unpack_resource_allocation_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 77:                                               ; preds = %13
-  %78 = tail call fastcc i32 @_unpack_will_run_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %78 = tail call fastcc i32 @_unpack_will_run_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 79:                                               ; preds = %13
-  %80 = tail call fastcc i32 @_unpack_update_front_end_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %80 = tail call fastcc i32 @_unpack_update_front_end_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 81:                                               ; preds = %13, %13, %13
-  %82 = tail call fastcc i32 @_unpack_update_node_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %82 = tail call fastcc i32 @_unpack_update_node_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 83:                                               ; preds = %13, %13
-  %84 = tail call fastcc i32 @_unpack_update_partition_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %84 = tail call fastcc i32 @_unpack_update_partition_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 85:                                               ; preds = %13
-  %86 = tail call fastcc i32 @_unpack_delete_partition_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %86 = tail call fastcc i32 @_unpack_delete_partition_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 87:                                               ; preds = %13, %13
-  %88 = tail call fastcc i32 @_unpack_update_resv_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %88 = tail call fastcc i32 @_unpack_update_resv_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 89:                                               ; preds = %13, %13
-  %90 = tail call fastcc i32 @_unpack_resv_name_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %90 = tail call fastcc i32 @_unpack_resv_name_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 91:                                               ; preds = %13
-  %92 = tail call fastcc i32 @_unpack_reserve_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %92 = tail call fastcc i32 @_unpack_reserve_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 93:                                               ; preds = %13
-  %94 = tail call fastcc i32 @_unpack_launch_tasks_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %94 = tail call fastcc i32 @_unpack_launch_tasks_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 95:                                               ; preds = %13
-  %96 = tail call fastcc i32 @_unpack_launch_tasks_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %96 = tail call fastcc i32 @_unpack_launch_tasks_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 97:                                               ; preds = %13
-  %98 = tail call fastcc i32 @_unpack_reattach_tasks_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %98 = tail call fastcc i32 @_unpack_reattach_tasks_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 99:                                               ; preds = %13
@@ -16690,27 +16690,27 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 101:                                              ; preds = %13, %13
-  %102 = tail call fastcc i32 @_unpack_cancel_tasks_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %102 = tail call fastcc i32 @_unpack_cancel_tasks_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 103:                                              ; preds = %13
-  %104 = tail call fastcc i32 @_unpack_job_step_info_req_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %104 = tail call fastcc i32 @_unpack_job_step_info_req_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 105:                                              ; preds = %13
-  %106 = tail call fastcc i32 @_unpack_job_info_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %106 = tail call fastcc i32 @_unpack_job_info_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 107:                                              ; preds = %13
-  %108 = tail call fastcc i32 @_unpack_job_state_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %108 = tail call fastcc i32 @_unpack_job_state_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 109:                                              ; preds = %13
-  %110 = tail call fastcc i32 @_unpack_job_state_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %110 = tail call fastcc i32 @_unpack_job_state_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 111:                                              ; preds = %13, %13, %13
-  %112 = tail call fastcc i32 @_unpack_job_step_kill_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %112 = tail call fastcc i32 @_unpack_job_step_kill_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 113:                                              ; preds = %13
@@ -16718,23 +16718,23 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 115:                                              ; preds = %13
-  %116 = tail call fastcc i32 @_unpack_complete_prolog_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %116 = tail call fastcc i32 @_unpack_complete_prolog_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 117:                                              ; preds = %13
-  %118 = tail call fastcc i32 @_unpack_complete_batch_script_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %118 = tail call fastcc i32 @_unpack_complete_batch_script_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 119:                                              ; preds = %13
-  %120 = tail call fastcc i32 @_unpack_step_complete_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %120 = tail call fastcc i32 @_unpack_step_complete_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 121:                                              ; preds = %13
-  %122 = tail call fastcc i32 @_unpack_job_step_stat(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %122 = tail call fastcc i32 @_unpack_job_step_stat(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 123:                                              ; preds = %13, %13, %13, %13
-  %124 = tail call i32 @unpack_step_id(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %124 = tail call i32 @unpack_step_id(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 125:                                              ; preds = %13
@@ -16746,27 +16746,27 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 129:                                              ; preds = %13, %13, %13, %13
-  %130 = tail call fastcc i32 @_unpack_kill_job_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %130 = tail call fastcc i32 @_unpack_kill_job_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 131:                                              ; preds = %13
-  %132 = tail call fastcc i32 @_unpack_epilog_comp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %132 = tail call fastcc i32 @_unpack_epilog_comp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 133:                                              ; preds = %13
-  %134 = tail call fastcc i32 @_unpack_job_step_info_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %134 = tail call fastcc i32 @_unpack_job_step_info_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 135:                                              ; preds = %13
-  %136 = tail call fastcc i32 @_unpack_task_exit_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %136 = tail call fastcc i32 @_unpack_task_exit_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 137:                                              ; preds = %13
-  %138 = tail call fastcc i32 @_unpack_batch_job_launch_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %138 = tail call fastcc i32 @_unpack_batch_job_launch_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 139:                                              ; preds = %13
-  %140 = tail call fastcc i32 @_unpack_prolog_launch_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %140 = tail call fastcc i32 @_unpack_prolog_launch_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 141:                                              ; preds = %13, %13, %13, %13, %13, %13, %13
@@ -16775,19 +16775,19 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
 
 143:                                              ; preds = %13
   store i16 8001, ptr %14, align 4
-  %144 = tail call fastcc i32 @_unpack_return_code2_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %144 = tail call fastcc i32 @_unpack_return_code2_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 145:                                              ; preds = %13
-  %146 = tail call fastcc i32 @_unpack_reroute_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %146 = tail call fastcc i32 @_unpack_reroute_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 147:                                              ; preds = %13
-  %148 = tail call fastcc i32 @_unpack_job_step_create_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %148 = tail call fastcc i32 @_unpack_job_step_create_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 149:                                              ; preds = %13
-  %150 = tail call fastcc i32 @_unpack_job_step_create_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %150 = tail call fastcc i32 @_unpack_job_step_create_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 151:                                              ; preds = %13
@@ -16803,23 +16803,23 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %.thread
 
 156:                                              ; preds = %13, %13, %13
-  %157 = tail call i32 @unpack_config_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %157 = tail call i32 @unpack_config_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %.thread
 
 158:                                              ; preds = %13
-  %159 = tail call fastcc i32 @_unpack_net_forward_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %159 = tail call fastcc i32 @_unpack_net_forward_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 160:                                              ; preds = %13
-  %161 = tail call fastcc i32 @_unpack_srun_node_fail_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %161 = tail call fastcc i32 @_unpack_srun_node_fail_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 162:                                              ; preds = %13
-  %163 = tail call fastcc i32 @_unpack_srun_step_missing_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %163 = tail call fastcc i32 @_unpack_srun_step_missing_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 164:                                              ; preds = %13
-  %165 = tail call fastcc i32 @_unpack_srun_timeout_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %165 = tail call fastcc i32 @_unpack_srun_timeout_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 166:                                              ; preds = %13
@@ -16827,23 +16827,23 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 168:                                              ; preds = %13, %13
-  %169 = tail call fastcc i32 @_unpack_suspend_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %169 = tail call fastcc i32 @_unpack_suspend_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 170:                                              ; preds = %13
-  %171 = tail call fastcc i32 @_unpack_suspend_int_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %171 = tail call fastcc i32 @_unpack_suspend_int_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 172:                                              ; preds = %13
-  %173 = tail call fastcc i32 @_unpack_top_job_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %173 = tail call fastcc i32 @_unpack_top_job_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 174:                                              ; preds = %13
-  %175 = tail call fastcc i32 @_unpack_token_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %175 = tail call fastcc i32 @_unpack_token_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 176:                                              ; preds = %13
-  %177 = tail call fastcc i32 @_unpack_token_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %177 = tail call fastcc i32 @_unpack_token_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 178:                                              ; preds = %13, %13, %13
@@ -16851,7 +16851,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 180:                                              ; preds = %13
-  %181 = tail call fastcc i32 @_unpack_job_requeue_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %181 = tail call fastcc i32 @_unpack_job_requeue_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 182:                                              ; preds = %13
@@ -16859,27 +16859,27 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 184:                                              ; preds = %13
-  %185 = tail call fastcc i32 @_unpack_shares_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %185 = tail call fastcc i32 @_unpack_shares_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 186:                                              ; preds = %13
-  %187 = tail call fastcc i32 @_unpack_shares_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %187 = tail call fastcc i32 @_unpack_shares_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 188:                                              ; preds = %13
-  %189 = tail call fastcc i32 @_unpack_priority_factors_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %189 = tail call fastcc i32 @_unpack_priority_factors_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 190:                                              ; preds = %13
-  %191 = tail call fastcc i32 @_unpack_burst_buffer_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %191 = tail call fastcc i32 @_unpack_burst_buffer_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 192:                                              ; preds = %13
-  %193 = tail call fastcc i32 @_unpack_file_bcast(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %193 = tail call fastcc i32 @_unpack_file_bcast(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 194:                                              ; preds = %13, %13
-  %195 = tail call fastcc i32 @_unpack_kvs_data(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %195 = tail call fastcc i32 @_unpack_kvs_data(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 196:                                              ; preds = %13
@@ -16887,19 +16887,19 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 198:                                              ; preds = %13, %13, %13, %13, %13
-  %199 = tail call fastcc i32 @_unpack_trigger_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %199 = tail call fastcc i32 @_unpack_trigger_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 200:                                              ; preds = %13
-  %201 = tail call fastcc i32 @_unpack_slurmd_status(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %201 = tail call fastcc i32 @_unpack_slurmd_status(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 202:                                              ; preds = %13
-  %203 = tail call fastcc i32 @_unpack_job_notify(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %203 = tail call fastcc i32 @_unpack_job_notify(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 204:                                              ; preds = %13
-  %205 = tail call fastcc i32 @_unpack_set_debug_flags_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %205 = tail call fastcc i32 @_unpack_set_debug_flags_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 206:                                              ; preds = %13, %13
@@ -16911,15 +16911,15 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 210:                                              ; preds = %13
-  %211 = tail call fastcc i32 @_unpack_accounting_update_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %211 = tail call fastcc i32 @_unpack_accounting_update_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 212:                                              ; preds = %13
-  %213 = tail call fastcc i32 @_unpack_topo_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %213 = tail call fastcc i32 @_unpack_topo_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 214:                                              ; preds = %13
-  %215 = tail call fastcc i32 @_unpack_job_sbcast_cred_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %215 = tail call fastcc i32 @_unpack_job_sbcast_cred_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 216:                                              ; preds = %13
@@ -16931,15 +16931,15 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 220:                                              ; preds = %13
-  %221 = tail call fastcc i32 @_unpack_front_end_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %221 = tail call fastcc i32 @_unpack_front_end_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 222:                                              ; preds = %13
-  %223 = tail call fastcc i32 @_unpack_stats_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %223 = tail call fastcc i32 @_unpack_stats_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 224:                                              ; preds = %13
-  %225 = tail call fastcc i32 @_unpack_stats_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %225 = tail call fastcc i32 @_unpack_stats_response_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 226:                                              ; preds = %13
@@ -16947,11 +16947,11 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 228:                                              ; preds = %13
-  %229 = tail call fastcc i32 @_unpack_ping_slurmd_resp(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %229 = tail call fastcc i32 @_unpack_ping_slurmd_resp(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 230:                                              ; preds = %13
-  %231 = tail call fastcc i32 @_unpack_license_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %231 = tail call fastcc i32 @_unpack_license_info_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 232:                                              ; preds = %13
@@ -16959,7 +16959,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 234:                                              ; preds = %13
-  %235 = tail call fastcc i32 @_unpack_job_array_resp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %235 = tail call fastcc i32 @_unpack_job_array_resp_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 236:                                              ; preds = %13
@@ -16971,23 +16971,23 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 240:                                              ; preds = %13
-  %241 = tail call fastcc i32 @_unpack_network_callerid_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %241 = tail call fastcc i32 @_unpack_network_callerid_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 242:                                              ; preds = %13
-  %243 = tail call fastcc i32 @_unpack_network_callerid_resp_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %243 = tail call fastcc i32 @_unpack_network_callerid_resp_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 244:                                              ; preds = %13, %13
-  %245 = tail call fastcc i32 @_unpack_buf_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %245 = tail call fastcc i32 @_unpack_buf_list_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 246:                                              ; preds = %13
-  %247 = tail call fastcc i32 @_unpack_set_fs_dampening_factor_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %247 = tail call fastcc i32 @_unpack_set_fs_dampening_factor_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 248:                                              ; preds = %13
-  %249 = tail call fastcc i32 @_unpack_control_status_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %249 = tail call fastcc i32 @_unpack_control_status_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 250:                                              ; preds = %13
@@ -16999,47 +16999,47 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 254:                                              ; preds = %13
-  %255 = tail call fastcc i32 @_unpack_crontab_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %255 = tail call fastcc i32 @_unpack_crontab_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 256:                                              ; preds = %13
-  %257 = tail call fastcc i32 @_unpack_crontab_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %257 = tail call fastcc i32 @_unpack_crontab_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 258:                                              ; preds = %13
-  %259 = tail call fastcc i32 @_unpack_crontab_update_request_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %259 = tail call fastcc i32 @_unpack_crontab_update_request_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 260:                                              ; preds = %13
-  %261 = tail call fastcc i32 @_unpack_crontab_update_response_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %261 = tail call fastcc i32 @_unpack_crontab_update_response_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 262:                                              ; preds = %13
-  %263 = tail call fastcc i32 @_unpack_container_state_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %263 = tail call fastcc i32 @_unpack_container_state_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 264:                                              ; preds = %13
-  %265 = tail call fastcc i32 @_unpack_container_signal_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %265 = tail call fastcc i32 @_unpack_container_signal_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 266:                                              ; preds = %13
-  %267 = tail call fastcc i32 @_unpack_container_delete_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %267 = tail call fastcc i32 @_unpack_container_delete_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 268:                                              ; preds = %13
-  %269 = tail call fastcc i32 @_unpack_container_started_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %269 = tail call fastcc i32 @_unpack_container_started_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 270:                                              ; preds = %13
-  %271 = tail call fastcc i32 @_unpack_container_exec_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %271 = tail call fastcc i32 @_unpack_container_exec_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 272:                                              ; preds = %13
-  %273 = tail call i32 @slurm_unpack_node_alias_addrs(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5), !range !9
+  %273 = tail call i32 @slurm_unpack_node_alias_addrs(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %282
 
 274:                                              ; preds = %13
-  %275 = tail call fastcc i32 @_unpack_node_alias_addrs_resp_msg(ptr noundef nonnull %0, ptr noundef %1), !range !9
+  %275 = tail call fastcc i32 @_unpack_node_alias_addrs_resp_msg(ptr noundef nonnull %0, ptr noundef %1)
   br label %282
 
 276:                                              ; preds = %13
@@ -17073,7 +17073,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7374, ptr noundef nonnull @__func__._unpack_node_info_request_msg) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %3, ptr %4, align 8
@@ -17098,7 +17098,7 @@ define internal fastcc noundef i32 @_unpack_node_info_request_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_info_single_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_single_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7397, ptr noundef nonnull @__func__._unpack_node_info_single_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -17124,7 +17124,7 @@ define internal fastcc noundef i32 @_unpack_node_info_single_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_part_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_part_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7514, ptr noundef nonnull @__func__._unpack_part_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -17148,7 +17148,7 @@ define internal fastcc noundef i32 @_unpack_part_info_request_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_resv_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_resv_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7540, ptr noundef nonnull @__func__._unpack_resv_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -17166,7 +17166,7 @@ define internal fastcc noundef i32 @_unpack_resv_info_request_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_last_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_last_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5553, ptr noundef nonnull @__func__._unpack_last_update_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -17184,7 +17184,7 @@ define internal fastcc noundef i32 @_unpack_last_update_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_slurm_ctl_conf_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -17864,7 +17864,7 @@ define internal fastcc noundef i32 @_unpack_slurm_ctl_conf_msg(ptr nocapture nou
 
 455:                                              ; preds = %452
   %456 = getelementptr inbounds i8, ptr %235, i64 544
-  %457 = call i32 @slurm_unpack_list(ptr noundef nonnull %456, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %457 = call i32 @slurm_unpack_list(ptr noundef nonnull %456, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not1165 = icmp eq i32 %457, 0
   br i1 %.not1165, label %458, label %1524
 
@@ -19163,7 +19163,7 @@ define internal fastcc noundef i32 @_unpack_slurm_ctl_conf_msg(ptr nocapture nou
 1100:                                             ; preds = %1098
   call void @slurm_xfree(ptr noundef nonnull %161) #8
   %1101 = getelementptr inbounds i8, ptr %235, i64 544
-  %1102 = call i32 @slurm_unpack_list(ptr noundef nonnull %1101, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %1102 = call i32 @slurm_unpack_list(ptr noundef nonnull %1101, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not951 = icmp eq i32 %1102, 0
   br i1 %.not951, label %1103, label %1524
 
@@ -20022,7 +20022,7 @@ define internal fastcc noundef i32 @_unpack_slurm_ctl_conf_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_id_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_id_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10118, ptr noundef nonnull @__func__._unpack_container_id_request_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -20060,7 +20060,7 @@ define internal fastcc noundef i32 @_unpack_container_id_request_msg(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_id_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_id_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10173, ptr noundef nonnull @__func__._unpack_container_id_response_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -20117,7 +20117,7 @@ _unpack_each_container_id.exit:                   ; preds = %21
   %25 = add nuw nsw i32 %.017.i, 1
   %26 = load i32, ptr %3, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.preheader, label %slurm_unpack_list.exit.thread, !llvm.loop !13
+  br i1 %27, label %.preheader, label %slurm_unpack_list.exit.thread, !llvm.loop !11
 
 .loopexit16.i:                                    ; preds = %_unpack_each_container_id.exit.thread, %9
   %28 = load ptr, ptr %4, align 8
@@ -20145,7 +20145,7 @@ slurm_unpack_list.exit.thread:                    ; preds = %_unpack_each_contai
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_info_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2977, ptr noundef nonnull @__func__._unpack_job_info_msg) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %3, ptr %4, align 8
@@ -20194,7 +20194,7 @@ define internal fastcc noundef i32 @_unpack_job_info_msg(ptr nocapture noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %23 ]
   %25 = getelementptr inbounds %struct.job_info, ptr %21, i64 %indvars.iv
   %26 = load i16, ptr %5, align 2
-  %27 = tail call fastcc i32 @_unpack_job_info_members(ptr noundef nonnull %25, ptr noundef %1, i16 noundef zeroext %26), !range !9
+  %27 = tail call fastcc i32 @_unpack_job_info_members(ptr noundef nonnull %25, ptr noundef %1, i16 noundef zeroext %26)
   %.not43 = icmp eq i32 %27, 0
   br i1 %.not43, label %28, label %.loopexit47
 
@@ -20233,7 +20233,7 @@ define internal fastcc noundef i32 @_unpack_job_info_msg(ptr nocapture noundef %
   %45 = load i32, ptr %17, align 8
   %46 = zext i32 %45 to i64
   %47 = icmp ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !54
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit47:                                      ; preds = %.lr.ph, %19, %14, %11, %8
   tail call void @slurm_free_job_info_msg(ptr noundef %3) #8
@@ -20246,7 +20246,7 @@ define internal fastcc noundef i32 @_unpack_job_info_msg(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_script_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_script_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1) #8
   %.not = icmp eq i32 %4, 0
@@ -20263,7 +20263,7 @@ define internal fastcc noundef i32 @_unpack_job_script_msg(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_partition_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -20646,7 +20646,7 @@ define internal fastcc noundef i32 @_unpack_partition_info_msg(ptr nocapture nou
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds i8, ptr %46, i64 104
-  %186 = call i32 @slurm_unpack_list(ptr noundef nonnull %185, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %186 = call i32 @slurm_unpack_list(ptr noundef nonnull %185, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not124.i = icmp eq i32 %186, 0
   br i1 %.not124.i, label %187, label %_unpack_partition_info_members.exit
 
@@ -20695,7 +20695,7 @@ _unpack_partition_info_members.exit:              ; preds = %.lr.ph, %54, %57, %
   %190 = load i32, ptr %189, align 8
   %191 = zext i32 %190 to i64
   %192 = icmp ult i64 %indvars.iv.next, %191
-  br i1 %192, label %.lr.ph, label %.loopexit, !llvm.loop !55
+  br i1 %192, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 193:                                              ; preds = %_unpack_partition_info_members.exit, %35, %26, %23
   %194 = load ptr, ptr %0, align 8
@@ -20709,7 +20709,7 @@ _unpack_partition_info_members.exit:              ; preds = %.lr.ph, %54, %57, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -21232,7 +21232,7 @@ define internal fastcc noundef i32 @_unpack_node_info_msg(ptr nocapture noundef 
   %227 = load i32, ptr %70, align 8
   %228 = zext i32 %227 to i64
   %229 = icmp ult i64 %indvars.iv.next53, %228
-  br i1 %229, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !56
+  br i1 %229, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !53
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %230 = icmp ugt i16 %2, 10239
@@ -21665,7 +21665,7 @@ define internal fastcc noundef i32 @_unpack_node_info_msg(ptr nocapture noundef 
   %378 = load i32, ptr %70, align 8
   %379 = zext i32 %378 to i64
   %380 = icmp ult i64 %indvars.iv.next50, %379
-  br i1 %380, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !56
+  br i1 %380, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !53
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %521
   %indvars.iv = phi i64 [ %indvars.iv.next, %521 ], [ 0, %.lr.ph.split ]
@@ -22150,7 +22150,7 @@ _unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.split,
   %522 = load i32, ptr %70, align 8
   %523 = zext i32 %522 to i64
   %524 = icmp ult i64 %indvars.iv.next, %523
-  br i1 %524, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !56
+  br i1 %524, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !53
 
 525:                                              ; preds = %_unpack_node_info_members.exit, %77, %72, %69
   call void @slurm_free_node_info_msg(ptr noundef %67) #8
@@ -22168,7 +22168,7 @@ _unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_registration_status_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -22384,13 +22384,13 @@ define internal fastcc noundef i32 @_unpack_node_registration_status_msg(ptr noc
   %117 = load i32, ptr %104, align 8
   %118 = zext i32 %117 to i64
   %119 = icmp ult i64 %indvars.iv.next256, %118
-  br i1 %119, label %120, label %._crit_edge250, !llvm.loop !57
+  br i1 %119, label %120, label %._crit_edge250, !llvm.loop !54
 
 120:                                              ; preds = %.lr.ph249, %116
   %indvars.iv255 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next256, %116 ]
   %121 = load ptr, ptr %115, align 8
   %122 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %121, i64 %indvars.iv255
-  %123 = call i32 @unpack_step_id_members(ptr noundef %122, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %123 = call i32 @unpack_step_id_members(ptr noundef %122, ptr noundef %1, i16 noundef zeroext %2)
   %.not244 = icmp eq i32 %123, 0
   br i1 %.not244, label %116, label %.loopexit
 
@@ -22628,13 +22628,13 @@ define internal fastcc noundef i32 @_unpack_node_registration_status_msg(ptr noc
   %232 = load i32, ptr %219, align 8
   %233 = zext i32 %232 to i64
   %234 = icmp ult i64 %indvars.iv.next, %233
-  br i1 %234, label %235, label %._crit_edge, !llvm.loop !58
+  br i1 %234, label %235, label %._crit_edge, !llvm.loop !55
 
 235:                                              ; preds = %.lr.ph, %231
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %231 ]
   %236 = load ptr, ptr %230, align 8
   %237 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %236, i64 %indvars.iv
-  %238 = call i32 @unpack_step_id_members(ptr noundef %237, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %238 = call i32 @unpack_step_id_members(ptr noundef %237, ptr noundef %1, i16 noundef zeroext %2)
   %.not206 = icmp eq i32 %238, 0
   br i1 %.not206, label %231, label %.loopexit
 
@@ -22715,7 +22715,7 @@ define internal fastcc noundef i32 @_unpack_node_registration_status_msg(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_acct_gather_node_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_gather_node_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 882, ptr noundef nonnull @__func__._unpack_acct_gather_node_resp_msg) #8
@@ -22757,7 +22757,7 @@ define internal fastcc noundef i32 @_unpack_acct_gather_node_resp_msg(ptr nocapt
   %22 = load i16, ptr %12, align 8
   %23 = zext i16 %22 to i64
   %24 = icmp ult i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !59
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %19, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %19 ]
@@ -22784,7 +22784,7 @@ define internal fastcc noundef i32 @_unpack_acct_gather_node_resp_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_desc_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -23611,7 +23611,7 @@ define internal fastcc noundef i32 @_unpack_job_desc_msg(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_desc_list_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_list_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   store i16 0, ptr %5, align 2
@@ -23637,7 +23637,7 @@ define internal fastcc noundef i32 @_unpack_job_desc_list_msg(ptr nocapture noun
 .lr.ph:                                           ; preds = %9, %13
   %.017 = phi i32 [ %16, %13 ], [ 0, %9 ]
   store ptr null, ptr %4, align 8
-  %12 = call fastcc i32 @_unpack_job_desc_msg(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %12 = call fastcc i32 @_unpack_job_desc_msg(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2)
   %.not14 = icmp eq i32 %12, 0
   br i1 %.not14, label %13, label %.loopexit16
 
@@ -23649,7 +23649,7 @@ define internal fastcc noundef i32 @_unpack_job_desc_list_msg(ptr nocapture noun
   %17 = load i16, ptr %5, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp ult i32 %16, %18
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !60
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .loopexit16:                                      ; preds = %.lr.ph, %7, %3
   %20 = load ptr, ptr %0, align 8
@@ -23670,7 +23670,7 @@ define internal fastcc noundef i32 @_unpack_job_desc_list_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_info_list_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_list_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca i16, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %4, i8 0, i64 416, i1 false)
@@ -23702,7 +23702,7 @@ define internal fastcc noundef i32 @_unpack_job_info_list_msg(ptr nocapture noun
 
 14:                                               ; preds = %.lr.ph, %16
   %.017 = phi i32 [ 0, %.lr.ph ], [ %19, %16 ]
-  %15 = call fastcc i32 @_unpack_resource_allocation_response_msg(ptr noundef nonnull %4, ptr noundef %1), !range !9
+  %15 = call fastcc i32 @_unpack_resource_allocation_response_msg(ptr noundef nonnull %4, ptr noundef %1)
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %16, label %.loopexit16
 
@@ -23715,7 +23715,7 @@ define internal fastcc noundef i32 @_unpack_job_info_list_msg(ptr nocapture noun
   %20 = load i16, ptr %5, align 2
   %21 = zext i16 %20 to i32
   %22 = icmp ult i32 %19, %21
-  br i1 %22, label %14, label %.loopexit, !llvm.loop !61
+  br i1 %22, label %14, label %.loopexit, !llvm.loop !58
 
 .loopexit16:                                      ; preds = %14, %8, %3
   %23 = load ptr, ptr %0, align 8
@@ -23736,7 +23736,7 @@ define internal fastcc noundef i32 @_unpack_job_info_list_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_sib_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_sib_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
@@ -24000,7 +24000,7 @@ define internal fastcc noundef i32 @_unpack_sib_msg(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_dep_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_dep_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = icmp ugt i16 %2, 9983
@@ -24060,14 +24060,14 @@ define internal fastcc noundef i32 @_unpack_dep_msg(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_dep_update_origin_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_dep_update_origin_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 9983
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %3
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 4904, ptr noundef nonnull @__func__._unpack_dep_update_origin_msg) #8
   store ptr %6, ptr %0, align 8
-  %7 = tail call i32 @unpack_dep_list(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %7 = tail call i32 @unpack_dep_list(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %11
 
@@ -24088,7 +24088,7 @@ define internal fastcc noundef i32 @_unpack_dep_update_origin_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_update_job_step_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_update_job_step_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6587, ptr noundef nonnull @__func__._unpack_update_job_step_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -24122,7 +24122,7 @@ define internal fastcc noundef i32 @_unpack_update_job_step_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_alloc_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_alloc_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5371, ptr noundef nonnull @__func__._unpack_job_alloc_info_msg) #8
   store ptr %5, ptr %0, align 8
@@ -24151,7 +24151,7 @@ define internal fastcc noundef i32 @_unpack_job_alloc_info_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_reg_resp(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_reg_resp(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -24194,7 +24194,7 @@ define internal fastcc noundef i32 @_unpack_node_reg_resp(ptr nocapture noundef 
   %22 = add nuw nsw i32 %.017.i, 1
   %23 = load i32, ptr %4, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph.i, label %.loopexit, !llvm.loop !13
+  br i1 %24, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 .loopexit16.i:                                    ; preds = %.lr.ph.i, %8
   %25 = load ptr, ptr %10, align 8
@@ -24229,7 +24229,7 @@ slurm_unpack_list.exit:                           ; preds = %.loopexit16.i, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_acct_gather_energy_req(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_gather_energy_req(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 925, ptr noundef nonnull @__func__._unpack_acct_gather_energy_req) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -24261,7 +24261,7 @@ declare i32 @slurm_persist_unpack_init_req_msg(ptr noundef, ptr noundef) local_u
 declare i32 @slurm_persist_unpack_rc_msg(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_reboot_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reboot_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -24311,7 +24311,7 @@ define internal fastcc noundef i32 @_unpack_reboot_msg(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_shutdown_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_shutdown_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6506, ptr noundef nonnull @__func__._unpack_shutdown_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack16(ptr noundef %3, ptr noundef %1) #8
@@ -24329,7 +24329,7 @@ define internal fastcc noundef i32 @_unpack_shutdown_msg(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_submit_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_submit_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1476, ptr noundef nonnull @__func__._unpack_submit_response_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -24373,7 +24373,7 @@ define internal fastcc noundef i32 @_unpack_submit_response_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_resource_allocation_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_resource_allocation_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -24848,7 +24848,7 @@ define internal fastcc noundef i32 @_unpack_resource_allocation_response_msg(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_will_run_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_will_run_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -24918,7 +24918,7 @@ define internal fastcc noundef i32 @_unpack_will_run_response_msg(ptr nocapture 
   %37 = add nuw i32 %.03040, 1
   %38 = load i32, ptr %4, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !62
+  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %33, %28, %27, %27
   %40 = getelementptr inbounds i8, ptr %9, i64 40
@@ -24950,7 +24950,7 @@ define internal fastcc noundef i32 @_unpack_will_run_response_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_update_front_end_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_update_front_end_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 747, ptr noundef nonnull @__func__._unpack_update_front_end_msg) #8
@@ -24986,7 +24986,7 @@ define internal fastcc noundef i32 @_unpack_update_front_end_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_update_node_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_update_node_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -25194,7 +25194,7 @@ define internal fastcc noundef i32 @_unpack_update_node_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_update_partition_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_update_partition_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -25396,7 +25396,7 @@ define internal fastcc noundef i32 @_unpack_update_partition_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_delete_partition_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_delete_partition_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2019, ptr noundef nonnull @__func__._unpack_delete_partition_msg) #8
   store ptr %5, ptr %0, align 8
@@ -25419,7 +25419,7 @@ define internal fastcc noundef i32 @_unpack_delete_partition_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_update_resv_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_update_resv_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -25631,7 +25631,7 @@ define internal fastcc noundef i32 @_unpack_update_resv_msg(ptr nocapture nounde
   store i32 %119, ptr %113, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit141, label %115, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit141, label %115, !llvm.loop !60
 
 .loopexit141:                                     ; preds = %115, %111
   call void @slurm_xfree(ptr noundef nonnull %17) #8
@@ -25662,7 +25662,7 @@ define internal fastcc noundef i32 @_unpack_update_resv_msg(ptr nocapture nounde
   store i32 %132, ptr %126, align 8
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.loopexit, label %128, !llvm.loop !64
+  br i1 %exitcond150.not, label %.loopexit, label %128, !llvm.loop !61
 
 .loopexit:                                        ; preds = %128, %124
   call void @slurm_xfree(ptr noundef nonnull %16) #8
@@ -25757,7 +25757,7 @@ define internal fastcc noundef i32 @_unpack_update_resv_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_resv_name_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_resv_name_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2054, ptr noundef nonnull @__func__._unpack_resv_name_msg) #8
   store ptr %5, ptr %0, align 8
@@ -25780,7 +25780,7 @@ define internal fastcc noundef i32 @_unpack_resv_name_msg(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_reserve_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -26078,7 +26078,7 @@ define internal fastcc noundef i32 @_unpack_reserve_info_msg(ptr nocapture nound
   %140 = load i32, ptr %129, align 4
   %141 = zext i32 %140 to i64
   %142 = icmp ult i64 %indvars.iv.next.i, %141
-  br i1 %142, label %.lr.ph.i, label %.loopexit, !llvm.loop !65
+  br i1 %142, label %.lr.ph.i, label %.loopexit, !llvm.loop !62
 
 .lr.ph.i:                                         ; preds = %137, %139
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %139 ], [ 0, %137 ]
@@ -26140,7 +26140,7 @@ _unpack_reserve_info_members.exit:                ; preds = %.lr.ph, %48, %51, %
   %152 = load i32, ptr %151, align 8
   %153 = zext i32 %152 to i64
   %154 = icmp ult i64 %indvars.iv.next, %153
-  br i1 %154, label %.lr.ph, label %.loopexit32, !llvm.loop !66
+  br i1 %154, label %.lr.ph, label %.loopexit32, !llvm.loop !63
 
 155:                                              ; preds = %_unpack_reserve_info_members.exit, %35, %26, %23
   %156 = load ptr, ptr %0, align 8
@@ -26154,7 +26154,7 @@ _unpack_reserve_info_members.exit:                ; preds = %.lr.ph, %48, %51, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -26310,7 +26310,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %93 = load i32, ptr %66, align 8
   %94 = zext i32 %93 to i64
   %95 = icmp ult i64 %indvars.iv.next802, %94
-  br i1 %95, label %84, label %.loopexit734, !llvm.loop !67
+  br i1 %95, label %84, label %.loopexit734, !llvm.loop !64
 
 .loopexit734:                                     ; preds = %88, %.thread829, %81, %68
   %96 = getelementptr inbounds i8, ptr %45, i64 12
@@ -26352,7 +26352,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %108 = load i32, ptr %96, align 4
   %109 = zext i32 %108 to i64
   %110 = icmp ult i64 %indvars.iv.next805, %109
-  br i1 %110, label %111, label %.loopexit732, !llvm.loop !68
+  br i1 %110, label %111, label %.loopexit732, !llvm.loop !65
 
 111:                                              ; preds = %.lr.ph761, %107
   %indvars.iv804 = phi i64 [ 0, %.lr.ph761 ], [ %indvars.iv.next805, %107 ]
@@ -26566,7 +26566,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %208 = load i32, ptr %151, align 4
   %209 = zext i32 %208 to i64
   %210 = icmp ult i64 %indvars.iv.next808, %209
-  br i1 %210, label %211, label %._crit_edge765, !llvm.loop !69
+  br i1 %210, label %211, label %._crit_edge765, !llvm.loop !66
 
 211:                                              ; preds = %.lr.ph764, %207
   %212 = phi ptr [ %.pre828, %.lr.ph764 ], [ %220, %207 ]
@@ -26625,7 +26625,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %237 = load i16, ptr %225, align 8
   %238 = zext i16 %237 to i64
   %239 = icmp ult i64 %indvars.iv.next811, %238
-  br i1 %239, label %.lr.ph767, label %.loopexit729, !llvm.loop !70
+  br i1 %239, label %.lr.ph767, label %.loopexit729, !llvm.loop !67
 
 .lr.ph767:                                        ; preds = %.preheader728, %236
   %indvars.iv810 = phi i64 [ %indvars.iv.next811, %236 ], [ 0, %.preheader728 ]
@@ -26751,7 +26751,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %299 = load i16, ptr %287, align 8
   %300 = zext i16 %299 to i64
   %301 = icmp ult i64 %indvars.iv.next814, %300
-  br i1 %301, label %.lr.ph769, label %.loopexit, !llvm.loop !71
+  br i1 %301, label %.lr.ph769, label %.loopexit, !llvm.loop !68
 
 .lr.ph769:                                        ; preds = %.preheader, %298
   %indvars.iv813 = phi i64 [ %indvars.iv.next814, %298 ], [ 0, %.preheader ]
@@ -27028,7 +27028,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %429 = load i32, ptr %402, align 8
   %430 = zext i32 %429 to i64
   %431 = icmp ult i64 %indvars.iv.next, %430
-  br i1 %431, label %420, label %.loopexit745, !llvm.loop !72
+  br i1 %431, label %420, label %.loopexit745, !llvm.loop !69
 
 .loopexit745:                                     ; preds = %424, %.thread835, %417, %404
   %432 = getelementptr inbounds i8, ptr %45, i64 12
@@ -27070,7 +27070,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %444 = load i32, ptr %432, align 4
   %445 = zext i32 %444 to i64
   %446 = icmp ult i64 %indvars.iv.next790, %445
-  br i1 %446, label %447, label %.loopexit743, !llvm.loop !73
+  br i1 %446, label %447, label %.loopexit743, !llvm.loop !70
 
 447:                                              ; preds = %.lr.ph749, %443
   %indvars.iv789 = phi i64 [ 0, %.lr.ph749 ], [ %indvars.iv.next790, %443 ]
@@ -27281,7 +27281,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %541 = load i32, ptr %491, align 4
   %542 = zext i32 %541 to i64
   %543 = icmp ult i64 %indvars.iv.next793, %542
-  br i1 %543, label %544, label %._crit_edge, !llvm.loop !74
+  br i1 %543, label %544, label %._crit_edge, !llvm.loop !71
 
 544:                                              ; preds = %.lr.ph751, %540
   %545 = phi ptr [ %.pre821, %.lr.ph751 ], [ %553, %540 ]
@@ -27340,7 +27340,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %570 = load i16, ptr %558, align 8
   %571 = zext i16 %570 to i64
   %572 = icmp ult i64 %indvars.iv.next796, %571
-  br i1 %572, label %.lr.ph753, label %.loopexit740, !llvm.loop !75
+  br i1 %572, label %.lr.ph753, label %.loopexit740, !llvm.loop !72
 
 .lr.ph753:                                        ; preds = %.preheader739, %569
   %indvars.iv795 = phi i64 [ %indvars.iv.next796, %569 ], [ 0, %.preheader739 ]
@@ -27466,7 +27466,7 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %632 = load i16, ptr %620, align 8
   %633 = zext i16 %632 to i64
   %634 = icmp ult i64 %indvars.iv.next799, %633
-  br i1 %634, label %.lr.ph755, label %.loopexit737, !llvm.loop !76
+  br i1 %634, label %.lr.ph755, label %.loopexit737, !llvm.loop !73
 
 .lr.ph755:                                        ; preds = %.preheader736, %631
   %indvars.iv798 = phi i64 [ %indvars.iv.next799, %631 ], [ 0, %.preheader736 ]
@@ -27625,7 +27625,7 @@ unpack_step_id_members.exit:                      ; preds = %420, %447, %552, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_launch_tasks_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5858, ptr noundef nonnull @__func__._unpack_launch_tasks_response_msg) #8
@@ -27703,7 +27703,7 @@ unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_reattach_tasks_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5701, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -27759,7 +27759,7 @@ define internal fastcc noundef i32 @_unpack_reattach_tasks_request_msg(ptr nocap
   %27 = load i16, ptr %4, align 8
   %28 = zext i16 %27 to i64
   %29 = icmp ult i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.loopexit65, !llvm.loop !77
+  br i1 %29, label %.lr.ph, label %.loopexit65, !llvm.loop !74
 
 .lr.ph:                                           ; preds = %.preheader64, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader64 ]
@@ -27802,7 +27802,7 @@ define internal fastcc noundef i32 @_unpack_reattach_tasks_request_msg(ptr nocap
   %45 = load i16, ptr %33, align 8
   %46 = zext i16 %45 to i64
   %47 = icmp ult i64 %indvars.iv.next74, %46
-  br i1 %47, label %.lr.ph69, label %.loopexit, !llvm.loop !78
+  br i1 %47, label %.lr.ph69, label %.loopexit, !llvm.loop !75
 
 .lr.ph69:                                         ; preds = %.preheader, %44
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %44 ], [ 0, %.preheader ]
@@ -27830,7 +27830,7 @@ unpack_step_id_members.exit:                      ; preds = %.lr.ph, %.lr.ph69, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_reattach_tasks_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -27900,7 +27900,7 @@ define internal fastcc noundef i32 @_unpack_reattach_tasks_response_msg(ptr noca
   %33 = load i32, ptr %12, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next, %34
-  br i1 %35, label %36, label %.loopexit, !llvm.loop !79
+  br i1 %35, label %36, label %.loopexit, !llvm.loop !76
 
 36:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
@@ -27926,7 +27926,7 @@ define internal fastcc noundef i32 @_unpack_reattach_tasks_response_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_cancel_tasks_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_cancel_tasks_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6427, ptr noundef nonnull @__func__._unpack_cancel_tasks_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -27972,7 +27972,7 @@ unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %17, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_info_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7345, ptr noundef nonnull @__func__._unpack_job_step_info_req_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -28018,7 +28018,7 @@ unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -28073,7 +28073,7 @@ define internal fastcc noundef i32 @_unpack_job_info_request_msg(ptr nocapture n
   %27 = add nuw nsw i32 %.01622, 1
   %28 = load i32, ptr %4, align 4
   %29 = icmp ult i32 %27, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !80
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !77
 
 .loopexit21:                                      ; preds = %.lr.ph, %13, %10, %8
   call void @slurm_xfree(ptr noundef nonnull %5) #8
@@ -28087,7 +28087,7 @@ define internal fastcc noundef i32 @_unpack_job_info_request_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_state_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7033, ptr noundef nonnull @__func__._unpack_job_state_request_msg) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %3, ptr %4, align 8
@@ -28132,7 +28132,7 @@ define internal fastcc noundef i32 @_unpack_job_state_request_msg(ptr nocapture 
   %22 = load i32, ptr %3, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp ult i64 %indvars.iv.next, %23
-  br i1 %24, label %25, label %.loopexit, !llvm.loop !81
+  br i1 %24, label %25, label %.loopexit, !llvm.loop !78
 
 25:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -28153,7 +28153,7 @@ define internal fastcc noundef i32 @_unpack_job_state_request_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_state_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -28201,7 +28201,7 @@ define internal fastcc noundef i32 @_unpack_job_state_response_msg(ptr nocapture
   %25 = load i32, ptr %6, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp ult i64 %indvars.iv.next, %26
-  br i1 %27, label %28, label %.loopexit, !llvm.loop !82
+  br i1 %27, label %28, label %.loopexit, !llvm.loop !79
 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
@@ -28316,7 +28316,7 @@ define internal fastcc noundef i32 @_unpack_job_state_response_msg(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_kill_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_kill_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6549, ptr noundef nonnull @__func__._unpack_job_step_kill_msg) #8
@@ -28376,7 +28376,7 @@ unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_complete_job_allocation_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_complete_job_allocation_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6620, ptr noundef nonnull @__func__._unpack_complete_job_allocation_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -28400,7 +28400,7 @@ define internal fastcc noundef i32 @_unpack_complete_job_allocation_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_complete_prolog_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_complete_prolog_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6646, ptr noundef nonnull @__func__._unpack_complete_prolog_msg) #8
   store ptr %5, ptr %0, align 8
@@ -28435,7 +28435,7 @@ define internal fastcc noundef i32 @_unpack_complete_prolog_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_complete_batch_script_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_complete_batch_script_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6814, ptr noundef nonnull @__func__._unpack_complete_batch_script_msg) #8
   store ptr %5, ptr %0, align 8
@@ -28488,7 +28488,7 @@ define internal fastcc noundef i32 @_unpack_complete_batch_script_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6928, ptr noundef nonnull @__func__._unpack_step_complete_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -28546,7 +28546,7 @@ unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %23, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_stat(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_stat(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6856, ptr noundef nonnull @__func__._unpack_job_step_stat) #8
   store ptr %5, ptr %0, align 8
@@ -28603,7 +28603,7 @@ _unpack_job_step_pids.exit:                       ; preds = %17, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_step_id(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_step_id(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 11807, ptr noundef nonnull @__func__.unpack_step_id) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -28644,7 +28644,7 @@ unpack_step_id_members.exit.thread:               ; preds = %11, %unpack_step_id
 declare i32 @unpack_slurm_step_layout(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_pids(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_pids(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6894, ptr noundef nonnull @__func__._unpack_job_step_pids) #8
   store ptr %4, ptr %0, align 8
@@ -28670,7 +28670,7 @@ define internal fastcc noundef i32 @_unpack_job_step_pids(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_kill_job_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_kill_job_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -28722,7 +28722,7 @@ define internal fastcc noundef i32 @_unpack_kill_job_msg(ptr nocapture noundef w
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %8, i64 88
-  %30 = call i32 @unpack_step_id_members(ptr noundef nonnull %29, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %30 = call i32 @unpack_step_id_members(ptr noundef nonnull %29, ptr noundef %1, i16 noundef zeroext %2)
   %.not47 = icmp eq i32 %30, 0
   br i1 %.not47, label %31, label %59
 
@@ -28792,7 +28792,7 @@ define internal fastcc noundef i32 @_unpack_kill_job_msg(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_epilog_comp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_epilog_comp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2529, ptr noundef nonnull @__func__._unpack_epilog_comp_msg) #8
   store ptr %5, ptr %0, align 8
@@ -28827,7 +28827,7 @@ define internal fastcc noundef i32 @_unpack_epilog_comp_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -29305,7 +29305,7 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   %211 = load i32, ptr %210, align 8
   %212 = zext i32 %211 to i64
   %213 = icmp ult i64 %indvars.iv.next38, %212
-  br i1 %213, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !83
+  br i1 %213, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !80
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %353
   %indvars.iv = phi i64 [ %indvars.iv.next, %353 ], [ 0, %.lr.ph ]
@@ -29719,7 +29719,7 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   %356 = load i32, ptr %355, align 8
   %357 = zext i32 %356 to i64
   %358 = icmp ult i64 %indvars.iv.next, %357
-  br i1 %358, label %.lr.ph.split, label %.loopexit, !llvm.loop !83
+  br i1 %358, label %.lr.ph.split, label %.loopexit, !llvm.loop !80
 
 unpack_step_id_members.exit.sink.split.i:         ; preds = %310, %218
   %.sink.i = phi ptr [ %37, %310 ], [ %14, %218 ]
@@ -29787,7 +29787,7 @@ _unpack_job_step_info_members.exit:               ; preds = %350, %347, %344, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_task_exit_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_task_exit_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5812, ptr noundef nonnull @__func__._unpack_task_exit_msg) #8
   store ptr %5, ptr %0, align 8
@@ -29819,7 +29819,7 @@ define internal fastcc noundef i32 @_unpack_task_exit_msg(ptr nocapture noundef 
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %5, i64 20
-  %20 = call i32 @unpack_step_id_members(ptr noundef nonnull %19, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %20 = call i32 @unpack_step_id_members(ptr noundef nonnull %19, ptr noundef %1, i16 noundef zeroext %2)
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %22, label %21
 
@@ -29834,7 +29834,7 @@ define internal fastcc noundef i32 @_unpack_task_exit_msg(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_batch_job_launch_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_batch_job_launch_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -30439,7 +30439,7 @@ define internal fastcc noundef i32 @_unpack_batch_job_launch_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_prolog_launch_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -30696,7 +30696,7 @@ define internal fastcc noundef i32 @_unpack_prolog_launch_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_return_code_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_return_code_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5580, ptr noundef nonnull @__func__._unpack_return_code_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -30714,7 +30714,7 @@ define internal fastcc noundef i32 @_unpack_return_code_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_return_code2_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_return_code2_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -30757,7 +30757,7 @@ define internal fastcc noundef i32 @_unpack_return_code2_msg(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_reroute_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reroute_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5652, ptr noundef nonnull @__func__._unpack_reroute_msg) #8
@@ -30790,7 +30790,7 @@ define internal fastcc noundef i32 @_unpack_reroute_msg(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_create_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2574, ptr noundef nonnull @__func__._unpack_job_step_create_response_msg) #8
   store ptr %5, ptr %0, align 8
@@ -30862,7 +30862,7 @@ define internal fastcc noundef i32 @_unpack_job_step_create_response_msg(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_step_create_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -31454,7 +31454,7 @@ unpack_step_id_members.exit:                      ; preds = %181, %178, %175, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_id_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7932, ptr noundef nonnull @__func__._unpack_job_id_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31472,7 +31472,7 @@ define internal fastcc noundef i32 @_unpack_job_id_request_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_id_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7963, ptr noundef nonnull @__func__._unpack_job_id_response_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31517,7 +31517,7 @@ define internal fastcc void @_unpack_config_request_msg(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_net_forward_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_net_forward_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8115, ptr noundef nonnull @__func__._unpack_net_forward_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31558,7 +31558,7 @@ define internal fastcc noundef i32 @_unpack_net_forward_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_srun_node_fail_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_node_fail_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8147, ptr noundef nonnull @__func__._unpack_srun_node_fail_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -31602,7 +31602,7 @@ unpack_step_id_members.exit:                      ; preds = %15, %12, %9, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_srun_step_missing_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_step_missing_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8185, ptr noundef nonnull @__func__._unpack_srun_step_missing_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31643,7 +31643,7 @@ unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_srun_timeout_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_timeout_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8313, ptr noundef nonnull @__func__._unpack_srun_timeout_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -31683,7 +31683,7 @@ unpack_step_id_members.exit:                      ; preds = %11, %8, %6, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_srun_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8348, ptr noundef nonnull @__func__._unpack_srun_user_msg) #8
   store ptr %4, ptr %0, align 8
@@ -31708,7 +31708,7 @@ define internal fastcc noundef i32 @_unpack_srun_user_msg(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_suspend_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8378, ptr noundef nonnull @__func__._unpack_suspend_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31743,7 +31743,7 @@ define internal fastcc noundef i32 @_unpack_suspend_msg(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_suspend_int_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_int_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8416, ptr noundef nonnull @__func__._unpack_suspend_int_msg) #8
@@ -31798,7 +31798,7 @@ define internal fastcc noundef i32 @_unpack_suspend_int_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_top_job_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_top_job_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8456, ptr noundef nonnull @__func__._unpack_top_job_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31833,7 +31833,7 @@ define internal fastcc noundef i32 @_unpack_top_job_msg(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_token_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_token_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8487, ptr noundef nonnull @__func__._unpack_token_request_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31862,7 +31862,7 @@ define internal fastcc noundef i32 @_unpack_token_request_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_token_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_token_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8518, ptr noundef nonnull @__func__._unpack_token_response_msg) #8
   store ptr %5, ptr %0, align 8
@@ -31885,7 +31885,7 @@ define internal fastcc noundef i32 @_unpack_token_response_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_ready_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_ready_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8220, ptr noundef nonnull @__func__._unpack_job_ready_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31909,7 +31909,7 @@ define internal fastcc noundef i32 @_unpack_job_ready_msg(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_requeue_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_requeue_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8247, ptr noundef nonnull @__func__._unpack_job_requeue_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -31947,7 +31947,7 @@ define internal fastcc noundef i32 @_unpack_job_requeue_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8281, ptr noundef nonnull @__func__._unpack_job_user_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31971,7 +31971,7 @@ define internal fastcc noundef i32 @_unpack_job_user_msg(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_shares_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_shares_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -32015,7 +32015,7 @@ define internal fastcc noundef i32 @_unpack_shares_request_msg(ptr nocapture nou
   %21 = add nuw nsw i32 %.017.i, 1
   %22 = load i32, ptr %7, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph.i, label %.loopexit, !llvm.loop !13
+  br i1 %23, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 .loopexit16.i:                                    ; preds = %.lr.ph.i, %2
   %24 = load ptr, ptr %9, align 8
@@ -32070,7 +32070,7 @@ slurm_unpack_list.exit:                           ; preds = %.loopexit16.i, %25
   %37 = add nuw nsw i32 %.017.i18, 1
   %38 = load i32, ptr %5, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %.lr.ph.i17, label %slurm_unpack_list.exit19.thread, !llvm.loop !13
+  br i1 %39, label %.lr.ph.i17, label %slurm_unpack_list.exit19.thread, !llvm.loop !11
 
 .loopexit16.i12:                                  ; preds = %.lr.ph.i17, %.loopexit
   %40 = load ptr, ptr %26, align 8
@@ -32103,7 +32103,7 @@ slurm_unpack_list.exit19:                         ; preds = %.loopexit16.i12, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_shares_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_shares_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -32279,7 +32279,7 @@ _unpack_assoc_shares_object.exit:                 ; preds = %31, %33, %36, %39, 
   %82 = add nuw nsw i32 %.029, 1
   %83 = load i32, ptr %8, align 4
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !84
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %80, %24, %23
   %85 = getelementptr inbounds i8, ptr %9, i64 8
@@ -32298,7 +32298,7 @@ _unpack_assoc_shares_object.exit:                 ; preds = %31, %33, %36, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_priority_factors_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_priority_factors_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -32363,7 +32363,7 @@ define internal fastcc noundef i32 @_unpack_priority_factors_response_msg(ptr no
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %18, i64 40
-  %34 = call fastcc i32 @_unpack_priority_factors(ptr noundef nonnull %33, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %34 = call fastcc i32 @_unpack_priority_factors(ptr noundef nonnull %33, ptr noundef %1, i16 noundef zeroext %2)
   %.not24.i.us = icmp eq i32 %34, 0
   br i1 %.not24.i.us, label %35, label %_unpack_priority_factors_object.exit
 
@@ -32388,7 +32388,7 @@ define internal fastcc noundef i32 @_unpack_priority_factors_response_msg(ptr no
   %43 = add nuw nsw i32 %.020.us, 1
   %44 = load i32, ptr %7, align 4
   %45 = icmp ult i32 %43, %44
-  br i1 %45, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !85
+  br i1 %45, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !82
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.020 = phi i32 [ %48, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -32404,7 +32404,7 @@ define internal fastcc noundef i32 @_unpack_priority_factors_response_msg(ptr no
   %48 = add nuw nsw i32 %.020, 1
   %49 = load i32, ptr %7, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !85
+  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !82
 
 _unpack_priority_factors_object.exit:             ; preds = %.lr.ph.split.us, %20, %23, %26, %32, %35, %38
   call void @slurm_destroy_priority_factors_object(ptr noundef %18) #8
@@ -32424,7 +32424,7 @@ _unpack_priority_factors_object.exit:             ; preds = %.lr.ph.split.us, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -32600,7 +32600,7 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %99 = load i32, ptr %85, align 8
   %100 = zext i32 %99 to i64
   %101 = icmp ult i64 %indvars.iv.next482, %100
-  br i1 %101, label %102, label %._crit_edge449, !llvm.loop !86
+  br i1 %101, label %102, label %._crit_edge449, !llvm.loop !83
 
 102:                                              ; preds = %.lr.ph448, %98
   %indvars.iv481 = phi i64 [ 0, %.lr.ph448 ], [ %indvars.iv.next482, %98 ]
@@ -32821,7 +32821,7 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %206 = getelementptr inbounds i8, ptr %.0302450, i64 80
   %207 = load i32, ptr %158, align 4
   %208 = icmp ult i32 %205, %207
-  br i1 %208, label %.lr.ph453, label %._crit_edge454, !llvm.loop !87
+  br i1 %208, label %.lr.ph453, label %._crit_edge454, !llvm.loop !84
 
 ._crit_edge454:                                   ; preds = %204, %.thread496, %169
   %209 = getelementptr inbounds i8, ptr %.0300460, i64 184
@@ -32874,14 +32874,14 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %227 = getelementptr inbounds i8, ptr %.0304455, i64 16
   %228 = load i32, ptr %209, align 8
   %229 = icmp ult i32 %226, %228
-  br i1 %229, label %.lr.ph458, label %._crit_edge459, !llvm.loop !88
+  br i1 %229, label %.lr.ph458, label %._crit_edge459, !llvm.loop !85
 
 ._crit_edge459:                                   ; preds = %225, %.thread498, %220
   %230 = add nuw nsw i32 %.0297461, 1
   %231 = getelementptr inbounds i8, ptr %.0300460, i64 200
   %232 = load i32, ptr %41, align 8
   %233 = icmp ult i32 %230, %232
-  br i1 %233, label %.lr.ph463, label %.loopexit424, !llvm.loop !89
+  br i1 %233, label %.lr.ph463, label %.loopexit424, !llvm.loop !86
 
 234:                                              ; preds = %51
   %235 = icmp ugt i16 %2, 9983
@@ -32995,7 +32995,7 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %281 = load i32, ptr %267, align 8
   %282 = zext i32 %281 to i64
   %283 = icmp ult i64 %indvars.iv.next, %282
-  br i1 %283, label %284, label %._crit_edge, !llvm.loop !90
+  br i1 %283, label %284, label %._crit_edge, !llvm.loop !87
 
 284:                                              ; preds = %.lr.ph, %280
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %280 ]
@@ -33210,7 +33210,7 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %385 = getelementptr inbounds i8, ptr %.1303432, i64 80
   %386 = load i32, ptr %337, align 4
   %387 = icmp ult i32 %384, %386
-  br i1 %387, label %.lr.ph435, label %._crit_edge436, !llvm.loop !91
+  br i1 %387, label %.lr.ph435, label %._crit_edge436, !llvm.loop !88
 
 ._crit_edge436:                                   ; preds = %383, %.thread502, %348
   %388 = getelementptr inbounds i8, ptr %.1301442, i64 184
@@ -33263,14 +33263,14 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
   %406 = getelementptr inbounds i8, ptr %.1305437, i64 16
   %407 = load i32, ptr %388, align 8
   %408 = icmp ult i32 %405, %407
-  br i1 %408, label %.lr.ph440, label %._crit_edge441, !llvm.loop !92
+  br i1 %408, label %.lr.ph440, label %._crit_edge441, !llvm.loop !89
 
 ._crit_edge441:                                   ; preds = %404, %.thread504, %399
   %409 = add nuw nsw i32 %.1443, 1
   %410 = getelementptr inbounds i8, ptr %.1301442, i64 200
   %411 = load i32, ptr %41, align 8
   %412 = icmp ult i32 %409, %411
-  br i1 %412, label %.lr.ph445, label %.loopexit424, !llvm.loop !93
+  br i1 %412, label %.lr.ph445, label %.loopexit424, !llvm.loop !90
 
 .loopexit:                                        ; preds = %395, %390, %._crit_edge436, %344, %339, %336, %333, %330, %327, %324, %321, %318, %315, %312, %309, %306, %._crit_edge, %274, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %240, %.lr.ph445, %300, %296, %292, %288, %284, %380, %377, %374, %371, %368, %365, %362, %359, %356, %353, %350, %.lr.ph435, %402, %.lr.ph440, %216, %211, %._crit_edge454, %165, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %._crit_edge449, %92, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %58, %.lr.ph463, %118, %114, %110, %106, %102, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %.lr.ph453, %223, %.lr.ph458, %48, %43, %3
   call void @slurm_free_burst_buffer_info_msg(ptr noundef %40) #8
@@ -33284,7 +33284,7 @@ define internal fastcc noundef i32 @_unpack_burst_buffer_info_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_file_bcast(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_file_bcast(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -33522,7 +33522,7 @@ define internal fastcc noundef i32 @_unpack_file_bcast(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_kvs_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -33593,7 +33593,7 @@ _unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
   %30 = load i16, ptr %8, align 8
   %31 = zext i16 %30 to i64
   %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !94
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %29, %.thread, %17
   %33 = getelementptr inbounds i8, ptr %8, i64 16
@@ -33707,7 +33707,7 @@ _unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
   %75 = load i32, ptr %51, align 8
   %76 = zext i32 %75 to i64
   %77 = icmp ult i64 %indvars.iv.next.i.us, %76
-  br i1 %77, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !95
+  br i1 %77, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !92
 
 .thread53.i.us:                                   ; preds = %60, %.thread.i.us
   %78 = getelementptr inbounds i8, ptr %48, i64 24
@@ -33722,7 +33722,7 @@ _unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
   %79 = load i16, ptr %33, align 8
   %80 = zext i16 %79 to i64
   %81 = icmp ult i64 %indvars.iv.next72, %80
-  br i1 %81, label %.lr.ph62.split.us, label %.loopexit57, !llvm.loop !96
+  br i1 %81, label %.lr.ph62.split.us, label %.loopexit57, !llvm.loop !93
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
@@ -33740,7 +33740,7 @@ _unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
   %85 = load i16, ptr %33, align 8
   %86 = zext i16 %85 to i64
   %87 = icmp ult i64 %indvars.iv.next69, %86
-  br i1 %87, label %.lr.ph62.split, label %.loopexit57, !llvm.loop !96
+  br i1 %87, label %.lr.ph62.split, label %.loopexit57, !llvm.loop !93
 
 _unpack_kvs_rec.exit.thread:                      ; preds = %61, %56, %53, %50, %.lr.ph62.split.us, %70, %.lr.ph.i.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -33764,7 +33764,7 @@ _unpack_kvs_rec.exit.thread:                      ; preds = %61, %56, %53, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_kvs_get(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_get(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8912, ptr noundef nonnull @__func__._unpack_kvs_get) #8
   store ptr %4, ptr %0, align 8
@@ -33801,7 +33801,7 @@ define internal fastcc noundef i32 @_unpack_kvs_get(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_trigger_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8753, ptr noundef nonnull @__func__._unpack_trigger_msg) #8
@@ -33845,7 +33845,7 @@ define internal fastcc noundef i32 @_unpack_trigger_msg(ptr nocapture noundef wr
   %21 = load i32, ptr %6, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp ult i64 %indvars.iv.next, %22
-  br i1 %23, label %24, label %.loopexit, !llvm.loop !97
+  br i1 %23, label %24, label %.loopexit, !llvm.loop !94
 
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
@@ -33923,7 +33923,7 @@ define internal fastcc noundef i32 @_unpack_trigger_msg(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_slurmd_status(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_slurmd_status(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -34033,7 +34033,7 @@ define internal fastcc noundef i32 @_unpack_slurmd_status(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_notify(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_notify(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9071, ptr noundef nonnull @__func__._unpack_job_notify) #8
   %6 = icmp ugt i16 %2, 9983
@@ -34074,7 +34074,7 @@ unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_set_debug_flags_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_flags_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9105, ptr noundef nonnull @__func__._unpack_set_debug_flags_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -34102,7 +34102,7 @@ define internal fastcc noundef i32 @_unpack_set_debug_flags_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_set_debug_level_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_level_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9134, ptr noundef nonnull @__func__._unpack_set_debug_level_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -34120,7 +34120,7 @@ define internal fastcc noundef i32 @_unpack_set_debug_level_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_suspend_exc_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_exc_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9160, ptr noundef nonnull @__func__._unpack_suspend_exc_update_msg) #8
   store ptr %4, ptr %0, align 8
@@ -34146,7 +34146,7 @@ define internal fastcc noundef i32 @_unpack_suspend_exc_update_msg(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_accounting_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_accounting_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i32 0, ptr %4, align 4
@@ -34184,7 +34184,7 @@ define internal fastcc noundef i32 @_unpack_accounting_update_msg(ptr nocapture 
   %21 = add nuw nsw i32 %.01315, 1
   %22 = load i32, ptr %4, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !98
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !95
 
 .loopexit14:                                      ; preds = %.lr.ph, %8
   call void @slurm_free_accounting_update_msg(ptr noundef %6) #8
@@ -34197,7 +34197,7 @@ define internal fastcc noundef i32 @_unpack_accounting_update_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_topo_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_topo_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -34252,7 +34252,7 @@ define internal fastcc noundef i32 @_unpack_topo_info_msg(ptr nocapture noundef 
   %27 = load i32, ptr %7, align 8
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %indvars.iv.next, %28
-  br i1 %29, label %30, label %.loopexit, !llvm.loop !99
+  br i1 %29, label %30, label %.loopexit, !llvm.loop !96
 
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
@@ -34301,7 +34301,7 @@ define internal fastcc noundef i32 @_unpack_topo_info_msg(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_sbcast_cred_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_sbcast_cred_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1440, ptr noundef nonnull @__func__._unpack_job_sbcast_cred_msg) #8
@@ -34344,7 +34344,7 @@ define internal fastcc noundef i32 @_unpack_job_sbcast_cred_msg(ptr nocapture no
 declare i32 @slurmdb_unpack_federation_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_front_end_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7423, ptr noundef nonnull @__func__._unpack_front_end_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -34362,7 +34362,7 @@ define internal fastcc noundef i32 @_unpack_front_end_info_request_msg(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_front_end_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_msg(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -34520,7 +34520,7 @@ _unpack_front_end_info_members.exit:              ; preds = %.lr.ph, %34, %37, %
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = icmp ult i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !100
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !97
 
 73:                                               ; preds = %_unpack_front_end_info_members.exit, %23, %16, %13
   %74 = load ptr, ptr %0, align 8
@@ -34534,7 +34534,7 @@ _unpack_front_end_info_members.exit:              ; preds = %.lr.ph, %34, %37, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_stats_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_stats_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9376, ptr noundef nonnull @__func__._unpack_stats_request_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -34556,7 +34556,7 @@ define internal fastcc noundef i32 @_unpack_stats_request_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_stats_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_stats_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 328, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9397, ptr noundef nonnull @__func__._unpack_stats_response_msg) #8
@@ -35253,7 +35253,7 @@ define internal fastcc noundef i32 @_unpack_stats_response_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_forward_data_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_forward_data_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8550, ptr noundef nonnull @__func__._unpack_forward_data_msg) #8
@@ -35285,7 +35285,7 @@ define internal fastcc noundef i32 @_unpack_forward_data_msg(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_ping_slurmd_resp(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_ping_slurmd_resp(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8584, ptr noundef nonnull @__func__._unpack_ping_slurmd_resp) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 10239
@@ -35328,7 +35328,7 @@ define internal fastcc noundef i32 @_unpack_ping_slurmd_resp(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_license_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9602, ptr noundef nonnull @__func__._unpack_license_info_msg) #8
   store ptr %5, ptr %0, align 8
@@ -35446,7 +35446,7 @@ define internal fastcc noundef i32 @_unpack_license_info_msg(ptr nocapture nound
   %65 = load i32, ptr %8, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp ult i64 %indvars.iv.next, %66
-  br i1 %67, label %22, label %.loopexit, !llvm.loop !101
+  br i1 %67, label %22, label %.loopexit, !llvm.loop !98
 
 .loopexit74:                                      ; preds = %50, %46, %42, %38, %34, %30, %26, %22, %15, %10, %7
   call void @slurm_free_license_info_msg(ptr noundef %5) #8
@@ -35464,7 +35464,7 @@ define internal fastcc noundef i32 @_unpack_license_info_msg(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_license_info_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9581, ptr noundef nonnull @__func__._unpack_license_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -35490,7 +35490,7 @@ define internal fastcc noundef i32 @_unpack_license_info_request_msg(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_array_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = icmp ugt i16 %2, 9983
@@ -35574,7 +35574,7 @@ define internal fastcc noundef i32 @_unpack_job_array_resp_msg(ptr nocapture nou
   %35 = load i32, ptr %8, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp ult i64 %indvars.iv.next, %36
-  br i1 %37, label %38, label %.loopexit, !llvm.loop !102
+  br i1 %37, label %38, label %.loopexit, !llvm.loop !99
 
 38:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
@@ -35610,7 +35610,7 @@ define internal fastcc noundef i32 @_unpack_job_array_resp_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_assoc_mgr_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_assoc_mgr_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -35651,7 +35651,7 @@ define internal fastcc noundef i32 @_unpack_assoc_mgr_info_request_msg(ptr nocap
   %21 = add nuw nsw i32 %.044, 1
   %22 = load i32, ptr %3, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph, label %.loopexit42, !llvm.loop !103
+  br i1 %23, label %.lr.ph, label %.loopexit42, !llvm.loop !100
 
 .loopexit42:                                      ; preds = %18, %14, %13
   %24 = getelementptr inbounds i8, ptr %8, i64 8
@@ -35692,7 +35692,7 @@ define internal fastcc noundef i32 @_unpack_assoc_mgr_info_request_msg(ptr nocap
   %40 = add nuw nsw i32 %.145, 1
   %41 = load i32, ptr %3, align 4
   %42 = icmp ult i32 %40, %41
-  br i1 %42, label %.lr.ph46, label %.loopexit40, !llvm.loop !104
+  br i1 %42, label %.lr.ph46, label %.loopexit40, !llvm.loop !101
 
 .loopexit40:                                      ; preds = %37, %32, %31
   %43 = call i32 @unpack32(ptr noundef nonnull %3, ptr noundef %1) #8
@@ -35727,7 +35727,7 @@ define internal fastcc noundef i32 @_unpack_assoc_mgr_info_request_msg(ptr nocap
   %56 = add nuw nsw i32 %.247, 1
   %57 = load i32, ptr %3, align 4
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph48, label %.loopexit, !llvm.loop !105
+  br i1 %58, label %.lr.ph48, label %.loopexit, !llvm.loop !102
 
 .loopexit39:                                      ; preds = %.lr.ph, %.lr.ph46, %.lr.ph48, %.loopexit40, %26, %.loopexit42, %2
   call void @slurm_free_assoc_mgr_info_request_msg(ptr noundef %8) #8
@@ -35742,7 +35742,7 @@ define internal fastcc noundef i32 @_unpack_assoc_mgr_info_request_msg(ptr nocap
 declare i32 @assoc_mgr_info_unpack_msg(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_network_callerid_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_network_callerid_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -35821,7 +35821,7 @@ define internal fastcc noundef i32 @_unpack_network_callerid_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_network_callerid_resp_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_network_callerid_resp_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 414, ptr noundef nonnull @__func__._unpack_network_callerid_resp_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -35859,7 +35859,7 @@ define internal fastcc noundef i32 @_unpack_network_callerid_resp_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_buf_list_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_buf_list_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -35914,7 +35914,7 @@ define internal fastcc noundef i32 @_unpack_buf_list_msg(ptr nocapture noundef w
   %28 = add nuw i32 %.01419, 1
   %29 = load i32, ptr %4, align 4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !106
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !103
 
 .loopexit18:                                      ; preds = %21, %19, %.lr.ph, %9
   call void @slurm_xfree(ptr noundef nonnull %7) #8
@@ -35928,7 +35928,7 @@ define internal fastcc noundef i32 @_unpack_buf_list_msg(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_set_fs_dampening_factor_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_set_fs_dampening_factor_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9887, ptr noundef nonnull @__func__._unpack_set_fs_dampening_factor_msg) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %3, ptr %4, align 8
@@ -35953,7 +35953,7 @@ define internal fastcc noundef i32 @_unpack_set_fs_dampening_factor_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_control_status_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_control_status_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9915, ptr noundef nonnull @__func__._unpack_control_status_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -35981,7 +35981,7 @@ define internal fastcc noundef i32 @_unpack_control_status_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_bb_status_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9942, ptr noundef nonnull @__func__._unpack_bb_status_req_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -36000,7 +36000,7 @@ define internal fastcc noundef i32 @_unpack_bb_status_req_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_bb_status_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9966, ptr noundef nonnull @__func__._unpack_bb_status_resp_msg) #8
   store ptr %4, ptr %0, align 8
@@ -36019,7 +36019,7 @@ define internal fastcc noundef i32 @_unpack_bb_status_resp_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_crontab_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_crontab_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9989, ptr noundef nonnull @__func__._unpack_crontab_request_msg) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %3, ptr %4, align 8
@@ -36044,7 +36044,7 @@ define internal fastcc noundef i32 @_unpack_crontab_request_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_crontab_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_crontab_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10016, ptr noundef nonnull @__func__._unpack_crontab_response_msg) #8
@@ -36077,7 +36077,7 @@ define internal fastcc noundef i32 @_unpack_crontab_response_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_crontab_update_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_crontab_update_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10048, ptr noundef nonnull @__func__._unpack_crontab_update_request_msg) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -36095,7 +36095,7 @@ define internal fastcc noundef i32 @_unpack_crontab_update_request_msg(ptr nocap
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i16, ptr %6, align 2
-  %14 = call fastcc i32 @_unpack_job_desc_list_msg(ptr noundef nonnull %12, ptr noundef %1, i16 noundef zeroext %13), !range !9
+  %14 = call fastcc i32 @_unpack_job_desc_list_msg(ptr noundef nonnull %12, ptr noundef %1, i16 noundef zeroext %13)
   %.not14 = icmp eq i32 %14, 0
   br i1 %.not14, label %15, label %21
 
@@ -36122,7 +36122,7 @@ define internal fastcc noundef i32 @_unpack_crontab_update_request_msg(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_crontab_update_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_crontab_update_response_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -36175,7 +36175,7 @@ define internal fastcc noundef i32 @_unpack_crontab_update_response_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_state_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_state_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -36234,7 +36234,7 @@ define internal fastcc noundef i32 @_unpack_container_state_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_signal_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_signal_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10241, ptr noundef nonnull @__func__._unpack_container_signal_msg) #8
   store ptr %4, ptr %3, align 8
@@ -36261,7 +36261,7 @@ define internal fastcc noundef i32 @_unpack_container_signal_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_delete_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_delete_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10267, ptr noundef nonnull @__func__._unpack_container_delete_msg) #8
   store ptr %4, ptr %3, align 8
@@ -36288,7 +36288,7 @@ define internal fastcc noundef i32 @_unpack_container_delete_msg(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_started_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_started_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10294, ptr noundef nonnull @__func__._unpack_container_started_msg) #8
   store ptr %4, ptr %3, align 8
@@ -36343,7 +36343,7 @@ unpack_step_id_members.exit.thread:               ; preds = %20, %2, %unpack_ste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_container_exec_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_container_exec_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10324, ptr noundef nonnull @__func__._unpack_container_exec_msg) #8
@@ -36376,7 +36376,7 @@ define internal fastcc noundef i32 @_unpack_container_exec_msg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_alias_addrs_resp_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_alias_addrs_resp_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 206
@@ -36424,7 +36424,7 @@ define internal fastcc noundef i32 @_unpack_node_alias_addrs_resp_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_step_id_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_step_id_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 9983
   br i1 %4, label %5, label %13
 
@@ -36487,7 +36487,7 @@ pack_step_id.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_unpack_selected_step(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_unpack_selected_step(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 11834, ptr noundef nonnull @__func__.slurm_unpack_selected_step) #8
   store ptr %4, ptr %0, align 8
   store i32 -2, ptr %4, align 4
@@ -36546,7 +36546,7 @@ declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_list_find_conf_entry(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_list_find_conf_entry(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -36678,7 +36678,7 @@ declare void @slurm_free_container_id_request_msg(ptr noundef) local_unnamed_add
 declare void @slurm_free_container_id_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_info_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -37730,7 +37730,7 @@ define internal fastcc noundef i32 @_unpack_job_info_members(ptr noundef %0, ptr
   br i1 %.not848, label %562, label %1150
 
 562:                                              ; preds = %559
-  %563 = call i32 @unpack_multi_core_data(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %563 = call i32 @unpack_multi_core_data(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2)
   %.not849 = icmp eq i32 %563, 0
   br i1 %.not849, label %564, label %1150
 
@@ -38799,7 +38799,7 @@ define internal fastcc noundef i32 @_unpack_job_info_members(ptr noundef %0, ptr
   br i1 %.not694, label %1062, label %1150
 
 1062:                                             ; preds = %1059
-  %1063 = call i32 @unpack_multi_core_data(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2), !range !9
+  %1063 = call i32 @unpack_multi_core_data(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2)
   %.not695 = icmp eq i32 %1063, 0
   br i1 %.not695, label %1064, label %1150
 
@@ -39206,7 +39206,7 @@ declare void @slurm_destroy_priority_factors_object(ptr noundef) #1
 declare void @slurm_free_priority_factors_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_priority_factors(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_priority_factors(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 578, ptr noundef nonnull @__func__._unpack_priority_factors) #8
@@ -39425,104 +39425,101 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 23}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -1, i32 1}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = !{i32 0, i32 7007}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
-!53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8}
-!55 = distinct !{!55, !8}
-!56 = distinct !{!56, !8}
-!57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
-!59 = distinct !{!59, !8}
-!60 = distinct !{!60, !8}
-!61 = distinct !{!61, !8}
-!62 = distinct !{!62, !8}
-!63 = distinct !{!63, !8}
-!64 = distinct !{!64, !8}
-!65 = distinct !{!65, !8}
-!66 = distinct !{!66, !8}
-!67 = distinct !{!67, !8}
-!68 = distinct !{!68, !8}
-!69 = distinct !{!69, !8}
-!70 = distinct !{!70, !8}
-!71 = distinct !{!71, !8}
-!72 = distinct !{!72, !8}
-!73 = distinct !{!73, !8}
-!74 = distinct !{!74, !8}
-!75 = distinct !{!75, !8}
-!76 = distinct !{!76, !8}
-!77 = distinct !{!77, !8}
-!78 = distinct !{!78, !8}
-!79 = distinct !{!79, !8}
-!80 = distinct !{!80, !8}
-!81 = distinct !{!81, !8}
-!82 = distinct !{!82, !8}
-!83 = distinct !{!83, !8}
-!84 = distinct !{!84, !8}
-!85 = distinct !{!85, !8}
-!86 = distinct !{!86, !8}
-!87 = distinct !{!87, !8}
-!88 = distinct !{!88, !8}
-!89 = distinct !{!89, !8}
-!90 = distinct !{!90, !8}
-!91 = distinct !{!91, !8}
-!92 = distinct !{!92, !8}
-!93 = distinct !{!93, !8}
-!94 = distinct !{!94, !8}
-!95 = distinct !{!95, !8}
-!96 = distinct !{!96, !8}
-!97 = distinct !{!97, !8}
-!98 = distinct !{!98, !8}
-!99 = distinct !{!99, !8}
-!100 = distinct !{!100, !8}
-!101 = distinct !{!101, !8}
-!102 = distinct !{!102, !8}
-!103 = distinct !{!103, !8}
-!104 = distinct !{!104, !8}
-!105 = distinct !{!105, !8}
-!106 = distinct !{!106, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}
+!79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}
+!81 = distinct !{!81, !7}
+!82 = distinct !{!82, !7}
+!83 = distinct !{!83, !7}
+!84 = distinct !{!84, !7}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7}
+!87 = distinct !{!87, !7}
+!88 = distinct !{!88, !7}
+!89 = distinct !{!89, !7}
+!90 = distinct !{!90, !7}
+!91 = distinct !{!91, !7}
+!92 = distinct !{!92, !7}
+!93 = distinct !{!93, !7}
+!94 = distinct !{!94, !7}
+!95 = distinct !{!95, !7}
+!96 = distinct !{!96, !7}
+!97 = distinct !{!97, !7}
+!98 = distinct !{!98, !7}
+!99 = distinct !{!99, !7}
+!100 = distinct !{!100, !7}
+!101 = distinct !{!101, !7}
+!102 = distinct !{!102, !7}
+!103 = distinct !{!103, !7}

@@ -2479,7 +2479,7 @@ declare dso_local void @mark_buffer_dirty_inode(ptr noundef, ptr noundef) local_
 declare dso_local i32 @sync_dirty_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vfat_revalidate_ci(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 -10, 2) i32 @vfat_revalidate_ci(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = and i32 %1, 64
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %28
@@ -2590,7 +2590,7 @@ define internal noundef i32 @vfat_hashi(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef i32 @vfat_cmpi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #11 align 16 {
+define internal noundef range(i32 0, 2) i32 @vfat_cmpi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #11 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 872
@@ -2691,7 +2691,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vfat_revalidate(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 -10, 2) i32 @vfat_revalidate(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = and i32 %1, 64
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %23
@@ -2759,7 +2759,7 @@ define internal noundef i32 @vfat_hash(ptr noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef i32 @vfat_cmp(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #13 align 16 {
+define internal noundef range(i32 0, 2) i32 @vfat_cmp(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #13 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 8

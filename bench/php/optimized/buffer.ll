@@ -63,7 +63,7 @@ define hidden void @buffer_fini(ptr nocapture noundef %0) local_unnamed_addr #4 
 declare void @_efree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @buffer_fill(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @buffer_fill(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0

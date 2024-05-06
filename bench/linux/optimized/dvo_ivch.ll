@@ -528,7 +528,7 @@ define internal void @ivch_dpms(ptr nocapture noundef readonly %0, i1 noundef ze
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ivch_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 16) i32 @ivch_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 112000
   %5 = select i1 %4, i32 15, i32 0
@@ -680,7 +680,7 @@ define internal void @ivch_mode_set(ptr nocapture noundef readonly %0, ptr nocap
   %96 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %96, align 8
   store i8 1, ptr %6, align 1
-  %97 = trunc i16 %87 to i8
+  %97 = trunc nuw nsw i16 %87 to i8
   %98 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %97, ptr %98, align 1
   %99 = getelementptr inbounds i8, ptr %6, i64 2
@@ -1861,7 +1861,7 @@ define internal fastcc void @ivch_reset(ptr nocapture noundef readonly %0) unnam
   %44 = trunc i16 %38 to i8
   store i8 %44, ptr %30, align 1
   %45 = lshr i16 %38, 8
-  %46 = trunc i16 %45 to i8
+  %46 = trunc nuw i16 %45 to i8
   store i8 %46, ptr %31, align 1
   %47 = call i32 @i2c_transfer(ptr noundef %40, ptr noundef nonnull %3, i32 noundef 1) #8
   %48 = icmp eq i32 %47, 1

@@ -379,7 +379,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %34
   %42 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %40) #6
-  %43 = trunc i32 %.1 to i16
+  %43 = trunc nuw nsw i32 %.1 to i16
   %44 = call i32 @decrypt_data(ptr noundef %42, ptr noundef %12, i16 noundef zeroext %43, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.critedge84, label %._crit_edge
@@ -819,7 +819,7 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %14 = getelementptr i8, ptr %11, i64 1
   %15 = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %15, 34
@@ -940,7 +940,7 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br i1 %4, label %rf4ce_security_parse_sec_str.exit.thread, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %6 = getelementptr i8, ptr %3, i64 1
   %7 = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %7, 34
@@ -1073,7 +1073,7 @@ define internal void @uat_sec_record_post_update() #0 {
   br i1 %12, label %rf4ce_security_parse_sec_str.exit.thread, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %14 = getelementptr i8, ptr %11, i64 1
   %15 = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %15, 34
@@ -1209,7 +1209,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %7 = add i32 %5, -149

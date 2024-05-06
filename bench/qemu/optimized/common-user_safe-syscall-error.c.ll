@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local i64 @safe_syscall_set_errno_tail(i32 noundef %value) local_unnamed_addr #0 {
+define dso_local noundef i64 @safe_syscall_set_errno_tail(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #2
   store i32 %value, ptr %call, align 4

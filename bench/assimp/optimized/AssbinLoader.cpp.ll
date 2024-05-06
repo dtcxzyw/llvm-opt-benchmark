@@ -2430,7 +2430,7 @@ if.end82:                                         ; preds = %for.body.i230, %arr
 
 for.body:                                         ; preds = %if.end82, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end82 ], [ %indvars.iv.next, %for.inc ]
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 65536, %52
   %and84 = and i32 %shl, %23
   %tobool85.not = icmp eq i32 %and84, 0
@@ -2492,7 +2492,7 @@ for.end:                                          ; preds = %for.body, %for.inc
 
 for.body115:                                      ; preds = %for.end, %for.inc150
   %indvars.iv342 = phi i64 [ 0, %for.end ], [ %indvars.iv.next343, %for.inc150 ]
-  %58 = trunc i64 %indvars.iv342 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv342 to i32
   %shl116 = shl nuw nsw i32 256, %58
   %and117 = and i32 %shl116, %23
   %tobool118.not = icmp eq i32 %and117, 0

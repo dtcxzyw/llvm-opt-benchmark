@@ -71,7 +71,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @provider_conf_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %actual.i.i = alloca ptr, align 8
   %entry31.i = alloca %struct.OSSL_PROVIDER_INFO, align 8
@@ -105,7 +105,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %entry31.i)
-  %call.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #6
+  %call.i.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 46) #6
   %call1.i = call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %1) #5
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %provider_conf_load.exit, label %for.cond.preheader.i
@@ -127,7 +127,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.045.i) #5
   %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
-  %call.i29.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 46) #6
+  %call.i29.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef 46) #6
   %cmp.not.i30.i = icmp eq ptr %call.i29.i, null
   %add.ptr.i31.i = getelementptr inbounds i8, ptr %call.i29.i, i64 1
   %retval.0.i32.i = select i1 %cmp.not.i30.i, ptr %2, ptr %add.ptr.i31.i
@@ -206,7 +206,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %i.07.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %if.end.i.i.i ]
   %call.i5.i.i.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %i.07.i.i.i) #5
   %call3.i.i.i = call ptr @OSSL_PROVIDER_get0_name(ptr noundef %call.i5.i.i.i) #5
-  %call4.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3.i.i.i, ptr noundef nonnull dereferenceable(1) %name.addr.1.i) #6
+  %call4.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %name.addr.1.i) #6
   %cmp5.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.i.i.i, label %if.end67.i.i, label %for.cond.i.i.i
 

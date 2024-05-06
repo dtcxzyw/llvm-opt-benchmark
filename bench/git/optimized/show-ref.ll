@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [11 x i8] c"refs/tags/\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_show_ref(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %show_ref_data.i = alloca %struct.show_ref_data, align 8
   %unused_referent.i = alloca %struct.strbuf, align 8
@@ -489,7 +489,7 @@ land.lhs.true.i7:                                 ; preds = %lor.lhs.false4.i, %
 
 if.then9.i:                                       ; preds = %land.lhs.true.i7
   %17 = load ptr, ptr %refs.addr.011.i, align 8
-  call fastcc void @show_one(ptr noundef nonnull %show_one_opts, ptr noundef %17, ptr noundef nonnull %oid.i)
+  call fastcc void @show_one(ptr noundef nonnull readonly %show_one_opts, ptr noundef %17, ptr noundef nonnull %oid.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %refs.addr.011.i, i64 8
   %.pr.i = load ptr, ptr %incdec.ptr.i, align 8
   %tobool2.not.i = icmp eq ptr %.pr.i, null

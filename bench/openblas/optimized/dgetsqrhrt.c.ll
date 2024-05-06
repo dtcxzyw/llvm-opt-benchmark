@@ -101,7 +101,7 @@ define void @dgetsqrhrt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noc
   store i32 %73, ptr %18, align 4, !tbaa !3
   %75 = sub nsw i32 %32, %57
   %76 = tail call i32 @llvm.smax.i32(i32 %57, i32 %75)
-  %77 = mul nsw i32 %76, %57
+  %77 = mul nuw nsw i32 %76, %57
   store i32 %77, ptr %19, align 4, !tbaa !3
   %78 = add nsw i32 %74, %53
   %79 = add nsw i32 %77, %78

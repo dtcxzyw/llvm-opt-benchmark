@@ -761,11 +761,11 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @_ZTIN9grpc_core20DelegatingSubchannelE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core20DelegatingSubchannelE, ptr @_ZTIN9grpc_core19SubchannelInterfaceE }, comdat, align 8
 @_ZTIN9grpc_core12_GLOBAL__N_16GrpcLb17SubchannelWrapperE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core12_GLOBAL__N_16GrpcLb17SubchannelWrapperE, ptr @_ZTIN9grpc_core20DelegatingSubchannelE }, align 8
 @_ZTVN9grpc_core20DelegatingSubchannelE = linkonce_odr unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTIN9grpc_core20DelegatingSubchannelE, ptr @_ZN9grpc_core19SubchannelInterface6OrphanEv, ptr @_ZN9grpc_core20DelegatingSubchannelD2Ev, ptr @_ZN9grpc_core20DelegatingSubchannelD0Ev, ptr @_ZN9grpc_core20DelegatingSubchannel22WatchConnectivityStateESt10unique_ptrINS_19SubchannelInterface33ConnectivityStateWatcherInterfaceESt14default_deleteIS3_EE, ptr @_ZN9grpc_core20DelegatingSubchannel28CancelConnectivityStateWatchEPNS_19SubchannelInterface33ConnectivityStateWatcherInterfaceE, ptr @_ZN9grpc_core20DelegatingSubchannel17RequestConnectionEv, ptr @_ZN9grpc_core20DelegatingSubchannel12ResetBackoffEv, ptr @_ZN9grpc_core20DelegatingSubchannel14AddDataWatcherESt10unique_ptrINS_19SubchannelInterface20DataWatcherInterfaceESt14default_deleteIS3_EE, ptr @_ZN9grpc_core20DelegatingSubchannel17CancelDataWatcherEPNS_19SubchannelInterface20DataWatcherInterfaceE] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @.str.64 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.65 = private unnamed_addr constant [29 x i8] c"!cached_subchannels_.empty()\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
@@ -776,7 +776,7 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.67 = private unnamed_addr constant [48 x i8] c"[grpclb %p] removing %lu subchannels from cache\00", align 1
 @"_ZTSZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0clEvEUlvE_" = internal constant [86 x i8] c"ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0clEvEUlvE_\00", align 1
 @"_ZTIZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0clEvEUlvE_" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0clEvEUlvE_" }, align 8
@@ -11292,7 +11292,7 @@ _ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit: ; preds 
   ]
 
 if.end:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit, %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
   %7 = load i8, ptr %drop.i, align 2
   %tobool.i17 = trunc i8 %7 to i1
   br i1 %tobool.i17, label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit, label %if.end.i
@@ -11319,7 +11319,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %if.end
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %10 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i, ptr %sin6_port.i, align 2
   br label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit
 
@@ -13139,7 +13139,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %17 = phi ptr [ %12, %_ZN9grpc_core17WeakRefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit ], [ %12, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp13, i8 0, i64 32, i1 false)
   %call.i.i2.i13 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont16 unwind label %if.then.i.i39
 
@@ -14613,7 +14613,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %23 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i6.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont7.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -16596,7 +16596,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %23 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i6.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont5.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -17659,7 +17659,7 @@ if.then.i.i:                                      ; preds = %_ZNK9grpc_core19Loa
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont4 unwind label %lpad3
 
@@ -17848,7 +17848,7 @@ if.then.i.i:                                      ; preds = %_ZNK9grpc_core19Loa
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont4 unwind label %lpad3
 
@@ -19919,7 +19919,7 @@ lpad:                                             ; preds = %invoke.cont18, %if.
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
   %6 = load i8, ptr %drop, align 2
   %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %invoke.cont5, label %if.end.i
@@ -19950,7 +19950,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %call.i
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %9 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i5, ptr %sin6_port.i, align 2
   br label %invoke.cont5
 
@@ -21105,7 +21105,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %23 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i6.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont5.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 

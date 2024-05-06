@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [229 x i8] c"coll:han:check_dynamic_rules HAN found an issue on dynamic rules for collective %d on topological level %d with configuration size %d for message size %lu: han collective component %d can only be activated for topology level %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -160,7 +160,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %56 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr null, ptr %56, align 8
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
-  %57 = trunc i64 %indvars.iv.next365 to i32
+  %57 = trunc nuw i64 %indvars.iv.next365 to i32
   store i32 %57, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27), align 8
   %58 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %58) #7
@@ -291,7 +291,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %127 = getelementptr inbounds i8, ptr %125, i64 16
   store ptr null, ptr %127, align 8
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
-  %128 = trunc i64 %indvars.iv.next362 to i32
+  %128 = trunc nuw i64 %indvars.iv.next362 to i32
   store i32 %128, ptr %55, align 4
   store ptr null, ptr %11, align 8
   %129 = call i32 @ompi_coll_base_file_getnext_string(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %11) #7
@@ -372,7 +372,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 
 172:                                              ; preds = %159
   store i32 %.0186, ptr %125, align 8
-  %173 = trunc i64 %.0182 to i32
+  %173 = trunc nsw i64 %.0182 to i32
   %174 = getelementptr inbounds i8, ptr %125, i64 4
   store i32 %173, ptr %174, align 4
   %175 = trunc i64 %163 to i32
@@ -416,7 +416,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %192 = getelementptr inbounds i8, ptr %190, i64 16
   store ptr null, ptr %192, align 8
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %193 = trunc i64 %indvars.iv.next359 to i32
+  %193 = trunc nuw i64 %indvars.iv.next359 to i32
   store i32 %193, ptr %126, align 8
   %194 = call i32 @ompi_coll_base_file_getnext_long(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %7) #7
   %195 = icmp slt i32 %194, 0
@@ -503,7 +503,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %234 ]
   %.3301 = phi i32 [ %327, %.loopexit ], [ %.2303, %234 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %239 = trunc i64 %indvars.iv.next to i32
+  %239 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %239, ptr %191, align 4
   %240 = call i32 @ompi_coll_base_file_getnext_size_t(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %9) #7
   %241 = icmp slt i32 %240, 0

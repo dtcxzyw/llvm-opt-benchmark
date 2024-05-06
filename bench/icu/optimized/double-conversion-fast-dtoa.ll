@@ -29,17 +29,17 @@ sw.bb:                                            ; preds = %entry, %entry
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   %add.i.i.i = or disjoint i64 %and.i.i.i, 4503599627370496
   %and.i8.i.i = lshr i64 %0, 52
-  %1 = trunc i64 %and.i8.i.i to i32
+  %1 = trunc nuw nsw i64 %and.i8.i.i to i32
   %conv.i.i.i = and i32 %1, 2047
   %sub.i.i.i = add nsw i32 %conv.i.i.i, -1075
   br i1 %cmp.i.i.i.i, label %while.body.preheader.i.i, label %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i
 
 while.body.preheader.i.i:                         ; preds = %sw.bb
-  %retval.0.i.masked.numleadingzeros.i.i = tail call i64 @llvm.ctlz.i64(i64 %and.i.i.i, i1 true), !range !4
+  %retval.0.i.masked.numleadingzeros.i.i = tail call range(i64 12, 65) i64 @llvm.ctlz.i64(i64 %and.i.i.i, i1 true)
   %retval.0.i.masked.leadingonepos.i.i = xor i64 %retval.0.i.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i.i = sub nsw i64 52, %retval.0.i.masked.leadingonepos.i.i
+  %while.body.tripcount.i.i = sub nuw nsw i64 52, %retval.0.i.masked.leadingonepos.i.i
   %shl.i.i = shl i64 %and.i.i.i, %while.body.tripcount.i.i
-  %2 = trunc i64 %retval.0.i.masked.numleadingzeros.i.i to i32
+  %2 = trunc nuw nsw i64 %retval.0.i.masked.numleadingzeros.i.i to i32
   %3 = sub nuw nsw i32 -1063, %2
   br label %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i
 
@@ -68,7 +68,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %shl.i.i.i.i = shl nuw i64 %significand.09.i.i.i.i, 10
   %sub.i.i4.i.i = add nsw i32 %exponent.08.i.i.i.i, -10
   %cmp.i.i.i8.i = icmp ult i64 %significand.09.i.i.i.i, 17592186044416
-  br i1 %cmp.i.i.i8.i, label %while.body.i.i.i.i, label %while.cond2.preheader.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i8.i, label %while.body.i.i.i.i, label %while.cond2.preheader.i.i.i.i, !llvm.loop !4
 
 while.body5.i.i.i.i:                              ; preds = %while.cond2.preheader.i.i.i.i, %while.body5.i.i.i.i
   %significand.113.i.i.i.i = phi i64 [ %shl6.i.i.i.i, %while.body5.i.i.i.i ], [ %shl.i.i.i.i, %while.cond2.preheader.i.i.i.i ]
@@ -76,7 +76,7 @@ while.body5.i.i.i.i:                              ; preds = %while.cond2.prehead
   %shl6.i.i.i.i = shl nuw i64 %significand.113.i.i.i.i, 1
   %dec.i.i.i.i = add nsw i32 %exponent.112.i.i.i.i, -1
   %cmp4.i.i.i.i = icmp sgt i64 %shl6.i.i.i.i, -1
-  br i1 %cmp4.i.i.i.i, label %while.body5.i.i.i.i, label %_ZNK6icu_7517double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !7
+  br i1 %cmp4.i.i.i.i, label %while.body5.i.i.i.i, label %_ZNK6icu_7517double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !6
 
 _ZNK6icu_7517double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i: ; preds = %while.body5.i.i.i.i, %while.cond2.preheader.i.i.i.i
   %exponent.1.lcssa.i.i.i.i = phi i32 [ %sub.i.i4.i.i, %while.cond2.preheader.i.i.i.i ], [ %dec.i.i.i.i, %while.body5.i.i.i.i ]
@@ -120,7 +120,7 @@ while.body.i.i.i21.i:                             ; preds = %while.body.i.i.i21.
   %shl.i.i.i24.i = shl nuw i64 %significand.09.i.i.i22.i, 10
   %sub.i.i4.i25.i = add nsw i32 %exponent.08.i.i.i23.i, -10
   %cmp.i.i.i26.i = icmp ult i64 %significand.09.i.i.i22.i, 17592186044416
-  br i1 %cmp.i.i.i26.i, label %while.body.i.i.i21.i, label %while.cond2.preheader.i.i.i27.i, !llvm.loop !5
+  br i1 %cmp.i.i.i26.i, label %while.body.i.i.i21.i, label %while.cond2.preheader.i.i.i27.i, !llvm.loop !4
 
 while.body5.i.i.i43.i:                            ; preds = %while.cond2.preheader.i.i.i27.i, %while.body5.i.i.i43.i
   %significand.113.i.i.i44.i = phi i64 [ %shl6.i.i.i46.i, %while.body5.i.i.i43.i ], [ %shl.i.i.i24.i, %while.cond2.preheader.i.i.i27.i ]
@@ -128,7 +128,7 @@ while.body5.i.i.i43.i:                            ; preds = %while.cond2.prehead
   %shl6.i.i.i46.i = shl nuw i64 %significand.113.i.i.i44.i, 1
   %dec.i.i.i47.i = add nsw i32 %exponent.112.i.i.i45.i, -1
   %cmp4.i.i.i48.i = icmp sgt i64 %shl6.i.i.i46.i, -1
-  br i1 %cmp4.i.i.i48.i, label %while.body5.i.i.i43.i, label %_ZNK6icu_7517double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !7
+  br i1 %cmp4.i.i.i48.i, label %while.body5.i.i.i43.i, label %_ZNK6icu_7517double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !6
 
 _ZNK6icu_7517double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i: ; preds = %while.body5.i.i.i43.i, %while.cond2.preheader.i.i.i27.i
   %exponent.1.lcssa.i.i.i29.i = phi i32 [ %sub.i.i4.i25.i, %while.cond2.preheader.i.i.i27.i ], [ %dec.i.i.i47.i, %while.body5.i.i.i43.i ]
@@ -303,7 +303,7 @@ while.body.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %lan
   %sub1.i.i.i = sub i64 %sub.i.i.i113.i, %add3.i.i.i
   %cmp2.not.i.i.i = icmp ult i64 %sub1.i.i.i, %shl36.i.i
   %or.cond.i.i.i = or i1 %cmp.i42.i.i, %cmp2.not.i.i.i
-  br i1 %or.cond.i.i.i, label %while.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !8
+  br i1 %or.cond.i.i.i, label %while.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %lor.rhs.i.i.i, %if.then.i.i
   %rest.addr.0.lcssa.i.i.i = phi i64 [ %add26.i.i, %if.then.i.i ], [ %rest.addr.036.i.i.i, %lor.rhs.i.i.i ], [ %add3.i.i.i, %while.body.i.i.i ]
@@ -337,7 +337,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %div38.i.i = udiv i32 %divisor.024.i.i, 10
   %cmp.i.i = icmp ugt i32 %kappa.1.i, 1
-  br i1 %cmp.i.i, label %while.body.i.i, label %for.cond.i.i.preheader, !llvm.loop !9
+  br i1 %cmp.i.i, label %while.body.i.i, label %for.cond.i.i.preheader, !llvm.loop !8
 
 for.cond.i.i.preheader:                           ; preds = %if.end.i.i, %if.end.i
   %.ph = phi i32 [ 0, %if.end.i ], [ %inc.i.i, %if.end.i.i ]
@@ -365,7 +365,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
   %and54.i.i = and i64 %mul.i.i, %sub14.i.i
   %dec55.i.i = add nsw i32 %kappa.2.i, -1
   %cmp57.i.i = icmp ult i64 %and54.i.i, %mul41.i.i
-  br i1 %cmp57.i.i, label %if.then58.i.i, label %for.cond.i.i, !llvm.loop !10
+  br i1 %cmp57.i.i, label %if.then58.i.i, label %for.cond.i.i, !llvm.loop !9
 
 if.then58.i.i:                                    ; preds = %for.cond.i.i
   %sub.i.i49.i.i = sub i64 %add.i112.i, %add23.i.i.i
@@ -404,7 +404,7 @@ while.body.i69.i.i:                               ; preds = %lor.rhs.i65.i.i, %l
   %sub1.i72.i.i = sub i64 %mul41.i.i, %add3.i63.i.i
   %cmp2.not.i73.i.i = icmp ult i64 %sub1.i72.i.i, %shl.i115.i
   %or.cond.i74.i.i = or i1 %cmp.i71.i.i, %cmp2.not.i73.i.i
-  br i1 %or.cond.i74.i.i, label %while.end.i75.i.i, label %land.rhs.i61.i.i, !llvm.loop !8
+  br i1 %or.cond.i74.i.i, label %while.end.i75.i.i, label %land.rhs.i61.i.i, !llvm.loop !7
 
 while.end.i75.i.i:                                ; preds = %while.body.i69.i.i, %lor.rhs.i65.i.i, %if.then58.i.i
   %rest.addr.0.lcssa.i76.i.i = phi i64 [ %and54.i.i, %if.then58.i.i ], [ %rest.addr.036.i62.i.i, %lor.rhs.i65.i.i ], [ %add3.i63.i.i, %while.body.i69.i.i ]
@@ -433,17 +433,17 @@ sw.bb1:                                           ; preds = %entry
   %cmp.i.i.i.i11 = icmp eq i64 %and.i.i.i.i10, 0
   %add.i.i.i12 = or disjoint i64 %and.i.i.i9, 4503599627370496
   %and.i8.i.i13 = lshr i64 %29, 52
-  %30 = trunc i64 %and.i8.i.i13 to i32
+  %30 = trunc nuw nsw i64 %and.i8.i.i13 to i32
   %conv.i.i.i14 = and i32 %30, 2047
   %sub.i.i.i15 = add nsw i32 %conv.i.i.i14, -1075
   br i1 %cmp.i.i.i.i11, label %while.body.preheader.i.i73, label %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i16
 
 while.body.preheader.i.i73:                       ; preds = %sw.bb1
-  %retval.0.i.masked.numleadingzeros.i.i74 = tail call i64 @llvm.ctlz.i64(i64 %and.i.i.i9, i1 true), !range !4
+  %retval.0.i.masked.numleadingzeros.i.i74 = tail call range(i64 12, 65) i64 @llvm.ctlz.i64(i64 %and.i.i.i9, i1 true)
   %retval.0.i.masked.leadingonepos.i.i75 = xor i64 %retval.0.i.masked.numleadingzeros.i.i74, 63
-  %while.body.tripcount.i.i76 = sub nsw i64 52, %retval.0.i.masked.leadingonepos.i.i75
+  %while.body.tripcount.i.i76 = sub nuw nsw i64 52, %retval.0.i.masked.leadingonepos.i.i75
   %shl.i.i77 = shl i64 %and.i.i.i9, %while.body.tripcount.i.i76
-  %31 = trunc i64 %retval.0.i.masked.numleadingzeros.i.i74 to i32
+  %31 = trunc nuw nsw i64 %retval.0.i.masked.numleadingzeros.i.i74 to i32
   %32 = sub nuw nsw i32 -1063, %31
   br label %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i16
 
@@ -528,7 +528,7 @@ while.body.i.i63:                                 ; preds = %_ZNK6icu_7517double
 if.end.i.i71:                                     ; preds = %while.body.i.i63
   %div16.i.i = udiv i32 %divisor.0107.i.i, 10
   %cmp.i.i72 = icmp ugt i32 %kappa.0.i64, 1
-  br i1 %cmp.i.i72, label %while.body.i.i63, label %while.end.i.i, !llvm.loop !11
+  br i1 %cmp.i.i72, label %while.body.i.i63, label %while.end.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %if.end.i.i71, %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i16
   %.pr.i = phi i32 [ 0, %_ZNK6icu_7517double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %inc.i.i68, %if.end.i.i71 ]
@@ -586,8 +586,8 @@ if.then17.i.i.i:                                  ; preds = %land.lhs.true12.i.i
   %43 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %inc.i36.i.i = add i8 %43, 1
   store i8 %inc.i36.i.i, ptr %arrayidx.i.i.i.i, align 1
-  %cmp2032.i.i.i = icmp sgt i32 %42, 1
-  br i1 %cmp2032.i.i.i, label %for.body.preheader.i.i.i, label %for.end.i.i.i
+  %cmp2034.i.i.i = icmp sgt i32 %42, 1
+  br i1 %cmp2034.i.i.i, label %for.body.preheader.i.i.i, label %for.end.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then17.i.i.i
   %idxprom.i21.phi.trans.insert.i.i.i = zext nneg i32 %sub18.i.i.i60 to i64
@@ -610,7 +610,7 @@ if.end24.i.i.i:                                   ; preds = %for.body.i.i.i
   %inc28.i.i.i = add i8 %45, 1
   store i8 %inc28.i.i.i, ptr %arrayidx.i26.i.i.i, align 1
   %cmp20.i.i.i = icmp sgt i64 %indvars.iv125.i.i, 1
-  br i1 %cmp20.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !12
+  br i1 %cmp20.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !11
 
 for.end.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.body.i.i.i, %if.then17.i.i.i
   %46 = load i8, ptr %buffer.coerce0, align 1
@@ -640,7 +640,7 @@ while.body35.i.i:                                 ; preds = %while.cond32.prehea
   %cmp33.i.i = icmp ugt i32 %requested_digits.addr.2116.i.i, 1
   %cmp34.i.i = icmp ugt i64 %and50.i.i, %mul36.i.i
   %49 = select i1 %cmp33.i.i, i1 %cmp34.i.i, i1 false
-  br i1 %49, label %while.body35.i.i, label %while.end52.i.i, !llvm.loop !13
+  br i1 %49, label %while.body35.i.i, label %while.end52.i.i, !llvm.loop !12
 
 while.end52.i.i:                                  ; preds = %while.body35.i.i
   %50 = icmp eq i32 %dec47.i.i, 0
@@ -681,8 +681,8 @@ if.then17.i55.i.i:                                ; preds = %land.lhs.true12.i51
   %51 = load i8, ptr %arrayidx.i.i58.i.i, align 1
   %inc.i59.i.i = add i8 %51, 1
   store i8 %inc.i59.i.i, ptr %arrayidx.i.i58.i.i, align 1
-  %cmp2032.i60.i.i = icmp sgt i32 %48, 0
-  br i1 %cmp2032.i60.i.i, label %for.body.preheader.i65.i.i, label %for.end.i61.i.i
+  %cmp2034.i60.i.i = icmp sgt i32 %48, 0
+  br i1 %cmp2034.i60.i.i, label %for.body.preheader.i65.i.i, label %for.end.i61.i.i
 
 for.body.preheader.i65.i.i:                       ; preds = %if.then17.i55.i.i
   %idxprom.i21.phi.trans.insert.i66.i.i = zext nneg i32 %48 to i64
@@ -705,7 +705,7 @@ if.end24.i72.i.i:                                 ; preds = %for.body.i69.i.i
   %inc28.i78.i.i = add i8 %53, 1
   store i8 %inc28.i78.i.i, ptr %arrayidx.i26.i77.i.i, align 1
   %cmp20.i79.i.i = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %cmp20.i79.i.i, label %for.body.i69.i.i, label %for.end.i61.i.i, !llvm.loop !12
+  br i1 %cmp20.i79.i.i, label %for.body.i69.i.i, label %for.end.i61.i.i, !llvm.loop !11
 
 for.end.i61.i.i:                                  ; preds = %if.end24.i72.i.i, %for.body.i69.i.i, %if.then17.i55.i.i
   %54 = load i8, ptr %buffer.coerce0, align 1
@@ -803,13 +803,12 @@ attributes #5 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 12, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

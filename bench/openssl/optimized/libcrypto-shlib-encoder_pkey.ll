@@ -249,7 +249,7 @@ if.then65.i:                                      ; preds = %if.then58.i
 for.body.i:                                       ; preds = %if.then58.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.then58.i ]
   %9 = load ptr, ptr %keymgmt_data.i, align 8
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call73.i = call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %10) #5
   %call74.i = call i32 @ossl_namemap_name2num(ptr noundef %call52.i, ptr noundef %call73.i) #5
   %arrayidx.i = getelementptr inbounds i32, ptr %call60.i, i64 %indvars.iv.i
@@ -629,7 +629,7 @@ declare ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef) local_unnamed_addr #
 declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encoder_import_cb(ptr noundef %params, ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @encoder_import_cb(ptr noundef %params, ptr nocapture noundef %arg) #0 {
 entry:
   %encoder_inst1 = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %encoder_inst1, align 8

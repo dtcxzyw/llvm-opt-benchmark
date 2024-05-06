@@ -24,7 +24,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_scdc_set
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_drm_scdc_get_scrambling_status434, ptr @__UNIQUE_ID___addressable_drm_scdc_read432, ptr @__UNIQUE_ID___addressable_drm_scdc_set_high_tmds_clock_ratio436, ptr @__UNIQUE_ID___addressable_drm_scdc_set_scrambling435, ptr @__UNIQUE_ID___addressable_drm_scdc_write433], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_scdc_read(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @drm_scdc_read(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   store i8 %1, ptr %5, align 1
@@ -67,7 +67,7 @@ declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_scdc_write(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @drm_scdc_write(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.i2c_msg, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !5

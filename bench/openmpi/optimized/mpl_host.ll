@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"127.0.1.1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_host_is_local(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MPL_host_is_local(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca ptr, align 8

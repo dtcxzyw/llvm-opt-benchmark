@@ -911,7 +911,7 @@ _ZN3nix4PipeC2Ev.exit.i:                          ; preds = %23
 
 27:                                               ; preds = %_ZN3nix4PipeC2Ev.exit.i
   %28 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %29 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
           to label %30 unwind label %83
 
@@ -1302,7 +1302,7 @@ _ZN3nix4PipeC2Ev.exit.i:                          ; preds = %21
 
 25:                                               ; preds = %_ZN3nix4PipeC2Ev.exit.i
   %26 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %27 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
           to label %28 unwind label %81
 
@@ -13065,7 +13065,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindCo
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %.val6, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
@@ -15119,7 +15119,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindCo
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %.val6, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 

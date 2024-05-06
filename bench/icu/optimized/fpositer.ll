@@ -215,7 +215,7 @@ if.then23.thread:                                 ; preds = %if.else
 
 for.cond:                                         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nuw i64 %indvars.iv.next to i32
   %cmp11 = icmp sgt i32 %1, %5
   br i1 %cmp11, label %cond.true.i, label %if.end20, !llvm.loop !4
 
@@ -292,7 +292,7 @@ return:                                           ; preds = %if.end20.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7521FieldPositionIterator4nextERNS_13FieldPositionE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %fp) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521FieldPositionIterator4nextERNS_13FieldPositionE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %fp) local_unnamed_addr #5 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %pos, align 8

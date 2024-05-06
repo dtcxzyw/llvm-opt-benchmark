@@ -3332,7 +3332,7 @@ define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %or.cond.i, label %39, label %41
 
 39:                                               ; preds = %36, %34, %26
-  %40 = call i32 @dissect_iuup(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr poison)
+  %40 = call i32 @dissect_iuup(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr readnone poison)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br label %44
 
@@ -3703,8 +3703,8 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
   %46 = add nuw nsw i32 %44, %45
   %47 = load i32, ptr @ett_ipti, align 4
   %48 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.pre, i32 noundef %46, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str.2769) #8
-  %49 = add i32 %42, 1
-  %wide.trip.count = zext i32 %49 to i64
+  %49 = add nuw nsw i32 %42, 1
+  %wide.trip.count = zext nneg i32 %49 to i64
   br label %50
 
 50:                                               ; preds = %43, %50
@@ -3784,7 +3784,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 8

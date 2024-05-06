@@ -233,7 +233,7 @@ _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha256AlgorithmEEES
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %6, align 4, !noalias !5
   %7 = getelementptr inbounds i8, ptr %4, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false), !noalias !5
   br label %20
 
 _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha512AlgorithmEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %2
@@ -256,7 +256,7 @@ _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha512AlgorithmEEES
   %16 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 6620516959819538809, ptr %16, align 8, !noalias !8
   %17 = getelementptr inbounds i8, ptr %8, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %17, i8 0, i64 152, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %17, i8 0, i64 152, i1 false), !noalias !8
   br label %20
 
 18:                                               ; preds = %2
@@ -295,7 +295,7 @@ define dso_local void @_ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9Algorith
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %10, align 8, !noalias !11
   %11 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 80, i1 false), !noalias !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %11, i8 0, i64 80, i1 false), !noalias !11
   %12 = getelementptr inbounds i8, ptr %5, i64 104
   %13 = ptrtoint ptr %2 to i64
   %14 = ptrtoint ptr %1 to i64
@@ -363,7 +363,7 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   %38 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 6620516959819538809, ptr %38, align 8, !noalias !11
   %39 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %39, i8 0, i64 152, i1 false), !noalias !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %39, i8 0, i64 152, i1 false), !noalias !11
   %40 = getelementptr inbounds i8, ptr %6, i64 200
   %41 = ptrtoint ptr %2 to i64
   %42 = getelementptr inbounds i8, ptr %6, i64 208
@@ -447,7 +447,7 @@ define dso_local void @_ZN5vcpkg4Hash17get_string_sha256B5cxx11ENS_10StringViewE
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %7, align 8, !noalias !26
   %8 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false), !noalias !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false), !noalias !26
   %9 = getelementptr inbounds i8, ptr %4, i64 104
   %10 = ptrtoint ptr %5 to i64
   %.not.i15.i.i.i = icmp ult i64 %2, 64
@@ -628,7 +628,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit:         ; preds = %41
   %63 = getelementptr inbounds i8, ptr %14, i64 24
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %63, align 8, !noalias !38
   %64 = getelementptr inbounds i8, ptr %14, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %64, i8 0, i64 80, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %64, i8 0, i64 80, i1 false), !noalias !38
   br label %77
 
 65:                                               ; preds = %60
@@ -650,7 +650,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit:         ; preds = %41
   %73 = getelementptr inbounds i8, ptr %15, i64 64
   store i64 6620516959819538809, ptr %73, align 8, !noalias !38
   %74 = getelementptr inbounds i8, ptr %15, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %74, i8 0, i64 152, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %74, i8 0, i64 152, i1 false), !noalias !38
   br label %77
 
 75:                                               ; preds = %60
@@ -1219,7 +1219,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256Algorithm18proc
   %.014.i = phi i64 [ 0, %2 ], [ %18, %17 ]
   %6 = getelementptr inbounds i32, ptr %3, i64 %.014.i
   %7 = shl nuw nsw i64 %.014.i, 2
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 %7
+  %invariant.gep.i = getelementptr inbounds i8, ptr %1, i64 %7
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -1228,7 +1228,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256Algorithm18proc
   %.012.tr.i = trunc nuw i64 %.01213.i to i32
   %10 = shl nuw nsw i32 %.012.tr.i, 3
   %11 = sub nuw nsw i32 24, %10
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.01213.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %.01213.i
   %12 = load i8, ptr %gep.i, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw i32 %13, %11
@@ -1662,7 +1662,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512Algorithm18proc
   %.014.i = phi i64 [ 0, %2 ], [ %18, %17 ]
   %6 = getelementptr inbounds i64, ptr %3, i64 %.014.i
   %7 = shl nuw nsw i64 %.014.i, 3
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 %7
+  %invariant.gep.i = getelementptr inbounds i8, ptr %1, i64 %7
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -1670,7 +1670,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512Algorithm18proc
   %9 = phi i64 [ 0, %5 ], [ %15, %8 ]
   %10 = shl nuw nsw i64 %.01213.i, 3
   %11 = sub nuw nsw i64 56, %10
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.01213.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %.01213.i
   %12 = load i8, ptr %gep.i, align 1
   %13 = zext i8 %12 to i64
   %14 = shl nuw i64 %13, %11

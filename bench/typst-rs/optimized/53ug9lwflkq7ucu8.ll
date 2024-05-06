@@ -625,7 +625,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.i:                                         ; preds = %.loopexit.i, %58
   %indvars.iv71.i = phi i64 [ 0, %58 ], [ %indvars.iv.next72.i, %.loopexit.i ]
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %61 = trunc i64 %indvars.iv71.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %62 = add nuw nsw i32 %.sroa.085.0171, %61
   %63 = icmp ugt i32 %17, %62
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %62, i32 %27)
@@ -640,7 +640,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 70:                                               ; preds = %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h6254cd10d3b28876E.exit.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h6254cd10d3b28876E.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %71 = trunc i64 %indvars.iv.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i to i32
   %72 = add nuw nsw i32 %.sroa.091.0, %71
   %73 = icmp ugt i32 %22, %72
   %.0.i.i.i78 = and i1 %63, %73
@@ -1013,7 +1013,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.i:                                         ; preds = %.loopexit.i, %58
   %indvars.iv63.i = phi i64 [ 0, %58 ], [ %indvars.iv.next64.i, %.loopexit.i ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %61 = trunc i64 %indvars.iv63.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %62 = add nuw nsw i32 %.sroa.085.0167, %61
   %63 = icmp ugt i32 %17, %62
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %62, i32 %27)
@@ -1028,7 +1028,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 70:                                               ; preds = %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17he8bd6acffcc283bcE.exit.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17he8bd6acffcc283bcE.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %71 = trunc i64 %indvars.iv.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i to i32
   %72 = add nuw nsw i32 %.sroa.091.0, %71
   %73 = icmp ugt i32 %22, %72
   %.0.i.i.i78 = and i1 %63, %73
@@ -1369,7 +1369,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.i:                                         ; preds = %.loopexit.i, %42
   %indvars.iv170.i = phi i64 [ 0, %42 ], [ %indvars.iv.next171.i, %.loopexit.i ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
-  %45 = trunc i64 %indvars.iv170.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv170.i to i32
   %46 = add nuw nsw i32 %.sroa.044.0172, %45
   %47 = icmp ugt i32 %11, %46
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %46, i32 %21)
@@ -1393,7 +1393,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.split.us.split.i:                          ; preds = %.split.split.us.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i ], [ 0, %.split.split.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = trunc i64 %indvars.iv.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   %54 = add nsw i32 %.sroa.050.0, %53
   %.0.sroa.speculated.i.i.us.i = call noundef i32 @llvm.umin.i32(i32 %54, i32 %20)
   %.not.i38 = icmp ugt i32 %16, %.0.sroa.speculated.i.i.us.i
@@ -1417,7 +1417,7 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i: ;
 .split.split.split.i:                             ; preds = %.split.split.split.i.preheader, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i
   %indvars.iv166.i = phi i64 [ %indvars.iv.next167.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i ], [ 0, %.split.split.split.i.preheader ]
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
-  %61 = trunc i64 %indvars.iv166.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv166.i to i32
   %62 = add nuw nsw i32 %.sroa.050.0, %61
   %63 = icmp ugt i32 %16, %62
   br i1 %63, label %77, label %64
@@ -1634,7 +1634,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 45:                                               ; preds = %.loopexit.i, %42
   %indvars.iv231.i = phi i64 [ 0, %42 ], [ %indvars.iv.next232.i, %.loopexit.i ]
   %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i, 1
-  %46 = trunc i64 %indvars.iv231.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv231.i to i32
   %47 = add nuw nsw i32 %.sroa.044.0206, %46
   %48 = icmp ugt i32 %11, %47
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %47, i32 %21)
@@ -1658,7 +1658,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.us.split.i:                                ; preds = %.split.us.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i" ], [ 0, %.split.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = add nsw i32 %.sroa.050.0, %54
   %.0.sroa.speculated.i.i.us.i = call noundef i32 @llvm.umin.i32(i32 %55, i32 %20)
   %.not.i38 = icmp ugt i32 %16, %.0.sroa.speculated.i.i.us.i
@@ -1689,7 +1689,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 .split.split.i:                                   ; preds = %.split.split.i.preheader, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i
   %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i ], [ 0, %.split.split.i.preheader ]
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
-  %67 = trunc i64 %indvars.iv227.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv227.i to i32
   %68 = add nuw nsw i32 %.sroa.050.0, %67
   %69 = icmp ugt i32 %16, %68
   br i1 %69, label %87, label %70

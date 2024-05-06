@@ -59,7 +59,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_si_meminfo: 
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable__totalram_pages477, ptr @__UNIQUE_ID___addressable_si_mem_available482, ptr @__UNIQUE_ID___addressable_si_meminfo483], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @si_mem_available() #0 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @si_mem_available() #0 align 16 {
   %1 = tail call ptr @first_online_pgdat() #7
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %.preheader

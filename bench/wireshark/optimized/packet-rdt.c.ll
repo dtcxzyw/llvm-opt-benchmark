@@ -295,7 +295,7 @@ define hidden void @rdt_add_address(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not, label %13, label %37
 
 13:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %.not27 = icmp eq i32 %3, 0

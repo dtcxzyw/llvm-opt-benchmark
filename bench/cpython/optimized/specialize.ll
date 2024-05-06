@@ -897,7 +897,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyBaseObject_Type = external global %struct._typeobject, align 8
 @PyClassMethodDescr_Type = external global %struct._typeobject, align 8
 @PyClassMethod_Type = external global %struct._typeobject, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyType_Type = external global %struct._typeobject, align 8
 @PyBytes_Type = external global %struct._typeobject, align 8
 
@@ -1079,7 +1079,7 @@ lor.lhs.false.i:                                  ; preds = %if.then12
 
 if.end.i70:                                       ; preds = %lor.lhs.false.i
   store ptr null, ptr %descr.i, align 8
-  %call4.i = call fastcc i32 @analyze_descriptor(ptr noundef nonnull %owner, ptr noundef %name, ptr noundef nonnull %descr.i, i32 noundef 0), !range !7
+  %call4.i = call fastcc i32 @analyze_descriptor(ptr noundef nonnull %owner, ptr noundef %name, ptr noundef nonnull %descr.i, i32 noundef 0)
   switch i32 %call4.i, label %specialize_class_load_attr.exit.thread [
     i32 1, label %specialize_class_load_attr.exit
     i32 8, label %specialize_class_load_attr.exit
@@ -1103,7 +1103,7 @@ specialize_class_load_attr.exit:                  ; preds = %if.end.i70, %if.end
 
 if.end17:                                         ; preds = %if.end9
   store ptr null, ptr %descr, align 8
-  %call18 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 0), !range !7
+  %call18 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 0)
   switch i32 %call18, label %fail [
     i32 10, label %sw.bb136
     i32 1, label %sw.bb19
@@ -1343,7 +1343,7 @@ return:                                           ; preds = %if.end53, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @analyze_descriptor(ptr noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %descr, i32 noundef %store) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @analyze_descriptor(ptr noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %descr, i32 noundef %store) unnamed_addr #0 {
 entry:
   %tobool.not = icmp ne i32 %store, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -1503,7 +1503,7 @@ return:                                           ; preds = %if.then54, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @specialize_attr_loadclassattr(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr noundef %name, ptr noundef %descr, i1 noundef zeroext %is_method) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @specialize_attr_loadclassattr(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr noundef %name, ptr noundef %descr, i1 noundef zeroext %is_method) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %owner, i64 8
   %owner.val = load ptr, ptr %0, align 8
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %if.else30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @specialize_dict_access(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef %values_op, i32 noundef %hint_op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @specialize_dict_access(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef %values_op, i32 noundef %hint_op) unnamed_addr #0 {
 entry:
   %tp_flags = getelementptr inbounds i8, ptr %type, i64 168
   %0 = load i64, ptr %tp_flags, align 8
@@ -1684,7 +1684,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i22.not, label %fail, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 1), !range !7
+  %call6 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 1)
   switch i32 %call6, label %fail [
     i32 10, label %sw.bb30
     i32 3, label %sw.bb9
@@ -2475,7 +2475,7 @@ if.then19:                                        ; preds = %if.else16
 
 if.end30:                                         ; preds = %if.then19
   %add = add i32 %nargs, 1
-  %call23 = tail call fastcc i32 @specialize_py_call(ptr noundef nonnull %46, ptr noundef %instr, i32 noundef %add, i1 noundef zeroext true), !range !8
+  %call23 = tail call fastcc i32 @specialize_py_call(ptr noundef nonnull %46, ptr noundef %instr, i32 noundef %add, i1 noundef zeroext true)
   %tobool31.not = icmp eq i32 %call23, 0
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
@@ -2500,7 +2500,7 @@ if.end38:                                         ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @specialize_py_call(ptr noundef %func, ptr nocapture noundef writeonly %instr, i32 noundef %nargs, i1 noundef zeroext %bound_method) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @specialize_py_call(ptr noundef %func, ptr nocapture noundef writeonly %instr, i32 noundef %nargs, i1 noundef zeroext %bound_method) unnamed_addr #0 {
 entry:
   %func_code = getelementptr inbounds i8, ptr %func, i64 48
   %0 = load ptr, ptr %func_code, align 8
@@ -3135,5 +3135,3 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 14}
-!8 = !{i32 -1, i32 1}

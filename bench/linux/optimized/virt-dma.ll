@@ -23,7 +23,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vchan_init: 
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_vchan_dma_desc_free_list353, ptr @__UNIQUE_ID___addressable_vchan_find_desc352, ptr @__UNIQUE_ID___addressable_vchan_init354, ptr @__UNIQUE_ID___addressable_vchan_tx_desc_free351, ptr @__UNIQUE_ID___addressable_vchan_tx_submit350, ptr @__UNIQUE_ID_author355, ptr @__UNIQUE_ID_file356, ptr @__UNIQUE_ID_license357], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vchan_tx_submit(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 1, -2147483648) i32 @vchan_tx_submit(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160

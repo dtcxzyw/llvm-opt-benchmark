@@ -46,7 +46,7 @@ define void @php_random_mt19937_seed32(ptr nocapture noundef %0, i32 noundef %1)
   %5 = lshr i32 %4, 30
   %6 = xor i32 %5, %4
   %7 = mul i32 %6, 1812433253
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = add i32 %7, %8
   %10 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4
@@ -390,7 +390,7 @@ define void @php_random_mt19937_seed_default(ptr nocapture noundef %0) local_unn
   %19 = lshr i32 %18, 30
   %20 = xor i32 %19, %18
   %21 = mul i32 %20, 1812433253
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %21, %22
   %24 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4
@@ -552,7 +552,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   %53 = lshr i32 %52, 30
   %54 = xor i32 %53, %52
   %55 = mul i32 %54, 1812433253
-  %56 = trunc i64 %indvars.iv.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   %57 = add i32 %55, %56
   %58 = getelementptr inbounds [624 x i32], ptr %.sroa.1.0.copyload, i64 0, i64 %indvars.iv.i
   store i32 %57, ptr %58, align 4

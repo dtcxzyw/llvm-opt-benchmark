@@ -707,7 +707,7 @@ spl_dllist_object_count_elements.exit:            ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -3563,7 +3563,7 @@ define internal void @spl_dllist_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @spl_dllist_it_valid(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr nocapture noundef readonly %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

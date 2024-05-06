@@ -272,7 +272,7 @@ invoke.cont33:                                    ; preds = %for.body
   br i1 %cmp41, label %if.end44.thread, label %for.inc
 
 if.end44.thread:                                  ; preds = %invoke.cont33
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 7, ptr %status, align 4
   br label %for.cond48.preheader
 
@@ -284,7 +284,7 @@ for.inc:                                          ; preds = %invoke.cont33
   br i1 %cmp31, label %for.body, label %if.end44.loopexit, !llvm.loop !4
 
 if.end44.loopexit:                                ; preds = %for.inc
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.loopexit, %for.cond.preheader, %while.end

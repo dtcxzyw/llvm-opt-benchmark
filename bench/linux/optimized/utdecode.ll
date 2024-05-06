@@ -303,7 +303,7 @@ define dso_local ptr @acpi_ut_get_mutex_name(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i8 @acpi_ut_valid_object_type(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_object_type(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp ult i32 %0, 30
   %3 = zext i1 %2 to i8
   ret i8 %3

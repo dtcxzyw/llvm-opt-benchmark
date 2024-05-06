@@ -1377,7 +1377,7 @@ declare ptr @Kit_SopFactor(ptr noundef, i32 noundef, i32 noundef, ptr noundef) l
 declare void @Kit_GraphFree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Dar_ObjCutLevelAchieved(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Dar_ObjCutLevelAchieved(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val10, 0
@@ -1417,7 +1417,7 @@ define noundef i32 @Dar_ObjCutLevelAchieved(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Dar_ManRefactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Dar_ManRefactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

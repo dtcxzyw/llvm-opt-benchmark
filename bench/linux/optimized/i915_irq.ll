@@ -1406,7 +1406,7 @@ declare dso_local void @gen8_display_irq_reset(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cherryview_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @cherryview_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8945
   %5 = load i8, ptr %4, align 1, !range !29, !noundef !30
@@ -1504,7 +1504,7 @@ define internal noundef i32 @cherryview_irq_handler(i32 %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @valleyview_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @valleyview_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8945
   %5 = load i8, ptr %4, align 1, !range !29, !noundef !30
@@ -1637,7 +1637,7 @@ define internal noundef i32 @valleyview_irq_handler(i32 %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i965_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @i965_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8945
   %5 = load i8, ptr %4, align 1, !range !29, !noundef !30
@@ -1799,7 +1799,7 @@ define internal noundef i32 @i965_irq_handler(i32 %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @i915_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8945
   %5 = load i8, ptr %4, align 1, !range !29, !noundef !30
@@ -1955,7 +1955,7 @@ define internal noundef i32 @i915_irq_handler(i32 %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8xx_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @i8xx_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8945
   %5 = load i8, ptr %4, align 1, !range !29, !noundef !30
@@ -2090,7 +2090,7 @@ define internal noundef i32 @i8xx_irq_handler(i32 %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dg1_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @dg1_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 9304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -2162,7 +2162,7 @@ define internal noundef i32 @dg1_irq_handler(i32 %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen11_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @gen11_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 9304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8945
@@ -2209,7 +2209,7 @@ define internal noundef i32 @gen11_irq_handler(i32 %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen8_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @gen8_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8945
   %4 = load i8, ptr %3, align 1, !range !29, !noundef !30
   %5 = icmp eq i8 %4, 0
@@ -2256,7 +2256,7 @@ define internal noundef i32 @gen8_irq_handler(i32 %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ilk_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ilk_irq_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 7368
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8945

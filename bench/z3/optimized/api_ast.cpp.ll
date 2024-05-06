@@ -4450,7 +4450,7 @@ declare void @_Z21log_Z3_is_well_sortedP11_Z3_contextP7_Z3_ast(ptr noundef, ptr 
 declare noundef zeroext i1 @_Z14is_well_sortedRK11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_get_symbol_kind(ptr noundef %c, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @Z3_get_symbol_kind(ptr noundef %c, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -4779,7 +4779,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNK6symbol3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_get_ast_kind(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 1001) i32 @Z3_get_ast_kind(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -5434,7 +5434,7 @@ _ZN10z3_log_ctxD2Ev.exit9:                        ; preds = %cleanup, %if.then.i
 declare void @_Z30log_Z3_get_decl_num_parametersP11_Z3_contextP13_Z3_func_decl(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_get_decl_parameter_kind(ptr noundef %c, ptr noundef %d, i32 noundef %idx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 7) i32 @Z3_get_decl_parameter_kind(ptr noundef %c, ptr noundef %d, i32 noundef %idx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -7277,7 +7277,7 @@ terminate.lpad:                                   ; preds = %lpad26
 declare void @_Z16log_Z3_get_rangeP11_Z3_contextP13_Z3_func_decl(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_get_sort_kind(ptr noundef %c, ptr noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 1001) i32 @Z3_get_sort_kind(ptr noundef %c, ptr noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -7434,7 +7434,7 @@ _ZN10z3_log_ctxD2Ev.exit71:                       ; preds = %cleanup, %if.then.i
 declare void @_Z20log_Z3_get_sort_kindP11_Z3_contextP8_Z3_sort(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Z3_get_bool_value(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 2) i32 @Z3_get_bool_value(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -9207,8 +9207,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %invoke.cont66, %if.
   %40 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i55 = zext i32 %40 to i64
   %add.ptr.i56.idx = shl nuw nsw i64 %idx.ext.i55, 3
-  %41 = getelementptr i8, ptr %23, i64 %add.ptr.i56.idx
-  %add.ptr.i56.ptr = getelementptr i8, ptr %41, i64 32
+  %41 = getelementptr inbounds i8, ptr %23, i64 %add.ptr.i56.idx
+  %add.ptr.i56.ptr = getelementptr inbounds i8, ptr %41, i64 32
   %cmp76.not441 = icmp eq i32 %40, 0
   br i1 %cmp76.not441, label %for.end91, label %for.body77.preheader
 

@@ -5787,7 +5787,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_Id
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory2uf8TheoryUF17getEqualityStatusENS0_12NodeTemplateILb0EEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1736) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 2, 6) i32 @_ZN4cvc58internal6theory2uf8TheoryUF17getEqualityStatusENS0_12NodeTemplateILb0EEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1736) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.665", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate.665", align 8

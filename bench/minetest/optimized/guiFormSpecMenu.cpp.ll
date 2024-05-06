@@ -665,7 +665,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTT15GUIFormSpecMenu = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds inrange(-24, 336) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 336) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, i32 1, i32 3)], align 8
 @guiroot = external local_unnamed_addr global ptr, align 8
 @g_menumgr = external global %class.MainMenuManager, align 8
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.17 = private unnamed_addr constant [9 x i8] c"Invalid \00", align 1
 @.str.18 = private unnamed_addr constant [10 x i8] c" element(\00", align 1
 @.str.19 = private unnamed_addr constant [5 x i8] c"): '\00", align 1
@@ -837,7 +837,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.179 = private unnamed_addr constant [14 x i8] c"list_selected\00", align 1
 @.str.180 = private unnamed_addr constant [48 x i8] c"InventoryMenu: The selected inventory location \00", align 1
 @.str.181 = private unnamed_addr constant [16 x i8] c"\22 doesn't exist\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.182 = private unnamed_addr constant [45 x i8] c"InventoryMenu: The selected inventory list \22\00", align 1
 @.str.183 = private unnamed_addr constant [17 x i8] c"\22 does not exist\00", align 1
 @.str.184 = private unnamed_addr constant [19 x i8] c"\22 is too small (i=\00", align 1

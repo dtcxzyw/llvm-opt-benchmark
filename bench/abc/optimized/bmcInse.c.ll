@@ -48,7 +48,7 @@ define void @Gia_ManInseInit(ptr nocapture noundef readonly %0, ptr nocapture no
   %.val42.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val38, i64 4
   %.val38.val = load i32, ptr %13, align 4
-  %14 = trunc i64 %indvars.iv69 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv69 to i32
   %15 = sub i32 %14, %.val57
   %16 = add i32 %15, %.val38.val
   %17 = sext i32 %16 to i64
@@ -164,7 +164,7 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
   %26 = and i64 %.val174, 2305843009213693952
   %.not143 = icmp eq i64 %26, 0
   %27 = lshr i64 %.val174, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 536870911
   %30 = sub nsw i32 %1, %29
   %31 = mul nsw i32 %12, %30
@@ -253,7 +253,7 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
 
 Gia_ObjIsPi.exit:                                 ; preds = %79
   %81 = lshr i64 %.val174, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   %83 = and i32 %82, 536870911
   %84 = getelementptr i8, ptr %0, i64 16
   %.val4.i = load i32, ptr %84, align 8
@@ -447,7 +447,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
 36:                                               ; preds = %32, %29
   %37 = phi i1 [ true, %29 ], [ %35, %32 ]
   %38 = zext i1 %37 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %39 = load i32, ptr %gep, align 4
   %40 = add nsw i32 %39, %38
   store i32 %40, ptr %gep, align 4
@@ -462,7 +462,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %43 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv74
   %44 = shl i64 %indvars.iv74, 6
   %45 = and i64 %44, 4294967232
-  %invariant.gep = getelementptr i32, ptr %7, i64 %45
+  %invariant.gep = getelementptr inbounds i32, ptr %7, i64 %45
   br label %29
 
 ._crit_edge.us:                                   ; preds = %28
@@ -492,7 +492,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %49 = load i32, ptr %48, align 4
   %50 = icmp slt i32 %.04666, %49
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.04666, i32 %49)
-  %51 = trunc i64 %indvars.iv83 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv83 to i32
   %spec.select51 = select i1 %50, i32 %51, i32 %.068
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -1026,7 +1026,7 @@ define noalias noundef ptr @Gia_ManInseSimulate(ptr nocapture noundef readonly %
   %.val134.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val123, i64 4
   %.val123.val = load i32, ptr %20, align 4
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = sub i32 %21, %.val116163
   %23 = add i32 %22, %.val123.val
   %24 = sext i32 %23 to i64
@@ -1161,7 +1161,7 @@ define noalias noundef ptr @Gia_ManInseSimulate(ptr nocapture noundef readonly %
   %85 = trunc i64 %84 to i32
   %86 = lshr i32 %85, 30
   %87 = lshr i64 %.val135, 61
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw nsw i64 %87 to i32
   %89 = and i32 %88, 1
   %90 = xor i32 %86, %89
   %91 = and i32 %90, %79
@@ -1321,7 +1321,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %153
   %.val150.val = load ptr, ptr %163, align 8
   %164 = getelementptr i8, ptr %.val140, i64 4
   %.val140.val = load i32, ptr %164, align 4
-  %165 = trunc i64 %indvars.iv213 to i32
+  %165 = trunc nuw nsw i64 %indvars.iv213 to i32
   %166 = sub i32 %165, %.val195
   %167 = add i32 %166, %.val140.val
   %168 = sext i32 %167 to i64
@@ -1565,7 +1565,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val42.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.val38.i, i64 4
   %.val38.val.i = load i32, ptr %58, align 4
-  %59 = trunc i64 %indvars.iv69.i to i32
+  %59 = trunc nuw nsw i64 %indvars.iv69.i to i32
   %60 = sub i32 %59, %.val57.i
   %61 = add i32 %60, %.val38.val.i
   %62 = sext i32 %61 to i64
@@ -1731,7 +1731,7 @@ Abc_Clock.exit64:                                 ; preds = %104, %107
   %.val42.val.i72 = load ptr, ptr %119, align 8
   %120 = getelementptr i8, ptr %.val38.i71, i64 4
   %.val38.val.i73 = load i32, ptr %120, align 4
-  %121 = trunc i64 %indvars.iv69.i67 to i32
+  %121 = trunc nuw nsw i64 %indvars.iv69.i67 to i32
   %122 = sub i32 %121, %.val57.i68
   %123 = add i32 %122, %.val38.val.i73
   %124 = sext i32 %123 to i64
@@ -1976,7 +1976,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1995,7 +1995,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2006,19 +2006,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -2039,8 +2039,8 @@ attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }

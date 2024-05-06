@@ -514,7 +514,7 @@ define internal i32 @rsa_set_priv_key(ptr nocapture noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @rsa_max_size(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 0, -7) i32 @rsa_max_size(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4

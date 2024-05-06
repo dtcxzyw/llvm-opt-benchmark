@@ -702,7 +702,7 @@ terminate.lpad.i.i53:                             ; preds = %ehcleanup
   unreachable
 
 if.end28:                                         ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit48, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit40
-  %call29 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c), !range !4
+  %call29 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c)
   %cmp = icmp eq i32 %call29, 0
   br i1 %cmp, label %return.sink.split, label %return
 
@@ -757,7 +757,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2:              ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i53 = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp.i45 = alloca %"class.cvc5::internal::Integer", align 8
@@ -1213,7 +1213,7 @@ land.lhs.true11:                                  ; preds = %_ZNK4cvc58internal1
 if.end17:                                         ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit36, %land.lhs.true11
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef 0)
   %call18 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end17
   %cmp.not = icmp eq i32 %call18, 1
@@ -1225,7 +1225,7 @@ lor.rhs:                                          ; preds = %invoke.cont
 
 invoke.cont20:                                    ; preds = %lor.rhs
   %call23 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19)
-          to label %cleanup.action unwind label %lpad21, !range !4
+          to label %cleanup.action unwind label %lpad21
 
 cleanup.action:                                   ; preds = %invoke.cont20
   %cmp24 = icmp eq i32 %call23, 1
@@ -1382,7 +1382,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit66: ; preds = %invoke.cont.i64
   br i1 %call.i60, label %if.else43, label %if.then37
 
 if.then37:                                        ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit66, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit58
-  %call38 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c), !range !4
+  %call38 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c)
   %cmp39 = icmp eq i32 %call38, 0
   br i1 %cmp39, label %return.sink.split, label %return
 
@@ -1701,7 +1701,7 @@ if.then13:                                        ; preds = %land.lhs.true11
 if.end17:                                         ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit49, %land.lhs.true11
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef 0)
   %call18 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end17
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
@@ -1763,7 +1763,7 @@ terminate.lpad.i.i54:                             ; preds = %lpad22
 if.else25:                                        ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26, i64 noundef 0)
   %call29 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26)
-          to label %invoke.cont28 unwind label %lpad27, !range !4
+          to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %if.else25
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp26)
@@ -1796,7 +1796,7 @@ terminate.lpad.i.i.i58:                           ; preds = %lpad27
 if.else32:                                        ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit57
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33, i64 noundef 1)
   %call36 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33)
-          to label %invoke.cont35 unwind label %lpad34, !range !4
+          to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %if.else32
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp33)
@@ -1829,7 +1829,7 @@ terminate.lpad.i.i.i62:                           ; preds = %lpad34
 if.else39:                                        ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit61
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, i64 noundef 1)
   %call43 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40)
-          to label %invoke.cont42 unwind label %lpad41, !range !4
+          to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %if.else39
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp40)
@@ -2287,7 +2287,7 @@ land.lhs.true138:                                 ; preds = %if.else136
   br i1 %call139, label %return, label %if.else141
 
 if.else141:                                       ; preds = %land.lhs.true138, %if.else136
-  %call142 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c), !range !4
+  %call142 = call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c)
   %cmp143 = icmp eq i32 %call142, 2
   br i1 %cmp143, label %return, label %if.end145
 
@@ -2394,7 +2394,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality20knownLessThanOrEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c), !range !4
+  %call = tail call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c)
   %0 = icmp ult i32 %call, 2
   ret i1 %0
 }
@@ -2513,7 +2513,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %invoke.cont.i15
 
 if.then3:                                         ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i17)
-  call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp.i17, i64 noundef 1), !noalias !5
+  call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp.i17, i64 noundef 1), !noalias !4
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i17)
           to label %invoke.cont.i21 unwind label %lpad.i18
 
@@ -2913,7 +2913,6 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv: %agg.result"}
-!7 = distinct !{!7, !"_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv"}

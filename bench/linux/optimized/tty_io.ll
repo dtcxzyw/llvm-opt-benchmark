@@ -259,7 +259,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [32 x ptr] [ptr @__UNIQUE_ID___addressable___tty_alloc_driver399, ptr @__UNIQUE_ID___addressable_do_SAK394, ptr @__UNIQUE_ID___addressable_start_tty362, ptr @__UNIQUE_ID___addressable_stop_tty361, ptr @__UNIQUE_ID___addressable_tty_class_init405, ptr @__UNIQUE_ID___addressable_tty_dev_name_to_number356, ptr @__UNIQUE_ID___addressable_tty_devnum403, ptr @__UNIQUE_ID___addressable_tty_do_resize383, ptr @__UNIQUE_ID___addressable_tty_driver_kref_put400, ptr @__UNIQUE_ID___addressable_tty_get_icount385, ptr @__UNIQUE_ID___addressable_tty_get_tiocm384, ptr @__UNIQUE_ID___addressable_tty_hangup358, ptr @__UNIQUE_ID___addressable_tty_hung_up_p360, ptr @__UNIQUE_ID___addressable_tty_init_termios367, ptr @__UNIQUE_ID___addressable_tty_kclose379, ptr @__UNIQUE_ID___addressable_tty_kopen_exclusive381, ptr @__UNIQUE_ID___addressable_tty_kopen_shared382, ptr @__UNIQUE_ID___addressable_tty_kref_put374, ptr @__UNIQUE_ID___addressable_tty_name355, ptr @__UNIQUE_ID___addressable_tty_put_char395, ptr @__UNIQUE_ID___addressable_tty_register_device396, ptr @__UNIQUE_ID___addressable_tty_register_device_attr397, ptr @__UNIQUE_ID___addressable_tty_register_driver401, ptr @__UNIQUE_ID___addressable_tty_release_struct380, ptr @__UNIQUE_ID___addressable_tty_save_termios373, ptr @__UNIQUE_ID___addressable_tty_standard_install368, ptr @__UNIQUE_ID___addressable_tty_std_termios354, ptr @__UNIQUE_ID___addressable_tty_unregister_device398, ptr @__UNIQUE_ID___addressable_tty_unregister_driver402, ptr @__UNIQUE_ID___addressable_tty_vhangup359, ptr @__UNIQUE_ID___addressable_tty_wakeup357, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched105], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_alloc_file(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tty_alloc_file(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 32) #21
   %4 = icmp eq ptr %3, null
@@ -868,7 +868,7 @@ define dso_local void @tty_vhangup_session(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @tty_hung_up_p(ptr noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @tty_hung_up_p(ptr noundef readonly %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1075,7 +1075,7 @@ define dso_local void @tty_write_unlock(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_write_lock(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @tty_write_lock(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = tail call i32 @mutex_trylock(ptr noundef %3) #22
   %5 = icmp eq i32 %4, 0
@@ -1381,7 +1381,7 @@ define internal i64 @tty_write(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_send_xchar(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @tty_send_xchar(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 444
@@ -2925,7 +2925,7 @@ define dso_local i32 @tty_get_icount(ptr noundef %0, ptr noundef %1) #0 align 16
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.serial_struct, align 8
   %5 = alloca [16 x i8], align 16
   %6 = alloca %struct.serial_struct, align 8
@@ -3590,7 +3590,7 @@ declare dso_local i32 @tty_check_change(ptr noundef) local_unnamed_addr #2
 declare dso_local void @tty_wait_until_sent(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tioccons(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -25, 1) i32 @tioccons(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @capable(i32 noundef 21) #22
   br i1 %2, label %3, label %29
 
@@ -3790,7 +3790,7 @@ declare dso_local i64 @tty_jobctrl_ioctl(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local ptr @tty_ldisc_ref_wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @hung_up_tty_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
+define internal noundef range(i64 -25, -4) i64 @hung_up_tty_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
   %4 = icmp eq i32 %1, 21520
   %5 = select i1 %4, i64 -25, i64 -5
   ret i64 %5
@@ -5009,7 +5009,7 @@ define internal noundef i32 @hung_up_tty_poll(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @hung_up_tty_compat_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
+define internal noundef range(i64 -25, -4) i64 @hung_up_tty_compat_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
   %4 = icmp eq i32 %1, 21520
   %5 = select i1 %4, i64 -25, i64 -5
   ret i64 %5
@@ -5492,7 +5492,7 @@ define internal i32 @tty_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @tty_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @tty_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

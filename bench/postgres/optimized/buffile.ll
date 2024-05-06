@@ -831,7 +831,7 @@ extendBufFile.exit:                               ; preds = %30, %34
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BufFileSeek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %40 [
     i32 0, label %5
     i32 1, label %7
@@ -1029,17 +1029,17 @@ define dso_local void @BufFileTell(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @BufFileSeekBlock(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @BufFileSeekBlock(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = sdiv i64 %1, 131072
   %4 = trunc i64 %3 to i32
   %5 = srem i64 %1, 131072
   %6 = shl nsw i64 %5, 13
-  %7 = tail call i32 @BufFileSeek(ptr noundef %0, i32 noundef %4, i64 noundef %6, i32 noundef 0), !range !11
+  %7 = tail call i32 @BufFileSeek(ptr noundef %0, i32 noundef %4, i64 noundef %6, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @BufFileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufFileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -1078,7 +1078,7 @@ define dso_local i64 @BufFileSize(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, %3
@@ -1116,7 +1116,7 @@ define dso_local i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noun
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %21, align 8
   %25 = load i32, ptr %0, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nsw i64 %indvars.iv to i32
   %27 = sub i32 %26, %25
   %28 = sext i32 %27 to i64
   %29 = getelementptr i32, ptr %24, i64 %28
@@ -1126,7 +1126,7 @@ define dso_local i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noun
   store i32 %30, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %23, %13
   %33 = sext i32 %3 to i64
@@ -1216,7 +1216,7 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
   %.1 = phi i64 [ 1073741824, %28 ], [ %2, %32 ]
   %.0 = add i32 %.083, -1
   %.not = icmp slt i32 %.0, %1
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %47, %3
   %.065.lcssa = phi i32 [ %5, %3 ], [ %.166, %47 ]
@@ -1350,6 +1350,5 @@ attributes #11 = { cold nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

@@ -229,7 +229,7 @@ define i32 @Nwk_ObjFindFanin(ptr nocapture noundef readonly %0, ptr noundef read
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit18:             ; preds = %11
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %13, %.critedge.loopexit.split.loop.exit18, %2
@@ -271,7 +271,7 @@ define i32 @Nwk_ObjFindFanout(ptr nocapture noundef readonly %0, ptr noundef rea
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit19:             ; preds = %13
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %15, %.critedge.loopexit.split.loop.exit19, %2

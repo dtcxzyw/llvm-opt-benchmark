@@ -381,13 +381,13 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %93, %94, %98, %103
   %.pre.i = load i32, ptr %110, align 8
   br label %123
 
-123:                                              ; preds = %h2_tunnel_go_state.exit60.i, %108
-  %124 = phi i32 [ %.pre.i, %108 ], [ 0, %h2_tunnel_go_state.exit60.i ]
-  %.0.i41 = phi i32 [ 0, %108 ], [ %.2.ph.i, %h2_tunnel_go_state.exit60.i ]
+123:                                              ; preds = %h2_tunnel_go_state.exit59.i, %108
+  %124 = phi i32 [ %.pre.i, %108 ], [ 0, %h2_tunnel_go_state.exit59.i ]
+  %.0.i41 = phi i32 [ 0, %108 ], [ %.2.ph.i, %h2_tunnel_go_state.exit59.i ]
   switch i32 %124, label %inspect_response.exit.i [
     i32 0, label %125
     i32 1, label %h2_tunnel_go_state.exit.i
-    i32 2, label %h2_tunnel_go_state.exit63.i
+    i32 2, label %h2_tunnel_go_state.exit62.i
     i32 3, label %H2_CONNECT.exit.thread46
     i32 4, label %H2_CONNECT.exit.thread
   ]
@@ -516,7 +516,7 @@ proxy_h2_submit.exit.i.i:                         ; preds = %157, %153, %151, %1
 submit_CONNECT.exit.i:                            ; preds = %174
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.37) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %inspect_response.exit.thread77.i
+  br label %inspect_response.exit.thread76.i
 
 175:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -530,8 +530,8 @@ submit_CONNECT.exit.i:                            ; preds = %174
 179:                                              ; preds = %178
   %180 = load i64, ptr %111, align 2
   %181 = and i64 %180, 268435456
-  %.not99.i = icmp eq i64 %181, 0
-  br i1 %.not99.i, label %189, label %182
+  %.not98.i = icmp eq i64 %181, 0
+  br i1 %.not98.i, label %189, label %182
 
 182:                                              ; preds = %179
   %183 = load ptr, ptr %0, align 8
@@ -605,22 +605,22 @@ h2_tunnel_go_state.exit.i:                        ; preds = %189, %175, %123
   %211 = load ptr, ptr %122, align 8
   call void %210(ptr noundef %211) #7
   store ptr null, ptr %122, align 8
-  br label %h2_tunnel_go_state.exit60thread-pre-split87.i
+  br label %h2_tunnel_go_state.exit59thread-pre-split86.i
 
 212:                                              ; preds = %193, %193
   %213 = load i8, ptr %116, align 4
   %214 = and i8 %213, 1
   %.not53.i = icmp eq i8 %214, 0
-  br i1 %.not53.i, label %inspect_response.exit.thread81.i, label %215
+  br i1 %.not53.i, label %inspect_response.exit.thread80.i, label %215
 
 215:                                              ; preds = %212
   %216 = load i32, ptr %110, align 8
   switch i32 %216, label %219 [
-    i32 2, label %h2_tunnel_go_state.exit63.i
-    i32 1, label %.thread70.i
+    i32 2, label %h2_tunnel_go_state.exit62.i
+    i32 1, label %.thread69.i
   ]
 
-.thread70.i:                                      ; preds = %215
+.thread69.i:                                      ; preds = %215
   %217 = load i16, ptr %117, align 1
   %218 = and i16 %217, -33
   store i16 %218, ptr %117, align 1
@@ -629,7 +629,7 @@ h2_tunnel_go_state.exit.i:                        ; preds = %189, %175, %123
 219:                                              ; preds = %215
   br i1 %.not.i40, label %230, label %220
 
-220:                                              ; preds = %219, %.thread70.i
+220:                                              ; preds = %219, %.thread69.i
   %221 = load i64, ptr %111, align 2
   %222 = and i64 %221, 268435456
   %.not50 = icmp eq i64 %222, 0
@@ -649,29 +649,29 @@ h2_tunnel_go_state.exit.i:                        ; preds = %189, %175, %123
 
 230:                                              ; preds = %228, %223, %220, %219
   store i32 2, ptr %110, align 8
-  br label %h2_tunnel_go_state.exit63.i
+  br label %h2_tunnel_go_state.exit62.i
 
-h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
+h2_tunnel_go_state.exit62.i:                      ; preds = %230, %215, %123
   %231 = load ptr, ptr %17, align 8
   %232 = load i32, ptr %231, align 8
   %.off.i.i = add i32 %232, -200
   %233 = icmp ult i32 %.off.i.i, 100
   br i1 %233, label %234, label %255
 
-234:                                              ; preds = %h2_tunnel_go_state.exit63.i
+234:                                              ; preds = %h2_tunnel_go_state.exit62.i
   br i1 %.not.i40, label %.thread.i.i.i, label %235
 
 235:                                              ; preds = %234
   %236 = load i64, ptr %111, align 2
   %237 = and i64 %236, 268435456
   %.not42.i.i = icmp eq i64 %237, 0
-  br i1 %.not42.i.i, label %.thread108.i, label %238
+  br i1 %.not42.i.i, label %.thread107.i, label %238
 
 238:                                              ; preds = %235
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.57, i32 noundef %232) #7
-  %.pre106.i = load i32, ptr %110, align 8
-  switch i32 %.pre106.i, label %.thread108.i [
-    i32 3, label %inspect_response.exit.thread81.i
+  %.pre105.i = load i32, ptr %110, align 8
+  switch i32 %.pre105.i, label %.thread107.i [
+    i32 3, label %inspect_response.exit.thread80.i
     i32 1, label %.thread.i.i
   ]
 
@@ -679,15 +679,15 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   %239 = load i16, ptr %117, align 1
   %240 = and i16 %239, -33
   store i16 %240, ptr %117, align 1
-  br label %.thread108.i
+  br label %.thread107.i
 
-.thread108.i:                                     ; preds = %.thread.i.i, %238, %235
+.thread107.i:                                     ; preds = %.thread.i.i, %238, %235
   %241 = load i64, ptr %111, align 2
   %242 = and i64 %241, 268435456
   %.not53 = icmp eq i64 %242, 0
   br i1 %.not53, label %.thread.i.i.i, label %243
 
-243:                                              ; preds = %.thread108.i
+243:                                              ; preds = %.thread107.i
   %244 = load ptr, ptr %0, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 12
   %246 = load i32, ptr %245, align 4
@@ -706,7 +706,7 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #7
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.thread108.i, %.thread77.i.i.i, %248, %234
+.thread.i.i.i:                                    ; preds = %.thread107.i, %.thread77.i.i.i, %248, %234
   %250 = load i8, ptr %121, align 8
   %251 = and i8 %250, -4
   %252 = or disjoint i8 %251, 1
@@ -716,10 +716,10 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   %254 = load ptr, ptr %122, align 8
   call void %253(ptr noundef %254) #7
   store ptr null, ptr %122, align 8
-  br label %h2_tunnel_go_state.exit60thread-pre-split87.i
+  br label %h2_tunnel_go_state.exit59thread-pre-split86.i
 
-255:                                              ; preds = %h2_tunnel_go_state.exit63.i
-  switch i32 %232, label %inspect_response.exit.thread77.i [
+255:                                              ; preds = %h2_tunnel_go_state.exit62.i
+  switch i32 %232, label %inspect_response.exit.thread76.i [
     i32 401, label %257
     i32 407, label %256
   ]
@@ -731,8 +731,8 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   %.str.59.sink.i.i = phi ptr [ @.str.59, %256 ], [ @.str.58, %255 ]
   %258 = getelementptr inbounds i8, ptr %231, i64 16
   %259 = call ptr @Curl_dynhds_cget(ptr noundef nonnull %258, ptr noundef nonnull %.str.59.sink.i.i) #7
-  %.not.i64.i = icmp eq ptr %259, null
-  br i1 %.not.i64.i, label %inspect_response.exit.thread77.i, label %260
+  %.not.i63.i = icmp eq ptr %259, null
+  br i1 %.not.i63.i, label %inspect_response.exit.thread76.i, label %260
 
 260:                                              ; preds = %257
   br i1 %.not.i40, label %272, label %261
@@ -764,12 +764,12 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   %277 = load ptr, ptr %276, align 8
   %278 = call i32 @Curl_http_input_auth(ptr noundef %1, i1 noundef zeroext %275, ptr noundef %277) #7
   %.not39.i.i = icmp eq i32 %278, 0
-  br i1 %.not39.i.i, label %279, label %inspect_response.exit.thread77.i
+  br i1 %.not39.i.i, label %279, label %inspect_response.exit.thread76.i
 
 279:                                              ; preds = %272
   %280 = load ptr, ptr %118, align 8
   %.not40.i.i = icmp eq ptr %280, null
-  br i1 %.not40.i.i, label %inspect_response.exit.thread77.i, label %281
+  br i1 %.not40.i.i, label %inspect_response.exit.thread76.i, label %281
 
 281:                                              ; preds = %279
   %282 = load ptr, ptr @Curl_cfree, align 8
@@ -777,7 +777,7 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   store ptr null, ptr %118, align 8
   %283 = load i32, ptr %110, align 8
   switch i32 %283, label %287 [
-    i32 0, label %h2_tunnel_go_state.exit60.i
+    i32 0, label %h2_tunnel_go_state.exit59.i
     i32 1, label %284
   ]
 
@@ -814,49 +814,49 @@ h2_tunnel_go_state.exit63.i:                      ; preds = %230, %215, %123
   %300 = load ptr, ptr %112, align 8
   call void %299(ptr noundef %300) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %17, i8 0, i64 168, i1 false)
-  br label %h2_tunnel_go_state.exit60thread-pre-split87.i
+  br label %h2_tunnel_go_state.exit59thread-pre-split86.i
 
-h2_tunnel_go_state.exit60thread-pre-split87.i:    ; preds = %297, %.thread.i.i.i, %209
+h2_tunnel_go_state.exit59thread-pre-split86.i:    ; preds = %297, %.thread.i.i.i, %209
   %.2.ph.ph.i = phi i32 [ 0, %297 ], [ 0, %.thread.i.i.i ], [ %.1.i, %209 ]
   %.pr.pr.i = load i32, ptr %110, align 8
-  br label %h2_tunnel_go_state.exit60.i
+  br label %h2_tunnel_go_state.exit59.i
 
-h2_tunnel_go_state.exit60.i:                      ; preds = %h2_tunnel_go_state.exit60thread-pre-split87.i, %281
-  %301 = phi i32 [ %.pr.pr.i, %h2_tunnel_go_state.exit60thread-pre-split87.i ], [ %283, %281 ]
-  %.2.ph.i = phi i32 [ %.2.ph.ph.i, %h2_tunnel_go_state.exit60thread-pre-split87.i ], [ %283, %281 ]
+h2_tunnel_go_state.exit59.i:                      ; preds = %h2_tunnel_go_state.exit59thread-pre-split86.i, %281
+  %301 = phi i32 [ %.pr.pr.i, %h2_tunnel_go_state.exit59thread-pre-split86.i ], [ %283, %281 ]
+  %.2.ph.i = phi i32 [ %.2.ph.ph.i, %h2_tunnel_go_state.exit59thread-pre-split86.i ], [ %283, %281 ]
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %123, label %inspect_response.exit.i, !llvm.loop !5
 
-inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.exit60.i, %123
-  %.3.i = phi i32 [ %.2.ph.i, %h2_tunnel_go_state.exit60.i ], [ %.0.i41, %123 ]
+inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.exit59.i, %123
+  %.3.i = phi i32 [ %.2.ph.i, %h2_tunnel_go_state.exit59.i ], [ %.0.i41, %123 ]
   %.not55.i = icmp eq i32 %.3.i, 0
-  br i1 %.not55.i, label %inspect_response.exit.thread81.i, label %inspect_response.exit.thread77.i
+  br i1 %.not55.i, label %inspect_response.exit.thread80.i, label %inspect_response.exit.thread76.i
 
-inspect_response.exit.thread81.i:                 ; preds = %238, %212, %inspect_response.exit.i
+inspect_response.exit.thread80.i:                 ; preds = %238, %212, %inspect_response.exit.i
   %303 = getelementptr inbounds i8, ptr %109, i64 308
   %304 = load i8, ptr %303, align 4
   %305 = and i8 %304, 2
   %.not56.i = icmp eq i8 %305, 0
-  br i1 %.not56.i, label %H2_CONNECT.exit.thread46, label %inspect_response.exit.thread77.i
+  br i1 %.not56.i, label %H2_CONNECT.exit.thread46, label %inspect_response.exit.thread76.i
 
-inspect_response.exit.thread77.i:                 ; preds = %279, %272, %257, %255, %inspect_response.exit.thread81.i, %inspect_response.exit.i, %submit_CONNECT.exit.i
-  %.380.ph.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.3.i, %inspect_response.exit.i ], [ 0, %inspect_response.exit.thread81.i ], [ %278, %272 ], [ 56, %279 ], [ 56, %257 ], [ 56, %255 ]
-  %.pr97.i = load i32, ptr %110, align 8
-  switch i32 %.pr97.i, label %308 [
+inspect_response.exit.thread76.i:                 ; preds = %279, %272, %257, %255, %inspect_response.exit.thread80.i, %inspect_response.exit.i, %submit_CONNECT.exit.i
+  %.379.ph.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.3.i, %inspect_response.exit.i ], [ 0, %inspect_response.exit.thread80.i ], [ %278, %272 ], [ 56, %279 ], [ 56, %257 ], [ 56, %255 ]
+  %.pr96.i = load i32, ptr %110, align 8
+  switch i32 %.pr96.i, label %308 [
     i32 4, label %H2_CONNECT.exit
-    i32 1, label %.thread85.i
+    i32 1, label %.thread84.i
   ]
 
-.thread85.i:                                      ; preds = %inspect_response.exit.thread77.i
+.thread84.i:                                      ; preds = %inspect_response.exit.thread76.i
   %306 = load i16, ptr %117, align 1
   %307 = and i16 %306, -33
   store i16 %307, ptr %117, align 1
   br label %309
 
-308:                                              ; preds = %inspect_response.exit.thread77.i
+308:                                              ; preds = %inspect_response.exit.thread76.i
   br i1 %.not.i40, label %319, label %309
 
-309:                                              ; preds = %308, %.thread85.i
+309:                                              ; preds = %308, %.thread84.i
   %310 = load i64, ptr %111, align 2
   %311 = and i64 %310, 268435456
   %.not55 = icmp eq i64 %311, 0
@@ -882,18 +882,18 @@ inspect_response.exit.thread77.i:                 ; preds = %279, %272, %257, %2
   store ptr null, ptr %122, align 8
   br label %H2_CONNECT.exit
 
-H2_CONNECT.exit:                                  ; preds = %319, %inspect_response.exit.thread77.i
-  %322 = icmp eq i32 %.380.ph.i, 0
+H2_CONNECT.exit:                                  ; preds = %319, %inspect_response.exit.thread76.i
+  %322 = icmp eq i32 %.379.ph.i, 0
   br i1 %322, label %H2_CONNECT.exit.thread46, label %H2_CONNECT.exit.thread
 
-H2_CONNECT.exit.thread46:                         ; preds = %123, %inspect_response.exit.thread81.i, %H2_CONNECT.exit
+H2_CONNECT.exit.thread46:                         ; preds = %123, %inspect_response.exit.thread80.i, %H2_CONNECT.exit
   %323 = load i32, ptr %110, align 8
   %324 = icmp eq i32 %323, 3
   %325 = zext i1 %324 to i8
   br label %H2_CONNECT.exit.thread
 
 H2_CONNECT.exit.thread:                           ; preds = %194, %123, %cf_h2_proxy_ctx_init.exit, %107, %H2_CONNECT.exit.thread46, %H2_CONNECT.exit
-  %.03444 = phi i32 [ %.380.ph.i, %H2_CONNECT.exit ], [ 0, %H2_CONNECT.exit.thread46 ], [ %.0.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %107 ], [ 56, %123 ], [ %.1.i, %194 ]
+  %.03444 = phi i32 [ %.379.ph.i, %H2_CONNECT.exit ], [ 0, %H2_CONNECT.exit.thread46 ], [ %.0.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %107 ], [ 56, %123 ], [ %.1.i, %194 ]
   %326 = phi i8 [ 0, %H2_CONNECT.exit ], [ %325, %H2_CONNECT.exit.thread46 ], [ 0, %cf_h2_proxy_ctx_init.exit ], [ 0, %107 ], [ 0, %123 ], [ 0, %194 ]
   store i8 %326, ptr %3, align 1
   %327 = load i8, ptr %18, align 4
@@ -1249,7 +1249,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 78:                                               ; preds = %43
-  %79 = tail call fastcc i32 @proxy_h2_should_close_session(ptr noundef nonnull %7), !range !7
+  %79 = tail call fastcc i32 @proxy_h2_should_close_session(ptr noundef nonnull %7)
   %.not130 = icmp eq i32 %79, 0
   br i1 %.not130, label %94, label %80
 
@@ -1847,7 +1847,7 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
   br i1 %.not18.i, label %33, label %24
 
 24:                                               ; preds = %21
-  %25 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !8
+  %25 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %proxy_h2_connisalive.exit, label %27
 
@@ -1991,7 +1991,7 @@ declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #1
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @on_session_send(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2025,7 +2025,7 @@ define internal i64 @on_session_send(ptr nocapture readnone %0, ptr noundef %1, 
 declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proxy_h2_on_frame_recv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2344,7 +2344,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tunnel_recv_callback(ptr nocapture readnone %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr nocapture readnone %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -2420,7 +2420,7 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proxy_h2_on_header(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
+define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2878,7 +2878,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br label %20
 
 20:                                               ; preds = %8, %9, %13, %18
-  %21 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3), !range !8
+  %21 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -2924,9 +2924,9 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br i1 %43, label %.split54.us, label %44
 
 44:                                               ; preds = %42
-  %45 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3), !range !8
+  %45 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   %.not44.us = icmp eq i32 %45, 0
-  br i1 %.not44.us, label %.split.us, label %.split56.us, !llvm.loop !9
+  br i1 %.not44.us, label %.split.us, label %.split56.us, !llvm.loop !7
 
 .split.split:                                     ; preds = %25, %76
   %46 = load i8, ptr %26, align 8
@@ -2993,9 +2993,9 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br label %.critedge
 
 76:                                               ; preds = %72
-  %77 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3), !range !8
+  %77 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
   %.not44 = icmp eq i32 %77, 0
-  br i1 %.not44, label %.split.split, label %.split56.us, !llvm.loop !9
+  br i1 %.not44, label %.split.split, label %.split56.us, !llvm.loop !7
 
 .split56.us:                                      ; preds = %76, %44
   %78 = load i32, ptr %3, align 4
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
   %16 = load ptr, ptr %5, align 8
   %17 = tail call i32 @nghttp2_session_send(ptr noundef %16) #7
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %9, label %.critedge, !llvm.loop !10
+  br i1 %.not, label %9, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %9, %15, %12
   %.0.lcssa = phi i32 [ 0, %9 ], [ %17, %15 ], [ 0, %12 ]
@@ -3173,7 +3173,7 @@ declare i32 @Curl_http_proxy_create_CONNECT(ptr noundef, ptr noundef, ptr nounde
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @tunnel_send_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = icmp ne ptr %6, null
   br i1 %9, label %10, label %15
@@ -3277,7 +3277,7 @@ declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3306,7 +3306,7 @@ define internal fastcc noundef i32 @proxy_h2_process_pending_input(ptr noundef %
 
 18:                                               ; preds = %16
   %19 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !11
+  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !9
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph, %55
   %20 = load ptr, ptr %7, align 8
@@ -3381,7 +3381,7 @@ define internal fastcc noundef i32 @proxy_h2_process_pending_input(ptr noundef %
 
 55:                                               ; preds = %53, %48, %47
   %56 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  br i1 %56, label %.lr.ph.split.split.split, label %.loopexit, !llvm.loop !11
+  br i1 %56, label %.lr.ph.split.split.split, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %55, %16, %18, %3, %.split45.us, %41, %46, %.split.us
   %.0 = phi i32 [ -1, %.split.us ], [ 0, %46 ], [ 0, %41 ], [ 0, %.split45.us ], [ 0, %3 ], [ 0, %18 ], [ 0, %16 ], [ 0, %55 ]
@@ -3469,7 +3469,7 @@ declare void @Curl_pollset_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef
 declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @proxy_h2_should_close_session(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @proxy_h2_should_close_session(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @nghttp2_session_want_read(ptr noundef %2) #7
   %.not = icmp eq i32 %3, 0
@@ -3521,8 +3521,6 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
-!8 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

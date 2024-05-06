@@ -65,7 +65,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fizzbuzz() #0 {
+define internal range(i32 0, 2) i32 @test_fizzbuzz() #0 {
 entry:
   %elem = alloca [20 x %struct.testl_st], align 16
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 42, ptr noundef nonnull @.str.3, i32 noundef 1) #3
@@ -85,7 +85,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %add.ptr = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv
   %ossl_list_fizz.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %ossl_list_buzz.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ossl_list_fizz.i, i8 0, i64 32, i1 false)
   store i32 %0, ptr %add.ptr, align 8
   %rem.lhs.trunc = trunc i64 %indvars.iv to i8
@@ -337,7 +337,7 @@ return:                                           ; preds = %lor.lhs.false123, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_insert() #0 {
+define internal range(i32 0, 2) i32 @test_insert() #0 {
 entry:
   %elem = alloca [20 x %struct.int_st], align 16
   br label %for.body
@@ -345,8 +345,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.0334 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %ossl_list_int.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 %i.0334, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int.i, i8 0, i64 16, i1 false)
-  %conv = trunc i64 %i.0334 to i32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ossl_list_int.i, i8 0, i64 16, i1 false)
+  %conv = trunc nuw nsw i64 %i.0334 to i32
   %arrayidx = getelementptr inbounds [20 x %struct.int_st], ptr %elem, i64 0, i64 %i.0334
   store i32 %conv, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.0334, 1

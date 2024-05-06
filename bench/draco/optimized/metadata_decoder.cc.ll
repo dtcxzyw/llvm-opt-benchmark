@@ -387,7 +387,7 @@ _ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13
   br i1 %117, label %118, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
 
 118:                                              ; preds = %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %115, ptr align 8 %.sroa.080.3135, i64 %103, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %115, ptr align 8 %.sroa.080.3135, i64 %103, i1 false)
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
 
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49: ; preds = %118, %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48
@@ -843,7 +843,7 @@ define noundef zeroext i1 @_ZN5draco15MetadataDecoder11DecodeEntryEPNS_8Metadata
 
 .noexc9:                                          ; preds = %48
   store ptr %49, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %40
+  %50 = getelementptr i8, ptr %49, i64 %40
   %51 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %50, ptr %51, align 8
   store i8 0, ptr %49, align 1

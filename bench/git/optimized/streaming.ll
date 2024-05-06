@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @stream_blob_to_fd(i32 noundef %fd, ptr noundef %oid, ptr noundef %filter, i32 noundef %can_seek) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %fd, ptr noundef %oid, ptr noundef %filter, i32 noundef %can_seek) local_unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %sz = alloca i64, align 8
@@ -360,7 +360,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @oid_object_info_extended(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @open_istream_loose(ptr noundef %st, ptr noundef %r, ptr noundef %oid, ptr noundef %type) #0 {
+define internal range(i32 -1, 1) i32 @open_istream_loose(ptr noundef %st, ptr noundef %r, ptr noundef %oid, ptr noundef %type) #0 {
 entry:
   %oi = alloca %struct.object_info, align 8
   %0 = getelementptr inbounds i8, ptr %oi, i64 16
@@ -427,7 +427,7 @@ return:                                           ; preds = %entry, %error, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @open_istream_pack_non_delta(ptr noundef %st, ptr nocapture readnone %r, ptr nocapture readnone %oid, ptr nocapture readnone %type) #0 {
+define internal range(i32 -1, 1) i32 @open_istream_pack_non_delta(ptr noundef %st, ptr nocapture readnone %r, ptr nocapture readnone %oid, ptr nocapture readnone %type) #0 {
 entry:
   %window = alloca ptr, align 8
   store ptr null, ptr %window, align 8

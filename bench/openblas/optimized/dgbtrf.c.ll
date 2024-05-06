@@ -293,7 +293,7 @@ define void @dgbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond67, label %203, label %195
 
 195:                                              ; preds = %187
-  %196 = trunc i64 %indvars.iv to i32
+  %196 = trunc nuw nsw i64 %indvars.iv to i32
   %reass.add33 = add i32 %reass.add, %196
   %reass.mul = mul i32 %reass.add33, %24
   %197 = add i32 %reass.mul, 1
@@ -866,7 +866,7 @@ define void @dgbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %568 = add nsw i32 %567, -1
   store i32 %568, ptr %12, align 4, !tbaa !3
   store i32 %568, ptr %13, align 4, !tbaa !3
-  %569 = trunc i64 %554 to i32
+  %569 = trunc nsw i64 %554 to i32
   %570 = add i32 %547, %569
   %571 = sext i32 %570 to i64
   %572 = getelementptr inbounds double, ptr %27, i64 %571
@@ -877,7 +877,7 @@ define void @dgbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %591
 
 576:                                              ; preds = %560
-  %577 = trunc i64 %554 to i32
+  %577 = trunc nsw i64 %554 to i32
   %578 = sub nsw i64 %555, %154
   %579 = trunc i64 %578 to i32
   store i32 %579, ptr %11, align 4, !tbaa !3
@@ -913,7 +913,7 @@ define void @dgbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %599 = add nsw i64 %598, -65
   %600 = getelementptr inbounds [4160 x double], ptr %16, i64 0, i64 %599
   %601 = load i32, ptr %2, align 4, !tbaa !3
-  %602 = trunc i64 %554 to i32
+  %602 = trunc nsw i64 %554 to i32
   %603 = mul i32 %24, %558
   %604 = sub i32 %552, %602
   %605 = add i32 %604, %603

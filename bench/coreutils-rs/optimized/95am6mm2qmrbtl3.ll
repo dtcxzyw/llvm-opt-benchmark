@@ -2844,7 +2844,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16926422e9a05c01E.exit.i.i.i.i
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hff4e33b10acfb21aE.llvm.16443845615869516175.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16926422e9a05c01E.exit.i.i.i.i.i
   %.sink.i.i.i.i.i = phi i64 [ %14, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16926422e9a05c01E.exit.i.i.i.i.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i.i" ]
   store i64 %.sink.i.i.i.i.i, ptr %9, align 8, !alias.scope !844, !noalias !860
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !841
   ret void
 }

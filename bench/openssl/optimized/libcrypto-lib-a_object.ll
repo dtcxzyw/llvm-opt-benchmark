@@ -324,11 +324,11 @@ for.cond133:                                      ; preds = %for.cond133.prehead
   br i1 %cmp140, label %if.end145.loopexit, label %for.cond133
 
 if.end145.loopexit:                               ; preds = %for.cond133
-  %5 = trunc i64 %indvars.iv.next209 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.next209 to i32
   br label %if.end145
 
 if.end145.loopexit176:                            ; preds = %if.end130
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end145
 
 if.end145:                                        ; preds = %if.end145.loopexit176, %if.end145.loopexit, %if.end123
@@ -365,7 +365,7 @@ while.body158:                                    ; preds = %while.body158.prehe
   br i1 %cmp156, label %while.body158, label %while.end166.loopexit, !llvm.loop !6
 
 while.end166.loopexit:                            ; preds = %while.body158
-  %10 = trunc i64 %indvars.iv.next212 to i32
+  %10 = trunc nsw i64 %indvars.iv.next212 to i32
   br label %while.end166
 
 while.end166:                                     ; preds = %while.end166.loopexit, %while.cond154.preheader
@@ -603,7 +603,7 @@ if.then:                                          ; preds = %lor.lhs.false6, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %conv7 = trunc i64 %len to i32
+  %conv7 = trunc nuw i64 %len to i32
   %nid = getelementptr inbounds i8, ptr %tobj, i64 16
   store i32 0, ptr %nid, align 8
   %data8 = getelementptr inbounds i8, ptr %tobj, i64 24

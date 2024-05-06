@@ -344,9 +344,9 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @git_config_from_file_with_options(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @config_to_bundle_list(ptr noundef %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @config_to_bundle_list(ptr noundef %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %data) #0 {
 entry:
-  %call = tail call fastcc i32 @bundle_list_update(ptr noundef %key, ptr noundef %value, ptr noundef %data), !range !8
+  %call = tail call fastcc i32 @bundle_list_update(ptr noundef %key, ptr noundef %value, ptr noundef %data)
   ret i32 %call
 }
 
@@ -601,7 +601,7 @@ if.end17.i.i:                                     ; preds = %if.end17.i.i, %if.e
   %11 = load i64, ptr %len.i.i, align 8
   %tobool15.i.i = icmp ne i64 %11, 0
   %or.cond.i.i = select i1 %tobool14.not.i.i, i1 %tobool15.i.i, i1 false
-  br i1 %or.cond.i.i, label %if.end17.i.i, label %while.end.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i, label %if.end17.i.i, label %while.end.i.i, !llvm.loop !8
 
 while.end.i.i:                                    ; preds = %if.end17.i.i
   %12 = icmp eq i32 %spec.select.i.i, 0
@@ -662,7 +662,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %15 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %15, %14
-  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !10
+  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !9
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
   %spec.select.i = phi ptr [ %scevgep.i, %do.body.i.i ], [ %5, %do.cond.i.i ]
@@ -721,7 +721,7 @@ if.end4.i:                                        ; preds = %if.end.i34
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i36 = call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list_from_bundle.i), !range !11
+  %call7.i36 = call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list_from_bundle.i)
   %heuristic8.i = getelementptr inbounds i8, ptr %list, i64 64
   store i32 1, ptr %heuristic8.i, align 8
   br label %fetch_bundle_list_in_config_format.exit
@@ -822,7 +822,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool1.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %0), !range !11
+  %call.i = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %0)
   %tobool3.not.i3 = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i3, label %for_all_bundles_in_list.exit, label %for.inc.i
 
@@ -833,7 +833,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i, %f
 
 for.body.i.backedge:                              ; preds = %for.inc.i, %for_all_bundles_in_list.exit
   %info.04.i.be = phi ptr [ %call4.i, %for.inc.i ], [ %call.i.i, %for_all_bundles_in_list.exit ]
-  br label %for.body.i, !llvm.loop !12
+  br label %for.body.i, !llvm.loop !10
 
 for_all_bundles_in_list.exit:                     ; preds = %if.end.i
   %unbundled.i.le = getelementptr inbounds i8, ptr %info.04.i, i64 40
@@ -863,7 +863,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list), !range !11
+  %call = tail call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -884,7 +884,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end3
-  %call7 = call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list), !range !11
+  %call7 = call fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef nonnull %list)
   br label %cleanup
 
 if.else:                                          ; preds = %if.end3
@@ -926,7 +926,7 @@ return:                                           ; preds = %for_all_bundles_in_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef %list) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fetch_bundles_by_token(ptr noundef %r, ptr noundef %list) unnamed_addr #0 {
 entry:
   %i.i = alloca %struct.hashmap_iter, align 8
   %creationTokenStr = alloca ptr, align 8
@@ -1080,7 +1080,7 @@ land.lhs.true56:                                  ; preds = %if.end37, %if.end53
   br i1 %tobool60.not, label %if.then61, label %move
 
 if.then61:                                        ; preds = %land.lhs.true56
-  %call64 = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %12), !range !11
+  %call64 = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %12)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.else, label %move
 
@@ -1100,7 +1100,7 @@ move:                                             ; preds = %if.else, %if.then61
   %conv27 = sext i32 %add79 to i64
   %cmp29 = icmp ugt i64 %inc.i, %conv27
   %14 = and i1 %cmp25, %cmp29
-  br i1 %14, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %14, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %move
   %cmp80 = icmp slt i32 %add79, 0
@@ -1274,7 +1274,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @packet_writer_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bundle_uri_parse_line(ptr noundef %list, ptr noundef %line) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bundle_uri_parse_line(ptr noundef %list, ptr noundef %line) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) @__const.bundle_list_update.id, i64 24, i1 false)
@@ -1346,7 +1346,7 @@ if.end16:                                         ; preds = %lor.lhs.false
   call void @strbuf_add(ptr noundef nonnull %key, ptr noundef nonnull %line, i64 noundef %sub.ptr.sub) #15
   %buf = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %buf, align 8
-  %call18 = call fastcc i32 @bundle_list_update(ptr noundef %4, ptr noundef nonnull %add.ptr, ptr noundef %list), !range !8
+  %call18 = call fastcc i32 @bundle_list_update(ptr noundef %4, ptr noundef nonnull %add.ptr, ptr noundef %list)
   call void @strbuf_release(ptr noundef nonnull %key) #15
   br label %return
 
@@ -1366,7 +1366,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bundle_list_update(ptr noundef %key, ptr noundef %value, ptr noundef %list) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %key, ptr noundef %value, ptr noundef %list) unnamed_addr #0 {
 entry:
   %id = alloca %struct.strbuf, align 8
   %lookup = alloca %struct.remote_bundle_info, align 8
@@ -1459,7 +1459,7 @@ if.then42:                                        ; preds = %land.lhs.true36
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true36
-  br i1 %cmp31, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp31, label %for.body, label %return, !llvm.loop !12
 
 if.end49:                                         ; preds = %if.end
   %6 = load ptr, ptr %subsection, align 8
@@ -1587,7 +1587,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unbundle_from_file(ptr noundef %r, ptr noundef %file) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %r, ptr noundef %file) unnamed_addr #0 {
 entry:
   %header = alloca %struct.bundle_header, align 8
   %bundle_ref = alloca %struct.strbuf, align 8
@@ -1642,7 +1642,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %7 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %7, %6
-  br i1 %cmp.i, label %do.body.i, label %for.inc, !llvm.loop !10
+  br i1 %cmp.i, label %do.body.i, label %for.inc, !llvm.loop !9
 
 if.end11:                                         ; preds = %do.body.i
   %8 = load i64, ptr %bundle_ref, align 8
@@ -1711,7 +1711,7 @@ declare i32 @unlink_or_warn(ptr noundef) local_unnamed_addr #2
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_creation_token_decreasing(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #10 {
+define internal range(i32 -1, 2) i32 @compare_creation_token_decreasing(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #10 {
 entry:
   %0 = load ptr, ptr %va, align 8
   %creationToken = getelementptr inbounds i8, ptr %0, i64 48
@@ -1792,10 +1792,8 @@ attributes #17 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

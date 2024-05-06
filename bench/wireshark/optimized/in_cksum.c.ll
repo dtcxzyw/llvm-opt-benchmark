@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.vec_t = type { ptr, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @in_cksum_ret_partial(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not198 = icmp eq i32 %1, 0
   br i1 %.not198, label %._crit_edge206, label %.lr.ph205
 
@@ -31,7 +31,7 @@ define i32 @in_cksum_ret_partial(ptr nocapture noundef readonly %0, i32 noundef 
   %10 = icmp ugt i32 %9, 65535
   %11 = add nsw i32 %9, -65535
   %spec.select = select i1 %10, i32 %11, i32 %9
-  %12 = trunc i32 %spec.select to i16
+  %12 = trunc nuw i32 %spec.select to i16
   store i16 %12, ptr %2, align 2
   br label %13
 
@@ -232,8 +232,8 @@ define i32 @in_cksum_ret_partial(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @in_cksum(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef null), !range !9
+define range(i32 0, 65536) i32 @in_cksum(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef null)
   ret i32 %3
 }
 
@@ -243,8 +243,8 @@ define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store ptr %0, ptr %3, align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
-  %5 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %3, i32 noundef 1, ptr noundef null), !range !9
-  %6 = trunc i32 %5 to i16
+  %5 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %3, i32 noundef 1, ptr noundef null)
+  %6 = trunc nuw i32 %5 to i16
   ret i16 %6
 }
 
@@ -255,8 +255,8 @@ define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef 
   store i32 %2, ptr %5, align 8
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
   store ptr %6, ptr %4, align 16
-  %7 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %4, i32 noundef 1, ptr noundef null), !range !9
-  %8 = trunc i32 %7 to i16
+  %7 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %4, i32 noundef 1, ptr noundef null)
+  %8 = trunc nuw i32 %7 to i16
   ret i16 %8
 }
 
@@ -305,4 +305,3 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 65536}

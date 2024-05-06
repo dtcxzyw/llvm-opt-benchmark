@@ -101,7 +101,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %qdt_tmp29, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp29, i64 4
   %shr = lshr i64 %addr, 32
-  %conv30 = trunc i64 %shr to i32
+  %conv30 = trunc nuw i64 %shr to i32
   store i32 %conv30, ptr %arrayinit.element, align 4
   %arrayinit.element31 = getelementptr inbounds i8, ptr %qdt_tmp29, i64 8
   %conv32 = trunc i64 %addr to i32

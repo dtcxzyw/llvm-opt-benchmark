@@ -4538,7 +4538,7 @@ define void @Cnf_ReadMsops(ptr nocapture noundef writeonly %0, ptr nocapture nou
   %16 = getelementptr inbounds [4487 x ptr], ptr @s_Data4, i64 0, i64 %indvars.iv104
   %17 = load ptr, ptr %16, align 8
   %18 = mul nuw nsw i64 %indvars.iv104, 75
-  %invariant.gep122.sink = getelementptr i8, ptr %15, i64 %18
+  %invariant.gep122.sink = getelementptr inbounds i8, ptr %15, i64 %18
   br label %19
 
 19:                                               ; preds = %.preheader79, %27
@@ -4556,7 +4556,7 @@ define void @Cnf_ReadMsops(ptr nocapture noundef writeonly %0, ptr nocapture nou
 
 27:                                               ; preds = %19, %23
   %.sink = phi i8 [ %26, %23 ], [ -1, %19 ]
-  %gep123 = getelementptr i8, ptr %invariant.gep122.sink, i64 %indvars.iv100
+  %gep123 = getelementptr inbounds i8, ptr %invariant.gep122.sink, i64 %indvars.iv100
   store i8 %.sink, ptr %gep123, align 1
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 75

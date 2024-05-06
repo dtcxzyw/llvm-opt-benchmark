@@ -82,7 +82,7 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %.sink, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.6.0..sroa_idx.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(20) %.sroa.6.0..sroa_idx.i, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -115,7 +115,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = getelementptr inbounds i8, ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %25 = load i32, ptr %17, align 4
   %26 = add i32 %25, %7
   br label %.sink.split.i
@@ -129,7 +129,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %30 = getelementptr inbounds i8, ptr %29, i64 %19
   %31 = sub i32 16, %18
   %32 = zext i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %1, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %30, ptr nonnull readonly align 1 %1, i64 %32, i1 false)
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load <4 x i32>, ptr %33, align 4
   %35 = load <4 x i32>, ptr %29, align 1
@@ -209,7 +209,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %78 = ptrtoint ptr %6 to i64
   %79 = ptrtoint ptr %.2.i to i64
   %80 = sub i64 %78, %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %.2.i, i64 %80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %77, ptr nonnull readonly align 1 %.2.i, i64 %80, i1 false)
   %81 = trunc i64 %80 to i32
   br label %.sink.split.i
 
@@ -399,7 +399,7 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i8 0, i64 40, i1 false)
   ret void
 }
 
@@ -423,7 +423,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = trunc i64 %2 to i32
   %18 = load i32, ptr %9, align 8
   %19 = add i32 %18, %17
@@ -438,7 +438,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %23 = getelementptr inbounds i8, ptr %22, i64 %11
   %24 = sub i32 32, %10
   %25 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %23, ptr nonnull readonly align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.val.i = load i64, ptr %22, align 1
@@ -546,7 +546,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %93 = ptrtoint ptr %6 to i64
   %94 = ptrtoint ptr %.2.i to i64
   %95 = sub i64 %93, %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %.2.i, i64 %95, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %92, ptr readonly align 1 %.2.i, i64 %95, i1 false)
   %96 = trunc i64 %95 to i32
   br label %.sink.split.i
 
@@ -790,7 +790,7 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %33, align 8
@@ -843,7 +843,7 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 XXH3_initCustomSecret_sse2.exit.i:                ; preds = %53, %44
   %58 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %59, align 8
@@ -911,7 +911,7 @@ XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %83, %81
   %86 = getelementptr inbounds i8, ptr %84, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %85, ptr nonnull align 8 %86, i64 %.053, i1 false)
   %87 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %88, align 8
@@ -941,7 +941,7 @@ XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %83, %81
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit67:     ; preds = %.thread, %.thread75, %2
   %101 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %102 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %102, align 8
@@ -996,7 +996,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %5, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
   %15 = getelementptr inbounds i8, ptr %1, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = icmp ugt i32 %16, 63
@@ -1014,7 +1014,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
-  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull %27, i64 noundef %22, ptr noundef nonnull %10, i64 noundef %28)
+  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
@@ -1054,10 +1054,10 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %55 = getelementptr inbounds i8, ptr %1, i64 256
   %56 = sub nsw i64 0, %54
   %57 = getelementptr inbounds i8, ptr %15, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %57, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull readonly align 1 %57, i64 %54, i1 false)
   %58 = getelementptr inbounds i8, ptr %4, i64 %54
   %59 = zext nneg i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %55, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %58, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
   %60 = load i64, ptr %18, align 32
   %61 = getelementptr inbounds i8, ptr %10, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -7
@@ -1142,11 +1142,11 @@ XXH3_mergeAccs.exit.i:                            ; preds = %83
 109:                                              ; preds = %105
   %110 = getelementptr inbounds i8, ptr %1, i64 552
   %111 = load i64, ptr %110, align 8
-  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull %108, i64 noundef %12, i64 noundef %111, ptr noundef nonnull @XXH3_kSecret)
+  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %108, i64 noundef %12, i64 noundef %111, ptr noundef nonnull @XXH3_kSecret)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 113:                                              ; preds = %105
-  %114 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull %108, i64 noundef %12, i64 noundef 0, ptr noundef nonnull %10)
+  %114 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %108, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %109, %113
@@ -1231,7 +1231,7 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %33, align 8
@@ -1284,7 +1284,7 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 XXH3_initCustomSecret_sse2.exit.i.i:              ; preds = %53, %44
   %58 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %59, align 8
@@ -1352,7 +1352,7 @@ XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %83, %81
   %86 = getelementptr inbounds i8, ptr %84, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %85, ptr nonnull align 8 %86, i64 %.053, i1 false)
   %87 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %88, align 8
@@ -1382,7 +1382,7 @@ XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %83, %81
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit67:    ; preds = %.thread, %.thread75, %2
   %101 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
   %102 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %102, align 8
@@ -1437,7 +1437,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %5, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
   %15 = getelementptr inbounds i8, ptr %1, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = icmp ugt i32 %16, 63
@@ -1455,7 +1455,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
-  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull %27, i64 noundef %22, ptr noundef nonnull %10, i64 noundef %28)
+  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
@@ -1495,10 +1495,10 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %55 = getelementptr inbounds i8, ptr %1, i64 256
   %56 = sub nsw i64 0, %54
   %57 = getelementptr inbounds i8, ptr %15, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %57, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull readonly align 1 %57, i64 %54, i1 false)
   %58 = getelementptr inbounds i8, ptr %4, i64 %54
   %59 = zext nneg i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %55, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %58, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
   %60 = load i64, ptr %18, align 32
   %61 = getelementptr inbounds i8, ptr %10, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -7
@@ -1622,13 +1622,13 @@ XXH3_mergeAccs.exit28.i:                          ; preds = %108
   br i1 %.not.i, label %140, label %136
 
 136:                                              ; preds = %132
-  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull %135, i64 noundef %12, i64 noundef %134, ptr noundef nonnull @XXH3_kSecret)
+  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %135, i64 noundef %12, i64 noundef %134, ptr noundef nonnull @XXH3_kSecret)
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = extractvalue { i64, i64 } %137, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
 140:                                              ; preds = %132
-  %141 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull %135, i64 noundef %12, i64 noundef 0, ptr noundef nonnull %10)
+  %141 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %135, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   %142 = extractvalue { i64, i64 } %141, 0
   %143 = extractvalue { i64, i64 } %141, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
@@ -1693,7 +1693,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
 20:                                               ; preds = %5
   %21 = getelementptr inbounds i8, ptr %0, i64 256
   %22 = getelementptr inbounds i8, ptr %21, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %22, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = trunc i64 %2 to i32
   %24 = load i32, ptr %15, align 64
   %25 = add i32 %24, %23
@@ -1708,7 +1708,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 256
   %31 = getelementptr inbounds i8, ptr %30, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %1, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %31, ptr nonnull readonly align 1 %1, i64 %29, i1 false)
   %32 = getelementptr inbounds i8, ptr %1, i64 %29
   %33 = getelementptr inbounds i8, ptr %0, i64 520
   %34 = getelementptr inbounds i8, ptr %0, i64 536
@@ -1751,7 +1751,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %56 = shl i64 %.01.i, 6
   %57 = getelementptr inbounds i8, ptr %.0105, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %58, i32 0, i32 3, i32 1), !noalias !73
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %58, i32 0, i32 3, i32 1), !noalias !73
   %59 = shl i64 %.01.i, 3
   %60 = getelementptr inbounds i8, ptr %55, i64 %59
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
@@ -1840,7 +1840,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
   %103 = shl i64 %.01.i116, 6
   %104 = getelementptr inbounds i8, ptr %.13, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %105, i32 0, i32 3, i32 1), !noalias !99
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !99
   %106 = shl i64 %.01.i116, 3
   %107 = getelementptr inbounds i8, ptr %11, i64 %106
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -1926,7 +1926,7 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
   %149 = shl i64 %.01.i127, 6
   %150 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %151, i32 0, i32 3, i32 1), !noalias !125
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %151, i32 0, i32 3, i32 1), !noalias !125
   %152 = shl i64 %.01.i127, 3
   %153 = getelementptr inbounds i8, ptr %11, i64 %152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
@@ -1968,7 +1968,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
   store i64 %.0106.lcssa, ptr %51, align 8
   %175 = getelementptr inbounds i8, ptr %0, i64 448
   %176 = getelementptr inbounds i8, ptr %174, i64 -64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %175, ptr noundef nonnull align 1 dereferenceable(64) %176, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %175, ptr noundef nonnull readonly align 1 dereferenceable(64) %176, i64 64, i1 false)
   br label %191
 
 177:                                              ; preds = %38
@@ -1993,7 +1993,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
 188:                                              ; preds = %183
   %189 = getelementptr inbounds i8, ptr %0, i64 448
   %190 = getelementptr inbounds i8, ptr %.2, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %189, ptr noundef nonnull align 1 dereferenceable(64) %190, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %189, ptr noundef nonnull readonly align 1 dereferenceable(64) %190, i64 64, i1 false)
   br label %191
 
 191:                                              ; preds = %177, %188, %XXH3_accumulate.exit132
@@ -2001,7 +2001,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
   %192 = getelementptr inbounds i8, ptr %0, i64 256
   %193 = ptrtoint ptr %.3 to i64
   %194 = sub i64 %39, %193
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %192, ptr align 1 %.3, i64 %194, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %192, ptr readonly align 1 %.3, i64 %194, i1 false)
   %195 = trunc i64 %194 to i32
   br label %.sink.split
 
@@ -2036,7 +2036,7 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
   %14 = shl i64 %.01.i, 6
   %15 = getelementptr inbounds i8, ptr %3, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %16, i32 0, i32 3, i32 1), !noalias !146
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %16, i32 0, i32 3, i32 1), !noalias !146
   %17 = shl i64 %.01.i, 3
   %18 = getelementptr inbounds i8, ptr %13, i64 %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
@@ -2113,7 +2113,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
   %57 = shl i64 %.01.i36, 6
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %59, i32 0, i32 3, i32 1), !noalias !172
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %59, i32 0, i32 3, i32 1), !noalias !172
   %60 = shl i64 %.01.i36, 3
   %61 = getelementptr inbounds i8, ptr %5, i64 %60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
@@ -2163,7 +2163,7 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   %84 = shl i64 %.01.i44, 6
   %85 = getelementptr inbounds i8, ptr %3, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %86, i32 0, i32 3, i32 1), !noalias !193
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %86, i32 0, i32 3, i32 1), !noalias !193
   %87 = shl i64 %.01.i44, 3
   %88 = getelementptr inbounds i8, ptr %83, i64 %87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
@@ -2684,7 +2684,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %22 = mul nuw i128 %21, 11400714785074694791
   %23 = trunc i128 %22 to i64
   %24 = lshr i128 %22, 64
-  %25 = trunc i128 %24 to i64
+  %25 = trunc nuw i128 %24 to i64
   %26 = shl nuw nsw i64 %1, 54
   %27 = add nsw i64 %26, -18014398509481984
   %28 = add i64 %27, %23
@@ -2699,7 +2699,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %37 = mul nuw i128 %36, 14029467366897019727
   %38 = trunc i128 %37 to i64
   %39 = lshr i128 %37, 64
-  %40 = trunc i128 %39 to i64
+  %40 = trunc nuw i128 %39 to i64
   %41 = mul i64 %33, -4417276706812531889
   %42 = add i64 %41, %40
   %43 = lshr i64 %38, 37
@@ -2744,7 +2744,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %74 = mul nuw i128 %72, %73
   %75 = trunc i128 %74 to i64
   %76 = lshr i128 %74, 64
-  %77 = trunc i128 %76 to i64
+  %77 = trunc nuw i128 %76 to i64
   %78 = shl i64 %75, 1
   %79 = add i64 %78, %77
   %80 = lshr i64 %79, 3
@@ -2776,7 +2776,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %101 = zext i8 %95 to i32
   %102 = shl nuw i32 %101, 24
   %103 = zext i8 %98 to i32
-  %104 = trunc i64 %1 to i32
+  %104 = trunc nuw nsw i64 %1 to i32
   %105 = shl nuw nsw i32 %104, 8
   %106 = or disjoint i32 %100, %105
   %107 = or disjoint i32 %106, %102

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [23 x i8] c"SRTP_AEAD_ARIA_256_GCM\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
@@ -38,7 +38,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %srtp_profiles = getelementptr inbounds i8, ptr %ctx, i64 960
-  %call4 = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !4
+  %call4 = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -51,7 +51,7 @@ declare ptr @OSSL_QUIC_client_method() local_unnamed_addr #1
 declare ptr @OSSL_QUIC_client_thread_method() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_ctx_make_profiles(ptr noundef %profiles_string, ptr nocapture noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles_string, ptr nocapture noundef %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OPENSSL_sk_new_null() #5
   %cmp = icmp eq ptr %call, null
@@ -93,7 +93,7 @@ while.body.i:                                     ; preds = %cond.end, %if.end.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %ptr.0, i64 noundef %cond) #6
+  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef readonly %ptr.0, i64 noundef %cond) #6
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5, label %if.end.i
 
@@ -101,7 +101,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.08.i, i64 16
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %err, label %while.body.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %err, label %while.body.i, !llvm.loop !4
 
 if.then5:                                         ; preds = %land.lhs.true.i
   %call8 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %call, ptr noundef nonnull %p.08.i) #5
@@ -115,7 +115,7 @@ if.end11:                                         ; preds = %if.then5
 
 if.end18:                                         ; preds = %if.end11
   %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !7
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %if.end18
   %3 = load ptr, ptr %out, align 8
@@ -138,7 +138,7 @@ return:                                           ; preds = %err, %do.end, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_set_tlsext_use_srtp(ptr noundef %s, ptr noundef %profiles) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr noundef %s, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -150,7 +150,7 @@ cond.false:                                       ; preds = %entry
 
 if.end:                                           ; preds = %cond.false
   %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
-  %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !4
+  %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end
@@ -253,7 +253,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

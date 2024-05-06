@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_der_oid_id_Ed448 = external constant [5 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_X25519(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_X25519(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %cont) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -38,7 +38,7 @@ declare i32 @ossl_DER_w_precompiled(ptr noundef, i32 noundef, ptr noundef, i64 n
 declare i32 @ossl_DER_w_end_sequence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_X448(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_X448(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %cont) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -61,7 +61,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_ED25519(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_ED25519(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %cont) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -84,7 +84,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_ED448(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_ED448(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %cont) #2
   %tobool.not = icmp eq i32 %call, 0

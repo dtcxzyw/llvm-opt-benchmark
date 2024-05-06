@@ -4618,7 +4618,7 @@ cond.false.i:                                     ; preds = %if.end9
 
 do.body11:                                        ; preds = %cond.false.i, %if.end9
   %cond.i = phi i32 [ %3, %cond.false.i ], [ -1, %if.end9 ]
-  %call.i20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %conninfo, i64 noundef 31, ptr noundef nonnull @.str.294, i32 noundef %cond.i) #22
+  %call.i20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %conninfo, i64 noundef 31, ptr noundef nonnull @.str.294, i32 noundef %cond.i) #22
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.237, ptr noundef nonnull %conninfo) #22
   %.pr24.pr = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp12 = icmp sgt i32 %.pr24.pr, 3

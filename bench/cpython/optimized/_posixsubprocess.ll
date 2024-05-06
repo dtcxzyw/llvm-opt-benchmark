@@ -674,7 +674,7 @@ if.then156:                                       ; preds = %if.end152
   br label %Py_XDECREF.exit
 
 if.end157:                                        ; preds = %if.end152
-  %call158 = call fastcc i32 @convert_fds_to_keep_to_c(ptr noundef %py_fds_to_keep, ptr noundef nonnull %call154), !range !8
+  %call158 = call fastcc i32 @convert_fds_to_keep_to_c(ptr noundef %py_fds_to_keep, ptr noundef nonnull %call154)
   %cmp159 = icmp slt i32 %call158, 0
   br i1 %cmp159, label %if.end199.thread39, label %if.end161
 
@@ -723,7 +723,7 @@ if.end184:                                        ; preds = %if.then178.if.end18
   %43 = phi i32 [ %41, %if.end168 ], [ %.pre95, %if.then178.if.end184_crit_edge ]
   %44 = phi i32 [ %42, %if.end168 ], [ %.pre, %if.then178.if.end184_crit_edge ]
   %old_sigmask.0 = phi ptr [ null, %if.end168 ], [ %old_sigs, %if.then178.if.end184_crit_edge ]
-  %call185 = call fastcc i32 @do_fork_exec(ptr noundef nonnull %call21, ptr noundef %argv.0, ptr noundef %envp.0, ptr noundef %cwd.0, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %44, i64 noundef %extra_group_size.0, ptr noundef %extra_groups.1, i32 noundef %43, i32 noundef %child_umask, ptr noundef %old_sigmask.0, ptr noundef nonnull %call154, i64 noundef %py_fds_to_keep.val, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple.0), !range !9
+  %call185 = call fastcc i32 @do_fork_exec(ptr noundef nonnull %call21, ptr noundef %argv.0, ptr noundef %envp.0, ptr noundef %cwd.0, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %44, i64 noundef %extra_group_size.0, ptr noundef %extra_groups.1, i32 noundef %43, i32 noundef %child_umask, ptr noundef %old_sigmask.0, ptr noundef nonnull %call154, i64 noundef %py_fds_to_keep.val, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple.0)
   %cmp186 = icmp eq i32 %call185, -1
   br i1 %cmp186, label %if.then187, label %if.end189
 
@@ -832,7 +832,7 @@ for.body.i129:                                    ; preds = %if.then206, %for.bo
   %arrayidx.i131 = getelementptr ptr, ptr %envp.1183679, i64 %inc.i130
   %54 = load ptr, ptr %arrayidx.i131, align 8
   %cmp.not.i132 = icmp eq ptr %54, null
-  br i1 %cmp.not.i132, label %_Py_FreeCharPArray.exit, label %for.body.i129, !llvm.loop !10
+  br i1 %cmp.not.i132, label %_Py_FreeCharPArray.exit, label %for.body.i129, !llvm.loop !8
 
 _Py_FreeCharPArray.exit:                          ; preds = %for.body.i129, %if.then206
   call void @PyMem_Free(ptr noundef nonnull %envp.1183679) #11
@@ -895,7 +895,7 @@ for.body.i152:                                    ; preds = %if.then209, %for.bo
   %arrayidx.i155 = getelementptr ptr, ptr %argv.1193580, i64 %inc.i154
   %61 = load ptr, ptr %arrayidx.i155, align 8
   %cmp.not.i156 = icmp eq ptr %61, null
-  br i1 %cmp.not.i156, label %_Py_FreeCharPArray.exit157, label %for.body.i152, !llvm.loop !10
+  br i1 %cmp.not.i156, label %_Py_FreeCharPArray.exit157, label %for.body.i152, !llvm.loop !8
 
 _Py_FreeCharPArray.exit157:                       ; preds = %for.body.i152, %if.then209
   call void @PyMem_Free(ptr noundef nonnull %argv.1193580) #11
@@ -917,7 +917,7 @@ for.body.i159:                                    ; preds = %if.then212, %for.bo
   %arrayidx.i162 = getelementptr ptr, ptr %call21, i64 %inc.i161
   %64 = load ptr, ptr %arrayidx.i162, align 8
   %cmp.not.i163 = icmp eq ptr %64, null
-  br i1 %cmp.not.i163, label %_Py_FreeCharPArray.exit164, label %for.body.i159, !llvm.loop !10
+  br i1 %cmp.not.i163, label %_Py_FreeCharPArray.exit164, label %for.body.i159, !llvm.loop !8
 
 _Py_FreeCharPArray.exit164:                       ; preds = %for.body.i159, %if.then212
   call void @PyMem_Free(ptr noundef nonnull %call21) #11
@@ -1033,7 +1033,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end27
   %inc = add nuw nsw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %arrayidx29 = getelementptr ptr, ptr %call5, i64 %call
@@ -1074,7 +1074,7 @@ for.body.i:                                       ; preds = %Py_XDECREF.exit, %f
   %arrayidx.i = getelementptr ptr, ptr %call5, i64 %inc.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i29 = icmp eq ptr %8, null
-  br i1 %cmp.not.i29, label %_Py_FreeCharPArray.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.not.i29, label %_Py_FreeCharPArray.exit, label %for.body.i, !llvm.loop !8
 
 _Py_FreeCharPArray.exit:                          ; preds = %for.body.i, %Py_XDECREF.exit
   call void @PyMem_Free(ptr noundef nonnull %call5) #11
@@ -1106,7 +1106,7 @@ declare i32 @_Py_Uid_Converter(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @convert_fds_to_keep_to_c(ptr nocapture noundef readonly %py_fds_to_keep, ptr nocapture noundef writeonly %c_fds_to_keep) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @convert_fds_to_keep_to_c(ptr nocapture noundef readonly %py_fds_to_keep, ptr nocapture noundef writeonly %c_fds_to_keep) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %py_fds_to_keep, i64 16
   %py_fds_to_keep.val = load i64, ptr %0, align 8
@@ -1140,12 +1140,12 @@ if.then6:                                         ; preds = %if.end, %land.lhs.t
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %conv = trunc i64 %call1 to i32
+  %conv = trunc nuw nsw i64 %call1 to i32
   %arrayidx8 = getelementptr i32, ptr %c_fds_to_keep, i64 %i.010
   store i32 %conv, ptr %arrayidx8, align 4
   %inc = add nuw nsw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %py_fds_to_keep.val
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 return:                                           ; preds = %if.end7, %entry, %land.lhs.true, %if.then6
   %retval.0 = phi i32 [ -1, %if.then6 ], [ -1, %land.lhs.true ], [ 0, %entry ], [ 0, %if.end7 ]
@@ -1161,7 +1161,7 @@ declare i32 @sigfillset(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_fork_exec(ptr nocapture noundef readonly %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr nocapture noundef readonly %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @do_fork_exec(ptr nocapture noundef readonly %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr nocapture noundef readonly %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %child_sigmask, null
   br i1 %tobool.not, label %if.end8, label %if.then
@@ -1264,7 +1264,7 @@ if.end.i:                                         ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %fds_to_keep_len
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %for.inc.i, %entry
   %cmp1.not = icmp eq i32 %p2cwrite, -1
@@ -1329,7 +1329,7 @@ do.body47:                                        ; preds = %while.cond
 do.end52:                                         ; preds = %do.body47
   %call53 = tail call i32 @_Py_set_inheritable_async_safe(i32 noundef %call48, i32 noundef 0, ptr noundef null) #11
   %cmp54 = icmp slt i32 %call53, 0
-  br i1 %cmp54, label %error, label %while.cond, !llvm.loop !14
+  br i1 %cmp54, label %error, label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
   switch i32 %p2cread, label %do.body65 [
@@ -1507,7 +1507,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx.us = getelementptr ptr, ptr %exec_array, i64 %idxprom.us
   %5 = load ptr, ptr %arrayidx.us, align 8
   %cmp187.not.us = icmp eq ptr %5, null
-  br i1 %cmp187.not.us, label %for.end, label %for.body.us, !llvm.loop !15
+  br i1 %cmp187.not.us, label %for.end, label %for.body.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %6 = phi ptr [ %8, %for.body ], [ %2, %for.body.lr.ph ]
@@ -1527,7 +1527,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr ptr, ptr %exec_array, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
   %cmp187.not = icmp eq ptr %8, null
-  br i1 %cmp187.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %cmp187.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %for.body.us
   %saved_errno.0.lcssa = phi i32 [ %saved_errno.1.us, %for.body.us ], [ %saved_errno.1, %for.body ]
@@ -1569,7 +1569,7 @@ while.body218:                                    ; preds = %if.then212, %while.
   %cmp215 = icmp ult i32 %12, -31
   %cmp217 = icmp ne ptr %incdec.ptr, %hex_errno
   %13 = and i1 %cmp215, %cmp217
-  br i1 %13, label %while.body218, label %while.end221, !llvm.loop !16
+  br i1 %13, label %while.body218, label %while.end221, !llvm.loop !14
 
 while.end221:                                     ; preds = %while.body218
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -1649,7 +1649,7 @@ if.end15:                                         ; preds = %if.end5
 for.inc:                                          ; preds = %for.body, %for.body, %if.end5, %if.end, %if.end15
   %inc = add nuw nsw i32 %sig.09, 1
   %exitcond.not = icmp eq i32 %inc, 65
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -1701,7 +1701,7 @@ for.inc.i:                                        ; preds = %if.end13.i, %for.bo
   %start_fd.addr.1.i = phi i32 [ %start_fd.addr.017.i, %for.body.i ], [ %add.i, %if.end13.i ]
   %inc.i = add nuw nsw i64 %keep_seq_idx.018.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %fds_to_keep_len
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
   %start_fd.addr.0.lcssa.i = phi i32 [ 3, %entry ], [ %start_fd.addr.1.i, %for.inc.i ]
@@ -1752,7 +1752,7 @@ while.body.i.us.us.i:                             ; preds = %for.body.us.us.i, %
   %4 = load i8, ptr %incdec.ptr.i.us.us.i, align 1
   %5 = add i8 %4, -48
   %or.cond.i.us.us.i = icmp ult i8 %5, 10
-  br i1 %or.cond.i.us.us.i, label %while.body.i.us.us.i, label %_pos_int_from_ascii.exit.us.us.i, !llvm.loop !19
+  br i1 %or.cond.i.us.us.i, label %while.body.i.us.us.i, label %_pos_int_from_ascii.exit.us.us.i, !llvm.loop !17
 
 _pos_int_from_ascii.exit.us.us.i:                 ; preds = %while.body.i.us.us.i, %for.body.us.us.i
   %num.0.lcssa.i.us.us.i = phi i32 [ 0, %for.body.us.us.i ], [ %add.i15.us.us.i, %while.body.i.us.us.i ]
@@ -1774,13 +1774,13 @@ for.inc.us.us.i:                                  ; preds = %land.lhs.true18.us.
   %conv23.us.us.i = zext i16 %6 to i32
   %add.us.us.i = add i32 %offset.034.us.us.i, %conv23.us.us.i
   %cmp6.us.us.i = icmp slt i32 %add.us.us.i, %conv38.us.i
-  br i1 %cmp6.us.us.i, label %for.body.us.us.i, label %while.cond.loopexit.split.us.us.i, !llvm.loop !20
+  br i1 %cmp6.us.us.i, label %for.body.us.us.i, label %while.cond.loopexit.split.us.us.i, !llvm.loop !18
 
 while.cond.loopexit.split.us.us.i:                ; preds = %for.inc.us.us.i
   %call2.us.i = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %call.i, ptr noundef nonnull %buffer.i, i64 noundef 280) #11
   %conv.us.i = trunc i64 %call2.us.i to i32
   %cmp3.us.i = icmp sgt i32 %conv.us.i, 0
-  br i1 %cmp3.us.i, label %for.cond.preheader.us.i, label %while.end.i, !llvm.loop !21
+  br i1 %cmp3.us.i, label %for.cond.preheader.us.i, label %while.end.i, !llvm.loop !19
 
 if.then.i:                                        ; preds = %if.end
   %call.i.i.i = tail call i64 @sysconf(i32 noundef 4) #11
@@ -1816,7 +1816,7 @@ for.body.i24.i:                                   ; preds = %if.end8.i.i, %for.b
   %call.i26.i = tail call i32 @close(i32 noundef %i.04.i25.i) #11
   %inc.i27.i = add i32 %i.04.i25.i, 1
   %cmp.not.i28.i = icmp sgt i32 %inc.i27.i, %sub.i.i
-  br i1 %cmp.not.i28.i, label %if.end13.i.i, label %for.body.i24.i, !llvm.loop !22
+  br i1 %cmp.not.i28.i, label %if.end13.i.i, label %for.body.i24.i, !llvm.loop !20
 
 if.end13.i.i:                                     ; preds = %for.body.i24.i, %if.end8.i.i
   %add.i.i = add i32 %9, 1
@@ -1826,7 +1826,7 @@ for.inc.i.i:                                      ; preds = %if.end13.i.i, %for.
   %start_fd.addr.1.i.i = phi i32 [ %start_fd.addr.017.i.i, %for.body.i.i ], [ %add.i.i, %if.end13.i.i ]
   %inc.i.i = add nuw nsw i64 %keep_seq_idx.018.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %fds_to_keep_len
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i
   %start_fd.addr.0.lcssa.i.i = phi i32 [ 3, %if.end.i.i ], [ %start_fd.addr.1.i.i, %for.inc.i.i ]
@@ -1838,13 +1838,13 @@ for.body.i20.i:                                   ; preds = %for.end.i.i, %for.b
   %call.i.i = tail call i32 @close(i32 noundef %i.04.i.i) #11
   %inc.i21.i = add i32 %i.04.i.i, 1
   %cmp.not.i.i = icmp sgt i32 %inc.i21.i, %end_fd.addr.0.i.i
-  br i1 %cmp.not.i.i, label %_close_open_fds_safe.exit, label %for.body.i20.i, !llvm.loop !22
+  br i1 %cmp.not.i.i, label %_close_open_fds_safe.exit, label %for.body.i20.i, !llvm.loop !20
 
 while.cond.loopexit.split.i:                      ; preds = %for.inc.i5
   %call2.i = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %call.i, ptr noundef nonnull %buffer.i, i64 noundef 280) #11
   %conv.i = trunc i64 %call2.i to i32
   %cmp3.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp3.i, label %for.cond.preheader.i, label %while.end.i, !llvm.loop !21
+  br i1 %cmp3.i, label %for.cond.preheader.i, label %while.end.i, !llvm.loop !19
 
 for.cond.preheader.i:                             ; preds = %for.cond.preheader.lr.ph.i, %while.cond.loopexit.split.i
   %conv38.i = phi i32 [ %conv.i, %while.cond.loopexit.split.i ], [ %conv36.i, %for.cond.preheader.lr.ph.i ]
@@ -1872,7 +1872,7 @@ while.body.i.i:                                   ; preds = %for.body.i4, %while
   %13 = load i8, ptr %incdec.ptr.i.i, align 1
   %14 = add i8 %13, -48
   %or.cond.i.i = icmp ult i8 %14, 10
-  br i1 %or.cond.i.i, label %while.body.i.i, label %_pos_int_from_ascii.exit.i, !llvm.loop !19
+  br i1 %or.cond.i.i, label %while.body.i.i, label %_pos_int_from_ascii.exit.i, !llvm.loop !17
 
 _pos_int_from_ascii.exit.i:                       ; preds = %while.body.i.i, %for.body.i4
   %num.0.lcssa.i.i = phi i32 [ 0, %for.body.i4 ], [ %add.i15.i, %while.body.i.i ]
@@ -1901,7 +1901,7 @@ if.end5.i.i:                                      ; preds = %do.body.i.i
   %search_max.1.i.i = select i1 %cmp7.i.i, i64 %search_max.0.i.i, i64 %sub11.i.i
   %search_min.1.i.i = select i1 %cmp7.i.i, i64 %add10.i.i, i64 %search_min.0.i.i
   %cmp13.not.i.i = icmp sgt i64 %search_min.1.i.i, %search_max.1.i.i
-  br i1 %cmp13.not.i.i, label %if.then20.loopexit.i, label %do.body.i.i, !llvm.loop !23
+  br i1 %cmp13.not.i.i, label %if.then20.loopexit.i, label %do.body.i.i, !llvm.loop !21
 
 if.then20.loopexit.i:                             ; preds = %if.end5.i.i
   %call21.i = call i32 @close(i32 noundef %num.0..i.i) #11
@@ -1913,7 +1913,7 @@ for.inc.i5:                                       ; preds = %do.body.i.i, %if.th
   %conv23.i = zext i16 %16 to i32
   %add.i6 = add i32 %offset.034.i, %conv23.i
   %cmp6.i = icmp slt i32 %add.i6, %conv38.i
-  br i1 %cmp6.i, label %for.body.i4, label %while.cond.loopexit.split.i, !llvm.loop !20
+  br i1 %cmp6.i, label %for.body.i4, label %while.cond.loopexit.split.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %while.cond.loopexit.split.i, %while.cond.loopexit.split.us.us.i, %while.cond.preheader.i
   %call24.i = call i32 @close(i32 noundef %call.i) #11
@@ -1991,8 +1991,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
-!9 = !{i32 1, i32 0}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -2005,5 +2005,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

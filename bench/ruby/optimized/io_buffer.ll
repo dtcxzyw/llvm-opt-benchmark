@@ -281,7 +281,7 @@ define hidden i64 @rb_io_buffer_type_allocate(i64 noundef %0) #0 {
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 4, ptr %11, align 8
   ret i64 %2
 }
@@ -429,7 +429,7 @@ define internal fastcc i64 @io_buffer_for_make_instance(i64 noundef %0, i64 noun
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %10
   %12 = phi ptr [ %11, %10 ], [ %9, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 4, ptr %13, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @rb_io_buffer_type) #20
   %15 = and i64 %1, 7
@@ -538,7 +538,7 @@ define dso_local i64 @rb_io_buffer_new(ptr noundef %0, i64 noundef %1, i32 nound
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %11
   %13 = phi ptr [ %12, %11 ], [ %10, %3 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i64 4, ptr %14, align 8
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %5, ptr noundef %15, ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef 4)
@@ -649,7 +649,7 @@ io_buffer_experimental.exit:                      ; preds = %4, %5, %7
 rb_io_buffer_type_allocate.exit:                  ; preds = %io_buffer_experimental.exit, %15
   %17 = phi ptr [ %16, %15 ], [ %14, %io_buffer_experimental.exit ]
   %18 = getelementptr inbounds i8, ptr %17, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i64 4, ptr %18, align 8
   %19 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @rb_io_buffer_type) #20
   %20 = tail call i32 @rb_io_descriptor(i64 noundef %0) #20
@@ -792,7 +792,7 @@ io_buffer_validate.exit:                          ; preds = %3
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9), !range !10
+  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %17, label %io_buffer_validate.exit.thread
 
@@ -844,7 +844,7 @@ io_buffer_validate.exit.i:                        ; preds = %10
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %12, ptr noundef %13, i64 noundef %15), !range !10
+  %16 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %12, ptr noundef %13, i64 noundef %15)
   %.not9.i = icmp eq i32 %16, 0
   br i1 %.not9.i, label %17, label %io_buffer_validate.exit.thread.i
 
@@ -886,7 +886,7 @@ io_buffer_validate.exit.i:                        ; preds = %3
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9), !range !10
+  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %io_buffer_validate.exit.thread.i
 
@@ -1075,7 +1075,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
 io_buffer_validate.exit:                          ; preds = %73
   %75 = load ptr, ptr %2, align 8
   %76 = load i64, ptr %22, align 8
-  %77 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %.pr, ptr noundef %75, i64 noundef %76), !range !10
+  %77 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %.pr, ptr noundef %75, i64 noundef %76)
   %.not36 = icmp eq i32 %77, 0
   br i1 %.not36, label %78, label %io_buffer_validate.exit.thread
 
@@ -1107,7 +1107,7 @@ io_buffer_validate.exit:                          ; preds = %1
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8), !range !10
+  %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %19, label %io_buffer_validate.exit.thread
 
@@ -1195,13 +1195,13 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
 35:                                               ; preds = %32, %17
   %36 = add nuw i64 %.03541.us, 1
   %exitcond.not = icmp eq i64 %36, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %35
   %37 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
   %38 = add i64 %.044.us, %1
   %39 = icmp ult i64 %38, %3
-  br i1 %39, label %.lr.ph46.split.us, label %._crit_edge47, !llvm.loop !13
+  br i1 %39, label %.lr.ph46.split.us, label %._crit_edge47, !llvm.loop !12
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46
   br i1 %11, label %40, label %.critedge
@@ -1242,7 +1242,7 @@ rb_ull2num_inline.exit:                           ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_io_buffer_readonly_p(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 129) i32 @rb_io_buffer_readonly_p(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -1291,7 +1291,7 @@ io_buffer_unlock.exit:                            ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_io_buffer_try_unlock(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_io_buffer_try_unlock(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -1513,12 +1513,12 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
 rb_io_buffer_type_allocate.exit:                  ; preds = %rb_class_of.exit, %30
   %32 = phi ptr [ %31, %30 ], [ %29, %rb_class_of.exit ]
   %33 = getelementptr inbounds i8, ptr %32, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store i64 4, ptr %33, align 8
   %34 = tail call ptr @rb_check_typeddata(i64 noundef %24, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %35 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i64 4, ptr %35, align 8
   ret i64 %24
 }
@@ -1588,7 +1588,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %23, i64 %.val
   %32 = sub i64 %1, %.val
-  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %31, i8 0, i64 %32, i1 false)
   br label %io_buffer_resize_clear.exit
 
 io_buffer_resize_clear.exit:                      ; preds = %28, %30
@@ -1645,7 +1645,7 @@ io_buffer_free.exit:                              ; preds = %37, %39
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %46, i64 %.val44
   %55 = sub i64 %1, %.val44
-  tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %54, i8 0, i64 %55, i1 false)
   br label %io_buffer_resize_clear.exit46
 
 io_buffer_resize_clear.exit46:                    ; preds = %50, %53
@@ -1705,7 +1705,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
   br i1 %.not.i15.i, label %ruby_nonempty_memcpy.exit.i, label %72
 
 72:                                               ; preds = %io_buffer_initialize.exit.i.thread
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i50, ptr nonnull align 1 %69, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.0.0.i50, ptr nonnull readonly align 1 %69, i64 %spec.select.i, i1 false)
   %.val.pre.i = load i64, ptr %70, align 8
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -1717,7 +1717,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_init
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
   %75 = getelementptr i8, ptr %.sroa.0.0.i50, i64 %.val.i
   %76 = sub i64 %1, %.val.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %75, i8 0, i64 %76, i1 false)
   br label %io_buffer_resize_clear.exit.i
 
 io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_memcpy.exit.i
@@ -1797,7 +1797,7 @@ io_buffer_validate.exit.i:                        ; preds = %11
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %13, ptr noundef %14, i64 noundef %16), !range !10
+  %17 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %13, ptr noundef %14, i64 noundef %16)
   %.not9.i = icmp eq i32 %17, 0
   br i1 %.not9.i, label %18, label %io_buffer_validate.exit.thread.i
 
@@ -1876,7 +1876,7 @@ io_buffer_validate_range.exit:                    ; preds = %11
 io_buffer_validate.exit.i:                        ; preds = %24
   %27 = load ptr, ptr %12, align 8
   %28 = load i64, ptr %13, align 8
-  %29 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %26, ptr noundef %27, i64 noundef %28), !range !10
+  %29 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %26, ptr noundef %27, i64 noundef %28)
   %.not9.i = icmp eq i32 %29, 0
   br i1 %.not9.i, label %30, label %io_buffer_validate.exit.thread.i
 
@@ -2083,7 +2083,7 @@ io_buffer_validate_range.exit:                    ; preds = %12
 io_buffer_validate.exit.i:                        ; preds = %25
   %28 = load ptr, ptr %13, align 8
   %29 = load i64, ptr %14, align 8
-  %30 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %27, ptr noundef %28, i64 noundef %29), !range !10
+  %30 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %27, ptr noundef %28, i64 noundef %29)
   %.not9.i = icmp eq i32 %30, 0
   br i1 %.not9.i, label %31, label %io_buffer_validate.exit.thread.i
 
@@ -2283,7 +2283,7 @@ io_buffer_validate_range.exit:                    ; preds = %11
 io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.exit
   %21 = load ptr, ptr %12, align 8
   %22 = load i64, ptr %13, align 8
-  %23 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %20, ptr noundef %21, i64 noundef %22), !range !10
+  %23 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %20, ptr noundef %21, i64 noundef %22)
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %io_buffer_validate.exit.thread.i
 
@@ -2477,7 +2477,7 @@ io_buffer_validate_range.exit:                    ; preds = %12
 io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.exit
   %22 = load ptr, ptr %13, align 8
   %23 = load i64, ptr %14, align 8
-  %24 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %23), !range !10
+  %24 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %23)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %io_buffer_validate.exit.thread.i
 
@@ -3016,7 +3016,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %2
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9), !range !10
+  %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %11, label %io_buffer_validate.exit.thread.i.i
 
@@ -3119,7 +3119,7 @@ io_buffer_validate_range.exit:                    ; preds = %io_buffer_extract_w
 
 io_buffer_validate.exit:                          ; preds = %io_buffer_validate_range.exit
   %33 = load ptr, ptr %7, align 8
-  %34 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %32, ptr noundef %33, i64 noundef %.val), !range !10
+  %34 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %32, ptr noundef %33, i64 noundef %.val)
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %48, label %io_buffer_validate.exit.thread
 
@@ -3150,7 +3150,7 @@ io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_io_buffer_valid_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_valid_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -3161,7 +3161,7 @@ io_buffer_validate.exit:                          ; preds = %1
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %4, ptr noundef %5, i64 noundef %7), !range !10
+  %8 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %4, ptr noundef %5, i64 noundef %7)
   %.fr = freeze i32 %8
   %.not = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not, i64 0, i64 20
@@ -3173,7 +3173,7 @@ io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_null_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_null_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3182,7 +3182,7 @@ define internal i64 @rb_io_buffer_null_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_empty_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_empty_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -3192,7 +3192,7 @@ define internal i64 @rb_io_buffer_empty_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_external_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_external_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3203,7 +3203,7 @@ define internal i64 @rb_io_buffer_external_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_internal_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_internal_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3214,7 +3214,7 @@ define internal i64 @rb_io_buffer_internal_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_mapped_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_mapped_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3225,7 +3225,7 @@ define internal i64 @rb_io_buffer_mapped_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_shared_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_shared_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3236,7 +3236,7 @@ define internal i64 @rb_io_buffer_shared_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_locked_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_locked_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3247,7 +3247,7 @@ define internal i64 @rb_io_buffer_locked_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_private_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_buffer_private_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3258,7 +3258,7 @@ define internal i64 @rb_io_buffer_private_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_readonly_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @io_buffer_readonly_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -3349,7 +3349,7 @@ rb_class_of.exit.i:                               ; preds = %27, %25, %24, %23, 
 rb_io_buffer_type_allocate.exit.i:                ; preds = %36, %rb_class_of.exit.i
   %38 = phi ptr [ %37, %36 ], [ %35, %rb_class_of.exit.i ]
   %39 = getelementptr inbounds i8, ptr %38, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   store i64 4, ptr %39, align 8
   %40 = tail call ptr @rb_check_typeddata(i64 noundef %30, ptr noundef nonnull @rb_io_buffer_type) #20
   %41 = load ptr, ptr %7, align 8
@@ -3385,7 +3385,7 @@ rb_io_buffer_slice.exit:                          ; preds = %47, %52, %rb_obj_wr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_io_buffer_compare(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @rb_io_buffer_compare(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
@@ -3396,7 +3396,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %2
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8), !range !10
+  %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8)
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %10, label %io_buffer_validate.exit.thread.i.i
 
@@ -3427,7 +3427,7 @@ io_buffer_validate.exit.i.i6:                     ; preds = %rb_io_buffer_get_by
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %18, ptr noundef %19, i64 noundef %21), !range !10
+  %22 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %18, ptr noundef %19, i64 noundef %21)
   %.not.i.i7 = icmp eq i32 %22, 0
   br i1 %.not.i.i7, label %23, label %io_buffer_validate.exit.thread.i.i8
 
@@ -3579,11 +3579,11 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   %24 = getelementptr i64, ptr %.0.i.i, i64 %.0
   %25 = load i64, ptr %24, align 8
   %26 = tail call i64 @rb_sym2id(i64 noundef %25) #20
-  %27 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %26), !range !14
+  %27 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %26)
   %28 = add i64 %27, %.027
   %29 = add nuw nsw i64 %.0, 1
   %.pre = load i64, ptr %8, align 8
-  br label %14, !llvm.loop !15
+  br label %14, !llvm.loop !13
 
 30:                                               ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
   %31 = icmp ult i64 %.027, 4611686018427387904
@@ -3600,7 +3600,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
 
 .critedge:                                        ; preds = %2, %7
   %37 = tail call i64 @rb_sym2id(i64 noundef %1) #20
-  %38 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %37), !range !14
+  %38 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %37)
   %39 = shl nuw nsw i64 %38, 1
   %40 = or disjoint i64 %39, 1
   br label %rb_ull2num_inline.exit
@@ -3648,7 +3648,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %io_buffer_extract_o
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19), !range !10
+  %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19)
   %.not.i.i3 = icmp eq i32 %20, 0
   br i1 %.not.i.i3, label %21, label %io_buffer_validate.exit.thread.i.i
 
@@ -3712,7 +3712,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %io_buffer_extract_o
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19), !range !10
+  %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19)
   %.not.i.i31 = icmp eq i32 %20, 0
   br i1 %.not.i.i31, label %21, label %io_buffer_validate.exit.thread.i.i
 
@@ -3799,7 +3799,7 @@ rb_array_len.exit35:                              ; preds = %50, %53
   %59 = call fastcc i64 @rb_io_buffer_get_value(ptr noundef %23, i64 noundef %storemerge.i.i, i64 noundef %58, ptr noundef nonnull %4)
   %60 = tail call i64 @rb_ary_push(i64 noundef %45, i64 noundef %59) #20
   %61 = add nuw nsw i64 %.030, 1
-  br label %47, !llvm.loop !16
+  br label %47, !llvm.loop !14
 
 62:                                               ; preds = %rb_array_len.exit35
   ret i64 %45
@@ -3830,7 +3830,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %11
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17), !range !10
+  %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %io_buffer_validate.exit.thread.i.i
 
@@ -3893,7 +3893,7 @@ rb_ull2num_inline.exit:                           ; preds = %38, %41
   %43 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.0.i, i64 noundef %36) #20
   %44 = add nuw i64 %.01619, 1
   %exitcond.not = icmp eq i64 %44, %34
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %rb_ull2num_inline.exit, %31, %7
   %.0 = phi i64 [ %10, %7 ], [ %2, %31 ], [ %2, %rb_ull2num_inline.exit ]
@@ -3914,7 +3914,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %3
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %8, ptr noundef %9, i64 noundef %11), !range !10
+  %12 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %8, ptr noundef %9, i64 noundef %11)
   %.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i, label %13, label %io_buffer_validate.exit.thread.i.i
 
@@ -3963,7 +3963,7 @@ rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.
   %31 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %30) #20
   %32 = add nuw i64 %.01114, 1
   %exitcond.not = icmp eq i64 %32, %28
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   ret i64 %29
@@ -3994,7 +3994,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %11
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17), !range !10
+  %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %io_buffer_validate.exit.thread.i.i
 
@@ -4038,7 +4038,7 @@ rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.
   %35 = tail call i64 @rb_yield(i64 noundef %34) #20
   %36 = add nuw i64 %.01113, 1
   %exitcond.not = icmp eq i64 %36, %28
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !17
 
 .loopexit:                                        ; preds = %30, %rb_io_buffer_get_bytes_for_reading.exit, %7
   %.0 = phi i64 [ %10, %7 ], [ %2, %rb_io_buffer_get_bytes_for_reading.exit ], [ %2, %30 ]
@@ -4095,7 +4095,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %21
   %24 = load ptr, ptr %15, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %23, ptr noundef %24, i64 noundef %26), !range !10
+  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %23, ptr noundef %24, i64 noundef %26)
   %.not9.i.i = icmp eq i32 %27, 0
   br i1 %.not9.i.i, label %28, label %io_buffer_validate.exit.thread.i.i
 
@@ -4265,7 +4265,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %60
   %63 = load ptr, ptr %54, align 8
   %64 = getelementptr inbounds i8, ptr %54, i64 8
   %65 = load i64, ptr %64, align 8
-  %66 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %62, ptr noundef %63, i64 noundef %65), !range !10
+  %66 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %62, ptr noundef %63, i64 noundef %65)
   %.not9.i.i = icmp eq i32 %66, 0
   br i1 %.not9.i.i, label %67, label %io_buffer_validate.exit.thread.i.i
 
@@ -4316,7 +4316,7 @@ rb_array_len.exit62:                              ; preds = %77, %80
   %86 = tail call i64 @rb_sym2id(i64 noundef %84) #20
   call fastcc void @rb_io_buffer_set_value(ptr noundef %69, i64 noundef %storemerge.i.i, i64 noundef %86, ptr noundef nonnull %5, i64 noundef %85)
   %87 = add nuw nsw i64 %.051, 1
-  br label %74, !llvm.loop !20
+  br label %74, !llvm.loop !18
 
 88:                                               ; preds = %rb_array_len.exit62
   %89 = load i64, ptr %5, align 8
@@ -4360,7 +4360,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %rb_check_arity.exit
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13), !range !10
+  %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13)
   %.not.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i, label %15, label %io_buffer_validate.exit.thread.i.i
 
@@ -4409,7 +4409,7 @@ io_buffer_validate.exit.i:                        ; preds = %rb_check_arity.exit
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %9, ptr noundef %10, i64 noundef %12), !range !10
+  %13 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %9, ptr noundef %10, i64 noundef %12)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %io_buffer_validate.exit.thread.i
 
@@ -4469,7 +4469,7 @@ rb_check_arity.exit:                              ; preds = %3
   %7 = load i64, ptr %1, align 8
   %8 = tail call i64 @rb_str_to_str(i64 noundef %7) #20
   %9 = inttoptr i64 %8 to ptr
-  %10 = load i64, ptr %9, align 8, !noalias !21
+  %10 = load i64, ptr %9, align 8, !noalias !19
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
   %12 = getelementptr inbounds i8, ptr %9, i64 24
@@ -4526,7 +4526,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4536,25 +4536,25 @@ rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mas
   %27 = load i64, ptr %9, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %.not.i11 = icmp eq i64 %27, 0
   br i1 %.not.i11, label %memory_and.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rb_io_buffer_new.exit, %.lr.ph.i
   %.09.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %rb_io_buffer_new.exit ]
   %30 = getelementptr i8, ptr %26, i64 %.09.i
-  %31 = load i8, ptr %30, align 1, !alias.scope !27, !noalias !31
+  %31 = load i8, ptr %30, align 1, !alias.scope !25, !noalias !29
   %32 = urem i64 %.09.i, %29
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = load i8, ptr %33, align 1, !alias.scope !29, !noalias !32
+  %34 = load i8, ptr %33, align 1, !alias.scope !27, !noalias !30
   %35 = and i8 %34, %31
   %36 = getelementptr i8, ptr %25, i64 %.09.i
-  store i8 %35, ptr %36, align 1, !alias.scope !24, !noalias !33
+  store i8 %35, ptr %36, align 1, !alias.scope !22, !noalias !31
   %37 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %37, %27
-  br i1 %exitcond.not.i, label %memory_and.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %memory_and.exit, label %.lr.ph.i, !llvm.loop !32
 
 memory_and.exit:                                  ; preds = %.lr.ph.i, %rb_io_buffer_new.exit
   ret i64 %13
@@ -4597,7 +4597,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4607,25 +4607,25 @@ rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mas
   %27 = load i64, ptr %9, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %.not.i11 = icmp eq i64 %27, 0
   br i1 %.not.i11, label %memory_or.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rb_io_buffer_new.exit, %.lr.ph.i
   %.09.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %rb_io_buffer_new.exit ]
   %30 = getelementptr i8, ptr %26, i64 %.09.i
-  %31 = load i8, ptr %30, align 1, !alias.scope !38, !noalias !42
+  %31 = load i8, ptr %30, align 1, !alias.scope !36, !noalias !40
   %32 = urem i64 %.09.i, %29
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = load i8, ptr %33, align 1, !alias.scope !40, !noalias !43
+  %34 = load i8, ptr %33, align 1, !alias.scope !38, !noalias !41
   %35 = or i8 %34, %31
   %36 = getelementptr i8, ptr %25, i64 %.09.i
-  store i8 %35, ptr %36, align 1, !alias.scope !35, !noalias !44
+  store i8 %35, ptr %36, align 1, !alias.scope !33, !noalias !42
   %37 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %37, %27
-  br i1 %exitcond.not.i, label %memory_or.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %memory_or.exit, label %.lr.ph.i, !llvm.loop !43
 
 memory_or.exit:                                   ; preds = %.lr.ph.i, %rb_io_buffer_new.exit
   ret i64 %13
@@ -4668,7 +4668,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4678,25 +4678,25 @@ rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mas
   %27 = load i64, ptr %9, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %.not.i11 = icmp eq i64 %27, 0
   br i1 %.not.i11, label %memory_xor.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rb_io_buffer_new.exit, %.lr.ph.i
   %.09.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %rb_io_buffer_new.exit ]
   %30 = getelementptr i8, ptr %26, i64 %.09.i
-  %31 = load i8, ptr %30, align 1, !alias.scope !49, !noalias !53
+  %31 = load i8, ptr %30, align 1, !alias.scope !47, !noalias !51
   %32 = urem i64 %.09.i, %29
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = load i8, ptr %33, align 1, !alias.scope !51, !noalias !54
+  %34 = load i8, ptr %33, align 1, !alias.scope !49, !noalias !52
   %35 = xor i8 %34, %31
   %36 = getelementptr i8, ptr %25, i64 %.09.i
-  store i8 %35, ptr %36, align 1, !alias.scope !46, !noalias !55
+  store i8 %35, ptr %36, align 1, !alias.scope !44, !noalias !53
   %37 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %37, %27
-  br i1 %exitcond.not.i, label %memory_xor.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %memory_xor.exit, label %.lr.ph.i, !llvm.loop !54
 
 memory_xor.exit:                                  ; preds = %.lr.ph.i, %rb_io_buffer_new.exit
   ret i64 %13
@@ -4727,7 +4727,7 @@ define internal i64 @io_buffer_not(i64 noundef %0) #0 {
 rb_io_buffer_new.exit:                            ; preds = %1, %13
   %15 = phi ptr [ %14, %13 ], [ %12, %1 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i64 4, ptr %16, align 8
   %17 = tail call ptr @rb_check_typeddata(i64 noundef %7, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %7, ptr noundef %17, ptr noundef null, i64 noundef %4, i32 noundef %..i, i64 noundef 4)
@@ -4735,21 +4735,21 @@ rb_io_buffer_new.exit:                            ; preds = %1, %13
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %2, align 8
   %21 = load i64, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %.not.i7 = icmp eq i64 %21, 0
   br i1 %.not.i7, label %memory_not.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rb_io_buffer_new.exit, %.lr.ph.i
   %.06.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %rb_io_buffer_new.exit ]
   %22 = getelementptr i8, ptr %20, i64 %.06.i
-  %23 = load i8, ptr %22, align 1, !alias.scope !60, !noalias !57
+  %23 = load i8, ptr %22, align 1, !alias.scope !58, !noalias !55
   %24 = xor i8 %23, -1
   %25 = getelementptr i8, ptr %19, i64 %.06.i
-  store i8 %24, ptr %25, align 1, !alias.scope !57, !noalias !60
+  store i8 %24, ptr %25, align 1, !alias.scope !55, !noalias !58
   %26 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %26, %21
-  br i1 %exitcond.not.i, label %memory_not.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %exitcond.not.i, label %memory_not.exit, label %.lr.ph.i, !llvm.loop !60
 
 memory_not.exit:                                  ; preds = %.lr.ph.i, %rb_io_buffer_new.exit
   ret i64 %7
@@ -4814,7 +4814,7 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
 io_buffer_validate.exit.i:                        ; preds = %22
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26), !range !10
+  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
   br i1 %.not9.i, label %28, label %io_buffer_validate.exit.i.io_buffer_validate.exit.thread.i_crit_edge
 
@@ -4837,8 +4837,8 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %.not.i8 = icmp eq i64 %32, 0
   br i1 %.not.i8, label %memory_and_inplace.exit, label %.lr.ph.i
 
@@ -4846,14 +4846,14 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %.07.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %io_buffer_get_bytes_for_writing.exit ]
   %35 = urem i64 %.07.i, %34
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = load i8, ptr %36, align 1, !alias.scope !66, !noalias !63
+  %37 = load i8, ptr %36, align 1, !alias.scope !64, !noalias !61
   %38 = getelementptr i8, ptr %30, i64 %.07.i
-  %39 = load i8, ptr %38, align 1, !alias.scope !63, !noalias !66
+  %39 = load i8, ptr %38, align 1, !alias.scope !61, !noalias !64
   %40 = and i8 %39, %37
-  store i8 %40, ptr %38, align 1, !alias.scope !63, !noalias !66
+  store i8 %40, ptr %38, align 1, !alias.scope !61, !noalias !64
   %41 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %41, %32
-  br i1 %exitcond.not.i, label %memory_and_inplace.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %exitcond.not.i, label %memory_and_inplace.exit, label %.lr.ph.i, !llvm.loop !66
 
 memory_and_inplace.exit:                          ; preds = %.lr.ph.i, %io_buffer_validate.exit.thread.i, %io_buffer_get_bytes_for_writing.exit
   ret i64 %0
@@ -4918,7 +4918,7 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
 io_buffer_validate.exit.i:                        ; preds = %22
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26), !range !10
+  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
   br i1 %.not9.i, label %28, label %io_buffer_validate.exit.i.io_buffer_validate.exit.thread.i_crit_edge
 
@@ -4941,8 +4941,8 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %.not.i8 = icmp eq i64 %32, 0
   br i1 %.not.i8, label %memory_or_inplace.exit, label %.lr.ph.i
 
@@ -4950,14 +4950,14 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %.07.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %io_buffer_get_bytes_for_writing.exit ]
   %35 = urem i64 %.07.i, %34
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = load i8, ptr %36, align 1, !alias.scope !72, !noalias !69
+  %37 = load i8, ptr %36, align 1, !alias.scope !70, !noalias !67
   %38 = getelementptr i8, ptr %30, i64 %.07.i
-  %39 = load i8, ptr %38, align 1, !alias.scope !69, !noalias !72
+  %39 = load i8, ptr %38, align 1, !alias.scope !67, !noalias !70
   %40 = or i8 %39, %37
-  store i8 %40, ptr %38, align 1, !alias.scope !69, !noalias !72
+  store i8 %40, ptr %38, align 1, !alias.scope !67, !noalias !70
   %41 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %41, %32
-  br i1 %exitcond.not.i, label %memory_or_inplace.exit, label %.lr.ph.i, !llvm.loop !74
+  br i1 %exitcond.not.i, label %memory_or_inplace.exit, label %.lr.ph.i, !llvm.loop !72
 
 memory_or_inplace.exit:                           ; preds = %.lr.ph.i, %io_buffer_validate.exit.thread.i, %io_buffer_get_bytes_for_writing.exit
   ret i64 %0
@@ -5022,7 +5022,7 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
 io_buffer_validate.exit.i:                        ; preds = %22
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26), !range !10
+  %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
   br i1 %.not9.i, label %28, label %io_buffer_validate.exit.i.io_buffer_validate.exit.thread.i_crit_edge
 
@@ -5045,8 +5045,8 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %.not.i8 = icmp eq i64 %32, 0
   br i1 %.not.i8, label %memory_xor_inplace.exit, label %.lr.ph.i
 
@@ -5054,14 +5054,14 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %.07.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %io_buffer_get_bytes_for_writing.exit ]
   %35 = urem i64 %.07.i, %34
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = load i8, ptr %36, align 1, !alias.scope !78, !noalias !75
+  %37 = load i8, ptr %36, align 1, !alias.scope !76, !noalias !73
   %38 = getelementptr i8, ptr %30, i64 %.07.i
-  %39 = load i8, ptr %38, align 1, !alias.scope !75, !noalias !78
+  %39 = load i8, ptr %38, align 1, !alias.scope !73, !noalias !76
   %40 = xor i8 %39, %37
-  store i8 %40, ptr %38, align 1, !alias.scope !75, !noalias !78
+  store i8 %40, ptr %38, align 1, !alias.scope !73, !noalias !76
   %41 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %41, %32
-  br i1 %exitcond.not.i, label %memory_xor_inplace.exit, label %.lr.ph.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %memory_xor_inplace.exit, label %.lr.ph.i, !llvm.loop !78
 
 memory_xor_inplace.exit:                          ; preds = %.lr.ph.i, %io_buffer_validate.exit.thread.i, %io_buffer_get_bytes_for_writing.exit
   ret i64 %0
@@ -5091,7 +5091,7 @@ io_buffer_validate.exit.i:                        ; preds = %8
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13), !range !10
+  %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13)
   %.not9.i = icmp eq i32 %14, 0
   br i1 %.not9.i, label %15, label %io_buffer_validate.exit.thread.i
 
@@ -5114,12 +5114,12 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
 .lr.ph.i:                                         ; preds = %io_buffer_get_bytes_for_writing.exit, %.lr.ph.i
   %.06.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %io_buffer_get_bytes_for_writing.exit ]
   %20 = getelementptr i8, ptr %17, i64 %.06.i
-  %21 = load i8, ptr %20, align 1, !alias.scope !81
+  %21 = load i8, ptr %20, align 1, !alias.scope !79
   %22 = xor i8 %21, -1
-  store i8 %22, ptr %20, align 1, !alias.scope !81
+  store i8 %22, ptr %20, align 1, !alias.scope !79
   %23 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %23, %19
-  br i1 %exitcond.not.i, label %memory_not_inplace.exit, label %.lr.ph.i, !llvm.loop !84
+  br i1 %exitcond.not.i, label %memory_not_inplace.exit, label %.lr.ph.i, !llvm.loop !82
 
 memory_not_inplace.exit:                          ; preds = %.lr.ph.i, %io_buffer_validate.exit.thread.i, %io_buffer_get_bytes_for_writing.exit
   ret i64 %0
@@ -5286,7 +5286,7 @@ declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @io_buffer_validate_slice(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @io_buffer_validate_slice(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 {
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0
@@ -5323,7 +5323,7 @@ io_buffer_validate.exit.i:                        ; preds = %.critedge
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %24), !range !10
+  %25 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %24)
   %.not.i30 = icmp eq i32 %25, 0
   br i1 %.not.i30, label %rbimpl_rstring_getmem.exit, label %io_buffer_validate.exit.i.thread
 
@@ -5550,7 +5550,7 @@ io_buffer_validate.exit.i.i:                      ; preds = %54
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 8
   %59 = load i64, ptr %58, align 8
-  %60 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %56, ptr noundef %57, i64 noundef %59), !range !10
+  %60 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %56, ptr noundef %57, i64 noundef %59)
   %.not9.i.i = icmp eq i32 %60, 0
   br i1 %.not9.i.i, label %61, label %io_buffer_validate.exit.thread.i.i
 
@@ -5589,7 +5589,7 @@ io_buffer_validate_range.exit.i:                  ; preds = %io_buffer_validate.
 io_buffer_memcpy.exit:                            ; preds = %73
   %74 = getelementptr i8, ptr %1, i64 %.037
   %75 = getelementptr i8, ptr %63, i64 %.0182932
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %74, i64 %.017, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %75, ptr readonly align 1 %74, i64 %.017, i1 false)
   %76 = icmp ult i64 %.017, 4611686018427387904
   br i1 %76, label %io_buffer_memcpy.exit.thread, label %79
 
@@ -5713,7 +5713,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @io_buffer_buffer_type_size(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 1, 9) i64 @io_buffer_buffer_type_size(i64 noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
   %3 = icmp eq i64 %2, %0
   %4 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S8, align 8
@@ -5924,7 +5924,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
-  %74 = tail call fastcc i64 @io_buffer_read_S16(ptr noundef %0, i64 noundef %1, ptr noundef %3), !range !85
+  %74 = tail call fastcc i64 @io_buffer_read_S16(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   br label %137
 
 75:                                               ; preds = %70
@@ -5933,7 +5933,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
-  %79 = tail call fastcc i64 @io_buffer_read_u32(ptr noundef %0, i64 noundef %1, ptr noundef %3), !range !85
+  %79 = tail call fastcc i64 @io_buffer_read_u32(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   br label %137
 
 80:                                               ; preds = %75
@@ -5942,7 +5942,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
-  %84 = tail call fastcc i64 @io_buffer_read_U32(ptr noundef %0, i64 noundef %1, ptr noundef %3), !range !85
+  %84 = tail call fastcc i64 @io_buffer_read_U32(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   br label %137
 
 85:                                               ; preds = %80
@@ -5951,7 +5951,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
-  %89 = tail call fastcc i64 @io_buffer_read_s32(ptr noundef %0, i64 noundef %1, ptr noundef %3), !range !85
+  %89 = tail call fastcc i64 @io_buffer_read_s32(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   br label %137
 
 90:                                               ; preds = %85
@@ -5960,7 +5960,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %90
-  %94 = tail call fastcc i64 @io_buffer_read_S32(ptr noundef %0, i64 noundef %1, ptr noundef %3), !range !85
+  %94 = tail call fastcc i64 @io_buffer_read_S32(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   br label %137
 
 95:                                               ; preds = %90
@@ -6046,7 +6046,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_S16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 2
   %6 = icmp ugt i64 %5, %1
@@ -6069,7 +6069,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_u32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_u32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6091,7 +6091,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_U32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_U32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6114,7 +6114,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_s32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_s32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6136,7 +6136,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_S32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6592,7 +6592,7 @@ io_buffer_extract_offset.exit:                    ; preds = %17, %15
 35:                                               ; preds = %.thread, %31
   %storemerge1820 = phi i64 [ 0, %.thread ], [ %storemerge, %31 ]
   %36 = sub i64 %1, %storemerge1820
-  %37 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %0), !range !14
+  %37 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %0)
   %38 = udiv i64 %36, %37
   br label %io_buffer_extract_count.exit
 
@@ -7479,79 +7479,76 @@ attributes #26 = { nounwind willreturn memory(read) }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"rbimpl_rstring_getmem: argument 0"}
 !9 = distinct !{!9, !"rbimpl_rstring_getmem"}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{i64 1, i64 9}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"rbimpl_rstring_getmem: argument 0"}
-!23 = distinct !{!23, !"rbimpl_rstring_getmem"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"memory_and: argument 0"}
-!26 = distinct !{!26, !"memory_and"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"rbimpl_rstring_getmem: argument 0"}
+!21 = distinct !{!21, !"rbimpl_rstring_getmem"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"memory_and: argument 0"}
+!24 = distinct !{!24, !"memory_and"}
+!25 = !{!26}
+!26 = distinct !{!26, !24, !"memory_and: argument 1"}
 !27 = !{!28}
-!28 = distinct !{!28, !26, !"memory_and: argument 1"}
-!29 = !{!30}
-!30 = distinct !{!30, !26, !"memory_and: argument 2"}
-!31 = !{!25, !30}
-!32 = !{!25, !28}
-!33 = !{!28, !30}
-!34 = distinct !{!34, !12}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"memory_or: argument 0"}
-!37 = distinct !{!37, !"memory_or"}
+!28 = distinct !{!28, !24, !"memory_and: argument 2"}
+!29 = !{!23, !28}
+!30 = !{!23, !26}
+!31 = !{!26, !28}
+!32 = distinct !{!32, !11}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"memory_or: argument 0"}
+!35 = distinct !{!35, !"memory_or"}
+!36 = !{!37}
+!37 = distinct !{!37, !35, !"memory_or: argument 1"}
 !38 = !{!39}
-!39 = distinct !{!39, !37, !"memory_or: argument 1"}
-!40 = !{!41}
-!41 = distinct !{!41, !37, !"memory_or: argument 2"}
-!42 = !{!36, !41}
-!43 = !{!36, !39}
-!44 = !{!39, !41}
-!45 = distinct !{!45, !12}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"memory_xor: argument 0"}
-!48 = distinct !{!48, !"memory_xor"}
+!39 = distinct !{!39, !35, !"memory_or: argument 2"}
+!40 = !{!34, !39}
+!41 = !{!34, !37}
+!42 = !{!37, !39}
+!43 = distinct !{!43, !11}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"memory_xor: argument 0"}
+!46 = distinct !{!46, !"memory_xor"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"memory_xor: argument 1"}
 !49 = !{!50}
-!50 = distinct !{!50, !48, !"memory_xor: argument 1"}
-!51 = !{!52}
-!52 = distinct !{!52, !48, !"memory_xor: argument 2"}
-!53 = !{!47, !52}
-!54 = !{!47, !50}
-!55 = !{!50, !52}
-!56 = distinct !{!56, !12}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"memory_not: argument 0"}
-!59 = distinct !{!59, !"memory_not"}
-!60 = !{!61}
-!61 = distinct !{!61, !59, !"memory_not: argument 1"}
-!62 = distinct !{!62, !12}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"memory_and_inplace: argument 0"}
-!65 = distinct !{!65, !"memory_and_inplace"}
-!66 = !{!67}
-!67 = distinct !{!67, !65, !"memory_and_inplace: argument 1"}
-!68 = distinct !{!68, !12}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"memory_or_inplace: argument 0"}
-!71 = distinct !{!71, !"memory_or_inplace"}
-!72 = !{!73}
-!73 = distinct !{!73, !71, !"memory_or_inplace: argument 1"}
-!74 = distinct !{!74, !12}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"memory_xor_inplace: argument 0"}
-!77 = distinct !{!77, !"memory_xor_inplace"}
-!78 = !{!79}
-!79 = distinct !{!79, !77, !"memory_xor_inplace: argument 1"}
-!80 = distinct !{!80, !12}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"memory_not_inplace: argument 0"}
-!83 = distinct !{!83, !"memory_not_inplace"}
-!84 = distinct !{!84, !12}
-!85 = !{i64 1, i64 0}
+!50 = distinct !{!50, !46, !"memory_xor: argument 2"}
+!51 = !{!45, !50}
+!52 = !{!45, !48}
+!53 = !{!48, !50}
+!54 = distinct !{!54, !11}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"memory_not: argument 0"}
+!57 = distinct !{!57, !"memory_not"}
+!58 = !{!59}
+!59 = distinct !{!59, !57, !"memory_not: argument 1"}
+!60 = distinct !{!60, !11}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"memory_and_inplace: argument 0"}
+!63 = distinct !{!63, !"memory_and_inplace"}
+!64 = !{!65}
+!65 = distinct !{!65, !63, !"memory_and_inplace: argument 1"}
+!66 = distinct !{!66, !11}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"memory_or_inplace: argument 0"}
+!69 = distinct !{!69, !"memory_or_inplace"}
+!70 = !{!71}
+!71 = distinct !{!71, !69, !"memory_or_inplace: argument 1"}
+!72 = distinct !{!72, !11}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"memory_xor_inplace: argument 0"}
+!75 = distinct !{!75, !"memory_xor_inplace"}
+!76 = !{!77}
+!77 = distinct !{!77, !75, !"memory_xor_inplace: argument 1"}
+!78 = distinct !{!78, !11}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"memory_not_inplace: argument 0"}
+!81 = distinct !{!81, !"memory_not_inplace"}
+!82 = distinct !{!82, !11}

@@ -242,7 +242,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 58:                                               ; preds = %61, %56
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ %51, %56 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %59 = trunc i64 %indvars.iv.next.i.i to i32
+  %59 = trunc nuw i64 %indvars.iv.next.i.i to i32
   %60 = icmp sgt i32 %46, %59
   br i1 %60, label %61, label %.critedge.i.i
 
@@ -269,7 +269,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 67:                                               ; preds = %70, %.critedge.thread.i.i
   %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %70 ], [ %.pre-phi.i.i, %.critedge.thread.i.i ]
   %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
-  %68 = trunc i64 %indvars.iv.next94.i.i to i32
+  %68 = trunc nuw i64 %indvars.iv.next94.i.i to i32
   %69 = icmp sgt i32 %46, %68
   br i1 %69, label %70, label %.critedge2.i.i
 
@@ -292,7 +292,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br i1 %79, label %80, label %95
 
 80:                                               ; preds = %77
-  %81 = trunc i32 %.363.i.i to i16
+  %81 = trunc nuw i32 %.363.i.i to i16
   %82 = sub nsw i32 %.268.i.i, %.363.i.i
   %83 = trunc i32 %82 to i16
   %84 = zext nneg i32 %.363.i.i to i64
@@ -305,7 +305,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %89 = getelementptr i8, ptr %87, i64 4
   %.mask82.i.i = and i32 %82, 65535
   %90 = zext nneg i32 %.mask82.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %85, i64 %90, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr readonly align 1 %85, i64 %90, i1 false)
   %91 = getelementptr i8, ptr %89, i64 %90
   %92 = ptrtoint ptr %91 to i64
   %93 = sub i64 %92, %48
@@ -335,7 +335,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %.3.i.i = select i1 %99, i32 %35, i32 %.2.i.i
   %104 = icmp slt i32 %.3.i.i, 0
   %spec.select81.i.i = select i1 %104, i32 %35, i32 %.3.i.i
-  %105 = trunc i32 %.7.i.i to i16
+  %105 = trunc nuw i32 %.7.i.i to i16
   %106 = sub nsw i32 %spec.select81.i.i, %.7.i.i
   %107 = trunc i32 %106 to i16
   %108 = zext nneg i32 %.7.i.i to i64
@@ -349,7 +349,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %114 = getelementptr i8, ptr %112, i64 4
   %.mask.i.i = and i32 %106, 65535
   %115 = zext nneg i32 %.mask.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %109, i64 %115, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr readonly align 1 %109, i64 %115, i1 false)
   %116 = getelementptr i8, ptr %114, i64 %115
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %110 to i64
@@ -364,85 +364,85 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %43, i32 %38)
   %spec.select78.i.i = select i1 %122, i32 %38, i32 -1
   %123 = icmp ult i32 %spec.select.i.i, 8192
-  br i1 %123, label %.lr.ph.i19.i, label %.critedge.i14.i
+  br i1 %123, label %.lr.ph.i21.i, label %.critedge.i14.i
 
-.lr.ph.i19.i:                                     ; preds = %computeRegionDelta.exit.i
+.lr.ph.i21.i:                                     ; preds = %computeRegionDelta.exit.i
   %124 = getelementptr inbounds i8, ptr %10, i64 24
   %125 = ptrtoint ptr %124 to i64
   br label %126
 
-126:                                              ; preds = %171, %.lr.ph.i19.i
-  %127 = phi i32 [ %121, %.lr.ph.i19.i ], [ %172, %171 ]
-  %.16188.i20.i = phi i32 [ %spec.select78.i.i, %.lr.ph.i19.i ], [ %.464.i38.i, %171 ]
-  %.06687.i21.i = phi i32 [ %spec.select.i.i, %.lr.ph.i19.i ], [ %.369.lcssa.i37.i, %171 ]
-  %128 = zext i32 %.06687.i21.i to i64
+126:                                              ; preds = %171, %.lr.ph.i21.i
+  %127 = phi i32 [ %121, %.lr.ph.i21.i ], [ %172, %171 ]
+  %.16188.i22.i = phi i32 [ %spec.select78.i.i, %.lr.ph.i21.i ], [ %.464.i40.i, %171 ]
+  %.06687.i23.i = phi i32 [ %spec.select.i.i, %.lr.ph.i21.i ], [ %.369.lcssa.i39.i, %171 ]
+  %128 = zext i32 %.06687.i23.i to i64
   %129 = getelementptr i8, ptr %.0.i.i, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr i8, ptr %28, i64 %128
   %132 = load i8, ptr %131, align 1
-  %.not.i22.i = icmp eq i8 %130, %132
-  br i1 %.not.i22.i, label %.critedge.thread.i29.i, label %133
+  %.not.i24.i = icmp eq i8 %130, %132
+  br i1 %.not.i24.i, label %.critedge.thread.i31.i, label %133
 
 133:                                              ; preds = %126
-  %134 = icmp slt i32 %.16188.i20.i, 0
-  %spec.select79.i23.i = select i1 %134, i32 %.06687.i21.i, i32 %.16188.i20.i
+  %134 = icmp slt i32 %.16188.i22.i, 0
+  %spec.select79.i25.i = select i1 %134, i32 %.06687.i23.i, i32 %.16188.i22.i
   br label %135
 
 135:                                              ; preds = %138, %133
-  %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %138 ], [ %128, %133 ]
-  %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
-  %136 = trunc i64 %indvars.iv.next.i25.i to i32
+  %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i27.i, %138 ], [ %128, %133 ]
+  %indvars.iv.next.i27.i = add nuw nsw i64 %indvars.iv.i26.i, 1
+  %136 = trunc nuw i64 %indvars.iv.next.i27.i to i32
   %137 = icmp slt i32 %136, 8192
   br i1 %137, label %138, label %.critedge.i14.i
 
 138:                                              ; preds = %135
-  %139 = getelementptr i8, ptr %.0.i.i, i64 %indvars.iv.next.i25.i
+  %139 = getelementptr i8, ptr %.0.i.i, i64 %indvars.iv.next.i27.i
   %140 = load i8, ptr %139, align 1
-  %141 = getelementptr i8, ptr %28, i64 %indvars.iv.next.i25.i
+  %141 = getelementptr i8, ptr %28, i64 %indvars.iv.next.i27.i
   %142 = load i8, ptr %141, align 1
-  %.not76.i26.i = icmp eq i8 %140, %142
-  br i1 %.not76.i26.i, label %.critedge.thread.loopexit.i27.i, label %135, !llvm.loop !8
+  %.not76.i28.i = icmp eq i8 %140, %142
+  br i1 %.not76.i28.i, label %.critedge.thread.loopexit.i29.i, label %135, !llvm.loop !8
 
-.critedge.thread.loopexit.i27.i:                  ; preds = %138
-  %.pre.i28.i = and i64 %indvars.iv.next.i25.i, 4294967295
-  br label %.critedge.thread.i29.i
+.critedge.thread.loopexit.i29.i:                  ; preds = %138
+  %.pre.i30.i = and i64 %indvars.iv.next.i27.i, 4294967295
+  br label %.critedge.thread.i31.i
 
-.critedge.thread.i29.i:                           ; preds = %.critedge.thread.loopexit.i27.i, %126
-  %.pre-phi.i30.i = phi i64 [ %.pre.i28.i, %.critedge.thread.loopexit.i27.i ], [ %128, %126 ]
-  %.268.i31.i = phi i32 [ %136, %.critedge.thread.loopexit.i27.i ], [ %.06687.i21.i, %126 ]
-  %.363.i32.i = phi i32 [ %spec.select79.i23.i, %.critedge.thread.loopexit.i27.i ], [ %.16188.i20.i, %126 ]
+.critedge.thread.i31.i:                           ; preds = %.critedge.thread.loopexit.i29.i, %126
+  %.pre-phi.i32.i = phi i64 [ %.pre.i30.i, %.critedge.thread.loopexit.i29.i ], [ %128, %126 ]
+  %.268.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06687.i23.i, %126 ]
+  %.363.i34.i = phi i32 [ %spec.select79.i25.i, %.critedge.thread.loopexit.i29.i ], [ %.16188.i22.i, %126 ]
   br label %143
 
-143:                                              ; preds = %146, %.critedge.thread.i29.i
-  %indvars.iv93.i34.i = phi i64 [ %indvars.iv.next94.i35.i, %146 ], [ %.pre-phi.i30.i, %.critedge.thread.i29.i ]
-  %indvars.iv.next94.i35.i = add nuw nsw i64 %indvars.iv93.i34.i, 1
-  %144 = trunc i64 %indvars.iv.next94.i35.i to i32
+143:                                              ; preds = %146, %.critedge.thread.i31.i
+  %indvars.iv93.i36.i = phi i64 [ %indvars.iv.next94.i37.i, %146 ], [ %.pre-phi.i32.i, %.critedge.thread.i31.i ]
+  %indvars.iv.next94.i37.i = add nuw nsw i64 %indvars.iv93.i36.i, 1
+  %144 = trunc nuw i64 %indvars.iv.next94.i37.i to i32
   %145 = icmp slt i32 %144, 8192
-  br i1 %145, label %146, label %.critedge2.i36.i
+  br i1 %145, label %146, label %.critedge2.i38.i
 
 146:                                              ; preds = %143
-  %147 = getelementptr i8, ptr %.0.i.i, i64 %indvars.iv.next94.i35.i
+  %147 = getelementptr i8, ptr %.0.i.i, i64 %indvars.iv.next94.i37.i
   %148 = load i8, ptr %147, align 1
-  %149 = getelementptr i8, ptr %28, i64 %indvars.iv.next94.i35.i
+  %149 = getelementptr i8, ptr %28, i64 %indvars.iv.next94.i37.i
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %148, %150
-  br i1 %151, label %143, label %.critedge2.i36.i, !llvm.loop !9
+  br i1 %151, label %143, label %.critedge2.i38.i, !llvm.loop !9
 
-.critedge2.i36.i:                                 ; preds = %146, %143
-  %.369.lcssa.i37.i = phi i32 [ 8192, %143 ], [ %144, %146 ]
-  %152 = icmp sgt i32 %.363.i32.i, -1
+.critedge2.i38.i:                                 ; preds = %146, %143
+  %.369.lcssa.i39.i = phi i32 [ 8192, %143 ], [ %144, %146 ]
+  %152 = icmp sgt i32 %.363.i34.i, -1
   br i1 %152, label %153, label %171
 
-153:                                              ; preds = %.critedge2.i36.i
-  %154 = sub nsw i32 %.369.lcssa.i37.i, %.268.i31.i
+153:                                              ; preds = %.critedge2.i38.i
+  %154 = sub nsw i32 %.369.lcssa.i39.i, %.268.i33.i
   %155 = icmp ugt i32 %154, 4
   br i1 %155, label %156, label %171
 
 156:                                              ; preds = %153
-  %157 = trunc i32 %.363.i32.i to i16
-  %158 = sub nsw i32 %.268.i31.i, %.363.i32.i
+  %157 = trunc nuw i32 %.363.i34.i to i16
+  %158 = sub nsw i32 %.268.i33.i, %.363.i34.i
   %159 = trunc i32 %158 to i16
-  %160 = zext nneg i32 %.363.i32.i to i64
+  %160 = zext nneg i32 %.363.i34.i to i64
   %161 = getelementptr i8, ptr %28, i64 %160
   %162 = sext i32 %127 to i64
   %163 = getelementptr i8, ptr %124, i64 %162
@@ -450,9 +450,9 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   %164 = getelementptr i8, ptr %163, i64 2
   store i16 %159, ptr %164, align 1
   %165 = getelementptr i8, ptr %163, i64 4
-  %.mask82.i40.i = and i32 %158, 65535
-  %166 = zext nneg i32 %.mask82.i40.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr align 1 %161, i64 %166, i1 false)
+  %.mask82.i42.i = and i32 %158, 65535
+  %166 = zext nneg i32 %.mask82.i42.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr readonly align 1 %161, i64 %166, i1 false)
   %167 = getelementptr i8, ptr %165, i64 %166
   %168 = ptrtoint ptr %167 to i64
   %169 = sub i64 %168, %125
@@ -460,25 +460,25 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   store i32 %170, ptr %44, align 8
   br label %171
 
-171:                                              ; preds = %156, %153, %.critedge2.i36.i
-  %172 = phi i32 [ %170, %156 ], [ %127, %153 ], [ %127, %.critedge2.i36.i ]
-  %.464.i38.i = phi i32 [ -1, %156 ], [ %.363.i32.i, %153 ], [ -1, %.critedge2.i36.i ]
-  %.1.i39.i = phi i32 [ -1, %156 ], [ %.268.i31.i, %153 ], [ %.268.i31.i, %.critedge2.i36.i ]
-  %173 = icmp slt i32 %.369.lcssa.i37.i, 8192
+171:                                              ; preds = %156, %153, %.critedge2.i38.i
+  %172 = phi i32 [ %170, %156 ], [ %127, %153 ], [ %127, %.critedge2.i38.i ]
+  %.464.i40.i = phi i32 [ -1, %156 ], [ %.363.i34.i, %153 ], [ -1, %.critedge2.i38.i ]
+  %.1.i41.i = phi i32 [ -1, %156 ], [ %.268.i33.i, %153 ], [ %.268.i33.i, %.critedge2.i38.i ]
+  %173 = icmp slt i32 %.369.lcssa.i39.i, 8192
   br i1 %173, label %126, label %.critedge.i14.i, !llvm.loop !10
 
 .critedge.i14.i:                                  ; preds = %171, %135, %computeRegionDelta.exit.i
   %174 = phi i32 [ %121, %computeRegionDelta.exit.i ], [ %127, %135 ], [ %172, %171 ]
-  %.5.i15.i = phi i32 [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %spec.select79.i23.i, %135 ], [ %.464.i38.i, %171 ]
-  %.2.i16.i = phi i32 [ -1, %computeRegionDelta.exit.i ], [ -1, %135 ], [ %.1.i39.i, %171 ]
+  %.5.i15.i = phi i32 [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %spec.select79.i25.i, %135 ], [ %.464.i40.i, %171 ]
+  %.2.i16.i = phi i32 [ -1, %computeRegionDelta.exit.i ], [ -1, %135 ], [ %.1.i41.i, %171 ]
   %175 = icmp sgt i32 %.5.i15.i, -1
   br i1 %175, label %176, label %computeDelta.exit
 
 176:                                              ; preds = %.critedge.i14.i
   %177 = icmp slt i32 %.2.i16.i, 0
-  %spec.select81.i17.i = select i1 %177, i32 8192, i32 %.2.i16.i
-  %178 = trunc i32 %.5.i15.i to i16
-  %179 = sub nsw i32 %spec.select81.i17.i, %.5.i15.i
+  %spec.select81.i19.i = select i1 %177, i32 8192, i32 %.2.i16.i
+  %178 = trunc nuw i32 %.5.i15.i to i16
+  %179 = sub nsw i32 %spec.select81.i19.i, %.5.i15.i
   %180 = trunc i32 %179 to i16
   %181 = zext nneg i32 %.5.i15.i to i64
   %182 = getelementptr i8, ptr %28, i64 %181
@@ -489,9 +489,9 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   %186 = getelementptr i8, ptr %185, i64 2
   store i16 %180, ptr %186, align 1
   %187 = getelementptr i8, ptr %185, i64 4
-  %.mask.i18.i = and i32 %179, 65535
-  %188 = zext nneg i32 %.mask.i18.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %187, ptr align 1 %182, i64 %188, i1 false)
+  %.mask.i20.i = and i32 %179, 65535
+  %188 = zext nneg i32 %.mask.i20.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %187, ptr readonly align 1 %182, i64 %188, i1 false)
   %189 = getelementptr i8, ptr %187, i64 %188
   %190 = ptrtoint ptr %189 to i64
   %191 = ptrtoint ptr %183 to i64
@@ -550,7 +550,7 @@ computeDelta.exit:                                ; preds = %176, %.critedge.i14
 222:                                              ; preds = %221
   %223 = tail call i64 @XLogInsert(i8 noundef zeroext 20, i8 noundef zeroext 0) #7
   %224 = lshr i64 %223, 32
-  %225 = trunc i64 %224 to i32
+  %225 = trunc nuw i64 %224 to i32
   %226 = trunc i64 %223 to i32
   br label %227
 
@@ -686,7 +686,7 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = trunc i64 %9 to i32
   br label %14
 
@@ -752,7 +752,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   %47 = zext i16 %.0.copyload2.i to i64
   %48 = getelementptr i8, ptr %.0.i.i, i64 %47
   %49 = zext i16 %.0.copyload.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %46, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %48, ptr align 1 %46, i64 %49, i1 false)
   %50 = getelementptr i8, ptr %46, i64 %49
   %51 = icmp ult ptr %50, %43
   br i1 %51, label %.lr.ph.i, label %applyPageRedo.exit, !llvm.loop !14

@@ -57,7 +57,7 @@ if.end22.i:                                       ; preds = %entry
   %sub.i29.i = sub nuw i32 -2147483648, %and.i28.i
   %cmp3.i30.i = icmp slt i32 %0, 0
   %cond.i31.i = select i1 %cmp3.i30.i, i32 %sub.i29.i, i32 %add.i27.i
-  %sub.i = sub i32 -2147483648, %cond.i31.i
+  %sub.i = sub nuw i32 -2147483648, %cond.i31.i
   %sub32.i = xor i32 %cond.i31.i, -2147483648
   %cmp31.i1 = icmp slt i32 %cond.i31.i, 0
   %cond.i = select i1 %cmp31.i1, i32 %sub32.i, i32 %sub.i
@@ -108,14 +108,14 @@ if.end22:                                         ; preds = %if.else19
 if.then24:                                        ; preds = %if.end22
   %and.i15 = bitcast float %6 to i32
   %cmp.i = icmp ult i32 %and.i15, 8388608
-  %add.i = add i32 %0, 2139095041
+  %add.i = add nuw i32 %0, 2139095041
   %sub.i = sub nuw i32 -2139095041, %and.i15
   %cond.i = select i1 %cmp14.i, i32 %sub.i, i32 %add.i
   %retval.0.i = select i1 %cmp.i, i32 -2147483648, i32 %cond.i
   %7 = tail call float @llvm.fabs.f32(float %actual)
   %and.i16 = bitcast float %7 to i32
   %cmp.i17 = icmp ult i32 %and.i16, 8388608
-  %add.i18 = add i32 %1, 2139095041
+  %add.i18 = add nuw i32 %1, 2139095041
   %sub.i19 = sub nuw i32 -2139095041, %and.i16
   %cmp14.i20 = icmp slt i32 %1, 0
   %cond.i21 = select i1 %cmp14.i20, i32 %sub.i19, i32 %add.i18
@@ -198,8 +198,8 @@ if.end22.i:                                       ; preds = %entry
   %cmp3.i30.i = icmp slt i32 %0, 0
   %cond.i31.i = select i1 %cmp3.i30.i, i32 %sub.i29.i, i32 %add.i27.i
   %cmp31.i = icmp ult i32 %cond.i31.i, -1082130432
-  %sub.i = sub i32 -1082130432, %cond.i31.i
-  %sub32.i = add i32 %cond.i31.i, 1082130432
+  %sub.i = sub nuw i32 -1082130432, %cond.i31.i
+  %sub32.i = add nsw i32 %cond.i31.i, 1082130432
   %cond.i = select i1 %cmp31.i, i32 %sub.i, i32 %sub32.i
   %cmp33.i = icmp ult i32 %cond.i, 3
   br label %_ZN19OpenColorIO_v2_4dev12FloatsDifferEffib.exit
@@ -278,7 +278,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.body.p
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
   %cmp3.i30.i.i = icmp slt i32 %7, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
-  %sub.i.i = sub i32 -2147483648, %cond.i31.i.i
+  %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
   %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
   %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
@@ -385,8 +385,8 @@ _ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit: ; preds = %for.body.pr
   %cmp3.i30.i.i = icmp slt i32 %7, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %cmp31.i.i = icmp ult i32 %cond.i31.i.i, -1082130432
-  %sub.i.i = sub i32 -1082130432, %cond.i31.i.i
-  %sub32.i.i = add i32 %cond.i31.i.i, 1082130432
+  %sub.i.i = sub nuw i32 -1082130432, %cond.i31.i.i
+  %sub32.i.i = add nsw i32 %cond.i31.i.i, 1082130432
   %cond.i.i = select i1 %cmp31.i.i, i32 %sub.i.i, i32 %sub32.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %for.cond, label %return
@@ -537,13 +537,13 @@ for.cond1.preheader:                              ; preds = %entry, %for.inc12
   %indvars.iv33 = phi i64 [ 0, %entry ], [ %indvars.iv.next34, %for.inc12 ]
   %cmp28 = phi i1 [ false, %entry ], [ %cmp, %for.inc12 ]
   %0 = shl nuw nsw i64 %indvars.iv33, 2
-  %invariant.gep = getelementptr float, ptr %m44, i64 %0
+  %invariant.gep = getelementptr inbounds float, ptr %m44, i64 %0
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.inc ]
   %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv33
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
   %1 = load float, ptr %gep, align 4
   %2 = bitcast float %1 to i32
   %3 = and i32 %2, 2139095040
@@ -562,8 +562,8 @@ _ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit: ; preds = %if.then
   %cmp3.i30.i.i = icmp slt i32 %2, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %cmp31.i.i = icmp ult i32 %cond.i31.i.i, -1082130432
-  %sub.i.i = sub i32 -1082130432, %cond.i31.i.i
-  %sub32.i.i = add i32 %cond.i31.i.i, 1082130432
+  %sub.i.i = sub nuw i32 -1082130432, %cond.i31.i.i
+  %sub32.i.i = add nsw i32 %cond.i31.i.i, 1082130432
   %cond.i.i = select i1 %cmp31.i.i, i32 %sub.i.i, i32 %sub32.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %for.inc, label %return
@@ -579,7 +579,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %if.else
   %sub.i29.i.i13 = sub nuw i32 -2147483648, %and.i28.i.i12
   %cmp3.i30.i.i14 = icmp slt i32 %2, 0
   %cond.i31.i.i15 = select i1 %cmp3.i30.i.i14, i32 %sub.i29.i.i13, i32 %add.i27.i.i11
-  %sub.i.i16 = sub i32 -2147483648, %cond.i31.i.i15
+  %sub.i.i16 = sub nuw i32 -2147483648, %cond.i31.i.i15
   %sub32.i.i17 = xor i32 %cond.i31.i.i15, -2147483648
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i15, 0
   %cond.i.i18 = select i1 %cmp31.i1.i, i32 %sub32.i.i17, i32 %sub.i.i16
@@ -611,13 +611,13 @@ for.cond1.preheader:                              ; preds = %entry, %for.inc12
   %indvars.iv34 = phi i64 [ 0, %entry ], [ %indvars.iv.next35, %for.inc12 ]
   %cmp29 = phi i1 [ false, %entry ], [ %cmp, %for.inc12 ]
   %0 = shl nuw nsw i64 %indvars.iv34, 2
-  %invariant.gep = getelementptr double, ptr %m44, i64 %0
+  %invariant.gep = getelementptr inbounds double, ptr %m44, i64 %0
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.inc ]
   %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv34
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
   %1 = load double, ptr %gep, align 8
   %conv.i = fptrunc double %1 to float
   %2 = bitcast float %conv.i to i32
@@ -697,7 +697,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %entry
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
   %cmp3.i30.i.i = icmp slt i32 %0, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
-  %sub.i.i = sub i32 -2147483648, %cond.i31.i.i
+  %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
   %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
   %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
@@ -743,7 +743,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.body
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
   %cmp3.i30.i.i = icmp slt i32 %2, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
-  %sub.i.i = sub i32 -2147483648, %cond.i31.i.i
+  %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
   %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
   %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
@@ -791,8 +791,8 @@ _ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit: ; preds = %for.body
   %cmp3.i30.i.i = icmp slt i32 %2, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %cmp31.i.i = icmp ult i32 %cond.i31.i.i, -1082130432
-  %sub.i.i = sub i32 -1082130432, %cond.i31.i.i
-  %sub32.i.i = add i32 %cond.i31.i.i, 1082130432
+  %sub.i.i = sub nuw i32 -1082130432, %cond.i31.i.i
+  %sub32.i.i = add nsw i32 %cond.i31.i.i, 1082130432
   %cond.i.i = select i1 %cmp31.i.i, i32 %sub.i.i, i32 %sub32.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %return, label %for.inc
@@ -860,7 +860,7 @@ if.else9.i.i:                                     ; preds = %entry
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !17
+  %1 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %1, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -910,7 +910,7 @@ for.body:                                         ; preds = %entry, %for.body
   store double %conv, ptr %arrayidx2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
   %arrayidx3 = getelementptr inbounds i8, ptr %m, i64 32
@@ -993,7 +993,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.end
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
   %cmp3.i30.i.i = icmp slt i32 %43, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
-  %sub.i.i = sub i32 -2147483648, %cond.i31.i.i
+  %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
   %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
   %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
@@ -1379,7 +1379,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store float %add.i, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit, label %for.body.i, !llvm.loop !18
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit: ; preds = %for.body.i
   ret void
@@ -1403,7 +1403,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %fneg, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %v.sroa.0.0.copyload.i = load float, ptr %v, align 16
@@ -1597,7 +1597,6 @@ attributes #12 = { nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 9, i32 33}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

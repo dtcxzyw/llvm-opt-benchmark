@@ -86,7 +86,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default
@@ -137,7 +137,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev23GetBitdepthFromMaxValueEj(i32 noundef %maxValue) local_unnamed_addr #4 {
+define hidden noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_4dev23GetBitdepthFromMaxValueEj(i32 noundef %maxValue) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i32 %maxValue, 128
   br i1 %cmp, label %return, label %if.else
@@ -220,13 +220,13 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.cast = trunc i32 %switch.tableidx to i8
+  %switch.cast = trunc nuw i32 %switch.tableidx to i8
   %switch.downshift = lshr i8 -64, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
   ret i1 %switch.masked
@@ -240,7 +240,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %in) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 5) i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %in) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -299,7 +299,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default

@@ -58,14 +58,14 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ten
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 20
-  %.03.i8.i.i = load i32, ptr %13, align 4, !alias.scope !13, !noalias !14, !noundef !4
+  %.03.i.i.i = load i32, ptr %13, align 4, !alias.scope !13, !noalias !14, !noundef !4
   %14 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %14)
   br label %.sink.split.i.i
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %10, i64 8
-  %.03.i.i.i = load i32, ptr %16, align 4, !noalias !17, !noundef !4
+  %.03.i8.i.i = load i32, ptr %16, align 4, !noalias !17, !noundef !4
   %17 = load i64, ptr %10, align 8, !noalias !13, !noundef !4
   %18 = add i64 %17, -1
   store i64 %18, ptr %10, align 8, !noalias !13
@@ -73,8 +73,8 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ten
   br i1 %19, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 
 .sink.split.i.i:                                  ; preds = %15, %12
-  %.03.i.sink.i.i = phi i32 [ %.03.i8.i.i, %12 ], [ %.03.i.i.i, %15 ]
-  %20 = zext i32 %.03.i.sink.i.i to i64
+  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %12 ], [ %.03.i8.i.i, %15 ]
+  %20 = zext i32 %.03.i8.sink.i.i to i64
   %21 = add nuw nsw i64 %20, 15
   %22 = and i64 %21, 8589934576
   %23 = add nuw nsw i64 %22, 16
@@ -324,7 +324,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$l
 15:                                               ; preds = %13
   %16 = getelementptr inbounds [0 x { { { i8 } }, [7 x i8], ptr }], ptr %2, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16) #18
+  invoke void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17hb2389fcfa039ff82E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16) #18
           to label %13 unwind label %18
 
 18:                                               ; preds = %15
@@ -599,14 +599,14 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attr
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %.03.i8.i.i = load i32, ptr %14, align 4, !alias.scope !178, !noalias !179, !noundef !4
+  %.03.i.i.i = load i32, ptr %14, align 4, !alias.scope !178, !noalias !179, !noundef !4
   %15 = icmp ne i64 %10, 0
   tail call void @llvm.assume(i1 %15)
   br label %.sink.split.i.i
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %.03.i.i.i = load i32, ptr %17, align 4, !noalias !182, !noundef !4
+  %.03.i8.i.i = load i32, ptr %17, align 4, !noalias !182, !noundef !4
   %18 = load i64, ptr %11, align 8, !noalias !178, !noundef !4
   %19 = add i64 %18, -1
   store i64 %19, ptr %11, align 8, !noalias !178
@@ -614,8 +614,8 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attr
   br i1 %20, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit"
 
 .sink.split.i.i:                                  ; preds = %16, %13
-  %.03.i.sink.i.i = phi i32 [ %.03.i8.i.i, %13 ], [ %.03.i.i.i, %16 ]
-  %21 = zext i32 %.03.i.sink.i.i to i64
+  %.03.i8.sink.i.i = phi i32 [ %.03.i.i.i, %13 ], [ %.03.i8.i.i, %16 ]
+  %21 = zext i32 %.03.i8.sink.i.i to i64
   %22 = add nuw nsw i64 %21, 15
   %23 = and i64 %22, 8589934576
   %24 = add nuw nsw i64 %23, 16
@@ -636,14 +636,14 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
   %4 = getelementptr inbounds [0 x { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h1d807ffaec19e144E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h1d807ffaec19e144E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %8 unwind label %.body
 
 .body:                                            ; preds = %.lr.ph
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #18
+  tail call void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7) #18
   br label %29
 
 8:                                                ; preds = %.lr.ph
@@ -663,14 +663,14 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %4, i64 36
-  %.03.i8.i.i.i = load i32, ptr %17, align 4, !alias.scope !192, !noalias !193, !noundef !4
+  %.03.i.i.i.i = load i32, ptr %17, align 4, !alias.scope !192, !noalias !193, !noundef !4
   %18 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %18)
   br label %.sink.split.i.i.i
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %14, i64 8
-  %.03.i.i.i.i = load i32, ptr %20, align 4, !noalias !196, !noundef !4
+  %.03.i8.i.i.i = load i32, ptr %20, align 4, !noalias !196, !noundef !4
   %21 = load i64, ptr %14, align 8, !noalias !192, !noundef !4
   %22 = add i64 %21, -1
   store i64 %22, ptr %14, align 8, !noalias !192
@@ -678,8 +678,8 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
   br i1 %23, label %.sink.split.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$markup5ever..interface..Attribute$GT$17hbe5f7200c00cd100E.llvm.5870598909725602671.exit"
 
 .sink.split.i.i.i:                                ; preds = %19, %16
-  %.03.i.sink.i.i.i = phi i32 [ %.03.i8.i.i.i, %16 ], [ %.03.i.i.i.i, %19 ]
-  %24 = zext i32 %.03.i.sink.i.i.i to i64
+  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %16 ], [ %.03.i8.i.i.i, %19 ]
+  %24 = zext i32 %.03.i8.sink.i.i.i to i64
   %25 = add nuw nsw i64 %24, 15
   %26 = and i64 %25, 8589934576
   %27 = add nuw nsw i64 %26, 16
@@ -738,14 +738,14 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_r
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 20
-  %.03.i8.i.i.i = load i32, ptr %13, align 4, !alias.scope !206, !noalias !207, !noundef !4
+  %.03.i.i.i.i = load i32, ptr %13, align 4, !alias.scope !206, !noalias !207, !noundef !4
   %14 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %14)
   br label %.sink.split.i.i.i
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %10, i64 8
-  %.03.i.i.i.i = load i32, ptr %16, align 4, !noalias !210, !noundef !4
+  %.03.i8.i.i.i = load i32, ptr %16, align 4, !noalias !210, !noundef !4
   %17 = load i64, ptr %10, align 8, !noalias !206, !noundef !4
   %18 = add i64 %17, -1
   store i64 %18, ptr %10, align 8, !noalias !206
@@ -753,8 +753,8 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_r
   br i1 %19, label %.sink.split.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h23157c58c58c6d9fE.llvm.5870598909725602671.exit"
 
 .sink.split.i.i.i:                                ; preds = %15, %12
-  %.03.i.sink.i.i.i = phi i32 [ %.03.i8.i.i.i, %12 ], [ %.03.i.i.i.i, %15 ]
-  %20 = zext i32 %.03.i.sink.i.i.i to i64
+  %.03.i8.sink.i.i.i = phi i32 [ %.03.i.i.i.i, %12 ], [ %.03.i8.i.i.i, %15 ]
+  %20 = zext i32 %.03.i8.sink.i.i.i to i64
   %21 = add nuw nsw i64 %20, 15
   %22 = and i64 %21, 8589934576
   %23 = add nuw nsw i64 %22, 16
@@ -781,14 +781,14 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %.03.i8.i = load i32, ptr %9, align 4, !alias.scope !211, !noalias !214, !noundef !4
+  %.03.i.i = load i32, ptr %9, align 4, !alias.scope !211, !noalias !214, !noundef !4
   %10 = icmp ne i64 %5, 0
   tail call void @llvm.assume(i1 %10)
   br label %.sink.split.i
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %.03.i.i = load i32, ptr %12, align 4, !noalias !217, !noundef !4
+  %.03.i8.i = load i32, ptr %12, align 4, !noalias !217, !noundef !4
   %13 = load i64, ptr %6, align 8, !noalias !211, !noundef !4
   %14 = add i64 %13, -1
   store i64 %14, ptr %6, align 8, !noalias !211
@@ -796,8 +796,8 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT
   br i1 %15, label %.sink.split.i, label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he441cd10ab3a275aE.llvm.5870598909725602671.exit"
 
 .sink.split.i:                                    ; preds = %11, %8
-  %.03.i.sink.i = phi i32 [ %.03.i8.i, %8 ], [ %.03.i.i, %11 ]
-  %16 = zext i32 %.03.i.sink.i to i64
+  %.03.i8.sink.i = phi i32 [ %.03.i.i, %8 ], [ %.03.i8.i, %11 ]
+  %16 = zext i32 %.03.i8.sink.i to i64
   %17 = add nuw nsw i64 %16, 15
   %18 = and i64 %17, 8589934576
   %19 = add nuw nsw i64 %18, 16
@@ -989,7 +989,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hfe445f1a6
   %10 = add i64 %1, -1
   %11 = icmp sgt i64 %10, -1
   tail call void @llvm.assume(i1 %11)
-  %12 = sub i64 -9223372036854775808, %1
+  %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
   %14 = icmp ult i64 %13, %2
   br i1 %14, label %15, label %5
@@ -1253,7 +1253,7 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3ea
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit"
 
 20:                                               ; preds = %15
-  %21 = trunc i64 %3 to i32
+  %21 = trunc nuw nsw i64 %3 to i32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit": ; preds = %13, %17, %20
@@ -1265,7 +1265,7 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3ea
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.03, ptr %.sroa.5.0..sroa_idx, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = trunc i64 %6 to i8
+  %24 = trunc nuw nsw i64 %6 to i8
   store i8 %24, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %.0, ptr %25, align 4
@@ -1356,14 +1356,14 @@ define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %.03.i8 = load i32, ptr %9, align 4, !noalias !305, !noundef !4
+  %.03.i = load i32, ptr %9, align 4, !noalias !305, !noundef !4
   %10 = icmp ne i64 %5, 0
   tail call void @llvm.assume(i1 %10)
   br label %.sink.split
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %.03.i = load i32, ptr %12, align 4, !noalias !305, !noundef !4
+  %.03.i8 = load i32, ptr %12, align 4, !noalias !305, !noundef !4
   %13 = load i64, ptr %6, align 8, !noundef !4
   %14 = add i64 %13, -1
   store i64 %14, ptr %6, align 8
@@ -1371,8 +1371,8 @@ define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20
   br i1 %15, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %11, %8
-  %.03.i.sink = phi i32 [ %.03.i8, %8 ], [ %.03.i, %11 ]
-  %16 = zext i32 %.03.i.sink to i64
+  %.03.i8.sink = phi i32 [ %.03.i, %8 ], [ %.03.i8, %11 ]
+  %16 = zext i32 %.03.i8.sink to i64
   %17 = add nuw nsw i64 %16, 15
   %18 = and i64 %17, 8589934576
   %19 = add nuw nsw i64 %18, 16

@@ -139,7 +139,7 @@ define dso_local ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @llvm_atomic_ordering(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 8) i32 @llvm_atomic_ordering(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 7
   br i1 %2, label %switch.lookup, label %3
 

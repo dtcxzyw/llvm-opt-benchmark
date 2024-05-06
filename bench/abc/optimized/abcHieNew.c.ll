@@ -72,10 +72,10 @@ define noundef ptr @Au_NtkAlloc(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %.not.i, label %Vec_PtrGrow.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #30
-  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #31
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #31
   br label %Vec_PtrGrow.exit
 
 Vec_PtrGrow.exit:                                 ; preds = %2, %4
@@ -641,10 +641,10 @@ define noalias noundef ptr @Au_ManAlloc(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Vec_PtrPush.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #30
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #31
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #31
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %1, %3
@@ -718,7 +718,7 @@ define i32 @Au_ManFindNtk(ptr nocapture noundef readonly %0, ptr nocapture nound
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !9
 
 .critedge.loopexit.split.loop.exit15:             ; preds = %6
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %.critedge.loopexit.split.loop.exit15, %2
@@ -747,7 +747,7 @@ define ptr @Au_ManFindNtkP(ptr nocapture noundef readonly %0, ptr nocapture noun
   %7 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.val9.i = load ptr, ptr %8, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull dereferenceable(1) %1) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %Au_ManFindNtk.exit, label %10
 
@@ -1371,7 +1371,7 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
   %109 = phi i32 [ %106, %.lr.ph.i ], [ %102, %.lr.ph.i.preheader ]
   %110 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
-  %112 = trunc i64 %indvars.iv.i to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   %113 = xor i32 %112, -1
   %114 = add i32 %109, %113
   %115 = sext i32 %114 to i64
@@ -1551,7 +1551,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 184:                                              ; preds = %181
   %185 = sext i32 %183 to i64
   %186 = getelementptr inbounds i32, ptr %.val19.i, i64 %185
-  %187 = trunc i64 %indvars.iv.i143 to i32
+  %187 = trunc nuw nsw i64 %indvars.iv.i143 to i32
   store i32 %187, ptr %186, align 4
   br label %188
 
@@ -1647,7 +1647,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntInvert.exit,
   %236 = phi i64 [ %224, %.lr.ph164 ], [ %256, %234 ]
   %.0163 = phi i32 [ 0, %.lr.ph164 ], [ %239, %234 ]
   %237 = load ptr, ptr %233, align 8
-  %238 = trunc i64 %235 to i32
+  %238 = trunc nuw nsw i64 %235 to i32
   %239 = add nuw nsw i32 %.0163, 1
   %240 = add nuw i32 %239, %238
   %241 = sext i32 %240 to i64
@@ -2465,7 +2465,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Au_NtkCheckRecursive(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Au_NtkCheckRecursive(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3617,7 +3617,7 @@ Au_NtkCreateFan.exit.us:                          ; preds = %.lr.ph37, %Au_NtkCr
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds %struct.Au_Obj_t_, ptr %39, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 12
-  %44 = trunc i64 %indvars.iv43 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv43 to i32
   store i32 %44, ptr %43, align 4
   %45 = load i64, ptr %42, align 4
   %46 = and i64 %45, -1073741824
@@ -3644,7 +3644,7 @@ Au_NtkCreateFan.exit:                             ; preds = %.lr.ph37, %Au_NtkCr
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   store i32 %30, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %57, i64 12
-  %60 = trunc i64 %indvars.iv40 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv40 to i32
   store i32 %60, ptr %59, align 4
   %61 = load i64, ptr %57, align 4
   %62 = and i64 %61, -1073741824
@@ -3780,10 +3780,10 @@ Vec_IntPush.exit202:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i.i, label %Au_ManAlloc.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %53 = add i64 %52, 1
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #30
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %0) #31
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %0) #31
   br label %Au_ManAlloc.exit
 
 Au_ManAlloc.exit:                                 ; preds = %49, %51
@@ -3834,7 +3834,7 @@ Au_ManAlloc.exit:                                 ; preds = %49, %51
   ]
 
 78:                                               ; preds = %76
-  %79 = trunc i64 %indvars.iv338 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv338 to i32
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %79, ptr noundef %73)
   br label %.critedge2
 
@@ -4432,7 +4432,7 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph314:                                        ; preds = %._crit_edge310, %Vec_IntPush.exit269
   %372 = phi i64 [ %407, %Vec_IntPush.exit269 ], [ %368, %._crit_edge310 ]
   %.3312 = phi i32 [ %374, %Vec_IntPush.exit269 ], [ 0, %._crit_edge310 ]
-  %373 = trunc i64 %372 to i32
+  %373 = trunc nuw nsw i64 %372 to i32
   %374 = add nuw nsw i32 %.3312, 1
   %375 = add nuw i32 %374, %373
   %376 = sext i32 %375 to i64
@@ -4689,7 +4689,7 @@ Au_NtkCreatePo.exit:                              ; preds = %476, %480
   br i1 %.not182, label %.critedge2, label %492
 
 492:                                              ; preds = %490
-  %493 = trunc i64 %indvars.iv338 to i32
+  %493 = trunc nuw nsw i64 %indvars.iv338 to i32
   %494 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %493, ptr noundef %73)
   br label %.critedge2
 
@@ -4791,7 +4791,7 @@ Vec_IntFree.exit289:                              ; preds = %Vec_IntFree.exit287
   %526 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i292
   %527 = load ptr, ptr %526, align 8
   %.val9.i = load ptr, ptr %527, align 8
-  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull dereferenceable(1) %523) #29
+  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull readonly dereferenceable(1) %523) #29
   %.not.i293 = icmp eq i32 %528, 0
   br i1 %.not.i293, label %Au_ManFindNtk.exit, label %529
 
@@ -4825,7 +4825,7 @@ Au_ManFindNtk.exit:                               ; preds = %525, %529, %521
   %544 = phi i64 [ %532, %.lr.ph323 ], [ %564, %542 ]
   %.0159322 = phi i32 [ 0, %.lr.ph323 ], [ %547, %542 ]
   %545 = load ptr, ptr %541, align 8
-  %546 = trunc i64 %543 to i32
+  %546 = trunc nuw nsw i64 %543 to i32
   %547 = add nuw nsw i32 %.0159322, 1
   %548 = add nuw i32 %547, %546
   %549 = sext i32 %548 to i64
@@ -5228,7 +5228,7 @@ define void @Au_NtkDeriveFlatGia_rec(ptr noundef %0, ptr nocapture noundef reado
   %23 = and i32 %18, 4095
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds %struct.Au_Obj_t_, ptr %22, i64 %24
-  %26 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %0), !range !52
+  %26 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %0)
   %27 = ptrtoint ptr %25 to i64
   %28 = and i64 %27, 1023
   %29 = sub nsw i64 0, %28
@@ -5249,7 +5249,7 @@ define void @Au_NtkDeriveFlatGia_rec(ptr noundef %0, ptr nocapture noundef reado
   %.val115 = load i32, ptr %12, align 4
   %41 = sext i32 %.val115 to i64
   %42 = icmp slt i64 %indvars.iv.next198, %41
-  br i1 %42, label %16, label %.critedge2, !llvm.loop !53
+  br i1 %42, label %16, label %.critedge2, !llvm.loop !52
 
 .critedge4.preheader:                             ; preds = %.critedge10, %.preheader
   %43 = getelementptr i8, ptr %1, i64 44
@@ -5344,7 +5344,7 @@ define void @Au_NtkDeriveFlatGia_rec(ptr noundef %0, ptr nocapture noundef reado
   %.val122 = load i64, ptr %56, align 4
   %97 = lshr i64 %.val122, 35
   %98 = icmp ult i64 %indvars.iv.next189, %97
-  br i1 %98, label %68, label %.critedge6, !llvm.loop !54
+  br i1 %98, label %68, label %.critedge6, !llvm.loop !53
 
 .critedge6:                                       ; preds = %68, %62
   %99 = call i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %65) #31
@@ -5602,7 +5602,7 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   %.val121 = load i64, ptr %56, align 4
   %285 = lshr i64 %.val121, 35
   %286 = icmp ult i64 %indvars.iv.next, %285
-  br i1 %286, label %234, label %.critedge8, !llvm.loop !55
+  br i1 %286, label %234, label %.critedge8, !llvm.loop !54
 
 .critedge8:                                       ; preds = %234, %Au_NtkCleanCopy.exit
   call void @Au_NtkDeriveFlatGia_rec(ptr noundef %0, ptr noundef nonnull %206)
@@ -5687,7 +5687,7 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   %351 = load i32, ptr %350, align 4
   %352 = sext i32 %351 to i64
   %353 = icmp slt i64 %indvars.iv.next186, %352
-  br i1 %353, label %295, label %.critedge10, !llvm.loop !56
+  br i1 %353, label %295, label %.critedge10, !llvm.loop !55
 
 354:                                              ; preds = %47
   %355 = ptrtoint ptr %56 to i64
@@ -5721,7 +5721,7 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   %.val114 = load i32, ptr %5, align 4
   %369 = sext i32 %.val114 to i64
   %370 = icmp slt i64 %indvars.iv.next192, %369
-  br i1 %370, label %47, label %.critedge4.preheader, !llvm.loop !57
+  br i1 %370, label %47, label %.critedge4.preheader, !llvm.loop !56
 
 .critedge4:                                       ; preds = %.lr.ph177, %.critedge4
   %indvars.iv194 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next195, %.critedge4 ]
@@ -5786,14 +5786,14 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   %.val113 = load i32, ptr %43, align 4
   %422 = sext i32 %.val113 to i64
   %423 = icmp slt i64 %indvars.iv.next195, %422
-  br i1 %423, label %.critedge4, label %.critedge2, !llvm.loop !58
+  br i1 %423, label %.critedge4, label %.critedge2, !llvm.loop !57
 
 .critedge2:                                       ; preds = %.critedge4, %16, %.critedge4.preheader, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -5966,10 +5966,10 @@ Au_NtkCleanCopy.exit:                             ; preds = %23, %Vec_IntGrow.ex
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %28
 
 28:                                               ; preds = %Au_NtkCleanCopy.exit
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #29
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #29
   %30 = add i64 %29, 1
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #30
-  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.val) #31
+  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %.val) #31
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Au_NtkCleanCopy.exit, %28
@@ -6003,7 +6003,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Au_NtkCleanCopy.exi
   %48 = and i32 %43, 4095
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds %struct.Au_Obj_t_, ptr %47, i64 %49
-  %51 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %27), !range !52
+  %51 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %27)
   %52 = ptrtoint ptr %50 to i64
   %53 = and i64 %52, 1023
   %54 = sub nsw i64 0, %53
@@ -6024,7 +6024,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Au_NtkCleanCopy.exi
   %.val30 = load i32, ptr %37, align 4
   %66 = sext i32 %.val30 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %41, label %.critedge, !llvm.loop !59
+  br i1 %67, label %41, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %41, %Abc_UtilStrsav.exit
   tail call void @Au_NtkDeriveFlatGia_rec(ptr noundef nonnull %27, ptr noundef nonnull %0)
@@ -6189,7 +6189,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %.val29 = load i32, ptr %68, align 4
   %167 = sext i32 %.val29 to i64
   %168 = icmp slt i64 %indvars.iv.next48, %167
-  br i1 %168, label %75, label %.critedge2, !llvm.loop !60
+  br i1 %168, label %75, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %Gia_ManAppendCo.exit, %.critedge
   tail call void @Gia_ManHashStop(ptr noundef nonnull %27) #31
@@ -6253,7 +6253,7 @@ define void @Au_NtkTerSimulate_rec(ptr nocapture noundef readonly %0) local_unna
   %.val94 = load i32, ptr %2, align 4
   %23 = sext i32 %.val94 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %7, label %.critedge, !llvm.loop !61
+  br i1 %24, label %7, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %7, %1
   %.val = load ptr, ptr %0, align 8
@@ -6304,7 +6304,7 @@ define void @Au_NtkTerSimulate_rec(ptr nocapture noundef readonly %0) local_unna
   %.val93 = load i32, ptr %33, align 4
   %49 = sext i32 %.val93 to i64
   %50 = icmp slt i64 %indvars.iv.next217, %49
-  br i1 %50, label %37, label %.critedge2, !llvm.loop !62
+  br i1 %50, label %37, label %.critedge2, !llvm.loop !61
 
 .critedge4.preheader:                             ; preds = %.critedge8, %.preheader
   %.0.lcssa = phi ptr [ null, %.preheader ], [ %69, %.critedge8 ]
@@ -6625,7 +6625,7 @@ Au_XsimMux.exit:                                  ; preds = %159, %208, %209, %2
   %.val99 = load i64, ptr %69, align 4
   %258 = lshr i64 %.val99, 35
   %259 = icmp ult i64 %indvars.iv.next202, %258
-  br i1 %259, label %232, label %.critedge6, !llvm.loop !63
+  br i1 %259, label %232, label %.critedge6, !llvm.loop !62
 
 .critedge6:                                       ; preds = %232, %218
   tail call void @Au_NtkTerSimulate_rec(ptr noundef %228)
@@ -6684,7 +6684,7 @@ Au_XsimMux.exit:                                  ; preds = %159, %208, %209, %2
   %299 = load i32, ptr %298, align 4
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %indvars.iv.next205, %300
-  br i1 %301, label %268, label %.critedge8, !llvm.loop !64
+  br i1 %301, label %268, label %.critedge8, !llvm.loop !63
 
 302:                                              ; preds = %60
   %303 = and i64 %.val97, -28991029249
@@ -6702,7 +6702,7 @@ Au_XsimMux.exit:                                  ; preds = %159, %208, %209, %2
   %.val92 = load i32, ptr %27, align 4
   %305 = sext i32 %.val92 to i64
   %306 = icmp slt i64 %indvars.iv.next208, %305
-  br i1 %306, label %60, label %.critedge4.preheader, !llvm.loop !65
+  br i1 %306, label %60, label %.critedge4.preheader, !llvm.loop !64
 
 .critedge10.preheader:                            ; preds = %.critedge4
   %307 = icmp sgt i32 %.val91, 0
@@ -6759,7 +6759,7 @@ Au_XsimMux.exit:                                  ; preds = %159, %208, %209, %2
   %.val91 = load i32, ptr %51, align 4
   %340 = sext i32 %.val91 to i64
   %341 = icmp slt i64 %indvars.iv.next211, %340
-  br i1 %341, label %.critedge4, label %.critedge10.preheader, !llvm.loop !66
+  br i1 %341, label %.critedge4, label %.critedge10.preheader, !llvm.loop !65
 
 .critedge10:                                      ; preds = %.lr.ph195, %.critedge10
   %indvars.iv213 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next214, %.critedge10 ]
@@ -6790,7 +6790,7 @@ Au_XsimMux.exit:                                  ; preds = %159, %208, %209, %2
   %.val90 = load i32, ptr %51, align 4
   %357 = sext i32 %.val90 to i64
   %358 = icmp slt i64 %indvars.iv.next214, %357
-  br i1 %358, label %.critedge10, label %.critedge2, !llvm.loop !67
+  br i1 %358, label %.critedge10, label %.critedge2, !llvm.loop !66
 
 .critedge2:                                       ; preds = %.critedge10, %37, %.critedge4.preheader, %.critedge10.preheader, %31
   ret void
@@ -6830,7 +6830,7 @@ define void @Au_NtkTerSimulate(ptr nocapture noundef readonly %0) local_unnamed_
   %.val31 = load i32, ptr %3, align 4
   %19 = sext i32 %.val31 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %7, label %.critedge, !llvm.loop !68
+  br i1 %20, label %7, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %7, %1
   %21 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6881,7 +6881,7 @@ define void @Au_NtkTerSimulate(ptr nocapture noundef readonly %0) local_unnamed_
   %.sroa.0.1 = add nuw nsw i32 %.sroa.0.041, %47
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %32, !llvm.loop !69
+  br i1 %exitcond.not, label %.critedge2, label %32, !llvm.loop !68
 
 .critedge2:                                       ; preds = %32, %.critedge
   %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ %.sroa.0.1, %32 ]
@@ -6945,7 +6945,7 @@ define noundef ptr @Au_NtkDerive(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %.val76.val = load i32, ptr %20, align 4
   %21 = sext i32 %.val76.val to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !70
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %.lr.ph, %3
   %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #30
@@ -7075,7 +7075,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val85 = load i32, ptr %37, align 4
   %79 = sext i32 %.val85 to i64
   %80 = icmp slt i64 %indvars.iv.next140, %79
-  br i1 %80, label %41, label %.critedge4, !llvm.loop !71
+  br i1 %80, label %41, label %.critedge4, !llvm.loop !70
 
 .critedge4:                                       ; preds = %Vec_IntPush.exit, %.preheader
   %81 = load ptr, ptr %31, align 8
@@ -7225,7 +7225,7 @@ Vec_IntPush.exit107:                              ; preds = %.Vec_IntGrow.exit10
   %.val86 = load i32, ptr %37, align 4
   %156 = sext i32 %.val86 to i64
   %157 = icmp slt i64 %indvars.iv.next134, %156
-  br i1 %157, label %112, label %.critedge6, !llvm.loop !72
+  br i1 %157, label %112, label %.critedge6, !llvm.loop !71
 
 .critedge6:                                       ; preds = %Vec_IntPush.exit107, %.preheader110
   %158 = getelementptr i8, ptr %34, i64 44
@@ -7291,14 +7291,14 @@ Vec_IntPush.exit107:                              ; preds = %.Vec_IntGrow.exit10
   %.val96 = load i32, ptr %158, align 4
   %196 = sext i32 %.val96 to i64
   %197 = icmp slt i64 %indvars.iv.next137, %196
-  br i1 %197, label %175, label %.critedge8, !llvm.loop !73
+  br i1 %197, label %175, label %.critedge8, !llvm.loop !72
 
 .critedge8:                                       ; preds = %175, %.critedge6, %Au_NtkCreateNode.exit
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %.val = load i32, ptr %27, align 4
   %198 = sext i32 %.val to i64
   %199 = icmp slt i64 %indvars.iv.next143, %198
-  br i1 %199, label %32, label %.critedge2.loopexit, !llvm.loop !74
+  br i1 %199, label %32, label %.critedge2.loopexit, !llvm.loop !73
 
 .critedge2.loopexit:                              ; preds = %.critedge8
   %.pre = load ptr, ptr %26, align 8
@@ -7370,7 +7370,7 @@ Au_NtkCreatePo.exit:                              ; preds = %206, %219
   %.val99.val = load i32, ptr %228, align 4
   %229 = sext i32 %.val99.val to i64
   %230 = icmp slt i64 %indvars.iv.next146, %229
-  br i1 %230, label %206, label %.critedge10, !llvm.loop !75
+  br i1 %230, label %206, label %.critedge10, !llvm.loop !74
 
 .critedge10:                                      ; preds = %Au_NtkCreatePo.exit, %Vec_IntFree.exit
   ret ptr %5
@@ -7437,10 +7437,10 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit, %20
   br i1 %.not.i.i, label %Au_ManAlloc.exit, label %29
 
 29:                                               ; preds = %Abc_Clock.exit50
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #29
+  %30 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #29
   %31 = add i64 %30, 1
   %32 = call noalias ptr @malloc(i64 noundef %31) #30
-  %33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %27) #31
+  %33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %27) #31
   br label %Au_ManAlloc.exit
 
 Au_ManAlloc.exit:                                 ; preds = %Abc_Clock.exit50, %29
@@ -7550,7 +7550,7 @@ Vec_PtrFree.exit:                                 ; preds = %Abc_Clock.exit56, %
   %.val = load i32, ptr %52, align 4
   %84 = sext i32 %.val to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %57, label %.critedge, !llvm.loop !76
+  br i1 %85, label %57, label %.critedge, !llvm.loop !75
 
 .critedge:                                        ; preds = %Vec_PtrFree.exit, %Abc_Clock.exit52
   %.044.lcssa = phi ptr [ null, %Abc_Clock.exit52 ], [ %66, %Vec_PtrFree.exit ]
@@ -7585,7 +7585,7 @@ Vec_PtrFree.exit58:                               ; preds = %.critedge, %88
   %93 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
   %94 = load ptr, ptr %93, align 8
   %.val9.i.i = load ptr, ptr %94, align 8
-  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull dereferenceable(15) @.str.44) #29
+  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull readonly dereferenceable(15) @.str.44) #29
   %.not.i.i60 = icmp eq i32 %95, 0
   br i1 %.not.i.i60, label %Au_ManFindNtk.exit.i, label %96
 
@@ -7848,7 +7848,7 @@ Abc_Clock.exit32:                                 ; preds = %30, %33
   %53 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
   %54 = load ptr, ptr %53, align 8
   %.val9.i.i = load ptr, ptr %54, align 8
-  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull dereferenceable(1) %1) #29
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %Au_ManFindNtk.exit.i, label %56
 
@@ -8157,7 +8157,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -8350,7 +8350,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #31
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #31
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -8369,7 +8369,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -8380,16 +8380,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #9
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #24
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #24
+declare void @llvm.va_start.p0(ptr) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #25
@@ -8498,7 +8498,7 @@ attributes #33 = { noreturn nounwind }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
-!52 = !{i32 0, i32 -1}
+!52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
@@ -8523,4 +8523,3 @@ attributes #33 = { noreturn nounwind }
 !74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
-!77 = distinct !{!77, !5}

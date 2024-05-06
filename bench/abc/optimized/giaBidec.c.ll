@@ -326,7 +326,7 @@ Vec_IntFetch.exit:                                ; preds = %15, %19
 select.unfold.preheader.i:                        ; preds = %24
   %25 = zext nneg i32 %10 to i64
   %26 = shl nuw nsw i64 %25, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.0.i, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %.0.i, i8 0, i64 %26, i1 false)
   br label %.critedge2
 
 27:                                               ; preds = %Vec_IntFetch.exit
@@ -335,7 +335,7 @@ select.unfold.preheader.i:                        ; preds = %24
 select.unfold.preheader.i85:                      ; preds = %27
   %28 = zext nneg i32 %10 to i64
   %29 = shl nuw nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.0.i, i8 -1, i64 %29, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %.0.i, i8 -1, i64 %29, i1 false)
   br label %.critedge2
 
 30:                                               ; preds = %5
@@ -386,7 +386,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
 
 49:                                               ; preds = %.preheader26.us.us.i, %49
   %indvars.iv.i = phi i64 [ 0, %.preheader26.us.us.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = and i32 %59, %50
   %.not.us.us.i = icmp ne i32 %51, 0
   %spec.select.i86 = sext i1 %.not.us.us.i to i32
@@ -806,7 +806,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 select.unfold.i:                                  ; preds = %76, %.critedge
   %indvars.iv.i = phi i64 [ %73, %.critedge ], [ %77, %76 ]
-  %74 = trunc i64 %indvars.iv.i to i32
+  %74 = trunc nuw i64 %indvars.iv.i to i32
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %Gia_ManTruthIsConst0.exit
 
@@ -819,7 +819,7 @@ select.unfold.i:                                  ; preds = %76, %.critedge
 
 select.unfold.i64:                                ; preds = %76, %82
   %indvars.iv.i65 = phi i64 [ %83, %82 ], [ %73, %76 ]
-  %80 = trunc i64 %indvars.iv.i65 to i32
+  %80 = trunc nuw i64 %indvars.iv.i65 to i32
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %Gia_ManTruthIsConst0.exit
 
@@ -859,7 +859,7 @@ select.unfold.i64:                                ; preds = %76, %82
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %100 = trunc i64 %indvars.iv.next88 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.next88 to i32
   %101 = tail call ptr @Bdc_ManFunc(ptr noundef %0, i32 noundef %100) #15
   %102 = getelementptr %struct.Gia_Obj_t_, ptr %.val58, i64 %99, i32 1
   %.val62 = load i32, ptr %102, align 4
@@ -980,10 +980,10 @@ define noundef ptr @Gia_ManPerformBidec(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %24
 
 24:                                               ; preds = %12
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #16
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #16
   %26 = add i64 %25, 1
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #14
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #15
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %12, %24
@@ -995,10 +995,10 @@ Abc_UtilStrsav.exit:                              ; preds = %12, %24
   br i1 %.not.i70, label %Abc_UtilStrsav.exit71, label %32
 
 32:                                               ; preds = %Abc_UtilStrsav.exit
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #16
+  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #16
   %34 = add i64 %33, 1
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #14
-  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %31) #15
+  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %31) #15
   br label %Abc_UtilStrsav.exit71
 
 Abc_UtilStrsav.exit71:                            ; preds = %Abc_UtilStrsav.exit, %32

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.sm2_sig_verify = private unnamed_addr constant [15 x i8] c"sm2_sig_verify\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_compute_z_digest(ptr noundef %out, ptr noundef %digest, ptr noundef %id, i64 noundef %id_len, ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sm2_compute_z_digest(ptr noundef %out, ptr noundef %digest, ptr noundef %id, i64 noundef %id_len, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %e_byte = alloca i8, align 1
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #3
@@ -79,7 +79,7 @@ if.then21:                                        ; preds = %if.end19
 
 if.end22:                                         ; preds = %if.end19
   %shr66 = lshr i64 %id_len, 5
-  %conv24 = trunc i64 %shr66 to i8
+  %conv24 = trunc nuw i64 %shr66 to i8
   store i8 %conv24, ptr %e_byte, align 1
   %call25 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %e_byte, i64 noundef 1) #3
   %tobool26.not = icmp eq i32 %call25, 0
@@ -319,7 +319,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp14, label %done.sink.split, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
-  %call18 = tail call i32 @ossl_sm2_compute_z_digest(ptr noundef nonnull %call7, ptr noundef nonnull %call13, ptr noundef %id, i64 noundef %id_len, ptr noundef %key), !range !4
+  %call18 = tail call i32 @ossl_sm2_compute_z_digest(ptr noundef nonnull %call7, ptr noundef nonnull %call13, ptr noundef %id, i64 noundef %id_len, ptr noundef %key)
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %done, label %if.end20
 
@@ -505,14 +505,14 @@ if.end75:                                         ; preds = %done, %if.then74
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_do_verify(ptr noundef %key, ptr noundef %digest, ptr noundef %sig, ptr noundef %id, i64 noundef %id_len, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sm2_do_verify(ptr noundef %key, ptr noundef %digest, ptr noundef %sig, ptr noundef %id, i64 noundef %id_len, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @sm2_compute_msg_hash(ptr noundef %digest, ptr noundef %key, ptr noundef %id, i64 noundef %id_len, ptr noundef %msg, i64 noundef %msg_len)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef nonnull %call), !range !4
+  %call1 = tail call fastcc i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef nonnull %call)
   br label %done
 
 done:                                             ; preds = %entry, %if.end
@@ -522,7 +522,7 @@ done:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef %e) unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %s = alloca ptr, align 8
@@ -659,7 +659,7 @@ done:                                             ; preds = %if.end44, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_internal_sign(ptr noundef %dgst, i32 noundef %dgstlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_sm2_internal_sign(ptr noundef %dgst, i32 noundef %dgstlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -777,7 +777,7 @@ if.then18:                                        ; preds = %if.end14
 
 if.end19:                                         ; preds = %if.end14
   %2 = load ptr, ptr %s, align 8
-  %call20 = call fastcc i32 @sm2_sig_verify(ptr noundef %eckey, ptr noundef %2, ptr noundef nonnull %call15), !range !4
+  %call20 = call fastcc i32 @sm2_sig_verify(ptr noundef %eckey, ptr noundef %2, ptr noundef nonnull %call15)
   br label %done
 
 done:                                             ; preds = %if.end19, %if.then18, %if.then13, %if.then4, %if.then
@@ -857,4 +857,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

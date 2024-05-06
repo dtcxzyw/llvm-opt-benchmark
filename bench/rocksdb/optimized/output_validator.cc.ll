@@ -16,8 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [56 x i8] c"Compaction tries to write a key without internal bytes.\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"Compaction sees out-of-order keys.\00", align 1
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
-@_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
+@_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: uwtable

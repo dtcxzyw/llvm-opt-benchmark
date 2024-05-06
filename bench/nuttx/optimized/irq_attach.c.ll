@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_irqvector = external local_unnamed_addr global [48 x %struct.irq_info_s], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @irq_attach(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @irq_attach(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = icmp ult i32 %0, 48
   br i1 %5, label %6, label %up_irq_restore.exit

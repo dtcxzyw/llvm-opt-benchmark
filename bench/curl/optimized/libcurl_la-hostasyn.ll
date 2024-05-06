@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_addrinfo_callback(ptr noundef %data, i32 noundef %status, ptr noundef %ai) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_addrinfo_callback(ptr noundef %data, i32 noundef %status, ptr noundef %ai) local_unnamed_addr #0 {
 entry:
   %async = getelementptr inbounds i8, ptr %data, i64 3624
   %status1 = getelementptr inbounds i8, ptr %data, i64 3660

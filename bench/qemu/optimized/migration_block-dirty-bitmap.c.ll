@@ -584,7 +584,7 @@ declare void @bdrv_release_dirty_bitmap(ptr noundef) local_unnamed_addr #1
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dirty_bitmap_save_setup(ptr noundef %f, ptr noundef %opaque) #0 {
+define internal range(i32 -1, 1) i32 @dirty_bitmap_save_setup(ptr noundef %f, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #11
   %call1.i = tail call zeroext i1 @qemu_in_main_thread() #11
@@ -686,7 +686,7 @@ land.lhs.true28.i:                                ; preds = %land.lhs.true19.i, 
   br i1 %tobool31.i, label %for.inc.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %land.lhs.true28.i
-  %call33.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.059.i, ptr noundef nonnull %call11.i, ptr noundef null), !range !11
+  %call33.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.059.i, ptr noundef nonnull %call11.i, ptr noundef null)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.end36.i, label %fail.thread.i
 
@@ -701,7 +701,7 @@ if.end36.i:                                       ; preds = %if.then32.i
 for.inc.i:                                        ; preds = %bdrv_filter_bs.exit.i, %while.body.i, %land.lhs.true.i, %if.end36.i, %land.lhs.true28.i, %land.lhs.true25.i, %if.end15.i, %lor.lhs.false.i, %for.body.i
   %call39.i = tail call ptr @blk_next(ptr noundef nonnull %blk.061.i) #11
   %tobool10.not.i = icmp eq ptr %call39.i, null
-  br i1 %tobool10.not.i, label %if.end40.i, label %for.body.i, !llvm.loop !12
+  br i1 %tobool10.not.i, label %if.end40.i, label %for.body.i, !llvm.loop !11
 
 if.end40.i:                                       ; preds = %for.inc.i, %if.then8.i, %if.end7.i
   %tobool.not52.i = phi i1 [ false, %if.end7.i ], [ true, %if.then8.i ], [ true, %for.inc.i ]
@@ -724,14 +724,14 @@ for.body44.i:                                     ; preds = %if.end40.i, %for.in
 
 if.end48.i:                                       ; preds = %for.body44.i
   %call49.i = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %bs.163.i) #11
-  %call50.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.163.i, ptr noundef %call49.i, ptr noundef %alias_map.047.i), !range !11
+  %call50.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.163.i, ptr noundef %call49.i, ptr noundef %alias_map.047.i)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %for.inc54.i, label %fail.i
 
 for.inc54.i:                                      ; preds = %if.end48.i, %for.body44.i
   %call55.i = tail call ptr @bdrv_next_all_states(ptr noundef nonnull %bs.163.i) #11
   %tobool43.not.i = icmp eq ptr %call55.i, null
-  br i1 %tobool43.not.i, label %for.cond57.preheader.i, label %for.body44.i, !llvm.loop !13
+  br i1 %tobool43.not.i, label %for.cond57.preheader.i, label %for.body44.i, !llvm.loop !12
 
 for.body59.i:                                     ; preds = %for.cond57.preheader.i, %for.body59.i
   %dbms.066.i = phi ptr [ %dbms.0.i, %for.body59.i ], [ %dbms.064.i, %for.cond57.preheader.i ]
@@ -741,7 +741,7 @@ for.body59.i:                                     ; preds = %for.cond57.preheade
   %entry61.i = getelementptr inbounds i8, ptr %dbms.066.i, i64 48
   %dbms.0.i = load ptr, ptr %entry61.i, align 8
   %tobool58.not.i = icmp eq ptr %dbms.0.i, null
-  br i1 %tobool58.not.i, label %for.end62.i, label %for.body59.i, !llvm.loop !14
+  br i1 %tobool58.not.i, label %for.end62.i, label %for.body59.i, !llvm.loop !13
 
 for.end62.i:                                      ; preds = %for.body59.i
   %.pre.i = load ptr, ptr %opaque, align 8
@@ -819,7 +819,7 @@ init_dirty_bitmap_migration.exit:                 ; preds = %if.end68.i, %if.the
 
 for.body:                                         ; preds = %init_dirty_bitmap_migration.exit, %for.body
   %dbms.019 = phi ptr [ %dbms.0, %for.body ], [ %dbms.017, %init_dirty_bitmap_migration.exit ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.019, i32 noundef 16)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull readonly %dbms.019, i32 noundef 16)
   %bitmap.i6 = getelementptr inbounds i8, ptr %dbms.019, i64 24
   %14 = load ptr, ptr %bitmap.i6, align 8
   %call.i7 = tail call i32 @bdrv_dirty_bitmap_granularity(ptr noundef %14) #11
@@ -831,7 +831,7 @@ for.body:                                         ; preds = %init_dirty_bitmap_m
   %entry1 = getelementptr inbounds i8, ptr %dbms.019, i64 48
   %dbms.0 = load ptr, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %init_dirty_bitmap_migration.exit
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 1) #11
@@ -942,11 +942,11 @@ if.end:                                           ; preds = %if.then, %trace_dir
 
 for.body:                                         ; preds = %if.end, %for.body
   %dbms.026 = phi ptr [ %dbms.0, %for.body ], [ %dbms.024, %if.end ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.026, i32 noundef 32)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull readonly %dbms.026, i32 noundef 32)
   %entry2 = getelementptr inbounds i8, ptr %dbms.026, i64 48
   %dbms.0 = load ptr, ptr %entry2, align 8
   %tobool1.not = icmp eq ptr %dbms.0, null
-  br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 1) #11
@@ -1073,7 +1073,7 @@ land.end:                                         ; preds = %entry, %land.rhs, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @dirty_bitmap_save_iterate(ptr noundef %f, ptr nocapture noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @dirty_bitmap_save_iterate(ptr noundef %f, ptr nocapture noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call zeroext i1 @migration_in_postcopy() #11
@@ -1173,7 +1173,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %entry5 = getelementptr inbounds i8, ptr %dbms.012, i64 48
   %dbms.0 = load ptr, ptr %entry5, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %cond.end, %entry
   %pending.0.lcssa = phi i64 [ 0, %entry ], [ %add4, %cond.end ]
@@ -1677,7 +1677,7 @@ if.end53.i:                                       ; preds = %if.else51.i, %if.th
   %migrated.i = getelementptr inbounds i8, ptr %call54.i, i64 16
   store i8 0, ptr %migrated.i, align 8
   %enabled.i = getelementptr inbounds i8, ptr %call54.i, i64 17
-  %frombool62.i = trunc i32 %and43.i to i8
+  %frombool62.i = trunc nuw nsw i32 %and43.i to i8
   store i8 %frombool62.i, ptr %enabled.i, align 1
   %51 = load ptr, ptr %bitmaps.i, align 8
   %call63.i = call ptr @g_slist_prepend(ptr noundef %51, ptr noundef nonnull %call54.i) #11
@@ -1761,7 +1761,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %item.03.i, i64 8
   %item.0.i = load ptr, ptr %next.i, align 8
   %tobool7.not.i53 = icmp eq ptr %item.0.i, null
-  br i1 %tobool7.not.i53, label %if.end39, label %for.body.i, !llvm.loop !18
+  br i1 %tobool7.not.i53, label %if.end39, label %for.body.i, !llvm.loop !17
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %item.03.i = phi ptr [ %item.01.i, %for.body.lr.ph.i ], [ %item.0.i, %for.cond.i ]
@@ -1948,7 +1948,7 @@ do.cond:                                          ; preds = %if.end39
   %86 = load i32, ptr %load, align 8
   %and44 = and i32 %86, 1
   %tobool45.not = icmp eq i32 %and44, 0
-  br i1 %tobool45.not, label %do.body, label %do.end, !llvm.loop !19
+  br i1 %tobool45.not, label %do.body, label %do.end, !llvm.loop !18
 
 do.end:                                           ; preds = %do.cond
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i97)
@@ -2026,7 +2026,7 @@ declare ptr @blk_bs(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_has_named_bitmaps(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @add_bitmaps_to_list(ptr nocapture noundef %s, ptr noundef %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_bitmaps_to_list(ptr nocapture noundef %s, ptr noundef %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -2057,7 +2057,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 for.inc:                                          ; preds = %for.body
   %call9 = tail call ptr @bdrv_dirty_bitmap_next(ptr noundef nonnull %bitmap.060) #11
   %tobool4.not = icmp eq ptr %call9, null
-  br i1 %tobool4.not, label %return, label %for.body, !llvm.loop !20
+  br i1 %tobool4.not, label %return, label %for.body, !llvm.loop !19
 
 if.end12:                                         ; preds = %for.body
   %call13 = tail call ptr @bdrv_dirty_bitmap_name(ptr noundef nonnull %bitmap.060) #11
@@ -2228,7 +2228,7 @@ do.body:                                          ; preds = %do.body.sink.split,
 for.inc106:                                       ; preds = %if.then44, %for.body34, %do.body
   %call107 = call ptr @bdrv_dirty_bitmap_next(ptr noundef nonnull %bitmap.162) #11
   %tobool33.not = icmp eq ptr %call107, null
-  br i1 %tobool33.not, label %return, label %for.body34, !llvm.loop !21
+  br i1 %tobool33.not, label %return, label %for.body34, !llvm.loop !20
 
 return:                                           ; preds = %for.inc, %for.inc106, %if.end, %if.end30, %if.then20, %if.then57, %if.then41, %if.then29, %if.then17
   %retval.0 = phi i32 [ -1, %if.then17 ], [ -1, %if.then29 ], [ -1, %if.then41 ], [ -1, %if.then57 ], [ 0, %if.then20 ], [ 0, %if.end30 ], [ 0, %if.end ], [ 0, %for.inc106 ], [ 0, %for.inc ]
@@ -2512,7 +2512,7 @@ trace_send_bitmap_bits.exit42.i.i:                ; preds = %if.else.i.i37.i.i, 
 if.end.i.i:                                       ; preds = %trace_send_bitmap_bits.exit42.i.i, %trace_send_bitmap_bits.exit.i.i
   %.sink.i.i = phi i32 [ 64, %trace_send_bitmap_bits.exit.i.i ], [ 66, %trace_send_bitmap_bits.exit42.i.i ]
   %buf.0.i.i = phi ptr [ %call2.i.i, %trace_send_bitmap_bits.exit.i.i ], [ null, %trace_send_bitmap_bits.exit42.i.i ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %s, ptr noundef nonnull %dbms.010, i32 noundef %.sink.i.i)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %s, ptr noundef nonnull readonly %dbms.010, i32 noundef %.sink.i.i)
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %2) #11
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv.i) #11
   br i1 %call7.i.i, label %if.then8.i.i, label %if.else.i.i
@@ -2550,13 +2550,13 @@ land.lhs.true:                                    ; preds = %bulk_phase_send_chu
 if.end:                                           ; preds = %land.lhs.true, %bulk_phase_send_chunk.exit
   %20 = load i8, ptr %bulk_completed, align 1
   %tobool1 = trunc i8 %20 to i1
-  br i1 %tobool1, label %for.inc, label %while.body, !llvm.loop !22
+  br i1 %tobool1, label %for.inc, label %while.body, !llvm.loop !21
 
 for.inc:                                          ; preds = %if.end, %while.cond.preheader
   %entry3 = getelementptr inbounds i8, ptr %dbms.010, i64 48
   %dbms.0 = load ptr, ptr %entry3, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
-  br i1 %tobool.not, label %for.end, label %while.cond.preheader, !llvm.loop !23
+  br i1 %tobool.not, label %for.end, label %while.cond.preheader, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %entry
   %bulk_completed4 = getelementptr inbounds i8, ptr %s, i64 16
@@ -2675,7 +2675,7 @@ attributes #15 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -2687,4 +2687,3 @@ attributes #15 = { nounwind allocsize(0) }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

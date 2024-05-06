@@ -248,7 +248,7 @@ define dso_local ptr @tcp_ca_find_key(i32 noundef %0) local_unnamed_addr #4 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_validate_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_validate_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -285,7 +285,7 @@ define dso_local noundef i32 @tcp_validate_congestion_control(ptr noundef %0) lo
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_register_congestion_control(ptr noundef %0) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(ptr noundef %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -445,7 +445,7 @@ define dso_local void @tcp_unregister_congestion_control(ptr nocapture noundef %
 declare dso_local void @synchronize_rcu() local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -932,7 +932,7 @@ define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_set_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   tail call void @__rcu_read_lock() #16
   %3 = tail call fastcc ptr @tcp_ca_find_autoload(ptr noundef %1)
   %4 = icmp eq ptr %3, null
@@ -981,7 +981,7 @@ define dso_local noundef i32 @tcp_set_default_congestion_control(ptr noundef %0,
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @tcp_congestion_default() #9 section ".init.text" align 16 {
+define internal noundef range(i32 -16, 1) i32 @tcp_congestion_default() #9 section ".init.text" align 16 {
   %1 = tail call i32 @tcp_set_default_congestion_control(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.10), !range !21
   ret i32 %1
 }
@@ -1082,7 +1082,7 @@ define dso_local void @tcp_get_allowed_congestion_control(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_set_allowed_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1206,7 +1206,7 @@ declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_set_congestion_control(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1208
   %6 = load i8, ptr %5, align 8
   %7 = icmp sgt i8 %6, -1
@@ -1691,7 +1691,7 @@ tcp_cong_avoid_ai.exit:                           ; preds = %._crit_edge.i, %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @tcp_reno_ssthresh(ptr nocapture noundef readonly %0) #11 align 16 {
+define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr nocapture noundef readonly %0) #11 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1420
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 1

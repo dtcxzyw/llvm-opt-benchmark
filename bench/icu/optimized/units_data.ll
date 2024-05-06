@@ -3803,7 +3803,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %desired, ptr nocapture noundef writeonly %foundCategory, ptr nocapture noundef writeonly %foundUsage, ptr nocapture noundef writeonly %foundRegion, i32 %status.0.val) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %desired, ptr nocapture noundef writeonly %foundCategory, ptr nocapture noundef writeonly %foundUsage, ptr nocapture noundef writeonly %foundRegion, i32 %status.0.val) unnamed_addr #10 {
 entry:
   %cmp.i = icmp slt i32 %status.0.val, 1
   br i1 %cmp.i, label %if.end, label %return

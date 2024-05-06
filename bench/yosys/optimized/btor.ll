@@ -28507,7 +28507,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_110BtorWorker14ywmap_btor_sigESaIS2_EE11_M_all
   %.092.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i ], [ %.val.i, %28 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !217
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !217
   %30 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
   %31 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
   %32 = load <2 x ptr>, ptr %31, align 8, !alias.scope !215, !noalias !212
@@ -50262,7 +50262,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110BtorWorker11ywmap_stateEPN5Yosys
 13:                                               ; preds = %7
   store i32 0, ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %14, i8 0, i64 56, i1 false)
   %15 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %1, ptr %15, align 8
   %16 = load ptr, ptr %9, align 8
@@ -50303,7 +50303,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_110BtorWorker14ywmap_btor_sigESaIS2_EE12_M_check_len
   %35 = getelementptr inbounds %"struct.(anonymous namespace)::BtorWorker::ywmap_btor_sig", ptr %34, i64 %24
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %36, i8 0, i64 56, i1 false)
   %37 = getelementptr inbounds i8, ptr %35, i64 64
   store ptr %1, ptr %37, align 8
   br i1 %25, label %_ZNSt6vectorIN12_GLOBAL__N_110BtorWorker14ywmap_btor_sigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -50313,7 +50313,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_110BtorWorker14ywmap_btor_sigESaIS2_EE12_M_check_len
   %.092.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i, %33 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !588)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !590
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !590
   %38 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 16
   %40 = load <2 x ptr>, ptr %39, align 8, !alias.scope !588, !noalias !585

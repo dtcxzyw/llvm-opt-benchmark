@@ -422,7 +422,7 @@ define internal i64 @parse_lex_file(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @parse_success_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @parse_success_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options_t, align 8
@@ -446,7 +446,7 @@ define internal i64 @parse_success_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @parse_file_success_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @parse_file_success_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options_t, align 8
@@ -1007,7 +1007,7 @@ rb_ulong2num_inline.exit:                         ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @encoding_alnum_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @encoding_alnum_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !27
   %6 = and i64 %5, 8192
@@ -1058,7 +1058,7 @@ RSTRING_PTR.exit:                                 ; preds = %encoding_find.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @encoding_alpha_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @encoding_alpha_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !33
   %6 = and i64 %5, 8192
@@ -1109,7 +1109,7 @@ RSTRING_PTR.exit:                                 ; preds = %encoding_find.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @encoding_isupper_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @encoding_isupper_char(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !39
   %6 = and i64 %5, 8192

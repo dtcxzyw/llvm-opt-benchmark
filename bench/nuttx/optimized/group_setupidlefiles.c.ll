@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"/dev/console\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @group_setupidlefiles() local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @group_setupidlefiles() local_unnamed_addr #0 {
   %1 = tail call i32 (ptr, i32, ...) @nx_open(ptr noundef nonnull @.str, i32 noundef 3) #2
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %6

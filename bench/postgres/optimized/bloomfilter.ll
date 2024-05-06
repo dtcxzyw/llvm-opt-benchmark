@@ -80,7 +80,7 @@ define dso_local void @bloom_add_element(ptr nocapture noundef %0, ptr noundef %
 
 .lr.ph.preheader.i:                               ; preds = %3
   %17 = lshr i64 %8, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = zext nneg i32 %15 to i64
   br label %.lr.ph.i
 
@@ -91,7 +91,7 @@ define dso_local void @bloom_add_element(ptr nocapture noundef %0, ptr noundef %
   %.024.i = and i32 %.pn25.i, %13
   %20 = add i32 %.024.i, %.02326.i
   %21 = and i32 %20, %13
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %.024.i, %22
   %24 = getelementptr i32, ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4
@@ -118,7 +118,7 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr [0 x i8], ptr %26, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
-  %36 = trunc i32 %31 to i8
+  %36 = trunc nuw i32 %31 to i8
   %37 = or i8 %35, %36
   store i8 %37, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -149,7 +149,7 @@ define dso_local zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly 
 
 .lr.ph.preheader.i:                               ; preds = %3
   %17 = lshr i64 %8, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = zext nneg i32 %15 to i64
   br label %.lr.ph.i
 
@@ -160,7 +160,7 @@ define dso_local zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly 
   %.024.i = and i32 %.pn25.i, %13
   %20 = add i32 %.024.i, %.02326.i
   %21 = and i32 %20, %13
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %.024.i, %22
   %24 = getelementptr i32, ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4

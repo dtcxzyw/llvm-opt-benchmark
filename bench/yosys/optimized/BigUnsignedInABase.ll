@@ -611,7 +611,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %13, %.noexc
 35:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %36 = phi i32 [ %29, %.lr.ph ], [ %32, %31 ]
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw i64 %indvars.iv to i32
   %38 = xor i32 %37, -1
   %39 = add i32 %36, %38
   %40 = zext i32 %39 to i64
@@ -745,7 +745,7 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
 
 26:                                               ; preds = %18, %26
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %26 ]
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   %28 = xor i32 %27, -1
   %29 = add i32 %12, %28
   %30 = zext i32 %29 to i64

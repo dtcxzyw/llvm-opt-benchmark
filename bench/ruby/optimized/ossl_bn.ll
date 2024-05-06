@@ -674,7 +674,7 @@ rb_check_frozen_inline.exit:                      ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_num_bytes(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_num_bytes(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -695,7 +695,7 @@ define internal i64 @ossl_bn_num_bytes(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_num_bits(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_num_bits(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1726,7 +1726,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %3)
@@ -1750,7 +1750,7 @@ define internal i64 @ossl_bn_cmp(i64 noundef %0, i64 noundef %1) #0 {
 declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_ucmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_ucmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %3)
@@ -1772,7 +1772,7 @@ define internal i64 @ossl_bn_ucmp(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_eql(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @cBN, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #10
   %.not = icmp eq i64 %4, 0
@@ -1810,7 +1810,7 @@ define internal i64 @ossl_bn_eql(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_hash(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %3, null
@@ -1865,7 +1865,7 @@ define internal i64 @ossl_bn_hash(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1936,7 +1936,7 @@ try_convert_to_bn.exit.thread:                    ; preds = %11, %rb_integer_typ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_zero(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_zero(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1954,7 +1954,7 @@ define internal i64 @ossl_bn_is_zero(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_one(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_one(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1972,7 +1972,7 @@ define internal i64 @ossl_bn_is_one(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_odd(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_odd(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1990,7 +1990,7 @@ define internal i64 @ossl_bn_is_odd(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_negative(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_negative(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -2209,7 +2209,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_prime(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_prime(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -2266,7 +2266,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_prime_fasttest(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_prime_fasttest(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 2
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -2275,7 +2275,7 @@ define internal i64 @ossl_bn_is_prime_fasttest(i32 noundef %0, ptr nocapture rea
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %5 = tail call i64 @ossl_bn_is_prime(i32 noundef 0, ptr poison, i64 noundef %2), !range !6
+  %5 = tail call i64 @ossl_bn_is_prime(i32 noundef 0, ptr poison, i64 noundef %2)
   ret i64 %5
 }
 
@@ -2360,7 +2360,7 @@ rb_num2int_inline.exit:                           ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_is_bit_set(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_bit_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %4
@@ -2625,7 +2625,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bn_get_flags(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_bn_get_flags(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2740,9 +2740,9 @@ rb_num2int_inline.exit:                           ; preds = %10, %12
 21:                                               ; preds = %19
   %22 = call i32 @BN_bn2mpi(ptr noundef nonnull %16, ptr noundef null) #10
   %23 = sext i32 %22 to i64
-  %24 = call i64 @rb_str_new(ptr noundef null, i64 noundef %23) #10, !callees !7
+  %24 = call i64 @rb_str_new(ptr noundef null, i64 noundef %23) #10, !callees !6
   %25 = inttoptr i64 %24 to ptr
-  %26 = load i64, ptr %25, align 8, !noalias !8
+  %26 = load i64, ptr %25, align 8, !noalias !7
   %27 = and i64 %26, 8192
   %.not.i.i = icmp eq i64 %27, 0
   %28 = getelementptr inbounds i8, ptr %25, i64 24
@@ -2768,9 +2768,9 @@ RSTRING_PTR.exit:                                 ; preds = %21, %29
   %35 = add nsw i32 %34, 7
   %36 = sdiv i32 %35, 8
   %37 = sext i32 %36 to i64
-  %38 = call i64 @rb_str_new(ptr noundef null, i64 noundef %37) #10, !callees !7
+  %38 = call i64 @rb_str_new(ptr noundef null, i64 noundef %37) #10, !callees !6
   %39 = inttoptr i64 %38 to ptr
-  %40 = load i64, ptr %39, align 8, !noalias !11
+  %40 = load i64, ptr %39, align 8, !noalias !10
   %41 = and i64 %40, 8192
   %.not.i.i32 = icmp eq i64 %41, 0
   %42 = getelementptr inbounds i8, ptr %39, i64 24
@@ -3047,7 +3047,7 @@ define internal fastcc ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unn
   %12 = lshr i64 %.02733, 8
   %13 = add nsw i64 %.02634, -1
   %.not35 = icmp eq i64 %.02634, 0
-  br i1 %.not35, label %14, label %9, !llvm.loop !14
+  br i1 %.not35, label %14, label %9, !llvm.loop !13
 
 14:                                               ; preds = %9
   %15 = call ptr @BN_bin2bn(ptr noundef nonnull %3, i32 noundef 8, ptr noundef %1) #10
@@ -3091,7 +3091,7 @@ define internal fastcc ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unn
 33:                                               ; preds = %29, %27
   %34 = phi ptr [ %28, %27 ], [ %32, %29 ]
   %35 = call i32 @rb_integer_pack(i64 noundef %0, ptr noundef nonnull %34, i64 noundef %21, i64 noundef 1, i64 noundef 0, i32 noundef 17) #10
-  %36 = trunc i64 %21 to i32
+  %36 = trunc nuw nsw i64 %21 to i32
   %37 = call ptr @BN_bin2bn(ptr noundef nonnull %34, i32 noundef %36, ptr noundef %1) #10
   call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #10
   %.not = icmp eq ptr %37, null
@@ -3291,13 +3291,12 @@ attributes #15 = { nounwind allocsize(1,2) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 0, i64 21}
-!7 = distinct !{ptr @rb_str_new, null}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"rbimpl_rstring_getmem: argument 0"}
-!10 = distinct !{!10, !"rbimpl_rstring_getmem"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"rbimpl_rstring_getmem: argument 0"}
-!13 = distinct !{!13, !"rbimpl_rstring_getmem"}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{ptr @rb_str_new, null}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"rbimpl_rstring_getmem: argument 0"}
+!9 = distinct !{!9, !"rbimpl_rstring_getmem"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"rbimpl_rstring_getmem: argument 0"}
+!12 = distinct !{!12, !"rbimpl_rstring_getmem"}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

@@ -53,7 +53,7 @@ define i32 @file_fsync(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fsync(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @fsync(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %2) #3
   %4 = icmp slt i32 %3, 0

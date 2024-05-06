@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_sigfreeaction = external global %struct.sq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsig_action(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -286,7 +286,7 @@ up_irq_restore.exit5.i:                           ; preds = %111, %nxsig_alloc_a
 
 nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit5.i, %up_irq_restore.exit.i
   %.0.lcssa.i = phi ptr [ %90, %up_irq_restore.exit.i ], [ %109, %up_irq_restore.exit5.i ]
-  %112 = trunc i32 %0 to i8
+  %112 = trunc nuw nsw i32 %0 to i8
   %113 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 40
   store i8 %112, ptr %113, align 8
   store ptr null, ptr %.0.lcssa.i, align 8
@@ -376,8 +376,8 @@ up_irq_restore.exit:                              ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sigaction(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @nxsig_action(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false), !range !13
+define range(i32 -1, 1) i32 @sigaction(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @nxsig_action(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9
 
@@ -427,4 +427,3 @@ attributes #5 = { allocsize(0) }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
-!13 = !{i32 -22, i32 1}

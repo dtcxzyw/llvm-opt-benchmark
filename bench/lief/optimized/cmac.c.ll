@@ -450,7 +450,7 @@ cmac_multiply_by_u.exit:                          ; preds = %._crit_edge.i17, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_cipher_cmac_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -861,7 +861,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 37:                                               ; preds = %48, %.preheader.split.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader.split.split.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = trunc i64 %indvars.iv.next to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.next to i32
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %38)
   %40 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
@@ -889,7 +889,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 .preheader.split.split:                           ; preds = %.preheader.split.split.preheader, %59
   %indvars.iv62 = phi i64 [ 0, %.preheader.split.split.preheader ], [ %indvars.iv.next63, %59 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %49 = trunc i64 %indvars.iv.next63 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.next63 to i32
   %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %49)
   %51 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv62
   %52 = load i32, ptr %51, align 4
@@ -939,7 +939,7 @@ define internal fastcc i32 @test_aes128_cmac_prf(i32 noundef %0) unnamed_addr #0
 
 .split.us:                                        ; preds = %1, %19
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %19 ], [ 0, %1 ]
-  %5 = trunc i64 %indvars.iv33 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv33 to i32
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %5)
   %7 = getelementptr inbounds [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv33
   %8 = load i64, ptr %7, align 8
@@ -984,7 +984,7 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
 
 .split:                                           ; preds = %1, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20)
   %22 = getelementptr inbounds [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8

@@ -885,7 +885,7 @@ define dso_local ptr @deconstruct_jointree(ptr noundef %0) local_unnamed_addr #0
   %51 = getelementptr %union.ListCell, ptr %50, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %47, align 8
-  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %31, ptr noundef null, i32 noundef %indvars27.i.i, ptr noundef %53, ptr noundef %53, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %52, ptr noundef nonnull readonly %31, ptr noundef null, i32 noundef %indvars27.i.i, ptr noundef %53, ptr noundef %53, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %54 = load i32, ptr %45, align 4
   %55 = sext i32 %54 to i64
@@ -1808,7 +1808,7 @@ deconstruct_distribute.exit:                      ; preds = %.lr.ph24.i.i, %34, 
 
 561:                                              ; preds = %492
   %562 = load i32, ptr %462, align 8
-  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %493, ptr noundef nonnull %467, ptr noundef nonnull %473, i32 noundef %562, ptr noundef %481, ptr noundef %486, ptr noundef %487, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %493, ptr noundef nonnull readonly %467, ptr noundef nonnull %473, i32 noundef %562, ptr noundef %481, ptr noundef %486, ptr noundef %487, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   br label %deconstruct_distribute_oj_quals.exit
 
 deconstruct_distribute_oj_quals.exit:             ; preds = %557, %.lr.ph.i38, %561, %499, %.lr.ph104

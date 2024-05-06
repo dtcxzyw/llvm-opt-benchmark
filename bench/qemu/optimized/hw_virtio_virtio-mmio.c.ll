@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_mmio_set_guest_notifiers(ptr noundef %d, i32 noundef %nvqs, i1 noundef zeroext %assign) #0 {
+define internal range(i32 -2147483648, 1) i32 @virtio_mmio_set_guest_notifiers(ptr noundef %d, i32 noundef %nvqs, i1 noundef zeroext %assign) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 37, ptr noundef nonnull @__func__.VIRTIO_MMIO) #8
   %0 = getelementptr i8, ptr %call.i, i64 1200
@@ -554,7 +554,7 @@ declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare i32 @virtio_queue_get_num(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @virtio_mmio_set_guest_notifier(ptr noundef %d, i32 noundef %n, i1 noundef zeroext %assign) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @virtio_mmio_set_guest_notifier(ptr noundef %d, i32 noundef %n, i1 noundef zeroext %assign) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 37, ptr noundef nonnull @__func__.VIRTIO_MMIO) #8
   %0 = getelementptr i8, ptr %call.i, i64 1200
@@ -1385,7 +1385,7 @@ if.then82:                                        ; preds = %do.body74
 
 if.end85:                                         ; preds = %sw.bb70
   %conv86 = trunc i64 %value to i32
-  %17 = tail call i32 @llvm.cttz.i32(i32 %conv86, i1 false), !range !10
+  %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv86, i1 false)
   %guest_page_shift = getelementptr inbounds i8, ptr %opaque, i64 1112
   %cmp89 = icmp ugt i32 %17, 31
   %spec.select = select i1 %cmp89, i32 0, i32 %17
@@ -1398,7 +1398,7 @@ sw.bb95:                                          ; preds = %if.end32
   br i1 %cmp96, label %if.then98, label %sw.epilog445
 
 if.then98:                                        ; preds = %sw.bb95
-  %conv99 = trunc i64 %value to i16
+  %conv99 = trunc nuw nsw i64 %value to i16
   %queue_sel = getelementptr inbounds i8, ptr %cond.i, i64 170
   store i16 %conv99, ptr %queue_sel, align 2
   br label %sw.epilog445
@@ -1565,7 +1565,7 @@ sw.bb244:                                         ; preds = %if.end32
   br i1 %cmp245, label %if.then247, label %sw.epilog445
 
 if.then247:                                       ; preds = %sw.bb244
-  %conv248 = trunc i64 %value to i32
+  %conv248 = trunc nuw nsw i64 %value to i32
   tail call void @virtio_queue_notify(ptr noundef nonnull %cond.i, i32 noundef %conv248) #8
   br label %sw.epilog445
 
@@ -1988,4 +1988,3 @@ attributes #9 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 33}

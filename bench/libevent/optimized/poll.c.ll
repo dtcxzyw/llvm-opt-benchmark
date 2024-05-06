@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @poll_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
+define internal range(i32 -1, 1) i32 @poll_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -153,7 +153,7 @@ return:                                           ; preds = %if.end48, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
+define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -243,7 +243,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @poll_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
+define internal range(i32 -1, 1) i32 @poll_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -298,7 +298,7 @@ if.end15:                                         ; preds = %if.else, %if.end8
 if.then18:                                        ; preds = %if.end15
   %call19 = tail call i64 @evutil_tv_to_msec_(ptr noundef nonnull %tv) #6
   %spec.store.select2 = tail call i64 @llvm.umin.i64(i64 %call19, i64 2147483647)
-  %7 = trunc i64 %spec.store.select2 to i32
+  %7 = trunc nuw nsw i64 %spec.store.select2 to i32
   br label %do.body27
 
 do.body27:                                        ; preds = %if.then18, %if.end15
@@ -386,7 +386,7 @@ if.end79:                                         ; preds = %for.body
 
 if.end101:                                        ; preds = %if.end79
   %16 = load i32, ptr %arrayidx, align 4
-  %conv104 = trunc i32 %res.2 to i16
+  %conv104 = trunc nuw nsw i32 %res.2 to i16
   tail call void @evmap_io_active_(ptr noundef %base, i32 noundef %16, i16 noundef signext %conv104) #6
   br label %for.inc
 

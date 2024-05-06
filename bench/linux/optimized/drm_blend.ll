@@ -44,7 +44,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_plane_cr
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_drm_atomic_normalize_zpos373, ptr @__UNIQUE_ID___addressable_drm_plane_create_alpha_property362, ptr @__UNIQUE_ID___addressable_drm_plane_create_blend_mode_property376, ptr @__UNIQUE_ID___addressable_drm_plane_create_rotation_property369, ptr @__UNIQUE_ID___addressable_drm_plane_create_zpos_immutable_property372, ptr @__UNIQUE_ID___addressable_drm_plane_create_zpos_property371, ptr @__UNIQUE_ID___addressable_drm_rotation_simplify370], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_plane_create_alpha_property(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_alpha_property(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @drm_property_create_range(ptr noundef %2, i32 noundef 0, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 65535) #6
   %4 = icmp eq ptr %3, null
@@ -77,7 +77,7 @@ declare dso_local ptr @drm_property_create_range(ptr noundef, i32 noundef, ptr n
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_plane_create_rotation_property(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_rotation_property(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = and i32 %2, 15
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7, !prof !5
@@ -172,7 +172,7 @@ define dso_local i32 @drm_rotation_simplify(i32 noundef %0, i32 noundef %1) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_plane_create_zpos_property(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_property(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext i32 %2 to i64
   %7 = zext i32 %3 to i64
@@ -205,7 +205,7 @@ define dso_local noundef i32 @drm_plane_create_zpos_property(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_plane_create_zpos_immutable_property(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_immutable_property(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
   %5 = tail call ptr @drm_property_create_range(ptr noundef %3, i32 noundef 4, ptr noundef nonnull @.str.9, i64 noundef %4, i64 noundef %4) #6

@@ -276,7 +276,7 @@ $_ZTIN3net18QuicReceivedPacketE = comdat any
 @_ZN3net16TransmissionInfoD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16TransmissionInfoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN3net19GetPacketHeaderSizeENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -127, 4294967462) i64 @_ZN3net19GetPacketHeaderSizeENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
 entry:
   %connection_id_length = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load i32, ptr %connection_id_length, align 8
@@ -307,7 +307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net19GetPacketHeaderSizeENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthE(i32 noundef %version, i32 noundef %connection_id_length, i1 noundef zeroext %include_version, i1 noundef zeroext %include_path_id, i1 noundef zeroext %include_diversification_nonce, i8 noundef signext %packet_number_length) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -127, 4294967462) i64 @_ZN3net19GetPacketHeaderSizeENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthE(i32 noundef %version, i32 noundef %connection_id_length, i1 noundef zeroext %include_version, i1 noundef zeroext %include_path_id, i1 noundef zeroext %include_diversification_nonce, i8 noundef signext %packet_number_length) local_unnamed_addr #1 {
 entry:
   %conv = zext i32 %connection_id_length to i64
   %add = add nuw nsw i64 %conv, 1
@@ -326,7 +326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -128, 4294967462) i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
 entry:
   %connection_id_length.i = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load i32, ptr %connection_id_length.i, align 8
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthE(i32 noundef %version, i32 noundef %connection_id_length, i1 noundef zeroext %include_version, i1 noundef zeroext %include_path_id, i1 noundef zeroext %include_diversification_nonce, i8 noundef signext %packet_number_length) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -128, 4294967462) i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthE(i32 noundef %version, i32 noundef %connection_id_length, i1 noundef zeroext %include_version, i1 noundef zeroext %include_path_id, i1 noundef zeroext %include_diversification_nonce, i8 noundef signext %packet_number_length) local_unnamed_addr #1 {
 entry:
   %conv.i = zext i32 %connection_id_length to i64
   %add.i = add nuw nsw i64 %conv.i, 1
@@ -482,7 +482,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net16QuicPacketHeaderC2ERKNS_22QuicPacketPublicHeaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %header) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %header, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %header, i64 16, i1 false)
   %versions.i = getelementptr inbounds i8, ptr %this, i64 16
   %versions3.i = getelementptr inbounds i8, ptr %header, i64 16
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %header, i64 24
@@ -492,7 +492,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i.i.i
 
@@ -543,7 +543,7 @@ _ZN3net22QuicPacketPublicHeaderC2ERKS0_.exit:     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net16QuicPacketHeaderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other, i64 16, i1 false)
   %versions.i = getelementptr inbounds i8, ptr %this, i64 16
   %versions3.i = getelementptr inbounds i8, ptr %other, i64 16
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
@@ -553,7 +553,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i.i.i
 
@@ -641,7 +641,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net21QuicPublicResetPacketC2ERKNS_22QuicPacketPublicHeaderE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %header) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %header, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %header, i64 16, i1 false)
   %versions.i = getelementptr inbounds i8, ptr %this, i64 16
   %versions3.i = getelementptr inbounds i8, ptr %header, i64 16
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %header, i64 24
@@ -651,7 +651,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %versions.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i.i.i
 
@@ -1209,7 +1209,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %call5.i.i.i.i2.i.i3 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #25
   store ptr %call5.i.i.i.i2.i.i3, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i3, align 4
@@ -3174,7 +3174,7 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   store i64 %2, ptr %ref.tmp, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i.i.i.i.i) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull readonly %add.ptr.i.i.i.i.i) #29
   %max_.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %3 = load i64, ptr %max_.i.i, align 8
   store i64 %3, ptr %ref.tmp3, align 8

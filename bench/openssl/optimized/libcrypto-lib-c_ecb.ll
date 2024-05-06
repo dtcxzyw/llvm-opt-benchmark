@@ -59,7 +59,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %8 = load i32, ptr %d, align 4
   %shr = lshr i32 %8, 24
-  %conv42 = trunc i32 %shr to i8
+  %conv42 = trunc nuw i32 %shr to i8
   %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 1
   store i8 %conv42, ptr %out, align 1
   %shr44 = lshr i32 %8, 16
@@ -75,7 +75,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store i8 %conv53, ptr %incdec.ptr51, align 1
   %9 = load i32, ptr %arrayidx39, align 4
   %shr56 = lshr i32 %9, 24
-  %conv58 = trunc i32 %shr56 to i8
+  %conv58 = trunc nuw i32 %shr56 to i8
   %incdec.ptr59 = getelementptr inbounds i8, ptr %out, i64 5
   store i8 %conv58, ptr %incdec.ptr54, align 1
   %shr60 = lshr i32 %9, 16

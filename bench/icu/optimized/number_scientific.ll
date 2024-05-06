@@ -876,7 +876,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantity14adjustExponentEi(ptr noun
 declare void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr sret(%"class.icu_75::number::impl::RoundingImpl") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_756number4impl17ScientificHandler13getMultiplierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %magnitude) unnamed_addr #15 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_756number4impl17ScientificHandler13getMultiplierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %magnitude) unnamed_addr #15 align 2 {
 entry:
   %fSettings = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %fSettings, align 8
@@ -908,7 +908,7 @@ if.end7:                                          ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZThn8_NK6icu_756number4impl17ScientificHandler13getMultiplierEi(ptr nocapture noundef readonly %this, i32 noundef %magnitude) unnamed_addr #15 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZThn8_NK6icu_756number4impl17ScientificHandler13getMultiplierEi(ptr nocapture noundef readonly %this, i32 noundef %magnitude) unnamed_addr #15 align 2 {
 entry:
   %fSettings.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fSettings.i, align 8

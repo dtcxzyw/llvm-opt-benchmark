@@ -567,7 +567,7 @@ _ZNSt13unordered_mapI11StringPieceP4NodeSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIK
 declare void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97)) unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @main() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %struct.BuildLog, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

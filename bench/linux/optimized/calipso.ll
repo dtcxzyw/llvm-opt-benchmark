@@ -113,7 +113,7 @@ declare dso_local zeroext i16 @crc_ccitt(i16 noundef zeroext, ptr noundef, i64 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @calipso_init() local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @calipso_init() local_unnamed_addr #3 section ".init.text" align 16 {
   %1 = tail call fastcc i32 @calipso_cache_init() #15, !range !8
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %5
@@ -127,7 +127,7 @@ define dso_local noundef i32 @calipso_init() local_unnamed_addr #3 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @calipso_cache_init() unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @calipso_cache_init() unnamed_addr #3 section ".init.text" align 16 {
   %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 3072) #16
   store ptr %2, ptr @calipso_cache, align 8
@@ -274,7 +274,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @calipso_doi_add(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @calipso_doi_add(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -355,7 +355,7 @@ define internal void @calipso_doi_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @calipso_doi_remove(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @calipso_doi_remove(i32 noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @calipso_doi_list_lock) #14
   %3 = load volatile ptr, ptr @calipso_doi_list, align 8
   %4 = icmp eq ptr %3, @calipso_doi_list
@@ -906,7 +906,7 @@ define internal void @calipso_sock_delattr(ptr noundef %0) #0 align 16 {
 
 39:                                               ; preds = %35
   store ptr null, ptr %2, align 8, !annotation !21
-  %40 = call fastcc i32 @calipso_opt_del(ptr noundef nonnull %37, ptr noundef nonnull %2), !range !22
+  %40 = call fastcc i32 @calipso_opt_del(ptr noundef nonnull %37, ptr noundef nonnull %2)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %45
 
@@ -996,7 +996,7 @@ define internal i32 @calipso_req_setattr(ptr noundef %0, ptr nocapture noundef r
   br label %.thread
 
 36:                                               ; preds = %29
-  %37 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %14, ptr %31, ptr elementtype(ptr) %14) #14, !srcloc !23
+  %37 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %14, ptr %31, ptr elementtype(ptr) %14) #14, !srcloc !22
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
 
@@ -1004,7 +1004,7 @@ define internal i32 @calipso_req_setattr(ptr noundef %0, ptr nocapture noundef r
   %40 = getelementptr inbounds i8, ptr %37, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %13, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %41, ptr elementtype(i32) %42) #14, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %41, ptr elementtype(i32) %42) #14, !srcloc !23
   %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 -1, ptr nonnull elementtype(i32) %37) #14, !srcloc !10
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %48, label %45
@@ -1061,7 +1061,7 @@ define internal void @calipso_req_delattr(ptr noundef %0) #0 align 16 {
 
 20:                                               ; preds = %16
   store ptr null, ptr %2, align 8, !annotation !21
-  %21 = call fastcc i32 @calipso_opt_del(ptr noundef nonnull %18, ptr noundef nonnull %2), !range !22
+  %21 = call fastcc i32 @calipso_opt_del(ptr noundef nonnull %18, ptr noundef nonnull %2)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %42
 
@@ -1073,7 +1073,7 @@ define internal void @calipso_req_delattr(ptr noundef %0) #0 align 16 {
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %13, ptr %26, ptr elementtype(ptr) %13) #14, !srcloc !25
+  %29 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %13, ptr %26, ptr elementtype(ptr) %13) #14, !srcloc !24
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
@@ -1081,7 +1081,7 @@ define internal void @calipso_req_delattr(ptr noundef %0) #0 align 16 {
   %32 = getelementptr inbounds i8, ptr %29, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %12, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 %33, ptr elementtype(i32) %34) #14, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 %33, ptr elementtype(i32) %34) #14, !srcloc !23
   %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 -1, ptr nonnull elementtype(i32) %29) #14, !srcloc !10
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %40, label %37
@@ -1175,7 +1175,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
   store i32 %48, ptr %46, align 8
   %49 = getelementptr i8, ptr %31, i64 -16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, i32 1, ptr elementtype(i32) %50) #14, !srcloc !26
+  %51 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, i32 1, ptr elementtype(i32) %50) #14, !srcloc !25
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %57, label %53, !prof !17
 
@@ -1253,7 +1253,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
 93:                                               ; preds = %40, %36, %30
   %94 = load ptr, ptr %31, align 8
   %95 = icmp eq ptr %94, %25
-  br i1 %95, label %.loopexit16, label %30, !llvm.loop !27
+  br i1 %95, label %.loopexit16, label %30, !llvm.loop !26
 
 .loopexit16:                                      ; preds = %93, %16
   tail call void @_raw_spin_unlock_bh(ptr noundef %24) #14
@@ -1322,7 +1322,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
 134:                                              ; preds = %127
   %135 = tail call i32 @netlbl_catmap_setbit(ptr noundef %119, i32 noundef %130, i32 noundef 2080) #14
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %127, label %select.unfold, !llvm.loop !28
+  br i1 %136, label %127, label %select.unfold, !llvm.loop !27
 
 select.unfold:                                    ; preds = %134, %132
   %.ph = phi i32 [ -14, %132 ], [ %135, %134 ]
@@ -1336,7 +1336,7 @@ select.unfold:                                    ; preds = %134, %132
   %141 = load ptr, ptr %140, align 8
   tail call void @kfree(ptr noundef nonnull %139) #14
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %142, label %.loopexit, label %.preheader, !llvm.loop !28
 
 143:                                              ; preds = %132
   %144 = load ptr, ptr %119, align 8
@@ -1394,7 +1394,7 @@ define internal ptr @calipso_skbuff_optptr(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @calipso_skbuff_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca [260 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1416,7 +1416,7 @@ define internal i32 @calipso_skbuff_setattr(ptr noundef %0, ptr nocapture nounde
 
 16:                                               ; preds = %3
   %17 = getelementptr i8, ptr %12, i64 40
-  %18 = call fastcc i32 @calipso_opt_find(ptr noundef %17, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !30
+  %18 = call fastcc i32 @calipso_opt_find(ptr noundef %17, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !29
   switch i32 %18, label %135 [
     i32 -2, label %thread-pre-split
     i32 0, label %thread-pre-split
@@ -1434,7 +1434,7 @@ thread-pre-split:                                 ; preds = %16, %16
   %21 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %19 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(260) %4, i8 0, i64 260, i1 false)
   %22 = and i32 %21, 3
-  %23 = call fastcc i32 @calipso_genopt(ptr noundef nonnull %4, i32 noundef %22, i32 noundef 260, ptr noundef %1, ptr noundef %2), !range !31
+  %23 = call fastcc i32 @calipso_genopt(ptr noundef nonnull %4, i32 noundef %22, i32 noundef 260, ptr noundef %1, ptr noundef %2)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %135, label %25
 
@@ -1609,7 +1609,7 @@ thread-pre-split:                                 ; preds = %16, %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @calipso_skbuff_delattr(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
@@ -1676,7 +1676,7 @@ define internal i32 @calipso_skbuff_delattr(ptr noundef %0) #0 align 16 {
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 3
   %47 = add nuw nsw i32 %46, 8
-  %48 = call fastcc i32 @calipso_opt_find(ptr noundef %42, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !30
+  %48 = call fastcc i32 @calipso_opt_find(ptr noundef %42, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !29
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %99
 
@@ -1769,7 +1769,7 @@ define internal i32 @calipso_skbuff_delattr(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @calipso_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i32, ptr @calipso_cache_enabled, align 4
   %4 = icmp eq i32 %3, 0
   %5 = load i32, ptr @calipso_cache_bucketsize, align 4
@@ -1802,7 +1802,7 @@ define internal noundef i32 @calipso_cache_add(ptr noundef %0, ptr nocapture nou
   store i32 %23, ptr %13, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 1, ptr elementtype(i32) %25) #14, !srcloc !26
+  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 1, ptr elementtype(i32) %25) #14, !srcloc !25
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %32, label %28, !prof !17
 
@@ -2016,7 +2016,7 @@ define internal fastcc ptr @calipso_opt_insert(ptr noundef readonly %0, ptr noca
   store i32 0, ptr %5, align 4, !annotation !21
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
-  %10 = call fastcc i32 @calipso_opt_find(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !30
+  %10 = call fastcc i32 @calipso_opt_find(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !29
   switch i32 %10, label %11 [
     i32 -2, label %thread-pre-split
     i32 0, label %thread-pre-split
@@ -2057,7 +2057,7 @@ thread-pre-split:                                 ; preds = %7, %7
   br label %31
 
 31:                                               ; preds = %29, %27
-  %32 = tail call fastcc i32 @calipso_genopt(ptr noundef nonnull %25, i32 noundef %19, i32 noundef %23, ptr noundef %1, ptr noundef %2), !range !31
+  %32 = tail call fastcc i32 @calipso_genopt(ptr noundef nonnull %25, i32 noundef %19, i32 noundef %23, ptr noundef %1, ptr noundef %2)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -2238,7 +2238,7 @@ select.unfold:                                    ; preds = %33, %12
   %54 = getelementptr inbounds i8, ptr %51, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds i8, ptr %0, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56, i32 %55, ptr elementtype(i32) %56) #14, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56, i32 %55, ptr elementtype(i32) %56) #14, !srcloc !23
   %57 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %51, i32 -1, ptr nonnull elementtype(i32) %51) #14, !srcloc !10
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %62, label %59
@@ -2263,7 +2263,7 @@ select.unfold:                                    ; preds = %33, %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc i32 @calipso_opt_find(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -2320,7 +2320,7 @@ define internal fastcc i32 @calipso_opt_find(ptr nocapture noundef readonly %0, 
   %39 = phi i32 [ %32, %.thread12 ], [ %12, %29 ], [ 0, %33 ]
   %40 = add nuw i32 %36, %12
   %41 = icmp ult i32 %40, %8
-  br i1 %41, label %9, label %42, !llvm.loop !32
+  br i1 %41, label %9, label %42, !llvm.loop !30
 
 42:                                               ; preds = %35, %33
   %43 = phi i32 [ %37, %35 ], [ %13, %33 ]
@@ -2416,7 +2416,7 @@ define internal fastcc i32 @calipso_opt_find(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = and i32 %1, 3
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr [4 x i8], ptr @calipso_genopt.padding, i64 0, i64 %7
@@ -2466,7 +2466,7 @@ define internal fastcc i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 n
   %40 = add nuw i32 %34, 1
   %41 = tail call i32 @netlbl_catmap_walk(ptr noundef %39, i32 noundef %40) #14
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %.preheader, !llvm.loop !33
+  br i1 %42, label %43, label %.preheader, !llvm.loop !31
 
 43:                                               ; preds = %37
   %44 = lshr i32 %38, 3
@@ -2562,14 +2562,14 @@ declare dso_local ptr @ipv6_renew_options(ptr noundef, ptr noundef, i32 noundef,
 declare dso_local ptr @ipv6_update_options(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @calipso_opt_del(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !21
-  %5 = call fastcc i32 @calipso_opt_find(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !30
+  %5 = call fastcc i32 @calipso_opt_find(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !29
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %56
 
@@ -2706,7 +2706,7 @@ define internal fastcc i32 @calipso_map_cache_hash(ptr nocapture noundef readonl
   %42 = add nsw i32 %9, -12
   %43 = getelementptr i8, ptr %5, i64 12
   %44 = icmp ugt i32 %42, 12
-  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !34
+  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %2
   %45 = phi i32 [ %1, %2 ], [ %42, %.preheader ]
@@ -2957,16 +2957,14 @@ attributes #18 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !6, !7}
 !20 = distinct !{!20, !6, !7}
 !21 = !{!"auto-init"}
-!22 = !{i32 -22, i32 1}
-!23 = !{i64 2160885593}
-!24 = !{i64 2147850939, i64 2147850978, i64 2147850999, i64 2147851036, i64 2147851059, i64 2147850929}
-!25 = !{i64 2160886863}
-!26 = !{i64 2147863828, i64 2147863867, i64 2147863888, i64 2147863925, i64 2147863948, i64 2147863957}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = !{i32 -2147483648, i32 1}
-!31 = !{i32 -28, i32 268435722}
+!22 = !{i64 2160885593}
+!23 = !{i64 2147850939, i64 2147850978, i64 2147850999, i64 2147851036, i64 2147851059, i64 2147850929}
+!24 = !{i64 2160886863}
+!25 = !{i64 2147863828, i64 2147863867, i64 2147863888, i64 2147863925, i64 2147863948, i64 2147863957}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = !{i32 -2147483648, i32 1}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !6, !7}

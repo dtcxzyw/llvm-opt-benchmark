@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.54 = private unnamed_addr constant [25 x i8] c"../openssl/apps/genrsa.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @genrsa_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %enc = alloca ptr, align 8

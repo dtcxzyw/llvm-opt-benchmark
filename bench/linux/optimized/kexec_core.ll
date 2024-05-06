@@ -92,7 +92,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_kexec_core_sysctl_init463, ptr @__UNIQUE_ID___addressable_kexec_crash_loaded451, ptr @__func_stack_frame_non_standard___crash_kexec, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched151, ptr @crash_kexec], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @kexec_should_crash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @kexec_should_crash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load i8, ptr @crash_kexec_post_notifiers, align 1, !range !6, !noundef !7
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %20
@@ -125,7 +125,7 @@ define dso_local i32 @kexec_should_crash(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @kexec_crash_loaded() #1 align 16 {
+define dso_local range(i32 0, 2) i32 @kexec_crash_loaded() #1 align 16 {
   %1 = load ptr, ptr @kexec_crash_image, align 8
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i32
@@ -133,7 +133,7 @@ define dso_local i32 @kexec_crash_loaded() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sanity_check_segment_list(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = load volatile i64, ptr @_totalram_pages, align 8
@@ -361,7 +361,7 @@ define dso_local noundef ptr @do_kimage_alloc_init() local_unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef i32 @kimage_is_destination_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @kimage_is_destination_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
@@ -732,7 +732,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kimage_crash_copy_vmcoreinfo(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @kimage_crash_copy_vmcoreinfo(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 632
@@ -1117,7 +1117,7 @@ declare dso_local void @machine_kexec_cleanup(ptr noundef) local_unnamed_addr #6
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kimage_load_segment(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -1593,7 +1593,7 @@ define dso_local i64 @crash_get_memory_size() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crash_shrink_memory(i64 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @crash_shrink_memory(i64 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #17, !srcloc !29
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %50
@@ -1675,7 +1675,7 @@ define dso_local i32 @crash_shrink_memory(i64 noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__crash_shrink_memory(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__crash_shrink_memory(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 64) #18
   %5 = icmp eq ptr %4, null
@@ -1914,7 +1914,7 @@ declare dso_local ptr @append_elf_note(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @final_note(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kernel_kexec() local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @kernel_kexec() local_unnamed_addr #2 align 16 {
   %1 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #17, !srcloc !29
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %11

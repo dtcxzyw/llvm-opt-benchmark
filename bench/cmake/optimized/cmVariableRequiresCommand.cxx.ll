@@ -236,7 +236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
   br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.critedge.thread
-  %78 = trunc i8 %.143 to i1
+  %78 = trunc nuw i8 %.143 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyFPE_counter = hidden local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden double @PyFPE_dummy(ptr nocapture noundef readnone %dummy) local_unnamed_addr #0 {
+define hidden noundef double @PyFPE_dummy(ptr nocapture noundef readnone %dummy) local_unnamed_addr #0 {
 entry:
   ret double 1.000000e+00
 }

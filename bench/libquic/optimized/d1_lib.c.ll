@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [116 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_lib.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dtls1_new(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dtls1_new(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ssl3_new(ptr noundef %ssl) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @dtls1_supports_cipher(ptr nocapture noundef readonly %cipher) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @dtls1_supports_cipher(ptr nocapture noundef readonly %cipher) local_unnamed_addr #4 {
 entry:
   %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
@@ -212,7 +212,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare ptr @SSL_get_rbio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DTLSv1_get_timeout(ptr noundef %ssl, ptr nocapture noundef %out) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DTLSv1_get_timeout(ptr noundef %ssl, ptr nocapture noundef %out) local_unnamed_addr #0 {
 entry:
   %timenow = alloca %struct.timeval, align 8
   %method = getelementptr inbounds i8, ptr %ssl, i64 8
@@ -317,7 +317,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_is_timer_expired(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dtls1_is_timer_expired(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %timenow.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timenow.i)
@@ -518,7 +518,7 @@ entry:
 declare void @dtls1_clear_record_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dtls1_check_timeout_num(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dtls1_check_timeout_num(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
@@ -747,7 +747,7 @@ dtls1_double_timeout.exit:                        ; preds = %if.then.i.i.i15, %i
   %25 = load ptr, ptr %d1.i.i, align 8
   %next_timeout13.i.i = getelementptr inbounds i8, ptr %25, i64 368
   %call14.i.i = call i64 @BIO_ctrl(ptr noundef %call.i.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i.i) #9
-  %call4 = call i32 @dtls1_check_timeout_num(ptr noundef nonnull %ssl), !range !10
+  %call4 = call i32 @dtls1_check_timeout_num(ptr noundef nonnull %ssl)
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %return, label %if.end6
 
@@ -813,7 +813,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_set_handshake_header(ptr noundef %ssl, i32 noundef %htype, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dtls1_set_handshake_header(ptr noundef %ssl, i32 noundef %htype, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %serialised_header = alloca [12 x i8], align 1
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
@@ -952,4 +952,3 @@ attributes #9 = { nounwind }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 -1, i32 1}

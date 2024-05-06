@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32i_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -330,9 +330,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -730,9 +730,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -843,7 +843,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32i_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1097,9 +1097,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -1466,9 +1466,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -1579,7 +1579,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32e_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1833,9 +1833,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -2202,9 +2202,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -2315,7 +2315,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32e_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsadd_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2569,9 +2569,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144
@@ -2938,9 +2938,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   %144 = sub i64 64, %127
   %145 = shl i64 %140, %144
   %146 = ashr exact i64 %145, %144

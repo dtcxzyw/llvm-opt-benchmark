@@ -63,7 +63,7 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %5, label %15
 
 14:                                               ; preds = %8
@@ -102,7 +102,7 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
 
 8:                                                ; preds = %5
   %9 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %5, label %12
 
 11:                                               ; preds = %5
@@ -140,7 +140,7 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %5, label %15
 
 14:                                               ; preds = %8

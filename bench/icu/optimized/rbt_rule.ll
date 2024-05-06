@@ -1017,7 +1017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i16 @_ZNK6icu_7519TransliterationRule13getIndexValueEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i16 -1, 256) i16 @_ZNK6icu_7519TransliterationRule13getIndexValueEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #1 align 2 {
 entry:
   %anteContextLength = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load i32, ptr %anteContextLength, align 4
@@ -1079,7 +1079,7 @@ cond.end6:                                        ; preds = %entry, %cond.true4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7519TransliterationRule5masksERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %r2) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519TransliterationRule5masksERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %r2) unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i16, ptr %fUnion.i.i, align 8

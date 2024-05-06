@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pollfd = type { i32, i16, i16 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_wait_ms(i64 noundef %timeout_ms) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @Curl_wait_ms(i64 noundef %timeout_ms) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %timeout_ms, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -22,7 +22,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   %0 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv = trunc i64 %0 to i32
+  %conv = trunc nuw nsw i64 %0 to i32
   %call6 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv) #5
   switch i32 %call6, label %if.else [
     i32 0, label %return
@@ -72,7 +72,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %2 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv.i = trunc i64 %2 to i32
+  %conv.i = trunc nuw nsw i64 %2 to i32
   %call6.i = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv.i) #5
   switch i32 %call6.i, label %if.else.i [
     i32 0, label %return
@@ -236,7 +236,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %1 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv.i = trunc i64 %1 to i32
+  %conv.i = trunc nuw nsw i64 %1 to i32
   %call6.i = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv.i) #5
   switch i32 %call6.i, label %if.else.i [
     i32 0, label %return
@@ -258,7 +258,7 @@ if.end6:                                          ; preds = %for.body
 
 if.then11:                                        ; preds = %if.end6
   %3 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv = trunc i64 %3 to i32
+  %conv = trunc nuw nsw i64 %3 to i32
   br label %if.end17
 
 if.else:                                          ; preds = %if.end6

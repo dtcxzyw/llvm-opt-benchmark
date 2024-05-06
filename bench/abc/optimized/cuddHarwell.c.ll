@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c" %lf \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
   %17 = alloca i32, align 4
   %18 = alloca double, align 8
   %19 = alloca [73 x i8], align 16
@@ -696,7 +696,7 @@ define noundef i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %345, label %.lr.ph576.preheader, label %._crit_edge577
 
 .lr.ph576.preheader:                              ; preds = %349
-  %352 = trunc i64 %indvars.iv665 to i32
+  %352 = trunc nuw nsw i64 %indvars.iv665 to i32
   br label %.lr.ph576
 
 .lr.ph576:                                        ; preds = %.lr.ph576.preheader, %359

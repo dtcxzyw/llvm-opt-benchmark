@@ -1062,11 +1062,11 @@ megaco_tree_add_string.exit1056:                  ; preds = %megaco_tvb_skip_wsp
   br i1 %exitcond.not.i1058, label %find_megaco_messageBody_names.exit, label %188, !llvm.loop !8
 
 .split.loop.exit23.i:                             ; preds = %202
-  %206 = trunc i64 %indvars.iv.i to i32
+  %206 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_megaco_messageBody_names.exit
 
 .split.loop.exit25.i:                             ; preds = %193
-  %207 = trunc i64 %indvars.iv.i to i32
+  %207 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_megaco_messageBody_names.exit
 
 find_megaco_messageBody_names.exit:               ; preds = %205, %.split.loop.exit23.i, %.split.loop.exit25.i
@@ -2500,7 +2500,7 @@ declare void @ws_mempbrk_compile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @megacostat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
@@ -3514,11 +3514,11 @@ megaco_tvb_skip_wsp.exit.i:                       ; preds = %132, %.lr.ph.i.i, %
   br i1 %exitcond.not.i67.i, label %find_megaco_megaco_serviceChangeParm_names.exit.i, label %144, !llvm.loop !22
 
 .split.loop.exit23.i.i:                           ; preds = %158
-  %162 = trunc i64 %indvars.iv.i.i to i32
+  %162 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_megaco_megaco_serviceChangeParm_names.exit.i
 
 .split.loop.exit25.i.i:                           ; preds = %149
-  %163 = trunc i64 %indvars.iv.i.i to i32
+  %163 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_megaco_megaco_serviceChangeParm_names.exit.i
 
 find_megaco_megaco_serviceChangeParm_names.exit.i: ; preds = %161, %.split.loop.exit25.i.i, %.split.loop.exit23.i.i
@@ -4560,11 +4560,11 @@ megaco_tvb_skip_wsp.exit124:                      ; preds = %.lr.ph.i120, %95, %
   br i1 %exitcond.not.i.i, label %find_megaco_localParam_names.exit.i, label %114, !llvm.loop !33
 
 .split.loop.exit23.i.i:                           ; preds = %128
-  %132 = trunc i64 %indvars.iv.i.i to i32
+  %132 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_megaco_localParam_names.exit.i
 
 .split.loop.exit25.i.i:                           ; preds = %119
-  %133 = trunc i64 %indvars.iv.i.i to i32
+  %133 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_megaco_localParam_names.exit.i
 
 find_megaco_localParam_names.exit.i:              ; preds = %131, %.split.loop.exit25.i.i, %.split.loop.exit23.i.i

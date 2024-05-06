@@ -113,7 +113,7 @@ if.end5:                                          ; preds = %if.then, %if.then4,
 declare i64 @vhost_net_get_acked_features(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_vhost_user(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_vhost_user(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %type = getelementptr inbounds i8, ptr %netdev, i64 8
@@ -430,7 +430,7 @@ if.end25.thread.i:                                ; preds = %if.then10.i
   br label %if.then7
 
 if.end25.i:                                       ; preds = %if.end.i
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %14) #10
   %cmp8.i.not.i = icmp eq i32 %14, 0
   br i1 %cmp8.i.not.i, label %if.then7, label %for.body.i.i

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [7 x i8] c"broken\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @memtype_check_insert(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -1081,7 +1081,7 @@ define dso_local noundef ptr @memtype_lookup(i64 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @memtype_copy_nth_element(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @memtype_rbroot, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread6, label %.preheader10

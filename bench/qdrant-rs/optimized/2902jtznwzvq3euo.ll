@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i32 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a51e4678af210aeE(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i32 0, 1114113) i32 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a51e4678af210aeE(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 } } }, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -60,7 +60,7 @@ define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3881c0c563b6ffcE"(ptr align 8 %0) unnamed_addr #2 {
+define range(i32 0, 1114113) i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3881c0c563b6ffcE"(ptr align 8 %0) unnamed_addr #2 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 8

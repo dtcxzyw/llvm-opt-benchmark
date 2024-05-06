@@ -322,7 +322,7 @@ _ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %entry, %land.rhs.i
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getAssignmentEj(ptr noundef nonnull align 8 dereferenceable(568), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory5arith6linear18AttemptSolutionSDP7attemptERKNS3_18ApproximateSimplex8SolutionE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %sol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear18AttemptSolutionSDP7attemptERKNS3_18ApproximateSimplex8SolutionE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %sol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %ref.tmp.i = alloca i8, align 1
   %needsToBeAdded = alloca %"class.cvc5::internal::DenseSet", align 8

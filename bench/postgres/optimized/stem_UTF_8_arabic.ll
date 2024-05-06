@@ -322,7 +322,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_2_4 = internal constant [2 x i8] c"\D8\A6", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @arabic_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @arabic_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -813,7 +813,7 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
   br i1 %241, label %283, label %242
 
 242:                                              ; preds = %._crit_edge
-  %243 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0), !range !4
+  %243 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0)
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %247, label %245
 
@@ -929,7 +929,7 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
 303:                                              ; preds = %287, %283, %293, %295
   %304 = load i32, ptr %12, align 4
   store i32 %304, ptr %8, align 8
-  %305 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0), !range !4
+  %305 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0)
   %306 = icmp eq i32 %305, 0
   br i1 %306, label %._crit_edge383, label %307
 
@@ -1044,7 +1044,7 @@ r_Suffix_Noun_Step1a.exit:                        ; preds = %358, %351, %344, %3
   %361 = load i32, ptr %12, align 4
   %362 = load i32, ptr %8, align 8
   %363 = sub i32 %361, %362
-  %364 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0), !range !4
+  %364 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %368, label %366
 
@@ -1056,7 +1056,7 @@ r_Suffix_Noun_Step1a.exit:                        ; preds = %358, %351, %344, %3
   %369 = load i32, ptr %12, align 4
   %370 = sub i32 %369, %363
   store i32 %370, ptr %8, align 8
-  %371 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0), !range !4
+  %371 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %375, label %373
 
@@ -1068,7 +1068,7 @@ r_Suffix_Noun_Step1a.exit:                        ; preds = %358, %351, %344, %3
   %376 = load i32, ptr %12, align 4
   %377 = sub i32 %376, %363
   store i32 %377, ptr %8, align 8
-  %378 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0), !range !4
+  %378 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0)
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %382, label %380
 
@@ -1125,7 +1125,7 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %404
   %407 = load i32, ptr %12, align 4
   %408 = load i32, ptr %8, align 8
   %409 = sub i32 %407, %408
-  %410 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0), !range !4
+  %410 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %411 = icmp eq i32 %410, 0
   br i1 %411, label %414, label %412
 
@@ -1137,7 +1137,7 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %404
   %415 = load i32, ptr %12, align 4
   %416 = sub i32 %415, %409
   store i32 %416, ptr %8, align 8
-  %417 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0), !range !4
+  %417 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %418 = icmp eq i32 %417, 0
   br i1 %418, label %421, label %419
 
@@ -1149,7 +1149,7 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %404
   %422 = load i32, ptr %12, align 4
   %423 = sub i32 %422, %409
   store i32 %423, ptr %8, align 8
-  %424 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0), !range !4
+  %424 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0)
   %425 = icmp eq i32 %424, 0
   br i1 %425, label %r_Suffix_Noun_Step1b.exit.thread, label %426
 
@@ -1166,7 +1166,7 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %399, %397, %r_Suffi
   br i1 %.not261, label %431, label %436
 
 431:                                              ; preds = %r_Suffix_Noun_Step1b.exit.thread
-  %432 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0), !range !4
+  %432 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %._crit_edge386, label %434
 
@@ -1181,7 +1181,7 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %399, %397, %r_Suffi
 436:                                              ; preds = %._crit_edge386, %r_Suffix_Noun_Step1b.exit.thread
   %437 = phi i32 [ %.pre387, %._crit_edge386 ], [ %428, %r_Suffix_Noun_Step1b.exit.thread ]
   store i32 %437, ptr %8, align 8
-  %438 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0), !range !4
+  %438 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %440, label %442
 
@@ -1535,7 +1535,7 @@ r_Prefix_Step3b_Noun.exit.thread:                 ; preds = %600, %593, %586, %5
   br i1 %.not263, label %r_Prefix_Step3a_Noun.exit, label %610
 
 610:                                              ; preds = %r_Prefix_Step3b_Noun.exit.thread
-  %611 = tail call fastcc i32 @r_Prefix_Step3_Verb(ptr noundef nonnull %0), !range !4
+  %611 = tail call fastcc i32 @r_Prefix_Step3_Verb(ptr noundef nonnull %0)
   %612 = icmp eq i32 %611, 0
   br i1 %612, label %613, label %614
 
@@ -1548,7 +1548,7 @@ r_Prefix_Step3b_Noun.exit.thread:                 ; preds = %600, %593, %586, %5
   br i1 %615, label %r_Suffix_All_alef_maqsura.exit, label %616
 
 616:                                              ; preds = %614, %613
-  %617 = tail call fastcc i32 @r_Prefix_Step4_Verb(ptr noundef nonnull %0), !range !4
+  %617 = tail call fastcc i32 @r_Prefix_Step4_Verb(ptr noundef nonnull %0)
   %618 = icmp slt i32 %617, 0
   br i1 %618, label %r_Suffix_All_alef_maqsura.exit, label %r_Prefix_Step3a_Noun.exit
 
@@ -1679,7 +1679,7 @@ r_Suffix_All_alef_maqsura.exit:                   ; preds = %43, %46, %49, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Verb_Step2a(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1754,7 +1754,7 @@ define internal fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef %0) unnamed_addr #0
 declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2a(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1784,7 +1784,7 @@ define internal fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2b(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1830,7 +1830,7 @@ define internal fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2c1(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1875,7 +1875,7 @@ define internal fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Prefix_Step3_Verb(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step3_Verb(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1948,7 +1948,7 @@ define internal fastcc i32 @r_Prefix_Step3_Verb(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_Prefix_Step4_Verb(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step4_Verb(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2039,4 +2039,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

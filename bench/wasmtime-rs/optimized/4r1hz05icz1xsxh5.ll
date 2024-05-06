@@ -232,7 +232,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
           to label %.thread44.i unwind label %76, !noalias !3
 
 75:                                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   invoke void @"_ZN4core3ptr156drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$$RF$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$GT$$GT$17h4bf4a149881b2198E"(ptr nonnull align 8 %18)
           to label %137 unwind label %38
 

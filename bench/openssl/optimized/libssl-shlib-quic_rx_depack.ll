@@ -89,7 +89,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_quic_handle_frames.23 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 2, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_handle_frames(ptr noundef %ch, ptr noundef %qpacket) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_handle_frames(ptr noundef %ch, ptr noundef %qpacket) local_unnamed_addr #0 {
 entry:
   %frame_data.i315.i = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   %frame_data.i310.i = alloca i64, align 8
@@ -440,7 +440,7 @@ if.then.i151.i:                                   ; preds = %if.end39.i
 
 if.end.i147.i:                                    ; preds = %if.end39.i
   %30 = load i64, ptr %frame_data.i.i, align 8
-  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %30, i64 noundef 4, ptr noundef nonnull %stream.i.i), !range !4
+  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %30, i64 noundef 4, ptr noundef nonnull %stream.i.i)
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %depack_do_frame_reset_stream.exit.thread.i, label %if.end4.i.i
 
@@ -522,7 +522,7 @@ if.then.i169.i:                                   ; preds = %if.end49.i
 
 if.end.i156.i:                                    ; preds = %if.end49.i
   %37 = load i64, ptr %frame_data.i152.i, align 8
-  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %37, i64 noundef 5, ptr noundef nonnull %stream.i153.i), !range !4
+  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %37, i64 noundef 5, ptr noundef nonnull %stream.i153.i)
   %tobool2.not.i158.i = icmp eq i32 %call1.i157.i, 0
   br i1 %tobool2.not.i158.i, label %depack_do_frame_stop_sending.exit.thread.i, label %if.end4.i159.i
 
@@ -704,7 +704,7 @@ if.then.i222.i:                                   ; preds = %if.end75.i
 
 if.end.i193.i:                                    ; preds = %if.end75.i
   %50 = load i64, ptr %frame_data.i189.i, align 8
-  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %50, i64 noundef %12, ptr noundef nonnull %stream.i190.i), !range !4
+  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %50, i64 noundef %12, ptr noundef nonnull %stream.i190.i)
   %tobool2.not.i195.i = icmp eq i32 %call1.i194.i, 0
   br i1 %tobool2.not.i195.i, label %depack_do_frame_stream.exit.thread.i, label %if.end4.i196.i
 
@@ -917,7 +917,7 @@ if.then.i246.i:                                   ; preds = %if.end95.i
 
 if.end.i233.i:                                    ; preds = %if.end95.i
   %71 = load i64, ptr %stream_id.i.i, align 8
-  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %71, i64 noundef 17, ptr noundef nonnull %stream.i230.i), !range !4
+  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %71, i64 noundef 17, ptr noundef nonnull %stream.i230.i)
   %tobool2.not.i235.i = icmp eq i32 %call1.i234.i, 0
   br i1 %tobool2.not.i235.i, label %depack_do_frame_max_stream_data.exit.thread.i, label %if.end4.i236.i
 
@@ -1074,7 +1074,7 @@ if.then.i279.i:                                   ; preds = %if.end125.i
 
 if.end.i269.i:                                    ; preds = %if.end125.i
   %79 = load i64, ptr %stream_id.i264.i, align 8
-  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %79, i64 noundef 21, ptr noundef nonnull %stream.i266.i), !range !4
+  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %79, i64 noundef 21, ptr noundef nonnull %stream.i266.i)
   %tobool2.not.i271.i = icmp eq i32 %call1.i270.i, 0
   br i1 %tobool2.not.i271.i, label %depack_do_frame_stream_data_blocked.exit.thread.i, label %if.end4.i272.i
 
@@ -1381,7 +1381,7 @@ if.end209.i:                                      ; preds = %if.else.i, %if.then
 if.end211.i:                                      ; preds = %if.end209.i, %sw.epilog198.i
   %pkt.val137.pr.i = load i64, ptr %remaining.i, align 8
   %cmp3.not.i = icmp eq i64 %pkt.val137.pr.i, 0
-  br i1 %cmp3.not.i, label %depack_process_frames.exit, label %while.body.i, !llvm.loop !5
+  br i1 %cmp3.not.i, label %depack_process_frames.exit, label %while.body.i, !llvm.loop !4
 
 depack_process_frames.exit:                       ; preds = %if.end211.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %was_minimal.i)
@@ -1430,7 +1430,7 @@ declare i32 @ossl_ackm_on_rx_ack_frame(ptr noundef, ptr noundef, i32 noundef, i6
 declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
   %qsm = getelementptr inbounds i8, ptr %ch, i64 888
   %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef nonnull %qsm, i64 noundef %stream_id) #3
@@ -1502,7 +1502,7 @@ if.end31:                                         ; preds = %while.body
   %inc = add i64 %4, 1
   store i64 %inc, ptr %cond9, align 8
   %cmp24.not = icmp ugt i64 %inc, %shr
-  br i1 %cmp24.not, label %if.end41, label %while.body, !llvm.loop !7
+  br i1 %cmp24.not, label %if.end41, label %while.body, !llvm.loop !6
 
 if.else:                                          ; preds = %if.end
   %cond36.v = select i1 %cmp4.not, i64 1464, i64 1472
@@ -1673,7 +1673,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

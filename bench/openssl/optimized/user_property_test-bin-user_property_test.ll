@@ -32,7 +32,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_default_props_and_providers(i32 noundef %propsorder) #0 {
+define internal range(i32 0, 2) i32 @test_default_props_and_providers(i32 noundef %propsorder) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @.str.2, ptr noundef %call) #4
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tmpmd_get_params(ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @tmpmd_get_params(ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.10) #4
   %cmp.not = icmp eq ptr %call, null

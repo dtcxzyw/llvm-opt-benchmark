@@ -88,7 +88,7 @@ define dso_local void @snd_hdac_bus_init_cmd_io(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %13, ptr elementtype(i32) %16) #5, !srcloc !9
   %17 = load i64, ptr %11, align 8
   %18 = lshr i64 %17, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr i8, ptr %20, i64 68
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr elementtype(i32) %21) #5, !srcloc !9
@@ -187,7 +187,7 @@ define dso_local void @snd_hdac_bus_init_cmd_io(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %76, ptr elementtype(i32) %78) #5, !srcloc !9
   %79 = load i64, ptr %72, align 8
   %80 = lshr i64 %79, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = load ptr, ptr %14, align 8
   %83 = getelementptr i8, ptr %82, i64 84
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %81, ptr elementtype(i32) %83) #5, !srcloc !9
@@ -311,7 +311,7 @@ define dso_local void @snd_hdac_bus_stop_cmd_io(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_bus_send_cmd(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @snd_hdac_bus_send_cmd(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = lshr i32 %1, 28
   %4 = icmp slt i32 %1, 0
   %5 = select i1 %4, i32 0, i32 %3
@@ -482,7 +482,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_bus_get_response(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_bus_get_response(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !22
@@ -777,7 +777,7 @@ define dso_local void @snd_hdac_bus_exit_link_reset(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_bus_reset_link(ptr nocapture noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @snd_hdac_bus_reset_link(ptr nocapture noundef %0, i1 noundef zeroext %1) #0 align 16 {
   br i1 %1, label %3, label %52
 
 3:                                                ; preds = %2
@@ -949,7 +949,7 @@ define dso_local noundef zeroext i1 @snd_hdac_bus_init_chip(ptr noundef %0, i1 n
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %39, ptr elementtype(i32) %41) #5, !srcloc !9
   %42 = load i64, ptr %35, align 8
   %43 = lshr i64 %42, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr i8, ptr %45, i64 116
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %46) #5, !srcloc !9

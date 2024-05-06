@@ -450,7 +450,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @file_free(ptr noundef %a) #6 {
+define internal range(i32 0, 2) i32 @file_free(ptr noundef %a) #6 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

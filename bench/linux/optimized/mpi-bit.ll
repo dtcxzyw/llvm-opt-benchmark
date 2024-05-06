@@ -87,7 +87,7 @@ define dso_local i32 @mpi_get_nbits(ptr nocapture noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @mpi_test_bit(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4

@@ -10195,7 +10195,7 @@ define void @_ZNK14sstateen_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   unreachable
 
 _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
-  tail call void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(37) %0, i64 %1, i1 noundef zeroext %2)
+  tail call void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull readonly align 8 dereferenceable(37) %0, i64 %1, i1 noundef zeroext %2)
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 850
   %27 = load i8, ptr %26, align 2

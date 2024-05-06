@@ -2040,7 +2040,7 @@ lpad:                                             ; preds = %if.then
   br label %ehcleanup38
 
 if.end:                                           ; preds = %for.body
-  %6 = trunc i64 %4 to i32
+  %6 = trunc nuw nsw i64 %4 to i32
   %7 = add i32 %length.066, 1
   %conv10 = add i32 %7, %6
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.065, i64 32

@@ -591,7 +591,7 @@ define void @_ZN9MeshModelC2EiRK7QStringS2_(ptr noundef nonnull align 8 derefere
   store i8 1, ptr %5, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 1132
   %17 = getelementptr inbounds i8, ptr %0, i64 1136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 1152
   store float 1.000000e+00, ptr %18, align 8
@@ -3760,7 +3760,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef %0) local_unnamed_addr #17 align 2 {
+define noundef range(i32 0, 1073741825) i32 @_ZN9MeshModel5io2mmEi(i32 noundef %0) local_unnamed_addr #17 align 2 {
   switch i32 %0, label %18 [
     i32 131072, label %17
     i32 1, label %2

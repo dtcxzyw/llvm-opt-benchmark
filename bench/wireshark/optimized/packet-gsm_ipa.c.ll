@@ -170,7 +170,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ipa_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+  %5 = tail call fastcc i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -185,7 +185,7 @@ define internal i32 @dissect_ipa_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ipa_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !4
+  %5 = tail call fastcc i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -228,7 +228,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %.loopexit, label %7
@@ -366,7 +366,7 @@ define internal fastcc noundef i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, 
   %84 = add i32 %83, %82
   %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef %84) #2
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i.i, label %dissect_ipaccess.exit, !llvm.loop !5
+  br i1 %86, label %.lr.ph.i.i, label %dissect_ipaccess.exit, !llvm.loop !4
 
 87:                                               ; preds = %._crit_edge
   %88 = load ptr, ptr @sub_handles.2, align 16
@@ -458,7 +458,7 @@ dissect_ipaccess.exit:                            ; preds = %81, %112, %109, %10
   %135 = add i32 %30, %.07276
   %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %135) #2
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !7
+  br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_ipaccess.exit, %13, %7, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %13 ], [ 1, %dissect_ipaccess.exit ]
@@ -515,7 +515,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

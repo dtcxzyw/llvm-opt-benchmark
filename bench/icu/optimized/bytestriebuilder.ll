@@ -1278,7 +1278,7 @@ _ZNK6icu_7516BytesTrieElement15getStringLengthERKNS_10CharStringE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZNK6icu_7516BytesTrieBuilder14getElementUnitEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
+define noundef zeroext range(i16 0, 256) i16 @_ZNK6icu_7516BytesTrieBuilder14getElementUnitEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8
@@ -1311,7 +1311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7516BytesTrieBuilder21getLimitOfLinearMatchEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %first, i32 noundef %last, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7516BytesTrieBuilder21getLimitOfLinearMatchEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %first, i32 noundef %last, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8
@@ -1391,7 +1391,7 @@ while.end:                                        ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7516BytesTrieBuilder17countElementUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7516BytesTrieBuilder17countElementUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %byteIndex) unnamed_addr #10 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8
@@ -1444,7 +1444,7 @@ do.end:                                           ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7516BytesTrieBuilder23skipElementsBySomeUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i, i32 noundef %byteIndex, i32 noundef %count) unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7516BytesTrieBuilder23skipElementsBySomeUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i, i32 noundef %byteIndex, i32 noundef %count) unnamed_addr #10 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8
@@ -1675,7 +1675,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i
   %conv.i = sext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %2, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %2, i64 %conv.i, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %entry, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i
@@ -1800,7 +1800,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %length) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %length) local_unnamed_addr #1 align 2 {
 entry:
   %bytes = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %bytes, align 8
@@ -2003,7 +2003,7 @@ if.then.i2:                                       ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i3 = sext i32 %sub.i to i64
   %add.ptr.i4 = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i3
   %conv.i5 = sext i32 %length to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i4, ptr nonnull align 1 %add.ptr, i64 %conv.i5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i4, ptr nonnull readonly align 1 %add.ptr, i64 %conv.i5, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %entry, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i2
@@ -2161,7 +2161,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
   %conv.i = zext nneg i32 %length.2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %intBytes, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %intBytes, i64 %conv.i, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %if.end43, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i
@@ -2330,7 +2330,7 @@ if.then.i3:                                       ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i
   %conv.i4 = zext nneg i32 %inc32.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %intBytes, i64 %conv.i4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %intBytes, i64 %conv.i4, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i3
@@ -2343,7 +2343,7 @@ return:                                           ; preds = %_ZN6icu_7516BytesTr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc(i32 noundef %i, ptr nocapture noundef writeonly %intBytes) local_unnamed_addr #11 align 2 {
+define noundef range(i32 1, 6) i32 @_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc(i32 noundef %i, ptr nocapture noundef writeonly %intBytes) local_unnamed_addr #11 align 2 {
 entry:
   %cmp = icmp slt i32 %i, 192
   br i1 %cmp, label %if.then, label %if.end

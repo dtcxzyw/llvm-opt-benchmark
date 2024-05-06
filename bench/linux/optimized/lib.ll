@@ -25,7 +25,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rtc_ktime_to
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_rtc_ktime_to_tm389, ptr @__UNIQUE_ID___addressable_rtc_month_days383, ptr @__UNIQUE_ID___addressable_rtc_time64_to_tm385, ptr @__UNIQUE_ID___addressable_rtc_tm_to_ktime388, ptr @__UNIQUE_ID___addressable_rtc_tm_to_time64387, ptr @__UNIQUE_ID___addressable_rtc_valid_tm386, ptr @__UNIQUE_ID___addressable_rtc_year_days384], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @rtc_month_days(i32 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 0, 257) i32 @rtc_month_days(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [12 x i8], ptr @rtc_days_in_month, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
@@ -94,7 +94,7 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef wr
   %14 = zext nneg i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 2939745
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = trunc i64 %15 to i32
   %19 = udiv i32 %18, 11758980
   %20 = mul nuw nsw i32 %19, 2141
@@ -121,7 +121,7 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef wr
 35:                                               ; preds = %27, %24
   %36 = phi i32 [ %22, %27 ], [ %25, %24 ]
   %37 = phi i32 [ %34, %27 ], [ %26, %24 ]
-  %38 = trunc i64 %4 to i32
+  %38 = trunc nsw i64 %4 to i32
   %.lhs.trunc = trunc i32 %21 to i16
   %39 = udiv i16 %.lhs.trunc, 2141
   %narrow = add nuw nsw i16 %39, 1
@@ -157,7 +157,7 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @rtc_valid_tm(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -2147481748
@@ -293,7 +293,7 @@ define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writ
   %20 = zext nneg i32 %19 to i64
   %21 = mul nuw nsw i64 %20, 2939745
   %22 = lshr i64 %21, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = trunc i64 %21 to i32
   %25 = udiv i32 %24, 11758980
   %26 = mul nuw nsw i32 %25, 2141
@@ -320,7 +320,7 @@ define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writ
 41:                                               ; preds = %33, %30
   %42 = phi i32 [ %28, %33 ], [ %31, %30 ]
   %43 = phi i32 [ %40, %33 ], [ %32, %30 ]
-  %44 = trunc i64 %10 to i32
+  %44 = trunc nsw i64 %10 to i32
   %.lhs.trunc = trunc i32 %27 to i16
   %45 = udiv i16 %.lhs.trunc, 2141
   %narrow = add nuw nsw i16 %45, 1

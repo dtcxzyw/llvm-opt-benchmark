@@ -325,7 +325,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %92 = add i8 %.1196231.i, 1
   %93 = zext i8 %.1196231.i to i64
   %94 = getelementptr [48 x i8], ptr %5, i64 0, i64 %93
-  %95 = trunc i32 %91 to i8
+  %95 = trunc nuw nsw i32 %91 to i8
   store i8 %95, ptr %94, align 1
   br label %96
 
@@ -377,7 +377,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %114 = and i32 %113, 32512
   %115 = zext i8 %112 to i32
   %116 = or disjoint i32 %114, %115
-  %117 = trunc i32 %116 to i16
+  %117 = trunc nuw nsw i32 %116 to i16
   %118 = load i32, ptr @hf_gsm_cbch_slot, align 4
   %119 = zext nneg i8 %104 to i32
   %120 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %102, i32 noundef %118, ptr noundef %56, i32 noundef %.1236.i, i32 noundef 2, i32 noundef %119, ptr noundef nonnull @.str.84, i32 noundef %119, i32 noundef %116) #6
@@ -504,7 +504,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph239.i, !llvm.loop !8
 
 184:                                              ; preds = %.lr.ph239.i
-  %185 = trunc i64 %indvars.iv262.i to i8
+  %185 = trunc nuw i64 %indvars.iv262.i to i8
   %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %.3245.i) #6
   %187 = zext i8 %186 to i32
   %.not218.i = icmp sgt i8 %186, -1
@@ -521,7 +521,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %194 = and i32 %193, 32512
   %195 = zext i8 %192 to i32
   %196 = or disjoint i32 %194, %195
-  %197 = trunc i32 %196 to i16
+  %197 = trunc nuw nsw i32 %196 to i16
   %198 = and i64 %indvars.iv262.i, 255
   %199 = getelementptr [48 x i16], ptr %6, i64 0, i64 %198
   store i16 %197, ptr %199, align 2

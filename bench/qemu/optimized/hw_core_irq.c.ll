@@ -69,7 +69,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %opaque3.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %opaque, ptr %opaque3.i, align 8
   %n4.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nsw i64 %indvars.iv to i32
   store i32 %1, ptr %n4.i, align 8
   %arrayidx = getelementptr ptr, ptr %cond, i64 %indvars.iv
   store ptr %call.i.i, ptr %arrayidx, align 8
@@ -122,7 +122,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %opaque3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   store ptr %opaque, ptr %opaque3.i.i, align 8
   %n4.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nsw i64 %indvars.iv.i to i32
   store i32 %0, ptr %n4.i.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %call3.i, i64 %indvars.iv.i
   store ptr %call.i.i.i, ptr %arrayidx.i, align 8
@@ -232,7 +232,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
   %handler2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   %n4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
-  %0 = trunc i64 %indvars.iv.i.i to i32
+  %0 = trunc nsw i64 %indvars.iv.i.i to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler2.i.i.i, i8 0, i64 16, i1 false)
   store i32 %0, ptr %n4.i.i.i, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %call3.i.i, i64 %indvars.iv.i.i

@@ -792,7 +792,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   %48 = and i32 %40, %47
   %.not = icmp ne i32 %48, 0
   %49 = getelementptr inbounds i64, ptr %41, i64 %indvars.iv
@@ -824,7 +824,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %55 = load ptr, ptr %32, align 8
   %56 = zext nneg i32 %53 to i64
   %57 = shl nuw nsw i64 %56, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %55, i8 0, i64 %57, i1 false)
   br label %Tru_ManClear.exit
 
 Tru_ManClear.exit:                                ; preds = %._crit_edge38, %.lr.ph.preheader.i

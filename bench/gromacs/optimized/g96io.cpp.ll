@@ -783,7 +783,7 @@ _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: 
   %300 = getelementptr inbounds i8, ptr %3, i64 112
   store i8 1, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %3, i64 116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %301, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %301, i8 0, i64 36, i1 false)
   %302 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %5, i32 noundef 4096, ptr noundef %0)
   %.not108171 = icmp eq ptr %302, null
   br i1 %.not108171, label %.critedge8, label %sub_0.lr.ph

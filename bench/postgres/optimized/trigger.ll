@@ -4412,7 +4412,7 @@ GetAfterTriggersTransitionTable.exit179:          ; preds = %87, %.sink.split.i1
 126:                                              ; preds = %.critedge.thread198
   %127 = getelementptr inbounds i8, ptr %7, i64 48
   %128 = getelementptr inbounds i8, ptr %13, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %128, ptr noundef nonnull align 2 dereferenceable(6) %127, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %128, ptr noundef nonnull readonly align 2 dereferenceable(6) %127, i64 6, i1 false)
   %129 = getelementptr inbounds i8, ptr %13, i64 10
   store i16 -1, ptr %129, align 2
   %130 = getelementptr inbounds i8, ptr %13, i64 12
@@ -4439,7 +4439,7 @@ GetAfterTriggersTransitionTable.exit179:          ; preds = %87, %.sink.split.i1
 138:                                              ; preds = %.critedge.thread199
   %139 = getelementptr inbounds i8, ptr %6, i64 48
   %140 = getelementptr inbounds i8, ptr %13, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %140, ptr noundef nonnull align 2 dereferenceable(6) %139, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %140, ptr noundef nonnull readonly align 2 dereferenceable(6) %139, i64 6, i1 false)
   %141 = getelementptr inbounds i8, ptr %13, i64 10
   store i16 -1, ptr %141, align 2
   %142 = getelementptr inbounds i8, ptr %13, i64 12
@@ -4466,10 +4466,10 @@ GetAfterTriggersTransitionTable.exit179:          ; preds = %87, %.sink.split.i1
 150:                                              ; preds = %.critedge.thread
   %151 = getelementptr inbounds i8, ptr %6, i64 48
   %152 = getelementptr inbounds i8, ptr %13, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %152, ptr noundef nonnull align 2 dereferenceable(6) %151, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %152, ptr noundef nonnull readonly align 2 dereferenceable(6) %151, i64 6, i1 false)
   %153 = getelementptr inbounds i8, ptr %7, i64 48
   %154 = getelementptr inbounds i8, ptr %13, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %154, ptr noundef nonnull align 2 dereferenceable(6) %153, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %154, ptr noundef nonnull readonly align 2 dereferenceable(6) %153, i64 6, i1 false)
   %155 = load ptr, ptr %19, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 115
   %157 = load i8, ptr %156, align 1
@@ -7174,7 +7174,7 @@ afterTriggerCheckState.exit.us.us:                ; preds = %._crit_edge.i.us.us
 ._crit_edge.i37.us.us:                            ; preds = %170, %140
   %.pn.lcssa.i.us.us = phi ptr [ %143, %140 ], [ %.06576.i.us.us, %170 ]
   %.065.lcssa.i.us.us = phi ptr [ %.06573.i.us.us, %140 ], [ %.065.i.us.us, %170 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.065.lcssa.i.us.us, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.065.lcssa.i.us.us, ptr noundef nonnull readonly align 8 dereferenceable(32) %60, i64 32, i1 false)
   %171 = getelementptr i8, ptr %.pn.lcssa.i.us.us, i64 -20
   store i32 0, ptr %171, align 4
   store ptr %.065.lcssa.i.us.us, ptr %144, align 8
@@ -7184,7 +7184,7 @@ afterTriggerAddEvent.exit.us.us:                  ; preds = %166, %._crit_edge.i
   %.06571.i.us.us = phi ptr [ %.065.lcssa.i.us.us, %._crit_edge.i37.us.us ], [ %.06576.i.us.us, %166 ]
   %172 = getelementptr inbounds i8, ptr %.0.i.us.us, i64 8
   %173 = load ptr, ptr %172, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %173, ptr noundef nonnull align 4 dereferenceable(1) %.02748.us.us, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %173, ptr noundef nonnull readonly align 4 dereferenceable(1) %.02748.us.us, i64 %93, i1 false)
   %174 = load i32, ptr %173, align 4
   %175 = and i32 %174, -134217728
   %176 = ptrtoint ptr %.06571.i.us.us to i64
@@ -8430,7 +8430,7 @@ afterTriggerFreeEventList.exit.i:                 ; preds = %.lr.ph.i.i, %41
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds i8, ptr %.lcssa, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i64 0, i32 2), ptr noundef nonnull readonly align 8 dereferenceable(24) %47, i64 24, i1 false)
   %48 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i64 0, i32 2, i32 1), align 8
   %49 = load ptr, ptr %48, align 8
   %.not1.i = icmp eq ptr %49, null
@@ -8598,7 +8598,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   %39 = getelementptr inbounds i8, ptr %13, i64 12
   %40 = sext i32 %36 to i64
   %41 = shl nsw i64 %40, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 4 %39, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull readonly align 4 %39, i64 %41, i1 false)
   %42 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i64 0, i32 7), align 8
   %43 = getelementptr %struct.AfterTriggersTransData, ptr %42, i64 %17
   store ptr %28, ptr %43, align 8
@@ -9330,7 +9330,7 @@ define dso_local void @assign_session_replication_role(i32 noundef %0, ptr nocap
 declare void @ResetPlanCache() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @pg_trigger_depth(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_trigger_depth(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @MyTriggerDepth, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3

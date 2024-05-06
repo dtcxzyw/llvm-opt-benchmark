@@ -704,9 +704,9 @@ define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noun
   %8 = trunc i64 %5 to i32
   %9 = trunc i64 %3 to i32
   %10 = lshr i64 %3, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = lshr i64 %5, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   br i1 %7, label %14, label %36
 
 14:                                               ; preds = %2
@@ -1007,7 +1007,7 @@ define dso_local i32 @inet6_hash_connect(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local i32 @__inet_hash_connect(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__inet6_check_established(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
+define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
   %7 = getelementptr inbounds i8, ptr %1, i64 72

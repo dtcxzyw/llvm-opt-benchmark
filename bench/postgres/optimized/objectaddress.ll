@@ -528,7 +528,7 @@ get_relation_by_qualified_name.exit:              ; preds = %12, %91
   %.sroa.223.0.i = phi i64 [ %96, %91 ], [ 1259, %12 ]
   %.sroa.0181.sroa.0.0.extract.trunc223 = trunc i64 %.sroa.223.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift244 = lshr i64 %.sroa.223.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc245 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift244 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc245 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift244 to i32
   br label %.thread
 
 97:                                               ; preds = %10, %10
@@ -593,7 +593,7 @@ get_object_address_attribute.exit:                ; preds = %122, %123
   %.sroa.5.0.i = phi i32 [ 0, %122 ], [ %124, %123 ]
   %.sroa.0181.sroa.0.0.extract.trunc222 = trunc i64 %.sroa.3.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift242 = lshr i64 %.sroa.3.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc243 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift242 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc243 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift242 to i32
   br label %.thread
 
 128:                                              ; preds = %10
@@ -669,7 +669,7 @@ get_object_address_attrdef.exit:                  ; preds = %158, %159
   %.sroa.3.0.i281 = phi i64 [ 2604, %158 ], [ %162, %159 ]
   %.sroa.0181.sroa.0.0.extract.trunc221 = trunc i64 %.sroa.3.0.i281 to i32
   %.sroa.0181.sroa.34.0.extract.shift240 = lshr i64 %.sroa.3.0.i281, 32
-  %.sroa.0181.sroa.34.0.extract.trunc241 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift240 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc241 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift240 to i32
   br label %.thread
 
 163:                                              ; preds = %10, %10, %10, %10
@@ -768,9 +768,9 @@ get_object_address_relobject.exit:                ; preds = %184, %187, %190, %1
   %.sroa.5.039.i = phi i64 [ 0, %193 ], [ 0, %200 ], [ %203, %201 ], [ 0, %190 ], [ 0, %187 ], [ 0, %184 ]
   %.sroa.030.037.i = phi i64 [ 3256, %193 ], [ %.sroa.030.0.i, %200 ], [ %.sroa.030.0.i, %201 ], [ 2606, %190 ], [ 2620, %187 ], [ 2618, %184 ]
   %.sroa.030.0.insert.insert.i = or disjoint i64 %.sroa.030.037.i, %.sroa.5.039.i
-  %.sroa.0181.sroa.0.0.extract.trunc220 = trunc i64 %.sroa.030.037.i to i32
+  %.sroa.0181.sroa.0.0.extract.trunc220 = trunc nuw nsw i64 %.sroa.030.037.i to i32
   %.sroa.0181.sroa.34.0.extract.shift238 = lshr i64 %.sroa.030.0.insert.insert.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc239 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift238 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc239 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift238 to i32
   br label %.thread
 
 204:                                              ; preds = %10
@@ -778,7 +778,7 @@ get_object_address_relobject.exit:                ; preds = %184, %187, %190, %1
   %205 = load ptr, ptr %.val, align 8
   %206 = tail call fastcc i64 @get_object_address_type(i32 noundef 12, ptr noundef %205, i1 noundef zeroext %4)
   %.sroa.1.0.extract.shift = lshr i64 %206, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %.val266 = load ptr, ptr %7, align 8
   %207 = getelementptr i8, ptr %.val266, i64 8
   %208 = load ptr, ptr %207, align 8
@@ -868,7 +868,7 @@ get_object_address_relobject.exit:                ; preds = %184, %187, %190, %1
   %243 = tail call fastcc i64 @get_object_address_type(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %4)
   %.sroa.0181.sroa.0.0.extract.trunc218 = trunc i64 %243 to i32
   %.sroa.0181.sroa.34.0.extract.shift234 = lshr i64 %243, 32
-  %.sroa.0181.sroa.34.0.extract.trunc235 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift234 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc235 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift234 to i32
   br label %get_object_address_unqualified.exit
 
 244:                                              ; preds = %10, %10, %10, %10
@@ -981,7 +981,7 @@ get_object_address_relobject.exit:                ; preds = %184, %187, %190, %1
   store ptr %296, ptr %.044.sroa.phi607174.i, align 8
   %297 = tail call fastcc i64 @get_object_address_type(i32 noundef 49, ptr noundef %296, i1 noundef zeroext %4)
   %.sroa.1.0.extract.shift.i = lshr i64 %297, 32
-  %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i32
+  %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   store i32 %.sroa.1.0.extract.trunc.i, ptr %.044.sroa.phi7075.i, align 4
   %exitcond.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %exitcond.i, label %.thread.i299, label %290
@@ -1079,9 +1079,9 @@ get_object_address_opf_member.exit:               ; preds = %304, %318, %.sink.s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.464.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4.i)
-  %.sroa.0181.sroa.0.0.extract.trunc216 = trunc i64 %.sroa.043.0.i to i32
+  %.sroa.0181.sroa.0.0.extract.trunc216 = trunc nuw nsw i64 %.sroa.043.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift230 = lshr i64 %.sroa.043.0.insert.insert.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc231 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift230 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc231 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift230 to i32
   br label %.thread
 
 338:                                              ; preds = %10
@@ -1231,7 +1231,7 @@ get_object_address_usermapping.exit:              ; preds = %378, %394, %403, %4
   %.sroa.224.0.i = phi i64 [ %418, %408 ], [ 1418, %403 ], [ 1418, %394 ], [ 1418, %378 ]
   %.sroa.0181.sroa.0.0.extract.trunc215 = trunc i64 %.sroa.224.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift228 = lshr i64 %.sroa.224.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc229 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift228 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc229 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift228 to i32
   br label %.thread
 
 419:                                              ; preds = %10
@@ -1330,7 +1330,7 @@ get_object_address_publication_rel.exit:          ; preds = %435, %445, %461, %4
   %.sroa.217.0.i = phi i64 [ 6106, %435 ], [ 6106, %445 ], [ 6106, %461 ], [ %465, %462 ]
   %.sroa.0181.sroa.0.0.extract.trunc213 = trunc i64 %.sroa.217.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift224 = lshr i64 %.sroa.217.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc225 = trunc i64 %.sroa.0181.sroa.34.0.extract.shift224 to i32
+  %.sroa.0181.sroa.34.0.extract.trunc225 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift224 to i32
   br label %.thread
 
 466:                                              ; preds = %10
@@ -1457,7 +1457,7 @@ get_object_address_defacl.exit:                   ; preds = %512, %523
   %.sroa.228.0.i = phi i64 [ 826, %523 ], [ %522, %512 ]
   %.sroa.0181.sroa.0.0.extract.trunc = trunc i64 %.sroa.228.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift = lshr i64 %.sroa.228.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc = trunc i64 %.sroa.0181.sroa.34.0.extract.shift to i32
+  %.sroa.0181.sroa.34.0.extract.trunc = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift to i32
   br label %.thread
 
 531:                                              ; preds = %10
@@ -2327,7 +2327,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 define dso_local void @check_object_ownership(i32 noundef %0, i32 noundef %1, i64 %2, i32 %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
   %.sroa.042.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.6.0.extract.shift = lshr i64 %2, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   switch i32 %1, label %113 [
     i32 20, label %7
     i32 37, label %7
@@ -3183,7 +3183,7 @@ get_relkind_objtype.exit:                         ; preds = %27, %26, %25, %24, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @get_relkind_objtype(i8 noundef signext %0) local_unnamed_addr #4 {
+define dso_local range(i32 18, 52) i32 @get_relkind_objtype(i8 noundef signext %0) local_unnamed_addr #4 {
   switch i8 %0, label %7 [
     i8 102, label %6
     i8 109, label %5

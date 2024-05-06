@@ -1297,7 +1297,7 @@ _ZN9grpc_core10HPackTable17MementoRingBuffer6PopOneEv.exit: ; preds = %entry
   store ptr %4, ptr %first_entry, align 8, !alias.scope !15
   %value_.i.i.i = getelementptr inbounds i8, ptr %first_entry, i64 8
   %value_3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i, i64 32, i1 false)
   %transport_size_.i.i.i = getelementptr inbounds i8, ptr %first_entry, i64 40
   %transport_size_4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   %5 = load i32, ptr %transport_size_4.i.i.i, align 8, !noalias !15

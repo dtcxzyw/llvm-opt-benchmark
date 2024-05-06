@@ -703,7 +703,7 @@ proto_item_set_generated.exit120:                 ; preds = %111, %114, %117
   %139 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %138, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %140 = zext i16 %25 to i32
   %141 = lshr i16 %25, 8
-  %trunc = trunc i16 %141 to i8
+  %trunc = trunc nuw i16 %141 to i8
   %142 = icmp ult i8 %trunc, 6
   br i1 %142, label %switch.lookup, label %144
 

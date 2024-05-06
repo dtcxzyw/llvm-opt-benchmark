@@ -182,7 +182,7 @@ if.end12:                                         ; preds = %invoke.cont8
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %if.end12
-  %call.i7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -223,14 +223,14 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
 ehcleanup20:                                      ; preds = %ehcleanup, %lpad
   %.pn2 = phi { ptr, i32 } [ %8, %lpad ], [ %.pn, %ehcleanup ]
   %15 = load ptr, ptr %key_port, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit11, label %if.then.i.i.i10
+  %tobool.not.i.i.i10 = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i.i10, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit12, label %if.then.i.i.i11
 
-if.then.i.i.i10:                                  ; preds = %ehcleanup20
+if.then.i.i.i11:                                  ; preds = %ehcleanup20
   call void @_ZdlPv(ptr noundef nonnull %15) #6
-  br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit11
+  br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit12
 
-_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit11: ; preds = %ehcleanup20, %if.then.i.i.i10
+_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit12: ; preds = %ehcleanup20, %if.then.i.i.i11
   resume { ptr, i32 } %.pn2
 }
 

@@ -916,7 +916,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h963a897
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN4core3ops8function5FnMut8call_mut17ha5446a07d00bf8c5E(ptr nocapture readnone align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17ha5446a07d00bf8c5E(ptr nocapture readnone align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -1138,13 +1138,13 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17ha8c261642924268bE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN4core3ops8function6FnOnce9call_once17hbe0e1311121f2a68E(i8 %0) unnamed_addr #1 {
+define hidden range(i8 32, 65) i8 @_ZN4core3ops8function6FnOnce9call_once17hbe0e1311121f2a68E(i8 %0) unnamed_addr #1 {
   %2 = tail call i8 @"_ZN146_$LT$cranelift_codegen_meta..cdsl..types..ReferenceType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..shared..types..Reference$GT$$GT$4from17he2fbcd398735ddcdE"(i8 %0), !range !8
   ret i8 %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN4core3ops8function6FnOnce9call_once17hce61675f61a849d8E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hce61675f61a849d8E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ne ptr %1, null
@@ -3478,13 +3478,13 @@ define void @"_ZN4core3ptr177drop_in_place$LT$$LP$$LP$alloc..vec..Vec$LT$alloc..
 .body:                                            ; preds = %3, %17
   %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %4, %3 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr nonnull align 8 %19)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr nonnull readonly align 8 %19)
           to label %"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$17hdfe24ea5be47deb7E.exit" unwind label %22
 
 20:                                               ; preds = %.noexc, %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %21 = getelementptr inbounds i8, ptr %0, i64 48
-  call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr nonnull align 8 %21)
+  call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr nonnull readonly align 8 %21)
   ret void
 
 22:                                               ; preds = %.body
@@ -6061,13 +6061,13 @@ define void @"_ZN4core3ptr58drop_in_place$LT$cranelift_codegen_meta..srcgen..Mat
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30a0ae5358c18518E"(ptr nonnull align 8 %13)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30a0ae5358c18518E"(ptr nonnull readonly align 8 %13)
           to label %"_ZN4core3ptr217drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$$LP$alloc..vec..Vec$LT$alloc..string..String$GT$$C$alloc..string..String$RP$$C$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17h888de4aab7fc2b44E.exit" unwind label %30
 
 14:                                               ; preds = %.noexc, %6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %15 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30a0ae5358c18518E"(ptr nonnull align 8 %15)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30a0ae5358c18518E"(ptr nonnull readonly align 8 %15)
           to label %"_ZN4core3ptr217drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$$LP$alloc..vec..Vec$LT$alloc..string..String$GT$$C$alloc..string..String$RP$$C$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17h888de4aab7fc2b44E.exit5" unwind label %17
 
 "_ZN4core3ptr217drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$$LP$alloc..vec..Vec$LT$alloc..string..String$GT$$C$alloc..string..String$RP$$C$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17h888de4aab7fc2b44E.exit": ; preds = %11, %17
@@ -6886,25 +6886,25 @@ define void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..setti
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr align 8 %0)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr readonly align 8 %0)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit" unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %4)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %4)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit6" unwind label %18
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit": ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %5)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %5)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit7" unwind label %7
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit6": ; preds = %2, %7
   %.pn = phi { ptr, i32 } [ %8, %7 ], [ %3, %2 ]
   %6 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %6)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %6)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit8" unwind label %18
 
 7:                                                ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit"
@@ -6914,13 +6914,13 @@ define void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typev
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit7": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit"
   %9 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %9)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit9" unwind label %11
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit8": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit6", %11
   %.pn2 = phi { ptr, i32 } [ %12, %11 ], [ %.pn, %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit6" ]
   %10 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %10)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %10)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit10" unwind label %18
 
 11:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit7"
@@ -6930,13 +6930,13 @@ define void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typev
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit9": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit7"
   %13 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %13)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %13)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit11" unwind label %15
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit10": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit8", %15
   %.pn4 = phi { ptr, i32 } [ %16, %15 ], [ %.pn2, %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit8" ]
   %14 = getelementptr inbounds i8, ptr %0, i64 96
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %14)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %14)
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit12" unwind label %18
 
 15:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit9"
@@ -6946,7 +6946,7 @@ define void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typev
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit11": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit9"
   %17 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull align 8 %17)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr nonnull readonly align 8 %17)
   ret void
 
 18:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit10", %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit8", %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE.exit6", %2
@@ -9100,7 +9100,7 @@ define void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..rep
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr align 8 %0)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7988fd1ab68330b8E"(ptr readonly align 8 %0)
   ret void
 }
 
@@ -11603,7 +11603,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$$LP$cranelift_codegen_meta..
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$17hdfe24ea5be47deb7E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr align 8 %0)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b6b5b201ebd2d15E"(ptr readonly align 8 %0)
   ret void
 }
 

@@ -255,7 +255,7 @@ while.body:                                       ; preds = %while.body.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 5, %while.body.preheader ]
   %exponent.addr.155 = phi i32 [ %div, %while.body ], [ %exponent.addr.155.ph, %while.body.preheader ]
   %rem = urem i32 %exponent.addr.155, 10
-  %20 = trunc i32 %rem to i8
+  %20 = trunc nuw nsw i32 %rem to i8
   %conv = or disjoint i8 %20, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx29 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %indvars.iv.next
@@ -265,7 +265,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp26.not, label %if.end30.loopexit, label %while.body, !llvm.loop !5
 
 if.end30.loopexit:                                ; preds = %while.body
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.loopexit, %if.then23
@@ -299,8 +299,8 @@ while.body34:                                     ; preds = %while.body34.prehea
   br i1 %cmp33, label %while.body34, label %while.end38.loopexit, !llvm.loop !7
 
 while.end38.loopexit:                             ; preds = %while.body34
-  %33 = trunc i64 %32 to i32
-  %34 = trunc i64 %indvars.iv.next65 to i32
+  %33 = trunc nsw i64 %32 to i32
+  %34 = trunc nsw i64 %indvars.iv.next65 to i32
   br label %while.end38
 
 while.end38:                                      ; preds = %while.end38.loopexit, %if.end30
@@ -673,7 +673,7 @@ define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13Do
 entry:
   %0 = bitcast double %v to i64
   %.lobit = lshr i64 %0, 63
-  %.sink = trunc i64 %.lobit to i8
+  %.sink = trunc nuw nsw i64 %.lobit to i8
   %v.addr.0 = tail call double @llvm.fabs.f64(double %v)
   store i8 %.sink, ptr %sign, align 1
   %cmp1 = icmp eq i32 %mode, 3
@@ -1278,13 +1278,13 @@ land.rhs:                                         ; preds = %while.body
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
   %indvars.iv.next64 = phi i64 [ %indvars.iv.next, %land.rhs ], [ %indvars.iv.next61, %land.rhs.preheader ]
-  %27 = trunc i64 %indvars.iv.next64 to i32
+  %27 = trunc nsw i64 %indvars.iv.next64 to i32
   %cmp29 = icmp sgt i64 %indvars.iv.next64, %24
   br i1 %cmp29, label %land.rhs, label %while.end.loopexit, !llvm.loop !9
 
 land.rhs.while.end.loopexit.split.loop.exit54_crit_edge: ; preds = %land.rhs
   store i32 %27, ptr %decimal_rep_length, align 4
-  %28 = trunc i64 %indvars.iv.next64 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.next64 to i32
   br label %while.end
 
 while.end.loopexit:                               ; preds = %while.body

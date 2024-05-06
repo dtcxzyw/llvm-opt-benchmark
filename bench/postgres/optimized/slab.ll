@@ -540,7 +540,7 @@ dlist_push_head.exit:                             ; preds = %122, %133
   br i1 %exitcond.not.i, label %SlabFindNextBlockListIndex.exit, label %.preheader, !llvm.loop !11
 
 .split.loop.exit8.i:                              ; preds = %.preheader
-  %144 = trunc i64 %indvars.iv.i to i32
+  %144 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %SlabFindNextBlockListIndex.exit
 
 SlabFindNextBlockListIndex.exit:                  ; preds = %143, %.split.loop.exit8.i
@@ -654,7 +654,7 @@ dlist_push_head.exit:                             ; preds = %17, %30
   br i1 %exitcond.not.i, label %SlabFindNextBlockListIndex.exit, label %.preheader52, !llvm.loop !11
 
 .split.loop.exit8.i:                              ; preds = %.preheader52
-  %40 = trunc i64 %indvars.iv.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %SlabFindNextBlockListIndex.exit
 
 SlabFindNextBlockListIndex.exit:                  ; preds = %39, %.split.loop.exit8.i
@@ -750,7 +750,7 @@ dclist_push_head.exit:                            ; preds = %59, %63
   br i1 %exitcond.not.i49, label %SlabFindNextBlockListIndex.exit50, label %.preheader, !llvm.loop !11
 
 .split.loop.exit8.i46:                            ; preds = %.preheader
-  %89 = trunc i64 %indvars.iv.i44 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv.i44 to i32
   br label %SlabFindNextBlockListIndex.exit50
 
 SlabFindNextBlockListIndex.exit50:                ; preds = %88, %.split.loop.exit8.i46
@@ -819,7 +819,7 @@ define dso_local ptr @SlabGetChunkContext(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @SlabGetChunkSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 34

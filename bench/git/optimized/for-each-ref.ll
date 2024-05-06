@@ -449,7 +449,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %4 = load i32, ptr %quote_style, align 8
-  %5 = call i32 @llvm.ctpop.i32(i32 %4), !range !5
+  %5 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %4)
   %tobool.not = icmp ult i32 %5, 2
   br i1 %tobool.not, label %if.end254, label %if.then250
 
@@ -511,7 +511,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %13 = load ptr, ptr @stdin, align 8
   %call267 = call i32 @strbuf_getline(ptr noundef nonnull %line, ptr noundef %13) #7
   %cmp268.not = icmp eq i32 %call267, -1
-  br i1 %cmp268.not, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %cmp268.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   call void @strbuf_release(ptr noundef nonnull %line) #7
@@ -625,6 +625,5 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

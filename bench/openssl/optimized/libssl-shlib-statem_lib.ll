@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ssl_add_cert_to_wpacket = private unnamed_addr constant [24 x i8] c"ssl_add_cert_to_wpacket\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_statem_set_mutator(ptr noundef %s, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_statem_set_mutator(ptr noundef %s, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -79,7 +79,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl3_do_write(ptr noundef %s, i8 noundef zeroext %type) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @ssl3_do_write(ptr noundef %s, i8 noundef zeroext %type) local_unnamed_addr #1 {
 entry:
   %written = alloca i64, align 8
   %msg = alloca ptr, align 8
@@ -260,7 +260,7 @@ declare i32 @ssl3_write_bytes(ptr noundef, i8 noundef zeroext, ptr noundef, i64 
 declare i32 @ssl3_finish_mac(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_close_construct_packet(ptr nocapture noundef writeonly %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_close_construct_packet(ptr nocapture noundef writeonly %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #1 {
 entry:
   %msglen = alloca i64, align 8
   %cmp.not = icmp eq i32 %htype, 257
@@ -296,7 +296,7 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #2
 declare i32 @WPACKET_get_length(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_setup_handshake(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_setup_handshake(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -346,7 +346,7 @@ if.end20.us.i:                                    ; preds = %for.body.us.i
   %cmp22.us.i = icmp eq i32 %hole.033.us.i, 1
   %cmp24.us.i = icmp eq i32 %tmp_real_max.032.us.i, 0
   %or.cond.us.i = select i1 %cmp22.us.i, i1 %cmp24.us.i, i1 false
-  %call2925.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us.i), !range !4
+  %call2925.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us.i)
   %cmp30.not26.us.i = icmp eq i32 %call2925.us.i, 0
   br i1 %or.cond.us.i, label %if.end28.thread.us.i, label %if.end28.us.i
 
@@ -378,7 +378,7 @@ for.inc.us.i:                                     ; preds = %if.then34.us.i, %if
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.035.us.i, i64 24
   %9 = load i32, ptr %incdec.ptr.us.i, align 8
   %cmp15.not.us.i = icmp eq i32 %9, 0
-  br i1 %cmp15.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !5
+  br i1 %cmp15.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.us.i
   %cmp47.i = icmp eq i32 %version.0.lcssa.fr.i, 0
@@ -508,7 +508,7 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
   %inc = add nuw nsw i32 %i.067, 1
   %call54 = tail call i32 @OPENSSL_sk_num(ptr noundef %call52) #11
   %cmp55.not = icmp slt i32 %inc, %call54
-  br i1 %cmp55.not, label %for.body, label %if.then111, !llvm.loop !7
+  br i1 %cmp55.not, label %for.body, label %if.then111, !llvm.loop !6
 
 if.then111:                                       ; preds = %for.inc, %if.then51
   tail call void @ERR_new() #11
@@ -592,7 +592,7 @@ declare i32 @ssl3_init_finished_mac(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl_get_min_max_version(ptr noundef %s, ptr nocapture noundef writeonly %min_version, ptr nocapture noundef writeonly %max_version, ptr noundef writeonly %real_max) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %s, ptr nocapture noundef writeonly %min_version, ptr nocapture noundef writeonly %max_version, ptr noundef writeonly %real_max) local_unnamed_addr #1 {
 entry:
   %method2 = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load ptr, ptr %method2, align 8
@@ -647,7 +647,7 @@ if.end20.us:                                      ; preds = %for.body.us
   %cmp22.us = icmp eq i32 %hole.033.us, 1
   %cmp24.us = icmp eq i32 %tmp_real_max.032.us, 0
   %or.cond.us = select i1 %cmp22.us, i1 %cmp24.us, i1 false
-  %call2925.us = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us), !range !4
+  %call2925.us = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us)
   %cmp30.not26.us = icmp eq i32 %call2925.us, 0
   br i1 %or.cond.us, label %if.end28.thread.us, label %if.end28.us
 
@@ -684,7 +684,7 @@ for.inc.us:                                       ; preds = %for.inc.us.sink.spl
   %incdec.ptr.us = getelementptr inbounds i8, ptr %vent.035.us, i64 24
   %9 = load i32, ptr %incdec.ptr.us, align 8
   %cmp15.not.us = icmp eq i32 %9, 0
-  br i1 %cmp15.not.us, label %for.end, label %for.body.us, !llvm.loop !5
+  br i1 %cmp15.not.us, label %for.end, label %for.body.us, !llvm.loop !4
 
 for.body:                                         ; preds = %if.end13.thread, %for.inc
   %10 = phi i32 [ %14, %for.inc ], [ %4, %if.end13.thread ]
@@ -702,7 +702,7 @@ if.end20:                                         ; preds = %for.body
   %cmp22 = icmp eq i32 %hole.033, 1
   %cmp24 = icmp eq i32 %tmp_real_max.032, 0
   %or.cond = select i1 %cmp22, i1 %cmp24, i1 false
-  %call2925 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call), !range !4
+  %call2925 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call)
   %cmp30.not26 = icmp eq i32 %call2925, 0
   br i1 %or.cond, label %if.end28.thread, label %if.end28
 
@@ -748,7 +748,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.035, i64 24
   %14 = load i32, ptr %incdec.ptr, align 8
   %cmp15.not = icmp eq i32 %14, 0
-  br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end.thread:                                   ; preds = %if.end13, %if.end13.thread
   store i32 0, ptr %max_version, align 4
@@ -784,7 +784,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_construct_cert_verify(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_construct_cert_verify(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
 entry:
   %md = alloca ptr, align 8
   %pctx = alloca ptr, align 8
@@ -844,7 +844,7 @@ if.then13:                                        ; preds = %if.end10
   br label %err
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen), !range !8
+  %call15 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %if.end18
 
@@ -1055,7 +1055,7 @@ declare i32 @tls1_lookup_md(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_cert_verify_tbs_data(ptr noundef %s, ptr noundef %tls13tbs, ptr noundef %hdata, ptr nocapture noundef writeonly %hdatalen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_cert_verify_tbs_data(ptr noundef %s, ptr noundef %tls13tbs, ptr noundef %hdata, ptr nocapture noundef writeonly %hdatalen) unnamed_addr #1 {
 entry:
   %hashlen = alloca i64, align 8
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -1174,7 +1174,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_process_cert_verify(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @tls_process_cert_verify(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
 entry:
   %md = alloca ptr, align 8
   %hdatalen = alloca i64, align 8
@@ -1388,7 +1388,7 @@ if.end74:                                         ; preds = %if.end69
   store ptr %add.ptr.i.i82, ptr %pkt, align 8
   %sub.i.i83 = sub i64 %pkt.val.i.i79, %conv70
   store i64 %sub.i.i83, ptr %20, align 8
-  %call75 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen), !range !8
+  %call75 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen)
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %err, label %if.end78
 
@@ -1603,7 +1603,7 @@ declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_construct_finished(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_construct_finished(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1783,7 +1783,7 @@ declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @ssl_log_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_construct_key_update(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_construct_key_update(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
 entry:
   %key_update = getelementptr inbounds i8, ptr %s, i64 2820
   %0 = load i32, ptr %key_update, align 4
@@ -1808,7 +1808,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls_process_key_update(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_process_key_update(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
 entry:
   %rlayer = getelementptr inbounds i8, ptr %s, i64 3000
   %call = tail call i32 @RECORD_LAYER_processed_read_pending(ptr noundef nonnull %rlayer) #11
@@ -1878,7 +1878,7 @@ declare i32 @RECORD_LAYER_processed_read_pending(ptr noundef) local_unnamed_addr
 declare i32 @tls13_update_key(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl3_take_mac(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl3_take_mac(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1905,7 +1905,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_process_change_cipher_spec(ptr noundef %s, ptr nocapture noundef readonly %pkt) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @tls_process_change_cipher_spec(ptr noundef %s, ptr nocapture noundef readonly %pkt) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val = load i64, ptr %0, align 8
@@ -2010,7 +2010,7 @@ declare i32 @ssl3_do_change_cipher_spec(ptr noundef) local_unnamed_addr #2
 declare void @dtls1_increment_epoch(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls_process_finished(ptr noundef %s, ptr nocapture noundef readonly %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_process_finished(ptr noundef %s, ptr nocapture noundef readonly %pkt) local_unnamed_addr #1 {
 entry:
   %dummy = alloca i64, align 8
   %finish_md_len = getelementptr inbounds i8, ptr %s, i64 536
@@ -2075,7 +2075,7 @@ land.lhs.true:                                    ; preds = %if.end13
   br i1 %or.cond, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true
-  %call = tail call i32 @tls13_save_handshake_digest_for_pha(ptr noundef nonnull %s), !range !8
+  %call = tail call i32 @tls13_save_handshake_digest_for_pha(ptr noundef nonnull %s)
   %tobool25.not = icmp eq i32 %call, 0
   br i1 %tobool25.not, label %return, label %if.end28
 
@@ -2283,7 +2283,7 @@ return:                                           ; preds = %if.end161, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls13_save_handshake_digest_for_pha(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls13_save_handshake_digest_for_pha(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %pha_dgst = getelementptr inbounds i8, ptr %s, i64 2856
   %0 = load ptr, ptr %pha_dgst, align 8
@@ -2333,7 +2333,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @tls_process_initial_server_flight(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_construct_change_cipher_spec(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_construct_change_cipher_spec(ptr noundef %s, ptr noundef %pkt) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 1, i64 noundef 1) #11
   %tobool.not = icmp eq i32 %call, 0
@@ -2353,7 +2353,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_process_rpk(ptr noundef %sc, ptr nocapture noundef %pkt, ptr noundef writeonly %peer_rpk) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_process_rpk(ptr noundef %sc, ptr nocapture noundef %pkt, ptr noundef writeonly %peer_rpk) local_unnamed_addr #1 {
 entry:
   %rawexts = alloca ptr, align 8
   %extensions = alloca %struct.PACKET, align 8
@@ -2691,7 +2691,7 @@ declare i32 @tls_parse_all_extensions(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @tls_output_rpk(ptr noundef %sc, ptr noundef %pkt, ptr noundef readonly %cpk) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @tls_output_rpk(ptr noundef %sc, ptr noundef %pkt, ptr noundef readonly %cpk) local_unnamed_addr #1 {
 entry:
   %pdata = alloca ptr, align 8
   store ptr null, ptr %pdata, align 8
@@ -2859,7 +2859,7 @@ declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unna
 declare i32 @tls_construct_extensions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ssl3_output_cert_chain(ptr noundef %s, ptr noundef %pkt, ptr noundef readonly %cpk, i32 noundef %for_comp) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @ssl3_output_cert_chain(ptr noundef %s, ptr noundef %pkt, ptr noundef readonly %cpk, i32 noundef %for_comp) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 3) #11
   %tobool.not = icmp eq i32 %call, 0
@@ -2979,12 +2979,12 @@ if.end44.i:                                       ; preds = %if.end35.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.075.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call46.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end44.i, %for.cond.i
   %i.075.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end44.i ]
   %call49.i = tail call ptr @OPENSSL_sk_value(ptr noundef %call37.i, i32 noundef %i.075.i) #11
-  %call50.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %call49.i, i32 noundef %i.075.i, i32 noundef %for_comp), !range !8
+  %call50.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %call49.i, i32 noundef %i.075.i, i32 noundef %for_comp)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.then52.i, label %for.cond.i
 
@@ -3013,7 +3013,7 @@ if.then59.i:                                      ; preds = %if.then57.i
   br label %return
 
 if.end61.i:                                       ; preds = %if.else54.i
-  %call62.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef nonnull %s, ptr noundef %pkt, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %for_comp), !range !8
+  %call62.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef nonnull %s, ptr noundef %pkt, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %for_comp)
   %tobool63.not.i = icmp eq i32 %call62.i, 0
   br i1 %tobool63.not.i, label %return, label %for.cond66.i
 
@@ -3026,9 +3026,9 @@ for.cond66.i:                                     ; preds = %if.end61.i, %for.bo
 for.body70.i:                                     ; preds = %for.cond66.i
   %call72.i = tail call ptr @OPENSSL_sk_value(ptr noundef %extra_certs.06468.i, i32 noundef %i.1.i) #11
   %add.i = add nuw nsw i32 %i.1.i, 1
-  %call73.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %call72.i, i32 noundef %add.i, i32 noundef %for_comp), !range !8
+  %call73.i = tail call fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %call72.i, i32 noundef %add.i, i32 noundef %for_comp)
   %tobool74.not.i = icmp eq i32 %call73.i, 0
-  br i1 %tobool74.not.i, label %return, label %for.cond66.i, !llvm.loop !10
+  br i1 %tobool74.not.i, label %return, label %for.cond66.i, !llvm.loop !8
 
 if.end7:                                          ; preds = %for.cond66.i, %for.end.i, %lor.lhs.false.i, %if.end3
   %call8 = tail call i32 @WPACKET_close(ptr noundef %pkt) #11
@@ -3051,7 +3051,7 @@ return:                                           ; preds = %for.body70.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_finish_handshake(ptr noundef %s, i32 noundef %wst, i32 noundef %clearbufs, i32 noundef %stop) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @tls_finish_handshake(ptr noundef %s, i32 noundef %wst, i32 noundef %clearbufs, i32 noundef %stop) local_unnamed_addr #1 {
 entry:
   %cleanuphand1 = getelementptr inbounds i8, ptr %s, i64 184
   %0 = load i32, ptr %cleanuphand1, align 8
@@ -3335,7 +3335,7 @@ declare void @dtls1_clear_received_buffer(ptr noundef) local_unnamed_addr #2
 declare void @ossl_statem_set_in_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_get_message_header(ptr noundef %s, ptr nocapture noundef writeonly %mt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_get_message_header(ptr noundef %s, ptr nocapture noundef writeonly %mt) local_unnamed_addr #1 {
 entry:
   %recvd_type = alloca i8, align 1
   %readbytes = alloca i64, align 8
@@ -3440,7 +3440,7 @@ if.end38:                                         ; preds = %if.end
   %add = add i64 %15, %14
   store i64 %add, ptr %init_num, align 8
   %cmp = icmp ult i64 %add, 4
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end38, %do.body
   %16 = load i32, ptr %server, align 8
@@ -3487,7 +3487,7 @@ if.then68:                                        ; preds = %if.then65
   br label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %if.then68, %if.then65
-  br label %do.body, !llvm.loop !12
+  br label %do.body, !llvm.loop !10
 
 do.end.critedge:                                  ; preds = %if.then40, %if.then50, %land.lhs.true55, %land.lhs.true60, %while.end.do.end.critedge_crit_edge
   %24 = phi i8 [ %.pre, %while.end.do.end.critedge_crit_edge ], [ %.pre58, %if.then40 ], [ 0, %if.then50 ], [ 0, %land.lhs.true55 ], [ 0, %land.lhs.true60 ]
@@ -3548,7 +3548,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @RECORD_LAYER_is_sslv2_record(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_get_message_body(ptr noundef %s, ptr nocapture noundef writeonly %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_get_message_body(ptr noundef %s, ptr nocapture noundef writeonly %len) local_unnamed_addr #1 {
 entry:
   %readbytes = alloca i64, align 8
   %message_type = getelementptr inbounds i8, ptr %s, i64 688
@@ -3599,7 +3599,7 @@ if.end9:                                          ; preds = %while.body
   store i64 %add, ptr %init_num4, align 8
   %sub11 = sub i64 %n.052, %8
   %cmp5.not = icmp eq i64 %sub11, 0
-  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end9, %if.end
   %init_buf = getelementptr inbounds i8, ptr %s, i64 240
@@ -3769,7 +3769,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %cmp3 = icmp eq i32 %0, %x509err
   %or.cond = or i1 %cmp.not, %cmp3
   %incdec.ptr = getelementptr inbounds i8, ptr %tp.0, i64 8
-  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !14
+  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
   %alert = getelementptr inbounds i8, ptr %tp.0, i64 4
@@ -3798,7 +3798,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ssl_security(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_version_supported(ptr noundef %s, i32 noundef %version, ptr noundef writeonly %meth) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_version_supported(ptr noundef %s, i32 noundef %version, ptr noundef writeonly %meth) local_unnamed_addr #1 {
 entry:
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load ptr, ptr %method, align 8
@@ -3871,7 +3871,7 @@ for.body.thread.us:                               ; preds = %land.rhs.us
 
 land.lhs.true17.us:                               ; preds = %for.body.thread.us
   %call19.us = tail call ptr %8() #11
-  %call20.us = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19.us), !range !4
+  %call20.us = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19.us)
   %cmp21.us = icmp eq i32 %call20.us, 0
   br i1 %cmp21.us, label %if.then, label %for.inc.us
 
@@ -3879,7 +3879,7 @@ for.inc.us:                                       ; preds = %if.end3.i25.us, %if
   %incdec.ptr.us = getelementptr inbounds i8, ptr %vent.071.us, i64 24
   %9 = load i32, ptr %incdec.ptr.us, align 8
   %cmp5.not.us = icmp eq i32 %9, 0
-  br i1 %cmp5.not.us, label %return, label %land.rhs.us, !llvm.loop !15
+  br i1 %cmp5.not.us, label %return, label %land.rhs.us, !llvm.loop !13
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %10 = phi i32 [ %30, %for.inc ], [ %3, %land.rhs.lr.ph ]
@@ -3915,7 +3915,7 @@ for.body.thread:                                  ; preds = %land.rhs
 
 land.lhs.true17:                                  ; preds = %for.body.thread
   %call19 = tail call ptr %14() #11
-  %call20 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19), !range !4
+  %call20 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19)
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %land.lhs.true23, label %for.inc
 
@@ -3980,7 +3980,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 sw.epilog.i:                                      ; preds = %for.body.i
   %conv38.i = trunc i64 %i.017.i to i32
-  %call.i = tail call fastcc i32 @ssl_has_cert(ptr noundef nonnull %s, i32 noundef %conv38.i), !range !8
+  %call.i = tail call fastcc i32 @ssl_has_cert(ptr noundef nonnull %s, i32 noundef %conv38.i)
   %tobool39.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool39.not.i, label %for.inc.i, label %if.end41.i
 
@@ -4007,7 +4007,7 @@ for.inc.i:                                        ; preds = %if.end45.for.inc_cr
   %29 = phi i64 [ %.pre.i, %if.end45.for.inc_crit_edge.i ], [ %25, %sw.epilog.i ], [ %25, %for.body.i ], [ %25, %for.body.i ], [ %25, %for.body.i ], [ %25, %for.body.i ]
   %inc.i = add nuw i64 %i.017.i, 1
   %cmp36.i = icmp ult i64 %inc.i, %29
-  br i1 %cmp36.i, label %for.body.i, label %for.inc, !llvm.loop !16
+  br i1 %cmp36.i, label %for.body.i, label %for.inc, !llvm.loop !14
 
 if.then:                                          ; preds = %land.lhs.true17.us, %land.lhs.true23, %lor.lhs.false17.i, %if.end.i56, %if.end24.i, %lor.lhs.false31.i, %if.end28.i, %if.end45.i, %if.end41.i
   %.ph69 = phi ptr [ %14, %if.end41.i ], [ %14, %if.end45.i ], [ %14, %if.end28.i ], [ %14, %lor.lhs.false31.i ], [ %14, %if.end24.i ], [ %14, %if.end.i56 ], [ %14, %lor.lhs.false17.i ], [ %14, %land.lhs.true23 ], [ %8, %land.lhs.true17.us ]
@@ -4023,7 +4023,7 @@ for.inc:                                          ; preds = %for.inc.i, %if.end3
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.071, i64 24
   %30 = load i32, ptr %incdec.ptr, align 8
   %cmp5.not = icmp eq i32 %30, 0
-  br i1 %cmp5.not, label %return, label %land.rhs, !llvm.loop !15
+  br i1 %cmp5.not, label %return, label %land.rhs, !llvm.loop !13
 
 return:                                           ; preds = %for.inc.us, %if.then1.i33.us, %if.end3.i25.us, %for.inc, %if.then1.i33, %if.end3.i25, %sw.epilog, %if.then, %if.then31, %sw.default
   %retval.0 = phi i32 [ %conv, %sw.default ], [ 1, %if.then31 ], [ 1, %if.then ], [ 0, %sw.epilog ], [ 0, %if.end3.i25 ], [ 0, %if.then1.i33 ], [ 0, %for.inc ], [ 0, %if.end3.i25.us ], [ 0, %if.then1.i33.us ], [ 0, %for.inc.us ]
@@ -4031,7 +4031,7 @@ return:                                           ; preds = %for.inc.us, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_method_error(ptr noundef %s, ptr nocapture noundef readonly %method) unnamed_addr #1 {
+define internal fastcc range(i32 0, 397) i32 @ssl_method_error(ptr noundef %s, ptr nocapture noundef readonly %method) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %method, align 8
   %min_proto_version = getelementptr inbounds i8, ptr %s, i64 2364
@@ -4134,7 +4134,7 @@ return:                                           ; preds = %if.then1.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_check_version_downgrade(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_check_version_downgrade(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %version = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %version, align 8
@@ -4174,7 +4174,7 @@ for.body:                                         ; preds = %if.end16, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %call21 = tail call ptr %9() #11
-  %call22 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call21), !range !4
+  %call22 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call21)
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %if.then24, label %for.inc
 
@@ -4188,7 +4188,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.013, i64 24
   %11 = load i32, ptr %incdec.ptr, align 8
   %cmp18.not = icmp eq i32 %11, 0
-  br i1 %cmp18.not, label %return, label %for.body, !llvm.loop !17
+  br i1 %cmp18.not, label %return, label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %for.inc, %if.end16, %if.else, %entry, %if.then24
   %retval.0 = phi i32 [ %conv, %if.then24 ], [ 1, %entry ], [ 0, %if.else ], [ 0, %if.end16 ], [ 0, %for.inc ]
@@ -4200,7 +4200,7 @@ declare ptr @TLS_method() local_unnamed_addr #2
 declare ptr @DTLS_method() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ssl_set_version_bound(i32 noundef %method_version, i32 noundef %version, ptr nocapture noundef writeonly %bound) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ssl_set_version_bound(i32 noundef %method_version, i32 noundef %version, ptr nocapture noundef writeonly %bound) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i32 %version, 0
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -4249,7 +4249,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_choose_server_version(ptr noundef %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly %dgrd) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_choose_server_version(ptr noundef %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly %dgrd) local_unnamed_addr #1 {
 entry:
   %best_method = alloca ptr, align 8
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -4350,7 +4350,7 @@ lor.lhs.false.i:                                  ; preds = %if.then32
   br i1 %cmp.not.i, label %if.end36, label %return
 
 if.end36:                                         ; preds = %lor.lhs.false.i
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 %tmp.sroa.7.0.copyload.i
+  %add.ptr.i.i5.i = getelementptr i8, ptr %tmp.sroa.0.0.copyload.i, i64 %tmp.sroa.7.0.copyload.i
   store ptr %add.ptr.i.i5.i, ptr %arrayidx, align 8
   store i64 0, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %cmp37 = icmp slt i32 %2, 769
@@ -4409,14 +4409,14 @@ if.end3.i61:                                      ; preds = %if.end.i55
 
 version_cmp.exit72:                               ; preds = %if.then1.i69, %if.end3.i61, %while.body
   %cmp.i.i = icmp ult i64 %sub.i.i, 2
-  br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !16
 
 if.end45:                                         ; preds = %if.end3.i61, %if.then1.i69
-  %call46 = call i32 @ssl_version_supported(ptr noundef nonnull %s, i32 noundef %or.i.i, ptr noundef nonnull %best_method), !range !8
+  %call46 = call i32 @ssl_version_supported(ptr noundef nonnull %s, i32 noundef %or.i.i, ptr noundef nonnull %best_method)
   %tobool47.not = icmp eq i32 %call46, 0
   %spec.select = select i1 %tobool47.not, i32 %best_vers.0.ph159, i32 %or.i.i
   %cmp.i.i150 = icmp ult i64 %sub.i.i, 2
-  br i1 %cmp.i.i150, label %while.end, label %while.body.lr.ph, !llvm.loop !18
+  br i1 %cmp.i.i150, label %while.end, label %while.body.lr.ph, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end45, %version_cmp.exit72
   %best_vers.0.ph.lcssa = phi i32 [ %best_vers.0.ph159, %version_cmp.exit72 ], [ %spec.select, %if.end45 ]
@@ -4524,7 +4524,7 @@ if.end3.i97:                                      ; preds = %if.end.i91
 
 if.end83:                                         ; preds = %if.end3.i97, %if.then1.i105, %lor.lhs.false
   %call85 = tail call ptr %26() #11
-  %call86 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call85), !range !4
+  %call86 = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call85)
   %cmp87 = icmp eq i32 %call86, 0
   br i1 %cmp87, label %if.then88, label %for.inc
 
@@ -4543,7 +4543,7 @@ for.inc:                                          ; preds = %if.then1.i105, %if.
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.0163, i64 24
   %30 = load i32, ptr %incdec.ptr, align 8
   %cmp76.not = icmp eq i32 %30, 0
-  br i1 %cmp76.not, label %for.end.loopexit, label %for.body, !llvm.loop !19
+  br i1 %cmp76.not, label %for.end.loopexit, label %for.body, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.inc
   %31 = icmp eq i32 %disabled.1, 0
@@ -4562,7 +4562,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @ssl_version_supported(ptr noundef %s, i32 noundef 772, ptr noundef null), !range !8
+  %call = tail call i32 @ssl_version_supported(ptr noundef %s, i32 noundef 772, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.end9
 
@@ -4629,7 +4629,7 @@ for.body.thread.us.i:                             ; preds = %land.rhs.us.i
 
 land.lhs.true17.us.i:                             ; preds = %for.body.thread.us.i
   %call19.us.i = tail call ptr %9() #11
-  %call20.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19.us.i), !range !4
+  %call20.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call19.us.i)
   %cmp21.us.i = icmp eq i32 %call20.us.i, 0
   br i1 %cmp21.us.i, label %if.end9, label %for.inc.us.i
 
@@ -4637,7 +4637,7 @@ for.inc.us.i:                                     ; preds = %land.lhs.true17.us.
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.071.us.i, i64 24
   %10 = load i32, ptr %incdec.ptr.us.i, align 8
   %cmp5.not.us.i = icmp eq i32 %10, 0
-  br i1 %cmp5.not.us.i, label %if.else8, label %land.rhs.us.i, !llvm.loop !15
+  br i1 %cmp5.not.us.i, label %if.else8, label %land.rhs.us.i, !llvm.loop !13
 
 ssl_version_supported.exit:                       ; preds = %land.lhs.true4
   %version2.i = getelementptr inbounds i8, ptr %s, i64 64
@@ -4657,7 +4657,7 @@ if.end9:                                          ; preds = %land.lhs.true17.us.
 declare i32 @ssl_set_record_protocol_version(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl_choose_client_version(ptr noundef %s, i32 noundef %version, ptr noundef %extensions) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_choose_client_version(ptr noundef %s, i32 noundef %version, ptr noundef %extensions) local_unnamed_addr #1 {
 entry:
   %version2 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %version2, align 8
@@ -4747,7 +4747,7 @@ if.end20.i:                                       ; preds = %for.body.i
   %cmp22.i = icmp eq i32 %hole.033.i, 1
   %cmp24.i = icmp eq i32 %tmp_real_max.032.i, 0
   %or.cond.i = select i1 %cmp22.i, i1 %cmp24.i, i1 false
-  %call2925.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.i), !range !4
+  %call2925.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.i)
   %cmp30.not26.i = icmp eq i32 %call2925.i, 0
   br i1 %or.cond.i, label %if.end28.thread.i, label %if.end28.i
 
@@ -4785,7 +4785,7 @@ for.inc.i:                                        ; preds = %if.then34.i, %if.en
   %incdec.ptr.i = getelementptr inbounds i8, ptr %vent.035.i, i64 24
   %11 = load i32, ptr %incdec.ptr.i, align 8
   %cmp15.not.i = icmp eq i32 %11, 0
-  br i1 %cmp15.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %cmp15.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i
   %cmp47.i = icmp eq i32 %version.0.lcssa.fr.i, 0
@@ -4898,7 +4898,7 @@ for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.090, i64 24
   %17 = load i32, ptr %incdec.ptr, align 8
   %cmp117.not = icmp eq i32 %17, 0
-  br i1 %cmp117.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %cmp117.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %18 = phi i32 [ %17, %for.cond ], [ %6, %for.body.preheader ]
@@ -4939,7 +4939,7 @@ return:                                           ; preds = %if.end123, %if.end1
 declare i32 @tls_parse_extension(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl_set_client_hello_version(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_set_client_hello_version(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %finish_md_len = getelementptr inbounds i8, ptr %s, i64 536
   %0 = load i64, ptr %finish_md_len, align 8
@@ -4991,7 +4991,7 @@ if.end20.us.i:                                    ; preds = %for.body.us.i
   %cmp22.us.i = icmp eq i32 %hole.033.us.i, 1
   %cmp24.us.i = icmp eq i32 %tmp_real_max.032.us.i, 0
   %or.cond.us.i = select i1 %cmp22.us.i, i1 %cmp24.us.i, i1 false
-  %call2925.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us.i), !range !4
+  %call2925.us.i = tail call fastcc i32 @ssl_method_error(ptr noundef %s, ptr noundef %call.us.i)
   %cmp30.not26.us.i = icmp eq i32 %call2925.us.i, 0
   br i1 %or.cond.us.i, label %if.end28.thread.us.i, label %if.end28.us.i
 
@@ -5018,7 +5018,7 @@ for.inc.us.i:                                     ; preds = %if.else36.us.i, %if
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.035.us.i, i64 24
   %9 = load i32, ptr %incdec.ptr.us.i, align 8
   %cmp15.not.us.i = icmp eq i32 %9, 0
-  br i1 %cmp15.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !5
+  br i1 %cmp15.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.us.i
   %cmp47.i = icmp eq i32 %version.0.lcssa.fr.i, 0
@@ -5066,7 +5066,7 @@ return:                                           ; preds = %for.end.i, %sw.epil
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @check_in_list(ptr noundef %s, i16 noundef zeroext %group_id, ptr noundef readonly %groups, i64 noundef %num_groups, i32 noundef %checkallow) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @check_in_list(ptr noundef %s, i16 noundef zeroext %group_id, ptr noundef readonly %groups, i64 noundef %num_groups, i32 noundef %checkallow) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %groups, null
   %cmp1 = icmp eq i64 %num_groups, 0
@@ -5087,7 +5087,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
 for.inc.us:                                       ; preds = %for.body.us
   %inc.us = add nuw i64 %i.06.us, 1
   %exitcond9.not = icmp eq i64 %inc.us, %num_groups
-  br i1 %exitcond9.not, label %return, label %for.body.us, !llvm.loop !21
+  br i1 %exitcond9.not, label %return, label %for.body.us, !llvm.loop !19
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.06 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
@@ -5104,7 +5104,7 @@ land.lhs.true:                                    ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc = add nuw i64 %i.06, 1
   %exitcond.not = icmp eq i64 %inc, %num_groups
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !19
 
 return:                                           ; preds = %land.lhs.true, %for.inc, %for.inc.us, %for.body.us, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.body.us ], [ 0, %for.inc.us ], [ 0, %for.inc ], [ 1, %land.lhs.true ]
@@ -5114,7 +5114,7 @@ return:                                           ; preds = %land.lhs.true, %for
 declare i32 @tls_group_allowed(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @create_synthetic_message_hash(ptr noundef %s, ptr noundef %hashval, i64 noundef %hashlen, ptr noundef %hrr, i64 noundef %hrrlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @create_synthetic_message_hash(ptr noundef %s, ptr noundef %hashval, i64 noundef %hashlen, ptr noundef %hrr, i64 noundef %hrrlen) local_unnamed_addr #1 {
 entry:
   %hashlen.addr = alloca i64, align 8
   %hashvaltmp = alloca [64 x i8], align 16
@@ -5188,7 +5188,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 declare i32 @ssl_handshake_hash(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @parse_ca_names(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @parse_ca_names(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
 entry:
   %namebytes = alloca ptr, align 8
   %call1 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @ca_dn_cmp) #11
@@ -5289,7 +5289,7 @@ if.then21:                                        ; preds = %if.end18
 if.end22:                                         ; preds = %if.end18
   %call25 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call1, ptr noundef nonnull %call14) #11
   %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %if.then27, label %while.cond, !llvm.loop !22
+  br i1 %tobool26.not, label %if.then27, label %while.cond, !llvm.loop !20
 
 if.then27:                                        ; preds = %if.end22
   call void @ERR_new() #11
@@ -5366,7 +5366,7 @@ declare ptr @SSL_get_client_CA_list(ptr noundef) local_unnamed_addr #2
 declare ptr @SSL_get0_CA_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @construct_ca_names(ptr noundef %s, ptr noundef %ca_sk, ptr noundef %pkt) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @construct_ca_names(ptr noundef %s, ptr noundef %ca_sk, ptr noundef %pkt) local_unnamed_addr #1 {
 entry:
   %namebytes = alloca ptr, align 8
   %call = tail call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 2) #11
@@ -5399,7 +5399,7 @@ for.cond:                                         ; preds = %lor.lhs.false14
   %inc = add nuw nsw i32 %i.015, 1
   %call4 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %ca_sk) #11
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %if.end20, !llvm.loop !23
+  br i1 %cmp5, label %for.body, label %if.end20, !llvm.loop !21
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.015 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -5482,7 +5482,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls13_restore_handshake_digest_for_pha(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls13_restore_handshake_digest_for_pha(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %pha_dgst = getelementptr inbounds i8, ptr %s, i64 2856
   %0 = load ptr, ptr %pha_dgst, align 8
@@ -5525,7 +5525,7 @@ declare ptr @X509_STORE_CTX_get0_chain(ptr noundef) local_unnamed_addr #2
 declare i32 @ssl_security_cert_chain(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %x, i32 noundef %chain, i32 noundef %for_comp) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %x, i32 noundef %chain, i32 noundef %for_comp) unnamed_addr #1 {
 entry:
   %outbytes = alloca ptr, align 8
   %tobool = icmp ne i32 %for_comp, 0
@@ -5630,7 +5630,7 @@ declare ptr @dtlsv1_server_method() #2
 declare ptr @dtls_bad_ver_client_method() #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ssl_has_cert(ptr nocapture noundef readonly %s, i32 noundef %idx) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @ssl_has_cert(ptr nocapture noundef readonly %s, i32 noundef %idx) unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %idx, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -5731,23 +5731,21 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 397}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

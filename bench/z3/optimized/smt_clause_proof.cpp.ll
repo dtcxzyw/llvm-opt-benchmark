@@ -879,7 +879,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt12clause_proof7kind2stENS_11clause_kindE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %this, i32 noundef %k) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN3smt12clause_proof7kind2stENS_11clause_kindE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %this, i32 noundef %k) local_unnamed_addr #3 align 2 {
 entry:
   %0 = icmp ult i32 %k, 4
   br i1 %0, label %switch.lookup, label %sw.default
@@ -1343,8 +1343,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   %8 = load i32, ptr %c, align 4
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i10.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %9 = getelementptr i8, ptr %c, i64 %add.ptr.i10.idx
-  %add.ptr.i10.ptr = getelementptr i8, ptr %9, i64 8
+  %9 = getelementptr inbounds i8, ptr %c, i64 %add.ptr.i10.idx
+  %add.ptr.i10.ptr = getelementptr inbounds i8, ptr %9, i64 8
   %cmp.not48 = icmp eq i32 %8, 0
   br i1 %cmp.not48, label %for.end, label %for.body.lr.ph
 

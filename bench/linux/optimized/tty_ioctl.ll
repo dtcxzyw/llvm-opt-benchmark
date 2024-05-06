@@ -383,7 +383,7 @@ define dso_local zeroext i1 @tty_termios_hw_change(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i8 @tty_get_char_size(i32 noundef %0) #6 align 16 {
+define dso_local noundef zeroext range(i8 5, 9) i8 @tty_get_char_size(i32 noundef %0) #6 align 16 {
   %2 = lshr i32 %0, 4
   %3 = and i32 %2, 3
   switch i32 %3, label %default.unreachable1 [
@@ -411,7 +411,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local zeroext i8 @tty_get_frame_size(i32 noundef %0) #6 align 16 {
+define dso_local zeroext range(i8 7, 14) i8 @tty_get_frame_size(i32 noundef %0) #6 align 16 {
   %2 = lshr i32 %0, 4
   %3 = and i32 %2, 3
   switch i32 %3, label %default.unreachable1 [
@@ -442,7 +442,7 @@ default.unreachable1:                             ; preds = %1
   %13 = trunc i32 %12 to i8
   %14 = and i8 %13, 1
   %15 = lshr i32 %0, 29
-  %16 = trunc i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = and i8 %16, 1
   %18 = add nuw nsw i8 %14, %11
   %19 = add nuw nsw i8 %18, %17
@@ -1150,7 +1150,7 @@ declare i64 @llvm.read_register.i64(metadata) #8
 declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tty_change_softcar(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @tty_change_softcar(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ktermios, align 4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #12
   %4 = select i1 %1, i32 2048, i32 0
@@ -1213,7 +1213,7 @@ declare dso_local i32 @tty_check_change(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @tty_ldisc_ref_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   switch i64 %1, label %56 [

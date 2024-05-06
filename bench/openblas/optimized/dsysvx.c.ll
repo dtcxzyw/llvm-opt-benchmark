@@ -75,7 +75,7 @@ define void @dsysvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %54, label %.thread, label %55
 
 55:                                               ; preds = %52
-  %56 = mul nsw i32 %37, 3
+  %56 = mul nuw nsw i32 %37, 3
   %57 = load i32, ptr %17, align 4, !tbaa !3
   %58 = icmp eq i32 %37, 0
   %59 = select i1 %58, i32 1, i32 %56

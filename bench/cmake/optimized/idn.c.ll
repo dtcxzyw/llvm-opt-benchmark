@@ -28,7 +28,7 @@ define dso_local noundef zeroext i1 @Curl_is_ASCII_name(ptr noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_idn_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -72,7 +72,7 @@ idn_decode.exit.thread:                           ; preds = %2, %7
 declare void @idn2_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_idn_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -121,7 +121,7 @@ define dso_local void @Curl_free_idnconverted_hostname(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_idnconvert_hostname(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

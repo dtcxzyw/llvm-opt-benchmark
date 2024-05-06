@@ -311,7 +311,7 @@ define hidden i32 @mbedtls_ssl_get_ciphersuite_id(ptr noundef readonly %0) local
   %.08.i = phi ptr [ %8, %7 ], [ @ciphersuite_definitions, %1 ]
   %3 = getelementptr inbounds i8, ptr %.08.i, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #7
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %0) #7
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %mbedtls_ssl_ciphersuite_from_string.exit, label %7
 
@@ -331,7 +331,7 @@ mbedtls_ssl_ciphersuite_from_string.exit.thread:  ; preds = %7, %1, %mbedtls_ssl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mbedtls_ssl_ciphersuite_get_cipher_key_bitlen(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i64 0, 4294967296) i64 @mbedtls_ssl_ciphersuite_get_cipher_key_bitlen(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i32
@@ -353,7 +353,7 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %1, %7
 declare ptr @mbedtls_cipher_info_from_type(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @mbedtls_ssl_get_ciphersuite_sig_pk_alg(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 5) i32 @mbedtls_ssl_get_ciphersuite_sig_pk_alg(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2
   %switch.tableidx = add i8 %3, -1
@@ -372,7 +372,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @mbedtls_ssl_get_ciphersuite_sig_alg(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 5) i32 @mbedtls_ssl_get_ciphersuite_sig_alg(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2
   %switch.tableidx = add i8 %3, -2
@@ -391,7 +391,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @mbedtls_ssl_ciphersuite_uses_ec(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @mbedtls_ssl_ciphersuite_uses_ec(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2
   %switch.tableidx = add i8 %3, -3
@@ -410,7 +410,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_ssl_ciphersuite_uses_psk(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @mbedtls_ssl_ciphersuite_uses_psk(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2
   %.off = add i8 %3, -5

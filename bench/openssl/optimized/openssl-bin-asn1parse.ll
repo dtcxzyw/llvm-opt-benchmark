@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.52 = private unnamed_addr constant [27 x i8] c"Can't find 'asn1' in '%s'\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @asn1parse_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %name = alloca ptr, align 8
@@ -318,7 +318,7 @@ if.end108:                                        ; preds = %if.else
   br i1 %or.cond2, label %if.then111, label %if.else118
 
 if.then111:                                       ; preds = %if.end108
-  %call112 = call fastcc i32 @do_generate(ptr noundef %genstr.0, ptr noundef %genconf.0, ptr noundef nonnull %call84), !range !7
+  %call112 = call fastcc i32 @do_generate(ptr noundef %genstr.0, ptr noundef %genconf.0, ptr noundef nonnull %call84)
   %conv113 = sext i32 %call112 to i64
   store i64 %conv113, ptr %num, align 8
   %cmp114 = icmp slt i32 %call112, 0
@@ -466,7 +466,7 @@ for.inc195:                                       ; preds = %if.end190, %if.then
   %inc196 = add nuw nsw i32 %i.0127, 1
   %call154 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #3
   %cmp155 = icmp slt i32 %inc196, %call154
-  br i1 %cmp155, label %for.body, label %for.end197, !llvm.loop !8
+  br i1 %cmp155, label %for.body, label %for.end197, !llvm.loop !7
 
 for.end197:                                       ; preds = %for.inc195, %if.then151
   %tmplen.0.lcssa = phi i64 [ %19, %if.then151 ], [ %tmplen.1, %for.inc195 ]
@@ -632,7 +632,7 @@ declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_generate(ptr noundef %genstr, ptr noundef %genconf, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_generate(ptr noundef %genstr, ptr noundef %genconf, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp.not = icmp eq ptr %genconf, null
@@ -756,5 +756,4 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 -2147483648}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

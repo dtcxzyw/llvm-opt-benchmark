@@ -169,7 +169,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @des3_ctrl(ptr noundef %ctx, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -1, 2) i32 @des3_ctrl(ptr noundef %ctx, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
 entry:
   %cond = icmp eq i32 %type, 6
   br i1 %cond, label %sw.bb, label %return
@@ -511,7 +511,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @des_ede3_wrap_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 -1, 1073741840) i32 @des_ede3_wrap_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %icv.i = alloca [8 x i8], align 1
   %iv.i11 = alloca [8 x i8], align 1

@@ -242,7 +242,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qlist_empty(ptr nocapture noundef readonly %qlist) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @qlist_empty(ptr nocapture noundef readonly %qlist) local_unnamed_addr #4 {
 entry:
   %head = getelementptr inbounds i8, ptr %qlist, i64 16
   %0 = load ptr, ptr %head, align 8
@@ -378,19 +378,19 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %spec.select = select i1 %cmp.i, ptr %obj, ptr null
   %head = getelementptr inbounds i8, ptr %spec.select, i64 16
   %1 = load ptr, ptr %head, align 8
-  %tobool.not21 = icmp eq ptr %1, null
-  br i1 %tobool.not21, label %for.end, label %land.rhs.lr.ph
+  %tobool.not22 = icmp eq ptr %1, null
+  br i1 %tobool.not22, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %qobject_type.exit.i
   %tql_prev13 = getelementptr inbounds i8, ptr %spec.select, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %qobject_unref_impl.exit
-  %entry1.022 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %qobject_unref_impl.exit ]
-  %next = getelementptr inbounds i8, ptr %entry1.022, i64 8
+  %entry1.023 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %qobject_unref_impl.exit ]
+  %next = getelementptr inbounds i8, ptr %entry1.023, i64 8
   %2 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %tql_prev11 = getelementptr inbounds i8, ptr %entry1.022, i64 16
+  %tql_prev11 = getelementptr inbounds i8, ptr %entry1.023, i64 16
   %3 = load ptr, ptr %tql_prev11, align 8
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 16
   %tql_prev13.sink = select i1 %cmp3.not, ptr %tql_prev13, ptr %tql_prev8
@@ -398,7 +398,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qo
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  %5 = load ptr, ptr %entry1.022, align 8
+  %5 = load ptr, ptr %entry1.023, align 8
   %tobool23.not = icmp eq ptr %5, null
   br i1 %tobool23.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
@@ -406,24 +406,24 @@ lor.lhs.false.i:                                  ; preds = %land.rhs
   %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
-  br i1 %tobool1.not.i, label %if.else.i20, label %land.lhs.true.i18
+  br i1 %tobool1.not.i, label %if.else.i21, label %land.lhs.true.i19
 
-if.else.i20:                                      ; preds = %lor.lhs.false.i
+if.else.i21:                                      ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #11
   unreachable
 
-land.lhs.true.i18:                                ; preds = %lor.lhs.false.i
+land.lhs.true.i19:                                ; preds = %lor.lhs.false.i
   %dec.i = add i64 %6, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i19 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i19, label %if.then5.i, label %qobject_unref_impl.exit
+  %cmp.i20 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i20, label %if.then5.i, label %qobject_unref_impl.exit
 
-if.then5.i:                                       ; preds = %land.lhs.true.i18
+if.then5.i:                                       ; preds = %land.lhs.true.i19
   tail call void @qobject_destroy(ptr noundef nonnull %5) #10
   br label %qobject_unref_impl.exit
 
-qobject_unref_impl.exit:                          ; preds = %land.rhs, %land.lhs.true.i18, %if.then5.i
-  tail call void @g_free(ptr noundef nonnull %entry1.022) #10
+qobject_unref_impl.exit:                          ; preds = %land.rhs, %land.lhs.true.i19, %if.then5.i
+  tail call void @g_free(ptr noundef nonnull %entry1.023) #10
   br i1 %cmp3.not, label %for.end, label %land.rhs, !llvm.loop !9
 
 for.end:                                          ; preds = %qobject_unref_impl.exit, %qobject_type.exit.i

@@ -379,7 +379,7 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @SPARC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 4
   br i1 %5, label %.loopexit, label %6
 

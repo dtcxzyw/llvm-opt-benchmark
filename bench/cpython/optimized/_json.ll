@@ -2709,7 +2709,7 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_json_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_json_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @PyScannerType_spec) #3
   %call1 = tail call i32 @PyModule_Add(ptr noundef %module, ptr noundef nonnull @.str.13, ptr noundef %call) #3
@@ -4922,7 +4922,7 @@ return:                                           ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_Py_EnterRecursiveCall(ptr noundef %where) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall(ptr noundef %where) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @_PyThreadState_GetCurrent() #3
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %call.i, i64 44
@@ -7462,7 +7462,7 @@ if.else37:                                        ; preds = %PyObject_TypeCheck.
   br i1 %or.cond, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else37
-  %call45 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46), !range !26
+  %call45 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.end48, label %return
 
@@ -7481,7 +7481,7 @@ if.else50:                                        ; preds = %if.else37
   br i1 %tobool53.not, label %if.else60, label %if.then54
 
 if.then54:                                        ; preds = %if.else50
-  %call55 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46), !range !26
+  %call55 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46)
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %if.end58, label %return
 
@@ -7569,7 +7569,7 @@ if.then83:                                        ; preds = %if.end80
   br label %return
 
 if.end84:                                         ; preds = %if.end80
-  %call85 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46), !range !26
+  %call85 = tail call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.46)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.end88, label %if.then87
 
@@ -7816,7 +7816,7 @@ if.end61:                                         ; preds = %if.then56, %cond.en
   %call62 = tail call fastcc i32 @encoder_listencode_obj(ptr noundef %s, ptr noundef %writer, ptr noundef %cond54, i64 noundef %spec.select)
   %tobool63.not = icmp eq i32 %call62, 0
   %inc = add i64 %i.0, 1
-  br i1 %tobool63.not, label %for.cond, label %bail, !llvm.loop !27
+  br i1 %tobool63.not, label %for.cond, label %bail, !llvm.loop !26
 
 for.end:                                          ; preds = %cond.end43.thread, %cond.end43
   %cmp66.not = icmp eq ptr %ident.0, null
@@ -8006,7 +8006,7 @@ for.cond:                                         ; preds = %if.end55
   %inc = add nuw nsw i64 %i.080, 1
   %call32.val = load i64, ptr %9, align 8
   %cmp45 = icmp slt i64 %inc, %call32.val
-  br i1 %cmp45, label %for.body, label %if.then67, !llvm.loop !28
+  br i1 %cmp45, label %for.body, label %if.then67, !llvm.loop !27
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.080 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -8039,7 +8039,7 @@ if.end55:                                         ; preds = %lor.lhs.false50
   %arrayidx59 = getelementptr i8, ptr %11, i64 32
   %18 = load ptr, ptr %arrayidx59, align 8
   store ptr %18, ptr %value, align 8
-  %call60 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %17, ptr noundef %18, i64 noundef %spec.select), !range !29
+  %call60 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %17, ptr noundef %18, i64 noundef %spec.select)
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %if.then.i, label %for.cond
 
@@ -8071,9 +8071,9 @@ while.cond:                                       ; preds = %while.body, %if.els
 while.body:                                       ; preds = %while.cond
   %21 = load ptr, ptr %key, align 8
   %22 = load ptr, ptr %value, align 8
-  %call71 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %21, ptr noundef %22, i64 noundef %spec.select), !range !29
+  %call71 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %21, ptr noundef %22, i64 noundef %spec.select)
   %cmp72 = icmp slt i32 %call71, 0
-  br i1 %cmp72, label %Py_XDECREF.exit, label %while.cond, !llvm.loop !30
+  br i1 %cmp72, label %Py_XDECREF.exit, label %while.cond, !llvm.loop !28
 
 if.end76:                                         ; preds = %while.cond, %if.end.i101, %if.then1.i104, %if.then67
   %cmp77.not = icmp eq ptr %ident.0, null
@@ -8170,7 +8170,7 @@ declare ptr @PyMapping_Items(ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_encode_key_value(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr nocapture noundef %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @encoder_encode_key_value(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr nocapture noundef %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val30 = load ptr, ptr %0, align 8
@@ -8474,8 +8474,6 @@ attributes #3 = { nounwind }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = !{i32 -1, i32 1}
-!30 = distinct !{!30, !5}

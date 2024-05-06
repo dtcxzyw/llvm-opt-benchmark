@@ -610,7 +610,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @yesnotoi(ptr nocapture noundef readonly %s) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @yesnotoi(ptr nocapture noundef readonly %s) local_unnamed_addr #5 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %s, ptr noundef nonnull @.str.36) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -1946,8 +1946,8 @@ for.end:                                          ; preds = %for.cond74, %if.end
   %arrayidx93 = getelementptr inbounds ptr, ptr %call5, i64 %indvars.iv166
   store ptr %32, ptr %arrayidx93, align 8
   %33 = load ptr, ptr %argv, align 8
-  %34 = getelementptr ptr, ptr %33, i64 %3
-  %arrayidx99 = getelementptr i8, ptr %34, i64 24
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %3
+  %arrayidx99 = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %arrayidx99, align 8
   %ptr100 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load ptr, ptr %ptr100, align 8
@@ -2290,7 +2290,7 @@ declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #7
 declare void @redactClientCommandArgument(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @allowProtectedAction(i32 noundef %config, ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @allowProtectedAction(i32 noundef %config, ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
 entry:
   switch i32 %config, label %lor.end.fold.split [
     i32 1, label %lor.end
@@ -2527,8 +2527,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %argv, align 8
-  %2 = getelementptr ptr, ptr %1, i64 %indvars.iv
-  %arrayidx = getelementptr i8, ptr %2, i64 16
+  %2 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
@@ -3146,7 +3146,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rewriteConfigRewriteLine(ptr nocapture noundef %state, ptr noundef %option, ptr noundef %line, i32 noundef %force) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @rewriteConfigRewriteLine(ptr nocapture noundef %state, ptr noundef %option, ptr noundef %line, i32 noundef %force) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef %option) #24
   %0 = load ptr, ptr %state, align 8
@@ -3322,7 +3322,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %div.i = ashr exact i64 %value, 30
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3333,7 +3333,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then9.i:                                       ; preds = %if.else.i
   %div11.i = ashr exact i64 %value, 20
-  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
+  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -3344,11 +3344,11 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then20.i:                                      ; preds = %if.else13.i
   %div22.i = ashr exact i64 %value, 10
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else24.i:                                      ; preds = %if.else13.i
-  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %value) #24
+  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %value) #24
   br label %rewriteConfigFormatMemory.exit
 
 rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.else24.i
@@ -3356,7 +3356,7 @@ rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then
   %conv = zext i1 %cmp to i32
   %call1 = tail call ptr @sdsempty() #24
   %call3 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.103, ptr noundef %option, ptr noundef nonnull %buf) #24
-  %call4 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call3, i32 noundef %conv), !range !30
+  %call4 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call3, i32 noundef %conv)
   ret void
 }
 
@@ -3367,7 +3367,7 @@ entry:
   %conv = zext i1 %cmp to i32
   %call = tail call ptr @sdsempty() #24
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.104, ptr noundef %option, i64 noundef %value) #24
-  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv), !range !30
+  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv)
   ret void
 }
 
@@ -3380,7 +3380,7 @@ entry:
   %tobool.not = icmp eq i32 %value, 0
   %cond = select i1 %tobool.not, ptr @.str.25, ptr @.str.36
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.103, ptr noundef %option, ptr noundef nonnull %cond) #24
-  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv), !range !30
+  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv)
   ret void
 }
 
@@ -3418,7 +3418,7 @@ if.end3:                                          ; preds = %land.lhs.true, %if.
   %call5 = tail call ptr @sdscatlen(ptr noundef %call4, ptr noundef nonnull @.str.105, i64 noundef 1) #24
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #23
   %call7 = tail call ptr @sdscatrepr(ptr noundef %call5, ptr noundef nonnull %value, i64 noundef %call6) #24
-  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call7, i32 noundef %force.0), !range !30
+  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call7, i32 noundef %force.0)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then, %if.end3
@@ -3504,7 +3504,7 @@ sw.bb13.i:                                        ; preds = %if.end3
 sdslen.exit:                                      ; preds = %if.end3, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end3 ]
   %call7 = tail call ptr @sdscatrepr(ptr noundef %call5, ptr noundef nonnull %value, i64 noundef %retval.0.i) #24
-  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call7, i32 noundef %force.0), !range !30
+  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call7, i32 noundef %force.0)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then, %sdslen.exit
@@ -3518,7 +3518,7 @@ entry:
   %conv = zext i1 %cmp to i32
   %call = tail call ptr @sdsempty() #24
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.106, ptr noundef %option, i64 noundef %value) #24
-  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv), !range !30
+  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv)
   ret void
 }
 
@@ -3529,7 +3529,7 @@ entry:
   %conv = zext i1 %cmp to i32
   %call = tail call ptr @sdsempty() #24
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.107, ptr noundef %option, i64 noundef %value) #24
-  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv), !range !30
+  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call1, i32 noundef %conv)
   ret void
 }
 
@@ -3549,7 +3549,7 @@ entry:
   %3 = load i32, ptr %default_value, align 8
   %cmp = icmp ne i32 %3, %value
   %conv5 = zext i1 %cmp to i32
-  %call6 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call3, i32 noundef %conv5), !range !30
+  %call6 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call3, i32 noundef %conv5)
   ret void
 }
 
@@ -3575,7 +3575,7 @@ if.end.us:                                        ; preds = %for.body.us
   %incdec.ptr.us = getelementptr inbounds i8, ptr %ce.addr.026.us, i64 16
   %2 = load ptr, ptr %incdec.ptr.us, align 8
   %cmp.not.us = icmp eq ptr %2, null
-  br i1 %cmp.not.us, label %if.then20, label %for.body.us, !llvm.loop !31
+  br i1 %cmp.not.us, label %if.then20, label %for.body.us, !llvm.loop !30
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi ptr [ %7, %for.inc ], [ %0, %for.body.lr.ph ]
@@ -3627,7 +3627,7 @@ for.inc:                                          ; preds = %if.end, %cond.end
   %incdec.ptr = getelementptr inbounds i8, ptr %ce.addr.026, i64 16
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %7, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc
   %tobool18 = icmp eq ptr %names.1, null
@@ -3672,7 +3672,7 @@ for.cond.preheader:                               ; preds = %if.end
 
 if.then2:                                         ; preds = %if.end
   %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.108) #24
-  %call3 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call, i32 noundef 1), !range !30
+  %call3 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call, i32 noundef 1)
   br label %if.end9
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -3684,12 +3684,12 @@ for.body:                                         ; preds = %for.cond.preheader,
   %changes = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %changes, align 8
   %call7 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4, ptr noundef nonnull @.str.109, i64 noundef %4, i32 noundef %5) #24
-  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7, i32 noundef 1), !range !30
+  %call8 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !32
+  br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !31
 
 if.end9:                                          ; preds = %for.body, %for.cond.preheader, %if.then2
   %call.i10 = tail call ptr @sdsnew(ptr noundef %name) #24
@@ -3752,10 +3752,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %6 = load ptr, ptr %ptr, align 8
   %call7 = call ptr @sdscatsds(ptr noundef %call5, ptr noundef %6) #24
   call void @decrRefCount(ptr noundef %call6) #24
-  %call8 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef nonnull @.str.8, ptr noundef %call7, i32 noundef 1), !range !30
+  %call8 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef nonnull @.str.8, ptr noundef %call7, i32 noundef 1)
   %call2 = call i32 @raxNext(ptr noundef nonnull %ri) #24
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %while.body, %if.end
   call void @raxStop(ptr noundef nonnull %ri) #24
@@ -3810,7 +3810,7 @@ if.end:                                           ; preds = %entry
   %call5.i = call ptr @sdscatlen(ptr noundef %call.i, ptr noundef nonnull @.str.105, i64 noundef 1) #24
   %call6.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cwd) #23
   %call7.i = call ptr @sdscatrepr(ptr noundef %call5.i, ptr noundef nonnull %cwd, i64 noundef %call6.i) #24
-  %call8.i = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7.i, i32 noundef 1), !range !30
+  %call8.i = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7.i, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then, %if.end
@@ -3847,7 +3847,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 284), align 8
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.112, ptr noundef %name, ptr noundef %3, i32 noundef %4) #24
-  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1, i32 noundef 1), !range !30
+  %call2 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then, %if.end
@@ -3907,7 +3907,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %conv = zext i1 %cmp to i32
   %call4 = tail call ptr @sdscatrepr(ptr noundef %call2, ptr noundef nonnull %call, i64 noundef %retval.0.i) #24
   tail call void @sdsfree(ptr noundef nonnull %call) #24
-  %call5 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call4, i32 noundef %conv), !range !30
+  %call5 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call4, i32 noundef %conv)
   ret void
 }
 
@@ -3956,7 +3956,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 
 if.then.i:                                        ; preds = %lor.end
   %div.i = ashr exact i64 %0, 30
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else.i:                                        ; preds = %lor.end
@@ -3967,7 +3967,7 @@ if.else.i:                                        ; preds = %lor.end
 
 if.then9.i:                                       ; preds = %if.else.i
   %div11.i = ashr exact i64 %0, 20
-  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
+  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -3978,11 +3978,11 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then20.i:                                      ; preds = %if.else13.i
   %div22.i = ashr exact i64 %0, 10
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else24.i:                                      ; preds = %if.else13.i
-  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %0) #24
+  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %0) #24
   br label %rewriteConfigFormatMemory.exit
 
 rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.else24.i
@@ -3996,7 +3996,7 @@ rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then
 
 if.then.i32:                                      ; preds = %rewriteConfigFormatMemory.exit
   %div.i33 = ashr exact i64 %10, 30
-  %call.i34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i33) #24
+  %call.i34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i33) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else.i17:                                      ; preds = %rewriteConfigFormatMemory.exit
@@ -4007,7 +4007,7 @@ if.else.i17:                                      ; preds = %rewriteConfigFormat
 
 if.then9.i29:                                     ; preds = %if.else.i17
   %div11.i30 = ashr exact i64 %10, 20
-  %call12.i31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i30) #24
+  %call12.i31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i30) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else13.i20:                                    ; preds = %if.else.i17
@@ -4018,11 +4018,11 @@ if.else13.i20:                                    ; preds = %if.else.i17
 
 if.then20.i26:                                    ; preds = %if.else13.i20
   %div22.i27 = ashr exact i64 %10, 10
-  %call23.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i27) #24
+  %call23.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i27) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else24.i23:                                    ; preds = %if.else13.i20
-  %call25.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %10) #24
+  %call25.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %10) #24
   br label %rewriteConfigFormatMemory.exit35
 
 rewriteConfigFormatMemory.exit35:                 ; preds = %if.then.i32, %if.then9.i29, %if.then20.i26, %if.else24.i23
@@ -4035,10 +4035,10 @@ rewriteConfigFormatMemory.exit35:                 ; preds = %if.then.i32, %if.th
   %soft_limit_seconds32 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %15 = load i64, ptr %soft_limit_seconds32, align 8
   %call33 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call27, ptr noundef nonnull @.str.115, ptr noundef %name, ptr noundef %spec.store.select, ptr noundef nonnull %hard, ptr noundef nonnull %soft, i64 noundef %15) #24
-  %call34 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call33, i32 noundef %lor.ext), !range !30
+  %call34 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call33, i32 noundef %lor.ext)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %rewriteConfigFormatMemory.exit35
   ret void
@@ -4069,7 +4069,7 @@ for.body:                                         ; preds = %for.body, %entry
   br i1 %cmp8.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body
-  %call12 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7, i32 noundef %spec.select), !range !30
+  %call12 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call7, i32 noundef %spec.select)
   ret void
 }
 
@@ -4081,7 +4081,7 @@ entry:
   br i1 %cmp, label %for.body, label %if.end8
 
 for.cond:                                         ; preds = %for.body
-  br i1 %cmp1, label %for.body, label %if.then7.critedge, !llvm.loop !35
+  br i1 %cmp1, label %for.body, label %if.then7.critedge, !llvm.loop !34
 
 for.body:                                         ; preds = %entry, %for.cond
   %cmp1 = phi i1 [ false, %for.cond ], [ true, %entry ]
@@ -4124,7 +4124,7 @@ if.end13:                                         ; preds = %if.else, %if.then10
   %call15 = tail call ptr @sdscatlen(ptr noundef %call14, ptr noundef nonnull @.str.105, i64 noundef 1) #24
   %call16 = tail call ptr @sdscatsds(ptr noundef %call15, ptr noundef %addresses.0) #24
   tail call void @sdsfree(ptr noundef %addresses.0) #24
-  %call17 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call16, i32 noundef 1), !range !30
+  %call17 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call16, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then7.critedge, %if.end13
@@ -4174,14 +4174,14 @@ for.body:                                         ; preds = %while.body, %for.bo
   %10 = load i32, ptr %argc, align 8
   %11 = sext i32 %10 to i64
   %cmp6 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !36
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body, %while.body
   %line.0.lcssa = phi ptr [ %call4, %while.body ], [ %call9, %for.body ]
-  %call10 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef nonnull @.str.65, ptr noundef %line.0.lcssa, i32 noundef 1), !range !30
+  %call10 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef nonnull @.str.65, ptr noundef %line.0.lcssa, i32 noundef 1)
   %call1 = tail call ptr @dictNext(ptr noundef %call) #24
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !37
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %for.end, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #24
@@ -4284,7 +4284,7 @@ for.inc:                                          ; preds = %if.then, %if.end4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = sext i32 %9 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %entry
   %content.0.lcssa = phi ptr [ %call, %entry ], [ %content.1, %for.inc ]
@@ -4318,7 +4318,7 @@ while.cond9.preheader:                            ; preds = %while.body
   %len = getelementptr inbounds i8, ptr %call2, i64 40
   %2 = load i64, ptr %len, align 8
   %tobool.not11 = icmp eq i64 %2, 0
-  br i1 %tobool.not11, label %while.cond.backedge, label %while.body10, !llvm.loop !39
+  br i1 %tobool.not11, label %while.cond.backedge, label %while.body10, !llvm.loop !38
 
 do.body:                                          ; preds = %while.body
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -4332,7 +4332,7 @@ if.end:                                           ; preds = %do.body
 while.cond.backedge:                              ; preds = %while.body10, %if.end, %do.body, %while.cond9.preheader
   %call1 = tail call ptr @dictNext(ptr noundef %call) #24
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end15, label %while.body, !llvm.loop !39
+  br i1 %cmp.not, label %while.end15, label %while.body, !llvm.loop !38
 
 while.body10:                                     ; preds = %while.cond9.preheader, %while.body10
   %4 = load ptr, ptr %call2, align 8
@@ -4352,7 +4352,7 @@ while.body10:                                     ; preds = %while.cond9.prehead
   tail call void @listDelNode(ptr noundef nonnull %call2, ptr noundef %4) #24
   %10 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %10, 0
-  br i1 %tobool.not, label %while.cond.backedge, label %while.body10, !llvm.loop !40
+  br i1 %tobool.not, label %while.cond.backedge, label %while.body10, !llvm.loop !39
 
 while.end15:                                      ; preds = %while.cond.backedge, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #24
@@ -4401,7 +4401,7 @@ if.end:                                           ; preds = %while.body
 while.cond.backedge:                              ; preds = %if.end, %while.body
   %call2 = tail call ptr @dictNext(ptr noundef %call1) #24
   %cmp.not = icmp eq ptr %call2, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !40
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   tail call void @dictReleaseIterator(ptr noundef %call1) #24
@@ -4481,7 +4481,7 @@ for.inc.i:                                        ; preds = %if.end4.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = sext i32 %14 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %cmp.i, label %for.body.i, label %rewriteConfigGetContentFromState.exit, !llvm.loop !38
+  br i1 %cmp.i, label %for.body.i, label %rewriteConfigGetContentFromState.exit, !llvm.loop !37
 
 rewriteConfigGetContentFromState.exit:            ; preds = %for.inc.i, %while.end
   %16 = phi i32 [ %5, %while.end ], [ %14, %for.inc.i ]
@@ -4497,7 +4497,7 @@ rewriteConfigGetContentFromState.exit:            ; preds = %for.inc.i, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rewriteConfigOverwriteFile(ptr noundef %configfile, ptr nocapture noundef readonly %content) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @rewriteConfigOverwriteFile(ptr noundef %configfile, ptr nocapture noundef readonly %content) local_unnamed_addr #2 {
 entry:
   %tmp_conffile = alloca [4096 x i8], align 16
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp_conffile, i64 noundef 4096, ptr noundef nonnull @.str.123, ptr noundef %configfile, ptr noundef nonnull @.str.122) #24
@@ -4629,7 +4629,7 @@ if.then30:                                        ; preds = %sdslen.exit37
   %call31 = tail call ptr @__errno_location() #28
   %13 = load i32, ptr %call31, align 4
   %cmp32 = icmp eq i32 %13, 4
-  br i1 %cmp32, label %while.cond, label %do.body36, !llvm.loop !42
+  br i1 %cmp32, label %while.cond, label %do.body36, !llvm.loop !41
 
 do.body36:                                        ; preds = %if.then30
   %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -4643,7 +4643,7 @@ if.end40:                                         ; preds = %do.body36
 
 if.end44:                                         ; preds = %sdslen.exit37
   %add = add i64 %call27, %offset.0.ph
-  br label %while.cond.outer, !llvm.loop !42
+  br label %while.cond.outer, !llvm.loop !41
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %if.end44
   %offset.0.ph = phi i64 [ 0, %while.cond.preheader ], [ %add, %if.end44 ]
@@ -4771,7 +4771,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rewriteConfig(ptr nocapture noundef readonly %path, i32 noundef %force_write) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @rewriteConfig(ptr nocapture noundef readonly %path, i32 noundef %force_write) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @rewriteConfigReadOldFile(ptr noundef %path)
   %cmp = icmp eq ptr %call, null
@@ -4816,7 +4816,7 @@ if.then13:                                        ; preds = %if.end11
 while.cond.backedge:                              ; preds = %if.end11, %if.then13, %while.body
   %call6 = tail call ptr @dictNext(ptr noundef %call5) #24
   %cmp7.not = icmp eq ptr %call6, null
-  br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !43
+  br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !42
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end4
   tail call void @dictReleaseIterator(ptr noundef %call5) #24
@@ -4913,12 +4913,12 @@ for.inc.i:                                        ; preds = %if.end4.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = sext i32 %14 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %cmp.i, label %for.body.i, label %rewriteConfigGetContentFromState.exit, !llvm.loop !38
+  br i1 %cmp.i, label %for.body.i, label %rewriteConfigGetContentFromState.exit, !llvm.loop !37
 
 rewriteConfigGetContentFromState.exit:            ; preds = %for.inc.i, %if.end20
   %content.0.lcssa.i = phi ptr [ %call.i, %if.end20 ], [ %content.1.i, %for.inc.i ]
   %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 2), align 8
-  %call22 = tail call i32 @rewriteConfigOverwriteFile(ptr noundef %16, ptr noundef %content.0.lcssa.i), !range !44
+  %call22 = tail call i32 @rewriteConfigOverwriteFile(ptr noundef %16, ptr noundef %content.0.lcssa.i)
   tail call void @sdsfree(ptr noundef %content.0.lcssa.i) #24
   %lines.i14 = getelementptr inbounds i8, ptr %call, i64 24
   %17 = load ptr, ptr %lines.i14, align 8
@@ -5114,11 +5114,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp, label %for.body, label %if.end, !llvm.loop !45
+  br i1 %cmp, label %for.body, label %if.end, !llvm.loop !43
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.then
   %line.1 = phi ptr [ %call1, %if.then ], [ %call, %for.cond.preheader ], [ %call7, %for.body ]
-  %call8 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %line.1, i32 noundef 1), !range !30
+  %call8 = call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %line.1, i32 noundef 1)
   ret void
 }
 
@@ -5139,12 +5139,12 @@ entry:
 define internal i32 @boolConfigSet(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %argv, i32 %argc, ptr noundef %err) #2 {
 entry:
   %0 = load ptr, ptr %argv, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.36) #23
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.36) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %yesnotoi.exit
 
 yesnotoi.exit:                                    ; preds = %entry
-  %call1.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #23
+  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.25) #23
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %if.end, label %if.then
 
@@ -5276,7 +5276,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %tobool.not.i = icmp eq i32 %cond, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.25, ptr @.str.36
   %call1.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call.i, ptr noundef nonnull @.str.103, ptr noundef %name, ptr noundef nonnull %cond.i) #24
-  %call2.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i, i32 noundef %conv.i), !range !30
+  %call2.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i, i32 noundef %conv.i)
   ret void
 }
 
@@ -5295,7 +5295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updateAppendonly(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updateAppendonly(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 184), align 4
   %tobool = icmp eq i32 %0, 0
@@ -5387,7 +5387,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stringConfigSet(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %argv, i32 %argc, ptr noundef %err) #2 {
+define internal range(i32 0, 3) i32 @stringConfigSet(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %argv, i32 %argc, ptr noundef %err) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %config, i64 64
   %is_valid_fn = getelementptr inbounds i8, ptr %config, i64 80
@@ -5494,7 +5494,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @isValidAnnouncedHostname(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %err) #17 {
+define internal range(i32 0, 2) i32 @isValidAnnouncedHostname(ptr nocapture noundef readonly %val, ptr nocapture noundef writeonly %err) #17 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #23
   %cmp = icmp ugt i64 %call, 255
@@ -5526,7 +5526,7 @@ if.end30:                                         ; preds = %lor.lhs.false13, %w
   %arrayidx = getelementptr inbounds i8, ptr %val, i64 %indvars.iv.next
   %7 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !46
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !44
 
 return.sink.split:                                ; preds = %lor.lhs.false13, %entry
   %.str.368.sink = phi ptr [ @.str.367, %entry ], [ @.str.368, %lor.lhs.false13 ]
@@ -5539,7 +5539,7 @@ return:                                           ; preds = %if.end30, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @isValidAnnouncedNodename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @isValidAnnouncedNodename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %val, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -5598,7 +5598,7 @@ return:                                           ; preds = %sdslen.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @isValidDBfilename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @isValidDBfilename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call i32 @pathIsBaseName(ptr noundef %val) #24
   %tobool.not = icmp eq i32 %call, 0
@@ -5614,7 +5614,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @isValidAOFfilename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @isValidAOFfilename(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %strcmpload = load i8, ptr %val, align 1
   %tobool.not = icmp eq i8 %strcmpload, 0
@@ -5636,7 +5636,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @isValidAOFdirname(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @isValidAOFdirname(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %strcmpload = load i8, ptr %val, align 1
   %tobool.not = icmp eq i8 %strcmpload, 0
@@ -5658,7 +5658,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updateProcTitleTemplate(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updateProcTitleTemplate(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call i32 @redisSetProcTitle(ptr noundef null) #24
   %cmp = icmp eq i32 %call, -1
@@ -5674,7 +5674,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @isValidProcTitleTemplate(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @isValidProcTitleTemplate(ptr noundef %val, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call i32 @validateProcTitleTemplate(ptr noundef %val) #24
   %tobool.not = icmp eq i32 %call, 0
@@ -5690,7 +5690,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updateLocaleCollate(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updateLocaleCollate(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 419), align 8
   %call = tail call ptr @setlocale(i32 noundef 3, ptr noundef %0) #24
@@ -6083,7 +6083,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %incdec.ptr = getelementptr inbounds i8, ptr %enumNode.037, i64 16
   %12 = load ptr, ptr %incdec.ptr, align 8
   %cmp6.not = icmp eq ptr %12, null
-  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !47
+  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !45
 
 while.end:                                        ; preds = %while.body, %if.then
   %enumerr.0.lcssa = phi ptr [ %call3, %if.then ], [ %call12, %while.body ]
@@ -6228,12 +6228,12 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %8 = load i32, ptr %default_value.i, align 8
   %cmp.i = icmp ne i32 %8, %cond
   %conv5.i = zext i1 %cmp.i to i32
-  %call6.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call3.i, i32 noundef %conv5.i), !range !30
+  %call6.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call3.i, i32 noundef %conv5.i)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updateOOMScoreAdj(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updateOOMScoreAdj(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call i32 @setOOMScoreAdj(i32 noundef -1) #24
   %cmp = icmp eq i32 %call, -1
@@ -6249,7 +6249,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @isValidShutdownOnSigFlags(i32 noundef %val, ptr nocapture noundef writeonly %err) #18 {
+define internal range(i32 0, 2) i32 @isValidShutdownOnSigFlags(i32 noundef %val, ptr nocapture noundef writeonly %err) #18 {
 entry:
   %0 = and i32 %val, 3
   %or.cond.not = icmp eq i32 %0, 3
@@ -7152,7 +7152,7 @@ if.then94:                                        ; preds = %if.end87
   %conv.i = zext i1 %cmp.i to i32
   %call.i = tail call ptr @sdsempty() #24
   %call1.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call.i, ptr noundef nonnull @.str.104, ptr noundef %name, i64 noundef %sub) #24
-  %call2.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i, i32 noundef %conv.i), !range !30
+  %call2.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i, i32 noundef %conv.i)
   br label %if.end117
 
 if.else96:                                        ; preds = %if.end87.thread, %if.end87
@@ -7180,12 +7180,12 @@ if.else104:                                       ; preds = %if.else96
 
 if.then109:                                       ; preds = %if.else104
   %call1.i42 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call.i46, ptr noundef nonnull @.str.107, ptr noundef %name, i64 noundef %value.055) #24
-  %call2.i43 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i42, i32 noundef %conv.i45), !range !30
+  %call2.i43 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i42, i32 noundef %conv.i45)
   br label %if.end117
 
 if.else112:                                       ; preds = %if.else104
   %call1.i47 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call.i46, ptr noundef nonnull @.str.106, ptr noundef %name, i64 noundef %value.055) #24
-  %call2.i48 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i47, i32 noundef %conv.i45), !range !30
+  %call2.i48 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call1.i47, i32 noundef %conv.i45)
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then101, %if.else112, %if.then109, %if.then94
@@ -7193,7 +7193,7 @@ if.end117:                                        ; preds = %if.then101, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updatePort(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updatePort(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call ptr @listenerByType(ptr noundef nonnull @.str.391) #24
   %cmp.not = icmp eq ptr %call, null
@@ -7273,7 +7273,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @updateMaxclients(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @updateMaxclients(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 313), align 4
   tail call void @adjustOpenFilesLimit() #24
@@ -7390,7 +7390,7 @@ if.else:                                          ; preds = %while.body
 if.end8:                                          ; preds = %if.else, %if.then6
   %call = call ptr @listNext(ptr noundef nonnull %li) #24
   %cmp4.not = icmp eq ptr %call, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !48
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %if.end8, %if.end3
   %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 315), align 8
@@ -7406,7 +7406,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @applyTLSPort(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @applyTLSPort(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call ptr @connectionTypeTls() #24
   %0 = getelementptr i8, ptr %call, i64 24
@@ -7452,7 +7452,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @applyTlsCfg(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @applyTlsCfg(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 45), align 4
   %tobool = icmp ne i32 %0, 0
@@ -7482,7 +7482,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigDirOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigDirOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %cmp.not = icmp eq i32 %argc, 1
   br i1 %cmp.not, label %if.end, label %return.sink.split
@@ -7527,7 +7527,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigSaveOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %eptr = alloca ptr, align 8
   %cmp = icmp eq i32 %argc, 1
@@ -7562,7 +7562,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %lor.lhs.false16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !47
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -7644,7 +7644,7 @@ for.body34:                                       ; preds = %if.end30, %for.body
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 2
   %16 = trunc nuw i64 %indvars.iv.next28 to i32
   %cmp32 = icmp sgt i32 %argc.addr.03437, %16
-  br i1 %cmp32, label %for.body34, label %return, !llvm.loop !50
+  br i1 %cmp32, label %for.body34, label %return, !llvm.loop !48
 
 return.sink.split:                                ; preds = %for.body, %lor.lhs.false, %lor.lhs.false16, %if.end, %land.lhs.true
   store ptr @.str.399, ptr %err, align 8
@@ -7689,7 +7689,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !51
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !49
 
 for.end:                                          ; preds = %for.inc, %entry
   %buf.0.lcssa = phi ptr [ %call, %entry ], [ %buf.1, %for.inc ]
@@ -7697,7 +7697,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigClientOutputBufferLimitOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
 entry:
   %hard_err.i = alloca i32, align 4
   %soft_err.i = alloca i32, align 4
@@ -7783,7 +7783,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %13 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp.i = icmp slt i32 %13, %argc
-  br i1 %cmp.i, label %for.body.i, label %for.body50.i.preheader, !llvm.loop !52
+  br i1 %cmp.i, label %for.body.i, label %for.body50.i.preheader, !llvm.loop !50
 
 for.body50.i.preheader:                           ; preds = %if.end36.i, %for.cond.preheader.i
   br label %for.body50.i
@@ -7804,7 +7804,7 @@ if.then54.i:                                      ; preds = %for.body50.i
 for.inc60.i:                                      ; preds = %if.then54.i, %for.body50.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 3
-  br i1 %exitcond.not.i, label %updateClientOutputBufferLimit.exit, label %for.body50.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %updateClientOutputBufferLimit.exit, label %for.body50.i, !llvm.loop !51
 
 return.sink.split.i:                              ; preds = %if.then32.i, %if.then6.i, %if.then.i
   %.str.403.sink.i = phi ptr [ @.str.401, %if.then.i ], [ @.str.402, %if.then6.i ], [ @.str.403, %if.then32.i ]
@@ -7854,7 +7854,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @setConfigOOMScoreAdjValuesOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
+define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
 entry:
   %values = alloca [3 x i32], align 4
   %eptr = alloca ptr, align 8
@@ -7892,7 +7892,7 @@ if.end12:                                         ; preds = %for.body
   store i32 %conv13, ptr %arrayidx15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
 
 for.end:                                          ; preds = %if.end12
   %arrayidx16 = getelementptr inbounds i8, ptr %values, i64 4
@@ -7940,7 +7940,7 @@ for.inc47:                                        ; preds = %for.body34, %if.the
   %change.1 = phi i32 [ 1, %if.then41 ], [ %change.019, %for.body34 ]
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 3
-  br i1 %exitcond24.not, label %for.end49, label %for.body34, !llvm.loop !55
+  br i1 %exitcond24.not, label %for.end49, label %for.body34, !llvm.loop !53
 
 for.end49:                                        ; preds = %for.inc47
   %tobool50.not = icmp eq i32 %change.1, 0
@@ -7976,7 +7976,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigNotifyKeyspaceEventsOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigNotifyKeyspaceEventsOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %cmp.not = icmp eq i32 %argc, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8013,7 +8013,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigBindOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigBindOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %cmp = icmp sgt i32 %argc, 16
   br i1 %cmp, label %if.then, label %if.end
@@ -8100,7 +8100,7 @@ for.body:                                         ; preds = %if.end4, %for.body
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
   %9 = sext i32 %8 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp5, label %for.body, label %for.cond7.preheader, !llvm.loop !56
+  br i1 %cmp5, label %for.body, label %for.cond7.preheader, !llvm.loop !54
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.body9
   %indvars.iv19 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next20, %for.body9 ]
@@ -8111,7 +8111,7 @@ for.body9:                                        ; preds = %for.body9.preheader
   store ptr %call12, ptr %arrayidx14, align 8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count
-  br i1 %exitcond.not, label %for.end17, label %for.body9, !llvm.loop !57
+  br i1 %exitcond.not, label %for.end17, label %for.body9, !llvm.loop !55
 
 for.end17:                                        ; preds = %for.body9, %for.cond7.preheader
   store i32 %argc.addr.0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
@@ -8123,7 +8123,7 @@ return:                                           ; preds = %for.end17, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @applyBind(ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @applyBind(ptr nocapture noundef writeonly %err) #2 {
 entry:
   %call = tail call ptr @listenerByType(ptr noundef nonnull @.str.391) #24
   %call1 = tail call ptr @listenerByType(ptr noundef nonnull @.str.398) #24
@@ -8209,7 +8209,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigReplicaOfOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigReplicaOfOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %ptr = alloca ptr, align 8
   %cmp.not = icmp eq i32 %argc, 2
@@ -8287,7 +8287,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setConfigLatencyTrackingInfoPercentilesOutputOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigLatencyTrackingInfoPercentilesOutputOption(ptr nocapture readnone %config, ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %percentile = alloca double, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 182), align 8
@@ -8418,7 +8418,7 @@ if.end17:                                         ; preds = %if.end11
   %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 183), align 8
   %17 = sext i32 %16 to i64
   %cmp3 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !58
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !56
 
 configerr:                                        ; preds = %if.end11, %sdslen.exit28
   %storemerge = phi ptr [ @.str.415, %sdslen.exit28 ], [ @.str.416, %if.end11 ]
@@ -8475,7 +8475,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = sext i32 %5 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !59
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 for.end:                                          ; preds = %for.inc, %entry
   %buf.0.lcssa = phi ptr [ %call, %entry ], [ %buf.1, %for.inc ]
@@ -8483,7 +8483,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @registerConfigValue(ptr noundef %name, ptr nocapture noundef readonly %config, i32 noundef %alias) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @registerConfigValue(ptr noundef %name, ptr nocapture noundef readonly %config, i32 noundef %alias) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call, ptr noundef nonnull align 8 dereferenceable(128) %config, i64 128, i1 false)
@@ -8535,7 +8535,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %3 = phi ptr [ %.pre, %if.then ], [ %1, %for.body ]
   %call.i = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %4 = load ptr, ptr @configs, align 8
   %call6.i = tail call ptr @sdsnew(ptr noundef %3) #24
   %call7.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call6.i, ptr noundef nonnull %call.i) #24
@@ -8555,7 +8555,7 @@ cond.end:                                         ; preds = %if.end
 
 if.then10:                                        ; preds = %cond.end
   %call.i11 = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %call.i11, i64 16
   %6 = load i32, ptr %flags.i, align 8
   %7 = or i32 %6, 128
@@ -8578,7 +8578,7 @@ for.inc:                                          ; preds = %cond.end, %if.then1
   %incdec.ptr = getelementptr inbounds i8, ptr %config.017, i64 128
   %11 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %11, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !60
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !58
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -8630,7 +8630,7 @@ while.body:                                       ; preds = %if.then5, %while.bo
   %incdec.ptr = getelementptr inbounds i8, ptr %enumNode.017, i64 16
   %8 = load ptr, ptr %incdec.ptr, align 8
   %cmp7.not = icmp eq ptr %8, null
-  br i1 %cmp7.not, label %while.end.loopexit, label %while.body, !llvm.loop !61
+  br i1 %cmp7.not, label %while.end.loopexit, label %while.body, !llvm.loop !59
 
 while.end.loopexit:                               ; preds = %while.body
   %.pre = load ptr, ptr %enum_value, align 8
@@ -8866,7 +8866,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @rewriteConfig(ptr noundef nonnull %0, i32 noundef 0), !range !44
+  %call = tail call i32 @rewriteConfig(ptr noundef nonnull %0, i32 noundef 0)
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %if.then2, label %do.body9
 
@@ -9084,7 +9084,7 @@ attributes #29 = { cold nounwind }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = !{i32 0, i32 2}
+!30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
@@ -9098,7 +9098,7 @@ attributes #29 = { cold nounwind }
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
-!44 = !{i32 -1, i32 1}
+!44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
@@ -9114,5 +9114,3 @@ attributes #29 = { cold nounwind }
 !57 = distinct !{!57, !6}
 !58 = distinct !{!58, !6}
 !59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}

@@ -11805,7 +11805,7 @@ define internal void @"_ZNK2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !386
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull readonly align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !386
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   br label %13
@@ -12075,7 +12075,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15.i: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit13.thread.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i
   %.sroa.speculated.i.i14.i = call i64 @llvm.umin.i64(i64 %.val6, i64 2)
-  %bcmp.i16.i = call i32 @bcmp(ptr %.val, ptr nonnull @.str.19, i64 %.sroa.speculated.i.i14.i)
+  %bcmp.i16.i = call i32 @bcmp(ptr readonly %.val, ptr nonnull @.str.19, i64 %.sroa.speculated.i.i14.i)
   %.not.i.i17.i = icmp eq i32 %bcmp.i16.i, 0
   br i1 %.not.i.i17.i, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit22.i, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit22.thread.i
 
@@ -12092,7 +12092,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %.not.i.i.i.i, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit22.thread.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.val, ptr noundef nonnull dereferenceable(2) @.str.20, i64 2)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.val, ptr noundef nonnull dereferenceable(2) @.str.20, i64 2)
   %16 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %16, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %17
 
@@ -12101,7 +12101,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %_ZSteqIcSt11c
   br i1 %.not.i.i.i24.i, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i25.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i25.i: ; preds = %17
-  %bcmp.i.i.i.i26.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.val, ptr noundef nonnull dereferenceable(3) @.str.21, i64 3)
+  %bcmp.i.i.i.i26.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.val, ptr noundef nonnull dereferenceable(3) @.str.21, i64 3)
   %18 = icmp ne i32 %bcmp.i.i.i.i26.i, 0
   br label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
@@ -13025,7 +13025,7 @@ _ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %35 = load ptr, ptr %4, align 8, !noalias !475
   store ptr %35, ptr %3, align 8, !noalias !475
   store ptr null, ptr %4, align 8, !noalias !475
-  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %3)
+  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %5, ptr noundef nonnull %3)
           to label %36 unwind label %45, !noalias !468
 
 36:                                               ; preds = %34

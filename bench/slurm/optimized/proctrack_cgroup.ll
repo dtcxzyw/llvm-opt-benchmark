@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [73 x i8] c"Container %lu in cgroup plugin has %d processes, giving up after %lu sec\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [2048 x i8], align 16
@@ -126,7 +126,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = tail call i32 @xcpuinfo_init() #7
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %6
@@ -252,7 +252,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %25, label %41, label %26
 
 26:                                               ; preds = %.lr.ph.split.us
-  %27 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %24), !range !6
+  %27 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %24)
   %28 = call i32 @get_log_level() #7
   %29 = icmp sgt i32 %28, 5
   br i1 %29, label %30, label %36
@@ -279,7 +279,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next28, %43
-  br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
+  br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %67 ]
@@ -290,7 +290,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %48, label %67, label %49
 
 49:                                               ; preds = %.lr.ph.split
-  %50 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %47), !range !6
+  %50 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %47)
   %51 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 16), align 1
   %52 = trunc i8 %51 to i1
   %53 = icmp eq i32 %50, 1
@@ -322,7 +322,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %68 = load i32, ptr %4, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
+  br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %41, %67, %.thread
   call void @slurm_xfree(ptr noundef nonnull %3) #7
@@ -377,7 +377,7 @@ define i32 @proctrack_p_get_pids(i64 noundef %0, ptr noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = tail call i64 @time(ptr noundef null) #7
@@ -433,7 +433,7 @@ define noundef i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #0 {
   %35 = load i32, ptr %3, align 4
   %36 = icmp ne i32 %35, 0
   %37 = select i1 %34, i1 %36, i1 false
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %28, %13, %5, %24
   call void @slurm_xfree(ptr noundef nonnull %2) #7
@@ -468,7 +468,6 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

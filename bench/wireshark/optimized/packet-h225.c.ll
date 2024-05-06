@@ -3417,7 +3417,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_h225_ExtendedAliasAddress_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_h225_ExtendedAliasAddress_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_h225_h225_ExtendedAliasAddress_PDU, align 4
@@ -3735,7 +3735,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @h225_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @h225_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
@@ -3986,7 +3986,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h225_H323UserInformation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_h225_H323UserInformation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %6, align 8
@@ -4047,7 +4047,7 @@ define internal i32 @dissect_h225_H323UserInformation(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h225_h225_RasMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_h225_h225_RasMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._h225ras_call_info_key, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -4239,9 +4239,9 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %38, %42
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %111, i64 32
   %120 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull readonly align 8 dereferenceable(16) %120, i64 16, i1 false)
   %121 = getelementptr inbounds i8, ptr %111, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %121, ptr noundef nonnull align 4 dereferenceable(16) %104, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %121, ptr noundef nonnull readonly align 4 dereferenceable(16) %104, i64 16, i1 false)
   %122 = load ptr, ptr %59, align 8
   %123 = call ptr @wmem_map_insert(ptr noundef %122, ptr noundef nonnull %106, ptr noundef nonnull %111) #10
   br label %proto_item_set_hidden.exit.thread.i
@@ -4468,7 +4468,7 @@ define internal i32 @h225ras_call_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @h225ras_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @h225ras_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -4493,7 +4493,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @h225rassrt_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %57

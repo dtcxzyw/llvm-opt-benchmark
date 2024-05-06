@@ -540,7 +540,7 @@ define i32 @ompi_coll_base_alltoallv_intra_basic_linear(ptr noundef %0, ptr noca
   %68 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 7), align 8
   %69 = zext nneg i32 %59 to i64
   %70 = getelementptr inbounds i8, ptr %.0102155, i64 8
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = tail call i32 %68(ptr noundef %67, i64 noundef %69, ptr noundef %7, i32 noundef %71, i32 noundef -14, ptr noundef %8, ptr noundef %.0102155) #6
   %.not121 = icmp eq i32 %72, 0
   br i1 %.not121, label %73, label %.loopexit145
@@ -575,7 +575,7 @@ define i32 @ompi_coll_base_alltoallv_intra_basic_linear(ptr noundef %0, ptr noca
   %86 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 10), align 8
   %87 = zext nneg i32 %77 to i64
   %88 = getelementptr inbounds i8, ptr %.2104160, i64 8
-  %89 = trunc i64 %indvars.iv179 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv179 to i32
   %90 = tail call i32 %86(ptr noundef %85, i64 noundef %87, ptr noundef %3, i32 noundef %89, i32 noundef -14, i32 noundef 4, ptr noundef %8, ptr noundef %.2104160) #6
   %.not120 = icmp eq i32 %90, 0
   br i1 %.not120, label %91, label %.loopexit145

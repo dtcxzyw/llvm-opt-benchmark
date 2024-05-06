@@ -361,7 +361,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %26, ptr %arrayidx.i75, align 4
   %28 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i78 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i71
-  %29 = trunc i64 %indvars.iv91 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv91 to i32
   store i32 %29, ptr %arrayidx.i78, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94

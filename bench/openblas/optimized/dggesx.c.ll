@@ -252,7 +252,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 151:                                              ; preds = %150
   %152 = shl i32 %129, 3
-  %153 = mul nsw i32 %129, 6
+  %153 = mul nuw nsw i32 %129, 6
   %154 = add nuw nsw i32 %153, 16
   %155 = tail call i32 @llvm.smax.i32(i32 %152, i32 %154)
   %156 = sub nsw i32 %155, %129

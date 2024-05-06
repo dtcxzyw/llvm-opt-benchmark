@@ -160,7 +160,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @archive_write_open2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -274,7 +274,7 @@ define internal noundef i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @file_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -299,7 +299,7 @@ define internal noundef i64 @file_write(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -30, 1) i32 @file_close(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 

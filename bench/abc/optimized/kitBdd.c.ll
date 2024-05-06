@@ -178,7 +178,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val59 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val59, i64 %indvars.iv
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %21) #5
   %23 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
@@ -357,7 +357,7 @@ define ptr @Kit_TruthToBdd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Kit_SopFactorVerify(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_SopFactorVerify(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Kit_Sop_t_, align 8
   %5 = load ptr, ptr @Kit_SopFactorVerify.dd, align 8
   %6 = icmp eq ptr %5, null

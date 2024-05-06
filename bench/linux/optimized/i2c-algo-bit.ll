@@ -161,7 +161,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %71 = trunc i16 %70 to i8
   %72 = and i8 %71, 6
   %73 = or disjoint i8 %72, -16
-  %74 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %73, i32 noundef %65), !range !5
+  %74 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %73, i32 noundef %65)
   %75 = icmp eq i32 %74, 1
   %76 = icmp ne i16 %59, 0
   %77 = or i1 %76, %75
@@ -184,7 +184,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 87:                                               ; preds = %84
   tail call fastcc void @i2c_repstart(ptr noundef %60)
   %88 = or disjoint i8 %72, -15
-  %89 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %88, i32 noundef %65), !range !5
+  %89 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %88, i32 noundef %65)
   %90 = icmp eq i32 %89, 1
   %91 = or i1 %76, %90
   br i1 %91, label %.thread, label %.sink.split
@@ -199,7 +199,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %99 = trunc nuw nsw i16 %98 to i8
   %100 = and i8 %99, 1
   %101 = xor i8 %97, %100
-  %102 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %101, i32 noundef %65), !range !5
+  %102 = tail call fastcc i32 @try_address(ptr noundef %0, i8 noundef zeroext %101, i32 noundef %65)
   %103 = icmp eq i32 %102, 1
   %104 = icmp ne i16 %59, 0
   %105 = or i1 %104, %103
@@ -301,12 +301,12 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %168, label %.loopexit27, label %.loopexit
 
 169:                                              ; preds = %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %170 = load ptr, ptr %143, align 8
   %171 = load ptr, ptr %133, align 8
   %172 = tail call i32 %170(ptr noundef %171) #4
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %.preheader, label %.loopexit, !llvm.loop !7
+  br i1 %173, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %169, %164, %153, %146
   %174 = load i32, ptr %137, align 8
@@ -330,7 +330,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   tail call void @__udelay(i64 noundef %189) #4
   %190 = add nuw nsw i32 %148, 1
   %191 = icmp eq i32 %190, 8
-  br i1 %191, label %192, label %146, !llvm.loop !10
+  br i1 %191, label %192, label %146, !llvm.loop !9
 
 192:                                              ; preds = %.loopexit
   %193 = zext i8 %182 to i32
@@ -351,7 +351,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %128, label %203, label %205
 
 203:                                              ; preds = %202
-  %204 = tail call fastcc i32 @acknak(ptr noundef %0, i32 noundef 0), !range !11
+  %204 = tail call fastcc i32 @acknak(ptr noundef %0, i32 noundef 0), !range !10
   br label %205
 
 205:                                              ; preds = %203, %202
@@ -371,13 +371,13 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %128, label %213, label %216
 
 213:                                              ; preds = %211
-  %214 = tail call fastcc i32 @acknak(ptr noundef %0, i32 noundef %212), !range !11
+  %214 = tail call fastcc i32 @acknak(ptr noundef %0, i32 noundef %212), !range !10
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %.loopexit27, label %216
 
 216:                                              ; preds = %213, %211
   %217 = icmp sgt i32 %212, 0
-  br i1 %217, label %129, label %.loopexit27, !llvm.loop !12
+  br i1 %217, label %129, label %.loopexit27, !llvm.loop !11
 
 .loopexit27:                                      ; preds = %216, %213, %164, %122
   %218 = phi i32 [ 0, %122 ], [ %132, %164 ], [ %214, %213 ], [ %194, %216 ]
@@ -422,7 +422,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %243 = getelementptr i8, ptr %235, i64 1
   %244 = add nuw nsw i32 %234, 1
   %245 = icmp eq i32 %244, %228
-  br i1 %245, label %.loopexit28, label %233, !llvm.loop !13
+  br i1 %245, label %.loopexit28, label %233, !llvm.loop !12
 
 246:                                              ; preds = %233
   br i1 %239, label %.thread21, label %247
@@ -451,7 +451,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 254:                                              ; preds = %.loopexit28, %.loopexit27
   %255 = add nuw nsw i64 %31, 1
   %256 = icmp eq i64 %255, %29
-  br i1 %256, label %.thread19.thread, label %30, !llvm.loop !14
+  br i1 %256, label %.thread19.thread, label %30, !llvm.loop !13
 
 .thread19.thread:                                 ; preds = %111, %254, %106, %252, %.thread19, %205, %.thread21, %12
   %257 = phi i32 [ 0, %12 ], [ -5, %.thread21 ], [ -71, %205 ], [ %spec.select, %.thread19 ], [ %spec.select25, %252 ], [ -95, %111 ], [ %107, %106 ], [ %2, %254 ]
@@ -475,7 +475,7 @@ define internal i32 @bit_xfer_atomic(ptr noundef %0, ptr nocapture noundef %1, i
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  %7 = load i8, ptr %6, align 8, !range !15, !noundef !16
+  %7 = load i8, ptr %6, align 8, !range !14, !noundef !15
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
@@ -495,13 +495,13 @@ define internal noundef i32 @bit_func(ptr nocapture readnone %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_bit_add_bus(ptr noundef %0) #0 align 16 {
-  %2 = tail call fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr noundef nonnull @i2c_add_adapter), !range !17
+define dso_local range(i32 -2147483648, 1) i32 @i2c_bit_add_bus(ptr noundef %0) #0 align 16 {
+  %2 = tail call fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr noundef nonnull @i2c_add_adapter), !range !16
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @bit_test, align 4
@@ -780,12 +780,12 @@ define internal fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noun
   br i1 %177, label %185, label %.loopexit
 
 178:                                              ; preds = %166
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %179 = load ptr, ptr %22, align 8
   %180 = load ptr, ptr %4, align 8
   %181 = tail call i32 %179(ptr noundef %180) #4
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %166, label %.loopexit, !llvm.loop !7
+  br i1 %182, label %166, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %178, %173, %159, %145
   %183 = load i32, ptr %149, align 8
@@ -824,7 +824,7 @@ define internal fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noun
   br label %201
 
 201:                                              ; preds = %199, %193
-  %202 = tail call i32 %1(ptr noundef %0) #4, !callees !18
+  %202 = tail call i32 %1(ptr noundef %0) #4, !callees !17
   %203 = icmp slt i32 %202, 0
   br i1 %203, label %223, label %204
 
@@ -873,8 +873,8 @@ define internal fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noun
 declare dso_local i32 @i2c_add_adapter(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_bit_add_numbered_bus(ptr noundef %0) #0 align 16 {
-  %2 = tail call fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr noundef nonnull @i2c_add_numbered_adapter), !range !17
+define dso_local range(i32 -2147483648, 1) i32 @i2c_bit_add_numbered_bus(ptr noundef %0) #0 align 16 {
+  %2 = tail call fastcc i32 @__i2c_bit_add_bus(ptr noundef %0, ptr noundef nonnull @i2c_add_numbered_adapter), !range !16
   ret i32 %2
 }
 
@@ -930,12 +930,12 @@ define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed
   br i1 %34, label %42, label %.loopexit
 
 35:                                               ; preds = %23
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %36 = load ptr, ptr %13, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = tail call i32 %36(ptr noundef %37) #4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %23, label %.loopexit, !llvm.loop !7
+  br i1 %39, label %23, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %35, %30, %16, %1
   %40 = load i32, ptr %5, align 8
@@ -1002,12 +1002,12 @@ define internal fastcc void @i2c_repstart(ptr nocapture noundef readonly %0) unn
   br i1 %34, label %42, label %.loopexit
 
 35:                                               ; preds = %23
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %36 = load ptr, ptr %13, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = tail call i32 %36(ptr noundef %37) #4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %23, label %.loopexit, !llvm.loop !7
+  br i1 %39, label %23, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %35, %30, %16, %1
   %40 = load i32, ptr %5, align 8
@@ -1074,12 +1074,12 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
   br i1 %26, label %35, label %.loopexit
 
 27:                                               ; preds = %15
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = tail call i32 %28(ptr noundef %29) #4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %15, label %.loopexit, !llvm.loop !7
+  br i1 %31, label %15, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %22, %8, %1
   %32 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1093,7 +1093,7 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @try_address(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp slt i32 %2, 0
@@ -1137,7 +1137,7 @@ define internal fastcc i32 @try_address(ptr nocapture noundef readonly %0, i8 no
   tail call void @__udelay(i64 noundef %28) #4
   %29 = add nuw i32 %12, 1
   %30 = icmp sgt i32 %29, %2
-  br i1 %30, label %.loopexit, label %11, !llvm.loop !19
+  br i1 %30, label %.loopexit, label %11, !llvm.loop !18
 
 .loopexit:                                        ; preds = %17, %15, %11, %3
   %31 = phi i32 [ 0, %3 ], [ 1, %11 ], [ %13, %15 ], [ %13, %17 ]
@@ -1148,7 +1148,7 @@ define internal fastcc i32 @try_address(ptr nocapture noundef readonly %0, i8 no
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = zext i8 %0 to i32
   %3 = getelementptr inbounds i8, ptr %.24.val, i64 8
   %4 = getelementptr inbounds i8, ptr %.24.val, i64 56
@@ -1200,12 +1200,12 @@ define internal fastcc i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef
   br i1 %37, label %.loopexit4, label %.loopexit3
 
 38:                                               ; preds = %.preheader2
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %39 = load ptr, ptr %6, align 8
   %40 = load ptr, ptr %.24.val, align 8
   %41 = tail call i32 %39(ptr noundef %40) #4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.preheader2, label %.loopexit3, !llvm.loop !7
+  br i1 %42, label %.preheader2, label %.loopexit3, !llvm.loop !6
 
 .loopexit3:                                       ; preds = %38, %33, %22, %8
   %43 = load i32, ptr %4, align 8
@@ -1220,7 +1220,7 @@ define internal fastcc i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef
   tail call void @__udelay(i64 noundef %49) #4
   %50 = add nsw i32 %9, -1
   %51 = icmp eq i32 %9, 0
-  br i1 %51, label %52, label %8, !llvm.loop !20
+  br i1 %51, label %52, label %8, !llvm.loop !19
 
 52:                                               ; preds = %.loopexit3
   %53 = load ptr, ptr %3, align 8
@@ -1262,12 +1262,12 @@ define internal fastcc i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef
   br i1 %78, label %.loopexit4, label %.loopexit
 
 79:                                               ; preds = %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %80 = load ptr, ptr %6, align 8
   %81 = load ptr, ptr %.24.val, align 8
   %82 = tail call i32 %80(ptr noundef %81) #4
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.preheader, label %.loopexit, !llvm.loop !7
+  br i1 %83, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %79, %74, %63, %52
   %84 = load i32, ptr %4, align 8
@@ -1305,7 +1305,7 @@ define internal fastcc i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef
 declare dso_local void @yield() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acknak(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @acknak(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -1362,12 +1362,12 @@ define internal fastcc noundef i32 @acknak(ptr noundef %0, i32 noundef %1) unnam
   br i1 %40, label %53, label %.loopexit
 
 41:                                               ; preds = %29
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %42 = load ptr, ptr %19, align 8
   %43 = load ptr, ptr %4, align 8
   %44 = tail call i32 %42(ptr noundef %43) #4
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %29, label %.loopexit, !llvm.loop !7
+  br i1 %45, label %29, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %41, %36, %22, %10
   %46 = load i32, ptr %11, align 8
@@ -1412,19 +1412,18 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -110, i32 2}
-!6 = !{i64 1962796}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i32 -110, i32 1}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = !{i32 -2147483648, i32 1}
-!18 = !{ptr @i2c_add_adapter, ptr @i2c_add_numbered_adapter}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
+!5 = !{i64 1962796}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i32 -110, i32 1}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{i32 -2147483648, i32 1}
+!17 = !{ptr @i2c_add_adapter, ptr @i2c_add_numbered_adapter}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

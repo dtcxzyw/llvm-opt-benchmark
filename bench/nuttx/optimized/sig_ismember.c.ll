@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nxsig_ismember(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 2) i32 @nxsig_ismember(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 64
   br i1 %3, label %4, label %12
 
@@ -24,7 +24,7 @@ define i32 @nxsig_ismember(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sigismember(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @sigismember(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ult i32 %1, 64
   br i1 %3, label %nxsig_ismember.exit, label %nxsig_ismember.exit.thread
 

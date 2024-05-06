@@ -310,7 +310,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 17) i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.115) #3
@@ -383,7 +383,7 @@ define internal noundef i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_portcontrol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_portcontrol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -399,7 +399,7 @@ define internal noundef i32 @dissect_portcontrol(ptr noundef %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !4
+  %14 = tail call i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %281
 
 15:                                               ; preds = %4, %4
@@ -763,7 +763,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %234 = sub i32 %166, %231
   %235 = icmp slt i32 %234, 2
   %or.cond322.i = or i1 %235, %.not319.i
-  br i1 %or.cond322.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %or.cond322.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 236:                                              ; preds = %171
   %237 = load i32, ptr @hf_option_portset_size, align 4
@@ -799,7 +799,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %.6.i = phi i32 [ %254, %251 ], [ %249, %.loopexit.i ]
   %256 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6.i) #3
   %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %.lr.ph332.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %257, label %.lr.ph332.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %255, %142
   %.5.lcssa.i = phi i32 [ %.4.i, %142 ], [ %.6.i, %255 ]
@@ -921,7 +921,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 17}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

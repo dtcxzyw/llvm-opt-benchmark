@@ -269,7 +269,7 @@ define ptr @cs_symperm(ptr noundef readonly %0, ptr noundef readonly %1, i32 nou
 
 .lr.ph114.split:                                  ; preds = %.lr.ph114, %.loopexit
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.loopexit ], [ 0, %.lr.ph114 ]
-  %133 = trunc i64 %indvars.iv137 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv137 to i32
   br i1 %.not100, label %137, label %134
 
 134:                                              ; preds = %.lr.ph114.split

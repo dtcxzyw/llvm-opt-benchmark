@@ -51,7 +51,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @mbedtls_sha512_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_entropy_add_source(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define hidden range(i32 -62, 1) i32 @mbedtls_entropy_add_source(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %0, i64 224
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 19
@@ -126,7 +126,7 @@ define internal fastcc i32 @entropy_update(ptr noundef %0, i8 noundef zeroext %1
   %.015 = phi i64 [ %3, %4 ], [ 64, %8 ]
   %.014 = phi ptr [ %2, %4 ], [ %6, %8 ]
   store i8 %1, ptr %5, align 1
-  %11 = trunc i64 %.015 to i8
+  %11 = trunc nuw nsw i64 %.015 to i8
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %11, ptr %12, align 1
   %13 = load i32, ptr %0, align 8
@@ -430,7 +430,7 @@ declare i32 @mbedtls_sha512(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_entropy_write_seed_file(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -63, 1) i32 @mbedtls_entropy_write_seed_file(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = call i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 64)
   %.not = icmp eq i32 %4, 0
@@ -501,7 +501,7 @@ define hidden i32 @mbedtls_entropy_update_seed_file(ptr noundef %0, ptr nocaptur
   br i1 %.not18, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = call i32 @mbedtls_entropy_write_seed_file(ptr noundef %0, ptr noundef %1), !range !9
+  %16 = call i32 @mbedtls_entropy_write_seed_file(ptr noundef %0, ptr noundef %1)
   br label %17
 
 17:                                               ; preds = %13, %2, %15
@@ -519,7 +519,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_entropy_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_entropy_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i8], align 1
   %3 = alloca [64 x i8], align 16
   %4 = alloca [128 x i8], align 16
@@ -706,17 +706,17 @@ entropy_update.exit:                              ; preds = %65
   store i8 %73, ptr %71, align 1
   %74 = add nuw nsw i64 %.045, 1
   %exitcond.not = icmp eq i64 %74, 64
-  br i1 %exitcond.not, label %75, label %.preheader40, !llvm.loop !10
+  br i1 %exitcond.not, label %75, label %.preheader40, !llvm.loop !9
 
 75:                                               ; preds = %.preheader40
   %76 = add nuw nsw i64 %.01446, 1
   %exitcond52.not = icmp eq i64 %76, 8
-  br i1 %exitcond52.not, label %.preheader, label %.preheader41, !llvm.loop !11
+  br i1 %exitcond52.not, label %.preheader, label %.preheader41, !llvm.loop !10
 
 77:                                               ; preds = %.preheader
   %78 = add nuw nsw i64 %.147, 1
   %exitcond53.not = icmp eq i64 %78, 64
-  br i1 %exitcond53.not, label %mbedtls_entropy_add_source.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond53.not, label %mbedtls_entropy_add_source.exit, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %75, %77
   %.147 = phi i64 [ %78, %77 ], [ 0, %75 ]
@@ -802,7 +802,6 @@ attributes #10 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -63, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

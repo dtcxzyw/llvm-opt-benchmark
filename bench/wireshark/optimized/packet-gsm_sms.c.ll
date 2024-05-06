@@ -1427,7 +1427,7 @@ define internal i32 @sm_fragment_params_hash(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm_fragment_params_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @sm_fragment_params_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -3262,7 +3262,7 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr inbounds i8, ptr %1, i64 216
   %159 = load ptr, ptr %158, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   store i32 %155, ptr %153, align 8
   %160 = icmp eq i32 %157, 0
   br i1 %160, label %copy_address_wmem.exit, label %161
@@ -3287,7 +3287,7 @@ copy_address_wmem.exit:                           ; preds = %144, %161
   %172 = load i32, ptr %171, align 4
   %173 = getelementptr inbounds i8, ptr %1, i64 240
   %174 = load ptr, ptr %173, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
   store i32 %170, ptr %168, align 8
   %175 = icmp eq i32 %172, 0
   br i1 %175, label %copy_address_wmem.exit241, label %176
@@ -3836,7 +3836,7 @@ define internal i32 @sm_fragment_hash(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm_fragment_equal(ptr noundef readonly %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @sm_fragment_equal(ptr noundef readonly %0, ptr noundef readonly %1) #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3994,7 +3994,7 @@ define internal noalias noundef ptr @sm_fragment_persistent_key(ptr nocapture no
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i32 %13, ptr %11, align 8
   %18 = icmp eq i32 %15, 0
   br i1 %18, label %copy_address.exit, label %19
@@ -4018,7 +4018,7 @@ copy_address.exit:                                ; preds = %6, %19
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 240
   %31 = load ptr, ptr %30, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store i32 %27, ptr %25, align 8
   %32 = icmp eq i32 %29, 0
   br i1 %32, label %copy_address.exit14, label %33
@@ -4080,7 +4080,7 @@ define internal void @sm_fragment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %6, %10, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not.i.i6 = icmp eq i32 %15, 0
@@ -4103,7 +4103,7 @@ free_address.exit:                                ; preds = %2, %6, %10, %13
   br label %free_address.exit8
 
 free_address.exit8:                               ; preds = %free_address.exit, %16, %20, %23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 72, ptr noundef nonnull %0) #8
   br label %24
 

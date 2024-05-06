@@ -118,13 +118,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @dohash.hashout = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -168,7 +168,7 @@ declare i32 @opt_next() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x448() #1 {
+define internal range(i32 0, 2) i32 @test_x448() #1 {
 entry:
   %u = alloca [56 x i8], align 16
   %k = alloca [56 x i8], align 16
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end55, %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ed448() #1 {
+define internal range(i32 0, 2) i32 @test_ed448() #1 {
 entry:
   %outsig = alloca [114 x i8], align 16
   %call = tail call ptr @EVP_MD_CTX_new() #7

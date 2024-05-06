@@ -453,7 +453,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4pbrt18LogLevelFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %s) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4pbrt18LogLevelFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %s) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.3) #19
   %cmp.i = icmp eq i32 %call.i, 0
@@ -1940,7 +1940,7 @@ entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
   %io = alloca %"class.std::basic_ifstream", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %stat, ptr noundef nonnull @.str.24, i32 noundef 8)
   %vtable = load ptr, ptr %stat, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24

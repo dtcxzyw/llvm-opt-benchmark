@@ -253,7 +253,7 @@ define dso_local void @kvmclock_init() local_unnamed_addr #4 section ".init.text
   %28 = load i32, ptr @msr_kvm_system_time, align 4
   %29 = trunc i64 %27 to i32
   %30 = lshr i64 %26, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %29, i32 %31) #13, !srcloc !14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %33 [label %32], !srcloc !15
@@ -348,7 +348,7 @@ define dso_local void @kvmclock_init() local_unnamed_addr #4 section ".init.text
 declare dso_local zeroext i1 @kvm_para_available() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal i32 @kvmclock_setup_percpu(i32 noundef %0) #5 align 16 {
+define internal range(i32 -12, 1) i32 @kvmclock_setup_percpu(i32 noundef %0) #5 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -428,7 +428,7 @@ define internal void @kvm_get_wallclock(ptr noundef %0) #1 align 16 {
   %3 = tail call i64 @slow_virt_to_phys(ptr noundef nonnull @wall_clock) #13
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, i32 %4, i32 %6) #13, !srcloc !14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %8 [label %7], !srcloc !15
@@ -478,7 +478,7 @@ define internal void @kvm_setup_secondary_clock() #1 align 16 {
   %7 = load i32, ptr @msr_kvm_system_time, align 4
   %8 = trunc i64 %6 to i32
   %9 = lshr i64 %5, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %8, i32 %10) #13, !srcloc !14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %12 [label %11], !srcloc !15
@@ -509,7 +509,7 @@ define internal void @kvm_restore_sched_clock_state() #1 align 16 {
   %7 = load i32, ptr @msr_kvm_system_time, align 4
   %8 = trunc i64 %6 to i32
   %9 = lshr i64 %5, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %8, i32 %10) #13, !srcloc !14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %12 [label %11], !srcloc !15

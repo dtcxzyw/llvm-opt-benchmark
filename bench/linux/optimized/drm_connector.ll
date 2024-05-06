@@ -849,7 +849,7 @@ define dso_local void @drm_connector_attach_edid_property(ptr noundef %0) #2 ali
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_attach_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_connector_attach_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1712
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1695,7 +1695,7 @@ define dso_local ptr @drm_get_dpms_name(i32 noundef %0) local_unnamed_addr #9 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_display_info_set_bus_formats(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_display_info_set_bus_formats(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp eq ptr %1, null
   %5 = icmp ne i32 %2, 0
   %6 = and i1 %4, %5
@@ -1942,7 +1942,7 @@ define dso_local ptr @drm_get_colorspace_name(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_create_standard_properties(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_create_standard_properties(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call ptr @drm_property_create(ptr noundef %0, i32 noundef 20, ptr noundef nonnull @.str.14, i32 noundef 0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %30, label %4
@@ -2078,7 +2078,7 @@ define dso_local noundef i32 @drm_connector_attach_content_type_property(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_content_type_property(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -12, 1) i32 @drm_mode_create_content_type_property(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1280
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2116,7 +2116,7 @@ define dso_local void @drm_connector_attach_tv_margin_properties(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_tv_margin_properties(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -12, 1) i32 @drm_mode_create_tv_margin_properties(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1184
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2159,7 +2159,7 @@ define dso_local i32 @drm_mode_create_tv_margin_properties(ptr noundef %0) #2 al
 declare dso_local ptr @drm_property_create_range(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_create_tv_properties_legacy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_mode_create_tv_properties_legacy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2262,7 +2262,7 @@ define dso_local noundef i32 @drm_mode_create_tv_properties_legacy(ptr noundef %
 declare dso_local i32 @drm_property_add_enum(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_create_tv_properties(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_mode_create_tv_properties(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca [7 x %struct.drm_prop_enum_list], align 16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #21
   %4 = getelementptr inbounds i8, ptr %0, i64 1176
@@ -2354,7 +2354,7 @@ define dso_local noundef i32 @drm_mode_create_scaling_mode_property(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_attach_vrr_capable_property(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_vrr_capable_property(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1456
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2443,7 +2443,7 @@ define dso_local i32 @drm_connector_attach_scaling_mode_property(ptr noundef %0,
 declare dso_local void @drm_property_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_aspect_ratio_property(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -12, 1) i32 @drm_mode_create_aspect_ratio_property(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1272
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2462,7 +2462,7 @@ define dso_local i32 @drm_mode_create_aspect_ratio_property(ptr noundef %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_hdmi_colorspace_property(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_mode_create_hdmi_colorspace_property(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca [16 x %struct.drm_prop_enum_list], align 16
   %4 = icmp eq i32 %1, 0
   %5 = and i32 %1, 8190
@@ -2542,7 +2542,7 @@ define dso_local i32 @drm_mode_create_hdmi_colorspace_property(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_dp_colorspace_property(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_mode_create_dp_colorspace_property(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca [16 x %struct.drm_prop_enum_list], align 16
   %4 = icmp eq i32 %1, 0
   %5 = and i32 %1, 61436
@@ -2622,7 +2622,7 @@ define dso_local i32 @drm_mode_create_dp_colorspace_property(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_create_suggested_offset_properties(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -12, 1) i32 @drm_mode_create_suggested_offset_properties(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1328
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2753,7 +2753,7 @@ declare dso_local i32 @drm_modeset_lock(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @drm_modeset_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_attach_max_bpc_property(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_max_bpc_property(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1480
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2872,7 +2872,7 @@ define dso_local void @drm_connector_set_vrr_capable_property(ptr noundef %0, i1
 declare dso_local i32 @drm_object_property_set_value(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_set_panel_orientation(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_set_panel_orientation(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8
@@ -2912,7 +2912,7 @@ define dso_local noundef i32 @drm_connector_set_panel_orientation(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = tail call i32 @drm_get_panel_orientation_quirk(i32 noundef %2, i32 noundef %3) #21
   %6 = icmp eq i32 %5, -1
   %7 = select i1 %6, i32 %1, i32 %5
@@ -2958,7 +2958,7 @@ define dso_local noundef i32 @drm_connector_set_panel_orientation_with_quirk(ptr
 declare dso_local i32 @drm_get_panel_orientation_quirk(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_set_orientation_from_panel(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_set_orientation_from_panel(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread, label %4
 

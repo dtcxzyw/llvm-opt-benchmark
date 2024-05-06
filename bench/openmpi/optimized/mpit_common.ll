@@ -60,7 +60,7 @@ define noundef i32 @ompit_var_type_to_datatype(i32 noundef %0, ptr noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompit_opal_to_mpit_error(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @ompit_opal_to_mpit_error(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp sgt i32 %0, -1
   br i1 %2, label %6, label %3
 

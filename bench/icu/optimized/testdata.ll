@@ -104,7 +104,7 @@ entry:
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %testName, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i64 0, i32 0, i64 2), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fData, i8 0, i64 32, i1 false)
@@ -119,7 +119,7 @@ entry:
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i64 0, i32 0, i64 2), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %data, ptr %fData, align 8
@@ -337,7 +337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
 entry:
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN10RBTestData12nextSettingsERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %settings, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData12nextSettingsERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %settings, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4
@@ -407,7 +407,7 @@ declare ptr @ures_getByIndex_75(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare void @_ZN9RBDataMap4initEP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN10RBTestData8nextCaseERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %nextCase, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData8nextCaseERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %nextCase, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4

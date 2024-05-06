@@ -512,7 +512,7 @@ define void @_ZN5faiss15IDSelectorBatchC2EmPKl(ptr noundef nonnull align 8 deref
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 88
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = add nuw nsw i32 %19, 5
   store i32 %20, ptr %18, align 8
   %21 = zext nneg i32 %20 to i64

@@ -35,7 +35,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %page, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %page, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -43,7 +43,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %bytes_read.i = alloca i64, align 8
   %crc = alloca [4 x i8], align 4
@@ -153,7 +153,7 @@ if.then36:                                        ; preds = %lor.lhs.false30, %l
 if.end39:                                         ; preds = %lor.lhs.false30
   %add.ptr41 = getelementptr inbounds i8, ptr %5, i64 27
   %conv44 = zext i8 %9 to i64
-  %call45 = call fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef nonnull %add.ptr41, i64 noundef %conv44, ptr noundef %read_callback, ptr noundef %client_data), !range !6
+  %call45 = call fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef nonnull %add.ptr41, i64 noundef %conv44, ptr noundef %read_callback, ptr noundef %client_data)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %return, label %for.cond.preheader
 
@@ -188,7 +188,7 @@ if.then60:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %13, %for.inc ]
@@ -215,7 +215,7 @@ if.then75:                                        ; preds = %for.end
   br label %return
 
 if.end78:                                         ; preds = %for.end
-  %call81 = call fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef nonnull %call.i43, i64 noundef %conv70, ptr noundef %read_callback, ptr noundef %client_data), !range !6
+  %call81 = call fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef nonnull %call.i43, i64 noundef %conv70, ptr noundef %read_callback, ptr noundef %client_data)
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %return, label %if.end84
 
@@ -242,7 +242,7 @@ return:                                           ; preds = %full_read_.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) unnamed_addr #3 {
 entry:
   %bytes_read = alloca i64, align 8
   %cmp.not10 = icmp eq i64 %bytes, 0
@@ -289,7 +289,7 @@ return:                                           ; preds = %while.body, %sw.epi
 declare void @ogg_page_checksum_set(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %seek_callback, null
   br i1 %cmp, label %return, label %if.end
@@ -368,5 +368,4 @@ attributes #11 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

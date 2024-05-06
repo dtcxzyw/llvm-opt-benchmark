@@ -175,7 +175,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_hmacit(ptr noundef %hashparams, ptr noundef %key, i64 noundef %keylen, ptr noundef %data, i64 noundef %datalen, ptr noundef %output) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_hmacit(ptr noundef %hashparams, ptr noundef %key, i64 noundef %keylen, ptr noundef %data, i64 noundef %datalen, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @curlx_uztoui(i64 noundef %keylen) #2
   %call1 = tail call ptr @Curl_HMAC_init(ptr noundef %hashparams, ptr noundef %key, i32 noundef %call)

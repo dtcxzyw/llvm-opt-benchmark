@@ -376,7 +376,7 @@ if.then128:                                       ; preds = %do.end, %if.then74
   %31 = load i16, ptr %currentDeltaToUnicode37, align 4
   %32 = load ptr, ptr %targetLimit4, align 8
   %cmp134 = icmp ult ptr %target.2, %32
-  %33 = trunc i32 %cond to i16
+  %33 = trunc nuw nsw i32 %cond to i16
   %conv136 = add i16 %31, %33
   br i1 %cmp134, label %if.then135, label %if.else150
 
@@ -1280,7 +1280,7 @@ if.then1083:                                      ; preds = %_ZL15isPNJBindiTipp
   store i32 %add1069, ptr %toUnicodeStatus13, align 4
   %155 = load ptr, ptr %targetLimit4, align 8
   %cmp1087 = icmp ult ptr %target.23, %155
-  %conv1089 = trunc i32 %add1069 to i16
+  %conv1089 = trunc nuw i32 %add1069 to i16
   br i1 %cmp1087, label %if.then1088, label %if.else1103
 
 if.then1088:                                      ; preds = %if.then1083
@@ -1744,7 +1744,7 @@ if.then133:                                       ; preds = %if.end128
   %25 = trunc i64 %sub.ptr.div142 to i32
   %conv144 = add i32 %25, -1
   %cmp145 = icmp ult ptr %target.3, %3
-  %conv149 = trunc i16 %21 to i8
+  %conv149 = trunc nuw i16 %21 to i8
   br i1 %cmp145, label %if.then148, label %do.end250.thread
 
 if.then148:                                       ; preds = %if.then133
@@ -1816,7 +1816,7 @@ if.then274:                                       ; preds = %sw.default
 if.then277:                                       ; preds = %if.then274
   %sub278 = add nsw i32 %conv130, -2304
   %div279 = sdiv i32 %sub278, 128
-  %conv280 = trunc i32 %div279 to i16
+  %conv280 = trunc nsw i32 %div279 to i16
   %conv282 = shl i16 %conv280, 7
   %30 = load i16, ptr %currentDeltaFromUnicode, align 2
   %cmp286.not = icmp eq i16 %conv282, %30
@@ -2228,7 +2228,7 @@ if.then620:                                       ; preds = %do.body610
 
 if.then622:                                       ; preds = %do.body610.thread, %if.then620
   %conv618408411 = phi i32 [ %conv618, %if.then620 ], [ %conv618406, %do.body610.thread ]
-  %conv623 = trunc i32 %targetByteUnit.3 to i8
+  %conv623 = trunc nuw i32 %targetByteUnit.3 to i8
   %incdec.ptr624 = getelementptr inbounds i8, ptr %target.10, i64 1
   store i8 %conv623, ptr %target.10, align 1
   %tobool625.not = icmp eq ptr %offsets.13, null
@@ -2241,7 +2241,7 @@ if.then626:                                       ; preds = %if.then622
 
 if.else660:                                       ; preds = %if.then620
   %shr661 = lshr i32 %targetByteUnit.3, 8
-  %conv662 = trunc i32 %shr661 to i8
+  %conv662 = trunc nuw i32 %shr661 to i8
   %incdec.ptr663 = getelementptr inbounds i8, ptr %target.10, i64 1
   store i8 %conv662, ptr %target.10, align 1
   %tobool664.not = icmp eq ptr %offsets.13, null
@@ -2292,7 +2292,7 @@ if.end701:                                        ; preds = %do.body610
 
 if.then704:                                       ; preds = %if.end701
   %shr705 = lshr i32 %targetByteUnit.3, 8
-  %conv706 = trunc i32 %shr705 to i8
+  %conv706 = trunc nuw i32 %shr705 to i8
   %72 = load ptr, ptr %converter, align 8
   %charErrorBuffer708 = getelementptr inbounds i8, ptr %72, i64 104
   %charErrorBufferLength710 = getelementptr inbounds i8, ptr %72, i64 91
@@ -2460,7 +2460,7 @@ if.then.us:                                       ; preds = %for.body3.us
   %6 = load ptr, ptr %add, align 8
   %7 = load ptr, ptr %sa, align 8
   %8 = add nuw nsw i64 %4, %indvars.iv
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   tail call void %6(ptr noundef %7, i32 noundef %9)
   br label %for.inc.us
 
@@ -2484,7 +2484,7 @@ if.then:                                          ; preds = %for.body3
   %11 = load ptr, ptr %add, align 8
   %12 = load ptr, ptr %sa, align 8
   %13 = add nuw nsw i64 %4, %indvars.iv25
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   tail call void %11(ptr noundef %12, i32 noundef %14)
   br label %for.inc
 

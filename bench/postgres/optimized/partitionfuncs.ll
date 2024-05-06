@@ -236,7 +236,7 @@ declare ptr @get_partition_ancestors(i32 noundef) local_unnamed_addr #1
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_partition_root(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_partition_root(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -287,7 +287,7 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
 declare void @list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_partition_ancestors(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_partition_ancestors(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32

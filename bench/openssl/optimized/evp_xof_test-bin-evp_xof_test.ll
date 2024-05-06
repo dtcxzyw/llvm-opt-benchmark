@@ -69,7 +69,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_kat_test() #0 {
+define internal range(i32 0, 2) i32 @shake_kat_test() #0 {
 entry:
   %out = alloca [250 x i8], align 16
   %call = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.9)
@@ -126,7 +126,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_kat_digestfinal_test() #0 {
+define internal range(i32 0, 2) i32 @shake_kat_digestfinal_test() #0 {
 entry:
   %digest_length = alloca i32, align 4
   %out = alloca [250 x i8], align 16
@@ -185,7 +185,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_kat_digestfinal_xoflen_test() #0 {
+define internal range(i32 0, 2) i32 @shake_kat_digestfinal_xoflen_test() #0 {
 entry:
   %digest_length = alloca i32, align 4
   %out = alloca [250 x i8], align 16
@@ -264,7 +264,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shake_absorb_test() #0 {
+define internal range(i32 0, 2) i32 @shake_absorb_test() #0 {
 entry:
   %out = alloca [32 x i8], align 16
   %call = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.9)
@@ -336,14 +336,14 @@ return:                                           ; preds = %entry, %err
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_squeeze_kat_test(i32 noundef %tst) #0 {
+define internal range(i32 0, 2) i32 @shake_squeeze_kat_test(i32 noundef %tst) #0 {
 entry:
-  %call = tail call fastcc i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef nonnull @shake256_input, i64 noundef 32, ptr noundef nonnull @shake256_output, i64 noundef 250), !range !8
+  %call = tail call fastcc i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef nonnull @shake256_input, i64 noundef 32, ptr noundef nonnull @shake256_output, i64 noundef 250)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_squeeze_large_test(i32 noundef %tst) #0 {
+define internal range(i32 0, 2) i32 @shake_squeeze_large_test(i32 noundef %tst) #0 {
 entry:
   %msg = alloca [16 x i8], align 16
   %out = alloca [2000 x i8], align 16
@@ -375,7 +375,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false5
   br i1 %tobool16.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %call19 = call fastcc i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef nonnull %msg, i64 noundef 16, ptr noundef nonnull %out, i64 noundef 2000), !range !8
+  %call19 = call fastcc i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef nonnull %msg, i64 noundef 16, ptr noundef nonnull %out, i64 noundef 2000)
   br label %err
 
 err:                                              ; preds = %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %if.end
@@ -386,7 +386,7 @@ err:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_squeeze_dup_test(i32 noundef %tst) #0 {
+define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %tst) #0 {
 entry:
   %msg = alloca [16 x i8], align 16
   %out = alloca [1000 x i8], align 16
@@ -476,7 +476,7 @@ if.end36.i:                                       ; preds = %if.then30.i, %land.
   %cur.1.i = phi ptr [ %cur.02.i, %land.lhs.true.i ], [ %cur.02.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
   %dupctx.1.i = phi ptr [ null, %land.lhs.true.i ], [ %dupctx.03.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
   %cmp12.i = icmp ult i64 %add25.i, 1000
-  br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !9
+  br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end36.i
   %call37.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 450, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.33, ptr noundef %call2.i, i64 noundef 1000, ptr noundef nonnull %out, i64 noundef 1000) #4
@@ -580,7 +580,7 @@ declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef %in, i64 noundef %inlen, ptr noundef %expected_out, i64 noundef %expected_outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef %in, i64 noundef %inlen, ptr noundef %expected_out, i64 noundef %expected_outlen) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %tst to i64
   %arrayidx = getelementptr inbounds [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %idxprom
@@ -631,7 +631,7 @@ if.end24:                                         ; preds = %while.body
   %add25 = add i64 %spec.select, %i.019
   %1 = load i64, ptr %incsz, align 8
   %cmp12 = icmp ult i64 %add25, %expected_outlen
-  br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end24, %while.cond.preheader
   %call28 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 373, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.33, ptr noundef %call2, i64 noundef %expected_outlen, ptr noundef %expected_out, i64 noundef %expected_outlen) #4
@@ -676,6 +676,5 @@ attributes #4 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

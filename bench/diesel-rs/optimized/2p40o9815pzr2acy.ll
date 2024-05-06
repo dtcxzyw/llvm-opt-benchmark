@@ -73,7 +73,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hed8067c37a37dc2eE.exit": ; preds = %9
   %.fca.1.extract.val = load ptr, ptr %12, align 8, !nonnull !12, !align !13, !noundef !12
   %.fca.0.extract.val = load ptr, ptr %11, align 8, !nonnull !12, !align !13, !noundef !12
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.fca.0.extract.val, ptr nonnull %.fca.1.extract.val, i64 %.fca.0.extract.val6), !alias.scope !14
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.fca.0.extract.val, ptr nonnull readonly %.fca.1.extract.val, i64 %.fca.0.extract.val6), !alias.scope !14
   %.not = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hed8067c37a37dc2eE.exit.thread"
 
@@ -180,7 +180,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %11 = add i64 %5, 1
   %.fca.1.extract.val.i = load ptr, ptr %8, align 8, !noalias !21, !nonnull !12, !align !13, !noundef !12
   %.fca.0.extract.val.i = load ptr, ptr %7, align 8, !noalias !21, !nonnull !12, !align !13, !noundef !12
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.fca.0.extract.val.i, ptr nonnull %.fca.1.extract.val.i, i64 %.fca.0.extract.val6.i), !alias.scope !24, !noalias !21
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.fca.0.extract.val.i, ptr nonnull readonly %.fca.1.extract.val.i, i64 %.fca.0.extract.val6.i), !alias.scope !24, !noalias !21
   %.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h600ef2cfaf136138E.llvm.6229933791239335933.exit"
 
@@ -233,7 +233,7 @@ define hidden void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$se
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit.i", label %8
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit.i": ; preds = %2
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %4, ptr noundef nonnull dereferenceable(18) @anon.cdf13eb26b8b36169264f2aefa47550d.19.llvm.4171027954476147526, i64 18), !alias.scope !37, !noalias !34
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) %4, ptr noundef nonnull readonly dereferenceable(18) @anon.cdf13eb26b8b36169264f2aefa47550d.19.llvm.4171027954476147526, i64 18), !alias.scope !37, !noalias !34
   %7 = icmp ne i32 %bcmp.i.i, 0
   %spec.select.i = zext i1 %7 to i8
   br label %8
@@ -275,8 +275,8 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   br i1 %5, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %2
-  %6 = trunc i8 %4 to i1
-  %trunc = trunc i8 %3 to i1
+  %6 = trunc nuw i8 %4 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %7 = icmp eq i8 %3, 0
   %spec.select = select i1 %trunc, i1 %6, i1 %7
   tail call void @llvm.assume(i1 %spec.select)

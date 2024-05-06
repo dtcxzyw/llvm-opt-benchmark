@@ -55,7 +55,7 @@ define void @reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %13
 
 .preheader.loopexit:                              ; preds = %13
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %1
@@ -123,7 +123,7 @@ define void @initSEdges(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_
   br label %25
 
 .preheader.loopexit:                              ; preds = %25
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %2
@@ -305,7 +305,7 @@ define void @freeSGraph(ptr nocapture noundef %0) local_unnamed_addr #3 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @shortPath(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @shortPath(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge

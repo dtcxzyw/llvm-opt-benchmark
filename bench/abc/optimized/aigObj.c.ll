@@ -354,12 +354,12 @@ define void @Aig_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 16777215
   %57 = getelementptr inbounds i8, ptr %44, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = lshr i64 %58, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = and i32 %60, 16777215
   %62 = tail call i32 @llvm.umax.i32(i32 %56, i32 %61)
   %63 = add nuw nsw i32 %62, %48
@@ -373,7 +373,7 @@ define void @Aig_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %68 = getelementptr inbounds i8, ptr %67, i64 24
   %69 = load i64, ptr %68, align 8
   %70 = lshr i64 %69, 32
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %Aig_ObjLevelNew.exit
@@ -716,7 +716,7 @@ define void @Aig_ObjDelete(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 
 15:                                               ; preds = %18, %8
   %indvars.iv.i = phi i64 [ %19, %18 ], [ %14, %8 ]
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw i64 %indvars.iv.i to i32
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %24
 
@@ -844,7 +844,7 @@ tailrecurse:                                      ; preds = %77, %3
 
 31:                                               ; preds = %34, %25
   %indvars.iv.i.i = phi i64 [ %35, %34 ], [ %30, %25 ]
-  %32 = trunc i64 %indvars.iv.i.i to i32
+  %32 = trunc nuw i64 %indvars.iv.i.i to i32
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %40
 
@@ -1036,12 +1036,12 @@ define void @Aig_ObjPatchFanin0(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = lshr i64 %31, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = and i32 %33, 16777215
   %35 = getelementptr inbounds i8, ptr %22, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 16777215
   %40 = tail call i32 @llvm.umax.i32(i32 %34, i32 %39)
   %41 = add nuw nsw i32 %40, %26
@@ -1054,7 +1054,7 @@ define void @Aig_ObjPatchFanin0(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = lshr i64 %47, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %Aig_ObjLevelNew.exit
@@ -1464,7 +1464,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 72:                                               ; preds = %75, %65
   %indvars.iv.i.i = phi i64 [ %76, %75 ], [ %71, %65 ]
-  %73 = trunc i64 %indvars.iv.i.i to i32
+  %73 = trunc nuw i64 %indvars.iv.i.i to i32
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %81
 

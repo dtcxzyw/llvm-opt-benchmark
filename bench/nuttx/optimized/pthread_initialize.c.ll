@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_sem_take(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @pthread_sem_take(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -27,7 +27,7 @@ declare i32 @nxsem_wait_uninterruptible(ptr noundef) local_unnamed_addr #1
 declare i32 @nxsem_timedwait_uninterruptible(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_sem_give(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @pthread_sem_give(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

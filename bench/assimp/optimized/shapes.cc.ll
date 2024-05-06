@@ -467,7 +467,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p) local_unnamed_addr #7 align 2 {
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -493,7 +493,7 @@ return:                                           ; preds = %if.else6, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2) local_unnamed_addr #7 align 2 {
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8

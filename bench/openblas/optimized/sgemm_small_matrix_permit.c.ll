@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @sgemm_small_matrix_permit(i32 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @sgemm_small_matrix_permit(i32 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = sitofp i64 %2 to double
   %9 = sitofp i64 %3 to double
   %10 = fmul double %8, %9

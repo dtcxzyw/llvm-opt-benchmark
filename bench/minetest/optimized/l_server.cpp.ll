@@ -797,7 +797,7 @@ entry:
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiServer20l_get_server_max_lagEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiServer20l_get_server_max_lagEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -2619,7 +2619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiServer31l_get_player_window_informationEP9lua_State(ptr noundef %L) #12 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiServer31l_get_player_window_informationEP9lua_State(ptr noundef %L) #12 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef %L)
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null)
@@ -4593,7 +4593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiServer19l_get_mod_data_pathEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiServer19l_get_mod_data_pathEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %modname = alloca %"class.std::__cxx11::basic_string", align 8
   %path = alloca %"class.std::__cxx11::basic_string", align 8

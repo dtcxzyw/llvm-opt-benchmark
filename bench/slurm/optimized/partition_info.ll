@@ -132,7 +132,7 @@ define void @slurm_print_partition_info_msg(ptr nocapture noundef %0, ptr nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds %struct.partition_info, ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %13 = call ptr @slurm_sprint_partition_info(ptr noundef %12, i32 noundef %2)
+  %13 = call ptr @slurm_sprint_partition_info(ptr noundef readonly %12, i32 noundef %2)
   store ptr %13, ptr %4, align 8
   %fputs.i = call i32 @fputs(ptr %13, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %4) #11
@@ -732,7 +732,7 @@ declare ptr @select_type_param_string(i16 noundef zeroext) local_unnamed_addr #1
 declare ptr @job_defaults_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -907,7 +907,7 @@ define noundef i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture noundef 
   br i1 %.not8.i, label %.outer._crit_edge.loopexit24.i, label %.lr.ph.i, !llvm.loop !8
 
 .outer._crit_edge.loopexit24.i:                   ; preds = %.outer.i
-  %85 = trunc i64 %indvars.iv.next.i to i32
+  %85 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %53, %.outer._crit_edge.loopexit24.i
@@ -1115,7 +1115,7 @@ declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #1
 declare void @slurm_destroy_federation_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_partitions2(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_partitions2(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.part_info_request_msg, align 8
@@ -1328,7 +1328,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_cluster_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @_sort_by_cluster_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8

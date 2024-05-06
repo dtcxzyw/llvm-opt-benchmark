@@ -86,7 +86,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %._crit_edge.loopexit.split.loop.exit, %.preheader
@@ -260,7 +260,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
-  %59 = trunc i64 %indvars.iv.i to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %58, %._crit_edge.loopexit.split.loop.exit.i, %.preheader.i
@@ -307,7 +307,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %.0.i = phi ptr [ %54, %52 ], [ %79, %78 ], [ %29, %41 ]
   %81 = getelementptr inbounds i8, ptr %.0.i, i64 24
   store float %39, ptr %81, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %37, i64 24, i1 false)
   %82 = load i32, ptr %25, align 4
   %83 = icmp slt i32 %82, 8
   br i1 %83, label %84, label %_ZN15dtLocalBoundary10addSegmentEfPKf.exit

@@ -264,7 +264,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.7 = private unnamed_addr constant [10 x i8] c"highlight\00", align 1
 @.str.8 = private unnamed_addr constant [15 x i8] c"highlight_text\00", align 1
 @.str.9 = private unnamed_addr constant [10 x i8] c"opendepth\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.10 = private unnamed_addr constant [24 x i8] c"Invalid table option: \22\00", align 1
 @.str.11 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.12 = private unnamed_addr constant [10 x i8] c" (value=\22\00", align 1
@@ -7736,7 +7736,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1119basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8GUITable11getSelectedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK8GUITable11getSelectedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this) local_unnamed_addr #16 align 2 {
 entry:
   %m_selected = getelementptr inbounds i8, ptr %this, i64 372
   %0 = load i32, ptr %m_selected, align 4, !tbaa !61

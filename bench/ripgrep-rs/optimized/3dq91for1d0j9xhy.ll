@@ -349,7 +349,7 @@ common.resume:                                    ; preds = %33, %27, %103, %75
   %43 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %42, i64 0, i64 %40
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hc25bd9a7772e05eaE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 %43)
   %44 = load i64, ptr %7, align 8, !range !25, !noundef !9
-  %trunc = trunc i64 %44 to i1
+  %trunc = trunc nuw i64 %44 to i1
   br i1 %trunc, label %106, label %45
 
 45:                                               ; preds = %39
@@ -374,7 +374,7 @@ common.resume:                                    ; preds = %33, %27, %103, %75
 
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17h92bef287d70b68f4E.exit": ; preds = %51
   %56 = getelementptr inbounds i8, ptr %47, i64 4
-  %57 = trunc i8 %49 to i1
+  %57 = trunc nuw i8 %49 to i1
   br i1 %57, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i, label %58
 
 58:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17h92bef287d70b68f4E.exit"
@@ -464,7 +464,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %63, %_ZN3
   %91 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %47, i64 4
-  %93 = trunc i8 %49 to i1
+  %93 = trunc nuw i8 %49 to i1
   br i1 %93, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i49, label %94
 
 94:                                               ; preds = %81
@@ -628,7 +628,7 @@ common.resume:                                    ; preds = %31, %"_ZN63_$LT$all
   %43 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %42, i64 0, i64 %40
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h8e47001335b76bcfE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 %43)
   %44 = load i64, ptr %7, align 8, !range !25, !noundef !9
-  %trunc = trunc i64 %44 to i1
+  %trunc = trunc nuw i64 %44 to i1
   br i1 %trunc, label %108, label %45
 
 45:                                               ; preds = %39
@@ -653,7 +653,7 @@ common.resume:                                    ; preds = %31, %"_ZN63_$LT$all
 
 "_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$17h3e9b3e1661185b83E.exit": ; preds = %51
   %56 = getelementptr inbounds i8, ptr %47, i64 4
-  %57 = trunc i8 %49 to i1
+  %57 = trunc nuw i8 %49 to i1
   br i1 %57, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i, label %58
 
 58:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$17h3e9b3e1661185b83E.exit"
@@ -747,7 +747,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %63, %_ZN3
   %93 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %47, i64 4
-  %95 = trunc i8 %49 to i1
+  %95 = trunc nuw i8 %49 to i1
   br i1 %95, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i49, label %96
 
 96:                                               ; preds = %83
@@ -873,7 +873,7 @@ define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -908,7 +908,7 @@ define internal fastcc void @"_ZN4core3ptr145drop_in_place$LT$std..sync..mutex..
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -1048,7 +1048,7 @@ define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Resu
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %.val, i64 4
-  %8 = trunc i8 %.val1 to i1
+  %8 = trunc nuw i8 %.val1 to i1
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i, label %9
 
 9:                                                ; preds = %6
@@ -1078,7 +1078,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %14, %_ZN3
   %19 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %.val, i64 4
-  %21 = trunc i8 %.val1 to i1
+  %21 = trunc nuw i8 %.val1 to i1
   br i1 %21, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %18
@@ -1120,7 +1120,7 @@ define internal fastcc void @"_ZN4core3ptr339drop_in_place$LT$core..result..Resu
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %.val, i64 4
-  %8 = trunc i8 %.val1 to i1
+  %8 = trunc nuw i8 %.val1 to i1
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i, label %9
 
 9:                                                ; preds = %6
@@ -1150,7 +1150,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %14, %_ZN3
   %19 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %.val, i64 4
-  %21 = trunc i8 %.val1 to i1
+  %21 = trunc nuw i8 %.val1 to i1
   br i1 %21, label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %18
@@ -1191,7 +1191,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1c96ba2291ba9fE.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %2, i64 %1), !alias.scope !144
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !144
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1c96ba2291ba9fE.exit"
 

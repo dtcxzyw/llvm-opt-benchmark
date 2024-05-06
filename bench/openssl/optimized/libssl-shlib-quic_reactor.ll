@@ -57,7 +57,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_reactor_can_support_poll_descriptor(ptr nocapture noundef readnone %rtor, ptr nocapture noundef readonly %d) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_reactor_can_support_poll_descriptor(ptr nocapture noundef readnone %rtor, ptr nocapture noundef readonly %d) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %d, align 8
   %cmp = icmp eq i32 %0, 1
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_reactor_can_poll_r(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_reactor_can_poll_r(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
   %can_poll_r = getelementptr inbounds i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_r, align 8
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_reactor_can_poll_w(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_reactor_can_poll_w(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
   %can_poll_w = getelementptr inbounds i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_w, align 8
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_reactor_net_read_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_reactor_net_read_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
   %net_read_desired = getelementptr inbounds i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_read_desired, align 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_reactor_net_write_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_reactor_net_write_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
   %net_write_desired = getelementptr inbounds i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_write_desired, align 8

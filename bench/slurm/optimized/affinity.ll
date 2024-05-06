@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._bind_ldom = private unnamed_addr constant [11 x i8] c"_bind_ldom\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 312
@@ -363,7 +363,7 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1
   %21 = getelementptr inbounds i8, ptr %13, i64 4158
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %24 = mul nsw i32 %20, %23
+  %24 = mul nuw nsw i32 %20, %23
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 

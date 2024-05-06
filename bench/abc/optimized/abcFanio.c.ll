@@ -176,7 +176,7 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %exitcond.not.i, label %.loopexit32, label %10, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %10
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
@@ -205,9 +205,9 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   store i32 %23, ptr %25, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %26 = load i32, ptr %5, align 4
-  %27 = trunc i64 %indvars.iv.next35.i to i32
+  %27 = trunc nuw i64 %indvars.iv.next35.i to i32
   %28 = icmp sgt i32 %26, %27
-  %29 = trunc i64 %indvars.iv34.i to i32
+  %29 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %28, label %20, label %.loopexit31, !llvm.loop !7
 
 .loopexit32:                                      ; preds = %14, %._crit_edge.i
@@ -246,7 +246,7 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %exitcond.not.i24, label %.loopexit, label %41, !llvm.loop !6
 
 ._crit_edge.loopexit.i25:                         ; preds = %41
-  %46 = trunc i64 %indvars.iv.i22 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i22 to i32
   br label %._crit_edge.i9
 
 ._crit_edge.i9:                                   ; preds = %._crit_edge.loopexit.i25, %.loopexit31
@@ -275,9 +275,9 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   store i32 %54, ptr %56, align 4
   %indvars.iv.next35.i19 = add nuw nsw i64 %indvars.iv34.i17, 1
   %57 = load i32, ptr %36, align 4
-  %58 = trunc i64 %indvars.iv.next35.i19 to i32
+  %58 = trunc nuw i64 %indvars.iv.next35.i19 to i32
   %59 = icmp sgt i32 %57, %58
-  %60 = trunc i64 %indvars.iv34.i17 to i32
+  %60 = trunc nuw i64 %indvars.iv34.i17 to i32
   br i1 %59, label %51, label %Vec_IntRemove.exit26, !llvm.loop !7
 
 Vec_IntRemove.exit26:                             ; preds = %51, %.preheader.i11
@@ -367,7 +367,7 @@ define void @Abc_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !9
 
 Vec_IntFind.exit:                                 ; preds = %14
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %Vec_IntFind.exit.thread, label %25
 
@@ -425,7 +425,7 @@ Vec_IntFind.exit.thread:                          ; preds = %18, %3, %Vec_IntFin
   br i1 %exitcond.not.i22, label %.loopexit, label %43, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %43
-  %48 = trunc i64 %indvars.iv.i20 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %35
@@ -454,9 +454,9 @@ Vec_IntFind.exit.thread:                          ; preds = %18, %3, %Vec_IntFin
   store i32 %56, ptr %58, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %59 = load i32, ptr %38, align 4
-  %60 = trunc i64 %indvars.iv.next35.i to i32
+  %60 = trunc nuw i64 %indvars.iv.next35.i to i32
   %61 = icmp sgt i32 %59, %60
-  %62 = trunc i64 %indvars.iv34.i to i32
+  %62 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %61, label %53, label %Vec_IntRemove.exit, !llvm.loop !7
 
 Vec_IntRemove.exit:                               ; preds = %53, %.preheader.i
@@ -802,7 +802,7 @@ define i32 @Abc_ObjFanoutFaninNum(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !13
 
 .critedge.loopexit.split.loop.exit15:             ; preds = %8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %.critedge.loopexit.split.loop.exit15, %2

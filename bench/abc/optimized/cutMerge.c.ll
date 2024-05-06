@@ -551,7 +551,7 @@ define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br i1 %73, label %75, label %83
 
 75:                                               ; preds = %74
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = load ptr, ptr %60, align 8
   %78 = load i32, ptr %77, align 8
   %79 = shl i32 %76, 28
@@ -771,7 +771,7 @@ define ptr @Cut_CutMergeTwo3(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %53, label %55, label %58
 
 55:                                               ; preds = %54
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = shl i32 %56, 28
   br label %.loopexit121.sink.split
 
@@ -1072,7 +1072,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %indvars.iv163 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next164, %._crit_edge130 ]
   %indvars.iv156 = phi i64 [ 1, %.lr.ph133.preheader ], [ %indvars.iv.next157, %._crit_edge130 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %95 = trunc i64 %indvars.iv163 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv163 to i32
   br label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
@@ -1084,7 +1084,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %99 = getelementptr inbounds i32, ptr %11, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = icmp slt i32 %97, %100
-  %102 = trunc i64 %indvars.iv158 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv158 to i32
   %spec.select = select i1 %101, i32 %102, i32 %.098127
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
@@ -1286,7 +1286,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %69, label %70, label %63, !llvm.loop !35
 
 70:                                               ; preds = %65
-  %71 = trunc i64 %indvars.iv336 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv336 to i32
   %72 = shl nuw nsw i32 1, %71
   %73 = or i32 %72, %.0200280
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1

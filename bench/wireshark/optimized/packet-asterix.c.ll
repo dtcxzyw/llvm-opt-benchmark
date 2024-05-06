@@ -36988,8 +36988,8 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
 
 47:                                               ; preds = %42
   %48 = load i64, ptr %40, align 8
-  %49 = tail call i64 @llvm.ctlz.i64(i64 %48, i1 true), !range !20
-  %50 = trunc i64 %49 to i32
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
+  %50 = trunc nuw nsw i64 %49 to i32
   %51 = sub nuw nsw i32 71, %50
   %52 = lshr i32 %51, 3
   %53 = sub nsw i32 %45, %52
@@ -37152,7 +37152,7 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %171 = add i32 %.096118, %170
   %172 = add i32 %.097117, 1
   %.not103 = icmp eq i8 %.2, 0
-  br i1 %.not103, label %.critedge, label %10, !llvm.loop !21
+  br i1 %.not103, label %.critedge, label %10, !llvm.loop !20
 
 .critedge:                                        ; preds = %10, %165, %5
   ret void
@@ -37208,5 +37208,4 @@ attributes #3 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i64 0, i64 65}
-!21 = distinct !{!21, !5}
+!20 = distinct !{!20, !5}

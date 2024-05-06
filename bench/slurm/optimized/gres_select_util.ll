@@ -828,7 +828,7 @@ define i32 @gres_select_util_get_task_limit(ptr noundef %0) local_unnamed_addr #
   %16 = udiv i64 %15, %11
   %17 = zext i32 %.0.ph to i64
   %18 = tail call i64 @llvm.umin.i64(i64 %16, i64 %17)
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   br label %.outer, !llvm.loop !15
 
 20:                                               ; preds = %3

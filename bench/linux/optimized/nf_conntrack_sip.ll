@@ -1269,7 +1269,7 @@ thread-pre-split.i:                               ; preds = %51, %46
   br i1 %70, label %ct_sip_header_search.exit.thread, label %74
 
 71:                                               ; preds = %40
-  %72 = call i32 @strncasecmp(ptr noundef %41, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %72 = call i32 @strncasecmp(ptr noundef %41, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %ct_sip_header_search.exit, label %74
 
@@ -1365,7 +1365,7 @@ thread-pre-split.i7:                              ; preds = %99, %94
   br i1 %118, label %ct_sip_header_search.exit.thread, label %122
 
 119:                                              ; preds = %88
-  %120 = call i32 @strncasecmp(ptr noundef %89, ptr noundef %80, i64 noundef %82)
+  %120 = call i32 @strncasecmp(ptr noundef %89, ptr noundef readonly %80, i64 noundef %82)
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %ct_sip_header_search.exit11, label %122
 
@@ -1635,7 +1635,7 @@ thread-pre-split.i:                               ; preds = %30, %25
   br i1 %49, label %ct_sip_header_search.exit, label %53
 
 50:                                               ; preds = %19
-  %51 = tail call i32 @strncasecmp(ptr noundef %20, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %51 = tail call i32 @strncasecmp(ptr noundef %20, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %ct_sip_header_search.exit, label %53
 
@@ -1729,7 +1729,7 @@ thread-pre-split.i1:                              ; preds = %78, %73
   br i1 %97, label %ct_sip_header_search.exit5.thread, label %101
 
 98:                                               ; preds = %67
-  %99 = tail call i32 @strncasecmp(ptr noundef %68, ptr noundef %4, i64 noundef %61)
+  %99 = tail call i32 @strncasecmp(ptr noundef %68, ptr noundef readonly %4, i64 noundef %61)
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %ct_sip_header_search.exit5, label %101
 
@@ -1932,7 +1932,7 @@ thread-pre-split.i:                               ; preds = %29, %24
   br i1 %48, label %ct_sip_header_search.exit, label %52
 
 49:                                               ; preds = %18
-  %50 = tail call i32 @strncasecmp(ptr noundef %19, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %50 = tail call i32 @strncasecmp(ptr noundef %19, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %ct_sip_header_search.exit, label %52
 
@@ -2026,7 +2026,7 @@ thread-pre-split.i5:                              ; preds = %77, %72
   br i1 %96, label %ct_sip_header_search.exit9.thread, label %100
 
 97:                                               ; preds = %66
-  %98 = tail call i32 @strncasecmp(ptr noundef %67, ptr noundef %4, i64 noundef %60)
+  %98 = tail call i32 @strncasecmp(ptr noundef %67, ptr noundef readonly %4, i64 noundef %60)
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %ct_sip_header_search.exit9, label %100
 
@@ -4702,7 +4702,7 @@ thread-pre-split.i:                               ; preds = %105, %100
   br i1 %124, label %ct_sip_header_search.exit, label %128
 
 125:                                              ; preds = %94
-  %126 = call i32 @strncasecmp(ptr noundef %95, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %126 = call i32 @strncasecmp(ptr noundef %95, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %ct_sip_header_search.exit, label %128
 
@@ -4793,7 +4793,7 @@ thread-pre-split.i8:                              ; preds = %150, %145
   br i1 %169, label %.thread, label %173
 
 170:                                              ; preds = %139
-  %171 = call i32 @strncasecmp(ptr noundef %140, ptr noundef nonnull @.str.46, i64 noundef 8)
+  %171 = call i32 @strncasecmp(ptr noundef %140, ptr noundef nonnull readonly @.str.46, i64 noundef 8)
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %ct_sip_header_search.exit12, label %173
 
@@ -5128,7 +5128,7 @@ thread-pre-split.i:                               ; preds = %111, %106
   br i1 %130, label %ct_sip_header_search.exit, label %134
 
 131:                                              ; preds = %100
-  %132 = call i32 @strncasecmp(ptr noundef %101, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %132 = call i32 @strncasecmp(ptr noundef %101, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %ct_sip_header_search.exit, label %134
 
@@ -5219,7 +5219,7 @@ thread-pre-split.i12:                             ; preds = %156, %151
   br i1 %175, label %.thread, label %179
 
 176:                                              ; preds = %145
-  %177 = call i32 @strncasecmp(ptr noundef %146, ptr noundef nonnull @.str.46, i64 noundef 8)
+  %177 = call i32 @strncasecmp(ptr noundef %146, ptr noundef nonnull readonly @.str.46, i64 noundef 8)
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %ct_sip_header_search.exit16, label %179
 
@@ -5580,7 +5580,7 @@ thread-pre-split.i:                               ; preds = %25, %20
   br i1 %44, label %ct_sip_header_search.exit, label %48
 
 45:                                               ; preds = %14
-  %46 = tail call i32 @strncasecmp(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %46 = tail call i32 @strncasecmp(ptr noundef %15, ptr noundef nonnull readonly @.str.2, i64 noundef 1)
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %ct_sip_header_search.exit, label %48
 
@@ -5671,7 +5671,7 @@ thread-pre-split.i1:                              ; preds = %70, %65
   br i1 %89, label %.thread, label %93
 
 90:                                               ; preds = %59
-  %91 = tail call i32 @strncasecmp(ptr noundef %60, ptr noundef nonnull @.str.50, i64 noundef 10)
+  %91 = tail call i32 @strncasecmp(ptr noundef %60, ptr noundef nonnull readonly @.str.50, i64 noundef 10)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %ct_sip_header_search.exit5, label %93
 

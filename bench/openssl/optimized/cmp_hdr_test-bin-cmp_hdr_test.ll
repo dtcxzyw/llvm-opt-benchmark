@@ -115,7 +115,7 @@ declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_set_get_pvno() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_set_get_pvno() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -155,7 +155,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_get0_senderNonce() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_get0_senderNonce() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.1)
   %cmp = icmp eq ptr %call, null
@@ -219,7 +219,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_set1_sender() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_set1_sender() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.2)
   %cmp = icmp eq ptr %call, null
@@ -283,7 +283,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_set1_recipient() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_set1_recipient() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.3)
   %cmp = icmp eq ptr %call, null
@@ -421,7 +421,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_set1_senderKID() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_set1_senderKID() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.5)
   %cmp = icmp eq ptr %call, null
@@ -481,7 +481,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_push0_freeText() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_push0_freeText() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.6)
   %cmp = icmp eq ptr %call, null
@@ -540,7 +540,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_push1_freeText() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_push1_freeText() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null
@@ -600,7 +600,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_generalInfo_push0_item() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_generalInfo_push0_item() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.8)
   %cmp = icmp eq ptr %call, null
@@ -651,7 +651,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_generalInfo_push1_items() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_generalInfo_push1_items() #1 {
 entry:
   %oid.i = alloca [8 x i8], align 8
   %buf.i = alloca [20 x i8], align 16
@@ -773,7 +773,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_set_and_check_implicit_confirm() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_set_and_check_implicit_confirm() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.10)
   %cmp = icmp eq ptr %call, null
@@ -824,7 +824,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_init_with_ref() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_init_with_ref() #1 {
 entry:
   %ref = alloca [15 x i8], align 1
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.11)
@@ -857,7 +857,7 @@ if.end9.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 if.then12:                                        ; preds = %lor.lhs.false
-  %call13 = call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call), !range !5
+  %call13 = call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call)
   %hdr.i7 = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load ptr, ptr %hdr.i7, align 8
   call void @OSSL_CMP_PKIHEADER_free(ptr noundef %2) #8
@@ -877,7 +877,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_HDR_init_with_subject() #1 {
+define internal range(i32 0, 2) i32 @test_HDR_init_with_subject() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.12)
   %cmp = icmp eq ptr %call, null
@@ -922,7 +922,7 @@ if.end14.thread:                                  ; preds = %if.end, %lor.lhs.fa
 
 if.then17:                                        ; preds = %lor.lhs.false7
   tail call void @X509_NAME_free(ptr noundef %call1) #8
-  %call18 = tail call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call), !range !5
+  %call18 = tail call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call)
   %hdr.i9 = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %hdr.i9, align 8
   tail call void @OSSL_CMP_PKIHEADER_free(ptr noundef %3) #8
@@ -1105,7 +1105,7 @@ declare i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @execute_HDR_init_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_HDR_init_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
 entry:
   %expected = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load i32, ptr %expected, align 8
@@ -1210,4 +1210,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

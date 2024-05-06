@@ -2590,7 +2590,7 @@ _ZN7QStringD2Ev.exit492:                          ; preds = %658, %_ZN17QArrayDa
 
 _ZNK7QString3argEjii5QChar.exit543:               ; preds = %728
   %735 = urem i32 %634, 3600
-  %.lhs.trunc = trunc i32 %735 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %735 to i16
   %736 = udiv i16 %.lhs.trunc, 60
   %737 = zext nneg i16 %736 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %72, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %737, i32 noundef 2, i32 noundef 10, i16 48)
@@ -6003,7 +6003,7 @@ define internal void @_ZL18mtp3_summary_resetPv(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL19mtp3_summary_packetPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #9 {
+define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #9 {
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i8, ptr %6, align 4
   %8 = icmp ugt i8 %7, 8

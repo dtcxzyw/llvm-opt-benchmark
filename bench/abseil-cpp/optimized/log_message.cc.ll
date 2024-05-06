@@ -906,11 +906,11 @@ cond.end:                                         ; preds = %entry, %cond.true
   store i64 %cond20, ptr %prefix_len_, align 8
   %data_.i = getelementptr inbounds i8, ptr %field, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
-  %call2222 = call noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull align 8 dereferenceable(40) %field, ptr noundef nonnull %encoded_data)
+  %call2223 = call noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull align 8 dereferenceable(40) %field, ptr noundef nonnull %encoded_data)
   %5 = load i64, ptr %field, align 8
-  %cond123 = icmp eq i64 %5, 7
-  %or.cond24 = select i1 %call2222, i1 %cond123, i1 false
-  br i1 %or.cond24, label %sw.bb.lr.ph, label %while.end
+  %cond124 = icmp eq i64 %5, 7
+  %or.cond25 = select i1 %call2223, i1 %cond124, i1 false
+  br i1 %or.cond25, label %sw.bb.lr.ph, label %while.end
 
 sw.bb.lr.ph:                                      ; preds = %cond.end
   %type_.i = getelementptr inbounds i8, ptr %field, i64 8

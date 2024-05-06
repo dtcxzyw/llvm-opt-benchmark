@@ -1199,7 +1199,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %67 = getelementptr inbounds i64, ptr %.val38, i64 %indvars.iv50
   %68 = load i64, ptr %67, align 8
   %69 = lshr i64 %68, 32
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %71 = load i32, ptr %15, align 4
   %72 = load i32, ptr %1, align 8
   %73 = icmp eq i32 %71, %72
@@ -1270,7 +1270,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %102 = load i32, ptr %65, align 4
   %103 = add nsw i32 %102, %101
   %104 = icmp sgt i32 %103, %12
-  %105 = trunc i64 %indvars.iv50 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv50 to i32
   %spec.select = select i1 %104, i32 %105, i32 -1
   br label %106
 
@@ -1290,7 +1290,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare void @Abc_QuickSort3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_TimPriorityNodes(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sfm_TimPriorityNodes(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Sfm_TimCriticalPath(ptr noundef %0, i32 noundef %2)
   %5 = getelementptr i8, ptr %0, i64 68
   %.val1823.i = load i32, ptr %5, align 4
@@ -1676,7 +1676,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Sfm_TimNodeIsNonCritical(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Sfm_TimNodeIsNonCritical(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val6 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %2, i64 16
@@ -1905,7 +1905,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_WecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @Vec_WecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val6 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %1, i64 4

@@ -262,7 +262,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call4 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %6 = extractvalue { i64, ptr } %call4, 0
   %7 = extractvalue { i64, ptr } %call4, 1
-  %call6 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %6, ptr %7, i64 %classname.coerce0, ptr %classname.coerce1), !range !6
+  %call6 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %6, ptr %7, i64 %classname.coerce0, ptr %classname.coerce1)
   %cmp7 = icmp eq i32 %call6, %equality_mode
   br i1 %cmp7, label %return, label %for.cond
 
@@ -271,7 +271,7 @@ for.cond9:                                        ; preds = %for.body12
   %8 = load i32, ptr %service_count_.i, align 4
   %9 = sext i32 %8 to i64
   %cmp11 = icmp slt i64 %indvars.iv.next34, %9
-  br i1 %cmp11, label %for.body12, label %for.cond26.preheader, !llvm.loop !7
+  br i1 %cmp11, label %for.body12, label %for.cond26.preheader, !llvm.loop !6
 
 for.cond26.preheader:                             ; preds = %for.cond9, %for.cond9.preheader
   %message_type_count_.i = getelementptr inbounds i8, ptr %file, i64 60
@@ -291,7 +291,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %13 = extractvalue { i64, ptr } %call16, 0
   %14 = extractvalue { i64, ptr } %call16, 1
-  %call18 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %13, ptr %14, i64 %classname.coerce0, ptr %classname.coerce1), !range !6
+  %call18 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %13, ptr %14, i64 %classname.coerce0, ptr %classname.coerce1)
   %cmp19 = icmp eq i32 %call18, %equality_mode
   br i1 %cmp19, label %return, label %for.cond9
 
@@ -300,7 +300,7 @@ for.cond26:                                       ; preds = %for.body29
   %15 = load i32, ptr %message_type_count_.i, align 4
   %16 = sext i32 %15 to i64
   %cmp28 = icmp slt i64 %indvars.iv.next37, %16
-  br i1 %cmp28, label %for.body29, label %return, !llvm.loop !8
+  br i1 %cmp28, label %for.body29, label %return, !llvm.loop !7
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond26
   %indvars.iv36 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next37, %for.cond26 ]
@@ -402,7 +402,7 @@ eh.resume:                                        ; preds = %lpad13, %lpad
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -478,7 +478,7 @@ entry:
   %call1 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   %1 = extractvalue { i64, ptr } %call1, 0
   %2 = extractvalue { i64, ptr } %call1, 1
-  %call3 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %1, ptr %2, i64 %classname.coerce0, ptr %classname.coerce1), !range !6
+  %call3 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %1, ptr %2, i64 %classname.coerce0, ptr %classname.coerce1)
   %cmp = icmp eq i32 %call3, %equality_mode
   br i1 %cmp, label %return, label %for.cond.preheader
 
@@ -497,7 +497,7 @@ for.cond:                                         ; preds = %for.body
   %4 = load i32, ptr %nested_type_count_.i, align 8
   %5 = sext i32 %4 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp5, label %for.body, label %for.cond12.preheader, !llvm.loop !9
+  br i1 %cmp5, label %for.body, label %for.cond12.preheader, !llvm.loop !8
 
 for.cond12.preheader:                             ; preds = %for.cond, %for.cond.preheader
   %enum_types_.i = getelementptr inbounds i8, ptr %message, i64 80
@@ -518,7 +518,7 @@ for.cond12:                                       ; preds = %for.body15
   %8 = load i32, ptr %enum_type_count_.i, align 4
   %9 = sext i32 %8 to i64
   %cmp14 = icmp slt i64 %indvars.iv.next25, %9
-  br i1 %cmp14, label %for.body15, label %return, !llvm.loop !10
+  br i1 %cmp14, label %for.body15, label %return, !llvm.loop !9
 
 for.body15:                                       ; preds = %for.cond12.preheader, %for.cond12
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %for.cond12 ], [ 0, %for.cond12.preheader ]
@@ -528,7 +528,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   %call19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %12 = extractvalue { i64, ptr } %call19, 0
   %13 = extractvalue { i64, ptr } %call19, 1
-  %call21 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %12, ptr %13, i64 %classname.coerce0, ptr %classname.coerce1), !range !6
+  %call21 = tail call fastcc noundef i32 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_117CheckNameEqualityESt17basic_string_viewIcSt11char_traitsIcEES7_(i64 %12, ptr %13, i64 %classname.coerce0, ptr %classname.coerce1)
   %cmp22 = icmp eq i32 %call21, %equality_mode
   br i1 %cmp22, label %return, label %for.cond12
 
@@ -786,14 +786,14 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %descriptor)
-  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !11
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !10
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
-  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !11
+  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !10
   %options_.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
-  %1 = load ptr, ptr %options_.i.i.i, align 8, !noalias !11
+  %1 = load ptr, ptr %options_.i.i.i, align 8, !noalias !10
   %java_multiple_files_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 160
-  %2 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !11
+  %2 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !10
   %tobool.i.i.i.i = trunc i8 %2 to i1
   %3 = extractvalue { i64, ptr } %call.i, 1
   %4 = extractvalue { i64, ptr } %call.i, 0
@@ -907,14 +907,14 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %descriptor)
-  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !14
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !13
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
-  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !14
+  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !13
   %options_.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
-  %1 = load ptr, ptr %options_.i.i.i, align 8, !noalias !14
+  %1 = load ptr, ptr %options_.i.i.i, align 8, !noalias !13
   %java_multiple_files_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 160
-  %2 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !14
+  %2 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !13
   %tobool.i.i.i.i = trunc i8 %2 to i1
   %3 = extractvalue { i64, ptr } %call.i, 1
   %4 = extractvalue { i64, ptr } %call.i, 0
@@ -1021,14 +1021,14 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %descriptor)
-  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !17
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !16
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
-  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !17
+  %0 = load ptr, ptr %file_.i.i, align 8, !noalias !16
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
-  %1 = load ptr, ptr %options_.i.i.i.i, align 8, !noalias !17
+  %1 = load ptr, ptr %options_.i.i.i.i, align 8, !noalias !16
   %java_multiple_files_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 160
-  %2 = load i8, ptr %java_multiple_files_.i.i.i.i.i, align 8, !noalias !17
+  %2 = load i8, ptr %java_multiple_files_.i.i.i.i.i, align 8, !noalias !16
   %tobool.i.i.i.i.i = trunc i8 %2 to i1
   %3 = extractvalue { i64, ptr } %call.i, 1
   %4 = extractvalue { i64, ptr } %call.i, 0
@@ -1294,14 +1294,14 @@ entry:
   %containing_type_.i = getelementptr inbounds i8, ptr %descriptor, i64 32
   %0 = load ptr, ptr %containing_type_.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %0)
-  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !20
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %0)
+  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !19
   %file_.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = load ptr, ptr %file_.i.i, align 8, !noalias !20
+  %1 = load ptr, ptr %file_.i.i, align 8, !noalias !19
   %options_.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
-  %2 = load ptr, ptr %options_.i.i.i, align 8, !noalias !20
+  %2 = load ptr, ptr %options_.i.i.i, align 8, !noalias !19
   %java_multiple_files_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 160
-  %3 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !20
+  %3 = load i8, ptr %java_multiple_files_.i.i.i.i, align 8, !noalias !19
   %tobool.i.i.i.i = trunc i8 %3 to i1
   %4 = extractvalue { i64, ptr } %call.i, 1
   %5 = extractvalue { i64, ptr } %call.i, 0
@@ -1549,7 +1549,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   %temp.0.in = getelementptr inbounds i8, ptr %temp.010, i64 24
   %temp.0 = load ptr, ptr %temp.0.in, align 8
   %tobool.not = icmp eq ptr %temp.0, null
-  br i1 %tobool.not, label %nrvo.skipdtor, label %invoke.cont6, !llvm.loop !23
+  br i1 %tobool.not, label %nrvo.skipdtor, label %invoke.cont6, !llvm.loop !22
 
 lpad:                                             ; preds = %invoke.cont6
   %9 = landingpad { ptr, i32 }
@@ -1777,16 +1777,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i)
-  store i64 7, ptr %ref.tmp10.i, align 8, !noalias !24
+  store i64 7, ptr %ref.tmp10.i, align 8, !noalias !23
   %1 = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 8
-  store ptr @.str.1, ptr %1, align 8, !noalias !24
-  call void @_ZN6google8protobuf8compiler4java17ClassNameResolver25GetFileImmutableClassNameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %file), !noalias !24
-  %call.i5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #18, !noalias !24
+  store ptr @.str.1, ptr %1, align 8, !noalias !23
+  call void @_ZN6google8protobuf8compiler4java17ClassNameResolver25GetFileImmutableClassNameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %file), !noalias !23
+  %call.i5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #18, !noalias !23
   %2 = extractvalue { i64, ptr } %call.i5.i, 0
-  store i64 %2, ptr %ref.tmp11.i, align 8, !noalias !24
+  store i64 %2, ptr %ref.tmp11.i, align 8, !noalias !23
   %3 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   %4 = extractvalue { i64, ptr } %call.i5.i, 1
-  store ptr %4, ptr %3, align 8, !noalias !24
+  store ptr %4, ptr %3, align 8, !noalias !23
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i)
           to label %_ZN6google8protobuf8compiler4java17ClassNameResolver16GetFileClassNameB5cxx11EPKNS0_14FileDescriptorEbb.exit unwind label %lpad13.i
 
@@ -1883,25 +1883,25 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   %8 = extractvalue { i64, ptr } %call.i9, 0
   %9 = extractvalue { i64, ptr } %call.i9, 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
-  store i64 %3, ptr %ref.tmp.i, align 8, !noalias !27
+  store i64 %3, ptr %ref.tmp.i, align 8, !noalias !26
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store ptr %4, ptr %10, align 8, !noalias !27
+  store ptr %4, ptr %10, align 8, !noalias !26
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store i64 1, ptr %arrayinit.element.i, align 8, !noalias !27
+  store i64 1, ptr %arrayinit.element.i, align 8, !noalias !26
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  store ptr @.str.3, ptr %11, align 8, !noalias !27
+  store ptr @.str.3, ptr %11, align 8, !noalias !26
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
-  store i64 %7, ptr %arrayinit.element2.i, align 8, !noalias !27
+  store i64 %7, ptr %arrayinit.element2.i, align 8, !noalias !26
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
-  store ptr %6, ptr %12, align 8, !noalias !27
+  store ptr %6, ptr %12, align 8, !noalias !26
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
-  store i64 1, ptr %arrayinit.element4.i, align 8, !noalias !27
+  store i64 1, ptr %arrayinit.element4.i, align 8, !noalias !26
   %13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
-  store ptr @.str.3, ptr %13, align 8, !noalias !27
+  store ptr @.str.3, ptr %13, align 8, !noalias !26
   %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  store i64 %8, ptr %arrayinit.element6.i, align 8, !noalias !27
+  store i64 %8, ptr %arrayinit.element6.i, align 8, !noalias !26
   %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
-  store ptr %9, ptr %14, align 8, !noalias !27
+  store ptr %9, ptr %14, align 8, !noalias !26
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont21 unwind label %lpad19
 
@@ -2048,7 +2048,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !30
+  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !29
   %shr.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %4 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %4, 12
@@ -2078,7 +2078,7 @@ for.body.preheader.i:                             ; preds = %while.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %__begin0.sroa.0.027.i = phi i32 [ %and.i10.i, %for.inc.i ], [ %9, %for.body.preheader.i ]
-  %10 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true), !range !33
+  %10 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true)
   %conv.i = zext nneg i32 %10 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %3
@@ -2102,7 +2102,7 @@ for.end.i:                                        ; preds = %for.inc.i, %while.b
 if.end36.i:                                       ; preds = %for.end.i
   %add.i13.i = add i64 %seq.sroa.10.0.i, 16
   %add3.i.i = add i64 %add.i13.i, %seq.sroa.4.0.i
-  br label %while.body.i, !llvm.loop !34
+  br label %while.body.i, !llvm.loop !32
 
 if.then:                                          ; preds = %for.end.i
   %call38.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SE_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -2324,7 +2324,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !35
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !33
 
 if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -2447,33 +2447,31 @@ attributes #23 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 3}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb: %agg.result"}
-!13 = distinct !{!13, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEbb: %agg.result"}
-!16 = distinct !{!16, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEbb"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_17ServiceDescriptorEbb: %agg.result"}
-!19 = distinct !{!19, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_17ServiceDescriptorEbb"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb: %agg.result"}
-!22 = distinct !{!22, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb"}
-!23 = distinct !{!23, !5}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN6google8protobuf8compiler4java17ClassNameResolver16GetFileClassNameB5cxx11EPKNS0_14FileDescriptorEbb: %agg.result"}
-!26 = distinct !{!26, !"_ZN6google8protobuf8compiler4java17ClassNameResolver16GetFileClassNameB5cxx11EPKNS0_14FileDescriptorEbb"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!29 = distinct !{!29, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!32 = distinct !{!32, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!33 = !{i32 0, i32 33}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb: %agg.result"}
+!12 = distinct !{!12, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEbb: %agg.result"}
+!15 = distinct !{!15, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEbb"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_17ServiceDescriptorEbb: %agg.result"}
+!18 = distinct !{!18, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_17ServiceDescriptorEbb"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb: %agg.result"}
+!21 = distinct !{!21, !"_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb"}
+!22 = distinct !{!22, !5}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN6google8protobuf8compiler4java17ClassNameResolver16GetFileClassNameB5cxx11EPKNS0_14FileDescriptorEbb: %agg.result"}
+!25 = distinct !{!25, !"_ZN6google8protobuf8compiler4java17ClassNameResolver16GetFileClassNameB5cxx11EPKNS0_14FileDescriptorEbb"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
+!28 = distinct !{!28, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!31 = distinct !{!31, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}

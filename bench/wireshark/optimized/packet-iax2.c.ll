@@ -1531,7 +1531,7 @@ dissect_iax2_command.exit.i:                      ; preds = %390, %386, %dissect
   br label %dissect_fullpacket.exit
 
 421:                                              ; preds = %164
-  %422 = call fastcc i32 @uncompress_subclass(i8 noundef zeroext %47), !range !6
+  %422 = call fastcc i32 @uncompress_subclass(i8 noundef zeroext %47)
   %423 = getelementptr inbounds i8, ptr %.0199.i, i64 16
   store i32 %422, ptr %423, align 8
   %.not214.i = icmp eq ptr %.0197.i, null
@@ -1590,7 +1590,7 @@ proto_item_set_generated.exit222.i:               ; preds = %436, %433, %424, %4
   %449 = and i8 %47, 64
   %.not209.i = icmp eq i8 %449, 0
   %450 = and i8 %47, -65
-  %451 = call fastcc i32 @uncompress_subclass(i8 noundef zeroext %450), !range !6
+  %451 = call fastcc i32 @uncompress_subclass(i8 noundef zeroext %450)
   %452 = getelementptr inbounds i8, ptr %.0199.i, i64 16
   store i32 %451, ptr %452, align 8
   %.not210.i = icmp eq ptr %.0197.i, null
@@ -2037,7 +2037,7 @@ dissect_trunkcall_ts.exit.i:                      ; preds = %659, %._crit_edge.i
   %680 = getelementptr inbounds i8, ptr %.046.i.i, i64 8
   %681 = load ptr, ptr %680, align 8
   %.not.i63.i = icmp eq ptr %681, null
-  br i1 %.not.i63.i, label %.preheader.i.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i63.i, label %.preheader.i.preheader.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.preheader.i:                         ; preds = %679
   %682 = load ptr, ptr %642, align 8
@@ -2050,7 +2050,7 @@ dissect_trunkcall_ts.exit.i:                      ; preds = %659, %._crit_edge.i
   %684 = getelementptr inbounds i8, ptr %.0.i66.i, i64 8
   %685 = load ptr, ptr %684, align 8
   %.not14.i.i = icmp eq ptr %685, null
-  br i1 %.not14.i.i, label %686, label %.preheader.i.i, !llvm.loop !8
+  br i1 %.not14.i.i, label %686, label %.preheader.i.i, !llvm.loop !7
 
 686:                                              ; preds = %.preheader.i.i
   %687 = getelementptr inbounds i8, ptr %.0.i66.i, i64 8
@@ -2062,7 +2062,7 @@ call_list_find.exit.i:                            ; preds = %.lr.ph.i.i, %686, %
   %688 = add i32 %.05415.i, 1
   %689 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %674) #13
   %690 = icmp sgt i32 %689, 5
-  br i1 %690, label %645, label %.loopexit.i, !llvm.loop !9
+  br i1 %690, label %645, label %.loopexit.i, !llvm.loop !8
 
 691:                                              ; preds = %call_list_find.exit77.i, %.lr.ph23.i
   %.222.i = phi ptr [ null, %.lr.ph23.i ], [ %.3.i, %call_list_find.exit77.i ]
@@ -2129,7 +2129,7 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i
   %721 = getelementptr inbounds i8, ptr %.046.i73.i, i64 8
   %722 = load ptr, ptr %721, align 8
   %.not.i74.i = icmp eq ptr %722, null
-  br i1 %.not.i74.i, label %.preheader.i79.preheader.i, label %.lr.ph.i72.i, !llvm.loop !7
+  br i1 %.not.i74.i, label %.preheader.i79.preheader.i, label %.lr.ph.i72.i, !llvm.loop !6
 
 .preheader.i79.preheader.i:                       ; preds = %720
   %723 = load ptr, ptr %644, align 8
@@ -2142,7 +2142,7 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i
   %725 = getelementptr inbounds i8, ptr %.0.i80.i, i64 8
   %726 = load ptr, ptr %725, align 8
   %.not14.i81.i = icmp eq ptr %726, null
-  br i1 %.not14.i81.i, label %727, label %.preheader.i79.i, !llvm.loop !8
+  br i1 %.not14.i81.i, label %727, label %.preheader.i79.i, !llvm.loop !7
 
 727:                                              ; preds = %.preheader.i79.i
   %728 = getelementptr inbounds i8, ptr %.0.i80.i, i64 8
@@ -2154,7 +2154,7 @@ call_list_find.exit77.i:                          ; preds = %.lr.ph.i72.i, %727,
   %729 = add i32 %.15520.i, 1
   %730 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %715) #13
   %731 = icmp sgt i32 %730, 3
-  br i1 %731, label %691, label %.loopexit.i, !llvm.loop !10
+  br i1 %731, label %691, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %call_list_find.exit.i, %call_list_find.exit77.i
   %.256.i = phi i32 [ %729, %call_list_find.exit77.i ], [ %688, %call_list_find.exit.i ]
@@ -2169,7 +2169,7 @@ call_list_find.exit77.i:                          ; preds = %.lr.ph.i72.i, %727,
   %733 = getelementptr inbounds i8, ptr %.035.i.i, i64 8
   %734 = load ptr, ptr %733, align 8
   %.not.i85.i = icmp eq ptr %734, null
-  br i1 %.not.i85.i, label %call_list_length.exit.i, label %.lr.ph.i84.i, !llvm.loop !11
+  br i1 %.not.i85.i, label %call_list_length.exit.i, label %.lr.ph.i84.i, !llvm.loop !10
 
 call_list_length.exit.i:                          ; preds = %.lr.ph.i84.i, %.preheader.i, %.preheader11.i
   %.25339.i = phi i32 [ %639, %.preheader.i ], [ %639, %.preheader11.i ], [ %.253.i, %.lr.ph.i84.i ]
@@ -2345,7 +2345,7 @@ define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef %1, i32 
 28:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit11.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.loopexit11.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
@@ -2381,7 +2381,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
 43:                                               ; preds = %.lr.ph.i57.i
   %indvars.iv.next.i59.i = add nuw nsw i64 %indvars.iv.i58.i, 1
   %exitcond.not.i60.i = icmp eq i64 %indvars.iv.next.i59.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i60.i, label %47, label %.lr.ph.i57.i, !llvm.loop !13
+  br i1 %exitcond.not.i60.i, label %47, label %.lr.ph.i57.i, !llvm.loop !12
 
 .lr.ph.i57.i:                                     ; preds = %43, %.lr.ph.preheader.i55.i
   %indvars.iv.i58.i = phi i64 [ 0, %.lr.ph.preheader.i55.i ], [ %indvars.iv.next.i59.i, %43 ]
@@ -2410,7 +2410,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
 54:                                               ; preds = %.lr.ph.i65.i
   %indvars.iv.next.i67.i = add nuw nsw i64 %indvars.iv.i66.i, 1
   %exitcond.not.i68.i = icmp eq i64 %indvars.iv.next.i67.i, %wide.trip.count.i64.i
-  br i1 %exitcond.not.i68.i, label %.loopexit9.i, label %.lr.ph.i65.i, !llvm.loop !13
+  br i1 %exitcond.not.i68.i, label %.loopexit9.i, label %.lr.ph.i65.i, !llvm.loop !12
 
 .lr.ph.i65.i:                                     ; preds = %54, %.lr.ph.preheader.i63.i
   %indvars.iv.i66.i = phi i64 [ 0, %.lr.ph.preheader.i63.i ], [ %indvars.iv.next.i67.i, %54 ]
@@ -2429,7 +2429,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
 58:                                               ; preds = %.lr.ph.i74.i
   %indvars.iv.next.i76.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %exitcond.not.i77.i = icmp eq i64 %indvars.iv.next.i76.i, %wide.trip.count.i73.i
-  br i1 %exitcond.not.i77.i, label %.loopexit.i, label %.lr.ph.i74.i, !llvm.loop !12
+  br i1 %exitcond.not.i77.i, label %.loopexit.i, label %.lr.ph.i74.i, !llvm.loop !11
 
 .lr.ph.i74.i:                                     ; preds = %58, %.lr.ph.preheader.i72.i
   %indvars.iv.i75.i = phi i64 [ 0, %.lr.ph.preheader.i72.i ], [ %indvars.iv.next.i76.i, %58 ]
@@ -2479,7 +2479,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
 77:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit48, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.loopexit48, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %77, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %77 ]
@@ -2502,7 +2502,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
 84:                                               ; preds = %.lr.ph.i37
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i36
-  br i1 %exitcond.not.i40, label %.loopexit, label %.lr.ph.i37, !llvm.loop !13
+  br i1 %exitcond.not.i40, label %.loopexit, label %.lr.ph.i37, !llvm.loop !12
 
 .lr.ph.i37:                                       ; preds = %84, %.lr.ph.preheader.i35
   %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.preheader.i35 ], [ %indvars.iv.next.i39, %84 ]
@@ -2649,7 +2649,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @format_char(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @uncompress_subclass(i8 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 64) i32 @uncompress_subclass(i8 noundef zeroext %0) unnamed_addr #2 {
   %.not = icmp sgt i8 %0, -1
   br i1 %.not, label %7, label %2
 
@@ -3373,7 +3373,7 @@ define internal i32 @iax_circuit_hash(ptr nocapture noundef readonly %0) #6 {
   %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !13
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
@@ -3390,7 +3390,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @iax_circuit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @iax_circuit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -3495,7 +3495,7 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 64}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3503,4 +3503,3 @@ attributes #14 = { noreturn nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

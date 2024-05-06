@@ -57,11 +57,11 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %indvars.iv186 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next187, %._crit_edge ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %20 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next187
-  %21 = trunc i64 %indvars.iv188 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv188 to i32
   store i32 %21, ptr %20, align 4
   %22 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %indvars.iv188
   %23 = load i32, ptr %22, align 4
-  %24 = trunc i64 %indvars.iv.next187 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.next187 to i32
   %25 = lshr i32 %24, 1
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %26
@@ -242,7 +242,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %128 = sext i32 %87 to i64
   %129 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %128
-  %130 = trunc i64 %indvars.iv.next197 to i32
+  %130 = trunc nsw i64 %indvars.iv.next197 to i32
   store i32 %130, ptr %129, align 4
   %131 = sext i32 %49 to i64
   %132 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %131
@@ -264,7 +264,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %145 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %indvars.iv.next197
   store i32 -1, ptr %145, align 4
   store i32 %130, ptr %88, align 4
-  %146 = trunc i64 %indvars.iv.next199 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.next199 to i32
   %147 = lshr i32 %146, 1
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %148
@@ -314,7 +314,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 .preheader:                                       ; preds = %171, %179
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %179 ], [ 1, %171 ]
   %.0117175 = phi i8 [ %spec.select135, %179 ], [ 0, %171 ]
-  %172 = trunc i64 %indvars.iv203 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv203 to i32
   br label %173
 
 173:                                              ; preds = %173, %.preheader
@@ -450,7 +450,7 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
 14:                                               ; preds = %9
   %15 = sext i32 %.15970.us to i64
   %16 = getelementptr inbounds i32, ptr %2, i64 %15
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4
   %18 = add nsw i32 %.15970.us, 1
   br label %19
@@ -468,7 +468,7 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
 
 .preheader68:                                     ; preds = %._crit_edge.us, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
-  %invariant.gep = getelementptr i8, ptr %1, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 4
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.preheader, label %.preheader66
 
@@ -485,7 +485,7 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
   %22 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv92
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %24
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %24
   %25 = load i32, ptr %gep, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %gep, align 4

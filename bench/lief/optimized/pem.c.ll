@@ -118,7 +118,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %62, label %159, label %63
 
 63:                                               ; preds = %58
-  %64 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %59, ptr noundef nonnull %9, i64 noundef 8), !range !4
+  %64 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %59, ptr noundef nonnull %9, i64 noundef 8)
   %.not142 = icmp eq i32 %64, 0
   br i1 %.not142, label %65, label %159
 
@@ -143,7 +143,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %74, label %159, label %75
 
 75:                                               ; preds = %70
-  %76 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %71, ptr noundef nonnull %9, i64 noundef 8), !range !4
+  %76 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %71, ptr noundef nonnull %9, i64 noundef 8)
   %.not141 = icmp eq i32 %76, 0
   br i1 %.not141, label %77, label %159
 
@@ -193,7 +193,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %98, label %159, label %99
 
 99:                                               ; preds = %94
-  %100 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %95, ptr noundef nonnull %9, i64 noundef 16), !range !4
+  %100 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %95, ptr noundef nonnull %9, i64 noundef 16)
   %.not147 = icmp eq i32 %100, 0
   br i1 %.not147, label %.thread156, label %159
 
@@ -351,7 +351,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @pem_get_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 -4608, 1) i32 @pem_get_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %2, i1 false)
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -396,7 +396,7 @@ define internal fastcc noundef i32 @pem_get_iv(ptr nocapture noundef readonly %0
   %23 = add nuw i64 %.02432, 1
   %24 = getelementptr inbounds i8, ptr %.02531, i64 1
   %exitcond.not = icmp eq i64 %23, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %10, %12, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ -4608, %10 ]
@@ -571,7 +571,7 @@ define hidden i32 @mbedtls_pem_write_buffer(ptr nocapture noundef readonly %0, p
   %36 = getelementptr inbounds i8, ptr %34, i64 1
   store i8 10, ptr %34, align 1
   %.not53 = icmp eq i64 %33, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.0.lcssa = phi ptr [ %30, %27 ], [ %36, %.lr.ph ]
@@ -738,7 +738,6 @@ attributes #13 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -4608, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

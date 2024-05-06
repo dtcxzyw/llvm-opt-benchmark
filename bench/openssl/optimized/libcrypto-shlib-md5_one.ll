@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @MD5.m = internal global [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @MD5(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
+define noundef ptr @MD5(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %c = alloca %struct.MD5state_st, align 4
   %call = call i32 @MD5_Init(ptr noundef nonnull %c) #2

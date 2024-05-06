@@ -610,7 +610,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_check_skip(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 1, 4) i32 @_foreach_check_skip(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call ptr @xstrstr(ptr noundef %0, ptr noundef nonnull @.str.22) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5

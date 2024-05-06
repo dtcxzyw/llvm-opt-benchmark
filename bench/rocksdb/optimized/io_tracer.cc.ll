@@ -1206,7 +1206,7 @@ if.end21:                                         ; preds = %if.end11
   store i64 0, ptr %size_.i51, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   store i32 0, ptr %len.i, align 4
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %29, i64 %call2.i
+  %add.ptr.i.i52 = getelementptr i8, ptr %29, i64 %call2.i
   %cmp.i.i.i = icmp sgt i64 %sub.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
 
@@ -1221,7 +1221,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i: ; preds = %if.then.i.i.i
   br label %land.lhs.true.i
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i:    ; preds = %if.then.i.i.i, %if.end21
-  %call.i.i.i55 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i.i52, ptr noundef nonnull %len.i)
+  %call.i.i.i55 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr.i.i52, ptr noundef nonnull %len.i)
           to label %call.i.i.i.noexc unwind label %lpad5.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
@@ -1292,7 +1292,7 @@ if.end44:                                         ; preds = %invoke.cont33
   store i64 0, ptr %size_.i71, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i72)
   store i32 0, ptr %len.i72, align 4
-  %add.ptr.i.i74 = getelementptr inbounds i8, ptr %34, i64 %33
+  %add.ptr.i.i74 = getelementptr i8, ptr %34, i64 %33
   %cmp.i.i.i75 = icmp sgt i64 %sub.i.i65, 0
   br i1 %cmp.i.i.i75, label %if.then.i.i.i91, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i76
 
@@ -1307,7 +1307,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i93: ; preds = %if.then.i.i.i
   br label %land.lhs.true.i80
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i76:  ; preds = %if.then.i.i.i91, %if.end44
-  %call.i.i.i97 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %add.ptr.i.i64, ptr noundef nonnull %add.ptr.i.i74, ptr noundef nonnull %len.i72)
+  %call.i.i.i97 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %add.ptr.i.i64, ptr noundef %add.ptr.i.i74, ptr noundef nonnull %len.i72)
           to label %call.i.i.i.noexc96 unwind label %lpad5.loopexit.split-lp
 
 call.i.i.i.noexc96:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i76

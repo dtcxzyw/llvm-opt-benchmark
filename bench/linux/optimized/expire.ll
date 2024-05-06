@@ -87,7 +87,7 @@ declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @autofs_expire_run(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @autofs_expire_run(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.autofs_packet_expire, align 4
   call void @llvm.lifetime.start.p0(i64 268, ptr nonnull %5) #7
   %6 = getelementptr inbounds i8, ptr %2, i64 24

@@ -147,7 +147,7 @@ if.end:                                           ; preds = %filter_rewriter_flu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @colo_rewriter_receive_iov(ptr noundef %nf, ptr noundef %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
+define internal range(i64 0, 2) i64 @colo_rewriter_receive_iov(ptr noundef %nf, ptr noundef %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
 entry:
   %_now.i.i30.i = alloca %struct.timeval, align 8
   %_now.i.i.i40 = alloca %struct.timeval, align 8
@@ -779,7 +779,7 @@ entry:
 declare ptr @g_hash_table_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @offset_is_nonzero(ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture readnone %user_data) #7 {
+define internal range(i32 0, 2) i32 @offset_is_nonzero(ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture readnone %user_data) #7 {
 entry:
   %offset = getelementptr inbounds i8, ptr %value, i64 64
   %0 = load i32, ptr %offset, align 8

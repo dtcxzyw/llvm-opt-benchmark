@@ -4643,7 +4643,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hfx_btgatt_microbit_io_pins = internal constant [21 x ptr] [ptr @hf_gatt_microbit_io_pin0, ptr @hf_gatt_microbit_io_pin1, ptr @hf_gatt_microbit_io_pin2, ptr @hf_gatt_microbit_io_pin3, ptr @hf_gatt_microbit_io_pin4, ptr @hf_gatt_microbit_io_pin5, ptr @hf_gatt_microbit_io_pin6, ptr @hf_gatt_microbit_io_pin7, ptr @hf_gatt_microbit_io_pin8, ptr @hf_gatt_microbit_io_pin9, ptr @hf_gatt_microbit_io_pin10, ptr @hf_gatt_microbit_io_pin11, ptr @hf_gatt_microbit_io_pin12, ptr @hf_gatt_microbit_io_pin13, ptr @hf_gatt_microbit_io_pin14, ptr @hf_gatt_microbit_io_pin15, ptr @hf_gatt_microbit_io_pin16, ptr @hf_gatt_microbit_io_pin17, ptr @hf_gatt_microbit_io_pin18, ptr @hf_gatt_microbit_io_pin19, ptr null], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @bluetooth_gatt_has_no_parameter(i8 noundef zeroext %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bluetooth_gatt_has_no_parameter(i8 noundef zeroext %0) local_unnamed_addr #0 {
 is_readable_request.exit:
   %1 = and i8 %0, -7
   %switch.selectcmp = icmp eq i8 %1, 8
@@ -4704,7 +4704,7 @@ define internal void @base_signed_one_tenth_unitless(ptr nocapture noundef write
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.2132) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.2132) #13
   ret void
 }
 
@@ -4721,7 +4721,7 @@ define internal void @base_signed_one_tenth_percentage(ptr nocapture noundef wri
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
   ret void
 }
 
@@ -4762,7 +4762,7 @@ define internal void @base_signed_one_thousandth_meters_per_seconds(ptr nocaptur
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 1000
   %5 = sdiv i32 %1, 1000
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3058) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3058) #13
   ret void
 }
 
@@ -4771,7 +4771,7 @@ define internal void @base_signed_one_hundredth_percentage(ptr nocapture noundef
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 100
   %5 = sdiv i32 %1, 100
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
   ret void
 }
 
@@ -6981,7 +6981,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_accelerometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_accelerometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
@@ -7025,7 +7025,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_accelerometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_accelerometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7050,7 +7050,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_magnetometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_magnetometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
@@ -7094,7 +7094,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_magnetometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7119,7 +7119,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_magnetometer_bearing(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_bearing(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7144,7 +7144,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_button_a_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_a_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7169,7 +7169,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_button_b_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_b_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7382,7 +7382,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_scrolling_delay(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_scrolling_delay(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7515,7 +7515,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_dfu_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_dfu_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7540,7 +7540,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_temperature_value(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_temperature_value(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7565,7 +7565,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btgatt_microbit_temperature_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_temperature_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7667,7 +7667,7 @@ define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr nocapture
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %25, %27, %30
-  %34 = trunc i32 %7 to i16
+  %34 = trunc nuw i32 %7 to i16
   br label %35
 
 35:                                               ; preds = %proto_item_set_generated.exit, %22
@@ -7743,7 +7743,7 @@ get_service_uuid_from_handle.exit.thread86:       ; preds = %37
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %18, ptr noundef nonnull align 4 dereferenceable(20) %51, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %18, ptr noundef nonnull align 4 dereferenceable(20) %51, i64 20, i1 false)
   br label %get_service_uuid_from_handle.exit
 
 .thread.i:                                        ; preds = %52, %50, %.lr.ph.i
@@ -7815,7 +7815,7 @@ get_characteristic_uuid_from_handle.exit.thread87: ; preds = %59
   ]
 
 75:                                               ; preds = %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %71, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %71, i64 20, i1 false)
   br label %get_characteristic_uuid_from_handle.exit
 
 .critedge.i:                                      ; preds = %72, %70, %.lr.ph.i72
@@ -7865,7 +7865,7 @@ get_characteristic_uuid_from_handle.exit:         ; preds = %72, %.critedge.i, %
   br i1 %.not11.i75, label %get_bluetooth_uuid_from_handle.exit, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %90, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %90, i64 20, i1 false)
   br label %get_bluetooth_uuid_from_handle.exit
 
 get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_from_handle.exit.thread, %78, %89, %91
@@ -8175,7 +8175,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
   br label %.loopexit30
 
 .thread.i:                                        ; preds = %32, %30, %.lr.ph.i
@@ -8232,7 +8232,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   ]
 
 54:                                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
   br label %.loopexit
 
 .critedge.i:                                      ; preds = %51, %49, %.lr.ph.i25
@@ -8278,7 +8278,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %.not11.i28, label %get_bluetooth_uuid_from_handle.exit, label %69
 
 69:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %68, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %68, i64 20, i1 false)
   br label %get_bluetooth_uuid_from_handle.exit
 
 get_bluetooth_uuid_from_handle.exit:              ; preds = %.loopexit, %67, %69
@@ -21705,7 +21705,7 @@ declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @is_long_attribute_value(i16 %.0.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_long_attribute_value(i16 %.0.val) unnamed_addr #0 {
   switch i16 %.0.val, label %1 [
     i16 10497, label %2
     i16 10752, label %2

@@ -1607,7 +1607,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_
   br i1 %.not39, label %lxb_html_tag_is_category.exit.thread, label %41
 
 41:                                               ; preds = %lxb_html_tag_is_category.exit
-  %trunc = trunc i64 %34 to i8
+  %trunc = trunc nuw i64 %34 to i8
   switch i8 %trunc, label %lxb_html_tree_node_is.exit35.thread [
     i8 9, label %lxb_html_tree_node_is.exit33
     i8 51, label %lxb_html_tree_node_is.exit34
@@ -1778,7 +1778,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_
   br i1 %.not52, label %lxb_html_tag_is_category.exit.thread, label %51
 
 51:                                               ; preds = %lxb_html_tag_is_category.exit
-  %trunc = trunc i64 %13 to i8
+  %trunc = trunc nuw i64 %13 to i8
   switch i8 %trunc, label %lxb_html_tree_node_is.exit47.thread [
     i8 9, label %lxb_html_tree_node_is.exit45
     i8 51, label %lxb_html_tree_node_is.exit46

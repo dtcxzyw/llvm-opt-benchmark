@@ -355,7 +355,7 @@ if.then.i.i35:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %9, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 

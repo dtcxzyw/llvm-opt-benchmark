@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vlv_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 628
   %5 = load i32, ptr %4, align 4
@@ -658,7 +658,7 @@ define dso_local void @vlv_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bxt_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 628
   %5 = load i32, ptr %4, align 4
@@ -905,7 +905,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %87
-  %90 = trunc i32 %75 to i8
+  %90 = trunc nuw nsw i32 %75 to i8
   %.lhs.trunc = add nuw nsw i8 %90, 5
   %91 = udiv i8 %.lhs.trunc, 6
   %.zext = zext nneg i8 %91 to i32

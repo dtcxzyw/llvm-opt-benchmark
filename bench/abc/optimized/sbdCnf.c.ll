@@ -192,7 +192,7 @@ Vec_StrPush.exit47:                               ; preds = %.Vec_StrGrow.exit10
   br i1 %65, label %.lr.ph80, label %.critedge
 
 .lr.ph80:                                         ; preds = %58
-  %66 = trunc i64 %indvars.iv84 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv84 to i32
   %67 = or disjoint i32 %10, %66
   %68 = trunc i32 %67 to i8
   br label %69

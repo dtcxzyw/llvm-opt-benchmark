@@ -749,7 +749,7 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mei_me_d0i3_exit_sync(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @mei_me_d0i3_exit_sync(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   store i32 3, ptr %3, align 8
@@ -1055,7 +1055,7 @@ define internal fastcc noundef i32 @mei_me_d0i3_exit_sync(ptr noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mei_me_irq_quick_handler(i32 %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 3) i32 @mei_me_irq_quick_handler(i32 %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3728
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -2919,7 +2919,7 @@ define internal noundef i32 @mei_me_hw_reset(ptr noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mei_me_hw_start(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -62, 1) i32 @mei_me_hw_start(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.mei_fw_status, align 4
   %3 = alloca [54 x i8], align 16
   %4 = alloca i32, align 4
@@ -3171,7 +3171,7 @@ define internal noundef i32 @mei_me_hw_start(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mei_me_hw_config(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @mei_me_hw_config(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 3752
@@ -3441,7 +3441,7 @@ define internal i32 @mei_me_fw_status(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mei_me_trc_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @mei_me_trc_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3720
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -3802,7 +3802,7 @@ define internal void @mei_me_synchronize_irq(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_hbuf_empty_slots(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -75, 256) i32 @mei_me_hbuf_empty_slots(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3917,7 +3917,7 @@ define internal zeroext i1 @mei_me_hbuf_is_empty(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @mei_me_hbuf_depth(ptr nocapture noundef readonly %0) #13 align 16 {
+define internal range(i32 0, 256) i32 @mei_me_hbuf_depth(ptr nocapture noundef readonly %0) #13 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3745
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -3925,7 +3925,7 @@ define internal i32 @mei_me_hbuf_depth(ptr nocapture noundef readonly %0) #13 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_hbuf_write(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) #0 align 16 {
+define internal range(i32 -90, 1) i32 @mei_me_hbuf_write(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %1, null
   %8 = and i64 %2, 3
@@ -4082,7 +4082,7 @@ define internal i32 @mei_me_hbuf_write(ptr noundef %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_count_full_read_slots(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -75, 256) i32 @mei_me_count_full_read_slots(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 12

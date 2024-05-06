@@ -643,7 +643,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6casadi11n_fd_pointsENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
+define noundef range(i64 -1, 6) i64 @_ZN6casadi11n_fd_pointsENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp ult i32 %0, 4
   br i1 %2, label %switch.lookup, label %4
 
@@ -659,7 +659,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6casadi9fd_offsetENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
+define noundef range(i64 -1, 3) i64 @_ZN6casadi9fd_offsetENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp ult i32 %0, 4
   br i1 %2, label %switch.lookup, label %4
 
@@ -1960,7 +1960,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi10FiniteDiff4evalEPPKdPPdPxS4_Pv(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi10FiniteDiff4evalEPPKdPPdPxS4_Pv(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 704
   %8 = tail call noundef i64 @_ZNK6casadi8Function4n_inEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = tail call noundef i64 @_ZNK6casadi8Function5n_outEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -2207,7 +2207,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit144.us: ; preds = %.lr.ph.i137.us, %.l
   br i1 %or.cond15.i.us, label %.lr.ph.i145.us.preheader, label %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit.us
 
 .lr.ph.i145.us.preheader:                         ; preds = %86
-  %94 = mul nsw i64 %73, %.0119215
+  %94 = mul nuw nsw i64 %73, %.0119215
   %95 = getelementptr inbounds double, ptr %91, i64 %94
   br label %.lr.ph.i145.us
 
@@ -2350,7 +2350,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157:    ; preds = %.lr.ph.i150, %114
   br i1 %or.cond252, label %.lr.ph23.preheader.i167.us, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168.us
 
 .lr.ph23.preheader.i167.us:                       ; preds = %.lr.ph213.split.us
-  %151 = mul nsw i64 %147, %.0119215
+  %151 = mul nuw nsw i64 %147, %.0119215
   %152 = getelementptr inbounds double, ptr %149, i64 %151
   %153 = shl nuw i64 %147, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %152, i8 0, i64 %153, i1 false)
@@ -2374,7 +2374,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168.us: ; preds = %.lr.ph23.preheader.
 
 .lr.ph.i161.preheader:                            ; preds = %.lr.ph213.split
   %159 = getelementptr double, ptr %.0121.lcssa, i64 %.0112210
-  %160 = mul nsw i64 %155, %.0119215
+  %160 = mul nuw nsw i64 %155, %.0119215
   %161 = getelementptr double, ptr %157, i64 %160
   br label %.lr.ph.i161
 

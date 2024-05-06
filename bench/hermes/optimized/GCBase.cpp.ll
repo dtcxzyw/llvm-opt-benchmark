@@ -419,23 +419,23 @@ _ZNK6hermes2vm8GCConfig20getAnalyticsCallbackEv.exit: ; preds = %_ZNSt10shared_p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %firstFreeWeak_, i8 0, i64 48, i1 false)
   store i32 1, ptr %__kind.i.i, align 8
   %idTracker_ = getelementptr inbounds i8, ptr %this, i64 488
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %idTracker_, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %idTracker_, i8 0, i64 40, i1 false)
   %__kind.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
   store i32 1, ptr %__kind.i.i.i, align 8
   %lastID_.i = getelementptr inbounds i8, ptr %this, i64 528
   store i32 59, ptr %lastID_.i, align 8
   %objectIDMap_.i = getelementptr inbounds i8, ptr %this, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %objectIDMap_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %objectIDMap_.i, i8 0, i64 20, i1 false)
   %idObjectMap_.i = getelementptr inbounds i8, ptr %this, i64 560
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %idObjectMap_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %idObjectMap_.i, i8 0, i64 20, i1 false)
   %nativeIDMap_.i = getelementptr inbounds i8, ptr %this, i64 584
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %nativeIDMap_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %nativeIDMap_.i, i8 0, i64 20, i1 false)
   %extraNativeIDs_.i = getelementptr inbounds i8, ptr %this, i64 608
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %extraNativeIDs_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %extraNativeIDs_.i, i8 0, i64 20, i1 false)
   %symbolIDMap_.i = getelementptr inbounds i8, ptr %this, i64 632
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %symbolIDMap_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %symbolIDMap_.i, i8 0, i64 20, i1 false)
   %numberIDMap_.i = getelementptr inbounds i8, ptr %this, i64 656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %numberIDMap_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %numberIDMap_.i, i8 0, i64 20, i1 false)
   %tripwireCallback_ = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %TripwireConfig_.i = getelementptr inbounds i8, ptr %gcConfig, i64 88
@@ -4350,7 +4350,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 11) #27
   %call.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -4606,7 +4606,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 11) #27
   %call.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -6530,8 +6530,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -6543,19 +6543,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = shl nuw nsw i64 %conv.i32, 2
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr align 4 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -6564,7 +6564,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i32, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i50, %CurSize.0
+  %13 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = shl nsw i64 %13, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 4 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit
@@ -7240,7 +7240,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 11) #27
   %call.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -7304,7 +7304,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 11) #27
   %call.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -7467,7 +7467,7 @@ for.body6.lr.ph.i.i.i.i.i.i.i.i:                  ; preds = %for.cond3.preheader
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.body.i.i.i.i.i.i.i.i
   %i.031.i.i.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ 0, %entry ]
-  tail call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull align 4 poison)
+  tail call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull readnone align 4 poison)
   %inc.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.031.i.i.i.i.i.i.i.i, 1
   %3 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i = zext i8 %3 to i64
@@ -7502,7 +7502,7 @@ for.body6.i.i.i.i.i.i.i.i:                        ; preds = %for.body6.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i, i64 noundef 11) #27
   %call.i.i.i.i.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr11.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i.i.i.i.i.i.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr11.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i.i.i.i.i.i.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i.i.i.i.i.i.i.i.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i)
@@ -7527,7 +7527,7 @@ for.body18.i.i.i.i.i.i.i.i:                       ; preds = %for.body18.i.i.i.i.
   %8 = load i8, ptr %arrayidx.i.i26.i.i.i.i.i.i.i.i, align 1
   %idx.ext22.i.i.i.i.i.i.i.i = zext i8 %8 to i64
   %add.ptr23.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 %idx.ext22.i.i.i.i.i.i.i.i
-  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr23.i.i.i.i.i.i.i.i)
+  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 4 dereferenceable(4) %add.ptr23.i.i.i.i.i.i.i.i)
   %inc25.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.238.i.i.i.i.i.i.i.i, 1
   %9 = load i8, ptr %endGCSmallHermesValue.i.i.i.i.i.i.i.i, align 2
   %conv16.i.i.i.i.i.i.i.i = zext i8 %9 to i64
@@ -7576,7 +7576,7 @@ sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %i.03.i.i.i.i.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ 0, %sw.bb.i.i.i.i.i.i.i.i ]
-  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull align 4 poison)
+  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull readnone align 4 poison)
   %inc.i.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i.i.i.i, %14
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !110
@@ -7603,7 +7603,7 @@ for.body.i19.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i19.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds ([12 x i8], ptr @.str.64, i64 0, i64 11)) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 11) #27
   %call.i.i.i.i6.i.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %start.addr.02.i21.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i6.i.i.i.i.i.i.i, i64 noundef 8)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %start.addr.02.i21.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i6.i.i.i.i.i.i.i, i64 noundef 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i.i.i.i.i.i.i.i.i.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
@@ -7621,7 +7621,7 @@ sw.bb9.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 for.body.i26.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb9.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i
   %i.03.i27.i.i.i.i.i.i.i.i = phi i32 [ %inc.i30.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i ], [ 0, %sw.bb9.i.i.i.i.i.i.i.i ]
   %start.addr.02.i28.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i29.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i ], [ %add.ptr.i5.i.i.i.i.i.i.i, %sw.bb9.i.i.i.i.i.i.i.i ]
-  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(4) %start.addr.02.i28.i.i.i.i.i.i.i.i)
+  call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 4 dereferenceable(4) %start.addr.02.i28.i.i.i.i.i.i.i.i)
   %add.ptr.i29.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %start.addr.02.i28.i.i.i.i.i.i.i.i, i64 %conv10.i.i.i.i.i.i.i.i
   %inc.i30.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i27.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i31.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i30.i.i.i.i.i.i.i.i, %14
@@ -7822,7 +7822,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb

@@ -169,7 +169,7 @@ define hidden void @proto_reg_handoff_nvme_rdma() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 208
@@ -263,7 +263,7 @@ dissect_rdma_cm_packet.exit:                      ; preds = %20, %17, %14, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca %struct.keyed_data_req, align 8
   %6 = alloca %struct.keyed_data_req, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #5

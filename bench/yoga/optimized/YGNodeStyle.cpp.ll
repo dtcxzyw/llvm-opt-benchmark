@@ -490,7 +490,7 @@ entry:
   %overflow_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %overflow_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 16
-  %0 = trunc i24 %bf.lshr.i.i to i8
+  %0 = trunc nuw i24 %bf.lshr.i.i to i8
   %bf.cast.i.i = and i8 %0, 3
   %cmp.not.i = icmp eq i8 %bf.cast.i.i, %conv.i
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8overflowEvEETnDaXadL_ZNS3_11setOverflowENS2_8OverflowEEES4_EEvP6YGNodeT1_.exit, label %if.then.i
@@ -527,7 +527,7 @@ entry:
   %display_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %display_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 18
-  %0 = trunc i24 %bf.lshr.i.i to i8
+  %0 = trunc nuw nsw i24 %bf.lshr.i.i to i8
   %bf.cast.i.i = and i8 %0, 1
   %cmp.not.i = icmp eq i8 %bf.cast.i.i, %conv.i
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7displayEvEETnDaXadL_ZNS3_10setDisplayENS2_7DisplayEEES4_EEvP6YGNodeT1_.exit, label %if.then.i

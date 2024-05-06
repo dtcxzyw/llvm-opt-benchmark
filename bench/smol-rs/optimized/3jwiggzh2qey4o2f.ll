@@ -197,7 +197,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
 
 29:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h1a2be5dc27f565aeE.exit"
   %30 = load i8, ptr %13, align 8, !range !72, !noundef !4
-  %31 = trunc i8 %30 to i1
+  %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %35, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread106.preheader"
 
 "_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread106.preheader": ; preds = %29
@@ -307,7 +307,7 @@ default.unreachable:                              ; preds = %46, %100
   %70 = load ptr, ptr %11, align 8, !align !20, !noundef !4
   store ptr null, ptr %11, align 8
   %71 = load i8, ptr %13, align 8, !range !72, !noundef !4
-  %72 = trunc i8 %71 to i1
+  %72 = trunc nuw i8 %71 to i1
   %73 = icmp ne ptr %70, null
   %or.cond.not.i = and i1 %73, %72
   br i1 %or.cond.not.i, label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split", label %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit"
@@ -338,7 +338,7 @@ default.unreachable:                              ; preds = %46, %100
   %82 = load ptr, ptr %11, align 8, !align !20, !noundef !4
   store ptr null, ptr %11, align 8
   %83 = load i8, ptr %13, align 8, !range !72, !noundef !4
-  %84 = trunc i8 %83 to i1
+  %84 = trunc nuw i8 %83 to i1
   %85 = icmp ne ptr %82, null
   %or.cond.not.i85 = and i1 %85, %84
   br i1 %or.cond.not.i85, label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split", label %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit86"
@@ -432,7 +432,7 @@ default.unreachable:                              ; preds = %46, %100
   %116 = load ptr, ptr %11, align 8, !align !20, !noundef !4
   store ptr null, ptr %11, align 8
   %117 = load i8, ptr %13, align 8, !range !72, !noundef !4
-  %118 = trunc i8 %117 to i1
+  %118 = trunc nuw i8 %117 to i1
   %119 = icmp ne ptr %116, null
   %or.cond.not.i92 = and i1 %119, %118
   br i1 %or.cond.not.i92, label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split", label %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit93"
@@ -449,7 +449,7 @@ default.unreachable:                              ; preds = %46, %100
   %123 = load ptr, ptr %11, align 8, !align !20, !noundef !4
   store ptr null, ptr %11, align 8
   %124 = load i8, ptr %13, align 8, !range !72, !noundef !4
-  %125 = trunc i8 %124 to i1
+  %125 = trunc nuw i8 %124 to i1
   %126 = icmp ne ptr %123, null
   %or.cond.not.i94 = and i1 %126, %125
   br i1 %or.cond.not.i94, label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split", label %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit95"
@@ -529,7 +529,7 @@ define hidden noundef align 8 ptr @"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$
   %4 = load ptr, ptr %2, align 8, !align !20, !noundef !4
   store ptr null, ptr %2, align 8
   %5 = load i8, ptr %3, align 8, !range !72, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %7 = icmp ne ptr %4, null
   %or.cond.not = and i1 %7, %6
   br i1 %or.cond.not, label %9, label %8
@@ -549,7 +549,7 @@ define hidden void @"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %3 = load i8, ptr %2, align 1, !range !72, !alias.scope !87, !noundef !4
   store i8 0, ptr %2, align 1, !alias.scope !87
-  %trunc.i.i = trunc i8 %3 to i1
+  %trunc.i.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i.i, label %"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$GT$8next_tag17hc37681dd9dbb5601E.exit", label %4
 
 4:                                                ; preds = %1

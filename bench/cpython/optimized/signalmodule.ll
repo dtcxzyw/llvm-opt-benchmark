@@ -1016,7 +1016,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.97 = private unnamed_addr constant [8 x i8] c"si_band\00", align 1
 @.str.98 = private unnamed_addr constant [23 x i8] c"band event for SIGPOLL\00", align 1
 @PyLong_Type = external global %struct._typeobject, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.99 = private unnamed_addr constant [63 x i8] c"Exception ignored when trying to write to the signal wakeup fd\00", align 1
 @.str.100 = private unnamed_addr constant [173 x i8] c"the function must be called with the GIL held, after Python initialization and before Python finalization, but the GIL is released (the current Python thread state is NULL)\00", align 1
 
@@ -2398,12 +2398,12 @@ land.lhs.true12.split:                            ; preds = %land.lhs.true12
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i8)
   %6 = add i32 %call2, -65
   %or.cond.i9 = icmp ult i32 %6, -64
-  br i1 %or.cond.i9, label %if.then.i19, label %if.end.i10
+  br i1 %or.cond.i9, label %if.then.i20, label %if.end.i10
 
-if.then.i19:                                      ; preds = %land.lhs.true12.split
+if.then.i20:                                      ; preds = %land.lhs.true12.split
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.23) #15
-  br label %signal_siginterrupt_impl.exit20
+  br label %signal_siginterrupt_impl.exit21
 
 if.end.i10:                                       ; preds = %land.lhs.true12.split
   %call.i11 = call i32 @sigaction(i32 noundef %call2, ptr noundef null, ptr noundef nonnull %act.i8) #15
@@ -2411,22 +2411,22 @@ if.end.i10:                                       ; preds = %land.lhs.true12.spl
   %8 = load i32, ptr %sa_flags3.i12, align 8
   %and.i13 = and i32 %8, -268435457
   store i32 %and.i13, ptr %sa_flags3.i12, align 8
-  %call5.i14 = call i32 @sigaction(i32 noundef %call2, ptr noundef nonnull %act.i8, ptr noundef null) #15
-  %cmp6.i15 = icmp slt i32 %call5.i14, 0
-  br i1 %cmp6.i15, label %if.then7.i17, label %signal_siginterrupt_impl.exit20
+  %call5.i15 = call i32 @sigaction(i32 noundef %call2, ptr noundef nonnull %act.i8, ptr noundef null) #15
+  %cmp6.i16 = icmp slt i32 %call5.i15, 0
+  br i1 %cmp6.i16, label %if.then7.i18, label %signal_siginterrupt_impl.exit21
 
-if.then7.i17:                                     ; preds = %if.end.i10
+if.then7.i18:                                     ; preds = %if.end.i10
   %9 = load ptr, ptr @PyExc_OSError, align 8
-  %call8.i18 = call ptr @PyErr_SetFromErrno(ptr noundef %9) #15
-  br label %signal_siginterrupt_impl.exit20
+  %call8.i19 = call ptr @PyErr_SetFromErrno(ptr noundef %9) #15
+  br label %signal_siginterrupt_impl.exit21
 
-signal_siginterrupt_impl.exit20:                  ; preds = %if.then.i19, %if.end.i10, %if.then7.i17
-  %retval.0.i16 = phi ptr [ null, %if.then.i19 ], [ null, %if.then7.i17 ], [ @_Py_NoneStruct, %if.end.i10 ]
+signal_siginterrupt_impl.exit21:                  ; preds = %if.then.i20, %if.end.i10, %if.then7.i18
+  %retval.0.i17 = phi ptr [ null, %if.then.i20 ], [ null, %if.then7.i18 ], [ @_Py_NoneStruct, %if.end.i10 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i8)
   br label %exit
 
-exit:                                             ; preds = %signal_siginterrupt_impl.exit, %signal_siginterrupt_impl.exit20, %land.lhs.true12, %land.lhs.true4, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true12 ], [ null, %lor.lhs.false ], [ %retval.0.i, %signal_siginterrupt_impl.exit ], [ %retval.0.i16, %signal_siginterrupt_impl.exit20 ]
+exit:                                             ; preds = %signal_siginterrupt_impl.exit, %signal_siginterrupt_impl.exit21, %land.lhs.true12, %land.lhs.true4, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true12 ], [ null, %lor.lhs.false ], [ %retval.0.i, %signal_siginterrupt_impl.exit ], [ %retval.0.i17, %signal_siginterrupt_impl.exit21 ]
   ret ptr %return_value.0
 }
 

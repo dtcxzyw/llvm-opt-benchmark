@@ -164,7 +164,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
   %36 = getelementptr inbounds i8, ptr %26, i64 48
   %37 = load i32, ptr %36, align 8, !tbaa !93, !noalias !28
   %38 = ashr i32 %37, 1
-  %39 = mul nsw i32 %38, %35
+  %39 = mul nuw nsw i32 %38, %35
   %40 = icmp sgt i32 %33, -1
   tail call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %35, -1
@@ -366,7 +366,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
   %35 = getelementptr inbounds i8, ptr %25, i64 48
   %36 = load i32, ptr %35, align 8, !tbaa !93, !noalias !102
   %37 = ashr i32 %36, 1
-  %38 = mul nsw i32 %37, %34
+  %38 = mul nuw nsw i32 %37, %34
   %39 = icmp sgt i32 %32, -1
   tail call void @llvm.assume(i1 %39)
   %40 = icmp sgt i32 %34, -1
@@ -769,7 +769,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = icmp sgt i32 %3, 0
   tail call void @llvm.assume(i1 %6)
-  %7 = mul nsw i32 %3, 12
+  %7 = mul nuw nsw i32 %3, 12
   %8 = and i32 %7, 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
@@ -829,7 +829,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %44 = getelementptr inbounds i8, ptr %34, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !93, !noalias !125
   %46 = ashr i32 %45, 1
-  %47 = mul nsw i32 %46, %43
+  %47 = mul nuw nsw i32 %46, %43
   %48 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %48)
   %49 = icmp sgt i32 %43, -1
@@ -921,7 +921,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %105 = shl nuw nsw i32 %104, 8
   %106 = and i32 %105, 3840
   %107 = or disjoint i32 %106, %101
-  %108 = trunc i32 %107 to i16
+  %108 = trunc nuw nsw i32 %107 to i16
   store i16 %108, ptr %99, align 2, !tbaa !108
   %109 = getelementptr inbounds i8, ptr %93, i64 2
   %110 = load i8, ptr %109, align 1, !tbaa !98
@@ -929,7 +929,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %112 = shl nuw nsw i32 %111, 4
   %113 = lshr i32 %104, 4
   %114 = or disjoint i32 %112, %113
-  %115 = trunc i32 %114 to i16
+  %115 = trunc nuw nsw i32 %114 to i16
   %116 = getelementptr inbounds i8, ptr %99, i64 2
   store i16 %115, ptr %116, align 2, !tbaa !108
   %117 = add nuw nsw i64 %86, 1
@@ -994,7 +994,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %153 = shl nuw nsw i32 %152, 8
   %154 = and i32 %153, 3840
   %155 = or disjoint i32 %154, %146
-  %156 = trunc i32 %155 to i16
+  %156 = trunc nuw nsw i32 %155 to i16
   %157 = icmp ult i64 %249, %70
   tail call void @llvm.assume(i1 %157)
   %158 = getelementptr inbounds i16, ptr %133, i64 %249
@@ -1010,7 +1010,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %166 = shl nuw nsw i32 %164, 4
   %167 = lshr i32 %152, 4
   %168 = or disjoint i32 %166, %167
-  %169 = trunc i32 %168 to i16
+  %169 = trunc nuw nsw i32 %168 to i16
   %170 = icmp ult i64 %165, %70
   tail call void @llvm.assume(i1 %170)
   %171 = getelementptr inbounds i16, ptr %133, i64 %165
@@ -1041,7 +1041,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %190 = shl nuw nsw i32 %189, 8
   %191 = and i32 %190, 3840
   %192 = or disjoint i32 %191, %183
-  %193 = trunc i32 %192 to i16
+  %193 = trunc nuw nsw i32 %192 to i16
   %194 = icmp ult i64 %177, %70
   tail call void @llvm.assume(i1 %194)
   %195 = getelementptr inbounds i16, ptr %133, i64 %177
@@ -1057,12 +1057,12 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %203 = shl nuw nsw i32 %201, 4
   %204 = lshr i32 %189, 4
   %205 = or disjoint i32 %203, %204
-  %206 = trunc i32 %205 to i16
+  %206 = trunc nuw nsw i32 %205 to i16
   %207 = icmp ult i64 %202, %70
   tail call void @llvm.assume(i1 %207)
   %208 = getelementptr inbounds i16, ptr %133, i64 %202
   store i16 %206, ptr %208, align 2, !tbaa !108
-  %209 = trunc i64 %177 to i32
+  %209 = trunc nuw nsw i64 %177 to i32
   %210 = urem i32 %209, 10
   %211 = icmp eq i32 %210, 8
   %212 = select i1 %211, i32 4, i32 3
@@ -1082,7 +1082,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %225 = shl nuw nsw i32 %224, 8
   %226 = and i32 %225, 3840
   %227 = or disjoint i32 %226, %218
-  %228 = trunc i32 %227 to i16
+  %228 = trunc nuw nsw i32 %227 to i16
   %229 = icmp ult i64 %214, %70
   tail call void @llvm.assume(i1 %229)
   %230 = getelementptr inbounds i16, ptr %133, i64 %214
@@ -1098,12 +1098,12 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %238 = shl nuw nsw i32 %236, 4
   %239 = lshr i32 %224, 4
   %240 = or disjoint i32 %238, %239
-  %241 = trunc i32 %240 to i16
+  %241 = trunc nuw nsw i32 %240 to i16
   %242 = icmp ult i64 %237, %70
   tail call void @llvm.assume(i1 %242)
   %243 = getelementptr inbounds i16, ptr %133, i64 %237
   store i16 %241, ptr %243, align 2, !tbaa !108
-  %244 = trunc i64 %214 to i32
+  %244 = trunc nuw nsw i64 %214 to i32
   %245 = urem i32 %244, 10
   %246 = icmp eq i32 %245, 8
   %247 = select i1 %246, i32 4, i32 3
@@ -1115,10 +1115,10 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN8rawspeed24UncompressedDecompressor12bytesPerLineEib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 751619276) i32 @_ZN8rawspeed24UncompressedDecompressor12bytesPerLineEib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = icmp sgt i32 %0, 0
   tail call void @llvm.assume(i1 %3)
-  %4 = mul nsw i32 %0, 12
+  %4 = mul nuw nsw i32 %0, 12
   %5 = and i32 %4, 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7
@@ -1195,7 +1195,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = icmp sgt i32 %3, 0
   tail call void @llvm.assume(i1 %6)
-  %7 = mul nsw i32 %3, 12
+  %7 = mul nuw nsw i32 %3, 12
   %8 = and i32 %7, 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
@@ -1255,7 +1255,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %44 = getelementptr inbounds i8, ptr %34, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !93, !noalias !130
   %46 = ashr i32 %45, 1
-  %47 = mul nsw i32 %46, %43
+  %47 = mul nuw nsw i32 %46, %43
   %48 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %48)
   %49 = icmp sgt i32 %43, -1
@@ -1347,7 +1347,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %105 = shl nuw nsw i32 %101, 4
   %106 = lshr i32 %104, 4
   %107 = or disjoint i32 %106, %105
-  %108 = trunc i32 %107 to i16
+  %108 = trunc nuw nsw i32 %107 to i16
   store i16 %108, ptr %99, align 2, !tbaa !108
   %109 = getelementptr inbounds i8, ptr %93, i64 2
   %110 = load i8, ptr %109, align 1, !tbaa !98
@@ -1355,7 +1355,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %112 = shl nuw nsw i32 %104, 8
   %113 = and i32 %112, 3840
   %114 = or disjoint i32 %113, %111
-  %115 = trunc i32 %114 to i16
+  %115 = trunc nuw nsw i32 %114 to i16
   %116 = getelementptr inbounds i8, ptr %99, i64 2
   store i16 %115, ptr %116, align 2, !tbaa !108
   %117 = add nuw nsw i64 %86, 1
@@ -1420,7 +1420,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %153 = shl nuw nsw i32 %146, 4
   %154 = lshr i32 %152, 4
   %155 = or disjoint i32 %154, %153
-  %156 = trunc i32 %155 to i16
+  %156 = trunc nuw nsw i32 %155 to i16
   %157 = icmp ult i64 %249, %70
   tail call void @llvm.assume(i1 %157)
   %158 = getelementptr inbounds i16, ptr %133, i64 %249
@@ -1436,7 +1436,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %166 = shl nuw nsw i32 %152, 8
   %167 = and i32 %166, 3840
   %168 = or disjoint i32 %167, %164
-  %169 = trunc i32 %168 to i16
+  %169 = trunc nuw nsw i32 %168 to i16
   %170 = icmp ult i64 %165, %70
   tail call void @llvm.assume(i1 %170)
   %171 = getelementptr inbounds i16, ptr %133, i64 %165
@@ -1467,7 +1467,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %190 = shl nuw nsw i32 %183, 4
   %191 = lshr i32 %189, 4
   %192 = or disjoint i32 %191, %190
-  %193 = trunc i32 %192 to i16
+  %193 = trunc nuw nsw i32 %192 to i16
   %194 = icmp ult i64 %177, %70
   tail call void @llvm.assume(i1 %194)
   %195 = getelementptr inbounds i16, ptr %133, i64 %177
@@ -1483,12 +1483,12 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %203 = shl nuw nsw i32 %189, 8
   %204 = and i32 %203, 3840
   %205 = or disjoint i32 %204, %201
-  %206 = trunc i32 %205 to i16
+  %206 = trunc nuw nsw i32 %205 to i16
   %207 = icmp ult i64 %202, %70
   tail call void @llvm.assume(i1 %207)
   %208 = getelementptr inbounds i16, ptr %133, i64 %202
   store i16 %206, ptr %208, align 2, !tbaa !108
-  %209 = trunc i64 %177 to i32
+  %209 = trunc nuw nsw i64 %177 to i32
   %210 = urem i32 %209, 10
   %211 = icmp eq i32 %210, 8
   %212 = select i1 %211, i32 4, i32 3
@@ -1508,7 +1508,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %225 = shl nuw nsw i32 %218, 4
   %226 = lshr i32 %224, 4
   %227 = or disjoint i32 %226, %225
-  %228 = trunc i32 %227 to i16
+  %228 = trunc nuw nsw i32 %227 to i16
   %229 = icmp ult i64 %214, %70
   tail call void @llvm.assume(i1 %229)
   %230 = getelementptr inbounds i16, ptr %133, i64 %214
@@ -1524,12 +1524,12 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor25decode12Bit
   %238 = shl nuw nsw i32 %224, 8
   %239 = and i32 %238, 3840
   %240 = or disjoint i32 %239, %236
-  %241 = trunc i32 %240 to i16
+  %241 = trunc nuw nsw i32 %240 to i16
   %242 = icmp ult i64 %237, %70
   tail call void @llvm.assume(i1 %242)
   %243 = getelementptr inbounds i16, ptr %133, i64 %237
   store i16 %241, ptr %243, align 2, !tbaa !108
-  %244 = trunc i64 %214 to i32
+  %244 = trunc nuw nsw i64 %214 to i32
   %245 = urem i32 %244, 10
   %246 = icmp eq i32 %245, 8
   %247 = select i1 %246, i32 4, i32 3
@@ -1597,7 +1597,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %37 = getelementptr inbounds i8, ptr %27, i64 48
   %38 = load i32, ptr %37, align 8, !tbaa !93, !noalias !135
   %39 = ashr i32 %38, 1
-  %40 = mul nsw i32 %39, %36
+  %40 = mul nuw nsw i32 %39, %36
   %41 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %41)
   %42 = icmp sgt i32 %36, -1
@@ -2088,7 +2088,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %37 = getelementptr inbounds i8, ptr %27, i64 48
   %38 = load i32, ptr %37, align 8, !tbaa !93, !noalias !153
   %39 = ashr i32 %38, 1
-  %40 = mul nsw i32 %39, %36
+  %40 = mul nuw nsw i32 %39, %36
   %41 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %41)
   %42 = icmp sgt i32 %36, -1
@@ -2633,11 +2633,11 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressorC2ENS_10ByteStreamENS_
   %54 = trunc i64 %48 to i32
   %55 = icmp sgt i32 %54, 0
   %56 = lshr i64 %48, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = icmp sgt i32 %57, 0
   %59 = and i1 %55, %58
   %60 = lshr i64 %50, 32
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw i64 %60 to i32
   br i1 %59, label %64, label %66
 
 62:                                               ; preds = %66
@@ -2760,7 +2760,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressorC2ENS_10ByteStreamENS_
   unreachable
 
 120:                                              ; preds = %110
-  %121 = trunc i64 %105 to i32
+  %121 = trunc nuw nsw i64 %105 to i32
   %122 = sub nsw i32 %4, %121
   %123 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %122, ptr %123, align 4, !tbaa !195
@@ -2919,7 +2919,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %36 = getelementptr inbounds i8, ptr %3, i64 604
   %37 = load i32, ptr %36, align 4, !tbaa !92, !noalias !203
   %38 = ashr i32 %5, 2
-  %39 = mul nsw i32 %37, %38
+  %39 = mul nuw nsw i32 %37, %38
   %40 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %37, -1
@@ -2940,7 +2940,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   tail call void @llvm.assume(i1 %49)
   %50 = icmp ugt i32 %37, %14
   tail call void @llvm.assume(i1 %50)
-  %51 = mul nsw i32 %14, %38
+  %51 = mul nuw nsw i32 %14, %38
   %52 = add nuw nsw i32 %35, %51
   %53 = icmp ule i32 %52, %39
   tail call void @llvm.assume(i1 %53)
@@ -3209,7 +3209,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %222 = getelementptr inbounds i8, ptr %3, i64 604
   %223 = load i32, ptr %222, align 4, !tbaa !92, !noalias !209
   %224 = ashr i32 %5, 1
-  %225 = mul nsw i32 %223, %224
+  %225 = mul nuw nsw i32 %223, %224
   %226 = icmp sgt i32 %221, -1
   tail call void @llvm.assume(i1 %226)
   %227 = icmp sgt i32 %223, -1
@@ -3230,7 +3230,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   tail call void @llvm.assume(i1 %235)
   %236 = icmp ugt i32 %223, %14
   tail call void @llvm.assume(i1 %236)
-  %237 = mul nsw i32 %14, %224
+  %237 = mul nuw nsw i32 %14, %224
   %238 = add nuw nsw i32 %221, %237
   %239 = icmp ule i32 %238, %225
   tail call void @llvm.assume(i1 %239)
@@ -3494,7 +3494,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !215
   %18 = ashr i32 %17, 2
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -3796,7 +3796,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %215 = phi i64 [ %212, %203 ], [ %182, %178 ]
   %216 = phi i32 [ %208, %203 ], [ %181, %178 ]
   %217 = lshr i64 %215, 48
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw nsw i64 %217 to i32
   %219 = add nsw i32 %216, -16
   %220 = shl i64 %215, 16
   %221 = lshr i32 %218, 10
@@ -3869,7 +3869,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !224
   %18 = ashr i32 %17, 2
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -4237,7 +4237,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !230
   %18 = ashr i32 %17, 2
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -4539,7 +4539,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %215 = phi i64 [ %212, %203 ], [ %182, %178 ]
   %216 = phi i32 [ %208, %203 ], [ %181, %178 ]
   %217 = lshr i64 %215, 40
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw nsw i64 %217 to i32
   %219 = add nsw i32 %216, -24
   %220 = shl i64 %215, 24
   %221 = lshr i32 %218, 16
@@ -4612,7 +4612,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !236
   %18 = ashr i32 %17, 2
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -4980,7 +4980,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !242
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -5326,7 +5326,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !248
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -5427,7 +5427,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %81 = zext nneg i32 %80 to i64
   %82 = zext nneg i32 %73 to i64
   %83 = icmp ult i64 %69, %65
-  %84 = trunc i64 %69 to i32
+  %84 = trunc nuw i64 %69 to i32
   %85 = mul nsw i32 %18, %84
   %86 = add nuw nsw i32 %85, %13
   %87 = icmp ule i32 %86, %19
@@ -5522,7 +5522,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %145 = load i32, ptr %61, align 4, !tbaa !195
   call void @_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB16ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE9skipBytesEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %145)
   %146 = add nuw nsw i64 %69, 1
-  %147 = trunc i64 %146 to i32
+  %147 = trunc nuw nsw i64 %146 to i32
   %148 = icmp slt i32 %147, %1
   br i1 %148, label %68, label %.loopexit, !llvm.loop !259
 
@@ -5560,7 +5560,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !260
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -5903,7 +5903,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !93, !noalias !266
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1

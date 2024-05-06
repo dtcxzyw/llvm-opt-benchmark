@@ -620,9 +620,9 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.e
 
 .thread:                                          ; preds = %40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #14
-  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-44:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -630,9 +630,9 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.e
 
 46:                                               ; preds = %40
   tail call void @_ZdlPv(ptr noundef nonnull %23) #15
-  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %46, %.thread
+_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %46, %.thread
   invoke void @__cxa_rethrow() #17
           to label %51 unwind label %44
 
@@ -646,7 +646,7 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.e
   tail call void @__clang_call_terminate(ptr %50) #16
   unreachable
 
-51:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit35
+51:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
   unreachable
 }
 

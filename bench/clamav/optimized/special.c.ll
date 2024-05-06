@@ -544,7 +544,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [10 x i32], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 35156
   %4 = load i32, ptr %3, align 4

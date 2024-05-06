@@ -114,7 +114,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @init() local_unnamed_addr #0 {
   %1 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
   %.lobit = lshr i16 %1, 15
-  %. = trunc i16 %.lobit to i8
+  %. = trunc nuw nsw i16 %.lobit to i8
   store i8 %., ptr @gang_mode, align 1
   %2 = tail call i32 @slurm_get_log_level() #9
   %3 = icmp sgt i32 %2, 3
@@ -409,9 +409,9 @@ thread-pre-split:                                 ; preds = %32
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %98
-  %103 = mul nsw i32 %.0.i, %94
+  %103 = mul nuw nsw i32 %.0.i, %94
   %104 = add nuw nsw i32 %.0.i, 1
-  %105 = mul nsw i32 %104, %94
+  %105 = mul nuw nsw i32 %104, %94
   %106 = call i32 @slurm_bit_set_count_range(ptr noundef %87, i32 noundef %103, i32 noundef %105) #9
   %.not21.i = icmp eq i32 %106, 0
   br i1 %.not21.i, label %107, label %98, !llvm.loop !6
@@ -544,7 +544,7 @@ define noundef i32 @select_p_job_begin(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_job_ready(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @select_p_job_ready(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
@@ -590,7 +590,7 @@ define noundef i32 @select_p_job_ready(ptr nocapture noundef readonly %0) local_
 declare ptr @next_node_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
@@ -1097,7 +1097,7 @@ declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @job_res_add_job(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_job_resized(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_job_resized(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @select_part_record, align 8
@@ -1619,7 +1619,7 @@ define noundef ptr @select_p_select_nodeinfo_alloc() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_select_nodeinfo_free(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @select_p_select_nodeinfo_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
@@ -1648,7 +1648,7 @@ define noundef i32 @select_p_select_nodeinfo_free(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_select_nodeinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_select_nodeinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.16, i32 noundef 893, ptr noundef nonnull @__func__.select_p_select_nodeinfo_alloc) #9
@@ -1720,7 +1720,7 @@ declare i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr nound
 declare i32 @slurm_unpackdouble(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_select_nodeinfo_set_all() local_unnamed_addr #0 {
+define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -2033,7 +2033,7 @@ define i32 @select_p_select_nodeinfo_set(ptr noundef %0) local_unnamed_addr #0 {
 declare void @gres_job_state_log(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_select_nodeinfo_get(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_select_nodeinfo_get(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %8
 
@@ -2141,7 +2141,7 @@ define noundef i32 @select_p_select_jobinfo_unpack(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_get_info_from_plugin(i32 noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_get_info_from_plugin(i32 noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   switch i32 %0, label %6 [
     i32 0, label %4
     i32 6, label %5

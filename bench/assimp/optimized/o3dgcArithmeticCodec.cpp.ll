@@ -88,7 +88,7 @@ if.then9:                                         ; preds = %if.end6
 do.body.i:                                        ; preds = %do.body.i, %if.then9
   %6 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then9 ]
   %shr.i = lshr i32 %6, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %7 = load ptr, ptr %ac_pointer.i1, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i1, align 8
@@ -107,7 +107,7 @@ if.end10:                                         ; preds = %do.body.i, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec7get_bitEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec7get_bitEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #1 align 2 {
 entry:
   %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
@@ -206,7 +206,7 @@ if.then6:                                         ; preds = %if.end
 do.body.i:                                        ; preds = %do.body.i, %if.then6
   %6 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then6 ]
   %shr.i = lshr i32 %6, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %7 = load ptr, ptr %ac_pointer.i1, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i1, align 8
@@ -328,7 +328,7 @@ if.then11:                                        ; preds = %if.end8
 do.body.i:                                        ; preds = %do.body.i, %if.then11
   %7 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then11 ]
   %shr.i = lshr i32 %7, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %8 = load ptr, ptr %ac_pointer.i3, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i3, align 8
@@ -347,7 +347,7 @@ if.end12:                                         ; preds = %do.body.i, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %M) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %M) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %M, align 4
   %length = getelementptr inbounds i8, ptr %this, i64 32
@@ -469,7 +469,7 @@ if.then11:                                        ; preds = %if.end8
 do.body.i:                                        ; preds = %do.body.i, %if.then11
   %8 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then11 ]
   %shr.i = lshr i32 %8, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %9 = load ptr, ptr %ac_pointer.i6, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i6, align 8
@@ -593,7 +593,7 @@ if.end13:                                         ; preds = %entry.if.end13_crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 4 dereferenceable(20) %M) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 4 dereferenceable(20) %M) local_unnamed_addr #1 align 2 {
 entry:
   %bit_0_prob = getelementptr inbounds i8, ptr %M, i64 8
   %0 = load i32, ptr %bit_0_prob, align 4
@@ -792,7 +792,7 @@ if.then26:                                        ; preds = %if.end23
 do.body.i:                                        ; preds = %do.body.i, %if.then26
   %12 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then26 ]
   %shr.i = lshr i32 %12, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %13 = load ptr, ptr %ac_pointer.i10, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i10, align 8
@@ -1030,7 +1030,7 @@ if.then26:                                        ; preds = %if.end23
 do.body.i:                                        ; preds = %do.body.i, %if.then26
   %12 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.then26 ]
   %shr.i = lshr i32 %12, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %13 = load ptr, ptr %ac_pointer.i14, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i14, align 8
@@ -1262,7 +1262,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   br i1 %cmp4424, label %while.body.lr.ph, label %for.inc48
 
 while.body.lr.ph:                                 ; preds = %for.body30
-  %24 = trunc i64 %indvars.iv41 to i32
+  %24 = trunc nuw i64 %indvars.iv41 to i32
   %sub = add i32 %24, -1
   %25 = zext i32 %s.027 to i64
   %wide.trip.count = zext i32 %shr43 to i64
@@ -1855,7 +1855,7 @@ if.end14:                                         ; preds = %_ZN5o3dgc16Arithmet
 do.body.i:                                        ; preds = %do.body.i, %if.end14
   %6 = phi i32 [ %shl.i, %do.body.i ], [ %.pre.i, %if.end14 ]
   %shr.i = lshr i32 %6, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %7 = load ptr, ptr %ac_pointer.i3, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i3, align 8
@@ -2156,7 +2156,7 @@ for.inc.us:                                       ; preds = %while.body56.us, %i
   br i1 %cmp33.us, label %for.body.us, label %for.end, !llvm.loop !21
 
 while.body56.lr.ph.us:                            ; preds = %if.end49.us
-  %15 = trunc i64 %indvars.iv48 to i32
+  %15 = trunc nuw i64 %indvars.iv48 to i32
   %sub57.us = add i32 %15, -1
   %16 = zext i32 %s.028.us to i64
   %wide.trip.count46 = zext i32 %shr.us to i64
@@ -2198,7 +2198,7 @@ if.end49:                                         ; preds = %if.end40
   br i1 %cmp5525, label %while.body56.lr.ph, label %for.inc
 
 while.body56.lr.ph:                               ; preds = %if.end49
-  %23 = trunc i64 %indvars.iv40 to i32
+  %23 = trunc nuw i64 %indvars.iv40 to i32
   %sub57 = add i32 %23, -1
   %24 = zext i32 %s.028 to i64
   %wide.trip.count = zext i32 %shr to i64

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_process_name_print = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_finalize() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_finalize() local_unnamed_addr #0 {
   %1 = load i32, ptr @opal_initialized, align 4
   %2 = add nsw i32 %1, -1
   store i32 %2, ptr @opal_initialized, align 4

@@ -364,9 +364,9 @@ define internal fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef
   %15 = load i32, ptr @ett_wmio_decoration, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
   %17 = load i32, ptr @hf_wmio_decoration_server_name, align 4
-  %18 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %9, i32 noundef %17, ptr noundef %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
+  %18 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %9, i32 noundef %17, ptr noundef readonly %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
   %19 = load i32, ptr @hf_wmio_decoration_namespace, align 4
-  %20 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
+  %20 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef readonly %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
   %21 = sub i32 %20, %9
   tail call void @proto_item_set_len(ptr noundef %14, i32 noundef %21) #4
   br label %22
@@ -586,7 +586,7 @@ define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr nounde
   %38 = load i32, ptr %12, align 4
   %39 = add i32 %1, 5
   %40 = load i32, ptr @hf_wmio_class_header_nameref, align 4
-  %41 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %39, i32 noundef %40, ptr noundef %2, ptr noundef %35, i32 noundef 0, i32 noundef %31)
+  %41 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %39, i32 noundef %40, ptr noundef readonly %2, ptr noundef %35, i32 noundef 0, i32 noundef %31)
   %42 = load i32, ptr @hf_wmio_class_header_ndtablevaluetablelength, align 4
   %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #4
   %44 = load i32, ptr %13, align 4
@@ -609,7 +609,7 @@ define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr nounde
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
   %.016.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ %51, %6 ]
   %55 = load i32, ptr @hf_wmio_derivation_classname, align 4
-  %56 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i.i, i32 noundef %55, ptr noundef %2, ptr noundef %48, i32 noundef 1, i32 noundef 0)
+  %56 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i.i, i32 noundef %55, ptr noundef readonly %2, ptr noundef %48, i32 noundef 1, i32 noundef 0)
   %57 = load i32, ptr %11, align 4
   %58 = add i32 %57, %20
   %59 = icmp ult i32 %56, %58
@@ -620,7 +620,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %.lcssa.i.i = phi i32 [ %52, %6 ], [ %57, %.lr.ph.i.i ]
   call void @proto_item_set_len(ptr noundef %46, i32 noundef %.lcssa.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %60 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef %2, ptr noundef %19, i32 noundef %31)
+  %60 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef readonly %2, ptr noundef %19, i32 noundef %31)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %61 = load i32, ptr @hf_wmio_propertylookuptable, align 4
   %62 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef -1, i32 noundef 0) #4
@@ -641,7 +641,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %71 = load i32, ptr @ett_wmio_propertylookup, align 4
   %72 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #4
   %73 = load i32, ptr @hf_wmio_propertynameref, align 4
-  %74 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.02022.i.i, i32 noundef %73, ptr noundef %2, ptr noundef %72, i32 noundef 0, i32 noundef %31)
+  %74 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.02022.i.i, i32 noundef %73, ptr noundef readonly %2, ptr noundef %72, i32 noundef 0, i32 noundef %31)
   %75 = add i32 %.02022.i.i, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %76 = load i32, ptr @hf_property_info, align 4
@@ -669,7 +669,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %98 = load i32, ptr @hf_propertyinfo_classoforigin, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648) #4
   %100 = add i32 %83, 14
-  %101 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %100, ptr noundef %2, ptr noundef %79, i32 noundef %31)
+  %101 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %100, ptr noundef readonly %2, ptr noundef %79, i32 noundef %31)
   %102 = sub i32 %101, %83
   call void @proto_item_set_len(ptr noundef %77, i32 noundef %102) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -836,7 +836,7 @@ define internal fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i
   %19 = load i32, ptr @ett_wmio_qualifier, align 4
   %20 = call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   %21 = load i32, ptr @hf_wmio_qualifiername, align 4
-  %22 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.019, i32 noundef %21, ptr noundef %2, ptr noundef %20, i32 noundef 0, i32 noundef %4)
+  %22 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.019, i32 noundef %21, ptr noundef readonly %2, ptr noundef %20, i32 noundef 0, i32 noundef %4)
   %23 = add i32 %.019, 4
   %24 = load i32, ptr @hf_wmio_flavor, align 4
   %25 = load i32, ptr @ett_wmio_flavor, align 4
@@ -1090,7 +1090,7 @@ define internal fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i
 
 157:                                              ; preds = %73, %73, %73
   %158 = load i32, ptr @hf_wmio_qualifiervalue, align 4
-  %159 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %31, i32 noundef %158, ptr noundef %2, ptr noundef %20, i32 noundef 0, i32 noundef %4)
+  %159 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %31, i32 noundef %158, ptr noundef readonly %2, ptr noundef %20, i32 noundef 0, i32 noundef %4)
   %160 = add i32 %.019, 13
   br label %dissect_wmio_qualifier.exit
 

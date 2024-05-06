@@ -1297,7 +1297,7 @@ declare void @virtio_queue_invalidate_signalled_used(ptr noundef, i32 noundef) l
 declare void @virtio_queue_update_used_idx(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_dev_init(ptr noundef %hdev, ptr noundef %opaque, i32 noundef %backend_type, i32 noundef %busyloop_timeout, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_dev_init(ptr noundef %hdev, ptr noundef %opaque, i32 noundef %backend_type, i32 noundef %busyloop_timeout, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %state.i97 = alloca %struct.vhost_vring_state, align 4
   %state.i = alloca %struct.vhost_vring_state, align 4
@@ -2733,7 +2733,7 @@ if.then99.critedge.i:                             ; preds = %if.else.i11, %int12
   %sub107.i = add i32 %74, -1
   %idxprom.i = sext i32 %sub107.i to i64
   %arrayidx.i = getelementptr %struct.MemoryRegionSection, ptr %call103.i, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(64) %section, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %section, i64 64, i1 false)
   %75 = load ptr, ptr %tmp_sections101.i, align 8
   %76 = load i32, ptr %n_tmp_sections.i, align 8
   %sub110.i = add i32 %76, -1
@@ -3130,7 +3130,7 @@ declare void @migrate_del_blocker(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_dev_enable_notifiers(ptr nocapture noundef readonly %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_dev_enable_notifiers(ptr nocapture noundef readonly %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #18
@@ -3593,7 +3593,7 @@ declare void @qemu_put_be16(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vhost_dev_load_inflight(ptr nocapture noundef %inflight, ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @vhost_dev_load_inflight(ptr nocapture noundef %inflight, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %fd.i = alloca i32, align 4
@@ -3668,7 +3668,7 @@ declare i32 @qemu_get_be16(ptr noundef) local_unnamed_addr #1
 declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_dev_prepare_inflight(ptr noundef %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_dev_prepare_inflight(ptr noundef %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
@@ -4471,7 +4471,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %4 = load ptr, ptr %mem_sections.i, align 8
   %arrayidx.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %indvars.iv.i
-  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef nonnull %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
+  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef nonnull readonly %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr %n_mem_sections.i, align 8
   %6 = sext i32 %5 to i64
@@ -5651,7 +5651,7 @@ while.end:                                        ; preds = %for.body
 
 while.body31:                                     ; preds = %while.end, %while.body31
   %log24.026 = phi i64 [ %and, %while.body31 ], [ %4, %while.end ]
-  %5 = tail call i64 @llvm.cttz.i64(i64 %log24.026, i1 true), !range !39
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %log24.026, i1 true)
   %mul32 = shl nuw nsw i64 %5, 12
   %add33 = or disjoint i64 %mul32, %addr.028
   %6 = load i64, ptr %offset_within_address_space, align 8
@@ -5664,13 +5664,13 @@ while.body31:                                     ; preds = %while.end, %while.b
   %not = xor i64 %shl, -1
   %and = and i64 %log24.026, %not
   %tobool30.not = icmp eq i64 %and, 0
-  br i1 %tobool30.not, label %for.inc, label %while.body31, !llvm.loop !40
+  br i1 %tobool30.not, label %for.inc, label %while.body31, !llvm.loop !39
 
 for.inc:                                          ; preds = %while.body31, %while.end, %for.body
   %addr.1 = add i64 %addr.028, 262144
   %incdec.ptr = getelementptr i8, ptr %from.030, i64 8
   %cmp23 = icmp ult ptr %from.030, %add.ptr9
-  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !41
+  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -5904,7 +5904,7 @@ for.inc:                                          ; preds = %if.end6, %for.body
   %6 = load i32, ptr %nvqs, align 8
   %cmp1 = icmp ult i32 %inc, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %cmp1, label %for.body, label %return, !llvm.loop !42
+  br i1 %cmp1, label %for.body, label %return, !llvm.loop !41
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc30
   %indvars.iv38 = phi i64 [ %indvars.iv, %for.body14.lr.ph ], [ %indvars.iv.next39, %for.inc30 ]
@@ -5931,7 +5931,7 @@ if.end24:                                         ; preds = %for.body14
 for.inc30:                                        ; preds = %for.body14, %if.end24
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
   %cmp13 = icmp sgt i32 %10, 0
-  br i1 %cmp13, label %for.body14, label %for.end31, !llvm.loop !43
+  br i1 %cmp13, label %for.body14, label %for.end31, !llvm.loop !42
 
 for.end31:                                        ; preds = %for.inc30, %for.cond12.preheader
   %log_enabled32 = getelementptr inbounds i8, ptr %dev, i64 505
@@ -6072,8 +6072,7 @@ attributes #22 = { nounwind willreturn memory(none) }
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
-!39 = !{i64 0, i64 65}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %c) local_unnamed_addr #0 {
+define noundef range(i32 -87, 65488) i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %c) local_unnamed_addr #0 {
 entry:
   %0 = add i16 %c, -48
   %or.cond = icmp ult i16 %0, 10
@@ -32,7 +32,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_Z15ufmt_isdigit_75Dsi(i16 noundef zeroext %c, i32 noundef %radix) local_unnamed_addr #0 {
+define noundef signext range(i8 0, 2) i8 @_Z15ufmt_isdigit_75Dsi(i16 noundef zeroext %c, i32 noundef %radix) local_unnamed_addr #0 {
 entry:
   %0 = add i16 %c, -48
   %or.cond.i = icmp ult i16 %0, 10
@@ -72,13 +72,13 @@ do.body.us:                                       ; preds = %entry, %do.body.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %do.body.us ], [ 0, %entry ]
   %value.addr.0.us = phi i64 [ %div.us, %do.body.us ], [ %value, %entry ]
   %rem.us = urem i64 %value.addr.0.us, %conv
-  %conv1.us = trunc i64 %rem.us to i32
+  %conv1.us = trunc nuw nsw i64 %rem.us to i32
   %div.us = udiv i64 %value.addr.0.us, %conv
   %cmp.us = icmp ult i32 %conv1.us, 10
   %cond12.v.us = select i1 %cmp.us, i32 48, i32 55
   %cond14.us = add nuw nsw i32 %cond12.v.us, %conv1.us
-  %conv15.us = trunc i32 %cond14.us to i16
-  %indvars.iv.next33 = add nuw i64 %indvars.iv32, 1
+  %conv15.us = trunc nuw nsw i32 %cond14.us to i16
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %arrayidx.us = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv32
   store i16 %conv15.us, ptr %arrayidx.us, align 2
   %tobool16.not.us = icmp ult i64 %value.addr.0.us, %conv
@@ -88,13 +88,13 @@ do.body:                                          ; preds = %entry, %do.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 0, %entry ]
   %value.addr.0 = phi i64 [ %div, %do.body ], [ %value, %entry ]
   %rem = urem i64 %value.addr.0, %conv
-  %conv1 = trunc i64 %rem to i32
+  %conv1 = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %value.addr.0, %conv
   %cmp = icmp ult i32 %conv1, 10
   %cond.v = select i1 %cmp, i32 48, i32 87
   %cond14 = add nuw nsw i32 %cond.v, %conv1
-  %conv15 = trunc i32 %cond14 to i16
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %conv15 = trunc nuw nsw i32 %cond14 to i16
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv
   store i16 %conv15, ptr %arrayidx, align 2
   %tobool16.not = icmp ult i64 %value.addr.0, %conv
@@ -115,7 +115,7 @@ land.rhs.preheader:                               ; preds = %do.end
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv35 = phi i64 [ %0, %land.rhs.preheader ], [ %indvars.iv.next36, %while.body ]
   %1 = load i32, ptr %len, align 4
-  %2 = trunc i64 %indvars.iv35 to i32
+  %2 = trunc nuw i64 %indvars.iv35 to i32
   %cmp20 = icmp sgt i32 %1, %2
   br i1 %cmp20, label %while.body, label %if.end
 
@@ -123,7 +123,7 @@ while.body:                                       ; preds = %land.rhs
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %arrayidx23 = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv35
   store i16 48, ptr %arrayidx23, align 2
-  %3 = trunc i64 %indvars.iv.next36 to i32
+  %3 = trunc nuw i64 %indvars.iv.next36 to i32
   %cmp19 = icmp slt i32 %3, %minDigits
   br i1 %cmp19, label %land.rhs, label %if.end, !llvm.loop !6
 
@@ -313,7 +313,7 @@ land.rhs.preheader:                               ; preds = %while.cond5.prehead
   br label %land.rhs
 
 while.body:                                       ; preds = %while.cond, %lor.rhs
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %while.cond, !llvm.loop !10
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body11
@@ -345,11 +345,11 @@ while.body11:                                     ; preds = %_Z15ufmt_isdigit_75
   br i1 %exitcond.not, label %while.end13, label %land.rhs, !llvm.loop !11
 
 while.end13.loopexit.split.loop.exit:             ; preds = %land.rhs
-  %8 = trunc i64 %indvars.iv51 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv51 to i32
   br label %while.end13
 
 while.end13.loopexit.split.loop.exit60:           ; preds = %_Z15ufmt_isdigit_75Dsi.exit
-  %9 = trunc i64 %indvars.iv51 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv51 to i32
   br label %while.end13
 
 while.end13:                                      ; preds = %while.body11, %while.end13.loopexit.split.loop.exit, %while.end13.loopexit.split.loop.exit60, %while.cond5.preheader
@@ -426,7 +426,7 @@ if.end31:                                         ; preds = %_Z18ufmt_digitvalue
   %byte.0.in = phi i8 [ %add, %_Z18ufmt_digitvalue_75Ds.exit35 ], [ %retval.0.i, %_Z18ufmt_digitvalue_75Ds.exit ]
   %arrayidx33 = getelementptr inbounds [8 x i8], ptr %result, i64 0, i64 %indvars.iv54
   store i8 %byte.0.in, ptr %arrayidx33, align 1
-  %indvars.iv.next55 = add nuw i64 %indvars.iv54, 1
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %cmp17.not.not = icmp sgt i32 %count.3, %spec.select
   br i1 %cmp17.not.not, label %while.body18, label %while.end35.loopexit, !llvm.loop !12
 

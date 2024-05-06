@@ -736,7 +736,7 @@ if.end.i89:                                       ; preds = %for.body, %for.body
   br i1 %cmp2.not.i90.not, label %for.cond31.preheader, label %for.body28
 
 for.body28:                                       ; preds = %if.end.i89
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 4, %16
   %or29 = or i32 %shl, %components.3135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -752,7 +752,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %for.cond31.preheade
   br i1 %cmp2.not.i97.not, label %for.inc40, label %for.body34
 
 for.body34:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
-  %18 = trunc i64 %indvars.iv170 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv170 to i32
   %shl35 = shl nuw nsw i32 1024, %18
   %or36 = or i32 %shl35, %components.4137
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1

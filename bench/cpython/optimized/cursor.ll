@@ -441,7 +441,7 @@ land.lhs.true85:                                  ; preds = %land.lhs.true81
 
 if.then89:                                        ; preds = %land.lhs.true85
   %45 = load ptr, ptr %connection7.i, align 8
-  %call91 = call fastcc i32 @begin_transaction(ptr noundef %45), !range !4
+  %call91 = call fastcc i32 @begin_transaction(ptr noundef %45)
   %cmp92 = icmp slt i32 %call91, 0
   br i1 %cmp92, label %if.then.i217, label %if.end95
 
@@ -625,7 +625,7 @@ Py_DECREF.exit170.i:                              ; preds = %if.then1.i168.i, %i
 
 if.end72.i:                                       ; preds = %Py_DECREF.exit170.i, %if.end.i98.i
   %adapted.0.i = phi ptr [ %call68.i, %Py_DECREF.exit170.i ], [ %current_param.0117.i, %if.end.i98.i ]
-  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull %47, i32 noundef %add.i149, ptr noundef nonnull %adapted.0.i)
+  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %add.i149, ptr noundef nonnull %adapted.0.i)
   %63 = load i64, ptr %adapted.0.i, align 8
   %64 = and i64 %63, 2147483648
   %cmp.i175.not.i = icmp eq i64 %64, 0
@@ -643,7 +643,7 @@ if.then1.i159.i:                                  ; preds = %if.end.i156.i
 
 Py_DECREF.exit161.i:                              ; preds = %if.then1.i159.i, %if.end.i156.i, %if.end72.i
   %cmp75.not.i = icmp eq i32 %call74.i, 0
-  br i1 %cmp75.not.i, label %for.cond.i, label %if.then77.i, !llvm.loop !5
+  br i1 %cmp75.not.i, label %for.cond.i, label %if.then77.i, !llvm.loop !4
 
 if.then77.i:                                      ; preds = %Py_DECREF.exit161.i
   %call78.i = call ptr @PyErr_GetRaisedException() #7
@@ -742,7 +742,7 @@ Py_DECREF.exit152.i:                              ; preds = %if.then1.i150.i, %i
 
 if.end125.i:                                      ; preds = %Py_DECREF.exit152.i, %if.end.i104.i
   %adapted.1.i = phi ptr [ %call121.i, %Py_DECREF.exit152.i ], [ %69, %if.end.i104.i ]
-  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull %47, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
+  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
   %77 = load i64, ptr %adapted.1.i, align 8
   %78 = and i64 %77, 2147483648
   %cmp.i183.not.i = icmp eq i64 %78, 0
@@ -773,7 +773,7 @@ if.then129.i:                                     ; preds = %Py_DECREF.exit.i
 for.inc137.i:                                     ; preds = %Py_DECREF.exit.i
   %inc138.i = add i32 %i.1139.i, 1
   %cmp89.not.i = icmp sgt i32 %inc138.i, %call1.i
-  br i1 %cmp89.not.i, label %bind_parameters.exit, label %for.body91.i, !llvm.loop !7
+  br i1 %cmp89.not.i, label %bind_parameters.exit, label %for.body91.i, !llvm.loop !6
 
 if.else140.i:                                     ; preds = %if.else83.i
   %80 = load ptr, ptr %ProgrammingError111.i, align 8
@@ -877,7 +877,7 @@ for.cond.i166:                                    ; preds = %if.end109.i
   %96 = load ptr, ptr %st.i167, align 8
   %call5.i = call i32 @sqlite3_column_count(ptr noundef %96) #7
   %cmp.i168 = icmp slt i32 %inc.i, %call5.i
-  br i1 %cmp.i168, label %for.body.i159, label %if.end128, !llvm.loop !8
+  br i1 %cmp.i168, label %for.body.i159, label %if.end128, !llvm.loop !7
 
 for.body.i159:                                    ; preds = %for.cond.preheader.i157, %for.cond.i166
   %i.066.i = phi i32 [ %inc.i, %for.cond.i166 ], [ 0, %for.cond.preheader.i157 ]
@@ -971,7 +971,7 @@ if.end.i142.i:                                    ; preds = %if.then51.i171
 for.inc.i:                                        ; preds = %if.else.i, %if.then30.i
   %type_start.1.i = phi ptr [ %add.ptr.i, %if.then30.i ], [ %type_start.0.i, %if.else.i ]
   %incdec.ptr.i161 = getelementptr i8, ptr %pos.0.i, i64 1
-  br label %for.cond23.i, !llvm.loop !9
+  br label %for.cond23.i, !llvm.loop !8
 
 land.lhs.true59.i:                                ; preds = %for.cond23.i, %land.lhs.true41.i, %for.body.i159
   %110 = load ptr, ptr %connection7.i, align 8
@@ -1159,7 +1159,7 @@ land.lhs.true.i179:                               ; preds = %if.then3.i178
 
 for.inc.i185:                                     ; preds = %for.cond.i176
   %incdec.ptr11.i = getelementptr i8, ptr %pos.0.i177, i64 1
-  br label %for.cond.i176, !llvm.loop !10
+  br label %for.cond.i176, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.cond.i176, %land.lhs.true.i179, %if.then3.i178
   %pos.1.i181 = phi ptr [ %call152, %if.then3.i178 ], [ %spec.select.i, %land.lhs.true.i179 ], [ %pos.0.i177, %for.cond.i176 ]
@@ -1206,7 +1206,7 @@ if.end167:                                        ; preds = %Py_DECREF.exit277
   store ptr %call163, ptr %arrayidx.i189, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end170, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.end170, label %for.body, !llvm.loop !10
 
 if.end170:                                        ; preds = %if.end167, %if.end128
   %cmp171 = icmp eq i32 %call1.i152, 101
@@ -1467,7 +1467,7 @@ declare ptr @pysqlite_statement_create(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @sqlite3_get_autocommit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @begin_transaction(ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @begin_transaction(ptr nocapture noundef readonly %self) unnamed_addr #0 {
 entry:
   %statement = alloca ptr, align 8
   %begin_stmt = alloca [16 x i8], align 16
@@ -1538,7 +1538,7 @@ declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_cursor_setup_types(ptr noundef %module) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @pysqlite_cursor_setup_types(ptr noundef %module) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @cursor_spec, ptr noundef null) #7
   %cmp = icmp eq ptr %call, null
@@ -2249,7 +2249,7 @@ if.end168.i:                                      ; preds = %if.end168.sink.spli
   store ptr %converted.084.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %if.end168.i, %if.end.i41
   %call170.i = tail call ptr @PyErr_Occurred() #7
@@ -2428,7 +2428,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pysqlite_cursor_init(ptr noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @pysqlite_cursor_init(ptr noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val15 = load ptr, ptr %0, align 8
@@ -3318,7 +3318,7 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   %20 = load ptr, ptr %stmt.i, align 8
   %call31.i = call i32 @sqlite3_step(ptr noundef %20) #7
   %cmp32.i = icmp eq i32 %call31.i, 100
-  br i1 %cmp32.i, label %do.body.i, label %if.end35.i, !llvm.loop !13
+  br i1 %cmp32.i, label %do.body.i, label %if.end35.i, !llvm.loop !12
 
 if.end35.i:                                       ; preds = %do.body.i
   %21 = load ptr, ptr %stmt.i, align 8
@@ -3468,7 +3468,7 @@ if.then1.i15.i:                                   ; preds = %if.end.i12.i
 Py_DECREF.exit17.i:                               ; preds = %if.then1.i15.i, %if.end.i12.i, %if.end5.i
   %call1.i = tail call ptr @pysqlite_cursor_iternext(ptr noundef %self)
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
+  br i1 %tobool2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %Py_DECREF.exit17.i, %if.then1.i24.i, %if.end.i21.i, %if.then4.i, %while.cond.preheader.i
   %call6.i = tail call ptr @PyErr_Occurred() #7
@@ -3593,7 +3593,7 @@ if.then1.i18.i:                                   ; preds = %if.end.i15.i
 Py_DECREF.exit20.i:                               ; preds = %if.then1.i18.i, %if.end.i15.i, %if.end5.i
   %inc.i = add i32 %counter.0.i, 1
   %cmp6.i = icmp eq i32 %inc.i, %maxrows.0
-  br i1 %cmp6.i, label %while.end.i, label %while.cond.i, !llvm.loop !15
+  br i1 %cmp6.i, label %while.end.i, label %while.cond.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %Py_DECREF.exit20.i, %while.cond.i, %if.then1.i27.i, %if.end.i24.i, %if.then4.i
   %call9.i = call ptr @PyErr_Occurred() #7
@@ -3707,15 +3707,14 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

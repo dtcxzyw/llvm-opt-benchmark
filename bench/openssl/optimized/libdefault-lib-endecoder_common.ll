@@ -233,7 +233,7 @@ if.end:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_read_der(ptr noundef %provctx, ptr noundef %cin, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_read_der(ptr noundef %provctx, ptr noundef %cin, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #1 {
 entry:
   %mem = alloca ptr, align 8
   store ptr null, ptr %mem, align 8

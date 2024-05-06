@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.68 = private unnamed_addr constant [10 x i8] c"ffdhe8192\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_prov_get_capabilities(ptr nocapture noundef readnone %provctx, ptr noundef %capability, ptr nocapture noundef readonly %cb, ptr noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_get_capabilities(ptr nocapture noundef readnone %provctx, ptr noundef %capability, ptr nocapture noundef readonly %cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %capability, ptr noundef nonnull @.str) #2
   %cmp = icmp eq i32 %call, 0

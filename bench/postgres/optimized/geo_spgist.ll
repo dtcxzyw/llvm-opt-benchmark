@@ -258,7 +258,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compareDoubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compareDoubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp oeq double %3, %4
@@ -316,7 +316,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr nocapture nounde
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.lr.ph176 ], [ 0, %19 ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr i32, ptr %28, i64 %indvars.iv198
-  %30 = trunc i64 %indvars.iv198 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv198 to i32
   store i32 %30, ptr %29, align 4
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %31 = load i32, ptr %20, align 8
@@ -571,7 +571,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %128, %132
   %187 = phi i32 [ 0, %.lr.ph172 ], [ %445, %443 ]
   %.0137170 = phi i8 [ 0, %.lr.ph172 ], [ %444, %443 ]
   %188 = tail call ptr @palloc(i64 noundef 64) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull align 8 dereferenceable(64) %.0133, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0133, i64 64, i1 false)
   %189 = and i32 %187, 8
   %190 = load double, ptr %106, align 8
   %191 = xor i32 %189, 8
@@ -1015,7 +1015,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_box_quad_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

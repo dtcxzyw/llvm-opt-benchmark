@@ -341,7 +341,7 @@ define internal void @enrp_stat_init(ptr noundef %0) #0 {
   store double -1.000000e+00, ptr %26, align 8
   store i32 0, ptr %27, align 8
   store double -1.000000e+00, ptr %28, align 16
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %32, i32 noundef 10, ptr noundef nonnull %2) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 10
@@ -352,7 +352,7 @@ define internal void @enrp_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enrp_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @enrp_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @str_to_val_idx(ptr noundef %7, ptr noundef nonnull @message_type_values) #5
@@ -392,7 +392,7 @@ define internal noundef i32 @enrp_stat_packet(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %10, %33
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %33 ]
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 1) #5
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8

@@ -51,7 +51,7 @@ define noundef nonnull ptr @ether_ntoa(ptr nocapture noundef readonly %0) local_
   %16 = getelementptr inbounds i8, ptr %0, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @ether_ntoa.buffer, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %6, i32 noundef %9, i32 noundef %12, i32 noundef %15, i32 noundef %18) #2
+  %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) @ether_ntoa.buffer, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %6, i32 noundef %9, i32 noundef %12, i32 noundef %15, i32 noundef %18) #2
   ret ptr @ether_ntoa.buffer
 }
 

@@ -103,7 +103,7 @@ define hidden void @free_phs(ptr noundef %0) local_unnamed_addr #0 {
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @protohierstat_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture readnone %3, i32 %4) #0 {
+define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture readnone %3, i32 %4) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit60, label %6
 

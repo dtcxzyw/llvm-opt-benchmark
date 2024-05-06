@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -116,7 +116,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateReset(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cm_zlib_inflateResetKeep.exit, label %3
 
@@ -237,7 +237,7 @@ cm_zlib_inflateResetKeep.exit:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -330,7 +330,7 @@ select.unfold:                                    ; preds = %27, %25
   store i32 %.024, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %14, i64 56
   store i32 %.025, ptr %43, align 8
-  %44 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0), !range !5
+  %44 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   br label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %select.unfold, %23, %inflateStateCheck.exit, %41
@@ -339,7 +339,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %69, label %6
 
@@ -476,7 +476,7 @@ cm_zlib_inflateReset2.exit:                       ; preds = %56, %59, %62
   store i32 %.024.i, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %38, i64 56
   store i32 %.025.i, ptr %65, align 8
-  %66 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0), !range !5
+  %66 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %69, label %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge
 
@@ -502,13 +502,13 @@ declare ptr @cm_zlib_zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
 declare void @cm_zlib_zcfree(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateInit_(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2), !range !6
+define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit_(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = tail call i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -820,7 +820,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %107 = add i64 %106, %.19292321
   %indvars.iv.next2835 = add nuw nsw i64 %indvars.iv2834, 8
   %108 = icmp ult i64 %indvars.iv2834, 8
-  br i1 %108, label %.lr.ph2323, label %._crit_edge2324.loopexit, !llvm.loop !7
+  br i1 %108, label %.lr.ph2323, label %._crit_edge2324.loopexit, !llvm.loop !5
 
 ._crit_edge2324.loopexit:                         ; preds = %101
   %109 = trunc nuw nsw i64 %indvars.iv.next2835 to i32
@@ -953,7 +953,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %163 = add i64 %162, %.29302272
   %indvars.iv.next2814 = add nuw nsw i64 %indvars.iv2813, 8
   %164 = icmp ult i64 %indvars.iv2813, 8
-  br i1 %164, label %.lr.ph2274, label %._crit_edge2275.loopexit, !llvm.loop !9
+  br i1 %164, label %.lr.ph2274, label %._crit_edge2275.loopexit, !llvm.loop !7
 
 ._crit_edge2275.loopexit:                         ; preds = %157
   %165 = trunc nuw nsw i64 %indvars.iv.next2814 to i32
@@ -1053,7 +1053,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %199 = add i64 %198, %.49322282
   %indvars.iv.next2817 = add nuw nsw i64 %indvars.iv2816, 8
   %200 = icmp ult i64 %indvars.iv2816, 24
-  br i1 %200, label %.lr.ph2285, label %._crit_edge2286, !llvm.loop !10
+  br i1 %200, label %.lr.ph2285, label %._crit_edge2286, !llvm.loop !8
 
 ._crit_edge2286:                                  ; preds = %193, %189
   %.41059.lcssa = phi ptr [ %.01055, %189 ], [ %195, %193 ]
@@ -1130,7 +1130,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %230 = add i64 %229, %.69342292
   %indvars.iv.next2820 = add nuw nsw i64 %indvars.iv2819, 8
   %231 = icmp ult i64 %indvars.iv2819, 8
-  br i1 %231, label %.lr.ph2295, label %._crit_edge2296, !llvm.loop !11
+  br i1 %231, label %.lr.ph2295, label %._crit_edge2296, !llvm.loop !9
 
 ._crit_edge2296:                                  ; preds = %224, %220
   %.61061.lcssa = phi ptr [ %.01055, %220 ], [ %226, %224 ]
@@ -1218,7 +1218,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %268 = add i64 %267, %.89362302
   %indvars.iv.next2823 = add nuw nsw i64 %indvars.iv2822, 8
   %269 = icmp ult i64 %indvars.iv2822, 8
-  br i1 %269, label %.lr.ph2304, label %._crit_edge2305, !llvm.loop !12
+  br i1 %269, label %.lr.ph2304, label %._crit_edge2305, !llvm.loop !10
 
 ._crit_edge2305:                                  ; preds = %262, %.preheader1291
   %270 = phi i32 [ %254, %.preheader1291 ], [ %259, %262 ]
@@ -1423,7 +1423,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %357 = icmp ne i8 %342, 0
   %358 = icmp ult i64 %indvars.iv.next2826, %340
   %359 = select i1 %357, i1 %358, i1 false
-  br i1 %359, label %.preheader1290, label %360, !llvm.loop !13
+  br i1 %359, label %.preheader1290, label %360, !llvm.loop !11
 
 360:                                              ; preds = %356
   %361 = trunc nuw i64 %indvars.iv.next2826 to i32
@@ -1519,7 +1519,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %401 = icmp ne i8 %386, 0
   %402 = icmp ult i64 %indvars.iv.next2829, %384
   %403 = select i1 %401, i1 %402, i1 false
-  br i1 %403, label %.preheader1289, label %404, !llvm.loop !14
+  br i1 %403, label %.preheader1289, label %404, !llvm.loop !12
 
 404:                                              ; preds = %400
   %405 = trunc nuw i64 %indvars.iv.next2829 to i32
@@ -1597,7 +1597,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %435 = add i64 %434, %.149422311
   %indvars.iv.next2832 = add nuw nsw i64 %indvars.iv2831, 8
   %436 = icmp ult i64 %indvars.iv2831, 8
-  br i1 %436, label %.lr.ph2313, label %._crit_edge2314.loopexit, !llvm.loop !15
+  br i1 %436, label %.lr.ph2313, label %._crit_edge2314.loopexit, !llvm.loop !13
 
 ._crit_edge2314.loopexit:                         ; preds = %429
   %437 = trunc nuw nsw i64 %indvars.iv.next2832 to i32
@@ -1667,7 +1667,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %461 = add i64 %460, %.169442104
   %indvars.iv.next2811 = add nuw nsw i64 %indvars.iv2810, 8
   %462 = icmp ult i64 %indvars.iv2810, 24
-  br i1 %462, label %.lr.ph2106, label %._crit_edge2107, !llvm.loop !16
+  br i1 %462, label %.lr.ph2106, label %._crit_edge2107, !llvm.loop !14
 
 ._crit_edge2107:                                  ; preds = %455, %.preheader1299
   %.201075.lcssa = phi ptr [ %.01055, %.preheader1299 ], [ %457, %455 ]
@@ -1829,7 +1829,7 @@ default.unreachable2862:                          ; preds = %488
   %517 = add i64 %516, %.219492093
   %indvars.iv.next2809 = add nuw nsw i64 %indvars.iv2808, 8
   %518 = icmp ult i64 %indvars.iv2808, 24
-  br i1 %518, label %.lr.ph2096, label %._crit_edge2097.loopexit, !llvm.loop !17
+  br i1 %518, label %.lr.ph2096, label %._crit_edge2097.loopexit, !llvm.loop !15
 
 ._crit_edge2097.loopexit:                         ; preds = %511
   %519 = trunc nuw nsw i64 %indvars.iv.next2809 to i32
@@ -1914,7 +1914,7 @@ default.unreachable2862:                          ; preds = %488
   %548 = add i64 %547, %.249521762
   %indvars.iv.next2773 = add nuw nsw i64 %indvars.iv2772, 8
   %549 = icmp ult i64 %indvars.iv2772, 6
-  br i1 %549, label %.lr.ph1764, label %._crit_edge1765.loopexit, !llvm.loop !18
+  br i1 %549, label %.lr.ph1764, label %._crit_edge1765.loopexit, !llvm.loop !16
 
 ._crit_edge1765.loopexit:                         ; preds = %542
   %550 = trunc nuw nsw i64 %indvars.iv.next2773 to i32
@@ -2022,7 +2022,7 @@ default.unreachable2862:                          ; preds = %488
   %588 = lshr i64 %.27955.lcssa, 3
   %589 = add i32 %.27.lcssa, -3
   %590 = icmp ult i64 %indvars.iv.next2776, %568
-  br i1 %590, label %.preheader1283, label %.preheader1312, !llvm.loop !19
+  br i1 %590, label %.preheader1283, label %.preheader1312, !llvm.loop !17
 
 .lr.ph1934:                                       ; preds = %.preheader1312, %.lr.ph1934
   %591 = phi i32 [ %592, %.lr.ph1934 ], [ %.lcssa, %.preheader1312 ]
@@ -2034,7 +2034,7 @@ default.unreachable2862:                          ; preds = %488
   %597 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %596
   store i16 0, ptr %597, align 2
   %598 = icmp ult i32 %591, 18
-  br i1 %598, label %.lr.ph1934, label %._crit_edge1935.loopexit, !llvm.loop !20
+  br i1 %598, label %.lr.ph1934, label %._crit_edge1935.loopexit, !llvm.loop !18
 
 ._crit_edge1935.loopexit:                         ; preds = %.lr.ph1934
   store i32 %592, ptr %57, align 4
@@ -2204,7 +2204,7 @@ default.unreachable2862:                          ; preds = %488
   %656 = add i64 %655, %.319591967
   %indvars.iv.next2785 = add nuw nsw i64 %indvars.iv2784, 8
   %657 = icmp ult i64 %indvars.iv.next2785, %644
-  br i1 %657, label %.lr.ph1969, label %._crit_edge1970.loopexit, !llvm.loop !21
+  br i1 %657, label %.lr.ph1969, label %._crit_edge1970.loopexit, !llvm.loop !19
 
 ._crit_edge1970.loopexit:                         ; preds = %650
   %658 = trunc nuw i64 %indvars.iv.next2785 to i32
@@ -2255,7 +2255,7 @@ default.unreachable2862:                          ; preds = %488
   %681 = add i64 %680, %.329601957
   %indvars.iv.next2782 = add nuw nsw i64 %indvars.iv2781, 8
   %682 = icmp ult i64 %indvars.iv.next2782, %640
-  br i1 %682, label %.lr.ph1959, label %._crit_edge1960.loopexit, !llvm.loop !22
+  br i1 %682, label %.lr.ph1959, label %._crit_edge1960.loopexit, !llvm.loop !20
 
 ._crit_edge1960.loopexit:                         ; preds = %675
   %683 = trunc nuw i64 %indvars.iv.next2782 to i32
@@ -2293,7 +2293,7 @@ default.unreachable2862:                          ; preds = %488
   %698 = add i64 %697, %.339611977
   %indvars.iv.next2788 = add nuw nsw i64 %indvars.iv2787, 8
   %699 = icmp ult i64 %indvars.iv.next2788, %648
-  br i1 %699, label %.lr.ph1979, label %._crit_edge1980.loopexit, !llvm.loop !23
+  br i1 %699, label %.lr.ph1979, label %._crit_edge1980.loopexit, !llvm.loop !21
 
 ._crit_edge1980.loopexit:                         ; preds = %692
   %700 = trunc nuw i64 %indvars.iv.next2788 to i32
@@ -2339,7 +2339,7 @@ default.unreachable2862:                          ; preds = %488
   %716 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %715
   store i16 %.0897, ptr %716, align 2
   %.not1184 = icmp eq i32 %713, 0
-  br i1 %.not1184, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %.not1184, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader
   store i32 %714, ptr %57, align 4
@@ -2352,7 +2352,7 @@ default.unreachable2862:                          ; preds = %488
   %.35963 = phi i64 [ %631, %629 ], [ %.34962, %.loopexit ]
   %.35 = phi i32 [ %632, %629 ], [ %.34, %.loopexit ]
   %718 = icmp ult i32 %.lcssa19861990, %605
-  br i1 %718, label %.preheader1281, label %._crit_edge1996, !llvm.loop !25
+  br i1 %718, label %.preheader1281, label %._crit_edge1996, !llvm.loop !23
 
 ._crit_edge1996:                                  ; preds = %717, %602
   %.331088.lcssa = phi ptr [ %.321087, %602 ], [ %.391094, %717 ]
@@ -2669,7 +2669,7 @@ default.unreachable2862:                          ; preds = %488
   %838 = add i64 %837, %.439712038
   %839 = add i32 %.432039, 8
   %840 = icmp ult i32 %839, %828
-  br i1 %840, label %.lr.ph2040, label %._crit_edge2041, !llvm.loop !26
+  br i1 %840, label %.lr.ph2040, label %._crit_edge2041, !llvm.loop !24
 
 ._crit_edge2041:                                  ; preds = %831, %.preheader1307
   %.471102.lcssa = phi ptr [ %.461101, %.preheader1307 ], [ %833, %831 ]
@@ -2913,7 +2913,7 @@ default.unreachable2862:                          ; preds = %488
   %939 = add i64 %938, %.509782083
   %940 = add i32 %.502084, 8
   %941 = icmp ult i32 %940, %929
-  br i1 %941, label %.lr.ph2085, label %._crit_edge2086, !llvm.loop !27
+  br i1 %941, label %.lr.ph2085, label %._crit_edge2086, !llvm.loop !25
 
 ._crit_edge2086:                                  ; preds = %932, %.preheader1302
   %.541109.lcssa = phi ptr [ %.531108, %.preheader1302 ], [ %934, %932 ]
@@ -3025,7 +3025,7 @@ default.unreachable2862:                          ; preds = %488
   store i8 %989, ptr %.11053, align 1
   %991 = add i32 %.10, -1
   %.not1204 = icmp eq i32 %991, 0
-  br i1 %.not1204, label %992, label %987, !llvm.loop !28
+  br i1 %.not1204, label %992, label %987, !llvm.loop !26
 
 992:                                              ; preds = %987
   %993 = sub i32 %.0989, %spec.select1262
@@ -3080,7 +3080,7 @@ default.unreachable2862:                          ; preds = %488
   %1015 = add i64 %1014, %.539811745
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %1016 = icmp ult i64 %indvars.iv, 24
-  br i1 %1016, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %1016, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %1009
   %1017 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3202,7 +3202,7 @@ default.unreachable2862:                          ; preds = %488
   %1062 = add i64 %1061, %.569841752
   %indvars.iv.next2770 = add nuw nsw i64 %indvars.iv2769, 8
   %1063 = icmp ult i64 %indvars.iv2769, 24
-  br i1 %1063, label %.lr.ph1754, label %._crit_edge1755.loopexit, !llvm.loop !30
+  br i1 %1063, label %.lr.ph1754, label %._crit_edge1755.loopexit, !llvm.loop !28
 
 ._crit_edge1755.loopexit:                         ; preds = %1056
   %1064 = trunc nuw nsw i64 %indvars.iv.next2770 to i32
@@ -3438,7 +3438,7 @@ default.unreachable2862:                          ; preds = %488
   %1144 = zext i32 %1142 to i64
   %1145 = sub nsw i64 0, %1144
   %1146 = getelementptr inbounds i8, ptr %1115, i64 %1145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1131, ptr noundef nonnull align 1 dereferenceable(1) %1146, i64 %1144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1131, ptr noundef nonnull readonly align 1 dereferenceable(1) %1146, i64 %1144, i1 false)
   %1147 = getelementptr inbounds i8, ptr %1117, i64 68
   store i32 0, ptr %1147, align 4
   %1148 = load i32, ptr %1132, align 4
@@ -3457,7 +3457,7 @@ default.unreachable2862:                          ; preds = %488
   %1157 = sub nsw i64 0, %1156
   %1158 = getelementptr inbounds i8, ptr %1115, i64 %1157
   %1159 = zext i32 %spec.select.i1264 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1158, i64 %1159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr readonly align 1 %1158, i64 %1159, i1 false)
   %.not57.not.i = icmp ult i32 %1153, %1116
   br i1 %.not57.not.i, label %1160, label %1168
 
@@ -3467,7 +3467,7 @@ default.unreachable2862:                          ; preds = %488
   %1163 = zext i32 %1161 to i64
   %1164 = sub nsw i64 0, %1163
   %1165 = getelementptr inbounds i8, ptr %1115, i64 %1164
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1162, ptr align 1 %1165, i64 %1163, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1162, ptr readonly align 1 %1165, i64 %1163, i1 false)
   store i32 %1161, ptr %1151, align 4
   %1166 = load i32, ptr %1132, align 4
   %1167 = getelementptr inbounds i8, ptr %1117, i64 64
@@ -3589,7 +3589,7 @@ declare i32 @cm_zlib_inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr no
 declare void @cm_zlib_inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -3652,7 +3652,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -3730,7 +3730,7 @@ inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -3837,7 +3837,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %62 = zext i32 %60 to i64
   %63 = sub nsw i64 0, %62
   %64 = getelementptr inbounds i8, ptr %35, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %64, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull readonly align 1 dereferenceable(1) %64, i64 %62, i1 false)
   %65 = getelementptr inbounds i8, ptr %33, i64 68
   store i32 0, ptr %65, align 4
   %66 = load i32, ptr %50, align 4
@@ -3853,7 +3853,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %72 = zext i32 %70 to i64
   %73 = getelementptr inbounds i8, ptr %49, i64 %72
   %74 = zext i32 %spec.select.i22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %1, i64 %74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %1, i64 %74, i1 false)
   %.not57.not.i = icmp ult i32 %71, %2
   br i1 %.not57.not.i, label %75, label %83
 
@@ -3863,7 +3863,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %78 = zext i32 %76 to i64
   %79 = sub nsw i64 0, %78
   %80 = getelementptr inbounds i8, ptr %35, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %80, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull readonly align 1 %80, i64 %78, i1 false)
   store i32 %76, ptr %69, align 4
   %81 = load i32, ptr %50, align 4
   %82 = getelementptr inbounds i8, ptr %33, i64 64
@@ -3902,7 +3902,7 @@ inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -3956,7 +3956,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateSync(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 -5, 1) i32 @cm_zlib_inflateSync(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [4 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
@@ -4043,7 +4043,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %43 = lshr i64 %40, 8
   %44 = add i32 %storemerge64, -8
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !29
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
   store i64 %43, ptr %34, align 8
@@ -4071,7 +4071,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %55 = icmp ult i64 %indvars.iv.next.i, %46
   %56 = icmp ult i32 %.1.i, 4
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !32
+  br i1 %57, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
 
 syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %58 = phi ptr [ %39, %.thread ], [ %45, %.lr.ph.i ]
@@ -4112,7 +4112,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %76 = icmp ult i64 %indvars.iv.next.i56, %67
   %77 = icmp ult i32 %.1.i55, 4
   %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.lr.ph.i50, label %._crit_edge.loopexit.i57, !llvm.loop !32
+  br i1 %78, label %.lr.ph.i50, label %._crit_edge.loopexit.i57, !llvm.loop !30
 
 ._crit_edge.loopexit.i57:                         ; preds = %.lr.ph.i50
   %79 = trunc nuw i64 %indvars.iv.next.i56 to i32
@@ -4273,7 +4273,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %1, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @cm_zlib_inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 -2, 2) i32 @cm_zlib_inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -4324,7 +4324,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4459,7 +4459,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -1) i32 @cm_zlib_inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4504,7 +4504,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflateValidate(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateValidate(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4638,7 +4638,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @cm_zlib_inflateCodesUsed(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @cm_zlib_inflateCodesUsed(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -4717,31 +4717,29 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2, i32 1}
-!6 = !{i32 -6, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}

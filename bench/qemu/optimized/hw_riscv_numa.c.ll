@@ -501,7 +501,7 @@ riscv_socket_count.exit32.split:                  ; preds = %riscv_socket_count.
 for.cond9.preheader:                              ; preds = %riscv_socket_count.exit32.split, %for.inc33.split
   %6 = phi i32 [ %16, %for.inc33.split ], [ %5, %riscv_socket_count.exit32.split ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc33.split ], [ 0, %riscv_socket_count.exit32.split ]
-  %7 = trunc i64 %indvars.iv63 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv63 to i32
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %cmp115254 = icmp sgt i32 %spec.select.i4253, 0
@@ -516,7 +516,7 @@ numa_enabled.exit.i47:                            ; preds = %for.cond9.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.exit.i47 ], [ 0, %for.cond9.preheader ]
   %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   %mul15 = mul i32 %spec.select.i48, %7
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %mul15, %10
   %mul16 = mul i32 %add, 3
   %idxprom = sext i32 %mul16 to i64
@@ -606,7 +606,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @riscv_numa_get_default_cpu_node_id(ptr nocapture noundef readonly %ms, i32 noundef %idx) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @riscv_numa_get_default_cpu_node_id(ptr nocapture noundef readonly %ms, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8

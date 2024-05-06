@@ -657,7 +657,7 @@ do.end633:                                        ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_aria_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef writeonly %key) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef writeonly %key) local_unnamed_addr #1 {
 entry:
   %add = add nsw i32 %bits, 256
   %div = sdiv i32 %add, 32
@@ -1488,9 +1488,9 @@ return:                                           ; preds = %if.end263, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_aria_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key), !range !6
+  %call = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1608,7 +1608,7 @@ do.body:                                          ; preds = %if.end, %do.body
   %rk_tail.0 = getelementptr inbounds i8, ptr %rk_tail.0238, i64 -16
   %rk_head.0 = getelementptr inbounds i8, ptr %rk_head.0239, i64 16
   %cmp9 = icmp ult ptr %rk_head.0, %rk_tail.0
-  br i1 %cmp9, label %do.body, label %do.body179, !llvm.loop !7
+  br i1 %cmp9, label %do.body, label %do.body179, !llvm.loop !6
 
 do.body179:                                       ; preds = %do.body, %if.end
   %add.ptr.pn.lcssa = phi ptr [ %add.ptr.ptr, %if.end ], [ %rk_tail.0238, %do.body ]
@@ -1694,5 +1694,4 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -2, i32 1}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

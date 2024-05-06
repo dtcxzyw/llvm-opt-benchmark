@@ -3232,7 +3232,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp35.not, label %for.inc, label %if.then36
 
 if.then36:                                        ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 8
   %obj41 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %obj41, align 8
@@ -3282,7 +3282,7 @@ return:                                           ; preds = %entry, %for.end53, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @OBJ_length(ptr noundef readonly %obj) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly %obj) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %obj, null
   br i1 %cmp, label %return, label %if.end
@@ -3362,7 +3362,7 @@ entry:
   %idxprom.i = zext i32 %b_.val to i64
   %ln1.i = getelementptr inbounds [1320 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %idxprom.i, i32 1
   %1 = load ptr, ptr %ln1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %1) #10
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %1) #10
   ret i32 %call.i
 }
 
@@ -3378,7 +3378,7 @@ entry:
   %idxprom.i = zext i32 %b_.val to i64
   %arrayidx.i = getelementptr inbounds [1320 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %0) #10
   ret i32 %call.i
 }
 

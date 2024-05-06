@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [18 x i8] c"H2C-OVERSIZE-DST-\00", align 1
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_core_h2c_string_to_hash(ptr nocapture noundef writeonly %h, i64 noundef %h_len, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_core_h2c_string_to_hash(ptr nocapture noundef writeonly %h, i64 noundef %h_len, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %st.i6 = alloca %struct.crypto_hash_sha512_state, align 8
   %empty_block.i7 = alloca [128 x i8], align 16
@@ -61,7 +61,7 @@ if.then.i:                                        ; preds = %cond.end.i
 if.end.i:                                         ; preds = %if.then.i, %cond.end.i, %sw.bb
   %ctx.addr.0.i = phi ptr [ %u0.i, %if.then.i ], [ %ctx, %cond.end.i ], [ null, %sw.bb ]
   %ctx_len.0.i = phi i64 [ 32, %if.then.i ], [ %call.i, %cond.end.i ], [ 0, %sw.bb ]
-  %conv10.i = trunc i64 %ctx_len.0.i to i8
+  %conv10.i = trunc nuw i64 %ctx_len.0.i to i8
   store i8 %conv10.i, ptr %ctx_len_u8.i, align 1
   %call11.i = call i32 @crypto_hash_sha256_init(ptr noundef nonnull %st.i) #9
   %call13.i = call i32 @crypto_hash_sha256_update(ptr noundef nonnull %st.i, ptr noundef nonnull %empty_block.i, i64 noundef 64) #9
@@ -102,7 +102,7 @@ for.end.i:                                        ; preds = %for.body26.i
   %arrayidx42.i = getelementptr i8, ptr %h, i64 %i.024.i
   %sub.i = sub i64 %h_len, %i.024.i
   %cond50.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 32)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx42.i, ptr nonnull align 16 %ux.i, i64 %cond50.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx42.i, ptr nonnull align 16 %ux.i, i64 %cond50.i, i1 false)
   %add.i = add i64 %i.024.i, 32
   %cmp21.i = icmp ult i64 %add.i, %h_len
   br i1 %cmp21.i, label %for.cond23.preheader.i, label %core_h2c_string_to_hash_sha256.exit, !llvm.loop !6
@@ -149,7 +149,7 @@ if.then.i53:                                      ; preds = %cond.end.i16
 if.end.i19:                                       ; preds = %if.then.i53, %cond.end.i16, %sw.bb1
   %ctx.addr.0.i20 = phi ptr [ %u0.i8, %if.then.i53 ], [ %ctx, %cond.end.i16 ], [ null, %sw.bb1 ]
   %ctx_len.0.i21 = phi i64 [ 64, %if.then.i53 ], [ %call.i17, %cond.end.i16 ], [ 0, %sw.bb1 ]
-  %conv10.i22 = trunc i64 %ctx_len.0.i21 to i8
+  %conv10.i22 = trunc nuw i64 %ctx_len.0.i21 to i8
   store i8 %conv10.i22, ptr %ctx_len_u8.i11, align 1
   %call11.i23 = call i32 @crypto_hash_sha512_init(ptr noundef nonnull %st.i6) #9
   %call13.i24 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %st.i6, ptr noundef nonnull %empty_block.i7, i64 noundef 128) #9
@@ -190,7 +190,7 @@ for.end.i40:                                      ; preds = %for.body26.i33
   %arrayidx42.i48 = getelementptr i8, ptr %h, i64 %i.024.i32
   %sub.i49 = sub i64 %h_len, %i.024.i32
   %cond50.i50 = call i64 @llvm.umin.i64(i64 %sub.i49, i64 64)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx42.i48, ptr nonnull align 16 %ux.i9, i64 %cond50.i50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx42.i48, ptr nonnull align 16 %ux.i9, i64 %cond50.i50, i1 false)
   %add.i51 = add i64 %i.024.i32, 64
   %cmp21.i52 = icmp ult i64 %add.i51, %h_len
   br i1 %cmp21.i52, label %for.cond23.preheader.i31, label %core_h2c_string_to_hash_sha512.exit, !llvm.loop !8

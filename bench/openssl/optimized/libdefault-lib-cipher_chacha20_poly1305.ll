@@ -122,7 +122,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end.thread, %if.end
-  %call5 = tail call i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call5 = tail call i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool6.not = icmp eq i32 %call5, 0
   %spec.select = select i1 %tobool6.not, i32 0, i32 %call
   br label %if.end8
@@ -153,7 +153,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end.thread, %if.end
-  %call5 = tail call i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call5 = tail call i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool6.not = icmp eq i32 %call5, 0
   %spec.select = select i1 %tobool6.not, i32 0, i32 %call
   br label %if.end8
@@ -164,7 +164,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_poly1305_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @chacha20_poly1305_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
@@ -204,7 +204,7 @@ return:                                           ; preds = %if.end6, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_poly1305_final(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @chacha20_poly1305_final(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 %outsize) #0 {
 entry:
   %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
@@ -238,7 +238,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_poly1305_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @chacha20_poly1305_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %len = alloca i64, align 8
   %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
@@ -569,4 +569,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

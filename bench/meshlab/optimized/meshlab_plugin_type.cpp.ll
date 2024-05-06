@@ -560,7 +560,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType20isMultipleTypePluginEv(ptr n
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !10
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %6 = icmp ugt i32 %5, 1
   br label %7
 
@@ -1502,4 +1502,3 @@ attributes #23 = { noreturn }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 33}

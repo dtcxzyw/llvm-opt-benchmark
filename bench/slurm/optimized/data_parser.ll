@@ -681,7 +681,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph33.i, %.
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph87 ], [ 0, %.preheader ]
-  %82 = trunc i64 %indvars.iv111 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv111 to i32
   %83 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %82, ptr noundef null)
   %84 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv111
   store ptr %83, ptr %84, align 8
@@ -1104,7 +1104,7 @@ declare i32 @getuid() local_unnamed_addr #5
 declare i32 @getgid() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @data_parser_dump_cli_stdout(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 9214) i32 @data_parser_dump_cli_stdout(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timeval, align 8
   %10 = alloca %struct.timeval, align 8
   %11 = alloca [20 x i8], align 16
@@ -1375,9 +1375,9 @@ define internal noundef zeroext i1 @_on_error(ptr noundef %0, i32 %1, i32 nounde
 
 13:                                               ; preds = %11, %5
   %.0 = phi ptr [ %12, %11 ], [ null, %5 ]
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %14 = call ptr @vxstrfmt(ptr noundef %4, ptr noundef nonnull %6) #13
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %.not36 = icmp eq ptr %14, null
   br i1 %.not36, label %25, label %15
 
@@ -1474,9 +1474,9 @@ define internal void @_on_warn(ptr noundef readonly %0, i32 %1, ptr noundef %2, 
 
 12:                                               ; preds = %10, %4
   %.0 = phi ptr [ %11, %10 ], [ null, %4 ]
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %13 = call ptr @vxstrfmt(ptr noundef %3, ptr noundef nonnull %5) #13
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %25, label %14
 
@@ -1698,15 +1698,15 @@ declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @serializer_g_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vxstrfmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11

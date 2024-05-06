@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @L = internal unnamed_addr constant [32 x i8] c"\ED\D3\F5\\\1Ac\12X\D6\9C\F7\A2\DE\F9\DE\14\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\10", align 16
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_core_ed25519_is_valid_point(ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @crypto_core_ed25519_is_valid_point(ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %call = tail call i32 @_sodium_ge25519_is_canonical(ptr noundef nonnull %p) #6
@@ -52,7 +52,7 @@ declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #1
 declare i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ed25519_add(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ed25519_add(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %q_p3 = alloca %struct.ge25519_p3, align 8
@@ -91,7 +91,7 @@ declare void @_sodium_ge25519_p3_add(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ed25519_sub(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ed25519_sub(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %q_p3 = alloca %struct.ge25519_p3, align 8
@@ -137,7 +137,7 @@ entry:
 declare void @_sodium_ge25519_from_uniform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ed25519_from_string(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ed25519_from_string(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %h.i = alloca [64 x i8], align 16
   %h_be.i = alloca [96 x i8], align 16
@@ -175,7 +175,7 @@ _string_to_points.exit:                           ; preds = %for.end.i, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ed25519_from_string_ro(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %p_p3.i = alloca %struct.ge25519_p3, align 8
   %q_p3.i = alloca %struct.ge25519_p3, align 8
@@ -379,9 +379,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %y_, ptr noundef nonnull align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_, ptr noundef nonnull %y_, i64 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %x_, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %x_, i64 64, i1 false)
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t.i) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i, i64 32, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %t.i, i64 noundef 64) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t.i)
   ret void
@@ -415,24 +415,24 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 32, i1 false)
   %0 = getelementptr inbounds i8, ptr %s_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_.i, ptr noundef nonnull align 1 dereferenceable(32) %y, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_sub(ptr noundef nonnull %t_.i, ptr noundef nonnull %s_.i, i64 noundef 64) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t_.i) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %y_.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %y_.i, ptr noundef nonnull align 16 dereferenceable(32) %t_.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %y_.i, ptr noundef nonnull align 16 dereferenceable(32) %t_.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t_.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %s_.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %x_.i)
   %1 = getelementptr inbounds i8, ptr %x_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_.i, ptr noundef nonnull align 1 dereferenceable(32) %x, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %x, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %y_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_.i, ptr noundef nonnull %y_.i, i64 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i.i, ptr noundef nonnull align 16 dereferenceable(64) %x_.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %x_.i, i64 64, i1 false)
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t.i.i) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i.i, i64 32, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %t.i.i, i64 noundef 64) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %x_.i)

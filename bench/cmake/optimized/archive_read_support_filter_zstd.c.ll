@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [30 x i8] c"Zstd decompression failed: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_filter_zstd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_zstd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @zstd_bidder_vtable) #5
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 0, i32 -30
@@ -27,7 +27,7 @@ define dso_local i32 @archive_read_support_filter_zstd(ptr noundef %0) local_unn
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zstd_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 33) i32 @zstd_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 4, ptr noundef nonnull %3) #5
   %5 = icmp eq ptr %4, null
@@ -50,7 +50,7 @@ define internal i32 @zstd_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zstd_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @zstd_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = tail call i64 @ZSTD_DStreamOutSize() #5
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 14, ptr %3, align 8

@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_user_read: ;
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_key_type_logon331, ptr @__UNIQUE_ID___addressable_key_type_user330, ptr @__UNIQUE_ID___addressable_user_describe343, ptr @__UNIQUE_ID___addressable_user_destroy342, ptr @__UNIQUE_ID___addressable_user_free_preparse333, ptr @__UNIQUE_ID___addressable_user_preparse332, ptr @__UNIQUE_ID___addressable_user_read344, ptr @__UNIQUE_ID___addressable_user_revoke341, ptr @__UNIQUE_ID___addressable_user_update337], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @user_preparse(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @user_preparse(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -32768
@@ -58,7 +58,7 @@ define dso_local noundef i32 @user_preparse(ptr nocapture noundef %0) #0 align 1
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %16, align 8
-  %17 = trunc i64 %3 to i16
+  %17 = trunc nuw i64 %3 to i16
   %18 = getelementptr inbounds i8, ptr %12, i64 16
   store i16 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -173,7 +173,7 @@ define dso_local void @user_describe(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @user_read(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) #2 align 16 {
+define dso_local range(i64 0, 65536) i64 @user_read(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -195,7 +195,7 @@ define dso_local i64 @user_read(ptr nocapture noundef readonly %0, ptr noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @logon_vet_description(ptr noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @logon_vet_description(ptr noundef readonly %0) #3 align 16 {
   %2 = tail call ptr @strchr(ptr noundef %0, i32 noundef 58) #9
   %3 = icmp eq ptr %2, null
   %4 = icmp eq ptr %2, %0

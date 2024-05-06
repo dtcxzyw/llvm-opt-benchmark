@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_show_help_yylex() local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @opal_show_help_yylex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %._crit_edge351, label %1
 
@@ -820,7 +820,7 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
   br i1 %exitcond62.not.i, label %.critedge.i, label %381, !llvm.loop !11
 
 .critedge.split.loop.exit.i:                      ; preds = %381, %381
-  %394 = trunc i64 %indvars.iv.i to i32
+  %394 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %384, %.critedge.split.loop.exit.i

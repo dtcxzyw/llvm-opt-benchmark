@@ -355,13 +355,13 @@ target triple = "x86_64-pc-linux-gnu"
 @s_25_5 = internal constant [9 x i8] c"\E0\AE\95\E0\AE\BF\E0\AE\B1", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = tail call fastcc i32 @r_fix_ending(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @r_fix_ending(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %r_remove_question_prefixes.exit, label %8
 
@@ -399,7 +399,7 @@ define hidden i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %23, label %r_remove_question_prefixes.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call fastcc i32 @r_fix_va_start(ptr noundef nonnull %0), !range !4
+  %25 = tail call fastcc i32 @r_fix_va_start(ptr noundef nonnull %0)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %r_remove_question_prefixes.exit, label %27
 
@@ -460,7 +460,7 @@ define hidden i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %56 = load ptr, ptr %2, align 8
   %57 = getelementptr i8, ptr %56, i64 4
   store i32 1, ptr %57, align 4
-  %58 = tail call fastcc i32 @r_fix_va_start(ptr noundef nonnull %0), !range !4
+  %58 = tail call fastcc i32 @r_fix_va_start(ptr noundef nonnull %0)
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %r_remove_question_prefixes.exit, label %60
 
@@ -505,7 +505,7 @@ define hidden i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   br label %80
 
 80:                                               ; preds = %83, %78
-  %81 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0), !range !4
+  %81 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %r_remove_question_suffixes.exit, label %83
 
@@ -548,7 +548,7 @@ r_remove_question_suffixes.exit:                  ; preds = %80, %60
   store i32 1, ptr %101, align 4
   %102 = load i32, ptr %91, align 8
   store i32 %102, ptr %4, align 8
-  %103 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0), !range !4
+  %103 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %r_remove_question_prefixes.exit, label %105
 
@@ -710,7 +710,7 @@ r_remove_question_suffixes.exit:                  ; preds = %80, %60
   br label %177
 
 177:                                              ; preds = %180, %173
-  %178 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0), !range !4
+  %178 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %r_remove_common_word_endings.exit, label %180
 
@@ -1059,7 +1059,7 @@ r_remove_common_word_endings.exit:                ; preds = %177, %166, %105
   br label %336
 
 336:                                              ; preds = %339, %334
-  %337 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0), !range !4
+  %337 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %r_remove_vetrumai_urupukal.exit, label %339
 
@@ -1153,13 +1153,13 @@ r_remove_vetrumai_urupukal.exit:                  ; preds = %336, %316, %r_remov
 
 r_remove_plural_suffix.exit:                      ; preds = %378, %371
   store i32 %12, ptr %4, align 8
-  %381 = tail call fastcc i32 @r_remove_command_suffixes(ptr noundef nonnull %0), !range !4
+  %381 = tail call fastcc i32 @r_remove_command_suffixes(ptr noundef nonnull %0)
   %382 = icmp slt i32 %381, 0
   br i1 %382, label %r_remove_question_prefixes.exit, label %383
 
 383:                                              ; preds = %r_remove_plural_suffix.exit
   store i32 %12, ptr %4, align 8
-  %384 = tail call fastcc i32 @r_remove_tense_suffixes(ptr noundef nonnull %0), !range !4
+  %384 = tail call fastcc i32 @r_remove_tense_suffixes(ptr noundef nonnull %0)
   %385 = icmp slt i32 %384, 0
   br i1 %385, label %r_remove_question_prefixes.exit, label %386
 
@@ -1173,7 +1173,7 @@ r_remove_question_prefixes.exit:                  ; preds = %83, %180, %339, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_fix_ending(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @len_utf8(ptr noundef %2) #2
   %4 = icmp sgt i32 %3, 3
@@ -1641,7 +1641,7 @@ define internal fastcc i32 @r_fix_ending(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_remove_command_suffixes(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(ptr noundef %0) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %2 = tail call i32 @len_utf8(ptr noundef %.val) #2
   %3 = icmp slt i32 %2, 5
@@ -1701,7 +1701,7 @@ define internal fastcc i32 @r_remove_command_suffixes(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_remove_tense_suffixes(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -2270,7 +2270,7 @@ define internal fastcc i32 @r_remove_tense_suffixes(ptr noundef %0) unnamed_addr
   br label %254
 
 254:                                              ; preds = %257, %252
-  %255 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0), !range !4
+  %255 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %r_remove_tense_suffix.exit, label %257
 
@@ -2322,7 +2322,7 @@ declare i32 @eq_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_fix_va_start(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @eq_s(ptr noundef %0, i32 noundef 6, ptr noundef nonnull @s_0) #2
@@ -2410,4 +2410,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

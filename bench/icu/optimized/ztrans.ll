@@ -84,7 +84,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7518TimeZoneTransition5cloneEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ztrans_equals_75(ptr noundef nonnull %trans1, ptr noundef nonnull %trans2) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ztrans_equals_75(ptr noundef nonnull %trans1, ptr noundef nonnull %trans2) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %trans1, ptr noundef nonnull align 8 dereferenceable(32) %trans2)
   %conv = zext i1 %call to i8

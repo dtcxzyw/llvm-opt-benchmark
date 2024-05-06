@@ -2022,7 +2022,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare void @register_seq_analysis(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @icmpv6_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @icmpv6_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
   %6 = tail call ptr @sequence_analysis_create_sai_with_addresses(ptr noundef %1, ptr noundef %0) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %39, label %7
@@ -6359,7 +6359,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %382 = sub nuw nsw i8 16, %331
   %383 = add nsw i32 %42, -18
   %384 = zext nneg i8 %382 to i32
-  %.lhs.trunc = trunc i32 %383 to i16
+  %.lhs.trunc = trunc nsw i32 %383 to i16
   %.rhs.trunc = zext nneg i8 %382 to i16
   %385 = sdiv i16 %.lhs.trunc, %.rhs.trunc
   %.sext = sext i16 %385 to i32

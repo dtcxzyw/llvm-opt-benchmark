@@ -1300,7 +1300,7 @@ declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @cli_bm_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @is_regex_ok(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @is_regex_ok(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

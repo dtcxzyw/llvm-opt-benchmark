@@ -97,7 +97,7 @@ if.else.i:                                        ; preds = %if.then
   unreachable
 
 int128_get64.exit:                                ; preds = %if.then
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %2 to i64
+  %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %2 to i64
   %add = add i64 %1, -1
   %sub = add i64 %add, %coerce.sroa.0.0.extract.trunc
   %hostwin_list.i = getelementptr inbounds i8, ptr %container, i64 464
@@ -186,7 +186,7 @@ for.end:                                          ; preds = %for.cond, %if.end7
   br i1 %tobool.not.i, label %if.then6.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %for.end
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %and.i, i1 true), !range !8
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i, i1 true)
   %sub4.i = xor i64 %11, 63
   %shl.i = shl nuw i64 1, %sub4.i
   %12 = load i128, ptr %section, align 16
@@ -204,22 +204,22 @@ if.else.i.i:                                      ; preds = %cond.end.i
   unreachable
 
 int128_get64.exit.i:                              ; preds = %cond.end.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %12 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %12 to i64
   %window_size.i = getelementptr inbounds i8, ptr %create.i, i64 16
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %window_size.i, align 8
-  %cast.i20.i = trunc i64 %sub4.i to i32
+  %cast.i20.i = trunc nuw nsw i64 %sub4.i to i32
   %page_shift.i = getelementptr inbounds i8, ptr %create.i, i64 8
   store i32 %cast.i20.i, ptr %page_shift.i, align 8
   %shr.i = lshr i64 %coerce.sroa.0.0.extract.trunc.i, %sub4.i
   %conv15.i = shl i64 %shr.i, 3
   %mul.i = and i64 %conv15.i, 34359738360
-  %14 = tail call i64 @llvm.cttz.i64(i64 %mul.i, i1 false), !range !8
+  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %mul.i, i1 false)
   %call.i22.i = tail call i32 @getpagesize() #15
   %15 = zext i32 %call.i22.i to i64
-  %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 false), !range !8
-  %cast.i23.i = trunc i64 %16 to i8
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 false)
+  %cast.i23.i = trunc nuw nsw i64 %16 to i8
   %add.i = add nuw nsw i8 %cast.i23.i, 8
-  %div.lhs.trunc.i = trunc i64 %14 to i8
+  %div.lhs.trunc.i = trunc nuw nsw i64 %14 to i8
   %div31.i = udiv i8 %div.lhs.trunc.i, %add.i
   %div.zext.i = zext nneg i8 %div31.i to i32
   %levels.i = getelementptr inbounds i8, ptr %create.i, i64 24
@@ -228,7 +228,7 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %inc.i = zext i1 %tobool19.not.i to i32
   %spec.select19.i = add nuw nsw i32 %inc.i, %div.zext.i
   store i32 %spec.select19.i, ptr %levels.i, align 8
-  %17 = trunc i64 %sub4.i to i8
+  %17 = trunc nuw nsw i64 %sub4.i to i8
   %div27.lhs.trunc.i = sub nuw nsw i8 64, %17
   %div2733.i = udiv i8 %div27.lhs.trunc.i, %cast.i23.i
   %div27.zext.i = zext nneg i8 %div2733.i to i32
@@ -250,7 +250,7 @@ for.inc.i38:                                      ; preds = %for.body.i37
   %inc36.i = add i32 %19, 1
   store i32 %inc36.i, ptr %levels.i, align 8
   %cmp29.not.i = icmp ugt i32 %inc36.i, %div27.zext.i
-  br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i37, !llvm.loop !9
+  br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i37, !llvm.loop !8
 
 if.end41.i.loopexit:                              ; preds = %for.body.i37
   %start_addr.i.phi.trans.insert = getelementptr inbounds i8, ptr %create.i, i64 32
@@ -347,7 +347,7 @@ if.else.i40:                                      ; preds = %if.end33
   unreachable
 
 int128_get64.exit41:                              ; preds = %if.end33
-  %coerce37.sroa.0.0.extract.trunc = trunc i128 %37 to i64
+  %coerce37.sroa.0.0.extract.trunc = trunc nuw i128 %37 to i64
   %add39 = add i64 %36, -1
   %sub40 = add i64 %add39, %coerce37.sroa.0.0.extract.trunc
   %hostwin.019.i = load ptr, ptr %hostwin_list, align 8
@@ -358,7 +358,7 @@ for.cond.i:                                       ; preds = %for.body.i43
   %hostwin_next.i45 = getelementptr inbounds i8, ptr %hostwin.021.i, i64 24
   %hostwin.0.i46 = load ptr, ptr %hostwin_next.i45, align 8
   %tobool.not.i47 = icmp eq ptr %hostwin.0.i46, null
-  br i1 %tobool.not.i47, label %for.end.i, label %for.body.i43, !llvm.loop !10
+  br i1 %tobool.not.i47, label %for.end.i, label %for.body.i43, !llvm.loop !9
 
 for.body.i43:                                     ; preds = %int128_get64.exit41, %for.cond.i
   %hostwin.021.i = phi ptr [ %hostwin.0.i46, %for.cond.i ], [ %hostwin.019.i, %int128_get64.exit41 ]
@@ -431,7 +431,7 @@ if.else.i:                                        ; preds = %if.end
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %5 to i64
+  %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %5 to i64
   %add = add i64 %4, -1
   %sub = add i64 %add, %coerce.sroa.0.0.extract.trunc
   %hostwin_list.i = getelementptr inbounds i8, ptr %container, i64 464
@@ -469,7 +469,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %hostwin_next20.i = getelementptr inbounds i8, ptr %hostwin.015.i, i64 24
   %hostwin.0.i = load ptr, ptr %hostwin_next20.i, align 8
   %tobool.not.i = icmp eq ptr %hostwin.0.i, null
-  br i1 %tobool.not.i, label %if.then6, label %for.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %if.then6, label %for.body.i, !llvm.loop !10
 
 vfio_host_win_del.exit:                           ; preds = %do.body.i, %if.then5.i
   %9 = phi ptr [ %.pre.i, %if.then5.i ], [ null, %do.body.i ]
@@ -641,7 +641,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %hostwin_next.i = getelementptr inbounds i8, ptr %hostwin.021.i, i64 24
   %hostwin.0.i = load ptr, ptr %hostwin_next.i, align 8
   %tobool.not.i = icmp eq ptr %hostwin.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %if.else27, %for.cond.i
   %hostwin.021.i = phi ptr [ %hostwin.0.i, %for.cond.i ], [ %hostwin.019.i, %if.else27 ]
@@ -758,7 +758,7 @@ if.then4:                                         ; preds = %land.rhs.preheader,
   %cmp3.not = icmp eq ptr %4, null
   %le_prev14.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
   %.pre14 = load ptr, ptr %le_prev14.phi.trans.insert, align 8
-  br i1 %cmp3.not, label %for.end.critedge, label %if.then4, !llvm.loop !12
+  br i1 %cmp3.not, label %for.end.critedge, label %if.then4, !llvm.loop !11
 
 for.end.critedge:                                 ; preds = %if.then4, %land.rhs.preheader
   %hostwin.013.lcssa = phi ptr [ %1, %land.rhs.preheader ], [ %3, %if.then4 ]
@@ -854,11 +854,11 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.exit ]
   %6 = load i128, ptr %section, align 16
   %coerce5.sroa.2.0.extract.shift = lshr i128 %6, 64
-  %coerce5.sroa.2.0.extract.trunc = trunc i128 %coerce5.sroa.2.0.extract.shift to i64
+  %coerce5.sroa.2.0.extract.trunc = trunc nuw i128 %coerce5.sroa.2.0.extract.shift to i64
   %a.sroa.0.0.insert.ext.i = and i128 %6, 18446744073709551615
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %7 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
-  %.tr.i = trunc i128 %7 to i64
+  %.tr.i = trunc nuw i128 %7 to i64
   %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
   %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
@@ -1046,11 +1046,11 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.exit ]
   %6 = load i128, ptr %section, align 16
   %coerce5.sroa.2.0.extract.shift = lshr i128 %6, 64
-  %coerce5.sroa.2.0.extract.trunc = trunc i128 %coerce5.sroa.2.0.extract.shift to i64
+  %coerce5.sroa.2.0.extract.trunc = trunc nuw i128 %coerce5.sroa.2.0.extract.shift to i64
   %a.sroa.0.0.insert.ext.i = and i128 %6, 18446744073709551615
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %7 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
-  %.tr.i = trunc i128 %7 to i64
+  %.tr.i = trunc nuw i128 %7 to i64
   %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
   %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
@@ -1297,8 +1297,7 @@ attributes #16 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

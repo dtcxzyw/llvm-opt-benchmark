@@ -350,7 +350,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cx
   br label %for.inc62
 
 sw.bb25:                                          ; preds = %if.end9
-  %tobool26 = trunc i8 %pending_data_token.0 to i1
+  %tobool26 = trunc nuw i8 %pending_data_token.0 to i1
   br i1 %tobool26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %sw.bb25
@@ -438,7 +438,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cx
   br label %for.inc62
 
 sw.bb32:                                          ; preds = %if.end9
-  %tobool33 = trunc i8 %pending_data_token.0 to i1
+  %tobool33 = trunc nuw i8 %pending_data_token.0 to i1
   br i1 %tobool33, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %sw.bb32

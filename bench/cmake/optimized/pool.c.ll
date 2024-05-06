@@ -46,7 +46,7 @@ define dso_local noundef i32 @POOL_tryAdd(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @POOL_sizeof(ptr noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef range(i64 0, 5) i64 @POOL_sizeof(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %. = select i1 %2, i64 0, i64 4
   ret i64 %.

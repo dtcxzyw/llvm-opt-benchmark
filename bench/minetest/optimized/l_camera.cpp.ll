@@ -405,7 +405,7 @@ declare void @_ZN10GenericCAO17updateMeshCullingEv(ptr noundef nonnull align 8 d
 declare void @_ZN10GenericCAO18setChildrenVisibleEb(ptr noundef nonnull align 8 dereferenceable(1073), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaCamera17l_get_camera_modeEP9lua_State(ptr noundef %L) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9LuaCamera17l_get_camera_modeEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9LuaCamera9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
@@ -428,7 +428,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaCamera9l_get_fovEP9lua_State(ptr noundef %L) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9LuaCamera9l_get_fovEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9LuaCamera9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
@@ -480,7 +480,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaCamera9l_get_posEP9lua_State(ptr noundef %L) #10 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9LuaCamera9l_get_posEP9lua_State(ptr noundef %L) #10 align 2 {
 entry:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9LuaCamera9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
@@ -534,7 +534,7 @@ cond.end:                                         ; preds = %entry
 declare { <2 x float>, float } @_ZNK11LocalPlayer12getEyeOffsetEv(ptr noundef nonnull align 8 dereferenceable(812)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaCamera14l_get_look_dirEP9lua_State(ptr noundef %L) #10 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9LuaCamera14l_get_look_dirEP9lua_State(ptr noundef %L) #10 align 2 {
 entry:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9LuaCamera9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
@@ -601,7 +601,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaCamera18l_get_aspect_ratioEP9lua_State(ptr noundef %L) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9LuaCamera18l_get_aspect_ratioEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9LuaCamera9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14

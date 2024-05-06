@@ -97,7 +97,7 @@ define i32 @mca_coll_basic_neighbor_alltoallv(ptr noundef %0, ptr nocapture noun
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %51
-  %57 = trunc i64 %indvars.iv200.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv200.i to i32
   %58 = call i32 @mca_topo_base_cart_shift(ptr noundef %8, i32 noundef %57, i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %13) #3
   %.pr.pre.i = load i32, ptr %12, align 4
   br label %thread-pre-split.i
@@ -243,7 +243,7 @@ ompi_request_cancel.exit.i.i:                     ; preds = %113, %110
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %.lr.ph196.i
-  %127 = trunc i64 %indvars.iv207.i to i32
+  %127 = trunc nuw nsw i64 %indvars.iv207.i to i32
   %128 = call i32 @mca_topo_base_cart_shift(ptr noundef %8, i32 noundef %127, i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %15) #3
   %.pr173.pre.i = load i32, ptr %14, align 4
   br label %thread-pre-split172.i
@@ -600,7 +600,7 @@ ompi_request_cancel.exit.i.i51:                   ; preds = %284, %281
   br i1 %309, label %.lr.ph110.i, label %._crit_edge.i38, !llvm.loop !9
 
 310:                                              ; preds = %.lr.ph110.i
-  %311 = trunc i64 %indvars.iv120.i to i32
+  %311 = trunc nuw nsw i64 %indvars.iv120.i to i32
   %312 = load i32, ptr %11, align 4
   %313 = add nsw i32 %312, %311
   %314 = icmp sgt i32 %313, -1
@@ -865,7 +865,7 @@ ompi_request_cancel.exit.i.i70:                   ; preds = %417, %414
   br i1 %exitcond130.not.i, label %._crit_edge.i56, label %.lr.ph116.i, !llvm.loop !11
 
 440:                                              ; preds = %.lr.ph116.i
-  %441 = trunc i64 %indvars.iv126.i to i32
+  %441 = trunc nuw nsw i64 %indvars.iv126.i to i32
   %442 = add nsw i32 %367, %441
   %443 = icmp sgt i32 %442, -1
   br i1 %443, label %.lr.ph.preheader.i.i57, label %mca_coll_basic_neighbor_alltoallv_dist_graph.exit

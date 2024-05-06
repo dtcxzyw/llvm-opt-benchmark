@@ -68,7 +68,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
-  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !7
+  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
 
@@ -107,7 +107,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
 declare void @slurm_init_resv_desc_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -705,7 +705,7 @@ define internal fastcc noundef i32 @_parse_res_options(i32 noundef %0, ptr nocap
 .thread:                                          ; preds = %73, %69, %96, %112, %108, %126, %122, %275, %260, %233, %229, %169, %170, %296, %289, %55, %56, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.thread, %5, %297, %292, %287, %271, %266, %256, %251, %220, %204, %198, %183, %165, %155, %142, %117, %103, %98, %81, %64, %58
   %.0 = phi i32 [ -1, %81 ], [ -1, %297 ], [ -1, %142 ], [ -1, %155 ], [ -1, %165 ], [ -1, %198 ], [ -1, %204 ], [ -1, %220 ], [ -1, %251 ], [ -1, %256 ], [ -1, %266 ], [ -1, %271 ], [ -1, %287 ], [ -1, %292 ], [ -1, %183 ], [ -1, %117 ], [ -1, %103 ], [ -1, %98 ], [ -1, %64 ], [ -1, %58 ], [ 0, %5 ], [ 0, %.thread ]
@@ -729,7 +729,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
-  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !7
+  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %170
 
@@ -1143,6 +1143,5 @@ attributes #11 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

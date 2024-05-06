@@ -202,7 +202,7 @@ define internal ptr @xfrm6_dst_lookup(ptr noundef %0, i32 %1, i32 %2, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_get_saddr(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #3 align 16 {
+define internal noundef range(i32 -113, 1) i32 @xfrm6_get_saddr(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #3 align 16 {
   %6 = alloca %struct.flowi6, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %6, i64 12
@@ -244,7 +244,7 @@ define internal noundef i32 @xfrm6_get_saddr(ptr noundef %0, i32 %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_fill_dst(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #3 align 16 {
+define internal noundef range(i32 -19, 1) i32 @xfrm6_fill_dst(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   store ptr %1, ptr %0, align 8

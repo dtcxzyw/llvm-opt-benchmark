@@ -42,7 +42,7 @@ define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @syslog_register() #1 {
+define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i64 0, i32 1)) #4
   store ptr @.str.2, ptr @level, align 8
   %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, ptr noundef nonnull @level) #4

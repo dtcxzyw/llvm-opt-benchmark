@@ -933,7 +933,7 @@ declare void @listEmpty(ptr noundef) local_unnamed_addr #1
 declare void @resetClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleCreateEmptyKey(ptr nocapture noundef %key, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleCreateEmptyKey(ptr nocapture noundef %key, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -1016,7 +1016,7 @@ declare ptr @createStreamObject() local_unnamed_addr #1
 declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleDelKeyIfEmpty(ptr nocapture noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleDelKeyIfEmpty(ptr nocapture noundef %key) local_unnamed_addr #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -1146,7 +1146,7 @@ sw.epilog:                                        ; preds = %sw.bb3, %sw.bb
 declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetApi(ptr noundef %funcname, ptr nocapture noundef writeonly %targetPtrPtr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetApi(ptr noundef %funcname, ptr nocapture noundef writeonly %targetPtrPtr) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 37), align 8
   %call = tail call ptr @dictFind(ptr noundef %0, ptr noundef %funcname) #32
@@ -1481,7 +1481,7 @@ if.end:                                           ; preds = %cond.end
   %2 = load ptr, ptr %module3, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -1767,7 +1767,7 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -1846,7 +1846,7 @@ entry:
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -1898,7 +1898,7 @@ entry:
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -1941,7 +1941,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @RM_IsKeysPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
+define dso_local range(i32 0, 2) i32 @RM_IsKeysPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -2133,7 +2133,7 @@ RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @RM_IsChannelsPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
+define dso_local range(i32 0, 2) i32 @RM_IsChannelsPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -2204,7 +2204,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @isCommandNameValid(ptr noundef readonly %name) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @isCommandNameValid(ptr noundef readonly %name) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
   %tobool.not = icmp eq ptr %call, null
@@ -2440,7 +2440,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CreateCommand(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CreateCommand(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
 entry:
   %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
@@ -2468,7 +2468,7 @@ if.end3:                                          ; preds = %cond.end
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1723 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
-  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end11, label %return
 
@@ -2683,7 +2683,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CreateSubcommand(ptr nocapture noundef readonly %parent, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CreateSubcommand(ptr nocapture noundef readonly %parent, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
 entry:
   %0 = load ptr, ptr %parent, align 8
   %onload = getelementptr inbounds i8, ptr %0, i64 116
@@ -2726,7 +2726,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end18, label %return
 
@@ -2813,7 +2813,7 @@ return:                                           ; preds = %cond.end, %while.co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_AddACLCategory(ptr nocapture noundef readonly %ctx, ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AddACLCategory(ptr nocapture noundef readonly %ctx, ptr noundef %name) #0 {
 entry:
   %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
@@ -2910,7 +2910,7 @@ return:                                           ; preds = %if.else, %if.then12
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleVerifyResourceName(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleVerifyResourceName(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %name, align 1
   %.fr1921 = freeze i8 %0
@@ -2962,7 +2962,7 @@ declare i64 @ACLGetCommandCategoryFlagByName(ptr noundef) local_unnamed_addr #1
 declare i32 @ACLAddCommandCategory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @matchAclCategoryFlag(ptr noundef %flag, ptr nocapture noundef %acl_categories_flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @matchAclCategoryFlag(ptr noundef %flag, ptr nocapture noundef %acl_categories_flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @ACLGetCommandCategoryFlagByName(ptr noundef %flag) #32
   %tobool.not = icmp eq i64 %call, 0
@@ -3032,7 +3032,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetCommandACLCategories(ptr noundef readonly %command, ptr noundef %aclflags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetCommandACLCategories(ptr noundef readonly %command, ptr noundef %aclflags) #0 {
 entry:
   %tobool.not = icmp eq ptr %command, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -3076,7 +3076,7 @@ return:                                           ; preds = %cond.end, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetCommandInfo(ptr nocapture noundef readonly %command, ptr nocapture noundef readonly %info) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetCommandInfo(ptr nocapture noundef readonly %command, ptr nocapture noundef readonly %info) #0 {
 entry:
   %count87 = alloca i32, align 4
   %0 = load ptr, ptr %info, align 8
@@ -3166,7 +3166,7 @@ if.end42.i:                                       ; preds = %for.body29.i
   %flags.i = getelementptr inbounds i8, ptr %add.ptr.i4072.i, i64 8
   %13 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %13, 15
-  %14 = tail call i64 @llvm.ctpop.i64(i64 %and.i), !range !19
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
   %or.cond.not.i = icmp eq i64 %14, 1
   br i1 %or.cond.not.i, label %if.end52.i, label %do.body46.i
 
@@ -3181,7 +3181,7 @@ if.end50.i:                                       ; preds = %do.body46.i
 
 if.end52.i:                                       ; preds = %if.end42.i
   %and54.i = and i64 %13, 224
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %and54.i), !range !20
+  %16 = tail call range(i64 0, 4) i64 @llvm.ctpop.i64(i64 %and54.i)
   %tobool1.not.i46.i = icmp ugt i64 %16, 1
   br i1 %tobool1.not.i46.i, label %do.body62.i, label %if.end68.i
 
@@ -3247,12 +3247,12 @@ for.inc102.i:                                     ; preds = %sw.epilog.i
   %begin_search_type.i = getelementptr inbounds i8, ptr %add.ptr.i40.i, i64 16
   %23 = load i32, ptr %begin_search_type.i, align 8
   %tobool28.not.i = icmp eq i32 %23, 0
-  br i1 %tobool28.not.i, label %moduleValidateCommandInfo.exit, label %for.body29.i, !llvm.loop !21
+  br i1 %tobool28.not.i, label %moduleValidateCommandInfo.exit, label %for.body29.i, !llvm.loop !19
 
 moduleValidateCommandInfo.exit:                   ; preds = %for.inc102.i, %if.end20.i, %for.cond24.preheader.i
   %args.i = getelementptr inbounds i8, ptr %info, i64 64
   %24 = load ptr, ptr %args.i, align 8
-  %call106.i = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef %24, ptr noundef nonnull %0), !range !22
+  %call106.i = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef %24, ptr noundef nonnull %0)
   %tobool.not = icmp eq i32 %call106.i, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -3379,7 +3379,7 @@ while.cond:                                       ; preds = %while.cond, %while.
   %42 = load ptr, ptr %add.ptr.i, align 8
   %tobool52.not = icmp eq ptr %42, null
   %inc = add i64 %count.0, 1
-  br i1 %tobool52.not, label %while.end, label %while.cond, !llvm.loop !23
+  br i1 %tobool52.not, label %while.end, label %while.cond, !llvm.loop !20
 
 while.end:                                        ; preds = %while.cond
   %conv.le = trunc i64 %count.0 to i32
@@ -3420,7 +3420,7 @@ for.body:                                         ; preds = %cond.end, %for.body
   store ptr %call71, ptr %changes74, align 8
   %inc75 = add nuw i64 %j.0183, 1
   %exitcond.not = icmp eq i64 %inc75, %count.0
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !21
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %history, align 8
@@ -3476,7 +3476,7 @@ for.body103:                                      ; preds = %if.then93, %for.bod
   %55 = load i32, ptr %count87, align 4
   %56 = sext i32 %55 to i64
   %cmp101 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %cmp101, label %for.body103, label %for.end111.loopexit, !llvm.loop !25
+  br i1 %cmp101, label %for.body103, label %for.end111.loopexit, !llvm.loop !22
 
 for.end111.loopexit:                              ; preds = %for.body103
   %.pre209 = load ptr, ptr %tips, align 8
@@ -3524,7 +3524,7 @@ while.cond126:                                    ; preds = %while.cond126, %whi
   %61 = load i32, ptr %gep, align 8
   %tobool131.not = icmp eq i32 %61, 0
   %inc133 = add i64 %count125.0, 1
-  br i1 %tobool131.not, label %while.end134, label %while.cond126, !llvm.loop !26
+  br i1 %tobool131.not, label %while.end134, label %while.cond126, !llvm.loop !23
 
 while.end134:                                     ; preds = %while.cond126
   %cmp135 = icmp ult i64 %count125.0, 2147483647
@@ -3725,7 +3725,7 @@ sw.default259:                                    ; preds = %sw.epilog
 for.inc261:                                       ; preds = %sw.bb201, %sw.bb213, %sw.bb217, %sw.bb239
   %inc262 = add nuw i64 %j152.0188, 1
   %exitcond208.not = icmp eq i64 %inc262, %count125.0
-  br i1 %exitcond208.not, label %for.end263, label %for.body156, !llvm.loop !27
+  br i1 %exitcond208.not, label %for.end263, label %for.body156, !llvm.loop !24
 
 for.end263:                                       ; preds = %for.inc261, %cond.end145
   call void @populateCommandLegacyRangeSpec(ptr noundef nonnull %25) #32
@@ -3767,7 +3767,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %1 = load ptr, ptr %add.ptr.i, align 8
   %tobool.not = icmp eq ptr %1, null
   %inc = add i64 %count.0, 1
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !28
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !25
 
 while.end:                                        ; preds = %while.cond
   %cmp = icmp ult i64 %count.0, 230584300921369395
@@ -3909,7 +3909,7 @@ if.then62:                                        ; preds = %if.end57
 for.inc:                                          ; preds = %if.end57, %if.then62
   %inc68 = add nuw i64 %j.062, 1
   %exitcond.not = icmp eq i64 %inc68, %count.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %cond.end
   ret ptr %call5
@@ -3926,7 +3926,7 @@ entry:
 declare ptr @dictFetchValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @moduleIsModuleCommand(ptr noundef readnone %module_handle, ptr nocapture noundef readonly %cmd) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @moduleIsModuleCommand(ptr noundef readnone %module_handle, ptr nocapture noundef readonly %cmd) local_unnamed_addr #11 {
 entry:
   %proc = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %proc, align 8
@@ -3949,7 +3949,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @moduleListConfigMatch(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %name) #12 {
+define dso_local range(i32 0, 2) i32 @moduleListConfigMatch(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %name) #12 {
 entry:
   %0 = load ptr, ptr %config, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %name) #36
@@ -4021,7 +4021,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @listCreate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_IsModuleNameBusy(ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_IsModuleNameBusy(ptr noundef %name) #0 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef %name) #32
   %0 = load ptr, ptr @modules, align 8
@@ -4076,7 +4076,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_BlockedClientMeasureTimeEnd(ptr nocapture noundef %bc) #0 {
+define dso_local range(i32 0, 2) i32 @RM_BlockedClientMeasureTimeEnd(ptr nocapture noundef %bc) #0 {
 entry:
   %background_timer = getelementptr inbounds i8, ptr %bc, i64 96
   %0 = load i64, ptr %background_timer, align 8
@@ -4275,7 +4275,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @autoMemoryFreed(ptr nocapture noundef %ctx, i32 noundef %type, ptr noundef readnone %ptr) local_unnamed_addr #16 {
+define dso_local range(i32 0, 2) i32 @autoMemoryFreed(ptr nocapture noundef %ctx, i32 noundef %type, ptr noundef readnone %ptr) local_unnamed_addr #16 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -5678,7 +5678,7 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_StringToLongLong(ptr nocapture noundef readonly %str, ptr noundef %ll) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringToLongLong(ptr nocapture noundef readonly %str, ptr noundef %ll) #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -5733,7 +5733,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_StringToULongLong(ptr nocapture noundef readonly %str, ptr noundef %ull) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringToULongLong(ptr nocapture noundef readonly %str, ptr noundef %ull) #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -5746,7 +5746,7 @@ entry:
 declare i32 @string2ull(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_StringToDouble(ptr noundef %str, ptr noundef %d) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringToDouble(ptr noundef %str, ptr noundef %d) #0 {
 entry:
   %call = tail call i32 @getDoubleFromObject(ptr noundef %str, ptr noundef %d) #32
   %cmp = icmp ne i32 %call, 0
@@ -5757,7 +5757,7 @@ entry:
 declare i32 @getDoubleFromObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_StringToLongDouble(ptr nocapture noundef readonly %str, ptr noundef %ld) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringToLongDouble(ptr nocapture noundef readonly %str, ptr noundef %ld) #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -5812,7 +5812,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 declare i32 @string2ld(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StringToStreamID(ptr noundef %str, ptr nocapture noundef writeonly %id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringToStreamID(ptr noundef %str, ptr nocapture noundef writeonly %id) #0 {
 entry:
   %streamid = alloca %struct.streamID, align 16
   %call = call i32 @streamParseID(ptr noundef %str, ptr noundef nonnull %streamid) #32
@@ -5939,7 +5939,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StringAppendBuffer(ptr nocapture readnone %ctx, ptr noundef %str, ptr noundef %buf, i64 noundef %len) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringAppendBuffer(ptr nocapture readnone %ctx, ptr noundef %str, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %call = tail call ptr @moduleAssertUnsharedString(ptr noundef %str)
   %cmp = icmp eq ptr %call, null
@@ -6352,7 +6352,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ReplyWithAttribute(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ReplyWithAttribute(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
   %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
@@ -7165,7 +7165,7 @@ return:                                           ; preds = %if.then.i, %moduleG
 declare void @addReplyBool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ReplyWithCallReply(ptr nocapture noundef readonly %ctx, ptr noundef %reply) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ReplyWithCallReply(ptr nocapture noundef readonly %ctx, ptr noundef %reply) #0 {
 entry:
   %proto_len = alloca i64, align 8
   %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -7348,7 +7348,7 @@ return:                                           ; preds = %if.then.i, %moduleG
 declare void @addReplyHumanLongDouble(ptr noundef, x86_fp80 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_Replicate(ptr nocapture noundef readonly %ctx, ptr noundef %cmdname, ptr nocapture noundef readonly %fmt, ...) #0 {
+define dso_local range(i32 0, 2) i32 @RM_Replicate(ptr nocapture noundef readonly %ctx, ptr noundef %cmdname, ptr nocapture noundef readonly %fmt, ...) #0 {
 entry:
   %argc = alloca i32, align 4
   %flags = alloca i32, align 4
@@ -7392,7 +7392,7 @@ for.body:                                         ; preds = %if.end5, %for.body
   %8 = load i32, ptr %argc, align 4
   %9 = sext i32 %8 to i64
   %cmp14 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !30
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %if.end5
   call void @zfree(ptr noundef nonnull %call2) #32
@@ -7718,7 +7718,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %48, ptr %arrayidx126, align 8
   %inc127 = add nuw i64 %i.086, 1
   %exitcond.not = icmp eq i64 %inc127, %43
-  br i1 %exitcond.not, label %if.end252.loopexit, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %if.end252.loopexit, label %for.body, !llvm.loop !28
 
 if.then132:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then134
@@ -7837,7 +7837,7 @@ if.end252:                                        ; preds = %if.end252.loopexit,
   %argv_size.1 = phi i32 [ %argv_size.0, %vaarg.end ], [ %argv_size.0, %if.end ], [ %argv_size.0, %vaarg.end61 ], [ %argv_size.0, %vaarg.end81 ], [ %argv_size.0, %if.then134 ], [ %argv_size.0, %if.then132 ], [ %argv_size.0, %if.then142 ], [ %argv_size.0, %if.then140 ], [ %argv_size.0, %if.then151 ], [ %argv_size.0, %if.then149 ], [ %argv_size.0, %if.then160 ], [ %argv_size.0, %if.then158 ], [ %argv_size.0, %if.then169 ], [ %argv_size.0, %if.then167 ], [ %argv_size.0, %if.then178 ], [ %argv_size.0, %if.then176 ], [ %argv_size.0, %if.then187 ], [ %argv_size.0, %if.then185 ], [ %argv_size.0, %if.then196 ], [ %argv_size.0, %if.then194 ], [ %argv_size.0, %if.then205 ], [ %argv_size.0, %if.then203 ], [ %argv_size.0, %if.then214 ], [ %argv_size.0, %if.then212 ], [ %argv_size.0, %if.then223 ], [ %argv_size.0, %if.then221 ], [ %argv_size.0, %if.then232 ], [ %argv_size.0, %if.then230 ], [ %conv116, %vaarg.end112 ], [ %conv116, %if.end252.loopexit ]
   %argc.2 = phi i32 [ %inc9, %vaarg.end ], [ %inc33, %if.end ], [ %inc64, %vaarg.end61 ], [ %inc84, %vaarg.end81 ], [ %argc.0, %if.then134 ], [ %argc.0, %if.then132 ], [ %argc.0, %if.then142 ], [ %argc.0, %if.then140 ], [ %argc.0, %if.then151 ], [ %argc.0, %if.then149 ], [ %argc.0, %if.then160 ], [ %argc.0, %if.then158 ], [ %argc.0, %if.then169 ], [ %argc.0, %if.then167 ], [ %argc.0, %if.then178 ], [ %argc.0, %if.then176 ], [ %argc.0, %if.then187 ], [ %argc.0, %if.then185 ], [ %argc.0, %if.then196 ], [ %argc.0, %if.then194 ], [ %argc.0, %if.then205 ], [ %argc.0, %if.then203 ], [ %argc.0, %if.then214 ], [ %argc.0, %if.then212 ], [ %argc.0, %if.then223 ], [ %argc.0, %if.then221 ], [ %argc.0, %if.then232 ], [ %argc.0, %if.then230 ], [ %argc.0, %vaarg.end112 ], [ %61, %if.end252.loopexit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
-  br label %while.cond, !llvm.loop !32
+  br label %while.cond, !llvm.loop !29
 
 while.end:                                        ; preds = %while.cond
   %tobool253.not = icmp eq ptr %argcp, null
@@ -7854,7 +7854,7 @@ for.body259:                                      ; preds = %for.body259.prehead
   tail call void @decrRefCount(ptr noundef %62) #32
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
-  br i1 %exitcond95.not, label %for.end264, label %for.body259, !llvm.loop !33
+  br i1 %exitcond95.not, label %for.end264, label %for.body259, !llvm.loop !30
 
 for.end264:                                       ; preds = %for.body259, %for.cond256.preheader
   tail call void @zfree(ptr noundef %argv.0) #32
@@ -7989,7 +7989,7 @@ return:                                           ; preds = %if.end11.i, %if.end
 declare ptr @lookupClientByID(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @modulePopulateClientInfoStructure(ptr noundef %ci, ptr nocapture noundef readonly %client, i32 noundef %structver) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @modulePopulateClientInfoStructure(ptr noundef %ci, ptr nocapture noundef readonly %client, i32 noundef %structver) local_unnamed_addr #0 {
 entry:
   %port = alloca i32, align 4
   %cmp.not = icmp eq i32 %structver, 1
@@ -8124,7 +8124,7 @@ return:                                           ; preds = %entry, %connAddrPee
 declare ptr @connectionTypeTls() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @modulePopulateReplicationInfoStructure(ptr nocapture noundef writeonly %ri, i32 noundef %structver) local_unnamed_addr #21 {
+define dso_local range(i32 0, 2) i32 @modulePopulateReplicationInfoStructure(ptr nocapture noundef writeonly %ri, i32 noundef %structver) local_unnamed_addr #21 {
 entry:
   %cmp.not = icmp eq i32 %structver, 1
   br i1 %cmp.not, label %if.end, label %return
@@ -8164,7 +8164,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetClientInfoById(ptr noundef %ci, i64 noundef %id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetClientInfoById(ptr noundef %ci, i64 noundef %id) #0 {
 entry:
   %call = tail call ptr @lookupClientByID(i64 noundef %id) #32
   %cmp = icmp eq ptr %call, null
@@ -8177,7 +8177,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %0 = load i64, ptr %ci, align 8
   %conv = trunc i64 %0 to i32
-  %call4 = tail call i32 @modulePopulateClientInfoStructure(ptr noundef nonnull %ci, ptr noundef nonnull %call, i32 noundef %conv), !range !22
+  %call4 = tail call i32 @modulePopulateClientInfoStructure(ptr noundef nonnull %ci, ptr noundef nonnull %call, i32 noundef %conv)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -8256,7 +8256,7 @@ return:                                           ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetClientNameById(i64 noundef %id, ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetClientNameById(i64 noundef %id, ptr noundef %name) #0 {
 entry:
   %call = tail call ptr @lookupClientByID(i64 noundef %id) #32
   %cmp = icmp eq ptr %call, null
@@ -8493,7 +8493,7 @@ declare i32 @getMaxmemoryState(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @hasActiveChildProcess() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_AvoidReplicaTraffic() #0 {
+define dso_local range(i32 0, 2) i32 @RM_AvoidReplicaTraffic() #0 {
 entry:
   %call = tail call i32 @isPausedActionsWithUpdate(i32 noundef 16) #32
   %tobool = icmp ne i32 %call, 0
@@ -8504,7 +8504,7 @@ entry:
 declare i32 @isPausedActionsWithUpdate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_SelectDb(ptr nocapture noundef readonly %ctx, i32 noundef %newid) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SelectDb(ptr nocapture noundef readonly %ctx, i32 noundef %newid) #0 {
 entry:
   %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
@@ -8515,7 +8515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_KeyExists(ptr nocapture noundef readonly %ctx, ptr noundef %keyname) #0 {
+define dso_local range(i32 0, 2) i32 @RM_KeyExists(ptr nocapture noundef readonly %ctx, ptr noundef %keyname) #0 {
 entry:
   %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
@@ -8779,7 +8779,7 @@ cond.end30:                                       ; preds = %if.end21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @RM_KeyType(ptr noundef readonly %key) #11 {
+define dso_local range(i32 0, 8) i32 @RM_KeyType(ptr noundef readonly %key) #11 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -8863,7 +8863,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i64 @stringObjectLen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_DeleteKey(ptr nocapture noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DeleteKey(ptr nocapture noundef %key) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -8892,7 +8892,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_UnlinkKey(ptr nocapture noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_UnlinkKey(ptr nocapture noundef %key) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -8955,7 +8955,7 @@ declare i64 @getExpire(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @commandTimeSnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -9029,7 +9029,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetAbsExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetAbsExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -9219,7 +9219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StringSet(ptr nocapture noundef %key, ptr noundef %str) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringSet(ptr nocapture noundef %key, ptr noundef %str) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -9361,7 +9361,7 @@ return:                                           ; preds = %if.end, %sdslen.exi
 declare ptr @dbUnshareStringValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StringTruncate(ptr nocapture noundef %key, i64 noundef %newlen) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StringTruncate(ptr nocapture noundef %key, i64 noundef %newlen) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -9555,7 +9555,7 @@ return:                                           ; preds = %entry, %sw.bb21, %s
 declare ptr @sdsRemoveFreeSpace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -9684,7 +9684,7 @@ cond.end94:                                       ; preds = %while.body
   %add102 = add nsw i64 %8, %conv99
   store i64 %add102, ptr %index64, align 8
   %cmp79.not = icmp eq i64 %add102, %index.addr.0
-  br i1 %cmp79.not, label %return, label %while.body, !llvm.loop !34
+  br i1 %cmp79.not, label %return, label %while.body, !llvm.loop !31
 
 return:                                           ; preds = %cond.end94, %if.end68, %if.end43, %cond.end40, %if.then16, %if.then8, %if.then3, %if.then
   %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then16 ], [ 1, %cond.end40 ], [ 0, %if.then8 ], [ 0, %if.then ], [ 1, %if.end43 ], [ 1, %if.end68 ], [ 1, %cond.end94 ]
@@ -9698,7 +9698,7 @@ declare i32 @listTypeNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @listTypeSetIteratorDirection(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ListPush(ptr noundef %key, i32 noundef %where, ptr noundef %ele) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ListPush(ptr noundef %key, i32 noundef %where, ptr noundef %ele) #0 {
 entry:
   %ele.addr = alloca ptr, align 8
   store ptr %ele, ptr %ele.addr, align 8
@@ -9906,7 +9906,7 @@ if.end13:                                         ; preds = %if.then12, %if.end1
   %call16 = tail call ptr @listTypePop(ptr noundef %3, i32 noundef %cond) #32
   %call17 = tail call ptr @getDecodedObject(ptr noundef %call16) #32
   tail call void @decrRefCount(ptr noundef %call16) #32
-  %call18 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call18 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then20, label %if.end22
 
@@ -9981,7 +9981,7 @@ declare void @listTypeTryConversion(ptr noundef, i32 noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_ListGet(ptr noundef %key, i64 noundef %index) #0 {
 entry:
-  %call = tail call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 1), !range !22
+  %call = tail call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -10049,7 +10049,7 @@ return:                                           ; preds = %if.end11.i, %if.the
 declare ptr @listTypeGet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ListSet(ptr noundef %key, i64 noundef %index, ptr noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ListSet(ptr noundef %key, i64 noundef %index, ptr noundef %value) #0 {
 entry:
   %value.addr = alloca ptr, align 8
   store ptr %value, ptr %value.addr, align 8
@@ -10080,7 +10080,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 
 if.end6:                                          ; preds = %lor.lhs.false
   call void @listTypeTryConversionAppend(ptr noundef nonnull %0, ptr noundef nonnull %value.addr, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @moduleFreeListIterator, ptr noundef nonnull %key) #32
-  %call8 = call i32 @moduleListIteratorSeek(ptr noundef nonnull %key, i64 noundef %index, i32 noundef 2), !range !22
+  %call8 = call i32 @moduleListIteratorSeek(ptr noundef nonnull %key, i64 noundef %index, i32 noundef 2)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.then10
 
@@ -10099,7 +10099,7 @@ return:                                           ; preds = %if.end6, %if.then10
 declare void @listTypeReplace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ListInsert(ptr noundef %key, i64 noundef %index, ptr noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ListInsert(ptr noundef %key, i64 noundef %index, ptr noundef %value) #0 {
 entry:
   %value.addr = alloca ptr, align 8
   store ptr %value, ptr %value.addr, align 8
@@ -10125,7 +10125,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %or.cond27, label %if.then6, label %land.lhs.true10
 
 if.then6:                                         ; preds = %land.lhs.true
-  %call7 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 1, ptr noundef nonnull %value), !range !22
+  %call7 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 1, ptr noundef nonnull %value)
   br label %return
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
@@ -10145,7 +10145,7 @@ land.lhs.true16:                                  ; preds = %land.lhs.true13
   br i1 %or.cond1, label %if.then22, label %land.lhs.true26
 
 if.then22:                                        ; preds = %land.lhs.true16
-  %call23 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 1, ptr noundef nonnull %value), !range !22
+  %call23 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 1, ptr noundef nonnull %value)
   br label %return
 
 land.lhs.true26:                                  ; preds = %land.lhs.true16
@@ -10171,14 +10171,14 @@ lor.lhs.false36:                                  ; preds = %land.lhs.true34
   br i1 %cmp40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %lor.lhs.false36, %land.lhs.true34
-  %call42 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 0, ptr noundef nonnull %value), !range !22
+  %call42 = tail call i32 @RM_ListPush(ptr noundef nonnull %key, i32 noundef 0, ptr noundef nonnull %value)
   br label %return
 
 if.end45:                                         ; preds = %land.lhs.true10, %if.else, %land.lhs.true26, %land.lhs.true29, %lor.lhs.false36
   %value46 = getelementptr inbounds i8, ptr %key, i64 24
   %4 = load ptr, ptr %value46, align 8
   call void @listTypeTryConversionAppend(ptr noundef %4, ptr noundef nonnull %value.addr, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @moduleFreeListIterator, ptr noundef %key) #32
-  %call47 = call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 2), !range !22
+  %call47 = call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 2)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %return, label %if.then49
 
@@ -10199,9 +10199,9 @@ return:                                           ; preds = %if.end45, %if.then4
 declare void @listTypeInsert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ListDelete(ptr noundef %key, i64 noundef %index) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ListDelete(ptr noundef %key, i64 noundef %index) #0 {
 entry:
-  %call = tail call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 2), !range !22
+  %call = tail call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -10210,7 +10210,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %iter, align 8
   %u = getelementptr inbounds i8, ptr %key, i64 48
   tail call void @listTypeDelete(ptr noundef %0, ptr noundef nonnull %u) #32
-  %call2 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef %key), !range !22
+  %call2 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef %key)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %return
 
@@ -10275,7 +10275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @moduleZsetAddFlagsFromCoreFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local range(i32 0, 32) i32 @moduleZsetAddFlagsFromCoreFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %retflags.1 = and i32 %flags, 12
   %and6 = shl i32 %flags, 4
@@ -10285,7 +10285,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetAdd(ptr nocapture noundef %key, double noundef %score, ptr nocapture noundef readonly %ele, ptr noundef %flagsptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetAdd(ptr nocapture noundef %key, double noundef %score, ptr nocapture noundef readonly %ele, ptr noundef %flagsptr) #0 {
 entry:
   %out_flags = alloca i32, align 4
   store i32 0, ptr %out_flags, align 4
@@ -10368,7 +10368,7 @@ if.then18:                                        ; preds = %if.end12.thread
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end12, %if.then18
-  %call20 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call20 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   br label %return
 
 if.then23:                                        ; preds = %if.end12.thread
@@ -10388,7 +10388,7 @@ return:                                           ; preds = %if.end12, %if.then2
 declare i32 @zsetAdd(ptr noundef, double noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetIncrby(ptr nocapture noundef %key, double noundef %score, ptr nocapture noundef readonly %ele, ptr noundef %flagsptr, ptr noundef %newscore) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetIncrby(ptr nocapture noundef %key, double noundef %score, ptr nocapture noundef readonly %ele, ptr noundef %flagsptr, ptr noundef %newscore) #0 {
 entry:
   %out_flags = alloca i32, align 4
   store i32 0, ptr %out_flags, align 4
@@ -10471,7 +10471,7 @@ if.then18:                                        ; preds = %if.end12.thread
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end12, %if.then18
-  %call20 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call20 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   br label %return
 
 if.then23:                                        ; preds = %if.end12.thread
@@ -10489,7 +10489,7 @@ return:                                           ; preds = %if.end12, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetRem(ptr nocapture noundef %key, ptr nocapture noundef readonly %ele, ptr noundef writeonly %deleted) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetRem(ptr nocapture noundef %key, ptr nocapture noundef readonly %ele, ptr noundef writeonly %deleted) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -10525,7 +10525,7 @@ if.then12:                                        ; preds = %if.then10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then10
-  %call14 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call14 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   br label %return
 
 if.else:                                          ; preds = %if.end, %land.lhs.true7
@@ -10544,7 +10544,7 @@ return:                                           ; preds = %if.end13, %if.then1
 declare i32 @zsetDel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_ZsetScore(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %ele, ptr noundef %score) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetScore(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %ele, ptr noundef %score) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -10636,7 +10636,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef %first) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef %first) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -10741,21 +10741,21 @@ declare ptr @zzlLastInRange(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @zslNthInRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetFirstInScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetFirstInScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex) #0 {
 entry:
-  %call = tail call i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef 1), !range !22
+  %call = tail call i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetLastInScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetLastInScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex) #0 {
 entry:
-  %call = tail call i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef 0), !range !22
+  %call = tail call i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef %first) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef %first) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -10860,16 +10860,16 @@ declare ptr @zzlLastInLexRange(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @zslNthInLexRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetFirstInLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetFirstInLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max) #0 {
 entry:
-  %call = tail call i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef 1), !range !22
+  %call = tail call i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetLastInLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetLastInLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max) #0 {
 entry:
-  %call = tail call i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef 0), !range !22
+  %call = tail call i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef 0)
   ret i32 %call
 }
 
@@ -11046,7 +11046,7 @@ declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @zzlGetScore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetRangeNext(ptr noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetRangeNext(ptr noundef %key) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -11201,7 +11201,7 @@ declare i32 @zzlLexValueLteMax(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @zslLexValueLteMax(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ZsetRangePrev(ptr noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ZsetRangePrev(ptr noundef %key) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -11907,7 +11907,7 @@ if.end87:                                         ; preds = %if.end77.split.spli
 while.end:                                        ; preds = %vaarg.end, %vaarg.end.us.us, %vaarg.end39.us.us84.us.us, %vaarg.end39.us.us84, %vaarg.end39.us.us84.us, %vaarg.end39.us.us.us.us
   %.us-phi = phi i32 [ %count.0.ph.us.us, %vaarg.end39.us.us.us.us ], [ %count.0.ph.us, %vaarg.end39.us.us84.us ], [ %count.0.ph.us, %vaarg.end39.us.us84 ], [ %count.0.ph.us, %vaarg.end39.us.us84.us.us ], [ %count.0.ph.us102, %vaarg.end.us.us ], [ %count.0.ph, %vaarg.end ]
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  %call107 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call107 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   %cmp108 = icmp eq i32 %.us-phi, 0
   br i1 %cmp108, label %return.sink.split, label %return
 
@@ -11933,7 +11933,7 @@ declare void @hashTypeTryConversion(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @hashTypeSet(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_HashGet(ptr nocapture noundef readonly %key, i32 noundef %flags, ...) #0 {
+define dso_local range(i32 0, 2) i32 @RM_HashGet(ptr nocapture noundef readonly %key, i32 noundef %flags, ...) #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %value = getelementptr inbounds i8, ptr %key, i64 24
@@ -12266,7 +12266,7 @@ return:                                           ; preds = %land.lhs.true, %whi
 declare ptr @hashTypeGetValueObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamAdd(ptr noundef %key, i32 noundef %flags, ptr noundef %id, ptr noundef %argv, i64 noundef %numfields) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamAdd(ptr noundef %key, i32 noundef %flags, ptr noundef %id, ptr noundef %argv, i64 noundef %numfields) #0 {
 entry:
   %added_id = alloca %struct.streamID, align 16
   %use_id = alloca %struct.streamID, align 16
@@ -12344,7 +12344,7 @@ if.end31:                                         ; preds = %if.else20, %land.lh
   br i1 %tobool9.not, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.end31
-  %call35 = tail call i32 @moduleCreateEmptyKey(ptr noundef nonnull %key, i32 noundef 7), !range !22
+  %call35 = tail call i32 @moduleCreateEmptyKey(ptr noundef nonnull %key, i32 noundef 7)
   %.pre = load ptr, ptr %value, align 8
   br label %if.end36
 
@@ -12386,7 +12386,7 @@ if.then57:                                        ; preds = %if.end54
   br i1 %tobool9.not, label %if.then59, label %return
 
 if.then59:                                        ; preds = %if.then57
-  %call60 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
+  %call60 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key)
   br label %return
 
 if.end62:                                         ; preds = %if.end54
@@ -12413,7 +12413,7 @@ return:                                           ; preds = %if.end65, %if.then6
 declare i32 @streamAppendItem(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamDelete(ptr noundef readonly %key, ptr noundef readonly %id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamDelete(ptr noundef readonly %key, ptr noundef readonly %id) #0 {
 entry:
   %streamid = alloca %struct.streamID, align 16
   %tobool = icmp ne ptr %key, null
@@ -12469,7 +12469,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @streamDeleteItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamIteratorStart(ptr noundef %key, i32 noundef %flags, ptr noundef readonly %start, ptr noundef readonly %end) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamIteratorStart(ptr noundef %key, i32 noundef %flags, ptr noundef readonly %start, ptr noundef readonly %end) #0 {
 entry:
   %lower = alloca %struct.streamID, align 16
   %upper = alloca %struct.streamID, align 16
@@ -12581,7 +12581,7 @@ declare i32 @streamDecrID(ptr noundef) local_unnamed_addr #1
 declare void @streamIteratorStart(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamIteratorStop(ptr noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamIteratorStop(ptr noundef %key) #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -12634,7 +12634,7 @@ return:                                           ; preds = %if.end10, %if.then7
 declare void @streamIteratorStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamIteratorNextID(ptr noundef %key, ptr noundef writeonly %id, ptr noundef writeonly %numfields) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamIteratorNextID(ptr noundef %key, ptr noundef writeonly %id, ptr noundef writeonly %numfields) #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -12715,7 +12715,7 @@ return:                                           ; preds = %if.end20, %if.then2
 declare i32 @streamIteratorGetID(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamIteratorNextField(ptr noundef %key, ptr noundef writeonly %field_ptr, ptr noundef writeonly %value_ptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamIteratorNextField(ptr noundef %key, ptr noundef writeonly %field_ptr, ptr noundef writeonly %value_ptr) #0 {
 entry:
   %field = alloca ptr, align 8
   %value17 = alloca ptr, align 8
@@ -12903,7 +12903,7 @@ return:                                           ; preds = %if.end26, %if.then1
 declare void @streamIteratorGetField(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StreamIteratorDelete(ptr noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StreamIteratorDelete(ptr noundef %key) #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -13184,7 +13184,7 @@ entry:
 declare ptr @callReplyGetSetElement(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_CallReplyMapElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CallReplyMapElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #0 {
 entry:
   %call = tail call i32 @callReplyGetMapElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #32
   %cmp = icmp ne i32 %call, 0
@@ -13204,7 +13204,7 @@ entry:
 declare ptr @callReplyGetAttribute(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_CallReplyAttributeElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CallReplyAttributeElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #0 {
 entry:
   %call = tail call i32 @callReplyGetAttributeElement(ptr noundef %reply, i64 noundef %idx, ptr noundef %key, ptr noundef %val) #32
   %cmp = icmp ne i32 %call, 0
@@ -13226,7 +13226,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CallReplyPromiseAbort(ptr noundef %reply, ptr noundef writeonly %private_data) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CallReplyPromiseAbort(ptr noundef %reply, ptr noundef writeonly %private_data) #0 {
 entry:
   %call = tail call ptr @callReplyGetPrivateData(ptr noundef %reply) #32
   %c = getelementptr inbounds i8, ptr %call, i64 32
@@ -14213,7 +14213,7 @@ if.end8:                                          ; preds = %land.lhs.true, %whi
 while.cond.backedge:                              ; preds = %if.end8, %land.lhs.true
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !35
+  br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !32
 
 while.end.loopexit:                               ; preds = %while.cond.backedge
   %.pre = load ptr, ptr %filter, align 8
@@ -14304,7 +14304,7 @@ if.end8:                                          ; preds = %for.body
   %or = or i64 %sub.ptr.sub, %shl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %if.end8
   %shl9 = shl i64 %or, 10
@@ -14347,7 +14347,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 while.cond.loopexit.us:                           ; preds = %if.end.us.us, %while.body.us
   %call1.us = call ptr @dictNext(ptr noundef %call) #32
   %cmp.not.us = icmp eq ptr %call1.us, null
-  br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !37
+  br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !34
 
 while.body5.us.us:                                ; preds = %while.body.us, %if.end.us.us
   %call49.us.us = phi ptr [ %call4.us.us, %if.end.us.us ], [ %call47.us, %while.body.us ]
@@ -14361,12 +14361,12 @@ while.body5.us.us:                                ; preds = %while.body.us, %if.
 if.end.us.us:                                     ; preds = %while.body5.us.us
   %call4.us.us = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not.us.us = icmp eq ptr %call4.us.us, null
-  br i1 %tobool.not.us.us, label %while.cond.loopexit.us, label %while.body5.us.us, !llvm.loop !38
+  br i1 %tobool.not.us.us, label %while.cond.loopexit.us, label %while.body5.us.us, !llvm.loop !35
 
 while.cond.loopexit:                              ; preds = %if.end, %while.body
   %call1 = call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !37
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !34
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %call113 = phi ptr [ %call1, %while.cond.loopexit ], [ %call111, %while.body.lr.ph ]
@@ -14390,7 +14390,7 @@ while.body5:                                      ; preds = %while.body, %if.end
 if.end:                                           ; preds = %while.body5
   %call4 = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call4, null
-  br i1 %tobool.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !38
+  br i1 %tobool.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !35
 
 return:                                           ; preds = %while.cond.loopexit, %while.body5, %while.cond.loopexit.us, %while.body5.us.us, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %2, %while.body5.us.us ], [ null, %while.cond.loopexit.us ], [ %4, %while.body5 ], [ null, %while.cond.loopexit ]
@@ -14435,7 +14435,7 @@ land.rhs:                                         ; preds = %for.inc
   %mt = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %mt, align 8
   %cmp1.not = icmp eq ptr %1, null
-  br i1 %cmp1.not, label %land.rhs.for.end_crit_edge, label %for.body, !llvm.loop !39
+  br i1 %cmp1.not, label %land.rhs.for.end_crit_edge, label %for.body, !llvm.loop !36
 
 for.body:                                         ; preds = %entry, %land.rhs
   %2 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
@@ -14448,7 +14448,7 @@ for.body:                                         ; preds = %entry, %land.rhs
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !36
 
 land.rhs.for.end_crit_edge:                       ; preds = %land.rhs
   %cmp.le = icmp ult i64 %indvars.iv29, 2
@@ -14491,7 +14491,7 @@ while.body18:                                     ; preds = %while.cond16
   %8 = load i64, ptr %7, align 8
   %cmp21.unshifted = xor i64 %8, %id
   %cmp21 = icmp ult i64 %cmp21.unshifted, 1024
-  br i1 %cmp21, label %while.end, label %while.cond16, !llvm.loop !40
+  br i1 %cmp21, label %while.end, label %while.cond16, !llvm.loop !37
 
 while.end:                                        ; preds = %while.body18, %while.cond16
   %mt9.1 = phi ptr [ null, %while.cond16 ], [ %7, %while.body18 ]
@@ -14499,7 +14499,7 @@ while.end:                                        ; preds = %while.body18, %whil
   %cmp11 = icmp ne ptr %call10, null
   %cmp13 = icmp eq ptr %mt9.1, null
   %9 = and i1 %cmp13, %cmp11
-  br i1 %9, label %while.body, label %while.end24, !llvm.loop !41
+  br i1 %9, label %while.body, label %while.end24, !llvm.loop !38
 
 while.end24:                                      ; preds = %while.end
   call void @dictReleaseIterator(ptr noundef %call) #32
@@ -14541,7 +14541,7 @@ for.body:                                         ; preds = %entry, %for.body
   %shr2 = lshr i64 %moduleid.addr.05, 6
   %inc = add nuw nsw i32 %j.07, 1
   %exitcond.not = icmp eq i32 %inc, 9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -14673,7 +14673,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #36
   %cmp.not.i = icmp ne i64 %call.i, 9
   %or.cond.i = icmp ugt i32 %encver, 1023
   %or.cond10.i = or i1 %or.cond.i, %cmp.not.i
@@ -14700,7 +14700,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %moduleTypeEncodeId.exit, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %moduleTypeEncodeId.exit, label %for.body.i, !llvm.loop !33
 
 moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   %shl9.i = shl i64 %or.i, 10
@@ -14710,7 +14710,7 @@ moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %moduleTypeEncodeId.exit
-  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull %name, i32 noundef 0)
+  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull readonly %name, i32 noundef 0)
   %cmp4.not = icmp eq ptr %call.i50, null
   br i1 %cmp4.not, label %if.end6, label %return
 
@@ -14800,7 +14800,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ModuleTypeSetValue(ptr nocapture noundef %key, ptr noundef %mt, ptr noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ModuleTypeSetValue(ptr nocapture noundef %key, ptr noundef %mt, ptr noundef %value) #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -14948,7 +14948,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleAllDatatypesHandleErrors() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleAllDatatypesHandleErrors() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @modules, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #32
@@ -14976,7 +14976,7 @@ land.lhs.true:                                    ; preds = %while.body
 if.end:                                           ; preds = %land.lhs.true, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !43
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !40
 
 return:                                           ; preds = %if.end, %land.lhs.true, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %land.lhs.true ], [ 1, %if.end ]
@@ -14985,7 +14985,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleAllModulesHandleReplAsyncLoad() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleAllModulesHandleReplAsyncLoad() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @modules, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #32
@@ -15002,7 +15002,7 @@ while.body:                                       ; preds = %while.cond
   %1 = load i32, ptr %options, align 4
   %and = and i32 %1, 4
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %return, label %while.cond, !llvm.loop !44
+  br i1 %tobool.not, label %return, label %while.cond, !llvm.loop !41
 
 return:                                           ; preds = %while.cond, %while.body
   %retval.0 = phi i32 [ 0, %while.body ], [ 1, %while.cond ]
@@ -16039,7 +16039,7 @@ while.cond.loopexit:                              ; preds = %while.cond3.outer, 
   %total_written.1.ph.lcssa9 = phi i64 [ %total_written.022, %while.body ], [ %total_written.1.ph17, %if.then ], [ %add, %while.cond3.outer ]
   %call1 = call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !45
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !42
 
 while.body:                                       ; preds = %entry, %while.cond.loopexit
   %call123 = phi ptr [ %call1, %while.cond.loopexit ], [ %call120, %entry ]
@@ -16056,7 +16056,7 @@ while.cond3.outer:                                ; preds = %if.end
   %add = add i64 %call9, %total_written.1.ph17
   %call411 = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not12 = icmp eq ptr %call411, null
-  br i1 %tobool.not12, label %while.cond.loopexit, label %while.body5.lr.ph, !llvm.loop !46
+  br i1 %tobool.not12, label %while.cond.loopexit, label %while.body5.lr.ph, !llvm.loop !43
 
 while.body5.lr.ph:                                ; preds = %while.body, %while.cond3.outer
   %call41118 = phi ptr [ %call411, %while.cond3.outer ], [ %call41115, %while.body ]
@@ -16088,7 +16088,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true, %whi
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
   %call4 = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call4, null
-  br i1 %tobool.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !46
+  br i1 %tobool.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !43
 
 if.end:                                           ; preds = %lor.lhs.false
   %call9 = call i64 @rdbSaveSingleModuleAux(ptr noundef %rdb, i32 noundef %when, ptr noundef nonnull %2) #32
@@ -16452,7 +16452,7 @@ if.end44:                                         ; preds = %if.then42, %land.lh
   %13 = load i32, ptr %argc, align 4
   %14 = sext i32 %13 to i64
   %cmp33 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !47
+  br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %if.end44, %if.end32
   call void @zfree(ptr noundef nonnull %call10) #32
@@ -16482,7 +16482,7 @@ if.end:                                           ; preds = %entry
   %module = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -16700,7 +16700,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17113,7 +17113,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !48
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !45
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -17156,14 +17156,14 @@ if.then:                                          ; preds = %while.body
   %cmp3 = icmp eq ptr %4, %5
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !46
 
 if.end:                                           ; preds = %while.body
   %6 = load i64, ptr %flags, align 8
   %and = and i64 %6, -140737488355329
   store i64 %and, ptr %flags, align 8
   %7 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i, align 8
   %8 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
@@ -17197,7 +17197,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   %call6 = call i32 %12(ptr noundef nonnull %ctx, ptr noundef %username, ptr noundef %password, ptr noundef nonnull %err) #32
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
   %cmp7 = icmp eq i32 %call6, 0
-  br i1 %cmp7, label %while.end, label %while.cond.outer, !llvm.loop !49
+  br i1 %cmp7, label %while.end, label %while.cond.outer, !llvm.loop !46
 
 while.end:                                        ; preds = %moduleCreateContext.exit, %while.cond.outer, %if.then
   %result.1 = phi i32 [ %result.0.ph, %if.then ], [ %result.0.ph, %while.cond.outer ], [ 0, %moduleCreateContext.exit ]
@@ -17226,7 +17226,7 @@ if.then3:                                         ; preds = %if.end
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17326,7 +17326,7 @@ return:                                           ; preds = %entry, %moduleInvok
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @moduleAuthCallbacks, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
@@ -17393,7 +17393,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @moduleTryServeClientBlockedOnKey(ptr nocapture noundef readonly %c, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleTryServeClientBlockedOnKey(ptr nocapture noundef readonly %c, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
   %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
@@ -17408,7 +17408,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17604,7 +17604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef %privdata) #0 {
 entry:
   %blocked_on_keys = getelementptr inbounds i8, ptr %bc, i64 84
   %0 = load i32, ptr %blocked_on_keys, align 4
@@ -17685,7 +17685,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17747,13 +17747,13 @@ return:                                           ; preds = %entry, %moduleCreat
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_AbortBlock(ptr noundef %bc) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AbortBlock(ptr noundef %bc) #0 {
 entry:
   %reply_callback = getelementptr inbounds i8, ptr %bc, i64 16
   %disconnect_callback = getelementptr inbounds i8, ptr %bc, i64 40
   store ptr null, ptr %disconnect_callback, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reply_callback, i8 0, i64 16, i1 false)
-  %call = tail call i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef null), !range !22
+  %call = tail call i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef null)
   ret i32 %call
 }
 
@@ -17822,7 +17822,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true4
   %module = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %module, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %13, ptr %module1.i, align 8
   store i32 4, ptr %flags.i, align 8
@@ -17886,7 +17886,7 @@ land.lhs.true.i:                                  ; preds = %if.end.split
 if.then.i:                                        ; preds = %land.lhs.true.i
   %module.i = getelementptr inbounds i8, ptr %8, i64 8
   %27 = load ptr, ptr %module.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx.i, align 8
   store ptr %27, ptr %module1.i53, align 8
   store i32 32, ptr %flags.i54, align 8
@@ -18053,7 +18053,7 @@ if.end51:                                         ; preds = %if.then31, %if.then
   %len = getelementptr inbounds i8, ptr %57, i64 40
   %58 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %58, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !50
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !47
 
 while.end:                                        ; preds = %if.end51, %entry
   %call53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @moduleUnblockedClientsMutex) #32
@@ -18069,7 +18069,7 @@ declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #1
 declare void @listLinkNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @moduleBlockedClientMayTimeout(ptr nocapture noundef readonly %c) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @moduleBlockedClientMayTimeout(ptr nocapture noundef readonly %c) local_unnamed_addr #11 {
 entry:
   %bstate = getelementptr inbounds i8, ptr %c, i64 464
   %0 = load i32, ptr %bstate, align 8
@@ -18095,7 +18095,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @RM_IsBlockedReplyRequest(ptr nocapture noundef readonly %ctx) #6 {
+define dso_local range(i32 0, 2) i32 @RM_IsBlockedReplyRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -18105,7 +18105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @RM_IsBlockedTimeoutRequest(ptr nocapture noundef readonly %ctx) #6 {
+define dso_local range(i32 0, 2) i32 @RM_IsBlockedTimeoutRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -18139,7 +18139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @RM_BlockedClientDisconnected(ptr nocapture noundef readonly %ctx) #6 {
+define dso_local range(i32 0, 2) i32 @RM_BlockedClientDisconnected(ptr nocapture noundef readonly %ctx) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
@@ -18160,7 +18160,7 @@ cond.end.split:                                   ; preds = %entry
   %0 = load ptr, ptr %module1, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
@@ -18188,7 +18188,7 @@ if.else11.i:                                      ; preds = %cond.end.split
 if.then.split:                                    ; preds = %entry
   %7 = getelementptr inbounds i8, ptr %call, i64 16
   %8 = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %8, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i17 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %module1.i17, align 8
@@ -18259,7 +18259,7 @@ entry:
   %0 = load ptr, ptr %module, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
@@ -18344,7 +18344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ThreadSafeContextTryLock(ptr nocapture readnone %ctx) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ThreadSafeContextTryLock(ptr nocapture readnone %ctx) #0 {
 entry:
   %call.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @moduleGIL) #32
   %cmp.not = icmp eq i32 %call.i, 0
@@ -18471,7 +18471,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %6 = load ptr, ptr %value, align 8
   call void @listDelNode(ptr noundef nonnull %4, ptr noundef %5) #32
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -18555,7 +18555,7 @@ if.end:                                           ; preds = %if.then, %moduleCre
   %len = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %24, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !51
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 
 while.end:                                        ; preds = %if.end, %entry
   call void @exitExecutionUnit() #32
@@ -18563,7 +18563,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_AddPostNotificationJob(ptr nocapture noundef readonly %ctx, ptr noundef %callback, ptr noundef %privdata, ptr noundef %free_privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AddPostNotificationJob(ptr nocapture noundef readonly %ctx, ptr noundef %callback, ptr noundef %privdata, ptr noundef %free_privdata) #0 {
 entry:
   %0 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -18613,7 +18613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_NotifyKeyspaceEvent(ptr noundef readonly %ctx, i32 noundef %type, ptr noundef %event, ptr noundef %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_NotifyKeyspaceEvent(ptr noundef readonly %ctx, i32 noundef %type, ptr noundef %event, ptr noundef %key) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -18691,7 +18691,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %tobool5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %.pre, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -18769,7 +18769,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
 if.end13:                                         ; preds = %moduleCreateContext.exit, %lor.lhs.false, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !52
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
 
 while.end:                                        ; preds = %if.end13, %if.end
   call void @exitExecutionUnit() #32
@@ -18806,7 +18806,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !53
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !50
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -18833,7 +18833,7 @@ if.then:                                          ; preds = %while.body
   %1 = load ptr, ptr %module, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -18904,7 +18904,7 @@ if.end:                                           ; preds = %while.body
   %next = getelementptr inbounds i8, ptr %r.09, i64 24
   %r.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %r.0, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !54
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !51
 
 while.end:                                        ; preds = %if.end, %entry, %moduleCreateContext.exit
   ret void
@@ -18923,7 +18923,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 
@@ -18948,7 +18948,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %if.end8.i
   %shl9.i = shl i64 %or.i, 10
@@ -18970,7 +18970,7 @@ while.body.preheader:                             ; preds = %moduleTypeEncodeId.
 while.body:                                       ; preds = %if.end17
   %6 = load i64, ptr %r.0, align 8
   %cmp = icmp eq i64 %6, %retval.0.i
-  br i1 %cmp, label %if.then3, label %if.end17, !llvm.loop !55
+  br i1 %cmp, label %if.then3, label %if.end17, !llvm.loop !52
 
 if.then3:                                         ; preds = %while.body, %while.body.preheader
   %r.027.lcssa = phi ptr [ %r.024, %while.body.preheader ], [ %r.0, %while.body ]
@@ -18998,7 +18998,7 @@ if.end17:                                         ; preds = %while.body.preheade
   %next18 = getelementptr inbounds i8, ptr %r.02735, i64 24
   %r.0 = load ptr, ptr %next18, align 8
   %tobool1.not = icmp eq ptr %r.0, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !55
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !52
 
 while.end:                                        ; preds = %if.end17, %moduleTypeEncodeId.exit
   %tobool19.not = icmp eq ptr %callback, null
@@ -19023,7 +19023,7 @@ if.end31:                                         ; preds = %if.then5, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_SendClusterMessage(ptr nocapture noundef readonly %ctx, ptr noundef %target_id, i8 noundef zeroext %type, ptr noundef %msg, i32 noundef %len) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SendClusterMessage(ptr nocapture noundef readonly %ctx, ptr noundef %target_id, i8 noundef zeroext %type, ptr noundef %msg, i32 noundef %len) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -19035,7 +19035,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 
@@ -19060,7 +19060,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %if.end8.i
   %shl9.i = shl i64 %or.i, 10
@@ -19117,7 +19117,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %ids, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !56
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !53
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   tail call void @zfree(ptr noundef nonnull %ids) #32
@@ -19146,7 +19146,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @getMyClusterId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @RM_GetClusterSize() #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @RM_GetClusterSize() #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -19165,7 +19165,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @getClusterSize() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetClusterNodeInfo(ptr nocapture readnone %ctx, ptr noundef %id, ptr noundef %ip, ptr noundef writeonly %master_id, ptr noundef writeonly %port, ptr noundef %flags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetClusterNodeInfo(ptr nocapture readnone %ctx, ptr noundef %id, ptr noundef %ip, ptr noundef writeonly %master_id, ptr noundef writeonly %port, ptr noundef %flags) #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #36
   %conv = trunc i64 %call to i32
@@ -19383,7 +19383,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %modu
 if.then4:                                         ; preds = %if.end
   %4 = load ptr, ptr %data, align 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %5, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -19598,7 +19598,7 @@ declare i32 @aeDeleteTimeEvent(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @aeCreateTimeEvent(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_StopTimer(ptr nocapture noundef readonly %ctx, i64 noundef %id, ptr noundef writeonly %data) #0 {
+define dso_local range(i32 0, 2) i32 @RM_StopTimer(ptr nocapture noundef readonly %ctx, i64 noundef %id, ptr noundef writeonly %data) #0 {
 entry:
   %id.addr = alloca i64, align 8
   %result = alloca ptr, align 8
@@ -19638,7 +19638,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetTimerInfo(ptr nocapture noundef readonly %ctx, i64 noundef %id, ptr noundef writeonly %remaining, ptr noundef writeonly %data) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetTimerInfo(ptr nocapture noundef readonly %ctx, i64 noundef %id, ptr noundef writeonly %remaining, ptr noundef writeonly %data) #0 {
 entry:
   %id.addr = alloca i64, align 8
   %result = alloca ptr, align 8
@@ -19686,7 +19686,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleHoldsTimer(ptr noundef readnone %module) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleHoldsTimer(ptr noundef readnone %module) local_unnamed_addr #0 {
 entry:
   %iter = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr @Timers, align 8
@@ -19704,7 +19704,7 @@ while.body:                                       ; preds = %while.cond
   %1 = load ptr, ptr %data, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %2, %module
-  br i1 %cmp, label %while.end, label %while.cond, !llvm.loop !57
+  br i1 %cmp, label %while.end, label %while.cond, !llvm.loop !54
 
 while.end:                                        ; preds = %while.body, %while.cond
   %found.0 = phi i32 [ 0, %while.cond ], [ 1, %while.body ]
@@ -19713,7 +19713,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_EventLoopAdd(i32 noundef %fd, i32 noundef %mask, ptr noundef %func, ptr noundef %user_data) #0 {
+define dso_local range(i32 0, 2) i32 @RM_EventLoopAdd(i32 noundef %fd, i32 noundef %mask, ptr noundef %func, ptr noundef %user_data) #0 {
 entry:
   %cmp = icmp slt i32 %fd, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -19830,7 +19830,7 @@ declare i32 @aeCreateFileEvent(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare i32 @aeGetFileEvents(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_EventLoopDel(i32 noundef %fd, i32 noundef %mask) #0 {
+define dso_local range(i32 0, 2) i32 @RM_EventLoopDel(i32 noundef %fd, i32 noundef %mask) #0 {
 entry:
   %cmp = icmp slt i32 %fd, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -19870,7 +19870,7 @@ return:                                           ; preds = %if.end5, %if.then10
 declare void @aeDeleteFileEvent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_EventLoopAddOneShot(ptr noundef %func, ptr noundef %user_data) #0 {
+define dso_local range(i32 0, 2) i32 @RM_EventLoopAddOneShot(ptr noundef %func, ptr noundef %user_data) #0 {
 entry:
   %tobool.not = icmp eq ptr %func, null
   br i1 %tobool.not, label %return, label %if.end
@@ -20017,7 +20017,7 @@ entry:
 declare i32 @ACLSetUser(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SetModuleUserACLString(ptr noundef %ctx, ptr noundef readonly %user, ptr noundef %acl, ptr noundef writeonly %error) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetModuleUserACLString(ptr noundef %ctx, ptr noundef readonly %user, ptr noundef %acl, ptr noundef writeonly %error) #0 {
 entry:
   %argc = alloca i32, align 4
   %cmp.not = icmp eq ptr %user, null
@@ -20302,7 +20302,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 declare ptr @ACLGetUserByName(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ACLCheckCommandPermissions(ptr nocapture noundef readonly %user, ptr noundef %argv, i32 noundef %argc) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ACLCheckCommandPermissions(ptr nocapture noundef readonly %user, ptr noundef %argv, i32 noundef %argc) #0 {
 entry:
   %keyidxptr = alloca i32, align 4
   %call = tail call ptr @lookupCommand(ptr noundef %argv, i32 noundef %argc) #32
@@ -20327,7 +20327,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ACLCheckKeyPermissions(ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %key, i32 noundef %flags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPermissions(ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %key, i32 noundef %flags) #0 {
 entry:
   %0 = and i32 %flags, -241
   %cmp.not = icmp eq i32 %0, 0
@@ -20424,7 +20424,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ACLUserCheckKeyPerm(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_ACLCheckChannelPermissions(ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %ch, i32 noundef %flags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ACLCheckChannelPermissions(ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %ch, i32 noundef %flags) #0 {
 entry:
   %cmp.not = icmp ult i32 %flags, 16
   br i1 %cmp.not, label %if.end, label %if.then
@@ -20456,7 +20456,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 declare i32 @ACLUserCheckChannelPerm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @moduleGetACLLogEntryReason(i32 noundef %reason) local_unnamed_addr #22 {
+define dso_local range(i32 0, 5) i32 @moduleGetACLLogEntryReason(i32 noundef %reason) local_unnamed_addr #22 {
 entry:
   %0 = icmp ult i32 %reason, 4
   br i1 %0, label %switch.lookup, label %sw.epilog
@@ -20473,7 +20473,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ACLAddLogEntry(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %object, i32 noundef %reason) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ACLAddLogEntry(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %object, i32 noundef %reason) #0 {
 entry:
   %0 = icmp ult i32 %reason, 4
   br i1 %0, label %switch.lookup, label %return
@@ -20498,7 +20498,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ACLAddLogEntryByUserName(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %object, i32 noundef %reason) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ACLAddLogEntryByUserName(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %object, i32 noundef %reason) #0 {
 entry:
   %0 = icmp ult i32 %reason, 4
   br i1 %0, label %switch.lookup, label %return
@@ -20523,7 +20523,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_AuthenticateClientWithUser(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %module_user, ptr noundef %callback, ptr noundef %privdata, ptr noundef writeonly %client_id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AuthenticateClientWithUser(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %module_user, ptr noundef %callback, ptr noundef %privdata, ptr noundef writeonly %client_id) #0 {
 entry:
   %0 = load ptr, ptr %module_user, align 8
   %flags.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -20614,7 +20614,7 @@ authenticateClientWithUser.exit:                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_AuthenticateClientWithACLUser(ptr nocapture noundef readonly %ctx, ptr noundef %name, i64 noundef %len, ptr noundef %callback, ptr noundef %privdata, ptr noundef writeonly %client_id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AuthenticateClientWithACLUser(ptr nocapture noundef readonly %ctx, ptr noundef %name, i64 noundef %len, ptr noundef %callback, ptr noundef %privdata, ptr noundef writeonly %client_id) #0 {
 entry:
   %call = tail call ptr @ACLGetUserByName(ptr noundef %name, i64 noundef %len) #32
   %tobool.not = icmp eq ptr %call, null
@@ -20709,7 +20709,7 @@ return:                                           ; preds = %if.then24.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_DeauthenticateAndCloseClient(ptr nocapture readnone %ctx, i64 noundef %client_id) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DeauthenticateAndCloseClient(ptr nocapture readnone %ctx, i64 noundef %client_id) #0 {
 entry:
   %call = tail call ptr @lookupClientByID(i64 noundef %client_id) #32
   %cmp = icmp eq ptr %call, null
@@ -20756,7 +20756,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RedactClientCommandArgument(ptr noundef readonly %ctx, i32 noundef %pos) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RedactClientCommandArgument(ptr noundef readonly %ctx, i32 noundef %pos) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -20945,7 +20945,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictSetC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictSetC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr) #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
   %call = tail call i32 @raxTryInsert(ptr noundef %0, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr, ptr noundef null) #32
@@ -20957,7 +20957,7 @@ entry:
 declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictReplaceC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictReplaceC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr) #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
   %call = tail call i32 @raxInsert(ptr noundef %0, ptr noundef %key, i64 noundef %keylen, ptr noundef %ptr, ptr noundef null) #32
@@ -20967,7 +20967,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictSet(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictSet(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
 entry:
   %ptr1 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr1, align 8
@@ -21021,7 +21021,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictReplace(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictReplace(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
 entry:
   %ptr1 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr1, align 8
@@ -21163,7 +21163,7 @@ RM_DictGetC.exit:                                 ; preds = %sdslen.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictDelC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %oldval) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictDelC(ptr nocapture noundef readonly %d, ptr noundef %key, i64 noundef %keylen, ptr noundef %oldval) #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
   %call = tail call i32 @raxRemove(ptr noundef %0, ptr noundef %key, i64 noundef %keylen, ptr noundef %oldval) #32
@@ -21173,7 +21173,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictDel(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %oldval) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictDel(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %oldval) #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -21616,7 +21616,7 @@ return:                                           ; preds = %entry, %if.end11.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictCompareC(ptr noundef %di, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictCompareC(ptr noundef %di, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
   %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxEOF(ptr noundef nonnull %ri) #32
@@ -21639,7 +21639,7 @@ declare i32 @raxEOF(ptr noundef) local_unnamed_addr #1
 declare i32 @raxCompare(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DictCompare(ptr noundef %di, ptr noundef %op, ptr nocapture noundef readonly %key) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DictCompare(ptr noundef %di, ptr noundef %op, ptr nocapture noundef readonly %key) #0 {
 entry:
   %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxEOF(ptr noundef nonnull %ri) #32
@@ -21702,7 +21702,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddSection(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddSection(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %name1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21855,7 +21855,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoEndDictField(ptr nocapture noundef %ctx) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoEndDictField(ptr nocapture noundef %ctx) #0 {
 entry:
   %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load i32, ptr %in_dict_field, align 8
@@ -21933,7 +21933,7 @@ return:                                           ; preds = %entry, %if.end5
 declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoBeginDictField(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoBeginDictField(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
 entry:
   %tmpmodname = alloca ptr, align 8
   %tmpname = alloca ptr, align 8
@@ -22054,7 +22054,7 @@ declare ptr @getSafeInfoString(ptr noundef, i64 noundef, ptr noundef) local_unna
 declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddFieldString(ptr nocapture noundef %ctx, ptr noundef %field, ptr nocapture noundef readonly %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddFieldString(ptr nocapture noundef %ctx, ptr noundef %field, ptr nocapture noundef readonly %value) #0 {
 entry:
   %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
@@ -22095,7 +22095,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddFieldCString(ptr nocapture noundef %ctx, ptr noundef %field, ptr noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddFieldCString(ptr nocapture noundef %ctx, ptr noundef %field, ptr noundef %value) #0 {
 entry:
   %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
@@ -22132,7 +22132,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddFieldDouble(ptr nocapture noundef %ctx, ptr noundef %field, double noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddFieldDouble(ptr nocapture noundef %ctx, ptr noundef %field, double noundef %value) #0 {
 entry:
   %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
@@ -22171,7 +22171,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddFieldLongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddFieldLongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
 entry:
   %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
@@ -22208,7 +22208,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_InfoAddFieldULongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddFieldULongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
 entry:
   %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
@@ -22282,7 +22282,7 @@ while.body:                                       ; preds = %while.cond
   %info_cb = getelementptr inbounds i8, ptr %call2, i64 88
   %1 = load ptr, ptr %info_cb, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.cond, label %if.end, !llvm.loop !58
+  br i1 %tobool.not, label %while.cond, label %if.end, !llvm.loop !55
 
 if.end:                                           ; preds = %while.body
   store ptr %call2, ptr %info_ctx, align 8
@@ -22361,7 +22361,7 @@ RM_InfoEndDictField.exit:                         ; preds = %sdslen.exit.i, %if.
 if.end11:                                         ; preds = %RM_InfoEndDictField.exit, %if.end
   %11 = phi ptr [ %call7.i, %RM_InfoEndDictField.exit ], [ %.pre, %if.end ]
   %12 = load i32, ptr %sections5, align 8
-  br label %while.cond.outer, !llvm.loop !58
+  br label %while.cond.outer, !llvm.loop !55
 
 while.end:                                        ; preds = %while.cond
   call void @dictReleaseIterator(ptr noundef %call) #32
@@ -22575,7 +22575,7 @@ for.inc:                                          ; preds = %sdslen.exit43, %if.
   %28 = load i32, ptr %totlines, align 4
   %29 = sext i32 %28 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !59
+  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc, %sdslen.exit
   call void @sdsfree(ptr noundef %call7) #32
@@ -22980,7 +22980,7 @@ entry:
 declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ExportSharedAPI(ptr nocapture noundef readonly %ctx, ptr noundef %apiname, ptr noundef %func) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ExportSharedAPI(ptr nocapture noundef readonly %ctx, ptr noundef %apiname, ptr noundef %func) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #33
   %module = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -23076,7 +23076,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %count.1 = phi i32 [ %inc, %if.then ], [ %count.07, %while.body ]
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !57
 
 while.end:                                        ; preds = %if.end, %entry
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.1, %if.end ]
@@ -23122,7 +23122,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %count.1 = phi i32 [ %inc, %if.then ], [ %count.07, %while.body ]
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !58
 
 while.end:                                        ; preds = %if.end, %entry
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.1, %if.end ]
@@ -23161,7 +23161,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   call void @zfree(ptr noundef %1) #32
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !62
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !59
 
 while.end:                                        ; preds = %if.end, %entry
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.1, %if.end ]
@@ -23189,7 +23189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_UnregisterCommandFilter(ptr nocapture noundef readonly %ctx, ptr noundef %filter) #0 {
+define dso_local range(i32 0, 2) i32 @RM_UnregisterCommandFilter(ptr nocapture noundef readonly %ctx, ptr noundef %filter) #0 {
 entry:
   %0 = load ptr, ptr %filter, align 8
   %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -23259,7 +23259,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CommandFilterArgInsert(ptr nocapture noundef %fctx, i32 noundef %pos, ptr noundef %arg) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr nocapture noundef %fctx, i32 noundef %pos, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp slt i32 %pos, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -23306,7 +23306,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %8, ptr %7, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp12 = icmp sgt i64 %indvars.iv.next, %5
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !63
+  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !60
 
 for.end:                                          ; preds = %for.body, %if.end10
   %9 = load ptr, ptr %fctx, align 8
@@ -23324,7 +23324,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CommandFilterArgReplace(ptr nocapture noundef readonly %fctx, i32 noundef %pos, ptr noundef %arg) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgReplace(ptr nocapture noundef readonly %fctx, i32 noundef %pos, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp slt i32 %pos, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -23352,7 +23352,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_CommandFilterArgDelete(ptr nocapture noundef %fctx, i32 noundef %pos) #0 {
+define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgDelete(ptr nocapture noundef %fctx, i32 noundef %pos) #0 {
 entry:
   %cmp = icmp slt i32 %pos, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -23386,7 +23386,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %sub = add nsw i32 %6, -1
   %7 = trunc nuw i64 %indvars.iv.next to i32
   %cmp3 = icmp sgt i32 %sub, %7
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !64
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !61
 
 for.end:                                          ; preds = %for.body, %if.end
   %sub.lcssa = phi i32 [ %sub12, %if.end ], [ %sub, %for.body ]
@@ -23492,7 +23492,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_Scan(ptr noundef %ctx, ptr nocapture noundef %cursor, ptr noundef %fn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_Scan(ptr noundef %ctx, ptr nocapture noundef %cursor, ptr noundef %fn, ptr noundef %privdata) #0 {
 entry:
   %data = alloca %struct.ScanCBData, align 8
   %done = getelementptr inbounds i8, ptr %cursor, i64 8
@@ -23596,7 +23596,7 @@ moduleInitKey.exit:                               ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_ScanKey(ptr noundef %key, ptr nocapture noundef %cursor, ptr noundef %fn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %key, ptr nocapture noundef %cursor, ptr noundef %fn, ptr noundef %privdata) #0 {
 entry:
   %data = alloca %struct.ScanKeyCBData, align 8
   %vlen = alloca i32, align 4
@@ -23695,7 +23695,7 @@ while.body:                                       ; preds = %if.then57, %while.b
   tail call void @decrRefCount(ptr noundef %call61) #32
   %call59 = tail call ptr @setTypeNextObject(ptr noundef %call58) #32
   %cmp60.not = icmp eq ptr %call59, null
-  br i1 %cmp60.not, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %cmp60.not, label %while.end, label %while.body, !llvm.loop !62
 
 while.end:                                        ; preds = %while.body, %if.then57
   tail call void @setTypeReleaseIterator(ptr noundef %call58) #32
@@ -23752,7 +23752,7 @@ cond.end94:                                       ; preds = %cond.false92, %cond
   call void @decrRefCount(ptr noundef %cond) #32
   call void @decrRefCount(ptr noundef %cond95) #32
   %tobool76.not = icmp eq ptr %call97, null
-  br i1 %tobool76.not, label %if.end103.sink.split.sink.split, label %while.body77, !llvm.loop !66
+  br i1 %tobool76.not, label %if.end103.sink.split.sink.split, label %while.body77, !llvm.loop !63
 
 if.end103.sink.split.sink.split:                  ; preds = %cond.end94, %if.then72, %while.end
   store i64 1, ptr %cursor, align 8
@@ -23983,7 +23983,7 @@ declare void @sendChildCowInfo(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @exitFromChild(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @TerminateModuleForkChild(i32 noundef %child_pid, i32 noundef %wait) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @TerminateModuleForkChild(i32 noundef %child_pid, i32 noundef %wait) local_unnamed_addr #0 {
 entry:
   %statloc = alloca i32, align 4
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 43), align 4
@@ -24021,7 +24021,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %call8 = call i32 @waitpid(i32 noundef %4, ptr noundef nonnull %statloc, i32 noundef 0) #32
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 42), align 8
   %cmp9.not = icmp eq i32 %call8, %5
-  br i1 %cmp9.not, label %if.end11, label %while.cond, !llvm.loop !67
+  br i1 %cmp9.not, label %if.end11, label %while.cond, !llvm.loop !64
 
 if.end11:                                         ; preds = %while.cond, %do.end
   call void @resetChildState() #32
@@ -24042,7 +24042,7 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @resetChildState() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_KillForkChild(i32 noundef %child_pid) #0 {
+define dso_local range(i32 0, 2) i32 @RM_KillForkChild(i32 noundef %child_pid) #0 {
 entry:
   %statloc.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %statloc.i)
@@ -24079,7 +24079,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %whil
   %call8.i = call i32 @waitpid(i32 noundef %4, ptr noundef nonnull %statloc.i, i32 noundef 0) #32
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 42), align 8
   %cmp9.not.i = icmp eq i32 %call8.i, %5
-  br i1 %cmp9.not.i, label %.loopexit, label %while.cond.i, !llvm.loop !67
+  br i1 %cmp9.not.i, label %.loopexit, label %while.cond.i, !llvm.loop !64
 
 TerminateModuleForkChild.exit:                    ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %statloc.i)
@@ -24127,7 +24127,7 @@ if.end2:                                          ; preds = %if.then1, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_SubscribeToServerEvent(ptr nocapture noundef readonly %ctx, i64 %event.coerce0, i64 %event.coerce1, ptr noundef %callback) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr nocapture noundef readonly %ctx, i64 %event.coerce0, i64 %event.coerce1, ptr noundef %callback) #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %module = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -24168,7 +24168,7 @@ land.lhs.true:                                    ; preds = %while.body
 if.end16:                                         ; preds = %land.lhs.true, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end23, label %while.body, !llvm.loop !68
+  br i1 %tobool.not, label %if.end23, label %while.body, !llvm.loop !65
 
 if.then18:                                        ; preds = %land.lhs.true
   %cmp19 = icmp eq ptr %callback, null
@@ -24205,7 +24205,7 @@ return:                                           ; preds = %if.then20, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @RM_IsSubEventSupported(i64 %event.coerce0, i64 %event.coerce1, i64 noundef %subevent) #22 {
+define dso_local range(i32 0, 2) i32 @RM_IsSubEventSupported(i64 %event.coerce0, i64 %event.coerce1, i64 noundef %subevent) #22 {
 entry:
   switch i64 %event.coerce0, label %return [
     i64 0, label %sw.bb
@@ -24382,7 +24382,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 if.then2.us:                                      ; preds = %while.body.us
   %7 = load ptr, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i36, align 8
   %8 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
@@ -24412,7 +24412,7 @@ if.then9.us:                                      ; preds = %if.else11.i.us, %if
   %dataver.us = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %dataver.us, align 8
   %conv.us = trunc i64 %12 to i32
-  %call11.us = call i32 @modulePopulateClientInfoStructure(ptr noundef nonnull %civ1, ptr noundef %data, i32 noundef %conv.us), !range !22
+  %call11.us = call i32 @modulePopulateClientInfoStructure(ptr noundef nonnull %civ1, ptr noundef %data, i32 noundef %conv.us)
   %cmp12.us = icmp eq i32 %call11.us, 0
   br i1 %cmp12.us, label %if.end90.us, label %cond.false
 
@@ -24445,7 +24445,7 @@ if.end99.us:                                      ; preds = %if.then98.us, %if.e
 if.end100.us:                                     ; preds = %if.end99.us, %while.body.us
   %call.us = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not.us = icmp eq ptr %call.us, null
-  br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !69
+  br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !66
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call57 = phi ptr [ %call, %while.cond.backedge ], [ %call55, %while.body.lr.ph ]
@@ -24458,7 +24458,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then2:                                         ; preds = %while.body
   %22 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %22, ptr %module1.i36, align 8
   store i32 64, ptr %flags.i37, align 8
@@ -24542,7 +24542,7 @@ if.then20:                                        ; preds = %if.else17
   br i1 %cmp.not.i, label %modulePopulateReplicationInfoStructure.exit.thread, label %cond.false34
 
 modulePopulateReplicationInfoStructure.exit.thread: ; preds = %if.then20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %4, i8 0, i64 24, i1 false)
   store i64 1, ptr %riv1, align 8
   %34 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %cmp1.i = icmp eq ptr %34, null
@@ -24585,7 +24585,7 @@ while.cond.backedge.sink.split:                   ; preds = %if.then50, %if.end9
 while.cond.backedge:                              ; preds = %while.cond.backedge.sink.split, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !69
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !66
 
 if.end55:                                         ; preds = %if.then50
   store i64 1, ptr %mcv1, align 8
@@ -24692,7 +24692,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !67
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -24916,7 +24916,7 @@ entry:
 declare i64 @dictGenHashFunction(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @dictCStringKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #7 {
+define dso_local range(i32 0, 2) i32 @dictCStringKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #7 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #36
   %cmp = icmp eq i32 %call, 0
@@ -25748,7 +25748,7 @@ while.body:                                       ; preds = %entry, %while.body
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   %cmp2 = icmp ugt i64 %dec4, 8
   %or.cond1 = select i1 %or.cond, i1 %cmp2, i1 false
-  br i1 %or.cond1, label %while.body, label %while.end, !llvm.loop !71
+  br i1 %or.cond1, label %while.body, label %while.end, !llvm.loop !68
 
 while.end:                                        ; preds = %while.body, %entry
   %.lcssa = phi i64 [ %0, %entry ], [ %6, %while.body ]
@@ -25801,7 +25801,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %argc, align 8
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !72
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !69
 
 for.end:                                          ; preds = %for.body, %if.end
   %argv1 = getelementptr inbounds i8, ptr %loadmod, i64 16
@@ -25842,7 +25842,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @sdsfree(ptr noundef %call4) #32
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !73
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -25887,7 +25887,7 @@ while.body:                                       ; preds = %entry, %moduleLoadQ
   %3 = load ptr, ptr %argv, align 8
   %argc = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %argc, align 8
-  %call1 = call i32 @moduleLoad(ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0), !range !74
+  %call1 = call i32 @moduleLoad(ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0)
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %do.body, label %if.end.i
 
@@ -25922,7 +25922,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %11 = load i32, ptr %argc, align 8
   %12 = sext i32 %11 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %cmp.i, label %for.body.i, label %moduleLoadQueueEntryFree.exit, !llvm.loop !72
+  br i1 %cmp.i, label %for.body.i, label %moduleLoadQueueEntryFree.exit, !llvm.loop !69
 
 moduleLoadQueueEntryFree.exit:                    ; preds = %for.body.i, %if.end.i
   %13 = load ptr, ptr %argv, align 8
@@ -25932,7 +25932,7 @@ moduleLoadQueueEntryFree.exit:                    ; preds = %for.body.i, %if.end
   call void @listDelNode(ptr noundef %14, ptr noundef nonnull %call8) #32
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !75
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !71
 
 while.end:                                        ; preds = %moduleLoadQueueEntryFree.exit, %entry
   %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 39), align 8
@@ -25962,7 +25962,7 @@ if.end15:                                         ; preds = %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleLoad(ptr noundef %path, ptr noundef %module_argv, i32 noundef %module_argc, i32 noundef %is_loadex) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @moduleLoad(ptr noundef %path, ptr noundef %module_argv, i32 noundef %module_argc, i32 noundef %is_loadex) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
@@ -26019,7 +26019,7 @@ if.end23:                                         ; preds = %if.then18
 if.end25:                                         ; preds = %if.end15
   %4 = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %module1.i, align 8
@@ -26194,7 +26194,7 @@ for.body:                                         ; preds = %for.body.preheader,
   call void @incrRefCount(ptr noundef %41) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !76
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !72
 
 for.end:                                          ; preds = %for.body, %cond.end.thread, %cond.end
   %42 = load ptr, ptr %module1.i, align 8
@@ -26270,7 +26270,7 @@ if.then101:                                       ; preds = %if.end99.thread, %i
   %53 = phi ptr [ %.pre28, %if.end99.thread ], [ %.pre29, %if.end99 ]
   %name103 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %name103, align 8
-  %call104 = call i32 @moduleUnload(ptr noundef %54, ptr noundef null), !range !74
+  %call104 = call i32 @moduleUnload(ptr noundef %54, ptr noundef null)
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
   br label %return
 
@@ -26332,7 +26332,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %11 = load i32, ptr %argc.i, align 8
   %12 = sext i32 %11 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !72
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !69
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %argv1.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -26392,7 +26392,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !77
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !73
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void @zfree(ptr noundef %args) #32
@@ -26400,7 +26400,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleFreeCommand(ptr noundef %module, ptr nocapture noundef %cmd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef %module, ptr nocapture noundef %cmd) local_unnamed_addr #0 {
 entry:
   %proc = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %proc, align 8
@@ -26456,7 +26456,7 @@ for.inc:                                          ; preds = %if.end11, %if.then1
   %9 = load i32, ptr %key_specs_num, align 8
   %10 = sext i32 %9 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !78
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !74
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %key_specs21 = getelementptr inbounds i8, ptr %cmd, i64 128
@@ -26480,7 +26480,7 @@ for.body29:                                       ; preds = %land.rhs
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %15 = load ptr, ptr %tips, align 8
   %tobool24.not = icmp eq ptr %15, null
-  br i1 %tobool24.not, label %for.end35, label %land.rhs, !llvm.loop !79
+  br i1 %tobool24.not, label %for.end35, label %land.rhs, !llvm.loop !75
 
 for.end35:                                        ; preds = %land.rhs, %for.body29, %for.end
   %.lcssa53 = phi ptr [ null, %for.end ], [ null, %for.body29 ], [ %13, %land.rhs ]
@@ -26507,7 +26507,7 @@ for.body46:                                       ; preds = %land.rhs40
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %21 = load ptr, ptr %history, align 8
   %tobool39.not = icmp eq ptr %21, null
-  br i1 %tobool39.not, label %for.end56, label %land.rhs40, !llvm.loop !80
+  br i1 %tobool39.not, label %for.end56, label %land.rhs40, !llvm.loop !76
 
 for.end56:                                        ; preds = %land.rhs40, %for.body46, %for.end35
   %.lcssa = phi ptr [ null, %for.end35 ], [ null, %for.body46 ], [ %17, %land.rhs40 ]
@@ -26555,7 +26555,7 @@ if.then65:                                        ; preds = %if.end63
 while.body:                                       ; preds = %if.then65, %while.cond.backedge
   %call6765 = phi ptr [ %call67, %while.cond.backedge ], [ %call6763, %if.then65 ]
   %call69 = tail call ptr @dictGetVal(ptr noundef nonnull %call6765) #32
-  %call70 = tail call i32 @moduleFreeCommand(ptr noundef %module, ptr noundef %call69), !range !74
+  %call70 = tail call i32 @moduleFreeCommand(ptr noundef %module, ptr noundef %call69)
   %cmp71.not = icmp eq i32 %call70, 0
   br i1 %cmp71.not, label %if.end73, label %while.cond.backedge
 
@@ -26583,7 +26583,7 @@ cond.end:                                         ; preds = %if.end73
 while.cond.backedge:                              ; preds = %cond.end, %while.body
   %call67 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp68.not = icmp eq ptr %call67, null
-  br i1 %cmp68.not, label %while.end, label %while.body, !llvm.loop !81
+  br i1 %cmp68.not, label %while.end, label %while.body, !llvm.loop !77
 
 while.end:                                        ; preds = %while.cond.backedge, %if.then65
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -26612,7 +26612,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %call19 = phi ptr [ %call1, %while.cond.backedge ], [ %call17, %entry ]
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call19) #32
-  %call3 = tail call i32 @moduleFreeCommand(ptr noundef %module, ptr noundef %call2), !range !74
+  %call3 = tail call i32 @moduleFreeCommand(ptr noundef %module, ptr noundef %call2)
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %if.end, label %while.cond.backedge
 
@@ -26652,7 +26652,7 @@ cond.end20:                                       ; preds = %cond.end
 while.cond.backedge:                              ; preds = %cond.end20, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !82
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !78
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -26660,7 +26660,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parseLoadexArguments(ptr nocapture noundef %module_argv, ptr nocapture noundef %module_argc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @parseLoadexArguments(ptr nocapture noundef %module_argv, ptr nocapture noundef %module_argc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %module_argv, align 8
   %1 = load i32, ptr %module_argc, align 4
@@ -26716,7 +26716,7 @@ if.end19:                                         ; preds = %if.then18, %if.end5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %12 = trunc nuw i64 %indvars.iv.next to i32
   %cmp.not = icmp sgt i32 %1, %12
-  br i1 %cmp.not, label %for.body, label %if.then37, !llvm.loop !83
+  br i1 %cmp.not, label %for.body, label %if.then37, !llvm.loop !79
 
 if.else:                                          ; preds = %for.body
   %call21 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.112) #36
@@ -26827,7 +26827,7 @@ if.else.i.i:                                      ; preds = %moduleNotifyUserCha
 while.cond.backedge.i:                            ; preds = %if.else.i.i, %if.then.i.i, %while.body.i
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #32
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %moduleFreeAuthenticatedClients.exit, label %while.body.i, !llvm.loop !84
+  br i1 %cmp.not.i, label %moduleFreeAuthenticatedClients.exit, label %while.body.i, !llvm.loop !80
 
 moduleFreeAuthenticatedClients.exit:              ; preds = %while.cond.backedge.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -26856,7 +26856,7 @@ if.then.i:                                        ; preds = %while.body.i11
 if.end.i:                                         ; preds = %if.then.i, %while.body.i11
   %call.i14 = call ptr @listNext(ptr noundef nonnull %li.i9) #32
   %tobool.not.i15 = icmp eq ptr %call.i14, null
-  br i1 %tobool.not.i15, label %moduleUnsubscribeNotifications.exit, label %while.body.i11, !llvm.loop !53
+  br i1 %tobool.not.i15, label %moduleUnsubscribeNotifications.exit, label %while.body.i11, !llvm.loop !50
 
 moduleUnsubscribeNotifications.exit:              ; preds = %if.end.i, %moduleFreeAuthenticatedClients.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i9)
@@ -26887,7 +26887,7 @@ if.then.i20:                                      ; preds = %while.body.i18
 if.end.i21:                                       ; preds = %if.then.i20, %while.body.i18
   %call.i22 = call ptr @listNext(ptr noundef nonnull %li.i16) #32
   %tobool.not.i23 = icmp eq ptr %call.i22, null
-  br i1 %tobool.not.i23, label %moduleUnregisterUsedAPI.exit, label %while.body.i18, !llvm.loop !61
+  br i1 %tobool.not.i23, label %moduleUnregisterUsedAPI.exit, label %while.body.i18, !llvm.loop !58
 
 moduleUnregisterUsedAPI.exit:                     ; preds = %if.end.i21, %moduleUnsubscribeNotifications.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i16)
@@ -26916,7 +26916,7 @@ if.then.i34:                                      ; preds = %while.body.i27
 if.end.i31:                                       ; preds = %if.then.i34, %while.body.i27
   %call.i32 = call ptr @listNext(ptr noundef nonnull %li.i24) #32
   %tobool.not.i33 = icmp eq ptr %call.i32, null
-  br i1 %tobool.not.i33, label %moduleUnsubscribeAllServerEvents.exit, label %while.body.i27, !llvm.loop !70
+  br i1 %tobool.not.i33, label %moduleUnsubscribeAllServerEvents.exit, label %while.body.i27, !llvm.loop !67
 
 moduleUnsubscribeAllServerEvents.exit:            ; preds = %if.end.i31, %moduleUnregisterUsedAPI.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i24)
@@ -26945,7 +26945,7 @@ if.then.i45:                                      ; preds = %while.body.i38
 if.end.i42:                                       ; preds = %if.then.i45, %while.body.i38
   %call.i43 = call ptr @listNext(ptr noundef nonnull %li.i35) #32
   %tobool.not.i44 = icmp eq ptr %call.i43, null
-  br i1 %tobool.not.i44, label %moduleUnregisterAuthCBs.exit, label %while.body.i38, !llvm.loop !48
+  br i1 %tobool.not.i44, label %moduleUnregisterAuthCBs.exit, label %while.body.i38, !llvm.loop !45
 
 moduleUnregisterAuthCBs.exit:                     ; preds = %if.end.i42, %moduleUnsubscribeAllServerEvents.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i35)
@@ -26970,7 +26970,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #25
 declare void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleUnload(ptr noundef %name, ptr nocapture noundef writeonly %errmsg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @moduleUnload(ptr noundef %name, ptr nocapture noundef writeonly %errmsg) local_unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct.raxIterator, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
@@ -27034,7 +27034,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %7 = load ptr, ptr %data.i, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.i = icmp eq ptr %8, %call
-  br i1 %cmp.i, label %if.then12, label %while.cond.i, !llvm.loop !57
+  br i1 %cmp.i, label %if.then12, label %while.cond.i, !llvm.loop !54
 
 if.then12:                                        ; preds = %while.body.i
   call void @raxStop(ptr noundef nonnull %iter.i) #32
@@ -27128,7 +27128,7 @@ entry:
 while.cond:                                       ; preds = %while.cond, %entry
   %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %buf, i64 noundef 128) #32
   %cmp = icmp eq i64 %call, 128
-  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !85
+  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !81
 
 while.end:                                        ; preds = %while.cond
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleEventLoopMutex) #32
@@ -27159,7 +27159,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %len.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load i64, ptr %len.i, align 8
   %tobool1.not.i = icmp eq i64 %8, 0
-  br i1 %tobool1.not.i, label %eventLoopHandleOneShotEvents.exit, label %while.body.i, !llvm.loop !86
+  br i1 %tobool1.not.i, label %eventLoopHandleOneShotEvents.exit, label %while.body.i, !llvm.loop !82
 
 eventLoopHandleOneShotEvents.exit:                ; preds = %while.body.i, %while.end, %while.cond.preheader.i
   %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @moduleEventLoopMutex) #32
@@ -27188,7 +27188,7 @@ entry:
 while.cond.loopexit:                              ; preds = %for.body, %sdslen.exit39
   %call3 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !87
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !83
 
 while.body:                                       ; preds = %entry, %while.cond.loopexit
   %call345 = phi ptr [ %call3, %while.cond.loopexit ], [ %call343, %entry ]
@@ -27317,7 +27317,7 @@ for.body:                                         ; preds = %sdslen.exit39, %for
   %25 = load i32, ptr %argc12, align 8
   %26 = sext i32 %25 to i64
   %cmp13 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %cmp13, label %for.body, label %while.cond.loopexit, !llvm.loop !88
+  br i1 %cmp13, label %for.body, label %while.cond.loopexit, !llvm.loop !84
 
 while.end:                                        ; preds = %while.cond.loopexit, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -27358,7 +27358,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %output.1 = phi ptr [ %call3, %if.then ], [ %call2, %while.body ]
   %call1 = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !89
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !85
 
 while.end:                                        ; preds = %if.end, %entry
   %output.0.lcssa = phi ptr [ %call, %entry ], [ %output.1, %if.end ]
@@ -27449,7 +27449,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @sdsfree(ptr noundef %call8) #32
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !90
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !86
 
 while.end:                                        ; preds = %while.body, %entry
   %info.addr.0.lcssa = phi ptr [ %info, %entry ], [ %call9, %while.body ]
@@ -27458,7 +27458,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @isModuleConfigNameRegistered(ptr nocapture noundef readonly %module, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isModuleConfigNameRegistered(ptr nocapture noundef readonly %module, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %module_configs = getelementptr inbounds i8, ptr %module, i64 56
   %0 = load ptr, ptr %module_configs, align 8
@@ -27469,7 +27469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleVerifyConfigFlags(i32 noundef %flags, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleVerifyConfigFlags(i32 noundef %flags, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %flags to i64
   %and = and i64 %conv, 4294966796
@@ -27500,7 +27500,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setModuleBoolConfig(ptr nocapture noundef readonly %config, i32 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setModuleBoolConfig(ptr nocapture noundef readonly %config, i32 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -27529,7 +27529,7 @@ propagateErrorString.exit:                        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setModuleStringConfig(ptr nocapture noundef readonly %config, ptr noundef %strval, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setModuleStringConfig(ptr nocapture noundef readonly %config, ptr noundef %strval, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -27602,7 +27602,7 @@ propagateErrorString.exit:                        ; preds = %sdslen.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setModuleEnumConfig(ptr nocapture noundef readonly %config, i32 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setModuleEnumConfig(ptr nocapture noundef readonly %config, i32 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -27631,7 +27631,7 @@ propagateErrorString.exit:                        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setModuleNumericConfig(ptr nocapture noundef readonly %config, i64 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setModuleNumericConfig(ptr nocapture noundef readonly %config, i64 noundef %val, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -27719,7 +27719,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @loadModuleConfigs(ptr nocapture noundef %module) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @loadModuleConfigs(ptr nocapture noundef %module) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %err = alloca ptr, align 8
@@ -27800,7 +27800,7 @@ if.end24:                                         ; preds = %if.else, %if.then
   call void @sdsfree(ptr noundef %call3) #32
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !91
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !87
 
 while.end:                                        ; preds = %if.end24, %entry
   %configs_initialized = getelementptr inbounds i8, ptr %module, i64 64
@@ -27857,7 +27857,7 @@ land.lhs.true:                                    ; preds = %while.body
 if.end7:                                          ; preds = %land.lhs.true, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !92
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !88
 
 while.end:                                        ; preds = %if.end7, %if.end
   %call8 = call ptr @listAddNodeTail(ptr noundef %module_configs, ptr noundef nonnull %module_config) #32
@@ -27868,7 +27868,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleConfigApplyConfig(ptr noundef %module_configs, ptr nocapture noundef writeonly %err, ptr noundef writeonly %err_arg_name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleConfigApplyConfig(ptr noundef %module_configs, ptr nocapture noundef writeonly %err, ptr noundef writeonly %err_arg_name) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %error = alloca ptr, align 8
@@ -27897,7 +27897,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load ptr, ptr %value, align 8
   %module = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %module, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %4, ptr %module1.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
@@ -27961,7 +27961,7 @@ if.end8:                                          ; preds = %moduleCreateContext
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
   %call = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !93
+  br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !89
 
 return:                                           ; preds = %if.end8, %if.end, %entry, %propagateErrorString.exit
   %retval.0 = phi i32 [ 0, %propagateErrorString.exit ], [ 1, %entry ], [ 1, %if.end ], [ 1, %if.end8 ]
@@ -27984,7 +27984,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleConfigValidityCheck(ptr nocapture noundef readonly %module, ptr noundef %name, i32 noundef %flags, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleConfigValidityCheck(ptr nocapture noundef readonly %module, ptr noundef %name, i32 noundef %flags, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %onload = getelementptr inbounds i8, ptr %module, i64 116
   %0 = load i32, ptr %onload, align 4
@@ -28084,14 +28084,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @maskModuleConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local noundef range(i32 0, 128) i32 @maskModuleConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %new_flags.4 = and i32 %flags, 113
   ret i32 %new_flags.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @maskModuleNumericConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local noundef range(i32 0, 2) i32 @maskModuleNumericConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %0 = lshr i32 %flags, 7
   %.lobit = and i32 %0, 1
@@ -28099,7 +28099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @maskModuleEnumConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local noundef range(i32 0, 9) i32 @maskModuleEnumConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %0 = lshr i32 %flags, 5
   %spec.select = and i32 %0, 8
@@ -28107,11 +28107,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RegisterStringConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RegisterStringConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
   %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
-  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1), !range !22
+  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -28155,11 +28155,11 @@ return:                                           ; preds = %entry, %cond.end
 declare void @addModuleStringConfig(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RegisterBoolConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RegisterBoolConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
   %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
-  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 0), !range !22
+  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -28194,11 +28194,11 @@ return:                                           ; preds = %entry, %if.end
 declare void @addModuleBoolConfig(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RegisterEnumConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr nocapture noundef readonly %enum_values, ptr nocapture noundef readonly %int_values, i32 noundef %num_enum_vals, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RegisterEnumConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr nocapture noundef readonly %enum_values, ptr nocapture noundef readonly %int_values, i32 noundef %num_enum_vals, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
   %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
-  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 4), !range !22
+  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 4)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -28240,7 +28240,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %2, ptr %val, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !94
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !90
 
 for.end:                                          ; preds = %for.body, %if.end
   %idxprom13 = sext i32 %num_enum_vals to i64
@@ -28268,11 +28268,11 @@ return:                                           ; preds = %entry, %for.end
 declare void @addModuleEnumConfig(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RegisterNumericConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i64 noundef %default_val, i32 noundef %flags, i64 noundef %min, i64 noundef %max, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RegisterNumericConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i64 noundef %default_val, i32 noundef %flags, i64 noundef %min, i64 noundef %max, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
   %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
-  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1), !range !22
+  %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -28309,7 +28309,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @addModuleNumericConfig(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_LoadConfigs(ptr noundef readonly %ctx) #0 {
+define dso_local range(i32 0, 2) i32 @RM_LoadConfigs(ptr noundef readonly %ctx) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -28327,7 +28327,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %call = tail call i32 @loadModuleConfigs(ptr noundef nonnull %0), !range !22
+  %call = tail call i32 @loadModuleConfigs(ptr noundef nonnull %0)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -28367,7 +28367,7 @@ sw.default:                                       ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RdbLoad(ptr nocapture readnone %ctx, ptr noundef readonly %stream, i32 noundef %flags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RdbLoad(ptr nocapture readnone %ctx, ptr noundef readonly %stream, i32 noundef %flags) #0 {
 entry:
   %tobool = icmp eq ptr %stream, null
   %cmp = icmp ne i32 %flags, 0
@@ -28470,7 +28470,7 @@ declare i32 @rdbLoad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @startAppendOnly() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_RdbSave(ptr nocapture readnone %ctx, ptr noundef readonly %stream, i32 noundef %flags) #0 {
+define dso_local range(i32 0, 2) i32 @RM_RdbSave(ptr nocapture readnone %ctx, ptr noundef readonly %stream, i32 noundef %flags) #0 {
 entry:
   %tobool = icmp eq ptr %stream, null
   %cmp = icmp ne i32 %flags, 0
@@ -28552,7 +28552,7 @@ if.then6:                                         ; preds = %if.else
   %4 = load ptr, ptr %arrayidx16, align 8
   %ptr17 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr17, align 8
-  %call18 = tail call i32 @moduleLoad(ptr noundef %5, ptr noundef %argv7.0, i32 noundef %sub, i32 noundef 0), !range !74
+  %call18 = tail call i32 @moduleLoad(ptr noundef %5, ptr noundef %argv7.0, i32 noundef %sub, i32 noundef 0)
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.else21
 
@@ -28586,7 +28586,7 @@ if.then34:                                        ; preds = %if.then29
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %if.then29
-  %call40 = call i32 @parseLoadexArguments(ptr noundef nonnull %argv30, ptr noundef nonnull %argc31), !range !22
+  %call40 = call i32 @parseLoadexArguments(ptr noundef nonnull %argv30, ptr noundef nonnull %argc31)
   %cmp41 = icmp eq i32 %call40, 0
   br i1 %cmp41, label %land.lhs.true42, label %if.else49
 
@@ -28598,7 +28598,7 @@ land.lhs.true42:                                  ; preds = %if.end39
   %9 = load ptr, ptr %ptr45, align 8
   %10 = load ptr, ptr %argv30, align 8
   %11 = load i32, ptr %argc31, align 4
-  %call46 = tail call i32 @moduleLoad(ptr noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef 1), !range !74
+  %call46 = tail call i32 @moduleLoad(ptr noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef 1)
   %cmp47 = icmp eq i32 %call46, 0
   br i1 %cmp47, label %if.then48, label %if.else49
 
@@ -28626,7 +28626,7 @@ if.then57:                                        ; preds = %if.else51
   %14 = load ptr, ptr %arrayidx59, align 8
   %ptr60 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %ptr60, align 8
-  %call61 = call i32 @moduleUnload(ptr noundef %15, ptr noundef nonnull %errmsg), !range !74
+  %call61 = call i32 @moduleUnload(ptr noundef %15, ptr noundef nonnull %errmsg)
   %cmp62 = icmp eq i32 %call61, 0
   br i1 %cmp62, label %if.then63, label %if.else64
 
@@ -28688,7 +28688,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_SetLRU(ptr nocapture noundef readonly %key, i64 noundef %lru_idle) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetLRU(ptr nocapture noundef readonly %key, i64 noundef %lru_idle) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -28721,7 +28721,7 @@ declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 declare i32 @LRU_CLOCK() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetLRU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lru_idle) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetLRU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lru_idle) #0 {
 entry:
   store i64 -1, ptr %lru_idle, align 8
   %value = getelementptr inbounds i8, ptr %key, i64 24
@@ -28748,7 +28748,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i64 @estimateObjectIdleTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_SetLFU(ptr nocapture noundef readonly %key, i64 noundef %lfu_freq) #0 {
+define dso_local range(i32 0, 2) i32 @RM_SetLFU(ptr nocapture noundef readonly %key, i64 noundef %lfu_freq) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
@@ -28767,7 +28767,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_GetLFU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lfu_freq) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetLFU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lfu_freq) #0 {
 entry:
   store i64 -1, ptr %lfu_freq, align 8
   %value = getelementptr inbounds i8, ptr %key, i64 24
@@ -28824,7 +28824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @RM_ModuleTypeReplaceValue(ptr nocapture noundef readonly %key, ptr noundef readnone %mt, ptr noundef %new_value, ptr noundef writeonly %old_value) #28 {
+define dso_local range(i32 0, 2) i32 @RM_ModuleTypeReplaceValue(ptr nocapture noundef readonly %key, ptr noundef readnone %mt, ptr noundef %new_value, ptr noundef writeonly %old_value) #28 {
 entry:
   %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
@@ -28970,7 +28970,7 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
   store i32 %6, ptr %arrayidx30.us, align 4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body.us, !llvm.loop !95
+  br i1 %exitcond.not, label %return, label %for.body.us, !llvm.loop !91
 
 for.body:                                         ; preds = %for.body.preheader, %moduleConvertKeySpecsFlags.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %moduleConvertKeySpecsFlags.exit ]
@@ -29014,7 +29014,7 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %13 = load i32, ptr %numkeys, align 8
   %14 = sext i32 %13 to i64
   %cmp27 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %cmp27, label %for.body, label %return, !llvm.loop !95
+  br i1 %cmp27, label %for.body, label %return, !llvm.loop !91
 
 return:                                           ; preds = %moduleConvertKeySpecsFlags.exit, %for.body.us, %if.end25.thread, %if.end25, %if.then17, %if.then11, %if.then3, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then17 ], [ null, %if.then3 ], [ %call21, %if.end25 ], [ %call21, %if.end25.thread ], [ %call21, %for.body.us ], [ %call21, %moduleConvertKeySpecsFlags.exit ]
@@ -29073,7 +29073,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_DefragShouldStop(ptr nocapture noundef readonly %ctx) #0 {
+define dso_local range(i32 0, 2) i32 @RM_DefragShouldStop(ptr nocapture noundef readonly %ctx) #0 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -29091,7 +29091,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @RM_DefragCursorSet(ptr nocapture noundef readonly %ctx, i64 noundef %cursor) #14 {
+define dso_local range(i32 0, 2) i32 @RM_DefragCursorSet(ptr nocapture noundef readonly %ctx, i64 noundef %cursor) #14 {
 entry:
   %cursor1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %cursor1, align 8
@@ -29108,7 +29108,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @RM_DefragCursorGet(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %cursor) #19 {
+define dso_local range(i32 0, 2) i32 @RM_DefragCursorGet(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %cursor) #19 {
 entry:
   %cursor1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %cursor1, align 8
@@ -29144,7 +29144,7 @@ entry:
 declare ptr @activeDefragStringOb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleLateDefrag(ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %cursor, i64 noundef %endtime, i32 noundef %dbid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleLateDefrag(ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %cursor, i64 noundef %endtime, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %defrag_ctx = alloca %struct.RedisModuleDefragCtx, align 8
   %ptr = getelementptr inbounds i8, ptr %value, i64 8
@@ -29178,7 +29178,7 @@ return:                                           ; preds = %if.then, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleDefragValue(ptr noundef %key, ptr nocapture noundef %value, i32 noundef %dbid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @moduleDefragValue(ptr noundef %key, ptr nocapture noundef %value, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.RedisModuleKeyOptCtx, align 8
   %defrag_ctx = alloca %struct.RedisModuleDefragCtx, align 8
@@ -29294,7 +29294,7 @@ if.end:                                           ; preds = %while.body
 while.cond.backedge:                              ; preds = %if.end, %while.body
   %call1 = call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !96
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !92
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   call void @dictReleaseIterator(ptr noundef %call) #32
@@ -29322,7 +29322,7 @@ declare void @listTypeReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare ptr @callReplyCreate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @moduleValidateCommandArgs(ptr noundef readonly %args, ptr nocapture noundef readonly %version) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @moduleValidateCommandArgs(ptr noundef readonly %args, ptr nocapture noundef readonly %version) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -29442,7 +29442,7 @@ if.end83:                                         ; preds = %do.body79
   br label %return
 
 if.end86:                                         ; preds = %if.then75
-  %call88 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %14, ptr noundef nonnull %version), !range !22
+  %call88 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %14, ptr noundef nonnull %version)
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %return, label %for.inc
 
@@ -29467,7 +29467,7 @@ for.inc:                                          ; preds = %if.end86, %if.else9
   %add.ptr.i = getelementptr inbounds i8, ptr %args, i64 %mul.i
   %17 = load ptr, ptr %add.ptr.i, align 8
   %cmp1.not = icmp eq ptr %17, null
-  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !97
+  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !93
 
 return:                                           ; preds = %if.end86, %for.inc, %for.cond.preheader, %if.end101, %do.body97, %if.end83, %do.body79, %if.end65, %do.body61, %if.end54, %do.body50, %if.end38, %do.body34, %if.end23, %do.body19, %if.end10, %do.body, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %do.body ], [ 0, %if.end10 ], [ 0, %do.body19 ], [ 0, %if.end23 ], [ 0, %do.body34 ], [ 0, %if.end38 ], [ 0, %do.body50 ], [ 0, %if.end54 ], [ 0, %do.body61 ], [ 0, %if.end65 ], [ 0, %do.body79 ], [ 0, %if.end83 ], [ 0, %do.body97 ], [ 0, %if.end101 ], [ 1, %for.cond.preheader ], [ 0, %if.end86 ], [ 1, %for.inc ]
@@ -29565,10 +29565,10 @@ attributes #37 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = !{i64 0, i64 65}
-!20 = !{i64 0, i64 4}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = !{i32 0, i32 2}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -29620,7 +29620,7 @@ attributes #37 = { nounwind willreturn memory(none) }
 !71 = distinct !{!71, !6}
 !72 = distinct !{!72, !6}
 !73 = distinct !{!73, !6}
-!74 = !{i32 -1, i32 1}
+!74 = distinct !{!74, !6}
 !75 = distinct !{!75, !6}
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
@@ -29640,7 +29640,3 @@ attributes #37 = { nounwind willreturn memory(none) }
 !91 = distinct !{!91, !6}
 !92 = distinct !{!92, !6}
 !93 = distinct !{!93, !6}
-!94 = distinct !{!94, !6}
-!95 = distinct !{!95, !6}
-!96 = distinct !{!96, !6}
-!97 = distinct !{!97, !6}

@@ -248,7 +248,7 @@ define dso_local ptr @jsc_module_loader(ptr noundef %0, ptr noundef %1, ptr noca
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %12 = getelementptr %struct.namelist_entry_t, ptr %9, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %1) #17
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %namelist_find.exit, label %10
 
@@ -280,13 +280,13 @@ namelist_find.exit:                               ; preds = %11
   store i32 %30, ptr @init_module_list.1, align 8
   %31 = sext i32 %28 to i64
   %32 = getelementptr %struct.namelist_entry_t, ptr %29, i64 %31
-  %33 = tail call noalias ptr @strdup(ptr noundef %13) #16
+  %33 = tail call noalias ptr @strdup(ptr noundef readonly %13) #16
   store ptr %33, ptr %32, align 8
   %.not.i42 = icmp eq ptr %16, null
   br i1 %.not.i42, label %namelist_add.exit, label %34
 
 34:                                               ; preds = %27
-  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #16
+  %35 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %16) #16
   br label %namelist_add.exit
 
 namelist_add.exit:                                ; preds = %27, %34
@@ -349,7 +349,7 @@ namelist_find.exit.thread:                        ; preds = %10, %3
   %indvars.iv.i46 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i48, %58 ]
   %60 = getelementptr %struct.namelist_entry_t, ptr %57, i64 %indvars.iv.i46
   %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %6) #17
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %6) #17
   %.not.i47 = icmp eq i32 %62, 0
   br i1 %.not.i47, label %namelist_find.exit50, label %58
 
@@ -386,7 +386,7 @@ namelist_find.exit50:                             ; preds = %59
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %73 ]
   %75 = getelementptr %struct.namelist_entry_t, ptr %72, i64 %indvars.iv.i.i
   %76 = load ptr, ptr %75, align 8
-  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %4) #17
+  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull readonly dereferenceable(1) %4) #17
   %.not.i.i = icmp eq i32 %77, 0
   br i1 %.not.i.i, label %namelist_find.exit.i, label %73
 
@@ -556,7 +556,7 @@ namelist_add.exit:                                ; preds = %10, %14
   store i32 %23, ptr @cname_list.1, align 8
   %24 = sext i32 %21 to i64
   %25 = getelementptr %struct.namelist_entry_t, ptr %22, i64 %24
-  %26 = call noalias ptr @strdup(ptr noundef %4) #16
+  %26 = call noalias ptr @strdup(ptr noundef readonly %4) #16
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr null, ptr %27, align 8
@@ -627,7 +627,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @exec_cmd(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 256) i32 @exec_cmd(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = tail call i32 @fork() #16
   %4 = icmp eq i32 %3, 0
@@ -668,7 +668,7 @@ declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #9
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = alloca [64 x ptr], align 16
   %5 = alloca [1024 x i8], align 16
@@ -709,9 +709,9 @@ namelist_add.exit:                                ; preds = %2, %19
   store i32 %28, ptr @cmodule_list.1, align 8
   %29 = sext i32 %26 to i64
   %30 = getelementptr %struct.namelist_entry_t, ptr %27, i64 %29
-  %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #16
+  %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull readonly @.str.4) #16
   store ptr %31, ptr %30, align 8
-  %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #16
+  %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull readonly @.str.4) #16
   %33 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
@@ -741,9 +741,9 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   store i32 %47, ptr @cmodule_list.1, align 8
   %48 = sext i32 %45 to i64
   %49 = getelementptr %struct.namelist_entry_t, ptr %46, i64 %48
-  %50 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #16
+  %50 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.5) #16
   store ptr %50, ptr %49, align 8
-  %51 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #16
+  %51 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.5) #16
   %52 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %49, i64 16
@@ -911,9 +911,9 @@ namelist_add.exit140:                             ; preds = %92, %96
   store i32 %105, ptr @cmodule_list.1, align 8
   %106 = sext i32 %103 to i64
   %107 = getelementptr %struct.namelist_entry_t, ptr %104, i64 %106
-  %108 = call noalias ptr @strdup(ptr noundef nonnull %14) #16
+  %108 = call noalias ptr @strdup(ptr noundef nonnull readonly %14) #16
   store ptr %108, ptr %107, align 8
-  %109 = call noalias ptr @strdup(ptr noundef nonnull %15) #16
+  %109 = call noalias ptr @strdup(ptr noundef nonnull readonly %15) #16
   %110 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %107, i64 16
@@ -940,7 +940,7 @@ namelist_add.exit143:                             ; preds = %112, %115
   %122 = add i32 %.sroa.5.0, 1
   %123 = sext i32 %.sroa.5.0 to i64
   %124 = getelementptr %struct.namelist_entry_t, ptr %.sroa.0.1, i64 %123
-  %125 = call noalias ptr @strdup(ptr noundef %113) #16
+  %125 = call noalias ptr @strdup(ptr noundef readonly %113) #16
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 8
   store ptr null, ptr %126, align 8

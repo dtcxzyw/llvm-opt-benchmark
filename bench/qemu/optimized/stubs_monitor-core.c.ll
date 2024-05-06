@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @monitor_cur() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @monitor_cur() local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @monitor_set_cur(ptr nocapture noundef readnone %co, ptr nocapture noundef readnone %mon) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @monitor_set_cur(ptr nocapture noundef readnone %co, ptr nocapture noundef readnone %mon) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i32 @monitor_vprintf(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %ap) local_unnamed_addr #1 {
+define dso_local noundef i32 @monitor_vprintf(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %ap) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #3
   unreachable

@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @get_be24(ptr nocapture noundef readonly %in) local_unnamed_addr #1 {
+define dso_local range(i32 0, 16777216) i32 @get_be24(ptr nocapture noundef readonly %in) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %in, align 1
   %conv = zext i8 %0 to i32
@@ -41,7 +41,7 @@ entry:
 define dso_local void @put_be16(ptr nocapture noundef writeonly %out, i16 noundef zeroext %i) local_unnamed_addr #0 {
 entry:
   %shr = lshr i16 %i, 8
-  %conv1 = trunc i16 %shr to i8
+  %conv1 = trunc nuw i16 %shr to i8
   store i8 %conv1, ptr %out, align 1
   %conv4 = trunc i16 %i to i8
   %arrayidx5 = getelementptr inbounds i8, ptr %out, i64 1
@@ -215,14 +215,14 @@ declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @names_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @names_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not14 = icmp eq ptr %0, null
   br i1 %tobool.not14, label %for.end, label %land.rhs
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %a, i64 %indvars.iv.next
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null

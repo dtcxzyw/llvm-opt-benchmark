@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [68 x i8] c"%s %02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_create_cram_md5_message(ptr noundef %chlg, ptr noundef %userp, ptr noundef %passwdp, ptr noundef %out) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_cram_md5_message(ptr noundef %chlg, ptr noundef %userp, ptr noundef %passwdp, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %digest = alloca [16 x i8], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %passwdp) #3

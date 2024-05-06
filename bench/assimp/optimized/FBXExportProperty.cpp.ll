@@ -276,7 +276,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %call
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i6, i64 %call
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
@@ -404,7 +404,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
@@ -470,7 +470,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
@@ -536,7 +536,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
@@ -602,7 +602,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
@@ -664,12 +664,12 @@ entry:
 for.cond3.preheader:                              ; preds = %entry, %for.inc11
   %indvars.iv12 = phi i64 [ 0, %entry ], [ %indvars.iv.next13, %for.inc11 ]
   %0 = shl nuw nsw i64 %indvars.iv12, 2
-  %invariant.gep = getelementptr double, ptr %call5.i.i.i.i1.i.i7, i64 %0
+  %invariant.gep = getelementptr inbounds double, ptr %call5.i.i.i.i1.i.i7, i64 %0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond3.preheader, %_ZNK12aiMatrix4x4tIfEixEj.exit
   %indvars.iv = phi i64 [ 0, %for.cond3.preheader ], [ %indvars.iv.next, %_ZNK12aiMatrix4x4tIfEixEj.exit ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %1, label %default.unreachable.i [
     i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
@@ -694,7 +694,7 @@ _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %if.end.i, %sw.bb2.i
   %arrayidx = getelementptr inbounds float, ptr %retval.0.i, i64 %indvars.iv12
   %2 = load float, ptr %arrayidx, align 4
   %conv = fpext float %2 to double
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
   store double %conv, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1925,7 +1925,7 @@ if.then94:                                        ; preds = %for.body92
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then94, %for.body92
-  %inc97 = add i64 %count.0177, 1
+  %inc97 = add nuw nsw i64 %count.0177, 1
   %cmp98 = icmp ugt i64 %count.0177, 120
   br i1 %cmp98, label %if.then99, label %if.end101
 
@@ -1993,7 +1993,7 @@ if.then138:                                       ; preds = %for.body136
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then138, %for.body136
-  %inc141 = add i64 %count.2170, 1
+  %inc141 = add nuw nsw i64 %count.2170, 1
   %cmp142 = icmp ugt i64 %count.2170, 120
   br i1 %cmp142, label %if.then143, label %if.end145
 
@@ -2061,7 +2061,7 @@ if.then183:                                       ; preds = %for.body181
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then183, %for.body181
-  %inc186 = add i64 %count.4163, 1
+  %inc186 = add nuw nsw i64 %count.4163, 1
   %cmp187 = icmp ugt i64 %count.4163, 120
   br i1 %cmp187, label %if.then188, label %if.end190
 
@@ -2135,7 +2135,7 @@ if.then229:                                       ; preds = %for.body227
   br label %if.end231
 
 if.end231:                                        ; preds = %if.then229, %for.body227
-  %inc232 = add i64 %count.6156, 1
+  %inc232 = add nuw nsw i64 %count.6156, 1
   %cmp233 = icmp ugt i64 %count.6156, 120
   br i1 %cmp233, label %if.then234, label %if.end236
 
@@ -2529,7 +2529,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

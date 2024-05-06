@@ -718,7 +718,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_sccp = private unnamed_addr constant [4 x ptr] [ptr @.str.456, ptr @.str.457, ptr @.str.458, ptr @.str.459], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_captured_length(ptr noundef %1) #9
   %5 = icmp ult i32 %4, 5
   br i1 %5, label %223, label %6
@@ -1224,7 +1224,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp eq i8 %1, 2
@@ -3363,11 +3363,11 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br label %dissect_sccp_dlr_param.exit
 
 62:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 1, ptr noundef %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 1, ptr noundef readonly %7)
   br label %dissect_sccp_dlr_param.exit
 
 63:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 0, ptr noundef %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 0, ptr noundef readonly %7)
   br label %dissect_sccp_dlr_param.exit
 
 64:                                               ; preds = %10

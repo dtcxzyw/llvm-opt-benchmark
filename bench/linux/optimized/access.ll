@@ -223,7 +223,7 @@ define dso_local i32 @pci_bus_write_config_dword(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_generic_config_read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local noundef range(i32 0, 135) i32 @pci_generic_config_read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -263,7 +263,7 @@ define dso_local noundef i32 @pci_generic_config_read(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_generic_config_write(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 0, 135) i32 @pci_generic_config_write(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -298,7 +298,7 @@ define dso_local noundef i32 @pci_generic_config_write(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_generic_config_read32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local noundef range(i32 0, 135) i32 @pci_generic_config_read32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -334,7 +334,7 @@ define dso_local noundef i32 @pci_generic_config_read32(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_generic_config_write32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 0, 135) i32 @pci_generic_config_write32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -416,7 +416,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 -1, ptr %4, align 4
@@ -539,7 +539,7 @@ define internal fastcc void @pci_wait_cfg(ptr nocapture noundef readonly %0) unn
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_read_config_word(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_read_config_word(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 -1, ptr %4, align 4
@@ -613,7 +613,7 @@ define dso_local i32 @pci_user_read_config_word(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_read_config_dword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_read_config_dword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 -1, ptr %4, align 4
@@ -686,7 +686,7 @@ define dso_local i32 @pci_user_read_config_dword(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_write_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_write_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pci_lock) #7
   %4 = getelementptr inbounds i8, ptr %0, i64 1689
   %5 = load i40, ptr %4, align 1
@@ -747,7 +747,7 @@ define dso_local i32 @pci_user_write_config_byte(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_write_config_word(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_write_config_word(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = and i32 %1, 1
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %31
@@ -813,7 +813,7 @@ define dso_local i32 @pci_user_write_config_word(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_user_write_config_dword(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_write_config_dword(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = and i32 %1, 3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %30

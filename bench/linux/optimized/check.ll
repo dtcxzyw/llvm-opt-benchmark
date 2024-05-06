@@ -104,7 +104,7 @@ define internal i32 @set_corruption_check_period(ptr noundef %0) #0 section ".in
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @set_corruption_check_size(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal range(i32 -22, 1) i32 @set_corruption_check_size(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   %3 = icmp eq ptr %0, null

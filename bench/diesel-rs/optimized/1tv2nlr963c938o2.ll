@@ -422,13 +422,13 @@ define void @_ZN21diesel_demo_step_1_pg20establish_connection17h859337a45dca679b
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %32 = load i64, ptr %15, align 8, !range !58, !alias.scope !56, !noalias !53, !noundef !5
-  %trunc.i = trunc i64 %32 to i1
+  %trunc.i = trunc nuw i64 %32 to i1
   br i1 %trunc.i, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3861a6904c952274E.exit"
 
 33:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17he53d8e0f66b39661E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !59
   %34 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !53
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.62bfc730a714498ee35b7a091de32252.10, i64 noundef 24, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.62bfc730a714498ee35b7a091de32252.5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.62bfc730a714498ee35b7a091de32252.12) #13
           to label %37 unwind label %35, !noalias !59
 
@@ -453,7 +453,7 @@ common.resume:                                    ; preds = %.body, %35
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3861a6904c952274E.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17he53d8e0f66b39661E.exit"
   %40 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14)
   %41 = getelementptr inbounds i8, ptr %16, i64 8

@@ -2770,7 +2770,7 @@ define internal i32 @e1000_led_off_ich8lan(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_rar_set_pch2lan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @e1000_rar_set_pch2lan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = load i16, ptr %1, align 1
   %5 = zext i16 %4 to i32
   %6 = getelementptr i8, ptr %1, i64 2
@@ -3106,7 +3106,7 @@ define internal i32 @e1000_led_off_pchlan(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_rar_set_pch_lpt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @e1000_rar_set_pch_lpt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = load i16, ptr %1, align 1
   %5 = zext i16 %4 to i32
   %6 = getelementptr i8, ptr %1, i64 2
@@ -3248,7 +3248,7 @@ define internal i32 @e1000_setup_copper_link_pch_lpt(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_rar_get_count_pch_lpt(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 65536) i32 @e1000_rar_get_count_pch_lpt(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 23380
@@ -3276,7 +3276,7 @@ define internal i32 @e1000_rar_get_count_pch_lpt(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_acquire_swflag_ich8lan(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @e1000_acquire_swflag_ich8lan(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 720
   %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 2, ptr elementtype(i64) %3) #9, !srcloc !27
@@ -5761,7 +5761,7 @@ declare dso_local i32 @e1000e_copper_link_setup_igp(ptr noundef) local_unnamed_a
 declare dso_local i32 @e1000e_copper_link_setup_m88(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_check_reset_block_ich8lan(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 0, 13) i32 @e1000_check_reset_block_ich8lan(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 23380
@@ -5791,7 +5791,7 @@ define internal noundef i32 @e1000_check_reset_block_ich8lan(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_cfg_done_ich8lan(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @e1000_get_cfg_done_ich8lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   %3 = tail call i32 @e1000e_get_cfg_done_generic(ptr noundef %0) #9
@@ -6410,7 +6410,7 @@ define internal fastcc noundef i32 @e1000_read_flash_dword_ich8lan(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_flash_cycle_init_ich8lan(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_flash_cycle_init_ich8lan(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -6516,7 +6516,7 @@ define internal fastcc noundef i32 @e1000_flash_cycle_init_ich8lan(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_read_flash_data_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_read_flash_data_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = icmp ugt i32 %1, 16777215
   br i1 %5, label %.loopexit2, label %6
 
@@ -6646,7 +6646,7 @@ define internal noundef i32 @e1000_acquire_nvm_ich8lan(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_read_nvm_ich8lan(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_ich8lan(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds i8, ptr %0, i64 1056
@@ -7025,7 +7025,7 @@ define internal i32 @e1000_validate_nvm_checksum_ich8lan(ptr noundef %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_write_nvm_ich8lan(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @e1000_write_nvm_ich8lan(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1056
   %6 = zext i16 %1 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 1136
@@ -7273,7 +7273,7 @@ default.unreachable14:                            ; preds = %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @e1000_retry_write_flash_byte_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @e1000_retry_write_flash_byte_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @e1000_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2), !range !36
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %.preheader
@@ -7302,7 +7302,7 @@ define internal fastcc i32 @e1000_retry_write_flash_byte_ich8lan(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_write_flash_byte_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_write_flash_byte_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 220
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 11
@@ -7825,7 +7825,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @e1000_retry_write_flash_dword_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @e1000_retry_write_flash_dword_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = shl i32 %1, 1
   %5 = tail call fastcc i32 @e1000_write_flash_data32_ich8lan(ptr noundef %0, i32 noundef %4, i32 noundef %2), !range !36
   %6 = icmp eq i32 %5, 0
@@ -7855,7 +7855,7 @@ define internal fastcc i32 @e1000_retry_write_flash_dword_ich8lan(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_write_flash_data32_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_write_flash_data32_ich8lan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 220
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 11

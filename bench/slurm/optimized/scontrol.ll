@@ -797,7 +797,7 @@ _get_command.exit.thread:                         ; preds = %183
 
 207:                                              ; preds = %201
   %208 = getelementptr inbounds i8, ptr %.042.i, i64 %indvars.iv.i
-  %209 = trunc i64 %indvars.iv.i to i32
+  %209 = trunc nsw i64 %indvars.iv.i to i32
   store i8 0, ptr %208, align 1
   br label %.loopexit.i
 
@@ -809,7 +809,7 @@ _get_command.exit.thread:                         ; preds = %183
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i
-  %211 = trunc i64 %indvars.iv.i to i32
+  %211 = trunc nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %210, %.loopexit.loopexit.split.loop.exit.i, %207, %188, %176
@@ -2157,7 +2157,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not493, label %_create_it.exit, label %.thread531
 
 .thread531.loopexit:                              ; preds = %516
-  %538 = trunc i64 %indvars.iv to i32
+  %538 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread531
 
 .thread531:                                       ; preds = %.thread531.loopexit, %537
@@ -3195,7 +3195,7 @@ define internal fastcc void @_setdebugflags(i32 noundef %0, ptr nocapture nounde
   br i1 %23, label %47, label %58
 
 24:                                               ; preds = %.preheader, %16
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = add nsw i32 %0, -1
   %27 = icmp eq i32 %26, %25
   br i1 %27, label %28, label %46
@@ -3367,7 +3367,7 @@ define internal fastcc void @_setdebug(i32 noundef %0, ptr nocapture noundef rea
   br label %66
 
 .loopexit.loopexit:                               ; preds = %20
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26

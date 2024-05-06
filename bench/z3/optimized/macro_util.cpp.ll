@@ -3859,8 +3859,8 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %12 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %12 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %13 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %13, i64 32
+  %13 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 32
   %cmp16.not48 = icmp eq i32 %12, 0
   br i1 %cmp16.not48, label %for.end, label %for.body.preheader
 
@@ -5445,8 +5445,8 @@ if.end7:                                          ; preds = %if.end, %_ZNK3app13
   %5 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %6 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %6, i64 32
+  %6 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %6, i64 32
   %cmp11.not23 = icmp eq i32 %5, 0
   br i1 %cmp11.not23, label %for.end, label %for.body.lr.ph
 
@@ -5719,8 +5719,8 @@ if.then23:                                        ; preds = %while.body
   %16 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i29 = zext i32 %16 to i64
   %add.ptr.i30.idx = shl nuw nsw i64 %idx.ext.i29, 3
-  %17 = getelementptr i8, ptr %4, i64 %add.ptr.i30.idx
-  %add.ptr.i30.ptr = getelementptr i8, ptr %17, i64 32
+  %17 = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i30.idx
+  %add.ptr.i30.ptr = getelementptr inbounds i8, ptr %17, i64 32
   %cmp30.not96 = icmp eq i32 %16, 0
   br i1 %cmp30.not96, label %if.end43, label %for.body.preheader
 
@@ -6152,8 +6152,8 @@ invoke.cont2:                                     ; preds = %invoke.cont2.loopex
   %10 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %10 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %11 = getelementptr i8, ptr %head, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %11, i64 32
+  %11 = getelementptr inbounds i8, ptr %head, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %11, i64 32
   %cmp.not80 = icmp eq i32 %10, 0
   br i1 %cmp.not80, label %invoke.cont2.for.end_crit_edge, label %for.body.preheader
 

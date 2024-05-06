@@ -75,7 +75,7 @@ declare i32 @ENGINE_load_ssl_client_cert(ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @SSL_get_client_CA_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CTX_set_client_cert_engine(ptr nocapture noundef writeonly %ctx, ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_set_client_cert_engine(ptr nocapture noundef writeonly %ctx, ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ENGINE_init(ptr noundef %e) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -120,7 +120,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @ENGINE_get_ssl_client_cert_function(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_hmac_old_new(ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_hmac_old_new(ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @HMAC_CTX_new() #3
   %old_ctx = getelementptr inbounds i8, ptr %ret, i64 8
@@ -170,7 +170,7 @@ entry:
 declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl_hmac_old_final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8

@@ -172,7 +172,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx1
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [23 x i8] c"Audio: Error decoding \00", align 1
 @_ZN5sound21OggVorbisBufferSource14s_ov_callbacksE = external local_unnamed_addr global %struct.ov_callbacks, align 8
 @.str.1 = private unnamed_addr constant [22 x i8] c"Audio: Error opening \00", align 1

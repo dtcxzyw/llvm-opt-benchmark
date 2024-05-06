@@ -182,7 +182,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_des_ecb(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_des_ecb(i32 noundef %i) #0 {
 entry:
   %ks = alloca %struct.DES_ks, align 4
   %in = alloca [8 x i8], align 8
@@ -421,7 +421,7 @@ return:                                           ; preds = %if.end13, %if.end8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_des_ede_ecb(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_des_ede_ecb(i32 noundef %i) #0 {
 entry:
   %in = alloca [8 x i8], align 8
   %out = alloca [8 x i8], align 8
@@ -886,7 +886,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_des_quad_cksum() #0 {
+define internal range(i32 0, 2) i32 @test_des_quad_cksum() #0 {
 entry:
   %lqret = alloca [4 x i32], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #6
@@ -929,7 +929,7 @@ return:                                           ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_des_crypt() #0 {
+define internal range(i32 0, 2) i32 @test_des_crypt() #0 {
 entry:
   %call = tail call ptr @DES_crypt(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71) #5
   %call1 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 473, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef %call) #5
@@ -967,7 +967,7 @@ return:                                           ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_input_align(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_input_align(i32 noundef %i) #0 {
 entry:
   %cbc_out = alloca [40 x i8], align 16
   %iv = alloca [8 x i8], align 8
@@ -994,7 +994,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_output_align(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_output_align(i32 noundef %i) #0 {
 entry:
   %cbc_out = alloca [40 x i8], align 16
   %iv = alloca [8 x i8], align 8
@@ -1021,7 +1021,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_des_key_wrap(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %idx) #0 {
 entry:
   %in = alloca [100 x i8], align 16
   %c_txt = alloca [200 x i8], align 16
@@ -1220,7 +1220,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_des_two_key() #0 {
+define internal range(i32 0, 2) i32 @test_des_two_key() #0 {
 entry:
   %key = alloca [16 x i8], align 16
   %call = tail call ptr @EVP_CIPHER_fetch(ptr noundef null, ptr noundef nonnull @.str.108, ptr noundef null) #5

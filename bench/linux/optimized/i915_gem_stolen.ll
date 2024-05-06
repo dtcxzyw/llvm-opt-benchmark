@@ -237,7 +237,7 @@ define dso_local ptr @i915_gem_stolen_lmem_setup(ptr noundef %0, i16 noundef zer
 72:                                               ; preds = %66
   %73 = lshr i16 %69, 8
   %74 = zext nneg i16 %73 to i32
-  %75 = trunc i16 %73 to i8
+  %75 = trunc nuw i16 %73 to i8
   switch i8 %75, label %77 [
     i8 0, label %.thread7
     i8 1, label %.thread7
@@ -787,7 +787,7 @@ define internal i32 @_i915_gem_object_stolen_init(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i915_gem_init_stolen(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca { ptr, i64, i64, ptr, ptr, ptr }, align 16

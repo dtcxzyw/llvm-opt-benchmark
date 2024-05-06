@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_disk_set_standard_lookup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_disk_set_standard_lookup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(2032) ptr @calloc(i64 noundef 127, i64 noundef 16) #7
   %3 = tail call noalias dereferenceable_or_null(2032) ptr @calloc(i64 noundef 127, i64 noundef 16) #7
   %4 = icmp eq ptr %2, null

@@ -320,11 +320,11 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = urem i64 %2, 65521
   %5 = and i64 %0, 65535
   %6 = mul nuw nsw i64 %4, %5
-  %.lhs.trunc.i = trunc i64 %6 to i32
+  %.lhs.trunc.i = trunc nuw i64 %6 to i32
   %7 = urem i32 %.lhs.trunc.i, 65521
   %.zext.i = zext nneg i32 %7 to i64
   %8 = and i64 %1, 65535
@@ -356,11 +356,11 @@ define i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = urem i64 %2, 65521
   %5 = and i64 %0, 65535
   %6 = mul nuw nsw i64 %4, %5
-  %.lhs.trunc.i = trunc i64 %6 to i32
+  %.lhs.trunc.i = trunc nuw i64 %6 to i32
   %7 = urem i32 %.lhs.trunc.i, 65521
   %.zext.i = zext nneg i32 %7 to i64
   %8 = and i64 %1, 65535

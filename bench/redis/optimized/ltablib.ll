@@ -111,7 +111,7 @@ if.end:                                           ; preds = %addfield.exit31, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @foreach(ptr noundef %L) #0 {
+define internal noundef range(i32 0, 2) i32 @foreach(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #3
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 2, i32 noundef 6) #3
@@ -141,7 +141,7 @@ return:                                           ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @foreachi(ptr noundef %L) #0 {
+define internal noundef range(i32 0, 2) i32 @foreachi(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #3
   %call = tail call i64 @lua_objlen(ptr noundef %L, i32 noundef 1) #3
@@ -264,7 +264,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tremove(ptr noundef %L) #0 {
+define internal noundef range(i32 0, 2) i32 @tremove(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #3
   %call = tail call i64 @lua_objlen(ptr noundef %L, i32 noundef 1) #3

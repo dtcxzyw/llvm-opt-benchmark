@@ -509,7 +509,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_digest_size(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_digest_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_digest_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -529,7 +529,7 @@ define internal i64 @ossl_digest_size(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_digest_block_length(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_digest_block_length(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_digest_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

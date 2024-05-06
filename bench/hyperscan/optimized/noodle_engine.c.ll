@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @noodExec(ptr noundef readonly %n, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @noodExec(ptr noundef readonly %n, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %v.i2292 = alloca <2 x i64>, align 16
   %v.i2210 = alloca <2 x i64>, align 16
@@ -54,7 +54,7 @@ if.end.i189:                                      ; preds = %if.then.i158
   store <2 x i64> zeroinitializer, ptr %v.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %v.i, ptr align 1 %add.ptr.i, i64 %sub2.i117, i1 false)
   %v.i.0.v.i.0.v.i.0.v.i.0.16901753 = load <16 x i8>, ptr %v.i, align 16
-  %7 = trunc i64 %sub2.i117 to i32
+  %7 = trunc nuw i64 %sub2.i117 to i32
   %sh_prom.i = sub nuw nsw i32 16, %7
   %shr.i = lshr i32 65535, %sh_prom.i
   %8 = and <16 x i8> %v.i.0.v.i.0.v.i.0.v.i.0.16901753, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
@@ -765,7 +765,7 @@ if.end.i222:                                      ; preds = %if.then.i90
   %add.ptr.i218 = getelementptr inbounds i8, ptr %buf, i64 %sub.i116
   store <2 x i64> zeroinitializer, ptr %v.i211, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %v.i211, ptr align 1 %add.ptr.i218, i64 %sub2.i117, i1 false)
-  %108 = trunc i64 %sub2.i117 to i32
+  %108 = trunc nuw i64 %sub2.i117 to i32
   %sh_prom.i227 = sub nuw nsw i32 16, %108
   %shr.i228 = lshr i32 65535, %sh_prom.i227
   %v.i211.0.v.i211.0.v.i211.0.v.i211.0.1601480150516581752 = load <16 x i8>, ptr %v.i211, align 16
@@ -1502,7 +1502,7 @@ if.end.i2221:                                     ; preds = %if.then.i2185
   %211 = select <16 x i1> %cmp.i.i, <16 x i1> %210, <16 x i1> zeroinitializer
   %212 = bitcast <16 x i1> %211 to i16
   %213 = zext i16 %212 to i32
-  %214 = trunc i64 %sub9.i2140 to i32
+  %214 = trunc nuw i64 %sub9.i2140 to i32
   %sh_prom.i2224 = sub nuw nsw i32 16, %214
   %shr.i2225 = lshr i32 65535, %sh_prom.i2224
   %and.i2226 = and i32 %shr.i2225, %213
@@ -2236,7 +2236,7 @@ if.end.i2303:                                     ; preds = %if.then.i1970
   %333 = select <16 x i1> %cmp.i.i2310, <16 x i1> %332, <16 x i1> zeroinitializer
   %334 = bitcast <16 x i1> %333 to i16
   %335 = zext i16 %334 to i32
-  %336 = trunc i64 %sub9.i to i32
+  %336 = trunc nuw i64 %sub9.i to i32
   %sh_prom.i2314 = sub nuw nsw i32 16, %336
   %shr.i2315 = lshr i32 65535, %sh_prom.i2314
   %and.i2316 = and i32 %shr.i2315, %335
@@ -2944,7 +2944,7 @@ scan.exit:                                        ; preds = %match.i1194, %match
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @noodExecStreaming(ptr noundef readonly %n, ptr nocapture noundef readonly %hbuf, i64 noundef %hlen, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @noodExecStreaming(ptr noundef readonly %n, ptr nocapture noundef readonly %hbuf, i64 noundef %hlen, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %v.i2438 = alloca <2 x i64>, align 16
   %v.i2355 = alloca <2 x i64>, align 16
@@ -3210,7 +3210,7 @@ if.end.i324:                                      ; preds = %if.then.i292
   store <2 x i64> zeroinitializer, ptr %v.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %v.i, ptr align 1 %add.ptr.i320, i64 %sub2.i251, i1 false)
   %v.i.0.v.i.0.v.i.0.v.i.0.17761841 = load <16 x i8>, ptr %v.i, align 16
-  %39 = trunc i64 %sub2.i251 to i32
+  %39 = trunc nuw i64 %sub2.i251 to i32
   %sh_prom.i = sub nuw nsw i32 16, %39
   %shr.i = lshr i32 65535, %sh_prom.i
   %40 = and <16 x i8> %v.i.0.v.i.0.v.i.0.v.i.0.17761841, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
@@ -3921,7 +3921,7 @@ if.end.i358:                                      ; preds = %if.then.i224
   %add.ptr.i354 = getelementptr inbounds i8, ptr %buf, i64 %sub.i250
   store <2 x i64> zeroinitializer, ptr %v.i347, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %v.i347, ptr align 1 %add.ptr.i354, i64 %sub2.i251, i1 false)
-  %140 = trunc i64 %sub2.i251 to i32
+  %140 = trunc nuw i64 %sub2.i251 to i32
   %sh_prom.i363 = sub nuw nsw i32 16, %140
   %shr.i364 = lshr i32 65535, %sh_prom.i363
   %v.i347.0.v.i347.0.v.i347.0.v.i347.0.2371557158217431840 = load <16 x i8>, ptr %v.i347, align 16
@@ -4657,7 +4657,7 @@ if.end.i2366:                                     ; preds = %if.then.i2330
   %243 = select <16 x i1> %cmp.i.i, <16 x i1> %242, <16 x i1> zeroinitializer
   %244 = bitcast <16 x i1> %243 to i16
   %245 = zext i16 %244 to i32
-  %246 = trunc i64 %sub9.i2285 to i32
+  %246 = trunc nuw i64 %sub9.i2285 to i32
   %sh_prom.i2369 = sub nuw nsw i32 16, %246
   %shr.i2370 = lshr i32 65535, %sh_prom.i2369
   %and.i2371 = and i32 %shr.i2370, %245
@@ -5391,7 +5391,7 @@ if.end.i2449:                                     ; preds = %if.then.i2115
   %365 = select <16 x i1> %cmp.i.i2456, <16 x i1> %364, <16 x i1> zeroinitializer
   %366 = bitcast <16 x i1> %365 to i16
   %367 = zext i16 %366 to i32
-  %368 = trunc i64 %sub9.i to i32
+  %368 = trunc nuw i64 %sub9.i to i32
   %sh_prom.i2460 = sub nuw nsw i32 16, %368
   %shr.i2461 = lshr i32 65535, %sh_prom.i2460
   %and.i2462 = and i32 %shr.i2461, %367

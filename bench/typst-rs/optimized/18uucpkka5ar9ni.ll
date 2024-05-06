@@ -7238,12 +7238,12 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$typst..visualize..image..svg
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(208) %9)
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %9)
           to label %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..svg..sync..SyncTree$GT$17h6dbab079ad1d0bafE.llvm.7454132670541690561.exit" unwind label %11
 
 "_ZN4core3ptr53drop_in_place$LT$typst..foundations..bytes..Bytes$GT$17h9668cc696081183eE.exit": ; preds = %1, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(208) %10)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %10)
   ret void
 
 11:                                               ; preds = %7
@@ -8177,7 +8177,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..ras
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..svg..sync..SyncTree$GT$17h6dbab079ad1d0bafE.llvm.7454132670541690561"(ptr noalias nocapture noundef readonly align 8 dereferenceable(248) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %2)
   ret void
 }
 
@@ -8293,7 +8293,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..cell..UnsafeC
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$core..cell..UnsafeCell$LT$usvg_tree..Tree$GT$$GT$17h72e254a62c28968eE.llvm.7454132670541690561"(ptr noalias nocapture noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #4 {
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(208) %0)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %0)
   ret void
 }
 
@@ -8381,7 +8381,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$std..sync..mutex..Mutex$LT$usvg_tree..Tree$GT$$GT$17heba0e9697cba3193E.llvm.7454132670541690561"(ptr noalias nocapture noundef readonly align 8 dereferenceable(248) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h49289dc5bbb942b4E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %2)
   ret void
 }
 
@@ -9047,14 +9047,14 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr72drop_in_place$LT$flate2..gz..read..GzDecoder$LT$$RF$$u5b$u8$u5d$$GT$$GT$17h70989d6031365395E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(208) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4239)
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h65d2da256324d973E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h65d2da256324d973E.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @"_ZN4core3ptr151drop_in_place$LT$flate2..crc..CrcReader$LT$flate2..deflate..bufread..DeflateDecoder$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h38d5abe5d37545dcE.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4) #21
+  tail call void @"_ZN4core3ptr151drop_in_place$LT$flate2..crc..CrcReader$LT$flate2..deflate..bufread..DeflateDecoder$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h38d5abe5d37545dcE.llvm.7454132670541690561"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %4) #21
   resume { ptr, i32 } %3
 
 5:                                                ; preds = %1

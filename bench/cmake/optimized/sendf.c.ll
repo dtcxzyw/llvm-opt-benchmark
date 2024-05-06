@@ -581,7 +581,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i, label %.split.loop.exit40.i, label %21, !llvm.loop !10
 
 .split.loop.exit.i:                               ; preds = %26
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw i64 %indvars.iv.i to i32
   br label %.split.loop.exit40.i
 
 .split.loop.exit40.i:                             ; preds = %31, %.split.loop.exit.i
@@ -740,7 +740,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i109, label %.split.loop.exit40.i110, label %93, !llvm.loop !10
 
 .split.loop.exit.i120:                            ; preds = %98
-  %103 = trunc i64 %indvars.iv.i105 to i32
+  %103 = trunc nuw i64 %indvars.iv.i105 to i32
   br label %.split.loop.exit40.i110
 
 .split.loop.exit40.i110:                          ; preds = %102, %.split.loop.exit.i120
@@ -880,7 +880,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i128, label %.split.loop.exit40.i129, label %156, !llvm.loop !10
 
 .split.loop.exit.i139:                            ; preds = %161
-  %166 = trunc i64 %indvars.iv.i124 to i32
+  %166 = trunc nuw i64 %indvars.iv.i124 to i32
   br label %.split.loop.exit40.i129
 
 .split.loop.exit40.i129:                          ; preds = %165, %.split.loop.exit.i139

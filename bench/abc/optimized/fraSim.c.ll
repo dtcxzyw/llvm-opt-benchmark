@@ -59,7 +59,7 @@ define i32 @Fra_SmlNodeHash(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fra_SmlNodeIsConst(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_SmlNodeIsConst(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -100,7 +100,7 @@ define noundef i32 @Fra_SmlNodeIsConst(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fra_SmlNodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_SmlNodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -206,7 +206,7 @@ define i32 @Fra_SmlNodeNotEquWeight(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_SmlNodeIsZero(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Fra_SmlNodeIsZero(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -418,7 +418,7 @@ define void @Fra_SmlSavePattern(ptr nocapture noundef readonly %0) local_unnamed
 
 32:                                               ; preds = %15
   %33 = load ptr, ptr %2, align 8
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = and i32 %34, 31
   %36 = shl nuw i32 1, %35
   %37 = lshr i64 %indvars.iv, 5
@@ -684,7 +684,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr nocapture noundef readonly %0, pt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %._crit_edge.loopexit.split.loop.exit, %2
@@ -772,7 +772,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr nocapture noundef readonly %0, pt
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Fra_SmlCheckOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Fra_SmlCheckOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
@@ -1150,7 +1150,7 @@ define void @Fra_SmlAssignDist1(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %28, label %.lr.ph.i, label %Fra_SmlAssignConst.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph103.split
-  %29 = trunc i64 %indvars.iv118 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv118 to i32
   %30 = lshr i64 %indvars.iv118, 5
   %31 = and i64 %30, 134217727
   %32 = getelementptr inbounds i32, ptr %1, i64 %31
@@ -1221,7 +1221,7 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %57, i64 %68
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %70 = trunc i64 %indvars.iv.next122 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.next122 to i32
   %71 = and i32 %70, 31
   %72 = shl nuw i32 1, %71
   %73 = lshr i64 %indvars.iv.next122, 5
@@ -1698,7 +1698,7 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_SmlNodesCompareInFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Fra_SmlNodesCompareInFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1867,7 +1867,7 @@ define void @Fra_SmlNodeTransferNext(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fra_SmlCheckNonConstOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_SmlCheckNonConstOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 140
   %.val10 = load i32, ptr %3, align 4
@@ -2431,7 +2431,7 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %exitcond.not.i, label %Fra_SmlCheckOutput.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit:                          ; preds = %.lr.ph.i.i
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %20)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %20)
   br label %88
 
 Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %12, %1
@@ -2616,7 +2616,7 @@ define void @Fra_SmlSimulate(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %exitcond.not.i, label %Fra_SmlCheckOutput.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit:                          ; preds = %.lr.ph.i.i
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %23)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %23)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %2
@@ -2708,7 +2708,7 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
   br i1 %exitcond.not.i77, label %Fra_SmlCheckOutput.exit86.thread, label %.lr.ph.i72, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit86:                        ; preds = %.lr.ph.i.i79
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %71)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %71)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit86.thread:                 ; preds = %.loopexit.i75, %63, %Fra_SmlCheckOutput.exit.thread
@@ -2884,7 +2884,7 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
   br i1 %exitcond.not.i102, label %Fra_SmlCheckOutput.exit111.thread, label %.lr.ph.i97, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit111:                       ; preds = %.lr.ph.i.i104
-  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %166)
+  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %166)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit111.thread:                ; preds = %.loopexit.i100, %158, %Fra_SmlSavePattern1.exit
@@ -3015,7 +3015,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %exitcond.not.i127, label %Fra_SmlCheckOutput.exit136.thread, label %.lr.ph.i122, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit136:                       ; preds = %.lr.ph.i.i129
-  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %232)
+  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %232)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit136.thread:                ; preds = %.loopexit.i125, %225, %215
@@ -3304,7 +3304,7 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
   br i1 %or.cond, label %14, label %43
 
 14:                                               ; preds = %.lr.ph
-  %15 = trunc i32 %12 to i8
+  %15 = trunc nuw i32 %12 to i8
   %16 = add nsw i8 %15, -48
   %17 = load i32, ptr %8, align 4
   %18 = load i32, ptr %7, align 8
@@ -3543,7 +3543,7 @@ define void @Fra_SmlInitializeGiven(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %74, label %.lr.ph.us, label %.preheader41.us, !llvm.loop !53
 
 .preheader41.us:                                  ; preds = %.lr.ph.us, %.lr.ph50.split.us
-  %75 = trunc i64 %indvars.iv86 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv86 to i32
   br label %53
 
 ..preheader_crit_edge.us:                         ; preds = %69
@@ -3614,7 +3614,7 @@ define void @Fra_SmlInitializeGiven(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %109, label %.lr.ph.us60, label %.preheader41.us59, !llvm.loop !53
 
 .preheader41.us59:                                ; preds = %.lr.ph.us60, %.lr.ph50.split.split.us
-  %110 = trunc i64 %indvars.iv78 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv78 to i32
   br label %88
 
 ._crit_edge.us63:                                 ; preds = %104
@@ -4050,7 +4050,7 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr nocapture noundef readonly %0) 
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !57
 
 .lr.ph121.preheader:                              ; preds = %.lr.ph.i.us
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %Fra_SmlNodeIsZero.exit
@@ -4061,7 +4061,7 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr nocapture noundef readonly %0) 
   br i1 %.not77, label %Fra_SmlNodeIsZero.exit, label %31
 
 31:                                               ; preds = %.lr.ph121
-  %32 = trunc i64 %indvars.iv141 to i32
+  %32 = trunc nsw i64 %indvars.iv141 to i32
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = sdiv i32 %32, %34
@@ -4165,7 +4165,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph121
   br i1 %.not81, label %96, label %87
 
 87:                                               ; preds = %74
-  %88 = trunc i64 %indvars.iv145 to i32
+  %88 = trunc nsw i64 %indvars.iv145 to i32
   %89 = and i32 %88, 31
   %90 = shl nuw i32 1, %89
   %91 = ashr i32 %88, 5
@@ -4234,7 +4234,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph121
   %132 = load i32, ptr %72, align 4
   %133 = load i32, ptr %73, align 4
   %134 = mul nsw i32 %133, %.171130
-  %135 = trunc i64 %indvars.iv148 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv148 to i32
   %136 = add i32 %132, %135
   %137 = add i32 %136, %134
   %138 = and i32 %137, 31
@@ -4327,7 +4327,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr nocapture noun
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = srem i32 %25, %8
   %27 = sdiv i32 %25, %8
   br label %.critedge

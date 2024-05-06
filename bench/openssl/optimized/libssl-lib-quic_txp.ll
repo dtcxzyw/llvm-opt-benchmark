@@ -405,7 +405,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_set_initial_token(ptr nocapture noundef %txp, ptr noundef %token, i64 noundef %token_len, ptr noundef %free_cb, ptr noundef %free_cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_initial_token(ptr nocapture noundef %txp, ptr noundef %token, i64 noundef %token_len, ptr noundef %free_cb, ptr noundef %free_cb_arg) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %txp, i64 160
   %txp.val = load ptr, ptr %0, align 8
@@ -460,7 +460,7 @@ return:                                           ; preds = %if.end.i, %if.end6
 declare void @ossl_quic_fifd_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr nocapture noundef writeonly %txp, ptr noundef readonly %dcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr nocapture noundef writeonly %txp, ptr noundef readonly %dcid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dcid, null
   br i1 %cmp, label %if.then, label %if.end
@@ -482,7 +482,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr nocapture noundef writeonly %txp, ptr noundef readonly %scid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr nocapture noundef writeonly %txp, ptr noundef readonly %scid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %scid, null
   br i1 %cmp, label %if.then, label %if.end
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_discard_enc_level(ptr nocapture noundef writeonly %txp, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_discard_enc_level(ptr nocapture noundef writeonly %txp, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %enc_level, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_generate(ptr noundef %txp, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %txp, ptr nocapture noundef %status) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [2 x %struct.chunk_info], align 16
   %chunk.i.i221 = alloca %struct.quic_txpim_chunk_st, align 8
@@ -1203,9 +1203,9 @@ if.end.i.i:                                       ; preds = %if.end, %if.end.thr
   %version.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 156
   store i32 1, ptr %version.i.i, align 4
   %dst_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
   %src_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull align 8 dereferenceable(21) %txp, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull readonly align 8 dereferenceable(21) %txp, i64 21, i1 false)
   %len.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 224
   store i64 16379, ptr %len.i.i, align 8
   br i1 %cmp7.not, label %if.then24.i.i, label %if.end27.i.i
@@ -1395,7 +1395,7 @@ if.then35.i:                                      ; preds = %if.end32.i
   %bf.load36.i = load i8, ptr %had_handshake_done_frame.i, align 8
   %bf.set.i = or i8 %bf.load36.i, 1
   store i8 %bf.set.i, ptr %had_handshake_done_frame.i, align 8
-  %call38.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call38.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %if.then337.i, label %if.end41.i
 
@@ -1474,7 +1474,7 @@ if.then73.i:                                      ; preds = %if.end70.i
   %bf.load74.i = load i8, ptr %had_max_data_frame.i, align 8
   %bf.set76.i = or i8 %bf.load74.i, 2
   store i8 %bf.set76.i, ptr %had_max_data_frame.i, align 8
-  %call77.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call77.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %if.then337.i, label %if.end80.i
 
@@ -1548,7 +1548,7 @@ if.then114.i:                                     ; preds = %if.end111.i
   %bf.load115.i = load i8, ptr %had_max_streams_bidi_frame.i, align 8
   %bf.set117.i = or i8 %bf.load115.i, 4
   store i8 %bf.set117.i, ptr %had_max_streams_bidi_frame.i, align 8
-  %call118.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call118.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool119.not.i = icmp eq i32 %call118.i, 0
   br i1 %tobool119.not.i, label %if.then337.i, label %if.end121.i
 
@@ -1622,7 +1622,7 @@ if.then156.i:                                     ; preds = %if.end153.i
   %bf.load157.i = load i8, ptr %had_max_streams_uni_frame.i, align 8
   %bf.set159.i = or i8 %bf.load157.i, 8
   store i8 %bf.set159.i, ptr %had_max_streams_uni_frame.i, align 8
-  %call160.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call160.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool161.not.i = icmp eq i32 %call160.i, 0
   br i1 %tobool161.not.i, label %if.then337.i, label %if.end163.i
 
@@ -1695,7 +1695,7 @@ if.end193.i:                                      ; preds = %sw.bb187.i
   br i1 %tobool194.not.i, label %if.then195.i, label %sw.epilog.i
 
 if.then195.i:                                     ; preds = %if.end193.i
-  %call196.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef nonnull %can_be_non_inflight.i), !range !9
+  %call196.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef nonnull %can_be_non_inflight.i)
   br label %sw.epilog.i
 
 sw.bb201.i:                                       ; preds = %for.body.i107
@@ -1811,7 +1811,7 @@ for.inc.i:                                        ; preds = %if.then225.i, %if.e
   %done_pre_token.2.i = phi i32 [ %done_pre_token.1.i, %if.then225.i ], [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %sw.bb201.i ], [ %done_pre_token.0257.i, %sw.bb187.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ]
   %call227.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.0256.i, i32 noundef %retval.0.i.i86) #10
   %cmp169.not.i = icmp eq ptr %call227.i, null
-  br i1 %cmp169.not.i, label %for.end.i110, label %for.body.i107, !llvm.loop !10
+  br i1 %cmp169.not.i, label %for.end.i110, label %for.body.i107, !llvm.loop !9
 
 for.end.i110:                                     ; preds = %for.inc.i, %tx_helper_get_space_left.exit193.i
   %have_ack_eliciting.promoted261.i = phi i32 [ %118, %for.inc.i ], [ %101, %tx_helper_get_space_left.exit193.i ]
@@ -1821,7 +1821,7 @@ for.end.i110:                                     ; preds = %for.inc.i, %tx_help
 
 if.then229.i:                                     ; preds = %if.end166.i, %for.end.i110
   %have_ack_eliciting.i.0 = phi i32 [ %have_ack_eliciting.promoted261.i, %for.end.i110 ], [ %have_ack_eliciting.promoted.i, %if.end166.i ]
-  %call230.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef nonnull %can_be_non_inflight.i), !range !9
+  %call230.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef nonnull %can_be_non_inflight.i)
   br label %if.end234.i
 
 if.end234.i:                                      ; preds = %if.then229.i, %for.end.i110
@@ -1904,7 +1904,7 @@ if.end14.i.i:                                     ; preds = %if.end8.i.i
 
 determine_crypto_len.exit.i.i:                    ; preds = %if.end14.i.i
   %dec.i.i.i = add i64 %call.i.i214.i, -1
-  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %131, i64 noundef %dec.i.i.i, ptr noundef nonnull %hdr_bytes.i.i, ptr noundef nonnull %len10.i.i), !range !9
+  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %131, i64 noundef %dec.i.i.i, ptr noundef nonnull writeonly %hdr_bytes.i.i, ptr noundef nonnull writeonly %len10.i.i)
   %tobool17.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool17.not.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end19.i.i
 
@@ -1959,7 +1959,7 @@ if.end.i25.i.i:                                   ; preds = %if.then34.i.i
   br label %txp_generate_crypto_frames.exit.thread.i
 
 if.end35.i.i116:                                  ; preds = %if.end31.i.i
-  %call36.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call36.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool37.not.i.i = icmp eq i32 %call36.i.i, 0
   br i1 %tobool37.not.i.i, label %txp_generate_crypto_frames.exit.i, label %for.cond40.preheader.i.i
 
@@ -2040,7 +2040,7 @@ tx_helper_append_iovec.exit.i.i:                  ; preds = %if.end12.i.i.i, %if
   %inc.i217.i = add nuw i64 %i.139.i.i, 1
   %152 = load i64, ptr %num_stream_iovec.i.i, align 8
   %cmp41.i.i = icmp ult i64 %inc.i217.i, %152
-  br i1 %cmp41.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !11
+  br i1 %cmp41.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %tx_helper_append_iovec.exit.i.i, %for.cond40.preheader.i.i
   %i.1.lcssa.i.i = phi i64 [ 0, %for.cond40.preheader.i.i ], [ %inc.i217.i, %tx_helper_append_iovec.exit.i.i ]
@@ -2148,7 +2148,7 @@ if.end.i.i340:                                    ; preds = %if.then20.i
   br label %txp_generate_stream_related.exit.thread376
 
 if.end21.i:                                       ; preds = %if.end.i240
-  %call22.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354), !range !9
+  %call22.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %txp_generate_stream_related.exit.thread, label %if.end25.i243
 
@@ -2230,7 +2230,7 @@ if.end.i76.i:                                     ; preds = %if.then64.i
   br label %txp_generate_stream_related.exit.thread376
 
 if.end65.i:                                       ; preds = %if.end61.i
-  %call66.i251 = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354), !range !9
+  %call66.i251 = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
   %tobool67.not.i = icmp eq i32 %call66.i251, 0
   br i1 %tobool67.not.i, label %txp_generate_stream_related.exit.thread, label %if.end69.i
 
@@ -2307,7 +2307,7 @@ if.end.i90.i:                                     ; preds = %if.then117.i
   br label %txp_generate_stream_related.exit.thread376
 
 if.end118.i330:                                   ; preds = %if.end111.i327
-  %call119.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354), !range !9
+  %call119.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
   %tobool120.not.i = icmp eq i32 %call119.i, 0
   br i1 %tobool120.not.i, label %txp_generate_stream_related.exit.thread, label %if.end122.i
 
@@ -2442,7 +2442,7 @@ if.end.i102.i:                                    ; preds = %if.then51.i.i.i, %l
 land.lhs.true.i.i:                                ; preds = %if.end.i102.i
   %190 = load i32, ptr %valid.i.i.i, align 8
   %tobool8.not.i.i = icmp eq i32 %190, 0
-  br i1 %tobool8.not.i.i, label %if.end158.thread125.i, label %for.body.i.i260, !llvm.loop !12
+  br i1 %tobool8.not.i.i, label %if.end158.thread125.i, label %for.body.i.i260, !llvm.loop !11
 
 if.end158.thread125.i:                            ; preds = %land.lhs.true.i.i
   store i64 0, ptr %txp_txfc_new_credit_consumed.i237, align 8
@@ -2586,7 +2586,7 @@ determine_stream_len.exit.i.i:                    ; preds = %if.end46.i.i
   %sext.i.i.i = sub nsw i8 0, %205
   %dec.i.i.i274 = sext i8 %sext.i.i.i to i64
   %spec.select.i118.i.i = add i64 %call.i116.i.i, %dec.i.i.i274
-  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull %hdr_len_implicit.i.i, ptr noundef nonnull %payload_len_implicit.i.i), !range !9
+  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull writeonly %hdr_len_implicit.i.i, ptr noundef nonnull writeonly %payload_len_implicit.i.i)
   %tobool50.not.i.i275 = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool50.not.i.i275, label %if.end158.thread.i, label %if.end52.i.i
 
@@ -2630,7 +2630,7 @@ determine_stream_len.exit131.i.i:                 ; preds = %if.then71.i.i
   %sext.i126.i.i = sub nsw i8 0, %211
   %dec.i127.i.i = sext i8 %sext.i126.i.i to i64
   %spec.select.i128.i.i = add i64 %call.i121.i.i, %dec.i127.i.i
-  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull %hdr_len_explicit.i.i, ptr noundef nonnull %payload_len_explicit.i.i), !range !9
+  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull writeonly %hdr_len_explicit.i.i, ptr noundef nonnull writeonly %payload_len_explicit.i.i)
   %tobool77.not.i.i = icmp eq i32 %call10.i129.i.i, 0
   br i1 %tobool77.not.i.i, label %if.end158.thread.i, label %if.end79.i.i
 
@@ -2720,7 +2720,7 @@ if.end.i140.i.i:                                  ; preds = %if.then131.i.i
   br label %if.end158.thread.i
 
 if.end132.i.i:                                    ; preds = %if.end121.i.i
-  %call133.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call133.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool134.not.i.i = icmp eq i32 %call133.i.i, 0
   br i1 %tobool134.not.i.i, label %txp_generate_stream_related.exit, label %for.cond137.preheader.i.i
 
@@ -2801,7 +2801,7 @@ tx_helper_append_iovec.exit.i.i283:               ; preds = %if.end12.i.i.i295, 
   %inc154.i.i = add nuw i64 %j.0168.i.i, 1
   %234 = load i64, ptr %num_stream_iovec.i.i277, align 16
   %cmp141.i.i = icmp ult i64 %inc154.i.i, %234
-  br i1 %cmp141.i.i, label %for.body143.i.i, label %for.end155.i.i, !llvm.loop !13
+  br i1 %cmp141.i.i, label %for.body143.i.i, label %for.end155.i.i, !llvm.loop !12
 
 for.end155.i.i:                                   ; preds = %tx_helper_append_iovec.exit.i.i283, %for.cond137.preheader.i.i
   %bf.load.i148.i.i = load i8, ptr %reserve_allowed.i.i, align 4
@@ -2883,7 +2883,7 @@ if.end163.i255:                                   ; preds = %if.end158.i, %if.en
   store ptr %159, ptr %stream_head.i, align 8
   %240 = load ptr, ptr %stream2.i, align 8
   %cmp.not.i256 = icmp eq ptr %240, null
-  br i1 %cmp.not.i256, label %txp_generate_stream_related.exit.thread371, label %for.body.i234, !llvm.loop !14
+  br i1 %cmp.not.i256, label %txp_generate_stream_related.exit.thread371, label %for.body.i234, !llvm.loop !13
 
 txp_generate_stream_related.exit.thread:          ; preds = %if.then.i, %if.end21.i, %if.then36.i, %if.end49.i, %ossl_quic_stream_send_get_final_size.exit.i, %if.end65.i, %if.end69.i, %if.then106.i, %if.end118.i330, %if.then133.i257, %if.end54.i249
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
@@ -2969,7 +2969,7 @@ if.end286.i:                                      ; preds = %if.then280.i
   br i1 %tobool288.not.i, label %if.then337.i, label %lor.lhs.false289.i
 
 lor.lhs.false289.i:                               ; preds = %if.end286.i
-  %call290.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354), !range !9
+  %call290.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool291.not.i = icmp eq i32 %call290.i, 0
   br i1 %tobool291.not.i, label %if.then337.i, label %if.then296.i
 
@@ -3039,7 +3039,7 @@ for.inc44:                                        ; preds = %txp_should_try_stag
   %need_padding.2 = phi i32 [ %spec.select, %if.end28 ], [ %need_padding.0551, %txp_should_try_staging.exit ]
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
   %exitcond680.not = icmp eq i64 %indvars.iv.next677, 4
-  br i1 %exitcond680.not, label %for.end46, label %for.body6, !llvm.loop !15
+  br i1 %exitcond680.not, label %for.end46, label %for.body6, !llvm.loop !14
 
 for.end46:                                        ; preds = %if.then14.i.i, %if.end.i, %if.end27.i.i, %for.inc44, %txp_determine_ppl_from_pl.exit.thread.i.i
   %need_padding.0522 = phi i32 [ %need_padding.0551, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.2, %for.inc44 ], [ %need_padding.0551, %if.end27.i.i ], [ %need_padding.0551, %if.end.i ], [ %need_padding.0551, %if.then14.i.i ]
@@ -3140,7 +3140,7 @@ for.inc106:                                       ; preds = %for.body62, %land.l
   %pad_el.2 = phi i32 [ %pad_el.1, %txp_pkt_postgen_update_pkt_overhead.exit ], [ %pad_el.0558, %land.lhs.true67 ], [ %pad_el.0558, %for.body62 ]
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %exitcond684.not = icmp eq i64 %indvars.iv.next682, 4
-  br i1 %exitcond684.not, label %for.end108, label %for.body62, !llvm.loop !16
+  br i1 %exitcond684.not, label %for.end108, label %for.body62, !llvm.loop !15
 
 for.end108:                                       ; preds = %for.inc106
   %cmp109 = icmp ne i32 %pad_el.2, 4
@@ -3191,7 +3191,7 @@ if.end.i.i160:                                    ; preds = %if.then23.i
   br label %out
 
 if.end25.i:                                       ; preds = %if.end20.i
-  %call27.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx117), !range !9
+  %call27.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx117)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %out, label %if.end127.thread
 
@@ -3316,7 +3316,7 @@ for.inc.i183:                                     ; preds = %if.then24.i, %for.b
   %txp_next.i = getelementptr inbounds i8, ptr %stream.086.i, i64 48
   %stream.0.i = load ptr, ptr %txp_next.i, align 8
   %cmp17.not.i = icmp eq ptr %stream.0.i, null
-  br i1 %cmp17.not.i, label %for.end.i184, label %for.body.i179, !llvm.loop !17
+  br i1 %cmp17.not.i, label %for.end.i184, label %for.body.i179, !llvm.loop !16
 
 for.end.i184:                                     ; preds = %for.inc.i183, %switch.lookup928
   %call51.i = call i32 @ossl_quic_fifd_pkt_commit(ptr noundef nonnull %fifd.i, ptr noundef %287) #10
@@ -3419,7 +3419,7 @@ for.inc125.i:                                     ; preds = %if.then120.i, %land
   %txp_next126.i = getelementptr inbounds i8, ptr %stream.190.i, i64 48
   %stream.1.i = load ptr, ptr %txp_next126.i, align 8
   %cmp65.not.i = icmp eq ptr %stream.1.i, null
-  br i1 %cmp65.not.i, label %for.end127.i, label %for.body66.i, !llvm.loop !18
+  br i1 %cmp65.not.i, label %for.end127.i, label %for.body66.i, !llvm.loop !17
 
 for.end127.i:                                     ; preds = %for.inc125.i, %for.cond64.preheader.i
   %rc.0.lcssa.i = phi i32 [ 1, %for.cond64.preheader.i ], [ %rc.2.i, %for.inc125.i ]
@@ -3644,7 +3644,7 @@ for.inc192:                                       ; preds = %if.end142, %for.bod
   %pkts_done.1 = phi i64 [ %pkts_done.0559, %if.end142 ], [ %inc191, %if.end190 ], [ %pkts_done.0559, %for.body136 ]
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %exitcond688.not = icmp eq i64 %indvars.iv.next686, 4
-  br i1 %exitcond688.not, label %out, label %for.body136, !llvm.loop !19
+  br i1 %exitcond688.not, label %out, label %for.body136, !llvm.loop !18
 
 out:                                              ; preds = %for.inc192, %if.end.i.i160, %if.then23.i, %if.end25.i, %if.end16.i, %if.end4.i, %if.then114, %if.end187, %if.end187.thread402, %if.end187.thread, %txp_generate_for_el.exit.thread, %if.end127
   %pkts_done.2 = phi i64 [ %pkts_done.0559, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.0559, %if.end187.thread ], [ %pkts_done.0559, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.1, %for.inc192 ]
@@ -3695,7 +3695,7 @@ if.then2.i:                                       ; preds = %tx_helper_cleanup.e
 txp_pkt_cleanup.exit:                             ; preds = %for.body200, %tx_helper_cleanup.exit.i, %if.then2.i
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %exitcond692.not = icmp eq i64 %indvars.iv.next690, 4
-  br i1 %exitcond692.not, label %for.end205, label %for.body200, !llvm.loop !20
+  br i1 %exitcond692.not, label %for.end205, label %for.body200, !llvm.loop !19
 
 for.end205:                                       ; preds = %txp_pkt_cleanup.exit
   %sent_pkt = getelementptr inbounds i8, ptr %status, i64 8
@@ -3719,7 +3719,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr nocapture noundef %txp, ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr nocapture noundef %txp, ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
 entry:
   %reason_len1 = getelementptr inbounds i8, ptr %f, i64 32
   %0 = load i64, ptr %reason_len1, align 8
@@ -3841,7 +3841,7 @@ for.inc:                                          ; preds = %for.body, %ossl_qui
   %retval.sroa.0.1 = phi i64 [ %a.coerce.b.coerce.i, %ossl_quic_enc_level_to_pn_space.exit ], [ %retval.sroa.0.013, %for.body ]
   %inc = add nuw nsw i32 %enc_level.012, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc
   %cc_method = getelementptr inbounds i8, ptr %txp, i64 232
@@ -3993,7 +3993,7 @@ return:                                           ; preds = %if.end35, %tx_helpe
 declare i32 @ossl_quic_wire_encode_padding(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tx_helper_commit(ptr noundef %h) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tx_helper_commit(ptr noundef %h) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %ftype = alloca i64, align 8
@@ -4186,7 +4186,7 @@ declare ptr @ossl_quic_cfq_item_get_encoded(ptr noundef) local_unnamed_addr #1
 declare i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %pkt, i32 noundef %chosen_for_conn_close, ptr nocapture noundef writeonly %can_be_non_inflight) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %pkt, i32 noundef %chosen_for_conn_close, ptr nocapture noundef writeonly %can_be_non_inflight) unnamed_addr #0 {
 entry:
   %ack2 = alloca %struct.ossl_quic_frame_ack_st, align 8
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
@@ -4289,7 +4289,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool27.not, label %if.else, label %if.then28
 
 if.then28:                                        ; preds = %if.end
-  %call29 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %pkt), !range !9
+  %call29 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %pkt)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.end32
 
@@ -4410,7 +4410,7 @@ if.then6.i:                                       ; preds = %if.end.i41
   br label %if.then88
 
 if.then88:                                        ; preds = %land.lhs.true85, %if.then6.i
-  %call89 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %pkt), !range !9
+  %call89 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %pkt)
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %return, label %if.end92
 
@@ -4463,7 +4463,7 @@ declare i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef, ptr noundef) local_un
 declare i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc i32 @determine_len(i64 noundef %space_left, i64 noundef %orig_len, i64 noundef %base_hdr_len, ptr nocapture noundef writeonly %hlen, ptr nocapture noundef writeonly %len) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @determine_len(i64 noundef %space_left, i64 noundef %orig_len, i64 noundef %base_hdr_len, ptr nocapture noundef writeonly %hlen, ptr nocapture noundef writeonly %len) unnamed_addr #7 {
 entry:
   %payload_len = alloca [4 x i64], align 16
   %hdr_len = alloca [4 x i64], align 16
@@ -4591,7 +4591,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %chosen_hdr_len.1 = phi i64 [ %2, %if.then ], [ %chosen_hdr_len.063, %land.lhs.true ], [ %chosen_hdr_len.063, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc
   store i64 %chosen_hdr_len.1, ptr %hlen, align 8
@@ -4670,7 +4670,7 @@ attributes #10 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -4683,4 +4683,3 @@ attributes #10 = { nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

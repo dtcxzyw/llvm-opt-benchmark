@@ -605,7 +605,7 @@ define dso_local void @llvm_value_set_address_abi_aligned(ptr nocapture noundef 
   %9 = and i8 %8, -32
   %10 = or disjoint i8 %9, 1
   store i8 %10, ptr %0, align 8
-  %11 = tail call fastcc ptr @type_lowering(ptr noundef %4)
+  %11 = tail call fastcc ptr @type_lowering(ptr noundef readonly %4)
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8
   ret void
@@ -664,7 +664,7 @@ llvm_value_fold_optional.exit.thread:             ; preds = %2
   %34 = and i8 %33, -32
   %35 = or disjoint i8 %34, 1
   store i8 %35, ptr %1, align 8
-  %36 = tail call fastcc ptr @type_lowering(ptr noundef %29)
+  %36 = tail call fastcc ptr @type_lowering(ptr noundef readonly %29)
   store ptr %36, ptr %27, align 8
   br label %60
 
@@ -704,7 +704,7 @@ llvm_value_fold_optional.exit.thread:             ; preds = %2
   %57 = and i8 %56, -32
   %58 = or disjoint i8 %57, 1
   store i8 %58, ptr %1, align 8
-  %59 = tail call fastcc ptr @type_lowering(ptr noundef %52)
+  %59 = tail call fastcc ptr @type_lowering(ptr noundef readonly %52)
   store ptr %59, ptr %38, align 8
   br label %60
 
@@ -857,7 +857,7 @@ define dso_local void @llvm_value_set_decl_address(ptr noundef %0, ptr nocapture
   %12 = and i8 %11, -32
   %13 = or disjoint i8 %12, 1
   store i8 %13, ptr %1, align 8
-  %14 = tail call fastcc ptr @type_lowering(ptr noundef %6)
+  %14 = tail call fastcc ptr @type_lowering(ptr noundef readonly %6)
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   %16 = tail call ptr @llvm_get_opt_ref(ptr noundef %0, ptr noundef %2) #3

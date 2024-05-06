@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.EVP_OpenInit = private unnamed_addr constant [13 x i8] c"EVP_OpenInit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_OpenInit(ptr noundef %ctx, ptr noundef %type, ptr noundef %ek, i32 noundef %ekl, ptr noundef %iv, ptr noundef %priv) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_OpenInit(ptr noundef %ctx, ptr noundef %type, ptr noundef %ek, i32 noundef %ekl, ptr noundef %iv, ptr noundef %priv) local_unnamed_addr #0 {
 entry:
   %keylen = alloca i64, align 8
   store i64 0, ptr %keylen, align 8

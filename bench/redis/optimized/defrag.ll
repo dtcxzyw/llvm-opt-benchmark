@@ -959,7 +959,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scanLaterList(ptr nocapture noundef %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @scanLaterList(ptr nocapture noundef %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %ql = alloca ptr, align 8
   %node = alloca ptr, align 8
@@ -1592,7 +1592,7 @@ if.end14:                                         ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @defragRaxNode(ptr nocapture noundef %noderef) #0 {
+define dso_local range(i32 0, 2) i32 @defragRaxNode(ptr nocapture noundef %noderef) #0 {
 entry:
   %0 = load ptr, ptr %noderef, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
@@ -1626,7 +1626,7 @@ return:                                           ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scanLaterStreamListpacks(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @scanLaterStreamListpacks(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %bf.load = load i32, ptr %ob, align 8
@@ -2688,8 +2688,8 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then1:                                         ; preds = %if.then
-  %call2 = tail call i64 @scanLaterList(ptr noundef nonnull %call, ptr noundef %cursor, i64 noundef %endtime), !range !16
-  %conv = trunc i64 %call2 to i32
+  %call2 = tail call i64 @scanLaterList(ptr noundef nonnull %call, ptr noundef %cursor, i64 noundef %endtime)
+  %conv = trunc nuw nsw i64 %call2 to i32
   br label %return
 
 if.then7:                                         ; preds = %if.then
@@ -2754,7 +2754,7 @@ scanLaterHash.exit:                               ; preds = %if.then19, %if.end.
   br label %return
 
 if.then25:                                        ; preds = %if.then
-  %call26 = tail call i32 @scanLaterStreamListpacks(ptr noundef nonnull %call, ptr noundef %cursor, i64 noundef %endtime), !range !17
+  %call26 = tail call i32 @scanLaterStreamListpacks(ptr noundef nonnull %call, ptr noundef %cursor, i64 noundef %endtime)
   br label %return
 
 if.then32:                                        ; preds = %if.then
@@ -2778,7 +2778,7 @@ return:                                           ; preds = %if.else41, %scanLat
 declare i32 @moduleLateDefrag(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @defragLaterStep(ptr nocapture noundef readonly %db, i32 noundef %slot, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr nocapture noundef readonly %db, i32 noundef %slot, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 101), align 8
   %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 105), align 8
@@ -2895,7 +2895,7 @@ do.cond:                                          ; preds = %lor.lhs.false25, %i
   %iterations.2 = phi i32 [ 0, %if.end42 ], [ %inc, %lor.lhs.false25 ]
   %20 = load i64, ptr @defrag_later_cursor, align 8
   %tobool44.not = icmp eq i64 %20, 0
-  br i1 %tobool44.not, label %do.end, label %do.body14, !llvm.loop !18
+  br i1 %tobool44.not, label %do.end, label %do.body14, !llvm.loop !16
 
 do.end:                                           ; preds = %do.cond
   %cmp45.not = icmp eq i64 %11, %19
@@ -3053,7 +3053,7 @@ if.end9:                                          ; preds = %if.end6
 
 lor.lhs.false:                                    ; preds = %if.end9
   %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div11.rhs.trunc = trunc i32 %div to i16
+  %div11.rhs.trunc = trunc nsw i32 %div to i16
   %div1133 = sdiv i16 1000, %div11.rhs.trunc
   %div11.sext = sext i16 %div1133 to i32
   %rem = srem i32 %7, %div11.sext
@@ -3117,7 +3117,7 @@ if.then34:                                        ; preds = %do.body
   br i1 %tobool35.not, label %if.end40, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.then34
-  %call37 = call i32 @defragLaterStep(ptr noundef nonnull %16, i32 noundef %13, i64 noundef %add), !range !17
+  %call37 = call i32 @defragLaterStep(ptr noundef nonnull %16, i32 noundef %13, i64 noundef %add)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end40, label %do.end142
 
@@ -3260,7 +3260,7 @@ do.body73:                                        ; preds = %do.body73.preheader
   %idxprom74 = sext i32 %34 to i64
   %arrayidx75 = getelementptr inbounds ptr, ptr %36, i64 %idxprom74
   %37 = load ptr, ptr %arrayidx75, align 8
-  %call76 = call i32 @defragLaterStep(ptr noundef nonnull %35, i32 noundef %34, i64 noundef %add), !range !17
+  %call76 = call i32 @defragLaterStep(ptr noundef nonnull %35, i32 noundef %34, i64 noundef %add)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %if.end79, label %do.end142
 
@@ -3388,7 +3388,7 @@ do.cond:                                          ; preds = %lor.lhs.false118, %
   %59 = load i32, ptr @activeDefragCycle.slot, align 4
   %cmp135 = icmp sgt i32 %59, 0
   %or.cond6 = select i1 %or.cond5, i1 true, i1 %cmp135
-  br i1 %or.cond6, label %do.body73, label %do.cond139, !llvm.loop !19
+  br i1 %or.cond6, label %do.body73, label %do.cond139, !llvm.loop !17
 
 do.cond139:                                       ; preds = %do.cond, %land.lhs.true58
   %60 = phi i32 [ %.pre39, %land.lhs.true58 ], [ %59, %do.cond ]
@@ -3397,7 +3397,7 @@ do.cond139:                                       ; preds = %do.cond, %land.lhs.
   %prev_scanned.3 = phi i64 [ %prev_scanned.0, %land.lhs.true58 ], [ %prev_scanned.2, %do.cond ]
   %prev_defragged.3 = phi i64 [ %prev_defragged.0, %land.lhs.true58 ], [ %prev_defragged.2, %do.cond ]
   %iterations.4 = phi i32 [ %iterations.0, %land.lhs.true58 ], [ %iterations.3, %do.cond ]
-  br label %do.body, !llvm.loop !20
+  br label %do.body, !llvm.loop !18
 
 do.end142:                                        ; preds = %land.lhs.true36, %do.end, %land.lhs.true58, %if.end103, %if.then122, %lor.lhs.false124, %do.body73
   %63 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
@@ -3512,8 +3512,6 @@ attributes #12 = { noreturn nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i64 0, i64 2}
-!17 = !{i32 0, i32 2}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

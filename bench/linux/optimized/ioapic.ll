@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ioapic_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @acpi_ioapic_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   store i32 0, ptr %2, align 4
@@ -375,7 +375,7 @@ declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ioapic_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -16, 1) i32 @acpi_ioapic_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @ioapic_list_lock) #8
   %2 = load ptr, ptr @ioapic_list, align 8
   %3 = icmp eq ptr %2, @ioapic_list
@@ -477,7 +477,7 @@ declare dso_local i32 @pci_request_region(ptr noundef, i32 noundef, ptr noundef)
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @setup_res(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 16388) i32 @setup_res(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.resource_win, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
   %4 = getelementptr inbounds i8, ptr %1, i64 24

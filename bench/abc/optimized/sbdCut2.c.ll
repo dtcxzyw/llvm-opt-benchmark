@@ -152,7 +152,7 @@ Vec_IntFree.exit9:                                ; preds = %Vec_IntFree.exit7, 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = sext i32 %2 to i64
@@ -193,13 +193,13 @@ common.ret35:                                     ; preds = %16, %3, %10, %20
   %21 = trunc i64 %.val31 to i32
   %22 = and i32 %21, 536870911
   %23 = sub nsw i32 %spec.select, %22
-  %24 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %23), !range !4
+  %24 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %23)
   %.val33 = load i64, ptr %18, align 4
   %25 = lshr i64 %.val33, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = and i32 %26, 536870911
   %28 = sub nsw i32 %spec.select, %27
-  %29 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28), !range !4
+  %29 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28)
   %30 = icmp ne i32 %24, 0
   %31 = icmp ne i32 %29, 0
   %32 = select i1 %30, i1 %31, i1 false
@@ -208,7 +208,7 @@ common.ret35:                                     ; preds = %16, %3, %10, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sbd_ManCutIsTopo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbd_ManCutIsTopo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #16
   %5 = getelementptr i8, ptr %2, i64 4
   %.val1516 = load i32, ptr %5, align 4
@@ -235,10 +235,10 @@ define i32 @Sbd_ManCutIsTopo(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %.val15 = load i32, ptr %5, align 4
   %15 = sext i32 %.val15 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %10, label %.critedge, !llvm.loop !5
+  br i1 %16, label %10, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %10, %4
-  %17 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %3), !range !4
+  %17 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %3)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -307,7 +307,7 @@ define void @Sbd_ManCutExpand(ptr nocapture noundef readonly %0, ptr nocapture n
   %26 = getelementptr inbounds i32, ptr %.val53.i, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = lshr i64 %.val56.i, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
   %31 = sub nsw i32 %16, %30
   %32 = sext i32 %31 to i64
@@ -331,10 +331,10 @@ define void @Sbd_ManCutExpand(ptr nocapture noundef readonly %0, ptr nocapture n
 44:                                               ; preds = %40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i62.i, label %40, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.lr.ph.i62.i, label %40, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit12.i.i:       ; preds = %40
-  %45 = trunc i64 %indvars.iv.i.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %.lr.ph.i62.i
 
 .lr.ph.i62.i:                                     ; preds = %44, %._crit_edge.loopexit.split.loop.exit12.i.i
@@ -351,7 +351,7 @@ define void @Sbd_ManCutExpand(ptr nocapture noundef readonly %0, ptr nocapture n
 50:                                               ; preds = %46
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %exitcond.not.i66.i = icmp eq i64 %indvars.iv.next.i65.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i66.i, label %Vec_IntFind.exit68.i, label %46, !llvm.loop !7
+  br i1 %exitcond.not.i66.i, label %Vec_IntFind.exit68.i, label %46, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit12.i67.i:     ; preds = %46
   %51 = and i64 %indvars.iv.i64.i, 4294967295
@@ -379,7 +379,7 @@ Vec_IntFind.exit68.i:                             ; preds = %50, %._crit_edge.lo
   br i1 %63, label %79, label %64
 
 64:                                               ; preds = %59
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %5, align 4
   %66 = icmp sgt i32 %13, %65
   br i1 %66, label %.lr.ph.i69.i, label %Vec_IntDrop.exit.i
@@ -395,7 +395,7 @@ Vec_IntFind.exit68.i:                             ; preds = %50, %._crit_edge.lo
   %71 = load i32, ptr %5, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i71.i, %72
-  br i1 %73, label %.lr.ph.i69.i, label %Vec_IntDrop.exit.i, !llvm.loop !8
+  br i1 %73, label %.lr.ph.i69.i, label %Vec_IntDrop.exit.i, !llvm.loop !7
 
 Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %64
   %74 = icmp ne i32 %spec.select.i, 0
@@ -418,13 +418,13 @@ Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %64
 79:                                               ; preds = %14, %Vec_IntFind.exit68.i, %59, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i.i
-  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !8
 
 .critedge:                                        ; preds = %79, %.split, %78, %76
   %.023 = phi i32 [ %65, %78 ], [ %65, %76 ], [ 0, %.split ], [ %.val13, %79 ]
   %.val12 = load i32, ptr %5, align 4
   %80 = icmp slt i32 %.023, %.val12
-  br i1 %80, label %.split, label %.split30.us, !llvm.loop !10
+  br i1 %80, label %.split, label %.split30.us, !llvm.loop !9
 
 .split30.us:                                      ; preds = %.critedge, %4
   ret void
@@ -583,14 +583,14 @@ Vec_IntPush.exit:                                 ; preds = %66, %Vec_IntGrow.ex
   %.val15 = load i32, ptr %9, align 4
   %72 = sext i32 %.val15 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %13, label %.critedge, !llvm.loop !12
+  br i1 %73, label %13, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sbd_ManCutCollect_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbd_ManCutCollect_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val43 = load ptr, ptr %7, align 8
   %8 = sext i32 %2 to i64
@@ -709,13 +709,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %64 = trunc i64 %.val49 to i32
   %65 = and i32 %64, 536870911
   %66 = sub nsw i32 %spec.select, %65
-  %67 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %66, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5), !range !4
+  %67 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %66, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %.val51 = load i64, ptr %21, align 4
   %68 = lshr i64 %.val51, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   %70 = and i32 %69, 536870911
   %71 = sub nsw i32 %spec.select, %70
-  %72 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %71, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5), !range !4
+  %72 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %71, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %73 = icmp ne i32 %67, 0
   %74 = icmp ne i32 %72, 0
   %75 = select i1 %73, i1 %74, i1 false
@@ -728,7 +728,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbd_ManCutReduceTop(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, i32 %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbd_ManCutReduceTop(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, i32 %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %3, i64 8
   %.val59 = load ptr, ptr %8, align 8
   %9 = sext i32 %2 to i64
@@ -770,7 +770,7 @@ define noundef i32 @Sbd_ManCutReduceTop(ptr nocapture noundef readonly %0, ptr n
   %30 = getelementptr inbounds i32, ptr %.val57, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = lshr i64 %.val61, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = and i32 %33, 536870911
   %35 = sub nsw i32 %21, %34
   %36 = sext i32 %35 to i64
@@ -823,10 +823,10 @@ define noundef i32 @Sbd_ManCutReduceTop(ptr nocapture noundef readonly %0, ptr n
 66:                                               ; preds = %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %62, !llvm.loop !13
+  br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %62, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %62
-  %67 = trunc i64 %indvars.iv.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %56
@@ -855,10 +855,10 @@ define noundef i32 @Sbd_ManCutReduceTop(ptr nocapture noundef readonly %0, ptr n
   store i32 %75, ptr %77, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %78 = load i32, ptr %57, align 4
-  %79 = trunc i64 %indvars.iv.next35.i to i32
+  %79 = trunc nuw i64 %indvars.iv.next35.i to i32
   %80 = icmp sgt i32 %78, %79
-  %81 = trunc i64 %indvars.iv34.i to i32
-  br i1 %80, label %72, label %._crit_edge30.i, !llvm.loop !14
+  %81 = trunc nuw i64 %indvars.iv34.i to i32
+  br i1 %80, label %72, label %._crit_edge30.i, !llvm.loop !13
 
 ._crit_edge30.i:                                  ; preds = %72, %.preheader.i
   %.lcssa.i = phi i32 [ %58, %.preheader.i ], [ %78, %72 ]
@@ -884,7 +884,7 @@ Vec_IntRemove.exit:                               ; preds = %66, %._crit_edge.i,
 88:                                               ; preds = %89
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i69
-  br i1 %exitcond.not.i72, label %._crit_edge.i67, label %89, !llvm.loop !15
+  br i1 %exitcond.not.i72, label %._crit_edge.i67, label %89, !llvm.loop !14
 
 89:                                               ; preds = %88, %.lr.ph.i68
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next.i71, %88 ]
@@ -915,7 +915,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i6
 98:                                               ; preds = %99
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i76
-  br i1 %exitcond.not.i79, label %._crit_edge.i73, label %99, !llvm.loop !15
+  br i1 %exitcond.not.i79, label %._crit_edge.i73, label %99, !llvm.loop !14
 
 99:                                               ; preds = %98, %.lr.ph.i75
   %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.i75 ], [ %indvars.iv.next.i78, %98 ]
@@ -930,7 +930,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i6
 
 103:                                              ; preds = %53, %25, %48, %19
   %104 = icmp ugt i64 %indvars.iv, 1
-  br i1 %104, label %19, label %.critedge, !llvm.loop !16
+  br i1 %104, label %19, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %103, %99, %7, %._crit_edge.i73, %Vec_IntPushUniqueOrder.exit
   %.0 = phi i32 [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %._crit_edge.i73 ], [ 0, %7 ], [ 1, %99 ], [ 0, %103 ]
@@ -959,7 +959,7 @@ define i32 @Sbd_ManCutServerFirst(ptr noundef readonly %0, i32 noundef %1, ptr n
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef %16, ptr noundef %18, i32 noundef %1, i32 noundef %10, ptr noundef %19, ptr noundef %20), !range !4
+  %21 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef %16, ptr noundef %18, i32 noundef %1, i32 noundef %10, ptr noundef %19, ptr noundef %20)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %223, label %23
 
@@ -1092,7 +1092,7 @@ Vec_IntPush.exit.i:                               ; preds = %82, %Vec_IntGrow.ex
   %.val6.i = load i32, ptr %54, align 4
   %89 = sext i32 %.val6.i to i64
   %90 = icmp slt i64 %indvars.iv.next.i, %89
-  br i1 %90, label %58, label %Vec_IntAppend.exit.loopexit, !llvm.loop !17
+  br i1 %90, label %58, label %Vec_IntAppend.exit.loopexit, !llvm.loop !16
 
 Vec_IntAppend.exit.loopexit:                      ; preds = %Vec_IntPush.exit.i
   %.pre = load ptr, ptr %11, align 8
@@ -1112,7 +1112,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %96 = load ptr, ptr %17, align 8
   %97 = load ptr, ptr %4, align 8
   %98 = load ptr, ptr %34, align 8
-  %99 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %95, ptr noundef %96, i32 noundef %1, ptr noundef %97, ptr noundef nonnull %91, ptr noundef %98, i32 poison), !range !4
+  %99 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %95, ptr noundef %96, i32 noundef %1, ptr noundef %97, ptr noundef nonnull %91, ptr noundef %98, i32 poison)
   %.not166 = icmp eq i32 %99, 0
   %.pre215 = load ptr, ptr %11, align 8
   br i1 %.not166, label %186, label %100
@@ -1152,7 +1152,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %120 = load ptr, ptr %14, align 8
   %121 = load ptr, ptr %17, align 8
   %122 = load ptr, ptr %4, align 8
-  %123 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %120, ptr noundef %121, i32 noundef %1, ptr noundef %122, ptr noundef nonnull %111, ptr noundef nonnull %108, i32 poison), !range !4
+  %123 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %120, ptr noundef %121, i32 noundef %1, ptr noundef %122, ptr noundef nonnull %111, ptr noundef nonnull %108, i32 poison)
   %.not168 = icmp eq i32 %123, 0
   %.pre211 = load ptr, ptr %11, align 8
   br i1 %.not168, label %186, label %124
@@ -1192,7 +1192,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %144 = load ptr, ptr %14, align 8
   %145 = load ptr, ptr %17, align 8
   %146 = load ptr, ptr %4, align 8
-  %147 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %144, ptr noundef %145, i32 noundef %1, ptr noundef %146, ptr noundef nonnull %135, ptr noundef nonnull %132, i32 poison), !range !4
+  %147 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %144, ptr noundef %145, i32 noundef %1, ptr noundef %146, ptr noundef nonnull %135, ptr noundef nonnull %132, i32 poison)
   %.not170 = icmp eq i32 %147, 0
   %.pre214 = load ptr, ptr %11, align 8
   br i1 %.not170, label %186, label %148
@@ -1232,7 +1232,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %168 = load ptr, ptr %14, align 8
   %169 = load ptr, ptr %17, align 8
   %170 = load ptr, ptr %4, align 8
-  %171 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %168, ptr noundef %169, i32 noundef %1, ptr noundef %170, ptr noundef nonnull %159, ptr noundef nonnull %156, i32 poison), !range !4
+  %171 = tail call i32 @Sbd_ManCutReduceTop(ptr noundef %168, ptr noundef %169, i32 noundef %1, ptr noundef %170, ptr noundef nonnull %159, ptr noundef nonnull %156, i32 poison)
   %.not172 = icmp eq i32 %171, 0
   %.pre212 = load ptr, ptr %11, align 8
   br i1 %.not172, label %186, label %172
@@ -1272,7 +1272,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %192 = add nsw i32 %9, -3
   %193 = load ptr, ptr %4, align 8
   %194 = load ptr, ptr %11, align 8
-  %195 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef %190, ptr noundef %191, i32 noundef %1, i32 noundef %192, ptr noundef %193, ptr noundef %194), !range !4
+  %195 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef %190, ptr noundef %191, i32 noundef %1, i32 noundef %192, ptr noundef %193, ptr noundef %194)
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %223, label %197
 
@@ -1423,10 +1423,10 @@ Vec_IntGrow.exit23:                               ; preds = %Vec_IntGrow.exit23t
   %39 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
   store i32 %36, ptr %39, align 4
   %40 = icmp ugt i64 %indvars.iv, 1
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %._crit_edge.loopexit.split.loop.exit, %Vec_IntGrow.exit23
@@ -1445,7 +1445,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -1487,18 +1487,17 @@ attributes #18 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.partial.disable"}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

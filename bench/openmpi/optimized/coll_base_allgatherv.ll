@@ -214,7 +214,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %32 = fdiv double %31, 0x3FE62E42FEFA39EF
   %33 = tail call double @llvm.ceil.f64(double %32)
   %34 = fptosi double %33 to i32
-  %35 = tail call i32 @llvm.cttz.i32(i32 %.val.val, i1 true), !range !7
+  %35 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val.val, i1 true)
   %36 = lshr i32 %.val.val, %35
   %37 = xor i32 %36, -1
   %38 = or i32 %37, 1
@@ -302,7 +302,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %.3 = phi i32 [ %91, %82 ], [ %.2, %77 ]
   %96 = add nuw nsw i32 %.090102, 1
   %exitcond.not = icmp eq i32 %96, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %95, %44
   %.1.lcssa = phi i32 [ 0, %44 ], [ %.3, %95 ]
@@ -314,7 +314,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %102 = sub nsw i32 %101, %51
   %103 = add nuw nsw i32 %.0106, 1
   %exitcond110.not = icmp eq i32 %103, %34
-  br i1 %exitcond110.not, label %._crit_edge109, label %44, !llvm.loop !9
+  br i1 %exitcond110.not, label %._crit_edge109, label %44, !llvm.loop !8
 
 ._crit_edge109:                                   ; preds = %._crit_edge, %26
   tail call void @free(ptr noundef %29) #7
@@ -411,12 +411,12 @@ ompi_coll_base_sendrecv.exit.us:                  ; preds = %.lr.ph, %59
 59:                                               ; preds = %ompi_coll_base_sendrecv.exit.us
   %60 = add nuw nsw i32 %.05463.us, 1
   %exitcond68.not = icmp eq i32 %60, %31
-  br i1 %exitcond68.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit.us, !llvm.loop !10
+  br i1 %exitcond68.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit.us, !llvm.loop !9
 
 61:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %62 = add nuw nsw i32 %.05463, 1
   %exitcond.not = icmp eq i32 %62, %31
-  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit, !llvm.loop !9
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %61
   %.05463 = phi i32 [ %62, %61 ], [ 0, %.lr.ph ]
@@ -642,7 +642,7 @@ ompi_coll_base_sendrecv.exit125:                  ; preds = %114, %116
   %120 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %17) #7
   %121 = add nuw nsw i32 %.0102127, 1
   %exitcond.not = icmp eq i32 %121, %80
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %118, %ompi_coll_base_sendrecv.exit125, %106, %99, %97, %.lr.ph, %79, %33, %ompi_coll_base_sendrecv.exit, %23
   %.0 = phi i32 [ %24, %23 ], [ %40, %33 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %79 ], [ 0, %118 ], [ %.0.i124, %ompi_coll_base_sendrecv.exit125 ], [ %107, %106 ], [ %105, %99 ], [ %98, %97 ], [ %96, %.lr.ph ]
@@ -810,8 +810,7 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 33}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

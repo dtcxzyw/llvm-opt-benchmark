@@ -589,7 +589,7 @@ define i32 @Aig_CManRestoreNum(ptr nocapture noundef %0) local_unnamed_addr #14 
   %.010 = phi i32 [ %11, %.lr.ph ], [ 0, %1 ]
   %.079 = phi i32 [ %12, %.lr.ph ], [ 0, %1 ]
   %8 = and i32 %6, 127
-  %9 = mul nsw i32 %.079, 7
+  %9 = mul nuw nsw i32 %.079, 7
   %10 = shl i32 %8, %9
   %11 = or i32 %10, %.010
   %12 = add nuw nsw i32 %.079, 1
@@ -601,7 +601,7 @@ define i32 @Aig_CManRestoreNum(ptr nocapture noundef %0) local_unnamed_addr #14 
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %16 = mul nsw i32 %12, 7
+  %16 = mul nuw nsw i32 %12, 7
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
@@ -814,7 +814,7 @@ define void @Aig_CManGetNode(ptr nocapture noundef %0, ptr nocapture noundef wri
   %.010.i = phi i32 [ %17, %.lr.ph.i ], [ 0, %3 ]
   %.079.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %3 ]
   %14 = and i32 %12, 127
-  %15 = mul nsw i32 %.079.i, 7
+  %15 = mul nuw nsw i32 %.079.i, 7
   %16 = shl i32 %14, %15
   %17 = or i32 %16, %.010.i
   %18 = add nuw nsw i32 %.079.i, 1
@@ -826,7 +826,7 @@ define void @Aig_CManGetNode(ptr nocapture noundef %0, ptr nocapture noundef wri
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %22 = mul nsw i32 %18, 7
+  %22 = mul nuw nsw i32 %18, 7
   br label %Aig_CManRestoreNum.exit
 
 Aig_CManRestoreNum.exit:                          ; preds = %3, %._crit_edge.loopexit.i
@@ -851,7 +851,7 @@ Aig_CManRestoreNum.exit:                          ; preds = %3, %._crit_edge.loo
   %.010.i9 = phi i32 [ %34, %.lr.ph.i8 ], [ 0, %Aig_CManRestoreNum.exit ]
   %.079.i10 = phi i32 [ %35, %.lr.ph.i8 ], [ 0, %Aig_CManRestoreNum.exit ]
   %31 = and i32 %29, 127
-  %32 = mul nsw i32 %.079.i10, 7
+  %32 = mul nuw nsw i32 %.079.i10, 7
   %33 = shl i32 %31, %32
   %34 = or i32 %33, %.010.i9
   %35 = add nuw nsw i32 %.079.i10, 1
@@ -863,7 +863,7 @@ Aig_CManRestoreNum.exit:                          ; preds = %3, %._crit_edge.loo
   br i1 %.not.i11, label %._crit_edge.loopexit.i12, label %.lr.ph.i8, !llvm.loop !10
 
 ._crit_edge.loopexit.i12:                         ; preds = %.lr.ph.i8
-  %39 = mul nsw i32 %35, 7
+  %39 = mul nuw nsw i32 %35, 7
   br label %Aig_CManRestoreNum.exit16
 
 Aig_CManRestoreNum.exit16:                        ; preds = %Aig_CManRestoreNum.exit, %._crit_edge.loopexit.i12
@@ -894,7 +894,7 @@ define i32 @Aig_CManGetPo(ptr nocapture noundef %0) local_unnamed_addr #14 {
   %.010.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %1 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ 0, %1 ]
   %8 = and i32 %6, 127
-  %9 = mul nsw i32 %.079.i, 7
+  %9 = mul nuw nsw i32 %.079.i, 7
   %10 = shl i32 %8, %9
   %11 = or i32 %10, %.010.i
   %12 = add nuw nsw i32 %.079.i, 1
@@ -906,7 +906,7 @@ define i32 @Aig_CManGetPo(ptr nocapture noundef %0) local_unnamed_addr #14 {
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %16 = mul nsw i32 %12, 7
+  %16 = mul nuw nsw i32 %12, 7
   br label %Aig_CManRestoreNum.exit
 
 Aig_CManRestoreNum.exit:                          ; preds = %1, %._crit_edge.loopexit.i

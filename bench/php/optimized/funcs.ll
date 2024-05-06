@@ -71,7 +71,7 @@ define hidden noundef ptr @file_copystr(ptr noundef returned writeonly %0, i64 n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_checkfmt(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %75, %3
@@ -254,7 +254,7 @@ declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_vprintf(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [1024 x i8], align 16
@@ -265,7 +265,7 @@ define hidden noundef i32 @file_vprintf(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not, label %10, label %40
 
 10:                                               ; preds = %3
-  %11 = call i32 @file_checkfmt(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef %1), !range !4
+  %11 = call i32 @file_checkfmt(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef %1)
   %.not25 = icmp eq i32 %11, 0
   br i1 %.not25, label %15, label %12
 
@@ -362,17 +362,17 @@ define hidden void @file_error(ptr nocapture noundef %0, i32 noundef %1, ptr nou
   br i1 %.not20.i, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35), !range !4
+  %14 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
   br label %15
 
 15:                                               ; preds = %13, %11, %8
-  %16 = call i32 @file_vprintf(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %4), !range !4
+  %16 = call i32 @file_vprintf(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %4)
   %17 = icmp sgt i32 %1, 0
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
   %19 = call ptr @strerror(i32 noundef %1) #17
-  %20 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef %19), !range !4
+  %20 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef %19)
   br label %21
 
 21:                                               ; preds = %18, %15
@@ -395,10 +395,10 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_printf(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @file_printf(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call i32 @file_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %4 = call i32 @file_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
@@ -424,7 +424,7 @@ define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...)
   %12 = load ptr, ptr %11, align 8
   call void @_efree(ptr noundef %12) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %13 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, i64 noundef %5), !range !4
+  %13 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, i64 noundef %5)
   br label %14
 
 14:                                               ; preds = %10, %9
@@ -439,11 +439,11 @@ define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...)
   br i1 %.not20.i, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35), !range !4
+  %20 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
   br label %21
 
 21:                                               ; preds = %19, %17, %14
-  %22 = call i32 @file_vprintf(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %22 = call i32 @file_vprintf(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   %23 = load i32, ptr %6, align 8
   %24 = or i32 %23, 1
   store i32 %24, ptr %6, align 8
@@ -484,13 +484,13 @@ define hidden void @file_badread(ptr nocapture noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_separator(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.11), !range !4
+define hidden range(i32 -1, 1) i32 @file_separator(ptr nocapture noundef %0) local_unnamed_addr #2 {
+  %2 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.11)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 2) i32 @file_default(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1040
@@ -505,7 +505,7 @@ define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1
 8:                                                ; preds = %6
   %.not11 = icmp eq i64 %1, 0
   %9 = select i1 %.not11, ptr @.str.14, ptr @.str.13
-  %10 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %9), !range !4
+  %10 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %9)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %23, label %12
 
@@ -518,7 +518,7 @@ define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1
   br i1 %.not8, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
+  %16 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %17 = icmp eq i32 %16, -1
   %. = select i1 %17, i32 -1, i32 1
   br label %23
@@ -529,7 +529,7 @@ define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1
   br i1 %.not9, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
+  %21 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16)
   %22 = icmp eq i32 %21, -1
   %.12 = select i1 %22, i32 -1, i32 1
   br label %23
@@ -540,7 +540,7 @@ define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @file_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -617,7 +617,7 @@ define hidden i32 @file_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %42, label %checkdone.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %44 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %45 = icmp eq i32 %44, -1
   %spec.select161 = sext i1 %45 to i32
   %.pre171 = load i32, ptr %22, align 4
@@ -655,7 +655,7 @@ checkdone.exit.thread:                            ; preds = %43, %39, %28
   br i1 %59, label %checkdone.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %61 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %62 = icmp eq i32 %61, -1
   %spec.select162 = select i1 %62, i32 -1, i32 %.1131
   %.pre173 = load i32, ptr %22, align 4
@@ -694,7 +694,7 @@ checkdone.exit120.thread:                         ; preds = %60, %56, %checkdone
   br i1 %77, label %checkdone.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %79 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %80 = icmp eq i32 %79, -1
   %spec.select163 = select i1 %80, i32 -1, i32 %.3133
   %.pre175 = load i32, ptr %22, align 4
@@ -732,7 +732,7 @@ checkdone.exit122.thread:                         ; preds = %78, %74, %checkdone
   br i1 %94, label %checkdone.exit, label %95
 
 95:                                               ; preds = %92
-  %96 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %96 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %97 = icmp eq i32 %96, -1
   %spec.select164 = select i1 %97, i32 -1, i32 %.5135
   %.pre177 = load i32, ptr %22, align 4
@@ -770,7 +770,7 @@ checkdone.exit124.thread:                         ; preds = %95, %91, %checkdone
   br i1 %111, label %checkdone.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %113 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %114 = icmp eq i32 %113, -1
   %spec.select165 = select i1 %114, i32 -1, i32 %.7137
   %.pre179 = load i32, ptr %22, align 4
@@ -808,7 +808,7 @@ checkdone.exit126.thread:                         ; preds = %112, %108, %checkdo
   br i1 %128, label %checkdone.exit, label %129
 
 129:                                              ; preds = %126
-  %130 = call noundef i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11), !range !4
+  %130 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %131 = icmp eq i32 %130, -1
   %spec.select166 = select i1 %131, i32 -1, i32 %.9
   %.pre181 = load i32, ptr %22, align 4
@@ -864,7 +864,7 @@ checkdone.exit128.thread.thread:                  ; preds = %125
 152:                                              ; preds = %150
   %.not11.i = icmp eq i64 %5, 0
   %153 = select i1 %.not11.i, ptr @.str.14, ptr @.str.13
-  %154 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %153), !range !4
+  %154 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %153)
   %155 = icmp eq i32 %154, -1
   br i1 %155, label %checkdone.exit, label %156
 
@@ -877,7 +877,7 @@ checkdone.exit128.thread.thread:                  ; preds = %125
   br i1 %.not8.i, label %162, label %159
 
 159:                                              ; preds = %157
-  %160 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
+  %160 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %161 = icmp eq i32 %160, -1
   %..i = select i1 %161, i32 -1, i32 1
   br label %checkdone.exit
@@ -888,13 +888,13 @@ checkdone.exit128.thread.thread:                  ; preds = %125
   br i1 %.not9.i, label %file_default.exit, label %164
 
 164:                                              ; preds = %162
-  %165 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
+  %165 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16)
   %166 = icmp eq i32 %165, -1
   %.12.i = select i1 %166, i32 -1, i32 1
   br label %checkdone.exit
 
 file_default.exit:                                ; preds = %162
-  %167 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %.179), !range !4
+  %167 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %.179)
   %168 = icmp eq i32 %167, -1
   %spec.select167 = sext i1 %168 to i32
   br label %checkdone.exit
@@ -936,7 +936,7 @@ trim_separator.exit:                              ; preds = %checkdone.exit, %17
   br i1 %.not117, label %187, label %184
 
 184:                                              ; preds = %182
-  %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29), !range !4
+  %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29)
   %186 = icmp eq i32 %185, -1
   %spec.select168 = select i1 %186, i32 -1, i32 %.13
   br label %187
@@ -944,7 +944,7 @@ trim_separator.exit:                              ; preds = %checkdone.exit, %17
 187:                                              ; preds = %184, %182
   %.14 = phi i32 [ %.13, %182 ], [ %spec.select168, %184 ]
   %188 = load ptr, ptr %8, align 8
-  %189 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %188), !range !4
+  %189 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %188)
   %190 = icmp eq i32 %189, -1
   %spec.select169 = select i1 %190, i32 -1, i32 %.14
   br label %191
@@ -985,7 +985,7 @@ declare i32 @file_ascmagic(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @buffer_fini(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_reset(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @file_reset(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %3
 
@@ -1147,7 +1147,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_check_mem(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @file_check_mem(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1525,7 +1525,7 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @file_parse_guid(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define hidden range(i32 -1, 1) i32 @file_parse_guid(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1681,4 +1681,3 @@ attributes #22 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

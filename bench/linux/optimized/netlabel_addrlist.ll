@@ -184,7 +184,7 @@ define dso_local ptr @netlbl_af6list_search_exact(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_af4list_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @netlbl_af4list_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = load volatile ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
@@ -287,7 +287,7 @@ define dso_local noundef i32 @netlbl_af4list_add(ptr noundef %0, ptr noundef %1)
 declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_af6list_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @netlbl_af6list_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load volatile ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.thread, label %5

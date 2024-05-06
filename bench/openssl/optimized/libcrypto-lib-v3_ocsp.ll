@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare ptr @OCSP_CRLID_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -104,7 +104,7 @@ return:                                           ; preds = %if.end27, %if.end38
 declare ptr @ASN1_GENERALIZEDTIME_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_ocsp_acutoff(ptr nocapture readnone %method, ptr noundef %cutoff, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_ocsp_acutoff(ptr nocapture readnone %method, ptr noundef %cutoff, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.5, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1
@@ -124,7 +124,7 @@ return:                                           ; preds = %if.end, %entry
 declare ptr @ASN1_OBJECT_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_object(ptr nocapture readnone %method, ptr noundef %oid, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_object(ptr nocapture readnone %method, ptr noundef %oid, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.5, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1
@@ -239,7 +239,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_ocsp_nonce(ptr nocapture readnone %method, ptr noundef %nonce, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @i2r_ocsp_nonce(ptr nocapture readnone %method, ptr noundef %nonce, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, i32 noundef %indent, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1
@@ -274,7 +274,7 @@ entry:
 declare ptr @OCSP_SERVICELOC_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_ocsp_serviceloc(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_ocsp_serviceloc(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.7, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1

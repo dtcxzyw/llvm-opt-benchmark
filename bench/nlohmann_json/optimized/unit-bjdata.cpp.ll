@@ -139993,11 +139993,11 @@ if.end.i:                                         ; preds = %_ZN8nlohmann16json_
 
 if.then13.i:                                      ; preds = %if.end.i
   %conv14.i = zext nneg i32 %add.i to i64
-  %7 = getelementptr i8, ptr %first.addr.0, i64 %conv14.i
-  %add.ptr16.i = getelementptr i8, ptr %7, i64 1
+  %7 = getelementptr inbounds i8, ptr %first.addr.0, i64 %conv14.i
+  %add.ptr16.i = getelementptr inbounds i8, ptr %7, i64 1
   %conv19.i = sext i32 %4 to i64
   %sub21.i = sub nsw i64 %conv19.i, %conv14.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr16.i, ptr nonnull align 1 %7, i64 %sub21.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr16.i, ptr nonnull align 1 %7, i64 %sub21.i, i1 false)
   store i8 46, ptr %7, align 1
   %8 = getelementptr i8, ptr %first.addr.0, i64 %conv19.i
   %add.ptr26.i = getelementptr i8, ptr %8, i64 1

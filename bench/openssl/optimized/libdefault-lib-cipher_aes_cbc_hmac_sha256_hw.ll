@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [77 x i8] c"../openssl/providers/implementations/ciphers/cipher_aes_cbc_hmac_sha256_hw.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cipher_capable_aes_cbc_hmac_sha256() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cipher_capable_aes_cbc_hmac_sha256() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
   %and = and i32 %0, 33554432
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_init_key(ptr noundef %vctx, ptr noundef %key, i64 %keylen) #0 {
+define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_init_key(ptr noundef %vctx, ptr noundef %key, i64 %keylen) #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
@@ -84,7 +84,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
 entry:
   %mac = alloca %union.anon.1, align 4
   %payload_length = getelementptr inbounds i8, ptr %vctx, i64 440
@@ -611,7 +611,7 @@ for.body211:                                      ; preds = %for.body211.lr.ph, 
   %not220 = xor i64 %shr219, -1
   %and221 = and i64 %and217, %not220
   %or222 = or i64 %and216, %and221
-  %conv223 = trunc i64 %or222 to i8
+  %conv223 = trunc nuw i64 %or222 to i8
   %inc224 = add i32 %res.0562, 1
   %idxprom = zext i32 %res.0562 to i64
   %arrayidx225 = getelementptr inbounds [64 x i8], ptr %data119, i64 0, i64 %idxprom
@@ -623,7 +623,7 @@ if.end229:                                        ; preds = %for.body211
   %sub231 = sub i64 %add230, %j.0563
   %shr232.neg = ashr i64 %sub231, 63
   %49 = load i32, ptr %arrayidx236, align 4
-  %50 = trunc i64 %shr232.neg to i32
+  %50 = trunc nsw i64 %shr232.neg to i32
   %51 = and i32 %46, %50
   %conv239 = or i32 %49, %51
   store i32 %conv239, ptr %arrayidx236, align 4
@@ -633,7 +633,7 @@ if.end229:                                        ; preds = %for.body211
   %and245 = ashr i64 %shr232.neg335, 63
   %52 = load i32, ptr %md, align 8
   %53 = load i32, ptr %26, align 64
-  %54 = trunc i64 %and245 to i32
+  %54 = trunc nsw i64 %and245 to i32
   %55 = and i32 %52, %54
   %conv253 = or i32 %55, %53
   store i32 %conv253, ptr %26, align 64
@@ -703,7 +703,7 @@ if.then332:                                       ; preds = %for.end319, %for.en
   %shr335.neg = ashr i64 %sub334, 63
   %arrayidx339 = getelementptr inbounds i8, ptr %vctx, i64 828
   %81 = load i32, ptr %arrayidx339, align 4
-  %82 = trunc i64 %shr335.neg to i32
+  %82 = trunc nsw i64 %shr335.neg to i32
   %83 = and i32 %46, %82
   %conv342 = or i32 %81, %83
   store i32 %conv342, ptr %arrayidx339, align 4
@@ -714,7 +714,7 @@ if.then332:                                       ; preds = %for.end319, %for.en
   %and348 = ashr i64 %shr335.neg331, 63
   %84 = load i32, ptr %md, align 8
   %85 = load i32, ptr %26, align 64
-  %86 = trunc i64 %and348 to i32
+  %86 = trunc nsw i64 %and348 to i32
   %87 = and i32 %84, %86
   %conv357 = or i32 %87, %85
   store i32 %conv357, ptr %26, align 64
@@ -774,7 +774,7 @@ if.end422:                                        ; preds = %if.then332, %for.en
   %shr427.neg = ashr i64 %sub426, 63
   %109 = load i32, ptr %md, align 8
   %110 = load i32, ptr %26, align 64
-  %111 = trunc i64 %shr427.neg to i32
+  %111 = trunc nsw i64 %shr427.neg to i32
   %112 = and i32 %109, %111
   %conv437 = or i32 %112, %110
   store i32 %conv437, ptr %26, align 64
@@ -1089,7 +1089,7 @@ if.then7.i30:                                     ; preds = %for.end, %if.end4.i
   %8 = load i32, ptr %Nh.i34, align 4
   %Nl.i36 = getelementptr inbounds i8, ptr %vctx, i64 536
   %9 = load i32, ptr %Nl.i36, align 4
-  %sub5.tr.i37 = trunc i64 %sub5.i2890 to i32
+  %sub5.tr.i37 = trunc nuw nsw i64 %sub5.i2890 to i32
   %10 = shl nuw nsw i32 %sub5.tr.i37, 3
   %conv13.i38 = add i32 %9, %10
   store i32 %conv13.i38, ptr %Nl.i36, align 4
@@ -1154,7 +1154,7 @@ if.then7.i63:                                     ; preds = %for.end26, %if.end4
   %14 = load i32, ptr %Nh.i67, align 4
   %Nl.i69 = getelementptr inbounds i8, ptr %vctx, i64 648
   %15 = load i32, ptr %Nl.i69, align 4
-  %sub5.tr.i70 = trunc i64 %sub5.i61100 to i32
+  %sub5.tr.i70 = trunc nuw nsw i64 %sub5.i61100 to i32
   %16 = shl nuw nsw i32 %sub5.tr.i70, 3
   %conv13.i71 = add i32 %15, %16
   store i32 %conv13.i71, ptr %Nl.i69, align 4
@@ -1182,7 +1182,7 @@ sha256_update.exit80:                             ; preds = %if.end21.i73, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aesni_cbc_hmac_sha256_set_tls1_aad(ptr noundef %vctx, ptr noundef %aad_rec, i32 noundef %aad_len) #0 {
+define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_set_tls1_aad(ptr noundef %vctx, ptr noundef %aad_rec, i32 noundef %aad_len) #0 {
 entry:
   %cmp.not = icmp eq i32 %aad_len, 13
   br i1 %cmp.not, label %if.end, label %return
@@ -1226,7 +1226,7 @@ if.then19:                                        ; preds = %if.then5
 if.end23:                                         ; preds = %if.then19
   %sub24 = add nsw i32 %or, -16
   %shr = lshr i32 %sub24, 8
-  %conv25 = trunc i32 %shr to i8
+  %conv25 = trunc nuw i32 %shr to i8
   store i8 %conv25, ptr %arrayidx, align 1
   %conv29 = trunc i32 %sub24 to i8
   store i8 %conv29, ptr %arrayidx3, align 1
@@ -1283,7 +1283,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_tls1_multiblock_max_bufsize(ptr nocapture noundef readonly %vctx) #0 {
+define internal range(i32 -2147483627, -2147483648) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_max_bufsize(ptr nocapture noundef readonly %vctx) #0 {
 entry:
   %multiblock_max_send_fragment = getelementptr inbounds i8, ptr %vctx, i64 480
   %0 = load i64, ptr %multiblock_max_send_fragment, align 8
@@ -1302,7 +1302,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(ptr noundef %vctx, ptr nocapture noundef %param) #0 {
+define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(ptr noundef %vctx, ptr nocapture noundef %param) #0 {
 entry:
   %inp = getelementptr inbounds i8, ptr %param, i64 8
   %0 = load ptr, ptr %inp, align 8

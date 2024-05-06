@@ -3,13 +3,13 @@ source_filename = "bench/flac/original/stream_encoder_intrin_sse2.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define hidden void @FLAC__precompute_partition_info_sums_intrin_sse2(ptr nocapture noundef readonly %residual, ptr nocapture noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps) local_unnamed_addr #0 {
 entry:
   %add = add i32 %predictor_order, %residual_samples
   %shr = lshr i32 %add, %max_partition_order
   %shl = shl nuw i32 1, %max_partition_order
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %shr, i1 true), !range !4
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
   %xor.i = xor i32 %0, 31
   %sub = sub nuw nsw i32 32, %xor.i
   %sub1 = sub nsw i32 0, %predictor_order
@@ -39,7 +39,7 @@ for.body12.preheader:                             ; preds = %for.body
   br label %for.body12
 
 for.cond16.preheader.loopexit:                    ; preds = %for.body12
-  %5 = trunc i64 %indvars.iv.next137 to i32
+  %5 = trunc nuw i64 %indvars.iv.next137 to i32
   br label %for.cond16.preheader
 
 for.cond16.preheader:                             ; preds = %for.cond16.preheader.loopexit, %for.body
@@ -63,10 +63,10 @@ for.body12:                                       ; preds = %for.body12.preheade
   %add.i163 = add <4 x i32> %sub.i.i, %8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %cmp11 = icmp ult i64 %indvars.iv.next137, %4
-  br i1 %cmp11, label %for.body12, label %for.cond16.preheader.loopexit, !llvm.loop !5
+  br i1 %cmp11, label %for.body12, label %for.cond16.preheader.loopexit, !llvm.loop !4
 
 for.cond26.preheader.loopexit:                    ; preds = %for.body18
-  %10 = trunc i64 %indvars.iv.next140 to i32
+  %10 = trunc nuw i64 %indvars.iv.next140 to i32
   br label %for.cond26.preheader
 
 for.cond26.preheader:                             ; preds = %for.cond26.preheader.loopexit, %for.cond16.preheader
@@ -88,7 +88,7 @@ for.body18:                                       ; preds = %for.body18.preheade
   %add.i160 = add <4 x i32> %sub.i.i68, %12
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 4
   %cmp17 = icmp ult i64 %indvars.iv.next140, %7
-  br i1 %cmp17, label %for.body18, label %for.cond26.preheader.loopexit, !llvm.loop !7
+  br i1 %cmp17, label %for.body18, label %for.cond26.preheader.loopexit, !llvm.loop !6
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
   %indvars.iv142 = phi i64 [ %11, %for.body28.preheader ], [ %indvars.iv.next143, %for.body28 ]
@@ -100,7 +100,7 @@ for.body28:                                       ; preds = %for.body28.preheade
   %add.i157 = add <4 x i32> %sub.i.i69, %14
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next143, %2
-  br i1 %exitcond147.not, label %for.end37, label %for.body28, !llvm.loop !8
+  br i1 %exitcond147.not, label %for.end37, label %for.body28, !llvm.loop !7
 
 for.end37:                                        ; preds = %for.body28, %for.cond26.preheader
   %.lcssa75 = phi <4 x i32> [ %.lcssa74, %for.cond26.preheader ], [ %add.i157, %for.body28 ]
@@ -116,7 +116,7 @@ for.end37:                                        ; preds = %for.body28, %for.co
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %indvars.iv.next145 = add i32 %indvars.iv144, %shr
   %exitcond153.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count152
-  br i1 %exitcond153.not, label %if.end105, label %for.body, !llvm.loop !9
+  br i1 %exitcond153.not, label %if.end105, label %for.body, !llvm.loop !8
 
 for.body49:                                       ; preds = %entry, %for.end97
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %for.end97 ], [ 0, %entry ]
@@ -158,10 +158,10 @@ for.body61:                                       ; preds = %for.body61.preheade
   %add.i176 = add <2 x i64> %mm_sum50.077, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond71.preheader, label %for.body61, !llvm.loop !10
+  br i1 %exitcond.not, label %for.cond71.preheader, label %for.body61, !llvm.loop !9
 
 for.cond85.preheader.loopexit:                    ; preds = %for.body74
-  %23 = trunc i64 %indvars.iv.next123 to i32
+  %23 = trunc nuw i64 %indvars.iv.next123 to i32
   br label %for.cond85.preheader
 
 for.cond85.preheader:                             ; preds = %for.cond85.preheader.loopexit, %for.cond71.preheader
@@ -187,7 +187,7 @@ for.body74:                                       ; preds = %for.body74.preheade
   %add.i173 = add <2 x i64> %mm_sum50.181, %27
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 2
   %cmp72 = icmp ult i64 %indvars.iv.next123, %20
-  br i1 %cmp72, label %for.body74, label %for.cond85.preheader.loopexit, !llvm.loop !11
+  br i1 %cmp72, label %for.body74, label %for.cond85.preheader.loopexit, !llvm.loop !10
 
 for.body88:                                       ; preds = %for.body88.preheader, %for.body88
   %indvars.iv125 = phi i64 [ %24, %for.body88.preheader ], [ %indvars.iv.next126, %for.body88 ]
@@ -200,7 +200,7 @@ for.body88:                                       ; preds = %for.body88.preheade
   %add.i170 = add <2 x i64> %mm_sum50.286, %29
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next126, %17
-  br i1 %exitcond130.not, label %for.end97, label %for.body88, !llvm.loop !12
+  br i1 %exitcond130.not, label %for.end97, label %for.body88, !llvm.loop !11
 
 for.end97:                                        ; preds = %for.body88, %for.cond85.preheader
   %mm_sum50.2.lcssa = phi <2 x i64> [ %mm_sum50.1.lcssa, %for.cond85.preheader ], [ %add.i170, %for.body88 ]
@@ -213,7 +213,7 @@ for.end97:                                        ; preds = %for.body88, %for.co
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %indvars.iv.next128 = add i32 %indvars.iv127, %shr
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count152
-  br i1 %exitcond135.not, label %if.end105, label %for.body49, !llvm.loop !13
+  br i1 %exitcond135.not, label %if.end105, label %for.body49, !llvm.loop !12
 
 if.end105:                                        ; preds = %for.end97, %for.end37
   %cmp108.not.not115 = icmp sgt i32 %max_partition_order, %min_partition_order
@@ -223,7 +223,7 @@ for.cond107.loopexit:                             ; preds = %for.body115, %for.b
   %from_partition.1.lcssa = phi i32 [ %from_partition.0117, %for.body110 ], [ %add125, %for.body115 ]
   %to_partition.1.lcssa = phi i32 [ %to_partition.0118, %for.body110 ], [ %inc122, %for.body115 ]
   %cmp108.not.not = icmp sgt i32 %partition_order.0119, %min_partition_order
-  br i1 %cmp108.not.not, label %for.body110, label %for.end130, !llvm.loop !14
+  br i1 %cmp108.not.not, label %for.body110, label %for.end130, !llvm.loop !13
 
 for.body110:                                      ; preds = %if.end105, %for.cond107.loopexit
   %partition_order.0119.in = phi i32 [ %partition_order.0119, %for.cond107.loopexit ], [ %max_partition_order, %if.end105 ]
@@ -254,7 +254,7 @@ for.body115:                                      ; preds = %for.body110, %for.b
   %add125 = add i32 %from_partition.1109, 2
   %inc127 = add nuw nsw i32 %i.0111, 1
   %exitcond154.not = icmp eq i32 %inc127, %shr111
-  br i1 %exitcond154.not, label %for.cond107.loopexit, label %for.body115, !llvm.loop !15
+  br i1 %exitcond154.not, label %for.cond107.loopexit, label %for.body115, !llvm.loop !14
 
 for.end130:                                       ; preds = %for.cond107.loopexit, %if.end105
   ret void
@@ -269,7 +269,7 @@ declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
 
-attributes #0 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
@@ -279,15 +279,14 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

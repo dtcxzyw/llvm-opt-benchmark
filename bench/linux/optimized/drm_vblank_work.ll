@@ -214,7 +214,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_vblank_work_schedule(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @drm_vblank_work_schedule(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

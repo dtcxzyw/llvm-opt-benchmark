@@ -2634,7 +2634,7 @@ define dso_local nonnull ptr @rpc_peeraddr2str(ptr noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpc_localaddr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @rpc_localaddr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #20
@@ -3351,7 +3351,7 @@ define dso_local void @rpc_clnt_manage_trunked_xprts(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rpc_xprt_offline(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -4, 2) i32 @rpc_xprt_offline(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = tail call ptr @xprt_get(ptr noundef %1) #20
   tail call void @__rcu_read_lock() #20
   %5 = getelementptr inbounds i8, ptr %0, i64 48

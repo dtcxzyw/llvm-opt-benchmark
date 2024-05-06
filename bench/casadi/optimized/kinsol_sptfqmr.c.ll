@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.KINSptfqmrSolve = private unnamed_addr constant [8 x i32] [i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 1, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSptfqmr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @KINSptfqmr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -125,7 +125,7 @@ define noundef i32 @KINSptfqmr(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare void @KINProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @KINSptfqmrInit(ptr noundef %0) #0 {
+define internal range(i32 -2, 1) i32 @KINSptfqmrInit(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -220,7 +220,7 @@ define internal i32 @KINSptfqmrSetup(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -1, 2) i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
@@ -321,7 +321,7 @@ define internal noundef i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr
   br label %66
 
 switch.hole_check:                                ; preds = %37
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -25, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %44

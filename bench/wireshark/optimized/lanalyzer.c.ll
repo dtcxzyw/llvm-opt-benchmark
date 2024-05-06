@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @LA_CyclicInformationFake = internal constant <{ i8, i8, i8, [27 x i8] }> <{ i8 9, i8 16, i8 26, [27 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lanalyzer_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.LA_RecordHeader, align 2
   %5 = alloca [2 x i8], align 1
   %6 = alloca [210 x i8], align 16
@@ -339,7 +339,7 @@ define internal i32 @lanalyzer_read(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lanalyzer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
@@ -500,7 +500,7 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
   %75 = zext i16 %51 to i32
   %76 = add nsw i32 %75, -4
   %.not58 = icmp slt i32 %76, %41
-  %77 = trunc i32 %76 to i16
+  %77 = trunc nuw i32 %76 to i16
   %spec.select = select i1 %.not58, i16 %51, i16 %77
   %78 = zext i16 %spec.select to i32
   %79 = getelementptr inbounds i8, ptr %2, i64 64
@@ -533,7 +533,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @lanalyzer_dump_can_write_encap(i32 noundef %0) #5 {
+define internal noundef range(i32 -9, 1) i32 @lanalyzer_dump_can_write_encap(i32 noundef %0) #5 {
   %2 = icmp eq i32 %0, -1
   %3 = add i32 %0, -3
   %or.cond = icmp ult i32 %3, -2
@@ -543,7 +543,7 @@ define internal noundef i32 @lanalyzer_dump_can_write_encap(i32 noundef %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -580,7 +580,7 @@ define internal noundef i32 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1,
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
@@ -724,7 +724,7 @@ define internal i32 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %76 = load i64, ptr %14, align 8
   %77 = mul i64 %76, 2000000
   %78 = add i64 %77, %75
-  %79 = call fastcc i32 @s48write(ptr noundef nonnull %0, i64 noundef %78, ptr noundef %3), !range !4
+  %79 = call fastcc i32 @s48write(ptr noundef nonnull %0, i64 noundef %78, ptr noundef %3)
   %.not67 = icmp eq i32 %79, 0
   br i1 %.not67, label %s0write.exit.thread, label %80
 
@@ -771,7 +771,7 @@ s0write.exit.thread:                              ; preds = %.lr.ph.i, %s0write.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -1080,7 +1080,7 @@ s0write.exit170.i:                                ; preds = %.lr.ph.i165.prehead
 142:                                              ; preds = %.lr.ph.i171.i
   %143 = sub i64 %.0811.i172.i, %144
   %.not.i174.i = icmp eq i64 %143, 0
-  br i1 %.not.i174.i, label %s0write.exit176.i, label %.lr.ph.i171.i, !llvm.loop !5
+  br i1 %.not.i174.i, label %s0write.exit176.i, label %.lr.ph.i171.i, !llvm.loop !4
 
 .lr.ph.i171.i:                                    ; preds = %s0write.exit170.i, %142
   %.0811.i172.i = phi i64 [ %143, %142 ], [ 136, %s0write.exit170.i ]
@@ -1172,7 +1172,7 @@ s0write.exit182.i:                                ; preds = %.lr.ph.i177.prehead
   %166 = sub i64 %.0811.i184.i, %164
   %.not.i186.i = icmp eq i64 %166, 0
   %or.cond = or i1 %.not9.i185.i, %.not.i186.i
-  br i1 %or.cond, label %lanalyzer_dump_header.exit, label %.lr.ph.i183.i, !llvm.loop !5
+  br i1 %or.cond, label %lanalyzer_dump_header.exit, label %.lr.ph.i183.i, !llvm.loop !4
 
 lanalyzer_dump_header.exit:                       ; preds = %.lr.ph.i171.i, %.lr.ph.i183.i, %3, %44, %47, %49, %51, %53, %55, %57, %59, %61, %63, %68, %74, %80, %84, %89, %94, %98, %103, %108, %.lr.ph.i.preheader.i, %s0write.exit.i, %116, %120, %124, %.lr.ph.i153.preheader.i, %.lr.ph.i159.preheader.i, %s0write.exit164.i, %131, %133, %135, %.lr.ph.i165.preheader.i, %s0write.exit170.i, %s0write.exit176.i, %.lr.ph.i177.preheader.i, %s0write.exit182.i, %149, %151, %153, %156, %158, %160, %162
   store i64 %34, ptr %33, align 8
@@ -1190,7 +1190,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s48write(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @s48write(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
   %6 = lshr i64 %1, 32
@@ -1249,6 +1249,5 @@ attributes #14 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

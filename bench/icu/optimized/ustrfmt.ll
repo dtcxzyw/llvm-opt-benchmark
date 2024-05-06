@@ -29,7 +29,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %1, label %do.body, label %while.cond.preheader, !llvm.loop !4
 
 while.cond.preheader:                             ; preds = %do.body
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next to i32
   %cmp428 = icmp slt i32 %2, %minwidth
   br i1 %cmp428, label %while.body.preheader, label %while.end
 

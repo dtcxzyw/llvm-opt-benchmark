@@ -357,7 +357,7 @@ _rebuild_mpi_layout.exit:                         ; preds = %38, %62
   %111 = call i64 @div(i32 noundef %103, i32 noundef 48) #15
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %111 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %111, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %112 = icmp sgt i32 %.sroa.3.0.extract.trunc.i.i, 0
   %113 = zext i1 %112 to i32
   %114 = add nsw i32 %113, %.sroa.01.0.extract.trunc.i.i
@@ -1845,7 +1845,7 @@ _lookup_cwd.exit:                                 ; preds = %97, %99
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_step_launch_wait_start(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @slurm_step_launch_wait_start(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.sockaddr_un, align 2
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
@@ -2032,7 +2032,7 @@ _connect_srun_cr.exit.thread.i:                   ; preds = %98, %80, %75
 _connect_srun_cr.exit.i:                          ; preds = %88
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %2)
   %102 = getelementptr inbounds i8, ptr %0, i64 4
-  %103 = call i64 @write(i32 noundef %78, ptr noundef nonnull %102, i64 noundef 4) #14
+  %103 = call i64 @write(i32 noundef %78, ptr noundef nonnull readonly %102, i64 noundef 4) #14
   %.not.i = icmp eq i64 %103, 4
   br i1 %.not.i, label %105, label %.sink.split.i
 
@@ -2196,7 +2196,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %39
 
 39:                                               ; preds = %33, %30
-  %40 = trunc i8 %.0127 to i1
+  %40 = trunc nuw i8 %.0127 to i1
   br i1 %40, label %53, label %41
 
 41:                                               ; preds = %39
@@ -2260,7 +2260,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %.loopexit
-  %75 = trunc i8 %.3 to i1
+  %75 = trunc nuw i8 %.3 to i1
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %74
@@ -2642,7 +2642,7 @@ define void @slurm_step_launch_fwd_signal(ptr nocapture noundef readonly %0, i32
   %53 = load ptr, ptr %25, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = trunc i64 %indvars.iv101 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv101 to i32
   %57 = tail call ptr @nodelist_nth_host(ptr noundef %55, i32 noundef %56) #14
   %58 = tail call i32 @hostlist_push_host(ptr noundef %18, ptr noundef %57) #14
   tail call void @free(ptr noundef %57) #14
@@ -4545,7 +4545,7 @@ define internal noalias noundef ptr @_check_io_timeout(ptr noundef %0) #3 {
   br i1 %.not48, label %35, label %27
 
 27:                                               ; preds = %26
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   store i8 1, ptr %7, align 1
   %29 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %10) #14
   %.not49 = icmp eq i32 %29, 0

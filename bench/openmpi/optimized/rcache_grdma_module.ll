@@ -491,7 +491,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %98 = extractvalue { i128, i1 } %96, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %98 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %98, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -1280,7 +1280,7 @@ opal_update_counted_pointer.exit.i:               ; preds = %.lr.ph.i
   %24 = extractvalue { i128, i1 } %22, 0
   %.sroa.0.0.extract.trunc.i = trunc i128 %24 to i64
   %.sroa.4.0.extract.shift.i = lshr i128 %24, 64
-  %.sroa.4.0.extract.trunc.i = trunc i128 %.sroa.4.0.extract.shift.i to i64
+  %.sroa.4.0.extract.trunc.i = trunc nuw i128 %.sroa.4.0.extract.shift.i to i64
   store i64 %.sroa.4.0.extract.trunc.i, ptr %.sroa.4.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i)
@@ -1398,7 +1398,7 @@ dereg_mem.exit:                                   ; preds = %41, %opal_lifo_push
 declare i32 @mca_rcache_base_vma_iterate(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_rcache_grdma_check_cached(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mca_rcache_grdma_check_cached(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 92
@@ -1470,7 +1470,7 @@ declare i32 @mca_rcache_base_vma_insert(ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @mca_rcache_base_vma_find(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gc_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @gc_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   %4 = load volatile i32, ptr %3, align 4
   %5 = and i32 %4, 128

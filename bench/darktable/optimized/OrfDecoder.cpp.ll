@@ -1775,7 +1775,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %78 = getelementptr inbounds i8, ptr %68, i64 48
   %79 = load i32, ptr %78, align 8, !tbaa !142, !noalias !80
   %80 = ashr i32 %79, 1
-  %81 = mul nsw i32 %80, %77
+  %81 = mul nuw nsw i32 %80, %77
   %82 = icmp sgt i32 %75, -1
   tail call void @llvm.assume(i1 %82)
   %83 = icmp sgt i32 %77, -1
@@ -1920,7 +1920,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %167 = lshr i64 %165, 52
   %168 = add nsw i32 %166, -12
   %169 = shl i64 %165, 12
-  %170 = trunc i64 %167 to i16
+  %170 = trunc nuw nsw i64 %167 to i16
   %171 = and i64 %130, 2147483648
   %172 = icmp eq i64 %171, 0
   tail call void @llvm.assume(i1 %172)
@@ -2018,7 +2018,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
   %232 = lshr i64 %230, 52
   %233 = add nsw i32 %231, -12
   %234 = shl i64 %230, 12
-  %235 = trunc i64 %232 to i16
+  %235 = trunc nuw nsw i64 %232 to i16
   %236 = and i64 %195, 2147483648
   %237 = icmp eq i64 %236, 0
   tail call void @llvm.assume(i1 %237)
@@ -2576,13 +2576,13 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
   %197 = icmp ne i32 %189, 0
   %198 = xor i1 %196, %197
   call void @llvm.assume(i1 %198)
-  %199 = mul nsw i32 %192, %189
+  %199 = mul nuw nsw i32 %192, %189
   %200 = icmp eq i32 %183, %199
   call void @llvm.assume(i1 %200)
   %201 = icmp eq i32 %189, 1
   %202 = icmp eq i32 %192, %186
   %203 = or i1 %201, %202
-  %204 = mul nsw i32 %189, %186
+  %204 = mul nuw nsw i32 %189, %186
   call void @llvm.assume(i1 %203)
   %205 = getelementptr inbounds i8, ptr %176, i64 64
   %206 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %205, i32 noundef 0, i32 noundef 0)

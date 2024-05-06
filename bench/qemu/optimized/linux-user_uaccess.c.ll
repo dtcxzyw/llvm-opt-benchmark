@@ -79,7 +79,7 @@ lock_user.exit.i:                                 ; preds = %access_ok_untagged.
 
 if.end.i:                                         ; preds = %lock_user.exit.i
   %3 = inttoptr i64 %add.i.i.i to ptr
-  %conv.i = trunc i64 %sub.i to i32
+  %conv.i = trunc nuw nsw i64 %sub.i to i32
   %call1.i = tail call i32 @qemu_strnlen(ptr noundef nonnull %3, i32 noundef %conv.i) #3
   %conv2.i = sext i32 %call1.i to i64
   %add.i = add i64 %guest_addr.0.i, %conv2.i
@@ -122,7 +122,7 @@ return:                                           ; preds = %for.cond.i, %access
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @target_strlen(i64 noundef %guest_addr1) local_unnamed_addr #0 {
+define dso_local range(i64 -14, 2147483648) i64 @target_strlen(i64 noundef %guest_addr1) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -154,7 +154,7 @@ lock_user.exit:                                   ; preds = %access_ok_untagged.
 
 if.end:                                           ; preds = %lock_user.exit
   %3 = inttoptr i64 %add.i.i to ptr
-  %conv = trunc i64 %sub to i32
+  %conv = trunc nuw nsw i64 %sub to i32
   %call1 = tail call i32 @qemu_strnlen(ptr noundef nonnull %3, i32 noundef %conv) #3
   %conv2 = sext i32 %call1 to i64
   %add = add i64 %guest_addr.0, %conv2
@@ -176,7 +176,7 @@ return:                                           ; preds = %for.cond, %access_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @copy_from_user(ptr nocapture noundef writeonly %hptr, i64 noundef %gaddr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -14, 1) i32 @copy_from_user(ptr nocapture noundef writeonly %hptr, i64 noundef %gaddr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq i64 %len, 0
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
@@ -224,7 +224,7 @@ if.end:                                           ; preds = %cond.true.i.i, %con
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @copy_to_user(i64 noundef %gaddr, ptr nocapture noundef readonly %hptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -14, 1) i32 @copy_to_user(i64 noundef %gaddr, ptr nocapture noundef readonly %hptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq i64 %len, 0
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i

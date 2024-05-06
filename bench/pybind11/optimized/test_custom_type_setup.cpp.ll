@@ -1136,7 +1136,7 @@ _ZN8pybind1117custom_type_setupC2ESt8functionIFvP15_heaptypeobjectEE.exit:
   %13 = alloca %"class.std::function", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvP15_heaptypeobjectEZ32test_submodule_custom_type_setupRN8pybind117module_EE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16

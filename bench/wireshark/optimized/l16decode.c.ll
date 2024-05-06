@@ -36,7 +36,7 @@ define internal noundef i32 @codec_l16_get_channels(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @codec_l16_get_frequency(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr nocapture noundef readonly %0) #4 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   %spec.select = select i1 %.not, i32 44100, i32 %2

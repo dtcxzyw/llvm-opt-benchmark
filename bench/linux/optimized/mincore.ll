@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched151], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @__x64_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -53,7 +53,7 @@ define dso_local i64 @__x64_sys_mincore(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_mincore(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = inttoptr i64 %2 to ptr
   %5 = and i64 %0, 4095
   %6 = icmp eq i64 %5, 0
@@ -233,7 +233,7 @@ define internal fastcc i64 @__se_sys_mincore(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @__ia32_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -362,7 +362,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 
 50:                                               ; preds = %49, %45
   %51 = lshr exact i64 %47, 3
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = getelementptr inbounds i8, ptr %43, i64 52
   %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, ptr elementtype(i32) %53) #7, !srcloc !18
   %55 = icmp ult i8 %54, 2
@@ -376,7 +376,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 
 59:                                               ; preds = %57
   %60 = lshr i64 %26, 59
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw nsw i64 %60 to i32
   %62 = icmp ult i32 %61, 28
   br i1 %62, label %63, label %__mincore_unmapped_range.exit
 
@@ -404,7 +404,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 
 78:                                               ; preds = %77, %73
   %79 = lshr exact i64 %75, 3
-  %80 = trunc i64 %79 to i8
+  %80 = trunc nuw nsw i64 %79 to i8
   %81 = getelementptr inbounds i8, ptr %71, i64 52
   %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #7, !srcloc !18
   %83 = icmp ult i8 %82, 2
@@ -496,7 +496,7 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
 
 38:                                               ; preds = %37, %33
   %39 = lshr exact i64 %35, 3
-  %40 = trunc i64 %39 to i8
+  %40 = trunc nuw nsw i64 %39 to i8
   %41 = getelementptr inbounds i8, ptr %31, i64 52
   %42 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41, ptr elementtype(i32) %41) #7, !srcloc !18
   %43 = icmp ult i8 %42, 2

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i64 @exr_compress_max_buffer_size(i64 noundef %in_bytes) local_unnamed_addr #0 {
+define range(i64 9, 0) i64 @exr_compress_max_buffer_size(i64 noundef %in_bytes) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @libdeflate_zlib_compress_bound(ptr noundef null, i64 noundef %in_bytes) #3
   %cmp = icmp ugt i64 %call, -10
@@ -29,7 +29,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i64 @libdeflate_zlib_compress_bound(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exr_compress_buffer(ptr noundef readonly %ctxt, i32 noundef %level, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef writeonly %actual_out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly %ctxt, i32 noundef %level, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef writeonly %actual_out) local_unnamed_addr #0 {
 entry:
   %level.addr = alloca i32, align 4
   store i32 %level, ptr %level.addr, align 4
@@ -100,7 +100,7 @@ declare i64 @libdeflate_zlib_compress(ptr noundef, ptr noundef, i64 noundef, ptr
 declare void @libdeflate_free_compressor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_uncompress_buffer(ptr noundef readonly %ctxt, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef %actual_out) local_unnamed_addr #0 {
+define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly %ctxt, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef %actual_out) local_unnamed_addr #0 {
 entry:
   %actual_in_bytes = alloca i64, align 8
   %tobool.not = icmp eq ptr %ctxt, null

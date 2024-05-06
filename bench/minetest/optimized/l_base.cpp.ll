@@ -97,7 +97,7 @@ $_ZTV13BaseException = comdat any
 @.str.22 = private unnamed_addr constant [30 x i8] c"Call to deprecated function '\00", align 1
 @.str.23 = private unnamed_addr constant [9 x i8] c"', use '\00", align 1
 @.str.24 = private unnamed_addr constant [10 x i8] c"' instead\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.25 = private unnamed_addr constant [5 x i8] c" at \00", align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS8LuaError = linkonce_odr dso_local constant [10 x i8] c"8LuaError\00", comdat, align 1
@@ -845,7 +845,7 @@ if.then.i.i127:                                   ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %18 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %18 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %18, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

@@ -2016,7 +2016,7 @@ define dso_local i32 @iomap_file_buffered_write_punch_delalloc(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iomap_file_unshare(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #15
@@ -2200,7 +2200,7 @@ define dso_local i32 @iomap_file_unshare(ptr noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iomap_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #15
@@ -2452,7 +2452,7 @@ define dso_local i32 @iomap_zero_range(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 142
   %6 = load i8, ptr %5, align 2
   %7 = zext nneg i8 %6 to i32
@@ -2475,7 +2475,7 @@ define dso_local i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iomap_page_mkwrite(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 1, 513) i32 @iomap_page_mkwrite(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #15
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3341,7 +3341,7 @@ define dso_local void @iomap_sort_ioends(ptr noundef %0) #0 align 16 {
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @iomap_ioend_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
+define internal range(i32 -1, 2) i32 @iomap_ioend_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -4312,7 +4312,7 @@ declare i64 @llvm.read_register.i64(metadata) #8
 declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @iomap_read_inline_data(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @iomap_read_inline_data(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0

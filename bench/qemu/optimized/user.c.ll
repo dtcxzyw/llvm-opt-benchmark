@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.CPU_GET_CLASS = private unnamed_addr constant [14 x i8] c"CPU_GET_CLASS\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdb_get_char() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @gdb_get_char() local_unnamed_addr #0 {
 entry:
   %ch = alloca i8, align 1
   br label %for.cond
@@ -442,7 +442,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @gdbserver_start(ptr noundef %port_or_path) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @gdbserver_start(ptr noundef %port_or_path) local_unnamed_addr #0 {
 entry:
   %sockaddr.i16 = alloca %struct.sockaddr_in, align 4
   %len.i = alloca i32, align 4

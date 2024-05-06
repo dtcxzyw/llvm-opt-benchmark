@@ -49,17 +49,17 @@ define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr nocapture 
 .preheader26:                                     ; preds = %2, %21
   %.not42 = phi i1 [ true, %2 ], [ false, %21 ]
   %indvars.iv40 = phi i64 [ 0, %2 ], [ 1, %21 ]
-  %4 = trunc i64 %indvars.iv40 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv40 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader26, %20
   %indvars.iv36 = phi i64 [ 0, %.preheader26 ], [ %indvars.iv.next37, %20 ]
-  %5 = trunc i64 %indvars.iv36 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv36 to i32
   br label %6
 
 6:                                                ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = tail call zeroext i1 @pgstat_tracks_io_op(i32 noundef %1, i32 noundef %4, i32 noundef %5, i32 noundef %7)
   br i1 %8, label %9, label %16
 

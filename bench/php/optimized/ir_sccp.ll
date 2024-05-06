@@ -75,7 +75,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit929:                                     ; preds = %34
   %40 = shl i32 %.0573, 6
-  %41 = tail call i64 @llvm.cttz.i64(i64 %35, i1 true), !range !4
+  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
   %42 = trunc nuw nsw i64 %41 to i32
   %43 = or disjoint i32 %40, %42
   %44 = add i64 %35, -1
@@ -892,12 +892,12 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph872.preheader:                              ; preds = %455
   %459 = lshr i32 %453, 2
   %wide.trip.count = zext nneg i32 %459 to i64
-  %invariant.gep = getelementptr %struct._ir_insn, ptr %invariant.gep.i, i64 %51
+  %invariant.gep = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep.i, i64 %51
   br label %.lr.ph872
 
 .lr.ph872:                                        ; preds = %.lr.ph872.preheader, %.lr.ph872
   %indvars.iv = phi i64 [ 0, %.lr.ph872.preheader ], [ %indvars.iv.next, %.lr.ph872 ]
-  %gep1082 = getelementptr %struct._ir_insn, ptr %invariant.gep, i64 %indvars.iv
+  %gep1082 = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep, i64 %indvars.iv
   store i32 106, ptr %gep1082, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1335,12 +1335,12 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
 .lr.ph890.preheader:                              ; preds = %679
   %684 = lshr i32 %682, 2
   %wide.trip.count990 = zext nneg i32 %684 to i64
-  %invariant.gep1083 = getelementptr %struct._ir_insn, ptr %invariant.gep.i, i64 %51
+  %invariant.gep1083 = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep.i, i64 %51
   br label %.lr.ph890
 
 .lr.ph890:                                        ; preds = %.lr.ph890.preheader, %.lr.ph890
   %indvars.iv987 = phi i64 [ 0, %.lr.ph890.preheader ], [ %indvars.iv.next988, %.lr.ph890 ]
-  %gep = getelementptr %struct._ir_insn, ptr %invariant.gep1083, i64 %indvars.iv987
+  %gep = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep1083, i64 %indvars.iv987
   store i32 106, ptr %gep, align 8
   %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 1
   %exitcond991.not = icmp eq i64 %indvars.iv.next988, %wide.trip.count990
@@ -1947,7 +1947,7 @@ ir_sccp_remove_insn.exit:                         ; preds = %853, %962, %965, %.
 
 .loopexit920:                                     ; preds = %992
   %998 = shl i32 %.0578, 6
-  %999 = call i64 @llvm.cttz.i64(i64 %993, i1 true), !range !4
+  %999 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %993, i1 true)
   %1000 = trunc nuw nsw i64 %999 to i32
   %1001 = or disjoint i32 %998, %1000
   %1002 = add i64 %993, -1
@@ -2380,7 +2380,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
 
 1206:                                             ; preds = %1199
   %1207 = shl i32 %.0587, 6
-  %1208 = call i64 @llvm.cttz.i64(i64 %1200, i1 true), !range !4
+  %1208 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1200, i1 true)
   %1209 = trunc nuw nsw i64 %1208 to i32
   %1210 = or disjoint i32 %1207, %1209
   %1211 = add i64 %1200, -1
@@ -4099,4 +4099,3 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}

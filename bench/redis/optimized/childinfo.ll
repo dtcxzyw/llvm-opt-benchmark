@@ -256,7 +256,7 @@ if.end17:                                         ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @readChildInfo(ptr nocapture noundef writeonly %information_type, ptr nocapture noundef writeonly %cow, ptr nocapture noundef writeonly %cow_updated, ptr nocapture noundef writeonly %keys, ptr nocapture noundef writeonly %progress) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @readChildInfo(ptr nocapture noundef writeonly %information_type, ptr nocapture noundef writeonly %cow, ptr nocapture noundef writeonly %cow_updated, ptr nocapture noundef writeonly %keys, ptr nocapture noundef writeonly %progress) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 247), align 4
   %cmp = icmp eq i32 %0, 40

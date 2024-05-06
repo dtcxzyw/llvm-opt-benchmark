@@ -47,7 +47,7 @@ define internal noundef i32 @dlopen_component_query(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dlopen_component_register() #1 {
+define internal range(i32 -2147483648, 1) i32 @dlopen_component_register() #1 {
   store ptr @.str.1, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i64 0, i32 1), align 8
   %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_dl_dlopen_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i64 0, i32 1)) #4
   %2 = icmp slt i32 %1, 0

@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [9 x i8] c"cfb_buf2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_idea_ecb) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_idea_cbc) #2

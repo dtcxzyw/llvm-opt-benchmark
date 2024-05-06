@@ -139,7 +139,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %exitcond349.not, label %70, label %.preheader, !llvm.loop !6
 
 70:                                               ; preds = %.preheader
-  %71 = mul nsw i32 %38, 3
+  %71 = mul nuw nsw i32 %38, 3
   %72 = sext i32 %42 to i64
   %73 = getelementptr inbounds i32, ptr %28, i64 %72
   %74 = load i32, ptr %73, align 4

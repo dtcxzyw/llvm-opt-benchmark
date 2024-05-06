@@ -2282,7 +2282,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %23 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !11
   %div.i.i.i = udiv i64 %sub.i.i.i, %23
-  %mul.i.i.i.i.i = mul nsw i64 %.sroa.speculated130, 1000000
+  %mul.i.i.i.i.i = mul nuw nsw i64 %.sroa.speculated130, 1000000
   %add.i.i = add nsw i64 %call.i57, %mul.i.i.i.i.i
   store ptr %this, ptr %wheel_.i, align 8, !tbaa !79
   %expiration_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -2325,7 +2325,7 @@ if.then.i:                                        ; preds = %if.end
   %28 = load i64, ptr %27, align 8, !tbaa !7
   %or.i.i.i = or i64 %28, %shl.i.i.i
   store i64 %or.i.i.i, ptr %27, align 8, !tbaa !7
-  %conv.i = trunc i64 %and.i to i32
+  %conv.i = trunc nuw nsw i64 %and.i to i32
   %bucket_.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv.i, ptr %bucket_.i, align 8, !tbaa !74
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
@@ -2346,7 +2346,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %30 = load i64, ptr %29, align 8, !tbaa !7
   %or.i.i89.i = or i64 %30, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %29, align 8, !tbaa !7
-  %conv24.i = trunc i64 %and15.i to i32
+  %conv24.i = trunc nuw nsw i64 %and15.i to i32
   %bucket_25.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !74
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
@@ -2614,7 +2614,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %0, align 8, !tbaa !7
   %or.i.i = or i64 %1, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8, !tbaa !7
-  %conv = trunc i64 %and to i32
+  %conv = trunc nuw nsw i64 %and to i32
   %bucket_ = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv, ptr %bucket_, align 8, !tbaa !74
   br label %if.end52
@@ -2635,7 +2635,7 @@ if.then12:                                        ; preds = %if.else
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %or.i.i89 = or i64 %3, %shl.i.i88
   store i64 %or.i.i89, ptr %2, align 8, !tbaa !7
-  %conv24 = trunc i64 %and15 to i32
+  %conv24 = trunc nuw nsw i64 %and15 to i32
   %bucket_25 = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24, ptr %bucket_25, align 8, !tbaa !74
   br label %if.end52
@@ -3134,7 +3134,7 @@ while.body.lr.ph:                                 ; preds = %_ZN5boost9intrusive
   %rem.i.i.i.i.i = and i64 %div.i.i.i, 63
   %11 = getelementptr i64, ptr %bitmap_.i, i64 %div.i.i.i.i91.zext.i
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
-  %conv.i = trunc i64 %and.i to i32
+  %conv.i = trunc nuw nsw i64 %and.i to i32
   br label %while.body
 
 while.body:                                       ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %while.body.lr.ph
@@ -3189,7 +3189,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %or.i.i89.i = or i64 %19, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %18, align 8, !tbaa !7
-  %conv24.i = trunc i64 %and15.i to i32
+  %conv24.i = trunc nuw nsw i64 %and15.i to i32
   %bucket_25.i = getelementptr inbounds i8, ptr %12, i64 32
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !74
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
@@ -4893,7 +4893,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %23 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !59
   %div.i.i.i = udiv i64 %sub.i.i.i, %23
-  %mul.i.i.i.i.i = mul nsw i64 %.sroa.speculated130, 1000
+  %mul.i.i.i.i.i = mul nuw nsw i64 %.sroa.speculated130, 1000
   %add.i.i = add nsw i64 %call.i57, %mul.i.i.i.i.i
   store ptr %this, ptr %wheel_.i, align 8, !tbaa !128
   %expiration_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -4936,7 +4936,7 @@ if.then.i:                                        ; preds = %if.end
   %28 = load i64, ptr %27, align 8, !tbaa !7
   %or.i.i.i = or i64 %28, %shl.i.i.i
   store i64 %or.i.i.i, ptr %27, align 8, !tbaa !7
-  %conv.i = trunc i64 %and.i to i32
+  %conv.i = trunc nuw nsw i64 %and.i to i32
   %bucket_.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv.i, ptr %bucket_.i, align 8, !tbaa !126
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
@@ -4957,7 +4957,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %30 = load i64, ptr %29, align 8, !tbaa !7
   %or.i.i89.i = or i64 %30, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %29, align 8, !tbaa !7
-  %conv24.i = trunc i64 %and15.i to i32
+  %conv24.i = trunc nuw nsw i64 %and15.i to i32
   %bucket_25.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !126
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
@@ -5223,7 +5223,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %0, align 8, !tbaa !7
   %or.i.i = or i64 %1, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8, !tbaa !7
-  %conv = trunc i64 %and to i32
+  %conv = trunc nuw nsw i64 %and to i32
   %bucket_ = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv, ptr %bucket_, align 8, !tbaa !126
   br label %if.end52
@@ -5244,7 +5244,7 @@ if.then12:                                        ; preds = %if.else
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %or.i.i89 = or i64 %3, %shl.i.i88
   store i64 %or.i.i89, ptr %2, align 8, !tbaa !7
-  %conv24 = trunc i64 %and15 to i32
+  %conv24 = trunc nuw nsw i64 %and15 to i32
   %bucket_25 = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24, ptr %bucket_25, align 8, !tbaa !126
   br label %if.end52
@@ -5671,7 +5671,7 @@ while.body.lr.ph:                                 ; preds = %_ZN5boost9intrusive
   %rem.i.i.i.i.i = and i64 %div.i.i.i, 63
   %11 = getelementptr i64, ptr %bitmap_.i, i64 %div.i.i.i.i91.zext.i
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
-  %conv.i = trunc i64 %and.i to i32
+  %conv.i = trunc nuw nsw i64 %and.i to i32
   br label %while.body
 
 while.body:                                       ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %while.body.lr.ph
@@ -5726,7 +5726,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %or.i.i89.i = or i64 %19, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %18, align 8, !tbaa !7
-  %conv24.i = trunc i64 %and15.i to i32
+  %conv24.i = trunc nuw nsw i64 %and15.i to i32
   %bucket_25.i = getelementptr inbounds i8, ptr %12, i64 32
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !126
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit

@@ -434,7 +434,7 @@ if.end23:                                         ; preds = %if.end21, %entry
   br i1 %cmp28.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %if.end23
-  %conv30 = trunc i32 %or27 to i16
+  %conv30 = trunc nuw i32 %or27 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i40)
   store i16 %conv30, ptr %srcChar.addr.i40, align 2
   %call.i41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %dataString, ptr noundef nonnull %srcChar.addr.i40, i32 noundef 0, i32 noundef 1)
@@ -569,7 +569,7 @@ ehcleanup:                                        ; preds = %lpad9.body, %lpad
 declare void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(888) %this, i32 noundef %c, ptr nocapture noundef nonnull align 8 dereferenceable(64) %norm) local_unnamed_addr #0 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(888) %this, i32 noundef %c, ptr nocapture noundef nonnull align 8 dereferenceable(64) %norm) local_unnamed_addr #0 align 2 {
 entry:
   %mappingCP = getelementptr inbounds i8, ptr %norm, i64 16
   %0 = load i32, ptr %mappingCP, align 8

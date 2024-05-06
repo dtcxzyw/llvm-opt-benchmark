@@ -644,7 +644,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
   %.040 = phi ptr [ %.0.i47, %44 ], [ %54, %53 ], [ %29, %50 ]
   %55 = zext i32 %14 to i64
   %56 = shl nuw nsw i64 %55, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.040, ptr align 1 %.0.i, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.040, ptr readonly align 1 %.0.i, i64 %56, i1 false)
   %wide.trip.count = zext i32 %14 to i64
   br label %57
 
@@ -1520,7 +1520,7 @@ define dso_local i64 @rb_inspect(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.0) #23
+  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0) #23
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
@@ -2663,7 +2663,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %38) #23
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %38) #23
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %conv_method_index.exit.i, label %47
 
@@ -3012,7 +3012,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %39) #23
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %39) #23
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %conv_method_index.exit.i, label %48
 
@@ -3286,7 +3286,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %27) #23
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %27) #23
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %conv_method_index.exit.i, label %36
 
@@ -4275,7 +4275,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %24
 
 29:                                               ; preds = %rbimpl_size_mul_or_raise.exit.thread, %rbimpl_size_mul_or_raise.exit
   %30 = phi ptr [ %27, %rbimpl_size_mul_or_raise.exit.thread ], [ %28, %rbimpl_size_mul_or_raise.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sroa.2.0.i36, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %30, ptr nonnull readonly align 1 %.sroa.2.0.i36, i64 %13, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %29
@@ -6535,7 +6535,7 @@ RB_SYMBOL_P.exit.thread142:                       ; preds = %17, %RB_SYMBOL_P.ex
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread142
-  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %39) #23
+  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #23
   %.not3.i = icmp eq i32 %41, 0
   br i1 %.not3.i, label %43, label %rb_enc_asciicompat.exit.thread
 
@@ -6850,7 +6850,7 @@ RB_SYMBOL_P.exit.thread148:                       ; preds = %18, %RB_SYMBOL_P.ex
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread148
-  %42 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %40) #23
+  %42 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %40) #23
   %.not3.i = icmp eq i32 %42, 0
   br i1 %.not3.i, label %44, label %rb_enc_asciicompat.exit.thread
 
@@ -7233,7 +7233,7 @@ RB_SYMBOL_P.exit.thread138:                       ; preds = %17, %RB_SYMBOL_P.ex
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread138
-  %38 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %36) #23
+  %38 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %36) #23
   %.not3.i = icmp eq i32 %38, 0
   br i1 %.not3.i, label %40, label %rb_enc_asciicompat.exit.thread
 

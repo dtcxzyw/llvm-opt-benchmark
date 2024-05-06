@@ -242,7 +242,7 @@ Vec_AttEntry.exit:                                ; preds = %41, %38, %Vec_AttGr
 declare ptr @Mem_FlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NodeStrashBlifMv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeStrashBlifMv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 48
   %.val146 = load ptr, ptr %3, align 8
@@ -265,12 +265,12 @@ define noundef i32 @Abc_NodeStrashBlifMv(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not.i, label %Abc_ObjMvVarNum.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %8)
+  %14 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %8)
   %.not3.i = icmp eq ptr %14, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %8)
+  %16 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %8)
   %17 = load i32, ptr %16, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -560,12 +560,12 @@ Abc_StringGetNumber.exit168:                      ; preds = %.lr.ph.i164, %.lr.p
   br i1 %.not.i180, label %Abc_ObjMvVarNum.exit182, label %137
 
 137:                                              ; preds = %132
-  %138 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %110)
+  %138 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %110)
   %.not3.i181 = icmp eq ptr %138, null
   br i1 %.not3.i181, label %Abc_ObjMvVarNum.exit182, label %139
 
 139:                                              ; preds = %137
-  %140 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %110)
+  %140 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %110)
   br label %Abc_ObjMvVarNum.exit182
 
 Abc_ObjMvVarNum.exit182:                          ; preds = %132, %137, %139
@@ -678,12 +678,12 @@ Abc_StringGetNumber.exit198:                      ; preds = %.lr.ph.i194, %170
   br i1 %.not.i202, label %Abc_ObjMvVarNum.exit204, label %194
 
 194:                                              ; preds = %Abc_StringGetNumber.exit198
-  %195 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %189)
+  %195 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %189)
   %.not3.i203 = icmp eq ptr %195, null
   br i1 %.not3.i203, label %Abc_ObjMvVarNum.exit204, label %196
 
 196:                                              ; preds = %194
-  %197 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %189)
+  %197 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %189)
   br label %Abc_ObjMvVarNum.exit204
 
 Abc_ObjMvVarNum.exit204:                          ; preds = %Abc_StringGetNumber.exit198, %194, %196
@@ -808,12 +808,12 @@ Abc_StringGetNumber.exit220:                      ; preds = %.lr.ph.i216, %232
   br i1 %.not.i224, label %.lr.ph312.preheader, label %256
 
 256:                                              ; preds = %Abc_StringGetNumber.exit220
-  %257 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %251)
+  %257 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %251)
   %.not3.i225 = icmp eq ptr %257, null
   br i1 %.not3.i225, label %.lr.ph312.preheader, label %Abc_ObjMvVarNum.exit226
 
 Abc_ObjMvVarNum.exit226:                          ; preds = %256
-  %258 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %251)
+  %258 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %251)
   %259 = load i32, ptr %258, align 4
   %260 = icmp sgt i32 %259, 0
   br i1 %260, label %.lr.ph312.preheader, label %.loopexit266
@@ -1062,12 +1062,12 @@ define ptr @Abc_NtkStrashBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_ObjMvVarNum.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %13)
+  %24 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %13)
   %.not3.i = icmp eq ptr %24, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %13)
+  %26 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %13)
   %27 = load i32, ptr %26, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -1226,12 +1226,12 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Base2Log.exit, 
   br i1 %.not.i500, label %Abc_ObjMvVarNum.exit502, label %91
 
 91:                                               ; preds = %80
-  %92 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %86)
+  %92 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %86)
   %.not3.i501 = icmp eq ptr %92, null
   br i1 %.not3.i501, label %Abc_ObjMvVarNum.exit502, label %93
 
 93:                                               ; preds = %91
-  %94 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %86)
+  %94 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %86)
   %95 = load i32, ptr %94, align 4
   br label %Abc_ObjMvVarNum.exit502
 
@@ -1301,7 +1301,7 @@ Abc_Base2Log.exit509:                             ; preds = %.lr.ph.i504, %Abc_O
   %111 = call ptr @Abc_AigConst1(ptr noundef %42) #14
   %112 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv723
   store ptr %111, ptr %112, align 8
-  %113 = trunc i64 %indvars.iv723 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv723 to i32
   br label %114
 
 114:                                              ; preds = %.lr.ph602.us, %114
@@ -1310,7 +1310,7 @@ Abc_Base2Log.exit509:                             ; preds = %.lr.ph.i504, %Abc_O
   %116 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv718
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %117 to i64
-  %119 = trunc i64 %indvars.iv718 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv718 to i32
   %120 = shl nuw i32 1, %119
   %121 = and i32 %120, %113
   %122 = icmp eq i32 %121, 0
@@ -1335,7 +1335,7 @@ Abc_Base2Log.exit509:                             ; preds = %.lr.ph.i504, %Abc_O
   %129 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv705
   store ptr %128, ptr %129, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %130 = trunc i64 %indvars.iv705 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv705 to i32
   %131 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %130) #14
   %132 = call ptr @Abc_ObjName(ptr noundef nonnull %86) #14
   %133 = call ptr @Abc_ObjAssignName(ptr noundef %128, ptr noundef %132, ptr noundef nonnull %5) #14
@@ -1429,12 +1429,12 @@ Abc_Base2Log.exit509:                             ; preds = %.lr.ph.i504, %Abc_O
   br i1 %.not.i513, label %Abc_ObjMvVarNum.exit515, label %169
 
 169:                                              ; preds = %158
-  %170 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %164)
+  %170 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %164)
   %.not3.i514 = icmp eq ptr %170, null
   br i1 %.not3.i514, label %Abc_ObjMvVarNum.exit515, label %171
 
 171:                                              ; preds = %169
-  %172 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %164)
+  %172 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %164)
   %173 = load i32, ptr %172, align 4
   br label %Abc_ObjMvVarNum.exit515
 
@@ -1506,7 +1506,7 @@ Abc_Base2Log.exit522:                             ; preds = %.lr.ph.i517, %Abc_O
   %190 = call ptr @Abc_AigConst1(ptr noundef %42) #14
   %191 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv751
   store ptr %190, ptr %191, align 8
-  %192 = trunc i64 %indvars.iv751 to i32
+  %192 = trunc nuw nsw i64 %indvars.iv751 to i32
   br label %193
 
 193:                                              ; preds = %.lr.ph618.us, %193
@@ -1515,7 +1515,7 @@ Abc_Base2Log.exit522:                             ; preds = %.lr.ph.i517, %Abc_O
   %195 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv746
   %196 = load ptr, ptr %195, align 8
   %197 = ptrtoint ptr %196 to i64
-  %198 = trunc i64 %indvars.iv746 to i32
+  %198 = trunc nuw nsw i64 %indvars.iv746 to i32
   %199 = shl nuw i32 1, %198
   %200 = and i32 %199, %192
   %201 = icmp eq i32 %200, 0
@@ -1540,7 +1540,7 @@ Abc_Base2Log.exit522:                             ; preds = %.lr.ph.i517, %Abc_O
   %208 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv731
   store ptr %207, ptr %208, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %209 = trunc i64 %indvars.iv731 to i32
+  %209 = trunc nuw nsw i64 %indvars.iv731 to i32
   %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %209) #14
   %211 = call ptr @Abc_ObjName(ptr noundef nonnull %164) #14
   %212 = call ptr @Abc_ObjAssignName(ptr noundef %207, ptr noundef %211, ptr noundef nonnull %4) #14
@@ -1600,7 +1600,7 @@ Abc_Base2Log.exit522:                             ; preds = %.lr.ph.i517, %Abc_O
   %.val452 = load ptr, ptr %151, align 8
   %230 = getelementptr inbounds ptr, ptr %.val452, i64 %indvars.iv759
   %231 = load ptr, ptr %230, align 8
-  %232 = call i32 @Abc_NodeStrashBlifMv(ptr noundef %42, ptr noundef %231), !range !27
+  %232 = call i32 @Abc_NodeStrashBlifMv(ptr noundef %42, ptr noundef %231)
   %.not444 = icmp eq i32 %232, 0
   br i1 %.not444, label %233, label %.critedge4
 
@@ -1677,7 +1677,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %236
   br i1 %.not.i528, label %Abc_ObjMvVarNum.exit530.thread, label %262
 
 262:                                              ; preds = %251
-  %263 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %257)
+  %263 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %257)
   %.not3.i529 = icmp eq ptr %263, null
   br i1 %.not3.i529, label %Abc_ObjMvVarNum.exit530.thread, label %Abc_ObjMvVarNum.exit530
 
@@ -1687,7 +1687,7 @@ Abc_ObjMvVarNum.exit530.thread:                   ; preds = %262, %251
   br label %.lr.ph.preheader.i531
 
 Abc_ObjMvVarNum.exit530:                          ; preds = %262
-  %266 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %257)
+  %266 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %257)
   %267 = load i32, ptr %266, align 4
   %268 = getelementptr inbounds i8, ptr %257, i64 64
   %269 = load ptr, ptr %268, align 8
@@ -1735,7 +1735,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
 286:                                              ; preds = %.lr.ph638, %294
   %indvars.iv762 = phi i64 [ 0, %.lr.ph638 ], [ %indvars.iv.next763, %294 ]
   %.0424636 = phi ptr [ %284, %.lr.ph638 ], [ %.1425, %294 ]
-  %287 = trunc i64 %indvars.iv762 to i32
+  %287 = trunc nuw nsw i64 %indvars.iv762 to i32
   %288 = and i32 %285, %287
   %.not443 = icmp eq i32 %288, 0
   br i1 %.not443, label %294, label %289
@@ -1751,7 +1751,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
   %.1425 = phi ptr [ %293, %289 ], [ %.0424636, %286 ]
   %indvars.iv.next763 = add nuw nsw i64 %indvars.iv762, 1
   %exitcond766.not = icmp eq i64 %indvars.iv.next763, %wide.trip.count765
-  br i1 %exitcond766.not, label %._crit_edge, label %286, !llvm.loop !28
+  br i1 %exitcond766.not, label %._crit_edge, label %286, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %294, %280
   %.0424.lcssa = phi ptr [ %284, %280 ], [ %.1425, %294 ]
@@ -1775,7 +1775,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
 303:                                              ; preds = %296, %299
   %304 = add nuw nsw i32 %.4414640, 1
   %exitcond767.not = icmp eq i32 %304, %.09.i536823
-  br i1 %exitcond767.not, label %.loopexit587, label %280, !llvm.loop !29
+  br i1 %exitcond767.not, label %.loopexit587, label %280, !llvm.loop !28
 
 .loopexit587:                                     ; preds = %303, %Abc_Base2Log.exit537, %245
   %indvars.iv.next769 = add nuw nsw i64 %indvars.iv768, 1
@@ -1784,7 +1784,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
   %.val476.val = load i32, ptr %305, align 4
   %306 = sext i32 %.val476.val to i64
   %307 = icmp slt i64 %indvars.iv.next769, %306
-  br i1 %307, label %245, label %.critedge16.preheader, !llvm.loop !30
+  br i1 %307, label %245, label %.critedge16.preheader, !llvm.loop !29
 
 308:                                              ; preds = %.lr.ph662, %.critedge16
   %indvars.iv777 = phi i64 [ 0, %.lr.ph662 ], [ %indvars.iv.next778, %.critedge16 ]
@@ -1822,7 +1822,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not.i541, label %Abc_ObjMvVarNum.exit543.thread, label %325
 
 325:                                              ; preds = %314
-  %326 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %320)
+  %326 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %320)
   %.not3.i542 = icmp eq ptr %326, null
   br i1 %.not3.i542, label %Abc_ObjMvVarNum.exit543.thread, label %Abc_ObjMvVarNum.exit543
 
@@ -1832,7 +1832,7 @@ Abc_ObjMvVarNum.exit543.thread:                   ; preds = %325, %314
   br label %.lr.ph.preheader.i544
 
 Abc_ObjMvVarNum.exit543:                          ; preds = %325
-  %329 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %320)
+  %329 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %320)
   %330 = load i32, ptr %329, align 4
   %331 = getelementptr inbounds i8, ptr %320, i64 64
   %332 = load ptr, ptr %331, align 8
@@ -1880,7 +1880,7 @@ Abc_Base2Log.exit550:                             ; preds = %Abc_ObjMvVarNum.exi
 349:                                              ; preds = %.lr.ph650, %357
   %indvars.iv771 = phi i64 [ 0, %.lr.ph650 ], [ %indvars.iv.next772, %357 ]
   %.2426647 = phi ptr [ %347, %.lr.ph650 ], [ %.3427, %357 ]
-  %350 = trunc i64 %indvars.iv771 to i32
+  %350 = trunc nuw nsw i64 %indvars.iv771 to i32
   %351 = and i32 %348, %350
   %.not441 = icmp eq i32 %351, 0
   br i1 %.not441, label %357, label %352
@@ -1896,7 +1896,7 @@ Abc_Base2Log.exit550:                             ; preds = %Abc_ObjMvVarNum.exi
   %.3427 = phi ptr [ %356, %352 ], [ %.2426647, %349 ]
   %indvars.iv.next772 = add nuw nsw i64 %indvars.iv771, 1
   %exitcond775.not = icmp eq i64 %indvars.iv.next772, %wide.trip.count774
-  br i1 %exitcond775.not, label %._crit_edge651, label %349, !llvm.loop !31
+  br i1 %exitcond775.not, label %._crit_edge651, label %349, !llvm.loop !30
 
 ._crit_edge651:                                   ; preds = %357, %343
   %.2426.lcssa = phi ptr [ %347, %343 ], [ %.3427, %357 ]
@@ -1920,7 +1920,7 @@ Abc_Base2Log.exit550:                             ; preds = %Abc_ObjMvVarNum.exi
 366:                                              ; preds = %362, %359
   %367 = add nuw nsw i32 %.5415653, 1
   %exitcond776.not = icmp eq i32 %367, %.09.i549825
-  br i1 %exitcond776.not, label %.critedge16, label %343, !llvm.loop !32
+  br i1 %exitcond776.not, label %.critedge16, label %343, !llvm.loop !31
 
 .critedge16:                                      ; preds = %366, %Abc_Base2Log.exit550, %308
   %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
@@ -1929,7 +1929,7 @@ Abc_Base2Log.exit550:                             ; preds = %Abc_ObjMvVarNum.exi
   %.val477.val = load i32, ptr %368, align 4
   %369 = sext i32 %.val477.val to i64
   %370 = icmp slt i64 %indvars.iv.next778, %369
-  br i1 %370, label %308, label %.critedge14, !llvm.loop !33
+  br i1 %370, label %308, label %.critedge14, !llvm.loop !32
 
 .critedge14:                                      ; preds = %.critedge16, %Vec_PtrFree.exit, %.critedge16.preheader
   %371 = getelementptr i8, ptr %0, i64 128
@@ -2056,7 +2056,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val489.val = load i32, ptr %424, align 4
   %425 = sext i32 %.val489.val to i64
   %426 = icmp slt i64 %indvars.iv.next781, %425
-  br i1 %426, label %.lr.ph667, label %.critedge20.preheader, !llvm.loop !34
+  br i1 %426, label %.lr.ph667, label %.critedge20.preheader, !llvm.loop !33
 
 .lr.ph672:                                        ; preds = %.critedge20.preheader, %.critedge20
   %indvars.iv783 = phi i64 [ %indvars.iv.next784, %.critedge20 ], [ 0, %.critedge20.preheader ]
@@ -2142,7 +2142,7 @@ Vec_PtrPush.exit558:                              ; preds = %.Vec_PtrGrow.exit11
   %.val490.val = load i32, ptr %461, align 4
   %462 = sext i32 %.val490.val to i64
   %463 = icmp slt i64 %indvars.iv.next784, %462
-  br i1 %463, label %.lr.ph672, label %.critedge22, !llvm.loop !35
+  br i1 %463, label %.lr.ph672, label %.critedge22, !llvm.loop !34
 
 .critedge22:                                      ; preds = %.critedge20, %Vec_PtrAlloc.exit, %.critedge20.preheader
   %.val490.lcssa = phi ptr [ %.val489, %.critedge20.preheader ], [ %.val489663, %Vec_PtrAlloc.exit ], [ %.val490, %.critedge20 ]
@@ -2272,7 +2272,7 @@ Vec_PtrPush.exit571:                              ; preds = %.Vec_PtrGrow.exit11
   %.val462.val = load i32, ptr %516, align 4
   %517 = sext i32 %.val462.val to i64
   %518 = icmp slt i64 %indvars.iv.next787, %517
-  br i1 %518, label %.lr.ph678, label %.critedge24.preheader, !llvm.loop !36
+  br i1 %518, label %.lr.ph678, label %.critedge24.preheader, !llvm.loop !35
 
 .lr.ph683:                                        ; preds = %.critedge24.preheader, %.critedge24
   %indvars.iv789 = phi i64 [ %indvars.iv.next790, %.critedge24 ], [ 0, %.critedge24.preheader ]
@@ -2357,7 +2357,7 @@ Vec_PtrPush.exit578:                              ; preds = %.Vec_PtrGrow.exit11
   %.val463.val = load i32, ptr %552, align 4
   %553 = sext i32 %.val463.val to i64
   %554 = icmp slt i64 %indvars.iv.next790, %553
-  br i1 %554, label %.lr.ph683, label %.critedge26, !llvm.loop !37
+  br i1 %554, label %.lr.ph683, label %.critedge26, !llvm.loop !36
 
 .critedge26:                                      ; preds = %.critedge24, %Vec_PtrAlloc.exit564, %.critedge24.preheader
   %.val463.lcssa = phi ptr [ %.val462, %.critedge24.preheader ], [ %468, %Vec_PtrAlloc.exit564 ], [ %.val463, %.critedge24 ]
@@ -2410,7 +2410,7 @@ Vec_PtrFree.exit580:                              ; preds = %.critedge26, %557
   call void @Abc_ObjAddFanin(ptr noundef %577, ptr noundef %561) #14
   %578 = add nuw nsw i32 %.4685, 1
   %exitcond792.not = icmp eq i32 %578, %.3398.lcssa624
-  br i1 %exitcond792.not, label %.loopexit, label %560, !llvm.loop !38
+  br i1 %exitcond792.not, label %.loopexit, label %560, !llvm.loop !37
 
 .loopexit:                                        ; preds = %560, %Vec_PtrFree.exit580, %.critedge14
   %.not435 = icmp eq ptr %40, null
@@ -2456,7 +2456,7 @@ Vec_PtrFree.exit580:                              ; preds = %.critedge26, %557
   %.val451 = load i32, ptr %595, align 4
   %596 = sext i32 %.val451 to i64
   %597 = icmp slt i64 %indvars.iv.next794, %596
-  br i1 %597, label %.lr.ph690, label %.critedge28, !llvm.loop !39
+  br i1 %597, label %.lr.ph690, label %.critedge28, !llvm.loop !38
 
 .critedge28:                                      ; preds = %593, %580
   %598 = getelementptr inbounds i8, ptr %42, i64 256
@@ -2559,7 +2559,7 @@ define ptr @Abc_NtkSkeletonBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %.val239.val = load i32, ptr %35, align 4
   %36 = sext i32 %.val239.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.critedge.preheader, !llvm.loop !40
+  br i1 %37, label %.lr.ph, label %.critedge.preheader, !llvm.loop !39
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %38 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2609,7 +2609,7 @@ define ptr @Abc_NtkSkeletonBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %.val241.val = load i32, ptr %60, align 4
   %61 = sext i32 %.val241.val to i64
   %62 = icmp slt i64 %indvars.iv.next313, %61
-  br i1 %62, label %.lr.ph287, label %.critedge2.preheader, !llvm.loop !41
+  br i1 %62, label %.lr.ph287, label %.critedge2.preheader, !llvm.loop !40
 
 .lr.ph290:                                        ; preds = %.critedge2.preheader, %.critedge2
   %63 = phi ptr [ %115, %.critedge2 ], [ %39, %.critedge2.preheader ]
@@ -2722,7 +2722,7 @@ define ptr @Abc_NtkSkeletonBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %.val206 = load i32, ptr %116, align 4
   %117 = sext i32 %.val206 to i64
   %118 = icmp slt i64 %indvars.iv.next316, %117
-  br i1 %118, label %.lr.ph290, label %.critedge4, !llvm.loop !42
+  br i1 %118, label %.lr.ph290, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %119 = getelementptr inbounds i8, ptr %0, i64 232
@@ -2828,12 +2828,12 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge4, %Vec_In
   br i1 %.not.i248, label %.lr.ph.preheader.i, label %161
 
 161:                                              ; preds = %147
-  %162 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %156)
+  %162 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %156)
   %.not3.i = icmp eq ptr %162, null
   br i1 %.not3.i, label %.lr.ph.preheader.i, label %Abc_ObjMvVarNum.exit
 
 Abc_ObjMvVarNum.exit:                             ; preds = %161
-  %163 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %156)
+  %163 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %156)
   %164 = load i32, ptr %163, align 4
   %165 = icmp ult i32 %164, 2
   br i1 %165, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
@@ -2877,7 +2877,7 @@ Abc_Base2Log.exit:                                ; preds = %Abc_ObjMvVarNum.exi
   tail call void @Abc_ObjAddFanin(ptr noundef %13, ptr noundef %179) #14
   %181 = add nuw nsw i32 %.0192291, 1
   %exitcond.not = icmp eq i32 %181, %.09.i341
-  br i1 %exitcond.not, label %._crit_edge, label %173, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %173, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %173, %Abc_Base2Log.exit
   %.val225 = load ptr, ptr %156, align 8
@@ -2899,7 +2899,7 @@ Abc_Base2Log.exit:                                ; preds = %Abc_ObjMvVarNum.exi
   %.val221.val = load i32, ptr %190, align 4
   %191 = sext i32 %.val221.val to i64
   %192 = icmp slt i64 %indvars.iv.next319, %191
-  br i1 %192, label %147, label %.critedge6.preheader, !llvm.loop !44
+  br i1 %192, label %147, label %.critedge6.preheader, !llvm.loop !43
 
 193:                                              ; preds = %.lr.ph305, %.critedge6
   %indvars.iv322 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next323, %.critedge6 ]
@@ -2957,12 +2957,12 @@ Abc_Base2Log.exit:                                ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not.i256, label %.lr.ph.preheader.i259, label %222
 
 222:                                              ; preds = %212
-  %223 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %202)
+  %223 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %202)
   %.not3.i257 = icmp eq ptr %223, null
   br i1 %.not3.i257, label %.lr.ph.preheader.i259, label %Abc_ObjMvVarNum.exit258
 
 Abc_ObjMvVarNum.exit258:                          ; preds = %222
-  %224 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %202)
+  %224 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %202)
   %225 = load i32, ptr %224, align 4
   %226 = icmp ult i32 %225, 2
   br i1 %226, label %Abc_Base2Log.exit265, label %.lr.ph.preheader.i259
@@ -3000,7 +3000,7 @@ Abc_Base2Log.exit265:                             ; preds = %.lr.ph.i260, %Abc_O
   tail call void @Abc_ObjAddFanin(ptr noundef %232, ptr noundef %238) #14
   %239 = add nuw nsw i32 %.1193298, 1
   %exitcond321.not = icmp eq i32 %239, %.09.i264
-  br i1 %exitcond321.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !45
+  br i1 %exitcond321.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !44
 
 ._crit_edge300:                                   ; preds = %.lr.ph299, %Abc_Base2Log.exit265
   %240 = getelementptr inbounds i8, ptr %202, i64 64
@@ -3015,7 +3015,7 @@ Abc_Base2Log.exit265:                             ; preds = %.lr.ph.i260, %Abc_O
   %.val227.val = load i32, ptr %242, align 4
   %243 = sext i32 %.val227.val to i64
   %244 = icmp slt i64 %indvars.iv.next323, %243
-  br i1 %244, label %193, label %.critedge10, !llvm.loop !46
+  br i1 %244, label %193, label %.critedge10, !llvm.loop !45
 
 .critedge10:                                      ; preds = %.critedge6, %.critedge6.preheader
   %.val245 = load i32, ptr %3, align 4
@@ -3112,12 +3112,12 @@ Abc_Base2Log.exit265:                             ; preds = %.lr.ph.i260, %Abc_O
   br i1 %.not.i272, label %Abc_ObjMvVarNum.exit274, label %289
 
 289:                                              ; preds = %284
-  %290 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %276)
+  %290 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %276)
   %.not3.i273 = icmp eq ptr %290, null
   br i1 %.not3.i273, label %Abc_ObjMvVarNum.exit274, label %291
 
 291:                                              ; preds = %289
-  %292 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %276)
+  %292 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %276)
   %293 = load i32, ptr %292, align 4
   br label %Abc_ObjMvVarNum.exit274
 
@@ -3134,7 +3134,7 @@ Abc_ObjMvVarNum.exit274:                          ; preds = %284, %289, %291
   %.val = load i32, ptr %297, align 4
   %298 = sext i32 %.val to i64
   %299 = icmp slt i64 %indvars.iv.next326, %298
-  br i1 %299, label %.lr.ph309, label %.critedge14, !llvm.loop !47
+  br i1 %299, label %.lr.ph309, label %.critedge14, !llvm.loop !46
 
 .critedge14:                                      ; preds = %295, %268, %245, %.critedge10
   %300 = tail call i32 @Abc_NtkCheck(ptr noundef %5) #14
@@ -3179,7 +3179,7 @@ define ptr @Abc_NtkInsertBlifMv(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 declare ptr @Abc_NtkFlattenLogicHierarchy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = tail call i32 @Abc_NtkToBdd(ptr noundef %0) #14
@@ -3269,7 +3269,7 @@ define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.05881, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %41, !llvm.loop !48
+  br label %41, !llvm.loop !47
 
 .critedge2:                                       ; preds = %41, %41
   %46 = getelementptr inbounds i8, ptr %.161, i64 1
@@ -3282,7 +3282,7 @@ define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0
   %50 = getelementptr inbounds i8, ptr %.05881, i64 %49
   %51 = load i8, ptr %50, align 1
   %.not66 = icmp eq i8 %51, 0
-  br i1 %.not66, label %._crit_edge, label %.preheader78, !llvm.loop !49
+  br i1 %.not66, label %._crit_edge, label %.preheader78, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.critedge2, %26
   %.060.lcssa = phi ptr [ %37, %26 ], [ %47, %.critedge2 ]
@@ -3314,7 +3314,7 @@ define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %.phi.trans.insert98 = getelementptr inbounds i8, ptr %.15984, i64 %indvars.iv.next93
   %.pre99 = load i8, ptr %.phi.trans.insert98, align 1
-  br label %55, !llvm.loop !50
+  br label %55, !llvm.loop !49
 
 .critedge4:                                       ; preds = %55, %55
   %60 = getelementptr inbounds i8, ptr %.3, i64 1
@@ -3327,7 +3327,7 @@ define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0
   %64 = getelementptr inbounds i8, ptr %.15984, i64 %63
   %65 = load i8, ptr %64, align 1
   %.not67 = icmp eq i8 %65, 0
-  br i1 %.not67, label %._crit_edge85, label %.preheader, !llvm.loop !51
+  br i1 %.not67, label %._crit_edge85, label %.preheader, !llvm.loop !50
 
 ._crit_edge85:                                    ; preds = %.critedge4, %._crit_edge
   %.2.lcssa = phi ptr [ %.060.lcssa, %._crit_edge ], [ %61, %.critedge4 ]
@@ -3347,7 +3347,7 @@ define noundef i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed_addr #0
   %.val = load i32, ptr %71, align 4
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next96, %72
-  br i1 %73, label %17, label %.critedge, !llvm.loop !52
+  br i1 %73, label %17, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %69, %6
   %74 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3454,7 +3454,7 @@ define noalias noundef ptr @Abc_NodeConvertSopToMvSop(i32 noundef %0, ptr nocapt
   br i1 %.not, label %39, label %switch.lookup
 
 switch.lookup:                                    ; preds = %34
-  %switch.cast = trunc i32 %37 to i24
+  %switch.cast = trunc nuw nsw i32 %37 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 3223597, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -3466,7 +3466,7 @@ switch.lookup:                                    ; preds = %34
   %.266.us = phi ptr [ %.16578.us, %34 ], [ %38, %switch.lookup ]
   %40 = add nuw nsw i32 %.179.us, 1
   %exitcond.not = icmp eq i32 %40, %0
-  br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !52
 
 ._crit_edge.us:                                   ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.266.us, i64 1
@@ -3477,7 +3477,7 @@ switch.lookup:                                    ; preds = %34
   %.val76.us = load i32, ptr %4, align 4
   %43 = sext i32 %.val76.us to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph.us, label %.critedge.preheader.loopexit, !llvm.loop !54
+  br i1 %44, label %.lr.ph.us, label %.critedge.preheader.loopexit, !llvm.loop !53
 
 .critedge.preheader.loopexit:                     ; preds = %._crit_edge.us
   %.val7788.pre = load i32, ptr %7, align 4
@@ -3512,7 +3512,7 @@ switch.lookup:                                    ; preds = %34
   br i1 %.not131, label %55, label %switch.lookup126
 
 switch.lookup126:                                 ; preds = %50
-  %switch.cast127 = trunc i32 %53 to i24
+  %switch.cast127 = trunc nuw nsw i32 %53 to i24
   %switch.shiftamt128 = shl nuw nsw i24 %switch.cast127, 3
   %switch.downshift129 = lshr i24 3223597, %switch.shiftamt128
   %switch.masked130 = trunc i24 %switch.downshift129 to i8
@@ -3524,7 +3524,7 @@ switch.lookup126:                                 ; preds = %50
   %.5.us = phi ptr [ %.486.us, %50 ], [ %54, %switch.lookup126 ]
   %56 = add nuw nsw i32 %.287.us, 1
   %exitcond105.not = icmp eq i32 %56, %0
-  br i1 %exitcond105.not, label %._crit_edge.us94, label %50, !llvm.loop !55
+  br i1 %exitcond105.not, label %._crit_edge.us94, label %50, !llvm.loop !54
 
 ._crit_edge.us94:                                 ; preds = %55
   %57 = getelementptr inbounds i8, ptr %.5.us, i64 1
@@ -3535,7 +3535,7 @@ switch.lookup126:                                 ; preds = %50
   %.val77.us = load i32, ptr %7, align 4
   %59 = sext i32 %.val77.us to i64
   %60 = icmp slt i64 %indvars.iv.next107, %59
-  br i1 %60, label %.lr.ph.us93, label %.critedge2, !llvm.loop !56
+  br i1 %60, label %.lr.ph.us93, label %.critedge2, !llvm.loop !55
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %.lr.ph84.split
   %.06182 = phi i32 [ %63, %.lr.ph84.split ], [ 0, %.lr.ph84 ]
@@ -3546,7 +3546,7 @@ switch.lookup126:                                 ; preds = %50
   store i8 10, ptr %61, align 1
   %63 = add nuw nsw i32 %.06182, 1
   %64 = icmp slt i32 %63, %.val71
-  br i1 %64, label %.lr.ph84.split, label %.critedge.preheader, !llvm.loop !54
+  br i1 %64, label %.lr.ph84.split, label %.critedge.preheader, !llvm.loop !53
 
 .critedge:                                        ; preds = %.lr.ph91, %.critedge
   %.16290 = phi i32 [ %67, %.critedge ], [ 0, %.lr.ph91 ]
@@ -3558,7 +3558,7 @@ switch.lookup126:                                 ; preds = %50
   %67 = add nuw nsw i32 %.16290, 1
   %.val77 = load i32, ptr %7, align 4
   %68 = icmp slt i32 %67, %.val77
-  br i1 %68, label %.critedge, label %.critedge2, !llvm.loop !56
+  br i1 %68, label %.critedge, label %.critedge2, !llvm.loop !55
 
 .critedge2:                                       ; preds = %.critedge, %._crit_edge.us94, %.critedge.preheader, %._crit_edge
   %.3.lcssa.sink = phi ptr [ %21, %._crit_edge ], [ %.064.lcssa, %.critedge.preheader ], [ %58, %._crit_edge.us94 ], [ %66, %.critedge ]
@@ -3583,7 +3583,7 @@ define i32 @Abc_NodeEvalMvCostInternal(i32 noundef %0, ptr nocapture noundef rea
   %9 = add nuw nsw i32 %.07, %8
   %10 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %9, %.lr.ph ]
@@ -3607,7 +3607,7 @@ define i32 @Abc_NodeEvalMvCost(i32 noundef %0, ptr nocapture noundef readonly %1
   %10 = add nuw nsw i32 %.07.i, %9
   %11 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %Abc_NodeEvalMvCostInternal.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %.not.i, label %Abc_NodeEvalMvCostInternal.exit, label %.lr.ph.i, !llvm.loop !56
 
 Abc_NodeEvalMvCostInternal.exit:                  ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %10, %.lr.ph.i ]
@@ -3711,7 +3711,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -3787,7 +3787,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 2}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
@@ -3818,4 +3818,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}

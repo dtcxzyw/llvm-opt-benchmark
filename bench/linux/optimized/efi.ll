@@ -325,7 +325,7 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
 9:                                                ; preds = %0
   %10 = load i64, ptr @efi_config_table, align 8
   %11 = load i64, ptr @efi_nr_tables, align 8
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = tail call i32 @efi_reuse_config(i64 noundef %10, i32 noundef %12) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %43
@@ -521,7 +521,7 @@ define internal fastcc i32 @efi_config_init() unnamed_addr #1 section ".init.tex
 
 14:                                               ; preds = %3
   %15 = load i64, ptr @efi_nr_tables, align 8
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 @efi_config_parse_tables(ptr noundef nonnull %10, i32 noundef %16, ptr noundef nonnull @arch_tables) #12
   %18 = load i64, ptr @efi_nr_tables, align 8
   %19 = mul nuw nsw i64 %18, %7
@@ -947,7 +947,7 @@ define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly %0) loc
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_vendor_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
   %4 = load i64, ptr @efi_fw_vendor, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -955,7 +955,7 @@ define internal noundef i64 @fw_vendor_show(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @runtime_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
   %4 = load i64, ptr @efi_runtime, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -963,7 +963,7 @@ define internal noundef i64 @runtime_show(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @config_table_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
   %4 = load i64, ptr @efi_config_table, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64

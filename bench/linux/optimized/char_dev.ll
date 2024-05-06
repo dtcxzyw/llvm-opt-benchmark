@@ -140,7 +140,7 @@ define dso_local i32 @register_chrdev_region(i32 noundef %0, i32 noundef %1, ptr
   %22 = add i32 %21, 1048576
   %23 = and i32 %19, 1048575
   %24 = sub i32 %22, %19
-  %.lhs.trunc = trunc i32 %20 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %20 to i16
   %25 = urem i16 %.lhs.trunc, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %26 = zext nneg i16 %25 to i64
@@ -588,7 +588,7 @@ define dso_local void @unregister_chrdev_region(i32 noundef %0, i32 noundef %1) 
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 %3)
   %10 = and i32 %5, 1048575
   %11 = sub i32 %9, %5
-  %.lhs.trunc = trunc i32 %6 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %6 to i16
   %12 = urem i16 %.lhs.trunc, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %13 = zext nneg i16 %12 to i64
@@ -917,7 +917,7 @@ define internal noundef ptr @exact_match(i32 %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @exact_lock(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @exact_lock(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @try_module_get(ptr noundef %4) #9

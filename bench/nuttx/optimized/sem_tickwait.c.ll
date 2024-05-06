@@ -59,7 +59,7 @@ declare i32 @nxsem_wait(ptr noundef) local_unnamed_addr #1
 declare i32 @wd_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsem_tickwait_uninterruptible(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, -4) i32 @nxsem_tickwait_uninterruptible(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call i64 @clock_systime_ticks() #4
   %5 = zext i32 %1 to i64

@@ -478,7 +478,7 @@ define dso_local void @netpoll_poll_enable(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netpoll_send_skb(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @netpoll_send_skb(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
@@ -1006,7 +1006,7 @@ define dso_local void @netpoll_print_options(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netpoll_parse_options(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 1

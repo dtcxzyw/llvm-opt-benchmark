@@ -262,7 +262,7 @@ define zeroext i8 @zend_get_opcode_id(ptr nocapture noundef readonly %0, i64 nou
   br i1 %exitcond.not, label %.split.loop.exit, label %3
 
 .split.loop.exit13:                               ; preds = %4
-  %10 = trunc i64 %indvars.iv to i8
+  %10 = trunc nuw i64 %indvars.iv to i8
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %9, %.split.loop.exit13

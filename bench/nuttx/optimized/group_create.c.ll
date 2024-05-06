@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_grouphead = local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @group_allocate(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @group_allocate(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(1016) ptr @zalloc(i64 noundef 1016) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %4

@@ -259,7 +259,7 @@ define dso_local void @acpi_initialize_hp_context(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_scan_add_handler(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_scan_add_handler(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -279,7 +279,7 @@ define dso_local noundef i32 @acpi_scan_add_handler(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_scan_add_handler_with_hotplug(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_scan_add_handler_with_hotplug(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -821,7 +821,7 @@ define internal void @get_acpi_device(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tie_acpi_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_tie_acpi_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1347,7 +1347,7 @@ define dso_local i64 @acpi_is_video_device(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_backlight_cap_match(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 0, 16388) i32 @acpi_backlight_cap_match(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call zeroext i1 @acpi_has_method(ptr noundef %0, ptr noundef nonnull @.str.38) #19
   br i1 %5, label %6, label %11
 
@@ -1397,7 +1397,7 @@ define dso_local noundef zeroext i1 @acpi_dma_supported(ptr noundef readnone %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @acpi_get_dma_attr(ptr noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i32 0, 3) i32 @acpi_get_dma_attr(ptr noundef readonly %0) local_unnamed_addr #9 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1415,7 +1415,7 @@ define dso_local i32 @acpi_get_dma_attr(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_dma_get_range(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   store ptr %3, ptr %3, align 8
@@ -2675,7 +2675,7 @@ define dso_local ptr @acpi_dev_get_next_consumer_dev(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_bus_scan(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_scan(ptr noundef %0) #0 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2778,7 +2778,7 @@ define dso_local noundef i32 @acpi_bus_scan(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.resource, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2990,7 +2990,7 @@ define internal fastcc noundef i32 @acpi_bus_check_add(ptr noundef %0, i1 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_bus_check_add_1(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 16391) i32 @acpi_bus_check_add_1(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext true, ptr noundef %3), !range !25
   ret i32 %5
 }
@@ -4452,7 +4452,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @acpi_bus_get_status(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_scan_device_not_enumerated(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -114, 1) i32 @acpi_scan_device_not_enumerated(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -4525,7 +4525,7 @@ declare dso_local i32 @acpi_evaluate_ej0(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_bus_offline(ptr noundef %0, i32 %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8
@@ -4996,7 +4996,7 @@ declare dso_local i32 @acpi_match_device_ids(ptr noundef, ptr noundef) local_unn
 declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @acpi_check_serial_bus_slave(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #16 align 16 {
+define internal noundef range(i32 -1, 2) i32 @acpi_check_serial_bus_slave(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #16 align 16 {
   %3 = load i32, ptr %0, align 1
   %4 = icmp eq i32 %3, 19
   br i1 %4, label %5, label %6
@@ -5238,7 +5238,7 @@ declare dso_local ptr @acpi_add_power_resource(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_get_resource_memory(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 16388) i32 @acpi_get_resource_memory(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call zeroext i1 @acpi_dev_resource_memory(ptr noundef %0, ptr noundef %1) #19
   %4 = select i1 %3, i32 16387, i32 0
   ret i32 %4
@@ -5292,7 +5292,7 @@ define internal fastcc void @acpi_default_enumeration(ptr noundef %0) unnamed_ad
 declare dso_local ptr @acpi_create_platform_device(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_bus_check_add_2(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 16391) i32 @acpi_bus_check_add_2(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext false, ptr noundef %3), !range !25
   ret i32 %5
 }

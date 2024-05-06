@@ -81,7 +81,7 @@ define hidden i64 @_ZNK7nanogui6Window14preferred_sizeEP10NVGcontext(ptr noundef
 
 13:                                               ; preds = %11, %8
   %.sroa.3.0.extract.shift = lshr i64 %9, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.sroa.0.0.extract.trunc = trunc i64 %9 to i32
   tail call void @nvgFontSize(ptr noundef %1, float noundef 1.800000e+01)
   tail call void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)

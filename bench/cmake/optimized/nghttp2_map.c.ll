@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"@%u hash=%08x key=%d base=%zu distance=%zu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_map_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -143,7 +143,7 @@ define dso_local void @nghttp2_map_print_distance(ptr nocapture noundef readonly
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @stderr, align 8
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef %13) #11
   br label %26
 
@@ -156,7 +156,7 @@ define dso_local void @nghttp2_map_print_distance(ptr nocapture noundef readonly
   %21 = load ptr, ptr @stderr, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef %24, i32 noundef %16, i32 noundef %23, i64 noundef %20, i64 noundef 0) #11
   br label %26
 
@@ -443,7 +443,7 @@ define dso_local ptr @nghttp2_map_find(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_map_remove(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = mul i32 %1, -1640531527
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4

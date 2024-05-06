@@ -321,7 +321,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #4
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @devtmpfsd(ptr nocapture noundef writeonly %0) #1 section ".ref.text" align 16 {
+define internal range(i32 1, 0) i32 @devtmpfsd(ptr nocapture noundef writeonly %0) #1 section ".ref.text" align 16 {
   %2 = tail call fastcc i32 @devtmpfs_setup(ptr noundef %0) #10
   tail call void @complete(ptr noundef nonnull @setup_done) #8
   %3 = icmp eq i32 %2, 0

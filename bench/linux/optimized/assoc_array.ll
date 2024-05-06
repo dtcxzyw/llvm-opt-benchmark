@@ -329,7 +329,7 @@ define dso_local ptr @assoc_array_find(ptr noundef %0, ptr nocapture noundef rea
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @assoc_array_walk(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = load volatile ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %104, label %.preheader
@@ -1674,7 +1674,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %528 = getelementptr inbounds i8, ptr %489, i64 8
   %529 = getelementptr inbounds i8, ptr %12, i64 288
   store ptr %528, ptr %529, align 8
-  %530 = trunc i32 %495 to i8
+  %530 = trunc nuw nsw i32 %495 to i8
   %531 = getelementptr inbounds i8, ptr %12, i64 296
   store i8 %530, ptr %531, align 8
   br label %532

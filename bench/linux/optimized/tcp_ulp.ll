@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_unregist
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_tcp_register_ulp905, ptr @__UNIQUE_ID___addressable_tcp_unregister_ulp906], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_register_ulp(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @tcp_register_ulp(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_ulp_list_lock) #4
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   br label %3

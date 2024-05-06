@@ -628,7 +628,7 @@ declare dso_local ptr @first_online_pgdat() local_unnamed_addr #2
 declare dso_local ptr @next_zone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
-define dso_local i32 @calculate_pressure_threshold(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 1, 126) i32 @calculate_pressure_threshold(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr %0, align 64
@@ -642,7 +642,7 @@ define dso_local i32 @calculate_pressure_threshold(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @calculate_normal_threshold(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 126) i32 @calculate_normal_threshold(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load volatile i64, ptr %2, align 8
   %4 = lshr i64 %3, 15
@@ -766,7 +766,7 @@ define dso_local void @refresh_zone_stat_thresholds() local_unnamed_addr #0 alig
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = tail call i32 @llvm.smax.i32(i32 %48, i32 %77)
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nsw i32 %78 to i8
   store i8 %79, ptr %75, align 1
   %80 = add nuw nsw i64 %59, 1
   %81 = and i64 %80, 127
@@ -1888,7 +1888,7 @@ define dso_local i64 @sum_zone_numa_event_state(i32 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @node_page_state_pages(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @node_page_state_pages(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 13640
   %4 = zext i32 %1 to i64
   %5 = getelementptr [44 x %struct.atomic64_t], ptr %3, i64 0, i64 %4
@@ -1898,7 +1898,7 @@ define dso_local i64 @node_page_state_pages(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @node_page_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @node_page_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 13640
   %4 = zext i32 %1 to i64
   %5 = getelementptr [44 x %struct.atomic64_t], ptr %3, i64 0, i64 %4

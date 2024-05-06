@@ -72,7 +72,7 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %20, i64 12, i1 false)
   %22 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %22, align 4
   tail call void @XLogBeginInsert() #8
@@ -214,7 +214,7 @@ RelationCloseSmgr.exit:                           ; preds = %1, %14
 define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.sroa.013.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.214.0.extract.shift = lshr i64 %0, 32
-  %.sroa.214.0.extract.trunc = trunc i64 %.sroa.214.0.extract.shift to i32
+  %.sroa.214.0.extract.trunc = trunc nuw i64 %.sroa.214.0.extract.shift to i32
   %4 = load ptr, ptr @pendingDeletes, align 8
   %.not17 = icmp eq ptr %4, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -992,7 +992,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 .preheader62:                                     ; preds = %.lr.ph76, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph76 ]
   %.05368 = phi i32 [ %.154, %30 ], [ 0, %.lr.ph76 ]
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = call zeroext i1 @smgrexists(ptr noundef %21, i32 noundef %25) #8
   br i1 %26, label %27, label %30
 
@@ -1070,7 +1070,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %56 = call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #8
-  %57 = trunc i64 %indvars.iv80 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv80 to i32
   call void @log_newpage_range(ptr noundef %56, i32 noundef %57, i32 noundef 0, i32 noundef %54, i1 noundef zeroext false) #8
   call void @FreeFakeRelcacheEntry(ptr noundef %56) #8
   br label %58

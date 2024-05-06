@@ -26,7 +26,7 @@ define dso_local void @snd_seq_info_done() local_unnamed_addr #0 align 16 {
 declare dso_local void @snd_info_free_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @snd_seq_info_init() local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_seq_info_init() local_unnamed_addr #2 section ".init.text" align 16 {
   %1 = tail call fastcc ptr @create_info_entry(ptr noundef nonnull @.str, ptr noundef nonnull @snd_seq_info_queues_read) #4
   store ptr %1, ptr @queues_entry, align 8
   %2 = tail call fastcc ptr @create_info_entry(ptr noundef nonnull @.str.1, ptr noundef nonnull @snd_seq_info_clients_read) #4

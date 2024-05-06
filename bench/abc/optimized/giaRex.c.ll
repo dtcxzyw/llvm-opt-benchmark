@@ -898,10 +898,10 @@ define ptr @Gia_ManRex2Gia(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %28
 
 28:                                               ; preds = %.critedge
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %30 = add i64 %29, 1
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #25
-  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %0) #24
+  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %0) #24
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %28
@@ -1276,7 +1276,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not179, label %Gia_ManPrintAutom.exit, label %201
 
 201:                                              ; preds = %._crit_edge307
-  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #23
+  %202 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #23
   %203 = trunc i64 %202 to i32
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %.lr.ph.i, label %Gia_ManPrintAutom.exit
@@ -1347,7 +1347,7 @@ Gia_ManPrintAutom.exit:                           ; preds = %221, %201, %._crit_
   store i32 0, ptr %118, align 4
   %235 = trunc i64 %indvars.iv338 to i32
   %236 = add i32 %235, 1
-  tail call void @Gia_ManPrintReached_rec(ptr noundef nonnull %8, ptr noundef nonnull %102, i32 noundef %236, ptr noundef nonnull %119, ptr noundef nonnull %123, i32 noundef %.0173312)
+  tail call void @Gia_ManPrintReached_rec(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %102, i32 noundef %236, ptr noundef nonnull %119, ptr noundef nonnull readonly %123, i32 noundef %.0173312)
   %.pre366 = sext i8 %232 to i32
   br i1 %.not179, label %._crit_edge363, label %237
 
@@ -1617,7 +1617,7 @@ Vec_IntPush.exit254:                              ; preds = %.Vec_IntGrow.exit10
 .critedge4:                                       ; preds = %358, %._crit_edge320
   tail call void @Gia_ManHashStop(ptr noundef nonnull %27) #24
   store i32 0, ptr %118, align 4
-  tail call void @Gia_ManPrintReached_rec(ptr noundef %8, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull %119, ptr noundef nonnull %123, i32 noundef %.0173.lcssa)
+  tail call void @Gia_ManPrintReached_rec(ptr noundef readonly %8, ptr noundef nonnull readonly %102, i32 noundef 1, ptr noundef nonnull %119, ptr noundef nonnull readonly %123, i32 noundef %.0173.lcssa)
   br i1 %.not179, label %375, label %362
 
 362:                                              ; preds = %.critedge4
@@ -2970,7 +2970,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

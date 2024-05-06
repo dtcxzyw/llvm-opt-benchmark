@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX4Util24ComputeDecodedSizeBase64EPKcm(ptr nocapture noundef readonly %in, i64 noundef %inLength) local_unnamed_addr #2 {
+define hidden noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp3FBX4Util24ComputeDecodedSizeBase64EPKcm(ptr nocapture noundef readonly %in, i64 noundef %inLength) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %inLength, 2
   br i1 %cmp, label %return, label %if.end

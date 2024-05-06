@@ -197,7 +197,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.185 = private unnamed_addr constant [26 x i8] c"Unknown PBE algorithm %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pkcs12_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pkcs12_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %passcerts = alloca ptr, align 8
   %pass = alloca [2048 x i8], align 16
@@ -793,7 +793,7 @@ if.then200:                                       ; preds = %if.end198
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then200, %if.end198
-  %trunc = trunc i32 %keytype.0 to i8
+  %trunc = trunc nuw i32 %keytype.0 to i8
   switch i8 %trunc, label %if.end210 [
     i8 16, label %if.end210.sink.split
     i8 -128, label %if.then208
@@ -1492,7 +1492,7 @@ dump:                                             ; preds = %if.else631, %if.the
   %95 = load ptr, ptr %p12, align 8
   %96 = load ptr, ptr %passout, align 8
   %97 = load ptr, ptr %enc, align 8
-  %call640 = call i32 @dump_certs_keys_p12(ptr noundef nonnull %call521, ptr noundef %95, ptr noundef %cpass.2, i32 noundef -1, i32 noundef %options.0, ptr noundef %96, ptr noundef %97), !range !9
+  %call640 = call i32 @dump_certs_keys_p12(ptr noundef nonnull %call521, ptr noundef %95, ptr noundef %cpass.2, i32 noundef -1, i32 noundef %options.0, ptr noundef %96, ptr noundef %97)
   %tobool641.not = icmp eq i32 %call640, 0
   br i1 %tobool641.not, label %if.then642, label %end
 
@@ -1724,7 +1724,7 @@ declare ptr @OPENSSL_uni2utf8(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dump_certs_keys_p12(ptr noundef %out, ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, i32 noundef %options, ptr noundef %pempass, ptr noundef %enc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @dump_certs_keys_p12(ptr noundef %out, ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, i32 noundef %options, ptr noundef %pempass, ptr noundef %enc) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_unpack_authsafes(ptr noundef %p12) #5
   %cmp = icmp eq ptr %call, null
@@ -1793,7 +1793,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.06.i, 1
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %bags.0) #5
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %if.end33, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %if.end33, !llvm.loop !9
 
 for.body.i:                                       ; preds = %if.end27, %for.cond.i
   %i.06.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end27 ]
@@ -1814,7 +1814,7 @@ for.inc:                                          ; preds = %for.body, %if.end33
   %inc = add nuw nsw i32 %i.020, 1
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #5
   %cmp3 = icmp slt i32 %inc, %call2
-  br i1 %cmp3, label %for.body, label %err, !llvm.loop !11
+  br i1 %cmp3, label %for.body, label %err, !llvm.loop !10
 
 err:                                              ; preds = %if.end24, %for.inc, %for.cond.preheader, %if.then30
   %ret.0 = phi i32 [ 0, %if.then30 ], [ 1, %for.cond.preheader ], [ 0, %if.end24 ], [ 1, %for.inc ]
@@ -2004,7 +2004,7 @@ done:                                             ; preds = %if.end54, %if.end64
 declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dump_certs_pkeys_bags(ptr noundef %out, ptr noundef %bags, ptr noundef %pass, i32 noundef %passlen, i32 noundef %options, ptr noundef %pempass, ptr noundef %enc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @dump_certs_pkeys_bags(ptr noundef %out, ptr noundef %bags, ptr noundef %pass, i32 noundef %passlen, i32 noundef %options, ptr noundef %pempass, ptr noundef %enc) local_unnamed_addr #0 {
 entry:
   %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef %bags) #5
   %cmp5 = icmp sgt i32 %call14, 0
@@ -2014,7 +2014,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.06, 1
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %bags) #5
   %cmp = icmp slt i32 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.06 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
@@ -2210,7 +2210,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.0.i55, 1
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %call90) #5
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !9
 
 for.body.i:                                       ; preds = %if.end88, %for.cond.i
   %i.0.i55 = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end88 ]
@@ -2291,7 +2291,7 @@ for.body28:                                       ; preds = %for.cond25.preheade
   %inc = add nuw nsw i32 %j.025, 1
   %call26 = tail call i32 @X509_ATTRIBUTE_count(ptr noundef %call11) #5
   %cmp27 = icmp slt i32 %inc, %call26
-  br i1 %cmp27, label %for.body28, label %for.inc33, !llvm.loop !12
+  br i1 %cmp27, label %for.body28, label %for.inc33, !llvm.loop !11
 
 if.else30:                                        ; preds = %if.end21
   %call31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.176) #5
@@ -2301,7 +2301,7 @@ for.inc33:                                        ; preds = %for.body28, %for.co
   %inc34 = add nuw nsw i32 %i.029, 1
   %call9 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %attrlst) #5
   %cmp = icmp slt i32 %inc34, %call9
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 
 return.sink.split:                                ; preds = %if.end, %entry
   %.str.172.sink = phi ptr [ @.str.171, %entry ], [ @.str.172, %if.end ]
@@ -2394,7 +2394,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv.i) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %hex_prin.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %hex_prin.exit, label %for.body.i, !llvm.loop !13
 
 hex_prin.exit:                                    ; preds = %for.body.i, %sw.bb10
   %call15 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.166) #5
@@ -2421,7 +2421,7 @@ for.body.i25:                                     ; preds = %for.body.i25, %for.
   %call.i29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv.i28) #5
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i24
-  br i1 %exitcond.not.i31, label %hex_prin.exit32, label %for.body.i25, !llvm.loop !14
+  br i1 %exitcond.not.i31, label %hex_prin.exit32, label %for.body.i25, !llvm.loop !13
 
 hex_prin.exit32:                                  ; preds = %for.body.i25, %sw.bb16
   %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.166) #5
@@ -2455,7 +2455,7 @@ declare ptr @PKCS12_SAFEBAG_get0_safes(ptr noundef) local_unnamed_addr #2
 declare ptr @PKCS12_SAFEBAG_get0_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cert_load(ptr noundef %in, ptr noundef %sk) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cert_load(ptr noundef %in, ptr noundef %sk) local_unnamed_addr #0 {
 entry:
   %call4 = tail call ptr @PEM_read_bio_X509(ptr noundef %in, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %tobool.not5 = icmp eq ptr %call4, null
@@ -2464,13 +2464,13 @@ entry:
 while.cond:                                       ; preds = %while.body
   %call = tail call ptr @PEM_read_bio_X509(ptr noundef %in, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.body:                                       ; preds = %entry, %while.cond
   %call6 = phi ptr [ %call, %while.cond ], [ %call4, %entry ]
   %call3 = tail call i32 @OPENSSL_sk_push(ptr noundef %sk, ptr noundef nonnull %call6) #5
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %while.cond, !llvm.loop !15
+  br i1 %tobool4.not, label %return, label %while.cond, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
   br i1 %tobool.not5, label %return, label %if.then6
@@ -2508,7 +2508,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -2591,10 +2591,9 @@ attributes #6 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

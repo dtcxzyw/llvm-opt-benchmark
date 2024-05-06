@@ -588,7 +588,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %do.end.i, label %for.body.i, !llvm.loop !9
 
 do.end.split.loop.exit.i:                         ; preds = %land.lhs.true.i
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw i64 %indvars.iv.i to i32
   br label %do.end.i
 
 do.end.i:                                         ; preds = %for.inc.i, %do.end.split.loop.exit.i
@@ -691,11 +691,11 @@ if.end34:                                         ; preds = %land.lhs.true19, %c
   br i1 %tobool40.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end34, %if.end54
-  %ptr.0165 = phi ptr [ %add.ptr, %if.end54 ], [ %optr, %if.end34 ]
-  %len.0164 = phi i64 [ %sub, %if.end54 ], [ %olen, %if.end34 ]
-  %cond39 = tail call i64 @llvm.umin.i64(i64 %len.0164, i64 16384)
+  %ptr.0166 = phi ptr [ %add.ptr, %if.end54 ], [ %optr, %if.end34 ]
+  %len.0165 = phi i64 [ %sub, %if.end54 ], [ %olen, %if.end34 ]
+  %cond39 = tail call i64 @llvm.umin.i64(i64 %len.0165, i64 16384)
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #9
-  %call42 = tail call i64 %writebody.0(ptr noundef %ptr.0165, i64 noundef 1, i64 noundef %cond39, ptr noundef %1) #9
+  %call42 = tail call i64 %writebody.0(ptr noundef %ptr.0166, i64 noundef 1, i64 noundef %cond39, ptr noundef %1) #9
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #9
   %cmp43 = icmp eq i64 %call42, 268435457
   br i1 %cmp43, label %if.then44, label %if.end50
@@ -747,7 +747,7 @@ for.inc.i69:                                      ; preds = %land.lhs.true.i101,
   br i1 %exitcond.not.i72, label %do.end.i73, label %for.body.i63, !llvm.loop !9
 
 do.end.split.loop.exit.i104:                      ; preds = %land.lhs.true.i101
-  %23 = trunc i64 %indvars.iv.i64 to i32
+  %23 = trunc nuw i64 %indvars.iv.i64 to i32
   br label %do.end.i73
 
 do.end.i73:                                       ; preds = %for.inc.i69, %do.end.split.loop.exit.i104
@@ -784,7 +784,7 @@ if.end39.i89:                                     ; preds = %if.then22.i78, %if.
   %idxprom41.pre-phi.i90 = phi i64 [ %.pre.i100, %if.end20.if.end39_crit_edge.i99 ], [ %idxprom24.i81, %if.then22.i78 ]
   %tempwrite40.i91 = getelementptr inbounds i8, ptr %data, i64 3288
   %arrayidx42.i92 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i91, i64 0, i64 %idxprom41.pre-phi.i90
-  %call44.i93 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i92, ptr noundef %ptr.0165, i64 noundef %len.0164) #9
+  %call44.i93 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i92, ptr noundef %ptr.0166, i64 noundef %len.0165) #9
   %tobool45.not.i94 = icmp eq i32 %call44.i93, 0
   br i1 %tobool45.not.i94, label %if.end47.i96, label %return
 
@@ -803,8 +803,8 @@ if.then52:                                        ; preds = %if.end50
   br label %return
 
 if.end54:                                         ; preds = %if.end50
-  %add.ptr = getelementptr inbounds i8, ptr %ptr.0165, i64 %cond39
-  %sub = sub i64 %len.0164, %cond39
+  %add.ptr = getelementptr inbounds i8, ptr %ptr.0166, i64 %cond39
+  %sub = sub i64 %len.0165, %cond39
   %tobool35.not = icmp eq i64 %sub, 0
   br i1 %tobool35.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -872,36 +872,36 @@ for.body.i111:                                    ; preds = %for.inc.i117, %for.
   %type2.i115 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 32
   %35 = load i32, ptr %type2.i115, align 8
   %cmp3.i116 = icmp eq i32 %35, %type
-  br i1 %cmp3.i116, label %land.lhs.true.i148, label %for.inc.i117
+  br i1 %cmp3.i116, label %land.lhs.true.i149, label %for.inc.i117
 
-land.lhs.true.i148:                               ; preds = %for.body.i111
-  %paused_body7.i149 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 36
-  %bf.load.i150 = load i8, ptr %paused_body7.i149, align 4
-  %36 = trunc i8 %bf.load.i150 to i1
-  br i1 %36, label %for.inc.i117, label %do.end.split.loop.exit.i151
+land.lhs.true.i149:                               ; preds = %for.body.i111
+  %paused_body7.i150 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 36
+  %bf.load.i151 = load i8, ptr %paused_body7.i150, align 4
+  %36 = trunc i8 %bf.load.i151 to i1
+  br i1 %36, label %for.inc.i117, label %do.end.split.loop.exit.i152
 
-for.inc.i117:                                     ; preds = %land.lhs.true.i148, %for.body.i111
+for.inc.i117:                                     ; preds = %land.lhs.true.i149, %for.body.i111
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i112, 1
   %cmp.not.i119 = icmp ult i64 %indvars.iv.next.i118, %34
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i118, %34
   br i1 %exitcond.not.i120, label %do.end.i121, label %for.body.i111, !llvm.loop !9
 
-do.end.split.loop.exit.i151:                      ; preds = %land.lhs.true.i148
-  %37 = trunc i64 %indvars.iv.i112 to i32
+do.end.split.loop.exit.i152:                      ; preds = %land.lhs.true.i149
+  %37 = trunc nuw i64 %indvars.iv.i112 to i32
   br label %do.end.i121
 
-do.end.i121:                                      ; preds = %for.inc.i117, %do.end.split.loop.exit.i151
-  %i.0.lcssa.i122 = phi i32 [ %37, %do.end.split.loop.exit.i151 ], [ %33, %for.inc.i117 ]
-  %cmp.not.lcssa.i123 = phi i1 [ %cmp.not26.i113, %do.end.split.loop.exit.i151 ], [ %cmp.not.i119, %for.inc.i117 ]
+do.end.i121:                                      ; preds = %for.inc.i117, %do.end.split.loop.exit.i152
+  %i.0.lcssa.i122 = phi i32 [ %37, %do.end.split.loop.exit.i152 ], [ %33, %for.inc.i117 ]
+  %cmp.not.lcssa.i123 = phi i1 [ %cmp.not26.i113, %do.end.split.loop.exit.i152 ], [ %cmp.not.i119, %for.inc.i117 ]
   %cmp17.i124 = icmp ugt i32 %i.0.lcssa.i122, 2
   br i1 %cmp17.i124, label %return, label %if.end20.i125
 
 if.end20.i125:                                    ; preds = %do.end.i121
-  br i1 %cmp.not.lcssa.i123, label %if.end20.if.end39_crit_edge.i146, label %if.then22.i126
+  br i1 %cmp.not.lcssa.i123, label %if.end20.if.end39_crit_edge.i147, label %if.then22.i126
 
-if.end20.if.end39_crit_edge.i146:                 ; preds = %if.end20.i125
-  %.pre.i147 = zext nneg i32 %i.0.lcssa.i122 to i64
-  br label %if.end39.i136
+if.end20.if.end39_crit_edge.i147:                 ; preds = %if.end20.i125
+  %.pre.i148 = zext nneg i32 %i.0.lcssa.i122 to i64
+  br label %if.end39.i137
 
 if.then22.i126:                                   ; preds = %if.end20.i125, %if.then93
   %i.123.i127 = phi i32 [ %i.0.lcssa.i122, %if.end20.i125 ], [ 0, %if.then93 ]
@@ -916,22 +916,22 @@ if.then22.i126:                                   ; preds = %if.end20.i125, %if.
   %bf.clear36.i134 = and i8 %bf.load35.i133, -2
   store i8 %bf.clear36.i134, ptr %paused_body34.i132, align 4
   %38 = load i32, ptr %tempcount.i107, align 8
-  %inc38.i135 = add i32 %38, 1
-  store i32 %inc38.i135, ptr %tempcount.i107, align 8
-  br label %if.end39.i136
+  %inc38.i136 = add i32 %38, 1
+  store i32 %inc38.i136, ptr %tempcount.i107, align 8
+  br label %if.end39.i137
 
-if.end39.i136:                                    ; preds = %if.then22.i126, %if.end20.if.end39_crit_edge.i146
-  %idxprom41.pre-phi.i137 = phi i64 [ %.pre.i147, %if.end20.if.end39_crit_edge.i146 ], [ %idxprom24.i129, %if.then22.i126 ]
-  %tempwrite40.i138 = getelementptr inbounds i8, ptr %data, i64 3288
-  %arrayidx42.i139 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i138, i64 0, i64 %idxprom41.pre-phi.i137
-  %call44.i140 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i139, ptr noundef %optr, i64 noundef %olen) #9
-  %tobool45.not.i141 = icmp eq i32 %call44.i140, 0
-  br i1 %tobool45.not.i141, label %if.end47.i143, label %return
+if.end39.i137:                                    ; preds = %if.then22.i126, %if.end20.if.end39_crit_edge.i147
+  %idxprom41.pre-phi.i138 = phi i64 [ %.pre.i148, %if.end20.if.end39_crit_edge.i147 ], [ %idxprom24.i129, %if.then22.i126 ]
+  %tempwrite40.i139 = getelementptr inbounds i8, ptr %data, i64 3288
+  %arrayidx42.i140 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i139, i64 0, i64 %idxprom41.pre-phi.i138
+  %call44.i141 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i140, ptr noundef %optr, i64 noundef %olen) #9
+  %tobool45.not.i142 = icmp eq i32 %call44.i141, 0
+  br i1 %tobool45.not.i142, label %if.end47.i144, label %return
 
-if.end47.i143:                                    ; preds = %if.end39.i136
+if.end47.i144:                                    ; preds = %if.end39.i137
   %39 = load i32, ptr %keepon, align 4
-  %or.i145 = or i32 %39, 16
-  store i32 %or.i145, ptr %keepon, align 4
+  %or.i146 = or i32 %39, 16
+  store i32 %or.i146, ptr %keepon, align 4
   br label %return
 
 if.end95:                                         ; preds = %if.then86
@@ -942,8 +942,8 @@ if.then98:                                        ; preds = %if.end95
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.3) #9
   br label %return
 
-return:                                           ; preds = %if.end47.i143, %if.end39.i136, %do.end.i121, %if.end47.i96, %if.end39.i89, %do.end.i73, %if.end47.i, %if.end39.i, %do.end.i, %if.end84, %if.end95, %cond.end78, %entry, %if.then98, %if.then52, %if.then47
-  %retval.0 = phi i32 [ 23, %if.then47 ], [ 23, %if.then52 ], [ 23, %if.then98 ], [ 0, %entry ], [ %call80, %cond.end78 ], [ 0, %if.end95 ], [ 0, %if.end84 ], [ 0, %if.end47.i ], [ 27, %do.end.i ], [ 27, %if.end39.i ], [ 0, %if.end47.i96 ], [ 27, %do.end.i73 ], [ 27, %if.end39.i89 ], [ 0, %if.end47.i143 ], [ 27, %do.end.i121 ], [ 27, %if.end39.i136 ]
+return:                                           ; preds = %if.end47.i144, %if.end39.i137, %do.end.i121, %if.end47.i96, %if.end39.i89, %do.end.i73, %if.end47.i, %if.end39.i, %do.end.i, %if.end84, %if.end95, %cond.end78, %entry, %if.then98, %if.then52, %if.then47
+  %retval.0 = phi i32 [ 23, %if.then47 ], [ 23, %if.then52 ], [ 23, %if.then98 ], [ 0, %entry ], [ %call80, %cond.end78 ], [ 0, %if.end95 ], [ 0, %if.end84 ], [ 0, %if.end47.i ], [ 27, %do.end.i ], [ 27, %if.end39.i ], [ 0, %if.end47.i96 ], [ 27, %do.end.i73 ], [ 27, %if.end39.i89 ], [ 0, %if.end47.i144 ], [ 27, %do.end.i121 ], [ 27, %if.end39.i137 ]
   ret i32 %retval.0
 }
 

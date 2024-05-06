@@ -283,7 +283,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @NewDumpOptions() local_unnamed_addr #0 {
   %1 = tail call ptr @pg_malloc(i64 noundef 176) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %1, i8 0, i64 176, i1 false)
   %2 = getelementptr inbounds i8, ptr %1, i64 140
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 56
@@ -309,7 +309,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @dumpOptionsFromRestoreOptions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pg_malloc(i64 noundef 176) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %2, i8 0, i64 176, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 140
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %2, i64 56
@@ -1048,17 +1048,17 @@ define internal fastcc range(i32 0, 5) i32 @_tocEntryRequired(ptr nocapture noun
   br i1 %.not, label %35, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.85) #24
+  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.85) #24
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(13) @.str.86) #24
+  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.critedge, label %_tocEntryIsACL.exit
 
 _tocEntryIsACL.exit:                              ; preds = %30
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(12) @.str.167) #24
+  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.critedge, label %35
 
@@ -9924,17 +9924,17 @@ _getObjectDescription.exit:                       ; preds = %308, %315, %.crited
 387:                                              ; preds = %386, %239, %236, %235, %232, %.tail127, %216, %211
   %388 = getelementptr i8, ptr %1, i64 80
   %.val = load ptr, ptr %388, align 8
-  %389 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(4) @.str.85) #24
+  %389 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(4) @.str.85) #24
   %390 = icmp eq i32 %389, 0
   br i1 %390, label %_tocEntryIsACL.exit.thread, label %391
 
 391:                                              ; preds = %387
-  %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(13) @.str.86) #24
+  %392 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %_tocEntryIsACL.exit.thread, label %_tocEntryIsACL.exit
 
 _tocEntryIsACL.exit:                              ; preds = %391
-  %394 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(12) @.str.167) #24
+  %394 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %395 = icmp eq i32 %394, 0
   br i1 %395, label %_tocEntryIsACL.exit.thread, label %398
 

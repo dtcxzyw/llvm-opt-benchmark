@@ -1636,7 +1636,7 @@ _ZN6plic_t12pending_readEmPj.exit:                ; preds = %46, %31, %38
   br label %_ZN6plic_t13priority_readEmPj.exit
 
 99:                                               ; preds = %93
-  %100 = tail call noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonnull align 8 dereferenceable(1204) %0, ptr noundef %94)
+  %100 = tail call noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonnull readonly align 8 dereferenceable(1204) %0, ptr noundef %94)
   br label %_ZN6plic_t13priority_readEmPj.exit
 
 _ZN6plic_t13priority_readEmPj.exit:               ; preds = %93, %99, %95, %74, %68, %24, %18, %_ZN6plic_t12pending_readEmPj.exit, %77, %79, %54

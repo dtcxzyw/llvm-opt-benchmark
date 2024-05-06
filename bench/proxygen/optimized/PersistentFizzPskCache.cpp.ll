@@ -330,7 +330,7 @@ invoke.cont9:                                     ; preds = %sw.bb.i.i, %sw.bb4.
 
 if.end.i.i.i:                                     ; preds = %invoke.cont9
   %ref.tmp.sroa.2.0.extract.shift.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i, 8
-  %ref.tmp.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i to i8
+  %ref.tmp.sroa.2.0.extract.trunc.i = trunc nuw nsw i64 %ref.tmp.sroa.2.0.extract.shift.i to i8
   invoke void @_ZZN5folly2toImlEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i, i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i)
           to label %.noexc11 unwind label %lpad
 
@@ -666,7 +666,7 @@ if.then.i.i.i.i.i5:                               ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -771,7 +771,7 @@ if.then.i.i.i.i.i.i5:                             ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -1336,7 +1336,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %entry, %if.then.i
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
   %2 = load double, ptr %v5, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %conv.i.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i.i)
@@ -1671,17 +1671,17 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %entry, %if.then.i
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
   %2 = load i64, ptr %v5, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   %cmp.i = icmp slt i64 %2, 0
-  br i1 %cmp.i, label %if.then.i13, label %if.end.i
+  br i1 %cmp.i, label %if.then.i14, label %if.end.i
 
-if.then.i13:                                      ; preds = %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
+if.then.i14:                                      ; preds = %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 45)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i13, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
+if.end.i:                                         ; preds = %if.then.i14, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %cond.i = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
   br label %for.body.i.i.i.i.i.i
 
@@ -1736,7 +1736,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 

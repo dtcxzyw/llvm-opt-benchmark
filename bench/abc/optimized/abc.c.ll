@@ -17189,11 +17189,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr nocapture readnone 
 define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   %7 = getelementptr inbounds i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %6, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %6, i8 0, i64 52, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
   %8 = getelementptr inbounds i8, ptr %4, i64 36
   %9 = getelementptr inbounds i8, ptr %4, i64 56
@@ -17536,10 +17536,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 12
   %8 = getelementptr inbounds i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %7, i8 0, i64 48, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
   %9 = getelementptr inbounds i8, ptr %4, i64 36
   %10 = getelementptr inbounds i8, ptr %4, i64 48
@@ -17788,11 +17788,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
 define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   %7 = getelementptr inbounds i8, ptr %4, i64 64
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %8, i8 0, i64 48, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
   %9 = getelementptr inbounds i8, ptr %4, i64 36
   %10 = getelementptr inbounds i8, ptr %4, i64 44
@@ -78489,10 +78489,10 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %39
   br label %.loopexit
 
 Abc_UtilStrsav.exit:                              ; preds = %39
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #31
+  %44 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %42) #31
   %45 = add i64 %44, 1
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #29
-  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %42) #28
+  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %42) #28
   %48 = add nsw i32 %37, 1
   store i32 %48, ptr @globalUtilOptind, align 4
   %49 = icmp eq ptr %46, null
@@ -82240,10 +82240,10 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %67
   br label %77
 
 Abc_UtilStrsav.exit:                              ; preds = %67
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #31
+  %71 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #31
   %72 = add i64 %71, 1
   %73 = tail call noalias ptr @malloc(i64 noundef %72) #29
-  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %70) #28
+  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %70) #28
   tail call void @Gia_ManStochSyn(i32 noundef %.048.ph, i32 noundef %.045.ph227, i32 noundef %.042.ph233, i32 noundef %.039.ph238, i32 noundef %.0, ptr noundef %73, i32 noundef %.037.ph242) #28
   %.not70 = icmp eq ptr %73, null
   br i1 %.not70, label %77, label %75

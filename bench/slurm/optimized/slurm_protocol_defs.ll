@@ -3336,7 +3336,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #5
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_find_char_exact_in_list(ptr noundef %0, ptr noundef %1) #1 {
+define range(i32 0, 2) i32 @slurm_find_char_exact_in_list(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %1) #22
   %.not = icmp eq i32 %3, 0
   %. = zext i1 %.not to i32
@@ -3346,7 +3346,7 @@ define i32 @slurm_find_char_exact_in_list(ptr noundef %0, ptr noundef %1) #1 {
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_find_char_in_list(ptr noundef %0, ptr noundef %1) #1 {
+define range(i32 0, 2) i32 @slurm_find_char_in_list(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %1) #22
   %.not = icmp eq i32 %3, 0
   %. = zext i1 %.not to i32
@@ -3356,7 +3356,7 @@ define i32 @slurm_find_char_in_list(ptr noundef %0, ptr noundef %1) #1 {
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @slurm_find_ptr_in_list(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @slurm_find_ptr_in_list(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   %. = zext i1 %3 to i32
   ret i32 %.
@@ -3383,7 +3383,7 @@ define ptr @slurm_char_list_to_xstr(ptr noundef %0) local_unnamed_addr #1 {
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_sort_char_list_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 -1, 2) i32 @slurm_sort_char_list_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #22
@@ -3844,7 +3844,7 @@ define i32 @slurm_addto_id_char_list(ptr noundef %0, ptr noundef %1, i1 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_slurm_addto_id_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal range(i32 -1, 2) i32 @_slurm_addto_id_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -3926,7 +3926,7 @@ define i32 @slurm_addto_mode_char_list(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_slurm_addto_mode_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #1 {
+define internal range(i32 -1, 2) i32 @_slurm_addto_mode_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %8 [
@@ -4018,7 +4018,7 @@ define i32 @slurm_addto_step_list(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_addto_step_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
+define internal range(i32 0, 2) i32 @_addto_step_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__ctype_b_loc() #24
   %6 = load ptr, ptr %5, align 8
@@ -4057,7 +4057,7 @@ define internal noundef i32 @_addto_step_list_internal(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_sort_char_list_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @slurm_sort_char_list_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #22
@@ -4112,7 +4112,7 @@ declare ptr @hostset_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #5
 declare void @hostset_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4355,7 +4355,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fmt_job_id_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2151) i32 @fmt_job_id_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -9148,7 +9148,7 @@ define noundef nonnull ptr @bb_state_string(i16 noundef zeroext %0) local_unname
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @bb_state_num(ptr noundef %0) local_unnamed_addr #1 {
+define zeroext range(i16 0, 70) i16 @bb_state_num(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.208) #22
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %35, label %3
@@ -9272,7 +9272,7 @@ define i32 @parse_node_state_flag(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @power_flags_id(ptr noundef %0) local_unnamed_addr #1 {
+define zeroext range(i16 0, 2) i16 @power_flags_id(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -12239,7 +12239,7 @@ define void @slurm_free_assoc_mgr_info_request_members(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @parse_part_enforce_type(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @parse_part_enforce_type(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @xstrdup(ptr noundef %0) #22
   store ptr %4, ptr %3, align 8
@@ -12408,7 +12408,7 @@ define i32 @get_cluster_node_offset(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @suffix_mult(ptr noundef %0) local_unnamed_addr #1 {
+define range(i64 -2, 1125899906842625) i64 @suffix_mult(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %2
 
@@ -13078,7 +13078,7 @@ define i32 @slurm_get_rep_count_inx(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_next_tres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2116) i32 @slurm_get_next_tres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -13338,7 +13338,7 @@ define noundef i32 @slurm_get_next_tres(ptr noundef %0, ptr noundef %1, ptr noca
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %8, align 8
-  %119 = call i64 @suffix_mult(ptr noundef %118), !range !72
+  %119 = call i64 @suffix_mult(ptr noundef %118)
   %120 = icmp eq i64 %119, -2
   br i1 %120, label %122, label %_is_valid_number.exit
 
@@ -13376,7 +13376,7 @@ _is_valid_number.exit:                            ; preds = %117
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr %7, align 8
-  %138 = call i64 @suffix_mult(ptr noundef %137), !range !72
+  %138 = call i64 @suffix_mult(ptr noundef %137)
   %139 = icmp eq i64 %138, -2
   br i1 %139, label %142, label %140
 
@@ -13516,7 +13516,7 @@ define ptr @slurm_get_tres_sub_string(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr null, ptr %11, align 8
   store i64 0, ptr %12, align 8
   %.not = icmp eq ptr %1, null
-  %13 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11), !range !73
+  %13 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
   %14 = icmp eq i32 %13, 0
   %15 = load ptr, ptr %11, align 8
   %16 = icmp ne ptr %15, null
@@ -13585,12 +13585,12 @@ define ptr @slurm_get_tres_sub_string(ptr noundef %0, ptr noundef %1, i32 nounde
 40:                                               ; preds = %39, %37
   call void @slurm_xfree(ptr noundef nonnull %9) #22
   call void @slurm_xfree(ptr noundef nonnull %10) #22
-  %41 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11), !range !73
+  %41 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
   %42 = icmp eq i32 %41, 0
   %43 = load ptr, ptr %11, align 8
   %44 = icmp ne ptr %43, null
   %45 = select i1 %42, i1 %44, i1 false
-  br i1 %45, label %19, label %._crit_edge, !llvm.loop !74
+  br i1 %45, label %19, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %40, %5
   br i1 %.not, label %46, label %47
@@ -13884,6 +13884,4 @@ attributes #25 = { noreturn nounwind }
 !69 = distinct !{!69, !7}
 !70 = distinct !{!70, !7}
 !71 = distinct !{!71, !7}
-!72 = !{i64 -2, i64 1125899906842625}
-!73 = !{i32 0, i32 2116}
-!74 = distinct !{!74, !7}
+!72 = distinct !{!72, !7}

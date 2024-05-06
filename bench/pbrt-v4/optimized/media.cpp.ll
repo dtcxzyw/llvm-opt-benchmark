@@ -560,7 +560,7 @@ $_ZTSN4pbrt11SampledGridIfEE = comdat any
 @.str.63 = private unnamed_addr constant [2 x i8] c"g\00", align 1
 @.str.64 = private unnamed_addr constant [79 x i8] c"[ Homogeneous medium sigma_a_spec: %s sigma_s_spec: %s Le_spec: %s phase: %s ]\00", align 1
 @_ZN4pbrtL24STATS_REGvolumeGridBytesE = internal global %"class.pbrt::StatRegisterer" zeroinitializer, align 1
-@_ZN4pbrtL15volumeGridBytesE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL15volumeGridBytesE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.66 = private unnamed_addr constant [8 x i8] c"density\00", align 1
 @.str.67 = private unnamed_addr constant [12 x i8] c"temperature\00", align 1
 @.str.68 = private unnamed_addr constant [45 x i8] c"No \22density\22 value provided for grid medium.\00", align 1
@@ -7540,7 +7540,7 @@ ehcleanup90:                                      ; preds = %lpad80, %lpad.i81, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt13NanoVDBMediumC2ERKNS_9TransformENS_8SpectrumES4_ffN7nanovdb10GridHandleINS_13NanoVDBBufferEEES8_fffN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, ptr nocapture noundef readonly %sigma_a, ptr nocapture noundef readonly %sigma_s, float noundef %sigmaScale, float noundef %g, ptr nocapture noundef %dg, ptr nocapture noundef %tg, float noundef %LeScale, float noundef %temperatureOffset, float noundef %temperatureScale, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %agg.tmp.i119 = alloca %"class.std::function.55", align 8
+  %agg.tmp.i122 = alloca %"class.std::function.55", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i5 = alloca %"class.pbrt::Spectrum", align 8
   %agg.tmp.i = alloca %"class.pbrt::Spectrum", align 8
@@ -7786,53 +7786,53 @@ invoke.cont65:                                    ; preds = %for.body.i29, %invo
   %vtable.i.i = load ptr, ptr %temperatureGrid, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %37 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i47 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %temperatureGrid)
+  %call.i.i48 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %temperatureGrid)
           to label %invoke.cont68 unwind label %lpad22
 
 invoke.cont68:                                    ; preds = %invoke.cont65
-  %cmp.i.i46.not = icmp eq i64 %call.i.i47, 0
-  br i1 %cmp.i.i46.not, label %if.end, label %if.then
+  %cmp.i.i47.not = icmp eq i64 %call.i.i48, 0
+  br i1 %cmp.i.i47.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont68
   %38 = load ptr, ptr %ptr.i.i.i17, align 8, !nonnull !45, !noundef !45
-  %mGridCount.i.i.i51 = getelementptr inbounds i8, ptr %38, i64 28
-  %39 = load i32, ptr %mGridCount.i.i.i51, align 4
-  %cmp3.not.i.i52 = icmp ne i32 %39, 0
-  call void @llvm.assume(i1 %cmp3.not.i.i52)
-  %mGridIndex.i9.i.i55 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = load i32, ptr %mGridIndex.i9.i.i55, align 8
-  %cmp5.not10.i.i56 = icmp eq i32 %40, 0
-  br i1 %cmp5.not10.i.i56, label %while.end.i.i63, label %while.body.i.i57
+  %mGridCount.i.i.i52 = getelementptr inbounds i8, ptr %38, i64 28
+  %39 = load i32, ptr %mGridCount.i.i.i52, align 4
+  %cmp3.not.i.i53 = icmp ne i32 %39, 0
+  call void @llvm.assume(i1 %cmp3.not.i.i53)
+  %mGridIndex.i9.i.i56 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = load i32, ptr %mGridIndex.i9.i.i56, align 8
+  %cmp5.not10.i.i57 = icmp eq i32 %40, 0
+  br i1 %cmp5.not10.i.i57, label %while.end.i.i64, label %while.body.i.i58
 
-while.body.i.i57:                                 ; preds = %if.then, %while.body.i.i57
-  %grid.011.i.i58 = phi ptr [ %add.ptr.i.i60, %while.body.i.i57 ], [ %38, %if.then ]
-  %mGridSize.i.i.i59 = getelementptr inbounds i8, ptr %grid.011.i.i58, i64 32
-  %41 = load i64, ptr %mGridSize.i.i.i59, align 32
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %grid.011.i.i58, i64 %41
-  %mGridIndex.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr.i.i60, i64 24
-  %42 = load i32, ptr %mGridIndex.i.i.i61, align 8
-  %cmp5.not.i.i62 = icmp eq i32 %42, 0
-  br i1 %cmp5.not.i.i62, label %while.end.i.i63, label %while.body.i.i57, !llvm.loop !44
+while.body.i.i58:                                 ; preds = %if.then, %while.body.i.i58
+  %grid.011.i.i59 = phi ptr [ %add.ptr.i.i61, %while.body.i.i58 ], [ %38, %if.then ]
+  %mGridSize.i.i.i60 = getelementptr inbounds i8, ptr %grid.011.i.i59, i64 32
+  %41 = load i64, ptr %mGridSize.i.i.i60, align 32
+  %add.ptr.i.i61 = getelementptr inbounds i8, ptr %grid.011.i.i59, i64 %41
+  %mGridIndex.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr.i.i61, i64 24
+  %42 = load i32, ptr %mGridIndex.i.i.i62, align 8
+  %cmp5.not.i.i63 = icmp eq i32 %42, 0
+  br i1 %cmp5.not.i.i63, label %while.end.i.i64, label %while.body.i.i58, !llvm.loop !44
 
-while.end.i.i63:                                  ; preds = %while.body.i.i57, %if.then
-  %grid.0.lcssa.i.i64 = phi ptr [ %38, %if.then ], [ %add.ptr.i.i60, %while.body.i.i57 ]
-  %mGridType.i.i.i65 = getelementptr inbounds i8, ptr %grid.0.lcssa.i.i64, i64 636
-  %43 = load i32, ptr %mGridType.i.i.i65, align 4
-  %cmp9.i.i66 = icmp eq i32 %43, 1
-  %cond.i.i67 = select i1 %cmp9.i.i66, ptr %grid.0.lcssa.i.i64, ptr null
-  store ptr %cond.i.i67, ptr %temperatureFloatGrid, align 8
-  %add.ptr.i.i69 = getelementptr inbounds i8, ptr %cond.i.i67, i64 672
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i.i67, i64 696
+while.end.i.i64:                                  ; preds = %while.body.i.i58, %if.then
+  %grid.0.lcssa.i.i65 = phi ptr [ %38, %if.then ], [ %add.ptr.i.i61, %while.body.i.i58 ]
+  %mGridType.i.i.i66 = getelementptr inbounds i8, ptr %grid.0.lcssa.i.i65, i64 636
+  %43 = load i32, ptr %mGridType.i.i.i66, align 4
+  %cmp9.i.i67 = icmp eq i32 %43, 1
+  %cond.i.i68 = select i1 %cmp9.i.i67, ptr %grid.0.lcssa.i.i65, ptr null
+  store ptr %cond.i.i68, ptr %temperatureFloatGrid, align 8
+  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %cond.i.i68, i64 672
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i.i68, i64 696
   %44 = load i64, ptr %arrayidx.i.i.i, align 8
-  %add.ptr.i.i.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 %44
-  %mMaximum.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i70, i64 36
+  %add.ptr.i.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 %44
+  %mMaximum.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i71, i64 36
   %45 = load float, ptr %mMaximum.i.i.i, align 4
   store float %45, ptr %maxTemperature, align 4
   %46 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
   %cmp = icmp slt i32 %46, 1
   br i1 %cmp, label %land.rhs, label %invoke.cont121
 
-land.rhs:                                         ; preds = %while.end.i.i63
+land.rhs:                                         ; preds = %while.end.i.i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #27
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s.i, ptr noundef nonnull @.str.93, ptr noundef nonnull align 4 dereferenceable(4) %maxTemperature)
@@ -7864,28 +7864,28 @@ _ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit: ; preds = %_ZN4pbrt12StringP
   %.pre = load ptr, ptr %temperatureFloatGrid, align 8
   br label %invoke.cont121
 
-invoke.cont121:                                   ; preds = %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit, %while.end.i.i63
-  %49 = phi ptr [ %.pre, %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit ], [ %grid.0.lcssa.i.i64, %while.end.i.i63 ]
-  %mWorldBBox.i71 = getelementptr inbounds i8, ptr %49, i64 560
-  %bbox79.sroa.3.0.mWorldBBox.i71.sroa_idx = getelementptr inbounds i8, ptr %49, i64 576
-  %bbox79.sroa.3.0.copyload = load double, ptr %bbox79.sroa.3.0.mWorldBBox.i71.sroa_idx, align 8
-  %bbox79.sroa.4.0.mWorldBBox.i71.sroa_idx = getelementptr inbounds i8, ptr %49, i64 584
-  %bbox79.sroa.6.0.mWorldBBox.i71.sroa_idx = getelementptr inbounds i8, ptr %49, i64 600
-  %bbox79.sroa.6.0.copyload = load double, ptr %bbox79.sroa.6.0.mWorldBBox.i71.sroa_idx, align 8
+invoke.cont121:                                   ; preds = %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit, %while.end.i.i64
+  %49 = phi ptr [ %.pre, %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit ], [ %grid.0.lcssa.i.i65, %while.end.i.i64 ]
+  %mWorldBBox.i72 = getelementptr inbounds i8, ptr %49, i64 560
+  %bbox79.sroa.3.0.mWorldBBox.i72.sroa_idx = getelementptr inbounds i8, ptr %49, i64 576
+  %bbox79.sroa.3.0.copyload = load double, ptr %bbox79.sroa.3.0.mWorldBBox.i72.sroa_idx, align 8
+  %bbox79.sroa.4.0.mWorldBBox.i72.sroa_idx = getelementptr inbounds i8, ptr %49, i64 584
+  %bbox79.sroa.6.0.mWorldBBox.i72.sroa_idx = getelementptr inbounds i8, ptr %49, i64 600
+  %bbox79.sroa.6.0.copyload = load double, ptr %bbox79.sroa.6.0.mWorldBBox.i72.sroa_idx, align 8
   %conv101 = fptrunc double %bbox79.sroa.3.0.copyload to float
   %conv118 = fptrunc double %bbox79.sroa.6.0.copyload to float
-  %cmp.i3.i.i89 = fcmp olt float %conv118, %conv101
-  %.sroa.speculated.i.i90 = select i1 %cmp.i3.i.i89, float %conv118, float %conv101
-  %cmp.i3.i9.i97 = fcmp olt float %conv101, %conv118
-  %.sroa.speculated.i10.i98 = select i1 %cmp.i3.i9.i97, float %conv118, float %conv101
+  %cmp.i3.i.i92 = fcmp olt float %conv118, %conv101
+  %.sroa.speculated.i.i93 = select i1 %cmp.i3.i.i92, float %conv118, float %conv101
+  %cmp.i3.i9.i100 = fcmp olt float %conv101, %conv118
+  %.sroa.speculated.i10.i101 = select i1 %cmp.i3.i9.i100, float %conv118, float %conv101
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %this, align 8, !noalias !46
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %z.i.i.i, align 8, !noalias !46
-  %cmp.i3.i.i108 = fcmp olt float %.sroa.speculated.i.i90, %agg.tmp.sroa.2.0.copyload.i
-  %.sroa.speculated.i.i109 = select i1 %cmp.i3.i.i108, float %.sroa.speculated.i.i90, float %agg.tmp.sroa.2.0.copyload.i
+  %cmp.i3.i.i111 = fcmp olt float %.sroa.speculated.i.i93, %agg.tmp.sroa.2.0.copyload.i
+  %.sroa.speculated.i.i112 = select i1 %cmp.i3.i.i111, float %.sroa.speculated.i.i93, float %agg.tmp.sroa.2.0.copyload.i
   %agg.tmp5.sroa.0.0.copyload.i = load <2 x float>, ptr %pMax.i, align 4, !noalias !46
   %agg.tmp5.sroa.2.0.copyload.i = load float, ptr %z.i.i6.i, align 4, !noalias !46
-  %50 = load <2 x double>, ptr %mWorldBBox.i71, align 8
-  %51 = load <2 x double>, ptr %bbox79.sroa.4.0.mWorldBBox.i71.sroa_idx, align 8
+  %50 = load <2 x double>, ptr %mWorldBBox.i72, align 8
+  %51 = load <2 x double>, ptr %bbox79.sroa.4.0.mWorldBBox.i72.sroa_idx, align 8
   %52 = fptrunc <2 x double> %50 to <2 x float>
   %53 = fptrunc <2 x double> %51 to <2 x float>
   %54 = fcmp olt <2 x float> %52, %53
@@ -7896,12 +7896,12 @@ invoke.cont121:                                   ; preds = %_ZN4pbrt3LogIJRfEEE
   %59 = select <2 x i1> %58, <2 x float> %57, <2 x float> %agg.tmp.sroa.0.0.copyload.i
   %60 = fcmp olt <2 x float> %agg.tmp5.sroa.0.0.copyload.i, %55
   %61 = select <2 x i1> %60, <2 x float> %55, <2 x float> %agg.tmp5.sroa.0.0.copyload.i
-  %cmp.i3.i9.i115 = fcmp olt float %agg.tmp5.sroa.2.0.copyload.i, %.sroa.speculated.i10.i98
-  %.sroa.speculated.i10.i116 = select i1 %cmp.i3.i9.i115, float %.sroa.speculated.i10.i98, float %agg.tmp5.sroa.2.0.copyload.i
+  %cmp.i3.i9.i118 = fcmp olt float %agg.tmp5.sroa.2.0.copyload.i, %.sroa.speculated.i10.i101
+  %.sroa.speculated.i10.i119 = select i1 %cmp.i3.i9.i118, float %.sroa.speculated.i10.i101, float %agg.tmp5.sroa.2.0.copyload.i
   store <2 x float> %59, ptr %this, align 8
-  store float %.sroa.speculated.i.i109, ptr %z.i.i.i, align 8
+  store float %.sroa.speculated.i.i112, ptr %z.i.i.i, align 8
   store <2 x float> %61, ptr %pMax.i, align 4
-  store float %.sroa.speculated.i10.i116, ptr %z.i.i6.i, align 4
+  store float %.sroa.speculated.i10.i119, ptr %z.i.i6.i, align 4
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont
@@ -7945,17 +7945,17 @@ land.end129:                                      ; preds = %land.rhs127, %if.en
   store i64 %70, ptr %agg.tmp137, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt13NanoVDBMediumC1ERKNS1_9TransformENS1_8SpectrumES6_ffN7nanovdb10GridHandleINS1_13NanoVDBBufferEEESA_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt13NanoVDBMediumC1ERKNS1_9TransformENS1_8SpectrumES6_ffN7nanovdb10GridHandleINS1_13NanoVDBBufferEEESA_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i119)
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i119, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i119, i64 24
-  %71 = getelementptr inbounds i8, ptr %agg.tmp.i119, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i122)
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i122, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i122, i64 24
+  %71 = getelementptr inbounds i8, ptr %agg.tmp.i122, i64 8
   store i64 0, ptr %71, align 8
   %72 = ptrtoint ptr %agg.tmp137 to i64
-  store i64 %72, ptr %agg.tmp.i119, align 8
+  store i64 %72, ptr %agg.tmp.i122, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv136, ptr noundef nonnull %agg.tmp.i119)
-          to label %invoke.cont.i unwind label %lpad.i120
+  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv136, ptr noundef nonnull %agg.tmp.i122)
+          to label %invoke.cont.i unwind label %lpad.i123
 
 invoke.cont.i:                                    ; preds = %land.end129
   %73 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -7963,7 +7963,7 @@ invoke.cont.i:                                    ; preds = %land.end129
   br i1 %tobool.not.i.i.i, label %invoke.cont140, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i121 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i119, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i119, i32 noundef 3)
+  %call.i.i.i124 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i122, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i122, i32 noundef 3)
           to label %invoke.cont140 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -7973,15 +7973,15 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %75) #29
   unreachable
 
-lpad.i120:                                        ; preds = %land.end129
+lpad.i123:                                        ; preds = %land.end129
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i3.i = icmp eq ptr %77, null
   br i1 %tobool.not.i.i3.i, label %lpad139.body, label %if.then.i.i4.i
 
-if.then.i.i4.i:                                   ; preds = %lpad.i120
-  %call.i.i5.i = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i119, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i119, i32 noundef 3)
+if.then.i.i4.i:                                   ; preds = %lpad.i123
+  %call.i.i5.i = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i122, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i122, i32 noundef 3)
           to label %lpad139.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -7992,7 +7992,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   unreachable
 
 invoke.cont140:                                   ; preds = %if.then.i.i.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i119)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i122)
   %80 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %80, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %if.then.i.i
@@ -8020,24 +8020,24 @@ land.rhs142:                                      ; preds = %_ZNSt8functionIFvlE
 land.end144:                                      ; preds = %land.rhs142, %_ZNSt8functionIFvlEED2Ev.exit
   ret void
 
-lpad139.body:                                     ; preds = %lpad.i120, %if.then.i.i4.i
+lpad139.body:                                     ; preds = %lpad.i123, %if.then.i.i4.i
   %84 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i125 = icmp eq ptr %84, null
-  br i1 %tobool.not.i.i125, label %ehcleanup, label %if.then.i.i126
+  %tobool.not.i.i128 = icmp eq ptr %84, null
+  br i1 %tobool.not.i.i128, label %ehcleanup, label %if.then.i.i129
 
-if.then.i.i126:                                   ; preds = %lpad139.body
-  %call.i.i127 = invoke noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, i32 noundef 3)
-          to label %ehcleanup unwind label %terminate.lpad.i.i128
+if.then.i.i129:                                   ; preds = %lpad139.body
+  %call.i.i130 = invoke noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, i32 noundef 3)
+          to label %ehcleanup unwind label %terminate.lpad.i.i131
 
-terminate.lpad.i.i128:                            ; preds = %if.then.i.i126
+terminate.lpad.i.i131:                            ; preds = %if.then.i.i129
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
   call void @__clang_call_terminate(ptr %86) #29
   unreachable
 
-ehcleanup:                                        ; preds = %if.then.i.i126, %lpad139.body, %lpad22, %common.resume.i
-  %.pn = phi { ptr, i32 } [ %64, %lpad22 ], [ %common.resume.op.i, %common.resume.i ], [ %76, %lpad139.body ], [ %76, %if.then.i.i126 ]
+ehcleanup:                                        ; preds = %if.then.i.i129, %lpad139.body, %lpad22, %common.resume.i
+  %.pn = phi { ptr, i32 } [ %64, %lpad22 ], [ %common.resume.op.i, %common.resume.i ], [ %76, %lpad139.body ], [ %76, %if.then.i.i129 ]
   call void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %temperatureGrid) #27
   call void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %densityGrid) #27
   call void @_ZN4pbrt12MajorantGridD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %majorantGrid) #27
@@ -24432,8 +24432,8 @@ do.end.i.i.i:                                     ; preds = %entry
 
 for.cond148.preheader.lr.ph.i.i.i:                ; preds = %do.end.i.i.i
   %116 = icmp sgt <2 x i32> %114, %115
-  %arrayinit.element.i110.i.i.i = getelementptr inbounds i8, ptr %ref.tmp155.i.i.i, i64 4
-  %arrayinit.element2.i111.i.i.i = getelementptr inbounds i8, ptr %ref.tmp155.i.i.i, i64 8
+  %arrayinit.element.i111.i.i.i = getelementptr inbounds i8, ptr %ref.tmp155.i.i.i, i64 4
+  %arrayinit.element2.i112.i.i.i = getelementptr inbounds i8, ptr %ref.tmp155.i.i.i, i64 8
   %117 = extractelement <2 x i1> %116, i64 0
   %118 = extractelement <2 x i1> %116, i64 1
   %or.cond.i.i.i = select i1 %118, i1 true, i1 %117
@@ -24460,11 +24460,11 @@ for.body153.i.i.i:                                ; preds = %for.body153.i.i.i, 
   %nx.024.i.i.i = phi i32 [ %120, %for.cond151.preheader.i.i.i ], [ %inc.i.i.i, %for.body153.i.i.i ]
   %maxValue.223.i.i.i = phi float [ %maxValue.126.i.i.i, %for.cond151.preheader.i.i.i ], [ %.sroa.speculated.i.i.i, %for.body153.i.i.i ]
   store i32 %nx.024.i.i.i, ptr %ref.tmp155.i.i.i, align 4
-  store i32 %ny.027.i.i.i, ptr %arrayinit.element.i110.i.i.i, align 4
-  store i32 %nz.031.i.i.i, ptr %arrayinit.element2.i111.i.i.i, align 4
+  store i32 %ny.027.i.i.i, ptr %arrayinit.element.i111.i.i.i, align 4
+  store i32 %nz.031.i.i.i, ptr %arrayinit.element2.i112.i.i.i, align 4
   %call156.i.i.i = call noundef float @_ZNK7nanovdb12ReadAccessorIfLi0ELi1ELi2EE8getValueERKNS_5CoordE(ptr noundef nonnull align 8 dereferenceable(72) %accessor.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp155.i.i.i)
-  %cmp.i112.i.i.i = fcmp olt float %maxValue.223.i.i.i, %call156.i.i.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i112.i.i.i, float %call156.i.i.i, float %maxValue.223.i.i.i
+  %cmp.i113.i.i.i = fcmp olt float %maxValue.223.i.i.i, %call156.i.i.i
+  %.sroa.speculated.i.i.i = select i1 %cmp.i113.i.i.i, float %call156.i.i.i, float %maxValue.223.i.i.i
   %inc.i.i.i = add i32 %nx.024.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %nx.024.i.i.i, %122
   br i1 %exitcond.not.i.i.i, label %for.cond151.for.inc158_crit_edge.i.i.i, label %for.body153.i.i.i, !llvm.loop !62

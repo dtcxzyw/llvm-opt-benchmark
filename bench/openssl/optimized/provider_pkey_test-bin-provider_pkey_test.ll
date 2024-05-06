@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.62 = private unnamed_addr constant [19 x i8] c"Passphrase Testing\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #2
   store ptr %call, ptr @libctx, align 8
@@ -95,7 +95,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_sig() #0 {
+define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
 entry:
   %pkey = alloca ptr, align 8
   %siglen = alloca i64, align 8
@@ -209,7 +209,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_alternative_keygen_init() #0 {
+define internal range(i32 0, 2) i32 @test_alternative_keygen_init() #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @OSSL_PROVIDER_load(ptr noundef %0, ptr noundef nonnull @.str.9) #2
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end25, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_eq() #0 {
+define internal range(i32 0, 2) i32 @test_pkey_eq() #0 {
 entry:
   %pkey_fake = alloca ptr, align 8
   %pkey_dflt = alloca ptr, align 8
@@ -425,7 +425,7 @@ return:                                           ; preds = %entry, %end
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_store(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_pkey_store(i32 noundef %idx) #0 {
 entry:
   %cmp = icmp eq i32 %idx, 0
   %cond = select i1 %cmp, ptr @.str.14, ptr @.str.20
@@ -512,7 +512,7 @@ end:                                              ; preds = %lor.lhs.false, %whi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_delete() #0 {
+define internal range(i32 0, 2) i32 @test_pkey_delete() #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @OSSL_PROVIDER_load(ptr noundef %0, ptr noundef nonnull @.str.9) #2
@@ -627,7 +627,7 @@ end:                                              ; preds = %while.cond48, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_store_open_ex() #0 {
+define internal range(i32 0, 2) i32 @test_pkey_store_open_ex() #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @OSSL_PROVIDER_load(ptr noundef %0, ptr noundef nonnull @.str.9) #2
@@ -709,7 +709,7 @@ declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fetch_sig(ptr noundef %ctx, ptr noundef %propq, ptr noundef %expected_prov) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fetch_sig(ptr noundef %ctx, ptr noundef %propq, ptr noundef %expected_prov) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %ctx, ptr noundef nonnull @.str.11, ptr noundef %propq) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.26, ptr noundef %call) #2
@@ -824,7 +824,7 @@ declare ptr @UI_create_method(ptr noundef) local_unnamed_addr #1
 declare i32 @UI_method_set_reader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fake_pw_read_string(ptr noundef %ui, ptr noundef %uis) #0 {
+define internal range(i32 0, 2) i32 @fake_pw_read_string(ptr noundef %ui, ptr noundef %uis) #0 {
 entry:
   %call = tail call i32 @UI_get_string_type(ptr noundef %uis) #2
   %cmp = icmp eq i32 %call, 1

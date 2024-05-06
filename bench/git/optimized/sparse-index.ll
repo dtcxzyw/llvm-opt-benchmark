@@ -54,7 +54,7 @@ declare i32 @repo_config_set_worktree_gently(ptr noundef, ptr noundef, ptr nound
 declare void @prepare_repo_settings(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @is_sparse_index_allowed(ptr noundef %istate, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_sparse_index_allowed(ptr noundef %istate, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @core_apply_sparse_checkout, align 4
   %tobool = icmp ne i32 %0, 0
@@ -143,7 +143,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %call = tail call i32 @is_sparse_index_allowed(ptr noundef nonnull %istate, i32 noundef %flags), !range !5
+  %call = tail call i32 @is_sparse_index_allowed(ptr noundef nonnull %istate, i32 noundef %flags)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -160,7 +160,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end6, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %if.end6, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -267,7 +267,7 @@ lor.lhs.false:                                    ; preds = %for.body
 for.inc:                                          ; preds = %lor.lhs.false
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %3
-  br i1 %cmp, label %for.body, label %if.then12, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %if.then12, !llvm.loop !7
 
 for.end:                                          ; preds = %entry
   br i1 %tobool.not, label %if.then12, label %for.cond19.preheader
@@ -333,7 +333,7 @@ for.cond19.backedge:                              ; preds = %if.then33, %strbuf_
   %i.1.be = phi i32 [ %inc38, %if.then33 ], [ %add49, %strbuf_setlen.exit ]
   %num_converted.addr.0.be = phi i32 [ %inc35, %if.then33 ], [ %add55, %strbuf_setlen.exit ]
   %cmp20 = icmp slt i32 %i.1.be, %end
-  br i1 %cmp20, label %for.body21, label %for.end57, !llvm.loop !9
+  br i1 %cmp20, label %for.body21, label %for.end57, !llvm.loop !8
 
 if.end39:                                         ; preds = %if.end30
   store i64 0, ptr %len2.i, align 8
@@ -439,8 +439,8 @@ if.end6:                                          ; preds = %if.else, %land.lhs.
   store ptr %pl.addr.0, ptr %pl16, align 8
   %cache_nr17 = getelementptr inbounds i8, ptr %istate, i64 12
   %4 = load i32, ptr %cache_nr17, align 4
-  %cmp1878.not = icmp eq i32 %4, 0
-  br i1 %cmp1878.not, label %for.end, label %for.body.lr.ph
+  %cmp1881.not = icmp eq i32 %4, 0
+  br i1 %cmp1881.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %recursive = getelementptr inbounds i8, ptr %ps, i64 4
@@ -581,7 +581,7 @@ for.inc:                                          ; preds = %strbuf_setlen.exit,
   %23 = load i32, ptr %cache_nr17, align 4
   %24 = zext i32 %23 to i64
   %cmp18 = icmp ult i64 %indvars.iv.next, %24
-  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %if.end6
   %name_hash = getelementptr inbounds i8, ptr %istate, i64 64
@@ -648,7 +648,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @read_tree_at(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_path_to_index(ptr noundef %oid, ptr noundef %base, ptr noundef %path, i32 noundef %mode, ptr nocapture noundef readonly %context) #0 {
+define internal range(i32 0, 2) i32 @add_path_to_index(ptr noundef %oid, ptr noundef %base, ptr noundef %path, i32 noundef %mode, ptr nocapture noundef readonly %context) #0 {
 entry:
   %dtype = alloca i32, align 4
   %len1 = getelementptr inbounds i8, ptr %base, i64 8
@@ -811,7 +811,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local void @ensure_correct_sparsity(ptr noundef %istate) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @is_sparse_index_allowed(ptr noundef %istate, i32 noundef 0), !range !5
+  %call = tail call i32 @is_sparse_index_allowed(ptr noundef %istate, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -968,7 +968,7 @@ for.inc:                                          ; preds = %path_found.exit.thr
   %11 = load i32, ptr %cache_nr, align 4
   %12 = zext i32 %11 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %ensure_full_index.exit, %for.inc, %if.end
   %tobool25.not.lcssa = phi i1 [ true, %if.end ], [ %tobool25.not40, %for.inc ], [ false, %ensure_full_index.exit ]
@@ -1102,7 +1102,7 @@ if.end17:                                         ; preds = %if.end11
   %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ult i64 %sub.ptr.sub, %pathlen
-  br i1 %cmp, label %while.body, label %cleanup, !llvm.loop !12
+  br i1 %cmp, label %while.body, label %cleanup, !llvm.loop !11
 
 cleanup:                                          ; preds = %while.body, %if.end17, %strbuf_addch.exit, %ensure_full_index.exit, %if.end3
   call void @strbuf_release(ptr noundef nonnull %path_mutable) #12
@@ -1179,11 +1179,10 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

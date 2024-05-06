@@ -124,7 +124,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ige_garble_forwards() #0 {
+define internal range(i32 0, 2) i32 @test_ige_garble_forwards() #0 {
 entry:
   %key = alloca %struct.aes_key_st, align 4
   %iv = alloca [64 x i8], align 16
@@ -307,7 +307,7 @@ for.end:                                          ; preds = %for.body
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ige_vectors(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %n) #0 {
 entry:
   %key = alloca %struct.aes_key_st, align 4
   %buf = alloca [64 x i8], align 16
@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end31, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bi_ige_vectors(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %n) #0 {
 entry:
   %key1 = alloca %struct.aes_key_st, align 4
   %key2 = alloca %struct.aes_key_st, align 4

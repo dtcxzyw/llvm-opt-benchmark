@@ -10,7 +10,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv1 = trunc i64 %length to i32
+  %conv1 = trunc nuw i64 %length to i32
   %call2 = tail call i32 @SuperFastHash(ptr noundef %data, i32 noundef %conv1)
   br label %return
 

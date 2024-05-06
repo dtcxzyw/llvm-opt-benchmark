@@ -908,7 +908,7 @@ declare i32 @EC_curve_nist2nid(ptr noundef) local_unnamed_addr #0
 declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4node6crypto19GetOKPCurveFromNameEPKc(ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 1089) i32 @_ZN4node6crypto19GetOKPCurveFromNameEPKc(ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(8) @.str) #23
   %cmp = icmp eq i32 %call, 0
@@ -4564,22 +4564,22 @@ if.then91:                                        ; preds = %lor.lhs.false, %do.
 if.end93:                                         ; preds = %lor.lhs.false
   %buf_.i = getelementptr inbounds i8, ptr %name, i64 16
   %74 = load ptr, ptr %buf_.i, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(8) @.str) #23
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(8) @.str) #23
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end93
-  %call1.i62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(6) @.str.1) #23
+  %call1.i62 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(6) @.str.1) #23
   %cmp2.i = icmp eq i32 %call1.i62, 0
   br i1 %cmp2.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.2) #23
+  %call5.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.2) #23
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(5) @.str.3) #23
+  %call9.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(5) @.str.3) #23
   %cmp10.i = icmp eq i32 %call9.i, 0
   %..i = select i1 %cmp10.i, i32 1035, i32 0
   br label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit
@@ -7307,7 +7307,7 @@ _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node6crypto14GroupOrderSizeERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 {
+define dso_local noundef range(i64 -268435455, 268435456) i64 @_ZN4node6crypto14GroupOrderSizeERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey3getEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
   %call1 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef %call) #22

@@ -229,7 +229,7 @@ if.then3.i:                                       ; preds = %if.end.i17
 
 if.then21.i:                                      ; preds = %if.then3.i
   %retval.sroa.2.0.extract.shift.i57.i = lshr i128 %or.i.i, 64
-  %retval.sroa.2.0.extract.trunc.i58.i = trunc i128 %retval.sroa.2.0.extract.shift.i57.i to i64
+  %retval.sroa.2.0.extract.trunc.i58.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i57.i to i64
   %call26.i = call i32 %7(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %retval.sroa.0.0.extract.trunc.i56.i, i64 noundef %retval.sroa.2.0.extract.trunc.i58.i) #11
   %cmp27.not.i = icmp eq i32 %call26.i, -1
   br i1 %cmp27.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
@@ -403,7 +403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vs(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
+define internal range(i32 -1, 3) i32 @vs(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zve32f = getelementptr i8, ptr %env, i64 5184
   %0 = load i8, ptr %ext_zve32f, align 8
@@ -426,7 +426,7 @@ define internal noundef i32 @write_vstart(ptr nocapture noundef %env, i32 %csrno
 entry:
   %vlen = getelementptr i8, ptr %env, i64 5288
   %0 = load i16, ptr %vlen, align 8
-  %1 = tail call i16 @llvm.cttz.i16(i16 %0, i1 true), !range !5
+  %1 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %0, i1 true)
   %2 = zext nneg i16 %1 to i64
   %shl = shl nsw i64 -1, %2
   %not = xor i64 %shl, -1
@@ -497,7 +497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @seed(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
+define internal range(i32 -1, 3) i32 @seed(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zkr = getelementptr i8, ptr %env, i64 5155
   %0 = load i8, ptr %ext_zkr, align 1
@@ -553,7 +553,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @zcmt(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
+define internal range(i32 -1, 3) i32 @zcmt(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zcmt = getelementptr i8, ptr %env, i64 5149
   %0 = load i8, ptr %ext_zcmt, align 1
@@ -588,7 +588,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @read_hpmcounter(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
+  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult.i.i = extractvalue { i32, i32 } %0, 0
   %asmresult1.i.i = extractvalue { i32, i32 } %0, 1
   %conv.i.i = zext i32 %asmresult1.i.i to i64
@@ -602,7 +602,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @read_time(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
+  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult.i = extractvalue { i32, i32 } %0, 0
   %asmresult1.i = extractvalue { i32, i32 } %0, 1
   %conv.i = zext i32 %asmresult1.i to i64
@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @ctr32(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
+define internal range(i32 -1, 3) i32 @ctr32(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %0, align 16
@@ -677,7 +677,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @read_hpmcounterh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
+  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult1.i.i = extractvalue { i32, i32 } %0, 1
   %shr.i = sext i32 %asmresult1.i.i to i64
   store i64 %shr.i, ptr %val, align 8
@@ -687,7 +687,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @read_timeh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
+  %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult1.i = extractvalue { i32, i32 } %0, 1
   %shr = sext i32 %asmresult1.i to i64
   store i64 %shr, ptr %val, align 8
@@ -739,5 +739,4 @@ attributes #12 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i16 0, i16 17}
-!6 = !{i64 2460211}
+!5 = !{i64 2460211}

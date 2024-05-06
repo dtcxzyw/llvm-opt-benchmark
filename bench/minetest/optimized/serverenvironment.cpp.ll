@@ -595,7 +595,7 @@ $_ZSt19piecewise_construct = comdat any
 @infostream = external thread_local global %class.LogStream, align 8
 @.str.52 = private unnamed_addr constant [41 x i8] c"Server: Finding spawn place for player \22\00", align 1
 @.str.53 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.54 = private unnamed_addr constant [30 x i8] c"Respawn position for player \22\00", align 1
 @.str.55 = private unnamed_addr constant [28 x i8] c"\22 outside limits, resetting\00", align 1
 @.str.56 = private unnamed_addr constant [14 x i8] c"/env_meta.txt\00", align 1
@@ -13725,7 +13725,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %pos.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 0, -112) i8 @_ZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %pos.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.irr::core::vector3d.70", align 8
   %stack = alloca %"class.std::stack", align 8
@@ -20974,7 +20974,7 @@ _ZNSt10_HashtableIN3irr4core8vector3dIsEES3_SaIS3_ENSt8__detail9_IdentityESt8equ
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17ServerEnvironment14getBlockStatusEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %blockpos.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN17ServerEnvironment14getBlockStatusEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %blockpos.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc.i = trunc i48 %blockpos.coerce to i16
   %p.sroa.2.0.extract.shift.i = lshr i48 %blockpos.coerce, 16

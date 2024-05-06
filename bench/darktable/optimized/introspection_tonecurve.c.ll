@@ -203,7 +203,7 @@ define ptr @description(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @dt_iop_set_description(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   switch i32 %2, label %54 [
     i32 1, label %7
     i32 4, label %48
@@ -6716,7 +6716,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_tonecurve_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca [20 x float], align 16
   %5 = alloca [20 x float], align 16
   %6 = alloca %struct._cairo_rectangle_int, align 4
@@ -8122,7 +8122,7 @@ define internal noundef i32 @dt_iop_tonecurve_leave_notify(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca double, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 680
   %6 = load ptr, ptr %5, align 8, !tbaa !115
@@ -8174,7 +8174,7 @@ define internal noundef i32 @_scrolled(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_tonecurve_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !115
   %6 = getelementptr inbounds i8, ptr %2, i64 704
@@ -8364,7 +8364,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !232
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

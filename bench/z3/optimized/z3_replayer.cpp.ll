@@ -4724,7 +4724,7 @@ if.end81:                                         ; preds = %if.then48
   br i1 %exitcond.not, label %while.end, label %while.body44, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end81
-  %conv84 = trunc i32 %add to i8
+  %conv84 = trunc nuw i32 %add to i8
   %18 = load ptr, ptr %m_string, align 8
   %cmp.i = icmp eq ptr %18, null
   br i1 %cmp.i, label %if.then.i37, label %lor.lhs.false.i

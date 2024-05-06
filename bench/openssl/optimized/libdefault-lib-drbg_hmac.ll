@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [12 x i8] c"reseed_time\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_drbg_hmac_init(ptr noundef %hmac, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_drbg_hmac_init(ptr noundef %hmac, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hmac, align 8
   %cmp = icmp eq ptr %0, null
@@ -48,7 +48,7 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %K, i8 0, i64 %1, i1 false)
   %V = getelementptr inbounds i8, ptr %hmac, i64 104
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %V, i8 1, i64 %1, i1 false)
-  %call.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len), !range !4
+  %call.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -59,7 +59,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %or.cond1.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len), !range !4
+  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.end.i, %if.end, %if.then
@@ -77,7 +77,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_hmac_generate(ptr noundef %hmac, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_drbg_hmac_generate(ptr noundef %hmac, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hmac, align 8
   %V = getelementptr inbounds i8, ptr %hmac, i64 104
@@ -87,12 +87,12 @@ entry:
   br i1 %or.cond, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %entry
-  %call.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef nonnull %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef nonnull %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %drbg_hmac_update.exit
 
 drbg_hmac_update.exit:                            ; preds = %land.lhs.true3
-  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef nonnull %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef nonnull %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool.not = icmp eq i32 %call6.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -138,7 +138,7 @@ if.else:                                          ; preds = %if.end11
 
 if.end24:                                         ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.047, ptr nonnull align 8 %V, i64 %outlen.addr.046, i1 false)
-  %call.i25 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call.i25 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool.not.i26 = icmp eq i32 %call.i25, 0
   br i1 %tobool.not.i26, label %drbg_hmac_update.exit32.thread, label %if.end.i27
 
@@ -147,7 +147,7 @@ if.end.i27:                                       ; preds = %if.end24
   br i1 %or.cond1.i28, label %return, label %drbg_hmac_update.exit32
 
 drbg_hmac_update.exit32:                          ; preds = %if.end.i27
-  %call6.i30 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call6.i30 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %call6.i30.fr = freeze i32 %call6.i30
   %tobool31.not = icmp eq i32 %call6.i30.fr, 0
   br i1 %tobool31.not, label %drbg_hmac_update.exit32.thread, label %return
@@ -414,7 +414,7 @@ return:                                           ; preds = %err, %if.then37, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hmac_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, 64
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !4
 
 for.cond8.preheader:                              ; preds = %for.cond
   %V = getelementptr inbounds i8, ptr %0, i64 104
@@ -450,7 +450,7 @@ for.body:                                         ; preds = %if.end, %for.cond
 for.cond8:                                        ; preds = %for.body11
   %inc19 = add nuw nsw i64 %i7.013, 1
   %exitcond15.not = icmp eq i64 %inc19, 64
-  br i1 %exitcond15.not, label %err, label %for.body11, !llvm.loop !7
+  br i1 %exitcond15.not, label %err, label %for.body11, !llvm.loop !6
 
 for.body11:                                       ; preds = %for.cond8.preheader, %for.cond8
   %i7.013 = phi i64 [ 0, %for.cond8.preheader ], [ %inc19, %for.cond8 ]
@@ -479,7 +479,7 @@ declare i64 @ossl_drbg_get_seed(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_hmac(ptr noundef %hmac, i8 noundef zeroext %inbyte, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_hmac(ptr noundef %hmac, i8 noundef zeroext %inbyte, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
 entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1
@@ -567,7 +567,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare ptr @ossl_rand_drbg_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hmac_new(ptr nocapture noundef writeonly %drbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_new(ptr nocapture noundef writeonly %drbg) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 168, ptr noundef nonnull @.str, i32 noundef 315) #6
   %cmp = icmp eq ptr %call, null
@@ -594,11 +594,11 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drbg_hmac_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %call = tail call i32 @ossl_drbg_hmac_init(ptr noundef %0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len), !range !4
+  %call = tail call i32 @ossl_drbg_hmac_init(ptr noundef %0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len)
   ret i32 %call
 }
 
@@ -616,11 +616,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drbg_hmac_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc i32 @do_hmac(ptr noundef %0, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @do_hmac(ptr noundef %0, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %drbg_hmac_update.exit, label %if.end.i
 
@@ -630,7 +630,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond1.i, label %drbg_hmac_update.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef %0, i8 noundef zeroext 1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0), !range !4
+  %call6.i = tail call fastcc i32 @do_hmac(ptr noundef %0, i8 noundef zeroext 1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0)
   br label %drbg_hmac_update.exit
 
 drbg_hmac_update.exit:                            ; preds = %entry, %if.end.i, %if.end5.i
@@ -639,11 +639,11 @@ drbg_hmac_update.exit:                            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @drbg_hmac_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %call = tail call i32 @ossl_drbg_hmac_generate(ptr noundef %0, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len), !range !4
+  %call = tail call i32 @ossl_drbg_hmac_generate(ptr noundef %0, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len)
   ret i32 %call
 }
 
@@ -789,7 +789,6 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

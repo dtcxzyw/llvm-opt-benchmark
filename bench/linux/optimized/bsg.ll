@@ -509,7 +509,7 @@ define internal i64 @bsg_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1
 declare dso_local i64 @compat_ptr_ioctl(ptr noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @bsg_open(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -6, 1) i32 @bsg_open(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -736

@@ -71,26 +71,26 @@ define dso_local ptr @inet_getpeer(ptr noundef %0, ptr nocapture noundef readonl
   %6 = load volatile i32, ptr %5, align 4
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.loopexit24, label %.preheader23
+  br i1 %8, label %.loopexit25, label %.preheader24
 
-.preheader23:                                     ; preds = %3, %.preheader23
+.preheader24:                                     ; preds = %3, %.preheader24
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
   %9 = load volatile i32, ptr %5, align 4
   %10 = and i32 %9, 1
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit24, label %.preheader23, !llvm.loop !6
+  br i1 %11, label %.loopexit25, label %.preheader24, !llvm.loop !6
 
-.loopexit24:                                      ; preds = %.preheader23, %3
-  %12 = phi i32 [ %6, %3 ], [ %9, %.preheader23 ]
+.loopexit25:                                      ; preds = %.preheader24, %3
+  %12 = phi i32 [ %6, %3 ], [ %9, %.preheader24 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load volatile ptr, ptr %0, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %lookup.exit, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.loopexit24, %32
-  %16 = phi ptr [ %36, %32 ], [ %14, %.loopexit24 ]
-  %17 = phi ptr [ %35, %32 ], [ %0, %.loopexit24 ]
+.lr.ph.split.us.i:                                ; preds = %.loopexit25, %32
+  %16 = phi ptr [ %36, %32 ], [ %14, %.loopexit25 ]
+  %17 = phi ptr [ %35, %32 ], [ %0, %.loopexit25 ]
   %18 = getelementptr inbounds i8, ptr %16, i64 24
   %19 = load i16, ptr %13, align 4
   %20 = icmp eq i16 %19, 2
@@ -160,12 +160,12 @@ define dso_local ptr @inet_getpeer(ptr noundef %0, ptr nocapture noundef readonl
 57:                                               ; preds = %56, %.thread9.i
   %58 = icmp eq i32 %52, 0
   %spec.select = select i1 %58, ptr %17, ptr null
-  %spec.select81 = select i1 %58, ptr null, ptr %16
+  %spec.select82 = select i1 %58, ptr null, ptr %16
   br label %lookup.exit
 
-lookup.exit:                                      ; preds = %29, %32, %57, %.loopexit24
-  %.019 = phi ptr [ %0, %.loopexit24 ], [ %spec.select, %57 ], [ %35, %32 ], [ %17, %29 ]
-  %59 = phi ptr [ null, %.loopexit24 ], [ %spec.select81, %57 ], [ null, %32 ], [ null, %29 ]
+lookup.exit:                                      ; preds = %29, %32, %57, %.loopexit25
+  %.020 = phi ptr [ %0, %.loopexit25 ], [ %spec.select, %57 ], [ %35, %32 ], [ %17, %29 ]
+  %59 = phi ptr [ null, %.loopexit25 ], [ %spec.select82, %57 ], [ null, %32 ], [ null, %29 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %60 = load volatile i32, ptr %5, align 4
   tail call void @__rcu_read_unlock() #10
@@ -188,7 +188,7 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %70 = load volatile ptr, ptr %0, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %lookup.exit15, label %.lr.ph.split.i.preheader
+  br i1 %71, label %lookup.exit16, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %66
   %72 = load i16, ptr %13, align 4
@@ -256,7 +256,7 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
 
 107:                                              ; preds = %106, %.thread9.i14
   %108 = icmp eq i32 %102, 0
-  br i1 %108, label %select.unfold.i9, label %lookup.exit15
+  br i1 %108, label %select.unfold.i9, label %lookup.exit16
 
 109:                                              ; preds = %88
   %110 = add nuw nsw i32 %.0, 1
@@ -271,21 +271,21 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
   %115 = getelementptr inbounds i8, ptr %75, i64 %114
   %116 = load volatile ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %lookup.exit15, label %.lr.ph.split.i
+  br i1 %117, label %lookup.exit16, label %.lr.ph.split.i
 
 select.unfold.i9:                                 ; preds = %107
-  br label %lookup.exit15
+  br label %lookup.exit16
 
-lookup.exit15:                                    ; preds = %113, %66, %107, %select.unfold.i9
-  %.120 = phi ptr [ %.019, %107 ], [ %0, %66 ], [ %76, %select.unfold.i9 ], [ %115, %113 ]
-  %.018 = phi ptr [ null, %107 ], [ null, %66 ], [ %75, %select.unfold.i9 ], [ %75, %113 ]
+lookup.exit16:                                    ; preds = %113, %66, %107, %select.unfold.i9
+  %.121 = phi ptr [ %.020, %107 ], [ %0, %66 ], [ %76, %select.unfold.i9 ], [ %115, %113 ]
+  %.019 = phi ptr [ null, %107 ], [ null, %66 ], [ %75, %select.unfold.i9 ], [ %75, %113 ]
   %.3 = phi i32 [ %.0, %107 ], [ 0, %66 ], [ %.0, %select.unfold.i9 ], [ %.1, %113 ]
   %118 = phi ptr [ %75, %107 ], [ null, %66 ], [ null, %select.unfold.i9 ], [ null, %113 ]
   %119 = icmp eq ptr %118, null
   %120 = and i1 %64, %119
   br i1 %120, label %121, label %143
 
-121:                                              ; preds = %lookup.exit15
+121:                                              ; preds = %lookup.exit16
   %122 = load ptr, ptr @peer_cachep, align 8
   %123 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %122, i32 noundef 2080) #10
   %124 = icmp eq ptr %123, null
@@ -312,11 +312,11 @@ lookup.exit15:                                    ; preds = %113, %66, %107, %se
   %136 = add i64 %135, -60000
   %137 = getelementptr inbounds i8, ptr %123, i64 120
   store i64 %136, ptr %137, align 8
-  %138 = ptrtoint ptr %.018 to i64
+  %138 = ptrtoint ptr %.019 to i64
   store i64 %138, ptr %123, align 8
   %139 = getelementptr inbounds i8, ptr %123, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
-  store ptr %123, ptr %.120, align 8
+  store ptr %123, ptr %.121, align 8
   tail call void @rb_insert_color(ptr noundef nonnull %123, ptr noundef %0) #10
   %140 = getelementptr inbounds i8, ptr %0, i64 16
   %141 = load i32, ptr %140, align 8
@@ -324,8 +324,8 @@ lookup.exit15:                                    ; preds = %113, %66, %107, %se
   store i32 %142, ptr %140, align 8
   br label %143
 
-143:                                              ; preds = %125, %121, %lookup.exit15
-  %144 = phi ptr [ %123, %125 ], [ null, %121 ], [ %118, %lookup.exit15 ]
+143:                                              ; preds = %125, %121, %lookup.exit16
+  %144 = phi ptr [ %123, %125 ], [ null, %121 ], [ %118, %lookup.exit16 ]
   %145 = icmp eq i32 %.3, 0
   br i1 %145, label %.loopexit, label %146
 

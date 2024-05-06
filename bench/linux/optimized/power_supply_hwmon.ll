@@ -172,7 +172,7 @@ define dso_local void @power_supply_remove_hwmon_sysfs(ptr noundef %0) local_unn
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @power_supply_hwmon_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq i32 %1, 1
   %6 = icmp eq i32 %2, 21
   %7 = and i1 %5, %6

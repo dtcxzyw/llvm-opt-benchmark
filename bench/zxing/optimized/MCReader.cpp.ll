@@ -170,7 +170,7 @@ _ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread: ; preds = %31
   %53 = sdiv i32 %52, 33
   %54 = add nsw i32 %53, %43
   %55 = trunc i32 %.033.i to i1
-  %56 = mul nsw i32 %.033.i, 30
+  %56 = mul nuw nsw i32 %.033.i, 30
   br i1 %55, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %50, %77

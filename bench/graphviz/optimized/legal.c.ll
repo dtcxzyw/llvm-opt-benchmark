@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [36 x i8] c"seg#%d : (%.3f, %.3f) (%.3f, %.3f)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Plegal_arrangement(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Plegal_arrangement(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = sext i32 %1 to i64
@@ -96,7 +96,7 @@ define noundef i32 @Plegal_arrangement(ptr nocapture noundef readonly %0, i32 no
   br i1 %39, label %.lr.ph115, label %._crit_edge116.loopexit
 
 ._crit_edge116.loopexit:                          ; preds = %.lr.ph115
-  %40 = trunc i64 %indvars.iv.next155 to i32
+  %40 = trunc nsw i64 %indvars.iv.next155 to i32
   %sext = shl i64 %indvars.iv.next155, 32
   %.pre = ashr exact i64 %sext, 32
   br label %._crit_edge116
@@ -458,7 +458,7 @@ between.exit.i.i.i:                               ; preds = %211, %209, %207, %2
 
 online.exit.i.i:                                  ; preds = %225, %223, %221, %219, %217, %between.exit.i.i.i, %199, %184
   %227 = phi i32 [ 3, %184 ], [ 0, %199 ], [ %214, %between.exit.i.i.i ], [ 1, %217 ], [ %..i23.i.i.i, %219 ], [ 1, %223 ], [ %.15.i22.i.i.i, %225 ], [ 0, %221 ]
-  %228 = call fastcc i32 @intpoint(ptr noundef nonnull %84, ptr noundef nonnull %.080136.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %227), !range !4
+  %228 = call fastcc i32 @intpoint(ptr noundef nonnull %84, ptr noundef nonnull %.080136.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %227)
   %.not25.i.i = icmp eq i32 %228, 0
   br i1 %.not25.i.i, label %.critedge.i, label %427
 
@@ -921,7 +921,7 @@ between.exit.i115.i.i:                            ; preds = %409, %407, %405, %4
 
 online.exit119.i.i:                               ; preds = %423, %421, %419, %417, %415, %between.exit.i115.i.i, %397, %online.exit85.i.i
   %425 = phi i32 [ %384, %online.exit85.i.i ], [ 0, %397 ], [ %412, %between.exit.i115.i.i ], [ 1, %415 ], [ %..i23.i114.i.i, %417 ], [ 1, %421 ], [ %.15.i22.i113.i.i, %423 ], [ 0, %419 ]
-  %426 = call fastcc i32 @intpoint(ptr noundef nonnull %84, ptr noundef nonnull %.080136.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %425), !range !4
+  %426 = call fastcc i32 @intpoint(ptr noundef nonnull %84, ptr noundef nonnull %.080136.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %425)
   %.not.i.i = icmp eq i32 %426, 0
   br i1 %.not.i.i, label %.critedge.i, label %427
 
@@ -1392,7 +1392,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @gt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @gt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1425,7 +1425,7 @@ define internal i32 @gt(ptr nocapture noundef readonly %0, ptr nocapture noundef
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @intpoint(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = icmp slt i32 %4, 1
   br i1 %6, label %online.exit204.thread, label %7
 
@@ -1989,4 +1989,3 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

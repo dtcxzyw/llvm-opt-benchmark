@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [66 x i8] c"Script attempted to access keys that do not hash to the same slot\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @scriptIsTimedout() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @scriptIsTimedout() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -80,7 +80,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @scriptIsRunning() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @scriptIsRunning() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %cmp = icmp ne ptr %0, null
@@ -130,7 +130,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scriptInterrupt(ptr noundef %run_ctx) local_unnamed_addr #2 {
+define dso_local range(i32 1, 3) i32 @scriptInterrupt(ptr noundef %run_ctx) local_unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
@@ -215,7 +215,7 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare void @protectClient(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %script_flags) local_unnamed_addr #5 {
+define dso_local range(i64 0, -65536) i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %script_flags) local_unnamed_addr #5 {
 entry:
   %and = and i64 %cmd_flags, -66566
   %and1 = and i64 %script_flags, 3
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scriptPrepareForRun(ptr noundef %run_ctx, ptr noundef %engine_client, ptr noundef %caller, ptr noundef %funcname, i64 noundef %script_flags, i32 noundef %ro) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @scriptPrepareForRun(ptr noundef %run_ctx, ptr noundef %engine_client, ptr noundef %caller, ptr noundef %funcname, i64 noundef %script_flags, i32 noundef %ro) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -563,7 +563,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scriptIsEval() local_unnamed_addr #2 {
+define dso_local range(i32 0, 129) i32 @scriptIsEval() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end21, %if.then2
 declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @scriptSetResp(ptr nocapture noundef readonly %run_ctx, i32 noundef %resp) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @scriptSetResp(ptr nocapture noundef readonly %run_ctx, i32 noundef %resp) local_unnamed_addr #7 {
 entry:
   %0 = add i32 %resp, -4
   %or.cond = icmp ult i32 %0, -2
@@ -672,7 +672,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @scriptSetRepl(ptr nocapture noundef writeonly %run_ctx, i32 noundef %repl) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 1) i32 @scriptSetRepl(ptr nocapture noundef writeonly %run_ctx, i32 noundef %repl) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp ult i32 %repl, 4
   br i1 %cmp.not, label %if.end, label %return
@@ -874,7 +874,7 @@ scriptVerifyWriteCommandAllow.exit:               ; preds = %if.then.i44, %if.th
   br label %error
 
 if.end21:                                         ; preds = %if.end.i47, %if.end30.i
-  %call22 = call fastcc i32 @scriptVerifyOOM(ptr noundef nonnull %run_ctx, ptr noundef %err), !range !5
+  %call22 = call fastcc i32 @scriptVerifyOOM(ptr noundef nonnull %run_ctx, ptr noundef %err)
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end25, label %error
 
@@ -893,7 +893,7 @@ if.then29:                                        ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.then29, %if.end25
   %33 = load ptr, ptr %original_client, align 8
-  %call34 = call fastcc i32 @scriptVerifyClusterState(ptr noundef nonnull %run_ctx, ptr noundef nonnull %0, ptr noundef %33, ptr noundef %err), !range !5
+  %call34 = call fastcc i32 @scriptVerifyClusterState(ptr noundef nonnull %run_ctx, ptr noundef nonnull %0, ptr noundef %33, ptr noundef %err)
   %cmp35.not = icmp eq i32 %call34, 0
   br i1 %cmp35.not, label %if.end38, label %error
 
@@ -972,7 +972,7 @@ declare ptr @lookupCommand(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @scriptVerifyOOM(ptr nocapture noundef readonly %run_ctx, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @scriptVerifyOOM(ptr nocapture noundef readonly %run_ctx, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @scriptVerifyClusterState(ptr nocapture noundef readonly %run_ctx, ptr noundef %c, ptr noundef %original_c, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @scriptVerifyClusterState(ptr nocapture noundef readonly %run_ctx, ptr noundef %c, ptr noundef %original_c, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
 entry:
   %error_code = alloca i32, align 4
   %hashslot = alloca i32, align 4
@@ -1150,7 +1150,7 @@ declare void @afterErrorReply(ptr noundef, ptr noundef, i64 noundef, i32 noundef
 declare i32 @incrCommandStatsOnError(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scriptRunDuration() local_unnamed_addr #2 {
+define dso_local range(i64 0, 18446744073709552) i64 @scriptRunDuration() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -1225,4 +1225,3 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

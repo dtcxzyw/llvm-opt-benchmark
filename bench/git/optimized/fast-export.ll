@@ -610,7 +610,7 @@ for.body:                                         ; preds = %if.end233, %for.bod
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   call void @refspec_append(ptr noundef nonnull @refspecs, ptr noundef %6) #18
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i64, ptr %nr, align 8
   %cmp237 = icmp ugt i64 %7, %indvars.iv.next
   br i1 %cmp237, label %for.body, label %for.end, !llvm.loop !5
@@ -1221,7 +1221,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i61
   %rawsz.i.i = getelementptr inbounds i8, ptr %83, i64 16
   %84 = load i64, ptr %rawsz.i.i, align 8
   %call.i2.i = call ptr @xmallocz(i64 noundef 64) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i57, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid.i.i57, i8 0, i64 32, i1 false)
   %85 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i.i = getelementptr inbounds i8, ptr %85, i64 256
   %86 = load ptr, ptr %hash_algo.i.i.i, align 8
@@ -1237,7 +1237,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i61
   %inc.i.i64 = add i32 %87, 1
   store i32 %inc.i.i64, ptr @generate_fake_oid.counter, align 4
   %shr.i.i.i = lshr i32 %87, 24
-  %conv.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %add.ptr1.i.i, align 1
   %shr1.i.i.i = lshr i32 %87, 16
   %conv2.i.i.i = trunc i32 %shr1.i.i.i to i8
@@ -1448,7 +1448,7 @@ if.end284:                                        ; preds = %if.then282, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_signed_tag_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_signed_tag_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -1515,7 +1515,7 @@ return:                                           ; preds = %if.then, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_tag_of_filtered_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_tag_of_filtered_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -1559,7 +1559,7 @@ return:                                           ; preds = %if.then, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_reencode_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_reencode_mode(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -1606,7 +1606,7 @@ return:                                           ; preds = %sw.bb, %sw.bb1, %if
 declare i32 @parse_opt_string_list(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_anonymize_map(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_anonymize_map(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -1938,11 +1938,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %5, ptr noundef nonnull dereferenceable(32) %6, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %5, ptr noundef nonnull readonly dereferenceable(32) %6, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %5, ptr noundef nonnull dereferenceable(20) %6, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %5, ptr noundef nonnull readonly dereferenceable(20) %6, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -2830,11 +2830,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -3197,7 +3197,7 @@ if.then9.i:                                       ; preds = %if.end.i
   %rawsz.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %rawsz.i, align 8
   %call.i2 = call ptr @xmallocz(i64 noundef 64) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid.i, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i.i, align 8
@@ -3214,7 +3214,7 @@ if.then9.i:                                       ; preds = %if.end.i
   %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr @generate_fake_oid.counter, align 4
   %shr.i.i = lshr i32 %6, 24
-  %conv.i.i = trunc i32 %shr.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %add.ptr1.i, align 1
   %shr1.i.i = lshr i32 %6, 16
   %conv2.i.i = trunc i32 %shr1.i.i to i8

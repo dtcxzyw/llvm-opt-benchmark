@@ -24,7 +24,7 @@ define noundef i32 @gvToolTred(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.013 = phi i32 [ %5, %.lr.ph ], [ 0, %3 ]
   %.0912 = phi ptr [ %6, %.lr.ph ], [ %4, %3 ]
-  %5 = tail call fastcc i32 @dfs(ptr noundef nonnull %.0912, ptr noundef null, i32 noundef %.013), !range !4
+  %5 = tail call fastcc i32 @dfs(ptr noundef nonnull %.0912, ptr noundef null, i32 noundef %.013)
   %6 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0912) #3
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -50,7 +50,7 @@ declare void @aginit(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 nou
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dfs(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -141,7 +141,7 @@ define internal fastcc i32 @dfs(ptr noundef %0, ptr noundef readnone %1, i32 nou
 
 59:                                               ; preds = %.lr.ph51
   %60 = getelementptr inbounds i8, ptr %.13948, i64 64
-  %61 = tail call fastcc i32 @dfs(ptr noundef nonnull %33, ptr noundef nonnull %60, i32 noundef %.049), !range !4
+  %61 = tail call fastcc i32 @dfs(ptr noundef nonnull %33, ptr noundef nonnull %60, i32 noundef %.049)
   br label %62
 
 62:                                               ; preds = %59, %39, %38
@@ -189,4 +189,3 @@ attributes #4 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

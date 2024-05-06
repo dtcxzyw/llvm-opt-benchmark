@@ -1013,7 +1013,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [54 x i8] c"expected str, bytes or os.PathLike object, not %.200s\00", align 1
 @.str.9 = private unnamed_addr constant [64 x i8] c"expected %.200s.__fspath__() to return str or bytes, not %.200s\00", align 1
 @posixmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.11, ptr @posix__doc__, i64 112, ptr @posix_methods, ptr @posixmodile_slots, ptr @_posix_traverse, ptr @_posix_clear, ptr @_posix_free }, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.10 = private unnamed_addr constant [173 x i8] c"the function must be called with the GIL held, after Python initialization and before Python finalization, but the GIL is released (the current Python thread state is NULL)\00", align 1
 @.str.11 = private unnamed_addr constant [6 x i8] c"posix\00", align 1
 @posix__doc__ = internal constant [259 x i8] c"This module provides access to operating system functionality that is\0Astandardized by the C Standard and the POSIX standard (a thinly\0Adisguised Unix interface).  Refer to the library manual and\0Acorresponding Unix manual entries for more information on calls.\00", align 16
@@ -2687,7 +2687,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_Py_Uid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %obj) #22
@@ -2810,7 +2810,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_Py_Gid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %obj) #22
@@ -2917,7 +2917,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_Sigset_Converter(ptr noundef %obj, ptr noundef %addr) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_Py_Sigset_Converter(ptr noundef %obj, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %msg = alloca [54 x i8], align 16
@@ -3680,7 +3680,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1022 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1022, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -3716,7 +3716,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool24.not = icmp eq i32 %call2.i, 0
   br i1 %tobool24.not, label %exit, label %if.end26
 
@@ -3734,7 +3734,7 @@ if.end30:                                         ; preds = %if.end26, %if.end18
 skip_optional_kwonly:                             ; preds = %if.end30, %if.end26, %if.end15
   %follow_symlinks.0 = phi i32 [ %call32, %if.end30 ], [ 1, %if.end26 ], [ 1, %if.end15 ]
   %8 = load i32, ptr %dir_fd, align 4
-  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef %module, ptr noundef nonnull %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
+  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end30, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -3823,7 +3823,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1033 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1033, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -3871,7 +3871,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4034,7 +4034,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   %object.i10.phi.trans.insert = getelementptr inbounds i8, ptr %path, i64 56
   %.pre = load ptr, ptr %object.i10.phi.trans.insert, align 8
@@ -4157,7 +4157,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1031, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -4205,7 +4205,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4432,21 +4432,21 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1028 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1028, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call i32 @_Py_Uid_Converter(ptr noundef %4, ptr noundef nonnull %uid), !range !9
+  %call17 = call i32 @_Py_Uid_Converter(ptr noundef %4, ptr noundef nonnull %uid)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
 if.end20:                                         ; preds = %if.end15
   %arrayidx21 = getelementptr i8, ptr %cond1028, i64 16
   %5 = load ptr, ptr %arrayidx21, align 8
-  %call22 = call i32 @_Py_Gid_Converter(ptr noundef %5, ptr noundef nonnull %gid), !range !9
+  %call22 = call i32 @_Py_Gid_Converter(ptr noundef %5, ptr noundef nonnull %gid)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %exit, label %if.end25
 
@@ -4482,7 +4482,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef nonnull writeonly %dir_fd)
   %tobool34.not = icmp eq i32 %call2.i, 0
   br i1 %tobool34.not, label %exit, label %if.end36
 
@@ -4665,14 +4665,14 @@ land.lhs.true8:                                   ; preds = %if.end
 if.end12:                                         ; preds = %land.lhs.true8, %if.end
   %arrayidx13 = getelementptr i8, ptr %cond15, i64 8
   %2 = load ptr, ptr %arrayidx13, align 8
-  %call14 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %uid), !range !9
+  %call14 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %uid)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %exit, label %if.end17
 
 if.end17:                                         ; preds = %if.end12
   %arrayidx18 = getelementptr i8, ptr %cond15, i64 16
   %3 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call i32 @_Py_Gid_Converter(ptr noundef %3, ptr noundef nonnull %gid), !range !9
+  %call19 = call i32 @_Py_Gid_Converter(ptr noundef %3, ptr noundef nonnull %gid)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %exit, label %if.end22
 
@@ -4699,7 +4699,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call6.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %exit, !llvm.loop !10
+  br i1 %tobool.not.i, label %do.body.i, label %exit, !llvm.loop !8
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %7 = load ptr, ptr @PyExc_OSError, align 8
@@ -4734,21 +4734,21 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond15 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond15, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %arrayidx10 = getelementptr i8, ptr %cond15, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call11 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %uid), !range !9
+  %call11 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %uid)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %exit, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
   %arrayidx15 = getelementptr i8, ptr %cond15, i64 16
   %3 = load ptr, ptr %arrayidx15, align 8
-  %call16 = call i32 @_Py_Gid_Converter(ptr noundef %3, ptr noundef nonnull %gid), !range !9
+  %call16 = call i32 @_Py_Gid_Converter(ptr noundef %3, ptr noundef nonnull %gid)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %exit, label %if.end19
 
@@ -4848,7 +4848,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -4996,14 +4996,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1065 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1065, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1065, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -5039,7 +5039,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -5077,7 +5077,7 @@ dir_fd_converter.exit35.thread:                   ; preds = %if.else.i24
   br label %exit
 
 dir_fd_converter.exit35:                          ; preds = %if.else.i24
-  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef nonnull %dst_dir_fd), !range !9
+  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef nonnull writeonly %dst_dir_fd)
   %tobool41.not = icmp eq i32 %call2.i28, 0
   br i1 %tobool41.not, label %exit, label %if.end43
 
@@ -5295,7 +5295,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %3 = load ptr, ptr %cond1025, align 8
-  %call15 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call15 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %exit, label %if.end14.skip_optional_pos_crit_edge
 
@@ -5673,7 +5673,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1018 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1018, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -5701,7 +5701,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonly_crit_edge
 
@@ -5711,7 +5711,7 @@ dir_fd_converter.exit.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_converte
 
 skip_optional_kwonly:                             ; preds = %if.end18, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge, %if.end15
   %7 = phi i32 [ %.pre, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge ], [ -100, %if.end15 ], [ -100, %if.end18 ]
-  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef %module, ptr noundef nonnull %path, i32 noundef %7, i32 noundef 0)
+  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %7, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -5800,7 +5800,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1029 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1029, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -5849,7 +5849,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull writeonly %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -6191,7 +6191,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1043 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1043, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6296,7 +6296,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.1 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.1 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef %module, ptr noundef nonnull %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6383,7 +6383,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1043 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1043, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6488,7 +6488,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.1 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.1 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef %module, ptr noundef nonnull %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6577,7 +6577,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1023, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6614,7 +6614,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %skip_optional_kwonly
 
@@ -6915,7 +6915,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call18.i = call i32 @PyErr_CheckSignals() #22
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %do.body.i, label %os_copy_file_range_impl.exit, !llvm.loop !11
+  br i1 %tobool19.not.i, label %do.body.i, label %os_copy_file_range_impl.exit, !llvm.loop !9
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %13 = load ptr, ptr @PyExc_OSError, align 8
@@ -7141,7 +7141,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call18.i = call i32 @PyErr_CheckSignals() #22
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %do.body.i, label %os_splice_impl.exit, !llvm.loop !12
+  br i1 %tobool19.not.i, label %do.body.i, label %os_splice_impl.exit, !llvm.loop !10
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %16 = load ptr, ptr @PyExc_OSError, align 8
@@ -7200,14 +7200,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1054 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1054, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1054, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7243,7 +7243,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7271,7 +7271,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd), !range !9
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7282,7 +7282,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull %src, ptr noundef nonnull %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7421,14 +7421,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1054 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1054, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1054, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7464,7 +7464,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7492,7 +7492,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd), !range !9
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7503,7 +7503,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull %src, ptr noundef nonnull %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7638,7 +7638,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1024, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -7666,7 +7666,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -7797,14 +7797,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1048 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1048, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %src), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1048, i64 8
   %5 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %dst), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7847,7 +7847,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
   %tobool41.not = icmp eq i32 %call2.i, 0
   br i1 %tobool41.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8318,7 +8318,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1024, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8346,7 +8346,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8474,7 +8474,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1025, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8502,7 +8502,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8638,7 +8638,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1036 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1036, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8708,7 +8708,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef nonnull writeonly %dir_fd)
   %tobool44.not = icmp eq i32 %call2.i, 0
   br i1 %tobool44.not, label %exit, label %if.end46
 
@@ -9255,7 +9255,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call fastcc i32 @path_converter(ptr noundef %0, ptr noundef nonnull %path), !range !8
+  %call2 = call fastcc i32 @path_converter(ptr noundef %0, ptr noundef nonnull %path)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
@@ -9326,7 +9326,7 @@ for.body.i.i:                                     ; preds = %if.then19.i, %for.b
   tail call void @PyMem_Free(ptr noundef %15) #22
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %14
-  br i1 %exitcond.not.i.i, label %free_string_array.exit.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %free_string_array.exit.i, label %for.body.i.i, !llvm.loop !11
 
 free_string_array.exit.i:                         ; preds = %for.body.i.i, %if.then19.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
@@ -9351,7 +9351,7 @@ for.body.i16.i:                                   ; preds = %if.then23.i, %for.b
   tail call void @PyMem_Free(ptr noundef %18) #22
   %inc.i19.i = add nuw nsw i64 %i.05.i17.i, 1
   %exitcond.not.i20.i = icmp eq i64 %inc.i19.i, %17
-  br i1 %exitcond.not.i20.i, label %free_string_array.exit21.i, label %for.body.i16.i, !llvm.loop !13
+  br i1 %exitcond.not.i20.i, label %free_string_array.exit21.i, label %for.body.i16.i, !llvm.loop !11
 
 free_string_array.exit21.i:                       ; preds = %for.body.i16.i, %if.then23.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
@@ -9374,7 +9374,7 @@ for.body.i23.i:                                   ; preds = %if.end24.i, %for.bo
   tail call void @PyMem_Free(ptr noundef %22) #22
   %inc.i26.i = add nuw nsw i64 %i.05.i24.i, 1
   %exitcond.not.i27.i = icmp eq i64 %inc.i26.i, %21
-  br i1 %exitcond.not.i27.i, label %free_string_array.exit28.i, label %for.body.i23.i, !llvm.loop !13
+  br i1 %exitcond.not.i27.i, label %free_string_array.exit28.i, label %for.body.i23.i, !llvm.loop !11
 
 free_string_array.exit28.i:                       ; preds = %for.body.i23.i, %if.end24.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
@@ -9458,7 +9458,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond16 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond16, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -9582,7 +9582,7 @@ for.body.i.i:                                     ; preds = %fail_1.i, %for.body
   call void @PyMem_Free(ptr noundef %22) #22
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %21
-  br i1 %exitcond.not.i.i, label %fail_0.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %fail_0.i, label %for.body.i.i, !llvm.loop !11
 
 fail_0.i:                                         ; preds = %for.body.i.i
   call void @PyMem_Free(ptr noundef nonnull %call25.i) #22
@@ -9600,7 +9600,7 @@ for.body.i24.i:                                   ; preds = %if.then41.i, %for.b
   call void @PyMem_Free(ptr noundef %24) #22
   %inc.i27.i = add nuw nsw i64 %i.05.i25.i, 1
   %exitcond.not.i28.i = icmp eq i64 %inc.i27.i, %23
-  br i1 %exitcond.not.i28.i, label %free_string_array.exit29.i, label %for.body.i24.i, !llvm.loop !13
+  br i1 %exitcond.not.i28.i, label %free_string_array.exit29.i, label %for.body.i24.i, !llvm.loop !11
 
 free_string_array.exit29.i:                       ; preds = %for.body.i24.i, %if.then41.i
   call void @PyMem_Free(ptr noundef nonnull %call17.i) #22
@@ -10506,7 +10506,7 @@ while.body37.i:                                   ; preds = %while.body37.i, %wh
   %newncpus.1.i = select i1 %cmp38.i, i32 %conv42.i, i32 %mul43.i
   %conv34.i = sext i32 %newncpus.1.i to i64
   %cmp35.not.i = icmp slt i64 %call16.i, %conv34.i
-  br i1 %cmp35.not.i, label %while.end.i, label %while.body37.i, !llvm.loop !14
+  br i1 %cmp35.not.i, label %while.end.i, label %while.body37.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %while.body37.i
   %call46.i = call ptr @__sched_cpualloc(i64 noundef %conv34.i) #22
@@ -10547,7 +10547,7 @@ cond.true.i:                                      ; preds = %if.end59.i
 cond.end.i:                                       ; preds = %cond.true.i, %if.end59.i
   %call8.i = call ptr @PyIter_Next(ptr noundef nonnull %call.i) #22
   %tobool.not.i = icmp eq ptr %call8.i, null
-  br i1 %tobool.not.i, label %while.end64.i, label %while.body.i, !llvm.loop !15
+  br i1 %tobool.not.i, label %while.end64.i, label %while.body.i, !llvm.loop !13
 
 while.end64.i:                                    ; preds = %cond.end.i, %do.body.i
   %cpu_set.0.lcssa.i = phi ptr [ %call2.i, %do.body.i ], [ %cpu_set.1.i, %cond.end.i ]
@@ -10753,7 +10753,7 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
   %count.1.i = phi i32 [ %dec.i, %if.end44.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %count.016.i, %cond.end.i ], [ %count.016.i, %for.body.i ]
   %inc.i = add i32 %cpu.017.i, 1
   %tobool.not.i = icmp eq i32 %count.1.i, 0
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end24.i
   call void @__sched_cpufree(ptr noundef nonnull %call14.i) #22
@@ -11065,7 +11065,7 @@ if.then15:                                        ; preds = %if.end12
 if.end16:                                         ; preds = %if.end12
   %arrayidx17 = getelementptr i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx17, align 8
-  %call18 = call i32 @_Py_Gid_Converter(ptr noundef %6, ptr noundef nonnull %basegid), !range !9
+  %call18 = call i32 @_Py_Gid_Converter(ptr noundef %6, ptr noundef nonnull %basegid)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %exit, label %if.end21
 
@@ -11186,7 +11186,7 @@ if.end33.i:                                       ; preds = %_PyLong_FromGid.exi
   %17 = load i32, ptr %ngroups.i, align 4
   %18 = sext i32 %17 to i64
   %cmp27.i = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %cmp27.i, label %for.body.i, label %for.end.i, !llvm.loop !17
+  br i1 %cmp27.i, label %for.body.i, label %for.end.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %if.end33.i, %for.cond.preheader.i
   call void @PyMem_Free(ptr noundef nonnull %call.i) #22
@@ -11307,7 +11307,7 @@ if.end33.i:                                       ; preds = %_PyLong_FromGid.exi
   store ptr %retval.0.i.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %if.end33.i, %for.cond.preheader.i
   tail call void @PyMem_Free(ptr noundef nonnull %call9.i) #22
@@ -11473,7 +11473,7 @@ exit:                                             ; preds = %if.then3.i, %if.end
 define internal ptr @os_setuid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %uid = alloca i32, align 4
-  %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %uid), !range !9
+  %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %uid)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -11497,7 +11497,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 define internal ptr @os_seteuid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %euid = alloca i32, align 4
-  %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %euid), !range !9
+  %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %euid)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -11532,14 +11532,14 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call i32 @_Py_Uid_Converter(ptr noundef %0, ptr noundef nonnull %ruid), !range !9
+  %call2 = call i32 @_Py_Uid_Converter(ptr noundef %0, ptr noundef nonnull %ruid)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @_Py_Uid_Converter(ptr noundef %1, ptr noundef nonnull %euid), !range !9
+  %call7 = call i32 @_Py_Uid_Converter(ptr noundef %1, ptr noundef nonnull %euid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -11564,7 +11564,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 define internal ptr @os_setgid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %gid = alloca i32, align 4
-  %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %gid), !range !9
+  %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %gid)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -11588,7 +11588,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 define internal ptr @os_setegid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %egid = alloca i32, align 4
-  %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %egid), !range !9
+  %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %egid)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -11623,14 +11623,14 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call i32 @_Py_Gid_Converter(ptr noundef %0, ptr noundef nonnull %rgid), !range !9
+  %call2 = call i32 @_Py_Gid_Converter(ptr noundef %0, ptr noundef nonnull %rgid)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %egid), !range !9
+  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %egid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -11734,7 +11734,7 @@ Py_DECREF.exit49:                                 ; preds = %if.then21, %if.then
 
 if.else:                                          ; preds = %if.end17
   %arrayidx = getelementptr i32, ptr %call8, i64 %i.033
-  %call22 = tail call i32 @_Py_Gid_Converter(ptr noundef nonnull %call14, ptr noundef %arrayidx), !range !9
+  %call22 = tail call i32 @_Py_Gid_Converter(ptr noundef nonnull %call14, ptr noundef %arrayidx)
   %tobool23.not = icmp eq i32 %call22, 0
   %8 = load i64, ptr %call14, align 8
   %9 = and i64 %8, 2147483648
@@ -11774,7 +11774,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end26
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %call1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call27 = tail call i32 @setgroups(i64 noundef %call1, ptr noundef nonnull %call8) #22
@@ -11819,7 +11819,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %gid), !range !9
+  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %gid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -11933,7 +11933,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_wait_impl.exit, !llvm.loop !20
+  br i1 %tobool.not.i, label %do.body.i, label %os_wait_impl.exit, !llvm.loop !18
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -12026,7 +12026,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_wait4_impl.exit, !llvm.loop !21
+  br i1 %tobool.not.i, label %do.body.i, label %os_wait4_impl.exit, !llvm.loop !19
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -12085,7 +12085,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_waitid_impl.exit, !llvm.loop !22
+  br i1 %tobool.not.i, label %do.body.i, label %os_waitid_impl.exit, !llvm.loop !20
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %4 = load ptr, ptr @PyExc_OSError, align 8
@@ -12205,7 +12205,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_waitpid_impl.exit, !llvm.loop !23
+  br i1 %tobool.not.i, label %do.body.i, label %os_waitpid_impl.exit, !llvm.loop !21
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -12441,7 +12441,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1030 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1030, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -12502,7 +12502,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
   %tobool47.not = icmp eq i32 %call2.i, 0
   br i1 %tobool47.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -12542,7 +12542,7 @@ land.lhs.true.us.i:                               ; preds = %do.body.us.i
 land.rhs.us.i:                                    ; preds = %land.lhs.true.us.i
   %call11.us.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.us.i = icmp eq i32 %call11.us.i, 0
-  br i1 %tobool.not.us.i, label %do.body.us.i, label %land.lhs.true52, !llvm.loop !24
+  br i1 %tobool.not.us.i, label %do.body.us.i, label %land.lhs.true52, !llvm.loop !22
 
 do.body.i:                                        ; preds = %do.body.preheader.i, %land.rhs.i
   %call1.i = call ptr @PyEval_SaveThread() #22
@@ -12560,7 +12560,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call11.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i25 = icmp eq i32 %call11.i, 0
-  br i1 %tobool.not.i25, label %do.body.i, label %land.lhs.true52, !llvm.loop !24
+  br i1 %tobool.not.i25, label %do.body.i, label %land.lhs.true52, !llvm.loop !22
 
 if.then18.i:                                      ; preds = %land.lhs.true.i, %land.lhs.true.us.i
   %16 = load ptr, ptr @PyExc_OSError, align 8
@@ -13326,7 +13326,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call12.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not.i13 = icmp eq i32 %call12.i, 0
-  br i1 %tobool.not.i13, label %do.body.i, label %if.end18.i, !llvm.loop !25
+  br i1 %tobool.not.i13, label %do.body.i, label %if.end18.i, !llvm.loop !23
 
 if.then16.i:                                      ; preds = %land.lhs.true.i
   %7 = load ptr, ptr @PyExc_OSError, align 8
@@ -13438,7 +13438,7 @@ if.end.i:                                         ; preds = %skip_optional
   br i1 %cmp.i, label %os_preadv_impl.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 1), !range !26
+  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 1)
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %os_preadv_impl.exit.thread, label %do.body.preheader.i
 
@@ -13463,7 +13463,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call15.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %do.body.i, label %do.end.i, !llvm.loop !27
+  br i1 %tobool16.not.i, label %do.body.i, label %do.end.i, !llvm.loop !24
 
 do.end.i:                                         ; preds = %land.rhs.i, %land.lhs.true.i, %do.body.i
   %async_err.1.not.i = phi i1 [ false, %do.body.i ], [ %cmp13.i, %land.lhs.true.i ], [ %cmp13.i, %land.rhs.i ]
@@ -13483,7 +13483,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @PyBuffer_Release(ptr noundef %arrayidx.i.i) #22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %iov_cleanup.exit.i, label %for.body.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %iov_cleanup.exit.i, label %for.body.i.i, !llvm.loop !25
 
 iov_cleanup.exit.i:                               ; preds = %for.body.i.i, %do.end.i
   tail call void @PyMem_Free(ptr noundef %9) #22
@@ -13690,7 +13690,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i9 = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i9, label %do.body.i, label %os_pwrite_impl.exit, !llvm.loop !29
+  br i1 %tobool.not.i9, label %do.body.i, label %os_pwrite_impl.exit, !llvm.loop !26
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
@@ -13795,7 +13795,7 @@ if.end.i:                                         ; preds = %skip_optional
   br i1 %cmp.i, label %os_pwritev_impl.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 0), !range !26
+  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 0)
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %os_pwritev_impl.exit.thread, label %do.body.preheader.i
 
@@ -13820,7 +13820,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call15.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %do.body.i, label %if.end24.i, !llvm.loop !30
+  br i1 %tobool16.not.i, label %do.body.i, label %if.end24.i, !llvm.loop !27
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
@@ -13844,7 +13844,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @PyBuffer_Release(ptr noundef %arrayidx.i.i) #22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %os_pwritev_impl.exit, label %for.body.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %os_pwritev_impl.exit, label %for.body.i.i, !llvm.loop !25
 
 os_pwritev_impl.exit.thread:                      ; preds = %if.then.i, %if.end.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
@@ -14003,7 +14003,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_fstat_impl.exit, !llvm.loop !31
+  br i1 %tobool.not.i, label %do.body.i, label %os_fstat_impl.exit, !llvm.loop !28
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -14011,7 +14011,7 @@ cond.true.i:                                      ; preds = %land.lhs.true.i
   br label %os_fstat_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i
-  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st.i)
+  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i)
   br label %os_fstat_impl.exit
 
 os_fstat_impl.exit:                               ; preds = %land.rhs.i, %cond.true.i, %if.end.i
@@ -14044,7 +14044,7 @@ land.lhs.true.i18:                                ; preds = %do.body.i14
 land.rhs.i24:                                     ; preds = %land.lhs.true.i18
   %call4.i25 = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i26 = icmp eq i32 %call4.i25, 0
-  br i1 %tobool.not.i26, label %do.body.i14, label %os_fstat_impl.exit29, !llvm.loop !31
+  br i1 %tobool.not.i26, label %do.body.i14, label %os_fstat_impl.exit29, !llvm.loop !28
 
 cond.true.i21:                                    ; preds = %land.lhs.true.i18
   %5 = load ptr, ptr @PyExc_OSError, align 8
@@ -14052,7 +14052,7 @@ cond.true.i21:                                    ; preds = %land.lhs.true.i18
   br label %os_fstat_impl.exit29
 
 if.end.i27:                                       ; preds = %do.body.i14
-  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st.i13)
+  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i13)
   br label %os_fstat_impl.exit29
 
 os_fstat_impl.exit29:                             ; preds = %land.rhs.i24, %cond.true.i21, %if.end.i27
@@ -14269,7 +14269,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1027 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1027, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -14318,7 +14318,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull writeonly %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %skip_optional_kwonly
 
@@ -14359,7 +14359,7 @@ land.lhs.true.us.i:                               ; preds = %do.body.us.i
 land.rhs.us.i:                                    ; preds = %land.lhs.true.us.i
   %call7.us.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.us.i = icmp eq i32 %call7.us.i, 0
-  br i1 %tobool.not.us.i, label %do.body.us.i, label %exit, !llvm.loop !32
+  br i1 %tobool.not.us.i, label %do.body.us.i, label %exit, !llvm.loop !29
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs.i
   %call.i19 = call ptr @PyEval_SaveThread() #22
@@ -14377,7 +14377,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call7.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i22 = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i22, label %do.body.i, label %exit, !llvm.loop !32
+  br i1 %tobool.not.i22, label %do.body.i, label %exit, !llvm.loop !29
 
 cond.true.i:                                      ; preds = %land.lhs.true.i, %land.lhs.true.us.i
   %14 = load ptr, ptr @PyExc_OSError, align 8
@@ -14471,7 +14471,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1034 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1034, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -14539,7 +14539,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd), !range !9
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
   %tobool52.not = icmp eq i32 %call2.i, 0
   br i1 %tobool52.not, label %exit, label %skip_optional_kwonly
 
@@ -14582,7 +14582,7 @@ land.lhs.true.us.i:                               ; preds = %do.body.us.i
 land.rhs.us.i:                                    ; preds = %land.lhs.true.us.i
   %call7.us.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.us.i = icmp eq i32 %call7.us.i, 0
-  br i1 %tobool.not.us.i, label %do.body.us.i, label %exit, !llvm.loop !33
+  br i1 %tobool.not.us.i, label %do.body.us.i, label %exit, !llvm.loop !30
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs.i
   %call.i25 = call ptr @PyEval_SaveThread() #22
@@ -14600,7 +14600,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call7.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i29 = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i29, label %do.body.i, label %exit, !llvm.loop !33
+  br i1 %tobool.not.i29, label %do.body.i, label %exit, !llvm.loop !30
 
 cond.true.i:                                      ; preds = %land.lhs.true.i, %land.lhs.true.us.i
   %15 = load ptr, ptr @PyExc_OSError, align 8
@@ -14829,7 +14829,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond17 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond17, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -14974,7 +14974,7 @@ do.body.i:                                        ; preds = %if.end13, %land.rhs
 land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not.i12 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i12, label %do.body.i, label %exit, !llvm.loop !34
+  br i1 %tobool.not.i12, label %do.body.i, label %exit, !llvm.loop !31
 
 if.end6.i:                                        ; preds = %do.body.i
   %call7.i = tail call ptr @__errno_location() #24
@@ -15045,7 +15045,7 @@ do.body.i:                                        ; preds = %if.end18, %land.rhs
 land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not.i16 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i16, label %do.body.i, label %exit, !llvm.loop !35
+  br i1 %tobool.not.i16, label %do.body.i, label %exit, !llvm.loop !32
 
 land.lhs.true22:                                  ; preds = %if.end18
   %call23 = tail call ptr @PyErr_Occurred() #22
@@ -15064,7 +15064,7 @@ do.body.i17:                                      ; preds = %land.lhs.true22, %l
 land.rhs.i21:                                     ; preds = %do.body.i17
   %call2.i22 = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not.i23 = icmp eq i32 %call2.i22, 0
-  br i1 %tobool.not.i23, label %do.body.i17, label %exit, !llvm.loop !35
+  br i1 %tobool.not.i23, label %do.body.i17, label %exit, !llvm.loop !32
 
 exit.sink.split:                                  ; preds = %do.body.i, %do.body.i17
   %call1.i19.lcssa.sink = phi i32 [ %call1.i19, %do.body.i17 ], [ %call1.i15, %do.body.i ]
@@ -15312,7 +15312,7 @@ if.end9:                                          ; preds = %if.end
 
 do.body.i.i:                                      ; preds = %if.end9, %land.rhs.i.i
   %call.i.i = call ptr @PyEval_SaveThread() #22
-  %call1.i.i = call i32 @fchdir(i32 noundef %2) #22, !callees !36
+  %call1.i.i = call i32 @fchdir(i32 noundef %2) #22, !callees !33
   call void @PyEval_RestoreThread(ptr noundef %call.i.i) #22
   %cmp.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i.i, label %exit, label %land.lhs.true.i.i
@@ -15326,7 +15326,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   %call4.i.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !37
+  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !34
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
   %4 = load ptr, ptr @PyExc_OSError, align 8
@@ -15368,7 +15368,7 @@ if.end9:                                          ; preds = %if.end
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9
   %call.i.i = call ptr @PyEval_SaveThread() #22
-  %call1.i.i = call i32 @fsync(i32 noundef %2) #22, !callees !36
+  %call1.i.i = call i32 @fsync(i32 noundef %2) #22, !callees !33
   call void @PyEval_RestoreThread(ptr noundef %call.i.i) #22
   %cmp.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i.i, label %exit, label %land.lhs.true.i.i
@@ -15382,7 +15382,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   %call4.i.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !37
+  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !34
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
   %4 = load ptr, ptr @PyExc_OSError, align 8
@@ -15433,7 +15433,7 @@ if.end9:                                          ; preds = %if.end
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9
   %call.i.i = call ptr @PyEval_SaveThread() #22
-  %call1.i.i = call i32 @fdatasync(i32 noundef %2) #22, !callees !36
+  %call1.i.i = call i32 @fdatasync(i32 noundef %2) #22, !callees !33
   call void @PyEval_RestoreThread(ptr noundef %call.i.i) #22
   %cmp.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i.i, label %exit, label %land.lhs.true.i.i
@@ -15447,7 +15447,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   %call4.i.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !37
+  br i1 %tobool.not.i.i, label %do.body.i.i, label %exit, !llvm.loop !34
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
   %4 = load ptr, ptr @PyExc_OSError, align 8
@@ -15838,7 +15838,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond14 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond14, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -15943,7 +15943,7 @@ define internal ptr @os_confstr(ptr nocapture readnone %module, ptr noundef %arg
 entry:
   %buffer.i = alloca [255 x i8], align 16
   %name = alloca i32, align 4
-  %call.i = call fastcc noundef i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27), !range !9
+  %call.i = call fastcc i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16005,7 +16005,7 @@ exit:                                             ; preds = %entry, %os_confstr_
 define internal ptr @os_sysconf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca i32, align 4
-  %call.i = call fastcc noundef i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135), !range !9
+  %call.i = call fastcc i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16063,7 +16063,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call.i = call fastcc noundef i32 @conv_confname(ptr noundef %1, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20), !range !9
+  %call.i = call fastcc i32 @conv_confname(ptr noundef %1, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -16122,14 +16122,14 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond17 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond17, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path), !range !8
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %arrayidx10 = getelementptr i8, ptr %cond17, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call.i = call fastcc noundef i32 @conv_confname(ptr noundef %2, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20), !range !9
+  %call.i = call fastcc i32 @conv_confname(ptr noundef %2, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %exit, label %if.end14
 
@@ -16432,21 +16432,21 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call i32 @_Py_Uid_Converter(ptr noundef %0, ptr noundef nonnull %ruid), !range !9
+  %call2 = call i32 @_Py_Uid_Converter(ptr noundef %0, ptr noundef nonnull %ruid)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @_Py_Uid_Converter(ptr noundef %1, ptr noundef nonnull %euid), !range !9
+  %call7 = call i32 @_Py_Uid_Converter(ptr noundef %1, ptr noundef nonnull %euid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
   %arrayidx11 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx11, align 8
-  %call12 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %suid), !range !9
+  %call12 = call i32 @_Py_Uid_Converter(ptr noundef %2, ptr noundef nonnull %suid)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -16484,21 +16484,21 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call i32 @_Py_Gid_Converter(ptr noundef %0, ptr noundef nonnull %rgid), !range !9
+  %call2 = call i32 @_Py_Gid_Converter(ptr noundef %0, ptr noundef nonnull %rgid)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %egid), !range !9
+  %call7 = call i32 @_Py_Gid_Converter(ptr noundef %1, ptr noundef nonnull %egid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
   %arrayidx11 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx11, align 8
-  %call12 = call i32 @_Py_Gid_Converter(ptr noundef %2, ptr noundef nonnull %sgid), !range !9
+  %call12 = call i32 @_Py_Gid_Converter(ptr noundef %2, ptr noundef nonnull %sgid)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -16704,14 +16704,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1042 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1042, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1042, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17129,14 +17129,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1045 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1045, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1045, i64 8
   %5 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %attribute), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17397,14 +17397,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1039 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1039, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1039, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute), !range !8
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17624,7 +17624,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %tobool15.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call18 = call fastcc i32 @path_converter(ptr noundef nonnull %3, ptr noundef nonnull %path), !range !8
+  %call18 = call fastcc i32 @path_converter(ptr noundef nonnull %3, ptr noundef nonnull %path)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %exit, label %if.end21
 
@@ -17899,7 +17899,7 @@ for.inc.i:                                        ; preds = %if.end61.i, %for.bo
   %start.1.i = phi ptr [ %start.022.i, %for.body.i ], [ %add.ptr62.i, %if.end61.i ]
   %incdec.ptr.i = getelementptr i8, ptr %trace.021.i, i64 1
   %cmp47.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp47.not.i, label %if.then67.i, label %for.body.i, !llvm.loop !38
+  br i1 %cmp47.not.i, label %if.then67.i, label %for.body.i, !llvm.loop !35
 
 if.then67.i:                                      ; preds = %for.inc.i, %if.then1.i.i, %if.end.i.i, %do.body57.i, %if.then1.i84.i, %if.end.i81.i, %do.body.i, %if.end45.i, %if.end41.i, %if.end39.i
   %call1615.i = phi ptr [ %.us-phi19.i, %if.end39.i ], [ %.us-phi18.i, %if.end41.i ], [ %.us-phi18.i, %do.body57.i ], [ %.us-phi18.i, %if.then1.i.i ], [ %.us-phi18.i, %if.end.i.i ], [ %.us-phi18.i, %do.body.i ], [ %.us-phi18.i, %if.then1.i84.i ], [ %.us-phi18.i, %if.end.i81.i ], [ %.us-phi18.i, %if.end45.i ], [ %.us-phi18.i, %for.inc.i ]
@@ -18270,7 +18270,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %3 = load ptr, ptr %cond1028, align 8
-  %call15 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path), !range !8
+  %call15 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
   %tobool16.not = icmp eq i32 %call15, 0
   %object.i13.phi.trans.insert = getelementptr inbounds i8, ptr %path, i64 56
   %.pre29 = load ptr, ptr %object.i13.phi.trans.insert, align 8
@@ -19616,7 +19616,7 @@ exit:                                             ; preds = %entry, %os_timerfd_
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @path_converter(ptr noundef %o, ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131073) i32 @path_converter(ptr noundef %o, ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
   %bytes = alloca ptr, align 8
   store ptr null, ptr %bytes, align 8
@@ -19879,7 +19879,7 @@ if.else54:                                        ; preds = %if.else50
 
 if.then56:                                        ; preds = %if.else54
   %fd57 = getelementptr inbounds i8, ptr %p, i64 40
-  %call58 = tail call fastcc i32 @_fd_converter(ptr noundef nonnull %o.addr.0, ptr noundef nonnull %fd57), !range !9
+  %call58 = tail call fastcc i32 @_fd_converter(ptr noundef nonnull %o.addr.0, ptr noundef nonnull %fd57)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %if.then.i96, label %if.end61
 
@@ -20026,7 +20026,7 @@ declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_FSConverter(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_fd_converter(ptr noundef %o, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_fd_converter(ptr noundef %o, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %o) #22
@@ -20309,20 +20309,20 @@ if.end54:                                         ; preds = %if.end46
   %tv_nsec57 = getelementptr inbounds i8, ptr %st, i64 112
   %11 = load i64, ptr %tv_nsec57, align 8
   %12 = load i64, ptr %st_atim, align 8
-  %call59 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 7, i32 noundef 10, i32 noundef 13, i64 noundef %12, i64 noundef %9), !range !26
+  %call59 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 7, i32 noundef 10, i32 noundef 13, i64 noundef %12, i64 noundef %9)
   %cmp60 = icmp slt i32 %call59, 0
   br i1 %cmp60, label %error, label %if.end63
 
 if.end63:                                         ; preds = %if.end54
   %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
   %13 = load i64, ptr %st_mtim, align 8
-  %call66 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 8, i32 noundef 11, i32 noundef 14, i64 noundef %13, i64 noundef %10), !range !26
+  %call66 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 8, i32 noundef 11, i32 noundef 14, i64 noundef %13, i64 noundef %10)
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %error, label %if.end70
 
 if.end70:                                         ; preds = %if.end63
   %14 = load i64, ptr %st_ctim, align 8
-  %call73 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 9, i32 noundef 12, i32 noundef 15, i64 noundef %14, i64 noundef %11), !range !26
+  %call73 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 9, i32 noundef 12, i32 noundef 15, i64 noundef %14, i64 noundef %11)
   %cmp74 = icmp slt i32 %call73, 0
   br i1 %cmp74, label %error, label %do.body78
 
@@ -20385,7 +20385,7 @@ declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fill_time(ptr nocapture noundef readonly %module, ptr noundef %v, i32 noundef %s_index, i32 noundef %f_index, i32 noundef %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fill_time(ptr nocapture noundef readonly %module, ptr noundef %v, i32 noundef %s_index, i32 noundef %f_index, i32 noundef %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyLong_FromTime_t(i64 noundef %sec) #22
   %call1 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %nsec) #22
@@ -20639,7 +20639,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call6 = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !39
+  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !36
 
 cond.true:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -20698,7 +20698,7 @@ land.rhs:                                         ; preds = %if.end4
   %call7 = tail call ptr @__errno_location() #24
   %0 = load i32, ptr %call7, align 4
   %cmp8 = icmp eq i32 %0, 34
-  br i1 %cmp8, label %do.body, label %if.then14, !llvm.loop !40
+  br i1 %cmp8, label %do.body, label %if.then14, !llvm.loop !37
 
 if.then10:                                        ; preds = %do.body, %if.end
   tail call void @PyMem_RawFree(ptr noundef %buf.0) #22
@@ -21142,7 +21142,7 @@ if.then1.i103.i:                                  ; preds = %if.end.i100.i
 
 for.inc.i:                                        ; preds = %if.then1.i103.i, %if.end.i100.i, %sw.epilog.i
   %inc.i = add nuw nsw i64 %i.0.i, 1
-  br label %for.cond.i, !llvm.loop !41
+  br label %for.cond.i, !llvm.loop !38
 
 for.end.i:                                        ; preds = %cond.end.thread.i, %cond.end.i
   %48 = load i64, ptr %call.i, align 8
@@ -21275,7 +21275,7 @@ if.end19.i:                                       ; preds = %if.end11.i, %if.end
   br i1 %tobool28.not.i, label %if.end42.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end19.i
-  %call30.i = call i32 @_Py_Sigset_Converter(ptr noundef nonnull %setsigmask, ptr noundef nonnull %set.i), !range !9
+  %call30.i = call i32 @_Py_Sigset_Converter(ptr noundef nonnull %setsigmask, ptr noundef nonnull %set.i)
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %fail.i54, label %if.end33.i
 
@@ -21300,7 +21300,7 @@ if.end42.i:                                       ; preds = %if.end40.i56, %if.e
   br i1 %tobool43.not.i, label %if.end58.i58, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end42.i
-  %call46.i57 = call i32 @_Py_Sigset_Converter(ptr noundef nonnull %setsigdef, ptr noundef nonnull %set45.i), !range !9
+  %call46.i57 = call i32 @_Py_Sigset_Converter(ptr noundef nonnull %setsigdef, ptr noundef nonnull %set45.i)
   %tobool47.not.i = icmp eq i32 %call46.i57, 0
   br i1 %tobool47.not.i, label %fail.i54, label %if.end49.i
 
@@ -21520,7 +21520,7 @@ for.body.i:                                       ; preds = %if.then81, %for.bod
   call void @PyMem_Free(ptr noundef %76) #22
   %inc.i66 = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i66, %75
-  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !11
 
 free_string_array.exit:                           ; preds = %for.body.i, %if.then81
   call void @PyMem_Free(ptr noundef nonnull %envlist.0) #22
@@ -21540,7 +21540,7 @@ for.body.i69:                                     ; preds = %if.then84, %for.bod
   call void @PyMem_Free(ptr noundef %78) #22
   %inc.i72 = add nuw nsw i64 %i.05.i70, 1
   %exitcond.not.i73 = icmp eq i64 %inc.i72, %77
-  br i1 %exitcond.not.i73, label %free_string_array.exit74, label %for.body.i69, !llvm.loop !13
+  br i1 %exitcond.not.i73, label %free_string_array.exit74, label %for.body.i69, !llvm.loop !11
 
 free_string_array.exit74:                         ; preds = %for.body.i69, %if.then84
   call void @PyMem_Free(ptr noundef nonnull %call18) #22
@@ -21701,7 +21701,7 @@ for.inc:                                          ; preds = %if.end.i, %if.then1
   %conv = sext i32 %inc to i64
   %15 = load i64, ptr %argc, align 8
   %cmp4 = icmp sgt i64 %15, %conv
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !42
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %.lcssa = phi i64 [ %1, %for.cond.preheader ], [ %15, %for.inc ]
@@ -21721,7 +21721,7 @@ for.body.i:                                       ; preds = %fail, %for.body.i
   call void @PyMem_Free(ptr noundef %16) #22
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv45
-  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !11
 
 free_string_array.exit:                           ; preds = %for.body.i, %fail
   call void @PyMem_Free(ptr noundef nonnull %call) #22
@@ -22009,7 +22009,7 @@ if.then1.i76:                                     ; preds = %if.end.i73
 
 for.inc:                                          ; preds = %if.end.i73, %if.then1.i76, %if.end58
   %exitcond.not = icmp eq i64 %inc59, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %35 = load i64, ptr %call11, align 8
@@ -22097,7 +22097,7 @@ for.body.i:                                       ; preds = %Py_XDECREF.exit67, 
   call void @PyMem_Free(ptr noundef %43) #22
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %envc.180
-  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %free_string_array.exit, label %for.body.i, !llvm.loop !11
 
 free_string_array.exit:                           ; preds = %for.body.i, %if.end7, %Py_XDECREF.exit67
   call void @PyMem_Free(ptr noundef nonnull %call3) #22
@@ -22312,7 +22312,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTime_ObjectToTimespec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %ns) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %ns) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @PyNumber_Divmod(ptr noundef %py_long, ptr noundef %module.32.val.0.val) #22
   %tobool.not = icmp eq ptr %call1, null
@@ -22526,7 +22526,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %tobool4 = icmp ne i32 %dec, 0
   %tobool5 = icmp ne ptr %call6, null
   %0 = select i1 %tobool4, i1 %tobool5, i1 false
-  br i1 %0, label %for.body, label %for.end, !llvm.loop !44
+  br i1 %0, label %for.body, label %for.end, !llvm.loop !41
 
 for.end:                                          ; preds = %for.body
   %1 = icmp eq i32 %dec, 0
@@ -22860,7 +22860,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call4 = call i32 @PyErr_CheckSignals() #22
   %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !45
+  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !42
 
 cond.true:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -23129,7 +23129,7 @@ declare i64 @_Py_read(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @os_readv_impl(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @os_readv_impl(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
 entry:
   %iov = alloca ptr, align 8
   %buf = alloca ptr, align 8
@@ -23148,7 +23148,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 1), !range !26
+  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 1)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %do.body.preheader
 
@@ -23173,7 +23173,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call15 = tail call i32 @PyErr_CheckSignals() #22
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %do.body, label %do.end, !llvm.loop !46
+  br i1 %tobool16.not, label %do.body, label %do.end, !llvm.loop !43
 
 do.end:                                           ; preds = %land.lhs.true, %land.rhs, %do.body
   %async_err.1.not = phi i1 [ false, %do.body ], [ %cmp13, %land.rhs ], [ %cmp13, %land.lhs.true ]
@@ -23193,7 +23193,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @PyBuffer_Release(ptr noundef %arrayidx.i) #22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %iov_cleanup.exit, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %iov_cleanup.exit, label %for.body.i, !llvm.loop !25
 
 iov_cleanup.exit:                                 ; preds = %for.body.i, %do.end
   tail call void @PyMem_Free(ptr noundef %4) #22
@@ -23213,7 +23213,7 @@ return:                                           ; preds = %iov_cleanup.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @iov_setup(ptr nocapture noundef %iov, ptr nocapture noundef %buf, ptr noundef %seq, i64 noundef %cnt, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef %iov, ptr nocapture noundef %buf, ptr noundef %seq, i64 noundef %cnt, i32 noundef %type) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %cnt, 576460752303423487
   br i1 %cmp, label %cond.end.thread, label %cond.end
@@ -23315,7 +23315,7 @@ Py_DECREF.exit:                                   ; preds = %if.end22, %if.then1
   store i64 %8, ptr %iov_len, align 8
   %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, %cnt
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !47
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !44
 
 fail:                                             ; preds = %for.body, %if.end.i38, %if.then1.i41, %if.then21
   %10 = load ptr, ptr %iov, align 8
@@ -23330,7 +23330,7 @@ for.body30:                                       ; preds = %fail, %for.body30
   tail call void @PyBuffer_Release(ptr noundef %arrayidx31) #22
   %inc33 = add nuw nsw i64 %j.044, 1
   %exitcond50.not = icmp eq i64 %inc33, %i.042
-  br i1 %exitcond50.not, label %for.end34, label %for.body30, !llvm.loop !48
+  br i1 %exitcond50.not, label %for.end34, label %for.body30, !llvm.loop !45
 
 for.end34:                                        ; preds = %for.body30, %fail
   %12 = load ptr, ptr %buf, align 8
@@ -23374,7 +23374,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 0), !range !26
+  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 0)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %do.body.preheader
 
@@ -23399,7 +23399,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call15 = tail call i32 @PyErr_CheckSignals() #22
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %do.body, label %if.end23, !llvm.loop !49
+  br i1 %tobool16.not, label %do.body, label %if.end23, !llvm.loop !46
 
 if.then21:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -23422,7 +23422,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @PyBuffer_Release(ptr noundef %arrayidx.i) #22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %iov_cleanup.exit, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %iov_cleanup.exit, label %for.body.i, !llvm.loop !25
 
 iov_cleanup.exit:                                 ; preds = %for.body.i, %if.end23
   tail call void @PyMem_Free(ptr noundef %4) #22
@@ -23462,7 +23462,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call5 = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not = icmp eq i32 %call5, 0
-  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !50
+  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !47
 
 cond.true:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -23496,7 +23496,7 @@ land.lhs.true22:                                  ; preds = %do.body16
 land.rhs25:                                       ; preds = %land.lhs.true22
   %call26 = call i32 @PyErr_CheckSignals() #22
   %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %do.body16, label %return, !llvm.loop !51
+  br i1 %tobool27.not, label %do.body16, label %return, !llvm.loop !48
 
 cond.true34:                                      ; preds = %land.lhs.true22
   %3 = load ptr, ptr @PyExc_OSError, align 8
@@ -23570,7 +23570,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call6 = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !52
+  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !49
 
 cond.true:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -23633,7 +23633,7 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call4 = tail call i32 @PyErr_CheckSignals() #22
   %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !53
+  br i1 %tobool.not, label %do.body, label %return, !llvm.loop !50
 
 cond.true:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr @PyExc_OSError, align 8
@@ -23736,7 +23736,7 @@ return:                                           ; preds = %if.end, %if.end.i, 
 declare noundef i32 @statvfs64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @conv_confname(ptr noundef %arg, ptr nocapture noundef writeonly %valuep, ptr nocapture noundef readonly %table, i64 noundef %tablesize) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr nocapture noundef writeonly %valuep, ptr nocapture noundef readonly %table, i64 noundef %tablesize) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val15 = load ptr, ptr %0, align 8
@@ -23808,7 +23808,7 @@ if.end28:                                         ; preds = %while.body, %if.the
   %hi.1 = phi i64 [ %hi.020, %if.then22 ], [ %div14, %while.body ]
   %lo.1 = phi i64 [ %add23, %if.then22 ], [ %lo.021, %while.body ]
   %cmp16 = icmp ult i64 %lo.1, %hi.1
-  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !54
+  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !51
 
 while.end:                                        ; preds = %if.end28, %while.cond.preheader
   %7 = load ptr, ptr @PyExc_ValueError, align 8
@@ -24197,7 +24197,7 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
   %incdec.ptr.i = getelementptr i8, ptr %e.043.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp4.not.i = icmp eq ptr %20, null
-  br i1 %cmp4.not.i, label %convertenviron.exit, label %for.body.i, !llvm.loop !55
+  br i1 %cmp4.not.i, label %convertenviron.exit, label %for.body.i, !llvm.loop !52
 
 return.sink.split.i:                              ; preds = %if.end.i39.i, %if.end.i66.i, %if.end.i84.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #22
@@ -25164,7 +25164,7 @@ for.inc:                                          ; preds = %if.end.i, %if.then1
   %incdec.ptr = getelementptr i8, ptr %trace.082, i64 16
   %33 = load ptr, ptr %incdec.ptr, align 8
   %tobool99.not = icmp eq ptr %33, null
-  br i1 %tobool99.not, label %for.end, label %for.body, !llvm.loop !56
+  br i1 %tobool99.not, label %for.end, label %for.body, !llvm.loop !53
 
 for.end:                                          ; preds = %for.inc
   %ticks_per_second = getelementptr inbounds i8, ptr %m.val, i64 104
@@ -25275,7 +25275,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_DECREF.exit, %if
 for.inc:                                          ; preds = %for.body, %_Py_NewRef.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !57
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !54
 
 return:                                           ; preds = %for.inc, %if.end4, %Py_DECREF.exit28, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %Py_DECREF.exit28 ], [ null, %if.end4 ], [ %call5, %for.inc ]
@@ -25415,7 +25415,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end10
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %tablesize
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call11 = tail call i32 @PyModule_Add(ptr noundef %module, ptr noundef %tablename, ptr noundef nonnull %call) #22
@@ -25662,7 +25662,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.else.i
@@ -25672,7 +25672,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.el
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #25
+  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %d_name) #25
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
@@ -25711,7 +25711,7 @@ if.then16.i.i:                                    ; preds = %land.lhs.true.i.i
 join_path_filename.exit.i:                        ; preds = %if.then16.i.i, %land.lhs.true.i.i, %if.end11.i.i
   %path_len.1.i.i = phi i64 [ %add.i.i, %if.then16.i.i ], [ %path_len.0.i.i, %land.lhs.true.i.i ], [ %path_len.0.i.i, %if.end11.i.i ]
   %add.ptr.i.i = getelementptr i8, ptr %call7.i.i, i64 %path_len.1.i.i
-  %call19.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %d_name) #22
+  %call19.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(1) %d_name) #22
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %join_path_filename.exit.i, %if.then6.i
@@ -26092,7 +26092,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end14, %if.end
   %follow_symlinks.0 = phi i32 [ %call15, %if.end14 ], [ 1, %if.end ]
-  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext 16384), !range !59
+  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext 16384)
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %land.lhs.true21, label %if.end25
 
@@ -26150,7 +26150,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end14, %if.end
   %follow_symlinks.0 = phi i32 [ %call15, %if.end14 ], [ 1, %if.end ]
-  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext -32768), !range !59
+  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext -32768)
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %land.lhs.true21, label %if.end25
 
@@ -26192,7 +26192,7 @@ os_DirEntry_is_symlink_impl.exit.thread:          ; preds = %if.end
   br label %if.end4
 
 os_DirEntry_is_symlink_impl.exit:                 ; preds = %if.end
-  %call.i = tail call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef nonnull %self, i32 noundef 0, i16 noundef zeroext -24576), !range !59
+  %call.i = tail call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef nonnull %self, i32 noundef 0, i16 noundef zeroext -24576)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end4
 
@@ -26296,7 +26296,7 @@ os_DirEntry___fspath___impl.exit:                 ; preds = %entry, %if.end.i.i.
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr nocapture noundef %self, i32 noundef %follow_symlinks, i16 noundef zeroext %mode_bits) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr nocapture noundef %self, i32 noundef %follow_symlinks, i16 noundef zeroext %mode_bits) unnamed_addr #0 {
 entry:
   %d_type = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i8, ptr %d_type, align 8
@@ -26485,7 +26485,7 @@ if.then.i:                                        ; preds = %if.then2
   br label %os_DirEntry_is_symlink_impl.exit
 
 if.else.i:                                        ; preds = %if.then2
-  %call.i12 = tail call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef nonnull %self, i32 noundef 0, i16 noundef zeroext -24576), !range !59
+  %call.i12 = tail call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef nonnull %self, i32 noundef 0, i16 noundef zeroext -24576)
   br label %os_DirEntry_is_symlink_impl.exit
 
 os_DirEntry_is_symlink_impl.exit:                 ; preds = %if.then.i, %if.else.i
@@ -26772,8 +26772,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 131073}
-!9 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -26790,17 +26790,17 @@ attributes #25 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = !{i32 -1, i32 1}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
+!33 = !{ptr @fchdir, ptr @fdatasync, ptr @fsync}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = !{ptr @fchdir, ptr @fdatasync, ptr @fsync}
+!36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
@@ -26820,7 +26820,3 @@ attributes #25 = { nounwind willreturn memory(read) }
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
-!58 = distinct !{!58, !6}
-!59 = !{i32 -1, i32 2}

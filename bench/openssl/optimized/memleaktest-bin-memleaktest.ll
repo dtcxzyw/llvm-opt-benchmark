@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"freeit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 3, ptr noundef nonnull @.str, i32 noundef 49) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.1, ptr noundef %call) #4

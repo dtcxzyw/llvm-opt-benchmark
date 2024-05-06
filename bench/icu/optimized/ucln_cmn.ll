@@ -60,7 +60,7 @@ declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #1
 declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucln_lib_cleanup_75() local_unnamed_addr #0 {
+define noundef signext i8 @ucln_lib_cleanup_75() local_unnamed_addr #0 {
 entry:
   br label %for.body
 

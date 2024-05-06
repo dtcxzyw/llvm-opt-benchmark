@@ -723,7 +723,7 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %25
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %31 = load i32, ptr %gep, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %gep, align 4
@@ -740,7 +740,7 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
   %35 = load i32, ptr %34, align 4
   %36 = shl i64 %indvars.iv71, 4
   %37 = and i64 %36, 4294967280
-  %invariant.gep = getelementptr i32, ptr %7, i64 %37
+  %invariant.gep = getelementptr inbounds i32, ptr %7, i64 %37
   br label %25
 
 ._crit_edge.us:                                   ; preds = %24
@@ -769,7 +769,7 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
 
 43:                                               ; preds = %.lr.ph65
   %44 = icmp eq i32 %41, 0
-  %45 = trunc i64 %indvars.iv80 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv80 to i32
   br i1 %44, label %.thread, label %46
 
 46:                                               ; preds = %.lr.ph65, %43
@@ -1468,7 +1468,7 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %92
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i67
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv.i67
   %98 = load i32, ptr %gep.i, align 4
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %gep.i, align 4
@@ -1485,7 +1485,7 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
   %102 = load i32, ptr %101, align 4
   %103 = shl i64 %indvars.iv71.i, 4
   %104 = and i64 %103, 4294967280
-  %invariant.gep.i = getelementptr i32, ptr %79, i64 %104
+  %invariant.gep.i = getelementptr inbounds i32, ptr %79, i64 %104
   br label %92
 
 ._crit_edge.us.i70:                               ; preds = %91
@@ -1508,7 +1508,7 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
 
 109:                                              ; preds = %.lr.ph65.i
   %110 = icmp eq i32 %107, 0
-  %111 = trunc i64 %indvars.iv80.i to i32
+  %111 = trunc nuw nsw i64 %indvars.iv80.i to i32
   br i1 %110, label %.thread.i, label %112
 
 112:                                              ; preds = %109, %.lr.ph65.i
@@ -1610,10 +1610,10 @@ define ptr @Saig_ManDupInitZero(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #21
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #17
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %6
@@ -2027,7 +2027,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2046,7 +2046,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2400,16 +2400,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13

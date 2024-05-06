@@ -797,7 +797,7 @@ check_for_extended_subpid.exit:                   ; preds = %50, %34, %usbll_cre
   ]
 
 105:                                              ; preds = %102
-  %106 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %104), !range !4
+  %106 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %104)
   %.not.i.i = icmp eq i32 %106, 0
   br i1 %.not.i.i, label %107, label %usbll_is_non_split_token.exit.i
 
@@ -986,7 +986,7 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
 166:                                              ; preds = %157, %154
   %.1.i = phi ptr [ %.0.i104, %154 ], [ %159, %157 ]
   %167 = load i32, ptr %.0.ph191, align 8
-  %168 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %167), !range !4
+  %168 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %167)
   %.not77.i = icmp eq i32 %168, 0
   br i1 %.not77.i, label %229, label %169
 
@@ -1039,7 +1039,7 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
   unreachable
 
 191:                                              ; preds = %181
-  %192 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %183), !range !4
+  %192 = tail call fastcc i32 @usbll_is_split_start_token(i32 noundef %183)
   %.not18.i.i = icmp eq i32 %192, 0
   br i1 %.not18.i.i, label %193, label %194
 
@@ -1086,7 +1086,7 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
   store ptr %210, ptr %212, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %213, label %208, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %213, label %208, !llvm.loop !4
 
 213:                                              ; preds = %208
   %214 = tail call ptr @wmem_file_scope() #13
@@ -1103,7 +1103,7 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
   store ptr %218, ptr %220, align 8
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond11.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 128
-  br i1 %exitcond11.not.i.i, label %.loopexit.i.i, label %216, !llvm.loop !7
+  br i1 %exitcond11.not.i.i, label %.loopexit.i.i, label %216, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %216, %200
   %221 = phi ptr [ %203, %200 ], [ %219, %216 ]
@@ -1280,14 +1280,14 @@ tt_store_transaction.exit.i:                      ; preds = %usbll_is_periodic_s
   %311 = getelementptr inbounds i8, ptr %287, i64 10
   store i8 0, ptr %311, align 2
   %312 = getelementptr inbounds i8, ptr %287, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %312, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %312, i8 0, i64 20, i1 false)
   store i32 1, ptr %293, align 4
   %313 = getelementptr inbounds i8, ptr %293, i64 4
   store i32 0, ptr %313, align 4
   %314 = getelementptr inbounds i8, ptr %293, i64 10
   store i8 0, ptr %314, align 2
   %315 = getelementptr inbounds i8, ptr %293, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %315, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %315, i8 0, i64 20, i1 false)
   %316 = call ptr @wmem_file_scope() #13
   %317 = call noalias ptr @wmem_alloc0(ptr noundef %316, i64 noundef 20) #13
   %318 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1375,13 +1375,13 @@ tt_store_transaction.exit.i:                      ; preds = %usbll_is_periodic_s
   %356 = load i8, ptr %355, align 1
   %357 = icmp ne i8 %356, 5
   %358 = icmp ugt i16 %354, 127
-  %or.cond.i273.not.i = select i1 %357, i1 true, i1 %358
+  %or.cond.i273.not299.i = select i1 %357, i1 true, i1 %358
   %359 = icmp ne i16 %335, 0
-  %or.cond5.i.i = select i1 %or.cond.i273.not.i, i1 true, i1 %359
+  %or.cond5.i.not296.i = select i1 %or.cond.i273.not299.i, i1 true, i1 %359
   %.not285.i = icmp ne i16 %336, 0
-  %or.cond287.i = select i1 %or.cond5.i.i, i1 true, i1 %.not285.i
+  %or.cond287.not294.i = select i1 %or.cond5.i.not296.i, i1 true, i1 %.not285.i
   %.not272.i = icmp eq i16 %354, 0
-  %or.cond293.i = select i1 %or.cond287.i, i1 true, i1 %.not272.i
+  %or.cond293.i = select i1 %or.cond287.not294.i, i1 true, i1 %.not272.i
   br i1 %or.cond293.i, label %is_set_address.exit.thread.i, label %360
 
 360:                                              ; preds = %352
@@ -1499,7 +1499,7 @@ usbll_is_data_from_host.exit.i:                   ; preds = %373, %372, %372, %3
   store i32 1, ptr %405, align 4
   %406 = getelementptr inbounds i8, ptr %397, i64 12
   store i32 %.0.i.i, ptr %406, align 4
-  %407 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %403, i32 noundef %233), !range !4
+  %407 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %403, i32 noundef %233)
   %408 = xor i32 %407, 1
   %409 = getelementptr inbounds i8, ptr %397, i64 16
   store i32 %408, ptr %409, align 4
@@ -1592,7 +1592,7 @@ usbll_is_data_from_host.exit.i:                   ; preds = %373, %372, %372, %3
   store i32 1, ptr %461, align 4
   %462 = getelementptr inbounds i8, ptr %456, i64 12
   store i32 %.0.i.i, ptr %462, align 4
-  %463 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %459, i32 noundef %233), !range !4
+  %463 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %459, i32 noundef %233)
   %464 = xor i32 %463, 1
   %465 = getelementptr inbounds i8, ptr %456, i64 16
   store i32 %464, ptr %465, align 4
@@ -1667,7 +1667,7 @@ usbll_is_split_data_from_device.exit.i:           ; preds = %473, %454, %454, %4
   store i32 %497, ptr %498, align 4
   %499 = getelementptr inbounds i8, ptr %489, i64 12
   store i32 %.0.i.i, ptr %499, align 4
-  %500 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %495, i32 noundef %233), !range !4
+  %500 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %495, i32 noundef %233)
   %501 = xor i32 %500, 1
   %502 = getelementptr inbounds i8, ptr %489, i64 16
   store i32 %501, ptr %502, align 4
@@ -1687,7 +1687,7 @@ usbll_is_split_data_from_device.exit.i:           ; preds = %473, %454, %454, %4
   %512 = load i32, ptr %511, align 4
   %513 = getelementptr inbounds i8, ptr %381, i64 24
   %514 = load i32, ptr %513, align 4
-  %515 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %512, i32 noundef %514), !range !4
+  %515 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %512, i32 noundef %514)
   %.not257.i = icmp eq i32 %515, 0
   br i1 %.not257.i, label %539, label %516
 
@@ -1704,7 +1704,7 @@ usbll_is_split_data_from_device.exit.i:           ; preds = %473, %454, %454, %4
   store i32 %522, ptr %523, align 4
   %524 = getelementptr inbounds i8, ptr %518, i64 12
   store i32 %.0.i.i, ptr %524, align 4
-  %525 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef 0, i32 noundef %233), !range !4
+  %525 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef 0, i32 noundef %233)
   %526 = xor i32 %525, 1
   %527 = getelementptr inbounds i8, ptr %518, i64 16
   store i32 %526, ptr %527, align 4
@@ -1755,7 +1755,7 @@ usbll_is_split_data_from_device.exit276.i:        ; preds = %534, %516, %516, %5
   store i32 %545, ptr %546, align 4
   %547 = getelementptr inbounds i8, ptr %541, i64 12
   store i32 %.0.i.i, ptr %547, align 4
-  %548 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %543, i32 noundef %233), !range !4
+  %548 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %381, i32 noundef %543, i32 noundef %233)
   %549 = xor i32 %548, 1
   %550 = getelementptr inbounds i8, ptr %541, i64 16
   store i32 %549, ptr %550, align 4
@@ -1981,7 +1981,7 @@ usbll_is_stalled_data_from_host.exit.i:           ; preds = %636, %usbll_is_data
   br i1 %.not83.i, label %675, label %650
 
 650:                                              ; preds = %usbll_is_stalled_data_from_host.exit.i
-  %651 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %642, i32 noundef %647, i32 noundef %646), !range !4
+  %651 = tail call fastcc i32 @packet_ends_transfer(ptr noundef nonnull %642, i32 noundef %647, i32 noundef %646)
   %.not84.i = icmp eq i32 %651, 0
   br i1 %.not84.i, label %652, label %675
 
@@ -2603,7 +2603,7 @@ switch.lookup195:                                 ; preds = %876
   store i8 %893, ptr %894, align 2
   %895 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 0, ptr %895, align 4
-  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull %.0132136147159173185)
+  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull readonly %.0132136147159173185)
   %897 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %896, ptr %897, align 4
   %898 = call ptr @proto_tree_get_parent_tree(ptr noundef %11) #13
@@ -3187,7 +3187,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @usbll_is_split_start_token(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @usbll_is_split_start_token(i32 noundef %0) unnamed_addr #7 {
   switch i32 %0, label %2 [
     i32 26, label %usbll_is_non_periodic_split_start_token.exit
     i32 30, label %usbll_is_non_periodic_split_start_token.exit
@@ -3265,7 +3265,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   store ptr %27, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %30, label %25, !llvm.loop !8
+  br i1 %exitcond.not.i, label %30, label %25, !llvm.loop !7
 
 30:                                               ; preds = %25
   %31 = tail call ptr @wmem_file_scope() #13
@@ -3286,7 +3286,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   store ptr %36, ptr %38, align 8
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 128
-  br i1 %exitcond16.not.i, label %.preheader.i, label %34, !llvm.loop !9
+  br i1 %exitcond16.not.i, label %.preheader.i, label %34, !llvm.loop !8
 
 39:                                               ; preds = %usbll_reset_device_endpoints.exit.i, %.preheader.i
   %indvars.iv17.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next18.i, %usbll_reset_device_endpoints.exit.i ]
@@ -3300,7 +3300,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %44 = getelementptr inbounds i8, ptr %41, i64 10
   store i8 0, ptr %44, align 2
   %45 = getelementptr inbounds i8, ptr %41, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %45, i8 0, i64 20, i1 false)
   %46 = getelementptr ptr, ptr %37, i64 %indvars.iv17.i
   %47 = load ptr, ptr %46, align 8
   store i32 1, ptr %47, align 4
@@ -3311,7 +3311,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %50 = getelementptr inbounds i8, ptr %47, i64 10
   store i8 0, ptr %50, align 2
   %51 = getelementptr inbounds i8, ptr %47, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %51, i8 0, i64 20, i1 false)
   br label %52
 
 52:                                               ; preds = %52, %39
@@ -3319,21 +3319,21 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %53 = load ptr, ptr %40, align 8
   %54 = getelementptr %struct.usbll_endpoint_info, ptr %53, i64 %indvars.iv.i.i
   %55 = getelementptr inbounds i8, ptr %54, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %54, i8 0, i64 11, i1 false)
   %56 = load ptr, ptr %46, align 8
   %57 = getelementptr %struct.usbll_endpoint_info, ptr %56, i64 %indvars.iv.i.i
   %58 = getelementptr inbounds i8, ptr %57, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %57, i8 0, i64 11, i1 false)
-  br i1 %exitcond.not.i.i, label %usbll_reset_device_endpoints.exit.i, label %52, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %usbll_reset_device_endpoints.exit.i, label %52, !llvm.loop !9
 
 usbll_reset_device_endpoints.exit.i:              ; preds = %52
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 128
-  br i1 %exitcond20.not.i, label %usbll_init_endpoint_tables.exit, label %39, !llvm.loop !11
+  br i1 %exitcond20.not.i, label %usbll_init_endpoint_tables.exit, label %39, !llvm.loop !10
 
 usbll_init_endpoint_tables.exit:                  ; preds = %usbll_reset_device_endpoints.exit.i, %17
   %59 = phi ptr [ %18, %17 ], [ %33, %usbll_reset_device_endpoints.exit.i ]
@@ -3407,7 +3407,7 @@ usbll_ep_type_from_urb_type.exit:                 ; preds = %81, %80, %79, %78, 
   %89 = getelementptr inbounds i8, ptr %65, i64 10
   store i8 0, ptr %89, align 2
   %90 = getelementptr inbounds i8, ptr %65, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %90, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %90, i8 0, i64 20, i1 false)
   br label %91
 
 91:                                               ; preds = %83, %86, %usbll_init_endpoint_tables.exit
@@ -3438,7 +3438,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %10 = getelementptr inbounds i8, ptr %7, i64 10
   store i8 0, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %7, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   %12 = load ptr, ptr @ep_info_out, align 8
   %13 = getelementptr ptr, ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8
@@ -3450,7 +3450,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %17 = getelementptr inbounds i8, ptr %14, i64 10
   store i8 0, ptr %17, align 2
   %18 = getelementptr inbounds i8, ptr %14, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   br label %19
 
 19:                                               ; preds = %3, %19
@@ -3458,16 +3458,16 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr %struct.usbll_endpoint_info, ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds i8, ptr %21, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %21, i8 0, i64 11, i1 false)
   %23 = load ptr, ptr %13, align 8
   %24 = getelementptr %struct.usbll_endpoint_info, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds i8, ptr %24, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %24, i8 0, i64 11, i1 false)
-  br i1 %exitcond.not, label %26, label %19, !llvm.loop !10
+  br i1 %exitcond.not, label %26, label %19, !llvm.loop !9
 
 26:                                               ; preds = %19
   ret void
@@ -3476,7 +3476,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @packet_ends_transfer(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @packet_ends_transfer(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
@@ -3881,7 +3881,7 @@ define internal noundef i32 @usbll_fragment_key_hash(ptr noundef %0) #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @usbll_fragment_key_equal(ptr noundef %0, ptr noundef %1) #7 {
+define internal range(i32 0, 2) i32 @usbll_fragment_key_equal(ptr noundef %0, ptr noundef %1) #7 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64
@@ -3935,11 +3935,10 @@ attributes #15 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

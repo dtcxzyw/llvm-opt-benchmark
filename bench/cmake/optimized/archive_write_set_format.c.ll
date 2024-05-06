@@ -61,7 +61,7 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
   br i1 %7, label %switch.hole_check, label %10
 
 switch.hole_check:                                ; preds = %3
-  %switch.maskindex = trunc i32 %6 to i16
+  %switch.maskindex = trunc nuw i32 %6 to i16
   %switch.shifted = lshr i16 2603, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %10

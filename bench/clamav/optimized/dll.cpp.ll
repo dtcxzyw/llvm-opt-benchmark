@@ -573,7 +573,7 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
   br i1 %.not120, label %.thread130, label %241
 
 .thread130:                                       ; preds = %236
-  %239 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %238), !range !4
+  %239 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %238)
   %240 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %239, ptr %240, align 1
   br label %255
@@ -606,7 +606,7 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
   br label %_ZN5ArrayIwED2Ev.exit
 
 252:                                              ; preds = %241
-  %253 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %238), !range !4
+  %253 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %238)
   br label %.thread
 
 .thread:                                          ; preds = %241, %252
@@ -662,7 +662,7 @@ define linkonce_odr void @_ZN7DataSetD2Ev(ptr noundef nonnull align 8 dereferenc
 declare noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 25) i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %0) unnamed_addr #6 {
   %2 = icmp ult i32 %0, 13
   br i1 %2, label %switch.lookup, label %4
 
@@ -764,7 +764,7 @@ define i32 @RARCloseArchive(ptr noundef %0) local_unnamed_addr #0 personality pt
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %15, align 4
-  %20 = tail call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %19), !range !4
+  %20 = tail call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %19)
   br label %21
 
 21:                                               ; preds = %13, %18
@@ -876,7 +876,7 @@ define i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 37:                                               ; preds = %32
   %38 = load i32, ptr %34, align 4
-  %39 = tail call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %38), !range !4
+  %39 = tail call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %38)
   br label %40
 
 40:                                               ; preds = %32, %37
@@ -1269,7 +1269,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef %0, i32 noundef %1,
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %47, align 4
-  %51 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %50), !range !4
+  %51 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %50)
   br label %52
 
 52:                                               ; preds = %46, %49
@@ -1387,7 +1387,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef %0, i32 noundef %1,
 
 99:                                               ; preds = %95
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %80)
-          to label %87 unwind label %.loopexit, !llvm.loop !5
+          to label %87 unwind label %.loopexit, !llvm.loop !4
 
 .critedge:                                        ; preds = %91, %87, %92
   %100 = getelementptr inbounds i8, ptr %0, i64 149728
@@ -1591,6 +1591,5 @@ attributes #20 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 25}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

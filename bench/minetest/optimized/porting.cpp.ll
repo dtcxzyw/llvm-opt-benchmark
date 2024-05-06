@@ -69,15 +69,15 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @.str.17 = private unnamed_addr constant [9 x i8] c"minetest\00", align 1
 @.str.18 = private unnamed_addr constant [4 x i8] c"/..\00", align 1
 @.str.19 = private unnamed_addr constant [8 x i8] c"builtin\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [33 x i8] c"system-wide share not found at \22\00", align 1
 @.str.21 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.22 = private unnamed_addr constant [29 x i8] c"system-wide share found at \22\00", align 1
 @.str.23 = private unnamed_addr constant [19 x i8] c"MINETEST_USER_PATH\00", align 1
 @.str.24 = private unnamed_addr constant [3 x i8] c"/.\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.25 = private unnamed_addr constant [43 x i8] c"Using system-wide paths (NOT RUN_IN_PLACE)\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.27 = private unnamed_addr constant [15 x i8] c"XDG_CACHE_HOME\00", align 1
 @.str.28 = private unnamed_addr constant [5 x i8] c"HOME\00", align 1
 @.str.29 = private unnamed_addr constant [7 x i8] c".cache\00", align 1
@@ -97,7 +97,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @.str.43 = private unnamed_addr constant [9 x i8] c"https://\00", align 1
 @.str.44 = private unnamed_addr constant [50 x i8] c"Unable to open browser as URL is missing schema: \00", align 1
 @.str.45 = private unnamed_addr constant [48 x i8] c"Unable to open directory as it does not exist: \00", align 1
-@dstream = external thread_local global %class.LogStream, align 8
+@dstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.46 = private unnamed_addr constant [25 x i8] c"INFO: signal_handler(): \00", align 1
 @.str.47 = private unnamed_addr constant [31 x i8] c"Ctrl-C pressed, shutting down.\00", align 1
 @.str.48 = private unnamed_addr constant [28 x i8] c"got SIGTERM, shutting down.\00", align 1

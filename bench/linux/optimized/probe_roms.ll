@@ -472,7 +472,7 @@ define dso_local void @probe_roms() local_unnamed_addr #3 section ".init.text" a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @romsignature(ptr noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @romsignature(ptr noundef %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   store i16 0, ptr %2, align 2, !annotation !5
@@ -490,7 +490,7 @@ define internal fastcc i32 @romsignature(ptr noundef %0) unnamed_addr #3 section
 declare dso_local i64 @copy_from_kernel_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @romchecksum(ptr noundef %0, i64 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @romchecksum(ptr noundef %0, i64 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
   %4 = icmp eq i64 %1, 0

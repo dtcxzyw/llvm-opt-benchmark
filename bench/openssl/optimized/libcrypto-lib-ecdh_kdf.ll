@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [5 x i8] c"info\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecdh_kdf_X9_63(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdh_kdf_X9_63(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -70,9 +70,9 @@ declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ECDH_KDF_X9_62(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ECDH_KDF_X9_62(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_ecdh_kdf_X9_63(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @ossl_ecdh_kdf_X9_63(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %sinfo, i64 noundef %sinfolen, ptr noundef %md, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -87,4 +87,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

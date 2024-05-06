@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [69 x i8] c"git verify-tag [-v | --verbose] [--format=<format>] [--raw] <tag>...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_verify_tag(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_verify_tag(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %verbose = alloca i32, align 4
   %flags = alloca i32, align 4

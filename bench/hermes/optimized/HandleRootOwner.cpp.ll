@@ -138,7 +138,7 @@ entry:
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %3, 1
   br i1 %cmp.not5, label %for.end, label %for.body.preheader
 
@@ -151,7 +151,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load ptr, ptr %it.06, align 8
   tail call void @free(ptr noundef %4) #3
   %it.0 = getelementptr inbounds i8, ptr %it.06, i64 8
-  %cmp.not = icmp eq ptr %it.0, %add.ptr.i.ptr
+  %cmp.not = icmp eq ptr %it.0, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body

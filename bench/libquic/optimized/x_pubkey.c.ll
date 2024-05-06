@@ -60,7 +60,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_PUBKEY_set(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %spki = alloca ptr, align 8
   %spki_len = alloca i64, align 8
@@ -278,7 +278,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk, ptr noundef nonnull %a), !range !7
+  %call = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk, ptr noundef nonnull %a)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
@@ -357,7 +357,7 @@ if.end.i:                                         ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_set1_RSA(ptr noundef nonnull %call, ptr noundef nonnull %a) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xpk.i)
   store ptr null, ptr %xpk.i, align 8
-  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call), !range !7
+  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %i2d_PUBKEY.exit, label %if.end3.i
 
@@ -446,7 +446,7 @@ if.end.i:                                         ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_set1_DSA(ptr noundef nonnull %call, ptr noundef nonnull %a) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xpk.i)
   store ptr null, ptr %xpk.i, align 8
-  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call), !range !7
+  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %i2d_PUBKEY.exit, label %if.end3.i
 
@@ -533,7 +533,7 @@ if.end.i:                                         ; preds = %if.end
   %call3 = tail call i32 @EVP_PKEY_set1_EC_KEY(ptr noundef nonnull %call, ptr noundef nonnull %a) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xpk.i)
   store ptr null, ptr %xpk.i, align 8
-  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call), !range !7
+  %call.i = call i32 @X509_PUBKEY_set(ptr noundef nonnull %xpk.i, ptr noundef nonnull %call)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %i2d_PUBKEY.exit, label %if.end3.i
 
@@ -558,7 +558,7 @@ return:                                           ; preds = %entry, %i2d_PUBKEY.
 declare i32 @EVP_PKEY_set1_EC_KEY(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_PUBKEY_set0_param(ptr nocapture noundef readonly %pub, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_PUBKEY_set0_param(ptr nocapture noundef readonly %pub, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pub, align 8
   %call = tail call i32 @X509_ALGOR_set0(ptr noundef %0, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) #5
@@ -686,4 +686,3 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

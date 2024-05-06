@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.i2b_PVK = private unnamed_addr constant [8 x i8] c"i2b_PVK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_do_blob_header(ptr nocapture noundef %in, i32 noundef %length, ptr nocapture noundef %pmagic, ptr nocapture noundef writeonly %pbitlen, ptr nocapture noundef %pisdss, ptr nocapture noundef %pispub) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_do_blob_header(ptr nocapture noundef %in, i32 noundef %length, ptr nocapture noundef %pmagic, ptr nocapture noundef writeonly %pbitlen, ptr nocapture noundef %pisdss, ptr nocapture noundef %pispub) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %cmp = icmp ult i32 %length, 16
@@ -177,7 +177,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_blob_length(i32 noundef %bitlen, i32 noundef %isdss, i32 noundef %ispub) local_unnamed_addr #2 {
+define range(i32 4, -1879048194) i32 @ossl_blob_length(i32 noundef %bitlen, i32 noundef %isdss, i32 noundef %ispub) local_unnamed_addr #2 {
 entry:
   %add = add i32 %bitlen, 7
   %shr = lshr i32 %add, 3
@@ -242,7 +242,7 @@ entry:
   %bitlen = alloca i32, align 4
   %magic = alloca i32, align 4
   store ptr %in.0.val, ptr %p, align 8
-  %call = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef %length, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef %isdss, ptr noundef %ispub), !range !4
+  %call = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef %length, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef %isdss, ptr noundef %ispub)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return.sink.split, label %if.end
 
@@ -418,7 +418,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %hdr_buf, ptr %p, align 8
-  %call2 = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef 16, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef nonnull %isdss, ptr noundef %ispub), !range !4
+  %call2 = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef 16, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef nonnull %isdss, ptr noundef %ispub)
   %cmp3 = icmp slt i32 %call2, 1
   br i1 %cmp3, label %return, label %if.end5
 
@@ -864,12 +864,12 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2b_PrivateKey_bio(ptr noundef %out, ptr noundef %pk) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PrivateKey_bio(ptr noundef %out, ptr noundef %pk) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   store ptr null, ptr %tmp.i, align 8
-  %call.i = call fastcc i32 @do_i2b(ptr noundef nonnull %tmp.i, ptr noundef %pk, i32 noundef 0), !range !5
+  %call.i = call fastcc i32 @do_i2b(ptr noundef nonnull %tmp.i, ptr noundef %pk, i32 noundef 0)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %do_i2b_bio.exit, label %if.end.i
 
@@ -889,12 +889,12 @@ do_i2b_bio.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2b_PublicKey_bio(ptr noundef %out, ptr noundef %pk) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PublicKey_bio(ptr noundef %out, ptr noundef %pk) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   store ptr null, ptr %tmp.i, align 8
-  %call.i = call fastcc i32 @do_i2b(ptr noundef nonnull %tmp.i, ptr noundef %pk, i32 noundef 1), !range !5
+  %call.i = call fastcc i32 @do_i2b(ptr noundef nonnull %tmp.i, ptr noundef %pk, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %do_i2b_bio.exit, label %if.end.i
 
@@ -914,7 +914,7 @@ do_i2b_bio.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_do_PVK_header(ptr nocapture noundef %in, i32 noundef %length, i32 noundef %skip_magic, ptr nocapture noundef %psaltlen, ptr nocapture noundef writeonly %pkeylen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_do_PVK_header(ptr nocapture noundef %in, i32 noundef %length, i32 noundef %skip_magic, ptr nocapture noundef %psaltlen, ptr nocapture noundef writeonly %pkeylen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %tobool.not = icmp eq i32 %skip_magic, 0
@@ -1025,7 +1025,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %pvk_hdr, ptr %p, align 8
-  %call2 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %p, i32 noundef 24, i32 noundef 0, ptr noundef nonnull %saltlen, ptr noundef nonnull %keylen), !range !6
+  %call2 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %p, i32 noundef 24, i32 noundef 0, ptr noundef nonnull %saltlen, ptr noundef nonnull %keylen)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
 
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef readonly %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef readonly %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %p.i = alloca ptr, align 8
   %psbuf.i = alloca [1024 x i8], align 16
@@ -1311,7 +1311,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %keybuf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enctmplen.i)
   %tobool.not.i = icmp ne i32 %enclevel, 0
-  %call.i = tail call fastcc i32 @do_i2b(ptr noundef null, ptr noundef %pk, i32 noundef 0), !range !5
+  %call.i = tail call fastcc i32 @do_i2b(ptr noundef null, ptr noundef %pk, i32 noundef 0)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %i2b_PVK.exit.thread, label %if.else.i
 
@@ -1357,43 +1357,43 @@ if.end19.i:                                       ; preds = %if.end14.i
   %conv.i49.i = select i1 %tobool.not.i, i8 16, i8 0
   %incdec.ptr.i50.i = getelementptr inbounds i8, ptr %call9.i, i64 17
   store i8 %conv.i49.i, ptr %incdec.ptr11.i48.i, align 1
-  %incdec.ptr3.i51.i = getelementptr inbounds i8, ptr %call9.i, i64 18
+  %incdec.ptr3.i53.i = getelementptr inbounds i8, ptr %call9.i, i64 18
   store i8 0, ptr %incdec.ptr.i50.i, align 1
-  %incdec.ptr7.i52.i = getelementptr inbounds i8, ptr %call9.i, i64 19
-  store i8 0, ptr %incdec.ptr3.i51.i, align 1
-  %incdec.ptr11.i53.i = getelementptr inbounds i8, ptr %call9.i, i64 20
-  store i8 0, ptr %incdec.ptr7.i52.i, align 1
-  %conv.i54.i = trunc i32 %call.i to i8
-  %incdec.ptr.i55.i = getelementptr inbounds i8, ptr %call9.i, i64 21
-  store i8 %conv.i54.i, ptr %incdec.ptr11.i53.i, align 1
-  %shr.i56.i = lshr i32 %call.i, 8
-  %conv2.i57.i = trunc i32 %shr.i56.i to i8
-  %incdec.ptr3.i58.i = getelementptr inbounds i8, ptr %call9.i, i64 22
-  store i8 %conv2.i57.i, ptr %incdec.ptr.i55.i, align 1
-  %shr4.i59.i = lshr i32 %call.i, 16
-  %conv6.i60.i = trunc i32 %shr4.i59.i to i8
-  %incdec.ptr7.i61.i = getelementptr inbounds i8, ptr %call9.i, i64 23
-  store i8 %conv6.i60.i, ptr %incdec.ptr3.i58.i, align 1
-  %shr8.i62.i = lshr i32 %call.i, 24
-  %conv10.i63.i = trunc i32 %shr8.i62.i to i8
-  %incdec.ptr11.i64.i = getelementptr inbounds i8, ptr %call9.i, i64 24
-  store i8 %conv10.i63.i, ptr %incdec.ptr7.i61.i, align 1
-  store ptr %incdec.ptr11.i64.i, ptr %p.i, align 8
+  %incdec.ptr7.i56.i = getelementptr inbounds i8, ptr %call9.i, i64 19
+  store i8 0, ptr %incdec.ptr3.i53.i, align 1
+  %incdec.ptr11.i59.i = getelementptr inbounds i8, ptr %call9.i, i64 20
+  store i8 0, ptr %incdec.ptr7.i56.i, align 1
+  %conv.i60.i = trunc i32 %call.i to i8
+  %incdec.ptr.i61.i = getelementptr inbounds i8, ptr %call9.i, i64 21
+  store i8 %conv.i60.i, ptr %incdec.ptr11.i59.i, align 1
+  %shr.i62.i = lshr i32 %call.i, 8
+  %conv2.i63.i = trunc i32 %shr.i62.i to i8
+  %incdec.ptr3.i64.i = getelementptr inbounds i8, ptr %call9.i, i64 22
+  store i8 %conv2.i63.i, ptr %incdec.ptr.i61.i, align 1
+  %shr4.i65.i = lshr i32 %call.i, 16
+  %conv6.i66.i = trunc i32 %shr4.i65.i to i8
+  %incdec.ptr7.i67.i = getelementptr inbounds i8, ptr %call9.i, i64 23
+  store i8 %conv6.i66.i, ptr %incdec.ptr3.i64.i, align 1
+  %shr8.i68.i = lshr i32 %call.i, 24
+  %conv10.i69.i = trunc nuw i32 %shr8.i68.i to i8
+  %incdec.ptr11.i70.i = getelementptr inbounds i8, ptr %call9.i, i64 24
+  store i8 %conv10.i69.i, ptr %incdec.ptr7.i67.i, align 1
+  store ptr %incdec.ptr11.i70.i, ptr %p.i, align 8
   br i1 %tobool.not.i, label %if.then30.i, label %if.end36.i
 
 if.then30.i:                                      ; preds = %if.end19.i
-  %call31.i = tail call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %incdec.ptr11.i64.i, i64 noundef 16, i32 noundef 0) #6
+  %call31.i = tail call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %incdec.ptr11.i70.i, i64 noundef 16, i32 noundef 0) #6
   %cmp32.i = icmp slt i32 %call31.i, 1
   br i1 %cmp32.i, label %error.i, label %if.then40.i
 
 if.end36.i:                                       ; preds = %if.end19.i
-  %call37.i = call fastcc i32 @do_i2b(ptr noundef nonnull %p.i, ptr noundef %pk, i32 noundef 0), !range !5
+  %call37.i = call fastcc i32 @do_i2b(ptr noundef nonnull %p.i, ptr noundef %pk, i32 noundef 0)
   br label %error.i
 
 if.then40.i:                                      ; preds = %if.then30.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call9.i, i64 40
   store ptr %add.ptr.i, ptr %p.i, align 8
-  %call3766.i = call fastcc i32 @do_i2b(ptr noundef nonnull %p.i, ptr noundef %pk, i32 noundef 0), !range !5
+  %call3772.i = call fastcc i32 @do_i2b(ptr noundef nonnull %p.i, ptr noundef %pk, i32 noundef 0)
   %tobool41.not.i = icmp eq ptr %cb, null
   br i1 %tobool41.not.i, label %if.else44.i, label %if.then42.i
 
@@ -1417,7 +1417,7 @@ if.then50.i:                                      ; preds = %if.end47.i
   br label %error.i
 
 if.end51.i:                                       ; preds = %if.end47.i
-  %call54.i = call fastcc i32 @derive_pvk_key(ptr noundef nonnull %keybuf.i, ptr noundef nonnull %incdec.ptr11.i64.i, i32 noundef 16, ptr noundef nonnull %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
+  %call54.i = call fastcc i32 @derive_pvk_key(ptr noundef nonnull %keybuf.i, ptr noundef nonnull %incdec.ptr11.i70.i, i32 noundef 16, ptr noundef nonnull %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %error.i, label %if.end57.i
 
@@ -1509,9 +1509,9 @@ return:                                           ; preds = %i2b_PVK.exit.thread
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2b_PVK_bio(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PVK_bio(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u, ptr noundef null, ptr noundef null), !range !7
+  %call = tail call i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -1526,7 +1526,7 @@ declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_i2b(ptr noundef %out, ptr noundef %pk, i32 noundef %ispub) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef %out, ptr noundef %pk, i32 noundef %ispub) unnamed_addr #0 {
 entry:
   %p.i71 = alloca ptr, align 8
   %q.i72 = alloca ptr, align 8
@@ -1824,7 +1824,7 @@ if.end24:                                         ; preds = %if.end15, %if.end23
   %incdec.ptr7.i45 = getelementptr inbounds i8, ptr %p.0, i64 11
   store i8 %conv6.i, ptr %incdec.ptr3.i44, align 1
   %shr8.i = lshr i32 %magic.3118133, 24
-  %conv10.i = trunc i32 %shr8.i to i8
+  %conv10.i = trunc nuw nsw i32 %shr8.i to i8
   %incdec.ptr11.i46 = getelementptr inbounds i8, ptr %p.0, i64 12
   store i8 %conv10.i, ptr %incdec.ptr7.i45, align 1
   %conv.i47 = trunc i32 %bitlen.0119131 to i8
@@ -1839,7 +1839,7 @@ if.end24:                                         ; preds = %if.end15, %if.end23
   %incdec.ptr7.i54 = getelementptr inbounds i8, ptr %p.0, i64 15
   store i8 %conv6.i53, ptr %incdec.ptr3.i51, align 1
   %shr8.i55 = lshr i32 %bitlen.0119131, 24
-  %conv10.i56 = trunc i32 %shr8.i55 to i8
+  %conv10.i56 = trunc nuw i32 %shr8.i55 to i8
   %incdec.ptr11.i57 = getelementptr inbounds i8, ptr %p.0, i64 16
   store i8 %conv10.i56, ptr %incdec.ptr7.i54, align 1
   br i1 %tobool.not.not.not, label %if.else37, label %if.then35
@@ -2109,7 +2109,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = !{i32 -1, i32 -1879048178}
-!6 = !{i32 0, i32 2}
-!7 = !{i32 -1, i32 -2147483648}

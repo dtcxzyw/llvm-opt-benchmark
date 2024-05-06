@@ -393,7 +393,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -415,7 +415,7 @@ entry:
   %arrayidx5.i10 = getelementptr inbounds i8, ptr %b.i3, i64 2
   store i8 %conv4.i9, ptr %arrayidx5.i10, align 1
   %shr6.i11 = lshr i32 %2, 24
-  %conv7.i12 = trunc i32 %shr6.i11 to i8
+  %conv7.i12 = trunc nuw i32 %shr6.i11 to i8
   %arrayidx8.i13 = getelementptr inbounds i8, ptr %b.i3, i64 3
   store i8 %conv7.i12, ptr %arrayidx8.i13, align 1
   %vtable.i.i.i14 = load ptr, ptr %os, align 8

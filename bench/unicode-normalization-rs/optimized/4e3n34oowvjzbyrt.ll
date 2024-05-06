@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef range(i32 69786, 1114113) i32 @_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %0, label %21 [
     i32 69785, label %3
     i32 69787, label %5

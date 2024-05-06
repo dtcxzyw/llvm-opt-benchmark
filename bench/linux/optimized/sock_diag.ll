@@ -119,7 +119,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sock_diag_check_cookie(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %9
@@ -198,7 +198,7 @@ define dso_local i32 @sock_diag_check_cookie(ptr noundef %0, ptr nocapture nound
 
 48:                                               ; preds = %44
   %49 = lshr i64 %37, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = getelementptr i8, ptr %1, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, %50
@@ -275,7 +275,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
   %38 = trunc i64 %30 to i32
   store i32 %38, ptr %1, align 4
   %39 = lshr i64 %30, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = getelementptr i8, ptr %1, i64 4
   store i32 %40, ptr %41, align 4
   ret void
@@ -302,7 +302,7 @@ declare dso_local void @sk_get_meminfo(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sock_diag_put_filterinfo(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @sock_diag_put_filterinfo(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   br i1 %0, label %7, label %5
 
 5:                                                ; preds = %4
@@ -512,7 +512,7 @@ define dso_local void @sock_diag_unregister_inet_compat(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sock_diag_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sock_diag_register(ptr noundef %0) #0 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 45
   br i1 %3, label %13, label %4
@@ -654,7 +654,7 @@ declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ..
 declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @diag_net_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @diag_net_init(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.netlink_kernel_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   store i32 4, ptr %2, align 8

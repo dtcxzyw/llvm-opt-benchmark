@@ -43,7 +43,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %min, i32 noundef %max, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %min, i32 noundef %max, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %srcChar.addr.i65 = alloca i16, align 2
   %srcChar.addr.i63 = alloca i16, align 2
@@ -141,7 +141,7 @@ land.lhs.true:                                    ; preds = %if.then6
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %land.lhs.true
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nsw i64 %indvars.iv to i32
   %inc13 = add nsw i32 %13, 2
   br label %if.end104
 
@@ -152,26 +152,26 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool14.not, label %if.else16, label %for.cond, !llvm.loop !4
 
 if.else16:                                        ; preds = %if.else
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nsw i64 %indvars.iv.next to i32
   switch i16 %c.0, label %if.end104 [
     i16 125, label %if.then21
     i16 123, label %if.then21
   ]
 
 if.then21:                                        ; preds = %if.else16, %if.else16
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nsw i64 %indvars.iv to i32
   %inc22 = add nsw i32 %15, 2
   br label %if.end104
 
 if.else27:                                        ; preds = %for.body
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nsw i64 %indvars.iv.next to i32
   %tobool28 = icmp eq i8 %inQuote.0, 0
   %cmp31 = icmp eq i16 %11, 123
   %or.cond1 = and i1 %tobool28, %cmp31
   br i1 %or.cond1, label %if.then32, label %if.end104
 
 if.then32:                                        ; preds = %if.else27
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nsw i64 %indvars.iv to i32
   %cmp33 = icmp sgt i32 %textLength.0.ph, 0
   br i1 %cmp33, label %if.then34, label %if.end41
 
@@ -259,7 +259,7 @@ while.body:                                       ; preds = %land.lhs.true75
   br i1 %cmp86, label %if.then94, label %while.cond, !llvm.loop !6
 
 if.end89:                                         ; preds = %land.lhs.true75
-  %31 = trunc i64 %indvars.iv.next116 to i32
+  %31 = trunc nsw i64 %indvars.iv.next116 to i32
   %cmp90 = icmp slt i32 %argNumber.0, 0
   %cmp93 = icmp ne i16 %29, 125
   %or.cond4 = or i1 %cmp90, %cmp93

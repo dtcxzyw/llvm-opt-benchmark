@@ -321,7 +321,7 @@ declare dso_local void @path_put(ptr noundef) local_unnamed_addr #2
 declare dso_local void @putname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_bool(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_bool(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 2
@@ -396,7 +396,7 @@ define dso_local noundef i32 @fs_param_is_bool(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_u32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_u32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -443,7 +443,7 @@ define dso_local noundef i32 @fs_param_is_u32(ptr nocapture noundef readonly %0,
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_s32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_s32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 2
@@ -486,7 +486,7 @@ define dso_local noundef i32 @fs_param_is_s32(ptr nocapture noundef readonly %0,
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_u64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_u64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 2
@@ -529,7 +529,7 @@ define dso_local noundef i32 @fs_param_is_u64(ptr nocapture noundef readonly %0,
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_enum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_enum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 2
@@ -602,7 +602,7 @@ define dso_local noundef i32 @fs_param_is_enum(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 2
@@ -636,7 +636,7 @@ define dso_local noundef i32 @fs_param_is_string(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_blob(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_blob(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 3
@@ -656,7 +656,7 @@ define dso_local noundef i32 @fs_param_is_blob(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fs_param_is_fd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fs_param_is_fd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %29 [

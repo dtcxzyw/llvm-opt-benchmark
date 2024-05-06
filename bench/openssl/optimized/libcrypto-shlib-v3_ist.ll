@@ -200,7 +200,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_issuer_sign_tool(ptr nocapture readnone %method, ptr noundef readonly %ist, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr nocapture readnone %method, ptr noundef readonly %ist, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %cmp = icmp eq ptr %ist, null
   br i1 %cmp, label %if.then, label %if.end

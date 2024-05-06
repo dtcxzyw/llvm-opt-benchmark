@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [66 x i8] c"Nodes: Total = %7d. 0-slack = %7d. Workable = %7d. Ratio = %4.2f\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ManSpeedupNode_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_ManSpeedupNode_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 32
@@ -38,7 +38,7 @@ define noundef i32 @Aig_ManSpeedupNode_rec(ptr noundef %0, ptr noundef %1, ptr n
   %11 = ptrtoint ptr %.val19 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %2), !range !4
+  %14 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %2)
   %.not14 = icmp eq i32 %14, 0
   br i1 %.not14, label %53, label %15
 
@@ -48,7 +48,7 @@ define noundef i32 @Aig_ManSpeedupNode_rec(ptr noundef %0, ptr noundef %1, ptr n
   %17 = ptrtoint ptr %.val20 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %2), !range !4
+  %20 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %2)
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %53, label %21
 
@@ -170,12 +170,12 @@ define void @Aig_ManSpeedupNode(ptr nocapture readnone %0, ptr noundef %1, ptr n
 27:                                               ; preds = %14, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count171
-  br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %13, !llvm.loop !5
+  br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %13, !llvm.loop !4
 
 ..critedge2_crit_edge.us:                         ; preds = %27
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.critedge, label %.lr.ph.us, !llvm.loop !7
+  br i1 %exitcond172.not, label %.critedge, label %.lr.ph.us, !llvm.loop !6
 
 .critedge:                                        ; preds = %..critedge2_crit_edge.us, %5
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
@@ -216,7 +216,7 @@ define void @Aig_ManSpeedupNode(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %.val115 = load i32, ptr %7, align 4
   %46 = sext i32 %.val115 to i64
   %47 = icmp slt i64 %indvars.iv.next174, %46
-  br i1 %47, label %37, label %.critedge4, !llvm.loop !8
+  br i1 %47, label %37, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %37, %.critedge
   %48 = getelementptr inbounds i8, ptr %2, i64 16
@@ -224,7 +224,7 @@ define void @Aig_ManSpeedupNode(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull %28), !range !4
+  %53 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull %28)
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %54, label %57
 
@@ -267,7 +267,7 @@ Vec_PtrFree.exit:                                 ; preds = %54, %56
   br i1 %63, label %.lr.ph152, label %.critedge8.preheader
 
 .lr.ph152:                                        ; preds = %.critedge6.preheader
-  %64 = trunc i64 %indvars.iv185 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv185 to i32
   %65 = xor i32 %64, -1
   br label %.critedge6
 
@@ -287,7 +287,7 @@ Vec_PtrFree.exit:                                 ; preds = %54, %56
   %.val117 = load i32, ptr %7, align 4
   %74 = sext i32 %.val117 to i64
   %75 = icmp slt i64 %indvars.iv.next177, %74
-  br i1 %75, label %.lr.ph149, label %.critedge6.preheader, !llvm.loop !9
+  br i1 %75, label %.lr.ph149, label %.critedge6.preheader, !llvm.loop !8
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %.val119153 = load i32, ptr %29, align 4
@@ -302,7 +302,7 @@ Vec_PtrFree.exit:                                 ; preds = %54, %56
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   %.val129 = load ptr, ptr %32, align 8
-  %81 = trunc i64 %indvars.iv179 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv179 to i32
   %82 = lshr i32 %65, %81
   %83 = and i32 %82, 1
   %84 = ptrtoint ptr %.val129 to i64
@@ -318,7 +318,7 @@ Vec_PtrFree.exit:                                 ; preds = %54, %56
   %.val118 = load i32, ptr %58, align 4
   %92 = sext i32 %.val118 to i64
   %93 = icmp slt i64 %indvars.iv.next180, %92
-  br i1 %93, label %.critedge6, label %.critedge8.preheader, !llvm.loop !10
+  br i1 %93, label %.critedge6, label %.critedge8.preheader, !llvm.loop !9
 
 .lr.ph155:                                        ; preds = %.critedge8.preheader, %Aig_ObjChild1Copy.exit
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %Aig_ObjChild1Copy.exit ], [ 0, %.critedge8.preheader ]
@@ -370,7 +370,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %.val119 = load i32, ptr %29, align 4
   %122 = sext i32 %.val119 to i64
   %123 = icmp slt i64 %indvars.iv.next183, %122
-  br i1 %123, label %.lr.ph155, label %.critedge10, !llvm.loop !11
+  br i1 %123, label %.lr.ph155, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %Aig_ObjChild1Copy.exit, %.critedge8.preheader
   %124 = load ptr, ptr %48, align 8
@@ -387,7 +387,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   store ptr %133, ptr %134, align 8
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %._crit_edge, label %.preheader, !llvm.loop !12
+  br i1 %exitcond189.not, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge10, %57
   %135 = load ptr, ptr %31, align 8
@@ -417,7 +417,7 @@ Vec_PtrFree.exit137:                              ; preds = %._crit_edge, %136
   %.val127.us = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds ptr, ptr %.val127.us, i64 %indvars.iv193
   %141 = load ptr, ptr %140, align 8
-  %142 = trunc i64 %indvars.iv193 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv193 to i32
   %143 = shl nuw i32 1, %142
   %144 = getelementptr inbounds i8, ptr %141, i64 16
   %145 = shl i32 2, %142
@@ -440,14 +440,14 @@ Vec_PtrFree.exit137:                              ; preds = %._crit_edge, %136
   store ptr %158, ptr %156, align 16
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, %146
   %159 = icmp slt i64 %indvars.iv.next191, %139
-  br i1 %159, label %148, label %._crit_edge160.us, !llvm.loop !13
+  br i1 %159, label %148, label %._crit_edge160.us, !llvm.loop !12
 
 ._crit_edge160.us:                                ; preds = %148
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %.val120.us = load i32, ptr %58, align 4
   %160 = sext i32 %.val120.us to i64
   %161 = icmp slt i64 %indvars.iv.next194, %160
-  br i1 %161, label %.lr.ph159.us, label %.critedge12, !llvm.loop !14
+  br i1 %161, label %.lr.ph159.us, label %.critedge12, !llvm.loop !13
 
 .critedge12:                                      ; preds = %._crit_edge160.us, %.lr.ph163, %Vec_PtrFree.exit137
   %162 = load ptr, ptr %48, align 8
@@ -557,13 +557,13 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %26 = fadd double %25, 1.000000e+00
   %27 = fadd double %26, %19
   %28 = fcmp ogt double %27, %18
-  %29 = trunc i64 %indvars.iv92 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv92 to i32
   %30 = shl nuw i32 1, %29
   %31 = select i1 %28, i32 %30, i32 0
   %.149 = or i32 %31, %.04876
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %.critedge, label %20, !llvm.loop !15
+  br i1 %exitcond96.not, label %.critedge, label %20, !llvm.loop !14
 
 32:                                               ; preds = %8
   %33 = getelementptr inbounds i8, ptr %10, i64 12
@@ -601,13 +601,13 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %49 = fadd float %.val59, %48
   %50 = fadd float %49, %2
   %51 = fcmp olt float %.val, %50
-  %52 = trunc i64 %indvars.iv87 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv87 to i32
   %53 = shl nuw i32 1, %52
   %54 = select i1 %51, i32 %53, i32 0
   %.3 = or i32 %54, %.25070
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.critedge, label %43, !llvm.loop !16
+  br i1 %exitcond91.not, label %.critedge, label %43, !llvm.loop !15
 
 55:                                               ; preds = %32
   call void @Nwk_ManDelayTraceSortPins(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
@@ -647,7 +647,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %.5 = or i32 %76, %.466
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !16
 
 .critedge:                                        ; preds = %60, %63, %43, %46, %23, %20, %55, %39, %.preheader
   %.6 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ 0, %55 ], [ %.149, %23 ], [ %.04876, %20 ], [ %.25070, %43 ], [ %.3, %46 ], [ %.466, %60 ], [ %.5, %63 ]
@@ -752,7 +752,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.val307 = load i32, ptr %54, align 4
   %55 = sext i32 %.val307 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %52, %29
   %.lcssa387 = phi ptr [ %.val320, %29 ], [ %53, %52 ]
@@ -826,7 +826,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.2238 = phi i32 [ %.1237392, %74 ], [ %81, %80 ], [ %.1237392, %77 ]
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %71, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge4, label %71, !llvm.loop !18
 
 .critedge4:                                       ; preds = %71, %82, %.preheader385
   %.1237.lcssa = phi i32 [ %.0236398, %.preheader385 ], [ %.2238, %82 ], [ %.1237392, %71 ]
@@ -863,7 +863,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %109 = freeze i32 %.3239
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next440, %wide.trip.count442
-  br i1 %exitcond443.not, label %.critedge2, label %59, !llvm.loop !20
+  br i1 %exitcond443.not, label %.critedge2, label %59, !llvm.loop !19
 
 .critedge2:                                       ; preds = %108, %.preheader386
   %.0236.lcssa = phi i32 [ 0, %.preheader386 ], [ %109, %108 ]
@@ -973,7 +973,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i32, ptr %calloc, i64 %165
   %167 = load i32, ptr %166, align 4
-  %168 = trunc i64 %indvars.iv444 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv444 to i32
   %169 = lshr i32 %167, %168
   %170 = and i32 %169, 1
   %spec.select = add nsw i32 %170, %.0404
@@ -983,7 +983,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.1 = phi i32 [ %.0404, %160 ], [ %spec.select, %163 ]
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
   %exitcond448.not = icmp eq i64 %indvars.iv.next445, %wide.trip.count447
-  br i1 %exitcond448.not, label %.critedge8, label %157, !llvm.loop !21
+  br i1 %exitcond448.not, label %.critedge8, label %157, !llvm.loop !20
 
 .critedge8:                                       ; preds = %157, %171, %.preheader384
   %.0.lcssa = phi i32 [ 0, %.preheader384 ], [ %.1, %171 ], [ %.0404, %157 ]
@@ -1025,7 +1025,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds i32, ptr %calloc, i64 %187
   %189 = load i32, ptr %188, align 4
-  %190 = trunc i64 %indvars.iv452 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv452 to i32
   %191 = shl nuw i32 1, %190
   %192 = and i32 %189, %191
   %.not288 = icmp eq i32 %192, 0
@@ -1056,7 +1056,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i32, ptr %calloc, i64 %205
   %207 = load i32, ptr %206, align 4
-  %208 = trunc i64 %indvars.iv449 to i32
+  %208 = trunc nuw nsw i64 %indvars.iv449 to i32
   %209 = shl nuw i32 1, %208
   %210 = and i32 %207, %209
   %.not290 = icmp eq i32 %210, 0
@@ -1075,7 +1075,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 215:                                              ; preds = %216
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %216, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %216, !llvm.loop !21
 
 216:                                              ; preds = %215, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %215 ]
@@ -1153,7 +1153,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %216, %Vec_PtrPush.e
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %247 = sext i32 %246 to i64
   %248 = icmp slt i64 %indvars.iv.next450, %247
-  br i1 %248, label %198, label %.critedge13.loopexit, !llvm.loop !23
+  br i1 %248, label %198, label %.critedge13.loopexit, !llvm.loop !22
 
 .critedge13.loopexit:                             ; preds = %Vec_PtrPushUnique.exit, %198
   %.pre471 = load i32, ptr %151, align 4
@@ -1164,7 +1164,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %216, %Vec_PtrPush.e
   %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %250 = sext i32 %249 to i64
   %251 = icmp slt i64 %indvars.iv.next453, %250
-  br i1 %251, label %177, label %.critedge11, !llvm.loop !24
+  br i1 %251, label %177, label %.critedge11, !llvm.loop !23
 
 .critedge11:                                      ; preds = %.critedge13, %177
   %252 = phi i32 [ %178, %177 ], [ %249, %.critedge13 ]
@@ -1228,7 +1228,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %216, %Vec_PtrPush.e
 277:                                              ; preds = %278
   %indvars.iv.next.i362 = add nuw nsw i64 %indvars.iv.i361, 1
   %exitcond.not.i363 = icmp eq i64 %indvars.iv.next.i362, %wide.trip.count.i360
-  br i1 %exitcond.not.i363, label %._crit_edge.i350, label %278, !llvm.loop !22
+  br i1 %exitcond.not.i363, label %._crit_edge.i350, label %278, !llvm.loop !21
 
 278:                                              ; preds = %277, %.lr.ph.i359
   %indvars.iv.i361 = phi i64 [ 0, %.lr.ph.i359 ], [ %indvars.iv.next.i362, %277 ]
@@ -1306,14 +1306,14 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %309 = sext i32 %308 to i64
   %310 = icmp slt i64 %indvars.iv.next456, %309
-  br i1 %310, label %.lr.ph416, label %.critedge17, !llvm.loop !25
+  br i1 %310, label %.lr.ph416, label %.critedge17, !llvm.loop !24
 
 .critedge17:                                      ; preds = %.lr.ph416, %Vec_PtrPushUnique.exit364, %.preheader, %268
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %311 = load i32, ptr %151, align 4
   %312 = sext i32 %311 to i64
   %313 = icmp slt i64 %indvars.iv.next459, %312
-  br i1 %313, label %.lr.ph419, label %.critedge15.loopexit, !llvm.loop !26
+  br i1 %313, label %.lr.ph419, label %.critedge15.loopexit, !llvm.loop !25
 
 .critedge15.loopexit:                             ; preds = %.critedge17, %.lr.ph419
   %.val300.pre.pre = load i32, ptr %128, align 4
@@ -1350,7 +1350,7 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds i32, ptr %calloc, i64 %329
   %331 = load i32, ptr %330, align 4
-  %332 = trunc i64 %indvars.iv461 to i32
+  %332 = trunc nuw nsw i64 %indvars.iv461 to i32
   %333 = shl nuw i32 1, %332
   %334 = and i32 %331, %333
   %.not284 = icmp eq i32 %334, 0
@@ -1360,7 +1360,7 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
   %337 = load i32, ptr %151, align 4
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next462, %338
-  br i1 %339, label %.lr.ph422, label %.critedge19, !llvm.loop !27
+  br i1 %339, label %.lr.ph422, label %.critedge19, !llvm.loop !26
 
 .critedge19:                                      ; preds = %.lr.ph422, %323, %314
   %putchar283 = tail call i32 @putchar(i32 10)
@@ -1441,7 +1441,7 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
   %.val305 = load i32, ptr %369, align 4
   %370 = sext i32 %.val305 to i64
   %371 = icmp slt i64 %indvars.iv.next465, %370
-  br i1 %371, label %139, label %.critedge6.loopexit, !llvm.loop !28
+  br i1 %371, label %139, label %.critedge6.loopexit, !llvm.loop !27
 
 .critedge6.loopexit:                              ; preds = %.critedge11.thread
   %.pre475 = load ptr, ptr %130, align 8
@@ -1550,7 +1550,7 @@ Aig_ObjEquiv.exit.thread:                         ; preds = %399, %394, %.lr.ph4
   %.val = load i32, ptr %409, align 4
   %410 = sext i32 %.val to i64
   %411 = icmp slt i64 %indvars.iv.next468, %410
-  br i1 %411, label %.lr.ph433, label %.critedge21, !llvm.loop !29
+  br i1 %411, label %.lr.ph433, label %.critedge21, !llvm.loop !28
 
 .critedge21:                                      ; preds = %Aig_ObjEquiv.exit.thread, %385
   br i1 %.not, label %412, label %413
@@ -1610,7 +1610,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !21
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -1733,29 +1733,28 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}

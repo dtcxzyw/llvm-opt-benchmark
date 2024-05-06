@@ -710,7 +710,7 @@ declare signext i8 @u_isIDPart_75(i32 noundef) local_unnamed_addr #5
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_759ParseData9isMatcherEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %ch) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759ParseData9isMatcherEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %ch) local_unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -749,7 +749,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_759ParseData10isReplacerEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %ch) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759ParseData10isReplacerEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %ch) local_unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -2471,7 +2471,7 @@ return:                                           ; preds = %if.end19.i, %delete
 declare noundef i32 @_ZNK6icu_7513UnicodeString10unescapeAtERi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7520TransliteratorParser18checkVariableRangeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %this, i32 noundef %ch) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7520TransliteratorParser18checkVariableRangeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %this, i32 noundef %ch) local_unnamed_addr #8 align 2 {
 entry:
   %curData = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %curData, align 8
@@ -2971,7 +2971,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_758RuleHalf13isValidOutputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %transParser) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_758RuleHalf13isValidOutputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %transParser) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %if.then.i, %for.con
 declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_758RuleHalf12isValidInputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %transParser) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_758RuleHalf12isValidInputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(498) %transParser) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -4044,7 +4044,7 @@ invoke.cont230:                                   ; preds = %invoke.cont.i
 
 if.then233:                                       ; preds = %invoke.cont230
   %call235 = invoke noundef i32 @_ZN6icu_7520TransliteratorParser11parsePragmaERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %this, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos.0279, i32 noundef %cond.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont234 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, !range !18
+          to label %invoke.cont234 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont234:                                   ; preds = %if.then233
   %cmp236 = icmp slt i32 %call235, 0
@@ -4228,7 +4228,7 @@ invoke.cont346:                                   ; preds = %for.body344
   %83 = load i32, ptr %variablesLength, align 4
   %84 = sext i32 %83 to i64
   %cmp343 = icmp slt i64 %indvars.iv.next357, %84
-  br i1 %cmp343, label %for.body344, label %for.end, !llvm.loop !19
+  br i1 %cmp343, label %for.body344, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %invoke.cont346, %if.end340.thread, %if.end340
   %variableNames350 = getelementptr inbounds i8, ptr %call321, i64 1064
@@ -4290,7 +4290,7 @@ invoke.cont367:                                   ; preds = %new.cont.i
 for.inc373:                                       ; preds = %while.cond356
   %inc374 = add nuw nsw i32 %i.0302, 1
   %exitcond.not = icmp eq i32 %inc374, %79
-  br i1 %exitcond.not, label %for.end375, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end375, label %for.body, !llvm.loop !19
 
 for.end375:                                       ; preds = %for.inc373, %if.then313
   invoke void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %variablesVector)
@@ -4334,7 +4334,7 @@ invoke.cont397:                                   ; preds = %for.body394
 for.inc401:                                       ; preds = %invoke.cont397
   %inc402 = add nuw nsw i32 %i.1304, 1
   %exitcond359.not = icmp eq i32 %inc402, %79
-  br i1 %exitcond359.not, label %for.end403, label %for.body394, !llvm.loop !21
+  br i1 %exitcond359.not, label %for.end403, label %for.body394, !llvm.loop !20
 
 for.end403:                                       ; preds = %for.inc401, %if.end391
   %count.i207 = getelementptr inbounds i8, ptr %this, i64 56
@@ -4431,7 +4431,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %preContext) #15, !srcloc !22
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %preContext) #15, !srcloc !21
   %idxprom = sext i32 %sub3 to i64
   %arrayidx = getelementptr inbounds [16 x i16], ptr %preContext, i64 0, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
@@ -4451,7 +4451,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %postContext) #15, !srcloc !22
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %postContext) #15, !srcloc !21
   %idxprom19 = sext i32 %sub10 to i64
   %arrayidx20 = getelementptr inbounds [16 x i16], ptr %postContext, i64 0, i64 %idxprom19
   store i16 0, ptr %arrayidx20, align 2
@@ -4461,13 +4461,13 @@ invoke.cont15:                                    ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %preContext) #15, !srcloc !22
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %preContext) #15, !srcloc !21
   br label %eh.resume
 
 lpad14:                                           ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %postContext) #15, !srcloc !22
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %postContext) #15, !srcloc !21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad14, %lpad
@@ -4520,7 +4520,7 @@ if.end9:                                          ; preds = %if.then6, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7520TransliteratorParser15resemblesPragmaERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7520TransliteratorParser15resemblesPragmaERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4559,7 +4559,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7520TransliteratorParser11parsePragmaERKNS_13UnicodeStringEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(498) %this, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7520TransliteratorParser11parsePragmaERKNS_13UnicodeStringEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(498) %this, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array = alloca [2 x i32], align 4
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -5118,7 +5118,7 @@ for.inc:                                          ; preds = %if.then132.for.inc_
   %cond.i261 = select i1 %cmp.i.i258, i32 %55, i32 %shr.i.i259
   %58 = sext i32 %cond.i261 to i64
   %cmp126 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %cmp126, label %for.body, label %for.cond137.preheader, !llvm.loop !23
+  br i1 %cmp126, label %for.body, label %for.cond137.preheader, !llvm.loop !22
 
 for.body142:                                      ; preds = %for.cond137.preheader, %for.inc151
   %i.1310 = phi i32 [ %inc152, %for.inc151 ], [ 0, %for.cond137.preheader ]
@@ -5137,7 +5137,7 @@ for.inc151:                                       ; preds = %invoke.cont144, %if
   %inc152 = add nuw nsw i32 %i.1310, 1
   %59 = load i32, ptr %count.i, align 8
   %cmp141 = icmp slt i32 %inc152, %59
-  br i1 %cmp141, label %for.body142, label %for.end153, !llvm.loop !24
+  br i1 %cmp141, label %for.body142, label %for.end153, !llvm.loop !23
 
 for.end153:                                       ; preds = %for.inc151, %for.cond137.preheader
   %cmp155.not = icmp eq i16 %op.1, 126
@@ -5249,7 +5249,7 @@ lor.lhs.false202:                                 ; preds = %lor.lhs.false199
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false202
   %call207 = invoke noundef signext i8 @_ZN6icu_758RuleHalf12isValidInputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %left.0, ptr noundef nonnull align 8 dereferenceable(498) %this)
-          to label %invoke.cont206 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp, !range !25
+          to label %invoke.cont206 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont206:                                   ; preds = %lor.lhs.false205
   %tobool208.not = icmp eq i8 %call207, 0
@@ -5257,7 +5257,7 @@ invoke.cont206:                                   ; preds = %lor.lhs.false205
 
 lor.lhs.false209:                                 ; preds = %invoke.cont206
   %call211 = invoke noundef signext i8 @_ZN6icu_758RuleHalf13isValidOutputERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %right.0, ptr noundef nonnull align 8 dereferenceable(498) %this)
-          to label %invoke.cont210 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp, !range !25
+          to label %invoke.cont210 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont210:                                   ; preds = %lor.lhs.false209
   %tobool212.not = icmp eq i8 %call211, 0
@@ -5480,7 +5480,7 @@ land.rhs:                                         ; preds = %while.cond18
   %add.ptr20 = getelementptr inbounds i8, ptr %target.addr.1, i64 -2
   %2 = load i16, ptr %add.ptr20, align 2
   %cmp22 = icmp eq i16 %2, 32
-  br i1 %cmp22, label %while.cond18, label %do.body24.preheader, !llvm.loop !26
+  br i1 %cmp22, label %while.cond18, label %do.body24.preheader, !llvm.loop !24
 
 do.body24.preheader:                              ; preds = %while.cond18, %land.rhs
   br label %do.body24
@@ -5514,7 +5514,7 @@ if.then41:                                        ; preds = %land.lhs.true
 if.then45:                                        ; preds = %if.then41, %if.then41
   %incdec.ptr46 = getelementptr inbounds i8, ptr %add.ptr1077, i64 2
   %cmp = icmp ult ptr %incdec.ptr46, %add.ptr
-  br i1 %cmp, label %while.body, label %while.end125, !llvm.loop !27
+  br i1 %cmp, label %while.body, label %while.end125, !llvm.loop !25
 
 land.lhs.true49:                                  ; preds = %if.then41
   %add.ptr50 = getelementptr inbounds i8, ptr %add.ptr1077, i64 10
@@ -5607,14 +5607,14 @@ while.body90:                                     ; preds = %if.then87, %if.end9
 if.end98:                                         ; preds = %while.body90, %while.body90, %while.body90
   %incdec.ptr99 = getelementptr inbounds i8, ptr %source.addr.6128, i64 2
   %cmp89 = icmp ult ptr %incdec.ptr99, %add.ptr
-  br i1 %cmp89, label %while.body90, label %while.cond.outer.backedge, !llvm.loop !28
+  br i1 %cmp89, label %while.body90, label %while.cond.outer.backedge, !llvm.loop !26
 
 while.cond.outer.backedge:                        ; preds = %while.body90, %if.end98, %if.then87, %do.end122
   %target.addr.0.ph.be = phi ptr [ %add.ptr124, %do.end122 ], [ %target.addr.2, %if.then87 ], [ %target.addr.2, %if.end98 ], [ %target.addr.2, %while.body90 ]
   %quoted.0.ph.be = phi i8 [ %quoted.19099, %do.end122 ], [ 0, %if.then87 ], [ 0, %if.end98 ], [ 0, %while.body90 ]
   %source.addr.0.ph.be = phi ptr [ %source.addr.59197, %do.end122 ], [ %source.addr.5, %if.then87 ], [ %source.addr.6128, %while.body90 ], [ %incdec.ptr99, %if.end98 ]
   %cmp123 = icmp ult ptr %source.addr.0.ph.be, %add.ptr
-  br i1 %cmp123, label %while.body.lr.ph, label %while.end125, !llvm.loop !27
+  br i1 %cmp123, label %while.body.lr.ph, label %while.end125, !llvm.loop !25
 
 if.end101:                                        ; preds = %if.end83
   %cmp103 = icmp ult i32 %c.4, 65536
@@ -5767,14 +5767,12 @@ attributes #17 = { noreturn nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 -1, i32 -2147483648}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = !{i64 2148643745}
+!21 = !{i64 2148643745}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i8 0, i8 2}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

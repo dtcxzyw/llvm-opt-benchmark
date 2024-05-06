@@ -183,21 +183,21 @@ sw.bb:                                            ; preds = %entry
 
 for.cond.preheader:                               ; preds = %sw.bb
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 4
-  %.pre53 = load float, ptr %2, align 4
-  %.pre54 = load float, ptr %add.ptr.i, align 4
-  %conv = fpext float %.pre53 to double
-  %conv6 = fpext float %.pre54 to double
+  %.pre54 = load float, ptr %2, align 4
+  %.pre55 = load float, ptr %add.ptr.i, align 4
+  %conv = fpext float %.pre54 to double
+  %conv6 = fpext float %.pre55 to double
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv47 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next48, %for.body ]
-  %arrayidx = getelementptr inbounds [4 x double], ptr %oldmin, i64 0, i64 %indvars.iv47
+  %indvars.iv48 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next49, %for.body ]
+  %arrayidx = getelementptr inbounds [4 x double], ptr %oldmin, i64 0, i64 %indvars.iv48
   store double %conv, ptr %arrayidx, align 8
-  %arrayidx8 = getelementptr inbounds [4 x double], ptr %oldmax, i64 0, i64 %indvars.iv47
+  %arrayidx8 = getelementptr inbounds [4 x double], ptr %oldmax, i64 0, i64 %indvars.iv48
   store double %conv6, ptr %arrayidx8, align 8
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50.not, label %if.end, label %for.body, !llvm.loop !4
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 3
+  br i1 %exitcond51.not, label %if.end, label %for.body, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %sw.bb
   call void @_ZN19OpenColorIO_v2_4dev11CreateFitOpERNS_10OpRcPtrVecEPKdS3_S3_S3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull %oldmin, ptr noundef nonnull %oldmax, ptr noundef nonnull %newmin, ptr noundef nonnull %newmax, i32 noundef %dir)
@@ -220,11 +220,11 @@ sw.bb12:                                          ; preds = %entry
   br i1 %cmp19, label %for.cond22.preheader, label %if.end38
 
 for.cond22.preheader:                             ; preds = %sw.bb12
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %4, i64 4
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %4, i64 4
   %.pre = load float, ptr %4, align 4
-  %.pre51 = load float, ptr %add.ptr.i32, align 4
+  %.pre52 = load float, ptr %add.ptr.i33, align 4
   %conv27 = fpext float %.pre to double
-  %conv32 = fpext float %.pre51 to double
+  %conv32 = fpext float %.pre52 to double
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %for.body24
@@ -246,18 +246,18 @@ if.end38:                                         ; preds = %for.body24, %sw.bb1
   br i1 %cmp41, label %for.cond44.preheader, label %if.end55
 
 for.cond44.preheader:                             ; preds = %if.end38
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %4, i64 8
-  %.pre52 = load float, ptr %add.ptr.i38, align 4
-  %conv49 = fpext float %.pre52 to double
+  %add.ptr.i39 = getelementptr inbounds i8, ptr %4, i64 8
+  %.pre53 = load float, ptr %add.ptr.i39, align 4
+  %conv49 = fpext float %.pre53 to double
   br label %for.body46
 
 for.body46:                                       ; preds = %for.cond44.preheader, %for.body46
-  %indvars.iv43 = phi i64 [ 0, %for.cond44.preheader ], [ %indvars.iv.next44, %for.body46 ]
-  %arrayidx51 = getelementptr inbounds [3 x double], ptr %linOffset, i64 0, i64 %indvars.iv43
+  %indvars.iv44 = phi i64 [ 0, %for.cond44.preheader ], [ %indvars.iv.next45, %for.body46 ]
+  %arrayidx51 = getelementptr inbounds [3 x double], ptr %linOffset, i64 0, i64 %indvars.iv44
   store double %conv49, ptr %arrayidx51, align 8
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 3
-  br i1 %exitcond46.not, label %if.end55, label %for.body46, !llvm.loop !7
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
+  br i1 %exitcond47.not, label %if.end55, label %for.body46, !llvm.loop !7
 
 if.end55:                                         ; preds = %for.body46, %if.end38
   switch i32 %dir, label %sw.epilog67 [

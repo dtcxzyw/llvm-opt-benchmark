@@ -317,8 +317,8 @@ switch.lookup:                                    ; preds = %6
   %narrow = mul nuw nsw i32 %10, 24
   %11 = load ptr, ptr %3, align 8
   %12 = zext nneg i32 %narrow to i64
-  %13 = getelementptr i8, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %15
@@ -361,8 +361,8 @@ switch.lookup:                                    ; preds = %5
   %narrow = mul nuw nsw i32 %9, 24
   %10 = load ptr, ptr %2, align 8
   %11 = zext nneg i32 %narrow to i64
-  %12 = getelementptr i8, ptr %10, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 16
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
   %.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %14
@@ -398,7 +398,7 @@ define void @agpushdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
 declare ptr @agalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agpopdisc(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agpopdisc(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -441,7 +441,7 @@ define noundef i32 @agpopdisc(ptr noundef %0, ptr noundef readnone %1) local_unn
 declare void @agfree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @agcontains(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @agcontains(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %agroot.exit, label %4
 
@@ -557,7 +557,7 @@ declare ptr @agidnode(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @agobjkind(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 4) i32 @agobjkind(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   ret i32 %3

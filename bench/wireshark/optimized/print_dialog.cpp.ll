@@ -1607,7 +1607,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @packet_range_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -1618,7 +1618,7 @@ define internal noundef i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noun
   br i1 %.not6, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %6), !range !12
+  %8 = tail call noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %6)
   br label %9
 
 9:                                                ; preds = %4, %3, %7
@@ -1627,7 +1627,7 @@ define internal noundef i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -1638,7 +1638,7 @@ define internal noundef i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef r
   br i1 %.not8, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 dereferenceable(525) %6, i32 noundef %1, ptr noundef %2), !range !12
+  %8 = tail call noundef i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 dereferenceable(525) %6, i32 noundef %1, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %4, %3, %7
@@ -1647,7 +1647,7 @@ define internal noundef i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef r
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL11new_page_pdP12print_stream(ptr noundef readonly %0) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL11new_page_pdP12print_stream(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1658,7 +1658,7 @@ define internal noundef i32 @_ZL11new_page_pdP12print_stream(ptr noundef readonl
   br i1 %.not6, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %4), !range !12
+  %6 = tail call noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %4)
   br label %7
 
 7:                                                ; preds = %2, %1, %5
@@ -1803,7 +1803,7 @@ define void @_ZThn16_N11PrintDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QPointF, align 8
   %3 = alloca %class.QString, align 16
   %4 = alloca %class.QPageLayout, align 8
@@ -1849,7 +1849,7 @@ define noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 
 27:                                               ; preds = %25
   %28 = extractvalue { i64, i64 } %26, 0
   %.sroa.1.0.extract.shift = lshr i64 %28, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   call void @_ZN11QPageLayoutD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   %29 = getelementptr inbounds i8, ptr %0, i64 520
   %30 = load i32, ptr %29, align 8
@@ -2173,7 +2173,7 @@ declare noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 der
 declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 dereferenceable(525) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 dereferenceable(525) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QRect, align 16
   %5 = alloca %class.QRect, align 16
   %6 = alloca %class.QString, align 8
@@ -2248,9 +2248,9 @@ define noundef i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 
   %45 = getelementptr inbounds i8, ptr %0, i64 520
   %46 = load i32, ptr %45, align 8
   %47 = lshr i64 %40, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = lshr i64 %39, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = add i32 %46, 1
   %52 = add i32 %51, %48
   %53 = sub i32 %52, %50
@@ -2281,7 +2281,7 @@ define noundef i32 @_ZN11PrintDialog9printLineEiPKc(ptr noundef nonnull align 8 
 
 66:                                               ; preds = %63
   %67 = invoke noundef i32 @_ZN11PrintDialog11printHeaderEv(ptr noundef nonnull align 8 dereferenceable(525) %0)
-          to label %._crit_edge unwind label %59, !range !12
+          to label %._crit_edge unwind label %59
 
 ._crit_edge:                                      ; preds = %66
   %.pre = load i32, ptr %45, align 8
@@ -2490,7 +2490,7 @@ define void @_ZN11PrintDialog12printPacketsEP8QPrinterb(ptr noundef nonnull alig
 16:                                               ; preds = %14
   %17 = extractvalue { i64, i64 } %15, 0
   %.sroa.1.0.extract.shift = lshr i64 %17, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %18 = getelementptr inbounds i8, ptr %0, i64 520
   store i32 %.sroa.1.0.extract.trunc, ptr %18, align 8
   call void @_ZN11QPageLayoutD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
@@ -3283,7 +3283,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !13
+  %17 = load ptr, ptr %16, align 8, !nosanitize !12
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3900,7 +3900,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 16
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !14
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !13
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3942,7 +3942,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 16
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !15
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !14
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -4267,7 +4267,6 @@ attributes #19 = { cold noreturn }
 !9 = distinct !{!9, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{i32 0, i32 2}
-!13 = !{}
+!12 = !{}
+!13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}

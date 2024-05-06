@@ -151,7 +151,7 @@ initPQExpBuffer.exit:                             ; preds = %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -278,9 +278,9 @@ initPQExpBuffer.exit.i:                           ; preds = %14, %13
 
 .preheader:                                       ; preds = %17, %.preheader
   store i32 %5, ptr %4, align 4
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br i1 %20, label %resetPQExpBuffer.exit, label %.preheader, !llvm.loop !6
 
 resetPQExpBuffer.exit:                            ; preds = %.preheader, %2, %17
@@ -289,9 +289,6 @@ resetPQExpBuffer.exit:                            ; preds = %.preheader, %2, %17
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @appendPQExpBufferVA(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
@@ -429,9 +426,6 @@ enlargePQExpBuffer.exit:                          ; preds = %markPQExpBufferBrok
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
 ; Function Attrs: nounwind uwtable
 define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #6 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
@@ -448,16 +442,16 @@ define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
 
 .preheader:                                       ; preds = %7, %.preheader
   store i32 %5, ptr %4, align 4
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %2, %7
   ret void
 }
 
-declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @appendPQExpBufferStr(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
@@ -559,7 +553,7 @@ enlargePQExpBuffer.exit.thread:                   ; preds = %3, %5, %markPQExpBu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #6 {
@@ -653,7 +647,13 @@ enlargePQExpBuffer.exit.thread:                   ; preds = %2, %4, %markPQExpBu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
@@ -670,10 +670,10 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: 
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nounwind allocsize(0) }

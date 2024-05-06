@@ -701,7 +701,7 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %111, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %113, ptr noundef nonnull dereferenceable(8) %105, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %113, ptr noundef nonnull readonly dereferenceable(8) %105, i64 8)
   %114 = icmp eq i32 %bcmp.i.i, 0
   br i1 %114, label %get_root_key.exit.i, label %115
 
@@ -1121,7 +1121,7 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned %0, ptr noca
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr i8, ptr %15, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %14, %19
   %21 = zext i32 %20 to i64
@@ -1213,7 +1213,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr nocapture noundef %0
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr i8, ptr %19, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = xor i32 %22, -1
   %24 = add i32 %18, %23
   %25 = zext i32 %24 to i64
@@ -1320,7 +1320,7 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned %0, ptr n
   %15 = load ptr, ptr %7, align 8
   %16 = getelementptr i8, ptr %15, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %14, %19
   %21 = zext i32 %20 to i64
@@ -1447,7 +1447,7 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr nocapture noundef
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr i8, ptr %17, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 1
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = xor i32 %20, -1
   %22 = add i32 %16, %21
   %23 = zext i32 %22 to i64

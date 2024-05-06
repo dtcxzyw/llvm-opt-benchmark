@@ -105,14 +105,14 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rsa_pkcs1(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_rsa_pkcs1(i32 noundef %idx) #0 {
 entry:
   %call = tail call fastcc i32 @test_rsa_simple(i32 noundef %idx, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rsa_oaep(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %idx) #0 {
 entry:
   %key = alloca ptr, align 8
   %ptext = alloca [256 x i8], align 16
@@ -192,7 +192,7 @@ err:                                              ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_security_bit(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %n) #0 {
 entry:
   %num = alloca [2000 x i8], align 16
   %call = tail call ptr @RSA_new() #4
@@ -244,7 +244,7 @@ err:                                              ; preds = %land.lhs.true, %if.
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rsa_saos() #0 {
+define internal range(i32 0, 2) i32 @test_rsa_saos() #0 {
 entry:
   %siglen = alloca i32, align 4
   %sig = alloca [256 x i8], align 16
@@ -352,7 +352,7 @@ err:                                              ; preds = %if.end62, %if.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_EVP_rsa_legacy_key() #0 {
+define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
 entry:
   %buflen = alloca i64, align 8
   %sigbuf = alloca [384 x i8], align 16
@@ -473,7 +473,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_rsa_simple(i32 noundef %idx, i32 noundef %en_pad_type, i32 noundef %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef %en_pad_type, i32 noundef %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16
@@ -504,7 +504,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   br i1 %cmp.not.i.i, label %rsa_setkey.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(64) @key1.ctext_ex, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(64) @key1.ctext_ex, i64 64, i1 false)
   br label %rsa_setkey.exit
 
 sw.bb2.i:                                         ; preds = %if.then.i
@@ -523,7 +523,7 @@ sw.bb2.i:                                         ; preds = %if.then.i
   br i1 %cmp.not.i18.i, label %rsa_setkey.exit, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %sw.bb2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(50) @key2.ctext_ex, i64 50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(50) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(50) @key2.ctext_ex, i64 50, i1 false)
   br label %rsa_setkey.exit
 
 sw.bb4.i:                                         ; preds = %if.then.i
@@ -542,7 +542,7 @@ sw.bb4.i:                                         ; preds = %if.then.i
   br i1 %cmp.not.i31.i, label %rsa_setkey.exit, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %sw.bb4.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(128) @key3.ctext_ex, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(128) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(128) @key3.ctext_ex, i64 128, i1 false)
   br label %rsa_setkey.exit
 
 rsa_setkey.exit:                                  ; preds = %entry, %if.then.i, %sw.bb.i, %if.then.i.i, %sw.bb2.i, %if.then.i19.i, %sw.bb4.i, %if.then.i32.i

@@ -997,7 +997,7 @@ if.end3:                                          ; preds = %read_magic_and_flag
   %flags.0119 = phi i32 [ %6, %read_magic_and_flags.exit.thread ], [ undef, %read_magic_and_flags.exit ]
   %curpos.i = getelementptr inbounds i8, ptr %scratch, i64 8
   %fileoff.i72 = getelementptr inbounds i8, ptr %scratch, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curpos.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %curpos.i, i8 0, i64 16, i1 false)
   store i64 8, ptr %fileoff.i72, align 8
   %sequential_read.i = getelementptr inbounds i8, ptr %scratch, i64 32
   store ptr @scratch_seq_read, ptr %sequential_read.i, align 8
@@ -2990,7 +2990,7 @@ return:                                           ; preds = %for.body, %if.end41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @scratch_seq_read(ptr noundef %scr, ptr noundef %buf, i64 noundef %sz) #0 {
+define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %scr, ptr noundef %buf, i64 noundef %sz) #0 {
 entry:
   %nread = alloca i64, align 8
   %nread21 = alloca i64, align 8
@@ -3102,7 +3102,7 @@ while.end.thread:                                 ; preds = %while.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @scratch_seq_skip(ptr noundef %scr, i32 noundef %sz) #0 {
+define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %scr, i32 noundef %sz) #0 {
 entry:
   %nread = alloca i64, align 8
   %conv = sext i32 %sz to i64
@@ -3236,7 +3236,7 @@ if.end5:                                          ; preds = %if.end, %land.lhs.t
 if.then7:                                         ; preds = %if.end5
   %div = udiv i32 %attrsz, %eltsize
   %rem = urem i32 %attrsz, %eltsize
-  %mul = mul nsw i32 %div, %eltsize
+  %mul = mul nuw nsw i32 %div, %eltsize
   %cmp8.not = icmp eq i32 %mul, %attrsz
   br i1 %cmp8.not, label %if.end12, label %if.then9
 

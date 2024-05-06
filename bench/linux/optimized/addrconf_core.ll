@@ -70,7 +70,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_in6_dev_fini
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable___fib6_flush_trees738, ptr @__UNIQUE_ID___addressable___ipv6_addr_type739, ptr @__UNIQUE_ID___addressable_in6_dev_finish_destroy762, ptr @__UNIQUE_ID___addressable_in6addr_any748, ptr @__UNIQUE_ID___addressable_in6addr_interfacelocal_allnodes751, ptr @__UNIQUE_ID___addressable_in6addr_interfacelocal_allrouters752, ptr @__UNIQUE_ID___addressable_in6addr_linklocal_allnodes749, ptr @__UNIQUE_ID___addressable_in6addr_linklocal_allrouters750, ptr @__UNIQUE_ID___addressable_in6addr_loopback747, ptr @__UNIQUE_ID___addressable_in6addr_sitelocal_allrouters753, ptr @__UNIQUE_ID___addressable_inet6addr_notifier_call_chain742, ptr @__UNIQUE_ID___addressable_inet6addr_validator_notifier_call_chain745, ptr @__UNIQUE_ID___addressable_ipv6_stub746, ptr @__UNIQUE_ID___addressable_register_inet6addr_notifier740, ptr @__UNIQUE_ID___addressable_register_inet6addr_validator_notifier743, ptr @__UNIQUE_ID___addressable_unregister_inet6addr_notifier741, ptr @__UNIQUE_ID___addressable_unregister_inet6addr_validator_notifier744], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @__ipv6_addr_type(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 1048576) i32 @__ipv6_addr_type(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr %0, align 4
   %3 = trunc i32 %2 to i8
   %4 = and i8 %3, -32

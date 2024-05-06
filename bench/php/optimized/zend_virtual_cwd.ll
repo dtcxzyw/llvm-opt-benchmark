@@ -544,7 +544,7 @@ define nonnull ptr @realpath_cache_get_buckets() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_file_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1191,7 +1191,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 215:                                              ; preds = %212
   %216 = add i64 %.0244295, 49
-  %bcmp.i = call i32 @bcmp(ptr %138, ptr nonnull %0, i64 %.0244295)
+  %bcmp.i = call i32 @bcmp(ptr readonly %138, ptr nonnull readonly %0, i64 %.0244295)
   %.not44.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not44.i, label %220, label %217
 
@@ -1235,7 +1235,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %235 = getelementptr inbounds i8, ptr %224, i64 48
   %236 = getelementptr inbounds i8, ptr %224, i64 8
   store ptr %235, ptr %236, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr align 1 %138, i64 %131, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr readonly align 1 %138, i64 %131, i1 false)
   %237 = trunc i64 %.0244295 to i16
   %238 = getelementptr inbounds i8, ptr %224, i64 40
   store i16 %237, ptr %238, align 8
@@ -1251,7 +1251,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %243 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %242, ptr %243, align 8
   %244 = add i64 %.4, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr align 1 %0, i64 %244, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr readonly align 1 %0, i64 %244, i1 false)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %224, i64 44
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   %.pre47.i = load i64, ptr %224, align 8
@@ -1298,15 +1298,15 @@ realpath_cache_add.exit:                          ; preds = %246, %223, %220, %2
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_chdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @virtual_file_ex(ptr noundef nonnull @cwd_globals, ptr noundef %0, ptr noundef nonnull @php_is_dir_ok, i32 noundef 2), !range !6
+define range(i32 -1, 1) i32 @virtual_chdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @virtual_file_ex(ptr noundef nonnull @cwd_globals, ptr noundef %0, ptr noundef nonnull @php_is_dir_ok, i32 noundef 2)
   %.not = icmp ne i32 %2, 0
   %3 = sext i1 %.not to i32
   ret i32 %3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_is_dir_ok(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr nocapture noundef readonly %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -1440,7 +1440,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 
 21:                                               ; preds = %6, %10, %18
   %.0 = phi ptr [ %0, %18 ], [ %0, %10 ], [ %spec.select, %6 ]
-  %22 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %.0, ptr noundef null, i32 noundef 2), !range !6
+  %22 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %.0, ptr noundef null, i32 noundef 2)
   %23 = icmp eq i32 %22, 0
   %.pre = load ptr, ptr %3, align 8
   br i1 %23, label %24, label %29
@@ -1461,7 +1461,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1473,14 +1473,14 @@ define noundef i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr n
   %10 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %11 = add i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %11, i1 false)
-  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %2, i32 noundef 1), !range !6
+  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %2, i32 noundef 1)
   %13 = load ptr, ptr %4, align 8
   store ptr %13, ptr %1, align 8
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_filepath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
 virtual_filepath_ex.exit:
   %2 = alloca %struct._cwd_state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -1494,7 +1494,7 @@ virtual_filepath_ex.exit:
   %8 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call noundef i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1), !range !6
+  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef readonly %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
   %11 = load ptr, ptr %2, align 8
   store ptr %11, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1502,7 +1502,7 @@ virtual_filepath_ex.exit:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_is_file_ok(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 0, 2) i32 @php_is_file_ok(ptr nocapture noundef readonly %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -1543,7 +1543,7 @@ define noalias noundef ptr @virtual_fopen(ptr nocapture noundef readonly %0, ptr
   %12 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %13 = add i64 %12, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %11, i64 %13, i1 false)
-  %14 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0), !range !6
+  %14 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %14, 0
   %15 = load ptr, ptr %3, align 8
   br i1 %.not, label %16, label %.sink.split
@@ -1580,7 +1580,7 @@ define noundef i32 @virtual_access(ptr nocapture noundef readonly %0, i32 nounde
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1613,7 +1613,7 @@ define noundef i32 @virtual_utime(ptr nocapture noundef readonly %0, ptr nocaptu
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1646,7 +1646,7 @@ define noundef i32 @virtual_chmod(ptr nocapture noundef readonly %0, i32 noundef
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1679,7 +1679,7 @@ define noundef i32 @virtual_chown(ptr nocapture noundef readonly %0, i32 noundef
   %11 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %12 = add i64 %11, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %10, i64 %12, i1 false)
-  %13 = call i32 @virtual_file_ex(ptr noundef nonnull %5, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %13 = call i32 @virtual_file_ex(ptr noundef nonnull %5, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %20
 
@@ -1723,7 +1723,7 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
   %10 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %11 = add i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %11, i1 false)
-  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1), !range !6
+  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %36
 
@@ -1790,7 +1790,7 @@ define i32 @virtual_creat(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1823,7 +1823,7 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
   %10 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %11 = add i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %11, i1 false)
-  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 0), !range !6
+  %12 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   %13 = load ptr, ptr %3, align 8
   br i1 %.not, label %14, label %31
@@ -1839,7 +1839,7 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
   %20 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %21 = add i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %21, i1 false)
-  %22 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %1, ptr noundef null, i32 noundef 0), !range !6
+  %22 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %1, ptr noundef null, i32 noundef 0)
   %.not7 = icmp eq i32 %22, 0
   br i1 %.not7, label %26, label %23
 
@@ -1882,7 +1882,7 @@ define noundef i32 @virtual_stat(ptr nocapture noundef readonly %0, ptr nocaptur
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1915,7 +1915,7 @@ define noundef i32 @virtual_lstat(ptr nocapture noundef readonly %0, ptr nocaptu
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 0), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -1948,7 +1948,7 @@ define noundef i32 @virtual_unlink(ptr nocapture noundef readonly %0) local_unna
   %8 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 0), !range !6
+  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr %2, align 8
   br i1 %.not, label %12, label %15
@@ -1981,7 +1981,7 @@ define noundef i32 @virtual_mkdir(ptr nocapture noundef readonly %0, i32 noundef
   %9 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %10, i1 false)
-  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1), !range !6
+  %11 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 1)
   %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %3, align 8
   br i1 %.not, label %13, label %16
@@ -2014,7 +2014,7 @@ define noundef i32 @virtual_rmdir(ptr nocapture noundef readonly %0) local_unnam
   %8 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 0), !range !6
+  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr %2, align 8
   br i1 %.not, label %12, label %15
@@ -2047,7 +2047,7 @@ define noalias noundef ptr @virtual_opendir(ptr nocapture noundef readonly %0) l
   %8 = load i64, ptr getelementptr inbounds (%struct._virtual_cwd_globals, ptr @cwd_globals, i64 0, i32 0, i32 1), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 2), !range !6
+  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, i32 noundef 2)
   %.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr %2, align 8
   br i1 %.not, label %12, label %15
@@ -2212,7 +2212,7 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
 
 19:                                               ; preds = %6, %12, %16
   %.09 = phi ptr [ %0, %16 ], [ %0, %12 ], [ %spec.select, %6 ]
-  %20 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %.09, ptr noundef null, i32 noundef 2), !range !6
+  %20 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef nonnull %.09, ptr noundef null, i32 noundef 2)
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %23, label %21
 
@@ -2316,4 +2316,3 @@ attributes #25 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.unswitch.partial.disable"}
-!6 = !{i32 -1, i32 2}

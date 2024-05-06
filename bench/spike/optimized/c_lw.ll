@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32i_c_lwP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_c_lwP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -339,7 +339,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32i_c_lwP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_c_lwP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -689,7 +689,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32e_c_lwP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_c_lwP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -925,7 +925,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32e_c_lwP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_c_lwP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -1086,11 +1086,11 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   resume { ptr, i32 } %91
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit.thread: ; preds = %80, %.loopexit.i.i, %75
-  %.0.i.pn.i.i.sink62 = phi ptr [ %76, %75 ], [ %90, %.loopexit.i.i ], [ %82, %80 ]
+  %.0.i.pn.i.i.sink63 = phi ptr [ %76, %75 ], [ %90, %.loopexit.i.i ], [ %82, %80 ]
   %92 = sext i32 %.sroa.024.0.copyload to i64
-  %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink62, i64 16
+  %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink63, i64 16
   store i64 %92, ptr %.0.i.i, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink62, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink63, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %93 = shl i64 %2, 32
   %94 = add i64 %93, 8589934592
@@ -1262,11 +1262,11 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   resume { ptr, i32 } %91
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit.thread: ; preds = %80, %.loopexit.i.i, %75
-  %.0.i.pn.i.i.sink62 = phi ptr [ %76, %75 ], [ %90, %.loopexit.i.i ], [ %82, %80 ]
+  %.0.i.pn.i.i.sink63 = phi ptr [ %76, %75 ], [ %90, %.loopexit.i.i ], [ %82, %80 ]
   %92 = sext i32 %.sroa.024.0.copyload to i64
-  %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink62, i64 16
+  %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink63, i64 16
   store i64 %92, ptr %.0.i.i, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink62, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i.sink63, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %93 = add i64 %2, 2
   %94 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %67

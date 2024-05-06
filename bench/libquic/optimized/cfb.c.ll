@@ -268,7 +268,7 @@ cfbr_encrypt_block.exit.us:                       ; preds = %for.body44.i.us
   %and14.us = zext i8 %9 to i32
   %shr.us = lshr exact i32 %and14.us, %3
   %or.us = or i32 %and11.us, %shr.us
-  %conv17.us = trunc i32 %or.us to i8
+  %conv17.us = trunc nuw i32 %or.us to i8
   store i8 %conv17.us, ptr %arrayidx5.us, align 1
   %inc.us = add nuw i64 %n.011.us, 1
   %exitcond13.not = icmp eq i64 %inc.us, %bits
@@ -319,7 +319,7 @@ cfbr_encrypt_block.exit:                          ; preds = %for.body44.i
   %and14 = zext i8 %18 to i32
   %shr = lshr exact i32 %and14, %12
   %or = or i32 %and11, %shr
-  %conv17 = trunc i32 %or to i8
+  %conv17 = trunc nuw i32 %or to i8
   store i8 %conv17, ptr %arrayidx5, align 1
   %inc = add nuw i64 %n.011, 1
   %exitcond.not = icmp eq i64 %inc, %bits

@@ -1343,9 +1343,9 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.ex
 
 .thread:                                          ; preds = %62
   tail call void @_ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #16
-  br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit38
 
-66:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit36
+66:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit38
   %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1353,9 +1353,9 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.ex
 
 68:                                               ; preds = %62
   tail call void @_ZdlPv(ptr noundef nonnull %24) #19
-  br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit38
 
-_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %68, %.thread
+_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %68, %.thread
   invoke void @__cxa_rethrow() #17
           to label %73 unwind label %66
 
@@ -1369,7 +1369,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.ex
   tail call void @__clang_call_terminate(ptr %72) #20
   unreachable
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit36
+73:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit38
   unreachable
 }
 
@@ -1417,7 +1417,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph.prehead
   store ptr %.0.lcssa.i.i.i.i.i, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 72
   %16 = add nuw nsw i32 %1, 1
-  %17 = mul nsw i32 %16, %1
+  %17 = mul nuw nsw i32 %16, %1
   %18 = lshr i32 %17, 1
   %19 = zext nneg i32 %18 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)

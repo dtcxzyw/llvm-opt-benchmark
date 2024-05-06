@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @can_host_socketcan_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 %frames_cnt) #0 {
+define internal range(i64 -1, 2) i64 @can_host_socketcan_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 %frames_cnt) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %client, i64 -48
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10

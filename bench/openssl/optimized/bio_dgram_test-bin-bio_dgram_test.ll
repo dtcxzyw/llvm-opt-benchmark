@@ -135,7 +135,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.120 = private unnamed_addr constant [9 x i8] c"ChaCha20\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -358,7 +358,7 @@ if.end112.i:                                      ; preds = %if.end107.i
   br i1 %tobool116.not.i, label %err.i, label %if.end118.i
 
 if.end118.i:                                      ; preds = %if.end112.i
-  %call119.i = call fastcc i32 @compare_addr(ptr noundef %call14.i, ptr noundef %call5.i), !range !5
+  %call119.i = call fastcc i32 @compare_addr(ptr noundef %call14.i, ptr noundef %call5.i)
   %call120.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 223, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.13, i32 noundef %call119.i, i32 noundef 1) #6
   %tobool121.not.i = icmp eq i32 %call120.i, 0
   br i1 %tobool121.not.i, label %err.i, label %if.end123.i
@@ -581,13 +581,13 @@ if.end326.i:                                      ; preds = %if.end319.i
   br i1 %tobool331.not.i, label %err.i, label %if.end333.i
 
 if.end333.i:                                      ; preds = %if.end326.i
-  %call334.i = call fastcc i32 @compare_addr(ptr noundef %call14.i, ptr noundef %call5.i), !range !5
+  %call334.i = call fastcc i32 @compare_addr(ptr noundef %call14.i, ptr noundef %call5.i)
   %call335.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.13, i32 noundef %call334.i, i32 noundef 1) #6
   %tobool336.not.i = icmp eq i32 %call335.i, 0
   br i1 %tobool336.not.i, label %err.i, label %if.end338.i
 
 if.end338.i:                                      ; preds = %if.end333.i
-  %call339.i = call fastcc i32 @compare_addr(ptr noundef %call24.i, ptr noundef %call5.i), !range !5
+  %call339.i = call fastcc i32 @compare_addr(ptr noundef %call24.i, ptr noundef %call5.i)
   %call340.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 350, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.13, i32 noundef %call339.i, i32 noundef 1) #6
   %tobool341.not.i = icmp eq i32 %call340.i, 0
   br i1 %tobool341.not.i, label %err.i, label %if.end343.i
@@ -624,13 +624,13 @@ if.end369.i:                                      ; preds = %lor.lhs.false365.i
   br i1 %cmp372.not.i, label %if.end385.i, label %if.then374.i
 
 if.then374.i:                                     ; preds = %if.end369.i
-  %call375.i = call fastcc i32 @compare_addr(ptr noundef %call19.i, ptr noundef %call9.i), !range !5
+  %call375.i = call fastcc i32 @compare_addr(ptr noundef %call19.i, ptr noundef %call9.i)
   %call376.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 373, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.13, i32 noundef %call375.i, i32 noundef 1) #6
   %tobool377.not.i = icmp eq i32 %call376.i, 0
   br i1 %tobool377.not.i, label %err.i, label %if.end379.i
 
 if.end379.i:                                      ; preds = %if.then374.i
-  %call380.i = call fastcc i32 @compare_addr(ptr noundef %call29.i, ptr noundef %call9.i), !range !5
+  %call380.i = call fastcc i32 @compare_addr(ptr noundef %call29.i, ptr noundef %call9.i)
   %call381.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.13, i32 noundef %call380.i, i32 noundef 1) #6
   %tobool382.not.i = icmp eq i32 %call381.i, 0
   br i1 %tobool382.not.i, label %err.i, label %if.end385.i
@@ -641,7 +641,7 @@ if.end385.i:                                      ; preds = %if.end379.i, %if.en
 
 for.body.i:                                       ; preds = %for.body.i, %if.end385.i
   %i.0107.i = phi i64 [ 0, %if.end385.i ], [ %inc.i, %for.body.i ]
-  %conv388.i = trunc i64 %i.0107.i to i8
+  %conv388.i = trunc nuw nsw i64 %i.0107.i to i8
   %arrayidx389.i = getelementptr inbounds [128 x i8], ptr %tx_buf.i, i64 0, i64 %i.0107.i
   store i8 %conv388.i, ptr %arrayidx389.i, align 1
   %arrayidx391.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %tx_msg.i, i64 0, i64 %i.0107.i
@@ -656,7 +656,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store i64 0, ptr %flags401.i, align 8
   %inc.i = add nuw nsw i64 %i.0107.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 128
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
   %call403.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 128, ptr noundef nonnull %num_processed.i)
@@ -685,7 +685,7 @@ for.body416.i:                                    ; preds = %for.body416.i, %for
   %inc431.i = add nuw nsw i64 %i.1108.i, 1
   %exitcond109.not.i = icmp eq i64 %inc431.i, 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peer425.i, i8 0, i64 24, i1 false)
-  br i1 %exitcond109.not.i, label %for.end432.i, label %for.body416.i, !llvm.loop !8
+  br i1 %exitcond109.not.i, label %for.end432.i, label %for.body416.i, !llvm.loop !7
 
 for.end432.i:                                     ; preds = %for.body416.i
   %call434.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 128, ptr noundef nonnull %num_processed.i)
@@ -755,7 +755,7 @@ test_bio_dgram_impl.exit:                         ; preds = %if.end456.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_dgram_pair(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %idx) #0 {
 entry:
   %bio1 = alloca ptr, align 8
   %bio2 = alloca ptr, align 8
@@ -782,7 +782,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %call2, ptr %arrayidx, align 4
   %inc = add nuw nsw i64 %i.075, 1
   %exitcond.not = icmp eq i64 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
   %cmp3 = icmp eq i32 %idx, 0
@@ -882,7 +882,7 @@ if.end69:                                         ; preds = %if.end65
   %add71 = add nsw i64 %total.077, %conv70
   %inc73 = add i64 %i.176, 1
   %cmp48 = icmp ult i64 %add71, 1048576
-  br i1 %cmp48, label %for.body50, label %for.end74, !llvm.loop !10
+  br i1 %cmp48, label %for.body50, label %for.end74, !llvm.loop !9
 
 for.end74:                                        ; preds = %if.end57, %if.end69
   %i.1.lcssa = phi i64 [ %i.176, %if.end57 ], [ %inc73, %if.end69 ]
@@ -917,7 +917,7 @@ for.cond93.preheader:                             ; preds = %if.end87
 for.cond93:                                       ; preds = %if.end112
   %inc123 = add nuw i64 %i.279, 1
   %exitcond81.not = icmp eq i64 %inc123, %i.1.lcssa
-  br i1 %exitcond81.not, label %for.end124, label %for.body96, !llvm.loop !11
+  br i1 %exitcond81.not, label %for.end124, label %for.body96, !llvm.loop !10
 
 for.body96:                                       ; preds = %for.cond93.preheader, %for.cond93
   %i.279 = phi i64 [ %inc123, %for.cond93 ], [ 0, %for.cond93.preheader ]
@@ -1385,7 +1385,7 @@ declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compare_addr(ptr noundef %a, ptr noundef %b) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compare_addr(ptr noundef %a, ptr noundef %b) unnamed_addr #0 {
 entry:
   %xa = alloca %struct.in_addr, align 4
   %xb = alloca %struct.in_addr, align 4
@@ -1447,7 +1447,7 @@ return:                                           ; preds = %if.end23, %if.end19
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_sendmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sendmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %num_msg, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -1464,7 +1464,7 @@ if.end:                                           ; preds = %for.body
   %0 = load i64, ptr %num_processed, align 8
   %add = add i64 %0, %done.010
   %cmp = icmp ult i64 %add, %num_msg
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end, %entry
   %done.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ]
@@ -1481,7 +1481,7 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_recvmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_recvmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %num_msg, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -1498,7 +1498,7 @@ if.end:                                           ; preds = %for.body
   %0 = load i64, ptr %num_processed, align 8
   %add = add i64 %0, %done.010
   %cmp = icmp ult i64 %add, %num_msg
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %if.end, %entry
   %done.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ]
@@ -1540,7 +1540,7 @@ declare ptr @BIO_s_dgram_mem() local_unnamed_addr #1
 declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @random_data(ptr noundef %key, ptr noundef %data, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef %key, ptr noundef %data, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %counter = alloca [4 x i32], align 16
@@ -1565,7 +1565,7 @@ while.body:                                       ; preds = %if.end6, %if.end21
   %data.addr.012 = phi ptr [ %add.ptr, %if.end21 ], [ %data, %if.end6 ]
   %data_len.addr.011 = phi i64 [ %sub, %if.end21 ], [ 2052, %if.end6 ]
   %cond10 = call i64 @llvm.umin.i64(i64 %data_len.addr.011, i64 2048)
-  %cond = trunc i64 %cond10 to i32
+  %cond = trunc nuw nsw i64 %cond10 to i32
   store i32 %cond, ptr %outl, align 4
   %call17 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %call, ptr noundef %data.addr.012, ptr noundef nonnull %outl, ptr noundef nonnull @random_data.zeroes, i32 noundef %cond) #6
   %cmp18.not = icmp eq i32 %call17, 1
@@ -1577,7 +1577,7 @@ if.end21:                                         ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %data.addr.012, i64 %idx.ext
   %sub = sub i64 %data_len.addr.011, %idx.ext
   %cmp12.not = icmp eq i64 %sub, 0
-  br i1 %cmp12.not, label %err, label %while.body, !llvm.loop !14
+  br i1 %cmp12.not, label %err, label %while.body, !llvm.loop !13
 
 err:                                              ; preds = %if.end21, %while.body, %if.end6, %if.end, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 1, %if.end21 ], [ 0, %while.body ]
@@ -1628,13 +1628,12 @@ attributes #7 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

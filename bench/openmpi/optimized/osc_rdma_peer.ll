@@ -39,13 +39,13 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   store ptr null, ptr %4, align 8
   store i8 -1, ptr %5, align 1
   store ptr null, ptr %2, align 8
-  %6 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4), !range !4
+  %6 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %63
 
@@ -85,7 +85,7 @@ define noundef i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i3
   %22 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds i8, ptr %0, i64 309
@@ -129,7 +129,7 @@ define noundef i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i3
   %43 = getelementptr inbounds i8, ptr %.07.i.i20, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not.i.i21 = icmp eq ptr %44, null
-  br i1 %.not.i.i21, label %opal_obj_new.exit, label %.lr.ph.i.i19, !llvm.loop !5
+  br i1 %.not.i.i21, label %opal_obj_new.exit, label %.lr.ph.i.i19, !llvm.loop !4
 
 45:                                               ; preds = %28, %24
   %46 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_osc_rdma_peer_extended_t_class, i64 0, i32 8), align 8
@@ -161,7 +161,7 @@ define noundef i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i3
   %56 = getelementptr inbounds i8, ptr %.07.i.i27, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i.i28 = icmp eq ptr %57, null
-  br i1 %.not.i.i28, label %opal_obj_new.exit, label %.lr.ph.i.i26, !llvm.loop !5
+  br i1 %.not.i.i28, label %opal_obj_new.exit, label %.lr.ph.i.i26, !llvm.loop !4
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i26, %.lr.ph.i.i19, %.lr.ph.i.i, %51, %38, %17
   %.014 = phi ptr [ %13, %17 ], [ %34, %38 ], [ %47, %51 ], [ %13, %.lr.ph.i.i ], [ %34, %.lr.ph.i.i19 ], [ %47, %.lr.ph.i.i26 ]
@@ -182,7 +182,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i26, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_osc_rdma_peer_btl_endpoint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @ompi_osc_rdma_peer_btl_endpoint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 392
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 256
@@ -295,7 +295,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_look
 69:                                               ; preds = %71
   %70 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %70, %66
-  br i1 %exitcond.not.i, label %mca_bml_base_btl_array_find.exit.thread, label %71, !llvm.loop !7
+  br i1 %exitcond.not.i, label %mca_bml_base_btl_array_find.exit.thread, label %71, !llvm.loop !6
 
 71:                                               ; preds = %69, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %70, %69 ]
@@ -364,7 +364,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
   %.val53 = load i32, ptr %105, align 4
   %106 = load ptr, ptr %.044, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 84
-  %108 = trunc i64 %indvars.iv to i32
+  %108 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %103, ptr noundef nonnull @.str.6, i32 noundef %.val53, ptr noundef nonnull %107, i32 noundef %108) #12
   br label %109
 
@@ -380,7 +380,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
 112:                                              ; preds = %114
   %113 = add nuw i64 %.09.i58, 1
   %exitcond.not.i59 = icmp eq i64 %113, %110
-  br i1 %exitcond.not.i59, label %.loopexit77, label %114, !llvm.loop !7
+  br i1 %exitcond.not.i59, label %.loopexit77, label %114, !llvm.loop !6
 
 114:                                              ; preds = %112, %.lr.ph.i57
   %.09.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %113, %112 ]
@@ -402,7 +402,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
 121:                                              ; preds = %123
   %122 = add nuw i64 %.09.i64, 1
   %exitcond.not.i65 = icmp eq i64 %122, %119
-  br i1 %exitcond.not.i65, label %.loopexit, label %123, !llvm.loop !7
+  br i1 %exitcond.not.i65, label %.loopexit, label %123, !llvm.loop !6
 
 123:                                              ; preds = %121, %.lr.ph.i63
   %.09.i64 = phi i64 [ 0, %.lr.ph.i63 ], [ %122, %121 ]
@@ -442,7 +442,7 @@ mca_bml_base_btl_array_find.exit61:               ; preds = %114, %123
   %141 = load i8, ptr %85, align 8
   %142 = zext i8 %141 to i64
   %143 = icmp ult i64 %indvars.iv.next, %142
-  br i1 %143, label %91, label %mca_bml_base_btl_array_find.exit.thread, !llvm.loop !8
+  br i1 %143, label %91, label %mca_bml_base_btl_array_find.exit.thread, !llvm.loop !7
 
 mca_bml_base_btl_array_find.exit.thread:          ; preds = %.loopexit, %69, %83, %62
   %144 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 11), align 4
@@ -495,7 +495,7 @@ ompi_osc_module_get_peer.exit.i:                  ; preds = %13, %10
   br i1 %.not.i, label %16, label %ompi_osc_rdma_peer_lookup_internal.exit
 
 16:                                               ; preds = %ompi_osc_module_get_peer.exit.i
-  %17 = call i32 @ompi_osc_rdma_new_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4), !range !4
+  %17 = call i32 @ompi_osc_rdma_new_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not14.i = icmp eq i32 %17, 0
   br i1 %.not14.i, label %18, label %ompi_osc_rdma_peer_lookup_internal.exit
 
@@ -543,7 +543,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %28, %25
   %39 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %33
   call void @free(ptr noundef %19) #12
@@ -592,7 +592,7 @@ opal_thread_add_fetch_32.exit19.i:                ; preds = %50, %47
   %61 = getelementptr inbounds i8, ptr %.07.i22.i, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not.i23.i = icmp eq ptr %62, null
-  br i1 %.not.i23.i, label %opal_obj_run_destructors.exit24.i, label %.lr.ph.i21.i, !llvm.loop !9
+  br i1 %.not.i23.i, label %opal_obj_run_destructors.exit24.i, label %.lr.ph.i21.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit24.i:                ; preds = %.lr.ph.i21.i, %55
   call void @free(ptr noundef %19) #12
@@ -751,7 +751,7 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   %39 = load i64, ptr %38, align 8
   %40 = trunc i64 %39 to i32
   %41 = load i64, ptr %37, align 8
-  %42 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %3), !range !4
+  %42 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %43, label %137
 
@@ -803,7 +803,7 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   %78 = trunc i64 %77 to i32
   %79 = getelementptr inbounds i8, ptr %1, i64 145
   %80 = getelementptr inbounds i8, ptr %1, i64 48
-  %81 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef nonnull %0, i32 noundef %78, ptr noundef nonnull %79, ptr noundef nonnull %80), !range !4
+  %81 = call fastcc i32 @ompi_osc_rdma_peer_btl_endpoint(ptr noundef nonnull %0, i32 noundef %78, ptr noundef nonnull %79, ptr noundef nonnull %80)
   %.not88 = icmp eq i32 %81, 0
   br i1 %.not88, label %82, label %137
 
@@ -956,9 +956,8 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -12, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

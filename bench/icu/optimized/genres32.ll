@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [12 x i8] c"%s:int{%d}\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @genres32(ptr noundef %prog, ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @genres32(ptr noundef %prog, ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
 entry:
   %key = alloca [20 x i8], align 16
   %file = alloca [512 x i8], align 16

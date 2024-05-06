@@ -196,7 +196,7 @@ if.then9:                                         ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   tail call void @qemu_mutex_unlock_iothread() #6
-  %div12.lhs.trunc = trunc i64 %sleeptime_ns.010 to i32
+  %div12.lhs.trunc = trunc nuw i64 %sleeptime_ns.010 to i32
   %div128 = udiv i32 %div12.lhs.trunc, 1000
   %div12.zext = zext nneg i32 %div128 to i64
   tail call void @g_usleep(i64 noundef %div12.zext) #6

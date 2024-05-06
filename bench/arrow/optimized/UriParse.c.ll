@@ -306,14 +306,14 @@ sw.bb14.i.i:                                      ; preds = %if.end2.i.i
 if.end20.i.i:                                     ; preds = %sw.bb14.i.i
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call22.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call22.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool23.not.i.i = icmp eq i32 %call22.i.i, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool23.not.i.i, label %if.then13.sink.split, label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.end20.i.i
   store ptr null, ptr %18, align 8
-  %call30.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %call16.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call30.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %call16.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool31.not.i.i = icmp eq i32 %call30.i.i, 0
   br i1 %tobool31.not.i.i, label %if.then13.sink.split.sink.split, label %if.end33.i.i
 
@@ -340,7 +340,7 @@ if.end49.i.i:                                     ; preds = %sw.bb40.i.i
   br label %uriParseUriReferenceA.exit
 
 sw.default.i.i:                                   ; preds = %if.end2.i.i
-  %call51.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call51.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool52.not.i.i = icmp eq i32 %call51.i.i, 0
   br i1 %tobool52.not.i.i, label %if.then13.sink.split.sink.split, label %if.end54.i.i
 
@@ -391,7 +391,7 @@ if.then13.sink.split.sink.split:                  ; preds = %sw.default.i.i, %if
 
 if.then13.sink.split:                             ; preds = %if.then13.sink.split.sink.split, %if.end20.i.i
   %.sink = phi ptr [ %18, %if.end20.i.i ], [ %22, %if.then13.sink.split.sink.split ]
-  %call.i66.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0), !range !5
+  %call.i66.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0)
   %errorPos.i67.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i67.i.i, align 8
   store i32 3, ptr %1, align 8
@@ -418,7 +418,7 @@ if.end19:                                         ; preds = %uriParseUriReferenc
 if.then21:                                        ; preds = %if.end19
   %cmp22 = icmp ult ptr %retval.0.i, %afterLast
   %25 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef nonnull %memory.addr.0), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef nonnull %memory.addr.0)
   %retval.0.i.afterLast = select i1 %cmp22, ptr %retval.0.i, ptr %afterLast
   %26 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %retval.0.i.afterLast, ptr %26, align 8
@@ -487,7 +487,7 @@ if.then15.i.i:                                    ; preds = %if.then13.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then15.i.i, %if.then13.i.i
-  %call18.i.i = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call18.i.i = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   br label %uriParseSingleUriExA.exit
 
 uriParseSingleUriExA.exit:                        ; preds = %if.end.i.thread, %if.end.i, %do.body.i.i, %if.end17.i.i
@@ -537,7 +537,7 @@ if.then15.i:                                      ; preds = %if.then13.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then15.i, %if.then13.i
-  %call18.i = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call18.i = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   br label %uriParseSingleUriExMmA.exit
 
 uriParseSingleUriExMmA.exit:                      ; preds = %if.end, %do.body.i, %if.end17.i
@@ -584,7 +584,7 @@ if.then15:                                        ; preds = %if.then13
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.then13
-  %call18 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull %memory.addr.0), !range !5
+  %call18 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull %memory.addr.0)
   br label %return
 
 return:                                           ; preds = %do.end, %if.end17, %if.else, %entry
@@ -595,7 +595,7 @@ return:                                           ; preds = %do.end, %if.end17, 
 declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %do.body
@@ -809,7 +809,7 @@ if.end153:                                        ; preds = %if.then149, %land.l
   %28 = load ptr, ptr %free150, align 8
   tail call void %28(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %segWalk.0100) #6
   %cmp136.not = icmp eq ptr %23, null
-  br i1 %cmp136.not, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %cmp136.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end153
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pathHead, i8 0, i64 16, i1 false)
@@ -872,12 +872,12 @@ return:                                           ; preds = %if.end156, %if.end1
 ; Function Attrs: nounwind uwtable
 define void @uriFreeUriMembersA(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef null), !range !5
+  %call = tail call i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %uri = alloca %struct.UriUriStructA, align 8
   %parser = alloca %struct.UriParserStateStructA, align 8
@@ -892,7 +892,7 @@ entry:
   %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
   %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
-  %call5 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call5 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   %cmp = icmp eq ptr %call4, %add.ptr
   %cond = zext i1 %cmp to i32
   ret i32 %cond
@@ -915,7 +915,7 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -956,7 +956,7 @@ sw.bb:                                            ; preds = %for.cond3, %for.con
 
 if.then6:                                         ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
-  %call.i211 = call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i211 = call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i212 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i212, align 8
   %errorCode.i213 = getelementptr inbounds i8, ptr %state, i64 8
@@ -980,7 +980,7 @@ sw.bb10:                                          ; preds = %for.cond3
 
 if.then18:                                        ; preds = %sw.bb10
   %5 = load ptr, ptr %state, align 8
-  %call.i214 = call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
+  %call.i214 = call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
   %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1000,7 +1000,7 @@ if.then25:                                        ; preds = %if.else
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg
   %7 = load ptr, ptr %state, align 8
-  %call.i217 = call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef %memory), !range !5
+  %call.i217 = call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef %memory)
   %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
   %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1021,7 +1021,7 @@ if.then34:                                        ; preds = %if.else26
   %add.ptr37 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg36
   %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
   %9 = load ptr, ptr %state, align 8
-  %call.i220 = call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
+  %call.i220 = call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory)
   %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr38, ptr %errorPos1.i221, align 8
   %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1045,7 +1045,7 @@ land.lhs.true42:                                  ; preds = %if.else39
 if.then54:                                        ; preds = %land.lhs.true42
   %cmp57 = icmp ugt i8 %6, 2
   %11 = load ptr, ptr %state, align 8
-  %call.i223 = call i32 @uriFreeUriMembersMmA(ptr noundef %11, ptr noundef %memory), !range !5
+  %call.i223 = call i32 @uriFreeUriMembersMmA(ptr noundef %11, ptr noundef %memory)
   %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp57, label %if.then59, label %if.else61
 
@@ -1094,7 +1094,7 @@ sw.bb80:                                          ; preds = %for.cond3
 
 if.then89:                                        ; preds = %sw.bb80
   %16 = load ptr, ptr %state, align 8
-  %call.i232 = call i32 @uriFreeUriMembersMmA(ptr noundef %16, ptr noundef %memory), !range !5
+  %call.i232 = call i32 @uriFreeUriMembersMmA(ptr noundef %16, ptr noundef %memory)
   %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
   %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1114,7 +1114,7 @@ if.then98:                                        ; preds = %if.else90
   %idx.neg100 = sub nsw i64 0, %idx.ext99
   %add.ptr101 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg100
   %18 = load ptr, ptr %state, align 8
-  %call.i235 = call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
+  %call.i235 = call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory)
   %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr101, ptr %errorPos1.i236, align 8
   %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1135,7 +1135,7 @@ if.then110:                                       ; preds = %if.else102
   %add.ptr113 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg112
   %add.ptr114 = getelementptr inbounds i8, ptr %add.ptr113, i64 1
   %20 = load ptr, ptr %state, align 8
-  %call.i238 = call i32 @uriFreeUriMembersMmA(ptr noundef %20, ptr noundef %memory), !range !5
+  %call.i238 = call i32 @uriFreeUriMembersMmA(ptr noundef %20, ptr noundef %memory)
   %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr114, ptr %errorPos1.i239, align 8
   %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1159,7 +1159,7 @@ land.lhs.true118:                                 ; preds = %if.else115
 if.then131:                                       ; preds = %land.lhs.true118
   %cmp134 = icmp ugt i8 %17, 2
   %22 = load ptr, ptr %state, align 8
-  %call.i241 = call i32 @uriFreeUriMembersMmA(ptr noundef %22, ptr noundef %memory), !range !5
+  %call.i241 = call i32 @uriFreeUriMembersMmA(ptr noundef %22, ptr noundef %memory)
   %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp134, label %if.then136, label %if.else138
 
@@ -1211,7 +1211,7 @@ if.end152:                                        ; preds = %if.else115, %land.l
 
 sw.default:                                       ; preds = %for.cond3
   %28 = load ptr, ptr %state, align 8
-  %call.i250 = call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory), !range !5
+  %call.i250 = call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory)
   %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
   %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1227,7 +1227,7 @@ sw.epilog:                                        ; preds = %if.end75, %if.end7
 
 if.then179:                                       ; preds = %sw.epilog
   %29 = load ptr, ptr %state, align 8
-  %call.i253 = call i32 @uriFreeUriMembersMmA(ptr noundef %29, ptr noundef %memory), !range !5
+  %call.i253 = call i32 @uriFreeUriMembersMmA(ptr noundef %29, ptr noundef %memory)
   %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
   %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1276,7 +1276,7 @@ sw.bb183:                                         ; preds = %do.body, %do.body, 
 
 if.then186:                                       ; preds = %sw.bb183
   %31 = load ptr, ptr %state, align 8
-  %call.i256 = call i32 @uriFreeUriMembersMmA(ptr noundef %31, ptr noundef %memory), !range !5
+  %call.i256 = call i32 @uriFreeUriMembersMmA(ptr noundef %31, ptr noundef %memory)
   %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
   %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1289,7 +1289,7 @@ sw.bb195:                                         ; preds = %do.body, %do.body, 
 
 if.then198:                                       ; preds = %sw.bb195
   %32 = load ptr, ptr %state, align 8
-  %call.i259 = call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory), !range !5
+  %call.i259 = call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory)
   %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
   %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1302,7 +1302,7 @@ sw.bb207:                                         ; preds = %do.body, %do.body, 
 
 if.then210:                                       ; preds = %sw.bb207
   %33 = load ptr, ptr %state, align 8
-  %call.i262 = call i32 @uriFreeUriMembersMmA(ptr noundef %33, ptr noundef %memory), !range !5
+  %call.i262 = call i32 @uriFreeUriMembersMmA(ptr noundef %33, ptr noundef %memory)
   %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
   %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1350,7 +1350,7 @@ if.end242:                                        ; preds = %if.end240, %sw.bb21
 
 if.then246:                                       ; preds = %if.end242
   %36 = load ptr, ptr %state, align 8
-  %call.i265 = call i32 @uriFreeUriMembersMmA(ptr noundef %36, ptr noundef %memory), !range !5
+  %call.i265 = call i32 @uriFreeUriMembersMmA(ptr noundef %36, ptr noundef %memory)
   %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
   %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1364,7 +1364,7 @@ if.end247:                                        ; preds = %if.end242
 
 if.then251:                                       ; preds = %if.end247
   %37 = load ptr, ptr %state, align 8
-  %call.i268 = call i32 @uriFreeUriMembersMmA(ptr noundef %37, ptr noundef %memory), !range !5
+  %call.i268 = call i32 @uriFreeUriMembersMmA(ptr noundef %37, ptr noundef %memory)
   %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
   %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1382,7 +1382,7 @@ if.then257:                                       ; preds = %if.end252
 
 if.then264:                                       ; preds = %if.then257
   %39 = load ptr, ptr %state, align 8
-  %call.i271 = call i32 @uriFreeUriMembersMmA(ptr noundef %39, ptr noundef %memory), !range !5
+  %call.i271 = call i32 @uriFreeUriMembersMmA(ptr noundef %39, ptr noundef %memory)
   %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr248, ptr %errorPos1.i272, align 8
   %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1405,7 +1405,7 @@ if.end265:                                        ; preds = %if.then257
 
 if.then278:                                       ; preds = %if.end265
   %42 = load ptr, ptr %state, align 8
-  %call.i274 = call i32 @uriFreeUriMembersMmA(ptr noundef %42, ptr noundef %memory), !range !5
+  %call.i274 = call i32 @uriFreeUriMembersMmA(ptr noundef %42, ptr noundef %memory)
   %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
   %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1419,7 +1419,7 @@ if.end279:                                        ; preds = %if.end265
 
 if.then284:                                       ; preds = %if.end279
   %44 = load ptr, ptr %state, align 8
-  %call.i277 = call i32 @uriFreeUriMembersMmA(ptr noundef %44, ptr noundef %memory), !range !5
+  %call.i277 = call i32 @uriFreeUriMembersMmA(ptr noundef %44, ptr noundef %memory)
   %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr275, ptr %errorPos1.i278, align 8
   %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1443,7 +1443,7 @@ lor.lhs.false294:                                 ; preds = %sw.bb291
 
 if.then307:                                       ; preds = %lor.lhs.false294, %sw.bb291
   %47 = load ptr, ptr %state, align 8
-  %call.i280 = call i32 @uriFreeUriMembersMmA(ptr noundef %47, ptr noundef %memory), !range !5
+  %call.i280 = call i32 @uriFreeUriMembersMmA(ptr noundef %47, ptr noundef %memory)
   %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
   %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1463,7 +1463,7 @@ if.then316:                                       ; preds = %if.else308
   %idx.neg318 = sub nsw i64 0, %idx.ext317
   %add.ptr319 = getelementptr inbounds i8, ptr %first.addr.2, i64 %idx.neg318
   %49 = load ptr, ptr %state, align 8
-  %call.i283 = call i32 @uriFreeUriMembersMmA(ptr noundef %49, ptr noundef %memory), !range !5
+  %call.i283 = call i32 @uriFreeUriMembersMmA(ptr noundef %49, ptr noundef %memory)
   %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr319, ptr %errorPos1.i284, align 8
   %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1484,7 +1484,7 @@ if.then328:                                       ; preds = %if.else320
   %add.ptr331 = getelementptr inbounds i8, ptr %first.addr.2, i64 %idx.neg330
   %add.ptr332 = getelementptr inbounds i8, ptr %add.ptr331, i64 1
   %51 = load ptr, ptr %state, align 8
-  %call.i286 = call i32 @uriFreeUriMembersMmA(ptr noundef %51, ptr noundef %memory), !range !5
+  %call.i286 = call i32 @uriFreeUriMembersMmA(ptr noundef %51, ptr noundef %memory)
   %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr332, ptr %errorPos1.i287, align 8
   %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1508,7 +1508,7 @@ land.lhs.true336:                                 ; preds = %if.else333
 if.then349:                                       ; preds = %land.lhs.true336
   %cmp352 = icmp ugt i8 %48, 2
   %53 = load ptr, ptr %state, align 8
-  %call.i289 = call i32 @uriFreeUriMembersMmA(ptr noundef %53, ptr noundef %memory), !range !5
+  %call.i289 = call i32 @uriFreeUriMembersMmA(ptr noundef %53, ptr noundef %memory)
   %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp352, label %if.then354, label %if.else356
 
@@ -1548,7 +1548,7 @@ land.lhs.true380:                                 ; preds = %sw.bb378
   br i1 %or.cond14, label %if.else399, label %if.then386
 
 if.then386:                                       ; preds = %land.lhs.true380
-  %call.i298 = call i32 @uriFreeUriMembersMmA(ptr noundef %54, ptr noundef %memory), !range !5
+  %call.i298 = call i32 @uriFreeUriMembersMmA(ptr noundef %54, ptr noundef %memory)
   %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
   %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1593,7 +1593,7 @@ if.end410:                                        ; preds = %if.then392, %if.els
 
 sw.default428:                                    ; preds = %do.body
   %59 = load ptr, ptr %state, align 8
-  %call.i301 = call i32 @uriFreeUriMembersMmA(ptr noundef %59, ptr noundef %memory), !range !5
+  %call.i301 = call i32 @uriFreeUriMembersMmA(ptr noundef %59, ptr noundef %memory)
   %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
   %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1619,7 +1619,7 @@ sw.epilog429:                                     ; preds = %sw.epilog429.sink.s
   %letterAmong.1 = phi i32 [ 0, %if.end279 ], [ 0, %if.end252 ], [ %letterAmong.1.ph, %sw.epilog429.sink.split ]
   %incdec.ptr430 = getelementptr inbounds i8, ptr %first.addr.4, i64 1
   %cmp431.not = icmp ult ptr %incdec.ptr430, %afterLast
-  br i1 %cmp431.not, label %do.body, label %if.then433, !llvm.loop !8
+  br i1 %cmp431.not, label %do.body, label %if.then433, !llvm.loop !6
 
 sw.epilog429.thread:                              ; preds = %land.lhs.true336, %if.else333
   %call372 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #6
@@ -1634,7 +1634,7 @@ sw.epilog429.thread:                              ; preds = %land.lhs.true336, %
 
 if.then433:                                       ; preds = %sw.epilog429.thread, %sw.epilog429
   %62 = load ptr, ptr %state, align 8
-  %call.i304 = call i32 @uriFreeUriMembersMmA(ptr noundef %62, ptr noundef %memory), !range !5
+  %call.i304 = call i32 @uriFreeUriMembersMmA(ptr noundef %62, ptr noundef %memory)
   %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
   %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1647,7 +1647,7 @@ return:                                           ; preds = %if.then354, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uri_TESTING_ONLY_ParseIpFourA(ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpFourA(ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %octets = alloca [4 x i8], align 1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text) #7
@@ -1942,14 +1942,14 @@ sw.bb13.i.i:                                      ; preds = %if.end2.i.i
 if.end18.i.i:                                     ; preds = %sw.bb13.i.i
   %15 = load ptr, ptr %state, align 8
   %16 = load ptr, ptr %15, align 8
-  %call20.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %16, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call20.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %16, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool21.not.i.i = icmp eq i32 %call20.i.i, 0
   %17 = load ptr, ptr %state, align 8
   br i1 %tobool21.not.i.i, label %if.then13.sink.split, label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.end18.i.i
   store ptr null, ptr %17, align 8
-  %call28.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %call15.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call28.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %call15.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool29.not.i.i = icmp eq i32 %call28.i.i, 0
   br i1 %tobool29.not.i.i, label %if.then13.sink.split.sink.split, label %if.end31.i.i
 
@@ -1976,7 +1976,7 @@ if.end45.i.i:                                     ; preds = %sw.bb37.i.i
   br label %uriParseUriReferenceW.exit
 
 sw.default.i.i:                                   ; preds = %if.end2.i.i
-  %call47.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0), !range !4
+  %call47.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool48.not.i.i = icmp eq i32 %call47.i.i, 0
   br i1 %tobool48.not.i.i, label %if.then13.sink.split.sink.split, label %if.end50.i.i
 
@@ -2027,7 +2027,7 @@ if.then13.sink.split.sink.split:                  ; preds = %sw.default.i.i, %if
 
 if.then13.sink.split:                             ; preds = %if.then13.sink.split.sink.split, %if.end18.i.i
   %.sink = phi ptr [ %17, %if.end18.i.i ], [ %21, %if.then13.sink.split.sink.split ]
-  %call.i66.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0), !range !5
+  %call.i66.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0)
   %errorPos.i67.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i67.i.i, align 8
   store i32 3, ptr %1, align 8
@@ -2054,7 +2054,7 @@ if.end19:                                         ; preds = %uriParseUriReferenc
 if.then21:                                        ; preds = %if.end19
   %cmp22 = icmp ult ptr %retval.0.i, %afterLast
   %24 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %24, ptr noundef nonnull %memory.addr.0), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %24, ptr noundef nonnull %memory.addr.0)
   %retval.0.i.afterLast = select i1 %cmp22, ptr %retval.0.i, ptr %afterLast
   %25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %retval.0.i.afterLast, ptr %25, align 8
@@ -2123,7 +2123,7 @@ if.then15.i.i:                                    ; preds = %if.then13.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then15.i.i, %if.then13.i.i
-  %call18.i.i = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call18.i.i = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   br label %uriParseSingleUriExW.exit
 
 uriParseSingleUriExW.exit:                        ; preds = %if.end.i.thread, %if.end.i, %do.body.i.i, %if.end17.i.i
@@ -2173,7 +2173,7 @@ if.then15.i:                                      ; preds = %if.then13.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then15.i, %if.then13.i
-  %call18.i = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call18.i = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   br label %uriParseSingleUriExMmW.exit
 
 uriParseSingleUriExMmW.exit:                      ; preds = %if.end, %do.body.i, %if.end17.i
@@ -2220,7 +2220,7 @@ if.then15:                                        ; preds = %if.then13
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.then13
-  %call18 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull %memory.addr.0), !range !5
+  %call18 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull %memory.addr.0)
   br label %return
 
 return:                                           ; preds = %do.end, %if.end17, %if.else, %entry
@@ -2229,7 +2229,7 @@ return:                                           ; preds = %do.end, %if.end17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %do.body
@@ -2443,7 +2443,7 @@ if.end153:                                        ; preds = %if.then149, %land.l
   %28 = load ptr, ptr %free150, align 8
   tail call void %28(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %segWalk.0100) #6
   %cmp136.not = icmp eq ptr %23, null
-  br i1 %cmp136.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp136.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end153
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pathHead, i8 0, i64 16, i1 false)
@@ -2506,12 +2506,12 @@ return:                                           ; preds = %if.end156, %if.end1
 ; Function Attrs: nounwind uwtable
 define void @uriFreeUriMembersW(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef null), !range !5
+  %call = tail call i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %uri = alloca %struct.UriUriStructW, align 8
   %parser = alloca %struct.UriParserStateStructW, align 8
@@ -2526,7 +2526,7 @@ entry:
   %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
   %call4 = call fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
-  %call5 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
+  %call5 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   %cmp = icmp eq ptr %call4, %add.ptr
   %cond = zext i1 %cmp to i32
   ret i32 %cond
@@ -2549,7 +2549,7 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -2590,7 +2590,7 @@ sw.bb:                                            ; preds = %for.cond3, %for.con
 
 if.then5:                                         ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
-  %call.i211 = call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i211 = call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i212 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i212, align 8
   %errorCode.i213 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2615,7 +2615,7 @@ sw.bb7:                                           ; preds = %for.cond3
 
 if.then15:                                        ; preds = %sw.bb7
   %6 = load ptr, ptr %state, align 8
-  %call.i214 = call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
+  %call.i214 = call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory)
   %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
   %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2635,7 +2635,7 @@ if.then22:                                        ; preds = %if.else
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg
   %8 = load ptr, ptr %state, align 8
-  %call.i217 = call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef %memory), !range !5
+  %call.i217 = call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef %memory)
   %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
   %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2656,7 +2656,7 @@ if.then31:                                        ; preds = %if.else23
   %add.ptr34 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg33
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr34, i64 4
   %10 = load ptr, ptr %state, align 8
-  %call.i220 = call i32 @uriFreeUriMembersMmW(ptr noundef %10, ptr noundef %memory), !range !5
+  %call.i220 = call i32 @uriFreeUriMembersMmW(ptr noundef %10, ptr noundef %memory)
   %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr35, ptr %errorPos1.i221, align 8
   %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2680,7 +2680,7 @@ land.lhs.true39:                                  ; preds = %if.else36
 if.then51:                                        ; preds = %land.lhs.true39
   %cmp54 = icmp ugt i8 %7, 2
   %12 = load ptr, ptr %state, align 8
-  %call.i223 = call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory), !range !5
+  %call.i223 = call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory)
   %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp54, label %if.then56, label %if.else58
 
@@ -2729,7 +2729,7 @@ sw.bb77:                                          ; preds = %for.cond3
 
 if.then86:                                        ; preds = %sw.bb77
   %17 = load ptr, ptr %state, align 8
-  %call.i232 = call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %memory), !range !5
+  %call.i232 = call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %memory)
   %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
   %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2749,7 +2749,7 @@ if.then95:                                        ; preds = %if.else87
   %idx.neg97 = sub nsw i64 0, %idx.ext96
   %add.ptr98 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg97
   %19 = load ptr, ptr %state, align 8
-  %call.i235 = call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
+  %call.i235 = call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory)
   %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr98, ptr %errorPos1.i236, align 8
   %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2770,7 +2770,7 @@ if.then107:                                       ; preds = %if.else99
   %add.ptr110 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg109
   %add.ptr111 = getelementptr inbounds i8, ptr %add.ptr110, i64 4
   %21 = load ptr, ptr %state, align 8
-  %call.i238 = call i32 @uriFreeUriMembersMmW(ptr noundef %21, ptr noundef %memory), !range !5
+  %call.i238 = call i32 @uriFreeUriMembersMmW(ptr noundef %21, ptr noundef %memory)
   %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr111, ptr %errorPos1.i239, align 8
   %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2794,7 +2794,7 @@ land.lhs.true115:                                 ; preds = %if.else112
 if.then128:                                       ; preds = %land.lhs.true115
   %cmp131 = icmp ugt i8 %18, 2
   %23 = load ptr, ptr %state, align 8
-  %call.i241 = call i32 @uriFreeUriMembersMmW(ptr noundef %23, ptr noundef %memory), !range !5
+  %call.i241 = call i32 @uriFreeUriMembersMmW(ptr noundef %23, ptr noundef %memory)
   %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp131, label %if.then133, label %if.else135
 
@@ -2846,7 +2846,7 @@ if.end149:                                        ; preds = %if.else112, %land.l
 
 sw.default:                                       ; preds = %for.cond3
   %29 = load ptr, ptr %state, align 8
-  %call.i250 = call i32 @uriFreeUriMembersMmW(ptr noundef %29, ptr noundef %memory), !range !5
+  %call.i250 = call i32 @uriFreeUriMembersMmW(ptr noundef %29, ptr noundef %memory)
   %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
   %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2862,7 +2862,7 @@ sw.epilog:                                        ; preds = %if.end72, %if.end6
 
 if.then176:                                       ; preds = %sw.epilog
   %30 = load ptr, ptr %state, align 8
-  %call.i253 = call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory), !range !5
+  %call.i253 = call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory)
   %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
   %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2911,7 +2911,7 @@ sw.bb179:                                         ; preds = %do.body, %do.body, 
 
 if.then182:                                       ; preds = %sw.bb179
   %32 = load ptr, ptr %state, align 8
-  %call.i256 = call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory), !range !5
+  %call.i256 = call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory)
   %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
   %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2924,7 +2924,7 @@ sw.bb190:                                         ; preds = %do.body, %do.body, 
 
 if.then193:                                       ; preds = %sw.bb190
   %33 = load ptr, ptr %state, align 8
-  %call.i259 = call i32 @uriFreeUriMembersMmW(ptr noundef %33, ptr noundef %memory), !range !5
+  %call.i259 = call i32 @uriFreeUriMembersMmW(ptr noundef %33, ptr noundef %memory)
   %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
   %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2937,7 +2937,7 @@ sw.bb201:                                         ; preds = %do.body, %do.body, 
 
 if.then204:                                       ; preds = %sw.bb201
   %34 = load ptr, ptr %state, align 8
-  %call.i262 = call i32 @uriFreeUriMembersMmW(ptr noundef %34, ptr noundef %memory), !range !5
+  %call.i262 = call i32 @uriFreeUriMembersMmW(ptr noundef %34, ptr noundef %memory)
   %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
   %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2985,7 +2985,7 @@ if.end235:                                        ; preds = %if.end233, %sw.bb21
 
 if.then239:                                       ; preds = %if.end235
   %37 = load ptr, ptr %state, align 8
-  %call.i265 = call i32 @uriFreeUriMembersMmW(ptr noundef %37, ptr noundef %memory), !range !5
+  %call.i265 = call i32 @uriFreeUriMembersMmW(ptr noundef %37, ptr noundef %memory)
   %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
   %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2999,7 +2999,7 @@ if.end240:                                        ; preds = %if.end235
 
 if.then244:                                       ; preds = %if.end240
   %38 = load ptr, ptr %state, align 8
-  %call.i268 = call i32 @uriFreeUriMembersMmW(ptr noundef %38, ptr noundef %memory), !range !5
+  %call.i268 = call i32 @uriFreeUriMembersMmW(ptr noundef %38, ptr noundef %memory)
   %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
   %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3017,7 +3017,7 @@ if.then249:                                       ; preds = %if.end245
 
 if.then256:                                       ; preds = %if.then249
   %40 = load ptr, ptr %state, align 8
-  %call.i271 = call i32 @uriFreeUriMembersMmW(ptr noundef %40, ptr noundef %memory), !range !5
+  %call.i271 = call i32 @uriFreeUriMembersMmW(ptr noundef %40, ptr noundef %memory)
   %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr241, ptr %errorPos1.i272, align 8
   %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3040,7 +3040,7 @@ if.end257:                                        ; preds = %if.then249
 
 if.then270:                                       ; preds = %if.end257
   %43 = load ptr, ptr %state, align 8
-  %call.i274 = call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef %memory), !range !5
+  %call.i274 = call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef %memory)
   %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
   %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3054,7 +3054,7 @@ if.end271:                                        ; preds = %if.end257
 
 if.then275:                                       ; preds = %if.end271
   %45 = load ptr, ptr %state, align 8
-  %call.i277 = call i32 @uriFreeUriMembersMmW(ptr noundef %45, ptr noundef %memory), !range !5
+  %call.i277 = call i32 @uriFreeUriMembersMmW(ptr noundef %45, ptr noundef %memory)
   %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr267, ptr %errorPos1.i278, align 8
   %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3078,7 +3078,7 @@ lor.lhs.false285:                                 ; preds = %sw.bb282
 
 if.then298:                                       ; preds = %lor.lhs.false285, %sw.bb282
   %48 = load ptr, ptr %state, align 8
-  %call.i280 = call i32 @uriFreeUriMembersMmW(ptr noundef %48, ptr noundef %memory), !range !5
+  %call.i280 = call i32 @uriFreeUriMembersMmW(ptr noundef %48, ptr noundef %memory)
   %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
   %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3098,7 +3098,7 @@ if.then307:                                       ; preds = %if.else299
   %idx.neg309 = sub nsw i64 0, %idx.ext308
   %add.ptr310 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg309
   %50 = load ptr, ptr %state, align 8
-  %call.i283 = call i32 @uriFreeUriMembersMmW(ptr noundef %50, ptr noundef %memory), !range !5
+  %call.i283 = call i32 @uriFreeUriMembersMmW(ptr noundef %50, ptr noundef %memory)
   %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr310, ptr %errorPos1.i284, align 8
   %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3119,7 +3119,7 @@ if.then319:                                       ; preds = %if.else311
   %add.ptr322 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg321
   %add.ptr323 = getelementptr inbounds i8, ptr %add.ptr322, i64 4
   %52 = load ptr, ptr %state, align 8
-  %call.i286 = call i32 @uriFreeUriMembersMmW(ptr noundef %52, ptr noundef %memory), !range !5
+  %call.i286 = call i32 @uriFreeUriMembersMmW(ptr noundef %52, ptr noundef %memory)
   %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr323, ptr %errorPos1.i287, align 8
   %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3143,7 +3143,7 @@ land.lhs.true327:                                 ; preds = %if.else324
 if.then340:                                       ; preds = %land.lhs.true327
   %cmp343 = icmp ugt i8 %49, 2
   %54 = load ptr, ptr %state, align 8
-  %call.i289 = call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef %memory), !range !5
+  %call.i289 = call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef %memory)
   %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp343, label %if.then345, label %if.else347
 
@@ -3183,7 +3183,7 @@ land.lhs.true371:                                 ; preds = %sw.bb369
   br i1 %or.cond14, label %if.else390, label %if.then377
 
 if.then377:                                       ; preds = %land.lhs.true371
-  %call.i298 = call i32 @uriFreeUriMembersMmW(ptr noundef %55, ptr noundef %memory), !range !5
+  %call.i298 = call i32 @uriFreeUriMembersMmW(ptr noundef %55, ptr noundef %memory)
   %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
   %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3228,7 +3228,7 @@ if.end401:                                        ; preds = %if.then383, %if.els
 
 sw.default419:                                    ; preds = %do.body
   %60 = load ptr, ptr %state, align 8
-  %call.i301 = call i32 @uriFreeUriMembersMmW(ptr noundef %60, ptr noundef %memory), !range !5
+  %call.i301 = call i32 @uriFreeUriMembersMmW(ptr noundef %60, ptr noundef %memory)
   %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
   %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3255,7 +3255,7 @@ sw.epilog420:                                     ; preds = %sw.epilog420.sink.s
   %letterAmong.1 = phi i32 [ 0, %if.end271 ], [ 0, %if.end245 ], [ %letterAmong.1.ph, %sw.epilog420.sink.split ]
   %incdec.ptr421 = getelementptr inbounds i8, ptr %first.addr.4, i64 4
   %cmp422.not = icmp ult ptr %incdec.ptr421, %afterLast
-  br i1 %cmp422.not, label %do.body, label %if.then424, !llvm.loop !10
+  br i1 %cmp422.not, label %do.body, label %if.then424, !llvm.loop !8
 
 sw.epilog420.thread:                              ; preds = %land.lhs.true327, %if.else324
   %call363 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #6
@@ -3270,7 +3270,7 @@ sw.epilog420.thread:                              ; preds = %land.lhs.true327, %
 
 if.then424:                                       ; preds = %sw.epilog420.thread, %sw.epilog420
   %64 = load ptr, ptr %state, align 8
-  %call.i304 = call i32 @uriFreeUriMembersMmW(ptr noundef %64, ptr noundef %memory), !range !5
+  %call.i304 = call i32 @uriFreeUriMembersMmW(ptr noundef %64, ptr noundef %memory)
   %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
   %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3283,7 +3283,7 @@ return:                                           ; preds = %if.then345, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uri_TESTING_ONLY_ParseIpFourW(ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpFourW(ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %octets = alloca [4 x i8], align 1
   %call = tail call i64 @wcslen(ptr noundef %text) #7
@@ -3334,7 +3334,7 @@ if.else16.i:                                      ; preds = %if.end.i
 
 if.then2:                                         ; preds = %if.then
   %8 = load ptr, ptr %state, align 8
-  %call.i56 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %8, ptr noundef nonnull %memory), !range !5
+  %call.i56 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %8, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -3454,13 +3454,13 @@ tailrecurse.backedge:                             ; preds = %sw.bb13, %sw.bb
 sw.bb15:                                          ; preds = %if.end6
   %12 = load ptr, ptr %state, align 8
   %13 = load ptr, ptr %12, align 8
-  %call19 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory), !range !4
+  %call19 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory)
   %tobool20.not = icmp eq i32 %call19, 0
   %14 = load ptr, ptr %state, align 8
   br i1 %tobool20.not, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %sw.bb15
-  %call.i57 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %14, ptr noundef %memory), !range !5
+  %call.i57 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %14, ptr noundef %memory)
   %errorPos.i58 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i58, align 8
   %errorCode.i59 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3475,13 +3475,13 @@ if.end22:                                         ; preds = %sw.bb15
   br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end22
-  %call33 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr26, ptr noundef nonnull %call27, ptr noundef %memory), !range !4
+  %call33 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr26, ptr noundef nonnull %call27, ptr noundef %memory)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end31
   %15 = load ptr, ptr %state, align 8
-  %call.i60 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef %memory), !range !5
+  %call.i60 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef %memory)
   %errorPos.i61 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i61, align 8
   %errorCode.i62 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3500,13 +3500,13 @@ if.end41:                                         ; preds = %if.end36
 sw.default:                                       ; preds = %if.end6
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call46 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory), !range !4
+  %call46 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory)
   %tobool47.not = icmp eq i32 %call46, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool47.not, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %sw.default
-  %call.i63 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
+  %call.i63 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory)
   %errorPos.i64 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i64, align 8
   %errorCode.i65 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3531,7 +3531,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -3545,7 +3545,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
-  %call.i21 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory), !range !5
+  %call.i21 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory)
   %errorPos1.i22 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i22, align 8
   %errorCode.i23 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3586,7 +3586,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 
 if.then7:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
-  %call.i24 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %3, ptr noundef %memory), !range !5
+  %call.i24 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %3, ptr noundef %memory)
   %errorPos1.i25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i25, align 8
   %errorCode.i26 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3626,7 +3626,7 @@ sw.bb11:                                          ; preds = %if.end8, %if.end8, 
 
 sw.default:                                       ; preds = %if.end8
   %5 = load ptr, ptr %state, align 8
-  %call.i27 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
+  %call.i27 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i28 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr4, ptr %errorPos1.i28, align 8
   %errorCode.i29 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3635,7 +3635,7 @@ sw.default:                                       ; preds = %if.end8
 
 sw.default14:                                     ; preds = %if.end3
   %6 = load ptr, ptr %state, align 8
-  %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %6, ptr noundef %memory), !range !5
+  %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %6, ptr noundef %memory)
   %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i31, align 8
   %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3957,7 +3957,7 @@ if.then23.i.i.i:                                  ; preds = %if.end.i.i27.i
   br label %uriParseAuthorityA.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %18, ptr noundef nonnull %memory), !range !5
+  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %18, ptr noundef nonnull %memory)
   %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
   %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4053,13 +4053,13 @@ if.end.i22.i.backedge:                            ; preds = %if.end2.i.i.i, %if.
   br label %if.end.i22.i
 
 sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
-  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoA(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory), !range !4
+  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoA(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory)
   %tobool5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %if.end4
 
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   %27 = load ptr, ptr %state, align 8
-  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %27, ptr noundef %memory), !range !5
+  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %27, ptr noundef %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4090,7 +4090,7 @@ sw.bb12.i.i:                                      ; preds = %if.end.i22.i
 
 sw.default.i.i:                                   ; preds = %if.end.i22.i
   %32 = load ptr, ptr %state, align 8
-  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory), !range !5
+  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory)
   %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
   %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4161,7 +4161,7 @@ if.else16.i.i:                                    ; preds = %if.end.i.i24
 
 if.then7.i:                                       ; preds = %if.end4.i
   %43 = load ptr, ptr %state, align 8
-  %call.i16.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %43, ptr noundef nonnull %memory), !range !5
+  %call.i16.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %43, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4365,7 +4365,7 @@ if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %i
 
 return.sink.split.i:                              ; preds = %if.end4.i.i53, %if.end4.i36
   %61 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %61, ptr noundef nonnull %memory), !range !5
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %61, ptr noundef nonnull %memory)
   %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i57, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4440,7 +4440,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -4591,7 +4591,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriPushPathSegmentA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -4682,7 +4682,7 @@ if.else16.i:                                      ; preds = %if.end.i
 
 if.then7:                                         ; preds = %if.end4
   %7 = load ptr, ptr %state, align 8
-  %call.i16 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef nonnull %memory), !range !5
+  %call.i16 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4889,7 +4889,7 @@ if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %i
 
 return.sink.split.i:                              ; preds = %if.end4.i.i, %if.else.i
   %15 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef nonnull %memory), !range !5
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef nonnull %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4914,7 +4914,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5016,7 +5016,7 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
   %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5038,7 +5038,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5086,7 +5086,7 @@ if.end4:                                          ; preds = %sw.bb
 
 if.then7:                                         ; preds = %if.end4
   %2 = load ptr, ptr %state, align 8
-  %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i31, align 8
   %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5100,7 +5100,7 @@ if.end8:                                          ; preds = %if.end4
 
 if.then12:                                        ; preds = %if.end8
   %4 = load ptr, ptr %state, align 8
-  %call.i33 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i33 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i34 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %call, ptr %errorPos1.i34, align 8
   %errorCode.i35 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5124,7 +5124,7 @@ sw.bb14:                                          ; preds = %if.end, %if.end, %i
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %sw.bb14
-  %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
+  %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i37 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5137,7 +5137,7 @@ if.end22:                                         ; preds = %sw.bb14
 
 sw.default:                                       ; preds = %if.end
   %9 = load ptr, ptr %state, align 8
-  %call.i38 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
+  %call.i38 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory)
   %errorPos1.i39 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i39, align 8
   %errorCode.i40 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5157,7 +5157,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5171,7 +5171,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
-  %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory), !range !5
+  %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory)
   %errorPos1.i37 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i37, align 8
   %errorCode.i38 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5249,7 +5249,7 @@ if.end8:                                          ; preds = %if.end.i
 
 if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %if.end8
   %4 = load ptr, ptr %state, align 8
-  %call.i39 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i39 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i40, align 8
   %errorCode.i41 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5262,7 +5262,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
+  %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5463,7 +5463,7 @@ if.end.i46.backedge:                              ; preds = %if.end.i.i, %if.end
 uriParseIpFutLoopA.exit.thread:                   ; preds = %if.end.i46, %if.end17
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end17 ], [ %first.tr17.i, %if.end.i46 ]
   %9 = load ptr, ptr %state, align 8
-  %call.i11.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
+  %call.i11.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory)
   %errorPos1.i12.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr17.lcssa.sink.i, ptr %errorPos1.i12.i, align 8
   %errorCode.i13.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5482,7 +5482,7 @@ if.end26:                                         ; preds = %sw.bb.i47, %if.end.
 
 sw.default:                                       ; preds = %if.end3
   %12 = load ptr, ptr %state, align 8
-  %call.i50 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory), !range !5
+  %call.i50 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory)
   %errorPos1.i51 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i51, align 8
   %errorCode.i52 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5502,7 +5502,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5602,7 +5602,7 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
   %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5673,7 +5673,7 @@ if.then22.i:                                      ; preds = %if.end.i
   br label %return
 
 if.then1:                                         ; preds = %if.then
-  %call.i41 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
+  %call.i41 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -5812,13 +5812,13 @@ sw.bb20:                                          ; preds = %if.end2
   br label %return
 
 sw.default:                                       ; preds = %if.end2
-  %call35 = tail call fastcc i32 @uriOnExitOwnPortUserInfoA(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory), !range !4
+  %call35 = tail call fastcc i32 @uriOnExitOwnPortUserInfoA(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory)
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then37, label %return
 
 if.then37:                                        ; preds = %sw.default
   %23 = load ptr, ptr %state, align 8
-  %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %23, ptr noundef %memory), !range !5
+  %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %23, ptr noundef %memory)
   %errorPos.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
@@ -5934,7 +5934,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i17
   br label %return
 
 if.then1.i:                                       ; preds = %if.then.i
-  %call.i22.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %10, ptr noundef nonnull %memory), !range !5
+  %call.i22.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %10, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -6030,13 +6030,13 @@ sw.bb.i19:                                        ; preds = %if.end2.i, %if.end2
   br i1 %cmp4.i, label %return, label %tailrecurse.i
 
 sw.default.i:                                     ; preds = %if.end2.i
-  %call9.i = tail call fastcc i32 @uriOnExitOwnHost2A(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory), !range !4
+  %call9.i = tail call fastcc i32 @uriOnExitOwnHost2A(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory)
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end.i27.i
 
 if.then11.i:                                      ; preds = %sw.default.i
   %19 = load ptr, ptr %state, align 8
-  %call.i23.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %19, ptr noundef %memory), !range !5
+  %call.i23.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %19, ptr noundef %memory)
   %errorPos.i24.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i24.i, align 8
   %errorCode.i25.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -6081,7 +6081,7 @@ return:                                           ; preds = %sw.bb.i19, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -6132,7 +6132,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -6190,7 +6190,7 @@ entry:
 
 if.then:                                          ; preds = %tailrecurse.backedge, %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -6310,7 +6310,7 @@ sw.bb8:                                           ; preds = %if.end
 
 sw.default:                                       ; preds = %if.end
   %4 = load ptr, ptr %state, align 8
-  %call.i26 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i26 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i27 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr33, ptr %errorPos1.i27, align 8
   %errorCode.i28 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6323,7 +6323,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnHost2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds i8, ptr %0, i64 40
@@ -6526,7 +6526,7 @@ if.else16.i:                                      ; preds = %if.end.i
 
 if.then2:                                         ; preds = %if.then
   %8 = load ptr, ptr %state, align 8
-  %call.i56 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef nonnull %memory), !range !5
+  %call.i56 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -6646,13 +6646,13 @@ tailrecurse.backedge:                             ; preds = %sw.bb12, %sw.bb
 sw.bb14:                                          ; preds = %if.end6
   %12 = load ptr, ptr %state, align 8
   %13 = load ptr, ptr %12, align 8
-  %call18 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory), !range !4
+  %call18 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory)
   %tobool19.not = icmp eq i32 %call18, 0
   %14 = load ptr, ptr %state, align 8
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %sw.bb14
-  %call.i57 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %14, ptr noundef %memory), !range !5
+  %call.i57 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %14, ptr noundef %memory)
   %errorPos.i58 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i58, align 8
   %errorCode.i59 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6667,13 +6667,13 @@ if.end21:                                         ; preds = %sw.bb14
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end21
-  %call31 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %call26, ptr noundef %memory), !range !4
+  %call31 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %call26, ptr noundef %memory)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end29
   %15 = load ptr, ptr %state, align 8
-  %call.i60 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef %memory), !range !5
+  %call.i60 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef %memory)
   %errorPos.i61 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i61, align 8
   %errorCode.i62 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6692,13 +6692,13 @@ if.end38:                                         ; preds = %if.end34
 sw.default:                                       ; preds = %if.end6
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call43 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory), !range !4
+  %call43 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory)
   %tobool44.not = icmp eq i32 %call43, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool44.not, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %sw.default
-  %call.i63 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %18, ptr noundef %memory), !range !5
+  %call.i63 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %18, ptr noundef %memory)
   %errorPos.i64 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i64, align 8
   %errorCode.i65 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6723,7 +6723,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -6737,7 +6737,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
-  %call.i21 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory), !range !5
+  %call.i21 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory)
   %errorPos1.i22 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i22, align 8
   %errorCode.i23 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6778,7 +6778,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 
 if.then6:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
-  %call.i24 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %3, ptr noundef %memory), !range !5
+  %call.i24 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %3, ptr noundef %memory)
   %errorPos1.i25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i25, align 8
   %errorCode.i26 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6818,7 +6818,7 @@ sw.bb9:                                           ; preds = %if.end7, %if.end7, 
 
 sw.default:                                       ; preds = %if.end7
   %5 = load ptr, ptr %state, align 8
-  %call.i27 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory), !range !5
+  %call.i27 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i28 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr4, ptr %errorPos1.i28, align 8
   %errorCode.i29 = getelementptr inbounds i8, ptr %state, i64 8
@@ -6827,7 +6827,7 @@ sw.default:                                       ; preds = %if.end7
 
 sw.default12:                                     ; preds = %if.end3
   %6 = load ptr, ptr %state, align 8
-  %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
+  %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory)
   %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i31, align 8
   %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
@@ -7149,7 +7149,7 @@ if.then23.i.i.i:                                  ; preds = %if.end.i.i28.i
   br label %uriParseAuthorityW.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %18, ptr noundef nonnull %memory), !range !5
+  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %18, ptr noundef nonnull %memory)
   %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
   %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7245,13 +7245,13 @@ if.end.i22.i.backedge:                            ; preds = %if.end2.i.i.i, %if.
   br label %if.end.i22.i
 
 sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
-  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoW(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory), !range !4
+  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoW(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory)
   %tobool5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %if.end3
 
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   %27 = load ptr, ptr %state, align 8
-  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %27, ptr noundef %memory), !range !5
+  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %27, ptr noundef %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7282,7 +7282,7 @@ sw.bb11.i.i:                                      ; preds = %if.end.i22.i
 
 sw.default.i.i:                                   ; preds = %if.end.i22.i
   %32 = load ptr, ptr %state, align 8
-  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory), !range !5
+  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory)
   %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
   %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7353,7 +7353,7 @@ if.else16.i.i:                                    ; preds = %if.end.i.i24
 
 if.then6.i:                                       ; preds = %if.end3.i
   %43 = load ptr, ptr %state, align 8
-  %call.i16.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef nonnull %memory), !range !5
+  %call.i16.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7557,7 +7557,7 @@ if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %i
 
 return.sink.split.i:                              ; preds = %if.end3.i.i53, %if.end3.i36
   %61 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %61, ptr noundef nonnull %memory), !range !5
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %61, ptr noundef nonnull %memory)
   %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i57, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7632,7 +7632,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -7783,7 +7783,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriPushPathSegmentW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -7874,7 +7874,7 @@ if.else16.i:                                      ; preds = %if.end.i
 
 if.then6:                                         ; preds = %if.end3
   %7 = load ptr, ptr %state, align 8
-  %call.i16 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %7, ptr noundef nonnull %memory), !range !5
+  %call.i16 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %7, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8081,7 +8081,7 @@ if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %i
 
 return.sink.split.i:                              ; preds = %if.end3.i.i, %if.else.i
   %15 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef nonnull %memory), !range !5
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef nonnull %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8106,7 +8106,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8208,7 +8208,7 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
   %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8230,7 +8230,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8278,7 +8278,7 @@ if.end3:                                          ; preds = %sw.bb
 
 if.then5:                                         ; preds = %if.end3
   %2 = load ptr, ptr %state, align 8
-  %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i31, align 8
   %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8292,7 +8292,7 @@ if.end6:                                          ; preds = %if.end3
 
 if.then8:                                         ; preds = %if.end6
   %4 = load ptr, ptr %state, align 8
-  %call.i33 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i33 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i34 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %call, ptr %errorPos1.i34, align 8
   %errorCode.i35 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8316,7 +8316,7 @@ sw.bb10:                                          ; preds = %if.end, %if.end, %i
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %sw.bb10
-  %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
+  %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %7, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i37 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8329,7 +8329,7 @@ if.end17:                                         ; preds = %sw.bb10
 
 sw.default:                                       ; preds = %if.end
   %9 = load ptr, ptr %state, align 8
-  %call.i38 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory), !range !5
+  %call.i38 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory)
   %errorPos1.i39 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i39, align 8
   %errorCode.i40 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8349,7 +8349,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8363,7 +8363,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
-  %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory), !range !5
+  %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory)
   %errorPos1.i37 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i37, align 8
   %errorCode.i38 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8441,7 +8441,7 @@ if.end7:                                          ; preds = %if.end.i
 
 if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %if.end7
   %4 = load ptr, ptr %state, align 8
-  %call.i39 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i39 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i40, align 8
   %errorCode.i41 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8454,7 +8454,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory), !range !5
+  %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8653,7 +8653,7 @@ if.end.i46.backedge:                              ; preds = %if.end.i.i, %if.end
 uriParseIpFutLoopW.exit.thread:                   ; preds = %if.end.i46, %if.end13
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end13 ], [ %first.tr17.i, %if.end.i46 ]
   %9 = load ptr, ptr %state, align 8
-  %call.i11.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory), !range !5
+  %call.i11.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory)
   %errorPos1.i12.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr17.lcssa.sink.i, ptr %errorPos1.i12.i, align 8
   %errorCode.i13.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8672,7 +8672,7 @@ if.end21:                                         ; preds = %sw.bb.i47, %if.end.
 
 sw.default:                                       ; preds = %if.end3
   %12 = load ptr, ptr %state, align 8
-  %call.i49 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory), !range !5
+  %call.i49 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory)
   %errorPos1.i50 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i50, align 8
   %errorCode.i51 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8692,7 +8692,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8792,7 +8792,7 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
+  %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory)
   %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
   %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8856,7 +8856,7 @@ if.then22.i:                                      ; preds = %if.end.i
   br label %return
 
 if.then1:                                         ; preds = %if.then
-  %call.i41 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %6, ptr noundef nonnull %memory), !range !5
+  %call.i41 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %6, ptr noundef nonnull %memory)
   %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -8995,13 +8995,13 @@ sw.bb19:                                          ; preds = %if.end2
   br label %return
 
 sw.default:                                       ; preds = %if.end2
-  %call34 = tail call fastcc i32 @uriOnExitOwnPortUserInfoW(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory), !range !4
+  %call34 = tail call fastcc i32 @uriOnExitOwnPortUserInfoW(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %return
 
 if.then36:                                        ; preds = %sw.default
   %22 = load ptr, ptr %state, align 8
-  %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %22, ptr noundef %memory), !range !5
+  %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %22, ptr noundef %memory)
   %errorPos.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
@@ -9117,7 +9117,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i17
   br label %return
 
 if.then1.i:                                       ; preds = %if.then.i
-  %call.i22.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %10, ptr noundef nonnull %memory), !range !5
+  %call.i22.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %10, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -9213,13 +9213,13 @@ sw.bb.i19:                                        ; preds = %if.end2.i, %if.end2
   br i1 %cmp4.i, label %return, label %tailrecurse.i
 
 sw.default.i:                                     ; preds = %if.end2.i
-  %call8.i = tail call fastcc i32 @uriOnExitOwnHost2W(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory), !range !4
+  %call8.i = tail call fastcc i32 @uriOnExitOwnHost2W(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end.i27.i
 
 if.then10.i:                                      ; preds = %sw.default.i
   %19 = load ptr, ptr %state, align 8
-  %call.i23.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
+  %call.i23.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory)
   %errorPos.i24.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i24.i, align 8
   %errorCode.i25.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -9264,7 +9264,7 @@ return:                                           ; preds = %sw.bb.i19, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -9315,7 +9315,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -9373,7 +9373,7 @@ entry:
 
 if.then:                                          ; preds = %tailrecurse.backedge, %entry
   %0 = load ptr, ptr %state, align 8
-  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
+  %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory)
   %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -9493,7 +9493,7 @@ sw.bb7:                                           ; preds = %if.end
 
 sw.default:                                       ; preds = %if.end
   %4 = load ptr, ptr %state, align 8
-  %call.i26 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
+  %call.i26 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i27 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr33, ptr %errorPos1.i27, align 8
   %errorCode.i28 = getelementptr inbounds i8, ptr %state, i64 8
@@ -9506,7 +9506,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriOnExitOwnHost2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds i8, ptr %0, i64 40
@@ -9682,10 +9682,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 0, i32 11}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

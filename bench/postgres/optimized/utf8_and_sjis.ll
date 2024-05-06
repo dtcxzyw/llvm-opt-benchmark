@@ -31,7 +31,7 @@ define noundef nonnull ptr @pg_finfo_utf8_to_sjis() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @sjis_to_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @sjis_to_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -61,7 +61,7 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 declare i32 @LocalToUtf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @utf8_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @utf8_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8

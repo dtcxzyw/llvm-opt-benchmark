@@ -1220,7 +1220,7 @@ declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) 
 declare i32 @prefs_pref_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19add_prefs_menu_itemP10preferencePv(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL19add_prefs_menu_itemP10preferencePv(ptr noundef %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

@@ -82,7 +82,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_proc_kcore_init397, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21, ptr @rcu_read_unlock_sched.__UNIQUE_ID___addressable___SCK__preempt_schedule75], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define dso_local noundef i32 @register_mem_pfn_is_ram(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @register_mem_pfn_is_ram(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = load ptr, ptr @mem_pfn_is_ram, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -1256,7 +1256,7 @@ declare dso_local i32 @PageHuge(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @walk_system_ram_range(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kclist_add_private(i64 noundef %0, i64 noundef %1, ptr noundef %2) #5 align 16 {
+define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0, i64 noundef %1, ptr noundef %2) #5 align 16 {
   %4 = icmp ult i64 %0, 4503599627370496
   br i1 %4, label %5, label %.thread
 

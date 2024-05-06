@@ -523,11 +523,11 @@ yyStackOverflow.exit:                             ; preds = %41, %._crit_edge.i
   store i32 %204, ptr %5, align 8
   %205 = getelementptr i8, ptr %52, i64 -68
   %206 = zext i32 %202 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %205, i64 %206, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %13, ptr nonnull readonly align 4 %205, i64 %206, i1 false)
   %207 = getelementptr [64 x i8], ptr %13, i64 0, i64 %206
   %208 = getelementptr inbounds i8, ptr %52, i64 12
   %209 = zext i32 %203 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr nonnull align 4 %208, i64 %209, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %207, ptr nonnull readonly align 4 %208, i64 %209, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %200, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %yy_reduce.exit
 
@@ -691,7 +691,7 @@ define hidden noundef i32 @BusmasterParserFallback(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @run_busmaster_parser(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @run_busmaster_parser(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %5, align 8

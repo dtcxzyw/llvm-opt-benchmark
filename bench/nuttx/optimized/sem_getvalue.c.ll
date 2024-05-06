@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @nxsem_get_value(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @nxsem_get_value(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -22,7 +22,7 @@ define noundef i32 @nxsem_get_value(ptr noundef %0, ptr noundef writeonly %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sem_getvalue(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @sem_getvalue(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4

@@ -311,7 +311,7 @@ opal_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %opal_o
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_tsd_tracked_key_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -11, 1) i32 @opal_tsd_tracked_key_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = tail call ptr @pthread_getspecific(i32 noundef %4) #6

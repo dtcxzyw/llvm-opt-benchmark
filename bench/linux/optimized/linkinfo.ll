@@ -61,7 +61,7 @@ define internal noundef i32 @linkinfo_reply_size(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @linkinfo_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -90, 1) i32 @linkinfo_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -129,7 +129,7 @@ define internal i32 @linkinfo_fill_reply(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_linkinfo_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_linkinfo_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -151,7 +151,7 @@ define internal i32 @ethnl_set_linkinfo_validate(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ethnl_set_linkinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.ethtool_link_ksettings, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)

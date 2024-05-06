@@ -14,7 +14,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_free_bucket_
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable___alloc_bucket_spinlocks327, ptr @__UNIQUE_ID___addressable_free_bucket_spinlocks328], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__alloc_bucket_spinlocks(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__alloc_bucket_spinlocks(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 align 16 {
   %8 = load i64, ptr @__cpu_possible_mask, align 8
   %9 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %8) #5, !srcloc !5
   %10 = icmp eq i32 %3, 0

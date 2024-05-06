@@ -79,7 +79,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp3, label %for.cond, label %if.then, !llvm.loop !4
 
 if.then:                                          ; preds = %for.body
-  %conv5 = trunc i64 %i.0 to i32
+  %conv5 = trunc nuw i64 %i.0 to i32
   %conv6 = sitofp i32 %conv5 to double
   br label %for.end
 
@@ -105,7 +105,7 @@ land.lhs.true:                                    ; preds = %for.body13
   %key = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   %8 = load i64, ptr %key, align 8
   %shr = ashr i64 %8, 47
-  %conv18 = trunc i64 %shr to i32
+  %conv18 = trunc nsw i64 %shr to i32
   %cmp19 = icmp ult i32 %conv18, -13
   %9 = bitcast i64 %8 to double
   %cmp25 = fcmp olt double %m.119, %9
@@ -167,7 +167,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load i32, ptr %asize, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nsw i64 %indvars.iv to i32
   %cmp11 = icmp ugt i32 %4, %5
   br i1 %cmp11, label %cond.true, label %cond.false
 
@@ -186,7 +186,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %8 = phi i32 [ %4, %cond.true ], [ %.pre, %cond.false ]
   %cond = phi ptr [ %arrayidx, %cond.true ], [ %call13, %cond.false ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   %cmp15 = icmp ugt i32 %8, %9
   br i1 %cmp15, label %cond.true17, label %cond.false23
 
@@ -241,7 +241,7 @@ cond.end42:                                       ; preds = %cond.false40, %cond
   %17 = load i64, ptr %add.ptr, align 8
   store i64 %17, ptr %cond43, align 8
   %shr = ashr i64 %17, 47
-  %conv45 = trunc i64 %shr to i32
+  %conv45 = trunc nsw i64 %shr to i32
   %18 = add nsw i32 %conv45, 13
   %cmp47 = icmp ult i32 %18, 9
   br i1 %cmp47, label %land.lhs.true, label %if.end59
@@ -353,7 +353,7 @@ cond.end19:                                       ; preds = %cond.false17, %cond
 cond.true22:                                      ; preds = %cond.end19
   %12 = load i64, ptr %cond20, align 8
   %shr = ashr i64 %12, 47
-  %conv23 = trunc i64 %shr to i32
+  %conv23 = trunc nsw i64 %shr to i32
   %cmp24 = icmp ult i32 %conv23, -13
   br i1 %cmp24, label %cond.end33, label %cond.false27
 

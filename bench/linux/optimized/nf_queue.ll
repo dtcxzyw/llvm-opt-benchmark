@@ -186,7 +186,7 @@ define dso_local void @nf_queue_nf_hook_drop(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_queue(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nf_queue(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = lshr i32 %3, 16
   %6 = load volatile ptr, ptr @nf_queue_handler, align 8
   %7 = icmp eq ptr %6, null
@@ -309,7 +309,7 @@ define dso_local noundef i32 @nf_queue(ptr noundef %0, ptr nocapture noundef rea
   br i1 %82, label %187, label %.thread27
 
 .thread27:                                        ; preds = %70, %55
-  %83 = trunc i64 %14 to i16
+  %83 = trunc nuw nsw i64 %14 to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %84 = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %0, ptr %84, align 8
@@ -642,7 +642,7 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br i1 %79, label %67, label %.thread15, !llvm.loop !24
 
 80:                                               ; preds = %71
-  %81 = trunc i64 %68 to i32
+  %81 = trunc nuw nsw i64 %68 to i32
   br label %.thread14
 
 .thread14:                                        ; preds = %52, %80

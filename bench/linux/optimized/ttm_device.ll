@@ -176,7 +176,7 @@ declare dso_local i32 @ttm_bo_swapout(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local ptr @ttm_resource_manager_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_device_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
   %8 = alloca %struct.sysinfo, align 8
   %9 = icmp eq ptr %4, null
   br i1 %9, label %10, label %11, !prof !13

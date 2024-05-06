@@ -779,7 +779,7 @@ define internal i32 @_9p_hash_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_9p_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_9p_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1006,7 +1006,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 66:                                               ; preds = %65, %46
   %67 = load i32, ptr @hf_9P_version, align 4
   %68 = load i32, ptr @ett_9P_version, align 4
-  %69 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %67, i32 noundef %68), !range !4
+  %69 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %67, i32 noundef %68)
   %70 = add nuw nsw i32 %69, 11
   br label %conv_free_tag.exit
 
@@ -1017,11 +1017,11 @@ conv_get_version.exit:                            ; preds = %4, %16
   call fastcc void @conv_set_fid_nocopy(ptr noundef nonnull %1, i32 noundef %74, ptr noundef nonnull @.str.398)
   %75 = load i32, ptr @hf_9P_uname, align 4
   %76 = load i32, ptr @ett_9P_uname, align 4
-  %77 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %75, i32 noundef %76), !range !4
+  %77 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %75, i32 noundef %76)
   %78 = add nuw nsw i32 %77, 11
   %79 = load i32, ptr @hf_9P_aname, align 4
   %80 = load i32, ptr @ett_9P_aname, align 4
-  %81 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %78, i32 noundef %79, i32 noundef %80), !range !4
+  %81 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %78, i32 noundef %79, i32 noundef %80)
   %82 = add nuw nsw i32 %81, %78
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 102, i32 noundef %74, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1041,7 +1041,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 90:                                               ; preds = %83
   %91 = load i32, ptr @hf_9P_ename, align 4
   %92 = load i32, ptr @ett_9P_ename, align 4
-  %93 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 7, i32 noundef %91, i32 noundef %92), !range !4
+  %93 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 7, i32 noundef %91, i32 noundef %92)
   %94 = add nuw nsw i32 %93, 7
   br label %95
 
@@ -1084,7 +1084,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %112 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %111, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef -2147483648) #6
   %113 = load i32, ptr @hf_9P_uname, align 4
   %114 = load i32, ptr @ett_9P_uname, align 4
-  %115 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %113, i32 noundef %114), !range !4
+  %115 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %113, i32 noundef %114)
   %116 = add nuw nsw i32 %115, 15
   %117 = getelementptr inbounds i8, ptr %1, i64 80
   %118 = load ptr, ptr %117, align 8
@@ -1109,7 +1109,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 131:                                              ; preds = %122, %107
   %132 = load i32, ptr @hf_9P_aname, align 4
   %133 = load i32, ptr @ett_9P_aname, align 4
-  %134 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %116, i32 noundef %132, i32 noundef %133), !range !4
+  %134 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %116, i32 noundef %132, i32 noundef %133)
   %135 = add nuw nsw i32 %134, %116
   %136 = add i32 %20, -3
   %or.cond = icmp ult i32 %136, 2
@@ -1204,7 +1204,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %.3 = phi i32 [ %188, %178 ], [ %.211491182, %176 ]
   %190 = add nuw nsw i32 %.011441183, 1
   %exitcond1191.not = icmp eq i32 %190, %163
-  br i1 %exitcond1191.not, label %._crit_edge1186, label %165, !llvm.loop !5
+  br i1 %exitcond1191.not, label %._crit_edge1186, label %165, !llvm.loop !4
 
 ._crit_edge1186:                                  ; preds = %189
   %191 = icmp ugt i16 %160, 250
@@ -1250,7 +1250,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %208 = add nuw nsw i32 %.41179, 13
   %209 = add nuw nsw i32 %.11180, 1
   %exitcond.not = icmp eq i32 %209, %207
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %210 = icmp ugt i16 %204, 249
@@ -1320,7 +1320,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %.11146 = phi ptr [ null, %228 ], [ %242, %238 ]
   %247 = load i32, ptr @hf_9P_filename, align 4
   %248 = load i32, ptr @ett_9P_filename, align 4
-  %249 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %247, i32 noundef %248), !range !4
+  %249 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %247, i32 noundef %248)
   %250 = add nuw nsw i32 %249, 11
   %251 = load i32, ptr @hf_9P_perm, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1378,7 +1378,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %.2 = phi ptr [ null, %267 ], [ %281, %277 ]
   %286 = load i32, ptr @hf_9P_filename, align 4
   %287 = load i32, ptr @ett_9P_filename, align 4
-  %288 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %286, i32 noundef %287), !range !4
+  %288 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %286, i32 noundef %287)
   %289 = add nuw nsw i32 %288, 11
   %290 = load i32, ptr @hf_9P_lflags, align 4
   %291 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %290, ptr noundef %0, i32 noundef %289, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1467,19 +1467,19 @@ conv_get_version.exit:                            ; preds = %4, %16
   %353 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %352, ptr noundef %0, i32 noundef 42, i32 noundef 8, i32 noundef -2147483648) #6
   %354 = load i32, ptr @hf_9P_filename, align 4
   %355 = load i32, ptr @ett_9P_filename, align 4
-  %356 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 50, i32 noundef %354, i32 noundef %355), !range !4
+  %356 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 50, i32 noundef %354, i32 noundef %355)
   %357 = add nuw nsw i32 %356, 50
   %358 = load i32, ptr @hf_9P_user, align 4
   %359 = load i32, ptr @ett_9P_user, align 4
-  %360 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %357, i32 noundef %358, i32 noundef %359), !range !4
+  %360 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %357, i32 noundef %358, i32 noundef %359)
   %361 = add nuw nsw i32 %360, %357
   %362 = load i32, ptr @hf_9P_group, align 4
   %363 = load i32, ptr @ett_9P_group, align 4
-  %364 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %361, i32 noundef %362, i32 noundef %363), !range !4
+  %364 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %361, i32 noundef %362, i32 noundef %363)
   %365 = add nuw nsw i32 %364, %361
   %366 = load i32, ptr @hf_9P_muid, align 4
   %367 = load i32, ptr @ett_9P_muid, align 4
-  %368 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %365, i32 noundef %366, i32 noundef %367), !range !4
+  %368 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %365, i32 noundef %366, i32 noundef %367)
   %369 = add nuw nsw i32 %368, %365
   call fastcc void @conv_free_tag(ptr noundef nonnull %1, i16 noundef zeroext %33)
   br label %conv_free_tag.exit
@@ -1510,19 +1510,19 @@ conv_get_version.exit:                            ; preds = %4, %16
   %390 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %389, ptr noundef %0, i32 noundef 46, i32 noundef 8, i32 noundef -2147483648) #6
   %391 = load i32, ptr @hf_9P_filename, align 4
   %392 = load i32, ptr @ett_9P_filename, align 4
-  %393 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 54, i32 noundef %391, i32 noundef %392), !range !4
+  %393 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 54, i32 noundef %391, i32 noundef %392)
   %394 = add nuw nsw i32 %393, 54
   %395 = load i32, ptr @hf_9P_user, align 4
   %396 = load i32, ptr @ett_9P_user, align 4
-  %397 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %394, i32 noundef %395, i32 noundef %396), !range !4
+  %397 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %394, i32 noundef %395, i32 noundef %396)
   %398 = add nuw nsw i32 %397, %394
   %399 = load i32, ptr @hf_9P_group, align 4
   %400 = load i32, ptr @ett_9P_group, align 4
-  %401 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %398, i32 noundef %399, i32 noundef %400), !range !4
+  %401 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %398, i32 noundef %399, i32 noundef %400)
   %402 = add nuw nsw i32 %401, %398
   %403 = load i32, ptr @hf_9P_muid, align 4
   %404 = load i32, ptr @ett_9P_muid, align 4
-  %405 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %402, i32 noundef %403, i32 noundef %404), !range !4
+  %405 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %402, i32 noundef %403, i32 noundef %404)
   %406 = add nuw nsw i32 %405, %402
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 126, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1631,11 +1631,11 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %486, ptr noundef nonnull @.str.399, ptr noundef %487) #6
   %488 = load i32, ptr @hf_9P_wname, align 4
   %489 = load i32, ptr @ett_9P_wname, align 4
-  %490 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %488, i32 noundef %489), !range !4
+  %490 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %488, i32 noundef %489)
   %491 = add nuw nsw i32 %490, 11
   %492 = load i32, ptr @hf_9P_wname, align 4
   %493 = load i32, ptr @ett_9P_wname, align 4
-  %494 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %491, i32 noundef %492, i32 noundef %493), !range !4
+  %494 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %491, i32 noundef %492, i32 noundef %493)
   %495 = add nuw nsw i32 %494, %491
   %496 = load i32, ptr @hf_9P_gid, align 4
   %497 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %496, ptr noundef %0, i32 noundef %495, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1651,7 +1651,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %502, ptr noundef nonnull @.str.399, ptr noundef %503) #6
   %504 = load i32, ptr @hf_9P_wname, align 4
   %505 = load i32, ptr @ett_9P_wname, align 4
-  %506 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %504, i32 noundef %505), !range !4
+  %506 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %504, i32 noundef %505)
   %507 = add nuw nsw i32 %506, 11
   %508 = load i32, ptr @hf_9P_statmode, align 4
   %509 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %508, ptr noundef %0, i32 noundef %507, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1709,7 +1709,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 546:                                              ; preds = %534, %520
   %547 = load i32, ptr @hf_9P_wname, align 4
   %548 = load i32, ptr @ett_9P_wname, align 4
-  %549 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %547, i32 noundef %548), !range !4
+  %549 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %547, i32 noundef %548)
   %550 = add nuw nsw i32 %549, 15
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 20, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1717,7 +1717,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 551:                                              ; preds = %32
   %552 = load i32, ptr @hf_9P_wname, align 4
   %553 = load i32, ptr @ett_9P_wname, align 4
-  %554 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 7, i32 noundef %552, i32 noundef %553), !range !4
+  %554 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 7, i32 noundef %552, i32 noundef %553)
   %555 = add nuw nsw i32 %554, 7
   call fastcc void @conv_free_tag(ptr noundef nonnull %1, i16 noundef zeroext %33)
   br label %conv_free_tag.exit
@@ -1734,7 +1734,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call fastcc void @conv_set_fid_nocopy(ptr noundef nonnull %1, i32 noundef %561, ptr noundef %560)
   %564 = load i32, ptr @hf_9P_wname, align 4
   %565 = load i32, ptr @ett_9P_wname, align 4
-  %566 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %564, i32 noundef %565), !range !4
+  %566 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %564, i32 noundef %565)
   %567 = add nuw nsw i32 %566, 15
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 30, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1753,7 +1753,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %574, ptr noundef nonnull @.str.399, ptr noundef %575) #6
   %576 = load i32, ptr @hf_9P_wname, align 4
   %577 = load i32, ptr @ett_9P_wname, align 4
-  %578 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %576, i32 noundef %577), !range !4
+  %578 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %576, i32 noundef %577)
   %579 = add nuw nsw i32 %578, 11
   %580 = load i32, ptr @hf_9P_size, align 4
   %581 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %580, ptr noundef %0, i32 noundef %579, i32 noundef 8, i32 noundef -2147483648) #6
@@ -1782,7 +1782,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %600 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %599, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef -2147483648) #6
   %601 = load i32, ptr @hf_9P_wname, align 4
   %602 = load i32, ptr @ett_9P_wname, align 4
-  %603 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 36, i32 noundef %601, i32 noundef %602), !range !4
+  %603 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 36, i32 noundef %601, i32 noundef %602)
   %604 = add nuw nsw i32 %603, 36
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef %26, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1806,7 +1806,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %618 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %617, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648) #6
   %619 = load i32, ptr @hf_9P_wname, align 4
   %620 = load i32, ptr @ett_9P_wname, align 4
-  %621 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 32, i32 noundef %619, i32 noundef %620), !range !4
+  %621 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 32, i32 noundef %619, i32 noundef %620)
   %622 = add nuw nsw i32 %621, 32
   call fastcc void @conv_free_tag(ptr noundef nonnull %1, i16 noundef zeroext %33)
   br label %conv_free_tag.exit
@@ -1824,7 +1824,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.399, ptr noundef %631) #6
   %632 = load i32, ptr @hf_9P_wname, align 4
   %633 = load i32, ptr @ett_9P_wname, align 4
-  %634 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %632, i32 noundef %633), !range !4
+  %634 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 15, i32 noundef %632, i32 noundef %633)
   %635 = add nuw nsw i32 %634, 15
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 70, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1837,7 +1837,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %639, ptr noundef nonnull @.str.399, ptr noundef %640) #6
   %641 = load i32, ptr @hf_9P_wname, align 4
   %642 = load i32, ptr @ett_9P_wname, align 4
-  %643 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %641, i32 noundef %642), !range !4
+  %643 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %641, i32 noundef %642)
   %644 = add nuw nsw i32 %643, 11
   %645 = load i32, ptr @hf_9P_statmode, align 4
   %646 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %645, ptr noundef %0, i32 noundef %644, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1857,7 +1857,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %654, ptr noundef nonnull @.str.399, ptr noundef %655) #6
   %656 = load i32, ptr @hf_9P_wname, align 4
   %657 = load i32, ptr @ett_9P_wname, align 4
-  %658 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %656, i32 noundef %657), !range !4
+  %658 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %656, i32 noundef %657)
   %659 = add nuw nsw i32 %658, 11
   %660 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %659) #6
   %661 = load i32, ptr @hf_9P_newfid, align 4
@@ -1867,7 +1867,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   %664 = add nuw nsw i32 %658, 15
   %665 = load i32, ptr @hf_9P_wname, align 4
   %666 = load i32, ptr @ett_9P_wname, align 4
-  %667 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %664, i32 noundef %665, i32 noundef %666), !range !4
+  %667 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef %664, i32 noundef %665, i32 noundef %666)
   %668 = add nuw nsw i32 %667, %664
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 74, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -1880,7 +1880,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %672, ptr noundef nonnull @.str.399, ptr noundef %673) #6
   %674 = load i32, ptr @hf_9P_wname, align 4
   %675 = load i32, ptr @ett_9P_wname, align 4
-  %676 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %674, i32 noundef %675), !range !4
+  %676 = call fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %39, i32 noundef 11, i32 noundef %674, i32 noundef %675)
   %677 = add nuw nsw i32 %676, 11
   %678 = load i32, ptr @hf_9P_unlinkat_flags, align 4
   %679 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %678, ptr noundef %0, i32 noundef %677, i32 noundef 4, i32 noundef -2147483648) #6
@@ -2108,7 +2108,7 @@ _9p_hash_set.exit:                                ; preds = %2, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65538) i32 @_9p_dissect_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #6
   %7 = add i32 %2, 2
   %8 = zext i16 %6 to i32
@@ -2693,7 +2693,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 65538}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

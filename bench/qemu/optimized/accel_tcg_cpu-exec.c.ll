@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [29 x i8] c"../qemu/accel/tcg/cpu-exec.c\00", align 1
 @one_insn_per_tb = external local_unnamed_addr global i8, align 1
 @tcg_code_gen_epilogue = external local_unnamed_addr global ptr, align 8
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @__func__.cpu_exec_step_atomic = private unnamed_addr constant [21 x i8] c"cpu_exec_step_atomic\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"cpu == current_cpu\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"!cpu->running\00", align 1
@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [44 x i8] c"%d@%zu.%06zu:exec_tb_exit tb:%p flags=0x%x\0A\00", align 1
 @.str.11 = private unnamed_addr constant [31 x i8] c"exec_tb_exit tb:%p flags=0x%x\0A\00", align 1
 @__func__.cpu_exec_longjmp_cleanup = private unnamed_addr constant [25 x i8] c"cpu_exec_longjmp_cleanup\00", align 1
-@helper_retaddr = external thread_local global i64, align 8
+@helper_retaddr = external thread_local local_unnamed_addr global i64, align 8
 @.str.12 = private unnamed_addr constant [97 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/rcu.h\00", align 1
 @rcu_gp_ctr = external local_unnamed_addr global i64, align 8
 @use_icount = external local_unnamed_addr global i32, align 4

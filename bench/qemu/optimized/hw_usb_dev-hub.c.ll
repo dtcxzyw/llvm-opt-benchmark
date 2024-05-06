@@ -496,7 +496,7 @@ trace_usb_hub_get_port_status.exit:               ; preds = %if.end17, %land.lhs
   store i8 %conv25, ptr %data, align 1
   %18 = load i16, ptr %wPortStatus, align 8
   %19 = lshr i16 %18, 8
-  %conv29 = trunc i16 %19 to i8
+  %conv29 = trunc nuw i16 %19 to i8
   %arrayidx30 = getelementptr i8, ptr %data, i64 1
   store i8 %conv29, ptr %arrayidx30, align 1
   %20 = load i16, ptr %wPortChange, align 2
@@ -505,7 +505,7 @@ trace_usb_hub_get_port_status.exit:               ; preds = %if.end17, %land.lhs
   store i8 %conv32, ptr %arrayidx33, align 1
   %21 = load i16, ptr %wPortChange, align 2
   %22 = lshr i16 %21, 8
-  %conv37 = trunc i16 %22 to i8
+  %conv37 = trunc nuw i16 %22 to i8
   %arrayidx38 = getelementptr i8, ptr %data, i64 3
   store i8 %conv37, ptr %arrayidx38, align 1
   %actual_length39 = getelementptr inbounds i8, ptr %p, i64 88

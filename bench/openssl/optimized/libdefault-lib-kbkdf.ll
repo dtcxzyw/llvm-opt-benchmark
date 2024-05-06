@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kbkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kbkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %outlen.addr.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -289,7 +289,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -436,7 +436,7 @@ if.end45:                                         ; preds = %if.end34
   %20 = load i32, ptr %use_separator, align 8
   %r51 = getelementptr inbounds i8, ptr %vctx, i64 24
   %21 = load i32, ptr %r51, align 8
-  %call52 = tail call fastcc i32 @derive(ptr noundef %12, i32 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef nonnull %call41, i64 noundef %call19, i32 noundef %l.0, i32 noundef %20, ptr noundef %key, i64 noundef %keylen, i32 noundef %21), !range !4
+  %call52 = tail call fastcc i32 @derive(ptr noundef %12, i32 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef nonnull %call41, i64 noundef %call19, i32 noundef %l.0, i32 noundef %20, ptr noundef %key, i64 noundef %keylen, i32 noundef %21)
   br label %done
 
 done:                                             ; preds = %if.end45, %kmac_derive.exit
@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %new_r = alloca i32, align 4
   %0 = load ptr, ptr %vctx, align 8
@@ -661,7 +661,7 @@ if.then102:                                       ; preds = %land.lhs.true99
 land.lhs.true105:                                 ; preds = %if.then102
   %15 = load ptr, ptr %label, align 8
   %16 = load i64, ptr %label_len, align 8
-  %call109 = call fastcc i32 @kmac_init(ptr noundef nonnull %12, ptr noundef %15, i64 noundef %16), !range !4
+  %call109 = call fastcc i32 @kmac_init(ptr noundef nonnull %12, ptr noundef %15, i64 noundef %16)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %return, label %land.lhs.true105.lor.lhs.false111_crit_edge
 
@@ -734,7 +734,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @EVP_MAC_CTX_get_mac_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef %k_i, i64 noundef %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef %ko_len, i32 noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef %k_i, i64 noundef %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef %ko_len, i32 noundef %r) unnamed_addr #0 {
 entry:
   %l.addr = alloca i32, align 4
   %zero = alloca i8, align 1
@@ -826,7 +826,7 @@ if.end38:                                         ; preds = %lor.lhs.false34
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %call5) #7
   %inc = add i32 %counter.029, 1
   %cmp3 = icmp ult i64 %add, %ko_len
-  br i1 %cmp3, label %for.body, label %done, !llvm.loop !5
+  br i1 %cmp3, label %for.body, label %done, !llvm.loop !4
 
 done:                                             ; preds = %for.body, %land.lhs.true, %lor.lhs.false34, %land.lhs.true31, %lor.lhs.false26, %land.lhs.true23, %lor.lhs.false, %if.end14, %if.end38, %if.end
   %ctx.1 = phi ptr [ null, %if.end ], [ null, %if.end38 ], [ %call5, %if.end14 ], [ %call5, %lor.lhs.false ], [ %call5, %land.lhs.true23 ], [ %call5, %lor.lhs.false26 ], [ %call5, %land.lhs.true31 ], [ %call5, %lor.lhs.false34 ], [ %call5, %land.lhs.true ], [ null, %for.body ]
@@ -869,7 +869,7 @@ declare i32 @ossl_param_get1_concat_octet_string(ptr noundef, ptr noundef, ptr n
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @kmac_init(ptr noundef %ctx, ptr noundef %custom, i64 noundef %customlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kmac_init(ptr noundef %ctx, ptr noundef %custom, i64 noundef %customlen) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -933,6 +933,5 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -264,7 +264,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.248 = private unnamed_addr constant [23 x i8] c"assertion failed: itmp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ocsp_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ocsp_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %cbio = alloca ptr, align 8
   %cert_id_md = alloca ptr, align 8
@@ -1268,7 +1268,7 @@ redo_accept.outer:                                ; preds = %if.end509, %if.end3
 
 redo_accept.us:                                   ; preds = %redo_accept.outer, %if.end366.us
   %rdb.1.us = phi ptr [ %rdb.2.us, %if.end366.us ], [ %rdb.1.ph, %redo_accept.outer ]
-  %call356.us = call fastcc i32 @index_changed(ptr noundef %rdb.1.us), !range !7
+  %call356.us = call fastcc i32 @index_changed(ptr noundef %rdb.1.us)
   %tobool357.not.us = icmp eq i32 %call356.us, 0
   br i1 %tobool357.not.us, label %if.end366.us, label %if.then358.us
 
@@ -1638,7 +1638,7 @@ if.end577:                                        ; preds = %if.then572, %if.els
   %79 = load ptr, ptr %req, align 8
   %80 = load i64, ptr %nsec, align 8
   %81 = load i64, ptr %maxage, align 8
-  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef nonnull %call535, ptr noundef %79, ptr noundef nonnull %call, ptr noundef %call1, i64 noundef %80, i64 noundef %81), !range !7
+  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef nonnull %call535, ptr noundef %79, ptr noundef nonnull %call, ptr noundef %call1, i64 noundef %80, i64 noundef %81)
   %tobool579.not = icmp eq i32 %call578, 0
   %spec.select158 = select i1 %tobool579.not, i32 1, i32 %ret.0
   br label %end
@@ -1789,7 +1789,7 @@ declare void @socket_timeout(i32 noundef) #1
 declare void @trace_log_message(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @index_changed(ptr noundef readonly %rdb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly %rdb) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %cmp.not = icmp eq ptr %rdb, null
@@ -1944,7 +1944,7 @@ for.body26.us:                                    ; preds = %for.body26.lr.ph, %
   %call23.us = call i32 @OPENSSL_sk_num(ptr noundef %ca) #9
   %cmp24.us = icmp slt i32 %inc.us, %call23.us
   %1 = and i1 %cmp31.us, %cmp24.us
-  br i1 %1, label %for.body26.us, label %for.end, !llvm.loop !8
+  br i1 %1, label %for.body26.us, label %for.end, !llvm.loop !7
 
 if.then18:                                        ; preds = %for.body
   %call19 = call ptr @OCSP_response_create(i32 noundef 2, ptr noundef null) #9
@@ -1970,7 +1970,7 @@ if.end39:                                         ; preds = %if.then33, %for.bod
   %call23 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #9
   %cmp24 = icmp slt i32 %inc, %call23
   %2 = and i1 %cmp31, %cmp24
-  br i1 %2, label %for.body26, label %for.end, !llvm.loop !8
+  br i1 %2, label %for.body26, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end39, %for.body26.us, %for.cond21.preheader
   %cid_resp_md.0.lcssa = phi ptr [ null, %for.cond21.preheader ], [ null, %for.body26.us ], [ %cid_resp_md.1, %if.end39 ]
@@ -2093,7 +2093,7 @@ if.end86:                                         ; preds = %if.else, %if.then56
 for.inc87:                                        ; preds = %if.end86, %if.then45
   %inc88 = add nuw nsw i32 %i.068, 1
   %exitcond.not = icmp eq i32 %inc88, %call
-  br i1 %exitcond.not, label %for.end89, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end89, label %for.body, !llvm.loop !8
 
 for.end89:                                        ; preds = %for.inc87
   %call90 = call i32 @OCSP_copy_nonce(ptr noundef %call2, ptr noundef %req) #9
@@ -2119,7 +2119,7 @@ for.cond99:                                       ; preds = %for.body104
   %inc115 = add nuw nsw i32 %i.171, 1
   %call101 = call i32 @OPENSSL_sk_num(ptr noundef %sigopts) #9
   %cmp102 = icmp slt i32 %inc115, %call101
-  br i1 %cmp102, label %for.body104, label %for.end116, !llvm.loop !10
+  br i1 %cmp102, label %for.body104, label %for.end116, !llvm.loop !9
 
 for.body104:                                      ; preds = %for.cond99.preheader, %for.cond99
   %i.171 = phi i32 [ %inc115, %for.cond99 ], [ 0, %for.cond99.preheader ]
@@ -2240,7 +2240,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_ocsp_summary(ptr noundef %out, ptr noundef %bs, ptr noundef readnone %req, ptr noundef %names, ptr noundef %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %out, ptr noundef %bs, ptr noundef readnone %req, ptr noundef %names, ptr noundef %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %reason = alloca i32, align 4
@@ -2340,7 +2340,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %inc = add nuw nsw i32 %i.024, 1
   %call10 = call i32 @OPENSSL_sk_num(ptr noundef %ids) #9
   %cmp11 = icmp slt i32 %inc, %call10
-  br i1 %cmp11, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp11, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %lor.lhs.false3, %entry, %lor.lhs.false
   %retval.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %entry ], [ 0, %lor.lhs.false3 ], [ 1, %for.cond.preheader ], [ %ret.1, %for.inc ]
@@ -2514,8 +2514,7 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

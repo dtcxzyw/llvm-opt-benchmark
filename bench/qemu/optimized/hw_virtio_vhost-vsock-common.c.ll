@@ -78,7 +78,7 @@ declare i64 @vhost_get_features(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_vsock_common_start(ptr noundef %vdev) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_vsock_common_start(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #6
   %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6

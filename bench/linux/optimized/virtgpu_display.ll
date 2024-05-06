@@ -439,7 +439,7 @@ declare dso_local void @virtio_gpu_notify(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_atomic_helper_connector_reset(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @virtio_gpu_conn_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #5 align 16 {
+define internal range(i32 1, 3) i32 @virtio_gpu_conn_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #5 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2120
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -518,7 +518,7 @@ define internal i32 @virtio_gpu_conn_get_modes(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtio_gpu_conn_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @virtio_gpu_conn_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 2116

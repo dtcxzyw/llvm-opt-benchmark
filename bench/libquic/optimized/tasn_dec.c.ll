@@ -112,17 +112,17 @@ if.then12:                                        ; preds = %if.then8
   br label %err
 
 if.end13:                                         ; preds = %if.then8
-  %call = tail call fastcc i32 @asn1_template_ex_d2i(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %3, i8 noundef signext 0, ptr noundef %ctx), !range !7
+  %call = tail call fastcc i32 @asn1_template_ex_d2i(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %3, i8 noundef signext 0, ptr noundef %ctx)
   br label %return
 
 if.end15:                                         ; preds = %sw.bb
-  %call16 = tail call fastcc i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call16 = tail call fastcc i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end6
   %4 = load ptr, ptr %in, align 8
   store ptr %4, ptr %p, align 8
-  %call18 = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef nonnull %otag, ptr noundef nonnull %oclass, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef -1, i32 noundef 0, i8 noundef signext 1, ptr noundef %ctx), !range !7
+  %call18 = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef nonnull %otag, ptr noundef nonnull %oclass, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef -1, i32 noundef 0, i8 noundef signext 1, ptr noundef %ctx)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
@@ -172,7 +172,7 @@ if.end36:                                         ; preds = %if.then33
 
 if.end37:                                         ; preds = %ASN1_tag2bit.exit
   %9 = load i64, ptr %len.addr, align 8
-  %call38 = call fastcc i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef nonnull %in, i64 noundef %9, ptr noundef nonnull %it, i32 noundef %6, i32 noundef 0, i8 noundef signext 0, ptr noundef %ctx), !range !7
+  %call38 = call fastcc i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef nonnull %in, i64 noundef %9, ptr noundef nonnull %it, i32 noundef %6, i32 noundef 0, i8 noundef signext 0, ptr noundef %ctx)
   br label %return
 
 sw.bb39:                                          ; preds = %if.end6
@@ -199,7 +199,7 @@ if.then48:                                        ; preds = %if.then45
 
 if.end52:                                         ; preds = %if.then45, %if.then48
   %exptag.0 = phi i32 [ %conv50, %if.then48 ], [ %tag, %if.then45 ]
-  %call53 = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %exptag.0, i32 noundef %aclass, i8 noundef signext 1, ptr noundef %ctx), !range !7
+  %call53 = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %exptag.0, i32 noundef %aclass, i8 noundef signext 1, ptr noundef %ctx)
   switch i32 %call53, label %if.end61 [
     i32 0, label %if.then55
     i32 -1, label %return
@@ -317,7 +317,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tt.0223 = phi ptr [ %29, %for.body.preheader ], [ %incdec.ptr, %for.inc ]
   %call115 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef %tt.0223) #7
   %30 = load i64, ptr %len.addr, align 8
-  %call116 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call115, ptr noundef nonnull %p, i64 noundef %30, ptr noundef %tt.0223, i8 noundef signext 1, ptr noundef %ctx), !range !7
+  %call116 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call115, ptr noundef nonnull %p, i64 noundef %30, ptr noundef %tt.0223, i8 noundef signext 1, ptr noundef %ctx)
   switch i32 %call116, label %for.body.for.end.loopexit_crit_edge [
     i32 -1, label %for.inc
     i32 0, label %if.end124
@@ -336,7 +336,7 @@ for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %tt.0223, i64 40
   %31 = load i64, ptr %tcount112, align 8
   %cmp113 = icmp sgt i64 %31, %indvars.iv.next248
-  br i1 %cmp113, label %for.body, label %for.end.loopexit, !llvm.loop !8
+  br i1 %cmp113, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc, %for.body.for.end.loopexit_crit_edge
   %.pre253 = phi i64 [ %.pre253.pre, %for.body.for.end.loopexit_crit_edge ], [ %31, %for.inc ]
@@ -383,7 +383,7 @@ sw.bb141:                                         ; preds = %if.end6, %if.end6
   %cmp142 = icmp eq i32 %tag, -1
   %spec.select = select i1 %cmp142, i32 0, i32 %aclass
   %spec.select171 = select i1 %cmp142, i32 16, i32 %tag
-  %call146 = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len.addr, ptr noundef null, ptr noundef null, ptr noundef nonnull %seq_eoc, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %spec.select171, i32 noundef %spec.select, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call146 = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len.addr, ptr noundef null, ptr noundef null, ptr noundef nonnull %seq_eoc, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %spec.select171, i32 noundef %spec.select, i8 noundef signext %opt, ptr noundef %ctx)
   switch i32 %call146, label %if.end154 [
     i32 0, label %if.then148
     i32 -1, label %return
@@ -479,7 +479,7 @@ for.inc191:                                       ; preds = %for.body183, %if.th
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr193 = getelementptr inbounds i8, ptr %tt.1209, i64 40
   %cmp181 = icmp sgt i64 %45, %indvars.iv.next
-  br i1 %cmp181, label %for.body183, label %for.end194, !llvm.loop !10
+  br i1 %cmp181, label %for.body183, label %for.end194, !llvm.loop !9
 
 for.end194:                                       ; preds = %for.inc191
   %.pre251 = load ptr, ptr %templates177, align 8
@@ -550,7 +550,7 @@ if.else229:                                       ; preds = %if.end222
 
 if.end233:                                        ; preds = %if.end222, %if.else229
   %isopt.0 = phi i8 [ %conv232, %if.else229 ], [ 0, %if.end222 ]
-  %call234 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call208, ptr noundef nonnull %p, i64 noundef %46, ptr noundef nonnull %call204, i8 noundef signext %isopt.0, ptr noundef %ctx), !range !7
+  %call234 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call208, ptr noundef nonnull %p, i64 noundef %46, ptr noundef nonnull %call204, i8 noundef signext %isopt.0, ptr noundef %ctx)
   switch i32 %call234, label %if.end242 [
     i32 0, label %err
     i32 -1, label %if.then240
@@ -575,7 +575,7 @@ for.inc247:                                       ; preds = %if.end242, %if.then
   %incdec.ptr249 = getelementptr inbounds i8, ptr %tt.2212, i64 40
   %57 = load i64, ptr %tcount180, align 8
   %cmp199 = icmp sgt i64 %57, %indvars.iv.next241
-  br i1 %cmp199, label %for.body201, label %for.end250thread-pre-split.loopexit, !llvm.loop !11
+  br i1 %cmp199, label %for.body201, label %for.end250thread-pre-split.loopexit, !llvm.loop !10
 
 for.end250thread-pre-split.loopexit:              ; preds = %for.inc247
   %indvars.le = trunc i64 %indvars.iv.next241 to i32
@@ -663,7 +663,7 @@ if.then277:                                       ; preds = %if.end273
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %65 = load i64, ptr %tcount180, align 8
   %cmp266 = icmp sgt i64 %65, %indvars.iv.next244
-  br i1 %cmp266, label %for.body268, label %for.end285, !llvm.loop !12
+  br i1 %cmp266, label %for.body268, label %for.end285, !llvm.loop !11
 
 if.else280:                                       ; preds = %if.end273
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 486) #7
@@ -730,16 +730,16 @@ return:                                           ; preds = %if.then305, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_template_d2i(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %len, ptr noundef %tt) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @ASN1_template_d2i(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %len, ptr noundef %tt) local_unnamed_addr #1 {
 entry:
   %c = alloca %struct.ASN1_TLC_st, align 8
   store i8 0, ptr %c, align 8
-  %call = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %pval, ptr noundef %in, i64 noundef %len, ptr noundef %tt, i8 noundef signext 0, ptr noundef nonnull %c), !range !7
+  %call = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %pval, ptr noundef %in, i64 noundef %len, ptr noundef %tt, i8 noundef signext 0, ptr noundef nonnull %c)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_template_ex_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %tt, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_template_ex_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %tt, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %len = alloca i64, align 8
   %p = alloca ptr, align 8
@@ -762,7 +762,7 @@ if.then4:                                         ; preds = %if.end
   %tag = getelementptr inbounds i8, ptr %tt, i64 8
   %2 = load i64, ptr %tag, align 8
   %conv5 = trunc i64 %2 to i32
-  %call = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len, ptr noundef null, ptr noundef null, ptr noundef nonnull %exp_eoc, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef %conv5, i32 noundef %and, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len, ptr noundef null, ptr noundef null, ptr noundef nonnull %exp_eoc, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef %conv5, i32 noundef %and, i8 noundef signext %opt, ptr noundef %ctx)
   %3 = load ptr, ptr %p, align 8
   switch i32 %call, label %if.end11 [
     i32 0, label %if.then7
@@ -784,7 +784,7 @@ if.then13:                                        ; preds = %if.end11
 
 if.end14:                                         ; preds = %if.end11
   %5 = load i64, ptr %len, align 8
-  %call15 = call fastcc i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr noundef nonnull %p, i64 noundef %5, ptr noundef nonnull %tt, i8 noundef signext 0, ptr noundef %ctx), !range !7
+  %call15 = call fastcc i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr noundef nonnull %p, i64 noundef %5, ptr noundef nonnull %tt, i8 noundef signext 0, ptr noundef %ctx)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end18
 
@@ -836,7 +836,7 @@ if.then27:                                        ; preds = %if.else25
   br label %err
 
 if.else30:                                        ; preds = %if.end
-  %call31 = tail call fastcc i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr noundef nonnull %in, i64 noundef %inlen, ptr noundef nonnull %tt, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call31 = tail call fastcc i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr noundef nonnull %in, i64 noundef %inlen, ptr noundef nonnull %tt, i8 noundef signext %opt, ptr noundef %ctx)
   br label %return
 
 if.end32:                                         ; preds = %asn1_check_eoc.exit, %if.else25
@@ -856,7 +856,7 @@ return:                                           ; preds = %if.then4, %entry, %
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_d2i_ex_primitive(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_d2i_ex_primitive(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag.i.i = alloca i32, align 4
   %pclass.i.i = alloca i32, align 4
@@ -909,7 +909,7 @@ if.then14:                                        ; preds = %if.end12
 if.end15:                                         ; preds = %if.end12
   %2 = load ptr, ptr %in, align 8
   store ptr %2, ptr %p, align 8
-  %call = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef nonnull %utype, ptr noundef nonnull %oclass, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef %ctx), !range !7
+  %call = call fastcc i32 @asn1_check_tlen(ptr noundef null, ptr noundef nonnull %utype, ptr noundef nonnull %oclass, ptr noundef null, ptr noundef null, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef %ctx)
   %tobool16.not = icmp eq i32 %call, 0
   br i1 %tobool16.not, label %if.then17, label %if.end18
 
@@ -938,7 +938,7 @@ if.end24:                                         ; preds = %if.end18.if.end24_c
   %spec.select30 = select i1 %cmp25, i32 %4, i32 %tag.addr.034
   %5 = load ptr, ptr %in, align 8
   store ptr %5, ptr %p, align 8
-  %call29 = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %plen, ptr noundef null, ptr noundef null, ptr noundef nonnull %inf, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef %spec.select30, i32 noundef %spec.select, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call29 = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %plen, ptr noundef null, ptr noundef null, ptr noundef nonnull %inf, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef %spec.select30, i32 noundef %spec.select, i8 noundef signext %opt, ptr noundef %ctx)
   switch i32 %call29, label %if.end37 [
     i32 0, label %if.then31
     i32 -1, label %return
@@ -1021,7 +1021,7 @@ while.cond.backedge.i:                            ; preds = %if.else.i, %if.then
   %len.addr.0.be.i = phi i64 [ %sub.i, %if.end8.i ], [ %.pre45.i, %if.else.i ], [ %sub.i.i, %if.then15.i ]
   %expected_eoc.0.be.i = phi i32 [ %dec.i, %if.end8.i ], [ %expected_eoc.041.i, %if.else.i ], [ %inc.i, %if.then15.i ]
   %cmp2.i = icmp sgt i64 %len.addr.0.be.i, 0
-  br i1 %cmp2.i, label %while.body.i, label %while.end.i, !llvm.loop !13
+  br i1 %cmp2.i, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 if.end9.i:                                        ; preds = %land.lhs.true.i.i, %if.end.i.i, %while.body.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ptag.i.i)
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %err, %if.then110, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr nocapture noundef %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr nocapture noundef %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag = alloca i32, align 4
   %pclass = alloca i32, align 4
@@ -1656,7 +1656,7 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_template_noexp_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr noundef %tt, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr noundef %tt, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %len.addr = alloca i64, align 8
   %p = alloca ptr, align 8
@@ -1693,7 +1693,7 @@ if.else:                                          ; preds = %if.then4
 if.end14:                                         ; preds = %if.else, %if.then7
   %sktag.0 = phi i32 [ %conv8, %if.then7 ], [ %., %if.else ]
   %skaclass.0 = phi i32 [ %and, %if.then7 ], [ 0, %if.else ]
-  %call = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len.addr, ptr noundef null, ptr noundef null, ptr noundef nonnull %sk_eoc, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %sktag.0, i32 noundef %skaclass.0, i8 noundef signext %opt, ptr noundef %ctx), !range !7
+  %call = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len.addr, ptr noundef null, ptr noundef null, ptr noundef nonnull %sk_eoc, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, i32 noundef %sktag.0, i32 noundef %skaclass.0, i8 noundef signext %opt, ptr noundef %ctx)
   switch i32 %call, label %if.end21 [
     i32 0, label %if.then16
     i32 -1, label %return
@@ -1729,7 +1729,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @ASN1_item_ex_free(ptr noundef nonnull %vtmp, ptr noundef %4) #7
   %call26 = call i64 @sk_num(ptr noundef nonnull %3) #7
   %cmp27.not = icmp eq i64 %call26, 0
-  br i1 %cmp27.not, label %if.end30thread-pre-split, label %while.body, !llvm.loop !14
+  br i1 %cmp27.not, label %if.end30thread-pre-split, label %while.body, !llvm.loop !13
 
 if.end30thread-pre-split:                         ; preds = %while.body, %while.cond.preheader
   %.pr = load ptr, ptr %val, align 8
@@ -1803,7 +1803,7 @@ if.end49:                                         ; preds = %if.end44
   %15 = load ptr, ptr %skfield, align 8
   %call54 = call i64 @sk_push(ptr noundef %14, ptr noundef %15) #7
   %tobool55.not = icmp eq i64 %call54, 0
-  br i1 %tobool55.not, label %if.then56, label %while.cond34, !llvm.loop !15
+  br i1 %tobool55.not, label %if.then56, label %while.cond34, !llvm.loop !14
 
 if.then56:                                        ; preds = %if.end49
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 668) #7
@@ -1875,7 +1875,7 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_collect(ptr noundef %buf, ptr nocapture noundef %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef %depth) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @asn1_collect(ptr noundef %buf, ptr nocapture noundef %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef %depth) unnamed_addr #1 {
 entry:
   %ptag.i = alloca i32, align 4
   %pclass.i = alloca i32, align 4
@@ -2036,7 +2036,7 @@ if.end30:                                         ; preds = %if.end19.if.end30_c
   %sub.ptr.sub.neg = add i64 %len.addr.041, %sub.ptr.rhs.cast
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
   %cmp = icmp sgt i64 %sub, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
   %11 = phi ptr [ %0, %while.cond.preheader ], [ %10, %if.end30 ]
@@ -2088,13 +2088,12 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -1, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
-define i32 @crypto_verify_16(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
+define range(i32 -1, 65535) i32 @crypto_verify_16(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
 entry:
   %v1.i = alloca <2 x i64>, align 16
   %v2.i = alloca <2 x i64>, align 16
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
-define i32 @crypto_verify_32(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
+define range(i32 -1, 65535) i32 @crypto_verify_32(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
 entry:
   %v1.i = alloca <2 x i64>, align 16
   %v2.i = alloca <2 x i64>, align 16
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
-define i32 @crypto_verify_64(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
+define range(i32 -1, 65535) i32 @crypto_verify_64(ptr noundef nonnull %x, ptr noundef nonnull %y) local_unnamed_addr #1 {
 entry:
   %v1.i = alloca <2 x i64>, align 16
   %v2.i = alloca <2 x i64>, align 16

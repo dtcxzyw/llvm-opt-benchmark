@@ -112,7 +112,7 @@ for.body3.i:                                      ; preds = %for.body.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body3.i, %for.body.i
   %num.0.lcssa.i = phi i32 [ 0, %for.body.i ], [ %inc.i, %for.body3.i ]
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw i64 %indvars.iv.i to i32
   %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.16, i32 noundef %2, i32 noundef %num.0.lcssa.i) #2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr %num_nodes.i, align 8
@@ -155,7 +155,7 @@ for.body3:                                        ; preds = %for.body, %for.body
 
 for.end:                                          ; preds = %for.body3, %for.body
   %num.0.lcssa = phi i32 [ 0, %for.body ], [ %inc, %for.body3 ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw i64 %indvars.iv to i32
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.16, i32 noundef %2, i32 noundef %num.0.lcssa) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %num_nodes, align 8

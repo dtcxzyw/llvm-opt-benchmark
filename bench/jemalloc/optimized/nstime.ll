@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nstime_msec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 18446744073710) i64 @nstime_msec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %div = udiv i64 %0, 1000000
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nstime_sec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 18446744074) i64 @nstime_sec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %div = udiv i64 %0, 1000000000
@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nstime_nsec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 1000000000) i64 @nstime_nsec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %rem = urem i64 %0, 1000000000
@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nstime_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @nstime_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8

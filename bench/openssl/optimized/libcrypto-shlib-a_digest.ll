@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ASN1_digest = private unnamed_addr constant [12 x i8] c"ASN1_digest\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_digest(ptr nocapture noundef readonly %i2d, ptr noundef %type, ptr noundef %data, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_digest(ptr nocapture noundef readonly %i2d, ptr noundef %type, ptr noundef %data, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call i32 %i2d(ptr noundef %data, ptr noundef null) #2

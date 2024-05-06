@@ -38,7 +38,7 @@ define i32 @LAPACKE_dgbtrf_work(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   %19 = shl nsw i32 %3, 1
   %20 = add nsw i32 %19, %4
   %21 = icmp slt i32 %20, 0
-  %22 = add nsw i32 %20, 1
+  %22 = add nuw nsw i32 %20, 1
   %23 = select i1 %21, i32 1, i32 %22
   store i32 %23, ptr %15, align 4, !tbaa !3
   %24 = icmp slt i32 %6, %2

@@ -293,7 +293,7 @@ define void @opal_sha256_final(ptr nocapture noundef %0, ptr nocapture noundef w
   %42 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 %41, ptr %42, align 1
   %43 = lshr i64 %22, 56
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw i64 %43 to i8
   %45 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 %44, ptr %45, align 8
   tail call fastcc void @sha256_transform(ptr noundef nonnull %0, ptr noundef nonnull %0)

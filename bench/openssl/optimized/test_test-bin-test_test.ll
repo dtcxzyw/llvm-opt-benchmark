@@ -458,7 +458,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_int() #0 {
+define internal range(i32 0, 2) i32 @test_int() #0 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 35, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef 1) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -605,7 +605,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_uint() #0 {
+define internal range(i32 0, 2) i32 @test_uint() #0 {
 entry:
   %call = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 58, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.49, i32 noundef 3, i32 noundef 3) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -752,7 +752,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_char() #0 {
+define internal range(i32 0, 2) i32 @test_char() #0 {
 entry:
   %call = tail call i32 @test_char_eq(ptr noundef nonnull @.str.24, i32 noundef 81, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.72, i8 noundef signext 97, i8 noundef signext 97) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -899,7 +899,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_uchar() #0 {
+define internal range(i32 0, 2) i32 @test_uchar() #0 {
 entry:
   %call = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.24, i32 noundef 104, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.95, i8 noundef zeroext 49, i8 noundef zeroext 49) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_long() #0 {
+define internal range(i32 0, 2) i32 @test_long() #0 {
 entry:
   %call = tail call i32 @test_long_eq(ptr noundef nonnull @.str.24, i32 noundef 127, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.117, i64 noundef 123, i64 noundef 123) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1193,7 +1193,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ulong() #0 {
+define internal range(i32 0, 2) i32 @test_ulong() #0 {
 entry:
   %call = tail call i32 @test_ulong_eq(ptr noundef nonnull @.str.24, i32 noundef 150, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.140, i64 noundef 919, i64 noundef 919) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1340,7 +1340,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_size_t() #0 {
+define internal range(i32 0, 2) i32 @test_size_t() #0 {
 entry:
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.24, i32 noundef 173, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.163, i64 noundef 10, i64 noundef 10) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1487,7 +1487,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_time_t() #0 {
+define internal range(i32 0, 2) i32 @test_time_t() #0 {
 entry:
   %call = tail call i32 @test_time_t_eq(ptr noundef nonnull @.str.24, i32 noundef 196, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.185, i64 noundef 10, i64 noundef 10) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1634,7 +1634,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_pointer() #0 {
+define internal range(i32 0, 2) i32 @test_pointer() #0 {
 entry:
   %x = alloca i32, align 4
   %y = alloca i8, align 1
@@ -1785,7 +1785,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bool() #0 {
+define internal range(i32 0, 2) i32 @test_bool() #0 {
 entry:
   %call = tail call i32 @test_true(ptr noundef nonnull @.str.24, i32 noundef 245, ptr noundef nonnull @.str.224, i32 noundef 0) #4
   %cmp.not.i = icmp eq i32 %call, 0
@@ -1832,7 +1832,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_string() #0 {
+define internal range(i32 0, 2) i32 @test_string() #0 {
 entry:
   %call = tail call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 260, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.209, ptr noundef null, ptr noundef null) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -1979,7 +1979,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_memory() #0 {
+define internal range(i32 0, 2) i32 @test_memory() #0 {
 entry:
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 285, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.209, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #4
   %cmp.not.i = icmp eq i32 %call, 1
@@ -2096,7 +2096,7 @@ return:                                           ; preds = %test_case.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_memory_overflow() #0 {
+define internal range(i32 0, 2) i32 @test_memory_overflow() #0 {
 entry:
   %call2 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 309, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.272, ptr noundef nonnull @.str.268, i64 noundef 52, ptr noundef nonnull @.str.269, i64 noundef 52) #4
   %cmp.not.i = icmp eq i32 %call2, 0
@@ -2113,7 +2113,7 @@ test_case.exit:                                   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bignum() #0 {
+define internal range(i32 0, 2) i32 @test_bignum() #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -2764,7 +2764,7 @@ err:                                              ; preds = %124, %lor.lhs.false
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_long_bignum() #0 {
+define internal range(i32 0, 2) i32 @test_long_bignum() #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -2910,7 +2910,7 @@ land.end:                                         ; preds = %test_case.exit25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_long_output() #0 {
+define internal range(i32 0, 2) i32 @test_long_output() #0 {
 entry:
   %call = tail call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 395, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.272, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.348) #4
   %cmp.not.i = icmp eq i32 %call, 0
@@ -2971,7 +2971,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_single_eval() #0 {
+define internal range(i32 0, 2) i32 @test_single_eval() #0 {
 entry:
   %buf = alloca [4 x i8], align 4
   store i32 0, ptr %buf, align 4
@@ -3170,7 +3170,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bn_output(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_bn_output(i32 noundef %n) #0 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8

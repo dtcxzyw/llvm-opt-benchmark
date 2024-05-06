@@ -423,7 +423,7 @@ define dso_local i32 @__ipv6_dev_ac_inc(ptr noundef %0, ptr noundef %1) local_un
 declare dso_local void @sock_kfree_s(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ipv6_sock_ac_drop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @ipv6_sock_ac_drop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -691,7 +691,7 @@ declare dso_local i32 @ip6_ins_rt(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local void @addrconf_join_solict(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__ipv6_dev_ac_dec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_ac_dec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #6
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @__ipv6_dev_ac_dec.__already_done, align 1
@@ -1073,7 +1073,7 @@ define dso_local noundef zeroext i1 @ipv6_chk_acast_addr_src(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ac6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @ac6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @ac6_seq_ops, i32 noundef 24, ptr noundef null) #6

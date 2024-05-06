@@ -509,7 +509,7 @@ define internal i32 @dissect_dmx_sip(ptr noundef %0, ptr noundef %1, ptr noundef
   %50 = load i32, ptr @hf_dmx_sip_checksum_status, align 4
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %48
+.lr.ph.i:                                         ; preds = %48, %.lr.ph.i
   %.08.i = phi i32 [ %53, %.lr.ph.i ], [ 0, %48 ]
   %.067.i = phi i8 [ %52, %.lr.ph.i ], [ -49, %48 ]
   %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i) #2

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [28 x i8] c" MAX-EXCH AVG-EXCH MIN-EXCH\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 65568
   store i32 0, ptr %3, align 8
@@ -32,7 +32,7 @@ define noundef i32 @mca_common_ompio_initialize_print_queue(ptr nocapture nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @mca_common_ompio_register_print_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.mca_common_ompio_print_entry) align 8 %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @mca_common_ompio_register_print_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.mca_common_ompio_print_entry) align 8 %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 2047
@@ -60,7 +60,7 @@ define noundef i32 @mca_common_ompio_register_print_entry(ptr nocapture noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @mca_common_ompio_unregister_print_entry(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 1
@@ -87,7 +87,7 @@ define noundef i32 @mca_common_ompio_unregister_print_entry(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mca_common_ompio_empty_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -96,7 +96,7 @@ define i32 @mca_common_ompio_empty_print_queue(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mca_common_ompio_full_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2047

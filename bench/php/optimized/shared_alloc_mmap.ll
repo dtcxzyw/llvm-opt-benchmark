@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [7 x i8] c"[heap]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @create_segments(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [4096 x i8], align 16

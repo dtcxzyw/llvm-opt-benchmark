@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [2 x i8] c";\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @stripe_map(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -147,7 +147,7 @@ define dso_local noundef i32 @stripe_map(ptr nocapture noundef readonly %0, ptr 
 68:                                               ; preds = %61
   %69 = zext i32 %67 to i64
   %70 = urem i64 %63, %69
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   %72 = udiv i64 %63, %69
   br label %79
 
@@ -209,7 +209,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @dm_bio_get_target_bio_nr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @stripe_map_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @stripe_map_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -250,7 +250,7 @@ define internal fastcc noundef i32 @stripe_map_range(ptr nocapture noundef reado
 33:                                               ; preds = %26
   %34 = zext i32 %32 to i64
   %35 = urem i64 %28, %34
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = udiv i64 %28, %34
   br label %44
 
@@ -355,7 +355,7 @@ define internal fastcc noundef i32 @stripe_map_range(ptr nocapture noundef reado
 102:                                              ; preds = %97
   %103 = zext i32 %32 to i64
   %104 = urem i64 %101, %103
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw i64 %104 to i32
   %106 = udiv i64 %101, %103
   br label %113
 

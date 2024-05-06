@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ADIOI_GEN_Feature = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ADIOI_GEN_Feature(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ADIOI_GEN_Feature(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %1, -300
   %3 = icmp ult i32 %switch.tableidx, 8
   br i1 %3, label %switch.lookup, label %5

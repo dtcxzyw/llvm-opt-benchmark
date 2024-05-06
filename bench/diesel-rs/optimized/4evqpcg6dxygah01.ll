@@ -39,7 +39,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %19 = trunc i8 %.020 to i1
+  %19 = trunc nuw i8 %.020 to i1
   br i1 %19, label %102, label %101
 
 .thread:                                          ; preds = %5, %25
@@ -67,7 +67,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -96,7 +96,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -223,7 +223,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -304,7 +304,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %19 = trunc i8 %.020 to i1
+  %19 = trunc nuw i8 %.020 to i1
   br i1 %19, label %102, label %101
 
 .thread:                                          ; preds = %5, %25
@@ -332,7 +332,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -361,7 +361,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -488,7 +488,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -570,7 +570,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %20 = trunc i8 %.020 to i1
+  %20 = trunc nuw i8 %.020 to i1
   br i1 %20, label %102, label %101
 
 .thread:                                          ; preds = %25, %5
@@ -598,7 +598,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -627,7 +627,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -754,7 +754,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -836,7 +836,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %20 = trunc i8 %.020 to i1
+  %20 = trunc nuw i8 %.020 to i1
   br i1 %20, label %102, label %101
 
 .thread:                                          ; preds = %25, %5
@@ -864,7 +864,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -893,7 +893,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -1020,7 +1020,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %22 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %23 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i.i, %.noexc23 ]
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %13, i64 %15, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %13, i64 %15, i1 false), !noalias !180
   %25 = load i64, ptr %11, align 8, !alias.scope !169, !noalias !174, !noundef !9
   %26 = add i64 %25, %15
   store i64 %26, ptr %11, align 8, !alias.scope !169, !noalias !174
@@ -1267,7 +1267,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %21 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %22 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i, %.noexc23 ]
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %12, i64 %14, i1 false), !noalias !208
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %12, i64 %14, i1 false), !noalias !208
   %24 = load i64, ptr %11, align 8, !alias.scope !197, !noalias !202, !noundef !9
   %25 = add i64 %24, %14
   store i64 %25, ptr %11, align 8, !alias.scope !197, !noalias !202
@@ -1404,7 +1404,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %20 = trunc i8 %.020 to i1
+  %20 = trunc nuw i8 %.020 to i1
   br i1 %20, label %102, label %101
 
 .thread:                                          ; preds = %25, %5
@@ -1432,7 +1432,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -1461,7 +1461,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -1588,7 +1588,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -1670,7 +1670,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %20 = trunc i8 %.020 to i1
+  %20 = trunc nuw i8 %.020 to i1
   br i1 %20, label %102, label %101
 
 .thread:                                          ; preds = %25, %5
@@ -1698,7 +1698,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -1727,7 +1727,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -1854,7 +1854,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -1952,7 +1952,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %23 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %24 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i.i, %.noexc23 ]
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %14, i64 %16, i1 false), !noalias !323
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %14, i64 %16, i1 false), !noalias !323
   %26 = load i64, ptr %11, align 8, !alias.scope !312, !noalias !317, !noundef !9
   %27 = add i64 %26, %16
   store i64 %27, ptr %11, align 8, !alias.scope !312, !noalias !317
@@ -2088,7 +2088,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %19 = trunc i8 %.020 to i1
+  %19 = trunc nuw i8 %.020 to i1
   br i1 %19, label %102, label %101
 
 .thread:                                          ; preds = %5, %25
@@ -2116,7 +2116,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -2145,7 +2145,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -2272,7 +2272,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he24ba843238d9525E.exit35", %81
@@ -2436,7 +2436,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN9hashbrown11r
   %16 = getelementptr inbounds i8, ptr %15, i64 %9
   %17 = load i8, ptr %16, align 1, !noalias !375, !noundef !9
   %18 = lshr i64 %6, 57
-  %19 = trunc i64 %18 to i8
+  %19 = trunc nuw nsw i64 %18 to i8
   %20 = add i64 %9, -16
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !378, !noalias !375, !noundef !9
@@ -2716,7 +2716,7 @@ define void @"_ZN17all_about_updates1_117_$LT$impl$u20$diesel..query_builder..up
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %1, i64 76
   %15 = load i8, ptr %14, align 4, !range !10, !noundef !9
-  %16 = trunc i8 %15 to i1
+  %16 = trunc nuw i8 %15 to i1
   %17 = invoke noundef zeroext i1 @"_ZN6diesel10type_impls10primitives13foreign_impls1_98_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Bool$GT$$u20$for$u20$bool$GT$13as_expression17h485316a866f56234E"(i1 noundef zeroext %16)
           to label %_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h3842ac4b30fb88bfE.exit unwind label %18
 

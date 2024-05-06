@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_timer_start(ptr noundef %handle, ptr noundef %cb, i64 noundef %timeout, i64 noundef %repeat) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %handle, ptr noundef %cb, i64 noundef %timeout, i64 noundef %repeat) local_unnamed_addr #1 {
 entry:
   %t.i.i = alloca %struct.heap_node, align 8
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
@@ -608,7 +608,7 @@ return:                                           ; preds = %heap_remove.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_timer_again(ptr noundef %handle) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @uv_timer_again(ptr noundef %handle) local_unnamed_addr #1 {
 entry:
   %timer_cb = getelementptr inbounds i8, ptr %handle, i64 96
   %0 = load ptr, ptr %timer_cb, align 8
@@ -625,7 +625,7 @@ if.then1:                                         ; preds = %if.end
   %call = tail call i32 @uv_timer_stop(ptr noundef nonnull %handle)
   %2 = load ptr, ptr %timer_cb, align 8
   %3 = load i64, ptr %repeat, align 8
-  %call5 = tail call i32 @uv_timer_start(ptr noundef nonnull %handle, ptr noundef %2, i64 noundef %3, i64 noundef %3), !range !4
+  %call5 = tail call i32 @uv_timer_start(ptr noundef nonnull %handle, ptr noundef %2, i64 noundef %3, i64 noundef %3)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then1, %entry
@@ -722,7 +722,7 @@ if.then1.i:                                       ; preds = %if.end4
   %call.i = tail call i32 @uv_timer_stop(ptr noundef nonnull %add.ptr)
   %3 = load ptr, ptr %timer_cb.i, align 8
   %4 = load i64, ptr %repeat.i, align 8
-  %call5.i = tail call i32 @uv_timer_start(ptr noundef nonnull %add.ptr, ptr noundef %3, i64 noundef %4, i64 noundef %4), !range !4
+  %call5.i = tail call i32 @uv_timer_start(ptr noundef nonnull %add.ptr, ptr noundef %3, i64 noundef %4, i64 noundef %4)
   br label %uv_timer_again.exit
 
 uv_timer_again.exit:                              ; preds = %if.end4, %if.then1.i
@@ -782,4 +782,3 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -22, i32 1}

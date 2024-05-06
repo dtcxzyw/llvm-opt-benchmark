@@ -417,7 +417,7 @@ define dso_local ptr @copy_fs_struct(ptr noundef %0) local_unnamed_addr #0 align
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unshare_fs_struct() #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @unshare_fs_struct() #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !15
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 1848

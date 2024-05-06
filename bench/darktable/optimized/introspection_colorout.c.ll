@@ -169,7 +169,7 @@ define noundef i32 @input_colorspace(ptr nocapture noundef readnone %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @output_colorspace(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 1, 3) i32 @output_colorspace(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   %5 = getelementptr inbounds i8, ptr %0, i64 680
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -188,7 +188,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = and i32 %2, -2
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %36
@@ -2023,7 +2023,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !140
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

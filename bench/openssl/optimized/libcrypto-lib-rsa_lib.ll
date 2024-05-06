@@ -301,7 +301,7 @@ declare void @BN_BLINDING_free(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @RSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @RSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #3 {
 entry:
   %references = getelementptr inbounds i8, ptr %r, i64 160
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -465,7 +465,7 @@ return:                                           ; preds = %if.end, %sw.epilog,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_security_bits(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @RSA_security_bits(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
@@ -503,7 +503,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_rsa_multip_cap(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_set0_key(ptr nocapture noundef %r, ptr noundef %n, ptr noundef %e, ptr noundef %d) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_set0_key(ptr nocapture noundef %r, ptr noundef %n, ptr noundef %e, ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %n1 = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %n1, align 8
@@ -564,7 +564,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_set0_factors(ptr nocapture noundef %r, ptr noundef %p, ptr noundef %q) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_set0_factors(ptr nocapture noundef %r, ptr noundef %p, ptr noundef %q) local_unnamed_addr #0 {
 entry:
   %p1 = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p1, align 8
@@ -613,7 +613,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_set0_crt_params(ptr nocapture noundef %r, ptr noundef %dmp1, ptr noundef %dmq1, ptr noundef %iqmp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_set0_crt_params(ptr nocapture noundef %r, ptr noundef %dmp1, ptr noundef %dmq1, ptr noundef %iqmp) local_unnamed_addr #0 {
 entry:
   %dmp11 = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load ptr, ptr %dmp11, align 8
@@ -680,7 +680,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_set0_multi_prime_params(ptr noundef %r, ptr noundef readonly %primes, ptr noundef readonly %exps, ptr noundef readonly %coeffs, i32 noundef %pnum) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %r, ptr noundef readonly %primes, ptr noundef readonly %exps, ptr noundef readonly %coeffs, i32 noundef %pnum) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %primes, null
   %cmp1 = icmp eq ptr %exps, null
@@ -874,7 +874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_get0_multi_prime_factors(ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %primes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_get0_multi_prime_factors(ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %primes) local_unnamed_addr #0 {
 entry:
   %prime_infos.i = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos.i, align 8
@@ -889,7 +889,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %prime_infos.i, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %2) #10
   %3 = load ptr, ptr %call.i, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %primes, i64 %indvars.iv
@@ -940,7 +940,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_get0_multi_prime_crt_params(ptr nocapture noundef readonly %r, ptr noundef writeonly %exps, ptr noundef writeonly %coeffs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr nocapture noundef readonly %r, ptr noundef writeonly %exps, ptr noundef writeonly %coeffs) local_unnamed_addr #0 {
 entry:
   %prime_infos.i = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos.i, align 8
@@ -964,7 +964,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
   %1 = load ptr, ptr %prime_infos.i, align 8
-  %2 = trunc i64 %indvars.iv34 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv34 to i32
   %call.i.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %2) #10
   %d.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 8
   %3 = load ptr, ptr %d.us.us, align 8
@@ -981,7 +981,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.body.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %for.body.us ], [ 0, %for.body.lr.ph.split.us ]
   %5 = load ptr, ptr %prime_infos.i, align 8
-  %6 = trunc i64 %indvars.iv29 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv29 to i32
   %call.i.us = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %6) #10
   %d.us = getelementptr inbounds i8, ptr %call.i.us, i64 8
   %7 = load ptr, ptr %d.us, align 8
@@ -1001,7 +1001,7 @@ for.body.us13.preheader:                          ; preds = %for.body.lr.ph.spli
 for.body.us13:                                    ; preds = %for.body.us13.preheader, %for.body.us13
   %indvars.iv = phi i64 [ 0, %for.body.us13.preheader ], [ %indvars.iv.next, %for.body.us13 ]
   %8 = load ptr, ptr %prime_infos.i, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i.us15 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %9) #10
   %t.us17 = getelementptr inbounds i8, ptr %call.i.us15, i64 16
   %10 = load ptr, ptr %t.us17, align 8
@@ -1190,7 +1190,7 @@ return:                                           ; preds = %land.lhs.true2, %if
 declare i32 @EVP_PKEY_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_set0_all_params(ptr noundef %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %primes, null
   %cmp1 = icmp eq ptr %exps, null
@@ -1260,7 +1260,7 @@ if.then16:                                        ; preds = %land.lhs.true
   %call.i49 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %exps, i32 noundef 0) #10
   %call.i50 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %exps, i32 noundef 1) #10
   %call.i51 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %coeffs, i32 noundef 0) #10
-  %call20 = tail call i32 @RSA_set0_crt_params(ptr noundef nonnull %r, ptr noundef %call.i49, ptr noundef %call.i50, ptr noundef %call.i51), !range !11
+  %call20 = tail call i32 @RSA_set0_crt_params(ptr noundef nonnull %r, ptr noundef %call.i49, ptr noundef %call.i50, ptr noundef %call.i51)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end24
 
@@ -1307,7 +1307,7 @@ if.end49:                                         ; preds = %if.end44
   %call.i56 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i52, ptr noundef nonnull %call45) #10
   %inc = add nuw nsw i32 %i.060, 1
   %exitcond.not = icmp eq i32 %inc, %call.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end49
   store ptr %call.i52, ptr %prime_infos25, align 8
@@ -1348,7 +1348,7 @@ return:                                           ; preds = %if.end6, %lor.lhs.f
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_get0_all_params(ptr noundef readonly %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %return, label %if.end
@@ -1393,7 +1393,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %call.i26 = tail call i32 @OPENSSL_sk_push(ptr noundef %coeffs, ptr noundef %9) #10
   %inc = add nuw nsw i32 %i.028, 1
   %exitcond.not = icmp eq i32 %inc, %call.i.i
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return:                                           ; preds = %for.body, %if.end3, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %if.end3 ], [ 1, %for.body ]
@@ -1713,7 +1713,7 @@ RSA_pkey_ctx_ctrl.exit:                           ; preds = %land.lhs.true2.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %llen) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %llen) local_unnamed_addr #0 {
 entry:
   %rsa_params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1781,7 +1781,7 @@ declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) 
 declare i32 @evp_pkey_ctx_set_params_strict(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noundef %ctx, ptr noundef %label) local_unnamed_addr #0 {
+define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noundef %ctx, ptr noundef %label) local_unnamed_addr #0 {
 entry:
   %rsa_params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1821,7 +1821,7 @@ if.end13:                                         ; preds = %if.end6
   %return_size = getelementptr inbounds i8, ptr %rsa_params, i64 32
   %1 = load i64, ptr %return_size, align 16
   %cmp14 = icmp ugt i64 %1, 2147483647
-  %conv = trunc i64 %1 to i32
+  %conv = trunc nuw nsw i64 %1 to i32
   %spec.select = select i1 %cmp14, i32 -1, i32 %conv
   br label %return
 
@@ -2169,6 +2169,5 @@ attributes #10 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

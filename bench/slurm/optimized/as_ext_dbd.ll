@@ -520,7 +520,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare ptr @slurm_list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_find_ext_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_ext_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -687,7 +687,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @slurm_list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_for_each_check_ext_conn(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @_for_each_check_ext_conn(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = tail call i32 @slurm_persist_conn_writeable(ptr noundef %0) #8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %13

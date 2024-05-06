@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.5819295714002825534(ptr nocapture noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !range !4, !noundef !5
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.5819295714002825534.exit.thread, label %5
 
 5:                                                ; preds = %2
@@ -336,7 +336,7 @@ define hidden void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mutex..MutexGuar
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %5 = load i8, ptr %4, align 8, !range !4, !alias.scope !67, !noundef !5
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.5819295714002825534.exit.i, label %7
 
 7:                                                ; preds = %1
@@ -412,7 +412,7 @@ define hidden void @"_ZN4core3ptr207drop_in_place$LT$std..sync..poison..PoisonEr
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %5 = load i8, ptr %4, align 8, !range !4, !alias.scope !86, !noundef !5
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.5819295714002825534.exit.i.i, label %7
 
 7:                                                ; preds = %1
@@ -1028,7 +1028,7 @@ define hidden void @"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %5 = load i8, ptr %4, align 8, !range !4, !alias.scope !197, !noundef !5
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.5819295714002825534.exit, label %7
 
 7:                                                ; preds = %1

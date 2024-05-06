@@ -605,7 +605,7 @@ declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #1
 declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Inter_ManCheckInductiveContainment(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Inter_ManCheckInductiveContainment(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %6, align 8
@@ -860,7 +860,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
   br label %.lr.ph101
 
 .critedge2.preheader.loopexit:                    ; preds = %.lr.ph101
-  %76 = trunc i64 %indvars.iv.next130 to i32
+  %76 = trunc nuw i64 %indvars.iv.next130 to i32
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %Vec_IntFree.exit
@@ -930,7 +930,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
   br i1 %98, label %.lr.ph106, label %.critedge4.loopexit, !llvm.loop !17
 
 .critedge4.loopexit:                              ; preds = %.lr.ph106
-  %99 = trunc i64 %indvars.iv.next137 to i32
+  %99 = trunc nsw i64 %indvars.iv.next137 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader95

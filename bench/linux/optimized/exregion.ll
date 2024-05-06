@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -105,7 +105,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
 
 58:                                               ; preds = %.loopexit9
   %59 = lshr i64 %1, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = trunc i64 %1 to i32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %60, i32 noundef %61, i32 noundef %17) #8
   br label %119
@@ -129,7 +129,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
 
 77:                                               ; preds = %62
   %78 = lshr i64 %1, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = trunc i64 %1 to i32
   %81 = trunc i64 %74 to i32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 166, ptr noundef nonnull @.str.2, i32 noundef %79, i32 noundef %80, i32 noundef %81) #8
@@ -324,7 +324,7 @@ define dso_local noundef i32 @acpi_ex_pci_bar_space_handler(i32 noundef %0, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @acpi_ex_data_table_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_data_table_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5) local_unnamed_addr #4 align 16 {
   %7 = load ptr, ptr %5, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = sub i64 %1, %8

@@ -2129,7 +2129,7 @@ while.body.preheader.i.i:                         ; preds = %while.cond.preheade
   %6 = sub nsw i64 0, %5
   %scevgep8.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %6
   %7 = zext nneg i32 %dec.i.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep8.i.i, i8 48, i64 %7, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep8.i.i, i8 48, i64 %7, i1 false)
   %8 = zext i32 %indvars.iv11.i.i to i64
   %9 = sub nsw i64 0, %8
   %scevgep12.i.i = getelementptr i8, ptr %indvars.iv.i.i, i64 %9
@@ -2199,7 +2199,7 @@ while.body.preheader.i.i122:                      ; preds = %while.cond.preheade
   %15 = sub nsw i64 0, %14
   %scevgep8.i.i124 = getelementptr i8, ptr %scevgep.i.i123, i64 %15
   %16 = zext nneg i32 %dec.i.i99 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep8.i.i124, i8 48, i64 %16, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep8.i.i124, i8 48, i64 %16, i1 false)
   %17 = zext i32 %indvars.iv11.i.i93 to i64
   %18 = sub nsw i64 0, %17
   %scevgep12.i.i125 = getelementptr i8, ptr %indvars.iv.i.i94, i64 %18
@@ -2338,7 +2338,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %8 = sub nsw i64 0, %7
   %scevgep8.i = getelementptr i8, ptr %scevgep.i, i64 %8
   %9 = zext nneg i32 %dec.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep8.i, i8 48, i64 %9, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep8.i, i8 48, i64 %9, i1 false)
   %10 = zext i32 %indvars.iv11.i to i64
   %11 = sub nsw i64 0, %10
   %scevgep12.i = getelementptr i8, ptr %indvars.iv.i, i64 %11
@@ -2391,7 +2391,7 @@ while.body.preheader.i36:                         ; preds = %while.cond.preheade
   %18 = sub nsw i64 0, %17
   %scevgep8.i38 = getelementptr i8, ptr %scevgep.i37, i64 %18
   %19 = zext nneg i32 %dec.i23 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep8.i38, i8 48, i64 %19, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep8.i38, i8 48, i64 %19, i1 false)
   %20 = zext i32 %indvars.iv11.i17 to i64
   %21 = sub nsw i64 0, %20
   %scevgep12.i39 = getelementptr i8, ptr %indvars.iv.i18, i64 %21

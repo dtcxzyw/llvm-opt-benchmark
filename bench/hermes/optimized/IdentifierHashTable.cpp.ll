@@ -1064,7 +1064,7 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
 if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.i
   %raw_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %raw_.i.i.i, align 8
-  %conv1.i.i.i.i = trunc i32 %add.i to i8
+  %conv1.i.i.i.i = trunc nuw i32 %add.i to i8
   %idxprom.i.i.i.i = zext i32 %idx to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i.i.i.i
   store i8 %conv1.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -1073,7 +1073,7 @@ if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.
 if.end.i6.i.i.i:                                  ; preds = %while.cond.us.i.i, %while.cond.us.us.i.i
   %raw_3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_3.i.i.i, align 8
-  %conv1.i7.i.i.i = trunc i32 %add.i to i16
+  %conv1.i7.i.i.i = trunc nuw i32 %add.i to i16
   %idxprom.i8.i.i.i = zext i32 %idx to i64
   %arrayidx.i9.i.i.i = getelementptr inbounds i16, ptr %4, i64 %idxprom.i8.i.i.i
   store i16 %conv1.i7.i.i.i, ptr %arrayidx.i9.i.i.i, align 2
@@ -1465,7 +1465,7 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.i
   %45 = load ptr, ptr %raw_4.i.i, align 8
-  %conv1.i.i.i.i = trunc i32 %retval.0.i.i23 to i8
+  %conv1.i.i.i.i = trunc nuw i32 %retval.0.i.i23 to i8
   %idxprom.i.i.i.i = zext i32 %idx.0 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 %idxprom.i.i.i.i
   store i8 %conv1.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -1473,7 +1473,7 @@ if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.
 
 if.end.i6.i.i.i:                                  ; preds = %while.cond.us.i.i, %while.cond.us.us.i.i
   %46 = load ptr, ptr %raw_4.i.i, align 8
-  %conv1.i7.i.i.i = trunc i32 %retval.0.i.i23 to i16
+  %conv1.i7.i.i.i = trunc nuw i32 %retval.0.i.i23 to i16
   %idxprom.i8.i.i.i = zext i32 %idx.0 to i64
   %arrayidx.i9.i.i.i = getelementptr inbounds i16, ptr %46, i64 %idxprom.i8.i.i.i
   store i16 %conv1.i7.i.i.i, ptr %arrayidx.i9.i.i.i, align 2

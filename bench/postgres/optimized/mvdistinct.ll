@@ -195,7 +195,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   br i1 %86, label %.split.us.i, label %.lr.ph85.us.i
 
 .lr.ph85.us.i:                                    ; preds = %.lr.ph87.split.us.i
-  %87 = trunc i64 %indvars.iv114.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv114.i to i32
   tail call void @multi_sort_add_dimension(ptr noundef %64, i32 noundef %87, i32 noundef %85, i32 noundef %82) #9
   br label %88
 
@@ -235,7 +235,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %110 = trunc i64 %indvars.iv.i to i32
+  %110 = trunc nuw nsw i64 %indvars.iv.i to i32
   %111 = mul i32 %.03455, %110
   %112 = sext i32 %111 to i64
   %113 = getelementptr i64, ptr %69, i64 %112
@@ -275,7 +275,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   unreachable
 
 133:                                              ; preds = %.lr.ph87.split.i
-  %134 = trunc i64 %indvars.iv104.i to i32
+  %134 = trunc nuw nsw i64 %indvars.iv104.i to i32
   tail call void @multi_sort_add_dimension(ptr noundef %64, i32 noundef %134, i32 noundef %129, i32 noundef %126) #9
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i

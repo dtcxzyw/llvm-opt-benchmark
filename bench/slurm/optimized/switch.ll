@@ -137,7 +137,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %34
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %36 = trunc i64 %indvars.iv.next55 to i32
+  %36 = trunc nuw i64 %indvars.iv.next55 to i32
   %37 = icmp sgt i32 %30, %36
   %38 = getelementptr inbounds %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv54
   %39 = load ptr, ptr %38, align 8
@@ -570,7 +570,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @switch_g_unpack_jobinfo(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load i32, ptr @switch_context_cnt, align 4
@@ -617,7 +617,7 @@ define noundef i32 @switch_g_unpack_jobinfo(ptr nocapture noundef writeonly %0, 
   br label %38
 
 22:                                               ; preds = %15
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %23, ptr %24, align 8
   %25 = and i64 %indvars.iv, 4294967295

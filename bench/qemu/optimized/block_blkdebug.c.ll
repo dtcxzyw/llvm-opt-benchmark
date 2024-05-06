@@ -268,13 +268,13 @@ if.end7:                                          ; preds = %read_config.exit
   %state = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %state, align 8
   %take_child_perms.i = getelementptr inbounds i8, ptr %0, i64 56
-  %call.i83 = call fastcc i32 @blkdebug_parse_perm_list(ptr noundef nonnull %take_child_perms.i, ptr noundef %options, ptr noundef nonnull @.str.46, ptr noundef %errp), !range !5
+  %call.i83 = call fastcc i32 @blkdebug_parse_perm_list(ptr noundef nonnull %take_child_perms.i, ptr noundef %options, ptr noundef nonnull @.str.46, ptr noundef %errp)
   %cmp.i84 = icmp slt i32 %call.i83, 0
   br i1 %cmp.i84, label %if.then131, label %blkdebug_parse_perms.exit
 
 blkdebug_parse_perms.exit:                        ; preds = %if.end7
   %unshare_child_perms.i = getelementptr inbounds i8, ptr %0, i64 64
-  %call1.i = call fastcc i32 @blkdebug_parse_perm_list(ptr noundef nonnull %unshare_child_perms.i, ptr noundef %options, ptr noundef nonnull @.str.47, ptr noundef %errp), !range !5
+  %call1.i = call fastcc i32 @blkdebug_parse_perm_list(ptr noundef nonnull %unshare_child_perms.i, ptr noundef %options, ptr noundef nonnull @.str.47, ptr noundef %errp)
   %cmp = icmp slt i32 %call1.i, 0
   br i1 %cmp, label %if.then131, label %if.end10
 
@@ -309,7 +309,7 @@ if.end15:                                         ; preds = %if.end10
 
 land.lhs.true:                                    ; preds = %if.end15
   %cmp28 = icmp ult i64 %call23, 2147483647
-  %10 = call i64 @llvm.ctpop.i64(i64 %call23), !range !6
+  %10 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call23)
   %tobool1.not.i = icmp ult i64 %10, 2
   %or.cond = select i1 %cmp28, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end33, label %if.then31
@@ -512,12 +512,12 @@ remove_rule.exit:                                 ; preds = %do.body.i, %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next2, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %rule.08) #13
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %for.inc4, label %land.rhs, !llvm.loop !7
+  br i1 %tobool.not, label %for.inc4, label %land.rhs, !llvm.loop !5
 
 for.inc4:                                         ; preds = %remove_rule.exit, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
-  br i1 %exitcond.not, label %for.end5, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end5, label %for.body, !llvm.loop !7
 
 for.end5:                                         ; preds = %for.inc4
   %config_file = getelementptr inbounds i8, ptr %0, i64 48
@@ -577,7 +577,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %5 = load ptr, ptr %full_open_options, align 8
   %call20 = tail call ptr @qdict_next(ptr noundef %5, ptr noundef nonnull %e.013) #13
   %tobool2.not = icmp eq ptr %call20, null
-  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end
   %exact_filename21 = getelementptr inbounds i8, ptr %bs, i64 12368
@@ -601,7 +601,7 @@ if.end32:                                         ; preds = %land.lhs.true13, %e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @blkdebug_debug_breakpoint(ptr nocapture noundef readonly %bs, ptr noundef %event, ptr noundef %tag) #0 {
+define internal range(i32 -2, 1) i32 @blkdebug_debug_breakpoint(ptr nocapture noundef readonly %bs, ptr noundef %event, ptr noundef %tag) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -652,7 +652,7 @@ return:                                           ; preds = %entry, %if.end15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkdebug_debug_remove_breakpoint(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
+define internal range(i32 -2, 1) i32 @blkdebug_debug_remove_breakpoint(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -712,16 +712,16 @@ remove_rule.exit:                                 ; preds = %do.body.i, %if.then
 for.inc:                                          ; preds = %land.rhs, %land.lhs.true, %remove_rule.exit
   %ret.2 = phi i32 [ %ret.113, %land.lhs.true ], [ 0, %remove_rule.exit ], [ %ret.113, %land.rhs ]
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %for.inc11, label %land.rhs, !llvm.loop !11
+  br i1 %tobool.not, label %for.inc11, label %land.rhs, !llvm.loop !9
 
 for.inc11:                                        ; preds = %for.inc, %for.body
   %ret.1.lcssa = phi i32 [ %ret.015, %for.body ], [ %ret.2, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
-  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !10
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.inc11
-  %call13 = tail call fastcc i32 @resume_req_by_tag(ptr noundef %0, ptr noundef %tag, i1 noundef zeroext true), !range !13
+  %call13 = tail call fastcc i32 @resume_req_by_tag(ptr noundef %0, ptr noundef %tag, i1 noundef zeroext true)
   %cmp14 = icmp eq i32 %call13, 0
   %spec.select = select i1 %cmp14, i32 0, i32 %ret.1.lcssa
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.53, i32 noundef 132) #13
@@ -729,7 +729,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.inc11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @blkdebug_debug_resume(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
+define internal range(i32 -2, 1) i32 @blkdebug_debug_resume(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -737,7 +737,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %lock, ptr noundef nonnull @.str.53, i32 noundef 122) #13
-  %call4 = tail call fastcc i32 @resume_req_by_tag(ptr noundef %0, ptr noundef %tag, i1 noundef zeroext false), !range !13
+  %call4 = tail call fastcc i32 @resume_req_by_tag(ptr noundef %0, ptr noundef %tag, i1 noundef zeroext false)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.53, i32 noundef 132) #13
   ret i32 %call4
 }
@@ -760,7 +760,7 @@ for.cond:                                         ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %r.07, i64 16
   %r.0 = load ptr, ptr %next, align 8
   %tobool.not.not = icmp eq ptr %r.0, null
-  br i1 %tobool.not.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !14
+  br i1 %tobool.not.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %entry, %for.cond
   %r.07 = phi ptr [ %r.0, %for.cond ], [ %r.05, %entry ]
@@ -1169,7 +1169,7 @@ return:                                           ; preds = %if.end71, %lor.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkdebug_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 1, 0) i32 @blkdebug_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %or = or i64 %bytes, %offset
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464
@@ -1405,7 +1405,7 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
 process_rule.exit:                                ; preds = %land.lhs.true.i, %if.end.i, %if.end20.i, %sw.bb24.i, %if.end.i.i, %if.then16.i.i
   %new_state.1 = phi i32 [ %new_state.014, %if.end.i ], [ %new_state.014, %if.end.i.i ], [ %new_state.014, %if.then16.i.i ], [ %12, %sw.bb24.i ], [ %new_state.014, %if.end20.i ], [ %new_state.014, %land.lhs.true.i ]
   %tobool4.not = icmp eq ptr %5, null
-  br i1 %tobool4.not, label %qemu_lockable_auto_unlock.exit, label %land.rhs, !llvm.loop !15
+  br i1 %tobool4.not, label %qemu_lockable_auto_unlock.exit, label %land.rhs, !llvm.loop !12
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %process_rule.exit
   %arrayidx10.phi.trans.insert = getelementptr inbounds i8, ptr %actions_count, i64 8
@@ -1420,7 +1420,7 @@ while.body:                                       ; preds = %qemu_lockable_auto_
   tail call void @qemu_coroutine_yield() #13
   %dec = add nsw i32 %dec1719, -1
   %cmp11 = icmp ugt i32 %dec1719, 1
-  br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %qemu_lockable_auto_unlock.exit.thread, %qemu_lockable_auto_unlock.exit
   ret void
@@ -1480,7 +1480,7 @@ declare zeroext i1 @qemu_config_parse_qdict(ptr noundef, ptr noundef, ptr nounde
 declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @add_rule(ptr nocapture noundef readonly %opaque, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @add_rule(ptr nocapture noundef readonly %opaque, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -1630,7 +1630,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @blkdebug_parse_perm_list(ptr nocapture noundef %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @blkdebug_parse_perm_list(ptr nocapture noundef %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %subqdict = alloca ptr, align 8
   %perm_list = alloca ptr, align 8
@@ -1669,7 +1669,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 %or, ptr %dest, align 8
   %element.0 = load ptr, ptr %element.021, align 8
   %tobool9.not = icmp eq ptr %element.0, null
-  br i1 %tobool9.not, label %out.loopexit, label %for.body, !llvm.loop !17
+  br i1 %tobool9.not, label %out.loopexit, label %for.body, !llvm.loop !14
 
 out.loopexit:                                     ; preds = %for.body
   %.pre = load ptr, ptr %perm_list, align 8
@@ -1771,7 +1771,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @resume_req_by_tag(ptr noundef %s, ptr nocapture noundef readonly %tag, i1 noundef zeroext %all) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @resume_req_by_tag(ptr noundef %s, ptr nocapture noundef readonly %tag, i1 noundef zeroext %all) unnamed_addr #0 {
 entry:
   %suspended_reqs = getelementptr inbounds i8, ptr %s, i64 480
   %lock = getelementptr inbounds i8, ptr %s, i64 488
@@ -1798,7 +1798,7 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body.us.backedge:                             ; preds = %for.inc.us, %if.end14.us
   %r.020.us.be = phi ptr [ %r.0.us, %for.inc.us ], [ %r.018.us, %if.end14.us ]
-  br label %for.body.us, !llvm.loop !18
+  br label %for.body.us, !llvm.loop !15
 
 if.then.us:                                       ; preds = %for.body.us
   %tag1.us.le = getelementptr inbounds i8, ptr %r.020.us, i64 8
@@ -1895,7 +1895,7 @@ for.inc:                                          ; preds = %for.body
   %next31 = getelementptr inbounds i8, ptr %r.020, i64 16
   %r.0 = load ptr, ptr %next31, align 8
   %tobool.not = icmp eq ptr %r.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %for.inc, %if.end14.us, %for.inc.us, %retry, %entry.split.us, %if.end14
   %retval.0 = phi i32 [ 0, %if.end14 ], [ -2, %entry.split.us ], [ -2, %retry ], [ -2, %for.inc.us ], [ -2, %if.end14.us ], [ -2, %for.inc ]
@@ -1948,7 +1948,7 @@ for.inc.us:                                       ; preds = %for.body.us, %land.
   %active_next.us = getelementptr inbounds i8, ptr %rule.041.us, i64 64
   %rule.0.us = load ptr, ptr %active_next.us, align 8
   %tobool.not.us = icmp eq ptr %rule.0.us, null
-  br i1 %tobool.not.us, label %if.then14, label %for.body.us, !llvm.loop !19
+  br i1 %tobool.not.us, label %if.then14, label %for.body.us, !llvm.loop !16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %rule.041 = phi ptr [ %rule.0, %for.inc ], [ %rule.039, %for.body.lr.ph ]
@@ -1974,7 +1974,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %lan
   %active_next = getelementptr inbounds i8, ptr %rule.041, i64 64
   %rule.0 = load ptr, ptr %active_next, align 8
   %tobool.not = icmp eq ptr %rule.0, null
-  br i1 %tobool.not, label %if.then14, label %for.body, !llvm.loop !19
+  br i1 %tobool.not, label %if.then14, label %for.body, !llvm.loop !16
 
 lor.lhs.false10.loopexit:                         ; preds = %land.lhs.true6.us
   %options.us.le = getelementptr inbounds i8, ptr %rule.041.us, i64 16
@@ -2022,7 +2022,7 @@ while.cond48:                                     ; preds = %do.body25, %while.c
   %active_next49 = getelementptr inbounds i8, ptr %curelm.0, i64 64
   %11 = load ptr, ptr %active_next49, align 8
   %cmp51.not = icmp eq ptr %11, %.us-phi42
-  br i1 %cmp51.not, label %while.end55, label %while.cond48, !llvm.loop !20
+  br i1 %cmp51.not, label %while.end55, label %while.cond48, !llvm.loop !17
 
 while.end55:                                      ; preds = %while.cond48
   %active_next49.le = getelementptr inbounds i8, ptr %curelm.0, i64 64
@@ -2160,19 +2160,16 @@ attributes #18 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -22, i32 1}
-!6 = !{i64 0, i64 65}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i32 -2, i32 1}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

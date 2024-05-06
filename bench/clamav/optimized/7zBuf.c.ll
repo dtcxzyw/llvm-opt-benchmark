@@ -10,7 +10,7 @@ define void @Buf_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Buf_Create(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Buf_Create(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
   %5 = icmp eq i64 %1, 0

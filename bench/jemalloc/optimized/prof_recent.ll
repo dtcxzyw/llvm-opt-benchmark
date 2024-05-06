@@ -21,13 +21,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @prof_recent_dump_mtx = hidden local_unnamed_addr global %struct.malloc_mutex_s zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_recent_alloc_prepare(ptr nocapture noundef readnone %tsd, ptr nocapture noundef readnone %tctx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_recent_alloc_prepare(ptr nocapture noundef readnone %tsd, ptr nocapture noundef readnone %tctx) local_unnamed_addr #0 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden noalias nonnull ptr @prof_recent_alloc_edata_get_no_lock_test(ptr nocapture noundef readnone %n) local_unnamed_addr #0 {
+define hidden noalias noundef nonnull ptr @prof_recent_alloc_edata_get_no_lock_test(ptr nocapture noundef readnone %n) local_unnamed_addr #0 {
 entry:
   unreachable
 }
@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden noalias nonnull ptr @edata_prof_recent_alloc_get_no_lock_test(ptr nocapture noundef readnone %edata) local_unnamed_addr #0 {
+define hidden noalias noundef nonnull ptr @edata_prof_recent_alloc_get_no_lock_test(ptr nocapture noundef readnone %edata) local_unnamed_addr #0 {
 entry:
   unreachable
 }
@@ -57,13 +57,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @prof_recent_alloc_max_ctl_read() local_unnamed_addr #0 {
+define hidden noundef i64 @prof_recent_alloc_max_ctl_read() local_unnamed_addr #0 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @prof_recent_alloc_max_ctl_write(ptr nocapture noundef readnone %tsd, i64 noundef %max) local_unnamed_addr #0 {
+define hidden noundef i64 @prof_recent_alloc_max_ctl_write(ptr nocapture noundef readnone %tsd, i64 noundef %max) local_unnamed_addr #0 {
 entry:
   unreachable
 }
@@ -75,7 +75,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_recent_init() local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_recent_init() local_unnamed_addr #0 {
 entry:
   unreachable
 }

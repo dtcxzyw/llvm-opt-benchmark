@@ -256,7 +256,7 @@ declare void @qdev_init_gpio_out(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_gpio_read(ptr noundef %opaque, i64 noundef %offset, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_gpio_read(ptr noundef %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
@@ -644,7 +644,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit135
   %i.0167 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %deposit32.exit135 ]
-  %conv2 = trunc i64 %i.0167 to i32
+  %conv2 = trunc nuw i64 %i.0167 to i32
   %exitcond.not = icmp eq i64 %i.0167, 32
   br i1 %exitcond.not, label %if.else.i, label %extract32.exit113
 
@@ -726,7 +726,7 @@ deposit32.exit126:                                ; preds = %if.then89, %if.end7
   %27 = phi i32 [ %.pre171, %if.then89 ], [ %16, %if.end74 ]
   %28 = phi i32 [ %.pre, %if.then89 ], [ %18, %if.end74 ]
   %actual_value.0160 = phi i8 [ %actual_value.0159, %if.then89 ], [ %actual_value.0, %if.end74 ]
-  %tobool96 = trunc i8 %actual_value.0160 to i1
+  %tobool96 = trunc nuw i8 %actual_value.0160 to i1
   %29 = select i1 %tobool35, i1 %tobool96, i1 false
   %30 = select i1 %tobool55, i1 true, i1 %29
   %conv108 = zext i1 %30 to i32

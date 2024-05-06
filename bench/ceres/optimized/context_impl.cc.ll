@@ -393,7 +393,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %75 = getelementptr inbounds i8, ptr %0, i64 1028
   store i32 %74, ptr %75, align 4
   %76 = srem i32 %73, 1000
-  %.lhs.trunc = trunc i32 %76 to i16
+  %.lhs.trunc = trunc nsw i32 %76 to i16
   %77 = sdiv i16 %.lhs.trunc, 10
   %.sext = sext i16 %77 to i32
   %78 = getelementptr inbounds i8, ptr %0, i64 1032

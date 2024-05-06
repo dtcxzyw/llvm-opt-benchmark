@@ -619,7 +619,7 @@ define dso_local void @ww_mutex_unlock(ptr noundef %0) #1 section ".sched.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ww_mutex_trylock(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @ww_mutex_trylock(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %27
 
@@ -731,7 +731,7 @@ define dso_local noundef i32 @ww_mutex_trylock(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mutex_trylock(ptr noundef %0) #1 section ".sched.text" align 16 {
+define dso_local range(i32 0, 2) i32 @mutex_trylock(ptr noundef %0) #1 section ".sched.text" align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !15
   %3 = load volatile i64, ptr %0, align 8
   br label %4
@@ -928,7 +928,7 @@ define dso_local noundef i32 @ww_mutex_lock_interruptible(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @atomic_dec_and_mutex_lock(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @atomic_dec_and_mutex_lock(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile i32, ptr %0, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %._crit_edge, label %.lr.ph, !prof !21

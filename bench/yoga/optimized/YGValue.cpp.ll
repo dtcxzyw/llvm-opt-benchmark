@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @YGValueAuto = local_unnamed_addr constant %struct.YGValue { float 0x7FF8000000000000, i32 3 }, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @YGFloatIsUndefined(float noundef %value) local_unnamed_addr #0 {
+define noundef zeroext i1 @YGFloatIsUndefined(float noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.i = fcmp uno float %value, 0.000000e+00
   ret i1 %cmp.i

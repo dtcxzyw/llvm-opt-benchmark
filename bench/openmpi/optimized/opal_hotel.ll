@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_hotel_t_class = local_unnamed_addr global %struct.opal_class_t { ptr @.str, ptr @opal_object_t_class, ptr @constructor, ptr @destructor, i32 0, i32 0, ptr null, ptr null, i64 88 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp slt i32 %1, 1
   %8 = icmp eq ptr %5, null
   %or.cond = or i1 %7, %8
@@ -68,7 +68,7 @@ define noundef i32 @opal_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr null, ptr %33, align 8
   %34 = load ptr, ptr %28, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4
   %37 = load ptr, ptr %25, align 8
   %38 = getelementptr inbounds %struct.opal_hotel_room_eviction_callback_arg_t, ptr %37, i64 %indvars.iv

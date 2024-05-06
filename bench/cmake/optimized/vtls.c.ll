@@ -361,7 +361,7 @@ define dso_local noundef i32 @Curl_ssl_easy_config_complete(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1272
   %4 = getelementptr inbounds i8, ptr %1, i64 448
   %5 = tail call fastcc zeroext i1 @clone_ssl_primary_config(ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -1306,7 +1306,7 @@ define dso_local void @Curl_ssl_delsessionid(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_addsessionid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_addsessionid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -1700,7 +1700,7 @@ define dso_local ptr @Curl_ssl_engines_list(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_initsessions(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_initsessions(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3200
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1780,7 +1780,7 @@ define dso_local void @Curl_ssl_free_certinfo(ptr nocapture noundef %0) local_un
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_init_certinfo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_init_certinfo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5160
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -1837,7 +1837,7 @@ Curl_ssl_free_certinfo.exit:                      ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_push_certinfo_len(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_push_certinfo_len(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.dynbuf, align 8
   call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 10000) #18
   %7 = call i32 @Curl_dyn_add(ptr noundef nonnull %6, ptr noundef %2) #18
@@ -2315,7 +2315,7 @@ define dso_local noundef zeroext i1 @Curl_none_false_start() #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_init_sslset_nolock(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -2491,7 +2491,7 @@ define dso_local void @Curl_ssl_peer_cleanup(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_peer_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_peer_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.in6_addr, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2856,7 +2856,7 @@ define internal i32 @ssl_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 33:                                               ; preds = %30
   store i8 0, ptr %3, align 1
   %34 = getelementptr inbounds i8, ptr %6, i64 8
-  %35 = tail call i32 @Curl_ssl_peer_init(ptr noundef nonnull %34, ptr noundef nonnull %0), !range !16
+  %35 = tail call i32 @Curl_ssl_peer_init(ptr noundef nonnull %34, ptr noundef nonnull %0)
   %.not60 = icmp eq i32 %35, 0
   br i1 %.not60, label %36, label %54
 
@@ -3120,7 +3120,7 @@ define internal i64 @ssl_cf_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %26 = sub i64 %3, %25
   %27 = icmp ugt i64 %26, 4096
   %28 = or i1 %.not, %27
-  br i1 %28, label %9, label %.loopexit, !llvm.loop !17
+  br i1 %28, label %9, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %24, %22, %21, %17
   %.037 = phi i64 [ %15, %17 ], [ %.043, %21 ], [ %.043, %22 ], [ %25, %24 ]
@@ -3544,7 +3544,7 @@ define dso_local ptr @Curl_ssl_get_internals(ptr noundef %0, i32 noundef %1, i32
   %16 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %get_ssl_filter.exit.thread, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %get_ssl_filter.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 get_ssl_filter.exit:                              ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %.010.i, i64 16
@@ -3568,7 +3568,7 @@ get_ssl_filter.exit.thread:                       ; preds = %15, %7, %get_ssl_fi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 81) i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3602,7 +3602,7 @@ define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1) lo
   %19 = getelementptr inbounds i8, ptr %.01218, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not14 = icmp eq ptr %20, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %18, %2, %5, %12
   %.1 = phi i32 [ %spec.select, %12 ], [ 0, %5 ], [ 0, %2 ], [ 0, %18 ]
@@ -3612,7 +3612,7 @@ define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1) lo
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -3667,7 +3667,7 @@ define dso_local noundef i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef write
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -3977,7 +3977,7 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
   %25 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not21 = icmp eq ptr %26, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24, %9
   %.0.lcssa = phi ptr [ @multissl_version.backends, %9 ], [ %.1, %24 ]
@@ -4597,8 +4597,7 @@ attributes #19 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = !{}
-!16 = !{i32 0, i32 28}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

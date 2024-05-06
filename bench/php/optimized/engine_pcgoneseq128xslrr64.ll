@@ -37,7 +37,7 @@ define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeo
   %.sroa.0.0.insert.ext.i13 = zext i64 %1 to i128
   %.sroa.02.0.insert.insert.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13, 117397592171526113268558934119004209487
   %4 = lshr i128 %.sroa.02.0.insert.insert.i, 64
-  %.tr.i = trunc i128 %4 to i64
+  %.tr.i = trunc nuw nsw i128 %4 to i64
   %.narrow.i = add i64 %.tr.i, %2
   %.sroa.2.0.insert.ext = zext i64 %.narrow.i to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
@@ -46,7 +46,7 @@ define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeo
   %5 = mul i128 %.sroa.0.0.insert.insert, 47026247687942121848144207491837523525
   %.sroa.02.0.insert.insert.i21.i15 = add i128 %5, 1442695040888963407
   %6 = lshr i128 %.sroa.02.0.insert.insert.i21.i15, 64
-  %.tr.i.i16 = trunc i128 %6 to i64
+  %.tr.i.i16 = trunc nuw i128 %6 to i64
   %.narrow.i.i17 = add i64 %.tr.i.i16, 6364136223846793005
   %.sroa.2.0.insert.ext.i18 = zext i64 %.narrow.i.i17 to i128
   %.sroa.2.0.insert.shift.i19 = shl nuw i128 %.sroa.2.0.insert.ext.i18, 64
@@ -62,7 +62,7 @@ define internal { i64, i64 } @generate(ptr nocapture noundef %0) #1 {
   %3 = mul i128 %2, 47026247687942121848144207491837523525
   %.sroa.02.0.insert.insert.i21.i = add i128 %3, 1442695040888963407
   %4 = lshr i128 %.sroa.02.0.insert.insert.i21.i, 64
-  %.tr.i.i = trunc i128 %4 to i64
+  %.tr.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i = add i64 %.tr.i.i, 6364136223846793005
   %.sroa.2.0.insert.ext.i = zext i64 %.narrow.i.i to i128
   %.sroa.2.0.insert.shift.i = shl nuw i128 %.sroa.2.0.insert.ext.i, 64
@@ -90,7 +90,7 @@ define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0,
   %4 = alloca %struct._zval_struct, align 8
   %5 = load i128, ptr %0, align 16
   %.sroa.29.0.extract.shift = lshr i128 %5, 64
-  %.sroa.29.0.extract.trunc = trunc i128 %.sroa.29.0.extract.shift to i64
+  %.sroa.29.0.extract.trunc = trunc nuw i128 %.sroa.29.0.extract.shift to i64
   store i64 %.sroa.29.0.extract.trunc, ptr %3, align 8
   %6 = call ptr @php_random_bin2hex_le(ptr noundef nonnull %3, i64 noundef 8) #7
   store ptr %6, ptr %4, align 8
@@ -209,7 +209,7 @@ define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i6
   %5 = mul i128 %.sroa.0.0.insert.insert.i, %.sroa.02.0.insert.insert.i
   %.sroa.04.0.extract.trunc.i = trunc i128 %5 to i64
   %.sroa.25.0.extract.shift.i = lshr i128 %5, 64
-  %.sroa.25.0.extract.trunc.i = trunc i128 %.sroa.25.0.extract.shift.i to i64
+  %.sroa.25.0.extract.trunc.i = trunc nuw i128 %.sroa.25.0.extract.shift.i to i64
   %.sroa.23.0.insert.ext.i108 = zext i64 %.074.off64193 to i128
   %.sroa.23.0.insert.shift.i109 = shl nuw i128 %.sroa.23.0.insert.ext.i108, 64
   %.sroa.02.0.insert.ext.i110 = zext i64 %.074.off0192 to i128
@@ -219,7 +219,7 @@ define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i6
   %.sroa.02.0.insert.insert.i126 = add i128 %6, %.sroa.0.0.insert.ext.i124
   %.sroa.04.0.extract.trunc.i127 = trunc i128 %.sroa.02.0.insert.insert.i126 to i64
   %7 = lshr i128 %.sroa.02.0.insert.insert.i126, 64
-  %.tr.i = trunc i128 %7 to i64
+  %.tr.i = trunc nuw i128 %7 to i64
   %.narrow.i = add i64 %.072.off64199, %.tr.i
   br label %8
 
@@ -237,11 +237,11 @@ define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i6
   %9 = mul i128 %.sroa.02.0.insert.insert.i135, %.sroa.0.0.insert.insert.i148
   %.sroa.04.0.extract.trunc.i149 = trunc i128 %9 to i64
   %.sroa.25.0.extract.shift.i150 = lshr i128 %9, 64
-  %.sroa.25.0.extract.trunc.i151 = trunc i128 %.sroa.25.0.extract.shift.i150 to i64
+  %.sroa.25.0.extract.trunc.i151 = trunc nuw i128 %.sroa.25.0.extract.shift.i150 to i64
   %10 = mul i128 %.sroa.0.0.insert.insert.i134.pre-phi, %.sroa.0.0.insert.insert.i134.pre-phi
   %.sroa.04.0.extract.trunc.i162 = trunc i128 %10 to i64
   %.sroa.25.0.extract.shift.i163 = lshr i128 %10, 64
-  %.sroa.25.0.extract.trunc.i164 = trunc i128 %.sroa.25.0.extract.shift.i163 to i64
+  %.sroa.25.0.extract.trunc.i164 = trunc nuw i128 %.sroa.25.0.extract.shift.i163 to i64
   %11 = lshr i64 %.0196, 1
   %.not = icmp ult i64 %.0196, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -260,7 +260,7 @@ define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i6
   %.sroa.0.0.insert.ext.i183 = zext i64 %.074.off0.lcssa to i128
   %.sroa.02.0.insert.insert.i185 = add i128 %13, %.sroa.0.0.insert.ext.i183
   %14 = lshr i128 %.sroa.02.0.insert.insert.i185, 64
-  %.tr.i187 = trunc i128 %14 to i64
+  %.tr.i187 = trunc nuw i128 %14 to i64
   %.narrow.i188 = add i64 %.074.off64.lcssa, %.tr.i187
   %.sroa.2.0.insert.ext = zext i64 %.narrow.i188 to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
@@ -286,15 +286,15 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, 1
-  br i1 %10, label %.thread151, label %11
+  br i1 %10, label %.thread150, label %11
 
-.thread151:                                       ; preds = %2
+.thread150:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #7
-  br label %.thread176
+  br label %.thread172
 
 11:                                               ; preds = %2
   %12 = icmp eq i32 %9, 0
-  br i1 %12, label %.thread166, label %13
+  br i1 %12, label %.thread164, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 80
@@ -302,34 +302,34 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %19 [
     i8 6, label %17
-    i8 4, label %.thread163.thread
-    i8 1, label %.thread166
+    i8 4, label %.thread162.thread
+    i8 1, label %.thread164
   ]
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %14, align 8
   store ptr %18, ptr %3, align 8
-  br label %.thread163
+  br label %.thread162
 
 19:                                               ; preds = %13
   %20 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
   %.fr = freeze i1 %20
-  br i1 %.fr, label %.thread163thread-pre-split, label %.thread176
+  br i1 %.fr, label %.thread162thread-pre-split, label %.thread172
 
-.thread176:                                       ; preds = %19, %.thread151
-  %.073161 = phi i32 [ 0, %.thread151 ], [ 1, %19 ]
-  %.074160 = phi ptr [ null, %.thread151 ], [ %14, %19 ]
-  %.075159 = phi i32 [ 0, %.thread151 ], [ 29, %19 ]
-  %.076158 = phi i32 [ 1, %.thread151 ], [ 9, %19 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.076158, i32 noundef %.073161, ptr noundef null, i32 noundef %.075159, ptr noundef %.074160) #7
+.thread172:                                       ; preds = %19, %.thread150
+  %.073160 = phi i32 [ 0, %.thread150 ], [ 1, %19 ]
+  %.074159 = phi ptr [ null, %.thread150 ], [ %14, %19 ]
+  %.075158 = phi i32 [ 0, %.thread150 ], [ 29, %19 ]
+  %.076157 = phi i32 [ 1, %.thread150 ], [ 9, %19 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.076157, i32 noundef %.073160, ptr noundef null, i32 noundef %.075158, ptr noundef %.074159) #7
   br label %61
 
-.thread166:                                       ; preds = %13, %11
+.thread164:                                       ; preds = %13, %11
   %21 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 16, i1 noundef zeroext true) #7
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.thread166
+23:                                               ; preds = %.thread164
   %24 = load ptr, ptr @random_ce_Random_RandomException, align 8
   %25 = call ptr @zend_throw_exception(ptr noundef %24, ptr noundef nonnull @.str, i64 noundef 0) #7
   %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
@@ -337,14 +337,14 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   call void @llvm.assume(i1 %27)
   br label %61
 
-28:                                               ; preds = %.thread166
+28:                                               ; preds = %.thread164
   %29 = load i128, ptr %5, align 16
   %.sroa.216.0.extract.shift = lshr i128 %29, 64
-  %.sroa.216.0.extract.trunc = trunc i128 %.sroa.216.0.extract.shift to i64
+  %.sroa.216.0.extract.trunc = trunc nuw i128 %.sroa.216.0.extract.shift to i64
   %.sroa.0.0.insert.ext.i13.i = and i128 %29, 18446744073709551615
   %.sroa.02.0.insert.insert.i.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i, 117397592171526113268558934119004209487
   %30 = lshr i128 %.sroa.02.0.insert.insert.i.i, 64
-  %.tr.i.i = trunc i128 %30 to i64
+  %.tr.i.i = trunc nuw nsw i128 %30 to i64
   %.narrow.i.i = add i64 %.tr.i.i, %.sroa.216.0.extract.trunc
   %.sroa.2.0.insert.ext.i = zext i64 %.narrow.i.i to i128
   %.sroa.2.0.insert.shift.i = shl nuw i128 %.sroa.2.0.insert.ext.i, 64
@@ -353,7 +353,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %31 = mul i128 %.sroa.0.0.insert.insert.i, 47026247687942121848144207491837523525
   %.sroa.02.0.insert.insert.i21.i15.i = add i128 %31, 1442695040888963407
   %32 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i, 64
-  %.tr.i.i16.i = trunc i128 %32 to i64
+  %.tr.i.i16.i = trunc nuw i128 %32 to i64
   %.narrow.i.i17.i = add i64 %.tr.i.i16.i, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i = zext i64 %.narrow.i.i17.i to i128
   %.sroa.2.0.insert.shift.i19.i = shl nuw i128 %.sroa.2.0.insert.ext.i18.i, 64
@@ -362,16 +362,16 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   store i128 %.sroa.0.0.insert.insert.i21.i, ptr %.sroa.1.0.copyload, align 16
   br label %61
 
-.thread163thread-pre-split:                       ; preds = %19
+.thread162thread-pre-split:                       ; preds = %19
   %.pr = load ptr, ptr %3, align 8
-  br label %.thread163
+  br label %.thread162
 
-.thread163:                                       ; preds = %.thread163thread-pre-split, %17
-  %33 = phi ptr [ %.pr, %.thread163thread-pre-split ], [ %18, %17 ]
-  %.not84 = icmp eq ptr %33, null
-  br i1 %.not84, label %.thread163.thread, label %34
+.thread162:                                       ; preds = %.thread162thread-pre-split, %17
+  %33 = phi ptr [ %.pr, %.thread162thread-pre-split ], [ %18, %17 ]
+  %.not83 = icmp eq ptr %33, null
+  br i1 %.not83, label %.thread162.thread, label %34
 
-34:                                               ; preds = %.thread163
+34:                                               ; preds = %.thread162
   %35 = getelementptr inbounds i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 16
@@ -383,14 +383,14 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
 
 39:                                               ; preds = %.preheader, %50
   %40 = phi i1 [ true, %.preheader ], [ false, %50 ]
-  %indvars.iv188.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.2, %50 ]
-  %indvars.iv188 = phi i64 [ 0, %.preheader ], [ 8, %50 ]
+  %indvars.iv184.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.2, %50 ]
+  %indvars.iv184 = phi i64 [ 0, %.preheader ], [ 8, %50 ]
   br label %41
 
 41:                                               ; preds = %39, %41
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %41 ]
   %42 = phi i64 [ 0, %39 ], [ %49, %41 ]
-  %43 = add nuw nsw i64 %indvars.iv, %indvars.iv188
+  %43 = add nuw nsw i64 %indvars.iv, %indvars.iv184
   %44 = getelementptr inbounds [1 x i8], ptr %38, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
@@ -402,31 +402,31 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   br i1 %exitcond.not, label %50, label %41
 
 50:                                               ; preds = %41
-  store i64 %49, ptr %indvars.iv188.sroa.phi, align 8
+  store i64 %49, ptr %indvars.iv184.sroa.phi, align 8
   br i1 %40, label %39, label %51
 
 51:                                               ; preds = %50
   %.sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16
   %.sroa.2.0..sroa.2.8. = load i64, ptr %.sroa.2, align 8
-  %.sroa.0.0.insert.ext.i13.i87 = zext i64 %.sroa.2.0..sroa.2.8. to i128
-  %.sroa.02.0.insert.insert.i.i88 = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i87, 117397592171526113268558934119004209487
-  %52 = lshr i128 %.sroa.02.0.insert.insert.i.i88, 64
-  %.tr.i.i89 = trunc i128 %52 to i64
-  %.narrow.i.i90 = add i64 %.sroa.0.0..sroa.0.0., %.tr.i.i89
-  %.sroa.2.0.insert.ext.i91 = zext i64 %.narrow.i.i90 to i128
-  %.sroa.2.0.insert.shift.i92 = shl nuw i128 %.sroa.2.0.insert.ext.i91, 64
-  %.sroa.0.0.insert.ext.i93 = and i128 %.sroa.02.0.insert.insert.i.i88, 18446744073709551615
-  %.sroa.0.0.insert.insert.i94 = or disjoint i128 %.sroa.2.0.insert.shift.i92, %.sroa.0.0.insert.ext.i93
-  %53 = mul i128 %.sroa.0.0.insert.insert.i94, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i95 = add i128 %53, 1442695040888963407
-  %54 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i95, 64
-  %.tr.i.i16.i96 = trunc i128 %54 to i64
-  %.narrow.i.i17.i97 = add i64 %.tr.i.i16.i96, 6364136223846793005
-  %.sroa.2.0.insert.ext.i18.i98 = zext i64 %.narrow.i.i17.i97 to i128
-  %.sroa.2.0.insert.shift.i19.i99 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i98, 64
-  %.sroa.0.0.insert.ext.i20.i100 = and i128 %.sroa.02.0.insert.insert.i21.i15.i95, 18446744073709551615
-  %.sroa.0.0.insert.insert.i21.i101 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i99, %.sroa.0.0.insert.ext.i20.i100
-  store i128 %.sroa.0.0.insert.insert.i21.i101, ptr %.sroa.1.0.copyload, align 16
+  %.sroa.0.0.insert.ext.i13.i86 = zext i64 %.sroa.2.0..sroa.2.8. to i128
+  %.sroa.02.0.insert.insert.i.i87 = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i86, 117397592171526113268558934119004209487
+  %52 = lshr i128 %.sroa.02.0.insert.insert.i.i87, 64
+  %.tr.i.i88 = trunc nuw nsw i128 %52 to i64
+  %.narrow.i.i89 = add i64 %.sroa.0.0..sroa.0.0., %.tr.i.i88
+  %.sroa.2.0.insert.ext.i90 = zext i64 %.narrow.i.i89 to i128
+  %.sroa.2.0.insert.shift.i91 = shl nuw i128 %.sroa.2.0.insert.ext.i90, 64
+  %.sroa.0.0.insert.ext.i92 = and i128 %.sroa.02.0.insert.insert.i.i87, 18446744073709551615
+  %.sroa.0.0.insert.insert.i93 = or disjoint i128 %.sroa.2.0.insert.shift.i91, %.sroa.0.0.insert.ext.i92
+  %53 = mul i128 %.sroa.0.0.insert.insert.i93, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i94 = add i128 %53, 1442695040888963407
+  %54 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i94, 64
+  %.tr.i.i16.i95 = trunc nuw i128 %54 to i64
+  %.narrow.i.i17.i96 = add i64 %.tr.i.i16.i95, 6364136223846793005
+  %.sroa.2.0.insert.ext.i18.i97 = zext i64 %.narrow.i.i17.i96 to i128
+  %.sroa.2.0.insert.shift.i19.i98 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i97, 64
+  %.sroa.0.0.insert.ext.i20.i99 = and i128 %.sroa.02.0.insert.insert.i21.i15.i94, 18446744073709551615
+  %.sroa.0.0.insert.insert.i21.i100 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i98, %.sroa.0.0.insert.ext.i20.i99
+  store i128 %.sroa.0.0.insert.insert.i21.i100, ptr %.sroa.1.0.copyload, align 16
   br label %61
 
 55:                                               ; preds = %34
@@ -436,23 +436,23 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   call void @llvm.assume(i1 %57)
   br label %61
 
-.thread163.thread:                                ; preds = %.thread163, %13
-  %.in = phi ptr [ %14, %13 ], [ %4, %.thread163 ]
+.thread162.thread:                                ; preds = %.thread162, %13
+  %.in = phi ptr [ %14, %13 ], [ %4, %.thread162 ]
   %58 = load i64, ptr %.in, align 8
-  %.sroa.0.0.insert.ext.i13.i104 = zext i64 %58 to i128
-  %59 = mul i128 %.sroa.0.0.insert.ext.i13.i104, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i112 = add i128 %59, -21102577299880832445404573290446240358
-  %60 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i112, 64
-  %.tr.i.i16.i113 = trunc i128 %60 to i64
-  %.narrow.i.i17.i114 = add i64 %.tr.i.i16.i113, 6364136223846793005
-  %.sroa.2.0.insert.ext.i18.i115 = zext i64 %.narrow.i.i17.i114 to i128
-  %.sroa.2.0.insert.shift.i19.i116 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i115, 64
-  %.sroa.0.0.insert.ext.i20.i117 = and i128 %.sroa.02.0.insert.insert.i21.i15.i112, 18446744073709551615
-  %.sroa.0.0.insert.insert.i21.i118 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i116, %.sroa.0.0.insert.ext.i20.i117
-  store i128 %.sroa.0.0.insert.insert.i21.i118, ptr %.sroa.1.0.copyload, align 16
+  %.sroa.0.0.insert.ext.i13.i103 = zext i64 %58 to i128
+  %59 = mul i128 %.sroa.0.0.insert.ext.i13.i103, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i111 = add i128 %59, -21102577299880832445404573290446240358
+  %60 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i111, 64
+  %.tr.i.i16.i112 = trunc nuw i128 %60 to i64
+  %.narrow.i.i17.i113 = add i64 %.tr.i.i16.i112, 6364136223846793005
+  %.sroa.2.0.insert.ext.i18.i114 = zext i64 %.narrow.i.i17.i113 to i128
+  %.sroa.2.0.insert.shift.i19.i115 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i114, 64
+  %.sroa.0.0.insert.ext.i20.i116 = and i128 %.sroa.02.0.insert.insert.i21.i15.i111, 18446744073709551615
+  %.sroa.0.0.insert.insert.i21.i117 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i115, %.sroa.0.0.insert.ext.i20.i116
+  store i128 %.sroa.0.0.insert.insert.i21.i117, ptr %.sroa.1.0.copyload, align 16
   br label %61
 
-61:                                               ; preds = %51, %.thread163.thread, %55, %28, %23, %.thread176
+61:                                               ; preds = %51, %.thread162.thread, %55, %28, %23, %.thread172
   ret void
 }
 
@@ -562,7 +562,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, p
   %25 = mul i128 %.sroa.02.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i.i
   %.sroa.04.0.extract.trunc.i.i = trunc i128 %25 to i64
   %.sroa.25.0.extract.shift.i.i = lshr i128 %25, 64
-  %.sroa.25.0.extract.trunc.i.i = trunc i128 %.sroa.25.0.extract.shift.i.i to i64
+  %.sroa.25.0.extract.trunc.i.i = trunc nuw i128 %.sroa.25.0.extract.shift.i.i to i64
   %.sroa.23.0.insert.ext.i108.i = zext i64 %.074.off64193.i to i128
   %.sroa.23.0.insert.shift.i109.i = shl nuw i128 %.sroa.23.0.insert.ext.i108.i, 64
   %.sroa.02.0.insert.ext.i110.i = zext i64 %.074.off0192.i to i128
@@ -572,7 +572,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, p
   %.sroa.02.0.insert.insert.i126.i = add i128 %26, %.sroa.0.0.insert.ext.i124.i
   %.sroa.04.0.extract.trunc.i127.i = trunc i128 %.sroa.02.0.insert.insert.i126.i to i64
   %27 = lshr i128 %.sroa.02.0.insert.insert.i126.i, 64
-  %.tr.i.i = trunc i128 %27 to i64
+  %.tr.i.i = trunc nuw i128 %27 to i64
   %.narrow.i.i = add i64 %.072.off64199.i, %.tr.i.i
   br label %28
 
@@ -590,11 +590,11 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, p
   %29 = mul i128 %.sroa.02.0.insert.insert.i135.i, %.sroa.0.0.insert.insert.i148.i
   %.sroa.04.0.extract.trunc.i149.i = trunc i128 %29 to i64
   %.sroa.25.0.extract.shift.i150.i = lshr i128 %29, 64
-  %.sroa.25.0.extract.trunc.i151.i = trunc i128 %.sroa.25.0.extract.shift.i150.i to i64
+  %.sroa.25.0.extract.trunc.i151.i = trunc nuw i128 %.sroa.25.0.extract.shift.i150.i to i64
   %30 = mul i128 %.sroa.0.0.insert.insert.i134.pre-phi.i, %.sroa.0.0.insert.insert.i134.pre-phi.i
   %.sroa.04.0.extract.trunc.i162.i = trunc i128 %30 to i64
   %.sroa.25.0.extract.shift.i163.i = lshr i128 %30, 64
-  %.sroa.25.0.extract.trunc.i164.i = trunc i128 %.sroa.25.0.extract.shift.i163.i to i64
+  %.sroa.25.0.extract.trunc.i164.i = trunc nuw i128 %.sroa.25.0.extract.shift.i163.i to i64
   %31 = lshr i64 %.0196.i, 1
   %.not.i = icmp ult i64 %.0196.i, 2
   br i1 %.not.i, label %php_random_pcgoneseq128xslrr64_advance.exit, label %.lr.ph.i
@@ -613,7 +613,7 @@ php_random_pcgoneseq128xslrr64_advance.exit:      ; preds = %28, %22
   %.sroa.0.0.insert.ext.i183.i = zext i64 %.074.off0.lcssa.i to i128
   %.sroa.02.0.insert.insert.i185.i = add i128 %33, %.sroa.0.0.insert.ext.i183.i
   %34 = lshr i128 %.sroa.02.0.insert.insert.i185.i, 64
-  %.tr.i187.i = trunc i128 %34 to i64
+  %.tr.i187.i = trunc nuw i128 %34 to i64
   %.narrow.i188.i = add i64 %.074.off64.lcssa.i, %.tr.i187.i
   %.sroa.2.0.insert.ext.i = zext i64 %.narrow.i188.i to i128
   %.sroa.2.0.insert.shift.i = shl nuw i128 %.sroa.2.0.insert.ext.i, 64

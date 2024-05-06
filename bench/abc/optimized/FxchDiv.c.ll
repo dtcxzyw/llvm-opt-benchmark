@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Hsh_VecManHash.s_Primes = internal unnamed_addr constant [7 x i32] [i32 4177, i32 5147, i32 5647, i32 6343, i32 7103, i32 7873, i32 8147], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fxch_DivCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Fxch_DivCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -1786,7 +1786,7 @@ define internal fastcc i32 @Hsh_VecManAdd(ptr nocapture noundef %0, ptr nocaptur
 
 14:                                               ; preds = %.lr.ph.i
   %15 = add nuw nsw i32 %.01116.i, 2
-  %16 = mul nsw i32 %15, %15
+  %16 = mul nuw nsw i32 %15, %15
   %.not.i = icmp ugt i32 %16, %12
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -1888,7 +1888,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %.012.i70 = phi i32 [ 0, %.lr.ph.i67 ], [ %66, %57 ]
   %58 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i69
   %59 = load i32, ptr %58, align 4
-  %60 = trunc i64 %indvars.iv.i69 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %61 = urem i32 %60, 7
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %62
@@ -1915,7 +1915,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %75 = getelementptr inbounds i32, ptr %.val3.i, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %71, ptr %76, align 4
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %77, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load ptr, ptr %3, align 8
@@ -1947,7 +1947,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %.012.i80 = phi i32 [ 0, %.lr.ph.i76 ], [ %97, %88 ]
   %89 = getelementptr inbounds i32, ptr %.val.i77, i64 %indvars.iv.i79
   %90 = load i32, ptr %89, align 4
-  %91 = trunc i64 %indvars.iv.i79 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %92 = urem i32 %91, 7
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %93
@@ -2942,7 +2942,7 @@ define i32 @Fxch_DivRemoveLits(ptr nocapture noundef %0, ptr nocapture noundef %
   br i1 %28, label %.preheader.i, label %31
 
 .preheader.i:                                     ; preds = %25
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.123.i = add nuw nsw i32 %29, 1
   %30 = icmp slt i32 %.123.i, %21
   br i1 %30, label %.lr.ph26.i, label %._crit_edge.i
@@ -2963,7 +2963,7 @@ define i32 @Fxch_DivRemoveLits(ptr nocapture noundef %0, ptr nocapture noundef %
   store i32 %34, ptr %35, align 4
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %36 = load i32, ptr %8, align 4
-  %37 = trunc i64 %indvars.iv.next34.i to i32
+  %37 = trunc nuw i64 %indvars.iv.next34.i to i32
   %38 = icmp sgt i32 %36, %37
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   br i1 %38, label %.lr.ph26.i, label %._crit_edge.i, !llvm.loop !16
@@ -2996,7 +2996,7 @@ Vec_IntRemove1.exit:                              ; preds = %31, %23, %._crit_ed
   br i1 %46, label %.preheader.i111, label %49
 
 .preheader.i111:                                  ; preds = %43
-  %47 = trunc i64 %indvars.iv.i107 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i107 to i32
   %.123.i112 = add nuw nsw i32 %47, 1
   %48 = icmp slt i32 %.123.i112, %21
   br i1 %48, label %.lr.ph26.i115, label %._crit_edge.i113
@@ -3017,7 +3017,7 @@ Vec_IntRemove1.exit:                              ; preds = %31, %23, %._crit_ed
   store i32 %52, ptr %53, align 4
   %indvars.iv.next34.i118 = add nuw nsw i64 %indvars.iv33.i117, 1
   %54 = load i32, ptr %8, align 4
-  %55 = trunc i64 %indvars.iv.next34.i118 to i32
+  %55 = trunc nuw i64 %indvars.iv.next34.i118 to i32
   %56 = icmp sgt i32 %54, %55
   %indvars.iv.next37.i119 = add nuw nsw i64 %indvars.iv36.i116, 1
   br i1 %56, label %.lr.ph26.i115, label %._crit_edge.i113, !llvm.loop !16
@@ -3068,7 +3068,7 @@ Vec_IntRemove1.exit120:                           ; preds = %49, %41, %._crit_ed
   br i1 %71, label %.preheader.i129, label %74
 
 .preheader.i129:                                  ; preds = %68
-  %72 = trunc i64 %indvars.iv.i125 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.i125 to i32
   %.123.i130 = add nuw nsw i32 %72, 1
   %73 = icmp slt i32 %.123.i130, %62
   br i1 %73, label %.lr.ph26.i133, label %._crit_edge.i131
@@ -3089,7 +3089,7 @@ Vec_IntRemove1.exit120:                           ; preds = %49, %41, %._crit_ed
   store i32 %77, ptr %78, align 4
   %indvars.iv.next34.i136 = add nuw nsw i64 %indvars.iv33.i135, 1
   %79 = load i32, ptr %12, align 4
-  %80 = trunc i64 %indvars.iv.next34.i136 to i32
+  %80 = trunc nuw i64 %indvars.iv.next34.i136 to i32
   %81 = icmp sgt i32 %79, %80
   %indvars.iv.next37.i137 = add nuw nsw i64 %indvars.iv36.i134, 1
   br i1 %81, label %.lr.ph26.i133, label %._crit_edge.i131, !llvm.loop !16
@@ -3156,7 +3156,7 @@ Vec_IntRemove1.exit138:                           ; preds = %74, %.lr.ph242.spli
   br i1 %105, label %.preheader.i147, label %108
 
 .preheader.i147:                                  ; preds = %102
-  %106 = trunc i64 %indvars.iv.i143 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i143 to i32
   %.123.i148 = add nuw nsw i32 %106, 1
   %107 = icmp slt i32 %.123.i148, %99
   br i1 %107, label %.lr.ph26.i151, label %._crit_edge.i149
@@ -3177,7 +3177,7 @@ Vec_IntRemove1.exit138:                           ; preds = %74, %.lr.ph242.spli
   store i32 %111, ptr %112, align 4
   %indvars.iv.next34.i154 = add nuw nsw i64 %indvars.iv33.i153, 1
   %113 = load i32, ptr %90, align 4
-  %114 = trunc i64 %indvars.iv.next34.i154 to i32
+  %114 = trunc nuw i64 %indvars.iv.next34.i154 to i32
   %115 = icmp sgt i32 %113, %114
   %indvars.iv.next37.i155 = add nuw nsw i64 %indvars.iv36.i152, 1
   br i1 %115, label %.lr.ph26.i151, label %._crit_edge.i149, !llvm.loop !16
@@ -3207,7 +3207,7 @@ Vec_IntRemove1.exit156:                           ; preds = %108, %94, %._crit_e
   br i1 %123, label %.preheader.i165, label %126
 
 .preheader.i165:                                  ; preds = %120
-  %124 = trunc i64 %indvars.iv.i161 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.i161 to i32
   %.123.i166 = add nuw nsw i32 %124, 1
   %125 = icmp slt i32 %.123.i166, %117
   br i1 %125, label %.lr.ph26.i169, label %._crit_edge.i167
@@ -3228,7 +3228,7 @@ Vec_IntRemove1.exit156:                           ; preds = %108, %94, %._crit_e
   store i32 %129, ptr %130, align 4
   %indvars.iv.next34.i172 = add nuw nsw i64 %indvars.iv33.i171, 1
   %131 = load i32, ptr %92, align 4
-  %132 = trunc i64 %indvars.iv.next34.i172 to i32
+  %132 = trunc nuw i64 %indvars.iv.next34.i172 to i32
   %133 = icmp sgt i32 %131, %132
   %indvars.iv.next37.i173 = add nuw nsw i64 %indvars.iv36.i170, 1
   br i1 %133, label %.lr.ph26.i169, label %._crit_edge.i167, !llvm.loop !16
@@ -3339,7 +3339,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   br i1 %181, label %.preheader.i183, label %184
 
 .preheader.i183:                                  ; preds = %178
-  %182 = trunc i64 %indvars.iv.i179 to i32
+  %182 = trunc nuw nsw i64 %indvars.iv.i179 to i32
   %.123.i184 = add nuw nsw i32 %182, 1
   %183 = icmp slt i32 %.123.i184, %169
   br i1 %183, label %.lr.ph26.i187, label %._crit_edge.i185
@@ -3360,7 +3360,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   store i32 %187, ptr %188, align 4
   %indvars.iv.next34.i190 = add nuw nsw i64 %indvars.iv33.i189, 1
   %189 = load i32, ptr %160, align 4
-  %190 = trunc i64 %indvars.iv.next34.i190 to i32
+  %190 = trunc nuw i64 %indvars.iv.next34.i190 to i32
   %191 = icmp sgt i32 %189, %190
   %indvars.iv.next37.i191 = add nuw nsw i64 %indvars.iv36.i188, 1
   br i1 %191, label %.lr.ph26.i187, label %._crit_edge.i185, !llvm.loop !16
@@ -3411,7 +3411,7 @@ Vec_IntRemove1.exit192:                           ; preds = %184, %.lr.ph253.spl
   br i1 %209, label %.preheader.i201, label %212
 
 .preheader.i201:                                  ; preds = %206
-  %210 = trunc i64 %indvars.iv.i197 to i32
+  %210 = trunc nuw nsw i64 %indvars.iv.i197 to i32
   %.123.i202 = add nuw nsw i32 %210, 1
   %211 = icmp slt i32 %.123.i202, %197
   br i1 %211, label %.lr.ph26.i205, label %._crit_edge.i203
@@ -3432,7 +3432,7 @@ Vec_IntRemove1.exit192:                           ; preds = %184, %.lr.ph253.spl
   store i32 %215, ptr %216, align 4
   %indvars.iv.next34.i208 = add nuw nsw i64 %indvars.iv33.i207, 1
   %217 = load i32, ptr %165, align 4
-  %218 = trunc i64 %indvars.iv.next34.i208 to i32
+  %218 = trunc nuw i64 %indvars.iv.next34.i208 to i32
   %219 = icmp sgt i32 %217, %218
   %indvars.iv.next37.i209 = add nuw nsw i64 %indvars.iv36.i206, 1
   br i1 %219, label %.lr.ph26.i205, label %._crit_edge.i203, !llvm.loop !16
@@ -3568,7 +3568,7 @@ define void @Fxch_DivPrint(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fxch_DivIsNotConstant1(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Fxch_DivIsNotConstant1(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val5 = load ptr, ptr %2, align 8
   %3 = load i32, ptr %.val5, align 4
@@ -3595,7 +3595,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

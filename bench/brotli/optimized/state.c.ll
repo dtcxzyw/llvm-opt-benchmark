@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BrotliDecoderStateInit(ptr noundef %s, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliDecoderStateInit(ptr noundef %s, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %alloc_func, null
   %alloc_func.sink = select i1 %tobool.not, ptr @BrotliDefaultAllocFunc, ptr %alloc_func
@@ -239,7 +239,7 @@ entry:
 declare void @BrotliSharedDictionaryDestroyInstance(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BrotliDecoderHuffmanTreeGroupInit(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliDecoderHuffmanTreeGroupInit(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
 entry:
   %add = shl i64 %alphabet_size_limit, 2
   %alloc_func = getelementptr inbounds i8, ptr %s, i64 48

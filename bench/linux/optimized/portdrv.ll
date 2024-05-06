@@ -78,7 +78,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @find_service_iter(ptr noundef %0, ptr nocapture noundef %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, ptr nocapture noundef %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -821,7 +821,7 @@ define internal noundef i32 @remove_iter(ptr noundef %0, ptr nocapture readnone 
 declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @pcie_portdrv_error_detected(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
+define internal noundef range(i32 2, 4) i32 @pcie_portdrv_error_detected(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq i32 %1, 2
   %4 = select i1 %3, i32 3, i32 2
   ret i32 %4
@@ -941,7 +941,7 @@ define internal i32 @pcie_port_device_runtime_resume(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @pcie_port_runtime_idle(ptr nocapture noundef readonly %0) #11 align 16 {
+define internal range(i32 -16, 1) i32 @pcie_port_runtime_idle(ptr nocapture noundef readonly %0) #11 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -27
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 2048

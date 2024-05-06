@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #5
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %string) #5
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.then.i
@@ -243,7 +243,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.then
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #5
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %string) #5
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then
@@ -378,7 +378,7 @@ declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_urldecode(ptr nocapture noundef readonly %string, i64 noundef %length, ptr nocapture noundef %ostring, ptr noundef writeonly %olen, i32 noundef %ctrl) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr nocapture noundef readonly %string, i64 noundef %length, ptr nocapture noundef %ostring, ptr noundef writeonly %olen, i32 noundef %ctrl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %length, 0
   br i1 %tobool.not, label %cond.false, label %cond.end

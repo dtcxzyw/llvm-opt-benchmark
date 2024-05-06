@@ -795,7 +795,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @slurm_parse_char_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_addto_name_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #9 {
+define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #9 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__ctype_b_loc() #18
   %6 = load ptr, ptr %5, align 8

@@ -1148,8 +1148,8 @@ invoke.cont41:                                    ; preds = %if.end38
   %54 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %54 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %55 = getelementptr i8, ptr %cond.i, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %55, i64 32
+  %55 = getelementptr inbounds i8, ptr %cond.i, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %55, i64 32
   %cmp46.not165 = icmp eq i32 %54, 0
   br i1 %cmp46.not165, label %for.end, label %for.body.lr.ph
 
@@ -1812,7 +1812,7 @@ if.then:                                          ; preds = %_ZNK11ast_manager5i
 if.then9:                                         ; preds = %if.then
   %27 = load i8, ptr %m_largest_clause, align 4
   %tobool = trunc i8 %27 to i1
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then9

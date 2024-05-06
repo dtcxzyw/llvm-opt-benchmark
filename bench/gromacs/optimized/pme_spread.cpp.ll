@@ -430,15 +430,15 @@ define void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGridsbbb(pt
   %229 = add nsw i64 %indvars.iv65.i, %227
   %230 = mul nsw i64 %229, %223
   %231 = add nuw nsw i64 %indvars.iv65.i, %228
-  %232 = mul nsw i64 %231, %224
+  %232 = mul nuw nsw i64 %231, %224
   %invariant.gep84.i = getelementptr float, ptr %.val, i64 %230
   br label %233
 
 233:                                              ; preds = %233, %.lr.ph28.us.us.us.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %233 ], [ 0, %.lr.ph28.us.us.us.i ]
   %234 = load ptr, ptr %207, align 8
-  %235 = getelementptr float, ptr %234, i64 %indvars.iv60.i
-  %236 = getelementptr float, ptr %235, i64 %232
+  %235 = getelementptr inbounds float, ptr %234, i64 %indvars.iv60.i
+  %236 = getelementptr inbounds float, ptr %235, i64 %232
   %237 = load float, ptr %236, align 4
   %gep85.i = getelementptr float, ptr %invariant.gep84.i, i64 %indvars.iv60.i
   %238 = load float, ptr %gep85.i, align 4
@@ -1297,8 +1297,8 @@ _ZL21make_thread_local_indPK11PmeAtomCommiP12splinedata_t.exit: ; preds = %._cri
   %251 = getelementptr inbounds [12 x float], ptr %15, i64 0, i64 %indvars.iv293.i
   %252 = load float, ptr %251, align 4
   %253 = load ptr, ptr %248, align 8
-  %254 = getelementptr float, ptr %253, i64 %indvars.iv293.i
-  %255 = getelementptr float, ptr %254, i64 %230
+  %254 = getelementptr inbounds float, ptr %253, i64 %indvars.iv293.i
+  %255 = getelementptr inbounds float, ptr %254, i64 %230
   store float %252, ptr %255, align 4
   %indvars.iv.next294.i = add nuw nsw i64 %indvars.iv293.i, 1
   %exitcond296.not.i = icmp eq i64 %indvars.iv.next294.i, 5
@@ -1333,8 +1333,8 @@ _ZL21make_thread_local_indPK11PmeAtomCommiP12splinedata_t.exit: ; preds = %._cri
   %275 = load float, ptr %274, align 4
   %276 = fsub float %273, %275
   %277 = load ptr, ptr %237, align 8
-  %278 = getelementptr float, ptr %277, i64 %indvars.iv285.i
-  %279 = getelementptr float, ptr %278, i64 %229
+  %278 = getelementptr inbounds float, ptr %277, i64 %indvars.iv285.i
+  %279 = getelementptr inbounds float, ptr %278, i64 %229
   store float %276, ptr %279, align 4
   %indvars.iv.next286.i = add nuw nsw i64 %indvars.iv285.i, 1
   %exitcond288.not.i = icmp eq i64 %indvars.iv.next286.i, 5
@@ -1497,8 +1497,8 @@ _ZL21make_thread_local_indPK11PmeAtomCommiP12splinedata_t.exit: ; preds = %._cri
   %363 = load float, ptr %362, align 4
   %364 = fsub float %361, %363
   %365 = load ptr, ptr %355, align 8
-  %366 = getelementptr float, ptr %365, i64 %indvars.iv342.i
-  %367 = getelementptr float, ptr %366, i64 %317
+  %366 = getelementptr inbounds float, ptr %365, i64 %indvars.iv342.i
+  %367 = getelementptr inbounds float, ptr %366, i64 %317
   store float %364, ptr %367, align 4
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv342.i, 1
   %exitcond346.not.i = icmp eq i64 %indvars.iv.next343.i, %wide.trip.count340.i
@@ -1550,8 +1550,8 @@ _ZL21make_thread_local_indPK11PmeAtomCommiP12splinedata_t.exit: ; preds = %._cri
   %392 = getelementptr inbounds [12 x float], ptr %16, i64 0, i64 %indvars.iv352.i
   %393 = load float, ptr %392, align 4
   %394 = load ptr, ptr %390, align 8
-  %395 = getelementptr float, ptr %394, i64 %indvars.iv352.i
-  %396 = getelementptr float, ptr %395, i64 %318
+  %395 = getelementptr inbounds float, ptr %394, i64 %indvars.iv352.i
+  %396 = getelementptr inbounds float, ptr %395, i64 %318
   store float %393, ptr %396, align 4
   %indvars.iv.next353.i = add nuw nsw i64 %indvars.iv352.i, 1
   %exitcond356.not.i = icmp eq i64 %indvars.iv.next353.i, %wide.trip.count340.i

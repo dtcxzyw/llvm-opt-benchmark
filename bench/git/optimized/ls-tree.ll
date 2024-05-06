@@ -70,7 +70,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.49 = private unnamed_addr constant [12 x i8] c"%06o %s %s\09\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_ls_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_ls_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %full_tree = alloca i32, align 4
@@ -541,7 +541,7 @@ declare void @parse_pathspec(ptr noundef, i32 noundef, i32 noundef, ptr noundef,
 declare ptr @parse_tree_indirect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @show_tree_fmt(ptr noundef %oid, ptr noundef %base, ptr noundef %pathname, i32 noundef %mode, ptr nocapture noundef readonly %context) #0 {
+define internal range(i32 0, 2) i32 @show_tree_fmt(ptr noundef %oid, ptr noundef %base, ptr noundef %pathname, i32 noundef %mode, ptr nocapture noundef readonly %context) #0 {
 entry:
   %size.i76 = alloca i64, align 8
   %size.i = alloca i64, align 8
@@ -586,12 +586,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.pathspec_item, ptr %5, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef %6, i64 noundef %2) #14
+  %call.i = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef %6, i64 noundef %2) #14
   %tobool7.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %for.inc.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pathname) #14
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %2
   %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #14
   %cmp12.not.i = icmp ugt i64 %call11.i, %call10.i
@@ -606,7 +606,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   ]
 
 if.end22.i:                                       ; preds = %if.end14.i, %if.end14.i
-  %bcmp.i = tail call i32 @bcmp(ptr %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
   %tobool24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool24.not.i, label %land.lhs.true6, label %for.inc.i
 
@@ -1018,7 +1018,7 @@ entry:
   %cmp2.i = icmp eq i32 %and.i, 57344
   %cond.i = select i1 %cmp2.i, i32 1, i32 3
   %cond3.i = select i1 %cmp.i, i32 2, i32 %cond.i
-  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i), !range !11
+  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1058,7 +1058,7 @@ entry:
   %cmp2.i = icmp eq i32 %and.i, 57344
   %cond.i = select i1 %cmp2.i, i32 1, i32 3
   %cond3.i = select i1 %cmp.i, i32 2, i32 %cond.i
-  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i), !range !11
+  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1115,7 +1115,7 @@ entry:
   %cmp2.i = icmp eq i32 %and.i, 57344
   %cond.i = select i1 %cmp2.i, i32 1, i32 3
   %cond3.i = select i1 %cmp.i, i32 2, i32 %cond.i
-  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i), !range !11
+  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1188,7 +1188,7 @@ entry:
   %cmp2.i = icmp eq i32 %and.i, 57344
   %cond.i = select i1 %cmp2.i, i32 1, i32 3
   %cond3.i = select i1 %cmp.i, i32 2, i32 %cond.i
-  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i), !range !11
+  %call1 = call fastcc i32 @show_tree_common(ptr noundef %context, ptr noundef nonnull %recurse, ptr noundef %base, ptr noundef %pathname, i32 noundef %cond3.i)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1223,7 +1223,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @show_tree_common(ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly %recurse, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef %type) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @show_tree_common(ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly %recurse, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef %type) unnamed_addr #5 {
 entry:
   store i32 0, ptr %recurse, align 4
   switch i32 %type, label %if.end11 [
@@ -1266,12 +1266,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.pathspec_item, ptr %6, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef %7, i64 noundef %3) #14
+  %call.i = tail call i32 @strncmp(ptr noundef readonly %2, ptr noundef %7, i64 noundef %3) #14
   %tobool7.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %for.inc.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pathname) #14
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %3
   %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #14
   %cmp12.not.i = icmp ugt i64 %call11.i, %call10.i
@@ -1286,7 +1286,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   ]
 
 if.end22.i:                                       ; preds = %if.end14.i, %if.end14.i
-  %bcmp.i = tail call i32 @bcmp(ptr %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
   %tobool24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool24.not.i, label %if.then4, label %for.inc.i
 
@@ -1471,4 +1471,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 2}

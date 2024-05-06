@@ -78,7 +78,7 @@ return:                                           ; preds = %_CONF_get_section.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_CONF_add_string(ptr nocapture noundef readonly %conf, ptr nocapture noundef readonly %section, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @_CONF_add_string(ptr nocapture noundef readonly %conf, ptr nocapture noundef readonly %section, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %value1 = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %value1, align 8
@@ -192,7 +192,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_CONF_new_data(ptr noundef %conf) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @_CONF_new_data(ptr noundef %conf) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end

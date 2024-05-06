@@ -71,7 +71,7 @@ declare zeroext i1 @nxnotify_cancellation(ptr noundef) local_unnamed_addr #1
 declare i32 @nxtask_terminate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_delete(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @g_readytorun, align 8
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %4, label %7

@@ -1178,7 +1178,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 declare void @_ZN4cvc58internal6theory17QuantifiersEngine8presolveEv(ptr noundef nonnull align 8 dereferenceable(356)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiers8ppAssertENS0_9TrustNodeERNS1_20TrustSubstitutionMapE(ptr noundef nonnull align 8 dereferenceable(1776) %this, ptr noundef %tin, ptr noundef nonnull align 8 dereferenceable(608) %outSubstitutions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiers8ppAssertENS0_9TrustNodeERNS1_20TrustSubstitutionMapE(ptr noundef nonnull align 8 dereferenceable(1776) %this, ptr noundef %tin, ptr noundef nonnull align 8 dereferenceable(608) %outSubstitutions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %eq = alloca %"class.cvc5::internal::NodeTemplate.500", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.500", align 8

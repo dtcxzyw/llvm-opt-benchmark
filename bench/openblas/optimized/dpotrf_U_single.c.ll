@@ -123,7 +123,7 @@ define i32 @dpotrf_U_single(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %82 = phi i64 [ %90, %81 ], [ 0, %.preheader.us ]
   %83 = sub nsw i64 %.fr19, %82
   %84 = call i64 @llvm.smin.i64(i64 %83, i64 192)
-  %85 = mul nsw i64 %82, %.fr19
+  %85 = mul nuw nsw i64 %82, %.fr19
   %86 = getelementptr inbounds double, ptr %4, i64 %85
   %87 = add i64 %82, %75
   %88 = getelementptr inbounds double, ptr %28, i64 %87

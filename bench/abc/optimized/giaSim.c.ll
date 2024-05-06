@@ -362,7 +362,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %67 = sub nsw i64 0, %66
   %68 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %40, i64 %67
   store i32 0, ptr %24, align 4
-  call void @Gia_ManSimCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef nonnull %23)
+  call void @Gia_ManSimCollect_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %68, ptr noundef nonnull %23)
   %69 = load i32, ptr %24, align 4
   %70 = icmp slt i32 %69, 2
   br i1 %70, label %Gia_ManSimCollect.exit, label %71
@@ -1053,7 +1053,7 @@ define void @Gia_ManSimInfoInit(ptr nocapture noundef readonly %0) local_unnamed
   %32 = mul nuw nsw i64 %indvars.iv, %31
   %33 = getelementptr inbounds i32, ptr %.val12, i64 %32
   %34 = shl nuw nsw i64 %31, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %34, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %33, i8 0, i64 %34, i1 false)
   br label %Gia_ManSimInfoRandom.exit
 
 Gia_ManSimInfoRandom.exit:                        ; preds = %.lr.ph.i, %.lr.ph.preheader.i21, %29, %19
@@ -1178,7 +1178,7 @@ define void @Gia_ManSimulateRound(ptr nocapture noundef readonly %0) local_unnam
   %.val22 = load ptr, ptr %3, align 8
   %5 = zext nneg i32 %.val24 to i64
   %6 = shl nuw nsw i64 %5, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.val22, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %.val22, i8 0, i64 %6, i1 false)
   br label %Gia_ManSimInfoZero.exit
 
 Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheader.i
@@ -1796,7 +1796,7 @@ Gia_ManResetRandom.exit:                          ; preds = %.lr.ph.i, %45
   %85 = mul nuw nsw i64 %indvars.iv.i, %84
   %86 = getelementptr inbounds i32, ptr %.val12.i, i64 %85
   %87 = shl nuw nsw i64 %84, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %87, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %86, i8 0, i64 %87, i1 false)
   br label %Gia_ManSimInfoRandom.exit.i
 
 Gia_ManSimInfoRandom.exit.i:                      ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i21.i, %82, %72
@@ -2757,7 +2757,7 @@ define void @Gia_ManSimSimulatePattern(ptr nocapture noundef readonly %0, ptr no
   %20 = getelementptr i8, ptr %.val18, i64 4
   %.val18.val = load i32, ptr %20, align 4
   %21 = sub nsw i32 %.val18.val, %.val17
-  %22 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.11)
+  %22 = tail call noalias ptr @fopen(ptr noundef readonly %2, ptr noundef nonnull @.str.11)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %Gia_ManSimWriteFile.exit.thread, label %.preheader.i
 
@@ -3886,7 +3886,7 @@ Gia_ManBuiltInSimPack.exit.thread:                ; preds = %.critedge.us.i, %13
 
 66:                                               ; preds = %61
   %67 = trunc nuw nsw i64 %indvars.iv.i162 to i32
-  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull %0, i32 noundef %67)
+  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull readonly %0, i32 noundef %67)
   %.pre.i = load i32, ptr %57, align 8
   br label %68
 
@@ -3946,7 +3946,7 @@ Gia_ManBuiltInSimResimulate.exit:                 ; preds = %Gia_ManBuiltInSimRe
 
 93:                                               ; preds = %88
   %94 = trunc nuw nsw i64 %indvars.iv.i165 to i32
-  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull %0, i32 noundef %94)
+  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull readonly %0, i32 noundef %94)
   %.pre.i171 = load i32, ptr %84, align 8
   br label %95
 

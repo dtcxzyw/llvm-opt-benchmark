@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @uv__async_send.val = internal constant i64 1, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_async_init(ptr noundef %loop, ptr noundef %handle, ptr noundef %async_cb) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_async_init(ptr noundef %loop, ptr noundef %handle, ptr noundef %async_cb) local_unnamed_addr #0 {
 entry:
   %async_io_watcher.i = getelementptr inbounds i8, ptr %loop, i64 456
   %fd.i = getelementptr inbounds i8, ptr %loop, i64 504
@@ -344,7 +344,7 @@ declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
 declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__async_fork(ptr noundef %loop) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__async_fork(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.uv__queue, align 8
   %async_io_watcher = getelementptr inbounds i8, ptr %loop, i64 456

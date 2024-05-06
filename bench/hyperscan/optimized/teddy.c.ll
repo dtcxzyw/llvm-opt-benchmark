@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @p_mask_arr = hidden local_unnamed_addr constant <{ [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], <{ [16 x i8], [16 x i8] }> }> <{ [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF", <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [16 x i8] zeroinitializer }> }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1263 = alloca i64, align 8
   %tmp.i1215 = alloca i64, align 8
@@ -3293,7 +3293,7 @@ do.end490:                                        ; preds = %do.body312, %do.bod
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1263 = alloca i64, align 8
   %tmp.i1215 = alloca i64, align 8
@@ -6574,7 +6574,7 @@ do.end490:                                        ; preds = %do.body312, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1178 = alloca i64, align 8
   %tmp.i1130 = alloca i64, align 8
@@ -9930,7 +9930,7 @@ do.end491:                                        ; preds = %do.body313, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1178 = alloca i64, align 8
   %tmp.i1130 = alloca i64, align 8
@@ -13286,7 +13286,7 @@ do.end491:                                        ; preds = %do.body313, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1179 = alloca i64, align 8
   %tmp.i1131 = alloca i64, align 8
@@ -16699,7 +16699,7 @@ do.end492:                                        ; preds = %do.body314, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1179 = alloca i64, align 8
   %tmp.i1131 = alloca i64, align 8
@@ -20112,7 +20112,7 @@ do.end492:                                        ; preds = %do.body314, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1180 = alloca i64, align 8
   %tmp.i1132 = alloca i64, align 8
@@ -23582,7 +23582,7 @@ do.end493:                                        ; preds = %do.body315, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1180 = alloca i64, align 8
   %tmp.i1132 = alloca i64, align 8

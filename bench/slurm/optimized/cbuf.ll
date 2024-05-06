@@ -354,7 +354,7 @@ cbuf_find_unread_line.exit:                       ; preds = %21, %30, %13, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_reused(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_reused(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -575,7 +575,7 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_is_empty(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cbuf_is_empty(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -606,7 +606,7 @@ define dso_local i32 @cbuf_is_empty(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cbuf_opt_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %7
 
@@ -659,7 +659,7 @@ define dso_local noundef i32 @cbuf_opt_get(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cbuf_opt_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cbuf_opt_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -830,7 +830,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
   %27 = sext i32 %.0.i to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr align 1 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr readonly align 1 %28, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %.017, i64 %29
   %31 = icmp sgt i32 %.035..i, 0
   br i1 %31, label %32, label %38
@@ -931,7 +931,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
   %27 = sext i32 %.0.i to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.021, ptr align 1 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.021, ptr readonly align 1 %28, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %.021, i64 %29
   %31 = icmp sgt i32 %.035..i, 0
   br i1 %31, label %32, label %38
@@ -1055,7 +1055,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
   %36 = sext i32 %.0.i to i64
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = sext i32 %.042..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr align 1 %37, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr readonly align 1 %37, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %.017, i64 %38
   %40 = icmp sgt i32 %.042..i, 0
   br i1 %40, label %41, label %47
@@ -1100,7 +1100,7 @@ cbuf_replayer.exit:                               ; preds = %14, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_rewind(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483646, -2147483648) i32 @cbuf_rewind(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, -1
   br i1 %3, label %4, label %6
 
@@ -1694,7 +1694,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %62 = sext i32 %.0.i to i64
   %63 = getelementptr inbounds i8, ptr %61, i64 %62
   %64 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040, ptr align 1 %63, i64 %64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040, ptr readonly align 1 %63, i64 %64, i1 false)
   %65 = getelementptr inbounds i8, ptr %.040, i64 %64
   %66 = icmp ult i32 %reass.sub.i, 2147483647
   br i1 %66, label %67, label %73
@@ -1858,7 +1858,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %58 = sext i32 %.0.i to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.041, ptr align 1 %59, i64 %60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.041, ptr readonly align 1 %59, i64 %60, i1 false)
   %61 = getelementptr inbounds i8, ptr %.041, i64 %60
   %62 = icmp ult i32 %reass.sub.i, 2147483647
   br i1 %62, label %63, label %69
@@ -1996,7 +1996,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
   %48 = sext i32 %.0.i to i64
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
   %50 = sext i32 %.042..i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.048, ptr align 1 %49, i64 %50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.048, ptr readonly align 1 %49, i64 %50, i1 false)
   %51 = getelementptr inbounds i8, ptr %.048, i64 %50
   %52 = icmp sgt i32 %.042..i, 0
   br i1 %52, label %53, label %59
@@ -2420,7 +2420,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %35
 
 35:                                               ; preds = %39, %28
-  %36 = tail call i64 @write(i32 noundef %1, ptr noundef %33, i64 noundef %34) #15
+  %36 = tail call i64 @write(i32 noundef %1, ptr noundef readonly %33, i64 noundef %34) #15
   %37 = trunc i64 %36 to i32
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %cbuf_put_fd.exit
@@ -2545,7 +2545,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %35
 
 35:                                               ; preds = %39, %28
-  %36 = tail call i64 @write(i32 noundef %1, ptr noundef %33, i64 noundef %34) #15
+  %36 = tail call i64 @write(i32 noundef %1, ptr noundef readonly %33, i64 noundef %34) #15
   %37 = trunc i64 %36 to i32
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %cbuf_put_fd.exit
@@ -2696,7 +2696,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   br label %47
 
 47:                                               ; preds = %51, %40
-  %48 = tail call i64 @write(i32 noundef %1, ptr noundef %45, i64 noundef %46) #15
+  %48 = tail call i64 @write(i32 noundef %1, ptr noundef readonly %45, i64 noundef %46) #15
   %49 = trunc i64 %48 to i32
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %cbuf_put_fd.exit

@@ -46,7 +46,7 @@ define ptr @opal_environ_merge(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = call i32 @opal_setenv(ptr noundef nonnull %13, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %3), !range !4
+  %17 = call i32 @opal_setenv(ptr noundef nonnull %13, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %3)
   br label %26
 
 18:                                               ; preds = %.lr.ph
@@ -57,7 +57,7 @@ define ptr @opal_environ_merge(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %25 = call i32 @opal_setenv(ptr noundef %19, ptr noundef nonnull %24, i1 noundef zeroext false, ptr noundef nonnull %3), !range !4
+  %25 = call i32 @opal_setenv(ptr noundef %19, ptr noundef nonnull %24, i1 noundef zeroext false, ptr noundef nonnull %3)
   call void @free(ptr noundef %19) #8
   br label %26
 
@@ -66,7 +66,7 @@ define ptr @opal_environ_merge(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %27 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %26
   %.pre = load ptr, ptr %3, align 8
@@ -83,7 +83,7 @@ declare noalias ptr @opal_argv_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -14, 1) i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -144,12 +144,12 @@ define noundef i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = trunc i64 %indvars.iv.next to i32
+  %38 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %38, ptr %5, align 4
   %39 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %33, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %33 ]
@@ -218,7 +218,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @opal_argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_unsetenv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_unsetenv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -274,14 +274,14 @@ define noundef i32 @opal_unsetenv(ptr noundef %0, ptr nocapture noundef readonly
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.next42
   %30 = load ptr, ptr %29, align 8
   %.not25 = icmp eq ptr %30, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph35, !llvm.loop !8
+  br i1 %.not25, label %.loopexit, label %.lr.ph35, !llvm.loop !7
 
 31:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8
   %.not.not = icmp eq ptr %33, null
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %31, %.lr.ph35, %10, %19
   %34 = phi i32 [ 0, %19 ], [ -13, %10 ], [ 0, %.lr.ph35 ], [ -13, %31 ]
@@ -342,9 +342,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -14, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

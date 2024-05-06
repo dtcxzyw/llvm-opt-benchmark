@@ -303,7 +303,7 @@ define i32 @ARKStepGetNonlinearSystemData(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

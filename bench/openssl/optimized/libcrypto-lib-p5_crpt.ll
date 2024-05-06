@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS5_PBE_keyivgen_ex(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS5_PBE_keyivgen_ex(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %md_tmp = alloca [64 x i8], align 16
   %key = alloca [64 x i8], align 16
@@ -233,9 +233,9 @@ declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @PBEPARAM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS5_PBE_keyivgen(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS5_PBE_keyivgen(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @PKCS5_PBE_keyivgen_ex(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @PKCS5_PBE_keyivgen_ex(ptr noundef %cctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %en_de, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -253,4 +253,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

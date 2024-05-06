@@ -395,7 +395,7 @@ define dso_local void @mii_ethtool_get_link_ksettings(ptr nocapture noundef %0, 
 declare dso_local void @ethtool_convert_legacy_u32_to_link_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mii_ethtool_sset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mii_ethtool_sset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -601,7 +601,7 @@ define dso_local noundef i32 @mii_ethtool_sset(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mii_ethtool_set_link_ksettings(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mii_ethtool_set_link_ksettings(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -808,7 +808,7 @@ define dso_local noundef i32 @mii_ethtool_set_link_ksettings(ptr nocapture nound
 declare dso_local zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mii_check_gmii_support(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @mii_check_gmii_support(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -837,7 +837,7 @@ define dso_local noundef i32 @mii_check_gmii_support(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mii_link_ok(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @mii_link_ok(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -854,7 +854,7 @@ define dso_local i32 @mii_link_ok(ptr nocapture noundef readonly %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mii_nway_restart(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mii_nway_restart(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -924,7 +924,7 @@ declare dso_local void @netif_carrier_on(ptr noundef) local_unnamed_addr #2
 declare dso_local void @netif_carrier_off(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mii_check_media(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @mii_check_media(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 352
@@ -1083,7 +1083,7 @@ define dso_local noundef i32 @mii_check_media(ptr nocapture noundef %0, i32 noun
 declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @generic_mii_ioctl(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @generic_mii_ioctl(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = icmp ne ptr %3, null
   br i1 %5, label %6, label %7
 

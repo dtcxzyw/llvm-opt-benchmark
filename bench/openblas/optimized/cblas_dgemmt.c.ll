@@ -182,7 +182,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us
   %149 = phi i64 [ %150, %.split.us.split.us ], [ 0, %.split.us ]
   %150 = add nuw nsw i64 %149, 1
-  %151 = mul nsw i64 %149, %145
+  %151 = mul nuw nsw i64 %149, %145
   %152 = getelementptr inbounds double, ptr %12, i64 %151
   %153 = tail call i32 @dscal_k(i64 noundef %150, i64 noundef 0, i64 noundef 0, double noundef %11, ptr noundef %152, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
   %154 = icmp eq i64 %150, %146
@@ -216,7 +216,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 .split21.us.split.us:                             ; preds = %.split21.us, %.split21.us.split.us
   %173 = phi i64 [ %179, %.split21.us.split.us ], [ 0, %.split21.us ]
   %174 = sub nsw i64 %167, %173
-  %175 = mul nsw i64 %173, %168
+  %175 = mul nuw nsw i64 %173, %168
   %176 = getelementptr inbounds double, ptr %12, i64 %175
   %177 = getelementptr inbounds double, ptr %176, i64 %173
   %178 = tail call i32 @dscal_k(i64 noundef %174, i64 noundef 0, i64 noundef 0, double noundef %11, ptr noundef %177, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
@@ -227,11 +227,11 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 .split21:                                         ; preds = %156, %233
   %181 = phi i64 [ %234, %233 ], [ 0, %156 ]
   %182 = sub nsw i64 %167, %181
-  %183 = mul nsw i64 %181, %170
+  %183 = mul nuw nsw i64 %181, %170
   %184 = getelementptr inbounds double, ptr %121, i64 %183
-  %185 = mul nsw i64 %181, %172
+  %185 = mul nuw nsw i64 %181, %172
   %186 = getelementptr inbounds double, ptr %122, i64 %185
-  %187 = mul nsw i64 %181, %168
+  %187 = mul nuw nsw i64 %181, %168
   %188 = getelementptr inbounds double, ptr %12, i64 %187
   %189 = getelementptr inbounds double, ptr %188, i64 %181
   br i1 %159, label %190, label %192
@@ -333,9 +333,9 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 .split:                                           ; preds = %134, %285
   %236 = phi i64 [ %237, %285 ], [ 0, %134 ]
   %237 = add nuw nsw i64 %236, 1
-  %238 = mul nsw i64 %236, %148
+  %238 = mul nuw nsw i64 %236, %148
   %239 = getelementptr inbounds double, ptr %122, i64 %238
-  %240 = mul nsw i64 %236, %145
+  %240 = mul nuw nsw i64 %236, %145
   %241 = getelementptr inbounds double, ptr %12, i64 %240
   br i1 %135, label %242, label %244
 

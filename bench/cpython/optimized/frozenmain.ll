@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"<stdin>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Py_FrozenMain(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 121) i32 @Py_FrozenMain(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8

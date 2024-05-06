@@ -828,7 +828,7 @@ kfold_intop.exit:                                 ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_kfold_intovarith(ptr nocapture noundef %J) #0 {
+define internal range(i32 2, 4) i32 @fold_kfold_intovarith(ptr nocapture noundef %J) #0 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
@@ -879,7 +879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_kfold_intcomp(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr nocapture noundef readonly %J) #5 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
@@ -945,7 +945,7 @@ return:                                           ; preds = %entry, %sw.bb29, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_kfold_intcomp0(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 5) i32 @fold_kfold_intcomp0(ptr nocapture noundef readonly %J) #5 {
 entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
@@ -1125,7 +1125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_kfold_int64comp(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr nocapture noundef readonly %J) #5 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
@@ -1190,7 +1190,7 @@ return:                                           ; preds = %entry, %sw.bb29, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_kfold_int64comp0(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 5) i32 @fold_kfold_int64comp0(ptr nocapture noundef readonly %J) #5 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_kfold_strref_snew(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.else, %if.then21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_kfold_strcmp(ptr nocapture noundef %J) #0 {
+define internal range(i32 0, 3) i32 @fold_kfold_strcmp(ptr nocapture noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -2226,7 +2226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_add_kright(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_kfold_add_kright(ptr nocapture noundef %J) #4 {
 entry:
   %o = getelementptr inbounds i8, ptr %J, i64 197
   %0 = load i8, ptr %o, align 1
@@ -2371,7 +2371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_knum_int_num(ptr nocapture noundef %J) #4 {
+define internal range(i32 2, 4) i32 @fold_kfold_conv_knum_int_num(ptr nocapture noundef %J) #4 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
@@ -2488,7 +2488,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_kfold_kref(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 3, 5) i32 @fold_kfold_kref(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -2504,7 +2504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_shortcut_round(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_round(ptr nocapture noundef readonly %J) #5 {
 entry:
   %op2 = getelementptr inbounds i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
@@ -2523,7 +2523,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_shortcut_left(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_left(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -2532,7 +2532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_shortcut_dropleft(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr nocapture noundef %J) #4 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -2553,7 +2553,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_shortcut_leftleft(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_leftleft(ptr nocapture noundef readonly %J) #5 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -2573,7 +2573,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_numadd_negx(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr nocapture noundef %J) #4 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -2599,7 +2599,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_numadd_xneg(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr nocapture noundef %J) #4 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 212
   %0 = load i8, ptr %t, align 4
@@ -2622,7 +2622,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_numsub_k(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_numsub_k(ptr nocapture noundef readonly %J) #5 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
@@ -2641,7 +2641,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_numsub_negk(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_numsub_negk(ptr noundef %J) #0 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -2670,7 +2670,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_numsub_xneg(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_numsub_xneg(ptr nocapture noundef %J) #4 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 212
   %0 = load i8, ptr %t, align 4
@@ -2693,7 +2693,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_nummuldiv_k(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_nummuldiv_k(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
@@ -2778,7 +2778,7 @@ return:                                           ; preds = %if.then46, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_nummuldiv_negk(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negk(ptr noundef %J) #0 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -2807,7 +2807,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_nummuldiv_negneg(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negneg(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -2879,7 +2879,7 @@ return:                                           ; preds = %if.else7, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_shortcut_conv_num_int(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr nocapture noundef readonly %J) #5 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %t = getelementptr inbounds i8, ptr %J, i64 196
@@ -2908,7 +2908,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_conv_int_num(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_num(ptr nocapture noundef readonly %J) #5 {
 entry:
   %op2 = getelementptr inbounds i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
@@ -2932,7 +2932,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_simplify_conv_i64_num(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -2969,7 +2969,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_simplify_conv_int_i64(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -3013,7 +3013,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_conv_flt_num(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr nocapture noundef readonly %J) #5 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %t = getelementptr inbounds i8, ptr %J, i64 196
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_simplify_tobit_conv(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_simplify_tobit_conv(ptr nocapture noundef %J) #4 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %op2 = getelementptr inbounds i8, ptr %J, i64 194
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %entry, %if.then14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_floor_conv(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_floor_conv(ptr nocapture noundef readonly %J) #5 {
 entry:
   %op2 = getelementptr inbounds i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
@@ -3093,7 +3093,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @fold_simplify_conv_sext(ptr nocapture noundef readonly %J) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr nocapture noundef readonly %J) #6 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -3287,7 +3287,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_intadd_k(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k(ptr nocapture noundef readonly %J) #5 {
 entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
@@ -3306,7 +3306,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_simplify_intmul_k(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %right = getelementptr inbounds i8, ptr %J, i64 208
@@ -3341,7 +3341,7 @@ return:                                           ; preds = %entry, %if.then17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_intsub_k(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k(ptr noundef %J) #0 {
 entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
@@ -3370,7 +3370,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_intsub_kleft(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsub_kleft(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 197
@@ -3404,7 +3404,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_intadd_k64(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k64(ptr nocapture noundef readonly %J) #5 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
@@ -3423,7 +3423,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_intsub_k64(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k64(ptr noundef %J) #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
@@ -3452,7 +3452,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_intmul_k32(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k32(ptr noundef %J) #0 {
 entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
@@ -3476,14 +3476,14 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !10
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %cmp8.i = icmp ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !10
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
@@ -3502,7 +3502,7 @@ return:                                           ; preds = %entry, %simplify_in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_intmul_k64(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k64(ptr noundef %J) #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
@@ -3527,14 +3527,14 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call i32 @llvm.ctpop.i32(i32 %conv), !range !10
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %conv)
   %cmp8.i = icmp ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %conv, i1 true), !range !10
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
@@ -3553,12 +3553,12 @@ return:                                           ; preds = %entry, %simplify_in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_intmod_k(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_intmod_k(ptr noundef %J) #0 {
 entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp sgt i32 %0, 0
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !11
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %0)
   %cmp1 = icmp ult i32 %1, 2
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %return
@@ -3579,7 +3579,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_intmod_kleft(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 3) i32 @fold_simplify_intmod_kleft(ptr nocapture noundef %J) #4 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
@@ -3634,7 +3634,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_intsubadd_leftcancel(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsubadd_leftcancel(ptr nocapture noundef readonly %J) #5 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
@@ -3673,7 +3673,7 @@ return:                                           ; preds = %if.end, %if.end23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_intsubsub_leftcancel(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsubsub_leftcancel(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %t = getelementptr inbounds i8, ptr %J, i64 188
@@ -3712,7 +3712,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_intsubsub_rightcancel(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsubsub_rightcancel(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %t = getelementptr inbounds i8, ptr %J, i64 188
@@ -3747,7 +3747,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_intsubadd_rightcancel(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsubadd_rightcancel(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %t = getelementptr inbounds i8, ptr %J, i64 188
@@ -3791,7 +3791,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_simplify_intsubaddadd_cancel(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %t = getelementptr inbounds i8, ptr %J, i64 188
@@ -3870,7 +3870,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_band_k(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_band_k(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 213
@@ -3912,7 +3912,7 @@ return:                                           ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_bor_k(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_bor_k(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 213
@@ -3954,7 +3954,7 @@ return:                                           ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_simplify_bxor_k(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_simplify_bxor_k(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 213
@@ -3998,7 +3998,7 @@ return:                                           ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_shift_ik(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_shift_ik(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %t = getelementptr inbounds i8, ptr %J, i64 188
@@ -4068,7 +4068,7 @@ return:                                           ; preds = %if.end35, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_simplify_shift_andk(ptr nocapture noundef %J) #7 {
+define internal range(i32 0, 2) i32 @fold_simplify_shift_andk(ptr nocapture noundef %J) #7 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4115,7 +4115,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_shift1_ki(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_shift1_ki(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 197
@@ -4150,7 +4150,7 @@ return:                                           ; preds = %cond.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_simplify_shift2_ki(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_shift2_ki(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %o = getelementptr inbounds i8, ptr %J, i64 197
@@ -4186,7 +4186,7 @@ return:                                           ; preds = %cond.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_shiftk_andk(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_shiftk_andk(ptr noundef %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4403,7 +4403,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_simplify_andk_shiftk(ptr nocapture noundef readonly %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_simplify_andk_shiftk(ptr nocapture noundef readonly %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4497,7 +4497,7 @@ return:                                           ; preds = %entry, %kfold_intop
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_simplify_andor_k(ptr nocapture noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_simplify_andor_k(ptr nocapture noundef %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4626,7 +4626,7 @@ return:                                           ; preds = %if.end, %kfold_into
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_simplify_andor_k64(ptr nocapture noundef %J) #7 {
+define internal range(i32 0, 2) i32 @fold_simplify_andor_k64(ptr nocapture noundef %J) #7 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4734,7 +4734,7 @@ return:                                           ; preds = %if.end, %kfold_int6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_reassoc_intarith_k(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_intarith_k(ptr noundef %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4870,7 +4870,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_reassoc_intarith_k64(ptr noundef %J) #0 {
+define internal range(i32 0, 2) i32 @fold_reassoc_intarith_k64(ptr noundef %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -4976,7 +4976,7 @@ return:                                           ; preds = %entry, %kfold_int64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_reassoc_dup(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_dup(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %op2 = getelementptr inbounds i8, ptr %J, i64 186
@@ -5003,7 +5003,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_reassoc_dup_minmax(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_dup_minmax(ptr nocapture noundef readonly %J) #5 {
 entry:
   %op2 = getelementptr inbounds i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
@@ -5024,7 +5024,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_reassoc_bxor(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_bxor(ptr nocapture noundef readonly %J) #5 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
@@ -5134,7 +5134,7 @@ return:                                           ; preds = %if.end, %cond.true,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fold_reassoc_minmax_k(ptr noundef %J) #0 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_minmax_k(ptr noundef %J) #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
@@ -5268,7 +5268,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_abc_fwd(ptr nocapture noundef readonly %J) #8 {
+define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr nocapture noundef readonly %J) #8 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -5339,7 +5339,7 @@ if.end70:                                         ; preds = %land.lhs.true62, %w
   %prev = getelementptr inbounds i8, ptr %arrayidx53, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp47 = icmp ugt i16 %ref.0.in, %spec.select
-  br i1 %cmp47, label %while.body, label %return, !llvm.loop !12
+  br i1 %cmp47, label %while.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %land.lhs.true62, %if.end70, %if.then32, %entry, %if.then5, %land.lhs.true, %land.lhs.true16, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true16 ], [ 0, %land.lhs.true ], [ 0, %if.then5 ], [ 0, %entry ], [ 0, %if.then32 ], [ 4, %land.lhs.true62 ], [ 0, %if.end70 ]
@@ -5409,7 +5409,7 @@ if.end36:                                         ; preds = %land.lhs.true, %whi
   %prev = getelementptr inbounds i8, ptr %arrayidx12, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, %3
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end36, %if.then6
   %call = tail call i32 @lj_ir_emit(ptr noundef nonnull %J) #11
@@ -5421,7 +5421,7 @@ return:                                           ; preds = %if.end, %if.then20,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_abc_invar(ptr nocapture noundef readonly %J) #6 {
+define internal range(i32 0, 5) i32 @fold_abc_invar(ptr nocapture noundef readonly %J) #6 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
@@ -5457,7 +5457,7 @@ return:                                           ; preds = %land.lhs.true8, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_comm_swap(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 2) i32 @fold_comm_swap(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -5477,7 +5477,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_comm_equal(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 5) i32 @fold_comm_equal(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -5530,7 +5530,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_comm_comp(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 5) i32 @fold_comm_comp(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -5575,7 +5575,7 @@ return:                                           ; preds = %if.end, %if.then28,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fold_comm_dup(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr nocapture noundef %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -5603,7 +5603,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_comm_dup_minmax(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_comm_dup_minmax(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -5658,7 +5658,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_merge_eqne_snew_kgc(ptr noundef %J) #0 {
+define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %J) #0 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
@@ -5992,7 +5992,7 @@ if.end37:                                         ; preds = %if.then19, %while.b
   %prev = getelementptr inbounds i8, ptr %arrayidx15, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp.not = icmp eq i16 %ref.0.in, 0
-  br i1 %cmp.not, label %if.end39, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %if.end39, label %while.body, !llvm.loop !12
 
 if.end39:                                         ; preds = %if.end37, %if.then, %entry
   %call40 = tail call i32 @lj_ir_emit(ptr noundef nonnull %J) #11
@@ -6130,7 +6130,7 @@ if.end:                                           ; preds = %while.body
   %prev = getelementptr inbounds i8, ptr %arrayidx14, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, %2
-  br i1 %cmp, label %while.body, label %if.end20, !llvm.loop !15
+  br i1 %cmp, label %while.body, label %if.end20, !llvm.loop !13
 
 if.end20:                                         ; preds = %if.end, %if.then, %entry
   %call21 = tail call i32 @lj_ir_emit(ptr noundef nonnull %J) #11
@@ -6198,7 +6198,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_fload_tab_tnew_asize(ptr noundef %J) #0 {
+define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_asize(ptr noundef %J) #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6227,7 +6227,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_fload_tab_tnew_hmask(ptr noundef %J) #0 {
+define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_hmask(ptr noundef %J) #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6258,7 +6258,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_fload_tab_tdup_asize(ptr noundef %J) #0 {
+define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_asize(ptr noundef %J) #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6295,7 +6295,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_fload_tab_tdup_hmask(ptr noundef %J) #0 {
+define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_hmask(ptr noundef %J) #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6448,7 +6448,7 @@ cond.end:                                         ; preds = %lj_opt_cse.exit, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_fload_str_len_kgc(ptr nocapture noundef %J) #7 {
+define internal range(i32 0, 3) i32 @fold_fload_str_len_kgc(ptr nocapture noundef %J) #7 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6472,7 +6472,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_fload_str_len_snew(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr nocapture noundef readonly %J) #5 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6499,7 +6499,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_fload_str_len_tostr(ptr nocapture noundef %J) #4 {
+define internal range(i32 0, 3) i32 @fold_fload_str_len_tostr(ptr nocapture noundef %J) #4 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6542,7 +6542,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_fload_func_ffid_kgc(ptr nocapture noundef %J) #7 {
+define internal range(i32 0, 3) i32 @fold_fload_func_ffid_kgc(ptr nocapture noundef %J) #7 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6567,7 +6567,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fold_fload_cdata_typeid_kgc(ptr nocapture noundef %J) #7 {
+define internal range(i32 0, 3) i32 @fold_fload_cdata_typeid_kgc(ptr nocapture noundef %J) #7 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6631,7 +6631,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_fload_cdata_typeid_cnew(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_fload_cdata_typeid_cnew(ptr nocapture noundef readonly %J) #5 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -6651,7 +6651,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_fload_cdata_ptr_int64_cnew(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 65536) i32 @fold_fload_cdata_ptr_int64_cnew(ptr nocapture noundef readonly %J) #5 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
@@ -7091,7 +7091,7 @@ return:                                           ; preds = %lj_opt_cse.exit, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fold_barrier_tnew_tdup(ptr nocapture noundef readonly %J) #5 {
+define internal range(i32 0, 5) i32 @fold_barrier_tnew_tdup(ptr nocapture noundef readonly %J) #5 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -7262,9 +7262,7 @@ attributes #12 = { noreturn nounwind }
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = !{i32 0, i32 33}
-!11 = !{i32 0, i32 32}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}

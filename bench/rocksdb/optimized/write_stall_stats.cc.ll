@@ -287,7 +287,7 @@ sw.epilog:                                        ; preds = %switch.hole_check, 
   br label %return
 
 switch.hole_check:                                ; preds = %init.end24
-  %switch.maskindex = trunc i32 %cause to i8
+  %switch.maskindex = trunc nuw i32 %cause to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
@@ -394,7 +394,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN7rocksdb14InternalCFStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %cause, i32 noundef %condition) local_unnamed_addr #4 {
+define noundef range(i32 0, 15) i32 @_ZN7rocksdb14InternalCFStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %cause, i32 noundef %condition) local_unnamed_addr #4 {
 entry:
   switch i32 %cause, label %return [
     i32 0, label %sw.bb
@@ -429,7 +429,7 @@ return:                                           ; preds = %entry, %sw.bb9, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN7rocksdb14InternalDBStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %cause, i32 noundef %condition) local_unnamed_addr #4 {
+define noundef range(i32 8, 10) i32 @_ZN7rocksdb14InternalDBStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %cause, i32 noundef %condition) local_unnamed_addr #4 {
 entry:
   %cond = icmp eq i32 %cause, 4
   %cond1 = icmp eq i32 %condition, 1

@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly %self) local_unnamed_addr #3 {
+define noundef range(i32 0, 3) i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly %self) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %if.then, label %if.end
@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone %self, ptr nocapture noundef readonly %received_bytes, i64 noundef %received_bytes_size, ptr nocapture readnone %0, ptr nocapture noundef writeonly %bytes_to_send_size, ptr noundef writeonly %result, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %error) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone %self, ptr nocapture noundef readonly %received_bytes, i64 noundef %received_bytes_size, ptr nocapture readnone %0, ptr nocapture noundef writeonly %bytes_to_send_size, ptr noundef writeonly %result, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %error) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -97,7 +97,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @gpr_malloc(i64 noundef %received_bytes_size)
   %unused_bytes.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call3.i, ptr %unused_bytes.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr align 1 %received_bytes, i64 %received_bytes_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr readonly align 1 %received_bytes, i64 %received_bytes_size, i1 false)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %bytes, null

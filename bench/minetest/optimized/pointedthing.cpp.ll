@@ -382,7 +382,7 @@ sw.bb:                                            ; preds = %entry
   %p.sroa.2.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %p.sroa.2.0.extract.trunc.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i16
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i.i = trunc i48 %p.sroa.3.0.extract.shift.i.i to i16
+  %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %rev.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i)
   store i16 %rev.i.i.i.i.i, ptr %buf.i11, align 2
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i11, i64 2
@@ -400,7 +400,7 @@ sw.bb:                                            ; preds = %entry
   %p.sroa.2.0.extract.shift.i.i15 = lshr i48 %agg.tmp3.sroa.0.0.copyload, 16
   %p.sroa.2.0.extract.trunc.i.i16 = trunc i48 %p.sroa.2.0.extract.shift.i.i15 to i16
   %p.sroa.3.0.extract.shift.i.i17 = lshr i48 %agg.tmp3.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i.i18 = trunc i48 %p.sroa.3.0.extract.shift.i.i17 to i16
+  %p.sroa.3.0.extract.trunc.i.i18 = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i17 to i16
   %rev.i.i.i.i.i19 = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i14)
   store i16 %rev.i.i.i.i.i19, ptr %buf.i13, align 2
   %arrayidx1.i.i20 = getelementptr inbounds i8, ptr %buf.i13, i64 2

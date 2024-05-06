@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [29 x i8] c"Error creating the partition\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scontrol_parse_part_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -1088,7 +1088,7 @@ define dso_local i32 @scontrol_update_part(i32 noundef %0, ptr nocapture noundef
   %4 = alloca %struct.partition_info, align 8
   store i32 0, ptr %3, align 4
   call void @slurm_init_part_desc_msg(ptr noundef nonnull %4) #5
-  %5 = call i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !9
+  %5 = call i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %21
 
@@ -1140,7 +1140,7 @@ define dso_local i32 @scontrol_create_part(i32 noundef %0, ptr nocapture noundef
   %4 = alloca %struct.partition_info, align 8
   store i32 0, ptr %3, align 4
   call void @slurm_init_part_desc_msg(ptr noundef nonnull %4) #5
-  %5 = call i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !9
+  %5 = call i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %26
 
@@ -1217,4 +1217,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -1, i32 1}

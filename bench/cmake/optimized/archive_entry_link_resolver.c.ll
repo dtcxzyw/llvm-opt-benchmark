@@ -37,7 +37,7 @@ define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture nou
   %3 = and i32 %1, 16711680
   %4 = add nsw i32 %3, -65536
   %5 = lshr exact i32 %4, 16
-  %trunc = trunc i32 %5 to i16
+  %trunc = trunc nuw i32 %5 to i16
   switch i16 %trunc, label %17 [
     i16 13, label %6
     i16 6, label %6

@@ -750,7 +750,7 @@ define internal i32 @dissect_ccid(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_ccid_descriptor(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 55) i32 @dissect_usb_ccid_descriptor(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %.not = icmp eq i8 %6, 33

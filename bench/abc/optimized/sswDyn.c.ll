@@ -739,7 +739,7 @@ declare i32 @Ssw_SmlNumFrames(ptr noundef) local_unnamed_addr #2
 declare void @Ssw_SmlAssignRandomFrame(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepResimulateDyn(ptr nocapture noundef %0, i32 %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssw_ManSweepResimulateDyn(ptr nocapture noundef %0, i32 %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -834,7 +834,7 @@ declare i32 @Ssw_ClassesRefineConst1(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @Ssw_ClassesRefine(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepResimulateDynLocal(ptr nocapture noundef %0, i32 %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssw_ManSweepResimulateDynLocal(ptr nocapture noundef %0, i32 %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca i32, align 4
@@ -1576,7 +1576,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i155, %Vec_P
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %157
-  %161 = trunc i64 %indvars.iv200 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv200 to i32
   store i32 %161, ptr %138, align 8
   br label %162
 
@@ -1597,7 +1597,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i155, %Vec_P
   br i1 %170, label %Bar_ProgressUpdate.exit, label %171
 
 171:                                              ; preds = %167, %166
-  %172 = trunc i64 %indvars.iv200 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv200 to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %.0, i32 noundef %172, ptr noundef null) #10
   br label %Bar_ProgressUpdate.exit
 
@@ -1729,7 +1729,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   br i1 %243, label %244, label %256
 
 244:                                              ; preds = %241
-  %245 = trunc i64 %indvars.iv200 to i32
+  %245 = trunc nuw nsw i64 %indvars.iv200 to i32
   store i32 %245, ptr %147, align 4
   %246 = load ptr, ptr %0, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 92
@@ -1738,11 +1738,11 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   br i1 %.not127, label %251, label %249
 
 249:                                              ; preds = %244
-  %250 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison), !range !24
+  %250 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison)
   br label %253
 
 251:                                              ; preds = %244
-  %252 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison), !range !24
+  %252 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison)
   br label %253
 
 253:                                              ; preds = %251, %249
@@ -1863,7 +1863,7 @@ Ssw_ManLabelPiNodes.exit185:                      ; preds = %.critedge.i174, %25
   br i1 %317, label %318, label %330
 
 318:                                              ; preds = %315
-  %319 = trunc i64 %indvars.iv200 to i32
+  %319 = trunc nuw nsw i64 %indvars.iv200 to i32
   store i32 %319, ptr %147, align 4
   %320 = load ptr, ptr %0, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 92
@@ -1872,11 +1872,11 @@ Ssw_ManLabelPiNodes.exit185:                      ; preds = %.critedge.i174, %25
   br i1 %.not129, label %325, label %323
 
 323:                                              ; preds = %318
-  %324 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison), !range !24
+  %324 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison)
   br label %327
 
 325:                                              ; preds = %318
-  %326 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison), !range !24
+  %326 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison)
   br label %327
 
 327:                                              ; preds = %325, %323
@@ -1894,10 +1894,10 @@ Ssw_ManLabelPiNodes.exit185:                      ; preds = %.critedge.i174, %25
   %.val134 = load i32, ptr %334, align 4
   %335 = sext i32 %.val134 to i64
   %336 = icmp slt i64 %indvars.iv.next201, %335
-  br i1 %336, label %151, label %.critedge2.loopexit, !llvm.loop !25
+  br i1 %336, label %151, label %.critedge2.loopexit, !llvm.loop !24
 
 .critedge2.loopexit:                              ; preds = %330
-  %337 = trunc i64 %indvars.iv.next201 to i32
+  %337 = trunc nuw nsw i64 %indvars.iv.next201 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %137
@@ -1917,11 +1917,11 @@ Ssw_ManLabelPiNodes.exit185:                      ; preds = %.critedge.i174, %25
   br i1 %.not121, label %348, label %346
 
 346:                                              ; preds = %341
-  %347 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison), !range !24
+  %347 = call i32 @Ssw_ManSweepResimulateDynLocal(ptr noundef nonnull %0, i32 poison)
   br label %350
 
 348:                                              ; preds = %341
-  %349 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison), !range !24
+  %349 = call i32 @Ssw_ManSweepResimulateDyn(ptr noundef nonnull %0, i32 poison)
   br label %350
 
 350:                                              ; preds = %346, %348, %.critedge2
@@ -2022,5 +2022,4 @@ attributes #10 = { nounwind }
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i32 0, i32 2}
-!25 = distinct !{!25, !5}
+!24 = distinct !{!24, !5}

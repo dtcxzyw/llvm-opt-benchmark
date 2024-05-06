@@ -60,7 +60,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_nonstatic_sysfs_init357, ptr @__UNIQUE_ID___addressable_pccard_nonstatic_ops355, ptr @__UNIQUE_ID_probe_memtype352, ptr @__exitcall_nonstatic_sysfs_exit, ptr @__param_probe_mem, ptr @nonstatic_sysfs_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcmcia_nonstatic_validate_mem(ptr noundef %0) #0 align 16 {
+define internal range(i32 -19, 1) i32 @pcmcia_nonstatic_validate_mem(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @probe_mem, align 4
@@ -475,7 +475,7 @@ define internal ptr @nonstatic_find_mem_region(i64 noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nonstatic_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 72) #11
   %4 = icmp eq ptr %3, null
@@ -956,7 +956,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @readable(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -22, 1) i32 @readable(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1017,7 +1017,7 @@ define internal i32 @readable(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @checksum(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.pccard_mem_map, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %5 = load i64, ptr %1, align 8
@@ -1091,7 +1091,7 @@ define internal noundef i32 @checksum(ptr noundef %0, ptr noundef %1, ptr nocapt
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 368
@@ -1291,7 +1291,7 @@ define internal fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %1, i64 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @sub_interval(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @sub_interval(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %0
@@ -1485,7 +1485,7 @@ define internal i64 @pcmcia_align(ptr nocapture noundef readonly %0, ptr nocaptu
 declare dso_local i32 @allocate_resource(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @adjust_memory(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 368
   %6 = load ptr, ptr %5, align 8
   %7 = sub i64 %3, %2
@@ -1602,7 +1602,7 @@ define internal void @pccard_sysfs_remove_rsrc(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_io_db(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147487734) i64 @show_io_db(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 480
@@ -1622,7 +1622,7 @@ define internal i64 @show_io_db(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = trunc i64 %14 to i32
+  %17 = trunc nuw nsw i64 %14 to i32
   %18 = load i64, ptr %13, align 8
   %19 = getelementptr inbounds i8, ptr %13, i64 8
   %20 = load i64, ptr %19, align 8
@@ -1772,7 +1772,7 @@ declare dso_local i32 @sysfs_emit_at(ptr noundef, i32 noundef, ptr noundef, ...)
 declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_mem_db(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147487734) i64 @show_mem_db(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 480
@@ -1799,7 +1799,7 @@ define internal i64 @show_mem_db(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %19, label %30, label %20
 
 20:                                               ; preds = %.preheader7
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nuw nsw i64 %18 to i32
   %22 = load i64, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 8
   %24 = load i64, ptr %23, align 8
@@ -1824,7 +1824,7 @@ define internal i64 @show_mem_db(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %37, label %48, label %38
 
 38:                                               ; preds = %.preheader
-  %39 = trunc i64 %36 to i32
+  %39 = trunc nuw nsw i64 %36 to i32
   %40 = load i64, ptr %35, align 8
   %41 = getelementptr inbounds i8, ptr %35, i64 8
   %42 = load i64, ptr %41, align 8
@@ -1884,7 +1884,7 @@ define internal noundef i64 @store_mem_db(ptr nocapture noundef readonly %0, ptr
   call void @mutex_lock(ptr noundef %23) #10
   %24 = load i64, ptr %5, align 8
   %25 = load i64, ptr %6, align 8
-  %26 = call fastcc i32 @adjust_memory(ptr noundef %8, i32 noundef %18, i64 noundef %24, i64 noundef %25), !range !18
+  %26 = call fastcc i32 @adjust_memory(ptr noundef %8, i32 noundef %18, i64 noundef %24, i64 noundef %25)
   %27 = sext i32 %26 to i64
   call void @mutex_unlock(ptr noundef %23) #10
   %28 = icmp eq i32 %26, 0

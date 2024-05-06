@@ -646,7 +646,7 @@ define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereference
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 0, ptr %10, align 8
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   ret void
 }
 

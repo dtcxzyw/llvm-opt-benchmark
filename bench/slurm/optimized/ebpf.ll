@@ -38,7 +38,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @add_device_ebpf_prog(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @add_device_ebpf_prog(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = add i32 %1, -1
   %7 = icmp ult i32 %6, 2
   %.not = icmp ne i32 %2, -2
@@ -74,7 +74,7 @@ define noundef i32 @add_device_ebpf_prog(ptr noundef %0, i32 noundef %1, i32 nou
   store i64 %25, ptr %0, align 8
   %26 = getelementptr inbounds %struct.bpf_insn, ptr %23, i64 %24
   %27 = add nsw i32 %.2, -1
-  %28 = trunc i32 %.2 to i16
+  %28 = trunc nuw nsw i32 %.2 to i16
   store i8 85, ptr %26, align 4
   %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 1
   store i8 2, ptr %.sroa.218.0..sroa_idx, align 1
@@ -95,7 +95,7 @@ define noundef i32 @add_device_ebpf_prog(ptr noundef %0, i32 noundef %1, i32 nou
   store i64 %33, ptr %0, align 8
   %34 = getelementptr inbounds %struct.bpf_insn, ptr %31, i64 %32
   %35 = add nsw i32 %.3, -1
-  %36 = trunc i32 %.3 to i16
+  %36 = trunc nuw nsw i32 %.3 to i16
   store i8 85, ptr %34, align 4
   %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 1
   store i8 4, ptr %.sroa.213.0..sroa_idx, align 1
@@ -115,7 +115,7 @@ define noundef i32 @add_device_ebpf_prog(ptr noundef %0, i32 noundef %1, i32 nou
   %41 = add i64 %40, 1
   store i64 %41, ptr %0, align 8
   %42 = getelementptr inbounds %struct.bpf_insn, ptr %39, i64 %40
-  %43 = trunc i32 %.4 to i16
+  %43 = trunc nsw i32 %.4 to i16
   store i8 85, ptr %42, align 4
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 1
   store i8 5, ptr %.sroa.28.0..sroa_idx, align 1
@@ -194,7 +194,7 @@ define void @close_ebpf_prog(ptr nocapture noundef %0, i1 noundef zeroext %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @load_ebpf_prog(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @load_ebpf_prog(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %union.bpf_attr, align 8
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 65536) #7
   %6 = icmp slt i32 %5, 0

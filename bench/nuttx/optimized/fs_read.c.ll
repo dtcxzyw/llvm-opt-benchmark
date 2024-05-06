@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i64 @file_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @file_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
@@ -40,7 +40,7 @@ define i64 @file_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @nx_read(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @nx_read(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #3
   %6 = icmp slt i32 %5, 0
@@ -89,7 +89,7 @@ file_read.exit:                                   ; preds = %23, %20, %17, %16, 
 declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #3

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_chr_property_list = private unnamed_addr constant [9 x i32] [i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_pcre2_auto_possessify_8(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_pcre2_auto_possessify_8(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   %4 = alloca i32, align 4
   store i32 1000, ptr %4, align 4
@@ -89,7 +89,7 @@ get_repeat_base.exit:                             ; preds = %16, %18, %20
   br i1 %.not114, label %.sink.split136, label %30
 
 30:                                               ; preds = %25
-  %31 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %27, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %27, ptr noundef nonnull %4), !range !4
+  %31 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %27, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %27, ptr noundef nonnull %4)
   %.not115 = icmp eq i32 %31, 0
   br i1 %.not115, label %.sink.split136, label %32
 
@@ -190,7 +190,7 @@ get_repeat_base.exit:                             ; preds = %16, %18, %20
   br i1 %.not112, label %.sink.split136, label %77
 
 77:                                               ; preds = %71
-  %78 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %73, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %73, ptr noundef nonnull %4), !range !4
+  %78 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %73, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %73, ptr noundef nonnull %4)
   %.not113 = icmp eq i32 %78, 0
   br i1 %.not113, label %.sink.split136, label %switch.lookup
 
@@ -881,7 +881,7 @@ switch.edge:                                      ; preds = %22, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compare_opcodes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [8 x i32], align 16
   %9 = load i32, ptr %6, align 4
   %10 = add nsw i32 %9, -1
@@ -1056,7 +1056,7 @@ define internal fastcc i32 @compare_opcodes(ptr noundef %0, i32 noundef %1, i32 
 .lr.ph:                                           ; preds = %79, %97
   %.3381 = phi ptr [ %99, %97 ], [ %93, %79 ]
   %.0255380 = phi ptr [ %107, %97 ], [ %88, %79 ]
-  %96 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %.3381, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6), !range !4
+  %96 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %.3381, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %.not290 = icmp eq i32 %96, 0
   br i1 %.not290, label %.critedge, label %97
 
@@ -1104,7 +1104,7 @@ define internal fastcc i32 @compare_opcodes(ptr noundef %0, i32 noundef %1, i32 
 
 125:                                              ; preds = %113
   %126 = getelementptr inbounds i8, ptr %122, i64 3
-  %127 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %126, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6), !range !4
+  %127 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %126, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %.not289 = icmp eq i32 %127, 0
   br i1 %.not289, label %.critedge, label %128
 
@@ -2044,4 +2044,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

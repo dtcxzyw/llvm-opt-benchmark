@@ -193,7 +193,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i:             ; preds = %if.then.i.i, %lor.r
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %conv4.i = trunc i16 %0 to i8
+  %conv4.i = trunc nuw i16 %0 to i8
   %idxprom.i.i = zext nneg i16 %0 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
@@ -501,7 +501,7 @@ if.else.i:                                        ; preds = %for.body.i
   %cmp3.i = icmp ult i16 %0, 33
   %cmp5.i = icmp eq i16 %0, 127
   %or.cond.i = or i1 %cmp3.i, %cmp5.i
-  %conv7.i = trunc i16 %0 to i8
+  %conv7.i = trunc nuw i16 %0 to i8
   br i1 %or.cond.i, label %if.then6.i, label %if.else8.i
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -738,7 +738,7 @@ if.end.i.i15:                                     ; preds = %do.body.i.i12
   br i1 %cmp5.i.not.i17, label %if.end.sink.split.sink.split, label %do.body.i.i12, !llvm.loop !13
 
 if.else:                                          ; preds = %entry
-  %conv2 = trunc i32 %code_point to i16
+  %conv2 = trunc nuw i32 %code_point to i16
   %cur_len_.i30 = getelementptr inbounds i8, ptr %output, i64 20
   %10 = load i32, ptr %cur_len_.i30, align 4
   %buffer_len_.i31 = getelementptr inbounds i8, ptr %output, i64 16
@@ -853,7 +853,7 @@ if.then.i39:                                      ; preds = %_ZN3url12_GLOBAL__N
   %7 = load i64, ptr %host11, align 8
   store i64 %7, ptr %host13, align 4
   %8 = lshr i64 %7, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   br label %_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit40
 
 _ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit40: ; preds = %_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit37._ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit40_crit_edge, %if.then.i39
@@ -1733,7 +1733,7 @@ if.end115:                                        ; preds = %if.then112, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
 entry:
   switch i32 %radix, label %return [
     i32 10, label %if.end4
@@ -1760,7 +1760,7 @@ return:                                           ; preds = %if.end4, %entry
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
 entry:
   %temp = alloca [13 x i8], align 1
   %cmp.not = icmp eq i32 %radix, 10
@@ -1808,7 +1808,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %char_value to i8
+  %conv = trunc nuw nsw i32 %char_value to i8
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
   %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
@@ -1837,7 +1837,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %2 = trunc i32 %shr to i8
+  %2 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %2, -64
   %cur_len_.i.i23 = getelementptr inbounds i8, ptr %output, i64 20
   %3 = load i32, ptr %cur_len_.i.i23, align 4
@@ -1912,7 +1912,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %12 = trunc i32 %shr9 to i8
+  %12 = trunc nuw i32 %shr9 to i8
   %conv11 = or disjoint i8 %12, -32
   %cur_len_.i.i69 = getelementptr inbounds i8, ptr %output, i64 20
   %13 = load i32, ptr %cur_len_.i.i69, align 4
@@ -2033,7 +2033,7 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %29 = trunc i32 %shr22 to i8
+  %29 = trunc nuw i32 %shr22 to i8
   %conv24 = or disjoint i8 %29, -16
   %cur_len_.i.i138 = getelementptr inbounds i8, ptr %output, i64 20
   %30 = load i32, ptr %cur_len_.i.i138, align 4
@@ -2372,7 +2372,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %char_value to i8
+  %conv = trunc nuw nsw i32 %char_value to i8
   br label %if.end39.sink.split
 
 if.else:                                          ; preds = %entry
@@ -2381,7 +2381,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv3, ptr noundef %output)
   %1 = trunc i32 %char_value to i8
@@ -2395,7 +2395,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %3 = trunc i32 %shr9 to i8
+  %3 = trunc nuw i32 %shr9 to i8
   %conv11 = or disjoint i8 %3, -32
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv11, ptr noundef %output)
   %shr12 = lshr i32 %char_value, 6
@@ -2414,7 +2414,7 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %8 = trunc i32 %shr22 to i8
+  %8 = trunc nuw i32 %shr22 to i8
   %conv24 = or disjoint i8 %8, -16
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv24, ptr noundef %output)
   %shr25 = lshr i32 %char_value, 12

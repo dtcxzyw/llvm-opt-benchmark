@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [17 x i8] c"rsapublickey.pem\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #2
   %tobool.not = icmp eq i32 %call, 0
@@ -77,7 +77,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_dh_params() #0 {
+define internal range(i32 0, 2) i32 @test_read_dh_params() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.11) #2
@@ -112,7 +112,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_dh_x942_params() #0 {
+define internal range(i32 0, 2) i32 @test_read_dh_x942_params() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.16) #2
@@ -147,7 +147,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_dsa_params() #0 {
+define internal range(i32 0, 2) i32 @test_read_dsa_params() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.17) #2
@@ -182,7 +182,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_dsa_private() #0 {
+define internal range(i32 0, 2) i32 @test_read_dsa_private() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.19) #2
@@ -217,7 +217,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_dsa_public() #0 {
+define internal range(i32 0, 2) i32 @test_read_dsa_public() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.20) #2
@@ -252,7 +252,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_rsa_private() #0 {
+define internal range(i32 0, 2) i32 @test_read_rsa_private() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.21) #2
@@ -287,7 +287,7 @@ err:                                              ; preds = %if.end, %getfile.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_rsa_public() #0 {
+define internal range(i32 0, 2) i32 @test_read_rsa_public() #0 {
 entry:
   %0 = load ptr, ptr @datadir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.23) #2

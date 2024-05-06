@@ -181,7 +181,7 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keccak_init(ptr noundef %vctx, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @keccak_init(ptr noundef %vctx, ptr nocapture readnone %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keccak_init_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @keccak_init_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #4
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -506,7 +506,7 @@ land.end:                                         ; preds = %entry, %if.then6.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shake_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @shake_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end

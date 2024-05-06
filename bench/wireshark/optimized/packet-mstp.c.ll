@@ -166,7 +166,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %53 = lshr i32 %.masked.i, 8
   %54 = and i32 %53, 1
   %55 = or disjoint i32 %52, %54
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 5
   br i1 %exitcond.not, label %57, label %35, !llvm.loop !4
@@ -197,7 +197,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not67.i, label %cobs_decode.exit.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %72
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nsw i64 %73 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %calc_data_crc32.exit.i

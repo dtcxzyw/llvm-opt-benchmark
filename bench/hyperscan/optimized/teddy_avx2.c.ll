@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @p_mask_arr = external local_unnamed_addr constant [17 x [32 x i8]], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2281 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -5492,7 +5492,7 @@ do.end836:                                        ; preds = %do.body542, %do.bod
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2281 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -10971,7 +10971,7 @@ do.end836:                                        ; preds = %do.body542, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2393 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -16525,7 +16525,7 @@ do.end835:                                        ; preds = %do.body541, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2393 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -22079,7 +22079,7 @@ do.end835:                                        ; preds = %do.body541, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2520 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -27690,7 +27690,7 @@ do.end836:                                        ; preds = %do.body542, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2520 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -33301,7 +33301,7 @@ do.end836:                                        ; preds = %do.body542, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2652 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16
@@ -38969,7 +38969,7 @@ do.end837:                                        ; preds = %do.body543, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_fat_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fdr_exec_fat_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %u.i2652 = alloca %union.anon, align 16
   %u.i = alloca %union.anon, align 16

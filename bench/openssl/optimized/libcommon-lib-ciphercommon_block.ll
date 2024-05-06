@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_cipher_trailingdata = private unnamed_addr constant [25 x i8] c"ossl_cipher_trailingdata\00", align 1
 @__func__.ossl_cipher_unpadblock = private unnamed_addr constant [23 x i8] c"ossl_cipher_unpadblock\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @ossl_cipher_fillblock(ptr nocapture noundef writeonly %buf, ptr nocapture noundef %buflen, i64 noundef %blocksize, ptr nocapture noundef %in, ptr nocapture noundef %inlen) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %buflen, align 8
@@ -36,7 +36,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cipher_trailingdata(ptr nocapture noundef writeonly %buf, ptr nocapture noundef %buflen, i64 noundef %blocksize, ptr nocapture noundef readonly %in, ptr nocapture noundef %inlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_cipher_trailingdata(ptr nocapture noundef writeonly %buf, ptr nocapture noundef %buflen, i64 noundef %blocksize, ptr nocapture noundef readonly %in, ptr nocapture noundef %inlen) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %inlen, align 8
   %cmp = icmp eq i64 %0, 0
@@ -76,7 +76,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_cipher_padblock(ptr nocapture noundef writeonly %buf, ptr nocapture noundef readonly %buflen, i64 noundef %blocksize) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %buflen, align 8
@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cipher_unpadblock(ptr nocapture noundef readonly %buf, ptr nocapture noundef %buflen, i64 noundef %blocksize) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_cipher_unpadblock(ptr nocapture noundef readonly %buf, ptr nocapture noundef %buflen, i64 noundef %blocksize) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %buflen, align 8
   %cmp.not = icmp eq i64 %0, %blocksize
@@ -206,11 +206,11 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

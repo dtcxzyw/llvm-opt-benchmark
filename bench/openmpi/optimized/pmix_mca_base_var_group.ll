@@ -47,7 +47,7 @@ define internal void @pmix_mca_base_var_group_constructor(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 240
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_value_array_t_class, i64 0, i32 6), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
@@ -89,7 +89,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %28 = getelementptr inbounds i8, ptr %0, i64 392
   store i32 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 400
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_value_array_t_class, i64 0, i32 6), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i13 = icmp eq ptr %31, null
@@ -199,7 +199,7 @@ define i32 @pmix_mca_base_var_group_init() local_unnamed_addr #0 {
 5:                                                ; preds = %4, %1
   store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -232,7 +232,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 16:                                               ; preds = %15, %12
   store ptr @pmix_hash_table_t_class, ptr getelementptr inbounds (%struct.pmix_hash_table_t, ptr @pmix_mca_base_var_group_index_hash, i64 0, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.pmix_hash_table_t, ptr @pmix_mca_base_var_group_index_hash, i64 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_hash_table_t, ptr @pmix_mca_base_var_group_index_hash, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_hash_table_t, ptr @pmix_mca_base_var_group_index_hash, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %17 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i64 0, i32 6), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i11 = icmp eq ptr %18, null
@@ -978,7 +978,7 @@ pmix_mca_base_var_group_get_internal.exit166:     ; preds = %245, %pmix_pointer_
   %258 = load i64, ptr %257, align 8
   %259 = mul i64 %258, %251
   %260 = getelementptr inbounds i8, ptr %256, i64 %259
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %260, ptr nonnull align 4 %5, i64 %258, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %260, ptr nonnull readonly align 4 %5, i64 %258, i1 false)
   br label %pmix_mca_base_var_group_get_internal.exit
 
 pmix_mca_base_var_group_get_internal.exit:        ; preds = %227, %pmix_mca_base_var_group_get_internal.exit166, %254, %224, %226, %196, %198, %165, %167, %135, %137, %104, %106, %74, %76, %pmix_pointer_array_get_item.exit.i, %18, %207, %179, %148, %118, %87, %57, %4, %25
@@ -1206,7 +1206,7 @@ sub_0.i13.us.i:                                   ; preds = %compare_strings.exi
   br i1 %.not18.i16.us.i, label %pmix_mca_base_var_group_get_internal.exit.us.i, label %53
 
 53:                                               ; preds = %.tail.thread.i15.us.i
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %49) #22
+  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %49) #22
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %compare_strings.exit19.thread.us.i, label %pmix_mca_base_var_group_get_internal.exit.us.i
 
@@ -1234,7 +1234,7 @@ sub_0.i21.us.i:                                   ; preds = %compare_strings.exi
   br i1 %.not18.i24.us.i, label %pmix_mca_base_var_group_get_internal.exit.us.i, label %62
 
 62:                                               ; preds = %.tail.thread.i23.us.i
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %58) #22
+  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %58) #22
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %compare_strings.exit27.thread.loopexit.split.loop.exit136.i, label %pmix_mca_base_var_group_get_internal.exit.us.i
 
@@ -1297,7 +1297,7 @@ sub_0.i.us.i:                                     ; preds = %71, %70
   br i1 %.not18.i.us.i, label %pmix_mca_base_var_group_get_internal.exit.us64.i, label %80
 
 80:                                               ; preds = %.tail.thread.i.us.i
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %76) #22
+  %81 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %76) #22
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %compare_strings.exit.thread.us55.i, label %pmix_mca_base_var_group_get_internal.exit.us64.i
 
@@ -1327,7 +1327,7 @@ sub_0.i21.us58.i:                                 ; preds = %compare_strings.exi
   br i1 %.not18.i24.us62.i, label %pmix_mca_base_var_group_get_internal.exit.us64.i, label %91
 
 91:                                               ; preds = %.tail.thread.i23.us61.i
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %87) #22
+  %92 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %87) #22
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %compare_strings.exit27.thread.loopexit115.split.loop.exit128.i, label %pmix_mca_base_var_group_get_internal.exit.us64.i
 
@@ -1387,7 +1387,7 @@ sub_0.i.us76.i:                                   ; preds = %104, %103
   br i1 %.not18.i.us80.i, label %pmix_mca_base_var_group_get_internal.exit.us88.i, label %113
 
 113:                                              ; preds = %.tail.thread.i.us79.i
-  %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %109) #22
+  %114 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %109) #22
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %compare_strings.exit.thread.us81.i, label %pmix_mca_base_var_group_get_internal.exit.us88.i
 
@@ -1408,7 +1408,7 @@ compare_strings.exit.thread.us81.i:               ; preds = %113, %.tail.i.us78.
   br i1 %.not18.i16.us85.i, label %pmix_mca_base_var_group_get_internal.exit.us88.i, label %121
 
 121:                                              ; preds = %.tail.thread.i15.us84.i
-  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %117) #22
+  %122 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %117) #22
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %compare_strings.exit19.thread.us86.i, label %pmix_mca_base_var_group_get_internal.exit.us88.i
 
@@ -1460,7 +1460,7 @@ sub_0.i.i:                                        ; preds = %131, %130
   br i1 %.not18.i.i, label %pmix_mca_base_var_group_get_internal.exit.i, label %140
 
 140:                                              ; preds = %.tail.thread.i.i
-  %141 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %136) #22
+  %141 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %136) #22
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %compare_strings.exit.thread.i, label %pmix_mca_base_var_group_get_internal.exit.i
 
@@ -1481,7 +1481,7 @@ compare_strings.exit.thread.i:                    ; preds = %140, %.tail.i.i
   br i1 %.not18.i16.i, label %pmix_mca_base_var_group_get_internal.exit.i, label %148
 
 148:                                              ; preds = %.tail.thread.i15.i
-  %149 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %144) #22
+  %149 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %144) #22
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %compare_strings.exit19.thread.i, label %pmix_mca_base_var_group_get_internal.exit.i
 
@@ -1502,7 +1502,7 @@ compare_strings.exit19.thread.i:                  ; preds = %148, %.tail.i18.i
   br i1 %.not18.i24.i, label %pmix_mca_base_var_group_get_internal.exit.i, label %156
 
 156:                                              ; preds = %.tail.thread.i23.i
-  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %152) #22
+  %157 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %152) #22
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %compare_strings.exit27.thread.loopexit119.split.loop.exit121.i, label %pmix_mca_base_var_group_get_internal.exit.i
 
@@ -1717,7 +1717,7 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %11
   %30 = load i64, ptr %29, align 8
   %31 = mul i64 %30, %.val14
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 4 %3, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 4 %3, i64 %30, i1 false)
   %33 = load i32, ptr @pmix_mca_base_var_groups_timestamp, align 4
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr @pmix_mca_base_var_groups_timestamp, align 4

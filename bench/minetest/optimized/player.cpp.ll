@@ -1463,7 +1463,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then, %_ZNSt11un
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK13PlayerControl14getKeysPressedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i32 0, 1024) i32 @_ZNK13PlayerControl14getKeysPressedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %this) local_unnamed_addr #11 align 2 {
 entry:
   %jump = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %jump, align 1, !tbaa !91, !range !70, !noundef !71

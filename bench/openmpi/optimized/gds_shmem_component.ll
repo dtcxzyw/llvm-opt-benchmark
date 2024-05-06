@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [212 x i8] c"Multiplier that influences the ultimate sizes of the shared-memory segments used for gds data storage. As a percentage, values less or greater than 1.0 decrease or increase the final segment sizes, respectively.\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call i32 @access(ptr noundef nonnull @.str, i32 noundef 0) #4
   %4 = icmp eq i32 %3, -1
   %. = select i1 %4, i32 0, i32 20
@@ -36,7 +36,7 @@ define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gds_shmem_component_register() #1 {
+define internal range(i32 -1, 1) i32 @gds_shmem_component_register() #1 {
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_gds_shmem_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 8, ptr noundef nonnull @pmix_gds_shmem_segment_size_multiplier) #4
   %.lobit = ashr i32 %1, 31
   ret i32 %.lobit

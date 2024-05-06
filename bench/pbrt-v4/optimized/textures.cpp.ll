@@ -560,20 +560,20 @@ $_ZTSN4pstd6vectorIN4pbrt3RGBENS_3pmr21polymorphic_allocatorIS2_EEEE = comdat an
 @_ZN4pbrtL5cacheE = internal unnamed_addr global ptr null, align 8
 @.str.82 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.83 = private unnamed_addr constant [59 x i8] c"%s: only one and three channel ptex textures are supported\00", align 1
-@_ZN4pbrtL14nFilesAccessedE = internal thread_local global i64 0, align 8
-@_ZN4pbrtL11nBlockReadsE = internal thread_local global i64 0, align 8
-@_ZN4pbrtL14peakMemoryUsedE = internal thread_local global i64 0, align 8
-@_ZN4pbrtL8nLookupsE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL14nFilesAccessedE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN4pbrtL11nBlockReadsE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN4pbrtL14peakMemoryUsedE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN4pbrtL8nLookupsE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.84 = private unnamed_addr constant [8 x i8] c"texture\00", align 1
 @_ZN4pbrt13ColorEncoding6LinearE = external local_unnamed_addr global %"class.pbrt::ColorEncoding", align 8
 @.str.85 = private unnamed_addr constant [46 x i8] c"valid: %s filename: %s encoding: %s scale: %f\00", align 1
 @.str.86 = private unnamed_addr constant [24 x i8] c"[ FloatPtexTexture %s ]\00", align 1
 @.str.87 = private unnamed_addr constant [27 x i8] c"[ SpectrumPtexTexture %s ]\00", align 1
 @.str.88 = private unnamed_addr constant [10 x i8] c"gamma 2.2\00", align 1
-@_ZN4pbrtL17gpuPtexMemoryUsedE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL17gpuPtexMemoryUsedE = internal thread_local unnamed_addr global i64 0, align 8
 @_ZN4pbrtL21ptexFloatTextureCacheB5cxx11E = internal global %"class.std::map.39" zeroinitializer, align 8
-@_ZN4pbrtL16ptexCacheLookupsE = internal thread_local global i64 0, align 8
-@_ZN4pbrtL13ptexCacheHitsE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL16ptexCacheLookupsE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN4pbrtL13ptexCacheHitsE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.90 = private unnamed_addr constant [63 x i8] c"ptexFloatTextureCache.find(key) == ptexFloatTextureCache.end()\00", align 1
 @.str.91 = private unnamed_addr constant [39 x i8] c"[ GPUFloatPtexTexture faceValues: %s ]\00", align 1
 @_ZN4pbrtL24ptexSpectrumTextureCacheB5cxx11E = internal global %"class.std::map.53" zeroinitializer, align 8
@@ -598,7 +598,7 @@ $_ZTSN4pstd6vectorIN4pbrt3RGBENS_3pmr21polymorphic_allocatorIS2_EEEE = comdat an
 @.str.111 = private unnamed_addr constant [5 x i8] c"ptex\00", align 1
 @.str.112 = private unnamed_addr constant [32 x i8] c"%s: float texture type unknown.\00", align 1
 @.str.113 = private unnamed_addr constant [30 x i8] c"%s: unable to create texture.\00", align 1
-@_ZN4pbrtL9nTexturesE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL9nTexturesE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.114 = private unnamed_addr constant [7 x i8] c"marble\00", align 1
 @.str.115 = private unnamed_addr constant [35 x i8] c"%s: spectrum texture type unknown.\00", align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -3313,9 +3313,9 @@ ehcleanup23:                                      ; preds = %lpad16, %lpad.i27, 
 if.else:                                          ; preds = %invoke.cont21
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i32)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i32, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i32, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !45
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !45
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !45
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !45
@@ -3695,9 +3695,9 @@ ehcleanup31:                                      ; preds = %lpad22, %lpad.i33, 
 if.else:                                          ; preds = %invoke.cont29
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i41)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i41, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i41, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !54
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i41, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !54
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !54
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !54
@@ -4192,9 +4192,9 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !63
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !63
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !63
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !63
@@ -6461,9 +6461,9 @@ entry:
   %ref.tmp25 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !103
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !103
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !103
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !103
@@ -10814,9 +10814,9 @@ entry:
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !123
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !123
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !123
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !123
@@ -10862,9 +10862,9 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !126
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !126
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !126
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !126
@@ -11103,9 +11103,9 @@ if.else81:                                        ; preds = %if.else73
 if.then83:                                        ; preds = %if.else81
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   %mInv.i.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i.i, i64 64, i1 false), !noalias !129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i.i, i64 64, i1 false), !noalias !129
   %mInv3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !129
   %vtable.i.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !129
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !129
@@ -12487,7 +12487,7 @@ sw.bb5:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i, ptr noundef nonnull align 4 dereferenceable(76) %6, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %result.i.i)
-  %call.i.i11 = call noundef i32 @_ZNK4pbrt15PtexTextureBase13SampleTextureENS_18TextureEvalContextEPf(ptr noundef nonnull align 8 dereferenceable(52) %ptr, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp1.i, ptr noundef nonnull %result.i.i)
+  %call.i.i11 = call noundef i32 @_ZNK4pbrt15PtexTextureBase13SampleTextureENS_18TextureEvalContextEPf(ptr noundef nonnull align 8 dereferenceable(52) %ptr, ptr noundef nonnull readonly byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp1.i, ptr noundef nonnull %result.i.i)
   %cmp.i.i = icmp eq i32 %call.i.i11, 1
   %7 = load float, ptr %result.i.i, align 4
   br i1 %cmp.i.i, label %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatPtexTextureEEEDaS2_.exit, label %do.end.i.i

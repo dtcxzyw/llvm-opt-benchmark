@@ -100,7 +100,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
 
 if.then41:                                        ; preds = %if.end38
   %data42 = getelementptr inbounds i8, ptr %c, i64 40
-  %conv44 = trunc i64 %len.addr.1 to i32
+  %conv44 = trunc nuw i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
@@ -1372,7 +1372,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %c, i64 40
   %num = getelementptr inbounds i8, ptr %c, i64 104
@@ -1460,7 +1460,7 @@ entry:
   %cmp = icmp eq ptr %md, null
   %spec.store.select = select i1 %cmp, ptr @SHA256.m, ptr %md
   %0 = getelementptr inbounds i8, ptr %c, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %c, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 16
@@ -1494,7 +1494,7 @@ if.then41.i:                                      ; preds = %if.end32.i, %if.end
   %data.1.i21 = phi ptr [ %add.ptr36.i, %if.end38.i ], [ %d, %if.end32.i ]
   %len.addr.1.i20 = phi i64 [ %sub37.i, %if.end38.i ], [ %n, %if.end32.i ]
   %data42.i = getelementptr inbounds i8, ptr %c, i64 40
-  %conv44.i = trunc i64 %len.addr.1.i20 to i32
+  %conv44.i = trunc nuw i64 %len.addr.1.i20 to i32
   store i32 %conv44.i, ptr %num.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data42.i, ptr align 1 %data.1.i21, i64 %len.addr.1.i20, i1 false)
   br label %SHA256_Update.exit

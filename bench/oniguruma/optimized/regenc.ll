@@ -608,7 +608,7 @@ define i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
   %5 = load i8, ptr %1, align 1
   %6 = add i8 %5, -65
   %or.cond = icmp ult i8 %6, 26
@@ -722,7 +722,7 @@ onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %10, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readnone %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #10 {
+define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readnone %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #10 {
   %8 = load i8, ptr %4, align 1
   %9 = add i8 %8, -65
   %or.cond103 = icmp ult i8 %9, 26
@@ -935,7 +935,7 @@ define noundef i32 @onigenc_not_support_get_ctype_code_range(i32 noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #11 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %4, label %7
 
@@ -972,14 +972,14 @@ define noundef i32 @onigenc_single_byte_mbc_enc_len(ptr nocapture noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @onigenc_single_byte_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #11 {
+define range(i32 0, 256) i32 @onigenc_single_byte_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #11 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @onigenc_single_byte_code_to_mbclen(i32 noundef %0) local_unnamed_addr #8 {
+define noundef range(i32 -400, 2) i32 @onigenc_single_byte_code_to_mbclen(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp ult i32 %0, 256
   %3 = select i1 %2, i32 1, i32 -400
   ret i32 %3
@@ -1013,7 +1013,7 @@ define noundef i32 @onigenc_always_true_is_valid_mbc_string(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_length_check_is_valid_mbc_string(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @onigenc_length_check_is_valid_mbc_string(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #2 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1291,7 +1291,7 @@ onigenc_with_ascii_strncmp.exit.thread35:         ; preds = %21, %12, %onigenc_w
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_with_ascii_strncmp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
@@ -1336,7 +1336,7 @@ define i32 @onigenc_with_ascii_strncmp(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_is_mbc_word_ascii(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @onigenc_is_mbc_word_ascii(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %1, ptr noundef %2) #16
@@ -1358,7 +1358,7 @@ define i32 @onigenc_is_mbc_word_ascii(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_mb2_is_code_ctype(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ult i32 %1, 128
   br i1 %4, label %5, label %12
 
@@ -1392,7 +1392,7 @@ define i32 @onigenc_mb2_is_code_ctype(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_mb4_is_code_ctype(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ult i32 %1, 128
   br i1 %4, label %5, label %12
 
@@ -1426,7 +1426,7 @@ define i32 @onigenc_mb4_is_code_ctype(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @onig_codes_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #14 {
+define range(i32 -1, 1) i32 @onig_codes_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1454,7 +1454,7 @@ define noundef i32 @onig_codes_cmp(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @onig_codes_byte_at(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 256) i32 @onig_codes_byte_at(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = sdiv i32 %1, 3
   %4 = srem i32 %1, 3
   %5 = sext i32 %3 to i64

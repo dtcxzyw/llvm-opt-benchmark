@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @CRYPTO_library_init()
   br label %for.body
@@ -32,7 +32,7 @@ invoke.cont.i:                                    ; preds = %for.body
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %0 = load ptr, ptr @stderr, align 8
-  %conv.i = trunc i64 %len.015 to i32
+  %conv.i = trunc nuw nsw i64 %len.015 to i32
   %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %conv.i) #9
   br label %_ZL12TestChaCha20m.exit.thread
 
@@ -81,7 +81,7 @@ invoke.cont13.i:                                  ; preds = %_ZNSt10unique_ptrIA
 
 if.then17.i:                                      ; preds = %invoke.cont13.i
   %2 = load ptr, ptr @stderr, align 8
-  %conv18.i = trunc i64 %len.015 to i32
+  %conv18.i = trunc nuw nsw i64 %len.015 to i32
   %conv19.i = trunc i64 %1 to i32
   %call21.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %conv18.i, i32 noundef %conv19.i) #9
   br label %_ZL12TestChaCha20m.exit.thread

@@ -4971,7 +4971,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit84:      ; preds = %105, %107, %112
   br i1 %123, label %124, label %.critedge
 
 124:                                              ; preds = %121
-  %125 = trunc i8 %.034 to i1
+  %125 = trunc nuw i8 %.034 to i1
   br i1 %125, label %.critedge, label %126
 
 126:                                              ; preds = %124
@@ -6643,7 +6643,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit247: ; preds = %940, %935, %_ZN
 
 .critedge:                                        ; preds = %124, %121, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit245, %128
   %.236 = phi i8 [ %.034, %124 ], [ %.135, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit245 ], [ %.034, %128 ], [ %.034, %121 ]
-  %954 = trunc i8 %.236 to i1
+  %954 = trunc nuw i8 %.236 to i1
   br label %.loopexit317
 
 .loopexit317:                                     ; preds = %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit245, %.critedge
@@ -14033,7 +14033,7 @@ declare noundef double @_ZN5Ipopt25IpoptCalculatedQuantities15curr_avrg_complEv(
 declare void @_ZNK5Ipopt6Vector5PrintERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_(ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN5Ipopt16FilterLSAcceptor22UpdateForNextIterationEd(ptr noundef nonnull align 8 dereferenceable(304) %0, double noundef %1) unnamed_addr #3 align 2 {
+define noundef signext range(i8 102, 105) i8 @_ZN5Ipopt16FilterLSAcceptor22UpdateForNextIterationEd(ptr noundef nonnull align 8 dereferenceable(304) %0, double noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200

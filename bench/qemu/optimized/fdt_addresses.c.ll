@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"#size-cells\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
@@ -50,7 +50,7 @@ return:                                           ; preds = %fdt_cells.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
@@ -182,13 +182,13 @@ if.then6:                                         ; preds = %if.end4
 
 if.end10:                                         ; preds = %if.then6
   %shr.i81 = lshr i64 %addr, 24
-  %conv.i = trunc i64 %shr.i81 to i8
+  %conv.i = trunc nuw i64 %shr.i81 to i8
   store i8 %conv.i, ptr %data, align 16
   br label %if.end16
 
 if.then13:                                        ; preds = %if.end4
   %shr.i34 = lshr i64 %addr, 56
-  %conv.i35 = trunc i64 %shr.i34 to i8
+  %conv.i35 = trunc nuw i64 %shr.i34 to i8
   store i8 %conv.i35, ptr %data, align 16
   %shr1.i36 = lshr i64 %addr, 48
   %conv2.i37 = trunc i64 %shr1.i36 to i8
@@ -234,13 +234,13 @@ if.then20:                                        ; preds = %if.end16
 
 if.end24:                                         ; preds = %if.then20
   %shr.i4284 = lshr i64 %size, 24
-  %conv.i43 = trunc i64 %shr.i4284 to i8
+  %conv.i43 = trunc nuw i64 %shr.i4284 to i8
   store i8 %conv.i43, ptr %add.ptr, align 4
   br label %if.end32
 
 if.then29:                                        ; preds = %if.end16
   %shr.i52 = lshr i64 %size, 56
-  %conv.i53 = trunc i64 %shr.i52 to i8
+  %conv.i53 = trunc nuw i64 %shr.i52 to i8
   store i8 %conv.i53, ptr %add.ptr, align 4
   %shr1.i54 = lshr i64 %size, 48
   %conv2.i55 = trunc i64 %shr1.i54 to i8

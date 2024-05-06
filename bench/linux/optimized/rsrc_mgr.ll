@@ -47,7 +47,7 @@ define dso_local noalias noundef ptr @pcmcia_make_resource(i64 noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @static_find_io(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, i32 %3, i32 %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @static_find_io(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, i32 %3, i32 %4, ptr nocapture noundef writeonly %5) #2 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

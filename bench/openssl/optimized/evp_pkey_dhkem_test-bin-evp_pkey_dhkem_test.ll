@@ -223,7 +223,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.163 = private unnamed_addr constant [6 x i8] c"ED448\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp1 = alloca %struct.ossl_param_st, align 8
@@ -321,7 +321,7 @@ declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) l
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dhkem_encapsulate(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_dhkem_encapsulate(i32 noundef %tstid) #0 {
 entry:
   %secret.i = alloca [256 x i8], align 16
   %enc.i = alloca [256 x i8], align 16
@@ -465,7 +465,7 @@ err:                                              ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dhkem_decapsulate(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_dhkem_decapsulate(i32 noundef %tstid) #0 {
 entry:
   %secret.i = alloca [256 x i8], align 16
   %secretlen.i = alloca i64, align 8
@@ -571,7 +571,7 @@ err:                                              ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_settables(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_settables(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
@@ -620,7 +620,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_init_multiple(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_init_multiple(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
@@ -670,7 +670,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_no_operation_set(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_no_operation_set(i32 noundef %tstid) #0 {
 entry:
   %len = alloca i64, align 8
   %idxprom = sext i32 %tstid to i64
@@ -712,7 +712,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ikm_small(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ikm_small(i32 noundef %tstid) #0 {
 entry:
   %tmp = alloca [16 x i8], align 16
   %secret = alloca [256 x i8], align 16
@@ -834,7 +834,7 @@ err:                                              ; preds = %if.end24, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_null_params(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_null_params(i32 noundef %tstid) #0 {
 entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
@@ -971,7 +971,7 @@ err:                                              ; preds = %if.end34, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_nopublic(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_nopublic(i32 noundef %tstid) #0 {
 entry:
   %and = and i32 %tstid, 1
   %cmp = icmp eq i32 %and, 0
@@ -1039,7 +1039,7 @@ err:                                              ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_noauthpublic(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_noauthpublic(i32 noundef %tstid) #0 {
 entry:
   %and = and i32 %tstid, 1
   %cmp = icmp eq i32 %and, 0
@@ -1100,7 +1100,7 @@ err:                                              ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_dhkem_derivekey(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ec_dhkem_derivekey(i32 noundef %tstid) #0 {
 entry:
   %pkey = alloca ptr, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -1215,7 +1215,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_noikme(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ec_noikme(i32 noundef %tstid) #0 {
 entry:
   %sender_secret = alloca [256 x i8], align 16
   %recip_secret = alloca [256 x i8], align 16
@@ -1379,7 +1379,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_invalid_private_key() #0 {
+define internal range(i32 0, 2) i32 @test_ec_invalid_private_key() #0 {
 entry:
   %call = tail call fastcc ptr @new_raw_private_key(ptr noundef nonnull @.str.6, ptr noundef nonnull @test_ec_invalid_private_key.order, i64 noundef 32, ptr noundef nonnull @p256_ikmr_pub, i64 noundef 65)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 282, ptr noundef nonnull @.str.136, ptr noundef %call) #5
@@ -1409,7 +1409,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_dhkem_derivekey_fail() #0 {
+define internal range(i32 0, 2) i32 @test_ec_dhkem_derivekey_fail() #0 {
 entry:
   %pkey = alloca ptr, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -1508,21 +1508,21 @@ err:                                              ; preds = %lor.lhs.false51, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_curve_nonnist() #0 {
+define internal range(i32 0, 2) i32 @test_ec_curve_nonnist() #0 {
 entry:
-  %call = tail call fastcc i32 @do_ec_curve_failtest(ptr noundef nonnull @.str.137), !range !5
+  %call = tail call fastcc i32 @do_ec_curve_failtest(ptr noundef nonnull @.str.137)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_curve_unsupported() #0 {
+define internal range(i32 0, 2) i32 @test_ec_curve_unsupported() #0 {
 entry:
-  %call = tail call fastcc i32 @do_ec_curve_failtest(ptr noundef nonnull @.str.138), !range !5
+  %call = tail call fastcc i32 @do_ec_curve_failtest(ptr noundef nonnull @.str.138)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_invalid_decap_enc_buffer() #0 {
+define internal range(i32 0, 2) i32 @test_ec_invalid_decap_enc_buffer() #0 {
 entry:
   %enc = alloca [256 x i8], align 16
   %secret = alloca [256 x i8], align 16
@@ -1549,7 +1549,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_public_key_infinity() #0 {
+define internal range(i32 0, 2) i32 @test_ec_public_key_infinity() #0 {
 entry:
   %s = alloca [256 x i8], align 16
   %e = alloca [256 x i8], align 16
@@ -1618,7 +1618,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_badpublic(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ec_badpublic(i32 noundef %tstid) #0 {
 entry:
   %secret = alloca [256 x i8], align 16
   %pub = alloca [256 x i8], align 16
@@ -1692,7 +1692,7 @@ err:                                              ; preds = %if.end34, %if.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ec_badauth(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ec_badauth(i32 noundef %tstid) #0 {
 entry:
   %enc = alloca [256 x i8], align 16
   %secret = alloca [256 x i8], align 16
@@ -1758,7 +1758,7 @@ err:                                              ; preds = %if.end26, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ecx_dhkem_derivekey(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_ecx_dhkem_derivekey(i32 noundef %tstid) #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %pkey = alloca ptr, align 8
@@ -1899,7 +1899,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ed_curve_unsupported() #0 {
+define internal range(i32 0, 2) i32 @test_ed_curve_unsupported() #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.163) #5
@@ -2202,7 +2202,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @EVP_PKEY_CTX_set_kem_op(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_ec_curve_failtest(ptr noundef %curve) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_ec_curve_failtest(ptr noundef %curve) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %curve) #5
@@ -2262,4 +2262,3 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

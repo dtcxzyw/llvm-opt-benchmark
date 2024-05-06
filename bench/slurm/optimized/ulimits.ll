@@ -191,7 +191,7 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
   br label %rlim_to_string.exit.i
 
 80:                                               ; preds = %76
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %77) #7
+  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %77) #7
   br label %rlim_to_string.exit.i
 
 rlim_to_string.exit.i:                            ; preds = %80, %79
@@ -204,7 +204,7 @@ rlim_to_string.exit.i:                            ; preds = %80, %79
   br label %rlim_to_string.exit10.i
 
 85:                                               ; preds = %rlim_to_string.exit.i
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %82) #7
+  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %82) #7
   br label %rlim_to_string.exit10.i
 
 rlim_to_string.exit10.i:                          ; preds = %85, %84
@@ -216,7 +216,7 @@ rlim_to_string.exit10.i:                          ; preds = %85, %84
   br label %rlim_to_string.exit11.i
 
 89:                                               ; preds = %rlim_to_string.exit10.i
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
+  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
   br label %rlim_to_string.exit11.i
 
 rlim_to_string.exit11.i:                          ; preds = %89, %88
@@ -246,7 +246,7 @@ rlim_to_string.exit11.i:                          ; preds = %89, %88
   br label %rlim_to_string.exit12.i
 
 101:                                              ; preds = %98
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
+  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
   br label %rlim_to_string.exit12.i
 
 rlim_to_string.exit12.i:                          ; preds = %101, %100
@@ -259,7 +259,7 @@ rlim_to_string.exit12.i:                          ; preds = %101, %100
   br label %rlim_to_string.exit13.i
 
 106:                                              ; preds = %rlim_to_string.exit12.i
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %103) #7
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %103) #7
   br label %rlim_to_string.exit13.i
 
 rlim_to_string.exit13.i:                          ; preds = %106, %105
@@ -289,7 +289,7 @@ rlim_to_string.exit13.i:                          ; preds = %106, %105
   br i1 %118, label %120, label %rlim_to_string.exit14.i
 
 rlim_to_string.exit14.i:                          ; preds = %.thread33.i
-  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %117) #7
+  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %117) #7
   br label %120
 
 120:                                              ; preds = %rlim_to_string.exit14.i, %.thread33.i
@@ -308,7 +308,7 @@ rlim_to_string.exit14.i:                          ; preds = %.thread33.i
   br i1 %128, label %130, label %rlim_to_string.exit15.i
 
 rlim_to_string.exit15.i:                          ; preds = %126
-  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %127) #7
+  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %127) #7
   br label %130
 
 130:                                              ; preds = %rlim_to_string.exit15.i, %126
@@ -502,7 +502,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @set_umask(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @set_umask(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @getenvp(ptr noundef %3, ptr noundef nonnull @.str.12) #7

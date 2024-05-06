@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.get_code_extra_index = private unnamed_addr constant [54 x i8] c"Py_ssize_t get_code_extra_index(PyInterpreterState *)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Code(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Code(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @TestMethods) #4
   %call.lobit = ashr i32 %call, 31
@@ -32,7 +32,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @test_code_extra(ptr nocapture readnone %self, ptr nocapture readnone %_unused_callable) #0 {
+define internal noundef ptr @test_code_extra(ptr nocapture readnone %self, ptr nocapture readnone %_unused_callable) #0 {
 entry:
   %index_obj.i = alloca ptr, align 8
   %extra = alloca ptr, align 8

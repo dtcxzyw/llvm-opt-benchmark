@@ -233,7 +233,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 137:                                              ; preds = %134
   %138 = load i32, ptr %11, align 4, !tbaa !3
-  %139 = mul nsw i32 %125, %37
+  %139 = mul nuw nsw i32 %125, %37
   %140 = add nuw nsw i32 %139, 4160
   %141 = icmp slt i32 %138, %140
   br i1 %141, label %142, label %.thread23

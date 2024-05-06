@@ -666,7 +666,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   %369 = load i32, ptr %364, align 8
   %370 = getelementptr inbounds i8, ptr %363, i64 13
   %371 = lshr i32 %369, 25
-  %372 = trunc i32 %371 to i8
+  %372 = trunc nuw nsw i32 %371 to i8
   %373 = and i8 %372, 1
   store i8 %373, ptr %370, align 1
   %374 = getelementptr inbounds i8, ptr %364, i64 4
@@ -775,7 +775,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   br label %index_getattr.exit.i.i
 
 426:                                              ; preds = %394
-  %427 = trunc i64 %indvars.iv211.i.i to i32
+  %427 = trunc nuw nsw i64 %indvars.iv211.i.i to i32
   %428 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0117.i.i, i32 noundef %427, ptr noundef nonnull %327) #10
   br label %index_getattr.exit.i.i
 
@@ -862,7 +862,7 @@ index_getattr.exit.i.i:                           ; preds = %440, %429, %426, %4
   br label %index_getattr.exit146.i.i
 
 475:                                              ; preds = %443
-  %476 = trunc i64 %indvars.iv211.i.i to i32
+  %476 = trunc nuw nsw i64 %indvars.iv211.i.i to i32
   %477 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef %476, ptr noundef nonnull %327) #10
   br label %index_getattr.exit146.i.i
 
@@ -914,7 +914,7 @@ index_getattr.exit146.thread.i.i:                 ; preds = %478
 
 506:                                              ; preds = %499
   %507 = icmp slt i32 %502, 0
-  %508 = sub i32 0, %502
+  %508 = sub nsw i32 0, %502
   br i1 %507, label %.thread.i.i, label %ApplySortComparator.exit.i.i
 
 ApplySortComparator.exit.i.i:                     ; preds = %506, %499
@@ -1346,7 +1346,7 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
   %714 = getelementptr inbounds i8, ptr %.034.i.i.i, i64 16
   %715 = load ptr, ptr %714, align 8
   %716 = lshr i32 %698, 16
-  %717 = trunc i32 %716 to i16
+  %717 = trunc nuw i32 %716 to i16
   store i16 %717, ptr %715, align 2
   %718 = trunc i32 %698 to i16
   %719 = getelementptr inbounds i8, ptr %715, i64 2
@@ -2122,7 +2122,7 @@ _bt_pagestate.exit:                               ; preds = %119, %143, %148
   %157 = getelementptr inbounds i8, ptr %1, i64 16
   %158 = load ptr, ptr %157, align 8
   %159 = lshr i32 %12, 16
-  %160 = trunc i32 %159 to i16
+  %160 = trunc nuw i32 %159 to i16
   store i16 %160, ptr %158, align 2
   %161 = trunc i32 %12 to i16
   %162 = getelementptr inbounds i8, ptr %158, i64 2

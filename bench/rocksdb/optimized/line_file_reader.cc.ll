@@ -69,7 +69,7 @@ $_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE17_M_realloc_inse
 
 $_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE = comdat any
 
-@_ZN7rocksdb15iostats_contextE = external thread_local global %"struct.rocksdb::IOStatsContext", align 8
+@_ZN7rocksdb15iostats_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::IOStatsContext", align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE = external unnamed_addr constant { [11 x ptr] }, align 8

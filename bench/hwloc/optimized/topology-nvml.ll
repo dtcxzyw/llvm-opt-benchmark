@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [16 x i8] c"NVLinkBandwidth\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @hwloc_nvml_component_init(i64 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @hwloc_nvml_component_init(i64 noundef %0) #0 {
   %.not = icmp ne i64 %0, 0
   %spec.select = sext i1 %.not to i32
   ret i32 %spec.select
@@ -56,7 +56,7 @@ define internal ptr @hwloc_nvml_component_instantiate(ptr noundef %0, ptr nounde
 declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -149,7 +149,7 @@ define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly 
 
 61:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   %63 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %62, ptr noundef nonnull %7) #11
   %64 = call ptr @hwloc_alloc_setup_object(ptr noundef %17, i32 noundef 16, i32 noundef -1) #11
   %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.3, i32 noundef %62) #11
@@ -243,7 +243,7 @@ define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly 
   br label %.thread
 
 123:                                              ; preds = %89, %93
-  %124 = call ptr @hwloc_get_obj_by_depth(ptr noundef %17, i32 noundef 0, i32 noundef 0) #14
+  %124 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #14
   br label %.thread
 
 .thread:                                          ; preds = %99, %102, %118, %123
@@ -261,7 +261,7 @@ define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly 
   %indvars.iv237 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next238, %232 ]
   %.0135208 = phi i32 [ 0, %.lr.ph210 ], [ %.1136.lcssa, %232 ]
   %.0183207 = phi i32 [ %126, %.lr.ph210 ], [ %.1184.lcssa, %232 ]
-  %130 = trunc i64 %indvars.iv237 to i32
+  %130 = trunc nuw i64 %indvars.iv237 to i32
   %131 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %130, ptr noundef nonnull %11) #11
   %132 = mul nuw nsw i64 %indvars.iv237, 12
   %133 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv237
@@ -271,7 +271,7 @@ define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly 
   %indvars.iv234 = phi i64 [ 0, %129 ], [ %indvars.iv.next235, %231 ]
   %.1136205 = phi i32 [ %.0135208, %129 ], [ %.2137, %231 ]
   %.1184204 = phi i32 [ %.0183207, %129 ], [ %.4187, %231 ]
-  %135 = trunc i64 %indvars.iv234 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv234 to i32
   %136 = add nuw i64 %132, %indvars.iv234
   %137 = and i64 %136, 4294967295
   %138 = getelementptr inbounds i32, ptr %46, i64 %137
@@ -331,7 +331,7 @@ define internal noundef i32 @hwloc_nvml_discover(ptr nocapture noundef readonly 
   br i1 %exitcond.not.i, label %hwloc__nvml_get_peer_gpu_by_pci.exit.thread, label %150, !llvm.loop !6
 
 hwloc__nvml_get_peer_gpu_by_pci.exit:             ; preds = %159
-  %164 = trunc i64 %indvars.iv.i to i32
+  %164 = trunc nuw i64 %indvars.iv.i to i32
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %hwloc__nvml_get_peer_gpu_by_pci.exit.thread, label %hwloc__nvml_store_peer_obj.exit
 
@@ -485,7 +485,7 @@ hwloc__nvml_get_peer_obj_by_pci.exit.thread:      ; preds = %hwloc__nvml_get_pee
   br label %hwloc__nvml_store_peer_obj.exit
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i174
-  %230 = trunc i64 %indvars.iv.i175 to i32
+  %230 = trunc nuw i64 %indvars.iv.i175 to i32
   br label %hwloc__nvml_store_peer_obj.exit
 
 hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_peer_gpu_by_pci.exit, %.loopexit.loopexit.i, %._crit_edge.i
@@ -537,7 +537,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
 243:                                              ; preds = %.lr.ph217, %281
   %indvars.iv240 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next241, %281 ]
   %.5213 = phi i32 [ %.4215, %.lr.ph217 ], [ %.6, %281 ]
-  %244 = trunc i64 %indvars.iv240 to i32
+  %244 = trunc nuw nsw i64 %indvars.iv240 to i32
   %245 = add i32 %241, %244
   %246 = zext i32 %245 to i64
   %247 = getelementptr inbounds i32, ptr %46, i64 %246
@@ -627,7 +627,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
 
 287:                                              ; preds = %.lr.ph221, %287
   %indvars.iv244 = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next245, %287 ]
-  %288 = trunc i64 %indvars.iv244 to i32
+  %288 = trunc nuw i64 %indvars.iv244 to i32
   %289 = mul i32 %.3161, %288
   %290 = zext i32 %289 to i64
   %291 = getelementptr inbounds i64, ptr %45, i64 %290

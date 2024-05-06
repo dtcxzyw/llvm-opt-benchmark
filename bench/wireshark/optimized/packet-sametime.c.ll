@@ -411,10 +411,10 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
   %60 = load i32, ptr @hf_sametime_handshake_loclcalc_addr, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %60, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #3
   %62 = load i32, ptr @hf_sametime_field_text, align 4
-  %63 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 36, i32 noundef %62), !range !4
+  %63 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 36, i32 noundef %62)
   %64 = add nuw nsw i32 %63, 44
   %65 = load i32, ptr @hf_sametime_field_text, align 4
-  %66 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %64, i32 noundef %65), !range !4
+  %66 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %64, i32 noundef %65)
   br label %dissect_channel_accept.exit
 
 67:                                               ; preds = %38
@@ -425,61 +425,61 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
   %72 = load i32, ptr @hf_sametime_handshake_loclcalc_addr, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %72, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
   %74 = load i32, ptr @hf_sametime_field_text, align 4
-  %75 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 28, i32 noundef %74), !range !4
+  %75 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 28, i32 noundef %74)
   br label %dissect_channel_accept.exit
 
 76:                                               ; preds = %38
   %77 = load i32, ptr @hf_sametime_field_text, align 4
-  %78 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 14, i32 noundef %77), !range !4
+  %78 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 14, i32 noundef %77)
   br label %dissect_channel_accept.exit
 
 79:                                               ; preds = %38
   %80 = load i32, ptr @hf_sametime_field_text, align 4
-  %81 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 14, i32 noundef %80), !range !4
+  %81 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 14, i32 noundef %80)
   br label %dissect_channel_accept.exit
 
 82:                                               ; preds = %38
   %83 = load i32, ptr @hf_sametime_field_text, align 4
-  %84 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 12, i32 noundef %83), !range !4
+  %84 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 12, i32 noundef %83)
   %85 = add nuw nsw i32 %84, 12
   %86 = load i32, ptr @hf_sametime_login_type, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0) #3
   %88 = add nuw nsw i32 %84, 14
   %89 = load i32, ptr @hf_sametime_field_text, align 4
-  %90 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %88, i32 noundef %89), !range !4
+  %90 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %88, i32 noundef %89)
   %91 = add nuw nsw i32 %90, %88
   %92 = load i32, ptr @hf_sametime_field_text, align 4
-  %93 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %91, i32 noundef %92), !range !4
+  %93 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %91, i32 noundef %92)
   %94 = add nuw nsw i32 %91, 3
   %95 = add nuw nsw i32 %94, %93
   %96 = load i32, ptr @hf_sametime_field_text, align 4
-  %97 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %95, i32 noundef %96), !range !4
+  %97 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %95, i32 noundef %96)
   %98 = add nuw nsw i32 %97, %95
   %99 = load i32, ptr @hf_sametime_handshake_loclcalc_addr, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #3
   %101 = add nuw nsw i32 %98, 4
   %102 = load i32, ptr @hf_sametime_field_text, align 4
-  %103 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %101, i32 noundef %102), !range !4
+  %103 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %101, i32 noundef %102)
   %104 = add nuw nsw i32 %98, 25
   %105 = add nuw nsw i32 %104, %103
   %106 = load i32, ptr @hf_sametime_field_text, align 4
-  %107 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %105, i32 noundef %106), !range !4
+  %107 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %105, i32 noundef %106)
   %108 = add nuw nsw i32 %107, %105
   %109 = load i32, ptr @hf_sametime_field_text, align 4
-  %110 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %108, i32 noundef %109), !range !4
+  %110 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %108, i32 noundef %109)
   br label %dissect_channel_accept.exit
 
 111:                                              ; preds = %38
   %112 = load i32, ptr @hf_sametime_channel_id, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %112, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
   %114 = load i32, ptr @hf_sametime_field_text, align 4
-  %115 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 20, i32 noundef %114), !range !4
+  %115 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 20, i32 noundef %114)
   %116 = add nuw nsw i32 %115, 20
   %117 = load i32, ptr @hf_sametime_channel_service, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef 4, i32 noundef 0) #3
   %119 = add nuw nsw i32 %115, 32
   %120 = load i32, ptr @hf_sametime_field_text, align 4
-  %121 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %119, i32 noundef %120), !range !4
+  %121 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %119, i32 noundef %120)
   br label %dissect_channel_accept.exit
 
 122:                                              ; preds = %38
@@ -518,23 +518,23 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
 
 137:                                              ; preds = %134
   %138 = load i32, ptr @hf_sametime_location_country, align 4
-  %139 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 38, i32 noundef %138), !range !4
+  %139 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 38, i32 noundef %138)
   %140 = add nuw nsw i32 %139, 38
   %141 = load i32, ptr @hf_sametime_location_postalcode, align 4
-  %142 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %140, i32 noundef %141), !range !4
+  %142 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %140, i32 noundef %141)
   %143 = add nuw nsw i32 %142, %140
   %144 = load i32, ptr @hf_sametime_location_province, align 4
-  %145 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %143, i32 noundef %144), !range !4
+  %145 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %143, i32 noundef %144)
   %146 = add nuw nsw i32 %145, %143
   %147 = load i32, ptr @hf_sametime_location_city, align 4
-  %148 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %146, i32 noundef %147), !range !4
+  %148 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %146, i32 noundef %147)
   %149 = add nuw nsw i32 %148, %146
   %150 = load i32, ptr @hf_sametime_location_phone, align 4
-  %151 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %149, i32 noundef %150), !range !4
+  %151 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %149, i32 noundef %150)
   %152 = add nuw nsw i32 %149, 1
   %153 = add nuw nsw i32 %152, %151
   %154 = load i32, ptr @hf_sametime_location_name, align 4
-  %155 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %153, i32 noundef %154), !range !4
+  %155 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %153, i32 noundef %154)
   %156 = add nuw nsw i32 %155, %153
   br label %.loopexit.sink.split.i
 
@@ -552,12 +552,12 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
 .lr.ph.i:                                         ; preds = %157, %.lr.ph.i
   %.0154.i = phi i32 [ %168, %.lr.ph.i ], [ 24, %157 ]
   %165 = load i32, ptr @hf_sametime_field_text, align 4
-  %166 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %.0154.i, i32 noundef %165), !range !4
+  %166 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %.0154.i, i32 noundef %165)
   %167 = tail call i32 @llvm.umax.i32(i32 %166, i32 1)
   %168 = add i32 %167, %.0154.i
   %169 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %168) #3
   %170 = icmp sgt i32 %169, 2
-  br i1 %170, label %.lr.ph.i, label %dissect_channel_send.exit, !llvm.loop !5
+  br i1 %170, label %.lr.ph.i, label %dissect_channel_send.exit, !llvm.loop !4
 
 171:                                              ; preds = %122
   %172 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26) #3
@@ -576,7 +576,7 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
   %181 = load i32, ptr @hf_sametime_channel_awareness, align 4
   %182 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %181, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #3
   %183 = load i32, ptr @hf_sametime_field_text, align 4
-  %184 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 24, i32 noundef %183), !range !4
+  %184 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 24, i32 noundef %183)
   %185 = add nuw nsw i32 %184, 28
   %186 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %185) #3
   %.not.i = icmp eq i8 %186, 0
@@ -585,7 +585,7 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
 187:                                              ; preds = %177
   %188 = add nuw nsw i32 %184, 29
   %189 = load i32, ptr @hf_sametime_field_text, align 4
-  %190 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %188, i32 noundef %189), !range !4
+  %190 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %188, i32 noundef %189)
   %191 = add nuw nsw i32 %190, %188
   %192 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %191) #3
   %193 = zext i16 %192 to i32
@@ -601,7 +601,7 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
 
 201:                                              ; preds = %122
   %202 = load i32, ptr @hf_sametime_field_text, align 4
-  %203 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 22, i32 noundef %202), !range !4
+  %203 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 22, i32 noundef %202)
   %204 = add nuw nsw i32 %203, 25
   br label %.loopexit.sink.split.i
 
@@ -617,14 +617,14 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
 
 211:                                              ; preds = %208
   %212 = load i32, ptr @hf_sametime_field_text, align 4
-  %213 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 22, i32 noundef %212), !range !4
+  %213 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 22, i32 noundef %212)
   %214 = add nuw nsw i32 %213, 22
   %215 = load i32, ptr @hf_sametime_field_text, align 4
-  %216 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %214, i32 noundef %215), !range !4
+  %216 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %214, i32 noundef %215)
   %217 = add nuw nsw i32 %213, 25
   %218 = add nuw nsw i32 %217, %216
   %219 = load i32, ptr @hf_sametime_field_text, align 4
-  %220 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %218, i32 noundef %219), !range !4
+  %220 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %218, i32 noundef %219)
   %221 = add nuw nsw i32 %220, %218
   br label %.loopexit.sink.split.i
 
@@ -635,7 +635,7 @@ define internal i32 @dissect_sametime_content(ptr noundef %0, ptr noundef %1, pt
   %hf_sametime_field_text.sink.i = phi ptr [ @hf_sametime_field_text, %211 ], [ @hf_sametime_field_text, %187 ], [ @hf_sametime_location_timezone, %137 ], [ @hf_sametime_field_text, %222 ], [ @hf_sametime_field_text, %201 ], [ @hf_sametime_field_text, %171 ], [ @hf_sametime_field_text, %128 ], [ @hf_sametime_field_text, %134 ], [ @hf_sametime_field_text, %122 ], [ @hf_sametime_field_text, %205 ]
   %.sink.i = phi i32 [ %221, %211 ], [ %200, %187 ], [ %156, %137 ], [ 24, %222 ], [ %204, %201 ], [ 28, %171 ], [ 24, %128 ], [ 38, %134 ], [ 28, %122 ], [ 40, %205 ]
   %223 = load i32, ptr %hf_sametime_field_text.sink.i, align 4
-  %224 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %.sink.i, i32 noundef %223), !range !4
+  %224 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %.sink.i, i32 noundef %223)
   br label %dissect_channel_send.exit
 
 dissect_channel_send.exit:                        ; preds = %.lr.ph.i, %122, %157, %177, %205, %208, %.loopexit.sink.split.i
@@ -651,7 +651,7 @@ dissect_channel_send.exit:                        ; preds = %.lr.ph.i, %122, %15
 
 229:                                              ; preds = %227
   %230 = load i32, ptr @hf_sametime_field_text, align 4
-  %231 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 46, i32 noundef %230), !range !4
+  %231 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 46, i32 noundef %230)
   %232 = add nuw nsw i32 %231, 46
   %233 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %232) #3
   %.not16.i = icmp eq i8 %233, 0
@@ -660,7 +660,7 @@ dissect_channel_send.exit:                        ; preds = %.lr.ph.i, %122, %15
 234:                                              ; preds = %229
   %235 = add nuw nsw i32 %231, 47
   %236 = load i32, ptr @hf_sametime_field_text, align 4
-  %237 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %235, i32 noundef %236), !range !4
+  %237 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %235, i32 noundef %236)
   %238 = add nuw nsw i32 %237, %235
   %239 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %238) #3
   %240 = zext i16 %239 to i32
@@ -673,7 +673,7 @@ dissect_channel_send.exit:                        ; preds = %.lr.ph.i, %122, %15
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0) #3
   %247 = add nuw nsw i32 %238, 6
   %248 = load i32, ptr @hf_sametime_field_text, align 4
-  %249 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %247, i32 noundef %248), !range !4
+  %249 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef %247, i32 noundef %248)
   br label %dissect_channel_accept.exit
 
 250:                                              ; preds = %38
@@ -686,7 +686,7 @@ dissect_channel_send.exit:                        ; preds = %.lr.ph.i, %122, %15
   %256 = load i32, ptr @hf_sametime_time, align 4
   %257 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %256, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0) #3
   %258 = load i32, ptr @hf_sametime_field_text, align 4
-  %259 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 18, i32 noundef %258), !range !4
+  %259 = tail call fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %28, i32 noundef 18, i32 noundef %258)
   %260 = load ptr, ptr @dissect_sametime_content.sinfo, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 8
   store i32 %252, ptr %261, align 4
@@ -740,7 +740,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_text_item(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65538) i32 @add_text_item(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #3
   %.not = icmp eq i8 %6, 0
@@ -799,6 +799,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 65538}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

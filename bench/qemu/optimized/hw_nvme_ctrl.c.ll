@@ -4563,11 +4563,11 @@ nvme_init_state.exit:                             ; preds = %if.then98.i, %cond.
   %use_intel_id.i = getelementptr inbounds i8, ptr %call, i64 7282
   %56 = load i8, ptr %use_intel_id.i, align 2
   %tobool3.i = trunc i8 %56 to i1
-  %spec.select70.i = select i1 %tobool3.i, i16 -32634, i16 6966
-  %spec.select71.i = select i1 %tobool3.i, i16 22597, i16 16
-  store i16 %spec.select70.i, ptr %55, align 1
+  %spec.select71.i = select i1 %tobool3.i, i16 -32634, i16 6966
+  %spec.select72.i = select i1 %tobool3.i, i16 22597, i16 16
+  store i16 %spec.select71.i, ptr %55, align 1
   %57 = getelementptr i8, ptr %55, i64 2
-  store i16 %spec.select71.i, ptr %57, align 1
+  store i16 %spec.select72.i, ptr %57, align 1
   %arrayidx.i52.i = getelementptr i8, ptr %55, i64 10
   store i16 264, ptr %arrayidx.i52.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i.i)
@@ -4668,21 +4668,21 @@ if.else32.i:                                      ; preds = %if.end23.i56
 
 if.end37.i57:                                     ; preds = %if.else32.i, %if.then31.i
   %68 = load i32, ptr %38, align 4
-  %call.i56.i = call i32 @msix_present(ptr noundef nonnull %pci_dev) #17
-  %tobool.not.i57.i = icmp eq i32 %call.i56.i, 0
-  br i1 %tobool.not.i57.i, label %nvme_update_msixcap_ts.exit.i, label %if.end.i58.i
+  %call.i57.i = call i32 @msix_present(ptr noundef nonnull %pci_dev) #17
+  %tobool.not.i58.i = icmp eq i32 %call.i57.i, 0
+  br i1 %tobool.not.i58.i, label %nvme_update_msixcap_ts.exit.i, label %if.end.i59.i
 
-if.end.i58.i:                                     ; preds = %if.end37.i57
+if.end.i59.i:                                     ; preds = %if.end37.i57
   %cmp.not.i.i = icmp eq i32 %68, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i58.i
+land.lhs.true.i.i:                                ; preds = %if.end.i59.i
   %msix_entries_nr.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 1268
   %69 = load i32, ptr %msix_entries_nr.i.i, align 4
   %cmp1.not.i.i = icmp ult i32 %69, %68
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.end3.i.i
 
-if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i58.i
+if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i59.i
   call void @__assert_fail(ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.1, i32 noundef 7048, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_update_msixcap_ts) #18
   unreachable
 
@@ -4709,8 +4709,8 @@ nvme_update_msixcap_ts.exit.i:                    ; preds = %if.end3.i.i, %if.en
   br i1 %tobool39.not.i, label %if.end41.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %nvme_update_msixcap_ts.exit.i
-  %conv.i59.i = zext i32 %75 to i64
-  %mul.i.i = shl nuw nsw i64 %conv.i59.i, 20
+  %conv.i60.i = zext i32 %75 to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i60.i, 20
   %bar.i.i = getelementptr inbounds i8, ptr %call, i64 3152
   %bar.val.i.i = load i64, ptr %bar.i.i, align 1
   %call2.i.i = call noalias ptr @g_malloc0(i64 noundef %mul.i.i) #20
@@ -4724,9 +4724,9 @@ if.then40.i:                                      ; preds = %nvme_update_msixcap
   %legacy_cmb.i.i = getelementptr inbounds i8, ptr %call, i64 7285
   %76 = load i8, ptr %legacy_cmb.i.i, align 1
   %tobool.i.i = trunc i8 %76 to i1
-  br i1 %tobool.i.i, label %if.then.i61.i, label %if.end41.i
+  br i1 %tobool.i.i, label %if.then.i62.i, label %if.end41.i
 
-if.then.i61.i:                                    ; preds = %if.then40.i
+if.then.i62.i:                                    ; preds = %if.then40.i
   %cmbloc1.i.i.i = getelementptr inbounds i8, ptr %call, i64 3208
   %cmbloc1.val.i.i.i = load i32, ptr %cmbloc1.i.i.i, align 1
   %cmbsz3.i.i.i = getelementptr inbounds i8, ptr %call, i64 3212
@@ -4742,7 +4742,7 @@ if.then.i61.i:                                    ; preds = %if.then40.i
   store i8 1, ptr %cmse.i.i, align 8
   br label %if.end41.i
 
-if.end41.i:                                       ; preds = %if.then.i61.i, %if.then40.i, %nvme_update_msixcap_ts.exit.i
+if.end41.i:                                       ; preds = %if.then.i62.i, %if.then40.i, %nvme_update_msixcap_ts.exit.i
   %81 = load ptr, ptr %pmr.i, align 16
   %tobool42.not.i = icmp eq ptr %81, null
   br i1 %tobool42.not.i, label %if.end44.i, label %if.then43.i
@@ -4761,8 +4761,8 @@ if.then43.i:                                      ; preds = %if.end41.i
 
 if.end44.i:                                       ; preds = %if.then43.i, %if.end41.i
   %pci_dev.val.i = load ptr, ptr %0, align 8
-  %cmp.i62.not.i = icmp eq ptr %pci_dev.val.i, null
-  br i1 %cmp.i62.not.i, label %land.lhs.true.i61, label %if.end16
+  %cmp.i63.not.i = icmp eq ptr %pci_dev.val.i, null
+  br i1 %cmp.i63.not.i, label %land.lhs.true.i61, label %if.end16
 
 land.lhs.true.i61:                                ; preds = %if.end44.i
   %84 = load i8, ptr %sriov_max_vfs.i, align 1
@@ -4771,8 +4771,8 @@ land.lhs.true.i61:                                ; preds = %if.end44.i
 
 if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %85 = load i8, ptr %use_intel_id.i, align 2
-  %tobool.i64.i = trunc i8 %85 to i1
-  %conv.i65.i = select i1 %tobool.i64.i, i16 22597, i16 16
+  %tobool.i65.i = trunc i8 %85 to i1
+  %conv.i66.i = select i1 %tobool.i65.i, i16 22597, i16 16
   %vqfrsm.i.i = getelementptr inbounds i8, ptr %call, i64 23716
   %86 = load i16, ptr %vqfrsm.i.i, align 1
   %conv1.i.i = zext i16 %86 to i64
@@ -4780,8 +4780,8 @@ if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %87 = load i16, ptr %vifrsm.i.i, align 1
   %conv3.i.i = zext i16 %87 to i32
   %mul1.i.i.i = shl nuw nsw i64 %conv1.i.i, 3
-  %sub.i.i66.i = add nuw nsw i64 %mul1.i.i.i, 8191
-  %div11.i.i.i = and i64 %sub.i.i66.i, 1044480
+  %sub.i.i67.i = add nuw nsw i64 %mul1.i.i.i, 8191
+  %div11.i.i.i = and i64 %sub.i.i67.i, 1044480
   %mul5.i.i.i = shl nuw nsw i32 %conv3.i.i, 4
   %narrow.i.i.i = add nuw nsw i32 %mul5.i.i.i, 4095
   %add7.i.i.i = zext nneg i32 %narrow.i.i.i to i64
@@ -4797,8 +4797,8 @@ if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %sub2.i.i.i.i = add nuw nsw i64 %88, 4294967295
   %sh_prom.i.i.i.i = and i64 %sub2.i.i.i.i, 4294967295
   %shr.i.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i.i
-  %conv6.i67.i = zext i8 %84 to i16
-  call void @pcie_sriov_pf_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 288, ptr noundef nonnull @.str.49, i16 noundef zeroext %conv.i65.i, i16 noundef zeroext %conv6.i67.i, i16 noundef zeroext %conv6.i67.i, i16 noundef zeroext 1, i16 noundef zeroext 1) #17
+  %conv6.i68.i = zext i8 %84 to i16
+  call void @pcie_sriov_pf_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 288, ptr noundef nonnull @.str.49, i16 noundef zeroext %conv.i66.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext 1, i16 noundef zeroext 1) #17
   call void @pcie_sriov_pf_init_vf_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 4, i64 noundef %shr.i.i.i.i) #17
   br label %if.end16
 
@@ -9941,8 +9941,8 @@ if.end8:                                          ; preds = %while.body
   store ptr %entry10, ptr %tql_prev33, align 8
   %ns.i = getelementptr inbounds i8, ptr %25, i64 8
   %opaque.i = getelementptr inbounds i8, ptr %25, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %ns.i, i8 0, i64 18, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %opaque.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %ns.i, i8 0, i64 18, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %opaque.i, i8 0, i64 24, i1 false)
   %30 = load i16, ptr %cid, align 1
   %cid43 = getelementptr inbounds i8, ptr %25, i64 52
   store i16 %30, ptr %cid43, align 4
@@ -14015,7 +14015,7 @@ if.end45:                                         ; preds = %do.cond.i, %if.else
 if.then48:                                        ; preds = %if.end45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %1, i32 noundef %add, i32 noundef 1)
   %tobool.not.i101 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i101, label %nvme_check_dulbe.exit, label %if.then.i102
 
@@ -14277,7 +14277,7 @@ if.end32:                                         ; preds = %if.end28
 if.then35:                                        ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i77 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i77, label %nvme_check_dulbe.exit, label %if.then.i78
 
@@ -14581,7 +14581,7 @@ if.end36:                                         ; preds = %if.end32
 if.then39:                                        ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i49 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i49, label %nvme_check_dulbe.exit, label %if.then.i50
 
@@ -14851,7 +14851,7 @@ nvme_get_zone_by_slba.exit:                       ; preds = %nvme_zone_idx.exit.
   br i1 %tobool80.not, label %invalid, label %if.end82
 
 if.end82:                                         ; preds = %nvme_get_zone_by_slba.exit
-  %call.i92 = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef nonnull %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
+  %call.i92 = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef nonnull readonly %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
   %tobool85.not = icmp eq i16 %call.i92, 0
   br i1 %tobool85.not, label %if.end88, label %invalid
 
@@ -15523,7 +15523,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool20.not.i, label %if.end22.i, label %return
 
 if.end22.i:                                       ; preds = %if.end17.i
-  %call.i.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef %n, ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx, i32 noundef 1)
+  %call.i.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef readonly %n, ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx, i32 noundef 1)
   %tobool24.not.i = icmp eq i16 %call.i.i, 0
   br i1 %tobool24.not.i, label %if.end26.i, label %return
 
@@ -16958,7 +16958,7 @@ if.end123:                                        ; preds = %if.end93, %if.then1
   br i1 %tobool125.not, label %if.end127, label %invalid
 
 if.end127:                                        ; preds = %if.end123
-  %call.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
+  %call.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef readonly %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
   %tobool129.not = icmp eq i16 %call.i, 0
   br i1 %tobool129.not, label %if.end131, label %invalid
 
@@ -17058,7 +17058,7 @@ if.end.i130:                                      ; preds = %nvme_parse_pid.exit
   store i64 %cond.i17.i, ptr %mbmw.i, align 8
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end24.i, %if.end.i130
+while.body.i:                                     ; preds = %if.end.i130, %if.end24.i
   %nlb.addr.020.i = phi i32 [ %conv28.i, %if.end24.i ], [ %add, %if.end.i130 ]
   %conv18.i = zext i32 %nlb.addr.020.i to i64
   %80 = load i64, ptr %arrayidx13.i, align 8
@@ -17073,7 +17073,7 @@ if.then21.i:                                      ; preds = %while.body.i
 if.end24.i:                                       ; preds = %while.body.i
   %81 = trunc i64 %80 to i32
   %conv28.i = sub i32 %nlb.addr.020.i, %81
-  %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %60, i16 noundef zeroext %63)
+  %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef readonly %n, ptr noundef %60, i16 noundef zeroext %63)
   %tobool.not.i133 = icmp eq i32 %conv28.i, 0
   br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !49
 
@@ -18444,7 +18444,7 @@ nvme_fdp_alloc_event.exit:                        ; preds = %if.then8.i, %if.els
   %idxprom.i = zext i32 %12 to i64
   %arrayidx.i = getelementptr [63 x %struct.NvmeFdpEvent], ptr %fdp2, i64 0, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %call.i = tail call fastcc i64 @nvme_get_timestamp(ptr noundef %n)
+  %call.i = tail call fastcc i64 @nvme_get_timestamp(ptr noundef readonly %n)
   %timestamp.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i64 %call.i, ptr %timestamp.i, align 1
   store i8 0, ptr %arrayidx.i, align 1
@@ -20119,7 +20119,7 @@ if.end16:                                         ; preds = %if.end13
 if.then18:                                        ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %nvme_check_dulbe.exit, label %if.then.i29
 
@@ -21743,7 +21743,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef readonly %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %tobool.not = icmp eq i16 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -22515,7 +22515,7 @@ while.end:                                        ; preds = %find_first_bit.exit
   br i1 %cmp19, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %while.end.thread, %while.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %changed_nsids, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %changed_nsids, i8 0, i64 40, i1 false)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %while.end

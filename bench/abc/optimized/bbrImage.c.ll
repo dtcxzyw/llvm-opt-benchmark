@@ -1102,7 +1102,7 @@ define ptr @Bbr_bddImageCompute(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %29 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %29, align 4
   %30 = load ptr, ptr %0, align 8
-  %31 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef nonnull %0, ptr noundef %30), !range !25
+  %31 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef nonnull %0, ptr noundef %30)
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %42, label %32
 
@@ -1208,11 +1208,11 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 31:                                               ; preds = %.sink.split, %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %31
   %32 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  br label %.split.us, !llvm.loop !27
+  br label %.split.us, !llvm.loop !26
 
 .split:                                           ; preds = %17, %38
   %.not22 = phi i1 [ true, %38 ], [ false, %17 ]
@@ -1234,7 +1234,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 
 38:                                               ; preds = %.thread, %36
   %39 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  br label %.split, !llvm.loop !27
+  br label %.split, !llvm.loop !26
 
 .loopexit.sink.split:                             ; preds = %15, %8, %2
   %.str.9.sink = phi ptr [ @.str.7, %2 ], [ @.str.8, %8 ], [ @.str.9, %15 ]
@@ -1248,7 +1248,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1271,7 +1271,7 @@ define internal fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr nocaptur
   br label %57
 
 14:                                               ; preds = %2
-  %15 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr noundef nonnull %5), !range !25
+  %15 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr noundef nonnull %5)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %57, label %16
 
@@ -1282,7 +1282,7 @@ define internal fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr nocaptur
   br i1 %.not46, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr noundef nonnull %18), !range !25
+  %20 = tail call fastcc i32 @Bbr_bddImageCompute_rec(ptr noundef %0, ptr noundef nonnull %18)
   %.not47 = icmp eq i32 %20, 0
   br i1 %.not47, label %57, label %21
 
@@ -1405,7 +1405,7 @@ define noundef ptr @Bbr_bddComputeCube(ptr noundef %0, ptr nocapture noundef rea
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.013.lcssa = phi ptr [ %5, %3 ], [ %9, %.lr.ph ]
@@ -1447,7 +1447,7 @@ define noalias noundef ptr @Bbr_bddImageStart2(ptr noundef %0, ptr noundef %1, i
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Bbr_bddComputeCube.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %Bbr_bddComputeCube.exit, label %.lr.ph.i, !llvm.loop !27
 
 Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
   %.013.lcssa.i = phi ptr [ %15, %7 ], [ %19, %.lr.ph.i ]
@@ -1472,7 +1472,7 @@ Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i41) #10
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
-  br i1 %exitcond.not.i43, label %Bbr_bddComputeCube.exit44, label %.lr.ph.i39, !llvm.loop !28
+  br i1 %exitcond.not.i43, label %Bbr_bddComputeCube.exit44, label %.lr.ph.i39, !llvm.loop !27
 
 Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bddComputeCube.exit
   %.013.lcssa.i36 = phi ptr [ %20, %Bbr_bddComputeCube.exit ], [ %24, %.lr.ph.i39 ]
@@ -1505,7 +1505,7 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %31) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.Bbr_bddImageCompute2.exit_crit_edge, label %30, !llvm.loop !29
+  br i1 %exitcond.not, label %.Bbr_bddImageCompute2.exit_crit_edge, label %30, !llvm.loop !28
 
 .Bbr_bddImageCompute2.exit_crit_edge:             ; preds = %30
   store ptr %34, ptr %28, align 8
@@ -1719,7 +1719,7 @@ define internal fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0,
   %28 = load i32, ptr %8, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %12, label %._crit_edge, !llvm.loop !30
+  br i1 %30, label %12, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %27, %5
   %putchar = tail call i32 @putchar(i32 10)
@@ -1779,9 +1779,8 @@ attributes #11 = { nounwind allocsize(0) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i32 0, i32 2}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [47 x i8] c"Problem recovering resv_port_array for %pS: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @reserve_port_config(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -373,7 +373,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @resv_port_alloc(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [16 x i8], align 16
   %4 = load i32, ptr @resv_port_alloc.dims, align 4

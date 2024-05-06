@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.msp_open = private unnamed_addr constant [4 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mspack_version(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 3) i32 @mspack_version(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 16
   br i1 %2, label %switch.lookup, label %4
 
@@ -34,14 +34,14 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mspack_sys_selftest_internal(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 6) i32 @mspack_sys_selftest_internal(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq i32 %0, 8
   %3 = select i1 %2, i32 0, i32 5
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mspack_valid_system(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @mspack_valid_system(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %2
 
@@ -117,7 +117,7 @@ define i32 @mspack_valid_system(ptr noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mspack_sys_filelen(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @mspack_sys_filelen(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5

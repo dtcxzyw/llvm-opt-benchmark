@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [15 x i8] c"\0APacket types:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i64, align 8
@@ -242,7 +242,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %60, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = call fastcc i32 @list_config(ptr noundef %67), !range !7
+  %68 = call fastcc i32 @list_config(ptr noundef %67)
   br label %.loopexit
 
 69:                                               ; preds = %62
@@ -354,7 +354,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %122 = add i64 %121, -1
   store i64 %122, ptr %5, align 8
   %.not76 = icmp eq i64 %121, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not76, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %119, %106
   %.056.lcssa = phi ptr [ %105, %106 ], [ %118, %119 ]
@@ -432,7 +432,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %11, %1
   %putchar = call i32 @putchar(i32 10)
@@ -460,7 +460,7 @@ declare void @extcap_cmdline_debug(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -505,7 +505,7 @@ define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 
   %21 = getelementptr ptr, ptr %20, i64 %28
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
-  br i1 %.not13, label %.critedge, label %.lr.ph20, !llvm.loop !10
+  br i1 %.not13, label %.critedge, label %.lr.ph20, !llvm.loop !9
 
 .lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi ptr [ %22, %.lr.ph ], [ %19, %.lr.ph.preheader ]
@@ -518,7 +518,7 @@ define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 
   %29 = getelementptr ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not12 = icmp eq ptr %30, null
-  br i1 %.not12, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not12, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph20, %.lr.ph, %.lr.ph.preheader, %9
   %.lcssa = phi ptr [ %16, %9 ], [ %16, %.lr.ph.preheader ], [ %27, %.lr.ph ], [ %27, %.lr.ph20 ]
@@ -594,7 +594,6 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

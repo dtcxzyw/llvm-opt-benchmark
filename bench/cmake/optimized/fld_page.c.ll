@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_nc_Default_Field = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @set_new_page(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @set_new_page(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %3 = load ptr, ptr @_nc_Default_Field, align 8
   %4 = select i1 %.not, ptr %3, ptr %0

@@ -8,14 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @file_fcntl(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
@@ -275,14 +272,11 @@ define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr noca
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
-define i32 @fcntl(i32 noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @fcntl(i32 noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #3
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %.thread
@@ -302,23 +296,29 @@ define i32 @fcntl(i32 noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
 
 13:                                               ; preds = %.thread, %7
   %.1 = phi i32 [ -1, %.thread ], [ %9, %7 ]
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
-declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @__errno() local_unnamed_addr #2
+declare ptr @__errno() local_unnamed_addr #1
 
-declare i32 @file_dup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @file_dup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @file_ioctl(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i32 @file_ioctl(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i32 @file_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @file_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

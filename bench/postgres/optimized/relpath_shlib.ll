@@ -41,7 +41,7 @@ define i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !4
 
 .split.loop.exit8:                                ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %7, %.split.loop.exit8
@@ -73,7 +73,7 @@ define i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noundef writeo
   br i1 %.not14, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.sink.split
 
 14:                                               ; preds = %3

@@ -888,7 +888,7 @@ invoke.cont13:                                    ; preds = %land.rhs
 while.body:                                       ; preds = %invoke.cont13
   store i8 0, ptr %literal, align 1
   %call17 = invoke noundef signext i8 @_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERNS_21RuleCharacterIteratorEi(ptr noundef nonnull align 8 dereferenceable(36) %chars, i32 noundef %spec.select)
-          to label %invoke.cont16 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit, !range !5
+          to label %invoke.cont16 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont16:                                    ; preds = %while.body
   %tobool18.not = icmp eq i8 %call17, 0
@@ -1160,7 +1160,7 @@ while.cond.backedge:                              ; preds = %if.end299, %invoke.
   %op.0.be = phi i16 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 38, %sw.bb204 ], [ 45, %if.then178 ], [ %op.0346, %if.else63 ], [ 0, %sw.bb139 ], [ 0, %sw.bb136 ], [ 0, %sw.bb133 ], [ 0, %if.end131 ], [ 0, %sw.bb320 ], [ %op.0346, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ %op.0346, %if.end299 ]
   %invert.0.be = phi i8 [ %invert.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %invert.0347, %sw.bb204 ], [ %invert.0347, %if.then178 ], [ %invert.1, %if.else63 ], [ %invert.0347, %sw.bb139 ], [ %invert.0347, %sw.bb136 ], [ %invert.0347, %sw.bb133 ], [ %invert.0347, %if.end131 ], [ %invert.2.ph249255, %sw.bb320 ], [ %invert.2.ph249255, %invoke.cont316 ], [ %invert.2.ph249255, %invoke.cont312 ], [ %invert.2.ph249255, %if.end299 ]
   %cmp12.not = icmp eq i8 %mode.0.be, 2
-  br i1 %cmp12.not, label %if.end330.loopexit, label %land.rhs, !llvm.loop !6
+  br i1 %cmp12.not, label %if.end330.loopexit, label %land.rhs, !llvm.loop !5
 
 if.end143:                                        ; preds = %invoke.cont70, %if.else67
   %cmp145 = icmp eq i8 %mode.0344, 0
@@ -1340,7 +1340,7 @@ if.end240:                                        ; preds = %invoke.cont234
 
 if.end245:                                        ; preds = %if.end240
   %call247 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %buf, i32 noundef %call235)
-          to label %while.cond228 unwind label %lpad9.loopexit, !llvm.loop !8
+          to label %while.cond228 unwind label %lpad9.loopexit, !llvm.loop !7
 
 if.end250:                                        ; preds = %if.end240
   %call252 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %buf)
@@ -1508,7 +1508,7 @@ memptr.virtual:                                   ; preds = %if.then334
   %vtable335 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %vtable335, i64 %caseClosure.unpack
   %27 = getelementptr i8, ptr %26, i64 -1
-  %memptr.virtualfn = load ptr, ptr %27, align 8, !nosanitize !9
+  %memptr.virtualfn = load ptr, ptr %27, align 8, !nosanitize !8
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.then334
@@ -1633,7 +1633,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7510UnicodeSet16resemblesPatternERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %pos) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510UnicodeSet16resemblesPatternERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %pos) local_unnamed_addr #7 align 2 {
 entry:
   %add = add nsw i32 %pos, 1
   %fUnion.i.i = getelementptr inbounds i8, ptr %pattern, i64 8
@@ -1720,7 +1720,7 @@ lor.end:                                          ; preds = %if.then.i.i10.i45.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %pos) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %pos) local_unnamed_addr #7 align 2 {
 entry:
   %add = add nsw i32 %pos, 5
   %fUnion.i.i = getelementptr inbounds i8, ptr %pattern, i64 8
@@ -1802,7 +1802,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare noundef signext i8 @_ZNK6icu_7521RuleCharacterIterator5atEndEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERNS_21RuleCharacterIteratorEi(ptr noundef nonnull align 8 dereferenceable(36) %chars, i32 noundef %iterOpts) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERNS_21RuleCharacterIteratorEi(ptr noundef nonnull align 8 dereferenceable(36) %chars, i32 noundef %iterOpts) local_unnamed_addr #1 align 2 {
 entry:
   %literal = alloca i8, align 1
   %ec = alloca i32, align 4
@@ -2029,13 +2029,13 @@ for.inc:                                          ; preds = %if.then11, %if.then
   %startHasProperty.2 = phi i32 [ -1, %if.then16 ], [ %startHasProperty.119, %if.else ], [ %spec.select, %if.then11 ]
   %inc = add i32 %ch.020, 1
   %exitcond.not = icmp eq i32 %ch.020, %call5
-  br i1 %exitcond.not, label %for.inc20, label %for.body8, !llvm.loop !10
+  br i1 %exitcond.not, label %for.inc20, label %for.body8, !llvm.loop !9
 
 for.inc20:                                        ; preds = %for.inc, %for.body
   %startHasProperty.1.lcssa = phi i32 [ %startHasProperty.023, %for.body ], [ %startHasProperty.2, %for.inc ]
   %inc21 = add nuw nsw i32 %j.022, 1
   %exitcond25.not = icmp eq i32 %inc21, %call3
-  br i1 %exitcond25.not, label %for.end22, label %for.body, !llvm.loop !11
+  br i1 %exitcond25.not, label %for.end22, label %for.body, !llvm.loop !10
 
 for.end22:                                        ; preds = %for.inc20
   %cmp23 = icmp sgt i32 %startHasProperty.1.lcssa, -1
@@ -2141,13 +2141,13 @@ for.inc.i:                                        ; preds = %if.then16.i, %if.el
   %startHasProperty.2.i = phi i32 [ -1, %if.then16.i ], [ %startHasProperty.119.i, %if.else.i ], [ %spec.select.i, %if.then11.i ]
   %inc.i = add i32 %ch.020.i, 1
   %exitcond.not.i = icmp eq i32 %ch.020.i, %call5.i
-  br i1 %exitcond.not.i, label %for.inc20.i, label %for.body8.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.inc20.i, label %for.body8.i, !llvm.loop !9
 
 for.inc20.i:                                      ; preds = %for.inc.i, %for.body.i
   %startHasProperty.1.lcssa.i = phi i32 [ %startHasProperty.023.i, %for.body.i ], [ %startHasProperty.2.i, %for.inc.i ]
   %inc21.i = add nuw nsw i32 %j.022.i, 1
   %exitcond25.not.i = icmp eq i32 %inc21.i, %call3.i
-  br i1 %exitcond25.not.i, label %for.end22.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond25.not.i, label %for.end22.i, label %for.body.i, !llvm.loop !10
 
 for.end22.i:                                      ; preds = %for.inc20.i
   %cmp23.i = icmp sgt i32 %startHasProperty.1.lcssa.i, -1
@@ -2216,13 +2216,13 @@ for.inc.i48:                                      ; preds = %if.then16.i62, %if.
   %startHasProperty.2.i49 = phi i32 [ -1, %if.then16.i62 ], [ %startHasProperty.119.i42, %if.else.i60 ], [ %spec.select.i47, %if.then11.i45 ]
   %inc.i50 = add i32 %ch.020.i41, 1
   %exitcond.not.i51 = icmp eq i32 %ch.020.i41, %call5.i38
-  br i1 %exitcond.not.i51, label %for.inc20.i52, label %for.body8.i40, !llvm.loop !10
+  br i1 %exitcond.not.i51, label %for.inc20.i52, label %for.body8.i40, !llvm.loop !9
 
 for.inc20.i52:                                    ; preds = %for.inc.i48, %for.body.i34
   %startHasProperty.1.lcssa.i53 = phi i32 [ %startHasProperty.023.i35, %for.body.i34 ], [ %startHasProperty.2.i49, %for.inc.i48 ]
   %inc21.i54 = add nuw nsw i32 %j.022.i36, 1
   %exitcond25.not.i55 = icmp eq i32 %inc21.i54, %call3.i26
-  br i1 %exitcond25.not.i55, label %for.end22.i56, label %for.body.i34, !llvm.loop !11
+  br i1 %exitcond25.not.i55, label %for.end22.i56, label %for.body.i34, !llvm.loop !10
 
 for.end22.i56:                                    ; preds = %for.inc20.i52
   %cmp23.i57 = icmp sgt i32 %startHasProperty.1.lcssa.i53, -1
@@ -2302,7 +2302,7 @@ declare ptr @u_getBinaryPropertySet_75(i32 noundef, ptr noundef) local_unnamed_a
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200), i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_117intPropertyFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_117intPropertyFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
 entry:
   %0 = load i32, ptr %context, align 4
   %call = tail call i32 @u_getIntPropertyValue_75(i32 noundef %ch, i32 noundef %0)
@@ -2702,7 +2702,7 @@ declare i32 @u_getPropertyValueEnum_75(i32 noundef, ptr noundef) local_unnamed_a
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_118numericValueFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_118numericValueFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
 entry:
   %call = tail call double @u_getNumericValue_75(i32 noundef %ch)
   %0 = load double, ptr %context, align 8
@@ -2712,7 +2712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) unnamed_addr #10 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) unnamed_addr #10 {
 entry:
   %invariant.gep = getelementptr i8, ptr %dst, i64 -1
   br label %while.cond.outer
@@ -2731,7 +2731,7 @@ while.cond.us:                                    ; preds = %while.cond.outer, %
   switch i8 %0, label %if.end [
     i8 0, label %if.end22
     i8 32, label %while.cond.us
-  ], !llvm.loop !12
+  ], !llvm.loop !11
 
 while.cond:                                       ; preds = %while.cond.outer, %land.lhs.true
   %src.addr.0 = phi ptr [ %incdec.ptr, %land.lhs.true ], [ %src.addr.0.ph, %while.cond.outer ]
@@ -2745,7 +2745,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 land.lhs.true:                                    ; preds = %while.cond
   %2 = load i8, ptr %gep, align 1
   %cmp7 = icmp eq i8 %2, 32
-  br i1 %cmp7, label %while.cond, label %if.end, !llvm.loop !12
+  br i1 %cmp7, label %while.cond, label %if.end, !llvm.loop !11
 
 if.end:                                           ; preds = %land.lhs.true, %while.cond, %while.cond.us
   %.us-phi = phi ptr [ %incdec.ptr.us, %while.cond.us ], [ %incdec.ptr, %while.cond ], [ %incdec.ptr, %land.lhs.true ]
@@ -2757,7 +2757,7 @@ if.end10:                                         ; preds = %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx12 = getelementptr inbounds i8, ptr %dst, i64 %indvars.iv
   store i8 %.us-phi21, ptr %arrayidx12, align 1
-  br label %while.cond.outer, !llvm.loop !12
+  br label %while.cond.outer, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
   %3 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2792,7 +2792,7 @@ declare i32 @u_charFromName_75(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @u_versionFromString_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113versionFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113versionFilterEiPv(i32 noundef %ch, ptr nocapture noundef readonly %context) #1 {
 entry:
   %v = alloca [4 x i8], align 1
   call void @u_charAge_75(i32 noundef %ch, ptr noundef nonnull %v)
@@ -3234,11 +3234,10 @@ attributes #18 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 2148312105}
-!5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

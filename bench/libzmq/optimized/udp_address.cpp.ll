@@ -90,7 +90,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13udp_address_t7resolveEPKcbb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %name_, i1 noundef zeroext %bind_, i1 noundef zeroext %ipv6_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13udp_address_t7resolveEPKcbb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %name_, i1 noundef zeroext %bind_, i1 noundef zeroext %ipv6_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

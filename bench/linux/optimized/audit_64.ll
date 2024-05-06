@@ -22,7 +22,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_audit_classes_init336], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @audit_classify_arch(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @audit_classify_arch(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq i32 %0, 1073741827
   %3 = zext i1 %2 to i32
   ret i32 %3

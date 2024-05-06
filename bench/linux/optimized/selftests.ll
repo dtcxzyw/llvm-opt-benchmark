@@ -115,7 +115,7 @@ define dso_local void @net_selftest_get_strings(ptr noundef %0) #0 align 16 {
 declare dso_local void @ethtool_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal i32 @net_test_netif_carrier(ptr noundef %0) #6 align 16 {
+define internal range(i32 -67, 1) i32 @net_test_netif_carrier(ptr noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 4
@@ -125,7 +125,7 @@ define internal i32 @net_test_netif_carrier(ptr noundef %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @net_test_phy_phydev(ptr nocapture noundef readonly %0) #7 align 16 {
+define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr nocapture noundef readonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -150,7 +150,7 @@ define internal i32 @net_test_phy_loopback_enable(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_test_phy_loopback_udp(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_udp(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -158,13 +158,13 @@ define internal i32 @net_test_phy_loopback_udp(ptr noundef %0) #0 align 16 {
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2), !range !9
+  %6 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_test_phy_loopback_udp_mtu(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_udp_mtu(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -176,13 +176,13 @@ define internal i32 @net_test_phy_loopback_udp_mtu(ptr noundef %0) #0 align 16 {
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %7, ptr %8, align 8
-  %9 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2), !range !9
+  %9 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
   ret i32 %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_test_phy_loopback_tcp(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_tcp(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -192,7 +192,7 @@ define internal i32 @net_test_phy_loopback_tcp(ptr noundef %0) #0 align 16 {
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 1, ptr %6, align 8
-  %7 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2), !range !9
+  %7 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
   ret i32 %7
 }
@@ -217,7 +217,7 @@ define internal i32 @net_test_phy_loopback_disable(ptr nocapture noundef readonl
 declare dso_local i32 @phy_loopback(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 128) #12
   %5 = icmp eq ptr %4, null
@@ -243,7 +243,7 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
   %14 = getelementptr inbounds i8, ptr %1, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %18 = icmp eq i8 %17, 0
   %19 = select i1 %18, i32 55, i32 67
   %20 = add i32 %19, %15
@@ -259,7 +259,7 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds i8, ptr %26, i64 200
   %30 = load ptr, ptr %29, align 8
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %30) #11, !srcloc !12
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %30) #11, !srcloc !11
   %31 = tail call ptr @skb_push(ptr noundef nonnull %26, i32 noundef 14) #11
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 192
@@ -288,7 +288,7 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
   %54 = trunc i32 %46 to i16
   %55 = add i16 %52, %54
   store i16 %55, ptr %53, align 2
-  %56 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %60, label %58
 
@@ -336,7 +336,7 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
 82:                                               ; preds = %77, %73
   %83 = getelementptr inbounds i8, ptr %31, i64 12
   store i16 8, ptr %83, align 1
-  %84 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %84 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %85 = icmp eq i8 %84, 0
   %86 = getelementptr inbounds i8, ptr %1, i64 26
   %87 = load i16, ptr %86, align 2
@@ -391,13 +391,13 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
   %117 = getelementptr inbounds i8, ptr %45, i64 8
   store i8 32, ptr %117, align 4
   store i8 69, ptr %45, align 4
-  %118 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %118 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %119 = icmp eq i8 %118, 0
   %120 = getelementptr inbounds i8, ptr %45, i64 9
   %121 = select i1 %119, i8 17, i8 6
   store i8 %121, ptr %120, align 1
   %122 = load i32, ptr %14, align 4
-  %123 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %123 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %124 = icmp eq i8 %123, 0
   %125 = select i1 %124, i32 41, i32 53
   %126 = add i32 %125, %122
@@ -467,7 +467,7 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
   %167 = load i8, ptr %165, align 8
   %168 = or i8 %167, 96
   store i8 %168, ptr %165, align 8
-  %169 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %169 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %170 = icmp eq i8 %169, 0
   br i1 %170, label %188, label %171
 
@@ -477,13 +477,13 @@ define internal fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef %1) 
   %174 = load i32, ptr %142, align 4
   %175 = shl i32 %172, 8
   %176 = add i32 %175, 1536
-  %177 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %174, i32 %173, i32 %176, i32 0) #13, !srcloc !13
+  %177 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %174, i32 %173, i32 %176, i32 0) #13, !srcloc !12
   %178 = shl i32 %177, 16
   %179 = and i32 %177, -65536
-  %180 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %178, i32 %179) #14, !srcloc !14
+  %180 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %178, i32 %179) #14, !srcloc !13
   %181 = xor i32 %180, -1
   %182 = lshr i32 %181, 16
-  %183 = trunc i32 %182 to i16
+  %183 = trunc nuw i32 %182 to i16
   %184 = xor i16 %183, -1
   %185 = getelementptr inbounds i8, ptr %64, i64 16
   store i16 %184, ptr %185, align 4
@@ -585,7 +585,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
 26:                                               ; preds = %15
   %27 = tail call ptr @skb_copy(ptr noundef %0, i32 noundef 2080) #11
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %.thread5, !prof !15
+  br i1 %28, label %.thread, label %.thread5, !prof !14
 
 .thread5:                                         ; preds = %26
   tail call void @consume_skb(ptr noundef %0) #11
@@ -678,7 +678,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
   %89 = getelementptr i8, ptr %84, i64 %88
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
-  %92 = load i8, ptr %91, align 8, !range !10, !noundef !11
+  %92 = load i8, ptr %91, align 8, !range !9, !noundef !10
   %93 = icmp eq i8 %92, 0
   %94 = getelementptr inbounds i8, ptr %89, i64 9
   %95 = load i8, ptr %94, align 1
@@ -843,10 +843,9 @@ attributes #14 = { nounwind memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !6, !7}
-!9 = !{i32 -2147483648, i32 1}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = !{i64 2149448415, i64 2149448443, i64 2149448449, i64 2149448465, i64 2149448481, i64 2149448508, i64 2149448836, i64 2149448158, i64 2149448842, i64 2149448890, i64 2149448954, i64 2149449018, i64 2149449075, i64 2149448239, i64 2149448264, i64 2149449282, i64 2149449411, i64 2149449343, i64 2149449425, i64 2149448356}
-!13 = !{i64 7019647, i64 7019671, i64 7019694, i64 7019717}
-!14 = !{i64 7017898, i64 7017921}
-!15 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{i64 2149448415, i64 2149448443, i64 2149448449, i64 2149448465, i64 2149448481, i64 2149448508, i64 2149448836, i64 2149448158, i64 2149448842, i64 2149448890, i64 2149448954, i64 2149449018, i64 2149449075, i64 2149448239, i64 2149448264, i64 2149449282, i64 2149449411, i64 2149449343, i64 2149449425, i64 2149448356}
+!12 = !{i64 7019647, i64 7019671, i64 7019694, i64 7019717}
+!13 = !{i64 7017898, i64 7017921}
+!14 = !{!"branch_weights", i32 1, i32 2000}

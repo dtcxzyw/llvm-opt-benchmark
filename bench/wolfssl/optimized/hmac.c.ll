@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.wc_HKDF = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 16, i32 28, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wc_HmacSizeByType(i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %switch.tableidx = add i32 %type, -3
   %0 = icmp ult i32 %switch.tableidx, 11
@@ -150,7 +150,7 @@ if.then25:                                        ; preds = %if.end
 if.end26:                                         ; preds = %if.then25, %if.end
   %innerHashKeyed = getelementptr inbounds i8, ptr %hmac, i64 777
   store i8 0, ptr %innerHashKeyed, align 1
-  %conv27 = trunc i32 %type to i8
+  %conv27 = trunc nuw i32 %type to i8
   store i8 %conv27, ptr %macType, align 8
   %call = tail call i32 @_InitHmac(ptr noundef nonnull %hmac, i32 noundef %type, ptr noundef null)
   %cmp29.not = icmp eq i32 %call, 0
@@ -967,7 +967,7 @@ return:                                           ; preds = %if.end6, %if.end19,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_HmacInit(ptr noundef writeonly %hmac, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly %hmac, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %hmac, null
   br i1 %cmp, label %return, label %if.end
@@ -1019,7 +1019,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %return
@@ -1040,7 +1040,7 @@ if.then9:                                         ; preds = %switch.lookup, %if.
   %saltSz.addr.0 = phi i32 [ %switch.load, %if.then2 ], [ %saltSz, %switch.lookup ]
   %localSalt.0 = phi ptr [ %tmp, %if.then2 ], [ %salt, %switch.lookup ]
   %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   %call11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef nonnull %localSalt.0, i32 noundef %saltSz.addr.0)
   %cmp12 = icmp eq i32 %call11, 0
@@ -1077,7 +1077,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %wc_HKDF_Extract_ex.exit
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %wc_HKDF_Extract_ex.exit
@@ -1135,7 +1135,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %return
@@ -1158,7 +1158,7 @@ lor.lhs.false:                                    ; preds = %switch.lookup
 
 if.end11:                                         ; preds = %lor.lhs.false
   %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp, i8 0, i64 64, i1 false)
   %cmp1328.not = icmp eq i32 %outSz, 0
@@ -1233,7 +1233,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %return

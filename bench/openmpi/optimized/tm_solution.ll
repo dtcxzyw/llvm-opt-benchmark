@@ -90,7 +90,7 @@ define hidden noundef double @tm_display_solution(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %31, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %indvars.iv27 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv27 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %18)
   %20 = load i32, ptr %12, align 4
   %21 = icmp sgt i32 %20, 0
@@ -182,7 +182,7 @@ define internal fastcc noundef double @display_sol(ptr nocapture noundef readonl
 .lr.ph.i:                                         ; preds = %16
   %18 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv12.i
   %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i
-  %20 = trunc i64 %indvars.iv12.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv12.i to i32
   br label %21
 
 21:                                               ; preds = %72, %.lr.ph.i
@@ -232,7 +232,7 @@ define internal fastcc noundef double @display_sol(ptr nocapture noundef readonl
   br i1 %51, label %44, label %52, !llvm.loop !9
 
 52:                                               ; preds = %44
-  %53 = trunc i64 %indvars.iv.next.i.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br i1 %38, label %54, label %distance.exit.i
 
 54:                                               ; preds = %52
@@ -256,7 +256,7 @@ distance.exit.i:                                  ; preds = %54, %52
 
 68:                                               ; preds = %distance.exit.i
   %69 = fmul double %24, %65
-  %70 = trunc i64 %indvars.iv9.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv9.i to i32
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %20, i32 noundef %70, double noundef %24, double noundef %65, double noundef %69)
   br label %72
 
@@ -328,7 +328,7 @@ display_sol_sum_com.exit:                         ; preds = %80, %5
 .lr.ph.i34:                                       ; preds = %95
   %97 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv12.i19
   %98 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i19
-  %99 = trunc i64 %indvars.iv12.i19 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv12.i19 to i32
   br label %100
 
 100:                                              ; preds = %distance.exit._crit_edge.i, %.lr.ph.i34
@@ -378,7 +378,7 @@ display_sol_sum_com.exit:                         ; preds = %80, %5
   br i1 %130, label %123, label %131, !llvm.loop !9
 
 131:                                              ; preds = %123
-  %132 = trunc i64 %indvars.iv.next.i.i40 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv.next.i.i40 to i32
   br i1 %117, label %133, label %distance.exit.i42
 
 133:                                              ; preds = %131
@@ -400,7 +400,7 @@ distance.exit.i42:                                ; preds = %133, %131
   br i1 %91, label %146, label %distance.exit._crit_edge.i
 
 146:                                              ; preds = %distance.exit.i42
-  %147 = trunc i64 %indvars.iv9.i35 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv9.i35 to i32
   %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %99, i32 noundef %147, double noundef %103, double noundef %144, double noundef %145)
   br label %distance.exit._crit_edge.i
 
@@ -468,7 +468,7 @@ display_sol_max_com.exit:                         ; preds = %156, %82
 .lr.ph.i63:                                       ; preds = %166
   %168 = getelementptr inbounds ptr, ptr %.val14, i64 %indvars.iv12.i48
   %169 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i48
-  %170 = trunc i64 %indvars.iv12.i48 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv12.i48 to i32
   br label %171
 
 171:                                              ; preds = %distance.exit._crit_edge.i72, %.lr.ph.i63
@@ -518,7 +518,7 @@ display_sol_max_com.exit:                         ; preds = %156, %82
   br i1 %201, label %194, label %202, !llvm.loop !9
 
 202:                                              ; preds = %194
-  %203 = trunc i64 %indvars.iv.next.i.i69 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv.next.i.i69 to i32
   br i1 %188, label %204, label %distance.exit.i71
 
 204:                                              ; preds = %202
@@ -539,7 +539,7 @@ distance.exit.i71:                                ; preds = %204, %202
 
 215:                                              ; preds = %distance.exit.i71
   %216 = fmul double %174, %214
-  %217 = trunc i64 %indvars.iv9.i64 to i32
+  %217 = trunc nuw nsw i64 %indvars.iv9.i64 to i32
   %218 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %170, i32 noundef %217, double noundef %174, i32 noundef %211, double noundef %216)
   br label %distance.exit._crit_edge.i72
 
@@ -619,7 +619,7 @@ define hidden void @tm_display_other_heuristics(ptr nocapture noundef readonly %
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.us, %.lr.ph.split.i.preheader.split.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.split.i.us ], [ 0, %.lr.ph.split.i.preheader.split.us ]
-  %19 = trunc i64 %indvars.iv.i.us to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %20 = srem i32 %19, %18
   %21 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i.us
   store i32 %20, ptr %21, align 4
@@ -635,7 +635,7 @@ define hidden void @tm_display_other_heuristics(ptr nocapture noundef readonly %
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %34 ], [ 0, %.lr.ph.i ]
   %23 = load ptr, ptr %13, align 8
   %.not.us.i = icmp eq ptr %23, null
-  %24 = trunc i64 %indvars.iv21.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv21.i to i32
   br i1 %.not.us.i, label %31, label %25
 
 25:                                               ; preds = %.lr.ph.split.us.i
@@ -664,7 +664,7 @@ define hidden void @tm_display_other_heuristics(ptr nocapture noundef readonly %
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader.split, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader.split ]
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = srem i32 %38, %22
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %17, i64 %40
@@ -853,7 +853,7 @@ define hidden void @tm_map_RR(ptr nocapture noundef readonly %0, i32 noundef %1,
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %21 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %6, align 8
   %.not.us = icmp eq ptr %10, null
-  %11 = trunc i64 %indvars.iv21 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv21 to i32
   br i1 %.not.us, label %18, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
@@ -883,7 +883,7 @@ define hidden void @tm_map_RR(ptr nocapture noundef readonly %0, i32 noundef %1,
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %25, null
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not, label %33, label %27
 
 27:                                               ; preds = %.lr.ph.split
@@ -912,7 +912,7 @@ define hidden void @tm_map_RR(ptr nocapture noundef readonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @tm_in_tab(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @tm_in_tab(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1188,7 +1188,7 @@ compute_gain.exit:                                ; preds = %79
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %86
-  %92 = trunc i64 %indvars.iv.i120 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i120 to i32
   br label %93
 
 93:                                               ; preds = %91, %86, %83, %82
@@ -1201,7 +1201,7 @@ compute_gain.exit:                                ; preds = %79
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i
   %94 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv34.i
-  %95 = trunc i64 %indvars.iv34.i to i32
+  %95 = trunc nuw nsw i64 %indvars.iv34.i to i32
   br label %82
 
 select_max.exit:                                  ; preds = %..loopexit_crit_edge.us.i, %.lr.ph212
@@ -1386,7 +1386,7 @@ compute_gain.exit167:                             ; preds = %163, %select_max.ex
   %168 = load double, ptr %167, align 8
   %169 = fadd double %.0105218, %168
   %170 = fcmp ogt double %169, %.0106217
-  %171 = trunc i64 %indvars.iv259 to i32
+  %171 = trunc nuw nsw i64 %indvars.iv259 to i32
   %.1110 = select i1 %170, i32 %171, i32 %.0109216
   %.1107 = select i1 %170, double %169, double %.0106217
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
@@ -1584,7 +1584,7 @@ declare hidden i64 @tm_genrand_int32() local_unnamed_addr #2
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @hash_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @hash_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

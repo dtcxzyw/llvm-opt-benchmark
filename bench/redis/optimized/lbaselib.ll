@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ipairsaux(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @ipairsaux(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #8
   %conv = trunc i64 %call to i32
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_next(ptr noundef %L) #0 {
+define internal noundef range(i32 1, 3) i32 @luaB_next(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #8
@@ -384,7 +384,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_loadfile(ptr noundef %L) #0 {
+define internal noundef range(i32 1, 3) i32 @luaB_loadfile(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 1, ptr noundef null, ptr noundef null) #8
   %call1 = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef %call) #8
@@ -402,7 +402,7 @@ load_aux.exit:                                    ; preds = %if.else.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_load(ptr noundef %L) #0 {
+define internal noundef range(i32 1, 3) i32 @luaB_load(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef null) #8
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #8
@@ -422,7 +422,7 @@ load_aux.exit:                                    ; preds = %if.else.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_loadstring(ptr noundef %L) #0 {
+define internal noundef range(i32 1, 3) i32 @luaB_loadstring(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l) #8
@@ -590,7 +590,7 @@ cleanup:                                          ; preds = %lor.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_setfenv(ptr noundef %L) #0 {
+define internal noundef range(i32 0, 2) i32 @luaB_setfenv(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 2, i32 noundef 5) #8
   tail call fastcc void @getfunc(ptr noundef %L, i32 noundef 0)
@@ -1106,7 +1106,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_coresume(ptr noundef %L) #0 {
+define internal range(i32 1, -2147483648) i32 @luaB_coresume(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #8
   %tobool.not = icmp eq ptr %call, null

@@ -534,7 +534,7 @@ declare noundef ptr @_ZN8proxygen18getErrorCodeStringENS_9ErrorCodeE(i8 noundef 
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %length) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %length) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not13 = icmp eq i8 %length, 0
   br i1 %cmp.not13, label %return, label %while.body.lr.ph
@@ -814,7 +814,7 @@ terminate.lpad:                                   ; preds = %invoke.cont13, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http212parseDataEndERN5folly2io6CursorEmmRm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %bufLen, i64 noundef %pendingDataFramePaddingBytes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toSkip) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212parseDataEndERN5folly2io6CursorEmmRm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %bufLen, i64 noundef %pendingDataFramePaddingBytes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toSkip) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %bufLen, i64 %pendingDataFramePaddingBytes)
   store i64 %.sroa.speculated, ptr %toSkip, align 8
@@ -1397,7 +1397,7 @@ terminate.lpad:                                   ; preds = %invoke.cont72, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http213parsePriorityERN5folly2io6CursorERKNS0_11FrameHeaderERNS0_14PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %outPriority) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http213parsePriorityERN5folly2io6CursorERKNS0_11FrameHeaderERNS0_14PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %outPriority) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %header, align 4
   %1 = load i32, ptr @_ZN8proxygen5http218kFramePrioritySizeE, align 4
@@ -1438,7 +1438,7 @@ terminate.lpad:                                   ; preds = %if.end21
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http214parseRstStreamERN5folly2io6CursorERKNS0_11FrameHeaderERNS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %outCode) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http214parseRstStreamERN5folly2io6CursorERKNS0_11FrameHeaderERNS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %outCode) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i.i = alloca i32, align 4
   %0 = load i32, ptr %header, align 4
@@ -1516,7 +1516,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http213parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderERSt5dequeISt4pairINS_10SettingsIdEjESaISB_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr noundef nonnull align 8 dereferenceable(80) %settings) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http213parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderERSt5dequeISt4pairINS_10SettingsIdEjESaISB_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr noundef nonnull align 8 dereferenceable(80) %settings) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i8 = alloca i32, align 4
   %val.i.i.i = alloca i16, align 2
@@ -1900,7 +1900,7 @@ terminate.lpad:                                   ; preds = %invoke.cont55, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http29parsePingERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr noundef nonnull align 8 dereferenceable(8) %outOpaqueData) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http29parsePingERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr noundef nonnull align 8 dereferenceable(8) %outOpaqueData) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %header, align 4
   %1 = load i32, ptr @_ZN8proxygen5http214kFramePingSizeE, align 4
@@ -2149,7 +2149,7 @@ terminate.lpad:                                   ; preds = %if.then.i.invoke, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http217parseWindowUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERj(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outAmount) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http217parseWindowUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERj(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outAmount) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i.i = alloca i32, align 4
   %0 = load i32, ptr %header, align 4
@@ -2215,7 +2215,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http217parseContinuationERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http217parseContinuationERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = getelementptr inbounds i8, ptr %header, i64 4
   %0 = load i32, ptr %stream, align 4
@@ -2275,7 +2275,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %_ZN5fol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http211parseAltSvcERN5folly2io6CursorERKNS0_11FrameHeaderERjS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaxAge, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outPort, ptr noundef nonnull align 8 dereferenceable(32) %outProtocol, ptr noundef nonnull align 8 dereferenceable(32) %outHost, ptr noundef nonnull align 8 dereferenceable(32) %outOrigin) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http211parseAltSvcERN5folly2io6CursorERKNS0_11FrameHeaderERjS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaxAge, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outPort, ptr noundef nonnull align 8 dereferenceable(32) %outProtocol, ptr noundef nonnull align 8 dereferenceable(32) %outHost, ptr noundef nonnull align 8 dereferenceable(32) %outOrigin) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i46 = alloca i8, align 1
   %val.i.i.i30 = alloca i8, align 1
@@ -2593,7 +2593,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http223parseCertificateRequestERN5folly2io6CursorERKNS0_11FrameHeaderERtRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %outRequestId, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outAuthRequest) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http223parseCertificateRequestERN5folly2io6CursorERKNS0_11FrameHeaderERtRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %outRequestId, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outAuthRequest) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i = alloca i16, align 2
   %0 = load i32, ptr %header, align 4
@@ -2699,7 +2699,7 @@ terminate.lpad:                                   ; preds = %if.then.i.invoke, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN8proxygen5http216parseCertificateERN5folly2io6CursorERKNS0_11FrameHeaderERtRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %outCertId, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outAuthenticator) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN8proxygen5http216parseCertificateERN5folly2io6CursorERKNS0_11FrameHeaderERtRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %header, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %outCertId, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outAuthenticator) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i = alloca i16, align 2
   %0 = load i32, ptr %header, align 4
@@ -2805,7 +2805,7 @@ terminate.lpad:                                   ; preds = %if.then.i.invoke, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http29writeDataERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EEjNS1_8OptionalIhEEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef %data, i32 noundef %stream, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %reuseIOBufHeadroom) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http29writeDataERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EEjNS1_8OptionalIhEEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef %data, i32 noundef %stream, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %reuseIOBufHeadroom) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp23 = alloca %"class.folly::Optional.2", align 8
@@ -2843,7 +2843,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %cond.end, %invoke.c
   %3 = load i64, ptr %data, align 8
   store i64 %3, ptr %agg.tmp24, align 8
   store ptr null, ptr %data, align 8
-  %call26 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv22, i8 noundef zeroext 0, i8 noundef zeroext %spec.select, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %agg.tmp24, i1 noundef zeroext %reuseIOBufHeadroom) #24, !range !41
+  %call26 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv22, i8 noundef zeroext 0, i8 noundef zeroext %spec.select, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %agg.tmp24, i1 noundef zeroext %reuseIOBufHeadroom) #24
   %4 = load ptr, ptr %agg.tmp24, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -2915,7 +2915,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i, %cond.t
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority, ptr noundef %payload, i1 noundef zeroext %reuseIOBufHeadroom) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority, ptr noundef %payload, i1 noundef zeroext %reuseIOBufHeadroom) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %appender = alloca %"class.folly::io::QueueAppender", align 16
@@ -3064,16 +3064,16 @@ _ZN5folly5IOBuf7retreatEm.exit:                   ; preds = %entry.if.end_crit_e
   store ptr %add.ptr6.i, ptr %data_4.i, align 8
   %24 = load ptr, ptr %payload, align 8
   %next_.i = getelementptr inbounds i8, ptr %24, i64 32
-  %25 = load ptr, ptr %next_.i, align 8, !noalias !42
+  %25 = load ptr, ptr %next_.i, align 8, !noalias !41
   %prev_.i = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %prev_.i, align 8, !noalias !42
+  %26 = load ptr, ptr %prev_.i, align 8, !noalias !41
   %prev_3.i = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr %26, ptr %prev_3.i, align 8, !noalias !42
-  %27 = load ptr, ptr %next_.i, align 8, !noalias !42
+  store ptr %26, ptr %prev_3.i, align 8, !noalias !41
+  %27 = load ptr, ptr %next_.i, align 8, !noalias !41
   %next_6.i = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %27, ptr %next_6.i, align 8, !noalias !42
-  store ptr %24, ptr %prev_.i, align 8, !noalias !42
-  store ptr %24, ptr %next_.i, align 8, !noalias !42
+  store ptr %27, ptr %next_6.i, align 8, !noalias !41
+  store ptr %24, ptr %prev_.i, align 8, !noalias !41
+  store ptr %24, ptr %next_.i, align 8, !noalias !41
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef nonnull align 8 dereferenceable(8) %payload, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont23 unwind label %terminate.lpad
 
@@ -3179,7 +3179,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %42 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %42 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -3238,7 +3238,7 @@ if.then.i.i.i.i.i45:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i45, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i43
-  %54 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %54 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont26
@@ -3303,7 +3303,7 @@ if.then.i.i.i.i.i75:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81: ; preds = %if.then.i.i.i.i.i75, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i73
-  %65 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %65 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81, %invoke.cont27
@@ -3368,7 +3368,7 @@ if.then.i.i.i.i.i115:                             ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121: ; preds = %if.then.i.i.i.i.i115, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i113
-  %79 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %79 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIhEEvT_.exit128
 
 _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIhEEvT_.exit128: ; preds = %invoke.cont31, %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121
@@ -3527,7 +3527,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i.i
-  %99 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %99 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i
 
 _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i: ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i, %if.then.i.i.i161
@@ -3586,7 +3586,7 @@ if.then.i.i.i.i.i19.i:                            ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i: ; preds = %if.then.i.i.i.i.i19.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i17.i
-  %111 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %111 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %_ZN8proxygen5http212_GLOBAL__N_117writePriorityBodyERN5folly2io13QueueAppenderEjbh.exit
 
 _ZN8proxygen5http212_GLOBAL__N_117writePriorityBodyERN5folly2io13QueueAppenderEjbh.exit: ; preds = %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i, %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
@@ -3707,7 +3707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http212writeHeadersEPhmRN5folly10IOBufQueueEmjNS2_8OptionalINS0_14PriorityUpdateEEENS5_IhEEbb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %headersLen, i32 noundef %stream, ptr nocapture noundef readonly %priority, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http212writeHeadersEPhmRN5folly10IOBufQueueEmjNS2_8OptionalINS0_14PriorityUpdateEEENS5_IhEEbb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %headersLen, i32 noundef %stream, ptr nocapture noundef readonly %priority, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp26 = alloca %"class.folly::Optional.2", align 8
@@ -3746,7 +3746,7 @@ invoke.cont2.i8:                                  ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit: ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %invoke.cont2.i8
-  %call27 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv, i8 noundef zeroext 1, i8 noundef zeroext %flags.2, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp26) #24, !range !41
+  %call27 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv, i8 noundef zeroext 1, i8 noundef zeroext %flags.2, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp26) #24
   %3 = load i8, ptr %hasValue.i.i.i, align 1
   %tobool.i.i.i11 = trunc i8 %3 to i1
   br i1 %tobool.i.i.i11, label %_ZNR5folly8OptionalIhEdeEv.exit.i, label %invoke.cont29
@@ -3805,7 +3805,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr nocapture noundef writeonly %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr nocapture noundef writeonly %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i61 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %comb.i.i44 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -4201,7 +4201,7 @@ terminate.lpad.body:                              ; preds = %lpad.i.i28, %termin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http214writeExHeadersEPhmRN5folly10IOBufQueueEmjRKNS_9HTTPCodec12ExAttributesERKNS2_8OptionalINS0_14PriorityUpdateEEERKNS9_IhEEbb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %headersLen, i32 noundef %stream, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %exAttributes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %priority, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http214writeExHeadersEPhmRN5folly10IOBufQueueEmjRKNS_9HTTPCodec12ExAttributesERKNS2_8OptionalINS0_14PriorityUpdateEEERKNS9_IhEEbb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %headersLen, i32 noundef %stream, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %exAttributes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %priority, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %padding, i1 noundef zeroext %endStream, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp116 = alloca %"class.folly::Optional.2", align 8
@@ -4248,7 +4248,7 @@ invoke.cont2.i17:                                 ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit: ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %invoke.cont2.i17
-  %call117 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv114, i8 noundef zeroext -5, i8 noundef zeroext %flags.3, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp116) #24, !range !41
+  %call117 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv114, i8 noundef zeroext -5, i8 noundef zeroext %flags.3, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp116) #24
   %6 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
   %idx.ext = zext i32 %6 to i64
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 %idx.ext
@@ -4474,7 +4474,7 @@ _ZN5folly10IOBufQueue18WritableRangeCacheD2Ev.exit: ; preds = %entry, %_ZNK5foll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http213writePriorityERN5folly10IOBufQueueEjNS0_14PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i64 %priority.coerce0, i64 %priority.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http213writePriorityERN5folly10IOBufQueueEjNS0_14PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i64 %priority.coerce0, i64 %priority.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp16 = alloca %"class.folly::Optional.2", align 8
@@ -4489,7 +4489,7 @@ entry:
   store i64 %priority.coerce1, ptr %priority.sroa.2.0.agg.tmp16.sroa_idx, align 8
   store i8 1, ptr %hasValue.i.i1, align 8
   store ptr null, ptr %agg.tmp17, align 8
-  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #24, !range !41
+  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #24
   %1 = load ptr, ptr %agg.tmp17, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4507,7 +4507,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http214writeRstStreamERN5folly10IOBufQueueEjNS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i8 noundef zeroext %errorCode) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http214writeRstStreamERN5folly10IOBufQueueEjNS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i8 noundef zeroext %errorCode) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp16 = alloca %"class.folly::Optional.2", align 8
@@ -4521,7 +4521,7 @@ entry:
   %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
   store i8 0, ptr %hasValue.i.i3, align 8
   store ptr null, ptr %agg.tmp17, align 8
-  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #24, !range !41
+  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #24
   %1 = load ptr, ptr %agg.tmp17, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4619,7 +4619,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %15 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %15 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -4702,7 +4702,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen5http213writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS_10SettingsIdEjESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %settings) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http213writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS_10SettingsIdEjESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %settings) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp1 = alloca %"class.folly::Optional.2", align 8
@@ -4747,7 +4747,7 @@ entry:
   %hasValue.i.i6 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i6, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call3 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24, !range !41
+  %call3 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24
   %6 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4788,14 +4788,14 @@ _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %_ZNSt10unique_
   %12 = phi ptr [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %8, %if.then.i.i.i.i ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %mul, ptr %growth_.i, align 16
-  %13 = load ptr, ptr %_M_start.i, align 8, !noalias !46
-  %14 = load ptr, ptr %_M_finish.i, align 8, !noalias !49
+  %13 = load ptr, ptr %_M_start.i, align 8, !noalias !45
+  %14 = load ptr, ptr %_M_finish.i, align 8, !noalias !48
   %cmp.i.i.not70 = icmp eq ptr %13, %14
   br i1 %cmp.i.i.not70, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit
-  %15 = load ptr, ptr %_M_node1.i.i, align 8, !noalias !46
-  %16 = load ptr, ptr %_M_last.i.i, align 8, !noalias !46
+  %15 = load ptr, ptr %_M_node1.i.i, align 8, !noalias !45
+  %16 = load ptr, ptr %_M_last.i.i, align 8, !noalias !45
   %second.i.i.i.i = getelementptr inbounds i8, ptr %appender, i64 8
   %attached3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   br label %for.body
@@ -4866,7 +4866,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %29 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %29 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont27
 
 lpad:                                             ; preds = %if.end.i.i.i.i48, %if.end.i.i.i.i
@@ -4938,7 +4938,7 @@ if.then.i.i.i.i.i39:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i39, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i37
-  %43 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %43 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont27
@@ -5035,7 +5035,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %for.end, %_ZNK5foll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http216writeSettingsAckERN5folly10IOBufQueueE(ptr noundef nonnull align 8 dereferenceable(72) %queue) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http216writeSettingsAckERN5folly10IOBufQueueE(ptr noundef nonnull align 8 dereferenceable(72) %queue) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp1 = alloca %"class.folly::Optional.2", align 8
@@ -5047,7 +5047,7 @@ entry:
   %hasValue.i.i1 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i1, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef 0, i8 noundef zeroext 4, i8 noundef zeroext 1, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24, !range !41
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef 0, i8 noundef zeroext 4, i8 noundef zeroext 1, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24
   %0 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5064,7 +5064,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http216writePushPromiseEPhmRN5folly10IOBufQueueEjjmNS2_8OptionalIhEEb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %associatedStream, i32 noundef %promisedStream, i64 noundef %headersLen, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http216writePushPromiseEPhmRN5folly10IOBufQueueEjjmNS2_8OptionalIhEEb(ptr nocapture noundef writeonly %header, i64 noundef %headerLen, ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %associatedStream, i32 noundef %promisedStream, i64 noundef %headersLen, ptr nocapture noundef readonly %padding, i1 noundef zeroext %endHeaders) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp108 = alloca %"class.folly::Optional.2", align 8
@@ -5090,7 +5090,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
   store i8 0, ptr %agg.tmp108, align 8
   %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.tmp108, i64 16
   store i8 0, ptr %hasValue.i.i3, align 8
-  %call109 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv106, i8 noundef zeroext 5, i8 noundef zeroext %conv107, i32 noundef %associatedStream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp108) #24, !range !41
+  %call109 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv106, i8 noundef zeroext 5, i8 noundef zeroext %conv107, i32 noundef %associatedStream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp108) #24
   %call110 = tail call i32 @htonl(i32 noundef %promisedStream) #25
   %4 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
   %idx.ext = zext i32 %4 to i64
@@ -5156,7 +5156,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http29writePingERN5folly10IOBufQueueEmb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %opaqueData, i1 noundef zeroext %ack) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http29writePingERN5folly10IOBufQueueEmb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %opaqueData, i1 noundef zeroext %ack) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %opaqueData.addr = alloca i64, align 8
   %agg.tmp = alloca %"class.folly::Optional", align 1
@@ -5172,7 +5172,7 @@ entry:
   %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i2, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 6, i8 noundef zeroext %conv, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24, !range !41
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 6, i8 noundef zeroext %conv, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24
   %1 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5204,7 +5204,7 @@ terminate.lpad:                                   ; preds = %_ZNSt10unique_ptrIN
 declare void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http211writeGoawayERN5folly10IOBufQueueEjNS_9ErrorCodeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %lastStreamID, i8 noundef zeroext %errorCode, ptr noundef %debugData) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http211writeGoawayERN5folly10IOBufQueueEjNS_9ErrorCodeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %lastStreamID, i8 noundef zeroext %errorCode, ptr noundef %debugData) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp20 = alloca %"class.folly::Optional.2", align 8
@@ -5230,7 +5230,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   store i8 0, ptr %hasValue.i.i4, align 8
   store ptr null, ptr %agg.tmp21, align 8
-  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %add, i8 noundef zeroext 7, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #24, !range !41
+  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %add, i8 noundef zeroext 7, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #24
   %2 = load ptr, ptr %agg.tmp21, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5328,7 +5328,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %16 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %16 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5394,7 +5394,7 @@ if.then.i.i.i.i.i25:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31: ; preds = %if.then.i.i.i.i.i25, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i23
-  %28 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %28 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31, %invoke.cont24
@@ -5483,7 +5483,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i.i35, %
 declare void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http217writeWindowUpdateERN5folly10IOBufQueueEjj(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i32 noundef %amount) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http217writeWindowUpdateERN5folly10IOBufQueueEjj(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i32 noundef %amount) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp1 = alloca %"class.folly::Optional.2", align 8
@@ -5497,7 +5497,7 @@ entry:
   %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i2, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 8, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24, !range !41
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 8, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #24
   %1 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5595,7 +5595,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %15 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %15 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5678,7 +5678,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen5http217writeContinuationERN5folly10IOBufQueueEjbSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i1 noundef zeroext %endHeaders, ptr nocapture noundef %headers) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http217writeContinuationERN5folly10IOBufQueueEjbSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %stream, i1 noundef zeroext %endHeaders, ptr nocapture noundef %headers) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp20 = alloca %"class.folly::Optional.2", align 8
@@ -5699,7 +5699,7 @@ invoke.cont17:                                    ; preds = %entry
   %1 = load i64, ptr %headers, align 8
   store i64 %1, ptr %agg.tmp21, align 8
   store ptr null, ptr %headers, align 8
-  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 9, i8 noundef zeroext %conv19, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #24, !range !41
+  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 9, i8 noundef zeroext %conv19, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #24
   %2 = load ptr, ptr %agg.tmp21, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5758,7 +5758,7 @@ entry:
   %hasValue.i.i17 = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   store i8 0, ptr %hasValue.i.i17, align 8
   store ptr null, ptr %agg.tmp9, align 8
-  %call10 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv7, i8 noundef zeroext 10, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i1 noundef zeroext true) #24, !range !41
+  %call10 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv7, i8 noundef zeroext 10, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i1 noundef zeroext true) #24
   %5 = load ptr, ptr %agg.tmp9, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5857,7 +5857,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %19 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %19 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5922,7 +5922,7 @@ if.then.i.i.i.i.i38:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i38, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i36
-  %31 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %31 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont12
@@ -5982,7 +5982,7 @@ if.then.i.i.i.i.i71:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i71, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i69
-  %43 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %43 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont13
@@ -6059,7 +6059,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %if.end.i.i.i, %if.t
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %buf.addr.131.i.i, i64 %53
   %sub16.i.i = sub i64 %storemerge30.i.i, %53
   %cmp4.not.i.i = icmp eq i64 %sub16.i.i, 0
-  br i1 %cmp4.not.i.i, label %invoke.cont18.loopexit, label %while.body.i.i, !llvm.loop !52
+  br i1 %cmp4.not.i.i, label %invoke.cont18.loopexit, label %while.body.i.i, !llvm.loop !51
 
 invoke.cont18.loopexit:                           ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i
   %.pre227 = load ptr, ptr %appender, align 16
@@ -6122,7 +6122,7 @@ if.then.i.i.i.i.i108:                             ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114: ; preds = %if.then.i.i.i.i.i108, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i106
-  %68 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %68 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114, %if.then.i.i93
@@ -6200,7 +6200,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i154: ; preds = %if.end.i.i.i161, 
   %add.ptr14.i.i158 = getelementptr inbounds i8, ptr %buf.addr.131.i.i139, i64 %79
   %sub16.i.i159 = sub i64 %storemerge30.i.i140, %79
   %cmp4.not.i.i160 = icmp eq i64 %sub16.i.i159, 0
-  br i1 %cmp4.not.i.i160, label %invoke.cont23.loopexit, label %while.body.i.i138, !llvm.loop !52
+  br i1 %cmp4.not.i.i160, label %invoke.cont23.loopexit, label %while.body.i.i138, !llvm.loop !51
 
 invoke.cont23.loopexit:                           ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i154
   %.pre228 = load ptr, ptr %appender, align 16
@@ -6276,7 +6276,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i197: ; preds = %if.end.i.i.i204, 
   %add.ptr14.i.i201 = getelementptr inbounds i8, ptr %buf.addr.131.i.i182, i64 %93
   %sub16.i.i202 = sub i64 %storemerge30.i.i183, %93
   %cmp4.not.i.i203 = icmp eq i64 %sub16.i.i202, 0
-  br i1 %cmp4.not.i.i203, label %invoke.cont26, label %while.body.i.i181, !llvm.loop !52
+  br i1 %cmp4.not.i.i203, label %invoke.cont26, label %while.body.i.i181, !llvm.loop !51
 
 invoke.cont26:                                    ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i197, %if.end.i.i174
   %97 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
@@ -6371,7 +6371,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen5http223writeCertificateRequestERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %requestId, ptr noundef %authRequest) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http223writeCertificateRequestERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %requestId, ptr noundef %authRequest) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp5 = alloca %"class.folly::Optional.2", align 8
@@ -6397,7 +6397,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store i8 0, ptr %hasValue.i.i4, align 8
   store ptr null, ptr %agg.tmp6, align 8
-  %call7 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -16, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull %agg.tmp6, i1 noundef zeroext true) #24, !range !41
+  %call7 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -16, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull %agg.tmp6, i1 noundef zeroext true) #24
   %4 = load ptr, ptr %agg.tmp6, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -6494,7 +6494,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %18 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %18 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -6580,7 +6580,7 @@ lpad:                                             ; preds = %if.end.i.i.i.i, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen5http216writeCertificateERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %certId, ptr noundef %authenticator, i1 noundef zeroext %toBeContinued) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8589934591) i64 @_ZN8proxygen5http216writeCertificateERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %certId, ptr noundef %authenticator, i1 noundef zeroext %toBeContinued) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 1
   %agg.tmp7 = alloca %"class.folly::Optional.2", align 8
@@ -6607,7 +6607,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   store i8 0, ptr %hasValue.i.i5, align 8
   store ptr null, ptr %agg.tmp8, align 8
-  %call9 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -15, i8 noundef zeroext %spec.select, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp7, ptr noundef nonnull %agg.tmp8, i1 noundef zeroext true) #24, !range !41
+  %call9 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -15, i8 noundef zeroext %spec.select, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp7, ptr noundef nonnull %agg.tmp8, i1 noundef zeroext true) #24
   %4 = load ptr, ptr %agg.tmp8, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -6704,7 +6704,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %18 = load ptr, ptr %appender, align 16, !nonnull !45, !noundef !45
+  %18 = load ptr, ptr %appender, align 16, !nonnull !44, !noundef !44
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -6847,7 +6847,7 @@ for.body:                                         ; preds = %if.end
   %cmp.i = icmp eq ptr %2, %0
   %cmp2.i = icmp eq i64 %sub.i43, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i, !llvm.loop !53
+  br i1 %or.cond, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i, !llvm.loop !52
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.body
   %3 = phi ptr [ %1, %if.end.i.lr.ph ], [ %2, %for.body ]
@@ -6907,7 +6907,7 @@ if.end:                                           ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i28 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !52
 
 for.end:                                          ; preds = %if.end, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %if.end ]
@@ -7241,7 +7241,7 @@ if.end6:                                          ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre51
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !54
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
 
 for.end:                                          ; preds = %if.end6, %entry
   %17 = phi ptr [ %0, %entry ], [ %16, %if.end6 ]
@@ -7732,7 +7732,7 @@ if.end55:                                         ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub56
-  br i1 %cmp.not, label %if.end26, label %if.then, !llvm.loop !55
+  br i1 %cmp.not, label %if.end26, label %if.then, !llvm.loop !54
 
 cleanup:                                          ; preds = %invoke.cont52, %invoke.cont25
   %retval.0 = phi i64 [ %add, %invoke.cont25 ], [ %add51, %invoke.cont52 ]
@@ -8068,7 +8068,7 @@ if.end:                                           ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !56
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
 
 for.end:                                          ; preds = %if.end, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %if.end ]
@@ -8241,19 +8241,18 @@ attributes #28 = { builtin allocsize(0) }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !40 = distinct !{!40, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!41 = !{i64 0, i64 4294967296}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN5folly5IOBuf3popEv: %agg.result"}
-!44 = distinct !{!44, !"_ZN5folly5IOBuf3popEv"}
-!45 = !{}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv: %agg.result"}
-!48 = distinct !{!48, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv: %agg.result"}
-!51 = distinct !{!51, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN5folly5IOBuf3popEv: %agg.result"}
+!43 = distinct !{!43, !"_ZN5folly5IOBuf3popEv"}
+!44 = !{}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv: %agg.result"}
+!47 = distinct !{!47, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv"}
+!51 = distinct !{!51, !8}
 !52 = distinct !{!52, !8}
 !53 = distinct !{!53, !8}
 !54 = distinct !{!54, !8}
 !55 = distinct !{!55, !8}
-!56 = distinct !{!56, !8}

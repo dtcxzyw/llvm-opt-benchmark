@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_xts128_encrypt(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %iv, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_xts128_encrypt(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %iv, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tweak = alloca %union.anon, align 16
   %scratch = alloca %union.anon, align 16

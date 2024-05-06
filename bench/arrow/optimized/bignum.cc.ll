@@ -185,7 +185,7 @@ _ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit: ; preds = %_ZN14
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !8
 
 while.end.loopexit:                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit
-  %2 = trunc i64 %indvars.iv.next48 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next48 to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
@@ -923,7 +923,7 @@ for.body17.lr.ph:                                 ; preds = %for.cond13.preheade
   br label %for.body17
 
 while.cond.preheader:                             ; preds = %cond.end
-  %29 = trunc i64 %indvars.iv.next67 to i32
+  %29 = trunc nsw i64 %indvars.iv.next67 to i32
   %cmp30.not61 = icmp ult i32 %add24, 268435456
   br i1 %cmp30.not61, label %while.end, label %while.body.lr.ph
 
@@ -989,7 +989,7 @@ cond.end38:                                       ; preds = %while.body, %cond.t
   br i1 %cmp30.not, label %while.end.loopexit, label %while.body, !llvm.loop !21
 
 while.end.loopexit:                               ; preds = %cond.end38
-  %40 = trunc i64 %indvars.iv.next72 to i32
+  %40 = trunc nsw i64 %indvars.iv.next72 to i32
   br label %while.end
 
 while.end:                                        ; preds = %for.cond13.preheader, %while.end.loopexit, %while.cond.preheader
@@ -1880,7 +1880,7 @@ if.then.i.i:                                      ; preds = %while.body.i
   unreachable
 
 if.end40.loopexit:                                ; preds = %while.body.i
-  %6 = trunc i64 %shr.i38 to i32
+  %6 = trunc nuw nsw i64 %shr.i38 to i32
   %idxprom.i14.i = zext nneg i16 %3 to i64
   %arrayidx.i15.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i34, i64 0, i64 %idxprom.i14.i
   store i32 %6, ptr %arrayidx.i15.i, align 4
@@ -1954,7 +1954,7 @@ if.then.i.i73:                                    ; preds = %while.body.i63
   unreachable
 
 if.end48.loopexit:                                ; preds = %while.body.i63
-  %12 = trunc i64 %shr.i56 to i32
+  %12 = trunc nuw nsw i64 %shr.i56 to i32
   %idxprom.i14.i68 = zext nneg i16 %9 to i64
   %arrayidx.i15.i69 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i47, i64 0, i64 %idxprom.i14.i68
   store i32 %12, ptr %arrayidx.i15.i69, align 4
@@ -2536,7 +2536,7 @@ for.body39:                                       ; preds = %for.body34, %for.bo
   %current_bigit.035 = phi i32 [ %8, %for.body34 ], [ %shr, %for.body39 ]
   %and = and i32 %current_bigit.035, 15
   %cmp.i = icmp ult i32 %and, 10
-  %10 = trunc i32 %and to i8
+  %10 = trunc nuw nsw i32 %and to i8
   %retval.0.v.i = select i1 %cmp.i, i8 48, i8 55
   %retval.0.i = add nuw nsw i8 %retval.0.v.i, %10
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
@@ -2548,7 +2548,7 @@ for.body39:                                       ; preds = %for.body34, %for.bo
   br i1 %exitcond.not, label %for.inc47, label %for.body39, !llvm.loop !42
 
 for.inc47:                                        ; preds = %for.body39
-  %11 = trunc i64 %indvars.iv.next52 to i32
+  %11 = trunc nsw i64 %indvars.iv.next52 to i32
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %12 = load i16, ptr %this, align 4
   %conv31 = sext i16 %12 to i64
@@ -2573,7 +2573,7 @@ while.body:                                       ; preds = %while.body.preheade
   %most_significant_bigit.046 = phi i32 [ %13, %while.body.preheader ], [ %shr60, %while.body ]
   %and55 = and i32 %most_significant_bigit.046, 15
   %cmp.i25 = icmp ult i32 %and55, 10
-  %15 = trunc i32 %and55 to i8
+  %15 = trunc nuw nsw i32 %and55 to i8
   %retval.0.v.i26 = select i1 %cmp.i25, i8 48, i8 55
   %retval.0.i27 = add nuw nsw i8 %retval.0.v.i26, %15
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
@@ -2616,7 +2616,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN14arrow_vendored17double_conversion6Bignum7CompareERKS1_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN14arrow_vendored17double_conversion6Bignum7CompareERKS1_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i16, ptr %a, align 4
   %conv.i = sext i16 %0 to i32
@@ -2697,7 +2697,7 @@ return:                                           ; preds = %for.cond, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN14arrow_vendored17double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %c) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN14arrow_vendored17double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %c) local_unnamed_addr #7 align 2 {
 entry:
   %.pre = load i16, ptr %a, align 4
   %exponent_.i.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 2

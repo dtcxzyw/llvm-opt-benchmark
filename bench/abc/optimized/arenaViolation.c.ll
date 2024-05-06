@@ -1017,7 +1017,7 @@ define i32 @collectWindowBeginSignalWithDSC(ptr nocapture noundef readonly %0, p
   br i1 %14, label %6, label %.critedge, !llvm.loop !14
 
 .critedge.loopexit.split.loop.exit16:             ; preds = %6
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit16, %2
@@ -1056,7 +1056,7 @@ define i32 @collectWithinWindowSignalWithDSC(ptr nocapture noundef readonly %0, 
   br i1 %14, label %6, label %.critedge, !llvm.loop !15
 
 .critedge.loopexit.split.loop.exit16:             ; preds = %6
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit16, %2
@@ -1095,7 +1095,7 @@ define i32 @collectPendingSignalWithDSC(ptr nocapture noundef readonly %0, ptr n
   br i1 %14, label %6, label %.critedge, !llvm.loop !16
 
 .critedge.loopexit.split.loop.exit16:             ; preds = %6
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit16, %2
@@ -1510,7 +1510,7 @@ Aig_ObjChild0Copy.exit211:                        ; preds = %.lr.ph243, %197
   br i1 %209, label %.lr.ph243, label %.critedge8.loopexit, !llvm.loop !22
 
 .critedge8.loopexit:                              ; preds = %Aig_ObjChild0Copy.exit211
-  %210 = trunc i64 %indvars.iv.next261 to i32
+  %210 = trunc nuw nsw i64 %indvars.iv.next261 to i32
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.critedge6.preheader
@@ -1740,7 +1740,7 @@ define noundef ptr @generateWorkingAigWithDSC(ptr nocapture noundef readonly %0,
   br i1 %17, label %9, label %collectWindowBeginSignalWithDSC.exit, !llvm.loop !14
 
 .critedge.loopexit.split.loop.exit16.i:           ; preds = %9
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %collectWindowBeginSignalWithDSC.exit
 
 collectWindowBeginSignalWithDSC.exit:             ; preds = %15, %.critedge.loopexit.split.loop.exit16.i
@@ -1768,7 +1768,7 @@ collectWindowBeginSignalWithDSC.exit:             ; preds = %15, %.critedge.loop
   br i1 %27, label %.lr.ph.i18, label %collectWithinWindowSignalWithDSC.exit, !llvm.loop !15
 
 .critedge.loopexit.split.loop.exit16.i23:         ; preds = %.lr.ph.i18
-  %28 = trunc i64 %indvars.iv.i19 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i19 to i32
   br label %collectWithinWindowSignalWithDSC.exit
 
 collectWithinWindowSignalWithDSC.exit:            ; preds = %25, %.critedge.loopexit.split.loop.exit16.i23
@@ -1796,7 +1796,7 @@ collectWithinWindowSignalWithDSC.exit:            ; preds = %25, %.critedge.loop
   br i1 %37, label %.lr.ph.i28, label %collectPendingSignalWithDSC.exit, !llvm.loop !16
 
 .critedge.loopexit.split.loop.exit16.i33:         ; preds = %.lr.ph.i28
-  %38 = trunc i64 %indvars.iv.i29 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i29 to i32
   br label %collectPendingSignalWithDSC.exit
 
 collectPendingSignalWithDSC.exit:                 ; preds = %35, %collectWindowBeginSignalWithDSC.exit, %4, %collectWithinWindowSignalWithDSC.exit, %.critedge.loopexit.split.loop.exit16.i33

@@ -698,7 +698,7 @@ thread-pre-split:                                 ; preds = %7
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @cpuid4_cache_lookup_regs(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   switch i8 %3, label %114 [
     i8 2, label %4
@@ -896,7 +896,7 @@ define internal fastcc noundef i32 @cpuid4_cache_lookup_regs(i32 noundef %0, ptr
 declare dso_local void @cpu_detect_cache_sizes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @init_cache_level(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @init_cache_level(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @get_cpu_cacheinfo(i32 noundef %0) #13
   %3 = load i16, ptr @num_cache_leaves, align 2
   %4 = icmp eq i16 %3, 0
@@ -1529,7 +1529,7 @@ declare dso_local zeroext i1 @amd_nb_has_feature(i32 noundef) local_unnamed_addr
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @cache_disable_0_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_0_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1696,7 +1696,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local void @wbinvd_on_cpu(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @cache_disable_1_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_1_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1736,7 +1736,7 @@ define internal noundef i64 @cache_disable_1_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @subcaches_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @subcaches_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32

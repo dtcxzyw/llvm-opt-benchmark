@@ -245,7 +245,7 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @cmsysBase64_Decode3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @cmsysBase64_Decode3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %4

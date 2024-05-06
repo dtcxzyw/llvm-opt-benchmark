@@ -7945,7 +7945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit955
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17hddbf0bd5a5ba6ee8E(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(40) %2, ptr noalias noundef align 8 dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(96) %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17hddbf0bd5a5ba6ee8E(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(40) %2, ptr noalias noundef align 8 dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(96) %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, i64 }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

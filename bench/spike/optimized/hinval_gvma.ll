@@ -86,7 +86,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22fast_rv32i_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2305843009213693952
@@ -293,7 +293,7 @@ define noundef i64 @_Z22fast_rv64i_hinval_gvmaP11processor_t6insn_tm(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24logged_rv32i_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2305843009213693952
@@ -479,7 +479,7 @@ define noundef i64 @_Z24logged_rv64i_hinval_gvmaP11processor_t6insn_tm(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22fast_rv32e_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2305843009213693952
@@ -665,7 +665,7 @@ define noundef i64 @_Z22fast_rv64e_hinval_gvmaP11processor_t6insn_tm(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24logged_rv32e_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_hinval_gvmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2305843009213693952

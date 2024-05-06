@@ -315,7 +315,7 @@ entry:
   %str = alloca ptr, align 8
   %__buf = alloca [1024 x i8], align 16
   %__buf25 = alloca [1024 x i8], align 16
-  %call.i = call i32 @readLong(ptr noundef %fp, i8 noundef signext 42, ptr noundef nonnull %argc)
+  %call.i = call i32 @readLong(ptr noundef %fp, i8 noundef signext 42, ptr noundef nonnull writeonly %argc)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 

@@ -730,7 +730,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = trunc i64 %14 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i32 noundef %16, i32 noundef %17) #12
   %18 = load i8, ptr %1, align 8
@@ -1059,7 +1059,7 @@ define internal void @libpqrcv_endstreaming(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @libpqrcv_receive(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 -1, -2147483648) i32 @libpqrcv_receive(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @PQfreemem(ptr noundef %5) #12
@@ -1464,7 +1464,7 @@ define internal ptr @libpqrcv_exec(ptr nocapture noundef readonly %0, ptr nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %31 = load ptr, ptr %29, align 8
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   %33 = trunc i64 %indvars.iv.i to i16
   %34 = add i16 %33, 1
   %35 = tail call ptr @PQfname(ptr noundef %15, i32 noundef %32) #12
@@ -1509,7 +1509,7 @@ define internal ptr @libpqrcv_exec(ptr nocapture noundef readonly %0, ptr nounde
 
 48:                                               ; preds = %53, %.lr.ph48.us.i
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph48.us.i ], [ %indvars.iv.next58.i, %53 ]
-  %49 = trunc i64 %indvars.iv57.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %50 = call i32 @PQgetisnull(ptr noundef %15, i32 noundef %.050.us.i, i32 noundef %49) #12
   %.not44.us.i = icmp eq i32 %50, 0
   br i1 %.not44.us.i, label %51, label %53

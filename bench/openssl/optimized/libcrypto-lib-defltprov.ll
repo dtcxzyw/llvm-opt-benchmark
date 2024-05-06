@@ -702,7 +702,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.deflt_query = private unnamed_addr constant [22 x ptr] [ptr @deflt_digests, ptr @exported_ciphers, ptr @deflt_macs, ptr @deflt_kdfs, ptr @deflt_rands, ptr null, ptr null, ptr null, ptr null, ptr @deflt_keymgmt, ptr @deflt_keyexch, ptr @deflt_signature, ptr @deflt_asym_cipher, ptr @deflt_asym_kem, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @deflt_encoder, ptr @deflt_decoder, ptr @deflt_store], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_default_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_default_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_bio_from_dispatch(ptr noundef %in) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflt_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @deflt_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null

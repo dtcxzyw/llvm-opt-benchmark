@@ -2693,7 +2693,7 @@ define internal i32 @rsvp_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @rsvp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @rsvp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -3412,7 +3412,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %162 = load i32, ptr %161, align 4
   %163 = getelementptr inbounds i8, ptr %7, i64 16
   %164 = load ptr, ptr %163, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
   store i32 %160, ptr %158, align 8
   %165 = icmp eq i32 %162, 0
   br i1 %165, label %copy_address_wmem.exit, label %166
@@ -3431,7 +3431,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds i8, ptr %7, i64 16
   %177 = load ptr, ptr %176, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %171, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %171, i8 0, i64 24, i1 false)
   store i32 %173, ptr %171, align 8
   %178 = icmp eq i32 %175, 0
   br i1 %178, label %copy_address_wmem.exit, label %179
@@ -3450,7 +3450,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %188 = load i32, ptr %187, align 4
   %189 = getelementptr inbounds i8, ptr %7, i64 16
   %190 = load ptr, ptr %189, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %184, i8 0, i64 24, i1 false)
   store i32 %186, ptr %184, align 8
   %191 = icmp eq i32 %188, 0
   br i1 %191, label %copy_address_wmem.exit, label %192
@@ -3469,7 +3469,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %201 = load i32, ptr %200, align 4
   %202 = getelementptr inbounds i8, ptr %7, i64 16
   %203 = load ptr, ptr %202, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
   store i32 %199, ptr %197, align 8
   %204 = icmp eq i32 %201, 0
   br i1 %204, label %copy_address_wmem.exit, label %205
@@ -3488,7 +3488,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %214 = load i32, ptr %213, align 4
   %215 = getelementptr inbounds i8, ptr %7, i64 16
   %216 = load ptr, ptr %215, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
   store i32 %212, ptr %210, align 8
   %217 = icmp eq i32 %214, 0
   br i1 %217, label %copy_address_wmem.exit, label %218
@@ -3507,7 +3507,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %227 = load i32, ptr %226, align 4
   %228 = getelementptr inbounds i8, ptr %7, i64 16
   %229 = load ptr, ptr %228, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %223, i8 0, i64 24, i1 false)
   store i32 %225, ptr %223, align 8
   %230 = icmp eq i32 %227, 0
   br i1 %230, label %copy_address_wmem.exit, label %231
@@ -3526,7 +3526,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %240 = load i32, ptr %239, align 4
   %241 = getelementptr inbounds i8, ptr %7, i64 16
   %242 = load ptr, ptr %241, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
   store i32 %238, ptr %236, align 8
   %243 = icmp eq i32 %240, 0
   br i1 %243, label %copy_address_wmem.exit, label %244
@@ -3553,7 +3553,7 @@ copy_address_wmem.exit:                           ; preds = %copy_address_wmem.e
   %252 = load i32, ptr %14, align 8
   %253 = load i32, ptr %18, align 4
   %254 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false)
   store i32 %252, ptr %251, align 8
   %255 = icmp eq i32 %253, 0
   br i1 %255, label %copy_address_wmem.exit102, label %256
@@ -4205,7 +4205,7 @@ rsvp_class_to_filter_num.exit:                    ; preds = %92, %100, %102, %10
   %129 = load i32, ptr %128, align 4
   %130 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %129, ptr noundef %0, i32 noundef %.0697, i32 noundef %94, i32 noundef 0) #10
   store ptr %130, ptr %19, align 8
-  %131 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %99), !range !8
+  %131 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %99)
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr [81 x i32], ptr @ett_treelist, i64 0, i64 %132
   %134 = load i32, ptr %133, align 4
@@ -4675,7 +4675,7 @@ proto_item_set_hidden.exit.i453:                  ; preds = %336, %333, %329
   %346 = add i32 %.05.i, 4
   %347 = add nsw i32 %.0314.i, -4
   %348 = icmp ugt i32 %.0314.i, 4
-  br i1 %348, label %.lr.ph6.i, label %dissect_rsvp_hop.exit, !llvm.loop !9
+  br i1 %348, label %.lr.ph6.i, label %dissect_rsvp_hop.exit, !llvm.loop !8
 
 349:                                              ; preds = %proto_item_set_hidden.exit.i453
   %.not660 = icmp eq i16 %93, 4
@@ -4689,7 +4689,7 @@ proto_item_set_hidden.exit.i453:                  ; preds = %336, %333, %329
   %352 = add i32 %.13.i, 16
   %353 = add nsw i32 %.1322.i, -16
   %354 = icmp ugt i32 %.1322.i, 16
-  br i1 %354, label %.lr.ph.i, label %dissect_rsvp_hop.exit, !llvm.loop !10
+  br i1 %354, label %.lr.ph.i, label %dissect_rsvp_hop.exit, !llvm.loop !9
 
 355:                                              ; preds = %proto_item_set_hidden.exit.i453
   %356 = load i32, ptr @hf_rsvp_scope_data, align 4
@@ -4967,7 +4967,7 @@ proto_item_set_hidden.exit.i463:                  ; preds = %421, %418, %413
   %524 = add i32 %.pre-phi.i, %.1288.i
   %525 = load i32, ptr %18, align 4
   %526 = icmp ult i32 %523, %525
-  br i1 %526, label %.lr.ph.i465, label %._crit_edge.i, !llvm.loop !11
+  br i1 %526, label %.lr.ph.i465, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %522, %.lr.ph294.i
   %.1.lcssa.i = phi i32 [ %442, %.lr.ph294.i ], [ %524, %522 ]
@@ -4975,7 +4975,7 @@ proto_item_set_hidden.exit.i463:                  ; preds = %421, %418, %413
   %527 = shl i32 %.lcssa.i, 2
   %528 = sub i32 %441, %527
   %529 = icmp sgt i32 %528, 0
-  br i1 %529, label %.lr.ph294.i, label %dissect_rsvp_tspec.exit, !llvm.loop !12
+  br i1 %529, label %.lr.ph294.i, label %dissect_rsvp_tspec.exit, !llvm.loop !11
 
 530:                                              ; preds = %proto_item_set_hidden.exit.i463
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %414, ptr noundef nonnull @.str.1647) #10
@@ -5314,7 +5314,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %660, %657, %652
   %773 = add i32 %.pre-phi.i471, %.1292.i
   %774 = load i32, ptr %17, align 4
   %775 = icmp ult i32 %772, %774
-  br i1 %775, label %.lr.ph.i470, label %._crit_edge.i472, !llvm.loop !13
+  br i1 %775, label %.lr.ph.i470, label %._crit_edge.i472, !llvm.loop !12
 
 ._crit_edge.i472:                                 ; preds = %771, %681
   %.1.lcssa.i473 = phi i32 [ %689, %681 ], [ %773, %771 ]
@@ -5322,7 +5322,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %660, %657, %652
   %776 = shl i32 %.lcssa.i474, 2
   %777 = sub i32 %688, %776
   %778 = icmp sgt i32 %777, 0
-  br i1 %778, label %.lr.ph298.i, label %dissect_rsvp_flowspec.exit, !llvm.loop !14
+  br i1 %778, label %.lr.ph298.i, label %dissect_rsvp_flowspec.exit, !llvm.loop !13
 
 779:                                              ; preds = %proto_item_set_hidden.exit.i468
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %653, ptr noundef nonnull @.str.1669) #10
@@ -5502,7 +5502,7 @@ proto_item_set_hidden.exit.i477:                  ; preds = %902, %899, %895
   %.176.lcssa.i = phi i32 [ %934, %.lr.ph7.i ], [ %981, %975 ]
   %.1.lcssa.i482 = phi i32 [ %935, %.lr.ph7.i ], [ %979, %975 ]
   %916 = icmp sgt i32 %.176.lcssa.i, 0
-  br i1 %916, label %.lr.ph7.i, label %dissect_rsvp_adspec.exit, !llvm.loop !15
+  br i1 %916, label %.lr.ph7.i, label %dissect_rsvp_adspec.exit, !llvm.loop !14
 
 .lr.ph7.i:                                        ; preds = %.loopexit.i, %.lr.ph7.preheader.i
   %.06.i = phi i32 [ %.1.lcssa.i482, %.loopexit.i ], [ %914, %.lr.ph7.preheader.i ]
@@ -5603,7 +5603,7 @@ proto_item_set_hidden.exit.i477:                  ; preds = %902, %899, %895
   %980 = sub i32 %.0771.i, %978
   %981 = sub i32 %.1762.i, %978
   %982 = icmp sgt i32 %980, 0
-  br i1 %982, label %.lr.ph.i479, label %.loopexit.i, !llvm.loop !16
+  br i1 %982, label %.lr.ph.i479, label %.loopexit.i, !llvm.loop !15
 
 dissect_rsvp_adspec.exit:                         ; preds = %.loopexit.i, %proto_item_set_hidden.exit.i477
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -5931,7 +5931,7 @@ proto_item_set_hidden.exit.i496:                  ; preds = %1143, %1140, %1135
 1180:                                             ; preds = %1179, %1177, %1173
   %1181 = add nuw nsw i32 %.080.i, 4
   %1182 = icmp slt i32 %1181, %1153
-  br i1 %1182, label %.lr.ph.i497, label %dissect_rsvp_hop.exit, !llvm.loop !17
+  br i1 %1182, label %.lr.ph.i497, label %dissect_rsvp_hop.exit, !llvm.loop !16
 
 1183:                                             ; preds = %1164
   %1184 = load i32, ptr getelementptr inbounds ([81 x i32], ptr @ett_treelist, i64 0, i64 78), align 8
@@ -6188,7 +6188,7 @@ proto_item_set_hidden.exit.i500:                  ; preds = %1331, %1328, %1322
 
 1364:                                             ; preds = %1362, %.lr.ph.i502
   %exitcond.not.i = icmp eq i32 %1357, %1352
-  br i1 %exitcond.not.i, label %dissect_rsvp_hop.exit, label %.lr.ph.i502, !llvm.loop !18
+  br i1 %exitcond.not.i, label %dissect_rsvp_hop.exit, label %.lr.ph.i502, !llvm.loop !17
 
 1365:                                             ; preds = %141
   %1366 = load ptr, ptr %19, align 8
@@ -6558,7 +6558,7 @@ proto_item_set_hidden.exit.i528:                  ; preds = %1574, %1571, %1566
   %1589 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %1587, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef 0) #10
   %1590 = add nuw nsw i32 %.031.i, 4
   %1591 = icmp ult i32 %1590, %94
-  br i1 %1591, label %.lr.ph.i531, label %._crit_edge.i530, !llvm.loop !19
+  br i1 %1591, label %.lr.ph.i531, label %._crit_edge.i530, !llvm.loop !18
 
 ._crit_edge.i530:                                 ; preds = %.lr.ph.i531, %1580
   %1592 = add nsw i32 %94, -8
@@ -6666,7 +6666,7 @@ proto_item_set_hidden.exit.i537:                  ; preds = %1630, %1627, %1623
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1624, ptr noundef nonnull @.str.1764, i32 noundef %1644, ptr noundef nonnull %1650) #10
   %1651 = add nuw nsw i32 %.033.i, 4
   %1652 = icmp ult i32 %1651, %94
-  br i1 %1652, label %1638, label %dissect_rsvp_hop.exit, !llvm.loop !20
+  br i1 %1652, label %1638, label %dissect_rsvp_hop.exit, !llvm.loop !19
 
 1653:                                             ; preds = %proto_item_set_hidden.exit.i537
   %1654 = add i32 %.0697, 4
@@ -6864,7 +6864,7 @@ proto_item_set_hidden.exit.i548:                  ; preds = %1705, %1702, %1698
 
 1782:                                             ; preds = %1778, %1727
   %1783 = icmp slt i32 %1722, %1713
-  br i1 %1783, label %.lr.ph.i551, label %dissect_rsvp_hop.exit, !llvm.loop !21
+  br i1 %1783, label %.lr.ph.i551, label %dissect_rsvp_hop.exit, !llvm.loop !20
 
 1784:                                             ; preds = %proto_item_set_hidden.exit.i548
   %1785 = load i32, ptr @hf_rsvp_lsp_attributes_tlv_data, align 4
@@ -7336,7 +7336,7 @@ proto_item_set_hidden.exit.i568:                  ; preds = %1970, %1967, %1962
   %2093 = zext i8 %2092 to i32
   %2094 = add i32 %1980, 11
   %2095 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2094) #10
-  %2096 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2093), !range !8
+  %2096 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2093)
   %2097 = zext nneg i32 %2096 to i64
   %2098 = getelementptr [81 x i32], ptr @ett_treelist, i64 0, i64 %2097
   %2099 = load i32, ptr %2098, align 4
@@ -7367,7 +7367,7 @@ proto_item_set_hidden.exit.i568:                  ; preds = %1970, %1967, %1962
   %2119 = zext i8 %2118 to i32
   %2120 = add i32 %2113, 11
   %2121 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2120) #10
-  %2122 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2119), !range !8
+  %2122 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2119)
   %2123 = zext nneg i32 %2122 to i64
   %2124 = getelementptr [81 x i32], ptr @ett_treelist, i64 0, i64 %2123
   %2125 = load i32, ptr %2124, align 4
@@ -7460,7 +7460,7 @@ proto_item_set_hidden.exit.i568:                  ; preds = %1970, %1967, %1962
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2183, ptr noundef nonnull @.str.1843, i32 noundef %2184) #10
   %2185 = add nuw nsw i32 %.0457472.i, 4
   %2186 = icmp ult i32 %2185, %1982
-  br i1 %2186, label %.lr.ph.i573, label %._crit_edge.i572, !llvm.loop !22
+  br i1 %2186, label %.lr.ph.i573, label %._crit_edge.i572, !llvm.loop !21
 
 ._crit_edge.i572:                                 ; preds = %.lr.ph.i573, %2156
   %2187 = icmp slt i32 %.0474.i, 4
@@ -7835,7 +7835,7 @@ proto_item_set_hidden.exit.i580:                  ; preds = %2337, %2334, %2330
   %2390 = load ptr, ptr %12, align 8
   call void @proto_item_set_len(ptr noundef %2390, i32 noundef 1) #10
   %exitcond.not.i587 = icmp eq i32 %2385, %2382
-  br i1 %exitcond.not.i587, label %.loopexit409.i, label %.preheader408.split.us.i, !llvm.loop !23
+  br i1 %exitcond.not.i587, label %.loopexit409.i, label %.preheader408.split.us.i, !llvm.loop !22
 
 .preheader408.split.i:                            ; preds = %.preheader408.i, %2549
   %.2412.i = phi i32 [ %.4.i, %2549 ], [ %2380, %.preheader408.i ]
@@ -8059,7 +8059,7 @@ proto_item_set_hidden.exit.i580:                  ; preds = %2337, %2334, %2330
   %2551 = zext i16 %2403 to i32
   call void @proto_item_set_len(ptr noundef %2550, i32 noundef %2551) #10
   %exitcond422.not.i = icmp eq i32 %2392, %2382
-  br i1 %exitcond422.not.i, label %.loopexit409.i, label %.preheader408.split.i, !llvm.loop !23
+  br i1 %exitcond422.not.i, label %.loopexit409.i, label %.preheader408.split.i, !llvm.loop !22
 
 .loopexit409.i:                                   ; preds = %.preheader408.split.us.i, %2549, %2360
   %.6.i = phi i32 [ %2380, %2360 ], [ %.4.i, %2549 ], [ %2389, %.preheader408.split.us.i ]
@@ -8193,7 +8193,7 @@ proto_item_set_hidden.exit.i580:                  ; preds = %2337, %2334, %2330
   %2636 = zext nneg i8 %.0396.i to i32
   %2637 = add i32 %2628, %2636
   %exitcond423.not.i = icmp eq i32 %2591, %2584
-  br i1 %exitcond423.not.i, label %._crit_edge.i586, label %.lr.ph.i584, !llvm.loop !24
+  br i1 %exitcond423.not.i, label %._crit_edge.i586, label %.lr.ph.i584, !llvm.loop !23
 
 ._crit_edge.i586:                                 ; preds = %._crit_edge424.i, %.lr.ph.i584, %.preheader.i
   %2638 = add i32 %2570, %2573
@@ -8236,7 +8236,7 @@ proto_item_set_hidden.exit.i580:                  ; preds = %2337, %2334, %2330
   %.1391.i = phi i32 [ %2656, %.loopexit.i582 ], [ %.0390416.i, %.lr.ph419.i ]
   %.10.i = phi i32 [ %.9.i, %.loopexit.i582 ], [ %2358, %.lr.ph419.i ]
   %2658 = icmp sgt i32 %.1391.i, 0
-  br i1 %2658, label %.lr.ph419.i, label %dissect_rsvp_3gpp_object.exit, !llvm.loop !25
+  br i1 %2658, label %.lr.ph419.i, label %dissect_rsvp_3gpp_object.exit, !llvm.loop !24
 
 dissect_rsvp_3gpp_object.exit:                    ; preds = %2657, %proto_item_set_hidden.exit.i580, %2344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -8830,7 +8830,7 @@ proto_item_set_hidden.exit.i615:                  ; preds = %3001, %2998, %2994
   %3033 = add nsw i32 %.059.i, -8
   %3034 = add nuw nsw i32 %.05557.i, 1
   %3035 = icmp sgt i32 %.059.i, 8
-  br i1 %3035, label %3012, label %dissect_rsvp_hop.exit, !llvm.loop !26
+  br i1 %3035, label %3012, label %dissect_rsvp_hop.exit, !llvm.loop !25
 
 3036:                                             ; preds = %proto_item_set_hidden.exit.i615
   %3037 = load i32, ptr @hf_rsvp_detour_data, align 4
@@ -8895,7 +8895,7 @@ proto_item_set_hidden.exit.i621:                  ; preds = %3048, %3045, %3041
   %3064 = add i32 %.044.i625, 4
   %3065 = add nuw nsw i32 %.04143.i, 1
   %exitcond.not.i626 = icmp eq i32 %3065, %3059
-  br i1 %exitcond.not.i626, label %dissect_rsvp_diffserv.exit, label %.lr.ph.i624, !llvm.loop !27
+  br i1 %exitcond.not.i626, label %dissect_rsvp_diffserv.exit, label %.lr.ph.i624, !llvm.loop !26
 
 3066:                                             ; preds = %proto_item_set_hidden.exit.i621
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3042, ptr noundef nonnull @.str.1180) #10
@@ -9240,7 +9240,7 @@ proto_item_set_hidden.exit89.i:                   ; preds = %3210, %3207, %proto
   %.1.i648 = add i32 %.03.i, %3237
   %3247 = add nsw i32 %.0852.i, -1
   %.not.i649 = icmp eq i32 %3247, 0
-  br i1 %.not.i649, label %._crit_edge.i650, label %.lr.ph.i647, !llvm.loop !28
+  br i1 %.not.i649, label %._crit_edge.i650, label %.lr.ph.i647, !llvm.loop !27
 
 ._crit_edge.i650:                                 ; preds = %3244, %3218
   %.0.lcssa.i = phi i32 [ %3227, %3218 ], [ %.1.i648, %3244 ]
@@ -9294,7 +9294,7 @@ dissect_rsvp_hop.exit:                            ; preds = %3017, %1782, %1638,
   %3271 = add i32 %.0697, %94
   %3272 = add nuw nsw i32 %.0429696, %94
   %3273 = icmp ult i32 %3272, %24
-  br i1 %3273, label %92, label %.loopexit678, !llvm.loop !29
+  br i1 %3273, label %92, label %.loopexit678, !llvm.loop !28
 
 .loopexit678:                                     ; preds = %dissect_rsvp_hop.exit, %.preheader677, %139
   %.0430692 = phi i32 [ %.0430695, %139 ], [ 0, %.preheader677 ], [ %.1, %dissect_rsvp_hop.exit ]
@@ -9385,7 +9385,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @rsvp_class_to_tree_type(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 2, 75) i32 @rsvp_class_to_tree_type(i32 noundef %0) unnamed_addr #5 {
   switch i32 %0, label %45 [
     i32 1, label %46
     i32 3, label %2
@@ -10507,7 +10507,7 @@ define internal fastcc void @dissect_rsvp_ifid_tlv(ptr noundef %0, ptr noundef %
 178:                                              ; preds = %174, %171
   %179 = add nuw i32 %18, %173
   %180 = icmp slt i32 %179, %5
-  br i1 %180, label %11, label %.loopexit, !llvm.loop !30
+  br i1 %180, label %11, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %178, %7, %20
   ret void
@@ -10730,7 +10730,7 @@ define internal fastcc void @dissect_rsvp_eth_tspec_tlv(ptr noundef %0, ptr noun
 
 153:                                              ; preds = %150, %95, %89, %84, %26
   %154 = icmp slt i32 %20, %5
-  br i1 %154, label %12, label %.loopexit, !llvm.loop !31
+  br i1 %154, label %12, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %153, %7, %82, %22
   ret void
@@ -11594,7 +11594,7 @@ define internal fastcc void @dissect_rsvp_lsp_tunnel_if_id_tlv(ptr noundef %0, p
 
 82:                                               ; preds = %78, %44, %33, %23
   %83 = icmp slt i32 %18, %4
-  br i1 %83, label %10, label %.loopexit, !llvm.loop !32
+  br i1 %83, label %10, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %82, %6, %20
   ret void
@@ -11709,7 +11709,7 @@ attributes #10 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 2, i32 75}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -11733,4 +11733,3 @@ attributes #10 = { nounwind }
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

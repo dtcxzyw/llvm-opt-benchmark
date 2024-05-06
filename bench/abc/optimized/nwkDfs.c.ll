@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [22 x i8] c"Total supports = %d.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

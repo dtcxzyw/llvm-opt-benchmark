@@ -410,14 +410,14 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   br i1 %.not643.not704, label %.lr.ph707, label %._crit_edge708
 
 .lr.ph707:                                        ; preds = %._crit_edge702.split.us
-  %221 = mul nsw i32 %219, 3
+  %221 = mul nuw nsw i32 %219, 3
   %222 = shl i32 %219, 2
   %223 = zext nneg i32 %219 to i64
   %224 = zext nneg i32 %221 to i64
   %225 = sext i32 %222 to i64
   %wide.trip.count884 = zext nneg i32 %219 to i64
-  %invariant.gep1017 = getelementptr float, ptr %28, i64 %223
-  %invariant.gep1019 = getelementptr float, ptr %28, i64 %224
+  %invariant.gep1017 = getelementptr inbounds float, ptr %28, i64 %223
+  %invariant.gep1019 = getelementptr inbounds float, ptr %28, i64 %224
   %invariant.gep1021 = getelementptr float, ptr %28, i64 %225
   br label %226
 
@@ -425,10 +425,10 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %indvars.iv881 = phi i64 [ 1, %.lr.ph707 ], [ %indvars.iv.next882, %226 ]
   %227 = getelementptr inbounds float, ptr %28, i64 %indvars.iv881
   %228 = load float, ptr %227, align 4
-  %gep1018 = getelementptr float, ptr %invariant.gep1017, i64 %indvars.iv881
+  %gep1018 = getelementptr inbounds float, ptr %invariant.gep1017, i64 %indvars.iv881
   %229 = load float, ptr %gep1018, align 4
   %230 = fmul float %228, %229
-  %gep1020 = getelementptr float, ptr %invariant.gep1019, i64 %indvars.iv881
+  %gep1020 = getelementptr inbounds float, ptr %invariant.gep1019, i64 %indvars.iv881
   store float %230, ptr %gep1020, align 4
   %231 = fmul float %230, %229
   %gep1022 = getelementptr float, ptr %invariant.gep1021, i64 %indvars.iv881

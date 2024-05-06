@@ -384,14 +384,14 @@ _ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit: ; preds = %if.end13, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq4lb_t4sendEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t4sendEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_) local_unnamed_addr #5 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_, ptr noundef null), !range !5
+  %call = tail call noundef i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr nocapture noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_, ptr noundef writeonly %pipe_) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr nocapture noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %msg_, ptr noundef writeonly %pipe_) local_unnamed_addr #5 align 2 {
 entry:
   %_dropping = getelementptr inbounds i8, ptr %this, i64 41
   %0 = load i8, ptr %_dropping, align 1
@@ -541,7 +541,7 @@ if.else:                                          ; preds = %if.end53
 if.end63:                                         ; preds = %if.else, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
   %29 = phi i64 [ %dec, %if.else ], [ %.pre, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit ]
   %cmp28.not = icmp eq i64 %29, 0
-  br i1 %cmp28.not, label %if.then66, label %while.body, !llvm.loop !6
+  br i1 %cmp28.not, label %if.then66, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.then31, %if.then33
   %.pr = load i64, ptr %_active, align 8
@@ -694,7 +694,7 @@ if.then12:                                        ; preds = %_ZN3zmq7array_tINS_
 if.end14:                                         ; preds = %if.then12, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
   %16 = phi i64 [ 0, %if.then12 ], [ %14, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit ]
   %cmp.not = icmp eq i64 %15, 0
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !8
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end14, %while.cond.preheader, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %while.cond.preheader ], [ %call2, %if.end14 ], [ %call2, %while.body ]
@@ -758,7 +758,6 @@ attributes #22 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -2, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

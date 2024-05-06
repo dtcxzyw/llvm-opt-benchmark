@@ -236,7 +236,7 @@ define void @If_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @If_CutFilter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_CutFilter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = icmp sgt i16 %5, 0
@@ -444,7 +444,7 @@ If_CutCheckDominance.exit62:                      ; preds = %If_CutCheckDominanc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i64, ptr %5, align 4
   %7 = trunc i64 %6 to i32
@@ -742,7 +742,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i64, ptr %5, align 4
   %7 = trunc i64 %6 to i32
@@ -948,7 +948,7 @@ define noundef i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i64, ptr %5, align 4
   %7 = trunc i64 %6 to i32
@@ -1092,7 +1092,7 @@ define noundef i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @If_CutCompareDelay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @If_CutCompareDelay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 12
@@ -1145,7 +1145,7 @@ define i32 @If_CutCompareDelay(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @If_CutCompareDelayOld(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @If_CutCompareDelayOld(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 12
@@ -1198,7 +1198,7 @@ define i32 @If_CutCompareDelayOld(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @If_CutCompareArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @If_CutCompareArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %4, align 4
@@ -2019,7 +2019,7 @@ define void @If_CutOrder(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @If_CutCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_CutCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i64, ptr %2, align 4
   %4 = and i64 %3, 4261412864
@@ -3123,7 +3123,7 @@ define float @If_CutPowerRefed(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @If_CutGetCutMinLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 100000001) i32 @If_CutGetCutMinLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i64, ptr %4, align 4
@@ -3165,7 +3165,7 @@ define i32 @If_CutGetCutMinLevel(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 28
   %5 = load i64, ptr %4, align 4
   %6 = and i64 %5, 4278190080
@@ -3204,14 +3204,14 @@ define noundef i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocapture nou
   %.02337 = phi ptr [ %24, %.thread ], [ %1, %._crit_edge ]
   %18 = getelementptr i8, ptr %.02337, i64 24
   %.023.val = load ptr, ptr %18, align 8
-  %19 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val, ptr noundef %2), !range !41
+  %19 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val, ptr noundef %2)
   %.not29 = icmp eq i32 %19, 0
   br i1 %.not29, label %.thread, label %20
 
 20:                                               ; preds = %.preheader
   %21 = getelementptr i8, ptr %.02337, i64 32
   %.023.val31 = load ptr, ptr %21, align 8
-  %22 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val31, ptr noundef %2), !range !41
+  %22 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val31, ptr noundef %2)
   %.not30 = icmp eq i32 %22, 0
   br i1 %.not30, label %.thread, label %.loopexit
 
@@ -3219,7 +3219,7 @@ define noundef i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocapture nou
   %23 = getelementptr inbounds i8, ptr %.02337, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not28 = icmp eq ptr %24, null
-  br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !41
 
 .loopexit:                                        ; preds = %11, %.thread, %20, %._crit_edge
   %.024 = phi i32 [ 0, %._crit_edge ], [ 0, %.thread ], [ 1, %20 ], [ 1, %11 ]
@@ -3278,7 +3278,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %17, i64 80
-  %24 = call i32 @If_CutGetCone_rec(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %23), !range !41
+  %24 = call i32 @If_CutGetCone_rec(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %23)
   %25 = xor i32 %24, 1
   %26 = add nsw i32 %25, %.01221
   br label %27
@@ -3287,7 +3287,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.1 = phi i32 [ %26, %22 ], [ %.01221, %19 ], [ %.01221, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !43
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !42
 
 .critedge:                                        ; preds = %27, %Abc_Clock.exit
   %.012.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %27 ]
@@ -3349,7 +3349,7 @@ define void @If_CutFoundFanins_rec(ptr nocapture noundef readonly %0, ptr nocapt
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !44
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !43
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -3522,7 +3522,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val26 = load i32, ptr %37, align 4
   %38 = sext i32 %.val26 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !45
+  br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %35, %Abc_Clock.exit
   %.020.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.121, %35 ]
@@ -3564,7 +3564,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_Clock.exit29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutFilter2_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @If_CutFilter2_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2264
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3662,7 +3662,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 51:                                               ; preds = %Vec_IntPush.exit
   %52 = getelementptr inbounds i8, ptr %1, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef %53, i32 noundef %2), !range !46
+  %54 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef %53, i32 noundef %2)
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %56, label %57
 
@@ -3673,7 +3673,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 57:                                               ; preds = %51
   %58 = getelementptr inbounds i8, ptr %1, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %2), !range !46
+  %60 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %2)
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %62, label %63
 
@@ -3750,7 +3750,7 @@ define noundef i32 @If_CutFilter2(ptr noundef %0, ptr nocapture noundef readnone
 33:                                               ; preds = %31
   %34 = load i32, ptr %30, align 8
   %35 = lshr i32 %34, 13
-  %36 = tail call noundef i32 @llvm.smin.i32(i32 %.061, i32 %35)
+  %36 = tail call i32 @llvm.smin.i32(i32 %.061, i32 %35)
   %37 = load ptr, ptr %10, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 4
   %39 = load i32, ptr %38, align 4
@@ -3837,11 +3837,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %78 = lshr i64 %77, 24
   %79 = and i64 %78, 255
   %80 = icmp ult i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.critedge2, !llvm.loop !47
+  br i1 %80, label %.lr.ph, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %.lr.ph, %76, %19
   %.0.lcssa = phi i32 [ 1000000000, %19 ], [ %.1, %76 ], [ %.061, %.lr.ph ]
-  %81 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %.0.lcssa), !range !46
+  %81 = tail call i32 @If_CutFilter2_rec(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %.0.lcssa)
   %82 = load ptr, ptr %9, align 8
   %83 = getelementptr i8, ptr %82, i64 4
   %.val5664 = load i32, ptr %83, align 4
@@ -3867,7 +3867,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val56 = load i32, ptr %94, align 4
   %95 = sext i32 %.val56 to i64
   %96 = icmp slt i64 %indvars.iv.next78, %95
-  br i1 %96, label %.lr.ph66, label %.critedge4, !llvm.loop !48
+  br i1 %96, label %.lr.ph66, label %.critedge4, !llvm.loop !46
 
 .critedge4:                                       ; preds = %.lr.ph66, %.critedge2
   %97 = icmp eq i32 %81, 2
@@ -3896,7 +3896,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %110 = lshr i64 %109, 24
   %111 = and i64 %110, 255
   %112 = icmp slt i64 %indvars.iv.next81, %111
-  br i1 %112, label %.lr.ph68, label %._crit_edge, !llvm.loop !49
+  br i1 %112, label %.lr.ph68, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph68, %98
   %113 = phi i64 [ %102, %98 ], [ %109, %.lr.ph68 ]
@@ -3910,7 +3910,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %118 = trunc i64 %116 to i32
   %119 = lshr i32 %118, 24
   %120 = icmp slt i32 %117, %119
-  br i1 %120, label %11, label %.critedge, !llvm.loop !50
+  br i1 %120, label %11, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %11, %115, %3
   ret i32 0
@@ -4026,13 +4026,11 @@ attributes #20 = { nounwind allocsize(0) }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{i32 0, i32 2}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = !{i32 -128, i32 128}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}

@@ -118,7 +118,7 @@ return:                                           ; preds = %sw.bb, %if.end, %en
 declare ptr @cryptodev_vhost_user_get_vhost(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cryptodev_vhost_start(ptr noundef %dev, i32 noundef %total_queues) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @cryptodev_vhost_start(ptr noundef %dev, i32 noundef %total_queues) local_unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #6
   %call.i43 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
@@ -152,7 +152,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8, !nonnull !5, !noundef !5
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = trunc i64 %indvars.iv to i16
   %4 = load i32, ptr %2, align 8
   %cond.i = icmp eq i32 %4, 1

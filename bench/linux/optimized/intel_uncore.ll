@@ -1526,7 +1526,7 @@ define dso_local void @intel_uncore_forcewake_flush(ptr nocapture noundef readon
 declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_uncore_fw_release_timer(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @intel_uncore_fw_release_timer(ptr noundef %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -3378,7 +3378,7 @@ define dso_local void @intel_uncore_fini_mmio(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__intel_wait_for_register_fw(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
   %.fr21 = freeze i32 %1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %8
@@ -3619,7 +3619,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare dso_local i64 @ktime_get_raw() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__intel_wait_for_register(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
@@ -4097,7 +4097,7 @@ define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr nocapture nounde
 
 31:                                               ; preds = %28, %12
   %32 = lshr i32 %15, 31
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw nsw i32 %32 to i8
   %.pre = load i32, ptr %8, align 8
   br label %34
 
@@ -7571,7 +7571,7 @@ define internal noundef i32 @i915_pmic_bus_access_notifier(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__fw_domain_init(ptr noundef %0, i32 noundef %1, i32 %2, i32 %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__fw_domain_init(ptr noundef %0, i32 noundef %1, i32 %2, i32 %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 104) #15
   %7 = icmp eq ptr %6, null
@@ -7869,7 +7869,7 @@ define internal void @fw_domains_get_with_fallback(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fw_domain_wait_ack_with_fallback(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = icmp eq i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 88

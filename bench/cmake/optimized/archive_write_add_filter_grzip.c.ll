@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [51 x i8] c"Using external grzip program for grzip compression\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_grzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, -19) i32 @archive_write_add_filter_grzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #5
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #5
   %4 = icmp eq i32 %3, -30

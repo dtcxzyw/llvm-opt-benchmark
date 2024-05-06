@@ -455,7 +455,7 @@ define void @dtfsm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 269:                                              ; preds = %268
   %270 = add nuw nsw i32 %80, 1
-  %271 = mul nsw i32 %270, %80
+  %271 = mul nuw nsw i32 %270, %80
   %272 = zext nneg i32 %271 to i64
   %273 = getelementptr inbounds double, ptr %8, i64 %272
   call void @dtrsm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %273, ptr noundef nonnull %13, ptr noundef %9, ptr noundef nonnull %10) #5
@@ -473,7 +473,7 @@ define void @dtfsm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %.loopexit
 
 283:                                              ; preds = %268
-  %284 = mul nsw i32 %80, %80
+  %284 = mul nuw nsw i32 %80, %80
   %285 = zext nneg i32 %284 to i64
   %286 = getelementptr inbounds double, ptr %8, i64 %285
   %287 = zext nneg i32 %80 to i64
@@ -832,7 +832,7 @@ define void @dtfsm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 519:                                              ; preds = %518
   %520 = add nuw nsw i32 %300, 1
-  %521 = mul nsw i32 %520, %300
+  %521 = mul nuw nsw i32 %520, %300
   %522 = zext nneg i32 %521 to i64
   %523 = getelementptr inbounds double, ptr %8, i64 %522
   call void @dtrsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %523, ptr noundef nonnull %13, ptr noundef %9, ptr noundef nonnull %10) #5
@@ -852,7 +852,7 @@ define void @dtfsm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %.loopexit
 
 535:                                              ; preds = %518
-  %536 = mul nsw i32 %300, %300
+  %536 = mul nuw nsw i32 %300, %300
   %537 = zext nneg i32 %536 to i64
   %538 = getelementptr inbounds double, ptr %8, i64 %537
   %539 = mul nsw i32 %300, %18

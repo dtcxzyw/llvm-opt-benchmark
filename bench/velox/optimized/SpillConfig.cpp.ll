@@ -118,7 +118,7 @@ declare void @llvm.trap() #3
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef i32 @_ZNK8facebook5velox6common11SpillConfig14joinSpillLevelEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -255, 256) i32 @_ZNK8facebook5velox6common11SpillConfig14joinSpillLevelEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
 entry:
   %joinPartitionBits = getelementptr inbounds i8, ptr %this, i64 105
   %0 = load i8, ptr %joinPartitionBits, align 1

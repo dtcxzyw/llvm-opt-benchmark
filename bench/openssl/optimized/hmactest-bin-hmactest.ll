@@ -71,7 +71,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_md5(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_hmac_md5(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_md5() #5
   %idxprom = sext i32 %idx to i64
@@ -120,7 +120,7 @@ land.end:                                         ; preds = %land.rhs, %pt.exit
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_single_shot() #0 {
+define internal range(i32 0, 2) i32 @test_hmac_single_shot() #0 {
 entry:
   %call = tail call ptr @EVP_sha1() #5
   %0 = load i32, ptr getelementptr inbounds (<{ %struct.test_st, %struct.test_st, %struct.test_st, { [16 x i8], i32, <{ [50 x i8], [14 x i8] }>, i32, ptr }, %struct.test_st, %struct.test_st, %struct.test_st, %struct.test_st }>, ptr @test, i64 0, i32 4, i32 3), align 4
@@ -160,7 +160,7 @@ return:                                           ; preds = %lor.lhs.false, %pt.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_bad() #0 {
+define internal range(i32 0, 2) i32 @test_hmac_bad() #0 {
 entry:
   %call = tail call ptr @HMAC_CTX_new() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 113, ptr noundef nonnull @.str.20, ptr noundef %call) #5
@@ -218,7 +218,7 @@ err:                                              ; preds = %lor.lhs.false23, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_run() #0 {
+define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %len = alloca i32, align 4
@@ -495,7 +495,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_copy() #0 {
+define internal range(i32 0, 2) i32 @test_hmac_copy() #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %len = alloca i32, align 4
@@ -588,7 +588,7 @@ err:                                              ; preds = %lor.lhs.false34, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hmac_copy_uninited() #0 {
+define internal range(i32 0, 2) i32 @test_hmac_copy_uninited() #0 {
 entry:
   %key = alloca [24 x i8], align 16
   %ct = alloca [166 x i8], align 16

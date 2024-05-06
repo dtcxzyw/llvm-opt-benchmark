@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [26 x i8] c"unmatched paren in format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   br i1 %cmp, label %return, label %if.else
@@ -85,7 +85,7 @@ entry:
   %f.i = alloca ptr, align 8
   %lva.i = alloca [1 x %struct.__va_list_tag], align 16
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lva.i)
   store ptr %format, ptr %f.i, align 8
@@ -98,7 +98,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %va_build_value.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @llvm.va_copy(ptr nonnull %lva.i, ptr nonnull %va)
+  call void @llvm.va_copy.p0(ptr nonnull %lva.i, ptr nonnull %va)
   %cmp5.i = icmp eq i64 %call.i, 1
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
@@ -112,22 +112,16 @@ if.else.i:                                        ; preds = %if.end4.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
   %retval1.0.i = phi ptr [ %call7.i, %if.then6.i ], [ %call8.i, %if.else.i ]
-  call void @llvm.va_end(ptr nonnull %lva.i)
+  call void @llvm.va_end.p0(ptr nonnull %lva.i)
   br label %va_build_value.exit
 
 va_build_value.exit:                              ; preds = %entry, %if.end.i, %if.end9.i
   %retval.0.i = phi ptr [ %retval1.0.i, %if.end9.i ], [ null, %entry ], [ @_Py_NoneStruct, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lva.i)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %retval.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_Py_BuildValue_SizeT(ptr noundef %format, ...) local_unnamed_addr #0 {
@@ -135,7 +129,7 @@ entry:
   %f.i = alloca ptr, align 8
   %lva.i = alloca [1 x %struct.__va_list_tag], align 16
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lva.i)
   store ptr %format, ptr %f.i, align 8
@@ -148,7 +142,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %va_build_value.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @llvm.va_copy(ptr nonnull %lva.i, ptr nonnull %va)
+  call void @llvm.va_copy.p0(ptr nonnull %lva.i, ptr nonnull %va)
   %cmp5.i = icmp eq i64 %call.i, 1
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
@@ -162,14 +156,14 @@ if.else.i:                                        ; preds = %if.end4.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
   %retval1.0.i = phi ptr [ %call7.i, %if.then6.i ], [ %call8.i, %if.else.i ]
-  call void @llvm.va_end(ptr nonnull %lva.i)
+  call void @llvm.va_end.p0(ptr nonnull %lva.i)
   br label %va_build_value.exit
 
 va_build_value.exit:                              ; preds = %entry, %if.end.i, %if.end9.i
   %retval.0.i = phi ptr [ %retval1.0.i, %if.end9.i ], [ null, %entry ], [ @_Py_NoneStruct, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lva.i)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %retval.0.i
 }
 
@@ -190,7 +184,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %va_build_value.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @llvm.va_copy(ptr nonnull %lva.i, ptr %va)
+  call void @llvm.va_copy.p0(ptr nonnull %lva.i, ptr %va)
   %cmp5.i = icmp eq i64 %call.i, 1
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
@@ -204,7 +198,7 @@ if.else.i:                                        ; preds = %if.end4.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
   %retval1.0.i = phi ptr [ %call7.i, %if.then6.i ], [ %call8.i, %if.else.i ]
-  call void @llvm.va_end(ptr nonnull %lva.i)
+  call void @llvm.va_end.p0(ptr nonnull %lva.i)
   br label %va_build_value.exit
 
 va_build_value.exit:                              ; preds = %entry, %if.end.i, %if.end9.i
@@ -231,7 +225,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %va_build_value.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @llvm.va_copy(ptr nonnull %lva.i, ptr %va)
+  call void @llvm.va_copy.p0(ptr nonnull %lva.i, ptr %va)
   %cmp5.i = icmp eq i64 %call.i, 1
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
@@ -245,7 +239,7 @@ if.else.i:                                        ; preds = %if.end4.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
   %retval1.0.i = phi ptr [ %call7.i, %if.then6.i ], [ %call8.i, %if.else.i ]
-  call void @llvm.va_end(ptr nonnull %lva.i)
+  call void @llvm.va_end.p0(ptr nonnull %lva.i)
   br label %va_build_value.exit
 
 va_build_value.exit:                              ; preds = %entry, %if.end.i, %if.end9.i
@@ -292,7 +286,7 @@ if.then8:                                         ; preds = %if.else
 
 if.end11:                                         ; preds = %if.end3, %if.else
   %stack.0 = phi ptr [ %call6, %if.else ], [ %small_stack, %if.end3 ]
-  call void @llvm.va_copy(ptr nonnull %lva, ptr %va)
+  call void @llvm.va_copy.p0(ptr nonnull %lva, ptr %va)
   store ptr %format, ptr %f, align 8
   br label %for.body.i
 
@@ -372,7 +366,7 @@ for.inc13.i:                                      ; preds = %if.then1.i.i, %if.e
   br i1 %exitcond29.not.i, label %if.then15, label %for.body11.i, !llvm.loop !8
 
 if.then15:                                        ; preds = %for.inc13.i, %error.i
-  call void @llvm.va_end(ptr nonnull %lva)
+  call void @llvm.va_end.p0(ptr nonnull %lva)
   %cmp16.not = icmp eq ptr %stack.0, %small_stack
   br i1 %cmp16.not, label %return, label %if.then17
 
@@ -381,7 +375,7 @@ if.then17:                                        ; preds = %if.then15
   br label %return
 
 if.end19:                                         ; preds = %if.end.i19.i, %for.end.i
-  call void @llvm.va_end(ptr nonnull %lva)
+  call void @llvm.va_end.p0(ptr nonnull %lva)
   store i64 %call, ptr %p_nargs, align 8
   br label %return
 
@@ -458,9 +452,6 @@ return:                                           ; preds = %sw.epilog, %entry, 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #2
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
@@ -800,7 +791,7 @@ if.end9.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end9.i, %for.cond.i.preheader
-  %call10.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 93), !range !11
+  %call10.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 93)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.then11.i, label %return
 
@@ -955,10 +946,10 @@ if.then1.i30.i:                                   ; preds = %if.end.i27.i
 for.inc.i:                                        ; preds = %if.then1.i30.i, %if.end.i27.i, %Py_DECREF.exit41.i
   %add.i72 = add i64 %i.0.i64128, 2
   %cmp6.i65 = icmp slt i64 %add.i72, %call6
-  br i1 %cmp6.i65, label %for.body.i71, label %for.end.i66, !llvm.loop !12
+  br i1 %cmp6.i65, label %for.body.i71, label %for.end.i66, !llvm.loop !11
 
 for.end.i66:                                      ; preds = %for.inc.i, %for.cond.i63.preheader
-  %call20.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 125), !range !11
+  %call20.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 125)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %if.then22.i, label %return
 
@@ -1722,7 +1713,7 @@ if.end9:                                          ; preds = %for.body
   store ptr %call5, ptr %arrayidx.i, align 8
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %n
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %if.end9, %for.cond.preheader
   %3 = load ptr, ptr %p_format, align 8
@@ -1784,7 +1775,7 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1797,7 +1788,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1843,7 +1834,7 @@ if.then1.i.us:                                    ; preds = %if.end.i.us
 for.inc.us:                                       ; preds = %if.then1.i.us, %if.end.i.us, %if.then.us, %for.body.us
   %inc.us = add nuw nsw i64 %i.016.us, 1
   %exitcond18.not = icmp eq i64 %inc.us, %n
-  br i1 %exitcond18.not, label %for.end, label %for.body.us, !llvm.loop !14
+  br i1 %exitcond18.not, label %for.end, label %for.body.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.016 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -1861,7 +1852,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %n
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
   %cmp.not.i = icmp eq ptr %call.fr, null
@@ -1923,7 +1914,7 @@ check_end.exit:                                   ; preds = %if.then.i14, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_end(ptr nocapture noundef %p_format, i8 noundef signext %endchar) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_end(ptr nocapture noundef %p_format, i8 noundef signext %endchar) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_format, align 8
   %1 = load i8, ptr %0, align 1
@@ -1980,6 +1971,15 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 declare ptr @_PyType_GetDict(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
@@ -1988,8 +1988,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
@@ -2007,7 +2007,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

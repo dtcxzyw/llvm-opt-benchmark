@@ -64,7 +64,7 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr nonnull align 1 %14, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr nonnull align 1 %14, i64 %spec.select.i, i1 false)
   %15 = icmp ugt i64 %11, 25
   br i1 %15, label %16, label %fmap_readn.exit.thread
 
@@ -117,7 +117,7 @@ fmap_readn.exit:                                  ; preds = %8
   br i1 %.not.i91, label %fmap_readn.exit.thread.sink.split, label %39
 
 39:                                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %38, i64 %spec.select.i90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %38, i64 %spec.select.i90, i1 false)
   br label %fmap_readn.exit92
 
 fmap_readn.exit92:                                ; preds = %24, %39
@@ -295,7 +295,7 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
   %22 = icmp ugt i64 %18, 75
   br i1 %22, label %23, label %fmap_readn.exit.thread
 
@@ -349,7 +349,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not.i47, label %fmap_readn.exit.thread.sink.split, label %48
 
 48:                                               ; preds = %43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %47, i64 %spec.select.i46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %47, i64 %spec.select.i46, i1 false)
   br label %fmap_readn.exit48
 
 fmap_readn.exit48:                                ; preds = %35, %48
@@ -501,7 +501,7 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %3, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
   %22 = icmp ugt i64 %18, 109
   br i1 %22, label %23, label %fmap_readn.exit.thread
 
@@ -563,7 +563,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not.i64, label %fmap_readn.exit.thread.sink.split, label %49
 
 49:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %48, i64 %spec.select.i63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull align 1 %48, i64 %spec.select.i63, i1 false)
   br label %fmap_readn.exit65
 
 fmap_readn.exit65:                                ; preds = %36, %49

@@ -968,7 +968,7 @@ if.end9:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false)
   %crc_.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
   store i32 0, ptr %crc_.i, align 4
   %call.i = call noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef nonnull %tmp.i, i64 noundef 16)
@@ -1031,7 +1031,7 @@ for.end:                                          ; preds = %for.body, %if.then2
   %crc_56 = getelementptr inbounds i8, ptr %this, i64 4
   %26 = load i32, ptr %crc_56, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i9, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i9, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false)
   %crc_.i10 = getelementptr inbounds i8, ptr %tmp.i9, i64 4
   store i32 0, ptr %crc_.i10, align 4
   %call.i11 = call noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef nonnull %tmp.i9, i64 noundef 16)
@@ -1052,7 +1052,7 @@ if.end59:                                         ; preds = %for.end, %land.lhs.
 
 land.rhs:                                         ; preds = %if.end59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i18, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i18, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false)
   %crc_.i19 = getelementptr inbounds i8, ptr %tmp.i18, i64 4
   store i32 0, ptr %crc_.i19, align 4
   %call.i20 = call noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef nonnull %tmp.i18, i64 noundef 16)
@@ -2691,7 +2691,7 @@ if.end8:                                          ; preds = %invoke.cont2
   %val_.i = getelementptr inbounds i8, ptr %rec, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val_.i, ptr noundef nonnull align 8 dereferenceable(16) %val, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %rec, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %rec, i64 16, i1 false)
   %crc_.i4.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 4
   store i32 0, ptr %crc_.i4.i, align 4
   %call.i.i10 = invoke noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef nonnull %tmp.i.i, i64 noundef 16)
@@ -4764,7 +4764,7 @@ if.then.i:                                        ; preds = %land.rhs.i.i
           to label %cleanup unwind label %lpad
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.end
-  %call2.i6 = invoke noundef zeroext i1 @_ZN7rocksdb21RandomAccessCacheFile8ParseRecERKNS_19LogicalBlockAddressEPNS_5SliceES5_Pc(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 4 dereferenceable(12) %lba, ptr noundef %key, ptr noundef %block, ptr noundef %scratch)
+  %call2.i6 = invoke noundef zeroext i1 @_ZN7rocksdb21RandomAccessCacheFile8ParseRecERKNS_19LogicalBlockAddressEPNS_5SliceES5_Pc(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %lba, ptr noundef writeonly %key, ptr noundef writeonly %block, ptr noundef %scratch)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then.i, %if.end.i, %if.then

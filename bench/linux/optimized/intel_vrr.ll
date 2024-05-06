@@ -201,7 +201,7 @@ define dso_local void @intel_vrr_check_modeset(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_vrr_vmin_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65534, 65537) i32 @intel_vrr_vmin_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4938
   %3 = load i16, ptr %2, align 2
   %4 = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ define dso_local i32 @intel_vrr_vmin_vblank_start(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_vrr_vmax_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65535, 65536) i32 @intel_vrr_vmax_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4940
   %3 = load i16, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -833,7 +833,7 @@ define dso_local void @intel_vrr_get_config(ptr nocapture noundef %0) local_unna
   %21 = tail call i32 %20(ptr noundef %18, i32 %17, i1 noundef zeroext true) #6
   %22 = getelementptr inbounds i8, ptr %0, i64 4932
   %23 = lshr i32 %21, 31
-  %24 = trunc i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   store i8 %24, ptr %22, align 4
   %25 = getelementptr inbounds i8, ptr %3, i64 2632
   %26 = load i16, ptr %25, align 8

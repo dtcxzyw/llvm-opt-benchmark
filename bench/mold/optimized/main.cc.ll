@@ -728,7 +728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 declare ptr @TBB_runtime_version() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define dso_local noundef i64 @_ZN4mold24get_default_thread_countEv() local_unnamed_addr #4 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN4mold24get_default_thread_countEv() local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef 0) #21
   %conv = trunc i64 %call.i to i32

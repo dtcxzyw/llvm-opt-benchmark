@@ -261,7 +261,7 @@ declare i32 @BrotliDecoderVersion() local_unnamed_addr #3
 declare i32 @ZSTD_versionNumber() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @https_proxy_present(ptr nocapture readnone %info) #0 {
+define internal range(i32 0, 2) i32 @https_proxy_present(ptr nocapture readnone %info) #0 {
 entry:
   %call = tail call zeroext i1 @Curl_ssl_supports(ptr noundef null, i32 noundef 16) #7
   %conv = zext i1 %call to i32
@@ -269,7 +269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @idn_present(ptr nocapture noundef readonly %info) #6 {
+define internal range(i32 0, 2) i32 @idn_present(ptr nocapture noundef readonly %info) #6 {
 entry:
   %libidn = getelementptr inbounds i8, ptr %info, i64 88
   %0 = load ptr, ptr %libidn, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [41 x i8] c"must be of type DOMNode|string, %s given\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_parent_node_first_element_child_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_parent_node_first_element_child_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -69,7 +69,7 @@ declare i32 @dom_node_children_valid(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_parent_node_last_element_child_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_parent_node_last_element_child_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -117,7 +117,7 @@ define hidden noundef i32 @dom_parent_node_last_element_child_read(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_parent_node_child_element_count(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_parent_node_child_element_count(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -323,7 +323,7 @@ define hidden void @dom_parent_node_append(ptr noundef %0, ptr noundef %1, i32 n
   %4 = tail call ptr @dom_object_get_node(ptr noundef %0) #3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2), !range !4
+  %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %38
 
@@ -400,7 +400,7 @@ dom_fragment_assign_parent_node.exit:             ; preds = %29, %.lr.ph.i, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6
 
@@ -483,14 +483,14 @@ dom_doc_from_context_node.exit:                   ; preds = %6, %6, %9
   br label %.loopexit
 
 38:                                               ; preds = %21
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw i64 %indvars.iv to i32
   %40 = add nuw i32 %39, 1
   %41 = tail call ptr @zend_zval_type_name(ptr noundef nonnull %12) #3
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %40, ptr noundef nonnull @.str, ptr noundef %41) #3
   br label %.loopexit
 
 42:                                               ; preds = %.lr.ph
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw i64 %indvars.iv to i32
   %44 = add nuw i32 %43, 1
   %45 = tail call ptr @zend_zval_type_name(ptr noundef nonnull %12) #3
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %44, ptr noundef nonnull @.str, ptr noundef %45) #3
@@ -523,7 +523,7 @@ define hidden void @dom_parent_node_prepend(ptr noundef %0, ptr noundef %1, i32 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %11, ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2), !range !4
+  %12 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %11, ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %55
 
@@ -635,7 +635,7 @@ define hidden void @dom_parent_node_after(ptr noundef %0, ptr noundef %1, i32 no
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2), !range !4
+  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader, label %72
 
@@ -807,7 +807,7 @@ define hidden void @dom_parent_node_before(ptr noundef %0, ptr noundef %1, i32 n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2), !range !4
+  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader, label %72
 
@@ -1047,7 +1047,7 @@ define hidden void @dom_child_replace_with(ptr noundef %0, ptr noundef %1, i32 n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2), !range !4
+  %9 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %8, ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %dom_child_removal_preconditions.exit.thread
 
@@ -1265,7 +1265,7 @@ define hidden void @dom_parent_node_replace_children(ptr noundef %0, ptr noundef
   %4 = tail call ptr @dom_object_get_node(ptr noundef %0) #3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2), !range !4
+  %7 = tail call fastcc i32 @dom_sanity_check_node_list_for_insertion(ptr noundef %6, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %42
 
@@ -1376,4 +1376,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

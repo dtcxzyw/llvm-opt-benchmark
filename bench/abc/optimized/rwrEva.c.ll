@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [31 x i8] c"    %2d: S=%5d. A=%5d. G=%6d. \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Rwr_NodeRewrite(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @Rwr_NodeRewrite(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
@@ -238,7 +238,7 @@ Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.e
   %133 = getelementptr inbounds ptr, ptr %.val151.val, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
-  %136 = trunc i64 %indvars.iv.next to i32
+  %136 = trunc nuw nsw i64 %indvars.iv.next to i32
   br i1 %135, label %._crit_edge, label %.lr.ph285, !llvm.loop !6
 
 .lr.ph285:                                        ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1208,7 +1208,7 @@ define void @Rwr_ScoresClean(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Rwr_ScoresCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define range(i32 -1, 2) i32 @Rwr_ScoresCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %4
@@ -1244,7 +1244,7 @@ define void @Rwr_ScoresReport(ptr nocapture noundef readonly %0) local_unnamed_a
 11:                                               ; preds = %.lr.ph54, %.critedge
   %indvars.iv65 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next66, %.critedge ]
   %12 = getelementptr inbounds [222 x i32], ptr %2, i64 0, i64 %indvars.iv65
-  %13 = trunc i64 %indvars.iv65 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv65 to i32
   store i32 %13, ptr %12, align 4
   %14 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %indvars.iv65
   store i32 0, ptr %14, align 4
@@ -1353,7 +1353,7 @@ define void @Rwr_ScoresReport(ptr nocapture noundef readonly %0) local_unnamed_a
   %73 = getelementptr inbounds i8, ptr %64, i64 10
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i32
-  %76 = trunc i64 %indvars.iv68 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv68 to i32
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %76, i32 noundef %69, i32 noundef %72, i32 noundef %75)
   %78 = load ptr, ptr @stdout, align 8
   %79 = getelementptr inbounds i8, ptr %64, i64 40

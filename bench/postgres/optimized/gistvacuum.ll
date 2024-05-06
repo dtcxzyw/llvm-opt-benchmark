@@ -143,7 +143,7 @@ define internal fastcc void @gistvacuumscan(ptr nocapture noundef readonly %0, p
   %60 = getelementptr inbounds i8, ptr %59, i64 56
   %61 = getelementptr inbounds i8, ptr %59, i64 40
   %62 = getelementptr inbounds i8, ptr %59, i64 48
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw i64 %indvars.iv to i32
   br label %64
 
 64:                                               ; preds = %202, %.preheader
@@ -319,7 +319,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
 157:                                              ; preds = %155, %153
   %.sink.i = phi i64 [ %154, %153 ], [ %156, %155 ]
   %158 = lshr i64 %.sink.i, 32
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw i64 %158 to i32
   store i32 %159, ptr %.0.i.i.i, align 4
   %160 = trunc i64 %.sink.i to i32
   %161 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -354,7 +354,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   br label %202
 
 176:                                              ; preds = %.thread.i
-  %177 = uitofp i16 %.084.i to double
+  %177 = uitofp nneg i16 %.084.i to double
   %178 = load double, ptr %11, align 8
   %179 = fadd double %178, %177
   store double %179, ptr %11, align 8
@@ -765,7 +765,7 @@ BufferGetPage.exit50.i.i:                         ; preds = %309, %303
 396:                                              ; preds = %394, %392
   %.037.i.i = phi i64 [ %393, %392 ], [ %395, %394 ]
   %397 = lshr i64 %.037.i.i, 32
-  %398 = trunc i64 %397 to i32
+  %398 = trunc nuw i64 %397 to i32
   store i32 %398, ptr %.0.i.i.i.i, align 4
   %399 = trunc i64 %.037.i.i to i32
   %400 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4

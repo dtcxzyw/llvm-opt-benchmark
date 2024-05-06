@@ -162,7 +162,7 @@ define internal i32 @dissect_moldudp(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %43 = icmp ult i32 %42, %27
   %.not.i = icmp ult i32 %36, %37
-  %44 = trunc i32 %36 to i16
+  %44 = trunc nuw i32 %36 to i16
   %spec.select.i = select i1 %.not.i, i16 %44, i16 %33
   %.046.i = select i1 %43, i16 0, i16 %spec.select.i
   %45 = zext i16 %.046.i to i32

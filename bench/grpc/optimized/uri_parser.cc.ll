@@ -1500,7 +1500,7 @@ _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
 if.then140:                                       ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i245
   %add.ptr.i.i249 = getelementptr inbounds i8, ptr %remaining.sroa.29.4360, i64 1
   %sub.i.i250 = add i64 %remaining.sroa.0.4359, -1
-  %add.ptr.i.i252 = getelementptr inbounds i8, ptr %remaining.sroa.29.4360, i64 %remaining.sroa.0.4359
+  %add.ptr.i.i252 = getelementptr i8, ptr %remaining.sroa.29.4360, i64 %remaining.sroa.0.4359
   %cmp.not7.i253 = icmp eq i64 %sub.i.i250, 0
   br i1 %cmp.not7.i253, label %if.end152, label %for.body.i254
 

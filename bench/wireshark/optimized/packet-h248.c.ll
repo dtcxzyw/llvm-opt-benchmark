@@ -4970,7 +4970,7 @@ define internal fastcc noundef i32 @dissect_h248_trx_id(i1 noundef zeroext %0, p
 
 33:                                               ; preds = %._crit_edge
   %34 = load i32, ptr @hf_h248_transactionId, align 4
-  %35 = trunc i64 %23 to i32
+  %35 = trunc nuw i64 %23 to i32
   %36 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %34, ptr noundef %3, i32 noundef %28, i32 noundef %26, i32 noundef %35) #7
   br label %37
 
@@ -5061,7 +5061,7 @@ define internal noundef i32 @dissect_h248_ContextId(i1 noundef zeroext %0, ptr n
 
 35:                                               ; preds = %._crit_edge.i
   %36 = load i32, ptr @hf_h248_context_id, align 4
-  %37 = trunc i64 %25 to i32
+  %37 = trunc nuw i64 %25 to i32
   %38 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %36, ptr noundef %1, i32 noundef %30, i32 noundef %28, i32 noundef %37) #7
   switch i32 %37, label %dissect_h248_ctx_id.exit [
     i32 0, label %39

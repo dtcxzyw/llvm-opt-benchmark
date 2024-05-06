@@ -1694,15 +1694,15 @@ assemble_emit_exception_table_item.exit:          ; preds = %if.end14.i, %if.the
 if.end.thread.i65:                                ; preds = %assemble_emit_exception_table_item.exit
   %shr.i66 = lshr i32 %sub, 24
   %19 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i.i68 = getelementptr inbounds i8, ptr %19, i64 32
+  %ob_sval.i.i.i69 = getelementptr inbounds i8, ptr %19, i64 32
   %20 = trunc nuw i32 %shr.i66 to i8
-  %conv.i.i69 = or i8 %20, 64
+  %conv.i.i70 = or i8 %20, 64
   %21 = load i32, ptr %a_except_table_off, align 8
-  %inc.i.i71 = add i32 %21, 1
-  store i32 %inc.i.i71, ptr %a_except_table_off, align 8
-  %idxprom.i.i72 = sext i32 %21 to i64
-  %arrayidx.i.i73 = getelementptr i8, ptr %ob_sval.i.i.i68, i64 %idxprom.i.i72
-  store i8 %conv.i.i69, ptr %arrayidx.i.i73, align 1
+  %inc.i.i72 = add i32 %21, 1
+  store i32 %inc.i.i72, ptr %a_except_table_off, align 8
+  %idxprom.i.i73 = sext i32 %21 to i64
+  %arrayidx.i.i74 = getelementptr i8, ptr %ob_sval.i.i.i69, i64 %idxprom.i.i73
+  store i8 %conv.i.i70, ptr %arrayidx.i.i74, align 1
   br label %if.end7.thread.i53
 
 if.end.i13:                                       ; preds = %assemble_emit_exception_table_item.exit
@@ -1745,7 +1745,7 @@ if.end14.thread.i41:                              ; preds = %if.end7.i15, %if.en
 
 if.end14.i17:                                     ; preds = %if.end7.i15
   %cmp15.i18 = icmp sgt i32 %sub, 63
-  br i1 %cmp15.i18, label %if.then16.i29, label %assemble_emit_exception_table_item.exit74
+  br i1 %cmp15.i18, label %if.then16.i29, label %assemble_emit_exception_table_item.exit75
 
 if.then16.i29:                                    ; preds = %if.end14.i17, %if.end14.thread.i41
   %shr17.i31 = lshr i32 %sub, 6
@@ -1760,9 +1760,9 @@ if.then16.i29:                                    ; preds = %if.end14.i17, %if.e
   %idxprom.i36.i39 = sext i32 %33 to i64
   %arrayidx.i37.i40 = getelementptr i8, ptr %ob_sval.i.i32.i35, i64 %idxprom.i36.i39
   store i8 %conv.i33.i36, ptr %arrayidx.i37.i40, align 1
-  br label %assemble_emit_exception_table_item.exit74
+  br label %assemble_emit_exception_table_item.exit75
 
-assemble_emit_exception_table_item.exit74:        ; preds = %if.end14.i17, %if.then16.i29
+assemble_emit_exception_table_item.exit75:        ; preds = %if.end14.i17, %if.then16.i29
   %34 = load ptr, ptr %a_except_table, align 8
   %ob_sval.i.i39.i23 = getelementptr inbounds i8, ptr %34, i64 32
   %35 = trunc i32 %sub to i8
@@ -1773,180 +1773,180 @@ assemble_emit_exception_table_item.exit74:        ; preds = %if.end14.i17, %if.t
   %idxprom.i43.i27 = sext i32 %36 to i64
   %arrayidx.i44.i28 = getelementptr i8, ptr %ob_sval.i.i39.i23, i64 %idxprom.i43.i27
   store i8 %conv.i40.i24, ptr %arrayidx.i44.i28, align 1
-  %cmp.i75 = icmp sgt i32 %handler_offset, 16777215
-  br i1 %cmp.i75, label %if.end.thread.i128, label %if.end.i76
+  %cmp.i76 = icmp sgt i32 %handler_offset, 16777215
+  br i1 %cmp.i76, label %if.end.thread.i129, label %if.end.i77
 
-if.end.thread.i128:                               ; preds = %assemble_emit_exception_table_item.exit74
-  %shr.i129 = lshr i32 %handler_offset, 24
+if.end.thread.i129:                               ; preds = %assemble_emit_exception_table_item.exit75
+  %shr.i130 = lshr i32 %handler_offset, 24
   %37 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i.i131 = getelementptr inbounds i8, ptr %37, i64 32
-  %38 = trunc nuw i32 %shr.i129 to i8
-  %conv.i.i132 = or i8 %38, 64
+  %ob_sval.i.i.i133 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = trunc nuw i32 %shr.i130 to i8
+  %conv.i.i134 = or i8 %38, 64
   %39 = load i32, ptr %a_except_table_off, align 8
-  %inc.i.i134 = add i32 %39, 1
-  store i32 %inc.i.i134, ptr %a_except_table_off, align 8
-  %idxprom.i.i135 = sext i32 %39 to i64
-  %arrayidx.i.i136 = getelementptr i8, ptr %ob_sval.i.i.i131, i64 %idxprom.i.i135
-  store i8 %conv.i.i132, ptr %arrayidx.i.i136, align 1
-  br label %if.end7.thread.i116
+  %inc.i.i136 = add i32 %39, 1
+  store i32 %inc.i.i136, ptr %a_except_table_off, align 8
+  %idxprom.i.i137 = sext i32 %39 to i64
+  %arrayidx.i.i138 = getelementptr i8, ptr %ob_sval.i.i.i133, i64 %idxprom.i.i137
+  store i8 %conv.i.i134, ptr %arrayidx.i.i138, align 1
+  br label %if.end7.thread.i117
 
-if.end.i76:                                       ; preds = %assemble_emit_exception_table_item.exit74
-  %cmp2.i77 = icmp sgt i32 %handler_offset, 262143
-  br i1 %cmp2.i77, label %if.end7.thread.i116, label %if.end7.i78
+if.end.i77:                                       ; preds = %assemble_emit_exception_table_item.exit75
+  %cmp2.i78 = icmp sgt i32 %handler_offset, 262143
+  br i1 %cmp2.i78, label %if.end7.thread.i117, label %if.end7.i79
 
-if.end7.thread.i116:                              ; preds = %if.end.i76, %if.end.thread.i128
-  %shr4.i118 = lshr i32 %handler_offset, 18
+if.end7.thread.i117:                              ; preds = %if.end.i77, %if.end.thread.i129
+  %shr4.i119 = lshr i32 %handler_offset, 18
   %40 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i18.i122 = getelementptr inbounds i8, ptr %40, i64 32
-  %41 = trunc i32 %shr4.i118 to i8
+  %ob_sval.i.i18.i123 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = trunc i32 %shr4.i119 to i8
   %42 = and i8 %41, 63
-  %conv.i19.i123 = or disjoint i8 %42, 64
+  %conv.i19.i124 = or disjoint i8 %42, 64
   %43 = load i32, ptr %a_except_table_off, align 8
-  %inc.i21.i125 = add i32 %43, 1
-  store i32 %inc.i21.i125, ptr %a_except_table_off, align 8
-  %idxprom.i22.i126 = sext i32 %43 to i64
-  %arrayidx.i23.i127 = getelementptr i8, ptr %ob_sval.i.i18.i122, i64 %idxprom.i22.i126
-  store i8 %conv.i19.i123, ptr %arrayidx.i23.i127, align 1
-  br label %if.end14.thread.i104
+  %inc.i21.i126 = add i32 %43, 1
+  store i32 %inc.i21.i126, ptr %a_except_table_off, align 8
+  %idxprom.i22.i127 = sext i32 %43 to i64
+  %arrayidx.i23.i128 = getelementptr i8, ptr %ob_sval.i.i18.i123, i64 %idxprom.i22.i127
+  store i8 %conv.i19.i124, ptr %arrayidx.i23.i128, align 1
+  br label %if.end14.thread.i105
 
-if.end7.i78:                                      ; preds = %if.end.i76
-  %cmp8.i79 = icmp sgt i32 %handler_offset, 4095
-  br i1 %cmp8.i79, label %if.end14.thread.i104, label %if.end14.i80
+if.end7.i79:                                      ; preds = %if.end.i77
+  %cmp8.i80 = icmp sgt i32 %handler_offset, 4095
+  br i1 %cmp8.i80, label %if.end14.thread.i105, label %if.end14.i81
 
-if.end14.thread.i104:                             ; preds = %if.end7.i78, %if.end7.thread.i116
-  %shr10.i106 = lshr i32 %handler_offset, 12
+if.end14.thread.i105:                             ; preds = %if.end7.i79, %if.end7.thread.i117
+  %shr10.i107 = lshr i32 %handler_offset, 12
   %44 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i25.i110 = getelementptr inbounds i8, ptr %44, i64 32
-  %45 = trunc i32 %shr10.i106 to i8
+  %ob_sval.i.i25.i111 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = trunc i32 %shr10.i107 to i8
   %46 = and i8 %45, 63
-  %conv.i26.i111 = or disjoint i8 %46, 64
+  %conv.i26.i112 = or disjoint i8 %46, 64
   %47 = load i32, ptr %a_except_table_off, align 8
-  %inc.i28.i113 = add i32 %47, 1
-  store i32 %inc.i28.i113, ptr %a_except_table_off, align 8
-  %idxprom.i29.i114 = sext i32 %47 to i64
-  %arrayidx.i30.i115 = getelementptr i8, ptr %ob_sval.i.i25.i110, i64 %idxprom.i29.i114
-  store i8 %conv.i26.i111, ptr %arrayidx.i30.i115, align 1
-  br label %if.then16.i92
+  %inc.i28.i114 = add i32 %47, 1
+  store i32 %inc.i28.i114, ptr %a_except_table_off, align 8
+  %idxprom.i29.i115 = sext i32 %47 to i64
+  %arrayidx.i30.i116 = getelementptr i8, ptr %ob_sval.i.i25.i111, i64 %idxprom.i29.i115
+  store i8 %conv.i26.i112, ptr %arrayidx.i30.i116, align 1
+  br label %if.then16.i93
 
-if.end14.i80:                                     ; preds = %if.end7.i78
-  %cmp15.i81 = icmp sgt i32 %handler_offset, 63
-  br i1 %cmp15.i81, label %if.then16.i92, label %assemble_emit_exception_table_item.exit137
+if.end14.i81:                                     ; preds = %if.end7.i79
+  %cmp15.i82 = icmp sgt i32 %handler_offset, 63
+  br i1 %cmp15.i82, label %if.then16.i93, label %assemble_emit_exception_table_item.exit139
 
-if.then16.i92:                                    ; preds = %if.end14.i80, %if.end14.thread.i104
-  %shr17.i94 = lshr i32 %handler_offset, 6
+if.then16.i93:                                    ; preds = %if.end14.i81, %if.end14.thread.i105
+  %shr17.i95 = lshr i32 %handler_offset, 6
   %48 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i32.i98 = getelementptr inbounds i8, ptr %48, i64 32
-  %49 = trunc i32 %shr17.i94 to i8
+  %ob_sval.i.i32.i99 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = trunc i32 %shr17.i95 to i8
   %50 = and i8 %49, 63
-  %conv.i33.i99 = or disjoint i8 %50, 64
+  %conv.i33.i100 = or disjoint i8 %50, 64
   %51 = load i32, ptr %a_except_table_off, align 8
-  %inc.i35.i101 = add i32 %51, 1
-  store i32 %inc.i35.i101, ptr %a_except_table_off, align 8
-  %idxprom.i36.i102 = sext i32 %51 to i64
-  %arrayidx.i37.i103 = getelementptr i8, ptr %ob_sval.i.i32.i98, i64 %idxprom.i36.i102
-  store i8 %conv.i33.i99, ptr %arrayidx.i37.i103, align 1
-  br label %assemble_emit_exception_table_item.exit137
+  %inc.i35.i102 = add i32 %51, 1
+  store i32 %inc.i35.i102, ptr %a_except_table_off, align 8
+  %idxprom.i36.i103 = sext i32 %51 to i64
+  %arrayidx.i37.i104 = getelementptr i8, ptr %ob_sval.i.i32.i99, i64 %idxprom.i36.i103
+  store i8 %conv.i33.i100, ptr %arrayidx.i37.i104, align 1
+  br label %assemble_emit_exception_table_item.exit139
 
-assemble_emit_exception_table_item.exit137:       ; preds = %if.end14.i80, %if.then16.i92
+assemble_emit_exception_table_item.exit139:       ; preds = %if.end14.i81, %if.then16.i93
   %52 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i39.i86 = getelementptr inbounds i8, ptr %52, i64 32
+  %ob_sval.i.i39.i87 = getelementptr inbounds i8, ptr %52, i64 32
   %53 = trunc i32 %handler_offset to i8
-  %conv.i40.i87 = and i8 %53, 63
+  %conv.i40.i88 = and i8 %53, 63
   %54 = load i32, ptr %a_except_table_off, align 8
-  %inc.i42.i89 = add i32 %54, 1
-  store i32 %inc.i42.i89, ptr %a_except_table_off, align 8
-  %idxprom.i43.i90 = sext i32 %54 to i64
-  %arrayidx.i44.i91 = getelementptr i8, ptr %ob_sval.i.i39.i86, i64 %idxprom.i43.i90
-  store i8 %conv.i40.i87, ptr %arrayidx.i44.i91, align 1
-  %cmp.i138 = icmp sgt i32 %or, 16777215
-  br i1 %cmp.i138, label %if.end.thread.i191, label %if.end.i139
+  %inc.i42.i90 = add i32 %54, 1
+  store i32 %inc.i42.i90, ptr %a_except_table_off, align 8
+  %idxprom.i43.i91 = sext i32 %54 to i64
+  %arrayidx.i44.i92 = getelementptr i8, ptr %ob_sval.i.i39.i87, i64 %idxprom.i43.i91
+  store i8 %conv.i40.i88, ptr %arrayidx.i44.i92, align 1
+  %cmp.i140 = icmp sgt i32 %or, 16777215
+  br i1 %cmp.i140, label %if.end.thread.i193, label %if.end.i141
 
-if.end.thread.i191:                               ; preds = %assemble_emit_exception_table_item.exit137
-  %shr.i192 = lshr i32 %or, 24
+if.end.thread.i193:                               ; preds = %assemble_emit_exception_table_item.exit139
+  %shr.i194 = lshr i32 %or, 24
   %55 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i.i194 = getelementptr inbounds i8, ptr %55, i64 32
-  %56 = trunc nuw i32 %shr.i192 to i8
-  %conv.i.i195 = or i8 %56, 64
+  %ob_sval.i.i.i197 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = trunc nuw i32 %shr.i194 to i8
+  %conv.i.i198 = or i8 %56, 64
   %57 = load i32, ptr %a_except_table_off, align 8
-  %inc.i.i197 = add i32 %57, 1
-  store i32 %inc.i.i197, ptr %a_except_table_off, align 8
-  %idxprom.i.i198 = sext i32 %57 to i64
-  %arrayidx.i.i199 = getelementptr i8, ptr %ob_sval.i.i.i194, i64 %idxprom.i.i198
-  store i8 %conv.i.i195, ptr %arrayidx.i.i199, align 1
-  br label %if.end7.thread.i179
+  %inc.i.i200 = add i32 %57, 1
+  store i32 %inc.i.i200, ptr %a_except_table_off, align 8
+  %idxprom.i.i201 = sext i32 %57 to i64
+  %arrayidx.i.i202 = getelementptr i8, ptr %ob_sval.i.i.i197, i64 %idxprom.i.i201
+  store i8 %conv.i.i198, ptr %arrayidx.i.i202, align 1
+  br label %if.end7.thread.i181
 
-if.end.i139:                                      ; preds = %assemble_emit_exception_table_item.exit137
-  %cmp2.i140 = icmp sgt i32 %or, 262143
-  br i1 %cmp2.i140, label %if.end7.thread.i179, label %if.end7.i141
+if.end.i141:                                      ; preds = %assemble_emit_exception_table_item.exit139
+  %cmp2.i142 = icmp sgt i32 %or, 262143
+  br i1 %cmp2.i142, label %if.end7.thread.i181, label %if.end7.i143
 
-if.end7.thread.i179:                              ; preds = %if.end.i139, %if.end.thread.i191
-  %shr4.i181 = lshr i32 %or, 18
+if.end7.thread.i181:                              ; preds = %if.end.i141, %if.end.thread.i193
+  %shr4.i183 = lshr i32 %or, 18
   %58 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i18.i185 = getelementptr inbounds i8, ptr %58, i64 32
-  %59 = trunc i32 %shr4.i181 to i8
+  %ob_sval.i.i18.i187 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = trunc i32 %shr4.i183 to i8
   %60 = and i8 %59, 63
-  %conv.i19.i186 = or disjoint i8 %60, 64
+  %conv.i19.i188 = or disjoint i8 %60, 64
   %61 = load i32, ptr %a_except_table_off, align 8
-  %inc.i21.i188 = add i32 %61, 1
-  store i32 %inc.i21.i188, ptr %a_except_table_off, align 8
-  %idxprom.i22.i189 = sext i32 %61 to i64
-  %arrayidx.i23.i190 = getelementptr i8, ptr %ob_sval.i.i18.i185, i64 %idxprom.i22.i189
-  store i8 %conv.i19.i186, ptr %arrayidx.i23.i190, align 1
-  br label %if.end14.thread.i167
+  %inc.i21.i190 = add i32 %61, 1
+  store i32 %inc.i21.i190, ptr %a_except_table_off, align 8
+  %idxprom.i22.i191 = sext i32 %61 to i64
+  %arrayidx.i23.i192 = getelementptr i8, ptr %ob_sval.i.i18.i187, i64 %idxprom.i22.i191
+  store i8 %conv.i19.i188, ptr %arrayidx.i23.i192, align 1
+  br label %if.end14.thread.i169
 
-if.end7.i141:                                     ; preds = %if.end.i139
-  %cmp8.i142 = icmp sgt i32 %or, 4095
-  br i1 %cmp8.i142, label %if.end14.thread.i167, label %if.end14.i143
+if.end7.i143:                                     ; preds = %if.end.i141
+  %cmp8.i144 = icmp sgt i32 %or, 4095
+  br i1 %cmp8.i144, label %if.end14.thread.i169, label %if.end14.i145
 
-if.end14.thread.i167:                             ; preds = %if.end7.i141, %if.end7.thread.i179
-  %shr10.i169 = lshr i32 %or, 12
+if.end14.thread.i169:                             ; preds = %if.end7.i143, %if.end7.thread.i181
+  %shr10.i171 = lshr i32 %or, 12
   %62 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i25.i173 = getelementptr inbounds i8, ptr %62, i64 32
-  %63 = trunc i32 %shr10.i169 to i8
+  %ob_sval.i.i25.i175 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = trunc i32 %shr10.i171 to i8
   %64 = and i8 %63, 63
-  %conv.i26.i174 = or disjoint i8 %64, 64
+  %conv.i26.i176 = or disjoint i8 %64, 64
   %65 = load i32, ptr %a_except_table_off, align 8
-  %inc.i28.i176 = add i32 %65, 1
-  store i32 %inc.i28.i176, ptr %a_except_table_off, align 8
-  %idxprom.i29.i177 = sext i32 %65 to i64
-  %arrayidx.i30.i178 = getelementptr i8, ptr %ob_sval.i.i25.i173, i64 %idxprom.i29.i177
-  store i8 %conv.i26.i174, ptr %arrayidx.i30.i178, align 1
-  br label %if.then16.i155
+  %inc.i28.i178 = add i32 %65, 1
+  store i32 %inc.i28.i178, ptr %a_except_table_off, align 8
+  %idxprom.i29.i179 = sext i32 %65 to i64
+  %arrayidx.i30.i180 = getelementptr i8, ptr %ob_sval.i.i25.i175, i64 %idxprom.i29.i179
+  store i8 %conv.i26.i176, ptr %arrayidx.i30.i180, align 1
+  br label %if.then16.i157
 
-if.end14.i143:                                    ; preds = %if.end7.i141
-  %cmp15.i144 = icmp sgt i32 %or, 63
-  br i1 %cmp15.i144, label %if.then16.i155, label %assemble_emit_exception_table_item.exit200
+if.end14.i145:                                    ; preds = %if.end7.i143
+  %cmp15.i146 = icmp sgt i32 %or, 63
+  br i1 %cmp15.i146, label %if.then16.i157, label %assemble_emit_exception_table_item.exit203
 
-if.then16.i155:                                   ; preds = %if.end14.i143, %if.end14.thread.i167
-  %shr17.i157 = lshr i32 %or, 6
+if.then16.i157:                                   ; preds = %if.end14.i145, %if.end14.thread.i169
+  %shr17.i159 = lshr i32 %or, 6
   %66 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i32.i161 = getelementptr inbounds i8, ptr %66, i64 32
-  %67 = trunc i32 %shr17.i157 to i8
+  %ob_sval.i.i32.i163 = getelementptr inbounds i8, ptr %66, i64 32
+  %67 = trunc i32 %shr17.i159 to i8
   %68 = and i8 %67, 63
-  %conv.i33.i162 = or disjoint i8 %68, 64
+  %conv.i33.i164 = or disjoint i8 %68, 64
   %69 = load i32, ptr %a_except_table_off, align 8
-  %inc.i35.i164 = add i32 %69, 1
-  store i32 %inc.i35.i164, ptr %a_except_table_off, align 8
-  %idxprom.i36.i165 = sext i32 %69 to i64
-  %arrayidx.i37.i166 = getelementptr i8, ptr %ob_sval.i.i32.i161, i64 %idxprom.i36.i165
-  store i8 %conv.i33.i162, ptr %arrayidx.i37.i166, align 1
-  br label %assemble_emit_exception_table_item.exit200
+  %inc.i35.i166 = add i32 %69, 1
+  store i32 %inc.i35.i166, ptr %a_except_table_off, align 8
+  %idxprom.i36.i167 = sext i32 %69 to i64
+  %arrayidx.i37.i168 = getelementptr i8, ptr %ob_sval.i.i32.i163, i64 %idxprom.i36.i167
+  store i8 %conv.i33.i164, ptr %arrayidx.i37.i168, align 1
+  br label %assemble_emit_exception_table_item.exit203
 
-assemble_emit_exception_table_item.exit200:       ; preds = %if.end14.i143, %if.then16.i155
+assemble_emit_exception_table_item.exit203:       ; preds = %if.end14.i145, %if.then16.i157
   %70 = load ptr, ptr %a_except_table, align 8
-  %ob_sval.i.i39.i149 = getelementptr inbounds i8, ptr %70, i64 32
+  %ob_sval.i.i39.i151 = getelementptr inbounds i8, ptr %70, i64 32
   %71 = trunc i32 %or to i8
-  %conv.i40.i150 = and i8 %71, 63
+  %conv.i40.i152 = and i8 %71, 63
   %72 = load i32, ptr %a_except_table_off, align 8
-  %inc.i42.i152 = add i32 %72, 1
-  store i32 %inc.i42.i152, ptr %a_except_table_off, align 8
-  %idxprom.i43.i153 = sext i32 %72 to i64
-  %arrayidx.i44.i154 = getelementptr i8, ptr %ob_sval.i.i39.i149, i64 %idxprom.i43.i153
-  store i8 %conv.i40.i150, ptr %arrayidx.i44.i154, align 1
+  %inc.i42.i154 = add i32 %72, 1
+  store i32 %inc.i42.i154, ptr %a_except_table_off, align 8
+  %idxprom.i43.i155 = sext i32 %72 to i64
+  %arrayidx.i44.i156 = getelementptr i8, ptr %ob_sval.i.i39.i151, i64 %idxprom.i43.i155
+  store i8 %conv.i40.i152, ptr %arrayidx.i44.i156, align 1
   br label %return
 
-return:                                           ; preds = %if.then, %assemble_emit_exception_table_item.exit200
-  %retval.0 = phi i32 [ 0, %assemble_emit_exception_table_item.exit200 ], [ -1, %if.then ]
+return:                                           ; preds = %if.then, %assemble_emit_exception_table_item.exit203
+  %retval.0 = phi i32 [ 0, %assemble_emit_exception_table_item.exit203 ], [ -1, %if.then ]
   ret i32 %retval.0
 }
 

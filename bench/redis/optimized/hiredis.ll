@@ -1719,7 +1719,7 @@ if.end16:                                         ; preds = %if.then13, %land.lh
 
 if.then24:                                        ; preds = %if.end16
   store i32 5, ptr %err, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -1754,7 +1754,7 @@ if.then33:                                        ; preds = %if.end25
 
 if.else36:                                        ; preds = %if.end25
   store i32 2, ptr %err, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %errstr, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %errstr, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
   %arrayidx.i45 = getelementptr inbounds i8, ptr %c, i64 47
   store i8 0, ptr %arrayidx.i45, align 1
   br label %if.end38
@@ -1953,7 +1953,7 @@ if.then56:                                        ; preds = %lor.lhs.false, %if.
   %err.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 5, ptr %err.i, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 25
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2235,7 +2235,7 @@ entry:
 declare i32 @redisContextSetTcpUserTimeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisBufferRead(ptr noundef %c) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %buf = alloca [16384 x i8], align 16
   %err = getelementptr inbounds i8, ptr %c, i64 8
@@ -2270,9 +2270,9 @@ if.then11:                                        ; preds = %land.lhs.true
   %errstr = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %5, ptr %err, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %errstr) #14
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr) #14
   %cond.i = call i64 @llvm.umin.i64(i64 %call.i, i64 127)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i, ptr nonnull align 1 %errstr, i64 %cond.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i, ptr nonnull readonly align 1 %errstr, i64 %cond.i, i1 false)
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr %errstr4.i, i64 0, i64 %cond.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2285,7 +2285,7 @@ return:                                           ; preds = %if.end3, %land.lhs.
 declare i32 @redisReaderFeed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisBufferWrite(ptr noundef %c, ptr noundef writeonly %done) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %c, ptr noundef writeonly %done) local_unnamed_addr #0 {
 entry:
   %err = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i32, ptr %err, align 8
@@ -2467,7 +2467,7 @@ hi_sdslen.exit52:                                 ; preds = %if.then29, %sw.bb.i
 oom:                                              ; preds = %if.else18, %if.then10
   store i32 5, ptr %err, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i53 = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i53, align 1
   br label %return
@@ -2480,7 +2480,7 @@ return:                                           ; preds = %if.end27, %hi_sdsle
 declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisGetReplyFromReader(ptr nocapture noundef %c, ptr noundef %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr nocapture noundef %c, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %reader = getelementptr inbounds i8, ptr %c, i64 160
   %0 = load ptr, ptr %reader, align 8
@@ -2495,9 +2495,9 @@ if.then:                                          ; preds = %entry
   %err.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 %2, ptr %err.i, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %errstr) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr) #14
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 127)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i, ptr nonnull align 1 %errstr, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i, ptr nonnull readonly align 1 %errstr, i64 %cond.i, i1 false)
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr %errstr4.i, i64 0, i64 %cond.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2510,7 +2510,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @redisReaderGetReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisGetReply(ptr noundef %c, ptr noundef writeonly %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %c, ptr noundef writeonly %reply) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [16384 x i8], align 16
   %wdone = alloca i32, align 4
@@ -2558,9 +2558,9 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
   %err.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 %7, ptr %err.i.i.i, align 8
   %errstr4.i.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %errstr.i.i) #14
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr.i.i) #14
   %cond.i.i.i = call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 127)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i.i, ptr nonnull align 1 %errstr.i.i, i64 %cond.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i.i, ptr nonnull readonly align 1 %errstr.i.i, i64 %cond.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [128 x i8], ptr %errstr4.i.i.i, i64 0, i64 %cond.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %return
@@ -2573,7 +2573,7 @@ land.lhs.true:                                    ; preds = %do.cond.i
   br i1 %tobool.not, label %if.end20, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true, %do.cond
-  %call3 = call i32 @redisBufferWrite(ptr noundef %c, ptr noundef nonnull %wdone), !range !4
+  %call3 = call i32 @redisBufferWrite(ptr noundef %c, ptr noundef nonnull %wdone)
   %cmp4 = icmp eq i32 %call3, -1
   br i1 %cmp4, label %return, label %do.cond
 
@@ -2621,9 +2621,9 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
   %errstr.i = getelementptr inbounds i8, ptr %15, i64 4
   store i32 %16, ptr %err.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  %call.i.i7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %errstr.i) #14
+  %call.i.i7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr.i) #14
   %cond.i.i = call i64 @llvm.umin.i64(i64 %call.i.i7, i64 127)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i, ptr nonnull align 1 %errstr.i, i64 %cond.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i, ptr nonnull readonly align 1 %errstr.i, i64 %cond.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %errstr4.i.i, i64 0, i64 %cond.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %redisBufferRead.exit.thread
@@ -2668,9 +2668,9 @@ redisNextInBandReplyFromReader.exit31:            ; preds = %if.end12, %redisHan
   %errstr.i.i25 = getelementptr inbounds i8, ptr %23, i64 4
   store i32 %24, ptr %err.i, align 8
   %errstr4.i.i.i27 = getelementptr inbounds i8, ptr %c, i64 12
-  %call.i.i.i28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %errstr.i.i25) #14
+  %call.i.i.i28 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr.i.i25) #14
   %cond.i.i.i29 = call i64 @llvm.umin.i64(i64 %call.i.i.i28, i64 127)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i.i27, ptr nonnull align 1 %errstr.i.i25, i64 %cond.i.i.i29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr4.i.i.i27, ptr nonnull readonly align 1 %errstr.i.i25, i64 %cond.i.i.i29, i1 false)
   %arrayidx.i.i.i30 = getelementptr inbounds [128 x i8], ptr %errstr4.i.i.i27, i64 0, i64 %cond.i.i.i29
   store i8 0, ptr %arrayidx.i.i.i30, align 1
   br label %return
@@ -2694,7 +2694,7 @@ return:                                           ; preds = %do.body, %redisNext
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @__redisAppendCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @__redisAppendCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %obuf = getelementptr inbounds i8, ptr %c, i64 152
   %0 = load ptr, ptr %obuf, align 8
@@ -2706,7 +2706,7 @@ if.then:                                          ; preds = %entry
   %err.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2721,7 +2721,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisAppendFormattedCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendFormattedCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %obuf.i = getelementptr inbounds i8, ptr %c, i64 152
   %0 = load ptr, ptr %obuf.i, align 8
@@ -2733,7 +2733,7 @@ __redisAppendCommand.exit:                        ; preds = %entry
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %2
@@ -2748,7 +2748,7 @@ __redisAppendCommand.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisvAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisvAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %call = call i32 @redisvFormatCommand(ptr noundef nonnull %cmd, ptr noundef %format, ptr noundef %ap)
@@ -2761,7 +2761,7 @@ if.then:                                          ; preds = %entry
   %err.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2770,7 +2770,7 @@ if.then2:                                         ; preds = %entry
   %err.i5 = getelementptr inbounds i8, ptr %c, i64 8
   store i32 2, ptr %err.i5, align 8
   %errstr4.i6 = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %arrayidx.i9 = getelementptr inbounds i8, ptr %c, i64 33
   store i8 0, ptr %arrayidx.i9, align 1
   br label %return
@@ -2788,7 +2788,7 @@ if.then7:                                         ; preds = %if.end3
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = load ptr, ptr %cmd, align 8
@@ -2809,7 +2809,7 @@ return:                                           ; preds = %if.end8, %if.then7,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ...) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %cmd.i = alloca ptr, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -2825,7 +2825,7 @@ if.then.i:                                        ; preds = %entry
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %redisvAppendCommand.exit
@@ -2834,7 +2834,7 @@ if.then2.i:                                       ; preds = %entry
   %err.i5.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 2, ptr %err.i5.i, align 8
   %errstr4.i6.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6.i, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %arrayidx.i9.i = getelementptr inbounds i8, ptr %c, i64 33
   store i8 0, ptr %arrayidx.i9.i, align 1
   br label %redisvAppendCommand.exit
@@ -2852,7 +2852,7 @@ if.then7.i:                                       ; preds = %if.end3.i
   %err.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i.i, align 8
   %errstr4.i.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = load ptr, ptr %cmd.i, align 8
@@ -2875,7 +2875,7 @@ redisvAppendCommand.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisAppendCommandArgv(ptr nocapture noundef %c, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr nocapture noundef %c, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %call = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %cmd, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen)
@@ -2886,7 +2886,7 @@ if.then:                                          ; preds = %entry
   %err.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i, align 8
   %errstr4.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
@@ -2903,7 +2903,7 @@ if.then3:                                         ; preds = %if.end
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = load ptr, ptr %cmd, align 8
@@ -2937,7 +2937,7 @@ if.then.i:                                        ; preds = %entry
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %redisvAppendCommand.exit.thread
@@ -2946,7 +2946,7 @@ if.then2.i:                                       ; preds = %entry
   %err.i5.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 2, ptr %err.i5.i, align 8
   %errstr4.i6.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr4.i6.i, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %arrayidx.i9.i = getelementptr inbounds i8, ptr %c, i64 33
   store i8 0, ptr %arrayidx.i9.i, align 1
   br label %redisvAppendCommand.exit.thread
@@ -2964,7 +2964,7 @@ if.then7.i:                                       ; preds = %if.end3.i
   %err.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i.i, align 8
   %errstr4.i.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = load ptr, ptr %cmd.i, align 8
@@ -2990,7 +2990,7 @@ if.end:                                           ; preds = %if.end3.i
   br i1 %tobool.not.i, label %__redisBlockForReply.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %if.end
-  %call.i3 = call i32 @redisGetReply(ptr noundef nonnull %c, ptr noundef nonnull %reply.i), !range !4
+  %call.i3 = call i32 @redisGetReply(ptr noundef nonnull %c, ptr noundef nonnull %reply.i)
   %cmp.not.i = icmp eq i32 %call.i3, 0
   %7 = load ptr, ptr %reply.i, align 8
   %spec.select.i = select i1 %cmp.not.i, ptr %7, ptr null
@@ -3022,7 +3022,7 @@ entry:
   %reply.i = alloca ptr, align 8
   %cmd.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cmd.i)
-  %call.i = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %cmd.i, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen)
+  %call.i = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %cmd.i, i32 noundef %argc, ptr noundef readonly %argv, ptr noundef %argvlen)
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -3030,7 +3030,7 @@ if.then.i:                                        ; preds = %entry
   %err.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %redisAppendCommandArgv.exit.thread
@@ -3047,7 +3047,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %err.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   store i32 5, ptr %err.i.i.i, align 8
   %errstr4.i.i.i = getelementptr inbounds i8, ptr %c, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr4.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = load ptr, ptr %cmd.i, align 8
@@ -3071,7 +3071,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %tobool.not.i, label %__redisBlockForReply.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %if.end
-  %call.i3 = call i32 @redisGetReply(ptr noundef nonnull %c, ptr noundef nonnull %reply.i), !range !4
+  %call.i3 = call i32 @redisGetReply(ptr noundef nonnull %c, ptr noundef nonnull %reply.i)
   %cmp.not.i = icmp eq i32 %call.i3, 0
   %5 = load ptr, ptr %reply.i, align 8
   %spec.select.i = select i1 %cmp.not.i, ptr %5, ptr null
@@ -3430,4 +3430,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @i2r_SINGLE_USE(ptr nocapture readnone %method, ptr nocapture readnone %su, ptr nocapture readnone %out, i32 %indent) #2 {
+define internal noundef i32 @i2r_SINGLE_USE(ptr nocapture readnone %method, ptr nocapture readnone %su, ptr nocapture readnone %out, i32 %indent) #2 {
 entry:
   ret i32 1
 }

@@ -40,7 +40,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr %4, align 4
   %34 = lshr i64 %32, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 %35, ptr %36, align 4
   br label %37
@@ -110,7 +110,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %83 = lshr i64 %76, 32
   %84 = zext i1 %.2.in to i64
   %85 = add nuw nsw i64 %83, %84
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   %87 = getelementptr inbounds i8, ptr %.077.ptr, i64 20
   store i32 %86, ptr %87, align 4
   %.not87 = icmp eq i64 %.077.add, 12

@@ -89,7 +89,7 @@ return:                                           ; preds = %if.end, %if.end5
 declare i64 @tls_get_max_records_default(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_write_records_multiblock(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_write_records_multiblock(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) local_unnamed_addr #0 {
 entry:
   %aad.i = alloca [13 x i8], align 8
   %mb_param.i = alloca %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, align 8

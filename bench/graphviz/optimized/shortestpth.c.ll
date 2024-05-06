@@ -114,7 +114,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %60
-  %67 = trunc i64 %indvars.iv73.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv73.i to i32
   br label %68
 
 68:                                               ; preds = %66, %60, %46

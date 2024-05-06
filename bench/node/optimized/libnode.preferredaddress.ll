@@ -199,7 +199,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %agg.result, ptr noundef nonnull align 8 dereferenceable(1056) %address.i, i64 1056, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1056) %agg.result, ptr noundef nonnull align 8 dereferenceable(1056) %address.i, i64 1056, i1 false)
   br label %_ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit
 
 _ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit: ; preds = %entry, %if.end6.i
@@ -245,7 +245,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %agg.result, ptr noundef nonnull align 8 dereferenceable(1056) %address.i, i64 1056, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1056) %agg.result, ptr noundef nonnull align 8 dereferenceable(1056) %address.i, i64 1056, i1 false)
   br label %_ZN4node4quic12_GLOBAL__N_116get_address_infoILi10EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit
 
 _ZN4node4quic12_GLOBAL__N_116get_address_infoILi10EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit: ; preds = %entry, %if.end6.i

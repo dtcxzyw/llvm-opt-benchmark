@@ -104,7 +104,7 @@ define dso_local i32 @acpi_ns_check_return_value(ptr noundef %0, ptr noundef %1,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12292) i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca [96 x i8], align 16
   %6 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #4

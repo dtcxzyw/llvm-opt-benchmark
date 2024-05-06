@@ -183,7 +183,7 @@ _Z13pj_log_activeP6pj_ctxi.exit.thread:           ; preds = %5, %15, %38
 declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @proj_log_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @proj_log_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 

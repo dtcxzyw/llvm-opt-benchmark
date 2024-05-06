@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [37 x i8] c"PRTE ERROR: %s in file %s at line %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_iof_base_setup_prefork(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -70, 1) i32 @prte_iof_base_setup_prefork(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.winsize, align 2
   %3 = load ptr, ptr @stdout, align 8
   %4 = tail call i32 @fflush(ptr noundef %3)
@@ -87,7 +87,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_iof_base_setup_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %struct.termios, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4

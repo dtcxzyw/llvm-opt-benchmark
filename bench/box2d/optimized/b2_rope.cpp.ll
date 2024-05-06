@@ -224,10 +224,10 @@ for.body74:                                       ; preds = %for.end, %for.body7
   %33 = load float, ptr %arrayidx83, align 4
   %arrayidx83.sroa_idx = getelementptr inbounds i8, ptr %arrayidx83, i64 4
   %34 = load float, ptr %arrayidx83.sroa_idx, align 4
-  %35 = trunc i64 %indvars.iv215 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv215 to i32
   store i32 %35, ptr %arrayidx77, align 4
   %i2 = getelementptr inbounds i8, ptr %arrayidx77, i64 4
-  %36 = trunc i64 %indvars.iv.next216 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.next216 to i32
   store i32 %36, ptr %i2, align 4
   %sub.i.i = fsub float %31, %33
   %sub3.i.i = fsub float %32, %34
@@ -274,13 +274,13 @@ for.body100:                                      ; preds = %for.cond97.preheade
   %51 = load float, ptr %arrayidx117, align 4
   %arrayidx117.sroa_idx = getelementptr inbounds i8, ptr %arrayidx117, i64 4
   %52 = load float, ptr %arrayidx117.sroa_idx, align 4
-  %53 = trunc i64 %indvars.iv218 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv218 to i32
   store i32 %53, ptr %arrayidx104, align 4
   %i2120 = getelementptr inbounds i8, ptr %arrayidx104, i64 4
-  %54 = trunc i64 %indvars.iv.next219 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next219 to i32
   store i32 %54, ptr %i2120, align 4
   %i3 = getelementptr inbounds i8, ptr %arrayidx104, i64 8
-  %55 = trunc i64 %50 to i32
+  %55 = trunc nuw nsw i64 %50 to i32
   store i32 %55, ptr %i3, align 4
   %56 = load ptr, ptr %m_invMasses, align 8
   %arrayidx124 = getelementptr inbounds float, ptr %56, i64 %indvars.iv218

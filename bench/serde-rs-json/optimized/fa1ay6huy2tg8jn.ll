@@ -203,7 +203,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %.02636 = phi i64 [ %14, %.lr.ph ], [ 20, %2 ]
   %6 = urem i64 %.137, 10000
   %7 = udiv i64 %.137, 10000
-  %.lhs.trunc = trunc i64 %6 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %6 to i16
   %8 = udiv i16 %.lhs.trunc, 100
   %9 = shl nuw nsw i16 %8, 1
   %10 = zext nneg i16 %9 to i64
@@ -223,7 +223,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 21:                                               ; preds = %._crit_edge
-  %.lhs.trunc32 = trunc i64 %.1.lcssa to i16
+  %.lhs.trunc32 = trunc nuw i64 %.1.lcssa to i16
   %22 = urem i16 %.lhs.trunc32, 100
   %23 = shl nuw nsw i16 %22, 1
   %24 = zext nneg i16 %23 to i64
@@ -253,7 +253,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 38:                                               ; preds = %30
   %39 = add i64 %.127, -1
-  %40 = trunc i64 %.025 to i8
+  %40 = trunc nuw nsw i64 %.025 to i8
   %41 = getelementptr inbounds i8, ptr %1, i64 %39
   %42 = or disjoint i8 %40, 48
   store i8 %42, ptr %41, align 1
@@ -295,7 +295,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
   %5 = urem i64 %.137, 10000
   %6 = udiv i64 %.137, 10000
-  %.lhs.trunc = trunc i64 %5 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %5 to i16
   %7 = udiv i16 %.lhs.trunc, 100
   %8 = shl nuw nsw i16 %7, 1
   %9 = zext nneg i16 %8 to i64
@@ -315,7 +315,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 20:                                               ; preds = %._crit_edge
-  %.lhs.trunc32 = trunc i64 %.1.lcssa to i16
+  %.lhs.trunc32 = trunc nuw i64 %.1.lcssa to i16
   %21 = urem i16 %.lhs.trunc32, 100
   %22 = shl nuw nsw i16 %21, 1
   %23 = zext nneg i16 %22 to i64
@@ -345,7 +345,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 37:                                               ; preds = %29
   %38 = add i64 %.129, -1
-  %39 = trunc i64 %.027 to i8
+  %39 = trunc nuw nsw i64 %.027 to i8
   %40 = getelementptr inbounds i8, ptr %1, i64 %38
   %41 = or disjoint i8 %39, 48
   store i8 %41, ptr %40, align 1
@@ -764,7 +764,7 @@ default.unreachable22:                            ; preds = %2
   %.02836.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %8 ]
   %12 = urem i64 %.137.i, 10000
   %13 = udiv i64 %.137.i, 10000
-  %.lhs.trunc.i = trunc i64 %12 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %12 to i16
   %14 = udiv i16 %.lhs.trunc.i, 100
   %15 = shl nuw nsw i16 %14, 1
   %16 = zext nneg i16 %15 to i64
@@ -784,7 +784,7 @@ default.unreachable22:                            ; preds = %2
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc32.i = trunc i64 %.1.lcssa.i to i16
+  %.lhs.trunc32.i = trunc nuw i64 %.1.lcssa.i to i16
   %28 = urem i16 %.lhs.trunc32.i, 100
   %29 = shl nuw nsw i16 %28, 1
   %30 = zext nneg i16 %29 to i64
@@ -814,7 +814,7 @@ default.unreachable22:                            ; preds = %2
 
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
-  %46 = trunc i64 %.027.i to i8
+  %46 = trunc nuw nsw i64 %.027.i to i8
   %47 = getelementptr inbounds i8, ptr %5, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !31
@@ -849,7 +849,7 @@ default.unreachable22:                            ; preds = %2
   %.02636.i = phi i64 [ %65, %.lr.ph.i12 ], [ 20, %52 ]
   %57 = urem i64 %.137.i13, 10000
   %58 = udiv i64 %.137.i13, 10000
-  %.lhs.trunc.i14 = trunc i64 %57 to i16
+  %.lhs.trunc.i14 = trunc nuw nsw i64 %57 to i16
   %59 = udiv i16 %.lhs.trunc.i14, 100
   %60 = shl nuw nsw i16 %59, 1
   %61 = zext nneg i16 %60 to i64
@@ -869,7 +869,7 @@ default.unreachable22:                            ; preds = %2
   br i1 %71, label %.lr.ph.i12, label %._crit_edge.i7
 
 72:                                               ; preds = %._crit_edge.i7
-  %.lhs.trunc32.i10 = trunc i64 %.1.lcssa.i8 to i16
+  %.lhs.trunc32.i10 = trunc nuw i64 %.1.lcssa.i8 to i16
   %73 = urem i16 %.lhs.trunc32.i10, 100
   %74 = shl nuw nsw i16 %73, 1
   %75 = zext nneg i16 %74 to i64
@@ -899,7 +899,7 @@ default.unreachable22:                            ; preds = %2
 
 89:                                               ; preds = %81
   %90 = add i64 %.127.i, -1
-  %91 = trunc i64 %.025.i to i8
+  %91 = trunc nuw nsw i64 %.025.i to i8
   %92 = getelementptr inbounds i8, ptr %4, i64 %90
   %93 = or disjoint i8 %91, 48
   store i8 %93, ptr %92, align 1, !alias.scope !34

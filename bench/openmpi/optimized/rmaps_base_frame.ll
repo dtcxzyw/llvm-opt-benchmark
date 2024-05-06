@@ -294,19 +294,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %.not6.i15 = icmp eq ptr %42, null
-  br i1 %.not6.i15, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16
+  %.not6.i16 = icmp eq ptr %42, null
+  br i1 %.not6.i16, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17
 
-.lr.ph.i16:                                       ; preds = %._crit_edge, %.lr.ph.i16
-  %43 = phi ptr [ %45, %.lr.ph.i16 ], [ %42, %._crit_edge ]
-  %.07.i17 = phi ptr [ %44, %.lr.ph.i16 ], [ %41, %._crit_edge ]
+.lr.ph.i17:                                       ; preds = %._crit_edge, %.lr.ph.i17
+  %43 = phi ptr [ %45, %.lr.ph.i17 ], [ %42, %._crit_edge ]
+  %.07.i18 = phi ptr [ %44, %.lr.ph.i17 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull @prte_rmaps_base) #14
-  %44 = getelementptr inbounds i8, ptr %.07.i17, i64 8
+  %44 = getelementptr inbounds i8, ptr %.07.i18, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not.i18 = icmp eq ptr %45, null
-  br i1 %.not.i18, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16, !llvm.loop !6
+  %.not.i19 = icmp eq ptr %45, null
+  br i1 %.not.i19, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17, !llvm.loop !6
 
-pmix_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %._crit_edge
+pmix_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %._crit_edge
   %46 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
   tail call void @hwloc_bitmap_free(ptr noundef %46) #14
   %47 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
@@ -691,7 +691,7 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
 76:                                               ; preds = %57, %73
   %storemerge = phi ptr [ %75, %73 ], [ %59, %57 ]
   store ptr %storemerge, ptr %3, align 8
-  %77 = call fastcc i32 @check_modifiers(ptr noundef %storemerge, ptr noundef %0, ptr noundef nonnull %4), !range !8
+  %77 = call fastcc i32 @check_modifiers(ptr noundef %storemerge, ptr noundef %0, ptr noundef nonnull %4)
   switch i32 %77, label %80 [
     i32 0, label %81
     i32 -5, label %78
@@ -720,7 +720,7 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %1, i64 1
-  %88 = call fastcc i32 @check_modifiers(ptr noundef nonnull %87, ptr noundef %0, ptr noundef nonnull %4), !range !8
+  %88 = call fastcc i32 @check_modifiers(ptr noundef nonnull %87, ptr noundef %0, ptr noundef nonnull %4)
   switch i32 %88, label %91 [
     i32 0, label %92
     i32 -5, label %89
@@ -1024,7 +1024,7 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   %240 = getelementptr inbounds ptr, ptr %230, i64 %indvars.iv.next
   %241 = load ptr, ptr %240, align 8
   %.not136 = icmp eq ptr %241, null
-  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %237, %239
   %indvars.iv = phi i64 [ %indvars.iv.next, %239 ], [ 0, %237 ]
@@ -1048,7 +1048,7 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   call void @PMIx_Argv_free(ptr noundef nonnull %230) #14
   %249 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.35) #14
   %.not135 = icmp eq ptr %249, null
-  br i1 %.not135, label %._crit_edge150, label %.lr.ph149, !llvm.loop !10
+  br i1 %.not135, label %._crit_edge150, label %.lr.ph149, !llvm.loop !9
 
 ._crit_edge150:                                   ; preds = %._crit_edge, %228
   %250 = getelementptr inbounds i8, ptr %0, i64 784
@@ -1155,7 +1155,7 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 declare i32 @prte_set_attribute(ptr noundef, i16 noundef zeroext, i1 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_modifiers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
@@ -1467,7 +1467,7 @@ define internal fastcc noundef i32 @check_modifiers(ptr noundef %0, ptr noundef 
   %146 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.next
   %147 = load ptr, ptr %146, align 8
   %.not = icmp eq ptr %147, null
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %145, %18
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
@@ -1534,7 +1534,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !11
 
 27:                                               ; preds = %17
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #14
@@ -1578,13 +1578,13 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_base_set_default_ranking(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef null), !range !8
+define range(i32 -43, 1) i32 @prte_rmaps_base_set_default_ranking(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %43
 
@@ -1850,8 +1850,7 @@ attributes #19 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -43, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

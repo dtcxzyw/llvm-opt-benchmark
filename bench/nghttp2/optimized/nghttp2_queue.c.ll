@@ -45,7 +45,7 @@ if.end:                                           ; preds = %while.body, %if.els
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_queue_push(ptr nocapture noundef %queue, ptr noundef %data) local_unnamed_addr #3 {
+define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr nocapture noundef %queue, ptr noundef %data) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %tobool.not = icmp eq ptr %call, null
@@ -139,7 +139,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_queue_empty(ptr nocapture noundef readonly %queue) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @nghttp2_queue_empty(ptr nocapture noundef readonly %queue) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %0, null

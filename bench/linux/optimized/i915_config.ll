@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i64 @i915_fence_context_timeout(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 0, 10002) i64 @i915_fence_context_timeout(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
   %4 = select i1 %3, i64 0, i64 10001
   ret i64 %4

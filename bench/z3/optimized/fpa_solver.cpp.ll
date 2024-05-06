@@ -1348,7 +1348,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3fpa6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(1556) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3fpa6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(1556) %this) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
@@ -4420,8 +4420,8 @@ if.then:                                          ; preds = %_ZNK8fpa_util5is_fp
   %8 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %9 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %9, i64 176
+  %9 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %9, i64 176
   %cmp.not81 = icmp eq i32 %8, 0
   br i1 %cmp.not81, label %return, label %for.body.lr.ph
 

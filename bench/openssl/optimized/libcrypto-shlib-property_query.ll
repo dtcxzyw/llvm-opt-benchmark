@@ -98,7 +98,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_property_has_optional(ptr nocapture noundef readonly %query) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_property_has_optional(ptr nocapture noundef readonly %query) local_unnamed_addr #2 {
 entry:
   %has_optional = getelementptr inbounds i8, ptr %query, i64 4
   %bf.load = load i8, ptr %has_optional, align 4
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_property_is_enabled(ptr noundef %ctx, ptr noundef %property_name, ptr noundef %prop_list) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_property_is_enabled(ptr noundef %ctx, ptr noundef %property_name, ptr noundef %prop_list) local_unnamed_addr #0 {
 entry:
   %name_idx.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %name_idx.i)

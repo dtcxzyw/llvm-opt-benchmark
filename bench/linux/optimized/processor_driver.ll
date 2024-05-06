@@ -74,7 +74,7 @@ declare dso_local i32 @cpufreq_unregister_notifier(ptr noundef, i32 noundef) loc
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @acpi_processor_driver_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @acpi_processor_driver_init() #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %16

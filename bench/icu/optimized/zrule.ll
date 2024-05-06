@@ -30,7 +30,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @zrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @zrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -235,7 +235,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7519InitialTimeZoneRule5cloneEv(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @izrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @izrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32

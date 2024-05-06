@@ -997,7 +997,7 @@ define hidden void @proto_reg_handoff_srt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_srt_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_srt_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 24
   br i1 %6, label %20, label %7
@@ -1182,7 +1182,7 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
   %14 = trunc i32 %13 to i8
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %14) #5
   %15 = lshr i32 %9, 24
-  %16 = trunc i32 %15 to i8
+  %16 = trunc nuw i32 %15 to i8
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %16) #5
   %17 = add nuw nsw i32 %.01, 4
   %18 = icmp slt i32 %17, %4

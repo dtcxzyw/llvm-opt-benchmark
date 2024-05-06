@@ -330,7 +330,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef %title, ptr noundef %exts, i64 noundef %flag, i32 noundef %indent) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef %title, ptr noundef %exts, i64 noundef %flag, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %exts) #2
   %cmp = icmp slt i32 %call1, 1

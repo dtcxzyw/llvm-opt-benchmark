@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @fseek_file_func(ptr nocapture readnone %opaque, ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %origin) #3 {
+define internal range(i64 -1, 1) i64 @fseek_file_func(ptr nocapture readnone %opaque, ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %origin) #3 {
 entry:
   %switch = icmp ult i32 %origin, 3
   br i1 %switch, label %sw.epilog, label %return
@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @fseek64_file_func(ptr nocapture readnone %opaque, ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %origin) #3 {
+define internal range(i64 -1, 1) i64 @fseek64_file_func(ptr nocapture readnone %opaque, ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %origin) #3 {
 entry:
   %switch = icmp ult i32 %origin, 3
   br i1 %switch, label %sw.epilog, label %return

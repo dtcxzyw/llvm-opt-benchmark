@@ -271,7 +271,7 @@ define void @_ZN6uu_seq6uu_app17h0039fed9134d123fE(ptr noalias nocapture noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i27, i64 16, i1 false), !noalias !68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i27)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %12, ptr noundef nonnull align 8 dereferenceable(592) %24, i64 592, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %12, ptr noundef nonnull align 8 dereferenceable(592) %24, i64 592, i1 false), !noalias !28
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
   invoke void @_ZN12clap_builder7builder7command7Command12arg_internal17h711ac70569505de6E(ptr noalias noundef nonnull align 8 dereferenceable(712) %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %12)
@@ -395,7 +395,7 @@ define void @_ZN6uu_seq6uu_app17h0039fed9134d123fE(ptr noalias nocapture noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i41, i64 16, i1 false), !noalias !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i41)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %9, ptr noundef nonnull align 8 dereferenceable(592) %22, i64 592, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %9, ptr noundef nonnull align 8 dereferenceable(592) %22, i64 592, i1 false), !noalias !28
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   invoke void @_ZN12clap_builder7builder7command7Command12arg_internal17h711ac70569505de6E(ptr noalias noundef nonnull align 8 dereferenceable(712) %30, ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %9)
@@ -652,7 +652,7 @@ define void @_ZN6uu_seq6uu_app17h0039fed9134d123fE(ptr noalias nocapture noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i75, i64 16, i1 false), !noalias !220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i75)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %3, ptr noundef nonnull align 8 dereferenceable(592) %18, i64 592, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %3, ptr noundef nonnull align 8 dereferenceable(592) %18, i64 592, i1 false), !noalias !28
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
   invoke void @_ZN12clap_builder7builder7command7Command12arg_internal17h711ac70569505de6E(ptr noalias noundef nonnull align 8 dereferenceable(712) %32, ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %3)
@@ -1017,7 +1017,7 @@ select.unfold:                                    ; preds = %69
   %101 = icmp ne ptr %100, null
   call void @llvm.assume(i1 %101)
   %102 = shl i64 %97, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull align 8 %96, i64 %102, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull readonly align 8 %96, i64 %102, i1 false)
   %103 = load i64, ptr %51, align 8, !alias.scope !297, !noalias !294, !noundef !28
   store i64 %99, ptr %17, align 8, !alias.scope !294, !noalias !297
   store ptr %100, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297

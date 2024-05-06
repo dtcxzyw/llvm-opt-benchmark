@@ -219,7 +219,7 @@ define internal void @ompi_mpi_errcode_destruct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_mpi_errcode_init() local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @ompi_mpi_errcode_init() local_unnamed_addr #1 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @errcode_lock, i64 0, i32 1, i32 0, i32 0)) #8
   %2 = load i32, ptr @ompi_mpi_errcode_lastpredefined, align 4
   %.not = icmp eq i32 %2, 0
@@ -4349,7 +4349,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %0, 0
   %5 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 4), align 8
   %6 = icmp sle i32 %5, %0

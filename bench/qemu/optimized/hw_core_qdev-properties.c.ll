@@ -634,7 +634,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv = trunc i64 %1 to i32
+  %conv = trunc nuw i64 %1 to i32
   store i32 %conv, ptr %add.ptr.i, align 4
   br label %return
 
@@ -1156,7 +1156,7 @@ while.cond.preheader.i.i:                         ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end5.i.i
   %2 = phi ptr [ %3, %if.end5.i.i ], [ %1, %while.cond.preheader.i.i ]
   %props.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %if.end5.i.i ], [ %0, %while.cond.preheader.i.i ]
-  %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #13
+  %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #13
   %cmp.i.i = icmp eq i32 %call.i4.i, 0
   br i1 %cmp.i.i, label %qdev_prop_find.exit, label %if.end5.i.i
 
@@ -1290,7 +1290,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qdev_prop_check_globals() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qdev_prop_check_globals() local_unnamed_addr #0 {
 entry:
   br label %for.cond
 

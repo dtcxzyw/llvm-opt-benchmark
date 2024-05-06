@@ -19,7 +19,7 @@ define void @softfloat_mul64To128M(i64 noundef %0, i64 noundef %1, ptr nocapture
   %15 = shl i64 %10, 32
   %16 = mul i64 %1, %0
   %17 = lshr i64 %16, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %18, ptr %19, align 4
   %20 = trunc i64 %16 to i32
@@ -30,7 +30,7 @@ define void @softfloat_mul64To128M(i64 noundef %0, i64 noundef %1, ptr nocapture
   %24 = add i64 %23, %13
   %25 = add i64 %24, %22
   %26 = lshr i64 %25, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %27, ptr %28, align 4
   %29 = trunc i64 %25 to i32

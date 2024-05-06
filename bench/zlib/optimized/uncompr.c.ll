@@ -53,7 +53,7 @@ do.body:                                          ; preds = %do.bodythread-pre-s
 
 if.then5:                                         ; preds = %do.body
   %cond19 = call i64 @llvm.umin.i64(i64 %left.1, i64 4294967295)
-  %cond = trunc i64 %cond19 to i32
+  %cond = trunc nuw i64 %cond19 to i32
   store i32 %cond, ptr %avail_out, align 8
   %sub = sub i64 %left.1, %cond19
   br label %if.end10
@@ -66,7 +66,7 @@ if.end10:                                         ; preds = %if.then5, %do.body
 
 if.then14:                                        ; preds = %if.end10
   %cond2120 = call i64 @llvm.umin.i64(i64 %len.0, i64 4294967295)
-  %cond21 = trunc i64 %cond2120 to i32
+  %cond21 = trunc nuw i64 %cond2120 to i32
   store i32 %cond21, ptr %avail_in, align 8
   %sub25 = sub i64 %len.0, %cond2120
   br label %if.end26

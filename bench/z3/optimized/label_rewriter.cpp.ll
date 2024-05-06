@@ -384,7 +384,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN14label_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS2_11ast_managerERS6_I3appS7_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr nocapture noundef readonly %f, i32 noundef %num, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %result_pr) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN14label_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS2_11ast_managerERS6_I3appS7_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr nocapture noundef readonly %f, i32 noundef %num, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %result_pr) local_unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8

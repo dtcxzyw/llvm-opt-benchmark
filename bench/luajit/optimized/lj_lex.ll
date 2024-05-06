@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [6 x i8] c"<eof>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_lex_setup(ptr noundef %L, ptr noundef %ls) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_lex_setup(ptr noundef %L, ptr noundef %ls) local_unnamed_addr #0 {
 cond.false.i61:
   %sz.i74 = alloca i64, align 8
   %sz.i50 = alloca i64, align 8
@@ -1175,7 +1175,7 @@ cond.true.i275:                                   ; preds = %if.else77
   br label %lex_next.exit279
 
 cond.false.i271:                                  ; preds = %if.else77
-  %call.i272 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i272 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit279
 
 lex_next.exit279:                                 ; preds = %cond.false.i271, %cond.true.i275
@@ -1264,7 +1264,7 @@ cond.true.i249:                                   ; preds = %if.else85
   br label %lex_next.exit253
 
 cond.false.i245:                                  ; preds = %if.else85
-  %call.i246 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i246 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit253
 
 lex_next.exit253:                                 ; preds = %cond.false.i245, %cond.true.i249
@@ -1353,7 +1353,7 @@ cond.true.i223:                                   ; preds = %if.else93
   br label %lex_next.exit227
 
 cond.false.i219:                                  ; preds = %if.else93
-  %call.i220 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i220 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit227
 
 lex_next.exit227:                                 ; preds = %cond.false.i219, %cond.true.i223
@@ -1442,7 +1442,7 @@ cond.true.i197:                                   ; preds = %if.else101
   br label %lex_next.exit201
 
 cond.false.i193:                                  ; preds = %if.else101
-  %call.i194 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i194 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit201
 
 lex_next.exit201:                                 ; preds = %cond.false.i193, %cond.true.i197
@@ -1531,7 +1531,7 @@ cond.true.i171:                                   ; preds = %if.else109
   br label %lex_next.exit175
 
 cond.false.i167:                                  ; preds = %if.else109
-  %call.i168 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i168 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit175
 
 lex_next.exit175:                                 ; preds = %cond.false.i167, %cond.true.i171
@@ -2144,7 +2144,7 @@ lex_next.exit260.i:                               ; preds = %lex_more.exit370.i,
   %cond.i254.i = phi i32 [ %conv.i259.i, %cond.true.i256.i ], [ %retval.0.i363.i, %lex_more.exit370.i ]
   store i32 %cond.i254.i, ptr %c, align 8
   %cmp78.not.i = icmp eq i32 %cond.i254.i, 125
-  br i1 %cmp78.not.i, label %do.end.i, label %do.body.i, !llvm.loop !8
+  br i1 %cmp78.not.i, label %do.end.i, label %do.body.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %lex_next.exit260.i
   %cmp80.i = icmp slt i32 %c5.2.i, 2048
@@ -2245,7 +2245,7 @@ if.then.i523.i:                                   ; preds = %if.end102.i
 
 lj_buf_more.exit525.i:                            ; preds = %if.then.i523.i, %if.end102.i
   %retval.i510.0.i = phi ptr [ %call.i524.i, %if.then.i523.i ], [ %261, %if.end102.i ]
-  %263 = trunc i32 %shr103.i to i8
+  %263 = trunc nuw i32 %shr103.i to i8
   %conv.i432.i = or disjoint i8 %263, -32
   store i8 %conv.i432.i, ptr %retval.i510.0.i, align 1
   br label %if.end105.i
@@ -2352,7 +2352,7 @@ lex_next.exit247.i:                               ; preds = %lex_more.exit394.i,
   %280 = load i8, ptr %arrayidx117583.i, align 1
   %281 = and i8 %280, 2
   %tobool120.not584.i = icmp eq i8 %281, 0
-  br i1 %tobool120.not584.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !9
+  br i1 %tobool120.not584.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !8
 
 while.body121.i:                                  ; preds = %lex_next.exit247.i, %if.end131.i
   %282 = phi i32 [ %.pr562.i, %if.end131.i ], [ %cond.i241.i, %lex_next.exit247.i ]
@@ -2439,7 +2439,7 @@ if.end131.i:                                      ; preds = %lex_next.exit234.i,
   %295 = load i8, ptr %arrayidx117.i, align 1
   %296 = and i8 %295, 2
   %tobool120.not.i = icmp eq i8 %296, 0
-  br i1 %tobool120.not.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !10
+  br i1 %tobool120.not.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !9
 
 sw.bb132.i:                                       ; preds = %lex_next.exit325.i, %lex_next.exit325.i
   %297 = load ptr, ptr %e.i609.i, align 8
@@ -2461,7 +2461,7 @@ lj_buf_more.exit493.i:                            ; preds = %if.then.i491.i, %sw
   store i8 10, ptr %retval.i478.0.i, align 1
   store ptr %incdec.ptr.i445.i, ptr %sb, align 8
   call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  br label %while.condthread-pre-split.i, !llvm.loop !9
+  br label %while.condthread-pre-split.i, !llvm.loop !8
 
 sw.default.i:                                     ; preds = %lex_next.exit325.i
   %idxprom135.i = sext i32 %cond.i319.i to i64
@@ -2715,7 +2715,7 @@ lj_buf_more.exit477.i:                            ; preds = %if.then.i475.i, %if
   %incdec.ptr.i451.i = getelementptr inbounds i8, ptr %retval.i462.0.i, i64 1
   store i8 %conv.i450.i, ptr %retval.i462.0.i, align 1
   store ptr %incdec.ptr.i451.i, ptr %sb, align 8
-  br label %while.condthread-pre-split.i, !llvm.loop !9
+  br label %while.condthread-pre-split.i, !llvm.loop !8
 
 sw.epilog.i:                                      ; preds = %if.end109.i, %if.then82.i, %if.end43.i, %lex_next.exit299.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %lex_next.exit325.i, %lex_next.exit325.i, %lex_next.exit325.i
   %c5.4.i = phi i32 [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %c5.2.i, %if.then82.i ], [ %or111.i, %if.end109.i ], [ %add28.i, %lex_next.exit299.i ], [ %add44.i, %if.end43.i ], [ 11, %sw.bb13.i ], [ 9, %sw.bb12.i ], [ 13, %sw.bb11.i ], [ 10, %sw.bb10.i ], [ 12, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 7, %sw.bb7.i ]
@@ -2806,7 +2806,7 @@ lex_next.exit.i:                                  ; preds = %lex_more.exit514.i,
 while.cond.backedge.i:                            ; preds = %lex_savenext.exit375.i, %lex_next.exit.i, %lex_next.exit325.i, %while.condthread-pre-split.i
   %.be.i = phi i32 [ %.pr.i, %while.condthread-pre-split.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i.i369.i, %lex_savenext.exit375.i ], [ %cond.i.i406, %lex_next.exit.i ]
   %cmp.not.i = icmp eq i32 %.be.i, %26
-  br i1 %cmp.not.i, label %while.end174.i, label %while.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %while.end174.i, label %while.body.i, !llvm.loop !8
 
 sw.default171.i:                                  ; preds = %while.body.i
   %360 = load ptr, ptr %e.i609.i, align 8
@@ -3090,7 +3090,7 @@ cond.true.i158:                                   ; preds = %if.then116
   br label %lex_next.exit162
 
 cond.false.i154:                                  ; preds = %if.then116
-  %call.i155 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i155 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit162
 
 lex_next.exit162:                                 ; preds = %cond.false.i154, %cond.true.i158
@@ -3113,7 +3113,7 @@ cond.true.i145:                                   ; preds = %if.then121
   br label %lex_next.exit149
 
 cond.false.i141:                                  ; preds = %if.then121
-  %call.i142 = call fastcc i32 @lex_more(ptr noundef nonnull %ls), !range !7
+  %call.i142 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
   br label %lex_next.exit149
 
 lex_next.exit149:                                 ; preds = %cond.false.i141, %cond.true.i145
@@ -3320,7 +3320,7 @@ if.else5.i:                                       ; preds = %if.else.i
 
 if.end7:                                          ; preds = %if.else5.i, %if.then4.i, %if.then.i18, %entry, %lj_buf_more.exit
   %tokstr.0 = phi ptr [ %4, %lj_buf_more.exit ], [ null, %entry ], [ %5, %if.then.i18 ], [ %call7.i, %if.else5.i ], [ %call.i, %if.then4.i ]
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %L = getelementptr inbounds i8, ptr %ls, i64 8
   %9 = load ptr, ptr %L, align 8
   %chunkname = getelementptr inbounds i8, ptr %ls, i64 120
@@ -3330,9 +3330,6 @@ if.end7:                                          ; preds = %if.else5.i, %if.the
   call void @lj_err_lex(ptr noundef %9, ptr noundef %10, ptr noundef %tokstr.0, i32 noundef %11, i32 noundef %em, ptr noundef nonnull %argp) #10
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
 
 ; Function Attrs: noreturn
 declare hidden void @lj_err_lex(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -3354,10 +3351,10 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %2, ptr %marked, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %reserved = getelementptr inbounds i8, ptr %call3, i64 10
-  %3 = trunc i64 %indvars.iv.next to i8
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i8
   store i8 %3, ptr %reserved, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -3366,10 +3363,10 @@ for.end:                                          ; preds = %for.body
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lex_more(ptr nocapture noundef %ls) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @lex_more(ptr nocapture noundef %ls) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %rfunc = getelementptr inbounds i8, ptr %ls, i64 96
@@ -3650,7 +3647,7 @@ lex_more.exit93:                                  ; preds = %cond.false.i.i, %if
 lex_savenext.exit:                                ; preds = %lex_more.exit93, %cond.true.i.i
   %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i86, %lex_more.exit93 ]
   store i32 %cond.i.i, ptr %c1, align 8
-  br label %while.cond, !llvm.loop !12
+  br label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %lor.rhs, %land.rhs
   %34 = load ptr, ptr %e.i111, align 8
@@ -3861,7 +3858,7 @@ lex_savenext.exit:                                ; preds = %lex_more.exit, %con
 
 while.body:                                       ; preds = %lex_savenext.exit
   %inc = add nuw nsw i32 %count.0, 1
-  br label %while.cond, !llvm.loop !13
+  br label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %lex_savenext.exit
   %cmp3 = icmp ne i32 %cond.i.i, %0
@@ -4394,6 +4391,9 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 
 declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6
 
@@ -4410,8 +4410,8 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -4429,10 +4429,9 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 256}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

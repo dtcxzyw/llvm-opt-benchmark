@@ -4030,7 +4030,7 @@ if.else:                                          ; preds = %invoke.cont21
   br i1 %cmp.i23, label %if.then34, label %if.else40
 
 if.then34:                                        ; preds = %if.else
-  %call.i2428 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
+  %call.i2428 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
           to label %call.i24.noexc unwind label %lpad24
 
 call.i24.noexc:                                   ; preds = %if.then34
@@ -4089,7 +4089,7 @@ if.else40:                                        ; preds = %if.else
   br i1 %cmp.i33, label %if.then43, label %cleanup.thread
 
 if.then43:                                        ; preds = %if.else40
-  %call.i3559 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
+  %call.i3559 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
           to label %call.i35.noexc unwind label %lpad24
 
 call.i35.noexc:                                   ; preds = %if.then43
@@ -5922,7 +5922,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then:                                          ; preds = %invoke.cont14
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %call.i2832 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+  %call.i2832 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
           to label %call.i28.noexc unwind label %lpad15
 
 call.i28.noexc:                                   ; preds = %if.then
@@ -6009,7 +6009,7 @@ if.else:                                          ; preds = %invoke.cont14
 
 if.then23:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %call.i4064 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+  %call.i4064 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
           to label %call.i40.noexc unwind label %lpad15
 
 call.i40.noexc:                                   ; preds = %if.then23
@@ -6068,7 +6068,7 @@ if.else28:                                        ; preds = %if.else
 
 if.then31:                                        ; preds = %if.else28
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %call.i7599 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+  %call.i7599 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
           to label %call.i75.noexc unwind label %lpad15
 
 call.i75.noexc:                                   ; preds = %if.then31
@@ -6127,7 +6127,7 @@ if.else36:                                        ; preds = %if.else28
 
 if.then39:                                        ; preds = %if.else36
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %call.i110134 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+  %call.i110134 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
           to label %call.i110.noexc unwind label %lpad15
 
 call.i110.noexc:                                  ; preds = %if.then39

@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @io_mapping_unmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule546, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32, ptr @trace_i915_gem_object_pread.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace664, ptr @trace_i915_gem_object_pread.__UNIQUE_ID___addressable___SCK__tp_func_i915_gem_object_pread663, ptr @trace_i915_gem_object_pwrite.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace650, ptr @trace_i915_gem_object_pwrite.__UNIQUE_ID___addressable___SCK__tp_func_i915_gem_object_pwrite649], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_get_aperture_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -4, 1) i32 @i915_gem_get_aperture_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 9304
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1226,7 +1226,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
   %46 = and i64 %43, 4095
   %47 = sub nuw nsw i64 4096, %46
   %48 = call i64 @llvm.umin.i64(i64 %42, i64 %47)
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = load volatile i64, ptr %33, align 8
   %51 = and i64 %50, 1
   %52 = icmp eq i64 %51, 0
@@ -1560,7 +1560,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_sw_finish_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @i915_gem_sw_finish_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %1, align 4
   tail call void @__rcu_read_lock() #9
   %5 = getelementptr inbounds i8, ptr %2, i64 80

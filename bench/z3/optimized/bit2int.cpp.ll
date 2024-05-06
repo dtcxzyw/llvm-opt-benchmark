@@ -360,7 +360,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %u to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %u to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit
@@ -1564,7 +1564,7 @@ invoke.cont22:                                    ; preds = %if.then2.i.i.i20, %
   store ptr %call19, ptr %bv, align 8
   %15 = load i32, ptr %k, align 8
   %.lobit = lshr i32 %15, 31
-  %frombool = trunc i32 %.lobit to i8
+  %frombool = trunc nuw nsw i32 %.lobit to i8
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont7, %invoke.cont22
@@ -3247,8 +3247,8 @@ if.then62:                                        ; preds = %invoke.cont60
   %59 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i77 = zext i32 %59 to i64
   %add.ptr.i78.idx = shl nuw nsw i64 %idx.ext.i77, 3
-  %60 = getelementptr i8, ptr %31, i64 %add.ptr.i78.idx
-  %add.ptr.i78.ptr = getelementptr i8, ptr %60, i64 32
+  %60 = getelementptr inbounds i8, ptr %31, i64 %add.ptr.i78.idx
+  %add.ptr.i78.ptr = getelementptr inbounds i8, ptr %60, i64 32
   %cmp.not252 = icmp eq i32 %59, 0
   br i1 %cmp.not252, label %if.end143, label %for.body.preheader
 
@@ -3989,8 +3989,8 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %entry, %if.then.i
   %3 = phi i32 [ %1, %entry ], [ %.pre, %if.then.i ]
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %4 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %4, i64 32
+  %4 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %4, i64 32
   %cmp.not467 = icmp eq i32 %3, 0
   br i1 %cmp.not467, label %for.end, label %for.body.lr.ph
 

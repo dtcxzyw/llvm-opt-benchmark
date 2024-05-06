@@ -10,19 +10,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @r4_40_cipher = internal constant %struct.evp_cipher_st { i32 97, i32 1, i32 5, i32 0, i64 8, i32 1, ptr @rc4_init_key, ptr @rc4_cipher, ptr null, i32 1032, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_rc4() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_rc4() local_unnamed_addr #0 {
 entry:
   ret ptr @r4_cipher
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_rc4_40() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_rc4_40() local_unnamed_addr #0 {
 entry:
   ret ptr @r4_40_cipher
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rc4_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @rc4_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #3
   %cmp = icmp slt i32 %call, 1
@@ -39,7 +39,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
+define internal noundef i32 @rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   tail call void @RC4(ptr noundef %call, i64 noundef %inl, ptr noundef %in, ptr noundef %out) #3

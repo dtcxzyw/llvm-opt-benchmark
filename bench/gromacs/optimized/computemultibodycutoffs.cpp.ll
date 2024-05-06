@@ -427,7 +427,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %164 = add nuw i32 %.fr402, 1
   %165 = zext nneg i32 %.fr402 to i64
   %166 = zext i32 %164 to i64
-  %invariant.gep415 = getelementptr i8, ptr %156, i64 4
+  %invariant.gep415 = getelementptr inbounds i8, ptr %156, i64 4
   br i1 %163, label %.preheader.us.i.us, label %.preheader.us.i
 
 .preheader.us.i.us:                               ; preds = %.preheader.us.preheader.i, %._crit_edge.us.i.split.us.us
@@ -436,7 +436,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %.sroa.6.1.us = phi i32 [ %.sroa.6.6.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.6.0, %.preheader.us.preheader.i ]
   %.sroa.0122.1.us = phi float [ %.sroa.0122.6.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.0122.0, %.preheader.us.preheader.i ]
   %indvars.iv96.i.us = phi i64 [ %indvars.iv.next97.i.us, %._crit_edge.us.i.split.us.us ], [ 0, %.preheader.us.preheader.i ]
-  %gep416 = getelementptr i32, ptr %invariant.gep415, i64 %indvars.iv96.i.us
+  %gep416 = getelementptr inbounds i32, ptr %invariant.gep415, i64 %indvars.iv96.i.us
   br label %167
 
 167:                                              ; preds = %.loopexit72.us.i.us.us, %.preheader.us.i.us
@@ -446,7 +446,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %.sroa.0122.2.us.us = phi float [ %.sroa.0122.1.us, %.preheader.us.i.us ], [ %.sroa.0122.6.us.us, %.loopexit72.us.i.us.us ]
   %indvars.iv91.i.us.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next92.i.us.us, %.loopexit72.us.i.us.us ]
   %indvars.iv.i69.us.us = phi i64 [ 1, %.preheader.us.i.us ], [ %indvars.iv.next.i70.us.us, %.loopexit72.us.i.us.us ]
-  %gep321.us.us = getelementptr i32, ptr %gep416, i64 %indvars.iv91.i.us.us
+  %gep321.us.us = getelementptr inbounds i32, ptr %gep416, i64 %indvars.iv91.i.us.us
   %168 = load i32, ptr %gep321.us.us, align 4
   %indvars.iv.next92.i.us.us = add nuw nsw i64 %indvars.iv91.i.us.us, 1
   %169 = icmp ult i64 %indvars.iv.next92.i.us.us, %165
@@ -473,7 +473,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %.sroa.6.3.us.us.us = phi i32 [ %.sroa.6.2.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.6.5.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %.sroa.0122.3.us.us.us = phi float [ %.sroa.0122.2.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.0122.5.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %indvars.iv88.i.us.us.us = phi i64 [ %indvars.iv.i69.us.us, %.lr.ph.us.i.us.us ], [ %indvars.iv.next89.i.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
-  %gep.us.us.us = getelementptr i32, ptr %gep416, i64 %indvars.iv88.i.us.us.us
+  %gep.us.us.us = getelementptr inbounds i32, ptr %gep416, i64 %indvars.iv88.i.us.us.us
   %174 = load i32, ptr %gep.us.us.us, align 4
   %.not62.us.i.us.us.us = icmp eq i32 %168, %174
   br i1 %.not62.us.i.us.us.us, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, label %175
@@ -521,7 +521,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %.sroa.5.1 = phi i32 [ %.sroa.5.6, %._crit_edge.us.i.split ], [ %.sroa.5.0, %.preheader.us.preheader.i ]
   %.sroa.7.1 = phi i32 [ %.sroa.7.6, %._crit_edge.us.i.split ], [ %.sroa.7.0, %.preheader.us.preheader.i ]
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %._crit_edge.us.i.split ], [ 0, %.preheader.us.preheader.i ]
-  %gep414 = getelementptr i32, ptr %invariant.gep415, i64 %indvars.iv96.i
+  %gep414 = getelementptr inbounds i32, ptr %invariant.gep415, i64 %indvars.iv96.i
   br label %194
 
 194:                                              ; preds = %.loopexit72.us.i, %.preheader.us.i
@@ -531,7 +531,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %.sroa.7.2 = phi i32 [ %.sroa.7.1, %.preheader.us.i ], [ %.sroa.7.6, %.loopexit72.us.i ]
   %indvars.iv91.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next92.i, %.loopexit72.us.i ]
   %indvars.iv.i69 = phi i64 [ 1, %.preheader.us.i ], [ %indvars.iv.next.i70, %.loopexit72.us.i ]
-  %gep321 = getelementptr i32, ptr %gep414, i64 %indvars.iv91.i
+  %gep321 = getelementptr inbounds i32, ptr %gep414, i64 %indvars.iv91.i
   %195 = load i32, ptr %gep321, align 4
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %196 = icmp ult i64 %indvars.iv.next92.i, %165
@@ -543,7 +543,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %.sroa.5.3 = phi i32 [ %.sroa.5.2, %.lr.ph.us.i ], [ %.sroa.5.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %.sroa.7.3 = phi i32 [ %.sroa.7.2, %.lr.ph.us.i ], [ %.sroa.7.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %indvars.iv88.i = phi i64 [ %indvars.iv.i69, %.lr.ph.us.i ], [ %indvars.iv.next89.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
-  %gep = getelementptr i32, ptr %gep414, i64 %indvars.iv88.i
+  %gep = getelementptr inbounds i32, ptr %gep414, i64 %indvars.iv88.i
   %198 = load i32, ptr %gep, align 4
   %.not62.us.i = icmp eq i32 %195, %198
   br i1 %.not62.us.i, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i, label %199
@@ -942,8 +942,8 @@ _ZN7t_graphD2Ev.exit82:                           ; preds = %288, %_ZNSt6vectorI
   %indvars.iv51.i.us.us = phi i64 [ 0, %.preheader.us.i84.us ], [ %indvars.iv.next52.i.us.us, %.loopexit.us.i.us.us ]
   %indvars.iv.i85.us.us = phi i64 [ 1, %.preheader.us.i84.us ], [ %indvars.iv.next.i86.us.us, %.loopexit.us.i.us.us ]
   %328 = load ptr, ptr %309, align 8
-  %329 = getelementptr i32, ptr %328, i64 %indvars.iv51.i.us.us
-  %330 = getelementptr i32, ptr %329, i64 %326
+  %329 = getelementptr inbounds i32, ptr %328, i64 %indvars.iv51.i.us.us
+  %330 = getelementptr inbounds i32, ptr %329, i64 %326
   %331 = load i32, ptr %330, align 4
   %indvars.iv.next52.i.us.us = add nuw nsw i64 %indvars.iv51.i.us.us, 1
   %332 = icmp ult i64 %indvars.iv.next52.i.us.us, %324
@@ -970,8 +970,8 @@ _ZN7t_graphD2Ev.exit82:                           ; preds = %288, %_ZNSt6vectorI
   %.sroa.12166.7.us.us.us = phi i32 [ %.sroa.12166.6.us.us, %.lr.ph.us.i88.us.us ], [ %.sroa.12166.9.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us ]
   %indvars.iv48.i.us.us.us = phi i64 [ %indvars.iv.i85.us.us, %.lr.ph.us.i88.us.us ], [ %indvars.iv.next49.i.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us ]
   %336 = load ptr, ptr %309, align 8
-  %337 = getelementptr i32, ptr %336, i64 %indvars.iv48.i.us.us.us
-  %338 = getelementptr i32, ptr %337, i64 %326
+  %337 = getelementptr inbounds i32, ptr %336, i64 %indvars.iv48.i.us.us.us
+  %338 = getelementptr inbounds i32, ptr %337, i64 %326
   %339 = load i32, ptr %338, align 4
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %340
@@ -1027,8 +1027,8 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   %indvars.iv51.i = phi i64 [ 0, %.preheader.us.i84 ], [ %indvars.iv.next52.i, %.loopexit.us.i ]
   %indvars.iv.i85 = phi i64 [ 1, %.preheader.us.i84 ], [ %indvars.iv.next.i86, %.loopexit.us.i ]
   %361 = load ptr, ptr %309, align 8
-  %362 = getelementptr i32, ptr %361, i64 %indvars.iv51.i
-  %363 = getelementptr i32, ptr %362, i64 %359
+  %362 = getelementptr inbounds i32, ptr %361, i64 %indvars.iv51.i
+  %363 = getelementptr inbounds i32, ptr %362, i64 %359
   %364 = load i32, ptr %363, align 4
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %365 = icmp ult i64 %indvars.iv.next52.i, %324
@@ -1041,8 +1041,8 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   %.sroa.0146.7 = phi float [ %.sroa.0146.6, %.lr.ph.us.i88 ], [ %.sroa.0146.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %indvars.iv48.i = phi i64 [ %indvars.iv.i85, %.lr.ph.us.i88 ], [ %indvars.iv.next49.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %367 = load ptr, ptr %309, align 8
-  %368 = getelementptr i32, ptr %367, i64 %indvars.iv48.i
-  %369 = getelementptr i32, ptr %368, i64 %359
+  %368 = getelementptr inbounds i32, ptr %367, i64 %indvars.iv48.i
+  %369 = getelementptr inbounds i32, ptr %368, i64 %359
   %370 = load i32, ptr %369, align 4
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %371

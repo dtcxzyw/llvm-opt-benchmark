@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #3
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 258, ptr noundef null) #3
@@ -24,7 +24,7 @@ declare i32 @OPENSSL_init_ssl(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arg_token = alloca %struct.QUIC_STATELESS_RESET_TOKEN, align 1
   %call = tail call ptr @ossl_quic_srtm_new(ptr noundef null, ptr noundef null) #3
@@ -145,7 +145,7 @@ if.end18:                                         ; preds = %lor.lhs.false14
   %16 = load i8, ptr %add.ptr30.i.i46, align 1
   %conv31.i.i47 = zext i8 %16 to i64
   %or32.i.i48 = or i64 %or28.i.i45, %conv31.i.i47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arg_token, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i2.i49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %arg_token, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i2.i49, i64 16, i1 false)
   %add.ptr.i.i56 = getelementptr inbounds i8, ptr %pkt.sroa.0.1359, i64 33
   %sub.i.i57 = add i64 %pkt.sroa.70.1358, -33
   %17 = inttoptr i64 %or32.i.i.le to ptr
@@ -302,7 +302,7 @@ sw.bb35:                                          ; preds = %if.end9
   br i1 %cmp.i.i168, label %while.cond.backedge, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %sw.bb35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arg_token, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %arg_token, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
   %add.ptr.i.i170 = getelementptr inbounds i8, ptr %pkt.sroa.0.1359, i64 17
   %sub.i.i171 = add i64 %pkt.sroa.70.1358, -17
   %cmp.i.i175 = icmp ult i64 %sub.i.i171, 8

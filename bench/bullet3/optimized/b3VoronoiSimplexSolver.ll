@@ -145,12 +145,12 @@ if.then29:                                        ; preds = %land.lhs.true24
   %idxprom.i32 = zext nneg i32 %dec.i30 to i64
   %arrayidx.i33 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexVectorW.i31, i64 0, i64 %idxprom.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexVectorW.i31, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i33, i64 16, i1 false)
-  %m_simplexPointsP.i34 = getelementptr inbounds i8, ptr %this, i64 96
-  %arrayidx8.i36 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP.i34, i64 0, i64 %idxprom.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP.i34, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i36, i64 16, i1 false)
-  %m_simplexPointsQ.i37 = getelementptr inbounds i8, ptr %this, i64 176
-  %arrayidx14.i39 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ.i37, i64 0, i64 %idxprom.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ.i37, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i39, i64 16, i1 false)
+  %m_simplexPointsP.i35 = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx8.i37 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP.i35, i64 0, i64 %idxprom.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP.i35, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i37, i64 16, i1 false)
+  %m_simplexPointsQ.i39 = getelementptr inbounds i8, ptr %this, i64 176
+  %arrayidx14.i41 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ.i39, i64 0, i64 %idxprom.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ.i39, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i41, i64 16, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %land.lhs.true24, %if.end21
@@ -384,10 +384,10 @@ if.then29.i:                                      ; preds = %land.lhs.true24.i
   %idxprom.i32.i = zext nneg i32 %dec.i30.i to i64
   %arrayidx.i33.i = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexVectorW, i64 0, i64 %idxprom.i32.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexVectorW, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i33.i, i64 16, i1 false)
-  %arrayidx8.i36.i = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP66, i64 0, i64 %idxprom.i32.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP66, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i36.i, i64 16, i1 false)
-  %arrayidx14.i39.i = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ85, i64 0, i64 %idxprom.i32.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ85, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i39.i, i64 16, i1 false)
+  %arrayidx8.i37.i = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP66, i64 0, i64 %idxprom.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP66, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i37.i, i64 16, i1 false)
+  %arrayidx14.i41.i = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ85, i64 0, i64 %idxprom.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ85, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i41.i, i64 16, i1 false)
   br label %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit
 
 _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit: ; preds = %land.lhs.true24.i, %if.then29.i
@@ -598,10 +598,10 @@ if.then29.i300:                                   ; preds = %land.lhs.true24.i29
   %idxprom.i32.i303 = zext nneg i32 %dec.i30.i301 to i64
   %arrayidx.i33.i304 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexVectorW121, i64 0, i64 %idxprom.i32.i303
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexVectorW121, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i33.i304, i64 16, i1 false)
-  %arrayidx8.i36.i306 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP132, i64 0, i64 %idxprom.i32.i303
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP132, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i36.i306, i64 16, i1 false)
-  %arrayidx14.i39.i308 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ167, i64 0, i64 %idxprom.i32.i303
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ167, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i39.i308, i64 16, i1 false)
+  %arrayidx8.i37.i306 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP132, i64 0, i64 %idxprom.i32.i303
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP132, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i37.i306, i64 16, i1 false)
+  %arrayidx14.i41.i308 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ167, i64 0, i64 %idxprom.i32.i303
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ167, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i41.i308, i64 16, i1 false)
   br label %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354
 
 _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354: ; preds = %if.end21.i294, %land.lhs.true24.i296, %if.then29.i300
@@ -859,10 +859,10 @@ if.then29.i542:                                   ; preds = %land.lhs.true24.i53
   %idxprom.i32.i545 = zext nneg i32 %dec.i30.i543 to i64
   %arrayidx.i33.i546 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexVectorW219, i64 0, i64 %idxprom.i32.i545
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexVectorW219, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i33.i546, i64 16, i1 false)
-  %arrayidx8.i36.i548 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP238, i64 0, i64 %idxprom.i32.i545
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP238, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i36.i548, i64 16, i1 false)
-  %arrayidx14.i39.i550 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ287, i64 0, i64 %idxprom.i32.i545
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ287, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i39.i550, i64 16, i1 false)
+  %arrayidx8.i37.i548 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsP238, i64 0, i64 %idxprom.i32.i545
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsP238, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i37.i548, i64 16, i1 false)
+  %arrayidx14.i41.i550 = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexPointsQ287, i64 0, i64 %idxprom.i32.i545
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_simplexPointsQ287, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i41.i550, i64 16, i1 false)
   br label %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596
 
 _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596: ; preds = %if.end21.i536, %land.lhs.true24.i538, %if.then29.i542
@@ -1768,7 +1768,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN22b3VoronoiSimplexSolver19pointOutsideOfPlaneERK9b3Vector3S2_S2_S2_S2_(ptr nocapture noundef nonnull readnone align 16 dereferenceable(385) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %c, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %d) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN22b3VoronoiSimplexSolver19pointOutsideOfPlaneERK9b3Vector3S2_S2_S2_S2_(ptr nocapture noundef nonnull readnone align 16 dereferenceable(385) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %c, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %d) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load float, ptr %b, align 16
   %1 = load float, ptr %a, align 16

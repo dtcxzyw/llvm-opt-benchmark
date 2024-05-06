@@ -40,7 +40,7 @@ define internal i32 @kmsg_open(ptr nocapture readnone %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kmsg_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @kmsg_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2048
@@ -73,7 +73,7 @@ define internal noundef i32 @kmsg_release(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @kmsg_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 0, 66) i32 @kmsg_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 

@@ -58,7 +58,7 @@ entry:
 declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_kdf_hkdf_sha256_expand(ptr noundef nonnull %out, i64 noundef %out_len, ptr noundef %ctx, i64 noundef %ctx_len, ptr noundef %prk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_kdf_hkdf_sha256_expand(ptr noundef nonnull %out, i64 noundef %out_len, ptr noundef %ctx, i64 noundef %ctx_len, ptr noundef %prk) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.crypto_auth_hmacsha256_state, align 8
   %tmp = alloca [32 x i8], align 16

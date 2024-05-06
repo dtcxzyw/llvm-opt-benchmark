@@ -3490,8 +3490,8 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %mul.i.i.i.i = shl nuw nsw i64 %num_keys, 3
   %call5.i.i.i.i45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
   store ptr null, ptr %call5.i.i.i.i45, align 8
-  %cmp.i.i.i.i.i25.i = icmp eq i64 %num_keys, 1
-  br i1 %cmp.i.i.i.i.i25.i, label %if.else.i62.thread, label %if.else.i62
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %num_keys, 1
+  br i1 %cmp.i.i.i.i.i24.i, label %if.else.i62.thread, label %if.else.i62
 
 if.else.i62.thread:                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr %call5.i.i.i.i45, ptr %v_column_families, align 8
@@ -3875,8 +3875,8 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %mul.i.i.i.i = shl nuw nsw i64 %num_keys, 3
   %call5.i.i.i.i44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
   store ptr null, ptr %call5.i.i.i.i44, align 8
-  %cmp.i.i.i.i.i25.i = icmp eq i64 %num_keys, 1
-  br i1 %cmp.i.i.i.i.i25.i, label %if.else.i61.thread, label %if.else.i61
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %num_keys, 1
+  br i1 %cmp.i.i.i.i.i24.i, label %if.else.i61.thread, label %if.else.i61
 
 if.else.i61.thread:                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr %call5.i.i.i.i44, ptr %column_families, align 8

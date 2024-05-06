@@ -1054,7 +1054,7 @@ define dso_local noundef zeroext i1 @_ZNK9FactUnion5equalERK4Fact(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9FactUnion4joinERK4Fact(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9FactUnion4joinERK4Fact(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8

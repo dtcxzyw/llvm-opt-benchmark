@@ -141,7 +141,7 @@ seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acqui
 
 if.then.i5:                                       ; preds = %seq_try_load_hooks.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i7.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i7.i, ptr noundef nonnull align 8 dereferenceable(32) %to_install, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i7.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %to_install, i64 32, i1 false)
   %hooks_internal.sroa.3.0.buf.i7.sroa_idx.i = getelementptr inbounds i8, ptr %buf.i7.i, i64 32
   store i8 1, ptr %hooks_internal.sroa.3.0.buf.i7.sroa_idx.i, align 16
   %hooks_internal.sroa.5.0.buf.i7.sroa_idx.i = getelementptr inbounds i8, ptr %buf.i7.i, i64 33

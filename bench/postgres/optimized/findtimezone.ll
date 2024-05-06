@@ -537,22 +537,22 @@ define internal fastcc void @scan_available_timezones(ptr noundef %0, ptr nounde
   br i1 %32, label %33, label %.sink.split
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.13) #14
+  %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.13) #14
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %zone_name_pref.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.14) #14
+  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.14) #14
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %zone_name_pref.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.15) #14
+  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.15) #14
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %zone_name_pref.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.16) #14
+  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.16) #14
   %44 = icmp eq i32 %43, 0
   %spec.select.i = select i1 %44, i32 -50, i32 0
   br label %zone_name_pref.exit
@@ -759,35 +759,35 @@ compare_tm.exit:                                  ; preds = %49
   br i1 %71, label %.lr.ph, label %compare_tm.exit.thread.loopexit.split.loop.exit72, !llvm.loop !10
 
 compare_tm.exit.thread.loopexit.split.loop.exit:  ; preds = %16
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit58: ; preds = %19
-  %73 = trunc i64 %indvars.iv to i32
+  %73 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit60: ; preds = %24
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit62: ; preds = %29
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit64: ; preds = %34
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit66: ; preds = %39
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit68: ; preds = %44
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit70: ; preds = %49
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit72: ; preds = %68
@@ -795,15 +795,15 @@ compare_tm.exit.thread.loopexit.split.loop.exit72: ; preds = %68
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit74: ; preds = %64
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit78: ; preds = %compare_tm.exit
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread.loopexit.split.loop.exit80: ; preds = %14
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
 compare_tm.exit.thread:                           ; preds = %60, %.lr.ph, %compare_tm.exit.thread.loopexit.split.loop.exit, %compare_tm.exit.thread.loopexit.split.loop.exit58, %compare_tm.exit.thread.loopexit.split.loop.exit60, %compare_tm.exit.thread.loopexit.split.loop.exit62, %compare_tm.exit.thread.loopexit.split.loop.exit64, %compare_tm.exit.thread.loopexit.split.loop.exit66, %compare_tm.exit.thread.loopexit.split.loop.exit68, %compare_tm.exit.thread.loopexit.split.loop.exit70, %compare_tm.exit.thread.loopexit.split.loop.exit72, %compare_tm.exit.thread.loopexit.split.loop.exit74, %compare_tm.exit.thread.loopexit.split.loop.exit78, %compare_tm.exit.thread.loopexit.split.loop.exit80, %.preheader, %6, %2

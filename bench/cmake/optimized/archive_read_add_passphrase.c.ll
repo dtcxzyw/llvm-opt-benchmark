@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [22 x i8] c"Can't allocate memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_add_passphrase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_add_passphrase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #6
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %21, label %5
@@ -33,7 +33,7 @@ define dso_local noundef i32 @archive_read_add_passphrase(ptr noundef %0, ptr no
   br i1 %13, label %new_read_passphrase.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #6
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #6
   store ptr %15, ptr %12, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %new_read_passphrase.exit
@@ -65,7 +65,7 @@ declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_passphrase_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_passphrase_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.2) #6
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %9, label %6
@@ -192,7 +192,7 @@ remove_passphrases_from_head.exit47:              ; preds = %21
   br i1 %38, label %new_read_passphrase.exit.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call noalias ptr @strdup(ptr noundef nonnull %35) #6
+  %40 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %35) #6
   store ptr %40, ptr %37, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %new_read_passphrase.exit

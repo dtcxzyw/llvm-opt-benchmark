@@ -503,7 +503,7 @@ if.then60:                                        ; preds = %if.then52
   br i1 %tobool.not.i47, label %if.end69, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then60
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %spec.select = select i1 %cmp.i, i64 5, i64 1
   br label %if.end69
@@ -690,7 +690,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then13, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then5
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %or9 = or i64 %new_header.sroa.8.0.copyload, 5
   %spec.select = select i1 %cmp.i, i64 %or9, i64 %or
@@ -933,7 +933,7 @@ if.end:                                           ; preds = %qed_cancel_need_che
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @bdrv_qed_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #4 {
+define internal range(i32 0, 101) i32 @bdrv_qed_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #4 {
 entry:
   %cmp = icmp ult i32 %buf_size, 64
   br i1 %cmp, label %return, label %if.end
@@ -1008,7 +1008,7 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 6) i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %len = alloca i64, align 8
   %request = alloca %struct.QEDRequest, align 8
@@ -1453,13 +1453,13 @@ if.then37:                                        ; preds = %if.end34
 if.end38:                                         ; preds = %if.end34
   %table_nelems = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %19, ptr %table_nelems, align 8
-  %21 = call i32 @llvm.cttz.i32(i32 %.val, i1 false), !range !8
+  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val, i1 false)
   %l2_shift = getelementptr inbounds i8, ptr %0, i64 160
   store i32 %21, ptr %l2_shift, align 8
   %sub = add nsw i32 %19, -1
   %l2_mask = getelementptr inbounds i8, ptr %0, i64 164
   store i32 %sub, ptr %l2_mask, align 4
-  %22 = call i32 @llvm.cttz.i32(i32 %19, i1 false), !range !8
+  %22 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %19, i1 false)
   %add = add nuw nsw i32 %22, %21
   %l1_shift = getelementptr inbounds i8, ptr %0, i64 156
   store i32 %add, ptr %l1_shift, align 4
@@ -1500,7 +1500,7 @@ if.end79:                                         ; preds = %if.then64
   %conv84 = zext i32 %28 to i64
   %29 = load i32, ptr %backing_filename_size21.i, align 4
   %conv87 = zext i32 %29 to i64
-  %call88 = call i32 @qed_read_string(ptr noundef %27, i64 noundef %conv84, i64 noundef %conv87, ptr noundef %call80, i64 noundef 4096), !range !9
+  %call88 = call i32 @qed_read_string(ptr noundef %27, i64 noundef %conv84, i64 noundef %conv87, ptr noundef %call80, i64 noundef 4096)
   %cmp89 = icmp slt i32 %call88, 0
   br i1 %cmp89, label %if.then91, label %if.end92
 
@@ -1724,7 +1724,7 @@ return:                                           ; preds = %qed_check_cluster_o
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_read_string(ptr noundef %file, i64 noundef %offset, i64 noundef %n, ptr noundef %buf, i64 noundef %buflen) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_read_string(ptr noundef %file, i64 noundef %offset, i64 noundef %n, ptr noundef %buf, i64 noundef %buflen) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %cmp.not = icmp ult i64 %n, %buflen
@@ -3317,7 +3317,7 @@ for.inc.i:                                        ; preds = %for.inc.fold.split.
   %cluster.addr.1.i = phi i64 [ %cluster.addr.09.i, %for.body.i ], [ %add2.i, %if.then.i ], [ 1, %for.inc.fold.split.i ]
   %inc.i = add nuw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %qed_update_l2_table.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %qed_update_l2_table.exit, label %for.body.i, !llvm.loop !8
 
 qed_update_l2_table.exit:                         ; preds = %for.inc.i, %if.end
   br i1 %cmp, label %if.then8, label %if.else
@@ -3546,7 +3546,7 @@ for.inc:                                          ; preds = %for.body, %for.inc.
   %cluster.addr.1 = phi i64 [ %cluster.addr.09, %for.body ], [ %add2, %if.then ], [ 1, %for.inc.fold.split ]
   %inc = add nuw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %add
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -3655,6 +3655,4 @@ attributes #22 = { nounwind allocsize(0,1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 33}
-!9 = !{i32 -2147483648, i32 1}
-!10 = distinct !{!10, !6}
+!8 = distinct !{!8, !6}

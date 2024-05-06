@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.39 = private unnamed_addr constant [26 x i8] c"  encode irq %d %s %s %s\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnpacpi_parse_allocated_resource(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_allocated_resource(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 960
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -103,7 +103,7 @@ declare dso_local void @pnp_init_resources(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pnpacpi_allocated_resource(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.resource_win, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -248,7 +248,7 @@ define internal noundef i32 @pnpacpi_allocated_resource(ptr noundef %0, ptr noun
   %77 = getelementptr inbounds i8, ptr %0, i64 10
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = call fastcc i32 @dma_flags(ptr noundef %1, i32 noundef %73, i32 noundef %76, i32 noundef %79), !range !8
+  %80 = call fastcc i32 @dma_flags(ptr noundef %1, i32 noundef %73, i32 noundef %76, i32 noundef %79)
   br label %81
 
 81:                                               ; preds = %71, %67, %62
@@ -281,7 +281,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @pnpacpi_parse_resource_option_data(ptr noundef %0) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_resource_option_data(ptr noundef %0) local_unnamed_addr #4 section ".init.text" align 16 {
   %2 = alloca %struct.acpipnp_parse_option_s, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 960
   %4 = load ptr, ptr %3, align 8
@@ -298,7 +298,7 @@ define dso_local noundef i32 @pnpacpi_parse_resource_option_data(ptr noundef %0)
   br label %11
 
 11:                                               ; preds = %10, %1
-  store i64 0, ptr %7, align 8, !annotation !9
+  store i64 0, ptr %7, align 8, !annotation !8
   store ptr %0, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
@@ -325,7 +325,7 @@ define dso_local noundef i32 @pnpacpi_parse_resource_option_data(ptr noundef %0)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @pnpacpi_option_resource(ptr noundef %0, ptr nocapture noundef %1) #4 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @pnpacpi_option_resource(ptr noundef %0, ptr nocapture noundef %1) #4 section ".init.text" align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -448,7 +448,7 @@ define internal noundef i32 @pnpacpi_option_resource(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnpacpi_build_resource_template(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_build_resource_template(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 960
@@ -588,7 +588,7 @@ define internal noundef i32 @pnpacpi_type_resources(ptr nocapture noundef readon
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnpacpi_encode_resources(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_encode_resources(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, -1
   %5 = udiv i64 %4, 68
@@ -1188,7 +1188,7 @@ define dso_local noundef i32 @pnpacpi_encode_resources(ptr noundef %0, ptr nocap
   %366 = getelementptr i8, ptr %19, i64 68
   %367 = add nuw nsw i32 %20, 1
   %368 = icmp eq i32 %367, %7
-  br i1 %368, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %368, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %361, %360, %13
   %369 = phi i32 [ -22, %360 ], [ 0, %13 ], [ 0, %361 ]
@@ -1226,7 +1226,7 @@ declare dso_local zeroext i1 @acpi_dev_resource_memory(ptr noundef, ptr noundef)
 declare dso_local zeroext i1 @acpi_dev_resource_io(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dma_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 256) i32 @dma_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %2, 0
   %6 = select i1 %5, i32 0, i32 4
   switch i32 %1, label %13 [
@@ -1350,7 +1350,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
 
 16:                                               ; preds = %10
   %17 = zext i8 %14 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #11, !srcloc !11
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #11, !srcloc !10
   %.pre = load i8, ptr %5, align 1
   br label %18
 
@@ -1359,7 +1359,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
   %20 = add nuw nsw i64 %12, 1
   %21 = zext i8 %19 to i64
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %10, label %.loopexit, !llvm.loop !12
+  br i1 %22, label %10, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %3
   %23 = getelementptr inbounds i8, ptr %2, i64 1
@@ -1400,7 +1400,7 @@ define internal fastcc void @pnpacpi_parse_dma_option(ptr noundef %0, i32 nounde
   %18 = or i8 %12, %17
   %19 = add nuw nsw i64 %11, 1
   %20 = icmp eq i64 %19, %9
-  br i1 %20, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %20, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %10, %3
   %21 = phi i8 [ 0, %3 ], [ %18, %10 ]
@@ -1412,8 +1412,8 @@ define internal fastcc void @pnpacpi_parse_dma_option(ptr noundef %0, i32 nounde
   %27 = getelementptr inbounds i8, ptr %2, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = tail call fastcc i32 @dma_flags(ptr noundef %0, i32 noundef %23, i32 noundef %26, i32 noundef %29), !range !8
-  %31 = trunc i32 %30 to i8
+  %30 = tail call fastcc i32 @dma_flags(ptr noundef %0, i32 noundef %23, i32 noundef %26, i32 noundef %29)
+  %31 = trunc nuw i32 %30 to i8
   %32 = tail call i32 @pnp_register_dma_resource(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %21, i8 noundef zeroext %31) #11
   ret void
 }
@@ -1500,7 +1500,7 @@ define internal fastcc void @pnpacpi_parse_fixed_mem32_option(ptr noundef %0, i3
 define internal fastcc void @pnpacpi_parse_address_option(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !8
   %5 = call i32 @acpi_resource_to_address64(ptr noundef %2, ptr noundef nonnull %4) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
@@ -1602,7 +1602,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %13 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #11, !srcloc !11
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #11, !srcloc !10
   br label %20
 
 19:                                               ; preds = %15
@@ -1614,7 +1614,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i64
   %24 = icmp ult i64 %21, %23
-  br i1 %24, label %10, label %.loopexit, !llvm.loop !14
+  br i1 %24, label %10, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %3
   %25 = getelementptr inbounds i8, ptr %2, i64 1
@@ -1678,10 +1678,9 @@ attributes #13 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i32 0, i32 256}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i64 2147810583}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = !{i64 2147810583}
+!11 = distinct !{!11, !6, !7}
 !12 = distinct !{!12, !6, !7}
 !13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}

@@ -301,7 +301,7 @@ decode_signature.exit:                            ; preds = %106
   %155 = udiv i64 %154, 400000000
   store i64 %155, ptr %5, align 8
   %156 = urem i64 %154, 400000000
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %157, ptr %158, align 8
   %159 = load i32, ptr @hf_stcsig_timestamp, align 4

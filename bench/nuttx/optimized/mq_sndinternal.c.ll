@@ -70,7 +70,7 @@ list_remove_head.exit9:                           ; preds = %list_remove_head.ex
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxmq_wait_send(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -32767, 32769) i32 @nxmq_wait_send(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 66
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = and i32 %1, 64

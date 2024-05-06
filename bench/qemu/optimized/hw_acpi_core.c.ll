@@ -293,7 +293,7 @@ if.end21:                                         ; preds = %if.then17, %if.end8
   %.val = load i16, ptr %6, align 1
   %conv = add i16 %.val, 1
   store i16 %conv, ptr %6, align 1
-  %conv24 = trunc i64 %add to i16
+  %conv24 = trunc nuw i64 %add to i16
   store i16 %conv24, ptr %add.ptr, align 1
   %7 = load ptr, ptr %hdrs, align 8
   %tobool26.not = icmp eq ptr %7, null
@@ -320,7 +320,7 @@ if.then38:                                        ; preds = %land.lhs.true
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %land.lhs.true, %if.end31
-  %conv42 = trunc i64 %add to i32
+  %conv42 = trunc nuw nsw i64 %add to i32
   %length44 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   store i32 %conv42, ptr %length44, align 1
   %has_rev = getelementptr inbounds i8, ptr %hdrs, i64 8
@@ -446,7 +446,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_AcpiTableOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @acpi_table_len(ptr nocapture noundef readonly %current) local_unnamed_addr #6 {
+define dso_local range(i32 0, 65536) i32 @acpi_table_len(ptr nocapture noundef readonly %current) local_unnamed_addr #6 {
 entry:
   %add.ptr = getelementptr i8, ptr %current, i64 -2
   %0 = load i16, ptr %add.ptr, align 1
@@ -483,7 +483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @acpi_get_slic_oem(ptr nocapture noundef writeonly %oem) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @acpi_get_slic_oem(ptr nocapture noundef writeonly %oem) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @acpi_tables, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -649,7 +649,7 @@ entry:
   %conv.i.i = zext i64 %call.i to i128
   %mul.i.i = mul nuw nsw i128 %conv.i.i, 3579545
   %div.i.i = udiv i128 %mul.i.i, 1000000000
-  %conv3.i.i = trunc i128 %div.i.i to i64
+  %conv3.i.i = trunc nuw nsw i128 %div.i.i to i64
   %0 = and i64 %conv3.i.i, 144115188067467264
   %and = add nuw nsw i64 %0, 8388608
   %overflow_time = getelementptr inbounds i8, ptr %ar, i64 288
@@ -974,7 +974,7 @@ if.end18:                                         ; preds = %trace_acpi_gpe_en_i
 declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @acpi_gpe_ioport_readb(ptr nocapture noundef readonly %ar, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @acpi_gpe_ioport_readb(ptr nocapture noundef readonly %ar, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1200,7 +1200,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @acpi_pm_evt_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %width) #0 {
+define internal range(i64 0, 65536) i64 @acpi_pm_evt_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %width) #0 {
 entry:
   switch i64 %addr, label %return [
     i64 0, label %sw.bb
@@ -1275,7 +1275,7 @@ if.then.i:                                        ; preds = %acpi_pm1_evt_get_st
   %conv.i.i.i.i = zext i64 %call.i.i.i to i128
   %mul.i.i.i.i = mul nuw nsw i128 %conv.i.i.i.i, 3579545
   %div.i.i.i.i = udiv i128 %mul.i.i.i.i, 1000000000
-  %conv3.i.i.i.i = trunc i128 %div.i.i.i.i to i64
+  %conv3.i.i.i.i = trunc nuw nsw i128 %div.i.i.i.i to i64
   %4 = and i64 %conv3.i.i.i.i, 144115188067467264
   %and.i.i = add nuw nsw i64 %4, 8388608
   store i64 %and.i.i, ptr %overflow_time.i.i, align 16
@@ -1320,13 +1320,13 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @qemu_system_wakeup_request(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @acpi_pm_tmr_read(ptr nocapture readnone %opaque, i64 %addr, i32 %width) #0 {
+define internal range(i64 0, 16777216) i64 @acpi_pm_tmr_read(ptr nocapture readnone %opaque, i64 %addr, i32 %width) #0 {
 entry:
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
   %conv.i.i.i = zext i64 %call.i.i to i128
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, 3579545
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
-  %conv.i = trunc i128 %div.i.i.i to i64
+  %conv.i = trunc nuw nsw i128 %div.i.i.i to i64
   %and.i = and i64 %conv.i, 16777215
   ret i64 %and.i
 }
@@ -1338,7 +1338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @acpi_pm_cnt_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %width) #6 {
+define internal range(i64 0, 65536) i64 @acpi_pm_cnt_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %width) #6 {
 entry:
   %cnt1 = getelementptr inbounds i8, ptr %opaque, i64 896
   %0 = load i16, ptr %cnt1, align 16

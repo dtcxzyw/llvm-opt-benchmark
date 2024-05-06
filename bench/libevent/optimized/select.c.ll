@@ -120,7 +120,7 @@ return:                                           ; preds = %entry, %if.end8, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @select_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @select_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -291,7 +291,7 @@ return:                                           ; preds = %if.end7, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @select_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
+define internal range(i32 -1, 1) i32 @select_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8

@@ -1256,7 +1256,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
+define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
 entry:
   %cmp3.i = icmp eq ptr %value.coerce0, %value.coerce1
   br i1 %cmp3.i, label %"_ZN5folly10MacAddress13setFromStringIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit", label %if.end18.i
@@ -4845,7 +4845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #19 align 2 {
+define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #19 align 2 {
 entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %value.coerce1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %value.coerce0 to i64

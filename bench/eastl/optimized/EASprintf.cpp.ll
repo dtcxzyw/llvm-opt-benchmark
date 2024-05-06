@@ -140,25 +140,19 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal18PlatformLogWriter8EPKcmPvNS0_18W
 define dso_local noundef i32 @_ZN2EA4StdC7CprintfEPFiPKcmPvNS0_18WriteFunctionStateEES3_S2_z(ptr noundef %pWriteFunction, ptr noalias noundef %pContext, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7FprintfEP8_IO_FILEPKcz(ptr noalias noundef %pFile, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -166,10 +160,10 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6PrintfEPKcz(ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdout, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -178,7 +172,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7SprintfEPcPKcz(ptr noalias noundef %pD
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext8", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -204,7 +198,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -213,7 +207,7 @@ define dso_local noundef i32 @_ZN2EA4StdC8SnprintfEPcmPKcz(ptr noalias noundef %
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext8", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -255,7 +249,7 @@ if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.the
 
 _ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -264,9 +258,9 @@ define dso_local noundef i32 @_ZN2EA4StdC7DprintfEPKcz(ptr noalias noundef %pFor
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   %context = alloca %"struct.EA::StdC::SprintfLocal::PlatformLogWriterContext8", align 1
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal18PlatformLogWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %context, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -385,9 +379,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7CprintfEPFiPKDsmPvNS0_18WriteFunctionStateEES3_S2_z(ptr noundef %pWriteFunction, ptr noalias noundef %pContext, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -395,9 +389,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7FprintfEP8_IO_FILEPKDsz(ptr noalias noundef %pFile, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -405,10 +399,10 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6PrintfEPKDsz(ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdout, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -417,7 +411,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7SprintfEPDsPKDsz(ptr noalias noundef %
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext16", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -443,7 +437,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -452,7 +446,7 @@ define dso_local noundef i32 @_ZN2EA4StdC8SnprintfEPDsmPKDsz(ptr noalias noundef
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext16", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -492,7 +486,7 @@ if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.the
 
 _ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -611,9 +605,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7CprintfEPFiPKDimPvNS0_18WriteFunctionStateEES3_S2_z(ptr noundef %pWriteFunction, ptr noalias noundef %pContext, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -621,9 +615,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7FprintfEP8_IO_FILEPKDiz(ptr noalias noundef %pFile, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -631,10 +625,10 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6PrintfEPKDiz(ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdout, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call
 }
 
@@ -643,7 +637,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7SprintfEPDiPKDiz(ptr noalias noundef %
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -669,7 +663,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -678,7 +672,7 @@ define dso_local noundef i32 @_ZN2EA4StdC8SnprintfEPDimPKDiz(ptr noalias noundef
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
@@ -718,7 +712,7 @@ if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.the
 
 _ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.else.i, %if.end8.sink.split.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i
 }
 
@@ -835,9 +829,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7CprintfEPFiPKwmPvNS0_18WriteFunctionStateEES3_S2_z(ptr noundef %pWriteFunction, ptr noalias noundef %pContext, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -845,9 +839,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC7FprintfEP8_IO_FILEPKwz(ptr noalias noundef %pFile, ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -855,10 +849,10 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6PrintfEPKwz(ptr noalias noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdout, align 8, !noalias !83
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -867,7 +861,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7SprintfEPwPKwz(ptr noalias noundef %pD
 entry:
   %sc.i.i.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
@@ -892,7 +886,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN2EA4StdC8VsprintfEPwPKwP13__va_list_tag.exit:  ; preds = %entry, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i.i.i), !noalias !97
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i.i
 }
 
@@ -901,7 +895,7 @@ define dso_local noundef i32 @_ZN2EA4StdC8SnprintfEPwmPKwz(ptr noalias noundef %
 entry:
   %sc.i.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i.i), !noalias !110
@@ -942,9 +936,15 @@ if.end8.sink.split.i.i:                           ; preds = %if.then5.i.i, %if.t
 
 _ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag.exit: ; preds = %entry, %if.else.i.i, %if.end8.sink.split.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i.i), !noalias !110
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #3

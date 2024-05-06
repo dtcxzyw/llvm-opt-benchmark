@@ -285,7 +285,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp1.i, label %while.body.i, label %for.inc.loopexit.i, !llvm.loop !4
 
 for.inc.loopexit.i:                               ; preds = %if.end.i
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %for.body.i
@@ -337,7 +337,7 @@ if.end27.i:                                       ; preds = %while.body24.i
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, 1
   %arrayidx30.i = getelementptr inbounds i8, ptr %_websocket_key, i64 %indvars.iv57.i
   store i8 61, ptr %arrayidx30.i, align 1
-  %8 = trunc i64 %indvars.iv.next58.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next58.i to i32
   %and22.i = and i32 %8, 3
   %tobool23.not.i = icmp eq i32 %and22.i, 0
   br i1 %tobool23.not.i, label %while.end31.i, label %while.body24.i, !llvm.loop !7
@@ -376,7 +376,7 @@ if.end26:                                         ; preds = %_ZL13encode_base64P
 declare noundef i32 @_ZN3zmq15generate_randomEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL13encode_base64PKhiPci(ptr nocapture noundef readonly %in_, i32 noundef %in_len_, ptr nocapture noundef writeonly %out_) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -2147483648, 2048) i32 @_ZL13encode_base64PKhiPci(ptr nocapture noundef readonly %in_, i32 noundef %in_len_, ptr nocapture noundef writeonly %out_) unnamed_addr #8 {
 entry:
   %cmp37 = icmp sgt i32 %in_len_, 0
   br i1 %cmp37, label %for.body.preheader, label %if.end34
@@ -425,7 +425,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp1, label %while.body, label %for.inc.loopexit, !llvm.loop !4
 
 for.inc.loopexit:                                 ; preds = %if.end
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
@@ -477,7 +477,7 @@ if.end27:                                         ; preds = %while.body24
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %arrayidx30 = getelementptr inbounds i8, ptr %out_, i64 %indvars.iv57
   store i8 61, ptr %arrayidx30, align 1
-  %6 = trunc i64 %indvars.iv.next58 to i32
+  %6 = trunc nsw i64 %indvars.iv.next58 to i32
   %and22 = and i32 %6, 3
   %tobool23.not = icmp eq i32 %and22, 0
   br i1 %tobool23.not, label %while.end31, label %while.body24, !llvm.loop !7
@@ -2048,7 +2048,7 @@ entry:
 declare void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq11ws_engine_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_mechanism = getelementptr inbounds i8, ptr %this, i64 1408
   %0 = load ptr, ptr %_mechanism, align 8

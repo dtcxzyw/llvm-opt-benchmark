@@ -98,7 +98,7 @@ declare ptr @iothread_get_aio_context(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_scsi_dataplane_start(ptr noundef %vdev) local_unnamed_addr #0 {
+define dso_local range(i32 -38, 1) i32 @virtio_scsi_dataplane_start(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #3

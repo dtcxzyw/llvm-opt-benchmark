@@ -49,7 +49,7 @@ define internal void @request_construct(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @request_free(ptr nocapture noundef %0) #1 {
+define internal range(i32 0, 8) i32 @request_free(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8

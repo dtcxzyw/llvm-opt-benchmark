@@ -2626,7 +2626,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %8, i64 %.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %57, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %67, ptr align 1 %57, i64 %58, i1 false)
   %68 = add nuw i64 %.025.i, 1
   %69 = icmp ult i64 %68, %55
   br i1 %69, label %.lr.ph.i, label %print_chain.exit
@@ -3661,7 +3661,7 @@ define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 98:                                               ; preds = %90
-  %99 = call i32 @access(ptr noundef %.0, i32 noundef 4) #21
+  %99 = call i32 @access(ptr noundef readonly %.0, i32 noundef 4) #21
   %.not14.i = icmp eq i32 %99, 0
   br i1 %.not14.i, label %101, label %100
 
@@ -3674,7 +3674,7 @@ define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 102:                                              ; preds = %75
-  %103 = call i32 @access(ptr noundef %.0, i32 noundef 4) #21
+  %103 = call i32 @access(ptr noundef readonly %.0, i32 noundef 4) #21
   %.not15.i = icmp eq i32 %103, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %.not15.i, label %114, label %107

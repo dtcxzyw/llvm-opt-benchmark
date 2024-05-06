@@ -11,7 +11,7 @@ define double @dsum_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 nou
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = mul nsw i64 %2, %0
+  %8 = mul nuw nsw i64 %2, %0
   %9 = icmp eq i64 %2, 1
   br i1 %9, label %10, label %64
 

@@ -377,7 +377,7 @@ define noundef zeroext i1 @ecpg_check_PQresult(ptr noundef %0, i32 noundef %1, p
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 -212, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %16, ptr noundef nonnull align 1 dereferenceable(6) @.str.28, i64 noundef 5, i1 false) #5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %16, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.28, i64 noundef 5, i1 false) #5
   %17 = getelementptr inbounds i8, ptr %11, i64 28
   %18 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 150, ptr noundef nonnull @.str.11, i32 noundef %1) #5
   %19 = getelementptr inbounds i8, ptr %11, i64 24

@@ -525,7 +525,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @auth_g_unpack(ptr noundef %1, i16 noundef zeroext 10496) #10
   %5 = icmp eq ptr %4, null
@@ -849,7 +849,7 @@ define i32 @spawn_req_send_to_srun(ptr nocapture noundef readonly %0, ptr nocapt
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
-  %13 = call i32 @spawn_resp_unpack(ptr noundef %1, ptr noundef %12), !range !21
+  %13 = call i32 @spawn_resp_unpack(ptr noundef %1, ptr noundef %12)
   %14 = load ptr, ptr %3, align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %16, label %15
@@ -872,7 +872,7 @@ declare i32 @tree_msg_to_srun_with_resp(i32 noundef, ptr noundef, ptr noundef) l
 declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @spawn_resp_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @spawn_resp_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @__func__.spawn_resp_unpack) #10
@@ -927,7 +927,7 @@ define noundef i32 @spawn_resp_unpack(ptr nocapture noundef writeonly %0, ptr no
   %27 = load i32, ptr %17, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
@@ -1039,7 +1039,7 @@ define void @spawn_resp_pack(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %23 = load i32, ptr %15, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp ult i64 %indvars.iv.next, %24
-  br i1 %25, label %19, label %._crit_edge, !llvm.loop !23
+  br i1 %25, label %19, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %19, %14
   ret void
@@ -1115,7 +1115,7 @@ define noundef i32 @spawn_psr_enqueue(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @spawn_psr_dequeue(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @spawn_psr_dequeue(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %storemerge12 = load ptr, ptr @psr_list, align 8
   store ptr %storemerge12, ptr %5, align 8
@@ -1130,7 +1130,7 @@ define noundef i32 @spawn_psr_dequeue(i32 noundef %0, ptr nocapture noundef writ
 .lr.ph:                                           ; preds = %.lr.ph24
   %7 = load i32, ptr %storemerge, align 8
   %.not9 = icmp eq i32 %7, %0
-  br i1 %.not9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph24, !llvm.loop !24
+  br i1 %.not9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph24, !llvm.loop !23
 
 .lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %storemerge1523 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge12, %.lr.ph.preheader ]
@@ -1138,7 +1138,7 @@ define noundef i32 @spawn_psr_dequeue(i32 noundef %0, ptr nocapture noundef writ
   %storemerge = load ptr, ptr %8, align 8
   store ptr %storemerge, ptr %5, align 8
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %storemerge1523, i64 24
@@ -1176,7 +1176,7 @@ define i32 @spawn_seq_next() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca [128 x i8], align 16
@@ -1252,7 +1252,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %52 = load i32, ptr %34, align 4
   %53 = zext i32 %52 to i64
   %54 = icmp ult i64 %indvars.iv.next.i, %53
-  br i1 %54, label %40, label %._crit_edge.i, !llvm.loop !25
+  br i1 %54, label %40, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %40, %19
   %55 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1435,7 +1435,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %163 = load i32, ptr %96, align 8
   %164 = zext i32 %163 to i64
   %165 = icmp ult i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %100, label %._crit_edge.i.i, !llvm.loop !26
+  br i1 %165, label %100, label %._crit_edge.i.i, !llvm.loop !25
 
 ._crit_edge.i.i:                                  ; preds = %162, %89
   %.148.lcssa.i.i = phi i32 [ %91, %89 ], [ %.249.i.i, %162 ]
@@ -1468,7 +1468,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %179 = load i32, ptr %67, align 4
   %180 = zext i32 %179 to i64
   %181 = icmp ult i64 %indvars.iv.next79.i.i, %180
-  br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !27
+  br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !26
 
 ._crit_edge64.loopexit.i.i:                       ; preds = %173
   %182 = trunc nsw i64 %indvars.iv76.i.i to i32
@@ -1516,7 +1516,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
 200:                                              ; preds = %195, %.lr.ph69.i.i
   %indvars.iv.next84.i.i = add nuw nsw i64 %indvars.iv83.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next84.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !28
+  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !27
 
 _exec_srun_single.exit.i:                         ; preds = %200, %190
   %201 = load ptr, ptr %6, align 8
@@ -1614,7 +1614,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %244 = load i32, ptr %237, align 4
   %245 = zext i32 %244 to i64
   %246 = icmp ult i64 %indvars.iv.next.i26.i, %245
-  br i1 %246, label %240, label %._crit_edge.i27.i, !llvm.loop !29
+  br i1 %246, label %240, label %._crit_edge.i27.i, !llvm.loop !28
 
 ._crit_edge.i27.i:                                ; preds = %240, %236
   call void @slurm_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.48) #10
@@ -1624,7 +1624,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %249 = load i32, ptr %55, align 8
   %250 = zext i32 %249 to i64
   %251 = icmp ult i64 %indvars.iv.next93.i.i, %250
-  br i1 %251, label %218, label %._crit_edge67.i.i, !llvm.loop !30
+  br i1 %251, label %218, label %._crit_edge67.i.i, !llvm.loop !29
 
 ._crit_edge67.i.i:                                ; preds = %._crit_edge.i27.i, %.preheader.i.i
   %.047.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %248, %._crit_edge.i27.i ]
@@ -1698,7 +1698,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   br label %.lr.ph68.split.us.i.i.backedge
 
 .lr.ph68.split.us.i.i.backedge:                   ; preds = %281, %278
-  br label %.lr.ph68.split.us.i.i, !llvm.loop !31
+  br label %.lr.ph68.split.us.i.i, !llvm.loop !30
 
 .outer._crit_edge.i.i:                            ; preds = %.split.us.i.i, %253
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -1743,12 +1743,12 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %308 = getelementptr inbounds ptr, ptr %307, i64 %.049.i.i
   store ptr @.str.51, ptr %308, align 8
   %309 = load ptr, ptr %2, align 8
-  %310 = getelementptr ptr, ptr %309, i64 %.049.i.i
-  %311 = getelementptr i8, ptr %310, i64 8
+  %310 = getelementptr inbounds ptr, ptr %309, i64 %.049.i.i
+  %311 = getelementptr inbounds i8, ptr %310, i64 8
   store ptr %4, ptr %311, align 8
   %312 = load ptr, ptr %2, align 8
-  %313 = getelementptr ptr, ptr %312, i64 %.049.i.i
-  %314 = getelementptr i8, ptr %313, i64 16
+  %313 = getelementptr inbounds ptr, ptr %312, i64 %.049.i.i
+  %314 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr null, ptr %314, align 8
   %315 = call i32 @slurm_get_log_level() #10
   %316 = icmp sgt i32 %315, 6
@@ -1879,7 +1879,7 @@ define void @spawn_job_wait() local_unnamed_addr #0 {
   %27 = load i32, ptr @spawn_seq, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %29, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !32
+  br i1 %29, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !31
 
 _wait_for_all.exit:                               ; preds = %25, %10
   %30 = phi i32 [ %12, %10 ], [ %27, %25 ]
@@ -1943,7 +1943,7 @@ _wait_for_all.exit:                               ; preds = %25, %10
   %53 = load i32, ptr @spawn_seq, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp ult i64 %indvars.iv.next.i22, %54
-  br i1 %55, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !32
+  br i1 %55, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !31
 
 _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %56 = phi i32 [ %38, %.lr.ph ], [ %53, %51 ]
@@ -1955,7 +1955,7 @@ _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %60 = add i32 %56, -1
   %61 = icmp ne i32 %57, %60
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !33
+  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !32
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %69
   %63 = phi i32 [ %35, %.lr.ph30.preheader ], [ %70, %69 ]
@@ -1978,7 +1978,7 @@ _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = zext i32 %70 to i64
   %73 = icmp ult i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph30, label %._crit_edge, !llvm.loop !34
+  br i1 %73, label %.lr.ph30, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   ret void
@@ -2076,7 +2076,7 @@ attributes #13 = { noreturn nounwind }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = !{i32 -1, i32 1}
+!21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
@@ -2089,4 +2089,3 @@ attributes #13 = { noreturn nounwind }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}

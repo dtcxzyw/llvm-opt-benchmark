@@ -3256,7 +3256,7 @@ if.end.i80:                                       ; preds = %lor.lhs.false.i77
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit88: ; preds = %if.end.i80, %if.then.i85
   %retval.i71.sroa.0.0 = phi ptr [ %32, %if.then.i85 ], [ %33, %if.end.i80 ]
-  %call.i = tail call ptr @_ZN4node6crypto15X509Certificate22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i = tail call ptr @_ZN4node6crypto15X509Certificate22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call14.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i71.sroa.0.0) #17
   br i1 %call14.i, label %lor.lhs.false.i, label %do.body45
 

@@ -605,7 +605,7 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
 
 46:                                               ; preds = %49, %40
   %indvars.iv.i = phi i64 [ %50, %49 ], [ %45, %40 ]
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw i64 %indvars.iv.i to i32
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %55
 

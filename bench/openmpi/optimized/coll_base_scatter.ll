@@ -315,7 +315,7 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
 160:                                              ; preds = %163, %155
   %indvars.iv = phi i64 [ %164, %163 ], [ %159, %155 ]
   %.1126 = phi i32 [ %173, %163 ], [ %.0125, %155 ]
-  %161 = trunc i64 %indvars.iv to i32
+  %161 = trunc nuw i64 %indvars.iv to i32
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %163, label %179
 

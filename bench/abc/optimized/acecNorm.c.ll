@@ -895,7 +895,7 @@ common.ret12:                                     ; preds = %3, %6
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %29, i32 1
   %31 = load i32, ptr %30, align 4
   %32 = lshr i64 %18, 61
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 1
   %35 = xor i32 %34, %31
   %36 = tail call fastcc i32 @Gia_ManAppendAnd2(ptr noundef %0, i32 noundef %26, i32 noundef %35)
@@ -1131,7 +1131,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph64:                                         ; preds = %95
   %99 = getelementptr i8, ptr %96, i64 8
   %100 = add nuw nsw i64 %indvars.iv72, 1
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw nsw i64 %100 to i32
   br label %102
 
 102:                                              ; preds = %.lr.ph64, %Vec_WecPush.exit
@@ -1327,10 +1327,10 @@ define ptr @Acec_InsertBox(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #17
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #13
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -1342,10 +1342,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i97, label %Abc_UtilStrsav.exit98, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #17
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #17
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #14
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #13
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #13
   br label %Abc_UtilStrsav.exit98
 
 Abc_UtilStrsav.exit98:                            ; preds = %Abc_UtilStrsav.exit, %15

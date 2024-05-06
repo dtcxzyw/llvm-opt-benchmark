@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [70 x i8] c"Cannot process logic network with don't-care init values. Run \22zero\22.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_NtkLatchIsSelfFeed_rec(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed_rec(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %19, %2
@@ -80,7 +80,7 @@ tailrecurse:                                      ; preds = %19, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_NtkLatchIsSelfFeed(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.val11 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 32
   %.val12 = load ptr, ptr %2, align 8
@@ -811,7 +811,7 @@ define noalias noundef ptr @Abc_NtkCollectLatchValuesStr(ptr nocapture noundef r
   br i1 %18, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %16
-  %switch.cast = trunc i64 %switch.tableidx to i24
+  %switch.cast = trunc nuw i64 %switch.tableidx to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 7876912, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -1594,7 +1594,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   br label %191
 
 24:                                               ; preds = %21
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = shl nuw i32 1, %25
   %27 = or i32 %.0171, %26
   br label %28
@@ -1882,7 +1882,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %101
   %.val155 = load ptr, ptr %102, align 8
   %158 = getelementptr i8, ptr %.val155, i64 4
   %.val155.val = load i32, ptr %158, align 4
-  %159 = trunc i64 %indvars.iv227 to i32
+  %159 = trunc nuw nsw i64 %indvars.iv227 to i32
   %160 = add nsw i32 %.val155.val, %159
   %.val162 = load ptr, ptr %105, align 8
   %161 = getelementptr i8, ptr %.val162, i64 8
@@ -2647,7 +2647,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %152, %Vec_PtrPush.e
   br i1 %exitcond.not.i128, label %Vec_PtrFind.exit, label %186, !llvm.loop !34
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %186
-  %191 = trunc i64 %indvars.iv.i126 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv.i126 to i32
   br label %Vec_PtrFind.exit
 
 Vec_PtrFind.exit:                                 ; preds = %190, %Vec_PtrPushUnique.exit, %._crit_edge.loopexit.split.loop.exit12.i
@@ -3163,7 +3163,7 @@ define i32 @Abc_NtkVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %exitcond.not, label %.critedge10, label %172, !llvm.loop !43
 
 .critedge10.loopexit.split.loop.exit:             ; preds = %172
-  %179 = trunc i64 %indvars.iv158 to i32
+  %179 = trunc nuw nsw i64 %indvars.iv158 to i32
   br label %.critedge10
 
 .critedge10:                                      ; preds = %178, %.critedge10.loopexit.split.loop.exit, %.preheader

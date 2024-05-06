@@ -551,7 +551,7 @@ return:                                           ; preds = %entry, %if.end40, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uprv_decContextTestSavedStatus_75(i32 noundef %oldstatus, i32 noundef %mask) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @uprv_decContextTestSavedStatus_75(i32 noundef %oldstatus, i32 noundef %mask) local_unnamed_addr #5 {
 entry:
   %and = and i32 %mask, %oldstatus
   %cmp = icmp ne i32 %and, 0
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_decContextTestStatus_75(ptr nocapture noundef readonly %context, i32 noundef %mask) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @uprv_decContextTestStatus_75(ptr nocapture noundef readonly %context, i32 noundef %mask) local_unnamed_addr #2 {
 entry:
   %status = getelementptr inbounds i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4

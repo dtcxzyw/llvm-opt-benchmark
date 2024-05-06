@@ -91,7 +91,7 @@ define internal ptr @setup_vq(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 28:                                               ; preds = %20
   %29 = lshr i64 %22, 12
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   tail call void @vp_legacy_set_queue_address(ptr noundef %8, i16 noundef zeroext %9, i32 noundef %30) #3
   %31 = getelementptr inbounds i8, ptr %0, i64 824
   %32 = load ptr, ptr %31, align 8
@@ -284,7 +284,7 @@ define internal noundef i32 @vp_finalize_features(ptr noundef %0) #0 align 16 {
   unreachable
 
 6:                                                ; preds = %1
-  %7 = trunc i64 %3 to i32
+  %7 = trunc nuw i64 %3 to i32
   %8 = getelementptr inbounds i8, ptr %0, i64 808
   tail call void @vp_legacy_set_features(ptr noundef %8, i32 noundef %7) #3
   ret i32 0

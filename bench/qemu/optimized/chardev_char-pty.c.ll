@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @pty_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @pty_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9

@@ -507,7 +507,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %10, %9
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %18 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %19, ptr %18, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -807,7 +807,7 @@ Vec_IntAlloc.exit.i136:                           ; preds = %130, %129
 137:                                              ; preds = %137, %.lr.ph.i137
   %indvars.iv.i139 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i140, %137 ]
   %138 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.i139
-  %139 = trunc i64 %indvars.iv.i139 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.i139 to i32
   store i32 %139, ptr %138, align 4
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i138
@@ -848,7 +848,7 @@ Vec_IntAlloc.exit.i146:                           ; preds = %145, %Vec_IntStartN
 152:                                              ; preds = %152, %.lr.ph.i147
   %indvars.iv.i149 = phi i64 [ 0, %.lr.ph.i147 ], [ %indvars.iv.next.i150, %152 ]
   %153 = getelementptr inbounds i32, ptr %149, i64 %indvars.iv.i149
-  %154 = trunc i64 %indvars.iv.i149 to i32
+  %154 = trunc nuw nsw i64 %indvars.iv.i149 to i32
   store i32 %154, ptr %153, align 4
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, %wide.trip.count.i148
@@ -906,10 +906,10 @@ Vec_IntStartNatural.exit152:                      ; preds = %Vec_IntStartNatural
   br i1 %.not.i153, label %Abc_UtilStrsav.exit, label %172
 
 172:                                              ; preds = %169
-  %173 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val123) #16
+  %173 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val123) #16
   %174 = add i64 %173, 1
   %175 = tail call noalias ptr @malloc(i64 noundef %174) #15
-  %176 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %175, ptr noundef nonnull dereferenceable(1) %.val123) #13
+  %176 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %175, ptr noundef nonnull readonly dereferenceable(1) %.val123) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %169, %172
@@ -921,10 +921,10 @@ Abc_UtilStrsav.exit:                              ; preds = %169, %172
   br i1 %.not.i154, label %Abc_UtilStrsav.exit155, label %179
 
 179:                                              ; preds = %Abc_UtilStrsav.exit
-  %180 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val124) #16
+  %180 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val124) #16
   %181 = add i64 %180, 1
   %182 = tail call noalias ptr @malloc(i64 noundef %181) #15
-  %183 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %182, ptr noundef nonnull dereferenceable(1) %.val124) #13
+  %183 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %182, ptr noundef nonnull readonly dereferenceable(1) %.val124) #13
   br label %Abc_UtilStrsav.exit155
 
 Abc_UtilStrsav.exit155:                           ; preds = %Abc_UtilStrsav.exit, %179
@@ -1296,12 +1296,12 @@ Vec_IntStartFull.exit102:                         ; preds = %Vec_IntAlloc.exit.t
   %77 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val84, i64 %76
   %.val21.i = load i64, ptr %77, align 4
   %78 = lshr i64 %.val21.i, 63
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %78 to i32
   %80 = xor i32 %75, %79
   %81 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val84, i64 %71
   %.val22.i = load i64, ptr %81, align 4
   %82 = lshr i64 %.val22.i, 63
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw nsw i64 %82 to i32
   %84 = xor i32 %80, %83
   %85 = shl i32 %.val81, 2
   %86 = shl nuw nsw i32 %84, 1
@@ -1337,7 +1337,7 @@ Vec_IntStartFull.exit102:                         ; preds = %Vec_IntAlloc.exit.t
   br i1 %103, label %.lr.ph135, label %.critedge2
 
 .lr.ph135:                                        ; preds = %.preheader128
-  %104 = trunc i64 %indvars.iv148 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %106
 
 .preheader:                                       ; preds = %.critedge2
@@ -1381,12 +1381,12 @@ Vec_IntStartFull.exit102:                         ; preds = %Vec_IntAlloc.exit.t
   %127 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val86, i64 %126
   %.val21.i105 = load i64, ptr %127, align 4
   %128 = lshr i64 %.val21.i105, 63
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw nsw i64 %128 to i32
   %130 = xor i32 %125, %129
   %131 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val86, i64 %121
   %.val22.i106 = load i64, ptr %131, align 4
   %132 = lshr i64 %.val22.i106, 63
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw nsw i64 %132 to i32
   %134 = xor i32 %130, %133
   %135 = shl i32 %.val82, 2
   %136 = shl nuw nsw i32 %134, 1
@@ -1518,7 +1518,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %196 = getelementptr inbounds i32, ptr %193, i64 %indvars.iv.i
   %197 = load i32, ptr %196, align 4
-  %198 = trunc i64 %indvars.iv.i to i32
+  %198 = trunc nuw nsw i64 %indvars.iv.i to i32
   %199 = xor i32 %198, -1
   %200 = add i32 %.pr, %199
   %201 = sext i32 %200 to i64

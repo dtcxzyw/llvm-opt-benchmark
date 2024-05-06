@@ -720,7 +720,7 @@ _ZN7rocksdb4portL11PthreadCallEPKci.exit:         ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv() local_unnamed_addr #2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN7rocksdb4port14PhysicalCoreIDEv() local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @sched_getcpu() #15
   %.call = tail call i32 @llvm.smax.i32(i32 %call, i32 -1)
@@ -794,7 +794,7 @@ entry:
   %cmp.not = icmp eq i32 %call, 0
   %0 = load i64, ptr %no_files_limit, align 8
   %spec.select1 = call i64 @llvm.umin.i64(i64 %0, i64 2147483647)
-  %spec.select = trunc i64 %spec.select1 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i32
   %retval.0 = select i1 %cmp.not, i32 %spec.select, i32 -1
   ret i32 %retval.0
 }
@@ -873,7 +873,7 @@ declare i32 @sched_setscheduler(i32 noundef, i32 noundef, ptr noundef) local_unn
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN7rocksdb4port12GetProcessIDEv() local_unnamed_addr #2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN7rocksdb4port12GetProcessIDEv() local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @getpid() #15
   %conv = sext i32 %call to i64

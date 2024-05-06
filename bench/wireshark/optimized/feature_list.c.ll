@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @with_feature(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #3
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @g_string_append_vprintf(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %3) #3
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
   %6 = call ptr @g_string_free(ptr noundef %4, i32 noundef 0) #3
   %7 = call ptr @g_list_prepend(ptr noundef %5, ptr noundef %6) #3
@@ -24,13 +24,7 @@ define void @with_feature(ptr nocapture noundef %0, ptr noundef %1, ...) local_u
 
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -40,9 +34,9 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 define void @without_feature(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1) #3
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @g_string_append_vprintf(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %3) #3
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
   %6 = call ptr @g_string_free(ptr noundef %4, i32 noundef 0) #3
   %7 = call ptr @g_list_prepend(ptr noundef %5, ptr noundef %6) #3
@@ -81,6 +75,12 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) #1
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -500,7 +500,7 @@ if.then.i191:                                     ; preds = %if.end.i.i68
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %50 = trunc i64 %or8.i.i to i32
+  %50 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %50, 1
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i.i.i, align 8
@@ -842,7 +842,7 @@ if.then.i245:                                     ; preds = %if.end.i.i71
   %or6.i.i553 = or i64 %shr5.i.i552, %or4.i.i551
   %shr7.i.i554 = lshr i64 %or6.i.i553, 16
   %or8.i.i555 = or i64 %shr7.i.i554, %or6.i.i553
-  %71 = trunc i64 %or8.i.i555 to i32
+  %71 = trunc nuw i64 %or8.i.i555 to i32
   %conv3.i556 = add i32 %71, 1
   %.sroa.speculated.i557 = call i32 @llvm.umax.i32(i32 %conv3.i556, i32 64)
   store i32 %.sroa.speculated.i557, ptr %NumBuckets.i.i.i29, align 8
@@ -1040,7 +1040,7 @@ if.then10.i263:                                   ; preds = %if.else.i256
   %or6.i.i453 = or i64 %shr5.i.i452, %or4.i.i451
   %shr7.i.i454 = lshr i64 %or6.i.i453, 16
   %or8.i.i455 = or i64 %shr7.i.i454, %or6.i.i453
-  %82 = trunc i64 %or8.i.i455 to i32
+  %82 = trunc nuw i64 %or8.i.i455 to i32
   %conv3.i456 = add i32 %82, 1
   %.sroa.speculated.i457 = call i32 @llvm.umax.i32(i32 %conv3.i456, i32 64)
   store i32 %.sroa.speculated.i457, ptr %NumBuckets.i.i.i29, align 8
@@ -1463,7 +1463,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS3_EENS
 
 if.end:                                           ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E10destroyAllEv.exit
   %sub.i = add i32 %0, -1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 false), !range !22
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 false)
   %add = sub nuw nsw i32 33, %3
   %shl = shl nuw i32 1, %add
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %shl, i32 64)
@@ -1515,7 +1515,7 @@ if.then.i:                                        ; preds = %if.end
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %8 = trunc i64 %or8.i.i.i to i32
+  %8 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %8, 1
   store i32 %conv2.i.i, ptr %NumBuckets.i.i.i, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64
@@ -1630,7 +1630,7 @@ _ZN4llvh8DenseMapIN6hermes8RegisterEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMap
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -1779,4 +1779,3 @@ attributes #12 = { builtin nounwind }
 !19 = distinct !{!19, !15}
 !20 = distinct !{!20, !15}
 !21 = distinct !{!21, !15}
-!22 = !{i32 0, i32 33}

@@ -388,7 +388,7 @@ define dso_local i32 @acpi_register_gsi(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @acpi_isa_irq_to_gsi(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @acpi_isa_irq_to_gsi(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 16 {
   %3 = load ptr, ptr @legacy_pic, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %0
@@ -441,7 +441,7 @@ define dso_local void @acpi_unregister_gsi(i32 noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_map_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @acpi_map_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 align 16 {
   %5 = icmp sgt i32 %1, 32767
   br i1 %5, label %6, label %8
 
@@ -731,7 +731,7 @@ declare dso_local i32 @acpi_locate_initial_tables() local_unnamed_addr #1
 declare dso_local void @acpi_reserve_initial_tables() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @early_acpi_boot_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @early_acpi_boot_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %18
@@ -822,7 +822,7 @@ define internal fastcc void @early_acpi_process_madt() unnamed_addr #0 section "
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @acpi_boot_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @acpi_boot_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @acpi_dmi_table_late) #18
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp eq i32 %2, 0
@@ -1006,7 +1006,7 @@ define internal fastcc void @acpi_process_madt() unnamed_addr #0 section ".init.
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_hpet(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
@@ -1099,7 +1099,7 @@ declare dso_local i32 @pci_acpi_init() #3 section ".init.text"
 declare dso_local i32 @acpi_parse_spcr(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @parse_acpi(ptr noundef readonly %0) #9 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @parse_acpi(ptr noundef readonly %0) #9 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -1217,7 +1217,7 @@ define internal noundef i32 @parse_acpi_use_timer_override(ptr nocapture readnon
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @setup_acpi_sci(ptr noundef readonly %0) #11 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @setup_acpi_sci(ptr noundef readonly %0) #11 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -1274,7 +1274,7 @@ define internal noundef i32 @setup_acpi_sci(ptr noundef readonly %0) #11 section
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__acpi_acquire_global_lock(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -1, 1) i32 @__acpi_acquire_global_lock(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = lshr i32 %2, 1
   %4 = and i32 %3, 1
@@ -1313,7 +1313,7 @@ define dso_local i32 @__acpi_acquire_global_lock(ptr noundef %0) local_unnamed_a
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__acpi_release_global_lock(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @__acpi_release_global_lock(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = and i32 %2, -4
   %4 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %3, ptr elementtype(i32) %0, i32 %2) #18, !srcloc !18
@@ -1456,7 +1456,7 @@ define internal noundef i32 @disable_acpi_xsdt(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_madt(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
   %3 = and i64 %2, 512
   %4 = icmp eq i64 %3, 0
@@ -1555,7 +1555,7 @@ declare dso_local i32 @default_acpi_madt_oem_check(ptr noundef, ptr noundef) loc
 declare dso_local i32 @acpi_table_parse_madt(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_lapic_addr_ovr(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic_addr_ovr(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 12
@@ -1652,7 +1652,7 @@ define internal fastcc i32 @acpi_parse_madt_lapic_entries() unnamed_addr #0 sect
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @acpi_parse_madt_ioapic_entries() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @acpi_parse_madt_ioapic_entries() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp ne i32 %1, 0
   %3 = load i32, ptr @acpi_noirq, align 4
@@ -1720,7 +1720,7 @@ define internal fastcc i32 @acpi_parse_madt_ioapic_entries() unnamed_addr #0 sec
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_mp_wake(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_mp_wake(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 16
@@ -1753,7 +1753,7 @@ define internal noundef i32 @acpi_parse_mp_wake(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_sapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_sapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 16
@@ -1793,7 +1793,7 @@ define internal noundef i32 @acpi_parse_sapic(ptr noundef %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_lapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 8
@@ -1844,7 +1844,7 @@ define internal noundef i32 @acpi_parse_lapic(ptr noundef %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_x2apic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_x2apic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 16
@@ -1869,7 +1869,7 @@ define internal noundef i32 @acpi_parse_x2apic(ptr noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_x2apic_nmi(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_x2apic_nmi(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 12
@@ -1900,7 +1900,7 @@ define internal noundef i32 @acpi_parse_x2apic_nmi(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_lapic_nmi(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic_nmi(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 6
@@ -1931,7 +1931,7 @@ define internal noundef i32 @acpi_parse_lapic_nmi(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_ioapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_ioapic(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = alloca %struct.ioapic_domain_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   store i32 3, ptr %3, align 8
@@ -1983,7 +1983,7 @@ define internal noundef i32 @acpi_parse_ioapic(ptr noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_int_src_ovr(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 10
@@ -2100,8 +2100,8 @@ define internal fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %0, i16 no
   %17 = zext nneg i8 %15 to i16
   %18 = select i1 %16, i16 %8, i16 %17
   %19 = icmp ult i8 %0, 16
-  %20 = trunc i16 %18 to i8
-  %21 = trunc i16 %14 to i8
+  %20 = trunc nuw nsw i16 %18 to i8
+  %21 = trunc nuw nsw i16 %14 to i8
   br i1 %19, label %22, label %23
 
 22:                                               ; preds = %4
@@ -2245,7 +2245,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_nmi_src(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_nmi_src(ptr noundef %0, i64 noundef %1) #0 section ".init.text" align 16 {
   %3 = icmp eq ptr %0, null
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, 8
@@ -2315,7 +2315,7 @@ define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @mp_register_ioapic_irq(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @mp_register_ioapic_irq(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = alloca %struct.mpc_intsrc, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   %6 = tail call i32 @mp_find_ioapic(i32 noundef %3) #18

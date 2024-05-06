@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___i2c_first_
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable___i2c_board_list421, ptr @__UNIQUE_ID___addressable___i2c_board_lock420, ptr @__UNIQUE_ID___addressable___i2c_first_dynamic_bus_num422], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i2c_register_board_info(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @i2c_register_board_info(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @__i2c_board_lock) #5
   %4 = load i32, ptr @__i2c_first_dynamic_bus_num, align 4
   %5 = icmp sgt i32 %4, %0

@@ -56,7 +56,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_signature_init(ptr noundef %vpsm2ctx, ptr noundef %ec, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_signature_init(ptr noundef %vpsm2ctx, ptr noundef %ec, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -93,7 +93,7 @@ if.end11:                                         ; preds = %if.then7
   br label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true, %if.end11
-  %call15 = tail call i32 @sm2sig_set_ctx_params(ptr noundef nonnull %vpsm2ctx, ptr noundef %params), !range !4
+  %call15 = tail call i32 @sm2sig_set_ctx_params(ptr noundef nonnull %vpsm2ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.then7, %entry, %if.end14, %if.then4
@@ -102,7 +102,7 @@ return:                                           ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_sign(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_sign(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
   %ec = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
@@ -170,15 +170,15 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_digest_signverify_init(ptr noundef %vpsm2ctx, ptr noundef %mdname, ptr noundef %ec, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_init(ptr noundef %vpsm2ctx, ptr noundef %mdname, ptr noundef %ec, ptr noundef %params) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
-  %call = tail call i32 @sm2sig_signature_init(ptr noundef %vpsm2ctx, ptr noundef %ec, ptr noundef %params), !range !4
+  %call = tail call i32 @sm2sig_signature_init(ptr noundef %vpsm2ctx, ptr noundef %ec, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @sm2sig_set_mdname(ptr noundef %vpsm2ctx, ptr noundef %mdname), !range !4
+  %call1 = tail call fastcc i32 @sm2sig_set_mdname(ptr noundef %vpsm2ctx, ptr noundef %mdname)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -245,7 +245,7 @@ return:                                           ; preds = %if.end30, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_digest_signverify_update(ptr noundef %vpsm2ctx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef %vpsm2ctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -257,7 +257,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx), !range !4
+  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
@@ -274,7 +274,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_digest_sign_final(ptr noundef %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
 entry:
   %sltmp.i = alloca i32, align 4
   %digest = alloca [64 x i8], align 16
@@ -302,7 +302,7 @@ if.end.split:                                     ; preds = %if.end
   br label %return
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx), !range !4
+  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -376,7 +376,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %call4 = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx), !range !4
+  %call4 = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -555,7 +555,7 @@ return:                                           ; preds = %if.end43, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -626,7 +626,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2sig_set_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_set_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %mdsize = alloca i64, align 8
   %tmp_id = alloca ptr, align 8
@@ -705,7 +705,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end30:                                         ; preds = %if.then26
   %6 = load ptr, ptr %mdname, align 8
-  %call31 = call fastcc i32 @sm2sig_set_mdname(ptr noundef nonnull %vpsm2ctx, ptr noundef %6), !range !4
+  %call31 = call fastcc i32 @sm2sig_set_mdname(ptr noundef nonnull %vpsm2ctx, ptr noundef %6)
   %tobool32.not.not = icmp eq i32 %call31, 0
   %7 = load ptr, ptr %mdname, align 8
   %. = select i1 %tobool32.not.not, i32 475, i32 478
@@ -818,7 +818,7 @@ declare i32 @ossl_sm2_internal_sign(ptr noundef, i32 noundef, ptr noundef, ptr n
 declare i32 @ossl_sm2_internal_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sm2sig_set_mdname(ptr noundef %psm2ctx, ptr noundef %mdname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2sig_set_mdname(ptr noundef %psm2ctx, ptr noundef %mdname) unnamed_addr #0 {
 entry:
   %md = getelementptr inbounds i8, ptr %psm2ctx, i64 352
   %0 = load ptr, ptr %md, align 8
@@ -894,7 +894,7 @@ declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sm2sig_compute_z_digest(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2sig_compute_z_digest(ptr nocapture noundef %ctx) unnamed_addr #0 {
 entry:
   %flag_compute_z_digest = getelementptr inbounds i8, ptr %ctx, i64 24
   %bf.load = load i8, ptr %flag_compute_z_digest, align 8
@@ -1017,4 +1017,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

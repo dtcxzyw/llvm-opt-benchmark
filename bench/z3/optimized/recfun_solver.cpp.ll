@@ -5749,8 +5749,8 @@ for.body.lr.ph:                                   ; preds = %entry, %if.end
   %add.ptr.i.idx13.pn.in.in = phi i32 [ %.pre, %if.end ], [ %0, %entry ]
   %add.ptr.i.idx13.pn.in = zext i32 %add.ptr.i.idx13.pn.in.in to i64
   %add.ptr.i.idx13.pn = shl nuw nsw i64 %add.ptr.i.idx13.pn.in, 3
-  %.pn = getelementptr i8, ptr %n, i64 %add.ptr.i.idx13.pn
-  %add.ptr.i.ptr16 = getelementptr i8, ptr %.pn, i64 176
+  %.pn = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx13.pn
+  %add.ptr.i.ptr16 = getelementptr inbounds i8, ptr %.pn, i64 176
   %m_args.i.ptr = getelementptr inbounds i8, ptr %n, i64 176
   %m_deps.i.i = getelementptr inbounds i8, ptr %dep, i64 56
   br label %for.body

@@ -369,7 +369,7 @@ declare dso_local void @timecounter_init(ptr noundef, ptr noundef, i64 noundef) 
 declare dso_local i32 @get_device_system_crosststamp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000e_phc_get_syncdevicetime(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -110, 1) i32 @e1000e_phc_get_syncdevicetime(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 1464
   %5 = getelementptr inbounds i8, ptr %2, i64 1472
   %6 = load ptr, ptr %5, align 8

@@ -1017,7 +1017,7 @@ declare i32 @php_pcre2_pattern_info(ptr noundef, i32 noundef, ptr noundef) local
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @pcre_clean_cache(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal range(i32 0, 2) i32 @pcre_clean_cache(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %11
@@ -6592,7 +6592,7 @@ php_pcre_get_error_msg.exit:                      ; preds = %6, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zm_startup_pcre(i32 noundef %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @zm_startup_pcre(i32 noundef %0, i32 noundef %1) #0 {
   %.b4 = load i1, ptr @pcre2_init_ok, align 1
   br i1 %.b4, label %6, label %3
 
@@ -6656,7 +6656,7 @@ define internal noundef i32 @zm_shutdown_pcre(i32 noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zm_activate_pcre(i32 %0, i32 %1) #0 {
+define internal range(i32 -1, 1) i32 @zm_activate_pcre(i32 %0, i32 %1) #0 {
   %.b1 = load i1, ptr @pcre2_init_ok, align 1
   br i1 %.b1, label %6, label %3
 
@@ -7682,7 +7682,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   %104 = call ptr @_zend_new_array(i32 noundef %103) #23
   store ptr %104, ptr %11, align 8
   store i32 775, ptr %68, align 8
-  call fastcc void @populate_subpat_array(ptr noundef nonnull %11, ptr noundef %2, ptr noundef nonnull %52, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %101, i64 noundef %8)
+  call fastcc void @populate_subpat_array(ptr noundef nonnull %11, ptr noundef readonly %2, ptr noundef nonnull readonly %52, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %101, i64 noundef %8)
   store ptr %10, ptr %69, align 8
   store i32 1, ptr %70, align 8
   store ptr %11, ptr %71, align 8
@@ -7731,7 +7731,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   %126 = getelementptr inbounds i8, ptr %123, i64 16
   store i64 %120, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %123, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %127, ptr align 1 %118, i64 %120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %127, ptr readonly align 1 %118, i64 %120, i1 false)
   %128 = getelementptr inbounds [1 x i8], ptr %127, i64 0, i64 %120
   store i8 0, ptr %128, align 1
   br label %preg_do_repl_func.exit

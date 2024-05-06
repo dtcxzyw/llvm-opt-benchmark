@@ -952,7 +952,7 @@ return:                                           ; preds = %cleanup.action, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net10QuicFramer18GetMinAckFrameSizeENS_11QuicVersionENS_22QuicPacketNumberLengthE(i32 noundef %version, i8 noundef signext %largest_observed_length) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 -124, 132) i64 @_ZN3net10QuicFramer18GetMinAckFrameSizeENS_11QuicVersionENS_22QuicPacketNumberLengthE(i32 noundef %version, i8 noundef signext %largest_observed_length) local_unnamed_addr #6 align 2 {
 entry:
   %conv = sext i8 %largest_observed_length to i64
   %retval.0 = add nsw i64 %conv, 4
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net10QuicFramer23GetStopWaitingFrameSizeENS_11QuicVersionENS_22QuicPacketNumberLengthE(i32 noundef %version, i8 noundef signext %packet_number_length) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 -127, 130) i64 @_ZN3net10QuicFramer23GetStopWaitingFrameSizeENS_11QuicVersionENS_22QuicPacketNumberLengthE(i32 noundef %version, i8 noundef signext %packet_number_length) local_unnamed_addr #6 align 2 {
 entry:
   %conv = sext i8 %packet_number_length to i64
   %cmp = icmp slt i32 %version, 34
@@ -1422,7 +1422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZN3net10QuicFramer20GetPacketEntropyHashERKNS_16QuicPacketHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext range(i8 0, -127) i8 @_ZN3net10QuicFramer20GetPacketEntropyHashERKNS_16QuicPacketHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #10 align 2 {
 entry:
   %entropy_flag = getelementptr inbounds i8, ptr %header, i64 57
   %0 = load i8, ptr %entropy_flag, align 1
@@ -6638,7 +6638,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE(i8 noundef signext %packet_number_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE(i8 noundef signext %packet_number_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %switch.tableidx = add i8 %packet_number_length, -1
@@ -7168,7 +7168,7 @@ declare noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt64EPm(ptr noundef n
 declare noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i8 @_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm(i64 noundef %packet_number) local_unnamed_addr #6 align 2 {
+define dso_local noundef signext range(i8 1, 7) i8 @_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm(i64 noundef %packet_number) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i64 %packet_number, 256
   br i1 %cmp, label %return, label %if.else
@@ -7392,7 +7392,7 @@ define dso_local void @_ZN3net10QuicFramer18GetNewAckFrameInfoERKNS_12QuicAckFra
 entry:
   %itr = alloca %"class.std::reverse_iterator", align 8
   %ref.tmp = alloca %"class.std::reverse_iterator", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %packets = getelementptr inbounds i8, ptr %frame, i64 48
   %call = tail call noundef zeroext i1 @_ZNK3net17PacketNumberQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(48) %packets)
   br i1 %call, label %nrvo.skipdtor, label %if.end

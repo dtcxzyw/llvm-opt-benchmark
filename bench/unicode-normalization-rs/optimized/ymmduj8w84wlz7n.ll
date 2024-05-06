@@ -52,7 +52,7 @@ define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae0
 
 24:                                               ; preds = %20
   %25 = shl nuw i32 %0, 16
-  %26 = or i32 %25, %1
+  %26 = or disjoint i32 %25, %1
   %27 = tail call noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970(i32 noundef %26, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.2.llvm.3355593342274400970, i64 noundef 928, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.3.llvm.3355593342274400970, i64 noundef 928, i32 noundef 1114112), !range !4
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 

@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ufs_emulate_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
+define internal range(i32 0, 2) i32 @ufs_emulate_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
 entry:
   %outbuf = alloca [4096 x i8], align 16
   %sense_buf = alloca [18 x i8], align 16
@@ -119,7 +119,7 @@ if.end11.i:                                       ; preds = %if.then6.i
   %add.ptr.i = getelementptr i8, ptr %outbuf, i64 %idx.ext.i
   store i64 0, ptr %add.ptr.i, align 1
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %idx.ext.i
-  %4 = trunc i64 %indvars.iv.i to i8
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i8
   store i8 %4, ptr %gep.i, align 1
   br label %for.inc.i
 
@@ -170,7 +170,7 @@ if.end.i.i:                                       ; preds = %sw.bb17.i.i, %if.th
   %buflen.0.i.i = phi i32 [ 8, %sw.bb17.i.i ], [ 6, %if.then1.i ]
   store i8 0, ptr %.sink2.i.i.sroa.phi, align 1
   store i8 %.sink.i.i, ptr %.sink1.i.i.sroa.phi, align 1
-  %9 = trunc i32 %buflen.0.i.i to i8
+  %9 = trunc nuw nsw i32 %buflen.0.i.i to i8
   %conv32.i.i = add nsw i8 %9, -4
   store i8 %conv32.i.i, ptr %arrayidx10.i.i, align 1
   br label %sw.epilog
@@ -264,7 +264,7 @@ if.then17.i:                                      ; preds = %if.end13.i
   %sense_data_len.i.i = getelementptr inbounds i8, ptr %req, i64 368
   store i16 4608, ptr %sense_data_len.i.i, align 4
   %sense_data.i.i = getelementptr inbounds i8, ptr %req, i64 370
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %sense_data.i.i, ptr noundef nonnull align 16 dereferenceable(18) %sense_buf, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(18) %sense_data.i.i, ptr noundef nonnull readonly align 16 dereferenceable(18) %sense_buf, i64 18, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
 
 ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %if.then17.i
@@ -507,7 +507,7 @@ declare zeroext i1 @blk_supports_write_perm(ptr noundef) local_unnamed_addr #2
 declare i64 @blk_getlength(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ufs_process_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
+define internal range(i32 0, 3) i32 @ufs_process_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
 entry:
   %cdb = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load i8, ptr %cdb, align 4
@@ -515,7 +515,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @ufs_emulate_scsi_cmd(ptr noundef %lu, ptr noundef nonnull %req), !range !7
+  %call = tail call i32 @ufs_emulate_scsi_cmd(ptr noundef %lu, ptr noundef nonnull %req)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -630,7 +630,7 @@ if.else.i.i:                                      ; preds = %if.then17.i
 ufs_build_upiu_sense_data.exit.i:                 ; preds = %if.then17.i
   %sense_data.i.i = getelementptr inbounds i8, ptr %0, i64 370
   %conv3.i.i = zext nneg i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sense_data.i.i, ptr nonnull align 1 %sense, i64 %conv3.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %sense_data.i.i, ptr nonnull readonly align 1 %sense, i64 %conv3.i.i, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
 
 ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %ufs_build_upiu_sense_data.exit.i
@@ -685,4 +685,3 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

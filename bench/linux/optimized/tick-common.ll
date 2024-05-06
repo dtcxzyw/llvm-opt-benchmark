@@ -61,7 +61,7 @@ define dso_local ptr @tick_get_device(i32 noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tick_is_oneshot_available() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_is_oneshot_available() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @tick_cpu_device) #8, !srcloc !6
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %15, label %3

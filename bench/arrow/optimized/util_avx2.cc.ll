@@ -3,7 +3,7 @@ source_filename = "bench/arrow/original/util_avx2.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5arrow4util8bit_util4avx220bits_to_indexes_avx2EiiPKhPiPtt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef %num_indexes, ptr nocapture noundef writeonly %indexes, i16 noundef zeroext %base_index) local_unnamed_addr #0 {
 entry:
   %byte_indexes.i6 = alloca [64 x i8], align 16
@@ -62,12 +62,12 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   store i64 %add.i, ptr %add.ptr.i, align 8
   %add8.i = add i64 %base.035.i, 578721382704613384
   %and.i = and i64 %word.037.i, 255
-  %5 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i), !range !4
-  %conv.i = trunc i64 %5 to i32
+  %5 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
+  %conv.i = trunc nuw nsw i64 %5 to i32
   %add10.i = add nuw nsw i32 %num_indexes_loop.036.i, %conv.i
   %shr.i = lshr i64 %word.037.i, 8
   %tobool.not.i = icmp ult i64 %word.037.i, 256
-  br i1 %tobool.not.i, label %for.cond12.preheader.i, label %while.body6.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %for.cond12.preheader.i, label %while.body6.i, !llvm.loop !4
 
 for.body16.i:                                     ; preds = %for.body16.i, %for.body16.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body16.lr.ph.i ], [ %indvars.iv.next.i, %for.body16.i ]
@@ -82,7 +82,7 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   store <16 x i16> %add.i.i, ptr %add.ptr31.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body16.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body16.i, !llvm.loop !6
 
 for.end.loopexit.i:                               ; preds = %for.body16.i
   %.pre.i = load i32, ptr %num_indexes, align 4
@@ -95,7 +95,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   store i32 %add32.i, ptr %num_indexes, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
-  br i1 %exitcond47.not.i, label %_ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi0EEEviPKhPiPtt.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond47.not.i, label %_ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi0EEEviPKhPiPtt.exit, label %for.body.i, !llvm.loop !7
 
 _ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi0EEEviPKhPiPtt.exit: ; preds = %for.end.i, %if.then
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %byte_indexes.i)
@@ -147,12 +147,12 @@ while.body6.i10:                                  ; preds = %for.body.i8, %while
   store i64 %add.i12, ptr %add.ptr.i14, align 8
   %add8.i15 = add i64 %base.034.i, 578721382704613384
   %and.i16 = and i64 %word.036.i, 255
-  %14 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i16), !range !4
-  %conv.i17 = trunc i64 %14 to i32
+  %14 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i16)
+  %conv.i17 = trunc nuw nsw i64 %14 to i32
   %add10.i18 = add nuw nsw i32 %num_indexes_loop.035.i, %conv.i17
   %shr.i19 = lshr i64 %word.036.i, 8
   %tobool.not.i20 = icmp ult i64 %word.036.i, 256
-  br i1 %tobool.not.i20, label %for.cond12.preheader.i21, label %while.body6.i10, !llvm.loop !9
+  br i1 %tobool.not.i20, label %for.cond12.preheader.i21, label %while.body6.i10, !llvm.loop !8
 
 for.body16.i29:                                   ; preds = %for.body16.i29, %for.body16.lr.ph.i22
   %indvars.iv.i30 = phi i64 [ 0, %for.body16.lr.ph.i22 ], [ %indvars.iv.next.i37, %for.body16.i29 ]
@@ -167,7 +167,7 @@ for.body16.i29:                                   ; preds = %for.body16.i29, %fo
   store <16 x i16> %add.i.i33, ptr %add.ptr31.i36, align 1
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i28
-  br i1 %exitcond.not.i38, label %for.end.loopexit.i39, label %for.body16.i29, !llvm.loop !10
+  br i1 %exitcond.not.i38, label %for.end.loopexit.i39, label %for.body16.i29, !llvm.loop !9
 
 for.end.loopexit.i39:                             ; preds = %for.body16.i29
   %.pre.i40 = load i32, ptr %num_indexes, align 4
@@ -180,7 +180,7 @@ for.end.i41:                                      ; preds = %for.end.loopexit.i3
   store i32 %add32.i42, ptr %num_indexes, align 4
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count45.i
-  br i1 %exitcond46.not.i, label %_ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi1EEEviPKhPiPtt.exit, label %for.body.i8, !llvm.loop !11
+  br i1 %exitcond46.not.i, label %_ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi1EEEviPKhPiPtt.exit, label %for.body.i8, !llvm.loop !10
 
 _ZN5arrow4util8bit_util4avx224bits_to_indexes_imp_avx2ILi1EEEviPKhPiPtt.exit: ; preds = %for.end.i41, %while.end4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %byte_indexes.i6)
@@ -190,7 +190,7 @@ if.end:                                           ; preds = %_ZN5arrow4util8bit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5arrow4util8bit_util4avx224bits_filter_indexes_avx2EiiPKhPKtPiPt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef readonly %input_indexes, ptr nocapture noundef writeonly %num_indexes, ptr nocapture noundef writeonly %indexes) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %bit_to_search, 0
@@ -250,19 +250,19 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %add.ptr29.i = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i
   store <32 x i8> %18, ptr %add.ptr29.i, align 1
   %and.i = and i64 %word.0100.i, 65535
-  %19 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i), !range !4
-  %conv.i = trunc i64 %19 to i32
+  %19 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
+  %conv.i = trunc nuw nsw i64 %19 to i32
   %add.i = add nsw i32 %num_indexes.1101.i, %conv.i
   %shr.i = lshr i64 %word.0100.i, 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %tobool.not.i = icmp ult i64 %word.0100.i, 65536
-  br i1 %tobool.not.i, label %for.inc.i, label %while.body6.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %for.inc.i, label %while.body6.i, !llvm.loop !11
 
 for.inc.i:                                        ; preds = %while.body6.i, %for.body.i
   %num_indexes.1.lcssa.i = phi i32 [ %num_indexes.0104.i, %for.body.i ], [ %add.i, %while.body6.i ]
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !12
 
 if.else:                                          ; preds = %entry
   br i1 %cmp4102.i, label %for.body.preheader.i7, label %if.end
@@ -316,19 +316,19 @@ while.body6.i13:                                  ; preds = %while.body6.i13, %w
   %add.ptr29.i22 = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i21
   store <32 x i8> %38, ptr %add.ptr29.i22, align 1
   %and.i23 = and i64 %word.099.i, 65535
-  %39 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i23), !range !4
-  %conv.i24 = trunc i64 %39 to i32
+  %39 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i23)
+  %conv.i24 = trunc nuw nsw i64 %39 to i32
   %add.i25 = add nsw i32 %num_indexes.1100.i, %conv.i24
   %shr.i26 = lshr i64 %word.099.i, 16
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i14, 1
   %tobool.not.i28 = icmp ult i64 %word.099.i, 65536
-  br i1 %tobool.not.i28, label %for.inc.i29, label %while.body6.i13, !llvm.loop !14
+  br i1 %tobool.not.i28, label %for.inc.i29, label %while.body6.i13, !llvm.loop !13
 
 for.inc.i29:                                      ; preds = %while.body6.i13, %for.body.i9
   %num_indexes.1.lcssa.i30 = phi i32 [ %num_indexes.0103.i, %for.body.i9 ], [ %add.i25, %while.body6.i13 ]
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count.i8
-  br i1 %exitcond.not.i31, label %if.end, label %for.body.i9, !llvm.loop !15
+  br i1 %exitcond.not.i31, label %if.end, label %for.body.i9, !llvm.loop !14
 
 if.end:                                           ; preds = %for.inc.i29, %for.inc.i, %if.else, %if.then
   %storemerge = phi i32 [ 0, %if.then ], [ 0, %if.else ], [ %num_indexes.1.lcssa.i, %for.inc.i ], [ %num_indexes.1.lcssa.i30, %for.inc.i29 ]
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %for.inc.i29, %for.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx218bits_to_bytes_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #1 {
+define void @_ZN5arrow4util8bit_util4avx218bits_to_bytes_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #0 {
 entry:
   %cmp17 = icmp sgt i32 %num_bits, 31
   br i1 %cmp17, label %for.body.preheader, label %for.end
@@ -362,14 +362,14 @@ for.body:                                         ; preds = %for.body.preheader,
   store <32 x i8> %sext.i, ptr %add.ptr, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx218bytes_to_bits_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bytes, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+define void @_ZN5arrow4util8bit_util4avx218bytes_to_bits_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bytes, ptr nocapture noundef writeonly %bits) local_unnamed_addr #0 {
 entry:
   %cmp4 = icmp sgt i32 %num_bits, 31
   br i1 %cmp4, label %for.body.preheader, label %for.end
@@ -388,14 +388,14 @@ for.body:                                         ; preds = %for.body.preheader,
   store <32 x i1> %1, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow4util8bit_util4avx223are_all_bytes_zero_avx2EPKhj(ptr nocapture noundef readonly %bytes, i32 noundef %num_bytes) local_unnamed_addr #2 {
+define noundef zeroext i1 @_ZN5arrow4util8bit_util4avx223are_all_bytes_zero_avx2EPKhj(ptr nocapture noundef readonly %bytes, i32 noundef %num_bytes) local_unnamed_addr #1 {
 entry:
   %tail = alloca [4 x i64], align 16
   %cmp74.not = icmp ult i32 %num_bytes, 32
@@ -414,7 +414,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %or.i = or <4 x i64> %0, %result_or.076
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.body
   %1 = bitcast <4 x i64> %or.i to <32 x i8>
@@ -435,7 +435,7 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tail, i8 0, i64 32, i1 false)
   %add.ptr10 = getelementptr inbounds i8, ptr %bytes, i64 %i.0.lcssa
   %conv = zext nneg i32 %rem to i64
-  %call12 = call i32 @memcmp(ptr noundef %add.ptr10, ptr noundef nonnull %tail, i64 noundef %conv) #8
+  %call12 = call i32 @memcmp(ptr noundef %add.ptr10, ptr noundef nonnull %tail, i64 noundef %conv) #7
   %or = or i32 %call12, %result_or.0.lcssa
   br label %if.end
 
@@ -446,38 +446,37 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #5
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pext.64(i64, i64) #5
+declare i64 @llvm.x86.bmi.pext.64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #5
+declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -485,18 +484,17 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

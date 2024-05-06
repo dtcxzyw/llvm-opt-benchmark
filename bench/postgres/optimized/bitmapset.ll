@@ -84,7 +84,7 @@ define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bms_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %7
 
@@ -213,7 +213,7 @@ define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2
@@ -226,7 +226,7 @@ bms_copy.exit24:                                  ; preds = %13
   %17 = shl nsw i64 %16, 3
   %18 = add nsw i64 %17, 8
   %19 = tail call ptr @palloc(i64 noundef %18) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull align 8 %0, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull readonly align 8 %0, i64 %18, i1 false)
   br label %bms_copy.exit
 
 20:                                               ; preds = %13
@@ -240,7 +240,7 @@ bms_copy.exit26:                                  ; preds = %20
   %24 = shl nsw i64 %23, 3
   %25 = add nsw i64 %24, 8
   %26 = tail call ptr @palloc(i64 noundef %25) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr nonnull align 8 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr nonnull readonly align 8 %1, i64 %25, i1 false)
   br label %31
 
 bms_copy.exit28:                                  ; preds = %20
@@ -248,7 +248,7 @@ bms_copy.exit28:                                  ; preds = %20
   %28 = shl nsw i64 %27, 3
   %29 = add nsw i64 %28, 8
   %30 = tail call ptr @palloc(i64 noundef %29) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %0, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull readonly align 8 %0, i64 %29, i1 false)
   br label %31
 
 31:                                               ; preds = %bms_copy.exit28, %bms_copy.exit26
@@ -299,7 +299,7 @@ bms_copy.exit:                                    ; preds = %5
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
   %13 = tail call ptr @palloc(i64 noundef %12) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %0, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %0, i64 %12, i1 false)
   br label %18
 
 bms_copy.exit33:                                  ; preds = %5
@@ -307,7 +307,7 @@ bms_copy.exit33:                                  ; preds = %5
   %15 = shl nsw i64 %14, 3
   %16 = add nsw i64 %15, 8
   %17 = tail call ptr @palloc(i64 noundef %16) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %1, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull readonly align 8 %1, i64 %16, i1 false)
   br label %18
 
 18:                                               ; preds = %bms_copy.exit33, %bms_copy.exit
@@ -371,7 +371,7 @@ bms_copy.exit:                                    ; preds = %4
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
   %11 = tail call ptr @palloc(i64 noundef %10) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull align 8 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull readonly align 8 %0, i64 %10, i1 false)
   br label %bms_nonempty_difference.exit
 
 12:                                               ; preds = %4
@@ -408,7 +408,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %27 = shl nsw i64 %26, 3
   %28 = add nsw i64 %27, 8
   %29 = tail call ptr @palloc(i64 noundef %28) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull align 8 %0, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull readonly align 8 %0, i64 %28, i1 false)
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %13, align 4
@@ -548,7 +548,7 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bms_subset_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -882,7 +882,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
 
 13:                                               ; preds = %10
   %14 = icmp slt i32 %.0, 0
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !18
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
   %.not18 = icmp ult i64 %15, 2
   %or.cond = select i1 %14, i1 %.not18, i1 false
   br i1 %or.cond, label %19, label %16
@@ -897,7 +897,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
 19:                                               ; preds = %13
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = shl i32 %20, 6
-  %22 = tail call i64 @llvm.cttz.i64(i64 %12, i1 true), !range !18
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = or disjoint i32 %21, %23
   br label %25
@@ -906,7 +906,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
   %.1 = phi i32 [ %24, %19 ], [ %.0, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %26, label %10, !llvm.loop !19
+  br i1 %exitcond.not, label %26, label %10, !llvm.loop !18
 
 26:                                               ; preds = %25
   ret i32 %.1
@@ -935,7 +935,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 
 11:                                               ; preds = %8
   %12 = icmp slt i32 %.017, 0
-  %13 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !18
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %.not21 = icmp ult i64 %13, 2
   %or.cond = select i1 %12, i1 %.not21, i1 false
   br i1 %or.cond, label %14, label %.loopexit
@@ -943,7 +943,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 14:                                               ; preds = %11
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = shl i32 %15, 6
-  %17 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !18
+  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %10, i1 true)
   %18 = trunc nuw nsw i64 %17 to i32
   %19 = or disjoint i32 %16, %18
   br label %20
@@ -952,7 +952,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   %.1 = phi i32 [ %19, %14 ], [ %.017, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %8, !llvm.loop !20
+  br i1 %exitcond.not, label %21, label %8, !llvm.loop !19
 
 21:                                               ; preds = %20
   store i32 %.1, ptr %1, align 4
@@ -994,7 +994,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
   %.1 = phi i32 [ %13, %10 ], [ %.011, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
 
 .loopexit:                                        ; preds = %14, %1
   %.0 = phi i32 [ 0, %1 ], [ %.1, %14 ]
@@ -1002,7 +1002,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bms_membership(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -1024,7 +1024,7 @@ define dso_local i32 @bms_membership(ptr noundef readonly %0) local_unnamed_addr
 
 10:                                               ; preds = %7
   %.not17 = icmp eq i32 %.013, 0
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !18
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %.not18 = icmp ult i64 %11, 2
   %or.cond = select i1 %.not17, i1 %.not18, i1 false
   br i1 %or.cond, label %12, label %.loopexit
@@ -1033,7 +1033,7 @@ define dso_local i32 @bms_membership(ptr noundef readonly %0) local_unnamed_addr
   %.1 = phi i32 [ %.013, %7 ], [ 1, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %10, %1
   %.0 = phi i32 [ 0, %1 ], [ %.1, %12 ], [ 2, %10 ]
@@ -1101,7 +1101,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %34 = load i32, ptr %29, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %32, label %.loopexit, !llvm.loop !23
+  br i1 %36, label %32, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %32, %21
   %.022 = phi ptr [ %0, %21 ], [ %28, %32 ]
@@ -1177,7 +1177,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %30 = getelementptr [0 x i64], ptr %18, i64 0, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8
   %.not28 = icmp eq i64 %31, 0
-  br i1 %.not28, label %.preheader, label %32, !llvm.loop !24
+  br i1 %.not28, label %.preheader, label %32, !llvm.loop !23
 
 32:                                               ; preds = %29
   %33 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1209,7 +1209,7 @@ define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly %1) l
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2
@@ -1228,7 +1228,7 @@ bms_copy.exit27:                                  ; preds = %14
   %21 = shl nsw i64 %20, 3
   %22 = add nsw i64 %21, 8
   %23 = tail call ptr @palloc(i64 noundef %22) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 8 %1, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull readonly align 8 %1, i64 %22, i1 false)
   %.pre = load i32, ptr %15, align 4
   br label %24
 
@@ -1252,7 +1252,7 @@ bms_copy.exit27:                                  ; preds = %14
   store i64 %33, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %34, label %28, !llvm.loop !25
+  br i1 %exitcond.not, label %34, label %28, !llvm.loop !24
 
 34:                                               ; preds = %28
   %.not = icmp eq ptr %.023, %0
@@ -1283,7 +1283,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2
@@ -1324,7 +1324,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   %33 = load i32, ptr %18, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %29, label %36, !llvm.loop !26
+  br i1 %35, label %29, label %36, !llvm.loop !25
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %.018, i64 4
@@ -1395,7 +1395,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %35 = load i32, ptr %30, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %33, label %.loopexit, !llvm.loop !27
+  br i1 %37, label %33, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %33, %21, %14
   %.044 = phi ptr [ %19, %14 ], [ %0, %21 ], [ %29, %33 ]
@@ -1500,7 +1500,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   %spec.select = select i1 %.not, i32 %.022, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %14, !llvm.loop !28
+  br i1 %exitcond.not, label %21, label %14, !llvm.loop !27
 
 21:                                               ; preds = %14
   %22 = icmp eq i32 %spec.select, -1
@@ -1557,7 +1557,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %20 = load i32, ptr %9, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next34, %21
-  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !28
 
 23:                                               ; preds = %.preheader31, %23
   %indvars.iv = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next, %23 ]
@@ -1574,7 +1574,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %spec.select = select i1 %.not, i32 %.0, i32 %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %31, label %23, !llvm.loop !30
+  br i1 %exitcond.not, label %31, label %23, !llvm.loop !29
 
 31:                                               ; preds = %23
   %32 = icmp eq i32 %spec.select, -1
@@ -1629,7 +1629,7 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   store i64 %21, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %22, label %16, !llvm.loop !31
+  br i1 %exitcond.not, label %22, label %16, !llvm.loop !30
 
 22:                                               ; preds = %16
   %.not = icmp eq ptr %0, %1
@@ -1676,7 +1676,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 
 19:                                               ; preds = %14
   %20 = shl i32 %.01822, 6
-  %21 = tail call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !18
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %18, i1 true)
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = or disjoint i32 %20, %22
   br label %.loopexit
@@ -1684,7 +1684,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 24:                                               ; preds = %14
   %25 = add nsw i32 %.01822, 1
   %exitcond.not = icmp eq i32 %25, %6
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !31
 
 .loopexit:                                        ; preds = %24, %4, %2, %19
   %.0 = phi i32 [ %23, %19 ], [ -2, %2 ], [ -2, %4 ], [ -2, %24 ]
@@ -1692,7 +1692,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -1735,7 +1735,7 @@ define dso_local i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) l
 
 24:                                               ; preds = %19
   %25 = shl nuw nsw i32 %.02227, 6
-  %26 = tail call i64 @llvm.ctlz.i64(i64 %23, i1 true), !range !18
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = or disjoint i32 %25, %27
   %29 = xor i32 %28, 63
@@ -1744,7 +1744,7 @@ define dso_local i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) l
 30:                                               ; preds = %19
   %31 = add nsw i32 %.02227, -1
   %32 = icmp sgt i32 %.02227, 0
-  br i1 %32, label %19, label %.loopexit, !llvm.loop !33
+  br i1 %32, label %19, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %30, %11, %2, %24
   %.0 = phi i32 [ %29, %24 ], [ -2, %2 ], [ -2, %11 ], [ -2, %30 ]
@@ -1789,7 +1789,7 @@ bms_hash_value.exit:                              ; preds = %2, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @bitmap_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @bitmap_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %4, null
@@ -1889,7 +1889,7 @@ attributes #12 = { cold nounwind }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i64 0, i64 65}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
@@ -1904,4 +1904,3 @@ attributes #12 = { cold nounwind }
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}

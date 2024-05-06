@@ -875,7 +875,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyOS_ReadlineLock = internal unnamed_addr global ptr null, align 8
 @PyExc_MemoryError = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [20 x i8] c"can't allocate lock\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_PyRuntime = external local_unnamed_addr global %struct.pyruntimestate, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -929,7 +929,7 @@ if.then10:                                        ; preds = %if.end6
 
 if.end13:                                         ; preds = %if.end6
   %add.ptr = getelementptr i8, ptr %call8, i64 %n.0
-  %conv = trunc i64 %cond to i32
+  %conv = trunc nuw nsw i64 %cond to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then13.i, %if.end13

@@ -162,7 +162,7 @@ define dso_local void @intel_gsc_init(ptr noundef %0, ptr noundef readonly %1) l
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 20
-  %23 = trunc i64 %18 to i32
+  %23 = trunc nuw nsw i64 %18 to i32
   store i32 %23, ptr %22, align 4
   %24 = load i32, ptr %12, align 8
   %25 = icmp eq i32 %24, 0

@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @add_reflog_for_walk(ptr noundef %info, ptr nocapture noundef readonly %commit, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %info, ptr nocapture noundef readonly %commit, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ep = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -702,7 +702,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reflog_walk_empty(ptr noundef readonly %info) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @reflog_walk_empty(ptr noundef readonly %info) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %lor.end, label %lor.rhs
@@ -865,13 +865,13 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   %5 = phi ptr [ %.pre, %entry.do.end_crit_edge ], [ %call16, %st_mult.exit ]
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull align 4 dereferenceable(32) %ooid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull readonly align 4 dereferenceable(32) %ooid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %ooid, i64 32
   %6 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i32 %6, ptr %algo3.i, align 4
   %noid22 = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %noid22, ptr noundef nonnull align 4 dereferenceable(32) %noid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %noid22, ptr noundef nonnull readonly align 4 dereferenceable(32) %noid, i64 32, i1 false)
   %algo.i19 = getelementptr inbounds i8, ptr %noid, i64 32
   %7 = load i32, ptr %algo.i19, align 4
   %algo3.i20 = getelementptr inbounds i8, ptr %add.ptr, i64 68

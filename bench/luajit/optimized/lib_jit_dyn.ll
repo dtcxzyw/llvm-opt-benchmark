@@ -930,7 +930,7 @@ if.end35:                                         ; preds = %if.end31, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_funcbc(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_cf_jit_util_funcbc(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
@@ -1007,7 +1007,7 @@ return:                                           ; preds = %check_Lproto.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_funck(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_funck(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
@@ -1106,7 +1106,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_funcuvname(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_funcuvname(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
@@ -1175,7 +1175,7 @@ return:                                           ; preds = %check_Lproto.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_traceinfo(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_traceinfo(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -1256,7 +1256,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_traceir(ptr noundef %L) #0 {
+define internal range(i32 0, 6) i32 @lj_cf_jit_util_traceir(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -1355,7 +1355,7 @@ return:                                           ; preds = %jit_checktrace.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_tracek(ptr noundef %L) #0 {
+define internal range(i32 0, 4) i32 @lj_cf_jit_util_tracek(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %jit_checktrace.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_tracesnap(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_tracesnap(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -1640,7 +1640,7 @@ return:                                           ; preds = %jit_checktrace.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_tracemc(ptr noundef %L) #0 {
+define internal range(i32 0, 4) i32 @lj_cf_jit_util_tracemc(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -1704,7 +1704,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_traceexitstub(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_traceexitstub(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %cmp = icmp ult i32 %call, 512
@@ -1737,7 +1737,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_jit_util_ircalladdr(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_jit_util_ircalladdr(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #8
   %cmp = icmp ult i32 %call, 113
@@ -1934,7 +1934,7 @@ for.body.i:                                       ; preds = %if.end42.i, %if.end
   %17 = load i8, ptr %lst.017.i, align 1
   %conv.i = zext i8 %17 to i64
   %add.ptr.i19 = getelementptr inbounds i8, ptr %lst.017.i, i64 1
-  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #10
+  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #10
   %cmp1.i = icmp eq i32 %call.i20, 0
   br i1 %cmp1.i, label %land.lhs.true.i22, label %if.end22.i
 

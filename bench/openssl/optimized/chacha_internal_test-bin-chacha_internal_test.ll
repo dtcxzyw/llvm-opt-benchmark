@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [24 x i8] c"%d failed at %u (%02x)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_cha_cha_internal, i32 noundef 1024, i32 noundef 1) #4
   ret i32 1
@@ -22,7 +22,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cha_cha_internal(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_cha_cha_internal(i32 noundef %n) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %add = add nsw i32 %n, 1
@@ -47,7 +47,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %indvars.iv
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = load i8, ptr %arrayidx.le, align 1
   %conv14 = zext i8 %3 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @.str.4, i32 noundef %add, i32 noundef %2, i32 noundef %conv14) #4

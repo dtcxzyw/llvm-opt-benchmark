@@ -202,7 +202,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @match_int(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @match_int(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -342,7 +342,7 @@ define dso_local i32 @match_u64(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @match_octal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @match_octal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -386,7 +386,7 @@ define dso_local noundef i32 @match_octal(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @match_hex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @match_hex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9

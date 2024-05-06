@@ -51,7 +51,7 @@ define internal i32 @opal_show_help_internal(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @opal_show_vhelp_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @opal_show_vhelp_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @opal_show_help_vstring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6

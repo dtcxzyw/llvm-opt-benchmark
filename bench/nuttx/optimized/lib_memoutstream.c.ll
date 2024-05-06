@@ -43,7 +43,7 @@ define internal void @memoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %8
   %17 = zext nneg i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %3, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 %3, i64 %17, i1 false)
   %18 = load i32, ptr %0, align 8
   %19 = add nsw i32 %18, %11
   store i32 %19, ptr %0, align 8

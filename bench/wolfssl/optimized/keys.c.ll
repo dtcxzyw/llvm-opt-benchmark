@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [10 x i8] c"IIIIIIIII\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SetCipherSpecs(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 -500, 1) i32 @SetCipherSpecs(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %options = getelementptr inbounds i8, ptr %ssl, i64 1000
   %side = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -26,7 +26,7 @@ entry:
   %cipherSuite = getelementptr inbounds i8, ptr %ssl, i64 1018
   %3 = load i8, ptr %cipherSuite, align 2
   %specs = getelementptr inbounds i8, ptr %ssl, i64 698
-  %call = tail call i32 @GetCipherSpec(i16 noundef zeroext %bf.cast, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef nonnull %specs, ptr noundef nonnull %options), !range !4
+  %call = tail call i32 @GetCipherSpec(i16 noundef zeroext %bf.cast, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef nonnull %specs, ptr noundef nonnull %options)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end48
 
@@ -85,7 +85,7 @@ if.end48:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef %opts) local_unnamed_addr #0 {
+define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef %opts) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i16 %side, 1
   br i1 %cmp, label %if.then, label %if.end5
@@ -1150,7 +1150,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %ret.145 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.5, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %4, label %if.end82 [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -1172,7 +1172,7 @@ sw.bb1.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb2.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %shaInput, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(3) %shaInput, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   br label %if.end24
 
 sw.bb3.i:                                         ; preds = %for.body
@@ -1180,15 +1180,15 @@ sw.bb3.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb4.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %shaInput, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %shaInput, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   br label %if.end24
 
 sw.bb5.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %shaInput, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %shaInput, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
   br label %if.end24
 
 sw.bb6.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %shaInput, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(7) %shaInput, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
   br label %if.end24
 
 sw.bb7.i:                                         ; preds = %for.body
@@ -1196,7 +1196,7 @@ sw.bb7.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb8.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %shaInput, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(9) %shaInput, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
   br label %if.end24
 
 if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
@@ -1204,10 +1204,10 @@ if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i
   %5 = load ptr, ptr %arrays, align 16
   %masterSecret27 = getelementptr inbounds i8, ptr %5, i64 173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %add.ptr, ptr noundef nonnull align 1 dereferenceable(48) %masterSecret27, i64 48, i1 false)
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %serverRandom = getelementptr inbounds i8, ptr %5, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom, i64 32, i1 false)
-  %gep42 = getelementptr i8, ptr %invariant.gep41, i64 %indvars.iv
+  %gep42 = getelementptr inbounds i8, ptr %invariant.gep41, i64 %indvars.iv
   %clientRandom = getelementptr inbounds i8, ptr %5, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep42, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom, i64 32, i1 false)
   %cmp41 = icmp eq i32 %ret.145, 0
@@ -1245,7 +1245,7 @@ if.then68:                                        ; preds = %if.end65
 for.inc:                                          ; preds = %if.end55.thread, %if.end55, %if.end65, %if.then68
   %ret.5 = phi i32 [ %call74, %if.then68 ], [ %call64, %if.end65 ], [ %ret.3.ph, %if.end55.thread ], [ %call54, %if.end55 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   %cmp76 = icmp eq i32 %ret.5, 0
@@ -1262,10 +1262,10 @@ if.then.i:                                        ; preds = %if.then78
   %10 = load i8, ptr %hash_size, align 1
   %conv4.i = zext i8 %10 to i32
   %conv6.i = zext i8 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull align 16 %keyData, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull readonly align 16 %keyData, i64 %conv6.i, i1 false)
   %server_write_MAC_secret.i = getelementptr inbounds i8, ptr %ssl, i64 780
   %arrayidx12.i = getelementptr inbounds i8, ptr %keyData, i64 %conv6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull readonly align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
   %add14.i = shl nuw nsw i32 %conv4.i, 1
   br label %if.end16.i
 
@@ -1277,12 +1277,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom23.i = zext nneg i32 %i.1.i to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23.i
   %conv25.i = zext i16 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull readonly align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
   %add26.i = add nuw nsw i32 %i.1.i, %conv18.i
   %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32.i = zext nneg i32 %add26.i to i64
   %arrayidx33.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull readonly align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
   %add35.i = add nuw nsw i32 %add26.i, %conv18.i
   %12 = load i16, ptr %iv_size, align 2
   %conv38.i = zext i16 %12 to i32
@@ -1290,12 +1290,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom43.i = zext nneg i32 %add35.i to i64
   %arrayidx44.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom43.i
   %conv45.i = zext i16 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull readonly align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
   %add46.i = add nuw nsw i32 %add35.i, %conv38.i
   %server_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %idxprom52.i = zext nneg i32 %add46.i to i64
   %arrayidx53.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom52.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull readonly align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
   br i1 %cmp.not.i, label %if.then61.i, label %if.end82
 
 if.then61.i:                                      ; preds = %if.end16.i
@@ -1379,7 +1379,7 @@ if.then9.i:                                       ; preds = %if.end7.i
 for.body.i:                                       ; preds = %for.inc.i, %if.then9.i
   %indvars.iv.i = phi i64 [ 0, %if.then9.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %ret.192.i = phi i32 [ 0, %if.then9.i ], [ %ret.5.i, %for.inc.i ]
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %6, label %if.else.i [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
@@ -1395,7 +1395,7 @@ sw.bb1.i.i:                                       ; preds = %for.body.i
   br label %if.end18.i
 
 sw.bb2.i.i:                                       ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %prefix.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(3) %prefix.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
@@ -1406,7 +1406,7 @@ if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1
   %preMasterSecret26.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %preMasterSecret26.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %8, i64 %conv.i, i1 false)
-  %9 = trunc i64 %indvars.iv.next.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %add28.i = add i32 %2, %9
   %idx.ext30.i = zext i32 %add28.i to i64
   %add.ptr31.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext30.i
@@ -1453,7 +1453,7 @@ if.then69.i:                                      ; preds = %if.end66.i
 for.inc.i:                                        ; preds = %if.then69.i, %if.end66.i, %if.end54.i, %if.end54.thread.i
   %ret.5.i = phi i32 [ %call72.i, %if.then69.i ], [ %call65.i, %if.end66.i ], [ %ret.3.ph.i, %if.end54.thread.i ], [ %call53.i, %if.end54.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.inc.i
   %cmp74.i = icmp eq i32 %ret.5.i, 0
@@ -1484,7 +1484,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i8 0, ptr %arrayidx.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !7
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   %.pre.i.i = load ptr, ptr %arrays.i, align 16
@@ -1516,7 +1516,7 @@ for.body7.i.i:                                    ; preds = %for.body7.i.i, %for
   store i8 0, ptr %arrayidx11.i.i, align 1
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
-  br i1 %exitcond27.not.i.i, label %for.end14.i.i, label %for.body7.i.i, !llvm.loop !9
+  br i1 %exitcond27.not.i.i, label %for.end14.i.i, label %for.body7.i.i, !llvm.loop !8
 
 for.end14.i.i:                                    ; preds = %for.body7.i.i, %for.cond5.preheader.i.i
   %21 = load ptr, ptr %arrays.i, align 16
@@ -1546,7 +1546,7 @@ for.body.i65.i:                                   ; preds = %for.body.i65.i, %fo
   store i8 0, ptr %arrayidx.i68.i, align 1
   %indvars.iv.next.i69.i = add nuw nsw i64 %indvars.iv.i66.i, 1
   %exitcond.not.i70.i = icmp eq i64 %indvars.iv.next.i69.i, %wide.trip.count.i64.i
-  br i1 %exitcond.not.i70.i, label %for.end.loopexit.i71.i, label %for.body.i65.i, !llvm.loop !8
+  br i1 %exitcond.not.i70.i, label %for.end.loopexit.i71.i, label %for.body.i65.i, !llvm.loop !7
 
 for.end.loopexit.i71.i:                           ; preds = %for.body.i65.i
   %.pre.i72.i = load ptr, ptr %arrays.i, align 16
@@ -1578,7 +1578,7 @@ for.body7.i57.i:                                  ; preds = %for.body7.i57.i, %f
   store i8 0, ptr %arrayidx11.i60.i, align 1
   %indvars.iv.next24.i61.i = add nuw nsw i64 %indvars.iv23.i58.i, 1
   %exitcond27.not.i62.i = icmp eq i64 %indvars.iv.next24.i61.i, %wide.trip.count26.i56.i
-  br i1 %exitcond27.not.i62.i, label %for.end14.i47.i, label %for.body7.i57.i, !llvm.loop !9
+  br i1 %exitcond27.not.i62.i, label %for.end14.i47.i, label %for.body7.i57.i, !llvm.loop !8
 
 for.end14.i47.i:                                  ; preds = %for.body7.i57.i, %for.cond5.preheader.i46.i
   %32 = load ptr, ptr %arrays.i, align 16
@@ -1663,9 +1663,8 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -500, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

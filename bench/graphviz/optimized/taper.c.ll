@@ -35,7 +35,7 @@ define { i64, ptr } @taper(ptr nocapture noundef readonly %0, ptr nocapture noun
 insertArr.exit:                                   ; preds = %3
   store <2 x double> %7, ptr %calloc, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %.val, i64 16, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, i64 16, i1 false), !noalias !4
   %14 = icmp ugt i64 %.val187, 3
   br i1 %14, label %.lr.ph.i, label %pathtolines.exit.thread
 
@@ -66,7 +66,7 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   %20 = mul i64 %indvar.i, 48
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(48) %gep.i, i64 48, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %gep.i, i64 48, i1 false), !noalias !4
   %.sroa.013.0.copyload.i = load double, ptr %4, align 16, !noalias !4
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4
   br label %21

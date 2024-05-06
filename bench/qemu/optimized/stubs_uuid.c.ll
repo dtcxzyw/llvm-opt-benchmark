@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [37 x i8] c"00000000-0000-0000-0000-000000000000\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qmp_query_uuid(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_uuid(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #3
   %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #4

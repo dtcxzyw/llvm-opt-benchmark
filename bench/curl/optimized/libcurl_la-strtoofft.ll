@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @curlx_strtoofft(ptr noundef %str, ptr noundef writeonly %endp, i32 noundef %base, ptr nocapture noundef writeonly %num) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @curlx_strtoofft(ptr noundef %str, ptr noundef writeonly %endp, i32 noundef %base, ptr nocapture noundef writeonly %num) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #3

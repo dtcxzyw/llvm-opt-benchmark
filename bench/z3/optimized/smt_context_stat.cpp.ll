@@ -170,8 +170,8 @@ for.body.i10:                                     ; preds = %_ZNK6vectorIPN3smt6
   %9 = load i32, ptr %8, align 4
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 2
-  %10 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx.i.i
-  %add.ptr.i.ptr.i.i = getelementptr i8, ptr %10, i64 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx.i.i
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %cmp.not5.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not5.i.i, label %_ZN3smtL12acc_num_occsEPNS_6clauseER7svectorIjjE.exit.i, label %for.body.preheader.i.i
 
@@ -217,8 +217,8 @@ for.body.i17:                                     ; preds = %_ZNK6vectorIPN3smt6
   %17 = load i32, ptr %16, align 4
   %idx.ext.i.i.i19 = zext i32 %17 to i64
   %add.ptr.i.idx.i.i20 = shl nuw nsw i64 %idx.ext.i.i.i19, 2
-  %18 = getelementptr i8, ptr %16, i64 %add.ptr.i.idx.i.i20
-  %add.ptr.i.ptr.i.i21 = getelementptr i8, ptr %18, i64 8
+  %18 = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i.idx.i.i20
+  %add.ptr.i.ptr.i.i21 = getelementptr inbounds i8, ptr %18, i64 8
   %cmp.not5.i.i22 = icmp eq i32 %17, 0
   br i1 %cmp.not5.i.i22, label %_ZN3smtL12acc_num_occsEPNS_6clauseER7svectorIjjE.exit.i32, label %for.body.preheader.i.i23
 
@@ -501,8 +501,8 @@ for.body.i14:                                     ; preds = %_ZNK6vectorIPN3smt6
   %9 = load i32, ptr %8, align 4
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 2
-  %10 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx.i.i
-  %add.ptr.i.ptr.i.i = getelementptr i8, ptr %10, i64 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx.i.i
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %cmp.not5.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not5.i.i, label %_ZN3smtL16acc_var_num_occsEPNS_6clauseER7svectorIjjE.exit.i, label %for.body.preheader.i.i
 
@@ -549,8 +549,8 @@ for.body.i21:                                     ; preds = %_ZNK6vectorIPN3smt6
   %17 = load i32, ptr %16, align 4
   %idx.ext.i.i.i23 = zext i32 %17 to i64
   %add.ptr.i.idx.i.i24 = shl nuw nsw i64 %idx.ext.i.i.i23, 2
-  %18 = getelementptr i8, ptr %16, i64 %add.ptr.i.idx.i.i24
-  %add.ptr.i.ptr.i.i25 = getelementptr i8, ptr %18, i64 8
+  %18 = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i.idx.i.i24
+  %add.ptr.i.ptr.i.i25 = getelementptr inbounds i8, ptr %18, i64 8
   %cmp.not5.i.i26 = icmp eq i32 %17, 0
   br i1 %cmp.not5.i.i26, label %_ZN3smtL16acc_var_num_occsEPNS_6clauseER7svectorIjjE.exit.i37, label %for.body.preheader.i.i27
 
@@ -784,7 +784,7 @@ for.body18:                                       ; preds = %for.body18.preheade
   br i1 %cmp21.not, label %for.inc32, label %if.then
 
 if.then:                                          ; preds = %for.body18
-  %43 = trunc i64 %indvars.iv88 to i32
+  %43 = trunc nuw i64 %indvars.iv88 to i32
   %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %43)
           to label %invoke.cont22 unwind label %lpad5.loopexit
 
@@ -1024,7 +1024,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp8.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %22)
           to label %invoke.cont9 unwind label %lpad.loopexit
 
@@ -1113,8 +1113,8 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNK3smt7context26display_var_occs_histogramERSo(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(8) %out)
-  tail call void @_ZNK3smt7context20display_num_min_occsERSo(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(8) %out)
+  tail call void @_ZNK3smt7context26display_var_occs_histogramERSo(ptr noundef nonnull readonly align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(8) %out)
+  tail call void @_ZNK3smt7context20display_num_min_occsERSo(ptr noundef nonnull readonly align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
   br label %if.end
 

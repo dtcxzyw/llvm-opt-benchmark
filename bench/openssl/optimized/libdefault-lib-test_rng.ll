@@ -61,9 +61,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rng_instantiate(ptr noundef %vtest, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @test_rng_instantiate(ptr noundef %vtest, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr noundef %params) #0 {
 entry:
-  %call = tail call i32 @test_rng_set_ctx_params(ptr noundef %vtest, ptr noundef %params), !range !4
+  %call = tail call i32 @test_rng_set_ctx_params(ptr noundef %vtest, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @test_rng_generate(ptr nocapture noundef %vtest, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #2 {
+define internal range(i32 0, 2) i32 @test_rng_generate(ptr nocapture noundef %vtest, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #2 {
 entry:
   %strength1 = getelementptr inbounds i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
@@ -134,7 +134,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %conv.i, ptr %arrayidx, align 1
   %inc = add nuw i64 %i.015, 1
   %exitcond.not = icmp eq i64 %inc, %outlen
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 if.else:                                          ; preds = %if.end
   %entropy_len = getelementptr inbounds i8, ptr %vtest, i64 48
@@ -203,7 +203,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %conv.i, ptr %arrayidx, align 1
   %inc = add nuw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc, %min_noncelen
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 if.end4:                                          ; preds = %if.end
   %nonce = getelementptr inbounds i8, ptr %vtest, i64 40
@@ -232,7 +232,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rng_enable_locking(ptr noundef %vtest) #0 {
+define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef %vtest) #0 {
 entry:
   %cmp.not = icmp eq ptr %vtest, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -308,7 +308,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rng_set_ctx_params(ptr noundef %vtest, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @test_rng_set_ctx_params(ptr noundef %vtest, ptr noundef %params) #0 {
 entry:
   %ptr = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -410,7 +410,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rng_get_ctx_params(ptr nocapture noundef readonly %vtest, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @test_rng_get_ctx_params(ptr nocapture noundef readonly %vtest, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #8
   %cmp.not = icmp eq ptr %call, null
@@ -541,7 +541,6 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

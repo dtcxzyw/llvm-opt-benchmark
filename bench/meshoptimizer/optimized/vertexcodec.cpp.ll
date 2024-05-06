@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7meshoptL22kDecodeBytesGroupCountE = internal unnamed_addr global [256 x i8] zeroinitializer, align 16
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_vertexcodec.cpp, ptr null }]
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @meshopt_encodeVertexBuffer(ptr noundef %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [256 x i8], align 16
@@ -132,7 +132,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread39: ; preds = %for.cond
   %sub16.i41 = add i64 %cond, -1
   %mul.i42 = mul i64 %sub16.i41, %vertex_size
   %arrayidx17.i43 = getelementptr inbounds i8, ptr %add.ptr9, i64 %mul.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr align 1 %arrayidx17.i43, i64 %vertex_size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr readonly align 1 %arrayidx17.i43, i64 %vertex_size, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   br label %if.end13
 
@@ -259,7 +259,7 @@ for.end.i.i:                                      ; preds = %_ZN7meshoptL23encod
   %div2830.i.i = lshr i64 %i.044.i.i, 6
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data.addr.032.i, i64 %div2830.i.i
   %19 = load i8, ptr %arrayidx.i.i, align 1
-  %20 = trunc i32 %shl.i18.i to i8
+  %20 = trunc nuw i32 %shl.i18.i to i8
   %conv29.i.i = or i8 %19, %20
   store i8 %conv29.i.i, ptr %arrayidx.i.i, align 1
   switch i32 %spec.select31.i.i, label %if.end3.i33.i.i [
@@ -268,7 +268,7 @@ for.end.i.i:                                      ; preds = %_ZN7meshoptL23encod
   ]
 
 if.then2.i.i.i:                                   ; preds = %for.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data.addr.045.i.i, ptr noundef nonnull align 16 dereferenceable(16) %add.ptr9.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data.addr.045.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %add.ptr9.i.i, i64 16, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.045.i.i, i64 16
   br label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
 
@@ -352,7 +352,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit: ; preds = %for.cond.us.us.i,
   %sub16.i = add i64 %cond, -1
   %mul.i = mul i64 %sub16.i, %vertex_size
   %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr9, i64 %mul.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr align 1 %arrayidx17.i, i64 %vertex_size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr readonly align 1 %arrayidx17.i, i64 %vertex_size, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   %tobool.not = icmp eq ptr %data.addr.0.lcssa.i, null
   br i1 %tobool.not, label %return, label %if.end13
@@ -400,7 +400,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i64 @meshopt_encodeVertexBufferBound(i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #3 {
 entry:
   %div.i = udiv i64 8192, %vertex_size
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @meshopt_decodeVertexBuffer(ptr noundef %destination, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeVertexBuffer(ptr noundef %destination, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
 entry:
   %last_vertex = alloca [256 x i8], align 16
   %0 = load i32, ptr @_ZN7meshoptL5cpuidE, align 4
@@ -490,72 +490,72 @@ return:                                           ; preds = %while.body, %while.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr nocapture noundef writeonly %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr nocapture noundef %last_vertex) unnamed_addr #6 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %transposed = alloca [8192 x i8], align 16
   %sub = add i64 %vertex_count, 15
   %and = and i64 %sub, -16
-  %cmp166.not = icmp eq i64 %vertex_size, 0
-  br i1 %cmp166.not, label %for.end104, label %for.cond1.preheader.lr.ph
+  %cmp161.not = icmp eq i64 %vertex_size, 0
+  br i1 %cmp161.not, label %for.end104, label %for.cond1.preheader.lr.ph
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
   %div35.i = lshr i64 %sub, 4
   %add.i116 = add nuw nsw i64 %div35.i, 3
   %div136.i = lshr i64 %add.i116, 2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %data_end to i64
-  %cmp3333.i = icmp ugt i64 %and, 63
-  %cmp10162.not = icmp eq i64 %and, 0
+  %cmp3337.i = icmp ugt i64 %and, 63
+  %cmp10157.not = icmp eq i64 %and, 0
   %mul24 = shl i64 %and, 1
   %mul29 = mul i64 %and, 3
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc102
-  %data.addr.0168 = phi ptr [ %data, %for.cond1.preheader.lr.ph ], [ %retval.0.i, %for.inc102 ]
-  %k.0167 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %add103, %for.inc102 ]
+  %data.addr.0163 = phi ptr [ %data, %for.cond1.preheader.lr.ph ], [ %retval.0.i, %for.inc102 ]
+  %k.0162 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %add103, %for.inc102 ]
   br label %for.body3
 
 for.cond1:                                        ; preds = %_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit
-  %inc = add nuw nsw i64 %j.0160, 1
+  %inc = add nuw nsw i64 %j.0155, 1
   %exitcond.not = icmp eq i64 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body3, !llvm.loop !18
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.cond1
-  %data.addr.1161 = phi ptr [ %data.addr.0168, %for.cond1.preheader ], [ %retval.0.i, %for.cond1 ]
-  %j.0160 = phi i64 [ 0, %for.cond1.preheader ], [ %inc, %for.cond1 ]
-  %mul = mul i64 %j.0160, %and
+  %data.addr.1156 = phi ptr [ %data.addr.0163, %for.cond1.preheader ], [ %retval.0.i, %for.cond1 ]
+  %j.0155 = phi i64 [ 0, %for.cond1.preheader ], [ %inc, %for.cond1 ]
+  %mul = mul i64 %j.0155, %and
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %mul
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %data.addr.1161 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %data.addr.1156 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp ult i64 %sub.ptr.sub.i, %div136.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body3
-  %add.ptr.i = getelementptr inbounds i8, ptr %data.addr.1161, i64 %div136.i
-  %sub.ptr.rhs.cast5334.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub6335.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast5334.i
-  %cmp7336.i = icmp ugt i64 %sub.ptr.sub6335.i, 95
-  %0 = select i1 %cmp3333.i, i1 %cmp7336.i, i1 false
+  %add.ptr.i = getelementptr inbounds i8, ptr %data.addr.1156, i64 %div136.i
+  %sub.ptr.rhs.cast5338.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub6339.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast5338.i
+  %cmp7340.i = icmp ugt i64 %sub.ptr.sub6339.i, 95
+  %0 = select i1 %cmp3337.i, i1 %cmp7340.i, i1 false
   br i1 %0, label %for.body.i, label %for.cond31.preheader.i
 
-for.cond31.preheader.i:                           ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i, %if.end.i
-  %i.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %add2339.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i ]
-  %data.addr.0.lcssa.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %retval.0.i185.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i ]
-  %cmp32341.i = icmp ult i64 %i.0.lcssa.i, %and
-  br i1 %cmp32341.i, label %for.body33.i, label %_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit
+for.cond31.preheader.i:                           ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i, %if.end.i
+  %i.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %add2343.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i ]
+  %data.addr.0.lcssa.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %retval.0.i187.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i ]
+  %cmp32345.i = icmp ult i64 %i.0.lcssa.i, %and
+  br i1 %cmp32345.i, label %for.body33.i, label %_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit
 
-for.body.i:                                       ; preds = %if.end.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i
-  %add2339.i = phi i64 [ %add2.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i ], [ 64, %if.end.i ]
-  %data.addr.0338.i = phi ptr [ %retval.0.i185.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i ], [ %add.ptr.i, %if.end.i ]
-  %i.0337.i = phi i64 [ %add2339.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i ], [ 0, %if.end.i ]
-  %div940.i = lshr exact i64 %i.0337.i, 6
-  %arrayidx.i = getelementptr inbounds i8, ptr %data.addr.1161, i64 %div940.i
+for.body.i:                                       ; preds = %if.end.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i
+  %add2343.i = phi i64 [ %add2.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i ], [ 64, %if.end.i ]
+  %data.addr.0342.i = phi ptr [ %retval.0.i187.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i ], [ %add.ptr.i, %if.end.i ]
+  %i.0341.i = phi i64 [ %add2343.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i ], [ 0, %if.end.i ]
+  %div940.i = lshr exact i64 %i.0341.i, 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %data.addr.1156, i64 %div940.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr, i64 %i.0337.i
+  %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr, i64 %i.0341.i
   %conv.i = zext i8 %1 to i32
   %and.i = and i32 %conv.i, 3
-  switch i32 %and.i, label %for.body.unreachabledefault.i [
+  switch i32 %and.i, label %for.body.i.unreachabledefault [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
     i32 2, label %sw.bb29.i.i
@@ -567,7 +567,7 @@ sw.bb.i.i:                                        ; preds = %for.body.i
   br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
 
 sw.bb1.i.i:                                       ; preds = %for.body.i
-  %data32.0.copyload.i.i = load i32, ptr %data.addr.0338.i, align 1
+  %data32.0.copyload.i.i = load i32, ptr %data.addr.0342.i, align 1
   %shr.i.i = lshr i32 %data32.0.copyload.i.i, 1
   %and.i.i = and i32 %shr.i.i, %data32.0.copyload.i.i
   %conv.i.i = zext nneg i32 %and.i.i to i64
@@ -577,7 +577,7 @@ sw.bb1.i.i:                                       ; preds = %for.body.i
   %mul.i.i = mul i64 %and4.i.i, 1229782938247303441
   %shr5.i.i = lshr i64 %mul.i.i, 60
   %vecinit3.i.i.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i.i, i64 0
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %data.addr.0338.i, i64 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %data.addr.0342.i, i64 4
   %2 = load <16 x i8>, ptr %add.ptr.i.i, align 1
   %3 = bitcast <4 x i32> %vecinit3.i.i.i to <8 x i16>
   %4 = lshr <8 x i16> %3, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
@@ -624,7 +624,7 @@ sw.bb1.i.i:                                       ; preds = %for.body.i
   br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
 
 sw.bb29.i.i:                                      ; preds = %for.body.i
-  %data6430.0.copyload.i.i = load i64, ptr %data.addr.0338.i, align 1
+  %data6430.0.copyload.i.i = load i64, ptr %data.addr.0342.i, align 1
   %shr31.i.i = lshr i64 %data6430.0.copyload.i.i, 1
   %and32.i.i = and i64 %shr31.i.i, %data6430.0.copyload.i.i
   %shr33.i.i = lshr i64 %and32.i.i, 2
@@ -633,7 +633,7 @@ sw.bb29.i.i:                                      ; preds = %for.body.i
   %mul37.i.i = mul i64 %and36.i.i, 1229782938247303441
   %shr38.i.i = lshr i64 %mul37.i.i, 60
   %vecinit1.i135.i.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i.i, i64 0
-  %add.ptr42.i.i = getelementptr inbounds i8, ptr %data.addr.0338.i, i64 8
+  %add.ptr42.i.i = getelementptr inbounds i8, ptr %data.addr.0342.i, i64 8
   %22 = load <16 x i8>, ptr %add.ptr42.i.i, align 1
   %23 = bitcast <2 x i64> %vecinit1.i135.i.i to <8 x i16>
   %24 = lshr <8 x i16> %23, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
@@ -676,20 +676,23 @@ sw.bb29.i.i:                                      ; preds = %for.body.i
   br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
 
 sw.bb69.i.i:                                      ; preds = %for.body.i
-  %39 = load <2 x i64>, ptr %data.addr.0338.i, align 1
+  %39 = load <2 x i64>, ptr %data.addr.0342.i, align 1
   store <2 x i64> %39, ptr %add.ptr10.i, align 16
-  %add.ptr72.i.i = getelementptr inbounds i8, ptr %data.addr.0338.i, i64 16
+  %add.ptr72.i.i = getelementptr inbounds i8, ptr %data.addr.0342.i, i64 16
   br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
 
-for.body.unreachabledefault.i:                    ; preds = %for.body.i
+for.body.i.unreachabledefault:                    ; preds = %for.body.i
+  unreachable
+
+default.unreachable:                              ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i, %if.end39.i
   unreachable
 
 _ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i: ; preds = %sw.bb69.i.i, %sw.bb29.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr72.i.i, %sw.bb69.i.i ], [ %add.ptr68.i.i, %sw.bb29.i.i ], [ %add.ptr28.i.i, %sw.bb1.i.i ], [ %data.addr.0338.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi ptr [ %add.ptr72.i.i, %sw.bb69.i.i ], [ %add.ptr68.i.i, %sw.bb29.i.i ], [ %add.ptr28.i.i, %sw.bb1.i.i ], [ %data.addr.0342.i, %sw.bb.i.i ]
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 16
   %shr15.i = lshr i32 %conv.i, 2
   %and16.i = and i32 %shr15.i, 3
-  switch i32 %and16.i, label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.unreachabledefault.i [
+  switch i32 %and16.i, label %default.unreachable [
     i32 0, label %sw.bb.i110.i
     i32 1, label %sw.bb1.i76.i
     i32 2, label %sw.bb29.i44.i
@@ -698,7 +701,7 @@ _ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i: ; preds = %sw.bb69.i.i, %sw.bb
 
 sw.bb.i110.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
   store <2 x i64> zeroinitializer, ptr %add.ptr13.i, align 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
 
 sw.bb1.i76.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
   %data32.0.copyload.i77.i = load i32, ptr %retval.0.i.i, align 1
@@ -755,7 +758,7 @@ sw.bb1.i76.i:                                     ; preds = %_ZN7meshoptL20decod
   %or.i120.i108.i = or <2 x i64> %and.i131.i107.i, %57
   store <2 x i64> %or.i120.i108.i, ptr %add.ptr13.i, align 16
   %add.ptr28.i109.i = getelementptr inbounds i8, ptr %add.ptr.i87.i, i64 %shr5.i85.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
 
 sw.bb29.i44.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
   %data6430.0.copyload.i45.i = load i64, ptr %retval.0.i.i, align 1
@@ -807,469 +810,457 @@ sw.bb29.i44.i:                                    ; preds = %_ZN7meshoptL20decod
   %or.i.i74.i = or <2 x i64> %and.i127.i73.i, %74
   store <2 x i64> %or.i.i74.i, ptr %add.ptr13.i, align 16
   %add.ptr68.i75.i = getelementptr inbounds i8, ptr %add.ptr42.i54.i, i64 %shr38.i52.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
 
 sw.bb69.i41.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
   %77 = load <2 x i64>, ptr %retval.0.i.i, align 1
   store <2 x i64> %77, ptr %add.ptr13.i, align 16
   %add.ptr72.i42.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
 
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.unreachabledefault.i: ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit.i
-  unreachable
-
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i: ; preds = %sw.bb69.i41.i, %sw.bb29.i44.i, %sw.bb1.i76.i, %sw.bb.i110.i
+_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i: ; preds = %sw.bb69.i41.i, %sw.bb29.i44.i, %sw.bb1.i76.i, %sw.bb.i110.i
   %retval.0.i43.i = phi ptr [ %add.ptr72.i42.i, %sw.bb69.i41.i ], [ %add.ptr68.i75.i, %sw.bb29.i44.i ], [ %add.ptr28.i109.i, %sw.bb1.i76.i ], [ %retval.0.i.i, %sw.bb.i110.i ]
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 32
   %shr21.i = lshr i32 %conv.i, 4
   %and22.i = and i32 %shr21.i, 3
-  switch i32 %and22.i, label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.unreachabledefault.i [
-    i32 0, label %sw.bb.i181.i
-    i32 1, label %sw.bb1.i147.i
-    i32 2, label %sw.bb29.i115.i
-    i32 3, label %sw.bb69.i112.i
+  switch i32 %and22.i, label %default.unreachable [
+    i32 0, label %sw.bb.i182.i
+    i32 1, label %sw.bb1.i148.i
+    i32 2, label %sw.bb29.i116.i
+    i32 3, label %sw.bb69.i113.i
   ]
 
-sw.bb.i181.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+sw.bb.i182.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
   store <2 x i64> zeroinitializer, ptr %add.ptr19.i, align 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
 
-sw.bb1.i147.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
-  %data32.0.copyload.i148.i = load i32, ptr %retval.0.i43.i, align 1
-  %shr.i149.i = lshr i32 %data32.0.copyload.i148.i, 1
-  %and.i150.i = and i32 %shr.i149.i, %data32.0.copyload.i148.i
-  %conv.i151.i = zext nneg i32 %and.i150.i to i64
-  %shl.i152.i = shl nuw nsw i64 %conv.i151.i, 30
-  %or.i153.i = or i64 %shl.i152.i, %conv.i151.i
-  %and4.i154.i = and i64 %or.i153.i, 1229782938247303441
-  %mul.i155.i = mul i64 %and4.i154.i, 1229782938247303441
-  %shr5.i156.i = lshr i64 %mul.i155.i, 60
-  %vecinit3.i.i157.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i148.i, i64 0
-  %add.ptr.i158.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 4
-  %78 = load <16 x i8>, ptr %add.ptr.i158.i, align 1
-  %79 = bitcast <4 x i32> %vecinit3.i.i157.i to <8 x i16>
+sw.bb1.i148.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
+  %data32.0.copyload.i149.i = load i32, ptr %retval.0.i43.i, align 1
+  %shr.i150.i = lshr i32 %data32.0.copyload.i149.i, 1
+  %and.i151.i = and i32 %shr.i150.i, %data32.0.copyload.i149.i
+  %conv.i152.i = zext nneg i32 %and.i151.i to i64
+  %shl.i153.i = shl nuw nsw i64 %conv.i152.i, 30
+  %or.i154.i = or i64 %shl.i153.i, %conv.i152.i
+  %and4.i155.i = and i64 %or.i154.i, 1229782938247303441
+  %mul.i156.i = mul i64 %and4.i155.i, 1229782938247303441
+  %shr5.i157.i = lshr i64 %mul.i156.i, 60
+  %vecinit3.i.i158.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i149.i, i64 0
+  %add.ptr.i159.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 4
+  %78 = load <16 x i8>, ptr %add.ptr.i159.i, align 1
+  %79 = bitcast <4 x i32> %vecinit3.i.i158.i to <8 x i16>
   %80 = lshr <8 x i16> %79, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %81 = bitcast <8 x i16> %80 to <16 x i8>
-  %82 = bitcast <4 x i32> %vecinit3.i.i157.i to <16 x i8>
-  %shuffle.i90.i159.i = shufflevector <16 x i8> %81, <16 x i8> %82, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %83 = bitcast <16 x i8> %shuffle.i90.i159.i to <8 x i16>
+  %82 = bitcast <4 x i32> %vecinit3.i.i158.i to <16 x i8>
+  %shuffle.i90.i160.i = shufflevector <16 x i8> %81, <16 x i8> %82, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %83 = bitcast <16 x i8> %shuffle.i90.i160.i to <8 x i16>
   %84 = lshr <8 x i16> %83, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %85 = bitcast <8 x i16> %84 to <16 x i8>
-  %shuffle.i87.i160.i = shufflevector <16 x i8> %85, <16 x i8> %shuffle.i90.i159.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %86 = bitcast <16 x i8> %shuffle.i87.i160.i to <2 x i64>
-  %and.i100.i161.i = and <2 x i64> %86, <i64 217020518514230019, i64 217020518514230019>
-  %87 = bitcast <2 x i64> %and.i100.i161.i to <16 x i8>
-  %cmp.i112.i162.i = icmp eq <16 x i8> %87, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
-  %bc93.i163.i = bitcast <16 x i1> %cmp.i112.i162.i to <2 x i8>
-  %conv19.i164.i = extractelement <2 x i8> %bc93.i163.i, i64 0
-  %conv21.i165.i = extractelement <2 x i8> %bc93.i163.i, i64 1
-  %idxprom.i.i166.i = zext i8 %conv19.i164.i to i64
-  %arrayidx.i.i167.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i166.i
-  %88 = load i64, ptr %arrayidx.i.i167.i, align 8
-  %vecinit1.i13.i.i168.i = insertelement <2 x i64> poison, i64 %88, i64 0
-  %idxprom1.i.i169.i = zext i8 %conv21.i165.i to i64
-  %arrayidx2.i.i170.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i169.i
-  %89 = load i64, ptr %arrayidx2.i.i170.i, align 8
-  %vecinit1.i.i.i171.i = insertelement <2 x i64> poison, i64 %89, i64 0
-  %arrayidx5.i.i172.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i166.i
-  %90 = load i8, ptr %arrayidx5.i.i172.i, align 1
-  %vecinit.i15.i.i173.i = insertelement <16 x i8> poison, i8 %90, i64 0
-  %vecinit15.i.i.i174.i = shufflevector <16 x i8> %vecinit.i15.i.i173.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %91 = bitcast <2 x i64> %vecinit1.i.i.i171.i to <16 x i8>
-  %add.i.i.i175.i = add <16 x i8> %vecinit15.i.i.i174.i, %91
-  %92 = bitcast <16 x i8> %add.i.i.i175.i to <2 x i64>
-  %shuffle.i.i.i176.i = shufflevector <2 x i64> %vecinit1.i13.i.i168.i, <2 x i64> %92, <2 x i32> <i32 0, i32 2>
-  %93 = bitcast <2 x i64> %shuffle.i.i.i176.i to <16 x i8>
+  %shuffle.i87.i161.i = shufflevector <16 x i8> %85, <16 x i8> %shuffle.i90.i160.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %86 = bitcast <16 x i8> %shuffle.i87.i161.i to <2 x i64>
+  %and.i100.i162.i = and <2 x i64> %86, <i64 217020518514230019, i64 217020518514230019>
+  %87 = bitcast <2 x i64> %and.i100.i162.i to <16 x i8>
+  %cmp.i112.i163.i = icmp eq <16 x i8> %87, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
+  %bc93.i164.i = bitcast <16 x i1> %cmp.i112.i163.i to <2 x i8>
+  %conv19.i165.i = extractelement <2 x i8> %bc93.i164.i, i64 0
+  %conv21.i166.i = extractelement <2 x i8> %bc93.i164.i, i64 1
+  %idxprom.i.i167.i = zext i8 %conv19.i165.i to i64
+  %arrayidx.i.i168.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i167.i
+  %88 = load i64, ptr %arrayidx.i.i168.i, align 8
+  %vecinit1.i13.i.i169.i = insertelement <2 x i64> poison, i64 %88, i64 0
+  %idxprom1.i.i170.i = zext i8 %conv21.i166.i to i64
+  %arrayidx2.i.i171.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i170.i
+  %89 = load i64, ptr %arrayidx2.i.i171.i, align 8
+  %vecinit1.i.i.i172.i = insertelement <2 x i64> poison, i64 %89, i64 0
+  %arrayidx5.i.i173.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i167.i
+  %90 = load i8, ptr %arrayidx5.i.i173.i, align 1
+  %vecinit.i15.i.i174.i = insertelement <16 x i8> poison, i8 %90, i64 0
+  %vecinit15.i.i.i175.i = shufflevector <16 x i8> %vecinit.i15.i.i174.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %91 = bitcast <2 x i64> %vecinit1.i.i.i172.i to <16 x i8>
+  %add.i.i.i176.i = add <16 x i8> %vecinit15.i.i.i175.i, %91
+  %92 = bitcast <16 x i8> %add.i.i.i176.i to <2 x i64>
+  %shuffle.i.i.i177.i = shufflevector <2 x i64> %vecinit1.i13.i.i169.i, <2 x i64> %92, <2 x i32> <i32 0, i32 2>
+  %93 = bitcast <2 x i64> %shuffle.i.i.i177.i to <16 x i8>
   %94 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %78, <16 x i8> %93)
   %95 = bitcast <16 x i8> %94 to <2 x i64>
-  %96 = xor <16 x i1> %cmp.i112.i162.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %96 = xor <16 x i1> %cmp.i112.i163.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %97 = sext <16 x i1> %96 to <16 x i8>
-  %not.i130.i177.i = bitcast <16 x i8> %97 to <2 x i64>
-  %and.i131.i178.i = and <2 x i64> %and.i100.i161.i, %not.i130.i177.i
-  %or.i120.i179.i = or <2 x i64> %and.i131.i178.i, %95
-  store <2 x i64> %or.i120.i179.i, ptr %add.ptr19.i, align 16
-  %add.ptr28.i180.i = getelementptr inbounds i8, ptr %add.ptr.i158.i, i64 %shr5.i156.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
+  %not.i130.i178.i = bitcast <16 x i8> %97 to <2 x i64>
+  %and.i131.i179.i = and <2 x i64> %and.i100.i162.i, %not.i130.i178.i
+  %or.i120.i180.i = or <2 x i64> %and.i131.i179.i, %95
+  store <2 x i64> %or.i120.i180.i, ptr %add.ptr19.i, align 16
+  %add.ptr28.i181.i = getelementptr inbounds i8, ptr %add.ptr.i159.i, i64 %shr5.i157.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
 
-sw.bb29.i115.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
-  %data6430.0.copyload.i116.i = load i64, ptr %retval.0.i43.i, align 1
-  %shr31.i117.i = lshr i64 %data6430.0.copyload.i116.i, 1
-  %and32.i118.i = and i64 %shr31.i117.i, %data6430.0.copyload.i116.i
-  %shr33.i119.i = lshr i64 %and32.i118.i, 2
-  %and34.i120.i = and i64 %and32.i118.i, 1229782938247303441
-  %and36.i121.i = and i64 %and34.i120.i, %shr33.i119.i
-  %mul37.i122.i = mul i64 %and36.i121.i, 1229782938247303441
-  %shr38.i123.i = lshr i64 %mul37.i122.i, 60
-  %vecinit1.i135.i124.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i116.i, i64 0
-  %add.ptr42.i125.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 8
-  %98 = load <16 x i8>, ptr %add.ptr42.i125.i, align 1
-  %99 = bitcast <2 x i64> %vecinit1.i135.i124.i to <8 x i16>
+sw.bb29.i116.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
+  %data6430.0.copyload.i117.i = load i64, ptr %retval.0.i43.i, align 1
+  %shr31.i118.i = lshr i64 %data6430.0.copyload.i117.i, 1
+  %and32.i119.i = and i64 %shr31.i118.i, %data6430.0.copyload.i117.i
+  %shr33.i120.i = lshr i64 %and32.i119.i, 2
+  %and34.i121.i = and i64 %and32.i119.i, 1229782938247303441
+  %and36.i122.i = and i64 %and34.i121.i, %shr33.i120.i
+  %mul37.i123.i = mul i64 %and36.i122.i, 1229782938247303441
+  %shr38.i124.i = lshr i64 %mul37.i123.i, 60
+  %vecinit1.i135.i125.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i117.i, i64 0
+  %add.ptr42.i126.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 8
+  %98 = load <16 x i8>, ptr %add.ptr42.i126.i, align 1
+  %99 = bitcast <2 x i64> %vecinit1.i135.i125.i to <8 x i16>
   %100 = lshr <8 x i16> %99, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %101 = bitcast <8 x i16> %100 to <16 x i8>
-  %102 = bitcast <2 x i64> %vecinit1.i135.i124.i to <16 x i8>
-  %shuffle.i.i126.i = shufflevector <16 x i8> %101, <16 x i8> %102, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %103 = bitcast <16 x i8> %shuffle.i.i126.i to <2 x i64>
-  %and.i.i127.i = and <2 x i64> %103, <i64 1085102592571150095, i64 1085102592571150095>
-  %104 = bitcast <2 x i64> %and.i.i127.i to <16 x i8>
-  %cmp.i.i128.i = icmp eq <16 x i8> %104, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %bc91.i129.i = bitcast <16 x i1> %cmp.i.i128.i to <2 x i8>
-  %conv56.i130.i = extractelement <2 x i8> %bc91.i129.i, i64 0
-  %conv59.i131.i = extractelement <2 x i8> %bc91.i129.i, i64 1
-  %idxprom.i94.i132.i = zext i8 %conv56.i130.i to i64
-  %arrayidx.i95.i133.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i132.i
-  %105 = load i64, ptr %arrayidx.i95.i133.i, align 8
-  %vecinit1.i13.i96.i134.i = insertelement <2 x i64> poison, i64 %105, i64 0
-  %idxprom1.i97.i135.i = zext i8 %conv59.i131.i to i64
-  %arrayidx2.i98.i136.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i135.i
-  %106 = load i64, ptr %arrayidx2.i98.i136.i, align 8
-  %vecinit1.i.i99.i137.i = insertelement <2 x i64> poison, i64 %106, i64 0
-  %arrayidx5.i100.i138.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i132.i
-  %107 = load i8, ptr %arrayidx5.i100.i138.i, align 1
-  %vecinit.i15.i101.i139.i = insertelement <16 x i8> poison, i8 %107, i64 0
-  %vecinit15.i.i102.i140.i = shufflevector <16 x i8> %vecinit.i15.i101.i139.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %108 = bitcast <2 x i64> %vecinit1.i.i99.i137.i to <16 x i8>
-  %add.i.i103.i141.i = add <16 x i8> %vecinit15.i.i102.i140.i, %108
-  %109 = bitcast <16 x i8> %add.i.i103.i141.i to <2 x i64>
-  %shuffle.i.i104.i142.i = shufflevector <2 x i64> %vecinit1.i13.i96.i134.i, <2 x i64> %109, <2 x i32> <i32 0, i32 2>
-  %110 = bitcast <2 x i64> %shuffle.i.i104.i142.i to <16 x i8>
+  %102 = bitcast <2 x i64> %vecinit1.i135.i125.i to <16 x i8>
+  %shuffle.i.i127.i = shufflevector <16 x i8> %101, <16 x i8> %102, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %103 = bitcast <16 x i8> %shuffle.i.i127.i to <2 x i64>
+  %and.i.i128.i = and <2 x i64> %103, <i64 1085102592571150095, i64 1085102592571150095>
+  %104 = bitcast <2 x i64> %and.i.i128.i to <16 x i8>
+  %cmp.i.i129.i = icmp eq <16 x i8> %104, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %bc91.i130.i = bitcast <16 x i1> %cmp.i.i129.i to <2 x i8>
+  %conv56.i131.i = extractelement <2 x i8> %bc91.i130.i, i64 0
+  %conv59.i132.i = extractelement <2 x i8> %bc91.i130.i, i64 1
+  %idxprom.i94.i133.i = zext i8 %conv56.i131.i to i64
+  %arrayidx.i95.i134.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i133.i
+  %105 = load i64, ptr %arrayidx.i95.i134.i, align 8
+  %vecinit1.i13.i96.i135.i = insertelement <2 x i64> poison, i64 %105, i64 0
+  %idxprom1.i97.i136.i = zext i8 %conv59.i132.i to i64
+  %arrayidx2.i98.i137.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i136.i
+  %106 = load i64, ptr %arrayidx2.i98.i137.i, align 8
+  %vecinit1.i.i99.i138.i = insertelement <2 x i64> poison, i64 %106, i64 0
+  %arrayidx5.i100.i139.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i133.i
+  %107 = load i8, ptr %arrayidx5.i100.i139.i, align 1
+  %vecinit.i15.i101.i140.i = insertelement <16 x i8> poison, i8 %107, i64 0
+  %vecinit15.i.i102.i141.i = shufflevector <16 x i8> %vecinit.i15.i101.i140.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %108 = bitcast <2 x i64> %vecinit1.i.i99.i138.i to <16 x i8>
+  %add.i.i103.i142.i = add <16 x i8> %vecinit15.i.i102.i141.i, %108
+  %109 = bitcast <16 x i8> %add.i.i103.i142.i to <2 x i64>
+  %shuffle.i.i104.i143.i = shufflevector <2 x i64> %vecinit1.i13.i96.i135.i, <2 x i64> %109, <2 x i32> <i32 0, i32 2>
+  %110 = bitcast <2 x i64> %shuffle.i.i104.i143.i to <16 x i8>
   %111 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %98, <16 x i8> %110)
   %112 = bitcast <16 x i8> %111 to <2 x i64>
-  %113 = xor <16 x i1> %cmp.i.i128.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %113 = xor <16 x i1> %cmp.i.i129.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %114 = sext <16 x i1> %113 to <16 x i8>
-  %not.i.i143.i = bitcast <16 x i8> %114 to <2 x i64>
-  %and.i127.i144.i = and <2 x i64> %and.i.i127.i, %not.i.i143.i
-  %or.i.i145.i = or <2 x i64> %and.i127.i144.i, %112
-  store <2 x i64> %or.i.i145.i, ptr %add.ptr19.i, align 16
-  %add.ptr68.i146.i = getelementptr inbounds i8, ptr %add.ptr42.i125.i, i64 %shr38.i123.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
+  %not.i.i144.i = bitcast <16 x i8> %114 to <2 x i64>
+  %and.i127.i145.i = and <2 x i64> %and.i.i128.i, %not.i.i144.i
+  %or.i.i146.i = or <2 x i64> %and.i127.i145.i, %112
+  store <2 x i64> %or.i.i146.i, ptr %add.ptr19.i, align 16
+  %add.ptr68.i147.i = getelementptr inbounds i8, ptr %add.ptr42.i126.i, i64 %shr38.i124.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
 
-sw.bb69.i112.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
+sw.bb69.i113.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit112.i
   %115 = load <2 x i64>, ptr %retval.0.i43.i, align 1
   store <2 x i64> %115, ptr %add.ptr19.i, align 16
-  %add.ptr72.i113.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
+  %add.ptr72.i114.i = getelementptr inbounds i8, ptr %retval.0.i43.i, i64 16
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
 
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.unreachabledefault.i: ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit111.i
-  unreachable
-
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i: ; preds = %sw.bb69.i112.i, %sw.bb29.i115.i, %sw.bb1.i147.i, %sw.bb.i181.i
-  %retval.0.i114.i = phi ptr [ %add.ptr72.i113.i, %sw.bb69.i112.i ], [ %add.ptr68.i146.i, %sw.bb29.i115.i ], [ %add.ptr28.i180.i, %sw.bb1.i147.i ], [ %retval.0.i43.i, %sw.bb.i181.i ]
+_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i: ; preds = %sw.bb69.i113.i, %sw.bb29.i116.i, %sw.bb1.i148.i, %sw.bb.i182.i
+  %retval.0.i115.i = phi ptr [ %add.ptr72.i114.i, %sw.bb69.i113.i ], [ %add.ptr68.i147.i, %sw.bb29.i116.i ], [ %add.ptr28.i181.i, %sw.bb1.i148.i ], [ %retval.0.i43.i, %sw.bb.i182.i ]
   %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 48
   %shr27.i = lshr i32 %conv.i, 6
-  switch i32 %shr27.i, label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.unreachabledefault.i [
-    i32 0, label %sw.bb.i252.i
-    i32 1, label %sw.bb1.i218.i
-    i32 2, label %sw.bb29.i186.i
-    i32 3, label %sw.bb69.i183.i
+  switch i32 %shr27.i, label %default.unreachable [
+    i32 0, label %sw.bb.i254.i
+    i32 1, label %sw.bb1.i220.i
+    i32 2, label %sw.bb29.i188.i
+    i32 3, label %sw.bb69.i185.i
   ]
 
-sw.bb.i252.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
+sw.bb.i254.i:                                     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
   store <2 x i64> zeroinitializer, ptr %add.ptr25.i, align 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i
 
-sw.bb1.i218.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
-  %data32.0.copyload.i219.i = load i32, ptr %retval.0.i114.i, align 1
-  %shr.i220.i = lshr i32 %data32.0.copyload.i219.i, 1
-  %and.i221.i = and i32 %shr.i220.i, %data32.0.copyload.i219.i
-  %conv.i222.i = zext nneg i32 %and.i221.i to i64
-  %shl.i223.i = shl nuw nsw i64 %conv.i222.i, 30
-  %or.i224.i = or i64 %shl.i223.i, %conv.i222.i
-  %and4.i225.i = and i64 %or.i224.i, 1229782938247303441
-  %mul.i226.i = mul i64 %and4.i225.i, 1229782938247303441
-  %shr5.i227.i = lshr i64 %mul.i226.i, 60
-  %vecinit3.i.i228.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i219.i, i64 0
-  %add.ptr.i229.i = getelementptr inbounds i8, ptr %retval.0.i114.i, i64 4
-  %116 = load <16 x i8>, ptr %add.ptr.i229.i, align 1
-  %117 = bitcast <4 x i32> %vecinit3.i.i228.i to <8 x i16>
+sw.bb1.i220.i:                                    ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
+  %data32.0.copyload.i221.i = load i32, ptr %retval.0.i115.i, align 1
+  %shr.i222.i = lshr i32 %data32.0.copyload.i221.i, 1
+  %and.i223.i = and i32 %shr.i222.i, %data32.0.copyload.i221.i
+  %conv.i224.i = zext nneg i32 %and.i223.i to i64
+  %shl.i225.i = shl nuw nsw i64 %conv.i224.i, 30
+  %or.i226.i = or i64 %shl.i225.i, %conv.i224.i
+  %and4.i227.i = and i64 %or.i226.i, 1229782938247303441
+  %mul.i228.i = mul i64 %and4.i227.i, 1229782938247303441
+  %shr5.i229.i = lshr i64 %mul.i228.i, 60
+  %vecinit3.i.i230.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i221.i, i64 0
+  %add.ptr.i231.i = getelementptr inbounds i8, ptr %retval.0.i115.i, i64 4
+  %116 = load <16 x i8>, ptr %add.ptr.i231.i, align 1
+  %117 = bitcast <4 x i32> %vecinit3.i.i230.i to <8 x i16>
   %118 = lshr <8 x i16> %117, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %119 = bitcast <8 x i16> %118 to <16 x i8>
-  %120 = bitcast <4 x i32> %vecinit3.i.i228.i to <16 x i8>
-  %shuffle.i90.i230.i = shufflevector <16 x i8> %119, <16 x i8> %120, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %121 = bitcast <16 x i8> %shuffle.i90.i230.i to <8 x i16>
+  %120 = bitcast <4 x i32> %vecinit3.i.i230.i to <16 x i8>
+  %shuffle.i90.i232.i = shufflevector <16 x i8> %119, <16 x i8> %120, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %121 = bitcast <16 x i8> %shuffle.i90.i232.i to <8 x i16>
   %122 = lshr <8 x i16> %121, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %123 = bitcast <8 x i16> %122 to <16 x i8>
-  %shuffle.i87.i231.i = shufflevector <16 x i8> %123, <16 x i8> %shuffle.i90.i230.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %124 = bitcast <16 x i8> %shuffle.i87.i231.i to <2 x i64>
-  %and.i100.i232.i = and <2 x i64> %124, <i64 217020518514230019, i64 217020518514230019>
-  %125 = bitcast <2 x i64> %and.i100.i232.i to <16 x i8>
-  %cmp.i112.i233.i = icmp eq <16 x i8> %125, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
-  %bc93.i234.i = bitcast <16 x i1> %cmp.i112.i233.i to <2 x i8>
-  %conv19.i235.i = extractelement <2 x i8> %bc93.i234.i, i64 0
-  %conv21.i236.i = extractelement <2 x i8> %bc93.i234.i, i64 1
-  %idxprom.i.i237.i = zext i8 %conv19.i235.i to i64
-  %arrayidx.i.i238.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i237.i
-  %126 = load i64, ptr %arrayidx.i.i238.i, align 8
-  %vecinit1.i13.i.i239.i = insertelement <2 x i64> poison, i64 %126, i64 0
-  %idxprom1.i.i240.i = zext i8 %conv21.i236.i to i64
-  %arrayidx2.i.i241.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i240.i
-  %127 = load i64, ptr %arrayidx2.i.i241.i, align 8
-  %vecinit1.i.i.i242.i = insertelement <2 x i64> poison, i64 %127, i64 0
-  %arrayidx5.i.i243.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i237.i
-  %128 = load i8, ptr %arrayidx5.i.i243.i, align 1
-  %vecinit.i15.i.i244.i = insertelement <16 x i8> poison, i8 %128, i64 0
-  %vecinit15.i.i.i245.i = shufflevector <16 x i8> %vecinit.i15.i.i244.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %129 = bitcast <2 x i64> %vecinit1.i.i.i242.i to <16 x i8>
-  %add.i.i.i246.i = add <16 x i8> %vecinit15.i.i.i245.i, %129
-  %130 = bitcast <16 x i8> %add.i.i.i246.i to <2 x i64>
-  %shuffle.i.i.i247.i = shufflevector <2 x i64> %vecinit1.i13.i.i239.i, <2 x i64> %130, <2 x i32> <i32 0, i32 2>
-  %131 = bitcast <2 x i64> %shuffle.i.i.i247.i to <16 x i8>
+  %shuffle.i87.i233.i = shufflevector <16 x i8> %123, <16 x i8> %shuffle.i90.i232.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %124 = bitcast <16 x i8> %shuffle.i87.i233.i to <2 x i64>
+  %and.i100.i234.i = and <2 x i64> %124, <i64 217020518514230019, i64 217020518514230019>
+  %125 = bitcast <2 x i64> %and.i100.i234.i to <16 x i8>
+  %cmp.i112.i235.i = icmp eq <16 x i8> %125, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
+  %bc93.i236.i = bitcast <16 x i1> %cmp.i112.i235.i to <2 x i8>
+  %conv19.i237.i = extractelement <2 x i8> %bc93.i236.i, i64 0
+  %conv21.i238.i = extractelement <2 x i8> %bc93.i236.i, i64 1
+  %idxprom.i.i239.i = zext i8 %conv19.i237.i to i64
+  %arrayidx.i.i240.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i239.i
+  %126 = load i64, ptr %arrayidx.i.i240.i, align 8
+  %vecinit1.i13.i.i241.i = insertelement <2 x i64> poison, i64 %126, i64 0
+  %idxprom1.i.i242.i = zext i8 %conv21.i238.i to i64
+  %arrayidx2.i.i243.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i242.i
+  %127 = load i64, ptr %arrayidx2.i.i243.i, align 8
+  %vecinit1.i.i.i244.i = insertelement <2 x i64> poison, i64 %127, i64 0
+  %arrayidx5.i.i245.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i239.i
+  %128 = load i8, ptr %arrayidx5.i.i245.i, align 1
+  %vecinit.i15.i.i246.i = insertelement <16 x i8> poison, i8 %128, i64 0
+  %vecinit15.i.i.i247.i = shufflevector <16 x i8> %vecinit.i15.i.i246.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %129 = bitcast <2 x i64> %vecinit1.i.i.i244.i to <16 x i8>
+  %add.i.i.i248.i = add <16 x i8> %vecinit15.i.i.i247.i, %129
+  %130 = bitcast <16 x i8> %add.i.i.i248.i to <2 x i64>
+  %shuffle.i.i.i249.i = shufflevector <2 x i64> %vecinit1.i13.i.i241.i, <2 x i64> %130, <2 x i32> <i32 0, i32 2>
+  %131 = bitcast <2 x i64> %shuffle.i.i.i249.i to <16 x i8>
   %132 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %116, <16 x i8> %131)
   %133 = bitcast <16 x i8> %132 to <2 x i64>
-  %134 = xor <16 x i1> %cmp.i112.i233.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %134 = xor <16 x i1> %cmp.i112.i235.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %135 = sext <16 x i1> %134 to <16 x i8>
-  %not.i130.i248.i = bitcast <16 x i8> %135 to <2 x i64>
-  %and.i131.i249.i = and <2 x i64> %and.i100.i232.i, %not.i130.i248.i
-  %or.i120.i250.i = or <2 x i64> %and.i131.i249.i, %133
-  store <2 x i64> %or.i120.i250.i, ptr %add.ptr25.i, align 16
-  %add.ptr28.i251.i = getelementptr inbounds i8, ptr %add.ptr.i229.i, i64 %shr5.i227.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i
+  %not.i130.i250.i = bitcast <16 x i8> %135 to <2 x i64>
+  %and.i131.i251.i = and <2 x i64> %and.i100.i234.i, %not.i130.i250.i
+  %or.i120.i252.i = or <2 x i64> %and.i131.i251.i, %133
+  store <2 x i64> %or.i120.i252.i, ptr %add.ptr25.i, align 16
+  %add.ptr28.i253.i = getelementptr inbounds i8, ptr %add.ptr.i231.i, i64 %shr5.i229.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i
 
-sw.bb29.i186.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
-  %data6430.0.copyload.i187.i = load i64, ptr %retval.0.i114.i, align 1
-  %shr31.i188.i = lshr i64 %data6430.0.copyload.i187.i, 1
-  %and32.i189.i = and i64 %shr31.i188.i, %data6430.0.copyload.i187.i
-  %shr33.i190.i = lshr i64 %and32.i189.i, 2
-  %and34.i191.i = and i64 %and32.i189.i, 1229782938247303441
-  %and36.i192.i = and i64 %and34.i191.i, %shr33.i190.i
-  %mul37.i193.i = mul i64 %and36.i192.i, 1229782938247303441
-  %shr38.i194.i = lshr i64 %mul37.i193.i, 60
-  %vecinit1.i135.i195.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i187.i, i64 0
-  %add.ptr42.i196.i = getelementptr inbounds i8, ptr %retval.0.i114.i, i64 8
-  %136 = load <16 x i8>, ptr %add.ptr42.i196.i, align 1
-  %137 = bitcast <2 x i64> %vecinit1.i135.i195.i to <8 x i16>
+sw.bb29.i188.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
+  %data6430.0.copyload.i189.i = load i64, ptr %retval.0.i115.i, align 1
+  %shr31.i190.i = lshr i64 %data6430.0.copyload.i189.i, 1
+  %and32.i191.i = and i64 %shr31.i190.i, %data6430.0.copyload.i189.i
+  %shr33.i192.i = lshr i64 %and32.i191.i, 2
+  %and34.i193.i = and i64 %and32.i191.i, 1229782938247303441
+  %and36.i194.i = and i64 %and34.i193.i, %shr33.i192.i
+  %mul37.i195.i = mul i64 %and36.i194.i, 1229782938247303441
+  %shr38.i196.i = lshr i64 %mul37.i195.i, 60
+  %vecinit1.i135.i197.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i189.i, i64 0
+  %add.ptr42.i198.i = getelementptr inbounds i8, ptr %retval.0.i115.i, i64 8
+  %136 = load <16 x i8>, ptr %add.ptr42.i198.i, align 1
+  %137 = bitcast <2 x i64> %vecinit1.i135.i197.i to <8 x i16>
   %138 = lshr <8 x i16> %137, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %139 = bitcast <8 x i16> %138 to <16 x i8>
-  %140 = bitcast <2 x i64> %vecinit1.i135.i195.i to <16 x i8>
-  %shuffle.i.i197.i = shufflevector <16 x i8> %139, <16 x i8> %140, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %141 = bitcast <16 x i8> %shuffle.i.i197.i to <2 x i64>
-  %and.i.i198.i = and <2 x i64> %141, <i64 1085102592571150095, i64 1085102592571150095>
-  %142 = bitcast <2 x i64> %and.i.i198.i to <16 x i8>
-  %cmp.i.i199.i = icmp eq <16 x i8> %142, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %bc91.i200.i = bitcast <16 x i1> %cmp.i.i199.i to <2 x i8>
-  %conv56.i201.i = extractelement <2 x i8> %bc91.i200.i, i64 0
-  %conv59.i202.i = extractelement <2 x i8> %bc91.i200.i, i64 1
-  %idxprom.i94.i203.i = zext i8 %conv56.i201.i to i64
-  %arrayidx.i95.i204.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i203.i
-  %143 = load i64, ptr %arrayidx.i95.i204.i, align 8
-  %vecinit1.i13.i96.i205.i = insertelement <2 x i64> poison, i64 %143, i64 0
-  %idxprom1.i97.i206.i = zext i8 %conv59.i202.i to i64
-  %arrayidx2.i98.i207.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i206.i
-  %144 = load i64, ptr %arrayidx2.i98.i207.i, align 8
-  %vecinit1.i.i99.i208.i = insertelement <2 x i64> poison, i64 %144, i64 0
-  %arrayidx5.i100.i209.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i203.i
-  %145 = load i8, ptr %arrayidx5.i100.i209.i, align 1
-  %vecinit.i15.i101.i210.i = insertelement <16 x i8> poison, i8 %145, i64 0
-  %vecinit15.i.i102.i211.i = shufflevector <16 x i8> %vecinit.i15.i101.i210.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %146 = bitcast <2 x i64> %vecinit1.i.i99.i208.i to <16 x i8>
-  %add.i.i103.i212.i = add <16 x i8> %vecinit15.i.i102.i211.i, %146
-  %147 = bitcast <16 x i8> %add.i.i103.i212.i to <2 x i64>
-  %shuffle.i.i104.i213.i = shufflevector <2 x i64> %vecinit1.i13.i96.i205.i, <2 x i64> %147, <2 x i32> <i32 0, i32 2>
-  %148 = bitcast <2 x i64> %shuffle.i.i104.i213.i to <16 x i8>
+  %140 = bitcast <2 x i64> %vecinit1.i135.i197.i to <16 x i8>
+  %shuffle.i.i199.i = shufflevector <16 x i8> %139, <16 x i8> %140, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %141 = bitcast <16 x i8> %shuffle.i.i199.i to <2 x i64>
+  %and.i.i200.i = and <2 x i64> %141, <i64 1085102592571150095, i64 1085102592571150095>
+  %142 = bitcast <2 x i64> %and.i.i200.i to <16 x i8>
+  %cmp.i.i201.i = icmp eq <16 x i8> %142, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %bc91.i202.i = bitcast <16 x i1> %cmp.i.i201.i to <2 x i8>
+  %conv56.i203.i = extractelement <2 x i8> %bc91.i202.i, i64 0
+  %conv59.i204.i = extractelement <2 x i8> %bc91.i202.i, i64 1
+  %idxprom.i94.i205.i = zext i8 %conv56.i203.i to i64
+  %arrayidx.i95.i206.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i205.i
+  %143 = load i64, ptr %arrayidx.i95.i206.i, align 8
+  %vecinit1.i13.i96.i207.i = insertelement <2 x i64> poison, i64 %143, i64 0
+  %idxprom1.i97.i208.i = zext i8 %conv59.i204.i to i64
+  %arrayidx2.i98.i209.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i208.i
+  %144 = load i64, ptr %arrayidx2.i98.i209.i, align 8
+  %vecinit1.i.i99.i210.i = insertelement <2 x i64> poison, i64 %144, i64 0
+  %arrayidx5.i100.i211.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i205.i
+  %145 = load i8, ptr %arrayidx5.i100.i211.i, align 1
+  %vecinit.i15.i101.i212.i = insertelement <16 x i8> poison, i8 %145, i64 0
+  %vecinit15.i.i102.i213.i = shufflevector <16 x i8> %vecinit.i15.i101.i212.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %146 = bitcast <2 x i64> %vecinit1.i.i99.i210.i to <16 x i8>
+  %add.i.i103.i214.i = add <16 x i8> %vecinit15.i.i102.i213.i, %146
+  %147 = bitcast <16 x i8> %add.i.i103.i214.i to <2 x i64>
+  %shuffle.i.i104.i215.i = shufflevector <2 x i64> %vecinit1.i13.i96.i207.i, <2 x i64> %147, <2 x i32> <i32 0, i32 2>
+  %148 = bitcast <2 x i64> %shuffle.i.i104.i215.i to <16 x i8>
   %149 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %136, <16 x i8> %148)
   %150 = bitcast <16 x i8> %149 to <2 x i64>
-  %151 = xor <16 x i1> %cmp.i.i199.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %151 = xor <16 x i1> %cmp.i.i201.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %152 = sext <16 x i1> %151 to <16 x i8>
-  %not.i.i214.i = bitcast <16 x i8> %152 to <2 x i64>
-  %and.i127.i215.i = and <2 x i64> %and.i.i198.i, %not.i.i214.i
-  %or.i.i216.i = or <2 x i64> %and.i127.i215.i, %150
-  store <2 x i64> %or.i.i216.i, ptr %add.ptr25.i, align 16
-  %add.ptr68.i217.i = getelementptr inbounds i8, ptr %add.ptr42.i196.i, i64 %shr38.i194.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i
+  %not.i.i216.i = bitcast <16 x i8> %152 to <2 x i64>
+  %and.i127.i217.i = and <2 x i64> %and.i.i200.i, %not.i.i216.i
+  %or.i.i218.i = or <2 x i64> %and.i127.i217.i, %150
+  store <2 x i64> %or.i.i218.i, ptr %add.ptr25.i, align 16
+  %add.ptr68.i219.i = getelementptr inbounds i8, ptr %add.ptr42.i198.i, i64 %shr38.i196.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i
 
-sw.bb69.i183.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
-  %153 = load <2 x i64>, ptr %retval.0.i114.i, align 1
+sw.bb69.i185.i:                                   ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit184.i
+  %153 = load <2 x i64>, ptr %retval.0.i115.i, align 1
   store <2 x i64> %153, ptr %add.ptr25.i, align 16
-  %add.ptr72.i184.i = getelementptr inbounds i8, ptr %retval.0.i114.i, i64 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i
+  %add.ptr72.i186.i = getelementptr inbounds i8, ptr %retval.0.i115.i, i64 16
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i
 
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.unreachabledefault.i: ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit182.i
-  unreachable
-
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit253.i: ; preds = %sw.bb69.i183.i, %sw.bb29.i186.i, %sw.bb1.i218.i, %sw.bb.i252.i
-  %retval.0.i185.i = phi ptr [ %add.ptr72.i184.i, %sw.bb69.i183.i ], [ %add.ptr68.i217.i, %sw.bb29.i186.i ], [ %add.ptr28.i251.i, %sw.bb1.i218.i ], [ %retval.0.i114.i, %sw.bb.i252.i ]
-  %add2.i = add i64 %add2339.i, 64
+_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit256.i: ; preds = %sw.bb69.i185.i, %sw.bb29.i188.i, %sw.bb1.i220.i, %sw.bb.i254.i
+  %retval.0.i187.i = phi ptr [ %add.ptr72.i186.i, %sw.bb69.i185.i ], [ %add.ptr68.i219.i, %sw.bb29.i188.i ], [ %add.ptr28.i253.i, %sw.bb1.i220.i ], [ %retval.0.i115.i, %sw.bb.i254.i ]
+  %add2.i = add i64 %add2343.i, 64
   %cmp3.i = icmp ule i64 %add2.i, %and
-  %sub.ptr.rhs.cast5.i = ptrtoint ptr %retval.0.i185.i to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %retval.0.i187.i to i64
   %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast5.i
   %cmp7.i = icmp ugt i64 %sub.ptr.sub6.i, 95
   %154 = select i1 %cmp3.i, i1 %cmp7.i, i1 false
   br i1 %154, label %for.body.i, label %for.cond31.preheader.i, !llvm.loop !19
 
-for.body33.i:                                     ; preds = %for.cond31.preheader.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i
-  %data.addr.1343.i = phi ptr [ %retval.0.i256.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i ], [ %data.addr.0.lcssa.i, %for.cond31.preheader.i ]
-  %i.1342.i = phi i64 [ %add50.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i ], [ %i.0.lcssa.i, %for.cond31.preheader.i ]
-  %sub.ptr.rhs.cast35.i = ptrtoint ptr %data.addr.1343.i to i64
+for.body33.i:                                     ; preds = %for.cond31.preheader.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i
+  %data.addr.1347.i = phi ptr [ %retval.0.i259.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i ], [ %data.addr.0.lcssa.i, %for.cond31.preheader.i ]
+  %i.1346.i = phi i64 [ %add50.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i ], [ %i.0.lcssa.i, %for.cond31.preheader.i ]
+  %sub.ptr.rhs.cast35.i = ptrtoint ptr %data.addr.1347.i to i64
   %sub.ptr.sub36.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast35.i
   %cmp37.i = icmp ult i64 %sub.ptr.sub36.i, 24
   br i1 %cmp37.i, label %return, label %if.end39.i
 
 if.end39.i:                                       ; preds = %for.body33.i
-  %div4238.i = lshr i64 %i.1342.i, 6
-  %arrayidx43.i = getelementptr inbounds i8, ptr %data.addr.1161, i64 %div4238.i
+  %div4238.i = lshr i64 %i.1346.i, 6
+  %arrayidx43.i = getelementptr inbounds i8, ptr %data.addr.1156, i64 %div4238.i
   %155 = load i8, ptr %arrayidx43.i, align 1
   %conv44.i = zext i8 %155 to i32
-  %156 = trunc i64 %i.1342.i to i32
+  %156 = trunc i64 %i.1346.i to i32
   %157 = lshr exact i32 %156, 3
   %sh_prom.i = and i32 %157, 6
   %shr45.i = lshr i32 %conv44.i, %sh_prom.i
   %and46.i = and i32 %shr45.i, 3
-  %add.ptr47.i = getelementptr inbounds i8, ptr %add.ptr, i64 %i.1342.i
-  switch i32 %and46.i, label %if.end39.unreachabledefault.i [
-    i32 0, label %sw.bb.i323.i
-    i32 1, label %sw.bb1.i289.i
-    i32 2, label %sw.bb29.i257.i
-    i32 3, label %sw.bb69.i254.i
+  %add.ptr47.i = getelementptr inbounds i8, ptr %add.ptr, i64 %i.1346.i
+  switch i32 %and46.i, label %default.unreachable [
+    i32 0, label %sw.bb.i326.i
+    i32 1, label %sw.bb1.i292.i
+    i32 2, label %sw.bb29.i260.i
+    i32 3, label %sw.bb69.i257.i
   ]
 
-sw.bb.i323.i:                                     ; preds = %if.end39.i
+sw.bb.i326.i:                                     ; preds = %if.end39.i
   store <2 x i64> zeroinitializer, ptr %add.ptr47.i, align 1
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i
 
-sw.bb1.i289.i:                                    ; preds = %if.end39.i
-  %data32.0.copyload.i290.i = load i32, ptr %data.addr.1343.i, align 1
-  %shr.i291.i = lshr i32 %data32.0.copyload.i290.i, 1
-  %and.i292.i = and i32 %shr.i291.i, %data32.0.copyload.i290.i
-  %conv.i293.i = zext nneg i32 %and.i292.i to i64
-  %shl.i294.i = shl nuw nsw i64 %conv.i293.i, 30
-  %or.i295.i = or i64 %shl.i294.i, %conv.i293.i
-  %and4.i296.i = and i64 %or.i295.i, 1229782938247303441
-  %mul.i297.i = mul i64 %and4.i296.i, 1229782938247303441
-  %shr5.i298.i = lshr i64 %mul.i297.i, 60
-  %vecinit3.i.i299.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i290.i, i64 0
-  %add.ptr.i300.i = getelementptr inbounds i8, ptr %data.addr.1343.i, i64 4
-  %158 = load <16 x i8>, ptr %add.ptr.i300.i, align 1
-  %159 = bitcast <4 x i32> %vecinit3.i.i299.i to <8 x i16>
+sw.bb1.i292.i:                                    ; preds = %if.end39.i
+  %data32.0.copyload.i293.i = load i32, ptr %data.addr.1347.i, align 1
+  %shr.i294.i = lshr i32 %data32.0.copyload.i293.i, 1
+  %and.i295.i = and i32 %shr.i294.i, %data32.0.copyload.i293.i
+  %conv.i296.i = zext nneg i32 %and.i295.i to i64
+  %shl.i297.i = shl nuw nsw i64 %conv.i296.i, 30
+  %or.i298.i = or i64 %shl.i297.i, %conv.i296.i
+  %and4.i299.i = and i64 %or.i298.i, 1229782938247303441
+  %mul.i300.i = mul i64 %and4.i299.i, 1229782938247303441
+  %shr5.i301.i = lshr i64 %mul.i300.i, 60
+  %vecinit3.i.i302.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %data32.0.copyload.i293.i, i64 0
+  %add.ptr.i303.i = getelementptr inbounds i8, ptr %data.addr.1347.i, i64 4
+  %158 = load <16 x i8>, ptr %add.ptr.i303.i, align 1
+  %159 = bitcast <4 x i32> %vecinit3.i.i302.i to <8 x i16>
   %160 = lshr <8 x i16> %159, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %161 = bitcast <8 x i16> %160 to <16 x i8>
-  %162 = bitcast <4 x i32> %vecinit3.i.i299.i to <16 x i8>
-  %shuffle.i90.i301.i = shufflevector <16 x i8> %161, <16 x i8> %162, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %163 = bitcast <16 x i8> %shuffle.i90.i301.i to <8 x i16>
+  %162 = bitcast <4 x i32> %vecinit3.i.i302.i to <16 x i8>
+  %shuffle.i90.i304.i = shufflevector <16 x i8> %161, <16 x i8> %162, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %163 = bitcast <16 x i8> %shuffle.i90.i304.i to <8 x i16>
   %164 = lshr <8 x i16> %163, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %165 = bitcast <8 x i16> %164 to <16 x i8>
-  %shuffle.i87.i302.i = shufflevector <16 x i8> %165, <16 x i8> %shuffle.i90.i301.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %166 = bitcast <16 x i8> %shuffle.i87.i302.i to <2 x i64>
-  %and.i100.i303.i = and <2 x i64> %166, <i64 217020518514230019, i64 217020518514230019>
-  %167 = bitcast <2 x i64> %and.i100.i303.i to <16 x i8>
-  %cmp.i112.i304.i = icmp eq <16 x i8> %167, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
-  %bc93.i305.i = bitcast <16 x i1> %cmp.i112.i304.i to <2 x i8>
-  %conv19.i306.i = extractelement <2 x i8> %bc93.i305.i, i64 0
-  %conv21.i307.i = extractelement <2 x i8> %bc93.i305.i, i64 1
-  %idxprom.i.i308.i = zext i8 %conv19.i306.i to i64
-  %arrayidx.i.i309.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i308.i
-  %168 = load i64, ptr %arrayidx.i.i309.i, align 8
-  %vecinit1.i13.i.i310.i = insertelement <2 x i64> poison, i64 %168, i64 0
-  %idxprom1.i.i311.i = zext i8 %conv21.i307.i to i64
-  %arrayidx2.i.i312.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i311.i
-  %169 = load i64, ptr %arrayidx2.i.i312.i, align 8
-  %vecinit1.i.i.i313.i = insertelement <2 x i64> poison, i64 %169, i64 0
-  %arrayidx5.i.i314.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i308.i
-  %170 = load i8, ptr %arrayidx5.i.i314.i, align 1
-  %vecinit.i15.i.i315.i = insertelement <16 x i8> poison, i8 %170, i64 0
-  %vecinit15.i.i.i316.i = shufflevector <16 x i8> %vecinit.i15.i.i315.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %171 = bitcast <2 x i64> %vecinit1.i.i.i313.i to <16 x i8>
-  %add.i.i.i317.i = add <16 x i8> %vecinit15.i.i.i316.i, %171
-  %172 = bitcast <16 x i8> %add.i.i.i317.i to <2 x i64>
-  %shuffle.i.i.i318.i = shufflevector <2 x i64> %vecinit1.i13.i.i310.i, <2 x i64> %172, <2 x i32> <i32 0, i32 2>
-  %173 = bitcast <2 x i64> %shuffle.i.i.i318.i to <16 x i8>
+  %shuffle.i87.i305.i = shufflevector <16 x i8> %165, <16 x i8> %shuffle.i90.i304.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %166 = bitcast <16 x i8> %shuffle.i87.i305.i to <2 x i64>
+  %and.i100.i306.i = and <2 x i64> %166, <i64 217020518514230019, i64 217020518514230019>
+  %167 = bitcast <2 x i64> %and.i100.i306.i to <16 x i8>
+  %cmp.i112.i307.i = icmp eq <16 x i8> %167, <i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3, i8 3>
+  %bc93.i308.i = bitcast <16 x i1> %cmp.i112.i307.i to <2 x i8>
+  %conv19.i309.i = extractelement <2 x i8> %bc93.i308.i, i64 0
+  %conv21.i310.i = extractelement <2 x i8> %bc93.i308.i, i64 1
+  %idxprom.i.i311.i = zext i8 %conv19.i309.i to i64
+  %arrayidx.i.i312.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i.i311.i
+  %168 = load i64, ptr %arrayidx.i.i312.i, align 8
+  %vecinit1.i13.i.i313.i = insertelement <2 x i64> poison, i64 %168, i64 0
+  %idxprom1.i.i314.i = zext i8 %conv21.i310.i to i64
+  %arrayidx2.i.i315.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i.i314.i
+  %169 = load i64, ptr %arrayidx2.i.i315.i, align 8
+  %vecinit1.i.i.i316.i = insertelement <2 x i64> poison, i64 %169, i64 0
+  %arrayidx5.i.i317.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i.i311.i
+  %170 = load i8, ptr %arrayidx5.i.i317.i, align 1
+  %vecinit.i15.i.i318.i = insertelement <16 x i8> poison, i8 %170, i64 0
+  %vecinit15.i.i.i319.i = shufflevector <16 x i8> %vecinit.i15.i.i318.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %171 = bitcast <2 x i64> %vecinit1.i.i.i316.i to <16 x i8>
+  %add.i.i.i320.i = add <16 x i8> %vecinit15.i.i.i319.i, %171
+  %172 = bitcast <16 x i8> %add.i.i.i320.i to <2 x i64>
+  %shuffle.i.i.i321.i = shufflevector <2 x i64> %vecinit1.i13.i.i313.i, <2 x i64> %172, <2 x i32> <i32 0, i32 2>
+  %173 = bitcast <2 x i64> %shuffle.i.i.i321.i to <16 x i8>
   %174 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %158, <16 x i8> %173)
   %175 = bitcast <16 x i8> %174 to <2 x i64>
-  %176 = xor <16 x i1> %cmp.i112.i304.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %176 = xor <16 x i1> %cmp.i112.i307.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %177 = sext <16 x i1> %176 to <16 x i8>
-  %not.i130.i319.i = bitcast <16 x i8> %177 to <2 x i64>
-  %and.i131.i320.i = and <2 x i64> %and.i100.i303.i, %not.i130.i319.i
-  %or.i120.i321.i = or <2 x i64> %and.i131.i320.i, %175
-  store <2 x i64> %or.i120.i321.i, ptr %add.ptr47.i, align 1
-  %add.ptr28.i322.i = getelementptr inbounds i8, ptr %add.ptr.i300.i, i64 %shr5.i298.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i
+  %not.i130.i322.i = bitcast <16 x i8> %177 to <2 x i64>
+  %and.i131.i323.i = and <2 x i64> %and.i100.i306.i, %not.i130.i322.i
+  %or.i120.i324.i = or <2 x i64> %and.i131.i323.i, %175
+  store <2 x i64> %or.i120.i324.i, ptr %add.ptr47.i, align 1
+  %add.ptr28.i325.i = getelementptr inbounds i8, ptr %add.ptr.i303.i, i64 %shr5.i301.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i
 
-sw.bb29.i257.i:                                   ; preds = %if.end39.i
-  %data6430.0.copyload.i258.i = load i64, ptr %data.addr.1343.i, align 1
-  %shr31.i259.i = lshr i64 %data6430.0.copyload.i258.i, 1
-  %and32.i260.i = and i64 %shr31.i259.i, %data6430.0.copyload.i258.i
-  %shr33.i261.i = lshr i64 %and32.i260.i, 2
-  %and34.i262.i = and i64 %and32.i260.i, 1229782938247303441
-  %and36.i263.i = and i64 %and34.i262.i, %shr33.i261.i
-  %mul37.i264.i = mul i64 %and36.i263.i, 1229782938247303441
-  %shr38.i265.i = lshr i64 %mul37.i264.i, 60
-  %vecinit1.i135.i266.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i258.i, i64 0
-  %add.ptr42.i267.i = getelementptr inbounds i8, ptr %data.addr.1343.i, i64 8
-  %178 = load <16 x i8>, ptr %add.ptr42.i267.i, align 1
-  %179 = bitcast <2 x i64> %vecinit1.i135.i266.i to <8 x i16>
+sw.bb29.i260.i:                                   ; preds = %if.end39.i
+  %data6430.0.copyload.i261.i = load i64, ptr %data.addr.1347.i, align 1
+  %shr31.i262.i = lshr i64 %data6430.0.copyload.i261.i, 1
+  %and32.i263.i = and i64 %shr31.i262.i, %data6430.0.copyload.i261.i
+  %shr33.i264.i = lshr i64 %and32.i263.i, 2
+  %and34.i265.i = and i64 %and32.i263.i, 1229782938247303441
+  %and36.i266.i = and i64 %and34.i265.i, %shr33.i264.i
+  %mul37.i267.i = mul i64 %and36.i266.i, 1229782938247303441
+  %shr38.i268.i = lshr i64 %mul37.i267.i, 60
+  %vecinit1.i135.i269.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %data6430.0.copyload.i261.i, i64 0
+  %add.ptr42.i270.i = getelementptr inbounds i8, ptr %data.addr.1347.i, i64 8
+  %178 = load <16 x i8>, ptr %add.ptr42.i270.i, align 1
+  %179 = bitcast <2 x i64> %vecinit1.i135.i269.i to <8 x i16>
   %180 = lshr <8 x i16> %179, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %181 = bitcast <8 x i16> %180 to <16 x i8>
-  %182 = bitcast <2 x i64> %vecinit1.i135.i266.i to <16 x i8>
-  %shuffle.i.i268.i = shufflevector <16 x i8> %181, <16 x i8> %182, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %183 = bitcast <16 x i8> %shuffle.i.i268.i to <2 x i64>
-  %and.i.i269.i = and <2 x i64> %183, <i64 1085102592571150095, i64 1085102592571150095>
-  %184 = bitcast <2 x i64> %and.i.i269.i to <16 x i8>
-  %cmp.i.i270.i = icmp eq <16 x i8> %184, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %bc91.i271.i = bitcast <16 x i1> %cmp.i.i270.i to <2 x i8>
-  %conv56.i272.i = extractelement <2 x i8> %bc91.i271.i, i64 0
-  %conv59.i273.i = extractelement <2 x i8> %bc91.i271.i, i64 1
-  %idxprom.i94.i274.i = zext i8 %conv56.i272.i to i64
-  %arrayidx.i95.i275.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i274.i
-  %185 = load i64, ptr %arrayidx.i95.i275.i, align 8
-  %vecinit1.i13.i96.i276.i = insertelement <2 x i64> poison, i64 %185, i64 0
-  %idxprom1.i97.i277.i = zext i8 %conv59.i273.i to i64
-  %arrayidx2.i98.i278.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i277.i
-  %186 = load i64, ptr %arrayidx2.i98.i278.i, align 8
-  %vecinit1.i.i99.i279.i = insertelement <2 x i64> poison, i64 %186, i64 0
-  %arrayidx5.i100.i280.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i274.i
-  %187 = load i8, ptr %arrayidx5.i100.i280.i, align 1
-  %vecinit.i15.i101.i281.i = insertelement <16 x i8> poison, i8 %187, i64 0
-  %vecinit15.i.i102.i282.i = shufflevector <16 x i8> %vecinit.i15.i101.i281.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %188 = bitcast <2 x i64> %vecinit1.i.i99.i279.i to <16 x i8>
-  %add.i.i103.i283.i = add <16 x i8> %vecinit15.i.i102.i282.i, %188
-  %189 = bitcast <16 x i8> %add.i.i103.i283.i to <2 x i64>
-  %shuffle.i.i104.i284.i = shufflevector <2 x i64> %vecinit1.i13.i96.i276.i, <2 x i64> %189, <2 x i32> <i32 0, i32 2>
-  %190 = bitcast <2 x i64> %shuffle.i.i104.i284.i to <16 x i8>
+  %182 = bitcast <2 x i64> %vecinit1.i135.i269.i to <16 x i8>
+  %shuffle.i.i271.i = shufflevector <16 x i8> %181, <16 x i8> %182, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %183 = bitcast <16 x i8> %shuffle.i.i271.i to <2 x i64>
+  %and.i.i272.i = and <2 x i64> %183, <i64 1085102592571150095, i64 1085102592571150095>
+  %184 = bitcast <2 x i64> %and.i.i272.i to <16 x i8>
+  %cmp.i.i273.i = icmp eq <16 x i8> %184, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %bc91.i274.i = bitcast <16 x i1> %cmp.i.i273.i to <2 x i8>
+  %conv56.i275.i = extractelement <2 x i8> %bc91.i274.i, i64 0
+  %conv59.i276.i = extractelement <2 x i8> %bc91.i274.i, i64 1
+  %idxprom.i94.i277.i = zext i8 %conv56.i275.i to i64
+  %arrayidx.i95.i278.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom.i94.i277.i
+  %185 = load i64, ptr %arrayidx.i95.i278.i, align 8
+  %vecinit1.i13.i96.i279.i = insertelement <2 x i64> poison, i64 %185, i64 0
+  %idxprom1.i97.i280.i = zext i8 %conv59.i276.i to i64
+  %arrayidx2.i98.i281.i = getelementptr inbounds [256 x [8 x i8]], ptr @_ZN7meshoptL24kDecodeBytesGroupShuffleE, i64 0, i64 %idxprom1.i97.i280.i
+  %186 = load i64, ptr %arrayidx2.i98.i281.i, align 8
+  %vecinit1.i.i99.i282.i = insertelement <2 x i64> poison, i64 %186, i64 0
+  %arrayidx5.i100.i283.i = getelementptr inbounds [256 x i8], ptr @_ZN7meshoptL22kDecodeBytesGroupCountE, i64 0, i64 %idxprom.i94.i277.i
+  %187 = load i8, ptr %arrayidx5.i100.i283.i, align 1
+  %vecinit.i15.i101.i284.i = insertelement <16 x i8> poison, i8 %187, i64 0
+  %vecinit15.i.i102.i285.i = shufflevector <16 x i8> %vecinit.i15.i101.i284.i, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %188 = bitcast <2 x i64> %vecinit1.i.i99.i282.i to <16 x i8>
+  %add.i.i103.i286.i = add <16 x i8> %vecinit15.i.i102.i285.i, %188
+  %189 = bitcast <16 x i8> %add.i.i103.i286.i to <2 x i64>
+  %shuffle.i.i104.i287.i = shufflevector <2 x i64> %vecinit1.i13.i96.i279.i, <2 x i64> %189, <2 x i32> <i32 0, i32 2>
+  %190 = bitcast <2 x i64> %shuffle.i.i104.i287.i to <16 x i8>
   %191 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %178, <16 x i8> %190)
   %192 = bitcast <16 x i8> %191 to <2 x i64>
-  %193 = xor <16 x i1> %cmp.i.i270.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %193 = xor <16 x i1> %cmp.i.i273.i, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %194 = sext <16 x i1> %193 to <16 x i8>
-  %not.i.i285.i = bitcast <16 x i8> %194 to <2 x i64>
-  %and.i127.i286.i = and <2 x i64> %and.i.i269.i, %not.i.i285.i
-  %or.i.i287.i = or <2 x i64> %and.i127.i286.i, %192
-  store <2 x i64> %or.i.i287.i, ptr %add.ptr47.i, align 1
-  %add.ptr68.i288.i = getelementptr inbounds i8, ptr %add.ptr42.i267.i, i64 %shr38.i265.i
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i
+  %not.i.i288.i = bitcast <16 x i8> %194 to <2 x i64>
+  %and.i127.i289.i = and <2 x i64> %and.i.i272.i, %not.i.i288.i
+  %or.i.i290.i = or <2 x i64> %and.i127.i289.i, %192
+  store <2 x i64> %or.i.i290.i, ptr %add.ptr47.i, align 1
+  %add.ptr68.i291.i = getelementptr inbounds i8, ptr %add.ptr42.i270.i, i64 %shr38.i268.i
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i
 
-sw.bb69.i254.i:                                   ; preds = %if.end39.i
-  %195 = load <2 x i64>, ptr %data.addr.1343.i, align 1
+sw.bb69.i257.i:                                   ; preds = %if.end39.i
+  %195 = load <2 x i64>, ptr %data.addr.1347.i, align 1
   store <2 x i64> %195, ptr %add.ptr47.i, align 1
-  %add.ptr72.i255.i = getelementptr inbounds i8, ptr %data.addr.1343.i, i64 16
-  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i
+  %add.ptr72.i258.i = getelementptr inbounds i8, ptr %data.addr.1347.i, i64 16
+  br label %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i
 
-if.end39.unreachabledefault.i:                    ; preds = %if.end39.i
-  unreachable
-
-_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i: ; preds = %sw.bb69.i254.i, %sw.bb29.i257.i, %sw.bb1.i289.i, %sw.bb.i323.i
-  %retval.0.i256.i = phi ptr [ %add.ptr72.i255.i, %sw.bb69.i254.i ], [ %add.ptr68.i288.i, %sw.bb29.i257.i ], [ %add.ptr28.i322.i, %sw.bb1.i289.i ], [ %data.addr.1343.i, %sw.bb.i323.i ]
-  %add50.i = add nuw i64 %i.1342.i, 16
+_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i: ; preds = %sw.bb69.i257.i, %sw.bb29.i260.i, %sw.bb1.i292.i, %sw.bb.i326.i
+  %retval.0.i259.i = phi ptr [ %add.ptr72.i258.i, %sw.bb69.i257.i ], [ %add.ptr68.i291.i, %sw.bb29.i260.i ], [ %add.ptr28.i325.i, %sw.bb1.i292.i ], [ %data.addr.1347.i, %sw.bb.i326.i ]
+  %add50.i = add nuw i64 %i.1346.i, 16
   %cmp32.i = icmp ult i64 %add50.i, %and
   br i1 %cmp32.i, label %for.body33.i, label %_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit, !llvm.loop !20
 
-_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit:     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i, %for.cond31.preheader.i
-  %retval.0.i = phi ptr [ %data.addr.0.lcssa.i, %for.cond31.preheader.i ], [ %retval.0.i256.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit324.i ]
+_ZN7meshoptL15decodeBytesSimdEPKhS1_Phm.exit:     ; preds = %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i, %for.cond31.preheader.i
+  %retval.0.i = phi ptr [ %data.addr.0.lcssa.i, %for.cond31.preheader.i ], [ %retval.0.i259.i, %_ZN7meshoptL20decodeBytesGroupSimdEPKhPhi.exit328.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %return, label %for.cond1
 
 for.end:                                          ; preds = %for.cond1
-  br i1 %cmp10162.not, label %for.inc102, label %for.body11.preheader
+  br i1 %cmp10157.not, label %for.inc102, label %for.body11.preheader
 
 for.body11.preheader:                             ; preds = %for.end
-  %add.ptr7 = getelementptr inbounds i8, ptr %transposed, i64 %k.0167
-  %add.ptr4 = getelementptr inbounds i8, ptr %last_vertex, i64 %k.0167
+  %add.ptr7 = getelementptr inbounds i8, ptr %transposed, i64 %k.0162
+  %add.ptr4 = getelementptr inbounds i8, ptr %last_vertex, i64 %k.0162
   %196 = load i32, ptr %add.ptr4, align 4
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %196, i64 0
   %197 = bitcast <4 x i32> %vecinit3.i to <2 x i64>
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
-  %j8.0165 = phi i64 [ %add100, %for.body11 ], [ 0, %for.body11.preheader ]
-  %savep.0164 = phi ptr [ %add.ptr98, %for.body11 ], [ %add.ptr7, %for.body11.preheader ]
-  %pi.0163 = phi <2 x i64> [ %279, %for.body11 ], [ %197, %for.body11.preheader ]
-  %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 %j8.0165
+  %j8.0160 = phi i64 [ %add100, %for.body11 ], [ 0, %for.body11.preheader ]
+  %savep.0159 = phi ptr [ %add.ptr98, %for.body11 ], [ %add.ptr7, %for.body11.preheader ]
+  %pi.0158 = phi <2 x i64> [ %279, %for.body11 ], [ %197, %for.body11.preheader ]
+  %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 %j8.0160
   %198 = load <2 x i64>, ptr %add.ptr13, align 16
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr13, i64 %and
   %199 = load <2 x i64>, ptr %add.ptr20, align 16
@@ -1321,7 +1312,7 @@ for.body11:                                       ; preds = %for.body11.preheade
   %233 = bitcast <16 x i8> %shuffle.i13.i to <8 x i16>
   %shuffle.i19.i = shufflevector <8 x i16> %232, <8 x i16> %233, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i25.i = shufflevector <8 x i16> %232, <8 x i16> %233, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %234 = bitcast <2 x i64> %pi.0163 to <16 x i8>
+  %234 = bitcast <2 x i64> %pi.0158 to <16 x i8>
   %235 = bitcast <8 x i16> %shuffle.i22.i to <16 x i8>
   %236 = shufflevector <16 x i8> %235, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %add.i157 = add <16 x i8> %236, %234
@@ -1336,8 +1327,8 @@ for.body11:                                       ; preds = %for.body11.preheade
   %add.i148 = add <16 x i8> %add.i151, %242
   %243 = bitcast <16 x i8> %add.i157 to <4 x i32>
   %vecext.i203 = extractelement <4 x i32> %243, i64 0
-  store i32 %vecext.i203, ptr %savep.0164, align 4
-  %add.ptr44 = getelementptr inbounds i8, ptr %savep.0164, i64 %vertex_size
+  store i32 %vecext.i203, ptr %savep.0159, align 4
+  %add.ptr44 = getelementptr inbounds i8, ptr %savep.0159, i64 %vertex_size
   %244 = bitcast <16 x i8> %add.i154 to <4 x i32>
   %vecext.i200 = extractelement <4 x i32> %244, i64 0
   store i32 %vecext.i200, ptr %add.ptr44, align 4
@@ -1435,12 +1426,12 @@ for.body11:                                       ; preds = %for.body11.preheade
   %vecext.i = extractelement <4 x i32> %283, i64 0
   store i32 %vecext.i, ptr %add.ptr96, align 4
   %add.ptr98 = getelementptr inbounds i8, ptr %add.ptr96, i64 %vertex_size
-  %add100 = add nuw i64 %j8.0165, 16
+  %add100 = add nuw i64 %j8.0160, 16
   %cmp10 = icmp ult i64 %add100, %and
   br i1 %cmp10, label %for.body11, label %for.inc102, !llvm.loop !21
 
 for.inc102:                                       ; preds = %for.body11, %for.end
-  %add103 = add i64 %k.0167, 4
+  %add103 = add i64 %k.0162, 4
   %cmp = icmp ult i64 %add103, %vertex_size
   br i1 %cmp, label %for.cond1.preheader, label %for.end104, !llvm.loop !22
 
@@ -1459,7 +1450,7 @@ return:                                           ; preds = %for.body3, %_ZN7mes
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr nocapture noundef writeonly %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr nocapture noundef %last_vertex) unnamed_addr #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
@@ -1571,7 +1562,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %shr.i = lshr i32 %conv.i, %sh_prom.i
   %and.i = and i32 %shr.i, 3
   %add.ptr11.i = getelementptr inbounds i8, ptr %buffer, i64 %i.018.i
-  switch i32 %and.i, label %if.end8.unreachabledefault.i [
+  switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
     i32 2, label %sw.bb284.i.i
@@ -1579,7 +1570,7 @@ if.end8.i:                                        ; preds = %for.body.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end8.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr11.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr11.i, i8 0, i64 16, i1 false)
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 sw.bb1.i.i:                                       ; preds = %if.end8.i
@@ -1875,11 +1866,11 @@ sw.bb284.i.i:                                     ; preds = %if.end8.i
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 sw.bb582.i.i:                                     ; preds = %if.end8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr11.i, ptr noundef nonnull align 1 dereferenceable(16) %data.addr.019.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr11.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.addr.019.i, i64 16, i1 false)
   %add.ptr583.i.i = getelementptr inbounds i8, ptr %data.addr.019.i, i64 16
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
-if.end8.unreachabledefault.i:                     ; preds = %if.end8.i
+default.unreachable:                              ; preds = %if.end8.i
   unreachable
 
 _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %sw.bb582.i.i, %sw.bb284.i.i, %sw.bb1.i.i, %sw.bb.i.i
@@ -1950,20 +1941,20 @@ entry:
 
 for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %entry
   %indvars.iv14.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next15.i.i, %for.end.i.i ]
-  %0 = trunc i64 %indvars.iv14.i.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv14.i.i to i32
   br label %for.body3.i.i
 
 for.body3.i.i:                                    ; preds = %for.body3.i.i, %for.cond1.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.cond1.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body3.i.i ]
   %count.011.i.i = phi i8 [ 0, %for.cond1.preheader.i.i ], [ %conv8.i.i, %for.body3.i.i ]
-  %1 = trunc i64 %indvars.iv.i.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shr.i.i = lshr i32 %0, %1
   %and.i.i = and i32 %shr.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   %conv4.i.i = select i1 %tobool.not.i.i, i8 -128, i8 %count.011.i.i
   %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %shuffle.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %conv4.i.i, ptr %arrayidx.i.i, align 1
-  %2 = trunc i32 %and.i.i to i8
+  %2 = trunc nuw nsw i32 %and.i.i to i8
   %conv8.i.i = add i8 %count.011.i.i, %2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2002,13 +1993,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #8 = { memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

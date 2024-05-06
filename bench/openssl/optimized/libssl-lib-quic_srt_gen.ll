@@ -114,7 +114,7 @@ declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_srt_gen_calculate_token(ptr nocapture noundef readonly %srt_gen, ptr noundef %dcid, ptr nocapture noundef writeonly %token) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srt_gen_calculate_token(ptr nocapture noundef readonly %srt_gen, ptr noundef %dcid, ptr nocapture noundef writeonly %token) local_unnamed_addr #0 {
 entry:
   %outl = alloca i64, align 8
   %mac = alloca [32 x i8], align 16

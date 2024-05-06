@@ -530,7 +530,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN6duckdb14BaseStatistics12GetStatsTypeERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type) local_unnamed_addr #5 align 2 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN6duckdb14BaseStatistics12GetStatsTypeERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i8, ptr %type, align 8, !tbaa !24
   %cmp = icmp eq i8 %0, 1
@@ -1241,7 +1241,7 @@ _ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK6duckdb14BaseStatistics12GetStatsTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext range(i8 0, 6) i8 @_ZNK6duckdb14BaseStatistics12GetStatsTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
 entry:
   %call2 = tail call noundef zeroext i8 @_ZN6duckdb14BaseStatistics12GetStatsTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %this), !range !27
   ret i8 %call2
@@ -24912,7 +24912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb11StringStats12CheckZonemapERKNS_14BaseStatisticsENS_14ExpressionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %stats, i8 noundef zeroext %comparison_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %constant) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb11StringStats12CheckZonemapERKNS_14BaseStatisticsENS_14ExpressionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %stats, i8 noundef zeroext %comparison_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %constant) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::allocator", align 1

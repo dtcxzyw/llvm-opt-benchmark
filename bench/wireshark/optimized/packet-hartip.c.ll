@@ -682,7 +682,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hartip_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @hartip_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = load i8, ptr %3, align 1
   switch i8 %6, label %19 [
     i8 0, label %10
@@ -1193,7 +1193,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 264:                                              ; preds = %190
-  %265 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191), !range !7
+  %265 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 266:                                              ; preds = %190, %190
@@ -1227,7 +1227,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 288:                                              ; preds = %190
-  %289 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191), !range !7
+  %289 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 290:                                              ; preds = %190, %190
@@ -1236,7 +1236,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 292:                                              ; preds = %290
   %293 = load i32, ptr @hf_hartip_pt_rsp_message, align 4
-  %294 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %293, ptr noundef %0, i32 noundef %.7.i, i32 noundef 24), !range !8
+  %294 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %293, ptr noundef %0, i32 noundef %.7.i, i32 noundef 24)
   br label %.thread184.i
 
 295:                                              ; preds = %190, %190
@@ -1245,10 +1245,10 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 297:                                              ; preds = %295
   %298 = load i32, ptr @hf_hartip_pt_rsp_tag, align 4
-  %299 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %298, ptr noundef %0, i32 noundef %.7.i, i32 noundef 6), !range !8
+  %299 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %298, ptr noundef %0, i32 noundef %.7.i, i32 noundef 6)
   %300 = add i32 %.7.i, 6
   %301 = load i32, ptr @hf_hartip_pt_rsp_packed_descriptor, align 4
-  %302 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %301, ptr noundef %0, i32 noundef %300, i32 noundef 12), !range !8
+  %302 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %301, ptr noundef %0, i32 noundef %300, i32 noundef 12)
   %303 = add i32 %.7.i, 18
   %304 = load i32, ptr @hf_hartip_pt_rsp_day, align 4
   %305 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 1, i32 noundef 0) #4
@@ -1350,7 +1350,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br i1 %cond.i.i.i, label %377, label %.critedge.i.i.i
 
 377:                                              ; preds = %376
-  %378 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %374, i32 noundef %375), !range !7
+  %378 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %374, i32 noundef %375)
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %.critedge.i.i.i, label %.thread184.i
 
@@ -1423,7 +1423,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 431:                                              ; preds = %190
-  %432 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191), !range !7
+  %432 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 433:                                              ; preds = %190
@@ -1563,15 +1563,15 @@ dissect_session_init.exit:                        ; preds = %95, %101
   ]
 
 516:                                              ; preds = %515
-  %517 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512), !range !7
+  %517 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512)
   br label %522
 
 518:                                              ; preds = %515
-  %519 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512), !range !7
+  %519 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512)
   br label %522
 
 520:                                              ; preds = %515
-  %521 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512), !range !7
+  %521 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %509, i32 noundef %512)
   br label %522
 
 522:                                              ; preds = %520, %518, %516
@@ -1597,10 +1597,10 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %532 = icmp slt i32 %531, %495
   %533 = icmp sgt i32 %.1.i.i.i, 3
   %or.cond72.i.i.i = select i1 %532, i1 %533, i1 false
-  br i1 %or.cond72.i.i.i, label %.lr.ph.i.i.i, label %dissect_parse_hart_cmds.exit.i, !llvm.loop !9
+  br i1 %or.cond72.i.i.i, label %.lr.ph.i.i.i, label %dissect_parse_hart_cmds.exit.i, !llvm.loop !7
 
 534:                                              ; preds = %190
-  %535 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191), !range !7
+  %535 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 dissect_parse_hart_cmds.exit.i:                   ; preds = %529, %534, %431, %288, %264
@@ -1691,7 +1691,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 23
   br i1 %5, label %6, label %33
 
@@ -1730,7 +1730,7 @@ define internal fastcc noundef i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 12
   br i1 %5, label %6, label %155
 
@@ -1902,7 +1902,7 @@ define internal fastcc noundef i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1,
   %150 = udiv i32 %146, 32000
   %151 = urem i32 %150, 60
   %152 = udiv i32 %146, 1920000
-  %.lhs.trunc.i = trunc i32 %152 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %152 to i16
   %153 = urem i16 %.lhs.trunc.i, 60
   %.zext.i = zext nneg i16 %153 to i32
   %154 = udiv i32 %146, 115200000
@@ -1922,7 +1922,7 @@ dissect_timestamp.exit:                           ; preds = %.thread191, %147
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_packAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef returned %4) unnamed_addr #0 {
+define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef returned %4) unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = tail call ptr @wmem_packet_scope() #4
   %8 = zext nneg i32 %4 to i64
@@ -2010,13 +2010,13 @@ define internal fastcc noundef i32 @dissect_packAscii(ptr noundef %0, i32 nounde
   store i8 %62, ptr %63, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond52.not, label %64, label %53, !llvm.loop !10
+  br i1 %exitcond52.not, label %64, label %53, !llvm.loop !8
 
 64:                                               ; preds = %55
-  %65 = trunc i64 %indvars.iv.next50 to i32
+  %65 = trunc nsw i64 %indvars.iv.next50 to i32
   %66 = add nuw i16 %.04146, 1
   %67 = icmp ult i16 %66, %21
-  br i1 %67, label %22, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %67, label %22, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %64
   %sext = shl i64 %indvars.iv.next50, 32
@@ -2032,7 +2032,7 @@ define internal fastcc noundef i32 @dissect_packAscii(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 5
   br i1 %5, label %6, label %.thread51
 
@@ -2090,7 +2090,7 @@ define internal fastcc noundef i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_cmd203(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd203(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 7
   br i1 %5, label %6, label %.thread83
 
@@ -2116,7 +2116,7 @@ define internal fastcc noundef i32 @dissect_cmd203(ptr noundef %0, ptr noundef %
   %22 = udiv i32 %18, 32000
   %23 = urem i32 %22, 60
   %24 = udiv i32 %18, 1920000
-  %.lhs.trunc.i = trunc i32 %24 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %24 to i16
   %25 = urem i16 %.lhs.trunc.i, 60
   %.zext.i = zext nneg i16 %25 to i32
   %26 = udiv i32 %18, 115200000
@@ -2211,7 +2211,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dissect_hartip_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_dissect_hartip_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 6
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #4
   %7 = zext i16 %6 to i32
@@ -2249,8 +2249,6 @@ attributes #5 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2147483647}
-!8 = !{i32 6, i32 25}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

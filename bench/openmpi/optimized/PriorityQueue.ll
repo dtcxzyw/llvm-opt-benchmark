@@ -39,7 +39,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare hidden i32 @tm_fiboTreeInit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compFunc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @compFunc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -141,7 +141,7 @@ define void @PQ_free(ptr noundef %0) local_unnamed_addr #0 {
 declare hidden void @tm_fiboTreeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %0

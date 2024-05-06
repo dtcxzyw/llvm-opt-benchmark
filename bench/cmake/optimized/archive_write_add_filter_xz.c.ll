@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [8 x i8] c"threads\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_lzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_lzip(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #13
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.4) #13
   %3 = icmp eq i32 %2, -30
@@ -72,7 +72,7 @@ archive_write_add_filter_lzip.exit:               ; preds = %1, %common_setup.ex
 declare void @__archive_write_filters_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_lzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_lzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.4) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %19, label %4
@@ -115,7 +115,7 @@ common_setup.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_lzma(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_lzma(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #13
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.2) #13
   %3 = icmp eq i32 %2, -30
@@ -159,7 +159,7 @@ archive_write_add_filter_lzma.exit:               ; preds = %1, %common_setup.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_lzma(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_lzma(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.2) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %19, label %4
@@ -202,7 +202,7 @@ common_setup.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_xz(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_xz(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #13
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #13
   %3 = icmp eq i32 %2, -30
@@ -246,7 +246,7 @@ archive_write_add_filter_xz.exit:                 ; preds = %1, %common_setup.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_xz(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_xz(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %19, label %4
@@ -298,7 +298,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_xz_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr nocapture noundef %0) #0 {
   %2 = alloca %struct.lzma_mt, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -504,7 +504,7 @@ define internal noundef i32 @archive_compressor_xz_open(ptr nocapture noundef %0
   %113 = load ptr, ptr %5, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 4
   store i8 1, ptr %114, align 1
-  %115 = trunc i32 %105 to i8
+  %115 = trunc nuw i32 %105 to i8
   %116 = load ptr, ptr %5, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 5
   store i8 %115, ptr %117, align 1
@@ -555,7 +555,7 @@ archive_compressor_xz_init_stream.exit.thread:    ; preds = %84, %128, %125
 define internal i32 @archive_compressor_xz_close(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %3, i32 noundef 1), !range !7
+  %4 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %91
 
@@ -596,7 +596,7 @@ define internal i32 @archive_compressor_xz_close(ptr nocapture noundef readonly 
   %34 = getelementptr inbounds i8, ptr %25, i64 2
   store i8 %33, ptr %34, align 1
   %35 = lshr i32 %27, 24
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nuw i32 %35 to i8
   %37 = getelementptr inbounds i8, ptr %25, i64 3
   store i8 %36, ptr %37, align 1
   %38 = load ptr, ptr %17, align 8
@@ -630,7 +630,7 @@ define internal i32 @archive_compressor_xz_close(ptr nocapture noundef readonly 
   %60 = getelementptr inbounds i8, ptr %38, i64 10
   store i8 %59, ptr %60, align 1
   %sum.shift.i = lshr i64 %41, 56
-  %61 = trunc i64 %sum.shift.i to i8
+  %61 = trunc nuw i64 %sum.shift.i to i8
   %62 = getelementptr inbounds i8, ptr %38, i64 11
   store i8 %61, ptr %62, align 1
   %63 = load ptr, ptr %17, align 8
@@ -664,7 +664,7 @@ define internal i32 @archive_compressor_xz_close(ptr nocapture noundef readonly 
   %85 = getelementptr inbounds i8, ptr %63, i64 18
   store i8 %84, ptr %85, align 1
   %sum.shift.i24 = lshr i64 %66, 56
-  %86 = trunc i64 %sum.shift.i24 to i8
+  %86 = trunc nuw i64 %sum.shift.i24 to i8
   %87 = getelementptr inbounds i8, ptr %63, i64 19
   store i8 %86, ptr %87, align 1
   %88 = load ptr, ptr %15, align 8
@@ -692,7 +692,7 @@ define internal noundef i32 @archive_compressor_xz_free(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_xz_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -20, 1) i32 @archive_compressor_xz_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -769,7 +769,7 @@ declare i32 @archive_write_get_bytes_per_block(ptr noundef) local_unnamed_addr #
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_xz_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_xz_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
@@ -793,7 +793,7 @@ define internal noundef i32 @archive_compressor_xz_write(ptr nocapture noundef r
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %2, ptr %18, align 8
-  %19 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0), !range !7
+  %19 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0)
   ret i32 %19
 }
 
@@ -804,7 +804,7 @@ declare zeroext i8 @lzma_lzma_preset(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = getelementptr inbounds i8, ptr %1, i64 304
@@ -990,4 +990,3 @@ attributes #17 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -30, i32 1}

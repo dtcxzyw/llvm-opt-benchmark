@@ -1574,7 +1574,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %93
   %101 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.19, ptr noundef %101) #29
   %103 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  %104 = call noalias ptr @popen(ptr noundef %103, ptr noundef nonnull %1)
+  %104 = call noalias ptr @popen(ptr noundef %103, ptr noundef nonnull readonly %1)
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %119
 
@@ -1768,7 +1768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.19, ptr noundef %156) #29
   %158 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  %159 = call noalias ptr @popen(ptr noundef %158, ptr noundef nonnull %1)
+  %159 = call noalias ptr @popen(ptr noundef %158, ptr noundef nonnull readonly %1)
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %176
 
@@ -2366,13 +2366,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z10gmx_tmpnamPc(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = tail call fastcc noundef i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0), !range !48
+  %2 = tail call fastcc noundef i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0)
   %3 = tail call i32 @close(i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
@@ -2453,7 +2453,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define noalias noundef ptr @_Z19gmx_fopen_temporaryPc(ptr noundef %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %3 = tail call fastcc noundef i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0), !range !48
+  %3 = tail call fastcc noundef i32 @_ZL21makeTemporaryFilenamePc(ptr noundef %0)
   %4 = tail call noalias ptr @fdopen(i32 noundef %3, ptr noundef nonnull @.str.24) #24
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -2758,7 +2758,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !48
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -2895,11 +2895,11 @@ define void @_Z9gmx_chdirRKNSt10filesystem7__cxx114pathE(ptr noundef nonnull ali
 12:                                               ; preds = %1
   call void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %0)
   %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  %14 = load ptr, ptr %9, align 8, !noalias !50
-  %15 = load i32, ptr %2, align 8, !noalias !50
-  %16 = load ptr, ptr %14, align 8, !noalias !50
+  %14 = load ptr, ptr %9, align 8, !noalias !49
+  %15 = load i32, ptr %2, align 8, !noalias !49
+  %16 = load ptr, ptr %14, align 8, !noalias !49
   %17 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !noalias !50
+  %18 = load ptr, ptr %17, align 8, !noalias !49
   invoke void %18(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15)
           to label %_ZNKSt10error_code7messageB5cxx11Ev.exit unwind label %27
 
@@ -3103,8 +3103,7 @@ attributes #32 = { builtin nounwind }
 !45 = !{!46, !43}
 !46 = distinct !{!46, !47, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
 !47 = distinct !{!47, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
-!48 = !{i32 0, i32 -2147483648}
-!49 = distinct !{!49, !6}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
-!52 = distinct !{!52, !"_ZNKSt10error_code7messageB5cxx11Ev"}
+!48 = distinct !{!48, !6}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
+!51 = distinct !{!51, !"_ZNKSt10error_code7messageB5cxx11Ev"}

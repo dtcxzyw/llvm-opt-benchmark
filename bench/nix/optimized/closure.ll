@@ -444,8 +444,8 @@ $_ZTINSt13__future_base13_State_baseV27_SetterISt3setINSt7__cxx1112basic_stringI
 @_ZTSNSt13__future_base7_ResultISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE = linkonce_odr constant [109 x i8] c"NSt13__future_base7_ResultISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE\00", comdat, align 1
 @_ZTINSt13__future_base12_Result_baseE = external constant ptr
 @_ZTINSt13__future_base7_ResultISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base7_ResultISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, ptr @_ZTINSt13__future_base12_Result_baseE }, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSNSt13__future_base13_State_baseV27_SetterISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKSC_EE = linkonce_odr constant [129 x i8] c"NSt13__future_base13_State_baseV27_SetterISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKSC_EE\00", comdat, align 1
 @_ZTINSt13__future_base13_State_baseV27_SetterISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKSC_EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base13_State_baseV27_SetterISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKSC_EE }, comdat, align 8
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
@@ -970,7 +970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %17, i64 16
   %51 = getelementptr inbounds i8, ptr %17, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix27closure_correctClosure_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS7_OSI_", ptr %51, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix27closure_correctClosure_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %50, align 8
   invoke void @_ZN3nix14computeClosureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt3setIT_St4lessIS8_ESaIS8_EERSC_St8functionIFvRKS8_SE_IFvRSt7promiseISC_EEEEE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %17)
@@ -1625,7 +1625,7 @@ define void @_ZN3nix44closure_properlyHandlesDirectExceptions_Test8TestBodyEv(pt
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %10, i64 16
   %28 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix44closure_properlyHandlesDirectExceptions_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS7_OSI_", ptr %28, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix44closure_properlyHandlesDirectExceptions_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %27, align 8
   invoke void @_ZN3nix14computeClosureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt3setIT_St4lessIS8_ESaIS8_EERSC_St8functionIFvRKS8_SE_IFvRSt7promiseISC_EEEEE(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %10)
@@ -2256,7 +2256,7 @@ define void @_ZN3nix47closure_properlyHandlesExceptionsInPromise_Test8TestBodyEv
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %10, i64 16
   %28 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix47closure_properlyHandlesExceptionsInPromise_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS7_OSI_", ptr %28, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRSt7promiseISt3setIS5_St4lessIS5_ESaIS5_EEEEEEZN3nix47closure_properlyHandlesExceptionsInPromise_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %27, align 8
   invoke void @_ZN3nix14computeClosureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt3setIT_St4lessIS8_ESaIS8_EERSC_St8functionIFvRKS8_SE_IFvRSt7promiseISC_EEEEE(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %10)

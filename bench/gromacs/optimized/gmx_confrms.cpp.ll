@@ -536,8 +536,8 @@ _ZL15build_res_indexiPKiP6t_atomPi.exit174.i:     ; preds = %204, %.noexc183
   br label %210
 
 210:                                              ; preds = %206, %_ZL15build_res_indexiPKiP6t_atomPi.exit174.i
-  %invariant.gep.i = getelementptr i8, ptr %161, i64 4
-  %invariant.gep293.i = getelementptr i8, ptr %184, i64 4
+  %invariant.gep.i = getelementptr inbounds i8, ptr %161, i64 4
+  %invariant.gep293.i = getelementptr inbounds i8, ptr %184, i64 4
   %211 = icmp sgt i32 %.0.lcssa.i.i, 0
   %wide.trip.count.i190.i = zext nneg i32 %.0.lcssa.i.i to i64
   %212 = icmp sgt i32 %.0.lcssa.i164.i, 0
@@ -988,13 +988,13 @@ _ZL12debug_strcmpPcS_.exit166.i.i:                ; preds = %402
   br i1 %.not154.i.i, label %442, label %430
 
 430:                                              ; preds = %428
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %341
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %341
   %431 = load i32, ptr %gep.i, align 4
   %432 = sext i32 %431 to i64
   %433 = getelementptr inbounds %struct.t_resinfo, ptr %152, i64 %432
   %434 = load ptr, ptr %433, align 8
   %435 = load ptr, ptr %434, align 8
-  %gep294.i = getelementptr i32, ptr %invariant.gep293.i, i64 %340
+  %gep294.i = getelementptr inbounds i32, ptr %invariant.gep293.i, i64 %340
   %436 = load i32, ptr %gep294.i, align 4
   %437 = sext i32 %436 to i64
   %438 = getelementptr inbounds %struct.t_resinfo, ptr %156, i64 %437

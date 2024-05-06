@@ -183,7 +183,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.display_random = private unnamed_addr constant [3 x ptr] [ptr @.str.114, ptr @.str.115, ptr @.str.116], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @list_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @list_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %params.i = alloca [5 x %struct.ossl_param_st], align 16
   %name.i120 = alloca ptr, align 8
@@ -4095,7 +4095,7 @@ entry:
 declare i32 @OSSL_PROVIDER_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @collect_providers(ptr noundef %provider, ptr noundef %stack) #0 {
+define internal range(i32 0, 2) i32 @collect_providers(ptr noundef %provider, ptr noundef %stack) #0 {
 entry:
   %call.i = tail call i32 @OPENSSL_sk_push(ptr noundef %stack, ptr noundef %provider) #6
   %cmp = icmp sgt i32 %call.i, 0

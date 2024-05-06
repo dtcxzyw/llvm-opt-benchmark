@@ -12,11 +12,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [45 x i8] c"unable to restore original working directory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unix_stream_connect(ptr noundef %path, i32 noundef %disallow_chdir) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @unix_stream_connect(ptr noundef %path, i32 noundef %disallow_chdir) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %ctx = alloca %struct.unix_sockaddr_context, align 8
-  %call = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %disallow_chdir), !range !5
+  %call = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %disallow_chdir)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -95,7 +95,7 @@ return:                                           ; preds = %if.end3.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unix_sockaddr_init(ptr nocapture noundef writeonly %sa, ptr noundef %path, ptr nocapture noundef writeonly %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr nocapture noundef writeonly %sa, ptr noundef %path, ptr nocapture noundef writeonly %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
 entry:
   %cwd = alloca %struct.strbuf, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #13
@@ -116,7 +116,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %path, i32 noundef 47) #13
+  %call.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #13
   %tobool6.not = icmp eq ptr %call.i, null
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
@@ -184,7 +184,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unix_stream_listen(ptr noundef %path, ptr nocapture noundef readonly %opts) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @unix_stream_listen(ptr noundef %path, ptr nocapture noundef readonly %opts) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %ctx = alloca %struct.unix_sockaddr_context, align 8
@@ -193,7 +193,7 @@ entry:
   %bf.load = load i8, ptr %disallow_chdir, align 4
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  %call1 = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %bf.cast), !range !5
+  %call1 = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %bf.cast)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -337,4 +337,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

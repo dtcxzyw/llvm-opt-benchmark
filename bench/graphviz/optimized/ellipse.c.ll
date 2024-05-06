@@ -404,7 +404,7 @@ curveTo.exit.i:                                   ; preds = %265, %235
   br i1 %exitcond.not.i, label %._crit_edge.i, label %235
 
 ._crit_edge.i:                                    ; preds = %curveTo.exit.i
-  %281 = trunc i64 %indvars.iv.next.i to i32
+  %281 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %281, ptr %206, align 8
   store ptr %271, ptr %84, align 8
   br label %282

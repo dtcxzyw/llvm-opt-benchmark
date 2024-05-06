@@ -75,7 +75,7 @@ entry:
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @grabbag__file_change_stats(ptr nocapture noundef readonly %filename, i32 noundef %read_only) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_change_stats(ptr nocapture noundef readonly %filename, i32 noundef %read_only) local_unnamed_addr #4 {
 entry:
   %stats = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats) #9
@@ -100,7 +100,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @grabbag__file_are_same(ptr noundef readonly %f1, ptr noundef readonly %f2) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_are_same(ptr noundef readonly %f1, ptr noundef readonly %f2) local_unnamed_addr #4 {
 entry:
   %s1 = alloca %struct.stat, align 8
   %s2 = alloca %struct.stat, align 8
@@ -140,11 +140,11 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @grabbag__file_remove_file(ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_remove_file(ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
 entry:
   %stats.i = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stats.i)
-  %call.i = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats.i) #9
+  %call.i = call i32 @stat64(ptr noundef readonly %filename, ptr noundef nonnull %stats.i) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %grabbag__file_change_stats.exit, label %grabbag__file_change_stats.exit.thread
 
@@ -156,7 +156,7 @@ grabbag__file_change_stats.exit:                  ; preds = %entry
   %st_mode6.i = getelementptr inbounds i8, ptr %stats.i, i64 24
   %0 = load i32, ptr %st_mode6.i, align 8
   %or.i = or i32 %0, 128
-  %call8.i = tail call i32 @chmod(ptr noundef %filename, i32 noundef %or.i) #9
+  %call8.i = tail call i32 @chmod(ptr noundef readonly %filename, i32 noundef %or.i) #9
   %cmp9.not.i.not = icmp eq i32 %call8.i, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
   br i1 %cmp9.not.i.not, label %land.rhs, label %land.end

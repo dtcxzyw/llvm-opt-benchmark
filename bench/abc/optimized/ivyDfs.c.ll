@@ -1213,7 +1213,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.crit
 declare i32 @Ivy_ManLevels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 176
   %.val57 = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 4
@@ -1260,7 +1260,7 @@ define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_u
 
 .lr.ph:                                           ; preds = %21, %37
   %.071 = phi ptr [ %42, %37 ], [ %20, %21 ]
-  %24 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %.071), !range !20
+  %24 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %.071)
   %.not46 = icmp eq i32 %24, 0
   br i1 %.not46, label %25, label %37
 
@@ -1283,7 +1283,7 @@ define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_u
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %.not47 = icmp eq ptr %35, %1
-  br i1 %.not47, label %._crit_edge, label %.lr.ph74, !llvm.loop !21
+  br i1 %.not47, label %._crit_edge, label %.lr.ph74, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph74, %25
   %36 = load ptr, ptr @stdout, align 8
@@ -1297,7 +1297,7 @@ define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_u
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
   %.not40 = icmp eq ptr %42, %1
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %21, %18, %14
   %43 = getelementptr i8, ptr %1, i64 8
@@ -1325,7 +1325,7 @@ define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_u
   %50 = ptrtoint ptr %.val49 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %52), !range !20
+  %53 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %52)
   %.not43 = icmp eq i32 %53, 0
   br i1 %.not43, label %54, label %57
 
@@ -1348,7 +1348,7 @@ define noundef i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_u
   %62 = ptrtoint ptr %.val50 to i64
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
-  %65 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %64), !range !20
+  %65 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %64)
   %.not45 = icmp eq i32 %65, 0
   br i1 %.not45, label %66, label %69
 
@@ -1408,7 +1408,7 @@ define noundef i32 @Ivy_ManIsAcyclic(ptr noundef %0) local_unnamed_addr #0 {
   %16 = ptrtoint ptr %.val to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef nonnull %0, ptr noundef %18), !range !20
+  %19 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef nonnull %0, ptr noundef %18)
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %20, label %._crit_edge
 
@@ -1434,7 +1434,7 @@ define noundef i32 @Ivy_ManIsAcyclic(ptr noundef %0) local_unnamed_addr #0 {
   %.val19 = load i32, ptr %28, align 4
   %29 = sext i32 %.val19 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !23
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %26, %1, %20
   %.2 = phi i32 [ 0, %20 ], [ 1, %1 ], [ 1, %26 ]
@@ -1444,7 +1444,7 @@ define noundef i32 @Ivy_ManIsAcyclic(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Ivy_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %3, align 8
   %4 = and i32 %.val, 16
@@ -1475,7 +1475,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %13 = ptrtoint ptr %.val56 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %15, i32 noundef %1), !range !24
+  %16 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %15, i32 noundef %1)
   %.val58 = load i32, ptr %3, align 8
   %17 = and i32 %.val58, 15
   %.not66 = icmp eq i32 %17, 7
@@ -1487,7 +1487,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %20 = ptrtoint ptr %.val59 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %22, i32 noundef %1), !range !24
+  %23 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %22, i32 noundef %1)
   %.val57.pre = load i32, ptr %3, align 8
   br label %24
 
@@ -1514,7 +1514,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %narrow.i62, label %41, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call fastcc i32 @Ivy_ObjLevelNew(ptr noundef nonnull %0), !range !25
+  %37 = tail call fastcc i32 @Ivy_ObjLevelNew(ptr noundef nonnull %0)
   %38 = shl i32 %37, 11
   br label %.sink.split
 
@@ -1551,7 +1551,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %.070 = phi i32 [ %.0., %.lr.ph ], [ %50, %49 ]
   %.03969 = phi ptr [ %59, %.lr.ph ], [ %45, %49 ]
-  %51 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %.03969, i32 noundef %1), !range !24
+  %51 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %.03969, i32 noundef %1)
   %52 = getelementptr inbounds i8, ptr %.03969, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = lshr i32 %53, 11
@@ -1562,7 +1562,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
   %.not51 = icmp eq ptr %59, %0
-  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 8
@@ -1593,7 +1593,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
   %.not52 = icmp eq ptr %73, %0
-  br i1 %.not52, label %.loopexit.loopexit, label %.lr.ph74, !llvm.loop !27
+  br i1 %.not52, label %.loopexit.loopexit, label %.lr.ph74, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %.lr.ph74
   %.pre77 = load i32, ptr %3, align 8
@@ -1610,7 +1610,7 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Ivy_ObjLevelNew(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc range(i32 1, 2097154) i32 @Ivy_ObjLevelNew(ptr nocapture noundef readonly %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i32, ptr %2, align 8
   %3 = and i32 %.val8, 15
@@ -1642,7 +1642,7 @@ define internal fastcc i32 @Ivy_ObjLevelNew(ptr nocapture noundef readonly %0) u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2097152) i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
   %.pre129 = load ptr, ptr %.phi.trans.insert, align 8
@@ -1692,7 +1692,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.val83 = load i32, ptr %20, align 4
   %21 = sext i32 %.val83 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %18, %2
   %.val82101 = phi i32 [ %.val82101.pre, %2 ], [ %.val83, %18 ]
@@ -1730,7 +1730,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.val82 = load i32, ptr %38, align 4
   %39 = sext i32 %.val82 to i64
   %40 = icmp slt i64 %indvars.iv.next118, %39
-  br i1 %40, label %.lr.ph103, label %.critedge2.preheader, !llvm.loop !29
+  br i1 %40, label %.lr.ph103, label %.critedge2.preheader, !llvm.loop !26
 
 .critedge4.preheader:                             ; preds = %.critedge2
   %41 = icmp sgt i32 %.val81, 0
@@ -1762,7 +1762,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %52 = ptrtoint ptr %.val77 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %54, i32 noundef %1), !range !24
+  %55 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %54, i32 noundef %1)
   %.val76 = load ptr, ptr %51, align 8
   %56 = ptrtoint ptr %.val76 to i64
   %57 = and i64 %56, -2
@@ -1782,7 +1782,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.val81 = load i32, ptr %63, align 4
   %64 = sext i32 %.val81 to i64
   %65 = icmp slt i64 %indvars.iv.next121, %64
-  br i1 %65, label %.lr.ph107, label %.critedge4.preheader, !llvm.loop !30
+  br i1 %65, label %.lr.ph107, label %.critedge4.preheader, !llvm.loop !27
 
 .critedge6.preheader:                             ; preds = %.critedge4
   %66 = icmp sgt i32 %.val80, 0
@@ -1814,7 +1814,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %77, label %78, label %.critedge4
 
 78:                                               ; preds = %75
-  %79 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef nonnull %70, i32 noundef %1), !range !24
+  %79 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef nonnull %70, i32 noundef %1)
   %80 = load i32, ptr %73, align 8
   %81 = lshr i32 %80, 11
   %.2. = tail call i32 @llvm.smax.i32(i32 %.2110, i32 %81)
@@ -1829,7 +1829,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.val80 = load i32, ptr %83, align 4
   %84 = sext i32 %.val80 to i64
   %85 = icmp slt i64 %indvars.iv.next124, %84
-  br i1 %85, label %.lr.ph111, label %.critedge6.preheader, !llvm.loop !31
+  br i1 %85, label %.lr.ph111, label %.critedge6.preheader, !llvm.loop !28
 
 .lr.ph115:                                        ; preds = %.critedge6.preheader, %.critedge6
   %86 = phi ptr [ %95, %.critedge6 ], [ %82, %.critedge6.preheader ]
@@ -1856,7 +1856,7 @@ define i32 @Ivy_ManSetLevels(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.val79 = load i32, ptr %96, align 4
   %97 = sext i32 %.val79 to i64
   %98 = icmp slt i64 %indvars.iv.next127, %97
-  br i1 %98, label %.lr.ph115, label %.critedge8, !llvm.loop !32
+  br i1 %98, label %.lr.ph115, label %.critedge8, !llvm.loop !29
 
 .critedge8:                                       ; preds = %.critedge6, %.preheader, %.critedge, %.critedge2.preheader, %.critedge4.preheader, %.critedge6.preheader
   %.2.lcssa150 = phi i32 [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ 0, %.preheader ], [ %.3, %.critedge6 ]
@@ -1932,16 +1932,13 @@ attributes #15 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 2}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i32 0, i32 2097152}
-!25 = !{i32 1, i32 2097154}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

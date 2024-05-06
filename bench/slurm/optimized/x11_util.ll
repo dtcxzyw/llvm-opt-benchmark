@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [11 x i8] c"%s/unix:%u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @x11_str2flags(ptr noundef %0) local_unnamed_addr #0 {
+define zeroext range(i16 0, 16) i16 @x11_str2flags(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str) #14
   %.not = icmp eq i32 %2, 0
   %spec.select = zext i1 %.not to i16

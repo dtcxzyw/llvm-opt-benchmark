@@ -284,7 +284,7 @@ define void @prte_app_print(ptr nocapture noundef writeonly %0, ptr nocapture re
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.37, ptr noundef %24, i32 noundef %28, ptr noundef %27) #8
   %30 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %30) #8

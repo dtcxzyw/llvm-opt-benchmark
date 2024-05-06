@@ -304,7 +304,7 @@ inBoxf.exit236.thread.i:                          ; preds = %125
   %.1199268.i = phi i64 [ %188, %187 ], [ 0, %.preheader266.i ]
   %184 = load ptr, ptr %60, align 8
   %185 = getelementptr inbounds %struct.pointf_s, ptr %184, i64 %.1199268.i
-  %186 = call fastcc i32 @splineIntersectf(ptr noundef %185, ptr noundef nonnull %82), !range !4
+  %186 = call fastcc i32 @splineIntersectf(ptr noundef %185, ptr noundef nonnull %82)
   %.not215.i = icmp eq i32 %186, 0
   br i1 %.not215.i, label %187, label %._crit_edge.i
 
@@ -496,7 +496,7 @@ inBoxf.exit243.thread.i:                          ; preds = %252
   br i1 %exitcond.not.i, label %305, label %300
 
 305:                                              ; preds = %300
-  %306 = call fastcc i32 @splineIntersectf(ptr noundef nonnull %3, ptr noundef nonnull %219), !range !4
+  %306 = call fastcc i32 @splineIntersectf(ptr noundef nonnull %3, ptr noundef nonnull %219)
   %.not223.i = icmp eq i32 %306, 0
   br i1 %.not223.i, label %312, label %.preheader.i
 
@@ -779,7 +779,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @arrowEndClip(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @splineIntersectf(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @splineIntersectf(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   %4 = load double, ptr %1, align 8
@@ -1069,4 +1069,3 @@ attributes #15 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

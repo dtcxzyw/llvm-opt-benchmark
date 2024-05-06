@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_sm2_asn1_meth = external constant %struct.evp_pkey_asn1_method_st, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_asn1_get_count() local_unnamed_addr #0 {
+define range(i32 -2147483632, -2147483648) i32 @EVP_PKEY_asn1_get_count() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @app_methods, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -267,7 +267,7 @@ declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_asn1_add0(ptr noundef %ameth) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_asn1_add0(ptr noundef %ameth) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.evp_pkey_asn1_method_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %tmp, i8 0, i64 320, i1 false)
@@ -354,7 +354,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_asn1_add_alias(i32 noundef %to, i32 noundef %from) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_asn1_add_alias(i32 noundef %to, i32 noundef %from) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 320, ptr noundef nonnull @.str, i32 noundef 223) #10
   %cmp.i = icmp eq ptr %call.i, null
@@ -366,7 +366,7 @@ if.end:                                           ; preds = %entry
   %pkey_flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 3, ptr %pkey_flags.i, align 8
   store i32 %to, ptr %pkey_base_id.i, align 4
-  %call1 = tail call i32 @EVP_PKEY_asn1_add0(ptr noundef nonnull %call.i), !range !6
+  %call1 = tail call i32 @EVP_PKEY_asn1_add0(ptr noundef nonnull %call.i)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %land.lhs.true.i, label %return
 
@@ -470,7 +470,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly %ppkey_id, ptr noundef writeonly %ppkey_base_id, ptr noundef writeonly %ppkey_flags, ptr noundef writeonly %pinfo, ptr noundef writeonly %ppem_str, ptr noundef readonly %ameth) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly %ppkey_id, ptr noundef writeonly %ppkey_base_id, ptr noundef writeonly %ppkey_flags, ptr noundef writeonly %pinfo, ptr noundef writeonly %ppem_str, ptr noundef readonly %ameth) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %ameth, null
   br i1 %tobool.not, label %return, label %if.end
@@ -760,4 +760,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

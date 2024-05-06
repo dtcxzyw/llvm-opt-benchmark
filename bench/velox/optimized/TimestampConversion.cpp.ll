@@ -343,7 +343,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef i64 @_ZN8facebook5velox4util26daysSinceEpochFromWeekDateEiii(i32 noundef %weekYear, i32 noundef %weekOfYear, i32 noundef %dayOfWeek) local_unnamed_addr #2 {
+define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZN8facebook5velox4util26daysSinceEpochFromWeekDateEiii(i32 noundef %weekYear, i32 noundef %weekOfYear, i32 noundef %dayOfWeek) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %dayOfWeek, -1
   %or.cond.i = icmp ult i32 %0, 7
@@ -484,7 +484,7 @@ _ZN8facebook5velox4util22extractISODayOfTheWeekEi.exit: ; preds = %if.then.i6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8facebook5velox4util22extractISODayOfTheWeekEi(i32 noundef %daysSinceEpoch) local_unnamed_addr #0 {
+define noundef range(i32 1, 8) i32 @_ZN8facebook5velox4util22extractISODayOfTheWeekEi(i32 noundef %daysSinceEpoch) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %daysSinceEpoch, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -1128,7 +1128,7 @@ if.end3:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN8facebook5velox4util8fromTimeEiiii(i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %microseconds) local_unnamed_addr #0 {
+define noundef range(i64 -7861937637475483648, 7861937633814483648) i64 @_ZN8facebook5velox4util8fromTimeEiiii(i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %microseconds) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %hour to i64
   %mul = mul nsw i64 %conv, 60

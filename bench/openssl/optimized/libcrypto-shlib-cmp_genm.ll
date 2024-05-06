@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.verify_ss_cert = private unnamed_addr constant [15 x i8] c"verify_ss_cert\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_get1_caCerts(ptr noundef %ctx, ptr noundef %out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_get1_caCerts(ptr noundef %ctx, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %certs = alloca ptr, align 8
   store ptr null, ptr %certs, align 8
@@ -167,7 +167,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @OSSL_CMP_ITAV_new_caCerts(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_genm_itav(ptr noundef %ctx, ptr noundef %req, i32 noundef %expected, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc noundef ptr @get_genm_itav(ptr noundef %ctx, ptr noundef %req, i32 noundef %expected, ptr noundef %desc) unnamed_addr #0 {
 entry:
   %name = alloca [128 x i8], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -315,7 +315,7 @@ declare void @X509_free(ptr noundef) #1
 declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %ctx, ptr noundef %oldWithOld, ptr noundef %newWithNew, ptr noundef %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %ctx, ptr noundef %oldWithOld, ptr noundef %newWithNew, ptr noundef %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #0 {
 entry:
   %my_newWithOld = alloca ptr, align 8
   %my_oldWithNew = alloca ptr, align 8
@@ -455,7 +455,7 @@ declare i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef, ptr noundef, ptr no
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_ss_cert_trans(ptr noundef %ctx, ptr noundef %trusted, ptr noundef %trans, ptr noundef %target, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc noundef i32 @verify_ss_cert_trans(ptr noundef %ctx, ptr noundef %trusted, ptr noundef %trans, ptr noundef %target, ptr noundef %desc) unnamed_addr #0 {
 entry:
   %untrusted = alloca ptr, align 8
   %call = tail call ptr @OSSL_CMP_CTX_get0_trustedStore(ptr noundef %ctx) #4

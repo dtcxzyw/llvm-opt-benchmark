@@ -107,21 +107,15 @@ entry:
   tail call void @g_free(ptr noundef %0) #4
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %str, align 8
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @g_vasprintf(ptr noundef nonnull %data.i, ptr noundef %fmt, ptr noundef nonnull %ap) #4
   %conv = trunc i32 %call to i16
   store i16 %conv, ptr %str, align 8
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare i32 @g_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_string_copy(ptr noundef %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #0 {
@@ -136,6 +130,12 @@ entry:
   tail call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %lhs, ptr noundef nonnull @.str, ptr noundef %1)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

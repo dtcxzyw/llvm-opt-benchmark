@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp eq i16 %2, 10
   br i1 %3, label %4, label %29
@@ -27,7 +27,7 @@ define dso_local noundef i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %0)
   %14 = and i8 %9, -64
   %.masked = zext i8 %14 to i32
   %15 = or disjoint i32 %13, %.masked
-  %trunc = trunc i32 %15 to i16
+  %trunc = trunc nuw i32 %15 to i16
   switch i16 %trunc, label %29 [
     i16 -384, label %30
     i16 -320, label %16
@@ -67,7 +67,7 @@ define dso_local noundef i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca [12 x i8], align 1
   %9 = alloca [64 x i8], align 16
@@ -139,7 +139,7 @@ define dso_local i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %42 = and i8 %37, -64
   %.masked.i.us = zext i8 %42 to i32
   %43 = or disjoint i32 %41, %.masked.i.us
-  %trunc.i.us = trunc i32 %43 to i16
+  %trunc.i.us = trunc nuw i32 %43 to i16
   switch i16 %trunc.i.us, label %57 [
     i16 -384, label %Curl_ipv6_scope.exit.us
     i16 -320, label %56

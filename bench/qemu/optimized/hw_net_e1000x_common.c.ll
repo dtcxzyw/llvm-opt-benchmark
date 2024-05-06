@@ -986,7 +986,7 @@ for.end24:                                        ; preds = %for.body15
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @e1000x_rxbufsize(i32 noundef %rctl) local_unnamed_addr #4 {
+define dso_local range(i32 256, 16385) i32 @e1000x_rxbufsize(i32 noundef %rctl) local_unnamed_addr #4 {
 entry:
   %and = and i32 %rctl, 33751040
   switch i32 %and, label %sw.epilog [
@@ -1124,7 +1124,7 @@ e1000x_inc_reg_if_not_full.exit13:                ; preds = %e1000x_inc_reg_if_n
   %conv9.i = trunc i64 %.add5.i to i32
   store i32 %conv9.i, ptr %arrayidx.i14, align 4
   %shr.i = lshr i64 %.add5.i, 32
-  %conv12.i = trunc i64 %shr.i to i32
+  %conv12.i = trunc nuw i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
   %arrayidx.i15 = getelementptr i8, ptr %mac, i64 16520
   %9 = load i64, ptr %arrayidx.i15, align 4
@@ -1133,7 +1133,7 @@ e1000x_inc_reg_if_not_full.exit13:                ; preds = %e1000x_inc_reg_if_n
   %conv9.i23 = trunc i64 %.add5.i22 to i32
   store i32 %conv9.i23, ptr %arrayidx.i15, align 4
   %shr.i24 = lshr i64 %.add5.i22, 32
-  %conv12.i25 = trunc i64 %shr.i24 to i32
+  %conv12.i25 = trunc nuw i64 %shr.i24 to i32
   store i32 %conv12.i25, ptr %arrayidx2.i17, align 4
   switch i32 %pkt_type, label %sw.epilog [
     i32 -1430533119, label %sw.bb
@@ -1292,18 +1292,18 @@ entry:
   %mss16 = getelementptr inbounds i8, ptr %props, i64 14
   store i16 %8, ptr %mss16, align 2
   %and17 = lshr i32 %0, 25
-  %9 = trunc i32 %and17 to i8
+  %9 = trunc nuw nsw i32 %and17 to i8
   %conv = and i8 %9, 1
   %ip = getelementptr inbounds i8, ptr %props, i64 16
   store i8 %conv, ptr %ip, align 4
   %and18 = lshr i32 %0, 24
-  %10 = trunc i32 %and18 to i8
+  %10 = trunc nuw i32 %and18 to i8
   %conv21 = and i8 %10, 1
   %tcp = getelementptr inbounds i8, ptr %props, i64 17
   store i8 %conv21, ptr %tcp, align 1
   %tse = getelementptr inbounds i8, ptr %props, i64 18
   %and22 = lshr i32 %0, 26
-  %11 = trunc i32 %and22 to i8
+  %11 = trunc nuw nsw i32 %and22 to i8
   %frombool = and i8 %11, 1
   store i8 %frombool, ptr %tse, align 2
   ret void
@@ -1330,7 +1330,7 @@ entry:
   %arrayidx3 = getelementptr i32, ptr %mac, i64 %lo
   store i32 %conv, ptr %arrayidx3, align 4
   %shr4 = lshr i64 %add, 32
-  %conv5 = trunc i64 %shr4 to i32
+  %conv5 = trunc nuw i64 %shr4 to i32
   %arrayidx6 = getelementptr i32, ptr %mac, i64 %hi
   store i32 %conv5, ptr %arrayidx6, align 4
   ret void

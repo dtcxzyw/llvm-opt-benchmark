@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [68 x i8] c"The preconditioner solve routine failed in an unrecoverable manner.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSptfqmr(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @CVSptfqmr(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -161,7 +161,7 @@ define noundef i32 @CVSptfqmr(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVSptfqmrInit(ptr noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @CVSptfqmrInit(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
@@ -317,7 +317,7 @@ define internal i32 @CVSptfqmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CVSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @CVSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -484,7 +484,7 @@ declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @SptfqmrMalloc(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSptfqmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVSptfqmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -549,7 +549,7 @@ define noundef i32 @CVSptfqmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   store ptr %25, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %.029, i64 80
   store ptr @CVSptfqmrFreeB, ptr %33, align 8
-  %34 = tail call i32 @CVSptfqmr(ptr noundef %24, i32 noundef %2, i32 noundef %3), !range !5
+  %34 = tail call i32 @CVSptfqmr(ptr noundef %24, i32 noundef %2, i32 noundef %3)
   %.not34 = icmp eq i32 %34, 0
   br i1 %.not34, label %36, label %35
 
@@ -605,4 +605,3 @@ attributes #7 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -4, i32 1}

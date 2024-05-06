@@ -549,7 +549,7 @@ define void @wtap_register_plugin(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wtap_plugins_supported() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_plugins_supported() local_unnamed_addr #0 {
   %1 = tail call zeroext i1 @plugins_supported() #18
   %not. = xor i1 %1, true
   %2 = zext i1 %not. to i32
@@ -583,7 +583,7 @@ define i64 @wtap_file_size(ptr nocapture noundef readonly %0, ptr noundef %1) lo
 declare i32 @file_fstat(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wtap_fstat(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @wtap_fstat(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -904,7 +904,7 @@ define void @wtap_file_add_decryption_secrets(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_file_discard_decryption_secrets(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_file_discard_decryption_secrets(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -949,7 +949,7 @@ define hidden void @wtap_file_add_meta_event(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wtap_file_discard_meta_events(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_file_discard_meta_events(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1016,7 +1016,7 @@ define void @wtap_add_generated_idb(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not.i, label %wtap_generate_idb.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %16, %1
-  %17 = trunc i32 %spec.store.select.i to i8
+  %17 = trunc nuw i32 %spec.store.select.i to i8
   %18 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %9, i32 noundef 9, i8 noundef zeroext %17) #18
   br label %wtap_generate_idb.exit
 
@@ -1691,7 +1691,7 @@ define hidden noundef ptr @wtap_dump_params_generate_idb(ptr nocapture noundef r
   br i1 %.not.i, label %wtap_generate_idb.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %14, %1
-  %15 = trunc i32 %spec.store.select.i to i8
+  %15 = trunc nuw i32 %spec.store.select.i to i8
   %16 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %7, i32 noundef 9, i8 noundef zeroext %15) #18
   br label %wtap_generate_idb.exit
 
@@ -1765,7 +1765,7 @@ define i32 @wtap_name_to_encap(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %9
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit12, %1
@@ -2220,7 +2220,7 @@ define hidden void @wtapng_process_dsb(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 72
@@ -2282,7 +2282,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @file_read(ptr noundef %1, i32 noundef %2, ptr noundef %0) #18
   %7 = icmp sgt i32 %6, -1
   %.not = icmp eq i32 %6, %2
@@ -2306,7 +2306,7 @@ define noundef i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %1, i32 n
 declare i32 @file_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @file_read(ptr noundef %1, i32 noundef %2, ptr noundef %0) #18
   %7 = icmp sgt i32 %6, -1
   %.not = icmp eq i32 %6, %2
@@ -2326,7 +2326,7 @@ define noundef i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %2 to i64
   tail call void @ws_buffer_assure_space(ptr noundef %1, i64 noundef %6) #18
   %7 = load ptr, ptr %1, align 8
@@ -2455,7 +2455,7 @@ define hidden noundef ptr @wtap_rec_generate_idb(ptr nocapture noundef readonly 
 
 .thread.i:                                        ; preds = %21, %16
   %22 = phi i32 [ %17, %21 ], [ 0, %16 ]
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %12, i32 noundef 9, i8 noundef zeroext %23) #18
   br label %wtap_generate_idb.exit
 
@@ -2474,7 +2474,7 @@ wtap_generate_idb.exit:                           ; preds = %21, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 72
@@ -2519,7 +2519,7 @@ define noundef i32 @wtap_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wtap_full_file_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_full_file_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #18
   %.not = icmp eq i64 %8, 0
@@ -2532,7 +2532,7 @@ define hidden noundef i32 @wtap_full_file_read(ptr nocapture noundef readonly %0
 10:                                               ; preds = %6
   store i64 0, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call fastcc i32 @wtap_full_file_read_file(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !14
+  %12 = tail call fastcc i32 @wtap_full_file_read_file(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %13
 
 13:                                               ; preds = %10, %9
@@ -2543,7 +2543,7 @@ define hidden noundef i32 @wtap_full_file_read(ptr nocapture noundef readonly %0
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wtap_full_file_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wtap_full_file_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8
@@ -2695,7 +2695,7 @@ wtap_encap_name.exit48:                           ; preds = %43, %48, %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wtap_full_file_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_full_file_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp sgt i64 %1, 0
   br i1 %7, label %8, label %9
 
@@ -2712,7 +2712,7 @@ define hidden noundef i32 @wtap_full_file_seek_read(ptr nocapture noundef readon
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call fastcc i32 @wtap_full_file_read_file(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !14
+  %16 = tail call fastcc i32 @wtap_full_file_read_file(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %17
 
 17:                                               ; preds = %9, %14, %8
@@ -2753,7 +2753,7 @@ define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1,
   %20 = getelementptr i8, ptr %17, i64 %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.029, i1 false)
   %21 = lshr i16 %1, 8
-  %22 = trunc i16 %21 to i8
+  %22 = trunc nuw i16 %21 to i8
   store i8 %22, ptr %20, align 1
   %23 = trunc i16 %1 to i8
   %24 = getelementptr i8, ptr %20, i64 1
@@ -2761,7 +2761,7 @@ define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1,
   %25 = getelementptr i8, ptr %20, i64 2
   %26 = add i16 %.0, %.030
   %27 = lshr i16 %26, 8
-  %28 = trunc i16 %27 to i8
+  %28 = trunc nuw i16 %27 to i8
   store i8 %28, ptr %25, align 1
   %29 = trunc i16 %26 to i8
   %30 = getelementptr i8, ptr %20, i64 3
@@ -2794,14 +2794,14 @@ define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1
   %7 = getelementptr i8, ptr %4, i64 %6
   store i64 67108864, ptr %7, align 1
   %8 = lshr i16 %1, 8
-  %9 = trunc i16 %8 to i8
+  %9 = trunc nuw i16 %8 to i8
   store i8 %9, ptr %7, align 1
   %10 = trunc i16 %1 to i8
   %11 = getelementptr i8, ptr %7, i64 1
   store i8 %10, ptr %11, align 1
   %12 = getelementptr i8, ptr %7, i64 4
   %13 = lshr i32 %2, 24
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   store i8 %14, ptr %12, align 1
   %15 = lshr i32 %2, 16
   %16 = trunc i32 %15 to i8
@@ -2824,7 +2824,7 @@ define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1
 define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 65535)
-  %5 = trunc i64 %spec.store.select to i16
+  %5 = trunc nuw i64 %spec.store.select to i16
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %2, null
   %or.cond.i = and i1 %6, %7
@@ -2853,7 +2853,7 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
   %20 = getelementptr i8, ptr %17, i64 %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.029.i, i1 false)
   %21 = lshr i16 %1, 8
-  %22 = trunc i16 %21 to i8
+  %22 = trunc nuw i16 %21 to i8
   store i8 %22, ptr %20, align 1
   %23 = trunc i16 %1 to i8
   %24 = getelementptr i8, ptr %20, i64 1
@@ -2861,7 +2861,7 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
   %25 = getelementptr i8, ptr %20, i64 2
   %26 = add i16 %.0.i, %.030.i
   %27 = lshr i16 %26, 8
-  %28 = trunc i16 %27 to i8
+  %28 = trunc nuw i16 %27 to i8
   store i8 %28, ptr %25, align 1
   %29 = trunc i16 %26 to i8
   %30 = getelementptr i8, ptr %20, i64 3
@@ -2872,7 +2872,7 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
 31:                                               ; preds = %16
   %32 = getelementptr i8, ptr %20, i64 4
   %33 = zext i16 %.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %2, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %2, i64 %33, i1 false)
   br label %wtap_buffer_append_epdu_tag.exit
 
 wtap_buffer_append_epdu_tag.exit:                 ; preds = %16, %31
@@ -3043,4 +3043,3 @@ attributes #21 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}

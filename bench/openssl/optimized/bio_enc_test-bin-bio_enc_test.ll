@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [50 x i8] c"Small chunk decrypt compare failed @ operation %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_bio_enc_aes_128_cbc, i32 noundef 2, i32 noundef 1) #4
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_bio_enc_aes_128_ctr, i32 noundef 2, i32 noundef 1) #4
@@ -50,7 +50,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_aes_128_cbc(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_aes_128_cbc(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -72,7 +72,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_aes_128_ctr(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_aes_128_ctr(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_aes_128_ctr() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -94,7 +94,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_aes_256_cfb(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_aes_256_cfb(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_aes_256_cfb128() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -116,7 +116,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_aes_256_ofb(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_aes_256_ofb(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_aes_256_ofb() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -138,7 +138,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_chacha20(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_chacha20(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_chacha20() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -160,7 +160,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_enc_chacha20_poly1305(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_bio_enc_chacha20_poly1305(i32 noundef %idx) #0 {
 entry:
   %call = tail call ptr @EVP_chacha20_poly1305() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
@@ -184,7 +184,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_bio_cipher(ptr noundef %cipher, ptr noundef %iv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %cipher, ptr noundef %iv) unnamed_addr #0 {
 entry:
   %out = alloca [1056 x i8], align 16
   %ref = alloca [1056 x i8], align 16
@@ -256,7 +256,7 @@ if.end27:                                         ; preds = %for.body
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end27
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @.str.12, i32 noundef %0) #4
   br label %err
 
@@ -274,7 +274,7 @@ if.end39:                                         ; preds = %if.end34
   %not = xor i8 %1, -1
   %arrayidx45 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv
   store i8 %not, ptr %arrayidx45, align 1
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call47 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %out, i32 noundef %2) #4
   %3 = load i8, ptr %arrayidx45, align 1
   %4 = load i8, ptr %arrayidx, align 1
@@ -428,7 +428,7 @@ if.end155:                                        ; preds = %for.body149
   br i1 %tobool160.not, label %if.then161, label %if.end162
 
 if.then161:                                       ; preds = %if.end155
-  %5 = trunc i64 %indvars.iv93 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv93 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 149, ptr noundef nonnull @.str.23, i32 noundef %5) #4
   br label %err
 
@@ -446,7 +446,7 @@ if.end168:                                        ; preds = %if.end162
   %not174 = xor i8 %6, -1
   %arrayidx177 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv93
   store i8 %not174, ptr %arrayidx177, align 1
-  %7 = trunc i64 %indvars.iv93 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv93 to i32
   %call179 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %out, i32 noundef %7) #4
   %8 = load i8, ptr %arrayidx177, align 1
   %9 = load i8, ptr %arrayidx172, align 1

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cookie_io_functions_t = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_flushall_unlocked(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -63,7 +63,7 @@ define i32 @lib_flushall_unlocked(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @lib_fflush_unlocked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_flushall(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 

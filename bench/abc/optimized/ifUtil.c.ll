@@ -181,7 +181,7 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @If_ManCrossCut(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -543,7 +543,7 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
 32:                                               ; preds = %30
   %33 = trunc i64 %.val35 to i32
   %34 = and i32 %33, 4095
-  %35 = uitofp i32 %34 to float
+  %35 = uitofp nneg i32 %34 to float
   br label %If_CutLutArea.exit
 
 36:                                               ; preds = %30

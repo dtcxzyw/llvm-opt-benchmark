@@ -165,7 +165,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [64 x i8] c"We currently only support 16 bit bus identifiers (Bus ID: 0x%x)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @flexray_set_source_and_destination_columns(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @flexray_set_source_and_destination_columns(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = load ptr, ptr @sender_receiver_configs, align 8
@@ -278,7 +278,7 @@ define hidden i32 @flexray_flexrayinfo_to_flexrayid(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @flexray_call_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @flexray_call_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   %7 = load i16, ptr %6, align 2
   %8 = getelementptr inbounds i8, ptr %3, i64 3
@@ -596,7 +596,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %104, %122, %125
-  %129 = call i32 @flexray_set_source_and_destination_columns(ptr noundef nonnull %1, ptr noundef nonnull %13), !range !4
+  %129 = call i32 @flexray_set_source_and_destination_columns(ptr noundef nonnull %1, ptr noundef nonnull %13)
   %130 = icmp sgt i32 %.093, 0
   br i1 %130, label %131, label %144
 
@@ -607,7 +607,7 @@ proto_item_set_hidden.exit:                       ; preds = %104, %122, %125
 
 133:                                              ; preds = %131
   %134 = load i32, ptr @prefvar_try_heuristic_first, align 4
-  %135 = call i32 @flexray_call_subdissectors(ptr noundef %132, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %13, i32 noundef %134), !range !4
+  %135 = call i32 @flexray_call_subdissectors(ptr noundef %132, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %13, i32 noundef %134)
   %.not101 = icmp eq i32 %135, 0
   br i1 %.not101, label %136, label %144
 
@@ -908,10 +908,10 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %5 = icmp ne ptr %4, null
   %6 = load ptr, ptr @sender_receiver_configs, align 8
   %7 = icmp ne ptr %6, null
-  %or.cond.not = select i1 %5, i1 %7, i1 false
+  %or.cond.not19 = select i1 %5, i1 %7, i1 false
   %8 = load i32, ptr @sender_receiver_config_num, align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond14 = select i1 %or.cond.not, i1 %9, i1 false
+  %or.cond14 = select i1 %or.cond.not19, i1 %9, i1 false
   br i1 %or.cond14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -947,7 +947,7 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %36 = load i32, ptr @sender_receiver_config_num, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp ult i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   ret void
@@ -1071,6 +1071,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

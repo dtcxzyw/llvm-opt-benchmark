@@ -212,7 +212,7 @@ declare ptr @slurm_xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_get_node_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @switch_record_cnt, align 4
   %6 = icmp eq i32 %5, 0
@@ -746,7 +746,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %190 = getelementptr inbounds %struct.switch_record_t, ptr %189, i64 %indvars.iv.i, i32 2
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %6, align 8
-  %193 = trunc i64 %indvars.iv.i to i32
+  %193 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._subtree_split_hostlist, i32 noundef %193, ptr noundef %191, ptr noundef %192) #10
   br label %194
 
@@ -1009,7 +1009,7 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_get(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   switch i32 %0, label %47 [
     i32 0, label %3
     i32 1, label %45
@@ -1379,7 +1379,7 @@ declare i32 @slurm_hostset_within(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @slurm_hostset_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

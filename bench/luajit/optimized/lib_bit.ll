@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_bit_bnot(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_ffh_bit_bnot(ptr noundef %L) #0 {
 entry:
   %id = alloca i32, align 4
   store i32 0, ptr %id, align 4
@@ -68,7 +68,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_bit_bswap(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_ffh_bit_bswap(ptr noundef %L) #0 {
 entry:
   %id = alloca i32, align 4
   store i32 0, ptr %id, align 4
@@ -101,7 +101,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_bit_lshift(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %L) #0 {
 entry:
   %id = alloca i32, align 4
   %id2 = alloca i32, align 4
@@ -161,7 +161,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_bit_band(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %L) #0 {
 entry:
   %id = alloca i32, align 4
   %x = alloca i64, align 8

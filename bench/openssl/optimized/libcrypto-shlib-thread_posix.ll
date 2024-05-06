@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"assertion failed: rc == 0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_thread_native_spawn(ptr noundef %thread) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_native_spawn(ptr noundef %thread) local_unnamed_addr #0 {
 entry:
   %attr = alloca %union.pthread_attr_t, align 8
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str, i32 noundef 41) #7
@@ -107,7 +107,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_crypto_thread_native_perform_join(ptr noundef readonly %thread, ptr nocapture noundef readnone %retval1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_native_perform_join(ptr noundef readonly %thread, ptr nocapture noundef readnone %retval1) local_unnamed_addr #0 {
 entry:
   %thread_retval = alloca ptr, align 8
   %cmp = icmp eq ptr %thread, null
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_crypto_mutex_try_lock(ptr noundef %mutex) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_mutex_try_lock(ptr noundef %mutex) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_trylock(ptr noundef %mutex) #7
   %cmp = icmp ne i32 %call, 16

@@ -117,7 +117,7 @@ $_ZGVZN6spdlog7details2os9thread_idEvE3tid = comdat any
 @_ZTIN4LIEF12BinaryStreamE = external constant ptr
 @_ZTIN4LIEF3ELF11DataHandler17DataHandlerStreamE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4LIEF3ELF11DataHandler17DataHandlerStreamE, ptr @_ZTIN4LIEF12BinaryStreamE }, comdat, align 8
 @.str.105 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
-@_ZZN6spdlog7details2os9thread_idEvE3tid = linkonce_odr hidden thread_local global i64 0, comdat, align 8
+@_ZZN6spdlog7details2os9thread_idEvE3tid = linkonce_odr hidden thread_local local_unnamed_addr global i64 0, comdat, align 8
 @_ZGVZN6spdlog7details2os9thread_idEvE3tid = linkonce_odr hidden thread_local local_unnamed_addr global i64 0, comdat, align 8
 @.str.106 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 
@@ -1653,7 +1653,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

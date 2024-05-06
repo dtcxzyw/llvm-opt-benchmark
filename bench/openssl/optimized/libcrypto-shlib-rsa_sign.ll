@@ -98,7 +98,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_sign(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigret, ptr noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @RSA_sign(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigret, ptr noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
   %encoded_len = alloca i64, align 8
   %tmps = alloca ptr, align 8
@@ -133,7 +133,7 @@ if.then9:                                         ; preds = %if.then6
 
 if.else:                                          ; preds = %if.end
   %conv11 = zext i32 %m_len to i64
-  %call12 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %tmps, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m, i64 noundef %conv11), !range !4
+  %call12 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %tmps, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m, i64 noundef %conv11)
   %tobool.not = icmp eq i32 %call12, 0
   %.pre14 = load ptr, ptr %tmps, align 8
   %.pre15 = load i64, ptr %encoded_len, align 8
@@ -184,7 +184,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @encode_pkcs1(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %type, ptr nocapture noundef readonly %m, i64 noundef %m_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @encode_pkcs1(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %type, ptr nocapture noundef readonly %m, i64 noundef %m_len) unnamed_addr #1 {
 entry:
   switch i32 %type, label %if.then2 [
     i32 0, label %if.then
@@ -287,7 +287,7 @@ declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_verify(i32 noundef %type, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr nocapture noundef writeonly %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %type, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr nocapture noundef writeonly %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
   %encoded_len = alloca i64, align 8
   %encoded = alloca ptr, align 8
@@ -310,7 +310,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %conv7 = trunc i64 %siglen to i32
+  %conv7 = trunc nsw i64 %siglen to i32
   %call8 = tail call i32 @RSA_public_decrypt(i32 noundef %conv7, ptr noundef %sigbuf, ptr noundef nonnull %call2, ptr noundef %rsa, i32 noundef 1) #5
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %err, label %if.end12
@@ -490,7 +490,7 @@ if.end80:                                         ; preds = %if.else64, %if.end7
   %m_len.addr.0 = phi i32 [ %retval.0.i.ph, %if.end77 ], [ %m_len, %if.else64 ]
   %m.addr.0 = phi ptr [ %add.ptr79, %if.end77 ], [ %m, %if.else64 ]
   %conv81 = zext i32 %m_len.addr.0 to i64
-  %call82 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %encoded, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m.addr.0, i64 noundef %conv81), !range !4
+  %call82 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %encoded, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m.addr.0, i64 noundef %conv81)
   %tobool.not = icmp eq i32 %call82, 0
   %.pre = load i64, ptr %encoded_len, align 8
   br i1 %tobool.not, label %err, label %if.end84
@@ -555,7 +555,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %siglen to i64
-  %call3 = tail call i32 @ossl_rsa_verify(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef null, ptr noundef null, ptr noundef %sigbuf, i64 noundef %conv, ptr noundef nonnull %rsa), !range !4
+  %call3 = tail call i32 @ossl_rsa_verify(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef null, ptr noundef null, ptr noundef %sigbuf, i64 noundef %conv, ptr noundef nonnull %rsa)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -579,4 +579,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

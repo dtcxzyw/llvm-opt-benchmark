@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.tls13_add_record_padding = private unnamed_addr constant [25 x i8] c"tls13_add_record_padding\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls13_set_crypto_state(ptr nocapture noundef %rl, i32 %level, ptr noundef %key, i64 %keylen, ptr nocapture noundef readonly %iv, i64 noundef %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp) #0 {
+define internal range(i32 -2, 2) i32 @tls13_set_crypto_state(ptr nocapture noundef %rl, i32 %level, ptr noundef %key, i64 %keylen, ptr nocapture noundef readonly %iv, i64 noundef %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp) #0 {
 entry:
   %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
@@ -73,7 +73,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls13_cipher(ptr noundef %rl, ptr nocapture noundef %recs, i64 noundef %n_recs, i32 noundef %sending, ptr nocapture readnone %mac, i64 %macsize) #0 {
+define internal range(i32 0, 2) i32 @tls13_cipher(ptr noundef %rl, ptr nocapture noundef %recs, i64 noundef %n_recs, i32 noundef %sending, ptr nocapture readnone %mac, i64 %macsize) #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   %recheader = alloca [5 x i8], align 1
@@ -340,7 +340,7 @@ declare i32 @tls_default_read_n(ptr noundef, i64 noundef, i64 noundef, i32 nound
 declare i32 @tls_get_more_records(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls13_validate_record_header(ptr noundef %rl, ptr nocapture noundef readonly %rec) #0 {
+define internal range(i32 0, 2) i32 @tls13_validate_record_header(ptr noundef %rl, ptr nocapture noundef readonly %rec) #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
@@ -397,7 +397,7 @@ return:                                           ; preds = %if.end10, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls13_post_process_record(ptr noundef %rl, ptr noundef %rec) #0 {
+define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %rl, ptr noundef %rec) #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
@@ -474,7 +474,7 @@ declare i32 @tls_allocate_write_buffers_default(ptr noundef, ptr noundef, i64 no
 declare i32 @tls_initialise_write_packets_default(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i8 @tls13_get_record_type(ptr nocapture noundef readonly %rl, ptr nocapture noundef readonly %template) #2 {
+define internal zeroext range(i8 21, 24) i8 @tls13_get_record_type(ptr nocapture noundef readonly %rl, ptr nocapture noundef readonly %template) #2 {
 entry:
   %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
   %0 = load i32, ptr %allow_plain_alerts, align 4
@@ -497,7 +497,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @tls_prepare_record_header_default(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls13_add_record_padding(ptr noundef %rl, ptr nocapture noundef readonly %thistempl, ptr noundef %thispkt, ptr nocapture noundef %thiswr) #0 {
+define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %rl, ptr nocapture noundef readonly %thistempl, ptr noundef %thispkt, ptr nocapture noundef %thiswr) #0 {
 entry:
   %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
   %0 = load i32, ptr %allow_plain_alerts, align 4
@@ -552,7 +552,7 @@ if.else:                                          ; preds = %if.then11
   br i1 %cmp22.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !7
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %cmp28 = icmp ult i64 %7, 2
   br i1 %cmp28, label %if.then30, label %if.else32
 
@@ -674,4 +674,3 @@ attributes #5 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i64 0, i64 65}

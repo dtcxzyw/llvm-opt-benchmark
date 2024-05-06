@@ -566,7 +566,7 @@ if.end:                                           ; preds = %bio_from_file.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_from_data(ptr noundef %ctx, ptr noundef %pdata, ptr noundef %pdata_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_from_data(ptr noundef %ctx, ptr noundef %pdata, ptr noundef %pdata_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pdata, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.end7, %if.then
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_selection(ptr noundef writeonly %ctx, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_selection(ptr noundef writeonly %ctx, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_input_type(ptr noundef writeonly %ctx, ptr noundef %input_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_type(ptr noundef writeonly %ctx, ptr noundef %input_type) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_input_structure(ptr noundef writeonly %ctx, ptr noundef %input_structure) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_structure(ptr noundef writeonly %ctx, ptr noundef %input_structure) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -885,7 +885,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_decoder_ctx_add_decoder_inst(ptr nocapture noundef %ctx, ptr noundef %di) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_decoder_ctx_add_decoder_inst(ptr nocapture noundef %ctx, ptr noundef %di) local_unnamed_addr #0 {
 entry:
   %decoder_insts = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %decoder_insts, align 8
@@ -917,7 +917,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_add_decoder(ptr noundef %ctx, ptr noundef %decoder) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_decoder(ptr noundef %ctx, ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   %cmp5.not = icmp eq ptr %decoder, null
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %if.end, %ossl_decod
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_add_extra(ptr noundef %ctx, ptr noundef %libctx, ptr nocapture noundef readnone %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_extra(ptr noundef %ctx, ptr noundef %libctx, ptr nocapture noundef readnone %propq) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.collect_extra_decoder_data_st, align 8
   %cmp.not = icmp eq ptr %ctx, null
@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_construct(ptr noundef writeonly %ctx, ptr noundef %construct) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct(ptr noundef writeonly %ctx, ptr noundef %construct) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1403,7 +1403,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_construct_data(ptr noundef writeonly %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct_data(ptr noundef writeonly %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1425,7 +1425,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef writeonly %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef writeonly %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end

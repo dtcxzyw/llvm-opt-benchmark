@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ec = alloca i32, align 4
   store i32 0, ptr %ec, align 4

@@ -700,7 +700,7 @@ xSAT_SolverReadClause.exit.i.i:                   ; preds = %131, %xSAT_SolverRe
 xSAT_SolverClaActRescale.exit.i:                  ; preds = %xSAT_SolverReadClause.exit.i.i, %131
   %154 = load i32, ptr %120, align 4
   %155 = ashr i32 %154, 14
-  %156 = tail call noundef i32 @llvm.smax.i32(i32 %155, i32 1024)
+  %156 = tail call i32 @llvm.smax.i32(i32 %155, i32 1024)
   store i32 %156, ptr %120, align 4
   br label %xSAT_SolverClaActBump.exit
 
@@ -2803,7 +2803,7 @@ xSAT_MemFree.exit:                                ; preds = %._crit_edge121, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef signext i8 @xSAT_SolverSearch(ptr noundef %0) local_unnamed_addr #0 {
+define signext range(i8 -1, 2) i8 @xSAT_SolverSearch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -2955,7 +2955,7 @@ xSAT_BQueuePush.exit:                             ; preds = %68, %82
 104:                                              ; preds = %91
   %105 = getelementptr inbounds i8, ptr %89, i64 8
   store i32 0, ptr %89, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   br label %106
 
 106:                                              ; preds = %104, %91, %88, %xSAT_BQueuePush.exit
@@ -3150,7 +3150,7 @@ xSAT_SolverReadClause.exit.i.i.i:                 ; preds = %187, %xSAT_SolverRe
 xSAT_SolverClaActRescale.exit.i.i:                ; preds = %xSAT_SolverReadClause.exit.i.i.i, %187
   %210 = load i32, ptr %16, align 4
   %211 = ashr i32 %210, 14
-  %212 = tail call noundef i32 @llvm.smax.i32(i32 %211, i32 1024)
+  %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 1024)
   store i32 %212, ptr %16, align 4
   br label %xSAT_SolverClaActBump.exit.i
 
@@ -3316,7 +3316,7 @@ xSAT_SolverClaCalcLBD.exit.i:                     ; preds = %239, %216
 xSAT_SolverVarActRescale.exit.i.i:                ; preds = %.lr.ph.i.i.i, %286
   %298 = load i32, ptr %23, align 8
   %299 = ashr i32 %298, 19
-  %300 = tail call noundef i32 @llvm.smax.i32(i32 %299, i32 32)
+  %300 = tail call i32 @llvm.smax.i32(i32 %299, i32 32)
   store i32 %300, ptr %23, align 8
   br label %301
 
@@ -4526,7 +4526,7 @@ xSAT_SolverReadClause.exit223.i:                  ; preds = %xSAT_SolverClaCalcL
 xSAT_SolverVarActRescale.exit.i228.i:             ; preds = %.lr.ph.i.i256.i, %878
   %890 = load i32, ptr %23, align 8
   %891 = ashr i32 %890, 19
-  %892 = tail call noundef i32 @llvm.smax.i32(i32 %891, i32 32)
+  %892 = tail call i32 @llvm.smax.i32(i32 %891, i32 32)
   store i32 %892, ptr %23, align 8
   br label %893
 
@@ -4782,7 +4782,7 @@ xSAT_BQueuePush.exit83:                           ; preds = %981, %995
 1031:                                             ; preds = %1017
   %1032 = getelementptr inbounds i8, ptr %1015, i64 8
   store i32 0, ptr %1015, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1032, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1032, i8 0, i64 16, i1 false)
   tail call void @xSAT_SolverCancelUntil(ptr noundef nonnull %0, i32 noundef 0)
   br label %xSAT_SolverDecide.exit.thread
 

@@ -14,7 +14,7 @@ define void @_Z17tMPI_Barrier_initP14tMPI_Barrier_ti(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 68

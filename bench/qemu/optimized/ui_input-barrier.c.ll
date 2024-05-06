@@ -1054,7 +1054,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i32 %0 to i16
+  %conv = trunc nuw nsw i32 %0 to i16
   %x_origin = getelementptr inbounds i8, ptr %call.i, i64 64
   store i16 %conv, ptr %x_origin, align 8
   br label %return
@@ -1091,7 +1091,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i32 %0 to i16
+  %conv = trunc nuw nsw i32 %0 to i16
   %y_origin = getelementptr inbounds i8, ptr %call.i, i64 66
   store i16 %conv, ptr %y_origin, align 2
   br label %return
@@ -1128,7 +1128,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i32 %0 to i16
+  %conv = trunc nuw nsw i32 %0 to i16
   %width = getelementptr inbounds i8, ptr %call.i, i64 68
   store i16 %conv, ptr %width, align 4
   br label %return
@@ -1165,7 +1165,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i32 %0 to i16
+  %conv = trunc nuw nsw i32 %0 to i16
   %height = getelementptr inbounds i8, ptr %call.i, i64 70
   store i16 %conv, ptr %height, align 2
   br label %return
@@ -1191,7 +1191,7 @@ declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnam
 declare i32 @qio_channel_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @input_barrier_event(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @input_barrier_event(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %opaque) #0 {
 entry:
   %len.i = alloca i32, align 4
   %msg = alloca %struct.barrierMsg, align 4
@@ -1254,7 +1254,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !5
 
 if.end47.i:                                       ; preds = %for.body.i
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.ptr45.i = getelementptr i8, ptr %opaque, i64 116
   %sub46.i = add i32 %6, -4
   store i32 %8, ptr %msg, align 4

@@ -116,7 +116,7 @@ declare i32 @g_unix_open_pipe(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @event_notifier_set(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
+define dso_local range(i32 -10, -11) i32 @event_notifier_set(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
   %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
@@ -203,7 +203,7 @@ entry:
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @event_notifier_test_and_clear(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @event_notifier_test_and_clear(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
   %buffer = alloca [512 x i8], align 16
   %initialized = getelementptr inbounds i8, ptr %e, i64 8

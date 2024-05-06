@@ -180,7 +180,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %arrayidx.i.i61 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %arrayidx.i.i61, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #7
-  %call5.i.i = tail call i32 @strncmp(ptr noundef %18, ptr noundef %21, i64 noundef %call.i.i) #7
+  %call5.i.i = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef %21, i64 noundef %call.i.i) #7
   %tobool.not.i.i62 = icmp eq i32 %call5.i.i, 0
   br i1 %tobool.not.i.i62, label %is_anchor.exit.i, label %for.cond.i.i
 
@@ -489,8 +489,8 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp.i78.not, label %while.cond.i, label %if.end.i39.loopexit, !llvm.loop !17
 
 if.end.i39.loopexit:                              ; preds = %while.cond.i, %land.rhs.i
-  %56 = trunc i64 %indvars.iv180 to i32
-  %57 = trunc i64 %indvars.iv182 to i32
+  %56 = trunc nsw i64 %indvars.iv180 to i32
+  %57 = trunc nsw i64 %indvars.iv182 to i32
   br label %if.end.i39
 
 if.end.i39:                                       ; preds = %if.end.i39.loopexit, %for.cond.i
@@ -547,8 +547,8 @@ while.end23.i:                                    ; preds = %while.body21.i, %if
   br i1 %or.cond41.i, label %if.then28.i, label %if.end35.i40
 
 if.then28.i.loopexit:                             ; preds = %land.rhs17.i
-  %66 = trunc i64 %indvars.iv187 to i32
-  %67 = trunc i64 %indvars.iv189 to i32
+  %66 = trunc nsw i64 %indvars.iv187 to i32
+  %67 = trunc nsw i64 %indvars.iv189 to i32
   br label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.then28.i.loopexit, %while.end23.i

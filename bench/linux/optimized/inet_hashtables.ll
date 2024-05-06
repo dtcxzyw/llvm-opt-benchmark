@@ -585,7 +585,7 @@ define dso_local void @inet_put_port(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__inet_inherit_port(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 832
@@ -2728,9 +2728,9 @@ define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noun
   %8 = trunc i64 %5 to i32
   %9 = trunc i64 %3 to i32
   %10 = lshr i64 %3, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = lshr i64 %5, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   br i1 %7, label %14, label %36
 
 14:                                               ; preds = %2
@@ -2848,13 +2848,13 @@ define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_bhash2_update_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @inet_bhash2_update_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = tail call fastcc i32 @__inet_bhash2_update_saddr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false), !range !59
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__inet_bhash2_update_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 832
@@ -3441,7 +3441,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %36 = getelementptr i32, ptr %35, i64 %34
   %37 = load volatile i32, ptr %36, align 4
   %38 = lshr i64 %2, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = add i32 %37, %39
   %41 = urem i32 %40, %28
   %42 = and i32 %41, -2
@@ -3619,7 +3619,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %19, label %.loopexit32, label %144
 
 144:                                              ; preds = %143
-  %145 = add i32 %50, 1
+  %145 = add nuw i32 %50, 1
   %146 = and i32 %50, 1
   %147 = icmp eq i32 %146, 0
   %148 = select i1 %147, i1 %48, i1 false
@@ -4084,7 +4084,7 @@ define dso_local i32 @inet_hash_connect(ptr noundef %0, ptr noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__inet_check_established(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
+define internal noundef range(i32 -99, 1) i32 @__inet_check_established(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
   %7 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4347,7 +4347,7 @@ define dso_local void @inet_hashinfo2_init(ptr noundef %0, ptr noundef %1, i64 n
 declare dso_local ptr @alloc_large_system_hash(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_hashinfo2_init_mod(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @inet_hashinfo2_init_mod(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 512) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4383,7 +4383,7 @@ define dso_local noundef i32 @inet_hashinfo2_init_mod(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_ehash_locks_alloc(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @inet_ehash_locks_alloc(ptr nocapture noundef %0) #0 align 16 {
   %2 = load i64, ptr @__cpu_possible_mask, align 8
   %3 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %2) #17, !srcloc !74
   %4 = shl i64 %3, 5

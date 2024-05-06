@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @shake_ctrl(ptr noundef readonly %evp_ctx, i32 noundef %cmd, i32 noundef %p1, ptr nocapture readnone %p2) #2 {
+define internal range(i32 0, 2) i32 @shake_ctrl(ptr noundef readonly %evp_ctx, i32 noundef %cmd, i32 noundef %p1, ptr nocapture readnone %p2) #2 {
 entry:
   %cmp = icmp ne ptr %evp_ctx, null
   %cond = icmp eq i32 %cmd, 3

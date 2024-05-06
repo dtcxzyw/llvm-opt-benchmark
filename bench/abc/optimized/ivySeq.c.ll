@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ivy_ManRewriteSeq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_ManRewriteSeq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -329,7 +329,7 @@ Abc_Clock.exit160.i:                              ; preds = %161, %.thread.i
   %165 = sext i16 %164 to i32
   %.val153.i = load i32, ptr %100, align 8
   %166 = shl i32 %.val153.i, 8
-  %167 = call i32 @Ivy_CutGetTruth_rec(ptr noundef %0, i32 noundef %166, ptr noundef nonnull %140, i32 noundef %165)
+  %167 = call i32 @Ivy_CutGetTruth_rec(ptr noundef readonly %0, i32 noundef %166, ptr noundef nonnull readonly %140, i32 noundef %165)
   %168 = and i32 %167, 65535
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %169 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #18
@@ -434,7 +434,7 @@ Vec_PtrFill.exit.i:                               ; preds = %211, %Vec_PtrGrow.e
   %224 = sext i32 %222 to i64
   %225 = getelementptr inbounds ptr, ptr %.val151.val.i, i64 %224
   %226 = load ptr, ptr %225, align 8
-  %227 = trunc i64 %indvars.iv230.i to i32
+  %227 = trunc nuw nsw i64 %indvars.iv230.i to i32
   %228 = lshr i32 %191, %227
   %229 = and i32 %228, 1
   %230 = ptrtoint ptr %226 to i64
@@ -1704,7 +1704,7 @@ Ivy_ObjFaninId1.exit:                             ; preds = %68, %70
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @Ivy_CutFindOrAddFilter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Ivy_CutFindOrAddFilter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph86, label %._crit_edge87
@@ -1762,7 +1762,7 @@ define noundef i32 @Ivy_CutFindOrAddFilter(ptr nocapture noundef %0, ptr nocaptu
   br i1 %exitcond.not, label %Ivy_CutCheckDominance.exit.thread64, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1812,7 +1812,7 @@ define noundef i32 @Ivy_CutFindOrAddFilter(ptr nocapture noundef %0, ptr nocaptu
   br i1 %exitcond.not.i, label %Ivy_CutCheckDominance.exit60, label %45, !llvm.loop !27
 
 ._crit_edge.us.i:                                 ; preds = %45
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = icmp eq i32 %50, %42
   br i1 %51, label %Ivy_CutCheckDominance.exit60, label %52
 
@@ -1855,7 +1855,7 @@ define noundef i32 @Ivy_CutFindOrAddFilter(ptr nocapture noundef %0, ptr nocaptu
   br i1 %exitcond.not.i56, label %Ivy_CutCheckDominance.exit60, label %60, !llvm.loop !27
 
 ._crit_edge.us.i57:                               ; preds = %60
-  %65 = trunc i64 %indvars.iv.i54 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.i54 to i32
   %66 = icmp eq i32 %65, %56
   br i1 %66, label %Ivy_CutCheckDominance.exit60, label %67
 
@@ -2444,7 +2444,7 @@ Ivy_CutDeriveNew.exit:                            ; preds = %119, %120
   %127 = trunc i32 %.7.i to i16
   store i16 %127, ptr %5, align 4
   store i32 %.758.i, ptr %4, align 4
-  %128 = call i32 @Ivy_CutFindOrAddFilter(ptr noundef nonnull @Ivy_CutComputeForNode.CutStore, ptr noundef nonnull %3), !range !36
+  %128 = call i32 @Ivy_CutFindOrAddFilter(ptr noundef nonnull @Ivy_CutComputeForNode.CutStore, ptr noundef nonnull %3)
   %129 = load i32, ptr @Ivy_CutComputeForNode.CutStore, align 4
   %130 = icmp eq i32 %129, 256
   br i1 %130, label %.thread81, label %Ivy_CutDeriveNew.exit.Ivy_CutPrescreen.exit.thread_crit_edge
@@ -2460,7 +2460,7 @@ Ivy_CutPrescreen.exit.thread:                     ; preds = %72, %Ivy_CutDeriveN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = sext i16 %.pr to i64
   %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %23, label %._crit_edge, !llvm.loop !37
+  br i1 %133, label %23, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %Ivy_CutPrescreen.exit.thread, %.preheader
   %134 = phi i32 [ %15, %.preheader ], [ %131, %Ivy_CutPrescreen.exit.thread ]
@@ -2473,7 +2473,7 @@ Ivy_CutPrescreen.exit.thread:                     ; preds = %72, %Ivy_CutDeriveN
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next103, %138
-  br i1 %139, label %14, label %._crit_edge96, !llvm.loop !38
+  br i1 %139, label %14, label %._crit_edge96, !llvm.loop !37
 
 .thread81:                                        ; preds = %._crit_edge, %Ivy_CutDeriveNew.exit
   store i32 1, ptr getelementptr inbounds (%struct.Ivy_Store_t_, ptr @Ivy_CutComputeForNode.CutStore, i64 0, i32 3), align 4
@@ -2545,7 +2545,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2564,7 +2564,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2601,19 +2601,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
@@ -2645,8 +2645,8 @@ attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2694,6 +2694,5 @@ attributes #21 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = !{i32 0, i32 2}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}

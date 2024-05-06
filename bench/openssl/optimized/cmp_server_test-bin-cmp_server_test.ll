@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -151,7 +151,7 @@ declare ptr @load_pkimsg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_handle_request() #0 {
+define internal range(i32 0, 2) i32 @test_handle_request() #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef 35) #4
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 35, ptr noundef nonnull @.str.21, ptr noundef %call.i) #4

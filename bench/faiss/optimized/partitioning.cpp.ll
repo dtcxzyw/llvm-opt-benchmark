@@ -1038,7 +1038,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = lshr i64 %92, 63
-  %94 = trunc i64 %.lobit to i16
+  %94 = trunc nuw nsw i64 %.lobit to i16
   %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
   br label %.lr.ph.i80
@@ -1374,7 +1374,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = ashr i64 %92, 63
-  %94 = trunc i64 %.lobit to i16
+  %94 = trunc nsw i64 %.lobit to i16
   %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
   br label %.lr.ph.i80
@@ -1710,7 +1710,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = lshr i64 %92, 63
-  %94 = trunc i64 %.lobit to i16
+  %94 = trunc nuw nsw i64 %.lobit to i16
   %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
   br label %.lr.ph.i80
@@ -2046,7 +2046,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = ashr i64 %92, 63
-  %94 = trunc i64 %.lobit to i16
+  %94 = trunc nsw i64 %.lobit to i16
   %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
   br label %.lr.ph.i80

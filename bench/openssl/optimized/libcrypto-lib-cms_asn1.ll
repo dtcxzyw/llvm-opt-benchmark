@@ -387,7 +387,7 @@ entry:
   %ecsi = alloca %struct.CMS_SharedInfo, align 8
   %shl = shl i32 %keylen, 3
   %shr = lshr i32 %shl, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   store i8 %conv, ptr %kl, align 1
   %shr1 = lshr i32 %shl, 16
   %conv3 = trunc i32 %shr1 to i8
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cms_kari_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal range(i32 0, 2) i32 @cms_kari_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %return [
@@ -664,7 +664,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cms_cb(i32 noundef %operation, ptr noundef readonly %pval, ptr nocapture readnone %it, ptr noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @cms_cb(i32 noundef %operation, ptr noundef readonly %pval, ptr nocapture readnone %it, ptr noundef %exarg) #1 {
 entry:
   %tobool.not = icmp eq ptr %pval, null
   br i1 %tobool.not, label %return, label %if.then

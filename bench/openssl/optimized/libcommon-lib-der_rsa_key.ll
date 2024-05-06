@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @der_aid_mgf1SHA512_256Identifier = internal constant [28 x i8] c"0\1A\06\09*\86H\86\F7\0D\01\01\080\0D\06\09`\86H\01e\03\04\02\06\05\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %pkt, i32 noundef %tag, ptr noundef %pss) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %pkt, i32 noundef %tag, ptr noundef %pss) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pss, null
   br i1 %cmp.not, label %return, label %land.rhs
@@ -193,7 +193,7 @@ declare i32 @ossl_DER_w_precompiled(ptr noundef, i32 noundef, ptr noundef, i64 n
 declare i32 @ossl_DER_w_end_sequence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %pkt, i32 noundef %tag, i32 noundef %rsa_type, ptr noundef %pss) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %pkt, i32 noundef %tag, i32 noundef %rsa_type, ptr noundef %pss) local_unnamed_addr #0 {
 entry:
   switch i32 %rsa_type, label %return [
     i32 0, label %if.end.thread
@@ -216,7 +216,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool4.not, label %lor.lhs.false5, label %land.lhs.true8
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = tail call i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %pkt, i32 noundef -1, ptr noundef %pss), !range !4
+  %call6 = tail call i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %pkt, i32 noundef -1, ptr noundef %pss)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %land.lhs.true8
 
@@ -238,11 +238,11 @@ return:                                           ; preds = %if.end.thread, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_RSA(ptr noundef %pkt, i32 noundef %tag, ptr noundef %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_RSA(ptr noundef %pkt, i32 noundef %tag, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_test_flags(ptr noundef %rsa, i32 noundef 61440) #2
   %call1 = tail call ptr @ossl_rsa_get0_pss_params_30(ptr noundef %rsa) #2
-  %call2 = tail call i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %pkt, i32 noundef %tag, i32 noundef %call, ptr noundef %call1), !range !4
+  %call2 = tail call i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %pkt, i32 noundef %tag, i32 noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
@@ -264,4 +264,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -14069,9 +14069,9 @@ _Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; p
   %45 = and i8 %44, -8
   store i8 %45, ptr %43, align 1
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %31, i16 337, ptr noundef %16)
-          to label %.noexc21 unwind label %56
+          to label %.noexc22 unwind label %56
 
-.noexc21:                                         ; preds = %38
+.noexc22:                                         ; preds = %38
   store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV16AstNodeProcedure, i64 0, i32 0, i64 2), ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %31, i64 152
   %47 = load i8, ptr %46, align 8
@@ -14080,7 +14080,7 @@ _Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; p
   invoke void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %31, ptr noundef nonnull %33)
           to label %49 unwind label %56
 
-49:                                               ; preds = %.noexc21
+49:                                               ; preds = %.noexc22
   store ptr getelementptr inbounds inrange(-16, 296) ({ [39 x ptr] }, ptr @_ZTV10AstInitial, i64 0, i32 0, i64 2), ptr %31, align 8
   invoke void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %31)
           to label %50 unwind label %54
@@ -14104,7 +14104,7 @@ _Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; p
           cleanup
   br label %61
 
-56:                                               ; preds = %.noexc21, %38, %32
+56:                                               ; preds = %.noexc22, %38, %32
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %60

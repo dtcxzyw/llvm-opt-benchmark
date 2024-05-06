@@ -349,7 +349,7 @@ define dso_local void @intel_hdcp_gsc_fini(ptr nocapture noundef readonly %0) lo
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 9328
   %8 = load ptr, ptr %7, align 8
@@ -367,7 +367,7 @@ define dso_local noundef i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, p
 
 16:                                               ; preds = %12
   store i64 0, ptr %6, align 8, !annotation !5
-  %17 = trunc i64 %2 to i32
+  %17 = trunc nuw nsw i64 %2 to i32
   %18 = add nuw nsw i32 %17, 36
   %19 = add nuw nsw i64 %4, 36
   %20 = getelementptr inbounds i8, ptr %0, i64 2576
@@ -395,7 +395,7 @@ define dso_local noundef i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, p
   %38 = getelementptr i8, ptr %37, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %1, i64 %2, i1 false)
   %39 = getelementptr inbounds i8, ptr %23, i64 24
-  %40 = trunc i64 %4 to i32
+  %40 = trunc nuw nsw i64 %4 to i32
   %41 = add nuw nsw i32 %40, 36
   %42 = icmp eq ptr %0, null
   %43 = getelementptr inbounds i8, ptr %0, i64 8

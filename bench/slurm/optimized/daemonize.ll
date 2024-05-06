@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [26 x i8] c"Core limit is only %ld KB\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xdaemon() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xdaemon() local_unnamed_addr #0 {
   %1 = tail call i32 @fork() #6
   switch i32 %1, label %2 [
     i32 0, label %3
@@ -215,7 +215,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @create_pidfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @create_pidfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 524865, i32 noundef 420) #6
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %7

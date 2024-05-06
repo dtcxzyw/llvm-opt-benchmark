@@ -296,7 +296,7 @@ Vec_IntFree.exit.i:                               ; preds = %108, %.loopexit50.i
 Abc_NtkRetimeOneWay.exit:                         ; preds = %.loopexit50.i.thread, %Vec_IntFree.exit.i, %Abc_NtkRetimeOneWay.exit.thread
   tail call void @Abc_NtkRetimeShareLatches(ptr noundef %0, i32 noundef 0)
   store ptr %25, ptr %24, align 8
-  %109 = tail call i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef %0, ptr noundef %23, i32 noundef %.val43.val, i32 noundef %5), !range !10
+  %109 = tail call i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef %0, ptr noundef %23, i32 noundef %.val43.val, i32 noundef %5)
   tail call void @st__free_table(ptr noundef %23) #8
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %118, label %111
@@ -357,7 +357,7 @@ define ptr @Abc_NtkRetimePrepareLatches(ptr nocapture noundef readonly %0) local
   br i1 %.not, label %15, label %49
 
 15:                                               ; preds = %.lr.ph
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add i32 %.neg, %16
   %18 = sext i32 %17 to i64
   %19 = inttoptr i64 %18 to ptr
@@ -429,7 +429,7 @@ define ptr @Abc_NtkRetimePrepareLatches(ptr nocapture noundef readonly %0) local
   %.val25 = load i32, ptr %51, align 4
   %52 = sext i32 %.val25 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %49, %1
   ret ptr %5
@@ -522,7 +522,7 @@ define void @Abc_NtkRetimeShareLatches(ptr nocapture noundef readonly %0, i32 no
   %.1.i = phi i32 [ %36, %37 ], [ %.020.i, %24 ], [ %.020.i, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_NtkRetimeCheckCompatibleLatchFanouts.exit, label %24, !llvm.loop !12
+  br i1 %exitcond.not.i, label %Abc_NtkRetimeCheckCompatibleLatchFanouts.exit, label %24, !llvm.loop !11
 
 Abc_NtkRetimeCheckCompatibleLatchFanouts.exit:    ; preds = %42
   %43 = icmp slt i32 %.113.i, 2
@@ -546,7 +546,7 @@ Abc_NtkRetimeCheckCompatibleLatchFanouts.exit:    ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = icmp ult i64 %indvars.iv.next, %44
   %or.cond62 = select i1 %.not, i1 %53, i1 false
-  br i1 %or.cond62, label %45, label %.critedge2, !llvm.loop !13
+  br i1 %or.cond62, label %45, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %45
   tail call void @Abc_NodeCollectFanouts(ptr noundef nonnull %15, ptr noundef nonnull %3) #8
@@ -601,7 +601,7 @@ Abc_NtkRetimeCheckCompatibleLatchFanouts.exit:    ; preds = %42
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %75 = sext i32 %.val43 to i64
   %76 = icmp slt i64 %indvars.iv.next65, %75
-  br i1 %76, label %57, label %.critedge4, !llvm.loop !14
+  br i1 %76, label %57, label %.critedge4, !llvm.loop !13
 
 .critedge4:                                       ; preds = %74, %.critedge2, %17, %11, %Abc_NtkRetimeCheckCompatibleLatchFanouts.exit
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -610,7 +610,7 @@ Abc_NtkRetimeCheckCompatibleLatchFanouts.exit:    ; preds = %42
   %.val = load i32, ptr %78, align 4
   %79 = sext i32 %.val to i64
   %80 = icmp slt i64 %indvars.iv.next68, %79
-  br i1 %80, label %11, label %.critedge.loopexit, !llvm.loop !15
+  br i1 %80, label %11, label %.critedge.loopexit, !llvm.loop !14
 
 .critedge.loopexit:                               ; preds = %.critedge4
   %.pre = load ptr, ptr %6, align 8
@@ -635,7 +635,7 @@ declare i32 @Abc_NtkRetimeMinDelay(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -761,7 +761,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %64 = sub nsw i32 %.val, %63
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %33, label %.critedge.preheader, !llvm.loop !16
+  br i1 %66, label %33, label %.critedge.preheader, !llvm.loop !15
 
 .critedge2.preheader:                             ; preds = %Vec_PtrPush.exit158, %.critedge.preheader
   %67 = phi i32 [ %29, %.critedge.preheader ], [ %101, %Vec_PtrPush.exit158 ]
@@ -846,7 +846,7 @@ Vec_PtrPush.exit158:                              ; preds = %.Vec_PtrGrow.exit11
   %102 = sub nsw i32 %.val120, %101
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next214, %103
-  br i1 %104, label %71, label %.critedge2.preheader, !llvm.loop !17
+  br i1 %104, label %71, label %.critedge2.preheader, !llvm.loop !16
 
 .critedge4.preheader:                             ; preds = %Vec_PtrPush.exit165, %.critedge2.preheader
   %105 = getelementptr inbounds i8, ptr %0, i64 32
@@ -934,7 +934,7 @@ Vec_PtrPush.exit165:                              ; preds = %.Vec_PtrGrow.exit11
   %142 = sub nsw i32 %.val121, %141
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next217, %143
-  br i1 %144, label %111, label %.critedge4.preheader, !llvm.loop !18
+  br i1 %144, label %111, label %.critedge4.preheader, !llvm.loop !17
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %.val125206 = load i32, ptr %24, align 4
@@ -1266,7 +1266,7 @@ Vec_PtrPush.exit186:                              ; preds = %.Vec_PtrGrow.exit11
   %.val122 = load i32, ptr %296, align 4
   %297 = sext i32 %.val122 to i64
   %298 = icmp slt i64 %indvars.iv.next220, %297
-  br i1 %298, label %147, label %.critedge6.preheader, !llvm.loop !19
+  br i1 %298, label %147, label %.critedge6.preheader, !llvm.loop !18
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %.val126209 = load i32, ptr %30, align 4
@@ -1311,7 +1311,7 @@ Vec_PtrPush.exit186:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %313 = sext i32 %.val125 to i64
   %314 = icmp slt i64 %indvars.iv.next223, %313
-  br i1 %314, label %301, label %.critedge8.preheader, !llvm.loop !20
+  br i1 %314, label %301, label %.critedge8.preheader, !llvm.loop !19
 
 315:                                              ; preds = %.lr.ph211, %.critedge8
   %.val126230 = phi i32 [ %.val126209, %.lr.ph211 ], [ %.val126, %.critedge8 ]
@@ -1347,7 +1347,7 @@ Vec_PtrPush.exit186:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %327 = sext i32 %.val126 to i64
   %328 = icmp slt i64 %indvars.iv.next226, %327
-  br i1 %328, label %315, label %.critedge10, !llvm.loop !21
+  br i1 %328, label %315, label %.critedge10, !llvm.loop !20
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
   store ptr %8, ptr %6, align 8
@@ -1423,7 +1423,7 @@ declare void @Abc_ObjPatchFanin(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_NtkRetimeNodeIsEnabled(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Abc_NtkRetimeNodeIsEnabled(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %.preheader27
 
@@ -1563,7 +1563,7 @@ define void @Abc_NtkRetimeNode(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val73 = load i32, ptr %5, align 4
   %28 = sext i32 %.val73 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %27, %14
   %30 = load ptr, ptr %0, align 8
@@ -1637,7 +1637,7 @@ define void @Abc_NtkRetimeNode(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val80 = load i32, ptr %52, align 4
   %66 = sext i32 %.val80 to i64
   %67 = icmp slt i64 %indvars.iv.next103, %66
-  br i1 %67, label %55, label %.critedge2, !llvm.loop !23
+  br i1 %67, label %55, label %.critedge2, !llvm.loop !22
 
 .critedge2:                                       ; preds = %55, %41, %40
   %.070 = phi ptr [ null, %40 ], [ %50, %41 ], [ %50, %55 ]
@@ -1677,7 +1677,7 @@ define void @Abc_NtkRetimeNode(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val85.us = load i32, ptr %69, align 4
   %81 = sext i32 %.val85.us to i64
   %82 = icmp slt i64 %indvars.iv.next112, %81
-  br i1 %82, label %.critedge4.us, label %.critedge6, !llvm.loop !24
+  br i1 %82, label %.critedge4.us, label %.critedge6, !llvm.loop !23
 
 .lr.ph95:                                         ; preds = %.critedge2, %.lr.ph95
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph95 ], [ 0, %.critedge2 ]
@@ -1690,7 +1690,7 @@ define void @Abc_NtkRetimeNode(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val = load i32, ptr %5, align 4
   %85 = sext i32 %.val to i64
   %86 = icmp slt i64 %indvars.iv.next106, %85
-  br i1 %86, label %.lr.ph95, label %.critedge4.preheader, !llvm.loop !25
+  br i1 %86, label %.lr.ph95, label %.critedge4.preheader, !llvm.loop !24
 
 .critedge4:                                       ; preds = %.lr.ph98, %.critedge4
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.critedge4 ], [ 0, %.lr.ph98 ]
@@ -1720,7 +1720,7 @@ define void @Abc_NtkRetimeNode(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val85 = load i32, ptr %69, align 4
   %101 = sext i32 %.val85 to i64
   %102 = icmp slt i64 %indvars.iv.next109, %101
-  br i1 %102, label %.critedge4, label %.critedge6, !llvm.loop !24
+  br i1 %102, label %.critedge4, label %.critedge6, !llvm.loop !23
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.us, %.critedge4.preheader, %35, %36
   %103 = load ptr, ptr %7, align 8
@@ -1802,7 +1802,7 @@ define i32 @Abc_NtkRetimeCheckCompatibleLatchFanouts(ptr nocapture noundef reado
   %.1 = phi i32 [ %20, %21 ], [ %.020, %8 ], [ %.020, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !11
 
 .critedge:                                        ; preds = %26, %1
   %.012.lcssa = phi i32 [ 0, %1 ], [ %.113, %26 ]
@@ -1860,7 +1860,7 @@ attributes #10 = { nounwind allocsize(1) }
 !7 = distinct !{!7, !5, !8}
 !8 = !{!"llvm.loop.unswitch.partial.disable"}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -1875,4 +1875,3 @@ attributes #10 = { nounwind allocsize(1) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}

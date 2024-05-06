@@ -2003,7 +2003,7 @@ lor.lhs.false1024:                                ; preds = %land.lhs.true1022
   br i1 %or.cond14, label %land.lhs.true1028, label %if.end1034
 
 land.lhs.true1028:                                ; preds = %lor.lhs.false1024
-  %call.i708 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %output.0.be) #18
+  %call.i708 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.be) #18
   %add.ptr.i709 = getelementptr inbounds i8, ptr %output.0.be, i64 %call.i708
   br label %for.cond.i
 
@@ -3163,7 +3163,7 @@ if.then.i897:                                     ; preds = %invoke.cont1675
   ]
 
 if.then1.i:                                       ; preds = %if.then.i897
-  %call.i.i904 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %output.0.be) #18
+  %call.i.i904 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.be) #18
   %add.ptr.i.i905 = getelementptr inbounds i8, ptr %output.0.be, i64 %call.i.i904
   br label %for.cond.i.i
 
@@ -3780,7 +3780,7 @@ if.then.i967:                                     ; preds = %invoke.cont1759
   ]
 
 if.then1.i1093:                                   ; preds = %if.then.i967
-  %call.i.i1094 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %output.0.be) #18
+  %call.i.i1094 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.be) #18
   %add.ptr.i.i1095 = getelementptr inbounds i8, ptr %output.0.be, i64 %call.i.i1094
   br label %for.cond.i.i1096
 
@@ -4404,7 +4404,7 @@ if.then.i1297:                                    ; preds = %invoke.cont1845
   ]
 
 if.then1.i1427:                                   ; preds = %if.then.i1297
-  %call.i.i1428 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %output.0.be) #18
+  %call.i.i1428 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.be) #18
   %add.ptr.i.i1429 = getelementptr inbounds i8, ptr %output.0.be, i64 %call.i.i1428
   br label %for.cond.i.i1430
 

@@ -51,7 +51,7 @@ define internal i32 @dissect_ioraw(ptr noundef %0, ptr nocapture noundef readonl
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.5) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
   %9 = load ptr, ptr %7, align 8
   call void @col_add_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull %5) #3
   %.not = icmp eq ptr %2, null

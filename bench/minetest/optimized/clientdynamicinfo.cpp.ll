@@ -174,7 +174,7 @@ _ZN17ClientDynamicInfo18calculateMaxFSSizeEN3irr4core8vector2dIjEEf.exit: ; pred
   %frombool = zext i1 %tobool to i8
   %conv.i = select i1 %call.i57, float 1.000000e+01, float 1.500000e+01
   %render_target_size.sroa.2.0.extract.shift.i = lshr i64 %call.i, 32
-  %render_target_size.sroa.2.0.extract.trunc.i = trunc i64 %render_target_size.sroa.2.0.extract.shift.i to i32
+  %render_target_size.sroa.2.0.extract.trunc.i = trunc nuw i64 %render_target_size.sroa.2.0.extract.shift.i to i32
   %render_target_size.sroa.0.0.extract.trunc.i = trunc i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #11
   %conv6.i = uitofp i32 %render_target_size.sroa.0.0.extract.trunc.i to float
@@ -289,7 +289,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont3
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %conv = select i1 %call, float 1.000000e+01, float 1.500000e+01
   %render_target_size.sroa.2.0.extract.shift = lshr i64 %render_target_size.coerce, 32
-  %render_target_size.sroa.2.0.extract.trunc = trunc i64 %render_target_size.sroa.2.0.extract.shift to i32
+  %render_target_size.sroa.2.0.extract.trunc = trunc nuw i64 %render_target_size.sroa.2.0.extract.shift to i32
   %render_target_size.sroa.0.0.extract.trunc = trunc i64 %render_target_size.coerce to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #11
   %conv6 = uitofp i32 %render_target_size.sroa.0.0.extract.trunc to float

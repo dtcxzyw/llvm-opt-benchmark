@@ -51,7 +51,7 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
   unreachable
 
 19:                                               ; preds = %10
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %20 = load i8, ptr %2, align 1
   %.not2834 = icmp eq i8 %20, 0
   br i1 %.not2834, label %.loopexit, label %.lr.ph
@@ -123,11 +123,11 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
 
 .critedge:                                        ; preds = %.split
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull %.us-phi38) #5
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %57
 
 .loopexit:                                        ; preds = %.split, %19, %29, %32
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %50)
   %51 = call i32 @errcode(i32 noundef 50856066) #5
@@ -167,13 +167,13 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4

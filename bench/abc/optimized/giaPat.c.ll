@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.val = load i64, ptr %1, align 4
   %sh.diff.i = lshr i64 %.val, 61
-  %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
+  %tr.sh.diff.i = trunc nuw nsw i64 %sh.diff.i to i32
   %4 = and i32 %tr.sh.diff.i, 2
   %5 = trunc i64 %.val to i32
   %6 = lshr i32 %5, 30
@@ -221,7 +221,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %52 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %46, i64 %51
   %.val47 = load i64, ptr %52, align 4
   %sh.diff.i = lshr i64 %.val47, 61
-  %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
+  %tr.sh.diff.i = trunc nuw nsw i64 %sh.diff.i to i32
   %53 = and i32 %tr.sh.diff.i, 2
   %54 = trunc i64 %.val47 to i32
   %55 = lshr i32 %54, 30
@@ -233,7 +233,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %61 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %46, i64 %60
   %.val46 = load i64, ptr %61, align 4
   %sh.diff.i62 = lshr i64 %.val46, 61
-  %tr.sh.diff.i63 = trunc i64 %sh.diff.i62 to i32
+  %tr.sh.diff.i63 = trunc nuw nsw i64 %sh.diff.i62 to i32
   %62 = and i32 %tr.sh.diff.i63, 2
   %63 = trunc i64 %.val46 to i32
   %64 = lshr i32 %63, 30
@@ -243,7 +243,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %68 = lshr i32 %67, 29
   %69 = and i32 %68, 1
   %70 = lshr i64 %.val58, 61
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = and i32 %71, 1
   %73 = add nuw nsw i32 %69, 1
   %74 = icmp eq i32 %73, %57
@@ -283,7 +283,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %93 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %92
   %.val = load i64, ptr %93, align 4
   %sh.diff.i64 = lshr i64 %.val, 61
-  %tr.sh.diff.i65 = trunc i64 %sh.diff.i64 to i32
+  %tr.sh.diff.i65 = trunc nuw nsw i64 %sh.diff.i64 to i32
   %94 = and i32 %tr.sh.diff.i65, 2
   %95 = trunc i64 %.val to i32
   %96 = lshr i32 %95, 30

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [36 x i8] c"../openssl/apps/lib/engine_loader.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @setup_engine_loader() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @setup_engine_loader() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_STORE_LOADER_new(ptr noundef null, ptr noundef nonnull @.str) #7
   %cmp = icmp eq ptr %call, null
@@ -127,7 +127,7 @@ return:                                           ; preds = %if.end25, %if.then2
 declare i32 @OSSL_STORE_LOADER_set_expect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @engine_expect(ptr nocapture noundef writeonly %ctx, i32 noundef %expected) #2 {
+define internal range(i32 0, 2) i32 @engine_expect(ptr nocapture noundef writeonly %ctx, i32 noundef %expected) #2 {
 entry:
   switch i32 %expected, label %return [
     i32 4, label %if.then
@@ -242,7 +242,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
 declare i32 @OSSL_STORE_LOADER_set_eof(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @engine_eof(ptr nocapture noundef readonly %ctx) #3 {
+define internal range(i32 0, 2) i32 @engine_eof(ptr nocapture noundef readonly %ctx) #3 {
 entry:
   %loaded = getelementptr inbounds i8, ptr %ctx, i64 20
   %0 = load i32, ptr %loaded, align 4

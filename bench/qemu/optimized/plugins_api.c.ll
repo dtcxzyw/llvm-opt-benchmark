@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/plugins_api.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @qemu_plugin_insn_size(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
+define dso_local range(i64 0, 4294967296) i64 @qemu_plugin_insn_size(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %insn, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 8
@@ -261,7 +261,7 @@ entry:
 declare ptr @lookup_symbol(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @qemu_plugin_mem_size_shift(i32 noundef %info) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 8) i32 @qemu_plugin_mem_size_shift(i32 noundef %info) local_unnamed_addr #6 {
 entry:
   %shr.i = lshr i32 %info, 4
   %and = and i32 %shr.i, 7

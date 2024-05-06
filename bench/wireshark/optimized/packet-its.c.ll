@@ -8571,7 +8571,7 @@ define internal void @its_timestamp_fmt(ptr nocapture noundef writeonly %0, i64 
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %6, align 8
   %20 = urem i64 %1, 1000
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.4008, i32 noundef %9, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %19, i32 noundef %21, i64 noundef %1) #7
   ret void
 }
@@ -8820,7 +8820,7 @@ define internal void @dsrc_moi_fmt(ptr nocapture noundef writeonly %0, i32 nound
 6:                                                ; preds = %2
   %7 = udiv i32 %1, 1440
   %8 = urem i32 %1, 1440
-  %.lhs.trunc = trunc i32 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %8 to i16
   %9 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %9 to i32
   %10 = urem i32 %1, 60
@@ -8941,7 +8941,7 @@ define internal void @dsrc_time_mark_fmt(ptr nocapture noundef writeonly %0, i32
 7:                                                ; preds = %2
   %8 = udiv i32 %1, 600
   %9 = urem i32 %1, 600
-  %.lhs.trunc = trunc i32 %9 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %9 to i16
   %10 = udiv i16 %.lhs.trunc, 10
   %.zext = zext nneg i16 %10 to i32
   %11 = urem i32 %1, 10
@@ -8962,7 +8962,7 @@ define internal void @its_speed_limit_fmt(ptr nocapture noundef writeonly %0, i3
 define internal void @its_validity_duration_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
   %3 = udiv i32 %1, 3600
   %4 = urem i32 %1, 3600
-  %.lhs.trunc = trunc i32 %4 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %4 to i16
   %5 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %5 to i32
   %6 = urem i32 %1, 60
@@ -8983,7 +8983,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_its_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_its_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -9203,7 +9203,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_denm_DenmPayload_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_denm_DenmPayload_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_denm_denm_DenmPayload_PDU, align 4
@@ -9230,7 +9230,7 @@ define internal i32 @dissect_denm_DenmPayload_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_denmv1_DecentralizedEnvironmentalNotificationMessageV1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_denmv1_DecentralizedEnvironmentalNotificationMessageV1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_denmv1_denmv1_DecentralizedEnvironmentalNotificationMessageV1_PDU, align 4
@@ -9257,7 +9257,7 @@ define internal i32 @dissect_denmv1_DecentralizedEnvironmentalNotificationMessag
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cam_CamPayload_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cam_CamPayload_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cam_cam_CamPayload_PDU, align 4
@@ -9284,7 +9284,7 @@ define internal i32 @dissect_cam_CamPayload_PDU(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_camv1_CoopAwarenessV1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_camv1_CoopAwarenessV1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_camv1_camv1_CoopAwarenessV1_PDU, align 4
@@ -9311,7 +9311,7 @@ define internal i32 @dissect_camv1_CoopAwarenessV1_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsrc_SPAT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_dsrc_SPAT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_dsrc_dsrc_SPAT_PDU, align 4
@@ -9339,7 +9339,7 @@ define internal i32 @dissect_dsrc_SPAT_PDU(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsrc_MapData_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_dsrc_MapData_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_dsrc_dsrc_MapData_PDU, align 4
@@ -9367,7 +9367,7 @@ define internal i32 @dissect_dsrc_MapData_PDU(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ivi_IviStructure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ivi_IviStructure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_ivi_ivi_IviStructure_PDU, align 4
@@ -9394,7 +9394,7 @@ define internal i32 @dissect_ivi_IviStructure_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_evrsr_EV_RSR_MessageBody_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_evrsr_EV_RSR_MessageBody_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_evrsr_evrsr_EV_RSR_MessageBody_PDU, align 4
@@ -9421,7 +9421,7 @@ define internal i32 @dissect_evrsr_EV_RSR_MessageBody_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsrc_SignalRequestMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_dsrc_SignalRequestMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_dsrc_dsrc_SignalRequestMessage_PDU, align 4
@@ -9449,7 +9449,7 @@ define internal i32 @dissect_dsrc_SignalRequestMessage_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsrc_SignalStatusMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_dsrc_SignalStatusMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_dsrc_dsrc_SignalStatusMessage_PDU, align 4
@@ -9477,7 +9477,7 @@ define internal i32 @dissect_dsrc_SignalStatusMessage_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsrc_RTCMcorrections_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_dsrc_RTCMcorrections_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_dsrc_dsrc_RTCMcorrections_PDU, align 4
@@ -9505,7 +9505,7 @@ define internal i32 @dissect_dsrc_RTCMcorrections_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_evcsn_EVChargingSpotNotificationPOIMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_evcsn_EVChargingSpotNotificationPOIMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_evcsn_evcsn_EVChargingSpotNotificationPOIMessage_PDU, align 4
@@ -9532,7 +9532,7 @@ define internal i32 @dissect_evcsn_EVChargingSpotNotificationPOIMessage_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tistpg_TisTpgTransaction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_tistpg_TisTpgTransaction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_tistpg_tistpg_TisTpgTransaction_PDU, align 4
@@ -9559,7 +9559,7 @@ define internal i32 @dissect_tistpg_TisTpgTransaction_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_CollectivePerceptionMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_CollectivePerceptionMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_CollectivePerceptionMessage_PDU, align 4
@@ -9586,7 +9586,7 @@ define internal i32 @dissect_cpm_CollectivePerceptionMessage_PDU(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_imzm_InterferenceManagementZoneMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_imzm_InterferenceManagementZoneMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_imzm_imzm_InterferenceManagementZoneMessage_PDU, align 4
@@ -9613,7 +9613,7 @@ define internal i32 @dissect_imzm_InterferenceManagementZoneMessage_PDU(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_vam_VruAwareness_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_vam_VruAwareness_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_vam_vam_VruAwareness_PDU, align 4
@@ -9640,7 +9640,7 @@ define internal i32 @dissect_vam_VruAwareness_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU, align 4
@@ -9659,7 +9659,7 @@ define internal i32 @dissect_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_ConnectionTrajectory_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_ConnectionTrajectory_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_ConnectionTrajectory_addGrpC_PDU, align 4
@@ -9678,7 +9678,7 @@ define internal i32 @dissect_AddGrpC_ConnectionTrajectory_addGrpC_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_NodeAttributeSet_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_NodeAttributeSet_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_NodeAttributeSet_addGrpC_PDU, align 4
@@ -9697,7 +9697,7 @@ define internal i32 @dissect_AddGrpC_NodeAttributeSet_addGrpC_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_IntersectionState_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_IntersectionState_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_IntersectionState_addGrpC_PDU, align 4
@@ -9716,7 +9716,7 @@ define internal i32 @dissect_AddGrpC_IntersectionState_addGrpC_PDU(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_MapData_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_MapData_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_MapData_addGrpC_PDU, align 4
@@ -9735,7 +9735,7 @@ define internal i32 @dissect_AddGrpC_MapData_addGrpC_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_Position3D_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_Position3D_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_Position3D_addGrpC_PDU, align 4
@@ -9754,7 +9754,7 @@ define internal i32 @dissect_AddGrpC_Position3D_addGrpC_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_RestrictionUserType_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_RestrictionUserType_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_RestrictionUserType_addGrpC_PDU, align 4
@@ -9773,7 +9773,7 @@ define internal i32 @dissect_AddGrpC_RestrictionUserType_addGrpC_PDU(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_SignalStatusPackage_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_SignalStatusPackage_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_SignalStatusPackage_addGrpC_PDU, align 4
@@ -9792,7 +9792,7 @@ define internal i32 @dissect_AddGrpC_SignalStatusPackage_addGrpC_PDU(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_LaneAttributes_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_LaneAttributes_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_LaneAttributes_addGrpC_PDU, align 4
@@ -9811,7 +9811,7 @@ define internal i32 @dissect_AddGrpC_LaneAttributes_addGrpC_PDU(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_MovementEvent_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_MovementEvent_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_MovementEvent_addGrpC_PDU, align 4
@@ -9830,7 +9830,7 @@ define internal i32 @dissect_AddGrpC_MovementEvent_addGrpC_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_AddGrpC_RequestorDescription_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AddGrpC_RequestorDescription_addGrpC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_AddGrpC_AddGrpC_RequestorDescription_addGrpC_PDU, align 4
@@ -9889,7 +9889,7 @@ define internal i32 @dissect_camssp_pdu(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_OriginatingVehicleContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_OriginatingVehicleContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_OriginatingVehicleContainer_PDU, align 4
@@ -9901,7 +9901,7 @@ define internal i32 @dissect_cpm_OriginatingVehicleContainer_PDU(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_OriginatingRsuContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_OriginatingRsuContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_OriginatingRsuContainer_PDU, align 4
@@ -9913,7 +9913,7 @@ define internal i32 @dissect_cpm_OriginatingRsuContainer_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_SensorInformationContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_SensorInformationContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_SensorInformationContainer_PDU, align 4
@@ -9925,7 +9925,7 @@ define internal i32 @dissect_cpm_SensorInformationContainer_PDU(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_PerceptionRegionContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_PerceptionRegionContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_PerceptionRegionContainer_PDU, align 4
@@ -9937,7 +9937,7 @@ define internal i32 @dissect_cpm_PerceptionRegionContainer_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cpm_PerceivedObjectContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_cpm_PerceivedObjectContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_cpm_cpm_PerceivedObjectContainer_PDU, align 4

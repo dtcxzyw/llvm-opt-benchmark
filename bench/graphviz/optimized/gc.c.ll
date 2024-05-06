@@ -204,7 +204,7 @@ init.exit:                                        ; preds = %42, %45
   br label %60
 
 60:                                               ; preds = %55, %53
-  %61 = call fastcc i32 @eval(ptr noundef nonnull %50, i32 noundef 1), !range !5
+  %61 = call fastcc i32 @eval(ptr noundef nonnull %50, i32 noundef 1)
   %62 = or i32 %61, %.013
   %63 = call ptr @nextGraph(ptr noundef nonnull %3) #13
   %.not = icmp eq ptr %63, null
@@ -244,7 +244,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @eval(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %.not20 = icmp eq i32 %1, 0
@@ -531,7 +531,7 @@ emit.exit:                                        ; preds = %cc_decompose.exit.i
 
 .lr.ph:                                           ; preds = %134, %.lr.ph
   %.019 = phi ptr [ %139, %.lr.ph ], [ %137, %134 ]
-  %138 = call fastcc i32 @eval(ptr noundef nonnull %.019, i32 noundef 0), !range !5
+  %138 = call fastcc i32 @eval(ptr noundef nonnull %.019, i32 noundef 0)
   %139 = call ptr @agnxtsubg(ptr noundef nonnull %.019) #13
   %.not16 = icmp eq ptr %139, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -660,7 +660,7 @@ declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal void @cntCluster(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #3 {
   %4 = tail call ptr @agnameof(ptr noundef %1) #13
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.8, i64 noundef 7) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.8, i64 noundef 7) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
@@ -742,4 +742,3 @@ attributes #19 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

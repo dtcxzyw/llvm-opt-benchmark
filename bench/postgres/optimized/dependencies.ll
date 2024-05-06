@@ -145,7 +145,7 @@ DependencyGenerator_next.exit:                    ; preds = %25
 63:                                               ; preds = %.lr.ph65.i
   %64 = getelementptr inbounds i8, ptr %51, i64 24
   %65 = load i32, ptr %64, align 8
-  %66 = trunc i64 %indvars.iv77.i to i32
+  %66 = trunc nuw nsw i64 %indvars.iv77.i to i32
   call void @multi_sort_add_dimension(ptr noundef %37, i32 noundef %66, i32 noundef %56, i32 noundef %65) #8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
@@ -911,7 +911,7 @@ list_length.exit244.thread:                       ; preds = %33
   %54 = getelementptr i16, ptr %41, i64 %indvars.iv360428
   store i16 0, ptr %54, align 2
   %55 = load ptr, ptr %6, align 8
-  %56 = trunc i64 %indvars.iv360428 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv360428 to i32
   %57 = tail call zeroext i1 @bms_is_member(i32 noundef %56, ptr noundef %55) #8
   br i1 %57, label %83, label %58
 
@@ -993,7 +993,7 @@ thread-pre-split.thread:                          ; preds = %73, %66, %thread-pr
   %sext = add i32 %91, 65536
   %92 = ashr exact i32 %sext, 16
   %.0211 = select i1 %90, i32 %92, i32 0
-  %93 = trunc i32 %.0211 to i16
+  %93 = trunc nsw i32 %.0211 to i16
   br label %94
 
 94:                                               ; preds = %108, %._crit_edge
@@ -1249,7 +1249,7 @@ list_length.exit248:                              ; preds = %112, %114
   br i1 %exitcond383.not, label %.thread270, label %202, !llvm.loop !22
 
 207:                                              ; preds = %202
-  %208 = trunc i64 %indvars.iv379 to i32
+  %208 = trunc nuw nsw i64 %indvars.iv379 to i32
   %209 = xor i32 %208, -1
   %210 = add i32 %.0211, %209
   %211 = trunc i32 %210 to i16
@@ -1589,7 +1589,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   %362 = load ptr, ptr %361, align 8
   %363 = tail call ptr @lappend(ptr noundef %.092114125.i, ptr noundef %362) #8
   %364 = load ptr, ptr %6, align 8
-  %365 = trunc i64 %indvars.iv.next155.i to i32
+  %365 = trunc nuw nsw i64 %indvars.iv.next155.i to i32
   %366 = tail call ptr @bms_add_member(ptr noundef %364, i32 noundef %365) #8
   store ptr %366, ptr %6, align 8
   %.pre.i252 = load i32, ptr %87, align 4

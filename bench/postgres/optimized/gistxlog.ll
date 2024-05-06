@@ -196,7 +196,7 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
 
 .loopexit.i:                                      ; preds = %100, %77
   %107 = lshr i64 %24, 32
-  %108 = trunc i64 %107 to i32
+  %108 = trunc nuw i64 %107 to i32
   store i32 %108, ptr %.0.i.i.i, align 4
   %109 = trunc i64 %24 to i32
   %110 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -250,7 +250,7 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
 BufferGetPage.exit.i.i:                           ; preds = %134, %128
   %.0.i.i.i.i = phi ptr [ %133, %128 ], [ %139, %134 ]
   %140 = lshr i64 %122, 32
-  %141 = trunc i64 %140 to i32
+  %141 = trunc nuw i64 %140 to i32
   %142 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   %143 = load i16, ptr %142, align 4
   %144 = zext i16 %143 to i64
@@ -375,7 +375,7 @@ BufferGetPage.exit.i9:                            ; preds = %190, %184
   %211 = or i16 %210, 4
   store i16 %211, ptr %209, align 4
   %212 = lshr i64 %167, 32
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nuw i64 %212 to i32
   store i32 %213, ptr %.0.i.i.i10, align 4
   %214 = trunc i64 %167 to i32
   %215 = getelementptr inbounds i8, ptr %.0.i.i.i10, i64 4
@@ -435,7 +435,7 @@ gistRedoDeleteRecord.exit:                        ; preds = %217, %219
   %239 = getelementptr inbounds i8, ptr %234, i64 8
   %240 = getelementptr inbounds i8, ptr %234, i64 20
   %241 = lshr i64 %237, 32
-  %242 = trunc i64 %241 to i32
+  %242 = trunc nuw i64 %241 to i32
   %243 = trunc i64 %237 to i32
   br label %244
 
@@ -519,7 +519,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   store i32 -1, ptr %287, align 4
   %288 = load i64, ptr %239, align 8
   %289 = lshr i64 %288, 32
-  %290 = trunc i64 %289 to i32
+  %290 = trunc nuw i64 %289 to i32
   %291 = load i16, ptr %283, align 4
   %292 = zext i16 %291 to i64
   %293 = getelementptr i8, ptr %.0.i.i.i16, i64 %292
@@ -564,7 +564,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   store i32 %.sink.i, ptr %319, align 4
   %320 = load i64, ptr %239, align 8
   %321 = lshr i64 %320, 32
-  %322 = trunc i64 %321 to i32
+  %322 = trunc nuw i64 %321 to i32
   %323 = load i16, ptr %315, align 4
   %324 = zext i16 %323 to i64
   %325 = getelementptr i8, ptr %.0.i.i.i16, i64 %324
@@ -677,7 +677,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
 BufferGetPage.exit.i.i20:                         ; preds = %382, %376
   %.0.i.i.i.i21 = phi ptr [ %381, %376 ], [ %387, %382 ]
   %388 = lshr i64 %370, 32
-  %389 = trunc i64 %388 to i32
+  %389 = trunc nuw i64 %388 to i32
   %390 = getelementptr inbounds i8, ptr %.0.i.i.i.i21, i64 16
   %391 = load i16, ptr %390, align 4
   %392 = zext i16 %391 to i64
@@ -771,7 +771,7 @@ BufferGetPage.exit.i23:                           ; preds = %426, %420
   %441 = getelementptr i8, ptr %.0.i.i.i24, i64 24
   store i64 %432, ptr %441, align 8
   %442 = lshr i64 %412, 32
-  %443 = trunc i64 %442 to i32
+  %443 = trunc nuw i64 %442 to i32
   store i32 %443, ptr %.0.i.i.i24, align 4
   %444 = trunc i64 %412 to i32
   %445 = getelementptr inbounds i8, ptr %.0.i.i.i24, i64 4
@@ -812,7 +812,7 @@ BufferGetPage.exit12.i:                           ; preds = %459, %453
   %466 = load i16, ptr %465, align 8
   call void @PageIndexTupleDelete(ptr noundef %.0.i.i11.i, i16 noundef zeroext %466) #6
   %467 = lshr i64 %412, 32
-  %468 = trunc i64 %467 to i32
+  %468 = trunc nuw i64 %467 to i32
   store i32 %468, ptr %.0.i.i11.i, align 4
   %469 = trunc i64 %412 to i32
   %470 = getelementptr inbounds i8, ptr %.0.i.i11.i, i64 4

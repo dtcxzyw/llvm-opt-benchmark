@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_DECODER_is_a(ptr nocapture noundef readonly %decoder, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_DECODER_is_a(ptr nocapture noundef readonly %decoder, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -630,7 +630,7 @@ declare ptr @ossl_namemap_stored(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_namemap_name2num(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_decoder_fast_is_a(ptr noundef readonly %decoder, ptr noundef %name, ptr nocapture noundef %id_cache) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_decoder_fast_is_a(ptr noundef readonly %decoder, ptr noundef %name, ptr nocapture noundef %id_cache) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %id_cache, align 4
   %cmp = icmp slt i32 %0, 1
@@ -827,7 +827,7 @@ entry:
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_DECODER_CTX_set_params(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_params(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end

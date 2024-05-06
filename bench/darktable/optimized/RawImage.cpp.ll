@@ -370,7 +370,7 @@ define hidden void @_ZN8rawspeed12RawImageData10createDataEv(ptr nocapture nound
   %40 = trunc i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %40, ptr %41, align 8, !tbaa !13
-  %42 = mul nsw i32 %21, %3
+  %42 = mul nuw nsw i32 %21, %3
   %43 = sub nsw i32 %40, %42
   %44 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %43, ptr %44, align 4, !tbaa !75
@@ -710,10 +710,10 @@ define hidden i64 @_ZNK8rawspeed12RawImageData13getCropOffsetEv(ptr nocapture no
 define hidden void @_ZN8rawspeed12RawImageData8subFrameENS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(616) %0, i64 %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = trunc i64 %1 to i32
   %5 = lshr i64 %1, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %2 to i32
   %8 = lshr i64 %2, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = icmp sgt i32 %7, 0
   %11 = icmp sgt i32 %9, 0
   %12 = and i1 %10, %11
@@ -990,7 +990,7 @@ define hidden void @_ZN8rawspeed12RawImageData22transferBadPixelsToMapEv(ptr nou
   %74 = load ptr, ptr %9, align 8, !tbaa !94
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
   %76 = load i8, ptr %75, align 1, !tbaa !88
-  %77 = trunc i32 %67 to i8
+  %77 = trunc nuw i32 %67 to i8
   %78 = or i8 %76, %77
   store i8 %78, ptr %75, align 1, !tbaa !88
   %79 = getelementptr inbounds i8, ptr %63, i64 4
@@ -1104,7 +1104,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %9 = load i32, ptr %8, align 8, !tbaa !115
   %10 = getelementptr inbounds i8, ptr %0, i64 604
   %11 = load i32, ptr %10, align 4, !tbaa !116
-  %12 = mul nsw i32 %11, %9
+  %12 = mul nuw nsw i32 %11, %9
   %13 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne i32 %9, 0
@@ -1133,7 +1133,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %29 = phi i64 [ %24, %20 ], [ %172, %171 ]
   %30 = icmp ult i64 %29, %25
   tail call void @llvm.assume(i1 %30)
-  %31 = trunc i64 %29 to i32
+  %31 = trunc nuw nsw i64 %29 to i32
   %32 = mul nsw i32 %9, %31
   %33 = add nuw nsw i32 %32, %9
   %34 = icmp ule i32 %33, %12
@@ -1339,7 +1339,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 
 171:                                              ; preds = %.loopexit
   %172 = add nuw nsw i64 %29, 1
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nuw nsw i64 %172 to i32
   %174 = icmp slt i32 %173, %2
   br i1 %174, label %28, label %.loopexit5, !llvm.loop !129
 
@@ -1351,17 +1351,17 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, i64 %1, i64 %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = trunc i64 %1 to i32
   %5 = lshr i64 %1, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %2 to i32
   %8 = lshr i64 %2, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i32 %7, %4
   %13 = add nsw i32 %9, %6
   %14 = trunc i64 %11 to i32
   %15 = lshr i64 %11, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %18 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
   %19 = tail call i32 @llvm.smin.i32(i32 %14, i32 %12)
@@ -1387,7 +1387,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 8, !tbaa !13, !noalias !130
   %39 = ashr i32 %38, 1
-  %40 = mul nsw i32 %39, %36
+  %40 = mul nuw nsw i32 %39, %36
   %41 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %41)
   %42 = icmp sgt i32 %36, -1
@@ -1473,7 +1473,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %100 = add nuw nsw i32 %92, %53
   %101 = icmp ugt i32 %36, %100
   tail call void @llvm.assume(i1 %101)
-  %102 = mul nsw i32 %100, %39
+  %102 = mul nuw nsw i32 %100, %39
   %103 = add nuw nsw i32 %102, %34
   %104 = icmp ule i32 %103, %40
   tail call void @llvm.assume(i1 %104)
@@ -1489,7 +1489,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %112 = add nuw nsw i32 %105, %53
   %113 = icmp ugt i32 %36, %112
   tail call void @llvm.assume(i1 %113)
-  %114 = mul nsw i32 %112, %39
+  %114 = mul nuw nsw i32 %112, %39
   %115 = add nuw nsw i32 %114, %34
   %116 = icmp ule i32 %115, %40
   tail call void @llvm.assume(i1 %116)
@@ -1505,7 +1505,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %124 = add nuw nsw i32 %117, %53
   %125 = icmp ugt i32 %36, %124
   tail call void @llvm.assume(i1 %125)
-  %126 = mul nsw i32 %124, %39
+  %126 = mul nuw nsw i32 %124, %39
   %127 = add nuw nsw i32 %126, %34
   %128 = icmp ule i32 %127, %40
   tail call void @llvm.assume(i1 %128)
@@ -1521,7 +1521,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %136 = add nuw nsw i32 %129, %53
   %137 = icmp ugt i32 %36, %136
   tail call void @llvm.assume(i1 %137)
-  %138 = mul nsw i32 %136, %39
+  %138 = mul nuw nsw i32 %136, %39
   %139 = add nuw nsw i32 %138, %34
   %140 = icmp ule i32 %139, %40
   tail call void @llvm.assume(i1 %140)

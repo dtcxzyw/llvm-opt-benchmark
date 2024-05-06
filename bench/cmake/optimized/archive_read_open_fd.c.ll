@@ -133,7 +133,7 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef rea
 declare i32 @archive_read_set_skip_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @file_skip(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 0
@@ -181,7 +181,7 @@ define internal i64 @file_skip(ptr noundef %0, ptr nocapture noundef %1, i64 nou
 declare i32 @archive_read_set_seek_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @file_seek(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr %1, align 8
   %6 = tail call i64 @lseek(i32 noundef %5, i64 noundef %2, i32 noundef %3) #10
   %7 = icmp sgt i64 %6, -1

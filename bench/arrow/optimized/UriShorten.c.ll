@@ -12,14 +12,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @uriConstPwdW = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveBaseUriA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriRemoveBaseUriA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriRemoveBaseUriMmA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef null), !range !4
+  %call = tail call i32 @uriRemoveBaseUriMmA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveBaseUriMmA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriRemoveBaseUriMmA(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -198,7 +198,7 @@ while.body.i:                                     ; preds = %land.rhs61.i, %land
   %cmp51.i = icmp ne ptr %12, null
   %cmp52.i = icmp ne ptr %14, null
   %or.cond1.i = select i1 %cmp51.i, i1 %cmp52.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true53.i, label %while.end.i, !llvm.loop !5
+  br i1 %or.cond1.i, label %land.lhs.true53.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %if.else48.i
   %sourceSeg.0.lcssa.i = phi ptr [ %8, %if.else48.i ], [ %12, %while.body.i ]
@@ -270,7 +270,7 @@ if.then92.i:                                      ; preds = %while.body89.i
 for.cond.i:                                       ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0132.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %22
-  br i1 %exitcond.not.i, label %if.else111.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.else111.i, label %for.body.i, !llvm.loop !6
 
 for.body.i:                                       ; preds = %if.then92.i, %for.cond.i
   %ch.0132.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
@@ -334,7 +334,7 @@ if.end134.i:                                      ; preds = %if.end126.i
   %next135.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 16
   %31 = load ptr, ptr %next135.i, align 8
   %cmp87.not.i = icmp eq ptr %31, null
-  br i1 %cmp87.not.i, label %if.end139.i, label %while.body89.i, !llvm.loop !8
+  br i1 %cmp87.not.i, label %if.end139.i, label %while.body89.i, !llvm.loop !7
 
 if.end139.i:                                      ; preds = %if.end134.i, %while.end85.i, %if.end43.i, %if.end32.i, %if.end21.i
   %query.i = getelementptr inbounds i8, ptr %dest, i64 112
@@ -360,14 +360,14 @@ declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #1
 declare i32 @uriFreeUriMembersMmA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveBaseUriW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriRemoveBaseUriW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriRemoveBaseUriMmW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef null), !range !4
+  %call = tail call i32 @uriRemoveBaseUriMmW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveBaseUriMmW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %dest, ptr noundef %absSource, ptr noundef %absBase, i32 noundef %domainRootMode, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -546,7 +546,7 @@ while.body.i:                                     ; preds = %land.rhs61.i, %land
   %cmp51.i = icmp ne ptr %12, null
   %cmp52.i = icmp ne ptr %14, null
   %or.cond1.i = select i1 %cmp51.i, i1 %cmp52.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true53.i, label %while.end.i, !llvm.loop !9
+  br i1 %or.cond1.i, label %land.lhs.true53.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %if.else48.i
   %sourceSeg.0.lcssa.i = phi ptr [ %8, %if.else48.i ], [ %12, %while.body.i ]
@@ -618,7 +618,7 @@ if.then92.i:                                      ; preds = %while.body89.i
 for.cond.i:                                       ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0132.i, i64 4
   %cmp97.not.i = icmp ult ptr %incdec.ptr.i, %22
-  br i1 %cmp97.not.i, label %for.body.i, label %if.else110.i, !llvm.loop !10
+  br i1 %cmp97.not.i, label %for.body.i, label %if.else110.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %if.then92.i, %for.cond.i
   %ch.0132.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %.pre23, %if.then92.i ]
@@ -682,7 +682,7 @@ if.end133.i:                                      ; preds = %if.end125.i
   %next134.i = getelementptr inbounds i8, ptr %sourceSeg.1135.i, i64 16
   %31 = load ptr, ptr %next134.i, align 8
   %cmp87.not.i = icmp eq ptr %31, null
-  br i1 %cmp87.not.i, label %if.end138.i, label %while.body89.i, !llvm.loop !11
+  br i1 %cmp87.not.i, label %if.end138.i, label %while.body89.i, !llvm.loop !10
 
 if.end138.i:                                      ; preds = %if.end133.i, %while.end85.i, %if.end43.i, %if.end32.i, %if.end21.i
   %query.i = getelementptr inbounds i8, ptr %dest, i64 112
@@ -743,11 +743,10 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 11}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

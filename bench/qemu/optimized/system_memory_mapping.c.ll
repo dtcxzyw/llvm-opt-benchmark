@@ -732,7 +732,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 int128_get64.exit:                                ; preds = %entry
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %1 to i64
+  %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %1 to i64
   %add = add i64 %0, %coerce.sroa.0.0.extract.trunc
   %mr = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16

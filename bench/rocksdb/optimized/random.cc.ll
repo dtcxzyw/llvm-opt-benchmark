@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
-@_ZZN7rocksdb6Random14GetTLSInstanceEvE12tls_instance = internal thread_local global ptr null, align 8
+@_ZZN7rocksdb6Random14GetTLSInstanceEvE12tls_instance = internal thread_local unnamed_addr global ptr null, align 8
 @_ZZN7rocksdb6Random14GetTLSInstanceEvE18tls_instance_bytes = internal thread_local global %"union.std::aligned_storage<4>::type" zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78,7 +78,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -88,7 +88,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
 
 invoke.cont5:                                     ; preds = %invoke.cont2
   %rem.i = urem i32 %spec.select.i.i, 26
-  %1 = trunc i32 %rem.i to i8
+  %1 = trunc nuw nsw i32 %rem.i to i8
   %conv3 = add nuw nsw i8 %1, 97
   store i8 %conv3, ptr %call6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -150,7 +150,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -160,7 +160,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
 
 invoke.cont5:                                     ; preds = %invoke.cont2
   %rem.i = urem i32 %spec.select.i.i, 95
-  %1 = trunc i32 %rem.i to i8
+  %1 = trunc nuw nsw i32 %rem.i to i8
   %conv3 = add nuw nsw i8 %1, 32
   store i8 %conv3, ptr %call6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -210,7 +210,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -220,7 +220,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
 
 invoke.cont5:                                     ; preds = %invoke.cont2
   %rem.i = urem i32 %spec.select.i.i, 127
-  %conv3 = trunc i32 %rem.i to i8
+  %conv3 = trunc nuw nsw i32 %rem.i to i8
   store i8 %conv3, ptr %call6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

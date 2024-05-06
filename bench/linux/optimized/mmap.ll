@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcu_read_unlock_sched.__UNIQUE_ID___addressable___SCK__preempt_schedule92], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i64 @task_size_32bit() local_unnamed_addr #0 align 16 {
+define dso_local range(i64 3221225472, 4294959105) i64 @task_size_32bit() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 1240
@@ -56,7 +56,7 @@ define dso_local i64 @task_size_64bit(i32 noundef %0) local_unnamed_addr #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_mmap_rnd() local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, -4095) i64 @arch_mmap_rnd() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
   %3 = load volatile i64, ptr %2, align 8
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @mmap_address_hint_valid(i64 noundef %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @valid_phys_addr_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @valid_phys_addr_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = add i64 %0, -1
   %4 = add i64 %3, %1
   %5 = load ptr, ptr @high_memory, align 8
@@ -310,7 +310,7 @@ define dso_local i32 @valid_phys_addr_range(i64 noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @valid_mmap_phys_addr_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @valid_mmap_phys_addr_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = shl i64 %0, 12
   %4 = add i64 %1, -1
   %5 = add i64 %4, %3

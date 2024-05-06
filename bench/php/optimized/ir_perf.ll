@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [12 x i8] c"%zx %zx %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_perf_jitdump_open() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_perf_jitdump_open() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
   %3 = alloca [64 x i8], align 16
@@ -155,7 +155,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_perf_jitdump_close() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_perf_jitdump_close() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct._ir_perf_jitdump_record, align 8
   %3 = load i32, ptr @jitdump_fd, align 4
@@ -208,7 +208,7 @@ ir_perf_timestamp.exit:                           ; preds = %5, %8
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_perf_jitdump_register(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_perf_jitdump_register(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct._ir_perf_jitdump_load_record, align 8
   %6 = load i32, ptr @jitdump_fd, align 4

@@ -241,7 +241,7 @@ get_command.exit:                                 ; preds = %1, %get_command.exi
 .preheader:                                       ; preds = %.preheader.preheader, %77
   %72 = phi ptr [ %79, %77 ], [ @.str.11, %.preheader.preheader ]
   %.010.i = phi ptr [ %78, %77 ], [ @phpdbg_help_text, %.preheader.preheader ]
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(9) @.str.22) #7
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(9) @.str.22) #7
   %.not8.i = icmp eq i32 %73, 0
   br i1 %.not8.i, label %74, label %77
 
@@ -294,7 +294,7 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   %9 = tail call i32 @phpdbg_get_terminal_width() #6
   %10 = trunc i64 %3 to i32
   %11 = add i32 %10, -2
-  %12 = trunc i64 %8 to i32
+  %12 = trunc nuw nsw i64 %8 to i32
   %13 = add nsw i32 %12, -2
   br label %14
 
@@ -567,7 +567,7 @@ define hidden void @phpdbg_do_help_cmd(ptr noundef readonly %0) local_unnamed_ad
 .preheader:                                       ; preds = %1, %7
   %2 = phi ptr [ %9, %7 ], [ @.str.11, %1 ]
   %.010.i = phi ptr [ %8, %7 ], [ @phpdbg_help_text, %1 ]
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.11) #7
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(10) @.str.11) #7
   %.not8.i = icmp eq i32 %3, 0
   br i1 %.not8.i, label %4, label %7
 
@@ -590,7 +590,7 @@ get_help.exit:                                    ; preds = %7, %4
 .preheader20:                                     ; preds = %1, %12
   %10 = phi ptr [ %14, %12 ], [ @.str.11, %1 ]
   %.010.i7 = phi ptr [ %13, %12 ], [ @phpdbg_help_text, %1 ]
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #7
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #7
   %.not8.i8 = icmp eq i32 %11, 0
   br i1 %.not8.i8, label %get_help.exit11, label %12
 
@@ -618,7 +618,7 @@ get_help.exit11.thread:                           ; preds = %12, %get_help.exit1
 18:                                               ; preds = %.preheader34, %24
   %19 = phi ptr [ %26, %24 ], [ @.str.11, %.preheader34 ]
   %.010.i12 = phi ptr [ %25, %24 ], [ @phpdbg_help_text, %.preheader34 ]
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(10) @.str.11) #7
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(10) @.str.11) #7
   %.not8.i13 = icmp eq i32 %20, 0
   br i1 %.not8.i13, label %21, label %24
 
@@ -667,7 +667,7 @@ define hidden i32 @phpdbg_do_help(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.preheader107, %12
   %7 = phi ptr [ %14, %12 ], [ @.str.11, %.preheader107 ]
   %.010.i = phi ptr [ %13, %12 ], [ @phpdbg_help_text, %.preheader107 ]
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.11) #7
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(10) @.str.11) #7
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %9, label %12
 
@@ -726,7 +726,7 @@ get_help.exit:                                    ; preds = %12, %9
   %30 = phi ptr [ %36, %.lr.ph.split.i ], [ %21, %.preheader35.i ]
   %.239.i = phi i32 [ %.3.i, %.lr.ph.split.i ], [ 0, %.preheader35.i ]
   %.12638.i = phi ptr [ %35, %.lr.ph.split.i ], [ @phpdbg_prompt_commands, %.preheader35.i ]
-  %31 = tail call i32 @strncmp(ptr noundef nonnull %30, ptr noundef %17, i64 noundef %19) #7
+  %31 = tail call i32 @strncmp(ptr noundef nonnull %30, ptr noundef readonly %17, i64 noundef %19) #7
   %.not33.i = icmp eq i32 %31, 0
   %32 = icmp eq i32 %.239.i, 0
   %33 = select i1 %.not33.i, i1 %32, i1 false
@@ -764,7 +764,7 @@ get_command.exit:                                 ; preds = %.lr.ph.split.i, %.l
 49:                                               ; preds = %55, %38
   %50 = phi ptr [ @.str.11, %38 ], [ %57, %55 ]
   %.010.i24 = phi ptr [ @phpdbg_help_text, %38 ], [ %56, %55 ]
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %48) #7
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(1) %48) #7
   %.not8.i25 = icmp eq i32 %51, 0
   br i1 %.not8.i25, label %52, label %55
 
@@ -831,7 +831,7 @@ get_help.exit28:                                  ; preds = %55, %52
 .preheader:                                       ; preds = %.preheader.preheader, %83
   %78 = phi ptr [ %85, %83 ], [ @.str.11, %.preheader.preheader ]
   %.010.i29 = phi ptr [ %84, %83 ], [ @phpdbg_help_text, %.preheader.preheader ]
-  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(11) @.str.14) #7
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(11) @.str.14) #7
   %.not8.i30 = icmp eq i32 %79, 0
   br i1 %.not8.i30, label %80, label %83
 
@@ -874,7 +874,7 @@ get_help.exit33:                                  ; preds = %83, %80
   %.4626668 = phi ptr [ %.4, %.thread..preheader.i43_crit_edge ], [ undef, %.preheader.i ]
   br label %.lr.ph43.split.i45
 
-.lr.ph43.split.i45:                               ; preds = %.lr.ph43.split.i45, %.preheader.i43
+.lr.ph43.split.i45:                               ; preds = %.preheader.i43, %.lr.ph43.split.i45
   %.5 = phi ptr [ %.4626668, %.preheader.i43 ], [ %.6, %.lr.ph43.split.i45 ]
   %.042.i46 = phi i32 [ 0, %.preheader.i43 ], [ %.1.i48, %.lr.ph43.split.i45 ]
   %.02541.i47 = phi ptr [ @phpdbg_help_commands, %.preheader.i43 ], [ %98, %.lr.ph43.split.i45 ]
@@ -896,7 +896,7 @@ get_help.exit33:                                  ; preds = %83, %80
   %100 = phi ptr [ %106, %.lr.ph.split.i36 ], [ @.str, %.lr.ph.split.i36.preheader ]
   %.239.i37 = phi i32 [ %.3.i40, %.lr.ph.split.i36 ], [ 0, %.lr.ph.split.i36.preheader ]
   %.12638.i38 = phi ptr [ %105, %.lr.ph.split.i36 ], [ @phpdbg_help_commands, %.lr.ph.split.i36.preheader ]
-  %101 = tail call i32 @strncmp(ptr noundef nonnull %100, ptr noundef %17, i64 noundef %19) #7
+  %101 = tail call i32 @strncmp(ptr noundef nonnull %100, ptr noundef readonly %17, i64 noundef %19) #7
   %.not33.i39 = icmp eq i32 %101, 0
   %102 = icmp eq i32 %.239.i37, 0
   %103 = select i1 %.not33.i39, i1 %102, i1 false
@@ -933,7 +933,7 @@ get_command.exit50:                               ; preds = %.lr.ph.split.i36, %
 118:                                              ; preds = %124, %116
   %119 = phi ptr [ @.str.11, %116 ], [ %126, %124 ]
   %.010.i51 = phi ptr [ @phpdbg_help_text, %116 ], [ %125, %124 ]
-  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(1) %117) #7
+  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull readonly dereferenceable(1) %117) #7
   %.not8.i52 = icmp eq i32 %120, 0
   br i1 %.not8.i52, label %121, label %124
 

@@ -598,7 +598,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN2h25proto7streams7streams18StreamRef$LT$B$GT$9send_data17hc860071cdf86a338E.llvm.1472373081438710728"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 13) i8 @"_ZN2h25proto7streams7streams18StreamRef$LT$B$GT$9send_data17hc860071cdf86a338E.llvm.1472373081438710728"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { i32, i32 } }, align 8
   %5 = alloca { { ptr, ptr, i64, { ptr } }, ptr, ptr, ptr }, align 8
   %6 = alloca { { ptr, i8, [7 x i8] } }, align 8
@@ -11314,7 +11314,7 @@ define hidden void @"_ZN2h25share19SendStream$LT$B$GT$13poll_capacity17h2aa9c5eb
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN2h25share19SendStream$LT$B$GT$13poll_capacity28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80351abe21d21E.llvm.1472373081438710728"(i32 noundef %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN2h25share19SendStream$LT$B$GT$13poll_capacity28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80351abe21d21E.llvm.1472373081438710728"(i32 noundef %0) unnamed_addr #3 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }

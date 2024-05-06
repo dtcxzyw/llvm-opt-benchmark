@@ -340,7 +340,7 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit:   ; preds = %entry, %if.then.i
 if.then:                                          ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit
   %mName = getelementptr inbounds i8, ptr %pTDD, i64 68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i)
-  %call.i2 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i, ptr noundef nonnull dereferenceable(1) %mName, i64 noundef 16) #19
+  %call.i2 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i, ptr noundef nonnull readonly dereferenceable(1) %mName, i64 noundef 16) #19
   %arrayidx.i = getelementptr inbounds i8, ptr %nameBuf.i, i64 15
   store i8 0, ptr %arrayidx.i, align 1
   %1 = ptrtoint ptr %nameBuf.i to i64
@@ -367,7 +367,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %call4.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName.i, ptr noundef nonnull dereferenceable(1) %pName, i64 noundef 64) #19
+  %call4.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName.i, ptr noundef nonnull readonly dereferenceable(1) %pName, i64 noundef 64) #19
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i1, i64 131
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i
@@ -379,7 +379,7 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i: ; preds = %if.then1.i, %if.t
 
 if.then.i.i:                                      ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i.i)
-  %call.i2.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i.i, ptr noundef nonnull dereferenceable(1) %mName.i, i64 noundef 16) #19
+  %call.i2.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %mName.i, i64 noundef 16) #19
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %nameBuf.i.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %1 = ptrtoint ptr %nameBuf.i.i.i to i64
@@ -419,7 +419,7 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i: ; preds = %if.then1, %if.then
 
 if.then.i:                                        ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i)
-  %call.i2.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i, ptr noundef nonnull dereferenceable(1) %mName, i64 noundef 16) #19
+  %call.i2.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i, ptr noundef nonnull readonly dereferenceable(1) %mName, i64 noundef 16) #19
   %arrayidx.i.i = getelementptr inbounds i8, ptr %nameBuf.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = ptrtoint ptr %nameBuf.i.i to i64
@@ -580,9 +580,9 @@ define dso_local void @_ZN2EA6Thread17AssertionFailureVEPKcz(ptr nocapture nound
 entry:
   %buffer = alloca [512 x i8], align 16
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 512, ptr noundef %pFormat, ptr noundef nonnull %arguments) #19
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   %cmp = icmp sgt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -602,14 +602,14 @@ if.end:                                           ; preds = %if.then.i, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

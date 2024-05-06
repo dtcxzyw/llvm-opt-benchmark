@@ -471,7 +471,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %.lr.ph.i
 
 .lr.ph.i138.preheader:                            ; preds = %.lr.ph.i138.preheader.preheader, %ompi_datatype_copy_content_same_ddt.exit147.thread
   %indvars.iv177 = phi i64 [ 0, %.lr.ph.i138.preheader.preheader ], [ %indvars.iv.next178, %ompi_datatype_copy_content_same_ddt.exit147.thread ]
-  %111 = trunc i64 %indvars.iv177 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv177 to i32
   %112 = sub i32 %71, %111
   %113 = srem i32 %112, %.val.val
   %114 = sext i32 %113 to i64
@@ -489,7 +489,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %.lr.ph.i
   %.01927.i140 = phi ptr [ %123, %121 ], [ %116, %.lr.ph.i138.preheader ]
   %.02026.i141 = phi i64 [ %125, %121 ], [ %24, %.lr.ph.i138.preheader ]
   %spec.select24.i142 = call i64 @llvm.umin.i64(i64 %.02026.i141, i64 2147483647)
-  %spec.select.i143 = trunc i64 %spec.select24.i142 to i32
+  %spec.select.i143 = trunc nuw nsw i64 %spec.select24.i142 to i32
   %120 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i143, ptr noundef %.01927.i140, ptr noundef %.01828.i139) #7
   %.not22.i144 = icmp eq i32 %120, 0
   br i1 %.not22.i144, label %121, label %ompi_datatype_copy_content_same_ddt.exit147
@@ -754,11 +754,11 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
   br i1 %exitcond267.not, label %ompi_coll_base_free_reqs.exit, label %80, !llvm.loop !13
 
 .loopexit202.loopexit246:                         ; preds = %.lr.ph229
-  %114 = trunc i64 %indvars.iv.next263 to i32
+  %114 = trunc nuw i64 %indvars.iv.next263 to i32
   br label %.loopexit202
 
 .loopexit202.loopexit247:                         ; preds = %.lr.ph
-  %115 = trunc i64 %indvars.iv.next to i32
+  %115 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit202
 
 .loopexit202:                                     ; preds = %103, %91, %80, %.loopexit202.loopexit247, %.loopexit202.loopexit246, %76

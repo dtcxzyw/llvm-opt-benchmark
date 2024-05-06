@@ -367,7 +367,7 @@ _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
   %149 = shl i32 %143, 2
   %150 = sext i32 %149 to i64
   %151 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %150, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.copy_gids) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %151, ptr nonnull align 4 %145, i64 %150, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %151, ptr nonnull readonly align 4 %145, i64 %150, i1 false)
   br label %copy_gids.exit.i
 
 copy_gids.exit.i:                                 ; preds = %148, %.loopexit.i
@@ -445,7 +445,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_cleanup_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @_cleanup_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -542,7 +542,7 @@ define internal void @_group_cache_list_delete(ptr noundef %0) #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @_find_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %3, %4

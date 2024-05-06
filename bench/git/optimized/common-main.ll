@@ -48,7 +48,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call3 = call i32 @cmd_main(i32 noundef %argc, ptr noundef nonnull %argv) #8
-  %call4 = call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 65, i32 noundef %call3), !range !5
+  %call4 = call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 65, i32 noundef %call3)
   call void @exit(i32 noundef %call4) #9
   unreachable
 }
@@ -87,7 +87,7 @@ declare i32 @cmd_main(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @common_exit(ptr noundef %file, i32 noundef %line, i32 noundef %code) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 256) i32 @common_exit(ptr noundef %file, i32 noundef %line, i32 noundef %code) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr @bug_called_must_BUG, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -144,4 +144,3 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 256}

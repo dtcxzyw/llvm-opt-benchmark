@@ -471,7 +471,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s5066dts_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 15, 1) i32 @dissect_s5066dts_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 15
   br i1 %6, label %14, label %7
@@ -487,7 +487,7 @@ define internal i32 @dissect_s5066dts_raw(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not11, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @calculate_s5066dts_dpdu_len(ptr poison, ptr noundef %0, i32 poison, ptr poison), !range !4
+  %12 = tail call i32 @calculate_s5066dts_dpdu_len(ptr poison, ptr noundef %0, i32 poison, ptr poison)
   %13 = tail call i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %14
 
@@ -497,7 +497,7 @@ define internal i32 @dissect_s5066dts_raw(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s5066dts_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 15, 1) i32 @dissect_s5066dts_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 15
   br i1 %6, label %18, label %7
@@ -564,7 +564,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @calculate_s5066dts_dpdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 1068) i32 @calculate_s5066dts_dpdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #4
   %.not = icmp eq i8 %5, -112
   br i1 %.not, label %6, label %23
@@ -898,7 +898,7 @@ dissect_s5066dts_eow.exit:                        ; preds = %63, %78, %81, %88, 
   %166 = or disjoint i32 %157, %165
   %167 = add nuw nsw i32 %.058.i, 1
   %exitcond.not.i = icmp eq i32 %167, %18
-  br i1 %exitcond.not.i, label %dissect_s5066dts_address.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %dissect_s5066dts_address.exit, label %.lr.ph.i, !llvm.loop !4
 
 dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_s5066dts_eow.exit
   %.052.lcssa.i = phi i32 [ 0, %dissect_s5066dts_eow.exit ], [ %166, %.lr.ph.i ]
@@ -949,7 +949,7 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
   ]
 
 198:                                              ; preds = %dissect_s5066dts_address.exit
-  %199 = tail call fastcc i32 @dissect_s5066dts_data_only(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !7
+  %199 = tail call fastcc i32 @dissect_s5066dts_data_only(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 200:                                              ; preds = %dissect_s5066dts_address.exit
@@ -961,15 +961,15 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
   br label %218
 
 204:                                              ; preds = %dissect_s5066dts_address.exit
-  %205 = tail call fastcc i32 @dissect_s5066dts_reset_win_resync(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !7
+  %205 = tail call fastcc i32 @dissect_s5066dts_reset_win_resync(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 206:                                              ; preds = %dissect_s5066dts_address.exit
-  %207 = tail call fastcc i32 @dissect_s5066dts_exp_data_only(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !7
+  %207 = tail call fastcc i32 @dissect_s5066dts_exp_data_only(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 208:                                              ; preds = %dissect_s5066dts_address.exit
-  %209 = tail call fastcc i32 @dissect_s5066dts_exp_ack_only(ptr noundef %0, i32 noundef %191, ptr noundef %197, i32 noundef %194), !range !8
+  %209 = tail call fastcc i32 @dissect_s5066dts_exp_ack_only(ptr noundef %0, i32 noundef %191, ptr noundef %197, i32 noundef %194)
   br label %218
 
 210:                                              ; preds = %dissect_s5066dts_address.exit
@@ -977,15 +977,15 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
   br label %218
 
 212:                                              ; preds = %dissect_s5066dts_address.exit
-  %213 = tail call fastcc i32 @dissect_s5066dts_non_arq_data(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !9
+  %213 = tail call fastcc i32 @dissect_s5066dts_non_arq_data(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 214:                                              ; preds = %dissect_s5066dts_address.exit
-  %215 = tail call fastcc i32 @dissect_s5066dts_exp_non_arq_data(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !9
+  %215 = tail call fastcc i32 @dissect_s5066dts_exp_non_arq_data(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 216:                                              ; preds = %dissect_s5066dts_address.exit
-  %217 = tail call fastcc i32 @dissect_s5066dts_warning(ptr noundef %0, i32 noundef %191, ptr noundef %197), !range !10
+  %217 = tail call fastcc i32 @dissect_s5066dts_warning(ptr noundef %0, i32 noundef %191, ptr noundef %197)
   br label %218
 
 218:                                              ; preds = %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %dissect_s5066dts_address.exit
@@ -1077,7 +1077,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_data_only(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, 17) i32 @dissect_s5066dts_data_only(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_data_only_cpdu_start, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_data_only_cpdu_end, align 4
@@ -1158,7 +1158,7 @@ define internal fastcc i32 @dissect_s5066dts_data_ack(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_reset_win_resync(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, 17) i32 @dissect_s5066dts_reset_win_resync(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_reset_win_resync_unused, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_reset_win_resync_full_reset_command, align 4
@@ -1180,7 +1180,7 @@ define internal fastcc i32 @dissect_s5066dts_reset_win_resync(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_exp_data_only(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, 17) i32 @dissect_s5066dts_exp_data_only(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_exp_data_only_cpdu_start, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_exp_data_only_cpdu_end, align 4
@@ -1197,7 +1197,7 @@ define internal fastcc i32 @dissect_s5066dts_exp_data_only(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_exp_ack_only(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 39) i32 @dissect_s5066dts_exp_ack_only(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add nsw i32 %3, -7
   %6 = load i32, ptr @hf_s5066dts_exp_ack_only_rx_lwe, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
@@ -1290,7 +1290,7 @@ define internal fastcc i32 @dissect_s5066dts_management(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_non_arq_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 23) i32 @dissect_s5066dts_non_arq_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_non_arq_data_cpdu_id_1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_non_arq_data_deliver_in_order, align 4
@@ -1316,7 +1316,7 @@ define internal fastcc i32 @dissect_s5066dts_non_arq_data(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_exp_non_arq_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 23) i32 @dissect_s5066dts_exp_non_arq_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_exp_non_arq_data_cpdu_id_1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_exp_non_arq_data_deliver_in_order, align 4
@@ -1342,7 +1342,7 @@ define internal fastcc i32 @dissect_s5066dts_exp_non_arq_data(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s5066dts_warning(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 7, 15) i32 @dissect_s5066dts_warning(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s5066dts_warning_frame_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_s5066dts_warning_reason, align 4
@@ -1383,10 +1383,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 1068}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 9, i32 17}
-!8 = !{i32 0, i32 39}
-!9 = !{i32 15, i32 23}
-!10 = !{i32 7, i32 15}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

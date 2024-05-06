@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_2 = internal unnamed_addr constant [16 x i8] c"\00\01\04\05\02\08\06\09\03\0C\0A\07\0D\0B\0E\0F", align 256
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_decode_block_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i64], align 256
   %4 = alloca [16 x i64], align 256
   %5 = alloca [16 x i64], align 256
@@ -48,7 +48,7 @@ stream_read_bit.exit.i:                           ; preds = %14, %._crit_edge.i.
   br i1 %.not.i, label %.preheader.preheader.i, label %25
 
 .preheader.preheader.i:                           ; preds = %stream_read_bit.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %23 = load i32, ptr %0, align 8
   %24 = icmp ugt i32 %23, 1
   br i1 %24, label %92, label %rev_decode_block_double_2.exit
@@ -112,7 +112,7 @@ stream_read_bit.exit47.i:                         ; preds = %29, %._crit_edge.i4
 
 rev_inv_reinterpret_double.exit.i:                ; preds = %52
   %53 = add i32 %45, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 256 dereferenceable(128) %5, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %1, ptr noundef nonnull align 256 dereferenceable(128) %5, i64 128, i1 false)
   br label %rev_decode_block_double_2.exit
 
 54:                                               ; preds = %stream_read_bit.exit47.i
@@ -160,7 +160,7 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   br i1 %.not.i49.i, label %.preheader.preheader.i.i, label %82
 
 .preheader.preheader.i.i:                         ; preds = %stream_read_bits.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   br label %rev_decode_block_double_2.exit
 
 82:                                               ; preds = %stream_read_bits.exit.i
@@ -258,7 +258,7 @@ stream_read_bit.exit.i8:                          ; preds = %121, %._crit_edge.i
   br i1 %.not.i10, label %.preheader.preheader.i18, label %132
 
 .preheader.preheader.i18:                         ; preds = %stream_read_bit.exit.i8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %130 = load i32, ptr %0, align 8
   %131 = icmp ugt i32 %130, 1
   br i1 %131, label %261, label %decode_block_double_2.exit
@@ -1067,9 +1067,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_decode_block_strided_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x double], align 256
-  %6 = call i64 @zfp_decode_block_double_2(ptr noundef %0, ptr noundef nonnull %5), !range !17
+  %6 = call i64 @zfp_decode_block_double_2(ptr noundef %0, ptr noundef nonnull %5)
   %7 = shl nsw i64 %2, 2
   %8 = sub nsw i64 %3, %7
   br label %.preheader.i
@@ -1103,9 +1103,9 @@ scatter_double_2.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_decode_partial_block_strided_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_double_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [16 x double], align 256
-  %8 = call i64 @zfp_decode_block_double_2(ptr noundef %0, ptr noundef nonnull %7), !range !17
+  %8 = call i64 @zfp_decode_block_double_2(ptr noundef %0, ptr noundef nonnull %7)
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %scatter_partial_double_2.exit, label %.preheader.lr.ph.i
 
@@ -1192,4 +1192,3 @@ attributes #8 = { nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"decode_few_ints_prec_uint64: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

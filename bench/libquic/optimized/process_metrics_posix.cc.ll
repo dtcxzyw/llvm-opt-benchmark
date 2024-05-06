@@ -86,7 +86,7 @@ if.then:                                          ; preds = %entry
   %conv = zext i32 %max_descriptors to i64
   %cmp3 = icmp ult i64 %0, %conv
   %or.cond = and i1 %cmp1.not, %cmp3
-  %conv6 = trunc i64 %0 to i32
+  %conv6 = trunc nuw i64 %0 to i32
   %new_limit.0 = select i1 %or.cond, i32 %conv6, i32 %max_descriptors
   %conv7 = zext i32 %new_limit.0 to i64
   store i64 %conv7, ptr %limits, align 8
@@ -158,7 +158,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4base11GetPageSizeEv() local_unnamed_addr #5 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN4base11GetPageSizeEv() local_unnamed_addr #5 {
 entry:
   %call = tail call i32 @getpagesize() #9
   %conv = sext i32 %call to i64

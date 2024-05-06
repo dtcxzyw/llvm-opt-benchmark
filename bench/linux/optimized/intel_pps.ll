@@ -4489,7 +4489,7 @@ define internal fastcc void @intel_pps_readout_hw_state(ptr noundef %0, ptr noca
   %27 = load ptr, ptr %22, align 8
   %28 = tail call i32 %27(ptr noundef %21, i32 %26, i1 noundef zeroext true) #7
   %29 = lshr i32 %24, 16
-  %30 = trunc i32 %29 to i16
+  %30 = trunc nuw i32 %29 to i16
   %31 = and i16 %30, 8191
   store i16 %31, ptr %1, align 1
   %32 = trunc i32 %24 to i16
@@ -4501,7 +4501,7 @@ define internal fastcc void @intel_pps_readout_hw_state(ptr noundef %0, ptr noca
   %37 = getelementptr inbounds i8, ptr %1, i64 4
   store i16 %36, ptr %37, align 1
   %38 = lshr i32 %28, 16
-  %39 = trunc i32 %38 to i16
+  %39 = trunc nuw i32 %38 to i16
   %40 = and i16 %39, 8191
   %41 = getelementptr inbounds i8, ptr %1, i64 6
   store i16 %40, ptr %41, align 1

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @snd_hda_dev_attr_groups = external dso_local global [0 x ptr], align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_create_hwdep(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_create_hwdep(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [16 x i8], align 16
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
@@ -75,7 +75,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local i32 @snd_hwdep_new(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_hwdep_open(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -13, 1) i32 @hda_hwdep_open(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call zeroext i1 @capable(i32 noundef 17) #7
   %4 = select i1 %3, i32 0, i32 -13
   ret i32 %4
@@ -116,7 +116,7 @@ define internal i32 @hda_hwdep_ioctl(ptr nocapture noundef readonly %0, ptr noca
 23:                                               ; preds = %15
   %24 = extractvalue { ptr, i32, i64 } %17, 1
   %25 = lshr i32 %24, 24
-  %26 = trunc i32 %25 to i16
+  %26 = trunc nuw nsw i32 %25 to i16
   %27 = lshr i32 %24, 8
   %28 = and i32 %27, 65535
   %29 = and i32 %24, 255

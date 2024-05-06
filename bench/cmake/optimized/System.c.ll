@@ -177,7 +177,7 @@ kwsysSystem__AppendByte.exit77.i:                 ; preds = %66, %52
   br label %.thread
 
 70:                                               ; preds = %51
-  %71 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8), !range !5
+  %71 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %.not61.i = icmp eq i32 %71, 0
   br i1 %.not61.i, label %.thread.thread.i, label %.loopexit
 
@@ -228,7 +228,7 @@ kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
   %90 = getelementptr inbounds i8, ptr %.038109.i, i64 1
   %91 = load i8, ptr %90, align 1
   %.not.i = icmp eq i8 %91, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !5
 
 .thread:                                          ; preds = %32, %kwsysSystem__AppendByte.exit77.i, %kwsysSystem__AppendByte.exit83.i
   %.sink.i = phi ptr [ %88, %kwsysSystem__AppendByte.exit83.i ], [ %68, %kwsysSystem__AppendByte.exit77.i ], [ %33, %32 ]
@@ -236,18 +236,18 @@ kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
   %92 = getelementptr inbounds i8, ptr %.038109.i, i64 1
   %93 = load i8, ptr %92, align 1
   %.not.i8 = icmp eq i8 %93, 0
-  br i1 %.not.i8, label %.thread.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i8, label %.thread.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.loopexit
   %94 = icmp eq i32 %.147.i, 0
   br i1 %94, label %.thread97.i, label %.thread.i
 
 .thread.thread.i:                                 ; preds = %70, %80, %60, %24
-  %95 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8), !range !5
+  %95 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br label %.preheader.i
 
 .thread.i:                                        ; preds = %.thread, %._crit_edge.i
-  %96 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8), !range !5
+  %96 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %.not66.not.i = icmp eq i32 %96, 0
   br i1 %.not66.not.i, label %.preheader.i, label %.thread97.i
 
@@ -281,7 +281,7 @@ kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
   %110 = load ptr, ptr %109, align 8
   call void @free(ptr noundef %110) #8
   %.not69.i = icmp eq ptr %109, %104
-  br i1 %.not69.i, label %.loopexit.i, label %.lr.ph113.i, !llvm.loop !8
+  br i1 %.not69.i, label %.loopexit.i, label %.lr.ph113.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph113.i, %105, %.preheader.i
   %.0124.i = phi ptr [ %103, %105 ], [ null, %.preheader.i ], [ null, %.lr.ph113.i ]
@@ -322,7 +322,7 @@ kwsysSystem__ParseUnixCommand.exit:               ; preds = %113, %115
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef i32 @kwsysSystem__AppendArgument(ptr noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef readnone %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef readnone %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #2 {
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -466,7 +466,6 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

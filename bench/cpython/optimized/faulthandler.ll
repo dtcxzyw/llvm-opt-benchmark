@@ -922,7 +922,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
 @.str.35 = private unnamed_addr constant [36 x i8] c"file is not a valid file descriptor\00", align 1
 @.str.36 = private unnamed_addr constant [45 x i8] c"file.fileno() is not a valid file descriptor\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.37 = private unnamed_addr constant [39 x i8] c"unable to get the current thread state\00", align 1
 @faulthandler_handlers = internal global [5 x %struct.fault_handler_t] [%struct.fault_handler_t { i32 7, i32 0, ptr @.str.38, %struct.sigaction zeroinitializer, i32 0 }, %struct.fault_handler_t { i32 4, i32 0, ptr @.str.39, %struct.sigaction zeroinitializer, i32 0 }, %struct.fault_handler_t { i32 8, i32 0, ptr @.str.40, %struct.sigaction zeroinitializer, i32 0 }, %struct.fault_handler_t { i32 6, i32 0, ptr @.str.41, %struct.sigaction zeroinitializer, i32 0 }, %struct.fault_handler_t { i32 11, i32 0, ptr @.str.42, %struct.sigaction zeroinitializer, i32 0 }], align 16
 @PyExc_OSError = external local_unnamed_addr global ptr, align 8
@@ -1357,7 +1357,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file), !range !9
+  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1479,7 +1479,7 @@ if.end10.i:                                       ; preds = %for.body.i
   store i32 1, ptr %enabled.i, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %faulthandler_enable.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %faulthandler_enable.exit, label %for.body.i, !llvm.loop !9
 
 faulthandler_enable.exit:                         ; preds = %if.end10.i, %Py_XDECREF.exit
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i)
@@ -1573,7 +1573,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file), !range !9
+  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1673,7 +1673,7 @@ get_thread_state.exit.thread:                     ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file), !range !9
+  %call16 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end19
 
@@ -1868,7 +1868,7 @@ if.end:                                           ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end
   %i.06.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.cond.i ]
@@ -1904,7 +1904,7 @@ get_thread_state.exit.thread:                     ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call8 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file), !range !9
+  %call8 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end11
 
@@ -2066,7 +2066,7 @@ if.end:                                           ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end
   %i.06.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.cond.i ]
@@ -2349,7 +2349,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @faulthandler_get_fileno(ptr nocapture noundef %file_ptr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @faulthandler_get_fileno(ptr nocapture noundef %file_ptr) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %0 = load ptr, ptr %file_ptr, align 8
@@ -2523,13 +2523,13 @@ for.cond:                                         ; preds = %for.body.preheader,
   %i.01922 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add nuw nsw i64 %i.01922, 1
   %exitcond = icmp eq i64 %inc, 5
-  br i1 %exitcond, label %if.end7.loopexit, label %for.body, !llvm.loop !12
+  br i1 %exitcond, label %if.end7.loopexit, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %inc
   %4 = load i32, ptr %arrayidx, align 16
   %cmp2 = icmp eq i32 %4, %signum
-  br i1 %cmp2, label %if.end7.loopexit, label %for.cond, !llvm.loop !12
+  br i1 %cmp2, label %if.end7.loopexit, label %for.cond, !llvm.loop !11
 
 if.end7.loopexit:                                 ; preds = %for.cond, %for.body
   %arrayidx.lcssa.ph = phi ptr [ %arrayidx, %for.body ], [ getelementptr inbounds ([5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 4, i32 0), %for.cond ]
@@ -2702,7 +2702,7 @@ do.cond:                                          ; preds = %if.end
   %9 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 26, i32 1, i32 3), align 8
   %tobool11 = icmp ne i32 %9, 0
   %10 = select i1 %cmp6, i1 %tobool11, i1 false
-  br i1 %10, label %do.body, label %do.end, !llvm.loop !13
+  br i1 %10, label %do.body, label %do.end, !llvm.loop !12
 
 do.end:                                           ; preds = %do.cond, %if.then
   %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 26, i32 1, i32 9), align 8
@@ -2922,8 +2922,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 -2147483648}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

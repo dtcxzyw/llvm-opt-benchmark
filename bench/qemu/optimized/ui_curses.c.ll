@@ -394,7 +394,7 @@ for.cond15.preheader.i:                           ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end7
   %i.08.i = phi i32 [ 0, %if.end7 ], [ %inc.i, %for.body.i ]
-  %conv.i = trunc i32 %i.08.i to i16
+  %conv.i = trunc nuw i32 %i.08.i to i16
   %and.i = and i32 %i.08.i, 7
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx.i = getelementptr [8 x i32], ptr @__const.curses_setup.colour_default, i64 0, i64 %idxprom.i
@@ -486,7 +486,7 @@ for.body.i.i:                                     ; preds = %if.end12.i.i, %for.
 
 for.body26.i.i:                                   ; preds = %convert_font.exit.i.i, %for.cond23.preheader.i.i
   %i.167.i.i = phi i32 [ 32, %for.cond23.preheader.i.i ], [ %inc29.i.i, %convert_font.exit.i.i ]
-  %conv27.i.i = trunc i32 %i.167.i.i to i8
+  %conv27.i.i = trunc nuw i32 %i.167.i.i to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %fch.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mbch.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wch.i.i.i)
@@ -966,8 +966,8 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @curses_atexit() #0 {

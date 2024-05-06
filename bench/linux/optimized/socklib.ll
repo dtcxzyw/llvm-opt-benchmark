@@ -22,7 +22,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_csum_partial
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_csum_partial_copy_to_xdr690, ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule333], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @csum_partial_copy_to_xdr(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.xdr_skb_reader, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -377,7 +377,7 @@ define internal i64 @xdr_skb_read_bits(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca [2 x %struct.kvec], align 16
   %9 = icmp eq i32 %4, 0

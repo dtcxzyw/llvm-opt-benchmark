@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [6 x i8] c"lseek\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_fs_base_file_get_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_fs_base_file_get_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = tail call i64 @lseek(i32 noundef %3, i64 noundef 0, i32 noundef 2) #3
   store i64 %4, ptr %1, align 8

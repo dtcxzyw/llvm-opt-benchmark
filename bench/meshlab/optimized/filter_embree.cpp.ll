@@ -2129,7 +2129,7 @@ define noundef i32 @_ZThn16_NK18FilterEmbreePlugin16getPreConditionsEPK7QAction(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18FilterEmbreePlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 65552, 1126071272) i32 @_ZNK18FilterEmbreePlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -2143,7 +2143,7 @@ define noundef i32 @_ZNK18FilterEmbreePlugin13postConditionEPK7QAction(ptr nound
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18FilterEmbreePlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #13 align 2 {
+define noundef range(i32 65552, 1126071272) i32 @_ZThn16_NK18FilterEmbreePlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #13 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -6312,12 +6312,12 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %89, %_ZN3vcg
   %105 = load ptr, ptr %3, align 8
   %106 = getelementptr inbounds %class.CVertexO, ptr %105, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
   %107 = load float, ptr %106, align 4
-  %108 = getelementptr i8, ptr %104, i64 4
+  %108 = getelementptr inbounds i8, ptr %104, i64 4
   store float %107, ptr %108, align 4
   %109 = load ptr, ptr %3, align 8
   %110 = getelementptr inbounds %class.CVertexO, ptr %109, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
   %111 = load float, ptr %110, align 4
-  %112 = getelementptr i8, ptr %104, i64 8
+  %112 = getelementptr inbounds i8, ptr %104, i64 8
   store float %111, ptr %112, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %94, align 8
@@ -6358,7 +6358,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %89, %_ZN3vcg
   %140 = sub i64 %138, %139
   %141 = sdiv exact i64 %140, 48
   %142 = trunc i64 %141 to i32
-  %143 = getelementptr i8, ptr %133, i64 4
+  %143 = getelementptr inbounds i8, ptr %133, i64 4
   store i32 %142, ptr %143, align 4
   %144 = load ptr, ptr %79, align 8
   %145 = getelementptr inbounds %class.CFaceO, ptr %144, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
@@ -6369,7 +6369,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %89, %_ZN3vcg
   %150 = sub i64 %148, %149
   %151 = sdiv exact i64 %150, 48
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr i8, ptr %133, i64 8
+  %153 = getelementptr inbounds i8, ptr %133, i64 8
   store i32 %152, ptr %153, align 4
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %154 = load i32, ptr %117, align 8
@@ -9753,8 +9753,8 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr %"class.vcg::Color4", ptr %131, i64 %105
-  %133 = getelementptr i8, ptr %132, i64 4
+  %132 = getelementptr inbounds %"class.vcg::Color4", ptr %131, i64 %105
+  %133 = getelementptr inbounds i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 1
   %.sroa.2.0.extract.shift = lshr i32 %134, 8
   %.sroa.3.0.extract.shift = lshr i32 %134, 16

@@ -985,7 +985,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i316, %530
   %.01927.i.i = phi ptr [ %566, %564 ], [ %560, %.lr.ph.i.preheader.i ]
   %.02026.i.i = phi i64 [ %568, %564 ], [ %550, %.lr.ph.i.preheader.i ]
   %spec.select24.i.i = call i64 @llvm.umin.i64(i64 %.02026.i.i, i64 2147483647)
-  %spec.select.i.i = trunc i64 %spec.select24.i.i to i32
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select24.i.i to i32
   %563 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i.i, ptr noundef %.01927.i.i, ptr noundef %.01828.i.i) #7
   %.not22.i.i = icmp eq i32 %563, 0
   br i1 %.not22.i.i, label %564, label %ompi_datatype_copy_content_same_ddt.exit.loopexit.i
@@ -1042,7 +1042,7 @@ define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0,
   %.01927 = phi ptr [ %11, %9 ], [ %2, %4 ]
   %.02026 = phi i64 [ %13, %9 ], [ %1, %4 ]
   %spec.select24 = tail call i64 @llvm.umin.i64(i64 %.02026, i64 2147483647)
-  %spec.select = trunc i64 %spec.select24 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select24 to i32
   %8 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %0, i32 noundef %spec.select, ptr noundef %.01927, ptr noundef %.01828) #7
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %9, label %._crit_edge
@@ -1152,7 +1152,7 @@ opal_datatype_span.exit:                          ; preds = %13, %25
   %.01927.i = phi ptr [ %62, %60 ], [ %58, %.lr.ph.i.preheader ]
   %.02026.i = phi i64 [ %64, %60 ], [ %9, %.lr.ph.i.preheader ]
   %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
-  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
   %59 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %7, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #7
   %.not22.i = icmp eq i32 %59, 0
   br i1 %.not22.i, label %60, label %ompi_datatype_copy_content_same_ddt.exit
@@ -1264,7 +1264,7 @@ define void @ompi_coll_han_reorder_gather(ptr noundef %0, ptr noundef %1, i32 no
   %.01927.i = phi ptr [ %28, %26 ], [ %22, %.lr.ph.i.preheader ]
   %.02026.i = phi i64 [ %30, %26 ], [ %12, %.lr.ph.i.preheader ]
   %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
-  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
   %25 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #7
   %.not22.i = icmp eq i32 %25, 0
   br i1 %.not22.i, label %26, label %ompi_datatype_copy_content_same_ddt.exit.loopexit
@@ -2164,7 +2164,7 @@ opal_datatype_span.exit325:                       ; preds = %471, %476
   %.01927.i.i = phi ptr [ %539, %537 ], [ %533, %.lr.ph.i.preheader.i ]
   %.02026.i.i = phi i64 [ %541, %537 ], [ %523, %.lr.ph.i.preheader.i ]
   %spec.select24.i.i = tail call i64 @llvm.umin.i64(i64 %.02026.i.i, i64 2147483647)
-  %spec.select.i.i = trunc i64 %spec.select24.i.i to i32
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select24.i.i to i32
   %536 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i.i, ptr noundef %.01927.i.i, ptr noundef %.01828.i.i) #7
   %.not22.i.i = icmp eq i32 %536, 0
   br i1 %.not22.i.i, label %537, label %ompi_datatype_copy_content_same_ddt.exit.loopexit.i

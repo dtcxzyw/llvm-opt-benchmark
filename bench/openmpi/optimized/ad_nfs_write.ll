@@ -531,7 +531,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %234, label %235, label %243
 
 235:                                              ; preds = %229
-  %236 = trunc i64 %indvars.iv1110 to i32
+  %236 = trunc nuw nsw i64 %indvars.iv1110 to i32
   %237 = add nuw nsw i32 %236, 1
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr inbounds i64, ptr %213, i64 %238
@@ -581,7 +581,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %261, label %262, label %271
 
 262:                                              ; preds = %257
-  %263 = trunc i64 %indvars.iv to i32
+  %263 = trunc nuw nsw i64 %indvars.iv to i32
   %264 = sub nsw i64 %260, %251
   %265 = getelementptr inbounds i8, ptr %204, i64 24
   %266 = load ptr, ptr %265, align 8
@@ -697,7 +697,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %321 = add nsw i32 %.1677951, 1
   %322 = sext i32 %321 to i64
   %323 = srem i64 %322, %275
-  %324 = trunc i64 %323 to i32
+  %324 = trunc nsw i64 %323 to i32
   %325 = icmp eq i32 %324, 0
   %326 = zext i1 %325 to i64
   %327 = add nsw i64 %.3729949, %326
@@ -713,7 +713,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %sext1071 = add i64 %331, 4294967296
   %332 = ashr exact i64 %sext1071, 32
   %333 = srem i64 %332, %275
-  %334 = trunc i64 %333 to i32
+  %334 = trunc nsw i64 %333 to i32
   %335 = icmp eq i32 %334, 0
   %336 = zext i1 %335 to i64
   %337 = add nsw i64 %.4730941, %336
@@ -1036,7 +1036,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %501 = sext i32 %500 to i64
   %502 = load i64, ptr %392, align 8
   %503 = srem i64 %501, %502
-  %504 = trunc i64 %503 to i32
+  %504 = trunc nsw i64 %503 to i32
   %505 = icmp eq i32 %504, 0
   %506 = zext i1 %505 to i64
   %507 = add nsw i64 %.5731981, %506
@@ -1052,7 +1052,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %sext1072 = add i64 %511, 4294967296
   %512 = ashr exact i64 %sext1072, 32
   %513 = srem i64 %512, %502
-  %514 = trunc i64 %513 to i32
+  %514 = trunc nsw i64 %513 to i32
   %515 = icmp eq i32 %514, 0
   %516 = zext i1 %515 to i64
   %517 = add nsw i64 %.6732970, %516
@@ -1305,7 +1305,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %640 = sext i32 %639 to i64
   %641 = load i64, ptr %540, align 8
   %642 = srem i64 %640, %641
-  %643 = trunc i64 %642 to i32
+  %643 = trunc nsw i64 %642 to i32
   %644 = icmp eq i32 %643, 0
   %645 = zext i1 %644 to i64
   %646 = add nsw i64 %.87341018, %645
@@ -1322,7 +1322,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %sext1073 = add i64 %651, 4294967296
   %652 = ashr exact i64 %sext1073, 32
   %653 = srem i64 %652, %641
-  %654 = trunc i64 %653 to i32
+  %654 = trunc nsw i64 %653 to i32
   %655 = icmp eq i32 %654, 0
   %656 = zext i1 %655 to i64
   %657 = add nsw i64 %.97351006, %656
@@ -1360,7 +1360,7 @@ define void @ADIOI_NFS_WriteStrided(ptr noundef %0, ptr noundef %1, i32 noundef 
   %672 = sext i32 %671 to i64
   %673 = load i64, ptr %543, align 8
   %674 = srem i64 %672, %673
-  %675 = trunc i64 %674 to i32
+  %675 = trunc nsw i64 %674 to i32
   %676 = add nsw i32 %.07151020, 1
   %677 = load i64, ptr %13, align 8
   %678 = sext i32 %676 to i64

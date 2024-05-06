@@ -367,7 +367,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @spurious_kernel_fault(i64 noundef %0, i64 noundef %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %0, i64 noundef %1) #1 align 16 {
   switch i64 %0, label %119 [
     i64 17, label %3
     i64 3, label %3
@@ -1456,7 +1456,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #7
 declare ptr @llvm.frameaddress.p0(i32 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @spurious_kernel_fault_check(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = and i64 %0, 2
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %13, label %5
@@ -1528,7 +1528,7 @@ define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef 
 
 17:                                               ; preds = %13
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !34
-  %18 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1), !range !15
+  %18 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %80
 
@@ -1683,7 +1683,7 @@ define internal fastcc void @kernelmode_fixup_or_oops(ptr noundef %0, i64 nounde
   br label %47
 
 43:                                               ; preds = %12
-  %44 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1), !range !15
+  %44 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1)
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %47
 
@@ -1941,7 +1941,7 @@ define internal fastcc void @page_fault_oops(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
@@ -2397,7 +2397,7 @@ declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_a
 declare dso_local void @show_opcodes(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @is_errata93(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @is_errata93(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   %4 = icmp ne i8 %3, 2
   %5 = load i8, ptr @boot_cpu_data, align 8
@@ -2491,7 +2491,7 @@ define internal fastcc void @do_sigbus(ptr noundef %0, i64 noundef %1, i64 nound
   br label %27
 
 9:                                                ; preds = %3
-  %10 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1), !range !15
+  %10 = tail call fastcc i32 @is_prefetch(ptr noundef %0, i64 noundef %1)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %27
 

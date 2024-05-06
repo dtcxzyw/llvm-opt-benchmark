@@ -389,8 +389,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %0 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %1 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not8.i = icmp eq i32 %0, 0
   br i1 %cmp.not8.i, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, label %for.body.lr.ph.i
 
@@ -655,8 +655,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %0 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %1 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not8.i = icmp eq i32 %0, 0
   br i1 %cmp.not8.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -1311,8 +1311,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %0 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %1 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not8.i = icmp eq i32 %0, 0
   br i1 %cmp.not8.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -2125,7 +2125,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.cond, %if.end.i
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %3 = load ptr, ptr %m_decl.i.i, align 8, !noalias !34
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr nonnull sret(%class.rational) align 8 %c, ptr noundef nonnull align 8 dereferenceable(64) %m_pb, ptr noundef %3, i32 noundef %4)
   invoke void @_ZN2pb6solver14check_unsignedERK8rational(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %c)
           to label %invoke.cont unwind label %lpad
@@ -2212,8 +2212,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not8 = icmp eq i32 %0, 0
   br i1 %cmp.not8, label %for.end, label %for.body.lr.ph
 
@@ -2299,8 +2299,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %0 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %1 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not8.i = icmp eq i32 %0, 0
   br i1 %cmp.not8.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -2587,8 +2587,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %c, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 64
+  %1 = getelementptr inbounds i8, ptr %c, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %cmp.not55 = icmp eq i32 %0, 0
   br i1 %cmp.not55, label %for.end, label %for.body.lr.ph
 
@@ -2976,8 +2976,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %p, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 76
+  %1 = getelementptr inbounds i8, ptr %p, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 76
   %cmp.not94 = icmp eq i32 %0, 0
   br i1 %cmp.not94, label %for.end, label %for.body.lr.ph
 

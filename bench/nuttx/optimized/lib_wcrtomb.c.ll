@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i64 -1, 5) i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %56, label %5
 
@@ -13,7 +13,7 @@ define noundef i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapt
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = trunc i32 %1 to i8
+  %8 = trunc nuw nsw i32 %1 to i8
   store i8 %8, ptr %0, align 1
   br label %56
 
@@ -23,7 +23,7 @@ define noundef i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapt
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   %15 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %14, ptr %0, align 1
@@ -39,7 +39,7 @@ define noundef i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapt
 
 21:                                               ; preds = %19
   %22 = lshr i32 %1, 12
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = or disjoint i8 %23, -32
   %25 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %24, ptr %0, align 1
@@ -61,7 +61,7 @@ define noundef i64 @wcrtomb(ptr noundef writeonly %0, i32 noundef %1, ptr nocapt
 
 36:                                               ; preds = %34
   %37 = lshr i32 %1, 18
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw i32 %37 to i8
   %39 = or disjoint i8 %38, -16
   %40 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %39, ptr %0, align 1

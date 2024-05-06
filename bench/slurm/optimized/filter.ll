@@ -32,7 +32,7 @@ define dso_local void @filter_job_list(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @_filter_job(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 17), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -77,7 +77,7 @@ define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone 
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_list_find_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -86,7 +86,7 @@ define internal i32 @_list_find_job_id(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_user(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_list_find_user(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -95,7 +95,7 @@ define internal i32 @_list_find_user(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_list_find_part(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_list_find_part(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %1) #3
   %.not = icmp eq i32 %3, 0
   %4 = zext i1 %.not to i32

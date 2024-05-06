@@ -98,7 +98,7 @@ mkPair.exit:                                      ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @inPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @inPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pair, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %1, ptr %4, align 8
@@ -113,7 +113,7 @@ define i32 @inPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @isInPS(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isInPS(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pair, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
@@ -261,7 +261,7 @@ define internal void @freePair(ptr nocapture noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmppair(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
+define internal range(i32 -1, 2) i32 @cmppair(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp sgt i32 %5, %6

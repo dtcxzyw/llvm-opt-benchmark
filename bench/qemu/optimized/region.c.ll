@@ -1118,7 +1118,7 @@ declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tb_tc_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp, ptr nocapture readnone %userdata) #1 {
+define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp, ptr nocapture readnone %userdata) #1 {
 entry:
   %size = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = load i64, ptr %size, align 8

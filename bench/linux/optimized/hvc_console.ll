@@ -81,7 +81,7 @@ define internal noundef i32 @hvc_console_init() #0 section ".init.text" align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hvc_instantiate(i32 noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp ugt i32 %1, 15
   br i1 %4, label %23, label %5
 
@@ -972,7 +972,7 @@ define internal ptr @hvc_console_device(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @hvc_console_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
+define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp ugt i16 %4, 15

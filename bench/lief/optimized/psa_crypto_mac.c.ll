@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.psa_mac_finish_internal = private unnamed_addr constant [16 x i64] [i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 128, i64 128, i64 128, i64 128, i64 64, i64 64, i64 144, i64 136, i64 104], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_psa_mac_abort(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -137, 1) i32 @mbedtls_psa_mac_abort(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %18, label %4
@@ -495,7 +495,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not41.i, label %43, label %44
 
 43:                                               ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
   br label %44
 
 44:                                               ; preds = %43, %41, %38, %35, %33

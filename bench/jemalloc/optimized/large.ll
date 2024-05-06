@@ -82,7 +82,7 @@ if.end.i57:                                       ; preds = %if.then.i
 if.end14.i111:                                    ; preds = %if.end.i57
   %shl15.i112 = shl nuw i64 %and.i, 1
   %sub.i113 = add nsw i64 %shl15.i112, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i113, i1 true), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i113, i1 true)
   %sub23.i119 = sub nuw nsw i64 60, %2
   %notmask = shl nsw i64 -1, %sub23.i119
   %sub27.i123 = xor i64 %notmask, -1
@@ -110,7 +110,7 @@ if.end.i66:                                       ; preds = %if.end9.i
 if.end14.i:                                       ; preds = %if.end.i66
   %shl15.i = shl nuw i64 %usize, 1
   %sub.i85 = add i64 %shl15.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i85, i1 true), !range !5
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i85, i1 true)
   %sub23.i86 = sub nuw nsw i64 60, %3
   %notmask69 = shl nsw i64 -1, %sub23.i86
   %sub27.i = xor i64 %notmask69, -1
@@ -665,7 +665,7 @@ if.end.i.i106:                                    ; preds = %if.end.i104
 if.end12.i.i:                                     ; preds = %if.end.i.i106
   %shl.i.i = shl nuw i64 %usize_max, 1
   %sub13.i.i = add i64 %shl.i.i, -1
-  %33 = tail call i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true), !range !5
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
   %34 = trunc nuw nsw i64 %33 to i32
   %conv1.i.i.i.i.i = shl nuw nsw i32 %34, 2
   %sub19.i.i = xor i32 %conv1.i.i.i.i.i, 252
@@ -788,7 +788,7 @@ if.end.i:                                         ; preds = %entry
 if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw i64 %usize, 1
   %sub13.i = add i64 %shl.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true), !range !5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %8, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
@@ -948,7 +948,7 @@ if.end.i.i143:                                    ; preds = %if.then.i53
 if.end12.i.i:                                     ; preds = %if.end.i.i143
   %shl.i.i = shl nuw i64 %13, 1
   %sub13.i.i = add i64 %shl.i.i, -1
-  %20 = call i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true), !range !5
+  %20 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
   %21 = trunc nuw nsw i64 %20 to i32
   %conv1.i.i.i.i.i = shl nuw nsw i32 %21, 2
   %sub19.i.i = xor i32 %conv1.i.i.i.i.i, 252
@@ -1034,7 +1034,7 @@ if.end.i.i:                                       ; preds = %if.end.i51
 if.end12.i:                                       ; preds = %if.end.i.i
   %shl.i = shl nuw i64 %13, 1
   %sub13.i = add i64 %shl.i, -1
-  %30 = call i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true), !range !5
+  %30 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
   %31 = trunc nuw nsw i64 %30 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %31, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
@@ -1698,7 +1698,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #10
@@ -1706,29 +1706,29 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !8
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !7
   %shr.i69 = lshr i64 %10, 48
   %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !11
+  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !10
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   %11 = trunc i64 %10 to i8
   %frombool.i73 = and i8 %11, 1
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !11
+  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !10
   %is_head.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %12 = lshr i8 %11, 1
   %frombool5.i = and i8 %12, 1
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !11
+  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !10
   %13 = trunc i64 %10 to i32
   %14 = lshr i32 %13, 2
   %conv8.i = and i32 %14, 7
   %state.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !11
+  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !10
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
   %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !11
+  store ptr %15, ptr %agg.result, align 8, !alias.scope !10
   ret void
 }
 
@@ -1777,12 +1777,11 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"rtree_leaf_elm_read: %agg.result"}
-!10 = distinct !{!10, !"rtree_leaf_elm_read"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!13 = distinct !{!13, !"rtree_leaf_elm_bits_decode"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"rtree_leaf_elm_read: %agg.result"}
+!9 = distinct !{!9, !"rtree_leaf_elm_read"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"rtree_leaf_elm_bits_decode: %agg.result"}
+!12 = distinct !{!12, !"rtree_leaf_elm_bits_decode"}

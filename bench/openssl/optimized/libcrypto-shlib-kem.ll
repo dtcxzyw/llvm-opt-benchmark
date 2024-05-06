@@ -16,7 +16,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 4096, ptr noundef %params, ptr noundef nonnull %authpriv), !range !4
+  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 4096, ptr noundef %params, ptr noundef nonnull %authpriv)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -25,7 +25,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef %operation, ptr noundef %params, ptr noundef %authkey) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @evp_kem_init(ptr noundef %ctx, i32 noundef %operation, ptr noundef %params, ptr noundef %authkey) unnamed_addr #0 {
 entry:
   %tmp_keymgmt = alloca ptr, align 8
   store ptr null, ptr %tmp_keymgmt, align 8
@@ -224,7 +224,7 @@ for.inc:                                          ; preds = %sw.bb, %if.end75, %
   %cmp27 = icmp ult i32 %iter.0103, 2
   %cmp29 = icmp eq ptr %provkey.2, null
   %21 = and i1 %cmp29, %cmp27
-  br i1 %21, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %21, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp29, label %if.then82, label %if.end83
@@ -352,9 +352,9 @@ return:                                           ; preds = %sw.epilog143, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_encapsulate_init(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @EVP_PKEY_encapsulate_init(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 4096, ptr noundef %params, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 4096, ptr noundef %params, ptr noundef null)
   ret i32 %call
 }
 
@@ -413,9 +413,9 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_decapsulate_init(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @EVP_PKEY_decapsulate_init(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 8192, ptr noundef %params, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 8192, ptr noundef %params, ptr noundef null)
   ret i32 %call
 }
 
@@ -426,7 +426,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 8192, ptr noundef %params, ptr noundef nonnull %authpub), !range !4
+  %call = tail call fastcc i32 @evp_kem_init(ptr noundef %ctx, i32 noundef 8192, ptr noundef %params, ptr noundef nonnull %authpub)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -784,7 +784,7 @@ for.inc:                                          ; preds = %for.cond, %if.end10
   %gparamfncnt.1 = phi i32 [ %gparamfncnt.0, %sw.bb89 ], [ %gparamfncnt.0, %if.end92 ], [ %gparamfncnt.0, %sw.bb82 ], [ %gparamfncnt.0, %if.end85 ], [ %gparamfncnt.0, %sw.bb75 ], [ %inc81, %if.end78 ], [ %gparamfncnt.0, %sw.bb68 ], [ %inc74, %if.end71 ], [ %gparamfncnt.0, %sw.bb62 ], [ %gparamfncnt.0, %if.end65 ], [ %gparamfncnt.0, %sw.bb55 ], [ %gparamfncnt.0, %if.end58 ], [ %gparamfncnt.0, %sw.bb48 ], [ %gparamfncnt.0, %if.end51 ], [ %gparamfncnt.0, %sw.bb41 ], [ %gparamfncnt.0, %if.end44 ], [ %gparamfncnt.0, %sw.bb34 ], [ %gparamfncnt.0, %if.end37 ], [ %gparamfncnt.0, %sw.bb27 ], [ %gparamfncnt.0, %if.end30 ], [ %gparamfncnt.0, %sw.bb20 ], [ %gparamfncnt.0, %if.end23 ], [ %gparamfncnt.0, %sw.bb13 ], [ %gparamfncnt.0, %if.end16 ], [ %gparamfncnt.0, %sw.bb ], [ %gparamfncnt.0, %if.end10 ], [ %gparamfncnt.0, %for.cond ]
   %sparamfncnt.1 = phi i32 [ %sparamfncnt.0, %sw.bb89 ], [ %inc95, %if.end92 ], [ %sparamfncnt.0, %sw.bb82 ], [ %inc88, %if.end85 ], [ %sparamfncnt.0, %sw.bb75 ], [ %sparamfncnt.0, %if.end78 ], [ %sparamfncnt.0, %sw.bb68 ], [ %sparamfncnt.0, %if.end71 ], [ %sparamfncnt.0, %sw.bb62 ], [ %sparamfncnt.0, %if.end65 ], [ %sparamfncnt.0, %sw.bb55 ], [ %sparamfncnt.0, %if.end58 ], [ %sparamfncnt.0, %sw.bb48 ], [ %sparamfncnt.0, %if.end51 ], [ %sparamfncnt.0, %sw.bb41 ], [ %sparamfncnt.0, %if.end44 ], [ %sparamfncnt.0, %sw.bb34 ], [ %sparamfncnt.0, %if.end37 ], [ %sparamfncnt.0, %sw.bb27 ], [ %sparamfncnt.0, %if.end30 ], [ %sparamfncnt.0, %sw.bb20 ], [ %sparamfncnt.0, %if.end23 ], [ %sparamfncnt.0, %sw.bb13 ], [ %sparamfncnt.0, %if.end16 ], [ %sparamfncnt.0, %sw.bb ], [ %sparamfncnt.0, %if.end10 ], [ %sparamfncnt.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
-  br label %for.cond, !llvm.loop !7
+  br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
   %cmp96.not = icmp eq i32 %ctxfncnt.0, 2
@@ -857,7 +857,7 @@ entry:
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KEM_is_a(ptr noundef readonly %kem, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEM_is_a(ptr noundef readonly %kem, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %kem, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -1014,7 +1014,6 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

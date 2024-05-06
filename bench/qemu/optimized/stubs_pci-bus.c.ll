@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.pci_create_simple = private unnamed_addr constant [18 x i8] c"pci_create_simple\00", align 1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local noalias nonnull ptr @pci_create_simple(ptr nocapture noundef readnone %bus, i32 noundef %devfn, ptr nocapture noundef readnone %name) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @pci_create_simple(ptr nocapture noundef readnone %bus, i32 noundef %devfn, ptr nocapture noundef readnone %name) local_unnamed_addr #0 {
 entry:
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @__func__.pci_create_simple, ptr noundef null) #2
   unreachable

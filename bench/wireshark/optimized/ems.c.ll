@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ems_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ems_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca %struct.ems_msg_s, align 16
   %6 = load ptr, ptr %0, align 8
@@ -208,17 +208,17 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ems_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @ems_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #4
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @ems_read_message(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !7
+  %10 = tail call fastcc i32 @ems_read_message(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ems_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ems_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
@@ -233,7 +233,7 @@ define internal noundef i32 @ems_seek_read(ptr nocapture noundef readonly %0, i6
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %7, align 8
-  %16 = tail call fastcc i32 @ems_read_message(ptr noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !7
+  %16 = tail call fastcc i32 @ems_read_message(ptr noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %17
 
 17:                                               ; preds = %14, %11
@@ -265,7 +265,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ems_read_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ems_read_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca %struct.ems_msg_s, align 16
   %8 = alloca [32 x i8], align 16
@@ -412,7 +412,7 @@ parse_ems_line.exit:                              ; preds = %17
   store i8 %101, ptr %106, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %107, label %92, !llvm.loop !8
+  br i1 %exitcond.not, label %107, label %92, !llvm.loop !7
 
 107:                                              ; preds = %100
   %108 = load i64, ptr %45, align 8
@@ -477,5 +477,4 @@ attributes #4 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

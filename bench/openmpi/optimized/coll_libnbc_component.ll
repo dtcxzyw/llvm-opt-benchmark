@@ -1383,7 +1383,7 @@ define internal i32 @request_start(i64 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @request_free(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 8) i32 @request_free(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8

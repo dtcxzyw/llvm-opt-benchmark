@@ -57,7 +57,7 @@ define void @uniq_free(ptr nocapture noundef %0) local_unnamed_addr #3 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uniq_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @uniq_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %7
@@ -222,7 +222,7 @@ define noundef i32 @uniq_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
 declare ptr @cl_hash_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uniq_get(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %4, null

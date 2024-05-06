@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Aig_ManRetimeMark_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_ManRetimeMark_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 32
@@ -32,7 +32,7 @@ define noundef i32 @Aig_ManRetimeMark_rec(ptr noundef %0, ptr nocapture noundef 
   %13 = ptrtoint ptr %.val25 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef %15), !range !4
+  %16 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef %15)
   %.not18 = icmp eq i32 %16, 0
   %.val26 = load i64, ptr %3, align 8
   br i1 %.not18, label %17, label %.sink.split
@@ -50,7 +50,7 @@ define noundef i32 @Aig_ManRetimeMark_rec(ptr noundef %0, ptr nocapture noundef 
   %23 = ptrtoint ptr %.val27 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef %25), !range !4
+  %26 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef %25)
   %.not20 = icmp eq i32 %26, 0
   br i1 %.not20, label %30, label %27
 
@@ -111,7 +111,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %16 = sub nsw i32 %.val63, %.val64
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.critedge, label %.critedge2.preheader, !llvm.loop !5
+  br i1 %18, label %.critedge, label %.critedge2.preheader, !llvm.loop !4
 
 .critedge6.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %19 = getelementptr inbounds i8, ptr %0, i64 24
@@ -142,11 +142,11 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %33 = add nuw nsw i32 %.282, 1
   %.val65 = load i32, ptr %2, align 8
   %34 = icmp slt i32 %33, %.val65
-  br i1 %34, label %.critedge2, label %.critedge6.preheader, !llvm.loop !7
+  br i1 %34, label %.critedge2, label %.critedge6.preheader, !llvm.loop !6
 
 .critedge6.loopexit:                              ; preds = %57
   %.not = icmp eq i32 %.254, 0
-  br i1 %.not, label %.preheader, label %38, !llvm.loop !8
+  br i1 %.not, label %.preheader, label %38, !llvm.loop !7
 
 .preheader:                                       ; preds = %38, %.critedge6.loopexit
   %.val6689 = load i32, ptr %2, align 8
@@ -181,7 +181,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not56, label %49, label %57
 
 49:                                               ; preds = %.lr.ph88
-  %50 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef nonnull %45), !range !4
+  %50 = tail call i32 @Aig_ManRetimeMark_rec(ptr noundef nonnull %0, ptr noundef nonnull %45)
   %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %57, label %51
 
@@ -205,7 +205,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %.val59 = load i32, ptr %59, align 4
   %60 = sext i32 %.val59 to i64
   %61 = icmp slt i64 %indvars.iv.next96, %60
-  br i1 %61, label %.lr.ph88, label %.critedge6.loopexit, !llvm.loop !9
+  br i1 %61, label %.lr.ph88, label %.critedge6.loopexit, !llvm.loop !8
 
 62:                                               ; preds = %.lr.ph93, %62
   %.val6689.pn = phi i32 [ %.val6689, %.lr.ph93 ], [ %.val66, %62 ]
@@ -232,7 +232,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %76 = add nuw nsw i32 %.491, 1
   %.val66 = load i32, ptr %2, align 8
   %77 = icmp slt i32 %76, %.val66
-  br i1 %77, label %62, label %.critedge8, !llvm.loop !10
+  br i1 %77, label %62, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %62, %.preheader
   ret void
@@ -295,7 +295,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %32 = add nuw nsw i32 %.087126, 1
   %.val106 = load i32, ptr %3, align 8
   %33 = icmp slt i32 %32, %.val106
-  br i1 %33, label %15, label %.critedge.preheader, !llvm.loop !11
+  br i1 %33, label %15, label %.critedge.preheader, !llvm.loop !10
 
 .preheader123:                                    ; preds = %.critedge.preheader, %.critedge2
   %.083137 = phi i32 [ %.285, %.critedge2 ], [ 0, %.critedge.preheader ]
@@ -434,11 +434,11 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.val102 = load i32, ptr %111, align 4
   %112 = sext i32 %.val102 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph132, label %.critedge2, !llvm.loop !12
+  br i1 %113, label %.lr.ph132, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %109
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %.preheader.loopexit, label %.preheader123, !llvm.loop !13
+  br i1 %.not, label %.preheader.loopexit, label %.preheader123, !llvm.loop !12
 
 .critedge4.preheader:                             ; preds = %117, %.preheader
   %114 = load ptr, ptr %9, align 8
@@ -476,7 +476,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %134 = add nuw nsw i32 %.289140, 1
   %.val105 = load i32, ptr %3, align 8
   %135 = icmp slt i32 %134, %.val105
-  br i1 %135, label %117, label %.critedge4.preheader, !llvm.loop !15
+  br i1 %135, label %117, label %.critedge4.preheader, !llvm.loop !14
 
 .lr.ph145:                                        ; preds = %.critedge4.preheader, %.critedge4
   %136 = phi ptr [ %145, %.critedge4 ], [ %114, %.critedge4.preheader ]
@@ -503,7 +503,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.val101 = load i32, ptr %146, align 4
   %147 = sext i32 %.val101 to i64
   %148 = icmp slt i64 %indvars.iv.next148, %147
-  br i1 %148, label %.lr.ph145, label %.critedge6, !llvm.loop !16
+  br i1 %148, label %.lr.ph145, label %.critedge6, !llvm.loop !15
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %149 = tail call i32 @Aig_ManSeqCleanup(ptr noundef nonnull %0) #3
@@ -540,16 +540,15 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5, !13}
+!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

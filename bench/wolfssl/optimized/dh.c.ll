@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitDhKey_ex(ptr noundef %key, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_InitDhKey_ex(ptr noundef %key, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -46,7 +46,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @sp_init_multi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitDhKey(ptr noundef %key) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_InitDhKey(ptr noundef %key) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %key, null
   br i1 %cmp.i, label %wc_InitDhKey_ex.exit, label %if.end.i
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @wc_DhCheckPubValue(ptr nocapture noundef readonly %prime, i32 noundef %primeSz, ptr nocapture noundef readonly %pub, i32 noundef %pubSz) local_unnamed_addr #3 {
+define range(i32 -3, 1) i32 @wc_DhCheckPubValue(ptr nocapture noundef readonly %prime, i32 noundef %primeSz, ptr nocapture noundef readonly %pub, i32 noundef %pubSz) local_unnamed_addr #3 {
 entry:
   %cmp34.not = icmp eq i32 %pubSz, 0
   br i1 %cmp34.not, label %for.end, label %land.rhs.preheader
@@ -334,7 +334,7 @@ if.end72:                                         ; preds = %for.inc, %if.else66
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
+define range(i32 -263, 1) i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
 entry:
   %x = alloca [1 x %struct.sp_int], align 16
   %q = alloca [1 x %struct.sp_int], align 16
@@ -424,14 +424,14 @@ declare i32 @sp_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @sp_forcezero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPrivKey(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
+define range(i32 -263, 1) i32 @wc_DhCheckPrivKey(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef null, i32 noundef 0), !range !7
+  %call = tail call i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef null, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckKeyPair(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_DhCheckKeyPair(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
 entry:
   %publicKey.i = alloca [1 x %struct.sp_int], align 16
   %privateKey.i = alloca [1 x %struct.sp_int], align 16
@@ -597,7 +597,7 @@ GeneratePrivateDh.exit.thread24.i:                ; preds = %if.end28.i.i.i, %do
 do.cond.i.i.i:                                    ; preds = %if.end28.i.i.i
   %call36.i.i.i = call i32 @sp_cmp_d(ptr noundef nonnull %tmpX.i.i.i, i64 noundef 1) #13
   %cmp37.not.i.i.i = icmp eq i32 %call36.i.i.i, 1
-  br i1 %cmp37.not.i.i.i, label %for.cond.preheader.i.i.i.i, label %do.body19.i.i.i, !llvm.loop !8
+  br i1 %cmp37.not.i.i.i, label %for.cond.preheader.i.i.i.i, label %do.body19.i.i.i, !llvm.loop !7
 
 for.cond.preheader.i.i.i.i:                       ; preds = %do.cond.i.i.i
   %cmp515.i.i.i.i = icmp ult i32 %13, -8
@@ -616,7 +616,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   store volatile i64 0, ptr %w.017.i.i.i.i, align 8
   %sub8.i.i.i.i = add i32 %len.addr.016.i.i.i.i, -8
   %cmp5.i.i.i.i = icmp ugt i32 %sub8.i.i.i.i, 7
-  br i1 %cmp5.i.i.i.i, label %for.body.i.i.i.i, label %while.cond9.preheader.i.i.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i.i.i, label %for.body.i.i.i.i, label %while.cond9.preheader.i.i.i.i, !llvm.loop !8
 
 while.body12.i.i.i.i:                             ; preds = %while.cond9.preheader.i.i.i.i, %while.body12.i.i.i.i
   %z.122.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i, %while.body12.i.i.i.i ], [ %w.0.lcssa.i.i.i.i, %while.cond9.preheader.i.i.i.i ]
@@ -625,7 +625,7 @@ while.body12.i.i.i.i:                             ; preds = %while.cond9.prehead
   %incdec.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %z.122.i.i.i.i, i64 1
   store volatile i8 0, ptr %z.122.i.i.i.i, align 1
   %tobool11.not.i.i.i.i = icmp eq i32 %dec10.i.i.i.i, 0
-  br i1 %tobool11.not.i.i.i.i, label %ForceZero.exit.i.i.i, label %while.body12.i.i.i.i, !llvm.loop !10
+  br i1 %tobool11.not.i.i.i.i, label %ForceZero.exit.i.i.i, label %while.body12.i.i.i.i, !llvm.loop !9
 
 ForceZero.exit.i.i.i:                             ; preds = %while.body12.i.i.i.i, %while.cond9.preheader.i.i.i.i
   %14 = load i32, ptr %privSz, align 4
@@ -798,7 +798,7 @@ return:                                           ; preds = %GeneratePublicDh.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_DhAgree(ptr noundef %key, ptr noundef %agree, ptr noundef writeonly %agreeSz, ptr noundef %priv, i32 noundef %privSz, ptr noundef %otherPub, i32 noundef %pubSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_DhAgree(ptr noundef %key, ptr noundef %agree, ptr noundef writeonly %agreeSz, ptr noundef %priv, i32 noundef %privSz, ptr noundef %otherPub, i32 noundef %pubSz) local_unnamed_addr #1 {
 entry:
   %y.i = alloca [1 x %struct.sp_int], align 16
   %x.i = alloca [1 x %struct.sp_int], align 16
@@ -1081,7 +1081,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wc_DhGetNamedKeyMinSize(i32 noundef %name) local_unnamed_addr #0 {
+define noundef range(i32 0, 30) i32 @wc_DhGetNamedKeyMinSize(i32 noundef %name) local_unnamed_addr #0 {
 entry:
   %cond = icmp eq i32 %name, 256
   %. = select i1 %cond, i32 29, i32 0
@@ -1089,7 +1089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @wc_DhCmpNamedKey(i32 noundef %name, i32 noundef %noQ, ptr nocapture noundef readonly %p, i32 noundef %pSz, ptr nocapture noundef readonly %g, i32 noundef %gSz, ptr nocapture noundef readnone %q, i32 noundef %qSz) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %name, i32 noundef %noQ, ptr nocapture noundef readonly %p, i32 noundef %pSz, ptr nocapture noundef readonly %g, i32 noundef %gSz, ptr nocapture noundef readnone %q, i32 noundef %qSz) local_unnamed_addr #4 {
 entry:
   %cond.not = icmp eq i32 %name, 256
   br i1 %cond.not, label %if.then, label %if.end
@@ -1277,7 +1277,6 @@ attributes #13 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -263, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

@@ -339,7 +339,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 218:                                              ; preds = %.split37.us
   %219 = tail call i32 @dgemm_kernel(i64 noundef %213, i64 noundef 1, i64 noundef %.fr38, double noundef -1.000000e+00, ptr noundef %215, ptr noundef %155, ptr noundef %214, i64 noundef %7) #3
-  %220 = mul nsw i64 %213, %.fr38
+  %220 = mul nuw nsw i64 %213, %.fr38
   %221 = getelementptr inbounds double, ptr %215, i64 %220
   %222 = load double, ptr %212, align 8, !tbaa !3
   br label %223

@@ -131,7 +131,7 @@ define align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hf2ebb3c76b6b5d81E"(ptr align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i8 0, 5) i8 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hf2ebb3c76b6b5d81E"(ptr align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %4 = call zeroext i1 @"_ZN22cranelift_codegen_meta3isa3Isa9from_name28_$u7b$$u7b$closure$u7d$$u7d$17h3df823c8be2a427bE"(ptr align 8 %0, ptr nonnull align 1 %3)

@@ -223,7 +223,7 @@ define internal void @IDABBDPrecFree(ptr nocapture noundef readonly %0) #0 {
 declare i32 @IDASpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, double noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
+define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, double noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds i8, ptr %5, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 64
@@ -614,7 +614,7 @@ define internal noundef i32 @IDABBDPrecSolve(double %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -677,7 +677,7 @@ define noundef i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -720,7 +720,7 @@ define noundef i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @IDABBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -941,7 +941,7 @@ define internal void @IDABBDPrecFreeB(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -986,7 +986,7 @@ define noundef i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 nounde
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = getelementptr inbounds i8, ptr %.019, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @IDABBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4), !range !10
+  %26 = tail call i32 @IDABBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4)
   br label %27
 
 27:                                               ; preds = %._crit_edge, %18, %12, %7
@@ -1039,4 +1039,3 @@ attributes #8 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = !{}
-!10 = !{i32 -5, i32 1}

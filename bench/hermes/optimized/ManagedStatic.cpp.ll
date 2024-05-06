@@ -11,8 +11,8 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE
 @_ZL10StaticList = internal unnamed_addr global ptr null, align 8
 @_ZL15mutex_init_flag = internal global %"struct.std::once_flag" zeroinitializer, align 4
 @_ZL18ManagedStaticMutex = internal unnamed_addr global ptr null, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %Creator, ptr noundef %Deleter) local_unnamed_addr #0 align 2 {

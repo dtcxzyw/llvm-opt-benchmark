@@ -43,73 +43,73 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN101_$LT$diese
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h00ede4d10c2b5f25E.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17hf2620f835eae6379E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17hf2620f835eae6379E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h182422810199e18eE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h4a8d22303eb47109E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h4a8d22303eb47109E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h2df9db7e8ebb57c8E.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17hb386b582a9128792E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17hb386b582a9128792E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h4730cf5ba13fbecdE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h089ded3de79bccbeE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h089ded3de79bccbeE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h494ba6f139ef3a48E.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h3758403813fc2481E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h3758403813fc2481E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h54601539b71d098dE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17he86a1b33d0217d7bE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17he86a1b33d0217d7bE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h64337c872bab4795E.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h89f2f22407241c5eE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h89f2f22407241c5eE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h87a1d90e7e0264feE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h6d6bd00a826a3a3fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h6d6bd00a826a3a3fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17haeb0c1268139154cE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h844404e2be57fad0E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h844404e2be57fad0E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbc1fb463d48fbedfE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h7ca096ffca3c7c95E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h7ca096ffca3c7c95E.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hd66b3a997da6491bE.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h1b5e85b32bf28f1fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17h1b5e85b32bf28f1fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hefa9083c77042e10E.llvm.2695991374795030390"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17he6cebe3df663550fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
+  tail call void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_query28_$u7b$$u7b$closure$u7d$$u7d$17he6cebe3df663550fE.llvm.2695991374795030390"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 zeroext poison)
   ret void
 }
 
@@ -481,7 +481,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %switch.i = icmp eq i64 %2, 0
   %extract.t368 = trunc i128 %3 to i64
   %extract370 = lshr i128 %3, 64
-  %extract.t371 = trunc i128 %extract370 to i64
+  %extract.t371 = trunc nuw i128 %extract370 to i64
   br i1 %switch.i, label %38, label %112
 
 38:                                               ; preds = %13
@@ -552,7 +552,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %58 = load i32, ptr %.sroa.014.041.i.i, align 8, !range !68, !alias.scope !69, !noalias !70, !noundef !5
-  %trunc.i.i.i.i = trunc i32 %58 to i1
+  %trunc.i.i.i.i = trunc nuw i32 %58 to i1
   br i1 %trunc.i.i.i.i, label %63, label %59
 
 59:                                               ; preds = %55
@@ -614,7 +614,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %82 = extractvalue { i64, ptr } %80, 1
   %83 = icmp ne ptr %82, null
   tail call void @llvm.assume(i1 %83)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 1 %76, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull readonly align 1 %76, i64 %78, i1 false)
   br label %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h991d748da82428c0E.exit.i.i.i.i.i.i.i.i"
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h991d748da82428c0E.exit.i.i.i.i.i.i.i.i": ; preds = %.noexc.i.i.i.i.i.i, %73
@@ -643,7 +643,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %94 = extractvalue { i64, ptr } %92, 1
   %95 = icmp ne ptr %94, null
   tail call void @llvm.assume(i1 %95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %88, i64 %90, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull readonly align 1 %88, i64 %90, i1 false)
   br label %"_ZN83_$LT$diesel..pg..backend..FailedToLookupTypeError$u20$as$u20$core..clone..Clone$GT$5clone17h74a5a0e6e3a5bec4E.exit.i.i.i.i"
 
 96:                                               ; preds = %91
@@ -679,7 +679,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 16
   store i64 %90, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !97
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i.i.i.i.i.i.i, i64 24, i1 false), !noalias !97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i.i.i.i.i.i.i, i64 24, i1 false), !noalias !97
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i.i.i.i.i)
   br label %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i"
 
@@ -733,7 +733,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !51
   %extract.t = trunc i128 %.sroa.0218.0.copyload to i64
   %extract = lshr i128 %.sroa.0218.0.copyload, 64
-  %extract.t369 = trunc i128 %extract to i64
+  %extract.t369 = trunc nuw i128 %extract to i64
   br label %112
 
 110:                                              ; preds = %.body.i
@@ -798,7 +798,7 @@ common.resume:                                    ; preds = %.thread247, %179, %
 
 122:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
-  %123 = trunc i8 %121 to i1
+  %123 = trunc nuw i8 %121 to i1
   br i1 %123, label %138, label %126
 
 124:                                              ; preds = %117
@@ -854,7 +854,7 @@ common.resume:                                    ; preds = %.thread247, %179, %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26)
   call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h14cf32b1295a81f3E"(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %26, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %33)
   %139 = load i64, ptr %26, align 8, !range !116, !noundef !5
-  %trunc77 = trunc i64 %139 to i1
+  %trunc77 = trunc nuw i64 %139 to i1
   %140 = getelementptr inbounds i8, ptr %26, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.617, ptr noundef nonnull align 8 dereferenceable(64) %140, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %26)
@@ -904,13 +904,13 @@ common.resume:                                    ; preds = %.thread247, %179, %
   br i1 %151, label %153, label %152
 
 152:                                              ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !alias.scope !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %34, i64 40, i1 false), !alias.scope !122
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9790a3b81b905776E.exit"
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %34, i64 8
   %155 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(32) %154, i64 32, i1 false), !alias.scope !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %155, ptr noundef nonnull readonly align 8 dereferenceable(32) %154, i64 32, i1 false), !alias.scope !122
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !117, !noalias !120
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9790a3b81b905776E.exit"
 
@@ -1304,7 +1304,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !222
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !222, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !222
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -1455,7 +1455,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !263
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !263, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !263
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -1603,7 +1603,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !300
   %18 = load i8, ptr %10, align 1, !range !233, !noalias !300, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !300
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %25, label %.thread40
 
 20:                                               ; preds = %5
@@ -1754,7 +1754,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !335
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !335, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !335
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -1905,7 +1905,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !375
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !375, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !375
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2053,7 +2053,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !412
   %18 = load i8, ptr %10, align 1, !range !233, !noalias !412, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !412
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %25, label %.thread40
 
 20:                                               ; preds = %5
@@ -2204,7 +2204,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !447
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !447, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !447
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2355,7 +2355,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !487
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !487, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !487
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2506,7 +2506,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !527
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !527, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !527
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2657,7 +2657,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !567
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !567, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !567
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2808,7 +2808,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !607
   %19 = load i8, ptr %10, align 1, !range !233, !noalias !607, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !607
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %.thread40
 
 21:                                               ; preds = %5
@@ -2956,7 +2956,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !645
   %18 = load i8, ptr %10, align 1, !range !233, !noalias !645, !noundef !5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !645
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %25, label %.thread40
 
 20:                                               ; preds = %5

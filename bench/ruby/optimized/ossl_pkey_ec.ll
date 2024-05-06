@@ -660,7 +660,7 @@ define internal noundef i64 @ossl_ec_key_set_public_key(i64 %0, i64 %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ec_key_is_private(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_key_is_private(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -689,7 +689,7 @@ define internal i64 @ossl_ec_key_is_private(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ec_key_is_public(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_key_is_public(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1113,7 +1113,7 @@ define internal noundef i64 @ossl_ec_group_initialize_copy(i64 noundef returned 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ec_group_eql(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_group_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1301,7 +1301,7 @@ define internal i64 @ossl_ec_group_get_curve_name(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ec_group_get_asn1_flag(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_ec_group_get_asn1_flag(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -1500,7 +1500,7 @@ RSTRING_PTR.exit:                                 ; preds = %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ec_group_get_degree(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_ec_group_get_degree(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -1762,12 +1762,12 @@ define internal noundef i64 @ossl_ec_point_initialize_copy(i64 noundef returned 
 declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ec_point_eql(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_point_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @id_i_group, align 8
   %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #6
   %5 = load i64, ptr @id_i_group, align 8
   %6 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef %5) #6
-  %7 = tail call i64 @ossl_ec_group_eql(i64 noundef %4, i64 noundef %6), !range !15
+  %7 = tail call i64 @ossl_ec_group_eql(i64 noundef %4, i64 noundef %6)
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %30, label %9
 
@@ -1823,7 +1823,7 @@ define internal noundef i64 @ossl_ec_point_eql(i64 noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ec_point_is_at_infinity(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_point_is_at_infinity(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -1866,7 +1866,7 @@ define internal noundef i64 @ossl_ec_point_is_at_infinity(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ec_point_is_on_curve(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ec_point_is_on_curve(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -2069,9 +2069,9 @@ parse_point_conversion_form_symbol.exit:          ; preds = %14, %18, %21
   unreachable
 
 30:                                               ; preds = %parse_point_conversion_form_symbol.exit
-  %31 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %27) #6, !callees !16
+  %31 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %27) #6, !callees !15
   %32 = inttoptr i64 %31 to ptr
-  %33 = load i64, ptr %32, align 8, !noalias !17
+  %33 = load i64, ptr %32, align 8, !noalias !16
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
   %35 = getelementptr inbounds i8, ptr %32, i64 24
@@ -2651,8 +2651,7 @@ attributes #9 = { cold nounwind }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"rbimpl_rstring_getmem: argument 0"}
 !14 = distinct !{!14, !"rbimpl_rstring_getmem"}
-!15 = !{i64 0, i64 21}
-!16 = distinct !{ptr @rb_str_new, null}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"rbimpl_rstring_getmem: argument 0"}
-!19 = distinct !{!19, !"rbimpl_rstring_getmem"}
+!15 = distinct !{ptr @rb_str_new, null}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
+!18 = distinct !{!18, !"rbimpl_rstring_getmem"}

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @set_tls_desc.__UNIQUE_ID___addressable___SCK__preempt_schedule404], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @do_set_thread_area(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.user_desc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
@@ -87,7 +87,7 @@ define dso_local i32 @do_set_thread_area(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %42, label %.thread, label %32, !llvm.loop !8
 
 43:                                               ; preds = %32
-  %44 = trunc i64 %33 to i32
+  %44 = trunc nuw nsw i64 %33 to i32
   %45 = or disjoint i32 %44, 12
   %46 = icmp slt i32 %44, 0
   br i1 %46, label %.thread, label %47
@@ -111,7 +111,7 @@ define dso_local i32 @do_set_thread_area(ptr noundef %0, i32 noundef %1, ptr nou
 
 59:                                               ; preds = %55
   call fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %5, i32 noundef 1)
-  %60 = trunc i32 %56 to i16
+  %60 = trunc nuw i32 %56 to i16
   %61 = shl nuw nsw i16 %60, 3
   %62 = or disjoint i16 %61, 3
   %63 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
@@ -389,14 +389,14 @@ define internal fastcc void @load_gs_index(i32 noundef %0) unnamed_addr #5 align
   %4 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !30
-  %5 = trunc i32 %0 to i16
+  %5 = trunc nuw i32 %0 to i16
   call void @asm_load_gs_index(i16 noundef zeroext %5) #12
   %6 = and i64 %4, 512
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %12, label %11
 
 8:                                                ; preds = %1, %1
-  %9 = trunc i32 %0 to i16
+  %9 = trunc nuw i32 %0 to i16
   %10 = tail call i16 asm sideeffect "1:  .byte 0xf2,0x0f,0x00,0xf7 ;  .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "={di},0,~{dirflag},~{fpsr},~{flags}"(i16 %9) #12, !srcloc !31
   br label %12
 
@@ -409,7 +409,7 @@ define internal fastcc void @load_gs_index(i32 noundef %0) unnamed_addr #5 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -421,7 +421,7 @@ define dso_local i64 @__x64_sys_set_thread_area(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -434,7 +434,7 @@ define dso_local i64 @__ia32_sys_set_thread_area(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @do_get_thread_area(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @do_get_thread_area(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.user_desc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %5 = icmp eq i32 %1, -1
@@ -526,7 +526,7 @@ define dso_local i32 @do_get_thread_area(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -538,7 +538,7 @@ define dso_local i64 @__x64_sys_get_thread_area(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -658,7 +658,7 @@ define dso_local noundef i32 @regset_tls_get(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @regset_tls_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @regset_tls_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [3 x %struct.user_desc], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
   %8 = icmp ult i32 %2, 48
@@ -735,7 +735,7 @@ define dso_local noundef i32 @regset_tls_set(ptr noundef %0, ptr nocapture nound
 .loopexit4:                                       ; preds = %47, %24
   %51 = lshr exact i32 %2, 4
   %52 = or disjoint i32 %51, 12
-  %53 = trunc i64 %26 to i32
+  %53 = trunc nuw nsw i64 %26 to i32
   call fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %52, ptr noundef nonnull %25, i32 noundef %53)
   br label %.loopexit
 

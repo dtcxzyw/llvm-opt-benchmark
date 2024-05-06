@@ -835,8 +835,8 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38: ; preds = 
   %16 = load ptr, ptr %buf_.i.i, align 8
   %arrayidx.i37 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %callback.coerce, ptr %arrayidx.i37, align 8
-  %cmp6652 = icmp sgt i32 %argc, 0
-  br i1 %cmp6652, label %for.body.preheader, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47
+  %cmp6653 = icmp sgt i32 %argc, 0
+  br i1 %cmp6653, label %for.body.preheader, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48
 
 for.body.preheader:                               ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38
   %wide.trip.count = zext nneg i32 %argc to i64
@@ -867,25 +867,25 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit43: ; preds = 
 for.end:                                          ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit43
   %.pre = load i64, ptr %args, align 8
   %cmp.not.i44.not = icmp eq i64 %.pre, 0
-  br i1 %cmp.not.i44.not, label %do.body4.i45, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47
+  br i1 %cmp.not.i44.not, label %do.body4.i45, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48
 
 do.body4.i45:                                     ; preds = %for.end
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEmE4args) #13
   call void @abort() #16
   unreachable
 
-_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38, %for.end
+_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38, %for.end
   %21 = phi i64 [ %.pre, %for.end ], [ %14, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38 ]
   %conv79 = trunc i64 %21 to i32
   %22 = load ptr, ptr %buf_.i.i, align 8
   %call87 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call2.i, ptr %call2.i28, ptr nonnull %recv.coerce, i32 noundef %conv79, ptr noundef nonnull %22) #13
   %23 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i = icmp ne ptr %23, null
-  %cmp.i.i48 = icmp ne ptr %23, %buf_st_.ptr.i.i
-  %24 = and i1 %cmp.i.i.i, %cmp.i.i48
+  %cmp.i.i49 = icmp ne ptr %23, %buf_st_.ptr.i.i
+  %24 = and i1 %cmp.i.i.i, %cmp.i.i49
   br i1 %24, label %if.then.i, label %if.end111
 
-if.then.i:                                        ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47
+if.then.i:                                        ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48
   call void @free(ptr noundef nonnull %23) #13
   br label %if.end111
 
@@ -893,8 +893,8 @@ if.else:                                          ; preds = %if.end36
   %call106 = tail call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %callback.coerce, ptr %call2.i28, ptr nonnull %recv.coerce, i32 noundef %argc, ptr noundef %argv) #13
   br label %if.end111
 
-if.end111:                                        ; preds = %if.then.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47, %if.else
-  %ret.sroa.0.0 = phi ptr [ %call106, %if.else ], [ %call87, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit47 ], [ %call87, %if.then.i ]
+if.end111:                                        ; preds = %if.then.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48, %if.else
+  %ret.sroa.0.0 = phi ptr [ %call106, %if.else ], [ %call87, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48 ], [ %call87, %if.then.i ]
   %cmp.i.i = icmp eq ptr %ret.sroa.0.0, null
   br i1 %cmp.i.i, label %if.then113, label %if.end114
 
@@ -905,8 +905,8 @@ if.then113:                                       ; preds = %if.end111
 if.end114:                                        ; preds = %if.end111
   call void @_ZN4node21InternalCallbackScope5CloseEv(ptr noundef nonnull align 8 dereferenceable(37) %scope)
   %25 = load i8, ptr %failed_.i, align 2
-  %tobool.i51 = trunc i8 %25 to i1
-  %.ret.sroa.0.0 = select i1 %tobool.i51, ptr null, ptr %ret.sroa.0.0
+  %tobool.i52 = trunc i8 %25 to i1
+  %.ret.sroa.0.0 = select i1 %tobool.i52, ptr null, ptr %ret.sroa.0.0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end114, %if.end30, %if.then113

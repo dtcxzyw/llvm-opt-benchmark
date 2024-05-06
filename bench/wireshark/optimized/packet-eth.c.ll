@@ -701,7 +701,7 @@ define internal noundef i32 @eth_endpoint_packet(ptr noundef %0, ptr nocapture n
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @eth_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+define internal range(i32 0, 2) i32 @eth_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1

@@ -957,7 +957,7 @@ define internal noundef i32 @_finalize_store(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #1 {
   %15 = alloca [10 x i8], align 1
   %16 = alloca [10 x i8], align 1
   %17 = alloca [10 x i8], align 1
@@ -2502,7 +2502,7 @@ declare ptr @dt_bauhaus_combobox_get_text(ptr noundef) local_unnamed_addr #5
 declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !87
@@ -2513,7 +2513,7 @@ define i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = tail call ptr %4(ptr noundef null) #13

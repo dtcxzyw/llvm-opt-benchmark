@@ -155,7 +155,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %38, label %.thread, label %42
 
 .thread:                                          ; preds = %26, %34
-  %39 = trunc i8 %.034 to i1
+  %39 = trunc nuw i8 %.034 to i1
   br i1 %39, label %.thread60, label %41
 
 .thread60:                                        ; preds = %.thread
@@ -169,7 +169,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 42:                                               ; preds = %34
-  %.pre = trunc i8 %.034 to i1
+  %.pre = trunc nuw i8 %.034 to i1
   br i1 %.pre, label %43, label %47
 
 43:                                               ; preds = %.thread60, %42

@@ -430,7 +430,7 @@ define linkonce_odr hidden noundef float @_ZN4nori11Independent6next1DEv(ptr nou
   %10 = xor i64 %8, %9
   %11 = trunc i64 %10 to i32
   %12 = lshr i64 %3, 59
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = tail call noundef i32 @llvm.fshr.i32(i32 %11, i32 %11, i32 %13)
   %15 = lshr i32 %14, 9
   %16 = or disjoint i32 %15, 1065353216
@@ -452,7 +452,7 @@ define linkonce_odr hidden void @_ZN4nori11Independent6next2DEv(ptr dead_on_unwi
   %11 = xor i64 %9, %10
   %12 = trunc i64 %11 to i32
   %13 = lshr i64 %4, 59
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = tail call noundef i32 @llvm.fshr.i32(i32 %12, i32 %12, i32 %14)
   %16 = lshr i32 %15, 9
   %17 = or disjoint i32 %16, 1065353216
@@ -466,7 +466,7 @@ define linkonce_odr hidden void @_ZN4nori11Independent6next2DEv(ptr dead_on_unwi
   %24 = xor i64 %22, %23
   %25 = trunc i64 %24 to i32
   %26 = lshr i64 %8, 59
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = tail call noundef i32 @llvm.fshr.i32(i32 %25, i32 %25, i32 %27)
   %29 = lshr i32 %28, 9
   %30 = or disjoint i32 %29, 1065353216

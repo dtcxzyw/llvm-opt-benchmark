@@ -42,7 +42,7 @@ entry:
   %written.i.i = alloca i32, align 4
   %buffer.i = alloca [128 x i16], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %patternSpecification) #6
   %add.i = add i64 %call.i, 1
@@ -75,12 +75,9 @@ if.then8.i:                                       ; preds = %if.end4.i
 u_vfprintf_75.exit:                               ; preds = %if.then.i, %if.end4.i, %if.then8.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ %0, %if.then8.i ], [ %0, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @u_vfprintf_75(ptr noundef %f, ptr noundef %patternSpecification, ptr noundef %ap) local_unnamed_addr #0 {
@@ -120,16 +117,13 @@ return:                                           ; preds = %if.end4, %if.then8,
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: mustprogress uwtable
 define i32 @u_printf_75(ptr noundef %patternSpecification, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %written.i.i = alloca i32, align 4
   %buffer.i = alloca [128 x i16], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
   %cmp.i.i = icmp eq i32 %0, 2
   br i1 %cmp.i.i, label %u_get_stdout_75.exit, label %if.end.i.i
@@ -181,7 +175,7 @@ if.then8.i:                                       ; preds = %if.end4.i
 u_vfprintf_75.exit:                               ; preds = %if.then.i, %if.end4.i, %if.then8.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ %3, %if.then8.i ], [ %3, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
 
@@ -190,14 +184,14 @@ define i32 @u_fprintf_u_75(ptr noundef %f, ptr noundef %patternSpecification, ..
 entry:
   %written.i = alloca i32, align 4
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   store i32 0, ptr %written.i, align 4
   %fBundle.i = getelementptr inbounds i8, ptr %f, i64 48
   %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
   %0 = load i32, ptr %written.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %0
 }
 
@@ -217,7 +211,7 @@ define i32 @u_printf_u_75(ptr noundef %patternSpecification, ...) local_unnamed_
 entry:
   %written.i = alloca i32, align 4
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
   %cmp.i.i = icmp eq i32 %0, 2
   br i1 %cmp.i.i, label %u_get_stdout_75.exit, label %if.end.i.i
@@ -243,31 +237,31 @@ u_get_stdout_75.exit:                             ; preds = %entry, %if.end.i.i,
   %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %2, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
   %3 = load i32, ptr %written.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
 
-declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
-declare i32 @u_printf_parse_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @u_printf_parse_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
-declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #4
+declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
-declare ptr @u_finit_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @u_finit_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ucln_io_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ucln_io_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL15uprintf_cleanupv() #0 {
@@ -286,7 +280,7 @@ if.end:                                           ; preds = %if.then, %entry
   ret i8 1
 }
 
-declare void @u_fclose_75(ptr noundef) local_unnamed_addr #4
+declare void @u_fclose_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL14u_printf_writePvPKDsi(ptr noundef %context, ptr noundef %str, i32 noundef %count) #0 {
@@ -361,7 +355,13 @@ if.end22:                                         ; preds = %for.body, %if.then3
   ret i32 %written.2
 }
 
-declare i32 @u_file_write_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @u_file_write_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
@@ -370,10 +370,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { allocsize(0) }

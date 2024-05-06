@@ -119,7 +119,7 @@ define internal void @dw_dma_resume_chan(ptr nocapture noundef readonly %0, i1 z
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @dw_dma_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 402653184, 0) i32 @dw_dma_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2

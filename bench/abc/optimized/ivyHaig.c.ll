@@ -531,7 +531,7 @@ declare ptr @Ivy_Latch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %27, label %5
 
@@ -560,7 +560,7 @@ define noundef i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef read
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
   %16 = add nsw i32 %2, -1
-  %17 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %15, ptr noundef %1, i32 noundef %16), !range !9
+  %17 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %15, ptr noundef %1, i32 noundef %16)
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %18, label %27
 
@@ -575,7 +575,7 @@ define noundef i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef read
   %22 = ptrtoint ptr %.val19 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %24, ptr noundef %1, i32 noundef %16), !range !9
+  %25 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %24, ptr noundef %1, i32 noundef %16)
   %.not18 = icmp eq i32 %25, 0
   br i1 %.not18, label %26, label %27
 
@@ -815,7 +815,7 @@ define i32 @Ivy_ManHaigCountChoices(ptr nocapture noundef readonly %0, ptr nocap
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   %.not.i = icmp eq ptr %12, %31
-  br i1 %.not.i, label %Ivy_HaigObjCountClass.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %Ivy_HaigObjCountClass.exit, label %.lr.ph.i, !llvm.loop !9
 
 Ivy_HaigObjCountClass.exit:                       ; preds = %.lr.ph.i, %22
   %.08.i = phi i32 [ 1, %22 ], [ %26, %.lr.ph.i ]
@@ -831,7 +831,7 @@ Ivy_HaigObjCountClass.exit:                       ; preds = %.lr.ph.i, %22
   %.1 = phi i32 [ %.01725, %10 ], [ %.01725, %14 ], [ %.01725, %19 ], [ %36, %Ivy_HaigObjCountClass.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !10
 
 .critedge:                                        ; preds = %37, %2
   %.018.lcssa = phi i32 [ 0, %2 ], [ %.119, %37 ]
@@ -909,7 +909,7 @@ define void @Ivy_ManHaigPostprocess(ptr noundef %0, i32 noundef %1) local_unname
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %.not.i.i = icmp eq ptr %16, %35
-  br i1 %.not.i.i, label %Ivy_HaigObjCountClass.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %Ivy_HaigObjCountClass.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 Ivy_HaigObjCountClass.exit.i:                     ; preds = %.lr.ph.i.i, %26
   %.08.i.i = phi i32 [ 1, %26 ], [ %30, %.lr.ph.i.i ]
@@ -925,7 +925,7 @@ Ivy_HaigObjCountClass.exit.i:                     ; preds = %.lr.ph.i.i, %26
   %.1.i = phi i32 [ %.01725.i, %14 ], [ %.01725.i, %18 ], [ %.01725.i, %23 ], [ %40, %Ivy_HaigObjCountClass.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %14, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit, label %14, !llvm.loop !10
 
 .loopexit:                                        ; preds = %41, %3
   %.018.lcssa.i = phi i32 [ 0, %3 ], [ %.119.i, %41 ]
@@ -1019,7 +1019,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load i32, ptr %33, align 4
   %34 = sext i32 %.val to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge4.preheader, !llvm.loop !12
+  br i1 %35, label %.lr.ph, label %.critedge4.preheader, !llvm.loop !11
 
 36:                                               ; preds = %.critedge4
   %.val148 = load ptr, ptr %17, align 8
@@ -1032,7 +1032,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %41 = getelementptr inbounds ptr, ptr %.val154.val, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.critedge6, label %.critedge4, !llvm.loop !13
+  br i1 %.not, label %.critedge6, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.lr.ph181, %36
   %43 = phi ptr [ %42, %36 ], [ %23, %.lr.ph181 ]
@@ -1045,7 +1045,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %.val142 = load i32, ptr %15, align 4
   %47 = sext i32 %.val142 to i64
   %48 = icmp slt i64 %indvars.iv.next216, %47
-  br i1 %48, label %36, label %.critedge6, !llvm.loop !13
+  br i1 %48, label %36, label %.critedge6, !llvm.loop !12
 
 .critedge6:                                       ; preds = %.critedge4, %36, %.lr.ph181, %.critedge4.preheader
   %.val144.pre243 = phi i32 [ %.val142179, %.critedge4.preheader ], [ %.val142179, %.lr.ph181 ], [ %.val142, %36 ], [ %.val142, %.critedge4 ]
@@ -1085,7 +1085,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %.val143 = load i32, ptr %52, align 4
   %67 = sext i32 %.val143 to i64
   %68 = icmp slt i64 %indvars.iv.next219, %67
-  br i1 %68, label %55, label %.critedge8.loopexit, !llvm.loop !14
+  br i1 %68, label %55, label %.critedge8.loopexit, !llvm.loop !13
 
 .critedge8.loopexit:                              ; preds = %62, %55
   %.val144.pre.pre = load i32, ptr %15, align 4
@@ -1134,7 +1134,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %88 = add nuw nsw i32 %.0187, %87
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge10, label %76, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge10, label %76, !llvm.loop !14
 
 .critedge10:                                      ; preds = %76, %82, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %88, %82 ], [ %.0187, %76 ]
@@ -1264,7 +1264,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %150 = and i64 %.pre-phi, -2
   %151 = inttoptr i64 %150 to ptr
   %.not133 = icmp eq ptr %96, %151
-  br i1 %.not133, label %._crit_edge.loopexit, label %.lr.ph194, !llvm.loop !16
+  br i1 %.not133, label %._crit_edge.loopexit, label %.lr.ph194, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %Ivy_ManHaigSimulateChoice.exit
   %.pre238 = load i32, ptr %122, align 8
@@ -1284,7 +1284,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %.val145 = load i32, ptr %71, align 4
   %157 = sext i32 %.val145 to i64
   %158 = icmp slt i64 %indvars.iv.next225, %157
-  br i1 %158, label %.lr.ph198, label %.critedge12, !llvm.loop !17
+  br i1 %158, label %.lr.ph198, label %.critedge12, !llvm.loop !16
 
 .critedge12:                                      ; preds = %.lr.ph198, %156, %.critedge10
   %159 = load ptr, ptr %1, align 8
@@ -1317,7 +1317,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %173 = getelementptr inbounds ptr, ptr %.val158.val, i64 %172
   %174 = load ptr, ptr %173, align 8
   %.not130 = icmp eq ptr %174, null
-  br i1 %.not130, label %.critedge14, label %.lr.ph259, !llvm.loop !18
+  br i1 %.not130, label %.critedge14, label %.lr.ph259, !llvm.loop !17
 
 .lr.ph259:                                        ; preds = %.lr.ph203, %168
   %175 = phi ptr [ %174, %168 ], [ %167, %.lr.ph203 ]
@@ -1340,7 +1340,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %.val146 = load i32, ptr %160, align 4
   %188 = sext i32 %.val146 to i64
   %189 = icmp slt i64 %indvars.iv.next228, %188
-  br i1 %189, label %168, label %.critedge14, !llvm.loop !18
+  br i1 %189, label %168, label %.critedge14, !llvm.loop !17
 
 .critedge14:                                      ; preds = %.lr.ph259, %168, %.lr.ph203
   %.val147209 = phi i32 [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ], [ %.val146, %.lr.ph259 ]
@@ -1371,7 +1371,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %201 = getelementptr inbounds ptr, ptr %.val159.val, i64 %200
   %202 = load ptr, ptr %201, align 8
   %.not131 = icmp eq ptr %202, null
-  br i1 %.not131, label %.critedge16, label %.lr.ph268, !llvm.loop !19
+  br i1 %.not131, label %.critedge16, label %.lr.ph268, !llvm.loop !18
 
 .lr.ph268:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
   %203 = phi ptr [ %202, %.lr.ph211 ], [ %196, %.lr.ph211.preheader ]
@@ -1387,13 +1387,13 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %.val147 = load i32, ptr %160, align 4
   %210 = sext i32 %.val147 to i64
   %211 = icmp slt i64 %indvars.iv.next231, %210
-  br i1 %211, label %.lr.ph211, label %.critedge16, !llvm.loop !19
+  br i1 %211, label %.lr.ph211, label %.critedge16, !llvm.loop !18
 
 .critedge16:                                      ; preds = %.lr.ph211, %.lr.ph268, %.lr.ph211.preheader, %.critedge12, %.critedge14
   %.val144235 = phi i32 [ %.val147209, %.critedge14 ], [ %.val146201, %.critedge12 ], [ %.val147209, %.lr.ph211.preheader ], [ %.val147, %.lr.ph268 ], [ %.val147, %.lr.ph211 ]
   %212 = add nuw nsw i32 %.0116213, 1
   %exitcond233.not = icmp eq i32 %212, 10
-  br i1 %exitcond233.not, label %213, label %.preheader, !llvm.loop !20
+  br i1 %exitcond233.not, label %213, label %.preheader, !llvm.loop !19
 
 213:                                              ; preds = %.critedge16
   %214 = load ptr, ptr %70, align 8
@@ -1462,7 +1462,7 @@ attributes #12 = { nounwind allocsize(1) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1473,4 +1473,3 @@ attributes #12 = { nounwind allocsize(1) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

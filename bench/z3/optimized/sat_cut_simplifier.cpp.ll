@@ -2207,9 +2207,9 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN3sat14cut_simplifier9cuts2binsERK6vectorINS_7cut_setELb1EjE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(8) %call)
+  tail call void @_ZN3sat14cut_simplifier9cuts2binsERK6vectorINS_7cut_setELb1EjE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %call)
   tail call void @_ZN3sat14cut_simplifier15bins2dont_caresEv(ptr noundef nonnull align 8 dereferenceable(600) %this)
-  tail call void @_ZN3sat14cut_simplifier15dont_cares2cutsERK6vectorINS_7cut_setELb1EjE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(8) %call)
+  tail call void @_ZN3sat14cut_simplifier15dont_cares2cutsERK6vectorINS_7cut_setELb1EjE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %call)
   %.pre.i = load ptr, ptr %this, align 8
   br label %if.end.i
 
@@ -6723,7 +6723,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr null, ptr %clauses, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %on_clause, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %on_clause, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %on_clause, i8 0, i64 32, i1 false)
   %call.i.i2.i19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
           to label %invoke.cont unwind label %lpad
 
@@ -13343,7 +13343,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -3225,7 +3225,7 @@ declare noundef ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112basic_s
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt19Ma77SolverInterface19InitializeStructureEiiPKiS2_(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma77SolverInterface19InitializeStructureEiiPKiS2_(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #6 align 2 {
   %6 = alloca %struct.ma77_info_d, align 8
   %7 = alloca %struct.mc68_control_i, align 4
   %8 = alloca %struct.mc68_info_i, align 8
@@ -3437,7 +3437,7 @@ thread-pre-split:                                 ; preds = %75
   %105 = sub nsw i32 %102, %104
   %106 = sext i32 %104 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %106
-  %107 = trunc i64 %indvars.iv.next83 to i32
+  %107 = trunc nuw i64 %indvars.iv.next83 to i32
   call void %100(i32 noundef %107, i32 noundef %105, ptr noundef %gep, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
   %108 = load i32, ptr %93, align 4
   %109 = icmp slt i32 %108, 0
@@ -3524,7 +3524,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %119, %115, %111
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt19Ma77SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(536) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma77SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(536) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #6 align 2 {
   %9 = alloca %struct.ma77_info_d, align 8
   br i1 %1, label %14, label %10
 
@@ -3562,7 +3562,7 @@ define noundef i32 @_ZN5Ipopt19Ma77SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr 
   %33 = sext i32 %30 to i64
   %34 = getelementptr double, ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -8
-  %36 = trunc i64 %indvars.iv.next to i32
+  %36 = trunc nuw i64 %indvars.iv.next to i32
   call void %26(i32 noundef %36, i32 noundef %31, ptr noundef %35, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %9)
   %37 = load i32, ptr %20, align 4
   %38 = icmp slt i32 %37, 0

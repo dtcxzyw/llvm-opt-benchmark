@@ -24,7 +24,7 @@ define internal noundef i32 @ras_pbs_open() #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal noundef i32 @prte_mca_ras_pbs_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @prte_mca_ras_pbs_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

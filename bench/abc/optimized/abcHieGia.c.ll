@@ -130,7 +130,7 @@ define i32 @Abc_NodeStrashToGia(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 64
   %28 = load i32, ptr %27, align 8
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %29) #13
   store i32 %28, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -799,7 +799,7 @@ Vec_IntPush.exit142:                              ; preds = %.Vec_IntGrow.exit10
 declare void @Abc_NtkFillTemp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendBuf(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendBuf(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
@@ -854,10 +854,10 @@ define ptr @Abc_NtkFlattenHierarchyGia2(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #16
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #15
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #13
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %8
@@ -869,10 +869,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %8
   br i1 %.not.i105, label %Abc_UtilStrsav.exit106, label %16
 
 16:                                               ; preds = %Abc_UtilStrsav.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #16
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #13
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %15) #13
   br label %Abc_UtilStrsav.exit106
 
 Abc_UtilStrsav.exit106:                           ; preds = %Abc_UtilStrsav.exit, %16
@@ -906,7 +906,7 @@ Abc_UtilStrsav.exit106:                           ; preds = %Abc_UtilStrsav.exit
   %.val97.val = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds ptr, ptr %.val97.val, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %5), !range !11
+  %35 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %5)
   %36 = getelementptr inbounds i8, ptr %34, i64 64
   store i32 %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -915,7 +915,7 @@ Abc_UtilStrsav.exit106:                           ; preds = %Abc_UtilStrsav.exit
   %.val101.val = load i32, ptr %37, align 4
   %38 = sext i32 %.val101.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.critedge.preheader, !llvm.loop !12
+  br i1 %39, label %.lr.ph, label %.critedge.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.critedge ], [ 0, %.critedge.preheader ]
@@ -945,7 +945,7 @@ Abc_UtilStrsav.exit106:                           ; preds = %Abc_UtilStrsav.exit
   %.val100.val = load i32, ptr %52, align 4
   %53 = sext i32 %.val100.val to i64
   %54 = icmp slt i64 %indvars.iv.next144, %53
-  br i1 %54, label %.critedge, label %.critedge2, !llvm.loop !13
+  br i1 %54, label %.critedge, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge, %Abc_UtilStrsav.exit106, %.critedge.preheader
   %55 = getelementptr inbounds i8, ptr %0, i64 176
@@ -985,7 +985,7 @@ Abc_UtilStrsav.exit106:                           ; preds = %Abc_UtilStrsav.exit
   %.val89 = load i32, ptr %73, align 4
   %74 = sext i32 %.val89 to i64
   %75 = icmp slt i64 %indvars.iv.next147, %74
-  br i1 %75, label %.lr.ph126, label %.critedge4, !llvm.loop !14
+  br i1 %75, label %.lr.ph126, label %.critedge4, !llvm.loop !13
 
 .critedge4:                                       ; preds = %.lr.ph126, %.preheader113, %61
   tail call void @Gia_ManHashAlloc(ptr noundef nonnull %5) #13
@@ -1075,7 +1075,7 @@ Vec_PtrFreeP.exit112:                             ; preds = %.lr.ph129, %105, %.
   %.val = load i32, ptr %112, align 4
   %113 = sext i32 %.val to i64
   %114 = icmp slt i64 %indvars.iv.next150, %113
-  br i1 %114, label %.lr.ph129, label %.critedge6, !llvm.loop !15
+  br i1 %114, label %.lr.ph129, label %.critedge6, !llvm.loop !14
 
 .critedge6:                                       ; preds = %Vec_PtrFreeP.exit112, %.preheader, %.thread.i, %91, %84
   %115 = getelementptr i8, ptr %0, i64 48
@@ -1117,7 +1117,7 @@ Vec_PtrFreeP.exit112:                             ; preds = %.lr.ph129, %105, %.
   %.val103.val = load i32, ptr %131, align 4
   %132 = sext i32 %.val103.val to i64
   %133 = icmp slt i64 %indvars.iv.next153, %132
-  br i1 %133, label %.lr.ph134, label %.critedge8.preheader, !llvm.loop !16
+  br i1 %133, label %.lr.ph134, label %.critedge8.preheader, !llvm.loop !15
 
 .critedge8:                                       ; preds = %.critedge8.preheader, %.critedge8
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.critedge8 ], [ 0, %.critedge8.preheader ]
@@ -1128,14 +1128,14 @@ Vec_PtrFreeP.exit112:                             ; preds = %.lr.ph129, %105, %.
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 64
   %138 = load i32, ptr %137, align 8
-  %139 = call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %138), !range !11
+  %139 = call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %138)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %.val102 = load ptr, ptr %115, align 8
   %140 = getelementptr i8, ptr %.val102, i64 4
   %.val102.val = load i32, ptr %140, align 4
   %141 = sext i32 %.val102.val to i64
   %142 = icmp slt i64 %indvars.iv.next156, %141
-  br i1 %142, label %.critedge8, label %.critedge10, !llvm.loop !17
+  br i1 %142, label %.critedge8, label %.critedge10, !llvm.loop !16
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge6, %.critedge8.preheader
   %143 = load ptr, ptr %27, align 8
@@ -1160,7 +1160,7 @@ Vec_PtrFreeP.exit112:                             ; preds = %.lr.ph129, %105, %.
   %.val6.i = load i32, ptr %144, align 4
   %152 = sext i32 %.val6.i to i64
   %153 = icmp slt i64 %indvars.iv.next.i, %152
-  br i1 %153, label %148, label %Vec_IntPrint.exit, !llvm.loop !18
+  br i1 %153, label %148, label %Vec_IntPrint.exit, !llvm.loop !17
 
 Vec_IntPrint.exit:                                ; preds = %148, %.critedge10
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1172,7 +1172,7 @@ Vec_IntPrint.exit:                                ; preds = %148, %.critedge10
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -1280,7 +1280,7 @@ declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1503,7 +1503,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   %38 = trunc i64 %.val63 to i32
   %39 = and i32 %38, 536870911
   %40 = lshr i64 %.val63, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   %42 = and i32 %41, 536870911
   %43 = icmp eq i32 %39, %42
   %.not.i84 = icmp ne i32 %39, 536870911
@@ -1521,7 +1521,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   br i1 %narrow.i86, label %48, label %53
 
 48:                                               ; preds = %45, %37
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = sub nsw i32 %49, %39
   %.val69 = load ptr, ptr %33, align 8
   %51 = sext i32 %50 to i64
@@ -1533,7 +1533,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   br i1 %narrow.i88, label %54, label %68
 
 54:                                               ; preds = %53
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = sub nsw i32 %55, %39
   %.val70 = load ptr, ptr %33, align 8
   %57 = sext i32 %56 to i64
@@ -1562,7 +1562,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   %69 = trunc i64 %.val64 to i32
   %70 = and i32 %69, 536870911
   %71 = lshr i64 %.val64, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = and i32 %72, 536870911
   %74 = icmp ne i32 %70, %73
   %.not.i89 = icmp eq i32 %70, 536870911
@@ -1578,7 +1578,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   br i1 %78, label %85, label %79
 
 79:                                               ; preds = %76
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
   %81 = sub nsw i32 %80, %70
   %.val58 = load ptr, ptr %34, align 8
   %82 = sext i32 %81 to i64
@@ -1654,7 +1654,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %115, ptr %28, align 4
   %116 = sext i32 %91 to i64
   %117 = getelementptr inbounds i32, ptr %114, i64 %116
-  %118 = trunc i64 %indvars.iv to i32
+  %118 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %118, ptr %117, align 4
   br label %124
 
@@ -1672,7 +1672,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %125 = load i32, ptr %4, align 8
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next, %126
-  br i1 %127, label %35, label %.critedge, !llvm.loop !19
+  br i1 %127, label %35, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %35, %124
   %.val.pre = load i32, ptr %28, align 4
@@ -1717,7 +1717,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 146:                                              ; preds = %130, %134
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %130, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge2, label %130, !llvm.loop !19
 
 .critedge2:                                       ; preds = %146, %Vec_IntStart.exit83, %.lr.ph103, %.critedge
   %147 = load i32, ptr %3, align 8
@@ -1796,10 +1796,10 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
   br i1 %.not.i92, label %Abc_UtilStrsav.exit, label %13
 
 13:                                               ; preds = %Vec_IntStart.exit
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #16
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #16
   %15 = add i64 %14, 1
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #15
-  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %12) #13
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %12) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit, %13
@@ -1811,10 +1811,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit, 
   br i1 %.not.i93, label %Abc_UtilStrsav.exit94, label %21
 
 21:                                               ; preds = %Abc_UtilStrsav.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #16
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %20) #16
   %23 = add i64 %22, 1
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #15
-  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %20) #13
+  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %20) #13
   br label %Abc_UtilStrsav.exit94
 
 Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit, %21
@@ -1843,7 +1843,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   %36 = trunc i64 %.val79 to i32
   %37 = and i32 %36, 536870911
   %38 = lshr i64 %.val79, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 536870911
   %41 = icmp eq i32 %37, %40
   %.not.i95 = icmp ne i32 %37, 536870911
@@ -1900,7 +1900,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   %81 = ashr exact i64 %80, 33
   %82 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val69, i64 %81
   %83 = ptrtoint ptr %82 to i64
-  %84 = trunc i64 %81 to i32
+  %84 = trunc nsw i64 %81 to i32
   %.val3.i = load i64, ptr %82, align 4
   %85 = trunc i64 %.val3.i to i32
   %86 = and i32 %85, 536870911
@@ -1983,7 +1983,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   %139 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %35, i64 %138, i32 1
   %140 = load i32, ptr %139, align 4
   %141 = lshr i64 %.val79, 61
-  %142 = trunc i64 %141 to i32
+  %142 = trunc nuw nsw i64 %141 to i32
   %143 = and i32 %142, 1
   %144 = xor i32 %140, %143
   %145 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %11, i32 noundef %136, i32 noundef %144) #13
@@ -1997,7 +1997,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   br i1 %narrow.i98.not, label %149, label %152
 
 149:                                              ; preds = %147
-  %150 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %11), !range !11
+  %150 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %11)
   %151 = getelementptr inbounds i8, ptr %35, i64 8
   store i32 %150, ptr %151, align 4
   br label %162
@@ -2014,7 +2014,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   %157 = lshr i32 %36, 29
   %158 = and i32 %157, 1
   %159 = xor i32 %156, %158
-  %160 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %11, i32 noundef %159), !range !11
+  %160 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %11, i32 noundef %159)
   %161 = getelementptr inbounds i8, ptr %35, i64 8
   store i32 %160, ptr %161, align 4
   br label %162
@@ -2024,7 +2024,7 @@ Abc_UtilStrsav.exit94:                            ; preds = %Abc_UtilStrsav.exit
   %163 = load i32, ptr %2, align 8
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next, %164
-  br i1 %165, label %34, label %.critedge, !llvm.loop !21
+  br i1 %165, label %34, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %162, %Abc_UtilStrsav.exit94
   tail call void @Gia_ManHashStop(ptr noundef nonnull %11) #13
@@ -2072,7 +2072,7 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds ptr, ptr %.val48.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 56
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load ptr, ptr %2, align 8
@@ -2080,7 +2080,7 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %.val54.val = load i32, ptr %13, align 4
   %14 = sext i32 %.val54.val to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.critedge.preheader, !llvm.loop !22
+  br i1 %15, label %.lr.ph, label %.critedge.preheader, !llvm.loop !21
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %.val5592 = phi ptr [ %.val5663, %.critedge.preheader ], [ %.val56, %.critedge ]
@@ -2099,7 +2099,7 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds ptr, ptr %.val52.val, i64 %indvars.iv79
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
-  %24 = trunc i64 %indvars.iv79 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv79 to i32
   store i32 %24, ptr %23, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %.val56 = load ptr, ptr %5, align 8
@@ -2107,7 +2107,7 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %.val56.val = load i32, ptr %25, align 4
   %26 = sext i32 %.val56.val to i64
   %27 = icmp slt i64 %indvars.iv.next80, %26
-  br i1 %27, label %.critedge, label %.critedge2.preheader, !llvm.loop !23
+  br i1 %27, label %.critedge, label %.critedge2.preheader, !llvm.loop !22
 
 .lr.ph76:                                         ; preds = %.critedge2.preheader, %.critedge8
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.critedge8 ], [ 0, %.critedge2.preheader ]
@@ -2149,13 +2149,13 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %44 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 56
-  %47 = trunc i64 %indvars.iv82 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv82 to i32
   store i32 %47, ptr %46, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %.val = load i32, ptr %32, align 4
   %48 = sext i32 %.val to i64
   %49 = icmp slt i64 %indvars.iv.next83, %48
-  br i1 %49, label %38, label %.critedge6.preheader, !llvm.loop !24
+  br i1 %49, label %38, label %.critedge6.preheader, !llvm.loop !23
 
 .critedge6:                                       ; preds = %.lr.ph73, %.critedge6
   %indvars.iv85 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next86, %.critedge6 ]
@@ -2171,13 +2171,13 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %55 = getelementptr inbounds ptr, ptr %.val50.val.val, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 56
-  %58 = trunc i64 %indvars.iv85 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv85 to i32
   store i32 %58, ptr %57, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.val49 = load i32, ptr %35, align 4
   %59 = sext i32 %.val49 to i64
   %60 = icmp slt i64 %indvars.iv.next86, %59
-  br i1 %60, label %.critedge6, label %.critedge8, !llvm.loop !25
+  br i1 %60, label %.critedge6, label %.critedge8, !llvm.loop !24
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -2186,7 +2186,7 @@ define i32 @Gia_ManFlattenLogicPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %.val47 = load i32, ptr %62, align 4
   %63 = sext i32 %.val47 to i64
   %64 = icmp slt i64 %indvars.iv.next89, %63
-  br i1 %64, label %.lr.ph76, label %.critedge4.loopexit, !llvm.loop !26
+  br i1 %64, label %.lr.ph76, label %.critedge4.loopexit, !llvm.loop !25
 
 .critedge4.loopexit:                              ; preds = %.critedge8
   %.val55.pre = load ptr, ptr %5, align 8
@@ -2288,7 +2288,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 42:                                               ; preds = %21
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %43 = tail call fastcc i32 @Gia_ManAppendBuf(ptr noundef %0, i32 noundef %41), !range !11
+  %43 = tail call fastcc i32 @Gia_ManAppendBuf(ptr noundef %0, i32 noundef %41)
   br label %common.ret.sink.split
 
 44:                                               ; preds = %7
@@ -2325,7 +2325,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 63:                                               ; preds = %44
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %3, ptr noundef %58)
-  %64 = tail call fastcc i32 @Gia_ManAppendBuf(ptr noundef %0, i32 noundef %59), !range !11
+  %64 = tail call fastcc i32 @Gia_ManAppendBuf(ptr noundef %0, i32 noundef %59)
   br label %common.ret.sink.split
 
 65:                                               ; preds = %.lr.ph, %65
@@ -2346,7 +2346,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %.val = load i32, ptr %10, align 4
   %74 = sext i32 %.val to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %65, label %.critedge, !llvm.loop !27
+  br i1 %75, label %65, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %65, %.preheader
   %76 = tail call i32 @Abc_NodeStrashToGia(ptr noundef %0, ptr noundef nonnull %2)
@@ -2479,7 +2479,7 @@ define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1,
   %.val66 = load i32, ptr %33, align 4
   %34 = sext i32 %.val66 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %18, %15
   %.1 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %29, %.lr.ph ]
@@ -2494,10 +2494,10 @@ define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %41
 
 41:                                               ; preds = %.critedge
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #16
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #16
   %43 = add i64 %42, 1
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #15
-  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %40) #13
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
@@ -2509,10 +2509,10 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
   br i1 %.not.i77, label %Abc_UtilStrsav.exit78, label %49
 
 49:                                               ; preds = %Abc_UtilStrsav.exit
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #16
+  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #16
   %51 = add i64 %50, 1
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #15
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %48) #13
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #13
   br label %Abc_UtilStrsav.exit78
 
 Abc_UtilStrsav.exit78:                            ; preds = %Abc_UtilStrsav.exit, %49
@@ -2532,7 +2532,7 @@ Abc_UtilStrsav.exit78:                            ; preds = %Abc_UtilStrsav.exit
   %.val68.val = load ptr, ptr %58, align 8
   %59 = getelementptr inbounds ptr, ptr %.val68.val, i64 %indvars.iv104
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %38), !range !11
+  %61 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %38)
   %62 = getelementptr inbounds i8, ptr %60, i64 64
   store i32 %61, ptr %62, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -2541,7 +2541,7 @@ Abc_UtilStrsav.exit78:                            ; preds = %Abc_UtilStrsav.exit
   %.val71.val = load i32, ptr %63, align 4
   %64 = sext i32 %.val71.val to i64
   %65 = icmp slt i64 %indvars.iv.next105, %64
-  br i1 %65, label %.lr.ph92, label %.critedge2, !llvm.loop !29
+  br i1 %65, label %.lr.ph92, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %.lr.ph92, %Abc_UtilStrsav.exit78
   %66 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -2572,7 +2572,7 @@ Abc_UtilStrsav.exit78:                            ; preds = %Abc_UtilStrsav.exit
   %.val74.val = load i32, ptr %76, align 4
   %77 = sext i32 %.val74.val to i64
   %78 = icmp slt i64 %indvars.iv.next108, %77
-  br i1 %78, label %.lr.ph97, label %.critedge4, !llvm.loop !30
+  br i1 %78, label %.lr.ph97, label %.critedge4, !llvm.loop !29
 
 .critedge4:                                       ; preds = %.lr.ph97, %.critedge2
   tail call void @Gia_ManHashStop(ptr noundef nonnull %38) #13
@@ -2617,14 +2617,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %80
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 64
   %96 = load i32, ptr %95, align 8
-  %97 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %38, i32 noundef %96), !range !11
+  %97 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %38, i32 noundef %96)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %.val73 = load ptr, ptr %10, align 8
   %98 = getelementptr i8, ptr %.val73, i64 4
   %.val73.val = load i32, ptr %98, align 4
   %99 = sext i32 %.val73.val to i64
   %100 = icmp slt i64 %indvars.iv.next111, %99
-  br i1 %100, label %.lr.ph102, label %.critedge6, !llvm.loop !31
+  br i1 %100, label %.lr.ph102, label %.critedge6, !llvm.loop !30
 
 .critedge6:                                       ; preds = %.lr.ph102, %87
   %.not64 = icmp eq ptr %1, null
@@ -2698,7 +2698,7 @@ define ptr @Gia_ManInsertOne_rec(ptr noundef %0, ptr nocapture noundef readnone 
   %.val28 = load i32, ptr %10, align 4
   %22 = sext i32 %.val28 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %13, label %.critedge, !llvm.loop !32
+  br i1 %23, label %13, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %13, %.preheader
   %24 = tail call ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0) #13
@@ -2729,7 +2729,7 @@ define ptr @Gia_ManInsertOne_rec(ptr noundef %0, ptr nocapture noundef readnone 
   %.val = load i32, ptr %10, align 4
   %35 = sext i32 %.val to i64
   %36 = icmp slt i64 %indvars.iv.next40, %35
-  br i1 %36, label %27, label %.critedge2.loopexit, !llvm.loop !33
+  br i1 %36, label %27, label %.critedge2.loopexit, !llvm.loop !32
 
 .critedge2.loopexit:                              ; preds = %27
   %.pre = load ptr, ptr %8, align 8
@@ -2810,7 +2810,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.val80 = load i32, ptr %15, align 4
   %34 = sext i32 %.val80 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %19, label %.critedge4.loopexit, !llvm.loop !34
+  br i1 %35, label %19, label %.critedge4.loopexit, !llvm.loop !33
 
 .critedge4.loopexit:                              ; preds = %19
   %.pre = load ptr, ptr %2, align 8
@@ -2823,7 +2823,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.val76 = load i32, ptr %37, align 4
   %38 = sext i32 %.val76 to i64
   %39 = icmp slt i64 %indvars.iv.next113, %38
-  br i1 %39, label %.lr.ph96, label %.critedge2.preheader, !llvm.loop !35
+  br i1 %39, label %.lr.ph96, label %.critedge2.preheader, !llvm.loop !34
 
 .critedge6.preheader.loopexit:                    ; preds = %.critedge2
   %.pre128 = load ptr, ptr %2, align 8
@@ -2865,7 +2865,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.val75 = load i32, ptr %53, align 4
   %54 = sext i32 %.val75 to i64
   %55 = icmp slt i64 %indvars.iv.next116, %54
-  br i1 %55, label %.lr.ph99, label %.critedge6.preheader.loopexit, !llvm.loop !36
+  br i1 %55, label %.lr.ph99, label %.critedge6.preheader.loopexit, !llvm.loop !35
 
 .critedge8.preheader:                             ; preds = %.critedge10, %.critedge6.preheader
   %56 = getelementptr i8, ptr %0, i64 48
@@ -2931,7 +2931,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %86 = sext i32 %.val71 to i64
   %87 = icmp slt i64 %indvars.iv.next119, %86
-  br i1 %87, label %67, label %.critedge10.loopexit, !llvm.loop !37
+  br i1 %87, label %67, label %.critedge10.loopexit, !llvm.loop !36
 
 .critedge10.loopexit:                             ; preds = %85
   %.pre131 = load ptr, ptr %2, align 8
@@ -2944,7 +2944,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.val74 = load i32, ptr %89, align 4
   %90 = sext i32 %.val74 to i64
   %91 = icmp slt i64 %indvars.iv.next122, %90
-  br i1 %91, label %.lr.ph105, label %.critedge8.preheader, !llvm.loop !38
+  br i1 %91, label %.lr.ph105, label %.critedge8.preheader, !llvm.loop !37
 
 .lr.ph110:                                        ; preds = %.critedge8.preheader, %.critedge8
   %.val86132 = phi ptr [ %.val86, %.critedge8 ], [ %.val86106, %.critedge8.preheader ]
@@ -2973,7 +2973,7 @@ define void @Gia_ManInsertOne(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.val86.val = load i32, ptr %101, align 4
   %102 = sext i32 %.val86.val to i64
   %103 = icmp slt i64 %indvars.iv.next125, %102
-  br i1 %103, label %.lr.ph110, label %.critedge12, !llvm.loop !39
+  br i1 %103, label %.lr.ph110, label %.critedge12, !llvm.loop !38
 
 .critedge12:                                      ; preds = %.critedge8, %.critedge8.preheader
   %104 = getelementptr inbounds i8, ptr %1, i64 256
@@ -3027,7 +3027,7 @@ define void @Abc_NtkInsertHierarchyGia(ptr noundef %0, ptr noundef %1, i32 nound
   %.val63 = load i32, ptr %20, align 4
   %21 = sext i32 %.val63 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !40
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader77, %12
   %23 = getelementptr i8, ptr %1, i64 40
@@ -3073,7 +3073,7 @@ define void @Abc_NtkInsertHierarchyGia(ptr noundef %0, ptr noundef %1, i32 nound
   %.val71.val = load i32, ptr %39, align 4
   %40 = sext i32 %.val71.val to i64
   %41 = icmp slt i64 %indvars.iv.next99, %40
-  br i1 %41, label %31, label %.critedge2.preheader, !llvm.loop !41
+  br i1 %41, label %31, label %.critedge2.preheader, !llvm.loop !40
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %42 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3108,7 +3108,7 @@ define void @Abc_NtkInsertHierarchyGia(ptr noundef %0, ptr noundef %1, i32 nound
   %.val72.val = load i32, ptr %54, align 4
   %55 = sext i32 %.val72.val to i64
   %56 = icmp slt i64 %indvars.iv.next102, %55
-  br i1 %56, label %.critedge2, label %.critedge4.preheader, !llvm.loop !42
+  br i1 %56, label %.critedge2, label %.critedge4.preheader, !llvm.loop !41
 
 57:                                               ; preds = %.lr.ph93, %Abc_ObjIsBarBuf.exit.thread
   %58 = phi ptr [ %43, %.lr.ph93 ], [ %80, %Abc_ObjIsBarBuf.exit.thread ]
@@ -3166,7 +3166,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %63, %66, %69, %74, 
   %.val62 = load i32, ptr %81, align 4
   %82 = sext i32 %.val62 to i64
   %83 = icmp slt i64 %indvars.iv.next105, %82
-  br i1 %83, label %57, label %.critedge6, !llvm.loop !43
+  br i1 %83, label %57, label %.critedge6, !llvm.loop !42
 
 .critedge6:                                       ; preds = %Abc_ObjIsBarBuf.exit.thread, %.critedge4.preheader
   %84 = getelementptr inbounds i8, ptr %.pre110, i64 8
@@ -3219,7 +3219,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge6, %86
   %.val = load i32, ptr %102, align 4
   %103 = sext i32 %.val to i64
   %104 = icmp slt i64 %indvars.iv.next108, %103
-  br i1 %104, label %.lr.ph96, label %.critedge8, !llvm.loop !44
+  br i1 %104, label %.lr.ph96, label %.critedge8, !llvm.loop !43
 
 .critedge8:                                       ; preds = %98, %.preheader, %Vec_PtrFree.exit
   ret void
@@ -3451,7 +3451,7 @@ attributes #17 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 -1}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -3484,4 +3484,3 @@ attributes #17 = { noreturn nounwind }
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

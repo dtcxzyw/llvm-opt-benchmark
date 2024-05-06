@@ -807,7 +807,7 @@ declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %property) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not.i.i = icmp eq ptr %name, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -826,7 +826,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store ptr %call4.i.i, ptr %value.i.i, align 8
   %length.i.i = getelementptr inbounds i8, ptr %property, i64 16
   store i64 %call, ptr %length.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr align 1 %value, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr readonly align 1 %value, i64 %call, i1 false)
   br label %_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit
 
 _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds = %if.end.i.i, %if.then2.i
@@ -836,7 +836,7 @@ _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, i64 noundef %value_length, ptr nocapture noundef writeonly %property) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp eq ptr %name, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 

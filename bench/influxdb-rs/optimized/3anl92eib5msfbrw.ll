@@ -30,7 +30,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !7, !noalias !4
   %12 = trunc i32 %1 to i8
@@ -42,7 +42,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !7, !noalias !4
   %19 = lshr i32 %1, 6
@@ -91,7 +91,7 @@ _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i: ; preds = %26
   %45 = phi i64 [ %39, %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i ], [ %.pre.i.i.i, %44 ]
   %46 = load ptr, ptr %0, align 8, !alias.scope !10, !noalias !15, !nonnull !17, !noundef !17
   %47 = getelementptr inbounds i8, ptr %46, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %37, i1 false)
   %48 = load i64, ptr %38, align 8, !alias.scope !10, !noalias !15, !noundef !17
   %49 = add i64 %48, %37
   store i64 %49, ptr %38, align 8, !alias.scope !10, !noalias !15
@@ -99,7 +99,7 @@ _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.exit
 
 .critedge.i:                                      ; preds = %2
-  %50 = trunc i32 %1 to i8
+  %50 = trunc nuw i32 %1 to i8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !21, !noundef !17
   %53 = getelementptr inbounds i8, ptr %0, i64 8
@@ -145,7 +145,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %11 = phi i64 [ %5, %3 ], [ %.pre.i.i, %10 ]
   %12 = load ptr, ptr %0, align 8, !alias.scope !24, !noalias !29, !nonnull !17, !noundef !17
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !alias.scope !24, !noalias !29, !noundef !17
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !alias.scope !24, !noalias !29

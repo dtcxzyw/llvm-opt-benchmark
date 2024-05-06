@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_lz_options = type { i64, i64, i64, i64, i64, i32, i32, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_lz_encoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 38654705880) i64 @lzma_lz_encoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lzma_mf_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   %3 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef nonnull %2, ptr noundef null, ptr noundef %0)
@@ -652,7 +652,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @lzma_next_filter_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i8 @lzma_mf_is_supported(i32 noundef %0) local_unnamed_addr #4 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_mf_is_supported(i32 noundef %0) local_unnamed_addr #4 {
   %2 = add i32 %0, -3
   %narrow = icmp ult i32 %2, 2
   %3 = and i32 %0, -2

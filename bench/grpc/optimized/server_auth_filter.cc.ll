@@ -398,27 +398,27 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @_ZTIN9grpc_core13ChannelFilterE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core13ChannelFilterE }, comdat, align 8
 @_ZTIN9grpc_core22ImplementChannelFilterINS_16ServerAuthFilterEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core22ImplementChannelFilterINS_16ServerAuthFilterEEE, ptr @_ZTIN9grpc_core13ChannelFilterE }, comdat, align 8
 @_ZTIN9grpc_core16ServerAuthFilterE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core16ServerAuthFilterE, ptr @_ZTIN9grpc_core22ImplementChannelFilterINS_16ServerAuthFilterEEE }, comdat, align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.81", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN9grpc_core13ChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core13ChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core13ChannelFilterD2Ev, ptr @_ZN9grpc_core13ChannelFilterD0Ev] }, comdat, align 8
 @.str.9 = private unnamed_addr constant [131 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/channel/promise_based_filter.h\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
 @.str.10 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.11 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEEE, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEED2Ev, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEEE = linkonce_odr constant [102 x i8] c"N9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16ServerAuthFilterEvEEEE\00", comdat, align 1
 @_ZTSN9grpc_core5Arena16ManagedNewObjectE = linkonce_odr constant [37 x i8] c"N9grpc_core5Arena16ManagedNewObjectE\00", comdat, align 1
@@ -437,11 +437,11 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @.str.15 = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @.str.16 = private unnamed_addr constant [65 x i8] c"nullptr == pollent_.exchange(pollent, std::memory_order_release)\00", align 1
 @.str.17 = private unnamed_addr constant [33 x i8] c"then_schedule_closure == nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.18 = private unnamed_addr constant [49 x i8] c"args->is_last == ((kFlags & kFilterIsLast) != 0)\00", align 1
 @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail20InvalidChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr constant [58 x i8] c"N9grpc_core21promise_filter_detail20InvalidChannelFilterE\00", comdat, align 1
@@ -4826,7 +4826,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %8 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %capacity.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !122
@@ -4906,7 +4906,7 @@ if.then.i.i.i.i.i.i.i52.i.i.i.i:                  ; preds = %if.then.i27.i.i.i.i
   br label %invoke.cont.i.i.i.i32.i.i.i.i
 
 invoke.cont.i.i.i.i32.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i52.i.i.i.i, %if.then.i27.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %17 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load i64, ptr %capacity.i.i.i.i.i33.i.i.i.i, align 8, !alias.scope !122
@@ -6004,7 +6004,7 @@ if.then.i.i.i.i.i.i.i489.i.i.i.i:                 ; preds = %if.then.i464.i.i.i.
   br label %invoke.cont.i.i.i.i469.i.i.i.i
 
 invoke.cont.i.i.i.i469.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i489.i.i.i.i, %if.then.i464.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i461.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i461.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %134 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i470.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %135 = load i64, ptr %capacity.i.i.i.i.i470.i.i.i.i, align 8, !alias.scope !122
@@ -6078,7 +6078,7 @@ if.then.i.i.i.i.i.i.i520.i.i.i.i:                 ; preds = %if.then.i495.i.i.i.
   br label %invoke.cont.i.i.i.i500.i.i.i.i
 
 invoke.cont.i.i.i.i500.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i520.i.i.i.i, %if.then.i495.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i492.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i492.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %143 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i501.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %144 = load i64, ptr %capacity.i.i.i.i.i501.i.i.i.i, align 8, !alias.scope !122
@@ -6152,7 +6152,7 @@ if.then.i.i.i.i.i.i.i551.i.i.i.i:                 ; preds = %if.then.i526.i.i.i.
   br label %invoke.cont.i.i.i.i531.i.i.i.i
 
 invoke.cont.i.i.i.i531.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i551.i.i.i.i, %if.then.i526.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i523.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i523.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %152 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i532.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %153 = load i64, ptr %capacity.i.i.i.i.i532.i.i.i.i, align 8, !alias.scope !122
@@ -6226,7 +6226,7 @@ if.then.i.i.i.i.i.i.i582.i.i.i.i:                 ; preds = %if.then.i557.i.i.i.
   br label %invoke.cont.i.i.i.i562.i.i.i.i
 
 invoke.cont.i.i.i.i562.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i582.i.i.i.i, %if.then.i557.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i554.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i554.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %161 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i563.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %162 = load i64, ptr %capacity.i.i.i.i.i563.i.i.i.i, align 8, !alias.scope !122
@@ -6300,7 +6300,7 @@ if.then.i.i.i.i.i.i.i613.i.i.i.i:                 ; preds = %if.then.i588.i.i.i.
   br label %invoke.cont.i.i.i.i593.i.i.i.i
 
 invoke.cont.i.i.i.i593.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i613.i.i.i.i, %if.then.i588.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i585.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i585.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %170 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i594.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %171 = load i64, ptr %capacity.i.i.i.i.i594.i.i.i.i, align 8, !alias.scope !122
@@ -6374,7 +6374,7 @@ if.then.i.i.i.i.i.i.i644.i.i.i.i:                 ; preds = %if.then.i619.i.i.i.
   br label %invoke.cont.i.i.i.i624.i.i.i.i
 
 invoke.cont.i.i.i.i624.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i644.i.i.i.i, %if.then.i619.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i616.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i616.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %179 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i625.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %180 = load i64, ptr %capacity.i.i.i.i.i625.i.i.i.i, align 8, !alias.scope !122
@@ -6448,7 +6448,7 @@ if.then.i.i.i.i.i.i.i675.i.i.i.i:                 ; preds = %if.then.i650.i.i.i.
   br label %invoke.cont.i.i.i.i655.i.i.i.i
 
 invoke.cont.i.i.i.i655.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i675.i.i.i.i, %if.then.i650.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i647.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i647.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %188 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i656.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %189 = load i64, ptr %capacity.i.i.i.i.i656.i.i.i.i, align 8, !alias.scope !122
@@ -6674,7 +6674,7 @@ if.then.i.i.i.i.i.i.i759.i.i.i.i:                 ; preds = %if.then.i734.i.i.i.
   br label %invoke.cont.i.i.i.i739.i.i.i.i
 
 invoke.cont.i.i.i.i739.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i759.i.i.i.i, %if.then.i734.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i731.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i731.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %217 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i740.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %218 = load i64, ptr %capacity.i.i.i.i.i740.i.i.i.i, align 8, !alias.scope !122
@@ -6748,7 +6748,7 @@ if.then.i.i.i.i.i.i.i790.i.i.i.i:                 ; preds = %if.then.i765.i.i.i.
   br label %invoke.cont.i.i.i.i770.i.i.i.i
 
 invoke.cont.i.i.i.i770.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i790.i.i.i.i, %if.then.i765.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i762.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i762.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !122
   %226 = load i64, ptr %md, align 8, !alias.scope !122
   %capacity.i.i.i.i.i771.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %227 = load i64, ptr %capacity.i.i.i.i.i771.i.i.i.i, align 8, !alias.scope !122
@@ -6829,7 +6829,7 @@ if.then.i.i.i31.i.i:                              ; preds = %for.body.i.i
   br label %_ZNK9grpc_core5Slice3RefEv.exit.i.i.i
 
 _ZNK9grpc_core5Slice3RefEv.exit.i.i.i:            ; preds = %if.then.i.i.i31.i.i, %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx.i.i.i, i64 32, i1 false)
   %236 = load ptr, ptr %second.i.i, align 8, !noalias !273
   %cmp.i.i2.i.i.i = icmp ugt ptr %236, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i2.i.i.i, label %if.then.i.i3.i.i.i, label %invoke.cont.i.i.i
@@ -6839,7 +6839,7 @@ if.then.i.i3.i.i.i:                               ; preds = %_ZNK9grpc_core5Slic
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i3.i.i.i, %_ZNK9grpc_core5Slice3RefEv.exit.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second.i.i, i64 32, i1 false)
   %238 = load i64, ptr %md, align 8, !alias.scope !122
   %239 = load i64, ptr %capacity.i.i.i.i, align 8, !alias.scope !122
   %cmp.i.i29.i.i = icmp eq i64 %238, %239
@@ -8131,7 +8131,7 @@ _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %state.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 112
   store i8 0, ptr %state.i.i.i, align 16, !alias.scope !288
-  %tobool.i.i.i.i.i.i = trunc i8 %agg.tmp.sroa.0.0 to i1
+  %tobool.i.i.i.i.i.i = trunc nuw i8 %agg.tmp.sroa.0.0 to i1
   store i8 %agg.tmp.sroa.0.0, ptr %agg.result, align 16, !alias.scope !288
   br i1 %tobool.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.else.i.i.i.i.i.i
 

@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"UNDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_util_try_import(ptr noundef %params, ptr nocapture noundef %arg) #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_try_import(ptr noundef %params, ptr nocapture noundef %arg) #0 {
 entry:
   %keydata = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %keydata, align 8
@@ -80,7 +80,7 @@ declare i32 @evp_keymgmt_import(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @evp_keymgmt_freedata(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_keymgmt_util_assign_pkey(ptr noundef %pkey, ptr noundef %keymgmt, ptr noundef %keydata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_assign_pkey(ptr noundef %pkey, ptr noundef %keymgmt, ptr noundef %keydata) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pkey, null
   %cmp1 = icmp eq ptr %keymgmt, null
@@ -389,7 +389,7 @@ evp_keymgmt_util_clear_operation_cache.exit:      ; preds = %if.end69
 
 if.end76:                                         ; preds = %evp_keymgmt_util_clear_operation_cache.exit, %if.end69
   %28 = load ptr, ptr %keydata43, align 8
-  %call78 = call i32 @evp_keymgmt_util_cache_keydata(ptr noundef nonnull %pk, ptr noundef nonnull %keymgmt, ptr noundef %28, i32 noundef %selection), !range !6
+  %call78 = call i32 @evp_keymgmt_util_cache_keydata(ptr noundef nonnull %pk, ptr noundef nonnull %keymgmt, ptr noundef %28, i32 noundef %selection)
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %if.then80, label %if.end84
 
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_keymgmt_util_cache_keydata(ptr nocapture noundef %pk, ptr noundef %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr nocapture noundef %pk, ptr noundef %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %keydata, null
   br i1 %cmp.not, label %return, label %if.then
@@ -741,7 +741,7 @@ return:                                           ; preds = %if.end61, %if.end54
 declare i32 @evp_keymgmt_match(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_keymgmt_util_copy(ptr noundef %to, ptr noundef readonly %from, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %to, ptr noundef readonly %from, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8
   %keymgmt = getelementptr inbounds i8, ptr %to, i64 96
@@ -885,7 +885,7 @@ if.end:                                           ; preds = %evp_keymgmt_util_as
 declare ptr @evp_keymgmt_gen(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef %keymgmt, ptr noundef %keydata, ptr noundef %mdname, i64 noundef %mdname_sz) local_unnamed_addr #0 {
+define range(i32 -2, 3) i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef %keymgmt, ptr noundef %keydata, ptr noundef %mdname, i64 noundef %mdname_sz) local_unnamed_addr #0 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %mddefault = alloca [100 x i8], align 16
@@ -1004,4 +1004,3 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

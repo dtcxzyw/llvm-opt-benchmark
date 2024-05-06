@@ -9285,7 +9285,7 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
   store i32 %102, ptr %10, align 4
   %103 = add i32 %87, 4
   %104 = zext nneg i8 %76 to i32
-  %105 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %103, i32 noundef %102, i32 noundef %104, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !7
+  %105 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %103, i32 noundef %102, i32 noundef %104, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i25 = icmp eq i32 %105, 0
   br i1 %.not.i25, label %128, label %106
 
@@ -9416,7 +9416,7 @@ dissect_kafka_message_old.exit:                   ; preds = %91, %98, %129
   %190 = add i32 %132, %38
   %191 = sub i32 %190, %189
   %192 = zext nneg i16 %159 to i32
-  %193 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %189, i32 noundef %191, i32 noundef %192, ptr noundef nonnull %24, ptr noundef nonnull %25), !range !7
+  %193 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %189, i32 noundef %191, i32 noundef %192, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %.not95.i = icmp eq i32 %193, 0
   br i1 %.not95.i, label %333, label %194
 
@@ -9507,7 +9507,7 @@ show_compression_reduction.exit.i:                ; preds = %207, %204, %198, %1
   %238 = udiv i64 %237, 1000
   store i64 %238, ptr %18, align 8
   %239 = urem i64 %237, 1000
-  %240 = trunc i64 %239 to i32
+  %240 = trunc nuw nsw i64 %239 to i32
   %241 = mul nuw nsw i32 %240, 1000000
   store i32 %241, ptr %35, align 8
   %242 = call ptr @proto_tree_add_time(ptr noundef %213, i32 noundef %234, ptr noundef %.pre.i, i32 noundef %233, i32 noundef %235, ptr noundef nonnull %18) #6
@@ -9659,7 +9659,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %.0.i.i.i.i.i = phi i32 [ %294, %291 ], [ %314, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %315 = load i32, ptr @hf_kafka_record_header_value, align 4
-  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull %16)
+  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull writeonly %16)
   %317 = load ptr, ptr %12, align 8
   %318 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %317, ptr noundef nonnull @.str.574, ptr noundef %318) #6
@@ -9674,7 +9674,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %324 = load i32, ptr %16, align 4
   %.not.i.i98.i = icmp eq i32 %324, 0
   %325 = select i1 %323, i1 %.not.i.i98.i, i1 false
-  br i1 %325, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
+  br i1 %325, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i:                                ; preds = %dissect_kafka_record_headers_header.exit.i.i.i, %282
   %.021.lcssa.i.i.i = phi i32 [ %284, %282 ], [ %316, %dissect_kafka_record_headers_header.exit.i.i.i ]
@@ -9707,7 +9707,7 @@ dissect_kafka_record.exit.i:                      ; preds = %330, %263, %dissect
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   %332 = add nuw i32 %.094108.i, 1
   %exitcond.not.i = icmp eq i32 %332, %187
-  br i1 %exitcond.not.i, label %dissect_kafka_message_new.exit, label %211, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_kafka_message_new.exit, label %211, !llvm.loop !8
 
 333:                                              ; preds = %151
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %135, ptr noundef nonnull @.str.555) #6
@@ -9724,7 +9724,7 @@ dissect_kafka_message.exit:                       ; preds = %dissect_kafka_messa
   %.0.i = phi i32 [ %.0.i24, %dissect_kafka_message_old.exit ], [ %.0.i23, %dissect_kafka_message_new.exit ]
   call void @decrement_dissection_depth(ptr noundef %1) #6
   %334 = icmp slt i32 %.0.i, %27
-  br i1 %334, label %37, label %._crit_edge, !llvm.loop !10
+  br i1 %334, label %37, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %dissect_kafka_message.exit, %33
   %.0.lcssa = phi i32 [ %3, %33 ], [ %.0.i, %dissect_kafka_message.exit ]
@@ -9809,7 +9809,7 @@ define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.LZ4F_frameInfo_t, align 8
   %10 = alloca i64, align 8
@@ -9924,7 +9924,7 @@ define internal fastcc noundef i32 @decompress(ptr noundef %0, ptr noundef %1, i
   %66 = add nuw nsw i32 %37, %38
   %67 = add nuw nsw i32 %.063.i, 1
   %exitcond.not.i = icmp eq i32 %67, 100
-  br i1 %exitcond.not.i, label %68, label %31, !llvm.loop !11
+  br i1 %exitcond.not.i, label %68, label %31, !llvm.loop !10
 
 68:                                               ; preds = %62
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.557, ptr noundef nonnull @.str.543, i32 noundef 1789, ptr noundef nonnull @.str.558, ptr noundef nonnull @.str.559) #7
@@ -10047,7 +10047,7 @@ decompress_snappy.exit:                           ; preds = %.thread86.i, %85, %
   %114 = mul i32 %113, 668265263
   %115 = getelementptr i8, ptr %110, i64 4
   %.not.i.i.i = icmp ugt ptr %115, %106
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 .lr.ph82.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph82.i.i.i
   %.381.i.i.i = phi ptr [ %122, %.lr.ph82.i.i.i ], [ %.2.lcssa.i.i.i, %.preheader.i.i.i ]
@@ -10060,7 +10060,7 @@ decompress_snappy.exit:                           ; preds = %.thread86.i, %85, %
   %121 = mul i32 %120, -1640531535
   %122 = getelementptr i8, ptr %.381.i.i.i, i64 1
   %123 = icmp ult ptr %122, %106
-  br i1 %123, label %.lr.ph82.i.i.i, label %XXH32.exit.i, !llvm.loop !13
+  br i1 %123, label %.lr.ph82.i.i.i, label %XXH32.exit.i, !llvm.loop !12
 
 XXH32.exit.i:                                     ; preds = %.lr.ph82.i.i.i, %.preheader.i.i.i
   %.272.lcssa.i.i.i = phi i32 [ %.171.lcssa.i.i.i, %.preheader.i.i.i ], [ %121, %.lr.ph82.i.i.i ]
@@ -14495,10 +14495,9 @@ attributes #7 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

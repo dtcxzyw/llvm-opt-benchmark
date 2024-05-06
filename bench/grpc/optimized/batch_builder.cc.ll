@@ -112,13 +112,13 @@ $_ZTIN9grpc_core12BatchBuilder22PendingReceiveMetadataE = comdat any
 @_ZTIN9grpc_core12BatchBuilder17PendingCompletionE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core12BatchBuilder17PendingCompletionE }, comdat, align 8
 @.str.12 = private unnamed_addr constant [26 x i8] c"%s[connected] [batch %p] \00", align 1
 @.str.13 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN4absl12lts_202308026Status16kMovedFromStringE = linkonce_odr constant [28 x i8] c"Status accessed after move.\00", comdat, align 16
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
 @.str.15 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.16 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE" = internal unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @"_ZTIN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE", ptr @"_ZN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1E22PollParticipantPromiseEv", ptr @"_ZN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1E7DestroyEv"] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @"_ZTSN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE" = internal constant [168 x i8] c"N9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE\00", align 1

@@ -611,7 +611,7 @@ define internal void @_formula_editing_started(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_key_press_on_list(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_key_press_on_list(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 8, !tbaa !37

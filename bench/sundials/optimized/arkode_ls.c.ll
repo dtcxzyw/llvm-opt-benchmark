@@ -331,7 +331,7 @@ switch.early.test:                                ; preds = %56
   %103 = getelementptr inbounds i8, ptr %calloc, i64 232
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %calloc, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %104, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %104, i8 0, i64 72, i1 false)
   %105 = getelementptr inbounds i8, ptr %calloc, i64 112
   store i64 51, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %calloc, i64 32
@@ -588,7 +588,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %16, %10, %61, %68, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define range(i32 -2, 2) i32 @arkLsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
 
@@ -1107,7 +1107,7 @@ select.unfold:                                    ; preds = %69
 
 105:                                              ; preds = %95, %98, %58
   %106 = getelementptr inbounds i8, ptr %7, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %106, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %106, i8 0, i64 72, i1 false)
   %107 = getelementptr inbounds i8, ptr %7, i64 240
   %108 = load i32, ptr %107, align 8
   %.not37 = icmp eq i32 %108, 0
@@ -2085,7 +2085,7 @@ define i32 @arkLsMassInitialize(ptr noundef %0) #0 {
 arkLs_AccessMassMem.exit:                         ; preds = %4
   %10 = getelementptr inbounds i8, ptr %7, i64 72
   %11 = getelementptr inbounds i8, ptr %7, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2816,7 +2816,7 @@ define noundef i32 @arkLsMassFree(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @arkLSSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2883,7 +2883,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %23, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2914,7 +2914,7 @@ define noundef i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSSetMassFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2966,7 +2966,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %18, %17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLs_AccessMassMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLs_AccessMassMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2997,7 +2997,7 @@ define noundef i32 @arkLs_AccessMassMem(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3029,7 +3029,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSSetNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3110,7 +3110,7 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3142,7 +3142,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @arkLSSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3178,7 +3178,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @arkLSSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3353,7 +3353,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %17, %11, %22, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @arkLSSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3427,7 +3427,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %11, %5, %24, %28, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @arkLSSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3484,7 +3484,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %15, %17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @arkLSSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3543,7 +3543,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %16, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3606,7 +3606,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3637,7 +3637,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3668,7 +3668,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3699,7 +3699,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3816,7 +3816,7 @@ declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3847,7 +3847,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3878,7 +3878,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3909,7 +3909,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3940,7 +3940,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3971,7 +3971,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4002,7 +4002,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4033,7 +4033,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4064,7 +4064,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassMatvecSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassMatvecSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4095,7 +4095,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @arkLSGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4201,7 +4201,7 @@ define noalias noundef ptr @arkLSGetReturnFlagName(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSSetMassEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4233,7 +4233,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSSetMassNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4310,7 +4310,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %12, %37, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @arkLSSetMassPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -4456,7 +4456,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %13, %7, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @arkLSSetMassTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -4518,7 +4518,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %12, %6, %24, %29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSSetMassUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSSetMassUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4559,7 +4559,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetMassWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetMassWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4673,7 +4673,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %15, %9, %49, %59, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4704,7 +4704,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassMult(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassMult(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4735,7 +4735,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4766,7 +4766,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4797,7 +4797,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4828,7 +4828,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4859,7 +4859,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMassConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMassConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4890,7 +4890,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetCurrentMassMatrix(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetCurrentMassMatrix(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4921,7 +4921,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetNumMTSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetNumMTSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -4952,7 +4952,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %10, %4, %arkLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLSGetLastMassFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @arkLSGetLastMassFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

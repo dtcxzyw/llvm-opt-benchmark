@@ -97,7 +97,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__io_put_kbuf(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 1, 0) i32 @__io_put_kbuf(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 65536
@@ -633,7 +633,7 @@ declare dso_local ptr @xa_find_after(ptr noundef, ptr noundef, i64 noundef, i32 
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @io_remove_buffers_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_remove_buffers_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -774,7 +774,7 @@ define dso_local noundef i32 @io_remove_buffers(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @io_provide_buffers_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @io_provide_buffers_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -835,7 +835,7 @@ define dso_local noundef i32 @io_provide_buffers_prep(ptr nocapture noundef writ
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = trunc i64 %39 to i16
+  %45 = trunc nuw i64 %39 to i16
   %46 = getelementptr inbounds i8, ptr %0, i64 28
   store i16 %45, ptr %46, align 4
   br label %47
@@ -1131,7 +1131,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @io_init_bl_list(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @io_init_bl_list(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 2048) #10
   %4 = icmp eq ptr %3, null
@@ -1544,7 +1544,7 @@ define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_unregister_pbuf_ring(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_unregister_pbuf_ring(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.io_uring_buf_reg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !22
@@ -1623,7 +1623,7 @@ define dso_local noundef i32 @io_unregister_pbuf_ring(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_register_pbuf_status(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.io_uring_buf_status, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !22

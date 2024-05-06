@@ -846,7 +846,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i160, %289
   br i1 %exitcond179.not.i, label %.critedge.i, label %381, !llvm.loop !14
 
 .critedge.split.loop.exit.i:                      ; preds = %381, %381
-  %394 = trunc i64 %indvars.iv.i to i32
+  %394 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %384, %.critedge.split.loop.exit.i
@@ -2369,7 +2369,7 @@ define dso_local void @_Z24cmGccDepfile_yyset_debugiPv(i32 noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z23cmGccDepfile_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #13 {
+define dso_local noundef range(i32 0, 2) i32 @_Z23cmGccDepfile_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2397,7 +2397,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z29cmGccDepfile_yylex_init_extraP23cmGccDepfileLexerHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local noundef range(i32 0, 2) i32 @_Z29cmGccDepfile_yylex_init_extraP23cmGccDepfileLexerHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

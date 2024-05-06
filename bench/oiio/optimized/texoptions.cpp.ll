@@ -134,8 +134,8 @@ entry:
   %conservative_filter = getelementptr inbounds i8, ptr %this, i64 36
   %conservative_filter10 = getelementptr inbounds i8, ptr %opt, i64 36
   %8 = load i8, ptr %conservative_filter10, align 4
-  %9 = and i8 %8, 1
-  store i8 %9, ptr %conservative_filter, align 4
+  %frombool = and i8 %8, 1
+  store i8 %frombool, ptr %conservative_filter, align 4
   %sblur = getelementptr inbounds i8, ptr %this, i64 40
   %sblur11 = getelementptr inbounds i8, ptr %opt, i64 40
   store ptr %sblur11, ptr %sblur, align 8
@@ -162,8 +162,8 @@ entry:
   %m_step.i.i24 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_step.i.i24, align 8
   %bias = getelementptr inbounds i8, ptr %this, i64 120
-  %10 = getelementptr inbounds i8, ptr %opt, i64 76
-  store ptr %10, ptr %bias, align 8
+  %9 = getelementptr inbounds i8, ptr %opt, i64 76
+  store ptr %9, ptr %bias, align 8
   %m_step.i.i25 = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_step.i.i25, align 8
   %fill = getelementptr inbounds i8, ptr %this, i64 136
@@ -173,8 +173,8 @@ entry:
   store i32 0, ptr %m_step.i.i26, align 8
   %missingcolor = getelementptr inbounds i8, ptr %this, i64 152
   %missingcolor23 = getelementptr inbounds i8, ptr %opt, i64 64
-  %11 = load ptr, ptr %missingcolor23, align 8
-  store ptr %11, ptr %missingcolor, align 8
+  %10 = load ptr, ptr %missingcolor23, align 8
+  store ptr %10, ptr %missingcolor, align 8
   %m_step.i.i27 = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %m_step.i.i27, align 8
   %samples = getelementptr inbounds i8, ptr %this, i64 168
@@ -184,8 +184,8 @@ entry:
   store i32 0, ptr %m_step.i.i28, align 8
   %rwrap = getelementptr inbounds i8, ptr %this, i64 184
   %rwrap27 = getelementptr inbounds i8, ptr %opt, i64 84
-  %12 = load i32, ptr %rwrap27, align 4
-  store i32 %12, ptr %rwrap, align 8
+  %11 = load i32, ptr %rwrap27, align 4
+  store i32 %11, ptr %rwrap, align 8
   %rblur = getelementptr inbounds i8, ptr %this, i64 192
   %rblur28 = getelementptr inbounds i8, ptr %opt, i64 88
   store ptr %rblur28, ptr %rblur, align 8
@@ -235,123 +235,123 @@ entry:
   %conservative_filter = getelementptr inbounds i8, ptr %this, i64 36
   %conservative_filter10 = getelementptr inbounds i8, ptr %opt, i64 36
   %8 = load i8, ptr %conservative_filter10, align 4
-  %9 = and i8 %8, 1
-  store i8 %9, ptr %conservative_filter, align 4
+  %frombool = and i8 %8, 1
+  store i8 %frombool, ptr %conservative_filter, align 4
   %sblur = getelementptr inbounds i8, ptr %this, i64 40
   %sblur11 = getelementptr inbounds i8, ptr %opt, i64 40
-  %10 = load ptr, ptr %sblur11, align 8
+  %9 = load ptr, ptr %sblur11, align 8
   %m_step.i = getelementptr inbounds i8, ptr %opt, i64 48
-  %11 = load i32, ptr %m_step.i, align 8
-  %mul.i = mul nsw i32 %11, %index
+  %10 = load i32, ptr %m_step.i, align 8
+  %mul.i = mul nsw i32 %10, %index
   %idx.ext.i = sext i32 %mul.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext.i
-  %12 = load float, ptr %add.ptr.i, align 4
-  store float %12, ptr %sblur, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %idx.ext.i
+  %11 = load float, ptr %add.ptr.i, align 4
+  store float %11, ptr %sblur, align 8
   %tblur = getelementptr inbounds i8, ptr %this, i64 44
   %tblur12 = getelementptr inbounds i8, ptr %opt, i64 56
-  %13 = load ptr, ptr %tblur12, align 8
+  %12 = load ptr, ptr %tblur12, align 8
   %m_step.i32 = getelementptr inbounds i8, ptr %opt, i64 64
-  %14 = load i32, ptr %m_step.i32, align 8
-  %mul.i33 = mul nsw i32 %14, %index
+  %13 = load i32, ptr %m_step.i32, align 8
+  %mul.i33 = mul nsw i32 %13, %index
   %idx.ext.i34 = sext i32 %mul.i33 to i64
-  %add.ptr.i35 = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i34
-  %15 = load float, ptr %add.ptr.i35, align 4
-  store float %15, ptr %tblur, align 4
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i34
+  %14 = load float, ptr %add.ptr.i35, align 4
+  store float %14, ptr %tblur, align 4
   %swidth = getelementptr inbounds i8, ptr %this, i64 48
   %swidth15 = getelementptr inbounds i8, ptr %opt, i64 72
-  %16 = load ptr, ptr %swidth15, align 8
+  %15 = load ptr, ptr %swidth15, align 8
   %m_step.i36 = getelementptr inbounds i8, ptr %opt, i64 80
-  %17 = load i32, ptr %m_step.i36, align 8
-  %mul.i37 = mul nsw i32 %17, %index
+  %16 = load i32, ptr %m_step.i36, align 8
+  %mul.i37 = mul nsw i32 %16, %index
   %idx.ext.i38 = sext i32 %mul.i37 to i64
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i38
-  %18 = load float, ptr %add.ptr.i39, align 4
-  store float %18, ptr %swidth, align 8
+  %add.ptr.i39 = getelementptr inbounds i8, ptr %15, i64 %idx.ext.i38
+  %17 = load float, ptr %add.ptr.i39, align 4
+  store float %17, ptr %swidth, align 8
   %twidth = getelementptr inbounds i8, ptr %this, i64 52
   %twidth18 = getelementptr inbounds i8, ptr %opt, i64 88
-  %19 = load ptr, ptr %twidth18, align 8
+  %18 = load ptr, ptr %twidth18, align 8
   %m_step.i40 = getelementptr inbounds i8, ptr %opt, i64 96
-  %20 = load i32, ptr %m_step.i40, align 8
-  %mul.i41 = mul nsw i32 %20, %index
+  %19 = load i32, ptr %m_step.i40, align 8
+  %mul.i41 = mul nsw i32 %19, %index
   %idx.ext.i42 = sext i32 %mul.i41 to i64
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %19, i64 %idx.ext.i42
-  %21 = load float, ptr %add.ptr.i43, align 4
-  store float %21, ptr %twidth, align 4
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i42
+  %20 = load float, ptr %add.ptr.i43, align 4
+  store float %20, ptr %twidth, align 4
   %fill = getelementptr inbounds i8, ptr %this, i64 56
   %fill21 = getelementptr inbounds i8, ptr %opt, i64 136
-  %22 = load ptr, ptr %fill21, align 8
+  %21 = load ptr, ptr %fill21, align 8
   %m_step.i44 = getelementptr inbounds i8, ptr %opt, i64 144
-  %23 = load i32, ptr %m_step.i44, align 8
-  %mul.i45 = mul nsw i32 %23, %index
+  %22 = load i32, ptr %m_step.i44, align 8
+  %mul.i45 = mul nsw i32 %22, %index
   %idx.ext.i46 = sext i32 %mul.i45 to i64
-  %add.ptr.i47 = getelementptr inbounds i8, ptr %22, i64 %idx.ext.i46
-  %24 = load float, ptr %add.ptr.i47, align 4
-  store float %24, ptr %fill, align 8
+  %add.ptr.i47 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i46
+  %23 = load float, ptr %add.ptr.i47, align 4
+  store float %23, ptr %fill, align 8
   %missingcolor24 = getelementptr inbounds i8, ptr %opt, i64 152
-  %25 = load ptr, ptr %missingcolor24, align 8
-  %tobool27.not = icmp eq ptr %25, null
+  %24 = load ptr, ptr %missingcolor24, align 8
+  %tobool27.not = icmp eq ptr %24, null
   %m_step.i48 = getelementptr inbounds i8, ptr %opt, i64 160
-  %26 = load i32, ptr %m_step.i48, align 8
-  %mul.i49 = mul nsw i32 %26, %index
+  %25 = load i32, ptr %m_step.i48, align 8
+  %mul.i49 = mul nsw i32 %25, %index
   %idx.ext.i50 = sext i32 %mul.i49 to i64
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %25, i64 %idx.ext.i50
+  %add.ptr.i51 = getelementptr inbounds i8, ptr %24, i64 %idx.ext.i50
   %cond = select i1 %tobool27.not, ptr null, ptr %add.ptr.i51
   %missingcolor = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %cond, ptr %missingcolor, align 8
   %time = getelementptr inbounds i8, ptr %this, i64 72
   %time31 = getelementptr inbounds i8, ptr %opt, i64 104
-  %27 = load ptr, ptr %time31, align 8
+  %26 = load ptr, ptr %time31, align 8
   %m_step.i52 = getelementptr inbounds i8, ptr %opt, i64 112
-  %28 = load i32, ptr %m_step.i52, align 8
-  %mul.i53 = mul nsw i32 %28, %index
+  %27 = load i32, ptr %m_step.i52, align 8
+  %mul.i53 = mul nsw i32 %27, %index
   %idx.ext.i54 = sext i32 %mul.i53 to i64
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %27, i64 %idx.ext.i54
-  %29 = load float, ptr %add.ptr.i55, align 4
-  store float %29, ptr %time, align 8
-  %30 = getelementptr inbounds i8, ptr %this, i64 76
+  %add.ptr.i55 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i54
+  %28 = load float, ptr %add.ptr.i55, align 4
+  store float %28, ptr %time, align 8
+  %29 = getelementptr inbounds i8, ptr %this, i64 76
   %bias = getelementptr inbounds i8, ptr %opt, i64 120
-  %31 = load ptr, ptr %bias, align 8
+  %30 = load ptr, ptr %bias, align 8
   %m_step.i56 = getelementptr inbounds i8, ptr %opt, i64 128
-  %32 = load i32, ptr %m_step.i56, align 8
-  %mul.i57 = mul nsw i32 %32, %index
+  %31 = load i32, ptr %m_step.i56, align 8
+  %mul.i57 = mul nsw i32 %31, %index
   %idx.ext.i58 = sext i32 %mul.i57 to i64
-  %add.ptr.i59 = getelementptr inbounds i8, ptr %31, i64 %idx.ext.i58
-  %33 = load float, ptr %add.ptr.i59, align 4
-  store float %33, ptr %30, align 4
+  %add.ptr.i59 = getelementptr inbounds i8, ptr %30, i64 %idx.ext.i58
+  %32 = load float, ptr %add.ptr.i59, align 4
+  store float %32, ptr %29, align 4
   %samples = getelementptr inbounds i8, ptr %this, i64 80
   %samples36 = getelementptr inbounds i8, ptr %opt, i64 168
-  %34 = load ptr, ptr %samples36, align 8
+  %33 = load ptr, ptr %samples36, align 8
   %m_step.i60 = getelementptr inbounds i8, ptr %opt, i64 176
-  %35 = load i32, ptr %m_step.i60, align 8
-  %mul.i61 = mul nsw i32 %35, %index
+  %34 = load i32, ptr %m_step.i60, align 8
+  %mul.i61 = mul nsw i32 %34, %index
   %idx.ext.i62 = sext i32 %mul.i61 to i64
-  %add.ptr.i63 = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i62
-  %36 = load i32, ptr %add.ptr.i63, align 4
-  store i32 %36, ptr %samples, align 8
+  %add.ptr.i63 = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i62
+  %35 = load i32, ptr %add.ptr.i63, align 4
+  store i32 %35, ptr %samples, align 8
   %rwrap = getelementptr inbounds i8, ptr %this, i64 84
   %rwrap39 = getelementptr inbounds i8, ptr %opt, i64 184
-  %37 = load i32, ptr %rwrap39, align 8
-  store i32 %37, ptr %rwrap, align 4
+  %36 = load i32, ptr %rwrap39, align 8
+  store i32 %36, ptr %rwrap, align 4
   %rblur = getelementptr inbounds i8, ptr %this, i64 88
   %rblur40 = getelementptr inbounds i8, ptr %opt, i64 192
-  %38 = load ptr, ptr %rblur40, align 8
+  %37 = load ptr, ptr %rblur40, align 8
   %m_step.i64 = getelementptr inbounds i8, ptr %opt, i64 200
-  %39 = load i32, ptr %m_step.i64, align 8
-  %mul.i65 = mul nsw i32 %39, %index
+  %38 = load i32, ptr %m_step.i64, align 8
+  %mul.i65 = mul nsw i32 %38, %index
   %idx.ext.i66 = sext i32 %mul.i65 to i64
-  %add.ptr.i67 = getelementptr inbounds i8, ptr %38, i64 %idx.ext.i66
-  %40 = load float, ptr %add.ptr.i67, align 4
-  store float %40, ptr %rblur, align 8
+  %add.ptr.i67 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i66
+  %39 = load float, ptr %add.ptr.i67, align 4
+  store float %39, ptr %rblur, align 8
   %rwidth = getelementptr inbounds i8, ptr %this, i64 92
   %rwidth43 = getelementptr inbounds i8, ptr %opt, i64 208
-  %41 = load ptr, ptr %rwidth43, align 8
+  %40 = load ptr, ptr %rwidth43, align 8
   %m_step.i68 = getelementptr inbounds i8, ptr %opt, i64 216
-  %42 = load i32, ptr %m_step.i68, align 8
-  %mul.i69 = mul nsw i32 %42, %index
+  %41 = load i32, ptr %m_step.i68, align 8
+  %mul.i69 = mul nsw i32 %41, %index
   %idx.ext.i70 = sext i32 %mul.i69 to i64
-  %add.ptr.i71 = getelementptr inbounds i8, ptr %41, i64 %idx.ext.i70
-  %43 = load float, ptr %add.ptr.i71, align 4
-  store float %43, ptr %rwidth, align 4
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %40, i64 %idx.ext.i70
+  %42 = load float, ptr %add.ptr.i71, align 4
+  store float %42, ptr %rwidth, align 4
   %envlayout = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %envlayout, align 4
   ret void
@@ -376,7 +376,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6
@@ -406,7 +406,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6
@@ -442,7 +442,7 @@ for.cond:                                         ; preds = %for.body, %cond.end
 for.body:                                         ; preds = %for.cond
   %arrayidx9 = getelementptr inbounds i8, ptr %cond, i64 %indvars.iv
   store i8 %1, ptr %arrayidx9, align 1
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond, %for.cond
@@ -458,7 +458,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.end
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %2) #13
+  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %2) #13
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %return.split.loop.exit6.i, label %for.inc.i
 
@@ -468,7 +468,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit, label %for.body.i, !llvm.loop !4
 
 return.split.loop.exit6.i:                        ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit
 
 _ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit: ; preds = %for.inc.i, %return.split.loop.exit6.i
@@ -480,7 +480,7 @@ for.body.i17:                                     ; preds = %for.inc.i22, %_ZN18
   %indvars.iv.i18 = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i23, %for.inc.i22 ]
   %arrayidx.i19 = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i18
   %4 = load ptr, ptr %arrayidx.i19, align 8
-  %call1.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %twrap.0, ptr noundef nonnull dereferenceable(1) %4) #13
+  %call1.i20 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %twrap.0, ptr noundef nonnull dereferenceable(1) %4) #13
   %tobool.not.i21 = icmp eq i32 %call1.i20, 0
   br i1 %tobool.not.i21, label %return.split.loop.exit6.i26, label %for.inc.i22
 
@@ -490,7 +490,7 @@ for.inc.i22:                                      ; preds = %for.body.i17
   br i1 %exitcond.not.i24, label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27, label %for.body.i17, !llvm.loop !4
 
 return.split.loop.exit6.i26:                      ; preds = %for.body.i17
-  %5 = trunc i64 %indvars.iv.i18 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   br label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27
 
 _ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27: ; preds = %for.inc.i22, %return.split.loop.exit6.i26

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_rs_convert_io_flags = internal global [4 x %struct.acpi_rsconvert_info] [%struct.acpi_rsconvert_info { i8 2, i8 0, i8 5, i8 4 }, %struct.acpi_rsconvert_info { i8 4, i8 13, i8 5, i8 0 }, %struct.acpi_rsconvert_info { i8 3, i8 14, i8 5, i8 4 }, %struct.acpi_rsconvert_info { i8 3, i8 15, i8 5, i8 5 }], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @acpi_rs_get_address_common(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_rs_get_address_common(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 5

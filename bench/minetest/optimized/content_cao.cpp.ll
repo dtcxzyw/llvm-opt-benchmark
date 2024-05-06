@@ -10378,7 +10378,7 @@ return:                                           ; preds = %if.end40, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i16 @_ZN10GenericCAO16getLightPositionEPN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly %pos) local_unnamed_addr #16 align 2 {
+define dso_local noundef zeroext range(i16 2, 4) i16 @_ZN10GenericCAO16getLightPositionEPN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly %pos) local_unnamed_addr #16 align 2 {
 entry:
   %collisionbox = getelementptr inbounds i8, ptr %this, i64 120
   %m_position = getelementptr inbounds i8, ptr %this, i64 536

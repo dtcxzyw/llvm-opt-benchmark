@@ -152,7 +152,7 @@ define void @stmm_clean(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @Extra_MmFixedRestart(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -276,21 +276,21 @@ define i32 @stmm_numhash(ptr noundef %0, i32 noundef %1) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stmm_numcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define range(i32 0, 2) i32 @stmm_numcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
   %3 = icmp ne ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stmm_ptrcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define range(i32 0, 2) i32 @stmm_ptrcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
   %3 = icmp ne ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_lookup_int(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_lookup_int(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -397,7 +397,7 @@ define noundef i32 @stmm_lookup_int(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -498,7 +498,7 @@ define noundef i32 @stmm_insert(ptr nocapture noundef %0, ptr noundef %1, ptr no
   br i1 %.not70, label %85, label %61
 
 61:                                               ; preds = %.critedge71
-  %62 = tail call fastcc i32 @rehash(ptr noundef nonnull %0), !range !9
+  %62 = tail call fastcc i32 @rehash(ptr noundef nonnull %0)
   %63 = icmp eq i32 %62, -10000
   br i1 %63, label %103, label %64
 
@@ -570,7 +570,7 @@ define noundef i32 @stmm_insert(ptr nocapture noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rehash(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -619,7 +619,7 @@ define internal fastcc noundef i32 @rehash(ptr nocapture noundef %0) unnamed_add
   %23 = load i32, ptr %4, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.preheader, !llvm.loop !10
+  br i1 %25, label %.lr.ph, label %.preheader, !llvm.loop !9
 
 26:                                               ; preds = %.lr.ph60, %._crit_edge
   %indvars.iv63 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next64, %._crit_edge ]
@@ -678,12 +678,12 @@ define internal fastcc noundef i32 @rehash(ptr nocapture noundef %0) unnamed_add
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %5, align 4
   %.not53 = icmp eq ptr %30, null
-  br i1 %.not53, label %._crit_edge, label %.lr.ph58, !llvm.loop !11
+  br i1 %.not53, label %._crit_edge, label %.lr.ph58, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %53, %26
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge61, label %26, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge61, label %26, !llvm.loop !11
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %.preheader
   %.not = icmp eq ptr %3, null
@@ -701,7 +701,7 @@ define internal fastcc noundef i32 @rehash(ptr nocapture noundef %0) unnamed_add
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_add_direct(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -10000, 2) i32 @stmm_add_direct(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -727,7 +727,7 @@ define noundef i32 @stmm_add_direct(ptr nocapture noundef %0, ptr noundef %1, pt
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %12
-  %21 = tail call fastcc i32 @rehash(ptr noundef nonnull %0), !range !9
+  %21 = tail call fastcc i32 @rehash(ptr noundef nonnull %0)
   %22 = icmp eq i32 %21, -10000
   br i1 %22, label %62, label %23
 
@@ -795,7 +795,7 @@ define noundef i32 @stmm_add_direct(ptr nocapture noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -863,7 +863,7 @@ define noundef i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr noundef %1, p
   %43 = getelementptr inbounds i8, ptr %.06483, i64 16
   %.064 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %.064, null
-  br i1 %.not, label %.critedge77, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.critedge77, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds i8, ptr %0, i64 28
@@ -896,7 +896,7 @@ define noundef i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr noundef %1, p
   br i1 %.not75, label %85, label %61
 
 61:                                               ; preds = %.critedge77
-  %62 = tail call fastcc i32 @rehash(ptr noundef nonnull %0), !range !9
+  %62 = tail call fastcc i32 @rehash(ptr noundef nonnull %0)
   %63 = icmp eq i32 %62, -10000
   br i1 %63, label %104, label %64
 
@@ -978,7 +978,7 @@ define noundef i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_find(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_find(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -1046,7 +1046,7 @@ define noundef i32 @stmm_find(ptr nocapture noundef readonly %0, ptr noundef %1,
   %43 = getelementptr inbounds i8, ptr %.03650, i64 16
   %.036 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1146,12 +1146,12 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
   %28 = getelementptr inbounds i8, ptr %.03744, i64 16
   %.037 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %25, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %13, %1, %24, %12
   %.0 = phi ptr [ null, %12 ], [ null, %24 ], [ null, %1 ], [ %4, %13 ], [ %4, %._crit_edge ]
@@ -1162,7 +1162,7 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_delete(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_delete(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1231,7 +1231,7 @@ define noundef i32 @stmm_delete(ptr nocapture noundef %0, ptr nocapture noundef 
   %44 = getelementptr inbounds i8, ptr %.04458, i64 16
   %.044 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %40, %39
   %45 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1285,7 +1285,7 @@ define noundef i32 @stmm_delete(ptr nocapture noundef %0, ptr nocapture noundef 
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_delete_int(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_delete_int(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1353,7 +1353,7 @@ define noundef i32 @stmm_delete_int(ptr nocapture noundef %0, ptr nocapture noun
   %43 = getelementptr inbounds i8, ptr %.04458, i64 16
   %.044 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1406,7 +1406,7 @@ define noundef i32 @stmm_delete_int(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1464,7 +1464,7 @@ define noundef i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture noundef
   %.123 = phi ptr [ %.02226, %.lr.ph ], [ %27, %.sink.split ]
   %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127.sink, %.sink.split ]
   %.not = icmp eq ptr %.123, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %28
   %.pre = load i32, ptr %4, align 8
@@ -1475,7 +1475,7 @@ define noundef i32 @stmm_foreach(ptr nocapture noundef %0, ptr nocapture noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !20
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %3
   %.020 = phi i32 [ 1, %3 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]
@@ -1498,7 +1498,7 @@ define i32 @stmm_strhash(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   %8 = add nsw i32 %7, %5
   %9 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.06.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -1526,7 +1526,7 @@ define noalias noundef ptr @stmm_init_gen(ptr noundef %0) local_unnamed_addr #7 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stmm_gen(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stmm_gen(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1558,10 +1558,10 @@ define noundef i32 @stmm_gen(ptr nocapture noundef %0, ptr nocapture noundef wri
 20:                                               ; preds = %17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %thread-pre-split.thread, label %17, !llvm.loop !22
+  br i1 %exitcond.not, label %thread-pre-split.thread, label %17, !llvm.loop !21
 
 thread-pre-split:                                 ; preds = %17
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %8, align 8
   %23 = load ptr, ptr %14, align 8
@@ -1598,7 +1598,7 @@ thread-pre-split.thread:                          ; preds = %20, %7, %thread-pre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stmm_gen_int(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stmm_gen_int(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1630,10 +1630,10 @@ define noundef i32 @stmm_gen_int(ptr nocapture noundef %0, ptr nocapture noundef
 20:                                               ; preds = %17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %thread-pre-split.thread, label %17, !llvm.loop !23
+  br i1 %exitcond.not, label %thread-pre-split.thread, label %17, !llvm.loop !22
 
 thread-pre-split:                                 ; preds = %17
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %8, align 8
   %23 = load ptr, ptr %14, align 8
@@ -1718,7 +1718,7 @@ attributes #13 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -10000, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1732,4 +1732,3 @@ attributes #13 = { nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

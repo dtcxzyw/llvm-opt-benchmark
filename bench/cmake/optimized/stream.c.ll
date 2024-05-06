@@ -658,7 +658,7 @@ uv__stream_eof.exit:                              ; preds = %252, %260, %263
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__stream_open(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__stream_open(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
@@ -1338,7 +1338,7 @@ declare i32 @uv__tcp_listen(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @uv__pipe_listen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -107, 1) i32 @uv_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 33539
@@ -1383,7 +1383,7 @@ define dso_local noundef i32 @uv_shutdown(ptr noundef %0, ptr noundef %1, ptr no
 declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_write2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -32, 1) i32 @uv_write2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 184
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 0
@@ -1697,8 +1697,8 @@ uv__write_req_finish.exit31:                      ; preds = %77, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @uv_write2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %4), !range !18
+define dso_local range(i32 -32, 1) i32 @uv_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call i32 @uv_write2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %4)
   ret i32 %6
 }
 
@@ -1729,7 +1729,7 @@ define dso_local i32 @uv_try_write(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %.not.i.i, label %uv_try_write2.exit, label %uv__check_before_write.exit.i
 
 uv__check_before_write.exit.i:                    ; preds = %13
-  %17 = tail call fastcc i32 @uv__try_write(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef null)
+  %17 = tail call fastcc i32 @uv__try_write(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef null)
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %3, %6, %9, %13, %uv__check_before_write.exit.i
@@ -1799,7 +1799,7 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %uv__writev.exit.us, label %.critedge.thread, !llvm.loop !19
+  br i1 %19, label %uv__writev.exit.us, label %.critedge.thread, !llvm.loop !18
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %3, i64 88
@@ -1864,7 +1864,7 @@ uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %47 = tail call ptr @__errno_location() #13
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %.critedge.thread, !llvm.loop !20
+  br i1 %49, label %42, label %.critedge.thread, !llvm.loop !19
 
 uv__writev.exit:                                  ; preds = %.preheader, %53
   %50 = load i32, ptr %8, align 8
@@ -1876,7 +1876,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   %54 = tail call ptr @__errno_location() #13
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 4
-  br i1 %56, label %uv__writev.exit, label %.critedge.thread, !llvm.loop !19
+  br i1 %56, label %uv__writev.exit, label %.critedge.thread, !llvm.loop !18
 
 .critedge:                                        ; preds = %42, %uv__writev.exit, %uv__writev.exit.us
   %.028 = phi i64 [ %14, %uv__writev.exit.us ], [ %51, %uv__writev.exit ], [ %44, %42 ]
@@ -1992,7 +1992,7 @@ define dso_local noundef i32 @uv_read_stop(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_is_readable(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @uv_is_readable(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 14
@@ -2001,7 +2001,7 @@ define dso_local i32 @uv_is_readable(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_is_writable(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @uv_is_writable(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 15
@@ -2132,7 +2132,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %60 = load i32, ptr %53, align 4
   %61 = zext i32 %60 to i64
   %62 = icmp ult i64 %indvars.iv.next, %61
-  br i1 %62, label %56, label %._crit_edge.loopexit, !llvm.loop !21
+  br i1 %62, label %56, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %56
   %.pre33 = load ptr, ptr %51, align 8
@@ -2243,7 +2243,6 @@ attributes #14 = { cold nounwind }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -32, i32 1}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

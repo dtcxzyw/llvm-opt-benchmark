@@ -228,7 +228,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %weight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 257) i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %weight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp17 = alloca %"class.logging::LogMessage", align 8
@@ -295,7 +295,7 @@ eh.resume:                                        ; preds = %lpad19, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net26Spdy3PriorityToHttp2WeightEh(i8 noundef zeroext %priority) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN3net26Spdy3PriorityToHttp2WeightEh(i8 noundef zeroext %priority) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19.i = alloca %"class.logging::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp19.i)
@@ -330,7 +330,7 @@ lpad21.i:                                         ; preds = %invoke.cont24.i, %c
 _ZN3net18ClampSpdy3PriorityEh.exit:               ; preds = %entry, %if.then14.i, %cleanup.action32.i
   %retval.0.i = phi i8 [ 7, %if.then14.i ], [ 7, %cleanup.action32.i ], [ %priority, %entry ]
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp19.i)
-  %conv1 = uitofp i8 %retval.0.i to float
+  %conv1 = uitofp nneg i8 %retval.0.i to float
   %sub = fsub float 7.000000e+00, %conv1
   %mul = fmul float %sub, 0x4042475060000000
   %conv2 = fptosi float %mul to i32
@@ -341,7 +341,7 @@ _ZN3net18ClampSpdy3PriorityEh.exit:               ; preds = %entry, %if.then14.i
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %weight) local_unnamed_addr #0 {
 entry:
-  %call = tail call noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %weight), !range !5
+  %call = tail call noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %weight)
   %sub = add nsw i32 %call, -1
   %conv = sitofp i32 %sub to float
   %div = fdiv float %conv, 0x4042475060000000
@@ -401,7 +401,7 @@ return:                                           ; preds = %sw.bb5, %sw.bb, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef %version, i32 noundef %frame_type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 12) i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef %version, i32 noundef %frame_type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp37 = alloca %"class.logging::LogMessage", align 8
@@ -496,7 +496,7 @@ switch.lookup:                                    ; preds = %sw.bb
   br label %return
 
 switch.hole_check:                                ; preds = %sw.bb19
-  %switch.maskindex = trunc i32 %frame_type to i16
+  %switch.maskindex = trunc nuw i32 %frame_type to i16
   %switch.shifted = lshr i16 16377, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup9, label %sw.default32
@@ -519,7 +519,7 @@ eh.resume:                                        ; preds = %lpad60, %lpad39, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %frame_type_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 14) i32 @_ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %frame_type_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp24 = alloca %"class.logging::LogMessage", align 8
   switch i32 %version, label %sw.epilog23 [
@@ -561,7 +561,7 @@ lpad:                                             ; preds = %invoke.cont26, %con
   resume { ptr, i32 } %2
 
 switch.hole_check:                                ; preds = %sw.bb
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 495, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog23
@@ -584,7 +584,7 @@ return:                                           ; preds = %switch.lookup3, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants13DataFrameTypeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 12) i32 @_ZN3net13SpdyConstants13DataFrameTypeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %version.off = add i32 %version, -1
@@ -635,7 +635,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 switch.lookup:                                    ; preds = %if.then
-  %switch.cast = trunc i32 %frame_type_field to i12
+  %switch.cast = trunc nuw i32 %frame_type_field to i12
   %switch.downshift = lshr i12 374, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
   br label %return
@@ -694,7 +694,7 @@ return:                                           ; preds = %sw.bb5, %sw.bb, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE(i32 noundef %version, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 8) i32 @_ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE(i32 noundef %version, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp30 = alloca %"class.logging::LogMessage", align 8
@@ -784,7 +784,7 @@ lpad53:                                           ; preds = %invoke.cont56, %con
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %sw.bb18
-  %switch.maskindex = trunc i32 %switch.tableidx9 to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx9 to i8
   %switch.shifted = lshr i8 -7, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup10, label %sw.default25
@@ -807,7 +807,7 @@ eh.resume:                                        ; preds = %lpad53, %lpad32, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %setting_id_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 12) i32 @_ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %setting_id_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca %"class.logging::LogMessage", align 8
   switch i32 %version, label %sw.epilog16 [
@@ -909,7 +909,7 @@ return:                                           ; preds = %sw.bb5, %sw.bb, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE(i32 noundef %version, i32 noundef %rst_stream_status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 14) i32 @_ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE(i32 noundef %version, i32 noundef %rst_stream_status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp38 = alloca %"class.logging::LogMessage", align 8
@@ -999,7 +999,7 @@ lpad61:                                           ; preds = %invoke.cont64, %con
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %sw.bb
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1535, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default
@@ -1011,7 +1011,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %return
 
 switch.hole_check10:                              ; preds = %sw.bb21
-  %switch.maskindex12 = trunc i32 %switch.tableidx9 to i16
+  %switch.maskindex12 = trunc nuw i32 %switch.tableidx9 to i16
   %switch.shifted13 = lshr i16 -2953, %switch.maskindex12
   %switch.lobit14 = trunc i16 %switch.shifted13 to i1
   br i1 %switch.lobit14, label %switch.lookup11, label %sw.default33
@@ -1034,7 +1034,7 @@ eh.resume:                                        ; preds = %lpad61, %lpad40, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %rst_stream_status_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 17) i32 @_ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %rst_stream_status_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.logging::LogMessage", align 8
   switch i32 %version, label %sw.epilog24 [
@@ -1077,7 +1077,7 @@ lpad:                                             ; preds = %invoke.cont27, %con
   resume { ptr, i32 } %2
 
 switch.hole_check:                                ; preds = %sw.bb
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1535, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog24
@@ -1089,7 +1089,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %return
 
 switch.hole_check5:                               ; preds = %sw.bb11
-  %switch.maskindex7 = trunc i32 %switch.tableidx4 to i16
+  %switch.maskindex7 = trunc nuw i32 %switch.tableidx4 to i16
   %switch.shifted8 = lshr i16 7927, %switch.maskindex7
   %switch.lobit9 = trunc i16 %switch.shifted8 to i1
   br i1 %switch.lobit9, label %switch.lookup6, label %sw.epilog24
@@ -1152,7 +1152,7 @@ return:                                           ; preds = %sw.bb5, %sw.bb, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE(i32 noundef %version, i32 noundef %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 14) i32 @_ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE(i32 noundef %version, i32 noundef %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp33 = alloca %"class.logging::LogMessage", align 8
@@ -1257,7 +1257,7 @@ eh.resume:                                        ; preds = %lpad56, %lpad35, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants17ParseGoAwayStatusENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %goaway_status_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 14) i32 @_ZN3net13SpdyConstants17ParseGoAwayStatusENS_16SpdyMajorVersionEi(i32 noundef %version, i32 noundef %goaway_status_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp21 = alloca %"class.logging::LogMessage", align 8
   switch i32 %version, label %sw.epilog20 [
@@ -1303,7 +1303,7 @@ return:                                           ; preds = %sw.bb4, %sw.bb, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 10) i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   switch i32 %version, label %sw.epilog [
@@ -1344,16 +1344,16 @@ return:                                           ; preds = %cleanup.action, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 10) i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version), !range !6
+  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 16777215, 16777225) i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version), !range !6
+  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version)
   %add = add nuw nsw i64 %call, 16777215
   ret i64 %add
 }
@@ -1365,7 +1365,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants20GetPerHeaderOverheadENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 33) i64 @_ZN3net13SpdyConstants20GetPerHeaderOverheadENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %version, 2
   %cond = select i1 %cmp, i64 32, i64 0
@@ -1373,7 +1373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 6, 9) i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %version, 1
   %cond = select i1 %cmp, i64 8, i64 6
@@ -1381,7 +1381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants26GetInitialStreamWindowSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 65535, 65537) i32 @_ZN3net13SpdyConstants26GetInitialStreamWindowSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %version, 1
   %cond = select i1 %cmp, i32 65536, i32 65535
@@ -1389,7 +1389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN3net13SpdyConstants27GetInitialSessionWindowSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 65535, 65537) i32 @_ZN3net13SpdyConstants27GetInitialSessionWindowSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %version, 1
   %cond = select i1 %cmp, i32 65536, i32 65535
@@ -1733,10 +1733,10 @@ entry:
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull align 8 dereferenceable(32) %data) #15, !noalias !7
-  store ptr %call.i2, ptr %data_store_, align 8, !alias.scope !7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull align 8 dereferenceable(32) %data) #15, !noalias !5
+  store ptr %call.i2, ptr %data_store_, align 8, !alias.scope !5
   %data_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(32) %call.i2)
           to label %invoke.cont4 unwind label %lpad3
@@ -2153,7 +2153,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i) #15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !8
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %altsvc_vector_, align 8
@@ -2190,7 +2190,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #15
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %altsvc_vector_.i, align 8
@@ -2419,7 +2419,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #18
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2560,11 +2560,9 @@ attributes #18 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 1, i32 257}
-!6 = !{i64 0, i64 10}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
-!9 = distinct !{!9, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
+!7 = distinct !{!7, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

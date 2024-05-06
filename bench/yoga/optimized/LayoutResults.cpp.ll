@@ -332,16 +332,16 @@ for.end:                                          ; preds = %if.end.i.i, %if.end
   %tobool.lcssa = phi i1 [ false, %land.end ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ %isEqual.3.v.i, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
   %measuredDimensions_ = getelementptr inbounds i8, ptr %this, i64 248
   %40 = load float, ptr %measuredDimensions_, align 4
-  %cmp.i91 = fcmp uno float %40, 0.000000e+00
-  br i1 %cmp.i91, label %lor.lhs.false, label %if.then
+  %cmp.i92 = fcmp uno float %40, 0.000000e+00
+  br i1 %cmp.i92, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.end
   %measuredDimensions_52 = getelementptr inbounds i8, ptr %layout, i64 248
   %41 = load float, ptr %measuredDimensions_52, align 8
-  %cmp.i92 = fcmp ord float %41, 0.000000e+00
-  %brmerge.not = select i1 %cmp.i92, i1 %tobool.lcssa, i1 false
-  %not.cmp.i92 = xor i1 %cmp.i92, true
-  %narrow = select i1 %not.cmp.i92, i1 %isEqual.0.lcssa.shrunk, i1 false
+  %cmp.i94 = fcmp ord float %41, 0.000000e+00
+  %brmerge.not = select i1 %cmp.i94, i1 %tobool.lcssa, i1 false
+  %not.cmp.i94 = xor i1 %cmp.i94, true
+  %narrow = select i1 %not.cmp.i94, i1 %isEqual.0.lcssa.shrunk, i1 false
   br i1 %brmerge.not, label %land.rhs56, label %if.end
 
 if.then:                                          ; preds = %for.end
@@ -359,13 +359,13 @@ land.rhs56:                                       ; preds = %if.then.land.rhs56_
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then, %land.rhs56
   %isEqual.1.shrunk = phi i1 [ %narrow, %lor.lhs.false ], [ false, %if.then ], [ %cmp61, %land.rhs56 ]
-  %arrayidx.i.i93 = getelementptr inbounds i8, ptr %this, i64 252
-  %43 = load float, ptr %arrayidx.i.i93, align 4
-  %cmp.i94 = fcmp uno float %43, 0.000000e+00
-  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %layout, i64 252
-  %44 = load float, ptr %arrayidx.i.i95, align 4
-  %cmp.i96 = fcmp uno float %44, 0.000000e+00
-  %or.cond = select i1 %cmp.i94, i1 %cmp.i96, i1 false
+  %arrayidx.i.i97 = getelementptr inbounds i8, ptr %this, i64 252
+  %43 = load float, ptr %arrayidx.i.i97, align 4
+  %cmp.i98 = fcmp uno float %43, 0.000000e+00
+  %arrayidx.i.i99 = getelementptr inbounds i8, ptr %layout, i64 252
+  %44 = load float, ptr %arrayidx.i.i99, align 4
+  %cmp.i100 = fcmp uno float %44, 0.000000e+00
+  %or.cond = select i1 %cmp.i98, i1 %cmp.i100, i1 false
   br i1 %or.cond, label %if.end81, label %if.then71
 
 if.then71:                                        ; preds = %if.end

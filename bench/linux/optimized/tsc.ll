@@ -384,7 +384,7 @@ define dso_local i64 @sched_clock() local_unnamed_addr #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @check_tsc_unstable() #8 align 16 {
+define dso_local range(i32 0, 2) i32 @check_tsc_unstable() #8 align 16 {
   %1 = load i1, ptr @tsc_unstable, align 4
   %2 = zext i1 %1 to i32
   ret i32 %2
@@ -489,7 +489,7 @@ define internal noundef i32 @tsc_setup(ptr nocapture noundef readonly %0) #0 sec
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @native_calibrate_tsc() local_unnamed_addr #6 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @native_calibrate_tsc() local_unnamed_addr #6 align 16 {
   %1 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   %2 = icmp ne i8 %1, 0
   %3 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 10), align 4
@@ -943,7 +943,7 @@ define dso_local zeroext i1 @tsc_clocksource_watchdog_disabled() local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unsynchronized_tsc() local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @unsynchronized_tsc() local_unnamed_addr #6 align 16 {
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
   %2 = and i64 %1, 16
   %3 = icmp eq i64 %2, 0

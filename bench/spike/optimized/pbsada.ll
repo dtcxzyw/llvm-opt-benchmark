@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32i_pbsadaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_pbsadaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -127,10 +127,10 @@ define noundef i64 @_Z17fast_rv32i_pbsadaP11processor_t6insn_tm(ptr nocapture no
   %31 = xor i64 %30, -1
   %32 = and i64 %28, %31
   %33 = udiv i64 %29, %32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = and i64 %25, %28
   %36 = udiv i64 %35, %32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %38 = and i32 %34, 255
   %39 = and i32 %37, 255
   %40 = icmp ugt i32 %38, %39
@@ -246,7 +246,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32i_pbsadaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_pbsadaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -307,10 +307,10 @@ define noundef i64 @_Z19logged_rv32i_pbsadaP11processor_t6insn_tm(ptr noundef %0
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = udiv i64 %39, %42
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = and i64 %25, %38
   %46 = udiv i64 %45, %42
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %48 = and i32 %44, 255
   %49 = and i32 %47, 255
   %50 = icmp ugt i32 %48, %49
@@ -516,7 +516,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32e_pbsadaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_pbsadaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -615,10 +615,10 @@ define noundef i64 @_Z17fast_rv32e_pbsadaP11processor_t6insn_tm(ptr nocapture no
   %52 = xor i64 %51, -1
   %53 = and i64 %49, %52
   %54 = udiv i64 %50, %53
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i64 %46, %49
   %57 = udiv i64 %56, %53
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = and i32 %55, 255
   %60 = and i32 %58, 255
   %61 = icmp ugt i32 %59, %60
@@ -768,7 +768,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32e_pbsadaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_pbsadaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -877,10 +877,10 @@ define noundef i64 @_Z19logged_rv32e_pbsadaP11processor_t6insn_tm(ptr noundef %0
   %62 = xor i64 %61, -1
   %63 = and i64 %59, %62
   %64 = udiv i64 %60, %63
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw i64 %64 to i32
   %66 = and i64 %46, %59
   %67 = udiv i64 %66, %63
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %69 = and i32 %65, 255
   %70 = and i32 %68, 255
   %71 = icmp ugt i32 %69, %70

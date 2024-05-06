@@ -490,7 +490,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 253:                                              ; preds = %241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 64 dereferenceable(512) %27, ptr noundef align 4 dereferenceable(512) %169, i64 512, i1 false)
-  %254 = call fastcc i32 @sata_pmp_configure(ptr noundef %13, i32 noundef 0), !range !13
+  %254 = call fastcc i32 @sata_pmp_configure(ptr noundef %13, i32 noundef 0)
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %299
 
@@ -664,7 +664,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %357 = trunc i32 %356 to i8
   store i8 %357, ptr %46, align 2
   %358 = lshr i32 %336, 24
-  %359 = trunc i32 %358 to i8
+  %359 = trunc nuw i32 %358 to i8
   store i8 %359, ptr %47, align 1
   %360 = call i32 @ata_exec_internal(ptr noundef %346, ptr noundef nonnull %5, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
@@ -759,7 +759,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %421 = phi i64 [ %419, %417 ], [ %386, %.preheader40 ]
   %422 = call ptr @ata_link_next(ptr noundef nonnull %385, ptr noundef %0, i32 noundef 0) #8
   %423 = icmp eq ptr %422, null
-  br i1 %423, label %.loopexit, label %.preheader40, !llvm.loop !14
+  br i1 %423, label %.loopexit, label %.preheader40, !llvm.loop !13
 
 .loopexit:                                        ; preds = %420, %380
   %424 = phi i64 [ %382, %380 ], [ %421, %420 ]
@@ -800,7 +800,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %446 = call ptr @ata_link_next(ptr noundef nonnull %441, ptr noundef %0, i32 noundef 0) #8
   store ptr %446, ptr %8, align 8
   %447 = icmp eq ptr %446, null
-  br i1 %447, label %.loopexit48, label %.preheader46, !llvm.loop !15
+  br i1 %447, label %.loopexit48, label %.preheader46, !llvm.loop !14
 
 .loopexit48:                                      ; preds = %445, %438
   %448 = load i64, ptr %23, align 16
@@ -837,7 +837,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %466 = trunc i32 %465 to i8
   store i8 %466, ptr %60, align 2
   %467 = lshr i32 %452, 24
-  %468 = trunc i32 %467 to i8
+  %468 = trunc nuw i32 %467 to i8
   store i8 %468, ptr %61, align 1
   %469 = call i32 @ata_exec_internal(ptr noundef %455, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
@@ -918,7 +918,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br i1 %521, label %579, label %522
 
 522:                                              ; preds = %.preheader45
-  %523 = call fastcc i32 @sata_pmp_handle_link_fail(ptr noundef nonnull %516, ptr noundef nonnull %7), !range !16
+  %523 = call fastcc i32 @sata_pmp_handle_link_fail(ptr noundef nonnull %516, ptr noundef nonnull %7), !range !15
   %524 = icmp eq i32 %523, 0
   %525 = load ptr, ptr %8, align 8
   br i1 %524, label %540, label %526
@@ -1004,7 +1004,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %582 = call ptr @ata_link_next(ptr noundef %581, ptr noundef %0, i32 noundef 0) #8
   store ptr %582, ptr %8, align 8
   %583 = icmp eq ptr %582, null
-  br i1 %583, label %584, label %.preheader45, !llvm.loop !17
+  br i1 %583, label %584, label %.preheader45, !llvm.loop !16
 
 584:                                              ; preds = %579
   %585 = icmp eq i32 %580, 0
@@ -1017,7 +1017,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 589:                                              ; preds = %.loopexit
   %590 = load ptr, ptr %8, align 8
-  %591 = call fastcc i32 @sata_pmp_handle_link_fail(ptr noundef %590, ptr noundef nonnull %7), !range !16
+  %591 = call fastcc i32 @sata_pmp_handle_link_fail(ptr noundef %590, ptr noundef nonnull %7), !range !15
   %592 = icmp eq i32 %591, 0
   br i1 %592, label %.loopexit50, label %593
 
@@ -1125,7 +1125,7 @@ declare dso_local i32 @ata_std_qc_defer(ptr noundef) local_unnamed_addr #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sata_pmp_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = icmp sgt i32 %1, 2
   br i1 %5, label %44, label %6
@@ -1200,7 +1200,7 @@ define dso_local noundef i32 @sata_pmp_scr_read(ptr nocapture noundef readonly %
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sata_pmp_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = icmp sgt i32 %1, 2
   br i1 %5, label %53, label %6
@@ -1240,7 +1240,7 @@ define dso_local noundef i32 @sata_pmp_scr_write(ptr nocapture noundef readonly 
   %29 = getelementptr inbounds i8, ptr %4, i64 18
   store i8 %28, ptr %29, align 2
   %30 = lshr i32 %2, 24
-  %31 = trunc i32 %30 to i8
+  %31 = trunc nuw i32 %30 to i8
   %32 = getelementptr inbounds i8, ptr %4, i64 19
   store i8 %31, ptr %32, align 1
   %33 = call i32 @ata_exec_internal(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #8
@@ -1351,12 +1351,12 @@ define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_ad
   %46 = getelementptr inbounds i8, ptr %3, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %50, label %49, !prof !18
+  br i1 %48, label %50, label %49, !prof !17
 
 49:                                               ; preds = %45
-  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #8, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 509, i32 2305, i64 12) #8, !srcloc !20
-  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #8, !srcloc !21
+  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #8, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 509, i32 2305, i64 12) #8, !srcloc !19
+  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #8, !srcloc !20
   br label %50
 
 50:                                               ; preds = %49, %45
@@ -1426,7 +1426,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   br label %268
 
 93:                                               ; preds = %58
-  %94 = tail call fastcc i32 @sata_pmp_configure(ptr noundef %0, i32 noundef 1), !range !13
+  %94 = tail call fastcc i32 @sata_pmp_configure(ptr noundef %0, i32 noundef 1)
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %268
 
@@ -1451,7 +1451,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   tail call void @ata_link_init(ptr noundef %4, ptr noundef %107, i32 noundef %108) #8
   %109 = add nuw nsw i64 %106, 1
   %110 = icmp eq i64 %109, 15
-  br i1 %110, label %111, label %.preheader40, !llvm.loop !22
+  br i1 %110, label %111, label %.preheader40, !llvm.loop !21
 
 111:                                              ; preds = %.preheader40
   store ptr %104, ptr %100, align 16
@@ -1472,7 +1472,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 120:                                              ; preds = %112
   %121 = add nuw nsw i64 %113, 1
   %122 = icmp eq i64 %121, 15
-  br i1 %122, label %.loopexit39, label %112, !llvm.loop !23
+  br i1 %122, label %.loopexit39, label %112, !llvm.loop !22
 
 .loopexit39:                                      ; preds = %120, %96
   %123 = phi ptr [ %101, %96 ], [ %104, %120 ]
@@ -1498,7 +1498,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   store i32 %136, ptr %134, align 8
   %137 = add nuw nsw i64 %128, 1
   %138 = icmp eq i64 %137, %126
-  br i1 %138, label %.thread, label %127, !llvm.loop !24
+  br i1 %138, label %.thread, label %127, !llvm.loop !23
 
 .preheader38:                                     ; preds = %117, %.preheader38
   %139 = phi i64 [ %140, %.preheader38 ], [ %113, %117 ]
@@ -1507,7 +1507,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %142 = getelementptr %struct.ata_link, ptr %104, i64 %141
   tail call void @ata_tlink_delete(ptr noundef %142) #8
   %143 = icmp sgt i64 %139, 1
-  br i1 %143, label %.preheader38, label %.thread19.sink.split, !llvm.loop !25
+  br i1 %143, label %.preheader38, label %.thread19.sink.split, !llvm.loop !24
 
 .thread19.sink.split:                             ; preds = %.preheader38, %117
   tail call void @kfree(ptr noundef nonnull %104) #8
@@ -1534,12 +1534,12 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %157 = getelementptr inbounds i8, ptr %4, i64 14728
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %161, label %160, !prof !18
+  br i1 %159, label %161, label %160, !prof !17
 
 160:                                              ; preds = %.thread
-  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #8, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 530, i32 2305, i64 12) #8, !srcloc !27
-  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #8, !srcloc !28
+  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #8, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 530, i32 2305, i64 12) #8, !srcloc !26
+  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #8, !srcloc !27
   br label %161
 
 161:                                              ; preds = %160, %.thread
@@ -1559,7 +1559,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   ]
 
 169:                                              ; preds = %161
-  %170 = trunc i32 %168 to i16
+  %170 = trunc nuw i32 %168 to i16
   switch i16 %170, label %187 [
     i16 14374, label %171
     i16 14118, label %171
@@ -1594,10 +1594,10 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 184:                                              ; preds = %.sink.split, %181
   %185 = tail call ptr @ata_link_next(ptr noundef nonnull %174, ptr noundef %4, i32 noundef 0) #8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread28, label %.preheader32, !llvm.loop !29
+  br i1 %186, label %.thread28, label %.preheader32, !llvm.loop !28
 
 187:                                              ; preds = %169
-  %trunc73 = trunc i32 %168 to i16
+  %trunc73 = trunc nuw i32 %168 to i16
   switch i16 %trunc73, label %213 [
     i16 18211, label %188
     i16 18214, label %197
@@ -1616,7 +1616,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   store i32 %194, ptr %192, align 16
   %195 = tail call ptr @ata_link_next(ptr noundef nonnull %191, ptr noundef %4, i32 noundef 0) #8
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %.thread28, label %.preheader29, !llvm.loop !30
+  br i1 %196, label %.thread28, label %.preheader29, !llvm.loop !29
 
 197:                                              ; preds = %187
   %198 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #8
@@ -1647,7 +1647,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 210:                                              ; preds = %.sink.split71, %207
   %211 = tail call ptr @ata_link_next(ptr noundef nonnull %200, ptr noundef %4, i32 noundef 0) #8
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %.thread28, label %.preheader30, !llvm.loop !31
+  br i1 %212, label %.thread28, label %.preheader30, !llvm.loop !30
 
 213:                                              ; preds = %187
   %214 = and i32 %167, -1114112
@@ -1672,7 +1672,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   br label %.thread28
 
 225:                                              ; preds = %161
-  %226 = trunc i32 %168 to i16
+  %226 = trunc nuw i32 %168 to i16
   switch i16 %226, label %.thread28 [
     i16 9042, label %227
     i16 805, label %227
@@ -1691,7 +1691,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   store i32 %233, ptr %231, align 16
   %234 = tail call ptr @ata_link_next(ptr noundef nonnull %230, ptr noundef %4, i32 noundef 0) #8
   %235 = icmp eq ptr %234, null
-  br i1 %235, label %.thread28, label %.preheader34, !llvm.loop !32
+  br i1 %235, label %.thread28, label %.preheader34, !llvm.loop !31
 
 236:                                              ; preds = %161
   %237 = and i32 %167, 65535
@@ -1722,7 +1722,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 252:                                              ; preds = %248, %.preheader36
   %253 = tail call ptr @ata_link_next(ptr noundef nonnull %244, ptr noundef %4, i32 noundef 0) #8
   %254 = icmp eq ptr %253, null
-  br i1 %254, label %.thread28, label %.preheader36, !llvm.loop !33
+  br i1 %254, label %.thread28, label %.preheader36, !llvm.loop !32
 
 .thread28:                                        ; preds = %.preheader34, %184, %210, %.preheader29, %252, %216, %225, %241, %236, %227, %217, %197, %188, %171
   %255 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1746,7 +1746,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %265 = tail call i32 @sata_link_init_spd(ptr noundef nonnull %264) #8
   %266 = tail call ptr @ata_link_next(ptr noundef nonnull %264, ptr noundef %4, i32 noundef 0) #8
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %267, label %.loopexit, label %.preheader, !llvm.loop !33
 
 268:                                              ; preds = %sata_pmp_read_gscr.exit, %.thread19, %93
   %269 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %94, %93 ], [ %144, %.thread19 ]
@@ -1759,7 +1759,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @sata_pmp_configure(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.ata_taskfile, align 8
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca %struct.ata_taskfile, align 8
@@ -1833,7 +1833,7 @@ define internal fastcc noundef i32 @sata_pmp_configure(ptr nocapture noundef %0,
   br i1 %50, label %51, label %100
 
 51:                                               ; preds = %48
-  %52 = trunc i32 %10 to i16
+  %52 = trunc nuw i32 %10 to i16
   switch i16 %52, label %100 [
     i16 14374, label %53
     i16 14118, label %53
@@ -2051,7 +2051,7 @@ declare dso_local i32 @sata_scr_read(ptr noundef, i32 noundef, ptr noundef) loca
 declare dso_local i32 @sata_scr_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @sata_pmp_handle_link_fail(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2154,12 +2154,12 @@ define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) 
 22:                                               ; preds = %19
   %23 = load i32, ptr %6, align 8
   %24 = icmp eq i32 %23, 15
-  br i1 %24, label %26, label %25, !prof !18
+  br i1 %24, label %26, label %25, !prof !17
 
 25:                                               ; preds = %22, %19, %15
-  tail call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #8, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 569, i32 2305, i64 12) #8, !srcloc !36
-  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #8, !srcloc !37
+  tail call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #8, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 569, i32 2305, i64 12) #8, !srcloc !35
+  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #8, !srcloc !36
   br label %26
 
 26:                                               ; preds = %25, %22
@@ -2185,7 +2185,7 @@ define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) 
   tail call void @ata_eh_detach_dev(ptr noundef %37) #8
   %38 = tail call ptr @ata_link_next(ptr noundef nonnull %36, ptr noundef %3, i32 noundef 0) #8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.preheader, %33
   %40 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2250,29 +2250,28 @@ attributes #10 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7, !8}
-!13 = !{i32 -22, i32 1}
+!13 = distinct !{!13, !7, !8}
 !14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i32 0, i32 2}
-!17 = distinct !{!17, !7, !8}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 2157157841, i64 2157157650, i64 2157157702, i64 2157157748, i64 2157157776}
-!20 = !{i64 2157157915, i64 2157157944, i64 2157157990, i64 2157158048, i64 2157158102, i64 2157158156, i64 2157158211, i64 2157158242, i64 2157158550, i64 2157158556, i64 2157158603, i64 2157158626, i64 2157158652}
-!21 = !{i64 2157159109, i64 2157158920, i64 2157158970, i64 2157159016, i64 2157159044}
+!15 = !{i32 0, i32 2}
+!16 = distinct !{!16, !7, !8}
+!17 = !{!"branch_weights", i32 2000, i32 1}
+!18 = !{i64 2157157841, i64 2157157650, i64 2157157702, i64 2157157748, i64 2157157776}
+!19 = !{i64 2157157915, i64 2157157944, i64 2157157990, i64 2157158048, i64 2157158102, i64 2157158156, i64 2157158211, i64 2157158242, i64 2157158550, i64 2157158556, i64 2157158603, i64 2157158626, i64 2157158652}
+!20 = !{i64 2157159109, i64 2157158920, i64 2157158970, i64 2157159016, i64 2157159044}
+!21 = distinct !{!21, !7, !8}
 !22 = distinct !{!22, !7, !8}
 !23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = !{i64 2157161375, i64 2157161184, i64 2157161236, i64 2157161282, i64 2157161310}
-!27 = !{i64 2157161449, i64 2157161478, i64 2157161524, i64 2157161582, i64 2157161636, i64 2157161690, i64 2157161745, i64 2157161776, i64 2157162084, i64 2157162090, i64 2157162137, i64 2157162160, i64 2157162186}
-!28 = !{i64 2157162643, i64 2157162454, i64 2157162504, i64 2157162550, i64 2157162578}
+!25 = !{i64 2157161375, i64 2157161184, i64 2157161236, i64 2157161282, i64 2157161310}
+!26 = !{i64 2157161449, i64 2157161478, i64 2157161524, i64 2157161582, i64 2157161636, i64 2157161690, i64 2157161745, i64 2157161776, i64 2157162084, i64 2157162090, i64 2157162137, i64 2157162160, i64 2157162186}
+!27 = !{i64 2157162643, i64 2157162454, i64 2157162504, i64 2157162550, i64 2157162578}
+!28 = distinct !{!28, !7, !8}
 !29 = distinct !{!29, !7, !8}
 !30 = distinct !{!30, !7, !8}
 !31 = distinct !{!31, !7, !8}
 !32 = distinct !{!32, !7, !8}
 !33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = !{i64 2157164797, i64 2157164606, i64 2157164658, i64 2157164704, i64 2157164732}
-!36 = !{i64 2157164871, i64 2157164900, i64 2157164946, i64 2157165004, i64 2157165058, i64 2157165112, i64 2157165167, i64 2157165198, i64 2157165506, i64 2157165512, i64 2157165559, i64 2157165582, i64 2157165608}
-!37 = !{i64 2157166065, i64 2157165876, i64 2157165926, i64 2157165972, i64 2157166000}
-!38 = distinct !{!38, !7, !8}
+!34 = !{i64 2157164797, i64 2157164606, i64 2157164658, i64 2157164704, i64 2157164732}
+!35 = !{i64 2157164871, i64 2157164900, i64 2157164946, i64 2157165004, i64 2157165058, i64 2157165112, i64 2157165167, i64 2157165198, i64 2157165506, i64 2157165512, i64 2157165559, i64 2157165582, i64 2157165608}
+!36 = !{i64 2157166065, i64 2157165876, i64 2157165926, i64 2157165972, i64 2157166000}
+!37 = distinct !{!37, !7, !8}

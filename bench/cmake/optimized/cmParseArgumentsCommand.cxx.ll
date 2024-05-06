@@ -455,7 +455,7 @@ common.resume:                                    ; preds = %.body, %.body84, %1
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %107
   %111 = getelementptr inbounds i8, ptr %.sroa.0212.0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %35, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %35, i8 0, i64 112, i1 false)
   %112 = getelementptr inbounds i8, ptr %36, i64 8
   store i32 0, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %36, i64 16

@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.do_passwd = private unnamed_addr constant [5 x i64] [i64 8, i64 8, i64 0, i64 0, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @passwd_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %salt = alloca ptr, align 8
   %salt_malloc = alloca ptr, align 8
@@ -374,7 +374,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_passwd(i32 noundef %passed_salt, ptr nocapture noundef %salt_p, ptr nocapture noundef %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef %quiet, i32 noundef %table, i32 noundef %reverse, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef %passed_salt, ptr nocapture noundef %salt_p, ptr nocapture noundef %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef %quiet, i32 noundef %table, i32 noundef %reverse, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %temp_buf.i = alloca [64 x i8], align 16

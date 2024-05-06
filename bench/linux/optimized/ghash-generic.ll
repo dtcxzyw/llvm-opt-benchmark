@@ -191,7 +191,7 @@ define internal noundef i32 @ghash_final(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ghash_setkey(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
+define internal range(i32 -22, 1) i32 @ghash_setkey(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
   %4 = alloca %struct.be128, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8

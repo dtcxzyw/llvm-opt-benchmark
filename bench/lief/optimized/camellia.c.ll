@@ -58,7 +58,7 @@ define hidden void @mbedtls_camellia_free(ptr noundef %0) local_unnamed_addr #2 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [6 x [2 x i32]], align 16
   %6 = alloca [16 x i32], align 16
@@ -733,7 +733,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   br i1 %.not167, label %591, label %569
 
 569:                                              ; preds = %565
-  %570 = trunc i64 %.7207 to i32
+  %570 = trunc nuw i64 %.7207 to i32
   %571 = mul nuw nsw i32 %570, 15
   %572 = and i32 %571, 31
   %573 = shl i32 %552, %572
@@ -812,7 +812,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   br i1 %.not165, label %639, label %617
 
 617:                                              ; preds = %613
-  %618 = trunc i64 %.9209 to i32
+  %618 = trunc nuw i64 %.9209 to i32
   %619 = mul nuw nsw i32 %618, 15
   %620 = and i32 %619, 31
   %621 = shl i32 %606, %620
@@ -884,7 +884,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   br i1 %.not163, label %680, label %658
 
 658:                                              ; preds = %654
-  %659 = trunc i64 %.11211 to i32
+  %659 = trunc nuw i64 %.11211 to i32
   %660 = mul nuw nsw i32 %659, 15
   %661 = and i32 %660, 31
   %662 = shl i32 %650, %661
@@ -963,7 +963,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   br i1 %.not161, label %727, label %705
 
 705:                                              ; preds = %701
-  %706 = trunc i64 %.13213 to i32
+  %706 = trunc nuw i64 %.13213 to i32
   %707 = mul nuw nsw i32 %706, 15
   %708 = and i32 %707, 31
   %709 = shl i32 %694, %708
@@ -1019,7 +1019,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   %738 = mul nuw nsw i32 %.0159233, 12
   %739 = or disjoint i32 %738, 32
   %740 = zext nneg i32 %739 to i64
-  %invariant.gep = getelementptr i32, ptr %8, i64 %740
+  %invariant.gep = getelementptr inbounds i32, ptr %8, i64 %740
   br label %741
 
 741:                                              ; preds = %.loopexit191, %748
@@ -1033,7 +1033,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
   %745 = sext i8 %743 to i64
   %746 = getelementptr inbounds i32, ptr %8, i64 %745
   %747 = load i32, ptr %746, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.15215
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %.15215
   store i32 %747, ptr %gep, align 4
   br label %748
 
@@ -1048,10 +1048,10 @@ define hidden noundef i32 @mbedtls_camellia_setkey_enc(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_camellia_setkey_dec(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_camellia_context, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %4, i8 0, i64 276, i1 false)
-  %5 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2), !range !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(276) %4, i8 0, i64 276, i1 false)
+  %5 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %26
 
@@ -1082,7 +1082,7 @@ define hidden noundef i32 @mbedtls_camellia_setkey_dec(ptr nocapture noundef wri
   store <2 x i32> %21, ptr %.03237, align 4
   %22 = add nsw i64 %.03336, -1
   %.not34 = icmp eq i64 %22, 0
-  br i1 %.not34, label %23, label %19, !llvm.loop !21
+  br i1 %.not34, label %23, label %19, !llvm.loop !20
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.pn, i64 -24
@@ -1647,7 +1647,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
   %527 = tail call i32 @llvm.fshl.i32(i32 %526, i32 %526, i32 1)
   %528 = xor i32 %527, %439
   %529 = getelementptr inbounds i8, ptr %.0136, i64 64
-  br label %.lr.ph, !llvm.loop !22
+  br label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.sroa.55.0.lcssa = phi i32 [ %89, %4 ], [ %439, %.lr.ph ]
@@ -1667,7 +1667,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
   %539 = load i32, ptr %536, align 4
   %540 = xor i32 %539, %.sroa.19.0.lcssa
   %541 = lshr i32 %532, 24
-  %542 = trunc i32 %541 to i8
+  %542 = trunc nuw i32 %541 to i8
   store i8 %542, ptr %3, align 1
   %543 = lshr i32 %532, 16
   %544 = trunc i32 %543 to i8
@@ -1681,7 +1681,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
   %550 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 %549, ptr %550, align 1
   %551 = lshr i32 %535, 24
-  %552 = trunc i32 %551 to i8
+  %552 = trunc nuw i32 %551 to i8
   %553 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 %552, ptr %553, align 1
   %554 = lshr i32 %535, 16
@@ -1696,7 +1696,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
   %561 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %560, ptr %561, align 1
   %562 = lshr i32 %538, 24
-  %563 = trunc i32 %562 to i8
+  %563 = trunc nuw i32 %562 to i8
   %564 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 %563, ptr %564, align 1
   %565 = lshr i32 %538, 16
@@ -1711,7 +1711,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
   %572 = getelementptr inbounds i8, ptr %3, i64 11
   store i8 %571, ptr %572, align 1
   %573 = lshr i32 %540, 24
-  %574 = trunc i32 %573 to i8
+  %574 = trunc nuw i32 %573 to i8
   %575 = getelementptr inbounds i8, ptr %3, i64 12
   store i8 %574, ptr %575, align 1
   %576 = lshr i32 %540, 16
@@ -1729,7 +1729,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #6 {
+define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #6 {
   %7 = alloca [16 x i8], align 16
   %8 = and i64 %2, 15
   %.not = icmp eq i64 %8, 0
@@ -1764,7 +1764,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef read
   store i8 %17, ptr %13, align 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 16
-  br i1 %exitcond65.not, label %18, label %12, !llvm.loop !23
+  br i1 %exitcond65.not, label %18, label %12, !llvm.loop !22
 
 18:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
@@ -1772,7 +1772,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef read
   %20 = getelementptr inbounds i8, ptr %.03859, i64 16
   %21 = add i64 %.04357, -16
   %.not46 = icmp eq i64 %21, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .preheader47:                                     ; preds = %.preheader48, %29
   %.13954 = phi ptr [ %32, %29 ], [ %5, %.preheader48 ]
@@ -1791,7 +1791,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef read
   store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %29, label %22, !llvm.loop !25
+  br i1 %exitcond.not, label %29, label %22, !llvm.loop !24
 
 29:                                               ; preds = %22
   %30 = tail call i32 @mbedtls_camellia_crypt_ecb(ptr noundef %0, i32 poison, ptr noundef nonnull %.13954, ptr noundef nonnull %.13954)
@@ -1800,7 +1800,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef read
   %32 = getelementptr inbounds i8, ptr %.13954, i64 16
   %33 = add i64 %.14452, -16
   %.not45 = icmp eq i64 %33, 0
-  br i1 %.not45, label %.loopexit, label %.preheader47, !llvm.loop !26
+  br i1 %.not45, label %.loopexit, label %.preheader47, !llvm.loop !25
 
 .loopexit:                                        ; preds = %29, %18, %.preheader48, %.preheader, %6
   %.042 = phi i32 [ -38, %6 ], [ 0, %.preheader ], [ 0, %.preheader48 ], [ 0, %18 ], [ 0, %29 ]
@@ -1811,7 +1811,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cbc(ptr nocapture noundef read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
+define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
   %8 = load i64, ptr %3, align 8
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %38, label %10
@@ -1852,7 +1852,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture noundef r
   %23 = add nuw nsw i64 %.049, 1
   %24 = and i64 %23, 15
   %.not39 = icmp eq i64 %12, 0
-  br i1 %.not39, label %.loopexit, label %.lr.ph50, !llvm.loop !27
+  br i1 %.not39, label %.loopexit, label %.lr.ph50, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader40, %29
   %.in = phi i64 [ %25, %29 ], [ %2, %.preheader40 ]
@@ -1879,7 +1879,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture noundef r
   %36 = add nuw nsw i64 %.145, 1
   %37 = and i64 %36, 15
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %29, %16, %.preheader40, %.preheader
   %.2 = phi i64 [ %8, %.preheader ], [ %8, %.preheader40 ], [ %24, %16 ], [ %37, %29 ]
@@ -1892,7 +1892,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_camellia_crypt_ctr(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
+define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ctr(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
   %8 = load i64, ptr %2, align 8
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %29, label %.preheader
@@ -1929,7 +1929,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ctr(ptr nocapture noundef read
   %19 = add nsw i32 %.01926, -1
   %20 = icmp ugt i32 %.01926, 1
   %or.cond = and i1 %.not25, %20
-  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !29
+  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %15, %10
   %21 = getelementptr inbounds i8, ptr %.02228, i64 1
@@ -1942,7 +1942,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ctr(ptr nocapture noundef read
   %27 = add nuw nsw i64 %.030, 1
   %28 = and i64 %27, 15
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.0.lcssa = phi i64 [ %8, %.preheader ], [ %28, %.loopexit ]
@@ -1955,7 +1955,7 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ctr(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_camellia_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mbedtls_camellia_context, align 4
   %3 = alloca %struct.mbedtls_camellia_context, align 4
   %4 = alloca [32 x i8], align 16
@@ -1966,7 +1966,7 @@ define hidden noundef i32 @mbedtls_camellia_self_test(i32 noundef %0) local_unna
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
   %11 = alloca %struct.mbedtls_camellia_context, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %11, i8 0, i64 276, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(276) %11, i8 0, i64 276, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not98 = icmp eq i32 %0, 0
   %12 = getelementptr inbounds i8, ptr %11, i64 4
@@ -2002,13 +2002,13 @@ define hidden noundef i32 @mbedtls_camellia_self_test(i32 noundef %0) local_unna
   %27 = getelementptr inbounds [3 x [2 x [32 x i8]]], ptr @camellia_test_ecb_key, i64 0, i64 %21, i64 %indvars.iv156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(1) %27, i64 %24, i1 false)
   call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
-  %28 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.pre169), !range !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
+  %28 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i32 noundef %.pre169)
   %.not.i.us = icmp eq i32 %28, 0
   br i1 %.not.i.us, label %30, label %mbedtls_camellia_setkey_dec.exit.us
 
 29:                                               ; preds = %mbedtls_camellia_setkey_dec.exit.us
-  br i1 %26, label %.split.us, label %.split138.us, !llvm.loop !31
+  br i1 %26, label %.split.us, label %.split138.us, !llvm.loop !30
 
 30:                                               ; preds = %.split.us
   %31 = load i32, ptr %3, align 4
@@ -2034,7 +2034,7 @@ define hidden noundef i32 @mbedtls_camellia_self_test(i32 noundef %0) local_unna
   store <2 x i32> %42, ptr %.03237.i.us, align 4
   %43 = add nsw i64 %.03336.i.us, -1
   %.not34.i.us = icmp eq i64 %43, 0
-  br i1 %.not34.i.us, label %44, label %40, !llvm.loop !21
+  br i1 %.not34.i.us, label %44, label %40, !llvm.loop !20
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %.pn, i64 -24
@@ -2055,14 +2055,14 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
   br i1 %.not101.us, label %29, label %.split140.us
 
 50:                                               ; preds = %.split80
-  br i1 %51, label %.split80, label %.split138.us, !llvm.loop !31
+  br i1 %51, label %.split80, label %.split138.us, !llvm.loop !30
 
 .split80:                                         ; preds = %._crit_edge, %50
   %51 = phi i1 [ false, %50 ], [ true, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %50 ], [ 0, %._crit_edge ]
   %52 = getelementptr inbounds [3 x [2 x [32 x i8]]], ptr @camellia_test_ecb_key, i64 0, i64 %21, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(1) %52, i64 %24, i1 false)
-  %53 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %.pre169), !range !20
+  %53 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %.pre169)
   %54 = getelementptr inbounds [2 x [16 x i8]], ptr @camellia_test_ecb_plain, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false)
   %55 = getelementptr inbounds [3 x [2 x [16 x i8]]], ptr @camellia_test_ecb_cipher, i64 0, i64 %21, i64 %indvars.iv
@@ -2089,7 +2089,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
 
 .backedge188.backedge:                            ; preds = %58, %.thread
   %.076141.be = phi i32 [ %59, %58 ], [ %60, %.thread ]
-  br label %.backedge188, !llvm.loop !32
+  br label %.backedge188, !llvm.loop !31
 
 .thread:                                          ; preds = %.split138.us
   %puts99 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2135,8 +2135,8 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
 
 80:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %2, i8 0, i64 276, i1 false)
-  %81 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %79), !range !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(276) %2, i8 0, i64 276, i1 false)
+  %81 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull readonly %4, i32 noundef %79)
   %.not.i103 = icmp eq i32 %81, 0
   br i1 %.not.i103, label %82, label %.thread174
 
@@ -2169,10 +2169,10 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
   store <2 x i32> %94, ptr %.03237.i107, align 4
   %95 = add nsw i64 %.03336.i108, -1
   %.not34.i110 = icmp eq i64 %95, 0
-  br i1 %.not34.i110, label %97, label %92, !llvm.loop !21
+  br i1 %.not34.i110, label %97, label %92, !llvm.loop !20
 
 .thread173:                                       ; preds = %71
-  %96 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %79), !range !20
+  %96 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %79)
   br label %.split84.preheader
 
 97:                                               ; preds = %92
@@ -2196,13 +2196,13 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %100, i64 16, i1 false)
   %101 = getelementptr inbounds [3 x [16 x i8]], ptr @camellia_test_cbc_plain, i64 0, i64 %indvars.iv163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %101, i64 16, i1 false)
-  %102 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %102 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %104
 
 103:                                              ; preds = %mbedtls_camellia_crypt_cbc.exit.us
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, 3
-  br i1 %exitcond166.not, label %.split145.us, label %.split82.us, !llvm.loop !33
+  br i1 %exitcond166.not, label %.split145.us, label %.split82.us, !llvm.loop !32
 
 104:                                              ; preds = %104, %.split82.us
   %indvars.iv62.i.us = phi i64 [ 0, %.split82.us ], [ %indvars.iv.next63.i.us, %104 ]
@@ -2214,7 +2214,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
   store i8 %109, ptr %105, align 1
   %indvars.iv.next63.i.us = add nuw nsw i64 %indvars.iv62.i.us, 1
   %exitcond65.not.i.us = icmp eq i64 %indvars.iv.next63.i.us, 16
-  br i1 %exitcond65.not.i.us, label %mbedtls_camellia_crypt_cbc.exit.us, label %104, !llvm.loop !23
+  br i1 %exitcond65.not.i.us, label %mbedtls_camellia_crypt_cbc.exit.us, label %104, !llvm.loop !22
 
 mbedtls_camellia_crypt_cbc.exit.us:               ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %100, i64 16, i1 false)
@@ -2225,7 +2225,7 @@ mbedtls_camellia_crypt_cbc.exit.us:               ; preds = %104
 110:                                              ; preds = %mbedtls_camellia_crypt_cbc.exit112.loopexit
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 3
-  br i1 %exitcond162.not, label %.split145.us, label %.split84, !llvm.loop !33
+  br i1 %exitcond162.not, label %.split145.us, label %.split84, !llvm.loop !32
 
 .split84:                                         ; preds = %.split84.preheader, %110
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %110 ], [ 0, %.split84.preheader ]
@@ -2247,10 +2247,10 @@ mbedtls_camellia_crypt_cbc.exit.us:               ; preds = %104
   store i8 %118, ptr %119, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %mbedtls_camellia_crypt_cbc.exit112.loopexit, label %113, !llvm.loop !25
+  br i1 %exitcond.not.i, label %mbedtls_camellia_crypt_cbc.exit112.loopexit, label %113, !llvm.loop !24
 
 mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
-  %120 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %120 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   %bcmp95 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not96 = icmp eq i32 %bcmp95, 0
@@ -2273,7 +2273,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
 
 .backedge184.backedge:                            ; preds = %122, %.thread175
   %.1148.be = phi i32 [ %123, %122 ], [ %124, %.thread175 ]
-  br label %.backedge184, !llvm.loop !34
+  br label %.backedge184, !llvm.loop !33
 
 .thread175:                                       ; preds = %.split145.us
   %puts94 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2307,7 +2307,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %134, i64 16, i1 false)
   %135 = getelementptr inbounds [3 x [16 x i8]], ptr @camellia_test_ctr_key, i64 0, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %135, i64 16, i1 false)
-  %136 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 128), !range !20
+  %136 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 128)
   %137 = icmp eq i32 %127, 0
   %138 = getelementptr inbounds [3 x i32], ptr @camellia_test_ctr_len, i64 0, i64 %133
   %139 = load i32, ptr %138, align 4
@@ -2328,7 +2328,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
   br i1 %144, label %145, label %.loopexit.i
 
 145:                                              ; preds = %142
-  %146 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %146 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
   br label %147
 
 147:                                              ; preds = %147, %145
@@ -2342,7 +2342,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
   %151 = add nsw i32 %.01926.i, -1
   %152 = icmp ugt i32 %.01926.i, 1
   %or.cond.i = and i1 %152, %.not25.i
-  br i1 %or.cond.i, label %147, label %.loopexit.i, !llvm.loop !29
+  br i1 %or.cond.i, label %147, label %.loopexit.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %147, %142
   %153 = getelementptr i8, ptr %.02129.i, i64 1
@@ -2354,7 +2354,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
   %158 = add nuw nsw i64 %.030.i, 1
   %159 = and i64 %158, 15
   %.not.i114 = icmp eq i64 %143, 0
-  br i1 %.not.i114, label %mbedtls_camellia_crypt_ctr.exit, label %142, !llvm.loop !30
+  br i1 %.not.i114, label %mbedtls_camellia_crypt_ctr.exit, label %142, !llvm.loop !29
 
 mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %160 = getelementptr inbounds [3 x [48 x i8]], ptr @camellia_test_ctr_pt, i64 0, i64 %133
@@ -2383,7 +2383,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   br i1 %166, label %167, label %.loopexit.i123
 
 167:                                              ; preds = %164
-  %168 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %168 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
   br label %169
 
 169:                                              ; preds = %169, %167
@@ -2397,7 +2397,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %173 = add nsw i32 %.01926.i128, -1
   %174 = icmp ugt i32 %.01926.i128, 1
   %or.cond.i131 = and i1 %174, %.not25.i130
-  br i1 %or.cond.i131, label %169, label %.loopexit.i123, !llvm.loop !29
+  br i1 %or.cond.i131, label %169, label %.loopexit.i123, !llvm.loop !28
 
 .loopexit.i123:                                   ; preds = %169, %164
   %175 = getelementptr i8, ptr %.02129.i121, i64 1
@@ -2409,7 +2409,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %180 = add nuw nsw i64 %.030.i120, 1
   %181 = and i64 %180, 15
   %.not.i124 = icmp eq i64 %165, 0
-  br i1 %.not.i124, label %mbedtls_camellia_crypt_ctr.exit132, label %164, !llvm.loop !30
+  br i1 %.not.i124, label %mbedtls_camellia_crypt_ctr.exit132, label %164, !llvm.loop !29
 
 mbedtls_camellia_crypt_ctr.exit132:               ; preds = %.loopexit.i123
   %182 = getelementptr inbounds [3 x [48 x i8]], ptr @camellia_test_ctr_ct, i64 0, i64 %133
@@ -2434,7 +2434,7 @@ mbedtls_camellia_crypt_ctr.exit132:               ; preds = %.loopexit.i123
 
 .backedge.backedge:                               ; preds = %186, %.thread178
   %.2149.be = phi i32 [ %187, %186 ], [ %188, %.thread178 ]
-  br label %.backedge, !llvm.loop !35
+  br label %.backedge, !llvm.loop !34
 
 .thread178:                                       ; preds = %185
   %puts92 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2510,7 +2510,7 @@ attributes #13 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 -36, i32 1}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -2525,4 +2525,3 @@ attributes #13 = { nounwind }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}

@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hmac_digestv(ptr noundef %hmac, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hmac_digestv(ptr noundef %hmac, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -111,13 +111,13 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hmac_digest(ptr noundef %hmac, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hmac_digest(ptr noundef %hmac, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
-  %call = call i32 @qcrypto_hmac_digestv(ptr noundef %hmac, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %digest, ptr noundef %errp), !range !7
+  %call = call i32 @qcrypto_hmac_digestv(ptr noundef %hmac, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %digest, ptr noundef %errp)
   ret i32 %call
 }
 
@@ -178,4 +178,3 @@ attributes #4 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}

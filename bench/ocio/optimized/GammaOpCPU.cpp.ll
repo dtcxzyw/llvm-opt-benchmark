@@ -638,7 +638,7 @@ sw.bb27:                                          ; preds = %entry, %entry
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEEED2Ev.exit: ; preds = %sw.bb27
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i341, align 8, !noalias !35
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !35
+  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !35
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i344, align 8, !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i344, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i341, ptr %_M_refcount.i.i345, align 8
@@ -646,7 +646,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEEED2Ev.exit: ;
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUEED2Ev.exit: ; preds = %sw.bb27
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i341, align 8, !noalias !38
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !38
+  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !38
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i344, align 8, !noalias !38
   store ptr %_M_impl.i.i.i.i.i.i344, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i341, ptr %_M_refcount.i.i345, align 8
@@ -664,7 +664,7 @@ sw.bb33:                                          ; preds = %entry, %entry
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit: ; preds = %sw.bb33
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i417, align 8, !noalias !41
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !41
+  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !41
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i420, align 8, !noalias !41
   store ptr %_M_impl.i.i.i.i.i.i420, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i417, ptr %_M_refcount.i.i421, align 8
@@ -672,7 +672,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit:
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit: ; preds = %sw.bb33
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i417, align 8, !noalias !44
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !44
+  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !44
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i420, align 8, !noalias !44
   store ptr %_M_impl.i.i.i.i.i.i420, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i417, ptr %_M_refcount.i.i421, align 8

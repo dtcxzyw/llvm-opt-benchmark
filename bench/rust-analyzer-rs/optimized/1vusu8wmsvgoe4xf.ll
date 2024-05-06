@@ -1736,7 +1736,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$cfg..dnf..Conjunction$u
 4:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit"
   %5 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.0
   %6 = add i64 %.0, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit" unwind label %9
 
 7:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit"
@@ -1755,7 +1755,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$cfg..dnf..Conjunction$u
 11:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7"
   %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.1
   %13 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7" unwind label %15
 
 14:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7"
@@ -2130,7 +2130,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf.
 7:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit.i.i"
   %8 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.0.i.i
   %9 = add i64 %.0.i.i, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit.i.i" unwind label %11, !noalias !1166
 
 "_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i.i": ; preds = %13, %11
@@ -2146,7 +2146,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf.
 13:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i.i"
   %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.1.i.i
   %15 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i.i" unwind label %16, !noalias !1166
 
 16:                                               ; preds = %13
@@ -2988,7 +2988,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit.i"
   %8 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit.i" unwind label %11
 
 "_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i": ; preds = %13, %11
@@ -3004,7 +3004,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 13:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i"
   %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.1.i
   %15 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf..Literal$GT$$GT$17h8e1cdaf62e9870d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i" unwind label %17
 
 16:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$cfg..dnf..Conjunction$GT$17h8458e59e5fd46b6fE.exit7.i"

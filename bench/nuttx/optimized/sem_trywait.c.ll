@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsem_trywait(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -11, 1) i32 @nxsem_trywait(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @g_readytorun, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)

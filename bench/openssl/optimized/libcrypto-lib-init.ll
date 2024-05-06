@@ -48,7 +48,7 @@ entry:
 
 if.end3:                                          ; preds = %entry
   store i1 true, ptr @stopped, align 4
-  tail call void @OPENSSL_thread_stop() #5
+  tail call void @OPENSSL_thread_stop() #6
   %0 = load ptr, ptr @stop_handlers, align 8
   %cmp.not6 = icmp eq ptr %0, null
   br i1 %cmp.not6, label %while.end, label %while.body
@@ -56,46 +56,46 @@ if.end3:                                          ; preds = %entry
 while.body:                                       ; preds = %if.end3, %while.body
   %currhandler.07 = phi ptr [ %2, %while.body ], [ %0, %if.end3 ]
   %1 = load ptr, ptr %currhandler.07, align 8
-  tail call void %1() #5
+  tail call void %1() #6
   %next = getelementptr inbounds i8, ptr %currhandler.07, i64 8
   %2 = load ptr, ptr %next, align 8
-  tail call void @CRYPTO_free(ptr noundef nonnull %currhandler.07, ptr noundef nonnull @.str, i32 noundef 380) #5
+  tail call void @CRYPTO_free(ptr noundef nonnull %currhandler.07, ptr noundef nonnull @.str, i32 noundef 380) #6
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %if.end3
   store ptr null, ptr @stop_handlers, align 8
   %3 = load ptr, ptr @optsdone_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %3) #5
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %3) #6
   store ptr null, ptr @optsdone_lock, align 8
   %4 = load ptr, ptr @init_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #5
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #6
   store ptr null, ptr @init_lock, align 8
-  %call = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @in_init_config_local) #5
-  tail call void @ossl_comp_zlib_cleanup() #5
-  tail call void @ossl_comp_brotli_cleanup() #5
-  tail call void @ossl_comp_zstd_cleanup() #5
+  %call = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @in_init_config_local) #6
+  tail call void @ossl_comp_zlib_cleanup() #6
+  tail call void @ossl_comp_brotli_cleanup() #6
+  tail call void @ossl_comp_zstd_cleanup() #6
   %.b5 = load i1, ptr @async_inited, align 4
   br i1 %.b5, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %while.end
-  tail call void @async_deinit() #5
+  tail call void @async_deinit() #6
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %while.end
-  tail call void @ossl_rand_cleanup_int() #5
-  tail call void @ossl_config_modules_free() #5
-  tail call void @engine_cleanup_int() #5
-  tail call void @ossl_store_cleanup_int() #5
-  tail call void @ossl_lib_ctx_default_deinit() #5
-  tail call void @ossl_cleanup_thread() #5
-  tail call void @bio_cleanup() #5
-  tail call void @evp_cleanup_int() #5
-  tail call void @ossl_obj_cleanup_int() #5
-  tail call void @err_cleanup() #5
-  %call7 = tail call i32 @CRYPTO_secure_malloc_done() #5
-  tail call void @OSSL_CMP_log_close() #5
-  tail call void @ossl_trace_cleanup() #5
+  tail call void @ossl_rand_cleanup_int() #6
+  tail call void @ossl_config_modules_free() #6
+  tail call void @engine_cleanup_int() #6
+  tail call void @ossl_store_cleanup_int() #6
+  tail call void @ossl_lib_ctx_default_deinit() #6
+  tail call void @ossl_cleanup_thread() #6
+  tail call void @bio_cleanup() #6
+  tail call void @evp_cleanup_int() #6
+  tail call void @ossl_obj_cleanup_int() #6
+  tail call void @err_cleanup() #6
+  %call7 = tail call i32 @CRYPTO_secure_malloc_done() #6
+  tail call void @OSSL_CMP_log_close() #6
+  tail call void @ossl_trace_cleanup() #6
   store i1 false, ptr @base_inited, align 4
   br label %return
 
@@ -146,7 +146,7 @@ declare void @OSSL_CMP_log_close() local_unnamed_addr #1
 declare void @ossl_trace_cleanup() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_init_crypto(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_init_crypto(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
   %.b = load i1, ptr @stopped, align 4
@@ -158,13 +158,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 481, ptr noundef nonnull @__func__.OPENSSL_init_crypto) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786693, ptr noundef null) #5
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 481, ptr noundef nonnull @__func__.OPENSSL_init_crypto) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786693, ptr noundef null) #6
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %call = call i32 @CRYPTO_atomic_load(ptr noundef nonnull @optsdone, ptr noundef nonnull %tmp, ptr noundef null) #5
+  %call = call i32 @CRYPTO_atomic_load(ptr noundef nonnull @optsdone, ptr noundef nonnull %tmp, ptr noundef null) #6
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %if.end9, label %if.then5
 
@@ -175,7 +175,7 @@ if.then5:                                         ; preds = %if.end3
   br i1 %cmp, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %call10 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @base, ptr noundef nonnull @ossl_init_base_ossl_) #5
+  %call10 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @base, ptr noundef nonnull @ossl_init_base_ossl_) #6
   %tobool11 = icmp ne i32 %call10, 0
   %1 = load i32, ptr @ossl_init_base_ossl_ret_, align 4
   %tobool12 = icmp ne i32 %1, 0
@@ -192,7 +192,7 @@ if.end18:                                         ; preds = %if.end14
 
 if.then20:                                        ; preds = %if.end18
   %2 = load ptr, ptr @optsdone_lock, align 8
-  %call21 = call i32 @CRYPTO_atomic_load(ptr noundef nonnull @optsdone, ptr noundef nonnull %tmp, ptr noundef %2) #5
+  %call21 = call i32 @CRYPTO_atomic_load(ptr noundef nonnull @optsdone, ptr noundef nonnull %tmp, ptr noundef %2) #6
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.end24
 
@@ -208,7 +208,7 @@ if.end29:                                         ; preds = %if.end24, %if.end18
   br i1 %cmp31.not, label %if.else, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %call33 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @register_atexit, ptr noundef nonnull @ossl_init_no_register_atexit_ossl_) #5
+  %call33 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @register_atexit, ptr noundef nonnull @ossl_init_no_register_atexit_ossl_) #6
   %tobool34 = icmp ne i32 %call33, 0
   %4 = load i32, ptr @ossl_init_register_atexit_ossl_ret_, align 4
   %tobool36 = icmp ne i32 %4, 0
@@ -216,7 +216,7 @@ if.then32:                                        ; preds = %if.end29
   br i1 %or.cond1, label %if.end47, label %return
 
 if.else:                                          ; preds = %if.end29
-  %call40 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @register_atexit, ptr noundef nonnull @ossl_init_register_atexit_ossl_) #5
+  %call40 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @register_atexit, ptr noundef nonnull @ossl_init_register_atexit_ossl_) #6
   %tobool41 = icmp ne i32 %call40, 0
   %5 = load i32, ptr @ossl_init_register_atexit_ossl_ret_, align 4
   %tobool43 = icmp ne i32 %5, 0
@@ -224,7 +224,7 @@ if.else:                                          ; preds = %if.end29
   br i1 %or.cond2, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.else, %if.then32
-  %call48 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_nodelete, ptr noundef nonnull @ossl_init_load_crypto_nodelete_ossl_) #5
+  %call48 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_nodelete, ptr noundef nonnull @ossl_init_load_crypto_nodelete_ossl_) #6
   %tobool49 = icmp ne i32 %call48, 0
   %.b37 = load i1, ptr @ossl_init_load_crypto_nodelete_ossl_ret_, align 4
   %or.cond3 = select i1 %tobool49, i1 %.b37, i1 false
@@ -236,7 +236,7 @@ if.end54:                                         ; preds = %if.end47
   br i1 %tobool56.not, label %if.end63, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end54
-  %call57 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_strings, ptr noundef nonnull @ossl_init_no_load_crypto_strings_ossl_) #5
+  %call57 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_strings, ptr noundef nonnull @ossl_init_no_load_crypto_strings_ossl_) #6
   %tobool58 = icmp ne i32 %call57, 0
   %6 = load i32, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4
   %tobool60 = icmp ne i32 %6, 0
@@ -249,7 +249,7 @@ if.end63:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool65.not, label %if.end73, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %if.end63
-  %call67 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_strings, ptr noundef nonnull @ossl_init_load_crypto_strings_ossl_) #5
+  %call67 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_crypto_strings, ptr noundef nonnull @ossl_init_load_crypto_strings_ossl_) #6
   %tobool68 = icmp ne i32 %call67, 0
   %7 = load i32, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4
   %tobool70 = icmp ne i32 %7, 0
@@ -262,7 +262,7 @@ if.end73:                                         ; preds = %land.lhs.true66, %i
   br i1 %tobool75.not, label %if.end83, label %land.lhs.true76
 
 land.lhs.true76:                                  ; preds = %if.end73
-  %call77 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_ciphers, ptr noundef nonnull @ossl_init_no_add_all_ciphers_ossl_) #5
+  %call77 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_ciphers, ptr noundef nonnull @ossl_init_no_add_all_ciphers_ossl_) #6
   %tobool78 = icmp ne i32 %call77, 0
   %.b39 = load i1, ptr @ossl_init_add_all_ciphers_ossl_ret_, align 4
   %or.cond6 = select i1 %tobool78, i1 %.b39, i1 false
@@ -274,7 +274,7 @@ if.end83:                                         ; preds = %land.lhs.true76, %i
   br i1 %tobool85.not, label %if.end93, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %if.end83
-  %call87 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_ciphers, ptr noundef nonnull @ossl_init_add_all_ciphers_ossl_) #5
+  %call87 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_ciphers, ptr noundef nonnull @ossl_init_add_all_ciphers_ossl_) #6
   %tobool88 = icmp ne i32 %call87, 0
   %.b38 = load i1, ptr @ossl_init_add_all_ciphers_ossl_ret_, align 4
   %or.cond7 = select i1 %tobool88, i1 %.b38, i1 false
@@ -286,7 +286,7 @@ if.end93:                                         ; preds = %land.lhs.true86, %i
   br i1 %tobool95.not, label %if.end103, label %land.lhs.true96
 
 land.lhs.true96:                                  ; preds = %if.end93
-  %call97 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_digests, ptr noundef nonnull @ossl_init_no_add_all_digests_ossl_) #5
+  %call97 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_digests, ptr noundef nonnull @ossl_init_no_add_all_digests_ossl_) #6
   %tobool98 = icmp ne i32 %call97, 0
   %.b41 = load i1, ptr @ossl_init_add_all_digests_ossl_ret_, align 4
   %or.cond8 = select i1 %tobool98, i1 %.b41, i1 false
@@ -298,7 +298,7 @@ if.end103:                                        ; preds = %land.lhs.true96, %i
   br i1 %tobool105.not, label %if.end113, label %land.lhs.true106
 
 land.lhs.true106:                                 ; preds = %if.end103
-  %call107 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_digests, ptr noundef nonnull @ossl_init_add_all_digests_ossl_) #5
+  %call107 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @add_all_digests, ptr noundef nonnull @ossl_init_add_all_digests_ossl_) #6
   %tobool108 = icmp ne i32 %call107, 0
   %.b40 = load i1, ptr @ossl_init_add_all_digests_ossl_ret_, align 4
   %or.cond9 = select i1 %tobool108, i1 %.b40, i1 false
@@ -310,7 +310,7 @@ if.end113:                                        ; preds = %land.lhs.true106, %
   br i1 %tobool115.not, label %if.end120, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %if.end113
-  %call117 = call i32 @openssl_init_fork_handlers() #5
+  %call117 = call i32 @openssl_init_fork_handlers() #6
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %return, label %if.end120
 
@@ -320,7 +320,7 @@ if.end120:                                        ; preds = %land.lhs.true116, %
   br i1 %tobool122.not, label %if.end130, label %land.lhs.true123
 
 land.lhs.true123:                                 ; preds = %if.end120
-  %call124 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_no_config_ossl_) #5
+  %call124 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_no_config_ossl_) #6
   %tobool125 = icmp ne i32 %call124, 0
   %8 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
   %tobool127 = icmp ne i32 %8, 0
@@ -333,12 +333,12 @@ if.end130:                                        ; preds = %land.lhs.true123, %
   br i1 %tobool132.not, label %if.end167, label %if.then133
 
 if.then133:                                       ; preds = %if.end130
-  %call134 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @in_init_config_local) #5
+  %call134 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @in_init_config_local) #6
   %cmp135.not = icmp eq ptr %call134, null
   br i1 %cmp135.not, label %if.then137, label %if.end167
 
 if.then137:                                       ; preds = %if.then133
-  %call138 = call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @in_init_config_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #5
+  %call138 = call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @in_init_config_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #6
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %return, label %if.end141
 
@@ -347,25 +347,25 @@ if.end141:                                        ; preds = %if.then137
   br i1 %cmp142, label %if.then144, label %if.else149
 
 if.then144:                                       ; preds = %if.end141
-  %call145 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_config_ossl_) #5
+  %call145 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_config_ossl_) #6
   %tobool146.not = icmp eq i32 %call145, 0
   %9 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
   br i1 %tobool146.not, label %return, label %if.end161
 
 if.else149:                                       ; preds = %if.end141
   %10 = load ptr, ptr @init_lock, align 8
-  %call150 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %10) #5
+  %call150 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %10) #6
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %return, label %if.end153
 
 if.end153:                                        ; preds = %if.else149
   store ptr %settings, ptr @conf_settings, align 8
-  %call154 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_config_settings_ossl_) #5
+  %call154 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_config_settings_ossl_) #6
   %tobool155.not = icmp eq i32 %call154, 0
   %11 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
   store ptr null, ptr @conf_settings, align 8
   %12 = load ptr, ptr @init_lock, align 8
-  %call160 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %12) #5
+  %call160 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %12) #6
   br i1 %tobool155.not, label %return, label %if.end161
 
 if.end161:                                        ; preds = %if.end153, %if.then144
@@ -379,7 +379,7 @@ if.end167:                                        ; preds = %if.then133, %if.end
   br i1 %tobool169.not, label %if.end177, label %land.lhs.true170
 
 land.lhs.true170:                                 ; preds = %if.end167
-  %call171 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @async, ptr noundef nonnull @ossl_init_async_ossl_) #5
+  %call171 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @async, ptr noundef nonnull @ossl_init_async_ossl_) #6
   %tobool172 = icmp ne i32 %call171, 0
   %13 = load i32, ptr @ossl_init_async_ossl_ret_, align 4
   %tobool174 = icmp ne i32 %13, 0
@@ -392,7 +392,7 @@ if.end177:                                        ; preds = %land.lhs.true170, %
   br i1 %tobool179.not, label %if.end187, label %land.lhs.true180
 
 land.lhs.true180:                                 ; preds = %if.end177
-  %call181 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_openssl, ptr noundef nonnull @ossl_init_engine_openssl_ossl_) #5
+  %call181 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_openssl, ptr noundef nonnull @ossl_init_engine_openssl_ossl_) #6
   %tobool182 = icmp ne i32 %call181, 0
   %.b42 = load i1, ptr @ossl_init_engine_openssl_ossl_ret_, align 4
   %or.cond12 = select i1 %tobool182, i1 %.b42, i1 false
@@ -404,7 +404,7 @@ if.end187:                                        ; preds = %land.lhs.true180, %
   br i1 %tobool189.not, label %if.end197, label %land.lhs.true190
 
 land.lhs.true190:                                 ; preds = %if.end187
-  %call191 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_rdrand, ptr noundef nonnull @ossl_init_engine_rdrand_ossl_) #5
+  %call191 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_rdrand, ptr noundef nonnull @ossl_init_engine_rdrand_ossl_) #6
   %tobool192 = icmp ne i32 %call191, 0
   %.b43 = load i1, ptr @ossl_init_engine_rdrand_ossl_ret_, align 4
   %or.cond13 = select i1 %tobool192, i1 %.b43, i1 false
@@ -416,7 +416,7 @@ if.end197:                                        ; preds = %land.lhs.true190, %
   br i1 %tobool199.not, label %if.end207, label %land.lhs.true200
 
 land.lhs.true200:                                 ; preds = %if.end197
-  %call201 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_dynamic, ptr noundef nonnull @ossl_init_engine_dynamic_ossl_) #5
+  %call201 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_dynamic, ptr noundef nonnull @ossl_init_engine_dynamic_ossl_) #6
   %tobool202 = icmp ne i32 %call201, 0
   %.b44 = load i1, ptr @ossl_init_engine_dynamic_ossl_ret_, align 4
   %or.cond14 = select i1 %tobool202, i1 %.b44, i1 false
@@ -428,12 +428,12 @@ if.end207:                                        ; preds = %land.lhs.true200, %
   br i1 %tobool209.not, label %if.end212, label %if.then210
 
 if.then210:                                       ; preds = %if.end207
-  %call211 = call i32 @ENGINE_register_all_complete() #5
+  %call211 = call i32 @ENGINE_register_all_complete() #6
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then210, %if.end207
   %14 = load ptr, ptr @optsdone_lock, align 8
-  %call213 = call i32 @CRYPTO_atomic_or(ptr noundef nonnull @optsdone, i64 noundef %opts, ptr noundef nonnull %tmp, ptr noundef %14) #5
+  %call213 = call i32 @CRYPTO_atomic_or(ptr noundef nonnull @optsdone, i64 noundef %opts, ptr noundef nonnull %tmp, ptr noundef %14) #6
   %tobool214.not = icmp ne i32 %call213, 0
   %. = zext i1 %tobool214.not to i32
   br label %return
@@ -456,25 +456,25 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_base_ossl_() #0 {
 entry:
-  %call.i = tail call ptr @CRYPTO_THREAD_lock_new() #5
+  %call.i = tail call ptr @CRYPTO_THREAD_lock_new() #6
   store ptr %call.i, ptr @optsdone_lock, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %err.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @CRYPTO_THREAD_lock_new() #5
+  %call1.i = tail call ptr @CRYPTO_THREAD_lock_new() #6
   store ptr %call1.i, ptr @init_lock, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %err.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  tail call void @OPENSSL_cpuid_setup() #5
-  %call3.i = tail call i32 @ossl_init_thread() #5
+  tail call void @OPENSSL_cpuid_setup() #6
+  %call3.i = tail call i32 @ossl_init_thread() #6
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @in_init_config_local, ptr noundef null) #5
+  %call6.i = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @in_init_config_local, ptr noundef null) #6
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %err.i, label %if.end9.i
 
@@ -484,10 +484,10 @@ if.end9.i:                                        ; preds = %if.end5.i
 
 err.i:                                            ; preds = %if.end5.i, %if.end.i, %lor.lhs.false.i, %entry
   %0 = load ptr, ptr @optsdone_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #5
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #6
   store ptr null, ptr @optsdone_lock, align 8
   %1 = load ptr, ptr @init_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %1) #5
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %1) #6
   store ptr null, ptr @init_lock, align 8
   br label %ossl_init_base.exit
 
@@ -504,10 +504,10 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @ossl_init_register_atexit_ossl_() #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @ossl_init_register_atexit_ossl_() #3 {
 entry:
-  %call.i = tail call i32 @atexit(ptr noundef nonnull @OPENSSL_cleanup) #5
+  %call.i = tail call i32 @atexit(ptr noundef nonnull @OPENSSL_cleanup) #6
   %cmp.not.i = icmp eq i32 %call.i, 0
   %..i = zext i1 %cmp.not.i to i32
   store i32 %..i, ptr @ossl_init_register_atexit_ossl_ret_, align 4
@@ -533,14 +533,14 @@ define internal void @ossl_init_load_crypto_strings_ossl_() #0 {
 entry:
   %err.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
-  %call.i = call i32 @err_shelve_state(ptr noundef nonnull %err.i) #5
+  %call.i = call i32 @err_shelve_state(ptr noundef nonnull %err.i) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_init_load_crypto_strings.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = call i32 @ossl_err_load_crypto_strings() #5
+  %call1.i = call i32 @ossl_err_load_crypto_strings() #6
   %0 = load ptr, ptr %err.i, align 8
-  call void @err_unshelve_state(ptr noundef %0) #5
+  call void @err_unshelve_state(ptr noundef %0) #6
   br label %ossl_init_load_crypto_strings.exit
 
 ossl_init_load_crypto_strings.exit:               ; preds = %entry, %if.end.i
@@ -560,7 +560,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_add_all_ciphers_ossl_() #0 {
 entry:
-  tail call void @openssl_add_all_ciphers_int() #5
+  tail call void @openssl_add_all_ciphers_int() #6
   store i1 true, ptr @ossl_init_add_all_ciphers_ossl_ret_, align 4
   ret void
 }
@@ -575,7 +575,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_add_all_digests_ossl_() #0 {
 entry:
-  tail call void @openssl_add_all_digests_int() #5
+  tail call void @openssl_add_all_digests_int() #6
   store i1 true, ptr @ossl_init_add_all_digests_ossl_ret_, align 4
   ret void
 }
@@ -585,7 +585,7 @@ declare i32 @openssl_init_fork_handlers() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_no_config_ossl_() #0 {
 entry:
-  tail call void @ossl_no_config_int() #5
+  tail call void @ossl_no_config_int() #6
   store i32 1, ptr @ossl_init_config_ossl_ret_, align 4
   ret void
 }
@@ -597,7 +597,7 @@ declare i32 @CRYPTO_THREAD_set_local(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_config_ossl_() #0 {
 entry:
-  %call.i = tail call i32 @ossl_config_int(ptr noundef null) #5
+  %call.i = tail call i32 @ossl_config_int(ptr noundef null) #6
   store i32 %call.i, ptr @ossl_init_config_ossl_ret_, align 4
   ret void
 }
@@ -608,7 +608,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 define internal void @ossl_init_config_settings_ossl_() #0 {
 entry:
   %0 = load ptr, ptr @conf_settings, align 8
-  %call.i = tail call i32 @ossl_config_int(ptr noundef %0) #5
+  %call.i = tail call i32 @ossl_config_int(ptr noundef %0) #6
   store i32 %call.i, ptr @ossl_init_config_ossl_ret_, align 4
   ret void
 }
@@ -618,7 +618,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_async_ossl_() #0 {
 entry:
-  %call.i = tail call i32 @async_init() #5
+  %call.i = tail call i32 @async_init() #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_init_async.exit, label %if.end.i
 
@@ -635,7 +635,7 @@ ossl_init_async.exit:                             ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_engine_openssl_ossl_() #0 {
 entry:
-  tail call void @engine_load_openssl_int() #5
+  tail call void @engine_load_openssl_int() #6
   store i1 true, ptr @ossl_init_engine_openssl_ossl_ret_, align 4
   ret void
 }
@@ -643,7 +643,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_engine_rdrand_ossl_() #0 {
 entry:
-  tail call void @engine_load_rdrand_int() #5
+  tail call void @engine_load_rdrand_int() #6
   store i1 true, ptr @ossl_init_engine_rdrand_ossl_ret_, align 4
   ret void
 }
@@ -651,7 +651,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_engine_dynamic_ossl_() #0 {
 entry:
-  tail call void @engine_load_dynamic_int() #5
+  tail call void @engine_load_dynamic_int() #6
   store i1 true, ptr @ossl_init_engine_dynamic_ossl_ret_, align 4
   ret void
 }
@@ -661,9 +661,9 @@ declare i32 @ENGINE_register_all_complete() local_unnamed_addr #1
 declare i32 @CRYPTO_atomic_or(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OPENSSL_atexit(ptr noundef %handler) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_atexit(ptr noundef %handler) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 720) #5
+  %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 720) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -690,8 +690,8 @@ declare i32 @ossl_init_thread() local_unnamed_addr #1
 
 declare i32 @CRYPTO_THREAD_init_local(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #3
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #4
 
 declare i32 @err_shelve_state(ptr noundef) local_unnamed_addr #1
 
@@ -716,17 +716,18 @@ declare void @engine_load_rdrand_int() local_unnamed_addr #1
 declare void @engine_load_dynamic_int() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

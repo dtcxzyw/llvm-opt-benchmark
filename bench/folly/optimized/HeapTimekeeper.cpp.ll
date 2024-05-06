@@ -941,7 +941,7 @@ for.inc.i:                                        ; preds = %_ZNSt11this_thread9
 
 if.end61.i.i:                                     ; preds = %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
   %.us-phi.i = phi i64 [ %and.i.i, %switch.early.test.i ], [ %and.i.i, %switch.early.test.i ], [ %and.i.i, %switch.early.test.i ], [ %and.i.us52.i, %switch.early.test.us.i ], [ %and.i.us52.i, %switch.early.test.us.i ], [ %and.i.us52.i, %switch.early.test.us.i ]
-  %conv.i451 = trunc i64 %.us-phi.i to i32
+  %conv.i451 = trunc nuw nsw i64 %.us-phi.i to i32
   %32 = load i64, ptr %1, align 16, !noalias !42
   %cmp62.i.i = icmp eq i64 %previous.0.i.i, %32
   %spec.select.i.i = select i1 %cmp62.i.i, i64 1, i64 %or.i.i
@@ -2706,7 +2706,7 @@ for.inc:                                          ; preds = %_ZNSt11this_thread9
 cleanup23:                                        ; preds = %for.inc.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit, %entry.split.us
   %.us-phi = phi i64 [ 3, %entry.split.us ], [ %and.i, %switch.early.test ], [ %and.i, %switch.early.test ], [ %and.i, %switch.early.test ], [ 3, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit ], [ 3, %for.inc.us ], [ %and.i.us52, %switch.early.test.us ], [ %and.i.us52, %switch.early.test.us ], [ %and.i.us52, %switch.early.test.us ]
   %.us-phi44 = phi i1 [ false, %entry.split.us ], [ %cmp2.not.not.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit ], [ %cmp2.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not, %switch.early.test ], [ false, %for.inc.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ]
-  %conv = trunc i64 %.us-phi to i32
+  %conv = trunc nuw nsw i64 %.us-phi to i32
   store i32 %conv, ptr %sig, align 4, !tbaa !59
   ret i1 %.us-phi44
 }

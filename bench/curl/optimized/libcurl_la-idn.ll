@@ -29,7 +29,7 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_idn_decode(ptr noundef %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %decoded.i)
@@ -74,7 +74,7 @@ if.end7:                                          ; preds = %idn_decode.exit.thr
 declare void @idn2_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_idn_encode(ptr noundef %puny, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %puny, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   %enc.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %enc.i)
@@ -125,7 +125,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_idnconvert_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
+define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
   %name = getelementptr inbounds i8, ptr %host, i64 16

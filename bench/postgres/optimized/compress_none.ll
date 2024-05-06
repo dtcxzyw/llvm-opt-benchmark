@@ -174,7 +174,7 @@ define internal noundef ptr @gets_none(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @getc_none(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 0, -1) i32 @getc_none(ptr nocapture noundef readonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fgetc(ptr noundef %3)

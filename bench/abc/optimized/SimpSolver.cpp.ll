@@ -1998,7 +1998,7 @@ _ZN5Gluco6Solver12checkGarbageEv.exit:            ; preds = %205, %194, %_ZN5Glu
 216:                                              ; preds = %212
   %217 = zext nneg i32 %214 to i64
   %218 = shl nuw nsw i64 %217, 2
-  %219 = uitofp i64 %218 to double
+  %219 = uitofp nneg i64 %218 to double
   %220 = fmul double %219, 0x3EB0000000000000
   %221 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %220)
   br label %222

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN5draco14DataTypeLengthENS_8DataTypeE = private unnamed_addr constant [11 x i32] [i32 1, i32 1, i32 2, i32 2, i32 4, i32 4, i32 8, i32 8, i32 4, i32 8, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5draco14DataTypeLengthENS_8DataTypeE(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 -1, 9) i32 @_ZN5draco14DataTypeLengthENS_8DataTypeE(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 11
   br i1 %2, label %switch.lookup, label %4

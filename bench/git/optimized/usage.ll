@@ -83,13 +83,10 @@ entry:
 define dso_local void @usagef(ptr nocapture noundef readonly %err, ...) local_unnamed_addr #3 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   call fastcc void @usage_builtin(ptr noundef %err, ptr noundef nonnull %params) #15
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @usage(ptr noundef %err) local_unnamed_addr #3 {
@@ -115,16 +112,16 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %3 = load ptr, ptr @die_routine, align 8
   call void %3(ptr noundef %err, ptr noundef nonnull %params) #18
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @die_errno(ptr noundef %fmt, ...) local_unnamed_addr #3 {
@@ -144,7 +141,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %3 = load ptr, ptr @die_routine, align 8
   %4 = call fastcc ptr @fmt_with_err(ptr noundef nonnull %buf, ptr noundef %fmt)
   call void %3(ptr noundef nonnull %buf, ptr noundef nonnull %params) #18
@@ -152,7 +149,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @fmt_with_err(ptr noundef returned writeonly %buf, ptr noundef %fmt) unnamed_addr #7 {
+define internal fastcc noundef ptr @fmt_with_err(ptr noundef returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
 entry:
   %str_error = alloca [256 x i8], align 16
   %call = tail call ptr @__errno_location() #19
@@ -167,7 +164,7 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   %conv212 = phi i64 [ %conv2, %for.cond.backedge ], [ 0, %entry ]
   %2 = phi i8 [ %3, %for.cond.backedge ], [ %1, %entry ]
   %j.011 = phi i32 [ %j.0.be, %for.cond.backedge ], [ 0, %entry ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc6 = add nuw nsw i32 %j.011, 1
   %arrayidx8 = getelementptr inbounds [256 x i8], ptr %str_error, i64 0, i64 %conv212
   store i8 %2, ptr %arrayidx8, align 1
@@ -204,10 +201,10 @@ for.end:                                          ; preds = %for.cond.backedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @die_message(ptr noundef %err, ...) local_unnamed_addr #7 {
+define dso_local noundef i32 @die_message(ptr noundef %err, ...) local_unnamed_addr #6 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 61, ptr noundef %err, ptr noundef nonnull %params) #16
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %0, 0
@@ -220,20 +217,17 @@ if.end3.i.i:                                      ; preds = %entry
 die_message_builtin.exit:                         ; preds = %entry, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.4, %entry ]
   call fastcc void @vreportf(ptr noundef %retval.0.i.i, ptr noundef %err, ptr noundef nonnull %params)
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret i32 128
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @die_message_errno(ptr noundef %fmt, ...) local_unnamed_addr #7 {
+define dso_local noundef i32 @die_message_errno(ptr noundef %fmt, ...) local_unnamed_addr #6 {
 entry:
   %str_error.i = alloca [256 x i8], align 16
   %buf = alloca [1024 x i8], align 16
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %str_error.i)
   %call.i = tail call ptr @__errno_location() #19
   %0 = load i32, ptr %call.i, align 4
@@ -247,7 +241,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %conv212.i = phi i64 [ %conv2.i, %for.cond.backedge.i ], [ 0, %entry ]
   %2 = phi i8 [ %3, %for.cond.backedge.i ], [ %1, %entry ]
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
   %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %2, ptr %arrayidx8.i, align 1
@@ -279,7 +273,7 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 61, ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
   %5 = load i32, ptr @git_gettext_enabled, align 4
@@ -293,17 +287,17 @@ if.end3.i.i:                                      ; preds = %fmt_with_err.exit
 die_message_builtin.exit:                         ; preds = %fmt_with_err.exit, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.4, %fmt_with_err.exit ]
   call fastcc void @vreportf(ptr noundef %retval.0.i.i, ptr noundef nonnull %buf, ptr noundef nonnull %params)
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret i32 128
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @error_errno(ptr noundef %fmt, ...) local_unnamed_addr #7 {
+define dso_local noundef i32 @error_errno(ptr noundef %fmt, ...) local_unnamed_addr #6 {
 entry:
   %str_error.i = alloca [256 x i8], align 16
   %buf = alloca [1024 x i8], align 16
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %0 = load ptr, ptr @error_routine, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %str_error.i)
   %call.i = tail call ptr @__errno_location() #19
@@ -318,7 +312,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %conv212.i = phi i64 [ %conv2.i, %for.cond.backedge.i ], [ 0, %entry ]
   %3 = phi i8 [ %4, %for.cond.backedge.i ], [ %2, %entry ]
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
   %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %3, ptr %arrayidx8.i, align 1
@@ -350,31 +344,31 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void %0(ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @error(ptr noundef %err, ...) local_unnamed_addr #7 {
+define dso_local noundef i32 @error(ptr noundef %err, ...) local_unnamed_addr #6 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %0 = load ptr, ptr @error_routine, align 8
   call void %0(ptr noundef %err, ptr noundef nonnull %params) #16
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @warning_errno(ptr noundef %warn, ...) local_unnamed_addr #7 {
+define dso_local void @warning_errno(ptr noundef %warn, ...) local_unnamed_addr #6 {
 entry:
   %str_error.i = alloca [256 x i8], align 16
   %buf = alloca [1024 x i8], align 16
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %0 = load ptr, ptr @warn_routine, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %str_error.i)
   %call.i = tail call ptr @__errno_location() #19
@@ -389,7 +383,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %conv212.i = phi i64 [ %conv2.i, %for.cond.backedge.i ], [ 0, %entry ]
   %3 = phi i8 [ %4, %for.cond.backedge.i ], [ %2, %entry ]
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
   %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %3, ptr %arrayidx8.i, align 1
@@ -421,21 +415,21 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %warn, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %warn, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void %0(ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @warning(ptr noundef %warn, ...) local_unnamed_addr #7 {
+define dso_local void @warning(ptr noundef %warn, ...) local_unnamed_addr #6 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %params)
+  call void @llvm.va_start.p0(ptr nonnull %params)
   %0 = load ptr, ptr @warn_routine, align 8
   call void %0(ptr noundef %warn, ptr noundef nonnull %params) #16
-  call void @llvm.va_end(ptr nonnull %params)
+  call void @llvm.va_end.p0(ptr nonnull %params)
   ret void
 }
 
@@ -444,7 +438,7 @@ define dso_local void @BUG_fl(ptr noundef %file, i32 noundef %line, ptr noundef 
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store i32 0, ptr @bug_called_must_BUG, align 4
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef nonnull %ap) #15
   unreachable
 }
@@ -454,10 +448,10 @@ define internal fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr n
 entry:
   %prefix.i = alloca [256 x i8], align 16
   %params_copy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy(ptr nonnull %params_copy, ptr %params)
+  call void @llvm.va_copy.p0(ptr nonnull %params_copy, ptr %params)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef %params)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef %params)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   %.b = load i1, ptr @BUG_vfl.in_bug, align 4
   br i1 %.b, label %if.then, label %if.end
@@ -484,24 +478,24 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bug_fl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ...) local_unnamed_addr #7 {
+define dso_local void @bug_fl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ...) local_unnamed_addr #6 {
 entry:
   %prefix.i = alloca [256 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store i32 1, ptr @bug_called_must_BUG, align 4
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef nonnull %ap)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
-  call void @llvm.va_end(ptr nonnull %ap)
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 347, ptr noundef %fmt, ptr noundef nonnull %ap) #16
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-declare void @trace2_cmd_error_va_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @trace2_cmd_error_va_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @die_builtin(ptr noundef %err, ptr noundef %params) #3 {
@@ -513,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @die_message_builtin(ptr noundef %err, ptr noundef %params) #7 {
+define internal void @die_message_builtin(ptr noundef %err, ptr noundef %params) #6 {
 entry:
   tail call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 61, ptr noundef %err, ptr noundef %params) #16
   %0 = load i32, ptr @git_gettext_enabled, align 4
@@ -531,7 +525,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vreportf(ptr noundef %prefix, ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #7 {
+define internal fastcc void @vreportf(ptr noundef %prefix, ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #6 {
 entry:
   %msg = alloca [4096 x i8], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #20
@@ -602,7 +596,7 @@ for.end:                                          ; preds = %land.rhs, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #7 {
+define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %msgid, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -623,30 +617,30 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
 
-declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #11
+declare ptr @gettext(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @error_builtin(ptr noundef %err, ptr noundef %params) #7 {
+define internal void @error_builtin(ptr noundef %err, ptr noundef %params) #6 {
 entry:
   tail call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 80, ptr noundef %err, ptr noundef %params) #16
   %0 = load i32, ptr @git_gettext_enabled, align 4
@@ -664,7 +658,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @warn_builtin(ptr noundef %warn, ptr noundef %params) #7 {
+define internal void @warn_builtin(ptr noundef %warn, ptr noundef %params) #6 {
 entry:
   tail call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 87, ptr noundef %warn, ptr noundef %params) #16
   %0 = load i32, ptr @git_gettext_enabled, align 4
@@ -682,7 +676,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @die_is_recursing_builtin() #7 {
+define internal range(i32 0, 2) i32 @die_is_recursing_builtin() #6 {
 entry:
   %0 = load i32, ptr @die_is_recursing_builtin.dying, align 4
   %inc = add nsw i32 %0, 1
@@ -714,19 +708,25 @@ entry:
   unreachable
 }
 
-declare void @trace2_cmd_name_fl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @trace2_cmd_name_fl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #11
+declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #12
+declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
@@ -741,15 +741,15 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { noreturn }

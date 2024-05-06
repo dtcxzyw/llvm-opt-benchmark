@@ -533,7 +533,7 @@ return:                                           ; preds = %cond.false7, %Curl_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @Curl_splayremove(ptr noundef %t, ptr noundef %removenode, ptr nocapture noundef writeonly %newroot) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %t, ptr noundef %removenode, ptr nocapture noundef writeonly %newroot) local_unnamed_addr #0 {
 entry:
   %N.i43 = alloca %struct.Curl_tree, align 8
   %N.i = alloca %struct.Curl_tree, align 8

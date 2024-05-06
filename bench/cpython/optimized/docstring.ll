@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [86 x i8] c"staticmeth(a, b=<x>)\0A--\0A\0AThis docstring has a signature with unrepresentable default.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Docstring(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Docstring(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #3
   %cmp = icmp slt i32 %call, 0
@@ -82,7 +82,7 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_with_docstring(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @test_with_docstring(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_NoneStruct
 }

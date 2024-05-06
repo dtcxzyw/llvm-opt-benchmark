@@ -140,7 +140,7 @@ define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly 
 declare dso_local i32 @freq_qos_remove_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @processor_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -195,7 +195,7 @@ define internal noundef i32 @processor_get_max_state(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @processor_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -382,7 +382,7 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 51:                                               ; preds = %49, %45, %44
   %52 = phi i32 [ %50, %49 ], [ 0, %45 ], [ 0, %44 ]
   %53 = load i32, ptr %11, align 8
-  %54 = trunc i64 %1 to i32
+  %54 = trunc nuw nsw i64 %1 to i32
   tail call fastcc void @cpufreq_set_cur_state(i32 noundef %53, i32 noundef %54)
   br label %60
 

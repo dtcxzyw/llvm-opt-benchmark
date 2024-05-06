@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 @cpuinfo = external local_unnamed_addr global i32, align 4
-@tcg_ctx = external thread_local global ptr, align 8
+@tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [25 x i8] c"../qemu/tcg/tcg-op-vec.c\00", align 1
 @__func__.do_shifts = private unnamed_addr constant [10 x i8] c"do_shifts\00", align 1
 

@@ -812,7 +812,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 %indvars.iv.i
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   %64 = getelementptr inbounds i8, ptr %.05066.i, i64 36
   store i32 %54, ptr %64, align 4
   store i32 %25, ptr %62, align 4
@@ -1370,7 +1370,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.critedge.thread, label %177, !llvm.loop !21
 
 .critedge.loopexit:                               ; preds = %177
-  %183 = trunc i64 %indvars.iv330 to i32
+  %183 = trunc nuw nsw i64 %indvars.iv330 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader253
@@ -1424,7 +1424,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %201, !llvm.loop !22
 
 ._crit_edge.loopexit.i:                           ; preds = %201
-  %206 = trunc i64 %indvars.iv.i to i32
+  %206 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %194
@@ -1453,9 +1453,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %214, ptr %216, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %217 = load i32, ptr %196, align 4
-  %218 = trunc i64 %indvars.iv.next35.i to i32
+  %218 = trunc nuw i64 %indvars.iv.next35.i to i32
   %219 = icmp sgt i32 %217, %218
-  %220 = trunc i64 %indvars.iv34.i to i32
+  %220 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %219, label %211, label %._crit_edge30.i, !llvm.loop !23
 
 ._crit_edge30.i:                                  ; preds = %211, %.preheader.i
@@ -1501,7 +1501,7 @@ Vec_IntRemove.exit:                               ; preds = %205, %._crit_edge.i
   br i1 %exitcond337.not, label %.critedge2.thread, label %230, !llvm.loop !24
 
 .critedge2.loopexit:                              ; preds = %230
-  %235 = trunc i64 %indvars.iv333 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv333 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader251
@@ -1872,7 +1872,7 @@ Abc_Clock.exit246:                                ; preds = %.loopexit, %391
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Inta_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Inta_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 134217720
@@ -1929,8 +1929,8 @@ define noundef i32 @Inta_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef
 
 30:                                               ; preds = %.lr.ph88, %47
   %31 = phi i32 [ %9, %.lr.ph88 ], [ %48, %47 ]
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next112, %47 ]
-  %32 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv111
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next111, %47 ]
+  %32 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv110
   %33 = load i32, ptr %32, align 4
   %34 = xor i32 %33, 1
   %35 = ashr i32 %33, 1
@@ -1953,7 +1953,7 @@ Inta_ManEnqueue.exit.thread:                      ; preds = %30
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i32, ptr %42, i64 %45
   store i32 %34, ptr %46, align 4
-  %.pre124 = load i32, ptr %3, align 4
+  %.pre123 = load i32, ptr %3, align 4
   br label %47
 
 Inta_ManEnqueue.exit:                             ; preds = %30
@@ -1961,12 +1961,12 @@ Inta_ManEnqueue.exit:                             ; preds = %30
   br i1 %.not82, label %47, label %.loopexit
 
 47:                                               ; preds = %Inta_ManEnqueue.exit.thread, %Inta_ManEnqueue.exit
-  %48 = phi i32 [ %.pre124, %Inta_ManEnqueue.exit.thread ], [ %31, %Inta_ManEnqueue.exit ]
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %48 = phi i32 [ %.pre123, %Inta_ManEnqueue.exit.thread ], [ %31, %Inta_ManEnqueue.exit ]
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next112, %51
+  %52 = icmp ult i64 %indvars.iv.next111, %51
   br i1 %52, label %30, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %47, %.preheader84
@@ -1998,44 +1998,44 @@ Inta_ManEnqueue.exit:                             ; preds = %30
   br i1 %.not107, label %._crit_edge95, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count122 = zext nneg i32 %64 to i64
-  %wide.trip.count117 = zext nneg i32 %60 to i64
+  %wide.trip.count121 = zext nneg i32 %64 to i64
+  %wide.trip.count116 = zext nneg i32 %60 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %77
-  %indvars.iv119 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next120, %77 ]
-  %67 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %indvars.iv119
+  %indvars.iv118 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next119, %77 ]
+  %67 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %indvars.iv118
   %68 = load i32, ptr %67, align 4
   br label %69
 
 69:                                               ; preds = %.preheader.us, %73
-  %indvars.iv114 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next115, %73 ]
-  %70 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv114
+  %indvars.iv113 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next114, %73 ]
+  %70 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv113
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %68, %71
   br i1 %72, label %._crit_edge91.us, label %73
 
 73:                                               ; preds = %69
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge91.us.thread, label %69, !llvm.loop !34
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %._crit_edge91.us.thread, label %69, !llvm.loop !34
 
 ._crit_edge91.us.thread:                          ; preds = %73
-  %74 = trunc i64 %indvars.iv119 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv118 to i32
   br label %._crit_edge95
 
 ._crit_edge91.us:                                 ; preds = %69
-  %75 = trunc i64 %indvars.iv114 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv113 to i32
   %76 = icmp eq i32 %60, %75
   br i1 %76, label %._crit_edge95.loopexit, label %77
 
 77:                                               ; preds = %._crit_edge91.us
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge95.thread, label %.preheader.us, !llvm.loop !35
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
+  br i1 %exitcond122.not, label %._crit_edge95.thread, label %.preheader.us, !llvm.loop !35
 
 ._crit_edge95.loopexit:                           ; preds = %._crit_edge91.us
-  %78 = trunc i64 %indvars.iv119 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv118 to i32
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %._crit_edge95.loopexit, %._crit_edge91.us.thread, %.preheader.lr.ph, %.preheader83
@@ -2204,7 +2204,7 @@ Inta_ManEnqueue.exit76:                           ; preds = %144
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Inta_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Inta_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2592,7 +2592,7 @@ Abc_Clock.exit78:                                 ; preds = %58, %61
   br i1 %.not65, label %.critedge, label %.lr.ph.split, !llvm.loop !40
 
 .critedge:                                        ; preds = %.lr.ph.split, %69, %.lr.ph.split.us, %54, %47
-  %70 = call i32 @Inta_ManProcessRoots(ptr noundef nonnull %0), !range !41
+  %70 = call i32 @Inta_ManProcessRoots(ptr noundef nonnull %0)
   %.not67 = icmp eq i32 %70, 0
   br i1 %.not67, label %.loopexit, label %71
 
@@ -2616,14 +2616,14 @@ Abc_Clock.exit78:                                 ; preds = %58, %61
   br i1 %.not69.us, label %78, label %80
 
 78:                                               ; preds = %.lr.ph92.split.us
-  %79 = call i32 @Inta_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.191.us), !range !41
+  %79 = call i32 @Inta_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.191.us)
   %.not70.us = icmp eq i32 %79, 0
   br i1 %.not70.us, label %.loopexit, label %80
 
 80:                                               ; preds = %78, %.lr.ph92.split.us
   %.1.us = load ptr, ptr %.191.us, align 8
   %.not68.us = icmp eq ptr %.1.us, null
-  br i1 %.not68.us, label %.loopexit, label %.lr.ph92.split.us, !llvm.loop !42
+  br i1 %.not68.us, label %.loopexit, label %.lr.ph92.split.us, !llvm.loop !41
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92, %97
   %.191 = phi ptr [ %.1, %97 ], [ %.189, %.lr.ph92 ]
@@ -2634,7 +2634,7 @@ Abc_Clock.exit78:                                 ; preds = %58, %61
   br i1 %.not69, label %84, label %97
 
 84:                                               ; preds = %.lr.ph92.split
-  %85 = call i32 @Inta_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.191), !range !41
+  %85 = call i32 @Inta_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.191)
   %.not70 = icmp eq i32 %85, 0
   br i1 %.not70, label %.loopexit, label %86
 
@@ -2665,7 +2665,7 @@ Abc_Clock.exit80:                                 ; preds = %86, %89
 97:                                               ; preds = %Abc_Clock.exit80, %.lr.ph92.split
   %.1 = load ptr, ptr %.191, align 8
   %.not68 = icmp eq ptr %.1, null
-  br i1 %.not68, label %.loopexit, label %.lr.ph92.split, !llvm.loop !42
+  br i1 %.not68, label %.loopexit, label %.lr.ph92.split, !llvm.loop !41
 
 .loopexit:                                        ; preds = %97, %84, %80, %78, %71, %.critedge
   %98 = load i32, ptr %41, align 8
@@ -2874,7 +2874,7 @@ define ptr @Inta_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
   %47 = and i32 %46, 16777215
   %48 = zext nneg i32 %47 to i64
   %49 = icmp ult i64 %indvars.iv.next, %48
-  br i1 %49, label %21, label %._crit_edge, !llvm.loop !43
+  br i1 %49, label %21, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %37, %15
   %.035.lcssa = phi ptr [ %18, %15 ], [ %44, %37 ]
@@ -2885,7 +2885,7 @@ define ptr @Inta_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
   %.1 = phi ptr [ %.03447, %13 ], [ %50, %._crit_edge ]
   %.036 = load ptr, ptr %.03648, align 8
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge, label %9, !llvm.loop !44
+  br i1 %.not, label %.critedge, label %9, !llvm.loop !43
 
 .critedge:                                        ; preds = %9, %51, %3
   %.034.lcssa = phi ptr [ %.val41, %3 ], [ %.1, %51 ], [ %.03447, %9 ]
@@ -2909,7 +2909,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2928,7 +2928,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2939,19 +2939,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
@@ -2983,8 +2983,8 @@ attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -3036,7 +3036,6 @@ attributes #20 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{i32 0, i32 2}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

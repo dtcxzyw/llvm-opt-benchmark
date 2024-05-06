@@ -536,7 +536,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %.loopexit, label %7
@@ -796,8 +796,8 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_jfif_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !7
+define internal range(i32 0, 2) i32 @dissect_jfif_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
   ret i32 %7
@@ -1093,7 +1093,7 @@ define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, 
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %1, i32 noundef %19, i32 noundef 1, i32 noundef 0) #4
   %26 = add i8 %.03640, -1
   %.not38 = icmp eq i8 %26, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ 5, %5 ], [ %24, %.lr.ph ]
@@ -1231,7 +1231,7 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
   br i1 %38, label %switch.hole_check, label %44
 
 switch.hole_check:                                ; preds = %.lr.ph162
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 863, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %44
@@ -1244,7 +1244,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep176 = getelementptr inbounds [10 x i32], ptr @switch.table.process_tiff_ifd_chain.1, i64 0, i64 %40
   %switch.load177 = load i32, ptr %switch.gep176, align 4
   %.0121.ph = load i32, ptr %switch.load, align 4
-  %.rhs.trunc = trunc i32 %switch.load177 to i8
+  %.rhs.trunc = trunc nuw nsw i32 %switch.load177 to i8
   %41 = udiv i8 4, %.rhs.trunc
   %.zext = zext nneg i8 %41 to i32
   %42 = load i32, ptr %11, align 4
@@ -1387,12 +1387,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %115 = add nuw i32 %.0122159, 1
   %116 = load i32, ptr %11, align 4
   %117 = icmp ult i32 %115, %116
-  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %113, %.thread142, %64, %66, %55
   %118 = add i32 %.0118161, 12
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph162, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph162, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %17
   %.0118.lcssa = phi i32 [ %27, %17 ], [ %118, %.loopexit ]
@@ -1452,7 +1452,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 -2147483648}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

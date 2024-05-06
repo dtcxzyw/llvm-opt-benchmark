@@ -140,7 +140,7 @@ define internal noundef i32 @enc_names_free_i(i64 noundef %0, i64 %1, i64 %2) #0
 declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_data_is_encoding(i64 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rb_data_is_encoding(i64 noundef %0) local_unnamed_addr #2 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -189,7 +189,7 @@ rb_enc_from_encoding_index.exit:                  ; preds = %7, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @rb_enc_to_index(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 16777216) i32 @rb_enc_to_index(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -205,7 +205,7 @@ define dso_local i32 @rb_enc_to_index(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @rb_enc_dummy_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @rb_enc_dummy_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 24
@@ -457,7 +457,7 @@ enc_registered.exit:                              ; preds = %5
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
-  %12 = call fastcc i32 @load_encoding(ptr noundef %0), !range !9
+  %12 = call fastcc i32 @load_encoding(ptr noundef %0)
   br label %27
 
 13:                                               ; preds = %enc_registered.exit
@@ -747,7 +747,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
 name_for_encoding.exit:                           ; preds = %20
   %24 = call i32 @rb_enc_find_index(ptr noundef nonnull %21)
   store ptr %2, ptr %3, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #20, !srcloc !10
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #20, !srcloc !9
   %25 = load ptr, ptr %3, align 8
   %26 = load volatile i64, ptr %25, align 8
   ret i32 %24
@@ -1071,7 +1071,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
   %32 = getelementptr i8, ptr %23, i64 1
   %33 = load i8, ptr %32, align 1
   %.not77 = icmp eq i8 %33, 0
-  br i1 %.not77, label %.critedge.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %.not77, label %.critedge.thread, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %17
   %.not79.not = icmp eq i8 %13, 0
@@ -1143,7 +1143,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
   %.not83 = icmp eq i32 %spec.select95, 0
   %.not84 = icmp eq i32 %.2, 0
   %54 = select i1 %.not83, i1 true, i1 %.not84
-  br i1 %54, label %.preheader120, label %.critedge7, !llvm.loop !12
+  br i1 %54, label %.preheader120, label %.critedge7, !llvm.loop !11
 
 .critedge7:                                       ; preds = %.preheader120, %53
   %55 = ptrtoint ptr %51 to i64
@@ -1165,7 +1165,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 ruby_nonempty_memcpy.exit:                        ; preds = %59
   %63 = add nuw nsw i64 %61, 1
   %64 = alloca i8, i64 %63, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %64, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %63, i1 false)
   br i1 %.not79110116, label %65, label %88
 
 65:                                               ; preds = %ruby_nonempty_memcpy.exit
@@ -1207,7 +1207,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %59
   %84 = getelementptr i8, ptr %.470129, i64 1
   %85 = load i8, ptr %84, align 1
   %.not87 = icmp eq i8 %85, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph130, !llvm.loop !13
+  br i1 %.not87, label %._crit_edge, label %.lr.ph130, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %83, %74
   br i1 %.3, label %88, label %86
@@ -1244,7 +1244,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %59
   %99 = getelementptr i8, ptr %.571132, i64 1
   %100 = load i8, ptr %99, align 1
   %.not91 = icmp eq i8 %100, 0
-  br i1 %.not91, label %._crit_edge134, label %.lr.ph133, !llvm.loop !14
+  br i1 %.not91, label %._crit_edge134, label %.lr.ph133, !llvm.loop !13
 
 ._crit_edge134:                                   ; preds = %98, %.preheader
   %101 = load i64, ptr @rb_cEncoding, align 8
@@ -1384,7 +1384,7 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   store i64 0, ptr %3, align 8
   %.not.i6 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %.not.i6)
-  %16 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i64 0, i32 2), align 8, !nonnull !15, !noundef !15
+  %16 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i64 0, i32 2), align 8, !nonnull !14, !noundef !14
   %17 = ptrtoint ptr %1 to i64
   %18 = call i32 @rb_st_lookup(ptr noundef nonnull %16, i64 noundef %17, ptr noundef nonnull %3) #20
   %.not7.i8 = icmp ne i32 %18, 0
@@ -1401,7 +1401,7 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %.0.i
   %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !15, !noundef !15
+  %29 = load ptr, ptr %28, align 8, !nonnull !14, !noundef !14
   %30 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %26, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 128
@@ -1443,7 +1443,7 @@ define dso_local noundef i32 @rb_enc_set_dummy(i32 noundef returned %0) local_un
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_encdb_replicate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @rb_encdb_replicate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -1554,7 +1554,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_enc_from_index.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %12
 
@@ -1587,7 +1587,7 @@ enc_register.exit:                                ; preds = %5
   %17 = zext nneg i32 %.0 to i64
   %18 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !15, !noundef !15
+  %20 = load ptr, ptr %19, align 8, !nonnull !14, !noundef !14
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 128
@@ -1627,7 +1627,7 @@ rb_enc_from_index.exit:                           ; preds = %set_base_encoding.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_define_dummy_encoding(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @rb_define_dummy_encoding(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -1712,7 +1712,7 @@ enc_register.exit.i:                              ; preds = %enc_check_addable.e
   %32 = zext nneg i32 %27 to i64
   %33 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !nonnull !15, !noundef !15
+  %35 = load ptr, ptr %34, align 8, !nonnull !14, !noundef !14
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %6, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 128
@@ -1768,7 +1768,7 @@ define dso_local nonnull ptr @rb_ascii8bit_encoding() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_encdb_dummy(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @rb_encdb_dummy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -1826,7 +1826,7 @@ rb_vm_lock_leave.exit:                            ; preds = %enc_registered.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @rb_enc_unicode_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @rb_enc_unicode_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -2145,7 +2145,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %enc_autoload_body.exit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %enc_autoload_body.exit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
@@ -2196,7 +2196,7 @@ rb_vm_lock_leave.exit:                            ; preds = %enc_autoload_body.e
 26:                                               ; preds = %rb_vm_lock_leave.exit
   %27 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %27, align 8
-  %28 = call fastcc i32 @load_encoding(ptr noundef %.val), !range !9
+  %28 = call fastcc i32 @load_encoding(ptr noundef %.val)
   br label %29
 
 29:                                               ; preds = %26, %rb_vm_lock_leave.exit
@@ -2205,14 +2205,14 @@ rb_vm_lock_leave.exit:                            ; preds = %enc_autoload_body.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @load_encoding(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @load_encoding(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.48, ptr noundef %0) #20
   %5 = tail call ptr @rb_ruby_debug_ptr() #20
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %4 to ptr
-  %8 = load i64, ptr %7, align 8, !noalias !15
+  %8 = load i64, ptr %7, align 8, !noalias !14
   %9 = and i64 %8, 8192
   %.not.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds i8, ptr %7, i64 24
@@ -2266,7 +2266,7 @@ RSTRING_END.exit:                                 ; preds = %RSTRING_PTR.exit.th
 29:                                               ; preds = %.sink.split, %24
   %30 = getelementptr i8, ptr %.02232, i64 1
   %31 = icmp ult ptr %30, %16
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %29, %RSTRING_END.exit
   %32 = tail call i64 @rb_fstring(i64 noundef %4) #20
@@ -2355,7 +2355,7 @@ define hidden i32 @rb_enc_find_index2(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %6
 
 6:                                                ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr readonly align 1 %0, i64 %1, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %5, %6
@@ -2390,7 +2390,7 @@ rb_enc_from_index.exit:                           ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @rb_enc_capable(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @rb_enc_capable(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -2447,7 +2447,7 @@ define hidden i64 @rb_id_encoding() local_unnamed_addr #0 {
   %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %1, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !17
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %1, %.lr.ph.i ]
@@ -2500,7 +2500,7 @@ define dso_local i32 @rb_enc_get_index(i64 noundef %0) local_unnamed_addr #0 {
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %21, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rb_id_encoding.exit.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rb_id_encoding.exit.i, !llvm.loop !17
 
 rb_id_encoding.exit.i:                            ; preds = %.lr.ph.i.i.i, %20
   %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %20 ], [ %21, %.lr.ph.i.i.i ]
@@ -2535,7 +2535,7 @@ rb_num2int_inline.exit.i:                         ; preds = %28, %26
   %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 17) #20
   store i64 %32, ptr @rb_enc_get_index.rbimpl_id, align 8
   %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !17
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i64 [ %.pr.i, %31 ], [ %32, %.lr.ph.i ]
@@ -2552,7 +2552,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %36 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 17) #20
   store i64 %36, ptr @rb_enc_get_index.rbimpl_id.6, align 8
   %.not.i44 = icmp eq i64 %36, 0
-  br i1 %.not.i44, label %.lr.ph.i43, label %rbimpl_intern_const.exit45, !llvm.loop !18
+  br i1 %.not.i44, label %.lr.ph.i43, label %rbimpl_intern_const.exit45, !llvm.loop !17
 
 rbimpl_intern_const.exit45:                       ; preds = %.lr.ph.i43, %35
   %.lcssa.i42 = phi i64 [ %.pr.i40, %35 ], [ %36, %.lr.ph.i43 ]
@@ -2761,7 +2761,7 @@ enc_capable.exit.thread:                          ; preds = %17, %7, %7, %7, %7,
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %35, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %rb_id_encoding.exit, !llvm.loop !18
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %rb_id_encoding.exit, !llvm.loop !17
 
 rb_id_encoding.exit:                              ; preds = %.lr.ph.i.i, %31
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %31 ], [ %35, %.lr.ph.i.i ]
@@ -2899,7 +2899,7 @@ define hidden ptr @rb_enc_check_str(i64 noundef %0, i64 noundef %1) local_unname
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %10, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %rb_id_encoding.exit.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %rb_id_encoding.exit.i.i, !llvm.loop !17
 
 rb_id_encoding.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i, %9
   %.lcssa.i.i.i.i = phi i64 [ %.pr.i.i.i.i, %9 ], [ %10, %.lr.ph.i.i.i.i ]
@@ -2944,7 +2944,7 @@ enc_get_index_str.exit.i:                         ; preds = %rb_num2int_inline.e
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %27, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i23.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i23.i, label %.lr.ph.i.i.i22.i, label %rb_id_encoding.exit.i17.i, !llvm.loop !18
+  br i1 %.not.i.i.i23.i, label %.lr.ph.i.i.i22.i, label %rb_id_encoding.exit.i17.i, !llvm.loop !17
 
 rb_id_encoding.exit.i17.i:                        ; preds = %.lr.ph.i.i.i22.i, %26
   %.lcssa.i.i.i18.i = phi i64 [ %.pr.i.i.i15.i, %26 ], [ %27, %.lr.ph.i.i.i22.i ]
@@ -3486,7 +3486,7 @@ rb_enc_precise_mbclen.exit:                       ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_codelen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @rb_enc_codelen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(i32 noundef %0, ptr noundef %1) #20
@@ -3505,7 +3505,7 @@ define dso_local i32 @rb_enc_codelen(i32 noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_enc_toupper(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, -2147483648) i32 @rb_enc_toupper(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %9
 
@@ -3522,7 +3522,7 @@ define dso_local i32 @rb_enc_toupper(i32 noundef %0, ptr nocapture noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_enc_tolower(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, -2147483648) i32 @rb_enc_tolower(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %9
 
@@ -4126,7 +4126,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %51 = load i32, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i64 0, i32 1), align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rb_class_of.exit
   %54 = load i64, ptr @rb_cEncoding, align 8
@@ -4242,7 +4242,7 @@ define internal i64 @enc_names(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_dummy_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @enc_dummy_p(i64 noundef %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -4328,7 +4328,7 @@ must_encoding.exit:                               ; preds = %33, %enc_check_enco
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @enc_ascii_compatible_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @enc_ascii_compatible_p(i64 noundef %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -5140,14 +5140,13 @@ attributes #26 = { noreturn }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -1, i32 -2147483648}
-!10 = !{i64 2150767520}
+!9 = !{i64 2150767520}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = !{}
+!14 = !{}
+!15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}

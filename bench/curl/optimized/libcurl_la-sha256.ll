@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_HMAC_SHA256 = hidden local_unnamed_addr constant [1 x %struct.HMAC_params] [%struct.HMAC_params { ptr @my_sha256_init, ptr @my_sha256_update, ptr @my_sha256_final, i32 8, i32 64, i32 32 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_sha256it(ptr noundef %output, ptr noundef %input, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_sha256it(ptr noundef %output, ptr noundef %input, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @EVP_MD_CTX_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -38,7 +38,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @my_sha256_init(ptr nocapture noundef %ctx) #0 {
+define internal range(i32 0, 28) i32 @my_sha256_init(ptr nocapture noundef %ctx) #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %call, ptr %ctx, align 8

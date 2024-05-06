@@ -637,7 +637,7 @@ while.body:                                       ; preds = %_ZN6hermes11UTF16St
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %tobool = trunc i8 %hasEscape.0 to i1
+  %tobool = trunc nuw i8 %hasEscape.0 to i1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
@@ -705,7 +705,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
 
 if.end31:                                         ; preds = %if.else
   %cmp35 = icmp eq i16 %4, 92
-  %tobool37 = trunc i8 %hasEscape.0 to i1
+  %tobool37 = trunc nuw i8 %hasEscape.0 to i1
   br i1 %cmp35, label %if.then36, label %if.else94
 
 if.then36:                                        ; preds = %if.end31
@@ -1131,7 +1131,7 @@ while.body:                                       ; preds = %_ZN6hermes11UTF16St
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %tobool = trunc i8 %hasEscape.0 to i1
+  %tobool = trunc nuw i8 %hasEscape.0 to i1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
@@ -1272,7 +1272,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
 
 if.end34:                                         ; preds = %if.else
   %cmp38 = icmp eq i16 %4, 92
-  %tobool40 = trunc i8 %hasEscape.0 to i1
+  %tobool40 = trunc nuw i8 %hasEscape.0 to i1
   br i1 %cmp38, label %if.then39, label %if.else97
 
 if.then39:                                        ; preds = %if.end34

@@ -21,13 +21,13 @@ define noalias noundef ptr @range_empty(ptr noundef %0) local_unnamed_addr #0 {
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @range_convert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1), !range !4
+define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %1, null
@@ -68,7 +68,7 @@ define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly
 
 18:                                               ; preds = %15, %15
   %19 = getelementptr i8, ptr %.1100, i64 1
-  br label %15, !llvm.loop !5
+  br label %15, !llvm.loop !4
 
 20:                                               ; preds = %15
   %.not = icmp ult i32 %14, %.0101
@@ -159,7 +159,7 @@ define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly
 
 59:                                               ; preds = %57, %57
   %60 = getelementptr i8, ptr %.2, i64 1
-  br label %57, !llvm.loop !7
+  br label %57, !llvm.loop !6
 
 61:                                               ; preds = %34
   call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
@@ -182,7 +182,7 @@ define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly
   ]
 
 .preheader119.backedge:                           ; preds = %.preheader119, %.preheader119
-  br label %.preheader119, !llvm.loop !8
+  br label %.preheader119, !llvm.loop !7
 
 64:                                               ; preds = %.preheader119, %.preheader119
   %65 = getelementptr inbounds i8, ptr %.1105, i64 4
@@ -249,7 +249,7 @@ define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly
 
 93:                                               ; preds = %91, %91
   %94 = getelementptr i8, ptr %.5, i64 1
-  br label %91, !llvm.loop !9
+  br label %91, !llvm.loop !8
 
 95:                                               ; preds = %68
   call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
@@ -300,7 +300,7 @@ define noundef i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = zext i32 %115 to i64
   %117 = icmp ult i64 %indvars.iv.next, %116
-  br i1 %117, label %106, label %._crit_edge, !llvm.loop !10
+  br i1 %117, label %106, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %114, %.preheader
   store ptr %.0104, ptr %1, align 8
@@ -321,7 +321,7 @@ declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @value_is_in_range(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -351,7 +351,7 @@ define noundef i32 @value_is_in_range(ptr noundef readonly %0, i32 noundef %1) l
 10:                                               ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %7, %10, %.preheader, %2
   %.010 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ 1, %7 ], [ 0, %10 ]
@@ -359,7 +359,7 @@ define noundef i32 @value_is_in_range(ptr noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -410,7 +410,7 @@ define noundef i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 noundef 
 24:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %24
   %25 = zext i32 %6 to i64
@@ -444,7 +444,7 @@ define noundef i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -529,7 +529,7 @@ define noundef i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 nound
   %.1 = phi i32 [ %.04971, %35 ], [ %45, %37 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %47 = icmp ult i64 %indvars.iv.next85, %34
-  br i1 %47, label %35, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %35, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %46, %22
   tail call void @wmem_free(ptr noundef %0, ptr noundef nonnull %28) #4
@@ -553,7 +553,7 @@ define noundef i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 nound
 54:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !13
 
 .loopexit:                                        ; preds = %12, %54, %.preheader, %3, %4, %51, %48, %._crit_edge
   %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %48 ], [ 1, %51 ], [ 0, %4 ], [ 0, %3 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %12 ]
@@ -561,7 +561,7 @@ define noundef i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @ranges_are_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -586,7 +586,7 @@ define noundef i32 @ranges_are_equal(ptr noundef readonly %0, ptr noundef readon
 10:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !14
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -642,7 +642,7 @@ define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr
   %14 = add i32 %.018, 1
   %15 = load i32, ptr %12, align 4
   %.not = icmp ugt i32 %14, %15
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %0, align 4
@@ -653,7 +653,7 @@ define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
   %18 = icmp ult i64 %indvars.iv.next, %17
-  br i1 %18, label %8, label %.loopexit, !llvm.loop !17
+  br i1 %18, label %8, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %3
   ret void
@@ -697,7 +697,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
   %15 = load i32, ptr %1, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %.loopexit, !llvm.loop !18
+  br i1 %17, label %6, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %14, %.preheader, %2
   %18 = tail call ptr @wmem_strbuf_finalize(ptr noundef %3) #4
@@ -743,18 +743,17 @@ attributes #5 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

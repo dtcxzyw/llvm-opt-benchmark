@@ -194,7 +194,7 @@ define noundef i32 @ole2_list_init(ptr nocapture noundef writeonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ole2_list_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ole2_list_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -209,7 +209,7 @@ define i32 @ole2_list_size(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ole2_list_push(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 21) i32 @ole2_list_push(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -991,7 +991,7 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %46, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(72) %63, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(72) %5, ptr noundef nonnull readonly align 1 dereferenceable(72) %63, i64 72, i1 false)
   %64 = getelementptr inbounds i8, ptr %4, i64 256
   store i32 128, ptr %64, align 4
   %65 = call fastcc i32 @generate_key_aes(ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -1304,7 +1304,7 @@ ole2_list_pop.exit:                               ; preds = %41
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %10, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %10, i8 0, i64 512, i1 false)
   %84 = sub i64 %80, %.02839.i
   br label %85
 
@@ -1318,7 +1318,7 @@ ole2_list_pop.exit:                               ; preds = %41
   br i1 %.not36.i, label %thread-pre-splitthread-pre-split, label %90
 
 90:                                               ; preds = %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %89, i64 %.029.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %10, ptr nonnull align 1 %89, i64 %.029.i, i1 false)
   %91 = and i32 %50, 3
   %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds [4 x %struct.property_tag], ptr %10, i64 0, i64 %92
@@ -1418,7 +1418,7 @@ ole2_list_pop.exit.i254:                          ; preds = %128, %ole2_list_pop
   br i1 %.not237, label %141, label %134
 
 134:                                              ; preds = %132
-  %135 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %133), !range !4
+  %135 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %133)
   %.not238 = icmp eq i32 %135, 0
   br i1 %.not238, label %141, label %136
 
@@ -1441,7 +1441,7 @@ ole2_list_pop.exit.i258:                          ; preds = %136, %ole2_list_pop
   br i1 %.not239, label %thread-pre-splitthread-pre-split, label %143
 
 143:                                              ; preds = %141
-  %144 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %142), !range !4
+  %144 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %142)
   %.not240 = icmp eq i32 %144, 0
   br i1 %.not240, label %thread-pre-splitthread-pre-split, label %145
 
@@ -1512,7 +1512,7 @@ ole2_list_pop.exit.i266:                          ; preds = %161, %ole2_list_pop
   %172 = load i64, ptr %7, align 8
   %173 = sub i64 %172, %.pre506
   store i64 %173, ptr %7, align 8
-  %174 = call i32 %3(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %8) #21, !callees !5
+  %174 = call i32 %3(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %8) #21, !callees !4
   %.not227 = icmp eq i32 %174, 0
   br i1 %.not227, label %180, label %175
 
@@ -1560,7 +1560,7 @@ ole2_list_pop.exit.i274:                          ; preds = %184, %ole2_list_pop
   br i1 %.not230, label %197, label %190
 
 190:                                              ; preds = %188
-  %191 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %189), !range !4
+  %191 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %189)
   %.not231 = icmp eq i32 %191, 0
   br i1 %.not231, label %197, label %192
 
@@ -1583,7 +1583,7 @@ ole2_list_pop.exit.i278:                          ; preds = %192, %ole2_list_pop
   br i1 %.not232, label %thread-pre-splitthread-pre-split, label %199
 
 199:                                              ; preds = %197
-  %200 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %198), !range !4
+  %200 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %198)
   %.not233 = icmp eq i32 %200, 0
   br i1 %.not233, label %thread-pre-splitthread-pre-split, label %201
 
@@ -1735,7 +1735,7 @@ ole2_list_delete.exit296:                         ; preds = %ole2_list_pop.exit.
   br i1 %.not218, label %265, label %258
 
 258:                                              ; preds = %256
-  %259 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %257), !range !4
+  %259 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %257)
   %.not219 = icmp eq i32 %259, 0
   br i1 %.not219, label %265, label %260
 
@@ -1758,7 +1758,7 @@ ole2_list_pop.exit.i298:                          ; preds = %260, %ole2_list_pop
   br i1 %.not220, label %thread-pre-splitthread-pre-split, label %267
 
 267:                                              ; preds = %265
-  %268 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %266), !range !4
+  %268 = call i32 @ole2_list_push(ptr noundef nonnull %11, i32 noundef %266)
   %.not221 = icmp eq i32 %268, 0
   br i1 %.not221, label %thread-pre-splitthread-pre-split, label %269
 
@@ -1786,7 +1786,7 @@ ole2_list_delete.exit:                            ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @handler_enum(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 21) i32 @handler_enum(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = alloca [128 x i32], align 16
   %7 = alloca %struct.biff_parser_state, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2137,7 +2137,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   br i1 %189, label %190, label %246
 
 190:                                              ; preds = %186
-  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef %.065106.i)
+  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull readonly %0, ptr noundef nonnull %158, i32 noundef %.065106.i)
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %190
@@ -2157,7 +2157,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %203 = getelementptr inbounds i8, ptr %158, i64 %202
   %204 = sext i32 %195 to i64
   %.064..i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %204)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %203, i64 noundef %.064..i, ptr noundef %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull writeonly %127, ptr noundef nonnull %145)
   %205 = load i32, ptr %174, align 8
   %206 = shl nuw i32 1, %205
   %207 = sext i32 %206 to i64
@@ -2174,7 +2174,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.015.i.i = phi i32 [ %211, %.lr.ph.i.i ], [ %209, %.lr.ph.preheader.i.i ]
   %.01014.i.i = phi i32 [ %212, %.lr.ph.i.i ], [ %210, %.lr.ph.preheader.i.i ]
-  %211 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i.i)
+  %211 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i.i)
   %212 = add nsw i32 %.01014.i.i, -1
   %213 = icmp ugt i32 %.01014.i.i, 1
   br i1 %213, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -2219,7 +2219,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %235 = sub i64 %231, %.02839.i.i.i
   br label %236
 
@@ -2233,7 +2233,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   br i1 %.not36.i.i.i, label %ole2_get_next_sbat_block.exit.i, label %241
 
 241:                                              ; preds = %236
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %240, i64 %.029.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull align 1 %240, i64 %.029.i.i.i, i1 false)
   %242 = and i32 %.065106.i, 127
   %243 = zext nneg i32 %242 to i64
   %244 = getelementptr inbounds [128 x i32], ptr %6, i64 0, i64 %243
@@ -2284,7 +2284,7 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %265
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, i8 0, i64 %250, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %158, i8 0, i64 %250, i1 false)
   %268 = load i64, ptr %172, align 8
   %269 = sub i64 %268, %.02839.i.i
   br label %270
@@ -2299,14 +2299,14 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   br i1 %.not36.i.i, label %ole2_read_block.exit.thread.thread122.i, label %275
 
 275:                                              ; preds = %270
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull align 1 %274, i64 %.029.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %158, ptr nonnull align 1 %274, i64 %.029.i.i, i1 false)
   %276 = load i16, ptr %153, align 2
   %277 = zext nneg i16 %276 to i32
   %278 = shl nuw i32 1, %277
   %279 = sext i32 %278 to i64
   %.064.81.i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %279)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %158, i64 noundef %.064.81.i, ptr noundef %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
-  %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull %0, i32 noundef %.065106.i)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull writeonly %127, ptr noundef nonnull %145)
+  %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.065106.i)
   %281 = load i16, ptr %153, align 2
   %282 = zext nneg i16 %281 to i32
   %283 = shl nuw i32 1, %282
@@ -2364,7 +2364,7 @@ declare i32 @cli_hwp5header(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @uniq_init(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @handler_writefile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 23) i32 @handler_writefile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = alloca [128 x i32], align 16
   %7 = alloca [1024 x i8], align 16
   %8 = alloca ptr, align 8
@@ -2555,7 +2555,7 @@ define internal noundef i32 @handler_writefile(ptr nocapture noundef readonly %0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
-  %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
@@ -2600,7 +2600,7 @@ define internal noundef i32 @handler_writefile(ptr nocapture noundef readonly %0
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %131 = sub i64 %127, %.02839.i.i
   br label %132
 
@@ -2614,7 +2614,7 @@ define internal noundef i32 @handler_writefile(ptr nocapture noundef readonly %0
   br i1 %.not36.i.i, label %ole2_get_next_sbat_block.exit, label %137
 
 137:                                              ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
   %138 = and i32 %.088171, 127
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds [128 x i32], ptr %6, i64 0, i64 %139
@@ -2665,7 +2665,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %119
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %161
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, i8 0, i64 %146, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %50, i8 0, i64 %146, i1 false)
   %164 = load i64, ptr %64, align 8
   %165 = sub i64 %164, %.02839.i
   br label %166
@@ -2680,7 +2680,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %119
   br i1 %.not36.i, label %ole2_read_block.exit.thread, label %171
 
 171:                                              ; preds = %166
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %170, i64 %.029.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %50, ptr nonnull align 1 %170, i64 %.029.i, i1 false)
   %172 = load i16, ptr %45, align 2
   %173 = zext nneg i16 %172 to i32
   %174 = shl nuw i32 1, %173
@@ -2761,7 +2761,7 @@ ole2_read_block.exit.thread:                      ; preds = %86, %171, %77, %188
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @handler_otf_encrypted(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4) #2 {
+define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4) #2 {
   %6 = alloca [128 x i32], align 16
   %7 = icmp eq ptr %4, null
   br i1 %7, label %8, label %9
@@ -2951,7 +2951,7 @@ define internal i32 @handler_otf_encrypted(ptr nocapture noundef readonly %0, pt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
-  %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
@@ -2996,7 +2996,7 @@ define internal i32 @handler_otf_encrypted(ptr nocapture noundef readonly %0, pt
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %131 = sub i64 %127, %.02839.i.i
   br label %132
 
@@ -3010,7 +3010,7 @@ define internal i32 @handler_otf_encrypted(ptr nocapture noundef readonly %0, pt
   br i1 %.not36.i.i, label %ole2_get_next_sbat_block.exit, label %137
 
 137:                                              ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
   %138 = and i32 %.0188361, 127
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds [128 x i32], ptr %6, i64 0, i64 %139
@@ -3066,7 +3066,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %166
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %147, i8 0, i64 %48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %147, i8 0, i64 %48, i1 false)
   %169 = load i64, ptr %60, align 8
   %170 = sub i64 %169, %.02839.i
   br label %171
@@ -3081,7 +3081,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br i1 %.not36.i, label %ole2_read_block.exit.thread, label %176
 
 176:                                              ; preds = %171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %147, ptr nonnull align 1 %175, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %147, ptr nonnull align 1 %175, i64 %.029.i, i1 false)
   %177 = icmp eq i32 %.0176363, 0
   %178 = add i32 %.0169366, %145
   %179 = add i32 %178, -16
@@ -3169,7 +3169,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br i1 %211, label %65, label %ole2_read_block.exit.thread
 
 ole2_read_block.exit.thread:                      ; preds = %209, %74, %142, %.thread.i, %157, %171, %.preheader, %82, %73, %69
-  %212 = tail call fastcc i32 @likely_mso_stream(i32 noundef %28), !range !6
+  %212 = tail call fastcc i32 @likely_mso_stream(i32 noundef %28)
   %213 = tail call i64 @lseek(i32 noundef %28, i64 noundef 0, i32 noundef 0) #21
   %214 = icmp eq i64 %213, -1
   br i1 %214, label %.loopexit, label %215
@@ -3354,7 +3354,7 @@ ole2_read_block.exit.thread:                      ; preds = %209, %74, %142, %.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @handler_otf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 23) i32 @handler_otf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
   %6 = alloca [128 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 66
   %8 = load i8, ptr %7, align 1
@@ -3505,7 +3505,7 @@ define internal i32 @handler_otf(ptr nocapture noundef readonly %0, ptr nocaptur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %86, %.lr.ph.i ], [ %84, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %87, %.lr.ph.i ], [ %85, %.lr.ph.preheader.i ]
-  %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %87 = add nsw i32 %.01014.i, -1
   %88 = icmp ugt i32 %.01014.i, 1
   br i1 %88, label %.lr.ph.i, label %._crit_edge.i
@@ -3550,7 +3550,7 @@ define internal i32 @handler_otf(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %107
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %110 = sub i64 %106, %.02839.i.i
   br label %111
 
@@ -3564,7 +3564,7 @@ define internal i32 @handler_otf(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not36.i.i, label %ole2_get_next_sbat_block.exit, label %116
 
 116:                                              ; preds = %111
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %115, i64 %.029.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull align 1 %115, i64 %.029.i.i, i1 false)
   %117 = and i32 %.0117242, 127
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds [128 x i32], ptr %6, i64 0, i64 %118
@@ -3615,7 +3615,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98,
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, i8 0, i64 %125, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %35, i8 0, i64 %125, i1 false)
   %143 = load i64, ptr %44, align 8
   %144 = sub i64 %143, %.02839.i
   br label %145
@@ -3630,7 +3630,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98,
   br i1 %.not36.i, label %ole2_read_block.exit.thread, label %150
 
 150:                                              ; preds = %145
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %149, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %35, ptr nonnull align 1 %149, i64 %.029.i, i1 false)
   %151 = load i16, ptr %30, align 2
   %152 = zext nneg i16 %151 to i32
   %153 = shl nuw i32 1, %152
@@ -3664,7 +3664,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98,
   br i1 %170, label %49, label %ole2_read_block.exit.thread
 
 ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %132, %145, %.preheader, %65, %56, %52
-  %171 = tail call fastcc i32 @likely_mso_stream(i32 noundef %14), !range !6
+  %171 = tail call fastcc i32 @likely_mso_stream(i32 noundef %14)
   %172 = tail call i64 @lseek(i32 noundef %14, i64 noundef 0, i32 noundef 0) #21
   %173 = icmp eq i64 %172, -1
   br i1 %173, label %.loopexit, label %174
@@ -3839,7 +3839,7 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_key_aes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 35) i32 @generate_key_aes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -4141,7 +4141,7 @@ define internal fastcc i32 @ole2_get_next_block_number(ptr nocapture noundef rea
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %40 = sub i64 %36, %.02839.i.i
   br label %41
 
@@ -4156,7 +4156,7 @@ define internal fastcc i32 @ole2_get_next_block_number(ptr nocapture noundef rea
   br i1 %.not36.i.i, label %ole2_get_next_xbat_block.exit, label %ole2_read_block.exit.i
 
 ole2_read_block.exit.i:                           ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %46, i64 %.029.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull align 1 %46, i64 %.029.i.i, i1 false)
   %47 = icmp ugt i32 %1, 30207
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i
 
@@ -4205,7 +4205,7 @@ ole2_read_block.exit.i:                           ; preds = %41
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %72 = sub i64 %68, %.02839.i19.i
   br label %73
 
@@ -4219,7 +4219,7 @@ ole2_read_block.exit.i:                           ; preds = %41
   br i1 %.not36.i23.i, label %ole2_get_next_xbat_block.exit, label %78
 
 78:                                               ; preds = %73
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %77, i64 %.029.i22.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull align 1 %77, i64 %.029.i22.i, i1 false)
   %79 = add nsw i32 %.01340.i, -1
   %80 = icmp sgt i32 %.01340.i, 1
   br i1 %80, label %49, label %._crit_edge.i
@@ -4266,7 +4266,7 @@ ole2_read_block.exit.i:                           ; preds = %41
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %105 = sub i64 %101, %.02839.i30.i
   br label %106
 
@@ -4280,7 +4280,7 @@ ole2_read_block.exit.i:                           ; preds = %41
   br i1 %.not36.i34.i, label %ole2_get_next_xbat_block.exit, label %111
 
 111:                                              ; preds = %106
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %110, i64 %.029.i33.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %110, i64 %.029.i33.i, i1 false)
   %112 = zext nneg i32 %14 to i64
   %113 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %112
   %114 = load i32, ptr %113, align 4
@@ -4349,7 +4349,7 @@ ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %146
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %3, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %149 = sub i64 %145, %.02839.i.i11
   br label %150
 
@@ -4364,7 +4364,7 @@ ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i
   br i1 %.not36.i.i15, label %ole2_get_next_bat_block.exit, label %156
 
 156:                                              ; preds = %150
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %155, i64 %.029.i.i14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %155, i64 %.029.i.i14, i1 false)
   %157 = and i32 %1, 127
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds [128 x i32], ptr %3, i64 0, i64 %158
@@ -4496,7 +4496,7 @@ define internal fastcc void @print_ole2_property(ptr nocapture noundef readonly 
 
 22:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef %12) #21
-  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef %0, i32 noundef %5)
+  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef readonly %0, i32 noundef %5)
   br label %get_property_name.exit
 
 24:                                               ; preds = %.lr.ph.i
@@ -4693,7 +4693,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocaptur
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %1, i8 0, i64 %24, i1 false)
   %44 = load i64, ptr %39, align 8
   %45 = sub i64 %44, %.02839.i
   br label %46
@@ -4709,7 +4709,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocaptur
   br i1 %.not36.i, label %ole2_read_block.exit, label %52
 
 52:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %51, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %51, i64 %.029.i, i1 false)
   br label %ole2_read_block.exit
 
 ole2_read_block.exit:                             ; preds = %52, %46, %38, %32, %._crit_edge, %3, %9
@@ -4988,7 +4988,7 @@ declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @likely_mso_stream(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @likely_mso_stream(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca [2 x i8], align 1
   %3 = tail call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 2) #21
   %4 = icmp eq i64 %3, -1
@@ -5119,7 +5119,7 @@ define internal fastcc i32 @scan_mso_stream(i32 noundef %0, ptr noundef %1) unna
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %38, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %6, ptr nonnull align 1 %38, i64 %spec.select.i, i1 false)
   %.not62 = icmp ugt i64 %34, 3
   br i1 %.not62, label %39, label %fmap_readn.exit.thread
 
@@ -5162,7 +5162,7 @@ fmap_readn.exit75.thread:                         ; preds = %47, %45
   br label %82
 
 51:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %50, i64 %spec.select.i72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %7, ptr nonnull align 1 %50, i64 %spec.select.i72, i1 false)
   %52 = trunc nuw nsw i64 %spec.select.i72 to i32
   store i32 %52, ptr %28, align 8
   %53 = add i64 %spec.select.i72, %.045
@@ -5345,6 +5345,4 @@ attributes #24 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 21}
-!5 = !{ptr @handler_enum, ptr @handler_otf, ptr @handler_otf_encrypted, ptr @handler_writefile}
-!6 = !{i32 0, i32 2}
+!4 = !{ptr @handler_enum, ptr @handler_otf, ptr @handler_otf_encrypted, ptr @handler_writefile}

@@ -922,7 +922,7 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZN
   %62 = getelementptr inbounds i8, ptr %61, i64 %.idx.i
   %63 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %62, ptr %63, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %1, i64 %.idx.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr readonly align 8 %1, i64 %.idx.i, i1 false)
   br label %68
 
 64:                                               ; preds = %60, %57
@@ -1692,7 +1692,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %406, %.noexc79
   %412 = getelementptr inbounds i8, ptr %411, i64 16
   store ptr %382, ptr %412, align 8
   %413 = getelementptr inbounds i8, ptr %411, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %413, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %413, i8 0, i64 32, i1 false)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull %72) #19
   %414 = load i64, ptr %74, align 8
   %415 = add i64 %414, 1
@@ -1777,7 +1777,7 @@ _ZN3gmx14OptionTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   %442 = getelementptr inbounds i8, ptr %441, i64 24
   %443 = load ptr, ptr %442, align 8
-  %444 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %443, ptr noundef nonnull dereferenceable(7) @.str.27, i64 noundef 6) #17
+  %444 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %443, ptr noundef nonnull dereferenceable(7) @.str.27, i64 noundef 6) #17
   %445 = icmp eq i32 %444, 0
   %446 = load ptr, ptr %441, align 8
   %447 = getelementptr inbounds i8, ptr %446, i64 1

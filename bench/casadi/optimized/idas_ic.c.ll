@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [42 x i8] c"Some initial ewt component = 0.0 illegal.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -688,7 +688,7 @@ IDANewy.exit.i.i.i:                               ; preds = %328, %324
   br i1 %399, label %400, label %IDANewyyp.exit.i.i.i
 
 400:                                              ; preds = %397
-  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull %0, double noundef %.082.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull readonly %0, double noundef %.082.i.i.i)
   br label %IDANewyyp.exit.i.i.i
 
 IDANewyyp.exit.i.i.i:                             ; preds = %400, %397, %395
@@ -1153,7 +1153,7 @@ IDANlsIC.exit.thread324:                          ; preds = %616, %IDANlsIC.exit
   br label %650
 
 650:                                              ; preds = %645, %641
-  %651 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3262), !range !20
+  %651 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3262)
   br label %974
 
 652:                                              ; preds = %640
@@ -1212,7 +1212,7 @@ IDANlsIC.exit.thread324:                          ; preds = %616, %IDANlsIC.exit
 ._crit_edge454.us:                                ; preds = %.lr.ph453.us, %.preheader351.us
   %680 = add nuw nsw i32 %.1456.us, 1
   %exitcond541.not = icmp eq i32 %680, 3
-  br i1 %exitcond541.not, label %IDASensNlsIC.exit.thread338, label %.preheader352.us, !llvm.loop !21
+  br i1 %exitcond541.not, label %IDASensNlsIC.exit.thread338, label %.preheader352.us, !llvm.loop !20
 
 .lr.ph453.us:                                     ; preds = %.preheader351.us, %.lr.ph453.us
   %indvars.iv538 = phi i64 [ %indvars.iv.next539, %.lr.ph453.us ], [ 0, %.preheader351.us ]
@@ -1234,7 +1234,7 @@ IDANlsIC.exit.thread324:                          ; preds = %616, %IDANlsIC.exit
   %693 = load i32, ptr %158, align 4
   %694 = sext i32 %693 to i64
   %695 = icmp slt i64 %indvars.iv.next539, %694
-  br i1 %695, label %.lr.ph453.us, label %._crit_edge454.us, !llvm.loop !22
+  br i1 %695, label %.lr.ph453.us, label %._crit_edge454.us, !llvm.loop !21
 
 .preheader351.us:                                 ; preds = %.preheader352.us
   %696 = load i32, ptr %158, align 4
@@ -1291,7 +1291,7 @@ IDANlsIC.exit.thread324:                          ; preds = %616, %IDANlsIC.exit
   %725 = load i32, ptr %158, align 4
   %726 = sext i32 %725 to i64
   %727 = icmp slt i64 %indvars.iv.next.i313, %726
-  br i1 %727, label %.lr.ph.i311, label %.preheader69.i.preheader, !llvm.loop !23
+  br i1 %727, label %.lr.ph.i311, label %.preheader69.i.preheader, !llvm.loop !22
 
 .preheader69.i.preheader:                         ; preds = %.lr.ph.i311, %.preheader72.i
   %.ph = phi i32 [ %717, %.preheader72.i ], [ %725, %.lr.ph.i311 ]
@@ -1312,7 +1312,7 @@ thread-pre-split.i:                               ; preds = %913
   %732 = load i32, ptr %158, align 4
   %733 = sext i32 %732 to i64
   %734 = icmp slt i64 %indvars.iv.next.i.i310, %733
-  br i1 %734, label %.lr.ph.i.i308, label %._crit_edge.i.i295, !llvm.loop !24
+  br i1 %734, label %.lr.ph.i.i308, label %._crit_edge.i.i295, !llvm.loop !23
 
 .lr.ph.i.i308:                                    ; preds = %.preheader69.i, %731
   %indvars.iv.i.i309 = phi i64 [ %indvars.iv.next.i.i310, %731 ], [ 0, %.preheader69.i ]
@@ -1426,14 +1426,14 @@ thread-pre-split.i:                               ; preds = %913
   %801 = load i32, ptr %158, align 4
   %802 = sext i32 %801 to i64
   %803 = icmp slt i64 %indvars.iv.next.i.i.i.i306, %802
-  br i1 %803, label %.lr.ph.i.i.i.i304, label %.preheader.i.i.i.i307, !llvm.loop !25
+  br i1 %803, label %.lr.ph.i.i.i.i304, label %.preheader.i.i.i.i307, !llvm.loop !24
 
 804:                                              ; preds = %820
   %indvars.iv.next55.i.i.i.i = add nuw nsw i64 %indvars.iv54.i.i.i.i, 1
   %805 = load i32, ptr %158, align 4
   %806 = sext i32 %805 to i64
   %807 = icmp slt i64 %indvars.iv.next55.i.i.i.i, %806
-  br i1 %807, label %.lr.ph52.i.i.i.i, label %._crit_edge.i.i.i.i298, !llvm.loop !26
+  br i1 %807, label %.lr.ph52.i.i.i.i, label %._crit_edge.i.i.i.i298, !llvm.loop !25
 
 .lr.ph52.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i307, %804
   %indvars.iv54.i.i.i.i = phi i64 [ %indvars.iv.next55.i.i.i.i, %804 ], [ 0, %.preheader.i.i.i.i307 ]
@@ -1513,7 +1513,7 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %826, %._crit_edge.i
   %853 = load i32, ptr %158, align 4
   %854 = sext i32 %853 to i64
   %855 = icmp slt i64 %indvars.iv.next.i.i.i303, %854
-  br i1 %855, label %.lr.ph.i.i.i301, label %._crit_edge.i.i.i, !llvm.loop !27
+  br i1 %855, label %.lr.ph.i.i.i301, label %._crit_edge.i.i.i, !llvm.loop !26
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i301
   %856 = icmp slt i32 %853, 1
@@ -1535,7 +1535,7 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %826, %._crit_edge.i
   %865 = load i32, ptr %158, align 4
   %866 = sext i32 %865 to i64
   %867 = icmp slt i64 %indvars.iv.next67.i.i.i, %866
-  br i1 %867, label %.lr.ph62.i.i.i, label %IDASensLineSrch.exit.i.i, !llvm.loop !28
+  br i1 %867, label %.lr.ph62.i.i.i, label %IDASensLineSrch.exit.i.i, !llvm.loop !27
 
 IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph62.i.i.i, %._crit_edge.i.i.i, %844
   %868 = phi i32 [ %853, %._crit_edge.i.i.i ], [ %845, %844 ], [ %865, %.lr.ph62.i.i.i ]
@@ -1560,13 +1560,13 @@ IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph62.i.i.i, %._
   %878 = load i32, ptr %158, align 4
   %879 = sext i32 %878 to i64
   %880 = icmp slt i64 %indvars.iv.next94.i.i, %879
-  br i1 %880, label %.lr.ph75.i.i, label %._crit_edge76.i.i, !llvm.loop !29
+  br i1 %880, label %.lr.ph75.i.i, label %._crit_edge76.i.i, !llvm.loop !28
 
 ._crit_edge76.i.i:                                ; preds = %.lr.ph75.i.i, %.preheader.i.i299
   %881 = add nuw nsw i32 %.04078.i.i, 1
   %882 = load i32, ptr %175, align 8
   %883 = icmp slt i32 %881, %882
-  br i1 %883, label %.lr.ph79.i.i, label %884, !llvm.loop !30
+  br i1 %883, label %.lr.ph79.i.i, label %884, !llvm.loop !29
 
 884:                                              ; preds = %._crit_edge76.i.i
   %885 = fdiv double %.145.i.i.i, %.15377.i.i
@@ -1600,7 +1600,7 @@ IDASensNewtonIC.exit.i:                           ; preds = %884, %.preheader60.
   %899 = load i32, ptr %158, align 4
   %900 = sext i32 %899 to i64
   %901 = icmp slt i64 %indvars.iv.next99.i, %900
-  br i1 %901, label %.lr.ph82.i, label %._crit_edge.i, !llvm.loop !31
+  br i1 %901, label %.lr.ph82.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph82.i, %.preheader.i296
   %902 = load i64, ptr %675, align 8
@@ -1619,7 +1619,7 @@ IDASensNewtonIC.exit.i:                           ; preds = %884, %.preheader60.
 
 913:                                              ; preds = %._crit_edge.i
   %.not55.i = icmp eq i32 %911, 0
-  br i1 %.not55.i, label %thread-pre-split.i, label %.loopexit, !llvm.loop !32
+  br i1 %.not55.i, label %thread-pre-split.i, label %.loopexit, !llvm.loop !31
 
 .thread330:                                       ; preds = %716, %698, %._crit_edge.i, %.lr.ph.i.i308, %773, %.lr.ph52.i.i.i.i
   %.051.i.ph.ph = phi i32 [ -7, %.lr.ph52.i.i.i.i ], [ -8, %773 ], [ -7, %.lr.ph.i.i308 ], [ -6, %._crit_edge.i ], [ -12, %716 ], [ -8, %698 ]
@@ -1668,7 +1668,7 @@ IDASensNewtonIC.exit.i:                           ; preds = %884, %.preheader60.
   %936 = load i32, ptr %158, align 4
   %937 = sext i32 %936 to i64
   %938 = icmp slt i64 %indvars.iv.next532, %937
-  br i1 %938, label %.lr.ph445, label %.loopexit346, !llvm.loop !33
+  br i1 %938, label %.lr.ph445, label %.loopexit346, !llvm.loop !32
 
 .loopexit346:                                     ; preds = %.lr.ph445, %.loopexit.thread, %.preheader
   %939 = fmul double %.6448, 1.000000e-01
@@ -1710,12 +1710,12 @@ IDASensNlsIC.exit.thread334:                      ; preds = %759, %IDASensLineSr
   %959 = load i32, ptr %158, align 4
   %960 = sext i32 %959 to i64
   %961 = icmp slt i64 %indvars.iv.next535, %960
-  br i1 %961, label %.lr.ph453, label %._crit_edge454, !llvm.loop !22
+  br i1 %961, label %.lr.ph453, label %._crit_edge454, !llvm.loop !21
 
 ._crit_edge454:                                   ; preds = %.lr.ph453, %.preheader351
   %962 = add nuw nsw i32 %.1456, 1
   %exitcond537.not = icmp eq i32 %962, 3
-  br i1 %exitcond537.not, label %IDASensNlsIC.exit.thread338, label %.preheader352, !llvm.loop !21
+  br i1 %exitcond537.not, label %IDASensNlsIC.exit.thread338, label %.preheader352, !llvm.loop !20
 
 IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge454, %IDASensNlsIC.exit.thread334, %.loopexit.thread, %.loopexit, %._crit_edge454.us, %.preheader352.us, %.thread330
   %.7266 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ -24, %.preheader352.us ], [ 0, %._crit_edge454.us ], [ %.051.i.ph, %.loopexit ], [ 5, %.loopexit.thread ], [ -24, %IDASensNlsIC.exit.thread334 ], [ 0, %._crit_edge454 ]
@@ -1742,7 +1742,7 @@ IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge454, %ID
   br i1 %.not290, label %974, label %972
 
 972:                                              ; preds = %965
-  %973 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.7266), !range !20
+  %973 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.7266)
   br label %974
 
 974:                                              ; preds = %965, %673, %662, %653, %657, %11, %972, %650, %112, %38, %24, %16, %10, %5
@@ -1775,7 +1775,7 @@ declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %13 [
     i32 -8, label %3
     i32 -12, label %4
@@ -1916,7 +1916,7 @@ define internal fastcc void @IDASensNewyyp(ptr nocapture noundef readonly %0, do
   %49 = load i32, ptr %6, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next42, %50
-  br i1 %51, label %22, label %.loopexit, !llvm.loop !34
+  br i1 %51, label %22, label %.loopexit, !llvm.loop !33
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
@@ -1934,7 +1934,7 @@ define internal fastcc void @IDASensNewyyp(ptr nocapture noundef readonly %0, do
   %62 = load i32, ptr %6, align 4
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %52, label %.loopexit, !llvm.loop !35
+  br i1 %64, label %52, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %52, %22, %.preheader34, %.preheader
   ret void
@@ -1969,7 +1969,7 @@ attributes #3 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 -99, i32 -3}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -1984,4 +1984,3 @@ attributes #3 = { nounwind }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}

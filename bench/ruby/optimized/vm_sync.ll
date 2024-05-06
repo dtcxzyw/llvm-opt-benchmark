@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [45 x i8] c"unexpected situation - recordd:%u current:%u\00", align 1
 @ruby_current_vm_ptr = external local_unnamed_addr global ptr, align 8
 @ruby_single_main_ractor = external local_unnamed_addr global ptr, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @rb_vm_locked_p() local_unnamed_addr #0 {

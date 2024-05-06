@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [28 x i8] c"drm_WARN_ON(i915->media_gt)\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_sa_mediagt_setup(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_sa_mediagt_setup(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @drmm_kmalloc(ptr noundef %4, i64 noundef 352, i32 noundef 3520) #2
   %6 = icmp eq ptr %5, null

@@ -418,7 +418,7 @@ define internal i32 @dissect_juniper_pppoe(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.223) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %29, label %13
 
@@ -472,7 +472,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.224) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %58, label %13
 
@@ -480,7 +480,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   %14 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %11) #2
   %15 = load i8, ptr %5, align 1
   %16 = lshr i64 %14, 56
-  %trunc.i = trunc i64 %16 to i8
+  %trunc.i = trunc nuw i64 %16 to i8
   switch i8 %trunc.i, label %juniper_svc_cookie_proto.exit [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %17
@@ -631,14 +631,14 @@ define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.226) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %83, label %13
 
 13:                                               ; preds = %4
   %14 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %11) #2
   %15 = lshr i64 %14, 56
-  %trunc.i = trunc i64 %15 to i8
+  %trunc.i = trunc nuw i64 %15 to i8
   switch i8 %trunc.i, label %juniper_svc_cookie_proto.exit [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %16
@@ -814,7 +814,7 @@ define internal i32 @dissect_juniper_ether(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.227) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %29, label %13
 
@@ -868,7 +868,7 @@ define internal i32 @dissect_juniper_ppp(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.228) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %30, label %13
 
@@ -923,7 +923,7 @@ define internal i32 @dissect_juniper_frelay(ptr noundef %0, ptr noundef %1, ptr 
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.229) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %29, label %13
 
@@ -977,7 +977,7 @@ define internal i32 @dissect_juniper_chdlc(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.230) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %29, label %13
 
@@ -1031,7 +1031,7 @@ define internal i32 @dissect_juniper_ggsn(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.231) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %23, label %13
 
@@ -1063,7 +1063,7 @@ define internal i32 @dissect_juniper_vp(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.232) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %30, label %13
 
@@ -1118,7 +1118,7 @@ define internal i32 @dissect_juniper_svcs(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.234) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %36, label %13
 
@@ -1232,7 +1232,7 @@ define internal i32 @dissect_juniper_vn(ptr noundef %0, ptr noundef %1, ptr noun
   %31 = add i32 %29, 1
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #2
   %33 = add i32 %29, 2
-  br label %12, !llvm.loop !5
+  br label %12, !llvm.loop !4
 
 34:                                               ; preds = %12
   %35 = add i32 %.046, %.0
@@ -1289,7 +1289,7 @@ define internal i32 @dissect_juniper_st(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #2
   %13 = load i32, ptr @ett_juniper, align 4
   %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 70, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.236) #2
-  %15 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %14, ptr noundef nonnull %6), !range !4
+  %15 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %14, ptr noundef nonnull %6)
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %19
 
@@ -1391,7 +1391,7 @@ define internal fastcc void @dissect_juniper_atm(ptr noundef %0, ptr noundef %1,
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull %.str.211..str.213) #2
   %9 = load i32, ptr @ett_juniper, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %9, ptr noundef null, ptr noundef nonnull %.str.212..str.214) #2
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5), !range !4
+  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %dissect_juniper_payload_proto.exit, label %13
 
@@ -1693,7 +1693,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0) #2
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
@@ -1859,10 +1859,10 @@ juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, 
 
 90:                                               ; preds = %88, %85, %82, %79, %76, %73, %70, %67
   %91 = add nuw nsw i32 %38, %29
-  %92 = trunc i32 %38 to i16
+  %92 = trunc nuw nsw i32 %38 to i16
   %93 = sub i16 %.08796, %92
   %94 = icmp ugt i16 %93, 2
-  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %19, %13
   %.088 = phi i16 [ 4, %13 ], [ %22, %19 ], [ %22, %90 ], [ %22, %.lr.ph ]
@@ -1992,7 +1992,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 65536}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -489,7 +489,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %251 = call i32 @errcode(i32 noundef 117833860) #5
   %252 = load i32, ptr %216, align 8
   %253 = call ptr @format_type_be(i32 noundef %252) #5
-  %254 = trunc i64 %indvars.iv223 to i32
+  %254 = trunc nuw nsw i64 %indvars.iv223 to i32
   %255 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %35, ptr noundef nonnull @.str.4, i32 noundef %254, ptr noundef %253) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %256

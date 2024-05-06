@@ -188,7 +188,7 @@ define void @_ZN8triggers9trigger_t12tdata2_writeEP11processor_tm(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = and i64 %1, %0
   %5 = shl i64 %1, 1
   %6 = xor i64 %5, -1
@@ -1219,7 +1219,7 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %23, %22, %19
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8triggers9trigger_t10mode_matchEmb.exit.i
-  %25 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %1) #20
+  %25 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull readonly %1) #20
   br i1 %25, label %26, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 26:                                               ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
@@ -1692,7 +1692,7 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %6, %5, %2
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8triggers9trigger_t10mode_matchEmb.exit.i
-  %8 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %1) #20
+  %8 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull readonly %1) #20
   br i1 %8, label %9, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 9:                                                ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
@@ -1829,7 +1829,7 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %6, %5, %2
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8triggers9trigger_t10mode_matchEmb.exit.i
-  %8 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %1) #20
+  %8 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull readonly %1) #20
   br i1 %8, label %9, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 9:                                                ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
@@ -2342,7 +2342,7 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %7, %6, %3
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8triggers9trigger_t10mode_matchEmb.exit.i
-  %9 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %1) #20
+  %9 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull readonly %1) #20
   br i1 %9, label %10, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 10:                                               ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit

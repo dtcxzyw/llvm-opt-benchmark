@@ -68,7 +68,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z13textFileWritePcS_(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z13textFileWritePcS_(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 

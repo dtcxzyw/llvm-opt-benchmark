@@ -95,7 +95,7 @@ wc_InitRsaKey_ex.exit:                            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_FreeRsaKey(ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_FreeRsaKey(ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -318,7 +318,7 @@ if.end34.i:                                       ; preds = %for.inc.i, %for.con
   %idx.ext39.i = zext i32 %inputLen to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr40.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr40.i, ptr align 1 %input, i64 %idx.ext39.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr40.i, ptr readonly align 1 %input, i64 %idx.ext39.i, i1 false)
   br label %sw.epilog
 
 do.end:                                           ; preds = %entry
@@ -370,7 +370,7 @@ if.end39.i:                                       ; preds = %if.end29.i
   %idx.ext.i24 = zext i32 %sub32.i to i64
   %add.ptr.i25 = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext.i24
   %conv41.i = zext i32 %inputLen to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i25, ptr align 1 %input, i64 %conv41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i25, ptr readonly align 1 %input, i64 %conv41.i, i1 false)
   %dec.i26 = add i32 %sub31.i, -1
   %idxprom.i = zext i32 %sub31.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idxprom.i
@@ -490,7 +490,7 @@ if.end32.i:                                       ; preds = %if.end23.i
   store i64 0, ptr %call28.i, align 1
   %add.ptr.i39 = getelementptr inbounds i8, ptr %call28.i, i64 8
   %conv33.i = zext nneg i32 %inputLen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i39, ptr align 1 %input, i64 %conv33.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i39, ptr readonly align 1 %input, i64 %conv33.i, i1 false)
   %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr.i39, i64 %conv33.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr34.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call28.i to i64
@@ -758,7 +758,7 @@ sw.bb11.i.i:                                      ; preds = %if.end5.i
 
 RsaMGF.exit.i:                                    ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end5.i
   %.sink.i.i = phi i32 [ 17, %sw.bb11.i.i ], [ 16, %sw.bb9.i.i ], [ 8, %sw.bb7.i.i ], [ 7, %sw.bb5.i.i ], [ 6, %sw.bb3.i.i ], [ 5, %sw.bb1.i.i ], [ 4, %if.end5.i ]
-  %call12.i.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i.i, ptr noundef nonnull %add.ptr.i, i32 noundef %sub7.i, ptr noundef nonnull %tmp.i, i32 noundef %call.i)
+  %call12.i.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %sub7.i, ptr noundef nonnull writeonly %tmp.i, i32 noundef %call.i)
   %cmp10.not.i = icmp eq i32 %call12.i.i, 0
   br i1 %cmp10.not.i, label %if.end13.i, label %RsaUnPad_OAEP.exit
 
@@ -850,7 +850,7 @@ sw.bb11.i54.i:                                    ; preds = %xorbuf.exit.i
 
 RsaMGF.exit64.i:                                  ; preds = %sw.bb11.i54.i, %sw.bb9.i59.i, %sw.bb7.i60.i, %sw.bb5.i61.i, %sw.bb3.i62.i, %sw.bb1.i63.i, %xorbuf.exit.i
   %.sink.i56.i = phi i32 [ 17, %sw.bb11.i54.i ], [ 16, %sw.bb9.i59.i ], [ 8, %sw.bb7.i60.i ], [ 7, %sw.bb5.i61.i ], [ 6, %sw.bb3.i62.i ], [ 5, %sw.bb1.i63.i ], [ 4, %xorbuf.exit.i ]
-  %call12.i57.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i56.i, ptr noundef nonnull %tmp.i, i32 noundef %call.i, ptr noundef nonnull %add.ptr19.i, i32 noundef %sub7.i)
+  %call12.i57.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i56.i, ptr noundef nonnull readonly %tmp.i, i32 noundef %call.i, ptr noundef nonnull writeonly %add.ptr19.i, i32 noundef %sub7.i)
   %cmp23.not.i = icmp eq i32 %call12.i57.i, 0
   br i1 %cmp23.not.i, label %if.end27.i, label %for.cond.preheader.i.i
 
@@ -1208,7 +1208,7 @@ sw.epilog:                                        ; preds = %if.end107.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wc_hash2mgf(i32 noundef %hType) local_unnamed_addr #3 {
+define range(i32 0, 27) i32 @wc_hash2mgf(i32 noundef %hType) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i32 %hType, -4
   %0 = icmp ult i32 %switch.tableidx, 5
@@ -1264,7 +1264,7 @@ land.lhs.true:                                    ; preds = %do.end
   br i1 %cmp13, label %if.then14, label %wc_RsaEncryptSize.exit.i
 
 if.then14:                                        ; preds = %land.lhs.true
-  %call = tail call fastcc i32 @RsaFunctionCheckIn(ptr noundef nonnull %in, i32 noundef %inLen, ptr noundef nonnull %key, i32 noundef %checkSmallCt), !range !17
+  %call = tail call fastcc i32 @RsaFunctionCheckIn(ptr noundef nonnull %in, i32 noundef %inLen, ptr noundef nonnull %key, i32 noundef %checkSmallCt)
   %cmp15.not = icmp eq i32 %call, 0
   br i1 %cmp15.not, label %wc_RsaEncryptSize.exit.i, label %return
 
@@ -1724,7 +1724,7 @@ for.body:                                         ; preds = %if.then65, %for.bod
   %14 = load i32, ptr %dataLen44, align 8
   %15 = zext i32 %14 to i64
   %cmp69 = icmp ult i64 %indvars.iv.next, %15
-  br i1 %cmp69, label %for.body, label %if.end87, !llvm.loop !18
+  br i1 %cmp69, label %for.body, label %if.end87, !llvm.loop !17
 
 if.else83:                                        ; preds = %if.then62
   %conv84 = zext nneg i32 %call47 to i64
@@ -2361,7 +2361,7 @@ if.end42:                                         ; preds = %entry, %if.then20, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_RsaSetRNG(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_RsaSetRNG(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %rng, null
@@ -2603,7 +2603,7 @@ do.body.preheader:                                ; preds = %if.end15
 
 if.end15.split.us:                                ; preds = %if.end15
   %cmp462.us.not = icmp eq i32 %outSz, 0
-  br i1 %cmp462.us.not, label %do.body.us, label %do.body.us.us, !llvm.loop !19
+  br i1 %cmp462.us.not, label %do.body.us, label %do.body.us.us, !llvm.loop !18
 
 do.body.us.us:                                    ; preds = %if.end15.split.us, %do.body.us.us
   %counter.0.us.us = phi i32 [ %inc53.us.us, %do.body.us.us ], [ 0, %if.end15.split.us ]
@@ -2675,12 +2675,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp44 = icmp ult i64 %indvars.iv.next, %1
   %cmp46 = icmp ult i64 %indvars.iv.next10, %2
   %8 = select i1 %cmp44, i1 %cmp46, i1 false
-  br i1 %8, label %for.body, label %for.end, !llvm.loop !20
+  br i1 %8, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %9 = trunc i64 %indvars.iv.next10 to i32
   %inc53 = add i32 %counter.0, 1
-  br i1 %cmp46, label %do.body, label %return, !llvm.loop !19
+  br i1 %cmp46, label %do.body, label %return, !llvm.loop !18
 
 return:                                           ; preds = %for.cond.preheader, %do.body, %for.end, %do.body.us.us, %do.body.us, %if.then6, %entry
   %retval.0 = phi i32 [ %call.fr, %entry ], [ -173, %if.then6 ], [ %call39.us, %do.body.us ], [ %call39.us.us, %do.body.us.us ], [ 0, %for.cond.preheader ], [ 0, %for.end ], [ %call39, %do.body ]
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaFunctionCheckIn(ptr noundef %in, i32 noundef %inLen, ptr noundef %key, i32 noundef %checkSmallCt) unnamed_addr #0 {
+define internal fastcc range(i32 -253, 1) i32 @RsaFunctionCheckIn(ptr noundef %in, i32 noundef %inLen, ptr noundef %key, i32 noundef %checkSmallCt) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 8
   %mul = shl i32 %0, 1
@@ -2999,7 +2999,6 @@ attributes #11 = { nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -253, i32 1}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

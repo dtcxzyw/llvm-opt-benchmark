@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_pfexec = external local_unnamed_addr global %struct.pmix_pfexec_base_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pfexec_base_select() local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_pfexec_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

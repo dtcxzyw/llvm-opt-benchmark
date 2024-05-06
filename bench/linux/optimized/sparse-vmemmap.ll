@@ -641,7 +641,7 @@ define dso_local noundef ptr @vmemmap_pgd_populate(i64 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @vmemmap_populate_basepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_basepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %5 = icmp ult i64 %0, %1
   br i1 %5, label %.preheader, label %.loopexit
 
@@ -672,7 +672,7 @@ define weak dso_local i32 @vmemmap_check_pmd(ptr noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @vmemmap_populate_hugepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ult i64 %0, %1
   br i1 %6, label %7, label %.loopexit
@@ -803,7 +803,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %18
-  %29 = tail call fastcc i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %9, i64 noundef %11, i32 noundef %2, ptr noundef nonnull %4) #9, !range !19
+  %29 = tail call fastcc i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %9, i64 noundef %11, i32 noundef %2, ptr noundef nonnull %4) #9
   br label %32
 
 30:                                               ; preds = %18, %16
@@ -827,7 +827,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 104
@@ -938,7 +938,7 @@ define internal fastcc noundef i32 @vmemmap_populate_compound_pages(i64 noundef 
   %81 = phi i64 [ %79, %78 ], [ %64, %63 ]
   %82 = tail call fastcc ptr @vmemmap_populate_address(i64 noundef %81, i32 noundef %3, ptr noundef null, ptr noundef %76) #9
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.loopexit, label %78, !llvm.loop !20
+  br i1 %83, label %.loopexit, label %78, !llvm.loop !19
 
 .loopexit:                                        ; preds = %59, %.preheader10, %.loopexit9, %.preheader7, %.preheader, %43, %49, %29, %26
   %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ 0, %43 ], [ -12, %.preheader ], [ -12, %.preheader7 ], [ 0, %.loopexit9 ], [ -12, %59 ], [ -12, %.preheader10 ]
@@ -1095,5 +1095,4 @@ attributes #10 = { cold nounwind }
 !16 = !{i64 2154399691, i64 2154399500, i64 2154399552, i64 2154399598, i64 2154399626}
 !17 = !{i64 2154399765, i64 2154399794, i64 2154399840, i64 2154399898, i64 2154399952, i64 2154400006, i64 2154400061, i64 2154400092, i64 2154400400, i64 2154400406, i64 2154400453, i64 2154400476, i64 2154400502}
 !18 = !{i64 2154400954, i64 2154400765, i64 2154400815, i64 2154400861, i64 2154400889}
-!19 = !{i32 -12, i32 1}
-!20 = distinct !{!20, !13, !14}
+!19 = distinct !{!19, !13, !14}

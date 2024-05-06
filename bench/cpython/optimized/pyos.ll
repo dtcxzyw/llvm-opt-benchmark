@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [50 x i8] c"PyOS_mystricmp(\22invert\22, \22insert\22) == ('v' - 's')\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_PyOS(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_PyOS(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #3
   %call.lobit = ashr i32 %call, 31
@@ -57,7 +57,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_PyOS_mystrnicmp(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_PyOS_mystrnicmp(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i32 @PyOS_mystrnicmp(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, i64 noundef 0) #3
   %cmp = icmp eq i32 %call, 0
@@ -180,7 +180,7 @@ cond.end60:                                       ; preds = %cond.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_PyOS_mystricmp(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_PyOS_mystricmp(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i32 @PyOS_mystricmp(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #3
   %cmp = icmp eq i32 %call, 0

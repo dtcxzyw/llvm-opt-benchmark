@@ -424,7 +424,7 @@ COM_Parse.exit.loopexit82.i.i:                    ; preds = %.lr.ph.i.i.i, %.lr.
   br label %COM_Parse.exit.i.i
 
 COM_Parse.exit.i.loopexit.i:                      ; preds = %99, %.preheader.i.i.i
-  %105 = trunc i64 %indvars.iv.next.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %COM_Parse.exit.i.i
 
 COM_Parse.exit.i.i:                               ; preds = %92, %COM_Parse.exit.i.loopexit.i, %COM_Parse.exit.loopexit82.i.i, %.loopexit.i.i.i

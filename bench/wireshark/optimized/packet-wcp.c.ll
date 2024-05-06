@@ -510,7 +510,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
 
 209:                                              ; preds = %183
   %210 = lshr i32 %189, 4
-  %211 = trunc i32 %210 to i16
+  %211 = trunc nuw nsw i32 %210 to i16
   br i1 %.not156.i, label %224, label %212
 
 212:                                              ; preds = %209

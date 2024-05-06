@@ -173,8 +173,8 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 .preheader:                                       ; preds = %80
   %83 = getelementptr inbounds i8, ptr %74, i64 32
   %84 = load i32, ptr %83, align 8
-  %.not80 = icmp eq i32 %84, 0
-  br i1 %.not80, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not81 = icmp eq i32 %84, 0
+  br i1 %.not81, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %84 to i64
@@ -182,7 +182,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
-  %.06079 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
+  %.06080 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
   %85 = getelementptr ptr, ptr %82, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -201,7 +201,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %92
-  %.not75 = icmp eq ptr %.06079, null
+  %.not75 = icmp eq ptr %.06080, null
   br i1 %.not75, label %101, label %97
 
 97:                                               ; preds = %96
@@ -213,7 +213,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   unreachable
 
 101:                                              ; preds = %96, %92, %.lr.ph, %88
-  %.1 = phi ptr [ %.06079, %.lr.ph ], [ %.06079, %92 ], [ %.06079, %88 ], [ %86, %96 ]
+  %.1 = phi ptr [ %.06080, %.lr.ph ], [ %.06080, %92 ], [ %.06080, %88 ], [ %86, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -253,8 +253,8 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 118:                                              ; preds = %110
   %119 = getelementptr inbounds i8, ptr %.1, i64 42
   %120 = load i16, ptr %119, align 2
-  %.not76 = icmp eq i16 %120, 0
-  br i1 %.not76, label %163, label %121
+  %.not77 = icmp eq i16 %120, 0
+  br i1 %.not77, label %163, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %.1, i64 38

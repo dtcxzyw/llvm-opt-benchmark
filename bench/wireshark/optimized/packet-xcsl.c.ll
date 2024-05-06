@@ -85,7 +85,7 @@ define hidden void @proto_reg_handoff_xcsl() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %7 = icmp ugt i32 %6, 4

@@ -352,7 +352,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @cl_statinidir(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @recvloop(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.cl_scan_options, align 4
@@ -2646,7 +2646,7 @@ handle_stream.exit:                               ; preds = %1127, %1162
   br i1 %.not450, label %1308, label %1301
 
 1301:                                             ; preds = %1296
-  %1302 = call fastcc i32 @need_db_reload(), !range !5
+  %1302 = call fastcc i32 @need_db_reload()
   %.not451 = icmp eq i32 %1302, 0
   br i1 %.not451, label %1306, label %1303
 
@@ -2679,7 +2679,7 @@ handle_stream.exit:                               ; preds = %1127, %1162
 1316:                                             ; preds = %1312
   store i32 1, ptr @reload_stage, align 4
   %1317 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @reload_stage_mutex) #15
-  %1318 = call fastcc i32 @reload_db(ptr noundef nonnull %7, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %836), !range !6
+  %1318 = call fastcc i32 @reload_db(ptr noundef nonnull %7, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %836)
   %.not453 = icmp eq i32 %1318, 0
   br i1 %.not453, label %1325, label %1319
 
@@ -3275,7 +3275,7 @@ declare i32 @sd_listen_fds(i32 noundef) local_unnamed_addr #2
 declare void @logg_close() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @need_db_reload() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @need_db_reload() unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct.cl_stat, ptr @dbstat, i64 0, i32 3), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %2
@@ -3295,7 +3295,7 @@ define internal fastcc i32 @need_db_reload() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @reload_db(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @reload_db(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = icmp eq ptr %2, null
@@ -3738,5 +3738,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 0, i32 21}

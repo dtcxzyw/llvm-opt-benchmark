@@ -119,7 +119,7 @@ define void @_ZN5dtm_t11select_hartEi(ptr nocapture noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN5dtm_t15enumerate_hartsEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   store i64 4294967312, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 880
@@ -313,7 +313,7 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr nocapture noundef nonnull align 8 d
   %11 = select i1 %8, i32 4325376, i32 %10
   %12 = or i32 %11, %1
   %13 = or i32 %12, 4096
-  %14 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %6), !range !8
+  %14 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %6)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %26, label %15
 
@@ -361,7 +361,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
   %.not48 = icmp eq i64 %3, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -384,7 +384,7 @@ define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture nound
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %14 = add nuw i64 %.02541, 1
   %exitcond.not = icmp eq i64 %14, %3
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %9, %6
   %15 = lshr i32 %1, 16
@@ -416,7 +416,7 @@ define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture nound
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   %27 = add nuw i64 %.02642, 1
   %exitcond51.not = icmp eq i64 %27, %5
-  br i1 %exitcond51.not, label %.loopexit40, label %22, !llvm.loop !10
+  br i1 %exitcond51.not, label %.loopexit40, label %22, !llvm.loop !9
 
 .loopexit40:                                      ; preds = %22, %._crit_edge
   %28 = getelementptr inbounds i8, ptr %0, i64 872
@@ -437,7 +437,7 @@ define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture nound
   %34 = load i32, ptr %31, align 8
   %35 = and i32 %34, 4096
   %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %36, label %32, !llvm.loop !11
+  br i1 %.not28, label %36, label %32, !llvm.loop !10
 
 36:                                               ; preds = %32
   %37 = icmp ne i32 %16, 0
@@ -459,7 +459,7 @@ define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture nound
   store i32 %41, ptr %42, align 4
   %43 = add nuw i64 %.044, 1
   %exitcond52.not = icmp eq i64 %43, %5
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph45, !llvm.loop !12
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph45, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph45, %36
   %44 = lshr i32 %34, 8
@@ -506,7 +506,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr nocapture noundef nonnull align 8 der
 
 11:                                               ; preds = %3
   %12 = lshr i64 %2, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
   br label %15
@@ -518,7 +518,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr nocapture noundef nonnull align 8 der
   %19 = select i1 %16, i32 4390912, i32 %18
   %20 = or i32 %19, %1
   %21 = or i32 %20, 4096
-  %22 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %21, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, i64 noundef %7), !range !8
+  %22 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %21, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, i64 noundef %7)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %34, label %23
 
@@ -550,7 +550,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5dtm_t11chunk_alignEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 900
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 3
@@ -590,7 +590,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr nocapture noundef nonnull align 8 de
 
 26:                                               ; preds = %4
   %27 = lshr i64 %1, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
@@ -601,7 +601,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr nocapture noundef nonnull align 8 de
   %33 = select i1 %31, i32 4657160, i32 %32
   %34 = lshr i32 %16, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %33, ptr noundef nonnull %7, i64 noundef 3, ptr noundef nonnull %10, i64 noundef %35), !range !8
+  %36 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %33, ptr noundef nonnull %7, i64 noundef 3, ptr noundef nonnull %10, i64 noundef %35)
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %48, label %37
 
@@ -657,7 +657,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
   %.021 = or disjoint i32 %61, %.021.v
   %64 = lshr i32 %57, 5
   %65 = zext nneg i32 %64 to i64
-  %66 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %.021, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10, i64 noundef %65), !range !8
+  %66 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %.021, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10, i64 noundef %65)
   %.not26 = icmp eq i32 %66, 0
   br i1 %.not26, label %76, label %67
 
@@ -693,7 +693,7 @@ _ZN5dtm_t3dieEj.exit29:                           ; preds = %67, %69
   %84 = zext i32 %80 to i64
   %85 = udiv i64 %49, %84
   %86 = icmp ult i64 %62, %85
-  br i1 %86, label %55, label %._crit_edge, !llvm.loop !13
+  br i1 %86, label %55, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %76, %48
   tail call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 8, i64 noundef %13)
@@ -735,7 +735,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr nocapture noundef nonnull align 8 
 
 26:                                               ; preds = %4
   %27 = lshr i64 %1, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
@@ -746,7 +746,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr nocapture noundef nonnull align 8 
   %33 = select i1 %31, i32 4395016, i32 %32
   %34 = lshr i32 %16, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %33, ptr noundef nonnull %7, i64 noundef 3, ptr noundef nonnull %10, i64 noundef %35), !range !8
+  %36 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %33, ptr noundef nonnull %7, i64 noundef 3, ptr noundef nonnull %10, i64 noundef %35)
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %48, label %37
 
@@ -785,7 +785,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
   %56 = select i1 %53, i32 4657161, i32 %55
   %57 = lshr i32 %49, 5
   %58 = zext nneg i32 %57 to i64
-  %59 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %56, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10, i64 noundef %58), !range !8
+  %59 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %56, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10, i64 noundef %58)
   %.not31 = icmp eq i32 %59, 0
   br i1 %.not31, label %71, label %60
 
@@ -876,7 +876,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
   %100 = load i32, ptr %80, align 8
   %101 = and i32 %100, 4096
   %.not32 = icmp eq i32 %101, 0
-  br i1 %.not32, label %102, label %98, !llvm.loop !14
+  br i1 %.not32, label %102, label %98, !llvm.loop !13
 
 102:                                              ; preds = %98
   %103 = lshr i32 %100, 8
@@ -910,7 +910,7 @@ _ZN5dtm_t3dieEj.exit42:                           ; preds = %105, %107
   %117 = zext i32 %116 to i64
   %118 = udiv i64 %72, %117
   %119 = icmp ult i64 %115, %118
-  br i1 %119, label %81, label %._crit_edge, !llvm.loop !15
+  br i1 %119, label %81, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %114
   %120 = icmp ugt i64 %118, 1
@@ -953,7 +953,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr nocapture noundef nonnull align 8 der
   %14 = trunc i64 %1 to i32
   store i32 %14, ptr %9, align 16
   %15 = lshr i64 %1, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 900
@@ -964,7 +964,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr nocapture noundef nonnull align 8 der
   %23 = select i1 %20, i32 4395016, i32 %22
   %24 = lshr i32 %19, 5
   %25 = zext nneg i32 %24 to i64
-  %26 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %23, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %25), !range !8
+  %26 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %23, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %25)
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %38, label %27
 
@@ -1009,14 +1009,14 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %27, %29
   %49 = trunc i64 %48 to i32
   store i32 %49, ptr %9, align 16
   %50 = lshr i64 %48, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   store i32 %51, ptr %17, align 4
   %52 = icmp eq i32 %39, 128
   %53 = select i1 %40, i32 3608585, i32 2560009
   %54 = select i1 %52, i32 4657161, i32 %53
   %55 = lshr i32 %39, 5
   %56 = zext nneg i32 %55 to i64
-  %57 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %54, ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull %9, i64 noundef %56), !range !8
+  %57 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %54, ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull %9, i64 noundef %56)
   %.not18 = icmp eq i32 %57, 0
   br i1 %.not18, label %69, label %58
 
@@ -1052,13 +1052,13 @@ _ZN5dtm_t3dieEj.exit21:                           ; preds = %58, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t9write_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 1), !range !16
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9write_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 1)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [2 x i32], align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 924
@@ -1097,14 +1097,14 @@ define noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr nocapture noundef nonnull alig
   store i32 %32, ptr %6, align 4
   %33 = getelementptr inbounds i8, ptr %6, i64 4
   %34 = lshr i64 %2, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   store i32 %35, ptr %33, align 4
   %36 = icmp eq i32 %11, 128
   %37 = select i1 %12, i32 3608576, i32 2560000
   %38 = select i1 %36, i32 4657152, i32 %37
   %39 = lshr i32 %11, 5
   %40 = zext nneg i32 %39 to i64
-  %41 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %38, ptr noundef nonnull %5, i64 noundef 6, ptr noundef nonnull %6, i64 noundef %40), !range !8
+  %41 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %38, ptr noundef nonnull %5, i64 noundef 6, ptr noundef nonnull %6, i64 noundef %40)
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %53, label %42
 
@@ -1163,20 +1163,20 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t7set_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 2), !range !16
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t7set_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 2)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t9clear_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 3), !range !16
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9clear_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 3)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t8read_csrEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef 0, i32 noundef 2), !range !16
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t8read_csrEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef 0, i32 noundef 2)
   ret i64 %3
 }
 
@@ -1186,7 +1186,7 @@ define noundef i64 @_ZN5dtm_t14chunk_max_sizeEv(ptr nocapture nonnull readnone a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t8get_xlenEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 32, 65) i32 @_ZN5dtm_t8get_xlenEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   store i64 8589934615, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i34.i = getelementptr inbounds i8, ptr %0, i64 880
@@ -1205,7 +1205,7 @@ define noundef i32 @_ZN5dtm_t8get_xlenEv(ptr nocapture noundef nonnull align 8 d
   %8 = load i32, ptr %5, align 8
   %9 = and i32 %8, 4096
   %.not28.i = icmp eq i32 %9, 0
-  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %6, !llvm.loop !11
+  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %6, !llvm.loop !10
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %6
   %10 = and i32 %8, 1792
@@ -1245,7 +1245,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %6
   %22 = load i32, ptr %5, align 8
   %23 = and i32 %22, 4096
   %.not28.i13 = icmp eq i32 %23, 0
-  br i1 %.not28.i13, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14, label %20, !llvm.loop !11
+  br i1 %.not28.i13, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14, label %20, !llvm.loop !10
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14:  ; preds = %20
   %24 = and i32 %22, 1792
@@ -1271,7 +1271,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14:  ; preds = %20
   %31 = load i32, ptr %5, align 8
   %32 = and i32 %31, 4096
   %.not28.i17 = icmp eq i32 %32, 0
-  br i1 %.not28.i17, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18, label %29, !llvm.loop !11
+  br i1 %.not28.i17, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18, label %29, !llvm.loop !10
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18:  ; preds = %29
   %33 = and i32 %31, 1792
@@ -1344,7 +1344,7 @@ define void @_ZN5dtm_t7fence_iEv(ptr nocapture noundef nonnull align 8 dereferen
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
   %16 = add nuw nsw i64 %.02541.i, 1
   %exitcond.not.i = icmp eq i64 %16, 2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %11
   %17 = icmp eq i32 %6, 128
@@ -1364,7 +1364,7 @@ define void @_ZN5dtm_t7fence_iEv(ptr nocapture noundef nonnull align 8 dereferen
   %23 = load i32, ptr %20, align 8
   %24 = and i32 %23, 4096
   %.not28.i = icmp eq i32 %24, 0
-  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %21, !llvm.loop !11
+  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %21, !llvm.loop !10
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %21
   %25 = lshr i32 %23, 8
@@ -1424,7 +1424,7 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   %8 = load i32, ptr %5, align 8
   %9 = and i32 %8, 1
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %6, label %11, !llvm.loop !17
+  br i1 %10, label %6, label %11, !llvm.loop !15
 
 11:                                               ; preds = %6
   store i64 4294967318, ptr %2, align 8
@@ -1449,11 +1449,11 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   %23 = and i32 %22, 4095
   %24 = getelementptr inbounds i8, ptr %0, i64 896
   store i32 %23, ptr %24, align 8
-  %25 = tail call noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(928) %0), !range !18
+  %25 = tail call noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   %26 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 %25, ptr %26, align 8
   tail call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 0)
-  %27 = tail call noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(928) %0), !range !19
+  %27 = tail call noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   %28 = getelementptr inbounds i8, ptr %0, i64 900
   store i32 %27, ptr %28, align 4
   tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 0)
@@ -1467,7 +1467,7 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %32 = load ptr, ptr %3, align 8
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %32)
-  br label %31, !llvm.loop !20
+  br label %31, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1504,11 +1504,11 @@ define void @_ZN5dtm_t5resetEv(ptr nocapture noundef nonnull align 8 dereference
   store i32 %.04, ptr %8, align 4
   tail call void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   %18 = load i64, ptr %9, align 8
-  %19 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1969, i64 noundef %18, i32 noundef 1), !range !16
+  %19 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1969, i64 noundef %18, i32 noundef 1)
   %20 = add nuw nsw i32 %.04, 1
   %21 = load i32, ptr %2, align 8
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %10, label %._crit_edge, !llvm.loop !21
+  br i1 %22, label %10, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %10, %1
   %23 = getelementptr inbounds i8, ptr %0, i64 872
@@ -1549,7 +1549,7 @@ define void @_ZN5dtm_t4idleEv(ptr nocapture noundef nonnull align 8 dereferencea
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %6 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %6, 10000
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !18
 
 7:                                                ; preds = %4
   ret void
@@ -1757,7 +1757,7 @@ attributes #12 = { builtin nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 8}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1765,10 +1765,6 @@ attributes #12 = { builtin nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i64 0, i64 4294967296}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 3}
-!19 = !{i32 32, i32 65}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!18 = distinct !{!18, !5}

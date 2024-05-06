@@ -68,7 +68,7 @@ entry:
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set_version(ptr nocapture noundef writeonly %sct, i32 noundef %version) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set_version(ptr nocapture noundef writeonly %sct, i32 noundef %version) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %version, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -97,7 +97,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set_log_entry_type(ptr nocapture noundef writeonly %sct, i32 noundef %entry_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set_log_entry_type(ptr nocapture noundef writeonly %sct, i32 noundef %entry_type) local_unnamed_addr #0 {
 entry:
   %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
@@ -121,7 +121,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set0_log_id(ptr nocapture noundef %sct, ptr noundef %log_id, i64 noundef %log_id_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set0_log_id(ptr nocapture noundef %sct, ptr noundef %log_id, i64 noundef %log_id_len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sct, align 8
   %cmp = icmp eq i32 %0, 0
@@ -152,7 +152,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set1_log_id(ptr nocapture noundef %sct, ptr noundef %log_id, i64 noundef %log_id_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set1_log_id(ptr nocapture noundef %sct, ptr noundef %log_id, i64 noundef %log_id_len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sct, align 8
   %cmp = icmp eq i32 %0, 0
@@ -207,7 +207,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set_signature_nid(ptr nocapture noundef writeonly %sct, i32 noundef %nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set_signature_nid(ptr nocapture noundef writeonly %sct, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   switch i32 %nid, label %sw.default [
     i32 668, label %sw.bb
@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set1_extensions(ptr nocapture noundef %sct, ptr noundef %ext, i64 noundef %ext_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set1_extensions(ptr nocapture noundef %sct, ptr noundef %ext, i64 noundef %ext_len) local_unnamed_addr #0 {
 entry:
   %ext1 = getelementptr inbounds i8, ptr %sct, i64 48
   %0 = load ptr, ptr %ext1, align 8
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_set1_signature(ptr nocapture noundef %sct, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_set1_signature(ptr nocapture noundef %sct, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
 entry:
   %sig1 = getelementptr inbounds i8, ptr %sct, i64 72
   %0 = load ptr, ptr %sig1, align 8
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SCT_get_signature_nid(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
+define range(i32 0, 795) i32 @SCT_get_signature_nid(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %sct, align 8
   %cmp = icmp eq i32 %0, 0
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SCT_is_complete(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SCT_is_complete(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %sct, align 8
   switch i32 %0, label %sw.default [
@@ -467,7 +467,7 @@ return:                                           ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SCT_signature_is_complete(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SCT_signature_is_complete(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %sct, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -513,7 +513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SCT_set_source(ptr nocapture noundef writeonly %sct, i32 noundef %source) local_unnamed_addr #2 {
+define noundef range(i32 0, 2) i32 @SCT_set_source(ptr nocapture noundef writeonly %sct, i32 noundef %source) local_unnamed_addr #2 {
 entry:
   %source1 = getelementptr inbounds i8, ptr %sct, i64 92
   store i32 %source, ptr %source1, align 4
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SCT_validate(ptr noundef %sct, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @SCT_validate(ptr noundef %sct, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %pub = alloca ptr, align 8
   %log_pkey = alloca ptr, align 8
@@ -687,7 +687,7 @@ declare void @X509_PUBKEY_free(ptr noundef) local_unnamed_addr #1
 declare void @SCT_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SCT_LIST_validate(ptr noundef %scts, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @SCT_LIST_validate(ptr noundef %scts, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %scts, null
   br i1 %cmp.not, label %return, label %cond.end
@@ -705,7 +705,7 @@ for.body:                                         ; preds = %cond.end, %for.inc
   br i1 %cmp5, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %call6 = tail call i32 @SCT_validate(ptr noundef nonnull %call4, ptr noundef %ctx), !range !4
+  %call6 = tail call i32 @SCT_validate(ptr noundef nonnull %call4, ptr noundef %ctx)
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %return, label %if.end9
 
@@ -717,7 +717,7 @@ for.inc:                                          ; preds = %for.body, %if.end9
   %are_scts_valid.1 = phi i32 [ %are_scts_valid.010, %for.body ], [ %and, %if.end9 ]
   %inc = add nuw nsw i32 %i.011, 1
   %exitcond.not = icmp eq i32 %inc, %call1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 return:                                           ; preds = %if.end, %for.inc, %entry, %cond.end
   %retval.0 = phi i32 [ 1, %cond.end ], [ 1, %entry ], [ %are_scts_valid.1, %for.inc ], [ -1, %if.end ]
@@ -745,6 +745,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

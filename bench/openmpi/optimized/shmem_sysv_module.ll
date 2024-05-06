@@ -27,7 +27,7 @@ define internal noundef i32 @module_init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @segment_create(ptr nocapture noundef %0, ptr nocapture readnone %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @segment_create(ptr nocapture noundef %0, ptr nocapture readnone %1, i64 noundef %2) #1 {
   %4 = tail call i32 @getpid() #8
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -37,7 +37,7 @@ define internal noundef i32 @segment_create(ptr nocapture noundef %0, ptr nocapt
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
   %10 = tail call i32 @shmget(i32 noundef 0, i64 noundef %2, i32 noundef 1984) #8
@@ -132,7 +132,7 @@ opal_gethostname.exit33:                          ; preds = %26, %31
   store i8 0, ptr %5, align 4
   store i32 -1, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
   br label %60
 
@@ -195,7 +195,7 @@ opal_gethostname.exit:                            ; preds = %10, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @segment_detach(ptr nocapture noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @shmdt(ptr noundef %3) #8
@@ -231,7 +231,7 @@ opal_gethostname.exit:                            ; preds = %5, %10
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %20, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %20, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret i32 %.0
 }

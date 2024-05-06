@@ -743,7 +743,7 @@ define void @Mpm_ManPrintDsdStats(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16)
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds %struct.Mpm_Dsd_t_, ptr %18, i64 %indvars.iv, i32 4
@@ -877,7 +877,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %28, %Vec_IntAlloc.e
 
 39:                                               ; preds = %.lr.ph.i.i.i
   %40 = add nuw nsw i32 %.01116.i.i.i, 2
-  %41 = mul nsw i32 %40, %40
+  %41 = mul nuw nsw i32 %40, %40
   %.not.i.i.i = icmp ugt i32 %41, %37
   br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
@@ -973,7 +973,7 @@ Hsh_IntManStart.exit.i:                           ; preds = %56, %Vec_IntStartFu
 
 74:                                               ; preds = %.lr.ph.i.i26.i
   %75 = add nuw nsw i32 %.01116.i.i27.i, 2
-  %76 = mul nsw i32 %75, %75
+  %76 = mul nuw nsw i32 %75, %75
   %.not.i.i28.i = icmp ugt i32 %76, %72
   br i1 %.not.i.i28.i, label %Abc_PrimeCudd.exit.i29.i, label %.lr.ph.i.i26.i, !llvm.loop !8
 
@@ -1087,7 +1087,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds i8, ptr %102, i64 4
   store i32 %121, ptr %122, align 4
-  %123 = trunc i64 %indvars.iv.i.i to i32
+  %123 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %123, ptr %120, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val34.i.i = load i32, ptr %65, align 4
@@ -1101,11 +1101,11 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %.val33.i.i = phi i32 [ %.val3457.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..loopexit.i_crit_edge.i ], [ %.val34.i.i, %Hsh_IntManHash.exit.i.i ]
   %126 = getelementptr i8, ptr %.val43.i.i, i64 8
   %.val43.val.i.i = load ptr, ptr %126, align 8
-  %127 = trunc i64 %indvars.iv.i to i32
+  %127 = trunc nuw nsw i64 %indvars.iv.i to i32
   %128 = mul nsw i32 %.val42.i.i, %127
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %.val43.val.i.i, i64 %129
-  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull %35, ptr noundef %130)
+  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull readonly %35, ptr noundef %130)
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, -1
   br i1 %133, label %134, label %Hsh_IntManAdd.exit.i
@@ -1362,7 +1362,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %18
   %.val156 = load ptr, ptr %56, align 8
   %57 = sext i32 %54 to i64
   %58 = getelementptr inbounds i32, ptr %.val156, i64 %57
-  %59 = trunc i64 %indvars.iv212 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv212 to i32
   store i32 %59, ptr %58, align 4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count
@@ -1379,7 +1379,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %18
 Vec_IntGrow.exit.i:                               ; preds = %._crit_edge, %.loopexit
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.loopexit ], [ 0, %._crit_edge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  %64 = trunc i64 %indvars.iv222 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv222 to i32
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i, %75
@@ -1432,7 +1432,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %81 = add nsw i32 %.2140183, 1
   %82 = sext i32 %.2140183 to i64
   %83 = getelementptr inbounds i32, ptr %60, i64 %82
-  %84 = trunc i64 %indvars.iv217 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv217 to i32
   store i32 %84, ptr %83, align 4
   br label %85
 
@@ -1716,7 +1716,7 @@ define i64 @Mpm_CutTruthFromDsd(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not, label %28, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
   %20 = zext nneg i32 %19 to i64
   %21 = shl i64 %.011, %20
@@ -1872,7 +1872,7 @@ Hsh_IntObj.exit.thread:                           ; preds = %Hsh_IntObj.exit.thr
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #8 {
   %10 = alloca i64, align 8
   %11 = alloca [6 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 -1, i64 24, i1 false)
@@ -1904,7 +1904,7 @@ define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture n
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 6968
   %36 = load ptr, ptr %35, align 8
-  %37 = mul nsw i32 %20, 720
+  %37 = mul nuw nsw i32 %20, 720
   %38 = add nsw i32 %34, %37
   %39 = getelementptr i8, ptr %36, i64 8
   %.val152 = load ptr, ptr %39, align 8
@@ -1919,7 +1919,7 @@ define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture n
 .preheader157:                                    ; preds = %21, %57
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %57 ], [ 0, %21 ]
   %.0135166 = phi i64 [ %.1136, %57 ], [ %42, %21 ]
-  %45 = trunc i64 %indvars.iv179 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv179 to i32
   %46 = shl nuw nsw i32 1, %45
   %47 = and i32 %46, %44
   %.not148 = icmp eq i32 %47, 0
@@ -1995,14 +1995,14 @@ define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture n
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds i8, ptr %0, i64 6968
   %96 = load ptr, ptr %95, align 8
-  %97 = mul nsw i32 %20, 720
+  %97 = mul nuw nsw i32 %20, 720
   %98 = add nsw i32 %89, %97
   %99 = getelementptr i8, ptr %96, i64 8
   %.val153 = load ptr, ptr %99, align 8
   %100 = sext i32 %98 to i64
   %101 = getelementptr inbounds i64, ptr %.val153, i64 %100
   %102 = load i64, ptr %101, align 8
-  %103 = mul nsw i32 %76, 720
+  %103 = mul nuw nsw i32 %76, 720
   %104 = add nsw i32 %94, %103
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i64, ptr %.val153, i64 %105
@@ -2015,7 +2015,7 @@ define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture n
 .preheader160:                                    ; preds = %72, %122
   %indvars.iv = phi i64 [ %indvars.iv.next, %122 ], [ 0, %72 ]
   %.0123163 = phi i64 [ %.1124, %122 ], [ %102, %72 ]
-  %110 = trunc i64 %indvars.iv to i32
+  %110 = trunc nuw nsw i64 %indvars.iv to i32
   %111 = shl nuw nsw i32 1, %110
   %112 = and i32 %111, %109
   %.not143 = icmp eq i32 %112, 0
@@ -2048,7 +2048,7 @@ define noundef i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr nocapture n
 .preheader158:                                    ; preds = %.loopexit161, %137
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %137 ], [ 0, %.loopexit161 ]
   %.0165 = phi i64 [ %.1, %137 ], [ %107, %.loopexit161 ]
-  %125 = trunc i64 %indvars.iv175 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv175 to i32
   %126 = shl nuw nsw i32 1, %125
   %127 = and i32 %126, %124
   %.not142 = icmp eq i32 %127, 0
@@ -2193,7 +2193,7 @@ Mpm_CutCheckDsd6.exit:                            ; preds = %158
   %indvars.iv183 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next184, %210 ]
   %211 = getelementptr inbounds [1 x i32], ptr %206, i64 0, i64 %indvars.iv183
   %212 = load i32, ptr %211, align 4
-  %213 = trunc i64 %indvars.iv183 to i32
+  %213 = trunc nuw nsw i64 %indvars.iv183 to i32
   %214 = lshr i32 %182, %213
   %215 = and i32 %214, 1
   %216 = xor i32 %212, %215

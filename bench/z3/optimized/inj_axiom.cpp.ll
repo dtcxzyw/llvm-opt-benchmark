@@ -382,8 +382,8 @@ lor.lhs.false:                                    ; preds = %if.end50
   br i1 %or.cond45, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %lor.lhs.false, %if.end50
-  %tobool = trunc i8 %found_vars.0229 to i1
-  %51 = trunc i64 %indvars.iv to i32
+  %tobool = trunc nuw i8 %found_vars.0229 to i1
+  %51 = trunc nuw i64 %indvars.iv to i32
   br i1 %tobool, label %return, label %for.inc
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -400,7 +400,7 @@ for.inc:                                          ; preds = %if.else, %if.then57
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %tobool73 = trunc i8 %found_vars.1 to i1
+  %tobool73 = trunc nuw i8 %found_vars.1 to i1
   br i1 %tobool73, label %land.lhs.true74, label %return
 
 land.lhs.true74:                                  ; preds = %for.end

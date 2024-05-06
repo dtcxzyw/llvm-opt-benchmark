@@ -194,7 +194,7 @@ define hidden void @add_detected_tcp_svc(i16 noundef zeroext %0) local_unnamed_a
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @is_dcerpc_context_zero(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @is_dcerpc_context_zero(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dcerpc_context_zero, align 8
   %3 = zext i32 %0 to i64
   %4 = inttoptr i64 %3 to ptr
@@ -207,7 +207,7 @@ define hidden i32 @is_dcerpc_context_zero(i32 noundef %0) local_unnamed_addr #0 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @is_dcerpc_req_pkt_type(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @is_dcerpc_req_pkt_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dcerpc_req_pkt_type, align 8
   %3 = zext i32 %0 to i64
   %4 = inttoptr i64 %3 to ptr
@@ -1109,7 +1109,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   store i32 %420, ptr %421, align 8
   %422 = getelementptr inbounds i8, ptr %407, i64 120
   %423 = getelementptr inbounds i8, ptr %346, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %422, ptr noundef nonnull align 8 dereferenceable(16) %423, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %422, ptr noundef nonnull readonly align 8 dereferenceable(16) %423, i64 16, i1 false)
   %424 = call fastcc ptr @find_latest_rrpd(ptr noundef nonnull %349)
   %.not48.i.i = icmp eq ptr %424, null
   br i1 %.not48.i.i, label %update_rrpd_rte_data.exit, label %425
@@ -1165,7 +1165,7 @@ find_temp_rsp_rrpd.exit54.i.i:                    ; preds = %438
   store i32 %446, ptr %447, align 8
   %448 = getelementptr inbounds i8, ptr %433, i64 120
   %449 = getelementptr inbounds i8, ptr %346, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %448, ptr noundef nonnull align 8 dereferenceable(16) %449, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %448, ptr noundef nonnull readonly align 8 dereferenceable(16) %449, i64 16, i1 false)
   br label %update_rrpd_rte_data.exit
 
 .loopexit.i.i:                                    ; preds = %443, %429

@@ -903,7 +903,7 @@ define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef writeonly
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.789, ptr noundef nonnull @.str.790, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.u16_normalize) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.789, ptr noundef nonnull @.str.790, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.u16_normalize) #15
   unreachable
 
 7:                                                ; preds = %3
@@ -981,8 +981,8 @@ u16_normalize.exit.thread10:                      ; preds = %16, %u16_normalize.
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @entity_norm(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
-  %4 = tail call ptr @cli_hashtab_find(ptr noundef nonnull @entities_htable, ptr noundef %1, i64 noundef %3) #16
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %4 = tail call ptr @cli_hashtab_find(ptr noundef nonnull @entities_htable, ptr noundef %1, i64 noundef %3) #17
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %34, label %5
 
@@ -1226,7 +1226,7 @@ define ptr @encoding_detect_bom(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %86, label %87, label %detect_encoding.exit.thread
 
 87:                                               ; preds = %83
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.792) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.792) #17
   br label %detect_encoding.exit.thread
 
 detect_encoding.exit.thread:                      ; preds = %4, %87, %83, %79, %75, %48, %35, %28, %24, %6, %71, %61, %9, %67, %64, %20, %16, %12
@@ -1238,7 +1238,7 @@ detect_encoding.exit:                             ; preds = %32, %67, %71, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1254,7 +1254,7 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
   br i1 %or.cond3, label %14, label %179
 
 14:                                               ; preds = %3
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #16
   %16 = icmp ugt i64 %15, 32
   br i1 %16, label %.loopexit42, label %.preheader25.i
 
@@ -1279,12 +1279,12 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
 
 ._crit_edge.i:                                    ; preds = %17
   %24 = add nuw nsw i64 %15, 1
-  %25 = tail call ptr @cli_max_malloc(i64 noundef %24) #16
+  %25 = tail call ptr @cli_max_malloc(i64 noundef %24) #17
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %.loopexit42, label %.lr.ph28.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader25.i
-  %26 = tail call ptr @cli_max_malloc(i64 noundef 1) #16
+  %26 = tail call ptr @cli_max_malloc(i64 noundef 1) #17
   %.not33.i = icmp eq ptr %26, null
   br i1 %.not33.i, label %.loopexit42, label %.loopexit
 
@@ -1293,7 +1293,7 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
   %27 = getelementptr inbounds i8, ptr %1, i64 %.127.i
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = tail call i32 @toupper(i32 noundef %29) #15
+  %30 = tail call i32 @toupper(i32 noundef %29) #16
   %31 = trunc i32 %30 to i8
   %32 = getelementptr inbounds i8, ptr %25, i64 %.127.i
   store i8 %31, ptr %32, align 1
@@ -1302,47 +1302,47 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
   br i1 %exitcond32.not.i, label %.loopexit, label %.lr.ph28.i
 
 .loopexit42:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #17
   br label %179
 
 .loopexit:                                        ; preds = %.lr.ph28.i, %._crit_edge.thread.i
   %34 = phi ptr [ %26, %._crit_edge.thread.i ], [ %25, %.lr.ph28.i ]
   %35 = getelementptr inbounds i8, ptr %34, i64 %15
   store i8 0, ptr %35, align 1
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %34) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %34) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #15
-  %37 = tail call i32 @pthread_once(ptr noundef nonnull @iconv_pool_tls_key_once, ptr noundef nonnull @iconv_pool_tls_key_alloc) #16
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
+  %37 = tail call i32 @pthread_once(ptr noundef nonnull @iconv_pool_tls_key_once, ptr noundef nonnull @iconv_pool_tls_key_alloc) #17
   %38 = load i32, ptr @iconv_pool_tls_key, align 4
-  %39 = tail call ptr @pthread_getspecific(i32 noundef %38) #16
+  %39 = tail call ptr @pthread_getspecific(i32 noundef %38) #17
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %40, label %49
 
 40:                                               ; preds = %.loopexit
-  %41 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #17
+  %41 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #18
   %.not9.i.i = icmp eq ptr %41, null
   br i1 %.not9.i.i, label %47, label %42
 
 42:                                               ; preds = %40
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.803, ptr noundef nonnull %41) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.803, ptr noundef nonnull %41) #17
   %43 = getelementptr inbounds i8, ptr %41, i64 24
-  %44 = tail call i32 @cli_hashtab_init(ptr noundef nonnull %43, i64 noundef 32) #16
+  %44 = tail call i32 @cli_hashtab_init(ptr noundef nonnull %43, i64 noundef 32) #17
   %45 = load i32, ptr @iconv_pool_tls_key, align 4
-  %46 = tail call i32 @pthread_setspecific(i32 noundef %45, ptr noundef nonnull %41) #16
+  %46 = tail call i32 @pthread_setspecific(i32 noundef %45, ptr noundef nonnull %41) #17
   br label %49
 
 47:                                               ; preds = %40
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.802) #16
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.794) #16
-  %48 = tail call ptr @__errno_location() #18
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.802) #17
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.794) #17
+  %48 = tail call ptr @__errno_location() #19
   store i32 22, ptr %48, align 4
   br label %iconv_open_cached.exit.thread
 
 49:                                               ; preds = %42, %.loopexit
   %.06.i.ph.i = phi ptr [ %41, %42 ], [ %39, %.loopexit ]
   %50 = getelementptr inbounds i8, ptr %.06.i.ph.i, i64 24
-  %51 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %50, ptr noundef nonnull %34, i64 noundef %36) #16
+  %51 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %50, ptr noundef nonnull %34, i64 noundef %36) #17
   %.not44.i = icmp eq ptr %51, null
   br i1 %.not44.i, label %68, label %52
 
@@ -1362,15 +1362,15 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
   %61 = load ptr, ptr %.06.i.ph.i, align 8
   %62 = getelementptr inbounds ptr, ptr %61, i64 %54
   %63 = load ptr, ptr %62, align 8
-  %64 = call i64 @iconv(ptr noundef %63, ptr noundef null, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %10) #16
+  %64 = call i64 @iconv(ptr noundef %63, ptr noundef null, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %10) #17
   %65 = load ptr, ptr %.06.i.ph.i, align 8
   %66 = load i64, ptr %53, align 8
   %67 = getelementptr inbounds ptr, ptr %65, i64 %66
   br label %iconv_open_cached.exit
 
 68:                                               ; preds = %56, %52, %49
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.795, ptr noundef nonnull %34) #16
-  %69 = tail call ptr @iconv_open(ptr noundef nonnull @.str.768, ptr noundef nonnull %34) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.795, ptr noundef nonnull %34) #17
+  %69 = tail call ptr @iconv_open(ptr noundef nonnull @.str.768, ptr noundef nonnull %34) #17
   %.not46.i = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
   br i1 %.not46.i, label %iconv_open_cached.exit.thread, label %70
 
@@ -1389,27 +1389,27 @@ define noundef i32 @encoding_normalize_toascii(ptr noundef readonly %0, ptr noun
   store i64 %77, ptr %74, align 8
   %78 = load ptr, ptr %.06.i.ph.i, align 8
   %79 = shl i64 %77, 3
-  %80 = tail call ptr @cli_max_realloc_or_free(ptr noundef %78, i64 noundef %79) #16
+  %80 = tail call ptr @cli_max_realloc_or_free(ptr noundef %78, i64 noundef %79) #17
   store ptr %80, ptr %.06.i.ph.i, align 8
   %.not48.i = icmp eq ptr %80, null
   br i1 %.not48.i, label %81, label %84
 
 81:                                               ; preds = %76
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.796) #16
-  %82 = tail call ptr @__errno_location() #18
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.796) #17
+  %82 = tail call ptr @__errno_location() #19
   store i32 12, ptr %82, align 4
-  %83 = tail call i32 @iconv_close(ptr noundef %69) #16
+  %83 = tail call i32 @iconv_close(ptr noundef %69) #17
   br label %iconv_open_cached.exit.thread
 
 84:                                               ; preds = %76, %70
-  %85 = tail call ptr @cli_hashtab_insert(ptr noundef nonnull %50, ptr noundef nonnull %34, i64 noundef %36, i64 noundef %72) #16
+  %85 = tail call ptr @cli_hashtab_insert(ptr noundef nonnull %50, ptr noundef nonnull %34, i64 noundef %36, i64 noundef %72) #17
   %86 = load ptr, ptr %.06.i.ph.i, align 8
   %87 = getelementptr inbounds ptr, ptr %86, i64 %72
   store ptr %69, ptr %87, align 8
   %88 = load ptr, ptr %.06.i.ph.i, align 8
   %89 = getelementptr inbounds ptr, ptr %88, i64 %72
   %90 = load ptr, ptr %89, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.797, ptr noundef nonnull %34, ptr noundef %90) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.797, ptr noundef nonnull %34, ptr noundef %90) #17
   %91 = load ptr, ptr %.06.i.ph.i, align 8
   %92 = getelementptr inbounds ptr, ptr %91, i64 %72
   br label %iconv_open_cached.exit
@@ -1428,12 +1428,12 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %iconv_open_cached.exit.thread, %iconv_open_cached.exit
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %34) #16
-  call void @free(ptr noundef nonnull %34) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %34) #17
+  call void @free(ptr noundef nonnull %34) #17
   br label %179
 
 95:                                               ; preds = %iconv_open_cached.exit
-  call void @free(ptr noundef nonnull %34) #16
+  call void @free(ptr noundef nonnull %34) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1499,12 +1499,12 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   br i1 %121, label %122, label %.loopexit.i
 
 122:                                              ; preds = %116
-  %123 = call i64 @iconv(ptr noundef %.0.i36, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #16
+  %123 = call i64 @iconv(ptr noundef %.0.i36, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   %124 = icmp eq i64 %123, -1
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %122
-  %126 = tail call ptr @__errno_location() #18
+  %126 = tail call ptr @__errno_location() #19
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 7
   %129 = load i64, ptr %7, align 8
@@ -1518,7 +1518,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %131
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.805) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.805) #17
   br i1 %.not35.i, label %.loopexit.loopexit38.i, label %.outer.backedge.i
 
 135:                                              ; preds = %131
@@ -1527,7 +1527,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   br i1 %137, label %138, label %116
 
 138:                                              ; preds = %135
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.806) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.806) #17
   %.old.i = load i64, ptr %7, align 8
   %.old2.i = icmp ult i64 %.old.i, 2
   br i1 %.old2.i, label %.loopexit.loopexit38.i, label %139
@@ -1567,7 +1567,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
 
 .loopexit.i:                                      ; preds = %116, %.loopexit.loopexit38.i
   %152 = phi i64 [ %.pre39.i, %.loopexit.loopexit38.i ], [ %118, %116 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.807, i64 noundef %152) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.807, i64 noundef %152) #17
   %153 = load i64, ptr %102, align 8
   %154 = icmp sgt i64 %153, -1
   br i1 %154, label %155, label %159
@@ -1582,7 +1582,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   br label %160
 
 159:                                              ; preds = %155, %.loopexit.i
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.808) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.808) #17
   br label %160
 
 160:                                              ; preds = %159, %157
@@ -1646,7 +1646,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -1661,7 +1661,7 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
   br i1 %or.cond5, label %14, label %15
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #17
   br label %.thread115
 
 15:                                               ; preds = %5
@@ -1674,12 +1674,12 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
 
 16:                                               ; preds = %15, %15
   %17 = add i64 %1, 1
-  %18 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %17) #16
+  %18 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %17) #17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #16
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #17
   br label %.thread115
 
 21:                                               ; preds = %16
@@ -1741,7 +1741,7 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
   br i1 %.not112, label %.loopexit, label %.loopexit.loopexit155
 
 .loopexit.loopexit155:                            ; preds = %41
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.084.lcssa, i32 noundef %.083.lcssa) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.084.lcssa, i32 noundef %.083.lcssa) #17
   %smin = tail call i32 @llvm.smin.i32(i32 %.084.lcssa, i32 1)
   %42 = sub i32 %.084.lcssa, %smin
   %43 = zext i32 %42 to i64
@@ -1774,7 +1774,7 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
   br label %55
 
 .thread:                                          ; preds = %48, %50
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #17
   br label %.thread115
 
 55:                                               ; preds = %.preheader, %75
@@ -1785,38 +1785,38 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
   %56 = mul i64 %54, %indvars.iv176
   store i64 %56, ptr %8, align 8
   %57 = or disjoint i64 %56, 1
-  %58 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %57) #16
+  %58 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %57) #17
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %55
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #16
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #17
   br label %.thread115
 
 61:                                               ; preds = %55
   store ptr %58, ptr %9, align 8
-  %62 = call ptr @iconv_open(ptr noundef nonnull @.str.8, ptr noundef nonnull %52) #16
+  %62 = call ptr @iconv_open(ptr noundef nonnull @.str.8, ptr noundef nonnull %52) #17
   %63 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %61
-  %65 = call ptr @iconv_open(ptr noundef nonnull @.str.9, ptr noundef nonnull %52) #16
+  %65 = call ptr @iconv_open(ptr noundef nonnull @.str.9, ptr noundef nonnull %52) #17
   %66 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %64
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.10) #16
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.10) #17
   br label %88
 
 68:                                               ; preds = %64, %61
   %.188 = phi ptr [ %65, %64 ], [ %62, %61 ]
-  %69 = call i64 @iconv(ptr noundef %.188, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #16
-  %70 = call i32 @iconv_close(ptr noundef %.188) #16
+  %69 = call i64 @iconv(ptr noundef %.188, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #17
+  %70 = call i32 @iconv_close(ptr noundef %.188) #17
   %71 = icmp eq i64 %69, -1
   br i1 %71, label %72, label %79
 
 72:                                               ; preds = %68
-  %73 = tail call ptr @__errno_location() #18
+  %73 = tail call ptr @__errno_location() #19
   %74 = load i32, ptr %73, align 4
   switch i32 %74, label %78 [
     i32 7, label %75
@@ -1825,33 +1825,33 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
   ]
 
 75:                                               ; preds = %72
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.11) #16
-  call void @free(ptr noundef nonnull %58) #16
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.11) #17
+  call void @free(ptr noundef nonnull %58) #17
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, 4
   br i1 %exitcond179.not, label %.loopexit, label %55
 
 76:                                               ; preds = %72
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #16
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #17
   br label %88
 
 77:                                               ; preds = %72
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #17
   br label %88
 
 78:                                               ; preds = %72
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef %74) #16
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef %74) #17
   br label %88
 
 79:                                               ; preds = %68
   %80 = load i64, ptr %8, align 8
   %81 = sub i64 %57, %80
-  %82 = call ptr @cli_max_realloc(ptr noundef nonnull %58, i64 noundef %81) #16
+  %82 = call ptr @cli_max_realloc(ptr noundef nonnull %58, i64 noundef %81) #17
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %79
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.15) #16
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.15) #17
   br label %88
 
 85:                                               ; preds = %79
@@ -1868,7 +1868,7 @@ define noundef i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 nou
 
 88:                                               ; preds = %76, %77, %78, %84, %67
   %.094 = phi i32 [ 22, %67 ], [ 20, %84 ], [ 27, %78 ], [ 27, %77 ], [ 27, %76 ]
-  call void @free(ptr noundef nonnull %58) #16
+  call void @free(ptr noundef nonnull %58) #17
   br label %.thread115
 
 .thread115:                                       ; preds = %20, %60, %.thread, %14, %.loopexit, %88
@@ -1902,7 +1902,7 @@ define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #17
   br label %.loopexit
 
 5:                                                ; preds = %2
@@ -1910,7 +1910,7 @@ define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %6 = lshr i32 %1, 1
   %7 = add nuw i32 %6, 1
   %8 = zext i32 %7 to i64
-  %9 = tail call ptr @cli_max_calloc(i64 noundef %8, i64 noundef 1) #16
+  %9 = tail call ptr @cli_max_calloc(i64 noundef %8, i64 noundef 1) #17
   %.not22 = icmp eq ptr %9, null
   br i1 %.not22, label %.loopexit, label %.preheader
 
@@ -1957,7 +1957,7 @@ define ptr @cli_utf16_to_utf8(ptr nocapture noundef readonly %0, i64 noundef %1,
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @cli_safer_strdup(ptr noundef nonnull @.str.17) #16
+  %9 = tail call ptr @cli_safer_strdup(ptr noundef nonnull @.str.17) #17
   br label %110
 
 10:                                               ; preds = %3
@@ -1966,13 +1966,13 @@ define ptr @cli_utf16_to_utf8(ptr nocapture noundef readonly %0, i64 noundef %1,
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18, i64 noundef %1) #16
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18, i64 noundef %1) #17
   %13 = add nsw i64 %1, -1
   br label %14
 
 14:                                               ; preds = %12, %10
   %.088 = phi i64 [ %13, %12 ], [ %1, %10 ]
-  %15 = tail call ptr @cli_max_malloc(i64 noundef %6) #16
+  %15 = tail call ptr @cli_max_malloc(i64 noundef %6) #17
   %.not99 = icmp eq ptr %15, null
   br i1 %.not99, label %110, label %16
 
@@ -2110,7 +2110,7 @@ define ptr @cli_utf16_to_utf8(ptr nocapture noundef readonly %0, i64 noundef %1,
   br label %102
 
 97:                                               ; preds = %67
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #17
   %98 = getelementptr inbounds i8, ptr %15, i64 %.090106
   store i8 -17, ptr %98, align 1
   %99 = getelementptr i8, ptr %98, i64 1
@@ -2151,7 +2151,7 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not42 = icmp eq i32 %1, 0
   br i1 %.not42, label %.loopexit32, label %.lr.ph
 
@@ -2242,18 +2242,18 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_pool_tls_key_alloc() #0 {
-  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @iconv_pool_tls_key, ptr noundef nonnull @iconv_pool_tls_instance_destroy) #16
+  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @iconv_pool_tls_key, ptr noundef nonnull @iconv_pool_tls_instance_destroy) #17
   %.b = load i1, ptr @cache_atexit_registered, align 4
   br i1 %.b, label %6, label %2
 
 2:                                                ; preds = %0
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.798) #16
-  %3 = tail call i32 @atexit(ptr noundef nonnull @iconv_cache_cleanup_main) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.798) #17
+  %3 = tail call i32 @atexit(ptr noundef nonnull @iconv_cache_cleanup_main) #17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.799) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.799) #17
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -2273,7 +2273,7 @@ define internal void @iconv_pool_tls_instance_destroy(ptr noundef %0) #0 {
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.800, ptr noundef nonnull %0) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.800, ptr noundef nonnull %0) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
@@ -2284,11 +2284,11 @@ define internal void @iconv_pool_tls_instance_destroy(ptr noundef %0) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %.011.i
   %7 = load ptr, ptr %6, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.801, ptr noundef %7) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.801, ptr noundef %7) #17
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %.011.i
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @iconv_close(ptr noundef %10) #16
+  %11 = tail call i32 @iconv_close(ptr noundef %10) #17
   %12 = add nuw i64 %.011.i, 1
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
@@ -2296,37 +2296,37 @@ define internal void @iconv_pool_tls_instance_destroy(ptr noundef %0) #0 {
 
 iconv_cache_destroy.exit:                         ; preds = %.lr.ph.i, %2
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @cli_hashtab_clear(ptr noundef nonnull %15) #16
+  tail call void @cli_hashtab_clear(ptr noundef nonnull %15) #17
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #16
+  tail call void @free(ptr noundef %16) #17
   %17 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %17) #16
-  tail call void @free(ptr noundef nonnull %0) #16
+  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef nonnull %0) #17
   br label %18
 
 18:                                               ; preds = %iconv_cache_destroy.exit, %1
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #9
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_cache_cleanup_main() #0 {
   %1 = load i32, ptr @iconv_pool_tls_key, align 4
-  %2 = tail call ptr @pthread_getspecific(i32 noundef %1) #16
+  %2 = tail call ptr @pthread_getspecific(i32 noundef %1) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %0
   tail call void @iconv_pool_tls_instance_destroy(ptr noundef nonnull %2)
   %4 = load i32, ptr @iconv_pool_tls_key, align 4
-  %5 = tail call i32 @pthread_setspecific(i32 noundef %4, ptr noundef null) #16
+  %5 = tail call i32 @pthread_setspecific(i32 noundef %4, ptr noundef null) #17
   br label %6
 
 6:                                                ; preds = %3, %0
   %7 = load i32, ptr @iconv_pool_tls_key, align 4
-  %8 = tail call i32 @pthread_key_delete(i32 noundef %7) #16
+  %8 = tail call i32 @pthread_key_delete(i32 noundef %7) #17
   ret void
 }
 
@@ -2342,27 +2342,27 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #9
 declare i32 @pthread_key_delete(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 declare i32 @cli_hashtab_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #12
+declare i16 @llvm.bswap.i16(i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2374,15 +2374,16 @@ attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

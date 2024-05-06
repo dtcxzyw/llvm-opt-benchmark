@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_store_handle_load_result = private unnamed_addr constant [5 x i32] [i32 0, i32 0, i32 132, i32 134, i32 135], align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_store_handle_load_result(ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_store_handle_load_result(ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {
 entry:
   %tpass.i = alloca [1025 x i8], align 16
   %tpass_len.i = alloca i64, align 8

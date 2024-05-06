@@ -542,7 +542,7 @@ Vec_IntPush.exit67:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %130, ptr %20, align 4
   %131 = sext i32 %129 to i64
   %132 = getelementptr inbounds i32, ptr %128, i64 %131
-  %133 = trunc i64 %indvars.iv79 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv79 to i32
   store i32 %133, ptr %132, align 4
   %.val31.pre = load i32, ptr %4, align 4
   br label %134
@@ -1204,7 +1204,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val104 = phi ptr [ %.val104.pre, %Vec_IntPush.exit ], [ %.val103, %14 ]
   %.val105 = phi i64 [ %.val105.pre, %Vec_IntPush.exit ], [ %.val102, %14 ]
   %70 = lshr i64 %.val105, 32
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   %72 = and i32 %71, 536870911
   %73 = sub nsw i32 %18, %72
   %74 = ashr i32 %73, 5
@@ -2155,7 +2155,7 @@ define i32 @Spl_ManFindOne(ptr nocapture noundef readonly %0) local_unnamed_addr
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i32, ptr %.val25.val.i, i64 %83
   %85 = load i32, ptr %84, align 4
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %57, i32 noundef %85, ptr noundef %65, ptr noundef %66, ptr noundef %67)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %57, i32 noundef %85, ptr noundef %65, ptr noundef readonly %66, ptr noundef readonly %67)
   %86 = add nuw nsw i32 %.028.i, 1
   %.val24.i = load ptr, ptr %69, align 8
   %87 = getelementptr i8, ptr %.val24.i, i64 8
@@ -2775,7 +2775,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %395 = sext i32 %394 to i64
   %396 = getelementptr inbounds i32, ptr %.val25.val.i231, i64 %395
   %397 = load i32, ptr %396, align 4
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %369, i32 noundef %397, ptr noundef %377, ptr noundef %378, ptr noundef %379)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %369, i32 noundef %397, ptr noundef %377, ptr noundef readonly %378, ptr noundef readonly %379)
   %398 = add nuw nsw i32 %.028.i229, 1
   %.val24.i232 = load ptr, ptr %381, align 8
   %399 = getelementptr i8, ptr %.val24.i232, i64 8
@@ -3206,7 +3206,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Spl_ManComputeOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Spl_ManComputeOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3506,7 +3506,7 @@ define i32 @Gia_ManComputeOneWin(ptr nocapture noundef %0, i32 noundef %1, ptr n
   br label %24
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @Spl_ManComputeOne(ptr noundef %8, i32 noundef %1), !range !45
+  %12 = tail call i32 @Spl_ManComputeOne(ptr noundef %8, i32 noundef %1)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %14
 
@@ -3574,8 +3574,8 @@ define void @Spl_ManComputeOneTest(ptr noundef %0) local_unnamed_addr #0 {
 
 Gia_ManComputeOneWin.exit:                        ; preds = %7
   %10 = load ptr, ptr %3, align 8
-  %11 = trunc i64 %indvars.iv to i32
-  %12 = tail call i32 @Spl_ManComputeOne(ptr noundef %10, i32 noundef %11), !range !45
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %12 = tail call i32 @Spl_ManComputeOne(ptr noundef %10, i32 noundef %11)
   %.not.i = icmp ne i32 %12, 0
   tail call void @llvm.assume(i1 %.not.i)
   %13 = getelementptr inbounds i8, ptr %10, i64 56
@@ -3603,7 +3603,7 @@ Gia_ManComputeOneWin.exit:                        ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %.val to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %7, label %._crit_edge.loopexit, !llvm.loop !46
+  br i1 %28, label %7, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %26
   %.pre = load ptr, ptr %3, align 8
@@ -3632,7 +3632,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -3721,5 +3721,4 @@ attributes #18 = { nounwind }
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = !{i32 0, i32 2}
-!46 = distinct !{!46, !5}
+!45 = distinct !{!45, !5}

@@ -972,7 +972,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conmgr_process_fd(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @conmgr_process_fd(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc ptr @_add_connection(i32 noundef %0, ptr noundef null, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false, ptr noundef null, ptr noundef %6)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -1419,7 +1419,7 @@ define internal void @_wrap_on_connection(ptr noundef %0, i32 %1, i32 %2, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conmgr_process_fd_listen(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @conmgr_process_fd_listen(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @_add_connection(i32 noundef %1, ptr noundef null, i32 noundef %0, i32 noundef %0, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef null, ptr noundef %5)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -1608,7 +1608,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conmgr_process_fd_unix_listen(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @conmgr_process_fd_unix_listen(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc ptr @_add_connection(i32 noundef %0, ptr noundef null, i32 noundef %1, i32 noundef %1, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -3381,7 +3381,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @conmgr_create_sockets(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @conmgr_create_sockets(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.conmgr_events_t) align 8 %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 2708, ptr noundef nonnull @__func__.conmgr_create_sockets) #17
   store ptr %6, ptr %5, align 8
@@ -3402,7 +3402,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_create_socket(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_create_socket(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca %struct.conmgr_events_t, align 8
   %4 = alloca %struct.conmgr_events_t, align 8
   %5 = alloca %struct.sockaddr_un, align 2
@@ -3492,7 +3492,7 @@ define internal noundef i32 @_create_socket(ptr noundef %0, ptr nocapture nounde
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %44 = call fastcc ptr @_add_connection(i32 noundef %41, ptr noundef null, i32 noundef %17, i32 noundef %17, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %4, ptr noundef nonnull %5, i32 noundef 110, i1 noundef zeroext true, ptr noundef nonnull %19, ptr noundef %43)
+  %44 = call fastcc ptr @_add_connection(i32 noundef %41, ptr noundef null, i32 noundef %17, i32 noundef %17, ptr noundef nonnull readonly byval(%struct.conmgr_events_t) align 8 %4, ptr noundef nonnull %5, i32 noundef 110, i1 noundef zeroext true, ptr noundef nonnull %19, ptr noundef %43)
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %conmgr_process_fd_unix_listen.exit, label %45
 
@@ -3593,7 +3593,7 @@ conmgr_process_fd_unix_listen.exit:               ; preds = %39, %45
   %91 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %92 = call fastcc ptr @_add_connection(i32 noundef %88, ptr noundef null, i32 noundef %65, i32 noundef %65, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %89, i32 noundef %90, i1 noundef zeroext true, ptr noundef null, ptr noundef %91)
+  %92 = call fastcc ptr @_add_connection(i32 noundef %88, ptr noundef null, i32 noundef %65, i32 noundef %65, ptr noundef nonnull readonly byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %89, i32 noundef %90, i1 noundef zeroext true, ptr noundef null, ptr noundef %91)
   %.not.i79.not = icmp eq ptr %92, null
   br i1 %.not.i79.not, label %conmgr_process_fd_listen.exit.thread, label %conmgr_process_fd_listen.exit
 
@@ -4873,7 +4873,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #5
 declare i32 @list_transfer_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_match_work_elapsed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @_match_work_elapsed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr getelementptr inbounds (%struct.conmgr_s, ptr @mgr, i64 0, i32 19), align 8
@@ -5173,7 +5173,7 @@ define internal void @_connection_fd_delete(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_connection(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @_handle_connection(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -7891,7 +7891,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_by_fd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 0, 2) i32 @_find_by_fd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8

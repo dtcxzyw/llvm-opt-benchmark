@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ascend_lex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -466,8 +466,8 @@ ascend_ensure_buffer_stack.exit:                  ; preds = %30, %33, %42
   store i32 %192, ptr %194, align 4
   %195 = load ptr, ptr %74, align 8
   %196 = tail call noalias ptr @g_strdup(ptr noundef %195) #25
-  %197 = tail call fastcc i32 @input(ptr noundef nonnull %0), !range !7
-  %198 = tail call fastcc i32 @input(ptr noundef nonnull %0), !range !7
+  %197 = tail call fastcc i32 @input(ptr noundef nonnull %0)
+  %198 = tail call fastcc i32 @input(ptr noundef nonnull %0)
   %sext = shl nuw i32 %198, 24
   %199 = ashr exact i32 %sext, 24
   %200 = load ptr, ptr %74, align 8
@@ -904,7 +904,7 @@ ascend_ensure_buffer_stack.exit:                  ; preds = %30, %33, %42
   %459 = getelementptr i8, ptr %457, i64 %458
   store ptr %459, ptr %69, align 8
   %460 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %461 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %460, ptr noundef nonnull %0), !range !8
+  %461 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %460, ptr noundef nonnull %0)
   %462 = load ptr, ptr %74, align 8
   %.not304 = icmp eq i32 %461, 0
   br i1 %.not304, label %466, label %463
@@ -932,7 +932,7 @@ ascend_ensure_buffer_stack.exit:                  ; preds = %30, %33, %42
   br label %.outer
 
 468:                                              ; preds = %445
-  %469 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef nonnull %0), !range !9
+  %469 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef nonnull %0)
   switch i32 %469, label %default.unreachable524 [
     i32 1, label %470
     i32 0, label %476
@@ -1107,7 +1107,7 @@ ascend__init_buffer.exit:                         ; preds = %52, %54
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @input(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @input(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1144,7 +1144,7 @@ define internal fastcc i32 @input(ptr nocapture noundef %0) unnamed_addr #0 {
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %6, i64 1
   store ptr %27, ptr %4, align 8
-  %28 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef nonnull %0), !range !9
+  %28 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef nonnull %0)
   switch i32 %28, label %default.unreachable24 [
     i32 2, label %29
     i32 1, label %46
@@ -1235,7 +1235,7 @@ define internal fastcc void @yyunput(i32 noundef %0, ptr noundef %1, ptr nocaptu
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ugt ptr %30, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.phi.trans.insert = getelementptr inbounds i8, ptr %36, i64 24
@@ -1277,7 +1277,7 @@ define internal fastcc void @yyunput(i32 noundef %0, ptr noundef %1, ptr nocaptu
 59:                                               ; preds = %._crit_edge, %3
   %.044 = phi ptr [ %46, %._crit_edge ], [ %5, %3 ]
   %.043 = phi ptr [ %47, %._crit_edge ], [ %1, %3 ]
-  %60 = trunc i32 %0 to i8
+  %60 = trunc nsw i32 %0 to i8
   %61 = getelementptr i8, ptr %.044, i64 -1
   store i8 %60, ptr %61, align 1
   %62 = getelementptr inbounds i8, ptr %2, i64 128
@@ -1380,7 +1380,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %47 = getelementptr [3498 x i16], ptr @yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not25 = icmp eq i16 %35, %48
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -1389,7 +1389,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %51 = sext i16 %50 to i32
   %52 = getelementptr i8, ptr %.02328, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !9
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -1397,7 +1397,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [489 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -1436,7 +1436,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture nound
   %27 = getelementptr [3498 x i16], ptr @yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -1449,7 +1449,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @yy_get_next_buffer(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @yy_get_next_buffer(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1505,7 +1505,7 @@ define internal fastcc i32 @yy_get_next_buffer(ptr nocapture noundef %0) unnamed
   store i8 %36, ptr %.096116, align 1
   %38 = add nuw nsw i32 %.098114, 1
   %exitcond.not = icmp eq i32 %38, %33
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -1595,7 +1595,7 @@ define internal fastcc i32 @yy_get_next_buffer(ptr nocapture noundef %0) unnamed
   %.pn = load i32, ptr %.pn.in, align 8
   %77 = sub i32 %33, %.pn
   %78 = icmp sgt i32 %77, -2
-  br i1 %78, label %.lr.ph119, label %._crit_edge120, !llvm.loop !15
+  br i1 %78, label %.lr.ph119, label %._crit_edge120, !llvm.loop !12
 
 ._crit_edge120:                                   ; preds = %70, %.preheader
   %79 = phi ptr [ %39, %.preheader ], [ %76, %70 ]
@@ -2751,7 +2751,7 @@ define hidden void @ascend_set_debug(i32 noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ascend_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @ascend_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2779,7 +2779,7 @@ declare ptr @__errno_location() local_unnamed_addr #16
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ascend_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @ascend_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2924,7 +2924,7 @@ ascend_pop_buffer_state.exit:                     ; preds = %23, %42, %45
   %56 = getelementptr ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not18 = icmp eq ptr %57, null
-  br i1 %.not18, label %.thread, label %.lr.ph31, !llvm.loop !16
+  br i1 %.not18, label %.thread, label %.lr.ph31, !llvm.loop !13
 
 .thread:                                          ; preds = %ascend_pop_buffer_state.exit, %ascend__delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %ascend__delete_buffer.exit ], [ %54, %ascend_pop_buffer_state.exit ]
@@ -2996,13 +2996,10 @@ attributes #29 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 256}
-!8 = !{i32 -32768, i32 32768}
-!9 = !{i32 0, i32 3}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

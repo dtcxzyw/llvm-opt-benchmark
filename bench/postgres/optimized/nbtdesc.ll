@@ -157,7 +157,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %76 = getelementptr inbounds i8, ptr %6, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = lshr i64 %77, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = trunc i64 %77 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef %79, i32 noundef %80) #3
   %81 = getelementptr inbounds i8, ptr %6, i64 24
@@ -184,7 +184,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %96 = getelementptr inbounds i8, ptr %6, i64 16
   %97 = load i64, ptr %96, align 8
   %98 = lshr i64 %97, 32
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %97 to i32
   %101 = getelementptr inbounds i8, ptr %6, i64 24
   %102 = load i8, ptr %101, align 8

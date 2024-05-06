@@ -2262,12 +2262,12 @@ _ZN11V3DupFinderC2Ev.exit:                        ; preds = %33
 
 56:                                               ; preds = %.lr.ph.i.i.i.i
   %57 = icmp eq ptr %27, %.0710.i.i.i.i
-  %spec.select18.i.i.i = or i1 %57, %55
+  %spec.select.i.i.i = or i1 %57, %55
   br label %58
 
 58:                                               ; preds = %56, %.noexc37
   %.0.lcssa.i17.i.i.i = phi ptr [ %27, %.noexc37 ], [ %.0710.i.i.i.i, %56 ]
-  %59 = phi i1 [ true, %.noexc37 ], [ %spec.select18.i.i.i, %56 ]
+  %59 = phi i1 [ true, %.noexc37 ], [ %spec.select.i.i.i, %56 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %59, ptr noundef nonnull %50, ptr noundef nonnull %.0.lcssa.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   %60 = load i64, ptr %31, align 8
   %61 = add i64 %60, 1

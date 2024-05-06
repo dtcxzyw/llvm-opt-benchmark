@@ -30,7 +30,7 @@ define internal i64 @bug_rb_str_dup(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_shared_string_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_shared_string_p(i64 %0, i64 noundef %1) #0 {
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #4
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
@@ -60,7 +60,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %7, %2, %RB_FL_TEST.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sharing_with_shared_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sharing_with_shared_p(i64 %0, i64 noundef %1) #0 {
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #4
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #4
   %3 = and i64 %1, 7

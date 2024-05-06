@@ -465,7 +465,7 @@ invoke.cont82:                                    ; preds = %invoke.cont75
   %45 = load ptr, ptr %m_fparams.i69, align 8
   %m_random_seed = getelementptr inbounds i8, ptr %45, i64 520
   %46 = load i32, ptr %m_random_seed, align 8
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw i64 %indvars.iv to i32
   %add = add i32 %46, %47
   %m_random.i = getelementptr inbounds i8, ptr %42, i64 7528
   store i32 %add, ptr %m_random.i, align 4
@@ -695,7 +695,7 @@ lpad110.loopexit.split-lp:                        ; preds = %for.end115
 for.end115:                                       ; preds = %for.inc113, %invoke.cont102
   %_M_manager.i.i = getelementptr inbounds i8, ptr %collect_units, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %collect_units, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %collect_units, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %collect_units, i8 0, i64 32, i1 false)
   %call.i.i2.i96 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
           to label %invoke.cont117 unwind label %lpad110.loopexit.split-lp
 
@@ -778,7 +778,7 @@ for.body123:                                      ; preds = %_ZN6vectorISt6threa
 call.i.noexc:                                     ; preds = %for.body123
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3smt8parallelclERK10ref_vectorI4expr11ast_managerEE3$_1EEEEEE", i64 0, i32 0, i64 2), ptr %call.i99, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i99, i64 8
-  %100 = trunc i64 %indvars.iv323 to i32
+  %100 = trunc nuw i64 %indvars.iv323 to i32
   store i32 %100, ptr %_M_func.i.i, align 8
   %ref.tmp125.sroa.2270.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i99, i64 16
   store ptr %worker_thread, ptr %ref.tmp125.sroa.2270.0._M_func.i.i.sroa_idx, align 8
@@ -4325,7 +4325,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

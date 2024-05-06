@@ -139,7 +139,7 @@ while.end.i50.i.i.i:                              ; preds = %while.body.i64.i.i.
   br i1 %cmp4.i53.i.i.i, label %if.then.i61.i.i.i, label %if.end.i54.i.i.i
 
 if.then.i61.i.i.i:                                ; preds = %while.end.i50.i.i.i
-  %9 = trunc i32 %value.addr.0.lcssa.i52.i.i.i to i8
+  %9 = trunc nuw nsw i32 %value.addr.0.lcssa.i52.i.i.i to i8
   %conv5.i62.i.i.i = or disjoint i8 %9, 48
   %incdec.ptr.i63.i.i.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i51.i.i.i, i64 -1
   store i8 %conv5.i62.i.i.i, ptr %incdec.ptr.i63.i.i.i, align 1, !tbaa !20
@@ -432,7 +432,7 @@ while.end.i49.i.i:                                ; preds = %while.body.i63.i.i,
   br i1 %cmp4.i52.i.i, label %if.then.i60.i.i, label %if.end.i53.i.i
 
 if.then.i60.i.i:                                  ; preds = %while.end.i49.i.i
-  %7 = trunc i64 %value.addr.0.lcssa.i51.i.i to i8
+  %7 = trunc nuw nsw i64 %value.addr.0.lcssa.i51.i.i to i8
   %conv.i61.i.i = or disjoint i8 %7, 48
   %incdec.ptr.i62.i.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i50.i.i, i64 -1
   store i8 %conv.i61.i.i, ptr %incdec.ptr.i62.i.i, align 1, !tbaa !20

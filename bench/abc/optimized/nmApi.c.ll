@@ -37,7 +37,7 @@ define noalias noundef ptr @Nm_ManCreate(i32 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw nsw i32 %.01116.i, 2
-  %9 = mul nsw i32 %8, %8
+  %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 

@@ -59,7 +59,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 9:                                                ; preds = %7
   %10 = icmp ugt i64 %8, 100
   %11 = tail call i64 @llvm.umin.i64(i64 %8, i64 100)
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = select i1 %10, ptr @.str.4, ptr @.str.5
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %.loopexit
@@ -99,7 +99,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %32 = ptrtoint ptr %2 to i64
   %33 = icmp ugt i64 %8, 100
   %34 = tail call i64 @llvm.umin.i64(i64 %8, i64 100)
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = select i1 %33, ptr @.str.4, ptr @.str.5
   br label %37
 

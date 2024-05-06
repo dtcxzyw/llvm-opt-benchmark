@@ -110,7 +110,7 @@ declare void @__archive_rb_tree_init(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_free(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -253,7 +253,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not26, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !8
+  %19 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %._crit_edge29, label %25
 
@@ -268,7 +268,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not28, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !9
+  %24 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %25
 
 25:                                               ; preds = %20, %23, %18, %12, %2, %7
@@ -356,7 +356,7 @@ match_path_inclusion.exit:                        ; preds = %15
   %.1 = phi ptr [ %.03679, %30 ], [ %.078, %match_path_inclusion.exit ], [ %.078, %11 ], [ %.078, %match_path_inclusion.exit.thread ]
   %.036 = load ptr, ptr %.03679, align 8
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %35
   %36 = icmp eq ptr %.1, null
@@ -402,7 +402,7 @@ match_path_exclusion.exit:                        ; preds = %43, %46
   %.0.i50 = phi i32 [ %45, %43 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not48 = icmp eq i32 %.0.i50, 0
-  br i1 %.not48, label %38, label %.loopexit, !llvm.loop !11
+  br i1 %.not48, label %38, label %.loopexit, !llvm.loop !9
 
 51:                                               ; preds = %38
   br i1 %.0.lcssa, label %.preheader, label %.loopexit
@@ -471,7 +471,7 @@ match_path_inclusion.exit53:                      ; preds = %57
 76:                                               ; preds = %match_path_inclusion.exit53.thread, %53, %match_path_inclusion.exit53
   %.2 = load ptr, ptr %.282, align 8
   %.not45 = icmp eq ptr %.2, null
-  br i1 %.not45, label %._crit_edge84.loopexit, label %53, !llvm.loop !12
+  br i1 %.not45, label %._crit_edge84.loopexit, label %53, !llvm.loop !10
 
 ._crit_edge84.loopexit:                           ; preds = %76
   %.pre = load ptr, ptr %8, align 8
@@ -487,7 +487,7 @@ match_path_inclusion.exit53:                      ; preds = %57
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @time_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -819,7 +819,7 @@ define internal fastcc noundef i32 @time_excluded(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @owner_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @owner_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 384
@@ -856,7 +856,7 @@ define internal fastcc noundef i32 @owner_excluded(ptr noundef %0, ptr noundef %
   %.115.i = select i1 %21, i32 %.01418.i, i32 %15
   %.1.i = select i1 %21, i32 %22, i32 %.019.i
   %23 = icmp ult i32 %.1.i, %.115.i
-  br i1 %23, label %13, label %match_owner_id.exit.thread, !llvm.loop !13
+  br i1 %23, label %13, label %match_owner_id.exit.thread, !llvm.loop !11
 
 match_owner_id.exit:                              ; preds = %13, %2
   %24 = getelementptr inbounds i8, ptr %0, i64 408
@@ -893,7 +893,7 @@ match_owner_id.exit:                              ; preds = %13, %2
   %.115.i33 = select i1 %40, i32 %.01418.i32, i32 %34
   %.1.i34 = select i1 %40, i32 %41, i32 %.019.i31
   %42 = icmp ult i32 %.1.i34, %.115.i33
-  br i1 %42, label %32, label %match_owner_id.exit.thread, !llvm.loop !13
+  br i1 %42, label %32, label %match_owner_id.exit.thread, !llvm.loop !11
 
 match_owner_id.exit36:                            ; preds = %32, %match_owner_id.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 440
@@ -944,14 +944,14 @@ match_owner_id.exit36:                            ; preds = %32, %match_owner_id
   br i1 %.not13.i, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %47) #15
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %47) #15
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %62, %60
   %.0.i = load ptr, ptr %.018.i, align 8
   %.not.i38 = icmp eq ptr %.0.i, null
-  br i1 %.not.i38, label %match_owner_name_mbs.exit.thread, label %.lr.ph.i37, !llvm.loop !14
+  br i1 %.not.i38, label %match_owner_name_mbs.exit.thread, label %.lr.ph.i37, !llvm.loop !12
 
 match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1014,14 +1014,14 @@ match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.pre
   br i1 %.not13.i44, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %75) #15
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(1) %75) #15
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %94, label %93
 
 93:                                               ; preds = %90, %88
   %.0.i45 = load ptr, ptr %.018.i43, align 8
   %.not.i46 = icmp eq ptr %.0.i45, null
-  br i1 %.not.i46, label %match_owner_name_mbs.exit48.thread, label %.lr.ph.i42, !llvm.loop !14
+  br i1 %.not.i46, label %match_owner_name_mbs.exit48.thread, label %.lr.ph.i42, !llvm.loop !12
 
 match_owner_name_mbs.exit48.thread:               ; preds = %93, %77, %73, %.preheader.i39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1108,7 +1108,7 @@ add_pattern_mbs.exit:                             ; preds = %24, %14, %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_pattern_mbs(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @add_pattern_mbs(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -1327,7 +1327,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 .loopexit.us:                                     ; preds = %65, %.lr.ph.split.us, %.critedge.split.us.split.us.us
   %42 = call i32 @archive_read_data_block(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #13
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %65
   %44 = phi i64 [ %66, %65 ], [ %40, %.preheader.us.us.preheader ]
@@ -1373,7 +1373,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 65:                                               ; preds = %.split.us.us.us, %57
   %66 = load i64, ptr %9, align 8
   %.not76.us.us = icmp eq i64 %66, 0
-  br i1 %.not76.us.us, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !16
+  br i1 %.not76.us.us, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !14
 
 67:                                               ; preds = %69, %.preheader.us.us
   %.06190.us.us.us = phi i64 [ 0, %.preheader.us.us ], [ %71, %69 ]
@@ -1388,7 +1388,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
   %70 = getelementptr inbounds i8, ptr %.189.us.us.us, i64 1
   %71 = add nuw i64 %.06190.us.us.us, 1
   %exitcond117.not = icmp eq i64 %71, %44
-  br i1 %exitcond117.not, label %.critedge.split.us.split.us.us, label %67, !llvm.loop !17
+  br i1 %exitcond117.not, label %.critedge.split.us.split.us.us, label %67, !llvm.loop !15
 
 .split.us.us.us:                                  ; preds = %67, %67
   %72 = getelementptr inbounds i8, ptr %.189.us.us.us, i64 1
@@ -1429,7 +1429,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 84:                                               ; preds = %80
   %85 = add nuw i64 %.06190, 1
   %exitcond.not = icmp eq i64 %85, %79
-  br i1 %exitcond.not, label %.critedge.split, label %80, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge.split, label %80, !llvm.loop !15
 
 .critedge.split:                                  ; preds = %84
   %86 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06397, i64 noundef %79) #13
@@ -1491,12 +1491,12 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 112:                                              ; preds = %104, %.split
   %113 = load i64, ptr %9, align 8
   %.not76 = icmp eq i64 %113, 0
-  br i1 %.not76, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not76, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %112, %.lr.ph.split, %.critedge.split
   %114 = call i32 @archive_read_data_block(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #13
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %115, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %33
   %.lcssa = phi i32 [ %35, %33 ], [ %42, %.loopexit.us ], [ %114, %.loopexit ]
@@ -1518,7 +1518,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %7, align 8
-  %125 = call fastcc i32 @add_pattern_mbs(ptr noundef %0, ptr noundef %1, ptr noundef %124), !range !18
+  %125 = call fastcc i32 @add_pattern_mbs(ptr noundef %0, ptr noundef %1, ptr noundef %124)
   %.not75 = icmp eq i32 %125, 0
   br i1 %.not75, label %128, label %126
 
@@ -1554,7 +1554,7 @@ define dso_local i32 @archive_match_exclude_pattern_from_file_w(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_pattern(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_pattern(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.8) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_pattern_mbs.exit, label %5
@@ -1621,7 +1621,7 @@ add_pattern_mbs.exit:                             ; preds = %24, %14, %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_pattern_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_pattern_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.9) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_pattern_wcs.exit, label %5
@@ -1751,7 +1751,7 @@ define dso_local i32 @archive_match_path_excluded(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_set_inclusion_recursion(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_set_inclusion_recursion(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.13) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -1783,7 +1783,7 @@ define dso_local i32 @archive_match_path_unmatched_inclusions(ptr noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_path_unmatched_inclusions_next(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_next(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.15) #13
   %5 = icmp eq i32 %4, -30
@@ -1831,7 +1831,7 @@ define dso_local noundef i32 @archive_match_path_unmatched_inclusions_next(ptr n
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not29.i = icmp eq i32 %24, 0
-  br i1 %.not29.i, label %25, label %21, !llvm.loop !19
+  br i1 %.not29.i, label %25, label %21, !llvm.loop !16
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -1881,7 +1881,7 @@ match_list_unmatched_inclusions_next.exit:        ; preds = %10, %15, %33, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_path_unmatched_inclusions_next_w(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_next_w(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.16) #13
   %5 = icmp eq i32 %4, -30
@@ -1929,7 +1929,7 @@ define dso_local noundef i32 @archive_match_path_unmatched_inclusions_next_w(ptr
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not29.i = icmp eq i32 %24, 0
-  br i1 %.not29.i, label %25, label %21, !llvm.loop !19
+  br i1 %.not29.i, label %25, label %21, !llvm.loop !16
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -1979,7 +1979,7 @@ match_list_unmatched_inclusions_next.exit:        ; preds = %10, %15, %33, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_time(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_time(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.17) #13
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %set_timefilter.exit, label %7
@@ -2109,7 +2109,7 @@ set_timefilter.exit:                              ; preds = %.sink.split.i, %4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_date(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_date(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.18) #13
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %set_timefilter_date.exit, label %6
@@ -2263,7 +2263,7 @@ set_timefilter_date.exit:                         ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_date_w(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_date_w(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.archive_string, align 8
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.19) #13
   %6 = icmp eq i32 %5, -30
@@ -2450,7 +2450,7 @@ validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_file_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.20) #13
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %validate_time_flag.exit.thread, label %6
@@ -2481,7 +2481,7 @@ define dso_local noundef i32 @archive_match_include_file_time(ptr noundef %0, i3
   br label %validate_time_flag.exit.thread
 
 validate_time_flag.exit:                          ; preds = %13
-  %16 = tail call fastcc i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef %2), !range !18
+  %16 = tail call fastcc i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br label %validate_time_flag.exit.thread
 
 validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, %validate_time_flag.exit
@@ -2490,7 +2490,7 @@ validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %9, label %6
@@ -2632,7 +2632,7 @@ set_timefilter_stat.exit:                         ; preds = %65, %61, %48, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_file_time_w(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time_w(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.archive_string, align 8
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.21) #13
   %6 = icmp eq i32 %5, -30
@@ -2703,7 +2703,7 @@ validate_time_flag.exit:                          ; preds = %14
 
 33:                                               ; preds = %22
   %34 = load ptr, ptr %4, align 8
-  %35 = call fastcc i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef %34), !range !18
+  %35 = call fastcc i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef %34)
   call void @archive_string_free(ptr noundef nonnull %4) #13
   br label %set_timefilter_pathname_wcs.exit
 
@@ -2718,7 +2718,7 @@ validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_exclude_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_exclude_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.22) #13
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %add_entry.exit, label %6
@@ -2856,7 +2856,7 @@ add_entry.exit:                                   ; preds = %.sink.split.i, %9, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_time_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_match_time_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.24) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %15, label %5
@@ -2877,7 +2877,7 @@ define dso_local noundef i32 @archive_match_time_excluded(ptr noundef %0, ptr no
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !8
+  %14 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %15
 
 15:                                               ; preds = %8, %2, %13, %7
@@ -2886,14 +2886,14 @@ define dso_local noundef i32 @archive_match_time_excluded(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_uid(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_uid(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.25) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 376
-  %7 = tail call fastcc i32 @add_owner_id(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %1), !range !18
+  %7 = tail call fastcc i32 @add_owner_id(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %1)
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -2902,7 +2902,7 @@ define dso_local noundef i32 @archive_match_include_uid(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_owner_id(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @add_owner_id(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 1
@@ -2955,7 +2955,7 @@ define internal fastcc noundef i32 @add_owner_id(ptr noundef %0, ptr nocapture n
   %28 = add i32 %.03646, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %20, %29
-  br i1 %30, label %23, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %30, label %23, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %23, %27
   %.036.lcssa.ph = phi i32 [ %28, %27 ], [ %.03646, %23 ]
@@ -3011,14 +3011,14 @@ define internal fastcc noundef i32 @add_owner_id(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_gid(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_gid(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.26) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 400
-  %7 = tail call fastcc i32 @add_owner_id(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %1), !range !18
+  %7 = tail call fastcc i32 @add_owner_id(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %1)
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -3027,7 +3027,7 @@ define dso_local noundef i32 @archive_match_include_gid(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_uname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_uname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.27) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_owner_name.exit, label %5
@@ -3066,7 +3066,7 @@ add_owner_name.exit:                              ; preds = %10, %8, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_uname_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_uname_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.28) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_owner_name.exit, label %5
@@ -3105,7 +3105,7 @@ add_owner_name.exit:                              ; preds = %10, %8, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_gname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_gname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.29) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_owner_name.exit, label %5
@@ -3144,7 +3144,7 @@ add_owner_name.exit:                              ; preds = %10, %8, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_include_gname_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_gname_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.30) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_owner_name.exit, label %5
@@ -3183,7 +3183,7 @@ add_owner_name.exit:                              ; preds = %10, %8, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_owner_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @archive_match_owner_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.31) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %15, label %5
@@ -3204,7 +3204,7 @@ define dso_local noundef i32 @archive_match_owner_excluded(ptr noundef %0, ptr n
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !9
+  %14 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %15
 
 15:                                               ; preds = %8, %2, %13, %7
@@ -3384,8 +3384,8 @@ attributes #16 = { nounwind allocsize(1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
-!9 = !{i32 -2147483648, i32 2}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -3394,6 +3394,3 @@ attributes #16 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -30, i32 1}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

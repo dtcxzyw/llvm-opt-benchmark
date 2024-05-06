@@ -353,7 +353,7 @@ select.unfold:                                    ; preds = %118, %102
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FileInStream_fmap_Read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %24, label %6
@@ -382,7 +382,7 @@ define internal noundef i32 @FileInStream_fmap_Read(ptr nocapture noundef %0, pt
   br i1 %.not26.i, label %.sink.split, label %20
 
 20:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %19, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %19, i64 %spec.select.i, i1 false)
   %21 = icmp ult i64 %spec.select.i, 2147483648
   br i1 %21, label %.fmap_readn.exit_crit_edge, label %.sink.split
 
@@ -409,7 +409,7 @@ fmap_readn.exit:                                  ; preds = %.fmap_readn.exit_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @FileInStream_fmap_Seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
+define internal range(i32 0, 2) i32 @FileInStream_fmap_Seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
   switch i32 %2, label %20 [
     i32 0, label %4
     i32 1, label %7

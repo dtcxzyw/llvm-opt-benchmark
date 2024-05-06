@@ -135,7 +135,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %entry, %for.end

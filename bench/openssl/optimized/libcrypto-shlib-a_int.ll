@@ -514,14 +514,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_INTEGER_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 2), !range !8
+  %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_string_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a, i32 noundef %itype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a, i32 noundef %itype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.end
@@ -578,7 +578,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %inc.i.i = add nuw nsw i64 %i.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv
-  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %for.body.i.i
   %tobool.not.i = icmp eq i32 %and5, 0
@@ -652,7 +652,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
-  br i1 %tobool.not.i.i, label %asn1_string_set_int64.exit, label %do.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %asn1_string_set_int64.exit, label %do.body.i.i, !llvm.loop !9
 
 do.body.i7.i:                                     ; preds = %entry, %do.body.i7.i
   %r.addr.0.i8.i = phi i64 [ %shr.i13.i, %do.body.i7.i ], [ %r, %entry ]
@@ -663,7 +663,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
   %tobool.not.i14.i = icmp ult i64 %r.addr.0.i8.i, 256
-  br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !10
+  br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !9
 
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
   %storemerge.i = phi i32 [ 258, %do.body.i.i ], [ 2, %do.body.i7.i ]
@@ -679,7 +679,7 @@ asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_INTEGER_get_uint64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %a, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -745,7 +745,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %inc.i.i = add nuw nsw i64 %i.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %for.cond.preheader.i.i
   %r.0.lcssa.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %or.i.i, %for.body.i.i ]
@@ -775,7 +775,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
-  br i1 %tobool.not.i.i, label %asn1_string_set_uint64.exit, label %do.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %asn1_string_set_uint64.exit, label %do.body.i.i, !llvm.loop !9
 
 asn1_string_set_uint64.exit:                      ; preds = %do.body.i.i
   %arrayidx.i.i.le = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i.i
@@ -807,7 +807,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr.i.i.i = lshr i64 %r.addr.0.i.i.i, 8
   %tobool.not.i.i.i = icmp ult i64 %r.addr.0.i.i.i, 256
-  br i1 %tobool.not.i.i.i, label %ASN1_INTEGER_set_int64.exit, label %do.body.i.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i.i, label %ASN1_INTEGER_set_int64.exit, label %do.body.i.i.i, !llvm.loop !9
 
 do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.i.i
   %r.addr.0.i8.i.i = phi i64 [ %shr.i13.i.i, %do.body.i7.i.i ], [ %v, %entry ]
@@ -818,7 +818,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
   %tobool.not.i14.i.i = icmp ult i64 %r.addr.0.i8.i.i, 256
-  br i1 %tobool.not.i14.i.i, label %ASN1_INTEGER_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !10
+  br i1 %tobool.not.i14.i.i, label %ASN1_INTEGER_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !9
 
 ASN1_INTEGER_set_int64.exit:                      ; preds = %do.body.i7.i.i, %do.body.i.i.i
   %storemerge.i.i = phi i32 [ 258, %do.body.i.i.i ], [ 2, %do.body.i7.i.i ]
@@ -841,7 +841,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc noundef i32 @asn1_string_get_int64(ptr noundef nonnull %r, ptr noundef nonnull %a, i32 noundef 2), !range !8
+  %call.i = call fastcc i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 2)
   %cmp1 = icmp eq i32 %call.i, 0
   %0 = load i64, ptr %r, align 8
   %spec.select = select i1 %cmp1, i64 -1, i64 %0
@@ -995,9 +995,9 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_ENUMERATED_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 10), !range !8
+  %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 10)
   ret i32 %call
 }
 
@@ -1022,7 +1022,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %r.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %r.addr.0.i.i, 256
-  br i1 %tobool.not.i.i, label %asn1_string_set_int64.exit, label %do.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %asn1_string_set_int64.exit, label %do.body.i.i, !llvm.loop !9
 
 do.body.i7.i:                                     ; preds = %entry, %do.body.i7.i
   %r.addr.0.i8.i = phi i64 [ %shr.i13.i, %do.body.i7.i ], [ %r, %entry ]
@@ -1033,7 +1033,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
   %tobool.not.i14.i = icmp ult i64 %r.addr.0.i8.i, 256
-  br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !10
+  br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !9
 
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
   %storemerge.i = phi i32 [ 266, %do.body.i.i ], [ 10, %do.body.i7.i ]
@@ -1069,7 +1069,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr.i.i.i = lshr i64 %r.addr.0.i.i.i, 8
   %tobool.not.i.i.i = icmp ult i64 %r.addr.0.i.i.i, 256
-  br i1 %tobool.not.i.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %do.body.i.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %do.body.i.i.i, !llvm.loop !9
 
 do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.i.i
   %r.addr.0.i8.i.i = phi i64 [ %shr.i13.i.i, %do.body.i7.i.i ], [ %v, %entry ]
@@ -1080,7 +1080,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
   %tobool.not.i14.i.i = icmp ult i64 %r.addr.0.i8.i.i, 256
-  br i1 %tobool.not.i14.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !10
+  br i1 %tobool.not.i14.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !9
 
 ASN1_ENUMERATED_set_int64.exit:                   ; preds = %do.body.i7.i.i, %do.body.i.i.i
   %storemerge.i.i = phi i32 [ 266, %do.body.i.i.i ], [ 10, %do.body.i7.i.i ]
@@ -1115,7 +1115,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %call.i = call fastcc noundef i32 @asn1_string_get_int64(ptr noundef nonnull %r, ptr noundef nonnull %a, i32 noundef 10), !range !8
+  %call.i = call fastcc i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 10)
   %cmp7 = icmp eq i32 %call.i, 0
   %2 = load i64, ptr %r, align 8
   %spec.select = select i1 %cmp7, i64 -1, i64 %2
@@ -1141,7 +1141,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_c2i_uint64_int(ptr nocapture noundef writeonly %ret, ptr noundef %neg, ptr nocapture noundef readonly %pp, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr nocapture noundef writeonly %ret, ptr noundef %neg, ptr nocapture noundef readonly %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buf = alloca [8 x i8], align 1
   %0 = load ptr, ptr %pp, align 8
@@ -1174,7 +1174,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %or.i = or disjoint i64 %shl.i, %conv.i
   %inc.i = add nuw nsw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call
-  br i1 %exitcond.not.i, label %asn1_get_uint64.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %asn1_get_uint64.exit, label %for.body.i, !llvm.loop !8
 
 asn1_get_uint64.exit:                             ; preds = %for.body.i
   store i64 %or.i, ptr %ret, align 8
@@ -1200,7 +1200,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %r.addr.0.i, 8
   %tobool.not.i = icmp ult i64 %r.addr.0.i, 256
-  br i1 %tobool.not.i, label %asn1_put_uint64.exit, label %do.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %asn1_put_uint64.exit, label %do.body.i, !llvm.loop !9
 
 asn1_put_uint64.exit:                             ; preds = %do.body.i
   %arrayidx.i.le = getelementptr inbounds i8, ptr %buf, i64 %dec.i
@@ -1332,6 +1332,5 @@ attributes #6 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

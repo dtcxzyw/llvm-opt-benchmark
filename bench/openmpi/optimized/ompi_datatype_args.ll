@@ -450,7 +450,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @ompi_datatype_print_args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 16
@@ -647,7 +647,7 @@ define noundef i32 @ompi_datatype_print_args(ptr nocapture noundef readonly %0) 
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_datatype_get_args(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3, ptr nocapture noundef %4, ptr noundef writeonly %5, ptr nocapture noundef %6, ptr noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #4 {
+define range(i32 0, 18) i32 @ompi_datatype_get_args(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3, ptr nocapture noundef %4, ptr noundef writeonly %5, ptr nocapture noundef %6, ptr noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #4 {
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -921,7 +921,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_datatype_get_pack_description(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %struct.timespec, align 8
@@ -1186,7 +1186,7 @@ define i64 @ompi_datatype_pack_description_length(ptr noundef %0) local_unnamed_
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = call i32 @ompi_datatype_get_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !13
+  %12 = call i32 @ompi_datatype_get_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not8 = icmp eq i32 %12, 0
   br i1 %.not8, label %13, label %18
 
@@ -1291,7 +1291,7 @@ define internal fastcc ptr @__ompi_datatype_create_from_packed_description(ptr n
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = load ptr, ptr getelementptr inbounds ([53 x ptr], ptr @ompi_datatype_basicDatatypes, i64 0, i64 4), align 16
   store ptr %54, ptr %52, align 8
   br label %371
@@ -1299,7 +1299,7 @@ define internal fastcc ptr @__ompi_datatype_create_from_packed_description(ptr n
 55:                                               ; preds = %47, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %55, %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1767,7 +1767,7 @@ ompi_datatype_set_args.exit52.i:                  ; preds = %opal_thread_add_fet
   store volatile i32 1, ptr %328, align 8
   %338 = getelementptr inbounds i8, ptr %328, i64 8
   store i64 40, ptr %338, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull readonly align 8 dereferenceable(16) %29, i64 16, i1 false)
   store ptr %317, ptr %337, align 8
   %339 = getelementptr i8, ptr %317, i64 16
   %.val.i56.i = load i16, ptr %339, align 8
@@ -1911,7 +1911,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 399:                                              ; preds = %.lr.ph65, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !15
+  br i1 %exitcond74.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !14
 
 ._crit_edge66:                                    ; preds = %399, %371
   call void @free(ptr noundef %28) #14
@@ -1979,7 +1979,7 @@ define ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef reado
   %.1 = phi ptr [ %.02227, %24 ], [ %.02227, %19 ], [ %.021, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %24, %25, %.preheader, %1
   %.020 = phi ptr [ %0, %1 ], [ null, %.preheader ], [ null, %16 ], [ null, %24 ], [ %.1, %25 ]
@@ -2052,7 +2052,6 @@ attributes #14 = { nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

@@ -351,7 +351,7 @@ for.end:                                          ; preds = %for.body
   store i64 0, ptr %TCTR_base, align 8
   tail call fastcc void @rtl8139_set_next_tctr_time(ptr noundef nonnull %call.i)
   %tally_counters = getelementptr inbounds i8, ptr %call.i, i64 11136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tally_counters, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %tally_counters, i8 0, i64 64, i1 false)
   ret void
 }
 
@@ -404,7 +404,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rtl8139_ioport_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -1, 4294967296) i64 @rtl8139_ioport_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %return [
     i32 1, label %sw.bb
@@ -602,9 +602,9 @@ sw.bb31.i:                                        ; preds = %sw.bb2
   br label %rtl8139_io_readw.exit
 
 sw.default.i:                                     ; preds = %sw.bb2
-  %call36.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %conv3)
+  %call36.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv3)
   %add.i = add i8 %conv3, 1
-  %call39.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add.i)
+  %call39.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i)
   %shl.i = shl i32 %call39.i, 8
   %or.i = or i32 %shl.i, %call36.i
   br label %rtl8139_io_readw.exit
@@ -729,17 +729,17 @@ sw.bb21.i5:                                       ; preds = %sw.bb6
   br label %rtl8139_io_readl.exit
 
 sw.default.i23:                                   ; preds = %sw.bb6
-  %call25.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %conv7)
+  %call25.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv7)
   %add.i24 = add i8 %conv7, 1
-  %call28.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add.i24)
+  %call28.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i24)
   %shl.i25 = shl i32 %call28.i, 8
   %or.i26 = or i32 %shl.i25, %call25.i
   %add30.i = add i8 %conv7, 2
-  %call32.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add30.i)
+  %call32.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add30.i)
   %shl33.i = shl i32 %call32.i, 16
   %or34.i = or i32 %or.i26, %shl33.i
   %add36.i = add i8 %conv7, 3
-  %call38.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add36.i)
+  %call38.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add36.i)
   %shl39.i = shl i32 %call38.i, 24
   %or40.i = or i32 %or34.i, %shl39.i
   br label %rtl8139_io_readl.exit
@@ -1804,7 +1804,7 @@ if.then16.i:                                      ; preds = %sw.bb19
 
 rtl8139_Cfg9346_write.exit:                       ; preds = %sw.bb19, %if.end.i.i, %if.end21.i.i, %if.then25.i.i, %sw.bb.i.i.i, %if.then.i.i.i, %sw.bb9.i.i.i, %prom9346_decode_command.exit.i.i.i, %sw.bb22.i.i.i, %if.then36.i.i.i, %sw.bb42.i.i.i, %if.then53.i.i.i, %sw.bb64.i.i.i, %for.end.i.i.i, %if.then16.i
   %val.addr.0.i = phi i32 [ 0, %if.then16.i ], [ %or.i, %sw.bb19 ], [ %or.i, %if.end.i.i ], [ %or.i, %if.end21.i.i ], [ %or.i, %if.then25.i.i ], [ %or.i, %sw.bb.i.i.i ], [ %or.i, %if.then.i.i.i ], [ %or.i, %sw.bb9.i.i.i ], [ %or.i, %prom9346_decode_command.exit.i.i.i ], [ %or.i, %sw.bb22.i.i.i ], [ %or.i, %if.then36.i.i.i ], [ %or.i, %sw.bb42.i.i.i ], [ %or.i, %if.then53.i.i.i ], [ %or.i, %sw.bb64.i.i.i ], [ %or.i, %for.end.i.i.i ]
-  %conv18.i = trunc i32 %val.addr.0.i to i8
+  %conv18.i = trunc nuw i32 %val.addr.0.i to i8
   store i8 %conv18.i, ptr %Cfg9346.i, align 2
   br label %sw.epilog
 
@@ -2203,9 +2203,9 @@ for.body.lr.ph.i:                                 ; preds = %if.end221.i
 for.body.i:                                       ; preds = %if.end261.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end261.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %29
-  %30 = trunc i64 %indvars.iv.next.i to i32
+  %30 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp230.not.not.i = icmp sgt i32 %sub223.i, %30
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub233.i = sub nsw i32 %sub223.i, %31
   %spec.select219.i = select i1 %cmp230.not.not.i, i32 %and193.i, i32 %sub233.i
   store i64 %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12..i, ptr %add.ptr205.i, align 1

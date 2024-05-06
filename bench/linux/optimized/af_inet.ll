@@ -1265,7 +1265,7 @@ define dso_local i32 @inet_accept(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -107, 17) i32 @inet_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store i16 2, ptr %1, align 4
@@ -1337,7 +1337,7 @@ define dso_local noundef i32 @inet_getname(ptr nocapture noundef readonly %0, pt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_send_prepare(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @inet_send_prepare(ptr noundef %0) #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @rfs_needed, i32 2) #15
           to label %28 [label %2], !srcloc !26
 
@@ -4339,7 +4339,7 @@ declare dso_local i32 @datagram_poll(ptr noundef, ptr noundef, ptr noundef) #3
 declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ipv4_mib_init_net(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ipv4_mib_init_net(ptr nocapture noundef %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 8) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = getelementptr inbounds i8, ptr %0, i64 424

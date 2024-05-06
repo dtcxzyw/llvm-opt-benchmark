@@ -195,7 +195,7 @@ $_ZTI18SimpleTriggerEvent = comdat any
 @.str.18 = private unnamed_addr constant [24 x i8] c"fall_damage_add_percent\00", align 1
 @g_profiler = external local_unnamed_addr global ptr, align 8
 @.str.19 = private unnamed_addr constant [25 x i8] c"ClientEnv: CSO count [#]\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [39 x i8] c"ClientEnvironment::addActiveObject(): \00", align 1
 @.str.21 = private unnamed_addr constant [4 x i8] c"id=\00", align 1
 @.str.22 = private unnamed_addr constant [7 x i8] c" type=\00", align 1

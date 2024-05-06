@@ -51,7 +51,7 @@ define void @mca_common_ompio_check_gpu_buf(ptr nocapture noundef readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_buffer_alloc_init() local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_common_ompio_buffer_alloc_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_uses_threads, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %6
@@ -276,7 +276,7 @@ define ptr @mca_common_ompio_alloc_buf(ptr nocapture noundef readnone %0, i64 no
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @mca_common_ompio_buffer_alloc_init(), !range !7
+  %5 = tail call i32 @mca_common_ompio_buffer_alloc_init()
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -371,4 +371,3 @@ attributes #6 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -30, i32 1}

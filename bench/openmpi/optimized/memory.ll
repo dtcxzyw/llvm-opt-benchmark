@@ -263,7 +263,7 @@ define i32 @opal_mem_hooks_support_level() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_mem_hooks_register_release(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -14, 1) i32 @opal_mem_hooks_register_release(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @hooks_support, align 4
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 0
@@ -420,7 +420,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %52
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_mem_hooks_unregister_release(ptr noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_mem_hooks_unregister_release(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.b = load i1, ptr @is_initialized, align 4
   br i1 %.b, label %2, label %47
 

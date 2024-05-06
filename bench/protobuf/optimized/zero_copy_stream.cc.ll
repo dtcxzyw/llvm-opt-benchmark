@@ -463,13 +463,13 @@ if.then.i60:                                      ; preds = %lpad27
 
 cleanup.sink.split:                               ; preds = %invoke.cont28, %invoke.cont8
   %.sink.in = phi ptr [ %agg.tmp, %invoke.cont8 ], [ %agg.tmp26, %invoke.cont28 ]
-  %cmp.i792.ph = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ]
+  %retval.0.ph = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   call void @_ZdlPv(ptr noundef %.sink) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then3.i50, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43, %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %invoke.cont28, %invoke.cont8
-  %cmp.i792 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43 ], [ true, %if.then3.i50 ], [ %cmp.i792.ph, %cleanup.sink.split ]
+  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43 ], [ true, %if.then3.i50 ], [ %retval.0.ph, %cleanup.sink.split ]
   %70 = load i8, ptr %cord_buffer, align 8
   %71 = and i8 %70, 1
   %cmp.i.not.i62 = icmp eq i8 %71, 0
@@ -496,7 +496,7 @@ _ZN4absl12lts_2023080210CordBufferD2Ev.exit69:    ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i64, %cleanup, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %cmp.i792, %cleanup ], [ %cmp.i792, %if.then.i64 ]
+  %retval.1 = phi i1 [ true, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i64 ]
   ret i1 %retval.1
 }
 

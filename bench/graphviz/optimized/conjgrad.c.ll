@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = sext i32 %3 to i64
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 8)
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 8)
@@ -144,7 +144,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = sext i32 %3 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
   %10 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
@@ -229,7 +229,7 @@ define noundef i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @right_mult_with_vector_f(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = sext i32 %3 to i64
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 4)
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 4)

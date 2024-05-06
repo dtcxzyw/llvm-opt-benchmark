@@ -320,7 +320,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ipv6header_mt6_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2

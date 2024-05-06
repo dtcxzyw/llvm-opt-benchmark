@@ -830,7 +830,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L10hasServiceEv(), !range !4
+  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L10hasServiceEv()
   %tobool2.not = icmp eq i8 %call1, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
 
@@ -1088,7 +1088,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L10hasServiceEv(), !range !4
+  %call1 = tail call fastcc noundef signext i8 @_ZN6icu_75L10hasServiceEv()
   %tobool2.not = icmp eq i8 %call1, 0
   br i1 %tobool2.not, label %if.end, label %if.then3
 
@@ -1110,7 +1110,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZN6icu_75L10hasServiceEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L10hasServiceEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZL16gInitOnceBrkiter acquire, align 4
   %cmp.i.not = icmp eq i32 %0, 0
@@ -1570,7 +1570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7513BreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %fillInVec, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #15 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN6icu_7513BreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %fillInVec, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1747,7 +1747,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #18
   %0 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #18, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #18, !srcloc !4
   store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN6icu_7523ICUBreakIteratorServiceE, i64 0, i32 0, i64 2), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #18
@@ -1787,7 +1787,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %2, %lpad ]
   %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #18, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #18, !srcloc !4
   br label %eh.resume
 
 lpad4:                                            ; preds = %new.notnull
@@ -1884,5 +1884,4 @@ attributes #21 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = !{i64 2148261442}
+!4 = !{i64 2148261442}

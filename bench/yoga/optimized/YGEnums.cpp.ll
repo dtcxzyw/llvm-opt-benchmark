@@ -80,7 +80,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.YGWrapToString = private unnamed_addr constant [3 x ptr] [ptr @.str.59, ptr @.str.60, ptr @.str.61], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGAlignToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGAlignToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 9
   br i1 %0, label %switch.lookup, label %return
@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGDimensionToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGDimensionToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %value, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.11, ptr @.str.9
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGDirectionToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGDirectionToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return
@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGDisplayToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGDisplayToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %value, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.16, ptr @.str.9
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGEdgeToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGEdgeToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 9
   br i1 %0, label %switch.lookup, label %return
@@ -151,7 +151,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGErrataToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGErrataToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   switch i32 %value, label %sw.epilog [
     i32 0, label %return
@@ -190,7 +190,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGExperimentalFeatureToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGExperimentalFeatureToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %value, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.32, ptr @.str.9
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGFlexDirectionToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGFlexDirectionToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 4
   br i1 %0, label %switch.lookup, label %return
@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGGutterToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGGutterToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return
@@ -234,7 +234,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGJustifyToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGJustifyToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 6
   br i1 %0, label %switch.lookup, label %return
@@ -251,7 +251,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGLogLevelToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGLogLevelToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 6
   br i1 %0, label %switch.lookup, label %return
@@ -268,7 +268,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGMeasureModeToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGMeasureModeToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return
@@ -285,7 +285,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGNodeTypeToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGNodeTypeToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %value, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.47, ptr @.str.9
@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGOverflowToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGOverflowToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return
@@ -312,7 +312,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGPositionTypeToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGPositionTypeToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return
@@ -329,7 +329,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGPrintOptionsToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGPrintOptionsToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %switch.tableidx = add i32 %value, -1
   %0 = icmp ult i32 %switch.tableidx, 4
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGUnitToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGUnitToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 4
   br i1 %0, label %switch.lookup, label %return
@@ -364,7 +364,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @YGWrapToString(i32 noundef %value) local_unnamed_addr #0 {
+define noundef nonnull ptr @YGWrapToString(i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %value, 3
   br i1 %0, label %switch.lookup, label %return

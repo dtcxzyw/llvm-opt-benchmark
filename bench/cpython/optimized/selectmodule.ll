@@ -133,7 +133,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.62 = private unnamed_addr constant [38 x i8] c"too many file descriptors in select()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_select_exec(ptr noundef %m) #0 {
+define hidden range(i32 -1, 1) i32 @_select_exec(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #8
   %call1 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str) #8
@@ -878,33 +878,33 @@ update_ufd_array.exit.i:                          ; preds = %while.body.i.i, %if
 
 if.end28.i:                                       ; preds = %update_ufd_array.exit.i, %if.end21.i
   store i32 1, ptr %poll_running.i, align 8
-  %call3065.i = call ptr @PyEval_SaveThread() #8
+  %call3066.i = call ptr @PyEval_SaveThread() #8
   %call31.i = tail call ptr @__errno_location() #9
   store i32 0, ptr %call31.i, align 4
   %ufds.i = getelementptr inbounds i8, ptr %self, i64 32
   %19 = load ptr, ptr %ufds.i, align 8
   %ufd_len.i = getelementptr inbounds i8, ptr %self, i64 28
   %20 = load i32, ptr %ufd_len.i, align 4
-  %conv66.i = sext i32 %20 to i64
-  %conv3267.i = trunc i64 %spec.store.select.i to i32
-  %call3368.i = call i32 @poll(ptr noundef %19, i64 noundef %conv66.i, i32 noundef %conv3267.i) #8
-  call void @PyEval_RestoreThread(ptr noundef %call3065.i) #8
+  %conv67.i = sext i32 %20 to i64
+  %conv3268.i = trunc i64 %spec.store.select.i to i32
+  %call3369.i = call i32 @poll(ptr noundef %19, i64 noundef %conv67.i, i32 noundef %conv3268.i) #8
+  call void @PyEval_RestoreThread(ptr noundef %call3066.i) #8
   %21 = load i32, ptr %call31.i, align 4
-  %cmp35.not69.i = icmp eq i32 %21, 4
-  br i1 %cmp35.not69.i, label %if.end38.i.preheader, label %do.end.i
+  %cmp35.not70.i = icmp eq i32 %21, 4
+  br i1 %cmp35.not70.i, label %if.end38.i.preheader, label %do.end.i
 
 if.end38.i.preheader:                             ; preds = %if.end28.i
   %call39.i12 = call i32 @PyErr_CheckSignals() #8
   %tobool40.not.i13 = icmp eq i32 %call39.i12, 0
-  br i1 %tobool40.not.i13, label %if.end42.i, label %do.end.thread50.i
+  br i1 %tobool40.not.i13, label %if.end42.i, label %do.end.thread51.i
 
 if.end38.i:                                       ; preds = %do.cond.i
   %call39.i = call i32 @PyErr_CheckSignals() #8
   %tobool40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %tobool40.not.i, label %if.end42.i, label %do.end.thread50.i
+  br i1 %tobool40.not.i, label %if.end42.i, label %do.end.thread51.i
 
 if.end42.i:                                       ; preds = %if.end38.i.preheader, %if.end38.i
-  %ms.170.i14 = phi i64 [ %ms.2.i, %if.end38.i ], [ %spec.store.select.i, %if.end38.i.preheader ]
+  %ms.171.i14 = phi i64 [ %ms.2.i, %if.end38.i ], [ %spec.store.select.i, %if.end38.i.preheader ]
   %22 = load i64, ptr %timeout.i, align 8
   %cmp43.i = icmp sgt i64 %22, -1
   br i1 %cmp43.i, label %if.then45.i, label %do.cond.i
@@ -920,7 +920,7 @@ if.end50.i:                                       ; preds = %if.then45.i
   br label %do.cond.i
 
 do.cond.i:                                        ; preds = %if.end50.i, %if.end42.i
-  %ms.2.i = phi i64 [ %call51.i, %if.end50.i ], [ %ms.170.i14, %if.end42.i ]
+  %ms.2.i = phi i64 [ %call51.i, %if.end50.i ], [ %ms.171.i14, %if.end42.i ]
   %call30.i = call ptr @PyEval_SaveThread() #8
   store i32 0, ptr %call31.i, align 4
   %23 = load ptr, ptr %ufds.i, align 8
@@ -934,37 +934,37 @@ do.cond.i:                                        ; preds = %if.end50.i, %if.end
   br i1 %cmp35.not.i, label %if.end38.i, label %do.end.i
 
 do.end.i:                                         ; preds = %do.cond.i, %if.end28.i
-  %call33.lcssa.i = phi i32 [ %call3368.i, %if.end28.i ], [ %call33.i, %do.cond.i ]
+  %call33.lcssa.i = phi i32 [ %call3369.i, %if.end28.i ], [ %call33.i, %do.cond.i ]
   store i32 0, ptr %poll_running.i, align 8
   %cmp54.i = icmp slt i32 %call33.lcssa.i, 0
   br i1 %cmp54.i, label %if.then58.i, label %if.end61.i
 
-do.end.thread50.i:                                ; preds = %if.end38.i, %if.end38.i.preheader
-  %call3371.i.lcssa = phi i32 [ %call3368.i, %if.end38.i.preheader ], [ %call33.i, %if.end38.i ]
+do.end.thread51.i:                                ; preds = %if.end38.i, %if.end38.i.preheader
+  %call3372.i.lcssa = phi i32 [ %call3369.i, %if.end38.i.preheader ], [ %call33.i, %if.end38.i ]
   store i32 0, ptr %poll_running.i, align 8
-  %cmp5453.i = icmp slt i32 %call3371.i.lcssa, 0
-  br i1 %cmp5453.i, label %select_poll_poll_impl.exit, label %if.end61.i
+  %cmp5454.i = icmp slt i32 %call3372.i.lcssa, 0
+  br i1 %cmp5454.i, label %select_poll_poll_impl.exit, label %if.end61.i
 
 if.then58.i:                                      ; preds = %do.end.i
   %26 = load ptr, ptr @PyExc_OSError, align 8
   %call59.i = call ptr @PyErr_SetFromErrno(ptr noundef %26) #8
   br label %select_poll_poll_impl.exit
 
-if.end61.i:                                       ; preds = %do.end.thread50.i, %do.end.i
-  %poll_result.049.i = phi i32 [ %call33.lcssa.i, %do.end.i ], [ %call3371.i.lcssa, %do.end.thread50.i ]
-  %conv62.i = zext nneg i32 %poll_result.049.i to i64
+if.end61.i:                                       ; preds = %do.end.thread51.i, %do.end.i
+  %poll_result.050.i = phi i32 [ %call33.lcssa.i, %do.end.i ], [ %call3372.i.lcssa, %do.end.thread51.i ]
+  %conv62.i = zext nneg i32 %poll_result.050.i to i64
   %call63.i = call ptr @PyList_New(i64 noundef %conv62.i) #8
   %tobool64.not.i = icmp eq ptr %call63.i, null
   br i1 %tobool64.not.i, label %select_poll_poll_impl.exit, label %for.cond.preheader.i
 
 if.end61.thread.i:                                ; preds = %if.then45.i
   store i32 0, ptr %poll_running.i, align 8
-  %call6384.i = call ptr @PyList_New(i64 noundef 0) #8
+  %call6385.i = call ptr @PyList_New(i64 noundef 0) #8
   br label %select_poll_poll_impl.exit
 
 for.cond.preheader.i:                             ; preds = %if.end61.i
-  %cmp6772.not.i = icmp eq i32 %poll_result.049.i, 0
-  br i1 %cmp6772.not.i, label %select_poll_poll_impl.exit, label %while.cond.preheader.lr.ph.i
+  %cmp6773.not.i = icmp eq i32 %poll_result.050.i, 0
+  br i1 %cmp6773.not.i, label %select_poll_poll_impl.exit, label %while.cond.preheader.lr.ph.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
   %27 = getelementptr i8, ptr %call63.i, i64 24
@@ -972,12 +972,12 @@ while.cond.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
 
 while.cond.preheader.i:                           ; preds = %if.end95.i, %while.cond.preheader.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %while.cond.preheader.lr.ph.i ], [ %indvars.iv.next.i, %if.end95.i ]
-  %i.073.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %inc.i, %if.end95.i ]
+  %i.074.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %inc.i, %if.end95.i ]
   %28 = load ptr, ptr %ufds.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %while.cond.preheader.i
-  %i.1.i = phi i32 [ %inc.i, %while.cond.i ], [ %i.073.i, %while.cond.preheader.i ]
+  %i.1.i = phi i32 [ %inc.i, %while.cond.i ], [ %i.074.i, %while.cond.preheader.i ]
   %idxprom.i = sext i32 %i.1.i to i64
   %revents.i = getelementptr %struct.pollfd, ptr %28, i64 %idxprom.i, i32 2
   %29 = load i16, ptr %revents.i, align 2
@@ -1035,11 +1035,11 @@ if.end.i102.i:                                    ; preds = %if.then94.i
   br i1 %cmp.i104.i, label %error.sink.split.i, label %error.i
 
 if.end95.i:                                       ; preds = %if.end84.i
-  %arrayidx.i42.i = getelementptr i8, ptr %call71.i, i64 32
-  store ptr %call91.i, ptr %arrayidx.i42.i, align 8
+  %arrayidx.i43.i = getelementptr i8, ptr %call71.i, i64 32
+  store ptr %call91.i, ptr %arrayidx.i43.i, align 8
   %call63.val.i = load ptr, ptr %27, align 8
-  %arrayidx.i43.i = getelementptr ptr, ptr %call63.val.i, i64 %indvars.iv.i
-  store ptr %call71.i, ptr %arrayidx.i43.i, align 8
+  %arrayidx.i44.i = getelementptr ptr, ptr %call63.val.i, i64 %indvars.iv.i
+  store ptr %call71.i, ptr %arrayidx.i44.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv62.i
   br i1 %exitcond.not.i, label %select_poll_poll_impl.exit, label %while.cond.preheader.i, !llvm.loop !7
@@ -1064,8 +1064,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call63.i) #8
   br label %select_poll_poll_impl.exit
 
-select_poll_poll_impl.exit:                       ; preds = %if.end95.i, %if.then2.i, %if.then4.i, %if.then9.i, %if.then20.i, %update_ufd_array.exit.thread.i, %do.end.thread50.i, %if.then58.i, %if.end61.i, %if.end61.thread.i, %for.cond.preheader.i, %error.i, %if.end.i.i, %if.then1.i.i
-  %retval.0.i = phi ptr [ null, %if.then9.i ], [ null, %if.then20.i ], [ null, %if.then4.i ], [ null, %if.then2.i ], [ null, %if.then58.i ], [ null, %if.end61.i ], [ null, %error.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ null, %update_ufd_array.exit.thread.i ], [ null, %do.end.thread50.i ], [ %call63.i, %for.cond.preheader.i ], [ %call6384.i, %if.end61.thread.i ], [ %call63.i, %if.end95.i ]
+select_poll_poll_impl.exit:                       ; preds = %if.end95.i, %if.then2.i, %if.then4.i, %if.then9.i, %if.then20.i, %update_ufd_array.exit.thread.i, %do.end.thread51.i, %if.then58.i, %if.end61.i, %if.end61.thread.i, %for.cond.preheader.i, %error.i, %if.end.i.i, %if.then1.i.i
+  %retval.0.i = phi ptr [ null, %if.then9.i ], [ null, %if.then20.i ], [ null, %if.then4.i ], [ null, %if.then2.i ], [ null, %if.then58.i ], [ null, %if.end61.i ], [ null, %error.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ null, %update_ufd_array.exit.thread.i ], [ null, %do.end.thread51.i ], [ %call63.i, %for.cond.preheader.i ], [ %call6385.i, %if.end61.thread.i ], [ %call63.i, %if.end95.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timeout.i)
   br label %exit
 
@@ -2277,17 +2277,17 @@ if.end13.i:                                       ; preds = %skip_optional.threa
   store i32 -1, ptr %sentinel15.i, align 4
   %sentinel17.i = getelementptr inbounds i8, ptr %efd2obj.i, i64 12
   store i32 -1, ptr %sentinel17.i, align 4
-  %call18.i = call fastcc i32 @seq2set(ptr noundef %1, ptr noundef nonnull %ifdset.i, ptr noundef nonnull %rfd2obj.i), !range !9
+  %call18.i = call fastcc i32 @seq2set(ptr noundef %1, ptr noundef nonnull %ifdset.i, ptr noundef nonnull %rfd2obj.i)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %finally.i, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end13.i
-  %call23.i = call fastcc i32 @seq2set(ptr noundef %2, ptr noundef nonnull %ofdset.i, ptr noundef nonnull %wfd2obj.i), !range !9
+  %call23.i = call fastcc i32 @seq2set(ptr noundef %2, ptr noundef nonnull %ofdset.i, ptr noundef nonnull %wfd2obj.i)
   %cmp24.i = icmp slt i32 %call23.i, 0
   br i1 %cmp24.i, label %finally.i, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %call28.i = call fastcc i32 @seq2set(ptr noundef %3, ptr noundef nonnull %efdset.i, ptr noundef nonnull %efd2obj.i), !range !9
+  %call28.i = call fastcc i32 @seq2set(ptr noundef %3, ptr noundef nonnull %efdset.i, ptr noundef nonnull %efd2obj.i)
   %cmp29.i = icmp slt i32 %call28.i, 0
   br i1 %cmp29.i, label %finally.i, label %if.end31.i
 
@@ -2483,7 +2483,7 @@ if.then1.i.i43.i:                                 ; preds = %if.end.i.i40.i
 for.inc.i.i:                                      ; preds = %if.then1.i.i43.i, %if.end.i.i40.i, %if.then.i39.i, %do.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 1025
-  br i1 %exitcond.not.i.i, label %land.rhs.i44.i.preheader, label %land.rhs.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %land.rhs.i44.i.preheader, label %land.rhs.i.i, !llvm.loop !9
 
 land.rhs.i44.i.preheader:                         ; preds = %for.inc.i.i, %land.rhs.i.i
   br label %land.rhs.i44.i
@@ -2521,7 +2521,7 @@ if.then1.i.i60.i:                                 ; preds = %if.end.i.i57.i
 for.inc.i54.i:                                    ; preds = %if.then1.i.i60.i, %if.end.i.i57.i, %if.then.i52.i, %do.body.i50.i
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, 1025
-  br i1 %exitcond.not.i56.i, label %land.rhs.i62.i.preheader, label %land.rhs.i44.i, !llvm.loop !10
+  br i1 %exitcond.not.i56.i, label %land.rhs.i62.i.preheader, label %land.rhs.i44.i, !llvm.loop !9
 
 land.rhs.i62.i.preheader:                         ; preds = %for.inc.i54.i, %land.rhs.i44.i
   br label %land.rhs.i62.i
@@ -2559,7 +2559,7 @@ if.then1.i.i78.i:                                 ; preds = %if.end.i.i75.i
 for.inc.i72.i:                                    ; preds = %if.then1.i.i78.i, %if.end.i.i75.i, %if.then.i70.i, %do.body.i68.i
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, 1025
-  br i1 %exitcond.not.i74.i, label %select_select_impl.exit, label %land.rhs.i62.i, !llvm.loop !10
+  br i1 %exitcond.not.i74.i, label %select_select_impl.exit, label %land.rhs.i62.i, !llvm.loop !9
 
 return.sink.split.i:                              ; preds = %if.end9.i, %if.then2.i
   %PyExc_TypeError.sink.i = phi ptr [ @PyExc_TypeError, %if.then2.i ], [ @PyExc_ValueError, %if.end9.i ]
@@ -2632,7 +2632,7 @@ select_poll_impl.exit:                            ; preds = %entry, %if.end.i.i,
 declare i32 @_PyTime_AsTimeval(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @seq2set(ptr noundef %seq, ptr nocapture noundef %set, ptr nocapture noundef writeonly %fd2obj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef %set, ptr nocapture noundef writeonly %fd2obj) unnamed_addr #0 {
 entry:
   store ptr null, ptr %fd2obj, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %set, i8 0, i64 128, i1 false)
@@ -2722,7 +2722,7 @@ if.end44:                                         ; preds = %if.end33
   %inc57 = add nuw nsw i64 %i.0, 1
   %sentinel55 = getelementptr %struct.pylist, ptr %fd2obj, i64 %inc57, i32 2
   store i32 -1, ptr %sentinel55, align 4
-  br label %for.cond3, !llvm.loop !11
+  br label %for.cond3, !llvm.loop !10
 
 for.end58:                                        ; preds = %cond.end.thread, %cond.end
   %7 = load i64, ptr %call, align 8
@@ -2822,7 +2822,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sentinel = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %sentinel, align 4
   %cmp = icmp sgt i32 %3, -1
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
   %4 = sext i32 %spec.select to i64
@@ -2876,7 +2876,7 @@ for.inc47:                                        ; preds = %for.body19, %if.end
   %sentinel16 = getelementptr inbounds i8, ptr %arrayidx15, i64 12
   %9 = load i32, ptr %sentinel16, align 4
   %cmp17 = icmp sgt i32 %9, -1
-  br i1 %cmp17, label %for.body19, label %return, !llvm.loop !13
+  br i1 %cmp17, label %for.body19, label %return, !llvm.loop !12
 
 finally:                                          ; preds = %if.then33
   %10 = load i64, ptr %call, align 8
@@ -2951,8 +2951,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1025}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

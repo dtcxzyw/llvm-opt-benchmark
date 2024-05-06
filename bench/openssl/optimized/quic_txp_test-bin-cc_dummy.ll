@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dummy_set_input_params(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dummy_set_input_params(ptr nocapture noundef %cc, ptr noundef %params) #0 {
 entry:
   %value = alloca i64, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #3
@@ -72,7 +72,7 @@ return:                                           ; preds = %if.then.i, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dummy_bind_diagnostic(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dummy_bind_diagnostic(ptr nocapture noundef %cc, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null

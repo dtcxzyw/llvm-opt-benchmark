@@ -111,7 +111,7 @@ define void @init_node_conf() #0 {
   br i1 %or.cond.i, label %.preheader.i, label %.loopexit, !llvm.loop !6
 
 next_node.exit:                                   ; preds = %.preheader.i
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   tail call void @delete_node_record(ptr noundef nonnull %10)
   %13 = add nsw i32 %12, 1
   %14 = load ptr, ptr @node_record_table_ptr, align 8
@@ -190,10 +190,10 @@ define void @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef %1) #0 {
   %16 = getelementptr inbounds i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 64
-  %19 = call i32 @node_name2bitmap(ptr noundef %17, i1 noundef zeroext true, ptr noundef nonnull %18), !range !10
+  %19 = call i32 @node_name2bitmap(ptr noundef %17, i1 noundef zeroext true, ptr noundef nonnull %18)
   %20 = call ptr @list_next(ptr noundef %13) #15
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !11
+  br i1 %.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !10
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %11
   call void @list_iterator_destroy(ptr noundef %13) #15
@@ -245,7 +245,7 @@ define void @rehash_node() #0 {
   br i1 %or.cond.i, label %.preheader.i, label %.loopexit, !llvm.loop !6
 
 next_node.exit:                                   ; preds = %.preheader.i
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %13 = getelementptr inbounds i8, ptr %10, i64 256
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -268,14 +268,14 @@ next_node.exit:                                   ; preds = %.preheader.i
   %24 = phi i32 [ %4, %next_node.exit ], [ %4, %16 ], [ %.pre, %19 ]
   %25 = add nsw i32 %12, 1
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %22, %.lr.ph, %11, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -319,7 +319,7 @@ define i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %
   tail call void @free(ptr noundef nonnull %12) #15
   %21 = tail call ptr @hostlist_next(ptr noundef %10) #15
   %.not18.us = icmp eq ptr %21, null
-  br i1 %.not18.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not18.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
   %22 = phi ptr [ %31, %30 ], [ %11, %.lr.ph ]
@@ -344,7 +344,7 @@ define i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %
   tail call void @free(ptr noundef nonnull %22) #15
   %31 = tail call ptr @hostlist_next(ptr noundef %10) #15
   %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not18, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %20, %6
   %.0.lcssa = phi i32 [ 0, %6 ], [ 0, %20 ], [ %.1, %30 ]
@@ -430,7 +430,7 @@ next_node_bitmap.exit:                            ; preds = %.lr.ph.i
   %27 = load i32, ptr @node_record_count, align 4
   %.not11.i = icmp slt i32 %25, %27
   %or.cond = select i1 %.not.i, i1 %.not11.i, i1 false
-  br i1 %or.cond, label %.preheader.i, label %next_node_bitmap.exit.thread, !llvm.loop !14
+  br i1 %or.cond, label %.preheader.i, label %next_node_bitmap.exit.thread, !llvm.loop !13
 
 next_node_bitmap.exit.thread:                     ; preds = %next_node_bitmap.exit, %.preheader.i, %16, %3, %1
   %.0 = phi ptr [ null, %1 ], [ %4, %3 ], [ %4, %16 ], [ %4, %.preheader.i ], [ %4, %next_node_bitmap.exit ]
@@ -960,7 +960,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 113:                                              ; preds = %107
-  %114 = trunc i32 %109 to i16
+  %114 = trunc nuw i32 %109 to i16
   br label %115
 
 115:                                              ; preds = %113, %101
@@ -989,7 +989,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @free(ptr noundef nonnull %80) #15
   %123 = call ptr @hostlist_shift(ptr noundef nonnull %29) #15
   %.not154 = icmp eq ptr %123, null
-  br i1 %.not154, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not154, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %122, %121
   %.not161 = icmp eq ptr %.1117, null
@@ -1035,7 +1035,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_check_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) #0 {
+define internal range(i32 0, 2170) i32 @_check_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) #0 {
   %9 = tail call fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -1115,7 +1115,7 @@ declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @bit_alloc(i64 noundef %5) #15
@@ -1166,7 +1166,7 @@ define i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocaptur
   tail call void @free(ptr noundef nonnull %16) #15
   %25 = tail call ptr @hostlist_shift(ptr noundef nonnull %13) #15
   %.not.us = icmp eq ptr %25, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 26:                                               ; preds = %12
   %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #15
@@ -1196,7 +1196,7 @@ define i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocaptur
   tail call void @free(ptr noundef nonnull %28) #15
   %37 = tail call ptr @hostlist_shift(ptr noundef nonnull %13) #15
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %36, %24, %.preheader
   %.1.lcssa = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %.2, %36 ]
@@ -1211,7 +1211,7 @@ define i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocaptur
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @build_node_spec_bitmap(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 512
   %4 = load i16, ptr %3, align 8
@@ -1291,7 +1291,7 @@ define noundef i32 @build_node_spec_bitmap(ptr noundef %0) local_unnamed_addr #0
   %45 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next
   %46 = load i32, ptr %45, align 4
   %.not36 = icmp eq i32 %46, -1
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %41, %20, %31
   %47 = load ptr, ptr %17, align 8
@@ -1343,7 +1343,7 @@ define noundef i32 @state_str2int(ptr noundef %0, ptr noundef %1) local_unnamed_
 11:                                               ; preds = %7
   %12 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %12, 8
-  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !17
 
 13:                                               ; preds = %7, %3
   %.013 = phi i32 [ -2, %3 ], [ %.020, %7 ]
@@ -1467,7 +1467,7 @@ define void @grow_node_record_table_ptr() local_unnamed_addr #0 {
   br i1 %or.cond.i.i, label %.preheader.i.i, label %rehash_node.exit, !llvm.loop !6
 
 next_node.exit.i:                                 ; preds = %.preheader.i.i
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nsw i64 %indvars.iv.i to i32
   %23 = getelementptr inbounds i8, ptr %20, i64 256
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
@@ -1490,7 +1490,7 @@ next_node.exit.i:                                 ; preds = %.preheader.i.i
   %34 = phi i32 [ %14, %next_node.exit.i ], [ %14, %26 ], [ %.pre.i, %29 ]
   %35 = add nsw i32 %22, 1
   %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %rehash_node.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i.i, label %rehash_node.exit, label %.lr.ph.i, !llvm.loop !11
 
 rehash_node.exit:                                 ; preds = %.lr.ph.i, %32, %21, %6
   ret void
@@ -1499,7 +1499,7 @@ rehash_node.exit:                                 ; preds = %.lr.ph.i, %32, %21,
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = load i32, ptr @node_record_table_size, align 4
   %.not = icmp slt i32 %4, %5
@@ -1673,7 +1673,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not55.i, label %116, label %89
 
 89:                                               ; preds = %83
-  %90 = tail call i32 @build_node_spec_bitmap(ptr noundef nonnull %15), !range !19
+  %90 = tail call i32 @build_node_spec_bitmap(ptr noundef nonnull %15)
   %91 = load i16, ptr %84, align 8
   %92 = icmp ugt i16 %91, 1
   br i1 %92, label %93, label %_init_node_record.exit
@@ -1720,7 +1720,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %111 = load i16, ptr %76, align 8
   %112 = zext i16 %111 to i64
   %113 = icmp ult i64 %indvars.iv.next.pre-phi.i.i, %112
-  br i1 %113, label %99, label %._crit_edge.i.i, !llvm.loop !20
+  br i1 %113, label %99, label %._crit_edge.i.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %110, %93
   tail call void @slurm_xfree(ptr noundef nonnull %88) #15
@@ -1816,13 +1816,13 @@ _convert_cpu_spec_list.exit.i:                    ; preds = %115, %._crit_edge.i
   %160 = icmp ne i32 %158, 0
   %161 = icmp ne i32 %159, %.035.i.i
   %162 = select i1 %160, i1 %161, i1 false
-  br i1 %162, label %140, label %._crit_edge.us.i.i, !llvm.loop !21
+  br i1 %162, label %140, label %._crit_edge.us.i.i, !llvm.loop !19
 
 ._crit_edge.us.i.i:                               ; preds = %140
   %163 = add nsw i32 %.04044.us.i.i, %.034.i.i
   %164 = icmp ne i32 %163, %.038.i.i
   %165 = select i1 %160, i1 %164, i1 false
-  br i1 %165, label %.preheader.us.i.i, label %._crit_edge46.i.i, !llvm.loop !22
+  br i1 %165, label %.preheader.us.i.i, label %._crit_edge46.i.i, !llvm.loop !20
 
 ._crit_edge46.i.i:                                ; preds = %._crit_edge.us.i.i, %139
   %166 = tail call ptr @bit_fmt_full(ptr noundef %122) #15
@@ -1856,7 +1856,7 @@ _init_node_record.exit:                           ; preds = %89, %_convert_cpu_s
 declare ptr @xhash_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   store ptr %4, ptr %2, align 8
   %.not = icmp eq ptr %4, null
@@ -1880,7 +1880,7 @@ define i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br i1 %.not15, label %11, label %25
 
 11:                                               ; preds = %8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call ptr @create_node_record_at(i32 noundef %12, ptr noundef %0, ptr noundef %1)
   store ptr %13, ptr %2, align 8
   %.not16 = icmp eq ptr %13, null
@@ -1905,7 +1905,7 @@ define i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
 25:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !21
 
 .loopexit:                                        ; preds = %25, %14, %.preheader, %11, %3
   %.014 = phi i32 [ 2168, %3 ], [ 2169, %11 ], [ 2169, %.preheader ], [ %24, %14 ], [ 2169, %25 ]
@@ -1941,7 +1941,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %41
 
 8:                                                ; preds = %5
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = load i32, ptr @last_node_index, align 4
   %11 = icmp slt i32 %10, %9
   br i1 %11, label %12, label %13
@@ -2001,7 +2001,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
 41:                                               ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %41, %1
   %42 = getelementptr inbounds i8, ptr %0, i64 256
@@ -2016,7 +2016,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_find_config_ptr(ptr noundef readnone %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @_find_config_ptr(ptr noundef readnone %0, ptr noundef readnone %1) #7 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -2046,7 +2046,7 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %16, %15 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %.sink.split
 
@@ -2055,7 +2055,7 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds ptr, ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %12, label %19, !llvm.loop !25
+  br i1 %.not, label %12, label %19, !llvm.loop !23
 
 19:                                               ; preds = %15
   %20 = trunc i64 %16 to i32
@@ -2106,7 +2106,7 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader.i.preheader.i
 
 38:                                               ; preds = %next_node.exit.i
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nsw i64 %indvars.iv.i to i32
   %40 = add nsw i32 %39, 1
   %.not8.i.i = icmp slt i32 %40, %34
   br i1 %.not8.i.i, label %.preheader.i.preheader.i, label %.critedge.i
@@ -2448,12 +2448,12 @@ define void @node_fini2() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %.preheader.i, label %.loopexit, !llvm.loop !6
 
 next_node.exit:                                   ; preds = %.preheader.i
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv to i32
   tail call void @delete_node_record(ptr noundef nonnull %9)
   %12 = add nsw i32 %11, 1
   %13 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %next_node.exit, %.lr.ph, %10, %0
   %14 = load ptr, ptr @config_list, align 8
@@ -2593,7 +2593,7 @@ define void @cr_init_global_core_data(ptr nocapture noundef readonly %0, i32 nou
   %26 = add i32 %21, %25
   %27 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   br label %30
 
 29:                                               ; preds = %12
@@ -2604,7 +2604,7 @@ define void @cr_init_global_core_data(ptr nocapture noundef readonly %0, i32 nou
   %.1 = phi i32 [ %28, %18 ], [ %.021, %29 ], [ %.021, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %30
   %.pre = load ptr, ptr @cr_node_cores_offset, align 8
@@ -2773,14 +2773,14 @@ define ptr @node_conf_get_active_bitmap() local_unnamed_addr #0 {
   br i1 %or.cond.i.i, label %.preheader.i.i, label %node_conf_set_all_active_bits.exit, !llvm.loop !6
 
 next_node.exit.i:                                 ; preds = %.preheader.i.i
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nsw i64 %indvars.iv.i to i32
   %sext.i = shl i64 %indvars.iv.i, 32
   %15 = ashr exact i64 %sext.i, 32
   tail call void @bit_set(ptr noundef %3, i64 noundef %15) #15
   %16 = add nsw i32 %14, 1
   %17 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %node_conf_set_all_active_bits.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i.i, label %node_conf_set_all_active_bits.exit, label %.lr.ph.i, !llvm.loop !26
 
 node_conf_set_all_active_bits.exit:               ; preds = %.lr.ph.i, %next_node.exit.i, %13, %0
   ret ptr %3
@@ -2821,14 +2821,14 @@ define void @node_conf_set_all_active_bits(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond.i, label %.preheader.i, label %.loopexit, !llvm.loop !6
 
 next_node.exit:                                   ; preds = %.preheader.i
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %sext = shl i64 %indvars.iv, 32
   %13 = ashr exact i64 %sext, 32
   tail call void @bit_set(ptr noundef %0, i64 noundef %13) #15
   %14 = add nsw i32 %12, 1
   %15 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %next_node.exit, %.lr.ph, %11, %1
   ret void
@@ -2877,7 +2877,7 @@ define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nocapture nou
 .critedge2:                                       ; preds = %.preheader..critedge2_crit_edge, %10
   %.pr = phi i8 [ %.pr.pre, %.preheader..critedge2_crit_edge ], [ %14, %10 ]
   %19 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader, !llvm.loop !27
 
 .critedge:                                        ; preds = %10
   %20 = getelementptr inbounds i8, ptr %.0, i64 1
@@ -2984,7 +2984,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 23}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -2993,7 +2993,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = !{i32 -1, i32 1}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
@@ -3002,5 +3002,3 @@ attributes #18 = { nounwind willreturn memory(none) }
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}

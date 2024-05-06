@@ -1528,7 +1528,7 @@ define noundef zeroext i1 @_ZN5Ipopt16MonotoneMuUpdate22UpdateBarrierParameterEv
   %.02967 = phi double [ %25, %.lr.ph ], [ %.13061, %.thread53 ]
   %.03166 = phi double [ %17, %.lr.ph ], [ %.13260, %.thread53 ]
   %.03365 = phi double [ %11, %.lr.ph ], [ %.sroa.speculated.i13.i, %.thread53 ]
-  %42 = trunc i8 %.02768 to i1
+  %42 = trunc nuw i8 %.02768 to i1
   br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %41
@@ -1730,7 +1730,7 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
   %.132 = phi double [ %141, %136 ], [ %.03166, %132 ]
   %.130 = phi double [ %143, %136 ], [ %.02967, %132 ]
   %.128 = phi i8 [ %145, %136 ], [ 1, %132 ]
-  %147 = trunc i8 %.128 to i1
+  %147 = trunc nuw i8 %.128 to i1
   %.not37 = xor i1 %147, true
   %brmerge39 = or i1 %110, %.not37
   br i1 %brmerge39, label %.thread53, label %148

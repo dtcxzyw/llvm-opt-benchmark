@@ -35,7 +35,7 @@ _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit.i:
   store <2 x float> <float 0x3FE92E0560000000, float 0x3FD44774C0000000>, ptr %this, align 8
   store float 0x3FE0F23020000000, ptr %z.i.i.i, align 8
   store i8 0, ptr %mFinalized, align 8
-  invoke void @_ZN6Assimp11SpatialSort6AppendEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset, i1 noundef zeroext true)
+  invoke void @_ZN6Assimp11SpatialSort6AppendEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset, i1 noundef zeroext true)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit.i
@@ -414,7 +414,7 @@ for.end27:                                        ; preds = %for.body16, %entry,
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end27
-  %25 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i17.lcssa, i1 true), !range !17
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i17.lcssa, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %25, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %.lcssa, ptr %.lcssa21, i64 noundef %mul.i.i)
@@ -520,7 +520,7 @@ while.body:                                       ; preds = %while.body.preheade
   %index.1 = add i32 %index.1.p, %index.057
   %div3025 = lshr i32 %binaryStepSize.056, 1
   %cmp20 = icmp ugt i32 %binaryStepSize.056, 3
-  br i1 %cmp20, label %while.body, label %while.cond31.preheader, !llvm.loop !18
+  br i1 %cmp20, label %while.body, label %while.cond31.preheader, !llvm.loop !17
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body38
   %indvars.iv = phi i64 [ %18, %land.rhs.preheader ], [ %indvars.iv.next, %while.body38 ]
@@ -533,7 +533,7 @@ while.body38:                                     ; preds = %land.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = and i64 %indvars.iv.next, 4294967295
   %cmp32.not = icmp eq i64 %22, 0
-  br i1 %cmp32.not, label %while.end39, label %land.rhs, !llvm.loop !19
+  br i1 %cmp32.not, label %while.end39, label %land.rhs, !llvm.loop !18
 
 while.end39.loopexit.split.loop.exit69:           ; preds = %land.rhs
   %23 = trunc nuw i64 %indvars.iv to i32
@@ -550,7 +550,7 @@ while.cond40:                                     ; preds = %land.rhs46
   %inc = add i32 %index.364, 1
   %conv41 = zext i32 %inc to i64
   %cmp45 = icmp ugt i64 %sub44, %conv41
-  br i1 %cmp45, label %land.rhs46, label %while.end54, !llvm.loop !20
+  br i1 %cmp45, label %land.rhs46, label %while.end54, !llvm.loop !19
 
 land.rhs46:                                       ; preds = %while.end39, %while.cond40
   %conv4165 = phi i64 [ %conv41, %while.cond40 ], [ %conv4162, %while.end39 ]
@@ -668,7 +668,7 @@ if.end72:                                         ; preds = %_ZNSt6vectorIjSaIjE
   %incdec.ptr.i49 = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 20
   %42 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i = icmp eq ptr %incdec.ptr.i49, %42
-  br i1 %cmp.i, label %while.end81, label %while.cond60, !llvm.loop !21
+  br i1 %cmp.i, label %while.end81, label %while.cond60, !llvm.loop !20
 
 while.end81:                                      ; preds = %if.end72, %while.cond60, %if.end7, %if.end, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   ret void
@@ -754,7 +754,7 @@ while.body:                                       ; preds = %while.body.preheade
   %index.1 = add i32 %index.1.p, %index.063
   %div1520 = lshr i32 %binaryStepSize.062, 1
   %cmp = icmp ugt i32 %binaryStepSize.062, 3
-  br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !22
+  br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !21
 
 land.rhs:                                         ; preds = %while.cond16.preheader, %while.body24
   %index.265 = phi i32 [ %dec, %while.body24 ], [ %index.0.lcssa, %while.cond16.preheader ]
@@ -770,7 +770,7 @@ land.rhs:                                         ; preds = %while.cond16.prehea
 while.body24:                                     ; preds = %land.rhs
   %dec = add i32 %index.265, -1
   %cmp17.not = icmp eq i32 %dec, 0
-  br i1 %cmp17.not, label %while.end25, label %land.rhs, !llvm.loop !23
+  br i1 %cmp17.not, label %while.end25, label %land.rhs, !llvm.loop !22
 
 while.end25:                                      ; preds = %land.rhs, %while.body24, %while.cond16.preheader
   %index.2.lcssa = phi i32 [ 0, %while.cond16.preheader ], [ 0, %while.body24 ], [ %index.265, %land.rhs ]
@@ -783,7 +783,7 @@ while.cond26:                                     ; preds = %land.rhs32
   %inc = add i32 %index.370, 1
   %conv27 = zext i32 %inc to i64
   %cmp31 = icmp ugt i64 %sub30, %conv27
-  br i1 %cmp31, label %land.rhs32, label %while.end41, !llvm.loop !24
+  br i1 %cmp31, label %land.rhs32, label %while.end41, !llvm.loop !23
 
 land.rhs32:                                       ; preds = %while.end25, %while.cond26
   %conv2771 = phi i64 [ %conv27, %while.cond26 ], [ %conv2768, %while.end25 ]
@@ -910,7 +910,7 @@ if.end63:                                         ; preds = %_ZNSt6vectorIjSaIjE
   %incdec.ptr.i54 = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 20
   %35 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i = icmp eq ptr %incdec.ptr.i54, %35
-  br i1 %cmp.i, label %while.end72, label %while.cond48, !llvm.loop !25
+  br i1 %cmp.i, label %while.end72, label %while.cond48, !llvm.loop !24
 
 while.end72:                                      ; preds = %if.end63, %while.cond48
   ret void
@@ -1061,7 +1061,7 @@ for.body29:                                       ; preds = %land.rhs
   %sub.ptr.sub.i35 = sub i64 %sub.ptr.lhs.cast.i33, %sub.ptr.rhs.cast.i34
   %sub.ptr.div.i36 = ashr exact i64 %sub.ptr.sub.i35, 2
   %cmp17 = icmp ult i64 %i.1, %sub.ptr.div.i36
-  br i1 %cmp17, label %land.lhs.true, label %for.body29.for.end.loopexit_crit_edge, !llvm.loop !26
+  br i1 %cmp17, label %land.lhs.true, label %for.body29.for.end.loopexit_crit_edge, !llvm.loop !25
 
 for.body29.for.end.loopexit_crit_edge:            ; preds = %for.body29
   %.pre71.pre = load ptr, ptr %mPositions, align 8
@@ -1078,7 +1078,7 @@ for.end:                                          ; preds = %land.rhs, %land.lhs
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 20
   %cmp = icmp ult i64 %i.1.lcssa, %sub.ptr.div.i22
-  br i1 %cmp, label %for.body, label %for.end37, !llvm.loop !27
+  br i1 %cmp, label %for.body, label %for.end37, !llvm.loop !26
 
 for.end37:                                        ; preds = %for.end, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
   %t.0.lcssa = phi i32 [ 0, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ], [ %inc36, %for.end ]
@@ -1216,7 +1216,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %4 = load float, ptr %mDistance.i.i.i6.i, align 4
   %cmp.i.i.i7.i = fcmp olt float %4, %3
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 20
-  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !28
+  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !27
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
@@ -1224,7 +1224,7 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %mDistance2.i.i3.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -4
   %5 = load float, ptr %mDistance2.i.i3.i.i, align 4
   %cmp.i.i4.i.i = fcmp olt float %3, %5
-  br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !29
+  br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !28
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
   %cmp.i.i.i = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -1236,14 +1236,14 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %__first.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %__last.sroa.0.1.i.i, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %__last.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %__tmp.i.i.i4.i, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %__tmp.i.i.i4.i)
-  br label %while.body.i.i, !llvm.loop !30
+  br label %while.body.i.i, !llvm.loop !29
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit: ; preds = %while.end18.i.i
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %__first.sroa.0.1.i.i, ptr %storemerge7, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 320
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !31
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !30
 
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %entry, %if.then
   ret void
@@ -1302,7 +1302,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %mDistance2.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.010.i.i, i64 -24
   %3 = load float, ptr %mDistance2.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %0, %3
-  br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !32
+  br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !31
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %while.body.i.i, %if.else.i
   %__last.sroa.0.0.lcssa.i.i = phi ptr [ %__i.sroa.0.012.i.ptr, %if.else.i ], [ %__next.sroa.0.0.i.i, %while.body.i.i ]
@@ -1315,7 +1315,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11Spatia
 for.inc.i:                                        ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %__i.sroa.0.012.i.add = add nuw nsw i64 %__i.sroa.0.012.i.idx, 20
   %cmp.i1.not.i = icmp eq i64 %__i.sroa.0.012.i.add, 320
-  br i1 %cmp.i1.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit, label %for.body.i, !llvm.loop !33
+  br i1 %cmp.i1.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit, label %for.body.i, !llvm.loop !32
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit: ; preds = %for.inc.i
   %add.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 320
@@ -1341,7 +1341,7 @@ while.body.i.i9:                                  ; preds = %for.body.i3, %while
   %mDistance2.i.i.i.i12 = getelementptr inbounds i8, ptr %__last.sroa.0.010.i.i10, i64 -24
   %5 = load float, ptr %mDistance2.i.i.i.i12, align 4
   %cmp.i.i.i.i13 = fcmp olt float %__val.sroa.2.0.copyload.i.i, %5
-  br i1 %cmp.i.i.i.i13, label %while.body.i.i9, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i6, !llvm.loop !32
+  br i1 %cmp.i.i.i.i13, label %while.body.i.i9, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i6, !llvm.loop !31
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i6: ; preds = %while.body.i.i9, %for.body.i3
   %__last.sroa.0.0.lcssa.i.i7 = phi ptr [ %__i.sroa.0.03.i, %for.body.i3 ], [ %__next.sroa.0.0.i.i11, %while.body.i.i9 ]
@@ -1351,7 +1351,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11Spatia
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.0.i.i2)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i, i64 20
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__last.coerce
-  br i1 %cmp.i.not.i, label %if.end, label %for.body.i3, !llvm.loop !34
+  br i1 %cmp.i.not.i, label %if.end, label %for.body.i3, !llvm.loop !33
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %__val.i15)
@@ -1402,7 +1402,7 @@ while.body.i.i37:                                 ; preds = %if.else.i28, %while
   %mDistance2.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.sroa.0.010.i.i38, i64 -24
   %9 = load float, ptr %mDistance2.i.i.i.i40, align 4
   %cmp.i.i.i.i41 = fcmp olt float %6, %9
-  br i1 %cmp.i.i.i.i41, label %while.body.i.i37, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i31, !llvm.loop !32
+  br i1 %cmp.i.i.i.i41, label %while.body.i.i37, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i31, !llvm.loop !31
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i31: ; preds = %while.body.i.i37, %if.else.i28
   %__last.sroa.0.0.lcssa.i.i32 = phi ptr [ %__i.sroa.0.012.i24, %if.else.i28 ], [ %__next.sroa.0.0.i.i39, %while.body.i.i37 ]
@@ -1415,7 +1415,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11Spatia
 for.inc.i34:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i31, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i42
   %__i.sroa.0.0.i35 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i24, i64 20
   %cmp.i1.not.i36 = icmp eq ptr %__i.sroa.0.0.i35, %__last.coerce
-  br i1 %cmp.i1.not.i36, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit48, label %for.body.i23, !llvm.loop !33
+  br i1 %cmp.i1.not.i36, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit48, label %for.body.i23, !llvm.loop !32
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit48: ; preds = %for.inc.i34, %if.else, %for.cond.preheader.i17
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %__val.i15)
@@ -1467,7 +1467,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %add.ptr.i19.i.i.i = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i19.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i18.i.i.i, i64 20, i1 false)
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !35
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !34
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
   %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
@@ -1508,7 +1508,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr.i8.i.i.i.i = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.016.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i.i.i.i, i64 20, i1 false)
   %cmp.i.i.not.i.i = icmp ult i64 %__parent.017.in.i.i.i.i, 2
-  br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !36
+  br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !35
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ 0, %while.body.i.i.i.i ], [ %__holeIndex.addr.016.i.i.i.i, %land.rhs.i.i.i.i ]
@@ -1518,7 +1518,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6
   store float %__value.sroa.2.0.copyload.i.i, ptr %agg.tmp3622.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp61.sroa.0.i.i)
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 20
-  br i1 %cmp.i, label %while.body.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit, !llvm.loop !37
+  br i1 %cmp.i, label %while.body.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit, !llvm.loop !36
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i, %entry
   ret void
@@ -1573,7 +1573,7 @@ while.body.i.i:                                   ; preds = %while.body.i, %whil
   %add.ptr.i19.i.i = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i19.i.i, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i18.i.i, i64 20, i1 false)
   %cmp.i.i = icmp slt i64 %spec.select.i.i, %div.i1920.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !35
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !34
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %while.body.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__parent.0.i, %while.body.i ], [ %spec.select.i.i, %while.body.i.i ]
@@ -1604,7 +1604,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %add.ptr.i8.i.i.i = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.016.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i8.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i.i.i, i64 20, i1 false)
   %cmp.i.i.i = icmp sgt i64 %__parent.017.i.i.i, %__parent.0.i
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i, !llvm.loop !36
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i, !llvm.loop !35
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i: ; preds = %while.body.i.i.i, %land.rhs.i.i.i, %if.end33.i.i
   %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end33.i.i ], [ %__holeIndex.addr.016.i.i.i, %land.rhs.i.i.i ], [ %__parent.017.i.i.i, %while.body.i.i.i ]
@@ -1615,7 +1615,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp611.sroa.0.i)
   %cmp9.i = icmp eq i64 %__parent.0.i, 0
   %dec.i = add nsw i64 %__parent.0.i, -1
-  br i1 %cmp9.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit, label %while.body.i, !llvm.loop !38
+  br i1 %cmp9.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit, label %while.body.i, !llvm.loop !37
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i, %entry
   %cmp.i148 = icmp ult ptr %__middle.coerce, %__last.coerce
@@ -1665,7 +1665,7 @@ while.body.i.i35:                                 ; preds = %if.then, %while.bod
   %add.ptr.i19.i.i45 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i19.i.i45, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i18.i.i44, i64 20, i1 false)
   %cmp.i.i46 = icmp slt i64 %spec.select.i.i43, %div.i.i
-  br i1 %cmp.i.i46, label %while.body.i.i35, label %while.end.i.i10, !llvm.loop !35
+  br i1 %cmp.i.i46, label %while.body.i.i35, label %while.end.i.i10, !llvm.loop !34
 
 while.end.i.i10:                                  ; preds = %while.body.i.i35, %if.then
   %__holeIndex.addr.0.lcssa.i.i11 = phi i64 [ 0, %if.then ], [ %spec.select.i.i43, %while.body.i.i35 ]
@@ -1696,7 +1696,7 @@ while.body.i.i.i27:                               ; preds = %land.rhs.i.i.i21
   %add.ptr.i8.i.i.i28 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %__first.coerce, i64 %__holeIndex.addr.016.i.i.i22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i8.i.i.i28, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i.i.i24, i64 20, i1 false)
   %cmp.i.i.not.i = icmp ult i64 %__parent.017.in.i.i.i23, 2
-  br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit, label %land.rhs.i.i.i21, !llvm.loop !36
+  br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit, label %land.rhs.i.i.i21, !llvm.loop !35
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit: ; preds = %land.rhs.i.i.i21, %while.body.i.i.i27, %if.end33.i.i14
   %__holeIndex.addr.0.lcssa.i.i.i18 = phi i64 [ %__holeIndex.addr.1.i.i15, %if.end33.i.i14 ], [ %__holeIndex.addr.016.i.i.i22, %land.rhs.i.i.i21 ], [ 0, %while.body.i.i.i27 ]
@@ -1710,7 +1710,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6
 for.inc:                                          ; preds = %for.body, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.sroa.0.049, i64 20
   %cmp.i1 = icmp ult ptr %incdec.ptr.i, %__last.coerce
-  br i1 %cmp.i1, label %for.body, label %for.end, !llvm.loop !39
+  br i1 %cmp.i1, label %for.body, label %for.end, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_.exit
   ret void
@@ -1783,7 +1783,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   store i32 %2, ptr %__first.addr.04.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
-  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !40
+  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !39
 
 if.else:                                          ; preds = %if.then4
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
@@ -1799,7 +1799,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   store i32 %2, ptr %__first.addr.04.i.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i49
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !40
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !39
 
 invoke.cont27:                                    ; preds = %for.body.i.i.i.i.i.i.i, %if.else
   %4 = phi ptr [ %1, %if.else ], [ %add.ptr.i.i.i.i.i49, %for.body.i.i.i.i.i.i.i ]
@@ -1824,7 +1824,7 @@ for.body.i.i.i58:                                 ; preds = %invoke.cont35, %for
   store i32 %2, ptr %__first.addr.04.i.i.i59, align 4
   %incdec.ptr.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i59, i64 4
   %cmp.not.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i60, %1
-  br i1 %cmp.not.i.i.i61, label %if.end94, label %for.body.i.i.i58, !llvm.loop !40
+  br i1 %cmp.not.i.i.i61, label %if.end94, label %for.body.i.i.i58, !llvm.loop !39
 
 if.else42:                                        ; preds = %if.then
   %6 = load ptr, ptr %this, align 8
@@ -1867,7 +1867,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   store i32 %8, ptr %__first.addr.04.i.i.i.i.i.i.i68, align 4
   %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 4
   %cmp.not.i.i.i.i.i.i.i70 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i69, %add.ptr.i.i.i.i.i66
-  br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !40
+  br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !39
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
   %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
@@ -1957,7 +1957,7 @@ attributes #15 = { builtin allocsize(0) }
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = !{i64 0, i64 65}
+!17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
@@ -1980,4 +1980,3 @@ attributes #15 = { builtin allocsize(0) }
 !37 = distinct !{!37, !9}
 !38 = distinct !{!38, !9}
 !39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}

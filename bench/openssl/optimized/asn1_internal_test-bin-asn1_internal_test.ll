@@ -94,7 +94,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tbl_standard() #0 {
+define internal range(i32 0, 2) i32 @test_tbl_standard() #0 {
 entry:
   br label %for.body
 
@@ -143,7 +143,7 @@ return:                                           ; preds = %for.body7, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_standard_methods() #0 {
+define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
 entry:
   br label %for.body
 
@@ -218,7 +218,7 @@ return:                                           ; preds = %for.body23, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_empty_nonoptional_content() #0 {
+define internal range(i32 0, 2) i32 @test_empty_nonoptional_content() #0 {
 entry:
   %call = tail call ptr @RSA_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 131, ptr noundef nonnull @.str.17, ptr noundef %call) #3
@@ -263,7 +263,7 @@ end:                                              ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unicode_range() #0 {
+define internal range(i32 0, 2) i32 @test_unicode_range() #0 {
 entry:
   %univ_ok = alloca [17 x i8], align 16
   %univ_bad = alloca [21 x i8], align 16
@@ -304,7 +304,7 @@ test_unicode.exit11:                              ; preds = %for.body.i2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_obj_create() #0 {
+define internal range(i32 0, 2) i32 @test_obj_create() #0 {
 entry:
   %call.i = tail call i32 @ERR_set_mark() #3
   %call1.i = tail call i32 @OBJ_create(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef null) #3
@@ -506,7 +506,7 @@ lor.lhs.false41:                                  ; preds = %test_obj_create_onc
   br i1 %tobool44.not, label %return, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false41
-  %call46 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull @.str.43), !range !11
+  %call46 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull @.str.43)
   %call49 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 241, ptr noundef nonnull @.str.41, i32 noundef %call46) #3
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %return, label %lor.lhs.false51
@@ -518,7 +518,7 @@ lor.lhs.false51:                                  ; preds = %lor.lhs.false45
   br i1 %tobool54.not, label %return, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
-  %call56 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.47), !range !11
+  %call56 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.47)
   %call59 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 244, ptr noundef nonnull @.str.45, i32 noundef %call56) #3
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %lor.lhs.false61
@@ -536,13 +536,13 @@ lor.lhs.false65:                                  ; preds = %lor.lhs.false61
   br i1 %tobool68.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false65
-  %call69 = tail call fastcc i32 @test_obj_create_once(ptr noundef null, ptr noundef null, ptr noundef null), !range !11
+  %call69 = tail call fastcc i32 @test_obj_create_once(ptr noundef null, ptr noundef null, ptr noundef null)
   %call72 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 249, ptr noundef nonnull @.str.50, i32 noundef %call69) #3
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %if.end
-  %call75 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.53), !range !11
+  %call75 = tail call fastcc i32 @test_obj_create_once(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.53)
   %call78 = tail call i32 @test_false(ptr noundef nonnull @.str.6, i32 noundef 251, ptr noundef nonnull @.str.51, i32 noundef %call75) #3
   %tobool79.not = icmp ne i32 %call78, 0
   %spec.select = zext i1 %tobool79.not to i32
@@ -554,7 +554,7 @@ return:                                           ; preds = %lor.lhs.false74, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_obj_nid_undef() #0 {
+define internal range(i32 0, 2) i32 @test_obj_nid_undef() #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef 0) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 259, ptr noundef nonnull @.str.54, ptr noundef %call) #3
@@ -615,7 +615,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @ASN1_mbstring_copy(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_obj_create_once(ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_obj_create_once(ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ERR_set_mark() #3
   %call1 = tail call i32 @OBJ_create(ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) #3
@@ -685,4 +685,3 @@ attributes #3 = { nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}

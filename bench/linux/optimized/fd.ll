@@ -102,7 +102,7 @@ define internal ptr @proc_lookupfd(ptr nocapture noundef readonly %0, ptr nounde
 declare dso_local i32 @proc_setattr(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_fd_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #1 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
@@ -183,7 +183,7 @@ define internal noundef i32 @proc_readfdinfo(ptr noundef %0, ptr noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_open_fdinfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -13, 1) i32 @proc_open_fdinfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_pid_task(ptr noundef %4, i32 noundef 0) #7
@@ -452,7 +452,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local ptr @proc_pid_make_inode(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_fd_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_fd_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -523,7 +523,7 @@ declare dso_local void @task_dump_owner(ptr noundef, i16 noundef zeroext, ptr no
 declare dso_local void @security_task_to_inode(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tid_fd_revalidate(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = and i32 %1, 64
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %.thread8
@@ -783,7 +783,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #0
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @seq_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72

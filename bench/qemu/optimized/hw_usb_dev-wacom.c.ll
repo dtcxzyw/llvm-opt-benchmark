@@ -185,13 +185,13 @@ sw.bb12:                                          ; preds = %if.end
   ]
 
 if.then16:                                        ; preds = %sw.bb12
-  %call17 = tail call fastcc i32 @usb_mouse_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length), !range !5
+  %call17 = tail call fastcc i32 @usb_mouse_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length)
   %actual_length18 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call17, ptr %actual_length18, align 8
   br label %sw.epilog35
 
 if.then22:                                        ; preds = %sw.bb12
-  %call23 = tail call fastcc i32 @usb_wacom_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length), !range !6
+  %call23 = tail call fastcc i32 @usb_wacom_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length)
   %actual_length24 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call23, ptr %actual_length24, align 8
   br label %sw.epilog35
@@ -283,15 +283,15 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %dx3.i = getelementptr inbounds i8, ptr %dev, i64 5880
   %9 = load i32, ptr %dx3.i, align 8
   %.val.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 127)
-  %retval.0.i.i = tail call noundef i32 @llvm.smax.i32(i32 %.val.i.i, i32 -128)
+  %retval.0.i.i = tail call i32 @llvm.smax.i32(i32 %.val.i.i, i32 -128)
   %dy5.i = getelementptr inbounds i8, ptr %dev, i64 5884
   %10 = load i32, ptr %dy5.i, align 4
   %.val.i23.i = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
-  %retval.0.i24.i = tail call noundef i32 @llvm.smax.i32(i32 %.val.i23.i, i32 -128)
+  %retval.0.i24.i = tail call i32 @llvm.smax.i32(i32 %.val.i23.i, i32 -128)
   %dz7.i = getelementptr inbounds i8, ptr %dev, i64 5888
   %11 = load i32, ptr %dz7.i, align 8
   %.val.i25.i = tail call i32 @llvm.smin.i32(i32 %11, i32 127)
-  %retval.0.i26.i = tail call noundef i32 @llvm.smax.i32(i32 %.val.i25.i, i32 -128)
+  %retval.0.i26.i = tail call i32 @llvm.smax.i32(i32 %.val.i25.i, i32 -128)
   %sub.i = sub i32 %9, %retval.0.i.i
   store i32 %sub.i, ptr %dx3.i, align 8
   %sub11.i = sub i32 %10, %retval.0.i24.i
@@ -303,17 +303,17 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %13 = trunc i32 %12 to i8
   %conv.i = and i8 %13, 7
   store i8 %conv.i, ptr %call, align 1
-  %conv29.i = trunc i32 %retval.0.i.i to i8
+  %conv29.i = trunc nsw i32 %retval.0.i.i to i8
   %arrayidx30.i = getelementptr i8, ptr %call, i64 1
   store i8 %conv29.i, ptr %arrayidx30.i, align 1
-  %conv31.i = trunc i32 %retval.0.i24.i to i8
+  %conv31.i = trunc nsw i32 %retval.0.i24.i to i8
   %arrayidx32.i = getelementptr i8, ptr %call, i64 2
   store i8 %conv31.i, ptr %arrayidx32.i, align 1
   %cmp.i = icmp sgt i32 %conv11, 3
   br i1 %cmp.i, label %if.then34.i, label %if.end22
 
 if.then34.i:                                      ; preds = %if.end.i
-  %conv35.i = trunc i32 %retval.0.i26.i to i8
+  %conv35.i = trunc nsw i32 %retval.0.i26.i to i8
   %arrayidx36.i = getelementptr i8, ptr %call, i64 3
   store i8 %conv35.i, ptr %arrayidx36.i, align 1
   br label %if.end22
@@ -350,7 +350,7 @@ if.end19.i:                                       ; preds = %if.end.i16
   %19 = load i32, ptr %mode, align 4
   %conv.i19 = trunc i32 %19 to i8
   store i8 %conv.i19, ptr %call, align 1
-  %20 = trunc i32 %b.2.i to i8
+  %20 = trunc nuw nsw i32 %b.2.i to i8
   %arrayidx23.i = getelementptr i8, ptr %call, i64 5
   store i8 %20, ptr %arrayidx23.i, align 1
   %x.i = getelementptr inbounds i8, ptr %dev, i64 5896
@@ -430,7 +430,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qemu_remove_mouse_event_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 3, 5) i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -449,15 +449,15 @@ if.end:                                           ; preds = %if.then, %entry
   %dx3 = getelementptr inbounds i8, ptr %s, i64 5880
   %1 = load i32, ptr %dx3, align 8
   %.val.i = tail call i32 @llvm.smin.i32(i32 %1, i32 127)
-  %retval.0.i = tail call noundef i32 @llvm.smax.i32(i32 %.val.i, i32 -128)
+  %retval.0.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 -128)
   %dy5 = getelementptr inbounds i8, ptr %s, i64 5884
   %2 = load i32, ptr %dy5, align 4
   %.val.i23 = tail call i32 @llvm.smin.i32(i32 %2, i32 127)
-  %retval.0.i24 = tail call noundef i32 @llvm.smax.i32(i32 %.val.i23, i32 -128)
+  %retval.0.i24 = tail call i32 @llvm.smax.i32(i32 %.val.i23, i32 -128)
   %dz7 = getelementptr inbounds i8, ptr %s, i64 5888
   %3 = load i32, ptr %dz7, align 8
   %.val.i25 = tail call i32 @llvm.smin.i32(i32 %3, i32 127)
-  %retval.0.i26 = tail call noundef i32 @llvm.smax.i32(i32 %.val.i25, i32 -128)
+  %retval.0.i26 = tail call i32 @llvm.smax.i32(i32 %.val.i25, i32 -128)
   %sub = sub i32 %1, %retval.0.i
   store i32 %sub, ptr %dx3, align 8
   %sub11 = sub i32 %2, %retval.0.i24
@@ -469,17 +469,17 @@ if.end:                                           ; preds = %if.then, %entry
   %5 = trunc i32 %4 to i8
   %conv = and i8 %5, 7
   store i8 %conv, ptr %buf, align 1
-  %conv29 = trunc i32 %retval.0.i to i8
+  %conv29 = trunc nsw i32 %retval.0.i to i8
   %arrayidx30 = getelementptr i8, ptr %buf, i64 1
   store i8 %conv29, ptr %arrayidx30, align 1
-  %conv31 = trunc i32 %retval.0.i24 to i8
+  %conv31 = trunc nsw i32 %retval.0.i24 to i8
   %arrayidx32 = getelementptr i8, ptr %buf, i64 2
   store i8 %conv31, ptr %arrayidx32, align 1
   %cmp = icmp sgt i32 %len, 3
   br i1 %cmp, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end
-  %conv35 = trunc i32 %retval.0.i26 to i8
+  %conv35 = trunc nsw i32 %retval.0.i26 to i8
   %arrayidx36 = getelementptr i8, ptr %buf, i64 3
   store i8 %conv35, ptr %arrayidx36, align 1
   br label %if.end37
@@ -490,7 +490,7 @@ if.end37:                                         ; preds = %if.then34, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @usb_wacom_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @usb_wacom_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -522,7 +522,7 @@ if.end19:                                         ; preds = %if.end
   %4 = load i32, ptr %mode, align 4
   %conv = trunc i32 %4 to i8
   store i8 %conv, ptr %buf, align 1
-  %5 = trunc i32 %b.2 to i8
+  %5 = trunc nuw nsw i32 %b.2 to i8
   %arrayidx23 = getelementptr i8, ptr %buf, i64 5
   store i8 %5, ptr %arrayidx23, align 1
   %x = getelementptr inbounds i8, ptr %s, i64 5896
@@ -646,5 +646,3 @@ attributes #8 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 3, i32 5}
-!6 = !{i32 0, i32 8}

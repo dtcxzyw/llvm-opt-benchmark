@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [57 x i8] c"pml_v: vprotocol_pessimist: sender_based_alloc: mmap: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_vprotocol_pessimist_sender_based_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @ompi_vprotocol_pessimist_sender_based_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i64 0, i32 8, i32 2), align 8
   store i64 %1, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i64 0, i32 8, i32 4), align 8
@@ -225,13 +225,13 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 define internal void @V_OUTPUT_ERR(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca ptr, align 8
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @opal_vasprintf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %2) #9
   %5 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %5) #9
   %6 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %6) #9
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -241,15 +241,9 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare i32 @opal_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -263,6 +257,12 @@ declare i32 @ompi_mpi_abort(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7

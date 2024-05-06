@@ -1270,7 +1270,7 @@ land.rhs19.i:                                     ; preds = %while.body.i, %land
   br i1 %cmp24.i, label %while.body.i, label %invoke.cont43
 
 while.body.i:                                     ; preds = %land.rhs19.i
-  %45 = trunc i64 %indvars.iv.next22.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.next22.i to i32
   store i32 %45, ptr %levels, align 8
   %cmp18.i = icmp ugt i64 %indvars.iv21.i, 1
   br i1 %cmp18.i, label %land.rhs19.i, label %invoke.cont43, !llvm.loop !16
@@ -1495,34 +1495,34 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 
 land.rhs19.preheader.i:                           ; preds = %for.end.i
   %16 = zext nneg i32 %.pr.i to i64
-  %indvars.iv.next22.i109 = add nsw i64 %16, -1
-  %arrayidx23.i110 = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i109
-  %17 = load ptr, ptr %arrayidx23.i110, align 8
-  %cmp24.i111 = icmp eq ptr %17, null
-  br i1 %cmp24.i111, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+  %indvars.iv.next22.i110 = add nsw i64 %16, -1
+  %arrayidx23.i111 = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i110
+  %17 = load ptr, ptr %arrayidx23.i111, align 8
+  %cmp24.i112 = icmp eq ptr %17, null
+  br i1 %cmp24.i112, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
 
 land.rhs19.i:                                     ; preds = %while.body.i
-  %indvars.iv.next22.i = add nsw i64 %indvars.iv.next22.i113, -1
+  %indvars.iv.next22.i = add nsw i64 %indvars.iv.next22.i114, -1
   %arrayidx23.i = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
   %18 = load ptr, ptr %arrayidx23.i, align 8
   %cmp24.i = icmp eq ptr %18, null
   br i1 %cmp24.i, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, !llvm.loop !16
 
 while.body.i:                                     ; preds = %land.rhs19.preheader.i, %land.rhs19.i
-  %indvars.iv.next22.i113 = phi i64 [ %indvars.iv.next22.i, %land.rhs19.i ], [ %indvars.iv.next22.i109, %land.rhs19.preheader.i ]
-  %indvars.iv21.i112 = phi i64 [ %indvars.iv.next22.i113, %land.rhs19.i ], [ %16, %land.rhs19.preheader.i ]
-  %19 = trunc i64 %indvars.iv.next22.i113 to i32
+  %indvars.iv.next22.i114 = phi i64 [ %indvars.iv.next22.i, %land.rhs19.i ], [ %indvars.iv.next22.i110, %land.rhs19.preheader.i ]
+  %indvars.iv21.i113 = phi i64 [ %indvars.iv.next22.i114, %land.rhs19.i ], [ %16, %land.rhs19.preheader.i ]
+  %19 = trunc nuw nsw i64 %indvars.iv.next22.i114 to i32
   store i32 %19, ptr %levels.i.i, align 8
-  %cmp18.i = icmp ugt i64 %indvars.iv21.i112, 1
+  %cmp18.i = icmp ugt i64 %indvars.iv21.i113, 1
   br i1 %cmp18.i, label %land.rhs19.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24, !llvm.loop !16
 
 _ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %land.rhs19.i, %land.rhs19.preheader.i
-  %.pr103.lcssa = phi i32 [ %.pr.i, %land.rhs19.preheader.i ], [ %19, %land.rhs19.i ]
-  %cmp11.i.i19 = icmp sgt i32 %.pr103.lcssa, 0
+  %.pr104.lcssa = phi i32 [ %.pr.i, %land.rhs19.preheader.i ], [ %19, %land.rhs19.i ]
+  %cmp11.i.i19 = icmp sgt i32 %.pr104.lcssa, 0
   br i1 %cmp11.i.i19, label %for.cond1.preheader.preheader.i.i57, label %for.end8.i.i20
 
 for.cond1.preheader.preheader.i.i57:              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
-  %20 = zext nneg i32 %.pr103.lcssa to i64
+  %20 = zext nneg i32 %.pr104.lcssa to i64
   br label %for.cond1.preheader.i.i58
 
 for.cond1.preheader.i.i58:                        ; preds = %for.end.i.i68, %for.cond1.preheader.preheader.i.i57
@@ -1548,7 +1548,7 @@ for.end.i.i68:                                    ; preds = %for.cond1.i.i62
   br i1 %cmp.i.i70, label %for.cond1.preheader.i.i58, label %for.end8.i.i20, !llvm.loop !10
 
 for.end8.i.i20:                                   ; preds = %for.end.i.i68, %for.end.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
-  %23 = phi i32 [ %.pr103.lcssa, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ], [ %.pr.i, %for.end.i ], [ %.pr103.lcssa, %for.end.i.i68 ]
+  %23 = phi i32 [ %.pr104.lcssa, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ], [ %.pr.i, %for.end.i ], [ %.pr104.lcssa, %for.end.i.i68 ]
   %cmp10.i.i21 = icmp eq i32 %23, 0
   br i1 %cmp10.i.i21, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24, label %cond.false.i.i22
 
@@ -1616,7 +1616,7 @@ land.rhs19.i46:                                   ; preds = %while.body.i51, %la
   br i1 %cmp24.i50, label %while.body.i51, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
 
 while.body.i51:                                   ; preds = %land.rhs19.i46
-  %35 = trunc i64 %indvars.iv.next22.i48 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next22.i48 to i32
   store i32 %35, ptr %levels.i.i, align 8
   %cmp18.i52 = icmp ugt i64 %indvars.iv21.i47, 1
   br i1 %cmp18.i52, label %land.rhs19.i46, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73, !llvm.loop !16
@@ -1636,8 +1636,8 @@ for.body.i.i:                                     ; preds = %_ZN4absl13base_inte
   %result.04.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73 ]
   %inc.i.i = add nuw nsw i32 %result.04.i.i, 1
   %shr.i.i = lshr i64 %i.05.i.i, 1
-  %cmp.i.i75 = icmp ugt i64 %shr.i.i, %37
-  br i1 %cmp.i.i75, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !7
+  %cmp.i.i76 = icmp ugt i64 %shr.i.i, %37
+  br i1 %cmp.i.i76, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !7
 
 _ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %for.body.i.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
   %result.0.lcssa.i.i = phi i32 [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73 ], [ %inc.i.i, %for.body.i.i ]
@@ -1672,71 +1672,71 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
   %40 = tail call noundef i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
   store i32 %40, ptr %levels.i29, align 8
   %41 = load i32, ptr %levels.i.i, align 8
-  %cmp11.i.i77 = icmp sgt i32 %41, 0
-  br i1 %cmp11.i.i77, label %for.cond1.preheader.preheader.i.i86, label %for.end8.i.i78
+  %cmp11.i.i78 = icmp sgt i32 %41, 0
+  br i1 %cmp11.i.i78, label %for.cond1.preheader.preheader.i.i87, label %for.end8.i.i79
 
-for.cond1.preheader.preheader.i.i86:              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+for.cond1.preheader.preheader.i.i87:              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
   %42 = zext nneg i32 %41 to i64
-  br label %for.cond1.preheader.i.i87
+  br label %for.cond1.preheader.i.i88
 
-for.cond1.preheader.i.i87:                        ; preds = %for.end.i.i97, %for.cond1.preheader.preheader.i.i86
-  %indvars.iv.i.i88 = phi i64 [ %42, %for.cond1.preheader.preheader.i.i86 ], [ %indvars.iv.next.i.i90, %for.end.i.i97 ]
-  %p.012.i.i89 = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i86 ], [ %p.1.i.i92, %for.end.i.i97 ]
-  %indvars.iv.next.i.i90 = add nsw i64 %indvars.iv.i.i88, -1
-  br label %for.cond1.i.i91
+for.cond1.preheader.i.i88:                        ; preds = %for.end.i.i98, %for.cond1.preheader.preheader.i.i87
+  %indvars.iv.i.i89 = phi i64 [ %42, %for.cond1.preheader.preheader.i.i87 ], [ %indvars.iv.next.i.i91, %for.end.i.i98 ]
+  %p.012.i.i90 = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i87 ], [ %p.1.i.i93, %for.end.i.i98 ]
+  %indvars.iv.next.i.i91 = add nsw i64 %indvars.iv.i.i89, -1
+  br label %for.cond1.i.i92
 
-for.cond1.i.i91:                                  ; preds = %for.cond1.i.i91, %for.cond1.preheader.i.i87
-  %p.1.i.i92 = phi ptr [ %43, %for.cond1.i.i91 ], [ %p.012.i.i89, %for.cond1.preheader.i.i87 ]
-  %next.i.i93 = getelementptr inbounds i8, ptr %p.1.i.i92, i64 40
-  %arrayidx.i.i94 = getelementptr inbounds [30 x ptr], ptr %next.i.i93, i64 0, i64 %indvars.iv.next.i.i90
-  %43 = load ptr, ptr %arrayidx.i.i94, align 8
-  %cmp2.i.i95 = icmp ne ptr %43, null
-  %cmp3.i.i96 = icmp ult ptr %43, %a
-  %44 = and i1 %cmp2.i.i95, %cmp3.i.i96
-  br i1 %44, label %for.cond1.i.i91, label %for.end.i.i97, !llvm.loop !9
+for.cond1.i.i92:                                  ; preds = %for.cond1.i.i92, %for.cond1.preheader.i.i88
+  %p.1.i.i93 = phi ptr [ %43, %for.cond1.i.i92 ], [ %p.012.i.i90, %for.cond1.preheader.i.i88 ]
+  %next.i.i94 = getelementptr inbounds i8, ptr %p.1.i.i93, i64 40
+  %arrayidx.i.i95 = getelementptr inbounds [30 x ptr], ptr %next.i.i94, i64 0, i64 %indvars.iv.next.i.i91
+  %43 = load ptr, ptr %arrayidx.i.i95, align 8
+  %cmp2.i.i96 = icmp ne ptr %43, null
+  %cmp3.i.i97 = icmp ult ptr %43, %a
+  %44 = and i1 %cmp2.i.i96, %cmp3.i.i97
+  br i1 %44, label %for.cond1.i.i92, label %for.end.i.i98, !llvm.loop !9
 
-for.end.i.i97:                                    ; preds = %for.cond1.i.i91
-  %arrayidx6.i.i98 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i90
-  store ptr %p.1.i.i92, ptr %arrayidx6.i.i98, align 8
-  %cmp.i.i99 = icmp sgt i64 %indvars.iv.i.i88, 1
-  br i1 %cmp.i.i99, label %for.cond1.preheader.i.i87, label %for.end8.i.i78, !llvm.loop !10
+for.end.i.i98:                                    ; preds = %for.cond1.i.i92
+  %arrayidx6.i.i99 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i91
+  store ptr %p.1.i.i93, ptr %arrayidx6.i.i99, align 8
+  %cmp.i.i100 = icmp sgt i64 %indvars.iv.i.i89, 1
+  br i1 %cmp.i.i100, label %for.cond1.preheader.i.i88, label %for.end8.i.i79, !llvm.loop !10
 
-for.end8.i.i78:                                   ; preds = %for.end.i.i97, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-  %cmp18.i79 = icmp slt i32 %41, %40
-  br i1 %cmp18.i79, label %for.body.i84, label %for.body7.i.preheader
+for.end8.i.i79:                                   ; preds = %for.end.i.i98, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+  %cmp18.i80 = icmp slt i32 %41, %40
+  br i1 %cmp18.i80, label %for.body.i85, label %for.body7.i.preheader
 
-for.cond4.preheader.i:                            ; preds = %for.body.i84
+for.cond4.preheader.i:                            ; preds = %for.body.i85
   %45 = icmp eq i32 %47, 0
   br i1 %45, label %if.end, label %for.body7.i.preheader
 
-for.body7.i.preheader:                            ; preds = %for.end8.i.i78, %for.cond4.preheader.i
+for.body7.i.preheader:                            ; preds = %for.end8.i.i79, %for.cond4.preheader.i
   br label %for.body7.i
 
-for.body.i84:                                     ; preds = %for.end8.i.i78, %for.body.i84
-  %46 = phi i32 [ %inc.i, %for.body.i84 ], [ %41, %for.end8.i.i78 ]
+for.body.i85:                                     ; preds = %for.end8.i.i79, %for.body.i85
+  %46 = phi i32 [ %inc.i, %for.body.i85 ], [ %41, %for.end8.i.i79 ]
   %idxprom.i = sext i32 %46 to i64
-  %arrayidx.i85 = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
-  store ptr %freelist, ptr %arrayidx.i85, align 8
+  %arrayidx.i86 = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
+  store ptr %freelist, ptr %arrayidx.i86, align 8
   %inc.i = add nsw i32 %46, 1
   store i32 %inc.i, ptr %levels.i.i, align 8
   %47 = load i32, ptr %levels.i29, align 8
   %cmp.i = icmp slt i32 %inc.i, %47
-  br i1 %cmp.i, label %for.body.i84, label %for.cond4.preheader.i, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i85, label %for.cond4.preheader.i, !llvm.loop !11
 
 for.body7.i:                                      ; preds = %for.body7.i.preheader, %for.body7.i
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i83, %for.body7.i ], [ 0, %for.body7.i.preheader ]
-  %arrayidx9.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i80
+  %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i84, %for.body7.i ], [ 0, %for.body7.i.preheader ]
+  %arrayidx9.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i81
   %48 = load ptr, ptr %arrayidx9.i, align 8
-  %next.i81 = getelementptr inbounds i8, ptr %48, i64 40
-  %arrayidx11.i82 = getelementptr inbounds [30 x ptr], ptr %next.i81, i64 0, i64 %indvars.iv.i80
-  %49 = load ptr, ptr %arrayidx11.i82, align 8
-  %arrayidx14.i = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i80
+  %next.i82 = getelementptr inbounds i8, ptr %48, i64 40
+  %arrayidx11.i83 = getelementptr inbounds [30 x ptr], ptr %next.i82, i64 0, i64 %indvars.iv.i81
+  %49 = load ptr, ptr %arrayidx11.i83, align 8
+  %arrayidx14.i = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i81
   store ptr %49, ptr %arrayidx14.i, align 8
-  store ptr %a, ptr %arrayidx11.i82, align 8
-  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i80, 1
+  store ptr %a, ptr %arrayidx11.i83, align 8
+  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i81, 1
   %50 = load i32, ptr %levels.i29, align 8
   %51 = zext i32 %50 to i64
-  %cmp6.not.i = icmp eq i64 %indvars.iv.next.i83, %51
+  %cmp6.not.i = icmp eq i64 %indvars.iv.next.i84, %51
   br i1 %cmp6.not.i, label %if.end, label %for.body7.i, !llvm.loop !12
 
 if.end:                                           ; preds = %for.body7.i, %for.cond4.preheader.i, %land.lhs.true, %entry

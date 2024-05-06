@@ -4635,7 +4635,7 @@ define dso_local zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef signext i8 @TransactionBlockStatusCode() local_unnamed_addr #1 {
+define dso_local signext range(i8 69, 85) i8 @TransactionBlockStatusCode() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8

@@ -1316,7 +1316,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   store ptr %1, ptr %.sroa.618.0..sroa_idx19.i, align 8, !noalias !186
   %.sroa.4.0..sroa_idx3.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store i8 %36, ptr %.sroa.4.0..sroa_idx3.i.i.i, align 8, !noalias !186
-  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h8157379b4e9d5bd6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
+  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h8157379b4e9d5bd6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
           to label %130 unwind label %128, !noalias !191
 
 128:                                              ; preds = %127
@@ -1407,7 +1407,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$17h2de56cfdaf970190E.exit.i.i.i": ; preds = %.noexc.i.i.i, %142, %139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !191
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !191
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !186
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h521c4f6862fc5439E.exit.i"
@@ -1441,7 +1441,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
 155:                                              ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h521c4f6862fc5439E.exit.i"
   store i64 %.sroa.0.0.copyload15.i, ptr %0, align 8, !alias.scope !171, !noalias !215
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.i, i64 48, i1 false), !noalias !215
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.i, i64 48, i1 false), !noalias !215
   br label %173
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h521c4f6862fc5439E.exit.thread.i": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h521c4f6862fc5439E.exit.i", %.noexc.i
@@ -1472,7 +1472,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   store i8 %.sroa.8.3.i, ptr %.sroa.4.0..sroa_idx1.i.i, align 8, !noalias !216
   %.sroa.5.0..sroa_idx3.i.i = getelementptr inbounds i8, ptr %5, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx3.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.i, i64 7, i1 false), !noalias !216
-  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h8157379b4e9d5bd6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h8157379b4e9d5bd6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %163 unwind label %160, !noalias !215
 
 160:                                              ; preds = %159, %158
@@ -2480,7 +2480,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %10, align 8, !noalias !415
   %.sroa.5.0..sroa_idx4.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx4.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i.i, i64 88, i1 false), !noalias !415
-  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h45accc452876790eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h45accc452876790eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
           to label %98 unwind label %95, !noalias !419
 
 95:                                               ; preds = %94, %93
@@ -2582,7 +2582,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$17h2de56cfdaf970190E.exit.i.i.i": ; preds = %.noexc.i.i.i, %114, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !415
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !419
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !419
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !415
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !415
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h391f48c34bbfbec2E.exit.i"
@@ -2614,7 +2614,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
 129:                                              ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h391f48c34bbfbec2E.exit.i"
   store i64 %.sroa.0.0.copyload11.i, ptr %0, align 8, !alias.scope !405, !noalias !448
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.i, i64 56, i1 false), !noalias !448
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.i, i64 56, i1 false), !noalias !448
   br label %144
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h391f48c34bbfbec2E.exit.thread.i": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h391f48c34bbfbec2E.exit.i", %.noexc.i
@@ -2639,7 +2639,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   store i64 %.sroa.0.0.copyload.i.i, ptr %6, align 8, !noalias !449
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false), !noalias !449
-  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h45accc452876790eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  invoke fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h45accc452876790eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %137 unwind label %134, !noalias !448
 
 134:                                              ; preds = %133, %132

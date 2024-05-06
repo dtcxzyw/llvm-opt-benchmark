@@ -301,7 +301,7 @@ for.body40:                                       ; preds = %for.end34, %if.end5
   br i1 %tobool.not, label %if.end56, label %if.then51
 
 if.then51:                                        ; preds = %for.body40
-  %rem53.lhs.trunc = trunc i32 %add47 to i8
+  %rem53.lhs.trunc = trunc nsw i32 %add47 to i8
   %rem5324 = srem i8 %rem53.lhs.trunc, 3
   %rem53.sext = sext i8 %rem5324 to i32
   %add55 = add nsw i32 %add47, %rem53.sext
@@ -403,7 +403,7 @@ if.end22:                                         ; preds = %entry, %if.end19.th
   %6 = phi i64 [ 20, %entry ], [ 1, %if.end19.thread ], [ 1000, %if.then21 ], [ %.pr22, %if.end19 ]
   %7 = phi i64 [ 80, %entry ], [ %5, %if.end19.thread ], [ %5, %if.then21 ], [ %5, %if.end19 ]
   %conv = trunc i64 %7 to i32
-  %conv23 = trunc i64 %6 to i32
+  %conv23 = trunc nuw i64 %6 to i32
   %call24 = call ptr @lwCreateCanvas(i32 noundef %conv, i32 noundef %conv23, i32 noundef 3) #3
   call void @generateSkyline(ptr noundef %call24)
   %call.i = call ptr @sdsempty() #3

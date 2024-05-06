@@ -35,7 +35,7 @@ define dso_local void @nghttp2_queue_free(ptr noundef readonly %0) local_unnamed
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_queue_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_queue_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.sink.split
@@ -98,7 +98,7 @@ define dso_local ptr @nghttp2_queue_back(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_queue_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_queue_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   %4 = zext i1 %3 to i32

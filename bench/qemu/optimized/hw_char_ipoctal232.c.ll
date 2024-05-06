@@ -151,7 +151,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @io_read(ptr noundef %ip, i8 noundef zeroext %addr) #0 {
+define internal zeroext range(i16 0, 256) i16 @io_read(ptr noundef %ip, i8 noundef zeroext %addr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ip, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 127, ptr noundef nonnull @__func__.IPOCTAL) #6
   %conv = zext i8 %addr to i32
@@ -231,7 +231,7 @@ if.else:                                          ; preds = %if.then
   %conv39 = zext i8 %6 to i16
   %add = add nuw nsw i16 %conv39, 1
   %rem = urem i16 %add, 3
-  %conv40 = trunc i16 %rem to i8
+  %conv40 = trunc nuw nsw i16 %rem to i8
   store i8 %conv40, ptr %rhr_idx, align 8
   br label %if.end
 
@@ -521,7 +521,7 @@ if.end52:                                         ; preds = %update_irq.exit, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i16 @id_read(ptr nocapture readnone %ip, i8 noundef zeroext %addr) #2 {
+define internal zeroext range(i16 0, 256) i16 @id_read(ptr nocapture readnone %ip, i8 noundef zeroext %addr) #2 {
 entry:
   %cmp = icmp ult i8 %addr, 24
   br i1 %cmp, label %if.then, label %if.end
@@ -557,7 +557,7 @@ if.end:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @int_read(ptr noundef %ip, i8 noundef zeroext %addr) #0 {
+define internal zeroext range(i16 0, 256) i16 @int_read(ptr noundef %ip, i8 noundef zeroext %addr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ip, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 127, ptr noundef nonnull @__func__.IPOCTAL) #6
   %0 = and i8 %addr, -3
@@ -657,7 +657,7 @@ declare zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef) local_unnamed_add
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @hostdev_can_receive(ptr nocapture noundef readonly %opaque) #3 {
+define internal range(i32 -252, 4) i32 @hostdev_can_receive(ptr nocapture noundef readonly %opaque) #3 {
 entry:
   %rx_pending = getelementptr inbounds i8, ptr %opaque, i64 73
   %0 = load i8, ptr %rx_pending, align 1

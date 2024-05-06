@@ -342,7 +342,7 @@ declare dso_local i32 @genl_unregister_family(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @seg6_net_init(ptr nocapture noundef writeonly %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @seg6_net_init(ptr nocapture noundef writeonly %0) #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #12
   %4 = icmp eq ptr %3, null
@@ -412,7 +412,7 @@ define internal noundef i32 @seg6_genl_dumphmac_done(ptr nocapture readnone %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @seg6_genl_set_tunsrc(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @seg6_genl_set_tunsrc(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2152
@@ -447,7 +447,7 @@ define internal noundef i32 @seg6_genl_set_tunsrc(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @seg6_genl_get_tunsrc(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @seg6_genl_get_tunsrc(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @__alloc_skb(i32 noundef 3780, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #10

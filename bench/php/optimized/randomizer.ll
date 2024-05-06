@@ -317,7 +317,7 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr nocapture noundef readon
 
 22:                                               ; preds = %14
   %23 = lshr i64 %18, 11
-  %24 = uitofp i64 %23 to double
+  %24 = uitofp nneg i64 %23 to double
   %25 = fmul double %24, 0x3CA0000000000000
   store double %25, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 8
@@ -761,7 +761,7 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   %49 = sitofp i64 %48 to double
   %50 = fsub double %47, %49
   %51 = fadd double %50, 1.000000e+00
-  %52 = uitofp i64 %45 to double
+  %52 = uitofp nneg i64 %45 to double
   %53 = fmul double %52, 0x3E00000000000000
   %54 = fmul double %53, %51
   %55 = fptoui double %54 to i64

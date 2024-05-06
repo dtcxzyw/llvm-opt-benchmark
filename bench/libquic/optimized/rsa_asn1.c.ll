@@ -138,7 +138,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #5
@@ -209,7 +209,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_public_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_public_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   call void @CBB_zero(ptr noundef nonnull %cbb) #5
@@ -218,7 +218,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %rsa), !range !7
+  %call1 = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %rsa)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
@@ -427,7 +427,7 @@ lor.lhs.false75:                                  ; preds = %if.end71
   %5 = load ptr, ptr %call63, align 8
   %call76 = call i32 @BN_mul(ptr noundef %call50, ptr noundef %call50, ptr noundef %5, ptr noundef %call49) #5
   %tobool77.not = icmp eq i32 %call76, 0
-  br i1 %tobool77.not, label %err, label %while.cond, !llvm.loop !8
+  br i1 %tobool77.not, label %err, label %while.cond, !llvm.loop !7
 
 if.end80:                                         ; preds = %while.cond, %if.end34
   %product_of_primes_so_far.0 = phi ptr [ null, %if.end34 ], [ %call50, %while.cond ]
@@ -591,7 +591,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %other_prime_infos = alloca %struct.cbb_st, align 8
@@ -713,7 +713,7 @@ for.cond:                                         ; preds = %marshal_integer.exi
   %10 = load ptr, ptr %additional_primes, align 8
   %call36 = call i64 @sk_num(ptr noundef %10) #5
   %cmp37 = icmp ult i64 %inc, %call36
-  br i1 %cmp37, label %for.body, label %if.end54, !llvm.loop !10
+  br i1 %cmp37, label %for.body, label %if.end54, !llvm.loop !9
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.093 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -782,7 +782,7 @@ declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_private_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   call void @CBB_zero(ptr noundef nonnull %cbb) #5
@@ -791,7 +791,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %rsa), !range !7
+  %call1 = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %rsa)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
@@ -855,7 +855,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -917,7 +917,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -948,7 +948,7 @@ entry:
   br i1 %tobool.not.i, label %RSA_public_key_to_bytes.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb.i, ptr noundef %rsa), !range !7
+  %call1.i = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb.i, ptr noundef readonly %rsa)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %RSA_public_key_to_bytes.exit.thread, label %lor.lhs.false3.i
 
@@ -1012,7 +1012,7 @@ entry:
   br i1 %tobool.not.i, label %RSA_private_key_to_bytes.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb.i, ptr noundef %rsa), !range !7
+  %call1.i = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb.i, ptr noundef readonly %rsa)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %RSA_private_key_to_bytes.exit.thread, label %lor.lhs.false3.i
 
@@ -1094,7 +1094,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

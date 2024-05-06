@@ -393,7 +393,7 @@ define internal i32 @v9fs_write_inode_dotl(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @v9fs_drop_inode(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_drop_inode(ptr nocapture noundef readonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 872

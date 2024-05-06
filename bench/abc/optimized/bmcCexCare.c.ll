@@ -559,7 +559,7 @@ define void @Bmc_CexCarePropagateFwdOne(ptr nocapture noundef readonly %0, ptr n
   br i1 %or.cond, label %60, label %62
 
 60:                                               ; preds = %39
-  %61 = tail call noundef i32 @llvm.smin.i32(i32 %43, i32 %49)
+  %61 = tail call i32 @llvm.smin.i32(i32 %43, i32 %49)
   br label %65
 
 62:                                               ; preds = %39
@@ -568,7 +568,7 @@ define void @Bmc_CexCarePropagateFwdOne(ptr nocapture noundef readonly %0, ptr n
   br i1 %brmerge, label %65, label %63
 
 63:                                               ; preds = %62
-  %64 = tail call noundef i32 @llvm.smax.i32(i32 %43, i32 %49)
+  %64 = tail call i32 @llvm.smax.i32(i32 %43, i32 %49)
   br label %65
 
 65:                                               ; preds = %62, %63, %60

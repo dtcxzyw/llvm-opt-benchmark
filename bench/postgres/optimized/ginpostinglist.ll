@@ -79,7 +79,7 @@ define dso_local noundef ptr @ginCompressPostingList(ptr nocapture noundef reado
 encode_varbyte.exit:                              ; preds = %.lr.ph.i, %41
   %.08.lcssa.i = phi i64 [ %36, %41 ], [ %45, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %.05155, %41 ], [ %44, %.lr.ph.i ]
-  %47 = trunc i64 %.08.lcssa.i to i8
+  %47 = trunc nuw nsw i64 %.08.lcssa.i to i8
   %48 = getelementptr i8, ptr %.0.lcssa.i, i64 1
   store i8 %47, ptr %.0.lcssa.i, align 1
   br label %62
@@ -101,7 +101,7 @@ encode_varbyte.exit:                              ; preds = %.lr.ph.i, %41
 encode_varbyte.exit43:                            ; preds = %.lr.ph.i40, %49
   %.08.lcssa.i38 = phi i64 [ %36, %49 ], [ %53, %.lr.ph.i40 ]
   %.0.lcssa.i39 = phi ptr [ %5, %49 ], [ %52, %.lr.ph.i40 ]
-  %55 = trunc i64 %.08.lcssa.i38 to i8
+  %55 = trunc nuw nsw i64 %.08.lcssa.i38 to i8
   %56 = getelementptr i8, ptr %.0.lcssa.i39, i64 1
   store i8 %55, ptr %.0.lcssa.i39, align 1
   %57 = ptrtoint ptr %56 to i64
@@ -121,7 +121,7 @@ encode_varbyte.exit43:                            ; preds = %.lr.ph.i40, %49
   br i1 %exitcond.not, label %encode_varbyte.exit43._crit_edge, label %25, !llvm.loop !7
 
 encode_varbyte.exit43._crit_edge.loopexit.split.loop.exit: ; preds = %encode_varbyte.exit43
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   br label %encode_varbyte.exit43._crit_edge
 
 encode_varbyte.exit43._crit_edge:                 ; preds = %62, %encode_varbyte.exit43._crit_edge.loopexit.split.loop.exit, %4

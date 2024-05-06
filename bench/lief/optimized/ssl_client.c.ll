@@ -446,14 +446,14 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
 
 238:                                              ; preds = %231
   %239 = getelementptr inbounds i8, ptr %226, i64 4
-  %240 = call fastcc i32 @ssl_write_hostname_ext(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef nonnull %107, ptr noundef nonnull %2), !range !6
+  %240 = call fastcc i32 @ssl_write_hostname_ext(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef nonnull %107, ptr noundef nonnull %2)
   %.not130.i = icmp eq i32 %240, 0
   br i1 %.not130.i, label %241, label %ssl_write_client_hello_body.exit.thread
 
 241:                                              ; preds = %238
   %242 = load i64, ptr %2, align 8
   %243 = getelementptr inbounds i8, ptr %239, i64 %242
-  %244 = call fastcc i32 @ssl_write_alpn_ext(ptr noundef nonnull %0, ptr noundef nonnull %243, ptr noundef nonnull %107, ptr noundef nonnull %2), !range !6
+  %244 = call fastcc i32 @ssl_write_alpn_ext(ptr noundef nonnull %0, ptr noundef nonnull %243, ptr noundef nonnull %107, ptr noundef nonnull %2)
   %.not131.i = icmp eq i32 %244, 0
   br i1 %.not131.i, label %245, label %ssl_write_client_hello_body.exit.thread
 
@@ -465,7 +465,7 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   br i1 %or.cond.i38, label %249, label %254
 
 249:                                              ; preds = %245
-  %250 = call fastcc i32 @ssl_write_supported_groups_ext(ptr noundef nonnull %0, ptr noundef nonnull %247, ptr noundef nonnull %107, ptr noundef nonnull %2), !range !7
+  %250 = call fastcc i32 @ssl_write_supported_groups_ext(ptr noundef nonnull %0, ptr noundef nonnull %247, ptr noundef nonnull %107, ptr noundef nonnull %2)
   %.not132.i = icmp eq i32 %250, 0
   br i1 %.not132.i, label %251, label %ssl_write_client_hello_body.exit.thread
 
@@ -601,7 +601,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @mbedtls_debug_print_buf(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_write_hostname_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -27136, 1) i32 @ssl_write_hostname_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 408
   %6 = load ptr, ptr %5, align 8
@@ -662,7 +662,7 @@ define internal fastcc noundef i32 @ssl_write_hostname_ext(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_write_alpn_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -27136, 1) i32 @ssl_write_alpn_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 328
@@ -715,7 +715,7 @@ define internal fastcc noundef i32 @ssl_write_alpn_ext(ptr noundef %0, ptr nound
   %34 = getelementptr inbounds i8, ptr %.03446, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not37 = icmp eq ptr %35, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %29, %15
   %.035.lcssa = phi ptr [ %17, %15 ], [ %33, %29 ]
@@ -751,7 +751,7 @@ define internal fastcc noundef i32 @ssl_write_alpn_ext(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_write_supported_groups_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -27648, 1) i32 @ssl_write_supported_groups_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -854,7 +854,7 @@ mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %30, %.lr.ph, %mbedt
   %.050.ptr = getelementptr inbounds i8, ptr %1, i64 %.1.idx
   %51 = load i16, ptr %50, align 2
   %.not55 = icmp eq i16 %51, 0
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
   %52 = icmp eq i64 %.1.idx, 6
@@ -933,7 +933,5 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -27136, i32 1}
-!7 = !{i32 -27648, i32 1}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

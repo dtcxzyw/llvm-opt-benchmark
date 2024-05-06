@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.try_exit.2 = private unnamed_addr constant [4 x i32] [i32 41, i32 93, i32 125, i32 300], align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 144
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
@@ -1048,7 +1048,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %599 = load i32, ptr %81, align 4
   %600 = add nsw i32 %599, -1
   %601 = sdiv i32 %600, 2
-  %602 = tail call fastcc i32 @try_exit(i32 noundef %598, i32 noundef %601, ptr noundef nonnull %2), !range !7
+  %602 = tail call fastcc i32 @try_exit(i32 noundef %598, i32 noundef %601, ptr noundef nonnull %2)
   br label %.loopexit
 
 603:                                              ; preds = %154
@@ -1410,7 +1410,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %845 = getelementptr inbounds i8, ptr %843, i64 %844
   store ptr %845, ptr %79, align 8
   %846 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %2)
-  %847 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %846, ptr noundef nonnull %2), !range !8
+  %847 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %846, ptr noundef nonnull %2)
   %848 = load ptr, ptr %84, align 8
   %.not557 = icmp eq i32 %847, 0
   br i1 %.not557, label %.outer.backedge, label %849
@@ -1473,7 +1473,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   store i8 %872, ptr %.0131163.i, align 1
   %874 = add nuw nsw i32 %.0133161.i, 1
   %exitcond.not.i = icmp eq i32 %874, %869
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %86, align 8
@@ -1559,7 +1559,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0134.i = add i32 %.pn.i, %884
   %912 = icmp slt i32 %.0134.i, 1
-  br i1 %912, label %.lr.ph168.i, label %._crit_edge169.i, !llvm.loop !10
+  br i1 %912, label %.lr.ph168.i, label %._crit_edge169.i, !llvm.loop !8
 
 ._crit_edge169.i:                                 ; preds = %905, %883
   %913 = phi ptr [ %875, %883 ], [ %911, %905 ]
@@ -1598,10 +1598,10 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   store i8 %922, ptr %930, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond179.not.i, label %.critedge.i, label %918, !llvm.loop !11
+  br i1 %exitcond179.not.i, label %.critedge.i, label %918, !llvm.loop !9
 
 .critedge.split.loop.exit.i:                      ; preds = %918, %918
-  %931 = trunc i64 %indvars.iv.i to i32
+  %931 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %921, %.critedge.split.loop.exit.i
@@ -1691,7 +1691,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %978 = trunc i64 %977 to i32
   store i32 %978, ptr %88, align 4
   %979 = icmp eq i32 %978, 0
-  br i1 %979, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !12
+  br i1 %979, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %967, %.lr.ph172.i, %947, %946
   %980 = phi i32 [ %960, %947 ], [ %.1156.i, %946 ], [ 0, %.lr.ph172.i ], [ %978, %967 ]
@@ -2001,7 +2001,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @enter(i32 noundef returned %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 300) i32 @enter(i32 noundef returned %0, ptr nocapture noundef %1) unnamed_addr #0 {
   switch i32 %0, label %7 [
     i32 40, label %3
     i32 91, label %4
@@ -2084,7 +2084,7 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @try_exit(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %switch.tableidx = add i32 %1, -1
   %4 = icmp ult i32 %switch.tableidx, 4
   br i1 %4, label %switch.lookup, label %22
@@ -2231,7 +2231,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %47 = getelementptr inbounds [385 x i16], ptr @yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not25 = icmp eq i16 %35, %48
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -2240,7 +2240,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %51 = sext i16 %50 to i32
   %52 = getelementptr inbounds i8, ptr %.02328, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !12
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -2248,7 +2248,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [168 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -2287,7 +2287,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture nound
   %27 = getelementptr inbounds [385 x i16], ptr @yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -2868,7 +2868,7 @@ define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) lo
 
 jq_yyensure_buffer_stack.exit:                    ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
-  %28 = load ptr, ptr %5, align 8, !nonnull !16, !noundef !16
+  %28 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   %30 = getelementptr inbounds ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
@@ -3118,7 +3118,7 @@ define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, 
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %12 = sext i32 %1 to i64
@@ -3355,7 +3355,7 @@ define void @jq_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -3386,8 +3386,8 @@ define noundef i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %11, i64 96
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %17
 
 17:                                               ; preds = %10, %8, %3
@@ -3402,7 +3402,7 @@ declare ptr @__errno_location() local_unnamed_addr #10
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -3435,8 +3435,8 @@ define noundef i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) local_un
   %17 = getelementptr inbounds i8, ptr %13, i64 96
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %19
 
 19:                                               ; preds = %11, %9, %4
@@ -3560,7 +3560,7 @@ jq_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
   %56 = getelementptr inbounds ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not21 = icmp eq ptr %57, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !18
+  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !16
 
 .thread:                                          ; preds = %jq_yypop_buffer_state.exit, %jq_yy_delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %jq_yy_delete_buffer.exit ], [ %54, %jq_yypop_buffer_state.exit ]
@@ -3576,8 +3576,8 @@ jq_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
   store i32 0, ptr %62, align 8
   store ptr null, ptr %58, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %63, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   tail call void @jv_mem_free(ptr noundef nonnull %0) #18
   ret i32 0
 }
@@ -3658,15 +3658,13 @@ attributes #23 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 41, i32 301}
-!8 = !{i32 -32768, i32 32768}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!14 = !{}
 !15 = distinct !{!15, !5}
-!16 = !{}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!16 = distinct !{!16, !5}

@@ -1595,7 +1595,7 @@ for.body16.us:                                    ; preds = %for.cond14.us
   %indvars = trunc i64 %indvars.iv.next64 to i32
   %arrayidx25.us = getelementptr inbounds ptr, ptr %es, i64 %indvars.iv.next64
   %19 = load ptr, ptr %arrayidx25.us, align 8
-  %20 = trunc i64 %indvars.iv63 to i32
+  %20 = trunc nuw i64 %indvars.iv63 to i32
   %call32.us = call noundef zeroext i1 @_ZN7unifier10unify_coreE11expr_offsetS0_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr %18, i32 %20, ptr %19, i32 %indvars)
   br i1 %call32.us, label %for.cond14.us, label %if.then33, !llvm.loop !24
 

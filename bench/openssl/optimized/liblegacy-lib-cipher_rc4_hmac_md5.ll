@@ -65,14 +65,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_cipher_generic_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef null) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -81,14 +81,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_cipher_generic_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef null) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -112,7 +112,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %sz = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -339,4 +339,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

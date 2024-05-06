@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_device_get_e
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable_alloc_etherdev_mqs831, ptr @__UNIQUE_ID___addressable_device_get_ethdev_address841, ptr @__UNIQUE_ID___addressable_device_get_mac_address840, ptr @__UNIQUE_ID___addressable_eth_commit_mac_addr_change827, ptr @__UNIQUE_ID___addressable_eth_get_headlen818, ptr @__UNIQUE_ID___addressable_eth_gro_complete834, ptr @__UNIQUE_ID___addressable_eth_gro_receive833, ptr @__UNIQUE_ID___addressable_eth_header813, ptr @__UNIQUE_ID___addressable_eth_header_cache823, ptr @__UNIQUE_ID___addressable_eth_header_cache_update824, ptr @__UNIQUE_ID___addressable_eth_header_parse820, ptr @__UNIQUE_ID___addressable_eth_header_parse_protocol825, ptr @__UNIQUE_ID___addressable_eth_mac_addr828, ptr @__UNIQUE_ID___addressable_eth_offload_init836, ptr @__UNIQUE_ID___addressable_eth_platform_get_mac_address837, ptr @__UNIQUE_ID___addressable_eth_prepare_mac_addr_change826, ptr @__UNIQUE_ID___addressable_eth_type_trans819, ptr @__UNIQUE_ID___addressable_eth_validate_addr829, ptr @__UNIQUE_ID___addressable_ether_setup830, ptr @__UNIQUE_ID___addressable_fwnode_get_mac_address839, ptr @__UNIQUE_ID___addressable_platform_get_ethdev_address838, ptr @__UNIQUE_ID___addressable_sysfs_format_mac832], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @eth_header(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -14, 15) i32 @eth_header(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) #0 align 16 {
   %7 = tail call ptr @skb_push(ptr noundef %0, i32 noundef 14) #12
   switch i16 %2, label %10 [
     i16 4, label %8
@@ -328,7 +328,7 @@ define dso_local noundef i32 @eth_header_parse(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @eth_header_cache(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @eth_header_cache(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq i16 %2, 256
   br i1 %4, label %14, label %5
 
@@ -374,7 +374,7 @@ define dso_local zeroext i16 @eth_header_parse_protocol(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @eth_prepare_mac_addr_change(ptr noundef %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define dso_local range(i32 -99, 1) i32 @eth_prepare_mac_addr_change(ptr noundef %0, ptr nocapture noundef readonly %1) #10 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 32768
   %5 = icmp eq i64 %4, 0
@@ -416,7 +416,7 @@ define dso_local void @eth_commit_mac_addr_change(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @eth_mac_addr(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -99, 1) i32 @eth_mac_addr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 32768
   %5 = icmp eq i64 %4, 0
@@ -454,7 +454,7 @@ define dso_local noundef i32 @eth_mac_addr(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @eth_validate_addr(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local range(i32 -99, 1) i32 @eth_validate_addr(ptr nocapture noundef readonly %0) #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 968
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -516,7 +516,7 @@ define dso_local ptr @alloc_etherdev_mqs(i32 noundef %0, i32 noundef %1, i32 nou
 declare dso_local ptr @alloc_netdev_mqs(i32 noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sysfs_format_mac(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @sysfs_format_mac(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef %1) #12
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -779,7 +779,7 @@ define weak dso_local ptr @arch_get_platform_mac_address() local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @eth_platform_get_mac_address(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @eth_platform_get_mac_address(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = tail call ptr @arch_get_platform_mac_address()
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -799,7 +799,7 @@ define dso_local noundef i32 @eth_platform_get_mac_address(ptr nocapture readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @platform_get_ethdev_address(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @platform_get_ethdev_address(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [6 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #12
   %4 = tail call ptr @arch_get_platform_mac_address()
@@ -897,7 +897,7 @@ declare dso_local void @nvmem_cell_put(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fwnode_get_mac_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @fwnode_get_mac_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @fwnode_property_read_u8_array(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, i64 noundef 6) #12
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %15
@@ -961,7 +961,7 @@ define dso_local i32 @fwnode_get_mac_address(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @device_get_mac_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @device_get_mac_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @__dev_fwnode(ptr noundef %0) #12
   %4 = tail call i32 @fwnode_get_mac_address(ptr noundef %3, ptr noundef %1), !range !15
   ret i32 %4
@@ -971,7 +971,7 @@ define dso_local i32 @device_get_mac_address(ptr noundef %0, ptr noundef %1) #0 
 declare dso_local ptr @__dev_fwnode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @device_get_ethdev_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @device_get_ethdev_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, i8 0, i64 6, i1 false), !annotation !9

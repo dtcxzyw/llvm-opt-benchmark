@@ -540,7 +540,7 @@ define dso_local void @raw6_icmp_error(ptr noundef %0, i32 noundef %1, i8 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rawv6_rcv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -991,7 +991,7 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 declare dso_local zeroext i16 @csum_ipv6_magic(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal noundef i32 @rawv6_rcv_skb(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @rawv6_rcv_skb(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
   store i32 0, ptr %3, align 4, !annotation !6
@@ -1114,7 +1114,7 @@ declare dso_local i32 @ip6_datagram_connect_v6_only(ptr noundef, ptr noundef, i3
 declare dso_local i32 @__udp_disconnect(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rawv6_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -515, 1) i32 @rawv6_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   switch i32 %1, label %20 [
     i32 21521, label %4
     i32 21531, label %8
@@ -3500,7 +3500,7 @@ declare dso_local ptr @dev_get_by_index_rcu(ptr noundef, i32 noundef) local_unna
 declare dso_local i32 @ipv6_chk_addr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @raw6_init_net(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @raw6_init_net(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.4, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @raw6_seq_ops, i32 noundef 16, ptr noundef nonnull @raw_v6_hashinfo) #13

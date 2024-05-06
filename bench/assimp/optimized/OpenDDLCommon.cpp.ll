@@ -34,7 +34,7 @@ if.then.i:                                        ; preds = %_ZN10ODDLParser4Tex
   store i64 %add.i, ptr %this, align 8
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #11
   store ptr %call.i, ptr %m_buffer, align 8
-  %call5.i = tail call ptr @strncpy(ptr noundef nonnull %call.i, ptr noundef %buffer, i64 noundef %numChars) #12
+  %call5.i = tail call ptr @strncpy(ptr noundef nonnull %call.i, ptr noundef readonly %buffer, i64 noundef %numChars) #12
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %numChars
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN10ODDLParser4Text3setEPKcm.exit
@@ -229,7 +229,7 @@ entry:
   %m_len = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i64, ptr %m_len, align 8
   %cmp.not.i.i = icmp eq i64 %3, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -243,7 +243,7 @@ if.then.i.i:                                      ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i.i
   %m_buffer.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call.i.i3, ptr %m_buffer.i, align 8
-  %call5.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3, ptr noundef %2, i64 noundef %3) #12
+  %call5.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3, ptr noundef readonly %2, i64 noundef %3) #12
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 %3
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %invoke.cont
@@ -281,7 +281,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = icmp ugt i64 %numrefs, 2305843009213693951
-  %1 = shl i64 %numrefs, 3
+  %1 = shl nuw i64 %numrefs, 3
   %2 = select i1 %0, i64 -1, i64 %1
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #11
   store ptr %call, ptr %m_referencedName, align 8
@@ -339,7 +339,7 @@ call.i.noexc:                                     ; preds = %for.body
   %m_len.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %m_len.i, align 8
   %cmp.not.i.i.i = icmp eq i64 %9, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i5, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
@@ -353,7 +353,7 @@ if.then.i.i.i:                                    ; preds = %call.i.noexc
 call.i.i.noexc.i:                                 ; preds = %if.then.i.i.i
   %m_buffer.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
   store ptr %call.i.i3.i, ptr %m_buffer.i.i, align 8
-  %call5.i.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3.i, ptr noundef %8, i64 noundef %9) #12
+  %call5.i.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3.i, ptr noundef readonly %8, i64 noundef %9) #12
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 %9
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %invoke.cont

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/tls_record.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_record_sequence_update(ptr nocapture noundef %seq, i64 noundef %seq_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl_record_sequence_update(ptr nocapture noundef %seq, i64 noundef %seq_len) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -180,7 +180,7 @@ return:                                           ; preds = %ssl_needs_record_sp
 declare i64 @SSL_AEAD_CTX_max_overhead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %type = alloca i8, align 1
@@ -289,7 +289,7 @@ if.then38:                                        ; preds = %if.end31
 
 if.end39:                                         ; preds = %if.end31
   %11 = load ptr, ptr %s3, align 8
-  %call43 = call i32 @ssl_record_sequence_update(ptr noundef %11, i64 noundef 8), !range !9
+  %call43 = call i32 @ssl_record_sequence_update(ptr noundef %11, i64 noundef 8)
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.then45, label %if.end46
 
@@ -361,7 +361,7 @@ declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %frag_len = alloca i64, align 8
   store i64 0, ptr %frag_len, align 8
@@ -420,7 +420,7 @@ if.end:                                           ; preds = %if.then
   %sub.ptr.rhs.cast = ptrtoint ptr %out to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %frag_max_out.0 = select i1 %or.cond27, i64 %sub.ptr.sub, i64 %max_out
-  %call23 = call fastcc i32 @do_seal_record(ptr noundef nonnull %ssl, ptr noundef %out, ptr noundef nonnull %frag_len, i64 noundef %frag_max_out.0, i8 noundef zeroext 23, ptr noundef %in, i64 noundef 1), !range !9
+  %call23 = call fastcc i32 @do_seal_record(ptr noundef nonnull %ssl, ptr noundef %out, ptr noundef nonnull %frag_len, i64 noundef %frag_max_out.0, i8 noundef zeroext 23, ptr noundef %in, i64 noundef 1)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %if.end26
 
@@ -437,7 +437,7 @@ if.end28:                                         ; preds = %land.lhs.true4, %la
   %max_out.addr.0 = phi i64 [ %sub, %if.end26 ], [ %max_out, %ssl_needs_record_splitting.exit ], [ %max_out, %entry ], [ %max_out, %land.lhs.true3.i ], [ %max_out, %land.lhs.true.i ], [ %max_out, %land.lhs.true4 ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.end26 ], [ %in, %ssl_needs_record_splitting.exit ], [ %in, %entry ], [ %in, %land.lhs.true3.i ], [ %in, %land.lhs.true.i ], [ %in, %land.lhs.true4 ]
   %in_len.addr.0 = phi i64 [ %dec, %if.end26 ], [ %in_len, %ssl_needs_record_splitting.exit ], [ %in_len, %entry ], [ %in_len, %land.lhs.true3.i ], [ %in_len, %land.lhs.true.i ], [ %in_len, %land.lhs.true4 ]
-  %call29 = tail call fastcc i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out.addr.0, ptr noundef %out_len, i64 noundef %max_out.addr.0, i8 noundef zeroext %type, ptr noundef %in.addr.0, i64 noundef %in_len.addr.0), !range !9
+  %call29 = tail call fastcc i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out.addr.0, ptr noundef %out_len, i64 noundef %max_out.addr.0, i8 noundef zeroext %type, ptr noundef %in.addr.0, i64 noundef %in_len.addr.0)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.end32
 
@@ -453,7 +453,7 @@ return:                                           ; preds = %if.end28, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) unnamed_addr #0 {
 entry:
   %ciphertext_len = alloca i64, align 8
   %cmp = icmp ult i64 %max_out, 5
@@ -663,4 +663,3 @@ attributes #3 = { nounwind }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}

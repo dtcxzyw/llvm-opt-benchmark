@@ -1717,15 +1717,15 @@ invoke.cont131:                                   ; preds = %if.end16
   %134 = load i32, ptr %m_num_decls.i, align 4
   %135 = load ptr, ptr %this, align 8
   store ptr %135, ptr %subst, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_subst.i218, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_subst.i218, i8 0, i64 16, i1 false)
   store i32 1, ptr %m_timestamp.i.i219, align 8
   store ptr null, ptr %m_vars.i, align 8
   %136 = ptrtoint ptr %135 to i64
   store i64 %136, ptr %m_refs.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_nodes.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_nodes.i.i.i, i8 0, i64 32, i1 false)
   store i32 1, ptr %m_timestamp.i4.i, align 8
   store i64 %136, ptr %m_new_exprs.i220, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i5.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_nodes.i.i5.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %m_timestamp.i6.i, align 8
   store i32 0, ptr %m_state.i221, align 8
   store ptr null, ptr %er, align 8
@@ -1849,7 +1849,7 @@ for.cond155.preheader:                            ; preds = %for.cond155.prehead
 
 for.body160.lr.ph:                                ; preds = %for.cond155.preheader
   %ref.tmp.sroa.2.0.insert.shift.i = shl nuw i64 %indvars.iv763, 32
-  %151 = trunc i64 %indvars.iv763 to i32
+  %151 = trunc nuw i64 %indvars.iv763 to i32
   br label %for.body160
 
 for.body160:                                      ; preds = %for.body160.lr.ph, %for.inc176
@@ -1857,7 +1857,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   %153 = phi i32 [ %149, %for.body160.lr.ph ], [ %180, %for.inc176 ]
   %indvars.iv = phi i64 [ 0, %for.body160.lr.ph ], [ %indvars.iv.next, %for.inc176 ]
   %mul.i.i245 = mul i32 %153, %151
-  %154 = trunc i64 %indvars.iv to i32
+  %154 = trunc nuw i64 %indvars.iv to i32
   %add.i.i246 = add i32 %mul.i.i245, %154
   %155 = load ptr, ptr %m_subst, align 8
   %idxprom.i.i.i247 = zext i32 %add.i.i246 to i64

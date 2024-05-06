@@ -553,7 +553,7 @@ _ZN7Imf_3_23Xdr5writeINS_8StreamIOENS_7OStreamEEEvRT0_PKc.exit: ; preds = %while
   %conv4.i = trunc i32 %shr3.i to i8
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %4, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
@@ -598,7 +598,7 @@ _ZN7Imf_3_23Xdr3padINS_8StreamIOENS_7OStreamEEEvRT0_i.exit: ; preds = %for.body.
   %conv4.i20 = trunc i32 %shr3.i19 to i8
   store i8 %conv4.i20, ptr %arrayidx5.i21, align 1
   %shr6.i22 = lshr i32 %9, 24
-  %conv7.i23 = trunc i32 %shr6.i22 to i8
+  %conv7.i23 = trunc nuw i32 %shr6.i22 to i8
   store i8 %conv7.i23, ptr %arrayidx8.i24, align 1
   %vtable.i.i.i25 = load ptr, ptr %os, align 8
   %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 16
@@ -617,7 +617,7 @@ _ZN7Imf_3_23Xdr3padINS_8StreamIOENS_7OStreamEEEvRT0_i.exit: ; preds = %for.body.
   %conv4.i34 = trunc i32 %shr3.i33 to i8
   store i8 %conv4.i34, ptr %arrayidx5.i35, align 1
   %shr6.i36 = lshr i32 %11, 24
-  %conv7.i37 = trunc i32 %shr6.i36 to i8
+  %conv7.i37 = trunc nuw i32 %shr6.i36 to i8
   store i8 %conv7.i37, ptr %arrayidx8.i38, align 1
   %vtable.i.i.i39 = load ptr, ptr %os, align 8
   %vfn.i.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i.i39, i64 16

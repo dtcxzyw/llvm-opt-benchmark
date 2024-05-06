@@ -1004,7 +1004,7 @@ tokenizemodule_clear.exit:                        ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tokenizemodule_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @tokenizemodule_exec(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %cmp = icmp eq ptr %call.i, null

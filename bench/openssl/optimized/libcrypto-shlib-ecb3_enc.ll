@@ -36,7 +36,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %incdec.ptr39 = getelementptr inbounds i8, ptr %output, i64 3
   store i8 %conv38, ptr %incdec.ptr35, align 1
   %shr40 = lshr i32 %1, 24
-  %conv42 = trunc i32 %shr40 to i8
+  %conv42 = trunc nuw i32 %shr40 to i8
   %incdec.ptr43 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv42, ptr %incdec.ptr39, align 1
   %conv45 = trunc i32 %2 to i8
@@ -51,7 +51,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %incdec.ptr54 = getelementptr inbounds i8, ptr %output, i64 7
   store i8 %conv53, ptr %incdec.ptr50, align 1
   %shr55 = lshr i32 %2, 24
-  %conv57 = trunc i32 %shr55 to i8
+  %conv57 = trunc nuw i32 %shr55 to i8
   store i8 %conv57, ptr %incdec.ptr54, align 1
   ret void
 }

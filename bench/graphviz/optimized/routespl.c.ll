@@ -856,7 +856,7 @@ overlap.exit239.thread.i:                         ; preds = %204, %203, %201, %2
 
 .preheader355:                                    ; preds = %.loopexit357
   %invariant.gep = getelementptr i8, ptr %25, i64 -24
-  %invariant.gep369 = getelementptr i8, ptr %25, i64 40
+  %invariant.gep369 = getelementptr inbounds i8, ptr %25, i64 40
   %310 = add i32 %13, -1
   br i1 %26, label %.lr.ph373, label %._crit_edge382
 
@@ -886,7 +886,7 @@ overlap.exit239.thread.i:                         ; preds = %204, %203, %201, %2
   br i1 %320, label %321, label %327
 
 321:                                              ; preds = %319
-  %gep370 = getelementptr %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv413
+  %gep370 = getelementptr inbounds %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv413
   %322 = load double, ptr %gep370, align 8
   %323 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv413, i32 0, i32 1
   %324 = load double, ptr %323, align 8
@@ -996,7 +996,7 @@ overlap.exit239.thread.i:                         ; preds = %204, %203, %201, %2
 374:                                              ; preds = %.lr.ph381
   %375 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418, i32 0, i32 1
   %376 = load double, ptr %375, align 8
-  %gep375 = getelementptr %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv418
+  %gep375 = getelementptr inbounds %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv418
   %377 = load double, ptr %gep375, align 8
   %378 = fcmp ogt double %376, %377
   %379 = select i1 %378, i32 -1, i32 1
@@ -2049,10 +2049,10 @@ define internal fastcc void @limitBoxes(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv90 = phi i64 [ 3, %.preheader.preheader ], [ %indvars.iv.next91, %..loopexit_crit_edge ]
   %12 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %indvars.iv92
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = getelementptr i8, ptr %12, i64 16
-  %.sroa.33.16..sroa_idx = getelementptr i8, ptr %12, i64 24
-  %14 = getelementptr i8, ptr %12, i64 32
-  %.sroa.48.32..sroa_idx = getelementptr i8, ptr %12, i64 40
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.33.16..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.48.32..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
   %15 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %indvars.iv90
   %.sroa.55.48..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   br label %16

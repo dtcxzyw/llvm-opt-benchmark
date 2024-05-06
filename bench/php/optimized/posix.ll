@@ -1398,7 +1398,7 @@ define hidden void @zif_posix_ttyname(ptr noundef %0, ptr nocapture noundef writ
   ]
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3), !range !4
+  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3)
   %.not141 = icmp eq i32 %12, 0
   br i1 %.not141, label %13, label %._crit_edge
 
@@ -1496,7 +1496,7 @@ thread-pre-split:                                 ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_posix_stream_get_fd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @php_posix_stream_get_fd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @php_file_le_stream() #11
   %4 = tail call i32 @php_file_le_pstream() #11
   %5 = tail call ptr @zend_fetch_resource2_ex(ptr noundef %0, ptr noundef nonnull @.str.137, i32 noundef %3, i32 noundef %4) #11
@@ -1564,7 +1564,7 @@ define hidden void @zif_posix_isatty(ptr noundef %0, ptr nocapture noundef write
   ]
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3), !range !4
+  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3)
   %.not76 = icmp eq i32 %12, 0
   br i1 %.not76, label %13, label %thread-pre-split
 
@@ -1984,7 +1984,7 @@ declare i64 @gnu_dev_makedev(i32 noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @mknod(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_posix_group_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -2374,7 +2374,7 @@ define hidden void @zif_posix_getgrnam(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %25, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %26, align 8
-  %27 = call i32 @php_posix_group_to_array(ptr noundef nonnull %18, ptr noundef nonnull %1), !range !4
+  %27 = call i32 @php_posix_group_to_array(ptr noundef nonnull %18, ptr noundef nonnull %1)
   %.not78 = icmp eq i32 %27, 0
   br i1 %.not78, label %28, label %30
 
@@ -2453,7 +2453,7 @@ define hidden void @zif_posix_getgrgid(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %24, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %25, align 8
-  %26 = call i32 @php_posix_group_to_array(ptr noundef nonnull %17, ptr noundef nonnull %1), !range !4
+  %26 = call i32 @php_posix_group_to_array(ptr noundef nonnull %17, ptr noundef nonnull %1)
   %.not71 = icmp eq i32 %26, 0
   br i1 %.not71, label %27, label %29
 
@@ -2471,7 +2471,7 @@ define hidden void @zif_posix_getgrgid(ptr noundef %0, ptr noundef %1) #0 {
 declare ptr @getgrgid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_posix_passwd_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @php_posix_passwd_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2570,7 +2570,7 @@ define hidden void @zif_posix_getpwnam(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %25, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %26, align 8
-  %27 = call i32 @php_posix_passwd_to_array(ptr noundef nonnull %18, ptr noundef nonnull %1), !range !4
+  %27 = call i32 @php_posix_passwd_to_array(ptr noundef nonnull %18, ptr noundef nonnull %1)
   %.not78 = icmp eq i32 %27, 0
   br i1 %.not78, label %28, label %30
 
@@ -2648,7 +2648,7 @@ define hidden void @zif_posix_getpwuid(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %24, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %25, align 8
-  %26 = call i32 @php_posix_passwd_to_array(ptr noundef nonnull %17, ptr noundef nonnull %1), !range !4
+  %26 = call i32 @php_posix_passwd_to_array(ptr noundef nonnull %17, ptr noundef nonnull %1)
   %.not71 = icmp eq i32 %26, 0
   br i1 %.not71, label %27, label %29
 
@@ -3365,7 +3365,7 @@ define hidden void @zif_posix_fpathconf(ptr noundef %0, ptr nocapture noundef wr
   ]
 
 19:                                               ; preds = %.thread146
-  %20 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %4), !range !4
+  %20 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %4)
   %.not118 = icmp eq i32 %20, 0
   br i1 %.not118, label %21, label %30
 
@@ -3487,4 +3487,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -492,7 +492,7 @@ define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor3preERKNS_19Asc
 entry:
   %cr2 = getelementptr inbounds i8, ptr %c, i64 40
   %0 = load <4 x i64>, ptr %cr2, align 8
-  %1 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %0), !range !7
+  %1 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %0)
   %2 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %1)
   switch i64 %2, label %if.else10 [
     i64 1, label %if.then
@@ -512,7 +512,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %4 = tail call noundef i64 @llvm.cttz.i64(i64 %3, i1 true), !range !7
+  %4 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
   %add.i.i = or disjoint i64 %4, %mul.i.i
   %5 = trunc i64 %add.i.i to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -520,7 +520,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %for.body.i.i, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.then.i.i
   %retval.0.i.i = phi i8 [ %5, %if.then.i.i ], [ 0, %for.inc.i.i ]
@@ -544,7 +544,7 @@ for.body.i.i5:                                    ; preds = %for.inc.i.i13, %if.
 
 if.then.i.i9:                                     ; preds = %for.body.i.i5
   %mul.i.i10 = shl nuw nsw i64 %i.06.i.i6, 6
-  %7 = tail call noundef i64 @llvm.cttz.i64(i64 %6, i1 true), !range !7
+  %7 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %add.i.i11 = or disjoint i64 %7, %mul.i.i10
   %8 = trunc i64 %add.i.i11 to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit16
@@ -552,7 +552,7 @@ if.then.i.i9:                                     ; preds = %for.body.i.i5
 for.inc.i.i13:                                    ; preds = %for.body.i.i5
   %inc.i.i14 = add nuw nsw i64 %i.06.i.i6, 1
   %exitcond.not.i.i15 = icmp eq i64 %inc.i.i14, 4
-  br i1 %exitcond.not.i.i15, label %_ZNK3ue29CharReach10find_firstEv.exit16, label %for.body.i.i5, !llvm.loop !8
+  br i1 %exitcond.not.i.i15, label %_ZNK3ue29CharReach10find_firstEv.exit16, label %for.body.i.i5, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit16:          ; preds = %for.inc.i.i13, %if.then.i.i9
   %retval.0.i.i12 = phi i8 [ %8, %if.then.i.i9 ], [ 0, %for.inc.i.i13 ]
@@ -906,15 +906,15 @@ entry:
   %suffix = alloca %"struct.ue2::ue2_literal", align 8
   %lit = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !9
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !8
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !9
+  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt5stackImSt5dequeImSaImEEE3topEv.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !9
+  %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 512
@@ -966,7 +966,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw i32 %i.05, 1
   %12 = load i32, ptr %m_min, align 8
   %cmp = icmp ult i32 %inc, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 lpad:                                             ; preds = %for.body
   %13 = landingpad { ptr, i32 }
@@ -1052,7 +1052,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !13
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !12
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -1563,10 +1563,9 @@ attributes #20 = { builtin allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !6}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNSt5dequeImSaImEE3endEv: %agg.result"}
-!11 = distinct !{!11, !"_ZNSt5dequeImSaImEE3endEv"}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNSt5dequeImSaImEE3endEv: %agg.result"}
+!10 = distinct !{!10, !"_ZNSt5dequeImSaImEE3endEv"}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

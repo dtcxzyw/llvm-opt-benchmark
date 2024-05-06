@@ -1637,7 +1637,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   %304 = trunc i32 %294 to i8
   %305 = getelementptr inbounds i8, ptr %0, i64 4936
   store i8 %304, ptr %305, align 8
-  %306 = trunc i32 %295 to i8
+  %306 = trunc nuw nsw i32 %295 to i8
   %307 = getelementptr inbounds i8, ptr %0, i64 4937
   store i8 %306, ptr %307, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #10
@@ -9186,7 +9186,7 @@ define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef
   %81 = trunc i64 %57 to i8
   %82 = getelementptr inbounds i8, ptr %0, i64 4936
   store i8 %81, ptr %82, align 8
-  %83 = trunc i32 %72 to i8
+  %83 = trunc nuw nsw i32 %72 to i8
   %84 = getelementptr inbounds i8, ptr %0, i64 4937
   store i8 %83, ptr %84, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10

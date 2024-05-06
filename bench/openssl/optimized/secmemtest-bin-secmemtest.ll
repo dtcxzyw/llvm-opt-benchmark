@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [5 x i8] c"p[i]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_sec_mem) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_sec_mem_clear) #2
@@ -40,7 +40,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sec_mem() #0 {
+define internal range(i32 0, 2) i32 @test_sec_mem() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 21, ptr noundef nonnull @.str.3) #2
   %call = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef 20, ptr noundef nonnull @.str.2, i32 noundef 23) #2
@@ -232,7 +232,7 @@ end:                                              ; preds = %if.end105, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sec_mem_clear() #0 {
+define internal range(i32 0, 2) i32 @test_sec_mem_clear() #0 {
 entry:
   %call = tail call i32 @CRYPTO_secure_malloc_init(i64 noundef 4096, i64 noundef 32) #2
   %cmp = icmp ne i32 %call, 0

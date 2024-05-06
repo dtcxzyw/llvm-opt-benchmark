@@ -1629,7 +1629,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6icu_758Calendar10setLenientEa(ptr noundef nonnull align 8 dereferenceable(618), i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7510DateFormat9isLenientEv(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510DateFormat9isLenientEv(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #3 align 2 {
 entry:
   %status = alloca i32, align 4
   %fCalendar = getelementptr inbounds i8, ptr %this, i64 328

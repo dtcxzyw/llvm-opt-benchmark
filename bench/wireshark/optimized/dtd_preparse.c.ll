@@ -928,7 +928,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   br i1 %exitcond177.not.i, label %.critedge.i, label %446, !llvm.loop !12
 
 .critedge.split.loop.exit.i:                      ; preds = %446, %446
-  %459 = trunc i64 %indvars.iv.i to i32
+  %459 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %449, %.critedge.split.loop.exit.i
@@ -2501,7 +2501,7 @@ define hidden void @Dtd_PreParse_set_debug(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Dtd_PreParse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2529,7 +2529,7 @@ declare ptr @__errno_location() local_unnamed_addr #12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Dtd_PreParse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

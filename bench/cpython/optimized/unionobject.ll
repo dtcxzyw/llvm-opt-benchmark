@@ -892,7 +892,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [9 x i8] c"__args__\00", align 1
 @.str.8 = private unnamed_addr constant [15 x i8] c"__parameters__\00", align 1
 @.str.9 = private unnamed_addr constant [39 x i8] c"Type variables in the types.UnionType.\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_union_type_or(ptr noundef %self, ptr noundef %other) #0 {

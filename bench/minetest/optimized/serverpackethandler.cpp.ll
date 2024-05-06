@@ -491,7 +491,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.69 = private unnamed_addr constant [27 x i8] c" requested media file(s):\0A\00", align 1
 @.str.70 = private unnamed_addr constant [3 x i8] c"  \00", align 1
 @.str.71 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.72 = private unnamed_addr constant [44 x i8] c"Server: stage 2 client init failed peer_id=\00", align 1
 @.str.73 = private unnamed_addr constant [30 x i8] c"GOTBLOCKS length is too short\00", align 1
 @_ZTSN3con28InvalidIncomingDataExceptionE = linkonce_odr dso_local constant [37 x i8] c"N3con28InvalidIncomingDataExceptionE\00", comdat, align 1

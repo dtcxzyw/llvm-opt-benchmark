@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32i_sunpkd832P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_sunpkd832P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -177,7 +177,7 @@ define noundef i64 @_Z20fast_rv64i_sunpkd832P11processor_t6insn_tm(ptr nocapture
   %18 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %sh.diff38 = lshr i64 %19, 48
-  %tr.sh.diff39 = trunc i64 %sh.diff38 to i16
+  %tr.sh.diff39 = trunc nuw i64 %sh.diff38 to i16
   %20 = ashr i16 %tr.sh.diff39, 8
   %.sroa.5.0.insert.ext = zext i16 %20 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 48
@@ -208,7 +208,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32i_sunpkd832P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_sunpkd832P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -355,7 +355,7 @@ define noundef i64 @_Z22logged_rv64i_sunpkd832P11processor_t6insn_tm(ptr noundef
   %tr.sh.diff42 = trunc i64 %sh.diff41 to i16
   %19 = ashr i16 %tr.sh.diff42, 8
   %sh.diff43 = lshr i64 %16, 48
-  %tr.sh.diff44 = trunc i64 %sh.diff43 to i16
+  %tr.sh.diff44 = trunc nuw i64 %sh.diff43 to i16
   %20 = ashr i16 %tr.sh.diff44, 8
   %.sroa.5.0.insert.ext = zext i16 %20 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 48
@@ -440,7 +440,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32e_sunpkd832P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_sunpkd832P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -591,7 +591,7 @@ define noundef i64 @_Z20fast_rv64e_sunpkd832P11processor_t6insn_tm(ptr nocapture
   %32 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %33 = load i64, ptr %32, align 8
   %sh.diff = lshr i64 %33, 48
-  %tr.sh.diff = trunc i64 %sh.diff to i16
+  %tr.sh.diff = trunc nuw i64 %sh.diff to i16
   %34 = ashr i16 %tr.sh.diff, 8
   %.sroa.5.0.insert.ext = zext i16 %34 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 48
@@ -622,7 +622,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %30, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32e_sunpkd832P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_sunpkd832P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -817,7 +817,7 @@ define noundef i64 @_Z22logged_rv64e_sunpkd832P11processor_t6insn_tm(ptr noundef
   %tr.sh.diff64 = trunc i64 %sh.diff63 to i16
   %26 = ashr i16 %tr.sh.diff64, 8
   %sh.diff65 = lshr i64 %23, 48
-  %tr.sh.diff66 = trunc i64 %sh.diff65 to i16
+  %tr.sh.diff66 = trunc nuw i64 %sh.diff65 to i16
   %27 = ashr i16 %tr.sh.diff66, 8
   %.sroa.5.0.insert.ext = zext i16 %27 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 48

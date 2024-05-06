@@ -423,7 +423,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i75, %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @conversation_match_element_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @conversation_match_element_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not38 = icmp eq i32 %3, %4
@@ -556,7 +556,7 @@ define hidden void @conversation_epan_reset() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @conversation_new_full(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @conversation_new_full(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
 
@@ -637,7 +637,7 @@ conversation_element_count.exit:                  ; preds = %24
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store i32 %37, ptr %35, align 8
   %42 = icmp eq i32 %39, 0
   br i1 %42, label %copy_address_wmem.exit, label %43
@@ -779,7 +779,7 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @conversation_new(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define nonnull ptr @conversation_new(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp ult i32 %6, 65536
   br i1 %.not, label %9, label %8
 
@@ -802,7 +802,7 @@ define noundef nonnull ptr @conversation_new(i32 noundef %0, ptr noundef readonl
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %15, ptr %14, align 8
   %20 = icmp eq i32 %17, 0
   br i1 %20, label %copy_address_wmem.exit, label %21
@@ -820,7 +820,7 @@ define noundef nonnull ptr @conversation_new(i32 noundef %0, ptr noundef readonl
 
 27:                                               ; preds = %9
   %28 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %21, %12, %27
@@ -871,7 +871,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
 
 .thread100:                                       ; preds = %.thread84
   %41 = getelementptr i8, ptr %11, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   br label %63
 
 42:                                               ; preds = %.thread84, %38
@@ -887,7 +887,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = load ptr, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   store i32 %46, ptr %45, align 8
   %51 = icmp eq i32 %48, 0
   br i1 %51, label %copy_address_wmem.exit63, label %52
@@ -905,7 +905,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
 
 58:                                               ; preds = %38
   %59 = getelementptr inbounds i8, ptr %39, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   br i1 %.not50, label %63, label %60
 
 copy_address_wmem.exit63:                         ; preds = %42
@@ -1374,7 +1374,7 @@ conversation_remove_from_hashtable.exit:          ; preds = %.lr.ph.i, %.lr.ph.i
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   store i32 %101, ptr %100, align 8
   %106 = icmp eq i32 %103, 0
   br i1 %106, label %copy_address_wmem.exit, label %107
@@ -1520,7 +1520,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
   store i32 1, ptr %20, align 16
   %26 = getelementptr inbounds i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   store i32 2, ptr %27, align 16
@@ -1529,7 +1529,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   %29 = getelementptr inbounds i8, ptr %20, i64 64
   store i32 1, ptr %29, align 16
   %30 = getelementptr inbounds i8, ptr %20, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %20, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   store i32 2, ptr %31, align 16
@@ -1611,7 +1611,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19)
   store i32 1, ptr %19, align 16
   %61 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %62 = getelementptr inbounds i8, ptr %19, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   store i32 2, ptr %62, align 16
@@ -1620,7 +1620,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   %64 = getelementptr inbounds i8, ptr %19, i64 64
   store i32 1, ptr %64, align 16
   %65 = getelementptr inbounds i8, ptr %19, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %66 = getelementptr inbounds i8, ptr %19, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   store i32 2, ptr %66, align 16
@@ -1725,7 +1725,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %18)
   store i32 1, ptr %18, align 16
   %109 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %110 = getelementptr inbounds i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %110, i8 0, i64 32, i1 false)
   store i32 2, ptr %110, align 16
@@ -1734,7 +1734,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   %112 = getelementptr inbounds i8, ptr %18, i64 64
   store i32 1, ptr %112, align 16
   %113 = getelementptr inbounds i8, ptr %18, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %114 = getelementptr inbounds i8, ptr %18, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %114, i8 0, i64 32, i1 false)
   store i32 2, ptr %114, align 16
@@ -1828,7 +1828,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17)
   store i32 1, ptr %17, align 16
   %147 = getelementptr inbounds i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %148 = getelementptr inbounds i8, ptr %17, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %148, i8 0, i64 32, i1 false)
   store i32 2, ptr %148, align 16
@@ -1924,7 +1924,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16)
   store i32 1, ptr %16, align 16
   %184 = getelementptr inbounds i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %185 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %185, i8 0, i64 32, i1 false)
   store i32 2, ptr %185, align 16
@@ -2046,7 +2046,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15)
   store i32 1, ptr %15, align 16
   %231 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %232 = getelementptr inbounds i8, ptr %15, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %232, i8 0, i64 32, i1 false)
   store i32 2, ptr %232, align 16
@@ -2161,7 +2161,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14)
   store i32 1, ptr %14, align 16
   %275 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %276 = getelementptr inbounds i8, ptr %14, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %276, i8 0, i64 32, i1 false)
   store i32 2, ptr %276, align 16
@@ -2170,7 +2170,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %278 = getelementptr inbounds i8, ptr %14, i64 64
   store i32 1, ptr %278, align 16
   %279 = getelementptr inbounds i8, ptr %14, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %279, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %279, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %280 = getelementptr inbounds i8, ptr %14, i64 96
   %281 = getelementptr inbounds i8, ptr %14, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %280, i8 0, i64 32, i1 false)
@@ -2256,7 +2256,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13)
   store i32 1, ptr %13, align 16
   %312 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %313 = getelementptr inbounds i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %313, i8 0, i64 32, i1 false)
   store i32 2, ptr %313, align 16
@@ -2265,7 +2265,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %315 = getelementptr inbounds i8, ptr %13, i64 64
   store i32 1, ptr %315, align 16
   %316 = getelementptr inbounds i8, ptr %13, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %317 = getelementptr inbounds i8, ptr %13, i64 96
   %318 = getelementptr inbounds i8, ptr %13, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %317, i8 0, i64 32, i1 false)
@@ -2377,7 +2377,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
   store i32 1, ptr %12, align 16
   %359 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %359, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %359, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %360 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %360, i8 0, i64 32, i1 false)
   store i32 2, ptr %360, align 16
@@ -2386,7 +2386,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %362 = getelementptr inbounds i8, ptr %12, i64 64
   store i32 1, ptr %362, align 16
   %363 = getelementptr inbounds i8, ptr %12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %363, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %363, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %364 = getelementptr inbounds i8, ptr %12, i64 96
   %365 = getelementptr inbounds i8, ptr %12, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %364, i8 0, i64 32, i1 false)
@@ -2486,7 +2486,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
   store i32 1, ptr %11, align 16
   %401 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %401, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %401, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %402 = getelementptr inbounds i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %402, i8 0, i64 32, i1 false)
   store i32 2, ptr %402, align 16
@@ -2613,7 +2613,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   store i32 1, ptr %10, align 16
   %451 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %451, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %451, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %452 = getelementptr inbounds i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %452, i8 0, i64 32, i1 false)
   store i32 2, ptr %452, align 16
@@ -2698,7 +2698,7 @@ conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %450, %458, %464, %.
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9)
   store i32 1, ptr %9, align 16
   %483 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %483, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %483, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %484 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %484, i8 0, i64 32, i1 false)
   store i32 2, ptr %484, align 16
@@ -2813,11 +2813,11 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   store i32 1, ptr %8, align 16
   %526 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
   %527 = getelementptr inbounds i8, ptr %8, i64 32
   store i32 1, ptr %527, align 16
   %528 = getelementptr inbounds i8, ptr %8, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %528, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %528, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
   %529 = getelementptr inbounds i8, ptr %8, i64 64
   %530 = getelementptr inbounds i8, ptr %8, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %529, i8 0, i64 32, i1 false)
@@ -2908,7 +2908,7 @@ conversation_lookup_no_ports.exit:                ; preds = %539, %556
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @conversation_create_from_template(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @conversation_create_from_template(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -3481,7 +3481,7 @@ try_conversation_call_dissector_helper.exit77.thread: ; preds = %39, %37, %34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [2 x %struct.conversation_element], align 16
   %8 = getelementptr inbounds i8, ptr %3, i64 20
   %9 = load i32, ptr %8, align 4
@@ -3696,7 +3696,7 @@ switch.lookup:                                    ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conversation_pt_to_conversation_type(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 34) i32 @conversation_pt_to_conversation_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 14
   br i1 %2, label %switch.lookup, label %3
 
@@ -3912,7 +3912,7 @@ define void @conversation_set_conv_addr_port_endpoints(ptr nocapture noundef %0,
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 %13, ptr %9, align 8
   %18 = icmp eq i32 %15, 0
   br i1 %18, label %copy_address_wmem.exit, label %19
@@ -3941,7 +3941,7 @@ copy_address_wmem.exit:                           ; preds = %19, %11, %6
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store i32 %29, ptr %28, align 8
   %34 = icmp eq i32 %31, 0
   br i1 %34, label %copy_address_wmem.exit18, label %35
@@ -4126,7 +4126,7 @@ define i32 @conversation_key_port2(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conversation_pt_to_endpoint_type(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 34) i32 @conversation_pt_to_endpoint_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 14
   br i1 %2, label %switch.lookup, label %3
 

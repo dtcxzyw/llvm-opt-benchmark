@@ -99,7 +99,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef %str, i64 noundef %conv.i) #6
+  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #6
   %conv1.i = trunc i64 %call.i to i32
   tail call void @BIO_clear_retry_flags(ptr noundef %bp) #6
   %cmp.i = icmp slt i32 %conv1.i, 1
@@ -119,7 +119,7 @@ sock_write.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @sock_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   switch i32 %cmd, label %sw.default [
     i32 104, label %sw.bb
@@ -223,7 +223,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_free(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @sock_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

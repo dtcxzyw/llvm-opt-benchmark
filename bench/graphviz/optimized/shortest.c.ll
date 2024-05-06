@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [19 x i8] c"cannot realloc ops\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Pshortestpath(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.triangle_t, align 8
   %5 = alloca %struct.triangle_t, align 8
   %6 = alloca %struct.triangle_t, align 8
@@ -110,7 +110,7 @@ define noundef i32 @Pshortestpath(ptr nocapture noundef readonly %0, ptr noundef
   %45 = load double, ptr %44, align 8
   %46 = fcmp ogt double %.0215307, %45
   %.1216 = select i1 %46, double %45, double %.0215307
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   %.1214 = select i1 %46, i32 %47, i32 %.0213308
   %.1214.fr = freeze i32 %.1214
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -394,7 +394,7 @@ loadtriangle.exit.i:                              ; preds = %153, %._crit_edge.i
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv74.i
   store ptr %168, ptr %169, align 8
-  %170 = trunc i64 %indvars.iv.next75.i to i32
+  %170 = trunc nuw i64 %indvars.iv.next75.i to i32
   %171 = icmp slt i32 %170, %indvars.i
   br i1 %171, label %.lr.ph.i, label %tailrecurse.loopexit.i
 
@@ -602,11 +602,11 @@ connecttris.exit:                                 ; preds = %242
   %.011.i = phi i32 [ 0, %246 ], [ %spec.select.i, %247 ]
   %248 = load ptr, ptr @tris.0, align 8, !noalias !4
   %249 = getelementptr inbounds %struct.triangle_t, ptr %248, i64 %.1218326
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %249, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %249, i64 80, i1 false)
   %250 = getelementptr inbounds [3 x %struct.tedge_t], ptr %206, i64 0, i64 %indvars.iv.i255
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %251, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %249, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %249, i64 80, i1 false)
   %253 = getelementptr inbounds [3 x %struct.tedge_t], ptr %207, i64 0, i64 %indvars.iv.i255, i32 1
   %254 = load ptr, ptr %253, align 8
   %255 = load ptr, ptr %254, align 8
@@ -681,11 +681,11 @@ pointintri.exit._crit_edge.thread:                ; preds = %triangulate.exit, %
   %.011.i259 = phi i32 [ 0, %278 ], [ %spec.select.i261, %279 ]
   %280 = load ptr, ptr @tris.0, align 8, !noalias !4
   %281 = getelementptr inbounds %struct.triangle_t, ptr %280, i64 %.2219333
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %281, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %281, i64 80, i1 false)
   %282 = getelementptr inbounds [3 x %struct.tedge_t], ptr %272, i64 0, i64 %indvars.iv.i258
   %283 = load ptr, ptr %282, align 8
   %284 = load ptr, ptr %283, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %281, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %281, i64 80, i1 false)
   %285 = getelementptr inbounds [3 x %struct.tedge_t], ptr %273, i64 0, i64 %indvars.iv.i258, i32 1
   %286 = load ptr, ptr %285, align 8
   %287 = load ptr, ptr %286, align 8
@@ -745,7 +745,7 @@ pointintri.exit264._crit_edge.thread:             ; preds = %.preheader, %pointi
   tail call void @free(ptr noundef %311) #14
   tail call void @free(ptr noundef %20) #14
   tail call void @free(ptr noundef %13) #14
-  %312 = tail call fastcc i32 @growops(i64 noundef 2), !range !5
+  %312 = tail call fastcc i32 @growops(i64 noundef 2)
   %.not239 = icmp eq i32 %312, 0
   br i1 %.not239, label %313, label %484
 
@@ -889,7 +889,7 @@ add2dq.exit:                                      ; preds = %334, %341
   br label %411
 
 .thread:                                          ; preds = %358
-  %380 = trunc i64 %indvars.iv373 to i32
+  %380 = trunc nuw nsw i64 %indvars.iv373 to i32
   %381 = add nuw nsw i32 %380, 1
   %382 = urem i32 %381, 3
   %383 = zext nneg i32 %382 to i64
@@ -1153,14 +1153,14 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
   %12 = phi ptr [ %.pre18, %.preheader ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
   %13 = getelementptr inbounds %struct.triangle_t, ptr %12, i64 %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false)
   %14 = getelementptr inbounds [3 x %struct.tedge_t], ptr %9, i64 0, i64 %indvars.iv, i32 2
   %15 = load i64, ptr %14, align 8
   %.not15 = icmp eq i64 %15, -1
   br i1 %.not15, label %20, label %16
 
 16:                                               ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false)
   %17 = getelementptr inbounds [3 x %struct.tedge_t], ptr %10, i64 0, i64 %indvars.iv, i32 2
   %18 = load i64, ptr %17, align 8
   %19 = tail call fastcc zeroext i1 @marktripath(i64 noundef %18, i64 noundef %1)
@@ -1184,7 +1184,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @growops(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @growops(i64 noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr @opn, align 8
   %.not = icmp ult i64 %2, %0
   br i1 %.not, label %3, label %12
@@ -1342,4 +1342,3 @@ attributes #15 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

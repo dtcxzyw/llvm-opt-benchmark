@@ -303,7 +303,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -353,7 +353,7 @@ define noundef i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_addr #5 {
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %55 ]
   %.02629 = phi i32 [ 0, %11 ], [ %.1, %55 ]
   %42 = load i32, ptr %2, align 4
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = shl nuw nsw i32 1, %43
   %45 = and i32 %42, %44
   %.not = icmp eq i32 %45, 0
@@ -424,7 +424,7 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = phi i32 [ %6, %.lr.ph ], [ %37, %17 ]
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef %18, i32 noundef %19) #13
   %20 = load i32, ptr %3, align 8
   %21 = lshr i32 %20, 7
@@ -464,13 +464,13 @@ declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 -2147483647, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
   %.078 = phi i32 [ 0, %2 ], [ %.1, %11 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %0
   %.not = icmp eq i32 %6, 0
@@ -506,7 +506,7 @@ define i32 @Lpk_SuppToVars(i32 noundef %0, ptr nocapture noundef writeonly %1) l
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = trunc i32 %.078 to i8
+  %7 = trunc nuw i32 %.078 to i8
   %8 = add nsw i32 %.09, 1
   %9 = sext i32 %.09 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 %9

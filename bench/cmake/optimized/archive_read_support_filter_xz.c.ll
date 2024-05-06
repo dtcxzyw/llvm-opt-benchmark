@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [42 x i8] c"Lzma decompression failed:  Unknown error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_compression_xz(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_xz(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @xz_bidder_vtable) #10
   %.not.i = icmp eq i32 %2, 0
   %..i = select i1 %.not.i, i32 0, i32 -30
@@ -39,7 +39,7 @@ define dso_local i32 @archive_read_support_compression_xz(ptr noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_filter_xz(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_xz(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @xz_bidder_vtable) #10
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 0, i32 -30
@@ -49,7 +49,7 @@ define dso_local i32 @archive_read_support_filter_xz(ptr noundef %0) local_unnam
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_compression_lzma(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_lzma(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @lzma_bidder_vtable) #10
   %.not.i = icmp eq i32 %2, 0
   %..i = select i1 %.not.i, i32 0, i32 -30
@@ -57,7 +57,7 @@ define dso_local i32 @archive_read_support_compression_lzma(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_filter_lzma(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_lzma(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @lzma_bidder_vtable) #10
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 0, i32 -30
@@ -65,7 +65,7 @@ define dso_local i32 @archive_read_support_filter_lzma(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_compression_lzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_lzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull @lzip_bidder_vtable) #10
   %.not.i = icmp eq i32 %2, 0
   %..i = select i1 %.not.i, i32 0, i32 -30
@@ -73,7 +73,7 @@ define dso_local i32 @archive_read_support_compression_lzip(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_filter_lzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_lzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull @lzip_bidder_vtable) #10
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 0, i32 -30
@@ -81,7 +81,7 @@ define dso_local i32 @archive_read_support_filter_lzip(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xz_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 49) i32 @xz_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 6, ptr noundef nonnull %3) #10
   %5 = icmp eq ptr %4, null
@@ -99,19 +99,19 @@ define internal i32 @xz_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xz_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @xz_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 6, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr @.str, ptr %3, align 8
-  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0), !range !5
+  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0)
   ret i32 %4
 }
 
 declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @xz_lzma_bidder_init(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @xz_lzma_bidder_init(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(184) ptr @calloc(i64 noundef 184, i64 noundef 1) #11
   %3 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #12
   %4 = icmp eq ptr %2, null
@@ -340,7 +340,7 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
   %58 = trunc i32 %57 to i8
   store i8 %58, ptr %22, align 1
   %59 = lshr i32 %.024.i, 24
-  %60 = trunc i32 %59 to i8
+  %60 = trunc nuw i32 %59 to i8
   store i8 %60, ptr %23, align 1
   %61 = load ptr, ptr %19, align 8
   %62 = call i64 @__archive_read_filter_consume(ptr noundef %61, i64 noundef 6) #10
@@ -363,7 +363,7 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
 
 .sink.split.i:                                    ; preds = %65, %47
   %.sink.i = phi i32 [ %64, %47 ], [ %66, %65 ]
-  call fastcc void @set_error(ptr noundef nonnull %0, i32 noundef %.sink.i)
+  call fastcc void @set_error(ptr noundef nonnull readonly %0, i32 noundef %.sink.i)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %38, %.sink.split.i
@@ -423,7 +423,7 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
   store i64 %93, ptr %28, align 8
   %.pr = load i64, ptr %16, align 8
   %.not = icmp eq i64 %.pr, 0
-  br i1 %.not, label %.critedge.loopexit, label %29, !llvm.loop !6
+  br i1 %.not, label %.critedge.loopexit, label %29, !llvm.loop !5
 
 94:                                               ; preds = %78
   call fastcc void @set_error(ptr noundef nonnull %0, i32 noundef %81)
@@ -615,7 +615,7 @@ declare i32 @lzma_raw_decoder(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @lzma_end(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzma_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 105) i32 @lzma_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 14, ptr noundef nonnull %3) #10
   %5 = icmp eq ptr %4, null
@@ -679,17 +679,17 @@ define internal i32 @lzma_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @lzma_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 5, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr @.str.1, ptr %3, align 8
-  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0), !range !5
+  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 49) i32 @lzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 6, ptr noundef nonnull %3) #10
@@ -723,12 +723,12 @@ lzip_has_member.exit:                             ; preds = %2, %6, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzip_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @lzip_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 9, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr @.str.2, ptr %3, align 8
-  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0), !range !5
+  %4 = tail call fastcc i32 @xz_lzma_bidder_init(ptr noundef %0)
   ret i32 %4
 }
 
@@ -766,6 +766,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

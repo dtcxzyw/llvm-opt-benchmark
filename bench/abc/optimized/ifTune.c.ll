@@ -1422,7 +1422,7 @@ define ptr @Ifn_ManStrFindModel(ptr nocapture noundef readonly %0) local_unnamed
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 -1, i64 %6, i1 false)
   %8 = tail call ptr @Gia_ManStart(i32 noundef 1000) #23
   %9 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, ptr noundef nonnull align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #23
   store ptr %9, ptr %8, align 8
   tail call void @Gia_ManHashStart(ptr noundef nonnull %8) #23
   %10 = load i32, ptr %0, align 8
@@ -1896,10 +1896,10 @@ define ptr @Ifn_ManStrFindCofactors(i32 noundef %0, ptr nocapture noundef readon
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #23
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #23
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -2644,7 +2644,7 @@ Ifn_Prepare.exit:                                 ; preds = %.lr.ph.i.i, %._crit
   store ptr %5, ptr %3, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
-  %48 = tail call ptr @Ifn_ManStrFindModel(ptr noundef nonnull %5)
+  %48 = tail call ptr @Ifn_ManStrFindModel(ptr noundef nonnull readonly %5)
   %49 = load i32, ptr %5, align 8
   %50 = tail call ptr @Ifn_ManStrFindCofactors(i32 noundef %49, ptr noundef %48)
   tail call void @Gia_ManStop(ptr noundef %48) #23
@@ -3011,7 +3011,7 @@ define range(i32 0, 2) i32 @Ifn_ManSatFindCofigBitsTest(ptr nocapture noundef re
   store ptr %10, ptr %11, align 8
   store ptr null, ptr %7, align 8
   store ptr null, ptr %6, align 8
-  %12 = tail call ptr @Ifn_ManStrFindModel(ptr noundef %0)
+  %12 = tail call ptr @Ifn_ManStrFindModel(ptr noundef readonly %0)
   %13 = load i32, ptr %0, align 8
   %14 = tail call ptr @Ifn_ManStrFindCofactors(i32 noundef %13, ptr noundef %12)
   tail call void @Gia_ManStop(ptr noundef %12) #23
@@ -3042,7 +3042,7 @@ define range(i32 0, 2) i32 @Ifn_ManSatFindCofigBitsTest(ptr nocapture noundef re
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !52
 
 ._crit_edge.i:                                    ; preds = %20, %4
-  %27 = call i32 @Ifn_ManSatCheckOne(ptr noundef %15, ptr noundef %17, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, i32 noundef %18, ptr noundef nonnull %8)
+  %27 = call i32 @Ifn_ManSatCheckOne(ptr noundef %15, ptr noundef readonly %17, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %5, i32 noundef %18, ptr noundef nonnull %8)
   store i32 0, ptr %9, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %If_ManSatFindCofigBits.exit.thread, label %If_ManSatFindCofigBits.exit
@@ -3053,7 +3053,7 @@ If_ManSatFindCofigBits.exit.thread:               ; preds = %._crit_edge.i
   br label %Vec_IntPrint.exit
 
 If_ManSatFindCofigBits.exit:                      ; preds = %._crit_edge.i
-  tail call void @Ifn_ManSatDeriveOne(ptr noundef %15, ptr noundef %16, ptr noundef nonnull %8)
+  tail call void @Ifn_ManSatDeriveOne(ptr noundef %15, ptr noundef readonly %16, ptr noundef nonnull %8)
   %.val6.i.pr = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5)
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.val6.i.pr)
@@ -3618,10 +3618,10 @@ Ifn_Prepare.exit:                                 ; preds = %.lr.ph.i.i, %._crit
   br i1 %.not.i106, label %Abc_UtilStrsav.exit, label %58
 
 58:                                               ; preds = %Ifn_Prepare.exit
-  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #27
+  %59 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %57) #27
   %60 = add i64 %59, 1
   %61 = tail call noalias ptr @malloc(i64 noundef %60) #25
-  %62 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %57) #23
+  %62 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %57) #23
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Ifn_Prepare.exit, %58
@@ -3633,10 +3633,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Ifn_Prepare.exit, %
   br i1 %.not.i107, label %Abc_UtilStrsav.exit108, label %66
 
 66:                                               ; preds = %Abc_UtilStrsav.exit
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #27
+  %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %65) #27
   %68 = add i64 %67, 1
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #25
-  %70 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %65) #23
+  %70 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(1) %65) #23
   br label %Abc_UtilStrsav.exit108
 
 Abc_UtilStrsav.exit108:                           ; preds = %Abc_UtilStrsav.exit, %66
@@ -4103,7 +4103,7 @@ Abc_TtCopy.exit:                                  ; preds = %Abc_TtCopy.exit.loo
 .lr.ph.preheader.i113:                            ; preds = %61
   %63 = zext nneg i32 %56 to i64
   %64 = shl nuw nsw i64 %63, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 -1, i64 %64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %59, i8 -1, i64 %64, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %61, %.lr.ph.preheader.i113
@@ -4162,7 +4162,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i116, %.lr.p
 .lr.ph.preheader.i120:                            ; preds = %79
   %81 = zext nneg i32 %56 to i64
   %82 = shl nuw nsw i64 %81, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %82, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %59, i8 0, i64 %82, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %79, %.lr.ph.preheader.i120
@@ -4265,7 +4265,7 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph22.i, %.lr.ph
 .lr.ph.preheader.i127:                            ; preds = %124
   %130 = zext nneg i32 %56 to i64
   %131 = shl nuw nsw i64 %130, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %131, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %59, i8 0, i64 %131, i1 false)
   br label %Abc_TtClear.exit128
 
 Abc_TtClear.exit128:                              ; preds = %124, %.lr.ph.preheader.i127
@@ -4298,7 +4298,7 @@ Abc_TtClear.exit128:                              ; preds = %124, %.lr.ph.prehea
 .lr.ph.preheader.i129:                            ; preds = %141
   %144 = zext nneg i32 %142 to i64
   %145 = shl nuw nsw i64 %144, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %128, i8 -1, i64 %145, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %128, i8 -1, i64 %145, i1 false)
   br label %Abc_TtFill.exit130
 
 Abc_TtFill.exit130:                               ; preds = %141, %.lr.ph.preheader.i129
@@ -4420,8 +4420,8 @@ define void @Ifn_TtComparisonConstr(ptr nocapture noundef %0, i32 noundef %1, i3
   %12 = select i1 %9, i32 1, i32 %11
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, i8 0, i64 %14, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, i8 -1, i64 %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %0, i8 0, i64 %14, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %6, i8 -1, i64 %14, i1 false)
   %15 = icmp sgt i32 %1, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 

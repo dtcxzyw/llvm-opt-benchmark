@@ -463,7 +463,7 @@ for.body.i:                                       ; preds = %if.end7.i, %for.bod
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.4, i32 noundef %1) #20
   unreachable
 
@@ -522,7 +522,7 @@ for.body.i36:                                     ; preds = %if.end7.i40, %for.b
   br i1 %tobool5.not.i39, label %if.then6.i43, label %if.end7.i40
 
 if.then6.i43:                                     ; preds = %for.body.i36
-  %11 = trunc i64 %indvars.iv.i37 to i32
+  %11 = trunc nuw i64 %indvars.iv.i37 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.7, i32 noundef %11, ptr noundef nonnull @.str.8, i32 noundef %8) #20
   unreachable
 
@@ -607,7 +607,7 @@ for.body.i50:                                     ; preds = %if.end7.i54, %for.b
   br i1 %tobool5.not.i53, label %if.then6.i57, label %if.end7.i54
 
 if.then6.i57:                                     ; preds = %for.body.i50
-  %19 = trunc i64 %indvars.iv.i51 to i32
+  %19 = trunc nuw i64 %indvars.iv.i51 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.16, i32 noundef %19, ptr noundef nonnull @.str.17, i32 noundef %16) #20
   unreachable
 
@@ -652,7 +652,7 @@ for.body.i64:                                     ; preds = %if.end7.i68, %for.b
   br i1 %tobool5.not.i67, label %if.then6.i71, label %if.end7.i68
 
 if.then6.i71:                                     ; preds = %for.body.i64
-  %23 = trunc i64 %indvars.iv.i65 to i32
+  %23 = trunc nuw i64 %indvars.iv.i65 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.19, i32 noundef %23, ptr noundef nonnull @.str.20, i32 noundef %20) #20
   unreachable
 
@@ -700,7 +700,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -714,7 +714,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -723,7 +723,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -838,7 +838,7 @@ invoke.cont32:                                    ; preds = %for.body
   br i1 %tobool.i.not, label %invoke.cont46, label %if.then35
 
 if.then35:                                        ; preds = %invoke.cont32
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   br label %if.then35.invoke
 
 if.then35.invoke:                                 ; preds = %if.then20, %if.then35
@@ -909,7 +909,7 @@ for.body60:                                       ; preds = %if.then51, %for.inc
   br i1 %cmp65.not, label %for.inc77, label %if.then66
 
 if.then66:                                        ; preds = %for.body60
-  %35 = trunc i64 %indvars.iv105 to i32
+  %35 = trunc nuw i64 %indvars.iv105 to i32
   %cmp68.not = icmp eq ptr %34, null
   %data.i74 = getelementptr inbounds i8, ptr %34, i64 4
   %spec.select = select i1 %cmp68.not, ptr @.str.112, ptr %data.i74
@@ -966,7 +966,7 @@ if.then:                                          ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #20
@@ -996,7 +996,7 @@ if.then10:                                        ; preds = %for.body
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then10
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #20
@@ -1068,7 +1068,7 @@ if.then:                                          ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #20
@@ -1098,7 +1098,7 @@ if.then10:                                        ; preds = %for.body
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then10
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #20
@@ -1315,7 +1315,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -1371,7 +1371,7 @@ for.inc.us:                                       ; preds = %for.body.us
   br i1 %exitcond310.not, label %for.end, label %for.body.us, !llvm.loop !14
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -1380,7 +1380,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -1402,7 +1402,7 @@ for.body:                                         ; preds = %for.body.preheader,
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.30, i32 noundef %21) #20
   unreachable
 
@@ -1410,7 +1410,7 @@ sw.bb10:                                          ; preds = %for.body
   br i1 %15, label %if.then13, label %if.end32
 
 if.then13:                                        ; preds = %sw.bb10
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.31, i32 noundef %22) #20
   unreachable
 
@@ -1418,7 +1418,7 @@ sw.bb15:                                          ; preds = %for.body
   br i1 %16, label %if.then19, label %if.end32
 
 if.then19:                                        ; preds = %sw.bb15
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.32, i32 noundef %23) #20
   unreachable
 
@@ -1426,7 +1426,7 @@ sw.bb21:                                          ; preds = %for.body
   br i1 %17, label %if.then25, label %if.end32
 
 if.then25:                                        ; preds = %sw.bb21
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.33, i32 noundef %24) #20
   unreachable
 
@@ -1434,7 +1434,7 @@ sw.default:                                       ; preds = %for.body
   br i1 %14, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %sw.default
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.34, i32 noundef %25) #20
   unreachable
 
@@ -1589,7 +1589,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   br i1 %cmp98.not, label %invoke.cont106, label %if.then99
 
 if.then99:                                        ; preds = %for.body93
-  %45 = trunc i64 %indvars.iv311 to i32
+  %45 = trunc nuw i64 %indvars.iv311 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.42, i32 noundef %i75.0254, i32 noundef %45) #20
           to label %invoke.cont100 unwind label %lpad
 
@@ -1707,7 +1707,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit145:          ; preds = %_ZNK6aiMesh16HasTex
   br i1 %cmp2.not.i141.not, label %for.inc153, label %if.then150
 
 if.then150:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145
-  %59 = trunc i64 %indvars.iv319 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv319 to i32
   br label %if.then181.invoke
 
 for.inc153:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145
@@ -1744,7 +1744,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit163:           ; preds = %_ZNK6aiMesh15HasVer
   br i1 %cmp2.not.i159.not, label %for.inc175, label %if.then172
 
 if.then172:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit163
-  %64 = trunc i64 %indvars.iv327 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv327 to i32
   br label %if.then181.invoke
 
 for.inc175:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit163
@@ -1838,7 +1838,7 @@ for.body209:                                      ; preds = %for.body209.prehead
   br i1 %cmp213, label %if.then214, label %if.end225
 
 if.then214:                                       ; preds = %for.body209
-  %75 = trunc i64 %indvars.iv340 to i32
+  %75 = trunc nuw i64 %indvars.iv340 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.47, i32 noundef %75, i32 noundef %74, i32 noundef 2147483647) #20
           to label %invoke.cont216 unwind label %lpad190.loopexit.split-lp
 
@@ -1880,8 +1880,8 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body235
   br i1 %cmp6.i, label %if.end261, label %for.inc264
 
 if.end261:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
-  %83 = trunc i64 %indvars.iv340 to i32
-  %84 = trunc i64 %indvars.iv336 to i32
+  %83 = trunc nuw i64 %indvars.iv340 to i32
+  %84 = trunc nuw i64 %indvars.iv336 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.50, i32 noundef %83, ptr noundef nonnull %data.i167, i32 noundef %84) #20
           to label %invoke.cont262 unwind label %lpad190.loopexit.split-lp
 
@@ -1910,7 +1910,7 @@ land.lhs.true279:                                 ; preds = %for.body274
   br i1 %or.cond, label %for.inc298, label %if.then291
 
 if.then291:                                       ; preds = %land.lhs.true279
-  %87 = trunc i64 %indvars.iv343 to i32
+  %87 = trunc nuw i64 %indvars.iv343 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.51, i32 noundef %87, double noundef %conv283)
           to label %if.then291.for.inc298_crit_edge unwind label %lpad190.thread205
 
@@ -2056,7 +2056,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2070,7 +2070,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2079,7 +2079,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2116,7 +2116,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.54, i32 noundef %10) #20
   unreachable
 
@@ -2129,7 +2129,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.else
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.55, i32 noundef %12)
   %.pre21 = load ptr, ptr %mWeights, align 8
   %arrayidx19.phi.trans.insert = getelementptr inbounds %struct.aiVertexWeight, ptr %.pre21, i64 %indvars.iv
@@ -2170,7 +2170,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2184,7 +2184,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2193,7 +2193,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2275,7 +2275,7 @@ for.body:                                         ; preds = %if.end20
   br i1 %tobool17.not, label %for.body.if.then18_crit_edge, label %if.end20, !llvm.loop !26
 
 for.body.if.then18_crit_edge:                     ; preds = %for.body
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.then18
 
 if.then18:                                        ; preds = %for.body.if.then18_crit_edge, %for.body.preheader
@@ -2302,7 +2302,7 @@ for.body28:                                       ; preds = %if.end35
   br i1 %tobool32.not, label %for.body28.if.then33_crit_edge, label %if.end35, !llvm.loop !27
 
 for.body28.if.then33_crit_edge:                   ; preds = %for.body28
-  %23 = trunc i64 %indvars.iv.next52 to i32
+  %23 = trunc nuw i64 %indvars.iv.next52 to i32
   br label %if.then33
 
 if.then33:                                        ; preds = %for.body28.if.then33_crit_edge, %for.body28.preheader
@@ -2343,7 +2343,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2357,7 +2357,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2366,7 +2366,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2429,7 +2429,7 @@ land.lhs.true14:                                  ; preds = %for.body
   br i1 %cmp17, label %if.then18, label %if.end27
 
 if.then18:                                        ; preds = %land.lhs.true14
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %conv = fptrunc double %12 to float
   %conv23 = fpext float %conv to double
   %conv25 = fptrunc double %11 to float
@@ -2450,7 +2450,7 @@ land.lhs.true29:                                  ; preds = %if.end27
 if.then35:                                        ; preds = %land.lhs.true29
   %conv40 = fptrunc double %14 to float
   %conv41 = fpext float %conv40 to double
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw i64 %indvars.iv to i32
   %sub = add i32 %15, -1
   %conv42 = fptrunc double %dLast.098 to float
   %conv43 = fpext float %conv42 to double
@@ -2506,7 +2506,7 @@ land.lhs.true65:                                  ; preds = %for.body62
   br i1 %cmp72, label %if.then73, label %if.end83
 
 if.then73:                                        ; preds = %land.lhs.true65
-  %26 = trunc i64 %indvars.iv120 to i32
+  %26 = trunc nuw i64 %indvars.iv120 to i32
   %conv78 = fptrunc double %25 to float
   %conv79 = fpext float %conv78 to double
   %conv81 = fptrunc double %24 to float
@@ -2527,7 +2527,7 @@ land.lhs.true85:                                  ; preds = %if.end83
 if.then91:                                        ; preds = %land.lhs.true85
   %conv96 = fptrunc double %27 to float
   %conv97 = fpext float %conv96 to double
-  %28 = trunc i64 %indvars.iv120 to i32
+  %28 = trunc nuw i64 %indvars.iv120 to i32
   %sub98 = add i32 %28, -1
   %conv99 = fptrunc double %dLast57.0101 to float
   %conv100 = fpext float %conv99 to double
@@ -2584,7 +2584,7 @@ land.lhs.true125:                                 ; preds = %for.body122
   br i1 %cmp132, label %if.then133, label %if.end143
 
 if.then133:                                       ; preds = %land.lhs.true125
-  %40 = trunc i64 %indvars.iv123 to i32
+  %40 = trunc nuw i64 %indvars.iv123 to i32
   %conv138 = fptrunc double %39 to float
   %conv139 = fpext float %conv138 to double
   %conv141 = fptrunc double %38 to float
@@ -2605,7 +2605,7 @@ land.lhs.true145:                                 ; preds = %if.end143
 if.then151:                                       ; preds = %land.lhs.true145
   %conv156 = fptrunc double %41 to float
   %conv157 = fpext float %conv156 to double
-  %42 = trunc i64 %indvars.iv123 to i32
+  %42 = trunc nuw i64 %indvars.iv123 to i32
   %sub158 = add i32 %42, -1
   %conv159 = fptrunc double %dLast117.0104 to float
   %conv160 = fpext float %conv159 to double
@@ -2664,7 +2664,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2678,7 +2678,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2687,7 +2687,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2738,7 +2738,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp13, label %if.then14, label %if.end23
 
 if.then14:                                        ; preds = %land.lhs.true
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %conv = fptrunc double %10 to float
   %conv19 = fpext float %conv to double
   %conv21 = fptrunc double %9 to float
@@ -2759,7 +2759,7 @@ land.lhs.true25:                                  ; preds = %if.end23
 if.then31:                                        ; preds = %land.lhs.true25
   %conv36 = fptrunc double %12 to float
   %conv37 = fpext float %conv36 to double
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %sub = add i32 %13, -1
   %conv38 = fptrunc double %dLast.030 to float
   %conv39 = fpext float %conv38 to double
@@ -2788,8 +2788,8 @@ entry:
   %call = tail call ptr @aiTextureTypeToString(i32 noundef %type)
   %mNumProperties = getelementptr inbounds i8, ptr %pMaterial, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
-  %cmp104.not = icmp eq i32 %0, 0
-  br i1 %cmp104.not, label %return, label %for.body.lr.ph
+  %cmp105.not = icmp eq i32 %0, 0
+  br i1 %cmp105.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %pMaterial, align 8
@@ -2798,8 +2798,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %iNumIndices.0107 = phi i32 [ 0, %for.body.lr.ph ], [ %iNumIndices.1, %for.inc ]
-  %iIndex.0105 = phi i32 [ -1, %for.body.lr.ph ], [ %iIndex.1, %for.inc ]
+  %iNumIndices.0108 = phi i32 [ 0, %for.body.lr.ph ], [ %iNumIndices.1, %for.inc ]
+  %iIndex.0106 = phi i32 [ -1, %for.body.lr.ph ], [ %iIndex.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %data = getelementptr inbounds i8, ptr %2, i64 4
@@ -2816,8 +2816,8 @@ land.lhs.true:                                    ; preds = %for.body
 if.then:                                          ; preds = %land.lhs.true
   %mIndex = getelementptr inbounds i8, ptr %2, i64 1032
   %4 = load i32, ptr %mIndex, align 8
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %iIndex.0105, i32 %4)
-  %inc = add nsw i32 %iNumIndices.0107, 1
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %iIndex.0106, i32 %4)
+  %inc = add nsw i32 %iNumIndices.0108, 1
   %mType = getelementptr inbounds i8, ptr %2, i64 1040
   %5 = load i32, ptr %mType, align 8
   %cmp5.not = icmp eq i32 %5, 3
@@ -2828,8 +2828,8 @@ if.then6:                                         ; preds = %if.then
   unreachable
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
-  %iIndex.1 = phi i32 [ %.sroa.speculated, %if.then ], [ %iIndex.0105, %land.lhs.true ], [ %iIndex.0105, %for.body ]
-  %iNumIndices.1 = phi i32 [ %inc, %if.then ], [ %iNumIndices.0107, %land.lhs.true ], [ %iNumIndices.0107, %for.body ]
+  %iIndex.1 = phi i32 [ %.sroa.speculated, %if.then ], [ %iIndex.0106, %land.lhs.true ], [ %iIndex.0106, %for.body ]
+  %iNumIndices.1 = phi i32 [ %inc, %if.then ], [ %iNumIndices.0108, %land.lhs.true ], [ %iNumIndices.0108, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
@@ -2870,7 +2870,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  br i1 %cmp104.not, label %for.cond133.preheader, label %for.body23.lr.ph
+  br i1 %cmp105.not, label %for.cond133.preheader, label %for.body23.lr.ph
 
 for.body23.lr.ph:                                 ; preds = %invoke.cont
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
@@ -2878,11 +2878,11 @@ for.body23.lr.ph:                                 ; preds = %invoke.cont
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.inc127
   %7 = phi i32 [ %0, %for.body23.lr.ph ], [ %38, %for.inc127 ]
-  %indvars.iv144 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next145, %for.inc127 ]
-  %bNoSpecified.0115 = phi i1 [ true, %for.body23.lr.ph ], [ %bNoSpecified.1, %for.inc127 ]
-  %iIndex.2114 = phi i32 [ %iIndex.1, %for.body23.lr.ph ], [ %iIndex.3, %for.inc127 ]
+  %indvars.iv145 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next146, %for.inc127 ]
+  %bNoSpecified.0116 = phi i1 [ true, %for.body23.lr.ph ], [ %bNoSpecified.1, %for.inc127 ]
+  %iIndex.2115 = phi i32 [ %iIndex.1, %for.body23.lr.ph ], [ %iIndex.3, %for.inc127 ]
   %8 = load ptr, ptr %pMaterial, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv144
+  %arrayidx27 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv145
   %9 = load ptr, ptr %arrayidx27, align 8
   %mSemantic28 = getelementptr inbounds i8, ptr %9, i64 1028
   %10 = load i32, ptr %mSemantic28, align 4
@@ -2908,17 +2908,17 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit: ; preds = %if.then151
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit: ; preds = %if.then114
-  %lpad.loopexit76 = landingpad { ptr, i32 }
+  %lpad.loopexit77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then93.invoke, %if.then34
-  %lpad.loopexit.split-lp77 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp78 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit ], [ %lpad.loopexit76, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp77, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit ], [ %lpad.loopexit77, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp78, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -2986,12 +2986,12 @@ lor.lhs.false89:                                  ; preds = %if.then86
 if.then93.invoke.sink.split:                      ; preds = %if.then86, %if.then65, %if.then44
   %.ph = phi ptr [ @.str.66, %if.then44 ], [ @.str.68, %if.then65 ], [ @.str.66, %if.then86 ]
   %mDataLength98.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 1036
-  %.pre149 = load i32, ptr %mDataLength98.phi.trans.insert, align 4
+  %.pre150 = load i32, ptr %mDataLength98.phi.trans.insert, align 4
   br label %if.then93.invoke
 
 if.then93.invoke:                                 ; preds = %lor.lhs.false89, %lor.lhs.false68, %lor.lhs.false, %if.then93.invoke.sink.split
   %20 = phi ptr [ %.ph, %if.then93.invoke.sink.split ], [ @.str.66, %lor.lhs.false ], [ @.str.68, %lor.lhs.false68 ], [ @.str.66, %lor.lhs.false89 ]
-  %21 = phi i32 [ %.pre149, %if.then93.invoke.sink.split ], [ %13, %lor.lhs.false ], [ %17, %lor.lhs.false68 ], [ %19, %lor.lhs.false89 ]
+  %21 = phi i32 [ %.pre150, %if.then93.invoke.sink.split ], [ %13, %lor.lhs.false ], [ %17, %lor.lhs.false68 ], [ %19, %lor.lhs.false89 ]
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %20, ptr noundef nonnull %data40, i32 noundef %11, i32 noundef %21) #20
           to label %if.then93.cont unwind label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
@@ -3003,22 +3003,22 @@ if.end100:                                        ; preds = %lor.lhs.false89
   %22 = load ptr, ptr %mData101, align 8
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %mScene, align 8
-  %mNumMeshes110 = getelementptr inbounds i8, ptr %24, i64 16
-  %25 = load i32, ptr %mNumMeshes110, align 8
-  %cmp103111.not = icmp eq i32 %25, 0
-  br i1 %cmp103111.not, label %for.inc127, label %for.body104
+  %mNumMeshes111 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load i32, ptr %mNumMeshes111, align 8
+  %cmp103112.not = icmp eq i32 %25, 0
+  br i1 %cmp103112.not, label %for.inc127, label %for.body104
 
 for.body104:                                      ; preds = %if.end100, %for.inc121
   %26 = phi ptr [ %35, %for.inc121 ], [ %24, %if.end100 ]
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.inc121 ], [ 0, %if.end100 ]
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %for.inc121 ], [ 0, %if.end100 ]
   %mMeshes = getelementptr inbounds i8, ptr %26, i64 24
   %27 = load ptr, ptr %mMeshes, align 8
-  %arrayidx107 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv141
+  %arrayidx107 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv142
   %28 = load ptr, ptr %arrayidx107, align 8
   %mMaterialIndex = getelementptr inbounds i8, ptr %28, i64 232
   %29 = load i32, ptr %mMaterialIndex, align 8
   %30 = zext i32 %29 to i64
-  %cmp108 = icmp eq i64 %indvars.iv144, %30
+  %cmp108 = icmp eq i64 %indvars.iv145, %30
   br i1 %cmp108, label %while.cond.preheader, label %for.inc121
 
 while.cond.preheader:                             ; preds = %for.body104
@@ -3030,28 +3030,28 @@ while.cond.preheader:                             ; preds = %for.body104
   br i1 %cmp3.i.not, label %while.end, label %_ZNK6aiMesh16HasTextureCoordsEj.exit
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %while.cond.preheader, %while.body
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %while.body ], [ 0, %while.cond.preheader ]
-  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %while.body ], [ 0, %while.cond.preheader ]
+  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv138
   %32 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.not.i.not = icmp eq ptr %32, null
-  br i1 %cmp2.not.i.not, label %while.end.loopexit.split.loop.exit198, label %while.body
+  br i1 %cmp2.not.i.not, label %while.end.loopexit.split.loop.exit199, label %while.body
 
 while.body:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond140 = icmp eq i64 %indvars.iv.next138, 8
-  br i1 %exitcond140, label %while.end, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, !llvm.loop !33
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond141 = icmp eq i64 %indvars.iv.next139, 8
+  br i1 %exitcond141, label %while.end, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, !llvm.loop !33
 
-while.end.loopexit.split.loop.exit198:            ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %33 = trunc i64 %indvars.iv137 to i32
+while.end.loopexit.split.loop.exit199:            ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
+  %33 = trunc nuw nsw i64 %indvars.iv138 to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit198, %while.cond.preheader
-  %.us-phi = phi i32 [ 0, %while.cond.preheader ], [ %33, %while.end.loopexit.split.loop.exit198 ], [ 8, %while.body ]
+while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit199, %while.cond.preheader
+  %.us-phi = phi i32 [ 0, %while.cond.preheader ], [ %33, %while.end.loopexit.split.loop.exit199 ], [ 8, %while.body ]
   %cmp113.not = icmp slt i32 %23, %.us-phi
   br i1 %cmp113.not, label %for.inc121, label %if.then114
 
 if.then114:                                       ; preds = %while.end
-  %34 = trunc i64 %indvars.iv141 to i32
+  %34 = trunc nuw i64 %indvars.iv142 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.70, i32 noundef %23, ptr noundef nonnull %data40, i32 noundef %34, i32 noundef %.us-phi)
           to label %if.then114.for.inc121_crit_edge unwind label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit
 
@@ -3061,48 +3061,48 @@ if.then114.for.inc121_crit_edge:                  ; preds = %if.then114
 
 for.inc121:                                       ; preds = %if.then114.for.inc121_crit_edge, %for.body104, %while.end
   %35 = phi ptr [ %.pre, %if.then114.for.inc121_crit_edge ], [ %26, %for.body104 ], [ %26, %while.end ]
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %mNumMeshes = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load i32, ptr %mNumMeshes, align 8
   %37 = zext i32 %36 to i64
-  %cmp103 = icmp ult i64 %indvars.iv.next142, %37
+  %cmp103 = icmp ult i64 %indvars.iv.next143, %37
   br i1 %cmp103, label %for.body104, label %for.inc127.loopexit, !llvm.loop !34
 
 for.inc127.loopexit:                              ; preds = %for.inc121
-  %.pre151 = load i32, ptr %mNumProperties, align 8
+  %.pre152 = load i32, ptr %mNumProperties, align 8
   br label %for.inc127
 
 for.inc127:                                       ; preds = %for.inc127.loopexit, %if.end100, %if.end56, %if.else80, %lor.lhs.false68, %for.body23
-  %38 = phi i32 [ %7, %if.end56 ], [ %7, %lor.lhs.false68 ], [ %7, %if.else80 ], [ %7, %for.body23 ], [ %7, %if.end100 ], [ %.pre151, %for.inc127.loopexit ]
-  %iIndex.3 = phi i32 [ %iIndex.2114, %if.end56 ], [ %iIndex.2114, %lor.lhs.false68 ], [ %iIndex.2114, %if.else80 ], [ %iIndex.2114, %for.body23 ], [ %23, %if.end100 ], [ %23, %for.inc127.loopexit ]
-  %bNoSpecified.1 = phi i1 [ %bNoSpecified.0115, %if.end56 ], [ %bNoSpecified.0115, %lor.lhs.false68 ], [ %bNoSpecified.0115, %if.else80 ], [ %bNoSpecified.0115, %for.body23 ], [ false, %if.end100 ], [ false, %for.inc127.loopexit ]
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %38 = phi i32 [ %7, %if.end56 ], [ %7, %lor.lhs.false68 ], [ %7, %if.else80 ], [ %7, %for.body23 ], [ %7, %if.end100 ], [ %.pre152, %for.inc127.loopexit ]
+  %iIndex.3 = phi i32 [ %iIndex.2115, %if.end56 ], [ %iIndex.2115, %lor.lhs.false68 ], [ %iIndex.2115, %if.else80 ], [ %iIndex.2115, %for.body23 ], [ %23, %if.end100 ], [ %23, %for.inc127.loopexit ]
+  %bNoSpecified.1 = phi i1 [ %bNoSpecified.0116, %if.end56 ], [ %bNoSpecified.0116, %lor.lhs.false68 ], [ %bNoSpecified.0116, %if.else80 ], [ %bNoSpecified.0116, %for.body23 ], [ false, %if.end100 ], [ false, %for.inc127.loopexit ]
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %39 = zext i32 %38 to i64
-  %cmp22 = icmp ult i64 %indvars.iv.next145, %39
+  %cmp22 = icmp ult i64 %indvars.iv.next146, %39
   br i1 %cmp22, label %for.body23, label %for.end129, !llvm.loop !35
 
 for.end129:                                       ; preds = %for.inc127
-  br i1 %bNoSpecified.1, label %for.cond133.preheader, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit63
+  br i1 %bNoSpecified.1, label %for.cond133.preheader, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64
 
 for.cond133.preheader:                            ; preds = %invoke.cont, %for.end129
-  %iIndex.2.lcssa167 = phi i32 [ %iIndex.3, %for.end129 ], [ %iIndex.1, %invoke.cont ]
+  %iIndex.2.lcssa168 = phi i32 [ %iIndex.3, %for.end129 ], [ %iIndex.1, %invoke.cont ]
   %mScene134 = getelementptr inbounds i8, ptr %this, i64 24
   %40 = load ptr, ptr %mScene134, align 8
-  %mNumMeshes135119 = getelementptr inbounds i8, ptr %40, i64 16
-  %41 = load i32, ptr %mNumMeshes135119, align 8
-  %cmp136120.not = icmp eq i32 %41, 0
-  br i1 %cmp136120.not, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit63, label %for.body137
+  %mNumMeshes135120 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = load i32, ptr %mNumMeshes135120, align 8
+  %cmp136121.not = icmp eq i32 %41, 0
+  br i1 %cmp136121.not, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64, label %for.body137
 
 for.body137:                                      ; preds = %for.cond133.preheader, %for.inc155
   %42 = phi ptr [ %48, %for.inc155 ], [ %40, %for.cond133.preheader ]
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %for.inc155 ], [ 0, %for.cond133.preheader ]
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %for.inc155 ], [ 0, %for.cond133.preheader ]
   %mMeshes140 = getelementptr inbounds i8, ptr %42, i64 24
   %43 = load ptr, ptr %mMeshes140, align 8
-  %arrayidx142 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv146
+  %arrayidx142 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv147
   %44 = load ptr, ptr %arrayidx142, align 8
   %mMaterialIndex143 = getelementptr inbounds i8, ptr %44, i64 232
   %45 = load i32, ptr %mMaterialIndex143, align 8
-  %cmp144 = icmp eq i32 %45, %iIndex.2.lcssa167
+  %cmp144 = icmp eq i32 %45, %iIndex.2.lcssa168
   br i1 %cmp144, label %land.lhs.true145, label %for.inc155
 
 land.lhs.true145:                                 ; preds = %for.body137
@@ -3121,23 +3121,23 @@ if.then151:                                       ; preds = %if.then148
           to label %if.then151.for.inc155_crit_edge unwind label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit
 
 if.then151.for.inc155_crit_edge:                  ; preds = %if.then151
-  %.pre153 = load ptr, ptr %mScene134, align 8
+  %.pre154 = load ptr, ptr %mScene134, align 8
   br label %for.inc155
 
 for.inc155:                                       ; preds = %if.then151.for.inc155_crit_edge, %for.body137, %land.lhs.true145, %if.then148
-  %48 = phi ptr [ %.pre153, %if.then151.for.inc155_crit_edge ], [ %42, %for.body137 ], [ %42, %land.lhs.true145 ], [ %42, %if.then148 ]
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %48 = phi ptr [ %.pre154, %if.then151.for.inc155_crit_edge ], [ %42, %for.body137 ], [ %42, %land.lhs.true145 ], [ %42, %if.then148 ]
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %mNumMeshes135 = getelementptr inbounds i8, ptr %48, i64 16
   %49 = load i32, ptr %mNumMeshes135, align 8
   %50 = zext i32 %49 to i64
-  %cmp136 = icmp ult i64 %indvars.iv.next147, %50
-  br i1 %cmp136, label %for.body137, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit63, !llvm.loop !36
+  %cmp136 = icmp ult i64 %indvars.iv.next148, %50
+  br i1 %cmp136, label %for.body137, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64, !llvm.loop !36
 
-_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit63: ; preds = %for.inc155, %for.cond133.preheader, %for.end129
+_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64: ; preds = %for.inc155, %for.cond133.preheader, %for.end129
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #21
   br label %return
 
-return:                                           ; preds = %entry, %if.end14, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit63
+return:                                           ; preds = %entry, %if.end14, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64
   ret void
 }
 
@@ -3169,7 +3169,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.72, i32 noundef %3, i32 noundef %0) #20
   unreachable
 
@@ -3186,7 +3186,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.73, i32 noundef %6, i32 noundef %6) #20
   unreachable
 
@@ -3210,7 +3210,7 @@ lor.lhs.false11:                                  ; preds = %if.then8
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %lor.lhs.false11, %if.then8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.74, i32 noundef %9, i32 noundef %4, i32 noundef 1028) #20
   unreachable
 
@@ -3231,7 +3231,7 @@ if.then28:                                        ; preds = %if.end6
   br i1 %cmp30, label %if.then31, label %for.inc
 
 if.then31:                                        ; preds = %if.then28
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.76, i32 noundef %11, i32 noundef %4, i32 noundef 4) #20
   unreachable
 
@@ -3240,7 +3240,7 @@ if.then37:                                        ; preds = %if.end6
   br i1 %cmp40, label %if.then41, label %for.inc
 
 if.then41:                                        ; preds = %if.then37
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.77, i32 noundef %12, i32 noundef %4, i32 noundef 4) #20
   unreachable
 
@@ -3662,7 +3662,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %for.body
-  %2 = trunc i64 %indvars.iv39 to i32
+  %2 = trunc nuw i64 %indvars.iv39 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #20
   unreachable
 
@@ -3675,7 +3675,7 @@ if.end7:                                          ; preds = %for.body
   br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.27) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.27) #20
   unreachable
 
 if.end.i:                                         ; preds = %if.end7
@@ -3688,7 +3688,7 @@ if.end.i:                                         ; preds = %if.end7
 
 if.then4.i:                                       ; preds = %if.end.i
   %conv.i = fpext float %5 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.28, double noundef %conv.i)
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.28, double noundef %conv.i)
   br label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit
 
 _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit: ; preds = %if.end.i, %if.then4.i
@@ -3718,8 +3718,8 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body12
   br i1 %cmp6.i, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
-  %10 = trunc i64 %indvars.iv39 to i32
-  %11 = trunc i64 %indvars.iv36 to i32
+  %10 = trunc nuw i64 %indvars.iv39 to i32
+  %11 = trunc nuw i64 %indvars.iv36 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %10, ptr noundef %secondName, i32 noundef %11) #20
   unreachable
 
@@ -3945,7 +3945,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %for.body
-  %2 = trunc i64 %indvars.iv35 to i32
+  %2 = trunc nuw i64 %indvars.iv35 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #20
   unreachable
 
@@ -3977,8 +3977,8 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body12
   br i1 %cmp6.i, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
-  %7 = trunc i64 %indvars.iv35 to i32
-  %8 = trunc i64 %indvars.iv32 to i32
+  %7 = trunc nuw i64 %indvars.iv35 to i32
+  %8 = trunc nuw i64 %indvars.iv32 to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %7, ptr noundef %secondName, i32 noundef %8) #20
   unreachable
 

@@ -111,7 +111,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @OSSL_CRMF_PBMPARAMETER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_pbm_new(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly %pbmp, ptr noundef %msg, i64 noundef %msglen, ptr noundef %sec, i64 noundef %seclen, ptr noundef writeonly %out, ptr noundef %outlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_pbm_new(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly %pbmp, ptr noundef %msg, i64 noundef %msglen, ptr noundef %sec, i64 noundef %seclen, ptr noundef writeonly %out, ptr noundef %outlen) local_unnamed_addr #0 {
 entry:
   %hmac_md_nid = alloca i32, align 4
   %mdname = alloca [50 x i8], align 16

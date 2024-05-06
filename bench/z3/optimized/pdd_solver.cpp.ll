@@ -3750,8 +3750,8 @@ sw.epilog.i:                                      ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %1 = shl nuw nsw i32 %st, 3
   %2 = zext nneg i32 %1 to i64
-  %3 = getelementptr i8, ptr %this, i64 %2
-  %m_solved.i = getelementptr i8, ptr %3, i64 136
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  %m_solved.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %m_solved.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit, label %if.end.i
@@ -4512,8 +4512,8 @@ sw.epilog.i.i.i:                                  ; preds = %if.then15
 switch.lookup:                                    ; preds = %if.then15
   %17 = shl nuw nsw i32 %15, 3
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i8, ptr %this, i64 %18
-  %m_solved.i.i.i = getelementptr i8, ptr %19, i64 136
+  %19 = getelementptr inbounds i8, ptr %this, i64 %18
+  %m_solved.i.i.i = getelementptr inbounds i8, ptr %19, i64 136
   %m_idx.i.i.i = getelementptr inbounds i8, ptr %eq.1, i64 4
   %20 = load i32, ptr %m_idx.i.i.i, align 4
   %21 = load ptr, ptr %m_solved.i.i.i, align 8
@@ -5359,8 +5359,8 @@ sw.epilog:                                        ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %2 = shl nuw nsw i32 %0, 3
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr i8, ptr %this, i64 %3
-  %m_solved = getelementptr i8, ptr %4, i64 136
+  %4 = getelementptr inbounds i8, ptr %this, i64 %3
+  %m_solved = getelementptr inbounds i8, ptr %4, i64 136
   ret ptr %m_solved
 }
 
@@ -5379,8 +5379,8 @@ sw.epilog.i.i.i:                                  ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %2 = shl nuw nsw i32 %0, 3
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr i8, ptr %this, i64 %3
-  %m_solved.i.i.i = getelementptr i8, ptr %4, i64 136
+  %4 = getelementptr inbounds i8, ptr %this, i64 %3
+  %m_solved.i.i.i = getelementptr inbounds i8, ptr %4, i64 136
   %m_idx.i.i.i = getelementptr inbounds i8, ptr %eq, i64 4
   %5 = load i32, ptr %m_idx.i.i.i, align 4
   %6 = load ptr, ptr %m_solved.i.i.i, align 8
@@ -5464,8 +5464,8 @@ sw.epilog.i:                                      ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %2 = shl nuw nsw i32 %0, 3
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr i8, ptr %this, i64 %3
-  %m_solved.i = getelementptr i8, ptr %4, i64 136
+  %4 = getelementptr inbounds i8, ptr %this, i64 %3
+  %m_solved.i = getelementptr inbounds i8, ptr %4, i64 136
   %m_idx.i = getelementptr inbounds i8, ptr %eq, i64 4
   %5 = load i32, ptr %m_idx.i, align 4
   %6 = load ptr, ptr %m_solved.i, align 8
@@ -6194,7 +6194,7 @@ entry:
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load ptr, ptr %0, align 8
-  %call.i.i.i = tail call noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 dereferenceable(208) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %call.val1, ptr noundef nonnull align 1 dereferenceable(1) %__args1)
+  %call.i.i.i = tail call noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 dereferenceable(208) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %call.val1, ptr noundef nonnull writeonly align 1 dereferenceable(1) %__args1)
   ret i1 %call.i.i.i
 }
 
@@ -6216,7 +6216,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -6700,7 +6700,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

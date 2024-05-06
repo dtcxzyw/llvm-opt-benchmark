@@ -642,7 +642,7 @@ declare void @get_parsers(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_foreach_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %0) #6
@@ -778,7 +778,7 @@ define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @data_parser_p_populate_schema(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 9214) i32 @data_parser_p_populate_schema(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.spec_args_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 -1466843477, ptr %6, align 8
@@ -803,7 +803,7 @@ define noundef i32 @data_parser_p_populate_schema(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @data_parser_p_populate_parameters(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.spec_args_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store i32 -1466843477, ptr %7, align 8
@@ -1333,7 +1333,7 @@ declare ptr @parse_url_path(ptr noundef, i1 noundef zeroext, i1 noundef zeroext)
 declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_path_entry(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_path_entry(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #6
   %.not = icmp eq i32 %4, 5
@@ -1375,7 +1375,7 @@ define internal noundef i32 @_foreach_path_entry(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_path_method(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_foreach_path_method(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @data_get_type(ptr noundef %1) #6
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %5, label %30
@@ -1417,7 +1417,7 @@ define internal i32 @_foreach_path_method(ptr nocapture readnone %0, ptr noundef
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @_foreach_path_method_ref(ptr noundef %12, ptr noundef nonnull %2), !range !19
+  %25 = tail call i32 @_foreach_path_method_ref(ptr noundef %12, ptr noundef nonnull %2)
   br label %28
 
 26:                                               ; preds = %21
@@ -1443,7 +1443,7 @@ declare i32 @data_convert_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @data_move(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_path_method_ref(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_path_method_ref(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1458,7 +1458,7 @@ define internal noundef i32 @_foreach_path_method_ref(ptr noundef %0, ptr nocapt
   %8 = load i32, ptr %3, align 8
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %11, label %.thread, !llvm.loop !20
+  br i1 %10, label %11, label %.thread, !llvm.loop !19
 
 11:                                               ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -1540,7 +1540,7 @@ define internal noundef i32 @_foreach_path_method_ref(ptr noundef %0, ptr nocapt
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %53 = load i64, ptr %45, align 8
   %54 = icmp ugt i64 %53, %indvars.iv.next41
-  br i1 %54, label %49, label %.loopexit, !llvm.loop !21
+  br i1 %54, label %49, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %49, %44, %32, %.thread
   %.027 = phi i32 [ 4, %32 ], [ 4, %.thread ], [ 1, %44 ], [ 1, %49 ]
@@ -1586,7 +1586,7 @@ define internal noundef i32 @_convert_dict_entry(ptr noundef %0, ptr noundef %1,
   %21 = load i32, ptr %16, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %24, label %.thread, !llvm.loop !22
+  br i1 %23, label %24, label %.thread, !llvm.loop !21
 
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
@@ -1805,7 +1805,6 @@ attributes #7 = { noreturn nounwind }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = !{i32 1, i32 5}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}

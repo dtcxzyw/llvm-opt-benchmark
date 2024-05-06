@@ -151,8 +151,8 @@ $_ZTVN7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEEE = comdat any
 @.str.6 = private unnamed_addr constant [7 x i8] c".u64ts\00", align 1
 @_ZZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE10kClassNameEvE10class_nameB5cxx11 = internal global %"class.std::__cxx11::basic_string" zeroinitializer, align 8
 @_ZGVZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE10kClassNameEvE10class_nameB5cxx11 = internal global i64 0, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN7rocksdb13ObjectLibrary12PatternEntryE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEED2Ev, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEED0Ev, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEE7MatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryIKNS_10ComparatorEE4NameEv] }, comdat, align 8
 @.str.7 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -179,7 +179,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont2:                                     ; preds = %init
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %timestamp_size_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %timestamp_size_.i.i, align 8
@@ -235,7 +235,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont2:                                     ; preds = %init
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %timestamp_size_.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %timestamp_size_.i.i.i, align 8
@@ -274,7 +274,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont2:                                     ; preds = %init
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %timestamp_size_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 8, ptr %timestamp_size_.i.i, align 8
@@ -282,7 +282,7 @@ invoke.cont2:                                     ; preds = %init
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %2, align 8
   %cmp_without_ts_.i = getelementptr inbounds i8, ptr %call, i64 48
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %call, i64 80
   %timestamp_size_.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i, align 8
@@ -321,7 +321,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont2:                                     ; preds = %init
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %timestamp_size_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 8, ptr %timestamp_size_.i.i, align 8
@@ -329,7 +329,7 @@ invoke.cont2:                                     ; preds = %init
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %2, align 8
   %cmp_without_ts_.i = getelementptr inbounds i8, ptr %call, i64 48
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %call, i64 80
   %timestamp_size_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i.i, align 8
@@ -563,7 +563,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont2.i:                                   ; preds = %init.i
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %call.i16, i64 32
   %timestamp_size_.i.i.i = getelementptr inbounds i8, ptr %call.i16, i64 40
   store i64 0, ptr %timestamp_size_.i.i.i, align 8
@@ -605,7 +605,7 @@ init.i23:                                         ; preds = %init.check.i21
 
 invoke.cont2.i26:                                 ; preds = %init.i23
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i24, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds i8, ptr %call.i24, i64 32
   %timestamp_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i24, i64 40
   store i64 0, ptr %timestamp_size_.i.i.i.i, align 8
@@ -673,7 +673,7 @@ init.i43:                                         ; preds = %init.check.i41
 
 invoke.cont2.i46:                                 ; preds = %init.i43
   %options_.i.i.i.i.i47 = getelementptr inbounds i8, ptr %call.i44, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i47, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i47, i8 0, i64 24, i1 false)
   %30 = getelementptr inbounds i8, ptr %call.i44, i64 32
   %timestamp_size_.i.i.i48 = getelementptr inbounds i8, ptr %call.i44, i64 40
   store i64 8, ptr %timestamp_size_.i.i.i48, align 8
@@ -681,7 +681,7 @@ invoke.cont2.i46:                                 ; preds = %init.i43
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %30, align 8
   %cmp_without_ts_.i.i = getelementptr inbounds i8, ptr %call.i44, i64 48
   %options_.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %call.i44, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i49, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %call.i44, i64 80
   %timestamp_size_.i.i.i.i50 = getelementptr inbounds i8, ptr %call.i44, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i.i50, align 8
@@ -749,7 +749,7 @@ init.i67:                                         ; preds = %init.check.i65
 
 invoke.cont2.i70:                                 ; preds = %init.i67
   %options_.i.i.i.i.i71 = getelementptr inbounds i8, ptr %call.i68, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i71, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i71, i8 0, i64 24, i1 false)
   %40 = getelementptr inbounds i8, ptr %call.i68, i64 32
   %timestamp_size_.i.i.i72 = getelementptr inbounds i8, ptr %call.i68, i64 40
   store i64 8, ptr %timestamp_size_.i.i.i72, align 8
@@ -757,7 +757,7 @@ invoke.cont2.i70:                                 ; preds = %init.i67
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %40, align 8
   %cmp_without_ts_.i.i73 = getelementptr inbounds i8, ptr %call.i68, i64 48
   %options_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i68, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %41 = getelementptr inbounds i8, ptr %call.i68, i64 80
   %timestamp_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i68, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i.i.i, align 8
@@ -2305,7 +2305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl23CompareWithoutTimestampERKNS_5SliceEbS4_b(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, i1 zeroext %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b, i1 zeroext %1) unnamed_addr #9 align 2 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl23CompareWithoutTimestampERKNS_5SliceEbS4_b(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, i1 zeroext %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b, i1 zeroext %1) unnamed_addr #9 align 2 {
 entry:
   %size_.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i64, ptr %size_.i, align 8
@@ -2326,7 +2326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl7CompareERKNS_5SliceES4_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #9 align 2 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl7CompareERKNS_5SliceES4_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #9 align 2 {
 entry:
   %size_.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %size_.i, align 8
@@ -2420,7 +2420,7 @@ _ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD0Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZThn32_NK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl7CompareERKNS_5SliceES4_(ptr nocapture readnone %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #9 align 2 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZThn32_NK7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImpl7CompareERKNS_5SliceES4_(ptr nocapture readnone %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #9 align 2 {
 entry:
   %size_.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %size_.i.i, align 8
@@ -2643,7 +2643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEE16CompareTimestampERKNS_5SliceES6_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts2) unnamed_addr #10 align 2 {
+define internal noundef range(i32 -1, 2) i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEE16CompareTimestampERKNS_5SliceES6_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts2) unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %ts1, align 8
   %result.0.copyload.i = load i64, ptr %0, align 1
@@ -3040,7 +3040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE16CompareTimestampERKNS_5SliceES6_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts2) unnamed_addr #10 align 2 {
+define internal noundef range(i32 -1, 2) i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE16CompareTimestampERKNS_5SliceES6_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts2) unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %ts1, align 8
   %result.0.copyload.i = load i64, ptr %0, align 1
@@ -3054,7 +3054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE23CompareWithoutTimestampERKNS_5SliceEbS6_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, i1 noundef zeroext %a_has_ts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b, i1 noundef zeroext %b_has_ts) unnamed_addr #9 align 2 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE23CompareWithoutTimestampERKNS_5SliceEbS6_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, i1 noundef zeroext %a_has_ts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b, i1 noundef zeroext %b_has_ts) unnamed_addr #9 align 2 {
 entry:
   %timestamp_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %timestamp_size_.i, align 8
@@ -3423,7 +3423,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i.i.i
 invoke.cont.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_0E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %call6.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_10ComparatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EESE_SO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i.i.i.i.i)
@@ -3469,7 +3469,7 @@ lpad.i17.i.i.i.i.i.i:                             ; preds = %.noexc20.i.i.i.i.i.
 invoke.cont11.i.i.i.i.i.i:                        ; preds = %.noexc20.i.i.i.i.i.i
   %_M_manager.i.i23.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12.i.i.i.i.i.i, i64 16
   %_M_invoker.i24.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp12.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_1E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i24.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i23.i.i.i.i.i.i, align 8
   %call16.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_10ComparatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EESE_SO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i.i.i.i.i)
@@ -3554,7 +3554,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %.noexc38.i.i.i.i.i.
 invoke.cont24.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i
   %_M_manager.i.i41.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp25.i.i.i.i.i.i, i64 16
   %_M_invoker.i42.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp25.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp25.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_2E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i42.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i41.i.i.i.i.i.i, align 8
   %call29.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_10ComparatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EESE_SO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i.i.i.i.i.i)
@@ -3639,7 +3639,7 @@ if.end.i58.i.i.i.i.i.i:                           ; preds = %.noexc65.i.i.i.i.i.
 invoke.cont37.i.i.i.i.i.i:                        ; preds = %if.end.i58.i.i.i.i.i.i
   %_M_manager.i.i68.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38.i.i.i.i.i.i, i64 16
   %_M_invoker.i69.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp38.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_3E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i69.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L26RegisterBuiltinComparatorsERNS0_13ObjectLibraryESB_E3$_3E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i68.i.i.i.i.i.i, align 8
   %call42.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_10ComparatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EESE_SO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.i.i.i.i.i.i)
@@ -4693,7 +4693,7 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   %options_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %timestamp_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 0, ptr %timestamp_size_.i.i.i.i.i.i, align 8
@@ -4752,7 +4752,7 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   %options_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %timestamp_size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 0, ptr %timestamp_size_.i.i.i.i.i.i.i, align 8
@@ -4811,7 +4811,7 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   %options_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %timestamp_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 8, ptr %timestamp_size_.i.i.i.i.i.i, align 8
@@ -4819,7 +4819,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %2, align 8
   %cmp_without_ts_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   %options_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   %timestamp_size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i.i.i.i.i, align 8
@@ -4878,7 +4878,7 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   %options_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %timestamp_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 8, ptr %timestamp_size_.i.i.i.i.i.i, align 8
@@ -4886,7 +4886,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %init.i.i.i.i
   store ptr getelementptr inbounds ({ [31 x ptr], [5 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 0, i32 1, i64 2), ptr %2, align 8
   %cmp_without_ts_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   %options_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   %timestamp_size_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 88
   store i64 0, ptr %timestamp_size_.i.i.i.i.i.i.i.i, align 8

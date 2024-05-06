@@ -49,7 +49,7 @@ if.then11:                                        ; preds = %entry
 
 if.else25:                                        ; preds = %entry
   %shr26 = lshr i64 %v, 56
-  %4 = trunc i64 %shr26 to i8
+  %4 = trunc nuw i64 %shr26 to i8
   %conv29 = or i8 %4, -64
   store i8 %conv29, ptr %buf, align 1
   %shr31 = lshr i64 %v, 48
@@ -102,13 +102,13 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then11.i, label %if.else25.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %v to i8
+  %conv.i = trunc nuw i64 %v to i8
   store i8 %conv.i, ptr %buf, align 1
   br label %ossl_quic_vlint_encode_n.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %shr.i = lshr i64 %v, 8
-  %0 = trunc i64 %shr.i to i8
+  %0 = trunc nuw i64 %shr.i to i8
   %conv4.i = or disjoint i8 %0, 64
   store i8 %conv4.i, ptr %buf, align 1
   %conv6.i = trunc i64 %v to i8
@@ -118,7 +118,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.then11.i:                                      ; preds = %if.end3.i
   %shr12.i = lshr i64 %v, 24
-  %1 = trunc i64 %shr12.i to i8
+  %1 = trunc nuw i64 %shr12.i to i8
   %conv15.i = or disjoint i8 %1, -128
   store i8 %conv15.i, ptr %buf, align 1
   %shr17.i = lshr i64 %v, 16
@@ -134,7 +134,7 @@ if.then11.i:                                      ; preds = %if.end3.i
 
 if.else25.i:                                      ; preds = %if.end3.i
   %shr26.i = lshr i64 %v, 56
-  %2 = trunc i64 %shr26.i to i8
+  %2 = trunc nuw i64 %shr26.i to i8
   %conv29.i = or i8 %2, -64
   store i8 %conv29.i, ptr %buf, align 1
   %shr31.i = lshr i64 %v, 48
@@ -169,7 +169,7 @@ ossl_quic_vlint_encode_n.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @ossl_quic_vlint_decode_unchecked(ptr nocapture noundef readonly %buf) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4611686018427387904) i64 @ossl_quic_vlint_decode_unchecked(ptr nocapture noundef readonly %buf) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %1 = lshr i8 %0, 6
@@ -250,7 +250,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @ossl_quic_vlint_decode(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef writeonly %v) local_unnamed_addr #2 {
+define dso_local range(i32 0, 9) i32 @ossl_quic_vlint_decode(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef writeonly %v) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %buf_len, 0
   br i1 %cmp, label %return, label %if.end

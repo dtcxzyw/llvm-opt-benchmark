@@ -148,7 +148,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @opt_progname(ptr noundef readonly %argv0) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %argv0) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %argv0) #20
   %add.ptr.i = getelementptr inbounds i8, ptr %argv0, i64 %call.i
   br label %for.cond.i
 
@@ -215,7 +215,7 @@ entry:
   store ptr %o, ptr @opts, align 8
   store ptr null, ptr @unknown, align 8
   %0 = load ptr, ptr %av, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %call.i.i
   br label %for.cond.i.i
 
@@ -2130,7 +2130,7 @@ if.end61:                                         ; preds = %if.end57, %if.end46
 
 sw.bb64:                                          ; preds = %if.end61
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %call.i = call i32 @stat(ptr noundef nonnull %27, ptr noundef nonnull %st.i) #21
+  %call.i = call i32 @stat(ptr noundef nonnull readonly %27, ptr noundef nonnull %st.i) #21
   %cmp.i = icmp eq i32 %call.i, 0
   %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %28 = load i32, ptr %st_mode.i, align 8

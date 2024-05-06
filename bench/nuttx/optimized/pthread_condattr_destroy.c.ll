@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pthread_condattr_destroy(ptr noundef readnone %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 23) i32 @pthread_condattr_destroy(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %.not, i32 22, i32 0
   ret i32 %spec.store.select

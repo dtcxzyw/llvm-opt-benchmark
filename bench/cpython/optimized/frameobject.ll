@@ -935,7 +935,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.39 = private unnamed_addr constant [58 x i8] c"can't jump into a re-raising block as there's no location\00", align 1
 @.str.40 = private unnamed_addr constant [20 x i8] c"incompatible stacks\00", align 1
 @.str.41 = private unnamed_addr constant [39 x i8] c"can't jump into the body of a for loop\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.42 = private unnamed_addr constant [19 x i8] c"object.__getattr__\00", align 1
 @.str.43 = private unnamed_addr constant [3 x i8] c"Os\00", align 1
 @_Py_TrueStruct = external global %struct._longobject, align 8
@@ -1717,7 +1717,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.body.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i45 = add i32 %sub.i.i, %11
   %idxprom15.i = sext i32 %add.i45 to i64
   %arrayidx16.i = getelementptr [1 x ptr], ptr %localsplus.i, i64 0, i64 %idxprom15.i
@@ -2033,7 +2033,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyFrame_FastToLocalsWithError(ptr nocapture noundef %frame) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyFrame_FastToLocalsWithError(ptr nocapture noundef %frame) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyFrame_GetLocals(ptr noundef %frame, i32 noundef 0)
   %cmp = icmp eq ptr %call, null
@@ -2135,7 +2135,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.body.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add i32 %sub.i.i, %16
   %idxprom15.i = sext i32 %add.i to i64
   %arrayidx16.i = getelementptr [1 x ptr], ptr %localsplus.i, i64 0, i64 %idxprom15.i
@@ -2178,7 +2178,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool6.not, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %for.body
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %co_localspluskinds.i = getelementptr inbounds i8, ptr %.val, i64 104
   %23 = load ptr, ptr %co_localspluskinds.i, align 8
   %ob_sval.i.i.i = getelementptr inbounds i8, ptr %23, i64 32
@@ -2335,7 +2335,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFrame_FastToLocalsWithError(ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFrame_FastToLocalsWithError(ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %f, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2737,7 +2737,7 @@ if.end:                                           ; preds = %land.lhs.true2, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyFrame_IsEntryFrame(ptr nocapture noundef readonly %frame) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @_PyFrame_IsEntryFrame(ptr nocapture noundef readonly %frame) local_unnamed_addr #2 {
 entry:
   %f_frame = getelementptr inbounds i8, ptr %frame, i64 24
   %0 = load ptr, ptr %f_frame, align 8
@@ -3290,7 +3290,7 @@ return:                                           ; preds = %PyFrame_GetLineNumb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @frame_setlineno(ptr nocapture noundef %f, ptr noundef %p_new_lineno, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @frame_setlineno(ptr nocapture noundef %f, ptr noundef %p_new_lineno, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %overflow = alloca i32, align 4
   %f_frame = getelementptr inbounds i8, ptr %f, i64 24
@@ -3394,7 +3394,7 @@ if.then21:                                        ; preds = %sw.epilog
   br label %return
 
 if.end22:                                         ; preds = %sw.epilog
-  %conv = trunc i64 %call16 to i32
+  %conv = trunc nsw i64 %call16 to i32
   %co_firstlineno = getelementptr inbounds i8, ptr %.val67, i64 68
   %16 = load i32, ptr %co_firstlineno, align 4
   %cmp23 = icmp sgt i32 %16, %conv
@@ -3531,7 +3531,7 @@ compatible_stack.exit:                            ; preds = %if.end10.i, %while.
 
 if.then62:                                        ; preds = %compatible_stack.exit
   %cmp63 = icmp sgt i64 %26, %best_stack.092
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp63, i32 %30, i32 %best_addr.091
   %spec.select66 = call i64 @llvm.smax.i64(i64 %26, i64 %best_stack.092)
   br label %for.inc

@@ -69,7 +69,7 @@ is_publishable_class.exit:                        ; preds = %1, %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_relation_is_publishable(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_relation_is_publishable(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -630,7 +630,7 @@ list_length.exit.i:                               ; preds = %check_publication_a
   br i1 %.not38.i, label %82, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %120
-  %125 = trunc i64 %indvars.iv.next.i to i32
+  %125 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %list_length.exit.i
@@ -1934,7 +1934,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_int16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -65535, 65536) i32 @compare_int16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i16, ptr %0, align 2
   %4 = sext i16 %3 to i32
   %5 = load i16, ptr %1, align 2

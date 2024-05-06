@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [13 x i8] c"%p %x %p %x\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.cli_exe_section, align 4
   %9 = load i8, ptr %0, align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 13
@@ -80,7 +80,7 @@ define i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 
   br label %47
 
 39:                                               ; preds = %32
-  %40 = tail call i32 @very_real_unpack(ptr noundef nonnull %30, i32 noundef %26, i32 noundef %21, i32 noundef %.047, i32 noundef %.046, ptr noundef nonnull %10, i32 noundef %36, ptr noundef %1, i32 noundef %34), !range !4
+  %40 = tail call i32 @very_real_unpack(ptr noundef nonnull %30, i32 noundef %26, i32 noundef %21, i32 noundef %.047, i32 noundef %.046, ptr noundef nonnull %10, i32 noundef %36, ptr noundef %1, i32 noundef %34)
   tail call void @free(ptr noundef nonnull %30) #6
   %.not55 = icmp eq i32 %40, 0
   br i1 %.not55, label %41, label %47
@@ -113,7 +113,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @very_real_unpack(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @very_real_unpack(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.UNSP, align 8
   %11 = add i32 %3, %2
   %12 = and i32 %11, 255
@@ -414,7 +414,7 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
   %141 = add i32 %119, 1846
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds i16, ptr %0, i64 %142
-  %144 = call i32 @get_100_bits_from_tablesize(ptr noundef nonnull %143, ptr noundef nonnull %10, i32 noundef %140), !range !5
+  %144 = call i32 @get_100_bits_from_tablesize(ptr noundef nonnull %143, ptr noundef nonnull %10, i32 noundef %140)
   br label %207
 
 145:                                              ; preds = %127
@@ -1706,7 +1706,7 @@ split:                                            ; preds = %732, %726, %721
 declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @get_byte(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 256) i32 @get_byte(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1731,7 +1731,7 @@ define i32 @get_byte(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @getbit_from_table(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 256) i32 @getbit_from_table(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -1863,7 +1863,7 @@ get_byte.exit57:                                  ; preds = %65, %67
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1884,7 +1884,7 @@ define i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr nocapture noundef %1
   %17 = or disjoint i32 %16, %.02326
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i16, ptr %0, i64 %18
-  %20 = tail call i32 @getbit_from_table(ptr noundef nonnull %19, ptr noundef %1), !range !5
+  %20 = tail call i32 @getbit_from_table(ptr noundef nonnull %19, ptr noundef %1)
   %21 = shl nuw nsw i32 %.02326, 1
   %22 = or i32 %20, %21
   %23 = icmp ne i32 %14, %20
@@ -2037,7 +2037,7 @@ getbit_from_table.exit:                           ; preds = %43, %52, %get_byte.
   %.0.i = phi i32 [ 255, %43 ], [ 0, %get_byte.exit.i ], [ 0, %52 ], [ 1, %get_byte.exit57.i ], [ 1, %73 ]
   %93 = or i32 %.0.i, %30
   %.old1 = icmp ult i32 %93, 256
-  br i1 %.old1, label %.preheader.splitthread-pre-split, label %.loopexit.thread, !llvm.loop !6
+  br i1 %.old1, label %.preheader.splitthread-pre-split, label %.loopexit.thread, !llvm.loop !4
 
 .loopexit:                                        ; preds = %getbit_from_table.exit.us, %11
   %.2 = phi i32 [ %22, %11 ], [ %28, %getbit_from_table.exit.us ]
@@ -2051,7 +2051,7 @@ getbit_from_table.exit:                           ; preds = %43, %52, %get_byte.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @get_100_bits_from_table(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @get_100_bits_from_table(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -2059,7 +2059,7 @@ define i32 @get_100_bits_from_table(ptr noundef %0, ptr nocapture noundef %1) lo
   %4 = shl nuw nsw i32 %.05, 1
   %5 = zext nneg i32 %.05 to i64
   %6 = getelementptr inbounds i16, ptr %0, i64 %5
-  %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %1), !range !5
+  %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %1)
   %8 = or i32 %7, %4
   %9 = icmp ult i32 %8, 256
   br i1 %9, label %3, label %10
@@ -2071,7 +2071,7 @@ define i32 @get_100_bits_from_table(ptr noundef %0, ptr nocapture noundef %1) lo
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @get_n_bits_from_tablesize(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = tail call i32 @getbit_from_table(ptr noundef %0, ptr noundef %1), !range !5
+  %4 = tail call i32 @getbit_from_table(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %17
 
@@ -2089,7 +2089,7 @@ define i32 @get_n_bits_from_tablesize(ptr noundef %0, ptr nocapture noundef %1, 
   %11 = shl i32 %.079.i, 1
   %12 = zext i32 %.079.i to i64
   %13 = getelementptr inbounds i16, ptr %9, i64 %12
-  %14 = tail call i32 @getbit_from_table(ptr noundef nonnull %13, ptr noundef %1), !range !5
+  %14 = tail call i32 @getbit_from_table(ptr noundef nonnull %13, ptr noundef %1)
   %15 = add i32 %14, %11
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %get_n_bits_from_table.exit, label %.lr.ph.i
@@ -2100,7 +2100,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 2
-  %19 = tail call i32 @getbit_from_table(ptr noundef nonnull %18, ptr noundef %1), !range !5
+  %19 = tail call i32 @getbit_from_table(ptr noundef nonnull %18, ptr noundef %1)
   %.not12 = icmp eq i32 %19, 0
   br i1 %.not12, label %20, label %31
 
@@ -2118,7 +2118,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
   %26 = shl i32 %.079.i15, 1
   %27 = zext i32 %.079.i15 to i64
   %28 = getelementptr inbounds i16, ptr %24, i64 %27
-  %29 = tail call i32 @getbit_from_table(ptr noundef nonnull %28, ptr noundef %1), !range !5
+  %29 = tail call i32 @getbit_from_table(ptr noundef nonnull %28, ptr noundef %1)
   %30 = add i32 %29, %26
   %.not.i16 = icmp eq i32 %25, 0
   br i1 %.not.i16, label %get_n_bits_from_table.exit17, label %.lr.ph.i13
@@ -2134,7 +2134,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
   %34 = shl i32 %.079.i20, 1
   %35 = zext i32 %.079.i20 to i64
   %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = tail call i32 @getbit_from_table(ptr noundef nonnull %36, ptr noundef %1), !range !5
+  %37 = tail call i32 @getbit_from_table(ptr noundef nonnull %36, ptr noundef %1)
   %38 = add i32 %37, %34
   %.not.i21 = icmp eq i32 %33, 0
   br i1 %.not.i21, label %get_n_bits_from_table.exit22, label %.lr.ph.i18
@@ -2160,7 +2160,7 @@ define i32 @get_n_bits_from_table(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %5 = shl i32 %.079, 1
   %6 = zext i32 %.079 to i64
   %7 = getelementptr inbounds i16, ptr %0, i64 %6
-  %8 = tail call i32 @getbit_from_table(ptr noundef %7, ptr noundef %2), !range !5
+  %8 = tail call i32 @getbit_from_table(ptr noundef %7, ptr noundef %2)
   %9 = add i32 %8, %5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2184,7 +2184,7 @@ define i32 @get_bb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) loc
   %.01517 = phi i32 [ %9, %.preheader ], [ 1, %3 ]
   %5 = zext i32 %.01517 to i64
   %6 = getelementptr inbounds i16, ptr %0, i64 %5
-  %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %2), !range !5
+  %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %2)
   %8 = shl i32 %.01517, 1
   %9 = add i32 %7, %8
   %10 = shl i32 %7, %.01319
@@ -2290,7 +2290,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}
-!5 = !{i32 0, i32 256}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}

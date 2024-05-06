@@ -60,7 +60,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int_lhash() #0 {
+define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 entry:
   %j = alloca i32, align 4
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @int_hash, ptr noundef nonnull @int_cmp) #5
@@ -77,7 +77,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool4.not, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 104, ptr noundef nonnull @.str.5, i32 noundef %0) #5
   br label %end
 
@@ -104,7 +104,7 @@ for.body15:                                       ; preds = %for.end, %for.inc23
   br i1 %tobool20.not, label %if.then21, label %for.inc23
 
 if.then21:                                        ; preds = %for.body15
-  %3 = trunc i64 %indvars.iv67 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv67 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 115, ptr noundef nonnull @.str.10, i32 noundef %3) #5
   br label %end
 
@@ -122,7 +122,7 @@ for.body29:                                       ; preds = %for.inc23, %for.inc
   br i1 %tobool36.not, label %if.then37, label %for.inc39
 
 if.then37:                                        ; preds = %for.body29
-  %4 = trunc i64 %indvars.iv71 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv71 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @.str.13, i32 noundef %4) #5
   br label %end
 
@@ -180,7 +180,7 @@ for.body69:                                       ; preds = %if.end60, %for.inc7
   br i1 %tobool74.not, label %if.then75, label %for.inc77
 
 if.then75:                                        ; preds = %for.body69
-  %7 = trunc i64 %indvars.iv75 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv75 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 146, ptr noundef nonnull @.str.26, i32 noundef %7) #5
   br label %end
 
@@ -213,7 +213,7 @@ for.body88:                                       ; preds = %for.end79, %for.inc
   br i1 %tobool93.not, label %if.then94, label %for.inc96
 
 if.then94:                                        ; preds = %for.body88
-  %10 = trunc i64 %indvars.iv79 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv79 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 160, ptr noundef nonnull @.str.28, i32 noundef %10) #5
   br label %end
 
@@ -236,7 +236,7 @@ for.body102:                                      ; preds = %for.inc96, %for.inc
   br i1 %tobool111.not, label %if.then112, label %for.inc114
 
 if.then112:                                       ; preds = %for.body102
-  %12 = trunc i64 %indvars.iv83 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv83 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 168, ptr noundef nonnull @.str.30, i32 noundef %12) #5
   br label %end
 
@@ -259,7 +259,7 @@ end:                                              ; preds = %for.end116, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stress() #0 {
+define internal range(i32 0, 2) i32 @test_stress() #0 {
 entry:
   %j = alloca i32, align 4
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @stress_hash, ptr noundef nonnull @int_cmp) #5
@@ -335,7 +335,7 @@ end:                                              ; preds = %if.end29, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @int_hash(ptr nocapture noundef readonly %p) #2 {
+define internal range(i64 0, 4) i64 @int_hash(ptr nocapture noundef readonly %p) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %and = and i32 %0, 3
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @int_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) #2 {
+define internal range(i32 0, 2) i32 @int_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %1 = load i32, ptr %q, align 4
@@ -457,7 +457,7 @@ declare i32 @OPENSSL_LH_error(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @stress_hash(ptr nocapture noundef readonly %p) #2 {
+define internal range(i64 -2147483648, 2147483648) i64 @stress_hash(ptr nocapture noundef readonly %p) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %conv = sext i32 %0 to i64

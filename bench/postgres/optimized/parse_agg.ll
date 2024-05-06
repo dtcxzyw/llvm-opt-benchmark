@@ -1248,7 +1248,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %35, %.preh
 
 ._crit_edge179:                                   ; preds = %83, %.lr.ph178, %._crit_edge
   %.097.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph178 ], [ %.198, %83 ]
-  %87 = trunc i8 %.0107.lcssa to i1
+  %87 = trunc nuw i8 %.0107.lcssa to i1
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %._crit_edge179
@@ -1888,7 +1888,7 @@ declare ptr @list_union_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_list_len_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @cmp_list_len_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %list_length.exit, label %4
@@ -1922,7 +1922,7 @@ list_length.exit4:                                ; preds = %list_length.exit, %
 declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_list_len_contents_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @cmp_list_len_contents_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %list_length.exit.i, label %4
@@ -2040,7 +2040,7 @@ define dso_local i32 @get_aggregate_argtypes(ptr nocapture noundef readonly %0, 
   br i1 %15, label %.lr.ph20, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph20
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_entity_public_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_entity_public_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -66,7 +66,7 @@ declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_entity_system_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_entity_system_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -115,7 +115,7 @@ define hidden noundef i32 @dom_entity_system_id_read(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_entity_notation_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_entity_notation_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

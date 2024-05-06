@@ -150,7 +150,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.qcow2_get_subcluster_type = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 3, i32 4, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_shrink_l1_table(ptr noundef %bs, i64 noundef %exact_size) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_shrink_l1_table(ptr noundef %bs, i64 noundef %exact_size) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -482,7 +482,7 @@ declare i32 @qcow2_pre_write_overlap_check(ptr noundef, i32 noundef, i64 noundef
 declare i32 @bdrv_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_write_l1_entry(ptr noundef %bs, i32 noundef %l1_index) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_write_l1_entry(ptr noundef %bs, i32 noundef %l1_index) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -571,7 +571,7 @@ cleanup:                                          ; preds = %do.end, %for.end, %
 declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef writeonly %host_offset, ptr nocapture noundef writeonly %subcluster_type) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef writeonly %host_offset, ptr nocapture noundef writeonly %subcluster_type) local_unnamed_addr #0 {
 entry:
   %type.i = alloca i32, align 4
   %l2_slice = alloca ptr, align 8
@@ -718,7 +718,7 @@ if.else:                                          ; preds = %get_l2_bitmap.exit
   unreachable
 
 if.end32:                                         ; preds = %get_l2_bitmap.exit
-  %call33 = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull %bs, i64 noundef %26, i64 noundef %retval.0.i, i32 noundef %conv1.i109), !range !11
+  %call33 = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull %bs, i64 noundef %26, i64 noundef %retval.0.i, i32 noundef %conv1.i109)
   %qcow_version = getelementptr inbounds i8, ptr %0, i64 300
   %29 = load i32, ptr %qcow_version, align 4
   %cmp34 = icmp slt i32 %29, 3
@@ -852,7 +852,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %46, %if.then.i.i ], [ 0, %for.body.i ]
-  %call6.i = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i, ptr noundef nonnull %type.i)
+  %call6.i = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef readonly %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i, ptr noundef nonnull %type.i)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %count_contiguous_subclusters.exit.thread144, label %if.end10.i
 
@@ -902,7 +902,7 @@ if.end32.i:                                       ; preds = %if.then23.i, %if.el
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp1.i = icmp slt i64 %indvars.iv.next, %shr.i118
   %or.cond39.i = select i1 %cmp35.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond39.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !12
+  br i1 %or.cond39.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !11
 
 count_contiguous_subclusters.exit.thread:         ; preds = %if.then12.i, %for.cond.preheader.i
   %retval.0.i125.ph = phi i32 [ 0, %for.cond.preheader.i ], [ %call6.i, %if.then12.i ]
@@ -968,7 +968,7 @@ declare void @qcow2_signal_corruption(ptr noundef, i1 noundef zeroext, i64 nound
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_get_subcluster_type(ptr nocapture noundef readonly %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_index) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @qcow2_get_subcluster_type(ptr nocapture noundef readonly %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_index) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1100,7 +1100,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1225,7 +1225,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef writeonly %new_l2_slice, ptr nocapture noundef writeonly %new_l2_index) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef writeonly %new_l2_slice, ptr nocapture noundef writeonly %new_l2_index) unnamed_addr #0 {
 entry:
   %_now.i.i130.i = alloca %struct.timeval, align 8
   %_now.i.i116.i = alloca %struct.timeval, align 8
@@ -1531,7 +1531,7 @@ trace_qcow2_l2_allocate_write_l2.exit.i:          ; preds = %if.else.i.i97.i, %i
   call void @qcow2_cache_put(ptr noundef %49, ptr noundef nonnull %l2_slice.i) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp21.i = icmp ult i64 %indvars.iv.next.i, %29
-  br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !14
+  br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %trace_qcow2_l2_allocate_write_l2.exit.i, %trace_qcow2_l2_allocate_get_empty.exit.i
   %l2_table_cache63.i = getelementptr inbounds i8, ptr %.pre60, i64 80
@@ -1579,7 +1579,7 @@ trace_qcow2_l2_allocate_write_l1.exit.i:          ; preds = %if.else.i.i111.i, %
   %57 = load ptr, ptr %l1_table.i, align 8
   %arrayidx71.i = getelementptr i64, ptr %57, i64 %conv
   store i64 %or.i, ptr %arrayidx71.i, align 8
-  %call72.i = call i32 @qcow2_write_l1_entry(ptr noundef nonnull %bs, i32 noundef %conv.i), !range !13
+  %call72.i = call i32 @qcow2_write_l1_entry(ptr noundef nonnull %bs, i32 noundef %conv.i)
   %cmp73.i = icmp slt i32 %call72.i, 0
   br i1 %cmp73.i, label %fail.i, label %if.end76.i
 
@@ -1783,7 +1783,7 @@ declare i64 @qcow2_alloc_bytes(ptr noundef, i32 noundef) #1
 declare void @qcow2_cache_entry_mark_dirty(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr nocapture noundef readonly %m) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr nocapture noundef readonly %m) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %l2_index = alloca i32, align 4
@@ -1844,7 +1844,7 @@ if.end:                                           ; preds = %trace_qcow2_cluster
   br i1 %cmp4, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call8 = tail call i32 @perform_cow(ptr noundef nonnull %bs, ptr noundef nonnull %m), !range !13
+  %call8 = tail call i32 @perform_cow(ptr noundef nonnull %bs, ptr noundef nonnull %m)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %err, label %if.end12
 
@@ -1875,7 +1875,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %14 = load i64, ptr %m, align 8
-  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %14, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %14, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %err, label %if.end24
 
@@ -2030,7 +2030,7 @@ for.inc:                                          ; preds = %if.end61, %land.lhs
   %inc115 = add nuw nsw i32 %i.0106, 1
   %43 = load i32, ptr %nb_clusters, align 8
   %cmp42 = icmp slt i32 %inc115, %43
-  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %j.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %j.1, %for.inc ]
@@ -2054,7 +2054,7 @@ for.body125:                                      ; preds = %for.body125.prehead
   call void @qcow2_free_any_cluster(ptr noundef %bs, i64 noundef %46, i32 noundef 0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %err, label %for.body125, !llvm.loop !16
+  br i1 %exitcond.not, label %err, label %for.body125, !llvm.loop !14
 
 err:                                              ; preds = %for.body125, %for.end, %if.end, %if.end19, %if.end7
   %ret.0 = phi i32 [ %call8, %if.end7 ], [ %call20, %if.end19 ], [ -12, %if.end ], [ 0, %for.end ], [ 0, %for.body125 ]
@@ -2068,7 +2068,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 declare noalias ptr @g_try_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @perform_cow(ptr noundef %bs, ptr nocapture noundef readonly %m) #0 {
+define internal range(i32 -2147483648, 1) i32 @perform_cow(ptr noundef %bs, ptr nocapture noundef readonly %m) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -2208,7 +2208,7 @@ if.else88:                                        ; preds = %cond.end
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv90) #13
   %18 = load i64, ptr %m, align 8
   %19 = load i32, ptr %cow_start, align 4
-  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %18, i32 noundef %19, ptr noundef nonnull %qiov), !range !13
+  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %18, i32 noundef %19, ptr noundef nonnull %qiov)
   %cmp94 = icmp slt i32 %call93, 0
   br i1 %cmp94, label %fail.thread, label %if.end97
 
@@ -2223,7 +2223,7 @@ if.end103:                                        ; preds = %if.end97, %if.then8
   %cow_end.sink = phi ptr [ %cow_end, %if.end97 ], [ %cow_start, %if.then83 ]
   %21 = load i64, ptr %m, align 8
   %22 = load i32, ptr %cow_end.sink, align 4
-  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %21, i32 noundef %22, ptr noundef nonnull %qiov), !range !13
+  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %21, i32 noundef %22, ptr noundef nonnull %qiov)
   %cmp104 = icmp slt i32 %call102, 0
   br i1 %cmp104, label %fail.thread, label %if.end107
 
@@ -2386,7 +2386,7 @@ if.end175:                                        ; preds = %if.else166, %do_per
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef %add.ptr76, i64 noundef %conv177) #13
   %56 = load i64, ptr %alloc_offset169, align 8
   %57 = load i32, ptr %cow_end, align 4
-  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %56, i32 noundef %57, ptr noundef nonnull %qiov), !range !13
+  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %56, i32 noundef %57, ptr noundef nonnull %qiov)
   br label %fail
 
 fail.thread:                                      ; preds = %if.end103, %if.then109, %if.end123, %do_perform_cow_write.exit125, %if.else88, %if.end.i, %if.end.i111
@@ -2459,7 +2459,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_alloc_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef %host_offset, ptr nocapture noundef %m) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_alloc_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef %host_offset, ptr nocapture noundef %m) #0 {
 entry:
   %.compoundliteral.i = alloca %struct.QemuLockable, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2640,7 +2640,7 @@ for.inc.i:                                        ; preds = %if.end20.i, %land.l
   %next_in_flight.i = getelementptr inbounds i8, ptr %old_alloc.044.i, i64 88
   %old_alloc.0.i = load ptr, ptr %next_in_flight.i, align 8
   %tobool.not.i = icmp eq ptr %old_alloc.0.i, null
-  br i1 %tobool.not.i, label %if.else30, label %for.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %if.else30, label %for.body.i, !llvm.loop !15
 
 if.then20:                                        ; preds = %land.lhs.true28.i
   %dependent_requests.i = getelementptr inbounds i8, ptr %old_alloc.044.i, i64 24
@@ -2665,7 +2665,7 @@ if.else30:                                        ; preds = %for.inc.i
   br i1 %cmp31, label %while.end, label %if.end37
 
 if.end37:                                         ; preds = %if.else30.thread47, %if.else30
-  %call38 = call i32 @handle_copied(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !18
+  %call38 = call i32 @handle_copied(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m)
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %return, label %if.else42
 
@@ -2679,7 +2679,7 @@ if.else44:                                        ; preds = %if.else42
   br i1 %cmp45, label %while.end, label %if.end50
 
 if.end50:                                         ; preds = %if.else44
-  %call51 = call i32 @handle_alloc(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !18
+  %call51 = call i32 @handle_alloc(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m)
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %return, label %if.else55
 
@@ -2737,7 +2737,7 @@ return:                                           ; preds = %if.end50, %if.end37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @handle_dependencies(ptr nocapture noundef readonly %bs, i64 noundef %guest_offset, ptr nocapture noundef %cur_bytes, ptr nocapture noundef readonly %m) #0 {
+define internal range(i32 -11, 1) i32 @handle_dependencies(ptr nocapture noundef readonly %bs, i64 noundef %guest_offset, ptr nocapture noundef %cur_bytes, ptr nocapture noundef readonly %m) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -2827,7 +2827,7 @@ for.inc:                                          ; preds = %if.end20, %land.lhs
   %next_in_flight = getelementptr inbounds i8, ptr %old_alloc.044, i64 88
   %old_alloc.0 = load ptr, ptr %next_in_flight, align 8
   %tobool.not = icmp eq ptr %old_alloc.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %entry
   %bytes.0.lcssa = phi i64 [ %1, %entry ], [ %bytes.2, %for.inc ]
@@ -2840,7 +2840,7 @@ return:                                           ; preds = %for.end, %if.then34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_copied(ptr noundef %bs, i64 noundef %guest_offset, ptr nocapture noundef %host_offset, ptr nocapture noundef %bytes, ptr nocapture noundef %m) #0 {
+define internal range(i32 -2147483648, 2) i32 @handle_copied(ptr noundef %bs, i64 noundef %guest_offset, ptr nocapture noundef %host_offset, ptr nocapture noundef %bytes, ptr nocapture noundef %m) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %l2_index = alloca i32, align 4
@@ -2923,7 +2923,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %cond = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %conv)
   %shr = lshr i64 2147483136, %sh_prom.i
   %cond15 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %shr)
-  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end20
 
@@ -3037,7 +3037,7 @@ if.else57:                                        ; preds = %if.end43
 
 if.end58:                                         ; preds = %if.end43
   %conv59 = trunc i64 %cond53 to i32
-  %call60 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %and, i64 noundef %guest_offset, i32 noundef %conv59, ptr noundef nonnull %16, ptr noundef %m, i1 noundef zeroext true), !range !19
+  %call60 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %and, i64 noundef %guest_offset, i32 noundef %conv59, ptr noundef nonnull %16, ptr noundef %m, i1 noundef zeroext true)
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %out.thread, label %if.then69
 
@@ -3066,7 +3066,7 @@ return:                                           ; preds = %out.thread, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_alloc(ptr noundef %bs, i64 noundef %guest_offset, ptr nocapture noundef %host_offset, ptr nocapture noundef %bytes, ptr nocapture noundef %m) #0 {
+define internal range(i32 -2147483648, 2) i32 @handle_alloc(ptr noundef %bs, i64 noundef %guest_offset, ptr nocapture noundef %host_offset, ptr nocapture noundef %bytes, ptr nocapture noundef %m) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %l2_index = alloca i32, align 4
@@ -3132,7 +3132,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %12 = trunc i64 %shr.i58 to i32
   %conv1.i = and i32 %sub.i59, %12
   store i32 %conv1.i, ptr %l2_index, align 4
-  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %return, label %if.end17
 
@@ -3232,7 +3232,7 @@ if.else76:                                        ; preds = %if.end46
 
 if.end77:                                         ; preds = %if.end46
   %conv78 = trunc i64 %cond72 to i32
-  %call79 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %17, i64 noundef %guest_offset, i32 noundef %conv78, ptr noundef %13, ptr noundef %m, i1 noundef zeroext false), !range !19
+  %call79 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %17, i64 noundef %guest_offset, i32 noundef %conv78, ptr noundef %13, ptr noundef %m, i1 noundef zeroext false)
   %cmp80 = icmp slt i32 %call79, 0
   %spec.store.select = select i1 %cmp80, i32 %call79, i32 1
   br label %out
@@ -3309,7 +3309,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l2_index.i)
   %4 = load ptr, ptr %opaque, align 8
-  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i), !range !13
+  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %discard_in_l2_slice.exit.thread, label %if.end.i
 
@@ -3525,7 +3525,7 @@ for.inc.i:                                        ; preds = %if.then72.i, %if.el
   %inc.i = add i32 %i.078.i, 1
   %conv7.i = sext i32 %inc.i to i64
   %cmp8.i = icmp ugt i64 %cond.i, %conv7.i
-  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !20
+  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !16
 
 discard_in_l2_slice.exit:                         ; preds = %for.inc.i
   %37 = load ptr, ptr %l2_table_cache.i, align 8
@@ -3542,7 +3542,7 @@ if.end20:                                         ; preds = %discard_in_l2_slice
   %mul = mul nsw i64 %conv78.i30, %conv22
   %add23 = add i64 %mul, %offset.addr.034
   %cmp12.not = icmp eq i64 %sub, 0
-  br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !21
+  br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !17
 
 fail:                                             ; preds = %if.end20, %if.end11, %discard_in_l2_slice.exit.thread
   %ret.0 = phi i32 [ %call.i, %discard_in_l2_slice.exit.thread ], [ 0, %if.end11 ], [ 0, %if.end20 ]
@@ -3670,7 +3670,7 @@ if.then55:                                        ; preds = %cond.end49
   %sh_prom.i = zext nneg i32 %.val70 to i64
   %shr.i = lshr i64 %add.i, %sh_prom.i
   %conv60 = trunc i64 %shr.i to i32
-  %call61 = tail call i32 @zero_l2_subclusters(ptr noundef nonnull %bs, i64 noundef %offset, i32 noundef %conv60), !range !13
+  %call61 = tail call i32 @zero_l2_subclusters(ptr noundef nonnull %bs, i64 noundef %offset, i32 noundef %conv60)
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %fail, label %if.then55.if.end66_crit_edge
 
@@ -3705,7 +3705,7 @@ if.end77:                                         ; preds = %while.body
   %mul = mul nsw i64 %conv80, %conv72
   %add81 = add i64 %mul, %offset.addr.094
   %cmp69.not = icmp eq i64 %sub78, 0
-  br i1 %cmp69.not, label %while.end, label %while.body, !llvm.loop !22
+  br i1 %cmp69.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end77, %if.end66
   %tobool82.not = icmp eq i32 %cond50, 0
@@ -3721,7 +3721,7 @@ if.then83:                                        ; preds = %while.end
   %sh_prom.i90 = zext nneg i32 %.val72 to i64
   %shr.i91 = lshr i64 %add.i89, %sh_prom.i90
   %conv86 = trunc i64 %shr.i91 to i32
-  %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86), !range !13
+  %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86)
   %cmp88 = icmp slt i32 %call87, 0
   br i1 %cmp88, label %fail, label %if.end92
 
@@ -3740,7 +3740,7 @@ return:                                           ; preds = %if.then19, %if.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %offset, i32 noundef %nb_subclusters) #0 {
+define internal range(i32 -2147483648, 1) i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %offset, i32 noundef %nb_subclusters) #0 {
 entry:
   %l2_slice = alloca ptr, align 8
   %l2_index = alloca i32, align 4
@@ -3787,7 +3787,7 @@ if.else10:                                        ; preds = %if.end6
   unreachable
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end15
 
@@ -3891,7 +3891,7 @@ entry:
   %l2_index = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4080,7 +4080,7 @@ for.inc:                                          ; preds = %lor.end.thread, %if
   %inc = add i32 %i.089, 1
   %conv7 = sext i32 %inc to i64
   %cmp8 = icmp ugt i64 %cond, %conv7
-  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %l2_table_cache65 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4095,7 +4095,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_expand_zero_clusters(ptr noundef %bs, ptr noundef %status_cb, ptr noundef %cb_opaque) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_expand_zero_clusters(ptr noundef %bs, ptr noundef %status_cb, ptr noundef %cb_opaque) local_unnamed_addr #0 {
 entry:
   %visited_l1_entries = alloca i64, align 8
   %local_err = alloca ptr, align 8
@@ -4144,7 +4144,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %l1_entries.055, %conv3
   %inc = add nuw i32 %i.054, 1
   %exitcond.not = icmp eq i32 %inc, %4
-  br i1 %exitcond.not, label %for.cond.split, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.cond.split, label %for.body, !llvm.loop !20
 
 if.end:                                           ; preds = %for.cond.split, %entry.split
   %phi.call = phi i32 [ %call48, %entry.split ], [ %call51, %for.cond.split ]
@@ -4174,7 +4174,7 @@ for.cond15:                                       ; preds = %for.end67
   %inc78 = add nuw i32 %i.161, 1
   %10 = load i32, ptr %nb_snapshots16, align 4
   %cmp17 = icmp ult i32 %inc78, %10
-  br i1 %cmp17, label %for.body19, label %fail, !llvm.loop !25
+  br i1 %cmp17, label %for.body19, label %fail, !llvm.loop !21
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.cond15
   %l1_table.062 = phi ptr [ null, %for.body19.lr.ph ], [ %call41, %for.cond15 ]
@@ -4234,7 +4234,7 @@ for.body62:                                       ; preds = %for.cond55.preheade
   %l1_size59 = getelementptr %struct.QCowSnapshot, ptr %24, i64 %idxprom22, i32 1
   %25 = load i32, ptr %l1_size59, align 8
   %cmp60 = icmp ult i32 %inc66, %25
-  br i1 %cmp60, label %for.body62, label %for.end67, !llvm.loop !26
+  br i1 %cmp60, label %for.body62, label %for.end67, !llvm.loop !22
 
 for.end67:                                        ; preds = %for.body62, %for.cond55.preheader
   %.lcssa = phi i32 [ 0, %for.cond55.preheader ], [ %25, %for.body62 ]
@@ -4396,7 +4396,7 @@ if.end149.us:                                     ; preds = %if.then146.us, %if.
 for.inc169.us:                                    ; preds = %if.end149.us, %if.end159.us, %if.else151.us
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %cmp31.us = icmp ult i64 %indvars.iv.next333, %7
-  br i1 %cmp31.us, label %for.body33.us, label %for.cond30.for.end171_crit_edge.us, !llvm.loop !27
+  br i1 %cmp31.us, label %for.body33.us, label %for.cond30.for.end171_crit_edge.us, !llvm.loop !23
 
 for.body52.us:                                    ; preds = %for.cond48.preheader.us, %for.inc.us
   %l2_dirty.0185.us = phi i8 [ %l2_dirty.1.us, %for.inc.us ], [ 0, %for.cond48.preheader.us ]
@@ -4554,7 +4554,7 @@ for.inc.us:                                       ; preds = %if.then66.us, %if.t
   %inc142.us = add nuw nsw i32 %j.0184.us, 1
   %47 = load i32, ptr %l2_slice_size, align 8
   %cmp50.us = icmp slt i32 %inc142.us, %47
-  br i1 %cmp50.us, label %for.body52.us, label %for.end.us, !llvm.loop !28
+  br i1 %cmp50.us, label %for.body52.us, label %for.end.us, !llvm.loop !24
 
 if.then16.us:                                     ; preds = %for.body.us
   %48 = load i64, ptr %visited_l1_entries, align 8
@@ -4570,7 +4570,7 @@ for.inc176.us.sink.split:                         ; preds = %if.then16.us, %for.
 for.inc176.us:                                    ; preds = %for.inc176.us.sink.split, %if.then16.us, %for.cond30.for.end171_crit_edge.us
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %fail, label %for.body.us, !llvm.loop !29
+  br i1 %exitcond339.not, label %fail, label %for.body.us, !llvm.loop !25
 
 for.cond48.preheader.us:                          ; preds = %if.end43.us
   %49 = load i32, ptr %l2_slice_size, align 8
@@ -4617,7 +4617,7 @@ for.inc176.us230:                                 ; preds = %if.end24.us222, %fo
   store i64 %storemerge, ptr %visited_l1_entries, align 8
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count330
-  br i1 %exitcond331.not, label %fail, label %for.body.us210, !llvm.loop !29
+  br i1 %exitcond331.not, label %fail, label %for.body.us210, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc176
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc176 ], [ 0, %for.body.lr.ph.split ]
@@ -4702,7 +4702,7 @@ for.inc176:                                       ; preds = %if.end24, %for.body
   call void %status_cb(ptr noundef %bs, i64 noundef %inc172, i64 noundef %l1_entries, ptr noundef %cb_opaque) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count330
-  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !25
 
 fail:                                             ; preds = %if.end24, %for.inc176, %if.end24.us222, %for.inc176.us230, %if.end24.us, %for.inc176.us, %if.end159.us, %if.then153.us, %if.end43.us, %if.end12, %if.then100, %if.then106, %if.then129, %if.then132, %if.then116, %if.then119, %if.then92, %if.then73, %if.then23
   %ret.1 = phi i32 [ -5, %if.then23 ], [ %conv74, %if.then73 ], [ %call89.us, %if.then92 ], [ %call113.us, %if.then119 ], [ %call113.us, %if.then116 ], [ %call126.us, %if.then132 ], [ %call126.us, %if.then129 ], [ -5, %if.then106 ], [ -5, %if.then100 ], [ 0, %if.end12 ], [ %call162.us, %if.end159.us ], [ %call155.us, %if.then153.us ], [ %ret.0.us, %if.end43.us ], [ %call25.us, %if.end24.us ], [ 0, %for.inc176.us ], [ %call25.us225, %if.end24.us222 ], [ 0, %for.inc176.us230 ], [ %call25, %if.end24 ], [ 0, %for.inc176 ]
@@ -4789,7 +4789,7 @@ define internal fastcc i32 @qcow2_get_subcluster_range_type(ptr nocapture nounde
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_from), !range !11
+  %call = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_from)
   store i32 %call, ptr %type, align 4
   %cmp = icmp eq i32 %call, 6
   br i1 %cmp, label %sw.epilog, label %if.else
@@ -4824,7 +4824,7 @@ sw.bb:                                            ; preds = %lor.lhs.false
   %or = or i64 %sub5, %l2_bitmap
   %conv = trunc i64 %or to i32
   %not.i = xor i32 %conv, -1
-  %3 = tail call i32 @llvm.cttz.i32(i32 %not.i, i1 false), !range !30
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %not.i, i1 false)
   %sub7 = sub i32 %3, %sc_from
   br label %sw.epilog
 
@@ -4837,7 +4837,7 @@ sw.bb8:                                           ; preds = %lor.lhs.false, %lor
   %shr = lshr i64 %or13, 32
   %conv14 = trunc nuw i64 %shr to i32
   %not.i21 = xor i32 %conv14, -1
-  %4 = tail call i32 @llvm.cttz.i32(i32 %not.i21, i1 false), !range !30
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %not.i21, i1 false)
   %sub16 = sub i32 %4, %sc_from
   br label %sw.epilog
 
@@ -4848,7 +4848,7 @@ sw.bb17:                                          ; preds = %lor.lhs.false, %lor
   %notmask = shl nsw i64 -1, %sh_prom20
   %and = and i64 %notmask, %or19
   %conv23 = trunc i64 %and to i32
-  %5 = tail call i32 @llvm.cttz.i32(i32 %conv23, i1 false), !range !30
+  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv23, i1 false)
   %sub25 = sub i32 %5, %sc_from
   br label %sw.epilog
 
@@ -4884,7 +4884,7 @@ declare void @qemu_co_mutex_unlock(ptr noundef) #1
 declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @do_perform_cow_read(ptr noundef %bs, i64 noundef %src_cluster_offset, i32 noundef %offset_in_cluster, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @do_perform_cow_read(ptr noundef %bs, i64 noundef %src_cluster_offset, i32 noundef %offset_in_cluster, ptr noundef %qiov) #0 {
 entry:
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %0 = load i64, ptr %size, align 8
@@ -4958,7 +4958,7 @@ declare i32 @qcow2_co_encrypt(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 declare void @qemu_iovec_concat(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @do_perform_cow_write(ptr noundef %bs, i64 noundef %cluster_offset, i32 noundef %offset_in_cluster, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @do_perform_cow_write(ptr noundef %bs, i64 noundef %cluster_offset, i32 noundef %offset_in_cluster, ptr noundef %qiov) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -5082,7 +5082,7 @@ cluster_needs_new_alloc.exit.us.us:               ; preds = %if.then10.i.i.us.us
 for.inc.us.us:                                    ; preds = %cluster_needs_new_alloc.exit.us.us, %for.body.us.us
   %inc.us.us = add nuw nsw i32 %i.022.us.us, 1
   %exitcond79.not = icmp eq i32 %inc.us.us, %nb_clusters
-  br i1 %exitcond79.not, label %if.end19, label %for.body.us.us, !llvm.loop !31
+  br i1 %exitcond79.not, label %if.end19, label %for.body.us.us, !llvm.loop !26
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv80 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next81, %for.inc.us ]
@@ -5120,7 +5120,7 @@ cluster_needs_new_alloc.exit.us:                  ; preds = %if.else.i.i.us, %if
 for.inc.us:                                       ; preds = %cluster_needs_new_alloc.exit.us, %for.body.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %if.end19, label %for.body.us, !llvm.loop !31
+  br i1 %exitcond84.not, label %if.end19, label %for.body.us, !llvm.loop !26
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %tobool.i.not.i.i, label %for.body.preheader, label %for.body.us28
@@ -5169,7 +5169,7 @@ if.end12.us:                                      ; preds = %cluster_needs_new_a
   %add14.us = add nsw i64 %expected_offset.021.us30, %conv13.us
   %inc.us58 = add nuw nsw i32 %i.022.us29, 1
   %exitcond.not = icmp eq i32 %inc.us58, %nb_clusters
-  br i1 %exitcond.not, label %if.end19, label %for.body.us28, !llvm.loop !31
+  br i1 %exitcond.not, label %if.end19, label %for.body.us28, !llvm.loop !26
 
 for.body:                                         ; preds = %for.body.preheader, %if.end12
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end12 ]
@@ -5215,7 +5215,7 @@ if.end12:                                         ; preds = %cluster_needs_new_a
   %add14 = add nsw i64 %expected_offset.021, %conv13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond78.not, label %if.end19, label %for.body, !llvm.loop !31
+  br i1 %exitcond78.not, label %if.end19, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %cluster_needs_new_alloc.exit.us51, %for.body.us28, %cluster_needs_new_alloc.exit, %for.body, %cluster_needs_new_alloc.exit.us.us, %cluster_needs_new_alloc.exit.us, %entry
   %i.0.lcssa = phi i32 [ 0, %entry ], [ %11, %cluster_needs_new_alloc.exit.us ], [ %i.022.us.us, %cluster_needs_new_alloc.exit.us.us ], [ %19, %for.body ], [ %19, %cluster_needs_new_alloc.exit ], [ %i.022.us29, %for.body.us28 ], [ %i.022.us29, %cluster_needs_new_alloc.exit.us51 ]
@@ -5232,7 +5232,7 @@ if.end19:                                         ; preds = %if.end12.us, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @calculate_l2_meta(ptr noundef %bs, i64 noundef %host_cluster_offset, i64 noundef %guest_offset, i32 noundef %bytes, ptr nocapture noundef readonly %l2_slice, ptr nocapture noundef %m, i1 noundef zeroext %keep_old) #0 {
+define internal range(i32 -5, 1) i32 @calculate_l2_meta(ptr noundef %bs, i64 noundef %host_cluster_offset, i64 noundef %guest_offset, i32 noundef %bytes, ptr nocapture noundef readonly %l2_slice, ptr nocapture noundef %m, i1 noundef zeroext %keep_old) #0 {
 entry:
   %type = alloca i32, align 4
   %.compoundliteral.sroa.5 = alloca [19 x i8], align 1
@@ -5280,7 +5280,7 @@ if.else:                                          ; preds = %entry
 for.cond:                                         ; preds = %if.end42
   %inc = add nuw i32 %i.0203, 1
   %exitcond.not = icmp eq i32 %inc, %conv4
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !27
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0203 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -5343,7 +5343,7 @@ if.then14:                                        ; preds = %get_l2_bitmap.exit
   br label %if.end42
 
 if.else40:                                        ; preds = %get_l2_bitmap.exit
-  %call41 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef 0), !range !11
+  %call41 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef 0)
   store i32 %call41, ptr %type, align 4
   br label %if.end42
 
@@ -5412,7 +5412,7 @@ get_l2_bitmap.exit173:                            ; preds = %if.end51, %if.then.
   %sub.i176 = add i32 %.val127, -1
   %35 = trunc i64 %shr.i175 to i32
   %conv1.i177 = and i32 %sub.i176, %35
-  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %30, i64 noundef %retval.0.i172, i32 noundef %conv1.i177), !range !11
+  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %30, i64 noundef %retval.0.i172, i32 noundef %conv1.i177)
   br i1 %keep_old, label %if.else77, label %if.then57
 
 if.then57:                                        ; preds = %get_l2_bitmap.exit173
@@ -5433,7 +5433,7 @@ sw.bb58:                                          ; preds = %if.then57, %if.then
 
 if.then60:                                        ; preds = %sw.bb58
   %conv62 = trunc i64 %retval.0.i172 to i32
-  %36 = tail call i32 @llvm.cttz.i32(i32 %conv62, i1 false), !range !30
+  %36 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv62, i1 false)
   %cond70 = tail call i32 @llvm.smin.i32(i32 %conv1.i177, i32 %36)
   br label %if.end86.sink.split
 
@@ -5496,7 +5496,7 @@ get_l2_bitmap.exit190:                            ; preds = %if.end86, %if.then.
   %sub.i193 = add i32 %.val125, -1
   %45 = trunc i64 %shr.i192 to i32
   %conv1.i194 = and i32 %sub.i193, %45
-  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %42, i64 noundef %retval.0.i189, i32 noundef %conv1.i194), !range !11
+  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %42, i64 noundef %retval.0.i189, i32 noundef %conv1.i194)
   br i1 %keep_old, label %if.else140, label %if.then97
 
 if.then97:                                        ; preds = %get_l2_bitmap.exit190
@@ -5533,7 +5533,7 @@ if.then112:                                       ; preds = %sw.bb104
   %48 = load i32, ptr %34, align 4
   %49 = xor i32 %conv1.i194, -1
   %sub117 = add i32 %48, %49
-  %50 = tail call i32 @llvm.ctlz.i32(i32 %conv115, i1 false), !range !30
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv115, i1 false)
   %cond125 = tail call i32 @llvm.smin.i32(i32 %sub117, i32 %50)
   %51 = load i32, ptr %33, align 4
   %shl127 = shl i32 %cond125, %51
@@ -5862,15 +5862,15 @@ attributes #16 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 7}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -2147483648, i32 1}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -2147483648, i32 2}
-!19 = !{i32 -5, i32 1}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
@@ -5879,8 +5879,3 @@ attributes #16 = { nounwind allocsize(0) }
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = !{i32 0, i32 33}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}

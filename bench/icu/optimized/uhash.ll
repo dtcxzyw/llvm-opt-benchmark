@@ -130,7 +130,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !6
 
 while.end.split.loop.exit6:                       ; preds = %land.rhs
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.split.loop.exit6
@@ -232,7 +232,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end.split.loop.exit6:                       ; preds = %land.rhs
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.split.loop.exit6
@@ -441,7 +441,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp1, label %for.cond, label %if.then, !llvm.loop !8
 
 if.then:                                          ; preds = %for.body
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %6, ptr %pos, align 4
   %7 = load ptr, ptr %hash, align 8
   %arrayidx4 = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %indvars.iv.next
@@ -1905,7 +1905,7 @@ return:                                           ; preds = %entry, %_ZL28_uhash
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_containsKey_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_containsKey_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -1998,7 +1998,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_icontainsKey_75(ptr nocapture noundef readonly %hash, i32 noundef %key) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_icontainsKey_75(ptr nocapture noundef readonly %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -2247,7 +2247,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare i32 @ustr_hashICharsN_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uhash_equals_75(ptr noundef readonly %hash1, ptr noundef readonly %hash2) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_equals_75(ptr noundef readonly %hash1, ptr noundef readonly %hash2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %hash1, %hash2
   br i1 %cmp, label %return, label %if.end
@@ -2417,7 +2417,7 @@ return:                                           ; preds = %_ZL11_uhash_findPK1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @uhash_compareUChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @uhash_compareUChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end
@@ -2462,7 +2462,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @uhash_compareChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @uhash_compareChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end
@@ -2507,7 +2507,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_compareIChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_compareIChars_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end
@@ -2568,7 +2568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uhash_compareLong_75(ptr %key1.coerce, ptr %key2.coerce) local_unnamed_addr #7 {
+define signext range(i8 0, 2) i8 @uhash_compareLong_75(ptr %key1.coerce, ptr %key2.coerce) local_unnamed_addr #7 {
 entry:
   %0 = ptrtoint ptr %key1.coerce to i64
   %key1.sroa.0.0.extract.trunc = trunc i64 %0 to i32

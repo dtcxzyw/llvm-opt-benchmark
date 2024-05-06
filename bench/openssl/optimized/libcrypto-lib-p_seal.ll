@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.EVP_SealInit = private unnamed_addr constant [13 x i8] c"EVP_SealInit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SealInit(ptr noundef %ctx, ptr noundef %type, ptr nocapture noundef readonly %ek, ptr nocapture noundef writeonly %ekl, ptr noundef %iv, ptr noundef readonly %pubk, i32 noundef %npubk) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %ctx, ptr noundef %type, ptr nocapture noundef readonly %ek, ptr nocapture noundef writeonly %ekl, ptr noundef %iv, ptr noundef readonly %pubk, i32 noundef %npubk) local_unnamed_addr #0 {
 entry:
   %key = alloca [64 x i8], align 16
   %keylen = alloca i64, align 8

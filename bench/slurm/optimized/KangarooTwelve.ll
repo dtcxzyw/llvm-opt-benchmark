@@ -24,7 +24,7 @@ define i32 @KangarooTwelve_Initialize(ptr noundef %0, i64 noundef %1) local_unna
 declare i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
@@ -45,7 +45,7 @@ define noundef i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 no
   %16 = sub i32 8192, %14
   %17 = zext i32 %16 to i64
   %18 = icmp ugt i64 %17, %2
-  %19 = trunc i64 %2 to i32
+  %19 = trunc nuw i64 %2 to i32
   %20 = select i1 %18, i32 %19, i32 %16
   %21 = getelementptr inbounds i8, ptr %0, i64 216
   %22 = zext i32 %20 to i64
@@ -88,7 +88,7 @@ define noundef i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 no
   %39 = sub i32 8192, %14
   %40 = zext i32 %39 to i64
   %41 = icmp ugt i64 %40, %2
-  %42 = trunc i64 %2 to i32
+  %42 = trunc nuw i64 %2 to i32
   %43 = select i1 %41, i32 %42, i32 %39
   %44 = zext i32 %43 to i64
   %45 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %44) #3
@@ -141,7 +141,7 @@ define noundef i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 no
   %.184 = phi ptr [ %.06199, %.lr.ph ], [ %71, %83 ]
   %.16383 = phi i64 [ %.06298, %.lr.ph ], [ %72, %83 ]
   %65 = call i64 @llvm.umin.i64(i64 %.16383, i64 8192)
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw nsw i64 %65 to i32
   %67 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #3
   %.not77 = icmp eq i32 %67, 0
   br i1 %.not77, label %68, label %.loopexit
@@ -212,7 +212,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %25
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @KangarooTwelve_Update(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3), !range !8
+  %11 = tail call i32 @KangarooTwelve_Update(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3)
   %.not32 = icmp eq i32 %11, 0
   br i1 %.not32, label %.lr.ph.i, label %76
 
@@ -231,7 +231,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %16 = icmp ugt i64 %.019.i, 255
   %17 = icmp ult i32 %.01718.i, 7
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !9
+  br i1 %18, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph22.preheader.i ], [ %indvars.iv.next.i, %.lr.ph22.i ]
@@ -243,7 +243,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 %22, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !10
+  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !9
 
 right_encode.exit:                                ; preds = %.lr.ph22.i
   %23 = trunc i32 %14 to i8
@@ -253,7 +253,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 
 25:                                               ; preds = %right_encode.exit, %.split
   %phi.call = phi i64 [ 1, %.split ], [ %wide.trip.count.i, %right_encode.exit ]
-  %26 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call), !range !8
+  %26 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call)
   %.not33 = icmp eq i32 %26, 0
   br i1 %.not33, label %27, label %76
 
@@ -313,7 +313,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %49 = icmp ugt i64 %.019.i43, 255
   %50 = icmp ult i32 %.01718.i44, 7
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i42, label %.lr.ph22.preheader.i45, !llvm.loop !9
+  br i1 %51, label %.lr.ph.i42, label %.lr.ph22.preheader.i45, !llvm.loop !8
 
 .lr.ph22.i48:                                     ; preds = %.lr.ph22.i48, %.lr.ph22.preheader.i45
   %indvars.iv.i49 = phi i64 [ 1, %.lr.ph22.preheader.i45 ], [ %indvars.iv.next.i51, %.lr.ph22.i48 ]
@@ -325,7 +325,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   store i8 %55, ptr %gep.i50, align 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i46
-  br i1 %exitcond.i52, label %right_encode.exit56.loopexit, label %.lr.ph22.i48, !llvm.loop !10
+  br i1 %exitcond.i52, label %right_encode.exit56.loopexit, label %.lr.ph22.i48, !llvm.loop !9
 
 right_encode.exit56.loopexit:                     ; preds = %.lr.ph22.i48
   %56 = trunc i32 %47 to i8
@@ -416,7 +416,7 @@ define i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   br i1 %.not, label %16, label %20
 
 16:                                               ; preds = %9
-  %17 = call i32 @KangarooTwelve_Update(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %1), !range !8
+  %17 = call i32 @KangarooTwelve_Update(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %1)
   %.not8 = icmp eq i32 %17, 0
   br i1 %.not8, label %18, label %20
 
@@ -447,6 +447,5 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

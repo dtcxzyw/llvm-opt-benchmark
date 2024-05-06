@@ -550,8 +550,8 @@ if.then38:                                        ; preds = %invoke.cont36
   %25 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i71 = zext i32 %25 to i64
   %add.ptr.i72.idx = shl nuw nsw i64 %idx.ext.i71, 3
-  %26 = getelementptr i8, ptr %.sroa.9173.0.copyload, i64 %add.ptr.i72.idx
-  %add.ptr.i72.ptr = getelementptr i8, ptr %26, i64 32
+  %26 = getelementptr inbounds i8, ptr %.sroa.9173.0.copyload, i64 %add.ptr.i72.idx
+  %add.ptr.i72.ptr = getelementptr inbounds i8, ptr %26, i64 32
   %cmp45.not205 = icmp eq i32 %25, 0
   br i1 %cmp45.not205, label %while.cond.backedge, label %for.body.preheader
 
@@ -626,8 +626,8 @@ if.then57:                                        ; preds = %invoke.cont55
   %40 = load i32, ptr %m_num_args.i104, align 8
   %idx.ext.i105 = zext i32 %40 to i64
   %add.ptr.i106.idx = shl nuw nsw i64 %idx.ext.i105, 3
-  %41 = getelementptr i8, ptr %.sroa.9173.0.copyload, i64 %add.ptr.i106.idx
-  %add.ptr.i106.ptr = getelementptr i8, ptr %41, i64 32
+  %41 = getelementptr inbounds i8, ptr %.sroa.9173.0.copyload, i64 %add.ptr.i106.idx
+  %add.ptr.i106.ptr = getelementptr inbounds i8, ptr %41, i64 32
   %cmp65.not207 = icmp eq i32 %40, 0
   br i1 %cmp65.not207, label %while.cond.backedge, label %for.body66.preheader
 
@@ -1036,8 +1036,8 @@ if.then37:                                        ; preds = %invoke.cont35
   %27 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i76 = zext i32 %27 to i64
   %add.ptr.i77.idx = shl nuw nsw i64 %idx.ext.i76, 3
-  %28 = getelementptr i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i77.idx
-  %add.ptr.i77.ptr = getelementptr i8, ptr %28, i64 32
+  %28 = getelementptr inbounds i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i77.idx
+  %add.ptr.i77.ptr = getelementptr inbounds i8, ptr %28, i64 32
   %cmp44.not212 = icmp eq i32 %27, 0
   br i1 %cmp44.not212, label %while.cond.backedge, label %for.body.lr.ph
 
@@ -1113,8 +1113,8 @@ if.then55:                                        ; preds = %invoke.cont53
   %42 = load i32, ptr %m_num_args.i109, align 8
   %idx.ext.i110 = zext i32 %42 to i64
   %add.ptr.i111.idx = shl nuw nsw i64 %idx.ext.i110, 3
-  %43 = getelementptr i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i111.idx
-  %add.ptr.i111.ptr = getelementptr i8, ptr %43, i64 32
+  %43 = getelementptr inbounds i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i111.idx
+  %add.ptr.i111.ptr = getelementptr inbounds i8, ptr %43, i64 32
   %cmp63.not210 = icmp eq i32 %42, 0
   br i1 %cmp63.not210, label %while.cond.backedge, label %for.body64.lr.ph
 
@@ -2432,8 +2432,8 @@ if.then21:                                        ; preds = %invoke.cont19
   %22 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i77 = zext i32 %22 to i64
   %add.ptr.i78.idx = shl nuw nsw i64 %idx.ext.i77, 3
-  %23 = getelementptr i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i78.idx
-  %add.ptr.i78.ptr = getelementptr i8, ptr %23, i64 32
+  %23 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i78.idx
+  %add.ptr.i78.ptr = getelementptr inbounds i8, ptr %23, i64 32
   %cmp29.not360 = icmp eq i32 %22, 0
   br i1 %cmp29.not360, label %if.end63.land.lhs.true94_crit_edge, label %for.body30.lr.ph
 
@@ -2516,8 +2516,8 @@ if.then42:                                        ; preds = %invoke.cont40
   %42 = load i32, ptr %m_num_args.i113, align 8
   %idx.ext.i114 = zext i32 %42 to i64
   %add.ptr.i115.idx = shl nuw nsw i64 %idx.ext.i114, 3
-  %43 = getelementptr i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i115.idx
-  %add.ptr.i115.ptr = getelementptr i8, ptr %43, i64 32
+  %43 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i115.idx
+  %add.ptr.i115.ptr = getelementptr inbounds i8, ptr %43, i64 32
   %cmp50.not358 = icmp eq i32 %42, 0
   br i1 %cmp50.not358, label %if.end63.land.lhs.true65_crit_edge, label %for.body51.lr.ph
 
@@ -2616,8 +2616,8 @@ if.then69:                                        ; preds = %invoke.cont67
   %62 = load i32, ptr %m_num_args.i152, align 8
   %idx.ext.i153 = zext i32 %62 to i64
   %add.ptr.i154.idx = shl nuw nsw i64 %idx.ext.i153, 3
-  %63 = getelementptr i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i154.idx
-  %add.ptr.i154.ptr = getelementptr i8, ptr %63, i64 32
+  %63 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i154.idx
+  %add.ptr.i154.ptr = getelementptr inbounds i8, ptr %63, i64 32
   %cmp80.not362 = icmp eq i32 %62, 0
   br i1 %cmp80.not362, label %for.inc187, label %for.body81.lr.ph
 
@@ -2704,8 +2704,8 @@ if.then98:                                        ; preds = %invoke.cont96
   %82 = load i32, ptr %m_num_args.i191, align 8
   %idx.ext.i192 = zext i32 %82 to i64
   %add.ptr.i193.idx = shl nuw nsw i64 %idx.ext.i192, 3
-  %83 = getelementptr i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i193.idx
-  %add.ptr.i193.ptr = getelementptr i8, ptr %83, i64 32
+  %83 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %add.ptr.i193.idx
+  %add.ptr.i193.ptr = getelementptr inbounds i8, ptr %83, i64 32
   %cmp109.not364 = icmp eq i32 %82, 0
   br i1 %cmp109.not364, label %for.inc187, label %for.body110.lr.ph
 

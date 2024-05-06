@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pg_mkdir_p(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pg_mkdir_p(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = tail call i32 @umask(i32 noundef 0) #4
   %5 = and i32 %4, -193

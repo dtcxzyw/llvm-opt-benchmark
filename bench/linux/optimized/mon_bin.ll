@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [38 x i8] c"\013usbmon: consistency error on close\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mon_bin_add(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @mon_bin_add(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread3, label %4
 
@@ -366,7 +366,7 @@ define internal i64 @mon_bin_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mon_bin_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 66) i32 @mon_bin_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1054,7 +1054,7 @@ mon_bin_flush.exit:                               ; preds = %45, %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mon_bin_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @mon_bin_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr @mon_bin_vm_ops, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1106,7 +1106,7 @@ define internal noundef i32 @mon_bin_mmap(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mon_bin_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @mon_lock) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
@@ -1294,7 +1294,7 @@ define internal noundef i32 @mon_bin_release(ptr nocapture readnone %0, ptr noca
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mon_bin_wait_event(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1396,7 +1396,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mon_bin_get_event(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @mutex_lock(ptr noundef %7) #12
   %8 = tail call fastcc i32 @mon_bin_wait_event(ptr noundef %0, ptr noundef %1), !range !6
@@ -1620,7 +1620,7 @@ define internal void @mon_bin_vma_close(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load ptr, ptr %3, align 8

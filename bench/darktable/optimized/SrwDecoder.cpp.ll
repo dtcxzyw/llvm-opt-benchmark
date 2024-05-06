@@ -977,7 +977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed5Hints3getERKNSt7__c
   %25 = sub i64 %16, %10
   %26 = tail call i64 @llvm.smax.i64(i64 %25, i64 -2147483648)
   %27 = tail call i64 @llvm.smin.i64(i64 %26, i64 2147483647)
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nsw i64 %27 to i32
   br label %29
 
 29:                                               ; preds = %24, %19
@@ -1012,7 +1012,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed5Hints3getERKNSt7__c
   %50 = sub i64 %10, %41
   %51 = tail call i64 @llvm.smax.i64(i64 %50, i64 -2147483648)
   %52 = tail call i64 @llvm.smin.i64(i64 %51, i64 2147483647)
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nsw i64 %52 to i32
   br label %54
 
 54:                                               ; preds = %49, %44

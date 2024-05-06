@@ -99,8 +99,8 @@ entry:
   %dimensions_.i = getelementptr inbounds i8, ptr %node, i64 492
   %3 = load float, ptr %dimensions_.i, align 4
   %conv9 = fpext float %3 to double
-  %arrayidx.i.i.i46 = getelementptr inbounds i8, ptr %node, i64 496
-  %4 = load float, ptr %arrayidx.i.i.i46, align 4
+  %arrayidx.i.i.i47 = getelementptr inbounds i8, ptr %node, i64 496
+  %4 = load float, ptr %arrayidx.i.i.i47, align 4
   %conv12 = fpext float %4 to double
   %add = fadd double %conv, %absoluteLeft
   %add13 = fadd double %conv6, %absoluteTop
@@ -176,391 +176,391 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit: ; preds = %if.then3.i, %if.t
   %conv.i = fptrunc double %div.i to float
   %cond27.i = select i1 %or.cond41.i, float 0x7FF8000000000000, float %conv.i
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %cond27.i, i8 noundef zeroext 0)
-  %mul.i47 = fmul double %conv18, %conv6
-  %call.i48 = tail call double @fmod(double noundef %mul.i47, double noundef 1.000000e+00) #5
-  %cmp.i49 = fcmp olt double %call.i48, 0.000000e+00
-  %inc.i50 = fadd double %call.i48, 1.000000e+00
-  %fractial.0.i51 = select i1 %cmp.i49, double %inc.i50, double %call.i48
-  %or.cond.i.i52 = fcmp ord double %fractial.0.i51, 0.000000e+00
-  %11 = tail call double @llvm.fabs.f64(double %fractial.0.i51)
-  %cmp.i.i53 = fcmp olt double %11, 1.000000e-04
-  %or.cond.i54 = and i1 %or.cond.i.i52, %cmp.i.i53
-  br i1 %or.cond.i54, label %if.then3.i78, label %if.else.i55
+  %mul.i48 = fmul double %conv18, %conv6
+  %call.i49 = tail call double @fmod(double noundef %mul.i48, double noundef 1.000000e+00) #5
+  %cmp.i50 = fcmp olt double %call.i49, 0.000000e+00
+  %inc.i51 = fadd double %call.i49, 1.000000e+00
+  %fractial.0.i52 = select i1 %cmp.i50, double %inc.i51, double %call.i49
+  %or.cond.i.i53 = fcmp ord double %fractial.0.i52, 0.000000e+00
+  %11 = tail call double @llvm.fabs.f64(double %fractial.0.i52)
+  %cmp.i.i54 = fcmp olt double %11, 1.000000e-04
+  %or.cond.i55 = and i1 %or.cond.i.i53, %cmp.i.i54
+  br i1 %or.cond.i55, label %if.then3.i79, label %if.else.i56
 
-if.then3.i78:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit
-  %sub.i79 = fsub double %mul.i47, %fractial.0.i51
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80
+if.then3.i79:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit
+  %sub.i80 = fsub double %mul.i48, %fractial.0.i52
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81
 
-if.else.i55:                                      ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit
-  br i1 %or.cond.i.i52, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i72, label %if.else7.i56
+if.else.i56:                                      ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit
+  br i1 %or.cond.i.i53, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i73, label %if.else7.i57
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit28.i72:   ; preds = %if.else.i55
-  %sub.i.i73 = fadd double %fractial.0.i51, -1.000000e+00
-  %12 = tail call noundef double @llvm.fabs.f64(double %sub.i.i73)
-  %cmp.i27.i74 = fcmp olt double %12, 1.000000e-04
-  br i1 %cmp.i27.i74, label %if.then5.i75, label %if.else7.i56
+_ZN8facebook4yoga13inexactEqualsEdd.exit28.i73:   ; preds = %if.else.i56
+  %sub.i.i74 = fadd double %fractial.0.i52, -1.000000e+00
+  %12 = tail call noundef double @llvm.fabs.f64(double %sub.i.i74)
+  %cmp.i27.i75 = fcmp olt double %12, 1.000000e-04
+  br i1 %cmp.i27.i75, label %if.then5.i76, label %if.else7.i57
 
-if.then5.i75:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i72
-  %sub6.i76 = fsub double %mul.i47, %fractial.0.i51
-  %add.i77 = fadd double %sub6.i76, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80
+if.then5.i76:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i73
+  %sub6.i77 = fsub double %mul.i48, %fractial.0.i52
+  %add.i78 = fadd double %sub6.i77, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81
 
-if.else7.i56:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i72, %if.else.i55
-  %sub9.i57 = fsub double %mul.i47, %fractial.0.i51
-  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80, label %if.else15.i58
+if.else7.i57:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i73, %if.else.i56
+  %sub9.i58 = fsub double %mul.i48, %fractial.0.i52
+  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81, label %if.else15.i59
 
-if.else15.i58:                                    ; preds = %if.else7.i56
-  %13 = fcmp uno double %fractial.0.i51, 0.000000e+00
-  br i1 %13, label %land.end.i64, label %land.rhs.i59
+if.else15.i59:                                    ; preds = %if.else7.i57
+  %13 = fcmp uno double %fractial.0.i52, 0.000000e+00
+  br i1 %13, label %land.end.i65, label %land.rhs.i60
 
-land.rhs.i59:                                     ; preds = %if.else15.i58
-  %cmp18.i60 = fcmp ogt double %fractial.0.i51, 5.000000e-01
-  br i1 %cmp18.i60, label %land.end.i64, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i61
+land.rhs.i60:                                     ; preds = %if.else15.i59
+  %cmp18.i61 = fcmp ogt double %fractial.0.i52, 5.000000e-01
+  br i1 %cmp18.i61, label %land.end.i65, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i62
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit37.i61:   ; preds = %land.rhs.i59
-  %sub.i35.i62 = fadd double %fractial.0.i51, -5.000000e-01
-  %14 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i62)
-  %cmp.i36.i63 = fcmp olt double %14, 1.000000e-04
-  br i1 %cmp.i36.i63, label %15, label %land.end.i64
+_ZN8facebook4yoga13inexactEqualsEdd.exit37.i62:   ; preds = %land.rhs.i60
+  %sub.i35.i63 = fadd double %fractial.0.i52, -5.000000e-01
+  %14 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i63)
+  %cmp.i36.i64 = fcmp olt double %14, 1.000000e-04
+  br i1 %cmp.i36.i64, label %15, label %land.end.i65
 
-15:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i61
-  br label %land.end.i64
+15:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i62
+  br label %land.end.i65
 
-land.end.i64:                                     ; preds = %15, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i61, %land.rhs.i59, %if.else15.i58
-  %cond.i65 = phi double [ 0.000000e+00, %if.else15.i58 ], [ 1.000000e+00, %land.rhs.i59 ], [ 1.000000e+00, %15 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i61 ]
-  %add20.i66 = fadd double %sub9.i57, %cond.i65
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80
+land.end.i65:                                     ; preds = %15, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i62, %land.rhs.i60, %if.else15.i59
+  %cond.i66 = phi double [ 0.000000e+00, %if.else15.i59 ], [ 1.000000e+00, %land.rhs.i60 ], [ 1.000000e+00, %15 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i62 ]
+  %add20.i67 = fadd double %sub9.i58, %cond.i66
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81
 
-_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80: ; preds = %if.then3.i78, %if.then5.i75, %if.else7.i56, %land.end.i64
-  %scaledValue.0.i67 = phi double [ %sub.i79, %if.then3.i78 ], [ %add.i77, %if.then5.i75 ], [ %add20.i66, %land.end.i64 ], [ %sub9.i57, %if.else7.i56 ]
-  %or.cond41.i68 = fcmp uno double %scaledValue.0.i67, %conv18
-  %div.i69 = fdiv double %scaledValue.0.i67, %conv18
-  %conv.i70 = fptrunc double %div.i69 to float
-  %cond27.i71 = select i1 %or.cond41.i68, float 0x7FF8000000000000, float %conv.i70
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %cond27.i71, i8 noundef zeroext 1)
+_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81: ; preds = %if.then3.i79, %if.then5.i76, %if.else7.i57, %land.end.i65
+  %scaledValue.0.i68 = phi double [ %sub.i80, %if.then3.i79 ], [ %add.i78, %if.then5.i76 ], [ %add20.i67, %land.end.i65 ], [ %sub9.i58, %if.else7.i57 ]
+  %or.cond41.i69 = fcmp uno double %scaledValue.0.i68, %conv18
+  %div.i70 = fdiv double %scaledValue.0.i68, %conv18
+  %conv.i71 = fptrunc double %div.i70 to float
+  %cond27.i72 = select i1 %or.cond41.i69, float 0x7FF8000000000000, float %conv.i71
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %cond27.i72, i8 noundef zeroext 1)
   %mul = fmul double %conv18, %conv9
   %call24 = tail call double @fmod(double noundef %mul, double noundef 1.000000e+00) #5
-  %or.cond.i81 = fcmp ord double %call24, 0.000000e+00
+  %or.cond.i82 = fcmp ord double %call24, 0.000000e+00
   %16 = tail call double @llvm.fabs.f64(double %call24)
-  %cmp.i84 = fcmp olt double %16, 1.000000e-04
-  %or.cond = and i1 %or.cond.i81, %cmp.i84
+  %cmp.i86 = fcmp olt double %16, 1.000000e-04
+  %or.cond = and i1 %or.cond.i82, %cmp.i86
   br i1 %or.cond, label %land.end, label %land.rhs
 
-land.rhs:                                         ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80
+land.rhs:                                         ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81
   %call28 = tail call double @fmod(double noundef %mul, double noundef 1.000000e+00) #5
-  %or.cond.i85 = fcmp uno double %call28, 0.000000e+00
-  %sub.i91 = fadd double %call28, -1.000000e+00
-  %17 = tail call double @llvm.fabs.f64(double %sub.i91)
-  %cmp.i92 = fcmp uge double %17, 1.000000e-04
-  %retval.0.i88.not = select i1 %or.cond.i85, i1 true, i1 %cmp.i92
+  %or.cond.i87 = fcmp uno double %call28, 0.000000e+00
+  %sub.i93 = fadd double %call28, -1.000000e+00
+  %17 = tail call double @llvm.fabs.f64(double %sub.i93)
+  %cmp.i94 = fcmp uge double %17, 1.000000e-04
+  %retval.0.i90.not = select i1 %or.cond.i87, i1 true, i1 %cmp.i94
   br label %land.end
 
-land.end:                                         ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80, %land.rhs
-  %18 = phi i1 [ %retval.0.i88.not, %land.rhs ], [ false, %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit80 ]
+land.end:                                         ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81, %land.rhs
+  %18 = phi i1 [ %retval.0.i90.not, %land.rhs ], [ false, %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit81 ]
   %mul32 = fmul double %conv18, %conv12
   %call33 = tail call double @fmod(double noundef %mul32, double noundef 1.000000e+00) #5
-  %or.cond.i94 = fcmp ord double %call33, 0.000000e+00
+  %or.cond.i96 = fcmp ord double %call33, 0.000000e+00
   %19 = tail call double @llvm.fabs.f64(double %call33)
-  %cmp.i100 = fcmp olt double %19, 1.000000e-04
-  %or.cond257 = and i1 %or.cond.i94, %cmp.i100
-  br i1 %or.cond257, label %land.end41, label %land.rhs35
+  %cmp.i103 = fcmp olt double %19, 1.000000e-04
+  %or.cond260 = and i1 %or.cond.i96, %cmp.i103
+  br i1 %or.cond260, label %land.end41, label %land.rhs35
 
 land.rhs35:                                       ; preds = %land.end
   %call38 = tail call double @fmod(double noundef %mul32, double noundef 1.000000e+00) #5
-  %or.cond.i102 = fcmp uno double %call38, 0.000000e+00
-  %sub.i108 = fadd double %call38, -1.000000e+00
-  %20 = tail call double @llvm.fabs.f64(double %sub.i108)
-  %cmp.i109 = fcmp uge double %20, 1.000000e-04
-  %retval.0.i105.not = select i1 %or.cond.i102, i1 true, i1 %cmp.i109
+  %or.cond.i105 = fcmp uno double %call38, 0.000000e+00
+  %sub.i111 = fadd double %call38, -1.000000e+00
+  %20 = tail call double @llvm.fabs.f64(double %sub.i111)
+  %cmp.i112 = fcmp uge double %20, 1.000000e-04
+  %retval.0.i108.not = select i1 %or.cond.i105, i1 true, i1 %cmp.i112
   br label %land.end41
 
 land.end41:                                       ; preds = %land.end, %land.rhs35
-  %21 = phi i1 [ %retval.0.i105.not, %land.rhs35 ], [ false, %land.end ]
+  %21 = phi i1 [ %retval.0.i108.not, %land.rhs35 ], [ false, %land.end ]
   %22 = and i1 %cmp17, %18
   %lnot51 = xor i1 %18, true
   %23 = and i1 %cmp17, %lnot51
-  %mul.i111 = fmul double %add14, %conv18
-  %call.i112 = tail call double @fmod(double noundef %mul.i111, double noundef 1.000000e+00) #5
-  %cmp.i113 = fcmp olt double %call.i112, 0.000000e+00
-  %inc.i114 = fadd double %call.i112, 1.000000e+00
-  %fractial.0.i115 = select i1 %cmp.i113, double %inc.i114, double %call.i112
-  %or.cond.i.i116 = fcmp ord double %fractial.0.i115, 0.000000e+00
-  %24 = tail call double @llvm.fabs.f64(double %fractial.0.i115)
-  %cmp.i.i117 = fcmp olt double %24, 1.000000e-04
-  %or.cond.i118 = and i1 %or.cond.i.i116, %cmp.i.i117
-  br i1 %or.cond.i118, label %if.then3.i142, label %if.else.i119
+  %mul.i114 = fmul double %add14, %conv18
+  %call.i115 = tail call double @fmod(double noundef %mul.i114, double noundef 1.000000e+00) #5
+  %cmp.i116 = fcmp olt double %call.i115, 0.000000e+00
+  %inc.i117 = fadd double %call.i115, 1.000000e+00
+  %fractial.0.i118 = select i1 %cmp.i116, double %inc.i117, double %call.i115
+  %or.cond.i.i119 = fcmp ord double %fractial.0.i118, 0.000000e+00
+  %24 = tail call double @llvm.fabs.f64(double %fractial.0.i118)
+  %cmp.i.i120 = fcmp olt double %24, 1.000000e-04
+  %or.cond.i121 = and i1 %or.cond.i.i119, %cmp.i.i120
+  br i1 %or.cond.i121, label %if.then3.i145, label %if.else.i122
 
-if.then3.i142:                                    ; preds = %land.end41
-  %sub.i143 = fsub double %mul.i111, %fractial.0.i115
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
+if.then3.i145:                                    ; preds = %land.end41
+  %sub.i146 = fsub double %mul.i114, %fractial.0.i118
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
 
-if.else.i119:                                     ; preds = %land.end41
-  br i1 %or.cond.i.i116, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i136, label %if.else7.i120
+if.else.i122:                                     ; preds = %land.end41
+  br i1 %or.cond.i.i119, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i139, label %if.else7.i123
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit28.i136:  ; preds = %if.else.i119
-  %sub.i.i137 = fadd double %fractial.0.i115, -1.000000e+00
-  %25 = tail call noundef double @llvm.fabs.f64(double %sub.i.i137)
-  %cmp.i27.i138 = fcmp olt double %25, 1.000000e-04
-  br i1 %cmp.i27.i138, label %if.then5.i139, label %if.else7.i120
+_ZN8facebook4yoga13inexactEqualsEdd.exit28.i139:  ; preds = %if.else.i122
+  %sub.i.i140 = fadd double %fractial.0.i118, -1.000000e+00
+  %25 = tail call noundef double @llvm.fabs.f64(double %sub.i.i140)
+  %cmp.i27.i141 = fcmp olt double %25, 1.000000e-04
+  br i1 %cmp.i27.i141, label %if.then5.i142, label %if.else7.i123
 
-if.then5.i139:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i136
-  %sub6.i140 = fsub double %mul.i111, %fractial.0.i115
-  %add.i141 = fadd double %sub6.i140, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
+if.then5.i142:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i139
+  %sub6.i143 = fsub double %mul.i114, %fractial.0.i118
+  %add.i144 = fadd double %sub6.i143, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
 
-if.else7.i120:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i136, %if.else.i119
-  %sub9.i121 = fsub double %mul.i111, %fractial.0.i115
+if.else7.i123:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i139, %if.else.i122
+  %sub9.i124 = fsub double %mul.i114, %fractial.0.i118
   br i1 %22, label %if.then8.i, label %if.else11.i
 
-if.then8.i:                                       ; preds = %if.else7.i120
-  %add10.i = fadd double %sub9.i121, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
+if.then8.i:                                       ; preds = %if.else7.i123
+  %add10.i = fadd double %sub9.i124, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
 
-if.else11.i:                                      ; preds = %if.else7.i120
-  br i1 %23, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144, label %if.else15.i122
+if.else11.i:                                      ; preds = %if.else7.i123
+  br i1 %23, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147, label %if.else15.i125
 
-if.else15.i122:                                   ; preds = %if.else11.i
-  %26 = fcmp uno double %fractial.0.i115, 0.000000e+00
-  br i1 %26, label %land.end.i128, label %land.rhs.i123
+if.else15.i125:                                   ; preds = %if.else11.i
+  %26 = fcmp uno double %fractial.0.i118, 0.000000e+00
+  br i1 %26, label %land.end.i131, label %land.rhs.i126
 
-land.rhs.i123:                                    ; preds = %if.else15.i122
-  %cmp18.i124 = fcmp ogt double %fractial.0.i115, 5.000000e-01
-  br i1 %cmp18.i124, label %land.end.i128, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i125
+land.rhs.i126:                                    ; preds = %if.else15.i125
+  %cmp18.i127 = fcmp ogt double %fractial.0.i118, 5.000000e-01
+  br i1 %cmp18.i127, label %land.end.i131, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i128
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit37.i125:  ; preds = %land.rhs.i123
-  %sub.i35.i126 = fadd double %fractial.0.i115, -5.000000e-01
-  %27 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i126)
-  %cmp.i36.i127 = fcmp olt double %27, 1.000000e-04
-  br i1 %cmp.i36.i127, label %28, label %land.end.i128
+_ZN8facebook4yoga13inexactEqualsEdd.exit37.i128:  ; preds = %land.rhs.i126
+  %sub.i35.i129 = fadd double %fractial.0.i118, -5.000000e-01
+  %27 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i129)
+  %cmp.i36.i130 = fcmp olt double %27, 1.000000e-04
+  br i1 %cmp.i36.i130, label %28, label %land.end.i131
 
-28:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i125
-  br label %land.end.i128
+28:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i128
+  br label %land.end.i131
 
-land.end.i128:                                    ; preds = %28, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i125, %land.rhs.i123, %if.else15.i122
-  %cond.i129 = phi double [ 0.000000e+00, %if.else15.i122 ], [ 1.000000e+00, %land.rhs.i123 ], [ 1.000000e+00, %28 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i125 ]
-  %add20.i130 = fadd double %sub9.i121, %cond.i129
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
+land.end.i131:                                    ; preds = %28, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i128, %land.rhs.i126, %if.else15.i125
+  %cond.i132 = phi double [ 0.000000e+00, %if.else15.i125 ], [ 1.000000e+00, %land.rhs.i126 ], [ 1.000000e+00, %28 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i128 ]
+  %add20.i133 = fadd double %sub9.i124, %cond.i132
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
 
-_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144: ; preds = %if.then3.i142, %if.then5.i139, %if.then8.i, %if.else11.i, %land.end.i128
-  %scaledValue.0.i131 = phi double [ %sub.i143, %if.then3.i142 ], [ %add.i141, %if.then5.i139 ], [ %add10.i, %if.then8.i ], [ %add20.i130, %land.end.i128 ], [ %sub9.i121, %if.else11.i ]
-  %or.cond41.i132 = fcmp uno double %scaledValue.0.i131, %conv18
-  %div.i133 = fdiv double %scaledValue.0.i131, %conv18
-  %conv.i134 = fptrunc double %div.i133 to float
-  %cond27.i135 = select i1 %or.cond41.i132, float 0x7FF8000000000000, float %conv.i134
-  %mul.i145 = fmul double %add, %conv18
-  %call.i146 = tail call double @fmod(double noundef %mul.i145, double noundef 1.000000e+00) #5
-  %cmp.i147 = fcmp olt double %call.i146, 0.000000e+00
-  %inc.i148 = fadd double %call.i146, 1.000000e+00
-  %fractial.0.i149 = select i1 %cmp.i147, double %inc.i148, double %call.i146
-  %or.cond.i.i150 = fcmp ord double %fractial.0.i149, 0.000000e+00
-  %29 = tail call double @llvm.fabs.f64(double %fractial.0.i149)
-  %cmp.i.i151 = fcmp olt double %29, 1.000000e-04
-  %or.cond.i152 = and i1 %or.cond.i.i150, %cmp.i.i151
-  br i1 %or.cond.i152, label %if.then3.i177, label %if.else.i153
+_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147: ; preds = %if.then3.i145, %if.then5.i142, %if.then8.i, %if.else11.i, %land.end.i131
+  %scaledValue.0.i134 = phi double [ %sub.i146, %if.then3.i145 ], [ %add.i144, %if.then5.i142 ], [ %add10.i, %if.then8.i ], [ %add20.i133, %land.end.i131 ], [ %sub9.i124, %if.else11.i ]
+  %or.cond41.i135 = fcmp uno double %scaledValue.0.i134, %conv18
+  %div.i136 = fdiv double %scaledValue.0.i134, %conv18
+  %conv.i137 = fptrunc double %div.i136 to float
+  %cond27.i138 = select i1 %or.cond41.i135, float 0x7FF8000000000000, float %conv.i137
+  %mul.i148 = fmul double %add, %conv18
+  %call.i149 = tail call double @fmod(double noundef %mul.i148, double noundef 1.000000e+00) #5
+  %cmp.i150 = fcmp olt double %call.i149, 0.000000e+00
+  %inc.i151 = fadd double %call.i149, 1.000000e+00
+  %fractial.0.i152 = select i1 %cmp.i150, double %inc.i151, double %call.i149
+  %or.cond.i.i153 = fcmp ord double %fractial.0.i152, 0.000000e+00
+  %29 = tail call double @llvm.fabs.f64(double %fractial.0.i152)
+  %cmp.i.i154 = fcmp olt double %29, 1.000000e-04
+  %or.cond.i155 = and i1 %or.cond.i.i153, %cmp.i.i154
+  br i1 %or.cond.i155, label %if.then3.i180, label %if.else.i156
 
-if.then3.i177:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
-  %sub.i178 = fsub double %mul.i145, %fractial.0.i149
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179
+if.then3.i180:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
+  %sub.i181 = fsub double %mul.i148, %fractial.0.i152
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182
 
-if.else.i153:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit144
-  br i1 %or.cond.i.i150, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i171, label %if.else7.i154
+if.else.i156:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit147
+  br i1 %or.cond.i.i153, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i174, label %if.else7.i157
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit28.i171:  ; preds = %if.else.i153
-  %sub.i.i172 = fadd double %fractial.0.i149, -1.000000e+00
-  %30 = tail call noundef double @llvm.fabs.f64(double %sub.i.i172)
-  %cmp.i27.i173 = fcmp olt double %30, 1.000000e-04
-  br i1 %cmp.i27.i173, label %if.then5.i174, label %if.else7.i154
+_ZN8facebook4yoga13inexactEqualsEdd.exit28.i174:  ; preds = %if.else.i156
+  %sub.i.i175 = fadd double %fractial.0.i152, -1.000000e+00
+  %30 = tail call noundef double @llvm.fabs.f64(double %sub.i.i175)
+  %cmp.i27.i176 = fcmp olt double %30, 1.000000e-04
+  br i1 %cmp.i27.i176, label %if.then5.i177, label %if.else7.i157
 
-if.then5.i174:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i171
-  %sub6.i175 = fsub double %mul.i145, %fractial.0.i149
-  %add.i176 = fadd double %sub6.i175, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179
+if.then5.i177:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i174
+  %sub6.i178 = fsub double %mul.i148, %fractial.0.i152
+  %add.i179 = fadd double %sub6.i178, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182
 
-if.else7.i154:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i171, %if.else.i153
-  %sub9.i155 = fsub double %mul.i145, %fractial.0.i149
-  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179, label %if.else15.i157
+if.else7.i157:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i174, %if.else.i156
+  %sub9.i158 = fsub double %mul.i148, %fractial.0.i152
+  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182, label %if.else15.i160
 
-if.else15.i157:                                   ; preds = %if.else7.i154
-  %31 = fcmp uno double %fractial.0.i149, 0.000000e+00
-  br i1 %31, label %land.end.i163, label %land.rhs.i158
+if.else15.i160:                                   ; preds = %if.else7.i157
+  %31 = fcmp uno double %fractial.0.i152, 0.000000e+00
+  br i1 %31, label %land.end.i166, label %land.rhs.i161
 
-land.rhs.i158:                                    ; preds = %if.else15.i157
-  %cmp18.i159 = fcmp ogt double %fractial.0.i149, 5.000000e-01
-  br i1 %cmp18.i159, label %land.end.i163, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i160
+land.rhs.i161:                                    ; preds = %if.else15.i160
+  %cmp18.i162 = fcmp ogt double %fractial.0.i152, 5.000000e-01
+  br i1 %cmp18.i162, label %land.end.i166, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i163
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit37.i160:  ; preds = %land.rhs.i158
-  %sub.i35.i161 = fadd double %fractial.0.i149, -5.000000e-01
-  %32 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i161)
-  %cmp.i36.i162 = fcmp olt double %32, 1.000000e-04
-  br i1 %cmp.i36.i162, label %33, label %land.end.i163
+_ZN8facebook4yoga13inexactEqualsEdd.exit37.i163:  ; preds = %land.rhs.i161
+  %sub.i35.i164 = fadd double %fractial.0.i152, -5.000000e-01
+  %32 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i164)
+  %cmp.i36.i165 = fcmp olt double %32, 1.000000e-04
+  br i1 %cmp.i36.i165, label %33, label %land.end.i166
 
-33:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i160
-  br label %land.end.i163
+33:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i163
+  br label %land.end.i166
 
-land.end.i163:                                    ; preds = %33, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i160, %land.rhs.i158, %if.else15.i157
-  %cond.i164 = phi double [ 0.000000e+00, %if.else15.i157 ], [ 1.000000e+00, %land.rhs.i158 ], [ 1.000000e+00, %33 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i160 ]
-  %add20.i165 = fadd double %sub9.i155, %cond.i164
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179
+land.end.i166:                                    ; preds = %33, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i163, %land.rhs.i161, %if.else15.i160
+  %cond.i167 = phi double [ 0.000000e+00, %if.else15.i160 ], [ 1.000000e+00, %land.rhs.i161 ], [ 1.000000e+00, %33 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i163 ]
+  %add20.i168 = fadd double %sub9.i158, %cond.i167
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182
 
-_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179: ; preds = %if.then3.i177, %if.then5.i174, %if.else7.i154, %land.end.i163
-  %scaledValue.0.i166 = phi double [ %sub.i178, %if.then3.i177 ], [ %add.i176, %if.then5.i174 ], [ %add20.i165, %land.end.i163 ], [ %sub9.i155, %if.else7.i154 ]
-  %or.cond41.i167 = fcmp uno double %scaledValue.0.i166, %conv18
-  %div.i168 = fdiv double %scaledValue.0.i166, %conv18
-  %conv.i169 = fptrunc double %div.i168 to float
-  %cond27.i170 = select i1 %or.cond41.i167, float 0x7FF8000000000000, float %conv.i169
-  %sub = fsub float %cond27.i135, %cond27.i170
+_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182: ; preds = %if.then3.i180, %if.then5.i177, %if.else7.i157, %land.end.i166
+  %scaledValue.0.i169 = phi double [ %sub.i181, %if.then3.i180 ], [ %add.i179, %if.then5.i177 ], [ %add20.i168, %land.end.i166 ], [ %sub9.i158, %if.else7.i157 ]
+  %or.cond41.i170 = fcmp uno double %scaledValue.0.i169, %conv18
+  %div.i171 = fdiv double %scaledValue.0.i169, %conv18
+  %conv.i172 = fptrunc double %div.i171 to float
+  %cond27.i173 = select i1 %or.cond41.i170, float 0x7FF8000000000000, float %conv.i172
+  %sub = fsub float %cond27.i138, %cond27.i173
   tail call void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %sub, i8 noundef zeroext 0)
   %34 = and i1 %cmp17, %21
   %lnot65 = xor i1 %21, true
   %35 = and i1 %cmp17, %lnot65
-  %mul.i180 = fmul double %add15, %conv18
-  %call.i181 = tail call double @fmod(double noundef %mul.i180, double noundef 1.000000e+00) #5
-  %cmp.i182 = fcmp olt double %call.i181, 0.000000e+00
-  %inc.i183 = fadd double %call.i181, 1.000000e+00
-  %fractial.0.i184 = select i1 %cmp.i182, double %inc.i183, double %call.i181
-  %or.cond.i.i185 = fcmp ord double %fractial.0.i184, 0.000000e+00
-  %36 = tail call double @llvm.fabs.f64(double %fractial.0.i184)
-  %cmp.i.i186 = fcmp olt double %36, 1.000000e-04
-  %or.cond.i187 = and i1 %or.cond.i.i185, %cmp.i.i186
-  br i1 %or.cond.i187, label %if.then3.i214, label %if.else.i188
+  %mul.i183 = fmul double %add15, %conv18
+  %call.i184 = tail call double @fmod(double noundef %mul.i183, double noundef 1.000000e+00) #5
+  %cmp.i185 = fcmp olt double %call.i184, 0.000000e+00
+  %inc.i186 = fadd double %call.i184, 1.000000e+00
+  %fractial.0.i187 = select i1 %cmp.i185, double %inc.i186, double %call.i184
+  %or.cond.i.i188 = fcmp ord double %fractial.0.i187, 0.000000e+00
+  %36 = tail call double @llvm.fabs.f64(double %fractial.0.i187)
+  %cmp.i.i189 = fcmp olt double %36, 1.000000e-04
+  %or.cond.i190 = and i1 %or.cond.i.i188, %cmp.i.i189
+  br i1 %or.cond.i190, label %if.then3.i217, label %if.else.i191
 
-if.then3.i214:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179
-  %sub.i215 = fsub double %mul.i180, %fractial.0.i184
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
+if.then3.i217:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182
+  %sub.i218 = fsub double %mul.i183, %fractial.0.i187
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
 
-if.else.i188:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit179
-  br i1 %or.cond.i.i185, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i208, label %if.else7.i189
+if.else.i191:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit182
+  br i1 %or.cond.i.i188, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i211, label %if.else7.i192
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit28.i208:  ; preds = %if.else.i188
-  %sub.i.i209 = fadd double %fractial.0.i184, -1.000000e+00
-  %37 = tail call noundef double @llvm.fabs.f64(double %sub.i.i209)
-  %cmp.i27.i210 = fcmp olt double %37, 1.000000e-04
-  br i1 %cmp.i27.i210, label %if.then5.i211, label %if.else7.i189
+_ZN8facebook4yoga13inexactEqualsEdd.exit28.i211:  ; preds = %if.else.i191
+  %sub.i.i212 = fadd double %fractial.0.i187, -1.000000e+00
+  %37 = tail call noundef double @llvm.fabs.f64(double %sub.i.i212)
+  %cmp.i27.i213 = fcmp olt double %37, 1.000000e-04
+  br i1 %cmp.i27.i213, label %if.then5.i214, label %if.else7.i192
 
-if.then5.i211:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i208
-  %sub6.i212 = fsub double %mul.i180, %fractial.0.i184
-  %add.i213 = fadd double %sub6.i212, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
+if.then5.i214:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i211
+  %sub6.i215 = fsub double %mul.i183, %fractial.0.i187
+  %add.i216 = fadd double %sub6.i215, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
 
-if.else7.i189:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i208, %if.else.i188
-  %sub9.i190 = fsub double %mul.i180, %fractial.0.i184
-  br i1 %34, label %if.then8.i206, label %if.else11.i191
+if.else7.i192:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i211, %if.else.i191
+  %sub9.i193 = fsub double %mul.i183, %fractial.0.i187
+  br i1 %34, label %if.then8.i209, label %if.else11.i194
 
-if.then8.i206:                                    ; preds = %if.else7.i189
-  %add10.i207 = fadd double %sub9.i190, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
+if.then8.i209:                                    ; preds = %if.else7.i192
+  %add10.i210 = fadd double %sub9.i193, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
 
-if.else11.i191:                                   ; preds = %if.else7.i189
-  br i1 %35, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216, label %if.else15.i192
+if.else11.i194:                                   ; preds = %if.else7.i192
+  br i1 %35, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219, label %if.else15.i195
 
-if.else15.i192:                                   ; preds = %if.else11.i191
-  %38 = fcmp uno double %fractial.0.i184, 0.000000e+00
-  br i1 %38, label %land.end.i198, label %land.rhs.i193
+if.else15.i195:                                   ; preds = %if.else11.i194
+  %38 = fcmp uno double %fractial.0.i187, 0.000000e+00
+  br i1 %38, label %land.end.i201, label %land.rhs.i196
 
-land.rhs.i193:                                    ; preds = %if.else15.i192
-  %cmp18.i194 = fcmp ogt double %fractial.0.i184, 5.000000e-01
-  br i1 %cmp18.i194, label %land.end.i198, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i195
+land.rhs.i196:                                    ; preds = %if.else15.i195
+  %cmp18.i197 = fcmp ogt double %fractial.0.i187, 5.000000e-01
+  br i1 %cmp18.i197, label %land.end.i201, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i198
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit37.i195:  ; preds = %land.rhs.i193
-  %sub.i35.i196 = fadd double %fractial.0.i184, -5.000000e-01
-  %39 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i196)
-  %cmp.i36.i197 = fcmp olt double %39, 1.000000e-04
-  br i1 %cmp.i36.i197, label %40, label %land.end.i198
+_ZN8facebook4yoga13inexactEqualsEdd.exit37.i198:  ; preds = %land.rhs.i196
+  %sub.i35.i199 = fadd double %fractial.0.i187, -5.000000e-01
+  %39 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i199)
+  %cmp.i36.i200 = fcmp olt double %39, 1.000000e-04
+  br i1 %cmp.i36.i200, label %40, label %land.end.i201
 
-40:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i195
-  br label %land.end.i198
+40:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i198
+  br label %land.end.i201
 
-land.end.i198:                                    ; preds = %40, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i195, %land.rhs.i193, %if.else15.i192
-  %cond.i199 = phi double [ 0.000000e+00, %if.else15.i192 ], [ 1.000000e+00, %land.rhs.i193 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i195 ]
-  %add20.i200 = fadd double %sub9.i190, %cond.i199
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
+land.end.i201:                                    ; preds = %40, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i198, %land.rhs.i196, %if.else15.i195
+  %cond.i202 = phi double [ 0.000000e+00, %if.else15.i195 ], [ 1.000000e+00, %land.rhs.i196 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i198 ]
+  %add20.i203 = fadd double %sub9.i193, %cond.i202
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
 
-_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216: ; preds = %if.then3.i214, %if.then5.i211, %if.then8.i206, %if.else11.i191, %land.end.i198
-  %scaledValue.0.i201 = phi double [ %sub.i215, %if.then3.i214 ], [ %add.i213, %if.then5.i211 ], [ %add10.i207, %if.then8.i206 ], [ %add20.i200, %land.end.i198 ], [ %sub9.i190, %if.else11.i191 ]
-  %or.cond41.i202 = fcmp uno double %scaledValue.0.i201, %conv18
-  %div.i203 = fdiv double %scaledValue.0.i201, %conv18
-  %conv.i204 = fptrunc double %div.i203 to float
-  %cond27.i205 = select i1 %or.cond41.i202, float 0x7FF8000000000000, float %conv.i204
-  %mul.i217 = fmul double %add13, %conv18
-  %call.i218 = tail call double @fmod(double noundef %mul.i217, double noundef 1.000000e+00) #5
-  %cmp.i219 = fcmp olt double %call.i218, 0.000000e+00
-  %inc.i220 = fadd double %call.i218, 1.000000e+00
-  %fractial.0.i221 = select i1 %cmp.i219, double %inc.i220, double %call.i218
-  %or.cond.i.i222 = fcmp ord double %fractial.0.i221, 0.000000e+00
-  %41 = tail call double @llvm.fabs.f64(double %fractial.0.i221)
-  %cmp.i.i223 = fcmp olt double %41, 1.000000e-04
-  %or.cond.i224 = and i1 %or.cond.i.i222, %cmp.i.i223
-  br i1 %or.cond.i224, label %if.then3.i249, label %if.else.i225
+_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219: ; preds = %if.then3.i217, %if.then5.i214, %if.then8.i209, %if.else11.i194, %land.end.i201
+  %scaledValue.0.i204 = phi double [ %sub.i218, %if.then3.i217 ], [ %add.i216, %if.then5.i214 ], [ %add10.i210, %if.then8.i209 ], [ %add20.i203, %land.end.i201 ], [ %sub9.i193, %if.else11.i194 ]
+  %or.cond41.i205 = fcmp uno double %scaledValue.0.i204, %conv18
+  %div.i206 = fdiv double %scaledValue.0.i204, %conv18
+  %conv.i207 = fptrunc double %div.i206 to float
+  %cond27.i208 = select i1 %or.cond41.i205, float 0x7FF8000000000000, float %conv.i207
+  %mul.i220 = fmul double %add13, %conv18
+  %call.i221 = tail call double @fmod(double noundef %mul.i220, double noundef 1.000000e+00) #5
+  %cmp.i222 = fcmp olt double %call.i221, 0.000000e+00
+  %inc.i223 = fadd double %call.i221, 1.000000e+00
+  %fractial.0.i224 = select i1 %cmp.i222, double %inc.i223, double %call.i221
+  %or.cond.i.i225 = fcmp ord double %fractial.0.i224, 0.000000e+00
+  %41 = tail call double @llvm.fabs.f64(double %fractial.0.i224)
+  %cmp.i.i226 = fcmp olt double %41, 1.000000e-04
+  %or.cond.i227 = and i1 %or.cond.i.i225, %cmp.i.i226
+  br i1 %or.cond.i227, label %if.then3.i252, label %if.else.i228
 
-if.then3.i249:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
-  %sub.i250 = fsub double %mul.i217, %fractial.0.i221
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251
+if.then3.i252:                                    ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
+  %sub.i253 = fsub double %mul.i220, %fractial.0.i224
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254
 
-if.else.i225:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit216
-  br i1 %or.cond.i.i222, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i243, label %if.else7.i226
+if.else.i228:                                     ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit219
+  br i1 %or.cond.i.i225, label %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i246, label %if.else7.i229
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit28.i243:  ; preds = %if.else.i225
-  %sub.i.i244 = fadd double %fractial.0.i221, -1.000000e+00
-  %42 = tail call noundef double @llvm.fabs.f64(double %sub.i.i244)
-  %cmp.i27.i245 = fcmp olt double %42, 1.000000e-04
-  br i1 %cmp.i27.i245, label %if.then5.i246, label %if.else7.i226
+_ZN8facebook4yoga13inexactEqualsEdd.exit28.i246:  ; preds = %if.else.i228
+  %sub.i.i247 = fadd double %fractial.0.i224, -1.000000e+00
+  %42 = tail call noundef double @llvm.fabs.f64(double %sub.i.i247)
+  %cmp.i27.i248 = fcmp olt double %42, 1.000000e-04
+  br i1 %cmp.i27.i248, label %if.then5.i249, label %if.else7.i229
 
-if.then5.i246:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i243
-  %sub6.i247 = fsub double %mul.i217, %fractial.0.i221
-  %add.i248 = fadd double %sub6.i247, 1.000000e+00
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251
+if.then5.i249:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i246
+  %sub6.i250 = fsub double %mul.i220, %fractial.0.i224
+  %add.i251 = fadd double %sub6.i250, 1.000000e+00
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254
 
-if.else7.i226:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i243, %if.else.i225
-  %sub9.i227 = fsub double %mul.i217, %fractial.0.i221
-  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251, label %if.else15.i229
+if.else7.i229:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit28.i246, %if.else.i228
+  %sub9.i230 = fsub double %mul.i220, %fractial.0.i224
+  br i1 %cmp17, label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254, label %if.else15.i232
 
-if.else15.i229:                                   ; preds = %if.else7.i226
-  %43 = fcmp uno double %fractial.0.i221, 0.000000e+00
-  br i1 %43, label %land.end.i235, label %land.rhs.i230
+if.else15.i232:                                   ; preds = %if.else7.i229
+  %43 = fcmp uno double %fractial.0.i224, 0.000000e+00
+  br i1 %43, label %land.end.i238, label %land.rhs.i233
 
-land.rhs.i230:                                    ; preds = %if.else15.i229
-  %cmp18.i231 = fcmp ogt double %fractial.0.i221, 5.000000e-01
-  br i1 %cmp18.i231, label %land.end.i235, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i232
+land.rhs.i233:                                    ; preds = %if.else15.i232
+  %cmp18.i234 = fcmp ogt double %fractial.0.i224, 5.000000e-01
+  br i1 %cmp18.i234, label %land.end.i238, label %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i235
 
-_ZN8facebook4yoga13inexactEqualsEdd.exit37.i232:  ; preds = %land.rhs.i230
-  %sub.i35.i233 = fadd double %fractial.0.i221, -5.000000e-01
-  %44 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i233)
-  %cmp.i36.i234 = fcmp olt double %44, 1.000000e-04
-  br i1 %cmp.i36.i234, label %45, label %land.end.i235
+_ZN8facebook4yoga13inexactEqualsEdd.exit37.i235:  ; preds = %land.rhs.i233
+  %sub.i35.i236 = fadd double %fractial.0.i224, -5.000000e-01
+  %44 = tail call noundef double @llvm.fabs.f64(double %sub.i35.i236)
+  %cmp.i36.i237 = fcmp olt double %44, 1.000000e-04
+  br i1 %cmp.i36.i237, label %45, label %land.end.i238
 
-45:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i232
-  br label %land.end.i235
+45:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i235
+  br label %land.end.i238
 
-land.end.i235:                                    ; preds = %45, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i232, %land.rhs.i230, %if.else15.i229
-  %cond.i236 = phi double [ 0.000000e+00, %if.else15.i229 ], [ 1.000000e+00, %land.rhs.i230 ], [ 1.000000e+00, %45 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i232 ]
-  %add20.i237 = fadd double %sub9.i227, %cond.i236
-  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251
+land.end.i238:                                    ; preds = %45, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i235, %land.rhs.i233, %if.else15.i232
+  %cond.i239 = phi double [ 0.000000e+00, %if.else15.i232 ], [ 1.000000e+00, %land.rhs.i233 ], [ 1.000000e+00, %45 ], [ 0.000000e+00, %_ZN8facebook4yoga13inexactEqualsEdd.exit37.i235 ]
+  %add20.i240 = fadd double %sub9.i230, %cond.i239
+  br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254
 
-_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251: ; preds = %if.then3.i249, %if.then5.i246, %if.else7.i226, %land.end.i235
-  %scaledValue.0.i238 = phi double [ %sub.i250, %if.then3.i249 ], [ %add.i248, %if.then5.i246 ], [ %add20.i237, %land.end.i235 ], [ %sub9.i227, %if.else7.i226 ]
-  %or.cond41.i239 = fcmp uno double %scaledValue.0.i238, %conv18
-  %div.i240 = fdiv double %scaledValue.0.i238, %conv18
-  %conv.i241 = fptrunc double %div.i240 to float
-  %cond27.i242 = select i1 %or.cond41.i239, float 0x7FF8000000000000, float %conv.i241
-  %sub71 = fsub float %cond27.i205, %cond27.i242
+_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254: ; preds = %if.then3.i252, %if.then5.i249, %if.else7.i229, %land.end.i238
+  %scaledValue.0.i241 = phi double [ %sub.i253, %if.then3.i252 ], [ %add.i251, %if.then5.i249 ], [ %add20.i240, %land.end.i238 ], [ %sub9.i230, %if.else7.i229 ]
+  %or.cond41.i242 = fcmp uno double %scaledValue.0.i241, %conv18
+  %div.i243 = fdiv double %scaledValue.0.i241, %conv18
+  %conv.i244 = fptrunc double %div.i243 to float
+  %cond27.i245 = select i1 %or.cond41.i242, float 0x7FF8000000000000, float %conv.i244
+  %sub71 = fsub float %cond27.i208, %cond27.i245
   tail call void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %sub71, i8 noundef zeroext 1)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251, %entry
+if.end:                                           ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit254, %entry
   %children_.i = getelementptr inbounds i8, ptr %node, i64 592
   %46 = load ptr, ptr %children_.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
   %47 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i252258 = icmp eq ptr %46, %47
-  br i1 %cmp.i252258, label %for.end, label %for.body
+  %cmp.i255261 = icmp eq ptr %46, %47
+  br i1 %cmp.i255261, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %__begin2.sroa.0.0259 = phi ptr [ %incdec.ptr.i, %for.body ], [ %46, %if.end ]
-  %48 = load ptr, ptr %__begin2.sroa.0.0259, align 8
+  %__begin2.sroa.0.0262 = phi ptr [ %incdec.ptr.i, %for.body ], [ %46, %if.end ]
+  %48 = load ptr, ptr %__begin2.sroa.0.0262, align 8
   tail call void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %48, double noundef %add, double noundef %add13)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0259, i64 8
-  %cmp.i252 = icmp eq ptr %incdec.ptr.i, %47
-  br i1 %cmp.i252, label %for.end, label %for.body
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0262, i64 8
+  %cmp.i255 = icmp eq ptr %incdec.ptr.i, %47
+  br i1 %cmp.i255, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %if.end
   ret void

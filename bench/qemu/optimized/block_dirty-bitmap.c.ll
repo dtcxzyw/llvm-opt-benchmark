@@ -134,7 +134,7 @@ entry:
   br i1 %tobool.not.i, label %if.else, label %is_power_of_2.exit
 
 is_power_of_2.exit:                               ; preds = %entry
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %granularity), !range !7
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %granularity)
   %tobool1.not.i = icmp ult i32 %0, 2
   %cmp = icmp ugt i32 %granularity, 511
   %or.cond = and i1 %cmp, %tobool1.not.i
@@ -162,7 +162,7 @@ for.body.i:                                       ; preds = %if.end.i32, %for.in
   br i1 %tobool3.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #16
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.then7, label %for.inc.i
 
@@ -201,7 +201,7 @@ if.then18:                                        ; preds = %if.end14
 if.end23:                                         ; preds = %if.end14
   %call24 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #18
   store ptr %bs, ptr %call24, align 8
-  %3 = tail call i32 @llvm.cttz.i32(i32 %granularity, i1 true), !range !7
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %granularity, i1 true)
   %call27 = tail call ptr @hbitmap_alloc(i64 noundef %call15, i32 noundef %3) #14
   %bitmap28 = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %call27, ptr %bitmap28, align 8
@@ -312,7 +312,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_dirty_bitmap_check(ptr nocapture noundef readonly %bitmap, i32 noundef %flags, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_dirty_bitmap_check(ptr nocapture noundef readonly %bitmap, i32 noundef %flags, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -391,7 +391,7 @@ entry:
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_dirty_bitmap_create_successor(ptr nocapture noundef %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_dirty_bitmap_create_successor(ptr nocapture noundef %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bitmap, i64 16
   %bitmap.val.i = load i8, ptr %0, align 8
@@ -729,7 +729,7 @@ if.end8:                                          ; preds = %if.end4
   %list = getelementptr inbounds i8, ptr %bitmap.014, i64 64
   %bitmap.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %bitmap.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end8, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
@@ -765,7 +765,7 @@ if.then:                                          ; preds = %land.rhs
 
 for.inc:                                          ; preds = %land.rhs, %if.then
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !9
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
@@ -979,7 +979,7 @@ bdrv_dirty_bitmap_recording.exit:                 ; preds = %for.body, %lor.rhs.
   %list18 = getelementptr inbounds i8, ptr %bm.029, i64 64
   %bm.0 = load ptr, ptr %list18, align 8
   %tobool.not = icmp eq ptr %bm.0, null
-  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
+  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %bdrv_dirty_bitmap_recording.exit
   %list.0.list.0.list.0.list.0..pre = load ptr, ptr %list, align 8
@@ -1032,7 +1032,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_get_default_bitmap_granularity(ptr noundef %bs) local_unnamed_addr #0 {
+define dso_local range(i32 1, -2147483648) i32 @bdrv_get_default_bitmap_granularity(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %call = call i32 @bdrv_get_info(ptr noundef %bs, ptr noundef nonnull %bdi) #14
@@ -1312,7 +1312,7 @@ entry:
 declare i64 @hbitmap_serialization_align(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bdrv_dirty_bitmap_serialization_coverage(i32 noundef %serialized_chunk_size, ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372034707292160, 9223372030412324866) i64 @bdrv_dirty_bitmap_serialization_coverage(i32 noundef %serialized_chunk_size, ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1.i, align 8
@@ -1434,7 +1434,7 @@ for.inc:                                          ; preds = %for.body, %if.end7
   %list = getelementptr inbounds i8, ptr %bitmap.012, i64 64
   %bitmap.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %bitmap.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
@@ -1483,7 +1483,7 @@ for.cond:                                         ; preds = %for.body
   %list = getelementptr inbounds i8, ptr %bm.05, i64 64
   %bm.0 = load ptr, ptr %list, align 8
   %tobool.not.not = icmp eq ptr %bm.0, null
-  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !12
+  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
@@ -1509,7 +1509,7 @@ for.cond:                                         ; preds = %for.body
   %list = getelementptr inbounds i8, ptr %bm.05, i64 64
   %bm.0 = load ptr, ptr %list, align 8
   %tobool.not.not = icmp eq ptr %bm.0, null
-  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
@@ -1939,10 +1939,9 @@ attributes #19 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 33}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

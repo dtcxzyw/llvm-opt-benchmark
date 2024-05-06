@@ -892,7 +892,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly13SocketAddress11getPortFromEPK8sockaddr(ptr nocapture noundef readonly %address) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -1, 65536) i32 @_ZN5folly13SocketAddress11getPortFromEPK8sockaddr(ptr nocapture noundef readonly %address) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i16, ptr %address, align 2, !tbaa !56
   switch i16 %0, label %return [
@@ -985,7 +985,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then2, %if.end.if.end4_crit_edge
   %2 = phi ptr [ %.pre, %if.end.if.end4_crit_edge ], [ %call.i, %if.then2 ]
-  %3 = trunc i64 %sub.ptr.sub.i to i32
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i to i32
   %conv = add nuw nsw i32 %3, 2
   %len7 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv, ptr %len7, align 8, !tbaa !27

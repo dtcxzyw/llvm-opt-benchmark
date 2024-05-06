@@ -816,7 +816,7 @@ fvalue_new.exit:                                  ; preds = %3, %10
   br i1 %.not24, label %30, label %26
 
 26:                                               ; preds = %21
-  %27 = trunc i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = tail call ptr @ftype_pretty_name(i32 noundef %0)
   %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef %27, i64 noundef %1, ptr noundef nonnull %28) #9
   br label %.sink.split
@@ -1065,7 +1065,7 @@ define noundef nonnull ptr @fvalue_type_name(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @fvalue_length2(ptr noundef %0) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @fvalue_length2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 176
   %4 = load ptr, ptr %3, align 8
@@ -1121,7 +1121,7 @@ define i32 @fvalue_to_uinteger(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = trunc i64 %9 to i32
+  %12 = trunc nuw i64 %9 to i32
   store i32 %12, ptr %1, align 4
   br label %13
 

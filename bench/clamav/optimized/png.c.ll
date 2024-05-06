@@ -83,7 +83,7 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr nonnull align 1 %18, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %4, ptr nonnull align 1 %18, i64 %spec.select.i, i1 false)
   %19 = icmp ugt i64 %16, 3
   br i1 %19, label %20, label %fmap_readn.exit.thread
 
@@ -119,7 +119,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not26.i154, label %fmap_readn.exit156.thread, label %fmap_readn.exit156
 
 fmap_readn.exit156:                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %36, i64 %spec.select.i153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull align 1 %36, i64 %spec.select.i153, i1 false)
   %.not = icmp ugt i64 %34, 3
   br i1 %.not, label %42, label %fmap_readn.exit156.thread
 
@@ -374,7 +374,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %.not26.i159, label %fmap_readn.exit161.thread, label %fmap_readn.exit161
 
 fmap_readn.exit161:                               ; preds = %126
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %129, i64 %spec.select.i158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %3, ptr nonnull align 1 %129, i64 %spec.select.i158, i1 false)
   %.not145 = icmp ugt i64 %127, 3
   br i1 %.not145, label %135, label %fmap_readn.exit161.thread
 

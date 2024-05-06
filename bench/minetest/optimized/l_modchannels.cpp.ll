@@ -255,7 +255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14ModApiChannels18l_mod_channel_joinEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14ModApiChannels18l_mod_channel_joinEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %channel = alloca %"class.std::__cxx11::basic_string", align 8
@@ -674,7 +674,7 @@ entry:
 declare noundef zeroext i1 @_ZNK10ModChannel8canWriteEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN13ModChannelRef14l_is_writeableEP9lua_State(ptr noundef %L) #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN13ModChannelRef14l_is_writeableEP9lua_State(ptr noundef %L) #5 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN13ModChannelRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !17

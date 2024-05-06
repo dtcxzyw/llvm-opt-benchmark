@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @yy_buffer_stack_max = internal unnamed_addr global i64 0, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @GUC_yylex() local_unnamed_addr #0 {
+define dso_local range(i32 0, 101) i32 @GUC_yylex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %._crit_edge207, label %1
 
@@ -2524,7 +2524,7 @@ record_config_file_error.exit:                    ; preds = %34, %43
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
-  %46 = call i32 @GUC_yylex(), !range !15
+  %46 = call i32 @GUC_yylex()
   switch i32 %46, label %.thread176 [
     i32 0, label %.loopexit
     i32 99, label %.backedge.backedge
@@ -2535,12 +2535,12 @@ record_config_file_error.exit:                    ; preds = %34, %43
 47:                                               ; preds = %.backedge, %.backedge
   %48 = load ptr, ptr @GUC_yytext, align 8
   %49 = call ptr @pstrdup(ptr noundef %48) #25
-  %50 = call i32 @GUC_yylex(), !range !15
+  %50 = call i32 @GUC_yylex()
   %51 = icmp eq i32 %50, 5
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
-  %53 = call i32 @GUC_yylex(), !range !15
+  %53 = call i32 @GUC_yylex()
   br label %54
 
 54:                                               ; preds = %52, %47
@@ -2565,7 +2565,7 @@ record_config_file_error.exit:                    ; preds = %34, %43
 
 61:                                               ; preds = %58, %55
   %.0144 = phi ptr [ %57, %55 ], [ %60, %58 ]
-  %62 = call i32 @GUC_yylex(), !range !15
+  %62 = call i32 @GUC_yylex()
   switch i32 %62, label %140 [
     i32 99, label %66
     i32 0, label %63
@@ -2641,7 +2641,7 @@ record_config_file_error.exit168:                 ; preds = %82, %91
   %95 = load i32, ptr %8, align 4
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %ParseConfigDirectory.exit, !llvm.loop !16
+  br i1 %97, label %.lr.ph, label %ParseConfigDirectory.exit, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader182, %94
   %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.preheader182 ]
@@ -2752,7 +2752,7 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   br i1 %139, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %138, %.backedge
-  br label %.backedge, !llvm.loop !17
+  br label %.backedge, !llvm.loop !16
 
 140:                                              ; preds = %61, %54
   %.1147 = phi i32 [ %.0146, %54 ], [ %62, %61 ]
@@ -2906,11 +2906,11 @@ record_config_file_error.exit164:                 ; preds = %185, %194
   switch i32 %.2, label %205 [
     i32 0, label %.loopexit
     i32 99, label %.backedge.outer
-  ], !llvm.loop !17
+  ], !llvm.loop !16
 
 205:                                              ; preds = %.preheader
-  %206 = call i32 @GUC_yylex(), !range !15
-  br label %.preheader, !llvm.loop !18
+  %206 = call i32 @GUC_yylex()
+  br label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.backedge, %138, %.preheader, %200, %202, %record_config_file_error.exit
   %.0..0..0..0.81 = load volatile ptr, ptr %11, align 8
@@ -3054,7 +3054,7 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %31 = getelementptr i8, ptr %4, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = icmp sgt i8 %32, 47
-  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !19
+  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge.split.loop.exit74:                      ; preds = %.lr.ph
   %34 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3089,7 +3089,7 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %47 = add i32 %.06071, 1
   %48 = add i32 %.1, 1
   %49 = icmp slt i32 %48, %5
-  br i1 %49, label %.lr.ph72, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %49, label %.lr.ph72, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %44
   %50 = sext i32 %.06071 to i64
@@ -3163,7 +3163,7 @@ record_config_file_error.exit:                    ; preds = %20, %29
   %33 = load i32, ptr %9, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader ]
@@ -3229,7 +3229,7 @@ define dso_local void @FreeConfigVariables(ptr noundef %0) local_unnamed_addr #0
 FreeConfigVariable.exit:                          ; preds = %14, %17
   tail call void @pfree(ptr noundef nonnull %.06) #25
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %FreeConfigVariable.exit, %1
   ret void
@@ -3324,10 +3324,9 @@ attributes #29 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 0, i32 101}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

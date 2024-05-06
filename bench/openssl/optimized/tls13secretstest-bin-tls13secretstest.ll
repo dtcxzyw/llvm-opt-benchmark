@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @ssl_handshake_hash(ptr nocapture noundef readnone %s, ptr nocapture noundef writeonly %out, i64 noundef %outlen, ptr nocapture noundef writeonly %hashlen) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @ssl_handshake_hash(ptr nocapture noundef readnone %s, ptr nocapture noundef writeonly %out, i64 noundef %outlen, ptr nocapture noundef writeonly %hashlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %outlen, 32
   br i1 %cmp, label %return, label %if.end
@@ -207,7 +207,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_handshake_secrets() #3 {
+define internal range(i32 0, 2) i32 @test_handshake_secrets() #3 {
 entry:
   %out_master_secret = alloca [64 x i8], align 16
   %master_secret_length = alloca i64, align 8
@@ -307,7 +307,7 @@ if.end55:                                         ; preds = %if.end51
   br i1 %tobool57.not, label %err, label %if.end59
 
 if.end59:                                         ; preds = %if.end55
-  %call63 = tail call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %handshake_secret, ptr noundef nonnull @.str.53, i64 noundef 12, ptr noundef nonnull @client_hts, ptr noundef nonnull @client_hts_key, ptr noundef nonnull @client_hts_iv), !range !5
+  %call63 = tail call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %handshake_secret, ptr noundef nonnull @.str.53, i64 noundef 12, ptr noundef nonnull @client_hts, ptr noundef nonnull @client_hts_key, ptr noundef nonnull @client_hts_iv)
   %call66 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @.str.21, i32 noundef %call63) #5
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %if.then68, label %if.end69
@@ -332,7 +332,7 @@ if.end77:                                         ; preds = %if.end73
   br i1 %tobool79.not, label %err, label %if.end81
 
 if.end81:                                         ; preds = %if.end77
-  %call85 = tail call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %handshake_secret, ptr noundef nonnull @.str.54, i64 noundef 12, ptr noundef nonnull @server_hts, ptr noundef nonnull @server_hts_key, ptr noundef nonnull @server_hts_iv), !range !5
+  %call85 = tail call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %handshake_secret, ptr noundef nonnull @.str.54, i64 noundef 12, ptr noundef nonnull @server_hts, ptr noundef nonnull @server_hts_key, ptr noundef nonnull @server_hts_iv)
   %call88 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @.str.26, i32 noundef %call85) #5
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %if.end91
@@ -380,7 +380,7 @@ if.end114:                                        ; preds = %if.end110
   br i1 %tobool116.not, label %err, label %if.end118
 
 if.end118:                                        ; preds = %if.end114
-  %call121 = call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %out_master_secret, ptr noundef nonnull @.str.55, i64 noundef 12, ptr noundef nonnull @client_ats, ptr noundef nonnull @client_ats_key, ptr noundef nonnull @client_ats_iv), !range !5
+  %call121 = call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %out_master_secret, ptr noundef nonnull @.str.55, i64 noundef 12, ptr noundef nonnull @client_ats, ptr noundef nonnull @client_ats_key, ptr noundef nonnull @client_ats_iv)
   %call124 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @.str.36, i32 noundef %call121) #5
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %if.then126, label %if.end127
@@ -405,7 +405,7 @@ if.end135:                                        ; preds = %if.end131
   br i1 %tobool137.not, label %err, label %if.end139
 
 if.end139:                                        ; preds = %if.end135
-  %call142 = call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %out_master_secret, ptr noundef nonnull @.str.56, i64 noundef 12, ptr noundef nonnull @server_ats, ptr noundef nonnull @server_ats_key, ptr noundef nonnull @server_ats_iv), !range !5
+  %call142 = call fastcc i32 @test_secret(ptr noundef nonnull %cond10, ptr noundef nonnull %out_master_secret, ptr noundef nonnull @.str.56, i64 noundef 12, ptr noundef nonnull @server_ats, ptr noundef nonnull @server_ats_key, ptr noundef nonnull @server_ats_iv)
   %call145 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @.str.41, i32 noundef %call142) #5
   %tobool146.not = icmp eq i32 %call145, 0
   br i1 %tobool146.not, label %if.then147, label %err
@@ -447,7 +447,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #4
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_secret(ptr noundef %s, ptr noundef %prk, ptr noundef %label, i64 noundef %labellen, ptr noundef %ref_secret, ptr noundef %ref_key, ptr noundef %ref_iv) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @test_secret(ptr noundef %s, ptr noundef %prk, ptr noundef %label, i64 noundef %labellen, ptr noundef %ref_secret, ptr noundef %ref_key, ptr noundef %ref_iv) unnamed_addr #3 {
 entry:
   %gensecret = alloca [64 x i8], align 16
   %hash = alloca [64 x i8], align 16
@@ -458,11 +458,11 @@ entry:
   br i1 %.b.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_full_hash, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_full_hash, i64 32, i1 false)
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_start_hash, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_start_hash, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then1.i
@@ -541,4 +541,3 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

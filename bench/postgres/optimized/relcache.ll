@@ -339,7 +339,7 @@ define dso_local void @RelationInitIndexAccessInfo(ptr noundef %0) local_unnamed
   %indvars.iv.i.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i.i, %110 ]
   %111 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %109, i64 0, i64 %indvars.iv.i.i
   %112 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %111, ptr noundef nonnull align 8 dereferenceable(104) %112, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %111, ptr noundef nonnull readonly align 8 dereferenceable(104) %112, i64 104, i1 false)
   %113 = getelementptr inbounds i8, ptr %111, i64 76
   store i32 -1, ptr %113, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -381,7 +381,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %93, %BuildHardcoded
   %indvars.iv.i.i83 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i84, %130 ]
   %131 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %129, i64 0, i64 %indvars.iv.i.i83
   %132 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %131, ptr noundef nonnull align 8 dereferenceable(104) %132, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %131, ptr noundef nonnull readonly align 8 dereferenceable(104) %132, i64 104, i1 false)
   %133 = getelementptr inbounds i8, ptr %131, i64 76
   store i32 -1, ptr %133, align 4
   %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i83, 1
@@ -629,7 +629,7 @@ LookupOpclassInfo.exit.i:                         ; preds = %247, %172
   %256 = getelementptr i32, ptr %138, i64 %255
   %257 = getelementptr inbounds i8, ptr %167, i64 16
   %258 = load ptr, ptr %257, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %256, ptr align 4 %258, i64 %148, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %256, ptr align 4 %258, i64 %148, i1 false)
   br label %259
 
 259:                                              ; preds = %254, %LookupOpclassInfo.exit.i
@@ -659,7 +659,7 @@ IndexSupportInitialize.exit:                      ; preds = %259, %GetPgIndexDes
   %indvars.iv.i.i88 = phi i64 [ 0, %263 ], [ %indvars.iv.next.i.i89, %270 ]
   %271 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %269, i64 0, i64 %indvars.iv.i.i88
   %272 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %271, ptr noundef nonnull align 8 dereferenceable(104) %272, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %271, ptr noundef nonnull readonly align 8 dereferenceable(104) %272, i64 104, i1 false)
   %273 = getelementptr inbounds i8, ptr %271, i64 76
   store i32 -1, ptr %273, align 4
   %indvars.iv.next.i.i89 = add nuw nsw i64 %indvars.iv.i.i88, 1
@@ -2099,7 +2099,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   store ptr null, ptr %41, align 8
   %42 = call ptr @palloc(i64 noundef 140) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %42, ptr noundef nonnull align 4 dereferenceable(140) %36, i64 140, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %42, ptr noundef nonnull readonly align 4 dereferenceable(140) %36, i64 140, i1 false)
   %43 = getelementptr inbounds i8, ptr %40, i64 56
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 116
@@ -6110,7 +6110,7 @@ define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef %0, p
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %23 ]
   %24 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %indvars.iv.i.i
   %25 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_class, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(104) %25, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull readonly align 8 dereferenceable(104) %25, i64 104, i1 false)
   %26 = getelementptr inbounds i8, ptr %24, i64 76
   store i32 -1, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7081,7 +7081,7 @@ define dso_local ptr @RelationGetIndexExpressions(ptr nocapture noundef %0) loca
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %24 ]
   %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %23, i64 0, i64 %indvars.iv.i.i
   %26 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 8 dereferenceable(104) %26, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull readonly align 8 dereferenceable(104) %26, i64 104, i1 false)
   %27 = getelementptr inbounds i8, ptr %25, i64 76
   store i32 -1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7177,7 +7177,7 @@ define dso_local ptr @RelationGetDummyIndexExpressions(ptr nocapture noundef rea
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %19 ]
   %20 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %18, i64 0, i64 %indvars.iv.i.i
   %21 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(104) %21, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull readonly align 8 dereferenceable(104) %21, i64 104, i1 false)
   %22 = getelementptr inbounds i8, ptr %20, i64 76
   store i32 -1, ptr %22, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7299,7 +7299,7 @@ define dso_local ptr @RelationGetIndexPredicate(ptr nocapture noundef %0) local_
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %24 ]
   %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %23, i64 0, i64 %indvars.iv.i.i
   %26 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 8 dereferenceable(104) %26, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull readonly align 8 dereferenceable(104) %26, i64 104, i1 false)
   %27 = getelementptr inbounds i8, ptr %25, i64 76
   store i32 -1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7479,7 +7479,7 @@ define dso_local ptr @RelationGetIndexAttrBitmap(ptr nocapture noundef %0, i32 n
   %indvars.iv.i.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i, %66 ]
   %67 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %65, i64 0, i64 %indvars.iv.i.i
   %68 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %67, ptr noundef nonnull align 8 dereferenceable(104) %68, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %67, ptr noundef nonnull readonly align 8 dereferenceable(104) %68, i64 104, i1 false)
   %69 = getelementptr inbounds i8, ptr %67, i64 76
   store i32 -1, ptr %69, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7628,7 +7628,7 @@ heap_getattr.exit:                                ; preds = %125, %124, %118, %1
   %indvars.iv.i.i118 = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i119, %144 ]
   %145 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %143, i64 0, i64 %indvars.iv.i.i118
   %146 = getelementptr %struct.FormData_pg_attribute, ptr @Desc_pg_index, i64 %indvars.iv.i.i118
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %145, ptr noundef nonnull align 8 dereferenceable(104) %146, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %145, ptr noundef nonnull readonly align 8 dereferenceable(104) %146, i64 104, i1 false)
   %147 = getelementptr inbounds i8, ptr %145, i64 76
   store i32 -1, ptr %147, align 4
   %indvars.iv.next.i.i119 = add nuw nsw i64 %indvars.iv.i.i118, 1

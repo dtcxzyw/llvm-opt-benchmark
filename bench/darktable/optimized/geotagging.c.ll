@@ -1125,7 +1125,7 @@ declare void @gtk_entry_completion_set_popup_set_width(ptr noundef, i32 noundef)
 declare void @gtk_entry_completion_set_match_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_completion_match_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @gtk_entry_completion_get_entry(ptr noundef %0) #16
   %7 = tail call i64 @gtk_editable_get_type() #17
@@ -1205,7 +1205,7 @@ declare void @gtk_entry_completion_set_minimum_key_length(ptr noundef, i32 nound
 declare void @gtk_entry_set_completion(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_timezone_key_pressed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_timezone_key_pressed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !62
   switch i32 %5, label %15 [
@@ -2230,7 +2230,7 @@ define internal noundef i32 @_datetime_key_pressed(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_datetime_scroll_over(ptr noundef readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #16
   %6 = icmp eq i32 %5, 0
@@ -2852,7 +2852,7 @@ declare i64 @gtk_file_filter_get_type() local_unnamed_addr #5
 declare void @gtk_file_filter_add_custom(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_lib_geotagging_filter_gpx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 0, 2) i32 @_lib_geotagging_filter_gpx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !86
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.57) #16

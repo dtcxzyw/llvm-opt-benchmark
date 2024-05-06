@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @BrotliDefaultAllocFunc(ptr nocapture noundef readnone %opaque, i64 noundef %size) local_unnamed_addr #0 {
+define noalias noundef ptr @BrotliDefaultAllocFunc(ptr nocapture noundef readnone %opaque, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %size) #4
   ret ptr %call

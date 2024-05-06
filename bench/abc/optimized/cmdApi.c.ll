@@ -83,7 +83,7 @@ declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread156, label %4
@@ -381,7 +381,7 @@ define i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = call i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef nonnull %.0), !range !4
+  %17 = call i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef nonnull %.0)
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %18, label %.critedge
 
@@ -407,7 +407,7 @@ define i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %1) local_unnamed_add
 28:                                               ; preds = %24
   %29 = load i8, ptr %19, align 1
   %.not19 = icmp eq i8 %29, 0
-  br i1 %.not19, label %.critedge, label %13, !llvm.loop !5
+  br i1 %.not19, label %.critedge, label %13, !llvm.loop !4
 
 .critedge:                                        ; preds = %24, %16, %28
   %.2 = phi i32 [ 0, %16 ], [ 0, %28 ], [ %.1, %24 ]
@@ -447,6 +447,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

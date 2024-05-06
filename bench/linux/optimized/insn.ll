@@ -34,7 +34,7 @@ define dso_local void @insn_init(ptr nocapture noundef writeonly %0, ptr noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_prefixes(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
@@ -401,7 +401,7 @@ define dso_local noundef i32 @insn_get_prefixes(ptr nocapture noundef %0) local_
 declare dso_local i32 @inat_get_opcode_attribute(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_opcode(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4
@@ -415,7 +415,7 @@ define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_un
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %11 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %.loopexit
 
@@ -439,7 +439,7 @@ define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_un
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %26 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   br label %27
 
 27:                                               ; preds = %25, %20
@@ -486,7 +486,7 @@ define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_un
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
-  %55 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %55 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   br label %56
 
 56:                                               ; preds = %54, %51
@@ -542,7 +542,7 @@ define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_un
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %77
-  %86 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %86 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   br label %87
 
 87:                                               ; preds = %85, %77
@@ -576,7 +576,7 @@ define dso_local noundef i32 @insn_get_opcode(ptr nocapture noundef %0) local_un
   store i32 %106, ptr %66, align 4
   %107 = and i32 %106, 48
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.loopexit4, label %72, !llvm.loop !14
+  br i1 %108, label %.loopexit4, label %72, !llvm.loop !13
 
 .loopexit4:                                       ; preds = %103, %64
   %109 = phi i32 [ %65, %64 ], [ %106, %103 ]
@@ -604,7 +604,7 @@ declare dso_local i32 @inat_get_avx_attribute(i8 noundef zeroext, i8 noundef zer
 declare dso_local i32 @inat_get_escape_attribute(i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_modrm(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_modrm(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
@@ -618,7 +618,7 @@ define dso_local noundef i32 @insn_get_modrm(ptr nocapture noundef %0) local_unn
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_opcode(ptr noundef %0), !range !13
+  %11 = tail call i32 @insn_get_opcode(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %84
 
@@ -656,7 +656,7 @@ define dso_local noundef i32 @insn_get_modrm(ptr nocapture noundef %0) local_unn
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %36 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   br label %37
 
 37:                                               ; preds = %35, %31
@@ -697,7 +697,7 @@ define dso_local noundef i32 @insn_get_modrm(ptr nocapture noundef %0) local_unn
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %56
-  %64 = tail call i32 @insn_get_prefixes(ptr noundef %0), !range !13
+  %64 = tail call i32 @insn_get_prefixes(ptr noundef %0)
   br label %65
 
 65:                                               ; preds = %63, %56
@@ -745,7 +745,7 @@ define dso_local noundef i32 @insn_get_modrm(ptr nocapture noundef %0) local_unn
 declare dso_local i32 @inat_get_group_attribute(i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @insn_rip_relative(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @insn_rip_relative(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 83
   %4 = load i8, ptr %3, align 1
@@ -759,7 +759,7 @@ define dso_local i32 @insn_rip_relative(ptr nocapture noundef %0) local_unnamed_
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !13
+  %11 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %22
 
@@ -782,7 +782,7 @@ define dso_local i32 @insn_rip_relative(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_sib(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_sib(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i8, ptr %3, align 4
@@ -797,7 +797,7 @@ define dso_local noundef i32 @insn_get_sib(ptr nocapture noundef %0) local_unnam
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !13
+  %12 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %42
 
@@ -851,7 +851,7 @@ define dso_local noundef i32 @insn_get_sib(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_displacement(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   %4 = load i8, ptr %3, align 4
@@ -878,7 +878,7 @@ define dso_local noundef i32 @insn_get_displacement(ptr nocapture noundef %0) lo
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !13
+  %17 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -1029,7 +1029,7 @@ define dso_local noundef i32 @insn_get_displacement(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_immediate(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i8, ptr %3, align 4
@@ -1043,7 +1043,7 @@ define dso_local noundef i32 @insn_get_immediate(ptr nocapture noundef %0) local
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_displacement(ptr noundef %0), !range !13
+  %11 = tail call i32 @insn_get_displacement(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %140
 
@@ -1277,7 +1277,7 @@ define dso_local noundef i32 @insn_get_immediate(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @__get_immptr(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__get_immptr(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %39 [
@@ -1348,7 +1348,7 @@ define internal fastcc noundef i32 @__get_immptr(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @__get_immv32(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__get_immv32(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %28 [
@@ -1402,7 +1402,7 @@ define internal fastcc noundef i32 @__get_immv32(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @__get_immv(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__get_immv(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %47 [
@@ -1488,7 +1488,7 @@ define internal fastcc noundef i32 @__get_immv(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @insn_get_length(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @insn_get_length(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 82
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
@@ -1501,7 +1501,7 @@ define dso_local noundef i32 @insn_get_length(ptr nocapture noundef %0) local_un
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !13
+  %10 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %21
 
@@ -1523,7 +1523,7 @@ define dso_local noundef i32 @insn_get_length(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @insn_decode(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -61, 1) i32 @insn_decode(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq i32 %3, 2
   br i1 %5, label %6, label %16
 
@@ -1575,7 +1575,7 @@ define dso_local i32 @insn_decode(ptr nocapture noundef %0, ptr noundef %1, i32 
   br label %30
 
 30:                                               ; preds = %29, %28, %6
-  %31 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !13
+  %31 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %57
 
@@ -1654,6 +1654,6 @@ attributes #6 = { nounwind }
 !10 = distinct !{!10, !6, !7}
 !11 = !{!"branch_weights", i32 2000, i32 1}
 !12 = distinct !{!12, !6, !7}
-!13 = !{i32 -61, i32 1}
-!14 = distinct !{!14, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i32 -61, i32 1}
 !15 = !{i32 0, i32 2}

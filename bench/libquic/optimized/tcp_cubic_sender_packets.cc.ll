@@ -541,7 +541,7 @@ entry:
 declare void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3net21TcpCubicSenderPackets24GetCongestionControlTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK3net21TcpCubicSenderPackets24GetCongestionControlTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
   %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %reno_, align 8

@@ -40,7 +40,7 @@ define i32 @LAPACKE_dgbcon_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   %24 = shl nsw i32 %3, 1
   %25 = add nsw i32 %24, %4
   %26 = icmp slt i32 %25, 0
-  %27 = add nsw i32 %25, 1
+  %27 = add nuw nsw i32 %25, 1
   %28 = select i1 %26, i32 1, i32 %27
   store i32 %28, ptr %20, align 4, !tbaa !6
   %29 = icmp slt i32 %6, %2

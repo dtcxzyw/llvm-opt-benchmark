@@ -1729,7 +1729,7 @@ _ZNSt6vectorIMN2mu4Test12ParserTesterEFivESaIS4_EE9push_backERKS4_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 67) i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mu::Parser", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -4492,7 +4492,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 
 69:                                               ; preds = %1
   %70 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2, i1 noundef zeroext true)
-          to label %71 unwind label %205, !range !5
+          to label %71 unwind label %205
 
 71:                                               ; preds = %69
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -4503,7 +4503,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 
 72:                                               ; preds = %71
   %73 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2, i1 noundef zeroext true)
-          to label %74 unwind label %209, !range !5
+          to label %74 unwind label %209
 
 74:                                               ; preds = %72
   %75 = add nuw nsw i32 %73, %70
@@ -4515,7 +4515,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 
 76:                                               ; preds = %74
   %77 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2, i1 noundef zeroext true)
-          to label %78 unwind label %213, !range !5
+          to label %78 unwind label %213
 
 78:                                               ; preds = %76
   %79 = add nuw nsw i32 %75, %77
@@ -4527,7 +4527,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 
 80:                                               ; preds = %78
   %81 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2, i1 noundef zeroext true)
-          to label %82 unwind label %217, !range !5
+          to label %82 unwind label %217
 
 82:                                               ; preds = %80
   %83 = add nuw nsw i32 %79, %81
@@ -4539,7 +4539,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 
 84:                                               ; preds = %82
   %85 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2, i1 noundef zeroext true)
-          to label %86 unwind label %221, !range !5
+          to label %86 unwind label %221
 
 86:                                               ; preds = %84
   %87 = add nuw nsw i32 %83, %85
@@ -5539,7 +5539,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 128:                                              ; preds = %126
   %129 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 1, i1 noundef zeroext true)
-          to label %130 unwind label %249, !range !5
+          to label %130 unwind label %249
 
 130:                                              ; preds = %128
   %131 = add nsw i32 %127, %129
@@ -5551,7 +5551,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 132:                                              ; preds = %130
   %133 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 2, i1 noundef zeroext true)
-          to label %134 unwind label %253, !range !5
+          to label %134 unwind label %253
 
 134:                                              ; preds = %132
   %135 = add nsw i32 %131, %133
@@ -5563,7 +5563,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 136:                                              ; preds = %134
   %137 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 1, i1 noundef zeroext true)
-          to label %138 unwind label %257, !range !5
+          to label %138 unwind label %257
 
 138:                                              ; preds = %136
   %139 = add nsw i32 %135, %137
@@ -5575,7 +5575,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 140:                                              ; preds = %138
   %141 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 1, i1 noundef zeroext true)
-          to label %142 unwind label %261, !range !5
+          to label %142 unwind label %261
 
 142:                                              ; preds = %140
   %143 = add nsw i32 %139, %141
@@ -5587,7 +5587,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 144:                                              ; preds = %142
   %145 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 1, i1 noundef zeroext true)
-          to label %146 unwind label %265, !range !5
+          to label %146 unwind label %265
 
 146:                                              ; preds = %144
   %147 = add nsw i32 %143, %145
@@ -5599,7 +5599,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 148:                                              ; preds = %146
   %149 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 1, i1 noundef zeroext true)
-          to label %150 unwind label %269, !range !5
+          to label %150 unwind label %269
 
 150:                                              ; preds = %148
   %151 = add nsw i32 %147, %149
@@ -5611,7 +5611,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 152:                                              ; preds = %150
   %153 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 1, i1 noundef zeroext true)
-          to label %154 unwind label %273, !range !5
+          to label %154 unwind label %273
 
 154:                                              ; preds = %152
   %155 = add nsw i32 %151, %153
@@ -5623,7 +5623,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 156:                                              ; preds = %154
   %157 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 1, i1 noundef zeroext true)
-          to label %158 unwind label %277, !range !5
+          to label %158 unwind label %277
 
 158:                                              ; preds = %156
   %159 = add nsw i32 %155, %157
@@ -5635,7 +5635,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 160:                                              ; preds = %158
   %161 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 1, i1 noundef zeroext true)
-          to label %162 unwind label %281, !range !5
+          to label %162 unwind label %281
 
 162:                                              ; preds = %160
   %163 = add nsw i32 %159, %161
@@ -5647,7 +5647,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 164:                                              ; preds = %162
   %165 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 7, i1 noundef zeroext true)
-          to label %166 unwind label %285, !range !5
+          to label %166 unwind label %285
 
 166:                                              ; preds = %164
   %167 = add nsw i32 %163, %165
@@ -5659,7 +5659,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 168:                                              ; preds = %166
   %169 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef 7, i1 noundef zeroext true)
-          to label %170 unwind label %289, !range !5
+          to label %170 unwind label %289
 
 170:                                              ; preds = %168
   %171 = add nsw i32 %167, %169
@@ -5671,7 +5671,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 
 172:                                              ; preds = %170
   %173 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 1, i1 noundef zeroext true)
-          to label %174 unwind label %293, !range !5
+          to label %174 unwind label %293
 
 174:                                              ; preds = %172
   %175 = add nsw i32 %171, %173
@@ -7271,7 +7271,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
 
 67:                                               ; preds = %1
   %68 = invoke noundef i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %3, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 2.000000e+00)
-          to label %69 unwind label %192, !range !5
+          to label %69 unwind label %192
 
 69:                                               ; preds = %67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
@@ -7282,7 +7282,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
 
 70:                                               ; preds = %69
   %71 = invoke noundef i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %5, double noundef 2.000000e+00, double noundef 4.000000e+00, double noundef 3.000000e+00, double noundef 6.000000e+00)
-          to label %72 unwind label %196, !range !5
+          to label %72 unwind label %196
 
 72:                                               ; preds = %70
   %73 = add nuw nsw i32 %71, %68
@@ -7635,7 +7635,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
   %182 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   %183 = load ptr, ptr %182, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %183, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %.noexc.i.i
   store ptr %.0.i.i.i.i.i.i, ptr %175, align 8
@@ -7646,7 +7646,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %185 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %186 = load ptr, ptr %185, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %186, null
-  br i1 %.not.i.i8.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %184, !llvm.loop !8
+  br i1 %.not.i.i8.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %184, !llvm.loop !7
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit: ; preds = %184
   store ptr %.0.i.i7.i.i.i.i, ptr %176, align 8
@@ -8040,7 +8040,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %325 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0133.0146) #24
   %.not142 = icmp eq ptr %325, %173
-  br i1 %.not142, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not142, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %324, %319
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #23
@@ -8108,7 +8108,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 347:                                              ; preds = %.lr.ph151
   %348 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0133.1149) #24
   %.not143 = icmp eq ptr %348, %173
-  br i1 %.not143, label %._crit_edge152, label %.lr.ph151, !llvm.loop !10
+  br i1 %.not143, label %._crit_edge152, label %.lr.ph151, !llvm.loop !9
 
 ._crit_edge152:                                   ; preds = %347, %343
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #23
@@ -8178,7 +8178,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %368 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0133.2154) #24
   %.not144 = icmp eq ptr %368, %173
-  br i1 %.not144, label %._crit_edge158, label %.lr.ph157, !llvm.loop !11
+  br i1 %.not144, label %._crit_edge158, label %.lr.ph157, !llvm.loop !10
 
 ._crit_edge158:                                   ; preds = %367, %361
   %369 = load ptr, ptr %174, align 8
@@ -8414,7 +8414,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
 
 167:                                              ; preds = %1
   %168 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3, i1 noundef zeroext true)
-          to label %169 unwind label %499, !range !5
+          to label %169 unwind label %499
 
 169:                                              ; preds = %167
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -8425,7 +8425,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
 
 170:                                              ; preds = %169
   %171 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 8, i1 noundef zeroext true)
-          to label %172 unwind label %503, !range !5
+          to label %172 unwind label %503
 
 172:                                              ; preds = %170
   %173 = add nuw nsw i32 %171, %168
@@ -8437,7 +8437,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
 
 174:                                              ; preds = %172
   %175 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 8, i1 noundef zeroext true)
-          to label %176 unwind label %507, !range !5
+          to label %176 unwind label %507
 
 176:                                              ; preds = %174
   %177 = add nuw nsw i32 %173, %175
@@ -11671,7 +11671,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 195:                                              ; preds = %1
   %196 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 8, i1 noundef zeroext true)
-          to label %197 unwind label %583, !range !5
+          to label %197 unwind label %583
 
 197:                                              ; preds = %195
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -11682,7 +11682,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 198:                                              ; preds = %197
   %199 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 8, i1 noundef zeroext true)
-          to label %200 unwind label %587, !range !5
+          to label %200 unwind label %587
 
 200:                                              ; preds = %198
   %201 = add nuw nsw i32 %199, %196
@@ -11694,7 +11694,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 202:                                              ; preds = %200
   %203 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 8, i1 noundef zeroext true)
-          to label %204 unwind label %591, !range !5
+          to label %204 unwind label %591
 
 204:                                              ; preds = %202
   %205 = add nuw nsw i32 %201, %203
@@ -11706,7 +11706,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 206:                                              ; preds = %204
   %207 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 8, i1 noundef zeroext true)
-          to label %208 unwind label %595, !range !5
+          to label %208 unwind label %595
 
 208:                                              ; preds = %206
   %209 = add nuw nsw i32 %205, %207
@@ -11718,7 +11718,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 210:                                              ; preds = %208
   %211 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 8, i1 noundef zeroext true)
-          to label %212 unwind label %599, !range !5
+          to label %212 unwind label %599
 
 212:                                              ; preds = %210
   %213 = add nuw nsw i32 %209, %211
@@ -11730,7 +11730,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 214:                                              ; preds = %212
   %215 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 8, i1 noundef zeroext true)
-          to label %216 unwind label %603, !range !5
+          to label %216 unwind label %603
 
 216:                                              ; preds = %214
   %217 = add nuw nsw i32 %213, %215
@@ -11742,7 +11742,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 218:                                              ; preds = %216
   %219 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 8, i1 noundef zeroext true)
-          to label %220 unwind label %607, !range !5
+          to label %220 unwind label %607
 
 220:                                              ; preds = %218
   %221 = add nuw nsw i32 %217, %219
@@ -11754,7 +11754,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 222:                                              ; preds = %220
   %223 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3, i1 noundef zeroext true)
-          to label %224 unwind label %611, !range !5
+          to label %224 unwind label %611
 
 224:                                              ; preds = %222
   %225 = add nuw nsw i32 %221, %223
@@ -11766,7 +11766,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 226:                                              ; preds = %224
   %227 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 32, i1 noundef zeroext true)
-          to label %228 unwind label %615, !range !5
+          to label %228 unwind label %615
 
 228:                                              ; preds = %226
   %229 = add nuw nsw i32 %225, %227
@@ -11778,7 +11778,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 230:                                              ; preds = %228
   %231 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 32, i1 noundef zeroext true)
-          to label %232 unwind label %619, !range !5
+          to label %232 unwind label %619
 
 232:                                              ; preds = %230
   %233 = add nuw nsw i32 %229, %231
@@ -11790,7 +11790,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 234:                                              ; preds = %232
   %235 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 33, i1 noundef zeroext true)
-          to label %236 unwind label %623, !range !5
+          to label %236 unwind label %623
 
 236:                                              ; preds = %234
   %237 = add nuw nsw i32 %233, %235
@@ -11802,7 +11802,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 238:                                              ; preds = %236
   %239 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 33, i1 noundef zeroext true)
-          to label %240 unwind label %627, !range !5
+          to label %240 unwind label %627
 
 240:                                              ; preds = %238
   %241 = add nuw nsw i32 %237, %239
@@ -11814,7 +11814,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 242:                                              ; preds = %240
   %243 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 33, i1 noundef zeroext true)
-          to label %244 unwind label %631, !range !5
+          to label %244 unwind label %631
 
 244:                                              ; preds = %242
   %245 = add nuw nsw i32 %241, %243
@@ -11826,7 +11826,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 246:                                              ; preds = %244
   %247 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 33, i1 noundef zeroext true)
-          to label %248 unwind label %635, !range !5
+          to label %248 unwind label %635
 
 248:                                              ; preds = %246
   %249 = add nuw nsw i32 %245, %247
@@ -11838,7 +11838,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 250:                                              ; preds = %248
   %251 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 34, i1 noundef zeroext true)
-          to label %252 unwind label %639, !range !5
+          to label %252 unwind label %639
 
 252:                                              ; preds = %250
   %253 = add nuw nsw i32 %249, %251
@@ -11850,7 +11850,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 254:                                              ; preds = %252
   %255 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 34, i1 noundef zeroext true)
-          to label %256 unwind label %643, !range !5
+          to label %256 unwind label %643
 
 256:                                              ; preds = %254
   %257 = add nuw nsw i32 %253, %255
@@ -11862,7 +11862,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 258:                                              ; preds = %256
   %259 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 34, i1 noundef zeroext true)
-          to label %260 unwind label %647, !range !5
+          to label %260 unwind label %647
 
 260:                                              ; preds = %258
   %261 = add nuw nsw i32 %257, %259
@@ -11874,7 +11874,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 262:                                              ; preds = %260
   %263 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 1, i1 noundef zeroext true)
-          to label %264 unwind label %651, !range !5
+          to label %264 unwind label %651
 
 264:                                              ; preds = %262
   %265 = add nuw nsw i32 %261, %263
@@ -11886,7 +11886,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 266:                                              ; preds = %264
   %267 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 34, i1 noundef zeroext true)
-          to label %268 unwind label %655, !range !5
+          to label %268 unwind label %655
 
 268:                                              ; preds = %266
   %269 = add nuw nsw i32 %265, %267
@@ -11898,7 +11898,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 270:                                              ; preds = %268
   %271 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 3, i1 noundef zeroext true)
-          to label %272 unwind label %659, !range !5
+          to label %272 unwind label %659
 
 272:                                              ; preds = %270
   %273 = add nuw nsw i32 %269, %271
@@ -11910,7 +11910,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 274:                                              ; preds = %272
   %275 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 4, i1 noundef zeroext true)
-          to label %276 unwind label %663, !range !5
+          to label %276 unwind label %663
 
 276:                                              ; preds = %274
   %277 = add nuw nsw i32 %273, %275
@@ -11922,7 +11922,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 278:                                              ; preds = %276
   %279 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 3, i1 noundef zeroext true)
-          to label %280 unwind label %667, !range !5
+          to label %280 unwind label %667
 
 280:                                              ; preds = %278
   %281 = add nuw nsw i32 %277, %279
@@ -11934,7 +11934,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 282:                                              ; preds = %280
   %283 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3, i1 noundef zeroext true)
-          to label %284 unwind label %671, !range !5
+          to label %284 unwind label %671
 
 284:                                              ; preds = %282
   %285 = add nuw nsw i32 %281, %283
@@ -11946,7 +11946,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 286:                                              ; preds = %284
   %287 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3, i1 noundef zeroext true)
-          to label %288 unwind label %675, !range !5
+          to label %288 unwind label %675
 
 288:                                              ; preds = %286
   %289 = add nuw nsw i32 %285, %287
@@ -11958,7 +11958,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 290:                                              ; preds = %288
   %291 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3, i1 noundef zeroext true)
-          to label %292 unwind label %679, !range !5
+          to label %292 unwind label %679
 
 292:                                              ; preds = %290
   %293 = add nuw nsw i32 %289, %291
@@ -11970,7 +11970,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 
 294:                                              ; preds = %292
   %295 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3, i1 noundef zeroext true)
-          to label %296 unwind label %683, !range !5
+          to label %296 unwind label %683
 
 296:                                              ; preds = %294
   %297 = add nuw nsw i32 %293, %295
@@ -13898,7 +13898,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x double], align 16
   %3 = alloca %"class.mu::Parser", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14756,7 +14756,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 338:                                              ; preds = %336
   %339 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %74, double noundef 3.000000e+00, i1 noundef zeroext true)
-          to label %340 unwind label %727, !range !5
+          to label %340 unwind label %727
 
 340:                                              ; preds = %338
   %341 = add nsw i32 %337, %339
@@ -14768,7 +14768,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 342:                                              ; preds = %340
   %343 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %76, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %344 unwind label %731, !range !5
+          to label %344 unwind label %731
 
 344:                                              ; preds = %342
   %345 = add nsw i32 %341, %343
@@ -14780,7 +14780,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 346:                                              ; preds = %344
   %347 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %78, double noundef 7.200000e+01, i1 noundef zeroext true)
-          to label %348 unwind label %735, !range !5
+          to label %348 unwind label %735
 
 348:                                              ; preds = %346
   %349 = add nsw i32 %345, %347
@@ -14792,7 +14792,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 350:                                              ; preds = %348
   %351 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %80, double noundef 2.000000e+00, i1 noundef zeroext true)
-          to label %352 unwind label %739, !range !5
+          to label %352 unwind label %739
 
 352:                                              ; preds = %350
   %353 = add nsw i32 %349, %351
@@ -14804,7 +14804,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 354:                                              ; preds = %352
   %355 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %82, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %356 unwind label %743, !range !5
+          to label %356 unwind label %743
 
 356:                                              ; preds = %354
   %357 = add nsw i32 %353, %355
@@ -14816,7 +14816,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 358:                                              ; preds = %356
   %359 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %84, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %360 unwind label %747, !range !5
+          to label %360 unwind label %747
 
 360:                                              ; preds = %358
   %361 = add nsw i32 %357, %359
@@ -14828,7 +14828,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 362:                                              ; preds = %360
   %363 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %86, double noundef 8.000000e+00, i1 noundef zeroext true)
-          to label %364 unwind label %751, !range !5
+          to label %364 unwind label %751
 
 364:                                              ; preds = %362
   %365 = add nsw i32 %361, %363
@@ -14840,7 +14840,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 366:                                              ; preds = %364
   %367 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %88, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %368 unwind label %755, !range !5
+          to label %368 unwind label %755
 
 368:                                              ; preds = %366
   %369 = add nsw i32 %365, %367
@@ -14852,7 +14852,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 370:                                              ; preds = %368
   %371 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %90, double noundef 2.000000e+00, i1 noundef zeroext true)
-          to label %372 unwind label %759, !range !5
+          to label %372 unwind label %759
 
 372:                                              ; preds = %370
   %373 = add nsw i32 %369, %371
@@ -14864,7 +14864,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 374:                                              ; preds = %372
   %375 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %92, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %376 unwind label %763, !range !5
+          to label %376 unwind label %763
 
 376:                                              ; preds = %374
   %377 = add nsw i32 %373, %375
@@ -14876,7 +14876,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 378:                                              ; preds = %376
   %379 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %94, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %380 unwind label %767, !range !5
+          to label %380 unwind label %767
 
 380:                                              ; preds = %378
   %381 = add nsw i32 %377, %379
@@ -14888,7 +14888,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 382:                                              ; preds = %380
   %383 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %96, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %384 unwind label %771, !range !5
+          to label %384 unwind label %771
 
 384:                                              ; preds = %382
   %385 = add nsw i32 %381, %383
@@ -14900,7 +14900,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 386:                                              ; preds = %384
   %387 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %98, double noundef -9.000000e+00, i1 noundef zeroext true)
-          to label %388 unwind label %775, !range !5
+          to label %388 unwind label %775
 
 388:                                              ; preds = %386
   %389 = add nsw i32 %385, %387
@@ -14912,7 +14912,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 390:                                              ; preds = %388
   %391 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %100, double noundef 7.000000e+00, i1 noundef zeroext true)
-          to label %392 unwind label %779, !range !5
+          to label %392 unwind label %779
 
 392:                                              ; preds = %390
   %393 = add nsw i32 %389, %391
@@ -14924,7 +14924,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 394:                                              ; preds = %392
   %395 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %102, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %396 unwind label %783, !range !5
+          to label %396 unwind label %783
 
 396:                                              ; preds = %394
   %397 = add nsw i32 %393, %395
@@ -14936,7 +14936,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 398:                                              ; preds = %396
   %399 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %104, double noundef 0.000000e+00, i1 noundef zeroext false)
-          to label %400 unwind label %787, !range !5
+          to label %400 unwind label %787
 
 400:                                              ; preds = %398
   %401 = add nsw i32 %397, %399
@@ -14948,7 +14948,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 402:                                              ; preds = %400
   %403 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %106, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %404 unwind label %791, !range !5
+          to label %404 unwind label %791
 
 404:                                              ; preds = %402
   %405 = add nsw i32 %401, %403
@@ -14960,7 +14960,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 406:                                              ; preds = %404
   %407 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %108, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %408 unwind label %795, !range !5
+          to label %408 unwind label %795
 
 408:                                              ; preds = %406
   %409 = add nsw i32 %405, %407
@@ -14972,7 +14972,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 410:                                              ; preds = %408
   %411 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %110, double noundef 1.000000e+01, i1 noundef zeroext true)
-          to label %412 unwind label %799, !range !5
+          to label %412 unwind label %799
 
 412:                                              ; preds = %410
   %413 = add nsw i32 %409, %411
@@ -14984,7 +14984,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 414:                                              ; preds = %412
   %415 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %112, double noundef 6.000000e+00, i1 noundef zeroext true)
-          to label %416 unwind label %803, !range !5
+          to label %416 unwind label %803
 
 416:                                              ; preds = %414
   %417 = add nsw i32 %413, %415
@@ -14996,7 +14996,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 418:                                              ; preds = %416
   %419 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %114, double noundef 7.000000e+00, i1 noundef zeroext false)
-          to label %420 unwind label %807, !range !5
+          to label %420 unwind label %807
 
 420:                                              ; preds = %418
   %421 = add nsw i32 %417, %419
@@ -15008,7 +15008,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 422:                                              ; preds = %420
   %423 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %116, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %424 unwind label %811, !range !5
+          to label %424 unwind label %811
 
 424:                                              ; preds = %422
   %425 = add nsw i32 %421, %423
@@ -15020,7 +15020,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 426:                                              ; preds = %424
   %427 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %118, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %428 unwind label %815, !range !5
+          to label %428 unwind label %815
 
 428:                                              ; preds = %426
   %429 = add nsw i32 %425, %427
@@ -15032,7 +15032,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 430:                                              ; preds = %428
   %431 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %120, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %432 unwind label %819, !range !5
+          to label %432 unwind label %819
 
 432:                                              ; preds = %430
   %433 = add nsw i32 %429, %431
@@ -15044,7 +15044,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 434:                                              ; preds = %432
   %435 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %122, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %436 unwind label %823, !range !5
+          to label %436 unwind label %823
 
 436:                                              ; preds = %434
   %437 = add nsw i32 %433, %435
@@ -15056,7 +15056,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 438:                                              ; preds = %436
   %439 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %124, double noundef 6.000000e+00, i1 noundef zeroext true)
-          to label %440 unwind label %827, !range !5
+          to label %440 unwind label %827
 
 440:                                              ; preds = %438
   %441 = add nsw i32 %437, %439
@@ -15068,7 +15068,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 442:                                              ; preds = %440
   %443 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %126, double noundef -2.000000e+00, i1 noundef zeroext true)
-          to label %444 unwind label %831, !range !5
+          to label %444 unwind label %831
 
 444:                                              ; preds = %442
   %445 = add nsw i32 %441, %443
@@ -15080,7 +15080,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 446:                                              ; preds = %444
   %447 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %128, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %448 unwind label %835, !range !5
+          to label %448 unwind label %835
 
 448:                                              ; preds = %446
   %449 = add nsw i32 %445, %447
@@ -15092,7 +15092,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 450:                                              ; preds = %448
   %451 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %130, double noundef 0.000000e+00, i1 noundef zeroext false)
-          to label %452 unwind label %839, !range !5
+          to label %452 unwind label %839
 
 452:                                              ; preds = %450
   %453 = add nsw i32 %449, %451
@@ -15104,7 +15104,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 454:                                              ; preds = %452
   %455 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %132, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %456 unwind label %843, !range !5
+          to label %456 unwind label %843
 
 456:                                              ; preds = %454
   %457 = add nsw i32 %453, %455
@@ -15116,7 +15116,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 458:                                              ; preds = %456
   %459 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %134, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %460 unwind label %847, !range !5
+          to label %460 unwind label %847
 
 460:                                              ; preds = %458
   %461 = add nsw i32 %457, %459
@@ -15128,7 +15128,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 462:                                              ; preds = %460
   %463 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %136, double noundef 1.000000e+01, i1 noundef zeroext true)
-          to label %464 unwind label %851, !range !5
+          to label %464 unwind label %851
 
 464:                                              ; preds = %462
   %465 = add nsw i32 %461, %463
@@ -15140,7 +15140,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 466:                                              ; preds = %464
   %467 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %138, double noundef 6.000000e+00, i1 noundef zeroext true)
-          to label %468 unwind label %855, !range !5
+          to label %468 unwind label %855
 
 468:                                              ; preds = %466
   %469 = add nsw i32 %465, %467
@@ -15152,7 +15152,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 470:                                              ; preds = %468
   %471 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %140, double noundef 7.000000e+00, i1 noundef zeroext false)
-          to label %472 unwind label %859, !range !5
+          to label %472 unwind label %859
 
 472:                                              ; preds = %470
   %473 = add nsw i32 %469, %471
@@ -15164,7 +15164,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 474:                                              ; preds = %472
   %475 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %142, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %476 unwind label %863, !range !5
+          to label %476 unwind label %863
 
 476:                                              ; preds = %474
   %477 = add nsw i32 %473, %475
@@ -15176,7 +15176,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 478:                                              ; preds = %476
   %479 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %144, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %480 unwind label %867, !range !5
+          to label %480 unwind label %867
 
 480:                                              ; preds = %478
   %481 = add nsw i32 %477, %479
@@ -15188,7 +15188,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 482:                                              ; preds = %480
   %483 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %146, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %484 unwind label %871, !range !5
+          to label %484 unwind label %871
 
 484:                                              ; preds = %482
   %485 = add nsw i32 %481, %483
@@ -15200,7 +15200,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 486:                                              ; preds = %484
   %487 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %148, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %488 unwind label %875, !range !5
+          to label %488 unwind label %875
 
 488:                                              ; preds = %486
   %489 = add nsw i32 %485, %487
@@ -15212,7 +15212,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 490:                                              ; preds = %488
   %491 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %150, double noundef 6.000000e+00, i1 noundef zeroext true)
-          to label %492 unwind label %879, !range !5
+          to label %492 unwind label %879
 
 492:                                              ; preds = %490
   %493 = add nsw i32 %489, %491
@@ -15224,7 +15224,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 494:                                              ; preds = %492
   %495 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %152, double noundef -2.000000e+00, i1 noundef zeroext true)
-          to label %496 unwind label %883, !range !5
+          to label %496 unwind label %883
 
 496:                                              ; preds = %494
   %497 = add nsw i32 %493, %495
@@ -15236,7 +15236,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 498:                                              ; preds = %496
   %499 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %154, double noundef 5.000000e+00, i1 noundef zeroext true)
-          to label %500 unwind label %887, !range !5
+          to label %500 unwind label %887
 
 500:                                              ; preds = %498
   %501 = add nsw i32 %497, %499
@@ -15248,7 +15248,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 502:                                              ; preds = %500
   %503 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %156, double noundef -4.000000e+00, i1 noundef zeroext true)
-          to label %504 unwind label %891, !range !5
+          to label %504 unwind label %891
 
 504:                                              ; preds = %502
   %505 = add nsw i32 %501, %503
@@ -15260,7 +15260,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 506:                                              ; preds = %504
   %507 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %158, double noundef 4.000000e+00, i1 noundef zeroext true)
-          to label %508 unwind label %895, !range !5
+          to label %508 unwind label %895
 
 508:                                              ; preds = %506
   %509 = add nsw i32 %505, %507
@@ -15272,7 +15272,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 510:                                              ; preds = %508
   %511 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %160, double noundef -6.000000e+00, i1 noundef zeroext true)
-          to label %512 unwind label %899, !range !5
+          to label %512 unwind label %899
 
 512:                                              ; preds = %510
   %513 = add nsw i32 %509, %511
@@ -15284,7 +15284,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 514:                                              ; preds = %512
   %515 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %162, double noundef 2.550000e+02, i1 noundef zeroext true)
-          to label %516 unwind label %903, !range !5
+          to label %516 unwind label %903
 
 516:                                              ; preds = %514
   %517 = add nsw i32 %513, %515
@@ -15296,7 +15296,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 518:                                              ; preds = %516
   %519 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %164, double noundef 2.650000e+02, i1 noundef zeroext true)
-          to label %520 unwind label %907, !range !5
+          to label %520 unwind label %907
 
 520:                                              ; preds = %518
   %521 = add nsw i32 %517, %519
@@ -15308,7 +15308,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 522:                                              ; preds = %520
   %523 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %166, double noundef 2.650000e+02, i1 noundef zeroext true)
-          to label %524 unwind label %911, !range !5
+          to label %524 unwind label %911
 
 524:                                              ; preds = %522
   %525 = add nsw i32 %521, %523
@@ -15320,7 +15320,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 526:                                              ; preds = %524
   %527 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %168, double noundef 2.550000e+03, i1 noundef zeroext true)
-          to label %528 unwind label %915, !range !5
+          to label %528 unwind label %915
 
 528:                                              ; preds = %526
   %529 = add nsw i32 %525, %527
@@ -15332,7 +15332,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 530:                                              ; preds = %528
   %531 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %170, double noundef 2.550000e+03, i1 noundef zeroext true)
-          to label %532 unwind label %919, !range !5
+          to label %532 unwind label %919
 
 532:                                              ; preds = %530
   %533 = add nsw i32 %529, %531
@@ -15344,7 +15344,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 534:                                              ; preds = %532
   %535 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %172, double noundef 2.660000e+02, i1 noundef zeroext true)
-          to label %536 unwind label %923, !range !5
+          to label %536 unwind label %923
 
 536:                                              ; preds = %534
   %537 = add nsw i32 %533, %535
@@ -15356,7 +15356,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 538:                                              ; preds = %536
   %539 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %174, double noundef 2.660000e+02, i1 noundef zeroext true)
-          to label %540 unwind label %927, !range !5
+          to label %540 unwind label %927
 
 540:                                              ; preds = %538
   %541 = add nsw i32 %537, %539
@@ -15368,7 +15368,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 542:                                              ; preds = %540
   %543 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %176, double noundef 7.000000e+00, i1 noundef zeroext true)
-          to label %544 unwind label %931, !range !5
+          to label %544 unwind label %931
 
 544:                                              ; preds = %542
   %545 = add nsw i32 %541, %543
@@ -15380,7 +15380,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 546:                                              ; preds = %544
   %547 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %178, double noundef 5.000000e+00, i1 noundef zeroext true)
-          to label %548 unwind label %935, !range !5
+          to label %548 unwind label %935
 
 548:                                              ; preds = %546
   %549 = add nsw i32 %545, %547
@@ -15392,7 +15392,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 550:                                              ; preds = %548
   %551 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %180, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %552 unwind label %939, !range !5
+          to label %552 unwind label %939
 
 552:                                              ; preds = %550
   %553 = add nsw i32 %549, %551
@@ -15404,7 +15404,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 554:                                              ; preds = %552
   %555 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %182, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %556 unwind label %943, !range !5
+          to label %556 unwind label %943
 
 556:                                              ; preds = %554
   %557 = add nsw i32 %553, %555
@@ -15416,7 +15416,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 558:                                              ; preds = %556
   %559 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %184, double noundef 1.700000e+01, i1 noundef zeroext true)
-          to label %560 unwind label %947, !range !5
+          to label %560 unwind label %947
 
 560:                                              ; preds = %558
   %561 = add nsw i32 %557, %559
@@ -15428,7 +15428,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 562:                                              ; preds = %560
   %563 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %186, double noundef 7.000000e+00, i1 noundef zeroext true)
-          to label %564 unwind label %951, !range !5
+          to label %564 unwind label %951
 
 564:                                              ; preds = %562
   %565 = add nsw i32 %561, %563
@@ -15440,7 +15440,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 566:                                              ; preds = %564
   %567 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %188, double noundef 0.000000e+00, i1 noundef zeroext true)
-          to label %568 unwind label %955, !range !5
+          to label %568 unwind label %955
 
 568:                                              ; preds = %566
   %569 = add nsw i32 %565, %567
@@ -15452,7 +15452,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 570:                                              ; preds = %568
   %571 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %190, double noundef 1.000000e+00, i1 noundef zeroext true)
-          to label %572 unwind label %959, !range !5
+          to label %572 unwind label %959
 
 572:                                              ; preds = %570
   %573 = add nsw i32 %569, %571
@@ -15464,7 +15464,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 
 574:                                              ; preds = %572
   %575 = invoke noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %192, double noundef 2.560000e+02, i1 noundef zeroext true)
-          to label %576 unwind label %963, !range !5
+          to label %576 unwind label %963
 
 576:                                              ; preds = %574
   %577 = add nsw i32 %573, %575
@@ -16552,7 +16552,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 50) i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16658,7 +16658,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 101:                                              ; preds = %1
   %102 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2, i1 noundef zeroext true)
-          to label %103 unwind label %301, !range !5
+          to label %103 unwind label %301
 
 103:                                              ; preds = %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -16669,7 +16669,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 104:                                              ; preds = %103
   %105 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 7, i1 noundef zeroext true)
-          to label %106 unwind label %305, !range !5
+          to label %106 unwind label %305
 
 106:                                              ; preds = %104
   %107 = add nuw nsw i32 %105, %102
@@ -16681,7 +16681,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 108:                                              ; preds = %106
   %109 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 7, i1 noundef zeroext true)
-          to label %110 unwind label %309, !range !5
+          to label %110 unwind label %309
 
 110:                                              ; preds = %108
   %111 = add nuw nsw i32 %107, %109
@@ -16693,7 +16693,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 112:                                              ; preds = %110
   %113 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 7, i1 noundef zeroext true)
-          to label %114 unwind label %313, !range !5
+          to label %114 unwind label %313
 
 114:                                              ; preds = %112
   %115 = add nuw nsw i32 %111, %113
@@ -16705,7 +16705,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 116:                                              ; preds = %114
   %117 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 14, i1 noundef zeroext true)
-          to label %118 unwind label %317, !range !5
+          to label %118 unwind label %317
 
 118:                                              ; preds = %116
   %119 = add nuw nsw i32 %115, %117
@@ -16717,7 +16717,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 120:                                              ; preds = %118
   %121 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 15, i1 noundef zeroext true)
-          to label %122 unwind label %321, !range !5
+          to label %122 unwind label %321
 
 122:                                              ; preds = %120
   %123 = add nuw nsw i32 %119, %121
@@ -16729,7 +16729,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 124:                                              ; preds = %122
   %125 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 11, i1 noundef zeroext true)
-          to label %126 unwind label %325, !range !5
+          to label %126 unwind label %325
 
 126:                                              ; preds = %124
   %127 = add nuw nsw i32 %123, %125
@@ -16741,7 +16741,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 128:                                              ; preds = %126
   %129 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 5, i1 noundef zeroext true)
-          to label %130 unwind label %329, !range !5
+          to label %130 unwind label %329
 
 130:                                              ; preds = %128
   %131 = add nuw nsw i32 %127, %129
@@ -16753,7 +16753,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 132:                                              ; preds = %130
   %133 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 1, i1 noundef zeroext true)
-          to label %134 unwind label %333, !range !5
+          to label %134 unwind label %333
 
 134:                                              ; preds = %132
   %135 = add nuw nsw i32 %131, %133
@@ -16765,7 +16765,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 136:                                              ; preds = %134
   %137 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 12, i1 noundef zeroext true)
-          to label %138 unwind label %337, !range !5
+          to label %138 unwind label %337
 
 138:                                              ; preds = %136
   %139 = add nuw nsw i32 %135, %137
@@ -16777,7 +16777,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 140:                                              ; preds = %138
   %141 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 0, i1 noundef zeroext true)
-          to label %142 unwind label %341, !range !5
+          to label %142 unwind label %341
 
 142:                                              ; preds = %140
   %143 = add nuw nsw i32 %139, %141
@@ -16789,7 +16789,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 144:                                              ; preds = %142
   %145 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 0, i1 noundef zeroext true)
-          to label %146 unwind label %345, !range !5
+          to label %146 unwind label %345
 
 146:                                              ; preds = %144
   %147 = add nuw nsw i32 %143, %145
@@ -16801,7 +16801,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 148:                                              ; preds = %146
   %149 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 14, i1 noundef zeroext true)
-          to label %150 unwind label %349, !range !5
+          to label %150 unwind label %349
 
 150:                                              ; preds = %148
   %151 = add nuw nsw i32 %147, %149
@@ -16813,7 +16813,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 152:                                              ; preds = %150
   %153 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 14, i1 noundef zeroext true)
-          to label %154 unwind label %353, !range !5
+          to label %154 unwind label %353
 
 154:                                              ; preds = %152
   %155 = add nuw nsw i32 %151, %153
@@ -16825,7 +16825,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 156:                                              ; preds = %154
   %157 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 14, i1 noundef zeroext true)
-          to label %158 unwind label %357, !range !5
+          to label %158 unwind label %357
 
 158:                                              ; preds = %156
   %159 = add nuw nsw i32 %155, %157
@@ -16837,7 +16837,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 160:                                              ; preds = %158
   %161 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 14, i1 noundef zeroext true)
-          to label %162 unwind label %361, !range !5
+          to label %162 unwind label %361
 
 162:                                              ; preds = %160
   %163 = add nuw nsw i32 %159, %161
@@ -16849,7 +16849,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 164:                                              ; preds = %162
   %165 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 999, i1 noundef zeroext false)
-          to label %166 unwind label %365, !range !5
+          to label %166 unwind label %365
 
 166:                                              ; preds = %164
   %167 = add nuw nsw i32 %163, %165
@@ -16861,7 +16861,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 168:                                              ; preds = %166
   %169 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 7, i1 noundef zeroext true)
-          to label %170 unwind label %369, !range !5
+          to label %170 unwind label %369
 
 170:                                              ; preds = %168
   %171 = add nuw nsw i32 %167, %169
@@ -16873,7 +16873,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 172:                                              ; preds = %170
   %173 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 11, i1 noundef zeroext true)
-          to label %174 unwind label %373, !range !5
+          to label %174 unwind label %373
 
 174:                                              ; preds = %172
   %175 = add nuw nsw i32 %171, %173
@@ -16885,7 +16885,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 176:                                              ; preds = %174
   %177 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 11, i1 noundef zeroext true)
-          to label %178 unwind label %377, !range !5
+          to label %178 unwind label %377
 
 178:                                              ; preds = %176
   %179 = add nuw nsw i32 %175, %177
@@ -16897,7 +16897,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 180:                                              ; preds = %178
   %181 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 13, i1 noundef zeroext true)
-          to label %182 unwind label %381, !range !5
+          to label %182 unwind label %381
 
 182:                                              ; preds = %180
   %183 = add nuw nsw i32 %179, %181
@@ -16909,7 +16909,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 184:                                              ; preds = %182
   %185 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 14, i1 noundef zeroext true)
-          to label %186 unwind label %385, !range !5
+          to label %186 unwind label %385
 
 186:                                              ; preds = %184
   %187 = add nuw nsw i32 %183, %185
@@ -16921,7 +16921,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 188:                                              ; preds = %186
   %189 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 9, i1 noundef zeroext true)
-          to label %190 unwind label %389, !range !5
+          to label %190 unwind label %389
 
 190:                                              ; preds = %188
   %191 = add nuw nsw i32 %187, %189
@@ -16933,7 +16933,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 192:                                              ; preds = %190
   %193 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 10, i1 noundef zeroext true)
-          to label %194 unwind label %393, !range !5
+          to label %194 unwind label %393
 
 194:                                              ; preds = %192
   %195 = add nuw nsw i32 %191, %193
@@ -16945,7 +16945,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 196:                                              ; preds = %194
   %197 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 999, i1 noundef zeroext false)
-          to label %198 unwind label %397, !range !5
+          to label %198 unwind label %397
 
 198:                                              ; preds = %196
   %199 = add nuw nsw i32 %195, %197
@@ -16957,7 +16957,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 200:                                              ; preds = %198
   %201 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 17, i1 noundef zeroext true)
-          to label %202 unwind label %401, !range !5
+          to label %202 unwind label %401
 
 202:                                              ; preds = %200
   %203 = add nuw nsw i32 %199, %201
@@ -16969,7 +16969,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 204:                                              ; preds = %202
   %205 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 17, i1 noundef zeroext true)
-          to label %206 unwind label %405, !range !5
+          to label %206 unwind label %405
 
 206:                                              ; preds = %204
   %207 = add nuw nsw i32 %203, %205
@@ -16981,7 +16981,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 208:                                              ; preds = %206
   %209 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef 17, i1 noundef zeroext true)
-          to label %210 unwind label %409, !range !5
+          to label %210 unwind label %409
 
 210:                                              ; preds = %208
   %211 = add nuw nsw i32 %207, %209
@@ -16993,7 +16993,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 212:                                              ; preds = %210
   %213 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 17, i1 noundef zeroext true)
-          to label %214 unwind label %413, !range !5
+          to label %214 unwind label %413
 
 214:                                              ; preds = %212
   %215 = add nuw nsw i32 %211, %213
@@ -17005,7 +17005,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 216:                                              ; preds = %214
   %217 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 14, i1 noundef zeroext true)
-          to label %218 unwind label %417, !range !5
+          to label %218 unwind label %417
 
 218:                                              ; preds = %216
   %219 = add nuw nsw i32 %215, %217
@@ -17017,7 +17017,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 220:                                              ; preds = %218
   %221 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %62, i32 noundef 14, i1 noundef zeroext true)
-          to label %222 unwind label %421, !range !5
+          to label %222 unwind label %421
 
 222:                                              ; preds = %220
   %223 = add nuw nsw i32 %219, %221
@@ -17029,7 +17029,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 224:                                              ; preds = %222
   %225 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 14, i1 noundef zeroext true)
-          to label %226 unwind label %425, !range !5
+          to label %226 unwind label %425
 
 226:                                              ; preds = %224
   %227 = add nuw nsw i32 %223, %225
@@ -17041,7 +17041,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 228:                                              ; preds = %226
   %229 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 15, i1 noundef zeroext true)
-          to label %230 unwind label %429, !range !5
+          to label %230 unwind label %429
 
 230:                                              ; preds = %228
   %231 = add nuw nsw i32 %227, %229
@@ -17053,7 +17053,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 232:                                              ; preds = %230
   %233 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %68, i32 noundef 15, i1 noundef zeroext true)
-          to label %234 unwind label %433, !range !5
+          to label %234 unwind label %433
 
 234:                                              ; preds = %232
   %235 = add nuw nsw i32 %231, %233
@@ -17065,7 +17065,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 236:                                              ; preds = %234
   %237 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 9, i1 noundef zeroext true)
-          to label %238 unwind label %437, !range !5
+          to label %238 unwind label %437
 
 238:                                              ; preds = %236
   %239 = add nuw nsw i32 %235, %237
@@ -17077,7 +17077,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 240:                                              ; preds = %238
   %241 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef 9, i1 noundef zeroext true)
-          to label %242 unwind label %441, !range !5
+          to label %242 unwind label %441
 
 242:                                              ; preds = %240
   %243 = add nuw nsw i32 %239, %241
@@ -17089,7 +17089,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 244:                                              ; preds = %242
   %245 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %74, i32 noundef 14, i1 noundef zeroext true)
-          to label %246 unwind label %445, !range !5
+          to label %246 unwind label %445
 
 246:                                              ; preds = %244
   %247 = add nuw nsw i32 %243, %245
@@ -17101,7 +17101,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 248:                                              ; preds = %246
   %249 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef 14, i1 noundef zeroext true)
-          to label %250 unwind label %449, !range !5
+          to label %250 unwind label %449
 
 250:                                              ; preds = %248
   %251 = add nuw nsw i32 %247, %249
@@ -17113,7 +17113,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 252:                                              ; preds = %250
   %253 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 9, i1 noundef zeroext true)
-          to label %254 unwind label %453, !range !5
+          to label %254 unwind label %453
 
 254:                                              ; preds = %252
   %255 = add nuw nsw i32 %251, %253
@@ -17125,7 +17125,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 256:                                              ; preds = %254
   %257 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %80, i32 noundef 9, i1 noundef zeroext true)
-          to label %258 unwind label %457, !range !5
+          to label %258 unwind label %457
 
 258:                                              ; preds = %256
   %259 = add nuw nsw i32 %255, %257
@@ -17137,7 +17137,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 260:                                              ; preds = %258
   %261 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %82, i32 noundef 10, i1 noundef zeroext true)
-          to label %262 unwind label %461, !range !5
+          to label %262 unwind label %461
 
 262:                                              ; preds = %260
   %263 = add nuw nsw i32 %259, %261
@@ -17149,7 +17149,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 264:                                              ; preds = %262
   %265 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef 10, i1 noundef zeroext true)
-          to label %266 unwind label %465, !range !5
+          to label %266 unwind label %465
 
 266:                                              ; preds = %264
   %267 = add nuw nsw i32 %263, %265
@@ -17161,7 +17161,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 268:                                              ; preds = %266
   %269 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 14, i1 noundef zeroext true)
-          to label %270 unwind label %469, !range !5
+          to label %270 unwind label %469
 
 270:                                              ; preds = %268
   %271 = add nuw nsw i32 %267, %269
@@ -17173,7 +17173,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 272:                                              ; preds = %270
   %273 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef 0, i1 noundef zeroext true)
-          to label %274 unwind label %473, !range !5
+          to label %274 unwind label %473
 
 274:                                              ; preds = %272
   %275 = add nuw nsw i32 %271, %273
@@ -17185,7 +17185,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 276:                                              ; preds = %274
   %277 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %90, i32 noundef 0, i1 noundef zeroext true)
-          to label %278 unwind label %477, !range !5
+          to label %278 unwind label %477
 
 278:                                              ; preds = %276
   %279 = add nuw nsw i32 %275, %277
@@ -17197,7 +17197,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 280:                                              ; preds = %278
   %281 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %92, i32 noundef 17, i1 noundef zeroext true)
-          to label %282 unwind label %481, !range !5
+          to label %282 unwind label %481
 
 282:                                              ; preds = %280
   %283 = add nuw nsw i32 %279, %281
@@ -17209,7 +17209,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 284:                                              ; preds = %282
   %285 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %94, i32 noundef 0, i1 noundef zeroext true)
-          to label %286 unwind label %485, !range !5
+          to label %286 unwind label %485
 
 286:                                              ; preds = %284
   %287 = add nuw nsw i32 %283, %285
@@ -17221,7 +17221,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 288:                                              ; preds = %286
   %289 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef 0, i1 noundef zeroext true)
-          to label %290 unwind label %489, !range !5
+          to label %290 unwind label %489
 
 290:                                              ; preds = %288
   %291 = add nuw nsw i32 %287, %289
@@ -17233,7 +17233,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture nou
 
 292:                                              ; preds = %290
   %293 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %98, i32 noundef 16, i1 noundef zeroext true)
-          to label %294 unwind label %493, !range !5
+          to label %294 unwind label %493
 
 294:                                              ; preds = %292
   %295 = add nuw nsw i32 %291, %293
@@ -17862,7 +17862,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 53:                                               ; preds = %1
   %54 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 8, i1 noundef zeroext true)
-          to label %55 unwind label %157, !range !5
+          to label %55 unwind label %157
 
 55:                                               ; preds = %53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -17873,7 +17873,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 56:                                               ; preds = %55
   %57 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 8, i1 noundef zeroext true)
-          to label %58 unwind label %161, !range !5
+          to label %58 unwind label %161
 
 58:                                               ; preds = %56
   %59 = add nuw nsw i32 %57, %54
@@ -17885,7 +17885,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 60:                                               ; preds = %58
   %61 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 8, i1 noundef zeroext true)
-          to label %62 unwind label %165, !range !5
+          to label %62 unwind label %165
 
 62:                                               ; preds = %60
   %63 = add nuw nsw i32 %59, %61
@@ -17897,7 +17897,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 64:                                               ; preds = %62
   %65 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 8, i1 noundef zeroext true)
-          to label %66 unwind label %169, !range !5
+          to label %66 unwind label %169
 
 66:                                               ; preds = %64
   %67 = add nuw nsw i32 %63, %65
@@ -17909,7 +17909,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 68:                                               ; preds = %66
   %69 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 8, i1 noundef zeroext true)
-          to label %70 unwind label %173, !range !5
+          to label %70 unwind label %173
 
 70:                                               ; preds = %68
   %71 = add nuw nsw i32 %67, %69
@@ -17921,7 +17921,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 72:                                               ; preds = %70
   %73 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 8, i1 noundef zeroext true)
-          to label %74 unwind label %177, !range !5
+          to label %74 unwind label %177
 
 74:                                               ; preds = %72
   %75 = add nuw nsw i32 %71, %73
@@ -17933,7 +17933,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 76:                                               ; preds = %74
   %77 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 8, i1 noundef zeroext true)
-          to label %78 unwind label %181, !range !5
+          to label %78 unwind label %181
 
 78:                                               ; preds = %76
   %79 = add nuw nsw i32 %75, %77
@@ -17945,7 +17945,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 80:                                               ; preds = %78
   %81 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 8, i1 noundef zeroext true)
-          to label %82 unwind label %185, !range !5
+          to label %82 unwind label %185
 
 82:                                               ; preds = %80
   %83 = add nuw nsw i32 %79, %81
@@ -17957,7 +17957,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 84:                                               ; preds = %82
   %85 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 17, i1 noundef zeroext true)
-          to label %86 unwind label %189, !range !5
+          to label %86 unwind label %189
 
 86:                                               ; preds = %84
   %87 = add nuw nsw i32 %83, %85
@@ -17969,7 +17969,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 88:                                               ; preds = %86
   %89 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 17, i1 noundef zeroext true)
-          to label %90 unwind label %193, !range !5
+          to label %90 unwind label %193
 
 90:                                               ; preds = %88
   %91 = add nuw nsw i32 %87, %89
@@ -17981,7 +17981,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 92:                                               ; preds = %90
   %93 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 17, i1 noundef zeroext true)
-          to label %94 unwind label %197, !range !5
+          to label %94 unwind label %197
 
 94:                                               ; preds = %92
   %95 = add nuw nsw i32 %91, %93
@@ -17993,7 +17993,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 
 96:                                               ; preds = %94
   %97 = invoke noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 17, i1 noundef zeroext true)
-          to label %98 unwind label %201, !range !5
+          to label %98 unwind label %201
 
 98:                                               ; preds = %96
   %99 = add nuw nsw i32 %95, %97
@@ -18456,7 +18456,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18478,7 +18478,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 17:                                               ; preds = %1
   %18 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester12TestBulkModeEv.res, i1 noundef zeroext false)
-          to label %19 unwind label %49, !range !5
+          to label %19 unwind label %49
 
 19:                                               ; preds = %17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -18489,7 +18489,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 20:                                               ; preds = %19
   %21 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb.vVariableA, i1 noundef zeroext true)
-          to label %22 unwind label %53, !range !5
+          to label %22 unwind label %53
 
 22:                                               ; preds = %20
   %23 = add nuw nsw i32 %21, %18
@@ -18501,7 +18501,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 24:                                               ; preds = %22
   %25 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb.vVariableA, i1 noundef zeroext true)
-          to label %26 unwind label %57, !range !5
+          to label %26 unwind label %57
 
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %23, %25
@@ -18513,7 +18513,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 28:                                               ; preds = %26
   %29 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester12TestBulkModeEv.res.46, i1 noundef zeroext true)
-          to label %30 unwind label %61, !range !5
+          to label %30 unwind label %61
 
 30:                                               ; preds = %28
   %31 = add nuw nsw i32 %27, %29
@@ -18525,7 +18525,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 32:                                               ; preds = %30
   %33 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb.vVariableA, i1 noundef zeroext true)
-          to label %34 unwind label %65, !range !5
+          to label %34 unwind label %65
 
 34:                                               ; preds = %32
   %35 = add nuw nsw i32 %31, %33
@@ -18537,7 +18537,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 36:                                               ; preds = %34
   %37 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester12TestBulkModeEv.res.50, i1 noundef zeroext true)
-          to label %38 unwind label %69, !range !5
+          to label %38 unwind label %69
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i32 %35, %37
@@ -18549,7 +18549,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 
 40:                                               ; preds = %38
   %41 = invoke noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__const._ZN2mu4Test12ParserTester12TestBulkModeEv.res.52, i1 noundef zeroext true)
-          to label %42 unwind label %73, !range !5
+          to label %42 unwind label %73
 
 42:                                               ; preds = %40
   %43 = add nuw nsw i32 %39, %41
@@ -18658,7 +18658,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester13TestOptimizerEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestOptimizerEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mu::ParserCallback", align 8
   %3 = alloca %"class.mu::ParserCallback", align 8
   %4 = alloca %"class.mu::Parser", align 8
@@ -19011,7 +19011,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19181,7 +19181,7 @@ declare void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.mu::ParserCallback", align 8
   %6 = alloca %"class.mu::ParserCallback", align 8
   %7 = alloca %"class.mu::ParserCallback", align 8
@@ -23380,7 +23380,7 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EE9push_backERKS1_.exit: ; preds = %863
   call void %869(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i.i) #23
   %870 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 600
   %.not.i.i.i.i.i = icmp eq ptr %870, %867
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store ptr %866, ptr %864, align 8
@@ -23451,7 +23451,7 @@ _ZN2mu6ParseraSERKS0_.exit:                       ; preds = %876
   call void %899(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i) #23
   %900 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 600
   %.not.i.i.i.i = icmp eq ptr %900, %897
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %185, align 8
@@ -23544,7 +23544,7 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit:       ; preds = %902, %_ZSt8_Destroy
   %936 = and i1 %.047509, %935
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %941, label %925, !llvm.loop !13
+  br i1 %exitcond.not, label %941, label %925, !llvm.loop !12
 
 937:                                              ; preds = %922, %916, %913
   %938 = landingpad { ptr, i32 }
@@ -23820,7 +23820,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [4 x double], align 16
   %6 = alloca [4 x double], align 16
   %7 = alloca [4 x double], align 16
@@ -23924,7 +23924,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_
   %43 = and i1 %.03160, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %73, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %73, label %.preheader, !llvm.loop !13
 
 44:                                               ; preds = %4
   %45 = landingpad { ptr, i32 }
@@ -24227,7 +24227,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x double], align 16
   %6 = alloca %"class.mu::ParserInt", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24602,7 +24602,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester5f1of2Edd(double no
 declare void @_ZN2mu10ParserBase17EnableBuiltInOprtEb(ptr noundef nonnull align 8 dereferenceable(596), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.mu::Parser", align 8
   %8 = alloca double, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25031,7 +25031,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %.0.in = getelementptr inbounds i8, ptr %.038, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 62:                                               ; preds = %32, %.body
   %63 = landingpad { ptr, i32 }
@@ -25069,7 +25069,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -25139,7 +25139,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %22 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %.noexc, !llvm.loop !6
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %.noexc, !llvm.loop !5
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i: ; preds = %.noexc
   store ptr %.0.i.i.i, ptr %16, align 8
@@ -25150,7 +25150,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %25 = getelementptr inbounds i8, ptr %.0.i.i7.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not.i.i8.i = icmp eq ptr %26, null
-  br i1 %.not.i.i8.i, label %27, label %24, !llvm.loop !8
+  br i1 %.not.i.i8.i, label %27, label %24, !llvm.loop !7
 
 27:                                               ; preds = %24
   store ptr %.0.i.i7.i, ptr %8, align 8
@@ -25289,7 +25289,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 35:                                               ; preds = %19, %16
   %36 = landingpad { ptr, i32 }
@@ -25348,7 +25348,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %16 = getelementptr inbounds i8, ptr %storemerge.i, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !18
+  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !17
 
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds i8, ptr %storemerge.i, i64 16
@@ -25480,7 +25480,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
   %16 = load ptr, ptr %13, align 8
   %17 = getelementptr i8, ptr %16, i64 %.unpack
   %18 = getelementptr i8, ptr %17, i64 -1
-  %19 = load ptr, ptr %18, align 8, !nosanitize !19
+  %19 = load ptr, ptr %18, align 8, !nosanitize !18
   br label %22
 
 20:                                               ; preds = %.lr.ph
@@ -25503,7 +25503,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
   %sext = shl i64 %31, 28
   %32 = ashr i64 %sext, 32
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 34:                                               ; preds = %22
   %35 = landingpad { ptr, i32 }
@@ -25654,7 +25654,7 @@ define void @_ZNK2mu4Test12ParserTester5AbortEv(ptr nocapture nonnull readnone a
 4:                                                ; preds = %4, %1
   %5 = tail call i32 @getchar()
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %4, label %6, !llvm.loop !21
+  br i1 %.not, label %4, label %6, !llvm.loop !20
 
 6:                                                ; preds = %4
   tail call void @exit(i32 noundef -1) #25
@@ -26199,7 +26199,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester3SumEPKdi(ptr nound
   %14 = fadd double %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.010.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %14, %.lr.ph ]
@@ -26496,7 +26496,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester5SumUdEPvPKdi(ptr n
   %15 = fadd double %.01115, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.011.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %15, %.lr.ph ]
@@ -26569,7 +26569,7 @@ define linkonce_odr void @_ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev(ptr noundef nonn
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i) #23
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 600
   %.not.i.i.i = icmp eq ptr %7, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -26669,7 +26669,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
   %27 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 600
   %28 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 600
   %.not.i.i.i.i.i = icmp eq ptr %27, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -26686,7 +26686,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i.i.i.i) #23
   %35 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 600
   %.not.i.i.i.i.i.i.i = icmp eq ptr %35, %.016.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %29
   invoke void @__cxa_rethrow() #22
@@ -26731,7 +26731,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
   %45 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 600
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 600
   %.not.i.i.i.i.i37 = icmp eq ptr %45, %5
-  br i1 %.not.i.i.i.i.i37, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i37, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !23
 
 46:                                               ; preds = %.lr.ph.i.i.i.i.i29
   %47 = landingpad { ptr, i32 }
@@ -26748,7 +26748,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i.i.i.i34) #23
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i34, i64 600
   %.not.i.i.i.i.i.i.i35 = icmp eq ptr %52, %.016.i.i.i.i.i30.ptr
-  br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36, label %.lr.ph.i.i.i.i.i.i.i33, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36, label %.lr.ph.i.i.i.i.i.i.i33, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.ph.i.i.i.i.i.i.i33, %46
   invoke void @__cxa_rethrow() #22
@@ -26791,7 +26791,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i) #23
   %63 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 600
   %.not.i.i.i = icmp eq ptr %63, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42
   %.not.i43 = icmp eq ptr %6, null
@@ -26835,7 +26835,7 @@ _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread: ; preds = %.body, %
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i46) #23
   %75 = getelementptr inbounds i8, ptr %.05.i.i.i46, i64 600
   %.not.i.i.i47 = icmp eq ptr %75, %.0.lpad-body61
-  br i1 %.not.i.i.i47, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48, label %.lr.ph.i.i.i45, !llvm.loop !12
+  br i1 %.not.i.i.i47, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48, label %.lr.ph.i.i.i45, !llvm.loop !11
 
 76:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
   %77 = landingpad { ptr, i32 }
@@ -26974,23 +26974,22 @@ attributes #25 = { noreturn nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = !{}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}

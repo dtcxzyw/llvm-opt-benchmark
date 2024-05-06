@@ -201,7 +201,7 @@ define void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_
   %100 = getelementptr inbounds i8, ptr %94, i64 76
   store float %99, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %94, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %101, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %101, i8 0, i64 36, i1 false)
   %102 = getelementptr inbounds i8, ptr %94, i64 120
   store double 1.000000e+00, ptr %102, align 8
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 1
@@ -221,7 +221,7 @@ define void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_
   %111 = load float, ptr %110, align 4
   %112 = getelementptr inbounds i8, ptr %106, i64 76
   store float %111, ptr %112, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %107, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %107, i8 0, i64 36, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %113 = load i32, ptr %72, align 8
   %114 = sext i32 %113 to i64
@@ -558,7 +558,7 @@ _ZL19calc_ke_part_normalILb1EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   %334 = getelementptr inbounds i8, ptr %328, i64 76
   store float %333, ptr %334, align 4
   %335 = getelementptr inbounds i8, ptr %328, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %335, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %335, i8 0, i64 36, i1 false)
   %336 = getelementptr inbounds i8, ptr %328, i64 120
   store double 1.000000e+00, ptr %336, align 8
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
@@ -578,7 +578,7 @@ _ZL19calc_ke_part_normalILb1EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   %345 = load float, ptr %344, align 4
   %346 = getelementptr inbounds i8, ptr %340, i64 76
   store float %345, ptr %346, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %341, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %341, i8 0, i64 36, i1 false)
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %347 = load i32, ptr %72, align 8
   %348 = sext i32 %347 to i64
@@ -824,7 +824,7 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   store float %501, ptr %502, align 4
   %503 = load ptr, ptr %491, align 8
   %504 = getelementptr inbounds %struct.t_grp_tcstat, ptr %503, i64 %indvars.iv.i35.i, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %504, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %504, i8 0, i64 36, i1 false)
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %505 = load i32, ptr %72, align 8
   %506 = sext i32 %505 to i64
@@ -1643,7 +1643,7 @@ define internal void @_ZL19calc_ke_part_normalILb1EEvPA3_KfN3gmx8ArrayRefIKNS3_1
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %51 = getelementptr inbounds [3 x [3 x float]], ptr %43, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %51, i8 0, i64 36, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load ptr, ptr %5, align 8
   %53 = load i32, ptr %52, align 8
@@ -1955,7 +1955,7 @@ define internal void @_ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_1
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %26 ]
   %49 = getelementptr inbounds [3 x [3 x float]], ptr %41, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %49, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %49, i8 0, i64 36, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load ptr, ptr %5, align 8
   %51 = load i32, ptr %50, align 8

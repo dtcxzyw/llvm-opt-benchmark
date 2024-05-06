@@ -388,7 +388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq6xsub_t11xsetsockoptEiPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2028) %this, i32 noundef %option_, ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t11xsetsockoptEiPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2028) %this, i32 noundef %option_, ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_) unnamed_addr #9 align 2 {
 entry:
   switch i32 %option_, label %if.end11 [
     i32 108, label %if.then
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2028) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2028) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_has_message = getelementptr inbounds i8, ptr %this, i64 1953
   %0 = load i8, ptr %_has_message, align 1

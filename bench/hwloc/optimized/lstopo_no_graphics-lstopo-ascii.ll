@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.merge.3 = private unnamed_addr constant [15 x i32] [i32 124, i32 124, i32 124, i32 45, i32 47, i32 92, i32 43, i32 45, i32 92, i32 47, i32 43, i32 45, i32 43, i32 43, i32 43], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_ascii(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_ascii_output, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8

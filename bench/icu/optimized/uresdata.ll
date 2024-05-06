@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #2 {
 entry:
   %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %2 = load i32, ptr %formatVersion, align 2
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @udata_close_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @res_getPublicType_75(i32 noundef %res) local_unnamed_addr #4 {
+define range(i32 -128, 128) i32 @res_getPublicType_75(i32 noundef %res) local_unnamed_addr #4 {
 entry:
   %shr = lshr i32 %res, 28
   %idxprom = zext nneg i32 %shr to i64
@@ -782,7 +782,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7517ResourceDataValue7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #9 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517ResourceDataValue7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #9 align 2 {
 entry:
   %res = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %res, align 8
@@ -1268,7 +1268,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7517ResourceDataValue21isNoInheritanceMarkerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517ResourceDataValue21isNoInheritanceMarkerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #6 align 2 {
 entry:
   %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pResData.i, align 8
@@ -2149,7 +2149,7 @@ cond.true.us.i:                                   ; preds = %while.body.us.i
 
 cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
   %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
+  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
   %cmp14.us.i = icmp slt i32 %call13.us.i, 0
   br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
 
@@ -2192,7 +2192,7 @@ cond.false.i:                                     ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
   %cmp14.i = icmp slt i32 %call.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
@@ -2279,7 +2279,7 @@ cond.true.us.i103:                                ; preds = %while.body.us.i78
 
 cond.end.us.i91:                                  ; preds = %cond.true.us.i103, %cond.false.us.i88
   %cond.us.i92 = phi ptr [ %add.ptr.us.i104, %cond.true.us.i103 ], [ %add.ptr12.us.i90, %cond.false.us.i88 ]
-  %call13.us.i93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i92) #18
+  %call13.us.i93 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i92) #18
   %cmp14.us.i94 = icmp slt i32 %call13.us.i93, 0
   br i1 %cmp14.us.i94, label %if.end22.us.i99, label %if.else16.us.i95
 
@@ -2323,7 +2323,7 @@ cond.false.i58:                                   ; preds = %while.body.i48
 
 cond.end.i61:                                     ; preds = %cond.false.i58, %cond.true.i76
   %cond.i62 = phi ptr [ %add.ptr.i77, %cond.true.i76 ], [ %add.ptr12.i60, %cond.false.i58 ]
-  %call.i63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i62) #18
+  %call.i63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i62) #18
   %cmp14.i64 = icmp slt i32 %call.i63, 0
   br i1 %cmp14.i64, label %if.end22.i69, label %if.else16.i65
 
@@ -2407,7 +2407,7 @@ while.body.us.i127:                               ; preds = %while.body.lr.ph.i1
   %.sink.i = load ptr, ptr %spec.select146, align 8
   %idx.ext.us.i134 = zext nneg i32 %and.us.i to i64
   %add.ptr.us.i135 = getelementptr inbounds i8, ptr %.sink.i, i64 %idx.ext.us.i134
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i135) #18
+  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i135) #18
   %cmp9.us.i = icmp slt i32 %call8.us.i, 0
   br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
 
@@ -2439,7 +2439,7 @@ while.body.i114:                                  ; preds = %while.body.lr.ph.i1
   %.sink34.i = load ptr, ptr %spec.select148, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %call.i121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
   %cmp9.i = icmp slt i32 %call.i121, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 
@@ -2685,7 +2685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
   %length = getelementptr inbounds i8, ptr %this, i64 32
@@ -2804,7 +2804,7 @@ return:                                           ; preds = %entry, %if.end55
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7513ResourceTable9findValueEPKcRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, ptr nocapture noundef readonly %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513ResourceTable9findValueEPKcRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, ptr nocapture noundef readonly %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2856,7 +2856,7 @@ cond.true.us.i:                                   ; preds = %while.body.us.i
 
 cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
   %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
+  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
   %cmp14.us.i = icmp slt i32 %call13.us.i, 0
   br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
 
@@ -2900,7 +2900,7 @@ cond.false.i:                                     ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
   %cmp14.i = icmp slt i32 %call.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
@@ -2950,7 +2950,7 @@ while.body.us.i28:                                ; preds = %while.body.lr.ph.i1
   %.sink.i = load ptr, ptr %spec.select46, align 8
   %idx.ext.us.i35 = zext nneg i32 %and.us.i to i64
   %add.ptr.us.i36 = getelementptr inbounds i8, ptr %.sink.i, i64 %idx.ext.us.i35
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i36) #18
+  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i36) #18
   %cmp9.us.i = icmp slt i32 %call8.us.i, 0
   br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
 
@@ -2982,7 +2982,7 @@ while.body.i15:                                   ; preds = %while.body.lr.ph.i1
   %.sink34.i = load ptr, ptr %spec.select48, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
   %cmp9.i = icmp slt i32 %call.i22, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 
@@ -3078,8 +3078,8 @@ if.then2:                                         ; preds = %sw.bb
 
 if.then4:                                         ; preds = %if.then2
   %2 = zext nneg i32 %indexR to i64
-  %3 = getelementptr i32, ptr %add.ptr, i64 %2
-  %arrayidx = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds i32, ptr %add.ptr, i64 %2
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -3095,8 +3095,8 @@ sw.bb7:                                           ; preds = %if.end
 
 if.then12:                                        ; preds = %sw.bb7
   %7 = zext nneg i32 %indexR to i64
-  %8 = getelementptr i16, ptr %add.ptr10, i64 %7
-  %arrayidx15 = getelementptr i8, ptr %8, i64 2
+  %8 = getelementptr inbounds i16, ptr %add.ptr10, i64 %7
+  %arrayidx15 = getelementptr inbounds i8, ptr %8, i64 2
   %9 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %9 to i32
   %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %pResData, i64 52
@@ -3122,7 +3122,7 @@ return:                                           ; preds = %if.then2, %sw.bb, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %this, i32 noundef %i, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %this, i32 noundef %i, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
   %length = getelementptr inbounds i8, ptr %this, i64 16
@@ -3300,8 +3300,8 @@ if.then2.i:                                       ; preds = %sw.bb.i
 
 if.then4.i:                                       ; preds = %if.then2.i
   %10 = and i64 %call43, 2147483647
-  %11 = getelementptr i32, ptr %add.ptr.i, i64 %10
-  %arrayidx.i = getelementptr i8, ptr %11, i64 4
+  %11 = getelementptr inbounds i32, ptr %add.ptr.i, i64 %10
+  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %arrayidx.i, align 4
   br label %if.end51
 
@@ -3316,8 +3316,8 @@ sw.bb7.i:                                         ; preds = %if.end.i
 
 if.then12.i:                                      ; preds = %sw.bb7.i
   %15 = and i64 %call43, 2147483647
-  %16 = getelementptr i16, ptr %add.ptr10.i, i64 %15
-  %arrayidx15.i = getelementptr i8, ptr %16, i64 2
+  %16 = getelementptr inbounds i16, ptr %add.ptr10.i, i64 %15
+  %arrayidx15.i = getelementptr inbounds i8, ptr %16, i64 2
   %17 = load i16, ptr %arrayidx15.i, align 2
   %conv16.i = zext i16 %17 to i32
   %18 = load i32, ptr %poolStringIndex16Limit.i.i, align 4
@@ -3887,7 +3887,7 @@ if.end88:                                         ; preds = %if.else78, %if.then
   br i1 %cmp.i, label %for.inc, label %if.then94
 
 if.then94:                                        ; preds = %if.end88
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.16, i32 noundef %res, i32 noundef %20, i32 noundef %call91)
   br label %sw.epilog276
 
@@ -3965,7 +3965,7 @@ for.body121:                                      ; preds = %for.body121.lr.ph, 
   store i32 %conv126, ptr %arrayidx128, align 4
   %30 = load ptr, ptr %rows, align 8
   %sortIndex = getelementptr inbounds %struct.Row, ptr %30, i64 %indvars.iv266, i32 1
-  %31 = trunc i64 %indvars.iv266 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv266 to i32
   store i32 %31, ptr %sortIndex, align 4
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
@@ -3981,7 +3981,7 @@ for.body138:                                      ; preds = %for.body138.lr.ph, 
   store i32 %call141, ptr %arrayidx144, align 4
   %34 = load ptr, ptr %rows142, align 8
   %sortIndex149 = getelementptr inbounds %struct.Row, ptr %34, i64 %indvars.iv271, i32 1
-  %35 = trunc i64 %indvars.iv271 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv271 to i32
   store i32 %35, ptr %sortIndex149, align 4
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
@@ -4157,7 +4157,7 @@ for.body254:                                      ; preds = %for.body254.lr.ph, 
   br i1 %cmp.i241, label %for.inc263, label %if.then261
 
 if.then261:                                       ; preds = %for.body254
-  %56 = trunc i64 %indvars.iv291 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv291 to i32
   tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.18, i32 noundef %res, i32 noundef %56, i32 noundef %call258)
   br label %sw.epilog276
 

@@ -142,8 +142,8 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %.promoted = load i64, ptr %8, align 8
   %9 = icmp ugt i64 %7, %.promoted
   %10 = icmp ugt i64 %.promoted, %5
-  %or.cond.i38 = or i1 %9, %10
-  br i1 %or.cond.i38, label %.loopexit, label %.lr.ph
+  %or.cond.i39 = or i1 %9, %10
+  br i1 %or.cond.i39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %3, i64 %7
@@ -177,7 +177,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %31 = icmp ugt i64 %29, %30
   %32 = icmp ugt i64 %30, %5
   %or.cond.i23.us = or i1 %31, %32
-  br i1 %or.cond.i23.us, label %33, label %.split41.us
+  br i1 %or.cond.i23.us, label %33, label %.split42.us
 
 33:                                               ; preds = %28, %25
   store i64 %27, ptr %8, align 8
@@ -222,11 +222,11 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit": ; preds = %48
   %53 = getelementptr inbounds i8, ptr %3, i64 %49
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %53, ptr nonnull %12, i64 %14), !alias.scope !8
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %53, ptr nonnull readonly %12, i64 %14), !alias.scope !8
   %54 = icmp eq i32 %bcmp.i, 0
   br i1 %54, label %55, label %45
 
-.split41.us:                                      ; preds = %28
+.split42.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %14, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c783717815ff7b79929cf0f911e8765.15) #11, !noalias !12
   unreachable
 
@@ -389,7 +389,7 @@ define void @_ZN3vfs8vfs_path7VfsPath4join17h5a5bc7f83f9a1610E(ptr noalias nocap
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06472c26314c9ec5E.exit.i": ; preds = %24, %68
   %26 = phi ptr [ %65, %68 ], [ %2, %24 ]
   %27 = phi i64 [ %69, %68 ], [ %3, %24 ]
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.7c783717815ff7b79929cf0f911e8765.22, ptr noundef nonnull dereferenceable(3) %26, i64 3), !alias.scope !22, !noalias !29
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.7c783717815ff7b79929cf0f911e8765.22, ptr noundef nonnull readonly dereferenceable(3) %26, i64 3), !alias.scope !22, !noalias !29
   %28 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %28, label %34, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06472c26314c9ec5E.exit.thread.i"
 
@@ -702,7 +702,7 @@ _ZN3vfs8vfs_path11VirtualPath11starts_with17hc2b1010205d49617E.exit: ; preds = %
   %.val2 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2, ptr nonnull %.val, i64 %.val3), !alias.scope !95
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2, ptr nonnull readonly %.val, i64 %.val3), !alias.scope !95
   %22 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZN3vfs8vfs_path11VirtualPath11starts_with17hc2b1010205d49617E.exit
 }
@@ -789,7 +789,7 @@ define void @_ZN3vfs8vfs_path7VfsPath6parent17h98bfb5a833058016E(ptr noalias noc
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %10, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %10, i64 %11, i1 false)
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %13, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1471,7 +1471,7 @@ define hidden void @"_ZN65_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..clone
   %11 = extractvalue { i64, ptr } %9, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %7, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %7, i64 %8, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %10, ptr %13, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

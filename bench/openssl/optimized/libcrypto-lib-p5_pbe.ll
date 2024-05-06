@@ -58,7 +58,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %ctx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %pbe_str = alloca ptr, align 8
   store ptr null, ptr %pbe_str, align 8
@@ -176,9 +176,9 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null), !range !4
+  %call = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null)
   ret i32 %call
 }
 
@@ -196,7 +196,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %call, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef %ctx), !range !4
+  %call1 = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %call, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
@@ -227,7 +227,7 @@ if.then.i:                                        ; preds = %entry
   br label %PKCS5_pbe_set_ex.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %call.i, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null), !range !4
+  %call1.i = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %call.i, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.end3.i, label %PKCS5_pbe_set_ex.exit
 
@@ -256,4 +256,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

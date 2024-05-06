@@ -46,7 +46,7 @@ define i32 @Cudd_Prime(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw nsw i32 %.01116, 2
-  %7 = mul nsw i32 %6, %6
+  %7 = mul nuw nsw i32 %6, %6
   %.not = icmp ugt i32 %7, %3
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
@@ -476,7 +476,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not229, label %138, label %124
 
 124:                                              ; preds = %._crit_edge265
-  %125 = trunc i64 %indvars.iv338 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv338 to i32
   %cond = icmp eq i32 %125, 2147483647
   %126 = getelementptr inbounds i8, ptr %0, i64 616
   %127 = load ptr, ptr %126, align 8
@@ -715,7 +715,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not226, label %238, label %224
 
 224:                                              ; preds = %._crit_edge301
-  %225 = trunc i64 %indvars.iv351 to i32
+  %225 = trunc nuw nsw i64 %indvars.iv351 to i32
   %cond239 = icmp eq i32 %225, 2147483647
   %226 = getelementptr inbounds i8, ptr %0, i64 616
   %227 = load ptr, ptr %226, align 8
@@ -1375,7 +1375,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 ._crit_edge572:                                   ; preds = %.lr.ph571, %.preheader565
   %180 = load ptr, ptr %54, align 8
   %181 = getelementptr inbounds i32, ptr %180, i64 %indvars.iv619
-  %182 = trunc i64 %indvars.iv619 to i32
+  %182 = trunc nuw nsw i64 %indvars.iv619 to i32
   store i32 %182, ptr %181, align 4
   %183 = load ptr, ptr %59, align 8
   %184 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv619
@@ -1549,7 +1549,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 ._crit_edge578:                                   ; preds = %.lr.ph577.preheader, %.preheader563
   %236 = load ptr, ptr %65, align 8
   %237 = getelementptr inbounds i32, ptr %236, i64 %indvars.iv635
-  %238 = trunc i64 %indvars.iv635 to i32
+  %238 = trunc nuw nsw i64 %indvars.iv635 to i32
   store i32 %238, ptr %237, align 4
   %239 = load ptr, ptr %70, align 8
   %240 = getelementptr inbounds i32, ptr %239, i64 %indvars.iv635
@@ -2133,7 +2133,7 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %1), !range !41
+  %8 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %1)
   %.not68 = icmp eq i32 %8, 0
   br i1 %.not68, label %228, label %9
 
@@ -2214,7 +2214,7 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %62 = add nsw i32 %.073.i, -1
   %63 = shl i32 %.0.i, 3
   %64 = icmp ult i32 %63, %59
-  br i1 %64, label %60, label %65, !llvm.loop !42
+  br i1 %64, label %60, label %65, !llvm.loop !41
 
 65:                                               ; preds = %60
   %66 = zext i32 %61 to i64
@@ -2243,7 +2243,7 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %81 = load i32, ptr %5, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next102.i, %82
-  br i1 %83, label %.lr.ph94.i, label %ddRehashZdd.exit, !llvm.loop !43
+  br i1 %83, label %.lr.ph94.i, label %ddRehashZdd.exit, !llvm.loop !42
 
 84:                                               ; preds = %65
   store ptr %68, ptr %52, align 8
@@ -2314,12 +2314,12 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   store ptr %123, ptr %93, align 8
   store ptr %.07487.i, ptr %122, align 8
   %.not82.i = icmp eq ptr %94, null
-  br i1 %.not82.i, label %._crit_edge.i, label %.lr.ph88.i, !llvm.loop !44
+  br i1 %.not82.i, label %._crit_edge.i, label %.lr.ph88.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.lr.ph88.i, %.lr.ph90.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge91.i, label %.lr.ph90.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %._crit_edge91.i, label %.lr.ph90.i, !llvm.loop !44
 
 ._crit_edge91.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   %.not.i = icmp eq ptr %57, null
@@ -2426,7 +2426,7 @@ ddRehashZdd.exit:                                 ; preds = %.lr.ph94.i, %151, %
   %192 = getelementptr inbounds i8, ptr %.06478, i64 8
   %.064 = load ptr, ptr %192, align 8
   %.not70 = icmp eq ptr %.064, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %191, %ddRehashZdd.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 488
@@ -2629,7 +2629,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store i32 0, ptr %44, align 8
   %45 = load ptr, ptr %15, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv239
-  %47 = trunc i64 %indvars.iv239 to i32
+  %47 = trunc nsw i64 %indvars.iv239 to i32
   store i32 %47, ptr %46, align 4
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv239
@@ -2670,7 +2670,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 61:                                               ; preds = %58, %.lr.ph180
   %indvars.iv.next245 = add nsw i64 %indvars.iv244, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count250
-  br i1 %exitcond251.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !47
+  br i1 %exitcond251.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !46
 
 ._crit_edge181:                                   ; preds = %61, %.preheader146
   %62 = getelementptr inbounds i8, ptr %0, i64 624
@@ -2683,14 +2683,14 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store ptr %0, ptr %63, align 8
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
-  br i1 %exitcond238.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !48
+  br i1 %exitcond238.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !47
 
 ._crit_edge174:                                   ; preds = %.lr.ph173, %.preheader147
   %indvars.iv.next240 = add nsw i64 %indvars.iv239, 1
   %lftr.wideiv242 = trunc i64 %indvars.iv.next240 to i32
   %exitcond243.not = icmp eq i32 %21, %lftr.wideiv242
   %indvars.iv.next248 = add i32 %indvars.iv247, 1
-  br i1 %exitcond243.not, label %._crit_edge178, label %22, !llvm.loop !49
+  br i1 %exitcond243.not, label %._crit_edge178, label %22, !llvm.loop !48
 
 ._crit_edge178:                                   ; preds = %._crit_edge174
   %64 = getelementptr inbounds i8, ptr %0, i64 352
@@ -2707,12 +2707,12 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %indvars.iv252 = phi i64 [ %66, %.lr.ph184.preheader ], [ %indvars.iv.next253, %.lr.ph184 ]
   %68 = load ptr, ptr %64, align 8
   %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv252
-  %70 = trunc i64 %indvars.iv252 to i32
+  %70 = trunc nsw i64 %indvars.iv252 to i32
   store i32 %70, ptr %69, align 4
   %indvars.iv.next253 = add nsw i64 %indvars.iv252, 1
   %lftr.wideiv255 = trunc i64 %indvars.iv.next253 to i32
   %exitcond256.not = icmp eq i32 %67, %lftr.wideiv255
-  br i1 %exitcond256.not, label %.loopexit, label %.lr.ph184, !llvm.loop !50
+  br i1 %exitcond256.not, label %.loopexit, label %.lr.ph184, !llvm.loop !49
 
 71:                                               ; preds = %7
   %72 = add nsw i32 %1, 10
@@ -2956,7 +2956,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store i32 %205, ptr %206, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph164, label %164, !llvm.loop !51
+  br i1 %exitcond.not, label %.lr.ph164, label %164, !llvm.loop !50
 
 207:                                              ; preds = %.lr.ph164, %._crit_edge
   %indvars.iv220 = phi i64 [ %162, %.lr.ph164 ], [ %indvars.iv.next221, %._crit_edge ]
@@ -2975,7 +2975,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store i32 0, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %208, i64 32
   %217 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv220
-  %218 = trunc i64 %indvars.iv220 to i32
+  %218 = trunc nsw i64 %indvars.iv220 to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %216, i8 0, i64 20, i1 false)
   store i32 %218, ptr %217, align 4
   %219 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv220
@@ -2999,13 +2999,13 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store ptr %0, ptr %224, align 8
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !52
+  br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph161, %.preheader151
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next221 to i32
   %exitcond223.not = icmp eq i32 %163, %lftr.wideiv
-  br i1 %exitcond223.not, label %._crit_edge165, label %207, !llvm.loop !53
+  br i1 %exitcond223.not, label %._crit_edge165, label %207, !llvm.loop !52
 
 ._crit_edge165:                                   ; preds = %._crit_edge
   %225 = load ptr, ptr %97, align 8
@@ -3032,17 +3032,17 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store i32 %229, ptr %230, align 4
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %.lr.ph170.preheader, label %.lr.ph167, !llvm.loop !54
+  br i1 %exitcond228.not, label %.lr.ph170.preheader, label %.lr.ph167, !llvm.loop !53
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv229 = phi i64 [ %226, %.lr.ph170.preheader ], [ %indvars.iv.next230, %.lr.ph170 ]
   %231 = getelementptr inbounds i32, ptr %.0347.i, i64 %indvars.iv229
-  %232 = trunc i64 %indvars.iv229 to i32
+  %232 = trunc nsw i64 %indvars.iv229 to i32
   store i32 %232, ptr %231, align 4
   %indvars.iv.next230 = add nsw i64 %indvars.iv229, 1
   %lftr.wideiv232 = trunc i64 %indvars.iv.next230 to i32
   %exitcond233.not = icmp eq i32 %227, %lftr.wideiv232
-  br i1 %exitcond233.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !55
+  br i1 %exitcond233.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !54
 
 ._crit_edge171:                                   ; preds = %.lr.ph170
   tail call void @free(ptr noundef %225) #13
@@ -3149,7 +3149,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 283:                                              ; preds = %.lr.ph187, %333
   %indvars.iv265 = phi i32 [ %6, %.lr.ph187 ], [ %indvars.iv.next266, %333 ]
   %indvars.iv257 = phi i64 [ %282, %.lr.ph187 ], [ %indvars.iv.next258, %333 ]
-  %284 = trunc i64 %indvars.iv257 to i32
+  %284 = trunc nsw i64 %indvars.iv257 to i32
   %285 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %284, ptr noundef %251, ptr noundef %254)
   %286 = load ptr, ptr %281, align 8
   %287 = getelementptr inbounds ptr, ptr %286, i64 %indvars.iv257
@@ -3193,7 +3193,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store ptr null, ptr %306, align 8
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count268
-  br i1 %exitcond269.not, label %.lr.ph193, label %296, !llvm.loop !56
+  br i1 %exitcond269.not, label %.lr.ph193, label %296, !llvm.loop !55
 
 308:                                              ; preds = %.lr.ph193, %315
   %indvars.iv270 = phi i64 [ %282, %.lr.ph193 ], [ %indvars.iv.next271, %315 ]
@@ -3218,7 +3218,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %indvars.iv.next271 = add nsw i64 %indvars.iv270, 1
   %lftr.wideiv273 = trunc i64 %indvars.iv.next271 to i32
   %exitcond274.not = icmp eq i32 %255, %lftr.wideiv273
-  br i1 %exitcond274.not, label %._crit_edge194, label %308, !llvm.loop !57
+  br i1 %exitcond274.not, label %._crit_edge194, label %308, !llvm.loop !56
 
 ._crit_edge194:                                   ; preds = %315
   store i32 %6, ptr %5, align 8
@@ -3259,7 +3259,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %lftr.wideiv260 = trunc i64 %indvars.iv.next258 to i32
   %exitcond261.not = icmp eq i32 %255, %lftr.wideiv260
   %indvars.iv.next266 = add i32 %indvars.iv265, 1
-  br i1 %exitcond261.not, label %ddResizeTable.exit, label %283, !llvm.loop !58
+  br i1 %exitcond261.not, label %ddResizeTable.exit, label %283, !llvm.loop !57
 
 ddResizeTable.exit:                               ; preds = %333
   store i32 %280, ptr %279, align 4
@@ -3311,7 +3311,7 @@ ddResizeTable.exit:                               ; preds = %333
   %379 = load ptr, ptr %378, align 8
   %380 = icmp ugt ptr %379, %2
   %381 = getelementptr inbounds i8, ptr %.0121, i64 8
-  br i1 %380, label %377, label %.preheader143, !llvm.loop !59
+  br i1 %380, label %377, label %.preheader143, !llvm.loop !58
 
 .preheader143:                                    ; preds = %377
   %382 = icmp eq ptr %379, %2
@@ -3327,7 +3327,7 @@ ddResizeTable.exit:                               ; preds = %333
   %386 = getelementptr inbounds i8, ptr %390, i64 24
   %387 = load ptr, ptr %386, align 8
   %388 = icmp ugt ptr %387, %3
-  br i1 %388, label %.lr.ph307, label %.lr.ph197._crit_edge.loopexit, !llvm.loop !60
+  br i1 %388, label %.lr.ph307, label %.lr.ph197._crit_edge.loopexit, !llvm.loop !59
 
 .lr.ph307:                                        ; preds = %.lr.ph197.preheader, %.lr.ph197
   %.1122195306 = phi ptr [ %390, %.lr.ph197 ], [ %.0121, %.lr.ph197.preheader ]
@@ -3336,7 +3336,7 @@ ddResizeTable.exit:                               ; preds = %333
   %391 = getelementptr inbounds i8, ptr %390, i64 16
   %392 = load ptr, ptr %391, align 8
   %393 = icmp eq ptr %392, %2
-  br i1 %393, label %.lr.ph197, label %.critedge.loopexit, !llvm.loop !60
+  br i1 %393, label %.lr.ph197, label %.critedge.loopexit, !llvm.loop !59
 
 .lr.ph197._crit_edge.loopexit:                    ; preds = %.lr.ph197
   %394 = getelementptr inbounds i8, ptr %.1122195306, i64 8
@@ -3466,7 +3466,7 @@ ddResizeTable.exit:                               ; preds = %333
   %469 = load ptr, ptr %468, align 8
   %470 = icmp ugt ptr %469, %2
   %471 = getelementptr inbounds i8, ptr %.2123, i64 8
-  br i1 %470, label %467, label %.preheader142, !llvm.loop !61
+  br i1 %470, label %467, label %.preheader142, !llvm.loop !60
 
 .preheader142:                                    ; preds = %467
   %472 = icmp eq ptr %469, %2
@@ -3482,7 +3482,7 @@ ddResizeTable.exit:                               ; preds = %333
   %476 = getelementptr inbounds i8, ptr %480, i64 24
   %477 = load ptr, ptr %476, align 8
   %478 = icmp ugt ptr %477, %3
-  br i1 %478, label %.lr.ph311, label %.critedge2.loopexit, !llvm.loop !62
+  br i1 %478, label %.lr.ph311, label %.critedge2.loopexit, !llvm.loop !61
 
 .lr.ph311:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
   %.3124198310 = phi ptr [ %480, %.lr.ph200 ], [ %.2123, %.lr.ph200.preheader ]
@@ -3491,7 +3491,7 @@ ddResizeTable.exit:                               ; preds = %333
   %481 = getelementptr inbounds i8, ptr %480, i64 16
   %482 = load ptr, ptr %481, align 8
   %483 = icmp eq ptr %482, %2
-  br i1 %483, label %.lr.ph200, label %.critedge2.loopexit, !llvm.loop !62
+  br i1 %483, label %.lr.ph200, label %.critedge2.loopexit, !llvm.loop !61
 
 .critedge2.loopexit:                              ; preds = %.lr.ph311, %.lr.ph200
   %484 = getelementptr inbounds i8, ptr %.3124198310, i64 8
@@ -3543,7 +3543,7 @@ ddResizeTable.exit:                               ; preds = %333
   %515 = load ptr, ptr %514, align 8
   %516 = icmp ugt ptr %515, %2
   %517 = getelementptr inbounds i8, ptr %.0, i64 8
-  br i1 %516, label %513, label %.preheader, !llvm.loop !63
+  br i1 %516, label %513, label %.preheader, !llvm.loop !62
 
 .preheader:                                       ; preds = %513
   %518 = icmp eq ptr %515, %2
@@ -3559,7 +3559,7 @@ ddResizeTable.exit:                               ; preds = %333
   %522 = getelementptr inbounds i8, ptr %526, i64 24
   %523 = load ptr, ptr %522, align 8
   %524 = icmp ugt ptr %523, %3
-  br i1 %524, label %.lr.ph315, label %.critedge4.loopexit, !llvm.loop !64
+  br i1 %524, label %.lr.ph315, label %.critedge4.loopexit, !llvm.loop !63
 
 .lr.ph315:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %.1205314 = phi ptr [ %526, %.lr.ph206 ], [ %.0, %.lr.ph206.preheader ]
@@ -3568,7 +3568,7 @@ ddResizeTable.exit:                               ; preds = %333
   %527 = getelementptr inbounds i8, ptr %526, i64 16
   %528 = load ptr, ptr %527, align 8
   %529 = icmp eq ptr %528, %2
-  br i1 %529, label %.lr.ph206, label %.critedge4.loopexit, !llvm.loop !64
+  br i1 %529, label %.lr.ph206, label %.critedge4.loopexit, !llvm.loop !63
 
 .critedge4.loopexit:                              ; preds = %.lr.ph315, %.lr.ph206
   %530 = getelementptr inbounds i8, ptr %.1205314, i64 8
@@ -3764,7 +3764,7 @@ thread-pre-split:                                 ; preds = %6, %2
   %.0158. = select i1 %.not153, ptr %.0158, ptr %73
   store ptr %.0135156, ptr %.0131157..0158, align 8
   %.not152 = icmp eq ptr %74, %0
-  br i1 %.not152, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not152, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %64
   %.0131.lcssa = phi ptr [ %68, %64 ], [ %..0131157, %.lr.ph ]
@@ -3773,7 +3773,7 @@ thread-pre-split:                                 ; preds = %6, %2
   store ptr %0, ptr %.0131.lcssa, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge163, label %64, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge163, label %64, !llvm.loop !65
 
 ._crit_edge163:                                   ; preds = %._crit_edge, %55
   %.not151 = icmp eq ptr %39, null
@@ -3821,7 +3821,7 @@ thread-pre-split:                                 ; preds = %6, %2
   %129 = load i32, ptr %120, align 8
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next192, %130
-  br i1 %131, label %124, label %._crit_edge178, !llvm.loop !67
+  br i1 %131, label %124, label %._crit_edge178, !llvm.loop !66
 
 ._crit_edge178:                                   ; preds = %124, %115
   %132 = getelementptr inbounds i8, ptr %0, i64 188
@@ -3868,7 +3868,7 @@ thread-pre-split:                                 ; preds = %6, %2
   %.sroa.0.0.extract.trunc = trunc i64 %143 to i32
   %144 = mul i32 %.sroa.0.0.extract.trunc, 12582917
   %.sroa.0.4.extract.shift = lshr i64 %143, 32
-  %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift to i32
+  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
   %145 = add i32 %144, %.sroa.0.4.extract.trunc
   %146 = mul i32 %145, 4256249
   %147 = lshr i32 %146, %109
@@ -3878,12 +3878,12 @@ thread-pre-split:                                 ; preds = %6, %2
   store ptr %150, ptr %140, align 8
   store ptr %.1136168, ptr %149, align 8
   %.not150 = icmp eq ptr %141, null
-  br i1 %.not150, label %._crit_edge171, label %.lr.ph170, !llvm.loop !68
+  br i1 %.not150, label %._crit_edge171, label %.lr.ph170, !llvm.loop !67
 
 ._crit_edge171:                                   ; preds = %.lr.ph170, %.lr.ph173
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !69
+  br i1 %exitcond190.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !68
 
 ._crit_edge174:                                   ; preds = %._crit_edge171, %.preheader
   %.not149 = icmp eq ptr %107, null
@@ -3973,7 +3973,7 @@ declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
   %.fr207 = freeze i32 %4
@@ -4021,7 +4021,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   store i32 0, ptr %30, align 8
   %31 = load ptr, ptr %12, align 8
   %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv228
-  %33 = trunc i64 %indvars.iv228 to i32
+  %33 = trunc nsw i64 %indvars.iv228 to i32
   store i32 %33, ptr %32, align 4
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv228
@@ -4049,7 +4049,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
   %lftr.wideiv231 = trunc i64 %indvars.iv.next229 to i32
   %exitcond232.not = icmp eq i32 %17, %lftr.wideiv231
-  br i1 %exitcond232.not, label %.loopexit, label %18, !llvm.loop !70
+  br i1 %exitcond232.not, label %.loopexit, label %18, !llvm.loop !69
 
 42:                                               ; preds = %2
   %43 = add nsw i32 %1, 10
@@ -4182,7 +4182,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %115 = getelementptr inbounds i8, ptr %108, i64 24
   store i32 0, ptr %115, align 8
   %116 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv216
-  %117 = trunc i64 %indvars.iv216 to i32
+  %117 = trunc nsw i64 %indvars.iv216 to i32
   store i32 %117, ptr %116, align 4
   %118 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv216
   store i32 %117, ptr %118, align 4
@@ -4195,7 +4195,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv.next217 = add nsw i64 %indvars.iv216, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next217 to i32
   %exitcond219.not = icmp eq i32 %107, %lftr.wideiv
-  br i1 %exitcond219.not, label %._crit_edge201, label %.lr.ph200.split.us, !llvm.loop !71
+  br i1 %exitcond219.not, label %._crit_edge201, label %.lr.ph200.split.us, !llvm.loop !70
 
 120:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
@@ -4233,7 +4233,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   store i32 %143, ptr %144, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader194, label %120, !llvm.loop !72
+  br i1 %exitcond.not, label %.preheader194, label %120, !llvm.loop !71
 
 .lr.ph200.split:                                  ; preds = %.lr.ph200, %.preheader193
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.preheader193 ], [ %106, %.lr.ph200 ]
@@ -4251,7 +4251,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %152 = getelementptr inbounds i8, ptr %145, i64 24
   store i32 0, ptr %152, align 8
   %153 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv220
-  %154 = trunc i64 %indvars.iv220 to i32
+  %154 = trunc nsw i64 %indvars.iv220 to i32
   store i32 %154, ptr %153, align 4
   %155 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv220
   store i32 %154, ptr %155, align 4
@@ -4264,7 +4264,7 @@ define i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
   %lftr.wideiv223 = trunc i64 %indvars.iv.next221 to i32
   %exitcond224.not = icmp eq i32 %107, %lftr.wideiv223
-  br i1 %exitcond224.not, label %._crit_edge201, label %.lr.ph200.split, !llvm.loop !71
+  br i1 %exitcond224.not, label %._crit_edge201, label %.lr.ph200.split, !llvm.loop !70
 
 .split.us:                                        ; preds = %.lr.ph200.split.us, %.lr.ph200.split
   %158 = getelementptr inbounds i8, ptr %0, i64 624
@@ -4421,7 +4421,7 @@ define ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) local_unnamed_add
   %.sroa.0.0.extract.trunc = trunc i64 %38 to i32
   %39 = mul i32 %.sroa.0.0.extract.trunc, 12582917
   %.sroa.0.4.extract.shift = lshr i64 %38, 32
-  %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift to i32
+  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
   %40 = add i32 %39, %.sroa.0.4.extract.trunc
   %41 = mul i32 %40, 4256249
   %42 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4463,7 +4463,7 @@ define ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) local_unnamed_add
   %63 = getelementptr inbounds i8, ptr %.05061, i64 8
   %.050 = load ptr, ptr %63, align 8
   %.not57 = icmp eq ptr %.050, null
-  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %62, %27
   %64 = getelementptr inbounds i8, ptr %0, i64 228
@@ -4536,7 +4536,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store ptr %0, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %26 = load ptr, ptr %3, align 8
@@ -4597,7 +4597,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %63 = load ptr, ptr %62, align 8
   %64 = icmp ult ptr %34, %63
   %65 = getelementptr inbounds i8, ptr %.079, i64 8
-  br i1 %64, label %61, label %.preheader, !llvm.loop !75
+  br i1 %64, label %61, label %.preheader, !llvm.loop !74
 
 .preheader:                                       ; preds = %61
   %66 = icmp eq ptr %34, %63
@@ -4613,7 +4613,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %70 = getelementptr inbounds i8, ptr %74, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = icmp ult ptr %46, %71
-  br i1 %72, label %.lr.ph113, label %.critedge.loopexit, !llvm.loop !76
+  br i1 %72, label %.lr.ph113, label %.critedge.loopexit, !llvm.loop !75
 
 .lr.ph113:                                        ; preds = %.lr.ph92.preheader, %.lr.ph92
   %.18090112 = phi ptr [ %74, %.lr.ph92 ], [ %.079, %.lr.ph92.preheader ]
@@ -4622,7 +4622,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %34, %76
-  br i1 %77, label %.lr.ph92, label %.critedge.loopexit, !llvm.loop !76
+  br i1 %77, label %.lr.ph92, label %.critedge.loopexit, !llvm.loop !75
 
 .critedge.loopexit:                               ; preds = %.lr.ph92, %.lr.ph113
   %78 = getelementptr inbounds i8, ptr %.18090112, i64 8
@@ -4634,12 +4634,12 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store ptr %79, ptr %31, align 8
   store ptr %.08196, ptr %.1.lcssa, align 8
   %.not88 = icmp eq ptr %32, %0
-  br i1 %.not88, label %._crit_edge99, label %.lr.ph98, !llvm.loop !77
+  br i1 %.not88, label %._crit_edge99, label %.lr.ph98, !llvm.loop !76
 
 ._crit_edge99:                                    ; preds = %.critedge, %.lr.ph102
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !78
+  br i1 %exitcond111.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !77
 
 ._crit_edge103:                                   ; preds = %._crit_edge99, %._crit_edge
   %.not = icmp eq ptr %7, null
@@ -4686,7 +4686,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -4798,7 +4798,7 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   %80 = add nsw i32 %79, %1
   store i32 %80, ptr %78, align 4
   %.not613.not = icmp sgt i64 %indvars.iv.next, %16
-  br i1 %.not613.not, label %26, label %.preheader628, !llvm.loop !79
+  br i1 %.not613.not, label %26, label %.preheader628, !llvm.loop !78
 
 81:                                               ; preds = %.lr.ph636, %._crit_edge
   %indvars.iv674 = phi i64 [ 0, %.lr.ph636 ], [ %indvars.iv.next675, %._crit_edge ]
@@ -4838,11 +4838,11 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   %105 = load ptr, ptr %20, align 8
   %106 = add nsw i64 %indvars.iv674, %25
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
-  %108 = trunc i64 %83 to i32
+  %108 = trunc nsw i64 %83 to i32
   store i32 %108, ptr %107, align 4
   %109 = load ptr, ptr %21, align 8
   %110 = getelementptr inbounds i32, ptr %109, i64 %83
-  %111 = trunc i64 %106 to i32
+  %111 = trunc nsw i64 %106 to i32
   store i32 %111, ptr %110, align 4
   %112 = tail call noalias ptr @malloc(i64 noundef %23) #12
   %113 = load ptr, ptr %18, align 8
@@ -4865,12 +4865,12 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr %0, ptr %118, align 8
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next672, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph634, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph634, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph634, %.preheader627
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond678.not = icmp eq i64 %indvars.iv.next675, %wide.trip.count677
-  br i1 %exitcond678.not, label %._crit_edge637, label %81, !llvm.loop !81
+  br i1 %exitcond678.not, label %._crit_edge637, label %81, !llvm.loop !80
 
 ._crit_edge637:                                   ; preds = %._crit_edge
   %119 = getelementptr inbounds i8, ptr %0, i64 352
@@ -4889,11 +4889,11 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   %122 = add nsw i64 %indvars.iv679, %121
   %123 = load ptr, ptr %119, align 8
   %124 = getelementptr inbounds i32, ptr %123, i64 %122
-  %125 = trunc i64 %122 to i32
+  %125 = trunc nsw i64 %122 to i32
   store i32 %125, ptr %124, align 4
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
   %exitcond683.not = icmp eq i64 %indvars.iv.next680, %wide.trip.count682
-  br i1 %exitcond683.not, label %.loopexit, label %.lr.ph639, !llvm.loop !82
+  br i1 %exitcond683.not, label %.loopexit, label %.lr.ph639, !llvm.loop !81
 
 126:                                              ; preds = %3
   %127 = add nsw i32 %8, 10
@@ -5080,7 +5080,7 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %229, ptr %230, align 4
   %indvars.iv.next685 = add nuw nsw i64 %indvars.iv684, 1
   %exitcond688.not = icmp eq i64 %indvars.iv.next685, %wide.trip.count687
-  br i1 %exitcond688.not, label %.preheader625, label %188, !llvm.loop !83
+  br i1 %exitcond688.not, label %.preheader625, label %188, !llvm.loop !82
 
 .preheader624:                                    ; preds = %239, %.preheader625
   %231 = icmp sgt i32 %1, 0
@@ -5105,7 +5105,7 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %241, ptr %242, align 4
   %indvars.iv.next691 = add nsw i64 %indvars.iv690, 1
   %exitcond694.not = icmp eq i64 %indvars.iv.next691, %wide.trip.count693
-  br i1 %exitcond694.not, label %.preheader624, label %239, !llvm.loop !84
+  br i1 %exitcond694.not, label %.preheader624, label %239, !llvm.loop !83
 
 .preheader622:                                    ; preds = %._crit_edge647, %.preheader624
   br i1 %184, label %.lr.ph651, label %._crit_edge652
@@ -5138,7 +5138,7 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   %259 = getelementptr inbounds i8, ptr %252, i64 24
   store i32 0, ptr %259, align 8
   %260 = getelementptr inbounds i8, ptr %252, i64 32
-  %261 = trunc i64 %indvars.iv700 to i32
+  %261 = trunc nsw i64 %indvars.iv700 to i32
   %262 = add i32 %234, %261
   %263 = sext i32 %262 to i64
   %264 = getelementptr inbounds i32, ptr %142, i64 %263
@@ -5165,12 +5165,12 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr %0, ptr %270, align 8
   %indvars.iv.next696 = add nuw nsw i64 %indvars.iv695, 1
   %exitcond699.not = icmp eq i64 %indvars.iv.next696, %235
-  br i1 %exitcond699.not, label %._crit_edge647, label %.lr.ph646, !llvm.loop !85
+  br i1 %exitcond699.not, label %._crit_edge647, label %.lr.ph646, !llvm.loop !84
 
 ._crit_edge647:                                   ; preds = %.lr.ph646, %.preheader623
   %indvars.iv.next701 = add nsw i64 %indvars.iv700, 1
   %271 = icmp slt i64 %indvars.iv.next701, %238
-  br i1 %271, label %251, label %.preheader622, !llvm.loop !86
+  br i1 %271, label %251, label %.preheader622, !llvm.loop !85
 
 272:                                              ; preds = %.lr.ph651, %272
   %indvars.iv703 = phi i64 [ %249, %.lr.ph651 ], [ %indvars.iv.next704, %272 ]
@@ -5234,7 +5234,7 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %316, ptr %314, align 4
   %indvars.iv.next704 = add nsw i64 %indvars.iv703, 1
   %exitcond707.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count706
-  br i1 %exitcond707.not, label %._crit_edge652, label %272, !llvm.loop !87
+  br i1 %exitcond707.not, label %._crit_edge652, label %272, !llvm.loop !86
 
 ._crit_edge652:                                   ; preds = %272, %.preheader622
   %317 = load ptr, ptr %152, align 8
@@ -5265,16 +5265,16 @@ define noundef i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %322, ptr %323, align 4
   %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
   %exitcond712.not = icmp eq i64 %indvars.iv.next709, %wide.trip.count711
-  br i1 %exitcond712.not, label %.preheader620, label %.lr.ph654, !llvm.loop !88
+  br i1 %exitcond712.not, label %.preheader620, label %.lr.ph654, !llvm.loop !87
 
 .lr.ph656:                                        ; preds = %.lr.ph656.preheader, %.lr.ph656
   %indvars.iv713 = phi i64 [ %319, %.lr.ph656.preheader ], [ %indvars.iv.next714, %.lr.ph656 ]
   %324 = getelementptr inbounds i32, ptr %.0573, i64 %indvars.iv713
-  %325 = trunc i64 %indvars.iv713 to i32
+  %325 = trunc nsw i64 %indvars.iv713 to i32
   store i32 %325, ptr %324, align 4
   %indvars.iv.next714 = add nsw i64 %indvars.iv713, 1
   %326 = icmp slt i64 %indvars.iv.next714, %320
-  br i1 %326, label %.lr.ph656, label %._crit_edge657, !llvm.loop !89
+  br i1 %326, label %.lr.ph656, label %._crit_edge657, !llvm.loop !88
 
 ._crit_edge657:                                   ; preds = %.lr.ph656, %.preheader620
   tail call void @free(ptr noundef %317) #13
@@ -5426,7 +5426,7 @@ ddFixLimits.exit:                                 ; preds = %.loopexit, %388
 402:                                              ; preds = %.lr.ph659, %516
   %indvars.iv722 = phi i32 [ %7, %.lr.ph659 ], [ %indvars.iv.next723, %516 ]
   %indvars.iv716 = phi i64 [ %400, %.lr.ph659 ], [ %indvars.iv.next717, %516 ]
-  %403 = trunc i64 %indvars.iv716 to i32
+  %403 = trunc nsw i64 %indvars.iv716 to i32
   %404 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %403, ptr noundef %392, ptr noundef %395)
   %405 = load ptr, ptr %399, align 8
   %406 = getelementptr inbounds ptr, ptr %405, i64 %indvars.iv716
@@ -5478,7 +5478,7 @@ ddFixLimits.exit:                                 ; preds = %.loopexit, %388
   store ptr null, ptr %430, align 8
   %indvars.iv.next720 = add nsw i64 %indvars.iv719, 1
   %exitcond726.not = icmp eq i64 %indvars.iv.next720, %wide.trip.count725
-  br i1 %exitcond726.not, label %.preheader, label %420, !llvm.loop !90
+  br i1 %exitcond726.not, label %.preheader, label %420, !llvm.loop !89
 
 432:                                              ; preds = %.lr.ph665, %464
   %indvars.iv727 = phi i64 [ %418, %.lr.ph665 ], [ %indvars.iv.next728, %464 ]
@@ -5574,7 +5574,7 @@ ddFixLimits.exit:                                 ; preds = %.loopexit, %388
   store i32 %499, ptr %497, align 4
   %indvars.iv.next728 = add nsw i64 %indvars.iv727, 1
   %exitcond731.not = icmp eq i64 %indvars.iv.next728, %400
-  br i1 %exitcond731.not, label %._crit_edge666, label %432, !llvm.loop !91
+  br i1 %exitcond731.not, label %._crit_edge666, label %432, !llvm.loop !90
 
 ._crit_edge666:                                   ; preds = %464, %.preheader
   store i32 %7, ptr %6, align 8
@@ -5618,7 +5618,7 @@ ddFixLimits.exit619:                              ; preds = %._crit_edge666, %51
   %indvars.iv.next717 = add nsw i64 %indvars.iv716, 1
   %523 = icmp slt i64 %indvars.iv.next717, %401
   %indvars.iv.next723 = add i32 %indvars.iv722, 1
-  br i1 %523, label %402, label %._crit_edge660, !llvm.loop !92
+  br i1 %523, label %402, label %._crit_edge660, !llvm.loop !91
 
 ._crit_edge660:                                   ; preds = %516, %ddFixLimits.exit
   %524 = getelementptr inbounds i8, ptr %0, i64 520
@@ -5686,14 +5686,14 @@ define internal fastcc void @ddPatchTree(ptr nocapture noundef readonly %0, ptr 
   %16 = getelementptr inbounds i8, ptr %.012, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %15, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %cuddFindParent.exit, label %4
 
@@ -5790,7 +5790,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ugt ptr %54, %30
   %56 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  br i1 %55, label %52, label %.preheader.i, !llvm.loop !94
+  br i1 %55, label %52, label %.preheader.i, !llvm.loop !93
 
 .preheader.i:                                     ; preds = %52
   %57 = icmp eq ptr %54, %30
@@ -5812,7 +5812,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %30
-  br i1 %69, label %.lr.ph.i, label %.critedge.i, !llvm.loop !95
+  br i1 %69, label %.lr.ph.i, label %.critedge.i, !llvm.loop !94
 
 70:                                               ; preds = %.lr.ph.i
   %71 = icmp eq ptr %30, %62
@@ -5821,12 +5821,12 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
 .critedge.i:                                      ; preds = %64, %70, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !96
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !95
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %45
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
   %72 = icmp sgt i64 %indvars.iv45.i, 0
-  br i1 %72, label %45, label %.loopexit, !llvm.loop !97
+  br i1 %72, label %45, label %.loopexit, !llvm.loop !96
 
 .loopexit:                                        ; preds = %._crit_edge.i, %36
   store i32 1, ptr %31, align 4
@@ -5838,7 +5838,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %74) #13
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %75 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %75, label %17, label %._crit_edge, !llvm.loop !98
+  br i1 %75, label %17, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %73
   %76 = tail call i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef 1)
@@ -5900,7 +5900,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   store i32 %109, ptr %80, align 4
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
   %110 = icmp slt i64 %indvars.iv.next175, %82
-  br i1 %110, label %88, label %.preheader, !llvm.loop !99
+  br i1 %110, label %88, label %.preheader, !llvm.loop !98
 
 111:                                              ; preds = %.lr.ph166, %146
   %112 = phi i32 [ %83, %.lr.ph166 ], [ %147, %146 ]
@@ -5917,7 +5917,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   br label %146
 
 119:                                              ; preds = %111
-  %120 = trunc i64 %indvars.iv177 to i32
+  %120 = trunc nsw i64 %indvars.iv177 to i32
   %121 = sub nsw i32 %120, %.0130164
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds %struct.DdSubtable, ptr %8, i64 %122
@@ -5960,7 +5960,7 @@ define noundef i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1) local_u
   %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next178, %148
-  br i1 %149, label %111, label %._crit_edge167, !llvm.loop !100
+  br i1 %149, label %111, label %._crit_edge167, !llvm.loop !99
 
 ._crit_edge167:                                   ; preds = %146, %.preheader
   %150 = phi i32 [ %83, %.preheader ], [ %147, %146 ]
@@ -6093,7 +6093,7 @@ attributes #14 = { noreturn nounwind }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{i32 0, i32 2}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
@@ -6152,4 +6152,3 @@ attributes #14 = { noreturn nounwind }
 !97 = distinct !{!97, !5}
 !98 = distinct !{!98, !5}
 !99 = distinct !{!99, !5}
-!100 = distinct !{!100, !5}

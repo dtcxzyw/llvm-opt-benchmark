@@ -170,7 +170,7 @@ define hidden void @zim_php_user_filter_onClose(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_user_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_user_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_class_entry, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct.zend_type, align 8

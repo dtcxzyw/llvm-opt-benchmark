@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i8] c"Verify error: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_data(ptr noundef %cms, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_data(ptr noundef %cms, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -46,7 +46,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call2, i32 noundef %flags), !range !4
+  %call6 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call2, i32 noundef %flags)
   tail call void @BIO_free_all(ptr noundef nonnull %call2) #4
   br label %return
 
@@ -68,7 +68,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @CMS_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_copy_content(ptr noundef %out, ptr noundef %in, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_copy_content(ptr noundef %out, ptr noundef %in, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %cmp.i = icmp eq ptr %out, null
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %in, ptr noundef null, i32 noundef %flags), !range !4
+  %call1 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %in, ptr noundef null, i32 noundef %flags)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -192,7 +192,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare ptr @ossl_cms_Data_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_final(ptr noundef %cms, ptr noundef %data, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_final(ptr noundef %cms, ptr noundef %data, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %dcont) #4
   %cmp = icmp eq ptr %call, null
@@ -233,7 +233,7 @@ do.body.i:                                        ; preds = %err, %do.body.i
   %cmp2.i = icmp ne ptr %call.i, null
   %cmp3.i = icmp ne ptr %call.i, %dcont
   %0 = and i1 %cmp2.i, %cmp3.i
-  br i1 %0, label %do.body.i, label %return, !llvm.loop !5
+  br i1 %0, label %do.body.i, label %return, !llvm.loop !4
 
 if.else.i:                                        ; preds = %err
   tail call void @BIO_free_all(ptr noundef nonnull %call) #4
@@ -259,7 +259,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %CMS_data_create_ex.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %call1.i = tail call i32 @CMS_final(ptr noundef nonnull %call.i, ptr noundef %in, ptr noundef null, i32 noundef %flags), !range !4
+  %call1.i = tail call i32 @CMS_final(ptr noundef nonnull %call.i, ptr noundef %in, ptr noundef null, i32 noundef %flags)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %CMS_data_create_ex.exit
 
@@ -312,7 +312,7 @@ if.end5:                                          ; preds = %lor.lhs.false.i, %i
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %call10 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call6, i32 noundef %flags), !range !4
+  %call10 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call6, i32 noundef %flags)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
@@ -331,7 +331,7 @@ do.body.i:                                        ; preds = %if.end14, %do.body.
   %cmp2.i = icmp ne ptr %call.i10, null
   %cmp3.i = icmp ne ptr %call.i10, %dcont
   %1 = and i1 %cmp2.i, %cmp3.i
-  br i1 %1, label %do.body.i, label %return, !llvm.loop !5
+  br i1 %1, label %do.body.i, label %return, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.end14
   tail call void @BIO_free_all(ptr noundef nonnull %call6) #4
@@ -375,7 +375,7 @@ if.end7:                                          ; preds = %if.then5, %if.end4
   br i1 %tobool9.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end7
-  %call10 = tail call i32 @CMS_final(ptr noundef nonnull %call1, ptr noundef %in, ptr noundef null, i32 noundef %flags), !range !4
+  %call10 = tail call i32 @CMS_final(ptr noundef nonnull %call1, ptr noundef %in, ptr noundef null, i32 noundef %flags)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -425,7 +425,7 @@ if.end7.i:                                        ; preds = %if.then5.i, %if.end
   br i1 %tobool9.not.i, label %lor.lhs.false.i, label %CMS_digest_create_ex.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end7.i
-  %call10.i = tail call i32 @CMS_final(ptr noundef nonnull %call1.i, ptr noundef %in, ptr noundef null, i32 noundef %flags), !range !4
+  %call10.i = tail call i32 @CMS_final(ptr noundef nonnull %call1.i, ptr noundef %in, ptr noundef null, i32 noundef %flags)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.end13.i, label %CMS_digest_create_ex.exit
 
@@ -439,7 +439,7 @@ CMS_digest_create_ex.exit:                        ; preds = %if.end.i, %if.end7.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_EncryptedData_decrypt(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_EncryptedData_decrypt(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -483,7 +483,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %call14 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call10, i32 noundef %flags), !range !4
+  %call14 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call10, i32 noundef %flags)
   br i1 %cmp2, label %if.else.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13, %do.body.i
@@ -493,7 +493,7 @@ do.body.i:                                        ; preds = %if.end13, %do.body.
   %cmp2.i = icmp ne ptr %call.i8, null
   %cmp3.i = icmp ne ptr %call.i8, %dcont
   %1 = and i1 %cmp2.i, %cmp3.i
-  br i1 %1, label %do.body.i, label %return, !llvm.loop !5
+  br i1 %1, label %do.body.i, label %return, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.end13
   tail call void @BIO_free_all(ptr noundef nonnull %call10) #4
@@ -543,7 +543,7 @@ if.end10:                                         ; preds = %if.then8, %if.end6
   br i1 %tobool12.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %call13 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %in, ptr noundef null, i32 noundef %flags), !range !4
+  %call13 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %in, ptr noundef null, i32 noundef %flags)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end16, label %return
 
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_verify(ptr noundef %cms, ptr noundef %certs, ptr noundef %store, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_verify(ptr noundef %cms, ptr noundef %certs, ptr noundef %store, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %signer.i = alloca ptr, align 8
   %signer = alloca ptr, align 8
@@ -636,7 +636,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc34 = add nuw nsw i32 %i.0156, 1
   %call25 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
   %cmp26 = icmp slt i32 %inc34, %call25
-  br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %scount.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %spec.select107, %for.body ]
@@ -701,7 +701,7 @@ for.body71.lr.ph:                                 ; preds = %if.end67
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.inc79
   %indvars.iv = phi i64 [ 0, %for.body71.lr.ph ], [ %indvars.iv.next, %for.inc79 ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call73 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %2) #4
   %arrayidx = getelementptr inbounds ptr, ptr %si_chains.0, i64 %indvars.iv
   %cond = select i1 %tobool74.not, ptr null, ptr %arrayidx
@@ -772,7 +772,7 @@ for.inc79:                                        ; preds = %if.then18.i, %if.en
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %signer.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end82, label %for.body71, !llvm.loop !8
+  br i1 %exitcond.not, label %if.end82, label %for.body71, !llvm.loop !7
 
 if.end82:                                         ; preds = %for.inc79, %if.end47
   %si_chains.1 = phi ptr [ null, %if.end47 ], [ %si_chains.0, %for.inc79 ]
@@ -795,7 +795,7 @@ for.body92.us.preheader:                          ; preds = %for.body92.lr.ph
 
 for.body92.us:                                    ; preds = %for.body92.us.preheader, %for.inc120.us
   %indvars.iv178 = phi i64 [ 0, %for.body92.us.preheader ], [ %indvars.iv.next179, %for.inc120.us ]
-  %4 = trunc i64 %indvars.iv178 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv178 to i32
   %call94.us = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %4) #4
   %call95.us = call i32 @CMS_signed_get_attr_count(ptr noundef %call94.us) #4
   %cmp96.us = icmp slt i32 %call95.us, 0
@@ -823,7 +823,7 @@ cond.end112.us:                                   ; preds = %cond.true108.us, %i
 for.inc120.us:                                    ; preds = %cond.end112.us, %for.body92.us
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %if.end123, label %for.body92.us, !llvm.loop !9
+  br i1 %exitcond182.not, label %if.end123, label %for.body92.us, !llvm.loop !8
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.inc120
   %i.2161 = phi i32 [ %inc121, %for.inc120 ], [ 0, %for.body92.lr.ph ]
@@ -840,7 +840,7 @@ if.end99:                                         ; preds = %for.body92
 for.inc120:                                       ; preds = %if.end99, %for.body92
   %inc121 = add nuw nsw i32 %i.2161, 1
   %exitcond177.not = icmp eq i32 %inc121, %scount.2
-  br i1 %exitcond177.not, label %if.end123, label %for.body92, !llvm.loop !9
+  br i1 %exitcond177.not, label %if.end123, label %for.body92, !llvm.loop !8
 
 if.end123:                                        ; preds = %for.inc120, %for.inc120.us, %if.end67, %if.end82
   %cms_certs.0200 = phi ptr [ %cms_certs.0, %if.end82 ], [ %call62, %if.end67 ], [ %cms_certs.0, %for.inc120.us ], [ %cms_certs.0, %for.inc120 ]
@@ -943,7 +943,7 @@ if.else173:                                       ; preds = %if.end123, %if.end1
   br i1 %cmp175, label %err, label %if.end178
 
 if.end178:                                        ; preds = %if.else173
-  %call179 = call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call174, i32 noundef %flags.addr.0), !range !4
+  %call179 = call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call174, i32 noundef %flags.addr.0)
   %tobool180.not = icmp eq i32 %call179, 0
   br i1 %tobool180.not, label %err, label %if.end183
 
@@ -964,7 +964,7 @@ for.cond187:                                      ; preds = %for.body192
   %inc201 = add nuw nsw i32 %i.3165, 1
   %call189 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
   %cmp190 = icmp slt i32 %inc201, %call189
-  br i1 %cmp190, label %for.body192, label %err, !llvm.loop !10
+  br i1 %cmp190, label %for.body192, label %err, !llvm.loop !9
 
 for.body192:                                      ; preds = %for.cond187.preheader, %for.cond187
   %i.3165 = phi i32 [ %inc201, %for.cond187 ], [ 0, %for.cond187.preheader ]
@@ -1004,7 +1004,7 @@ do.body.i:                                        ; preds = %if.then208, %do.bod
   %cmp2.i = icmp ne ptr %call.i118, null
   %cmp3.i = icmp ne ptr %call.i118, %tmpout.1
   %7 = and i1 %cmp2.i, %cmp3.i
-  br i1 %7, label %do.body.i, label %do_free_upto.exit, !llvm.loop !5
+  br i1 %7, label %do.body.i, label %do_free_upto.exit, !llvm.loop !4
 
 if.else.i121:                                     ; preds = %if.then208
   call void @BIO_free_all(ptr noundef %cmsbio.1) #4
@@ -1030,7 +1030,7 @@ do.body.i123:                                     ; preds = %if.else214, %do.bod
   %cmp2.i127 = icmp ne ptr %call.i125, null
   %cmp3.i128 = icmp ne ptr %call.i125, %dcont
   %8 = and i1 %cmp2.i127, %cmp3.i128
-  br i1 %8, label %do.body.i123, label %if.end222, !llvm.loop !5
+  br i1 %8, label %do.body.i123, label %if.end222, !llvm.loop !4
 
 if.else220:                                       ; preds = %if.else214
   call void @BIO_free_all(ptr noundef %cmsbio.1) #4
@@ -1068,7 +1068,7 @@ for.body233:                                      ; preds = %for.body233.prehead
   call void @OSSL_STACK_OF_X509_free(ptr noundef %9) #4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %for.end238, label %for.body233, !llvm.loop !11
+  br i1 %exitcond187.not, label %for.end238, label %for.body233, !llvm.loop !10
 
 for.end238:                                       ; preds = %for.body233, %for.cond230.preheader
   call void @CRYPTO_free(ptr noundef nonnull %si_chains.3, ptr noundef nonnull @.str, i32 noundef 482) #4
@@ -1136,7 +1136,7 @@ declare void @X509_CRL_free(ptr noundef) #1
 define i32 @CMS_verify_receipt(ptr noundef %rcms, ptr noundef %ocms, ptr noundef %certs, ptr noundef %store, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, -66
-  %call = tail call i32 @CMS_verify(ptr noundef %rcms, ptr noundef %certs, ptr noundef %store, ptr noundef null, ptr noundef null, i32 noundef %and), !range !4
+  %call = tail call i32 @CMS_verify(ptr noundef %rcms, ptr noundef %certs, ptr noundef %store, ptr noundef null, ptr noundef null, i32 noundef %and)
   %cmp.not.not = icmp eq i32 %call, 0
   br i1 %cmp.not.not, label %return, label %if.end
 
@@ -1192,7 +1192,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.019, 1
   %call15 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #4
   %cmp16 = icmp slt i32 %inc, %call15
-  br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %if.end13, %for.cond
   %i.019 = phi i32 [ %inc, %for.cond ], [ 0, %if.end13 ]
@@ -1216,7 +1216,7 @@ if.end27:                                         ; preds = %if.then25, %for.end
   br i1 %tobool29.not, label %lor.lhs.false30, label %return
 
 lor.lhs.false30:                                  ; preds = %if.end27
-  %call31 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %data, ptr noundef null, i32 noundef %flags), !range !4
+  %call31 = tail call i32 @CMS_final(ptr noundef nonnull %call, ptr noundef %data, ptr noundef null, i32 noundef %flags)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %return
 
@@ -1315,7 +1315,7 @@ if.end22:                                         ; preds = %if.end18
   br i1 %tobool24.not, label %if.end38, label %if.end26
 
 if.end26:                                         ; preds = %if.end22
-  %call27 = tail call i32 @CMS_final(ptr noundef nonnull %call3, ptr noundef nonnull %call19, ptr noundef null, i32 noundef %or), !range !4
+  %call27 = tail call i32 @CMS_final(ptr noundef nonnull %call3, ptr noundef nonnull %call19, ptr noundef null, i32 noundef %or)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end38, label %if.end30
 
@@ -1384,7 +1384,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.018, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #4
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.018 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1408,7 +1408,7 @@ if.end16:                                         ; preds = %if.then14, %for.end
   br i1 %tobool18.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end16
-  %call19 = tail call i32 @CMS_final(ptr noundef nonnull %cond, ptr noundef %data, ptr noundef null, i32 noundef %flags), !range !4
+  %call19 = tail call i32 @CMS_final(ptr noundef nonnull %cond, ptr noundef %data, ptr noundef null, i32 noundef %flags)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %return
 
@@ -1442,14 +1442,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_decrypt_set1_pkey(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_decrypt_set1_pkey(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef null), !range !4
+  %call = tail call i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %peer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %peer) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_RecipientInfos(ptr noundef %cms) #4
   %call1 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
@@ -1526,7 +1526,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.012.i, 1
   %call2.i = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #4
   %cmp.i = icmp slt i32 %inc.i, %call2.i
-  br i1 %cmp.i, label %for.body.i, label %for.inc, !llvm.loop !14
+  br i1 %cmp.i, label %for.body.i, label %for.inc, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
   %i.012.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
@@ -1586,7 +1586,7 @@ for.inc:                                          ; preds = %for.cond.i, %if.end
   %inc = add nuw nsw i32 %i.056, 1
   %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp15 = icmp slt i32 %inc, %call14
-  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc
   %4 = icmp eq i32 %match_ri.1, 0
@@ -1642,7 +1642,7 @@ declare i32 @CMS_RecipientInfo_decrypt(ptr noundef, ptr noundef) local_unnamed_a
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_decrypt_set1_key(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %id, i64 noundef %idlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_decrypt_set1_key(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %id, i64 noundef %idlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_RecipientInfos(ptr noundef %cms) #4
   %call213 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
@@ -1677,7 +1677,7 @@ for.inc.us:                                       ; preds = %if.end16.us, %for.b
   %inc.us = add nuw nsw i32 %i.016.us, 1
   %call2.us = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp.us = icmp slt i32 %inc.us, %call2.us
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !16
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.016 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -1702,7 +1702,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   %inc = add nuw nsw i32 %i.016, 1
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc.us
   %0 = icmp eq i32 %match_ri.1.us, 0
@@ -1726,7 +1726,7 @@ declare i32 @CMS_RecipientInfo_kekri_id_cmp(ptr noundef, ptr noundef, i64 nounde
 declare i32 @CMS_RecipientInfo_set0_key(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_decrypt_set1_password(ptr noundef %cms, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_decrypt_set1_password(ptr noundef %cms, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_RecipientInfos(ptr noundef %cms) #4
   %call1 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
@@ -1767,7 +1767,7 @@ for.inc:                                          ; preds = %if.end12, %for.body
   %inc = add nuw nsw i32 %i.016, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp6 = icmp slt i32 %inc, %call5
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
   %2 = icmp eq i32 %match_ri.1, 0
@@ -1787,7 +1787,7 @@ return:                                           ; preds = %if.end12, %for.end,
 declare i32 @CMS_RecipientInfo_set0_password(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_decrypt(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_decrypt(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -1843,7 +1843,7 @@ if.end24:                                         ; preds = %if.end7
   br i1 %cmp12, label %if.end31, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.end24
-  %call.i21 = tail call i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef nonnull %pk, ptr noundef %cert, ptr noundef null), !range !4
+  %call.i21 = tail call i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef nonnull %pk, ptr noundef %cert, ptr noundef null)
   %tobool29.not = icmp eq i32 %call.i21, 0
   br i1 %tobool29.not, label %return, label %if.end31
 
@@ -1853,7 +1853,7 @@ if.end31:                                         ; preds = %land.lhs.true27, %i
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
-  %call37 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call32, i32 noundef %flags), !range !4
+  %call37 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call32, i32 noundef %flags)
   br i1 %cmp3, label %if.else.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end36, %do.body.i
@@ -1863,7 +1863,7 @@ do.body.i:                                        ; preds = %if.end36, %do.body.
   %cmp2.i = icmp ne ptr %call.i22, null
   %cmp3.i = icmp ne ptr %call.i22, %dcont
   %3 = and i1 %cmp2.i, %cmp3.i
-  br i1 %3, label %do.body.i, label %return, !llvm.loop !5
+  br i1 %3, label %do.body.i, label %return, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.end36
   tail call void @BIO_free_all(ptr noundef nonnull %call32) #4
@@ -1877,7 +1877,7 @@ return:                                           ; preds = %do.body.i, %if.else
 declare i32 @CMS_dataFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_final_digest(ptr noundef %cms, ptr noundef %md, i32 noundef %mdlen, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_final_digest(ptr noundef %cms, ptr noundef %md, i32 noundef %mdlen, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %dcont) #4
   %cmp = icmp eq ptr %call, null
@@ -1913,7 +1913,7 @@ do.body.i:                                        ; preds = %err, %do.body.i
   %cmp2.i = icmp ne ptr %call.i, null
   %cmp3.i = icmp ne ptr %call.i, %dcont
   %0 = and i1 %cmp2.i, %cmp3.i
-  br i1 %0, label %do.body.i, label %return, !llvm.loop !5
+  br i1 %0, label %do.body.i, label %return, !llvm.loop !4
 
 if.else.i:                                        ; preds = %err
   tail call void @BIO_free_all(ptr noundef nonnull %call) #4
@@ -2005,17 +2005,16 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

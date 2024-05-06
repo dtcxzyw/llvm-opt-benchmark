@@ -190,7 +190,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xprt_put: ; 
 @llvm.compiler.used = appending global [71 x ptr] [ptr @__UNIQUE_ID___addressable_xprt_add_backlog2658, ptr @__UNIQUE_ID___addressable_xprt_adjust_cwnd2633, ptr @__UNIQUE_ID___addressable_xprt_alloc2666, ptr @__UNIQUE_ID___addressable_xprt_alloc_slot2662, ptr @__UNIQUE_ID___addressable_xprt_complete_rqst2654, ptr @__UNIQUE_ID___addressable_xprt_disconnect_done2637, ptr @__UNIQUE_ID___addressable_xprt_find_transport_ident2626, ptr @__UNIQUE_ID___addressable_xprt_force_disconnect2638, ptr @__UNIQUE_ID___addressable_xprt_free2668, ptr @__UNIQUE_ID___addressable_xprt_free_slot2663, ptr @__UNIQUE_ID___addressable_xprt_get2669, ptr @__UNIQUE_ID___addressable_xprt_lock_connect2642, ptr @__UNIQUE_ID___addressable_xprt_lookup_rqst2648, ptr @__UNIQUE_ID___addressable_xprt_pin_rqst2649, ptr @__UNIQUE_ID___addressable_xprt_put2670, ptr @__UNIQUE_ID___addressable_xprt_reconnect_backoff2645, ptr @__UNIQUE_ID___addressable_xprt_reconnect_delay2644, ptr @__UNIQUE_ID___addressable_xprt_register_transport2624, ptr @__UNIQUE_ID___addressable_xprt_release_rqst_cong2632, ptr @__UNIQUE_ID___addressable_xprt_release_xprt2629, ptr @__UNIQUE_ID___addressable_xprt_release_xprt_cong2630, ptr @__UNIQUE_ID___addressable_xprt_request_get_cong2631, ptr @__UNIQUE_ID___addressable_xprt_reserve_xprt2627, ptr @__UNIQUE_ID___addressable_xprt_reserve_xprt_cong2628, ptr @__UNIQUE_ID___addressable_xprt_unlock_connect2643, ptr @__UNIQUE_ID___addressable_xprt_unpin_rqst2650, ptr @__UNIQUE_ID___addressable_xprt_unregister_transport2625, ptr @__UNIQUE_ID___addressable_xprt_update_rtt2653, ptr @__UNIQUE_ID___addressable_xprt_wait_for_buffer_space2635, ptr @__UNIQUE_ID___addressable_xprt_wait_for_reply_request_def2655, ptr @__UNIQUE_ID___addressable_xprt_wait_for_reply_request_rtt2656, ptr @__UNIQUE_ID___addressable_xprt_wake_pending_tasks2634, ptr @__UNIQUE_ID___addressable_xprt_wake_up_backlog2659, ptr @__UNIQUE_ID___addressable_xprt_write_space2636, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_rpc_xdr_sendto.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace723, ptr @trace_rpc_xdr_sendto.__UNIQUE_ID___addressable___SCK__tp_func_rpc_xdr_sendto722, ptr @trace_xprt_connect.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1535, ptr @trace_xprt_connect.__UNIQUE_ID___addressable___SCK__tp_func_xprt_connect1534, ptr @trace_xprt_create.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1521, ptr @trace_xprt_create.__UNIQUE_ID___addressable___SCK__tp_func_xprt_create1520, ptr @trace_xprt_destroy.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1591, ptr @trace_xprt_destroy.__UNIQUE_ID___addressable___SCK__tp_func_xprt_destroy1590, ptr @trace_xprt_disconnect_auto.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1549, ptr @trace_xprt_disconnect_auto.__UNIQUE_ID___addressable___SCK__tp_func_xprt_disconnect_auto1548, ptr @trace_xprt_disconnect_done.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1563, ptr @trace_xprt_disconnect_done.__UNIQUE_ID___addressable___SCK__tp_func_xprt_disconnect_done1562, ptr @trace_xprt_disconnect_force.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1577, ptr @trace_xprt_disconnect_force.__UNIQUE_ID___addressable___SCK__tp_func_xprt_disconnect_force1576, ptr @trace_xprt_get_cong.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1731, ptr @trace_xprt_get_cong.__UNIQUE_ID___addressable___SCK__tp_func_xprt_get_cong1730, ptr @trace_xprt_lookup_rqst.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1619, ptr @trace_xprt_lookup_rqst.__UNIQUE_ID___addressable___SCK__tp_func_xprt_lookup_rqst1618, ptr @trace_xprt_put_cong.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1745, ptr @trace_xprt_put_cong.__UNIQUE_ID___addressable___SCK__tp_func_xprt_put_cong1744, ptr @trace_xprt_release_cong.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1717, ptr @trace_xprt_release_cong.__UNIQUE_ID___addressable___SCK__tp_func_xprt_release_cong1716, ptr @trace_xprt_release_xprt.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1689, ptr @trace_xprt_release_xprt.__UNIQUE_ID___addressable___SCK__tp_func_xprt_release_xprt1688, ptr @trace_xprt_reserve.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1759, ptr @trace_xprt_reserve.__UNIQUE_ID___addressable___SCK__tp_func_xprt_reserve1758, ptr @trace_xprt_reserve_cong.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1703, ptr @trace_xprt_reserve_cong.__UNIQUE_ID___addressable___SCK__tp_func_xprt_reserve_cong1702, ptr @trace_xprt_reserve_xprt.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1675, ptr @trace_xprt_reserve_xprt.__UNIQUE_ID___addressable___SCK__tp_func_xprt_reserve_xprt1674, ptr @trace_xprt_retransmit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1647, ptr @trace_xprt_retransmit.__UNIQUE_ID___addressable___SCK__tp_func_xprt_retransmit1646, ptr @trace_xprt_timer.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1605, ptr @trace_xprt_timer.__UNIQUE_ID___addressable___SCK__tp_func_xprt_timer1604, ptr @trace_xprt_transmit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1633, ptr @trace_xprt_transmit.__UNIQUE_ID___addressable___SCK__tp_func_xprt_transmit1632], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xprt_register_transport(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @xprt_register_transport(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @xprt_list_lock) #17
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3
@@ -235,7 +235,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xprt_unregister_transport(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @xprt_unregister_transport(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @xprt_list_lock) #17
   br label %2
 
@@ -391,7 +391,7 @@ define dso_local i32 @xprt_find_transport_ident(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xprt_reserve_xprt(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @xprt_reserve_xprt(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -515,7 +515,7 @@ declare dso_local void @rpc_sleep_on_timeout(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xprt_reserve_xprt_cong(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @xprt_reserve_xprt_cong(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -1292,7 +1292,7 @@ define dso_local noundef zeroext i1 @xprt_write_space(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xprt_adjust_timeout(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @xprt_adjust_timeout(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8

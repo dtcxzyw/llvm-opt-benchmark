@@ -7327,7 +7327,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   store i32 %67, ptr %68, align 8
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds i32, ptr %69, i64 %65
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %71, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load ptr, ptr %33, align 8
@@ -8020,7 +8020,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc i32 %.0.lcssa.i to i8
+  %58 = trunc nuw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

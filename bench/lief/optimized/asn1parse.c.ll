@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_asn1_buf = type { i32, i64, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_len(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -138,7 +138,7 @@ define hidden i32 @mbedtls_asn1_get_len(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_tag(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_tag(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -155,7 +155,7 @@ define hidden i32 @mbedtls_asn1_get_tag(ptr nocapture noundef %0, ptr noundef %1
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %14, ptr %0, align 8
-  %15 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !4
+  %15 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   br label %16
 
 16:                                               ; preds = %10, %4, %13
@@ -164,7 +164,7 @@ define hidden i32 @mbedtls_asn1_get_tag(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_bool(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_bool(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
@@ -181,7 +181,7 @@ define hidden i32 @mbedtls_asn1_get_bool(ptr nocapture noundef %0, ptr noundef %
 mbedtls_asn1_get_tag.exit:                        ; preds = %10
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %12, ptr %0, align 8
-  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -207,7 +207,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %10, %3, %14, %mbedt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_int(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_int(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
@@ -225,7 +225,7 @@ define hidden i32 @mbedtls_asn1_get_int(ptr nocapture noundef %0, ptr noundef %1
 mbedtls_asn1_get_tag.exit.i:                      ; preds = %10
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %12, ptr %0, align 8
-  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %asn1_get_tagged_int.exit
 
@@ -256,7 +256,7 @@ thread-pre-split35.i:                             ; preds = %.lr.ph
   store ptr %24, ptr %0, align 8
   %25 = add i64 %22, -1
   %.not16.i = icmp eq i64 %25, 0
-  br i1 %.not16.i, label %.thread.i, label %thread-pre-split35.i, !llvm.loop !5
+  br i1 %.not16.i, label %.thread.i, label %thread-pre-split35.i, !llvm.loop !4
 
 .critedge.i.loopexit:                             ; preds = %thread-pre-split35.i
   %26 = icmp sgt i8 %.pr.i, -1
@@ -294,7 +294,7 @@ thread-pre-split35.i:                             ; preds = %.lr.ph
   %37 = getelementptr inbounds i8, ptr %36, i64 1
   store ptr %37, ptr %0, align 8
   %.not18.i = icmp eq i64 %30, 0
-  br i1 %.not18.i, label %asn1_get_tagged_int.exit, label %.lr.ph28.i, !llvm.loop !7
+  br i1 %.not18.i, label %asn1_get_tagged_int.exit, label %.lr.ph28.i, !llvm.loop !6
 
 asn1_get_tagged_int.exit:                         ; preds = %.lr.ph28.i, %3, %10, %mbedtls_asn1_get_tag.exit.i, %14, %17, %.critedge.i, %.thread.i
   %.0.i = phi i32 [ %13, %mbedtls_asn1_get_tag.exit.i ], [ -100, %14 ], [ -100, %17 ], [ -100, %.critedge.i ], [ -98, %10 ], [ -96, %3 ], [ 0, %.thread.i ], [ 0, %.lr.ph28.i ]
@@ -303,7 +303,7 @@ asn1_get_tagged_int.exit:                         ; preds = %.lr.ph28.i, %3, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_enum(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_enum(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
@@ -321,7 +321,7 @@ define hidden i32 @mbedtls_asn1_get_enum(ptr nocapture noundef %0, ptr noundef %
 mbedtls_asn1_get_tag.exit.i:                      ; preds = %10
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %12, ptr %0, align 8
-  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %asn1_get_tagged_int.exit
 
@@ -352,7 +352,7 @@ thread-pre-split35.i:                             ; preds = %.lr.ph
   store ptr %24, ptr %0, align 8
   %25 = add i64 %22, -1
   %.not16.i = icmp eq i64 %25, 0
-  br i1 %.not16.i, label %.thread.i, label %thread-pre-split35.i, !llvm.loop !5
+  br i1 %.not16.i, label %.thread.i, label %thread-pre-split35.i, !llvm.loop !4
 
 .critedge.i.loopexit:                             ; preds = %thread-pre-split35.i
   %26 = icmp sgt i8 %.pr.i, -1
@@ -390,7 +390,7 @@ thread-pre-split35.i:                             ; preds = %.lr.ph
   %37 = getelementptr inbounds i8, ptr %36, i64 1
   store ptr %37, ptr %0, align 8
   %.not18.i = icmp eq i64 %30, 0
-  br i1 %.not18.i, label %asn1_get_tagged_int.exit, label %.lr.ph28.i, !llvm.loop !7
+  br i1 %.not18.i, label %asn1_get_tagged_int.exit, label %.lr.ph28.i, !llvm.loop !6
 
 asn1_get_tagged_int.exit:                         ; preds = %.lr.ph28.i, %3, %10, %mbedtls_asn1_get_tag.exit.i, %14, %17, %.critedge.i, %.thread.i
   %.0.i = phi i32 [ %13, %mbedtls_asn1_get_tag.exit.i ], [ -100, %14 ], [ -100, %17 ], [ -100, %.critedge.i ], [ -98, %10 ], [ -96, %3 ], [ 0, %.thread.i ], [ 0, %.lr.ph28.i ]
@@ -416,7 +416,7 @@ define hidden i32 @mbedtls_asn1_get_mpi(ptr nocapture noundef %0, ptr noundef %1
 mbedtls_asn1_get_tag.exit:                        ; preds = %10
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %12, ptr %0, align 8
-  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %13 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -437,7 +437,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %10, %3, %mbedtls_as
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_bitstring(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_bitstring(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -453,7 +453,7 @@ define hidden i32 @mbedtls_asn1_get_bitstring(ptr nocapture noundef %0, ptr noun
 mbedtls_asn1_get_tag.exit:                        ; preds = %9
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %11, ptr %0, align 8
-  %12 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !4
+  %12 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -509,7 +509,7 @@ define hidden i32 @mbedtls_asn1_traverse_sequence_of(ptr nocapture noundef %0, p
 mbedtls_asn1_get_tag.exit:                        ; preds = %15
   %17 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %17, ptr %0, align 8
-  %18 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9), !range !4
+  %18 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -538,7 +538,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %15
   br i1 %.not33.us, label %28, label %mbedtls_asn1_get_tag.exit.thread
 
 28:                                               ; preds = %.lr.ph.split.us
-  %29 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9), !range !4
+  %29 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9)
   %.not34.us = icmp eq i32 %29, 0
   br i1 %.not34.us, label %30, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -548,7 +548,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %15
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
   store ptr %33, ptr %0, align 8
   %34 = icmp ult ptr %33, %1
-  br i1 %34, label %.lr.ph.split.us, label %mbedtls_asn1_get_tag.exit.thread, !llvm.loop !8
+  br i1 %34, label %.lr.ph.split.us, label %mbedtls_asn1_get_tag.exit.thread, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %35 = phi ptr [ %50, %48 ], [ %20, %.lr.ph ]
@@ -561,7 +561,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %15
   br i1 %.not33, label %40, label %mbedtls_asn1_get_tag.exit.thread
 
 40:                                               ; preds = %.lr.ph.split
-  %41 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9), !range !4
+  %41 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9)
   %.not34 = icmp eq i32 %41, 0
   br i1 %.not34, label %42, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -582,7 +582,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %15
   %50 = getelementptr inbounds i8, ptr %49, i64 %.pre
   store ptr %50, ptr %0, align 8
   %51 = icmp ult ptr %50, %1
-  br i1 %51, label %.lr.ph.split, label %mbedtls_asn1_get_tag.exit.thread, !llvm.loop !8
+  br i1 %51, label %.lr.ph.split, label %mbedtls_asn1_get_tag.exit.thread, !llvm.loop !7
 
 mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.lr.ph.split, %40, %45, %48, %.lr.ph.split.us, %28, %30, %.preheader, %15, %8, %19, %mbedtls_asn1_get_tag.exit
   %.0 = phi i32 [ %18, %mbedtls_asn1_get_tag.exit ], [ -102, %19 ], [ -98, %15 ], [ -96, %8 ], [ 0, %.preheader ], [ -98, %.lr.ph.split.us ], [ %29, %28 ], [ 0, %30 ], [ -98, %.lr.ph.split ], [ %41, %40 ], [ %47, %45 ], [ 0, %48 ]
@@ -590,7 +590,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.lr.ph.split, %40, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_get_bitstring_null(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -104, 1) i32 @mbedtls_asn1_get_bitstring_null(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -606,7 +606,7 @@ define hidden i32 @mbedtls_asn1_get_bitstring_null(ptr nocapture noundef %0, ptr
 mbedtls_asn1_get_tag.exit:                        ; preds = %9
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %11, ptr %0, align 8
-  %12 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !4
+  %12 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -645,7 +645,7 @@ define hidden void @mbedtls_asn1_sequence_free(ptr noundef %0) local_unnamed_add
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.06, i64 noundef 32) #11
   tail call void @free(ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -677,7 +677,7 @@ define hidden i32 @mbedtls_asn1_get_sequence_of(ptr nocapture noundef %0, ptr no
 mbedtls_asn1_get_tag.exit.i:                      ; preds = %12
   %14 = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %14, ptr %0, align 8
-  %15 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5), !range !4
+  %15 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %mbedtls_asn1_traverse_sequence_of.exit
 
@@ -703,7 +703,7 @@ mbedtls_asn1_get_tag.exit.i:                      ; preds = %12
   br i1 %.not33.i, label %25, label %mbedtls_asn1_traverse_sequence_of.exit
 
 25:                                               ; preds = %.lr.ph.split.i
-  %26 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5), !range !4
+  %26 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
   %.not34.i = icmp eq i32 %26, 0
   br i1 %.not34.i, label %27, label %mbedtls_asn1_traverse_sequence_of.exit
 
@@ -733,7 +733,7 @@ mbedtls_asn1_get_tag.exit.i:                      ; preds = %12
   %39 = getelementptr inbounds i8, ptr %38, i64 %.pre.i
   store ptr %39, ptr %0, align 8
   %40 = icmp ult ptr %39, %1
-  br i1 %40, label %.lr.ph.split.i, label %mbedtls_asn1_traverse_sequence_of.exit, !llvm.loop !8
+  br i1 %40, label %.lr.ph.split.i, label %mbedtls_asn1_traverse_sequence_of.exit, !llvm.loop !7
 
 mbedtls_asn1_traverse_sequence_of.exit:           ; preds = %31, %.lr.ph.split.i, %25, %35, %4, %12, %mbedtls_asn1_get_tag.exit.i, %16, %.preheader.i
   %.0.i = phi i32 [ %15, %mbedtls_asn1_get_tag.exit.i ], [ -102, %16 ], [ -98, %12 ], [ -96, %4 ], [ 0, %.preheader.i ], [ -106, %31 ], [ 0, %35 ], [ %26, %25 ], [ -98, %.lr.ph.split.i ]
@@ -745,7 +745,7 @@ mbedtls_asn1_traverse_sequence_of.exit:           ; preds = %31, %.lr.ph.split.i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_asn1_get_alg(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_alg(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %1 to i64
@@ -762,7 +762,7 @@ define hidden i32 @mbedtls_asn1_get_alg(ptr nocapture noundef %0, ptr noundef %1
 mbedtls_asn1_get_tag.exit:                        ; preds = %11
   %13 = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %13, ptr %0, align 8
-  %14 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5), !range !4
+  %14 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -792,7 +792,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %11
 mbedtls_asn1_get_tag.exit42:                      ; preds = %28
   %30 = getelementptr inbounds i8, ptr %23, i64 1
   store ptr %30, ptr %0, align 8
-  %31 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %26), !range !4
+  %31 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %26)
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %32, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -818,7 +818,7 @@ mbedtls_asn1_get_tag.exit42:                      ; preds = %28
   %43 = getelementptr inbounds i8, ptr %42, i64 1
   store ptr %43, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 8
-  %45 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %44), !range !4
+  %45 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %44)
   %.not38 = icmp eq i32 %45, 0
   br i1 %.not38, label %46, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -842,7 +842,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %28, %20, %11, %4, %
 define hidden i32 @mbedtls_asn1_get_alg_null(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_asn1_buf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = call i32 @mbedtls_asn1_get_alg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4), !range !10
+  %5 = call i32 @mbedtls_asn1_get_alg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %13
 
@@ -903,7 +903,7 @@ mbedtls_asn1_free_named_data.exit:                ; preds = %1, %mbedtls_asn1_fr
   tail call void @free(ptr noundef nonnull %3) #11
   %10 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %mbedtls_asn1_free_named_data.exit, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %mbedtls_asn1_free_named_data.exit, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %mbedtls_asn1_free_named_data.exit, %1
   ret void
@@ -932,7 +932,7 @@ define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly %0, ptr noc
   %12 = getelementptr inbounds i8, ptr %.09, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %11, %7, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.09, %7 ], [ null, %11 ]
@@ -971,12 +971,10 @@ attributes #12 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -100, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i32 -102, i32 1}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

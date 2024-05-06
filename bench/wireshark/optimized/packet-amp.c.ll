@@ -488,7 +488,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 154:                                              ; preds = %151
-  %155 = trunc i64 %.sroa.20.0.copyload59 to i32
+  %155 = trunc nuw nsw i64 %.sroa.20.0.copyload59 to i32
   %156 = add i32 %.4328, %155
   %157 = add nuw i32 %.0294327, 1
   %exitcond.not = icmp eq i32 %157, %123

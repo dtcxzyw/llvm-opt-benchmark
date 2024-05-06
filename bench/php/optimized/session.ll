@@ -391,7 +391,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_random_algo_pcgoneseq128xslrr64 = external constant %struct._php_random_algo, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_session_destroy() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_session_destroy() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %.not = icmp eq i32 %1, 2
   br i1 %.not, label %3, label %2
@@ -839,7 +839,7 @@ bin_to_readable.exit:                             ; preds = %32, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @php_session_valid_key(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_session_valid_key(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %.not34 = icmp eq i8 %2, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -921,7 +921,7 @@ declare void @php_var_serialize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @php_var_serialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ps_srlzr_decode_php_serialize(ptr noundef %0, i64 noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php_serialize(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -1200,7 +1200,7 @@ php_get_session_var.exit.thread:                  ; preds = %33, %36, %php_get_s
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_srlzr_decode_php_binary(ptr noundef %0, i64 noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php_binary(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -1241,8 +1241,8 @@ define hidden noundef i32 @ps_srlzr_decode_php_binary(ptr noundef %0, i64 nounde
   %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %14
   store i8 0, ptr %25, align 1
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr i8, ptr %26, i64 %14
-  %28 = getelementptr i8, ptr %27, i64 1
+  %27 = getelementptr inbounds i8, ptr %26, i64 %14
+  %28 = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %28, ptr %3, align 8
   %29 = call ptr @var_tmp_var(ptr noundef nonnull %4) #23
   %30 = call i32 @php_var_unserialize(ptr noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #23
@@ -1666,7 +1666,7 @@ php_get_session_var.exit.thread:                  ; preds = %33, %36, %php_get_s
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_srlzr_decode_php(ptr noundef %0, i64 noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_srlzr_decode_php(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -1818,7 +1818,7 @@ php_set_session_var.exit:                         ; preds = %32, %35, %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @php_session_register_serializer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @php_session_register_serializer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   br label %4
 
 4:                                                ; preds = %3, %14
@@ -1851,7 +1851,7 @@ define noundef i32 @php_session_register_serializer(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @php_session_register_module(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @php_session_register_module(ptr noundef %0) local_unnamed_addr #5 {
   br label %3
 
 2:                                                ; preds = %3
@@ -1942,7 +1942,7 @@ define noundef ptr @_php_find_ps_serializer(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_session_reset_id() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_session_reset_id() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.smart_str, align 8
@@ -3062,7 +3062,7 @@ declare i32 @php_url_scanner_reset_session_var(ptr noundef, i32 noundef) local_u
 declare i32 @php_url_scanner_add_session_var(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_session_start() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_session_start() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   switch i32 %1, label %38 [
     i32 2, label %2
@@ -3110,7 +3110,7 @@ define noundef i32 @php_session_start() local_unnamed_addr #0 {
 
 18:                                               ; preds = %.preheader
   %19 = load ptr, ptr %17, align 8
-  %20 = tail call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef %19) #26
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %13, ptr noundef %19) #26
   %.not10.i = icmp eq i32 %20, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %21
 
@@ -3145,7 +3145,7 @@ _php_find_ps_module.exit:                         ; preds = %18
 .lr.ph.i:                                         ; preds = %30, %34
   %32 = phi ptr [ %36, %34 ], [ %31, %30 ]
   %.010.i = phi ptr [ %35, %34 ], [ @ps_serializers, %30 ]
-  %33 = tail call i32 @strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull %32) #26
+  %33 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %26, ptr noundef nonnull %32) #26
   %.not8.i = icmp eq i32 %33, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit, label %34
 
@@ -3444,7 +3444,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br label %.thread114
 
 .thread114:                                       ; preds = %.thread114.sink.split, %128, %.thread116, %159
-  %172 = tail call fastcc i32 @php_session_initialize(), !range !4
+  %172 = tail call fastcc i32 @php_session_initialize()
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %php_session_cache_limiter.exit, label %174
 
@@ -3616,7 +3616,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_session_initialize() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_session_initialize() unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -3826,7 +3826,7 @@ php_session_abort.exit73:                         ; preds = %50, %63
   br label %104
 
 104:                                              ; preds = %.sink.split, %72, %75, %79, %101, %69
-  %105 = tail call i32 @php_session_reset_id(), !range !4
+  %105 = tail call i32 @php_session_reset_id()
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %107, label %121
 
@@ -4004,7 +4004,7 @@ php_session_gc.exit:                              ; preds = %155, %150, %156, %1
 
 195:                                              ; preds = %194, %184
   %196 = phi ptr [ %.pre, %194 ], [ %183, %184 ]
-  %197 = call fastcc i32 @php_session_decode(ptr noundef %196), !range !4
+  %197 = call fastcc i32 @php_session_decode(ptr noundef %196)
   %198 = load ptr, ptr %2, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4
@@ -4094,7 +4094,7 @@ php_session_abort.exit76:                         ; preds = %120, %107, %php_ses
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_session_flush(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_session_flush(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %96
@@ -5578,7 +5578,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %63, align 8
-  %66 = call i32 @strcasecmp(ptr noundef nonnull %61, ptr noundef %65) #26
+  %66 = call i32 @strcasecmp(ptr noundef nonnull readonly %61, ptr noundef %65) #26
   %.not10.i = icmp eq i32 %66, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %67
 
@@ -7510,7 +7510,7 @@ php_session_encode.exit:                          ; preds = %50
   br label %235
 
 235:                                              ; preds = %234, %231
-  %236 = call i32 @php_session_reset_id(), !range !4
+  %236 = call i32 @php_session_reset_id()
   %237 = icmp eq i32 %236, -1
   %238 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %237, label %239, label %240
@@ -8260,7 +8260,7 @@ define hidden void @zif_session_decode(ptr nocapture noundef readonly %0, ptr no
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %3, align 8
-  %17 = call fastcc i32 @php_session_decode(ptr noundef %16), !range !4
+  %17 = call fastcc i32 @php_session_decode(ptr noundef %16)
   %18 = icmp eq i32 %17, -1
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %18, label %20, label %21
@@ -8278,7 +8278,7 @@ define hidden void @zif_session_decode(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_session_decode(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_session_decode(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 34), align 16
   %.not = icmp eq ptr %3, null
@@ -8533,7 +8533,7 @@ define hidden void @zif_session_start(ptr nocapture noundef readonly %0, ptr noc
   %96 = phi ptr [ %.pre107.i, %93 ], [ %87, %85 ]
   %97 = getelementptr inbounds i8, ptr %96, i64 24
   %98 = getelementptr inbounds i8, ptr %97, i64 %95
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull align 1 %90, i64 %91, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %90, i64 %91, i1 false)
   %99 = load ptr, ptr %3, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 16
   store i64 %92, ptr %100, align 8
@@ -8621,7 +8621,7 @@ php_session_start_set_ini.exit:                   ; preds = %94, %106, %110, %11
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %36, %34
   %.2 = phi i1 [ true, %34 ], [ true, %36 ], [ %137, %.loopexit.loopexit ]
-  %138 = call i32 @php_session_start(), !range !4
+  %138 = call i32 @php_session_start()
   %139 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %.not95 = icmp eq i32 %139, 2
   br i1 %.not95, label %165, label %140
@@ -8951,7 +8951,7 @@ define hidden void @zif_session_write_close(ptr nocapture noundef readonly %0, p
   br label %14
 
 11:                                               ; preds = %.critedge
-  %12 = tail call i32 @php_session_flush(i32 noundef 1), !range !4
+  %12 = tail call i32 @php_session_flush(i32 noundef 1)
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %13, align 8
   br label %14
@@ -9036,7 +9036,7 @@ define hidden void @zif_session_reset(ptr nocapture noundef readonly %0, ptr noc
   br label %13
 
 php_session_reset.exit:                           ; preds = %.critedge
-  %11 = tail call fastcc i32 @php_session_initialize(), !range !4
+  %11 = tail call fastcc i32 @php_session_initialize()
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %12, align 8
   br label %13
@@ -9109,7 +9109,7 @@ define hidden void @zif_session_register_shutdown(ptr nocapture noundef readonly
 
 20:                                               ; preds = %8
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #23
-  %21 = call i32 @php_session_flush(i32 noundef 1), !range !4
+  %21 = call i32 @php_session_flush(i32 noundef 1)
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.99) #23
   br label %22
 
@@ -9237,7 +9237,7 @@ define internal noundef i32 @zm_deactivate_session(i32 %0, i32 %1) #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = call i32 @php_session_flush(i32 noundef 1), !range !4
+  %11 = call i32 @php_session_flush(i32 noundef 1)
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -9851,7 +9851,7 @@ define internal void @_php_cache_limiter_public() #0 {
   %33 = load i32, ptr %2, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %1, i64 noundef 512, ptr noundef nonnull @.str.134, ptr noundef %18, i32 noundef %20, ptr noundef %25, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %33) #23
   %35 = sext i32 %34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 16 %1, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull align 16 %1, i64 %35, i1 false)
   %36 = getelementptr inbounds i8, ptr %11, i64 %35
   br label %strcpy_gmt.exit
 
@@ -9957,7 +9957,7 @@ define internal fastcc void @last_modified() unnamed_addr #0 {
   %33 = load i32, ptr %2, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %1, i64 noundef 512, ptr noundef nonnull @.str.134, ptr noundef %18, i32 noundef %20, ptr noundef %25, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %33) #23
   %35 = sext i32 %34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 16 %1, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %10, ptr nonnull align 16 %1, i64 %35, i1 false)
   %36 = getelementptr inbounds i8, ptr %10, i64 %35
   br label %strcpy_gmt.exit
 
@@ -10747,7 +10747,7 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateSaveHandler(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateSaveHandler(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
@@ -10780,7 +10780,7 @@ define internal noundef i32 @OnUpdateSaveHandler(ptr nocapture readnone %0, ptr 
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %18, align 8
-  %21 = tail call i32 @strcasecmp(ptr noundef nonnull %16, ptr noundef %20) #26
+  %21 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef %20) #26
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %30, label %22
 
@@ -10864,7 +10864,7 @@ define internal i32 @OnUpdateSessionLong(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateSerializer(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateSerializer(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %10
@@ -10893,7 +10893,7 @@ define internal noundef i32 @OnUpdateSerializer(ptr nocapture readnone %0, ptr n
 .lr.ph.i:                                         ; preds = %15, %20
   %18 = phi ptr [ %22, %20 ], [ %17, %15 ]
   %.010.i = phi ptr [ %21, %20 ], [ @ps_serializers, %15 ]
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull %16, ptr noundef nonnull %18) #26
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull %18) #26
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit.thread, label %20
 
@@ -11028,7 +11028,7 @@ define internal i32 @OnUpdateSessionBool(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateSidLength(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
@@ -11079,7 +11079,7 @@ define internal noundef i32 @OnUpdateSidLength(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateSidBits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateSidBits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
@@ -11132,7 +11132,7 @@ define internal noundef i32 @OnUpdateSidBits(ptr nocapture readnone %0, ptr noun
 declare i32 @OnUpdateString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateRfc1867Freq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateRfc1867Freq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #26
   %9 = trunc i64 %8 to i32
@@ -11380,7 +11380,7 @@ define internal fastcc void @php_rinit_session(i1 noundef zeroext %0) unnamed_ad
 
 5:                                                ; preds = %.preheader
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef %6) #26
+  %7 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef %6) #26
   %.not10.i = icmp eq i32 %7, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %8
 
@@ -11417,7 +11417,7 @@ _php_find_ps_module.exit:                         ; preds = %5, %8
 .lr.ph.i:                                         ; preds = %16, %20
   %18 = phi ptr [ %22, %20 ], [ %17, %16 ]
   %.010.i = phi ptr [ %21, %20 ], [ @ps_serializers, %16 ]
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull %15, ptr noundef nonnull %18) #26
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %15, ptr noundef nonnull %18) #26
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit, label %20
 
@@ -11448,7 +11448,7 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i, %20, %16
   br i1 %0, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = tail call i32 @php_session_start(), !range !4
+  %31 = tail call i32 @php_session_start()
   br label %32
 
 32:                                               ; preds = %29, %30, %28
@@ -11513,7 +11513,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   br label %35
 
 35:                                               ; preds = %30, %2
-  %36 = tail call fastcc i32 @php_session_initialize(), !range !4
+  %36 = tail call fastcc i32 @php_session_initialize()
   store i32 2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %37 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
   %38 = icmp eq i8 %37, 10
@@ -11643,7 +11643,7 @@ php_check_cancel_upload.exit:                     ; preds = %80, %82, %85, %89
   br label %109
 
 109:                                              ; preds = %105, %39, %35
-  %110 = call i32 @php_session_flush(i32 noundef 1), !range !4
+  %110 = call i32 @php_session_flush(i32 noundef 1)
   br label %111
 
 111:                                              ; preds = %15, %5, %109
@@ -11652,7 +11652,7 @@ php_check_cancel_upload.exit:                     ; preds = %80, %82, %85, %89
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_session_rfc1867_cleanup(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @php_session_initialize(), !range !4
+  %2 = tail call fastcc i32 @php_session_initialize()
   store i32 2, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 14), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 35, i32 1), align 16
   %4 = icmp eq i8 %3, 10
@@ -11697,7 +11697,7 @@ define internal fastcc void @php_session_rfc1867_cleanup(ptr nocapture noundef r
   br label %28
 
 28:                                               ; preds = %23, %5, %1
-  %29 = tail call i32 @php_session_flush(i32 noundef 1), !range !4
+  %29 = tail call i32 @php_session_flush(i32 noundef 1)
   ret void
 }
 
@@ -11795,4 +11795,3 @@ attributes #29 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

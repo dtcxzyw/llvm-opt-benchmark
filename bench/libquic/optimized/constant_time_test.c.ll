@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [76 x i8] c"Test failed for constant_time_eq_int(%d, %d): expected %du(FALSE), got %du\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 36, i64 1, ptr %0)

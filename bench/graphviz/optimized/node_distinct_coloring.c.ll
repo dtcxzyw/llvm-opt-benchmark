@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [56 x i8] c"iter ---- %d ---, color_diff = %f, color_diff_sum = %f\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @node_distinct_coloring(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca i32, align 4
@@ -188,7 +188,7 @@ gv_calloc.exit95:                                 ; preds = %67
   %.02331.i = phi i32 [ %.124.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
   %.02630.i = phi i32 [ %95, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %92 = call i32 @irand(i32 noundef 100000) #15
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef %91, i32 noundef %.079, double noundef %.077, i32 noundef %92, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %92, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %93 = load double, ptr %9, align 8
   %94 = fcmp olt double %.032.i, %93
   %.124.i = select i1 %94, i32 %92, i32 %.02331.i
@@ -199,7 +199,7 @@ gv_calloc.exit95:                                 ; preds = %67
 
 node_distinct_coloring_internal.exit:             ; preds = %.lr.ph.i, %82
   %.025.i = phi i32 [ %5, %82 ], [ %.124.i, %.lr.ph.i ]
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef %91, i32 noundef %.079, double noundef %.077, i32 noundef %.025.i, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %.025.i, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %96 = load i32, ptr %85, align 4
@@ -214,7 +214,7 @@ node_distinct_coloring_internal.exit:             ; preds = %.lr.ph.i, %82
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %99, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %100 = load i32, ptr %85, align 4
-  %101 = trunc i64 %indvars.iv to i32
+  %101 = trunc nsw i64 %indvars.iv to i32
   %102 = sub nsw i32 %101, %100
   %103 = load ptr, ptr %7, align 8
   %104 = load ptr, ptr %12, align 8
@@ -339,7 +339,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef %0, pt
   %.sroa.218.0.extract.shift = lshr i24 %29, 8
   %.sroa.218.0.extract.trunc = trunc i24 %.sroa.218.0.extract.shift to i8
   %.sroa.319.0.extract.shift = lshr i24 %29, 16
-  %.sroa.319.0.extract.trunc = trunc i24 %.sroa.319.0.extract.shift to i8
+  %.sroa.319.0.extract.trunc = trunc nuw i24 %.sroa.319.0.extract.shift to i8
   %30 = sitofp i8 %.sroa.017.0.extract.trunc to double
   store double %30, ptr %14, align 16
   %31 = sitofp i8 %.sroa.218.0.extract.trunc to double

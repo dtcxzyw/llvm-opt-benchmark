@@ -44,7 +44,7 @@ define i32 @php_crc32_bulk_update(i32 noundef %0, ptr noundef %1, i64 noundef %2
 declare i64 @crc32_x86_simd_update(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_crc32_stream_bulk_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [1024 x i8], align 16
   %.not20 = icmp eq i64 %2, 0

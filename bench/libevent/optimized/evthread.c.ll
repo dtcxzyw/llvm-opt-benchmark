@@ -192,7 +192,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @event_global_setup_locks_(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evthread_set_condition_callbacks(ptr noundef readonly %cbs) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @evthread_set_condition_callbacks(ptr noundef readonly %cbs) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -556,7 +556,7 @@ evthread_debug_lock_mark_locked.exit:             ; preds = %evthread_debug_lock
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
 entry:
   %count = getelementptr inbounds i8, ptr %lock_, i64 16
   %0 = load i32, ptr %count, align 8

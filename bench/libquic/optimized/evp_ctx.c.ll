@@ -314,7 +314,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_sign_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_sign_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -385,7 +385,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_verify_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_verify_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -456,7 +456,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_encrypt_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_encrypt_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -527,7 +527,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_decrypt_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_decrypt_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -598,7 +598,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_verify_recover_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_verify_recover_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -669,7 +669,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_derive_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_derive_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -700,7 +700,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_derive_set_peer(ptr noundef %ctx, ptr noundef %peer) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_derive_set_peer(ptr noundef %ctx, ptr noundef %peer) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -867,7 +867,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_keygen_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_keygen_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -898,7 +898,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_keygen(ptr noundef %ctx, ptr noundef %ppkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_keygen(ptr noundef %ctx, ptr noundef %ppkey) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false

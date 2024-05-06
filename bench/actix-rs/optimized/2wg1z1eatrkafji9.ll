@@ -241,7 +241,7 @@ define hidden noundef nonnull align 1 dereferenceable_or_null(16) ptr @"_ZN3std3
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7f9d94b67f8e6a7dE.exit": ; preds = %6, %7
   store i8 1, ptr %0, align 1, !noalias !43
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret ptr %.sroa.2.0..sroa_idx.i
 }
@@ -435,7 +435,7 @@ define hidden noundef nonnull align 1 dereferenceable_or_null(16) ptr @"_ZN3std3
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h2b903d0cf289069eE.llvm.13244384468531467415.exit": ; preds = %9, %10
   store i8 1, ptr %0, align 1, !noalias !85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !74
   br label %11
 
@@ -2490,7 +2490,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.13244384468531467415(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #14 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.13244384468531467415(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #14 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -5865,7 +5865,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17h86e2a65e36278b42E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17hf8074a618c650fecE.llvm.13244384468531467415"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #17 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17hf8074a618c650fecE.llvm.13244384468531467415"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #17 {
   %3 = load ptr, ptr %0, align 8, !nonnull !42, !noundef !42
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -8721,9 +8721,9 @@ define void @_ZN9actix_web6config9AppConfig15__priv_test_new17h9fe22d8ad10b846cE
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %5, align 8, !alias.scope !1673, !noalias !1675
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !1676, !noalias !1671
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !1676, !noalias !1671
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !1677, !noalias !1668
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 4 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !1677, !noalias !1668
   ret void
 }
 
@@ -8801,9 +8801,9 @@ define void @"_ZN71_$LT$actix_web..config..AppConfig$u20$as$u20$core..default..D
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1691)
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 0, ptr %17, align 8, !alias.scope !1693, !noalias !1695
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !1696, !noalias !1691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !1696, !noalias !1691
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1697, !noalias !1688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 4 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1697, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
@@ -9066,7 +9066,7 @@ define noundef zeroext i1 @"_ZN9actix_web4http6header14content_length118_$LT$imp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN109_$LT$actix_web..http..header..content_length..ContentLength$u20$as$u20$core..cmp..PartialOrd$LT$usize$GT$$GT$11partial_cmp17hee9bbf5d64c211e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
+define noundef range(i8 -1, 2) i8 @"_ZN109_$LT$actix_web..http..header..content_length..ContentLength$u20$as$u20$core..cmp..PartialOrd$LT$usize$GT$$GT$11partial_cmp17hee9bbf5d64c211e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
   %3 = load i64, ptr %0, align 8, !noundef !42
   %4 = load i64, ptr %1, align 8, !noundef !42
   %5 = icmp ult i64 %3, %4
@@ -9077,7 +9077,7 @@ define noundef i8 @"_ZN109_$LT$actix_web..http..header..content_length..ContentL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN9actix_web4http6header14content_length119_$LT$impl$u20$core..cmp..PartialOrd$LT$actix_web..http..header..content_length..ContentLength$GT$$u20$for$u20$usize$GT$11partial_cmp17h1c9f77dec34ce9e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
+define noundef range(i8 -1, 2) i8 @"_ZN9actix_web4http6header14content_length119_$LT$impl$u20$core..cmp..PartialOrd$LT$actix_web..http..header..content_length..ContentLength$GT$$u20$for$u20$usize$GT$11partial_cmp17h1c9f77dec34ce9e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
   %3 = load i64, ptr %0, align 8, !noundef !42
   %4 = load i64, ptr %1, align 8, !noundef !42
   %5 = icmp ult i64 %3, %4
@@ -9130,7 +9130,7 @@ declare void @_ZN3std3sys3pal4unix14abort_internal17h1517cb1d25d186b6E() unnamed
 declare { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE() unnamed_addr #1
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.13244384468531467415(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #41 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.13244384468531467415(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #41 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

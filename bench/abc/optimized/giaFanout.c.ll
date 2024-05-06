@@ -579,7 +579,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %43 = add nsw i32 %42, %39
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %.val87.val, i64 %44
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %46, ptr %45, align 4
   %.val78 = load ptr, ptr %23, align 8
   %47 = ptrtoint ptr %.val78 to i64
@@ -603,7 +603,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %57 = trunc i64 %.val84.pre to i32
   %58 = and i32 %57, 536870911
   %59 = lshr i64 %.val84.pre, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = and i32 %60, 536870911
   %62 = icmp eq i32 %58, %61
   %.not.i103 = icmp ne i32 %58, 536870911

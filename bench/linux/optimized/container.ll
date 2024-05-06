@@ -147,7 +147,7 @@ declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr nou
 declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @check_offline(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -16, 1) i32 @check_offline(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = tail call zeroext i1 @acpi_scan_is_offline(ptr noundef %0, i1 noundef zeroext false) #4
   %4 = select i1 %3, i32 0, i32 -16
   ret i32 %4

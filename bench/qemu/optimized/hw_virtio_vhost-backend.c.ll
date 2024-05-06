@@ -80,7 +80,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_memslots_limit(ptr nocapture readnone %dev) #0 {
+define internal range(i32 1, 2147483647) i32 @vhost_kernel_memslots_limit(ptr nocapture readnone %dev) #0 {
 entry:
   %s = alloca ptr, align 8
   %call = call i32 @g_file_get_contents(ptr noundef nonnull @.str.5, ptr noundef nonnull %s, ptr noundef null, ptr noundef null) #9
@@ -97,7 +97,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   call void @g_free(ptr noundef %2) #9
-  %conv = trunc i64 %call1 to i32
+  %conv = trunc nuw nsw i64 %call1 to i32
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -905,7 +905,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_kernel_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
+define internal range(i32 -14, 1) i32 @vhost_kernel_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
 entry:
   %msg = alloca %struct.vhost_msg_v2, align 8
   %msg3 = alloca %struct.vhost_msg, align 8
@@ -965,7 +965,7 @@ entry:
   br i1 %0, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %entry
-  %switch.idx.cast = trunc i32 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
   %perm7 = getelementptr inbounds i8, ptr %imsg, i64 24
   store i8 %switch.offset, ptr %perm7, align 8
@@ -1125,7 +1125,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp3, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %while.body
-  %conv6 = trunc i64 %call29 to i32
+  %conv6 = trunc nuw nsw i64 %call29 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv6) #9
   br label %if.end32
 
@@ -1184,7 +1184,7 @@ while.body19:                                     ; preds = %while.body19.lr.ph,
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %while.body19
-  %conv23 = trunc i64 %call1633 to i32
+  %conv23 = trunc nuw nsw i64 %call1633 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv23) #9
   br label %if.end32
 

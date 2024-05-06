@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @lu, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -56,7 +56,7 @@ define i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   %18 = getelementptr inbounds double, ptr %11, i64 %indvars.iv106
   store double %17, ptr %18, align 8
   %19 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv106
-  %20 = trunc i64 %indvars.iv106 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv106 to i32
   store i32 %20, ptr %19, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -126,7 +126,7 @@ define i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   %43 = load double, ptr %42, align 8
   %44 = fmul double %41, %43
   %45 = fcmp olt double %.16790, %44
-  %46 = trunc i64 %indvars.iv113 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv113 to i32
   %.273 = select i1 %45, i32 %46, i32 %.17289
   %.268 = select i1 %45, double %44, double %.16790
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
@@ -357,7 +357,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %35 = load double, ptr %34, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %.145)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %37 = trunc i64 %indvars.iv.next63 to i32
+  %37 = trunc nuw i64 %indvars.iv.next63 to i32
   %38 = icmp slt i32 %37, %2
   br i1 %38, label %.lr.ph46, label %._crit_edge47
 

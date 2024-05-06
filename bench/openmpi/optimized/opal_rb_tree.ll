@@ -89,7 +89,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_rb_tree_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_rb_tree_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -352,7 +352,7 @@ opal_free_list_get_st.exit:                       ; preds = %opal_lifo_pop_st.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_rb_tree_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_rb_tree_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %4)
   %6 = icmp eq ptr %5, null
@@ -712,7 +712,7 @@ define ptr @opal_rb_tree_find_with(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_rb_tree_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_rb_tree_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -1614,7 +1614,7 @@ opal_free_list_return.exit31:                     ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_rb_tree_traverse(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

@@ -418,7 +418,7 @@ define void @wtap_register_open_info(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not9.i, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %4) #24
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %4) #24
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %wtap_has_open_info.exit, label %16
 
@@ -1035,7 +1035,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.i:                                         ; preds = %147, %151
   %154 = phi ptr [ %153, %151 ], [ %150, %147 ]
   %.09.i = phi ptr [ %152, %151 ], [ %149, %147 ]
-  %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(1) %154) #24
+  %155 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %133, ptr noundef nonnull dereferenceable(1) %154) #24
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %heuristic_uses_extension.exit, label %151
 

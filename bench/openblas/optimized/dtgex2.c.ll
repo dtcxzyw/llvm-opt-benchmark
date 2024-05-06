@@ -117,7 +117,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 75:                                               ; preds = %71
   %76 = add nuw nsw i32 %67, %64
   store i32 %76, ptr %30, align 4, !tbaa !3
-  %77 = mul nsw i32 %76, %61
+  %77 = mul nuw nsw i32 %76, %61
   %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 1)
   store i32 %78, ptr %18, align 4, !tbaa !3
   %79 = shl nuw i32 %76, 1

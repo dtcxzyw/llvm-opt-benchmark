@@ -42,7 +42,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.01927.i = phi ptr [ %22, %20 ], [ %1, %.lr.ph.i.preheader ]
   %.02026.i = phi i64 [ %24, %20 ], [ %18, %.lr.ph.i.preheader ]
   %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
-  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
   %19 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #7
   %.not22.i = icmp eq i32 %19, 0
   br i1 %.not22.i, label %20, label %ompi_datatype_copy_content_same_ddt.exit144
@@ -57,7 +57,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 25:                                               ; preds = %9
   %26 = udiv i64 8192, %15
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %ompi_datatype_copy_content_same_ddt.exit144, label %29
 
@@ -111,7 +111,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.01927.i137 = phi ptr [ %54, %52 ], [ %47, %.lr.ph.i135.preheader ]
   %.02026.i138 = phi i64 [ %56, %52 ], [ %45, %.lr.ph.i135.preheader ]
   %spec.select24.i139 = call i64 @llvm.umin.i64(i64 %.02026.i138, i64 2147483647)
-  %spec.select.i140 = trunc i64 %spec.select24.i139 to i32
+  %spec.select.i140 = trunc nuw nsw i64 %spec.select24.i139 to i32
   %51 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i140, ptr noundef %.01927.i137, ptr noundef %.01828.i136) #7
   %.not22.i141 = icmp eq i32 %51, 0
   br i1 %.not22.i141, label %52, label %ompi_datatype_copy_content_same_ddt.exit144
@@ -212,7 +212,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %99
-  %113 = trunc i64 %indvars.iv to i32
+  %113 = trunc nuw nsw i64 %indvars.iv to i32
   %114 = load ptr, ptr @stderr, align 8
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.2, i32 noundef %113) #9
   %116 = load ptr, ptr @stderr, align 8
@@ -327,7 +327,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

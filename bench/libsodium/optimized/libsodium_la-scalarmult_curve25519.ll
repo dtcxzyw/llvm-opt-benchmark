@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @crypto_scalarmult_curve25519_sandy2x_implementation = external global %struct.crypto_scalarmult_curve25519_implementation, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_curve25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
   %d = alloca i8, align 1
   store volatile i8 0, ptr %d, align 1

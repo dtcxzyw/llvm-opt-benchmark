@@ -262,7 +262,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %57 = phi ptr [ %47, %44 ], [ %.pre, %.noexc32 ]
   %58 = phi i64 [ 0, %44 ], [ %.pre.i.i, %.noexc32 ]
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %2, i64 %.sroa.01.0.i10137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %2, i64 %.sroa.01.0.i10137, i1 false)
   %60 = load i64, ptr %49, align 8, !alias.scope !24, !noalias !29, !noundef !5
   %61 = add i64 %60, %.sroa.01.0.i10137
   store i64 %61, ptr %49, align 8, !alias.scope !24, !noalias !29
@@ -413,7 +413,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %125 = phi i64 [ %69, %117 ], [ %.pre.i.i57, %.noexc59 ]
   %126 = load ptr, ptr %48, align 8, !alias.scope !64, !noalias !62, !nonnull !5, !noundef !5
   %127 = getelementptr inbounds i8, ptr %126, i64 %125
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull align 1 %.sroa.0.1147, i64 %.sroa.01.0.i138, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %.sroa.0.1147, i64 %.sroa.01.0.i138, i1 false)
   %128 = load i64, ptr %49, align 8, !alias.scope !64, !noalias !62, !noundef !5
   %129 = add i64 %128, %.sroa.01.0.i138
   store i64 %129, ptr %49, align 8, !alias.scope !64, !noalias !62
@@ -452,7 +452,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %140 = phi i64 [ %69, %._crit_edge139 ], [ %.pre.i.i53, %.noexc55 ], [ %storemerge146, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf58459cf27d51ee3E.exit" ], [ %storemerge, %135 ]
   %141 = load ptr, ptr %48, align 8, !alias.scope !54, !noalias !52, !nonnull !5, !noundef !5
   %142 = getelementptr inbounds i8, ptr %141, i64 %140
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %.sroa.0.1.lcssa174, i64 %.sroa.9.1.lcssa175, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull readonly align 1 %.sroa.0.1.lcssa174, i64 %.sroa.9.1.lcssa175, i1 false)
   %143 = load i64, ptr %49, align 8, !alias.scope !54, !noalias !52, !noundef !5
   %144 = add i64 %143, %.sroa.9.1.lcssa175
   store i64 %144, ptr %49, align 8, !alias.scope !54, !noalias !52
@@ -525,7 +525,7 @@ define void @_ZN12actix_router6quoter6Quoter17requote_str_lossy17h5728e3337d87a4
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %23, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %23, i64 %25, i1 false)
   br label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h84efa79208c010dcE.exit.i"
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h84efa79208c010dcE.exit.i": ; preds = %19, %.noexc.i

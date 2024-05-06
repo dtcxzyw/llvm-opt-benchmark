@@ -664,8 +664,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %or.cond5, label %52, label %dissect_rf4ce_profile_cmd.exit
 
 52:                                               ; preds = %48
-  %53 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.339, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7) #8
-  %54 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.338, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7) #8
+  %53 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.339, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef 7) #8
+  %54 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.338, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef 7) #8
   %55 = call i32 @tvb_captured_length(ptr noundef %0) #7
   %56 = sub i32 %55, %49
   %57 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4

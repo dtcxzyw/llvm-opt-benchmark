@@ -1351,7 +1351,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit:      ; preds = %61, %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN13TextureObject11TextureAreaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -4611686016279904256, 4611686018427387905) i64 @_ZN13TextureObject11TextureAreaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

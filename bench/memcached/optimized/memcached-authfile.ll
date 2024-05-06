@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @main_auth_entries = dso_local local_unnamed_addr global [8 x %struct.auth_entry] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @authfile_load(ptr nocapture noundef readonly %file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @authfile_load(ptr nocapture noundef readonly %file) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %auth_entries = alloca [8 x %struct.auth_entry], align 16
@@ -178,7 +178,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @authfile_check(ptr noundef %user, ptr noundef %pass) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %user, ptr noundef %pass) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %user) #10
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pass) #10

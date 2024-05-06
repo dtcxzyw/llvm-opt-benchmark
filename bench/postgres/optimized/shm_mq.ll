@@ -283,7 +283,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 26:                                               ; preds = %22
   %27 = sub i64 8, %25
   %28 = getelementptr i8, ptr %6, i64 %25
-  %29 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %28, i1 noundef zeroext %3, ptr noundef nonnull %7), !range !14
+  %29 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %28, i1 noundef zeroext %3, ptr noundef nonnull %7)
   %30 = icmp eq i32 %29, 2
   br i1 %30, label %31, label %32
 
@@ -307,7 +307,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 
 38:                                               ; preds = %37, %32
   %.not138 = icmp eq i32 %29, 0
-  br i1 %.not138, label %22, label %.loopexit, !llvm.loop !15
+  br i1 %.not138, label %22, label %.loopexit, !llvm.loop !14
 
 .preheader161:                                    ; preds = %22, %88
   %39 = phi i64 [ %89, %88 ], [ %25, %22 ]
@@ -378,7 +378,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   %.3 = phi i64 [ %62, %55 ], [ %65, %64 ]
   %.2 = phi i32 [ 8, %55 ], [ %.0, %64 ]
   %67 = sext i32 %.2 to i64
-  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %67, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7), !range !14
+  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %67, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %71
 
@@ -401,7 +401,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   %spec.select = select i1 %49, i64 %77, i64 %76
   %78 = load ptr, ptr %41, align 8
   %79 = getelementptr i8, ptr %78, i64 %.0103
-  %80 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %spec.select, ptr noundef %79, i1 noundef zeroext %3, ptr noundef nonnull %7), !range !14
+  %80 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %spec.select, ptr noundef %79, i1 noundef zeroext %3, ptr noundef nonnull %7)
   %81 = icmp eq i32 %80, 2
   br i1 %81, label %82, label %83
 
@@ -424,7 +424,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   %.4110 = phi i32 [ %46, %44 ], [ %.3109, %71 ], [ %.0106, %83 ]
   %.4 = phi i64 [ %45, %44 ], [ %.3, %71 ], [ %87, %83 ]
   %90 = icmp ult i64 %89, %.lcssa146159
-  br i1 %90, label %.preheader161, label %91, !llvm.loop !16
+  br i1 %90, label %.preheader161, label %91, !llvm.loop !15
 
 91:                                               ; preds = %44, %88
   store i64 0, ptr %17, align 8
@@ -457,7 +457,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 106:                                              ; preds = %102, %104
   %107 = getelementptr inbounds i8, ptr %9, i64 8
   %108 = load ptr, ptr %107, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   store i8 0, ptr %9, align 8
   %.not136 = icmp eq ptr %108, null
   br i1 %.not136, label %110, label %109
@@ -481,7 +481,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 
 ._crit_edge155:                                   ; preds = %110, %111
   %116 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   %117 = getelementptr inbounds i8, ptr %9, i64 32
   %118 = load volatile i64, ptr %117, align 8
   %119 = add i64 %118, %.pre157
@@ -513,7 +513,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @shm_mq_send_bytes(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
@@ -543,7 +543,7 @@ define internal fastcc noundef i32 @shm_mq_send_bytes(ptr nocapture noundef %0, 
   %24 = sub i64 %.neg, %23
   %25 = sub i64 %1, %.06582
   %. = call i64 @llvm.umin.i64(i64 %24, i64 %25)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   %26 = load i8, ptr %13, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %._crit_edge, label %28
@@ -607,7 +607,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
 
 49:                                               ; preds = %30
   %50 = load i64, ptr %12, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   %51 = load volatile i64, ptr %11, align 8
   %52 = add i64 %51, %50
   store volatile i64 %52, ptr %11, align 8
@@ -634,7 +634,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   %61 = urem i64 %23, %9
   %62 = sub i64 %9, %61
   %63 = call i64 @llvm.umin.i64(i64 %., i64 %62)
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
   %64 = load i8, ptr %15, align 1
   %65 = zext i8 %64 to i64
   %66 = add i64 %61, %65
@@ -652,7 +652,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
 74:                                               ; preds = %.critedge, %55, %60, %48
   %.1 = phi i64 [ %.06582, %60 ], [ %.06582, %55 ], [ %69, %.critedge ], [ %.06582, %48 ]
   %75 = icmp ult i64 %.1, %1
-  br i1 %75, label %19, label %._crit_edge, !llvm.loop !21
+  br i1 %75, label %19, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %74, %49, %shm_mq_get_receiver.exit, %19, %5, %47, %38
   %.065.lcssa.sink = phi i64 [ %.06582, %47 ], [ %.06582, %38 ], [ 0, %5 ], [ %.06582, %19 ], [ %.06582, %shm_mq_get_receiver.exit ], [ %.06582, %49 ], [ %.1, %74 ]
@@ -662,7 +662,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @shm_mq_receive(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @shm_mq_receive(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -759,7 +759,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %43
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %51 = getelementptr inbounds i8, ptr %8, i64 24
   %52 = load volatile i64, ptr %51, align 8
   %53 = add i64 %52, %45
@@ -789,7 +789,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 66:                                               ; preds = %.lr.ph, %114
   %67 = phi i64 [ %.pre, %.lr.ph ], [ %104, %114 ]
   %68 = sub i64 8, %67
-  %69 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %68, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !14
+  %69 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %68, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not124 = icmp eq i32 %69, 0
   br i1 %.not124, label %70, label %.loopexit
 
@@ -876,7 +876,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 114:                                              ; preds = %95
   %.pre148 = load i8, ptr %58, align 8
   %115 = trunc i8 %.pre148 to i1
-  br i1 %115, label %._crit_edge, label %66, !llvm.loop !23
+  br i1 %115, label %._crit_edge, label %66, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %114, %85, %111, %57
   %116 = phi i64 [ 0, %57 ], [ %88, %85 ], [ %109, %111 ], [ %109, %114 ]
@@ -900,7 +900,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %127, label %128, label %156
 
 128:                                              ; preds = %124
-  %129 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %118, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !14
+  %129 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %118, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %129, 0
   br i1 %.not, label %130, label %.loopexit
 
@@ -928,9 +928,9 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %141, label %142, label %156
 
 142:                                              ; preds = %138
-  %143 = call i64 @llvm.ctpop.i64(i64 %118), !range !24
+  %143 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %118)
   %144 = icmp ult i64 %143, 2
-  %145 = call i64 @llvm.ctlz.i64(i64 %118, i1 true), !range !24
+  %145 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
   %146 = sub nuw nsw i64 64, %145
   %147 = shl nuw nsw i64 1, %146
   %.0.i129 = select i1 %144, i64 %118, i64 %147
@@ -986,7 +986,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 173:                                              ; preds = %167
   %174 = sub nsw i64 %118, %168
-  %175 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %174, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !14
+  %175 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %174, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not123 = icmp eq i32 %175, 0
   br i1 %.not123, label %176, label %.loopexit
 
@@ -1027,7 +1027,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noca
 
 9:                                                ; preds = %7, %.split.us
   %10 = load ptr, ptr %1, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   store i8 0, ptr %0, align 8
   %11 = load i8, ptr %5, align 8
   %12 = trunc i8 %11 to i1
@@ -1062,7 +1062,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noca
 
 22:                                               ; preds = %.split, %20
   %23 = load ptr, ptr %1, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   store i8 0, ptr %0, align 8
   %24 = load i8, ptr %5, align 8
   %25 = trunc i8 %24 to i1
@@ -1103,7 +1103,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
@@ -1143,7 +1143,7 @@ define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %
   br i1 %.not36.us, label %.loopexit, label %26
 
 26:                                               ; preds = %._crit_edge52
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %27 = load volatile i64, ptr %10, align 8
   %28 = add i64 %27, %.lcssa48
   store volatile i64 %28, ptr %10, align 8
@@ -1155,7 +1155,7 @@ define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %
 
 .lr.ph51:                                         ; preds = %.lr.ph.split.us, %23
   %31 = phi i64 [ %33, %23 ], [ %12, %.lr.ph.split.us ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   %32 = load volatile i64, ptr %9, align 8
   %.not38.us = icmp eq i64 %31, %32
   br i1 %.not38.us, label %.loopexit, label %.backedge.us
@@ -1186,7 +1186,7 @@ define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %
   %46 = add i64 %.lcssa, %45
   %47 = getelementptr [0 x i8], ptr %42, i64 0, i64 %46
   store ptr %47, ptr %4, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
@@ -1197,7 +1197,7 @@ define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.lr.ph.split
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   %53 = load volatile i64, ptr %9, align 8
   %.not38 = icmp eq i64 %49, %53
   br i1 %.not38, label %.loopexit, label %.backedge
@@ -1207,7 +1207,7 @@ define internal fastcc noundef i32 @shm_mq_receive_bytes(ptr nocapture noundef %
   br i1 %.not36, label %60, label %55
 
 55:                                               ; preds = %54
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %56 = load volatile i64, ptr %10, align 8
   %57 = add i64 %56, %48
   store volatile i64 %57, ptr %10, align 8
@@ -1256,7 +1256,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @shm_mq_wait_for_attach(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @shm_mq_wait_for_attach(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #11, !srcloc !6
   %.not.i = icmp eq i8 %3, 0
@@ -1291,7 +1291,7 @@ define dso_local void @shm_mq_detach(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load volatile i64, ptr %6, align 8
   %8 = add i64 %7, %3
@@ -1429,17 +1429,15 @@ attributes #12 = { cold nounwind }
 !11 = !{i64 2149900935}
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{i32 0, i32 3}
+!14 = distinct !{!14, !13}
 !15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{i64 2149897778}
-!18 = !{i64 2149902859}
-!19 = !{i64 2149901174}
-!20 = !{i64 2149901526}
-!21 = distinct !{!21, !13}
-!22 = !{i64 2149902755}
-!23 = distinct !{!23, !13}
-!24 = !{i64 0, i64 65}
-!25 = !{i64 2149902431}
-!26 = !{i64 2149901973}
-!27 = !{i64 2149901885}
+!16 = !{i64 2149897778}
+!17 = !{i64 2149902859}
+!18 = !{i64 2149901174}
+!19 = !{i64 2149901526}
+!20 = distinct !{!20, !13}
+!21 = !{i64 2149902755}
+!22 = distinct !{!22, !13}
+!23 = !{i64 2149902431}
+!24 = !{i64 2149901973}
+!25 = !{i64 2149901885}

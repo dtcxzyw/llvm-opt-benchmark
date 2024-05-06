@@ -416,7 +416,7 @@ return:                                           ; preds = %if.end, %trace_pci_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @pci_host_config_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %len) #3 {
+define internal range(i64 0, 4294967296) i64 @pci_host_config_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %len) #3 {
 entry:
   %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
@@ -443,7 +443,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pci_host_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len) #0 {
+define internal range(i64 0, 4294967296) i64 @pci_host_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len) #0 {
 entry:
   %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16

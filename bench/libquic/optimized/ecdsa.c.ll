@@ -26,7 +26,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call5 = tail call i32 @ECDSA_sign_ex(i32 poison, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef null, ptr noundef null, ptr noundef nonnull %eckey), !range !7
+  %call5 = tail call i32 @ECDSA_sign_ex(i32 poison, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef null, ptr noundef null, ptr noundef nonnull %eckey)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -35,7 +35,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr nocapture noundef writeonly %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr nocapture noundef writeonly %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %len = alloca i64, align 8
@@ -96,7 +96,7 @@ err:                                              ; preds = %if.end, %if.end14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ECDSA_verify(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_verify(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   %der_len = alloca i64, align 8
@@ -124,7 +124,7 @@ if.then6:                                         ; preds = %lor.lhs.false3, %if
   br label %err
 
 if.end7:                                          ; preds = %lor.lhs.false3
-  %call8 = call i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef nonnull %call, ptr noundef %eckey), !range !7
+  %call8 = call i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef nonnull %call, ptr noundef %eckey)
   br label %err
 
 err:                                              ; preds = %entry, %if.end7, %if.then6
@@ -142,7 +142,7 @@ declare i32 @ECDSA_SIG_to_bytes(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly %sig, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly %sig, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %eckey) #4
   %cmp = icmp eq ptr %call, null
@@ -241,7 +241,7 @@ if.then48:                                        ; preds = %if.end44
   br label %err
 
 if.end49:                                         ; preds = %if.end44
-  %call50 = tail call fastcc i32 @digest_to_bn(ptr noundef nonnull %call10, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %call21), !range !7
+  %call50 = tail call fastcc i32 @digest_to_bn(ptr noundef nonnull %call10, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %call21)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %err, label %if.end53
 
@@ -435,7 +435,7 @@ digest_to_bn.exit:                                ; preds = %if.end4.i, %land.lh
   br i1 %or.cond1, label %digest_to_bn.exit.split.us, label %digest_to_bn.exit.split
 
 digest_to_bn.exit.split.us:                       ; preds = %digest_to_bn.exit
-  %call31.us.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef nonnull %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len), !range !7
+  %call31.us.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef nonnull %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len)
   %tobool32.not.us.us = icmp eq i32 %call31.us.us, 0
   br i1 %or.cond2, label %for.cond.us.us, label %digest_to_bn.exit.split.us.split
 
@@ -468,7 +468,7 @@ digest_to_bn.exit.split.us.split:                 ; preds = %digest_to_bn.exit.s
   br i1 %tobool32.not.us.us, label %if.then33, label %if.end34.us
 
 for.cond.us:                                      ; preds = %if.end53.us
-  %call31.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len), !range !7
+  %call31.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len)
   %tobool32.not.us = icmp eq i32 %call31.us, 0
   br i1 %tobool32.not.us, label %if.then33, label %if.end34.us
 
@@ -627,7 +627,7 @@ declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @digest_to_bn(ptr noundef %out, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %order) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @digest_to_bn(ptr noundef %out, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %order) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %order) #4
   %conv = zext i32 %call to i64
@@ -679,14 +679,14 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ECDSA_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr nocapture noundef %kinv, ptr nocapture noundef %rp) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr nocapture noundef %kinv, ptr nocapture noundef %rp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr noundef %kinv, ptr noundef %rp, ptr noundef null, i64 noundef 0), !range !7
+  %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr noundef %kinv, ptr noundef %rp, ptr noundef null, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %digest, i64 noundef %digest_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %digest, i64 noundef %digest_len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -785,7 +785,7 @@ do.cond.us.us:                                    ; preds = %do.body24.us.us
   br i1 %tobool35.not.us.us, label %do.end.split.us.us, label %do.body24.us.us.backedge
 
 do.body24.us.us.backedge:                         ; preds = %do.cond.us.us, %do.cond61.us
-  br label %do.body24.us.us, !llvm.loop !8
+  br label %do.body24.us.us, !llvm.loop !7
 
 do.end.split.us.us:                               ; preds = %do.cond.us.us
   %call36.us = tail call i32 @BN_add(ptr noundef %call9, ptr noundef %call9, ptr noundef %call23) #4
@@ -808,7 +808,7 @@ do.cond:                                          ; preds = %do.body24
   br i1 %tobool35.not, label %do.end.split, label %do.body24.backedge
 
 do.body24.backedge:                               ; preds = %do.cond, %do.cond61
-  br label %do.body24, !llvm.loop !8
+  br label %do.body24, !llvm.loop !7
 
 do.end.split:                                     ; preds = %do.cond
   %call36 = tail call i32 @BN_add(ptr noundef %call9, ptr noundef %call9, ptr noundef %call23) #4
@@ -995,6 +995,5 @@ attributes #4 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

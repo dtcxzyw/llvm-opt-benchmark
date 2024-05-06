@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_ir_mode = external hidden local_unnamed_addr constant [102 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_opt_loop(ptr noundef %J) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_opt_loop(ptr noundef %J) local_unnamed_addr #0 {
 entry:
   %lps = alloca %struct.LoopState, align 8
   %nins1 = getelementptr inbounds i8, ptr %J, i64 12
@@ -57,7 +57,7 @@ land.lhs.true:                                    ; preds = %if.then
   %add.ptr16 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load i64, ptr %add.ptr16, align 8
   %shr = ashr i64 %11, 47
-  %conv17 = trunc i64 %shr to i32
+  %conv17 = trunc nsw i64 %shr to i32
   %cmp18 = icmp ult i32 %conv17, -13
   br i1 %cmp18, label %if.then20, label %if.end28
 
@@ -655,7 +655,7 @@ if.then261.i:                                     ; preds = %if.then253.i
   unreachable
 
 if.end262.i:                                      ; preds = %if.then253.i
-  %conv263.i = trunc i32 %ref77.1.i to i16
+  %conv263.i = trunc nuw i32 %ref77.1.i to i16
   %inc264.i = add nuw nsw i32 %nphi.2.i, 1
   %idxprom265.i = zext nneg i32 %nphi.2.i to i64
   %arrayidx266.i = getelementptr inbounds [64 x i16], ptr %phi.i, i64 0, i64 %idxprom265.i
@@ -1050,7 +1050,7 @@ if.then236.i.i:                                   ; preds = %if.end228.i.i
   unreachable
 
 if.end237.i.i:                                    ; preds = %if.end228.i.i
-  %conv238.i.i = trunc i32 %ref191.0.i.i to i16
+  %conv238.i.i = trunc nuw i32 %ref191.0.i.i to i16
   %indvars.iv.next149.i.i = add nuw nsw i64 %indvars.iv148.i.i, 1
   %arrayidx241.i.i = getelementptr inbounds i16, ptr %phi.i, i64 %indvars.iv148.i.i
   store i16 %conv238.i.i, ptr %arrayidx241.i.i, align 2

@@ -140,7 +140,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %land.lhs.true10
-  %call15 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 0), !range !6
+  %call15 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 0)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %for.inc
 
@@ -162,12 +162,12 @@ land.lhs.true25:                                  ; preds = %land.lhs.true22
   br i1 %cmp28, label %if.then29, label %if.else34
 
 if.then29:                                        ; preds = %land.lhs.true25
-  %call30 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 1), !range !6
+  %call30 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 1)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %for.inc
 
 if.else34:                                        ; preds = %land.lhs.true25, %land.lhs.true22, %if.else
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %call7, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef nonnull readonly %call7, i32 noundef 0)
   %cmp36 = icmp eq ptr %call.i, null
   br i1 %cmp36, label %err, label %if.end38
 
@@ -178,7 +178,7 @@ if.end38:                                         ; preds = %if.else34
 for.inc:                                          ; preds = %if.then14, %if.then29, %if.end38
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %inc, %call1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 err:                                              ; preds = %if.else34, %if.then29, %if.then14
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call3, ptr noundef nonnull @GENERAL_NAME_free) #3
@@ -227,7 +227,7 @@ land.lhs.true10.us:                               ; preds = %land.lhs.true.us
   br i1 %cmp13.us, label %err.sink.split, label %if.else.us
 
 if.else.us:                                       ; preds = %land.lhs.true10.us, %land.lhs.true.us, %for.body.us
-  %call.i15.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef null, ptr noundef nonnull %call7.us, i32 noundef 0)
+  %call.i15.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef null, ptr noundef nonnull readonly %call7.us, i32 noundef 0)
   %cmp20.us = icmp eq ptr %call.i15.us, null
   br i1 %cmp20.us, label %err, label %if.end22.us
 
@@ -235,7 +235,7 @@ if.end22.us:                                      ; preds = %if.else.us
   %call25.us = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call3, ptr noundef nonnull %call.i15.us) #3
   %inc.us = add nuw nsw i32 %i.019.us, 1
   %exitcond23.not = icmp eq i32 %inc.us, %call1
-  br i1 %exitcond23.not, label %return, label %for.body.us, !llvm.loop !8
+  br i1 %exitcond23.not, label %return, label %for.body.us, !llvm.loop !7
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #3
@@ -307,14 +307,14 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %call29.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call3, ptr noundef %call26.i) #3
   %inc.i = add nuw nsw i32 %i.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call18.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %call13.i) #3
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true10, %land.lhs.true, %for.body
-  %call.i15 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef nonnull %ctx, ptr noundef nonnull %call7, i32 noundef 0)
+  %call.i15 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef nonnull %ctx, ptr noundef nonnull readonly %call7, i32 noundef 0)
   %cmp20 = icmp eq ptr %call.i15, null
   br i1 %cmp20, label %err, label %if.end22
 
@@ -325,7 +325,7 @@ if.end22:                                         ; preds = %if.else
 for.inc:                                          ; preds = %for.end.i, %if.end4.i, %if.then14, %if.end22
   %inc = add nuw nsw i32 %i.019, 1
   %exitcond.not = icmp eq i32 %inc, %call1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 err.sink.split:                                   ; preds = %if.end16.i, %if.end8.i, %lor.lhs.false12.i, %lor.lhs.false.i, %land.lhs.true10.us
   %.sink27 = phi i32 [ 347, %land.lhs.true10.us ], [ 347, %lor.lhs.false.i ], [ 355, %lor.lhs.false12.i ], [ 355, %if.end8.i ], [ 361, %if.end16.i ]
@@ -664,7 +664,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @i2t_ASN1_OBJECT(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GENERAL_NAME_print(ptr noundef %out, ptr nocapture noundef readonly %gen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GENERAL_NAME_print(ptr noundef %out, ptr nocapture noundef readonly %gen) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %gen, align 8
   switch i32 %0, label %return [
@@ -853,7 +853,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end11
   %i.010 = phi i32 [ %inc, %if.end11 ], [ 0, %for.cond.preheader ]
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.010) #3
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %call7, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef readonly %call7, i32 noundef 0)
   %cmp9 = icmp eq ptr %call.i, null
   br i1 %cmp9, label %err, label %if.end11
 
@@ -861,7 +861,7 @@ if.end11:                                         ; preds = %for.body
   %call14 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call3, ptr noundef nonnull %call.i) #3
   %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %call1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 err:                                              ; preds = %for.body
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call3, ptr noundef nonnull @GENERAL_NAME_free) #3
@@ -1212,7 +1212,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #0
 declare i32 @OPENSSL_sk_reserve(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #1 {
 entry:
   %cond19 = icmp eq ptr %ctx, null
   br i1 %cond19, label %if.then6, label %land.lhs.true
@@ -1278,7 +1278,7 @@ if.end26.us:                                      ; preds = %lor.lhs.false22.us
   store i32 1, ptr %call23.us, align 8
   %call29.us = tail call i32 @OPENSSL_sk_push(ptr noundef %gens, ptr noundef nonnull %call23.us) #3
   %tobool30.not.us = icmp eq i32 %call29.us, 0
-  br i1 %tobool30.not.us, label %err, label %while.cond.us, !llvm.loop !11
+  br i1 %tobool30.not.us, label %err, label %while.cond.us, !llvm.loop !10
 
 while.cond:                                       ; preds = %cond.end, %if.end26
   %i.0 = phi i32 [ %dec, %if.end26 ], [ -1, %cond.end ]
@@ -1307,7 +1307,7 @@ if.end26:                                         ; preds = %lor.lhs.false22
   store i32 1, ptr %call23, align 8
   %call29 = tail call i32 @OPENSSL_sk_push(ptr noundef %gens, ptr noundef nonnull %call23) #3
   %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %err, label %while.cond, !llvm.loop !11
+  br i1 %tobool30.not, label %err, label %while.cond, !llvm.loop !10
 
 err:                                              ; preds = %if.end26, %lor.lhs.false22, %while.body, %if.end26.us, %lor.lhs.false22.us, %while.body.us
   %.sink31 = phi i32 [ 452, %while.body.us ], [ 452, %lor.lhs.false22.us ], [ 459, %if.end26.us ], [ 452, %while.body ], [ 452, %lor.lhs.false22 ], [ 459, %if.end26 ]
@@ -1379,9 +1379,8 @@ attributes #4 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

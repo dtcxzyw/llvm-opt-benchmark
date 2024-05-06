@@ -741,7 +741,7 @@ declare dso_local void @perf_aux_output_end(ptr noundef, i64 noundef) local_unna
 declare dso_local ptr @perf_aux_output_begin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pt_buffer_reset_markers(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @pt_buffer_reset_markers(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 81
@@ -1345,7 +1345,7 @@ define internal void @pt_event_stop(ptr noundef %0, i32 noundef %1) #2 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @is_intel_pt_event(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @is_intel_pt_event(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @pt_pmu
@@ -1614,7 +1614,7 @@ declare dso_local void @cpus_read_unlock() local_unnamed_addr #3
 declare dso_local i32 @x86_add_exclusive(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @pt_pmu_hw_init() unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_addr #5 section ".init.text" align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 206) #19, !srcloc !14
   %2 = extractvalue { i64, i64 } %1, 0
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #19
@@ -1757,7 +1757,7 @@ define internal fastcc noundef i32 @pt_pmu_hw_init() unnamed_addr #5 section ".i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pt_event_init(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 0, i32 7), align 8
@@ -1965,7 +1965,7 @@ define internal noundef i32 @pt_event_init(ptr nocapture noundef %0) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pt_event_add(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pt_event_add(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @pt_ctx) #18, !srcloc !58
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 8
@@ -3173,7 +3173,7 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef i32 @pt_event_addr_filters_validate(ptr noundef readonly %0) #10 align 16 {
+define internal noundef range(i32 -95, 1) i32 @pt_event_addr_filters_validate(ptr noundef readonly %0) #10 align 16 {
   %2 = load i32, ptr getelementptr inbounds (%struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 4), align 8
   %3 = and i32 %2, 7
   br label %4
@@ -3209,7 +3209,7 @@ define internal noundef i32 @pt_event_addr_filters_validate(ptr noundef readonly
 declare dso_local i32 @perf_pmu_register(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pt_cap_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_cap_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -3334,7 +3334,7 @@ define internal noundef i64 @psb_period_show(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @pt_timing_attr_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_timing_attr_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #14 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %15 [

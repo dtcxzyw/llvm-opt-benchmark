@@ -1167,7 +1167,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkey_compare(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1382,7 +1382,7 @@ RSTRING_PTR.exit29:                               ; preds = %RSTRING_PTR.exit25,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkey_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkey_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1710,7 +1710,7 @@ RSTRING_PTR.exit37:                               ; preds = %RSTRING_PTR.exit33,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkey_verify_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkey_verify_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2621,7 +2621,7 @@ define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 no
 
 50:                                               ; preds = %42, %39
   %51 = getelementptr inbounds i8, ptr %8, i64 20
-  %52 = trunc i32 %2 to i8
+  %52 = trunc nuw nsw i32 %2 to i8
   %53 = shl i8 %52, 1
   %54 = and i8 %53, 2
   store ptr %.0, ptr %8, align 8
@@ -2737,7 +2737,7 @@ declare void @EVP_PKEY_CTX_set_app_data(ptr noundef, ptr noundef) local_unnamed_
 declare void @EVP_PKEY_CTX_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_gen_cb(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @pkey_gen_cb(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @EVP_PKEY_CTX_get_app_data(ptr noundef %0) #8
   %4 = getelementptr inbounds i8, ptr %3, i64 20
@@ -2967,7 +2967,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef %2, i32 noundef %9) #8
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 1

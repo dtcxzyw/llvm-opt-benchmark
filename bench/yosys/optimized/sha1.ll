@@ -1376,7 +1376,7 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %45 = getelementptr inbounds i8, ptr %3, i64 60
   store i32 %44, ptr %45, align 4
   %46 = lshr i64 %11, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %48 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %47, ptr %48, align 8
   call void @_ZN4SHA19transformEPj(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3)

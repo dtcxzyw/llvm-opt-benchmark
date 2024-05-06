@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @key2pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @key2pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null
@@ -74,7 +74,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @key2ms_does_selection(ptr nocapture readnone %vctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @key2ms_does_selection(ptr nocapture readnone %vctx, i32 noundef %selection) #1 {
 entry:
   %and = and i32 %selection, 3
   %cmp = icmp ne i32 %and, 0

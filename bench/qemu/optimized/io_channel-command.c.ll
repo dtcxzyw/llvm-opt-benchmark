@@ -387,7 +387,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_command_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_command_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
   %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -418,7 +418,7 @@ return:                                           ; preds = %retry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_command_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_command_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
   %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
@@ -449,7 +449,7 @@ return:                                           ; preds = %retry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_command_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_command_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
   %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -489,7 +489,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_command_close(ptr noundef %ioc, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_command_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
   %readfd = getelementptr inbounds i8, ptr %call.i, i64 100

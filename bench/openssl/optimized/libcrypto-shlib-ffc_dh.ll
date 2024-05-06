@@ -228,7 +228,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_named_group_set(ptr noundef %ffc, ptr noundef readonly %group) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_named_group_set(ptr noundef %ffc, ptr noundef readonly %group) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ffc, null
   %cmp1 = icmp eq ptr %group, null

@@ -49,7 +49,7 @@ define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @exp_pdu_data_src_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
@@ -60,7 +60,7 @@ define internal i32 @exp_pdu_data_src_ip_size(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exp_pdu_data_src_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %16 [
@@ -91,7 +91,7 @@ define internal noundef i32 @exp_pdu_data_src_ip_populate_data(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @exp_pdu_data_dst_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
@@ -102,7 +102,7 @@ define internal i32 @exp_pdu_data_dst_ip_size(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exp_pdu_data_dst_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %16 [
@@ -176,7 +176,7 @@ define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture n
   store <4 x i8> <i8 0, i8 25, i8 0, i8 4>, ptr %2, align 1
   %7 = getelementptr i8, ptr %2, i64 4
   %8 = lshr i32 %6, 24
-  %9 = trunc i32 %8 to i8
+  %9 = trunc nuw i32 %8 to i8
   store i8 %9, ptr %7, align 1
   %10 = lshr i32 %6, 16
   %11 = trunc i32 %10 to i8
@@ -199,7 +199,7 @@ define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture n
   store <4 x i8> <i8 0, i8 26, i8 0, i8 4>, ptr %2, align 1
   %7 = getelementptr i8, ptr %2, i64 4
   %8 = lshr i32 %6, 24
-  %9 = trunc i32 %8 to i8
+  %9 = trunc nuw i32 %8 to i8
   store i8 %9, ptr %7, align 1
   %10 = lshr i32 %6, 16
   %11 = trunc i32 %10 to i8
@@ -227,7 +227,7 @@ define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nocap
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 24
-  %9 = trunc i32 %8 to i8
+  %9 = trunc nuw i32 %8 to i8
   store i8 %9, ptr %5, align 1
   %10 = lshr i32 %7, 16
   %11 = trunc i32 %10 to i8
@@ -307,7 +307,7 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   store ptr %29, ptr %30, align 8
   store i32 %26, ptr %11, align 8
   store i8 0, ptr %29, align 1
-  %31 = trunc i16 %2 to i8
+  %31 = trunc nuw i16 %2 to i8
   %32 = getelementptr i8, ptr %29, i64 1
   store i8 %31, ptr %32, align 1
   %33 = getelementptr i8, ptr %29, i64 2

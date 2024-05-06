@@ -3488,7 +3488,7 @@ define dso_local void @stbtt_GetGlyphBitmapBox(ptr nocapture noundef readonly %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %13 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %13 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i = icmp eq i32 %13, 0
   %.not31.i = icmp eq ptr %4, null
   br i1 %.not.i, label %14, label %21
@@ -3598,7 +3598,7 @@ define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %16 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %16 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %16, 0
   %.not31.i = icmp eq ptr %6, null
   br i1 %.not.i, label %17, label %24
@@ -6204,7 +6204,7 @@ define dso_local ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %21 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %21 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %22
 
@@ -6351,7 +6351,7 @@ define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef reado
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
-  %18 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %18 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %19
 
@@ -6420,15 +6420,15 @@ define dso_local void @stbtt_MakeCodepointBitmapSubpixel(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
-  %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %3)
-  %10 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %3)
+  %10 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
-  %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %7)
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9)
+  %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %7)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9)
   ret void
 }
 
@@ -6528,7 +6528,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %106
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
-  %72 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %14, i32 noundef %53, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %72 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %14, i32 noundef %53, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %73
 
@@ -6588,7 +6588,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %109 = mul nsw i32 %spec.select, %4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i8, ptr %108, i64 %110
-  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull %14, ptr noundef %111, i32 noundef %96, i32 noundef %98, i32 noundef %4, float noundef %41, float noundef %41, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %53)
+  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull readonly %14, ptr noundef %111, i32 noundef %96, i32 noundef %98, i32 noundef %4, float noundef %41, float noundef %41, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %53)
   %112 = trunc i32 %spec.select72 to i16
   %113 = getelementptr inbounds %struct.stbtt_bakedchar, ptr %8, i64 %indvars.iv
   store i16 %112, ptr %113, align 4
@@ -7490,7 +7490,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %226, %161, %stbtt_G
   %262 = add <2 x i32> %261, <i32 1, i32 1>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %263 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull %1, i32 noundef %117, ptr noundef nonnull %8)
+  %263 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %1, i32 noundef %117, ptr noundef nonnull %8)
   %264 = load i32, ptr %19, align 4
   %.not.i.i161 = icmp sgt i32 %264, %117
   br i1 %.not.i.i161, label %265, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.i
@@ -8953,7 +8953,7 @@ define dso_local i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %0, 
   br i1 %5, label %stbtt__matches.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #55
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #55
   %7 = trunc i64 %6 to i32
   %.not39.i = icmp eq i32 %2, 0
   %8 = and i32 %2, 7
@@ -9196,32 +9196,32 @@ stbtt__find_table.exit60.i:                       ; preds = %120
   br i1 %.not39.i, label %150, label %144
 
 144:                                              ; preds = %143
-  %145 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
+  %145 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
   %.not45.i = icmp eq i32 %145, 0
   br i1 %.not45.i, label %146, label %stbtt__matches.exit
 
 146:                                              ; preds = %144
-  %147 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
+  %147 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
   %.not46.i = icmp eq i32 %147, 0
   br i1 %.not46.i, label %148, label %stbtt__matches.exit
 
 148:                                              ; preds = %146
-  %149 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %149 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not47.i = icmp eq i32 %149, 0
   br i1 %.not47.i, label %.loopexit, label %stbtt__matches.exit
 
 150:                                              ; preds = %143
-  %151 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
+  %151 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
   %.not42.i = icmp eq i32 %151, 0
   br i1 %.not42.i, label %152, label %stbtt__matches.exit
 
 152:                                              ; preds = %150
-  %153 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
+  %153 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
   %.not43.i = icmp eq i32 %153, 0
   br i1 %.not43.i, label %154, label %stbtt__matches.exit
 
 154:                                              ; preds = %152
-  %155 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %155 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not44.i = icmp eq i32 %155, 0
   br i1 %.not44.i, label %.loopexit, label %stbtt__matches.exit
 
@@ -9487,7 +9487,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %39, %67, %.sink.spl
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fons__tt_renderGlyphBitmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
   ret void
 }
 
@@ -10234,7 +10234,7 @@ fons__allocFont.exit:                             ; preds = %21
   %48 = getelementptr inbounds i8, ptr %0, i64 20616
   store i32 0, ptr %48, align 8
   store ptr %0, ptr %39, align 8
-  %49 = tail call i32 @stbtt_InitFont(ptr noundef nonnull %39, ptr noundef %2, i32 noundef 0)
+  %49 = tail call i32 @stbtt_InitFont(ptr noundef nonnull writeonly %39, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %91, label %50
 
@@ -11368,7 +11368,7 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr
 
 .loopexit196:                                     ; preds = %61, %16, %53, %57
   %.0164 = phi ptr [ %40, %57 ], [ %40, %53 ], [ null, %16 ], [ null, %61 ]
-  %63 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %1, i32 noundef %2)
+  %63 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %1, i32 noundef %2)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.preheader195, label %.loopexit
 
@@ -11397,7 +11397,7 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %69, i64 %75
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %77, i32 noundef %2)
+  %78 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %77, i32 noundef %2)
   %.not176 = icmp eq i32 %78, 0
   br i1 %.not176, label %71, label %.loopexit
 
@@ -11467,7 +11467,7 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
-  %126 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %.0158, i32 noundef %.0161, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %126 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %.0158, i32 noundef %.0161, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not.i.i = icmp eq i32 %126, 0
   br i1 %.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %127
 
@@ -11651,7 +11651,7 @@ fons__allocGlyph.exit:                            ; preds = %177, %186
   %233 = add nsw i32 %228, %232
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i8, ptr %226, i64 %234
-  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull %.0158, ptr noundef %235, i32 noundef %150, i32 noundef %153, i32 noundef %231, float noundef %101, float noundef %101, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %.0161)
+  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull readonly %.0158, ptr noundef %235, i32 noundef %150, i32 noundef %153, i32 noundef %231, float noundef %101, float noundef %101, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %.0161)
   %236 = load ptr, ptr %225, align 8
   %237 = load i16, ptr %202, align 4
   %238 = sext i16 %237 to i32
@@ -14100,7 +14100,7 @@ define dso_local void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_un
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -14111,7 +14111,7 @@ define dso_local ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14174,7 +14174,7 @@ stbi_load_from_file.exit:                         ; preds = %stbi__start_file.ex
 define dso_local ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14367,7 +14367,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 define dso_local ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14561,7 +14561,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -14572,7 +14572,7 @@ define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapt
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14656,7 +14656,7 @@ define dso_local ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, p
 define dso_local ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -14719,7 +14719,7 @@ define dso_local ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr 
 define dso_local ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -15235,7 +15235,7 @@ stbi__float_postprocess.exit:                     ; preds = %.loopexit.i, %stbi_
 define dso_local noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -15276,7 +15276,7 @@ stbi__start_callbacks.exit:                       ; preds = %17, %19
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -15287,7 +15287,7 @@ define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -15335,7 +15335,7 @@ stbi_loadf_from_file.exit:                        ; preds = %19, %21
 define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -15556,7 +15556,7 @@ stbi__hdr_test_core.exit20:                       ; preds = %stbi__get8.exit.i13
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stbi__context, align 8
-  %3 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %26, label %4
 
@@ -15564,7 +15564,7 @@ define dso_local noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) loc
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
   %5 = tail call i64 @ftell(ptr noundef nonnull %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 52
@@ -15614,7 +15614,7 @@ define dso_local noundef i32 @stbi_is_hdr_from_file(ptr noundef %0) local_unname
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -15657,7 +15657,7 @@ stbi__start_file.exit:                            ; preds = %13, %15
 define dso_local noundef i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 52
@@ -17379,7 +17379,7 @@ define dso_local void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stbi__context, align 8
-  %6 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -17391,7 +17391,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %5)
   %9 = tail call i64 @ftell(ptr noundef nonnull %6)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %6, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 52
@@ -17441,7 +17441,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr no
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 52
@@ -17700,7 +17700,7 @@ stbi__bmp_info.exit.thread:                       ; preds = %74, %73
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stbi__context, align 8
-  %3 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
+  %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -17712,7 +17712,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef reado
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
   %6 = tail call i64 @ftell(ptr noundef nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 52
@@ -17762,7 +17762,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) l
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -18246,7 +18246,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 
 define dso_local range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -18309,7 +18309,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0,
 define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 52
@@ -18443,7 +18443,7 @@ nvgSave.exit:                                     ; preds = %20
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.3.0..sroa_idx7.i.i, align 4
   %36 = getelementptr inbounds i8, ptr %3, i64 232
   %37 = getelementptr inbounds i8, ptr %3, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %37, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %37, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %3, i64 244
   store float 1.000000e+00, ptr %38, align 4
@@ -18582,7 +18582,7 @@ define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #26
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.3.0..sroa_idx7.i, align 4
   %14 = getelementptr inbounds i8, ptr %7, i64 96
   %15 = getelementptr inbounds i8, ptr %7, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %15, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %15, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %7, i64 104
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %16, align 4
@@ -18765,7 +18765,7 @@ nvgSave.exit:
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.3.0..sroa_idx7.i.i, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 232
   %13 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %13, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %13, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 244
   store float 1.000000e+00, ptr %14, align 4
@@ -19820,7 +19820,7 @@ define dso_local void @nvgStrokeColor(ptr nocapture noundef %0, <2 x float> %1, 
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [32 x %struct.NVGstate], ptr %4, i64 0, i64 %8, i32 3
   %10 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   store <2 x float> zeroinitializer, ptr %11, align 4
@@ -19895,7 +19895,7 @@ define dso_local void @nvgFillColor(ptr nocapture noundef %0, <2 x float> %1, <2
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [32 x %struct.NVGstate], ptr %4, i64 0, i64 %8, i32 2
   %10 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   store <2 x float> zeroinitializer, ptr %11, align 4
@@ -23661,7 +23661,7 @@ define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef
   %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %1) #55
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #55
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit12.i, label %18
 
@@ -23737,7 +23737,7 @@ define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr nocapture noundef r
   %14 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #55
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #55
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge.loopexit.split.loop.exit12.i.i, label %19
 
@@ -23774,7 +23774,7 @@ nvgFindFont.exit:                                 ; preds = %19, %3, %5, %._crit
   %31 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i.i8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 56
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %2) #55
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %2) #55
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %nvgFindFont.exit12, label %36
 
@@ -23907,7 +23907,7 @@ define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture nound
   %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %1) #55
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #55
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit12.i, label %18
 
@@ -26301,7 +26301,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture nound
   %141 = getelementptr inbounds i8, ptr %2, i64 %140
   %142 = sub nsw i32 %3, %139
   %143 = getelementptr inbounds i8, ptr %24, i64 %127
-  %144 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull %141, i32 noundef %142, ptr noundef %143, i32 noundef %121)
+  %144 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %141, i32 noundef %142, ptr noundef readonly %143, i32 noundef %121)
   %.not = icmp eq i32 %144, %142
   br i1 %.not, label %._crit_edge, label %147
 

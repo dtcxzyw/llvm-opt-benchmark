@@ -2535,10 +2535,10 @@ thread-pre-split135:                              ; preds = %.split208.us, %.loo
 
 1741:                                             ; preds = %.backedge
   %1742 = add nuw nsw i64 %1740, 2
-  %1743 = mul nsw i64 %1742, %1737
+  %1743 = mul nuw nsw i64 %1742, %1737
   %1744 = getelementptr double, ptr %14, i64 %1743
   %1745 = add nuw nsw i64 %1740, 4
-  %1746 = mul nsw i64 %1745, %1737
+  %1746 = mul nuw nsw i64 %1745, %1737
   %1747 = getelementptr double, ptr %53, i64 %1746
   br label %1755
 
@@ -2618,7 +2618,7 @@ thread-pre-split135:                              ; preds = %.split208.us, %.loo
 .split212:                                        ; preds = %1785, %.loopexit150
   %1786 = phi i64 [ %1802, %.loopexit150 ], [ 0, %1785 ]
   %1787 = add nuw nsw i64 %1786, 4
-  %1788 = mul nsw i64 %1787, %1737
+  %1788 = mul nuw nsw i64 %1787, %1737
   %1789 = trunc i64 %1786 to i32
   %1790 = add nsw i32 %1728, %1789
   %1791 = mul nsw i32 %1790, %49
@@ -2657,7 +2657,7 @@ thread-pre-split135:                              ; preds = %.split208.us, %.loo
 .split213:                                        ; preds = %1805, %.loopexit149
   %1812 = phi i64 [ %1828, %.loopexit149 ], [ 0, %1805 ]
   %1813 = add nuw nsw i64 %1812, 2
-  %1814 = mul nsw i64 %1813, %1809
+  %1814 = mul nuw nsw i64 %1813, %1809
   %1815 = trunc i64 %1812 to i32
   %1816 = add nsw i32 %1728, %1815
   %1817 = mul nsw i32 %1816, %49

@@ -106,7 +106,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DH_generate_parameters_ex(ptr nocapture noundef %dh, i32 noundef %prime_bits, i32 noundef %generator, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DH_generate_parameters_ex(ptr nocapture noundef %dh, i32 noundef %prime_bits, i32 noundef %generator, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #4
   %cmp = icmp eq ptr %call, null
@@ -248,7 +248,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DH_generate_key(ptr noundef %dh) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DH_generate_key(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
   %local_priv = alloca %struct.bignum_st, align 8
   %0 = load ptr, ptr %dh, align 8

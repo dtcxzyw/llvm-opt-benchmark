@@ -51168,7 +51168,7 @@ _ZNSt8optionalISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7var
   store ptr @_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNKS0_8fetchers21GitArchiveInputScheme15downloadArchiveENS0_3refINS0_5StoreEEENS4_5InputEEUlS2_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %628, align 8
   %632 = getelementptr inbounds i8, ptr %58, i64 16
   %633 = getelementptr inbounds i8, ptr %58, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE9_M_invokeERKSt9_Any_data", ptr %633, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %632, align 8
   invoke void @_ZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.350") align 8 %56, ptr noundef nonnull %57, ptr noundef nonnull %58)

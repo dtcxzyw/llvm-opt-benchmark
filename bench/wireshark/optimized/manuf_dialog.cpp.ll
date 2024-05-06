@@ -1629,7 +1629,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i23._crit_
   %37 = ptrtoint ptr %29 to i64
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 24
-  %40 = call i64 @llvm.ctlz.i64(i64 %39, i1 true), !range !34
+  %40 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
   %41 = shl nuw nsw i64 %40, 1
   %42 = xor i64 %41, 126
   call fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_T1_"(ptr %29, ptr %34, i64 noundef %42)
@@ -1701,7 +1701,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i.i.i.i", %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.09.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i.i.i.i, i64 24, i1 false)
-  br label %57, !llvm.loop !35
+  br label %57, !llvm.loop !34
 
 "_ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i.i.i.i"
   store i32 %.val.i.i.i.i.i, ptr %.sroa.09.0.i.i.i.i.i, align 8
@@ -1716,7 +1716,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
   %.sroa.0.0.i.i.i.i = getelementptr i8, ptr %.sroa.0.020.i.i.i.i, i64 24
   %.not.i.i.i.i25 = icmp eq ptr %.sroa.0.0.i.i.i.i, %44
   %indvar.next.i.i.i = add nuw nsw i64 %indvar.i.i.i, 1
-  br i1 %.not.i.i.i.i25, label %"_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit.i.i.i", label %46, !llvm.loop !37
+  br i1 %.not.i.i.i.i25, label %"_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit.i.i.i", label %46, !llvm.loop !36
 
 "_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit.i.i.i": ; preds = %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -1750,7 +1750,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.thread.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i19.i.i.i", %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.09.0.i.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i17.i.i.i, i64 24, i1 false)
-  br label %63, !llvm.loop !35
+  br label %63, !llvm.loop !34
 
 "_ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_.exit.i22.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i19.i.i.i"
   store i32 %.sroa.04.0.copyload.i.i.i.i.i, ptr %.sroa.09.0.i.i16.i.i.i, align 8
@@ -1761,7 +1761,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i13.i.i.i)
   %68 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i, i64 24
   %.not.i25.i.i.i = icmp eq ptr %68, %34
-  br i1 %.not.i25.i.i.i, label %"_ZSt4sortIN5QListI11QModelIndexE8iteratorEZN11ManufDialog15copyToClipboardEvE3$_0EvT_S6_T0_.exit", label %.lr.ph.i14.i.i.i, !llvm.loop !38
+  br i1 %.not.i25.i.i.i, label %"_ZSt4sortIN5QListI11QModelIndexE8iteratorEZN11ManufDialog15copyToClipboardEvE3$_0EvT_S6_T0_.exit", label %.lr.ph.i14.i.i.i, !llvm.loop !37
 
 .preheader.i28.i.i.i:                             ; preds = %35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -1811,7 +1811,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false)
   %82 = add nsw i64 %.010.i.i.i.i.i.i57.i.i.i, -1
   %83 = icmp ugt i64 %.010.i.i.i.i.i.i57.i.i.i, 1
-  br i1 %83, label %.lr.ph.i.i.i.i.i.i56.i.i.i, label %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i, !llvm.loop !39
+  br i1 %83, label %.lr.ph.i.i.i.i.i.i56.i.i.i, label %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i, !llvm.loop !38
 
 _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i56.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i53.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -1840,7 +1840,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.thread.i.i52.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i44.i.i.i", %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.09.0.i.i41.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i42.i.i.i, i64 24, i1 false)
-  br label %85, !llvm.loop !35
+  br label %85, !llvm.loop !34
 
 "_ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_.exit.i47.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclI11QModelIndexN5QListIS6_E8iteratorEEEbRT_T0_.exit.i.i44.i.i.i"
   store i32 %.val.i.i34.i.i.i, ptr %.sroa.09.0.i.i41.i.i.i, align 8
@@ -1854,7 +1854,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i
 90:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_.exit.i47.i.i.i", %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i
   %.sroa.0.0.i50.i.i.i = getelementptr i8, ptr %.sroa.0.020.i32.i.i.i, i64 24
   %.not.i51.i.i.i = icmp eq ptr %.sroa.0.0.i50.i.i.i, %34
-  br i1 %.not.i51.i.i.i, label %"_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit60.i.i.i", label %70, !llvm.loop !37
+  br i1 %.not.i51.i.i.i, label %"_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit60.i.i.i", label %70, !llvm.loop !36
 
 "_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_.exit60.i.i.i": ; preds = %90, %.preheader.i28.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -2927,7 +2927,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24:    ; preds = %_ZN7QStringD2Ev.exi
   %49 = add i32 %.01035, 1
   %50 = sext i32 %49 to i64
   %51 = icmp sgt i64 %48, %50
-  br i1 %51, label %13, label %._crit_edge, !llvm.loop !40
+  br i1 %51, label %13, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %47, %2
   invoke void @_ZN7QString14toUpper_helperERKS_(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -3051,11 +3051,11 @@ define void @_ZN11ManufDialog12searchPrefixER7QString(ptr nocapture noundef nonn
 
 .noexc15:                                         ; preds = %.noexc
   %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !41
+  %17 = load ptr, ptr %16, align 8, !noalias !40
   %.not.i.i.i = icmp eq ptr %17, null
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr @_ZN10QByteArray6_emptyE, ptr %17
   %18 = invoke i32 @hex_str_to_bytes(ptr noundef nonnull %spec.select.i.i.i, ptr noundef %15, i32 noundef 0)
-          to label %19 unwind label %35, !noalias !41
+          to label %19 unwind label %35, !noalias !40
 
 19:                                               ; preds = %.noexc15
   %.not.i = icmp eq i32 %18, 0
@@ -3063,42 +3063,42 @@ define void @_ZN11ManufDialog12searchPrefixER7QString(ptr nocapture noundef nonn
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %15, i64 8
-  %22 = load i32, ptr %21, align 8, !noalias !41
+  %22 = load i32, ptr %21, align 8, !noalias !40
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.critedge.i, label %24
 
 24:                                               ; preds = %20
   %25 = icmp ugt i32 %22, 6
-  %26 = load ptr, ptr %5, align 8, !noalias !41
+  %26 = load ptr, ptr %5, align 8, !noalias !40
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZN10QByteArrayD2Ev.exit.i, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i:     ; preds = %24
-  %27 = atomicrmw sub ptr %26, i32 1 seq_cst, align 4, !noalias !41
+  %27 = atomicrmw sub ptr %26, i32 1 seq_cst, align 4, !noalias !40
   %.not.i.i8.i = icmp eq i32 %27, 1
   br i1 %.not.i.i8.i, label %28, label %_ZN10QByteArrayD2Ev.exit.i
 
 28:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i
-  %29 = load ptr, ptr %5, align 8, !noalias !41
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %29, i64 noundef 1, i64 noundef 8) #19, !noalias !41
+  %29 = load ptr, ptr %5, align 8, !noalias !40
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %29, i64 noundef 1, i64 noundef 8) #19, !noalias !40
   br label %_ZN10QByteArrayD2Ev.exit.i
 
 _ZN10QByteArrayD2Ev.exit.i:                       ; preds = %28, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i, %24
   br i1 %25, label %_ZN10QByteArrayD2Ev.exit12.i, label %41
 
 .critedge.i:                                      ; preds = %20, %19
-  %30 = load ptr, ptr %5, align 8, !noalias !41
+  %30 = load ptr, ptr %5, align 8, !noalias !40
   %.not.i.i.i9.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i9.i, label %_ZN10QByteArrayD2Ev.exit12.i, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i10.i
 
 _ZN17QArrayDataPointerIcE5derefEv.exit.i.i10.i:   ; preds = %.critedge.i
-  %31 = atomicrmw sub ptr %30, i32 1 seq_cst, align 4, !noalias !41
+  %31 = atomicrmw sub ptr %30, i32 1 seq_cst, align 4, !noalias !40
   %.not.i.i11.i = icmp eq i32 %31, 1
   br i1 %.not.i.i11.i, label %32, label %_ZN10QByteArrayD2Ev.exit12.i
 
 32:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i10.i
-  %33 = load ptr, ptr %5, align 8, !noalias !41
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %33, i64 noundef 1, i64 noundef 8) #19, !noalias !41
+  %33 = load ptr, ptr %5, align 8, !noalias !40
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %33, i64 noundef 1, i64 noundef 8) #19, !noalias !40
   br label %_ZN10QByteArrayD2Ev.exit12.i
 
 _ZN10QByteArrayD2Ev.exit12.i:                     ; preds = %32, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i10.i, %.critedge.i, %_ZN10QByteArrayD2Ev.exit.i
@@ -3108,25 +3108,25 @@ _ZN10QByteArrayD2Ev.exit12.i:                     ; preds = %32, %_ZN17QArrayDat
 35:                                               ; preds = %.noexc15
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %5, align 8, !noalias !41
+  %37 = load ptr, ptr %5, align 8, !noalias !40
   %.not.i.i.i13.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i13.i, label %.body, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i14.i
 
 _ZN17QArrayDataPointerIcE5derefEv.exit.i.i14.i:   ; preds = %35
-  %38 = atomicrmw sub ptr %37, i32 1 seq_cst, align 4, !noalias !41
+  %38 = atomicrmw sub ptr %37, i32 1 seq_cst, align 4, !noalias !40
   %.not.i.i15.i = icmp eq i32 %38, 1
   br i1 %.not.i.i15.i, label %39, label %.body
 
 39:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i14.i
-  %40 = load ptr, ptr %5, align 8, !noalias !41
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %40, i64 noundef 1, i64 noundef 8) #19, !noalias !41
+  %40 = load ptr, ptr %5, align 8, !noalias !40
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %40, i64 noundef 1, i64 noundef 8) #19, !noalias !40
   br label %.body
 
 41:                                               ; preds = %_ZN10QByteArrayD2Ev.exit.i
-  %42 = load ptr, ptr %15, align 8, !noalias !41
-  %43 = load i8, ptr %42, align 1, !noalias !41
+  %42 = load ptr, ptr %15, align 8, !noalias !40
+  %43 = load i8, ptr %42, align 1, !noalias !40
   %44 = and i8 %43, -4
-  store i8 %44, ptr %42, align 1, !noalias !41
+  store i8 %44, ptr %42, align 1, !noalias !40
   invoke void @_Z29gbytearray_free_to_qbytearrayP11_GByteArray(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %7, ptr noundef nonnull %15)
           to label %._crit_edge unwind label %78
 
@@ -3878,7 +3878,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !44
+  %17 = load ptr, ptr %16, align 8, !nosanitize !43
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3968,7 +3968,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM17QAbstractItemViewFvvENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !44
+  %17 = load ptr, ptr %16, align 8, !nosanitize !43
   br label %_ZN9QtPrivate15FunctionPointerIM17QAbstractItemViewFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4031,7 +4031,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11ManufDialogFvvENS_4ListI
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !44
+  %17 = load ptr, ptr %16, align 8, !nosanitize !43
   br label %_ZN9QtPrivate15FunctionPointerIM11ManufDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4094,7 +4094,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11ManufDialogFviENS_4ListI
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !44
+  %17 = load ptr, ptr %16, align 8, !nosanitize !43
   br label %_ZN9QtPrivate15FunctionPointerIM11ManufDialogFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4258,7 +4258,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
   %58 = add i64 %57, 1
   store i64 %58, ptr %52, align 16
   %59 = icmp ult ptr %56, %49
-  br i1 %59, label %53, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit, !llvm.loop !45
+  br i1 %59, label %53, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit, !llvm.loop !44
 
 60:                                               ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31
   %61 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4285,7 +4285,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread: ; preds = %
   %72 = add i64 %71, 1
   store i64 %72, ptr %66, align 16
   %73 = icmp ult ptr %70, %63
-  br i1 %73, label %67, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit, !llvm.loop !46
+  br i1 %73, label %67, label %_ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit, !llvm.loop !45
 
 _ZN9QtPrivate16QGenericArrayOpsI11QModelIndexE10copyAppendEPKS1_S4_.exit: ; preds = %67, %53, %60, %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit31.thread, %39
   %74 = load ptr, ptr %0, align 8
@@ -4558,7 +4558,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %46 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   %47 = icmp slt i64 %44, %25
-  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !47
+  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !46
 
 ._crit_edge.i.i.i.i:                              ; preds = %43, %31
   %.0.lcssa.i.i.i.i = phi i64 [ %.0.i.i.i, %31 ], [ %44, %43 ]
@@ -4596,7 +4596,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %57 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   %58 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
-  br i1 %58, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", !llvm.loop !48
+  br i1 %58, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", !llvm.loop !47
 
 "_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %50
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.010.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ]
@@ -4609,7 +4609,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i.i)
   %60 = icmp eq i64 %.0.i.i.i, 0
   %61 = add nsw i64 %.0.i.i.i, -1
-  br i1 %60, label %.lr.ph.i9.i, label %31, !llvm.loop !49
+  br i1 %60, label %.lr.ph.i9.i, label %31, !llvm.loop !48
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit"
   %.sroa.0.02.i.i = phi ptr [ %62, %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit" ], [ %storemerge32, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
@@ -4661,7 +4661,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %82 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   %83 = icmp slt i64 %80, %67
-  br i1 %83, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !47
+  br i1 %83, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !46
 
 ._crit_edge.i.i:                                  ; preds = %79, %.lr.ph.i9.i
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %80, %79 ]
@@ -4709,7 +4709,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %102 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
   %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !48
+  br i1 %.not.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !47
 
 "_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", %95
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %95 ], [ %.010.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i" ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i" ]
@@ -4721,7 +4721,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i)
   %104 = icmp sgt i64 %64, 24
-  br i1 %104, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !50
+  br i1 %104, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !49
 
 105:                                              ; preds = %18
   %106 = add i64 %.033, -1
@@ -4865,7 +4865,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i", %134
   %139 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
-  br label %134, !llvm.loop !51
+  br label %134, !llvm.loop !50
 
 .preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i", %.preheader.i.i.backedge
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i.backedge ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i" ]
@@ -4883,7 +4883,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   br i1 %spec.select.i.i13.i.i, label %.preheader.i.i.backedge, label %144
 
 .preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i", %.preheader.i.i
-  br label %.preheader.i.i, !llvm.loop !52
+  br label %.preheader.i.i, !llvm.loop !51
 
 144:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i"
   %145 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
@@ -4896,14 +4896,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %147 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
-  br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i", !llvm.loop !53
+  br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i", !llvm.loop !52
 
 "_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit": ; preds = %144
   tail call fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge32, i64 noundef %106)
   %148 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %149 = sub i64 %148, %11
   %150 = icmp sgt i64 %149, 384
-  br i1 %150, label %18, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !54
+  br i1 %150, label %18, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !53
 
 "_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit", %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit", %3
   ret void
@@ -4990,24 +4990,23 @@ attributes #22 = { cold noreturn }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !33 = distinct !{!33, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!34 = !{i64 0, i64 65}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = distinct !{!39, !36}
-!40 = distinct !{!40, !36}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZL28convertMacAddressToByteArrayRK7QString: argument 0"}
-!43 = distinct !{!43, !"_ZL28convertMacAddressToByteArrayRK7QString"}
-!44 = !{}
-!45 = distinct !{!45, !36}
-!46 = distinct !{!46, !36}
-!47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36}
-!49 = distinct !{!49, !36}
-!50 = distinct !{!50, !36}
-!51 = distinct !{!51, !36}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !35}
+!39 = distinct !{!39, !35}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZL28convertMacAddressToByteArrayRK7QString: argument 0"}
+!42 = distinct !{!42, !"_ZL28convertMacAddressToByteArrayRK7QString"}
+!43 = !{}
+!44 = distinct !{!44, !35}
+!45 = distinct !{!45, !35}
+!46 = distinct !{!46, !35}
+!47 = distinct !{!47, !35}
+!48 = distinct !{!48, !35}
+!49 = distinct !{!49, !35}
+!50 = distinct !{!50, !35}
+!51 = distinct !{!51, !35}
+!52 = distinct !{!52, !35}
+!53 = distinct !{!53, !35}

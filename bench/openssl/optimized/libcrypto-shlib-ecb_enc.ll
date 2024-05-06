@@ -45,7 +45,7 @@ entry:
   %incdec.ptr37 = getelementptr inbounds i8, ptr %output, i64 3
   store i8 %conv36, ptr %incdec.ptr33, align 1
   %shr38 = lshr i32 %1, 24
-  %conv40 = trunc i32 %shr38 to i8
+  %conv40 = trunc nuw i32 %shr38 to i8
   %incdec.ptr41 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv40, ptr %incdec.ptr37, align 1
   %2 = load i32, ptr %arrayidx27, align 4
@@ -61,7 +61,7 @@ entry:
   %incdec.ptr53 = getelementptr inbounds i8, ptr %output, i64 7
   store i8 %conv52, ptr %incdec.ptr49, align 1
   %shr54 = lshr i32 %2, 24
-  %conv56 = trunc i32 %shr54 to i8
+  %conv56 = trunc nuw i32 %shr54 to i8
   store i8 %conv56, ptr %incdec.ptr53, align 1
   ret void
 }

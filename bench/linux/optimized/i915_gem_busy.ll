@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @i915_fence_ops = external dso_local constant %struct.dma_fence_ops, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_busy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @i915_gem_busy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !5

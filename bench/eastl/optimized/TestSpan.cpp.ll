@@ -319,133 +319,133 @@ entry:
   %call.i.i.i.i.i1.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
   %call5 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.43)
-          to label %invoke.cont4 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont4 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
-common.resume:                                    ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
-  %call.i.i.i.i.i1.i.sink = phi ptr [ %call.i.i.i.i.i1.i, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136 ], [ %call.i.i.i.i.i1.i38, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140 ], [ %call.i.i.i.i.i1.i73, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144 ], [ %call.i.i.i.i.i1.i96, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148 ]
-  %common.resume.op = phi { ptr, i32 } [ %0, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136 ], [ %1, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140 ], [ %2, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144 ], [ %3, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148 ]
+common.resume:                                    ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152
+  %call.i.i.i.i.i1.i.sink = phi ptr [ %call.i.i.i.i.i1.i, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140 ], [ %call.i.i.i.i.i1.i38, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144 ], [ %call.i.i.i.i.i1.i75, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148 ], [ %call.i.i.i.i.i1.i100, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140 ], [ %1, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144 ], [ %2, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148 ], [ %3, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152 ]
   tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i.sink) #4
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont4:                                     ; preds = %entry
   %call11 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @.str.44)
-          to label %invoke.cont10 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont10 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont10:                                    ; preds = %invoke.cont4
   %call18 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @.str.45)
-          to label %invoke.cont17 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont17 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont17:                                    ; preds = %invoke.cont10
   %call25 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @.str.46)
-          to label %invoke.cont24 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont24 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont24:                                    ; preds = %invoke.cont17
   %call32 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 275, ptr noundef nonnull @.str.47)
-          to label %invoke.cont31 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont31 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont31:                                    ; preds = %invoke.cont24
   %call39 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 276, ptr noundef nonnull @.str.48)
-          to label %invoke.cont38 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont38 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont38:                                    ; preds = %invoke.cont31
   %call46 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.49)
-          to label %invoke.cont45 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %invoke.cont45 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 invoke.cont45:                                    ; preds = %invoke.cont38
   %call53 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @.str.50)
-          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136
+          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit:       ; preds = %invoke.cont45
   tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i) #4
   %call.i.i.i.i.i1.i38 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i38, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
   %call70 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 285, ptr noundef nonnull @.str.43)
-          to label %invoke.cont69 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont69 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont69:                                    ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
   %call76 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @.str.44)
-          to label %invoke.cont75 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont75 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont75:                                    ; preds = %invoke.cont69
   %call83 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 288, ptr noundef nonnull @.str.45)
-          to label %invoke.cont82 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont82 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont82:                                    ; preds = %invoke.cont75
   %call90 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 289, ptr noundef nonnull @.str.46)
-          to label %invoke.cont89 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont89 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont89:                                    ; preds = %invoke.cont82
   %call97 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @.str.47)
-          to label %invoke.cont96 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont96 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont96:                                    ; preds = %invoke.cont89
   %call104 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @.str.48)
-          to label %invoke.cont103 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont103 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont103:                                   ; preds = %invoke.cont96
   %call111 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @.str.49)
-          to label %invoke.cont110 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %invoke.cont110 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
 invoke.cont110:                                   ; preds = %invoke.cont103
   %call118 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @.str.50)
-          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit72 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140
+          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit74 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit72:     ; preds = %invoke.cont110
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit74:     ; preds = %invoke.cont110
   tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i38) #4
-  %call.i.i.i.i.i1.i73 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i73, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
+  %call.i.i.i.i.i1.i75 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i75, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
   %call134 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @.str.53)
-          to label %invoke.cont133 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
+          to label %invoke.cont133 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
 
-invoke.cont133:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit72
+invoke.cont133:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit74
   %call141 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @.str.54)
-          to label %invoke.cont140 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
+          to label %invoke.cont140 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
 
 invoke.cont140:                                   ; preds = %invoke.cont133
   %call148 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @.str.55)
-          to label %invoke.cont147 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
+          to label %invoke.cont147 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
 
 invoke.cont147:                                   ; preds = %invoke.cont140
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 305, ptr noundef nonnull @.str.56)
-          to label %invoke.cont152 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
+          to label %invoke.cont152 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
 
 invoke.cont152:                                   ; preds = %invoke.cont147
   %call158 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @.str.57)
-          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit95 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144
+          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit99 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit95:     ; preds = %invoke.cont152
-  tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i73) #4
-  %call.i.i.i.i.i1.i96 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i96, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit99:     ; preds = %invoke.cont152
+  tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i75) #4
+  %call.i.i.i.i.i1.i100 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call.i.i.i.i.i1.i100, ptr noundef nonnull align 4 dereferenceable(24) @constinit.58, i64 24, i1 false)
   %call175 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.59)
-          to label %invoke.cont177 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
+          to label %invoke.cont177 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152
 
-invoke.cont177:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit95
+invoke.cont177:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit99
   %call183 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @.str.60)
-          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit130 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148
+          to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit134 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit130:    ; preds = %invoke.cont177
-  tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i96) #4
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit134:    ; preds = %invoke.cont177
+  tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i100) #4
   %call187 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 323, ptr noundef nonnull @.str.61)
   %call191 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.62)
   ret void
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit136:    ; preds = %invoke.cont45, %invoke.cont38, %invoke.cont31, %invoke.cont24, %invoke.cont17, %invoke.cont10, %invoke.cont4, %entry
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140:    ; preds = %invoke.cont45, %invoke.cont38, %invoke.cont31, %invoke.cont24, %invoke.cont17, %invoke.cont10, %invoke.cont4, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit140:    ; preds = %invoke.cont110, %invoke.cont103, %invoke.cont96, %invoke.cont89, %invoke.cont82, %invoke.cont75, %invoke.cont69, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144:    ; preds = %invoke.cont110, %invoke.cont103, %invoke.cont96, %invoke.cont89, %invoke.cont82, %invoke.cont75, %invoke.cont69, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit144:    ; preds = %invoke.cont152, %invoke.cont147, %invoke.cont140, %invoke.cont133, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit72
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148:    ; preds = %invoke.cont152, %invoke.cont147, %invoke.cont140, %invoke.cont133, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit74
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit148:    ; preds = %invoke.cont177, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit95
+_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit152:    ; preds = %invoke.cont177, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit99
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume

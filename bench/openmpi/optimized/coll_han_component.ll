@@ -152,7 +152,7 @@ define internal noundef i32 @han_close() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @han_register() #0 {
+define internal range(i32 -1, 1) i32 @han_register() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -449,7 +449,7 @@ mca_coll_han_query_module_from_mca.exit186:       ; preds = %mca_coll_han_query_
 
 .preheader199:                                    ; preds = %mca_coll_han_query_module_from_mca.exit186, %183
   %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %mca_coll_han_query_module_from_mca.exit186 ]
-  %144 = trunc i64 %indvars.iv to i32
+  %144 = trunc nuw nsw i64 %indvars.iv to i32
   %145 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %144) #11
   br i1 %145, label %146, label %183
 
@@ -536,7 +536,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 .split:                                           ; preds = %.preheader198
   %184 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 21, i64 %indvars.iv221
   store i8 0, ptr %184, align 1
-  %185 = trunc i64 %indvars.iv221 to i32
+  %185 = trunc nuw nsw i64 %indvars.iv221 to i32
   switch i32 %185, label %is_simple_implemented.exit [
     i32 0, label %186
     i32 2, label %186
@@ -569,7 +569,7 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
 
 193:                                              ; preds = %192, %199
   %indvars.iv228 = phi i64 [ 0, %192 ], [ %indvars.iv.next229, %199 ]
-  %194 = trunc i64 %indvars.iv228 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv228 to i32
   %195 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %194) #11
   br i1 %195, label %.preheader197, label %199
 
@@ -589,7 +589,7 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
 
 .preheader196:                                    ; preds = %199, %.loopexit
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %.loopexit ], [ 0, %199 ]
-  %200 = trunc i64 %indvars.iv244 to i32
+  %200 = trunc nuw nsw i64 %indvars.iv244 to i32
   %201 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %200) #11
   br i1 %201, label %.preheader, label %.loopexit
 
@@ -663,7 +663,7 @@ mca_coll_han_topo_lvl_to_str.exit194.split.us:    ; preds = %mca_coll_han_topo_l
   %224 = sub nsw i64 256, %222
   %225 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv236, i32 1
   %226 = load ptr, ptr %225, align 8
-  %227 = trunc i64 %indvars.iv236 to i32
+  %227 = trunc nuw nsw i64 %indvars.iv236 to i32
   %228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %223, i64 noundef %224, ptr noundef nonnull @.str.52, i32 noundef %227, ptr noundef %226) #11
   %229 = add nsw i32 %228, %.0147212.us
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
@@ -678,7 +678,7 @@ mca_coll_han_topo_lvl_to_str.exit194.split:       ; preds = %mca_coll_han_topo_l
   %232 = sub nsw i64 256, %230
   %233 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv232263, i32 1
   %234 = load ptr, ptr %233, align 8
-  %235 = trunc i64 %indvars.iv232263 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv232263 to i32
   %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %231, i64 noundef %232, ptr noundef nonnull @.str.52, i32 noundef %235, ptr noundef %234) #11
   %237 = add nsw i32 %236, %.0147212264
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232263, 1
@@ -785,7 +785,7 @@ define i32 @mca_coll_han_topo_lvl_name_to_id(ptr nocapture noundef readonly %0) 
   br i1 %.not, label %.split.loop.exit, label %2, !llvm.loop !13
 
 .split.loop.exit9:                                ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %7, %.split.loop.exit9

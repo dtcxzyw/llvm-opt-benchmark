@@ -117,7 +117,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.127 = private unnamed_addr constant [9 x i8] c", PASSED\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local i32 @test_int_CXX() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %1 = alloca [256 x i8], align 16
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1

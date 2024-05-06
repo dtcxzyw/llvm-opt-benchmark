@@ -159,7 +159,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 declare void @mca_rcache_base_module_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_rcache_gpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define range(i32 -2, 1) i32 @mca_rcache_gpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
@@ -225,7 +225,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %34 = extractvalue { i128, i1 } %32, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %34 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %34, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -468,8 +468,8 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_rcache_gpusm_find(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @mca_rcache_gpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef %3), !range !7
+define range(i32 -2, 1) i32 @mca_rcache_gpusm_find(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+  %5 = tail call i32 @mca_rcache_gpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef %3)
   ret i32 %5
 }
 
@@ -616,7 +616,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -675,7 +675,7 @@ opal_lifo_pop.exit:                               ; preds = %.lr.ph.i.i
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %35
-  br label %7, !llvm.loop !8
+  br label %7, !llvm.loop !7
 
 opal_lifo_pop.exit.thread:                        ; preds = %26, %opal_lifo_pop.exit.thread16
   %43 = getelementptr inbounds i8, ptr %0, i64 128
@@ -742,5 +742,4 @@ attributes #6 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -2, i32 1}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

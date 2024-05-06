@@ -1288,9 +1288,9 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then75:                                        ; preds = %for.body
   %add.ptr76 = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = xor i32 %12, -1
-  %sub77 = add i32 %10, %13
+  %sub77 = add nsw i32 %10, %13
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then75
@@ -1943,7 +1943,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_75L15ValueComparatorE8UElementS0_(ptr %val1.coerce, ptr %val2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L15ValueComparatorE8UElementS0_(ptr %val1.coerce, ptr %val2.coerce) #1 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %val1.coerce, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8

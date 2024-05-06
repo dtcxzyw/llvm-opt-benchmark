@@ -30,7 +30,7 @@ entry:
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_REQ_set_msg_imprint(ptr nocapture noundef %a, ptr noundef %msg_imprint) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_REQ_set_msg_imprint(ptr nocapture noundef %a, ptr noundef %msg_imprint) local_unnamed_addr #0 {
 entry:
   %msg_imprint1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %msg_imprint1, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_MSG_IMPRINT_set_algo(ptr nocapture noundef %a, ptr noundef %alg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_MSG_IMPRINT_set_algo(ptr nocapture noundef %a, ptr noundef %alg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %cmp = icmp eq ptr %0, %alg
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_REQ_set_policy_id(ptr nocapture noundef %a, ptr noundef %policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_REQ_set_policy_id(ptr nocapture noundef %a, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
   %policy_id = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %policy_id, align 8
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_REQ_set_nonce(ptr nocapture noundef %a, ptr noundef %nonce) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_REQ_set_nonce(ptr nocapture noundef %a, ptr noundef %nonce) local_unnamed_addr #0 {
 entry:
   %nonce1 = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %nonce1, align 8
@@ -231,7 +231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @TS_REQ_get_cert_req(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @TS_REQ_get_cert_req(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
 entry:
   %cert_req = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load i32, ptr %cert_req, align 8
@@ -336,7 +336,7 @@ entry:
 declare ptr @X509v3_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_REQ_add_ext(ptr noundef %a, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_REQ_add_ext(ptr noundef %a, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %a, i64 40
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %extensions, ptr noundef %ex, i32 noundef %loc) #4

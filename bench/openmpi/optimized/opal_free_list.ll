@@ -185,7 +185,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -390,7 +390,7 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %opal_o
 ; Function Attrs: nounwind uwtable
 define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = icmp ugt i64 %2, 1
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %2), !range !9
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %.not = icmp ult i64 %16, 2
   %or.cond = select i1 %15, i1 %.not, i1 false
   br i1 %or.cond, label %17, label %54
@@ -401,7 +401,7 @@ define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 18:                                               ; preds = %17
   %19 = icmp ugt i64 %5, 1
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %5), !range !9
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
   %.not51 = icmp ult i64 %20, 2
   %or.cond55 = select i1 %19, i1 %.not51, i1 false
   br i1 %or.cond55, label %21, label %54
@@ -774,7 +774,7 @@ opal_lifo_push_atomic.exit:                       ; preds = %opal_atomic_compare
   %spec.select138 = select i1 %.not137, ptr null, ptr %160
   %161 = add nuw i64 %.0105156, 1
   %exitcond.not = icmp eq i64 %161, %.1
-  br i1 %exitcond.not, label %opal_obj_run_destructors.exit.thread, label %115, !llvm.loop !10
+  br i1 %exitcond.not, label %opal_obj_run_destructors.exit.thread, label %115, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i145, %138
   %162 = icmp eq i64 %.0105156, 0
@@ -893,7 +893,7 @@ define i32 @opal_free_list_resize_mt(ptr noundef %0, i64 noundef %1) local_unnam
 13:                                               ; preds = %10
   %14 = load i64, ptr %3, align 8
   %15 = icmp slt i64 %14, %1
-  br i1 %15, label %10, label %16, !llvm.loop !11
+  br i1 %15, label %10, label %16, !llvm.loop !10
 
 16:                                               ; preds = %10, %13
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #8
@@ -947,6 +947,5 @@ attributes #9 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i64 0, i64 65}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

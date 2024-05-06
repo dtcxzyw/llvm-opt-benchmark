@@ -31,7 +31,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @int_engine_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @int_engine_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %do_init.i = alloca i64, align 8
   %call = tail call ptr @CONF_imodule_get_value(ptr noundef %md) #4
@@ -59,7 +59,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = load ptr, ptr %value, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %do_init.i)
   store i64 -1, ptr %do_init.i, align 8
-  %call.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #5
+  %call.i.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 46) #5
   %call1.i = call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %1) #4
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %int_engine_configure.exit.thread, label %for.cond.preheader.i
@@ -90,7 +90,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.085.i) #4
   %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
-  %call.i36.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 46) #5
+  %call.i36.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef 46) #5
   %cmp.not.i37.i = icmp eq ptr %call.i36.i, null
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %call.i36.i, i64 1
   %retval.0.i39.i = select i1 %cmp.not.i37.i, ptr %2, ptr %add.ptr.i38.i

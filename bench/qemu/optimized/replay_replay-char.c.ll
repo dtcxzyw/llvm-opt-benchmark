@@ -81,7 +81,7 @@ find_char_driver.exit.thread:                     ; preds = %for.inc.i, %entry
   br label %if.then
 
 find_char_driver.exit:                            ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %3, ptr %call, align 8
   %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end

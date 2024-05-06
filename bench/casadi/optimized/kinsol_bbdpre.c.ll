@@ -217,7 +217,7 @@ define internal void @KINBBDPrecFree(ptr nocapture noundef readonly %0) #0 {
 declare i32 @KINSpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds i8, ptr %4, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 64
@@ -440,7 +440,7 @@ define internal noundef i32 @KINBBDPrecSolve(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -483,7 +483,7 @@ define noundef i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @KINBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

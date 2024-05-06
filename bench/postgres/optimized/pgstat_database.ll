@@ -60,8 +60,8 @@ switch.lookup:                                    ; preds = %4
   %9 = load ptr, ptr %8, align 8
   %10 = shl nuw nsw i32 %switch.tableidx, 3
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 80
+  %12 = getelementptr inbounds i8, ptr %9, i64 %11
+  %13 = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8
@@ -214,8 +214,8 @@ switch.lookup:                                    ; preds = %4
   %10 = load ptr, ptr %9, align 8
   %11 = shl nuw nsw i32 %switch.tableidx, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 216
+  %13 = getelementptr inbounds i8, ptr %10, i64 %12
+  %14 = getelementptr inbounds i8, ptr %13, i64 216
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8

@@ -149,7 +149,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %29 = extractvalue { i128, i1 } %27, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %29 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %29, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -331,7 +331,7 @@ opal_update_counted_pointer.exit.i40.i.i:         ; preds = %.lr.ph.i28.i.i
   %98 = extractvalue { i128, i1 } %96, 0
   %.sroa.0.0.extract.trunc.i41.i.i = trunc i128 %98 to i64
   %.sroa.4.0.extract.shift.i42.i.i = lshr i128 %98, 64
-  %.sroa.4.0.extract.trunc.i43.i.i = trunc i128 %.sroa.4.0.extract.shift.i42.i.i to i64
+  %.sroa.4.0.extract.trunc.i43.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i42.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i43.i.i, ptr %.sroa.4.i24.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
@@ -453,7 +453,7 @@ opal_update_counted_pointer.exit.i.i25.i.i:       ; preds = %.lr.ph.i.i13.i.i
   %138 = extractvalue { i128, i1 } %136, 0
   %.sroa.0.0.extract.trunc.i.i26.i.i = trunc i128 %138 to i64
   %.sroa.4.0.extract.shift.i.i27.i.i = lshr i128 %138, 64
-  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i28.i.i, ptr %.sroa.4.i.i8.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)

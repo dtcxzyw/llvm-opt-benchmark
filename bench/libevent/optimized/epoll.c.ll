@@ -126,7 +126,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epoll_nochangelist_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @epoll_nochangelist_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
@@ -182,7 +182,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epoll_nochangelist_del(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @epoll_nochangelist_del(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
@@ -237,7 +237,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epoll_dispatch(ptr noundef %base, ptr noundef readonly %tv) #0 {
+define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %base, ptr noundef readonly %tv) #0 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
@@ -459,7 +459,7 @@ declare i32 @event_changelist_add_(ptr noundef, i32 noundef, i16 noundef signext
 declare i32 @event_changelist_del_(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef signext, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @epoll_apply_one_change(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
   %close_change = getelementptr inbounds i8, ptr %ch, i64 8

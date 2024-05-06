@@ -130,7 +130,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %.07999.i, ptr %11, align 4
   %12 = zext nneg i32 %.07999.i to i64
   %13 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %12
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %14, ptr %13, align 4
   %15 = shl nuw nsw i32 %.07999.i, 1
   %.not92.i = icmp ult i32 %.07999.i, 128
@@ -617,7 +617,7 @@ declare i32 @mbedtls_aesni_setkey_enc(ptr noundef, ptr noundef, i64 noundef) loc
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_aes_context, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %4, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(288) %4, i8 0, i64 288, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
@@ -1344,7 +1344,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr nocapture noundef re
   %510 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %509, ptr %510, align 1
   %511 = lshr i32 %411, 24
-  %512 = trunc i32 %511 to i8
+  %512 = trunc nuw i32 %511 to i8
   %513 = getelementptr inbounds i8, ptr %2, i64 3
   store i8 %512, ptr %513, align 1
   %514 = trunc i32 %419 to i8
@@ -1359,7 +1359,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr nocapture noundef re
   %521 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %520, ptr %521, align 1
   %522 = lshr i32 %442, 24
-  %523 = trunc i32 %522 to i8
+  %523 = trunc nuw i32 %522 to i8
   %524 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %523, ptr %524, align 1
   %525 = trunc i32 %450 to i8
@@ -1374,7 +1374,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr nocapture noundef re
   %532 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 %531, ptr %532, align 1
   %533 = lshr i32 %473, 24
-  %534 = trunc i32 %533 to i8
+  %534 = trunc nuw i32 %533 to i8
   %535 = getelementptr inbounds i8, ptr %2, i64 11
   store i8 %534, ptr %535, align 1
   %536 = trunc i32 %480 to i8
@@ -1389,7 +1389,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr nocapture noundef re
   %543 = getelementptr inbounds i8, ptr %2, i64 14
   store i8 %542, ptr %543, align 1
   %544 = lshr i32 %503, 24
-  %545 = trunc i32 %544 to i8
+  %545 = trunc nuw i32 %544 to i8
   %546 = getelementptr inbounds i8, ptr %2, i64 15
   store i8 %545, ptr %546, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32) #10
@@ -1938,7 +1938,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr nocapture noundef re
   %510 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %509, ptr %510, align 1
   %511 = lshr i32 %411, 24
-  %512 = trunc i32 %511 to i8
+  %512 = trunc nuw i32 %511 to i8
   %513 = getelementptr inbounds i8, ptr %2, i64 3
   store i8 %512, ptr %513, align 1
   %514 = trunc i32 %419 to i8
@@ -1953,7 +1953,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr nocapture noundef re
   %521 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %520, ptr %521, align 1
   %522 = lshr i32 %442, 24
-  %523 = trunc i32 %522 to i8
+  %523 = trunc nuw i32 %522 to i8
   %524 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %523, ptr %524, align 1
   %525 = trunc i32 %450 to i8
@@ -1968,7 +1968,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr nocapture noundef re
   %532 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 %531, ptr %532, align 1
   %533 = lshr i32 %473, 24
-  %534 = trunc i32 %533 to i8
+  %534 = trunc nuw i32 %533 to i8
   %535 = getelementptr inbounds i8, ptr %2, i64 11
   store i8 %534, ptr %535, align 1
   %536 = trunc i32 %480 to i8
@@ -1983,7 +1983,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr nocapture noundef re
   %543 = getelementptr inbounds i8, ptr %2, i64 14
   store i8 %542, ptr %543, align 1
   %544 = lshr i32 %503, 24
-  %545 = trunc i32 %544 to i8
+  %545 = trunc nuw i32 %544 to i8
   %546 = getelementptr inbounds i8, ptr %2, i64 15
   store i8 %545, ptr %546, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32) #10
@@ -2299,7 +2299,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %13
   %99 = trunc i64 %98 to i8
   store i8 %99, ptr %21, align 2
   %100 = lshr i64 %76, 56
-  %101 = trunc i64 %100 to i8
+  %101 = trunc nuw i64 %100 to i8
   store i8 %101, ptr %20, align 1
   %102 = trunc i64 %86 to i8
   store i8 %102, ptr %28, align 8
@@ -2322,7 +2322,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %13
   %114 = trunc i64 %113 to i8
   store i8 %114, ptr %25, align 2
   %115 = lshr i64 %85, 56
-  %116 = trunc i64 %115 to i8
+  %116 = trunc nuw i64 %115 to i8
   store i8 %116, ptr %24, align 1
   br label %.preheader126
 
@@ -2448,7 +2448,7 @@ mbedtls_aes_crypt_ecb.exit84:                     ; preds = %125
   %200 = trunc i64 %199 to i8
   store i8 %200, ptr %21, align 2
   %201 = lshr i64 %177, 56
-  %202 = trunc i64 %201 to i8
+  %202 = trunc nuw i64 %201 to i8
   store i8 %202, ptr %20, align 1
   %203 = trunc i64 %187 to i8
   store i8 %203, ptr %28, align 8
@@ -2471,7 +2471,7 @@ mbedtls_aes_crypt_ecb.exit84:                     ; preds = %125
   %215 = trunc i64 %214 to i8
   store i8 %215, ptr %25, align 2
   %216 = lshr i64 %186, 56
-  %217 = trunc i64 %216 to i8
+  %217 = trunc nuw i64 %216 to i8
   store i8 %217, ptr %24, align 1
   %218 = getelementptr inbounds i8, ptr %.07097, i64 16
   %219 = getelementptr inbounds i8, ptr %.06798, i64 16
@@ -2925,7 +2925,7 @@ define hidden i32 @mbedtls_aes_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %11 = alloca [16 x i8], align 16
   %12 = alloca %struct.mbedtls_aes_xts_context, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %10, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(288) %10, i8 0, i64 288, i1 false)
   %.not215 = icmp eq i32 %0, 0
   br label %.backedge394
 
@@ -3571,7 +3571,7 @@ mbedtls_aes_crypt_ecb.exit.i240:                  ; preds = %179
   br label %.loopexit
 
 .loopexit:                                        ; preds = %218, %221
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %12, i8 0, i64 576, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(576) %12, i8 0, i64 576, i1 false)
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.loopexit

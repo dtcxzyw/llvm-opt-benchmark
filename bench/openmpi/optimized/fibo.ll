@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @tm_fiboTreeInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tm_fiboTreeInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %calloc, ptr %3, align 8
@@ -168,7 +168,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
 
 .loopexit.i:                                      ; preds = %.lr.ph107.i
   %52 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
-  %53 = trunc i64 %indvars.iv.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr null, ptr %52, align 8
   %.pre = add i32 %53, 1
   %.not95109.i = icmp sgt i32 %.pre, %.0.lcssa.i

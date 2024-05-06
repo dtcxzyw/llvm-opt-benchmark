@@ -455,7 +455,7 @@ lookup_secrets_type.exit.thread:                  ; preds = %80
   %indvars.iv.i517 = phi i64 [ %indvars.iv.next.i518, %80 ], [ 0, %78 ]
   %81 = getelementptr [4 x %struct.anon.3], ptr @secrets_types, i64 0, i64 %indvars.iv.i517
   %82 = load ptr, ptr %81, align 16
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %77) #23
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %77) #23
   %.not.i = icmp eq i32 %83, 0
   br i1 %.not.i, label %lookup_secrets_type.exit, label %80
 

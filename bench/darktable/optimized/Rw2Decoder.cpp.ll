@@ -885,7 +885,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %335 = add i64 %326, -15
   %336 = call i64 @llvm.smax.i64(i64 %335, i64 -2147483648)
   %337 = call i64 @llvm.smin.i64(i64 %336, i64 2147483647)
-  %338 = trunc i64 %337 to i32
+  %338 = trunc nsw i64 %337 to i32
   br label %339
 
 339:                                              ; preds = %334, %328
@@ -920,7 +920,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %360 = sub i64 15, %351
   %361 = call i64 @llvm.smax.i64(i64 %360, i64 -2147483648)
   %362 = call i64 @llvm.smin.i64(i64 %361, i64 2147483647)
-  %363 = trunc i64 %362 to i32
+  %363 = trunc nsw i64 %362 to i32
   br label %364
 
 364:                                              ; preds = %359, %353
@@ -1299,7 +1299,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %569 = add i64 %560, -15
   %570 = call i64 @llvm.smax.i64(i64 %569, i64 -2147483648)
   %571 = call i64 @llvm.smin.i64(i64 %570, i64 2147483647)
-  %572 = trunc i64 %571 to i32
+  %572 = trunc nsw i64 %571 to i32
   br label %573
 
 573:                                              ; preds = %568, %562
@@ -1334,7 +1334,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %594 = sub i64 15, %585
   %595 = call i64 @llvm.smax.i64(i64 %594, i64 -2147483648)
   %596 = call i64 @llvm.smin.i64(i64 %595, i64 2147483647)
-  %597 = trunc i64 %596 to i32
+  %597 = trunc nsw i64 %596 to i32
   br label %598
 
 598:                                              ; preds = %593, %587
@@ -3416,13 +3416,13 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %61, %16
   %260 = icmp ne i32 %252, 0
   %261 = xor i1 %259, %260
   call void @llvm.assume(i1 %261)
-  %262 = mul nsw i32 %255, %252
+  %262 = mul nuw nsw i32 %255, %252
   %263 = icmp eq i32 %246, %262
   call void @llvm.assume(i1 %263)
   %264 = icmp eq i32 %252, 1
   %265 = icmp eq i32 %255, %249
   %266 = or i1 %264, %265
-  %267 = mul nsw i32 %252, %249
+  %267 = mul nuw nsw i32 %252, %249
   call void @llvm.assume(i1 %266)
   %268 = getelementptr inbounds i8, ptr %239, i64 64
   %269 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %268, i32 noundef 0, i32 noundef 0)

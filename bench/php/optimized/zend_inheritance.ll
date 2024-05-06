@@ -137,7 +137,7 @@ define hidden noundef nonnull ptr @zend_visibility_string(i32 noundef %0) local_
 declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @property_types_compatible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 3) i32 @property_types_compatible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
@@ -170,14 +170,14 @@ define hidden i32 @property_types_compatible(ptr nocapture noundef readonly %0, 
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %3, align 8
-  %28 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %23, ptr %26, i32 %8, ptr noundef %25, ptr %27, i32 %5), !range !4
+  %28 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %23, ptr %26, i32 %8, ptr noundef %25, ptr %27, i32 %5)
   %29 = load ptr, ptr %24, align 8
   %30 = load ptr, ptr %22, align 8
   %31 = load ptr, ptr %3, align 8
   %32 = load i32, ptr %4, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load i32, ptr %7, align 8
-  %35 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %29, ptr %31, i32 %32, ptr noundef %30, ptr %33, i32 %34), !range !4
+  %35 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %29, ptr %31, i32 %32, ptr noundef %30, ptr %33, i32 %34)
   %36 = icmp eq i32 %28, 2
   %37 = icmp eq i32 %35, 2
   %or.cond = select i1 %36, i1 %37, i1 false
@@ -196,7 +196,7 @@ define hidden i32 @property_types_compatible(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_perform_covariant_type_check(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 3) i32 @zend_perform_covariant_type_check(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5) unnamed_addr #2 {
   %7 = alloca %struct.zend_type, align 8
   %8 = alloca %struct.zend_type, align 8
   store ptr %1, ptr %8, align 8
@@ -357,7 +357,7 @@ zend_type_permits_self.exit:                      ; preds = %67
   %76 = lshr i32 %5, 18
   %77 = and i32 %76, 2
   %78 = xor i32 %77, 2
-  %79 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5), !range !4
+  %79 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5)
   %80 = icmp eq i32 %79, %78
   br i1 %80, label %.loopexit, label %81
 
@@ -402,7 +402,7 @@ zend_type_permits_self.exit:                      ; preds = %67
   br i1 %.not70, label %105, label %103
 
 103:                                              ; preds = %98
-  %104 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %102, i32 %100, ptr noundef %3, ptr %4, i32 %5), !range !4
+  %104 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %102, i32 %100, ptr noundef %3, ptr %4, i32 %5)
   br label %128
 
 105:                                              ; preds = %98
@@ -458,7 +458,7 @@ get_class_from_type.exit:                         ; preds = %116, %122
 
 get_class_from_type.exit.thread:                  ; preds = %119, %122, %116, %get_class_from_type.exit
   %.0.i7688 = phi ptr [ %126, %get_class_from_type.exit ], [ %102, %119 ], [ %102, %122 ], [ %115, %116 ]
-  %127 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef nonnull %.0.i7688, ptr noundef %3, ptr %4, i32 %5), !range !4
+  %127 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef nonnull %.0.i7688, ptr noundef %3, ptr %4, i32 %5)
   br label %128
 
 128:                                              ; preds = %get_class_from_type.exit.thread, %103
@@ -1359,7 +1359,7 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
   br i1 %.not114.i, label %448, label %415
 
 415:                                              ; preds = %411
-  %416 = call i32 @property_types_compatible(ptr noundef nonnull %320, ptr noundef nonnull %323), !range !4
+  %416 = call i32 @property_types_compatible(ptr noundef nonnull %320, ptr noundef nonnull %323)
   switch i32 %416, label %do_inherit_property.exit [
     i32 0, label %417
     i32 -1, label %439
@@ -1911,7 +1911,7 @@ do_inherit_class_constant.exit:                   ; preds = %603, %535, %532, %5
 
 728:                                              ; preds = %726
   %729 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %729, ptr noundef nonnull align 8 dereferenceable(152) %649, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %729, ptr noundef nonnull readonly align 8 dereferenceable(152) %649, i64 152, i1 false)
   br label %754
 
 730:                                              ; preds = %726
@@ -1948,7 +1948,7 @@ do_inherit_class_constant.exit:                   ; preds = %603, %535, %532, %5
 
 750:                                              ; preds = %741, %739
   %.074.i = phi ptr [ %732, %739 ], [ %745, %741 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull align 8 dereferenceable(152) %649, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %649, i64 152, i1 false)
   %751 = getelementptr inbounds i8, ptr %.074.i, i64 4
   %752 = load i32, ptr %751, align 4
   %753 = or i32 %752, 33554432
@@ -2133,7 +2133,7 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
 
 849:                                              ; preds = %847
   %850 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %850, ptr noundef nonnull align 8 dereferenceable(152) %829, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %850, ptr noundef nonnull readonly align 8 dereferenceable(152) %829, i64 152, i1 false)
   br label %875
 
 851:                                              ; preds = %847
@@ -2170,7 +2170,7 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
 
 871:                                              ; preds = %862, %860
   %.074.i1195 = phi ptr [ %853, %860 ], [ %866, %862 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i1195, ptr noundef nonnull align 8 dereferenceable(152) %829, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i1195, ptr noundef nonnull readonly align 8 dereferenceable(152) %829, i64 152, i1 false)
   %872 = getelementptr inbounds i8, ptr %.074.i1195, i64 4
   %873 = load i32, ptr %872, align 4
   %874 = or i32 %873, 33554432
@@ -2296,7 +2296,7 @@ zend_duplicate_internal_function.exit1196:        ; preds = %zend_duplicate_inte
   br i1 %.not1148, label %.loopexit, label %822
 
 .loopexit:                                        ; preds = %936, %815, %817, %637, %.loopexit1199
-  %938 = load ptr, ptr %56, align 8, !nonnull !5, !noundef !5
+  %938 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
   %939 = getelementptr inbounds i8, ptr %938, i64 384
   %940 = load ptr, ptr %939, align 8
   %941 = getelementptr inbounds i8, ptr %0, i64 384
@@ -3019,7 +3019,7 @@ class_constant_types_compatible.exit:             ; preds = %66
   %71 = getelementptr inbounds i8, ptr %1, i64 40
   %72 = load ptr, ptr %70, align 8
   %73 = load ptr, ptr %71, align 8
-  %74 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %13, ptr %72, i32 %68, ptr noundef %11, ptr %73, i32 %64), !range !4
+  %74 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %13, ptr %72, i32 %68, ptr noundef %11, ptr %73, i32 %64)
   switch i32 %74, label %101 [
     i32 0, label %class_constant_types_compatible.exit.class_constant_types_compatible.exit.thread_crit_edge
     i32 -1, label %90
@@ -3280,7 +3280,7 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
 
 108:                                              ; preds = %106
   %109 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %109, ptr noundef nonnull align 8 dereferenceable(152) %91, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %109, ptr noundef nonnull readonly align 8 dereferenceable(152) %91, i64 152, i1 false)
   br label %134
 
 110:                                              ; preds = %106
@@ -3317,7 +3317,7 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
 
 130:                                              ; preds = %121, %119
   %.074.i = phi ptr [ %112, %119 ], [ %125, %121 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull align 8 dereferenceable(152) %91, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %91, i64 152, i1 false)
   %131 = getelementptr inbounds i8, ptr %.074.i, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 33554432
@@ -4175,7 +4175,7 @@ add_dependency_obligation.exit:                   ; preds = %187, %193
   br i1 %.not220.i.i, label %216, label %214
 
 214:                                              ; preds = %.lr.ph343.i.i
-  %215 = load ptr, ptr %213, align 8, !nonnull !5, !noundef !5
+  %215 = load ptr, ptr %213, align 8, !nonnull !4, !noundef !4
   br label %216
 
 216:                                              ; preds = %214, %.lr.ph343.i.i
@@ -4305,7 +4305,7 @@ zend_check_trait_usage.exit.i.i:                  ; preds = %.lr.ph.i.i.i
   br i1 %.not226.i.i, label %278, label %276
 
 276:                                              ; preds = %270
-  %277 = load ptr, ptr %275, align 8, !nonnull !5, !noundef !5
+  %277 = load ptr, ptr %275, align 8, !nonnull !4, !noundef !4
   br label %278
 
 278:                                              ; preds = %276, %270
@@ -4507,7 +4507,7 @@ zend_check_trait_usage.exit241.i.i:               ; preds = %.lr.ph.i236.i.i
   br i1 %.not214.i.i, label %372, label %370
 
 370:                                              ; preds = %366
-  %371 = load ptr, ptr %369, align 8, !nonnull !5, !noundef !5
+  %371 = load ptr, ptr %369, align 8, !nonnull !4, !noundef !4
   br label %372
 
 372:                                              ; preds = %370, %366
@@ -4759,7 +4759,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %486 = load ptr, ptr %485, align 8
   %487 = load ptr, ptr %.07190.i.i, align 8
   %488 = load ptr, ptr %479, align 8
-  call fastcc void @zend_traits_copy_functions(ptr noundef %486, ptr noundef %487, ptr noundef %.0329, ptr noundef %488, ptr noundef %.0192.i.i)
+  call fastcc void @zend_traits_copy_functions(ptr noundef %486, ptr noundef %487, ptr noundef %.0329, ptr noundef %488, ptr noundef readonly %.0192.i.i)
   br label %489
 
 489:                                              ; preds = %484, %480
@@ -4821,7 +4821,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %516 = getelementptr inbounds i8, ptr %.07294.i.i, i64 24
   %517 = load ptr, ptr %516, align 8
   %518 = load ptr, ptr %.07294.i.i, align 8
-  call fastcc void @zend_traits_copy_functions(ptr noundef %517, ptr noundef %518, ptr noundef %.0329, ptr noundef null, ptr noundef %.0192.i.i)
+  call fastcc void @zend_traits_copy_functions(ptr noundef %517, ptr noundef %518, ptr noundef %.0329, ptr noundef null, ptr noundef readonly %.0192.i.i)
   br label %519
 
 519:                                              ; preds = %515, %.lr.ph96.i.i
@@ -5000,7 +5000,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 601:                                              ; preds = %593
   %602 = getelementptr i8, ptr %594, i64 32
   %.val.i.i.i = load ptr, ptr %602, align 8
-  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
+  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
   %604 = getelementptr inbounds i8, ptr %603, i64 8
   %605 = load ptr, ptr %604, align 8
   %606 = getelementptr inbounds i8, ptr %605, i64 24
@@ -5033,7 +5033,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 627:                                              ; preds = %616
   %628 = getelementptr i8, ptr %594, i64 32
   %.val148.i.i.i = load ptr, ptr %628, align 8
-  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
+  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
   %630 = getelementptr inbounds i8, ptr %629, i64 8
   %631 = load ptr, ptr %630, align 8
   %632 = getelementptr inbounds i8, ptr %631, i64 24
@@ -5056,13 +5056,13 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
   %644 = load ptr, ptr %572, align 8
   %645 = load ptr, ptr %622, align 8
   %646 = load ptr, ptr %617, align 8
-  %647 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %.0329, ptr %645, i32 %624, ptr noundef %644, ptr %646, i32 %619), !range !4
+  %647 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %.0329, ptr %645, i32 %624, ptr noundef %644, ptr %646, i32 %619)
   %648 = load ptr, ptr %572, align 8
   %649 = load ptr, ptr %617, align 8
   %650 = load i32, ptr %618, align 8
   %651 = load ptr, ptr %622, align 8
   %652 = load i32, ptr %623, align 8
-  %653 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %648, ptr %649, i32 %650, ptr noundef %.0329, ptr %651, i32 %652), !range !4
+  %653 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %648, ptr %649, i32 %650, ptr noundef %.0329, ptr %651, i32 %652)
   %654 = icmp eq i32 %647, 0
   %655 = icmp eq i32 %653, 0
   %or.cond.i.i.i = select i1 %654, i1 true, i1 %655
@@ -5071,7 +5071,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 656:                                              ; preds = %643
   %657 = getelementptr i8, ptr %594, i64 32
   %.val149.i.i.i = load ptr, ptr %657, align 8
-  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef nonnull %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
+  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef nonnull readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
   %659 = getelementptr inbounds i8, ptr %658, i64 8
   %660 = load ptr, ptr %659, align 8
   %661 = getelementptr inbounds i8, ptr %660, i64 24
@@ -5243,7 +5243,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 .critedge147.i.i.i:                               ; preds = %735, %.critedge147.sink.split.i.i.i
   %736 = getelementptr i8, ptr %594, i64 32
   %.val150.i.i.i = load ptr, ptr %736, align 8
-  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
+  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
   %738 = getelementptr inbounds i8, ptr %737, i64 8
   %739 = load ptr, ptr %738, align 8
   %740 = getelementptr inbounds i8, ptr %739, i64 24
@@ -5451,7 +5451,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
   br i1 %.not193.i.i, label %.thread.i.i, label %846
 
 846:                                              ; preds = %839
-  %847 = load ptr, ptr %845, align 8, !nonnull !5, !noundef !5
+  %847 = load ptr, ptr %845, align 8, !nonnull !4, !noundef !4
   %848 = getelementptr inbounds i8, ptr %847, i64 4
   %849 = load i32, ptr %848, align 4
   %850 = and i32 %849, 4
@@ -5508,14 +5508,14 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
   %884 = load ptr, ptr %883, align 8
   %885 = load ptr, ptr %865, align 8
   %886 = load ptr, ptr %862, align 8
-  %887 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %882, ptr %885, i32 %867, ptr noundef %884, ptr %886, i32 %864), !range !4
+  %887 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %882, ptr %885, i32 %867, ptr noundef %884, ptr %886, i32 %864)
   %888 = load ptr, ptr %883, align 8
   %889 = load ptr, ptr %881, align 8
   %890 = load ptr, ptr %862, align 8
   %891 = load i32, ptr %863, align 8
   %892 = load ptr, ptr %865, align 8
   %893 = load i32, ptr %866, align 8
-  %894 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %888, ptr %890, i32 %891, ptr noundef %889, ptr %892, i32 %893), !range !4
+  %894 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %888, ptr %890, i32 %891, ptr noundef %889, ptr %892, i32 %893)
   %895 = icmp eq i32 %887, 2
   %896 = icmp eq i32 %894, 2
   %or.cond.i.i39.i = select i1 %895, i1 %896, i1 false
@@ -5732,7 +5732,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
 .critedge226.i.i:                                 ; preds = %1001, %880, %875, %857, %.critedge226.sink.split.i.i
   %1002 = getelementptr inbounds i8, ptr %847, i64 32
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
+  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
   %1005 = getelementptr inbounds i8, ptr %1004, i64 8
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds i8, ptr %1006, i64 24
@@ -7209,12 +7209,12 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #6
 define internal fastcc void @resolve_delayed_variance_obligations(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), align 8, !nonnull !5, !noundef !5
+  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), align 8, !nonnull !4, !noundef !4
   %5 = ptrtoint ptr %0 to i64
   %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %4, i64 noundef %5) #16
   %.not = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %.not)
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
@@ -7290,7 +7290,7 @@ define internal fastcc void @resolve_delayed_variance_obligations(ptr noundef %0
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %22, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @property_types_compatible(ptr noundef %47, ptr noundef %49), !range !4
+  %50 = tail call i32 @property_types_compatible(ptr noundef %47, ptr noundef %49)
   %.not31.i = icmp eq i32 %50, 2
   br i1 %.not31.i, label %check_variance_obligation.exit, label %51
 
@@ -7352,7 +7352,7 @@ class_constant_types_compatible.exit:             ; preds = %77
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %90, align 8
   %97 = load ptr, ptr %91, align 8
-  %98 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %93, ptr %96, i32 %88, ptr noundef %95, ptr %97, i32 %84), !range !4
+  %98 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %93, ptr %96, i32 %88, ptr noundef %95, ptr %97, i32 %84)
   %.not.i = icmp eq i32 %98, 2
   br i1 %.not.i, label %check_variance_obligation.exit, label %class_constant_types_compatible.exit.class_constant_types_compatible.exit.thread_crit_edge
 
@@ -7791,7 +7791,7 @@ define ptr @zend_try_early_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not308.i, label %168, label %165
 
 165:                                              ; preds = %160
-  %166 = call i32 @property_types_compatible(ptr noundef nonnull %150, ptr noundef nonnull %161), !range !4
+  %166 = call i32 @property_types_compatible(ptr noundef nonnull %150, ptr noundef nonnull %161)
   %167 = icmp ne i32 %166, 1
   call void @llvm.assume(i1 %167)
   %.not309.i = icmp eq i32 %166, 2
@@ -7871,7 +7871,7 @@ class_constant_types_compatible.exit.i:           ; preds = %197
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %205, align 8
   %212 = load ptr, ptr %206, align 8
-  %213 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %208, ptr %211, i32 %200, ptr noundef %210, ptr %212, i32 %202), !range !4
+  %213 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %208, ptr %211, i32 %200, ptr noundef %210, ptr %212, i32 %202)
   %214 = icmp ne i32 %213, 1
   call void @llvm.assume(i1 %214)
   %.not304.i = icmp eq i32 %213, 2
@@ -8158,7 +8158,7 @@ zend_observer_class_linked_notify.exit:           ; preds = %zend_observer_class
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 3) i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5) unnamed_addr #2 {
   %7 = alloca %struct.zend_type, align 8
   %8 = alloca %struct.zend_type, align 8
   %9 = alloca %struct.zend_type, align 8
@@ -8320,7 +8320,7 @@ get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from
   %82 = load ptr, ptr %8, align 8
   %83 = load i32, ptr %10, align 8
   %84 = load ptr, ptr %.144, align 8
-  %85 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %82, i32 %83, ptr noundef %3, ptr %84, i32 %79), !range !4
+  %85 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %82, i32 %83, ptr noundef %3, ptr %84, i32 %79)
   br label %222
 
 86:                                               ; preds = %77
@@ -8497,7 +8497,7 @@ resolve_class_name.exit.i:                        ; preds = %.sink.split.i.i75, 
   br i1 %.not54.i, label %168, label %166
 
 166:                                              ; preds = %162
-  %167 = load ptr, ptr %165, align 8, !nonnull !5, !noundef !5
+  %167 = load ptr, ptr %165, align 8, !nonnull !4, !noundef !4
   br label %168
 
 168:                                              ; preds = %166, %162
@@ -8646,7 +8646,7 @@ get_class_from_type.exit71.thread94:              ; preds = %86, %225, %get_clas
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i32 %4) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 3) i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i32 %4) unnamed_addr #2 {
   %6 = alloca %struct.zend_type, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8704,7 +8704,7 @@ define internal fastcc i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr no
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %.156, align 8
-  %34 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %33, i32 %30), !range !4
+  %34 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %33, i32 %30)
   switch i32 %34, label %37 [
     i32 0, label %35
     i32 -1, label %81
@@ -9058,7 +9058,7 @@ define internal fastcc ptr @lookup_class_ex(ptr noundef readonly %0, ptr noundef
   br i1 %.not54, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
+  %13 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   br label %14
 
 14:                                               ; preds = %8, %12
@@ -9337,7 +9337,7 @@ define internal fastcc noundef ptr @get_or_init_obligations_for_class(ptr nounde
   br i1 %.not20, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
+  %11 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   br label %20
 
 12:                                               ; preds = %6
@@ -9909,7 +9909,7 @@ zend_do_perform_arg_type_hint_check.exit:         ; preds = %71
   %75 = getelementptr inbounds i8, ptr %58, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %65, align 8
-  %78 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %3, ptr %76, i32 %73, ptr noundef %1, ptr %77, i32 %67), !range !4
+  %78 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %3, ptr %76, i32 %73, ptr noundef %1, ptr %77, i32 %67)
   switch i32 %78, label %79 [
     i32 2, label %zend_do_perform_arg_type_hint_check.exit.thread
     i32 0, label %.thread88
@@ -9980,7 +9980,7 @@ zend_do_perform_arg_type_hint_check.exit.thread:  ; preds = %64, %zend_do_perfor
   %110 = load ptr, ptr %106, align 8
   %111 = getelementptr inbounds i8, ptr %105, i64 -16
   %112 = load i32, ptr %111, align 8
-  %113 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %1, ptr %107, i32 %109, ptr noundef %3, ptr %110, i32 %112), !range !4
+  %113 = tail call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %1, ptr %107, i32 %109, ptr noundef %3, ptr %110, i32 %112)
   switch i32 %113, label %.thread88 [
     i32 2, label %119
     i32 0, label %114
@@ -10022,11 +10022,11 @@ define internal fastcc void @perform_delayable_implementation_check(ptr noundef 
   br i1 %12, label %14, label %15
 
 14:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull readonly align 8 dereferenceable(152) %1, i64 152, i1 false)
   br label %16
 
 15:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull readonly align 8 dereferenceable(240) %1, i64 240, i1 false)
   br label %16
 
 16:                                               ; preds = %15, %14
@@ -10036,11 +10036,11 @@ define internal fastcc void @perform_delayable_implementation_check(ptr noundef 
   br i1 %18, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull readonly align 8 dereferenceable(152) %3, i64 152, i1 false)
   br label %22
 
 21:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull align 8 dereferenceable(240) %3, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull readonly align 8 dereferenceable(240) %3, i64 240, i1 false)
   br label %22
 
 22:                                               ; preds = %21, %20
@@ -11857,7 +11857,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   br i1 %.not, label %.critedge428, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %9 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 88
@@ -12044,7 +12044,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %117 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 13, ptr %117, align 8
   %118 = call ptr @zend_hash_update(ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %5) #16
-  %119 = load ptr, ptr %118, align 8, !nonnull !5, !noundef !5
+  %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
   call void @zend_add_magic_method(ptr noundef %0, ptr noundef nonnull %119, ptr noundef %2) #16
   br i1 %.not, label %269, label %120
 
@@ -12431,5 +12431,4 @@ attributes #22 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 3}
-!5 = !{}
+!4 = !{}

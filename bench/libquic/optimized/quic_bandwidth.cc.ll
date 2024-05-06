@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net13QuicBandwidth16ToKBitsPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 -9223372036854775, 9223372036854776) i64 @_ZNK3net13QuicBandwidth16ToKBitsPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = sdiv i64 %0, 1000
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK3net13QuicBandwidth16ToBytesPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = sdiv i64 %0, 8
@@ -306,7 +306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net13QuicBandwidth17ToKBytesPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 -1152921504606846, 1152921504606847) i64 @_ZNK3net13QuicBandwidth17ToKBytesPerSecondEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = sdiv i64 %0, 8000
@@ -314,7 +314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %time_period.coerce0, i64 %time_period.coerce1) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, 18446744073710) i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %time_period.coerce0, i64 %time_period.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div.i = sdiv i64 %0, 8
@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net13QuicBandwidth17ToKBytesPerPeriodENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %time_period.coerce0, i64 %time_period.coerce1) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, 18446744073710) i64 @_ZNK3net13QuicBandwidth17ToKBytesPerPeriodENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %time_period.coerce0, i64 %time_period.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div.i = sdiv i64 %0, 8000

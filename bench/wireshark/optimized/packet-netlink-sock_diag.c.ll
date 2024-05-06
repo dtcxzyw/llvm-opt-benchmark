@@ -471,7 +471,7 @@ dissect_sock_diag_inet_request.exit.i:            ; preds = %120, %.lr.ph.i.i.i5
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #4
   %128 = add i32 %21, 8
   %129 = zext i8 %108 to i32
-  %130 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %128, i32 noundef %129)
+  %130 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef %17, i32 noundef %128, i32 noundef %129)
   br label %dissect_sock_diag_by_family.exit
 
 131:                                              ; preds = %107
@@ -723,7 +723,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @dissect_netlink_attributes_to_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netlink_unix_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
   switch i32 %4, label %dissect_sock_diag_meminfo.exit [
     i32 0, label %9
@@ -940,7 +940,7 @@ _dissect_padding.exit48:                          ; preds = %25, %.lr.ph.i.i44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_sock_diag_inet_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   switch i32 %4, label %dissect_sock_diag_meminfo.exit [
     i32 1, label %8
     i32 7, label %27
@@ -1022,7 +1022,7 @@ dissect_sock_diag_meminfo.exit:                   ; preds = %36, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_sock_diag_netlink_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %cond = icmp eq i32 %4, 0
   br i1 %cond, label %8, label %dissect_sock_diag_meminfo.exit
 
@@ -1065,7 +1065,7 @@ dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netlink_packet_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %cond = icmp eq i32 %4, 6
   br i1 %cond, label %8, label %dissect_sock_diag_meminfo.exit
 

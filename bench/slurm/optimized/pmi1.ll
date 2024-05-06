@@ -973,7 +973,7 @@ define internal i32 @_handle_mcmd(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %20 ]
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.83, i32 noundef %51) #8
   %53 = load ptr, ptr @pmi1_spawn, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24

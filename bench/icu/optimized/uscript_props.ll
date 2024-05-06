@@ -61,7 +61,7 @@ if.then12:                                        ; preds = %if.then10
 
 if.else13:                                        ; preds = %if.then10
   %shr = lshr i32 %and, 10
-  %2 = trunc i32 %shr to i16
+  %2 = trunc nuw nsw i32 %shr to i16
   %conv14 = add nuw nsw i16 %2, -10304
   store i16 %conv14, ptr %dest, align 2
   %3 = trunc i32 %1 to i16
@@ -122,7 +122,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @uscript_getUsage_75(i32 noundef %script) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @uscript_getUsage_75(i32 noundef %script) local_unnamed_addr #3 {
 entry:
   %or.cond.i = icmp ult i32 %script, 200
   br i1 %or.cond.i, label %if.then.i, label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
@@ -141,7 +141,7 @@ _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uscript_isRightToLeft_75(i32 noundef %script) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @uscript_isRightToLeft_75(i32 noundef %script) local_unnamed_addr #3 {
 entry:
   %or.cond.i = icmp ult i32 %script, 200
   br i1 %or.cond.i, label %if.then.i, label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
@@ -151,7 +151,7 @@ if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 24
-  %2 = trunc i32 %1 to i8
+  %2 = trunc nuw i32 %1 to i8
   %3 = and i8 %2, 1
   br label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
 
@@ -161,7 +161,7 @@ _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uscript_breaksBetweenLetters_75(i32 noundef %script) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @uscript_breaksBetweenLetters_75(i32 noundef %script) local_unnamed_addr #3 {
 entry:
   %or.cond.i = icmp ult i32 %script, 200
   br i1 %or.cond.i, label %if.then.i, label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
@@ -171,7 +171,7 @@ if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 25
-  %2 = trunc i32 %1 to i8
+  %2 = trunc nuw nsw i32 %1 to i8
   %3 = and i8 %2, 1
   br label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
 
@@ -181,7 +181,7 @@ _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uscript_isCased_75(i32 noundef %script) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @uscript_isCased_75(i32 noundef %script) local_unnamed_addr #3 {
 entry:
   %or.cond.i = icmp ult i32 %script, 200
   br i1 %or.cond.i, label %if.then.i, label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
@@ -191,7 +191,7 @@ if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 26
-  %2 = trunc i32 %1 to i8
+  %2 = trunc nuw nsw i32 %1 to i8
   %3 = and i8 %2, 1
   br label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
 

@@ -285,7 +285,7 @@ define void @_ZNK13Matrix44Value16fillToXMLElementER11QDomElement(ptr nocapture 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit31 ]
   %9 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.4, i32 noundef 3)
   store ptr %9, ptr %4, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN7QString6numberEji(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i32 noundef %10, i32 noundef 10)
           to label %11 unwind label %40
 

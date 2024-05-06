@@ -27,7 +27,7 @@ define void @Init_japanese() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_eucjp2sjis(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 1, 3) i64 @fun_so_eucjp2sjis(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, -114
   br i1 %7, label %8, label %11
@@ -53,7 +53,7 @@ define internal noundef i64 @fun_so_eucjp2sjis(ptr nocapture readnone %0, ptr no
   %23 = icmp sgt i32 %22, 129
   %spec.select.v = select i1 %23, i32 254, i32 253
   %spec.select = add nsw i32 %spec.select.v, %22
-  %24 = trunc i32 %18 to i8
+  %24 = trunc nuw i32 %18 to i8
   %25 = trunc i32 %spec.select to i8
   %26 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 %25, ptr %26, align 1

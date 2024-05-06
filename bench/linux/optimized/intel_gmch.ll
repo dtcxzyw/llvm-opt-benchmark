@@ -190,7 +190,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   %76 = load ptr, ptr %11, align 8
   %77 = load i64, ptr %56, align 8
   %78 = lshr i64 %77, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = call i32 @pci_write_config_dword(ptr noundef %76, i32 noundef 76, i32 noundef %79) #4
   %.pre3 = load i8, ptr %32, align 8
   %81 = icmp ugt i8 %.pre3, 3
@@ -314,7 +314,7 @@ define dso_local void @intel_gmch_bar_teardown(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gmch_vga_set_state(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @intel_gmch_vga_set_state(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
@@ -386,7 +386,7 @@ declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr nounde
 declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gmch_vga_set_decode(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 12, 16) i32 @intel_gmch_vga_set_decode(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_gmch_vga_set_state(ptr noundef %4, i1 noundef zeroext %1), !range !8

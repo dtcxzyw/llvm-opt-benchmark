@@ -538,7 +538,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517GregorianCalendar14isEquivalentToERKNS_8CalendarE(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar14isEquivalentToERKNS_8CalendarE(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_758Calendar14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other)
   %tobool.not = icmp eq i8 %call, 0
@@ -784,12 +784,12 @@ if.end37:                                         ; preds = %if.then34, %if.end3
   store i32 %storemerge, ptr %fFields.i, align 4
   store i32 1, ptr %fStamp.i, align 4
   store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %eyear.1, ptr %arrayidx.i54, align 8
-  %arrayidx3.i56 = getelementptr inbounds i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i56, align 8
-  %arrayidx5.i58 = getelementptr inbounds i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i58, align 1
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %eyear.1, ptr %arrayidx.i60, align 8
+  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i62, align 8
+  %arrayidx5.i64 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i64, align 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end37
@@ -812,7 +812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7517GregorianCalendar10isLeapYearEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %year) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar10isLeapYearEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %year) local_unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear, align 8
@@ -1039,7 +1039,7 @@ declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef, i32 nou
 declare noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -1103,7 +1103,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #6 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
@@ -1148,7 +1148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %month, i32 noundef %year) unnamed_addr #6 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %month, i32 noundef %year) unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
@@ -1197,7 +1197,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar10yearLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar10yearLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %arrayidx.i, align 8
@@ -1233,7 +1233,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517GregorianCalendar14validateFieldsEv(ptr noundef nonnull align 8 dereferenceable(654) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar14validateFieldsEv(ptr noundef nonnull align 8 dereferenceable(654) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
@@ -1364,7 +1364,7 @@ return:                                           ; preds = %land.lhs.true5, %_Z
 declare noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %value, i32 noundef %field) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %value, i32 noundef %field) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
@@ -1887,43 +1887,43 @@ cond.true.i:                                      ; preds = %sw.bb
 
 sw.bb12:                                          ; preds = %entry
   %5 = load i32, ptr %fStamp, align 4
-  %cmp.i5 = icmp sgt i32 %5, 0
-  %fFields.i8 = getelementptr inbounds i8, ptr %this, i64 12
-  %6 = load i32, ptr %fFields.i8, align 4
+  %cmp.i6 = icmp sgt i32 %5, 0
+  %fFields.i9 = getelementptr inbounds i8, ptr %this, i64 12
+  %6 = load i32, ptr %fFields.i9, align 4
   %cmp14 = icmp eq i32 %6, 0
-  %or.cond = select i1 %cmp.i5, i1 %cmp14, i1 false
+  %or.cond = select i1 %cmp.i6, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %sw.bb12
-  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i32, ptr %arrayidx3.i16, align 8
+  %arrayidx3.i18 = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i32, ptr %arrayidx3.i18, align 8
   %8 = sub nsw i32 1, %7
-  %cmp.i12.inv.inv = icmp sgt i32 %1, 0
-  %sub = select i1 %cmp.i12.inv.inv, i32 %8, i32 0
+  %cmp.i14.inv.inv = icmp sgt i32 %1, 0
+  %sub = select i1 %cmp.i14.inv.inv, i32 %8, i32 0
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb12
-  %cmp.i20 = icmp sgt i32 %1, 0
-  br i1 %cmp.i20, label %cond.true.i22, label %sw.epilog
+  %cmp.i22 = icmp sgt i32 %1, 0
+  br i1 %cmp.i22, label %cond.true.i24, label %sw.epilog
 
-cond.true.i22:                                    ; preds = %if.else
-  %arrayidx3.i24 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %arrayidx3.i24, align 8
+cond.true.i24:                                    ; preds = %if.else
+  %arrayidx3.i26 = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = load i32, ptr %arrayidx3.i26, align 8
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %arrayidx.i27 = getelementptr inbounds i8, ptr %this, i64 80
-  %10 = load i32, ptr %arrayidx.i27, align 8
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load i32, ptr %arrayidx.i29, align 8
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 80
+  %10 = load i32, ptr %arrayidx.i29, align 8
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 24
+  %11 = load i32, ptr %arrayidx.i31, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 344
   %12 = load ptr, ptr %vfn, align 8
   %call22 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %10, i32 noundef %11)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %cond.true.i22, %if.else, %cond.true.i, %sw.bb, %entry, %if.then15, %sw.bb19
-  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %4, %cond.true.i ], [ 1970, %sw.bb ], [ %9, %cond.true.i22 ], [ 1970, %if.else ]
+sw.epilog:                                        ; preds = %cond.true.i24, %if.else, %cond.true.i, %sw.bb, %entry, %if.then15, %sw.bb19
+  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %4, %cond.true.i ], [ 1970, %sw.bb ], [ %9, %cond.true.i24 ], [ 1970, %if.else ]
   ret i32 %year.0
 }
 

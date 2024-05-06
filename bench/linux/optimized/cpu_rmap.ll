@@ -75,7 +75,7 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
 
 30:                                               ; preds = %26
   %31 = urem i32 %28, %0
-  %32 = trunc i32 %31 to i16
+  %32 = trunc nuw nsw i32 %31 to i16
   %33 = and i64 %27, 63
   %34 = getelementptr [0 x %struct.anon], ptr %20, i64 0, i64 %33
   store i16 %32, ptr %34, align 4
@@ -87,7 +87,7 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
   br i1 %38, label %.thread, label %21, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %21, %30, %26
-  %39 = trunc i32 %0 to i16
+  %39 = trunc nuw i32 %0 to i16
   %40 = getelementptr inbounds i8, ptr %14, i64 4
   store i16 %39, ptr %40, align 4
   br label %41
@@ -104,7 +104,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cpu_rmap_put(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @cpu_rmap_put(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #8, !srcloc !10
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4

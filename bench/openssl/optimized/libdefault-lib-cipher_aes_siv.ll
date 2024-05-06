@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -137,7 +137,7 @@ if.end6.i:                                        ; preds = %if.then2.i
   br i1 %tobool9.not.i, label %siv_init.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end6.i, %if.end.i
-  %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %siv_init.exit
 
 siv_init.exit:                                    ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
@@ -146,7 +146,7 @@ siv_init.exit:                                    ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -181,7 +181,7 @@ if.end6.i:                                        ; preds = %if.then2.i
   br i1 %tobool9.not.i, label %siv_init.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end6.i, %if.end.i
-  %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %siv_init.exit
 
 siv_init.exit:                                    ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
@@ -190,7 +190,7 @@ siv_init.exit:                                    ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -245,7 +245,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @siv_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -283,7 +283,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_siv_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_siv_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null
@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_siv_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_siv_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %speed = alloca i32, align 4
   %keylen = alloca i64, align 8
@@ -587,4 +587,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

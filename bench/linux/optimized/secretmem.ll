@@ -150,7 +150,7 @@ define internal noundef i32 @secretmem_migrate_folio(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_memfd_secret(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_memfd_secret(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = tail call fastcc i64 @__se_sys_memfd_secret(i64 noundef %3), !range !11
@@ -158,7 +158,7 @@ define dso_local i64 @__x64_sys_memfd_secret(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_memfd_secret(i64 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_memfd_secret(i64 noundef %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.qstr, align 8
   %3 = trunc i64 %0 to i32
   %4 = load i8, ptr @secretmem_enable, align 1, !range !12, !noundef !13
@@ -268,7 +268,7 @@ define internal fastcc i64 @__se_sys_memfd_secret(i64 noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_memfd_secret(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_memfd_secret(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -306,7 +306,7 @@ define internal i32 @secretmem_init() #5 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @secretmem_fault(ptr nocapture noundef %0) #3 align 16 {
+define internal range(i32 1, 513) i32 @secretmem_fault(ptr nocapture noundef %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -483,7 +483,7 @@ declare dso_local ptr @alloc_file_pseudo(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @secretmem_mmap(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @secretmem_mmap(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 136
@@ -583,7 +583,7 @@ declare dso_local i32 @simple_setattr(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local ptr @kern_mount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @secretmem_init_fs_context(ptr noundef %0) #3 align 16 {
+define internal range(i32 -12, 1) i32 @secretmem_init_fs_context(ptr noundef %0) #3 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1397048141) #9
   %3 = icmp eq ptr %2, null
   %4 = select i1 %3, i32 -12, i32 0

@@ -1130,7 +1130,7 @@ declare void @_ZN6casadi6LinsolC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 declare void @_ZNK6casadi13ProtoFunction5printEPKcz(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi4Ipqp8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1656) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi4Ipqp8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1656) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK6casadi5Conic8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1472) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6

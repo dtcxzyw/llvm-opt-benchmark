@@ -20,7 +20,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @alg_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @alg_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %m = alloca i32, align 4
   %call = tail call ptr @CONF_imodule_get_value(ptr noundef %md) #3

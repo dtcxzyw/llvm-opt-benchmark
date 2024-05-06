@@ -84,13 +84,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [31 x i8] c"timer_callback was not called.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -140,7 +140,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dtls_unprocessed(i32 noundef %testidx) #1 {
+define internal range(i32 0, 2) i32 @test_dtls_unprocessed(i32 noundef %testidx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dtls_drop_records(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_dtls_drop_records(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -366,7 +366,7 @@ if.then61:                                        ; preds = %if.end57
   %add58.neg = xor i32 %cli_to_srv_cookie.0, -1
   %20 = load ptr, ptr %serverssl, align 8
   %call62 = call ptr @SSL_get_wbio(ptr noundef %20) #7
-  %sub65 = add i32 %idx.addr.0, %add58.neg
+  %sub65 = add nsw i32 %idx.addr.0, %add58.neg
   %cmp67.not = icmp sge i32 %sub65, %srv_to_cli_epoch0.0
   %sub71 = select i1 %cmp67.not, i32 %srv_to_cli_epoch0.0, i32 0
   %spec.select = sub nsw i32 %sub65, %sub71
@@ -440,7 +440,7 @@ return:                                           ; preds = %entry, %end
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cookie() #1 {
+define internal range(i32 0, 2) i32 @test_cookie() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -506,7 +506,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dtls_duplicate_records() #1 {
+define internal range(i32 0, 2) i32 @test_dtls_duplicate_records() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -576,7 +576,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_just_finished() #1 {
+define internal range(i32 0, 2) i32 @test_just_finished() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %buf = alloca [45 x i8], align 16
@@ -663,7 +663,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_swap_records(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_swap_records(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -867,7 +867,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_listen() #1 {
+define internal range(i32 0, 2) i32 @test_listen() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -965,7 +965,7 @@ declare i32 @create_ssl_objects(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @DTLS_set_timer_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @timer_cb(ptr nocapture readnone %s, i32 noundef %timer_us) #3 {
+define internal noundef i32 @timer_cb(ptr nocapture readnone %s, i32 noundef %timer_us) #3 {
 entry:
   %0 = load i32, ptr @timer_cb_count, align 4
   %inc = add i32 %0, 1
@@ -995,7 +995,7 @@ declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @generate_cookie_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #4 {
+define internal noundef i32 @generate_cookie_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #4 {
 entry:
   store i64 15258147055874352, ptr %cookie, align 1
   store i32 8, ptr %cookie_len, align 4

@@ -281,13 +281,13 @@ define internal i32 @dissect_adwin_config_udp(ptr noundef %0, ptr nocapture noun
 
 6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4
   %7 = getelementptr inbounds i8, ptr %1, i64 112
-  %8 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %7), !range !4
+  %8 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %1, i64 136
-  %11 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %10), !range !4
+  %11 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %10)
   %.not47 = icmp eq i32 %11, 0
   br i1 %.not47, label %148, label %12
 
@@ -497,13 +497,13 @@ define internal i32 @dissect_adwin_config_tcp(ptr noundef %0, ptr noundef %1, pt
 
 12:                                               ; preds = %8, %4
   %13 = getelementptr inbounds i8, ptr %1, i64 112
-  %14 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %13), !range !4
+  %14 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 136
-  %17 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %16), !range !4
+  %17 = tail call fastcc i32 @is_adwin_mac_or_broadcast(ptr noundef nonnull byval(%struct._address) align 8 %16)
   %.not8 = icmp eq i32 %17, 0
   br i1 %.not8, label %20, label %18
 
@@ -520,7 +520,7 @@ define internal i32 @dissect_adwin_config_tcp(ptr noundef %0, ptr noundef %1, pt
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @is_adwin_mac_or_broadcast(ptr nocapture noundef readonly byval(%struct._address) align 8 %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @is_adwin_mac_or_broadcast(ptr nocapture noundef readonly byval(%struct._address) align 8 %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 1
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -758,4 +758,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

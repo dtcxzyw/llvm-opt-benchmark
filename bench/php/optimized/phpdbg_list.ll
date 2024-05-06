@@ -183,7 +183,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %63 = zext i32 %58 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %65 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %66 = trunc i64 %indvars.iv.next61.i to i32
+  %66 = trunc nuw i64 %indvars.iv.next61.i to i32
   %67 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %65, ptr noundef nonnull @.str.19, i32 noundef %66, i32 noundef %61, ptr noundef %64) #11
   %68 = zext i32 %61 to i64
   %69 = getelementptr inbounds i8, ptr %64, i64 %68
@@ -440,7 +440,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   %25 = zext i32 %20 to i64
   %26 = getelementptr inbounds i8, ptr %24, i64 %25
   %27 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %28 = trunc i64 %indvars.iv.next61 to i32
+  %28 = trunc nuw i64 %indvars.iv.next61 to i32
   %29 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %27, ptr noundef nonnull @.str.19, i32 noundef %28, i32 noundef %23, ptr noundef %26) #11
   %30 = zext i32 %23 to i64
   %31 = getelementptr inbounds i8, ptr %26, i64 %30
@@ -476,7 +476,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not53, label %52, label %49
 
 49:                                               ; preds = %.lr.ph.split
-  %50 = trunc i64 %indvars.iv.next to i32
+  %50 = trunc nuw i64 %indvars.iv.next to i32
   %51 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %48, ptr noundef nonnull @.str.19, i32 noundef %50, i32 noundef %44, ptr noundef %47) #11
   br label %54
 

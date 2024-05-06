@@ -22,7 +22,7 @@ entry:
   %2 = and i32 %shr1, 65535
   %mul = mul nuw i32 %2, %conv5
   %shr7 = lshr i32 %mul, 20
-  %3 = trunc i32 %shr7 to i16
+  %3 = trunc nuw nsw i32 %shr7 to i16
   %conv8 = sub i16 %0, %3
   %conv9 = zext i16 %conv8 to i64
   %mul11 = mul nuw nsw i64 %conv9, %conv9

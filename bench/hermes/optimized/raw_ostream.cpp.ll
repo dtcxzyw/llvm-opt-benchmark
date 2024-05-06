@@ -1946,7 +1946,7 @@ sw.bb11.i:                                        ; preds = %sw.bb7.i, %if.end26
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 sw.default.i:                                     ; preds = %if.end26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %add.ptr27, i64 %rem, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %add.ptr27, i64 %rem, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit:  ; preds = %if.end26, %sw.bb11.i, %sw.default.i
@@ -1997,7 +1997,7 @@ sw.bb11.i25:                                      ; preds = %sw.bb7.i27, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 sw.default.i39:                                   ; preds = %if.end28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr readonly align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41: ; preds = %if.end28, %sw.bb11.i25, %sw.default.i39
@@ -2065,7 +2065,7 @@ sw.bb11.i45:                                      ; preds = %sw.bb7.i47, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 sw.default.i59:                                   ; preds = %if.end32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr readonly align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61: ; preds = %if.end32, %sw.bb11.i45, %sw.default.i59
@@ -2692,7 +2692,7 @@ if.then6:                                         ; preds = %if.end
   %add = add i64 %mul, %6
   %cmp.not = icmp eq i64 %add, 0
   %sub.i = add i64 %add, -1
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !11
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
   %9 = sub nuw nsw i64 67, %8
   %10 = lshr i64 %9, 2
   %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 4)
@@ -2821,7 +2821,7 @@ if.end52:                                         ; preds = %if.then4.i.i56, %if
   %inc57 = add nuw nsw i64 %I.0258, 1
   %add58 = add i32 %CharsPrinted.1, 2
   %exitcond.not = icmp eq i64 %inc57, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end52, %if.end40
   %CharsPrinted.0.lcssa = phi i32 [ 0, %if.end40 ], [ %add58, %if.end52 ]
@@ -3296,7 +3296,7 @@ if.end.i191:                                      ; preds = %if.then87
 
 if.end89:                                         ; preds = %if.end.i191, %_ZN4llvh11raw_ostream5writeEh.exit.i181, %if.end80
   %cmp.i40 = icmp eq i64 %sub.i159, 0
-  br i1 %cmp.i40, label %return, label %while.body, !llvm.loop !13
+  br i1 %cmp.i40, label %return, label %while.body, !llvm.loop !12
 
 return:                                           ; preds = %if.end89, %entry
   ret ptr %this
@@ -3320,7 +3320,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %call7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull @_ZZL13write_paddingILc0EERN4llvh11raw_ostreamES2_jE5Chars, i64 noundef %conv6.i)
   %sub8.i = sub i32 %NumChars.addr.09.i, %.sroa.speculated.i
   %tobool.not.i = icmp eq i32 %sub8.i, 0
-  br i1 %tobool.not.i, label %_ZL13write_paddingILc0EERN4llvh11raw_ostreamES2_j.exit, label %while.body.i, !llvm.loop !14
+  br i1 %tobool.not.i, label %_ZL13write_paddingILc0EERN4llvh11raw_ostreamES2_j.exit, label %while.body.i, !llvm.loop !13
 
 _ZL13write_paddingILc0EERN4llvh11raw_ostreamES2_j.exit: ; preds = %while.body.i, %if.then.i
   ret ptr %this
@@ -3426,7 +3426,7 @@ _ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
   %BufferMode.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh14raw_fd_ostreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %FD.i1 = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %retval.0.i, ptr %FD.i1, align 4
@@ -3616,7 +3616,7 @@ do.cond.i:                                        ; preds = %if.end13.i, %if.the
   %Size.addr.1.i = phi i64 [ %Size.addr.0.i, %if.then.i5 ], [ %Size.addr.0.i, %if.then.i5 ], [ %sub.i, %if.end13.i ]
   %Ptr.addr.1.i = phi ptr [ %Ptr.addr.0.i, %if.then.i5 ], [ %Ptr.addr.0.i, %if.then.i5 ], [ %add.ptr.i, %if.end13.i ]
   %cmp14.not.i = icmp eq i64 %Size.addr.1.i, 0
-  br i1 %cmp14.not.i, label %_ZN4llvh11raw_ostream5flushEv.exit, label %do.body.i, !llvm.loop !15
+  br i1 %cmp14.not.i, label %_ZN4llvh11raw_ostream5flushEv.exit, label %do.body.i, !llvm.loop !14
 
 _ZN4llvh11raw_ostream5flushEv.exit:               ; preds = %do.cond.i, %if.end.i, %if.then
   %ShouldClose = getelementptr inbounds i8, ptr %this, i64 40
@@ -3648,9 +3648,9 @@ if.end7:                                          ; preds = %_ZN4llvh11raw_ostre
 if.then9:                                         ; preds = %if.end7
   %retval.sroa.21.0.EC.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 56
   %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.EC.sroa_idx.i, align 8
-  %vtable.i = load ptr, ptr %retval.sroa.21.0.copyload.i, align 8, !noalias !16
+  %vtable.i = load ptr, ptr %retval.sroa.21.0.copyload.i, align 8, !noalias !15
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %11 = load ptr, ptr %vfn.i, align 8, !noalias !16
+  %11 = load ptr, ptr %vfn.i, align 8, !noalias !15
   call void %11(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.21.0.copyload.i, i32 noundef %10) #26
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
   call void @_ZN4llvh18report_fatal_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext false) #25
@@ -3745,7 +3745,7 @@ do.cond:                                          ; preds = %if.then, %if.then, 
   %Size.addr.1 = phi i64 [ %Size.addr.0, %if.then ], [ %Size.addr.0, %if.then ], [ %sub, %if.end13 ]
   %Ptr.addr.1 = phi ptr [ %Ptr.addr.0, %if.then ], [ %Ptr.addr.0, %if.then ], [ %add.ptr, %if.end13 ]
   %cmp14.not = icmp eq i64 %Size.addr.1, 0
-  br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !15
+  br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond, %if.end
   ret void
@@ -4168,7 +4168,7 @@ entry:
   store ptr %call.i, ptr %_M_cat.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4llvh4outsEvE1S acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !19
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !18
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh4outsEvE1S) #26
@@ -4176,7 +4176,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %_ZN4llvh9StringRefC2EPKc.exit
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %init.check
-  call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) @_ZZN4llvh4outsEvE1S, ptr nonnull @.str.1, i64 1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull writeonly align 8 dereferenceable(72) @_ZZN4llvh4outsEvE1S, ptr nonnull @.str.1, i64 1, ptr noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh14raw_fd_ostreamD2Ev, ptr nonnull @_ZZN4llvh4outsEvE1S, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh4outsEvE1S) #26
   br label %init.end
@@ -4199,7 +4199,7 @@ define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv()
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4llvh4errsEvE1S acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !19
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !18
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh4errsEvE1S) #26
@@ -4221,7 +4221,7 @@ define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh5nullsEv(
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4llvh5nullsEvE1S acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !19
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !18
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh5nullsEvE1S) #26
@@ -4849,7 +4849,7 @@ if.end.i:                                         ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %_ZN4llvh11raw_ostream5writeEh.exit.i, %if.end.i
   %inc = add nuw i32 %I.06, 1
   %exitcond.not = icmp eq i32 %inc, %Count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %entry
   ret void
@@ -4959,13 +4959,12 @@ attributes #29 = { nounwind willreturn memory(read) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i64 0, i64 65}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
-!18 = distinct !{!18, !"_ZNKSt10error_code7messageB5cxx11Ev"}
-!19 = !{!"branch_weights", i32 1, i32 1048575}
-!20 = distinct !{!20, !8}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
+!17 = distinct !{!17, !"_ZNKSt10error_code7messageB5cxx11Ev"}
+!18 = !{!"branch_weights", i32 1, i32 1048575}
+!19 = distinct !{!19, !8}

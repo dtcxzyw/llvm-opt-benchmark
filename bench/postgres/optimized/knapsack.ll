@@ -60,7 +60,7 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
 
 .lr.ph65:                                         ; preds = %25
   %.not60 = icmp eq i32 %.fr, 0
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not60, label %.lr.ph65.split.us, label %.lr.ph65.split
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65, %39

@@ -72,7 +72,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sctpstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sctpstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread82, label %6
 
@@ -115,7 +115,7 @@ define internal noundef i32 @sctpstat_packet(ptr noundef %0, ptr nocapture readn
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %3, i64 40
   %31 = load ptr, ptr %30, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store i32 %27, ptr %25, align 8
   %32 = icmp eq i32 %29, 0
   br i1 %32, label %copy_address.exit.i, label %33
@@ -139,7 +139,7 @@ copy_address.exit.i:                              ; preds = %33, %24
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %3, i64 64
   %45 = load ptr, ptr %44, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   store i32 %41, ptr %39, align 8
   %46 = icmp eq i32 %43, 0
   br i1 %46, label %120, label %47
@@ -242,7 +242,7 @@ cmp_address.exit.thread:                          ; preds = %69, %cmp_address.ex
   %94 = load i32, ptr %12, align 8
   %95 = load i32, ptr %14, align 4
   %96 = load ptr, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   store i32 %94, ptr %93, align 8
   %97 = icmp eq i32 %95, 0
   br i1 %97, label %copy_address.exit.i60, label %98
@@ -263,7 +263,7 @@ copy_address.exit.i60:                            ; preds = %98, %92
   %105 = load i32, ptr %16, align 8
   %106 = load i32, ptr %17, align 4
   %107 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
   store i32 %105, ptr %104, align 8
   %108 = icmp eq i32 %106, 0
   br i1 %108, label %115, label %109

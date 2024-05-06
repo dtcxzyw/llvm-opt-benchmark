@@ -62,7 +62,7 @@ define i32 @topology_g_build_config() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -346,7 +346,7 @@ define i32 @topology_g_topology_print(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_g_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 286, ptr noundef nonnull @__func__.topology_g_topology_unpack) #9

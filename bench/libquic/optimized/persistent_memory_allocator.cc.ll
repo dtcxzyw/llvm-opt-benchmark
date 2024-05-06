@@ -212,7 +212,7 @@ return:                                           ; preds = %land.lhs.true36, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %type_return) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 41, 40) i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %type_return) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i80 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
@@ -510,12 +510,12 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
-  %call = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %type_found), !range !8
+  %call = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %type_found)
   %cmp.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %type_found, align 4
   %cmp2 = icmp eq i32 %0, %type_match
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
-  br i1 %or.cond, label %return, label %while.cond, !llvm.loop !9
+  br i1 %or.cond, label %return, label %while.cond, !llvm.loop !8
 
 return:                                           ; preds = %while.cond
   ret i32 %call
@@ -560,7 +560,7 @@ land.end:                                         ; preds = %lor.lhs.false10, %l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %name, i1 noundef zeroext %readonly) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp2.i125 = alloca %"class.logging::LogMessage", align 8
+  %ref.tmp2.i127 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i90 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i51 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
@@ -719,10 +719,10 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i:
   %16 = extractvalue { i32, i1 } %14, 0
   br i1 %15, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
-common.resume:                                    ; preds = %lpad.i140, %lpad.i104, %lpad.i66, %lpad.i
-  %ref.tmp2.i125.sink = phi ptr [ %ref.tmp2.i125, %lpad.i140 ], [ %ref.tmp2.i90, %lpad.i104 ], [ %ref.tmp2.i51, %lpad.i66 ], [ %ref.tmp2.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %94, %lpad.i140 ], [ %74, %lpad.i104 ], [ %38, %lpad.i66 ], [ %17, %lpad.i ]
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125.sink) #16
+common.resume:                                    ; preds = %lpad.i142, %lpad.i104, %lpad.i66, %lpad.i
+  %ref.tmp2.i127.sink = phi ptr [ %ref.tmp2.i127, %lpad.i142 ], [ %ref.tmp2.i90, %lpad.i104 ], [ %ref.tmp2.i51, %lpad.i66 ], [ %ref.tmp2.i, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %94, %lpad.i142 ], [ %74, %lpad.i104 ], [ %38, %lpad.i66 ], [ %17, %lpad.i ]
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i127.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %cond.false.i
@@ -1098,62 +1098,62 @@ land.lhs.true.i112:                               ; preds = %if.end230
   %86 = and i64 %85, 7
   %87 = icmp eq i64 %86, 0
   %or.cond = and i1 %87, %84
-  br i1 %or.cond, label %land.rhs.i119, label %if.then237
+  br i1 %or.cond, label %land.rhs.i120, label %if.then237
 
-land.rhs.i119:                                    ; preds = %land.lhs.true.i112
-  %cmp9.i120 = icmp eq i32 %81, 0
-  br i1 %cmp9.i120, label %if.end240, label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124
+land.rhs.i120:                                    ; preds = %land.lhs.true.i112
+  %cmp9.i121 = icmp eq i32 %81, 0
+  br i1 %cmp9.i121, label %if.end240, label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit126
 
-_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124: ; preds = %land.rhs.i119
-  %rem11.i122149 = urem i32 %78, %81
-  %cmp12.i123 = icmp eq i32 %rem11.i122149, 0
-  br i1 %cmp12.i123, label %if.end240, label %if.then237
+_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit126: ; preds = %land.rhs.i120
+  %rem11.i123151 = urem i32 %78, %81
+  %cmp12.i124 = icmp eq i32 %rem11.i123151, 0
+  br i1 %cmp12.i124, label %if.end240, label %if.then237
 
-if.then237:                                       ; preds = %if.end230, %land.lhs.true.i112, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i125)
-  %call.i126 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i126, label %cond.false.i137, label %cleanup.done.i127
+if.then237:                                       ; preds = %if.end230, %land.lhs.true.i112, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit126
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i127)
+  %call.i128 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %call.i128, label %cond.false.i139, label %cleanup.done.i129
 
-cond.false.i137:                                  ; preds = %if.then237
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
-  %stream_.i.i138 = getelementptr inbounds i8, ptr %ref.tmp2.i125, i64 8
-  %call5.i139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i138, ptr noundef nonnull @.str.10)
-          to label %cleanup.action.i141 unwind label %lpad.i140
+cond.false.i139:                                  ; preds = %if.then237
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i127, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
+  %stream_.i.i140 = getelementptr inbounds i8, ptr %ref.tmp2.i127, i64 8
+  %call5.i141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i140, ptr noundef nonnull @.str.10)
+          to label %cleanup.action.i143 unwind label %lpad.i142
 
-cleanup.action.i141:                              ; preds = %cond.false.i137
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125) #16
-  br label %cleanup.done.i127
+cleanup.action.i143:                              ; preds = %cond.false.i139
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i127) #16
+  br label %cleanup.done.i129
 
-cleanup.done.i127:                                ; preds = %cleanup.action.i141, %if.then237
+cleanup.done.i129:                                ; preds = %cleanup.action.i143, %if.then237
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
   %88 = load i8, ptr %readonly_, align 8
-  %tobool.i130 = trunc i8 %88 to i1
-  br i1 %tobool.i130, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, label %if.then.i131
+  %tobool.i132 = trunc i8 %88 to i1
+  br i1 %tobool.i132, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, label %if.then.i133
 
-if.then.i131:                                     ; preds = %cleanup.done.i127
+if.then.i133:                                     ; preds = %cleanup.done.i129
   %89 = load ptr, ptr %mem_base_, align 8
-  %flags.i133 = getelementptr inbounds i8, ptr %89, i64 28
-  %90 = load atomic volatile i32, ptr %flags.i133 monotonic, align 4
-  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134
+  %flags.i135 = getelementptr inbounds i8, ptr %89, i64 28
+  %90 = load atomic volatile i32, ptr %flags.i135 monotonic, align 4
+  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136
 
-_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, %if.then.i131
-  %loaded_flags.0.i.i135 = phi i32 [ %90, %if.then.i131 ], [ %93, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134 ]
-  %or.i.i136 = or i32 %loaded_flags.0.i.i135, 1
-  %91 = cmpxchg weak volatile ptr %flags.i133, i32 %loaded_flags.0.i.i135, i32 %or.i.i136 seq_cst seq_cst, align 4
+_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, %if.then.i133
+  %loaded_flags.0.i.i137 = phi i32 [ %90, %if.then.i133 ], [ %93, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136 ]
+  %or.i.i138 = or i32 %loaded_flags.0.i.i137, 1
+  %91 = cmpxchg weak volatile ptr %flags.i135, i32 %loaded_flags.0.i.i137, i32 %or.i.i138 seq_cst seq_cst, align 4
   %92 = extractvalue { i32, i1 } %91, 1
   %93 = extractvalue { i32, i1 } %91, 0
-  br i1 %92, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, !llvm.loop !5
+  br i1 %92, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, !llvm.loop !5
 
-lpad.i140:                                        ; preds = %cond.false.i137
+lpad.i142:                                        ; preds = %cond.false.i139
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, %cleanup.done.i127
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i125)
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, %cleanup.done.i129
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i127)
   br label %if.end240
 
-if.end240:                                        ; preds = %land.rhs.i119, %land.lhs.true.i.i.i.i, %if.end25.i.i.i.i, %if.end21.i.i.i.i, %if.end11.i.i.i.i, %if.end5.i.i.i.i, %if.end.i.i.i.i, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %if.end210, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124, %if.end140, %if.then176, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+if.end240:                                        ; preds = %land.rhs.i120, %land.lhs.true.i.i.i.i, %if.end25.i.i.i.i, %if.end21.i.i.i.i, %if.end11.i.i.i.i, %if.end5.i.i.i.i, %if.end.i.i.i.i, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %if.end210, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit126, %if.end140, %if.then176, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
   ret void
 }
 
@@ -1282,7 +1282,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end25.i.i.i
 
 if.end:                                           ; preds = %land.lhs.true.i.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
-  %call3 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %1), !range !10
+  %call3 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %1)
   %7 = getelementptr i8, ptr %add.ptr.i.i, i64 %call3
   %arrayidx = getelementptr i8, ptr %7, i64 -1
   %8 = load i8, ptr %arrayidx, align 1
@@ -1342,7 +1342,7 @@ return:                                           ; preds = %land.lhs.true.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 4294967280) i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %rem.i = and i32 %ref, 7
@@ -1603,7 +1603,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZN4base9Histogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiji(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef i64 @_ZNK4base25PersistentMemoryAllocator4usedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4base25PersistentMemoryAllocator4usedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %mem_base_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_.i, align 8
@@ -1881,7 +1881,7 @@ if.then33:                                        ; preds = %_ZNVSt13__atomic_ba
 
 if.end35:                                         ; preds = %if.then33, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   %call10 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  br i1 %call10, label %return, label %if.end12, !llvm.loop !11
+  br i1 %call10, label %return, label %if.end12, !llvm.loop !9
 
 if.end36:                                         ; preds = %if.end20
   %sub37 = sub i32 %sub, %size.0.ph
@@ -1900,7 +1900,7 @@ _ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196
   %21 = cmpxchg volatile ptr %freeptr49, i32 %freeptr.0121, i32 %add43 seq_cst seq_cst, align 4
   %22 = extractvalue { i32, i1 } %21, 1
   %23 = extractvalue { i32, i1 } %21, 0
-  br i1 %22, label %if.end52, label %for.cond.outer, !llvm.loop !11
+  br i1 %22, label %if.end52, label %for.cond.outer, !llvm.loop !9
 
 if.end52:                                         ; preds = %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196
   %24 = load volatile i32, ptr %add.ptr45.i.i, align 4
@@ -2205,7 +2205,7 @@ if.else:                                          ; preds = %if.end14
   %27 = extractvalue { i32, i1 } %26, 0
   %rem.i.i99 = and i32 %27, 7
   %cmp.not.i.i100 = icmp eq i32 %rem.i.i99, 0
-  br i1 %cmp.not.i.i100, label %if.end.i.i102, label %if.then13, !llvm.loop !12
+  br i1 %cmp.not.i.i100, label %if.end.i.i102, label %if.then13, !llvm.loop !10
 
 return:                                           ; preds = %land.lhs.true.i.i, %if.end25.i.i, %if.end21.i.i, %if.end11.i.i, %if.end5.i.i, %if.end.i.i, %if.then18, %if.end4, %entry, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
   ret void
@@ -2670,8 +2670,6 @@ attributes #18 = { builtin nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 41, i32 40}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 4294967280}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!10 = distinct !{!10, !6}

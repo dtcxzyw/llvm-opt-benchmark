@@ -25,7 +25,7 @@ define void @mm_memdump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %5 = tail call i64 @mm_mallinfo_task(ptr noundef %0, ptr noundef nonnull %1) #2
   %.sroa.01.0.extract.trunc = trunc i64 %5 to i32
   %.sroa.2.0.extract.shift = lshr i64 %5, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   tail call void (i32, ptr, ...) @syslog(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #2
   tail call void (i32, ptr, ...) @syslog(i32 noundef 6, ptr noundef nonnull @.str.8, i32 noundef %.sroa.01.0.extract.trunc, i32 noundef %.sroa.2.0.extract.trunc) #2
   ret void

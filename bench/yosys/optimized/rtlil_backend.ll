@@ -327,7 +327,7 @@ define void @_ZN5Yosys13RTLIL_BACKEND10dump_constERSoRKNS_5RTLIL5ConstEiib(ptr n
   ]
 
 39:                                               ; preds = %.backedge
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = shl nuw i32 1, %40
   %42 = or i32 %41, %.06073
   br label %43
@@ -4187,7 +4187,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit52: ; preds = %_ZNK5Yosys5RT
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %19, align 4
   %30 = icmp ugt i32 %spec.select48, 1
-  %31 = trunc i8 %spec.select47 to i1
+  %31 = trunc nuw i8 %spec.select47 to i1
   %32 = select i1 %30, i1 true, i1 %31
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit52.thread
 
@@ -5103,7 +5103,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8
@@ -6462,7 +6462,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   store i32 %58, ptr %44, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i32, ptr %59, i64 %56
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %61, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load ptr, ptr %33, align 8

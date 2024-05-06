@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [59 x i8] c" Unknown condition: %s\0A Use keyword 'set' to modify value\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sacctmgr_list_reservation(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca ptr, align 8
@@ -192,7 +192,7 @@ _set_cond.exit.us:                                ; preds = %45, %40
   br i1 %.not104.i, label %90, label %93
 
 90:                                               ; preds = %85
-  %91 = trunc i64 %indvars.iv.i to i32
+  %91 = trunc nsw i64 %indvars.iv.i to i32
   %92 = add nsw i32 %91, -1
   br label %_set_cond.exit
 

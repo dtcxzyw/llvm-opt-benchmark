@@ -211,7 +211,7 @@ define dso_local i32 @intel_crtc_get_vblank_counter(ptr noundef %0) local_unname
 declare dso_local i64 @drm_crtc_accurate_vblank_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_crtc_max_vblank_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -1, 16777216) i32 @intel_crtc_max_vblank_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1456
@@ -897,7 +897,7 @@ declare dso_local void @drm_vblank_work_flush(ptr noundef) local_unnamed_addr #2
 declare dso_local void @cpu_latency_qos_update_request(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_usecs_to_scanlines(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 -2147483, 2147484) i32 @intel_usecs_to_scanlines(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 42
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 0

@@ -64,7 +64,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
-  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %state), !range !4
+  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %state)
   %cmp2 = icmp eq i32 %call, -1
   br i1 %cmp2, label %return, label %if.end4
 
@@ -85,7 +85,7 @@ if.then5:                                         ; preds = %if.end4
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then5
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -101,7 +101,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -131,7 +131,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %7 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %7, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %return, label %while.cond.i
 
@@ -178,7 +178,7 @@ if.end20:                                         ; preds = %do.body.if.end20_cr
   %sub = sub i32 %13, %conv26
   %conv28 = zext i32 %sub to i64
   %cmp29 = icmp ult i64 %len.addr.0, %conv28
-  %conv32 = trunc i64 %len.addr.0 to i32
+  %conv32 = trunc nuw i64 %len.addr.0 to i32
   %spec.select = select i1 %cmp29, i32 %conv32, i32 %sub
   %idx.ext35 = and i64 %sub.ptr.sub, 4294967295
   %add.ptr36 = getelementptr inbounds i8, ptr %11, i64 %idx.ext35
@@ -196,7 +196,7 @@ if.end20:                                         ; preds = %do.body.if.end20_cr
 
 land.lhs.true47:                                  ; preds = %if.end20
   %add.ptr43 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv37
-  %call48 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0), !range !4
+  %call48 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0)
   %cmp49 = icmp eq i32 %call48, -1
   br i1 %cmp49, label %return, label %do.body
 
@@ -206,7 +206,7 @@ if.else:                                          ; preds = %if.end11
   br i1 %tobool56.not, label %if.end62, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.else
-  %call58 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0), !range !4
+  %call58 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0)
   %cmp59 = icmp eq i32 %call58, -1
   br i1 %cmp59, label %return, label %if.end62
 
@@ -218,19 +218,19 @@ if.end62:                                         ; preds = %land.lhs.true57, %i
 do.body65:                                        ; preds = %if.end82, %if.end62
   %len.addr.1 = phi i64 [ %len, %if.end62 ], [ %sub84, %if.end82 ]
   %spec.select4649 = tail call i64 @llvm.umin.i64(i64 %len.addr.1, i64 4294967295)
-  %spec.select46 = trunc i64 %spec.select4649 to i32
+  %spec.select46 = trunc nuw i64 %spec.select4649 to i32
   store i32 %spec.select46, ptr %avail_in, align 8
   %17 = load i64, ptr %pos76, align 8
   %add77 = add nsw i64 %17, %spec.select4649
   store i64 %add77, ptr %pos76, align 8
-  %call78 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0), !range !4
+  %call78 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %state, i32 noundef 0)
   %cmp79 = icmp eq i32 %call78, -1
   br i1 %cmp79, label %return, label %if.end82
 
 if.end82:                                         ; preds = %do.body65
   %sub84 = sub i64 %len.addr.1, %spec.select4649
   %tobool86.not = icmp eq i64 %sub84, 0
-  br i1 %tobool86.not, label %return, label %do.body65, !llvm.loop !7
+  br i1 %tobool86.not, label %return, label %do.body65, !llvm.loop !6
 
 return:                                           ; preds = %if.end10.i, %if.end82, %do.body65, %land.lhs.true47, %if.end20, %land.lhs.true.i, %land.lhs.true57, %land.lhs.true, %entry
   %retval.0 = phi i64 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true57 ], [ 0, %land.lhs.true.i ], [ %len, %if.end20 ], [ 0, %land.lhs.true47 ], [ %len, %if.end82 ], [ 0, %do.body65 ], [ 0, %if.end10.i ]
@@ -284,7 +284,7 @@ return:                                           ; preds = %cond.true, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gzputc(ptr noundef %file, i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @gzputc(ptr noundef %file, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1 x i8], align 1
   %cmp = icmp eq ptr %file, null
@@ -319,7 +319,7 @@ if.then6:                                         ; preds = %if.end5
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then6
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -336,7 +336,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -366,7 +366,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %8 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %8, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %return, label %while.cond.i
 
@@ -436,7 +436,7 @@ return:                                           ; preds = %if.end10.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gzputs(ptr noundef %file, ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @gzputs(ptr noundef %file, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -463,7 +463,7 @@ if.then12:                                        ; preds = %if.end4
   br label %return
 
 if.end13:                                         ; preds = %if.end4
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw i64 %call to i32
   %call14 = tail call fastcc i64 @gz_write(ptr noundef nonnull %file, ptr noundef %s, i64 noundef %call)
   %cmp15 = icmp ult i64 %call14, %call
   %cond = select i1 %cmp15, i32 -1, i32 %conv
@@ -503,7 +503,7 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %cmp6, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end5
-  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %file), !range !4
+  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %file)
   %cmp7 = icmp eq i32 %call, -1
   br i1 %cmp7, label %if.then8, label %if.end10
 
@@ -527,7 +527,7 @@ if.then11:                                        ; preds = %if.end10
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then15, label %if.end.i
 
@@ -543,7 +543,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end18, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end18, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %5, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -573,7 +573,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %10 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %10, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %if.then15, label %while.cond.i
 
@@ -644,7 +644,7 @@ if.end45:                                         ; preds = %lor.lhs.false36
 
 if.then53:                                        ; preds = %if.end45
   store i32 %17, ptr %avail_in, align 8
-  %call59 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call59 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp60 = icmp eq i32 %call59, -1
   br i1 %cmp60, label %if.then62, label %if.end64
 
@@ -671,7 +671,7 @@ return:                                           ; preds = %if.end45, %if.end64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_init(ptr noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef %state) unnamed_addr #0 {
 entry:
   %strm1 = getelementptr inbounds i8, ptr %state, i64 128
   %want = getelementptr inbounds i8, ptr %state, i64 44
@@ -759,7 +759,7 @@ return:                                           ; preds = %if.end21.thread, %i
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_comp(ptr noundef %state, i32 noundef %flush) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef %state, i32 noundef %flush) unnamed_addr #0 {
 entry:
   %strm1 = getelementptr inbounds i8, ptr %state, i64 128
   %size = getelementptr inbounds i8, ptr %state, i64 40
@@ -768,7 +768,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %state), !range !4
+  %call = tail call fastcc i32 @gz_init(ptr noundef nonnull %state)
   %cmp2 = icmp eq i32 %call, -1
   br i1 %cmp2, label %return, label %if.end
 
@@ -816,7 +816,7 @@ if.end15:                                         ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %idx.ext
   store ptr %add.ptr, ptr %strm1, align 8
   %tobool4.not = icmp eq i32 %sub, 0
-  br i1 %tobool4.not, label %return, label %while.body, !llvm.loop !8
+  br i1 %tobool4.not, label %return, label %while.body, !llvm.loop !7
 
 if.end18:                                         ; preds = %if.end
   %reset = getelementptr inbounds i8, ptr %state, i64 96
@@ -879,7 +879,7 @@ if.end89.us:                                      ; preds = %do.body.us, %if.the
 if.end95.us:                                      ; preds = %if.end89.us
   %17 = load i32, ptr %avail_out, align 8
   %tobool98.not.us = icmp eq i32 %16, %17
-  br i1 %tobool98.not.us, label %do.end, label %do.body.us, !llvm.loop !9
+  br i1 %tobool98.not.us, label %do.end, label %do.body.us, !llvm.loop !8
 
 while.body43.us:                                  ; preds = %if.then39.us, %if.end72.us
   %18 = phi ptr [ %add.ptr76.us, %if.end72.us ], [ %13, %if.then39.us ]
@@ -902,7 +902,7 @@ if.end72.us:                                      ; preds = %while.body43.us
   store ptr %add.ptr76.us, ptr %next, align 8
   %23 = load ptr, ptr %next_out, align 8
   %cmp41.us = icmp ugt ptr %23, %add.ptr76.us
-  br i1 %cmp41.us, label %while.body43.us, label %while.end77.us, !llvm.loop !10
+  br i1 %cmp41.us, label %while.body43.us, label %while.end77.us, !llvm.loop !9
 
 do.body:                                          ; preds = %if.end28, %if.end95
   %24 = phi i32 [ %38, %if.end95 ], [ %.pre63, %if.end28 ]
@@ -947,7 +947,7 @@ if.end72:                                         ; preds = %while.body43
   store ptr %add.ptr76, ptr %next, align 8
   %33 = load ptr, ptr %next_out, align 8
   %cmp41 = icmp ugt ptr %33, %add.ptr76
-  br i1 %cmp41, label %while.body43, label %while.end77.loopexit, !llvm.loop !10
+  br i1 %cmp41, label %while.body43, label %while.end77.loopexit, !llvm.loop !9
 
 while.end77.loopexit:                             ; preds = %if.end72
   %.pre62 = load i32, ptr %avail_out, align 8
@@ -979,7 +979,7 @@ if.then94:                                        ; preds = %if.end89, %if.end89
 if.end95:                                         ; preds = %if.end89
   %38 = load i32, ptr %avail_out, align 8
   %tobool98.not = icmp eq i32 %37, %38
-  br i1 %tobool98.not, label %do.end, label %do.body, !llvm.loop !9
+  br i1 %tobool98.not, label %do.end, label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %if.end95, %if.end95.us
   %cmp99 = icmp eq i32 %flush, 4
@@ -1001,17 +1001,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define i32 @gzprintf(ptr noundef %file, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call = call i32 @gzvprintf(ptr noundef %file, ptr noundef %format, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @gzflush(ptr noundef %file, i32 noundef %flush) local_unnamed_addr #0 {
@@ -1050,7 +1044,7 @@ if.then10:                                        ; preds = %if.end9
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then10
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return.sink.split, label %if.end.i
 
@@ -1067,7 +1061,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end16, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end16, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -1097,12 +1091,12 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %8 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %8, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %return.sink.split, label %while.cond.i
 
 if.end16:                                         ; preds = %while.cond.i, %if.end.i, %if.end9
-  %call17 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef %flush), !range !4
+  %call17 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef %flush)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end10.i, %land.lhs.true.i, %if.end16
@@ -1167,7 +1161,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then14
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then17, label %if.end.i
 
@@ -1184,7 +1178,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end20, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end20, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %6, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -1214,7 +1208,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %11 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %11, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %if.then17, label %while.cond.i
 
@@ -1235,7 +1229,7 @@ if.then22:                                        ; preds = %if.end20
   br i1 %tobool23.not, label %if.end29, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.then22
-  %call25 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 5), !range !4
+  %call25 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 5)
   %cmp26 = icmp eq i32 %call25, -1
   br i1 %cmp26, label %if.then27, label %if.end29
 
@@ -1289,7 +1283,7 @@ if.then4:                                         ; preds = %if.end3
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4
-  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then7, label %if.end.i
 
@@ -1306,7 +1300,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.cond.i:                                     ; preds = %if.end10.i
   %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool2.not.i, label %if.end9, label %while.body.i, !llvm.loop !5
+  br i1 %tobool2.not.i, label %if.end9, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %len.addr.018.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
@@ -1336,7 +1330,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
   %7 = load i64, ptr %pos.i, align 8
   %add.i = add nsw i64 %7, %conv13.pre-phi.i
   store i64 %add.i, ptr %pos.i, align 8
-  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !4
+  %call14.i = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %if.then7, label %while.cond.i
 
@@ -1347,7 +1341,7 @@ if.then7:                                         ; preds = %if.end10.i, %land.l
 
 if.end9:                                          ; preds = %while.cond.i, %if.end.i, %if.then7, %if.end3
   %ret.0 = phi i32 [ %8, %if.then7 ], [ 0, %if.end3 ], [ 0, %if.end.i ], [ 0, %while.cond.i ]
-  %call10 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 4), !range !4
+  %call10 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 4)
   %cmp11 = icmp eq i32 %call10, -1
   br i1 %cmp11, label %if.then12, label %if.end14
 
@@ -1404,7 +1398,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -1412,25 +1406,31 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @deflateReset(ptr noundef) local_unnamed_addr #1
 
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
@@ -1449,13 +1449,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
@@ -1468,10 +1468,9 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

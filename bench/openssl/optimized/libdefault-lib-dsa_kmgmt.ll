@@ -88,7 +88,7 @@ if.end7:                                          ; preds = %if.end
   store i64 224, ptr %qbits, align 8
   %gindex = getelementptr inbounds i8, ptr %call2, i64 56
   store <4 x i32> <i32 -1, i32 2, i32 -1, i32 0>, ptr %gindex, align 8
-  %call813 = tail call i32 @dsa_gen_set_params(ptr noundef nonnull %call2, ptr noundef %params), !range !4
+  %call813 = tail call i32 @dsa_gen_set_params(ptr noundef nonnull %call2, ptr noundef %params)
   %tobool9.not = icmp eq i32 %call813, 0
   br i1 %tobool9.not, label %if.then10, label %return
 
@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end7, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
+define internal range(i32 0, 2) i32 @dsa_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -152,7 +152,7 @@ lor.lhs.false:                                    ; preds = %if.then5
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %if.then9, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.then9, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i, %lor.lhs.false
   %i.04.i = phi i64 [ 0, %lor.lhs.false ], [ %inc.i, %for.cond.i ]
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %priv.i = alloca ptr, align 8
   %pub.i = alloca ptr, align 8
@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_has(ptr noundef %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @dsa_has(ptr noundef %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -734,7 +734,7 @@ return:                                           ; preds = %if.end20, %if.end20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @dsa_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -810,7 +810,7 @@ return:                                           ; preds = %if.end41, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) #0 {
+define internal range(i32 0, 2) i32 @dsa_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) #0 {
 entry:
   %status.i14 = alloca i32, align 4
   %priv_key.i = alloca ptr, align 8
@@ -931,7 +931,7 @@ return:                                           ; preds = %if.then22, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dsa_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -1281,6 +1281,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

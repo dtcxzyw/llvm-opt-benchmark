@@ -1339,10 +1339,10 @@ define internal void @post_update_interface_config_cb() #0 {
   %5 = icmp ne ptr %4, null
   %6 = load ptr, ptr @asam_cmp_interfaces, align 8
   %7 = icmp ne ptr %6, null
-  %or.cond.not = select i1 %5, i1 %7, i1 false
+  %or.cond.not16 = select i1 %5, i1 %7, i1 false
   %8 = load i32, ptr @asam_cmp_interface_num, align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond11 = select i1 %or.cond.not, i1 %9, i1 false
+  %or.cond11 = select i1 %or.cond.not16, i1 %9, i1 false
   br i1 %or.cond11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -1525,7 +1525,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_name.
   %104 = udiv i64 %103, 1000000000
   store i64 %104, ptr %38, align 8
   %105 = urem i64 %103, 1000000000
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nuw nsw i64 %105 to i32
   store i32 %106, ptr %94, align 8
   %107 = load i32, ptr @hf_cmp_msg_timestamp, align 4
   %108 = call ptr @proto_tree_add_time(ptr noundef %102, i32 noundef %107, ptr noundef %0, i32 noundef %.0103, i32 noundef 8, ptr noundef nonnull %38) #5
@@ -1684,7 +1684,7 @@ dissect_asam_cmp_ctrl_msg.exit:                   ; preds = %133, %165, %172, %1
   %186 = udiv i64 %185, 1000000000
   store i64 %186, ptr %33, align 8
   %187 = urem i64 %185, 1000000000
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw nsw i64 %187 to i32
   store i32 %188, ptr %93, align 8
   %189 = load i32, ptr @hf_cmp_msg_timestamp, align 4
   %190 = call ptr @proto_tree_add_time(ptr noundef %184, i32 noundef %189, ptr noundef %0, i32 noundef %.0103, i32 noundef 8, ptr noundef nonnull %33) #5
@@ -2182,7 +2182,7 @@ dissect_asam_cmp_status_msg.exit:                 ; preds = %218, %.critedge.i, 
   %488 = udiv i64 %487, 1000000000
   store i64 %488, ptr %22, align 8
   %489 = urem i64 %487, 1000000000
-  %490 = trunc i64 %489 to i32
+  %490 = trunc nuw nsw i64 %489 to i32
   store i32 %490, ptr %92, align 8
   %491 = load i32, ptr @hf_cmp_msg_timestamp, align 4
   %492 = call ptr @proto_tree_add_time(ptr noundef %486, i32 noundef %491, ptr noundef %0, i32 noundef %.0103, i32 noundef 8, ptr noundef nonnull %22) #5
@@ -2261,7 +2261,7 @@ dissect_asam_cmp_vendor_msg.exit:                 ; preds = %481, %518
   %529 = udiv i64 %528, 1000000000
   store i64 %529, ptr %9, align 8
   %530 = urem i64 %528, 1000000000
-  %531 = trunc i64 %530 to i32
+  %531 = trunc nuw nsw i64 %530 to i32
   store i32 %531, ptr %79, align 8
   %532 = load i32, ptr @hf_cmp_msg_timestamp, align 4
   %533 = call ptr @proto_tree_add_time(ptr noundef %527, i32 noundef %532, ptr noundef %0, i32 noundef %.0103, i32 noundef 8, ptr noundef nonnull %9) #5

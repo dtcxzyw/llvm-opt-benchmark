@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.31 = private unnamed_addr constant [5 x i8] c"pkey\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @test_get_argument(i64 noundef 0) #3
   store ptr %call, ptr @pemfile, align 8
@@ -69,7 +69,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #1
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_b64(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_b64(i32 noundef %idx) #0 {
 entry:
   %name = alloca ptr, align 8
   %header = alloca ptr, align 8
@@ -161,7 +161,7 @@ err:                                              ; preds = %lor.lhs.false38, %i
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_invalid() #0 {
+define internal range(i32 0, 2) i32 @test_invalid() #0 {
 entry:
   %name = alloca ptr, align 8
   %header = alloca ptr, align 8
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cert_key_cert() #0 {
+define internal range(i32 0, 2) i32 @test_cert_key_cert() #0 {
 entry:
   %0 = load ptr, ptr @pemfile, align 8
   %call = tail call ptr @load_pkey_pem(ptr noundef %0, ptr noundef null) #3
@@ -246,7 +246,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_empty_payload() #0 {
+define internal range(i32 0, 2) i32 @test_empty_payload() #0 {
 entry:
   %name = alloca ptr, align 8
   %header = alloca ptr, align 8
@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_params() #0 {
+define internal range(i32 0, 2) i32 @test_protected_params() #0 {
 entry:
   %call1 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @.str.30, i32 noundef 206) #3
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 142, ptr noundef nonnull @.str.7, ptr noundef %call1) #3

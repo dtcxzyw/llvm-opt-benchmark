@@ -832,7 +832,7 @@ define dso_local void @cpuidle_reflect(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree noprofile norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i64 @cpuidle_poll_time(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #11 section ".cpuidle.text" align 16 {
+define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #11 section ".cpuidle.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -1571,7 +1571,7 @@ declare dso_local void @tick_freeze() local_unnamed_addr #5
 declare dso_local void @tick_unfreeze() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef i64 @ktime_us_delta(i64 noundef %0, i64 noundef %1) unnamed_addr #15 align 16 {
+define internal fastcc noundef range(i64 -9223372036854775, 9223372036854776) i64 @ktime_us_delta(i64 noundef %0, i64 noundef %1) unnamed_addr #15 align 16 {
   %3 = sub i64 %0, %1
   %4 = sdiv i64 %3, 1000
   ret i64 %4

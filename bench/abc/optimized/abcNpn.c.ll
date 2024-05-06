@@ -65,7 +65,7 @@ define i32 @Abc_TruthNpnCountUnique(ptr nocapture noundef %0) local_unnamed_addr
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw nsw i32 %.01116.i, 2
-  %9 = mul nsw i32 %8, %8
+  %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -109,7 +109,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %.010.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %35, %.lr.ph.i49 ]
   %26 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv.i
   %27 = load i64, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = urem i32 %28, 7
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds [7 x i32], ptr @Abc_TruthHashKey.s_BigPrimes, i64 0, i64 %30
@@ -159,7 +159,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %41
 .loopexit:                                        ; preds = %45, %Abc_TruthHashKey.exit
   %47 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   store i32 %.012.i50, ptr %47, align 4
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %38, align 4
   br label %49
 
@@ -457,7 +457,7 @@ switch.lookup:                                    ; preds = %18
 
 .critedge:                                        ; preds = %.lr.ph275, %.critedge
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.critedge ], [ 0, %.lr.ph275 ]
-  %35 = trunc i64 %indvars.iv315 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv315 to i32
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %35)
   %37 = load ptr, ptr @stdout, align 8
   %38 = load ptr, ptr %34, align 8
@@ -552,7 +552,7 @@ switch.lookup:                                    ; preds = %18
   br i1 %.not215, label %.critedge326, label %75
 
 75:                                               ; preds = %74
-  %76 = trunc i64 %indvars.iv306 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv306 to i32
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %76)
   %78 = load ptr, ptr %73, align 8
   %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv306
@@ -572,7 +572,7 @@ switch.lookup:                                    ; preds = %18
 
 .lr.ph21.i:                                       ; preds = %75
   %wide.trip.count.i = zext nneg i32 %87 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %10, i64 %wide.trip.count.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 16 %10, i64 %wide.trip.count.i, i1 false)
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 122)
   %90 = add nsw i32 %87, -1
   %91 = zext nneg i32 %90 to i64
@@ -624,7 +624,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %113, label %110
 
 110:                                              ; preds = %109
-  %111 = trunc i64 %indvars.iv303 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv303 to i32
   %112 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %111)
   br label %113
 
@@ -662,7 +662,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %135, label %132
 
 132:                                              ; preds = %131
-  %133 = trunc i64 %indvars.iv300 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv300 to i32
   %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %133)
   br label %135
 
@@ -700,7 +700,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %157, label %154
 
 154:                                              ; preds = %153
-  %155 = trunc i64 %indvars.iv297 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv297 to i32
   %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %155)
   br label %157
 
@@ -738,7 +738,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %179, label %176
 
 176:                                              ; preds = %175
-  %177 = trunc i64 %indvars.iv294 to i32
+  %177 = trunc nuw nsw i64 %indvars.iv294 to i32
   %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %177)
   br label %179
 
@@ -774,7 +774,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %200, label %197
 
 197:                                              ; preds = %196
-  %198 = trunc i64 %indvars.iv291 to i32
+  %198 = trunc nuw nsw i64 %indvars.iv291 to i32
   %199 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %198)
   br label %200
 
@@ -832,7 +832,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
 
 .lr.ph251.split:                                  ; preds = %.lr.ph251, %.lr.ph251.split
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.lr.ph251.split ], [ 0, %.lr.ph251 ]
-  %232 = trunc i64 %indvars.iv285 to i32
+  %232 = trunc nuw nsw i64 %indvars.iv285 to i32
   %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %232)
   %234 = load ptr, ptr %223, align 8
   %235 = getelementptr inbounds ptr, ptr %234, i64 %indvars.iv285
@@ -867,7 +867,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %253, label %250
 
 250:                                              ; preds = %249
-  %251 = trunc i64 %indvars.iv to i32
+  %251 = trunc nuw nsw i64 %indvars.iv to i32
   %252 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %251)
   br label %253
 
@@ -925,7 +925,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %283, label %280
 
 280:                                              ; preds = %279
-  %281 = trunc i64 %indvars.iv312 to i32
+  %281 = trunc nuw nsw i64 %indvars.iv312 to i32
   %282 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %281)
   br label %283
 
@@ -1006,7 +1006,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %92, %._crit_edge22.
   br i1 %.not215, label %324, label %321
 
 321:                                              ; preds = %320
-  %322 = trunc i64 %indvars.iv309 to i32
+  %322 = trunc nuw nsw i64 %indvars.iv309 to i32
   %323 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %322)
   br label %324
 
@@ -1201,7 +1201,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1220,7 +1220,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1231,9 +1231,6 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #9
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1243,7 +1240,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12

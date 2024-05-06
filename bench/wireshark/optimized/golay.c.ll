@@ -13,7 +13,7 @@ define i32 @golay_encode(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %10, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
   %.078.i = phi i32 [ 0, %1 ], [ %.1.i, %10 ]
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %4 = shl nuw nsw i32 1, %3
   %5 = and i32 %4, %0
   %.not.i = icmp eq i32 %5, 0
@@ -45,7 +45,7 @@ define i32 @golay_errors(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %11, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %11 ]
   %.078.i = phi i32 [ 0, %1 ], [ %.1.i, %11 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %2, %5
   %.not.i = icmp eq i32 %6, 0
@@ -108,7 +108,7 @@ weight12.exit37:                                  ; preds = %24
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %weight12.exit37
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = shl nuw nsw i32 1, %30
   %32 = shl i32 %23, 12
   %33 = or i32 %32, %31
@@ -122,7 +122,7 @@ weight12.exit37:                                  ; preds = %24
 .preheader54:                                     ; preds = %34, %42
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i42, %42 ], [ 0, %34 ]
   %.078.i39 = phi i32 [ %.1.i41, %42 ], [ 0, %34 ]
-  %35 = trunc i64 %indvars.iv.i38 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %36 = shl nuw nsw i32 1, %35
   %37 = and i32 %36, %13
   %.not.i40 = icmp eq i32 %37, 0
@@ -176,7 +176,7 @@ weight12.exit53:                                  ; preds = %50
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %weight12.exit53
-  %56 = trunc i64 %indvars.iv67 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv67 to i32
   %57 = shl nuw nsw i32 4096, %56
   %58 = or i32 %49, %57
   br label %.loopexit
@@ -192,7 +192,7 @@ weight12.exit53:                                  ; preds = %50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @golay_decode(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 4096) i32 @golay_decode(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @golay_errors(i32 noundef %0)
   %3 = icmp eq i32 %2, -1
   %4 = xor i32 %2, %0

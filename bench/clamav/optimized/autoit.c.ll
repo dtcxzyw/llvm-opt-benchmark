@@ -1250,7 +1250,7 @@ getbits.exit221.i:                                ; preds = %353
   br i1 %361, label %362, label %.loopexit264.i
 
 362:                                              ; preds = %getbits.exit221.i
-  %363 = call fastcc i32 @getbits(ptr noundef nonnull %9, i32 noundef 8), !range !4
+  %363 = call fastcc i32 @getbits(ptr noundef nonnull %9, i32 noundef 8)
   %364 = icmp eq i32 %363, 255
   br i1 %364, label %.preheader263.i, label %.loopexit264.i
 
@@ -2493,7 +2493,7 @@ getbits.exit394.i:                                ; preds = %954
   br i1 %962, label %963, label %.loopexit451.i
 
 963:                                              ; preds = %getbits.exit394.i
-  %964 = call fastcc i32 @getbits(ptr noundef nonnull %5, i32 noundef 8), !range !4
+  %964 = call fastcc i32 @getbits(ptr noundef nonnull %5, i32 noundef 8)
   %965 = icmp eq i32 %964, 255
   br i1 %965, label %.preheader450.i, label %.loopexit451.i
 
@@ -3707,7 +3707,7 @@ define internal fastcc void @MT_decrypt(ptr nocapture noundef %0, i32 noundef %1
   %33 = and i32 %28, 1
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, i32 0, i32 -1727483681
-  %36 = getelementptr i8, ptr %26, i64 1588
+  %36 = getelementptr inbounds i8, ptr %26, i64 1588
   %37 = load i32, ptr %36, align 4
   %38 = xor i32 %35, %37
   %39 = xor i32 %38, %32
@@ -3786,7 +3786,7 @@ MT_getnext.exit:                                  ; preds = %18, %._crit_edge.i
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getbits(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @getbits(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = getelementptr inbounds i8, ptr %0, i64 38
   store i16 0, ptr %4, align 2
@@ -4208,4 +4208,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 65536}

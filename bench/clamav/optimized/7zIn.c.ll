@@ -86,7 +86,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %20(ptr noundef %1, ptr noundef %22) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
@@ -340,7 +340,7 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %28 = getelementptr inbounds i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void %27(ptr noundef %1, ptr noundef %29) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %5, align 4
   %31 = zext i32 %30 to i64
@@ -367,13 +367,13 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call void %44(ptr noundef %1, ptr noundef %46) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SzArEx_Init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -407,7 +407,7 @@ define void @SzArEx_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @Buf_Free(ptr noundef nonnull %19, ptr noundef %1) #11
   tail call void @SzAr_Free(ptr noundef %0, ptr noundef %1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   tail call void @Buf_Init(ptr noundef nonnull %19) #11
   ret void
@@ -433,7 +433,7 @@ define i64 @SzArEx_GetFolderStreamPos(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SzArEx_GetFolderFullPackSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 12) i32 @SzArEx_GetFolderFullPackSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -888,7 +888,7 @@ SzArEx_Open2.exit:                                ; preds = %155
   %176 = getelementptr inbounds i8, ptr %0, i64 112
   call void @Buf_Free(ptr noundef nonnull %176, ptr noundef %2) #11
   call void @SzAr_Free(ptr noundef %0, ptr noundef %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %162, i8 0, i64 40, i1 false)
   call void @Buf_Init(ptr noundef nonnull %176) #11
   br label %177
@@ -1266,7 +1266,7 @@ define internal fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef %0, ptr nou
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 0, ptr %6, align 4
@@ -2102,7 +2102,7 @@ SzReadSwitch.exit.i:                              ; preds = %332
   %350 = load ptr, ptr %1, align 8
   %351 = lshr exact i64 %337, 1
   %352 = load ptr, ptr %241, align 8
-  %353 = tail call fastcc i32 @SzReadFileNames(ptr noundef %350, i64 noundef %351, i32 noundef %227, ptr noundef %352), !range !4
+  %353 = tail call fastcc i32 @SzReadFileNames(ptr noundef %350, i64 noundef %351, i32 noundef %227, ptr noundef %352)
   %.not246.i = icmp eq i32 %353, 0
   br i1 %.not246.i, label %354, label %SzReadHeader2.exit.loopexit118
 
@@ -2120,7 +2120,7 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
   br label %.loopexit.i
 
 360:                                              ; preds = %328
-  %361 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %9, ptr noundef %3), !range !4
+  %361 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %9, ptr noundef %3)
   %.not240.i = icmp eq i32 %361, 0
   br i1 %.not240.i, label %.preheader389.i, label %SzReadHeader2.exit.loopexit118
 
@@ -2145,12 +2145,12 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
 
 367:                                              ; preds = %328
   %368 = zext i32 %.0185467.i to i64
-  %369 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %368, ptr noundef nonnull %10, ptr noundef %3), !range !4
+  %369 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %368, ptr noundef nonnull %10, ptr noundef %3)
   %.not239.i = icmp eq i32 %369, 0
   br i1 %.not239.i, label %.loopexitthread-pre-split.i, label %SzReadHeader2.exit.loopexit118
 
 370:                                              ; preds = %328
-  %371 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3), !range !4
+  %371 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
   %.not235.i = icmp eq i32 %371, 0
   br i1 %.not235.i, label %372, label %SzReadHeader2.exit.loopexit118
 
@@ -2214,7 +2214,7 @@ SzReadUInt32.exit.thread.i:                       ; preds = %388, %.lr.ph463.i
   br i1 %exitcond588.not.i, label %.loopexitthread-pre-split.sink.split.i, label %.lr.ph463.i
 
 399:                                              ; preds = %328
-  %400 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3), !range !4
+  %400 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
   %.not230.i = icmp eq i32 %400, 0
   br i1 %.not230.i, label %401, label %SzReadHeader2.exit.loopexit118
 
@@ -2413,7 +2413,7 @@ SzSkeepDataSize.exit313.i:                        ; preds = %328
   br i1 %exitcond598.not.i, label %._crit_edge.i, label %451
 
 ._crit_edge.i:                                    ; preds = %487, %.preheader.i
-  %488 = tail call fastcc i32 @SzArEx_Fill(ptr noundef %0, ptr noundef %2), !range !4
+  %488 = tail call fastcc i32 @SzArEx_Fill(ptr noundef %0, ptr noundef %2)
   br label %SzReadHeader2.exit
 
 SzReadHeader2.exit.loopexit118:                   ; preds = %.loopexit.i, %404, %401, %399, %375, %372, %370, %367, %360, %354, %347, %343, %341, %339, %SzReadSwitch.exit.i, %332, %330, %.loopexit391.i, %290
@@ -3085,7 +3085,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i54, %.lr.ph.i52 ]
   %328 = load ptr, ptr %21, align 8
   %329 = getelementptr inbounds %struct.CSzFolder, ptr %328, i64 %indvars.iv.i53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %329, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %329, i8 0, i64 56, i1 false)
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %330 = load i32, ptr %20, align 4
   %331 = zext i32 %330 to i64
@@ -5554,7 +5554,7 @@ SzReadNumber.exit:                                ; preds = %24, %38, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SzReadBoolVector2(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector2(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -5654,7 +5654,7 @@ SzReadByte.exit:                                  ; preds = %.lr.ph, %30, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SzReadBoolVector(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %SzReadByte.exit
@@ -5724,7 +5724,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @SzReadFileNames(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #7 {
   %.not31 = icmp eq i32 %2, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph29.preheader
 
@@ -5785,7 +5785,7 @@ define internal fastcc i32 @SzReadFileNames(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @SzArEx_Fill(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -6051,4 +6051,3 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 17}

@@ -189,7 +189,7 @@ define dso_local i32 @akcipher_register_instance(ptr noundef %0, ptr noundef %1)
 declare dso_local i32 @crypto_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_akcipher_sync_prep(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @crypto_akcipher_sync_prep(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

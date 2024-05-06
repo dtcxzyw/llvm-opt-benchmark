@@ -257,7 +257,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %51
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %switch.selectcmp = icmp eq i32 %56, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
   %switch.selectcmp87 = icmp eq i32 %56, 0
@@ -319,7 +319,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %82
 
 82:                                               ; preds = %79, %78
-  %83 = trunc i64 %indvars.iv79 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv79 to i32
   %84 = call ptr @rollup_interval_to_string(i32 noundef %83) #7
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %84)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %72, i32 noundef %83)
@@ -480,7 +480,7 @@ declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_rpc_obj_by_ave_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_ave_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -511,7 +511,7 @@ define internal i32 @_sort_rpc_obj_by_ave_time(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_rpc_obj_by_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -542,7 +542,7 @@ define internal i32 @_sort_rpc_obj_by_time(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_rpc_obj_by_cnt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_cnt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8

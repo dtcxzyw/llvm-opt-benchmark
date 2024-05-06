@@ -1041,8 +1041,8 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
 
 458:                                              ; preds = %475, %.preheader7.us.us.i
   %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %475 ], [ 0, %.preheader7.us.us.i ]
-  %459 = mul nsw i64 %indvars.iv127.i, %indvars.iv127.i
-  %460 = trunc nsw i64 %459 to i32
+  %459 = mul nuw nsw i64 %indvars.iv127.i, %indvars.iv127.i
+  %460 = trunc nuw i64 %459 to i32
   %461 = uitofp nneg i32 %460 to double
   %462 = fmul double %461, 0x402921FB54442D18
   %463 = fmul double %456, %462

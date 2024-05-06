@@ -153,7 +153,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb2
 if.end5:                                          ; preds = %sw.epilog
   %call5.i.i.i.i1.i.i17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %ip_length.0) #10
   store ptr %call5.i.i.i.i1.i.i17, ptr %ip, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i17, i64 %ip_length.0
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i17, i64 %ip_length.0
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ip, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i17, align 1

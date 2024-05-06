@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [46 x i8] c"%-40s\09 %6.2f%% \09         %.6fs \09 %.6fs \09 %ld\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null
@@ -327,7 +327,7 @@ sunTimerStructFree.exit:                          ; preds = %SUNHashMap_Destroy.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %0, null
@@ -340,7 +340,7 @@ define noundef i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr noundef %1) l
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val15) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %81, label %11
 
@@ -539,7 +539,7 @@ sunTimerStructFree.exit:                          ; preds = %56, %57
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -610,7 +610,7 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %38, %34
 38:                                               ; preds = %34
   %39 = trunc nsw i64 %indvars.iv.i to i32
   %40 = load ptr, ptr %36, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not.i29 = icmp ne i32 %41, 0
   %.not.i28 = icmp eq i32 %39, -1
   %or.cond33 = select i1 %.not.i29, i1 true, i1 %.not.i28
@@ -637,7 +637,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %38, %sunHashMapLine
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_End(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %89, label %4
@@ -649,7 +649,7 @@ define noundef i32 @SUNProfiler_End(ptr noundef readonly %0, ptr noundef %1) loc
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %38, label %11
 
@@ -760,7 +760,7 @@ define noundef i32 @SUNProfiler_End(ptr noundef readonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_GetTimerResolution(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
@@ -783,7 +783,7 @@ define noundef i32 @SUNProfiler_GetTimerResolution(ptr noundef readnone %0, ptr 
 declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %5
@@ -791,7 +791,7 @@ define noundef i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly %0, ptr noun
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %8 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %4)
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %9, label %13
 
@@ -808,7 +808,7 @@ define noundef i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %2
 
@@ -922,7 +922,7 @@ define noundef i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SUNHashMap_GetValue.exit.thread, label %4
@@ -954,7 +954,7 @@ define noundef i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture noundef %1) 
 
 22:                                               ; preds = %.lr.ph.i.i.preheader
   %23 = load ptr, ptr %20, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(20) @.str.1) #20
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.thread, label %30
 
@@ -991,7 +991,7 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %39, %35
 39:                                               ; preds = %35
   %40 = trunc nsw i64 %indvars.iv.i.i to i32
   %41 = load ptr, ptr %37, align 8
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(20) @.str.1) #20
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
   %.not.i29.i = icmp ne i32 %42, 0
   %.not.i28.i = icmp eq i32 %40, -1
   %or.cond33.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
@@ -1154,7 +1154,7 @@ SUNHashMap_GetValue.exit.thread:                  ; preds = %52, %SUNHashMap_Ite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sunCompareTimes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @sunCompareTimes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, null
@@ -1249,4 +1249,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}

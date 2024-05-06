@@ -86,7 +86,7 @@ define internal noundef i32 @tapall_tcpip_packet(ptr nocapture noundef %0, ptr n
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %3, i64 80
   %27 = load ptr, ptr %26, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %23, ptr %14, align 8
   %28 = icmp eq i32 %25, 0
   br i1 %28, label %copy_address.exit, label %29
@@ -114,7 +114,7 @@ copy_address.exit:                                ; preds = %21, %29
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds i8, ptr %3, i64 56
   %44 = load ptr, ptr %43, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   store i32 %40, ptr %38, align 8
   %45 = icmp eq i32 %42, 0
   br i1 %45, label %copy_address.exit68, label %46
@@ -151,7 +151,7 @@ copy_address.exit68:                              ; preds = %copy_address.exit, 
   %66 = getelementptr inbounds i8, ptr %3, i64 30
   %67 = load i16, ptr %66, align 2
   %68 = load i32, ptr %0, align 8
-  %69 = tail call i32 @compare_headers(ptr noundef nonnull %56, ptr noundef nonnull %57, i16 noundef zeroext %59, i16 noundef zeroext %61, ptr noundef nonnull %62, ptr noundef nonnull %63, i16 noundef zeroext %65, i16 noundef zeroext %67, i32 noundef %68), !range !4
+  %69 = tail call i32 @compare_headers(ptr noundef nonnull %56, ptr noundef nonnull %57, i16 noundef zeroext %59, i16 noundef zeroext %61, ptr noundef nonnull %62, ptr noundef nonnull %63, i16 noundef zeroext %65, i16 noundef zeroext %67, i32 noundef %68)
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %147, label %70
 
@@ -207,7 +207,7 @@ copy_address.exit68:                              ; preds = %copy_address.exit, 
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds i8, ptr %3, i64 56
   %109 = load ptr, ptr %108, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
   store i32 %105, ptr %104, align 8
   %110 = icmp eq i32 %107, 0
   br i1 %110, label %copy_address.exit69, label %111
@@ -230,7 +230,7 @@ copy_address.exit69:                              ; preds = %74, %111
   %120 = load i32, ptr %119, align 4
   %121 = getelementptr inbounds i8, ptr %3, i64 80
   %122 = load ptr, ptr %121, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
   store i32 %118, ptr %117, align 8
   %123 = icmp eq i32 %120, 0
   br i1 %123, label %copy_address.exit70, label %124
@@ -323,7 +323,7 @@ define hidden void @graph_segment_list_free(ptr nocapture noundef %0) local_unna
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %.not.i.i9 = icmp eq i32 %13, 0
@@ -346,7 +346,7 @@ free_address.exit:                                ; preds = %1, %4, %8, %11
   br label %free_address.exit11
 
 free_address.exit11:                              ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not18 = icmp eq ptr %23, null
@@ -377,7 +377,7 @@ free_address.exit11:                              ; preds = %free_address.exit, 
   br label %free_address.exit14
 
 free_address.exit14:                              ; preds = %.lr.ph, %28, %32, %35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %36 = load ptr, ptr %22, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 72
   %38 = load i32, ptr %37, align 8
@@ -401,12 +401,12 @@ free_address.exit14:                              ; preds = %.lr.ph, %28, %32, %
   br label %free_address.exit17
 
 free_address.exit17:                              ; preds = %free_address.exit14, %39, %43, %46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %47 = load ptr, ptr %22, align 8
   tail call void @g_free(ptr noundef %47) #14
   store ptr %25, ptr %22, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %free_address.exit17, %free_address.exit11
   ret void
@@ -415,7 +415,7 @@ free_address.exit17:                              ; preds = %free_address.exit14
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @compare_headers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @compare_headers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #4 {
   %10 = load i32, ptr %0, align 8
   %11 = load i32, ptr %4, align 8
   %or.cond41.not = icmp eq i32 %10, %11
@@ -651,7 +651,7 @@ compare_headers.exit:                             ; preds = %14, %22, %cmp_addre
   %spec.select = add i32 %.01216, %49
   %.0 = load ptr, ptr %.017, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %compare_headers.exit, %1
   %.012.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %compare_headers.exit ]
@@ -760,7 +760,7 @@ compare_headers.exit.thread:                      ; preds = %35, %cmp_address.ex
   %.1 = phi i32 [ %.01427, %compare_headers.exit ], [ %49, %compare_headers.exit.thread ]
   %.0 = load ptr, ptr %.028, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %55, %2
   %.014.lcssa = phi i32 [ 0, %2 ], [ %.1, %55 ]
@@ -876,7 +876,7 @@ define hidden i32 @select_tcpip_session(ptr noundef %0) local_unnamed_addr #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %.lr.ph, %53, %57, %60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %61 = load ptr, ptr %49, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 72
   %63 = load i32, ptr %62, align 8
@@ -900,14 +900,14 @@ free_address.exit:                                ; preds = %.lr.ph, %53, %57, %
   br label %free_address.exit27
 
 free_address.exit27:                              ; preds = %free_address.exit, %64, %68, %71
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   %72 = load ptr, ptr %49, align 8
   call void @g_free(ptr noundef %72) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %5, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %free_address.exit27, %43, %13, %1, %41, %37, %8
   %.019 = phi i32 [ -1, %37 ], [ -1, %41 ], [ -1, %8 ], [ -1, %1 ], [ -1, %13 ], [ %47, %43 ], [ %47, %free_address.exit27 ]
@@ -1012,7 +1012,7 @@ compare_headers.exit:                             ; preds = %42, %44
 compare_headers.exit.thread:                      ; preds = %38, %cmp_address.exit.thread33.i, %26, %18, %cmp_address.exit.i, %compare_headers.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !9
 
 .critedge:                                        ; preds = %compare_headers.exit.thread
   %51 = icmp slt i32 %6, 8
@@ -1041,7 +1041,7 @@ compare_headers.exit.thread:                      ; preds = %38, %cmp_address.ex
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %3, i64 56
   %71 = load ptr, ptr %70, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store i32 %67, ptr %65, align 8
   %72 = icmp eq i32 %69, 0
   br i1 %72, label %copy_address.exit, label %73
@@ -1069,7 +1069,7 @@ copy_address.exit:                                ; preds = %.critedge.thread, %
   %87 = load i32, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %3, i64 80
   %89 = load ptr, ptr %88, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   store i32 %85, ptr %83, align 8
   %90 = icmp eq i32 %87, 0
   br i1 %90, label %copy_address.exit30, label %91
@@ -1108,7 +1108,7 @@ declare void @epan_dissect_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @dfilter_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @rtt_is_retrans(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @rtt_is_retrans(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1130,7 +1130,7 @@ define hidden noundef i32 @rtt_is_retrans(ptr noundef readonly %0, i32 noundef %
 10:                                               ; preds = %.lr.ph, %6
   %11 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %6, %10, %2
   %.07 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %6 ]
@@ -1167,7 +1167,7 @@ define hidden void @rtt_put_unack_on_list(ptr nocapture noundef %0, ptr noundef 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %.0, align 8
   %.not11 = icmp eq ptr %6, null
-  br i1 %.not11, label %.critedge, label %4, !llvm.loop !12
+  br i1 %.not11, label %.critedge, label %4, !llvm.loop !11
 
 .critedge:                                        ; preds = %4, %5
   %.sink = phi ptr [ %.0, %5 ], [ %0, %4 ]
@@ -1195,7 +1195,7 @@ define hidden void @rtt_delete_unack_from_list(ptr nocapture noundef %0, ptr nou
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr %.0, align 8
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !13
+  br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %8, %6
   %.lcssa.sink = phi ptr [ %3, %6 ], [ %9, %8 ]
@@ -1223,7 +1223,7 @@ define hidden void @rtt_destroy_unack_list(ptr nocapture noundef %0) local_unnam
   tail call void @g_free(ptr noundef nonnull %3) #14
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1267,14 +1267,13 @@ attributes #17 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

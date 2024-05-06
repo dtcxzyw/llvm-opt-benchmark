@@ -270,7 +270,7 @@ _conf_file_values_free.exit:                      ; preds = %.lr.ph16, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
+define range(i32 -1, 1) i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -315,7 +315,7 @@ define noundef i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture readnone %1, 
   br i1 %.not19, label %.loopexit, label %15, !llvm.loop !11
 
 27:                                               ; preds = %20
-  %28 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %5, i1 noundef zeroext %3), !range !12
+  %28 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %5, i1 noundef zeroext %3)
   %.not20 = icmp eq i32 %28, 0
   br i1 %.not20, label %29, label %30
 
@@ -334,7 +334,7 @@ define noundef i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture readnone %1, 
   br i1 %32, label %_line_is_space.exit.thread, label %33
 
 33:                                               ; preds = %30
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #15
+  %34 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #15
   %35 = trunc i64 %34 to i32
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %_line_is_space.exit.thread
@@ -348,7 +348,7 @@ define noundef i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture readnone %1, 
 39:                                               ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_line_is_space.exit.thread, label %40, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_line_is_space.exit.thread, label %40, !llvm.loop !12
 
 40:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
@@ -384,7 +384,7 @@ _line_is_space.exit:                              ; preds = %40
   store i8 0, ptr %.011.i, align 1
   %.0.i = getelementptr inbounds i8, ptr %.011.i, i64 -1
   %.not.i23 = icmp ult ptr %.0.i, %47
-  br i1 %.not.i23, label %_strip_cr_nl.exit, label %.lr.ph.i22, !llvm.loop !14
+  br i1 %.not.i23, label %_strip_cr_nl.exit, label %.lr.ph.i22, !llvm.loop !13
 
 _strip_cr_nl.exit:                                ; preds = %.lr.ph.i22, %52, %_line_is_space.exit
   br i1 %3, label %53, label %58
@@ -439,7 +439,7 @@ _line_is_space.exit.thread:                       ; preds = %39, %33, %30, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -549,7 +549,7 @@ define i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %.not.i.i, label %_compute_hash_val.exit.i, label %58
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01940.i) #15
+  %59 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.01940.i) #15
   %60 = trunc i64 %59 to i32
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph.i.i, label %_compute_hash_val.exit.i
@@ -579,13 +579,13 @@ define i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %storemerge.i.i = select i1 %.not17.i.i, i32 %70, i32 %71
   %72 = add nuw nsw i32 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %72, 8
-  br i1 %exitcond.not.i.i, label %73, label %68, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %73, label %68, !llvm.loop !14
 
 73:                                               ; preds = %68
   store i32 %storemerge.i.i, ptr %1, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond25.not.i.i, label %_compute_hash_val.exit.i, label %62, !llvm.loop !16
+  br i1 %exitcond25.not.i.i, label %_compute_hash_val.exit.i, label %62, !llvm.loop !15
 
 _compute_hash_val.exit.i:                         ; preds = %73, %58, %.lr.ph.i
   %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01940.i) #15
@@ -619,7 +619,7 @@ _compute_hash_val.exit.i:                         ; preds = %73, %58, %.lr.ph.i
   %.1.i.i = select i1 %85, i32 %86, i32 0
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
   %exitcond.not.i26.i = icmp eq i64 %indvars.iv.next.i25.i, %wide.trip.count.i22.i
-  br i1 %exitcond.not.i26.i, label %_strip_comments.exit.i, label %.lr.ph.i23.i, !llvm.loop !17
+  br i1 %exitcond.not.i26.i, label %_strip_comments.exit.i, label %.lr.ph.i23.i, !llvm.loop !16
 
 _strip_comments.exit.i:                           ; preds = %84, %82, %_compute_hash_val.exit.i
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01940.i) #15
@@ -662,7 +662,7 @@ _strip_comments.exit.i:                           ; preds = %84, %82, %_compute_
   %.1.i30.i = phi i32 [ %96, %95 ], [ 0, %97 ]
   %.019.i.i = getelementptr inbounds i8, ptr %.01927.i.i, i64 -1
   %.not.i31.i = icmp ult ptr %.019.i.i, %.01940.i
-  br i1 %.not.i31.i, label %._crit_edge.i.i, label %.lr.ph.i27.i, !llvm.loop !18
+  br i1 %.not.i31.i, label %._crit_edge.i.i, label %.lr.ph.i27.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %106, %97
   %.0.lcssa.i.i = phi i32 [ %.1.i30.i, %106 ], [ %.026.i.i, %97 ]
@@ -692,7 +692,7 @@ _strip_continuation.exit.i:                       ; preds = %109, %_strip_commen
   %120 = sub nsw i32 %.02039.i, %.020.i29.i
   %121 = call ptr @fgets(ptr noundef %119, i32 noundef %120, ptr noundef nonnull %41)
   %.not.i = icmp eq ptr %121, null
-  br i1 %.not.i, label %_strip_continuation.exit.thread.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_strip_continuation.exit.thread.i, label %.lr.ph.i, !llvm.loop !18
 
 _strip_continuation.exit.thread.i:                ; preds = %117, %_strip_continuation.exit.i, %._crit_edge.i.i, %90, %51
   %.1.i = phi i32 [ 0, %51 ], [ %57, %90 ], [ %57, %._crit_edge.i.i ], [ %57, %_strip_continuation.exit.i ], [ %57, %117 ]
@@ -718,7 +718,7 @@ _strip_continuation.exit.thread.i:                ; preds = %117, %_strip_contin
   %133 = add nsw i32 %spec.select.i.i, 1
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %.not.not.i.i = icmp slt i32 %spec.select.i.i, %123
-  br i1 %.not.not.i.i, label %.lr.ph.i32.i, label %_get_next_line.exit, !llvm.loop !20
+  br i1 %.not.not.i.i, label %.lr.ph.i32.i, label %_get_next_line.exit, !llvm.loop !19
 
 _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_strip_continuation.exit.thread.i
   %134 = icmp sgt i32 %.1.i, 0
@@ -732,7 +732,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
 
 139:                                              ; preds = %135
   %140 = add nuw nsw i32 %.1.i, %.043
-  br label %51, !llvm.loop !21
+  br label %51, !llvm.loop !20
 
 141:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -765,7 +765,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   %157 = and i16 %156, 8192
   %.not31.i = icmp eq i16 %157, 0
   %158 = getelementptr inbounds i8, ptr %.027.i, i64 1
-  br i1 %.not31.i, label %.preheader, label %.preheader74, !llvm.loop !22
+  br i1 %.not31.i, label %.preheader, label %.preheader74, !llvm.loop !21
 
 .preheader:                                       ; preds = %.preheader74, %.preheader
   %.1.i52 = phi ptr [ %164, %.preheader ], [ %.027.i, %.preheader74 ]
@@ -776,7 +776,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   %163 = and i16 %162, 8192
   %.not32.i = icmp eq i16 %163, 0
   %164 = getelementptr inbounds i8, ptr %.1.i52, i64 1
-  br i1 %.not32.i, label %.preheader, label %165, !llvm.loop !23
+  br i1 %.not32.i, label %.preheader, label %165, !llvm.loop !22
 
 165:                                              ; preds = %.preheader
   store ptr %.1.i52, ptr %12, align 8
@@ -796,7 +796,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
 
 .lr.ph.i60:                                       ; preds = %165, %180
   %172 = phi ptr [ %184, %180 ], [ %171, %165 ]
-  %173 = call i32 @s_p_get_string(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %0), !range !12
+  %173 = call i32 @s_p_get_string(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %0)
   %.not5.i = icmp eq i32 %173, 0
   br i1 %.not5.i, label %174, label %176
 
@@ -892,7 +892,7 @@ _parse_for_format.exit:                           ; preds = %180, %165, %.loopex
 
 212:                                              ; preds = %206, %201
   %213 = load ptr, ptr %9, align 8
-  %214 = call i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %213, i32 noundef %3, ptr noundef %.026.i), !range !24
+  %214 = call i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %213, i32 noundef %3, ptr noundef %.026.i)
   call void @slurm_xfree(ptr noundef nonnull %9) #14
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %.sink.split
@@ -920,7 +920,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   br i1 %.not48, label %223, label %.thread68
 
 223:                                              ; preds = %_parse_include_directive.exit
-  %224 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %136, ptr noundef nonnull %12, i1 noundef zeroext %18), !range !12
+  %224 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %136, ptr noundef nonnull %12, i1 noundef zeroext %18)
   %.not49 = icmp eq i32 %224, 0
   br i1 %.not49, label %.outer.backedge, label %.thread68
 
@@ -948,7 +948,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   %.042.ph.be = phi i32 [ -1, %226 ], [ -1, %223 ], [ %.1, %258 ], [ %.042.ph, %.thread68 ], [ %.042.ph, %230 ], [ %.042.ph, %236 ]
   %.043.ph.be = add nuw nsw i32 %.1.i, %.043
   %.pre.pre = load ptr, ptr %14, align 8
-  br label %.outer, !llvm.loop !21
+  br label %.outer, !llvm.loop !20
 
 .thread68:                                        ; preds = %_parse_include_directive.exit, %225, %223
   %228 = load ptr, ptr %12, align 8
@@ -956,7 +956,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   br i1 %229, label %.outer.backedge, label %230
 
 230:                                              ; preds = %.thread68
-  %231 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #15
+  %231 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %228) #15
   %232 = trunc i64 %231 to i32
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %.lr.ph.i54, label %.outer.backedge
@@ -970,7 +970,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
 236:                                              ; preds = %237
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.outer.backedge, label %237, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.outer.backedge, label %237, !llvm.loop !12
 
 237:                                              ; preds = %236, %.lr.ph.i54
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i54 ], [ %indvars.iv.next.i, %236 ]
@@ -1006,7 +1006,7 @@ _line_is_space.exit:                              ; preds = %237
   store i8 0, ptr %.011.i, align 1
   %.0.i58 = getelementptr inbounds i8, ptr %.011.i, i64 -1
   %.not.i59 = icmp ult ptr %.0.i58, %244
-  br i1 %.not.i59, label %_strip_cr_nl.exit, label %.lr.ph.i57, !llvm.loop !14
+  br i1 %.not.i59, label %_strip_cr_nl.exit, label %.lr.ph.i57, !llvm.loop !13
 
 _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %249, %_line_is_space.exit
   br i1 %18, label %250, label %255
@@ -1042,18 +1042,18 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %249, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !12
+define range(i32 0, 2) i32 @s_p_parse_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !24
+  %8 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit11
 
@@ -1079,7 +1079,7 @@ define noundef i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr nocapture
   %18 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %19 = load i8, ptr %18, align 1
   %.not.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %20 = urem i32 %17, 173
@@ -1104,7 +1104,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %27 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %27, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %28 = load i32, ptr %7, align 4
@@ -1112,7 +1112,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %6, align 8
-  %32 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %6), !range !27
+  %32 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %6)
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %.loopexit11.sink.split, label %34
 
@@ -1121,9 +1121,9 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store ptr %35, ptr %2, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   call void @slurm_xfree(ptr noundef nonnull %5) #14
-  %36 = call fastcc i32 @_keyvalue_regex(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !24
+  %36 = call fastcc i32 @_keyvalue_regex(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.lr.ph.split, label %.loopexit11, !llvm.loop !28
+  br i1 %37, label %.lr.ph.split, label %.loopexit11, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_conf_hashtbl_index.exit.i, %26, %.lr.ph
   %38 = load ptr, ptr %4, align 8
@@ -1177,7 +1177,7 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   %.027.be = phi ptr [ %14, %13 ], [ %42, %41 ], [ %.02748, %_conf_hashtbl_insert.exit ]
   %.026 = load ptr, ptr %.027.be, align 8
   %.not = icmp eq ptr %.026, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.02649, align 8
@@ -1196,7 +1196,7 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   %23 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %24 = load i8, ptr %23, align 1
   %.not.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %25 = urem i32 %22, 173
@@ -1221,7 +1221,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %32 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %32, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.014.i, i64 16
@@ -1268,7 +1268,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %52 = getelementptr inbounds i8, ptr %.047.i.i36, i64 1
   %53 = load i8, ptr %52, align 1
   %.not.i.i37 = icmp eq i8 %53, 0
-  br i1 %.not.i.i37, label %._crit_edge.loopexit.i.i38, label %.lr.ph.i.i34, !llvm.loop !25
+  br i1 %.not.i.i37, label %._crit_edge.loopexit.i.i38, label %.lr.ph.i.i34, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i38:                       ; preds = %.lr.ph.i.i34
   %54 = urem i32 %51, 173
@@ -1286,14 +1286,14 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 ._crit_edge:                                      ; preds = %.backedge, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 173
-  br i1 %exitcond.not, label %.loopexit43, label %8, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit43, label %8, !llvm.loop !27
 
 .loopexit43:                                      ; preds = %._crit_edge, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_string(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_string(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1313,7 +1313,7 @@ define noundef i32 @s_p_get_string(ptr nocapture noundef writeonly %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1339,7 +1339,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1374,7 +1374,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_long(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_long(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1394,7 +1394,7 @@ define noundef i32 @s_p_get_long(ptr nocapture noundef writeonly %0, ptr noundef
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1420,7 +1420,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1455,7 +1455,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_uint16(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint16(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1475,7 +1475,7 @@ define noundef i32 @s_p_get_uint16(ptr nocapture noundef writeonly %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1501,7 +1501,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1536,7 +1536,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_uint32(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint32(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1556,7 +1556,7 @@ define noundef i32 @s_p_get_uint32(ptr nocapture noundef writeonly %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1582,7 +1582,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1617,7 +1617,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_uint64(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint64(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1637,7 +1637,7 @@ define noundef i32 @s_p_get_uint64(ptr nocapture noundef writeonly %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1663,7 +1663,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1698,7 +1698,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_float(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_float(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1718,7 +1718,7 @@ define noundef i32 @s_p_get_float(ptr nocapture noundef writeonly %0, ptr nounde
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1744,7 +1744,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1779,7 +1779,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1799,7 +1799,7 @@ define noundef i32 @s_p_get_double(ptr nocapture noundef writeonly %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1825,7 +1825,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1860,7 +1860,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_long_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_long_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1880,7 +1880,7 @@ define noundef i32 @s_p_get_long_double(ptr nocapture noundef writeonly %0, ptr 
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1906,7 +1906,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -1941,7 +1941,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_pointer(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_pointer(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1961,7 +1961,7 @@ define noundef i32 @s_p_get_pointer(ptr nocapture noundef writeonly %0, ptr noun
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -1987,7 +1987,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -2021,7 +2021,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_array(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define range(i32 0, 2) i32 @s_p_get_array(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -2041,7 +2041,7 @@ define noundef i32 @s_p_get_array(ptr nocapture noundef writeonly %0, ptr nocapt
   %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %14 = urem i32 %11, 173
@@ -2067,7 +2067,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %21, %_conf_hashtbl_index.exit.i.i
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %2) #14
@@ -2103,7 +2103,7 @@ _get_check.exit.thread:                           ; preds = %28, %4, %26, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_boolean(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_boolean(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -2123,7 +2123,7 @@ define noundef i32 @s_p_get_boolean(ptr nocapture noundef writeonly %0, ptr noun
   %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %13 = urem i32 %10, 173
@@ -2149,7 +2149,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %20, %_conf_hashtbl_index.exit.i.i
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #14
@@ -2225,7 +2225,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   ]
 
 19:                                               ; preds = %.lr.ph, %.lr.ph
-  %20 = call i32 @s_p_get_string(ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %20 = call i32 @s_p_get_string(ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef %0)
   %.not69 = icmp eq i32 %20, 0
   %21 = call i32 @get_log_level() #14
   %22 = icmp sgt i32 %21, 3
@@ -2253,7 +2253,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 31:                                               ; preds = %.lr.ph
-  %32 = call i32 @s_p_get_long(ptr noundef nonnull %3, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %32 = call i32 @s_p_get_long(ptr noundef nonnull %3, ptr noundef nonnull %16, ptr noundef %0)
   %.not68 = icmp eq i32 %32, 0
   %33 = call i32 @get_log_level() #14
   %34 = icmp sgt i32 %33, 3
@@ -2277,7 +2277,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 42:                                               ; preds = %.lr.ph
-  %43 = call i32 @s_p_get_uint16(ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %43 = call i32 @s_p_get_uint16(ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef %0)
   %.not67 = icmp eq i32 %43, 0
   %44 = call i32 @get_log_level() #14
   %45 = icmp sgt i32 %44, 3
@@ -2302,7 +2302,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 54:                                               ; preds = %.lr.ph
-  %55 = call i32 @s_p_get_uint32(ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %55 = call i32 @s_p_get_uint32(ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef %0)
   %.not66 = icmp eq i32 %55, 0
   %56 = call i32 @get_log_level() #14
   %57 = icmp sgt i32 %56, 3
@@ -2326,7 +2326,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 65:                                               ; preds = %.lr.ph
-  %66 = call i32 @s_p_get_uint64(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %66 = call i32 @s_p_get_uint64(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %0)
   %.not65 = icmp eq i32 %66, 0
   %67 = call i32 @get_log_level() #14
   %68 = icmp sgt i32 %67, 3
@@ -2350,7 +2350,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 76:                                               ; preds = %.lr.ph
-  %77 = call i32 @s_p_get_pointer(ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %77 = call i32 @s_p_get_pointer(ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef %0)
   %.not64 = icmp eq i32 %77, 0
   %78 = call i32 @get_log_level() #14
   %79 = icmp sgt i32 %78, 3
@@ -2375,7 +2375,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 88:                                               ; preds = %.lr.ph
-  %89 = call i32 @s_p_get_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %89 = call i32 @s_p_get_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0)
   %.not63 = icmp eq i32 %89, 0
   %90 = call i32 @get_log_level() #14
   %91 = icmp sgt i32 %90, 3
@@ -2399,7 +2399,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 99:                                               ; preds = %.lr.ph
-  %100 = call i32 @s_p_get_expline(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %100 = call i32 @s_p_get_expline(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0)
   %.not62 = icmp eq i32 %100, 0
   %101 = call i32 @get_log_level() #14
   %102 = icmp sgt i32 %101, 3
@@ -2423,7 +2423,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 110:                                              ; preds = %.lr.ph
-  %111 = call i32 @s_p_get_array(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %111 = call i32 @s_p_get_array(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0)
   %.not61 = icmp eq i32 %111, 0
   %112 = call i32 @get_log_level() #14
   %113 = icmp sgt i32 %112, 3
@@ -2447,7 +2447,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 121:                                              ; preds = %.lr.ph
-  %122 = call i32 @s_p_get_boolean(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %122 = call i32 @s_p_get_boolean(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %0)
   %.not60 = icmp eq i32 %122, 0
   %123 = call i32 @get_log_level() #14
   %124 = icmp sgt i32 %123, 3
@@ -2473,7 +2473,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 134:                                              ; preds = %.lr.ph
-  %135 = call i32 @s_p_get_float(ptr noundef nonnull %7, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %135 = call i32 @s_p_get_float(ptr noundef nonnull %7, ptr noundef nonnull %16, ptr noundef %0)
   %.not59 = icmp eq i32 %135, 0
   %136 = call i32 @get_log_level() #14
   %137 = icmp sgt i32 %136, 3
@@ -2498,7 +2498,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 146:                                              ; preds = %.lr.ph
-  %147 = call i32 @s_p_get_double(ptr noundef nonnull %8, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %147 = call i32 @s_p_get_double(ptr noundef nonnull %8, ptr noundef nonnull %16, ptr noundef %0)
   %.not58 = icmp eq i32 %147, 0
   %148 = call i32 @get_log_level() #14
   %149 = icmp sgt i32 %148, 3
@@ -2522,7 +2522,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 157:                                              ; preds = %.lr.ph
-  %158 = call i32 @s_p_get_long_double(ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef %0), !range !12
+  %158 = call i32 @s_p_get_long_double(ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef %0)
   %.not57 = icmp eq i32 %158, 0
   %159 = call i32 @get_log_level() #14
   %160 = icmp sgt i32 %159, 3
@@ -2549,7 +2549,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %169 = getelementptr inbounds i8, ptr %.071, i64 56
   %170 = load ptr, ptr %169, align 8
   %.not = icmp eq ptr %170, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %168, %2
   ret void
@@ -2580,10 +2580,10 @@ define void @transfer_s_p_options(ptr noundef %0, ptr nocapture noundef readonly
   %12 = getelementptr inbounds i8, ptr %.017, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -2683,7 +2683,7 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
   %46 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %47 = load i8, ptr %46, align 1
   %.not.i.i = icmp eq i8 %47, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %48 = urem i32 %45, 173
@@ -2699,7 +2699,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %38, %._crit_edge.lo
   %52 = getelementptr inbounds i8, ptr %.036, i64 56
   %53 = load ptr, ptr %52, align 8
   %.not33 = icmp eq ptr %53, null
-  br i1 %.not33, label %._crit_edge, label %8, !llvm.loop !33
+  br i1 %.not33, label %._crit_edge, label %8, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_conf_hashtbl_insert.exit, %5
   %54 = tail call i32 @regcomp(ptr noundef %3, ptr noundef nonnull @.str.33, i32 noundef 1) #14
@@ -2778,7 +2778,7 @@ define ptr @_hashtbl_copy_keys(ptr nocapture noundef readonly %0) local_unnamed_
   %28 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i.i = icmp eq i8 %29, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %30 = urem i32 %27, 173
@@ -2795,12 +2795,12 @@ _conf_hashtbl_insert.exit:                        ; preds = %.lr.ph, %._crit_edg
   %35 = getelementptr inbounds i8, ptr %.01923, i64 48
   %.019 = load ptr, ptr %35, align 8
   %.not20 = icmp eq ptr %.019, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_conf_hashtbl_insert.exit, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 173
-  br i1 %exitcond.not, label %36, label %5, !llvm.loop !35
+  br i1 %exitcond.not, label %36, label %5, !llvm.loop !32
 
 36:                                               ; preds = %._crit_edge
   %37 = tail call i32 @regcomp(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef 1) #14
@@ -2816,7 +2816,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca [8 x %struct.regmatch_t], align 16
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -2925,7 +2925,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_handle_keyvalue_match(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3010,19 +3010,19 @@ define internal fastcc i32 @_handle_keyvalue_match(ptr noundef %0, ptr noundef %
   br label %_handle_common.exit
 
 40:                                               ; preds = %4
-  %41 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_long), !range !27
+  %41 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_long)
   br label %_handle_common.exit
 
 42:                                               ; preds = %4
-  %43 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint16), !range !27
+  %43 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint16)
   br label %_handle_common.exit
 
 44:                                               ; preds = %4
-  %45 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint32), !range !27
+  %45 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint32)
   br label %_handle_common.exit
 
 46:                                               ; preds = %4
-  %47 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint64), !range !27
+  %47 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint64)
   br label %_handle_common.exit
 
 48:                                               ; preds = %4
@@ -3132,7 +3132,7 @@ _handle_array.exit:                               ; preds = %84, %89
   br label %_handle_common.exit
 
 102:                                              ; preds = %4
-  %103 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_boolean), !range !27
+  %103 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_boolean)
   br label %_handle_common.exit
 
 104:                                              ; preds = %4
@@ -3141,7 +3141,7 @@ _handle_array.exit:                               ; preds = %84, %89
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @_hashtbl_copy_keys(ptr noundef %107)
   %109 = load ptr, ptr %0, align 8
-  %110 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %108, ptr noundef %109, ptr noundef %1, i32 noundef 0), !range !12
+  %110 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %108, ptr noundef %109, ptr noundef %1, i32 noundef 0)
   %.not.i60 = icmp eq i32 %110, 0
   br i1 %.not.i60, label %111, label %113
 
@@ -3151,7 +3151,7 @@ _handle_array.exit:                               ; preds = %84, %89
 
 113:                                              ; preds = %104
   %114 = load ptr, ptr %3, align 8
-  %115 = tail call i32 @s_p_parse_line(ptr noundef %108, ptr noundef %114, ptr noundef nonnull %3), !range !12
+  %115 = tail call i32 @s_p_parse_line(ptr noundef %108, ptr noundef %114, ptr noundef nonnull %3)
   %.not10.i = icmp eq i32 %115, 0
   br i1 %.not10.i, label %116, label %s_p_parse_line_complete.exit
 
@@ -3177,7 +3177,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %0, align 8
-  %127 = call i32 @s_p_parse_line_expanded(ptr noundef %125, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %126, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !24
+  %127 = call i32 @s_p_parse_line_expanded(ptr noundef %125, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %126, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %_handle_expline.exit, label %.preheader
 
@@ -3200,7 +3200,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
   tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %124, ptr noundef nonnull %131, ptr noundef %134, ptr noundef %136)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %133, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %5) #14
@@ -3213,15 +3213,15 @@ _handle_expline.exit:                             ; preds = %122, %._crit_edge
   br label %_handle_common.exit
 
 137:                                              ; preds = %4
-  %138 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_float), !range !27
+  %138 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_float)
   br label %_handle_common.exit
 
 139:                                              ; preds = %4
-  %140 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_double), !range !27
+  %140 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_double)
   br label %_handle_common.exit
 
 141:                                              ; preds = %4
-  %142 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_ldouble), !range !27
+  %142 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_ldouble)
   br label %_handle_common.exit
 
 143:                                              ; preds = %4
@@ -3250,12 +3250,12 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_parse_next_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !24
+  %9 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %47
 
@@ -3280,7 +3280,7 @@ define internal fastcc noundef i32 @_parse_next_key(ptr noundef %0, ptr noundef 
   %20 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %22 = urem i32 %19, 173
@@ -3306,7 +3306,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %30 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %30, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %31 = load i32, ptr %8, align 4
@@ -3314,7 +3314,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %33, ptr noundef %34, ptr noundef nonnull %7), !range !27
+  %35 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %33, ptr noundef %34, ptr noundef nonnull %7)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %38
 
@@ -3406,7 +3406,7 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
   %.026.be = phi ptr [ %14, %13 ], [ %33, %_conf_hashtbl_lookup.exit ], [ %.02647, %_conf_hashtbl_insert.exit ]
   %.025 = load ptr, ptr %.026.be, align 8
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.02548, align 8
@@ -3425,7 +3425,7 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
   %23 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %24 = load i8, ptr %23, align 1
   %.not.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %25 = urem i32 %22, 173
@@ -3450,7 +3450,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %32 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %32, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -3487,7 +3487,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %46 = getelementptr inbounds i8, ptr %.047.i.i35, i64 1
   %47 = load i8, ptr %46, align 1
   %.not.i.i36 = icmp eq i8 %47, 0
-  br i1 %.not.i.i36, label %._crit_edge.loopexit.i.i37, label %.lr.ph.i.i33, !llvm.loop !25
+  br i1 %.not.i.i36, label %._crit_edge.loopexit.i.i37, label %.lr.ph.i.i33, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i37:                       ; preds = %.lr.ph.i.i33
   %48 = urem i32 %45, 173
@@ -3505,7 +3505,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 ._crit_edge:                                      ; preds = %.backedge, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 173
-  br i1 %exitcond.not, label %.loopexit42, label %8, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit42, label %8, !llvm.loop !35
 
 .loopexit42:                                      ; preds = %._crit_edge, %2
   ret void
@@ -3550,7 +3550,7 @@ define void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unname
   %17 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %19 = urem i32 %16, 173
@@ -3575,7 +3575,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %26 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %26, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %27 = getelementptr inbounds i8, ptr %.014.i, i64 8
@@ -3632,7 +3632,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %55 = getelementptr inbounds i8, ptr %.047.i.i39, i64 1
   %56 = load i8, ptr %55, align 1
   %.not.i.i40 = icmp eq i8 %56, 0
-  br i1 %.not.i.i40, label %._crit_edge.loopexit.i.i41, label %.lr.ph.i.i37, !llvm.loop !25
+  br i1 %.not.i.i40, label %._crit_edge.loopexit.i.i41, label %.lr.ph.i.i37, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i41:                       ; preds = %.lr.ph.i.i37
   %57 = urem i32 %54, 173
@@ -3651,20 +3651,20 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
   %.129 = phi ptr [ %45, %44 ], [ %.02851, %_conf_hashtbl_insert.exit ]
   %.027 = load ptr, ptr %.129, align 8
   %.not = icmp eq ptr %.027, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %61, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 173
-  br i1 %exitcond.not, label %.loopexit46, label %8, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit46, label %8, !llvm.loop !37
 
 .loopexit46:                                      ; preds = %._crit_edge, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_line_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !12
+define range(i32 -1, 1) i32 @s_p_parse_line_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+  %6 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
@@ -3674,7 +3674,7 @@ define noundef i32 @s_p_parse_line_complete(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i32 @s_p_parse_line(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %4), !range !12
+  %11 = tail call i32 @s_p_parse_line(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %4)
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %12, label %15
 
@@ -3689,7 +3689,7 @@ define noundef i32 @s_p_parse_line_complete(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_line_expanded(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -3746,7 +3746,7 @@ define noundef i32 @s_p_parse_line_expanded(ptr nocapture noundef readonly %0, p
   %35 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %36 = load i8, ptr %35, align 1
   %.not.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %37 = urem i32 %34, 173
@@ -3763,12 +3763,12 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
   %42 = getelementptr inbounds i8, ptr %.01822.i, i64 48
   %.018.i = load ptr, ptr %42, align 8
   %.not19.i = icmp eq ptr %.018.i, null
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %_conf_hashtbl_insert.exit.i, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 173
-  br i1 %exitcond.not.i, label %43, label %13, !llvm.loop !42
+  br i1 %exitcond.not.i, label %43, label %13, !llvm.loop !39
 
 43:                                               ; preds = %._crit_edge.i
   %44 = tail call i32 @regcomp(ptr noundef %10, ptr noundef nonnull @.str.33, i32 noundef 1) #14
@@ -3784,7 +3784,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %47 = tail call i32 @hostlist_count(ptr noundef %46) #14
   store i32 %47, ptr %2, align 4
   %48 = load ptr, ptr %6, align 8
-  %49 = tail call i32 @s_p_parse_line(ptr noundef %10, ptr noundef %48, ptr noundef nonnull %6), !range !12
+  %49 = tail call i32 @s_p_parse_line(ptr noundef %10, ptr noundef %48, ptr noundef nonnull %6)
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %.thread, label %52
 
@@ -3807,7 +3807,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 56:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !40
 
 .preheader65:                                     ; preds = %56, %52
   %.044.lcssa = phi ptr [ null, %52 ], [ %57, %56 ]
@@ -3825,7 +3825,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   store ptr %58, ptr %59, align 8
   tail call fastcc void @_hashtbl_plain_to_string(ptr noundef %58)
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %60, ptr noundef %3, ptr noundef %57, i32 noundef 0), !range !12
+  %61 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %60, ptr noundef %3, ptr noundef %57, i32 noundef 0)
   %.not53 = icmp eq i32 %61, 0
   br i1 %.not53, label %62, label %56
 
@@ -3860,7 +3860,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 72:                                               ; preds = %.lr.ph91
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.loopexit, label %.lr.ph91, !llvm.loop !44
+  br i1 %exitcond130.not, label %.loopexit, label %.lr.ph91, !llvm.loop !41
 
 .lr.ph91:                                         ; preds = %.preheader64, %72
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %72 ], [ 0, %.preheader64 ]
@@ -3868,7 +3868,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %.094, align 8
   %76 = load ptr, ptr %66, align 8
-  %77 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef 0), !range !12
+  %77 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef 0)
   %.not70.i = icmp eq i32 %77, 0
   br i1 %.not70.i, label %78, label %72
 
@@ -3911,7 +3911,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 97:                                               ; preds = %123
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge, label %98, !llvm.loop !45
+  br i1 %exitcond125.not, label %._crit_edge, label %98, !llvm.loop !42
 
 98:                                               ; preds = %.lr.ph89, %97
   %99 = phi ptr [ null, %.lr.ph89 ], [ %124, %97 ]
@@ -3948,7 +3948,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %111 = add nuw nsw i32 %.055.i84, 1
   %.1.i = add nsw i32 %.1.i85, 1
   %exitcond120.not = icmp eq i32 %111, %.054.i
-  br i1 %exitcond120.not, label %112, label %107, !llvm.loop !46
+  br i1 %exitcond120.not, label %112, label %107, !llvm.loop !43
 
 112:                                              ; preds = %107
   tail call void @free(ptr noundef %109) #14
@@ -3986,7 +3986,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %.094, align 8
   %128 = load i32, ptr %96, align 4
-  %129 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %126, ptr noundef %127, ptr noundef %124, i32 noundef %128), !range !12
+  %129 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %126, ptr noundef %127, ptr noundef %124, i32 noundef %128)
   %.not69.i = icmp eq i32 %129, 0
   br i1 %.not69.i, label %130, label %97
 
@@ -4013,12 +4013,12 @@ _parse_expline_doexpand.exit:                     ; preds = %78, %90, %130
   %134 = getelementptr inbounds i8, ptr %.094, i64 48
   %.0 = load ptr, ptr %134, align 8
   %.not51 = icmp eq ptr %.0, null
-  br i1 %.not51, label %._crit_edge98, label %.lr.ph97, !llvm.loop !47
+  br i1 %.not51, label %._crit_edge98, label %.lr.ph97, !llvm.loop !44
 
 ._crit_edge98:                                    ; preds = %.loopexit, %64
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 173
-  br i1 %exitcond134.not, label %.loopexit66, label %64, !llvm.loop !48
+  br i1 %exitcond134.not, label %.loopexit66, label %64, !llvm.loop !45
 
 .loopexit66:                                      ; preds = %._crit_edge98, %_parse_expline_doexpand.exit, %62
   %135 = phi i1 [ true, %62 ], [ true, %_parse_expline_doexpand.exit ], [ false, %._crit_edge98 ]
@@ -4070,7 +4070,7 @@ _parse_expline_doexpand.exit:                     ; preds = %78, %90, %130
 147:                                              ; preds = %.lr.ph101, %146
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !49
+  br i1 %exitcond139.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !46
 
 ._crit_edge102:                                   ; preds = %147, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %9) #14
@@ -4141,18 +4141,18 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr nocapture noundef read
   %19 = load i32, ptr %9, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %15, label %.loopexit, !llvm.loop !50
+  br i1 %21, label %15, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %15, %8, %.lr.ph22, %7
   %22 = getelementptr inbounds i8, ptr %.01621, i64 48
   %.016 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %.016, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph22, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph22, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, 173
-  br i1 %exitcond.not, label %23, label %3, !llvm.loop !52
+  br i1 %exitcond.not, label %23, label %3, !llvm.loop !49
 
 23:                                               ; preds = %._crit_edge
   ret void
@@ -4161,7 +4161,7 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr nocapture noundef read
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
@@ -4184,7 +4184,7 @@ define noundef i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr noundef 
   %14 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %15 = load i8, ptr %14, align 1
   %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %16 = urem i32 %13, 173
@@ -4210,7 +4210,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %24 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %24, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 .loopexit:                                        ; preds = %23, %4, %_conf_hashtbl_index.exit.i
   %25 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.s_p_parse_pair_with_op, ptr noundef %1) #14
@@ -4265,7 +4265,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store ptr %43, ptr %5, align 8
   %44 = load i8, ptr %43, align 1
   %cond = icmp eq i8 %44, 0
-  br i1 %cond, label %.preheader, label %35, !llvm.loop !53
+  br i1 %cond, label %.preheader, label %35, !llvm.loop !50
 
 .critedge:                                        ; preds = %35
   %45 = icmp eq i8 %36, 34
@@ -4288,7 +4288,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store ptr %53, ptr %6, align 8
   %54 = load i8, ptr %53, align 1
   %.not22 = icmp eq i8 %54, 0
-  br i1 %.not22, label %.critedge2, label %55, !llvm.loop !54
+  br i1 %.not22, label %.critedge2, label %55, !llvm.loop !51
 
 55:                                               ; preds = %.lr.ph37, %52
   %56 = phi i8 [ %33, %.lr.ph37 ], [ %54, %52 ]
@@ -4339,11 +4339,11 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store ptr %78, ptr %6, align 8
   %79 = load i8, ptr %78, align 1
   %.not25 = icmp eq i8 %79, 0
-  br i1 %.not25, label %.critedge4, label %70, !llvm.loop !55
+  br i1 %.not25, label %.critedge4, label %70, !llvm.loop !52
 
 .critedge4:                                       ; preds = %70, %77, %.critedge2, %67
   %.lcssa = phi ptr [ %68, %67 ], [ %61, %.critedge2 ], [ %78, %77 ], [ %72, %70 ]
-  %80 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %65, ptr noundef nonnull %.lcssa, ptr noundef nonnull %6), !range !27
+  %80 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %65, ptr noundef nonnull %.lcssa, ptr noundef nonnull %6)
   %81 = icmp eq i32 %80, -1
   call void @slurm_xfree(ptr noundef nonnull %5) #14
   br i1 %81, label %82, label %83
@@ -4366,7 +4366,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_operator(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_operator(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %4
 
@@ -4386,7 +4386,7 @@ define noundef i32 @s_p_get_operator(ptr nocapture noundef writeonly %0, ptr nou
   %11 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %13 = urem i32 %10, 173
@@ -4412,7 +4412,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %21 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %21, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %.014.i, i64 12
@@ -4430,7 +4430,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_line(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_line(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -4450,7 +4450,7 @@ define noundef i32 @s_p_get_line(ptr nocapture noundef writeonly %0, ptr nocaptu
   %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %14 = urem i32 %11, 173
@@ -4476,7 +4476,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %21, %_conf_hashtbl_index.exit.i.i
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %2) #14
@@ -4514,7 +4514,7 @@ _get_check.exit.thread:                           ; preds = %28, %4, %26, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_get_expline(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_expline(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -4534,7 +4534,7 @@ define noundef i32 @s_p_get_expline(ptr nocapture noundef writeonly %0, ptr noca
   %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %14 = urem i32 %11, 173
@@ -4560,7 +4560,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %21, %_conf_hashtbl_index.exit.i.i
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull %2) #14
@@ -4632,7 +4632,7 @@ define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr nocapture noun
   %16 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %17 = load i8, ptr %16, align 1
   %.not.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %18 = urem i32 %15, 173
@@ -4657,7 +4657,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %25 = getelementptr inbounds i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %25, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not11.i, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, %_conf_hashtbl_index.exit.i
   %.09.i = phi ptr [ null, %6 ], [ null, %_conf_hashtbl_index.exit.i ], [ null, %24 ], [ %.014.i, %.lr.ph.i ]
@@ -4730,7 +4730,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   %54 = load i32, ptr %38, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !56
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 57:                                               ; preds = %41, %41
   %58 = getelementptr inbounds i8, ptr %.09.i, i64 24
@@ -4806,7 +4806,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
 .loopexit:                                        ; preds = %.lr.ph, %46, %64, %65, %69, %73, %77, %82, %86, %90, %43, %41, %34
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret ptr %4
@@ -4908,7 +4908,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
   %42 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %44 = urem i32 %41, 173
@@ -4975,7 +4975,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   %67 = load i32, ptr %34, align 8
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !55
 
 70:                                               ; preds = %50, %50
   %71 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef %0) #14
@@ -5103,7 +5103,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   %126 = load i32, ptr %5, align 4
   %127 = zext i32 %126 to i64
   %128 = icmp ult i64 %indvars.iv.next88, %127
-  br i1 %128, label %17, label %.loopexit78, !llvm.loop !59
+  br i1 %128, label %17, label %.loopexit78, !llvm.loop !56
 
 .loopexit79:                                      ; preds = %119, %113, %107, %100, %94, %88, %81, %75, %70, %55, %27, %25, %20, %17, %2
   %.061 = phi ptr [ null, %2 ], [ %14, %17 ], [ %14, %20 ], [ %14, %25 ], [ %14, %27 ], [ %14, %55 ], [ %14, %70 ], [ %14, %75 ], [ %14, %81 ], [ %14, %88 ], [ %14, %94 ], [ %14, %100 ], [ %14, %107 ], [ %14, %113 ], [ %14, %119 ]
@@ -5154,7 +5154,7 @@ declare void @dump_regex_error(i32 noundef, ptr noundef, ptr noundef, ...) local
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -5397,7 +5397,7 @@ define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr nocapture
   %11 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %13 = urem i32 %10, 173
@@ -5412,7 +5412,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_conf_hashtbl_index.exit.i
   %.014.i.in = phi ptr [ %20, %.lr.ph.i ], [ %16, %_conf_hashtbl_index.exit.i ]
-  %.014.i = load ptr, ptr %.014.i.in, align 8, !nonnull !60, !noundef !60
+  %.014.i = load ptr, ptr %.014.i.in, align 8, !nonnull !57, !noundef !57
   %17 = load ptr, ptr %.014.i, align 8
   %18 = tail call i32 @xstrcasecmp(ptr noundef %17, ptr noundef nonnull %2) #14
   %19 = icmp eq i32 %18, 0
@@ -5458,7 +5458,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %36 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
   %37 = load i8, ptr %36, align 1
   %.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %38 = urem i32 %35, 173
@@ -5484,7 +5484,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   %46 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %46, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i44, !llvm.loop !26
+  br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i44, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
   %47 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
@@ -5516,7 +5516,7 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
   %59 = getelementptr inbounds i8, ptr %.047.i.i23.i, i64 1
   %60 = load i8, ptr %59, align 1
   %.not.i.i24.i = icmp eq i8 %60, 0
-  br i1 %.not.i.i24.i, label %._crit_edge.loopexit.i.i25.i, label %.lr.ph.i.i21.i, !llvm.loop !25
+  br i1 %.not.i.i24.i, label %._crit_edge.loopexit.i.i25.i, label %.lr.ph.i.i21.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i25.i:                     ; preds = %.lr.ph.i.i21.i
   %61 = urem i32 %58, 173
@@ -5558,13 +5558,13 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
   %83 = load i32, ptr %1, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next.i, %84
-  br i1 %85, label %.lr.ph.i45, label %._crit_edge.i, !llvm.loop !61
+  br i1 %85, label %.lr.ph.i45, label %._crit_edge.i, !llvm.loop !58
 
 .lr.ph.i45:                                       ; preds = %76, %82
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %76 ]
   %86 = load ptr, ptr %79, align 8
   %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.i
-  %88 = load ptr, ptr %87, align 8, !nonnull !60, !noundef !60
+  %88 = load ptr, ptr %87, align 8, !nonnull !57, !noundef !57
   %89 = load i8, ptr %2, align 1
   %.not6.i.i.i46 = icmp eq i8 %89, 0
   br i1 %.not6.i.i.i46, label %_conf_hashtbl_index.exit.i.i52, label %.lr.ph.i.i.i47
@@ -5580,7 +5580,7 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
   %95 = getelementptr inbounds i8, ptr %.047.i.i.i49, i64 1
   %96 = load i8, ptr %95, align 1
   %.not.i.i.i50 = icmp eq i8 %96, 0
-  br i1 %.not.i.i.i50, label %._crit_edge.loopexit.i.i.i51, label %.lr.ph.i.i.i47, !llvm.loop !25
+  br i1 %.not.i.i.i50, label %._crit_edge.loopexit.i.i.i51, label %.lr.ph.i.i.i47, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i51:                     ; preds = %.lr.ph.i.i.i47
   %97 = urem i32 %94, 173
@@ -5595,7 +5595,7 @@ _conf_hashtbl_index.exit.i.i52:                   ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i54:                                     ; preds = %.lr.ph.i.i54, %_conf_hashtbl_index.exit.i.i52
   %.014.i.in.i = phi ptr [ %104, %.lr.ph.i.i54 ], [ %100, %_conf_hashtbl_index.exit.i.i52 ]
-  %.014.i.i55 = load ptr, ptr %.014.i.in.i, align 8, !nonnull !60, !noundef !60
+  %.014.i.i55 = load ptr, ptr %.014.i.in.i, align 8, !nonnull !57, !noundef !57
   %101 = load ptr, ptr %.014.i.i55, align 8
   %102 = tail call i32 @xstrcasecmp(ptr noundef %101, ptr noundef nonnull %2) #14
   %103 = icmp eq i32 %102, 0
@@ -5644,13 +5644,13 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
   %126 = load i32, ptr %1, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next.i75, %127
-  br i1 %128, label %.lr.ph.i60, label %._crit_edge.i58, !llvm.loop !61
+  br i1 %128, label %.lr.ph.i60, label %._crit_edge.i58, !llvm.loop !58
 
 .lr.ph.i60:                                       ; preds = %119, %125
   %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i75, %125 ], [ 0, %119 ]
   %129 = load ptr, ptr %122, align 8
   %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv.i61
-  %131 = load ptr, ptr %130, align 8, !nonnull !60, !noundef !60
+  %131 = load ptr, ptr %130, align 8, !nonnull !57, !noundef !57
   %132 = load i8, ptr %2, align 1
   %.not6.i.i.i62 = icmp eq i8 %132, 0
   br i1 %.not6.i.i.i62, label %_conf_hashtbl_index.exit.i.i68, label %.lr.ph.i.i.i63
@@ -5666,7 +5666,7 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
   %138 = getelementptr inbounds i8, ptr %.047.i.i.i65, i64 1
   %139 = load i8, ptr %138, align 1
   %.not.i.i.i66 = icmp eq i8 %139, 0
-  br i1 %.not.i.i.i66, label %._crit_edge.loopexit.i.i.i67, label %.lr.ph.i.i.i63, !llvm.loop !25
+  br i1 %.not.i.i.i66, label %._crit_edge.loopexit.i.i.i67, label %.lr.ph.i.i.i63, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i67:                     ; preds = %.lr.ph.i.i.i63
   %140 = urem i32 %137, 173
@@ -5681,7 +5681,7 @@ _conf_hashtbl_index.exit.i.i68:                   ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i70:                                     ; preds = %.lr.ph.i.i70, %_conf_hashtbl_index.exit.i.i68
   %.014.i.in.i71 = phi ptr [ %147, %.lr.ph.i.i70 ], [ %143, %_conf_hashtbl_index.exit.i.i68 ]
-  %.014.i.i72 = load ptr, ptr %.014.i.in.i71, align 8, !nonnull !60, !noundef !60
+  %.014.i.i72 = load ptr, ptr %.014.i.in.i71, align 8, !nonnull !57, !noundef !57
   %144 = load ptr, ptr %.014.i.i72, align 8
   %145 = tail call i32 @xstrcasecmp(ptr noundef %144, ptr noundef nonnull %2) #14
   %146 = icmp eq i32 %145, 0
@@ -5730,13 +5730,13 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
   %169 = load i32, ptr %1, align 4
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next.i94, %170
-  br i1 %171, label %.lr.ph.i79, label %._crit_edge.i77, !llvm.loop !61
+  br i1 %171, label %.lr.ph.i79, label %._crit_edge.i77, !llvm.loop !58
 
 .lr.ph.i79:                                       ; preds = %162, %168
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i94, %168 ], [ 0, %162 ]
   %172 = load ptr, ptr %165, align 8
   %173 = getelementptr inbounds ptr, ptr %172, i64 %indvars.iv.i80
-  %174 = load ptr, ptr %173, align 8, !nonnull !60, !noundef !60
+  %174 = load ptr, ptr %173, align 8, !nonnull !57, !noundef !57
   %175 = load i8, ptr %2, align 1
   %.not6.i.i.i81 = icmp eq i8 %175, 0
   br i1 %.not6.i.i.i81, label %_conf_hashtbl_index.exit.i.i87, label %.lr.ph.i.i.i82
@@ -5752,7 +5752,7 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
   %181 = getelementptr inbounds i8, ptr %.047.i.i.i84, i64 1
   %182 = load i8, ptr %181, align 1
   %.not.i.i.i85 = icmp eq i8 %182, 0
-  br i1 %.not.i.i.i85, label %._crit_edge.loopexit.i.i.i86, label %.lr.ph.i.i.i82, !llvm.loop !25
+  br i1 %.not.i.i.i85, label %._crit_edge.loopexit.i.i.i86, label %.lr.ph.i.i.i82, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i86:                     ; preds = %.lr.ph.i.i.i82
   %183 = urem i32 %180, 173
@@ -5767,7 +5767,7 @@ _conf_hashtbl_index.exit.i.i87:                   ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i89:                                     ; preds = %.lr.ph.i.i89, %_conf_hashtbl_index.exit.i.i87
   %.014.i.in.i90 = phi ptr [ %190, %.lr.ph.i.i89 ], [ %186, %_conf_hashtbl_index.exit.i.i87 ]
-  %.014.i.i91 = load ptr, ptr %.014.i.in.i90, align 8, !nonnull !60, !noundef !60
+  %.014.i.i91 = load ptr, ptr %.014.i.in.i90, align 8, !nonnull !57, !noundef !57
   %187 = load ptr, ptr %.014.i.i91, align 8
   %188 = tail call i32 @xstrcasecmp(ptr noundef %187, ptr noundef nonnull %2) #14
   %189 = icmp eq i32 %188, 0
@@ -5816,13 +5816,13 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
   %212 = load i32, ptr %1, align 4
   %213 = sext i32 %212 to i64
   %214 = icmp slt i64 %indvars.iv.next.i113, %213
-  br i1 %214, label %.lr.ph.i98, label %._crit_edge.i96, !llvm.loop !61
+  br i1 %214, label %.lr.ph.i98, label %._crit_edge.i96, !llvm.loop !58
 
 .lr.ph.i98:                                       ; preds = %205, %211
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i113, %211 ], [ 0, %205 ]
   %215 = load ptr, ptr %208, align 8
   %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv.i99
-  %217 = load ptr, ptr %216, align 8, !nonnull !60, !noundef !60
+  %217 = load ptr, ptr %216, align 8, !nonnull !57, !noundef !57
   %218 = load i8, ptr %2, align 1
   %.not6.i.i.i100 = icmp eq i8 %218, 0
   br i1 %.not6.i.i.i100, label %_conf_hashtbl_index.exit.i.i106, label %.lr.ph.i.i.i101
@@ -5838,7 +5838,7 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
   %224 = getelementptr inbounds i8, ptr %.047.i.i.i103, i64 1
   %225 = load i8, ptr %224, align 1
   %.not.i.i.i104 = icmp eq i8 %225, 0
-  br i1 %.not.i.i.i104, label %._crit_edge.loopexit.i.i.i105, label %.lr.ph.i.i.i101, !llvm.loop !25
+  br i1 %.not.i.i.i104, label %._crit_edge.loopexit.i.i.i105, label %.lr.ph.i.i.i101, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i105:                    ; preds = %.lr.ph.i.i.i101
   %226 = urem i32 %223, 173
@@ -5853,7 +5853,7 @@ _conf_hashtbl_index.exit.i.i106:                  ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i108:                                    ; preds = %.lr.ph.i.i108, %_conf_hashtbl_index.exit.i.i106
   %.014.i.in.i109 = phi ptr [ %233, %.lr.ph.i.i108 ], [ %229, %_conf_hashtbl_index.exit.i.i106 ]
-  %.014.i.i110 = load ptr, ptr %.014.i.in.i109, align 8, !nonnull !60, !noundef !60
+  %.014.i.i110 = load ptr, ptr %.014.i.in.i109, align 8, !nonnull !57, !noundef !57
   %230 = load ptr, ptr %.014.i.i110, align 8
   %231 = tail call i32 @xstrcasecmp(ptr noundef %230, ptr noundef nonnull %2) #14
   %232 = icmp eq i32 %231, 0
@@ -5902,13 +5902,13 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
   %255 = load i32, ptr %1, align 4
   %256 = sext i32 %255 to i64
   %257 = icmp slt i64 %indvars.iv.next.i132, %256
-  br i1 %257, label %.lr.ph.i117, label %._crit_edge.i115, !llvm.loop !61
+  br i1 %257, label %.lr.ph.i117, label %._crit_edge.i115, !llvm.loop !58
 
 .lr.ph.i117:                                      ; preds = %248, %254
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i132, %254 ], [ 0, %248 ]
   %258 = load ptr, ptr %251, align 8
   %259 = getelementptr inbounds ptr, ptr %258, i64 %indvars.iv.i118
-  %260 = load ptr, ptr %259, align 8, !nonnull !60, !noundef !60
+  %260 = load ptr, ptr %259, align 8, !nonnull !57, !noundef !57
   %261 = load i8, ptr %2, align 1
   %.not6.i.i.i119 = icmp eq i8 %261, 0
   br i1 %.not6.i.i.i119, label %_conf_hashtbl_index.exit.i.i125, label %.lr.ph.i.i.i120
@@ -5924,7 +5924,7 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
   %267 = getelementptr inbounds i8, ptr %.047.i.i.i122, i64 1
   %268 = load i8, ptr %267, align 1
   %.not.i.i.i123 = icmp eq i8 %268, 0
-  br i1 %.not.i.i.i123, label %._crit_edge.loopexit.i.i.i124, label %.lr.ph.i.i.i120, !llvm.loop !25
+  br i1 %.not.i.i.i123, label %._crit_edge.loopexit.i.i.i124, label %.lr.ph.i.i.i120, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i124:                    ; preds = %.lr.ph.i.i.i120
   %269 = urem i32 %266, 173
@@ -5939,7 +5939,7 @@ _conf_hashtbl_index.exit.i.i125:                  ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i127:                                    ; preds = %.lr.ph.i.i127, %_conf_hashtbl_index.exit.i.i125
   %.014.i.in.i128 = phi ptr [ %276, %.lr.ph.i.i127 ], [ %272, %_conf_hashtbl_index.exit.i.i125 ]
-  %.014.i.i129 = load ptr, ptr %.014.i.in.i128, align 8, !nonnull !60, !noundef !60
+  %.014.i.i129 = load ptr, ptr %.014.i.in.i128, align 8, !nonnull !57, !noundef !57
   %273 = load ptr, ptr %.014.i.i129, align 8
   %274 = tail call i32 @xstrcasecmp(ptr noundef %273, ptr noundef nonnull %2) #14
   %275 = icmp eq i32 %274, 0
@@ -5988,13 +5988,13 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
   %299 = load i32, ptr %1, align 4
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %indvars.iv.next.i151, %300
-  br i1 %301, label %.lr.ph.i136, label %._crit_edge.i134, !llvm.loop !61
+  br i1 %301, label %.lr.ph.i136, label %._crit_edge.i134, !llvm.loop !58
 
 .lr.ph.i136:                                      ; preds = %292, %298
   %indvars.iv.i137 = phi i64 [ %indvars.iv.next.i151, %298 ], [ 0, %292 ]
   %302 = load ptr, ptr %295, align 8
   %303 = getelementptr inbounds ptr, ptr %302, i64 %indvars.iv.i137
-  %304 = load ptr, ptr %303, align 8, !nonnull !60, !noundef !60
+  %304 = load ptr, ptr %303, align 8, !nonnull !57, !noundef !57
   %305 = load i8, ptr %2, align 1
   %.not6.i.i.i138 = icmp eq i8 %305, 0
   br i1 %.not6.i.i.i138, label %_conf_hashtbl_index.exit.i.i144, label %.lr.ph.i.i.i139
@@ -6010,7 +6010,7 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
   %311 = getelementptr inbounds i8, ptr %.047.i.i.i141, i64 1
   %312 = load i8, ptr %311, align 1
   %.not.i.i.i142 = icmp eq i8 %312, 0
-  br i1 %.not.i.i.i142, label %._crit_edge.loopexit.i.i.i143, label %.lr.ph.i.i.i139, !llvm.loop !25
+  br i1 %.not.i.i.i142, label %._crit_edge.loopexit.i.i.i143, label %.lr.ph.i.i.i139, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i143:                    ; preds = %.lr.ph.i.i.i139
   %313 = urem i32 %310, 173
@@ -6025,7 +6025,7 @@ _conf_hashtbl_index.exit.i.i144:                  ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i.i146, %_conf_hashtbl_index.exit.i.i144
   %.014.i.in.i147 = phi ptr [ %320, %.lr.ph.i.i146 ], [ %316, %_conf_hashtbl_index.exit.i.i144 ]
-  %.014.i.i148 = load ptr, ptr %.014.i.in.i147, align 8, !nonnull !60, !noundef !60
+  %.014.i.i148 = load ptr, ptr %.014.i.in.i147, align 8, !nonnull !57, !noundef !57
   %317 = load ptr, ptr %.014.i.i148, align 8
   %318 = tail call i32 @xstrcasecmp(ptr noundef %317, ptr noundef nonnull %2) #14
   %319 = icmp eq i32 %318, 0
@@ -6074,13 +6074,13 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
   %343 = load i32, ptr %1, align 4
   %344 = sext i32 %343 to i64
   %345 = icmp slt i64 %indvars.iv.next.i170, %344
-  br i1 %345, label %.lr.ph.i155, label %._crit_edge.i153, !llvm.loop !61
+  br i1 %345, label %.lr.ph.i155, label %._crit_edge.i153, !llvm.loop !58
 
 .lr.ph.i155:                                      ; preds = %336, %342
   %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i170, %342 ], [ 0, %336 ]
   %346 = load ptr, ptr %339, align 8
   %347 = getelementptr inbounds ptr, ptr %346, i64 %indvars.iv.i156
-  %348 = load ptr, ptr %347, align 8, !nonnull !60, !noundef !60
+  %348 = load ptr, ptr %347, align 8, !nonnull !57, !noundef !57
   %349 = load i8, ptr %2, align 1
   %.not6.i.i.i157 = icmp eq i8 %349, 0
   br i1 %.not6.i.i.i157, label %_conf_hashtbl_index.exit.i.i163, label %.lr.ph.i.i.i158
@@ -6096,7 +6096,7 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
   %355 = getelementptr inbounds i8, ptr %.047.i.i.i160, i64 1
   %356 = load i8, ptr %355, align 1
   %.not.i.i.i161 = icmp eq i8 %356, 0
-  br i1 %.not.i.i.i161, label %._crit_edge.loopexit.i.i.i162, label %.lr.ph.i.i.i158, !llvm.loop !25
+  br i1 %.not.i.i.i161, label %._crit_edge.loopexit.i.i.i162, label %.lr.ph.i.i.i158, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i162:                    ; preds = %.lr.ph.i.i.i158
   %357 = urem i32 %354, 173
@@ -6111,7 +6111,7 @@ _conf_hashtbl_index.exit.i.i163:                  ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.i165:                                    ; preds = %.lr.ph.i.i165, %_conf_hashtbl_index.exit.i.i163
   %.014.i.in.i166 = phi ptr [ %364, %.lr.ph.i.i165 ], [ %360, %_conf_hashtbl_index.exit.i.i163 ]
-  %.014.i.i167 = load ptr, ptr %.014.i.in.i166, align 8, !nonnull !60, !noundef !60
+  %.014.i.i167 = load ptr, ptr %.014.i.in.i166, align 8, !nonnull !57, !noundef !57
   %361 = load ptr, ptr %.014.i.i167, align 8
   %362 = tail call i32 @xstrcasecmp(ptr noundef %361, ptr noundef nonnull %2) #14
   %363 = icmp eq i32 %362, 0
@@ -6333,7 +6333,7 @@ attributes #17 = { noreturn nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -6345,10 +6345,10 @@ attributes #17 = { noreturn nounwind }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = !{i32 -1, i32 1}
+!24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = !{i32 -1, i32 2}
+!27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
@@ -6378,8 +6378,5 @@ attributes #17 = { noreturn nounwind }
 !54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
+!57 = !{}
 !58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = !{}
-!61 = distinct !{!61, !7}

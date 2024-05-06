@@ -769,7 +769,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %379
 
 263:                                              ; preds = %250
-  %264 = trunc i8 %.088.lcssa to i1
+  %264 = trunc nuw i8 %.088.lcssa to i1
   br i1 %264, label %265, label %273
 
 265:                                              ; preds = %263
@@ -803,7 +803,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %379
 
 273:                                              ; preds = %263
-  %274 = trunc i8 %.097.lcssa to i1
+  %274 = trunc nuw i8 %.097.lcssa to i1
   br i1 %274, label %275, label %.thread
 
 275:                                              ; preds = %273
@@ -837,7 +837,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %379
 
 283:                                              ; preds = %245
-  %.pre211 = trunc i8 %.088.lcssa to i1
+  %.pre211 = trunc nuw i8 %.088.lcssa to i1
   br i1 %.pre211, label %284, label %.thread
 
 284:                                              ; preds = %283
@@ -937,7 +937,7 @@ _ZN20cmCustomCommandLinesC2ERKS_.exit:            ; preds = %306
 
 315:                                              ; preds = %313
   %316 = load ptr, ptr %35, align 8
-  %317 = trunc i8 %.097.lcssa to i1
+  %317 = trunc nuw i8 %.097.lcssa to i1
   invoke void @_ZN15cmCustomCommand21SetCommandExpandListsEb(ptr noundef nonnull align 8 dereferenceable(316) %316, i1 noundef zeroext %317)
           to label %318 unwind label %331
 
@@ -1931,9 +1931,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1941,9 +1941,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #16
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #17
           to label %44 unwind label %37
 
@@ -1957,7 +1957,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -2522,9 +2522,9 @@ _ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit: ; p
 
 .thread:                                          ; preds = %41
   tail call void @_ZNSt16allocator_traitsISaI19cmCustomCommandLineEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #15
-  br label %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35
+  br label %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-45:                                               ; preds = %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35
+45:                                               ; preds = %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit37
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -2532,9 +2532,9 @@ _ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit: ; p
 
 47:                                               ; preds = %41
   tail call void @_ZdlPv(ptr noundef nonnull %23) #16
-  br label %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35
+  br label %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35: ; preds = %47, %.thread
+_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %47, %.thread
   invoke void @__cxa_rethrow() #17
           to label %52 unwind label %45
 
@@ -2548,7 +2548,7 @@ _ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35: ;
   tail call void @__clang_call_terminate(ptr %51) #19
   unreachable
 
-52:                                               ; preds = %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit35
+52:                                               ; preds = %_ZNSt12_Vector_baseI19cmCustomCommandLineSaIS0_EE13_M_deallocateEPS0_m.exit37
   unreachable
 }
 

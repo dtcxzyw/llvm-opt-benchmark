@@ -42,7 +42,7 @@ define i64 @readv(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %.024, i64 %11
   %17 = sub i64 %.025, %11
-  %18 = add nsw i64 %11, %.1
+  %18 = add nuw nsw i64 %11, %.1
   %.not32 = icmp eq i64 %17, 0
   br i1 %.not32, label %.loopexit33, label %10, !llvm.loop !6
 

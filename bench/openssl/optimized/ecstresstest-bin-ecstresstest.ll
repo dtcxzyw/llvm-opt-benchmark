@@ -43,13 +43,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [65 x i8] c"A1E24B223B8E81BC1FFF99BAFB909EDB895FACDE7D6DA5EF5E7B3255FB378E0F\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @opt_intmax(ptr noundef nonnull @.str.16, ptr noundef nonnull @num_repeats) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -108,7 +108,7 @@ declare ptr @opt_arg() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_curve() #1 {
+define internal range(i32 0, 2) i32 @test_curve() #1 {
 entry:
   %expected_result = alloca ptr, align 8
   store ptr null, ptr %expected_result, align 8

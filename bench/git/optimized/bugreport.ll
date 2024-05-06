@@ -87,7 +87,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.67 = private unnamed_addr constant [7 x i8] c"update\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_bugreport(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_bugreport(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %uname_info.i = alloca %struct.utsname, align 1
   %template_text.i = alloca [488 x i8], align 16

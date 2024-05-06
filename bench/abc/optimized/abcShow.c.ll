@@ -1241,7 +1241,7 @@ define void @Abc_NtkWriteFlopDependency(ptr noundef %0, ptr noundef %1) local_un
   %45 = getelementptr inbounds ptr, ptr %.val76.val.val, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 64
-  %48 = trunc i64 %indvars.iv97 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv97 to i32
   store i32 %48, ptr %47, align 8
   %49 = call ptr @Abc_NtkNodeSupport(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #9
   %50 = getelementptr i8, ptr %49, i64 4
@@ -1329,7 +1329,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %.crited
 
 .lr.ph91:                                         ; preds = %73
   %83 = getelementptr i8, ptr %80, i64 8
-  %84 = trunc i64 %indvars.iv103 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv103 to i32
   br label %85
 
 85:                                               ; preds = %.lr.ph91, %94

@@ -188,7 +188,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_unregister_p
 @llvm.compiler.used = appending global [20 x ptr] [ptr @__UNIQUE_ID___addressable___put_net694, ptr @__UNIQUE_ID___addressable_get_net_ns695, ptr @__UNIQUE_ID___addressable_get_net_ns_by_fd696, ptr @__UNIQUE_ID___addressable_get_net_ns_by_id683, ptr @__UNIQUE_ID___addressable_get_net_ns_by_pid697, ptr @__UNIQUE_ID___addressable_init_net674, ptr @__UNIQUE_ID___addressable_net_defaults_init686, ptr @__UNIQUE_ID___addressable_net_namespace_list672, ptr @__UNIQUE_ID___addressable_net_ns_barrier693, ptr @__UNIQUE_ID___addressable_net_ns_get_ownership692, ptr @__UNIQUE_ID___addressable_net_rwsem673, ptr @__UNIQUE_ID___addressable_peernet2id682, ptr @__UNIQUE_ID___addressable_peernet2id_alloc681, ptr @__UNIQUE_ID___addressable_pernet_ops_rwsem675, ptr @__UNIQUE_ID___addressable_register_pernet_device723, ptr @__UNIQUE_ID___addressable_register_pernet_subsys721, ptr @__UNIQUE_ID___addressable_unregister_pernet_device724, ptr @__UNIQUE_ID___addressable_unregister_pernet_subsys722, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched78, ptr @setup_net.__UNIQUE_ID___addressable___SCK__preempt_schedule684], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @peernet2id_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -1, -2147483648) i32 @peernet2id_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.net_fill_args, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load volatile i32, ptr %5, align 4
@@ -2349,7 +2349,7 @@ define internal void @netns_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netns_install(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @netns_install(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 -120
@@ -3000,7 +3000,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_net_fill(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_net_fill(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 4
@@ -3159,7 +3159,7 @@ declare dso_local i32 @rtnl_unicast(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local zeroext i1 @netlink_strict_get_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnl_net_dumpid_one(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @rtnl_net_dumpid_one(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 56

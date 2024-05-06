@@ -97,7 +97,7 @@ define internal void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal range(i32 0, 2) i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -184,7 +184,7 @@ define internal void @PpmdRAR_RangeDec_CreateVTable(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef %0) #4 {
+define internal range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -230,7 +230,7 @@ Ppmd_RangeDec_Init.exit:                          ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PpmdRAR_RangeDec_Init(ptr nocapture noundef %0) #4 {
+define internal range(i32 0, 2) i32 @PpmdRAR_RangeDec_Init(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -271,7 +271,7 @@ Ppmd_RangeDec_Init.exit:                          ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1) #4 {
+define internal range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca %struct.CPpmd_State, align 2
   %4 = alloca [32 x i64], align 16
   %5 = alloca [256 x ptr], align 16
@@ -2207,7 +2207,7 @@ Range_Normalize.exit:                             ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Range_DecodeBit_7z(ptr nocapture noundef %0, i32 noundef %1) #4 {
+define internal range(i32 0, 2) i32 @Range_DecodeBit_7z(ptr nocapture noundef %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 14
@@ -2335,7 +2335,7 @@ Range_Normalize.exit:                             ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Range_DecodeBit_RAR(ptr noundef %0, i32 noundef %1) #4 {
+define internal range(i32 0, 2) i32 @Range_DecodeBit_RAR(ptr noundef %0, i32 noundef %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 %3(ptr noundef nonnull %0, i32 noundef 16384) #13
   %5 = icmp ult i32 %4, %1

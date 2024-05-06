@@ -34,7 +34,7 @@ if.then:                                          ; preds = %entry
   %sub = sub nuw nsw i32 64, %conv
   %conv2 = zext nneg i32 %sub to i64
   %cmp = icmp ugt i64 %conv2, %len
-  %conv5 = trunc i64 %len to i32
+  %conv5 = trunc nuw nsw i64 %len to i32
   %spec.select = select i1 %cmp, i32 %conv5, i32 %sub
   %buf = getelementptr inbounds i8, ptr %ctx, i64 44
   %idx.ext = and i64 %0, 63
@@ -1887,13 +1887,13 @@ if.then.i15:                                      ; preds = %entry
   %sub.i = sub nuw nsw i32 64, %conv.i
   %conv2.i = zext nneg i32 %sub.i to i64
   %cmp.i = icmp ult i64 %add, %conv2.i
-  %conv5.i = trunc i64 %add to i32
+  %conv5.i = trunc nuw nsw i64 %add to i32
   %spec.select.i = select i1 %cmp.i, i32 %conv5.i, i32 %sub.i
   %buf.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %idx.ext.i = and i64 %0, 63
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext.i
   %conv6.i = zext nneg i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 @blk_SHA256_Final.pad, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(1) @blk_SHA256_Final.pad, i64 %conv6.i, i1 false)
   %add7.i = add i32 %spec.select.i, %.tr
   %and8.i = and i32 %add7.i, 63
   %tobool13.not.i = icmp eq i32 %and8.i, 0
@@ -1947,7 +1947,7 @@ if.then.i20:                                      ; preds = %blk_SHA256_Update.e
   %idx.ext.i26 = and i64 %3, 63
   %add.ptr.i27 = getelementptr inbounds i8, ptr %buf.i25, i64 %idx.ext.i26
   %conv6.i28 = zext nneg i32 %spec.select.i24 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i27, ptr noundef nonnull align 4 dereferenceable(1) %padlen, i64 %conv6.i28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i27, ptr noundef nonnull readonly align 4 dereferenceable(1) %padlen, i64 %conv6.i28, i1 false)
   %add7.i29 = add i32 %spec.select.i24, %4
   %and8.i30 = and i32 %add7.i29, 63
   %tobool13.not.i31 = icmp eq i32 %and8.i30, 0
@@ -1976,7 +1976,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx10 = getelementptr inbounds [8 x i32], ptr %ctx, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx10, align 4
   %shr.i = lshr i32 %5, 24
-  %conv.i52 = trunc i32 %shr.i to i8
+  %conv.i52 = trunc nuw i32 %shr.i to i8
   store i8 %conv.i52, ptr %digest.addr.063, align 1
   %shr1.i = lshr i32 %5, 16
   %conv2.i53 = trunc i32 %shr1.i to i8

@@ -1774,7 +1774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb16MetaBlockPointer10GetBlockIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
+define noundef range(i64 0, 72057594037927936) i64 @_ZNK6duckdb16MetaBlockPointer10GetBlockIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !96
   %and = and i64 %0, 72057594037927935
@@ -1782,11 +1782,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6duckdb16MetaBlockPointer13GetBlockIndexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
+define noundef range(i32 0, 256) i32 @_ZNK6duckdb16MetaBlockPointer13GetBlockIndexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !96
   %shr = lshr i64 %0, 56
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw nsw i64 %shr to i32
   ret i32 %conv
 }
 
@@ -1797,7 +1797,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::allocator.47", align 1
   %and.i = and i64 %pointer.coerce0, 72057594037927935
   %shr.i = lshr i64 %pointer.coerce0, 56
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i to i32
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8, !tbaa !87
   %cmp.not.not.i.i = icmp eq i64 %0, 0
@@ -2201,7 +2201,7 @@ define { i64, i32 } @_ZN6duckdb15MetadataManager14ToBlockPointerENS_16MetaBlockP
 entry:
   %and.i = and i64 %meta_pointer.coerce0, 72057594037927935
   %shr.i = lshr i64 %meta_pointer.coerce0, 56
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i to i32
   %narrow = mul nuw nsw i32 %conv.i, 4088
   %add = add i32 %narrow, %meta_pointer.coerce1
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %and.i, 0
@@ -4950,7 +4950,7 @@ _ZN6duckdb14MetadataWriter19GetMetaBlockPointerEv.exit: ; preds = %if.then.i, %e
   %conv.i = trunc i64 %2 to i32
   %and.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 72057594037927935
   %shr.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 56
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %narrow.i = mul nuw nsw i32 %conv.i.i, 4088
   %add.i = add i32 %narrow.i, %conv.i
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %and.i.i, 0

@@ -806,7 +806,7 @@ Vec_PtrPush.exit:
 
 95:                                               ; preds = %.lr.ph
   call void @Gia_ManStop(ptr noundef nonnull %.0184287) #11
-  %96 = trunc i64 %indvars.iv to i32
+  %96 = trunc nuw nsw i64 %indvars.iv to i32
   %.val215.pre = load i32, ptr %34, align 4
   br label %98
 

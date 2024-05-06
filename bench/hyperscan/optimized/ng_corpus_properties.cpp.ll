@@ -33,7 +33,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   %shr.i.i.i = lshr i32 %0, 30
   %xor.i.i.i = xor i32 %shr.i.i.i, %0
   %mul.i.i.i = mul i32 %xor.i.i.i, 1812433253
-  %1 = trunc i64 %storemerge19.i.i.i to i32
+  %1 = trunc nuw i64 %storemerge19.i.i.i to i32
   %2 = add i32 %mul.i.i.i, %1
   %arrayidx16.i.i.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i.i.i
   store i32 %2, ptr %arrayidx16.i.i.i, align 4
@@ -156,7 +156,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %shr.i = lshr i32 %0, 30
   %xor.i = xor i32 %shr.i, %0
   %mul.i = mul i32 %xor.i, 1812433253
-  %1 = trunc i64 %storemerge19.i to i32
+  %1 = trunc nuw i64 %storemerge19.i to i32
   %2 = add i32 %mul.i, %1
   %arrayidx16.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i
   store i32 %2, ptr %arrayidx16.i, align 4
@@ -255,7 +255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN16CorpusProperties9throwDiceEv(ptr noundef nonnull align 8 dereferenceable(2556) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN16CorpusProperties9throwDiceEv(ptr noundef nonnull align 8 dereferenceable(2556) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 100

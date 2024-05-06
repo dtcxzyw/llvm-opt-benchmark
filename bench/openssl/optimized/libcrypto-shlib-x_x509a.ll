@@ -58,7 +58,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_trusted(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @X509_trusted(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
   %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_add1_trust_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_add1_trust_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -353,7 +353,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_OBJECT_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_add1_reject_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_add1_reject_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OBJ_dup(ptr noundef %obj) #6
   %cmp = icmp eq ptr %call, null

@@ -28,25 +28,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_exception() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_exception() local_unnamed_addr #0 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_has_exception() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_has_exception() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_interrupt() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_interrupt() local_unnamed_addr #0 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_has_interrupt() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_has_interrupt() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

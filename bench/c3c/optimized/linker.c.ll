@@ -174,7 +174,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.platform_linker = private unnamed_addr constant [8 x i32] [i32 5, i32 0, i32 5, i32 1, i32 2, i32 3, i32 5, i32 5], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @linker_find_linker_type() local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @linker_find_linker_type() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
   %2 = tail call zeroext i1 @arch_is_wasm(i32 noundef %1) #11
   br i1 %2, label %8, label %3
@@ -7195,7 +7195,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
   br label %37
 
 37:                                               ; preds = %28, %11
-  %38 = tail call i32 @linker_find_linker_type(), !range !15
+  %38 = tail call i32 @linker_find_linker_type()
   call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
   %39 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %39, null
@@ -7437,8 +7437,8 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
 
 11:                                               ; preds = %8, %3
   store ptr null, ptr %4, align 8
-  %12 = tail call i32 @linker_find_linker_type(), !range !15
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
+  %12 = tail call i32 @linker_find_linker_type()
+  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %13, null
@@ -7464,7 +7464,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
   %21 = call ptr @str_cat(ptr noundef %17, ptr noundef %20) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14, %11
   %.033.lcssa.i = phi ptr [ @.str.138, %14 ], [ @.str.138, %11 ], [ %21, %.lr.ph.i ]
@@ -7913,7 +7913,7 @@ expand_.exit109:                                  ; preds = %141, %145
   store ptr %.sink, ptr %170, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %167, %3, %4
   ret void
@@ -7989,6 +7989,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = !{i32 0, i32 4}
+!15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}

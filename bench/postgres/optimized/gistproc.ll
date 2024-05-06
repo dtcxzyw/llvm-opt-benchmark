@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.gist_box_consistent = private unnamed_addr constant [12 x ptr] [ptr @box_left, ptr @box_overleft, ptr @box_overlap, ptr @box_overright, ptr @box_right, ptr @box_same, ptr @box_contain, ptr @box_contained, ptr @box_overbelow, ptr @box_below, ptr @box_above, ptr @box_overabove], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_box_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gist_box_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2048,7 +2048,7 @@ define dso_local i64 @gist_poly_compress(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_poly_consistent(ptr nocapture noundef readonly %0) #0 {
+define dso_local range(i64 0, 2) i64 @gist_poly_consistent(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2214,7 +2214,7 @@ float8_mi.exit33:                                 ; preds = %float8_pl.exit30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_circle_consistent(ptr nocapture noundef readonly %0) #0 {
+define dso_local range(i64 0, 2) i64 @gist_circle_consistent(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.BOX, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2390,7 +2390,7 @@ define dso_local i64 @gist_point_fetch(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_point_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3088,7 +3088,7 @@ define internal noundef zeroext i1 @gist_bbox_zorder_abbrev_abort(i32 %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #7 {
   %4 = inttoptr i64 %0 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = inttoptr i64 %1 to ptr

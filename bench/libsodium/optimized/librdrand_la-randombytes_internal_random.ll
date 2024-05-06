@@ -359,7 +359,7 @@ randombytes_internal_random_xorhwrand.exit:       ; preds = %for.end, %if.end.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @randombytes_internal_random_close() #1 {
+define internal range(i32 -1, 1) i32 @randombytes_internal_random_close() #1 {
 entry:
   %.b = load i1, ptr @global.2, align 4
   %not..b = xor i1 %.b, true

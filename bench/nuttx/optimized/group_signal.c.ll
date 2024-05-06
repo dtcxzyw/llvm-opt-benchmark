@@ -53,7 +53,7 @@ declare i32 @sched_lock() local_unnamed_addr #1
 declare i32 @group_foreachchild(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @group_signal_handler(i32 noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -2147483648, 2) i32 @group_signal_handler(i32 noundef %0, ptr nocapture noundef %1) #0 {
   %3 = tail call ptr @nxsched_get_tcb(i32 noundef %0) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %58, label %4

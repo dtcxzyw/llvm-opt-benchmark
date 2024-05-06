@@ -458,7 +458,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
 
 183:                                              ; preds = %191, %.preheader.us.i
   %.068.us.i = phi i32 [ 1, %.preheader.us.i ], [ %192, %191 ]
-  %184 = mul nsw i32 %.068.us.i, %.14970.us.i
+  %184 = mul nuw nsw i32 %.068.us.i, %.14970.us.i
   %185 = add nsw i32 %184, %168
   %186 = icmp slt i32 %185, %.val87.val
   br i1 %186, label %187, label %191

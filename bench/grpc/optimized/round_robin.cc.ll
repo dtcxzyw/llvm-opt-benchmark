@@ -2985,7 +2985,7 @@ if.end24.i.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 56
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -3025,12 +3025,12 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %cond.i12.i.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i.i8.i.i.i.i, %cond.true.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ManualConstructor", ptr %cond.i12.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i.i.i.i, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %add.ptr.i.i.i.i.i.i, i8 0, i64 56, i1 false)
   %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 _ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i

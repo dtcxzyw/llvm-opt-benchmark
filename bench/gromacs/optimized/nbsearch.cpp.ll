@@ -1299,7 +1299,7 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
 
 46:                                               ; preds = %33, %37
   %.045 = phi i32 [ %.sroa.speculated, %37 ], [ 1, %33 ]
-  %47 = mul nsw i32 %.045, %.04769
+  %47 = mul nuw nsw i32 %.045, %.04769
   %48 = getelementptr inbounds [3 x i32], ptr %25, i64 0, i64 %indvars.iv76
   store i32 %.045, ptr %48, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
@@ -2750,7 +2750,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   %78 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %79, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %79, i8 0, i64 36, i1 false)
   br label %80
 
 80:                                               ; preds = %.thread92, %77, %._crit_edge
@@ -4575,7 +4575,7 @@ _ZNSt12__shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplELN9__gnu_cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3gmx26AnalysisNeighborhoodSearch4modeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+define noundef range(i32 1, 3) i32 @_ZNK3gmx26AnalysisNeighborhoodSearch4modeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -6772,7 +6772,7 @@ define noundef zeroext i1 @_ZN3gmx30AnalysisNeighborhoodPairSearch12findNextPair
 
 9:                                                ; preds = %2
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.24.0..sroa_idx.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %.sroa.24.0..sroa_idx.i, i8 0, i64 20, i1 false)
   br label %_ZNK3gmx8internal34AnalysisNeighborhoodPairSearchImpl13initFoundPairEPNS_24AnalysisNeighborhoodPairE.exit
 
 10:                                               ; preds = %2

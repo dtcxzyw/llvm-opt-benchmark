@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -270,7 +270,7 @@ declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dsa_param_keygen(i32 noundef %tstid) #1 {
+define internal range(i32 0, 2) i32 @test_dsa_param_keygen(i32 noundef %tstid) #1 {
 entry:
   %pkey = alloca ptr, align 8
   store ptr null, ptr %pkey, align 8
@@ -431,7 +431,7 @@ err:                                              ; preds = %lor.lhs.false58, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dh_safeprime_param_keygen(i32 noundef %tstid) #1 {
+define internal range(i32 0, 2) i32 @test_dh_safeprime_param_keygen(i32 noundef %tstid) #1 {
 entry:
   %pkey.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i)
@@ -596,7 +596,7 @@ do_dh_param_keygen.exit:                          ; preds = %getname.exit34.i, %
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_cert_load() #1 {
+define internal range(i32 0, 2) i32 @dhx_cert_load() #1 {
 entry:
   %cert = alloca ptr, align 8
   store ptr null, ptr %cert, align 8
@@ -666,7 +666,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cipher_reinit(i32 noundef %test_id) #1 {
+define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %test_id) #1 {
 entry:
   %out1_len = alloca i32, align 4
   %out2_len = alloca i32, align 4
@@ -837,7 +837,7 @@ err:                                              ; preds = %if.else, %land.lhs.
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
+define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
 entry:
   %out1_len = alloca i32, align 4
   %out2_len = alloca i32, align 4
@@ -969,7 +969,7 @@ err:                                              ; preds = %if.end8, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kem_rsa_gen_recover() #1 {
+define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
 entry:
   %pub = alloca ptr, align 8
   %priv = alloca ptr, align 8
@@ -1104,7 +1104,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kem_rsa_params() #1 {
+define internal range(i32 0, 2) i32 @kem_rsa_params() #1 {
 entry:
   %pub = alloca ptr, align 8
   %priv = alloca ptr, align 8
@@ -1381,7 +1381,7 @@ land.end:                                         ; preds = %entry.land.end_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kem_invalid_keytype() #1 {
+define internal range(i32 0, 2) i32 @kem_invalid_keytype() #1 {
 entry:
   %pkey.i = alloca ptr, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -1458,7 +1458,7 @@ done:                                             ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipher_tdes_randkey() #1 {
+define internal range(i32 0, 2) i32 @test_cipher_tdes_randkey() #1 {
 entry:
   %key = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %key, i8 0, i64 24, i1 false)
@@ -1644,7 +1644,7 @@ declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_keygen(ptr noundef %pub, ptr nocapture noundef %priv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef %pub, ptr nocapture noundef %priv) unnamed_addr #1 {
 entry:
   %pub_der = alloca ptr, align 8
   %pp = alloca ptr, align 8

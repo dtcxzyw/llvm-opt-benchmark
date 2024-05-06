@@ -247,7 +247,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
 
 123:                                              ; preds = %116
   %124 = lshr i64 %.2.i.i, 24
-  %125 = trunc i64 %124 to i8
+  %125 = trunc nuw i64 %124 to i8
   store i8 %125, ptr %.019.sroa.gep23.i, align 1
   br label %126
 

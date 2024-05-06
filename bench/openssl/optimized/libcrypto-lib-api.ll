@@ -37,7 +37,7 @@ declare void @ossl_crypto_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare void @ossl_crypto_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_set_max_threads(ptr noundef %ctx, i64 noundef %max_threads) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_set_max_threads(ptr noundef %ctx, i64 noundef %max_threads) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %ctx, i32 noundef 19) #3
   %cmp = icmp eq ptr %call, null

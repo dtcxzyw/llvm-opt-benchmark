@@ -691,7 +691,7 @@ opal_obj_run_destructors.exit130:                 ; preds = %.lr.ph.i127, %opal_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_comm_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
   %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 4), align 8
   %.not = icmp eq i32 %1, %2
@@ -1388,7 +1388,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %28, %30
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %35, 2
   %37 = add nsw i32 %35, -1
-  %38 = call i32 @llvm.ctlz.i32(i32 %37, i1 true), !range !8
+  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
   %39 = sub nuw nsw i32 32, %38
   %.0.i35 = select i1 %36, i32 0, i32 %39
   store i32 %.0.i35, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 11), align 8
@@ -1571,7 +1571,7 @@ opal_obj_run_constructors.exit44:                 ; preds = %.lr.ph.i41, %99
   br i1 %116, label %117, label %ompi_comm_extended_cid_block_new.exit
 
 117:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 4), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 4), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_self, i64 0, i32 0, i32 4), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 4), i64 16, i1 false)
   %118 = add nuw i8 %114, 1
   store i8 %118, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 4, i32 2), align 8
   %narrow = sub nuw nsw i8 3, %112
@@ -1860,4 +1860,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 33}

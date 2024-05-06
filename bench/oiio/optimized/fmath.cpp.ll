@@ -130,7 +130,7 @@ for.body.i:                                       ; preds = %for.body, %_ZN4half
 
 if.then.i.i:                                      ; preds = %for.body.i
   %shr.i.i = lshr i32 %2, 16
-  %conv.i.i = trunc i32 %shr.i.i to i16
+  %conv.i.i = trunc nuw i32 %shr.i.i to i16
   br label %_ZN4halfaSEf.exit
 
 if.else.i.i:                                      ; preds = %for.body.i
@@ -148,7 +148,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
   %and7.i.i = and i32 %shr6.i.i, 1
   %add8.i.i = add nuw nsw i32 %add.i.i, %and7.i.i
   %shr9.i.i = lshr i32 %add8.i.i, 13
-  %4 = trunc i32 %shr9.i.i to i16
+  %4 = trunc nuw nsw i32 %shr9.i.i to i16
   %conv11.i.i = add i16 %3, %4
   br label %_ZN4halfaSEf.exit
 
@@ -184,7 +184,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 if.then.i.i28:                                    ; preds = %while.body
   %shr.i.i29 = lshr i32 %6, 16
-  %conv.i.i30 = trunc i32 %shr.i.i29 to i16
+  %conv.i.i30 = trunc nuw i32 %shr.i.i29 to i16
   br label %_ZN4halfaSEf.exit31
 
 if.else.i.i12:                                    ; preds = %while.body
@@ -202,7 +202,7 @@ if.then4.i.i17:                                   ; preds = %if.else.i.i12
   %and7.i.i21 = and i32 %shr6.i.i20, 1
   %add8.i.i22 = add nuw nsw i32 %add.i.i19, %and7.i.i21
   %shr9.i.i23 = lshr i32 %add8.i.i22, 13
-  %8 = trunc i32 %shr9.i.i23 to i16
+  %8 = trunc nuw nsw i32 %shr9.i.i23 to i16
   %conv11.i.i24 = add i16 %7, %8
   br label %_ZN4halfaSEf.exit31
 

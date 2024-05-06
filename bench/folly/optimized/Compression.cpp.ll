@@ -5160,7 +5160,7 @@ unreachable:                                      ; preds = %invoke.cont113
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec21doMaxCompressedLengthEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
+define internal noundef range(i64 -2147483648, 2147483658) i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec21doMaxCompressedLengthEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
 entry:
   %conv = trunc i64 %uncompressedLength to i32
   %call = tail call i32 @LZ4_compressBound(i32 noundef %conv)

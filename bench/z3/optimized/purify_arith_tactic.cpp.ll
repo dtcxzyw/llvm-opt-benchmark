@@ -5767,8 +5767,8 @@ while.end:                                        ; preds = %sw.bb13, %while.con
   store i32 %dec.i162.pre-phi, ptr %m_pos.i.i24, align 8
   %idx.ext.i.i165 = zext i32 %38 to i64
   %add.ptr.i.idx.i166 = shl nuw nsw i64 %idx.ext.i.i165, 3
-  %39 = getelementptr i8, ptr %12, i64 %add.ptr.i.idx.i166
-  %add.ptr.i.ptr.i167 = getelementptr i8, ptr %39, i64 32
+  %39 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i.idx.i166
+  %add.ptr.i.ptr.i167 = getelementptr inbounds i8, ptr %39, i64 32
   %cmp.not6.i168 = icmp eq i32 %38, 0
   br i1 %cmp.not6.i168, label %sw.epilog90, label %for.body.preheader.i169
 

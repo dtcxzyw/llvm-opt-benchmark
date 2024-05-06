@@ -777,7 +777,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %73, label %.preheader52, label %.thread15
 
 .thread15:                                        ; preds = %60
-  %74 = trunc i64 %72 to i16
+  %74 = trunc nuw i64 %72 to i16
   %75 = getelementptr inbounds i8, ptr %3, i64 16
   store i16 %74, ptr %75, align 4
   br label %.thread16.thread
@@ -910,7 +910,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %162, label %.preheader50, label %.thread19
 
 .thread19:                                        ; preds = %155
-  %163 = trunc i64 %161 to i16
+  %163 = trunc nuw i64 %161 to i16
   br label %186
 
 .preheader50:                                     ; preds = %155, %.preheader50
@@ -957,7 +957,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %192, label %.preheader49, label %.thread23
 
 .thread23:                                        ; preds = %186
-  %193 = trunc i64 %191 to i16
+  %193 = trunc nuw i64 %191 to i16
   br label %216
 
 .preheader49:                                     ; preds = %186, %.preheader49
@@ -1006,7 +1006,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %223, label %.preheader48, label %.thread27
 
 .thread27:                                        ; preds = %216
-  %224 = trunc i64 %222 to i16
+  %224 = trunc nuw i64 %222 to i16
   br label %247
 
 .preheader48:                                     ; preds = %216, %.preheader48
@@ -1052,7 +1052,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %252, label %.preheader47, label %.thread31
 
 .thread31:                                        ; preds = %247
-  %253 = trunc i64 %251 to i16
+  %253 = trunc nuw i64 %251 to i16
   br label %276
 
 .preheader47:                                     ; preds = %247, %.preheader47
@@ -1098,7 +1098,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   br i1 %281, label %.preheader, label %.thread35
 
 .thread35:                                        ; preds = %276
-  %282 = trunc i64 %280 to i16
+  %282 = trunc nuw i64 %280 to i16
   br label %305
 
 .preheader:                                       ; preds = %276, %.preheader

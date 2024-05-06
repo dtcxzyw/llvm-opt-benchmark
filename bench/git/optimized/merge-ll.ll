@@ -485,7 +485,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_ext_merge(ptr nocapture noundef readonly %fn, ptr nocapture noundef %result, ptr noundef %path, ptr nocapture noundef readonly %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef readonly %src1, ptr nocapture readnone %name1, ptr nocapture noundef readonly %src2, ptr nocapture readnone %name2, ptr nocapture readnone %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -1, 2) i32 @ll_ext_merge(ptr nocapture noundef readonly %fn, ptr nocapture noundef %result, ptr noundef %path, ptr nocapture noundef readonly %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef readonly %src1, ptr nocapture readnone %name1, ptr nocapture noundef readonly %src2, ptr nocapture readnone %name2, ptr nocapture readnone %opts, i32 noundef %marker_size) #0 {
 entry:
   %temp = alloca [3 x [50 x i8]], align 16
   %cmd = alloca %struct.strbuf, align 8
@@ -861,7 +861,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ll_binary_merge(ptr nocapture readnone %drv, ptr nocapture noundef writeonly %result, ptr nocapture readnone %path, ptr nocapture noundef %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef %src1, ptr nocapture readnone %name1, ptr nocapture noundef %src2, ptr nocapture readnone %name2, ptr nocapture noundef readonly %opts, i32 %marker_size) #9 {
+define internal range(i32 0, 3) i32 @ll_binary_merge(ptr nocapture readnone %drv, ptr nocapture noundef writeonly %result, ptr nocapture readnone %path, ptr nocapture noundef %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef %src1, ptr nocapture readnone %name1, ptr nocapture noundef %src2, ptr nocapture readnone %name2, ptr nocapture noundef readonly %opts, i32 %marker_size) #9 {
 entry:
   %bf.load = load i8, ptr %opts, align 8
   %bf.clear = and i8 %bf.load, 1

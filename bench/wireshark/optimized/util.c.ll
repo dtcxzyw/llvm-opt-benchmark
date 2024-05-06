@@ -469,7 +469,7 @@ declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @display_is_remote() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @display_is_remote() local_unnamed_addr #0 {
   %1 = tail call ptr @get_conn_cfilter()
   %char0 = load i8, ptr %1, align 1
   %2 = icmp ne i8 %char0, 0

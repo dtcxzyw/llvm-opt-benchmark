@@ -456,7 +456,7 @@ return:                                           ; preds = %asn1_bio_setup_ex.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @asn1_bio_new(ptr noundef %b) #1 {
+define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef %b) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str.1, i32 noundef 101) #6
   %cmp = icmp eq ptr %call, null
@@ -491,7 +491,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @asn1_bio_free(ptr noundef %b) #1 {
+define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef %b) #1 {
 entry:
   %cmp = icmp eq ptr %b, null
   br i1 %cmp, label %return, label %if.end

@@ -214,7 +214,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @nam_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 -1, 4294967296) i64 @nam_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %conv = zext i32 %size to i64
   %div = udiv i64 %addr, %conv
@@ -344,7 +344,7 @@ if.end.i.i:                                       ; preds = %sw.bb1.i
   %conv3.i45.i = or disjoint i8 %3, %6
   store i8 %conv3.i45.i, ptr %arrayidx.i.i, align 1
   %7 = lshr i16 %5, 8
-  %conv6.i.i = trunc i16 %7 to i8
+  %conv6.i.i = trunc nuw nsw i16 %7 to i8
   %add8.i.i = add i64 %addr, 1
   %idxprom9.i.i = and i64 %add8.i.i, 4294967295
   %arrayidx10.i.i = getelementptr [256 x i8], ptr %mixer_data.i.i, i64 0, i64 %idxprom9.i.i
@@ -365,7 +365,7 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   %arrayidx.i.i.i = getelementptr i8, ptr %opaque, i64 2730
   store i8 %conv3.i.i.i, ptr %arrayidx.i.i.i, align 1
   %9 = lshr i16 %conv.i.i, 8
-  %conv6.i.i.i = trunc i16 %9 to i8
+  %conv6.i.i.i = trunc nuw i16 %9 to i8
   %arrayidx10.i.i.i = getelementptr i8, ptr %opaque, i64 2731
   store i8 %conv6.i.i.i, ptr %arrayidx10.i.i.i, align 1
   %and3.i.i.i.i = and i16 %8, 63
@@ -393,12 +393,12 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   %conv2.i.i.i = xor i16 %div12.i18.i.i.i, 255
   %mul.i.i.i = mul nuw i16 %conv2.i.i.i, %conv.i.i.i
   %div.i.i.i = udiv i16 %mul.i.i.i, 255
-  %conv3.i14.i.i = trunc i16 %div.i.i.i to i8
+  %conv3.i14.i.i = trunc nuw i16 %div.i.i.i to i8
   %conv4.i.i.i = xor i16 %div.i26.i.i.i, 255
   %conv5.i.i.i = xor i16 %div.i1427.i.i.i, 255
   %mul6.i.i.i = mul nuw i16 %conv5.i.i.i, %conv4.i.i.i
   %div7.i.i.i = udiv i16 %mul6.i.i.i, 255
-  %conv8.i.i.i = trunc i16 %div7.i.i.i to i8
+  %conv8.i.i.i = trunc nuw i16 %div7.i.i.i to i8
   %voice_po.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
   %14 = load ptr, ptr %voice_po.i.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %14, i32 noundef %or.i.i.i, i8 noundef zeroext %conv3.i14.i.i, i8 noundef zeroext %conv8.i.i.i) #7
@@ -411,7 +411,7 @@ sw.bb1.i.i:                                       ; preds = %sw.bb4.i
   %arrayidx.i17.i.i = getelementptr i8, ptr %opaque, i64 2752
   store i8 %conv3.i15.i.i, ptr %arrayidx.i17.i.i, align 1
   %16 = lshr i16 %conv3.i50.i, 8
-  %conv6.i18.i.i = trunc i16 %16 to i8
+  %conv6.i18.i.i = trunc nuw i16 %16 to i8
   %arrayidx10.i19.i.i = getelementptr i8, ptr %opaque, i64 2753
   store i8 %conv6.i18.i.i, ptr %arrayidx10.i19.i.i, align 1
   %arrayidx.i.i20.i.i = getelementptr i8, ptr %opaque, i64 2730
@@ -439,12 +439,12 @@ sw.bb1.i.i:                                       ; preds = %sw.bb4.i
   %conv2.i41.i.i = xor i16 %div12.i18.i37.i.i, 255
   %mul.i42.i.i = mul nuw i16 %conv.i40.i.i, %conv2.i41.i.i
   %div.i43.i.i = udiv i16 %mul.i42.i.i, 255
-  %conv3.i44.i.i = trunc i16 %div.i43.i.i to i8
+  %conv3.i44.i.i = trunc nuw i16 %div.i43.i.i to i8
   %conv4.i45.i.i = xor i16 %div.i26.i25.i.i, 255
   %conv5.i46.i.i = xor i16 %div.i1427.i34.i.i, 255
   %mul6.i47.i.i = mul nuw i16 %conv4.i45.i.i, %conv5.i46.i.i
   %div7.i48.i.i = udiv i16 %mul6.i47.i.i, 255
-  %conv8.i49.i.i = trunc i16 %div7.i48.i.i to i8
+  %conv8.i49.i.i = trunc nuw i16 %div7.i48.i.i to i8
   %voice_po.i50.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
   %21 = load ptr, ptr %voice_po.i50.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %21, i32 noundef %or.i39.i.i, i8 noundef zeroext %conv3.i44.i.i, i8 noundef zeroext %conv8.i49.i.i) #7
@@ -457,7 +457,7 @@ sw.bb4.i.i:                                       ; preds = %sw.bb4.i
   %arrayidx.i53.i.i = getelementptr i8, ptr %opaque, i64 2756
   store i8 %conv3.i51.i.i, ptr %arrayidx.i53.i.i, align 1
   %23 = lshr i16 %conv6.i49.i, 8
-  %conv6.i54.i.i = trunc i16 %23 to i8
+  %conv6.i54.i.i = trunc nuw i16 %23 to i8
   %arrayidx10.i55.i.i = getelementptr i8, ptr %opaque, i64 2757
   store i8 %conv6.i54.i.i, ptr %arrayidx10.i55.i.i, align 1
   %24 = lshr i8 %conv6.i54.i.i, 7
@@ -477,7 +477,7 @@ sw.bb5.i:                                         ; preds = %sw.bb4
   %arrayidx.i.i52.i = getelementptr i8, ptr %opaque, i64 2754
   store i8 %conv3.i.i51.i, ptr %arrayidx.i.i52.i, align 1
   %27 = lshr i16 %conv5.i.i, 8
-  %conv6.i.i53.i = trunc i16 %27 to i8
+  %conv6.i.i53.i = trunc nuw nsw i16 %27 to i8
   %arrayidx10.i.i54.i = getelementptr i8, ptr %opaque, i64 2755
   store i8 %conv6.i.i53.i, ptr %arrayidx10.i.i54.i, align 1
   br label %sw.epilog
@@ -690,9 +690,9 @@ entry:
   %and9.i16.i.i = zext nneg i8 %4 to i16
   %mul10.i17.i.i = mul nuw nsw i16 %and9.i16.i.i, 255
   %div12.i18.i.i = udiv i16 %mul10.i17.i.i, 31
-  %5 = trunc i16 %div12.i18.i.i to i8
+  %5 = trunc nuw i16 %div12.i18.i.i to i8
   %conv3.i14.i = xor i8 %5, -1
-  %6 = trunc i16 %div.i1427.i.i to i8
+  %6 = trunc nuw i16 %div.i1427.i.i to i8
   %conv8.i.i = xor i8 %6, -1
   %voice_po.i.i = getelementptr inbounds i8, ptr %s, i64 2992
   %7 = load ptr, ptr %voice_po.i.i, align 16
@@ -712,11 +712,11 @@ entry:
   %conv.i40.i = xor i16 %div12.i.i28.i, 255
   %mul.i42.i = mul nuw i16 %conv.i40.i, 190
   %div.i43.i = udiv i16 %mul.i42.i, 255
-  %conv3.i44.i = trunc i16 %div.i43.i to i8
+  %conv3.i44.i = trunc nuw i16 %div.i43.i to i8
   %conv4.i45.i = xor i16 %div.i26.i25.i, 255
   %mul6.i47.i = mul nuw i16 %conv4.i45.i, 190
   %div7.i48.i = udiv i16 %mul6.i47.i, 255
-  %conv8.i49.i = trunc i16 %div7.i48.i to i8
+  %conv8.i49.i = trunc nuw i16 %div7.i48.i to i8
   %12 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %12, i32 noundef 1, i8 noundef zeroext %conv3.i44.i, i8 noundef zeroext %conv8.i49.i) #7
   %arrayidx.i53.i = getelementptr i8, ptr %s, i64 2756
@@ -824,8 +824,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @reset_voices(ptr noundef %s, ptr nocapture noundef readonly %active) unnamed_addr #0 {
 entry:
-  %as.i39 = alloca %struct.audsettings, align 4
-  %as.i21 = alloca %struct.audsettings, align 4
+  %as.i40 = alloca %struct.audsettings, align 4
+  %as.i22 = alloca %struct.audsettings, align 4
   %as.i = alloca %struct.audsettings, align 4
   %arrayidx.i = getelementptr i8, ptr %s, i64 2778
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -866,82 +866,82 @@ open_voice.exit:                                  ; preds = %if.then.i, %if.else
   %3 = load i8, ptr %active, align 1
   %conv1 = zext i8 %3 to i32
   call void @AUD_set_active_in(ptr noundef %call.i.sink, i32 noundef %conv1) #7
-  %arrayidx.i15 = getelementptr i8, ptr %s, i64 2772
-  %4 = load i8, ptr %arrayidx.i15, align 1
-  %conv3.i16 = zext i8 %4 to i32
-  %arrayidx7.i17 = getelementptr i8, ptr %s, i64 2773
-  %5 = load i8, ptr %arrayidx7.i17, align 1
-  %conv8.i18 = zext i8 %5 to i32
-  %shl.i19 = shl nuw nsw i32 %conv8.i18, 8
-  %or.i20 = or disjoint i32 %shl.i19, %conv3.i16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i21)
-  store i32 %or.i20, ptr %as.i21, align 4
-  %nchannels.i22 = getelementptr inbounds i8, ptr %as.i21, i64 4
-  store i32 2, ptr %nchannels.i22, align 4
-  %fmt.i23 = getelementptr inbounds i8, ptr %as.i21, i64 8
-  store i32 3, ptr %fmt.i23, align 4
-  %endianness.i24 = getelementptr inbounds i8, ptr %as.i21, i64 12
-  store i32 0, ptr %endianness.i24, align 4
-  %cmp.i25.not = icmp eq i32 %or.i20, 0
-  %arrayidx.i27 = getelementptr i8, ptr %s, i64 3012
-  store i32 0, ptr %arrayidx.i27, align 4
+  %arrayidx.i16 = getelementptr i8, ptr %s, i64 2772
+  %4 = load i8, ptr %arrayidx.i16, align 1
+  %conv3.i17 = zext i8 %4 to i32
+  %arrayidx7.i18 = getelementptr i8, ptr %s, i64 2773
+  %5 = load i8, ptr %arrayidx7.i18, align 1
+  %conv8.i19 = zext i8 %5 to i32
+  %shl.i20 = shl nuw nsw i32 %conv8.i19, 8
+  %or.i21 = or disjoint i32 %shl.i20, %conv3.i17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i22)
+  store i32 %or.i21, ptr %as.i22, align 4
+  %nchannels.i23 = getelementptr inbounds i8, ptr %as.i22, i64 4
+  store i32 2, ptr %nchannels.i23, align 4
+  %fmt.i24 = getelementptr inbounds i8, ptr %as.i22, i64 8
+  store i32 3, ptr %fmt.i24, align 4
+  %endianness.i25 = getelementptr inbounds i8, ptr %as.i22, i64 12
+  store i32 0, ptr %endianness.i25, align 4
+  %cmp.i26.not = icmp eq i32 %or.i21, 0
+  %arrayidx.i28 = getelementptr i8, ptr %s, i64 3012
+  store i32 0, ptr %arrayidx.i28, align 4
   %card19.i = getelementptr inbounds i8, ptr %s, i64 2608
   %voice_po20.i = getelementptr inbounds i8, ptr %s, i64 2992
   %6 = load ptr, ptr %voice_po20.i, align 16
-  br i1 %cmp.i25.not, label %if.else.i28, label %if.then.i29
+  br i1 %cmp.i26.not, label %if.else.i29, label %if.then.i30
 
-if.then.i29:                                      ; preds = %open_voice.exit
-  %call5.i = call ptr @AUD_open_out(ptr noundef nonnull %card19.i, ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as.i21) #7
-  br label %open_voice.exit30
+if.then.i30:                                      ; preds = %open_voice.exit
+  %call5.i = call ptr @AUD_open_out(ptr noundef nonnull %card19.i, ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as.i22) #7
+  br label %open_voice.exit31
 
-if.else.i28:                                      ; preds = %open_voice.exit
+if.else.i29:                                      ; preds = %open_voice.exit
   call void @AUD_close_out(ptr noundef nonnull %card19.i, ptr noundef %6) #7
-  br label %open_voice.exit30
+  br label %open_voice.exit31
 
-open_voice.exit30:                                ; preds = %if.then.i29, %if.else.i28
-  %call5.i.sink = phi ptr [ %call5.i, %if.then.i29 ], [ null, %if.else.i28 ]
+open_voice.exit31:                                ; preds = %if.then.i30, %if.else.i29
+  %call5.i.sink = phi ptr [ %call5.i, %if.then.i30 ], [ null, %if.else.i29 ]
   store ptr %call5.i.sink, ptr %voice_po20.i, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %as.i21)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %as.i22)
   %arrayidx4 = getelementptr i8, ptr %active, i64 1
   %7 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %7 to i32
   call void @AUD_set_active_out(ptr noundef %call5.i.sink, i32 noundef %conv5) #7
-  %arrayidx.i33 = getelementptr i8, ptr %s, i64 2780
-  %8 = load i8, ptr %arrayidx.i33, align 1
-  %conv3.i34 = zext i8 %8 to i32
-  %arrayidx7.i35 = getelementptr i8, ptr %s, i64 2781
-  %9 = load i8, ptr %arrayidx7.i35, align 1
-  %conv8.i36 = zext i8 %9 to i32
-  %shl.i37 = shl nuw nsw i32 %conv8.i36, 8
-  %or.i38 = or disjoint i32 %shl.i37, %conv3.i34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i39)
-  store i32 %or.i38, ptr %as.i39, align 4
-  %nchannels.i40 = getelementptr inbounds i8, ptr %as.i39, i64 4
-  store i32 2, ptr %nchannels.i40, align 4
-  %fmt.i41 = getelementptr inbounds i8, ptr %as.i39, i64 8
-  store i32 3, ptr %fmt.i41, align 4
-  %endianness.i42 = getelementptr inbounds i8, ptr %as.i39, i64 12
-  store i32 0, ptr %endianness.i42, align 4
-  %cmp.i43.not = icmp eq i32 %or.i38, 0
-  %arrayidx.i45 = getelementptr i8, ptr %s, i64 3016
-  store i32 0, ptr %arrayidx.i45, align 4
+  %arrayidx.i34 = getelementptr i8, ptr %s, i64 2780
+  %8 = load i8, ptr %arrayidx.i34, align 1
+  %conv3.i35 = zext i8 %8 to i32
+  %arrayidx7.i36 = getelementptr i8, ptr %s, i64 2781
+  %9 = load i8, ptr %arrayidx7.i36, align 1
+  %conv8.i37 = zext i8 %9 to i32
+  %shl.i38 = shl nuw nsw i32 %conv8.i37, 8
+  %or.i39 = or disjoint i32 %shl.i38, %conv3.i35
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i40)
+  store i32 %or.i39, ptr %as.i40, align 4
+  %nchannels.i41 = getelementptr inbounds i8, ptr %as.i40, i64 4
+  store i32 2, ptr %nchannels.i41, align 4
+  %fmt.i42 = getelementptr inbounds i8, ptr %as.i40, i64 8
+  store i32 3, ptr %fmt.i42, align 4
+  %endianness.i43 = getelementptr inbounds i8, ptr %as.i40, i64 12
+  store i32 0, ptr %endianness.i43, align 4
+  %cmp.i44.not = icmp eq i32 %or.i39, 0
+  %arrayidx.i46 = getelementptr i8, ptr %s, i64 3016
+  store i32 0, ptr %arrayidx.i46, align 4
   %card23.i = getelementptr inbounds i8, ptr %s, i64 2608
   %voice_mc24.i = getelementptr inbounds i8, ptr %s, i64 3000
   %10 = load ptr, ptr %voice_mc24.i, align 8
-  br i1 %cmp.i43.not, label %if.else.i46, label %if.then.i47
+  br i1 %cmp.i44.not, label %if.else.i47, label %if.then.i48
 
-if.then.i47:                                      ; preds = %open_voice.exit30
-  %call9.i = call ptr @AUD_open_in(ptr noundef nonnull %card23.i, ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as.i39) #7
-  br label %open_voice.exit48
+if.then.i48:                                      ; preds = %open_voice.exit31
+  %call9.i = call ptr @AUD_open_in(ptr noundef nonnull %card23.i, ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as.i40) #7
+  br label %open_voice.exit49
 
-if.else.i46:                                      ; preds = %open_voice.exit30
+if.else.i47:                                      ; preds = %open_voice.exit31
   call void @AUD_close_in(ptr noundef nonnull %card23.i, ptr noundef %10) #7
-  br label %open_voice.exit48
+  br label %open_voice.exit49
 
-open_voice.exit48:                                ; preds = %if.then.i47, %if.else.i46
-  %call9.i.sink = phi ptr [ %call9.i, %if.then.i47 ], [ null, %if.else.i46 ]
+open_voice.exit49:                                ; preds = %if.then.i48, %if.else.i47
+  %call9.i.sink = phi ptr [ %call9.i, %if.then.i48 ], [ null, %if.else.i47 ]
   store ptr %call9.i.sink, ptr %voice_mc24.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %as.i39)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %as.i40)
   %arrayidx8 = getelementptr i8, ptr %active, i64 2
   %11 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %11 to i32
@@ -1370,7 +1370,7 @@ if.end86:                                         ; preds = %if.else, %if.then71
   br i1 %tobool.not.i124, label %if.end20.thread.i, label %if.then.i125
 
 if.end20.thread.i:                                ; preds = %if.end86
-  %conv2119.i = trunc i32 %new_sr.1 to i16
+  %conv2119.i = trunc nuw i32 %new_sr.1 to i16
   store i16 %conv2119.i, ptr %sr, align 2
   br label %if.end87
 
@@ -1379,7 +1379,7 @@ if.then.i125:                                     ; preds = %if.end86
   br i1 %tobool2.not.i, label %if.end25.thread.i, label %if.else.i126
 
 if.end25.thread.i:                                ; preds = %if.then.i125
-  %conv2124.i = trunc i32 %new_sr.1 to i16
+  %conv2124.i = trunc nuw i32 %new_sr.1 to i16
   store i16 %conv2124.i, ptr %sr, align 2
   %49 = load i32, ptr %arrayidx.i134, align 4
   %not.i = xor i32 %49, -1
@@ -1413,12 +1413,12 @@ land.lhs.true12.i:                                ; preds = %if.end.i127
   br i1 %tobool16.not.i128, label %if.end20.i, label %if.end20.thread29.i
 
 if.end20.thread29.i:                              ; preds = %land.lhs.true12.i
-  %conv2131.i = trunc i32 %new_sr.1 to i16
+  %conv2131.i = trunc nuw i32 %new_sr.1 to i16
   store i16 %conv2131.i, ptr %sr, align 2
   br label %if.then27.i129
 
 if.end20.i:                                       ; preds = %land.lhs.true12.i, %if.end.i127
-  %conv21.i136 = trunc i32 %new_sr.1 to i16
+  %conv21.i136 = trunc nuw i32 %new_sr.1 to i16
   store i16 %conv21.i136, ptr %sr, align 2
   br i1 %event.0.i, label %if.end87, label %if.then27.i129
 
@@ -1452,7 +1452,7 @@ declare i64 @AUD_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @nabm_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 -1, 4294967296) i64 @nabm_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %conv = zext i32 %size to i64
   %div = udiv i64 %addr, %conv
@@ -1883,7 +1883,7 @@ sw.bb59.i:                                        ; preds = %sw.bb, %sw.bb, %sw.
   br i1 %tobool.not.i.i, label %if.end20.thread.i.i, label %if.then.i.i
 
 if.end20.thread.i.i:                              ; preds = %sw.bb59.i
-  %conv2119.i.i = trunc i32 %and73.i to i16
+  %conv2119.i.i = trunc nuw i32 %and73.i to i16
   store i16 %conv2119.i.i, ptr %sr66.i, align 2
   br label %sw.epilog
 
@@ -1892,7 +1892,7 @@ if.then.i.i:                                      ; preds = %sw.bb59.i
   br i1 %tobool2.not.i.i, label %if.end25.thread.i.i, label %if.else.i.i
 
 if.end25.thread.i.i:                              ; preds = %if.then.i.i
-  %conv2124.i.i = trunc i32 %and73.i to i16
+  %conv2124.i.i = trunc nuw i32 %and73.i to i16
   store i16 %conv2124.i.i, ptr %sr66.i, align 2
   %arrayidx35.i.i = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom63.i
   %32 = load i32, ptr %arrayidx35.i.i, align 4
@@ -1930,12 +1930,12 @@ land.lhs.true12.i.i:                              ; preds = %if.end.i.i
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %if.end20.thread29.i.i
 
 if.end20.thread29.i.i:                            ; preds = %land.lhs.true12.i.i
-  %conv2131.i.i = trunc i32 %and73.i to i16
+  %conv2131.i.i = trunc nuw i32 %and73.i to i16
   store i16 %conv2131.i.i, ptr %sr66.i, align 2
   br label %if.then27.i.i
 
 if.end20.i.i:                                     ; preds = %land.lhs.true12.i.i, %if.end.i.i
-  %conv21.i.i = trunc i32 %and73.i to i16
+  %conv21.i.i = trunc nuw i32 %and73.i to i16
   store i16 %conv21.i.i, ptr %sr66.i, align 2
   br i1 %event.0.i.i, label %sw.epilog, label %if.then27.i.i
 
@@ -1979,7 +1979,7 @@ sw.bb.i9:                                         ; preds = %sw.bb4, %sw.bb4, %s
   br i1 %tobool.not.i.i18, label %if.end20.thread.i.i47, label %if.then.i.i19
 
 if.end20.thread.i.i47:                            ; preds = %sw.bb.i9
-  %conv2119.i.i48 = trunc i32 %and6.i to i16
+  %conv2119.i.i48 = trunc nuw i32 %and6.i to i16
   store i16 %conv2119.i.i48, ptr %sr.i14, align 2
   br label %sw.epilog
 
@@ -1988,7 +1988,7 @@ if.then.i.i19:                                    ; preds = %sw.bb.i9
   br i1 %tobool2.not.i.i20, label %if.end25.thread.i.i41, label %if.else.i.i21
 
 if.end25.thread.i.i41:                            ; preds = %if.then.i.i19
-  %conv2124.i.i42 = trunc i32 %and6.i to i16
+  %conv2124.i.i42 = trunc nuw i32 %and6.i to i16
   store i16 %conv2124.i.i42, ptr %sr.i14, align 2
   %arrayidx35.i.i43 = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom.i12
   %45 = load i32, ptr %arrayidx35.i.i43, align 4
@@ -2026,12 +2026,12 @@ land.lhs.true12.i.i30:                            ; preds = %if.end.i.i26
   br i1 %tobool16.not.i.i32, label %if.end20.i.i39, label %if.end20.thread29.i.i33
 
 if.end20.thread29.i.i33:                          ; preds = %land.lhs.true12.i.i30
-  %conv2131.i.i34 = trunc i32 %and6.i to i16
+  %conv2131.i.i34 = trunc nuw i32 %and6.i to i16
   store i16 %conv2131.i.i34, ptr %sr.i14, align 2
   br label %if.then27.i.i35
 
 if.end20.i.i39:                                   ; preds = %land.lhs.true12.i.i30, %if.end.i.i26
-  %conv21.i.i40 = trunc i32 %and6.i to i16
+  %conv21.i.i40 = trunc nuw i32 %and6.i to i16
   store i16 %conv21.i.i40, ptr %sr.i14, align 2
   br i1 %event.0.i.i27, label %sw.epilog, label %if.then27.i.i35
 
@@ -2189,7 +2189,7 @@ entry:
   %conv3.i.i = trunc i16 %conv5.i to i8
   store i8 %conv3.i.i, ptr %arrayidx.i, align 1
   %1 = lshr i16 %conv5.i, 8
-  %conv6.i.i = trunc i16 %1 to i8
+  %conv6.i.i = trunc nuw nsw i16 %1 to i8
   %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 2755
   store i8 %conv6.i.i, ptr %arrayidx10.i.i, align 1
   %arrayidx.i15 = getelementptr i8, ptr %opaque, i64 2730
@@ -2204,7 +2204,7 @@ entry:
   %conv3.i.i21 = trunc i16 %conv.i to i8
   store i8 %conv3.i.i21, ptr %arrayidx.i15, align 1
   %4 = lshr i16 %conv.i, 8
-  %conv6.i.i23 = trunc i16 %4 to i8
+  %conv6.i.i23 = trunc nuw i16 %4 to i8
   store i8 %conv6.i.i23, ptr %arrayidx7.i17, align 1
   %and3.i.i.i = and i16 %conv3.i16, 63
   %mul.i.i.i = mul nuw nsw i16 %and3.i.i.i, 255
@@ -2231,12 +2231,12 @@ entry:
   %conv2.i.i = xor i16 %div12.i18.i.i, 255
   %mul.i.i = mul nuw i16 %conv2.i.i, %conv.i.i
   %div.i.i = udiv i16 %mul.i.i, 255
-  %conv3.i14.i = trunc i16 %div.i.i to i8
+  %conv3.i14.i = trunc nuw i16 %div.i.i to i8
   %conv4.i.i = xor i16 %div.i26.i.i, 255
   %conv5.i.i = xor i16 %div.i1427.i.i, 255
   %mul6.i.i = mul nuw i16 %conv5.i.i, %conv4.i.i
   %div7.i.i = udiv i16 %mul6.i.i, 255
-  %conv8.i.i = trunc i16 %div7.i.i to i8
+  %conv8.i.i = trunc nuw i16 %div7.i.i to i8
   %voice_po.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
   %9 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %9, i32 noundef %or.i.i, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #7
@@ -2250,7 +2250,7 @@ entry:
   %conv3.i15.i = trunc i16 %conv3.i32 to i8
   store i8 %conv3.i15.i, ptr %arrayidx.i4.i.i, align 1
   %12 = lshr i16 %conv3.i32, 8
-  %conv6.i18.i = trunc i16 %12 to i8
+  %conv6.i18.i = trunc nuw i16 %12 to i8
   store i8 %conv6.i18.i, ptr %arrayidx7.i6.i.i, align 1
   %13 = load i8, ptr %arrayidx.i15, align 1
   %14 = load i8, ptr %arrayidx7.i17, align 1
@@ -2275,12 +2275,12 @@ entry:
   %conv2.i41.i = xor i16 %div12.i18.i37.i, 255
   %mul.i42.i = mul nuw i16 %conv2.i41.i, %conv.i40.i
   %div.i43.i = udiv i16 %mul.i42.i, 255
-  %conv3.i44.i = trunc i16 %div.i43.i to i8
+  %conv3.i44.i = trunc nuw i16 %div.i43.i to i8
   %conv4.i45.i = xor i16 %div.i26.i25.i, 255
   %conv5.i46.i = xor i16 %div.i1427.i34.i, 255
   %mul6.i47.i = mul nuw i16 %conv4.i45.i, %conv5.i46.i
   %div7.i48.i = udiv i16 %mul6.i47.i, 255
-  %conv8.i49.i = trunc i16 %div7.i48.i to i8
+  %conv8.i49.i = trunc nuw i16 %div7.i48.i to i8
   %17 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %17, i32 noundef %or.i39.i, i8 noundef zeroext %conv3.i44.i, i8 noundef zeroext %conv8.i49.i) #7
   %arrayidx.i34 = getelementptr i8, ptr %opaque, i64 2756
@@ -2289,7 +2289,7 @@ entry:
   %conv3.i51.i = trunc i16 %conv6.i to i8
   store i8 %conv3.i51.i, ptr %arrayidx.i34, align 1
   %19 = lshr i16 %conv6.i, 8
-  %conv6.i54.i = trunc i16 %19 to i8
+  %conv6.i54.i = trunc nuw i16 %19 to i8
   %arrayidx10.i55.i = getelementptr i8, ptr %opaque, i64 2757
   store i8 %conv6.i54.i, ptr %arrayidx10.i55.i, align 1
   %20 = lshr i8 %conv6.i54.i, 7

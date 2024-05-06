@@ -2629,7 +2629,7 @@ return:                                           ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_state() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_state() unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 1000) #15
   store ptr %call, ptr @_datetime_global_state.0, align 8
@@ -3809,7 +3809,7 @@ if.then.i36.i:                                    ; preds = %normalize_pair.exit
 
 normalize_datetime.exit:                          ; preds = %normalize_pair.exit32.i, %if.then.i36.i
   %hour.1 = phi i32 [ %hour.0, %normalize_pair.exit32.i ], [ %storemerge.i.i42.i, %if.then.i36.i ]
-  %call.i = call fastcc noundef i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !6
+  %call.i = call fastcc i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -3848,7 +3848,7 @@ return:                                           ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @delta_bool(ptr nocapture noundef readonly %self) #3 {
+define internal range(i32 0, 2) i32 @delta_bool(ptr nocapture noundef readonly %self) #3 {
 entry:
   %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -3972,7 +3972,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @normalize_date(ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %year, align 4
   %1 = load i32, ptr %month, align 4
@@ -5883,7 +5883,7 @@ entry:
   %cond = select i1 %tobool.not, i32 %delta.24.val, i32 %sub
   %add = add i32 %cond, %conv9
   store i32 %add, ptr %day, align 4
-  %call = call fastcc i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !6
+  %call = call fastcc i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -6025,7 +6025,7 @@ if.end4:                                          ; preds = %if.end
   ]
 
 if.then9:                                         ; preds = %if.end4, %if.end4, %if.end4
-  %call10 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call2, i64 noundef %4, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !7
+  %call10 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call2, i64 noundef %4, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %5 = icmp slt i32 %call10, 0
   br i1 %5, label %invalid_string_error, label %if.end14
 
@@ -6098,7 +6098,7 @@ if.then7:                                         ; preds = %if.end4
 if.end9:                                          ; preds = %if.end4
   %5 = load i32, ptr %week, align 4
   %6 = load i32, ptr %day, align 4
-  %call10 = call fastcc i32 @iso_to_ymd(i32 noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !8
+  %call10 = call fastcc i32 @iso_to_ymd(i32 noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   switch i32 %call10, label %if.end18 [
     i32 -2, label %if.then12
     i32 -3, label %if.then16
@@ -6869,7 +6869,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @parse_isoformat_date(ptr noundef %dtstr, i64 noundef %len, ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #6 {
+define internal fastcc range(i32 -6, 1) i32 @parse_isoformat_date(ptr noundef %dtstr, i64 noundef %len, ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #6 {
 entry:
   br label %for.body.i
 
@@ -6890,7 +6890,7 @@ if.end.i:                                         ; preds = %for.body.i
   store i32 %add.i, ptr %year, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !6
 
 parse_digits.exit:                                ; preds = %if.end.i
   %cmp = icmp eq ptr %incdec.ptr.i, null
@@ -6925,7 +6925,7 @@ if.end.i32:                                       ; preds = %for.body.i26
   %add.i35 = add i32 %sub.i30, %mul.i34
   %inc.i36 = add nuw nsw i64 %i.07.i27, 1
   %exitcond.not.i37 = icmp eq i64 %inc.i36, 2
-  br i1 %exitcond.not.i37, label %parse_digits.exit39, label %for.body.i26, !llvm.loop !9
+  br i1 %exitcond.not.i37, label %parse_digits.exit39, label %for.body.i26, !llvm.loop !6
 
 parse_digits.exit39:                              ; preds = %if.end.i32
   %cmp12 = icmp eq ptr %scevgep, null
@@ -6960,7 +6960,7 @@ if.end26:                                         ; preds = %land.lhs.true, %if.
 
 if.end32:                                         ; preds = %if.end26, %if.end15
   %iso_day.2 = phi i32 [ 1, %if.end15 ], [ %sub.i44, %if.end26 ]
-  %call33 = tail call fastcc i32 @iso_to_ymd(i32 noundef %add.i, i32 noundef %add.i35, i32 noundef %iso_day.2, ptr noundef nonnull %year, ptr noundef %month, ptr noundef %day), !range !8
+  %call33 = tail call fastcc i32 @iso_to_ymd(i32 noundef %add.i, i32 noundef %add.i35, i32 noundef %iso_day.2, ptr noundef nonnull %year, ptr noundef %month, ptr noundef %day)
   %tobool34.not = icmp eq i32 %call33, 0
   %add = add nsw i32 %call33, -3
   %spec.select25 = select i1 %tobool34.not, i32 0, i32 %add
@@ -6983,7 +6983,7 @@ if.end.i60:                                       ; preds = %for.body.i54
   store i32 %add.i63, ptr %month, align 4
   %inc.i64 = add nuw nsw i64 %i.07.i55, 1
   %exitcond.not.i65 = icmp eq i64 %inc.i64, 2
-  br i1 %exitcond.not.i65, label %parse_digits.exit67, label %for.body.i54, !llvm.loop !9
+  br i1 %exitcond.not.i65, label %parse_digits.exit67, label %for.body.i54, !llvm.loop !6
 
 parse_digits.exit67:                              ; preds = %if.end.i60
   %cmp39 = icmp eq ptr %incdec.ptr.i61, null
@@ -7019,7 +7019,7 @@ if.end.i74:                                       ; preds = %for.body.i68
   store i32 %add.i77, ptr %day, align 4
   %inc.i78 = add nuw nsw i64 %i.07.i69, 1
   %exitcond.not.i79 = icmp eq i64 %inc.i78, 2
-  br i1 %exitcond.not.i79, label %parse_digits.exit81, label %for.body.i68, !llvm.loop !9
+  br i1 %exitcond.not.i79, label %parse_digits.exit81, label %for.body.i68, !llvm.loop !6
 
 parse_digits.exit81:                              ; preds = %for.body.i68, %if.end.i74
   %retval.0.i80 = phi ptr [ %incdec.ptr.i75, %if.end.i74 ], [ null, %for.body.i68 ]
@@ -7033,7 +7033,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @iso_to_ymd(i32 noundef %iso_year, i32 noundef %iso_week, i32 noundef %iso_day, ptr nocapture noundef %year, ptr nocapture noundef writeonly %month, ptr nocapture noundef writeonly %day) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @iso_to_ymd(i32 noundef %iso_year, i32 noundef %iso_week, i32 noundef %iso_day, ptr nocapture noundef %year, ptr nocapture noundef writeonly %month, ptr nocapture noundef writeonly %day) unnamed_addr #4 {
 entry:
   %0 = add i32 %iso_week, -53
   %or.cond = icmp ult i32 %0, -52
@@ -7272,7 +7272,7 @@ if.end102:                                        ; preds = %if.end102thread-pre
   %pin.2 = phi ptr [ %incdec.ptr15, %if.end102thread-pre-split ], [ %incdec.ptr46, %if.end57 ], [ %incdec.ptr15, %if.end92 ], [ %incdec.ptr15, %if.end35 ]
   %ptoappend.0 = phi ptr [ %call74, %if.end102thread-pre-split ], [ %ob_sval.i50, %if.end57 ], [ %ob_sval.i51, %if.end92 ], [ %ob_sval.i, %if.end35 ]
   %cmp103 = icmp eq i64 %7, 0
-  br i1 %cmp103, label %while.cond, label %while.cond107.preheader, !llvm.loop !10
+  br i1 %cmp103, label %while.cond, label %while.cond107.preheader, !llvm.loop !7
 
 while.cond107.preheader:                          ; preds = %if.end102, %if.then14, %if.else95, %if.then19
   %ptoappend.0188 = phi ptr [ %pin.0, %if.then19 ], [ %pin.0, %if.else95 ], [ %pin.0, %if.then14 ], [ %ptoappend.0, %if.end102 ]
@@ -7307,7 +7307,7 @@ if.end121:                                        ; preds = %if.end116
   %10 = load i64, ptr %ntoappend, align 8
   %add108 = add i64 %10, %usednew.0.ph
   %cmp109 = icmp ugt i64 %add108, %shl
-  br i1 %cmp109, label %while.body111, label %while.cond107.while.end_crit_edge, !llvm.loop !11
+  br i1 %cmp109, label %while.body111, label %while.cond107.while.end_crit_edge, !llvm.loop !8
 
 while.cond107.while.end_crit_edge:                ; preds = %if.end121
   %add.ptr123.le = getelementptr i8, ptr %call122, i64 %usednew.0.ph
@@ -7321,7 +7321,7 @@ while.end:                                        ; preds = %while.cond107.while
   %11 = load i64, ptr %ntoappend, align 8
   %add.ptr124 = getelementptr i8, ptr %pnew.1.lcssa, i64 %11
   %add125 = add i64 %11, %usednew.0.ph
-  br label %while.cond.outer, !llvm.loop !10
+  br label %while.cond.outer, !llvm.loop !7
 
 while.end126:                                     ; preds = %while.cond
   %call127 = call i32 @_PyBytes_Resize(ptr noundef nonnull %newfmt, i64 noundef %usednew.0.ph) #15
@@ -7804,7 +7804,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @format_utcoffset(ptr noundef %buf, ptr noundef %sep, ptr noundef %tzinfo, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @format_utcoffset(ptr noundef %buf, ptr noundef %sep, ptr noundef %tzinfo, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc ptr @call_tzinfo_method(ptr noundef %tzinfo, ptr noundef nonnull @.str.23, ptr noundef %tzinfoarg)
   %cmp = icmp eq ptr %call.i, null
@@ -8987,7 +8987,7 @@ if.then48:                                        ; preds = %delta_cmp.exit, %if
   br i1 %or.cond1, label %if.then62, label %if.end71
 
 if.then62:                                        ; preds = %if.then48
-  %call63 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !12
+  %call63 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76)
   switch i32 %call63, label %if.then69 [
     i32 -1, label %done
     i32 0, label %if.end71
@@ -9090,7 +9090,7 @@ Py_DECREF.exit131:                                ; preds = %if.end87, %if.then1
   br i1 %or.cond4, label %if.then96, label %if.end106
 
 if.then96:                                        ; preds = %Py_DECREF.exit131
-  %call98 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !12
+  %call98 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76)
   switch i32 %call98, label %if.then104 [
     i32 -1, label %done
     i32 0, label %if.end106
@@ -10069,7 +10069,7 @@ return:                                           ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pep495_eq_exception(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, ptr noundef readonly %offset_self, ptr noundef readonly %offset_other) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @pep495_eq_exception(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, ptr noundef readonly %offset_self, ptr noundef readonly %offset_other) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @get_flip_fold_offset(ptr noundef %self)
   %cmp = icmp eq ptr %call, null
@@ -10405,7 +10405,7 @@ if.end.i:                                         ; preds = %if.end
   %1 = load i64, ptr %secs.i, align 8
   %2 = load i32, ptr %us.i, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %1, ptr noundef nonnull %tm.i) #15, !callees !13
+  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %1, ptr noundef nonnull %tm.i) #15, !callees !9
   %cmp.not.i = icmp eq i32 %call.i1, 0
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
@@ -10578,7 +10578,7 @@ if.end.i:                                         ; preds = %if.then3
   %3 = load i64, ptr %us.i, align 8
   %conv.i = trunc i64 %3 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %2, ptr noundef nonnull %tm.i) #15, !callees !13
+  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %2, ptr noundef nonnull %tm.i) #15, !callees !9
   %cmp.not.i = icmp eq i32 %call.i1, 0
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
@@ -10817,7 +10817,7 @@ for.body.us23.i:                                  ; preds = %PyUnicode_DATA.exit
 for.cond.us27.i:                                  ; preds = %if.end5.us30.i
   %inc.us34.i = add nuw nsw i64 %idx.021.us24.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us34.i, 3
-  br i1 %exitcond.not.i, label %if.then11.i, label %for.body.us23.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %if.then11.i, label %for.body.us23.i, !llvm.loop !10
 
 if.end5.us30.i:                                   ; preds = %for.body.us23.i
   %arrayidx4.i.us.i = getelementptr i16, ptr %retval.0.i.i, i64 %8
@@ -10829,7 +10829,7 @@ if.end5.us30.i:                                   ; preds = %for.body.us23.i
 for.cond.i:                                       ; preds = %if.end5.i
   %inc.i = add nuw nsw i64 %idx.021.i, 1
   %exitcond42.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond42.not.i, label %if.then11.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond42.not.i, label %if.then11.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %PyUnicode_DATA.exit.i, %for.cond.i
   %idx.021.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %PyUnicode_DATA.exit.i ]
@@ -10962,7 +10962,7 @@ for.body.i35:                                     ; preds = %for.cond.preheader.
 for.inc.i:                                        ; preds = %for.body.i35
   %inc.i37 = add nuw i64 %idx.021.i36, 1
   %exitcond.not.i38 = icmp eq i64 %inc.i37, %18
-  br i1 %exitcond.not.i38, label %for.end.i, label %for.body.i35, !llvm.loop !15
+  br i1 %exitcond.not.i38, label %for.end.i, label %for.body.i35, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body.i35
   %idx.0.lcssa.i = phi i64 [ %18, %for.inc.i ], [ %idx.021.i36, %for.body.i35 ]
@@ -10986,7 +10986,7 @@ _find_isoformat_datetime_separator.exit:          ; preds = %if.end11, %if.end.i
   store i32 0, ptr %microsecond, align 4
   store i32 0, ptr %tzoffset, align 4
   store i32 0, ptr %tzusec, align 4
-  %call13 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call5, i64 noundef %retval.0.i34, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !7
+  %call13 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call5, i64 noundef %retval.0.i34, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %land.lhs.true, label %error.thread63
 
@@ -11017,7 +11017,7 @@ if.end31:                                         ; preds = %if.else21, %if.then
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %sub = add i64 %sub.ptr.sub.neg, %26
   store i64 %sub, ptr %len, align 8
-  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzusec), !range !16
+  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzusec)
   %cmp32 = icmp slt i32 %call30, 0
   br i1 %cmp32, label %error.thread63, label %if.end31.if.end35_crit_edge
 
@@ -11455,7 +11455,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %call)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %call)
   %cmp.i19 = icmp eq ptr %call.i, null
   br i1 %cmp.i19, label %delta_total_seconds.exit, label %if.end.i20
 
@@ -11739,7 +11739,7 @@ if.then29:                                        ; preds = %if.then26
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %given_spec.028, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !12
 
 if.then35:                                        ; preds = %for.inc
   %5 = load ptr, ptr @PyExc_ValueError, align 8
@@ -12595,7 +12595,7 @@ declare i32 @_PyTime_AsTimevalTime_t(i64 noundef, ptr noundef, ptr noundef, i32 
 define internal fastcc ptr @datetime_from_timet_and_us(ptr noundef %cls, ptr noundef readonly %f, i64 noundef %timet, i32 noundef %us, ptr noundef %tzinfo) unnamed_addr #0 {
 entry:
   %tm = alloca %struct.tm, align 8
-  %call = call i32 %f(i64 noundef %timet, ptr noundef nonnull %tm) #15, !callees !13
+  %call = call i32 %f(i64 noundef %timet, ptr noundef nonnull %tm) #15, !callees !9
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -12696,7 +12696,7 @@ land.lhs.true9:                                   ; preds = %utc_to_seconds.exit
 if.end12:                                         ; preds = %land.lhs.true9, %utc_to_seconds.exit
   %retval.0.i22 = phi i64 [ -1, %land.lhs.true9 ], [ %add9.i, %utc_to_seconds.exit ]
   %sub = add i64 %timet, 62135596800
-  %call14 = call fastcc i64 @local(i64 noundef %sub), !range !18
+  %call14 = call fastcc i64 @local(i64 noundef %sub)
   %cmp15 = icmp eq i64 %call14, -1
   br i1 %cmp15, label %return, label %if.end17
 
@@ -12707,7 +12707,7 @@ if.end17:                                         ; preds = %if.end12
 
 if.then21:                                        ; preds = %if.end17
   %add23 = add i64 %sub, %sub18
-  %call24 = call fastcc i64 @local(i64 noundef %add23), !range !18
+  %call24 = call fastcc i64 @local(i64 noundef %add23)
   %cmp25 = icmp eq i64 %call24, -1
   br i1 %cmp25, label %return, label %if.end27
 
@@ -12735,7 +12735,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @local(i64 noundef %u) unnamed_addr #0 {
+define internal fastcc range(i64 -193404524822528, 193404524732468) i64 @local(i64 noundef %u) unnamed_addr #0 {
 entry:
   %local_time = alloca %struct.tm, align 8
   %sub = add i64 %u, -62135683200
@@ -12838,7 +12838,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond, ptr nocapture noundef writeonly %tzoffset, ptr nocapture noundef %tzmicrosecond) unnamed_addr #8 {
+define internal fastcc range(i32 -2147483648, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond, ptr nocapture noundef writeonly %tzoffset, ptr nocapture noundef %tzmicrosecond) unnamed_addr #8 {
 entry:
   %tzhour = alloca i32, align 4
   %tzminute = alloca i32, align 4
@@ -12858,11 +12858,11 @@ do.body:                                          ; preds = %do.cond, %entry
 do.cond:                                          ; preds = %do.body
   %incdec.ptr = getelementptr i8, ptr %tzinfo_pos.0, i64 1
   %cmp9 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !19
+  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %do.body, %do.body, %do.body, %do.cond
   %tzinfo_pos.1 = phi ptr [ %tzinfo_pos.0, %do.body ], [ %incdec.ptr, %do.cond ], [ %tzinfo_pos.0, %do.body ], [ %tzinfo_pos.0, %do.body ]
-  %call = tail call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %dtstr, ptr noundef %tzinfo_pos.1, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond), !range !20
+  %call = tail call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %dtstr, ptr noundef %tzinfo_pos.1, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond)
   %cmp11 = icmp slt i32 %call, 0
   br i1 %cmp11, label %return, label %if.else
 
@@ -12895,7 +12895,7 @@ if.end33:                                         ; preds = %if.end22
   store i32 0, ptr %tzhour, align 4
   store i32 0, ptr %tzminute, align 4
   store i32 0, ptr %tzsecond, align 4
-  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef nonnull %tzhour, ptr noundef nonnull %tzminute, ptr noundef nonnull %tzsecond, ptr noundef %tzmicrosecond), !range !20
+  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef nonnull %tzhour, ptr noundef nonnull %tzminute, ptr noundef nonnull %tzsecond, ptr noundef %tzmicrosecond)
   %3 = load i32, ptr %tzhour, align 4
   %mul = mul i32 %3, 3600
   %4 = load i32, ptr %tzminute, align 4
@@ -13081,7 +13081,7 @@ declare ptr @_PyUnicode_Copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_WriteChar(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond) unnamed_addr #8 {
+define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond) unnamed_addr #8 {
 entry:
   %vals = alloca [3 x ptr], align 16
   store i32 0, ptr %microsecond, align 4
@@ -13120,7 +13120,7 @@ if.end.i:                                         ; preds = %for.body.i
   store i32 %add.i, ptr %0, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 2
-  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !6
 
 parse_digits.exit:                                ; preds = %if.end.i
   %cmp2 = icmp eq ptr %incdec.ptr.i, null
@@ -13159,7 +13159,7 @@ for.inc:                                          ; preds = %if.else28, %if.else
   %p.1 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.i, %if.else28 ]
   %inc = add nuw nsw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %if.else20, %for.inc
   %p.2 = phi ptr [ %incdec.ptr, %if.else20 ], [ %p.1, %for.inc ]
@@ -13187,7 +13187,7 @@ if.end.i35:                                       ; preds = %for.body.i29
   store i32 %add.i38, ptr %microsecond, align 4
   %inc.i39 = add nuw i64 %i.07.i30, 1
   %exitcond.not.i40 = icmp eq i64 %inc.i39, %spec.store.select
-  br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !9
+  br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !6
 
 parse_digits.exit42:                              ; preds = %if.end.i35, %for.end
   %retval.0.i41 = phi ptr [ %p.2, %for.end ], [ %incdec.ptr.i36, %if.end.i35 ]
@@ -13217,7 +13217,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %10 = add nsw i32 %conv.i43, -58
   %cmp.i = icmp ult i32 %10, -10
   %incdec.ptr53 = getelementptr i8, ptr %p.3, i64 1
-  br i1 %cmp.i, label %while.end, label %while.cond, !llvm.loop !22
+  br i1 %cmp.i, label %while.end, label %while.cond, !llvm.loop !15
 
 while.end:                                        ; preds = %while.cond
   %cmp55 = icmp ne i8 %9, 0
@@ -13331,14 +13331,14 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
 
 utc_to_seconds.exit:                              ; preds = %if.then.i, %ymd_to_ord.exit.i
   %retval.0.i = phi i64 [ -1, %if.then.i ], [ %add9.i, %ymd_to_ord.exit.i ]
-  %call1 = tail call fastcc i64 @local(i64 noundef %retval.0.i), !range !18
+  %call1 = tail call fastcc i64 @local(i64 noundef %retval.0.i)
   %cmp = icmp eq i64 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %utc_to_seconds.exit
   %sub = sub nsw i64 %call1, %retval.0.i
   %sub2 = sub nsw i64 %retval.0.i, %sub
-  %call3 = tail call fastcc i64 @local(i64 noundef %sub2), !range !18
+  %call3 = tail call fastcc i64 @local(i64 noundef %sub2)
   %cmp4 = icmp eq i64 %call3, -1
   br i1 %cmp4, label %return, label %if.end6
 
@@ -13350,7 +13350,7 @@ if.then8:                                         ; preds = %if.end6
   %tobool.not = icmp eq i32 %fold, 0
   %u2.0.v = select i1 %tobool.not, i64 -86400, i64 86400
   %u2.0 = add nsw i64 %sub2, %u2.0.v
-  %call12 = tail call fastcc i64 @local(i64 noundef %u2.0), !range !18
+  %call12 = tail call fastcc i64 @local(i64 noundef %u2.0)
   %cmp13 = icmp eq i64 %call12, -1
   br i1 %cmp13, label %return, label %if.end15
 
@@ -13366,7 +13366,7 @@ if.else20:                                        ; preds = %if.end6
 if.end22:                                         ; preds = %if.end15, %if.else20
   %b.0 = phi i64 [ %sub16, %if.end15 ], [ %sub21, %if.else20 ]
   %sub23 = sub nsw i64 %retval.0.i, %b.0
-  %call24 = tail call fastcc i64 @local(i64 noundef %sub23), !range !18
+  %call24 = tail call fastcc i64 @local(i64 noundef %sub23)
   %cmp25 = icmp eq i64 %call24, -1
   br i1 %cmp25, label %return, label %if.end27
 
@@ -15347,7 +15347,7 @@ if.then29:                                        ; preds = %if.then26
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %given_spec.025, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !16
 
 if.then35:                                        ; preds = %for.inc
   %5 = load ptr, ptr @PyExc_ValueError, align 8
@@ -15701,7 +15701,7 @@ if.end8:                                          ; preds = %if.then7, %if.end4
   store i32 0, ptr %microsecond, align 4
   store i32 0, ptr %tzoffset, align 4
   store i32 0, ptr %tzimicrosecond, align 4
-  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzimicrosecond), !range !16
+  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzimicrosecond)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %invalid_string_error, label %if.end13
 
@@ -16785,7 +16785,7 @@ if.then:                                          ; preds = %entry, %PyObject_Ty
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i20 = icmp eq ptr %call.i, null
   br i1 %cmp.i20, label %if.end26, label %if.end.i21
 
@@ -16849,7 +16849,7 @@ if.else11:                                        ; preds = %PyObject_TypeCheck.
   br i1 %tobool14.not, label %if.else17, label %if.then15
 
 if.then15:                                        ; preds = %if.else11
-  %call.i31 = tail call fastcc ptr @delta_to_microseconds(ptr noundef %right)
+  %call.i31 = tail call fastcc ptr @delta_to_microseconds(ptr noundef readonly %right)
   %cmp.i32 = icmp eq ptr %call.i31, null
   br i1 %cmp.i32, label %if.end26, label %if.end.i33
 
@@ -17346,7 +17346,7 @@ if.then:                                          ; preds = %entry, %PyObject_Ty
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i12 = icmp eq ptr %call.i, null
   br i1 %cmp.i12, label %if.end13, label %if.end.i13
 
@@ -17446,12 +17446,12 @@ PyObject_TypeCheck.exit20:                        ; preds = %if.then
   br i1 %tobool3.i18.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then, %PyObject_TypeCheck.exit20
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i21 = icmp eq ptr %call.i, null
   br i1 %cmp.i21, label %if.end19, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then3
-  %call1.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %right)
+  %call1.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %right)
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
@@ -17525,7 +17525,7 @@ if.else9:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool12.not, label %if.then18, label %if.then13
 
 if.then13:                                        ; preds = %if.else9
-  %call.i30 = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i30 = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i31 = icmp eq ptr %call.i30, null
   br i1 %cmp.i31, label %if.end19, label %if.end.i32
 
@@ -18400,21 +18400,14 @@ attributes #16 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
-!7 = !{i32 -6, i32 1}
-!8 = !{i32 -3, i32 1}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{ptr @_PyTime_gmtime, ptr @_PyTime_localtime}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -1, i32 2}
-!13 = !{ptr @_PyTime_gmtime, ptr @_PyTime_localtime}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 -2147483648, i32 2}
-!17 = distinct !{!17, !5}
-!18 = !{i64 -193404524822528, i64 193404524732468}
-!19 = distinct !{!19, !5}
-!20 = !{i32 -4, i32 2}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!16 = distinct !{!16, !5}

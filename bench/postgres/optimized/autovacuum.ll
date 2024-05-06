@@ -2091,7 +2091,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @db_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @db_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2800,7 +2800,7 @@ extract_autovac_opts.exit.i:                      ; preds = %293
   %321 = load i8, ptr %320, align 1
   %322 = trunc i8 %321 to i1
   %323 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %322, i32 noundef %319) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull writeonly %3, ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5)
   %324 = load i8, ptr %318, align 1
   %325 = icmp eq i8 %324, 116
   br i1 %325, label %recheck_relation_needs_vacanalyze.exit.thread.i, label %recheck_relation_needs_vacanalyze.exit.i

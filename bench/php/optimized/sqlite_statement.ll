@@ -45,7 +45,7 @@ define internal noundef i32 @pdo_sqlite_stmt_dtor(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -124,7 +124,7 @@ define internal noundef i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %1, i64 %2) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -182,7 +182,7 @@ define internal noundef i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %1, i64 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -234,7 +234,7 @@ define internal noundef i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -396,7 +396,7 @@ define internal noundef i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %cond = icmp eq i32 %2, 2
@@ -674,7 +674,7 @@ define internal i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_get_attribute(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_attribute(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %cond = icmp eq i64 %1, 1001
   br i1 %cond, label %4, label %12
 
@@ -699,7 +699,7 @@ define internal noundef i32 @pdo_sqlite_stmt_get_attribute(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

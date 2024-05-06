@@ -18,7 +18,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 17179869184
   %6 = ashr exact i64 %5, 32
@@ -40,7 +40,7 @@ define noundef i64 @_Z18fast_rv64i_fence_iP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 17179869184
   %6 = ashr exact i64 %5, 32
@@ -60,7 +60,7 @@ define noundef i64 @_Z20logged_rv64i_fence_iP11processor_t6insn_tm(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 17179869184
   %6 = ashr exact i64 %5, 32
@@ -80,7 +80,7 @@ define noundef i64 @_Z18fast_rv64e_fence_iP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fence_iP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 17179869184
   %6 = ashr exact i64 %5, 32

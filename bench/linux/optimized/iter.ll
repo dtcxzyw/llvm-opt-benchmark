@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @trace_iomap_iter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace552, ptr @trace_iomap_iter.__UNIQUE_ID___addressable___SCK__tp_func_iomap_iter551, ptr @trace_iomap_iter_dstmap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace510, ptr @trace_iomap_iter_dstmap.__UNIQUE_ID___addressable___SCK__tp_func_iomap_iter_dstmap509, ptr @trace_iomap_iter_srcmap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace524, ptr @trace_iomap_iter_srcmap.__UNIQUE_ID___addressable___SCK__tp_func_iomap_iter_srcmap523], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iomap_iter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8

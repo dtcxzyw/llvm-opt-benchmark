@@ -215,7 +215,7 @@ if.end67:                                         ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 56
@@ -331,7 +331,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -602,7 +602,7 @@ return:                                           ; preds = %entry, %if.end174, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -867,7 +867,7 @@ return:                                           ; preds = %entry, %if.end171, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1025,7 +1025,7 @@ while.end82:                                      ; preds = %while.body67, %if.e
 if.then84:                                        ; preds = %while.end82
   %div101 = lshr i64 %len.addr.2.lcssa, 4
   tail call void %stream(ptr noundef %in.addr.2.lcssa, ptr noundef %out.addr.2.lcssa, i64 noundef %div101, ptr noundef %1, ptr noundef nonnull %ctx) #6
-  %conv87 = trunc i64 %div101 to i32
+  %conv87 = trunc nuw nsw i64 %div101 to i32
   %add88 = add i32 %ctr.0.lcssa, %conv87
   %14 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %add88) #7, !srcloc !37
   store i32 %14, ptr %arrayidx22, align 4
@@ -1090,7 +1090,7 @@ return:                                           ; preds = %entry, %if.end135, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1253,7 +1253,7 @@ if.then84:                                        ; preds = %while.end82
   %Htable89 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %14(ptr noundef nonnull %Xi87, ptr noundef nonnull %Htable89, ptr noundef %in.addr.2.lcssa, i64 noundef %and) #6
   tail call void %stream(ptr noundef %in.addr.2.lcssa, ptr noundef %out.addr.2.lcssa, i64 noundef %div101, ptr noundef %1, ptr noundef nonnull %ctx) #6
-  %conv93 = trunc i64 %div101 to i32
+  %conv93 = trunc nuw nsw i64 %div101 to i32
   %add94 = add i32 %ctr.0.lcssa, %conv93
   %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %add94) #7, !srcloc !44
   store i32 %15, ptr %arrayidx22, align 4

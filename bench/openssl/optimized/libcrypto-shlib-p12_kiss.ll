@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_parse(ptr noundef %p12, ptr noundef %pass, ptr noundef %pkey, ptr noundef %cert, ptr noundef %ca) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_parse(ptr noundef %p12, ptr noundef %pass, ptr noundef %pkey, ptr noundef %cert, ptr noundef %ca) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pkey, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -375,7 +375,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @PKCS7_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_bags(ptr noundef %bags, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %bags, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %data47.i = alloca ptr, align 8
   %call112 = tail call i32 @OPENSSL_sk_num(ptr noundef %bags) #3

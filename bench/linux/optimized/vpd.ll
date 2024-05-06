@@ -1243,7 +1243,7 @@ declare dso_local i32 @mutex_lock_killable(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @pci_user_write_config_word(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pci_vpd_wait(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = load volatile i64, ptr @jiffies, align 64
   %5 = add i64 %4, 125

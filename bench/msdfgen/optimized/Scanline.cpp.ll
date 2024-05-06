@@ -703,7 +703,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen8Scanline18countIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7msdfgen8Scanline18countIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -1732,7 +1732,7 @@ declare dso_local i32 @component_add_typed(ptr noundef, ptr noundef, i32 noundef
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_audio_component_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -17, 1) i32 @i915_audio_component_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2065,7 +2065,7 @@ define internal i32 @i915_audio_component_get_cdclk_freq(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_audio_component_sync_audio_rate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_audio_component_sync_audio_rate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 3464
@@ -2146,7 +2146,7 @@ define internal noundef i32 @i915_audio_component_sync_audio_rate(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_audio_component_get_eld(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #0 align 16 {
+define internal range(i32 -22, 1025) i32 @i915_audio_component_get_eld(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 3480

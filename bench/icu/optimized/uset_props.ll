@@ -258,7 +258,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet18applyPropertyAliasERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uset_resemblesPattern_75(ptr noundef %pattern, i32 noundef %patternLength, i32 noundef %pos) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @uset_resemblesPattern_75(ptr noundef %pattern, i32 noundef %patternLength, i32 noundef %pos) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %pat = alloca %"class.icu_75::UnicodeString", align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef %pattern, i32 noundef %patternLength)

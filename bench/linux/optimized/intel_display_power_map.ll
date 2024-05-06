@@ -451,7 +451,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.compoundliteral.311 = internal constant [7 x i32] [i32 1, i32 2, i32 5, i32 6, i32 9, i32 10, i32 75], align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_display_power_map_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_display_power_map_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -114
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
@@ -625,7 +625,7 @@ define dso_local noundef i32 @intel_display_power_map_init(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__set_power_wells(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = ptrtoint ptr %1 to i64
   %5 = zext nneg i32 %2 to i64
   br label %6

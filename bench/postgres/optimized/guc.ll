@@ -580,7 +580,7 @@ set_guc_source.exit:                              ; preds = %124
 
 ._crit_edge256:                                   ; preds = %140, %134
   %141 = load ptr, ptr %101, align 8
-  %142 = call noundef i32 @set_config_with_handle(ptr noundef %141, ptr noundef null, ptr noundef null, i32 noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %142 = call i32 @set_config_with_handle(ptr noundef %141, ptr noundef null, ptr noundef null, i32 noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %143 = icmp sgt i32 %142, 0
   %or.cond26 = and i1 %97, %143
   br i1 %or.cond26, label %144, label %.backedge
@@ -603,9 +603,9 @@ set_guc_source.exit:                              ; preds = %124
 
 150:                                              ; preds = %._crit_edge261
   call fastcc void @InitializeGUCOptionsFromEnvironment()
-  %151 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %151 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %152 = call ptr @GetDatabaseEncodingName() #28
-  %153 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef %152, i32 noundef 4, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %153 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef %152, i32 noundef 4, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %154
 
 154:                                              ; preds = %._crit_edge261, %150
@@ -643,7 +643,7 @@ set_guc_source.exit:                              ; preds = %124
   %167 = load ptr, ptr %.2169267, align 8
   %168 = getelementptr inbounds i8, ptr %.2169267, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = call noundef i32 @set_config_with_handle(ptr noundef %167, ptr noundef null, ptr noundef %169, i32 noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0, i1 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %170 = call i32 @set_config_with_handle(ptr noundef %167, ptr noundef null, ptr noundef %169, i32 noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0, i1 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false)
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %172, label %183
 
@@ -713,7 +713,7 @@ set_guc_source.exit:                              ; preds = %124
   %200 = getelementptr inbounds i8, ptr %.2169267, i64 40
   %.2169 = load ptr, ptr %200, align 8
   %.not189 = icmp eq ptr %.2169, null
-  br i1 %.not189, label %._crit_edge270, label %.lr.ph269, !llvm.loop !14
+  br i1 %.not189, label %._crit_edge270, label %.lr.ph269, !llvm.loop !13
 
 ._crit_edge270:                                   ; preds = %199, %154
   %.2161.lcssa = phi ptr [ %.0159.lcssa278, %154 ], [ %.4163, %199 ]
@@ -830,7 +830,7 @@ define dso_local ptr @find_option(ptr noundef %0, i1 noundef zeroext %1, i1 noun
   %26 = or disjoint i8 %18, 32
   %.0.i = select i1 %or.cond5.i, i8 %26, i8 %18
   %.not32.i = icmp eq i8 %spec.select.i, %.0.i
-  br i1 %.not32.i, label %16, label %27, !llvm.loop !15
+  br i1 %.not32.i, label %16, label %27, !llvm.loop !14
 
 27:                                               ; preds = %20
   %28 = sext i8 %.0.i to i32
@@ -860,7 +860,7 @@ guc_name_compare.exit:                            ; preds = %27, %31
 guc_name_compare.exit.thread:                     ; preds = %19, %guc_name_compare.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not26 = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not26, label %39, label %13, !llvm.loop !16
+  br i1 %.not26, label %39, label %13, !llvm.loop !15
 
 39:                                               ; preds = %guc_name_compare.exit.thread
   br i1 %1, label %40, label %81
@@ -888,7 +888,7 @@ guc_name_compare.exit.thread:                     ; preds = %19, %guc_name_compa
 
 guc_malloc.exit.i:                                ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %45, i8 0, i64 208, i1 false)
-  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #29
+  %52 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %43) #29
   %53 = add i64 %52, 1
   %54 = load ptr, ptr @GUCMemoryContext, align 8
   %55 = call ptr @MemoryContextAllocExtended(ptr noundef %54, i64 noundef %53, i32 noundef 2) #28
@@ -911,7 +911,7 @@ guc_free.exit.i:                                  ; preds = %59, %57
   br label %add_placeholder_variable.exit
 
 62:                                               ; preds = %guc_malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %43, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr readonly align 1 %43, i64 %53, i1 false)
   store ptr %55, ptr %45, align 8
   %63 = getelementptr inbounds i8, ptr %45, i64 8
   store i32 6, ptr %63, align 8
@@ -1053,7 +1053,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @set_config_option(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @set_config_option(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = icmp ugt i32 %3, 10
   %10 = icmp eq i32 %3, 9
   %or.cond = or i1 %9, %10
@@ -1065,7 +1065,7 @@ define dso_local noundef i32 @set_config_option(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %8, %11
   %.0 = phi i32 [ %12, %11 ], [ 10, %8 ]
-  %14 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7), !range !13
+  %14 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7)
   ret i32 %14
 }
 
@@ -1077,7 +1077,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %4 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -1086,7 +1086,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not17, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %8 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -1095,7 +1095,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not18, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %12 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -1110,7 +1110,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   %. = select i1 %18, i64 %17, i64 2048
   %.19 = select i1 %18, i32 2, i32 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 16, ptr noundef nonnull @.str.106, i64 noundef %.) #28
-  %20 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.107, ptr noundef null, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %.19, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %20 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.107, ptr noundef null, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %.19, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %21
 
 21:                                               ; preds = %15, %13
@@ -1130,7 +1130,7 @@ define dso_local void @SetConfigOption(ptr noundef %0, ptr noundef %1, i32 nound
 
 set_config_option.exit:                           ; preds = %4, %7
   %.0.i = phi i32 [ %8, %7 ], [ 10, %4 ]
-  %9 = tail call noundef i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %9 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   ret void
 }
 
@@ -1211,7 +1211,7 @@ define dso_local ptr @GetConfigOption(ptr noundef %0, i1 noundef zeroext %1, i1 
 43:                                               ; preds = %46
   %44 = getelementptr i8, ptr %.012.i, i64 16
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %37, %43
   %.012.i = phi ptr [ %44, %43 ], [ %42, %37 ]
@@ -1248,7 +1248,7 @@ define internal fastcc void @set_config_sourcefile(ptr noundef %0, ptr nocapture
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @GUCMemoryContext, align 8
   %13 = tail call ptr @MemoryContextAllocExtended(ptr noundef %12, i64 noundef %11, i32 noundef 2) #28
@@ -1266,7 +1266,7 @@ define internal fastcc void @set_config_sourcefile(ptr noundef %0, ptr nocapture
   br label %guc_strdup.exit
 
 guc_malloc.exit.i:                                ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %1, i64 %11, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %15, %17, %guc_malloc.exit.i
@@ -1424,7 +1424,7 @@ define dso_local ptr @get_guc_variables(ptr nocapture noundef %0) local_unnamed_
   store ptr %12, ptr %15, align 8
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %2) #28
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %17 = load i32, ptr %0, align 4
@@ -1440,7 +1440,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @guc_var_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -255, 256) i32 @guc_var_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %3, align 8
@@ -1471,7 +1471,7 @@ define internal i32 @guc_var_compare(ptr nocapture noundef readonly %0, ptr noca
   %17 = or disjoint i8 %9, 32
   %.0.i = select i1 %or.cond5.i, i8 %17, i8 %9
   %.not32.i = icmp eq i8 %spec.select.i, %.0.i
-  br i1 %.not32.i, label %7, label %18, !llvm.loop !15
+  br i1 %.not32.i, label %7, label %18, !llvm.loop !14
 
 18:                                               ; preds = %11
   %19 = sext i8 %.0.i to i32
@@ -1516,7 +1516,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %11 = getelementptr [0 x %struct.config_bool], ptr @ConfigureNamesBool, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.preheader77, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.preheader77, label %.lr.ph, !llvm.loop !18
 
 .preheader76:                                     ; preds = %.lr.ph84, %.preheader77
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader77 ], [ %16, %.lr.ph84 ]
@@ -1536,7 +1536,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %19 = getelementptr [0 x %struct.config_int], ptr @ConfigureNamesInt, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not62 = icmp eq ptr %20, null
-  br i1 %.not62, label %.preheader76, label %.lr.ph84, !llvm.loop !20
+  br i1 %.not62, label %.preheader76, label %.lr.ph84, !llvm.loop !19
 
 .preheader75:                                     ; preds = %.lr.ph89, %.preheader76
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader76 ], [ %24, %.lr.ph89 ]
@@ -1556,7 +1556,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %27 = getelementptr [0 x %struct.config_real], ptr @ConfigureNamesReal, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not63 = icmp eq ptr %28, null
-  br i1 %.not63, label %.preheader75, label %.lr.ph89, !llvm.loop !21
+  br i1 %.not63, label %.preheader75, label %.lr.ph89, !llvm.loop !20
 
 .preheader74:                                     ; preds = %.lr.ph94, %.preheader75
   %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader75 ], [ %32, %.lr.ph94 ]
@@ -1576,7 +1576,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %35 = getelementptr [0 x %struct.config_string], ptr @ConfigureNamesString, i64 0, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not64 = icmp eq ptr %36, null
-  br i1 %.not64, label %.preheader74, label %.lr.ph94, !llvm.loop !22
+  br i1 %.not64, label %.preheader74, label %.lr.ph94, !llvm.loop !21
 
 .lr.ph99:                                         ; preds = %.preheader74, %.lr.ph99
   %37 = phi ptr [ %42, %.lr.ph99 ], [ @ConfigureNamesEnum, %.preheader74 ]
@@ -1590,7 +1590,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %42 = getelementptr [0 x %struct.config_enum], ptr @ConfigureNamesEnum, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %.not65 = icmp eq ptr %43, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph99, !llvm.loop !23
+  br i1 %.not65, label %._crit_edge, label %.lr.ph99, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph99, %.preheader74
   %.4.lcssa = phi i32 [ %.3.lcssa, %.preheader74 ], [ %39, %.lr.ph99 ]
@@ -1630,7 +1630,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %61 = getelementptr [0 x %struct.config_bool], ptr @ConfigureNamesBool, i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not66 = icmp eq ptr %62, null
-  br i1 %.not66, label %.preheader73, label %.lr.ph104, !llvm.loop !24
+  br i1 %.not66, label %.preheader73, label %.lr.ph104, !llvm.loop !23
 
 .preheader72:                                     ; preds = %.lr.ph107, %.preheader73
   %63 = load ptr, ptr @ConfigureNamesReal, align 8
@@ -1649,7 +1649,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %70 = getelementptr [0 x %struct.config_int], ptr @ConfigureNamesInt, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
   %.not67 = icmp eq ptr %71, null
-  br i1 %.not67, label %.preheader72, label %.lr.ph107, !llvm.loop !25
+  br i1 %.not67, label %.preheader72, label %.lr.ph107, !llvm.loop !24
 
 .preheader71:                                     ; preds = %.lr.ph110, %.preheader72
   %72 = load ptr, ptr @ConfigureNamesString, align 8
@@ -1668,7 +1668,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %79 = getelementptr [0 x %struct.config_real], ptr @ConfigureNamesReal, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   %.not68 = icmp eq ptr %80, null
-  br i1 %.not68, label %.preheader71, label %.lr.ph110, !llvm.loop !26
+  br i1 %.not68, label %.preheader71, label %.lr.ph110, !llvm.loop !25
 
 .preheader:                                       ; preds = %.lr.ph113, %.preheader71
   %81 = load ptr, ptr @ConfigureNamesEnum, align 8
@@ -1687,7 +1687,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %88 = getelementptr [0 x %struct.config_string], ptr @ConfigureNamesString, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   %.not69 = icmp eq ptr %89, null
-  br i1 %.not69, label %.preheader, label %.lr.ph113, !llvm.loop !27
+  br i1 %.not69, label %.preheader, label %.lr.ph113, !llvm.loop !26
 
 .lr.ph116:                                        ; preds = %.preheader, %.lr.ph116
   %90 = phi ptr [ %96, %.lr.ph116 ], [ @ConfigureNamesEnum, %.preheader ]
@@ -1701,7 +1701,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %96 = getelementptr [0 x %struct.config_enum], ptr @ConfigureNamesEnum, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %.not70 = icmp eq ptr %97, null
-  br i1 %.not70, label %._crit_edge117, label %.lr.ph116, !llvm.loop !28
+  br i1 %.not70, label %._crit_edge117, label %.lr.ph116, !llvm.loop !27
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
   ret void
@@ -1730,7 +1730,7 @@ define internal i32 @guc_name_hash(ptr nocapture noundef readonly %0, i64 %1) #6
   %11 = xor i32 %9, %10
   %12 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.012.lcssa = phi i32 [ 0, %2 ], [ %11, %.lr.ph ]
@@ -1738,7 +1738,7 @@ define internal i32 @guc_name_hash(ptr nocapture noundef readonly %0, i64 %1) #6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @guc_name_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #6 {
+define internal range(i32 -255, 256) i32 @guc_name_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   br label %6
@@ -1767,7 +1767,7 @@ define internal i32 @guc_name_match(ptr nocapture noundef readonly %0, ptr nocap
   %16 = or disjoint i8 %8, 32
   %.0.i = select i1 %or.cond5.i, i8 %16, i8 %8
   %.not32.i = icmp eq i8 %spec.select.i, %.0.i
-  br i1 %.not32.i, label %6, label %17, !llvm.loop !15
+  br i1 %.not32.i, label %6, label %17, !llvm.loop !14
 
 17:                                               ; preds = %10
   %18 = sext i8 %.0.i to i32
@@ -1790,7 +1790,7 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @guc_name_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define dso_local range(i32 -255, 256) i32 @guc_name_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1817,7 +1817,7 @@ define dso_local i32 @guc_name_compare(ptr nocapture noundef readonly %0, ptr no
   %13 = or disjoint i8 %5, 32
   %.0 = select i1 %or.cond5, i8 %13, i8 %5
   %.not32 = icmp eq i8 %spec.select, %.0
-  br i1 %.not32, label %3, label %14, !llvm.loop !15
+  br i1 %.not32, label %3, label %14, !llvm.loop !14
 
 14:                                               ; preds = %7
   %15 = sext i8 %.0 to i32
@@ -2013,7 +2013,7 @@ define dso_local noundef ptr @convert_GUC_name_for_parameter_acl(ptr noundef %0)
   %15 = or disjoint i8 %7, 32
   %.0.i = select i1 %or.cond5.i, i8 %15, i8 %7
   %.not32.i = icmp eq i8 %spec.select.i, %.0.i
-  br i1 %.not32.i, label %5, label %16, !llvm.loop !15
+  br i1 %.not32.i, label %5, label %16, !llvm.loop !14
 
 16:                                               ; preds = %9
   %17 = sext i8 %.0.i to i32
@@ -2042,7 +2042,7 @@ guc_name_compare.exit:                            ; preds = %16, %20
 guc_name_compare.exit.thread:                     ; preds = %8, %guc_name_compare.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not, label %.loopexit, label %2, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %2, !llvm.loop !29
 
 .loopexit:                                        ; preds = %guc_name_compare.exit.thread, %22
   %.018 = phi ptr [ %26, %22 ], [ %0, %guc_name_compare.exit.thread ]
@@ -2067,7 +2067,7 @@ guc_name_compare.exit.thread:                     ; preds = %8, %guc_name_compar
   %34 = getelementptr i8, ptr %.028, i64 1
   %35 = load i8, ptr %34, align 1
   %.not21 = icmp eq i8 %35, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %33, %.loopexit
   ret ptr %27
@@ -2105,13 +2105,13 @@ define dso_local void @InitializeGUCOptions() local_unnamed_addr #0 {
   call fastcc void @InitializeOneGUCOption(ptr noundef %6)
   %7 = call ptr @hash_seq_search(ptr noundef nonnull %1) #28
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i1 false, ptr @reporting_enabled, align 1
-  %8 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
-  %9 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
-  %10 = call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %8 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %9 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %10 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   call fastcc void @InitializeGUCOptionsFromEnvironment()
   ret void
 }
@@ -2278,7 +2278,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   br i1 %.not69, label %guc_strdup.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #29
+  %89 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %87) #29
   %90 = add i64 %89, 1
   %91 = load ptr, ptr @GUCMemoryContext, align 8
   %92 = tail call ptr @MemoryContextAllocExtended(ptr noundef %91, i64 noundef %90, i32 noundef 2) #28
@@ -2294,7 +2294,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %87, i64 %90, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull readonly align 1 %87, i64 %90, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, %85
@@ -2457,13 +2457,13 @@ define dso_local noundef zeroext i1 @SelectConfigFiles(ptr noundef %0, ptr nound
 33:                                               ; preds = %.thread, %19
   %34 = phi ptr [ %21, %.thread ], [ %20, %19 ]
   %35 = tail call ptr @make_absolute_path(ptr noundef nonnull %34) #28
-  %36 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %35, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %36 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %35, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %35) #28
   br label %guc_free.exit
 
 37:                                               ; preds = %22
   %38 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.27) #28
-  %39 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %39 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %26) #28
   br label %guc_free.exit
 
@@ -2501,9 +2501,9 @@ guc_free.exit:                                    ; preds = %37, %33
   %.mux = select i1 %.not55, ptr %51, ptr %.045
   tail call void @SetDataDir(ptr noundef nonnull %.mux) #28
   %55 = load ptr, ptr @DataDir, align 8
-  %56 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %55, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %56 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %55, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @ProcessConfigFile(i32 noundef 1) #28
-  %57 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %57 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %58 = load ptr, ptr @HbaFileName, align 8
   %.not56.not = icmp eq ptr %58, null
   br i1 %.not56.not, label %59, label %guc_free.exit60
@@ -2534,7 +2534,7 @@ guc_free.exit:                                    ; preds = %37, %33
 
 guc_free.exit60:                                  ; preds = %54
   %72 = tail call ptr @make_absolute_path(ptr noundef nonnull %58) #28
-  %73 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %72, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %73 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %72, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %72) #28
   %74 = load ptr, ptr @IdentFileName, align 8
   %.not57.not = icmp eq ptr %74, null
@@ -2542,7 +2542,7 @@ guc_free.exit60:                                  ; preds = %54
 
 guc_free.exit60.thread:                           ; preds = %60
   %75 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %64, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.32) #28
-  %76 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %64, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %76 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %64, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %64) #28
   %77 = load ptr, ptr @IdentFileName, align 8
   %.not57.not81 = icmp eq ptr %77, null
@@ -2575,13 +2575,13 @@ guc_free.exit60.thread:                           ; preds = %60
 90:                                               ; preds = %guc_free.exit60.thread, %guc_free.exit60
   %91 = phi ptr [ %77, %guc_free.exit60.thread ], [ %74, %guc_free.exit60 ]
   %92 = tail call ptr @make_absolute_path(ptr noundef nonnull %91) #28
-  %93 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %92, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %93 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %92, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %92) #28
   br label %guc_free.exit63
 
 94:                                               ; preds = %.thread82
   %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %82, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.35) #28
-  %96 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %82, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %96 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %82, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %82) #28
   br label %guc_free.exit63
 
@@ -2809,7 +2809,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, %71
-  br i1 %97, label %set_extra_field.exit, label %89, !llvm.loop !33
+  br i1 %97, label %set_extra_field.exit, label %89, !llvm.loop !32
 
 98:                                               ; preds = %push_old_value.exit
   %99 = getelementptr i8, ptr %.sroa.0.0128, i64 88
@@ -2885,7 +2885,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %136 = getelementptr inbounds i8, ptr %.0.i.i93, i64 64
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, %114
-  br i1 %138, label %set_extra_field.exit, label %130, !llvm.loop !33
+  br i1 %138, label %set_extra_field.exit, label %130, !llvm.loop !32
 
 139:                                              ; preds = %push_old_value.exit
   %140 = getelementptr i8, ptr %.sroa.0.0128, i64 96
@@ -2968,7 +2968,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %181 = getelementptr inbounds i8, ptr %.0.i.i99, i64 64
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, %155
-  br i1 %183, label %set_extra_field.exit, label %175, !llvm.loop !33
+  br i1 %183, label %set_extra_field.exit, label %175, !llvm.loop !32
 
 184:                                              ; preds = %push_old_value.exit
   %185 = getelementptr i8, ptr %.sroa.0.0128, i64 80
@@ -3028,7 +3028,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %215 = getelementptr inbounds i8, ptr %.0.i.i105, i64 56
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, %197
-  br i1 %217, label %set_string_field.exit, label %209, !llvm.loop !34
+  br i1 %217, label %set_string_field.exit, label %209, !llvm.loop !33
 
 guc_free.exit.i107:                               ; preds = %209
   tail call void @pfree(ptr noundef nonnull %197) #28
@@ -3091,7 +3091,7 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
   %245 = getelementptr inbounds i8, ptr %.0.i.i110, i64 64
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, %221
-  br i1 %247, label %set_extra_field.exit, label %239, !llvm.loop !33
+  br i1 %247, label %set_extra_field.exit, label %239, !llvm.loop !32
 
 248:                                              ; preds = %push_old_value.exit
   %249 = getelementptr i8, ptr %.sroa.0.0128, i64 88
@@ -3167,7 +3167,7 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
   %286 = getelementptr inbounds i8, ptr %.0.i.i116, i64 64
   %287 = load ptr, ptr %286, align 8
   %288 = icmp eq ptr %287, %264
-  br i1 %288, label %set_extra_field.exit, label %280, !llvm.loop !33
+  br i1 %288, label %set_extra_field.exit, label %280, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %280, %239, %175, %130, %89
   %.sink = phi ptr [ %71, %89 ], [ %114, %130 ], [ %155, %175 ], [ %221, %239 ], [ %264, %280 ]
@@ -3252,7 +3252,7 @@ set_guc_source.exit:                              ; preds = %293, %dlist_push_ta
 
 select.unfold:                                    ; preds = %.lr.ph, %set_guc_source.exit, %314, %318, %9, %5
   %.not79 = icmp eq ptr %.sroa.6.0129, @guc_nondef_list
-  br i1 %.not79, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not79, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !34
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   ret void
@@ -3444,7 +3444,7 @@ define internal fastcc void @set_extra_field(ptr nocapture noundef readonly %0, 
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %4
-  br i1 %42, label %extra_field_used.exit.thread, label %34, !llvm.loop !33
+  br i1 %42, label %extra_field_used.exit.thread, label %34, !llvm.loop !32
 
 guc_free.exit:                                    ; preds = %34
   tail call void @pfree(ptr noundef nonnull %4) #28
@@ -3500,7 +3500,7 @@ define internal fastcc void @set_string_field(ptr nocapture noundef readonly %0,
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %4
-  br i1 %28, label %string_field_used.exit.thread, label %20, !llvm.loop !34
+  br i1 %28, label %string_field_used.exit.thread, label %20, !llvm.loop !33
 
 guc_free.exit:                                    ; preds = %20
   tail call void @pfree(ptr noundef nonnull %4) #28
@@ -3621,7 +3621,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   store i32 %.pre-phi, ptr %28, align 8
   %45 = load ptr, ptr %6, align 8
   %.not178.us = icmp eq ptr %45, null
-  br i1 %.not178.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %.not178.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !35
 
 .split.us:                                        ; preds = %35
   switch i32 %33, label %.thread259 [
@@ -3854,7 +3854,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %144 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, %119
-  br i1 %146, label %set_extra_field.exit, label %138, !llvm.loop !33
+  br i1 %146, label %set_extra_field.exit, label %138, !llvm.loop !32
 
 147:                                              ; preds = %101
   %148 = load ptr, ptr %9, align 8
@@ -3941,7 +3941,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %182 = getelementptr inbounds i8, ptr %.0.i.i199, i64 64
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, %157
-  br i1 %184, label %set_extra_field.exit, label %176, !llvm.loop !33
+  br i1 %184, label %set_extra_field.exit, label %176, !llvm.loop !32
 
 185:                                              ; preds = %101
   %186 = load ptr, ptr %9, align 8
@@ -4028,7 +4028,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %221 = getelementptr inbounds i8, ptr %.0.i.i205, i64 64
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, %196
-  br i1 %223, label %set_extra_field.exit, label %215, !llvm.loop !33
+  br i1 %223, label %set_extra_field.exit, label %215, !llvm.loop !32
 
 224:                                              ; preds = %101
   %225 = load ptr, ptr %9, align 8
@@ -4091,7 +4091,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %250 = getelementptr inbounds i8, ptr %.0.i.i211, i64 56
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, %233
-  br i1 %252, label %set_string_field.exit, label %.preheader310, !llvm.loop !34
+  br i1 %252, label %set_string_field.exit, label %.preheader310, !llvm.loop !33
 
 guc_free.exit.i213:                               ; preds = %.preheader310
   tail call void @pfree(ptr noundef nonnull %233) #28
@@ -4159,7 +4159,7 @@ set_string_field.exit:                            ; preds = %245, %249, %232, %2
   %278 = getelementptr inbounds i8, ptr %.0.i.i216, i64 64
   %279 = load ptr, ptr %278, align 8
   %280 = icmp eq ptr %279, %253
-  br i1 %280, label %set_extra_field.exit219, label %272, !llvm.loop !33
+  br i1 %280, label %set_extra_field.exit219, label %272, !llvm.loop !32
 
 guc_free.exit.i218:                               ; preds = %272
   tail call void @pfree(ptr noundef nonnull %253) #28
@@ -4205,7 +4205,7 @@ set_extra_field.exit219:                          ; preds = %277, %273, %guc_fre
   %298 = getelementptr inbounds i8, ptr %.0.i.i222, i64 56
   %299 = load ptr, ptr %298, align 8
   %300 = icmp eq ptr %299, %282
-  br i1 %300, label %set_string_field.exit225, label %.preheader309, !llvm.loop !34
+  br i1 %300, label %set_string_field.exit225, label %.preheader309, !llvm.loop !33
 
 guc_free.exit.i224:                               ; preds = %.preheader309
   tail call void @pfree(ptr noundef nonnull %282) #28
@@ -4250,7 +4250,7 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
   %318 = getelementptr inbounds i8, ptr %.0.i.i228, i64 56
   %319 = load ptr, ptr %318, align 8
   %320 = icmp eq ptr %319, %302
-  br i1 %320, label %set_extra_field.exit, label %.preheader, !llvm.loop !34
+  br i1 %320, label %set_extra_field.exit, label %.preheader, !llvm.loop !33
 
 321:                                              ; preds = %101
   %322 = load ptr, ptr %9, align 8
@@ -4337,7 +4337,7 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
   %356 = getelementptr inbounds i8, ptr %.0.i.i234, i64 64
   %357 = load ptr, ptr %356, align 8
   %358 = icmp eq ptr %357, %331
-  br i1 %358, label %set_extra_field.exit, label %350, !llvm.loop !33
+  br i1 %358, label %set_extra_field.exit, label %350, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %350, %.preheader, %215, %176, %138
   %.sink = phi ptr [ %119, %138 ], [ %157, %176 ], [ %196, %215 ], [ %302, %.preheader ], [ %331, %350 ]
@@ -4412,7 +4412,7 @@ set_extra_field.exit:                             ; preds = %355, %351, %317, %3
   %387 = getelementptr inbounds i8, ptr %.0.i.i240, i64 64
   %388 = load ptr, ptr %387, align 8
   %389 = icmp eq ptr %388, %360
-  br i1 %389, label %set_extra_field.exit243, label %381, !llvm.loop !33
+  br i1 %389, label %set_extra_field.exit243, label %381, !llvm.loop !32
 
 guc_free.exit.i242:                               ; preds = %381
   tail call void @pfree(ptr noundef nonnull %360) #28
@@ -4484,7 +4484,7 @@ set_extra_field.exit243:                          ; preds = %382, %386, %set_ext
   %418 = getelementptr inbounds i8, ptr %.0.i.i246, i64 64
   %419 = load ptr, ptr %418, align 8
   %420 = icmp eq ptr %419, %391
-  br i1 %420, label %set_extra_field.exit249, label %412, !llvm.loop !33
+  br i1 %420, label %set_extra_field.exit249, label %412, !llvm.loop !32
 
 guc_free.exit.i248:                               ; preds = %412
   tail call void @pfree(ptr noundef nonnull %391) #28
@@ -4586,12 +4586,12 @@ set_guc_source.exit:                              ; preds = %423, %dlist_push_ta
   %.sroa.0251.2341 = phi ptr [ %.sroa.0251.1.ph296, %.thread338 ], [ %.sroa.0251.2342, %448 ], [ %.sroa.0251.2342, %445 ], [ %.sroa.0251.2342, %442 ], [ %.sroa.0251.1.ph296, %441 ], [ %.sroa.8.0302, %440 ]
   %451 = load ptr, ptr %6, align 8
   %.not178280 = icmp eq ptr %451, null
-  br i1 %.not178280, label %.critedge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not178280, label %.critedge, label %.lr.ph, !llvm.loop !35
 
 .critedge:                                        ; preds = %.lr.ph.split, %.outer, %.lr.ph.split.us, %44, %.lr.ph305
   %.sroa.0251.1.ph.lcssa = phi ptr [ %storemerge304.sink, %.lr.ph305 ], [ %.sroa.0251.1.ph296, %44 ], [ %.sroa.0251.1.ph296, %.lr.ph.split.us ], [ %.sroa.0251.2341, %.outer ], [ %.sroa.0251.1.ph296, %.lr.ph.split ]
   %.not180 = icmp eq ptr %4, null
-  br i1 %.not180, label %._crit_edge, label %.lr.ph305, !llvm.loop !37
+  br i1 %.not180, label %._crit_edge, label %.lr.ph305, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   %452 = add i32 %1, -1
@@ -4651,7 +4651,7 @@ define internal fastcc void @discard_stack_value(ptr nocapture noundef readonly 
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %6
-  br i1 %30, label %set_string_field.exit, label %22, !llvm.loop !34
+  br i1 %30, label %set_string_field.exit, label %22, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %22
   tail call void @pfree(ptr noundef nonnull %6) #28
@@ -4730,7 +4730,7 @@ set_string_field.exit:                            ; preds = %27, %23, %guc_free.
   %67 = getelementptr inbounds i8, ptr %.0.i.i7, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %32
-  br i1 %69, label %set_extra_field.exit, label %61, !llvm.loop !33
+  br i1 %69, label %set_extra_field.exit, label %61, !llvm.loop !32
 
 guc_free.exit.i9:                                 ; preds = %61
   tail call void @pfree(ptr noundef nonnull %32) #28
@@ -4753,7 +4753,7 @@ define dso_local void @BeginReportingGUCOptions() local_unnamed_addr #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %6 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -4780,7 +4780,7 @@ define dso_local void @BeginReportingGUCOptions() local_unnamed_addr #0 {
 17:                                               ; preds = %16, %.lr.ph
   %18 = call ptr @hash_seq_search(ptr noundef nonnull %1) #28
   %.not3 = icmp eq ptr %18, null
-  br i1 %.not3, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not3, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %17, %7, %0
   ret void
@@ -4817,7 +4817,7 @@ define internal fastcc void @ReportGUCOption(ptr nocapture noundef %0) unnamed_a
   br label %guc_free.exit
 
 guc_free.exit:                                    ; preds = %9, %12
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
+  %13 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
   %14 = add i64 %13, 1
   %15 = load ptr, ptr @GUCMemoryContext, align 8
   %16 = call ptr @MemoryContextAllocExtended(ptr noundef %15, i64 noundef %14, i32 noundef 2) #28
@@ -4835,7 +4835,7 @@ guc_free.exit:                                    ; preds = %9, %12
   br label %guc_strdup.exit
 
 guc_malloc.exit.i:                                ; preds = %guc_free.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %3, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %3, i64 %14, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %18, %20, %guc_malloc.exit.i
@@ -4862,7 +4862,7 @@ define dso_local void @ReportChangedGUCOptions() local_unnamed_addr #0 {
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %7 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %8
 
 8:                                                ; preds = %6, %4, %1
@@ -4881,7 +4881,7 @@ define dso_local void @ReportChangedGUCOptions() local_unnamed_addr #0 {
   store i32 %14, ptr %12, align 8
   store ptr %10, ptr @guc_report_list, align 8
   %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %0
   ret void
@@ -5024,7 +5024,7 @@ define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef write
   %36 = and i16 %35, 8192
   %.not25 = icmp eq i16 %36, 0
   %37 = getelementptr i8, ptr %31, i64 1
-  br i1 %.not25, label %38, label %30, !llvm.loop !40
+  br i1 %.not25, label %38, label %30, !llvm.loop !39
 
 38:                                               ; preds = %30
   %.not26 = icmp eq i8 %32, 0
@@ -5130,7 +5130,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   store i8 %9, ptr %19, align 1
   %20 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %.critedge.loopexit, label %8, !llvm.loop !41
+  br i1 %.not, label %.critedge.loopexit, label %8, !llvm.loop !40
 
 .critedge.loopexit.split.loop.exit:               ; preds = %8
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5159,7 +5159,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %30 = and i16 %29, 8192
   %.not40 = icmp eq i16 %30, 0
   %31 = getelementptr i8, ptr %.1, i64 1
-  br i1 %.not40, label %32, label %25, !llvm.loop !42
+  br i1 %.not40, label %32, label %25, !llvm.loop !41
 
 32:                                               ; preds = %25
   %.not41 = icmp eq i8 %26, 0
@@ -5222,7 +5222,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %65 = getelementptr %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %64
   %66 = load i8, ptr %65, align 16
   %.not43 = icmp eq i8 %66, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph56, !llvm.loop !43
+  br i1 %.not43, label %.loopexit, label %.lr.ph56, !llvm.loop !42
 
 .loopexit:                                        ; preds = %62, %33, %32, %61
   %.037 = phi i1 [ true, %61 ], [ false, %32 ], [ false, %33 ], [ false, %62 ]
@@ -5281,7 +5281,7 @@ define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writ
   %27 = and i16 %26, 8192
   %.not19 = icmp eq i16 %27, 0
   %28 = getelementptr i8, ptr %22, i64 1
-  br i1 %.not19, label %29, label %21, !llvm.loop !44
+  br i1 %.not19, label %29, label %21, !llvm.loop !43
 
 29:                                               ; preds = %21
   %.not20 = icmp eq i8 %23, 0
@@ -5335,7 +5335,7 @@ define dso_local ptr @config_enum_lookup_by_value(ptr nocapture noundef readonly
 5:                                                ; preds = %8
   %6 = getelementptr i8, ptr %.012, i64 16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %2, %5
   %.012 = phi ptr [ %6, %5 ], [ %4, %2 ]
@@ -5387,7 +5387,7 @@ define dso_local noundef zeroext i1 @config_enum_lookup_by_name(ptr nocapture no
 13:                                               ; preds = %7
   %14 = getelementptr i8, ptr %.015, i64 16
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !44
 
 .critedge:                                        ; preds = %13, %.lr.ph, %3, %10
   %storemerge = phi i32 [ %12, %10 ], [ 0, %3 ], [ 0, %.lr.ph ], [ 0, %13 ]
@@ -5430,7 +5430,7 @@ define dso_local ptr @config_enum_get_options(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %11, %15
   %17 = getelementptr i8, ptr %.019, i64 16
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph, %16, %4
   %18 = getelementptr inbounds i8, ptr %5, i64 8
@@ -5464,7 +5464,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @set_config_with_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i32 noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i32 noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = alloca %union.config_var_val, align 8
   %12 = alloca ptr, align 8
   store ptr null, ptr %12, align 8
@@ -6008,7 +6008,7 @@ guc_free.exit:                                    ; preds = %162
   %253 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %254 = load ptr, ptr %253, align 8
   %255 = icmp eq ptr %254, %226
-  br i1 %255, label %set_extra_field.exit, label %247, !llvm.loop !33
+  br i1 %255, label %set_extra_field.exit, label %247, !llvm.loop !32
 
 guc_free.exit.i:                                  ; preds = %247
   call void @pfree(ptr noundef nonnull %226) #28
@@ -6025,7 +6025,7 @@ set_extra_field.exit:                             ; preds = %248, %252, %220, %2
 258:                                              ; preds = %217, %set_extra_field.exit
   %.0599 = load ptr, ptr %.0599768, align 8
   %.not679 = icmp eq ptr %.0599, null
-  br i1 %.not679, label %.loopexit, label %217, !llvm.loop !47
+  br i1 %.not679, label %.loopexit, label %217, !llvm.loop !46
 
 .loopexit:                                        ; preds = %258, %211, %199
   %259 = load ptr, ptr %12, align 8
@@ -6267,7 +6267,7 @@ guc_free.exit695:                                 ; preds = %285
   %370 = getelementptr inbounds i8, ptr %.0.i.i698, i64 64
   %371 = load ptr, ptr %370, align 8
   %372 = icmp eq ptr %371, %343
-  br i1 %372, label %set_extra_field.exit701, label %364, !llvm.loop !33
+  br i1 %372, label %set_extra_field.exit701, label %364, !llvm.loop !32
 
 guc_free.exit.i700:                               ; preds = %364
   call void @pfree(ptr noundef nonnull %343) #28
@@ -6284,7 +6284,7 @@ set_extra_field.exit701:                          ; preds = %365, %369, %338, %3
 375:                                              ; preds = %335, %set_extra_field.exit701
   %.0597 = load ptr, ptr %.0597764, align 8
   %.not671 = icmp eq ptr %.0597, null
-  br i1 %.not671, label %.loopexit747, label %335, !llvm.loop !48
+  br i1 %.not671, label %.loopexit747, label %335, !llvm.loop !47
 
 .loopexit747:                                     ; preds = %375, %329, %318
   %376 = load ptr, ptr %12, align 8
@@ -6526,7 +6526,7 @@ guc_free.exit705:                                 ; preds = %402
   %488 = getelementptr inbounds i8, ptr %.0.i.i708, i64 64
   %489 = load ptr, ptr %488, align 8
   %490 = icmp eq ptr %489, %461
-  br i1 %490, label %set_extra_field.exit711, label %482, !llvm.loop !33
+  br i1 %490, label %set_extra_field.exit711, label %482, !llvm.loop !32
 
 guc_free.exit.i710:                               ; preds = %482
   call void @pfree(ptr noundef nonnull %461) #28
@@ -6543,7 +6543,7 @@ set_extra_field.exit711:                          ; preds = %483, %487, %456, %4
 493:                                              ; preds = %453, %set_extra_field.exit711
   %.0591 = load ptr, ptr %.0591760, align 8
   %.not664 = icmp eq ptr %.0591, null
-  br i1 %.not664, label %.loopexit748, label %453, !llvm.loop !49
+  br i1 %.not664, label %.loopexit748, label %453, !llvm.loop !48
 
 .loopexit748:                                     ; preds = %493, %447, %436
   %494 = load ptr, ptr %12, align 8
@@ -6803,7 +6803,7 @@ guc_free.exit719:                                 ; preds = %542
   %613 = getelementptr inbounds i8, ptr %.0.i.i722, i64 56
   %614 = load ptr, ptr %613, align 8
   %615 = icmp eq ptr %614, %597
-  br i1 %615, label %set_string_field.exit, label %.preheader, !llvm.loop !34
+  br i1 %615, label %set_string_field.exit, label %.preheader, !llvm.loop !33
 
 guc_free.exit.i724:                               ; preds = %.preheader
   call void @pfree(ptr noundef nonnull %597) #28
@@ -6876,7 +6876,7 @@ set_string_field.exit:                            ; preds = %608, %612, %594, %5
   %645 = getelementptr inbounds i8, ptr %.0.i.i727, i64 64
   %646 = load ptr, ptr %645, align 8
   %647 = icmp eq ptr %646, %618
-  br i1 %647, label %set_extra_field.exit730, label %639, !llvm.loop !33
+  br i1 %647, label %set_extra_field.exit730, label %639, !llvm.loop !32
 
 guc_free.exit.i729:                               ; preds = %639
   call void @pfree(ptr noundef nonnull %618) #28
@@ -6893,7 +6893,7 @@ set_extra_field.exit730:                          ; preds = %640, %644, %set_str
 650:                                              ; preds = %591, %set_extra_field.exit730
   %.0584 = load ptr, ptr %.0584756, align 8
   %.not655 = icmp eq ptr %.0584, null
-  br i1 %.not655, label %.loopexit749, label %591, !llvm.loop !50
+  br i1 %.not655, label %.loopexit749, label %591, !llvm.loop !49
 
 .loopexit749:                                     ; preds = %650, %582, %571
   %651 = load ptr, ptr %11, align 8
@@ -7148,7 +7148,7 @@ guc_free.exit736:                                 ; preds = %681
   %766 = getelementptr inbounds i8, ptr %.0.i.i739, i64 64
   %767 = load ptr, ptr %766, align 8
   %768 = icmp eq ptr %767, %739
-  br i1 %768, label %set_extra_field.exit742, label %760, !llvm.loop !33
+  br i1 %768, label %set_extra_field.exit742, label %760, !llvm.loop !32
 
 guc_free.exit.i741:                               ; preds = %760
   call void @pfree(ptr noundef nonnull %739) #28
@@ -7165,7 +7165,7 @@ set_extra_field.exit742:                          ; preds = %761, %765, %734, %7
 771:                                              ; preds = %731, %set_extra_field.exit742
   %.0 = load ptr, ptr %.0753, align 8
   %.not646 = icmp eq ptr %.0, null
-  br i1 %.not646, label %.loopexit750, label %731, !llvm.loop !51
+  br i1 %.not646, label %.loopexit750, label %731, !llvm.loop !50
 
 .loopexit750:                                     ; preds = %771, %725, %714
   %772 = load ptr, ptr %12, align 8
@@ -7212,8 +7212,8 @@ guc_free.exit715:                                 ; preds = %690, %693, %547, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @set_config_option_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
-  %10 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8), !range !13
+define dso_local range(i32 -1, 2) i32 @set_config_option_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+  %10 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8)
   ret i32 %10
 }
 
@@ -7380,7 +7380,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
   br i1 %94, label %141, label %142
 
 95:                                               ; preds = %7
-  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
+  %96 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #29
   %97 = add i64 %96, 1
   %98 = load ptr, ptr @GUCMemoryContext, align 8
   %99 = tail call ptr @MemoryContextAllocExtended(ptr noundef %98, i64 noundef %97, i32 noundef 2) #28
@@ -7402,7 +7402,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
   br label %142
 
 106:                                              ; preds = %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr align 1 %2, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr readonly align 1 %2, i64 %97, i1 false)
   store ptr %99, ptr %5, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8
@@ -7453,7 +7453,7 @@ guc_free.exit:                                    ; preds = %115, %117
 125:                                              ; preds = %122
   %126 = getelementptr i8, ptr %.015.i, i64 16
   %.not.i160 = icmp eq ptr %126, null
-  br i1 %.not.i160, label %.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i160, label %.loopexit, label %.lr.ph.i, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph.i, %125, %118
   store i32 0, ptr %5, align 4
@@ -7635,7 +7635,7 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
   %37 = getelementptr inbounds i8, ptr %.0, i64 64
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %1
-  br i1 %39, label %.loopexit, label %31, !llvm.loop !33
+  br i1 %39, label %.loopexit, label %31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %31, %32, %36, %25, %21, %17, %13, %9, %2
   %.021 = phi i1 [ true, %2 ], [ true, %9 ], [ true, %13 ], [ true, %17 ], [ true, %21 ], [ true, %25 ], [ %.not.not, %36 ], [ %.not.not, %32 ], [ %.not.not, %31 ]
@@ -7913,7 +7913,7 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
   %23 = getelementptr inbounds i8, ptr %.0, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %1
-  br i1 %25, label %.loopexit, label %17, !llvm.loop !34
+  br i1 %25, label %.loopexit, label %17, !llvm.loop !33
 
 .loopexit:                                        ; preds = %17, %18, %22, %2, %7, %11
   %.014 = phi i1 [ true, %11 ], [ true, %7 ], [ true, %2 ], [ %.not.not, %22 ], [ %.not.not, %18 ], [ %.not.not, %17 ]
@@ -7961,7 +7961,7 @@ define internal fastcc noundef zeroext i1 @call_enum_check_hook(ptr nocapture no
 23:                                               ; preds = %26
   %24 = getelementptr i8, ptr %.012.i, i64 16
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %18, %23
   %.012.i = phi ptr [ %24, %23 ], [ %22, %18 ]
@@ -8106,7 +8106,7 @@ define dso_local ptr @GetConfigOptionResetString(ptr noundef %0) local_unnamed_a
 33:                                               ; preds = %36
   %34 = getelementptr i8, ptr %.012.i, i64 16
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %28, %33
   %.012.i = phi ptr [ %34, %33 ], [ %32, %28 ]
@@ -8380,7 +8380,7 @@ guc_free.exit56.thread:                           ; preds = %67, %69, %guc_free.
   %114 = or disjoint i8 %106, 32
   %.0.i.i = select i1 %or.cond5.i.i, i8 %114, i8 %106
   %.not32.i.i = icmp eq i8 %spec.select.i.i, %.0.i.i
-  br i1 %.not32.i.i, label %104, label %115, !llvm.loop !15
+  br i1 %.not32.i.i, label %104, label %115, !llvm.loop !14
 
 115:                                              ; preds = %108
   %116 = sext i8 %.0.i.i to i32
@@ -8425,7 +8425,7 @@ guc_name_compare.exit.i:                          ; preds = %119, %115
 guc_name_compare.exit.thread.i:                   ; preds = %107, %125, %guc_name_compare.exit.i
   %.1.i = phi ptr [ %.045.i, %125 ], [ %.03744.i, %guc_name_compare.exit.i ], [ %.03744.i, %107 ]
   %.not.i57 = icmp eq ptr %102, null
-  br i1 %.not.i57, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not.i57, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %guc_name_compare.exit.thread.i, %99
   %131 = icmp eq ptr %.0, null
@@ -8598,7 +8598,7 @@ replace_auto_config_value.exit:                   ; preds = %132, %._crit_edge.i
   %212 = getelementptr inbounds i8, ptr %.019.i, i64 40
   %213 = load ptr, ptr %212, align 8
   %.not14.i = icmp eq ptr %213, null
-  br i1 %.not14.i, label %._crit_edge.i60, label %.lr.ph.i59, !llvm.loop !53
+  br i1 %.not14.i, label %._crit_edge.i60, label %.lr.ph.i59, !llvm.loop !52
 
 ._crit_edge.i60:                                  ; preds = %211, %.preheader.i
   %214 = call i32 @pg_fsync(i32 noundef %.0..0..0..0.16) #28
@@ -8774,7 +8774,7 @@ define internal fastcc ptr @init_custom_variable(ptr nocapture noundef readonly 
 
 guc_malloc.exit:                                  ; preds = %.thread23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %6, i1 false)
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %38 = add i64 %37, 1
   %39 = load ptr, ptr @GUCMemoryContext, align 8
   %40 = tail call ptr @MemoryContextAllocExtended(ptr noundef %39, i64 noundef %38, i32 noundef 2) #28
@@ -8790,7 +8790,7 @@ guc_malloc.exit:                                  ; preds = %.thread23
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %guc_malloc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %0, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr readonly align 1 %0, i64 %38, i1 false)
   store ptr %40, ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %.0, ptr %46, align 8
@@ -8916,7 +8916,7 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
   %57 = load i32, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %18, i64 64
   %59 = load i32, ptr %58, align 8
-  %60 = call noundef i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef nonnull %51, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false), !range !13
+  %60 = call i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef nonnull %51, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %61
 
 61:                                               ; preds = %52, %RemoveGUCFromLists.exit
@@ -8982,7 +8982,7 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
   %96 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, %79
-  br i1 %98, label %set_string_field.exitthread-pre-split, label %.preheader44, !llvm.loop !34
+  br i1 %98, label %set_string_field.exitthread-pre-split, label %.preheader44, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %.preheader44
   call void @pfree(ptr noundef nonnull %79) #28
@@ -9026,7 +9026,7 @@ set_string_field.exit:                            ; preds = %set_string_field.ex
   %113 = getelementptr inbounds i8, ptr %.0.i.i37, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %99
-  br i1 %115, label %set_string_field.exit40, label %.preheader, !llvm.loop !34
+  br i1 %115, label %set_string_field.exit40, label %.preheader, !llvm.loop !33
 
 guc_free.exit.i39:                                ; preds = %.preheader
   call void @pfree(ptr noundef nonnull %99) #28
@@ -9222,7 +9222,7 @@ define dso_local void @MarkGUCPrefixReserved(ptr noundef %0) local_unnamed_addr 
 RemoveGUCFromLists.exit:                          ; preds = %50, %46, %18, %14, %7
   %52 = call ptr @hash_seq_search(ptr noundef nonnull %2) #28
   %.not = icmp eq ptr %52, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %RemoveGUCFromLists.exit, %1
   %53 = load ptr, ptr @GUCMemoryContext, align 8
@@ -9367,7 +9367,7 @@ define dso_local ptr @get_explain_guc_options(ptr nocapture noundef %0) local_un
   %73 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not38 = icmp eq ptr %74, @guc_nondef_list
-  br i1 %.not38, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not38, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !54
 
 select.unfold._crit_edge:                         ; preds = %.thread42, %1
   ret ptr %5
@@ -9577,7 +9577,7 @@ define dso_local ptr @ShowGUCOption(ptr nocapture noundef readonly %0, i1 nounde
 83:                                               ; preds = %86
   %84 = getelementptr i8, ptr %.012.i, i64 16
   %.not.i = icmp eq ptr %84, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %77, %83
   %.012.i = phi ptr [ %84, %83 ], [ %82, %77 ]
@@ -9650,7 +9650,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef %0, i32 noun
   %27 = getelementptr %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %26
   %28 = load i8, ptr %27, align 16
   %.not21 = icmp eq i8 %28, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %24, %4, %19
   ret void
@@ -9698,7 +9698,7 @@ define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 
   %26 = getelementptr %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %25
   %27 = load i8, ptr %26, align 16
   %.not19 = icmp eq i8 %27, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %23, %17, %4
   ret void
@@ -9784,7 +9784,7 @@ can_skip_gucvar.exit.i:                           ; preds = %5
 37:                                               ; preds = %40
   %38 = getelementptr i8, ptr %.012.i.i, i64 16
   %.not.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 .lr.ph.i.i:                                       ; preds = %31, %37
   %.012.i.i = phi ptr [ %38, %37 ], [ %36, %31 ]
@@ -9853,7 +9853,7 @@ estimate_variable_size.exit:                      ; preds = %.lr.ph, %5, %can_sk
   %68 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not8 = icmp eq ptr %69, @guc_nondef_list
-  br i1 %.not8, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not8, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !57
 
 select.unfold._crit_edge:                         ; preds = %estimate_variable_size.exit, %0
   %.0.lcssa = phi i64 [ 8, %0 ], [ %67, %estimate_variable_size.exit ]
@@ -9953,7 +9953,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
 46:                                               ; preds = %49
   %47 = getelementptr i8, ptr %.012.i.i, i64 16
   %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 .lr.ph.i.i:                                       ; preds = %40, %46
   %.012.i.i = phi ptr [ %47, %46 ], [ %45, %40 ]
@@ -10079,7 +10079,7 @@ serialize_variable.exit:                          ; preds = %.lr.ph, %12, %can_s
   %100 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 8
   %101 = load ptr, ptr %100, align 8
   %.not9 = icmp eq ptr %101, @guc_nondef_list
-  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !58
 
 select.unfold._crit_edge:                         ; preds = %serialize_variable.exit, %2
   %102 = phi i64 [ %6, %2 ], [ %99, %serialize_variable.exit ]
@@ -10291,7 +10291,7 @@ RemoveGUCFromLists.exit:                          ; preds = %74, %78
 
 can_skip_gucvar.exit.thread:                      ; preds = %.lr.ph, %8, %can_skip_gucvar.exit, %RemoveGUCFromLists.exit
   %.not70 = icmp eq ptr %.sroa.6.0155, @guc_nondef_list
-  br i1 %.not70, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not70, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !59
 
 select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exit.thread, %1
   %.0.copyload = load i64, ptr %0, align 1
@@ -10324,7 +10324,7 @@ select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exi
 
 89:                                               ; preds = %.preheader.i
   %exitcond.not.i = icmp eq ptr %88, %81
-  br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !61
+  br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %89
   %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
@@ -10353,7 +10353,7 @@ read_gucstate.exit:                               ; preds = %.preheader.i
 
 97:                                               ; preds = %.preheader.i106
   %exitcond.not.i109 = icmp eq ptr %96, %81
-  br i1 %exitcond.not.i109, label %.critedge.i110, label %.preheader.i106, !llvm.loop !61
+  br i1 %exitcond.not.i109, label %.critedge.i110, label %.preheader.i106, !llvm.loop !60
 
 .critedge.i110:                                   ; preds = %97
   %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
@@ -10382,7 +10382,7 @@ read_gucstate.exit111:                            ; preds = %.preheader.i106
 
 105:                                              ; preds = %.preheader.i113
   %exitcond.not.i116 = icmp eq ptr %104, %81
-  br i1 %exitcond.not.i116, label %.critedge.i117, label %.preheader.i113, !llvm.loop !61
+  br i1 %exitcond.not.i116, label %.critedge.i117, label %.preheader.i113, !llvm.loop !60
 
 .critedge.i117:                                   ; preds = %105
   %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
@@ -10457,7 +10457,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
   store ptr %.0156, ptr %3, align 16
   store ptr %88, ptr %86, align 8
   store ptr %3, ptr %84, align 8
-  %135 = call noundef i32 @set_config_with_handle(ptr noundef %.0156, ptr noundef null, ptr noundef %88, i32 noundef %133, i32 noundef %122, i32 noundef %134, i32 noundef 0, i1 noundef zeroext true, i32 noundef 21, i1 noundef zeroext true), !range !13
+  %135 = call i32 @set_config_with_handle(ptr noundef %.0156, ptr noundef null, ptr noundef %88, i32 noundef %133, i32 noundef %122, i32 noundef %134, i32 noundef 0, i1 noundef zeroext true, i32 noundef 21, i1 noundef zeroext true)
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %137, label %141
 
@@ -10481,7 +10481,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
 144:                                              ; preds = %143, %141
   store ptr null, ptr %84, align 8
   %145 = icmp ult ptr %128, %81
-  br i1 %145, label %.preheader.i.preheader, label %._crit_edge.loopexit, !llvm.loop !62
+  br i1 %145, label %.preheader.i.preheader, label %._crit_edge.loopexit, !llvm.loop !61
 
 ._crit_edge.loopexit:                             ; preds = %144
   %.pre = load ptr, ptr %2, align 8
@@ -10552,7 +10552,7 @@ define dso_local void @ParseLongOption(ptr noundef %0, ptr nocapture noundef %1,
 
 21:                                               ; preds = %18, %20
   %22 = getelementptr i8, ptr %.0, i64 1
-  br label %18, !llvm.loop !63
+  br label %18, !llvm.loop !62
 
 23:                                               ; preds = %18
   ret void
@@ -10622,7 +10622,7 @@ define dso_local void @TransformGUCArray(ptr noundef %0, ptr nocapture noundef %
 
 30:                                               ; preds = %29, %27
   %31 = getelementptr i8, ptr %.0.i, i64 1
-  br label %27, !llvm.loop !63
+  br label %27, !llvm.loop !62
 
 ParseLongOption.exit:                             ; preds = %27
   %.not10 = icmp eq ptr %storemerge.i, null
@@ -10658,7 +10658,7 @@ ParseLongOption.exit:                             ; preds = %27
   store i32 %44, ptr %4, align 4
   %45 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %44, %45
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %42, %3
   ret void
@@ -10721,11 +10721,11 @@ set_config_option.exit.us25:                      ; preds = %26
   %32 = load ptr, ptr %22, align 8
   %33 = load ptr, ptr %28, align 8
   %34 = tail call i32 @GetUserId() #28
-  %35 = tail call noundef i32 @set_config_with_handle(ptr noundef %32, ptr noundef null, ptr noundef %33, i32 noundef %1, i32 noundef %2, i32 noundef %34, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %35 = tail call i32 @set_config_with_handle(ptr noundef %32, ptr noundef null, ptr noundef %33, i32 noundef %1, i32 noundef %2, i32 noundef %34, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef %32) #28
   tail call void @pfree(ptr noundef %33) #28
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  br label %.split.split.split.us, !llvm.loop !65
+  br label %.split.split.split.us, !llvm.loop !64
 
 .split.split.split:                               ; preds = %.split.split, %set_config_option.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %set_config_option.exit ], [ 0, %.split.split ]
@@ -10757,11 +10757,11 @@ set_config_option.exit.us25:                      ; preds = %26
 set_config_option.exit:                           ; preds = %47
   %53 = load ptr, ptr %43, align 8
   %54 = load ptr, ptr %49, align 8
-  %55 = tail call noundef i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %55 = tail call i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef %53) #28
   tail call void @pfree(ptr noundef %54) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split.split, !llvm.loop !65
+  br label %.split.split.split, !llvm.loop !64
 
 .thread:                                          ; preds = %47, %42, %21, %26, %4
   tail call void @list_free(ptr noundef %7) #28
@@ -10830,7 +10830,7 @@ define dso_local ptr @GUCArrayAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %34, ptr %7, align 4
   %35 = load i32, ptr %17, align 4
   %.not21 = icmp sgt i32 %34, %35
-  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %32, %16, %30
   %36 = call ptr @array_set(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %5, i64 noundef %15, i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #28
@@ -10903,7 +10903,7 @@ define internal fastcc zeroext i1 @validate_option_array_item(ptr noundef %0, pt
   %30 = tail call zeroext i1 @superuser() #28
   %31 = select i1 %30, i32 5, i32 6
   %32 = tail call i32 @GetUserId() #28
-  %33 = tail call noundef i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %31, i32 noundef 12, i32 noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false), !range !13
+  %33 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %31, i32 noundef 12, i32 noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false)
   br label %34
 
 34:                                               ; preds = %11, %28, %24, %9, %3, %29
@@ -10994,7 +10994,7 @@ define dso_local ptr @GUCArrayDelete(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %39, ptr %3, align 4
   %40 = load i32, ptr %13, align 4
   %.not21 = icmp sgt i32 %39, %40
-  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !67
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %37, %12, %11
   %.0 = phi ptr [ null, %11 ], [ null, %12 ], [ %.2, %37 ]
@@ -11066,7 +11066,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %30, ptr %2, align 4
   %31 = load i32, ptr %9, align 4
   %.not13 = icmp sgt i32 %30, %31
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %28, %8, %6, %1
   %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %8 ], [ %.2, %28 ]
@@ -11165,7 +11165,7 @@ define internal fastcc void @set_stack_value(ptr nocapture noundef readonly %0, 
   %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %22
-  br i1 %45, label %set_string_field.exit, label %37, !llvm.loop !34
+  br i1 %45, label %set_string_field.exit, label %37, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %37
   tail call void @pfree(ptr noundef nonnull %22) #28
@@ -11249,7 +11249,7 @@ set_string_field.exit:                            ; preds = %42, %38, %guc_free.
   %85 = getelementptr inbounds i8, ptr %.0.i.i17, i64 64
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, %53
-  br i1 %87, label %set_extra_field.exit, label %79, !llvm.loop !33
+  br i1 %87, label %set_extra_field.exit, label %79, !llvm.loop !32
 
 guc_free.exit.i19:                                ; preds = %79
   tail call void @pfree(ptr noundef nonnull %53) #28
@@ -11323,12 +11323,12 @@ define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr nocaptur
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 32
   %31 = load i32, ptr %30, align 8
-  %32 = tail call noundef i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %27, i32 noundef %29, i32 noundef 13, i32 noundef %31, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false), !range !13
+  %32 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %27, i32 noundef %29, i32 noundef 13, i32 noundef %31, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %23, %24, %25
   %.sink = phi i32 [ 1, %25 ], [ 1, %24 ], [ 0, %23 ], [ 2, %11 ]
-  %33 = tail call noundef i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.sink, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false), !range !13
+  %33 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.sink, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %34
 
 34:                                               ; preds = %.sink.split, %11
@@ -11368,7 +11368,7 @@ define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr nocaptur
   br i1 %.not58, label %57, label %52
 
 52:                                               ; preds = %49, %46, %43, %40
-  %53 = tail call noundef i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false), !range !13
+  %53 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   %54 = load ptr, ptr %9, align 8
   %.not59 = icmp eq ptr %54, null
   br i1 %.not59, label %57, label %55
@@ -11527,7 +11527,7 @@ attributes #33 = { noreturn nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 2}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
@@ -11582,4 +11582,3 @@ attributes #33 = { noreturn nounwind }
 !65 = distinct !{!65, !6}
 !66 = distinct !{!66, !6}
 !67 = distinct !{!67, !6}
-!68 = distinct !{!68, !6}

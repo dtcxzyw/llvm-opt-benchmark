@@ -315,7 +315,7 @@ if.then21:                                        ; preds = %if.then11
   br label %return
 
 if.end24:                                         ; preds = %if.then11
-  %conv25 = trunc i64 %mul to i32
+  %conv25 = trunc nuw i64 %mul to i32
   %cmp.i83 = icmp ugt i32 %conv25, 513535
   br i1 %cmp.i83, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit, label %if.end.i
 
@@ -690,7 +690,7 @@ if.end165:                                        ; preds = %for.end155
   br i1 %cmp169, label %if.then170, label %if.end194
 
 if.then170:                                       ; preds = %if.end165
-  %conv171 = trunc i64 %mul158 to i32
+  %conv171 = trunc nuw i64 %mul158 to i32
   %call.i = call noundef i32 @_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE5shiftERNS0_13MutableHandleIS3_EERNS0_7RuntimeEjjj(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0, i32 noundef 0, i32 noundef %conv171) #13
   %cmp173 = icmp eq i32 %call.i, 0
   br i1 %cmp173, label %return, label %if.end176
@@ -1658,7 +1658,7 @@ _ZN4llvh8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS3_EENS_6detail12Dense
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

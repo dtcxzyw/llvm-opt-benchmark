@@ -2190,14 +2190,14 @@ entry:
   %zid = alloca %"class.icu_75::UnicodeString", align 8
   %spec.select = tail call i32 @llvm.abs.i32(i32 %offset, i1 true)
   %offset.lobit = lshr i32 %offset, 31
-  %spec.select9 = trunc i32 %offset.lobit to i8
+  %spec.select9 = trunc nuw nsw i32 %offset.lobit to i8
   %div = udiv i32 %spec.select, 1000
   %rem = urem i32 %div, 60
-  %conv = trunc i32 %rem to i8
+  %conv = trunc nuw nsw i32 %rem to i8
   %div1 = udiv i32 %spec.select, 60000
-  %rem2.lhs.trunc = trunc i32 %div1 to i16
+  %rem2.lhs.trunc = trunc nuw i32 %div1 to i16
   %rem210 = urem i16 %rem2.lhs.trunc, 60
-  %conv3 = trunc i16 %rem210 to i8
+  %conv3 = trunc nuw nsw i16 %rem210 to i8
   %div4 = udiv i32 %spec.select, 3600000
   %conv5 = trunc i32 %div4 to i8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %zid, align 8

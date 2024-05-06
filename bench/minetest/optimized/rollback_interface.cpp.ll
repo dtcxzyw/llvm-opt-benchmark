@@ -581,7 +581,7 @@ invoke.cont:                                      ; preds = %sw.bb
   %vec.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i = trunc i48 %vec.sroa.2.0.extract.shift.i to i16
   %vec.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i = trunc i48 %vec.sroa.3.0.extract.shift.i to i16
+  %vec.sroa.3.0.extract.trunc.i = trunc nuw i48 %vec.sroa.3.0.extract.shift.i to i16
   %call1.i.i180 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.26, i64 noundef 1)
           to label %call1.i.i.noexc unwind label %lpad
 
@@ -757,7 +757,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %16 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %16 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %16, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -903,7 +903,7 @@ if.then.i.i.i241:                                 ; preds = %while.end.i.i.i235
   br label %_Z4itosB5cxx11i.exit275
 
 if.else.i.i.i238:                                 ; preds = %while.end.i.i.i235
-  %31 = trunc i32 %__val.addr.0.lcssa.i.i.i236 to i8
+  %31 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i236 to i8
   %conv.i.i.i239 = or disjoint i8 %31, 48
   br label %_Z4itosB5cxx11i.exit275
 
@@ -1123,7 +1123,7 @@ if.then.i.i.i350:                                 ; preds = %while.end.i.i.i344
   br label %_Z4itosB5cxx11i.exit384
 
 if.else.i.i.i347:                                 ; preds = %while.end.i.i.i344
-  %60 = trunc i32 %__val.addr.0.lcssa.i.i.i345 to i8
+  %60 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i345 to i8
   %conv.i.i.i348 = or disjoint i8 %60, 48
   br label %_Z4itosB5cxx11i.exit384
 
@@ -1269,7 +1269,7 @@ if.then.i.i.i427:                                 ; preds = %while.end.i.i.i421
   br label %_Z4itosB5cxx11i.exit461
 
 if.else.i.i.i424:                                 ; preds = %while.end.i.i.i421
-  %75 = trunc i32 %__val.addr.0.lcssa.i.i.i422 to i8
+  %75 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i422 to i8
   %conv.i.i.i425 = or disjoint i8 %75, 48
   br label %_Z4itosB5cxx11i.exit461
 
@@ -2190,7 +2190,7 @@ invoke.cont4:                                     ; preds = %sw.bb2
   %cmp9.i9.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i, 0
   %cond.i10.i = select i1 %cmp9.i9.i, i32 %add.i8.i, i32 %conv.i5.i
   %div.i11.i = sdiv i32 %cond.i10.i, 16
-  %tr.sh.diff.i = trunc i48 %p.sroa.2.0.extract.shift.i to i32
+  %tr.sh.diff.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i to i32
   %conv.i13.i = ashr i32 %tr.sh.diff.i, 16
   %add.i16.i = add nsw i32 %conv.i13.i, -15
   %cmp9.i17.i = icmp slt i48 %agg.tmp3.sroa.0.0.copyload, 0
@@ -3512,7 +3512,7 @@ if.then:                                          ; preds = %entry
   %vec.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i = trunc i48 %vec.sroa.2.0.extract.shift.i to i16
   %vec.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i = trunc i48 %vec.sroa.3.0.extract.shift.i to i16
+  %vec.sroa.3.0.extract.trunc.i = trunc nuw i48 %vec.sroa.3.0.extract.shift.i to i16
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.26, i64 noundef 1)
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 noundef signext %vec.sroa.0.0.extract.trunc.i)
   %call1.i8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.27, i64 noundef 1)
@@ -3600,7 +3600,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %pos.coerce, 0

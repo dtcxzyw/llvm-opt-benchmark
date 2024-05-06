@@ -154,7 +154,7 @@ define dso_local i32 @pg_reg_getnumcolors(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pg_reg_colorisbegin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_reg_colorisbegin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 52
@@ -177,7 +177,7 @@ define dso_local i32 @pg_reg_colorisbegin(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pg_reg_colorisend(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_reg_colorisend(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -280,7 +280,7 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
 
 27:                                               ; preds = %21
   %28 = getelementptr i8, ptr %.01523, i64 4
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %.01523, align 4
   %30 = add nsw i32 %.01622, -1
   %31 = icmp eq i32 %30, 0

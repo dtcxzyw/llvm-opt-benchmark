@@ -247,7 +247,7 @@ return:                                           ; preds = %nrvo.skipdtor, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14ipc_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1592) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14ipc_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1592) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %addr = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -430,7 +430,7 @@ error:                                            ; preds = %if.end69, %invoke.c
   %call85 = tail call ptr @__errno_location() #13
   %13 = load i32, ptr %call85, align 4
   %call87 = invoke noundef i32 @_ZN3zmq14ipc_listener_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1592) %this)
-          to label %invoke.cont86 unwind label %lpad19, !range !4
+          to label %invoke.cont86 unwind label %lpad19
 
 invoke.cont86:                                    ; preds = %error
   store i32 %13, ptr %call85, align 4
@@ -515,7 +515,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN3zmq13socket_base_t15event_listeningERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14ipc_listener_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1592) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14ipc_listener_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1592) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
   %ref.tmp38 = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
@@ -705,7 +705,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i, label %while.body.i.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i, label %while.body.i.i.i, !llvm.loop !4
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -740,7 +740,7 @@ while.body.i.i.i11:                               ; preds = %while.body.i.i.i11,
   %__x.addr.1.in.i.i.i18 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i12, i64 %__x.addr.1.in.v.i.i.i17
   %__x.addr.1.i.i.i19 = load ptr, ptr %__x.addr.1.in.i.i.i18, align 8
   %cmp.not.i.i.i20 = icmp eq ptr %__x.addr.1.i.i.i19, null
-  br i1 %cmp.not.i.i.i20, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i21, label %while.body.i.i.i11, !llvm.loop !5
+  br i1 %cmp.not.i.i.i20, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i21, label %while.body.i.i.i11, !llvm.loop !4
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i21: ; preds = %while.body.i.i.i11
   %cmp.i.i.i22 = icmp eq ptr %__y.addr.1.i.i.i16, %add.ptr.i.i.i8
@@ -774,7 +774,7 @@ while.body.i.i.i35:                               ; preds = %while.body.i.i.i35,
   %__x.addr.1.in.i.i.i42 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i36, i64 %__x.addr.1.in.v.i.i.i41
   %__x.addr.1.i.i.i43 = load ptr, ptr %__x.addr.1.in.i.i.i42, align 8
   %cmp.not.i.i.i44 = icmp eq ptr %__x.addr.1.i.i.i43, null
-  br i1 %cmp.not.i.i.i44, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, label %while.body.i.i.i35, !llvm.loop !7
+  br i1 %cmp.not.i.i.i44, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, label %while.body.i.i.i35, !llvm.loop !6
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i: ; preds = %while.body.i.i.i35
   %cmp.i.i.i45 = icmp eq ptr %__y.addr.1.i.i.i40, %add.ptr.i.i.i32
@@ -819,7 +819,7 @@ for.cond62:                                       ; preds = %for.body64
   %incdec.ptr = getelementptr inbounds i8, ptr %mem.065, i64 8
   %21 = load ptr, ptr %incdec.ptr, align 8
   %tobool63.not = icmp eq ptr %21, null
-  br i1 %tobool63.not, label %for.inc69, label %for.body64, !llvm.loop !8
+  br i1 %tobool63.not, label %for.inc69, label %for.body64, !llvm.loop !7
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %for.cond62
   %22 = phi ptr [ %19, %for.body64.lr.ph ], [ %21, %for.cond62 ]
@@ -831,7 +831,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
 for.inc69:                                        ; preds = %for.cond62, %if.end61, %for.body
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.067) #14
   %cmp.i54.not = icmp eq ptr %call.i, %add.ptr.i.i.i8
-  br i1 %cmp.i54.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %cmp.i54.not, label %return, label %for.body, !llvm.loop !8
 
 return:                                           ; preds = %for.inc69, %for.body64, %entry, %if.end42, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit28, %if.end
   %retval.0 = phi i1 [ false, %if.end ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit28 ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit ], [ true, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ], [ false, %if.end42 ], [ true, %entry ], [ true, %for.body64 ], [ false, %for.inc69 ]
@@ -986,9 +986,8 @@ attributes #15 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

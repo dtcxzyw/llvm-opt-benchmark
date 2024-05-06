@@ -95,7 +95,7 @@ define internal fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext %1) un
 25:                                               ; preds = %24
   %.sroa.1.0.extract.shift.i = lshr exact i64 %.sroa.10.0, 32
   %26 = and i32 %7, 65535
-  %27 = trunc i64 %.sroa.1.0.extract.shift.i to i32
+  %27 = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   %28 = mul i32 %27, 4069
   %29 = add i32 %26, %28
   br label %.loopexit
@@ -120,7 +120,7 @@ define internal fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext %1) un
   %39 = ashr exact i64 %.sroa.10.0, 32
   %40 = udiv i64 %39, 4069
   %41 = urem i64 %39, 4069
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %.sroa.23.0.insert.ext.i = shl i64 %40, 32
   %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.23.0.insert.ext.i, %38
   %43 = tail call fastcc i32 @fsm_readbuf(ptr noundef %0, i64 %.sroa.02.0.insert.insert.i, i1 noundef zeroext true)
@@ -182,7 +182,7 @@ define dso_local i32 @RecordAndGetPageWithFreeSpace(ptr noundef %0, i32 noundef 
 fsm_space_needed_to_cat.exit:                     ; preds = %4
   %9 = icmp ugt i64 %2, 8159
   %10 = lshr i64 %2, 5
-  %11 = trunc i64 %10 to i8
+  %11 = trunc nuw i64 %10 to i8
   %.0.i = select i1 %9, i8 -1, i8 %11
   %12 = icmp eq i64 %3, 0
   %13 = add nuw nsw i64 %3, 31
@@ -191,7 +191,7 @@ fsm_space_needed_to_cat.exit:                     ; preds = %4
   %.0.i13 = select i1 %12, i8 1, i8 %15
   %16 = udiv i32 %1, 4069
   %17 = urem i32 %1, 4069
-  %18 = trunc i32 %17 to i16
+  %18 = trunc nuw nsw i32 %17 to i16
   %.sroa.2.0.insert.ext.i = zext nneg i32 %16 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %19 = tail call fastcc i32 @fsm_set_and_search(ptr noundef %0, i64 %.sroa.2.0.insert.shift.i, i16 noundef zeroext %18, i8 noundef zeroext %.0.i, i8 noundef zeroext %.0.i13)
@@ -266,7 +266,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
 define dso_local void @RecordPageWithFreeSpace(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 8159
   %5 = lshr i64 %2, 5
-  %6 = trunc i64 %5 to i8
+  %6 = trunc nuw i64 %5 to i8
   %.0.i = select i1 %4, i8 -1, i8 %6
   %7 = udiv i32 %1, 4069
   %8 = urem i32 %1, 4069
@@ -311,7 +311,7 @@ fsm_set_and_search.exit:                          ; preds = %BufferGetPage.exit.
 define dso_local void @XLogRecordPageWithFreeSpace(i64 %0, i32 %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 .preheader.i:
   %4 = lshr i64 %3, 5
-  %5 = trunc i64 %4 to i8
+  %5 = trunc nuw i64 %4 to i8
   %6 = udiv i32 %2, 4069
   %7 = urem i32 %2, 4069
   %.sroa.2.0.insert.ext.i = zext nneg i32 %6 to i64
@@ -321,7 +321,7 @@ define dso_local void @XLogRecordPageWithFreeSpace(i64 %0, i32 %1, i32 noundef %
   %.119.i = phi i32 [ 0, %.preheader.i ], [ %12, %8 ]
   %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %11, %8 ]
   %.01317.i = phi i32 [ 0, %.preheader.i ], [ %10, %8 ]
-  %.112.i = trunc i64 %.112.in18.i to i32
+  %.112.i = trunc nuw nsw i64 %.112.in18.i to i32
   %9 = add i32 %.01317.i, %.112.i
   %10 = add i32 %9, 1
   %11 = udiv i64 %.112.in18.i, 4069
@@ -717,7 +717,7 @@ BufferGetPage.exit:                               ; preds = %21, %27
   %.119.i = phi i32 [ 0, %.preheader.i ], [ %66, %62 ]
   %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %65, %62 ]
   %.01317.i = phi i32 [ 0, %.preheader.i ], [ %64, %62 ]
-  %.112.i = trunc i64 %.112.in18.i to i32
+  %.112.i = trunc nuw nsw i64 %.112.in18.i to i32
   %63 = add i32 %.01317.i, 1
   %64 = add i32 %63, %.112.i
   %65 = udiv i64 %.112.in18.i, 4069
@@ -734,7 +734,7 @@ fsm_logical_to_physical.exit:                     ; preds = %62
   %.119.i24 = phi i32 [ %72, %.preheader.i22 ], [ 0, %12 ]
   %.112.in18.i25 = phi i64 [ %71, %.preheader.i22 ], [ %.sroa.2.0.insert.ext.i, %12 ]
   %.01317.i26 = phi i32 [ %70, %.preheader.i22 ], [ 0, %12 ]
-  %.112.i27 = trunc i64 %.112.in18.i25 to i32
+  %.112.i27 = trunc nuw nsw i64 %.112.in18.i25 to i32
   %69 = add i32 %.01317.i26, %.112.i27
   %70 = add i32 %69, 1
   %71 = udiv i64 %.112.in18.i25, 4069
@@ -795,7 +795,7 @@ define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 n
   %6 = alloca i8, align 1
   %.sroa.042.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %7 = tail call fastcc i32 @fsm_readbuf(ptr noundef %0, i64 %1, i1 noundef zeroext false)
   %.not73 = icmp eq i32 %7, 0
   br i1 %.not73, label %8, label %9
@@ -856,12 +856,12 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = and i64 %29, 4294967295
-  %33 = trunc i64 %30 to i32
+  %33 = trunc nuw nsw i64 %30 to i32
   %34 = lshr i64 %.sroa.018.0.in76, 32
-  %.lhs.trunc = trunc i64 %34 to i32
+  %.lhs.trunc = trunc nuw i64 %34 to i32
   %35 = urem i32 %.lhs.trunc, 4069
   %.sroa.3.0 = trunc i64 %29 to i32
-  %.sroa.4.0 = trunc i64 %28 to i32
+  %.sroa.4.0 = trunc nuw nsw i64 %28 to i32
   %36 = icmp eq i64 %28, %.sroa.5.0.extract.shift
   %37 = icmp sgt i32 %.sroa.4.0, %.sroa.5.0.extract.trunc
   %. = select i1 %37, i32 4069, i32 0
@@ -913,7 +913,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 57:                                               ; preds = %54
   tail call void @LockBuffer(i32 noundef %7, i32 noundef 2) #6
-  %58 = trunc i32 %.058 to i8
+  %58 = trunc nuw i32 %.058 to i8
   %59 = tail call zeroext i1 @fsm_set_avail(ptr noundef %.0.i.i, i32 noundef %.06183, i8 noundef zeroext %58) #6
   tail call void @MarkBufferDirtyHint(i32 noundef %7, i1 noundef zeroext false) #6
   tail call void @LockBuffer(i32 noundef %7, i32 noundef 0) #6

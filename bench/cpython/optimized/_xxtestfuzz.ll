@@ -29,7 +29,7 @@ entry:
 declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_fuzz_run(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @_fuzz_run(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
   %buf = alloca ptr, align 8
   %size = alloca i64, align 8

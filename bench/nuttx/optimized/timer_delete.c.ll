@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @timer_delete(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @timer_delete(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @timer_gethandle(ptr noundef %0) #2
   %3 = tail call i32 @timer_release(ptr noundef %2) #2
   %4 = icmp slt i32 %3, 0

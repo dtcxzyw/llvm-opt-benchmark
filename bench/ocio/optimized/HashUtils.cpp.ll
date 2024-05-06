@@ -45,7 +45,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 11400714785074694791
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %conv3.i.i.i.i.i = trunc i128 %shr.i.i.i.i.i to i64
+  %conv3.i.i.i.i.i = trunc nuw i128 %shr.i.i.i.i.i to i64
   %sub15.i.i.i.i = shl nuw nsw i64 %size, 54
   %shl.i.i.i.i = add nsw i64 %sub15.i.i.i.i, -18014398509481984
   %add16.i.i.i.i = add i64 %shl.i.i.i.i, %conv2.i.i.i.i.i
@@ -60,7 +60,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i21.i.i.i.i = mul nuw i128 %conv.i20.i.i.i.i, 14029467366897019727
   %conv2.i22.i.i.i.i = trunc i128 %mul.i21.i.i.i.i to i64
   %shr.i23.i.i.i.i = lshr i128 %mul.i21.i.i.i.i, 64
-  %conv3.i24.i.i.i.i = trunc i128 %shr.i23.i.i.i.i to i64
+  %conv3.i24.i.i.i.i = trunc nuw i128 %shr.i23.i.i.i.i to i64
   %mul28.i.i.i.i = mul i64 %add20.i.i.i.i, -4417276706812531889
   %add30.i.i.i.i = add i64 %mul28.i.i.i.i, %conv3.i24.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %conv2.i22.i.i.i.i, 37
@@ -96,7 +96,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %mul.i.i24.i.i.i = mul nuw i128 %conv.i.i23.i.i.i, %conv1.i.i.i.i.i
   %conv2.i.i25.i.i.i = trunc i128 %mul.i.i24.i.i.i to i64
   %shr.i.i26.i.i.i = lshr i128 %mul.i.i24.i.i.i, 64
-  %conv3.i.i27.i.i.i = trunc i128 %shr.i.i26.i.i.i to i64
+  %conv3.i.i27.i.i.i = trunc nuw i128 %shr.i.i26.i.i.i to i64
   %shl18.i.i.i.i = shl i64 %conv2.i.i25.i.i.i, 1
   %add19.i28.i.i.i = add i64 %shl18.i.i.i.i, %conv3.i.i27.i.i.i
   %shr.i.i.i.i = lshr i64 %add19.i28.i.i.i, 3
@@ -130,7 +130,7 @@ if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i
   %conv3.i.i.i.i = zext i8 %2 to i32
   %shl4.i.i.i.i = shl nuw i32 %conv3.i.i.i.i, 24
   %conv5.i38.i.i.i = zext i8 %4 to i32
-  %conv8.i.i.i.i = trunc i64 %size to i32
+  %conv8.i.i.i.i = trunc nuw nsw i64 %size to i32
   %shl9.i.i.i.i = shl nuw nsw i32 %conv8.i.i.i.i, 8
   %or.i.i.i.i = or disjoint i32 %shl.i37.i.i.i, %shl9.i.i.i.i
   %or7.i.i.i.i = or disjoint i32 %or.i.i.i.i, %shl4.i.i.i.i
@@ -385,7 +385,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc i64 %size to i32
+  %conv.i.i.i = trunc nuw i64 %size to i32
   %shr.i.i.i59.i.i = lshr i64 %xor.i.i47.i.i, 37
   %xor.i.i43.i60.i.i = xor i64 %shr.i.i.i59.i.i, %xor.i.i47.i.i
   %mul.i.i61.i.i = mul i64 %xor.i.i43.i60.i.i, 1609587791953885689
@@ -526,7 +526,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %mul.i.i.i.i2.i = shl nuw i64 %n.02.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i1.i, i64 %mul.i.i.i.i2.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i.i.i = shl nuw nsw i64 %n.02.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
@@ -598,7 +598,7 @@ for.body.i29.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %mul.i31.i.i.i.i = shl nuw i64 %n.02.i30.i.i.i.i, 6
   %add.ptr.i32.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i.i, i64 %mul.i31.i.i.i.i
   %add.ptr1.i33.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i34.i.i.i.i = shl nuw nsw i64 %n.02.i30.i.i.i.i, 3
   %add.ptr3.i35.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i34.i.i.i.i
   br label %for.body.i.i36.i.i.i.i

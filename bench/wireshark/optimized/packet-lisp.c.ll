@@ -1397,11 +1397,11 @@ dissect_lcaf_geo.exit:                            ; preds = %282, %283, %287, %2
   %308 = load i32, ptr @hf_lisp_lcaf_natt_etrport, align 4
   %309 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %308, ptr noundef %60, i32 noundef %307, i32 noundef 2, i32 noundef 0) #3
   %310 = add i32 %3, 10
-  %311 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %310, ptr noundef nonnull @.str.401, i32 noundef 0), !range !6
+  %311 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %310, ptr noundef nonnull @.str.401, i32 noundef 0)
   %312 = add i32 %311, %310
-  %313 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %312, ptr noundef nonnull @.str.402, i32 noundef 0), !range !6
+  %313 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %312, ptr noundef nonnull @.str.402, i32 noundef 0)
   %314 = add i32 %312, %313
-  %315 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %314, ptr noundef nonnull @.str.403, i32 noundef 0), !range !6
+  %315 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %314, ptr noundef nonnull @.str.403, i32 noundef 0)
   %316 = add i32 %314, %315
   %.neg151 = add nsw i32 %20, -8
   %317 = add nuw nsw i32 %311, %313
@@ -1414,12 +1414,12 @@ dissect_lcaf_geo.exit:                            ; preds = %282, %283, %287, %2
   %.0.i136169 = phi i32 [ %322, %.lr.ph170 ], [ %316, %304 ]
   %.051.i168 = phi i32 [ %324, %.lr.ph170 ], [ 1, %304 ]
   %.052.i167 = phi i32 [ %323, %.lr.ph170 ], [ %319, %304 ]
-  %321 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %.0.i136169, ptr noundef nonnull @.str.404, i32 noundef %.051.i168), !range !6
+  %321 = tail call fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %60, ptr noundef %1, ptr noundef %24, i32 noundef %.0.i136169, ptr noundef nonnull @.str.404, i32 noundef %.051.i168)
   %322 = add i32 %321, %.0.i136169
   %323 = sub nsw i32 %.052.i167, %321
   %324 = add i32 %.051.i168, 1
   %325 = icmp sgt i32 %323, 0
-  br i1 %325, label %.lr.ph170, label %dissect_lcaf_natt.exit, !llvm.loop !7
+  br i1 %325, label %.lr.ph170, label %dissect_lcaf_natt.exit, !llvm.loop !6
 
 326:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
@@ -1717,7 +1717,7 @@ dissect_lcaf_elp_hop.exit:                        ; preds = %482, %484
   %489 = sub nsw i32 %.013.i163, %487
   %490 = add i32 %.0.i141164, 1
   %491 = icmp sgt i32 %489, 0
-  br i1 %491, label %.lr.ph165, label %dissect_lcaf_natt.exit, !llvm.loop !8
+  br i1 %491, label %.lr.ph165, label %dissect_lcaf_natt.exit, !llvm.loop !7
 
 492:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
@@ -1916,7 +1916,7 @@ dissect_lcaf_rle_entry.exit:                      ; preds = %593, %594
   %603 = sub nsw i32 %.013.i145160, %601
   %604 = add i32 %.0.i146161, 1
   %605 = icmp sgt i32 %603, 0
-  br i1 %605, label %.lr.ph, label %dissect_lcaf_natt.exit, !llvm.loop !9
+  br i1 %605, label %.lr.ph, label %dissect_lcaf_natt.exit, !llvm.loop !8
 
 606:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
@@ -2346,7 +2346,7 @@ dissect_lisp_locator.exit:                        ; preds = %148, %165
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %180 = add i32 %.0.i, %.1141
   %exitcond.not = icmp eq i32 %113, %111
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %dissect_lisp_locator.exit, %110, %22
   %.0 = phi i32 [ %6, %22 ], [ %.0135, %110 ], [ %180, %dissect_lisp_locator.exit ]
@@ -2418,7 +2418,7 @@ define hidden i32 @dissect_lisp_map_register(ptr noundef %0, ptr noundef %1, ptr
   %47 = add nuw nsw i32 %.07780, 1
   %48 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %28, i32 noundef %47, i32 noundef 0, i32 noundef %.07681, ptr noundef %4)
   %exitcond.not = icmp eq i32 %47, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.076.lcssa = phi i32 [ %45, %22 ], [ %48, %.lr.ph ]
@@ -2723,7 +2723,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %.sink258.i) #3
   %135 = add i32 %.sink258.i, %.1229240.i
   %exitcond.not.i = icmp eq i32 %132, %110
-  br i1 %exitcond.not.i, label %.preheader.i, label %114, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader.i, label %114, !llvm.loop !11
 
 136:                                              ; preds = %193, %.lr.ph.i
   %.1243.i = phi i32 [ 0, %.lr.ph.i ], [ %194, %193 ]
@@ -2819,7 +2819,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %195 = zext i8 %138 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.467, i32 noundef %194, ptr noundef nonnull %142, i32 noundef %195) #3
   %exitcond251.not.i = icmp eq i32 %194, %112
-  br i1 %exitcond251.not.i, label %._crit_edge.i, label %136, !llvm.loop !13
+  br i1 %exitcond251.not.i, label %._crit_edge.i, label %136, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %193, %.preheader.i
   %.3.lcssa.i = phi i32 [ %135, %.preheader.i ], [ %.4.i, %193 ]
@@ -2879,7 +2879,7 @@ dissect_lisp_map_request.exit:                    ; preds = %104, %124, %144, %2
   %225 = add nuw nsw i32 %.043.i, 1
   %226 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %219, i32 noundef %225, i32 noundef 0, i32 noundef %.04142.i, ptr noundef null)
   %exitcond.not.i45 = icmp eq i32 %225, %224
-  br i1 %exitcond.not.i45, label %dissect_lisp_map_reply.exit, label %.lr.ph.i44, !llvm.loop !14
+  br i1 %exitcond.not.i45, label %dissect_lisp_map_reply.exit, label %.lr.ph.i44, !llvm.loop !13
 
 dissect_lisp_map_reply.exit:                      ; preds = %.lr.ph.i44, %216
   %.041.lcssa.i = phi i32 [ 12, %216 ], [ %226, %.lr.ph.i44 ]
@@ -2935,7 +2935,7 @@ dissect_lisp_map_reply.exit:                      ; preds = %.lr.ph.i44, %216
   %260 = add nuw nsw i32 %.083.i, 1
   %261 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %245, i32 noundef %260, i32 noundef 0, i32 noundef %.08082.i, ptr noundef null)
   %exitcond.not.i49 = icmp eq i32 %260, %259
-  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i48, !llvm.loop !15
+  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i48, !llvm.loop !14
 
 ._crit_edge.i50:                                  ; preds = %.lr.ph.i48, %242
   %.080.lcssa.i = phi i32 [ %258, %242 ], [ %261, %.lr.ph.i48 ]
@@ -2993,7 +2993,7 @@ dissect_lisp_map_notify.exit:                     ; preds = %269, %270
   %293 = add nuw nsw i32 %.029.i, 1
   %294 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %287, i32 noundef %293, i32 noundef 1, i32 noundef %.02728.i, ptr noundef null)
   %exitcond.not.i53 = icmp eq i32 %293, %292
-  br i1 %exitcond.not.i53, label %dissect_lisp_map_referral.exit, label %.lr.ph.i52, !llvm.loop !16
+  br i1 %exitcond.not.i53, label %dissect_lisp_map_referral.exit, label %.lr.ph.i52, !llvm.loop !15
 
 dissect_lisp_map_referral.exit:                   ; preds = %.lr.ph.i52, %284
   %.027.lcssa.i = phi i32 [ 12, %284 ], [ %294, %.lr.ph.i52 ]
@@ -3187,7 +3187,7 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lcaf_natt_rloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65538) i32 @dissect_lcaf_natt_rloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   store i16 0, ptr %7, align 2
   %8 = load i32, ptr @hf_lisp_lcaf_natt_rloc, align 4
@@ -3285,7 +3285,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 2, i32 65538}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3295,4 +3295,3 @@ attributes #3 = { nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

@@ -379,7 +379,7 @@ udp_chr_flush_buffer.exit:                        ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @udp_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @udp_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5

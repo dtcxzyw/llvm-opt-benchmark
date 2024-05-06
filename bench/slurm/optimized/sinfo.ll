@@ -1728,7 +1728,7 @@ _match_node_data.exit:                            ; preds = %156, %162, %171, %1
   br i1 %.not.i21, label %_create_sinfo.exit, label %371
 
 371:                                              ; preds = %._crit_edge
-  call fastcc void @_update_sinfo(ptr noundef nonnull %362, ptr noundef nonnull %3)
+  call fastcc void @_update_sinfo(ptr noundef nonnull %362, ptr noundef nonnull readonly %3)
   br label %_create_sinfo.exit
 
 _create_sinfo.exit:                               ; preds = %._crit_edge, %371
@@ -1764,7 +1764,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_func(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
+define internal range(i32 0, 2) i32 @_list_find_func(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   %. = zext i1 %4 to i32
@@ -2480,7 +2480,7 @@ _sort_hostlist.exit:                              ; preds = %.lr.ph.i100, %225
 declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_part_list(ptr noundef %0, ptr noundef %1) #4 {
+define internal range(i32 0, 2) i32 @_find_part_list(ptr noundef %0, ptr noundef %1) #4 {
   %3 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %1) #13
   %.not = icmp eq i32 %3, 0
   %. = zext i1 %.not to i32

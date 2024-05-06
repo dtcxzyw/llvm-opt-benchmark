@@ -924,7 +924,7 @@ declare ptr @node_state_string(i32 noundef) local_unnamed_addr #1
 declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_node(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1098,7 +1098,7 @@ define noundef i32 @slurm_load_node(i64 noundef %0, ptr nocapture noundef writeo
   br i1 %.not8.i, label %.outer._crit_edge.loopexit24.i, label %.lr.ph.i, !llvm.loop !12
 
 .outer._crit_edge.loopexit24.i:                   ; preds = %.outer.i
-  %84 = trunc i64 %indvars.iv.next.i to i32
+  %84 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %52, %.outer._crit_edge.loopexit24.i
@@ -1238,7 +1238,7 @@ _load_fed_nodes.exit:                             ; preds = %130, %131
 
 132:                                              ; preds = %23
   %133 = load ptr, ptr @working_cluster_rec, align 8
-  %134 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %133, i16 noundef zeroext %.018), !range !15
+  %134 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %133, i16 noundef zeroext %.018)
   br label %135
 
 135:                                              ; preds = %132, %_load_fed_nodes.exit
@@ -1265,7 +1265,7 @@ declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_load_cluster_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_load_cluster_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca %struct.slurm_msg, align 8
@@ -1373,7 +1373,7 @@ _set_node_mixed_op.exit.i:                        ; preds = %43, %42, %39, %.thr
   %49 = getelementptr inbounds i8, ptr %.0614.i, i64 368
   %50 = load i32, ptr %21, align 8
   %51 = icmp ult i32 %48, %50
-  br i1 %51, label %.lr.ph.i, label %_set_node_mixed.exit, !llvm.loop !16
+  br i1 %51, label %.lr.ph.i, label %_set_node_mixed.exit, !llvm.loop !15
 
 52:                                               ; preds = %13
   %53 = getelementptr inbounds i8, ptr %7, i64 192
@@ -1403,7 +1403,7 @@ _set_node_mixed.exit:                             ; preds = %_set_node_mixed_op.
 declare void @slurm_destroy_federation_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_node2(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_node2(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.node_info_request_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #14
@@ -1416,12 +1416,12 @@ define noundef i32 @slurm_load_node2(i64 noundef %0, ptr nocapture noundef write
   store i16 2007, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %5, i64 192
   store ptr %6, ptr %10, align 8
-  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %3, i16 noundef zeroext %2), !range !15
+  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %3, i16 noundef zeroext %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_node_single(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_node_single(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.node_info_single_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #14
@@ -1435,12 +1435,12 @@ define noundef i32 @slurm_load_node_single(ptr nocapture noundef writeonly %0, p
   %9 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %9, align 8
   %10 = load ptr, ptr @working_cluster_rec, align 8
-  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %10, i16 noundef zeroext %2), !range !15
+  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %10, i16 noundef zeroext %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_node_single2(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_node_single2(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.node_info_single_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #14
@@ -1453,12 +1453,12 @@ define noundef i32 @slurm_load_node_single2(ptr nocapture noundef writeonly %0, 
   store i16 2040, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %5, i64 192
   store ptr %6, ptr %10, align 8
-  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3, i16 noundef zeroext %2), !range !15
+  %11 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3, i16 noundef zeroext %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.slurm_msg, align 8
   %8 = alloca %struct.acct_gather_energy_req_msg, align 2
@@ -1628,7 +1628,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #1
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_node_alias_addrs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_node_alias_addrs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.slurm_node_alias_addrs_t, align 8
@@ -1726,7 +1726,7 @@ define internal noalias noundef ptr @_load_node_thread(ptr noundef %0) #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i16, ptr %7, align 8
-  %9 = call fastcc i32 @_load_cluster_nodes(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %4, i16 noundef zeroext %8), !range !15
+  %9 = call fastcc i32 @_load_cluster_nodes(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %4, i16 noundef zeroext %8)
   %10 = icmp eq i32 %9, 0
   %11 = load ptr, ptr %3, align 8
   %12 = icmp ne ptr %11, null
@@ -1779,7 +1779,7 @@ define internal noalias noundef ptr @_load_node_thread(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %35 to i64
   %37 = icmp ult i64 %indvars.iv.next, %36
-  br i1 %37, label %24, label %._crit_edge, !llvm.loop !17
+  br i1 %37, label %24, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %38 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.70, i32 noundef 610, ptr noundef nonnull @__func__._load_node_thread) #14
@@ -1808,7 +1808,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_cluster_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @_sort_by_cluster_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
@@ -1884,6 +1884,5 @@ attributes #16 = { noreturn nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i32 -1, i32 1}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

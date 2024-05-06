@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @ramfb_setup(ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local noalias noundef ptr @ramfb_setup(ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 13, ptr noundef nonnull @__func__.ramfb_setup, ptr noundef nonnull @.str.1) #3
   ret ptr null

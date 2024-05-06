@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bio_out = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_pkimsg(ptr noundef %file, ptr noundef %libctx) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_pkimsg(ptr noundef %file, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_MSG_read(ptr noundef %file, ptr noundef %libctx, ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 19, ptr noundef nonnull @.str.1, ptr noundef %call) #2
@@ -20,7 +20,7 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare ptr @OSSL_CMP_MSG_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @valid_asn1_encoding(ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @valid_asn1_encoding(ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %cond.end, label %cond.true

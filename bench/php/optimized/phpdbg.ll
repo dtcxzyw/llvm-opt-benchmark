@@ -2029,7 +2029,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.0248 = phi ptr [ null, %2 ], [ %.4252, %516 ]
   %.0245 = phi ptr [ null, %2 ], [ %.6, %516 ]
   call void @zend_signal_startup() #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr null, ptr %4, align 8
   store i32 1, ptr %5, align 4
   %.not = icmp eq ptr %.0273, null
@@ -2310,17 +2310,17 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 php_ini_builder_finish.exit:                      ; preds = %117, %119
   %122 = phi ptr [ %.pre.i, %119 ], [ null, %117 ]
   store ptr %122, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @phpdbg_sapi_module, i64 0, i32 33), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43, i64 0), i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 43, i64 0), i8 0, i64 40, i1 false)
   %123 = call i32 @phpdbg_get_terminal_height() #25
   %124 = zext i32 %123 to i64
   store i64 %124, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 55), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 45), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 24), i8 0, i64 16, i1 false)
   store i8 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 46), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 26), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 28), i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 28), i8 0, i64 9, i1 false)
   store i64 9126969344, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 53), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 0, i32 0), i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 0, i32 0), i8 0, i64 12, i1 false)
   store i32 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 5, i32 0), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 54), align 8
   store i8 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 31), align 1
@@ -3044,7 +3044,7 @@ phpdbg_welcome.exit:                              ; preds = %248, %245, %238, %2
 433:                                              ; preds = %431
   %434 = call noalias dereferenceable_or_null(2200) ptr @calloc(i64 noundef 1, i64 noundef 2200) #31
   %435 = getelementptr inbounds i8, ptr %434, i64 1560
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %435, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %435, i8 0, i64 40, i1 false)
   %436 = call i32 @phpdbg_get_terminal_height() #25
   %437 = zext i32 %436 to i64
   %438 = getelementptr inbounds i8, ptr %434, i64 2192
@@ -3053,16 +3053,16 @@ phpdbg_welcome.exit:                              ; preds = %248, %245, %238, %2
   %440 = getelementptr inbounds i8, ptr %434, i64 1600
   store ptr null, ptr %440, align 8
   %441 = getelementptr inbounds i8, ptr %434, i64 1608
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %439, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %439, i8 0, i64 16, i1 false)
   store i8 1, ptr %441, align 8
   %442 = getelementptr inbounds i8, ptr %434, i64 1352
   store ptr null, ptr %442, align 8
   %443 = getelementptr inbounds i8, ptr %434, i64 1376
   %444 = getelementptr inbounds i8, ptr %434, i64 2176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %443, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) %443, i8 0, i64 9, i1 false)
   store i64 9126969344, ptr %444, align 8
   %445 = getelementptr inbounds i8, ptr %434, i64 1496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %445, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %445, i8 0, i64 12, i1 false)
   %446 = getelementptr inbounds i8, ptr %434, i64 744
   store i32 0, ptr %446, align 8
   %447 = getelementptr inbounds i8, ptr %434, i64 2184
@@ -3535,7 +3535,7 @@ declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_sapi_phpdbg_module_startup(ptr noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @php_sapi_phpdbg_module_startup(ptr noundef %0) #0 {
   %2 = tail call i32 @php_module_startup(ptr noundef %0, ptr noundef nonnull @sapi_phpdbg_module_entry) #25
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %5, label %4
@@ -3587,7 +3587,7 @@ define internal noundef i32 @php_sapi_phpdbg_deactivate() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @php_sapi_phpdbg_ub_write(ptr noundef %0, i64 noundef %1) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @php_sapi_phpdbg_ub_write(ptr noundef %0, i64 noundef %1) #0 {
   %3 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
   %4 = trunc i64 %1 to i32
   %5 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 5, i32 noundef %3, ptr noundef nonnull @.str.73, i32 noundef %4, ptr noundef %0) #25

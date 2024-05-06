@@ -1249,7 +1249,7 @@ ehcleanup:                                        ; preds = %lpad36, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10LuaRaycast6l_nextEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10LuaRaycast6l_nextEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %pointed = alloca %struct.PointedThing, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -1862,7 +1862,7 @@ declare noundef ptr @_ZN13ScriptApiBase9getServerEv(ptr noundef nonnull align 8 
 declare void @_ZN12ScriptApiEnv25on_emerge_area_completionEN3irr4core8vector3dIsEEiP19ScriptCallbackState(ptr noundef nonnull align 8 dereferenceable(8), i48, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv10l_set_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv10l_set_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -1894,7 +1894,7 @@ declare noundef zeroext i1 @_ZN17ServerEnvironment7setNodeEN3irr4core8vector3dIs
 declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv15l_bulk_set_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv15l_bulk_set_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -1954,7 +1954,7 @@ cleanup16:                                        ; preds = %for.cond.cleanup, %
 declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv10l_add_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv10l_add_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n.i = alloca %struct.MapNode, align 4
   %call.i = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -1978,7 +1978,7 @@ _ZN9ModApiEnv10l_set_nodeEP9lua_State.exit:       ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv13l_remove_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv13l_remove_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -1999,7 +1999,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noundef zeroext i1 @_ZN17ServerEnvironment10removeNodeEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(952), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv11l_swap_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv11l_swap_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2025,7 +2025,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noundef zeroext i1 @_ZN17ServerEnvironment8swapNodeEN3irr4core8vector3dIsEERK7MapNode(ptr noundef nonnull align 8 dereferenceable(952), i48, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv14l_get_node_rawEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN9ModApiEnv14l_get_node_rawEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %pos_ok = alloca i8, align 1
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2084,7 +2084,7 @@ declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN17ServerEnvironment
 declare i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144), i48, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_get_node_lightEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_get_node_lightEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %is_position_ok = alloca i8, align 1
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2107,7 +2107,7 @@ if.then4:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.then4, %if.end
   %time_of_day.0 = phi i32 [ %conv, %if.then4 ], [ %call2, %if.end ]
   %rem = urem i32 %time_of_day.0, 24000
-  %conv7 = uitofp i32 %rem to float
+  %conv7 = uitofp nneg i32 %rem to float
   %cmp8.i = icmp ugt i32 %rem, 12000
   %sub.i = fsub nsz float 2.400000e+04, %conv7
   %t.2.i = select i1 %cmp8.i, float %sub.i, float %conv7
@@ -2244,7 +2244,7 @@ declare noundef i32 @_ZN11Environment12getTimeOfDayEv(ptr noundef nonnull align 
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv19l_get_natural_lightEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv19l_get_natural_lightEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %is_position_ok = alloca i8, align 1
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2278,7 +2278,7 @@ if.end17.thread:                                  ; preds = %if.end10
   %mul = fmul nsz double %call14, 2.400000e+04
   %conv15 = fptoui double %mul to i32
   %rem = urem i32 %conv15, 24000
-  %conv1849 = uitofp i32 %rem to float
+  %conv1849 = uitofp nneg i32 %rem to float
   br label %if.end7.i
 
 if.end17:                                         ; preds = %if.end10
@@ -2394,7 +2394,7 @@ cleanup34:                                        ; preds = %cleanup31, %entry
 declare noundef zeroext i8 @_ZNK17ServerEnvironment12findSunlightEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(952), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv12l_place_nodeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv12l_place_nodeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i.i.i = alloca i64, align 8
   %item = alloca %"class.std::optional.431", align 8
@@ -2779,7 +2779,7 @@ _ZNSt17_Optional_payloadI9ItemStackLb0ELb0ELb0EED2Ev.exit: ; preds = %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv10l_dig_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv10l_dig_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -2888,7 +2888,7 @@ unreachable:                                      ; preds = %invoke.cont3
 declare noundef zeroext i1 @_ZN13ScriptApiNode11node_on_digEN3irr4core8vector3dIsEE7MapNodeP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(8), i48, i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv12l_punch_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv12l_punch_nodeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %ref.tmp = alloca %struct.PointedThing, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2928,7 +2928,7 @@ declare noundef zeroext i1 @_ZN13ScriptApiNode13node_on_punchEN3irr4core8vector3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv20l_get_node_max_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv20l_get_node_max_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -2964,7 +2964,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noundef zeroext i8 @_ZNK7MapNode11getMaxLevelEPK14NodeDefManager(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_get_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_get_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -3000,7 +3000,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noundef zeroext i8 @_ZNK7MapNode8getLevelEPK14NodeDefManager(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_set_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_set_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -3047,7 +3047,7 @@ cleanup:                                          ; preds = %if.end5, %entry
 declare noundef signext i8 @_ZN7MapNode8setLevelEPK14NodeDefManagers(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i16 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_add_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_add_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -3093,7 +3093,7 @@ cleanup:                                          ; preds = %if.end5, %entry
 declare noundef signext i8 @_ZN7MapNode8addLevelEPK14NodeDefManagers(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i16 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_get_node_boxesEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_get_node_boxesEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %box_type = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3354,7 +3354,7 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 declare void @_Z18push_aabb3f_vectorP9lua_StateRKSt6vectorIN3irr4core8aabbox3dIfEESaIS5_EEf(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv22l_find_nodes_with_metaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv22l_find_nodes_with_metaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %positions = alloca %"class.std::vector.516", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -3454,7 +3454,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv10l_get_metaEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv10l_get_metaEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -3473,7 +3473,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare void @_ZN11NodeMetaRef6createEP9lua_StateN3irr4core8vector3dIsEEP17ServerEnvironment(ptr noundef, i48, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_get_node_timerEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_get_node_timerEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -3495,7 +3495,7 @@ declare void @_ZN12NodeTimerRef6createEP9lua_StateN3irr4core8vector3dIsEEP9Serve
 declare noundef nonnull align 8 dereferenceable(560) ptr @_ZN17ServerEnvironment12getServerMapEv(ptr noundef nonnull align 8 dereferenceable(952)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv12l_add_entityEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv12l_add_entityEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %env = alloca ptr, align 8
@@ -3901,7 +3901,7 @@ declare noundef ptr @_ZN10ModApiBase16getScriptApiBaseEP9lua_State(ptr noundef) 
 declare void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv10l_add_itemEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv10l_add_itemEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %item = alloca %struct.ItemStack, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4263,7 +4263,7 @@ ehcleanup32:                                      ; preds = %if.then.i.i.i58, %i
 declare void @_Z14log_deprecatedP9lua_StateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv20l_get_player_by_nameEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv20l_get_player_by_nameEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -4304,7 +4304,7 @@ cleanup13:                                        ; preds = %if.end9, %lor.lhs.f
 declare noundef ptr @_ZN17ServerEnvironment9getPlayerEPKcb(ptr noundef nonnull align 8 dereferenceable(952), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv27l_get_objects_inside_radiusEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv27l_get_objects_inside_radiusEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.irr::core::vector3d.147", align 8
   %objs = alloca %"class.std::vector.604", align 8
@@ -4539,7 +4539,7 @@ terminate.lpad.i8:                                ; preds = %if.then.i6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv21l_get_objects_in_areaEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv21l_get_objects_in_areaEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %box = alloca %"class.irr::core::aabbox3d.425", align 8
   %objs = alloca %"class.std::vector.604", align 8
@@ -4849,7 +4849,7 @@ declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @_ZN6Server12setTimeOfDayEj(ptr noundef nonnull align 8 dereferenceable(1640), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv15l_get_timeofdayEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv15l_get_timeofdayEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -4869,7 +4869,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv15l_get_day_countEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv15l_get_day_countEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -4889,7 +4889,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noundef i32 @_ZN11Environment11getDayCountEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv14l_get_gametimeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv14l_get_gametimeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -5049,7 +5049,7 @@ declare void @_ZN9LuaHelper9readParamINSt7__cxx1112basic_stringIcSt11char_traits
 declare i32 @lua_isstring(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_find_node_nearEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_find_node_nearEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %filter = alloca %"class.std::vector.503", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -5537,7 +5537,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv20l_find_nodes_in_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN9ModApiEnv20l_find_nodes_in_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -6865,7 +6865,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorItSaItE
 declare i48 @_ZN6Client11CSMClampPosEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(1746), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv30l_find_nodes_in_area_under_airEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv30l_find_nodes_in_area_under_airEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -7316,7 +7316,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv12l_get_perlinEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv12l_get_perlinEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %params = alloca %struct.NoiseParams, align 16
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -7399,7 +7399,7 @@ declare noundef i64 @_ZN9ServerMap7getSeedEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN14LuaPerlinNoiseC1EPK11NoiseParams(ptr noundef nonnull align 4 dereferenceable(40), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv16l_get_perlin_mapEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv16l_get_perlin_mapEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %np = alloca %struct.NoiseParams, align 16
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -7496,7 +7496,7 @@ declare noundef i32 @_Z12getenumfieldP9lua_StateiPKcPK10EnumStringi(ptr noundef,
 declare void @_ZN17ServerEnvironment12clearObjectsE16ClearObjectsMode(ptr noundef nonnull align 8 dereferenceable(952), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv15l_line_of_sightEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN9ModApiEnv15l_line_of_sightEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %p = alloca %"class.irr::core::vector3d", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -7539,7 +7539,7 @@ cleanup13:                                        ; preds = %cleanup, %entry
 declare noundef zeroext i1 @_ZN11Environment13line_of_sightEN3irr4core8vector3dIfEES3_PNS2_IsEE(ptr noundef nonnull align 8 dereferenceable(112), <2 x float>, float, <2 x float>, float, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv11l_fix_lightEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv11l_fix_lightEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Alloc_node", align 8
   %modified_blocks = alloca %"class.std::map.736", align 8
@@ -8292,7 +8292,7 @@ declare i32 @luaL_ref(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare noundef zeroext i1 @_ZN13EmergeManager20enqueueBlockEmergeExEN3irr4core8vector3dIsEEttPFvS3_12EmergeActionPvES5_(ptr noundef nonnull align 8 dereferenceable(464), i48, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv13l_delete_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv13l_delete_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %event = alloca %struct.MapEditEvent, align 8
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -8572,7 +8572,7 @@ cleanup:                                          ; preds = %_ZN12MapEditEventD2
 declare void @_ZN17ServerEnvironment32setStaticForActiveObjectsInBlockEN3irr4core8vector3dIsEEbS3_(ptr noundef nonnull align 8 dereferenceable(952), i48, i1 noundef zeroext, i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv11l_find_pathEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv11l_find_pathEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %algorithm = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8784,7 +8784,7 @@ declare void @_Z8get_pathP3MapPK14NodeDefManagerN3irr4core8vector3dIsEES7_jjj13P
 declare void @lua_settable(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv12l_spawn_treeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv12l_spawn_treeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tree_def = alloca %"struct.treegen::TreeDef", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
@@ -9142,7 +9142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv25l_transforming_liquid_addEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv25l_transforming_liquid_addEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null
@@ -9183,7 +9183,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv22l_compare_block_statusEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv22l_compare_block_statusEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %condition_s = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9373,7 +9373,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ModApiEnv23l_get_translated_stringEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ModApiEnv23l_get_translated_stringEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i49 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -9884,7 +9884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM17l_get_node_or_nilEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM17l_get_node_or_nilEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -10001,7 +10001,7 @@ cleanup:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM20l_get_node_max_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM20l_get_node_max_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -10120,7 +10120,7 @@ cleanup:                                          ; preds = %_ZN16VoxelManipulat
 declare noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM16l_get_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM16l_get_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -10237,7 +10237,7 @@ cleanup:                                          ; preds = %_ZN16VoxelManipulat
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM16l_set_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM16l_set_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -10426,7 +10426,7 @@ cleanup:                                          ; preds = %_ZN16VoxelManipulat
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM16l_add_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM16l_add_node_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %n = alloca %struct.MapNode, align 4
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -10615,7 +10615,7 @@ cleanup:                                          ; preds = %_ZN16VoxelManipulat
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM16l_find_node_nearEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM16l_find_node_nearEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %filter = alloca %"class.std::vector.503", align 8
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -10949,7 +10949,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM20l_find_nodes_in_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN11ModApiEnvVM20l_find_nodes_in_areaEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -11957,7 +11957,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM30l_find_nodes_in_area_under_airEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM30l_find_nodes_in_area_under_airEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -12457,7 +12457,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11ModApiEnvVM12l_spawn_treeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11ModApiEnvVM12l_spawn_treeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tree_def = alloca %"struct.treegen::TreeDef", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

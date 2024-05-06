@@ -19,7 +19,7 @@ for.body.preheader:                               ; preds = %entry
   %scevgep = getelementptr inbounds i8, ptr %in, i64 8
   store i64 0, ptr %scevgep, align 8
   %cmp2132 = icmp ugt i64 %clen, 63
-  br i1 %cmp2132, label %while.body, label %for.body44.preheader
+  br i1 %cmp2132, label %while.body, label %if.then35
 
 while.body:                                       ; preds = %for.body.preheader, %for.end33
   %c.addr.034 = phi ptr [ %add.ptr, %for.end33 ], [ %c, %for.body.preheader ]
@@ -49,23 +49,23 @@ for.end33:                                        ; preds = %for.body25
 
 while.end:                                        ; preds = %for.end33
   %tobool34.not = icmp eq i64 %sub, 0
-  br i1 %tobool34.not, label %if.end52, label %for.body44.preheader
+  br i1 %tobool34.not, label %if.end52, label %if.then35
 
-for.body44.preheader:                             ; preds = %for.body.preheader, %while.end
-  %c.addr.0.lcssa50 = phi ptr [ %add.ptr, %while.end ], [ %c, %for.body.preheader ]
-  %clen.addr.0.lcssa49 = phi i64 [ %sub, %while.end ], [ %clen, %for.body.preheader ]
+if.then35:                                        ; preds = %for.body.preheader, %while.end
+  %c.addr.0.lcssa49 = phi ptr [ %add.ptr, %while.end ], [ %c, %for.body.preheader ]
+  %clen.addr.0.lcssa48 = phi i64 [ %sub, %while.end ], [ %clen, %for.body.preheader ]
   %call39 = call i32 @crypto_core_salsa2012(ptr noundef nonnull %block, ptr noundef nonnull %in, ptr noundef nonnull %kcopy, ptr noundef null) #3
   br label %for.body44
 
-for.body44:                                       ; preds = %for.body44.preheader, %for.body44
-  %indvars.iv42 = phi i64 [ 0, %for.body44.preheader ], [ %indvars.iv.next43, %for.body44 ]
-  %arrayidx46 = getelementptr [64 x i8], ptr %block, i64 0, i64 %indvars.iv42
+for.body44:                                       ; preds = %if.then35, %for.body44
+  %indvars.iv41 = phi i64 [ 0, %if.then35 ], [ %indvars.iv.next42, %for.body44 ]
+  %arrayidx46 = getelementptr [64 x i8], ptr %block, i64 0, i64 %indvars.iv41
   %2 = load i8, ptr %arrayidx46, align 1
-  %arrayidx48 = getelementptr i8, ptr %c.addr.0.lcssa50, i64 %indvars.iv42
+  %arrayidx48 = getelementptr i8, ptr %c.addr.0.lcssa49, i64 %indvars.iv41
   store i8 %2, ptr %arrayidx48, align 1
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next43, %clen.addr.0.lcssa49
-  br i1 %exitcond45.not, label %if.end52, label %for.body44, !llvm.loop !7
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next42, %clen.addr.0.lcssa48
+  br i1 %exitcond44.not, label %if.end52, label %for.body44, !llvm.loop !7
 
 if.end52:                                         ; preds = %for.body44, %while.end
   call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 64) #3
@@ -96,7 +96,7 @@ for.body.preheader:                               ; preds = %entry
   %scevgep = getelementptr inbounds i8, ptr %in, i64 8
   store i64 0, ptr %scevgep, align 8
   %cmp2143 = icmp ugt i64 %mlen, 63
-  br i1 %cmp2143, label %while.body, label %for.body62.preheader
+  br i1 %cmp2143, label %while.body, label %if.then53
 
 while.body:                                       ; preds = %for.body.preheader, %for.end50
   %c.addr.046 = phi ptr [ %add.ptr, %for.end50 ], [ %c, %for.body.preheader ]
@@ -119,18 +119,18 @@ for.body26:                                       ; preds = %while.body, %for.bo
   br i1 %exitcond.not, label %for.body41, label %for.body26, !llvm.loop !8
 
 for.body41:                                       ; preds = %for.body26, %for.body41
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %for.body41 ], [ 8, %for.body26 ]
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %for.body41 ], [ 8, %for.body26 ]
   %u.042 = phi i32 [ %shr, %for.body41 ], [ 1, %for.body26 ]
-  %arrayidx43 = getelementptr [16 x i8], ptr %in, i64 0, i64 %indvars.iv55
+  %arrayidx43 = getelementptr [16 x i8], ptr %in, i64 0, i64 %indvars.iv54
   %3 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %3 to i32
   %add = add nuw nsw i32 %u.042, %conv44
   %conv45 = trunc i32 %add to i8
   store i8 %conv45, ptr %arrayidx43, align 1
   %shr = lshr i32 %add, 8
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 16
-  br i1 %exitcond58.not, label %for.end50, label %for.body41, !llvm.loop !9
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next55, 16
+  br i1 %exitcond57.not, label %for.end50, label %for.body41, !llvm.loop !9
 
 for.end50:                                        ; preds = %for.body41
   %sub = add i64 %mlen.addr.045, -64
@@ -141,27 +141,27 @@ for.end50:                                        ; preds = %for.body41
 
 while.end:                                        ; preds = %for.end50
   %tobool52.not = icmp eq i64 %sub, 0
-  br i1 %tobool52.not, label %if.end76, label %for.body62.preheader
+  br i1 %tobool52.not, label %if.end76, label %if.then53
 
-for.body62.preheader:                             ; preds = %for.body.preheader, %while.end
-  %c.addr.0.lcssa69 = phi ptr [ %add.ptr, %while.end ], [ %c, %for.body.preheader ]
-  %mlen.addr.0.lcssa68 = phi i64 [ %sub, %while.end ], [ %mlen, %for.body.preheader ]
-  %m.addr.0.lcssa67 = phi ptr [ %add.ptr51, %while.end ], [ %m, %for.body.preheader ]
+if.then53:                                        ; preds = %for.body.preheader, %while.end
+  %c.addr.0.lcssa68 = phi ptr [ %add.ptr, %while.end ], [ %c, %for.body.preheader ]
+  %mlen.addr.0.lcssa67 = phi i64 [ %sub, %while.end ], [ %mlen, %for.body.preheader ]
+  %m.addr.0.lcssa66 = phi ptr [ %add.ptr51, %while.end ], [ %m, %for.body.preheader ]
   %call57 = call i32 @crypto_core_salsa2012(ptr noundef nonnull %block, ptr noundef nonnull %in, ptr noundef nonnull %kcopy, ptr noundef null) #3
   br label %for.body62
 
-for.body62:                                       ; preds = %for.body62.preheader, %for.body62
-  %indvars.iv59 = phi i64 [ 0, %for.body62.preheader ], [ %indvars.iv.next60, %for.body62 ]
-  %arrayidx64 = getelementptr i8, ptr %m.addr.0.lcssa67, i64 %indvars.iv59
+for.body62:                                       ; preds = %if.then53, %for.body62
+  %indvars.iv58 = phi i64 [ 0, %if.then53 ], [ %indvars.iv.next59, %for.body62 ]
+  %arrayidx64 = getelementptr i8, ptr %m.addr.0.lcssa66, i64 %indvars.iv58
   %4 = load i8, ptr %arrayidx64, align 1
-  %arrayidx67 = getelementptr [64 x i8], ptr %block, i64 0, i64 %indvars.iv59
+  %arrayidx67 = getelementptr [64 x i8], ptr %block, i64 0, i64 %indvars.iv58
   %5 = load i8, ptr %arrayidx67, align 1
   %xor6935 = xor i8 %5, %4
-  %arrayidx72 = getelementptr i8, ptr %c.addr.0.lcssa69, i64 %indvars.iv59
+  %arrayidx72 = getelementptr i8, ptr %c.addr.0.lcssa68, i64 %indvars.iv58
   store i8 %xor6935, ptr %arrayidx72, align 1
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next60, %mlen.addr.0.lcssa68
-  br i1 %exitcond62.not, label %if.end76, label %for.body62, !llvm.loop !11
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next59, %mlen.addr.0.lcssa67
+  br i1 %exitcond61.not, label %if.end76, label %for.body62, !llvm.loop !11
 
 if.end76:                                         ; preds = %for.body62, %while.end
   call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 64) #3

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [6 x i8] c"PKCS7\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS7_get_certificates(ptr noundef %out_certs, ptr noundef %cbs) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %out_certs, ptr noundef %cbs) local_unnamed_addr #0 {
 entry:
   %signed_data = alloca %struct.cbs_st, align 8
   %certificates = alloca %struct.cbs_st, align 8
@@ -19,7 +19,7 @@ entry:
   %inp = alloca ptr, align 8
   store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_certs) #3
-  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs), !range !7
+  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -58,7 +58,7 @@ if.end14:                                         ; preds = %if.end10
 if.end20:                                         ; preds = %if.end14
   %call21 = call i64 @sk_push(ptr noundef %out_certs, ptr noundef nonnull %call17) #3
   %cmp22 = icmp eq i64 %call21, 0
-  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !8
+  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !7
 
 if.then23:                                        ; preds = %if.end20
   call void @X509_free(ptr noundef nonnull %call17) #3
@@ -88,7 +88,7 @@ while.body33:                                     ; preds = %while.cond30.prehea
   call void @X509_free(ptr noundef %call35) #3
   %call31 = call i64 @sk_num(ptr noundef %out_certs) #3
   %cmp32.not = icmp eq i64 %call31, %call
-  br i1 %cmp32.not, label %return, label %while.body33, !llvm.loop !10
+  br i1 %cmp32.not, label %return, label %while.body33, !llvm.loop !9
 
 return:                                           ; preds = %while.body33, %while.cond30.preheader, %if.end27, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %ret.0, %if.end27 ], [ %ret.0, %while.cond30.preheader ], [ %ret.0, %while.body33 ]
@@ -98,7 +98,7 @@ return:                                           ; preds = %while.body33, %whil
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %out, ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %out, ptr noundef %cbs) unnamed_addr #0 {
 entry:
   %der_len = alloca i64, align 8
   %in = alloca %struct.cbs_st, align 8
@@ -224,7 +224,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare ptr @sk_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS7_get_CRLs(ptr noundef %out_crls, ptr noundef %cbs) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %out_crls, ptr noundef %cbs) local_unnamed_addr #0 {
 entry:
   %signed_data = alloca %struct.cbs_st, align 8
   %crls = alloca %struct.cbs_st, align 8
@@ -233,7 +233,7 @@ entry:
   %inp = alloca ptr, align 8
   store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_crls) #3
-  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs), !range !7
+  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -282,7 +282,7 @@ if.end20:                                         ; preds = %if.end16
 if.end26:                                         ; preds = %if.end20
   %call27 = call i64 @sk_push(ptr noundef %out_crls, ptr noundef nonnull %call23) #3
   %cmp28 = icmp eq i64 %call27, 0
-  br i1 %cmp28, label %if.then29, label %while.cond, !llvm.loop !11
+  br i1 %cmp28, label %if.then29, label %while.cond, !llvm.loop !10
 
 if.then29:                                        ; preds = %if.end26
   call void @X509_CRL_free(ptr noundef nonnull %call23) #3
@@ -312,7 +312,7 @@ while.body39:                                     ; preds = %while.cond36.prehea
   call void @X509_CRL_free(ptr noundef %call40) #3
   %call37 = call i64 @sk_num(ptr noundef %out_crls) #3
   %cmp38.not = icmp eq i64 %call37, %call
-  br i1 %cmp38.not, label %return, label %while.body39, !llvm.loop !12
+  br i1 %cmp38.not, label %return, label %while.body39, !llvm.loop !11
 
 return:                                           ; preds = %while.body39, %while.cond36.preheader, %if.end33, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %ret.0, %if.end33 ], [ %ret.0, %while.cond36.preheader ], [ %ret.0, %while.body39 ]
@@ -326,7 +326,7 @@ declare ptr @d2i_X509_CRL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS7_get_PEM_certificates(ptr noundef %out_certs, ptr noundef %pem_bio) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS7_get_PEM_certificates(ptr noundef %out_certs, ptr noundef %pem_bio) local_unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %len, align 8
   call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %0, i64 noundef %1) #3
-  %call1 = call i32 @PKCS7_get_certificates(ptr noundef %out_certs, ptr noundef nonnull %cbs), !range !7
+  %call1 = call i32 @PKCS7_get_certificates(ptr noundef %out_certs, ptr noundef nonnull %cbs)
   %2 = load ptr, ptr %data, align 8
   call void @free(ptr noundef %2) #3
   br label %return
@@ -354,7 +354,7 @@ declare i32 @PEM_bytes_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS7_get_PEM_CRLs(ptr noundef %out_crls, ptr noundef %pem_bio) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS7_get_PEM_CRLs(ptr noundef %out_crls, ptr noundef %pem_bio) local_unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -367,7 +367,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %len, align 8
   call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %0, i64 noundef %1) #3
-  %call1 = call i32 @PKCS7_get_CRLs(ptr noundef %out_crls, ptr noundef nonnull %cbs), !range !7
+  %call1 = call i32 @PKCS7_get_CRLs(ptr noundef %out_crls, ptr noundef nonnull %cbs)
   %2 = load ptr, ptr %data, align 8
   call void @free(ptr noundef %2) #3
   br label %return
@@ -438,7 +438,7 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false18
   br i1 %tobool23.not, label %return, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false21
-  %call25 = call i32 %cb(ptr noundef nonnull %seq, ptr noundef %arg) #3, !callees !13
+  %call25 = call i32 %cb(ptr noundef nonnull %seq, ptr noundef %arg) #3, !callees !12
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %return, label %if.end
 
@@ -469,7 +469,7 @@ for.cond:                                         ; preds = %lor.lhs.false7
   %inc = add nuw i64 %i.09, 1
   %call1 = call i64 @sk_num(ptr noundef %arg) #3
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.09 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -523,7 +523,7 @@ for.cond:                                         ; preds = %lor.lhs.false7
   %inc = add nuw i64 %i.09, 1
   %call1 = call i64 @sk_num(ptr noundef %arg) #3
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.09 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -588,12 +588,11 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{ptr @pkcs7_bundle_certificates_cb, ptr @pkcs7_bundle_crls_cb}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{ptr @pkcs7_bundle_certificates_cb, ptr @pkcs7_bundle_crls_cb}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

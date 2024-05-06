@@ -711,7 +711,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   br label %.lr.ph.split.i22
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %79 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %5)
+  %79 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull readonly %.0, i32 noundef %5)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
   ret i32 %79
 }
@@ -873,7 +873,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   br label %.lr.ph.split.i27
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %80 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %6)
+  %80 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull readonly %.0, i32 noundef %6)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
   ret i32 %80
 }
@@ -1420,12 +1420,12 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
   %27 = shl nsw i32 %26, 1
   %28 = or disjoint i32 %27, 1
   %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %or.cond.i26 = icmp ult i32 %27, 15
-  %spec.store.select.i27 = select i1 %or.cond.i26, i32 16, i32 %28
+  %or.cond.i27 = icmp ult i32 %27, 15
+  %spec.store.select.i28 = select i1 %or.cond.i27, i32 16, i32 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 0, ptr %30, align 4
-  store i32 %spec.store.select.i27, ptr %29, align 8
-  %31 = sext i32 %spec.store.select.i27 to i64
+  store i32 %spec.store.select.i28, ptr %29, align 8
+  %31 = sext i32 %spec.store.select.i28 to i64
   %32 = shl nsw i64 %31, 2
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #13
   %34 = getelementptr inbounds i8, ptr %29, i64 8
@@ -1550,7 +1550,7 @@ define ptr @Kit_GraphToHop(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val = load ptr, ptr %6, align 8
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %8) #14
   %10 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %9, ptr %10, align 8

@@ -2807,7 +2807,7 @@ declare dso_local void @ip_options_fragment(ptr noundef) local_unnamed_addr #3
 declare dso_local void @consume_skb(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_generic_getfrag(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @ip_generic_getfrag(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #0 align 16 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %5, i64 128
   %9 = load i8, ptr %8, align 8
@@ -2920,7 +2920,7 @@ define dso_local i32 @ip_append_data(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip_setup_cork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @ip_setup_cork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %102, label %7, !prof !7

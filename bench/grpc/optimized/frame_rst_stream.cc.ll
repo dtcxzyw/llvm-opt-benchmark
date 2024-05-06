@@ -83,7 +83,7 @@ if.end:                                           ; preds = %if.then, %entry
   %incdec.ptr6 = getelementptr inbounds i8, ptr %cond, i64 5
   store i8 0, ptr %incdec.ptr5, align 1
   %shr = lshr i32 %id, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %incdec.ptr7 = getelementptr inbounds i8, ptr %cond, i64 6
   store i8 %conv, ptr %incdec.ptr6, align 1
   %shr8 = lshr i32 %id, 16
@@ -98,7 +98,7 @@ if.end:                                           ; preds = %if.then, %entry
   %incdec.ptr15 = getelementptr inbounds i8, ptr %cond, i64 9
   store i8 %conv14, ptr %incdec.ptr13, align 1
   %shr16 = lshr i32 %code, 24
-  %conv17 = trunc i32 %shr16 to i8
+  %conv17 = trunc nuw i32 %shr16 to i8
   %incdec.ptr18 = getelementptr inbounds i8, ptr %cond, i64 10
   store i8 %conv17, ptr %incdec.ptr15, align 1
   %shr19 = lshr i32 %code, 16
@@ -164,7 +164,7 @@ _Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats.exit: ; preds
   %cond.i.sroa.sel13 = select i1 %tobool.not.i, ptr %bytes2.i.sroa.gep11, ptr %.sroa.gep12
   store i8 0, ptr %cond.i.sroa.sel10, align 1
   %shr.i = lshr i32 %id, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   %bytes2.i.sroa.gep14 = getelementptr inbounds i8, ptr %agg.tmp, i64 15
   %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 6
   %cond.i.sroa.sel16 = select i1 %tobool.not.i, ptr %bytes2.i.sroa.gep14, ptr %.sroa.gep15
@@ -186,7 +186,7 @@ _Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats.exit: ; preds
   %cond.i.sroa.sel25 = select i1 %tobool.not.i, ptr %bytes2.i.sroa.gep23, ptr %.sroa.gep24
   store i8 %conv14.i, ptr %cond.i.sroa.sel22, align 1
   %shr16.i = lshr i32 %code, 24
-  %conv17.i = trunc i32 %shr16.i to i8
+  %conv17.i = trunc nuw i32 %shr16.i to i8
   %bytes2.i.sroa.gep26 = getelementptr inbounds i8, ptr %agg.tmp, i64 19
   %.sroa.gep27 = getelementptr inbounds i8, ptr %3, i64 10
   %cond.i.sroa.sel28 = select i1 %tobool.not.i, ptr %bytes2.i.sroa.gep26, ptr %.sroa.gep27

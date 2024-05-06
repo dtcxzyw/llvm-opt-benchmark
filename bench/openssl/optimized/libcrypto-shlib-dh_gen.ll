@@ -48,7 +48,7 @@ declare i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef, ptr noundef, i32 no
 declare i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ossl_dh_get_named_group_uid_from_size(i32 noundef %pbits) local_unnamed_addr #2 {
+define range(i32 0, 1131) i32 @ossl_dh_get_named_group_uid_from_size(i32 noundef %pbits) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %pbits, -2048
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 22)

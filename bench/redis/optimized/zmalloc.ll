@@ -657,7 +657,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #6
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_proc_stat_ll(i32 noundef %i, ptr nocapture noundef writeonly %res) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %i, ptr nocapture noundef writeonly %res) local_unnamed_addr #3 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %x = alloca ptr, align 8
@@ -773,7 +773,7 @@ define dso_local i64 @zmalloc_get_rss() local_unnamed_addr #3 {
 entry:
   %rss = alloca i64, align 8
   %call = tail call i64 @sysconf(i32 noundef 30) #24
-  %call1 = call i32 @get_proc_stat_ll(i32 noundef 24, ptr noundef nonnull %rss), !range !7
+  %call1 = call i32 @get_proc_stat_ll(i32 noundef 24, ptr noundef nonnull %rss)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @jemalloc_purge() local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @jemalloc_purge() local_unnamed_addr #3 {
 entry:
   %tmp = alloca [32 x i8], align 16
   %narenas = alloca i32, align 4
@@ -907,7 +907,7 @@ if.end25:                                         ; preds = %if.then17, %if.then
   %bytes.1 = phi i64 [ %add, %if.then21 ], [ %bytes.010, %if.then17 ], [ %bytes.010, %while.body ]
   %call9 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1024, ptr noundef nonnull %fp.0)
   %cmp10.not = icmp eq ptr %call9, null
-  br i1 %cmp10.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %cmp10.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end25, %while.cond.preheader
   %bytes.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %bytes.1, %if.end25 ]
@@ -1029,5 +1029,4 @@ attributes #30 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

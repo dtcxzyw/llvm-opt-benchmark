@@ -2792,7 +2792,7 @@ default.unreachable1:                             ; preds = %3
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !291
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !291
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   %17 = load i64, ptr %4, align 8, !range !19, !alias.scope !300, !noalias !302, !noundef !5
@@ -2829,7 +2829,7 @@ default.unreachable1:                             ; preds = %3
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false), !alias.scope !304, !noalias !296
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !294
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !294
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h95d310060f608356E.llvm.11412103250879890566.exit"
 
@@ -2882,7 +2882,7 @@ default.unreachable1:                             ; preds = %3
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !310
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !305
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !305
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %17 = load i64, ptr %4, align 8, !range !19, !alias.scope !314, !noalias !316, !noundef !5
@@ -2919,7 +2919,7 @@ default.unreachable1:                             ; preds = %3
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false), !alias.scope !318, !noalias !310
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !310
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !308
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !308
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52baba7af522d429E.llvm.11412103250879890566.exit"
 

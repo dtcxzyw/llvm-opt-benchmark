@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ErrHandler = external global %class.ErrorHandler, align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z7MakeDirPKwbj(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 3) i32 @_Z7MakeDirPKwbj(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2048 x i8], align 16
   %5 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2048)
   %6 = select i1 %1, i32 %2, i32 511

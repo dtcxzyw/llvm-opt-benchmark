@@ -87,7 +87,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__scm_send(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load volatile ptr, ptr %4, align 32
   %6 = getelementptr inbounds i8, ptr %1, i64 72

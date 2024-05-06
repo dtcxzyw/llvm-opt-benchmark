@@ -389,7 +389,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @alps_process_byte(ptr noundef %0) #0 align 16 {
+define internal range(i32 0, 3) i32 @alps_process_byte(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 188
   %4 = load i16, ptr %3, align 4
@@ -703,7 +703,7 @@ define internal i32 @alps_process_byte(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alps_poll(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @alps_poll(ptr noundef %0) #0 align 16 {
   %2 = alloca [8 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
@@ -1298,7 +1298,7 @@ declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @alps_set_protocol(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -2043,7 +2043,7 @@ define internal void @alps_flush_packet(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alps_hw_init_v1_v2(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v1_v2(ptr noundef %0) #0 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
@@ -2518,7 +2518,7 @@ define internal void @alps_set_abs_params_st(ptr nocapture noundef readonly %0, 
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alps_hw_init_v3(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v3(ptr noundef %0) #0 align 16 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
@@ -3698,7 +3698,7 @@ define internal noundef i32 @alps_decode_rushmore(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alps_hw_init_v4(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @alps_hw_init_v4(ptr noundef %0) #0 align 16 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
@@ -4067,7 +4067,7 @@ define internal void @alps_process_packet_v4(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @alps_hw_init_dolphin_v1(ptr noundef %0) #0 align 16 {
+define internal range(i32 -1, 1) i32 @alps_hw_init_dolphin_v1(ptr noundef %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
@@ -5178,7 +5178,7 @@ define internal void @alps_process_packet_v7(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @alps_decode_packet_v7(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #9 align 16 {
+define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #9 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 1
@@ -6321,7 +6321,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -6505,7 +6505,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %44, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_enter_command_mode(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_enter_command_mode(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
   store i32 0, ptr %2, align 4, !annotation !10
@@ -6569,7 +6569,7 @@ define internal fastcc i32 @alps_enter_command_mode(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 256) i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6641,7 +6641,7 @@ define internal fastcc i32 @alps_command_mode_read_reg(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = zext i8 %1 to i32
@@ -6690,7 +6690,7 @@ define internal fastcc i32 @__alps_command_mode_write_reg(ptr noundef %0, i8 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -6774,7 +6774,7 @@ define internal fastcc i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -6899,7 +6899,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %10, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_trackstick_enter_extended_mode_v3_v6(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
   store i8 -56, ptr %2, align 1

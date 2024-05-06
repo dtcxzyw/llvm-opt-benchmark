@@ -117,11 +117,11 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 @.str.52 = private unnamed_addr constant [18 x i8] c"can_see_far_names\00", align 1
 @.str.53 = private unnamed_addr constant [5 x i8] c"mods\00", align 1
 @.str.54 = private unnamed_addr constant [4 x i8] c"lag\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.55 = private unnamed_addr constant [12 x i8] c"Announcing \00", align 1
 @.str.56 = private unnamed_addr constant [5 x i8] c" to \00", align 1
 @.str.57 = private unnamed_addr constant [15 x i8] c"serverlist_url\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.58 = private unnamed_addr constant [10 x i8] c"/announce\00", align 1
 @_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE = linkonce_odr dso_local global { { { ptr } } } zeroinitializer, comdat, align 8
 @_ZGVN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE = linkonce_odr dso_local local_unnamed_addr global i64 0, comdat($_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE), align 8

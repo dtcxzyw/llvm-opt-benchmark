@@ -47,7 +47,7 @@ declare dso_local i32 @arc4_setkey(ptr noundef, ptr noundef, i32 noundef) local_
 declare dso_local void @arc4_crypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_wep_encrypt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @ieee80211_wep_encrypt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %7 = getelementptr inbounds i8, ptr %1, i64 116
@@ -220,7 +220,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_wep_decrypt_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @ieee80211_wep_decrypt_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %7 = trunc i64 %2 to i32
@@ -242,7 +242,7 @@ define dso_local i32 @ieee80211_wep_decrypt_data(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_wep_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65566) i32 @ieee80211_crypto_wep_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -458,7 +458,7 @@ define dso_local noundef i32 @ieee80211_crypto_wep_decrypt(ptr nocapture noundef
 declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_wep_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_wep_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

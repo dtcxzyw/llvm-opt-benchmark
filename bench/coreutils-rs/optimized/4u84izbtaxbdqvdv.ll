@@ -1064,7 +1064,7 @@ define void @_ZN6uu_sum6uu_app17h5032e009fac05fcfE(ptr noalias nocapture noundef
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %62 = getelementptr inbounds i8, ptr %12, i64 576
   store i32 114, ptr %62, align 8, !alias.scope !188, !noalias !185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %13, ptr noundef nonnull align 8 dereferenceable(592) %12, i64 592, i1 false), !alias.scope !190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %13, ptr noundef nonnull align 8 dereferenceable(592) %12, i64 592, i1 false), !alias.scope !190
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i22)

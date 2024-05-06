@@ -200,16 +200,16 @@ for.body.i:                                       ; preds = %_ZNSt8ios_base5iwor
 if.then5.i:                                       ; preds = %for.body.i, %_ZNSt8ios_base5iwordEi.exit.i
   %ref.tmp.sroa.0.0 = phi ptr [ %0, %_ZNSt8ios_base5iwordEi.exit.i ], [ %call7.i, %for.body.i ]
   %call10.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName)
-  %call10.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i8 noundef signext 58)
+  %call10.i8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i8 noundef signext 58)
   %d_span = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %d_span, align 8
-  %call10.i53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i32 noundef %6)
-  %call10.i83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i8 noundef signext 46)
+  %call10.i38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i32 noundef %6)
+  %call10.i68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i8 noundef signext 46)
   %d_column = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %d_column, align 4
-  %call10.i114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i32 noundef %7)
-  %call10.i145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull @.str.2)
-  %call10.i175 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %msg)
+  %call10.i99 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, i32 noundef %7)
+  %call10.i130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull @.str.2)
+  %call10.i160 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %msg)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sroa.0.0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %cond.end
 

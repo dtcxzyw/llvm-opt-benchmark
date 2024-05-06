@@ -1389,8 +1389,8 @@ define internal fastcc void @php_usort(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = tail call i32 @php_array_user_compare_unstable(ptr noundef %0, ptr noundef %1), !range !5
+define internal range(i32 -1, 2) i32 @php_array_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+  %3 = tail call i32 @php_array_user_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %9
 
@@ -1423,8 +1423,8 @@ define hidden void @zif_uksort(ptr noundef %0, ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_user_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = tail call i32 @php_array_user_key_compare_unstable(ptr noundef %0, ptr noundef %1), !range !5
+define internal range(i32 -1, 2) i32 @php_array_user_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+  %3 = tail call i32 @php_array_user_key_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %9
 
@@ -5572,11 +5572,11 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   store i64 %60, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %63, i64 24
   %68 = load i64, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 8 %15, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull readonly align 8 %15, i64 %68, i1 false)
   %69 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %68
   store i8 95, ptr %69, align 1
   %70 = getelementptr inbounds i8, ptr %69, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %55, i64 %59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
   %71 = load i64, ptr %66, align 8
   %.not134 = icmp eq i64 %71, 0
   br i1 %.not134, label %.critedge143, label %72
@@ -5849,11 +5849,11 @@ define internal fastcc i64 @php_extract_ref_prefix_same(ptr nocapture noundef re
   store i64 %63, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %66, i64 24
   %71 = load i64, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %15, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull readonly align 8 %15, i64 %71, i1 false)
   %72 = getelementptr inbounds [1 x i8], ptr %70, i64 0, i64 %71
   store i8 95, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %72, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %59, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %59, i64 %62, i1 false)
   %74 = load i64, ptr %69, align 8
   %.not199 = icmp eq i64 %74, 0
   br i1 %.not199, label %.critedge208, label %75
@@ -6181,11 +6181,11 @@ php_prefix_varname.exit:                          ; preds = %29
   store i64 %36, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 24
   %44 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %10, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 8 %10, i64 %44, i1 false)
   %45 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %44
   store i8 95, ptr %45, align 1
   %46 = getelementptr inbounds i8, ptr %45, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %33, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %33, i64 %35, i1 false)
   br label %73
 
 php_prefix_varname.exit137:                       ; preds = %28
@@ -6208,11 +6208,11 @@ php_prefix_varname.exit137:                       ; preds = %28
   store i64 %53, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   %61 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %10, i64 %61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %10, i64 %61, i1 false)
   %62 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 %61
   store i8 95, ptr %62, align 1
   %63 = getelementptr inbounds i8, ptr %62, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %48, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %48, i64 %52, i1 false)
   %64 = getelementptr inbounds i8, ptr %47, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 64
@@ -6524,11 +6524,11 @@ define internal fastcc i64 @php_extract_ref_prefix_invalid(ptr nocapture noundef
   store i64 %69, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %72, i64 24
   %77 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull align 8 %10, i64 %77, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull readonly align 8 %10, i64 %77, i1 false)
   %78 = getelementptr inbounds [1 x i8], ptr %76, i64 0, i64 %77
   store i8 95, ptr %78, align 1
   %79 = getelementptr inbounds i8, ptr %78, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %30, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %30, i64 %68, i1 false)
   %80 = load i64, ptr %75, align 8
   %.not209 = icmp eq i64 %80, 0
   br i1 %.not209, label %.critedge221, label %81
@@ -6612,11 +6612,11 @@ php_prefix_varname.exit224:                       ; preds = %28
   store i64 %119, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %122, i64 24
   %127 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %126, ptr nonnull align 8 %10, i64 %127, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %126, ptr nonnull readonly align 8 %10, i64 %127, i1 false)
   %128 = getelementptr inbounds [1 x i8], ptr %126, i64 0, i64 %127
   store i8 95, ptr %128, align 1
   %129 = getelementptr inbounds i8, ptr %128, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %114, i64 %118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull readonly align 1 %114, i64 %118, i1 false)
   %130 = getelementptr inbounds i8, ptr %113, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, 64
@@ -7548,11 +7548,11 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   store i64 %61, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %64, i64 24
   %69 = load i64, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 8 %15, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull readonly align 8 %15, i64 %69, i1 false)
   %70 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 %69
   store i8 95, ptr %70, align 1
   %71 = getelementptr inbounds i8, ptr %70, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %56, i64 %60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %56, i64 %60, i1 false)
   %72 = load i64, ptr %67, align 8
   %.not141 = icmp eq i64 %72, 0
   br i1 %.not141, label %.critedge157, label %73
@@ -7879,11 +7879,11 @@ define internal fastcc i64 @php_extract_prefix_same(ptr nocapture noundef readon
   store i64 %64, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %67, i64 24
   %72 = load i64, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 %15, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull readonly align 8 %15, i64 %72, i1 false)
   %73 = getelementptr inbounds [1 x i8], ptr %71, i64 0, i64 %72
   store i8 95, ptr %73, align 1
   %74 = getelementptr inbounds i8, ptr %73, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %60, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %60, i64 %63, i1 false)
   %75 = load i64, ptr %70, align 8
   %.not193 = icmp eq i64 %75, 0
   br i1 %.not193, label %.critedge209, label %76
@@ -8255,11 +8255,11 @@ php_prefix_varname.exit:                          ; preds = %29
   store i64 %36, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 24
   %44 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %10, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 8 %10, i64 %44, i1 false)
   %45 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %44
   store i8 95, ptr %45, align 1
   %46 = getelementptr inbounds i8, ptr %45, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %33, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %33, i64 %35, i1 false)
   br label %73
 
 php_prefix_varname.exit154:                       ; preds = %28
@@ -8282,11 +8282,11 @@ php_prefix_varname.exit154:                       ; preds = %28
   store i64 %53, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   %61 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %10, i64 %61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %10, i64 %61, i1 false)
   %62 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 %61
   store i8 95, ptr %62, align 1
   %63 = getelementptr inbounds i8, ptr %62, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %48, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %48, i64 %52, i1 false)
   %64 = getelementptr inbounds i8, ptr %47, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 64
@@ -8651,11 +8651,11 @@ define internal fastcc i64 @php_extract_prefix_invalid(ptr nocapture noundef rea
   store i64 %69, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %72, i64 24
   %77 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull align 8 %10, i64 %77, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull readonly align 8 %10, i64 %77, i1 false)
   %78 = getelementptr inbounds [1 x i8], ptr %76, i64 0, i64 %77
   store i8 95, ptr %78, align 1
   %79 = getelementptr inbounds i8, ptr %78, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %30, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %30, i64 %68, i1 false)
   %80 = load i64, ptr %75, align 8
   %.not221 = icmp eq i64 %80, 0
   br i1 %.not221, label %.critedge238, label %81
@@ -8739,11 +8739,11 @@ php_prefix_varname.exit241:                       ; preds = %28
   store i64 %119, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %122, i64 24
   %127 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %126, ptr nonnull align 8 %10, i64 %127, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %126, ptr nonnull readonly align 8 %10, i64 %127, i1 false)
   %128 = getelementptr inbounds [1 x i8], ptr %126, i64 0, i64 %127
   store i8 95, ptr %128, align 1
   %129 = getelementptr inbounds i8, ptr %128, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %114, i64 %118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull readonly align 1 %114, i64 %118, i1 false)
   %130 = getelementptr inbounds i8, ptr %113, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, 64
@@ -10084,7 +10084,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   %.3 = phi i8 [ %.2, %69 ], [ 0, %.thread564 ]
   %.1 = phi i8 [ %.0442, %69 ], [ 0, %.thread564 ]
   %75 = load ptr, ptr %3, align 8
-  %76 = call fastcc zeroext i8 @php_range_process_input(ptr noundef %75, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %7), !range !6
+  %76 = call fastcc zeroext i8 @php_range_process_input(ptr noundef %75, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %7)
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %81
 
@@ -10096,7 +10096,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
 
 81:                                               ; preds = %74
   %82 = load ptr, ptr %4, align 8
-  %83 = call fastcc zeroext i8 @php_range_process_input(ptr noundef %82, i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %9), !range !6
+  %83 = call fastcc zeroext i8 @php_range_process_input(ptr noundef %82, i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %9)
   %84 = icmp eq i8 %83, 0
   br i1 %84, label %85, label %88
 
@@ -10746,7 +10746,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @php_range_process_input(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 8) i8 @php_range_process_input(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %46 [
@@ -13860,7 +13860,7 @@ find_bucket_at_offset.exit:                       ; preds = %184, %187, %176, %1
 declare void @zval_add_ref(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -14124,13 +14124,13 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 121:                                              ; preds = %114
   %122 = load ptr, ptr %25, align 8
   %123 = load ptr, ptr %.1147, align 8
-  %124 = call i32 @php_array_merge_recursive(ptr noundef %122, ptr noundef %123), !range !7
+  %124 = call i32 @php_array_merge_recursive(ptr noundef %122, ptr noundef %123)
   br label %133
 
 125:                                              ; preds = %119, %115
   %126 = load ptr, ptr %25, align 8
   %127 = load ptr, ptr %.1147, align 8
-  %128 = call i32 @php_array_merge_recursive(ptr noundef %126, ptr noundef %127), !range !7
+  %128 = call i32 @php_array_merge_recursive(ptr noundef %126, ptr noundef %127)
   %129 = load i32, ptr %116, align 4
   %130 = and i32 %129, 64
   %.not166 = icmp eq i32 %130, 0
@@ -14432,7 +14432,7 @@ declare void @zend_hash_extend(ptr noundef, i32 noundef, i1 noundef zeroext) loc
 declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -14714,7 +14714,7 @@ define noundef i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture no
 139:                                              ; preds = %135, %132
   %140 = phi ptr [ %.pre169, %135 ], [ %.pre170, %132 ]
   %141 = load ptr, ptr %.0126173, align 8
-  %142 = tail call i32 @php_array_replace_recursive(ptr noundef %141, ptr noundef %140), !range !7
+  %142 = tail call i32 @php_array_replace_recursive(ptr noundef %141, ptr noundef %140)
   %143 = load i8, ptr %125, align 1
   %.not157 = icmp eq i8 %143, 0
   br i1 %.not157, label %149, label %144
@@ -15689,7 +15689,7 @@ select.unfold:                                    ; preds = %29, %35
   %indvars.iv363 = phi i64 [ 1, %.lr.ph356.preheader ], [ %indvars.iv.next364, %.lr.ph356 ]
   %229 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv363
   %230 = load ptr, ptr %229, align 8
-  %231 = tail call i32 @php_array_merge_recursive(ptr noundef %.0282, ptr noundef %230), !range !7
+  %231 = tail call i32 @php_array_merge_recursive(ptr noundef %.0282, ptr noundef %230)
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
   br i1 %exitcond367.not, label %._crit_edge357, label %.lr.ph356
@@ -15909,7 +15909,7 @@ define hidden void @zif_array_replace_recursive(ptr noundef %0, ptr nocapture no
   %indvars.iv100 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next101, %.lr.ph ]
   %37 = getelementptr inbounds %struct._zval_struct, ptr %8, i64 %indvars.iv100
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @php_array_replace_recursive(ptr noundef %.075, ptr noundef %38), !range !7
+  %39 = tail call i32 @php_array_replace_recursive(ptr noundef %.075, ptr noundef %38)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph
@@ -19136,7 +19136,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %.lr.ph12.split
-  %74 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %71) #18, !callees !8
+  %74 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %71) #18, !callees !5
   %.not100 = icmp eq i32 %74, 0
   br i1 %.not100, label %75, label %.loopexit
 
@@ -19175,7 +19175,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %.lr.ph9.split
-  %93 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %90) #18, !callees !8
+  %93 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %90) #18, !callees !5
   %.not96 = icmp eq i32 %93, 0
   br i1 %.not96, label %94, label %.loopexit
 
@@ -19565,7 +19565,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
 
 .lr.ph336.us:                                     ; preds = %.preheader303.us, %164
   %161 = phi ptr [ %166, %164 ], [ %196, %.preheader303.us ]
-  %162 = call i32 %.1263(ptr noundef %156, ptr noundef nonnull %161) #18, !callees !9
+  %162 = call i32 %.1263(ptr noundef %156, ptr noundef nonnull %161) #18, !callees !6
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %164, label %.critedge15.us
 
@@ -19600,7 +19600,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   br label %176
 
 176:                                              ; preds = %175, %174
-  %177 = call i32 %.2261(ptr noundef %156, ptr noundef nonnull %170) #18, !callees !10
+  %177 = call i32 %.2261(ptr noundef %156, ptr noundef nonnull %170) #18, !callees !7
   %.not287.us = icmp ne i32 %177, 0
   %brmerge.not.us = and i1 %152, %.not287.us
   %.mux.us = zext i1 %.not287.us to i32
@@ -19668,7 +19668,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
 
 .lr.ph331:                                        ; preds = %.preheader304, %212
   %209 = phi ptr [ %213, %212 ], [ %206, %.preheader304 ]
-  %210 = call i32 %.2261(ptr noundef %156, ptr noundef nonnull %209) #18, !callees !10
+  %210 = call i32 %.2261(ptr noundef %156, ptr noundef nonnull %209) #18, !callees !7
   %211 = icmp sgt i32 %210, 0
   br i1 %211, label %212, label %.critedge.loopexit
 
@@ -19761,7 +19761,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
 .lr.ph355.split.us:                               ; preds = %.lr.ph355, %256
   %252 = phi ptr [ %257, %256 ], [ %248, %.lr.ph355 ]
   %253 = phi ptr [ %255, %256 ], [ %156, %.lr.ph355 ]
-  %254 = call i32 %.2261(ptr noundef nonnull %253, ptr noundef nonnull %252) #18, !callees !10
+  %254 = call i32 %.2261(ptr noundef nonnull %253, ptr noundef nonnull %252) #18, !callees !7
   %.not291.us = icmp eq i32 %254, 0
   %255 = load ptr, ptr %49, align 8
   br i1 %.not291.us, label %256, label %.loopexit307
@@ -19808,7 +19808,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
 
 279:                                              ; preds = %278
   %280 = load ptr, ptr %247, align 8
-  %281 = call i32 %.2261(ptr noundef nonnull %274, ptr noundef %280) #18, !callees !10
+  %281 = call i32 %.2261(ptr noundef nonnull %274, ptr noundef %280) #18, !callees !7
   %282 = icmp sgt i32 %281, -1
   br i1 %282, label %.loopexit307, label %.backedge
 
@@ -20121,7 +20121,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   br i1 %.not98, label %79, label %76
 
 76:                                               ; preds = %.lr.ph11.split
-  %77 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %75) #18, !callees !8
+  %77 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %75) #18, !callees !5
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.loopexit, label %79
 
@@ -20160,7 +20160,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   br i1 %.not94, label %98, label %95
 
 95:                                               ; preds = %.lr.ph8.split
-  %96 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %94) #18, !callees !8
+  %96 = call i32 %.077(ptr noundef %.088, ptr noundef nonnull %94) #18, !callees !5
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.loopexit, label %98
 
@@ -20531,7 +20531,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
 
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %155
   %152 = phi ptr [ %156, %155 ], [ %149, %.lr.ph304.preheader ]
-  %153 = call i32 %.2230(ptr noundef %.pre355, ptr noundef nonnull %152) #18, !callees !10
+  %153 = call i32 %.2230(ptr noundef %.pre355, ptr noundef nonnull %152) #18, !callees !7
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %.critedge
 
@@ -20558,7 +20558,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
 
 .lr.ph300:                                        ; preds = %.lr.ph300.preheader, %163
   %.0299 = phi ptr [ %164, %163 ], [ %149, %.lr.ph300.preheader ]
-  %162 = call i32 %.1232(ptr noundef %.pre354, ptr noundef nonnull %.0299) #18, !callees !11
+  %162 = call i32 %.1232(ptr noundef %.pre354, ptr noundef nonnull %.0299) #18, !callees !8
   %.not255 = icmp eq i32 %162, 0
   br i1 %.not255, label %.critedge.thread, label %163
 
@@ -20613,7 +20613,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
 
 180:                                              ; preds = %179, %178
   %181 = load ptr, ptr %49, align 8
-  %182 = call i32 %.2230(ptr noundef %181, ptr noundef nonnull %.1272) #18, !callees !10
+  %182 = call i32 %.2230(ptr noundef %181, ptr noundef nonnull %.1272) #18, !callees !7
   %.not259 = icmp eq i32 %182, 0
   br i1 %.not259, label %.preheader275.preheader, label %183
 
@@ -20656,7 +20656,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
 .lr.ph317.split.us:                               ; preds = %.lr.ph317, %196
   %193 = phi ptr [ %197, %196 ], [ %189, %.lr.ph317 ]
   %194 = phi ptr [ %193, %196 ], [ %188, %.lr.ph317 ]
-  %195 = call i32 %.2230(ptr noundef nonnull %194, ptr noundef nonnull %193) #18, !callees !10
+  %195 = call i32 %.2230(ptr noundef nonnull %194, ptr noundef nonnull %193) #18, !callees !7
   %.not263.us = icmp eq i32 %195, 0
   br i1 %.not263.us, label %196, label %.loopexit276.loopexit331
 
@@ -20701,7 +20701,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   br i1 %14, label %218, label %220
 
 218:                                              ; preds = %217
-  %219 = call i32 %.2230(ptr noundef nonnull %201, ptr noundef nonnull %213) #18, !callees !10
+  %219 = call i32 %.2230(ptr noundef nonnull %201, ptr noundef nonnull %213) #18, !callees !7
   %.not262 = icmp eq i32 %219, 0
   br i1 %.not262, label %.preheader275.backedge, label %.loopexit276
 
@@ -21447,7 +21447,7 @@ define hidden void @zif_array_udiff_uassoc(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_multisort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define range(i32 -1, 2) i32 @php_multisort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   br label %5
@@ -22366,7 +22366,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
 
 145:                                              ; preds = %141, %143
   %146 = phi ptr [ %144, %143 ], [ %142, %141 ]
-  call void @llvm.memset.p0.i64(ptr align 8 %146, i8 0, i64 %139, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %146, i8 0, i64 %139, i1 false)
   %.not273 = icmp eq i64 %spec.select265, 0
   br i1 %.not273, label %._crit_edge, label %.lr.ph
 
@@ -22739,11 +22739,11 @@ define hidden void @zif_array_sum(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %66
 
 49:                                               ; preds = %44
-  %50 = call i32 @add_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %3) #18, !callees !12
+  %50 = call i32 @add_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %3) #18, !callees !9
   br label %66
 
 51:                                               ; preds = %33
-  %52 = call i32 @add_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %.0111148.i) #18, !callees !12
+  %52 = call i32 @add_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %.0111148.i) #18, !callees !9
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %54, label %66
 
@@ -22891,11 +22891,11 @@ define hidden void @zif_array_product(ptr noundef %0, ptr noundef %1) local_unna
   br label %66
 
 49:                                               ; preds = %44
-  %50 = call i32 @mul_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %3) #18, !callees !12
+  %50 = call i32 @mul_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %3) #18, !callees !9
   br label %66
 
 51:                                               ; preds = %33
-  %52 = call i32 @mul_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %.0111148.i) #18, !callees !12
+  %52 = call i32 @mul_function(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %.0111148.i) #18, !callees !9
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %54, label %66
 
@@ -24935,7 +24935,7 @@ define hidden void @zif_array_combine(ptr noundef %0, ptr nocapture noundef %1) 
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_reverse_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -25006,7 +25006,7 @@ php_array_reverse_key_compare_numeric_unstable.exit.thread: ; preds = %28, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -25395,7 +25395,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_array_reverse_key_compare_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = tail call i32 @php_array_key_compare_string_unstable(ptr noundef %0, ptr noundef %1)
+  %3 = tail call i32 @php_array_key_compare_string_unstable(ptr noundef readonly %0, ptr noundef readonly %1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %10
@@ -27194,7 +27194,7 @@ define internal i32 @php_array_data_compare_unstable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_user_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr %0, align 8
@@ -27357,7 +27357,7 @@ define internal i32 @php_array_user_compare_unstable(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_user_key_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27647,7 +27647,7 @@ declare ptr @zend_string_toupper_ex(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zval_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal range(i32 -1, 2) i32 @zval_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr %0, align 8
@@ -27775,11 +27775,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 2}
-!6 = !{i8 0, i8 8}
-!7 = !{i32 0, i32 2}
-!8 = !{ptr @zval_compare, ptr @zval_user_compare}
-!9 = !{ptr @php_array_key_compare_string, ptr @php_array_key_compare_string_unstable, ptr @php_array_user_key_compare_unstable}
-!10 = !{ptr @php_array_data_compare_string_unstable, ptr @php_array_user_compare_unstable}
-!11 = !{ptr @php_array_key_compare_string_unstable, ptr @php_array_user_key_compare_unstable}
-!12 = !{ptr @add_function, ptr @mul_function}
+!5 = !{ptr @zval_compare, ptr @zval_user_compare}
+!6 = !{ptr @php_array_key_compare_string, ptr @php_array_key_compare_string_unstable, ptr @php_array_user_key_compare_unstable}
+!7 = !{ptr @php_array_data_compare_string_unstable, ptr @php_array_user_compare_unstable}
+!8 = !{ptr @php_array_key_compare_string_unstable, ptr @php_array_user_key_compare_unstable}
+!9 = !{ptr @add_function, ptr @mul_function}

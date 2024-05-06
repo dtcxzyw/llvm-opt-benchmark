@@ -161,7 +161,7 @@ define dso_local void @ipv6_rpl_srh_compress(ptr nocapture noundef %0, ptr nocap
 51:                                               ; preds = %.loopexit4
   %52 = add i8 %47, 1
   store i8 %52, ptr %48, align 1
-  %53 = trunc i64 %49 to i32
+  %53 = trunc nuw nsw i64 %49 to i32
   %54 = getelementptr inbounds i8, ptr %0, i64 4
   %55 = load i32, ptr %54, align 1
   %56 = and i32 %55, -61441

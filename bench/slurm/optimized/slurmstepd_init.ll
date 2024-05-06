@@ -187,7 +187,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @packbool(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_slurmd_conf_lite_no_alloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_slurmd_conf_lite_no_alloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %1) #3
@@ -959,7 +959,7 @@ define void @pack_slurm_conf_lite(ptr noundef %0) local_unnamed_addr #0 {
 declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unpack_slurm_conf_lite_no_alloc(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_slurm_conf_lite_no_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1422,7 +1422,7 @@ define void @unpack_stepd_reconf(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 32), align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.unpack_stepd_reconf, i32 noundef %17, ptr noundef %16) #3
   br label %18
 

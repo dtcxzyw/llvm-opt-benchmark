@@ -2467,14 +2467,14 @@ ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %6
   %876 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %875, ptr noundef %615, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
   %877 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %878 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %877, ptr noundef %615, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
-  %879 = call fastcc i32 @decode_ht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 19, ptr noundef nonnull %8), !range !4
+  %879 = call fastcc i32 @decode_ht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 19, ptr noundef nonnull %8)
   %880 = load i32, ptr @hf_radiotap_ofdm_service, align 4
   %881 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %880, ptr noundef %615, i32 noundef %879, i32 noundef 2, i32 noundef -2147483648) #5
   %882 = add nuw nsw i32 %879, 6
   br label %963
 
 883:                                              ; preds = %833
-  %884 = call fastcc i32 @decode_ht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 16, ptr noundef nonnull %8), !range !4
+  %884 = call fastcc i32 @decode_ht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 16, ptr noundef nonnull %8)
   %885 = load i32, ptr @hf_radiotap_ofdm_service, align 4
   %886 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %885, ptr noundef %615, i32 noundef %884, i32 noundef 2, i32 noundef -2147483648) #5
   %887 = add nuw nsw i32 %884, 9
@@ -2491,7 +2491,7 @@ ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %6
   %896 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %895, ptr noundef %615, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
   %897 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %898 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %897, ptr noundef %615, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
-  %899 = call fastcc i32 @decode_vht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 19, ptr noundef nonnull %8), !range !5
+  %899 = call fastcc i32 @decode_vht_sig(ptr noundef %837, ptr noundef %615, i32 noundef 19, ptr noundef nonnull %8)
   br label %963
 
 900:                                              ; preds = %833
@@ -2867,7 +2867,7 @@ proto_item_set_generated.exit.i809:               ; preds = %1100, %1097, %1095
   store i16 %1155, ptr %1156, align 2
   %1157 = getelementptr inbounds i8, ptr %6, i64 20
   %1158 = lshr i16 %1105, 8
-  %1159 = trunc i16 %1158 to i8
+  %1159 = trunc nuw i16 %1158 to i8
   %1160 = and i8 %1159, 1
   store i8 13, ptr %1147, align 4
   %1161 = icmp eq i8 %1141, 2
@@ -3077,7 +3077,7 @@ proto_item_set_generated.exit.i809:               ; preds = %1100, %1097, %1095
   %1291 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %1290, ptr noundef %617, i32 noundef 31, i32 noundef 3, i32 noundef -2147483648) #5
   %1292 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %1293 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %1292, ptr noundef %617, i32 noundef 31, i32 noundef 3, i32 noundef -2147483648) #5
-  %1294 = call fastcc i32 @decode_vht_sig(ptr noundef %43, ptr noundef %617, i32 noundef 34, ptr noundef nonnull %6), !range !5
+  %1294 = call fastcc i32 @decode_vht_sig(ptr noundef %43, ptr noundef %617, i32 noundef 34, ptr noundef nonnull %6)
   br label %wlantap_dissect.exit
 
 wlantap_dissect.exit:                             ; preds = %1272, %1283
@@ -3179,7 +3179,7 @@ declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3269,7 +3269,7 @@ define internal fastcc i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3286,7 +3286,7 @@ define internal fastcc i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %17, label %switch.lookup, label %22
 
 switch.lookup:                                    ; preds = %4
-  %switch.cast = trunc i32 %16 to i24
+  %switch.cast = trunc nuw i32 %16 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 262400, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -3516,5 +3516,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 22, i32 41}
-!5 = !{i32 29, i32 45}

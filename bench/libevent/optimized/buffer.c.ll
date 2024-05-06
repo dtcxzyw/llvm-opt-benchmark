@@ -446,7 +446,7 @@ if.end8:                                          ; preds = %if.then6, %evbuffer
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_enable_locking(ptr nocapture noundef %buf, ptr noundef %lock) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_enable_locking(ptr nocapture noundef %buf, ptr noundef %lock) local_unnamed_addr #1 {
 entry:
   %lock1 = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock1, align 8
@@ -805,7 +805,7 @@ do.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_set_max_read(ptr nocapture noundef %buf, i64 noundef %max) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_set_max_read(ptr nocapture noundef %buf, i64 noundef %max) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %max, 2147483647
   br i1 %cmp, label %return, label %do.body1
@@ -994,7 +994,7 @@ do.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp20, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %do.end3
-  %call435 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef 0, i32 noundef 2), !range !9
+  %call435 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef 0, i32 noundef 2)
   br label %do.body28
 
 for.body.preheader:                               ; preds = %do.end3
@@ -1009,10 +1009,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %add = add i64 %2, %to_alloc.022
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  %call4 = tail call i32 @evbuffer_expand_fast_(ptr noundef %buf, i64 noundef %add, i32 noundef 2), !range !9
+  %call4 = tail call i32 @evbuffer_expand_fast_(ptr noundef %buf, i64 noundef %add, i32 noundef 2)
   %cmp5 = icmp sgt i32 %call4, -1
   %or.cond = and i1 %cmp5, %cmp20
   br i1 %or.cond, label %for.body10.preheader, label %do.body28
@@ -1028,7 +1028,7 @@ for.body10:                                       ; preds = %for.body10.preheade
   %3 = load ptr, ptr %arrayidx12, align 8
   %iov_len15 = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %4 = load i64, ptr %iov_len15, align 8
-  %call16 = tail call i32 @evbuffer_add(ptr noundef %buf, ptr noundef %3, i64 noundef %4), !range !9
+  %call16 = tail call i32 @evbuffer_add(ptr noundef %buf, ptr noundef %3, i64 noundef %4)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %do.body28, label %if.end19
 
@@ -1037,7 +1037,7 @@ if.end19:                                         ; preds = %for.body10
   %add23 = add i64 %5, %res.025
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %do.body28, label %for.body10, !llvm.loop !11
+  br i1 %exitcond33.not, label %do.body28, label %for.body10, !llvm.loop !10
 
 do.body28:                                        ; preds = %for.body10, %if.end19, %for.end.thread, %for.end
   %res.1 = phi i64 [ 0, %for.end ], [ 0, %for.end.thread ], [ %res.025, %for.body10 ], [ %add23, %if.end19 ]
@@ -1055,7 +1055,7 @@ do.end36:                                         ; preds = %if.then31, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evbuffer_expand_fast_(ptr noundef %buf, i64 noundef %datlen, i32 noundef %n) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_expand_fast_(ptr noundef %buf, i64 noundef %datlen, i32 noundef %n) local_unnamed_addr #1 {
 entry:
   %last = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %last, align 8
@@ -1133,7 +1133,7 @@ if.end29:                                         ; preds = %if.then13, %cond.en
 
 if.end32:                                         ; preds = %if.end29
   %cmp33 = icmp eq i32 %used.1, %n
-  br i1 %cmp33, label %if.else49, label %for.cond, !llvm.loop !12
+  br i1 %cmp33, label %if.else49, label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
   %cmp37 = icmp slt i32 %used.0, %n
@@ -1153,7 +1153,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %to_alloc.0.i = phi i64 [ %shl.i, %while.cond.i ], [ 1024, %if.end.i ]
   %cmp3.i = icmp ult i64 %to_alloc.0.i, %add.i
   %shl.i = shl nuw nsw i64 %to_alloc.0.i, 1
-  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !13
+  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !12
 
 if.end4.i:                                        ; preds = %while.cond.i
   %sub.i = add nsw i64 %to_alloc.0.i, -48
@@ -1221,7 +1221,7 @@ for.body73:                                       ; preds = %for.body73.preheade
   %16 = load ptr, ptr %chain.288, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.288)
   %tobool72.not = icmp eq ptr %16, null
-  br i1 %tobool72.not, label %do.end80, label %for.body73, !llvm.loop !14
+  br i1 %tobool72.not, label %do.end80, label %for.body73, !llvm.loop !13
 
 do.end80:                                         ; preds = %for.body73, %if.end70
   %avail.3.neg97 = phi i64 [ %cond68.neg, %if.end70 ], [ %avail.3.neg96, %for.body73 ]
@@ -1238,7 +1238,7 @@ while.cond.i73:                                   ; preds = %if.end.i59, %while.
   %to_alloc.0.i74 = phi i64 [ %shl.i76, %while.cond.i73 ], [ 1024, %if.end.i59 ]
   %cmp3.i75 = icmp ult i64 %to_alloc.0.i74, %add.i60
   %shl.i76 = shl nuw nsw i64 %to_alloc.0.i74, 1
-  br i1 %cmp3.i75, label %while.cond.i73, label %if.end4.i77, !llvm.loop !13
+  br i1 %cmp3.i75, label %while.cond.i73, label %if.end4.i77, !llvm.loop !12
 
 if.end4.i77:                                      ; preds = %while.cond.i73
   %sub.i78 = add nsw i64 %to_alloc.0.i74, -48
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end29, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add(ptr noundef %buf, ptr nocapture noundef readonly %data_in, i64 noundef %datlen) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add(ptr noundef %buf, ptr nocapture noundef readonly %data_in, i64 noundef %datlen) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -1422,7 +1422,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %to_alloc.0.i = phi i64 [ %shl.i, %while.cond.i ], [ 1024, %if.end.i ]
   %cmp3.i77 = icmp ult i64 %to_alloc.0.i, %add.i
   %shl.i = shl nuw nsw i64 %to_alloc.0.i, 1
-  br i1 %cmp3.i77, label %while.cond.i, label %if.end4.i, !llvm.loop !13
+  br i1 %cmp3.i77, label %while.cond.i, label %if.end4.i, !llvm.loop !12
 
 if.end4.i:                                        ; preds = %while.cond.i
   %sub.i78 = add nsw i64 %to_alloc.0.i, -48
@@ -1506,14 +1506,14 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %29 = load ptr, ptr %ch.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !14
 
 for.body.i.i.i:                                   ; preds = %lor.rhs.i.i, %for.body.i.i.i
   %chain.addr.04.i.i.i = phi ptr [ %30, %for.body.i.i.i ], [ %ch.0.i.i, %lor.rhs.i.i ]
   %30 = load ptr, ptr %chain.addr.04.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %30, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %for.body.i.i.i
   store ptr null, ptr %ch.014.i.i, align 8
@@ -1631,7 +1631,7 @@ cond.end:                                         ; preds = %if.end14, %cond.fal
   br label %do.body29
 
 if.else:                                          ; preds = %if.end8
-  %call22 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef %size, i32 noundef %n_vecs), !range !9
+  %call22 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef %size, i32 noundef %n_vecs)
   %cmp23 = icmp slt i32 %call22, 0
   %cmp.i = icmp slt i64 %size, 0
   %or.cond22 = or i1 %cmp.i, %cmp23
@@ -1716,7 +1716,7 @@ cond.end26.us.i:                                  ; preds = %cond.false20.us.i, 
   %cmp14.us.i = icmp ult i64 %indvars.iv.next39.i, %18
   %cmp15.us.i = icmp ult i64 %add40.us.i, %size
   %27 = select i1 %cmp14.us.i, i1 %cmp15.us.i, i1 false
-  br i1 %27, label %for.body.us.i, label %for.end.loopexit.i, !llvm.loop !17
+  br i1 %27, label %for.body.us.i, label %for.end.loopexit.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %cond.end26.us.i
   %28 = trunc nuw nsw i64 %indvars.iv.next39.i to i32
@@ -1983,7 +1983,7 @@ cond.end26.us:                                    ; preds = %for.body.us.cond.en
   %cmp14.us = icmp ult i64 %indvars.iv.next39, %8
   %cmp15.us = icmp ult i64 %add40.us, %howmuch
   %17 = select i1 %cmp14.us, i1 %cmp15.us, i1 false
-  br i1 %17, label %for.body.us, label %for.end.loopexit, !llvm.loop !17
+  br i1 %17, label %for.body.us, label %for.end.loopexit, !llvm.loop !16
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end26
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end26 ], [ 0, %for.body.lr.ph ]
@@ -2033,7 +2033,7 @@ cond.end26:                                       ; preds = %for.body.cond.end26
   %cmp14 = icmp ult i64 %indvars.iv.next, %8
   %cmp15 = icmp ult i64 %add40, %howmuch
   %27 = select i1 %cmp14, i1 %cmp15, i1 false
-  br i1 %27, label %for.body, label %for.end.loopexit36, !llvm.loop !17
+  br i1 %27, label %for.body, label %for.end.loopexit36, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %cond.end26.us
   %28 = trunc nuw nsw i64 %indvars.iv.next39 to i32
@@ -2054,7 +2054,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_commit_space(ptr noundef %buf, ptr nocapture noundef readonly %vec, i32 noundef %n_vecs) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %buf, ptr nocapture noundef readonly %vec, i32 noundef %n_vecs) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -2170,7 +2170,7 @@ for.body.preheader:                               ; preds = %if.end58
 for.cond:                                         ; preds = %cond.end84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond90.preheader, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.cond90.preheader, label %for.body, !llvm.loop !17
 
 for.cond90.preheader:                             ; preds = %for.cond
   br i1 %cmp5967, label %for.body92.preheader, label %okay
@@ -2245,7 +2245,7 @@ if.end108:                                        ; preds = %if.then106, %for.bo
   %32 = load ptr, ptr %chainp.071, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %okay, label %for.body92, !llvm.loop !19
+  br i1 %exitcond79.not, label %okay, label %for.body92, !llvm.loop !18
 
 okay:                                             ; preds = %if.end108, %if.end58, %for.cond90.preheader, %if.end27, %if.then36
   %added.1 = phi i64 [ %12, %if.then36 ], [ 0, %if.end27 ], [ 0, %for.cond90.preheader ], [ 0, %if.end58 ], [ %add101, %if.end108 ]
@@ -2306,14 +2306,14 @@ if.end12:                                         ; preds = %if.then10, %while.b
   %6 = phi ptr [ %.pre, %if.then10 ], [ %3, %while.body ]
   %7 = load ptr, ptr %6, align 8
   %tobool7.not = icmp eq ptr %7, null
-  br i1 %tobool7.not, label %return, label %while.body, !llvm.loop !20
+  br i1 %tobool7.not, label %return, label %while.body, !llvm.loop !19
 
 return:                                           ; preds = %if.end12, %while.cond.preheader, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_buffer(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_buffer(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
 entry:
   %pinned = alloca ptr, align 8
   %last = alloca ptr, align 8
@@ -2372,7 +2372,7 @@ lor.lhs.false28:                                  ; preds = %if.end26
   br i1 %tobool33.not, label %if.end35, label %do.body45
 
 if.end35:                                         ; preds = %lor.lhs.false28
-  %call36 = call fastcc i32 @PRESERVE_PINNED(ptr noundef nonnull %inbuf, ptr noundef nonnull %pinned, ptr noundef nonnull %last), !range !9
+  %call36 = call fastcc i32 @PRESERVE_PINNED(ptr noundef nonnull %inbuf, ptr noundef nonnull %pinned, ptr noundef nonnull %last)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %do.body45, label %if.end39
 
@@ -2390,7 +2390,7 @@ for.body.i:                                       ; preds = %if.then41, %for.bod
   %10 = load ptr, ptr %chain.addr.04.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i)
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %evbuffer_free_all_chains.exit, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %evbuffer_free_all_chains.exit, label %for.body.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit:                    ; preds = %for.body.i, %if.then41
   %11 = load ptr, ptr %inbuf, align 8
@@ -2433,14 +2433,14 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %19 = load ptr, ptr %ch.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i, label %APPEND_CHAIN.exit, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %APPEND_CHAIN.exit, label %land.rhs.i.i, !llvm.loop !14
 
 for.body.i.i.i:                                   ; preds = %lor.rhs.i.i, %for.body.i.i.i
   %chain.addr.04.i.i.i = phi ptr [ %20, %for.body.i.i.i ], [ %ch.0.i.i, %lor.rhs.i.i ]
   %20 = load ptr, ptr %chain.addr.04.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %for.body.i.i.i
   store ptr null, ptr %ch.014.i.i, align 8
@@ -2531,7 +2531,7 @@ do.end76:                                         ; preds = %do.body69, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PRESERVE_PINNED(ptr nocapture noundef %src, ptr nocapture noundef writeonly %first, ptr nocapture noundef writeonly %last) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @PRESERVE_PINNED(ptr nocapture noundef %src, ptr nocapture noundef writeonly %first, ptr nocapture noundef writeonly %last) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %src, i64 8
   %src.val = load ptr, ptr %0, align 8
@@ -2581,7 +2581,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %to_alloc.0.i = phi i64 [ %shl.i, %while.cond.i ], [ 1024, %if.end.i ]
   %cmp3.i = icmp ult i64 %to_alloc.0.i, %add.i
   %shl.i = shl nuw nsw i64 %to_alloc.0.i, 1
-  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !13
+  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !12
 
 if.end4.i:                                        ; preds = %while.cond.i
   %sub.i = add nsw i64 %to_alloc.0.i, -48
@@ -2637,7 +2637,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_buffer_reference(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_buffer_reference(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %inbuf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -2697,7 +2697,7 @@ for.body:                                         ; preds = %for.cond
   %8 = load i32, ptr %flags, align 8
   %and = and i32 %8, 131
   %cmp31.not = icmp eq i32 %and, 0
-  br i1 %cmp31.not, label %for.cond, label %do.body39, !llvm.loop !21
+  br i1 %cmp31.not, label %for.cond, label %do.body39, !llvm.loop !20
 
 for.end:                                          ; preds = %for.cond
   %cmp34 = icmp eq i64 %6, 0
@@ -2713,7 +2713,7 @@ for.body.i:                                       ; preds = %if.then35, %for.bod
   %10 = load ptr, ptr %chain.addr.04.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i)
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %if.end37, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %if.end37, label %for.body.i, !llvm.loop !15
 
 if.end37:                                         ; preds = %for.body.i, %if.then35, %for.end
   %chain.032.i = load ptr, ptr %inbuf, align 8
@@ -2838,14 +2838,14 @@ lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
 while.body.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %land.rhs.i.i.i
   %29 = load ptr, ptr %ch.0.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !14
 
 for.body.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %for.body.i.i.i.i
   %chain.addr.04.i.i.i.i = phi ptr [ %30, %for.body.i.i.i.i ], [ %ch.0.i.i.i, %lor.rhs.i.i.i ]
   %30 = load ptr, ptr %chain.addr.04.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i.i)
   %tobool.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %tobool.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %for.body.i.i.i.i
   store ptr null, ptr %ch.014.i.i.i, align 8
@@ -2874,7 +2874,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %if.then10.i.i, %evb
 for.inc.i:                                        ; preds = %evbuffer_chain_insert.exit.i, %lor.lhs.false.i, %for.body.i47
   %chain.0.i = load ptr, ptr %chain.034.i, align 8
   %tobool14.not.i = icmp eq ptr %chain.0.i, null
-  br i1 %tobool14.not.i, label %APPEND_CHAIN_MULTICAST.exit, label %for.body.i47, !llvm.loop !22
+  br i1 %tobool14.not.i, label %APPEND_CHAIN_MULTICAST.exit, label %for.body.i47, !llvm.loop !21
 
 APPEND_CHAIN_MULTICAST.exit:                      ; preds = %for.inc.i, %if.end37, %if.then20.i
   %n_add_for_cb = getelementptr inbounds i8, ptr %outbuf, i64 40
@@ -2917,7 +2917,7 @@ do.end70:                                         ; preds = %do.body63, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_prepend_buffer(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_prepend_buffer(ptr noundef %outbuf, ptr noundef %inbuf) local_unnamed_addr #1 {
 entry:
   %pinned = alloca ptr, align 8
   %last = alloca ptr, align 8
@@ -2976,7 +2976,7 @@ lor.lhs.false28:                                  ; preds = %if.end26
   br i1 %tobool34.not, label %if.end36, label %do.body46
 
 if.end36:                                         ; preds = %lor.lhs.false28
-  %call37 = call fastcc i32 @PRESERVE_PINNED(ptr noundef nonnull %inbuf, ptr noundef nonnull %pinned, ptr noundef nonnull %last), !range !9
+  %call37 = call fastcc i32 @PRESERVE_PINNED(ptr noundef nonnull %inbuf, ptr noundef nonnull %pinned, ptr noundef nonnull %last)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %do.body46, label %if.end40
 
@@ -2994,7 +2994,7 @@ for.body.i:                                       ; preds = %if.then42, %for.bod
   %10 = load ptr, ptr %chain.addr.04.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i)
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %evbuffer_free_all_chains.exit, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %evbuffer_free_all_chains.exit, label %for.body.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit:                    ; preds = %for.body.i, %if.then42
   %11 = load ptr, ptr %inbuf, align 8
@@ -3114,7 +3114,7 @@ do.end77:                                         ; preds = %do.body70, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_drain(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_drain(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -3166,7 +3166,7 @@ for.body:                                         ; preds = %if.then12, %for.bod
   %8 = load ptr, ptr %chain.058, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.058)
   %cmp13.not = icmp eq ptr %8, null
-  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %if.then12
   %last_with_datap.i = getelementptr inbounds i8, ptr %buf, i64 16
@@ -3230,7 +3230,7 @@ if.else44:                                        ; preds = %18
   %off = getelementptr inbounds i8, ptr %12, i64 24
   %22 = load i64, ptr %off, align 8
   %cmp21.not = icmp ult i64 %sub25, %22
-  br i1 %cmp21.not, label %for.end47.loopexit, label %for.body22, !llvm.loop !24
+  br i1 %cmp21.not, label %for.end47.loopexit, label %for.body22, !llvm.loop !23
 
 for.end47.loopexit:                               ; preds = %if.else44, %if.else
   %chain.1.lcssa61 = phi ptr [ %9, %if.else ], [ %12, %if.else44 ]
@@ -3330,7 +3330,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %add.ptr37.i = getelementptr inbounds i8, ptr %data.046.i, i64 %5
   %sub38.i = sub i64 %datlen.addr.148.i, %5
   %tobool31.not.i = icmp eq i64 %sub38.i, 0
-  br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !25
+  br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !24
 
 do.end46.i:                                       ; preds = %land.rhs.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046.i, ptr align 1 %add.ptr49.i, i64 %datlen.addr.148.i, i1 false)
@@ -3352,7 +3352,7 @@ evbuffer_copyout_from.exit:                       ; preds = %do.body53.i, %if.th
   br i1 %cmp, label %if.then5, label %do.body12
 
 if.then5:                                         ; preds = %evbuffer_copyout_from.exit
-  %call6 = tail call i32 @evbuffer_drain(ptr noundef nonnull %buf, i64 noundef %result.0.i), !range !9
+  %call6 = tail call i32 @evbuffer_drain(ptr noundef nonnull %buf, i64 noundef %result.0.i)
   %cmp7 = icmp slt i32 %call6, 0
   %spec.select = select i1 %cmp7, i64 -1, i64 %result.0.i
   br label %do.body12
@@ -3451,7 +3451,7 @@ while.body:                                       ; preds = %land.rhs
   %add.ptr37 = getelementptr inbounds i8, ptr %data.046, i64 %sub32
   %sub38 = sub i64 %datlen.addr.148, %sub32
   %tobool31.not = icmp eq i64 %sub38, 0
-  br i1 %tobool31.not, label %do.body53, label %land.rhs, !llvm.loop !25
+  br i1 %tobool31.not, label %do.body53, label %land.rhs, !llvm.loop !24
 
 do.end46:                                         ; preds = %land.rhs
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046, ptr align 1 %add.ptr50, i64 %datlen.addr.148, i1 false)
@@ -3519,7 +3519,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %add.ptr37.i = getelementptr inbounds i8, ptr %data.046.i, i64 %4
   %sub38.i = sub i64 %datlen.addr.148.i, %4
   %tobool31.not.i = icmp eq i64 %sub38.i, 0
-  br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !25
+  br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !24
 
 do.end46.i:                                       ; preds = %land.rhs.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046.i, ptr align 1 %add.ptr49.i, i64 %datlen.addr.148.i, i1 false)
@@ -3619,7 +3619,7 @@ do.end43.lr.ph:                                   ; preds = %while.cond.preheade
   br label %do.end43
 
 if.then36:                                        ; preds = %if.end34
-  %call38 = tail call i32 @evbuffer_add_buffer(ptr noundef nonnull %dst, ptr noundef nonnull %src), !range !9
+  %call38 = tail call i32 @evbuffer_add_buffer(ptr noundef nonnull %dst, ptr noundef nonnull %src)
   %conv = trunc i64 %8 to i32
   br label %do.body87
 
@@ -3644,7 +3644,7 @@ if.end51:                                         ; preds = %if.then48, %do.end4
   %off = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i64, ptr %off, align 8
   %cmp40.not = icmp ugt i64 %14, %sub
-  br i1 %cmp40.not, label %while.end, label %do.end43, !llvm.loop !26
+  br i1 %cmp40.not, label %while.end, label %do.end43, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end51
   %off.le = getelementptr inbounds i8, ptr %13, i64 24
@@ -3676,14 +3676,14 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 while.body.i:                                     ; preds = %lor.rhs.i, %land.rhs.i
   %18 = load ptr, ptr %ch.0.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i, label %evbuffer_free_trailing_empty_chains.exit, label %land.rhs.i, !llvm.loop !15
+  br i1 %tobool.not.i, label %evbuffer_free_trailing_empty_chains.exit, label %land.rhs.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %lor.rhs.i, %for.body.i.i
   %chain.addr.04.i.i = phi ptr [ %19, %for.body.i.i ], [ %ch.0.i, %lor.rhs.i ]
   %19 = load ptr, ptr %chain.addr.04.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i)
   %tobool.not.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i, label %evbuffer_free_all_chains.exit.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i, label %evbuffer_free_all_chains.exit.i, label %for.body.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i:                  ; preds = %for.body.i.i
   store ptr null, ptr %ch.014.i, align 8
@@ -3727,7 +3727,7 @@ if.end12.i:                                       ; preds = %if.then10.i, %while
   %28 = phi ptr [ %.pre.i, %if.then10.i ], [ %25, %while.body.i90 ]
   %29 = load ptr, ptr %28, align 8
   %tobool7.not.i = icmp eq ptr %29, null
-  br i1 %tobool7.not.i, label %advance_last_with_data.exit, label %while.body.i90, !llvm.loop !20
+  br i1 %tobool7.not.i, label %advance_last_with_data.exit, label %while.body.i90, !llvm.loop !19
 
 advance_last_with_data.exit:                      ; preds = %if.end12.i, %evbuffer_free_trailing_empty_chains.exit, %while.cond.preheader.i
   %total_len69 = getelementptr inbounds i8, ptr %dst, i64 24
@@ -3750,7 +3750,7 @@ if.end72:                                         ; preds = %while.end.thread, %
   %misalign = getelementptr inbounds i8, ptr %chain.0.lcssa94112, i64 16
   %33 = load i64, ptr %misalign, align 8
   %add.ptr = getelementptr inbounds i8, ptr %32, i64 %33
-  %call73 = tail call i32 @evbuffer_add(ptr noundef %dst, ptr noundef %add.ptr, i64 noundef %datlen.addr.0.lcssa114), !range !9
+  %call73 = tail call i32 @evbuffer_add(ptr noundef %dst, ptr noundef %add.ptr, i64 noundef %datlen.addr.0.lcssa114)
   %34 = load i64, ptr %misalign, align 8
   %add75 = add i64 %34, %datlen.addr.0.lcssa114
   store i64 %add75, ptr %misalign, align 8
@@ -3867,7 +3867,7 @@ for.cond:                                         ; preds = %if.end22
   %sub28 = sub i64 %remaining.0111, %9
   %tmp.0 = load ptr, ptr %tmp.0112, align 8
   %tobool19.not = icmp eq ptr %tmp.0, null
-  br i1 %tobool19.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %tobool19.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.body:                                         ; preds = %if.end14, %for.cond
   %tmp.0112 = phi ptr [ %tmp.0, %for.cond ], [ %tmp.0109, %if.end14 ]
@@ -4007,7 +4007,7 @@ if.end96:                                         ; preds = %if.then87, %for.bod
   %removed_last_with_datap.1 = select i1 %cmp102, i32 1, i32 %removed_last_with_datap.0116
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.1117)
   %cmp80.not = icmp eq ptr %22, null
-  br i1 %cmp80.not, label %if.else116, label %land.rhs, !llvm.loop !28
+  br i1 %cmp80.not, label %if.else116, label %land.rhs, !llvm.loop !27
 
 if.then108:                                       ; preds = %land.rhs
   %buffer109 = getelementptr inbounds i8, ptr %chain.1117, i64 40
@@ -4105,7 +4105,7 @@ while.cond:                                       ; preds = %if.end, %while.cond
   %to_alloc.0 = phi i64 [ %shl, %while.cond ], [ 1024, %if.end ]
   %cmp3 = icmp ult i64 %to_alloc.0, %add
   %shl = shl nuw nsw i64 %to_alloc.0, 1
-  br i1 %cmp3, label %while.cond, label %if.end4, !llvm.loop !13
+  br i1 %cmp3, label %while.cond, label %if.end4, !llvm.loop !12
 
 if.end4:                                          ; preds = %while.cond
   %sub = add nsw i64 %to_alloc.0, -48
@@ -4188,7 +4188,7 @@ if.end13:                                         ; preds = %if.end8
   %arrayidx = getelementptr inbounds i8, ptr %call10, i64 %it.sroa.0.0.copyload
   store i8 0, ptr %arrayidx, align 1
   %3 = load i64, ptr %extra_drain, align 8
-  %call15 = call i32 @evbuffer_drain(ptr noundef nonnull %buffer, i64 noundef %3), !range !9
+  %call15 = call i32 @evbuffer_drain(ptr noundef nonnull %buffer, i64 noundef %3)
   br label %do.body17
 
 do.body17:                                        ; preds = %if.end6, %do.end3, %if.end13, %if.then12
@@ -4327,14 +4327,14 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
   %tobool7.not.i.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool7.not.i.i, label %while.cond.i.i, label %evbuffer_find_eol_char.exit, !llvm.loop !29
+  br i1 %tobool7.not.i.i, label %while.cond.i.i, label %evbuffer_find_eol_char.exit, !llvm.loop !28
 
 if.end.i:                                         ; preds = %while.cond.i.i
   %add17.i = add i64 %sub.i, %5
   store i64 %add17.i, ptr %agg.result, align 8
   %chain.0.i = load ptr, ptr %it2.sroa.9.0.copyload, align 8
   %cmp.not.i = icmp eq ptr %chain.0.i, null
-  br i1 %cmp.not.i, label %do.body62, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %do.body62, label %while.body.i, !llvm.loop !29
 
 evbuffer_find_eol_char.exit:                      ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.ph.i = phi ptr [ %spec.select.i, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
@@ -4385,13 +4385,13 @@ while.body6.i:                                    ; preds = %while.cond4.i
   %15 = load i8, ptr %p.0.ptr.i, align 1
   %p.0.add.i = add nuw nsw i64 %p.0.idx.i, 1
   %cmp8.i = icmp eq i8 %14, %15
-  br i1 %cmp8.i, label %next.i, label %while.cond4.i, !llvm.loop !31
+  br i1 %cmp8.i, label %next.i, label %while.cond4.i, !llvm.loop !30
 
 next.i:                                           ; preds = %while.body6.i
   %inc.i = add i64 %count.15.i, 1
   %inc16.i = add nuw i64 %i.16.i, 1
   %exitcond10.not.i = icmp eq i64 %inc16.i, %11
-  br i1 %exitcond10.not.i, label %for.end.i, label %while.cond4.preheader.i, !llvm.loop !32
+  br i1 %exitcond10.not.i, label %for.end.i, label %while.cond4.preheader.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %next.i, %while.body.i19
   %count.1.lcssa.i = phi i64 [ %count.0.i, %while.body.i19 ], [ %13, %next.i ]
@@ -4400,7 +4400,7 @@ for.end.i:                                        ; preds = %next.i, %while.body
   br i1 %tobool18.not.i, label %sw.epilog, label %while.body.i19
 
 sw.bb28:                                          ; preds = %if.end22
-  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.1, i64 noundef 2, ptr noundef nonnull %agg.result, ptr noundef null)
+  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull readonly %buffer, ptr noundef nonnull readonly @.str.1, i64 noundef 2, ptr noundef nonnull %agg.result, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %tmp, i64 24, i1 false)
   %17 = load i64, ptr %agg.result, align 8
   %cmp30 = icmp slt i64 %17, 0
@@ -4440,7 +4440,7 @@ if.end.i43:                                       ; preds = %while.body.i28
   store i64 %add17.i44, ptr %agg.result, align 8
   %chain.0.i45 = load ptr, ptr %it2.sroa.9.0.copyload122, align 8
   %cmp.not.i46 = icmp eq ptr %chain.0.i45, null
-  br i1 %cmp.not.i46, label %do.body62, label %while.body.i28, !llvm.loop !33
+  br i1 %cmp.not.i46, label %do.body62, label %while.body.i28, !llvm.loop !32
 
 evbuffer_strchr.exit:                             ; preds = %while.body.i28
   store ptr %it2.sroa.9.0.copyload122, ptr %internal_.i26, align 8
@@ -4497,7 +4497,7 @@ while.body.i.i56:                                 ; preds = %land.rhs.i.i
   %sub31.i.i = sub i64 %left.041.i.i, %27
   %28 = load ptr, ptr %chain.142.i.i, align 8
   %tobool26.not.i.i = icmp eq ptr %28, null
-  br i1 %tobool26.not.i.i, label %if.else.i.i57, label %land.rhs.i.i, !llvm.loop !34
+  br i1 %tobool26.not.i.i, label %if.else.i.i57, label %land.rhs.i.i, !llvm.loop !33
 
 if.else.i.i57:                                    ; preds = %while.body.i.i56, %do.end3.i.i
   %left.0.lcssa.i.i = phi i64 [ %sub14.i, %do.end3.i.i ], [ %sub31.i.i, %while.body.i.i56 ]
@@ -4583,7 +4583,7 @@ if.end.i85:                                       ; preds = %while.body.i67
   store i64 %add17.i86, ptr %agg.result, align 8
   %chain.0.i87 = load ptr, ptr %chain.025.i68, align 8
   %cmp.not.i88 = icmp eq ptr %chain.0.i87, null
-  br i1 %cmp.not.i88, label %do.body62, label %while.body.i67, !llvm.loop !33
+  br i1 %cmp.not.i88, label %do.body62, label %while.body.i67, !llvm.loop !32
 
 evbuffer_strchr.exit89:                           ; preds = %while.body.i67
   store ptr %chain.025.i68, ptr %internal_.i62, align 8
@@ -4631,7 +4631,7 @@ if.end.i113:                                      ; preds = %while.body.i95
   store i64 %add17.i114, ptr %agg.result, align 8
   %chain.0.i115 = load ptr, ptr %chain.025.i96, align 8
   %cmp.not.i116 = icmp eq ptr %chain.0.i115, null
-  br i1 %cmp.not.i116, label %do.body62, label %while.body.i95, !llvm.loop !33
+  br i1 %cmp.not.i116, label %do.body62, label %while.body.i95, !llvm.loop !32
 
 evbuffer_strchr.exit117:                          ; preds = %while.body.i95
   store ptr %chain.025.i96, ptr %internal_.i90, align 8
@@ -4707,7 +4707,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %to_alloc.0.i = phi i64 [ %shl.i, %while.cond.i ], [ 1024, %if.end.i ]
   %cmp3.i = icmp ult i64 %to_alloc.0.i, %add.i
   %shl.i = shl nuw nsw i64 %to_alloc.0.i, 1
-  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !13
+  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !12
 
 if.end4.i:                                        ; preds = %while.cond.i
   %sub.i = add nsw i64 %to_alloc.0.i, -48
@@ -4759,14 +4759,14 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %4 = load ptr, ptr %ch.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !14
 
 for.body.i.i.i:                                   ; preds = %lor.rhs.i.i, %for.body.i.i.i
   %chain.addr.04.i.i.i = phi ptr [ %5, %for.body.i.i.i ], [ %ch.0.i.i, %lor.rhs.i.i ]
   %5 = load ptr, ptr %chain.addr.04.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %for.body.i.i.i
   store ptr null, ptr %ch.014.i.i, align 8
@@ -4805,7 +4805,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_prepend(ptr noundef %buf, ptr nocapture noundef readonly %data, i64 noundef %datlen) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_prepend(ptr noundef %buf, ptr nocapture noundef readonly %data, i64 noundef %datlen) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -4934,7 +4934,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %to_alloc.0.i = phi i64 [ %shl.i, %while.cond.i ], [ 1024, %if.end.i ]
   %cmp3.i = icmp ult i64 %to_alloc.0.i, %add.i
   %shl.i = shl nuw nsw i64 %to_alloc.0.i, 1
-  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !13
+  br i1 %cmp3.i, label %while.cond.i, label %if.end4.i, !llvm.loop !12
 
 if.end4.i:                                        ; preds = %while.cond.i
   %sub.i = add nsw i64 %to_alloc.0.i, -48
@@ -5014,7 +5014,7 @@ do.end96:                                         ; preds = %if.then91, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evbuffer_expand(ptr nocapture noundef %buf, i64 noundef %datlen) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_expand(ptr nocapture noundef %buf, i64 noundef %datlen) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -5084,7 +5084,7 @@ if.end6:                                          ; preds = %do.end3
   %5 = call i32 @llvm.smin.i32(i32 %n.0, i32 %howmuch)
   %howmuch.addr.0 = select i1 %cmp14, i32 %n.0, i32 %5
   %conv21 = sext i32 %howmuch.addr.0 to i64
-  %call22 = call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef %conv21, i32 noundef 4), !range !9
+  %call22 = call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef %conv21, i32 noundef 4)
   %cmp23 = icmp eq i32 %call22, -1
   br i1 %cmp23, label %do.body65, label %if.else
 
@@ -5169,7 +5169,7 @@ cond.end26.i:                                     ; preds = %cond.false20.i, %fo
   %cmp14.i = icmp ult i64 %indvars.iv.i, 3
   %cmp15.i = icmp ult i64 %add40.i, %conv21
   %22 = select i1 %cmp14.i, i1 %cmp15.i, i1 false
-  br i1 %22, label %for.body.i, label %for.end.loopexit36.i, !llvm.loop !17
+  br i1 %22, label %for.body.i, label %for.end.loopexit36.i, !llvm.loop !16
 
 for.end.loopexit36.i:                             ; preds = %cond.end26.i
   %23 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -5231,7 +5231,7 @@ if.then50:                                        ; preds = %cond.end
   %31 = load ptr, ptr %chainp.144, align 8
   %inc = add nuw nsw i32 %i.045, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i34
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
 
 if.else55:                                        ; preds = %cond.end
   %add58 = add i64 %30, %conv47
@@ -5388,7 +5388,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %or.cond1.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
   %tobool9.i = icmp ne i64 %sub.i, 0
   %or.cond2.i = select i1 %or.cond1.i, i1 %tobool9.i, i1 false
-  br i1 %or.cond2.i, label %while.body.i, label %while.end.i, !llvm.loop !36
+  br i1 %or.cond2.i, label %while.body.i, label %while.end.i, !llvm.loop !35
 
 while.end.thread.i:                               ; preds = %if.end12.i
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -5421,7 +5421,7 @@ if.end19:                                         ; preds = %evbuffer_write_send
 
 if.then21:                                        ; preds = %if.end19
   %conv = zext nneg i32 %n.0 to i64
-  %call22 = call i32 @evbuffer_drain(ptr noundef nonnull %buffer, i64 noundef %conv), !range !9
+  %call22 = call i32 @evbuffer_drain(ptr noundef nonnull %buffer, i64 noundef %conv)
   br label %do.body25
 
 do.body25:                                        ; preds = %if.end6, %if.end19, %if.then21, %do.end3
@@ -5461,7 +5461,7 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull %buffer, ptr noundef %what, i64 noundef %len, ptr noundef null, ptr noundef null)
+  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull readonly %buffer, ptr noundef readonly %what, i64 noundef %len, ptr noundef null, ptr noundef null)
   %ptr.sroa.0.0.copyload = load i64, ptr %tmp, align 8
   %cmp = icmp slt i64 %ptr.sroa.0.0.copyload, 0
   br i1 %cmp, label %do.body13, label %if.else
@@ -5490,7 +5490,7 @@ do.end21:                                         ; preds = %if.then16, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_ptr_set(ptr nocapture noundef readonly %buf, ptr nocapture noundef %pos, i64 noundef %position, i32 noundef %how) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_ptr_set(ptr nocapture noundef readonly %buf, ptr nocapture noundef %pos, i64 noundef %position, i32 noundef %how) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -5555,7 +5555,7 @@ while.body:                                       ; preds = %land.rhs
   %sub31 = sub i64 %add27, %7
   %8 = load ptr, ptr %chain.142, align 8
   %tobool26.not = icmp eq ptr %8, null
-  br i1 %tobool26.not, label %if.else, label %land.rhs, !llvm.loop !34
+  br i1 %tobool26.not, label %if.else, label %land.rhs, !llvm.loop !33
 
 if.then33:                                        ; preds = %land.rhs
   %internal_34 = getelementptr inbounds i8, ptr %pos, i64 8
@@ -5726,7 +5726,7 @@ if.end25.i:                                       ; preds = %while.body.i
   %tobool14.i = icmp ne i64 %sub27.i, 0
   %tobool15.i = icmp ne ptr %chain.0.i, null
   %15 = select i1 %tobool14.i, i1 %tobool15.i, i1 false
-  br i1 %15, label %while.body.i, label %if.then39, !llvm.loop !37
+  br i1 %15, label %while.body.i, label %if.then39, !llvm.loop !36
 
 if.then39:                                        ; preds = %if.end11.i, %if.end25.i
   br i1 %tobool12.not, label %do.body89, label %land.lhs.true
@@ -5767,7 +5767,7 @@ if.end80:                                         ; preds = %if.end80.sink.split
   %19 = phi i64 [ %inc, %if.end48 ], [ %.ph, %if.end80.sink.split ]
   %chain.2 = phi ptr [ %chain.133, %if.end48 ], [ %.sink, %if.end80.sink.split ]
   %tobool20.not = icmp eq ptr %chain.2, null
-  br i1 %tobool20.not, label %do.body81, label %while.body, !llvm.loop !38
+  br i1 %tobool20.not, label %do.body81, label %while.body, !llvm.loop !37
 
 do.body81:                                        ; preds = %if.end80, %if.else64, %if.end19, %land.lhs.true
   store i64 -1, ptr %agg.result, align 8
@@ -5908,7 +5908,7 @@ if.then38.us.us:                                  ; preds = %while.body.us.us
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %15 = load ptr, ptr %chain.168.us.us, align 8
   %tobool31.not.us.us = icmp eq ptr %15, null
-  br i1 %tobool31.not.us.us, label %do.body56.loopexit.split.loop.exit124, label %while.body.us.us, !llvm.loop !39
+  br i1 %tobool31.not.us.us, label %do.body56.loopexit.split.loop.exit124, label %while.body.us.us, !llvm.loop !38
 
 while.body.preheader:                             ; preds = %while.body.lr.ph
   %16 = sext i32 %n_vec to i64
@@ -5950,7 +5950,7 @@ if.end52:                                         ; preds = %if.end36.if.end52_c
   %add = add i64 %20, %len_so_far.170
   %21 = load ptr, ptr %chain.168, align 8
   %tobool31.not = icmp eq ptr %21, null
-  br i1 %tobool31.not, label %do.body56.loopexit109, label %while.body, !llvm.loop !39
+  br i1 %tobool31.not, label %do.body56.loopexit109, label %while.body, !llvm.loop !38
 
 do.body56.loopexit109:                            ; preds = %while.body, %if.end52
   %idx.1.lcssa.ph110.in = phi i64 [ %indvars.iv.next, %if.end52 ], [ %indvars.iv, %while.body ]
@@ -5978,7 +5978,7 @@ return:                                           ; preds = %do.body56, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evbuffer_add_vprintf(ptr noundef %buf, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @evbuffer_add_vprintf(ptr noundef %buf, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
   %aq = alloca [1 x %struct.__va_list_tag], align 16
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
@@ -6080,7 +6080,7 @@ if.end12.i:                                       ; preds = %if.then10.i, %while
   %18 = phi ptr [ %.pre.i, %if.then10.i ], [ %15, %while.body.i ]
   %19 = load ptr, ptr %18, align 8
   %tobool7.not.i = icmp eq ptr %19, null
-  br i1 %tobool7.not.i, label %advance_last_with_data.exit, label %while.body.i, !llvm.loop !20
+  br i1 %tobool7.not.i, label %advance_last_with_data.exit, label %while.body.i, !llvm.loop !19
 
 advance_last_with_data.exit:                      ; preds = %if.end12.i, %if.then23, %while.cond.preheader.i
   call void @evbuffer_invoke_callbacks_(ptr noundef %buf)
@@ -6111,24 +6111,24 @@ do.end49:                                         ; preds = %if.then44, %do.body
 declare i32 @evutil_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evbuffer_add_printf(ptr noundef %buf, ptr noundef %fmt, ...) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @evbuffer_add_printf(ptr noundef %buf, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @evbuffer_add_vprintf(ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %ap), !range !40
+  %call = call i32 @evbuffer_add_vprintf(ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_reference(ptr noundef %outbuf, ptr noundef %data, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_reference(ptr noundef %outbuf, ptr noundef %data, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @evbuffer_add_reference_with_offset(ptr noundef %outbuf, ptr noundef %data, i64 noundef 0, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra), !range !9
+  %call = tail call i32 @evbuffer_add_reference_with_offset(ptr noundef %outbuf, ptr noundef %data, i64 noundef 0, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_reference_with_offset(ptr noundef %outbuf, ptr noundef %data, i64 noundef %offset, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_reference_with_offset(ptr noundef %outbuf, ptr noundef %data, i64 noundef %offset, i64 noundef %datlen, ptr noundef %cleanupfn, ptr noundef %extra) local_unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @event_mm_malloc_(i64 noundef 64) #16
   %cmp1.i = icmp eq ptr %call.i, null
@@ -6204,14 +6204,14 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %7 = load ptr, ptr %ch.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !14
 
 for.body.i.i.i:                                   ; preds = %lor.rhs.i.i, %for.body.i.i.i
   %chain.addr.04.i.i.i = phi ptr [ %8, %for.body.i.i.i ], [ %ch.0.i.i, %lor.rhs.i.i ]
   %8 = load ptr, ptr %chain.addr.04.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %for.body.i.i.i
   store ptr null, ptr %ch.014.i.i, align 8
@@ -6320,7 +6320,7 @@ if.then19:                                        ; preds = %if.end17
   br label %done
 
 if.end20:                                         ; preds = %if.end17
-  %call21 = tail call fastcc i32 @evbuffer_file_segment_materialize(ptr noundef nonnull %call), !range !9
+  %call21 = tail call fastcc i32 @evbuffer_file_segment_materialize(ptr noundef nonnull %call)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %err, label %done
 
@@ -6356,7 +6356,7 @@ return:                                           ; preds = %done, %cond.end, %e
 declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evbuffer_file_segment_materialize(ptr nocapture noundef %seg) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @evbuffer_file_segment_materialize(ptr nocapture noundef %seg) unnamed_addr #1 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %seg, i64 12
   %0 = load i32, ptr %flags1, align 4
@@ -6458,7 +6458,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %add41 = add nuw nsw i64 %call37, %read_so_far.045
   %cmp34.not = icmp slt i64 %add41, %2
   %or.cond50 = select i1 %cmp38, i1 %cmp34.not, i1 false
-  br i1 %or.cond50, label %while.body, label %while.end, !llvm.loop !41
+  br i1 %or.cond50, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %cmp34.lcssa = phi i1 [ true, %while.cond.preheader ], [ %cmp38, %while.body ]
@@ -6631,7 +6631,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_file_segment(ptr noundef %buf, ptr noundef %seg, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_file_segment(ptr noundef %buf, ptr noundef %seg, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -6665,7 +6665,7 @@ do.end11.do.body36_crit_edge:                     ; preds = %do.end11
   br label %do.body36
 
 if.else:                                          ; preds = %do.end11
-  %call14 = tail call fastcc i32 @evbuffer_file_segment_materialize(ptr noundef nonnull %seg), !range !9
+  %call14 = tail call fastcc i32 @evbuffer_file_segment_materialize(ptr noundef nonnull %seg)
   %cmp = icmp slt i32 %call14, 0
   %.pre79 = load ptr, ptr %seg, align 8
   br i1 %cmp, label %do.body16, label %do.body36
@@ -6835,14 +6835,14 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %24 = load ptr, ptr %ch.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %land.rhs.i.i, !llvm.loop !14
 
 for.body.i.i.i:                                   ; preds = %lor.rhs.i.i, %for.body.i.i.i
   %chain.addr.04.i.i.i = phi ptr [ %25, %for.body.i.i.i ], [ %ch.0.i.i, %lor.rhs.i.i ]
   %25 = load ptr, ptr %chain.addr.04.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.addr.04.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %for.body.i.i.i
   store ptr null, ptr %ch.014.i.i, align 8
@@ -6903,7 +6903,7 @@ return:                                           ; preds = %evbuffer_chain_inse
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_add_file(ptr noundef %buf, i32 noundef %fd, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_add_file(ptr noundef %buf, i32 noundef %fd, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %st.i = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
@@ -6972,7 +6972,7 @@ if.end:                                           ; preds = %cond.true.i, %if.en
   %cond.i = phi ptr [ %call29.i, %cond.true.i ], [ null, %if.end17.i ]
   store ptr %cond.i, ptr %call.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
-  %call1 = tail call i32 @evbuffer_add_file_segment(ptr noundef %buf, ptr noundef nonnull %call.i, i64 noundef 0, i64 noundef %length), !range !9
+  %call1 = tail call i32 @evbuffer_add_file_segment(ptr noundef %buf, ptr noundef nonnull %call.i, i64 noundef 0, i64 noundef %length)
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then2, label %return
 
@@ -6986,7 +6986,7 @@ return:                                           ; preds = %evbuffer_file_segme
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_setcb(ptr noundef %buffer, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_setcb(ptr noundef %buffer, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -7199,7 +7199,7 @@ do.end26:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_remove_cb(ptr nocapture noundef readonly %buffer, ptr noundef readnone %cb, ptr noundef readnone %cbarg) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_remove_cb(ptr nocapture noundef readonly %buffer, ptr noundef readnone %cb, ptr noundef readnone %cbarg) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -7272,7 +7272,7 @@ evbuffer_remove_cb_entry.exit:                    ; preds = %if.end11.i, %if.the
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %cbent.0 = load ptr, ptr %cbent.014, align 8
   %cmp.not = icmp eq ptr %cbent.0, null
-  br i1 %cmp.not, label %do.body12, label %for.body, !llvm.loop !42
+  br i1 %cmp.not, label %do.body12, label %for.body, !llvm.loop !40
 
 do.body12:                                        ; preds = %for.inc, %do.end3, %evbuffer_remove_cb_entry.exit
   %result.0 = phi i32 [ 0, %evbuffer_remove_cb_entry.exit ], [ -1, %do.end3 ], [ -1, %for.inc ]
@@ -7421,7 +7421,7 @@ do.end19:                                         ; preds = %if.then14, %do.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_get_callbacks_(ptr noundef %buffer, ptr nocapture noundef writeonly %cbs, i32 noundef %max_cbs) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evbuffer_get_callbacks_(ptr noundef %buffer, ptr nocapture noundef writeonly %cbs, i32 noundef %max_cbs) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -7556,7 +7556,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -7587,6 +7587,4 @@ attributes #18 = { nounwind willreturn memory(none) }
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = !{i32 -1, i32 -2147483648}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
+!40 = distinct !{!40, !6}

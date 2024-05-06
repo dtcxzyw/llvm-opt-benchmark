@@ -18432,7 +18432,7 @@ define internal void @perf_trace_svc_unregister(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @rpc_task_gfp_mask() #4 align 16 {
+define dso_local range(i32 3264, 76993) i32 @rpc_task_gfp_mask() #4 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !208
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 44
@@ -18602,7 +18602,7 @@ define dso_local i32 @rpc_wait_for_completion_task(ptr noundef %0) #1 align 16 {
 declare dso_local i32 @out_of_line_wait_on_bit(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rpc_wait_bit_killable(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define internal range(i32 -512, 1) i32 @rpc_wait_bit_killable(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
   tail call void @schedule() #18
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !208
   %4 = inttoptr i64 %3 to ptr
@@ -20535,7 +20535,7 @@ define internal fastcc void @__rpc_execute(ptr noundef %0) unnamed_addr #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpc_malloc(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @rpc_malloc(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 264
@@ -20895,7 +20895,7 @@ define dso_local void @rpc_put_task_async(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpciod_up() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @rpciod_up() local_unnamed_addr #1 align 16 {
   %1 = tail call zeroext i1 @try_module_get(ptr noundef null) #18
   %2 = select i1 %1, i32 0, i32 -22
   ret i32 %2
@@ -20947,7 +20947,7 @@ declare dso_local void @mempool_destroy(ptr noundef) local_unnamed_addr #0
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpc_init_mempool() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @rpc_init_mempool() local_unnamed_addr #1 align 16 {
   store i32 0, ptr @delay_queue, align 8
   br label %1
 

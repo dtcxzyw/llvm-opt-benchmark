@@ -371,7 +371,7 @@ select.unfold:                                    ; preds = %110
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_ex_name_segment(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 16387) i32 @acpi_ex_name_segment(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [5 x i8], align 1
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #7

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [39 x i8] c"error: no URL given as first argument\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @test_curl(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @test_curl(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str) #7
   %.not.not = icmp eq ptr %3, null
@@ -122,7 +122,7 @@ declare void @curl_easy_cleanup(ptr noundef) local_unnamed_addr #4
 declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @curl_global_init(i64 noundef 3) #7
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %9
@@ -130,7 +130,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @test_curl(ptr noundef %7), !range !5
+  %8 = tail call i32 @test_curl(ptr noundef %7)
   br label %12
 
 9:                                                ; preds = %2
@@ -173,4 +173,3 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

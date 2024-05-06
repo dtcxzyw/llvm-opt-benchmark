@@ -319,7 +319,7 @@ define internal noundef i32 @pps_cdev_poll(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pps_cdev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pps_cdev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.pps_kparams, align 8
   %5 = alloca %struct.pps_fdata, align 8
   %6 = alloca %struct.pps_bind_args, align 4
@@ -595,7 +595,7 @@ define internal i64 @pps_cdev_compat_ioctl(ptr nocapture noundef readonly %0, i3
 
 41:                                               ; preds = %3
   %42 = or disjoint i32 %9, 524288
-  %43 = tail call i64 @pps_cdev_ioctl(ptr noundef %0, i32 noundef %42, i64 noundef %2), !range !12
+  %43 = tail call i64 @pps_cdev_ioctl(ptr noundef %0, i32 noundef %42, i64 noundef %2)
   br label %44
 
 44:                                               ; preds = %41, %39
@@ -651,7 +651,7 @@ declare i64 @llvm.read_register.i64(metadata) #7
 declare void @llvm.write_register.i64(metadata, i64) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pps_cdev_pps_fetch(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @pps_cdev_pps_fetch(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 180
@@ -861,4 +861,3 @@ attributes #10 = { cold nounwind }
 !9 = !{!"auto-init"}
 !10 = !{i64 2154068021}
 !11 = !{i32 -110, i32 1}
-!12 = !{i64 -2147483648, i64 2147483648}

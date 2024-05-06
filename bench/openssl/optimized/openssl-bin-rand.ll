@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [23 x i8] c"../openssl/apps/rand.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rand_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
   store i64 -1, ptr %num, align 8
@@ -58,20 +58,20 @@ entry:
 
 while.cond.outer:                                 ; preds = %sw.bb4, %entry
   %outfile.0.ph = phi ptr [ %call5, %sw.bb4 ], [ null, %entry ]
-  %format.0.ph = phi i32 [ %format.0.ph201, %sw.bb4 ], [ 2, %entry ]
-  %e.0.ph = phi ptr [ %e.0.ph204, %sw.bb4 ], [ null, %entry ]
-  br label %while.cond.outer200
+  %format.0.ph = phi i32 [ %format.0.ph200, %sw.bb4 ], [ 2, %entry ]
+  %e.0.ph = phi ptr [ %e.0.ph203, %sw.bb4 ], [ null, %entry ]
+  br label %while.cond.outer199
 
-while.cond.outer200:                              ; preds = %while.cond.outer200.backedge, %while.cond.outer
-  %format.0.ph201 = phi i32 [ %format.0.ph, %while.cond.outer ], [ %format.0.ph201.be, %while.cond.outer200.backedge ]
-  %e.0.ph202 = phi ptr [ %e.0.ph, %while.cond.outer ], [ %e.0.ph204, %while.cond.outer200.backedge ]
-  br label %while.cond.outer203
+while.cond.outer199:                              ; preds = %while.cond.outer199.backedge, %while.cond.outer
+  %format.0.ph200 = phi i32 [ %format.0.ph, %while.cond.outer ], [ %format.0.ph200.be, %while.cond.outer199.backedge ]
+  %e.0.ph201 = phi ptr [ %e.0.ph, %while.cond.outer ], [ %e.0.ph203, %while.cond.outer199.backedge ]
+  br label %while.cond.outer202
 
-while.cond.outer203:                              ; preds = %while.cond.outer200, %sw.bb6
-  %e.0.ph204 = phi ptr [ %e.0.ph202, %while.cond.outer200 ], [ %call8, %sw.bb6 ]
+while.cond.outer202:                              ; preds = %while.cond.outer199, %sw.bb6
+  %e.0.ph203 = phi ptr [ %e.0.ph201, %while.cond.outer199 ], [ %call8, %sw.bb6 ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer203
+while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer202
   %call1 = tail call i32 @opt_next() #5
   switch i32 %call1, label %while.cond.backedge [
     i32 0, label %while.end
@@ -84,7 +84,7 @@ while.cond:                                       ; preds = %while.cond.backedge
     i32 1602, label %sw.bb15
     i32 1501, label %sw.bb10
     i32 1502, label %sw.bb10
-    i32 4, label %while.cond.outer200.backedge
+    i32 4, label %while.cond.outer199.backedge
     i32 5, label %sw.bb13
   ]
 
@@ -107,7 +107,7 @@ sw.bb4:                                           ; preds = %while.cond
 sw.bb6:                                           ; preds = %while.cond
   %call7 = tail call ptr @opt_arg() #5
   %call8 = tail call ptr @setup_engine_methods(ptr noundef %call7, i32 noundef -1, i32 noundef 0) #5
-  br label %while.cond.outer203, !llvm.loop !5
+  br label %while.cond.outer202, !llvm.loop !5
 
 sw.bb10:                                          ; preds = %while.cond, %while.cond
   %call11 = tail call i32 @opt_rand(i32 noundef %call1) #5
@@ -115,11 +115,11 @@ sw.bb10:                                          ; preds = %while.cond, %while.
   br i1 %tobool.not, label %if.then184, label %while.cond.backedge
 
 sw.bb13:                                          ; preds = %while.cond
-  br label %while.cond.outer200.backedge
+  br label %while.cond.outer199.backedge
 
-while.cond.outer200.backedge:                     ; preds = %while.cond, %sw.bb13
-  %format.0.ph201.be = phi i32 [ 32769, %sw.bb13 ], [ 32771, %while.cond ]
-  br label %while.cond.outer200, !llvm.loop !5
+while.cond.outer199.backedge:                     ; preds = %while.cond, %sw.bb13
+  %format.0.ph200.be = phi i32 [ 32769, %sw.bb13 ], [ 32771, %while.cond ]
+  br label %while.cond.outer199, !llvm.loop !5
 
 sw.bb15:                                          ; preds = %while.cond, %while.cond, %while.cond
   %call16 = tail call i32 @opt_provider(i32 noundef %call1) #5
@@ -182,7 +182,7 @@ sw.default:                                       ; preds = %if.then40
   br label %opthelp
 
 if.end54:                                         ; preds = %while.body31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx29 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %8 = load i8, ptr %arrayidx29, align 1
   %tobool30.not = icmp eq i8 %8, 0
@@ -252,12 +252,12 @@ if.end113:                                        ; preds = %if.end87, %if.then2
   br i1 %tobool115.not, label %if.then184, label %if.end117
 
 if.end117:                                        ; preds = %if.end113
-  %call118 = call ptr @bio_open_default(ptr noundef %outfile.0.ph, i8 noundef signext 119, i32 noundef %format.0.ph201) #5
+  %call118 = call ptr @bio_open_default(ptr noundef %outfile.0.ph, i8 noundef signext 119, i32 noundef %format.0.ph200) #5
   %cmp119 = icmp eq ptr %call118, null
   br i1 %cmp119, label %if.then184, label %if.end122
 
 if.end122:                                        ; preds = %if.end117
-  %cmp123 = icmp eq i32 %format.0.ph201, 32771
+  %cmp123 = icmp eq i32 %format.0.ph200, 32771
   br i1 %cmp123, label %if.then125, label %if.end133
 
 if.then125:                                       ; preds = %if.end122
@@ -268,40 +268,40 @@ if.then125:                                       ; preds = %if.end122
 
 if.end133:                                        ; preds = %if.end122
   %call134 = call ptr @app_malloc(i64 noundef 65536, ptr noundef nonnull @.str.33) #5
-  %cmp136.not115 = icmp eq i64 %scaled_num.1, 0
-  br i1 %cmp136.not115, label %while.end170, label %while.body138.lr.ph
+  %cmp136.not114 = icmp eq i64 %scaled_num.1, 0
+  br i1 %cmp136.not114, label %while.end170, label %while.body138.lr.ph
 
 if.end133.thread:                                 ; preds = %if.then125
   %call132 = call ptr @BIO_push(ptr noundef nonnull %call127, ptr noundef nonnull %call118) #5
-  %call134141 = call ptr @app_malloc(i64 noundef 65536, ptr noundef nonnull @.str.33) #5
-  %cmp136.not115142 = icmp eq i64 %scaled_num.1, 0
-  br i1 %cmp136.not115142, label %end, label %while.body138.preheader
+  %call134140 = call ptr @app_malloc(i64 noundef 65536, ptr noundef nonnull @.str.33) #5
+  %cmp136.not114141 = icmp eq i64 %scaled_num.1, 0
+  br i1 %cmp136.not114141, label %end, label %while.body138.preheader
 
 while.body138.lr.ph:                              ; preds = %if.end133
-  %cmp148.not = icmp eq i32 %format.0.ph201, 32769
+  %cmp148.not = icmp eq i32 %format.0.ph200, 32769
   br i1 %cmp148.not, label %while.body138.us, label %while.body138.preheader
 
 while.body138.preheader:                          ; preds = %if.end133.thread, %while.body138.lr.ph
-  %out.0143151 = phi ptr [ %call118, %while.body138.lr.ph ], [ %call132, %if.end133.thread ]
-  %call134145150 = phi ptr [ %call134, %while.body138.lr.ph ], [ %call134141, %if.end133.thread ]
+  %out.0142150 = phi ptr [ %call118, %while.body138.lr.ph ], [ %call132, %if.end133.thread ]
+  %call134144149 = phi ptr [ %call134, %while.body138.lr.ph ], [ %call134140, %if.end133.thread ]
   br label %while.body138
 
 while.body138.us:                                 ; preds = %while.body138.lr.ph, %if.end168.loopexit.us
-  %scaled_num.2116.us = phi i64 [ %sub.us, %if.end168.loopexit.us ], [ %scaled_num.1, %while.body138.lr.ph ]
-  %cond53.us = call i64 @llvm.umin.i64(i64 %scaled_num.2116.us, i64 65536)
-  %cond.us = trunc i64 %cond53.us to i32
+  %scaled_num.2115.us = phi i64 [ %sub.us, %if.end168.loopexit.us ], [ %scaled_num.1, %while.body138.lr.ph ]
+  %cond53.us = call i64 @llvm.umin.i64(i64 %scaled_num.2115.us, i64 65536)
+  %cond.us = trunc nuw nsw i64 %cond53.us to i32
   %call143.us = call i32 @RAND_bytes(ptr noundef %call134, i32 noundef %cond.us) #5
   %cmp144.us = icmp slt i32 %call143.us, 1
   br i1 %cmp144.us, label %if.then184, label %for.body.us
 
 for.cond.us:                                      ; preds = %for.body.us
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next138, %cond53.us
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next137, %cond53.us
   br i1 %exitcond.not, label %if.end168.loopexit.us, label %for.body.us, !llvm.loop !8
 
 for.body.us:                                      ; preds = %while.body138.us, %for.cond.us
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %for.cond.us ], [ 0, %while.body138.us ]
-  %arrayidx160.us = getelementptr inbounds i8, ptr %call134, i64 %indvars.iv137
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %for.cond.us ], [ 0, %while.body138.us ]
+  %arrayidx160.us = getelementptr inbounds i8, ptr %call134, i64 %indvars.iv136
   %14 = load i8, ptr %arrayidx160.us, align 1
   %conv161.us = zext i8 %14 to i32
   %call162.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call118, ptr noundef nonnull @.str.34, i32 noundef %conv161.us) #5
@@ -309,59 +309,59 @@ for.body.us:                                      ; preds = %while.body138.us, %
   br i1 %cmp163.not.us, label %for.cond.us, label %if.then184
 
 if.end168.loopexit.us:                            ; preds = %for.cond.us
-  %sub.us = sub i64 %scaled_num.2116.us, %cond53.us
+  %sub.us = sub i64 %scaled_num.2115.us, %cond53.us
   %cmp136.not.us = icmp eq i64 %sub.us, 0
   br i1 %cmp136.not.us, label %while.end170, label %while.body138.us, !llvm.loop !9
 
 while.body138:                                    ; preds = %while.body138.preheader, %if.end168
-  %scaled_num.2116 = phi i64 [ %sub, %if.end168 ], [ %scaled_num.1, %while.body138.preheader ]
-  %cond53 = call i64 @llvm.umin.i64(i64 %scaled_num.2116, i64 65536)
-  %cond = trunc i64 %cond53 to i32
-  %call143 = call i32 @RAND_bytes(ptr noundef %call134145150, i32 noundef %cond) #5
+  %scaled_num.2115 = phi i64 [ %sub, %if.end168 ], [ %scaled_num.1, %while.body138.preheader ]
+  %cond53 = call i64 @llvm.umin.i64(i64 %scaled_num.2115, i64 65536)
+  %cond = trunc nuw nsw i64 %cond53 to i32
+  %call143 = call i32 @RAND_bytes(ptr noundef %call134144149, i32 noundef %cond) #5
   %cmp144 = icmp slt i32 %call143, 1
   br i1 %cmp144, label %if.then184, label %if.end147
 
 if.end147:                                        ; preds = %while.body138
-  %call151 = call i32 @BIO_write(ptr noundef %out.0143151, ptr noundef %call134145150, i32 noundef %cond) #5
+  %call151 = call i32 @BIO_write(ptr noundef %out.0142150, ptr noundef %call134144149, i32 noundef %cond) #5
   %cmp152.not = icmp eq i32 %call151, %cond
   br i1 %cmp152.not, label %if.end168, label %if.then184
 
 if.end168:                                        ; preds = %if.end147
-  %sub = sub i64 %scaled_num.2116, %cond53
+  %sub = sub i64 %scaled_num.2115, %cond53
   %cmp136.not = icmp eq i64 %sub, 0
   br i1 %cmp136.not, label %while.end170, label %while.body138, !llvm.loop !9
 
 while.end170:                                     ; preds = %if.end168.loopexit.us, %if.end168, %if.end133
-  %call134146 = phi ptr [ %call134, %if.end133 ], [ %call134145150, %if.end168 ], [ %call134, %if.end168.loopexit.us ]
-  %out.0144 = phi ptr [ %call118, %if.end133 ], [ %out.0143151, %if.end168 ], [ %call118, %if.end168.loopexit.us ]
-  %cmp171 = icmp eq i32 %format.0.ph201, 32769
+  %call134145 = phi ptr [ %call134, %if.end133 ], [ %call134144149, %if.end168 ], [ %call134, %if.end168.loopexit.us ]
+  %out.0143 = phi ptr [ %call118, %if.end133 ], [ %out.0142150, %if.end168 ], [ %call118, %if.end168.loopexit.us ]
+  %cmp171 = icmp eq i32 %format.0.ph200, 32769
   br i1 %cmp171, label %if.then173, label %end
 
 if.then173:                                       ; preds = %while.end170
-  %call174 = call i32 @BIO_puts(ptr noundef %out.0144, ptr noundef nonnull @.str.35) #5
+  %call174 = call i32 @BIO_puts(ptr noundef %out.0143, ptr noundef nonnull @.str.35) #5
   br label %end
 
 end:                                              ; preds = %if.end133.thread, %while.end170, %if.then173
-  %out.0144156 = phi ptr [ %out.0144, %while.end170 ], [ %out.0144, %if.then173 ], [ %call132, %if.end133.thread ]
-  %call134146155 = phi ptr [ %call134146, %while.end170 ], [ %call134146, %if.then173 ], [ %call134141, %if.end133.thread ]
-  %call176 = call i64 @BIO_ctrl(ptr noundef %out.0144156, i32 noundef 11, i64 noundef 0, ptr noundef null) #5
+  %out.0143155 = phi ptr [ %out.0143, %while.end170 ], [ %out.0143, %if.then173 ], [ %call132, %if.end133.thread ]
+  %call134145154 = phi ptr [ %call134145, %while.end170 ], [ %call134145, %if.then173 ], [ %call134140, %if.end133.thread ]
+  %call176 = call i64 @BIO_ctrl(ptr noundef %out.0143155, i32 noundef 11, i64 noundef 0, ptr noundef null) #5
   %conv177 = trunc i64 %call176 to i32
   %cmp178 = icmp slt i32 %conv177, 1
   br i1 %cmp178, label %if.then184, label %if.end185
 
 if.then184:                                       ; preds = %sw.bb15, %sw.bb10, %while.body138.us, %for.body.us, %while.body138, %if.end147, %if.end113, %if.then125, %if.end117, %opthelp, %end
-  %buf.073 = phi ptr [ %call134146155, %end ], [ null, %if.end113 ], [ null, %if.then125 ], [ null, %if.end117 ], [ null, %opthelp ], [ %call134145150, %if.end147 ], [ %call134145150, %while.body138 ], [ %call134, %for.body.us ], [ %call134, %while.body138.us ], [ null, %sw.bb10 ], [ null, %sw.bb15 ]
-  %out.169 = phi ptr [ %out.0144156, %end ], [ null, %if.end113 ], [ %call118, %if.then125 ], [ null, %if.end117 ], [ null, %opthelp ], [ %out.0143151, %if.end147 ], [ %out.0143151, %while.body138 ], [ %call118, %for.body.us ], [ %call118, %while.body138.us ], [ null, %sw.bb10 ], [ null, %sw.bb15 ]
+  %buf.073 = phi ptr [ %call134145154, %end ], [ null, %if.end113 ], [ null, %if.then125 ], [ null, %if.end117 ], [ null, %opthelp ], [ %call134144149, %if.end147 ], [ %call134144149, %while.body138 ], [ %call134, %for.body.us ], [ %call134, %while.body138.us ], [ null, %sw.bb10 ], [ null, %sw.bb15 ]
+  %out.169 = phi ptr [ %out.0143155, %end ], [ null, %if.end113 ], [ %call118, %if.then125 ], [ null, %if.end117 ], [ null, %opthelp ], [ %out.0142150, %if.end147 ], [ %out.0142150, %while.body138 ], [ %call118, %for.body.us ], [ %call118, %while.body138.us ], [ null, %sw.bb10 ], [ null, %sw.bb15 ]
   %15 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %15) #5
   br label %if.end185
 
 if.end185:                                        ; preds = %end.thread75, %if.then184, %end
-  %buf.074 = phi ptr [ %buf.073, %if.then184 ], [ %call134146155, %end ], [ null, %end.thread75 ]
+  %buf.074 = phi ptr [ %buf.073, %if.then184 ], [ %call134145154, %end ], [ null, %end.thread75 ]
   %ret.072 = phi i32 [ 1, %if.then184 ], [ 0, %end ], [ 0, %end.thread75 ]
-  %out.170 = phi ptr [ %out.169, %if.then184 ], [ %out.0144156, %end ], [ null, %end.thread75 ]
+  %out.170 = phi ptr [ %out.169, %if.then184 ], [ %out.0143155, %end ], [ null, %end.thread75 ]
   call void @CRYPTO_free(ptr noundef %buf.074, ptr noundef nonnull @.str.36, i32 noundef 225) #5
-  call void @release_engine(ptr noundef %e.0.ph204) #5
+  call void @release_engine(ptr noundef %e.0.ph203) #5
   call void @BIO_free_all(ptr noundef %out.170) #5
   ret i32 %ret.072
 }

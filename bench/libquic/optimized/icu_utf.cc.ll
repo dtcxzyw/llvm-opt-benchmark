@@ -144,7 +144,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp61.not, label %while.end, label %land.rhs, !llvm.loop !5
 
 while.end.loopexit.split.loop.exit76:             ; preds = %land.rhs
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit76, %if.then59
@@ -191,7 +191,7 @@ while.body105:                                    ; preds = %land.rhs98
   br i1 %exitcond.not, label %while.end107, label %land.rhs98, !llvm.loop !7
 
 while.end107.loopexit.split.loop.exit79:          ; preds = %land.rhs98
-  %23 = trunc i64 %indvars.iv73 to i32
+  %23 = trunc nsw i64 %indvars.iv73 to i32
   br label %while.end107
 
 while.end107:                                     ; preds = %while.body105, %while.end107.loopexit.split.loop.exit79, %while.cond96.preheader

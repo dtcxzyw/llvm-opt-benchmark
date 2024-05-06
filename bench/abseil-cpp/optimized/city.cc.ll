@@ -3,7 +3,7 @@ source_filename = "bench/abseil-cpp/original/city.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN4absl13hash_internal10CityHash32EPKcm(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 25
@@ -38,7 +38,7 @@ for.body.i:                                       ; preds = %cond.true3, %for.bo
 _ZN4absl13hash_internalL13Hash32Len0to4EPKcm.exit: ; preds = %for.body.i, %cond.true3
   %c.0.lcssa.i = phi i32 [ 9, %cond.true3 ], [ %xor.i, %for.body.i ]
   %b.0.lcssa.i = phi i32 [ 0, %cond.true3 ], [ %add.i, %for.body.i ]
-  %conv1.i = trunc i64 %len to i32
+  %conv1.i = trunc nuw nsw i64 %len to i32
   %mul.i.i = mul i32 %conv1.i, -862048943
   %shr.i.i.i = lshr i32 %mul.i.i, 17
   %shl.i.i.i = mul nuw i32 %conv1.i, 380141568
@@ -68,7 +68,7 @@ _ZN4absl13hash_internalL13Hash32Len0to4EPKcm.exit: ; preds = %for.body.i, %cond.
   br label %return
 
 cond.false:                                       ; preds = %cond.true
-  %conv.i29 = trunc i64 %len to i32
+  %conv.i29 = trunc nuw nsw i64 %len to i32
   %mul.i30 = mul nuw nsw i32 %conv.i29, 5
   %s.val.i = load i32, ptr %s, align 1
   %add.i31 = add i32 %s.val.i, %conv.i29
@@ -133,7 +133,7 @@ cond.false5:                                      ; preds = %if.then
   %s.val.i51 = load i32, ptr %s, align 1
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr4.i50, i64 -4
   %add.ptr12.val.i = load i32, ptr %add.ptr12.i, align 1
-  %conv.i52 = trunc i64 %len to i32
+  %conv.i52 = trunc nuw nsw i64 %len to i32
   %mul.i.i53 = mul i32 %add.ptr1.val.i49, -862048943
   %shr.i.i.i54 = lshr i32 %mul.i.i53, 17
   %shl.i.i.i55 = mul i32 %add.ptr1.val.i49, 380141568
@@ -353,7 +353,7 @@ return:                                           ; preds = %cond.false5, %cond.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 33
@@ -709,10 +709,10 @@ return:                                           ; preds = %if.then27.i, %if.en
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4absl13hash_internal18CityHash64WithSeedEPKcmm(ptr nocapture noundef readonly %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef %s, i64 noundef %len)
+  %call.i = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef readonly %s, i64 noundef %len)
   %sub.i = add i64 %call.i, 7286425919675154353
   %xor.i.i.i = xor i64 %sub.i, %seed
   %mul1.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
@@ -726,7 +726,7 @@ entry:
   ret i64 %mul7.i.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4absl13hash_internal19CityHash64WithSeedsEPKcmmm(ptr nocapture noundef readonly %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef %s, i64 noundef %len)
@@ -755,7 +755,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

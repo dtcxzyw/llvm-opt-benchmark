@@ -524,9 +524,9 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   %6 = icmp ugt i32 %5, 4095
   %7 = lshr i32 %5, 11
   %spec.select = select i1 %6, i32 %7, i32 1
-  %8 = tail call i32 @llvm.ctpop.i32(i32 %spec.select), !range !6
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %spec.select)
   %9 = icmp ult i32 %8, 2
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %spec.select, i1 true), !range !6
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 true)
   %11 = xor i32 %10, 31
   %12 = shl nuw nsw i32 2, %11
   %.0.i = select i1 %9, i32 %spec.select, i32 %12
@@ -540,7 +540,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
 
 18:                                               ; preds = %29, %3
   %.0 = phi i32 [ -1, %3 ], [ %31, %29 ]
-  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !7
+  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !6
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %22, label %20
 
@@ -563,7 +563,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   br i1 %.not20, label %29, label %.loopexit.sink.split
 
 29:                                               ; preds = %28
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   store i8 0, ptr %15, align 4
   %30 = load i32, ptr %4, align 8
   %31 = tail call i32 @ss_get_location(ptr noundef %0, i32 noundef %30) #9
@@ -575,7 +575,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.loopexit.sink.split
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   store i8 0, ptr %15, align 4
   ret void
 }
@@ -624,7 +624,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
   %24 = phi i32 [ %22, %21 ], [ %11, %13 ], [ %11, %9 ]
   %25 = getelementptr inbounds i8, ptr %2, i64 32
   %26 = zext i32 %24 to i64
-  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %26, ptr nonnull elementtype(i64) %25) #9, !srcloc !10
+  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %26, ptr nonnull elementtype(i64) %25) #9, !srcloc !9
   %storemerge.in.pre = load i32, ptr %10, align 4
   br label %28
 
@@ -646,7 +646,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %storemerge29, %35
   %37 = urem i64 %36, %31
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = getelementptr inbounds i8, ptr %2, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
@@ -713,7 +713,7 @@ RelationGetSmgr.exit:                             ; preds = %6, %9
   %15 = add i64 %.0815, %14
   %16 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %16, 3
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !10
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %4, align 8
@@ -815,7 +815,7 @@ select.unfold:                                    ; preds = %20, %7
   %45 = udiv i64 %44, 100
   %46 = sext i32 %43 to i64
   %47 = udiv i64 %45, %46
-  %48 = uitofp i64 %47 to double
+  %48 = uitofp nneg i64 %47 to double
   br label %49
 
 49:                                               ; preds = %39, %29
@@ -883,10 +883,9 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 2150215259}
-!6 = !{i32 0, i32 33}
-!7 = !{i64 1897490, i64 1897506}
-!8 = !{i64 2150216046}
-!9 = !{i64 2150216171}
-!10 = !{i64 1853792, i64 1853809}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
+!6 = !{i64 1897490, i64 1897506}
+!7 = !{i64 2150216046}
+!8 = !{i64 2150216171}
+!9 = !{i64 1853792, i64 1853809}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}

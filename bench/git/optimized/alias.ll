@@ -469,7 +469,7 @@ do.end111:                                        ; preds = %do.body90.thread, %
   %17 = phi ptr [ %.pre88, %do.body90 ], [ %call109, %if.then94 ], [ %.pre88104, %do.body90.thread ]
   %arrayidx112 = getelementptr inbounds ptr, ptr %17, i64 %count.0.lcssa94100105
   store ptr null, ptr %arrayidx112, align 8
-  %conv113 = trunc i64 %count.0.lcssa94100105 to i32
+  %conv113 = trunc nuw nsw i64 %count.0.lcssa94100105 to i32
   br label %return
 
 return:                                           ; preds = %do.end111, %do.body87, %do.body81, %do.body68

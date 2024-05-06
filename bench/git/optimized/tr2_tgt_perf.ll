@@ -197,9 +197,9 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %maybe_append_string_va.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf_payload, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -737,9 +737,9 @@ land.lhs.true.i:                                  ; preds = %if.then.i, %strbuf_
   br i1 %tobool1.not.i, label %maybe_append_string_va.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %land.lhs.true.i
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf_payload, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %land.lhs.true.i, %if.then.i5
@@ -816,9 +816,9 @@ land.lhs.true.i:                                  ; preds = %if.then.i, %strbuf_
   br i1 %tobool1.not.i, label %maybe_append_string_va.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %land.lhs.true.i
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf_payload, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %land.lhs.true.i, %if.then.i5
@@ -881,9 +881,9 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %maybe_append_string_va.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf_payload, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -1208,20 +1208,20 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @sq_append_quote_argv_pretty(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @sq_quote_buf_pretty(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 declare ptr @config_scope_name(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
@@ -1233,8 +1233,8 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

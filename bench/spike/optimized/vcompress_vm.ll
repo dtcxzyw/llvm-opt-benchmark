@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23fast_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23fast_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659744
   %6 = load ptr, ptr %5, align 8
@@ -102,7 +102,7 @@ define noundef i64 @_Z23fast_rv32i_vcompress_vmP11processor_t6insn_tm(ptr nounde
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -128,7 +128,7 @@ define noundef i64 @_Z23fast_rv32i_vcompress_vmP11processor_t6insn_tm(ptr nounde
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -166,7 +166,7 @@ define noundef i64 @_Z23fast_rv32i_vcompress_vmP11processor_t6insn_tm(ptr nounde
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -486,7 +486,7 @@ define noundef i64 @_Z23fast_rv64i_vcompress_vmP11processor_t6insn_tm(ptr nounde
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -512,7 +512,7 @@ define noundef i64 @_Z23fast_rv64i_vcompress_vmP11processor_t6insn_tm(ptr nounde
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -550,7 +550,7 @@ define noundef i64 @_Z23fast_rv64i_vcompress_vmP11processor_t6insn_tm(ptr nounde
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -813,7 +813,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z25logged_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z25logged_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659744
   %6 = load ptr, ptr %5, align 8
@@ -839,7 +839,7 @@ define noundef i64 @_Z25logged_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noun
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -865,7 +865,7 @@ define noundef i64 @_Z25logged_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noun
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -903,7 +903,7 @@ define noundef i64 @_Z25logged_rv32i_vcompress_vmP11processor_t6insn_tm(ptr noun
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -1194,7 +1194,7 @@ define noundef i64 @_Z25logged_rv64i_vcompress_vmP11processor_t6insn_tm(ptr noun
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -1220,7 +1220,7 @@ define noundef i64 @_Z25logged_rv64i_vcompress_vmP11processor_t6insn_tm(ptr noun
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -1258,7 +1258,7 @@ define noundef i64 @_Z25logged_rv64i_vcompress_vmP11processor_t6insn_tm(ptr noun
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -1521,7 +1521,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23fast_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23fast_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659744
   %6 = load ptr, ptr %5, align 8
@@ -1547,7 +1547,7 @@ define noundef i64 @_Z23fast_rv32e_vcompress_vmP11processor_t6insn_tm(ptr nounde
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -1573,7 +1573,7 @@ define noundef i64 @_Z23fast_rv32e_vcompress_vmP11processor_t6insn_tm(ptr nounde
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -1611,7 +1611,7 @@ define noundef i64 @_Z23fast_rv32e_vcompress_vmP11processor_t6insn_tm(ptr nounde
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -1902,7 +1902,7 @@ define noundef i64 @_Z23fast_rv64e_vcompress_vmP11processor_t6insn_tm(ptr nounde
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -1928,7 +1928,7 @@ define noundef i64 @_Z23fast_rv64e_vcompress_vmP11processor_t6insn_tm(ptr nounde
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -1966,7 +1966,7 @@ define noundef i64 @_Z23fast_rv64e_vcompress_vmP11processor_t6insn_tm(ptr nounde
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -2229,7 +2229,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z25logged_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z25logged_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659744
   %6 = load ptr, ptr %5, align 8
@@ -2255,7 +2255,7 @@ define noundef i64 @_Z25logged_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noun
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -2281,7 +2281,7 @@ define noundef i64 @_Z25logged_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noun
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -2319,7 +2319,7 @@ define noundef i64 @_Z25logged_rv32e_vcompress_vmP11processor_t6insn_tm(ptr noun
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1
@@ -2610,7 +2610,7 @@ define noundef i64 @_Z25logged_rv64e_vcompress_vmP11processor_t6insn_tm(ptr noun
 16:                                               ; preds = %3
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 659816
   %21 = load float, ptr %20, align 8
   %22 = fptoui float %21 to i32
@@ -2636,7 +2636,7 @@ define noundef i64 @_Z25logged_rv64e_vcompress_vmP11processor_t6insn_tm(ptr noun
 32:                                               ; preds = %16
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %23, %35
   %37 = icmp eq i32 %36, 0
   %38 = or i1 %.not.i, %37
@@ -2674,7 +2674,7 @@ define noundef i64 @_Z25logged_rv64e_vcompress_vmP11processor_t6insn_tm(ptr noun
   %51 = fptosi float %21 to i32
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %56 = add nsw i32 %55, %19
   %57 = add nuw nsw i32 %54, 1

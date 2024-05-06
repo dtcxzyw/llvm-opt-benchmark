@@ -49,7 +49,7 @@ define double @SUNRpowerR(double noundef %0, double noundef %1) local_unnamed_ad
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @SUNRCompare(double noundef %0, double noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SUNRCompare(double noundef %0, double noundef %1) local_unnamed_addr #4 {
   %3 = fcmp oeq double %0, %1
   br i1 %3, label %SUNRCompareTol.exit, label %4
 
@@ -85,7 +85,7 @@ SUNRCompareTol.exit:                              ; preds = %2, %4, %5, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @SUNRCompareTol(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SUNRCompareTol(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = fcmp oeq double %0, %1
   br i1 %4, label %23, label %5
 

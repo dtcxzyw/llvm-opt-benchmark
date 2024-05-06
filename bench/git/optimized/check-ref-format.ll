@@ -198,7 +198,7 @@ if.end53:                                         ; preds = %for.end
   br i1 %15, label %if.end59, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
-  %call.i29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
+  %call.i29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #9
   %call1.i30 = tail call ptr @xmallocz(i64 noundef %call.i29) #10
   br label %while.cond.outer.i
 

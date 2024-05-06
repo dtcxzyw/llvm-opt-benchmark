@@ -84,7 +84,7 @@ entry:
   store ptr %3, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %3, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %4 = trunc i64 %bf.lshr.i.i to i32
+  %4 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %4, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -314,7 +314,7 @@ entry:
   store ptr %3, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %3, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %4 = trunc i64 %bf.lshr.i.i to i32
+  %4 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %4, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -422,7 +422,7 @@ entry:
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
   %d_current.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = lshr i64 %retval.sroa.2.0.copyload, 32
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw i64 %1 to i32
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %entry

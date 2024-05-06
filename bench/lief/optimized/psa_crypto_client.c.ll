@@ -19,7 +19,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef i32 @psa_set_key_domain_parameters(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -141, 1) i32 @psa_set_key_domain_parameters(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %5
 
@@ -62,7 +62,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @psa_get_key_domain_parameters(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define hidden range(i32 -138, 1) i32 @psa_get_key_domain_parameters(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, %2

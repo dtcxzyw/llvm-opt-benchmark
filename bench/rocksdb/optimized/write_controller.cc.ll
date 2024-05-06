@@ -182,7 +182,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb15WriteController18NowMicrosMonotonicEPNS_11SystemClockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef %clock) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 18446744073709552) i64 @_ZN7rocksdb15WriteController18NowMicrosMonotonicEPNS_11SystemClockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef %clock) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %clock, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 160

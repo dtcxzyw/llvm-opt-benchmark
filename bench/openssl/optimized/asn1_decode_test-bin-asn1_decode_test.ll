@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [43 x i8] c"d2i_ASN1_OBJECT(&obj, &p, sizeof(oid_der))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_long) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_int32) #2
@@ -59,7 +59,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_long() #0 {
+define internal range(i32 0, 2) i32 @test_long() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_zero, ptr %p, align 8
@@ -77,7 +77,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int32() #0 {
+define internal range(i32 0, 2) i32 @test_int32() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_zero, ptr %p, align 8
@@ -95,7 +95,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_uint32() #0 {
+define internal range(i32 0, 2) i32 @test_uint32() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_zero, ptr %p, align 8
@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int64() #0 {
+define internal range(i32 0, 2) i32 @test_int64() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_zero, ptr %p, align 8
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_uint64() #0 {
+define internal range(i32 0, 2) i32 @test_uint64() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_zero, ptr %p, align 8
@@ -149,7 +149,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_invalid_template() #0 {
+define internal range(i32 0, 2) i32 @test_invalid_template() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @t_invalid_template, ptr %p, align 8
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_reuse_asn1_object() #0 {
+define internal range(i32 0, 2) i32 @test_reuse_asn1_object() #0 {
 entry:
   %obj = alloca ptr, align 8
   %p = alloca ptr, align 8

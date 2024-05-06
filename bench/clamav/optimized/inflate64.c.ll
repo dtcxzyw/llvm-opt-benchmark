@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 30, i16 30], align 16
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define noundef i32 @inflate64Init2(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @inflate64Init2(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %25, label %4
 
@@ -656,7 +656,7 @@ default.unreachable2189:                          ; preds = %134
   store ptr %44, ptr %45, align 8
   store ptr %44, ptr %46, align 8
   store i32 7, ptr %47, align 8
-  %238 = tail call fastcc i32 @inflate_table(i32 noundef 0, ptr noundef nonnull %43, i32 noundef 19, ptr noundef nonnull %45, ptr noundef nonnull %47, ptr noundef nonnull %48), !range !4
+  %238 = tail call fastcc i32 @inflate_table(i32 noundef 0, ptr noundef nonnull %43, i32 noundef 19, ptr noundef nonnull %45, ptr noundef nonnull %47, ptr noundef nonnull %48)
   %.not759 = icmp eq i32 %238, 0
   br i1 %.not759, label %240, label %239
 
@@ -1007,7 +1007,7 @@ default.unreachable2189:                          ; preds = %134
   store ptr %44, ptr %45, align 8
   store ptr %44, ptr %46, align 8
   store i32 9, ptr %47, align 8
-  %370 = tail call fastcc i32 @inflate_table(i32 noundef 1, ptr noundef nonnull %43, i32 noundef %242, ptr noundef nonnull %45, ptr noundef nonnull %47, ptr noundef nonnull %48), !range !4
+  %370 = tail call fastcc i32 @inflate_table(i32 noundef 1, ptr noundef nonnull %43, i32 noundef %242, ptr noundef nonnull %45, ptr noundef nonnull %47, ptr noundef nonnull %48)
   %.not762 = icmp eq i32 %370, 0
   br i1 %.not762, label %372, label %371
 
@@ -1023,7 +1023,7 @@ default.unreachable2189:                          ; preds = %134
   %375 = zext i32 %374 to i64
   %376 = getelementptr inbounds i16, ptr %43, i64 %375
   %377 = load i32, ptr %40, align 8
-  %378 = tail call fastcc i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %376, i32 noundef %377, ptr noundef nonnull %45, ptr noundef nonnull %50, ptr noundef nonnull %48), !range !4
+  %378 = tail call fastcc i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %376, i32 noundef %377, ptr noundef nonnull %45, ptr noundef nonnull %50, ptr noundef nonnull %48)
   %.not763 = icmp eq i32 %378, 0
   br i1 %.not763, label %380, label %379
 
@@ -2004,7 +2004,7 @@ declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #6 {
 .preheader247:
   %6 = alloca [16 x i16], align 16
   %7 = alloca [16 x i16], align 16
@@ -2439,7 +2439,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %sel
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @inflate64End(ptr noundef %0) local_unnamed_addr #7 {
+define range(i32 -2, 1) i32 @inflate64End(ptr noundef %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -2507,4 +2507,3 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

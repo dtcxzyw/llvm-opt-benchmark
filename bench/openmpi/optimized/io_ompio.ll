@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [70 x i8] c"Error in mca_io_ompio_get_mca_parameter_value: unknown parameter name\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i64], align 16
@@ -471,7 +471,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   br i1 %191, label %192, label %318
 
 192:                                              ; preds = %.loopexit
-  %193 = call i32 @ompi_io_ompio_sort_offlen(ptr noundef %.0325, i32 noundef %.1327, ptr noundef %.0324), !range !13
+  %193 = call i32 @ompi_io_ompio_sort_offlen(ptr noundef %.0325, i32 noundef %.1327, ptr noundef %.0324)
   %194 = icmp sgt i32 %.1327, 1
   br i1 %194, label %.lr.ph411.preheader, label %.preheader369
 
@@ -507,12 +507,12 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %spec.select.us = add nsw i32 %.1319413.us, %204
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count499
-  br i1 %exitcond495.not, label %._crit_edge415.us, label %200, !llvm.loop !14
+  br i1 %exitcond495.not, label %._crit_edge415.us, label %200, !llvm.loop !13
 
 ._crit_edge415.us:                                ; preds = %200
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count499
-  br i1 %exitcond500.not, label %._crit_edge419, label %.preheader368.us, !llvm.loop !15
+  br i1 %exitcond500.not, label %._crit_edge419, label %.preheader368.us, !llvm.loop !14
 
 .lr.ph411:                                        ; preds = %.lr.ph411.preheader, %.lr.ph411
   %205 = phi i32 [ %.pre538, %.lr.ph411.preheader ], [ %210, %.lr.ph411 ]
@@ -541,7 +541,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %225 = add nsw i32 %224, 1
   store i32 %225, ptr %223, align 4
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
-  br i1 %exitcond490.not, label %.preheader369, label %.lr.ph411, !llvm.loop !16
+  br i1 %exitcond490.not, label %.preheader369, label %.lr.ph411, !llvm.loop !15
 
 ._crit_edge419:                                   ; preds = %._crit_edge415.us, %.preheader369
   %.0318.lcssa = phi i32 [ 0, %.preheader369 ], [ %spec.select.us, %._crit_edge415.us ]
@@ -563,7 +563,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %232 = load i32, ptr %75, align 8
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next525, %233
-  br i1 %234, label %.lr.ph453, label %._crit_edge454, !llvm.loop !17
+  br i1 %234, label %.lr.ph453, label %._crit_edge454, !llvm.loop !16
 
 ._crit_edge454:                                   ; preds = %.lr.ph453, %.preheader365
   call void @free(ptr noundef %.0311) #13
@@ -598,7 +598,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %247 = load i32, ptr %75, align 8
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next522, %248
-  br i1 %249, label %.lr.ph450, label %._crit_edge451, !llvm.loop !18
+  br i1 %249, label %.lr.ph450, label %._crit_edge451, !llvm.loop !17
 
 ._crit_edge451:                                   ; preds = %.lr.ph450, %241
   call void @free(ptr noundef %.0311) #13
@@ -634,7 +634,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %263 = load i32, ptr %75, align 8
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next519, %264
-  br i1 %265, label %.lr.ph446, label %._crit_edge447, !llvm.loop !19
+  br i1 %265, label %.lr.ph446, label %._crit_edge447, !llvm.loop !18
 
 ._crit_edge447:                                   ; preds = %.lr.ph446, %257
   call void @free(ptr noundef %.0311) #13
@@ -696,7 +696,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %290 = sext i32 %289 to i64
   %291 = icmp slt i64 %indvars.iv.next502, %290
-  br i1 %291, label %273, label %._crit_edge425, !llvm.loop !20
+  br i1 %291, label %273, label %._crit_edge425, !llvm.loop !19
 
 ._crit_edge425:                                   ; preds = %287, %.preheader367
   %292 = phi i32 [ %270, %.preheader367 ], [ %288, %287 ]
@@ -707,7 +707,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   store i32 %.1314.lcssa, ptr %293, align 4
   %294 = sext i32 %292 to i64
   %295 = icmp slt i64 %indvars.iv.next505, %294
-  br i1 %295, label %.preheader367, label %._crit_edge431, !llvm.loop !21
+  br i1 %295, label %.preheader367, label %._crit_edge431, !llvm.loop !20
 
 ._crit_edge431:                                   ; preds = %._crit_edge425, %266
   %fputc = call i32 @fputc(i32 10, ptr nonnull %226)
@@ -725,7 +725,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %226, ptr noundef nonnull @.str.9, i32 noundef %298) #13
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %exitcond511.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count510
-  br i1 %exitcond511.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !22
+  br i1 %exitcond511.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !21
 
 ._crit_edge435:                                   ; preds = %.lr.ph434, %._crit_edge431
   %fputc356 = call i32 @fputc(i32 10, ptr nonnull %226)
@@ -742,7 +742,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %304 = load i32, ptr %75, align 8
   %305 = sext i32 %304 to i64
   %.not357.not = icmp slt i64 %indvars.iv512, %305
-  br i1 %.not357.not, label %.lr.ph439, label %._crit_edge440, !llvm.loop !23
+  br i1 %.not357.not, label %.lr.ph439, label %._crit_edge440, !llvm.loop !22
 
 ._crit_edge440:                                   ; preds = %.lr.ph439, %._crit_edge435
   %fputc358 = call i32 @fputc(i32 10, ptr nonnull %226)
@@ -785,7 +785,7 @@ define noundef i32 @ompi_io_ompio_generate_current_file_view(ptr nocapture nound
   %315 = load i32, ptr %75, align 8
   %316 = sext i32 %315 to i64
   %317 = icmp slt i64 %indvars.iv.next516, %316
-  br i1 %317, label %.lr.ph442, label %._crit_edge443, !llvm.loop !24
+  br i1 %317, label %.lr.ph442, label %._crit_edge443, !llvm.loop !23
 
 ._crit_edge443:                                   ; preds = %.lr.ph442, %.preheader366
   call void @free(ptr noundef nonnull %.0311) #13
@@ -818,7 +818,7 @@ declare i32 @ompi_datatype_create_struct(i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @ompi_datatype_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = add i32 %1, -1
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 2
@@ -846,7 +846,7 @@ define noundef i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef readonly %0,
   store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %11, label %.preheader130.preheader, label %._crit_edge139
@@ -857,7 +857,7 @@ define noundef i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef readonly %0,
 
 .loopexit:                                        ; preds = %51
   %15 = icmp sgt i32 %.1113134.in, 1
-  br i1 %15, label %.preheader130, label %.preheader, !llvm.loop !26
+  br i1 %15, label %.preheader130, label %.preheader, !llvm.loop !25
 
 .preheader130:                                    ; preds = %.preheader130.preheader, %.loopexit
   %.1113134.in = phi i32 [ %.1113134, %.loopexit ], [ %14, %.preheader130.preheader ]
@@ -1018,7 +1018,7 @@ define noundef i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef readonly %0,
   %106 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv141
   store i32 %105, ptr %106, align 4
   %107 = icmp sgt i64 %indvars.iv141, 1
-  br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !27
+  br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !26
 
 ._crit_edge139:                                   ; preds = %104, %10, %._crit_edge, %.preheader
   %108 = load i32, ptr %7, align 4
@@ -1191,7 +1191,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -2, i32 1}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -1205,4 +1205,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}

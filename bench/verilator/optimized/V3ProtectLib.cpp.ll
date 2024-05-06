@@ -3393,11 +3393,11 @@ _ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit485: ; preds = %_ZN14Protect
   br label %common.resume
 
 _ZN12AstTextBlock7addTextEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit461: ; preds = %339, %244
-  %.sink1076 = phi ptr [ %25, %244 ], [ %33, %339 ]
-  %.sink1075 = phi ptr [ %26, %244 ], [ %34, %339 ]
+  %.sink1077 = phi ptr [ %25, %244 ], [ %33, %339 ]
+  %.sink1076 = phi ptr [ %26, %244 ], [ %34, %339 ]
   %.sink = phi ptr [ %27, %244 ], [ %35, %339 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1077) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1076) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1075) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
   call void @_ZN14ProtectVisitor11hashCommentEP12AstTextBlockP8FileLine(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %149, ptr noundef %1)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %37, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(32) %166)

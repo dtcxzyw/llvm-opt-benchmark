@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @_Z18grpc_has_wakeup_fdv() local_unnamed_addr #5 {
+define noundef range(i32 0, 2) i32 @_Z18grpc_has_wakeup_fdv() local_unnamed_addr #5 {
 entry:
   %.b = load i1, ptr @_ZL18has_real_wakeup_fd, align 4
   %not..b = xor i1 %.b, true

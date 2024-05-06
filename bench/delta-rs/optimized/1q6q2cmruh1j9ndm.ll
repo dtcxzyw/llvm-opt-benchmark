@@ -916,7 +916,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !177
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !177
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -1059,7 +1059,7 @@ common.resume.i:                                  ; preds = %.body.i, %21
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h692e6b5d982bf198E.exit.i": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !199
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !199
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !194
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %26 = load i32, ptr %1, align 8, !range !66, !alias.scope !203, !noalias !204, !noundef !12
@@ -1397,7 +1397,7 @@ default.unreachable:                              ; preds = %129, %1
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h8c3da248f5ea55edE.exit.i.i.i.i.i.i.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !noalias !260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !noalias !260
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !251
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !251
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h41c4e38ca1e60cdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
@@ -1781,7 +1781,7 @@ define hidden noalias noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3ne
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %.sroa.48.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3), !noalias !316
   %.sroa.48.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.48.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.48.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.48.8..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
   store i64 204, ptr %3, align 128, !noalias !316
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !316
@@ -2902,7 +2902,7 @@ declare void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17h8135a7c95
 declare void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() unnamed_addr #8
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.1572246609963143282(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.1572246609963143282(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

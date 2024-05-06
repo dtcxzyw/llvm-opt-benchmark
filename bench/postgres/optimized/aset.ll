@@ -430,7 +430,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %46 = icmp ugt i64 %1, 8
   %47 = trunc i64 %1 to i32
   %48 = add i32 %47, -1
-  %49 = tail call i32 @llvm.ctlz.i32(i32 %48, i1 true), !range !10
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %50 = sub nsw i32 29, %49
   %.0.i32 = select i1 %46, i32 %50, i32 0
   %51 = getelementptr inbounds i8, ptr %0, i64 88
@@ -476,7 +476,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %77 = icmp ugt i64 %76, 8
   %78 = trunc i64 %76 to i32
   %79 = add i32 %78, -1
-  %80 = tail call i32 @llvm.ctlz.i32(i32 %79, i1 true), !range !10
+  %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
   %81 = sub nsw i32 29, %80
   %.0.i.i = select i1 %77, i32 %81, i32 0
   %82 = zext nneg i32 %.0.i.i to i64
@@ -506,7 +506,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   store ptr %100, ptr %98, align 8
   store ptr %87, ptr %99, align 8
   %101 = icmp ugt i64 %90, 15
-  br i1 %101, label %75, label %._crit_edge.i, !llvm.loop !11
+  br i1 %101, label %75, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %75, %72
   %102 = getelementptr inbounds i8, ptr %0, i64 184
@@ -524,7 +524,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %.074.i = phi i64 [ %104, %._crit_edge.i ], [ %111, %109 ]
   %110 = icmp ult i64 %.074.i, %108
   %111 = shl i64 %.074.i, 1
-  br i1 %110, label %109, label %112, !llvm.loop !12
+  br i1 %110, label %109, label %112, !llvm.loop !11
 
 112:                                              ; preds = %109
   %113 = tail call noalias ptr @malloc(i64 noundef %.074.i) #15
@@ -544,7 +544,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %121 = icmp eq ptr %120, null
   %122 = icmp ugt i64 %.187.i, 2097153
   %123 = and i1 %122, %121
-  br i1 %123, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !13
+  br i1 %123, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !12
 
 ._crit_edge90.i:                                  ; preds = %119, %112
   %.1.lcssa.i = phi i64 [ %.074.i, %112 ], [ %117, %119 ]
@@ -928,7 +928,7 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   %21 = getelementptr inbounds i8, ptr %.04459, i64 16
   %.044 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
@@ -953,14 +953,14 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   %29 = add i64 %25, %.264
   %.041 = load ptr, ptr %27, align 8
   %.not52 = icmp eq ptr %.041, null
-  br i1 %.not52, label %._crit_edge, label %26, !llvm.loop !15
+  br i1 %.not52, label %._crit_edge, label %26, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %26, %22
   %.2.lcssa = phi i64 [ %.14670, %22 ], [ %29, %26 ]
   %.1.lcssa = phi i64 [ %.04272, %22 ], [ %28, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %30, label %22, !llvm.loop !16
+  br i1 %exitcond.not, label %30, label %22, !llvm.loop !15
 
 30:                                               ; preds = %._crit_edge
   %.not50 = icmp eq ptr %1, null
@@ -1050,10 +1050,9 @@ attributes #18 = { nounwind allocsize(1) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 33}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

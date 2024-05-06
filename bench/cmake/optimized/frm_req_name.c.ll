@@ -126,7 +126,7 @@ define dso_local i32 @form_request_by_name(ptr noundef readonly %0) local_unname
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.critedge
-  %17 = trunc i64 %indvars.iv22 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv22 to i32
   %18 = or disjoint i32 %17, 512
   br label %21
 

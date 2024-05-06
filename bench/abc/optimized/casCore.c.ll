@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [22 x i8] c"Nodes after  = %d.  \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_CascadeExperiment(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -90,7 +90,7 @@ Abc_Base2Log.exit:                                ; preds = %8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = call ptr @Cudd_bddNewVarAtLevel(ptr noundef %1, i32 noundef %26) #14
   %28 = getelementptr inbounds [1024 x ptr], ptr %13, i64 0, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
@@ -120,7 +120,7 @@ Abc_Base2Log.exit:                                ; preds = %8
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
   %indvars.iv85 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next86, %.lr.ph77 ]
-  %33 = trunc i64 %indvars.iv85 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv85 to i32
   %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %33) #14
   %35 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %17) #14
   %36 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv85
@@ -279,7 +279,7 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr nocapture nounde
   %12 = getelementptr inbounds [1024 x i32], ptr @s_SuppSize, i64 0, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %13 = getelementptr inbounds [1024 x i32], ptr %7, i64 0, i64 %indvars.iv
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -303,7 +303,7 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr nocapture nounde
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next55, %.lr.ph51 ]
   %.04548 = phi ptr [ %20, %.lr.ph51.preheader ], [ %29, %.lr.ph51 ]
-  %21 = trunc i64 %indvars.iv54 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv54 to i32
   %22 = call ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %21, i32 noundef %4, ptr noundef %3, i32 noundef 1) #14
   call void @Cudd_Ref(ptr noundef %22) #14
   %23 = getelementptr inbounds [1024 x i32], ptr %7, i64 0, i64 %indvars.iv54
@@ -560,7 +560,7 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %22 = trunc i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
@@ -604,7 +604,7 @@ Abc_Base2Log.exit:                                ; preds = %._crit_edge81
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv100 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next101, %.lr.ph84 ]
-  %31 = trunc i64 %indvars.iv100 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv100 to i32
   %32 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %31) #14
   %33 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i64 0, i64 %indvars.iv100
   store ptr %32, ptr %33, align 8
@@ -632,7 +632,7 @@ Abc_Base2Log.exit:                                ; preds = %._crit_edge81
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %42
-  %44 = trunc i64 %indvars.iv105 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv105 to i32
   store i32 %44, ptr %43, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108

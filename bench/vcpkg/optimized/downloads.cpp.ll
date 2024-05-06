@@ -3908,7 +3908,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit144: ; preds = %259,
 
 .lr.ph.i:                                         ; preds = %.thread171, %271
   %.019.i = phi ptr [ %272, %271 ], [ %3, %.thread171 ]
-  %270 = invoke fastcc noundef zeroext i1 @_ZN5vcpkgL17try_download_fileERKNS_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIS9_EERKNS_4PathERKNS_8OptionalIS8_EERKSt6vectorIS8_SaIS8_EERSK_INS_15LocalizedStringESaISP_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %.019.i, ptr %.sroa.010.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %270 = invoke fastcc noundef zeroext i1 @_ZN5vcpkgL17try_download_fileERKNS_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIS9_EERKNS_4PathERKNS_8OptionalIS8_EERKSt6vectorIS8_SaIS8_EERSK_INS_15LocalizedStringESaISP_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %.019.i, ptr %.sroa.010.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc145 unwind label %.loopexit.split-lp.loopexit
 
 .noexc145:                                        ; preds = %.lr.ph.i
@@ -9370,7 +9370,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringV
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL15url_heads_innerENS1_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PSt6vectorIiSaIiEESA_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL15url_heads_innerENS1_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PSt6vectorIiSaIiEESA_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN5vcpkgL15url_heads_innerENS1_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PSt6vectorIiSaIiEESA_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -9939,7 +9939,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringV
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL17try_download_fileERKNS1_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4SpanISB_EERKNS1_4PathERKNS1_8OptionalISA_EERKSt6vectorISA_SaISA_EERSM_INS1_15LocalizedStringESaISR_EERNS1_11MessageSinkEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL17try_download_fileERKNS1_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4SpanISB_EERKNS1_4PathERKNS1_8OptionalISA_EERKSt6vectorISA_SaISA_EERSM_INS1_15LocalizedStringESaISR_EERNS1_11MessageSinkEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN5vcpkgL17try_download_fileERKNS1_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4SpanISB_EERKNS1_4PathERKNS1_8OptionalISA_EERKSt6vectorISA_SaISA_EERSM_INS1_15LocalizedStringESaISR_EERNS1_11MessageSinkEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

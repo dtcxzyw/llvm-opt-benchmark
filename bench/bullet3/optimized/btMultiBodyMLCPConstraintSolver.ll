@@ -883,7 +883,7 @@ invoke.cont123:                                   ; preds = %if.then.i526, %if.t
   store i32 %jointNodeArray.sroa.0.01334, ptr %arrayidx.i558, align 4
   %nextJointNodeIndex = getelementptr inbounds i8, ptr %arrayidx.i525, i64 8
   store i32 %93, ptr %nextJointNodeIndex, align 4
-  %94 = trunc i64 %indvars.iv1389 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv1389 to i32
   store i32 %94, ptr %arrayidx.i525, align 4
   %constraintRowIndex = getelementptr inbounds i8, ptr %arrayidx.i525, i64 12
   store i32 %i89.01335, ptr %constraintRowIndex, align 4
@@ -965,7 +965,7 @@ for.inc195:                                       ; preds = %invoke.cont159, %fo
   store i32 %inc.i590, ptr %m_setElemOperations.i, align 8
   %128 = load i32, ptr %m_cols.i, align 4
   %mul.i591 = mul nsw i32 %128, %cur.11325
-  %129 = trunc i64 %indvars.iv1367 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv1367 to i32
   %add.i = add nsw i32 %mul.i591, %129
   %130 = load ptr, ptr %m_data.i.i592, align 8
   %idxprom.i.i593 = sext i32 %add.i to i64
@@ -1176,7 +1176,7 @@ invoke.cont213:                                   ; preds = %if.then.i664, %if.t
   store i32 %jointNodeArray.sroa.0.1, ptr %arrayidx.i703, align 4
   %nextJointNodeIndex222 = getelementptr inbounds i8, ptr %arrayidx.i662, i64 8
   store i32 %174, ptr %nextJointNodeIndex222, align 4
-  %175 = trunc i64 %indvars.iv1389 to i32
+  %175 = trunc nuw nsw i64 %indvars.iv1389 to i32
   store i32 %175, ptr %arrayidx.i662, align 4
   %cond230 = select i1 %tobool118.not, i32 -1, i32 %85
   %otherBodyIndex233 = getelementptr inbounds i8, ptr %arrayidx.i662, i64 4
@@ -1258,7 +1258,7 @@ for.inc296:                                       ; preds = %invoke.cont257, %fo
   store i32 %inc.i759, ptr %m_setElemOperations.i, align 8
   %209 = load i32, ptr %m_cols.i, align 4
   %mul.i761 = mul nsw i32 %209, %cur.31329
-  %210 = trunc i64 %indvars.iv1378 to i32
+  %210 = trunc nuw nsw i64 %indvars.iv1378 to i32
   %add.i762 = add nsw i32 %mul.i761, %210
   %211 = load ptr, ptr %m_data.i.i592, align 8
   %idxprom.i.i764 = sext i32 %add.i762 to i64
@@ -2891,7 +2891,7 @@ invoke.cont53:                                    ; preds = %for.body.i45.i, %if
   store i32 %inc.i, ptr %m_setElemOperations.i, align 8
   %81 = load i32, ptr %m_cols.i, align 4
   %mul.i293 = add i32 %81, 1
-  %82 = trunc i64 %indvars.iv329 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv329 to i32
   %add.i161 = mul i32 %mul.i293, %82
   %83 = load ptr, ptr %m_data.i.i162, align 8
   %idxprom.i.i163 = sext i32 %add.i161 to i64
@@ -3287,7 +3287,7 @@ for.inc68:                                        ; preds = %cond.end120.i, %if.
   store i32 %inc.i206, ptr %m_setElemOperations.i, align 8
   %197 = load i32, ptr %m_cols.i, align 4
   %mul.i208 = mul nsw i32 %197, %82
-  %198 = trunc i64 %indvars.iv324 to i32
+  %198 = trunc nuw nsw i64 %indvars.iv324 to i32
   %add.i209 = add nsw i32 %mul.i208, %198
   %199 = load ptr, ptr %m_data.i.i162, align 8
   %idxprom.i.i211 = sext i32 %add.i209 to i64
@@ -4280,7 +4280,7 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
   br label %for.body
 
 for.cond94.preheader.loopexit:                    ; preds = %invoke.cont29
-  %28 = trunc i64 %indvars.iv.next to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.cond94.preheader
 
 for.cond94.preheader:                             ; preds = %for.cond94.preheader.loopexit, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
@@ -4424,7 +4424,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %eh.resume
 
 for.cond114.preheader.loopexit:                   ; preds = %invoke.cont105
-  %45 = trunc i64 %indvars.iv.next770 to i32
+  %45 = trunc nuw i64 %indvars.iv.next770 to i32
   br label %for.cond114.preheader
 
 for.cond114.preheader:                            ; preds = %for.cond114.preheader.loopexit, %for.cond94.preheader
@@ -4944,7 +4944,7 @@ for.body158.lr.ph:                                ; preds = %_ZN20btAlignedObjec
   br label %for.body158
 
 for.cond235.preheader.loopexit:                   ; preds = %invoke.cont164
-  %113 = trunc i64 %indvars.iv.next784 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.next784 to i32
   br label %for.cond235.preheader
 
 for.cond235.preheader:                            ; preds = %for.cond235.preheader.loopexit, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit427
@@ -5053,7 +5053,7 @@ invoke.cont164:                                   ; preds = %_ZN20btAlignedObjec
   br i1 %cmp157, label %for.body158, label %for.cond235.preheader.loopexit, !llvm.loop !45
 
 for.cond255.preheader.loopexit:                   ; preds = %invoke.cont246
-  %130 = trunc i64 %indvars.iv.next791 to i32
+  %130 = trunc nuw i64 %indvars.iv.next791 to i32
   br label %for.cond255.preheader
 
 for.cond255.preheader:                            ; preds = %for.cond255.preheader.loopexit, %for.cond235.preheader

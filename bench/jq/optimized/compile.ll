@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @environ = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @block_is_single(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @block_is_single(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp eq ptr %0, %1
   %5 = select i1 %3, i1 %4, i1 false
@@ -91,7 +91,7 @@ define { ptr, ptr } @gen_noop() local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @block_is_noop(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @block_is_noop(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = select i1 %3, i1 %4, i1 false
@@ -247,7 +247,7 @@ define { ptr, ptr } @gen_op_pushk_under(i64 %0, ptr %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @block_is_const(ptr readonly %0, ptr readnone %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @block_is_const(ptr readonly %0, ptr readnone %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ne ptr %0, %1
   %.not5 = select i1 %3, i1 true, i1 %4
@@ -404,7 +404,7 @@ define { ptr, ptr } @gen_op_var_fresh(i32 noundef %0, ptr nocapture noundef read
   store i64 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %11, align 8
-  %12 = tail call noalias ptr @strdup(ptr noundef %1) #17
+  %12 = tail call noalias ptr @strdup(ptr noundef readonly %1) #17
   %13 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 96
@@ -437,7 +437,7 @@ define { ptr, ptr } @gen_op_bound(i32 noundef %0, ptr %1, ptr nocapture readnone
   store i64 -1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %14, align 8
-  %15 = tail call noalias ptr @strdup(ptr noundef %5) #17
+  %15 = tail call noalias ptr @strdup(ptr noundef readonly %5) #17
   %16 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 96
@@ -705,7 +705,7 @@ define void @block_append(ptr nocapture noundef %0, ptr %1, ptr %2) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = or i32 %2, 1024
   %.not13 = icmp eq ptr %0, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -740,7 +740,7 @@ define noundef i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr noca
 declare ptr @opcode_describe(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @block_has_only_binders(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = and i32 %2, -3073
   %5 = or disjoint i32 %4, 1024
   %.not11 = icmp eq ptr %0, null
@@ -1628,7 +1628,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr null, ptr %33, align 8
-  %34 = tail call noalias ptr @strdup(ptr noundef %24) #17
+  %34 = tail call noalias ptr @strdup(ptr noundef readonly %24) #17
   %35 = getelementptr inbounds i8, ptr %25, i64 88
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %25, i64 96
@@ -1655,7 +1655,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   store i64 -1, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %39, i64 64
   store ptr null, ptr %47, align 8
-  %48 = tail call noalias ptr @strdup(ptr noundef %38) #17
+  %48 = tail call noalias ptr @strdup(ptr noundef readonly %38) #17
   %49 = getelementptr inbounds i8, ptr %39, i64 88
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %39, i64 96
@@ -1721,7 +1721,7 @@ define { ptr, ptr } @gen_var_binding(ptr %0, ptr %1, ptr nocapture noundef reado
   store i64 -1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %14, align 8
-  %15 = tail call noalias ptr @strdup(ptr noundef %2) #17
+  %15 = tail call noalias ptr @strdup(ptr noundef readonly %2) #17
   %16 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1750,7 +1750,7 @@ define { ptr, ptr } @gen_call(ptr nocapture noundef readonly %0, ptr %1, ptr %2)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %12, align 8
-  %13 = tail call noalias ptr @strdup(ptr noundef %0) #17
+  %13 = tail call noalias ptr @strdup(ptr noundef readonly %0) #17
   %14 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 96
@@ -1811,7 +1811,7 @@ define { ptr, ptr } @gen_param_regular(ptr nocapture noundef readonly %0) local_
   store i64 -1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 64
   store ptr null, ptr %10, align 8
-  %11 = tail call noalias ptr @strdup(ptr noundef %0) #17
+  %11 = tail call noalias ptr @strdup(ptr noundef readonly %0) #17
   %12 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 96
@@ -1841,7 +1841,7 @@ define { ptr, ptr } @gen_param(ptr nocapture noundef readonly %0) local_unnamed_
   store i64 -1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 64
   store ptr null, ptr %10, align 8
-  %11 = tail call noalias ptr @strdup(ptr noundef %0) #17
+  %11 = tail call noalias ptr @strdup(ptr noundef readonly %0) #17
   %12 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 96
@@ -1874,7 +1874,7 @@ define { ptr, ptr } @gen_lambda(ptr %0, ptr %1) local_unnamed_addr #1 {
   store ptr %0, ptr %10, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 120
   store ptr %1, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %13 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
+  %13 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
   %14 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 96
@@ -2433,7 +2433,7 @@ block_join.exit70:                                ; preds = %9, %14, %17, %.thre
   store i64 -1, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %76, i64 64
   store ptr null, ptr %84, align 8
-  %85 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.7) #17
+  %85 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.7) #17
   %86 = getelementptr inbounds i8, ptr %76, i64 88
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %76, i64 96
@@ -2506,7 +2506,7 @@ block_join.exit70:                                ; preds = %9, %14, %17, %.thre
   store i64 -1, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %113, i64 64
   store ptr null, ptr %121, align 8
-  %122 = tail call noalias ptr @strdup(ptr noundef %112) #17
+  %122 = tail call noalias ptr @strdup(ptr noundef readonly %112) #17
   %123 = getelementptr inbounds i8, ptr %113, i64 88
   store ptr %122, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %113, i64 96
@@ -2593,7 +2593,7 @@ block_join.exit93:                                ; preds = %.thread105, %146
   store i64 -1, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %150, i64 64
   store ptr null, ptr %158, align 8
-  %159 = tail call noalias ptr @strdup(ptr noundef %149) #17
+  %159 = tail call noalias ptr @strdup(ptr noundef readonly %149) #17
   %160 = getelementptr inbounds i8, ptr %150, i64 88
   store ptr %159, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %150, i64 96
@@ -2633,7 +2633,7 @@ define { ptr, ptr } @gen_reduce(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, 
   store i64 -1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr null, ptr %17, align 8
-  %18 = tail call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull @.str.8) #17
+  %18 = tail call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull readonly @.str.8) #17
   %19 = getelementptr inbounds i8, ptr %8, i64 88
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 96
@@ -2687,7 +2687,7 @@ block_join.exit:                                  ; preds = %7, %30
   store i64 -1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %33, i64 64
   store ptr null, ptr %41, align 8
-  %42 = tail call noalias ptr @strdup(ptr noundef %32) #17
+  %42 = tail call noalias ptr @strdup(ptr noundef readonly %32) #17
   %43 = getelementptr inbounds i8, ptr %33, i64 88
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %33, i64 96
@@ -2726,7 +2726,7 @@ block_join.exit:                                  ; preds = %7, %30
   store i64 -1, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %52, i64 64
   store ptr null, ptr %60, align 8
-  %61 = tail call noalias ptr @strdup(ptr noundef %51) #17
+  %61 = tail call noalias ptr @strdup(ptr noundef readonly %51) #17
   %62 = getelementptr inbounds i8, ptr %52, i64 88
   store ptr %61, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %52, i64 96
@@ -2872,7 +2872,7 @@ block_join.exit123:                               ; preds = %.thread, %93
   store i64 -1, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %109, i64 64
   store ptr null, ptr %117, align 8
-  %118 = tail call noalias ptr @strdup(ptr noundef %108) #17
+  %118 = tail call noalias ptr @strdup(ptr noundef readonly %108) #17
   %119 = getelementptr inbounds i8, ptr %109, i64 88
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %109, i64 96
@@ -3086,7 +3086,7 @@ block_join.exit90:                                ; preds = %.lr.ph180, %52
   store i64 -1, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %68, i64 64
   store ptr null, ptr %76, align 8
-  %77 = tail call noalias ptr @strdup(ptr noundef %67) #17
+  %77 = tail call noalias ptr @strdup(ptr noundef readonly %67) #17
   %78 = getelementptr inbounds i8, ptr %68, i64 88
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %68, i64 96
@@ -3323,7 +3323,7 @@ define { ptr, ptr } @gen_foreach(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5,
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr null, ptr %27, align 8
-  %28 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.9) #17
+  %28 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.9) #17
   %29 = getelementptr inbounds i8, ptr %19, i64 88
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %19, i64 96
@@ -3377,7 +3377,7 @@ block_join.exit:                                  ; preds = %8, %40
   store i64 -1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %43, i64 64
   store ptr null, ptr %51, align 8
-  %52 = tail call noalias ptr @strdup(ptr noundef %42) #17
+  %52 = tail call noalias ptr @strdup(ptr noundef readonly %42) #17
   %53 = getelementptr inbounds i8, ptr %43, i64 88
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %43, i64 96
@@ -3445,7 +3445,7 @@ block_join.exit83:                                ; preds = %70, %60
   store i64 -1, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %73, i64 64
   store ptr null, ptr %81, align 8
-  %82 = tail call noalias ptr @strdup(ptr noundef %72) #17
+  %82 = tail call noalias ptr @strdup(ptr noundef readonly %72) #17
   %83 = getelementptr inbounds i8, ptr %73, i64 88
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %73, i64 96
@@ -3614,7 +3614,7 @@ block_join.exit125:
   store i64 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %13, align 8
-  %14 = tail call noalias dereferenceable_or_null(6) ptr @strdup(ptr noundef nonnull @.str.10) #17
+  %14 = tail call noalias dereferenceable_or_null(6) ptr @strdup(ptr noundef nonnull readonly @.str.10) #17
   %15 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 96
@@ -3723,7 +3723,7 @@ block_join.exit125:
   store i64 -1, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %60, i64 64
   store ptr null, ptr %68, align 8
-  %69 = tail call noalias ptr @strdup(ptr noundef %59) #17
+  %69 = tail call noalias ptr @strdup(ptr noundef readonly %59) #17
   %70 = getelementptr inbounds i8, ptr %60, i64 88
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %60, i64 96
@@ -3870,7 +3870,7 @@ block_join.exit173:                               ; preds = %block_join.exit125,
   store i64 -1, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %129, i64 64
   store ptr null, ptr %137, align 8
-  %138 = tail call noalias ptr @strdup(ptr noundef %128) #17
+  %138 = tail call noalias ptr @strdup(ptr noundef readonly %128) #17
   %139 = getelementptr inbounds i8, ptr %129, i64 88
   store ptr %138, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %129, i64 96
@@ -3983,7 +3983,7 @@ block_join.exit210:                               ; preds = %178, %166
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @block_has_main(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @block_has_main(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #13 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -4005,7 +4005,7 @@ define noundef i32 @block_has_main(ptr readonly %0, ptr nocapture readnone %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -5463,7 +5463,7 @@ block_join.exit:
   %14 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %15 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
+  %15 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
   %16 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 96
@@ -5492,7 +5492,7 @@ block_join.exit:
   store i64 -1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr null, ptr %28, align 8
-  %29 = tail call noalias ptr @strdup(ptr noundef %0) #17
+  %29 = tail call noalias ptr @strdup(ptr noundef readonly %0) #17
   %30 = getelementptr inbounds i8, ptr %20, i64 88
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %20, i64 96
@@ -5517,7 +5517,7 @@ block_join.exit:
   store ptr %20, ptr %38, align 8
   %.sroa.5.0..sroa_idx.i.i32 = getelementptr inbounds i8, ptr %32, i64 120
   store ptr %20, ptr %.sroa.5.0..sroa_idx.i.i32, align 8
-  %41 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
+  %41 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
   %42 = getelementptr inbounds i8, ptr %32, i64 88
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %32, i64 96
@@ -5549,7 +5549,7 @@ block_join.exit:
   store i64 -1, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %47, i64 64
   store ptr null, ptr %55, align 8
-  %56 = tail call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull @.str.11) #17
+  %56 = tail call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull readonly @.str.11) #17
   %57 = getelementptr inbounds i8, ptr %47, i64 88
   store ptr %56, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %47, i64 96
@@ -5655,7 +5655,7 @@ gen_call.exit:                                    ; preds = %64
   store i64 -1, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %93, i64 64
   store ptr null, ptr %101, align 8
-  %102 = tail call noalias dereferenceable_or_null(6) ptr @strdup(ptr noundef nonnull @.str.12) #17
+  %102 = tail call noalias dereferenceable_or_null(6) ptr @strdup(ptr noundef nonnull readonly @.str.12) #17
   %103 = getelementptr inbounds i8, ptr %93, i64 88
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %93, i64 96
@@ -5720,7 +5720,7 @@ block_join.exit.i:                                ; preds = %gen_call.exit, %111
   store i64 -1, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %125, i64 64
   store ptr null, ptr %133, align 8
-  %134 = tail call noalias ptr @strdup(ptr noundef %0) #17
+  %134 = tail call noalias ptr @strdup(ptr noundef readonly %0) #17
   %135 = getelementptr inbounds i8, ptr %125, i64 88
   store ptr %134, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %125, i64 96
@@ -7162,7 +7162,7 @@ make_env.exit:                                    ; preds = %40, %42, %._crit_ed
   store i64 -1, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %161, i64 64
   store ptr null, ptr %169, align 8
-  %170 = tail call noalias ptr @strdup(ptr noundef %160) #17
+  %170 = tail call noalias ptr @strdup(ptr noundef readonly %160) #17
   %171 = getelementptr inbounds i8, ptr %161, i64 88
   store ptr %170, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %161, i64 96

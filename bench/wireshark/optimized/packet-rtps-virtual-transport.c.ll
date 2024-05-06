@@ -186,7 +186,7 @@ define internal i32 @dissect_rtps_virtual_transport(ptr noundef %0, ptr noundef 
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
   %18 = zext i16 %17 to i32
   %19 = lshr i16 %17, 8
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   store i8 %20, ptr %12, align 2
   %21 = trunc i16 %17 to i8
   %22 = getelementptr inbounds i8, ptr %12, i64 1

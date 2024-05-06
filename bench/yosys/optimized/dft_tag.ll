@@ -2246,8 +2246,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge6111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %111, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %112, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %113, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %114, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %115, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %114, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %115, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %116, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %117, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %118, i8 0, i64 48, i1 false)
@@ -90435,7 +90435,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWork
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %133, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i.i.i.i.i.i ], [ %134, %133 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %137, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %133 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !704
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !704
   %137 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 32
   %138 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %137, %111
@@ -90530,7 +90530,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWork
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %165, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %170, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %166, %165 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %169, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %165 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i21.i.i, i64 32, i1 false), !alias.scope !709
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i21.i.i, i64 32, i1 false), !alias.scope !709
   %169 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 32
   %170 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 32
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %169, %143
@@ -94628,7 +94628,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIN12_GLOBAL__N_112DftTagWorker7tag_set
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %297, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %302, %.lr.ph.i.i.i.i.i.i.i.i ], [ %298, %297 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %301, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %297 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !733, !noalias !730
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !733, !noalias !730
   %301 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 16
   %302 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %301, %275
@@ -94715,7 +94715,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIN12_GLOBAL__N_112DftTagWorker7tag_set
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %329, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %334, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %330, %329 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %333, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %329 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i.i21.i.i, i64 16, i1 false), !alias.scope !738, !noalias !730
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i.i21.i.i, i64 16, i1 false), !alias.scope !738, !noalias !730
   %333 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 16
   %334 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 16
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %333, %307
@@ -105034,7 +105034,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1627:            ; preds = %_ZN5Yosys5RTLIL7Sig
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %3263, %3261
   store i32 %3262, ptr %5, align 4, !noalias !860
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %3076)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %3076)
           to label %3269 unwind label %3284
 
 3269:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i
@@ -105094,7 +105094,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %3263, %3261
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit23.i:        ; preds = %3290, %3288
   store i32 %3289, ptr %6, align 4, !noalias !860
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3075)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3075)
           to label %3296 unwind label %3311
 
 3296:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit23.i

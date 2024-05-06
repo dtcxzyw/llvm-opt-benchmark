@@ -1059,7 +1059,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i.i231, label %invoke.cont204, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %wire.sroa.13.1, i64 %sub
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %wire.sroa.13.1, i64 %sub
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %invoke.cont204
 

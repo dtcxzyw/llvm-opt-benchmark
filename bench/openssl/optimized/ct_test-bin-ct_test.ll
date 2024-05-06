@@ -99,7 +99,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_no_scts_in_certificate() #0 {
+define internal range(i32 0, 2) i32 @test_no_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.4)
   %cmp = icmp eq ptr %call, null
@@ -115,7 +115,7 @@ if.end:                                           ; preds = %entry
   store ptr @.str.15, ptr %issuer_file, align 8
   %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %expected_sct_count, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_one_sct_in_certificate() #0 {
+define internal range(i32 0, 2) i32 @test_one_sct_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.5)
   %cmp = icmp eq ptr %call, null
@@ -151,7 +151,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.47, ptr %sct_text_file, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -167,7 +167,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_multiple_scts_in_certificate() #0 {
+define internal range(i32 0, 2) i32 @test_multiple_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.6)
   %cmp = icmp eq ptr %call, null
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.50, ptr %sct_text_file, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -203,7 +203,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_verify_one_sct() #0 {
+define internal range(i32 0, 2) i32 @test_verify_one_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %expected_sct_count, align 8
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_verify_multiple_scts() #0 {
+define internal range(i32 0, 2) i32 @test_verify_multiple_scts() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.8)
   %cmp = icmp eq ptr %call, null
@@ -259,7 +259,7 @@ if.end:                                           ; preds = %entry
   store i32 3, ptr %expected_sct_count, align 8
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -275,7 +275,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_verify_fails_for_future_sct() #0 {
+define internal range(i32 0, 2) i32 @test_verify_fails_for_future_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.9)
   %cmp = icmp eq ptr %call, null
@@ -297,7 +297,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %expected_valid_sct_count, align 4
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -313,7 +313,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_decode_tls_sct() #0 {
+define internal range(i32 0, 2) i32 @test_decode_tls_sct() #0 {
 entry:
   %tls_sct_list = alloca [123 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(123) %tls_sct_list, ptr noundef nonnull align 16 dereferenceable(123) @__const.test_decode_tls_sct.tls_sct_list, i64 123, i1 false)
@@ -331,7 +331,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
-  %call4 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call4 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_encode_tls_sct() #0 {
+define internal range(i32 0, 2) i32 @test_encode_tls_sct() #0 {
 entry:
   %log_id = alloca [45 x i8], align 16
   %extensions = alloca [1 x i8], align 1
@@ -380,7 +380,7 @@ if.end11:                                         ; preds = %if.end5
   store ptr %1, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
-  %call18 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
+  %call18 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %2) #8
@@ -395,7 +395,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_default_ct_policy_eval_ctx_time_is_now() #0 {
+define internal range(i32 0, 2) i32 @test_default_ct_policy_eval_ctx_time_is_now() #0 {
 entry:
   %call = tail call ptr @CT_POLICY_EVAL_CTX_new() #8
   %call1 = tail call i64 @CT_POLICY_EVAL_CTX_get_time(ptr noundef %call) #8
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ctlog_from_base64() #0 {
+define internal range(i32 0, 2) i32 @test_ctlog_from_base64() #0 {
 entry:
   %ctlogp = alloca ptr, align 8
   %notb64 = alloca [5 x i8], align 1
@@ -491,7 +491,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %actual_output.i68 = alloca ptr, align 8
   %actual_output.i = alloca ptr, align 8
@@ -696,7 +696,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.092, 1
   %call43 = call i32 @OPENSSL_sk_num(ptr noundef %call41) #8
   %cmp44 = icmp slt i32 %inc, %call43
-  br i1 %cmp44, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp44, label %for.body, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end40, %for.cond
   %i.092 = phi i32 [ %inc, %for.cond ], [ 0, %if.end40 ]
@@ -713,7 +713,7 @@ for.end:                                          ; preds = %for.cond, %if.end40
   br i1 %tobool52.not, label %if.end64, label %if.then53
 
 if.then53:                                        ; preds = %for.end
-  %call54 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %call41, ptr noundef %call), !range !5
+  %call54 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %call41, ptr noundef %call)
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %end, label %if.end64
 
@@ -749,7 +749,7 @@ if.end74:                                         ; preds = %if.then67
 
 if.then79:                                        ; preds = %if.end74
   %15 = load ptr, ptr %scts, align 8
-  %call80 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %15, ptr noundef %call), !range !5
+  %call80 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %15, ptr noundef %call)
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %end, label %if.end84
 
@@ -861,7 +861,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @SCT_get_source(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @assert_validity(ptr nocapture noundef readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr nocapture noundef readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
 entry:
   %call = tail call i32 @SCT_LIST_validate(ptr noundef %scts, ptr noundef %policy_ctx) #8
   %call1 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 190, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef 0) #8
@@ -898,7 +898,7 @@ for.inc:                                          ; preds = %for.body, %sw.bb, %
   %inc10 = add nuw nsw i32 %i.013, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %scts) #8
   %cmp = icmp slt i32 %inc10, %call3
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %valid_sct_count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %valid_sct_count.1, %for.inc ]
@@ -1017,7 +1017,6 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

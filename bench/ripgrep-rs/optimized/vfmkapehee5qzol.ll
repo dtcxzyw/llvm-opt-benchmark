@@ -338,7 +338,7 @@ define void @"_ZN83_$LT$grep_searcher..searcher..SearcherBuilder$u20$as$u20$core
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.8.i.8.i.8..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !49, !noalias !46
   store i64 0, ptr %0, align 8, !alias.scope !46
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !46
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -453,7 +453,7 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %38 = extractelement <64 x i1> %37, i64 40
   %spec.select35 = select i1 %38, i64 0, i64 %8
   %spec.select = select i1 %38, i64 0, i64 %6
-  %trunc.i = trunc i64 %9 to i1
+  %trunc.i = trunc nuw i64 %9 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %11, i64 undef
   %39 = extractvalue { i64, ptr } %26, 1
   %.sink1.i.i.i = extractvalue { i64, ptr } %26, 0
@@ -638,7 +638,7 @@ define void @_ZN13grep_searcher8searcher8Searcher3new17h49d6fa31f5b6ac05E(ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.8.i.8.i.8..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !67, !noalias !64
   store i64 0, ptr %2, align 8, !alias.scope !64
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !64
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -696,7 +696,7 @@ define noundef zeroext i1 @_ZN13grep_searcher8searcher8Searcher23slice_needs_tra
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 49
   %10 = load i8, ptr %9, align 1, !range !21, !noundef !5
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit
 
 _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i", %14, %8, %3
@@ -708,7 +708,7 @@ _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %
   br i1 %.not.i.i.i, label %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i": ; preds = %12
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.54225e673a00e8dbc55e954d1531c0a4.0, ptr noundef nonnull dereferenceable(3) %1, i64 3), !alias.scope !73
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.54225e673a00e8dbc55e954d1531c0a4.0, ptr noundef nonnull readonly dereferenceable(3) %1, i64 3), !alias.scope !73
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %13, label %select.unfold.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i"
 
@@ -717,12 +717,12 @@ _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %
   br i1 %.not.i7.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i", label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i": ; preds = %14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i"
-  %bcmp.i.i9.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.1, ptr noundef nonnull dereferenceable(2) %1, i64 2), !alias.scope !80
+  %bcmp.i.i9.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.1, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2), !alias.scope !80
   %15 = icmp eq i32 %bcmp.i.i9.i.i, 0
   br i1 %15, label %select.unfold.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i"
-  %bcmp.i.i14.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.2, ptr noundef nonnull dereferenceable(2) %1, i64 2), !alias.scope !87
+  %bcmp.i.i14.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.2, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2), !alias.scope !87
   %bcmp.i.i14.fr.i.i = freeze i32 %bcmp.i.i14.i.i
   %16 = icmp eq i32 %bcmp.i.i14.fr.i.i, 0
   br i1 %16, label %select.unfold.i, label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit

@@ -466,7 +466,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 242:                                              ; preds = %240
   %243 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %244 = trunc i64 %indvars.iv168 to i32
+  %244 = trunc nuw nsw i64 %indvars.iv168 to i32
   %245 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %18, ptr noundef nonnull @.str.4, i32 noundef %244) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 271, ptr noundef nonnull @__func__.brinvalidate) #4
   br label %246

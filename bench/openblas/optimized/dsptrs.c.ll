@@ -85,7 +85,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 48:                                               ; preds = %42
   %49 = getelementptr i8, ptr %3, i64 -16
   %50 = add nuw nsw i32 %23, 1
-  %51 = mul nsw i32 %50, %23
+  %51 = mul nuw nsw i32 %50, %23
   %52 = lshr i32 %51, 1
   %53 = add nuw nsw i32 %52, 1
   %54 = sext i32 %13 to i64
@@ -484,7 +484,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 312:                                              ; preds = %310
   %313 = add nuw nsw i32 %303, 1
-  %314 = mul nsw i32 %313, %303
+  %314 = mul nuw nsw i32 %313, %303
   %315 = lshr i32 %314, 1
   %316 = add nuw nsw i32 %315, 1
   %317 = add i32 %13, -1

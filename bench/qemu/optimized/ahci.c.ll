@@ -454,7 +454,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %sw.epilog, label %if.else
 
 if.else:                                          ; preds = %sw.bb
-  %conv8 = uitofp i8 %9 to x86_fp80
+  %conv8 = uitofp nneg i8 %9 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 202, ptr noundef nonnull @__func__.ahci_pci_enable, ptr noundef nonnull @.str.4, x86_fp80 noundef %conv8, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK4004FC00000000000000, i8 noundef signext 120) #16
   br label %sw.epilog
 
@@ -566,7 +566,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool19.not, label %for.inc, label %if.end21
 
 if.end21:                                         ; preds = %for.body
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.8, i32 noundef %21) #16
   %22 = shl i64 %indvars.iv, 7
   %mul.i1.i = add i64 %22, 280
@@ -601,7 +601,7 @@ if.else29:                                        ; preds = %if.end21
   br i1 %cmp39, label %do.body47, label %if.else42
 
 if.else42:                                        ; preds = %if.else29
-  %conv43 = uitofp i32 %and36 to x86_fp80
+  %conv43 = uitofp nneg i32 %and36 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 276, ptr noundef nonnull @__func__.ahci_hba_enable, ptr noundef nonnull @.str.11, x86_fp80 noundef %conv43, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.body47
 
@@ -611,7 +611,7 @@ do.body47:                                        ; preds = %if.else29, %if.else
   br i1 %cmp52, label %do.body1.i, label %if.else55
 
 if.else55:                                        ; preds = %do.body47
-  %conv56 = uitofp i32 %and49 to x86_fp80
+  %conv56 = uitofp nneg i32 %and49 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @__func__.ahci_hba_enable, ptr noundef nonnull @.str.12, x86_fp80 noundef %conv56, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.body1.i
 
@@ -915,7 +915,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #2
 declare void @qtest_memset(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ahci_port_select(ptr nocapture noundef readonly %ahci) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @ahci_port_select(ptr nocapture noundef readonly %ahci) local_unnamed_addr #0 {
 entry:
   %dev.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i, align 8
@@ -1039,7 +1039,7 @@ if.else6:                                         ; preds = %entry
 
 if.else16:                                        ; preds = %if.else6
   %shr = lshr i32 %and8, 23
-  %conv17 = uitofp i32 %shr to x86_fp80
+  %conv17 = uitofp nneg i32 %shr to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 421, ptr noundef nonnull @__func__.ahci_port_check_error, ptr noundef nonnull @.str.18, x86_fp80 noundef %conv17, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %if.end21
 
@@ -1098,7 +1098,7 @@ if.then37:                                        ; preds = %do.end34
   br i1 %cmp45, label %do.end52, label %if.else48
 
 if.else48:                                        ; preds = %if.then37
-  %conv49 = uitofp i32 %and42 to x86_fp80
+  %conv49 = uitofp nneg i32 %and42 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 437, ptr noundef nonnull @__func__.ahci_port_check_error, ptr noundef nonnull @.str.11, x86_fp80 noundef %conv49, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.end52
 
@@ -1124,7 +1124,7 @@ do.end52:                                         ; preds = %if.else48, %if.then
   br i1 %cmp60, label %do.end67, label %if.else63
 
 if.else63:                                        ; preds = %do.end52
-  %conv64 = uitofp i32 %and57 to x86_fp80
+  %conv64 = uitofp nneg i32 %and57 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 447, ptr noundef nonnull @__func__.ahci_port_check_error, ptr noundef nonnull @.str.28, x86_fp80 noundef %conv64, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.end67
 
@@ -1177,7 +1177,7 @@ do.body101:                                       ; preds = %if.else81, %do.body
   br i1 %cmp110, label %do.body118, label %if.else113
 
 if.else113:                                       ; preds = %do.body101
-  %conv114 = uitofp i32 %and107 to x86_fp80
+  %conv114 = uitofp nneg i32 %and107 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 460, ptr noundef nonnull @__func__.ahci_port_check_error, ptr noundef nonnull @.str.31, x86_fp80 noundef %conv114, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   %.pre = load i8, ptr %errors, align 1
   %.pre101 = zext i8 %.pre to i32
@@ -1191,8 +1191,8 @@ do.body118:                                       ; preds = %do.body101, %if.els
   br i1 %cmp132, label %do.end139, label %if.else135
 
 if.else135:                                       ; preds = %do.body118
-  %conv136 = uitofp i32 %and124 to x86_fp80
-  %conv137 = uitofp i32 %shl122 to x86_fp80
+  %conv136 = uitofp nneg i32 %and124 to x86_fp80
+  %conv137 = uitofp nneg i32 %shl122 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @__func__.ahci_port_check_error, ptr noundef nonnull @.str.32, x86_fp80 noundef %conv136, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv137, i8 noundef signext 120) #16
   br label %do.end139
 
@@ -1375,7 +1375,7 @@ if.end77:                                         ; preds = %if.else57, %if.else
   br i1 %cmp84, label %do.body92, label %if.else87
 
 if.else87:                                        ; preds = %if.end77
-  %conv88 = uitofp i32 %and81 to x86_fp80
+  %conv88 = uitofp nneg i32 %and81 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 514, ptr noundef nonnull @__func__.ahci_port_check_nonbusy, ptr noundef nonnull @.str.36, x86_fp80 noundef %conv88, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.body92
 
@@ -1385,7 +1385,7 @@ do.body92:                                        ; preds = %if.end77, %if.else8
   br i1 %cmp97, label %do.end104, label %if.else100
 
 if.else100:                                       ; preds = %do.body92
-  %conv101 = uitofp i32 %and94 to x86_fp80
+  %conv101 = uitofp nneg i32 %and94 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 515, ptr noundef nonnull @__func__.ahci_port_check_nonbusy, ptr noundef nonnull @.str.37, x86_fp80 noundef %conv101, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #16
   br label %do.end104
 
@@ -1433,7 +1433,7 @@ do.end:                                           ; preds = %if.else, %entry
 
 if.else14:                                        ; preds = %do.end
   %shr = and i32 %and, 255
-  %conv15 = uitofp i32 %shr to x86_fp80
+  %conv15 = uitofp nneg i32 %shr to x86_fp80
   %conv16 = uitofp i8 %9 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef nonnull @__func__.ahci_port_check_d2h_sanity, ptr noundef nonnull @.str.39, x86_fp80 noundef %conv15, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv16, i8 noundef signext 120) #16
   br label %do.body19
@@ -1447,7 +1447,7 @@ do.body19:                                        ; preds = %do.end, %if.else14
 
 if.else28:                                        ; preds = %do.body19
   %and21 = and i32 %call.i.i.i, 255
-  %conv29 = uitofp i32 %and21 to x86_fp80
+  %conv29 = uitofp nneg i32 %and21 to x86_fp80
   %conv30 = uitofp i8 %11 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 528, ptr noundef nonnull @__func__.ahci_port_check_d2h_sanity, ptr noundef nonnull @.str.40, x86_fp80 noundef %conv29, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv30, i8 noundef signext 120) #16
   br label %do.end32
@@ -1532,7 +1532,7 @@ if.else28:                                        ; preds = %do.end, %lor.lhs.fa
 
 if.else47:                                        ; preds = %if.else28
   %conv48 = uitofp i16 %11 to x86_fp80
-  %conv49 = uitofp i64 %conv30.rem to x86_fp80
+  %conv49 = uitofp nneg i64 %conv30.rem to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @__func__.ahci_port_check_pio_sanity, ptr noundef nonnull @.str.43, x86_fp80 noundef %conv48, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv49, i8 noundef signext 120) #16
   br label %if.end52
 
@@ -1650,7 +1650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ahci_pick_cmd(ptr nocapture noundef %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @ahci_pick_cmd(ptr nocapture noundef %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %conv.i.i = zext i8 %port to i64
   %0 = shl nuw nsw i64 %conv.i.i, 7
@@ -1683,7 +1683,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool.not, label %if.end, label %for.cond
 
 if.end:                                           ; preds = %for.body
-  %conv2 = trunc i32 %rem to i8
+  %conv2 = trunc nuw nsw i32 %rem to i8
   tail call void @ahci_destroy_command(ptr noundef nonnull %ahci, i8 noundef zeroext %port, i8 noundef zeroext %conv2)
   %6 = trunc i32 %add to i8
   %7 = add i8 %6, 1
@@ -2356,7 +2356,7 @@ for.end.i:                                        ; preds = %for.cond.i
   unreachable
 
 ahci_pick_cmd.exit:                               ; preds = %for.body.i
-  %conv2.i = trunc i32 %rem.i to i8
+  %conv2.i = trunc nuw nsw i32 %rem.i to i8
   tail call void @ahci_destroy_command(ptr noundef nonnull %ahci, i8 noundef zeroext %port, i8 noundef zeroext %conv2.i)
   %6 = trunc i32 %add.i to i8
   %7 = add i8 %6, 1
@@ -2464,7 +2464,7 @@ do.end21:                                         ; preds = %do.body15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i56)
   %fis.i = getelementptr inbounds i8, ptr %cmd, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
   %22 = load i64, ptr %ctba, align 8
   %23 = load ptr, ptr %ahci, align 8
   %24 = load ptr, ptr %23, align 8
@@ -2492,7 +2492,7 @@ do.body29:                                        ; preds = %do.end21, %if.then2
   br i1 %cmp34, label %do.end41, label %if.else37
 
 if.else37:                                        ; preds = %do.body29
-  %conv38 = uitofp i32 %conv7.mask to x86_fp80
+  %conv38 = uitofp nneg i32 %conv7.mask to x86_fp80
   %conv39 = uitofp i16 %30 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1220, ptr noundef nonnull @__func__.ahci_command_commit, ptr noundef nonnull @.str.69, x86_fp80 noundef %conv38, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv39, i8 noundef signext 120) #16
   br label %do.end41
@@ -2534,7 +2534,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add76 = add i64 %add73, %mul75
   call void @qtest_memwrite(ptr noundef %38, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nuw i64 %indvars.iv.next to i32
   %cmp45 = icmp ugt i32 %conv7.mask, %39
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
@@ -2909,7 +2909,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call)
+  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call)
   %atapi_cmd.i = getelementptr inbounds i8, ptr %call, i64 96
   %14 = load ptr, ptr %atapi_cmd.i, align 8
@@ -3353,7 +3353,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %14 = getelementptr inbounds i8, ptr %ahci, i64 24
   %15 = load i8, ptr %14, align 8
   tail call void @qpci_io_writel(ptr noundef %12, i64 %13, i8 %15, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
+  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %16 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %16) #16
@@ -3450,7 +3450,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %13 = getelementptr inbounds i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
   tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
+  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %15 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %15) #16
@@ -3511,7 +3511,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %13 = getelementptr inbounds i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
   tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
+  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %15 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %15) #16
@@ -3627,7 +3627,7 @@ do.body1.i:                                       ; preds = %do.end.i
   br i1 %cmp.i, label %do.end8.i, label %if.else4.i
 
 if.else4.i:                                       ; preds = %do.body1.i
-  %conv5.i = uitofp i64 %div24.i to x86_fp80
+  %conv5.i = uitofp nneg i64 %div24.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1107, ptr noundef nonnull @__func__.ahci_atapi_set_size, ptr noundef nonnull @.str.74, x86_fp80 noundef %conv5.i, ptr noundef nonnull @.str.47, x86_fp80 noundef 0xK400EFFFF000000000000, i8 noundef signext 105) #16
   br label %do.end8.i
 
@@ -3643,7 +3643,7 @@ do.body12.i:                                      ; preds = %do.end.i
   br i1 %cmp15.i, label %do.end22.i, label %if.else18.i
 
 if.else18.i:                                      ; preds = %do.body12.i
-  %conv19.i = uitofp i64 %div24.i to x86_fp80
+  %conv19.i = uitofp nneg i64 %div24.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1112, ptr noundef nonnull @__func__.ahci_atapi_set_size, ptr noundef nonnull @.str.75, x86_fp80 noundef %conv19.i, ptr noundef nonnull @.str.76, x86_fp80 noundef 0xK40178000000000000000, i8 noundef signext 105) #16
   br label %do.end22.i
 

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL14lastDayOfMonth = internal unnamed_addr constant [2 x [13 x i32]] [[13 x i32] [i32 -1, i32 30, i32 58, i32 89, i32 119, i32 150, i32 180, i32 211, i32 242, i32 272, i32 303, i32 333, i32 364], [13 x i32] [i32 -1, i32 30, i32 59, i32 90, i32 120, i32 151, i32 181, i32 212, i32 243, i32 273, i32 304, i32 334, i32 365]], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_Z14PR_ImplodeTimePK14PRExplodedTime(ptr nocapture noundef readonly %exploded) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -1102724273889483648, 978358385890483648) i64 @_Z14PR_ImplodeTimePK14PRExplodedTime(ptr nocapture noundef readonly %exploded) local_unnamed_addr #0 {
 entry:
   %copy = alloca %struct.PRExplodedTime, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy, ptr noundef nonnull align 4 dereferenceable(40) %exploded, i64 40, i1 false)
@@ -334,7 +334,7 @@ if.end150:                                        ; preds = %if.end150.loopexit1
   %add182 = add nsw i32 %sub179, %mul
   %add183 = add nsw i32 %add182, %conv181
   %rem184 = srem i32 %add183, 7
-  %conv185 = trunc i32 %rem184 to i8
+  %conv185 = trunc nsw i32 %rem184 to i8
   %cmp188 = icmp slt i32 %rem184, 0
   %conv193 = add nsw i8 %conv185, 7
   %storemerge = select i1 %cmp188, i8 %conv193, i8 %conv185
@@ -344,7 +344,7 @@ if.end150:                                        ; preds = %if.end150.loopexit1
   store i64 %call195, ptr %tm_params, align 4
   %25 = trunc i64 %call195 to i32
   %26 = lshr i64 %call195, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %add201 = add nsw i32 %27, %25
   %28 = load i32, ptr %tm_sec, align 4
   %add.i = add nsw i32 %add201, %28
@@ -549,7 +549,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %string, i32 noundef %default_to_gmt, ptr nocapture noundef writeonly %result_imploded) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %string, i32 noundef %default_to_gmt, ptr nocapture noundef writeonly %result_imploded) local_unnamed_addr #0 {
 entry:
   %copy.i = alloca %struct.PRExplodedTime, align 4
   %tm = alloca %struct.PRExplodedTime, align 4
@@ -2274,7 +2274,7 @@ if.end1594:                                       ; preds = %if.end1584, %if.end
   %tp_dst_offset = getelementptr inbounds i8, ptr %tm, i64 36
   store i32 %dst_offset.0, ptr %tp_dst_offset, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %copy.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull align 4 dereferenceable(40) %tm, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %tm, i64 40, i1 false)
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %copy.i, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
   %tm_year.i = getelementptr inbounds i8, ptr %copy.i, i64 24
   %173 = load i16, ptr %tm_year.i, align 4

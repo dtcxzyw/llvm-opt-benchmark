@@ -396,7 +396,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   store i64 %inc.i, ptr %auxcount21.i, align 8
   %cmp.i.i = icmp ne i64 %inc.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %10 = tail call i64 @llvm.cttz.i64(i64 %inc.i, i1 true), !range !6
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %11 = trunc nuw nsw i64 %10 to i32
   %cmp24.i117 = icmp eq i32 %11, 0
   br i1 %cmp24.i117, label %ph_insert.exit, label %for.body.i.lr.ph
@@ -492,7 +492,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %inc26.i = add nuw nsw i32 %i.i.0118, 1
   %cmp24.i = icmp uge i32 %inc26.i, %11
   %.not = or i1 %cmp8.i.not, %cmp24.i
-  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !7
+  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !6
 
 ph_insert.exit:                                   ; preds = %if.end.i69, %for.body.i, %ph_try_aux_merge_pair.exit, %for.body.i.lr.ph, %if.end18.i, %if.then5.i, %if.then.i
   ret void
@@ -1897,7 +1897,7 @@ if.end29.i81.i:                                   ; preds = %while.body.i75.i
   %arrayidx30.i82.i = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i79.i
   %1 = load i64, ptr %arrayidx30.i82.i, align 8
   %cmp13.i56.i = icmp eq i64 %1, -1
-  br i1 %cmp13.i56.i, label %while.body.i75.i, label %cond.true36.i73.loopexit.i, !llvm.loop !9
+  br i1 %cmp13.i56.i, label %while.body.i75.i, label %cond.true36.i73.loopexit.i, !llvm.loop !8
 
 cond.true36.i73.loopexit.i:                       ; preds = %if.end29.i81.i
   %xor31.i83.i = xor i64 %1, -1
@@ -1906,7 +1906,7 @@ cond.true36.i73.loopexit.i:                       ; preds = %if.end29.i81.i
 cond.true36.i73.i:                                ; preds = %cond.true36.i73.loopexit.i, %while.body
   %group.i27.1.lcssa.i = phi i64 [ %and.i95.i, %while.body ], [ %xor31.i83.i, %cond.true36.i73.loopexit.i ]
   %group_ind.i24.0.lcssa.i = phi i64 [ %div2.i3968.i, %while.body ], [ %add19.i79.i, %cond.true36.i73.loopexit.i ]
-  %2 = tail call i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i, i1 true), !range !6
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i, i1 true)
   %mul.i64.i = shl i64 %group_ind.i24.0.lcssa.i, 6
   %add42.i65.i = or disjoint i64 %mul.i64.i, %2
   %or.cond.i = icmp ugt i64 %add42.i65.i, 511
@@ -1931,12 +1931,12 @@ if.end29.i.i:                                     ; preds = %while.body.i.i61
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i
   %4 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %4, 0
-  br i1 %cmp13.i.i, label %while.body.i.i61, label %cond.true36.i.i, !llvm.loop !9
+  br i1 %cmp13.i.i, label %while.body.i.i61, label %cond.true36.i.i, !llvm.loop !8
 
 cond.true36.i.i:                                  ; preds = %if.end29.i.i, %if.end.i.i
   %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %4, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i69.i, %if.end.i.i ], [ %add19.i.i, %if.end29.i.i ]
-  %5 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !6
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
   %add42.i.i = or disjoint i64 %mul.i.i, %5
   br label %if.then11.i.i
@@ -2019,7 +2019,7 @@ fb_set_range.exit:                                ; preds = %while.end.i.i72, %f
   %arrayidx.i.i = getelementptr inbounds i64, ptr %touched_pages, i64 %div.i22.i
   %21 = load i64, ptr %arrayidx.i.i, align 8
   %and.i = and i64 %21, %shl.i.i69
-  %22 = tail call i64 @llvm.ctpop.i64(i64 %and.i), !range !6
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
   br i1 %cmp5.i42.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %fb_set_range.exit, %while.body.i.i
@@ -2028,12 +2028,12 @@ while.body.i.i:                                   ; preds = %fb_set_range.exit, 
   %scount.i52.0180 = phi i64 [ %add.i52, %while.body.i.i ], [ %22, %fb_set_range.exit ]
   %arrayidx6.i.i = getelementptr inbounds i64, ptr %touched_pages, i64 %group_ind.i.i.0182
   %23 = load i64, ptr %arrayidx6.i.i, align 8
-  %24 = tail call i64 @llvm.ctpop.i64(i64 %23), !range !6
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
   %add.i52 = add i64 %24, %scount.i52.0180
   %sub7.i.i = add i64 %cnt.addr.i.i.0181, -64
   %group_ind.i.i.0 = add nuw nsw i64 %group_ind.i.i.0182, 1
   %cmp5.i.i = icmp ugt i64 %sub7.i.i, 64
-  br i1 %cmp5.i.i, label %while.body.i.i, label %fb_scount.exit, !llvm.loop !10
+  br i1 %cmp5.i.i, label %while.body.i.i, label %fb_scount.exit, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %fb_set_range.exit
   %cmp9.i.i.not = icmp eq i64 %sub4.i.i71, 0
@@ -2053,7 +2053,7 @@ fb_scount.exit:                                   ; preds = %while.body.i.i, %wh
   %arrayidx12.i.i = getelementptr inbounds i64, ptr %touched_pages, i64 %group_ind.i.i.0.lcssa207
   %25 = load i64, ptr %arrayidx12.i.i, align 8
   %and.i53 = and i64 %25, %shr11.i.i
-  %26 = tail call i64 @llvm.ctpop.i64(i64 %and.i53), !range !6
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i53)
   %add.i56 = add i64 %26, %scount.i52.0.lcssa205
   %or.i.i89 = or i64 %21, %shl.i.i69
   store i64 %or.i.i89, ptr %arrayidx.i.i, align 8
@@ -2133,7 +2133,7 @@ if.end29.i81.i145:                                ; preds = %while.body.i75.i141
   %arrayidx30.i82.i146 = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i79.i143
   %43 = load i64, ptr %arrayidx30.i82.i146, align 8
   %cmp13.i56.i147 = icmp eq i64 %43, -1
-  br i1 %cmp13.i56.i147, label %while.body.i75.i141, label %cond.true36.i73.loopexit.i148, !llvm.loop !9
+  br i1 %cmp13.i56.i147, label %while.body.i75.i141, label %cond.true36.i73.loopexit.i148, !llvm.loop !8
 
 cond.true36.i73.loopexit.i148:                    ; preds = %if.end29.i81.i145
   %xor31.i83.i149 = xor i64 %43, -1
@@ -2142,7 +2142,7 @@ cond.true36.i73.loopexit.i148:                    ; preds = %if.end29.i81.i145
 cond.true36.i73.i113:                             ; preds = %cond.true36.i73.loopexit.i148, %while.body27
   %group.i27.1.lcssa.i114 = phi i64 [ %and.i95.i111, %while.body27 ], [ %xor31.i83.i149, %cond.true36.i73.loopexit.i148 ]
   %group_ind.i24.0.lcssa.i115 = phi i64 [ %div2.i3968.i106, %while.body27 ], [ %add19.i79.i143, %cond.true36.i73.loopexit.i148 ]
-  %44 = tail call i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i114, i1 true), !range !6
+  %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i114, i1 true)
   %mul.i64.i116 = shl i64 %group_ind.i24.0.lcssa.i115, 6
   %add42.i65.i117 = or disjoint i64 %mul.i64.i116, %44
   %or.cond.i118 = icmp ugt i64 %add42.i65.i117, 511
@@ -2167,12 +2167,12 @@ if.end29.i.i138:                                  ; preds = %while.body.i.i134
   %arrayidx30.i.i139 = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i136
   %46 = load i64, ptr %arrayidx30.i.i139, align 8
   %cmp13.i.i140 = icmp eq i64 %46, 0
-  br i1 %cmp13.i.i140, label %while.body.i.i134, label %do.end36, !llvm.loop !9
+  br i1 %cmp13.i.i140, label %while.body.i.i134, label %do.end36, !llvm.loop !8
 
 do.end36:                                         ; preds = %if.end29.i.i138, %if.end.i.i119
   %group.i.1.lcssa.i126 = phi i64 [ %and.i.i123, %if.end.i.i119 ], [ %46, %if.end29.i.i138 ]
   %group_ind.i.0.lcssa.i127 = phi i64 [ %div2.i69.i120, %if.end.i.i119 ], [ %add19.i.i136, %if.end29.i.i138 ]
-  %47 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i126, i1 true), !range !6
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i126, i1 true)
   %mul.i.i128 = shl i64 %group_ind.i.0.lcssa.i127, 6
   %add42.i.i129 = or disjoint i64 %mul.i.i128, %47
   %sub.i.i132 = sub nsw i64 %add42.i.i129, %add42.i65.i117
@@ -2191,7 +2191,7 @@ if.end40.thread:                                  ; preds = %do.end36.thread
 if.end40:                                         ; preds = %do.end36
   %spec.select48 = tail call i64 @llvm.umax.i64(i64 %sub.i.i132, i64 %largest_unchosen_range.2187)
   %cmp26 = icmp ult i64 %add42.i.i129, 512
-  br i1 %cmp26, label %while.body27, label %while.end45, !llvm.loop !11
+  br i1 %cmp26, label %while.body27, label %while.end45, !llvm.loop !10
 
 while.end45:                                      ; preds = %if.end40, %do.end36, %cond.true36.i73.i113, %while.body.i75.i141, %do.end36.thread, %if.end40.thread, %if.then24
   %largest_unchosen_range.4 = phi i64 [ %largest_unchosen_range.0, %if.then24 ], [ %len.1, %do.end36.thread ], [ %spec.select48219, %if.end40.thread ], [ %largest_unchosen_range.2187, %while.body.i75.i141 ], [ %spec.select48, %if.end40 ], [ %len.1, %do.end36 ], [ %largest_unchosen_range.2187, %cond.true36.i73.i113 ]
@@ -2290,12 +2290,12 @@ if.end29.i.i:                                     ; preds = %while.body.i.i
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i
   %18 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %18, 0
-  br i1 %cmp13.i.i, label %while.body.i.i, label %cond.false37.i.i, !llvm.loop !9
+  br i1 %cmp13.i.i, label %while.body.i.i, label %cond.false37.i.i, !llvm.loop !8
 
 cond.false37.i.i:                                 ; preds = %if.end29.i.i, %fb_unset_range.exit
   %group.i.1.lcssa.i = phi i64 [ %and9.i.i, %fb_unset_range.exit ], [ %18, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i16 = phi i64 [ %div.i22.i, %fb_unset_range.exit ], [ %add19.i.i, %if.end29.i.i ]
-  %19 = tail call i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !6
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl nuw i64 %group_ind.i.0.lcssa.i16, 6
   %20 = or disjoint i64 %mul.i.i, %19
   %21 = xor i64 %20, -64
@@ -2324,12 +2324,12 @@ if.end29.i.i31:                                   ; preds = %while.body.i.i27
   %arrayidx30.i.i32 = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i29
   %23 = load i64, ptr %arrayidx30.i.i32, align 8
   %cmp13.i.i33 = icmp eq i64 %23, 0
-  br i1 %cmp13.i.i33, label %while.body.i.i27, label %cond.true36.i.i, !llvm.loop !9
+  br i1 %cmp13.i.i33, label %while.body.i.i27, label %cond.true36.i.i, !llvm.loop !8
 
 cond.true36.i.i:                                  ; preds = %if.end29.i.i31, %fb_fls.exit
   %group.i.1.lcssa.i22 = phi i64 [ %and.i.i20, %fb_fls.exit ], [ %23, %if.end29.i.i31 ]
   %group_ind.i.0.lcssa.i23 = phi i64 [ %div2.i26.i17, %fb_fls.exit ], [ %add19.i.i29, %if.end29.i.i31 ]
-  %24 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i22, i1 true), !range !6
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i22, i1 true)
   %mul.i.i24 = shl i64 %group_ind.i.0.lcssa.i23, 6
   %add42.i.i25 = or disjoint i64 %mul.i.i24, %24
   br label %fb_ffs.exit
@@ -2359,7 +2359,7 @@ entry:
   store i64 0, ptr %purge_state, align 8
   %next_purge_search_begin = getelementptr inbounds i8, ptr %purge_state, i64 80
   store i64 0, ptr %next_purge_search_begin, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %dirty_pages, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %dirty_pages, i8 0, i64 64, i1 false)
   %active_pages = getelementptr inbounds i8, ptr %hpdata, i64 112
   br label %for.body.i
 
@@ -2372,7 +2372,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i64 %not.i, ptr %arrayidx3.i, align 8
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !11
 
 fb_bit_not.exit:                                  ; preds = %for.body.i
   %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
@@ -2388,11 +2388,11 @@ for.body.i17:                                     ; preds = %for.body.i17, %fb_b
   store i64 %and.i, ptr %arrayidx.i18, align 8
   %inc.i20 = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i21 = icmp eq i64 %inc.i20, 8
-  br i1 %exitcond.not.i21, label %fb_bit_and.exit, label %for.body.i17, !llvm.loop !13
+  br i1 %exitcond.not.i21, label %fb_bit_and.exit, label %for.body.i17, !llvm.loop !12
 
 fb_bit_and.exit:                                  ; preds = %for.body.i17
   %to_purge = getelementptr inbounds i8, ptr %purge_state, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %to_purge, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %to_purge, i8 0, i64 64, i1 false)
   %invariant.gep = getelementptr i8, ptr %purge_state, i64 24
   br label %while.body
 
@@ -2417,12 +2417,12 @@ if.end29.i.i:                                     ; preds = %while.body.i.i
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %dirty_pages, i64 %add19.i.i
   %4 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %4, 0
-  br i1 %cmp13.i.i, label %while.body.i.i, label %fb_ffs.exit, !llvm.loop !9
+  br i1 %cmp13.i.i, label %while.body.i.i, label %fb_ffs.exit, !llvm.loop !8
 
 fb_ffs.exit:                                      ; preds = %if.end29.i.i, %while.body
   %group.i.1.lcssa.i = phi i64 [ %and.i.i, %while.body ], [ %4, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i26.i, %while.body ], [ %add19.i.i, %if.end29.i.i ]
-  %5 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !6
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
   %add42.i.i = or disjoint i64 %mul.i.i, %5
   %cmp8 = icmp eq i64 %add42.i.i, 512
@@ -2447,12 +2447,12 @@ if.end29.i.i38:                                   ; preds = %while.body.i.i34
   %arrayidx30.i.i39 = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i36
   %7 = load i64, ptr %arrayidx30.i.i39, align 8
   %cmp13.i.i40 = icmp eq i64 %7, 0
-  br i1 %cmp13.i.i40, label %while.body.i.i34, label %cond.true36.i.i28, !llvm.loop !9
+  br i1 %cmp13.i.i40, label %while.body.i.i34, label %cond.true36.i.i28, !llvm.loop !8
 
 cond.true36.i.i28:                                ; preds = %if.end29.i.i38, %if.end
   %group.i.1.lcssa.i29 = phi i64 [ %and.i.i26, %if.end ], [ %7, %if.end29.i.i38 ]
   %group_ind.i.0.lcssa.i30 = phi i64 [ %div2.i26.i22, %if.end ], [ %add19.i.i36, %if.end29.i.i38 ]
-  %8 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i29, i1 true), !range !6
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i29, i1 true)
   %mul.i.i31 = shl i64 %group_ind.i.0.lcssa.i30, 6
   %add42.i.i32 = or disjoint i64 %mul.i.i31, %8
   br label %fb_ffs.exit41
@@ -2480,12 +2480,12 @@ if.end29.i.i54:                                   ; preds = %while.body.i.i51
   %arrayidx30.i.i56 = getelementptr inbounds i64, ptr %dirty_pages, i64 %add19.i.i55
   %10 = load i64, ptr %arrayidx30.i.i56, align 8
   %cmp13.i.i57 = icmp eq i64 %10, 0
-  br i1 %cmp13.i.i57, label %while.body.i.i51, label %cond.false37.i.i, !llvm.loop !9
+  br i1 %cmp13.i.i57, label %while.body.i.i51, label %cond.false37.i.i, !llvm.loop !8
 
 cond.false37.i.i:                                 ; preds = %if.end29.i.i54, %fb_ffs.exit41
   %group.i.1.lcssa.i46 = phi i64 [ %and9.i.i, %fb_ffs.exit41 ], [ %10, %if.end29.i.i54 ]
   %group_ind.i.0.lcssa.i47 = phi i64 [ %div2.i26.i42, %fb_ffs.exit41 ], [ %add19.i.i55, %if.end29.i.i54 ]
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i46, i1 true), !range !6
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i46, i1 true)
   %mul.i.i48 = shl nuw i64 %group_ind.i.0.lcssa.i47, 6
   %12 = or disjoint i64 %mul.i.i48, %11
   %add42.i.i49 = xor i64 %12, 63
@@ -2547,7 +2547,7 @@ fb_assign_visitor.exit38.i:                       ; preds = %while.end.i.i
 fb_set_range.exit:                                ; preds = %while.end.i.i, %fb_assign_visitor.exit38.i
   %add23 = add i64 %retval.i.0.i33, 1
   %cmp = icmp ult i64 %add23, 512
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %fb_ffs.exit, %fb_set_range.exit, %while.body.i.i
   %h_ntouched = getelementptr inbounds i8, ptr %hpdata, i64 176
@@ -2589,12 +2589,12 @@ if.end29.i81.i:                                   ; preds = %while.body.i75.i
   %arrayidx30.i82.i = getelementptr inbounds i64, ptr %to_purge, i64 %add19.i79.i
   %2 = load i64, ptr %arrayidx30.i82.i, align 8
   %cmp13.i56.i = icmp eq i64 %2, 0
-  br i1 %cmp13.i56.i, label %while.body.i75.i, label %land.lhs.true.i.i, !llvm.loop !9
+  br i1 %cmp13.i56.i, label %while.body.i75.i, label %land.lhs.true.i.i, !llvm.loop !8
 
 land.lhs.true.i.i:                                ; preds = %if.end29.i81.i, %if.end
   %group.i27.1.lcssa.i = phi i64 [ %and.i95.i, %if.end ], [ %2, %if.end29.i81.i ]
   %group_ind.i24.0.lcssa.i = phi i64 [ %div2.i3968.i, %if.end ], [ %add19.i79.i, %if.end29.i81.i ]
-  %3 = tail call i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i, i1 true), !range !6
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i, i1 true)
   %mul.i64.i = shl i64 %group_ind.i24.0.lcssa.i, 6
   %add42.i65.i = or disjoint i64 %mul.i64.i, %3
   %cmp.i.not.i = icmp eq i64 %add42.i65.i, 512
@@ -2620,7 +2620,7 @@ if.end29.i.i:                                     ; preds = %while.body.i.i
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %to_purge, i64 %add19.i.i
   %5 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %5, -1
-  br i1 %cmp13.i.i, label %while.body.i.i, label %cond.true36.i.loopexit.i, !llvm.loop !9
+  br i1 %cmp13.i.i, label %while.body.i.i, label %cond.true36.i.loopexit.i, !llvm.loop !8
 
 cond.true36.i.loopexit.i:                         ; preds = %if.end29.i.i
   %xor31.i.i = xor i64 %5, -1
@@ -2629,7 +2629,7 @@ cond.true36.i.loopexit.i:                         ; preds = %if.end29.i.i
 cond.true36.i.i:                                  ; preds = %cond.true36.i.loopexit.i, %if.end.i.i
   %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %xor31.i.i, %cond.true36.i.loopexit.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i69.i, %if.end.i.i ], [ %add19.i.i, %cond.true36.i.loopexit.i ]
-  %6 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !6
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
   %add42.i.i = or disjoint i64 %mul.i.i, %6
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add42.i.i, i64 512)
@@ -2669,7 +2669,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i64 %not.i, ptr %arrayidx.i, align 8
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !11
 
 fb_bit_not.exit:                                  ; preds = %for.body.i
   %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
@@ -2685,7 +2685,7 @@ for.body.i8:                                      ; preds = %for.body.i8, %fb_bi
   store i64 %and.i, ptr %arrayidx.i9, align 8
   %inc.i11 = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i12 = icmp eq i64 %inc.i11, 8
-  br i1 %exitcond.not.i12, label %fb_bit_and.exit, label %for.body.i8, !llvm.loop !13
+  br i1 %exitcond.not.i12, label %fb_bit_and.exit, label %for.body.i8, !llvm.loop !12
 
 fb_bit_and.exit:                                  ; preds = %for.body.i8
   %ndirty_to_purge = getelementptr inbounds i8, ptr %purge_state, i64 8
@@ -2757,12 +2757,11 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 0, i64 65}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

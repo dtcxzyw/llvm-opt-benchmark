@@ -1303,7 +1303,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %803 = zext i32 %802 to i64
   %804 = udiv i64 %798, 60
   %805 = udiv i64 %803, %804
-  %806 = trunc i64 %805 to i32
+  %806 = trunc nuw i64 %805 to i32
   %807 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %806)
   %.pre109.i = load ptr, ptr @buf, align 8
   br label %808
@@ -1662,7 +1662,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %1050 = load ptr, ptr %1049, align 8
   %1051 = getelementptr inbounds ptr, ptr %1050, i64 %indvars.iv106.i
   %1052 = load ptr, ptr %1051, align 8
-  %1053 = trunc i64 %indvars.iv.next107.i to i32
+  %1053 = trunc nuw i64 %indvars.iv.next107.i to i32
   %1054 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %1053, ptr noundef %1047, ptr noundef %1052)
   %1055 = load ptr, ptr @buf, align 8
   %1056 = getelementptr inbounds i8, ptr %1055, i64 304

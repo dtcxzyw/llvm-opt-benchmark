@@ -197,7 +197,7 @@ declare void @agraphattr_init(ptr noundef) local_unnamed_addr #1
 declare void @agmethod_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @agparent(ptr noundef %0) #12
   %3 = tail call ptr @agfstsubg(ptr noundef %0) #12
   %.not64 = icmp eq ptr %3, null
@@ -206,7 +206,7 @@ define noundef i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.04765 = phi ptr [ %4, %.lr.ph ], [ %3, %1 ]
   %4 = tail call ptr @agnxtsubg(ptr noundef nonnull %.04765) #12
-  %5 = tail call i32 @agclose(ptr noundef nonnull %.04765), !range !4
+  %5 = tail call i32 @agclose(ptr noundef nonnull %.04765)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -466,7 +466,7 @@ define i32 @agnsubg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @agisdirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisdirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -475,7 +475,7 @@ define i32 @agisdirected(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @agisundirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisundirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -485,7 +485,7 @@ define i32 @agisundirected(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @agisstrict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisstrict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 1
@@ -495,7 +495,7 @@ define i32 @agisstrict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @agissimple(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agissimple(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 2
@@ -569,7 +569,7 @@ declare ptr @agfstin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @agraphseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
+define internal range(i32 -1, 2) i32 @agraphseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 4
   %7 = load i32, ptr %2, align 8
@@ -582,7 +582,7 @@ define internal i32 @agraphseqcmpf(ptr nocapture readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @agraphidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
+define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -634,4 +634,3 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

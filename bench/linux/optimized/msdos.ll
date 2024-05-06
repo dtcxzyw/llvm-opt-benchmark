@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [10 x i8] c"%08x-%02x\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @msdos_partition(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @msdos_partition(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [44 x i8], align 16
   %3 = alloca [44 x i8], align 16
   %4 = alloca %struct.Sector, align 8

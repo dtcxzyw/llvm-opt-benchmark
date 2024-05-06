@@ -52,7 +52,7 @@ define void @Init_utf_16_32() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %12
@@ -163,7 +163,7 @@ define internal noundef i64 @fun_so_from_utf_16be(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1
@@ -222,7 +222,7 @@ define internal noundef i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr n
   %45 = zext nneg i8 %44 to i32
   %46 = or disjoint i32 %40, %45
   %47 = add nsw i32 %46, -1
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nsw i32 %47 to i8
   %49 = lshr i8 %48, 2
   %50 = or i8 %49, -40
   store i8 %50, ptr %3, align 1
@@ -265,7 +265,7 @@ define internal noundef i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -372,7 +372,7 @@ define internal noundef i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1
@@ -437,7 +437,7 @@ define internal noundef i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr n
   %48 = zext nneg i8 %47 to i32
   %49 = or disjoint i32 %43, %48
   %50 = add nsw i32 %49, -1
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nsw i32 %50 to i8
   %52 = lshr i8 %51, 2
   %53 = or i8 %52, -40
   %54 = getelementptr inbounds i8, ptr %3, i64 1
@@ -478,7 +478,7 @@ define internal noundef i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -676,7 +676,7 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -875,7 +875,7 @@ define internal noundef i32 @state_init(ptr nocapture noundef writeonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_si_from_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i8, ptr %0, align 1
   switch i8 %4, label %.thread [
     i8 0, label %5
@@ -940,7 +940,7 @@ define internal noundef i64 @fun_si_from_utf_16(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 0, 5) i64 @fun_so_from_utf_16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   switch i8 %6, label %11 [
     i8 1, label %7
@@ -948,11 +948,11 @@ define internal noundef i64 @fun_so_from_utf_16(ptr nocapture noundef readonly %
   ]
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @fun_so_from_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison), !range !6
+  %8 = tail call i64 @fun_so_from_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison)
   br label %11
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @fun_so_from_utf_16le(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison), !range !6
+  %10 = tail call i64 @fun_so_from_utf_16le(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison)
   br label %11
 
 11:                                               ; preds = %5, %9, %7
@@ -961,7 +961,7 @@ define internal noundef i64 @fun_so_from_utf_16(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 2, 7) i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %13
@@ -972,12 +972,12 @@ define internal i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture no
   %10 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 -1, ptr %9, align 1
   store i8 1, ptr %0, align 1
-  %11 = tail call i64 @fun_so_to_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef nonnull %10, i64 poison), !range !7
+  %11 = tail call i64 @fun_so_to_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef nonnull %10, i64 poison)
   %12 = add nuw nsw i64 %11, 2
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call i64 @fun_so_to_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison), !range !7
+  %14 = tail call i64 @fun_so_to_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef %3, i64 poison)
   br label %15
 
 15:                                               ; preds = %13, %8
@@ -986,7 +986,7 @@ define internal i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_si_from_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i8, ptr %0, align 1
   switch i8 %4, label %.thread [
     i8 0, label %5
@@ -1101,7 +1101,7 @@ define internal noundef i64 @fun_si_from_utf_32(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_from_utf_32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   switch i8 %6, label %fun_so_from_utf_32be.exit [
     i8 1, label %7
@@ -1301,7 +1301,7 @@ fun_so_from_utf_32be.exit:                        ; preds = %105, %90, %.thread.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_to_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
+define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %73
@@ -1512,5 +1512,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 1, i64 5}
-!7 = !{i64 2, i64 5}

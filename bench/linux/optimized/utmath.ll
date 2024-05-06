@@ -52,7 +52,7 @@ define dso_local noundef i32 @acpi_ut_short_shift_right(i64 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %7
 
@@ -77,7 +77,7 @@ define dso_local noundef i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %
 14:                                               ; preds = %12
   %15 = zext i32 %1 to i64
   %16 = urem i64 %0, %15
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   store i32 %17, ptr %3, align 4
   br label %18
 
@@ -90,7 +90,7 @@ define dso_local noundef i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_divide(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_divide(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %7
 

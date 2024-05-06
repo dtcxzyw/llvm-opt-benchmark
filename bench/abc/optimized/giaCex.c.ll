@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Gia_ManCleanMark0(ptr noundef %0) #20
   %4 = getelementptr i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %0, i64 16
@@ -185,7 +185,7 @@ define i32 @Gia_ManVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %87 = trunc i64 %86 to i32
   %88 = lshr i32 %87, 30
   %89 = lshr i64 %.val104, 61
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw nsw i64 %89 to i32
   %91 = and i32 %90, 1
   %92 = xor i32 %88, %91
   %93 = and i32 %92, %81
@@ -537,7 +537,7 @@ define i32 @Gia_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readonl
   %96 = trunc i64 %95 to i32
   %97 = lshr i32 %96, 30
   %98 = lshr i64 %.val104, 61
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = and i32 %99, 1
   %101 = xor i32 %97, %100
   %102 = and i32 %101, %90
@@ -668,7 +668,7 @@ define i32 @Gia_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %171, label %163, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %163
-  %172 = trunc i64 %indvars.iv165 to i32
+  %172 = trunc nsw i64 %indvars.iv165 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %170, %._crit_edge.loopexit.split.loop.exit, %.preheader
@@ -787,7 +787,7 @@ define i32 @Gia_ManSetFailedPoCex(ptr noundef %0, ptr nocapture noundef %1) loca
   %61 = trunc i64 %60 to i32
   %62 = lshr i32 %61, 30
   %63 = lshr i64 %.val92, 61
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 1
   %66 = xor i32 %62, %65
   %67 = and i32 %66, %55
@@ -931,7 +931,7 @@ define i32 @Gia_ManSetFailedPoCex(ptr noundef %0, ptr nocapture noundef %1) loca
   br i1 %.not80, label %139, label %137
 
 137:                                              ; preds = %130
-  %138 = trunc i64 %indvars.iv150 to i32
+  %138 = trunc nuw nsw i64 %indvars.iv150 to i32
   store i32 %138, ptr %1, align 4
   store i32 %.067139, ptr %3, align 4
   store i32 %.1.lcssa, ptr %13, align 4
@@ -1095,7 +1095,7 @@ define void @Gia_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocap
   %69 = load ptr, ptr %15, align 8
   %70 = trunc i64 %.val131 to i32
   %71 = and i32 %70, 536870911
-  %72 = trunc i64 %indvars.iv189 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv189 to i32
   %73 = sub nsw i32 %72, %71
   %74 = add nsw i32 %73, %60
   %75 = ashr i32 %74, 5
@@ -1105,7 +1105,7 @@ define void @Gia_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocap
   %79 = and i32 %74, 31
   %80 = lshr i32 %78, %79
   %81 = lshr i64 %.val131, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   %83 = and i32 %82, 536870911
   %84 = sub nsw i32 %72, %83
   %85 = add nsw i32 %84, %60
@@ -1118,7 +1118,7 @@ define void @Gia_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocap
   %92 = lshr i32 %70, 29
   %93 = xor i32 %80, %92
   %94 = lshr i64 %.val131, 61
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = xor i32 %91, %95
   %97 = and i32 %93, 1
   %98 = and i32 %97, %96
@@ -1327,7 +1327,7 @@ define void @Gia_ManCounterExampleValueStop(ptr nocapture noundef %0) local_unna
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ManCounterExampleValueLookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Gia_ManCounterExampleValueLookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 776
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 24
@@ -1614,7 +1614,7 @@ define noundef ptr @Gia_ManCexExtendToIncludeCurrentStates(ptr noundef %0, ptr n
 113:                                              ; preds = %105
   %114 = load i32, ptr %48, align 4
   %115 = mul nsw i32 %114, %.081164
-  %116 = trunc i64 %indvars.iv167 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv167 to i32
   %117 = add nsw i32 %115, %116
   %118 = and i32 %117, 31
   %119 = shl nuw i32 1, %118
@@ -1675,7 +1675,7 @@ define noundef ptr @Gia_ManCexExtendToIncludeCurrentStates(ptr noundef %0, ptr n
   %152 = trunc i64 %151 to i32
   %153 = lshr i32 %152, 30
   %154 = lshr i64 %.val112, 61
-  %155 = trunc i64 %154 to i32
+  %155 = trunc nuw nsw i64 %154 to i32
   %156 = and i32 %155, 1
   %157 = xor i32 %153, %156
   %158 = and i32 %157, %146
@@ -1953,7 +1953,7 @@ define noundef ptr @Gia_ManCexExtendToIncludeAllObjects(ptr noundef %0, ptr noca
 106:                                              ; preds = %102
   %107 = load i32, ptr %48, align 4
   %108 = mul nsw i32 %107, %.081162
-  %109 = trunc i64 %indvars.iv165 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv165 to i32
   %110 = add nsw i32 %108, %109
   %111 = and i32 %110, 31
   %112 = shl nuw i32 1, %111
@@ -2012,7 +2012,7 @@ define noundef ptr @Gia_ManCexExtendToIncludeAllObjects(ptr noundef %0, ptr noca
   %144 = trunc i64 %143 to i32
   %145 = lshr i32 %144, 30
   %146 = lshr i64 %.val110, 61
-  %147 = trunc i64 %146 to i32
+  %147 = trunc nuw nsw i64 %146 to i32
   %148 = and i32 %147, 1
   %149 = xor i32 %145, %148
   %150 = and i32 %149, %138
@@ -2093,10 +2093,10 @@ define ptr @Gia_ManFramesForCexMin(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #22
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #20
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %6
@@ -2108,10 +2108,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %6
   br i1 %.not.i95, label %Abc_UtilStrsav.exit96, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #22
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #22
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #23
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #20
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #20
   br label %Abc_UtilStrsav.exit96
 
 Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit, %14
@@ -2187,7 +2187,7 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
   %49 = getelementptr i8, ptr %.val6.i, i64 4
   %.val6.val.i = load i32, ptr %49, align 4
   %50 = lshr i64 %.val94, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = and i32 %51, 536870911
   %53 = sub i32 %.val6.val.i, %.val79.val
   %54 = add i32 %53, %52
@@ -2383,7 +2383,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %150 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %134, i64 %149, i32 1
   %151 = load i32, ptr %150, align 4
   %152 = lshr i64 %.val85, 61
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw nsw i64 %152 to i32
   %154 = and i32 %153, 1
   %155 = xor i32 %151, %154
   %156 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %4, i32 noundef %146, i32 noundef %155) #20
@@ -2885,7 +2885,7 @@ Abc_Clock.exit73:                                 ; preds = %._crit_edge99, %129
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %151 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv.i
   %152 = load i32, ptr %151, align 4
-  %153 = trunc i64 %indvars.iv.i to i32
+  %153 = trunc nuw nsw i64 %indvars.iv.i to i32
   %154 = xor i32 %153, -1
   %155 = add i32 %146, %154
   %156 = sext i32 %155 to i64
@@ -3393,7 +3393,7 @@ Vec_IntDup.exit.thread:                           ; preds = %Vec_IntFreeP.exit
   %169 = load ptr, ptr %163, align 8
   %170 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i
   %171 = load i32, ptr %170, align 4
-  %172 = trunc i64 %indvars.iv.i to i32
+  %172 = trunc nuw nsw i64 %indvars.iv.i to i32
   %173 = xor i32 %172, -1
   %174 = add i32 %168, %173
   %175 = sext i32 %174 to i64
@@ -3873,7 +3873,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3892,7 +3892,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3903,19 +3903,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
@@ -3947,8 +3947,8 @@ attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

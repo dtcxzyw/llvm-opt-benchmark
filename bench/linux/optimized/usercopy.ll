@@ -77,7 +77,7 @@ define dso_local i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @check_zeroed_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i32 -14, 2) i32 @check_zeroed_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %1, 0

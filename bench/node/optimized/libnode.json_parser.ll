@@ -73,7 +73,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %entry
   %2 = extractvalue { i64, ptr } %call21, 1
-  %conv.i = trunc i64 %1 to i32
+  %conv.i = trunc nuw i64 %1 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %2, i32 noundef 0, i32 noundef %conv.i) #8
   %cmp.i.i.not = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i.not, label %cleanup, label %lor.lhs.false
@@ -212,7 +212,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %if.end.i13
-  %conv.i = trunc i64 %field.coerce0 to i32
+  %conv.i = trunc nuw i64 %field.coerce0 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %0, ptr noundef %field.coerce1, i32 noundef 0, i32 noundef %conv.i) #8
   %cmp.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i, label %if.then, label %if.end
@@ -335,7 +335,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %cleanup
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %if.end.i14
-  %conv.i = trunc i64 %field.coerce0 to i32
+  %conv.i = trunc nuw i64 %field.coerce0 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %0, ptr noundef %field.coerce1, i32 noundef 0, i32 noundef %conv.i) #8
   %cmp.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i, label %cleanup, label %if.end

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @orig_termios = internal global %struct.termios zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__tcsetattr(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__tcsetattr(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %7, %3
@@ -48,7 +48,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [256 x i8], align 16
-  %7 = tail call i32 @uv_guess_handle(i32 noundef %2), !range !7
+  %7 = tail call i32 @uv_guess_handle(i32 noundef %2)
   switch i32 %7, label %.preheader [
     i32 17, label %39
     i32 0, label %39
@@ -63,7 +63,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.preheader, label %.critedge, !llvm.loop !8
+  br i1 %13, label %.preheader, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -138,7 +138,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_guess_handle(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %3 = alloca %struct.stat, align 8
   %4 = alloca i32, align 4
@@ -235,7 +235,7 @@ declare i32 @uv__nonblock_ioctl(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.termios, align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 308
   %5 = load i32, ptr %4, align 4
@@ -263,22 +263,22 @@ define dso_local i32 @uv_tty_set_mode(ptr noundef %0, i32 noundef %1) local_unna
   %17 = tail call ptr @__errno_location() #9
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge, !llvm.loop !9
+  br i1 %19, label %13, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %16
   %20 = sub nsw i32 0, %18
   br label %46
 
 .critedge21:                                      ; preds = %13
-  %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !10
+  %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
   %.not1.i = icmp eq i32 %21, 0
   br i1 %.not1.i, label %uv_spinlock_lock.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge21, %.lr.ph.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
-  %22 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !10
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  %22 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %uv_spinlock_lock.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %uv_spinlock_lock.exit, label %.lr.ph.i, !llvm.loop !11
 
 uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedge21
   %23 = load i32, ptr @orig_termios_fd, align 4
@@ -353,7 +353,7 @@ declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.winsize, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   br label %6
@@ -368,7 +368,7 @@ define dso_local i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %0, ptr 
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %6, label %.critedge, !llvm.loop !13
+  br i1 %13, label %6, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -405,10 +405,10 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_reset_mode() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_reset_mode() local_unnamed_addr #0 {
   %1 = tail call ptr @__errno_location() #9
   %2 = load i32, ptr %1, align 4
-  %3 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !10
+  %3 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %12
 
@@ -481,10 +481,9 @@ attributes #9 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 18}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i64 1347644}
-!11 = !{i64 1348687}
+!9 = !{i64 1347644}
+!10 = !{i64 1348687}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

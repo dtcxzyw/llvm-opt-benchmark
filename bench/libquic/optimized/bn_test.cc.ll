@@ -188,7 +188,7 @@ $_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeE
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i77 = alloca %"class.std::unique_ptr.10", align 8
   %b.i78 = alloca %"class.std::unique_ptr.10", align 8
@@ -601,7 +601,7 @@ invoke.cont18.i:                                  ; preds = %lor.lhs.false15.i
   br i1 %tobool20.not.i, label %cleanup.i48, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %invoke.cont18.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call24.i = invoke i32 @BN_set_bit(ptr noundef nonnull %call.i3566, i32 noundef %38)
           to label %invoke.cont23.i unwind label %lpad12.i
 
@@ -1501,7 +1501,7 @@ entry:
 
 if.then.i8:                                       ; preds = %entry
   %0 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 12, i64 1, ptr nonnull %out)
-  %call.i5 = tail call i32 @fputs(ptr noundef %m, ptr noundef nonnull %out)
+  %call.i5 = tail call i32 @fputs(ptr noundef readonly %m, ptr noundef nonnull %out)
   %1 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 4, i64 1, ptr nonnull %out)
   br label %_ZL7puts_fpP8_IO_FILEPKc.exit10
 
@@ -3340,7 +3340,7 @@ invoke.cont48:                                    ; preds = %lor.lhs.false45
   br i1 %tobool50.not, label %cleanup, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %invoke.cont48
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %call55 = invoke i32 @BN_lshift(ptr noundef nonnull %call, ptr noundef nonnull %call, i32 noundef %13)
           to label %invoke.cont54 unwind label %lpad20.loopexit
 
@@ -7260,7 +7260,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %bytes.0.tr = trunc i64 %bytes.0 to i32
+  %bytes.0.tr = trunc nuw i64 %bytes.0 to i32
   %conv = shl nuw nsw i32 %bytes.0.tr, 3
   %call26 = invoke i32 @BN_rand(ptr noundef nonnull %call, i32 noundef %conv, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont25 unwind label %lpad.loopexit
@@ -8307,7 +8307,7 @@ invoke.cont:                                      ; preds = %for.body
 
 if.then:                                          ; preds = %invoke.cont
   %2 = load ptr, ptr @stderr, align 8
-  %conv = trunc i64 %i.026 to i32
+  %conv = trunc nuw nsw i64 %i.026 to i32
   %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.101, i32 noundef %conv) #16
   br label %cleanup50
 
@@ -8326,7 +8326,7 @@ invoke.cont6:                                     ; preds = %if.end
 
 if.then9:                                         ; preds = %invoke.cont6
   %4 = load ptr, ptr @stderr, align 8
-  %conv10 = trunc i64 %i.026 to i32
+  %conv10 = trunc nuw nsw i64 %i.026 to i32
   %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.102, i32 noundef %conv10) #16
   br label %cleanup50
 
@@ -8345,7 +8345,7 @@ lor.lhs.false:                                    ; preds = %if.end13
 
 if.then19:                                        ; preds = %lor.lhs.false, %if.end13
   %7 = load ptr, ptr @stderr, align 8
-  %conv20 = trunc i64 %i.026 to i32
+  %conv20 = trunc nuw nsw i64 %i.026 to i32
   %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.103, i32 noundef %conv20) #16
   %8 = load ptr, ptr @stderr, align 8
   %mpi23 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -8383,13 +8383,13 @@ invoke.cont42:                                    ; preds = %if.end39
 
 if.then45:                                        ; preds = %invoke.cont42
   %12 = load ptr, ptr @stderr, align 8
-  %conv46 = trunc i64 %i.026 to i32
+  %conv46 = trunc nuw nsw i64 %i.026 to i32
   %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.107, i32 noundef %conv46) #16
   br label %if.then.i
 
 cleanup:                                          ; preds = %invoke.cont30
   %13 = load ptr, ptr @stderr, align 8
-  %conv35 = trunc i64 %i.026 to i32
+  %conv35 = trunc nuw nsw i64 %i.026 to i32
   %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.106, i32 noundef %conv35) #16
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
 

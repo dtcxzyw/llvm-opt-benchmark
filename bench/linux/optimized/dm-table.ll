@@ -89,7 +89,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_table_run
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_dm_consume_args739, ptr @__UNIQUE_ID___addressable_dm_get_device732, ptr @__UNIQUE_ID___addressable_dm_put_device733, ptr @__UNIQUE_ID___addressable_dm_read_arg735, ptr @__UNIQUE_ID___addressable_dm_read_arg_group736, ptr @__UNIQUE_ID___addressable_dm_shift_arg737, ptr @__UNIQUE_ID___addressable_dm_table_device_name753, ptr @__UNIQUE_ID___addressable_dm_table_event749, ptr @__UNIQUE_ID___addressable_dm_table_get_md752, ptr @__UNIQUE_ID___addressable_dm_table_get_mode751, ptr @__UNIQUE_ID___addressable_dm_table_get_size750, ptr @__UNIQUE_ID___addressable_dm_table_run_md_queue_async754, ptr @__UNIQUE_ID___addressable_dm_table_set_type740], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_table_create(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @dm_table_create(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp ugt i32 %2, 1048576
   br i1 %5, label %35, label %6
 
@@ -553,7 +553,7 @@ declare dso_local ptr @dm_device_name(ptr noundef) local_unnamed_addr #2
 declare dso_local void @dm_put_table_device(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_split_args(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dm_split_args(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %0, align 4
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
@@ -970,7 +970,7 @@ declare dso_local i32 @static_key_count(ptr noundef) local_unnamed_addr #2
 declare dso_local void @static_key_enable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_read_arg(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dm_read_arg(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #6 align 16 {
   %5 = alloca i8, align 1
   %6 = load i32, ptr %1, align 8
   %7 = icmp eq i32 %6, 0
@@ -1023,7 +1023,7 @@ define dso_local noundef i32 @dm_read_arg(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_read_arg_group(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dm_read_arg_group(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #6 align 16 {
   %5 = alloca i8, align 1
   %6 = load i32, ptr %1, align 8
   %7 = icmp eq i32 %6, 0
@@ -1982,7 +1982,7 @@ define internal noundef i32 @count_device(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_calculate_queue_limits(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.queue_limits, align 8
   %4 = alloca %struct.queue_limits, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #22
@@ -2286,7 +2286,7 @@ define internal noundef i32 @dm_set_device_limits(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @device_area_is_invalid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @device_area_is_invalid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -3040,7 +3040,7 @@ declare dso_local void @blk_queue_flag_clear(i32 noundef, ptr noundef) local_unn
 declare dso_local void @blk_queue_write_cache(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @device_not_dax_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #9 align 16 {
+define internal range(i32 0, 2) i32 @device_not_dax_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #9 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -3049,7 +3049,7 @@ define internal i32 @device_not_dax_capable(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @device_not_dax_synchronous_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #9 align 16 {
+define internal range(i32 0, 2) i32 @device_not_dax_synchronous_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #9 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -3063,7 +3063,7 @@ define internal noundef i32 @device_dax_write_cache_enabled(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @device_is_rotational(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
+define internal range(i32 0, 2) i32 @device_is_rotational(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3076,7 +3076,7 @@ define internal i32 @device_is_rotational(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @device_requires_stable_pages(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
+define internal range(i32 0, 2) i32 @device_requires_stable_pages(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3089,7 +3089,7 @@ define internal i32 @device_requires_stable_pages(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @device_is_not_random(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
+define internal range(i32 0, 2) i32 @device_is_not_random(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3388,7 +3388,7 @@ declare dso_local ptr @dm_get_live_table(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @dm_put_live_table(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @device_is_rq_stackable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
+define internal range(i32 0, 2) i32 @device_is_rq_stackable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 49
   %8 = load i8, ptr %7, align 1
@@ -3430,7 +3430,7 @@ define internal noundef i32 @device_is_zoned_model(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @device_not_nowait_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
+define internal range(i32 0, 2) i32 @device_not_nowait_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3443,7 +3443,7 @@ define internal i32 @device_not_nowait_capable(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @device_not_discard_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
+define internal range(i32 0, 2) i32 @device_not_discard_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3455,7 +3455,7 @@ define internal i32 @device_not_discard_capable(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @device_not_secure_erase_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
+define internal range(i32 0, 2) i32 @device_not_secure_erase_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3480,7 +3480,7 @@ define internal i32 @device_flush_capable(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @device_not_write_zeroes_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
+define internal range(i32 0, 2) i32 @device_not_write_zeroes_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #10 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3492,7 +3492,7 @@ define internal i32 @device_not_write_zeroes_capable(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @device_not_poll_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
+define internal range(i32 0, 2) i32 @device_not_poll_capable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture readnone %4) #16 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8

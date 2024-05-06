@@ -1295,7 +1295,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i, %.lr.ph
   %40 = load ptr, ptr %33, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(92) %33, i32 noundef %43, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %46 unwind label %44
 

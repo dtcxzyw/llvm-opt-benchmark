@@ -261,7 +261,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %exitcond404.not, label %if.end.loopexit, label %for.body45, !llvm.loop !7
 
 if.end.loopexit:                                  ; preds = %for.body45
-  %109 = trunc i64 %indvars.iv.next402 to i32
+  %109 = trunc nuw i64 %indvars.iv.next402 to i32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.end
@@ -380,7 +380,7 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   br i1 %exitcond408.not, label %if.end113.loopexit, label %for.body83, !llvm.loop !8
 
 if.end113.loopexit:                               ; preds = %for.body83
-  %179 = trunc i64 %indvars.iv.next406 to i32
+  %179 = trunc nuw i64 %indvars.iv.next406 to i32
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.loopexit, %if.end

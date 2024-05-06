@@ -65,7 +65,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [3 x %struct.anon], ptr @_ZN6icu_75L11dataFormatsE, i64 0, i64 %indvars.iv.i
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx.i, ptr noundef nonnull dereferenceable(4) %dataFormat, i64 4)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(4) %dataFormat, i64 4)
   %cmp2.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp2.i, label %_ZN6icu_75L13getDataFormatEPKh.exit, label %for.inc.i
 
@@ -75,7 +75,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end28, label %for.body.i, !llvm.loop !4
 
 _ZN6icu_75L13getDataFormatEPKh.exit:              ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %3, -1
   br i1 %cmp, label %if.then4, label %if.end28
 
@@ -203,7 +203,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %cmp9.i.i, label %invoke.cont.i, label %if.end10.i
 
 invoke.cont.i:                                    ; preds = %if.then6.i
-  %add8.i.i = add i64 %sub.ptr.sub.i.i, 8
+  %add8.i.i = add nuw nsw i64 %sub.ptr.sub.i.i, 8
   %27 = load ptr, ptr @stderr, align 8
   %conv11.i.i = and i64 %add8.i.i, 4294967295
   %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.7, ptr noundef %21, i64 noundef %conv11.i.i) #12
@@ -230,11 +230,11 @@ delete.notnull.i.i:                               ; preds = %lpad.i, %lpad.threa
 if.end10.i:                                       ; preds = %if.then6.i
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %poolName.i, ptr align 1 %21, i64 %conv14.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %poolName.i, ptr align 1 %21, i64 %conv14.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %poolName.i, i64 %conv14.i.i
   store i32 1819242352, ptr %add.ptr.i.i, align 1
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   invoke void %check(ptr noundef %context, ptr noundef %21, ptr noundef nonnull %poolName.i)
           to label %.noexc19 unwind label %lpad
 
@@ -498,7 +498,7 @@ if.end23.i.i:                                     ; preds = %for.end.i.i
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.end5.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.end23.i.i
-  %call3.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %itemID.0.i46.i) #14
+  %call3.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %itemID.0.i46.i) #14
   %conv4.i.i.i.i = trunc i64 %call3.i.i.i.i to i32
   br label %if.end5.i.i.i.i
 
@@ -508,7 +508,7 @@ if.end5.i.i.i.i:                                  ; preds = %if.then2.i.i.i.i, %
   %sub.ptr.rhs.cast.i.i.pn.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i30.i.i = sub i64 %sub.ptr.rhs.cast14.i.i, %sub.ptr.rhs.cast.i.i.pn.i.i
   %conv.i.i31.i.i = trunc i64 %sub.ptr.sub.i.i30.i.i to i32
-  %call6.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i) #14
+  %call6.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %suffix.0.i.i) #14
   %conv7.i.i.i.i = trunc i64 %call6.i.i.i.i to i32
   %add.i.i.i.i = add nsw i32 %idLength.addr.0.i.i.i.i, %conv.i.i31.i.i
   %add8.i.i.i.i = add nsw i32 %add.i.i.i.i, %conv7.i.i.i.i
@@ -525,15 +525,15 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread.i.i.i: ; pred
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i.i.i: ; preds = %if.end5.i.i.i.i
   %sext.i.i.i.i = shl i64 %sub.ptr.sub.i.i30.i.i, 32
   %conv14.i.i.i.i = ashr exact i64 %sext.i.i.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i.i.i, ptr align 1 %21, i64 %conv14.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %target.i.i.i, ptr align 1 %21, i64 %conv14.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %target.i.i.i, i64 %conv14.i.i.i.i
   %conv15.i.i.i.i = sext i32 %idLength.addr.0.i.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %parent.029.i.i, i64 %conv15.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i.i.i, ptr readonly align 1 %parent.029.i.i, i64 %conv15.i.i.i.i, i1 false)
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv15.i.i.i.i
   %add20.i.i.i.i = shl i64 %call6.i.i.i.i, 32
   %sext19.i.i.i.i = add i64 %add20.i.i.i.i, 4294967296
   %conv21.i.i.i.i = ashr exact i64 %sext19.i.i.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i.i.i.i, ptr align 1 %suffix.0.i.i, i64 %conv21.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr19.i.i.i.i, ptr readonly align 1 %suffix.0.i.i, i64 %conv21.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %errorCode, align 4
   %61 = icmp sgt i32 %.pre.i.i.i, 0
   br i1 %61, label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i, label %if.then.i.i.i
@@ -752,7 +752,7 @@ if.end70.i:                                       ; preds = %if.end63.i
   %90 = load ptr, ptr %swapInvChars.i, align 8
   %add71.i = add nsw i32 %conv67.i, 1
   %call72.i = call noundef i32 %90(ptr noundef nonnull %call12, ptr noundef nonnull %add.ptr65.i, i32 noundef %add71.i, ptr noundef nonnull %baseName.i, ptr noundef nonnull %errorCode)
-  call fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %73, ptr noundef nonnull %baseName.i, i32 noundef -1, ptr noundef nonnull @.str.24, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %errorCode)
+  call fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %73, ptr noundef nonnull %baseName.i, i32 noundef -1, ptr noundef nonnull @.str.24, ptr noundef readonly %check, ptr noundef %context, ptr noundef nonnull %errorCode)
   br label %_ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit
 
 _ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit: ; preds = %if.then14.i, %if.end15.i, %if.then20.i, %if.else46.i, %if.end54.i, %if.then62.i, %if.then69.i, %if.end70.i
@@ -808,7 +808,7 @@ declare noundef i32 @_ZNK6icu_757Package8findItemEPKci(ptr noundef nonnull align
 declare noundef ptr @_ZNK6icu_757Package7getItemEi(ptr noundef nonnull align 8 dereferenceable(201237), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %length = alloca i32, align 4
   %length15 = alloca i32, align 4
@@ -982,7 +982,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !9
 
 for.end.split.loop.exit:                          ; preds = %land.rhs
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
@@ -1038,10 +1038,10 @@ if.end18:                                         ; preds = %if.end13
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %itemName to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %localeID) #14
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %localeID) #14
   %conv4.i.i = trunc i64 %call3.i.i to i32
   %call6.i.i = select i1 %tobool22.not, i64 0, i64 4
-  %conv7.i.i = trunc i64 %call6.i.i to i32
+  %conv7.i.i = trunc nuw nsw i64 %call6.i.i to i32
   %add.i.i = add i32 %conv4.i.i, %conv7.i.i
   %add8.i.i = add i32 %add.i.i, %conv.i.i
   %cmp9.i.i = icmp sgt i32 %add8.i.i, 199
@@ -1058,14 +1058,14 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i: ; preds = %if.end
   %cond = select i1 %tobool22.not, ptr @.str.16, ptr @.str.4
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i, ptr align 1 %itemName, i64 %conv14.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %target.i, ptr align 1 %itemName, i64 %conv14.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %target.i, i64 %conv14.i.i
   %sext = shl i64 %call3.i.i, 32
   %conv15.i.i = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull align 16 %localeID, i64 %conv15.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr nonnull readonly align 16 %localeID, i64 %conv15.i.i, i1 false)
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %conv15.i.i
   %sext19.i.i = or disjoint i64 %call6.i.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr19.i.i, ptr noundef nonnull align 1 dereferenceable(1) %cond, i64 %sext19.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr19.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %cond, i64 %sext19.i.i, i1 false)
   %.pre.i = load i32, ptr %pErrorCode, align 4
   %6 = icmp sgt i32 %.pre.i, 0
   br i1 %6, label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit, label %if.then.i
@@ -1110,13 +1110,13 @@ entry:
   br i1 %cmp1.i, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %entry
-  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #14
+  %call3.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %id) #14
   %conv4.i = trunc i64 %call3.i to i32
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %entry
   %idLength.addr.0.i = phi i32 [ %conv4.i, %if.then2.i ], [ %idLength, %entry ]
-  %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix) #14
+  %call6.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %suffix) #14
   %conv7.i = trunc i64 %call6.i to i32
   %add.i = add nsw i32 %idLength.addr.0.i, %conv.i
   %add8.i = add nsw i32 %add.i, %conv7.i
@@ -1133,15 +1133,15 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread: ; preds = %i
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit: ; preds = %if.end5.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %conv14.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target, ptr align 1 %itemName, i64 %conv14.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %target, ptr align 1 %itemName, i64 %conv14.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %target, i64 %conv14.i
   %conv15.i = sext i32 %idLength.addr.0.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %id, i64 %conv15.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %id, i64 %conv15.i, i1 false)
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv15.i
   %add20.i = shl i64 %call6.i, 32
   %sext19.i = add i64 %add20.i, 4294967296
   %conv21.i = ashr exact i64 %sext19.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr align 1 %suffix, i64 %conv21.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr19.i, ptr readonly align 1 %suffix, i64 %conv21.i, i1 false)
   %.pre = load i32, ptr %pErrorCode, align 4
   %1 = icmp sgt i32 %.pre, 0
   br i1 %1, label %if.end, label %if.then

@@ -223,7 +223,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z44grpc_get_tsi_client_certificate_request_type40grpc_ssl_client_certificate_request_type(i32 noundef %grpc_request_type) local_unnamed_addr #5 {
+define noundef range(i32 0, 5) i32 @_Z44grpc_get_tsi_client_certificate_request_type40grpc_ssl_client_certificate_request_type(i32 noundef %grpc_request_type) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %grpc_request_type, -1
   %0 = icmp ult i32 %switch.tableidx, 4
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z24grpc_get_tsi_tls_version16grpc_tls_version(i32 noundef %tls_version) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_Z24grpc_get_tsi_tls_version16grpc_tls_version(i32 noundef %tls_version) local_unnamed_addr #4 {
 entry:
   switch i32 %tls_version, label %sw.default [
     i32 0, label %return
@@ -1380,7 +1380,7 @@ declare void @grpc_auth_context_property_iterator(ptr sret(%struct.grpc_auth_pro
 declare ptr @grpc_auth_property_iterator_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z43grpc_ssl_tsi_client_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairPKcb15tsi_tls_versionS3_P21tsi_ssl_session_cachePN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_St10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, i1 noundef zeroext %skip_server_certificate_verification, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %ssl_session_cache, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_client_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairPKcb15tsi_tls_versionS3_P21tsi_ssl_session_cachePN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_St10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, i1 noundef zeroext %skip_server_certificate_verification, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %ssl_session_cache, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_client_handshaker_options, align 8
   %frombool = zext i1 %skip_server_certificate_verification to i8
@@ -1797,7 +1797,7 @@ _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z43grpc_ssl_tsi_server_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairmPKc40grpc_ssl_client_certificate_request_type15tsi_tls_versionS4_PN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_bSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_server_handshaker_factory(ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, ptr noundef %pem_root_certs, i32 noundef %client_certificate_request, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, i1 noundef zeroext %send_client_ca_list, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_server_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairmPKc40grpc_ssl_client_certificate_request_type15tsi_tls_versionS4_PN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_bSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_server_handshaker_factory(ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, ptr noundef %pem_root_certs, i32 noundef %client_certificate_request, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, i1 noundef zeroext %send_client_ca_list, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_server_handshaker_options, align 8
   %call.i = tail call noundef i64 @_Z29grpc_chttp2_num_alpn_versionsv()

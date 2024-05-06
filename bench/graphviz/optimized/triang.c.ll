@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ccw(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
+define range(i32 1, 4) i32 @ccw(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
   %7 = fsub double %1, %3
   %8 = fsub double %4, %2
   %9 = fsub double %5, %3
@@ -29,7 +29,7 @@ define i32 @ccw(double %0, double %1, double %2, double %3, double %4, double %5
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ptriangulate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ptriangulate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -75,7 +75,7 @@ gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.
   br i1 %exitcond.not, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv_calloc.exit.preheader
-  %21 = tail call fastcc i32 @triangulate(ptr noundef %12, i32 noundef %5, ptr noundef %1, ptr noundef %2), !range !4
+  %21 = tail call fastcc i32 @triangulate(ptr noundef %12, i32 noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp ne i32 %21, 0
   tail call void @free(ptr noundef %12) #13
   %. = zext i1 %.not to i32
@@ -83,7 +83,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @triangulate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca [3 x %struct.Pxy_t], align 16
   %6 = icmp sgt i32 %1, 3
   br i1 %6, label %.preheader, label %91
@@ -101,7 +101,7 @@ define internal fastcc i32 @triangulate(ptr nocapture noundef %0, i32 noundef %1
   %12 = urem i32 %11, %1
   %13 = icmp eq i64 %indvars.iv.next120, %8
   %14 = and i64 %indvars.iv.next120, 4294967295
-  %15 = trunc i64 %indvars.iv119 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv119 to i32
   %16 = add i32 %7, %15
   %17 = srem i32 %16, %1
   %18 = sext i32 %17 to i64
@@ -172,7 +172,7 @@ define internal fastcc i32 @triangulate(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = icmp eq i64 %indvars.iv.next, %8
-  %60 = trunc i64 %indvars.iv.next to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.next to i32
   %iv.rem.i = select i1 %59, i32 0, i32 %60
   %61 = icmp eq i64 %indvars.iv, %indvars.iv119
   %62 = zext i32 %iv.rem.i to i64
@@ -206,7 +206,7 @@ isdiagonal.exit:                                  ; preds = %66, %39, %46, %53
   br i1 %exitcond.not, label %.loopexit, label %9
 
 .lr.ph.preheader:                                 ; preds = %72
-  %73 = trunc i64 %indvars.iv.next120 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv.next120 to i32
   %74 = urem i32 %73, %1
   %75 = and i64 %indvars.iv119, 4294967295
   %76 = getelementptr inbounds ptr, ptr %0, i64 %75
@@ -244,7 +244,7 @@ isdiagonal.exit:                                  ; preds = %66, %39, %46, %53
   br i1 %exitcond126.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %89
-  %90 = call fastcc i32 @triangulate(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3), !range !4
+  %90 = call fastcc i32 @triangulate(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 91:                                               ; preds = %4
@@ -666,4 +666,3 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

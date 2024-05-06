@@ -904,7 +904,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %34 = load ptr, ptr %names, align 8
   %arrayidx.i54 = getelementptr inbounds %class.symbol, ptr %34, i64 %indvars.iv.i
-  %35 = trunc i64 %indvars.iv.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = xor i32 %35, -1
   %sub3.i = add i32 %33, %36
   %idxprom4.i = zext i32 %sub3.i to i64
@@ -941,7 +941,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %40 = load ptr, ptr %m_sorts.i, align 8
   %arrayidx.i.i57 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i.i
-  %41 = trunc i64 %indvars.iv.i.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %42 = xor i32 %41, -1
   %sub3.i.i = add i32 %39, %42
   %idxprom4.i.i = zext i32 %sub3.i.i to i64
@@ -1029,7 +1029,7 @@ invoke.cont52:                                    ; preds = %if.end.i.i64, %for.
           to label %invoke.cont54 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont54:                                    ; preds = %invoke.cont52
-  %57 = trunc i64 %indvars.iv323 to i32
+  %57 = trunc nuw i64 %indvars.iv323 to i32
   %add = add i32 %retval.0.i.i66, %57
   %call57 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %54, i32 noundef %add, ptr noundef %call55)
           to label %invoke.cont56 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp

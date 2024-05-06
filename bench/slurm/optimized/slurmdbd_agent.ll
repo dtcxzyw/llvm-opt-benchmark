@@ -652,7 +652,7 @@ declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @dbd_conn_send_recv_direct(i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %5 = and i64 %4, 67108864
@@ -1919,7 +1919,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @slurm_list_for_each_max(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_get_my_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_get_my_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -2188,7 +2188,7 @@ declare i32 @slurmdbd_unpack_list_msg(ptr noundef, i16 noundef zeroext, i32 noun
 declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_get_return_codes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_get_return_codes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call fastcc i32 @_unpack_return_code(ptr noundef %0)
   store i32 %3, ptr %1, align 4
   %.not = icmp eq i32 %3, 0
@@ -2361,7 +2361,7 @@ declare void @slurm_slurmdbd_free_id_rc_msg(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_print_agent_list_msg_type(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_print_agent_list_msg_type(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   store ptr %1, ptr %3, align 8
@@ -2525,7 +2525,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_purge_agent_list_req(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_purge_agent_list_req(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4

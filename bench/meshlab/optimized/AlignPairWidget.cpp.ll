@@ -1790,7 +1790,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %7
   %121 = getelementptr inbounds i8, ptr %5, i64 30
   %122 = xor i8 %40, 1
   store i8 %122, ptr %121, align 2
-  %123 = trunc i8 %41 to i1
+  %123 = trunc nuw i8 %41 to i1
   %124 = select i1 %123, i8 0, i8 %40
   store i8 %124, ptr %11, align 2
   br label %130
@@ -1799,7 +1799,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %7
   %126 = getelementptr inbounds i8, ptr %5, i64 32
   %127 = xor i8 %40, 1
   store i8 %127, ptr %126, align 8
-  %128 = trunc i8 %41 to i1
+  %128 = trunc nuw i8 %41 to i1
   %129 = select i1 %128, i8 0, i8 %40
   store i8 %129, ptr %12, align 4
   br label %130

@@ -934,7 +934,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i69, %.lr.ph.split.us.i
   %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i69 ]
-  %71 = trunc i64 %indvars.iv112.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv112.i to i32
   %72 = lshr i64 %indvars.iv112.i, 3
   %73 = and i64 %72, 536870911
   %74 = getelementptr i8, ptr %.062, i64 %73

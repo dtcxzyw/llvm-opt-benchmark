@@ -364,7 +364,7 @@ define internal i64 @rb_fiddle_handle_to_ptr(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rb_fiddle_handle_close(i64 noundef %0) #0 {
+define internal noundef range(i64 1, 0) i64 @rb_fiddle_handle_close(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -519,7 +519,7 @@ define internal noundef i64 @rb_fiddle_handle_enable_close(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_fiddle_handle_close_enabled_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_fiddle_handle_close_enabled_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4

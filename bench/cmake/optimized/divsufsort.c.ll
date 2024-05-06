@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sqq_table = internal unnamed_addr constant [256 x i32] [i32 0, i32 16, i32 22, i32 27, i32 32, i32 35, i32 39, i32 42, i32 45, i32 48, i32 50, i32 53, i32 55, i32 57, i32 59, i32 61, i32 64, i32 65, i32 67, i32 69, i32 71, i32 73, i32 75, i32 76, i32 78, i32 80, i32 81, i32 83, i32 84, i32 86, i32 87, i32 89, i32 90, i32 91, i32 93, i32 94, i32 96, i32 97, i32 98, i32 99, i32 101, i32 102, i32 103, i32 104, i32 106, i32 107, i32 108, i32 109, i32 110, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126, i32 128, i32 128, i32 129, i32 130, i32 131, i32 132, i32 133, i32 134, i32 135, i32 136, i32 137, i32 138, i32 139, i32 140, i32 141, i32 142, i32 143, i32 144, i32 144, i32 145, i32 146, i32 147, i32 148, i32 149, i32 150, i32 150, i32 151, i32 152, i32 153, i32 154, i32 155, i32 155, i32 156, i32 157, i32 158, i32 159, i32 160, i32 160, i32 161, i32 162, i32 163, i32 163, i32 164, i32 165, i32 166, i32 167, i32 167, i32 168, i32 169, i32 170, i32 170, i32 171, i32 172, i32 173, i32 173, i32 174, i32 175, i32 176, i32 176, i32 177, i32 178, i32 178, i32 179, i32 180, i32 181, i32 181, i32 182, i32 183, i32 183, i32 184, i32 185, i32 185, i32 186, i32 187, i32 187, i32 188, i32 189, i32 189, i32 190, i32 191, i32 192, i32 192, i32 193, i32 193, i32 194, i32 195, i32 195, i32 196, i32 197, i32 197, i32 198, i32 199, i32 199, i32 200, i32 201, i32 201, i32 202, i32 203, i32 203, i32 204, i32 204, i32 205, i32 206, i32 206, i32 207, i32 208, i32 208, i32 209, i32 209, i32 210, i32 211, i32 211, i32 212, i32 212, i32 213, i32 214, i32 214, i32 215, i32 215, i32 216, i32 217, i32 217, i32 218, i32 218, i32 219, i32 219, i32 220, i32 221, i32 221, i32 222, i32 222, i32 223, i32 224, i32 224, i32 225, i32 225, i32 226, i32 226, i32 227, i32 227, i32 228, i32 229, i32 229, i32 230, i32 230, i32 231, i32 231, i32 232, i32 232, i32 233, i32 234, i32 234, i32 235, i32 235, i32 236, i32 236, i32 237, i32 237, i32 238, i32 238, i32 239, i32 240, i32 240, i32 241, i32 241, i32 242, i32 242, i32 243, i32 243, i32 244, i32 244, i32 245, i32 245, i32 246, i32 246, i32 247, i32 247, i32 248, i32 248, i32 249, i32 249, i32 250, i32 250, i32 251, i32 251, i32 252, i32 252, i32 253, i32 253, i32 254, i32 254, i32 255], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @divsufsort(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @divsufsort(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -269,7 +269,7 @@ construct_SA.exit:                                ; preds = %128, %.loopexit.i, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @sort_typeBstar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #2 {
 .preheader338.preheader:
   %5 = alloca [64 x %struct.anon.1], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
@@ -312,7 +312,7 @@ define internal fastcc i32 @sort_typeBstar(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not288, label %23, label %13, !llvm.loop !9
 
 23:                                               ; preds = %18
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   %25 = trunc i64 %19 to i32
   %26 = shl nuw nsw i32 %22, 8
   %27 = or i32 %26, %.1241
@@ -443,7 +443,7 @@ define internal fastcc i32 @sort_typeBstar(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %97, ptr %95, align 4
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %1, i64 %98
-  %100 = trunc i64 %indvars.iv588 to i32
+  %100 = trunc nuw i64 %indvars.iv588 to i32
   store i32 %100, ptr %99, align 4
   %indvars.iv.next589 = add nsw i64 %indvars.iv588, -1
   %101 = icmp sgt i32 %100, 0
@@ -1120,7 +1120,7 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   %indvars.iv591 = phi i64 [ %425, %424 ], [ %415, %.lr.ph450 ]
   %420 = zext nneg i32 %419 to i64
   %421 = getelementptr inbounds i32, ptr %81, i64 %420
-  %422 = trunc i64 %indvars.iv591 to i32
+  %422 = trunc nuw i64 %indvars.iv591 to i32
   store i32 %422, ptr %421, align 4
   %.not316 = icmp eq i64 %indvars.iv591, 0
   br i1 %.not316, label %.critedge4.thread, label %424
@@ -1168,7 +1168,7 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   br i1 %443, label %435, label %444, !llvm.loop !27
 
 444:                                              ; preds = %435
-  %445 = trunc i64 %indvars.iv594 to i32
+  %445 = trunc nsw i64 %indvars.iv594 to i32
   %446 = zext nneg i32 %442 to i64
   %447 = getelementptr inbounds i32, ptr %81, i64 %446
   store i32 %.11257, ptr %447, align 4
@@ -2709,12 +2709,12 @@ tr_ilg.exit556.i.i:                               ; preds = %1177, %1171, %1164,
   %1291 = shl nuw nsw i64 %indvars.iv.next.i.i.i, 1
   %1292 = or disjoint i64 %1291, 1
   %1293 = icmp ult i64 %1292, %1285
-  %1294 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %1294 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   br i1 %1293, label %.lr.ph.i.preheader.i.i.i, label %tr_fixdown.exit.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.lr.ph.i567.i.i
-  %1295 = trunc i64 %1292 to i32
-  %1296 = trunc i64 %1291 to i32
+  %1295 = trunc nsw i64 %1292 to i32
+  %1296 = trunc nsw i64 %1291 to i32
   br label %.lr.ph.i.i.i.i304
 
 .lr.ph.i.i.i.i304:                                ; preds = %1312, %.lr.ph.i.preheader.i.i.i
@@ -4144,7 +4144,7 @@ trsort.exit:                                      ; preds = %.thread151.i, %2071
   br i1 %.not286, label %2085, label %2079, !llvm.loop !58
 
 2085:                                             ; preds = %2080
-  %2086 = trunc i64 %indvars.iv597 to i32
+  %2086 = trunc nuw i64 %indvars.iv597 to i32
   %2087 = trunc i64 %2081 to i32
   %2088 = add nsw i32 %2086, -2
   %2089 = icmp sgt i32 %2086, 1
@@ -4239,8 +4239,8 @@ trsort.exit:                                      ; preds = %.thread151.i, %2071
   br i1 %.not.not, label %.lr.ph468, label %._crit_edge469.loopexit, !llvm.loop !61
 
 ._crit_edge469.loopexit:                          ; preds = %.lr.ph468
-  %2131 = trunc i64 %indvars.iv.next605 to i32
-  %2132 = trunc i64 %indvars.iv.next603 to i32
+  %2131 = trunc nsw i64 %indvars.iv.next605 to i32
+  %2132 = trunc nsw i64 %indvars.iv.next603 to i32
   br label %._crit_edge469
 
 ._crit_edge469:                                   ; preds = %._crit_edge469.loopexit, %2114
@@ -4276,7 +4276,7 @@ trsort.exit:                                      ; preds = %.thread151.i, %2071
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @divbwt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @divbwt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
@@ -4898,7 +4898,7 @@ construct_BWT.exit:                               ; preds = %304, %140
   %321 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv102
   store i8 %320, ptr %321, align 1
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %322 = trunc i64 %indvars.iv.next103 to i32
+  %322 = trunc nuw i64 %indvars.iv.next103 to i32
   %323 = icmp slt i32 %322, %3
   br i1 %323, label %.lr.ph100, label %._crit_edge, !llvm.loop !71
 
@@ -5127,7 +5127,7 @@ ss_insertionsort.exit:                            ; preds = %.critedge.thread.th
 ._crit_edge.loopexit:                             ; preds = %83
   %95 = getelementptr inbounds i8, ptr %84, i64 20
   %96 = load i32, ptr %95, align 4
-  %97 = trunc i64 %indvars.iv.next to i32
+  %97 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.outer
@@ -5206,12 +5206,12 @@ ss_insertionsort.exit:                            ; preds = %.critedge.thread.th
   %141 = shl nuw nsw i64 %indvars.iv.next.i, 1
   %142 = or disjoint i64 %141, 1
   %143 = icmp ult i64 %142, %132
-  %144 = trunc i64 %indvars.iv.next.i to i32
+  %144 = trunc nsw i64 %indvars.iv.next.i to i32
   br i1 %143, label %.lr.ph.i.preheader.i, label %ss_fixdown.exit.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i501
-  %145 = trunc i64 %142 to i32
-  %146 = trunc i64 %141 to i32
+  %145 = trunc nsw i64 %142 to i32
+  %146 = trunc nsw i64 %141 to i32
   br label %.lr.ph.i.i503
 
 .lr.ph.i.i503:                                    ; preds = %168, %.lr.ph.i.preheader.i

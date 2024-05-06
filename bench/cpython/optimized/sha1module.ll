@@ -376,7 +376,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @Hacl_Streaming_SHA1_legacy_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sha1_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_sha1_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @sha1_type_spec, ptr noundef null) #3

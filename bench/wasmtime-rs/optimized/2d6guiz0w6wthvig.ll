@@ -67,7 +67,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   resume { ptr, i32 } %.pn.i
 
 "_ZN15wiggle_generate8wasmtime11link_module28_$u7b$$u7b$closure$u7d$$u7d$17he38a1079212620e5E.exit": ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5), !noalias !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void

@@ -41554,7 +41554,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -41597,7 +41597,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_27BreakpointLocationsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -42257,7 +42257,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -42300,7 +42300,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19CompletionsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -42464,7 +42464,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -42507,7 +42507,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16ContinueResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -43882,7 +43882,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -43925,7 +43925,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26DataBreakpointInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -46235,7 +46235,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -46278,7 +46278,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19DisassembleResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -47091,7 +47091,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -47134,7 +47134,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_13ErrorResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -47677,7 +47677,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -47720,7 +47720,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_16EvaluateResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -48419,7 +48419,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -48462,7 +48462,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21ExceptionInfoResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -49177,7 +49177,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -49220,7 +49220,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19GotoTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -51867,7 +51867,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -51910,7 +51910,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18InitializeResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -52565,7 +52565,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -52608,7 +52608,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21LoadedSourcesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53407,7 +53407,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53450,7 +53450,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ModulesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53493,7 +53493,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53536,7 +53536,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18ReadMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53579,7 +53579,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -53622,7 +53622,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21RunInTerminalResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -54347,7 +54347,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -54390,7 +54390,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14ScopesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -55115,7 +55115,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -55158,7 +55158,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_22SetBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -55201,7 +55201,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -55244,7 +55244,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_26SetDataBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -56839,7 +56839,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -56882,7 +56882,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_31SetExceptionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -56925,7 +56925,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -56968,7 +56968,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21SetExpressionResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57011,7 +57011,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57054,7 +57054,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_30SetFunctionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57097,7 +57097,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57140,7 +57140,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_33SetInstructionBreakpointsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57183,7 +57183,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57226,7 +57226,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19SetVariableResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57269,7 +57269,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -57312,7 +57312,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_14SourceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -58062,7 +58062,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -58105,7 +58105,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_18StackTraceResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -58809,7 +58809,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -58852,7 +58852,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_21StepInTargetsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -59360,7 +59360,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -59403,7 +59403,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_15ThreadsResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -60030,7 +60030,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -60073,7 +60073,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_17VariablesResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -60116,7 +60116,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap12Deserial
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE17deserializeFieldsEPKNS1_12DeserializerEPvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -60159,7 +60159,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN3dap10Serializ
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3dap6TypeOfINS1_19WriteMemoryResponseEE15serializeFieldsEPNS1_15FieldSerializerEPKvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

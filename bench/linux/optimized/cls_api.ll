@@ -233,7 +233,7 @@ define dso_local void @tc_skb_ext_tc_disable() #0 align 16 {
 declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_tcf_proto_ops(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @register_tcf_proto_ops(ptr noundef %0) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @cls_mod_lock) #14
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3
@@ -2036,7 +2036,7 @@ define dso_local i32 @tcf_classify(ptr noundef %0, ptr nocapture readnone %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_exts_init_ex(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 %5, i1 zeroext %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tcf_exts_init_ex(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 %5, i1 zeroext %6) #0 align 16 {
   store i32 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
@@ -2221,7 +2221,7 @@ define dso_local void @tcf_exts_change(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_exts_dump(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tcf_exts_dump(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -2350,7 +2350,7 @@ declare dso_local i32 @tcf_action_dump(ptr noundef, ptr noundef, i32 noundef, i3
 declare dso_local i32 @tcf_action_dump_old(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_exts_terse_dump(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tcf_exts_terse_dump(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -2422,7 +2422,7 @@ define dso_local noundef i32 @tcf_exts_terse_dump(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_exts_dump_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tcf_exts_dump_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -2546,7 +2546,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 declare dso_local void @rtnl_unlock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tc_setup_cb_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) #0 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 180
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
@@ -2686,7 +2686,7 @@ define dso_local i32 @tc_setup_cb_add(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tc_setup_cb_replace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, i1 noundef zeroext %9) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_replace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, i1 noundef zeroext %9) #0 align 16 {
   %11 = getelementptr inbounds i8, ptr %0, i64 180
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
@@ -2853,7 +2853,7 @@ define dso_local i32 @tc_setup_cb_replace(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tc_setup_cb_destroy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, i1 noundef zeroext %7) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_destroy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, i1 noundef zeroext %7) #0 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 180
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
@@ -3381,7 +3381,7 @@ define dso_local void @tcf_qevent_destroy(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_qevent_validate_change(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcf_qevent_validate_change(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -7717,7 +7717,7 @@ define internal void @tcf_net_exit(ptr noundef %0) #0 align 16 {
 declare dso_local void @idr_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__tcf_qdisc_find(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = icmp eq i32 %3, -1
   br i1 %7, label %82, label %8
 

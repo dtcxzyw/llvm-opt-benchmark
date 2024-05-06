@@ -235,7 +235,7 @@ dissect_m2tp_common_header.exit.i:                ; preds = %25, %4
   br i1 %.not.i22.i, label %69, label %57
 
 57:                                               ; preds = %42
-  %58 = trunc i32 %56 to i16
+  %58 = trunc nuw nsw i32 %56 to i16
   %59 = select i1 %55, i16 %58, i16 0
   %60 = add i16 %59, %52
   %61 = zext i16 %60 to i32

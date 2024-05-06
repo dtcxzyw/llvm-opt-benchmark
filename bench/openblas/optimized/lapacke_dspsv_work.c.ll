@@ -54,7 +54,7 @@ define i32 @LAPACKE_dspsv_work(i32 noundef %0, i8 noundef signext %1, i32 nounde
 
 28:                                               ; preds = %20
   %29 = add nuw nsw i32 %18, 1
-  %30 = mul nsw i32 %29, %18
+  %30 = mul nuw nsw i32 %29, %18
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 2
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #7

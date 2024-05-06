@@ -147,7 +147,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_bus_attach_private_data435, ptr @__UNIQUE_ID___addressable_acpi_bus_detach_private_data437, ptr @__UNIQUE_ID___addressable_acpi_bus_for_each_dev454, ptr @__UNIQUE_ID___addressable_acpi_bus_get_private_data436, ptr @__UNIQUE_ID___addressable_acpi_bus_get_status433, ptr @__UNIQUE_ID___addressable_acpi_bus_get_status_handle432, ptr @__UNIQUE_ID___addressable_acpi_bus_private_data_handler434, ptr @__UNIQUE_ID___addressable_acpi_bus_register_driver452, ptr @__UNIQUE_ID___addressable_acpi_bus_unregister_driver453, ptr @__UNIQUE_ID___addressable_acpi_dev_for_each_child455, ptr @__UNIQUE_ID___addressable_acpi_dev_install_notify_handler443, ptr @__UNIQUE_ID___addressable_acpi_dev_remove_notify_handler444, ptr @__UNIQUE_ID___addressable_acpi_device_get_match_data449, ptr @__UNIQUE_ID___addressable_acpi_driver_match_device451, ptr @__UNIQUE_ID___addressable_acpi_get_first_physical_node445, ptr @__UNIQUE_ID___addressable_acpi_init458, ptr @__UNIQUE_ID___addressable_acpi_kobj456, ptr @__UNIQUE_ID___addressable_acpi_match_acpi_device447, ptr @__UNIQUE_ID___addressable_acpi_match_device448, ptr @__UNIQUE_ID___addressable_acpi_match_device_ids450, ptr @__UNIQUE_ID___addressable_acpi_root_dir431, ptr @__UNIQUE_ID___addressable_acpi_run_osc438, ptr @__UNIQUE_ID___addressable_acpi_set_modalias446, ptr @__UNIQUE_ID___addressable_osc_cpc_flexible_adr_space_confirmed440, ptr @__UNIQUE_ID___addressable_osc_pc_lpi_support_confirmed439, ptr @__UNIQUE_ID___addressable_osc_sb_native_usb4_control442, ptr @__UNIQUE_ID___addressable_osc_sb_native_usb4_support_confirmed441], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_bus_get_status_handle(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 6, 5) i32 @acpi_bus_get_status_handle(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @acpi_evaluate_integer(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef null, ptr noundef %1) #14
   %4 = icmp eq i32 %3, 5
   br i1 %4, label %5, label %6
@@ -171,7 +171,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_bus_get_status(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_get_status(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !5
@@ -231,7 +231,7 @@ define dso_local void @acpi_bus_private_data_handler(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_bus_attach_private_data(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @acpi_bus_attach_private_data(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @acpi_attach_data(ptr noundef %0, ptr noundef nonnull @acpi_bus_private_data_handler, ptr noundef %1) #14
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i32 0, i32 -19
@@ -242,7 +242,7 @@ define dso_local i32 @acpi_bus_attach_private_data(ptr noundef %0, ptr noundef %
 declare dso_local i32 @acpi_attach_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_bus_get_private_data(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_bus_get_private_data(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -414,7 +414,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_dev_install_notify_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @acpi_dev_install_notify_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @acpi_install_notify_handler(ptr noundef %6, i32 noundef %1, ptr noundef %2, ptr noundef %3) #14
@@ -659,7 +659,7 @@ define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef reado
 
 44:                                               ; preds = %65, %.thread
   %45 = phi i64 [ 1, %.thread ], [ %66, %65 ]
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw nsw i64 %45 to i32
   %47 = shl nuw nsw i32 %46, 3
   %48 = xor i32 %47, 24
   %49 = load i32, ptr %43, align 4
@@ -911,7 +911,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_match_device_ids(ptr noundef %0, ptr noundef %1) #6 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef %0, ptr noundef %1) #6 align 16 {
   %3 = tail call fastcc zeroext i1 @__acpi_match_device(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null)
   %4 = select i1 %3, i32 0, i32 -2
   ret i32 %4
@@ -1129,7 +1129,7 @@ define dso_local void @acpi_bus_unregister_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_bus_match(ptr noundef %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -500
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16
@@ -1537,7 +1537,7 @@ declare dso_local void @init_prmt() local_unnamed_addr #2
 declare dso_local void @acpi_init_pcc() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @acpi_bus_init() unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_addr #8 section ".init.text" align 16 {
   %1 = alloca [3 x i32], align 4
   %2 = alloca %struct.acpi_osc_context, align 8
   %3 = alloca ptr, align 8
@@ -1863,7 +1863,7 @@ declare dso_local void @acpi_ec_dsdt_probe() local_unnamed_addr #2
 declare dso_local i32 @acpi_sleep_init() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @acpi_bus_init_irq() unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init_irq() unnamed_addr #8 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_irq_model, align 4
   switch i32 %1, label %7 [
     i32 0, label %9

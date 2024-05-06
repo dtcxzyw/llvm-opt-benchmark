@@ -471,7 +471,7 @@ Aig_ObjChild0Copy.exit92:                         ; preds = %89, %97
   br i1 %109, label %89, label %.critedge6.loopexit, !llvm.loop !10
 
 .critedge6.loopexit:                              ; preds = %Aig_ObjChild0Copy.exit92
-  %110 = trunc i64 %indvars.iv.next120 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv.next120 to i32
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %.critedge4.preheader

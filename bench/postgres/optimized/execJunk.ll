@@ -227,7 +227,7 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readon
   br i1 %.not15.i, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #5
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %1) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.split.i, label %24
 

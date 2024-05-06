@@ -339,7 +339,7 @@ mriStepInnerStepper_HasRequiredOps.exit:          ; preds = %95, %select.unfold,
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @mriStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @mriStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -642,7 +642,7 @@ define void @MRIStepFree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %5, ptr noundef %6) #0 {
+define range(i32 -21, 1) i32 @mriStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -784,7 +784,7 @@ mriStep_AccessStepMem.exit.thread:                ; preds = %8, %3, %mriStep_Acc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_GetGammas(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define range(i32 -21, 1) i32 @mriStep_GetGammas(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -827,7 +827,7 @@ mriStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %mriStep_Ac
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_Init(ptr noundef %0, i32 noundef %1) #0 {
+define range(i32 -29, 1) i32 @mriStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -880,7 +880,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   br label %mriStep_AccessStepMem.exit.thread
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @mriStep_SetCoupling(ptr noundef nonnull %0), !range !4
+  %23 = tail call i32 @mriStep_SetCoupling(ptr noundef nonnull %0)
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %25, label %24
 
@@ -889,7 +889,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   br label %mriStep_AccessStepMem.exit.thread
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @mriStep_CheckCoupling(ptr noundef nonnull %0), !range !4
+  %26 = tail call i32 @mriStep_CheckCoupling(ptr noundef nonnull %0)
   %.not35 = icmp eq i32 %26, 0
   br i1 %.not35, label %28, label %27
 
@@ -1233,7 +1233,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %217 = load i32, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %0, i64 240
   %219 = load ptr, ptr %218, align 8
-  %220 = tail call i32 @mriStepInnerStepper_AllocVecs(ptr noundef %215, i32 noundef %217, ptr noundef %219), !range !5
+  %220 = tail call i32 @mriStepInnerStepper_AllocVecs(ptr noundef %215, i32 noundef %217, ptr noundef %219)
   %.not54 = icmp eq i32 %220, 0
   br i1 %.not54, label %222, label %221
 
@@ -1296,7 +1296,7 @@ mriStep_AccessStepMem.exit.thread:                ; preds = %9, %4, %237, %240, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define range(i32 -22, 1) i32 @mriStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1868,12 +1868,12 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 104:                                              ; preds = %92
   %105 = trunc nuw nsw i64 %indvars.iv to i32
-  %106 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %105), !range !6
+  %106 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %105)
   br label %113
 
 107:                                              ; preds = %92
   %108 = trunc nuw nsw i64 %indvars.iv to i32
-  %109 = tail call i32 @mriStep_StageERKNoFast(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %108), !range !4
+  %109 = tail call i32 @mriStep_StageERKNoFast(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %108)
   br label %113
 
 110:                                              ; preds = %92
@@ -2061,7 +2061,7 @@ declare i32 @MRIStepSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -2299,7 +2299,7 @@ mriStep_AccessStepMem.exit.thread:                ; preds = %14, %9, %mriStepInn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2338,7 +2338,7 @@ declare i32 @arkResizeVec(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i6
 declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStepInnerStepper_Resize(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_Resize(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %15, label %8
 
@@ -2684,7 +2684,7 @@ define i32 @MRIStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
 declare i32 @arkGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @MRIStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2959,7 +2959,7 @@ declare double @llvm.fabs.f64(double) #7
 declare i32 @arkEwtSetSmallReal(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -41, 1) i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3078,7 +3078,7 @@ switch.lookup:                                    ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_CheckCoupling(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -41, 1) i32 @mriStep_CheckCoupling(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3522,7 +3522,7 @@ declare i32 @arkAllocVecArray(i32 noundef, ptr noundef, ptr noundef, i64 noundef
 declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
@@ -3736,7 +3736,7 @@ declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_StageERKFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -36, 1) i32 @mriStep_StageERKFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
@@ -3752,7 +3752,7 @@ define noundef i32 @mriStep_StageERKFast(ptr nocapture noundef readonly %0, ptr 
   %16 = tail call double @llvm.fmuladd.f64(double %13, double %15, double %5)
   %17 = load double, ptr %11, align 8
   %18 = fsub double %17, %13
-  %19 = tail call i32 @mriStep_ComputeInnerForcing(ptr poison, ptr noundef %1, i32 noundef %2, double noundef %18), !range !7
+  %19 = tail call i32 @mriStep_ComputeInnerForcing(ptr poison, ptr noundef %1, i32 noundef %2, double noundef %18)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %mriStepInnerStepper_Evolve.exit.thread
 
@@ -3834,7 +3834,7 @@ mriStepInnerStepper_Evolve.exit.thread:           ; preds = %50, %46, %39, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_StageERKNoFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
@@ -3875,7 +3875,7 @@ define i32 @mriStep_StageERKNoFast(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph73.split.split.us.preheader.i ], [ %indvars.iv.next99.i, %..loopexit_crit_edge.us.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %26 = trunc nuw nsw i64 %indvars.iv.next99.i to i32
-  %27 = uitofp i32 %26 to double
+  %27 = uitofp nneg i32 %26 to double
   %28 = fdiv double 1.000000e+00, %27
   %29 = load ptr, ptr %22, align 8
   %.not.us75.i = icmp eq ptr %29, null
@@ -4077,7 +4077,7 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef %1, i3
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @mriStep_Predict(ptr noundef %0, i32 noundef %2, ptr noundef %7), !range !8
+  %8 = tail call i32 @mriStep_Predict(ptr noundef %0, i32 noundef %2, ptr noundef %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %mriStep_RKCoeffs.exit
 
@@ -4142,7 +4142,7 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef %1, i3
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph73.split.split.us.preheader.i ], [ %indvars.iv.next99.i, %..loopexit_crit_edge.us.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %44 = trunc nuw nsw i64 %indvars.iv.next99.i to i32
-  %45 = uitofp i32 %44 to double
+  %45 = uitofp nneg i32 %44 to double
   %46 = fdiv double 1.000000e+00, %45
   %47 = load ptr, ptr %40, align 8
   %.not.us75.i = icmp eq ptr %47, null
@@ -4226,7 +4226,7 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef %1, i3
   br i1 %88, label %.lr.ph.i, label %.preheader62.i
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge.us.i, %.preheader62.i
-  %89 = tail call i32 @mriStep_StageSetup(ptr noundef %0), !range !7
+  %89 = tail call i32 @mriStep_StageSetup(ptr noundef %0)
   %.not36 = icmp eq i32 %89, 0
   br i1 %.not36, label %90, label %mriStep_RKCoeffs.exit
 
@@ -4252,7 +4252,7 @@ define noundef i32 @mriStep_StageDIRKFast(ptr noundef %0, ptr nocapture noundef 
 declare ptr @MRIStepCoupling_LoadTable(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 416
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 424
@@ -4503,7 +4503,7 @@ define i32 @mriStepInnerStepper_Evolve(ptr noundef %0, double noundef %1, double
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #9 {
+define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #9 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %.loopexit63, label %7
 
@@ -4538,7 +4538,7 @@ define noundef i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv98 = phi i64 [ 0, %.lr.ph73.split.split.us.preheader ], [ %indvars.iv.next99, %..loopexit_crit_edge.us ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next99 to i32
-  %21 = uitofp i32 %20 to double
+  %21 = uitofp nneg i32 %20 to double
   %22 = fdiv double 1.000000e+00, %21
   %23 = load ptr, ptr %16, align 8
   %.not.us75 = icmp eq ptr %23, null
@@ -4629,7 +4629,7 @@ define noundef i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0, i32 noun
 declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -4837,7 +4837,7 @@ define i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_StageSetup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5020,7 +5020,7 @@ declare i32 @arkPredict_CutoffOrder(ptr noundef, double noundef, ptr noundef) lo
 declare i32 @arkPredict_Bootstrap(ptr noundef, double noundef, double noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -5112,7 +5112,7 @@ mriStepInnerStepper_FreeVecs.exit:                ; preds = %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mriStepInnerStepper_FreeVecs(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_FreeVecs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 
@@ -5154,7 +5154,7 @@ define noundef i32 @mriStepInnerStepper_FreeVecs(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_SetContent(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetContent(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -5172,7 +5172,7 @@ define noundef i32 @MRIStepInnerStepper_SetContent(ptr noundef writeonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_GetContent(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetContent(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -5191,7 +5191,7 @@ define noundef i32 @MRIStepInnerStepper_GetContent(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -5219,7 +5219,7 @@ define noundef i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -5248,7 +5248,7 @@ define noundef i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -5277,7 +5277,7 @@ define noundef i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonly %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonly %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -5340,7 +5340,7 @@ define noundef i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonly %0, doub
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MRIStepInnerStepper_GetForcingData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetForcingData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -5398,8 +5398,3 @@ attributes #13 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -41, i32 1}
-!5 = !{i32 -22, i32 1}
-!6 = !{i32 -36, i32 1}
-!7 = !{i32 -28, i32 1}
-!8 = !{i32 -21, i32 -22}

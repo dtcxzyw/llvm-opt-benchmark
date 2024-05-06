@@ -828,7 +828,7 @@ define dso_local void @drm_gem_shmem_vunmap(ptr noundef %0, ptr noundef %1) #0 a
 declare dso_local void @vunmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @drm_gem_shmem_madvise(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 0, 2) i32 @drm_gem_shmem_madvise(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 364
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1

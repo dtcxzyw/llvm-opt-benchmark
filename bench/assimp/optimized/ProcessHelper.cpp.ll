@@ -912,7 +912,7 @@ if.end.i:                                         ; preds = %entry, %while.body
   br i1 %cmp2.not.i18.not, label %while.cond11.preheader, label %while.body
 
 while.body:                                       ; preds = %if.end.i
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 256, %7
   %arrayidx = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx, align 4
@@ -935,7 +935,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %while.cond11.prehea
 
 while.body13:                                     ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %11 = trunc i64 %indvars.iv40 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv40 to i32
   %shl15 = shl nuw i32 16777216, %11
   %or16 = or i32 %shl15, %iRet.435
   %exitcond43 = icmp eq i64 %indvars.iv.next41, 8
@@ -993,8 +993,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body8.lr.ph:                                  ; preds = %for.body
   %mWeights = getelementptr inbounds i8, ptr %11, i64 1048
-  %13 = trunc i64 %indvars.iv19 to i32
-  %14 = trunc i64 %indvars.iv19 to i32
+  %13 = trunc nuw i64 %indvars.iv19 to i32
+  %14 = trunc nuw i64 %indvars.iv19 to i32
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_.exit

@@ -19,7 +19,7 @@ entry:
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @oidmap_neq(ptr nocapture readnone %hashmap_cmp_fn_data, ptr nocapture noundef readonly %e1, ptr nocapture noundef readonly %e2, ptr noundef readonly %keydata) #2 {
+define internal range(i32 0, 2) i32 @oidmap_neq(ptr nocapture readnone %hashmap_cmp_fn_data, ptr nocapture noundef readonly %e1, ptr nocapture noundef readonly %e2, ptr noundef readonly %keydata) #2 {
 entry:
   %tobool.not = icmp eq ptr %keydata, null
   %oid3 = getelementptr inbounds i8, ptr %e1, i64 16
@@ -50,11 +50,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid3, ptr noundef nonnull dereferenceable(32) %keydata, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid3, ptr noundef nonnull readonly dereferenceable(32) %keydata, i64 32)
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid3, ptr noundef nonnull dereferenceable(20) %keydata, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid3, ptr noundef nonnull readonly dereferenceable(20) %keydata, i64 20)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -83,11 +83,11 @@ if.end.i8:                                        ; preds = %if.else.i5, %if.the
   br i1 %cmp.i.i11, label %if.then.i.i17, label %if.end.i.i12
 
 if.then.i.i17:                                    ; preds = %if.end.i8
-  %bcmp3.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid3, ptr noundef nonnull dereferenceable(32) %oid4, i64 32)
+  %bcmp3.i.i18 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid3, ptr noundef nonnull readonly dereferenceable(32) %oid4, i64 32)
   br label %return
 
 if.end.i.i12:                                     ; preds = %if.end.i8
-  %bcmp.i.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid3, ptr noundef nonnull dereferenceable(20) %oid4, i64 20)
+  %bcmp.i.i13 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid3, ptr noundef nonnull readonly dereferenceable(20) %oid4, i64 20)
   br label %return
 
 return:                                           ; preds = %if.end.i.i12, %if.then.i.i17, %if.end.i.i, %if.then.i.i

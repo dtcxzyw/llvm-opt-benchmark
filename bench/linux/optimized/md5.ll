@@ -124,7 +124,7 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = and i64 %5, 63
   %10 = getelementptr i8, ptr %8, i64 %9
-  %11 = sub nsw i32 55, %7
+  %11 = sub nuw nsw i32 55, %7
   %12 = getelementptr i8, ptr %10, i64 1
   store i8 -128, ptr %10, align 1
   %13 = icmp ugt i32 %7, 55

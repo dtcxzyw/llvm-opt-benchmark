@@ -241,7 +241,7 @@ $_ZTV13BaseException = comdat any
 @.str.38 = private unnamed_addr constant [36 x i8] c"Invalid replacements (fuel recipe=\22\00", align 1
 @.str.39 = private unnamed_addr constant [36 x i8] c"Unknown crafting definition type: \22\00", align 1
 @.str.40 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.41 = private unnamed_addr constant [33 x i8] c"No craft recipe known for output\00", align 1
 @.str.42 = private unnamed_addr constant [42 x i8] c"Either output or recipe has to be defined\00", align 1
 @.str.43 = private unnamed_addr constant [24 x i8] c"Invalid crafting recipe\00", align 1

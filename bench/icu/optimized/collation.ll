@@ -175,7 +175,7 @@ return:                                           ; preds = %if.end14, %if.then
 define noundef i32 @_ZN6icu_759Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %c, i64 noundef %dataCE) local_unnamed_addr #0 align 2 {
 entry:
   %shr = lshr i64 %dataCE, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %conv1 = trunc i64 %dataCE to i32
   %shr2 = ashr i32 %conv1, 8
   %sub = sub nsw i32 %c, %shr2
@@ -224,7 +224,7 @@ _ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation30unassignedPrimaryFromCodePointEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -33554432, 0) i32 @_ZN6icu_759Collation30unassignedPrimaryFromCodePointEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
 entry:
   %inc = add nsw i32 %c, 1
   %rem = srem i32 %inc, 18

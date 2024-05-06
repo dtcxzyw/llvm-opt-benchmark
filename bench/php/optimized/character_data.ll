@@ -128,7 +128,7 @@ declare i32 @lxb_dom_node_interface_copy(ptr noundef, ptr noundef, i1 noundef ze
 declare ptr @lexbor_str_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lxb_dom_character_data_replace(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_dom_character_data_replace(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

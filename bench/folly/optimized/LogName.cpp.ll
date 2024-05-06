@@ -178,7 +178,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmm
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly7LogName4hashENS_5RangeIPKcEE(ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5folly7LogName4hashENS_5RangeIPKcEE(ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %name.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %name.coerce0 to i64
@@ -314,7 +314,7 @@ cleanup.1:                                        ; preds = %if.end8.1, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4_(ptr %a.coerce0, ptr %a.coerce1, ptr %b.coerce0, ptr %b.coerce1) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4_(ptr %a.coerce0, ptr %a.coerce1, ptr %b.coerce0, ptr %b.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %b.coerce193 = ptrtoint ptr %b.coerce1 to i64
   %b.coerce092 = ptrtoint ptr %b.coerce0 to i64

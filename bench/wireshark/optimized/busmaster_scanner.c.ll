@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @busmaster_lex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2587,7 +2587,7 @@ define hidden void @busmaster_set_debug(i32 noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @busmaster_lex_init(ptr noundef writeonly %0) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @busmaster_lex_init(ptr noundef writeonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2615,7 +2615,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @busmaster_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @busmaster_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

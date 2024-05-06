@@ -1362,7 +1362,7 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @table_is_an_array(ptr noundef %L) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %L) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #9
   tail call void @luaL_checkstack(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.2) #9

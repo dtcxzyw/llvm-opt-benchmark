@@ -101,7 +101,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %41
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %48
 
 48:                                               ; preds = %.lr.ph, %46, %41
@@ -198,7 +198,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %.1296447 = phi double [ %.0295502, %.lr.ph452.preheader ], [ %.2297, %130 ]
   %.2307446 = phi double [ %.1306501, %.lr.ph452.preheader ], [ %90, %130 ]
   %indvars.iv.next541 = add nsw i64 %indvars.iv540, -1
-  %88 = trunc i64 %indvars.iv.next541 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv.next541 to i32
   %89 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %88, i32 noundef 1) #6
   %90 = fsub double %.2307446, %89
   %91 = load ptr, ptr %25, align 8
@@ -271,11 +271,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %131, label %.lr.ph452, label %._crit_edge453, !llvm.loop !8
 
 ._crit_edge453.loopexit.split.loop.exit:          ; preds = %102
-  %132 = trunc i64 %indvars.iv540 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv540 to i32
   br label %._crit_edge453
 
 ._crit_edge453.loopexit.split.loop.exit578:       ; preds = %.lr.ph452
-  %133 = trunc i64 %indvars.iv540 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv540 to i32
   br label %._crit_edge453
 
 ._crit_edge453:                                   ; preds = %130, %._crit_edge453.loopexit.split.loop.exit, %._crit_edge453.loopexit.split.loop.exit578, %.preheader364
@@ -300,7 +300,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %.4289473 = phi double [ %.2287.lcssa, %.lr.ph477.preheader ], [ %.5290, %193 ]
   %.3298472 = phi double [ %.1296.lcssa, %.lr.ph477.preheader ], [ %.4299, %193 ]
   %.4309471 = phi double [ %.3308, %.lr.ph477.preheader ], [ %140, %193 ]
-  %138 = trunc i64 %indvars.iv543 to i32
+  %138 = trunc nsw i64 %indvars.iv543 to i32
   %139 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %138, i32 noundef 0) #6
   %140 = fsub double %.4309471, %139
   %indvars.iv.next544 = add nsw i64 %indvars.iv543, 1
@@ -336,7 +336,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   store double %159, ptr %160, align 8
   %161 = sext i32 %.2279474 to i64
   %.not355 = icmp slt i64 %indvars.iv.next544, %161
-  %162 = trunc i64 %indvars.iv.next544 to i32
+  %162 = trunc nsw i64 %indvars.iv.next544 to i32
   br i1 %.not355, label %176, label %163
 
 163:                                              ; preds = %150
@@ -418,7 +418,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv546 = phi i64 [ %199, %.lr.ph499.preheader ], [ %indvars.iv.next547, %213 ]
   %.6311496 = phi double [ %.5310, %.lr.ph499.preheader ], [ %203, %213 ]
   %indvars.iv.next547 = add nsw i64 %indvars.iv546, -1
-  %201 = trunc i64 %indvars.iv.next547 to i32
+  %201 = trunc nsw i64 %indvars.iv.next547 to i32
   %202 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %201, i32 noundef 1) #6
   %203 = fsub double %.6311496, %202
   %204 = load ptr, ptr %25, align 8
@@ -507,7 +507,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %.6291382 = phi double [ %.7292, %285 ], [ %.1306501, %.preheader366 ]
   %.5300381 = phi double [ %.6301, %285 ], [ %.0295502, %.preheader366 ]
   %.7312380 = phi double [ %244, %285 ], [ %.1306501, %.preheader366 ]
-  %242 = trunc i64 %indvars.iv523 to i32
+  %242 = trunc nsw i64 %indvars.iv523 to i32
   %243 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %242, i32 noundef 0) #6
   %244 = fsub double %.7312380, %243
   %indvars.iv.next524 = add nsw i64 %indvars.iv523, 1
@@ -524,7 +524,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %254 = getelementptr inbounds %struct._reo_plane, ptr %247, i64 %indvars.iv.next524, i32 5
   store double %253, ptr %254, align 8
   %255 = fcmp ult double %244, %.5300381
-  %256 = trunc i64 %indvars.iv.next524 to i32
+  %256 = trunc nsw i64 %indvars.iv.next524 to i32
   br i1 %255, label %257, label %._crit_edge386
 
 257:                                              ; preds = %.lr.ph385
@@ -604,7 +604,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %.7302406 = phi double [ %.5300.lcssa, %.lr.ph412.preheader ], [ %.8303, %346 ]
   %.9314405 = phi double [ %.8313, %.lr.ph412.preheader ], [ %294, %346 ]
   %indvars.iv.next527 = add nsw i64 %indvars.iv526, -1
-  %292 = trunc i64 %indvars.iv.next527 to i32
+  %292 = trunc nuw nsw i64 %indvars.iv.next527 to i32
   %293 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %292, i32 noundef 1) #6
   %294 = fsub double %.9314405, %293
   %295 = load ptr, ptr %25, align 8
@@ -700,11 +700,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %347, label %.lr.ph412, label %._crit_edge413, !llvm.loop !14
 
 ._crit_edge413.loopexit.split.loop.exit:          ; preds = %318
-  %348 = trunc i64 %indvars.iv526 to i32
+  %348 = trunc nuw nsw i64 %indvars.iv526 to i32
   br label %._crit_edge413
 
 ._crit_edge413.loopexit.split.loop.exit565:       ; preds = %316
-  %349 = trunc i64 %indvars.iv526 to i32
+  %349 = trunc nuw nsw i64 %indvars.iv526 to i32
   br label %._crit_edge413
 
 ._crit_edge413:                                   ; preds = %346, %._crit_edge413.loopexit.split.loop.exit, %._crit_edge413.loopexit.split.loop.exit565, %._crit_edge386
@@ -725,7 +725,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %365
   %indvars.iv529 = phi i64 [ %351, %.lr.ph434.preheader ], [ %indvars.iv.next530, %365 ]
   %.11431 = phi double [ %.10315, %.lr.ph434.preheader ], [ %355, %365 ]
-  %353 = trunc i64 %indvars.iv529 to i32
+  %353 = trunc nsw i64 %indvars.iv529 to i32
   %354 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %353, i32 noundef 0) #6
   %355 = fsub double %.11431, %354
   %356 = load ptr, ptr %25, align 8

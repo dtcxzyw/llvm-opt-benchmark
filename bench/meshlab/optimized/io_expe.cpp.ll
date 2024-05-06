@@ -2680,8 +2680,8 @@ _ZN7QStringD2Ev.exit107:                          ; preds = %_ZN11QStringListD2E
   %229 = load i32, ptr %228, align 8
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds ptr, ptr %227, i64 %230
-  %232 = getelementptr ptr, ptr %231, i64 %indvars.iv404
-  %233 = getelementptr i8, ptr %232, i64 24
+  %232 = getelementptr inbounds ptr, ptr %231, i64 %indvars.iv404
+  %233 = getelementptr inbounds i8, ptr %232, i64 24
   %234 = invoke noundef double @_ZNK7QString8toDoubleEPb(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef null)
           to label %235 unwind label %.loopexit.split-lp.loopexit
 

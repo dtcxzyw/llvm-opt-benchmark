@@ -103,7 +103,7 @@ define i64 @f64_div(i64 %0, i64 %1) local_unnamed_addr #0 {
   %52 = lshr i64 %51, 32
   %53 = mul nuw i64 %52, %41
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = add i32 %55, 4
   %57 = and i64 %42, -4294967296
   %58 = zext i32 %56 to i64

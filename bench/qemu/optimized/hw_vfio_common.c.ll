@@ -583,7 +583,7 @@ for.body19.us.i:                                  ; preds = %while.end.us.i, %if
   br i1 %tobool21.not.us.i, label %if.end52.us.i, label %if.then22.us.i
 
 if.then22.us.i:                                   ; preds = %for.body19.us.i
-  %10 = call i64 @llvm.ctpop.i64(i64 %9), !range !13
+  %10 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %11 = load ptr, ptr %blocks.i, align 16
   %arrayidx27.us.i = getelementptr ptr, ptr %11, i64 %idx.166.us.i
   %12 = load ptr, ptr %arrayidx27.us.i, align 8
@@ -633,20 +633,20 @@ if.end52.us.i:                                    ; preds = %if.then45.us.i, %if
   %spec.select49.us.i = add i64 %idx.166.us.i, %inc57.us.i
   %inc60.us.i = add nuw nsw i64 %k.064.us.i, 1
   %exitcond75.not.i = icmp eq i64 %inc60.us.i, %div44.i
-  br i1 %exitcond75.not.i, label %for.cond17.for.inc62_crit_edge.us.i, label %for.body19.us.i, !llvm.loop !14
+  br i1 %exitcond75.not.i, label %for.cond17.for.inc62_crit_edge.us.i, label %for.body19.us.i, !llvm.loop !13
 
 while.end.us.i:                                   ; preds = %rcu_read_auto_lock.exit.i, %while.end.us.i
   %i.062.us.i = phi i64 [ %inc.us.i, %while.end.us.i ], [ 0, %rcu_read_auto_lock.exit.i ]
   %arrayidx.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %i.062.us.i
   %24 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   %25 = inttoptr i64 %24 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   %blocks15.us.i = getelementptr inbounds i8, ptr %25, i64 16
   %arrayidx16.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.062.us.i
   store ptr %blocks15.us.i, ptr %arrayidx16.us.i, align 8
   %inc.us.i = add nuw nsw i64 %i.062.us.i, 1
   %exitcond74.not.i = icmp eq i64 %inc.us.i, 3
-  br i1 %exitcond74.not.i, label %for.body19.us.i, label %while.end.us.i, !llvm.loop !16
+  br i1 %exitcond74.not.i, label %for.body19.us.i, label %while.end.us.i, !llvm.loop !15
 
 for.cond17.for.inc62_crit_edge.us.i:              ; preds = %if.end52.us.i
   %call.i.i51.us.i = call ptr @get_ptr_rcu_reader() #17
@@ -667,13 +667,13 @@ while.end.i:                                      ; preds = %rcu_read_auto_lock.
   %arrayidx.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %i.062.i
   %28 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %29 = inttoptr i64 %28 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   %blocks15.i = getelementptr inbounds i8, ptr %29, i64 16
   %arrayidx16.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.062.i
   store ptr %blocks15.i, ptr %arrayidx16.i, align 8
   %inc.i = add nuw nsw i64 %i.062.i, 1
   %exitcond76.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond76.not.i, label %for.cond17.preheader.i, label %while.end.i, !llvm.loop !16
+  br i1 %exitcond76.not.i, label %for.cond17.preheader.i, label %while.end.i, !llvm.loop !15
 
 if.else.i.i.i:                                    ; preds = %for.cond17.preheader.i, %for.cond17.for.inc62_crit_edge.us.i
   call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
@@ -714,7 +714,7 @@ for.body77.i:                                     ; preds = %if.else.i, %for.inc
   br i1 %cmp79.not.i, label %for.inc114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %for.body77.i
-  %35 = call i64 @llvm.ctpop.i64(i64 %34), !range !13
+  %35 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
   %36 = load i32, ptr @global_dirty_tracking, align 4
   %and86.i = and i32 %36, 2
   %tobool87.not.i = icmp eq i32 %and86.i, 0
@@ -732,7 +732,7 @@ if.end96.i:                                       ; preds = %if.then94.i, %if.th
 
 do.body98.i:                                      ; preds = %do.body98.i, %if.end96.i
   %c.0.i = phi i64 [ %34, %if.end96.i ], [ %and102.i, %do.body98.i ]
-  %38 = call i64 @llvm.cttz.i64(i64 %c.0.i, i1 true), !range !13
+  %38 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %c.0.i, i1 true)
   %shl101.i = shl nuw i64 1, %38
   %not.i = xor i64 %shl101.i, -1
   %and102.i = and i64 %c.0.i, %not.i
@@ -741,7 +741,7 @@ do.body98.i:                                      ; preds = %do.body98.i, %if.en
   %add107.i = add i64 %mul106.i, %ram_addr
   call fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %add107.i, i64 noundef %div145.mask.i, i8 noundef zeroext %spec.select50.i)
   %cmp110.not.i = icmp eq i64 %and102.i, 0
-  br i1 %cmp110.not.i, label %for.inc114.loopexit.i, label %do.body98.i, !llvm.loop !17
+  br i1 %cmp110.not.i, label %for.inc114.loopexit.i, label %do.body98.i, !llvm.loop !16
 
 for.inc114.loopexit.i:                            ; preds = %do.body98.i
   %add97.i = add i64 %35, %num_dirty.360.i
@@ -751,7 +751,7 @@ for.inc114.i:                                     ; preds = %for.inc114.loopexit
   %num_dirty.4.i = phi i64 [ %num_dirty.360.i, %for.body77.i ], [ %add97.i, %for.inc114.loopexit.i ]
   %inc115.i = add nuw nsw i64 %i.161.i, 1
   %exitcond.not.i = icmp eq i64 %inc115.i, %div44.i
-  br i1 %exitcond.not.i, label %cpu_physical_memory_set_dirty_lebitmap.exit, label %for.body77.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %cpu_physical_memory_set_dirty_lebitmap.exit, label %for.body77.i, !llvm.loop !17
 
 if.end117.sink.split.i:                           ; preds = %while.end.i.i54.i, %while.end.i.i54.us.i
   %waiting.i.i.us.sink.i = phi ptr [ %waiting.i.i.us.i, %while.end.i.i54.us.i ], [ %waiting.i.i.i, %while.end.i.i54.i ]
@@ -887,12 +887,12 @@ while.end.us.us.us:                               ; preds = %rcu_read_auto_lock.
   %arrayidx.us.us.us = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv76
   %4 = load atomic i64, ptr %arrayidx.us.us.us monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %arrayidx7.us.us.us = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 %indvars.iv76
   store ptr %5, ptr %arrayidx7.us.us.us, align 8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond79.not, label %for.inc59.us.us.us, label %while.end.us.us.us, !llvm.loop !20
+  br i1 %exitcond79.not, label %for.inc59.us.us.us, label %while.end.us.us.us, !llvm.loop !19
 
 for.end.us.us:                                    ; preds = %while.end.us.us
   %cmp1035.us.us = icmp ult i64 %shr2, %shr
@@ -925,12 +925,12 @@ while.end.us.us:                                  ; preds = %rcu_read_auto_lock.
   %arrayidx.us.us = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv72
   %8 = load atomic i64, ptr %arrayidx.us.us monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %arrayidx7.us.us = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 %indvars.iv72
   store ptr %9, ptr %arrayidx7.us.us, align 8
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %for.end.us.us, label %while.end.us.us, !llvm.loop !20
+  br i1 %exitcond75.not, label %for.end.us.us, label %while.end.us.us, !llvm.loop !19
 
 while.body11.lr.ph.us.us:                         ; preds = %for.end.us.us
   %sub8.us.us = and i64 %shr2, 4503599625273344
@@ -953,7 +953,7 @@ while.body11.us.us.us57.us:                       ; preds = %while.body11.lr.ph.
   tail call void @bitmap_set_atomic(ptr noundef %11, i64 noundef %offset.037.us.us.us.us, i64 noundef %sub54.us.us.us.us) #17
   %inc56.us.us.us62.us = add nuw nsw i64 %idx.038.us.us.us58.us, 1
   %cmp10.us.us.us63.us = icmp ult i64 %add12.us.us.us60.us, %shr
-  br i1 %cmp10.us.us.us63.us, label %while.body11.us.us.us57.us, label %for.inc59.us.us, !llvm.loop !21
+  br i1 %cmp10.us.us.us63.us, label %while.body11.us.us.us57.us, label %for.inc59.us.us, !llvm.loop !20
 
 for.end.us:                                       ; preds = %while.end.us
   %cmp1035.us = icmp ult i64 %shr2, %shr
@@ -986,12 +986,12 @@ while.end.us:                                     ; preds = %rcu_read_auto_lock.
   %arrayidx.us = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv68
   %14 = load atomic i64, ptr %arrayidx.us monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %arrayidx7.us = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 %indvars.iv68
   store ptr %15, ptr %arrayidx7.us, align 8
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 3
-  br i1 %exitcond71.not, label %for.end.us, label %while.end.us, !llvm.loop !20
+  br i1 %exitcond71.not, label %for.end.us, label %while.end.us, !llvm.loop !19
 
 while.body11.lr.ph.us:                            ; preds = %for.end.us
   %sub8.us = and i64 %shr2, 4503599625273344
@@ -1025,19 +1025,19 @@ if.then50.us.us:                                  ; preds = %while.body11.us.us4
 if.end55.us.us:                                   ; preds = %if.then50.us.us, %while.body11.us.us43
   %inc56.us.us52 = add nuw nsw i64 %idx.038.us.us45, 1
   %cmp10.us.us53 = icmp ult i64 %add12.us.us48, %shr
-  br i1 %cmp10.us.us53, label %while.body11.us.us43, label %for.inc59.us, !llvm.loop !21
+  br i1 %cmp10.us.us53, label %while.body11.us.us43, label %for.inc59.us, !llvm.loop !20
 
 while.end:                                        ; preds = %rcu_read_auto_lock.exit, %while.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.end ], [ 0, %rcu_read_auto_lock.exit ]
   %arrayidx = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv
   %20 = load atomic i64, ptr %arrayidx monotonic, align 8
   %21 = inttoptr i64 %20 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %arrayidx7 = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 %indvars.iv
   store ptr %21, ptr %arrayidx7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %while.end, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %while.end, !llvm.loop !19
 
 for.end:                                          ; preds = %while.end
   %cmp1035 = icmp ult i64 %shr2, %shr
@@ -1086,7 +1086,7 @@ if.then50:                                        ; preds = %if.end40
 if.end55:                                         ; preds = %if.then50, %if.end40
   %inc56 = add nuw nsw i64 %idx.038, 1
   %cmp10 = icmp ult i64 %add12, %shr
-  br i1 %cmp10, label %while.body11, label %for.inc59, !llvm.loop !21
+  br i1 %cmp10, label %while.body11, label %for.inc59, !llvm.loop !20
 
 for.inc59:                                        ; preds = %if.end55, %for.end
   %call.i.i30 = tail call ptr @get_ptr_rcu_reader() #17
@@ -1591,7 +1591,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %giommu_next27 = getelementptr inbounds i8, ptr %giommu.0114, i64 80
   %giommu.0 = load ptr, ptr %giommu_next27, align 8
   %tobool.not = icmp eq ptr %giommu.0, null
-  br i1 %tobool.not, label %if.end29, label %for.body, !llvm.loop !22
+  br i1 %tobool.not, label %if.end29, label %for.body, !llvm.loop !21
 
 if.end29:                                         ; preds = %for.inc, %if.then2, %if.end17, %memory_region_get_iommu.exit
   %section.val = load i128, ptr %section, align 16
@@ -1677,7 +1677,7 @@ trace_vfio_listener_region_del.exit:              ; preds = %if.end32, %land.lhs
 if.then40:                                        ; preds = %trace_vfio_listener_region_del.exit
   %pgsizes = getelementptr i8, ptr %listener, i64 424
   %19 = load i64, ptr %pgsizes, align 8
-  %20 = tail call i64 @llvm.cttz.i64(i64 %19, i1 true), !range !13
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 true)
   %notmask = shl nsw i64 -1, %20
   %sub = xor i64 %notmask, -1
   %and = and i64 %and.i, %sub
@@ -1733,7 +1733,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %next.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 88
   %vrdl.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i59 = icmp eq ptr %vrdl.0.i, null
-  br i1 %tobool.not.i59, label %if.then6.i, label %for.body.i, !llvm.loop !23
+  br i1 %tobool.not.i59, label %if.then6.i, label %for.body.i, !llvm.loop !22
 
 if.then6.i:                                       ; preds = %for.inc.i, %if.then49
   tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.50) #19
@@ -1897,7 +1897,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i6, %
   %container_next.i = getelementptr inbounds i8, ptr %vbasedev.012.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.i = icmp eq ptr %vbasedev.0.i, null
-  br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !24
+  br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !23
 
 if.then2:                                         ; preds = %for.inc.i, %if.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gdn.i)
@@ -1990,7 +1990,7 @@ for.inc.i18:                                      ; preds = %land.lhs.true.i, %f
   %giommu_next.i = getelementptr inbounds i8, ptr %giommu.050.i, i64 80
   %giommu.0.i = load ptr, ptr %giommu_next.i, align 8
   %tobool.not.i19 = icmp eq ptr %giommu.0.i, null
-  br i1 %tobool.not.i19, label %vfio_sync_dirty_bitmap.exit.thread, label %for.body.i17, !llvm.loop !25
+  br i1 %tobool.not.i19, label %vfio_sync_dirty_bitmap.exit.thread, label %for.body.i17, !llvm.loop !24
 
 if.else.i:                                        ; preds = %memory_region_get_iommu.exit.i12
   %call.i35.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %10) #17
@@ -2028,7 +2028,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %next.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i, i64 88
   %storemerge.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i38.i = icmp eq ptr %storemerge.i.i, null
-  br i1 %tobool.not.i38.i, label %if.then6.i.i, label %for.body.i.i, !llvm.loop !26
+  br i1 %tobool.not.i38.i, label %if.then6.i.i, label %for.body.i.i, !llvm.loop !25
 
 if.then6.i.i:                                     ; preds = %for.inc.i.i, %if.then57.i
   tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.55) #19
@@ -2301,7 +2301,7 @@ for.inc.i:                                        ; preds = %if.end13.i, %for.bo
   %container_next.i8 = getelementptr inbounds i8, ptr %vbasedev.037.i, i64 16
   %vbasedev.0.i9 = load ptr, ptr %container_next.i8, align 8
   %tobool2.not.i = icmp eq ptr %vbasedev.0.i9, null
-  br i1 %tobool2.not.i, label %if.end17.i, label %for.body.i7, !llvm.loop !27
+  br i1 %tobool2.not.i, label %if.end17.i, label %for.body.i7, !llvm.loop !26
 
 out.i:                                            ; preds = %if.end5.i
   %call9.i = tail call ptr @__errno_location() #18
@@ -2352,7 +2352,7 @@ for.inc.i.i:                                      ; preds = %if.end7.i.i, %for.b
   %container_next.i.i = getelementptr inbounds i8, ptr %vbasedev.010.i.i, i64 16
   %vbasedev.0.i.i = load ptr, ptr %container_next.i.i, align 8
   %tobool.not.i16.i = icmp eq ptr %vbasedev.0.i.i, null
-  br i1 %tobool.not.i16.i, label %vfio_devices_dma_logging_stop.exit.i, label %for.body.i.i, !llvm.loop !28
+  br i1 %tobool.not.i16.i, label %vfio_devices_dma_logging_stop.exit.i, label %for.body.i.i, !llvm.loop !27
 
 vfio_devices_dma_logging_stop.exit.i:             ; preds = %for.inc.i.i, %if.then16.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
@@ -2472,7 +2472,7 @@ for.inc.i:                                        ; preds = %if.end7.i, %for.bod
   %container_next.i9 = getelementptr inbounds i8, ptr %vbasedev.010.i, i64 16
   %vbasedev.0.i10 = load ptr, ptr %container_next.i9, align 8
   %tobool.not.i11 = icmp eq ptr %vbasedev.0.i10, null
-  br i1 %tobool.not.i11, label %if.end.thread, label %for.body.i7, !llvm.loop !28
+  br i1 %tobool.not.i11, label %if.end.thread, label %for.body.i7, !llvm.loop !27
 
 if.end.thread:                                    ; preds = %for.inc.i, %if.then.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
@@ -2546,7 +2546,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %vbasedev.0 = load ptr, ptr %vbasedev.013, align 8
   %tobool.not = icmp eq ptr %vbasedev.0, null
-  br i1 %tobool.not, label %for.cond2.preheader, label %for.body, !llvm.loop !29
+  br i1 %tobool.not, label %for.cond2.preheader, label %for.body, !llvm.loop !28
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc12
   %vbasedev.116 = phi ptr [ %vbasedev.1, %for.inc12 ], [ %vbasedev.114.pre, %for.cond2.preheader ]
@@ -2574,7 +2574,7 @@ if.then9:                                         ; preds = %land.lhs.true
 for.inc12:                                        ; preds = %for.body4, %land.lhs.true, %if.then9
   %vbasedev.1 = load ptr, ptr %vbasedev.116, align 8
   %tobool3.not = icmp eq ptr %vbasedev.1, null
-  br i1 %tobool3.not, label %for.end15, label %for.body4, !llvm.loop !30
+  br i1 %tobool3.not, label %for.end15, label %for.body4, !llvm.loop !29
 
 for.end15:                                        ; preds = %for.inc12, %entry, %for.cond2.preheader
   ret void
@@ -2609,7 +2609,7 @@ for.inc:                                          ; preds = %for.body
   %list = getelementptr inbounds i8, ptr %space.018, i64 16
   %space.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %space.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %entry
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #20
@@ -3281,7 +3281,7 @@ int128_get64.exit49:                              ; preds = %do.end15
   %call27 = tail call i64 @ram_discard_manager_get_min_granularity(ptr noundef %call, ptr noundef %4) #17
   %granularity = getelementptr inbounds i8, ptr %call16, i64 32
   store i64 %call27, ptr %granularity, align 8
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %call27), !range !13
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call27)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %do.body36, label %if.else33
 
@@ -3296,7 +3296,7 @@ do.body36:                                        ; preds = %int128_get64.exit49
   br i1 %tobool37.not, label %if.else44, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %do.body36
-  %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !13
+  %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
   %.highbits = lshr i64 %call27, %9
   %cmp42.not = icmp eq i64 %.highbits, 0
   br i1 %cmp42.not, label %if.else44, label %do.end46
@@ -3360,7 +3360,7 @@ for.body:                                         ; preds = %if.end56, %for.body
   %next83 = getelementptr inbounds i8, ptr %vrdl.055, i64 88
   %vrdl.0 = load ptr, ptr %next83, align 8
   %tobool68.not = icmp eq ptr %vrdl.0, null
-  br i1 %tobool68.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %tobool68.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body
   %inc.neg.le = xor i32 %vrdl_count.054, -1
@@ -3505,7 +3505,7 @@ for.body:                                         ; preds = %for.cond
   %tobool = trunc i8 %7 to i1
   %call14 = tail call i32 @vfio_dma_map(ptr noundef %6, i64 noundef %add10, i64 noundef %sub13, ptr noundef %add.ptr12, i1 noundef zeroext %tobool) #17
   %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %for.cond, label %if.then, !llvm.loop !33
+  br i1 %tobool15.not, label %for.cond, label %if.then, !llvm.loop !32
 
 if.then:                                          ; preds = %for.body
   %8 = load i128, ptr %section, align 16
@@ -3858,7 +3858,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %container_next.i = getelementptr inbounds i8, ptr %vbasedev.03.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.not.i = icmp eq ptr %vbasedev.0.i, null
-  br i1 %tobool.not.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i, !llvm.loop !34
+  br i1 %tobool.not.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i, !llvm.loop !33
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %vbasedev.03.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.01.i, %if.end ]
@@ -3998,13 +3998,13 @@ attributes #21 = { nounwind allocsize(0,1) }
 !10 = distinct !{!10, !6}
 !11 = !{i64 2150196305}
 !12 = !{i64 2150197405}
-!13 = !{i64 0, i64 65}
-!14 = distinct !{!14, !6}
-!15 = !{i64 2152807009}
+!13 = distinct !{!13, !6}
+!14 = !{i64 2152807009}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{i64 2152800500}
+!18 = !{i64 2152800500}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
@@ -4019,4 +4019,3 @@ attributes #21 = { nounwind allocsize(0,1) }
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}

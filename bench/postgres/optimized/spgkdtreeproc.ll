@@ -116,7 +116,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr nocapture noundef readonly %0
   %20 = getelementptr %struct.SortedPoint, ptr %11, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %4, align 8
@@ -202,7 +202,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @x_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @x_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -215,7 +215,7 @@ define internal i32 @x_cmp(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @y_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @y_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %4, align 8
@@ -529,7 +529,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
 
 167:                                              ; preds = %162, %200
   %indvars.iv146 = phi i64 [ 1, %162 ], [ %indvars.iv.next147, %200 ]
-  %168 = trunc i64 %indvars.iv146 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv146 to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = and i32 %169, %.0104.lcssa
   %.not113 = icmp eq i32 %170, 0
@@ -541,7 +541,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   %174 = load i32, ptr %8, align 8
   %175 = sext i32 %174 to i64
   %176 = getelementptr i32, ptr %173, i64 %175
-  %177 = trunc i64 %172 to i32
+  %177 = trunc nuw nsw i64 %172 to i32
   store i32 %177, ptr %176, align 4
   %178 = load i32, ptr %121, align 4
   %179 = icmp sgt i32 %178, 0

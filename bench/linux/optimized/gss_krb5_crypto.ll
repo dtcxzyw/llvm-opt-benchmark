@@ -186,7 +186,7 @@ define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly %1, ptr 
 declare dso_local i32 @crypto_skcipher_decrypt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @make_checksum(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 align 16 {
   %9 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = load i32, ptr %7, align 8
@@ -386,7 +386,7 @@ declare dso_local i32 @crypto_ahash_final(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gss_krb5_checksum(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [1 x %struct.scatterlist], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -940,7 +940,7 @@ define dso_local noundef i32 @xdr_extend_head(ptr nocapture noundef %0, i32 noun
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gss_krb5_aes_encrypt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.xdr_netobj, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %6 = load i32, ptr %0, align 8
@@ -1049,7 +1049,7 @@ define dso_local noundef i32 @gss_krb5_aes_encrypt(ptr nocapture noundef readonl
   %74 = getelementptr inbounds i8, ptr %2, i64 40
   %75 = load ptr, ptr %74, align 8
   store ptr %3, ptr %74, align 8
-  %76 = call i32 @gss_krb5_checksum(ptr noundef %14, ptr noundef null, i32 noundef 0, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5), !range !23
+  %76 = call i32 @gss_krb5_checksum(ptr noundef %14, ptr noundef null, i32 noundef 0, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5)
   store ptr %75, ptr %74, align 8
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %93
@@ -1198,7 +1198,7 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
   store i32 %36, ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %37, align 8
-  %38 = call i32 @gss_krb5_checksum(ptr noundef %19, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %7), !range !23
+  %38 = call i32 @gss_krb5_checksum(ptr noundef %19, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %7)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %62
 
@@ -1315,7 +1315,7 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
 declare dso_local i32 @read_bytes_from_xdr_buf(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @krb5_etm_encrypt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.xdr_netobj, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %6 = load i32, ptr %0, align 8
@@ -1457,7 +1457,7 @@ define dso_local noundef i32 @krb5_etm_encrypt(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @krb5_etm_checksum(i32 %.32.val.-16.val, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %.32.val.-16.val, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
@@ -1551,7 +1551,7 @@ define internal fastcc noundef i32 @krb5_etm_checksum(i32 %.32.val.-16.val, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @krb5_etm_decrypt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [24 x i8], align 16
   %8 = alloca [24 x i8], align 16
   %9 = alloca %struct.xdr_netobj, align 8
@@ -1795,4 +1795,3 @@ attributes #10 = { nounwind allocsize(0) }
 !20 = !{i64 2155984185, i64 2155984214, i64 2155984260, i64 2155984318, i64 2155984372, i64 2155984426, i64 2155984481, i64 2155984512}
 !21 = !{i64 2155987252, i64 2155987061, i64 2155987113, i64 2155987159, i64 2155987187}
 !22 = !{i64 2155987326, i64 2155987355, i64 2155987401, i64 2155987459, i64 2155987513, i64 2155987567, i64 2155987622, i64 2155987653}
-!23 = !{i32 0, i32 851969}

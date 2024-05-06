@@ -340,7 +340,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %piter.sroa.5.048 = phi i32 [ 0, %for.body17.lr.ph ], [ %add8.i, %for.body17 ]
   %and.i = and i32 %piter.sroa.0.049, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true), !range !7
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
   %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
@@ -359,7 +359,7 @@ while.body:                                       ; preds = %for.body17, %_ZN5fo
   %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body17 ]
   %and.i18 = and i32 %iter.sroa.0.051, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true), !range !7
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
   %add5.i30 = add nuw nsw i32 %9, 1
   %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
   %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
@@ -398,13 +398,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEEEEE7destroyISL_EEvRSM_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !8
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !7
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit, %invoke.cont12
   %inc = add i64 %ci.053, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end50, label %invoke.cont12, !llvm.loop !9
+  br i1 %cmp10.not, label %if.end50, label %invoke.cont12, !llvm.loop !8
 
 if.end50:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -463,7 +463,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %piter.sroa.5.048 = phi i32 [ 0, %for.body16.lr.ph ], [ %add8.i, %for.body16 ]
   %and.i = and i32 %piter.sroa.0.049, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true), !range !7
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
   %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
@@ -482,7 +482,7 @@ while.body:                                       ; preds = %for.body16, %_ZN5fo
   %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
   %and.i18 = and i32 %iter.sroa.0.051, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true), !range !7
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
   %add5.i30 = add nuw nsw i32 %9, 1
   %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
   %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
@@ -521,13 +521,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEPvEEEEE7destroyISM_EEvRSN_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !10
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !9
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
   %inc = add i64 %ci.053, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !11
+  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !10
 
 if.end48:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -580,7 +580,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %piter.sroa.5.048 = phi i32 [ 0, %for.body16.lr.ph ], [ %add8.i, %for.body16 ]
   %and.i = and i32 %piter.sroa.0.049, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %7 = tail call i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true), !range !7
+  %7 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %piter.sroa.0.049, i1 true)
   %add5.i = add nuw nsw i32 %7, 1
   %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i16 = select i1 %cmp.not.i, i32 %7, i32 0
@@ -599,7 +599,7 @@ while.body:                                       ; preds = %for.body16, %_ZN5fo
   %iter.sroa.0.051 = phi i32 [ %iter.sroa.0.1, %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit ], [ %iter.sroa.0.0.extract.trunc, %for.body16 ]
   %and.i18 = and i32 %iter.sroa.0.051, 1
   %cmp.not.i19 = icmp eq i32 %and.i18, 0
-  %9 = tail call i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true), !range !7
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.051, i1 true)
   %add5.i30 = add nuw nsw i32 %9, 1
   %add5.i30.pn = select i1 %cmp.not.i19, i32 %add5.i30, i32 1
   %add.i29 = select i1 %cmp.not.i19, i32 %9, i32 0
@@ -638,13 +638,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISC_EERKN5folly7dynamicEEEEEE7destroyISM_EEvRSN_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !12
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !11
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
   %inc = add i64 %ci.053, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !13
+  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !12
 
 if.end48:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -685,10 +685,9 @@ attributes #12 = { noreturn nounwind }
 !4 = !{!"branch_weights", i32 1, i32 1048575}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 1, i32 33}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

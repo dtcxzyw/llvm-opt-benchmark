@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32i_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -407,7 +407,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -426,7 +426,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -445,14 +445,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -837,7 +837,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -856,7 +856,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -875,14 +875,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -903,7 +903,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32i_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1234,7 +1234,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -1253,7 +1253,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -1272,14 +1272,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -1633,7 +1633,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -1652,7 +1652,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -1671,14 +1671,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -1699,7 +1699,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32e_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2030,7 +2030,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -2049,7 +2049,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -2068,14 +2068,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -2429,7 +2429,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -2448,7 +2448,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -2467,14 +2467,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -2495,7 +2495,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32e_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssub_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2826,7 +2826,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -2845,7 +2845,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -2864,14 +2864,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214
@@ -3225,7 +3225,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %186 = and i16 %184, %185
   %187 = icmp slt i16 %186, 0
   %.lobit.i108 = lshr i16 %186, 15
-  %spec.select.i = trunc i16 %.lobit.i108 to i8
+  %spec.select.i = trunc nuw nsw i16 %.lobit.i108 to i8
   %spec.select14.i109 = select i1 %187, i16 %narrow.i107, i16 %182
   store i16 %spec.select14.i109, ptr %177, align 2
   br label %214
@@ -3244,7 +3244,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i32 %197, %198
   %200 = icmp slt i32 %199, 0
   %.lobit.i110 = lshr i32 %199, 31
-  %spec.select.i111 = trunc i32 %.lobit.i110 to i8
+  %spec.select.i111 = trunc nuw nsw i32 %.lobit.i110 to i8
   %spec.select14.i112 = select i1 %200, i32 %196, i32 %194
   store i32 %spec.select14.i112, ptr %189, align 4
   br label %214
@@ -3263,14 +3263,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %212 = and i64 %210, %211
   %213 = icmp slt i64 %212, 0
   %.lobit.i113 = lshr i64 %212, 63
-  %spec.select.i114 = trunc i64 %.lobit.i113 to i8
+  %spec.select.i114 = trunc nuw nsw i64 %.lobit.i113 to i8
   %spec.select14.i115 = select i1 %213, i64 %209, i64 %207
   store i64 %spec.select14.i115, ptr %202, align 8
   br label %214
 
 214:                                              ; preds = %201, %188, %176, %164
   %.0 = phi i8 [ %spec.select.i114, %201 ], [ %spec.select.i111, %188 ], [ %spec.select.i, %176 ], [ %.lobit.i, %164 ]
-  %215 = trunc i8 %.0 to i1
+  %215 = trunc nuw i8 %.0 to i1
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214

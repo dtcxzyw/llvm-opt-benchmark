@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @cursor_get_mono_bpl(ptr nocapture noundef readonly %c) local_unnamed_addr #6 {
+define dso_local range(i32 0, 8193) i32 @cursor_get_mono_bpl(ptr nocapture noundef readonly %c) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %c, align 4
   %conv = zext i16 %0 to i32

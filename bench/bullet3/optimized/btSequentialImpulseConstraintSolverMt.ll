@@ -1163,8 +1163,8 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv.sroa.phi = phi ptr [ %axis, %if.end ], [ %indvars.iv.sroa.gep322, %for.inc ]
   %indvars.iv = phi i64 [ 0, %if.end ], [ 1, %for.inc ]
   %144 = load ptr, ptr %m_data.i203, align 8
-  %145 = getelementptr %struct.btSolverConstraint, ptr %144, i64 %indvars.iv
-  %146 = getelementptr %struct.btSolverConstraint, ptr %145, i64 %143
+  %145 = getelementptr inbounds %struct.btSolverConstraint, ptr %144, i64 %indvars.iv
+  %146 = getelementptr inbounds %struct.btSolverConstraint, ptr %145, i64 %143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dir, ptr noundef nonnull align 16 dereferenceable(16) %indvars.iv.sroa.phi, i64 16, i1 false)
   %147 = load float, ptr %dir, align 4
   %148 = load float, ptr %arrayidx5.i.i.i, align 4
@@ -1177,14 +1177,14 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %for.body
-  %arrayidx.i223 = getelementptr i8, ptr %146, i64 160
+  %arrayidx.i223 = getelementptr inbounds i8, ptr %146, i64 160
   %152 = load float, ptr %m_combinedRollingFriction, align 8
   %153 = load float, ptr %relaxation, align 4
   call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i223, ptr noundef nonnull align 4 dereferenceable(16) %dir, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(204) %7, float noundef %152, ptr noundef nonnull align 4 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 4 dereferenceable(16) %rel_pos2, ptr noundef %4, ptr noundef %5, float noundef %153, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %m_frictionIndex = getelementptr i8, ptr %146, i64 308
+  %m_frictionIndex = getelementptr inbounds i8, ptr %146, i64 308
   store i32 -1, ptr %m_frictionIndex, align 4
   br label %for.inc
 
@@ -2019,7 +2019,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %i
 
 for.body15.preheader:                             ; preds = %for.body6
   %11 = sext i32 %frictionIndex.045 to i64
-  %12 = trunc i64 %indvars.iv55 to i32
+  %12 = trunc nsw i64 %indvars.iv55 to i32
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.preheader, %for.body15
@@ -2035,7 +2035,7 @@ for.body15:                                       ; preds = %for.body15.preheade
   br i1 %cmp14, label %for.body15, label %for.end.loopexit, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body15
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body6
@@ -2050,7 +2050,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.then:                                          ; preds = %for.end
   store i32 %rollingFrictionIndex.046, ptr %arrayidx.i32, align 4
   %18 = sext i32 %rollingFrictionIndex.046 to i64
-  %19 = trunc i64 %indvars.iv55 to i32
+  %19 = trunc nsw i64 %indvars.iv55 to i32
   br label %for.body27
 
 for.body27:                                       ; preds = %if.then, %for.body27
@@ -2069,7 +2069,7 @@ if.else:                                          ; preds = %for.end
   br label %if.end
 
 if.end.loopexit:                                  ; preds = %for.body27
-  %21 = trunc i64 %indvars.iv.next53 to i32
+  %21 = trunc nsw i64 %indvars.iv.next53 to i32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %if.else
@@ -2142,22 +2142,22 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   br i1 %cmp.i, label %for.body.preheader, label %for.end17
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count297 = zext nneg i32 %numManifolds to i64
+  %wide.trip.count298 = zext nneg i32 %numManifolds to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc15
-  %indvars.iv294 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next295, %for.inc15 ]
-  %numContacts.0290 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.inc15 ]
-  %numRollingFrictionConstraints.0288 = phi i32 [ 0, %for.body.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
-  %arrayidx.i = getelementptr inbounds %"struct.btSequentialImpulseConstraintSolverMt::btContactManifoldCachedInfo", ptr %0, i64 %indvars.iv294
+  %indvars.iv295 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next296, %for.inc15 ]
+  %numContacts.0291 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.inc15 ]
+  %numRollingFrictionConstraints.0289 = phi i32 [ 0, %for.body.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
+  %arrayidx.i = getelementptr inbounds %"struct.btSequentialImpulseConstraintSolverMt::btContactManifoldCachedInfo", ptr %0, i64 %indvars.iv295
   %contactIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  store i32 %numContacts.0290, ptr %contactIndex, align 4
+  store i32 %numContacts.0291, ptr %contactIndex, align 4
   %rollingFrictionIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  store i32 %numRollingFrictionConstraints.0288, ptr %rollingFrictionIndex, align 8
+  store i32 %numRollingFrictionConstraints.0289, ptr %rollingFrictionIndex, align 8
   %1 = load i32, ptr %arrayidx.i, align 8
-  %add = add nsw i32 %1, %numContacts.0290
-  %cmp12284 = icmp sgt i32 %1, 0
-  br i1 %cmp12284, label %for.body13.lr.ph, label %for.inc15
+  %add = add nsw i32 %1, %numContacts.0291
+  %cmp12285 = icmp sgt i32 %1, 0
+  br i1 %cmp12285, label %for.body13.lr.ph, label %for.inc15
 
 for.body13.lr.ph:                                 ; preds = %for.body
   %contactHasRollingFriction = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
@@ -2166,12 +2166,12 @@ for.body13.lr.ph:                                 ; preds = %for.body
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.body13
   %indvars.iv = phi i64 [ 0, %for.body13.lr.ph ], [ %indvars.iv.next, %for.body13 ]
-  %numRollingFrictionConstraints.1285 = phi i32 [ %numRollingFrictionConstraints.0288, %for.body13.lr.ph ], [ %spec.select, %for.body13 ]
+  %numRollingFrictionConstraints.1286 = phi i32 [ %numRollingFrictionConstraints.0289, %for.body13.lr.ph ], [ %spec.select, %for.body13 ]
   %arrayidx = getelementptr inbounds [4 x i8], ptr %contactHasRollingFriction, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %tobool = trunc i8 %2 to i1
-  %add14 = add nsw i32 %numRollingFrictionConstraints.1285, 3
-  %spec.select = select i1 %tobool, i32 %add14, i32 %numRollingFrictionConstraints.1285
+  %add14 = add nsw i32 %numRollingFrictionConstraints.1286, 3
+  %spec.select = select i1 %tobool, i32 %add14, i32 %numRollingFrictionConstraints.1286
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc15, label %for.body13, !llvm.loop !18
@@ -2187,10 +2187,10 @@ lpad6:                                            ; preds = %invoke.cont3
   br label %ehcleanup
 
 for.inc15:                                        ; preds = %for.body13, %for.body
-  %numRollingFrictionConstraints.1.lcssa = phi i32 [ %numRollingFrictionConstraints.0288, %for.body ], [ %spec.select, %for.body13 ]
-  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
-  br i1 %exitcond298.not, label %for.end17, label %for.body, !llvm.loop !19
+  %numRollingFrictionConstraints.1.lcssa = phi i32 [ %numRollingFrictionConstraints.0289, %for.body ], [ %spec.select, %for.body13 ]
+  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
+  %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
+  br i1 %exitcond299.not, label %for.end17, label %for.body, !llvm.loop !19
 
 for.end17:                                        ; preds = %for.inc15, %for.cond.preheader
   %numRollingFrictionConstraints.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
@@ -2747,29 +2747,29 @@ invoke.cont44:                                    ; preds = %_ZN20btAlignedObjec
   store i32 %numRollingFrictionConstraints.0.lcssa, ptr %m_size.i.i237, align 4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile18) #13
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27AllocContactConstraintsLoop, i64 0, i32 0, i64 2), ptr %loop45, align 8
-  %m_solver.i274 = getelementptr inbounds i8, ptr %loop45, i64 8
-  store ptr %this, ptr %m_solver.i274, align 8
-  %m_cachedInfoArray.i275 = getelementptr inbounds i8, ptr %loop45, i64 16
-  store ptr %0, ptr %m_cachedInfoArray.i275, align 8
+  %m_solver.i275 = getelementptr inbounds i8, ptr %loop45, i64 8
+  store ptr %this, ptr %m_solver.i275, align 8
+  %m_cachedInfoArray.i276 = getelementptr inbounds i8, ptr %loop45, i64 16
+  store ptr %0, ptr %m_cachedInfoArray.i276, align 8
   invoke void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef 0, i32 noundef %numManifolds, i32 noundef 200, ptr noundef nonnull align 8 dereferenceable(8) %loop45)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont44
-  %tobool.not.i.i.i277 = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i277, label %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit, label %if.then3.i.i.i282
+  %tobool.not.i.i.i278 = icmp eq ptr %0, null
+  br i1 %tobool.not.i.i.i278, label %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit, label %if.then3.i.i.i283
 
-if.then3.i.i.i282:                                ; preds = %invoke.cont51
+if.then3.i.i.i283:                                ; preds = %invoke.cont51
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then3.i.i.i282
+terminate.lpad.i:                                 ; preds = %if.then3.i.i.i283
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
   call void @__clang_call_terminate(ptr %55) #12
   unreachable
 
-_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit: ; preds = %invoke.cont51, %if.then3.i.i.i282
+_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit: ; preds = %invoke.cont51, %if.then3.i.i.i283
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #13
   ret void
 
@@ -3447,7 +3447,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %bodies, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %m_companionId.i = getelementptr inbounds i8, ptr %1, i64 232
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   store i32 %2, ptr %m_companionId.i, align 8
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.btSolverBody, ptr %3, i64 %indvars.iv
@@ -4456,7 +4456,7 @@ if.end:                                           ; preds = %for.body9
   %call21 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i35, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i38, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i32)
   %15 = tail call float @llvm.fmuladd.f32(float %call21, float %call21, float %leastSquaresResidual.140)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %cmp8 = icmp sgt i32 %8, %16
   br i1 %cmp8, label %for.body9, label %for.inc25, !llvm.loop !35
 
@@ -4602,7 +4602,7 @@ if.end41:                                         ; preds = %for.body37
   %call59 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i70, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i73, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i67)
   %34 = tail call float @llvm.fmuladd.f32(float %call59, float %call59, float %leastSquaresResidual.384)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %35 = trunc i64 %indvars.iv90 to i32
+  %35 = trunc nuw i64 %indvars.iv90 to i32
   %cmp36 = icmp sgt i32 %27, %35
   br i1 %cmp36, label %for.body37, label %for.inc65, !llvm.loop !38
 
@@ -4644,7 +4644,7 @@ for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call2 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %2)
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
@@ -4680,7 +4680,7 @@ for.body12:                                       ; preds = %for.body12.preheade
   %indvars.iv33 = phi i64 [ %13, %for.body12.preheader ], [ %indvars.iv.next34, %for.body12 ]
   %14 = load i32, ptr %arrayidx.i19, align 4
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, 1
-  %15 = trunc i64 %indvars.iv.next34 to i32
+  %15 = trunc nsw i64 %indvars.iv.next34 to i32
   %add16 = sub i32 %15, %14
   %call17 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add16)
   %add18 = add nsw i32 %call17, %14
@@ -4742,7 +4742,7 @@ for.body7.lr.ph.i:                                ; preds = %for.cond4.preheader
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %2 = trunc i64 %indvars.iv.next.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %call2.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %2)
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
@@ -4778,7 +4778,7 @@ for.body12.i:                                     ; preds = %for.body12.i, %for.
   %indvars.iv33.i = phi i64 [ %13, %for.body12.preheader.i ], [ %indvars.iv.next34.i, %for.body12.i ]
   %14 = load i32, ptr %arrayidx.i19.i, align 4
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, 1
-  %15 = trunc i64 %indvars.iv.next34.i to i32
+  %15 = trunc nsw i64 %indvars.iv.next34.i to i32
   %add16.i = sub i32 %15, %14
   %call17.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add16.i)
   %add18.i = add nsw i32 %call17.i, %14
@@ -4836,7 +4836,7 @@ for.body7.lr.ph.i6:                               ; preds = %for.cond4.preheader
 for.body.i33:                                     ; preds = %for.body.i33, %for.body.lr.ph.i31
   %indvars.iv.i34 = phi i64 [ 1, %for.body.lr.ph.i31 ], [ %indvars.iv.next.i35, %for.body.i33 ]
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
-  %26 = trunc i64 %indvars.iv.next.i35 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.next.i35 to i32
   %call2.i36 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %26)
   %27 = load ptr, ptr %m_data.i.i32, align 8
   %arrayidx.i.i37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i34
@@ -4872,7 +4872,7 @@ for.body12.i18:                                   ; preds = %for.body12.i18, %fo
   %indvars.iv33.i19 = phi i64 [ %37, %for.body12.preheader.i17 ], [ %indvars.iv.next34.i20, %for.body12.i18 ]
   %38 = load i32, ptr %arrayidx.i19.i11, align 4
   %indvars.iv.next34.i20 = add nsw i64 %indvars.iv33.i19, 1
-  %39 = trunc i64 %indvars.iv.next34.i20 to i32
+  %39 = trunc nsw i64 %indvars.iv.next34.i20 to i32
   %add16.i21 = sub i32 %39, %38
   %call17.i22 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add16.i21)
   %add18.i23 = add nsw i32 %call17.i22, %38
@@ -6557,7 +6557,7 @@ if.end.i:                                         ; preds = %for.body9.i
 call21.i.noexc:                                   ; preds = %if.end.i
   %21 = call float @llvm.fmuladd.f32(float %call21.i5, float %call21.i5, float %leastSquaresResidual.140.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw i64 %indvars.iv.i to i32
   %cmp8.i = icmp sgt i32 %14, %22
   br i1 %cmp8.i, label %for.body9.i, label %for.inc25.i, !llvm.loop !35
 

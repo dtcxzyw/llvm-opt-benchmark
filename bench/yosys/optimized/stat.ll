@@ -899,7 +899,7 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   store ptr %54, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %13, i64 40
   store i64 0, ptr %58, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8
@@ -1307,7 +1307,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   store i32 %231, ptr %.015.i.i.i.i.i.i.i.i.i.i, align 4
   %239 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i.i, i64 8
   %240 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %239, ptr noundef nonnull readonly align 8 dereferenceable(16) %240, i64 16, i1 false)
   %241 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i.i, i64 24
   %242 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i.i.i.i, i64 24
   %243 = load i32, ptr %242, align 8
@@ -1508,7 +1508,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   store i32 %311, ptr %.015.i.i.i.i.i.i.i22.i.i.i, align 4
   %319 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i22.i.i.i, i64 8
   %320 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i23.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, ptr noundef nonnull align 8 dereferenceable(16) %320, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %319, ptr noundef nonnull readonly align 8 dereferenceable(16) %320, i64 16, i1 false)
   %321 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i22.i.i.i, i64 24
   %322 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i23.i.i.i, i64 24
   %323 = load i32, ptr %322, align 8

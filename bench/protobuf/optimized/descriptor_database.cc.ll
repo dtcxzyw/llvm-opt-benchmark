@@ -1926,7 +1926,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true
   br i1 %cmp.i2.i.i.i, label %cond.true, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %20, ptr %22, i64 %19)
+  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %20, ptr readonly %22, i64 %19)
   %cmp.i.i.i4 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i4, label %cond.true, label %lor.rhs.i.i
 
@@ -1938,7 +1938,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %cond.end, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = tail call i32 @bcmp(ptr %22, ptr %20, i64 %19)
+  %bcmp.i3.i = tail call i32 @bcmp(ptr readonly %22, ptr readonly %20, i64 %19)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %cond.end
 
@@ -3995,7 +3995,7 @@ land.rhs.i.i.i:                                   ; preds = %.noexc
   br i1 %cmp.i2.i.i.i.i15, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr %57, ptr %46, i64 %47)
+  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %57, ptr readonly %46, i64 %47)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i, label %lor.rhs.i.i.i
 
@@ -4007,7 +4007,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i.i, %_ZNSt
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread109.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %lor.rhs.i.i.i
-  %bcmp.i3.i.i = call i32 @bcmp(ptr %46, ptr %57, i64 %56)
+  %bcmp.i3.i.i = call i32 @bcmp(ptr readonly %46, ptr readonly %57, i64 %56)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i3.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread109.i
 
@@ -4201,7 +4201,7 @@ land.rhs.i.i78.i:                                 ; preds = %.noexc34
   br i1 %cmp.i2.i.i.i68.i, label %cleanup.done.thread110.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i79.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i79.i: ; preds = %land.rhs.i.i78.i
-  %bcmp.i.i80.i = call i32 @bcmp(ptr %46, ptr %87, i64 %47)
+  %bcmp.i.i80.i = call i32 @bcmp(ptr readonly %46, ptr readonly %87, i64 %47)
   %cmp.i.i.i81.i = icmp eq i32 %bcmp.i.i80.i, 0
   br i1 %cmp.i.i.i81.i, label %cleanup.done.thread110.i, label %lor.rhs.i.i70.i
 
@@ -4213,7 +4213,7 @@ lor.rhs.i.i70.i:                                  ; preds = %lor.rhs.i69.i, %_ZN
   br i1 %cmp.not.i.i71.i, label %cleanup.done.thread113.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i72.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i72.i: ; preds = %lor.rhs.i.i70.i
-  %bcmp.i3.i73.i = call i32 @bcmp(ptr %87, ptr %46, i64 %47)
+  %bcmp.i3.i73.i = call i32 @bcmp(ptr readonly %87, ptr readonly %46, i64 %47)
   %cmp7.i.i74.i = icmp eq i32 %bcmp.i3.i73.i, 0
   br i1 %cmp7.i.i74.i, label %cleanup.done.i, label %cleanup.done.thread113.i
 
@@ -4430,7 +4430,7 @@ land.rhs.i.i.i84:                                 ; preds = %.noexc89
   br i1 %cmp.i2.i.i.i.i61, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i88, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i85
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i85: ; preds = %land.rhs.i.i.i84
-  %bcmp.i.i.i86 = call i32 @bcmp(ptr %113, ptr %103, i64 %102)
+  %bcmp.i.i.i86 = call i32 @bcmp(ptr readonly %113, ptr readonly %103, i64 %102)
   %cmp.i.i.i.i87 = icmp eq i32 %bcmp.i.i.i86, 0
   br i1 %cmp.i.i.i.i87, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i88, label %lor.rhs.i.i.i63
 
@@ -4442,7 +4442,7 @@ lor.rhs.i.i.i63:                                  ; preds = %lor.rhs.i.i62, %_ZN
   br i1 %cmp.not.i.i.i64, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread87.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i65
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i65: ; preds = %lor.rhs.i.i.i63
-  %bcmp.i3.i.i66 = call i32 @bcmp(ptr %103, ptr %113, i64 %112)
+  %bcmp.i3.i.i66 = call i32 @bcmp(ptr readonly %103, ptr readonly %113, i64 %112)
   %cmp7.i.i.i67 = icmp eq i32 %bcmp.i3.i.i66, 0
   br i1 %cmp7.i.i.i67, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.i77, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread87.i
 
@@ -4578,7 +4578,7 @@ land.rhs.i.i60.i:                                 ; preds = %.noexc91
   br i1 %cmp.i2.i.i.i50.i, label %cleanup.done.thread88.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61.i: ; preds = %land.rhs.i.i60.i
-  %bcmp.i.i62.i = call i32 @bcmp(ptr %103, ptr %132, i64 %102)
+  %bcmp.i.i62.i = call i32 @bcmp(ptr readonly %103, ptr readonly %132, i64 %102)
   %cmp.i.i.i63.i = icmp eq i32 %bcmp.i.i62.i, 0
   br i1 %cmp.i.i.i63.i, label %cleanup.done.thread88.i, label %lor.rhs.i.i52.i
 
@@ -4590,7 +4590,7 @@ lor.rhs.i.i52.i:                                  ; preds = %lor.rhs.i51.i, %_ZN
   br i1 %cmp.not.i.i53.i, label %cleanup.done.thread91.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i54.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i54.i: ; preds = %lor.rhs.i.i52.i
-  %bcmp.i3.i55.i = call i32 @bcmp(ptr %132, ptr %103, i64 %102)
+  %bcmp.i3.i55.i = call i32 @bcmp(ptr readonly %132, ptr readonly %103, i64 %102)
   %cmp7.i.i56.i = icmp eq i32 %bcmp.i3.i55.i, 0
   br i1 %cmp7.i.i56.i, label %cleanup.done.i71, label %cleanup.done.thread91.i
 
@@ -5257,7 +5257,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true
   br i1 %cmp.i2.i.i.i, label %invoke.cont16, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr %14, ptr %agg.tmp12.sroa.2.0.copyload, i64 %13)
+  %bcmp.i.i = call i32 @bcmp(ptr readonly %14, ptr readonly %agg.tmp12.sroa.2.0.copyload, i64 %13)
   %cmp.i.i.i3 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i3, label %invoke.cont16, label %lor.rhs.i.i
 
@@ -5269,7 +5269,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %cleanup.action, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = call i32 @bcmp(ptr %agg.tmp12.sroa.2.0.copyload, ptr %14, i64 %13)
+  %bcmp.i3.i = call i32 @bcmp(ptr readonly %agg.tmp12.sroa.2.0.copyload, ptr readonly %14, i64 %13)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %cleanup.action
 
@@ -7177,7 +7177,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit, label %for.body.i
 
@@ -7255,7 +7255,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67, label %for.body.i63
 
@@ -7288,7 +7288,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i77 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i79 = zext i8 %15 to i64
-  %arrayidx.i6.i80 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i77, i64 %conv3.i79
+  %arrayidx.i6.i80 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i77, i64 %conv3.i79
   %cmp.not7.i81 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i81, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit86, label %for.body.i82
 
@@ -7331,7 +7331,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEPKN6google8protobuf19FileDescriptorProtoESt4lessISB_ESaIS4_IKSB_SG_EELi256ELb0EEEE15value_destroy_nEhhPSL_.exit, label %for.body.i
 
@@ -7409,7 +7409,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEPKN6google8protobuf19FileDescriptorProtoESt4lessISB_ESaIS4_IKSB_SG_EELi256ELb0EEEE15value_destroy_nEhhPSL_.exit67, label %for.body.i63
 
@@ -7442,7 +7442,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i77 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i79 = zext i8 %15 to i64
-  %arrayidx.i6.i80 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i77, i64 %conv3.i79
+  %arrayidx.i6.i80 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i77, i64 %conv3.i79
   %cmp.not7.i81 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i81, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEPKN6google8protobuf19FileDescriptorProtoESt4lessISB_ESaIS4_IKSB_SG_EELi256ELb0EEEE15value_destroy_nEhhPSL_.exit86, label %for.body.i82
 
@@ -7567,7 +7567,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit, label %for.body.i
 
@@ -7646,7 +7646,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit68, label %for.body.i63
 
@@ -7680,7 +7680,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i80 = zext i8 %15 to i64
-  %arrayidx.i6.i81 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
+  %arrayidx.i6.i81 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
   %cmp.not7.i82 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i82, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit88, label %for.body.i83
 
@@ -7724,7 +7724,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit, label %for.body.i
 
@@ -7803,7 +7803,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit68, label %for.body.i63
 
@@ -7837,7 +7837,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i80 = zext i8 %15 to i64
-  %arrayidx.i6.i81 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
+  %arrayidx.i6.i81 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
   %cmp.not7.i82 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i82, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit88, label %for.body.i83
 
@@ -8582,7 +8582,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE15value_destroy_nEhhPSC_.exit, label %for.body.i
 
@@ -8660,7 +8660,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE15value_destroy_nEhhPSC_.exit67, label %for.body.i63
 
@@ -8693,7 +8693,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i76 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i78 = zext i8 %15 to i64
-  %arrayidx.i6.i79 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i76, i64 %conv3.i78
+  %arrayidx.i6.i79 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i76, i64 %conv3.i78
   %cmp.not7.i80 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i80, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE15value_destroy_nEhhPSC_.exit85, label %for.body.i81
 
@@ -8753,13 +8753,13 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %3 to i64
-  %4 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %4, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 32
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dest.09.i, ptr noundef nonnull align 8 dereferenceable(32) %src.08.i) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %src.08.i) #28
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 32
@@ -10385,7 +10385,7 @@ land.rhs.i.i:                                     ; preds = %if.end16
   br i1 %cmp.i2.i.i.i, label %if.then22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %34, ptr %name.coerce1, i64 %name.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %34, ptr readonly %name.coerce1, i64 %name.coerce0)
   %cmp.i.i.i7 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i7, label %if.then22, label %lor.rhs.i.i
 
@@ -10397,7 +10397,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %if.end42, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = tail call i32 @bcmp(ptr %name.coerce1, ptr %34, i64 %33)
+  %bcmp.i3.i = tail call i32 @bcmp(ptr readonly %name.coerce1, ptr readonly %34, i64 %33)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %if.end42
 
@@ -10516,7 +10516,7 @@ land.rhs.i.i50:                                   ; preds = %land.rhs
   br i1 %cmp.not17.i, label %if.then54, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i51
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i51: ; preds = %land.rhs.i.i50
-  %bcmp.i.i52 = tail call i32 @bcmp(ptr %name.coerce1, ptr %51, i64 %name.coerce0)
+  %bcmp.i.i52 = tail call i32 @bcmp(ptr readonly %name.coerce1, ptr readonly %51, i64 %name.coerce0)
   %cmp.i.i.i53 = icmp eq i32 %bcmp.i.i52, 0
   br i1 %cmp.i.i.i53, label %if.then54, label %lor.rhs.i.i42
 
@@ -10528,7 +10528,7 @@ lor.rhs.i.i42:                                    ; preds = %lor.rhs.i41, %_ZNSt
   br i1 %cmp.not.i.i43, label %if.end74, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i44
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i44: ; preds = %lor.rhs.i.i42
-  %bcmp.i3.i45 = tail call i32 @bcmp(ptr %51, ptr %name.coerce1, i64 %name.coerce0)
+  %bcmp.i3.i45 = tail call i32 @bcmp(ptr readonly %51, ptr readonly %name.coerce1, i64 %name.coerce0)
   %cmp7.i.i46 = icmp eq i32 %bcmp.i3.i45, 0
   br i1 %cmp7.i.i46, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit54, label %if.end74
 
@@ -11456,15 +11456,15 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %4 to i64
-  %5 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %5 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %5, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 40
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dest.09.i, ptr noundef nonnull align 8 dereferenceable(32) %src.08.i) #28
-  %second.i.i.i.i.i.i.i.i39 = getelementptr i8, ptr %dest.09.i.pn, i64 72
+  %second.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 72
   %second3.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %src.08.i, i64 32
   %6 = load ptr, ptr %second3.i.i.i.i.i.i.i.i40, align 8
   store ptr %6, ptr %second.i.i.i.i.i.i.i.i39, align 8
@@ -13665,19 +13665,19 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %5 to i64
-  %6 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %6 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.210", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %6, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 48
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dest.09.i, ptr noundef nonnull align 8 dereferenceable(32) %src.08.i) #28
-  %second.i.i.i.i.i.i.i.i.i39 = getelementptr i8, ptr %dest.09.i.pn, i64 80
+  %second.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 80
   %second3.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %src.08.i, i64 32
   %7 = load i32, ptr %second3.i.i.i.i.i.i.i.i.i40, align 8
   store i32 %7, ptr %second.i.i.i.i.i.i.i.i.i39, align 8
-  %second.i.i.i.i.i.i.i.i41 = getelementptr i8, ptr %dest.09.i.pn, i64 88
+  %second.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 88
   %second3.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %src.08.i, i64 40
   %8 = load ptr, ptr %second3.i.i.i.i.i.i.i.i42, align 8
   store ptr %8, ptr %second.i.i.i.i.i.i.i.i41, align 8
@@ -15500,16 +15500,16 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %4 to i64
-  %5 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %5 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::FileEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %5, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 40
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 40
   %6 = load i32, ptr %src.08.i, align 8
   store i32 %6, ptr %dest.09.i, align 8
-  %encoded_name.i.i.i.i.i.i.i.i.i39 = getelementptr i8, ptr %dest.09.i.pn, i64 48
+  %encoded_name.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 48
   %encoded_name3.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %src.08.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %encoded_name.i.i.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %encoded_name3.i.i.i.i.i.i.i.i.i40) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_name3.i.i.i.i.i.i.i.i.i40) #28
@@ -16766,7 +16766,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %conv3.i = zext i8 %1 to i64
-  %arrayidx.i6.i = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
+  %arrayidx.i6.i = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit, label %for.body.i
 
@@ -16845,7 +16845,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   %13 = load i8, ptr %arrayidx.i.i57, align 1
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
   %conv3.i60 = zext i8 %13 to i64
-  %arrayidx.i6.i61 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
+  %arrayidx.i6.i61 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
   br i1 %cmp.not7.i62, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit68, label %for.body.i63
 
@@ -16879,7 +16879,7 @@ do.body37:                                        ; preds = %_ZN4absl12lts_20230
   %17 = load ptr, ptr %parent.3, align 8
   %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %parent.3, i64 16
   %conv3.i80 = zext i8 %15 to i64
-  %arrayidx.i6.i81 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
+  %arrayidx.i6.i81 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i78, i64 %conv3.i80
   %cmp.not7.i82 = icmp eq i8 %15, 0
   br i1 %cmp.not7.i82, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE15value_destroy_nEhhPSA_.exit88, label %for.body.i83
 
@@ -16945,19 +16945,19 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %5 to i64
-  %6 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %6 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::ExtensionEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %6, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 48
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 48
   %7 = load i32, ptr %src.08.i, align 8
   store i32 %7, ptr %dest.09.i, align 8
-  %encoded_extendee.i.i.i.i.i.i.i.i.i39 = getelementptr i8, ptr %dest.09.i.pn, i64 56
+  %encoded_extendee.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 56
   %encoded_extendee3.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %src.08.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %encoded_extendee.i.i.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %encoded_extendee3.i.i.i.i.i.i.i.i.i40) #28
-  %extension_number.i.i.i.i.i.i.i.i.i41 = getelementptr i8, ptr %dest.09.i.pn, i64 88
+  %extension_number.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 88
   %extension_number4.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %src.08.i, i64 40
   %8 = load i32, ptr %extension_number4.i.i.i.i.i.i.i.i.i42, align 8
   store i32 %8, ptr %extension_number.i.i.i.i.i.i.i.i.i41, align 8
@@ -18606,16 +18606,16 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv8 = zext i8 %4 to i64
-  %5 = getelementptr %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
+  %5 = getelementptr inbounds %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::SymbolEntry", ptr %add.ptr.i.i.i.i, i64 %conv8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %5, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %for.body.preheader.i ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 40
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 40
   %6 = load i32, ptr %src.08.i, align 8
   store i32 %6, ptr %dest.09.i, align 8
-  %encoded_symbol.i.i.i.i.i.i.i.i.i39 = getelementptr i8, ptr %dest.09.i.pn, i64 48
+  %encoded_symbol.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 48
   %encoded_symbol3.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %src.08.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %encoded_symbol.i.i.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %encoded_symbol3.i.i.i.i.i.i.i.i.i40) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_symbol3.i.i.i.i.i.i.i.i.i40) #28

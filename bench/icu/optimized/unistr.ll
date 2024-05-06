@@ -529,7 +529,7 @@ if.end50:                                         ; preds = %if.else.i117, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513UnicodeString8allocateEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %capacity) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString8allocateEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %capacity) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %capacity, 28
   br i1 %cmp, label %if.then, label %if.end
@@ -923,7 +923,7 @@ if.end68:                                         ; preds = %_ZNK6icu_7513Unicod
   %cmp.not.i = icmp sgt i32 %add.i, %sub.i
   %add1.i = add nsw i32 %add.i, %35
   %retval.0.i = select i1 %cmp.not.i, i32 2147483637, i32 %add1.i
-  %call70 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %35, i32 noundef %retval.0.i, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call70 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %35, i32 noundef %retval.0.i, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool71.not = icmp eq i8 %call70, 0
   br i1 %tobool71.not, label %return, label %if.end68.if.end74_crit_edge
 
@@ -949,7 +949,7 @@ if.end74:                                         ; preds = %if.then16.if.end74_
 do.body.i:                                        ; preds = %if.end74
   %39 = shl nuw i32 %srcLength.addr.0, 1
   %mul.i = zext i32 %39 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr77, ptr align 2 %add.ptr, i64 %mul.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr77, ptr readonly align 2 %add.ptr, i64 %mul.i, i1 false)
   %.pre119 = load i16, ptr %fUnion.i, align 8
   br label %if.end80
 
@@ -1174,7 +1174,7 @@ land.rhs:                                         ; preds = %if.then11, %while.b
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %p.020, i64 2
   %cmp12.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp12.not, label %while.end, label %land.rhs, !llvm.loop !8
+  br i1 %cmp12.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.then11
   %p.0.lcssa = phi ptr [ %buff, %if.then11 ], [ %add.ptr, %while.body ], [ %p.020, %land.rhs ]
@@ -1234,7 +1234,7 @@ if.then4:                                         ; preds = %if.else
 if.end:                                           ; preds = %if.then4, %if.else
   %length.addr.0 = phi i32 [ %conv, %if.then4 ], [ %length, %if.else ]
   %call5 = invoke noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %length.addr.0, i32 noundef %length.addr.0, i8 noundef signext 0, ptr noundef null, i8 noundef signext 0)
-          to label %invoke.cont unwind label %lpad, !range !7
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   %tobool.not = icmp eq i8 %call5, 0
@@ -1312,7 +1312,7 @@ if.end14:                                         ; preds = %if.else.i, %if.then
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %newCapacity, i32 noundef %growCapacity, i8 noundef signext %doCopyArray, ptr noundef writeonly %pBufferToDelete, i8 noundef signext %forceClone) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %newCapacity, i32 noundef %growCapacity, i8 noundef signext %doCopyArray, ptr noundef writeonly %pBufferToDelete, i8 noundef signext %forceClone) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oldStackBuffer = alloca [27 x i16], align 16
   %cmp = icmp eq i32 %newCapacity, -1
@@ -1404,7 +1404,7 @@ do.body.i:                                        ; preds = %if.then37
   %fBuffer = getelementptr inbounds i8, ptr %this, i64 10
   %13 = shl nuw i32 %cond.i32, 1
   %mul.i = zext i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %oldStackBuffer, ptr nonnull align 2 %fBuffer, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %oldStackBuffer, ptr nonnull readonly align 2 %fBuffer, i64 %mul.i, i1 false)
   br label %if.end.i
 
 if.else43:                                        ; preds = %if.end26
@@ -1512,7 +1512,7 @@ do.body.i73:                                      ; preds = %if.then61
   %cond.i70 = select i1 %tobool.not.i64, ptr %19, ptr %fBuffer.i
   %20 = shl nuw i32 %spec.select, 1
   %mul.i75 = zext i32 %20 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i70, ptr nonnull align 2 %oldArray.09095, i64 %mul.i75, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %cond.i70, ptr nonnull readonly align 2 %oldArray.09095, i64 %mul.i75, i1 false)
   %.pre100 = load i16, ptr %fUnion.i26, align 8
   br label %if.end63
 
@@ -1657,7 +1657,7 @@ _ZN6icu_7513UnicodeString7unBogusEv.exit:         ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN6icu_7513UnicodeString9getBufferEi.exit
 
 land.lhs.true.i:                                  ; preds = %_ZN6icu_7513UnicodeString7unBogusEv.exit
-  %call.i = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %capacity.0, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call.i = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %capacity.0, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not.i3 = icmp eq i8 %call.i, 0
   %.pre = load i16, ptr %fUnion.i, align 8
   br i1 %tobool.not.i3, label %_ZN6icu_7513UnicodeString9getBufferEi.exit, label %if.then.i4
@@ -1719,7 +1719,7 @@ land.rhs.i:                                       ; preds = %if.then3.i, %while.
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.015.i, i64 2
   %cmp5.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp5.i, label %land.rhs.i, label %while.end.i, !llvm.loop !9
+  br i1 %cmp5.i, label %land.rhs.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %if.then3.i
   %p.0.lcssa.i = phi ptr [ %cond.i13.i, %if.then3.i ], [ %p.015.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
@@ -2097,7 +2097,7 @@ do.body.i:                                        ; preds = %if.then.i
   %shr.i.i = sext i16 %2 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2508,7 +2508,7 @@ land.rhs.i:                                       ; preds = %if.then3.i, %while.
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.015.i, i64 2
   %cmp5.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp5.i, label %land.rhs.i, label %while.end.i, !llvm.loop !9
+  br i1 %cmp5.i, label %land.rhs.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %if.then3.i
   %p.0.lcssa.i = phi ptr [ %cond.i13.i, %if.then3.i ], [ %p.015.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
@@ -2551,7 +2551,7 @@ invoke.cont6:                                     ; preds = %_ZN6icu_7513Unicode
   %19 = load i32, ptr %errorCode, align 4
   %cmp7 = icmp eq i32 %19, 15
   %add9 = add nsw i32 %8, 1
-  br i1 %cmp7, label %do.body, label %if.else10, !llvm.loop !10
+  br i1 %cmp7, label %do.body, label %if.else10, !llvm.loop !9
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %land.lhs.true.i
   %lpad.loopexit19 = landingpad { ptr, i32 }
@@ -2607,7 +2607,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %minCapacity, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %minCapacity, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -2671,7 +2671,7 @@ land.rhs:                                         ; preds = %if.then3, %while.bo
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %p.015, i64 2
   %cmp5 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp5, label %land.rhs, label %while.end, !llvm.loop !9
+  br i1 %cmp5, label %land.rhs, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.then3
   %p.0.lcssa = phi ptr [ %cond.i13, %if.then3 ], [ %incdec.ptr, %while.body ], [ %p.015, %land.rhs ]
@@ -2772,7 +2772,7 @@ do.body.i:                                        ; preds = %if.then.i3
   %shr.i.i = sext i16 %7 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %invoke.cont
@@ -2835,7 +2835,7 @@ do.body.i:                                        ; preds = %if.then.i
   %shr.i.i = sext i16 %2 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2876,7 +2876,7 @@ do.body.i8:                                       ; preds = %if.then.i6
   %shr.i.i11 = sext i16 %8 to i32
   %mul.i12 = shl nsw i32 %shr.i.i11, 1
   %conv9.i13 = sext i32 %mul.i12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i9, ptr nonnull align 2 %fBuffer7.i10, i64 %conv9.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i9, ptr nonnull align 2 %fBuffer7.i10, i64 %conv9.i13, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit24
 
 if.else.i14:                                      ; preds = %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
@@ -2913,7 +2913,7 @@ do.body.i30:                                      ; preds = %if.then.i28
   %shr.i.i33 = sext i16 %12 to i32
   %mul.i34 = shl nsw i32 %shr.i.i33, 1
   %conv9.i35 = sext i32 %mul.i34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i31, ptr nonnull align 2 %fBuffer7.i32, i64 %conv9.i35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i31, ptr nonnull align 2 %fBuffer7.i32, i64 %conv9.i35, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit46
 
 if.else.i36:                                      ; preds = %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit24
@@ -3096,7 +3096,7 @@ if.end26:                                         ; preds = %invoke.cont24, %if.
   %19 = phi i32 [ %18, %invoke.cont24 ], [ %inc, %if.end10 ]
   %prev.1 = phi i32 [ %18, %invoke.cont24 ], [ %prev.028, %if.end10 ]
   %cmp = icmp eq i32 %19, %cond.i13
-  br i1 %cmp, label %if.then7, label %if.end10, !llvm.loop !11
+  br i1 %cmp, label %if.then7, label %if.end10, !llvm.loop !10
 
 nrvo.skipdtor:                                    ; preds = %if.then7, %if.then20, %entry
   ret void
@@ -3189,7 +3189,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, i32 noundef %len) local_unnamed_addr #16 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, i32 noundef %len) local_unnamed_addr #16 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -3216,7 +3216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef %srcChars, i32 noundef %srcStart, i32 noundef %srcLength) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef %srcChars, i32 noundef %srcStart, i32 noundef %srcLength) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -3373,7 +3373,7 @@ do.cond:                                          ; preds = %do.body
   %incdec.ptr = getelementptr inbounds i8, ptr %chars.0, i64 2
   %dec = add nsw i32 %minLength.1, -1
   %cmp31 = icmp sgt i32 %minLength.1, 1
-  br i1 %cmp31, label %do.body, label %return, !llvm.loop !12
+  br i1 %cmp31, label %do.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %do.cond, %if.end13, %entry, %if.then28, %if.then2
   %retval.0 = phi i8 [ %conv, %if.then2 ], [ %conv29, %if.then28 ], [ -1, %entry ], [ %lengthResult.0, %if.end13 ], [ %lengthResult.0, %do.cond ]
@@ -3480,7 +3480,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513UnicodeString11getChar32AtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %offset) unnamed_addr #15 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7513UnicodeString11getChar32AtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %offset) unnamed_addr #15 align 2 {
 entry:
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i.i, align 8
@@ -3559,7 +3559,7 @@ _ZNK6icu_7513UnicodeString8char32AtEi.exit:       ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %offset) local_unnamed_addr #15 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %offset) local_unnamed_addr #15 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -3854,7 +3854,7 @@ do.end.us:                                        ; preds = %land.lhs.true20.us,
   %index.addr.2.us = phi i32 [ %inc.us, %do.body14.us ], [ %spec.select27.us, %land.lhs.true20.us ]
   %dec.us = add nsw i32 %__N.036.us, -1
   %cmp8.us = icmp sgt i32 %__N.036.us, 1
-  br i1 %cmp8.us, label %land.rhs.us, label %if.end62, !llvm.loop !13
+  br i1 %cmp8.us, label %land.rhs.us, label %if.end62, !llvm.loop !12
 
 land.rhs:                                         ; preds = %while.cond.preheader, %do.end
   %__N.036 = phi i32 [ %dec, %do.end ], [ %delta, %while.cond.preheader ]
@@ -3887,7 +3887,7 @@ do.end:                                           ; preds = %land.lhs.true20, %d
   %index.addr.2 = phi i32 [ %inc, %do.body14 ], [ %spec.select27, %land.lhs.true20 ]
   %dec = add nsw i32 %__N.036, -1
   %cmp8 = icmp sgt i32 %__N.036, 1
-  br i1 %cmp8, label %land.rhs, label %if.end62, !llvm.loop !13
+  br i1 %cmp8, label %land.rhs, label %if.end62, !llvm.loop !12
 
 do.body31:                                        ; preds = %entry
   %invariant.gep = getelementptr i8, ptr %cond.i29, i64 -4
@@ -3929,7 +3929,7 @@ do.end58:                                         ; preds = %land.lhs.true48, %d
   %cmp34 = icmp sgt i32 %__N32.034, 1
   %cmp36 = icmp sgt i32 %index.addr.4, 0
   %18 = select i1 %cmp34, i1 %cmp36, i1 false
-  br i1 %18, label %do.body39, label %if.end62, !llvm.loop !14
+  br i1 %18, label %do.body39, label %if.end62, !llvm.loop !13
 
 if.end62:                                         ; preds = %do.end58, %do.end, %land.rhs, %do.end.us, %land.rhs.us, %do.body31
   %index.addr.5 = phi i32 [ %index.addr.0, %do.body31 ], [ %index.addr.2.us, %do.end.us ], [ %index.addr.135.us, %land.rhs.us ], [ %index.addr.135, %land.rhs ], [ %index.addr.2, %do.end ], [ %index.addr.4, %do.end58 ]
@@ -3972,7 +3972,7 @@ entry:
 do.body.i:                                        ; preds = %entry
   %5 = shl nuw i32 %length.addr.0, 1
   %mul.i = zext i32 %5 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr3, ptr align 2 %add.ptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr3, ptr readonly align 2 %add.ptr, i64 %mul.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %do.body.i, %entry
@@ -4155,14 +4155,14 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
 
 invoke.cont:                                      ; preds = %if.end
   %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #22, !srcloc !15
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #22, !srcloc !14
   ret void
 
 lpad:                                             ; preds = %if.end
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #22, !srcloc !15
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #22, !srcloc !14
   resume { ptr, i32 } %5
 }
 
@@ -5007,7 +5007,7 @@ if.else:                                          ; preds = %_ZNK6icu_7513Unicod
   %cmp9 = icmp sgt i32 %sub15, 0
   %cmp10 = icmp sge i32 %sub15, %spec.select83
   %27 = and i1 %cmp9, %cmp10
-  br i1 %27, label %while.body, label %return, !llvm.loop !16
+  br i1 %27, label %while.body, label %return, !llvm.loop !15
 
 return:                                           ; preds = %_ZNK6icu_7513UnicodeString7indexOfERKS0_iiii.exit, %if.else, %if.then.i, %while.body, %if.then2.i, %if.end9.i.i, %while.body.lr.ph, %while.cond.preheader, %if.end, %entry, %lor.lhs.false, %lor.lhs.false4
   ret ptr %this
@@ -5088,7 +5088,7 @@ if.end24:                                         ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.then7, %if.end24
   %add = add nsw i32 %cond.i13, 1
-  %call26 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %add, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call26 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %add, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool27.not = icmp eq i8 %call26, 0
   br i1 %tobool27.not, label %return, label %if.then28
 
@@ -5345,7 +5345,7 @@ land.rhs:                                         ; preds = %if.then10, %while.b
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %p.031, i64 2
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp11.not, label %while.end, label %land.rhs, !llvm.loop !17
+  br i1 %cmp11.not, label %while.end, label %land.rhs, !llvm.loop !16
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.then10
   %p.0.lcssa = phi ptr [ %buffer, %if.then10 ], [ %add.ptr, %while.body ], [ %p.031, %land.rhs ]
@@ -5416,7 +5416,7 @@ entry:
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
-  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef -1, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef -1, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool = icmp ne i8 %call2, 0
   %cmp = icmp sgt i32 %cond.i, 0
   %or.cond = and i1 %tobool, %cmp
@@ -5763,7 +5763,7 @@ if.end69:                                         ; preds = %if.then66, %if.end5
   %cmp.not.i = icmp sgt i32 %add.i, %sub.i107
   %add1.i = add nsw i32 %add.i, %add
   %retval.0.i = select i1 %cmp.not.i, i32 2147483637, i32 %add1.i
-  %call71 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %add, i32 noundef %retval.0.i, i8 noundef signext 0, ptr noundef nonnull %bufferToDelete, i8 noundef signext 0), !range !7
+  %call71 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %add, i32 noundef %retval.0.i, i8 noundef signext 0, ptr noundef nonnull %bufferToDelete, i8 noundef signext 0)
   %tobool72.not = icmp eq i8 %call71, 0
   br i1 %tobool72.not, label %return, label %if.end74
 
@@ -5783,7 +5783,7 @@ if.then77:                                        ; preds = %if.end74
 do.body.i:                                        ; preds = %if.then77
   %34 = shl nuw i32 %start.addr.2, 1
   %mul.i = zext i32 %34 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i112, ptr align 2 %oldArray.0, i64 %mul.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %cond.i112, ptr readonly align 2 %oldArray.0, i64 %mul.i, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
 _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %if.then77, %do.body.i
@@ -5812,7 +5812,7 @@ if.end90.sink.split:                              ; preds = %if.then84, %_ZL12us
   %add.ptr2.i123 = getelementptr inbounds i16, ptr %oldArray.0, i64 %idx.ext1.i122
   %35 = shl nuw i32 %sub88.sink, 1
   %mul.i124 = zext i32 %35 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %add.ptr.i121, ptr noundef nonnull align 2 dereferenceable(1) %add.ptr2.i123, i64 %mul.i124, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(1) %add.ptr.i121, ptr noundef nonnull readonly align 2 dereferenceable(1) %add.ptr2.i123, i64 %mul.i124, i1 false)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end90.sink.split, %if.then84, %_ZL12us_arrayCopyPKDsiPDsii.exit, %if.else82
@@ -5824,7 +5824,7 @@ do.body.i127:                                     ; preds = %if.end90
   %add.ptr.i129 = getelementptr inbounds i16, ptr %cond.i112, i64 %idx.ext.i128
   %36 = shl nuw i32 %srcLength.addr.0, 1
   %mul.i131 = zext i32 %36 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i129, ptr align 2 %srcChars.addr.0, i64 %mul.i131, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i129, ptr readonly align 2 %srcChars.addr.0, i64 %mul.i131, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit132
 
 _ZL12us_arrayCopyPKDsiPDsii.exit132:              ; preds = %if.end90, %do.body.i127
@@ -6035,7 +6035,7 @@ _ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i:  ; preds = %if.else.i2.i, %_ZNK
 do.body.i.i.i:                                    ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i
   %7 = shl nuw i32 %length.addr.0.i.i, 1
   %mul.i.i.i = zext i32 %7 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call, ptr align 2 %add.ptr.i.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 2 %call, ptr readonly align 2 %add.ptr.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZNK6icu_7513UnicodeString14extractBetweenEiiPDsi.exit
 
 _ZNK6icu_7513UnicodeString14extractBetweenEiiPDsi.exit: ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i, %do.body.i.i.i
@@ -6066,7 +6066,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef -1, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef -1, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -6124,7 +6124,7 @@ do.body:                                          ; preds = %do.body, %if.end4
   %incdec.ptr22 = getelementptr inbounds i8, ptr %right.0, i64 -2
   store i16 %5, ptr %right.0, align 2
   %cmp23 = icmp ult ptr %incdec.ptr, %incdec.ptr22
-  br i1 %cmp23, label %do.body, label %do.end, !llvm.loop !18
+  br i1 %cmp23, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
   %9 = load i16, ptr %incdec.ptr, align 2
@@ -6174,14 +6174,14 @@ if.else:                                          ; preds = %land.lhs.true, %whi
 if.end52:                                         ; preds = %if.else, %if.then48
   %left.2 = phi ptr [ %incdec.ptr50, %if.then48 ], [ %incdec.ptr51, %if.else ]
   %cmp40 = icmp ult ptr %left.2, %add.ptr39
-  br i1 %cmp40, label %while.body, label %return, !llvm.loop !19
+  br i1 %cmp40, label %while.body, label %return, !llvm.loop !18
 
 return:                                           ; preds = %if.end52, %if.then33, %do.end, %_ZNK6icu_7513UnicodeString10pinIndicesERiS1_.exit, %entry, %lor.lhs.false
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513UnicodeString10padLeadingEiDs(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i16 noundef zeroext %padChar) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString10padLeadingEiDs(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i16 noundef zeroext %padChar) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -6195,7 +6195,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %if.else
 
@@ -6216,7 +6216,7 @@ do.body.i:                                        ; preds = %if.else
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i10, i64 %idx.ext.i
   %6 = shl nuw i32 %cond.i, 1
   %mul.i = zext i32 %6 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i, ptr align 2 %cond.i10, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr readonly align 2 %cond.i10, i64 %mul.i, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
 _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %if.else, %do.body.i
@@ -6235,7 +6235,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %padChar, ptr %arrayidx, align 2
   %8 = trunc nuw i64 %indvars.iv to i32
   %cmp4 = icmp sgt i32 %8, 1
-  br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !20
+  br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %_ZL12us_arrayCopyPKDsiPDsii.exit
   %cmp.i11 = icmp slt i32 %targetLength, 1024
@@ -6262,7 +6262,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513UnicodeString11padTrailingEiDs(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i16 noundef zeroext %padChar) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString11padTrailingEiDs(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i16 noundef zeroext %padChar) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -6276,7 +6276,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call2 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %targetLength, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %while.body.preheader
 
@@ -6298,7 +6298,7 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds i16, ptr %cond.i6, i64 %indvars.iv.next
   store i16 %padChar, ptr %arrayidx, align 2
   %cmp4.not.not = icmp sgt i64 %indvars.iv.next, %7
-  br i1 %cmp4.not.not, label %while.body, label %while.end, !llvm.loop !21
+  br i1 %cmp4.not.not, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body
   %.pre = load i16, ptr %fUnion.i.i, align 8
@@ -6383,7 +6383,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7523UnicodeStringAppendable15appendCodePointEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7523UnicodeStringAppendable15appendCodePointEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c) unnamed_addr #5 align 2 {
 entry:
   %buffer = alloca [2 x i16], align 2
   %cmp = icmp ult i32 %c, 65536
@@ -6442,7 +6442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7523UnicodeStringAppendable21reserveAppendCapacityEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %appendCapacity) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7523UnicodeStringAppendable21reserveAppendCapacityEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %appendCapacity) unnamed_addr #5 align 2 {
 entry:
   %str = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %str, align 8
@@ -6455,7 +6455,7 @@ entry:
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %add = add nsw i32 %cond.i, %appendCapacity
-  %call3 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %add, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call3 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %add, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   ret i8 %call3
 }
 
@@ -6491,7 +6491,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true6:                                   ; preds = %if.end
   %add = add nsw i32 %cond.i, %minCapacity
   %add8 = add nsw i32 %cond.i, %desiredCapacityHint
-  %call9 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %add, i32 noundef %add8, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
+  %call9 = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %add, i32 noundef %add8, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool.not = icmp eq i8 %call9, 0
   br i1 %tobool.not, label %if.end16, label %if.then10
 
@@ -6559,7 +6559,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @uhash_compareUnicodeString_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #16 {
+define signext range(i8 0, 2) i8 @uhash_compareUnicodeString_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end
@@ -6698,18 +6698,17 @@ attributes #25 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{i64 2149953872}
+!14 = !{i64 2149953872}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

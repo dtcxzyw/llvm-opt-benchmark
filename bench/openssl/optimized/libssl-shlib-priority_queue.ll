@@ -10,10 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_pqueue_reserve = private unnamed_addr constant [20 x i8] c"ossl_pqueue_reserve\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pqueue_push(ptr noundef %pq, ptr noundef %data, ptr noundef writeonly %elem) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef %pq, ptr noundef %data, ptr noundef writeonly %elem) local_unnamed_addr #0 {
 entry:
   %t_h.i.i = alloca %struct.pq_heap_st, align 8
-  %call = tail call i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef 1), !range !4
+  %call = tail call i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -78,7 +78,7 @@ if.end.i:                                         ; preds = %while.body.i
   store i64 %div9.i, ptr %arrayidx8.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t_h.i.i)
   %cmp.not.i = icmp ult i64 %sub.i, 2
-  br i1 %cmp.not.i, label %pqueue_move_down.exit, label %while.body.i, !llvm.loop !5
+  br i1 %cmp.not.i, label %pqueue_move_down.exit, label %while.body.i, !llvm.loop !4
 
 pqueue_move_down.exit:                            ; preds = %while.body.i, %if.end.i, %if.end
   %cmp.not = icmp eq ptr %elem, null
@@ -94,7 +94,7 @@ return:                                           ; preds = %pqueue_move_down.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pq, null
   br i1 %cmp, label %return, label %if.end
@@ -123,7 +123,7 @@ if.end3.i:                                        ; preds = %while.body.i
   %div.i.i = udiv i64 %2, 5
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %div.i.i, i64 1152921504606846975)
   %cmp.i = icmp ult i64 %spec.store.select.i, %add4
-  br i1 %cmp.i, label %while.body.i, label %if.end7, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %if.end7, !llvm.loop !6
 
 compute_pqueue_growth.exit:                       ; preds = %if.end3
   %cmp5 = icmp eq i64 %0, 0
@@ -172,7 +172,7 @@ for.body.i:                                       ; preds = %if.end17, %for.body
   %i.0.i = add nuw i64 %i.013.i, 1
   %7 = load i64, ptr %hmax, align 8
   %cmp.i18 = icmp ult i64 %i.0.i, %7
-  br i1 %cmp.i18, label %for.body.i, label %pqueue_add_freelist.exit, !llvm.loop !8
+  br i1 %cmp.i18, label %for.body.i, label %pqueue_add_freelist.exit, !llvm.loop !7
 
 pqueue_add_freelist.exit:                         ; preds = %for.body.i, %if.end17
   %.lcssa.i = phi i64 [ %6, %if.end17 ], [ %7, %for.body.i ]
@@ -312,7 +312,7 @@ if.end34.i:                                       ; preds = %if.then22.i, %while
   %21 = phi i64 [ %17, %while.body.i ], [ %.pre32.i, %if.then22.i ]
   %p.2.i = phi i64 [ %add18.i, %while.body.i ], [ %spec.select27.i, %if.then22.i ]
   %cmp9.i = icmp ugt i64 %21, %p.2.i
-  br i1 %cmp9.i, label %land.rhs.i, label %if.end7, !llvm.loop !9
+  br i1 %cmp9.i, label %land.rhs.i, label %if.end7, !llvm.loop !8
 
 if.end7:                                          ; preds = %if.end34.i, %land.rhs.i, %if.end7.i, %if.end
   %freelist = getelementptr inbounds i8, ptr %pq, i64 40
@@ -396,7 +396,7 @@ while.body.i:                                     ; preds = %if.end13, %while.bo
   store i64 %div4.i, ptr %arrayidx8.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t_h.i.i)
   %cmp.not.i = icmp ult i64 %sub.i, 2
-  br i1 %cmp.not.i, label %if.end16, label %while.body.i, !llvm.loop !10
+  br i1 %cmp.not.i, label %if.end16, label %while.body.i, !llvm.loop !9
 
 if.end16:                                         ; preds = %while.body.i, %if.end13
   %call = tail call ptr @ossl_pqueue_pop(ptr noundef nonnull %pq)
@@ -462,7 +462,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i64 %i.0.in12.i, ptr %arrayidx1.i, align 8
   %i.0.i = add nuw i64 %i.013.i, 1
   %exitcond.not = icmp eq i64 %i.0.i, 8
-  br i1 %exitcond.not, label %pqueue_add_freelist.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not, label %pqueue_add_freelist.exit, label %for.body.i, !llvm.loop !7
 
 pqueue_add_freelist.exit:                         ; preds = %for.body.i
   store i64 7, ptr %freelist, align 8
@@ -517,7 +517,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %i.07, 1
   %3 = load i64, ptr %htop, align 8
   %cmp1 = icmp ult i64 %inc, %3
-  br i1 %cmp1, label %for.body, label %ossl_pqueue_free.exit, !llvm.loop !11
+  br i1 %cmp1, label %for.body, label %ossl_pqueue_free.exit, !llvm.loop !10
 
 ossl_pqueue_free.exit:                            ; preds = %for.body, %for.cond.preheader
   %4 = load ptr, ptr %pq, align 8
@@ -575,11 +575,10 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

@@ -2255,7 +2255,7 @@ if.then.i.i.i.i.i5:                               ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -2360,7 +2360,7 @@ if.then.i.i.i.i.i.i5:                             ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3049,7 +3049,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #18
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad.body
   tail call void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %add.ptr) #18
@@ -3061,11 +3061,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad.body
+if.then.i32:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #23
           to label %unreachable unwind label %lpad19
 

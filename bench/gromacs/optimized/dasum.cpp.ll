@@ -19,7 +19,7 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %9
-  %11 = mul nsw i32 %5, %.fr
+  %11 = mul nuw nsw i32 %5, %.fr
   %.not6365 = icmp slt i32 %11, 1
   br i1 %.not6365, label %.loopexit, label %.lr.ph.preheader
 
@@ -82,23 +82,23 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %32 = load double, ptr %31, align 8
   %33 = tail call noundef double @llvm.fabs.f64(double %32)
   %34 = fadd double %.372, %33
-  %35 = getelementptr i8, ptr %31, i64 8
+  %35 = getelementptr inbounds i8, ptr %31, i64 8
   %36 = load double, ptr %35, align 8
   %37 = tail call noundef double @llvm.fabs.f64(double %36)
   %38 = fadd double %34, %37
-  %39 = getelementptr i8, ptr %31, i64 16
+  %39 = getelementptr inbounds i8, ptr %31, i64 16
   %40 = load double, ptr %39, align 8
   %41 = tail call noundef double @llvm.fabs.f64(double %40)
   %42 = fadd double %38, %41
-  %43 = getelementptr i8, ptr %31, i64 24
+  %43 = getelementptr inbounds i8, ptr %31, i64 24
   %44 = load double, ptr %43, align 8
   %45 = tail call noundef double @llvm.fabs.f64(double %44)
   %46 = fadd double %42, %45
-  %47 = getelementptr i8, ptr %31, i64 32
+  %47 = getelementptr inbounds i8, ptr %31, i64 32
   %48 = load double, ptr %47, align 8
   %49 = tail call noundef double @llvm.fabs.f64(double %48)
   %50 = fadd double %46, %49
-  %51 = getelementptr i8, ptr %31, i64 40
+  %51 = getelementptr inbounds i8, ptr %31, i64 40
   %52 = load double, ptr %51, align 8
   %53 = tail call noundef double @llvm.fabs.f64(double %52)
   %54 = fadd double %50, %53

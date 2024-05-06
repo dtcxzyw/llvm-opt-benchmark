@@ -379,7 +379,7 @@ do.body.i.i.i:                                    ; preds = %entry
 
 get_trigger_type.exit.i:                          ; preds = %sw.bb3.i.i.i, %sw.bb.i.i.i
   %retval.0.i.i.i = phi i64 [ %shr.i2.i.i.i, %sw.bb3.i.i.i ], [ %conv2.i.i.i, %sw.bb.i.i.i ]
-  %conv.i = trunc i64 %retval.0.i.i.i to i32
+  %conv.i = trunc nuw nsw i64 %retval.0.i.i.i to i32
   switch i32 %conv.i, label %do.body23.i [
     i32 2, label %get_trigger_action.exit
     i32 6, label %get_trigger_action.exit
@@ -771,7 +771,7 @@ do.body.i.i:                                      ; preds = %if.else
 if.end:                                           ; preds = %sw.bb3.i.i, %sw.bb.i.i, %sw.bb3.i, %sw.bb.i
   %env.val17.i.i = phi i32 [ %env.val, %sw.bb3.i ], [ 1, %sw.bb.i ], [ %env.val.i, %sw.bb3.i.i ], [ 1, %sw.bb.i.i ]
   %trigger_type.0.in = phi i64 [ %shr.i2.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ %shr.i2.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ]
-  %trigger_type.0 = trunc i64 %trigger_type.0.in to i32
+  %trigger_type.0 = trunc nuw nsw i64 %trigger_type.0.in to i32
   switch i32 %trigger_type.0, label %do.body26 [
     i32 2, label %sw.bb
     i32 6, label %sw.bb4
@@ -808,9 +808,9 @@ sw.bb.i.i.i:                                      ; preds = %sw.bb.i19
 
 sw.bb5.i.i.i:                                     ; preds = %sw.bb.i19, %sw.bb.i19
   %shr.i7.i.i.i = lshr i64 %val, 60
-  %conv7.i.i.i = trunc i64 %shr.i7.i.i.i to i32
-  %shr.i8.i.i.i = lshr i64 %val, 59
-  %6 = trunc i64 %shr.i8.i.i.i to i32
+  %conv7.i.i.i = trunc nuw nsw i64 %shr.i7.i.i.i to i32
+  %shr.i9.i.i.i = lshr i64 %val, 59
+  %6 = trunc nuw nsw i64 %shr.i9.i.i.i to i32
   br label %sw.epilog.i.i.i
 
 do.body.i.i.i:                                    ; preds = %sw.bb.i19
@@ -827,8 +827,8 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb5.i.i.i, %sw.b
 
 do.body13.i.i.i:                                  ; preds = %sw.epilog.i.i.i
   %7 = load i32, ptr @qemu_loglevel, align 4
-  %and.i10.i.i.i = and i32 %7, 2048
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i10.i.i.i, 0
+  %and.i11.i.i.i = and i32 %7, 2048
+  %cmp.i.not.i.i.i = icmp eq i32 %and.i11.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %if.end19.i.i.i, label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %do.body13.i.i.i
@@ -841,9 +841,9 @@ if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %d
 
 do.body23.i.i.i:                                  ; preds = %if.end19.i.i.i
   %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i11.i.i.i = and i32 %8, 1024
-  %cmp.i12.not.i.i.i = icmp eq i32 %and.i11.i.i.i, 0
-  br i1 %cmp.i12.not.i.i.i, label %tdata1_validate.exit.i.i, label %if.then31.i.i.i
+  %and.i12.i.i.i = and i32 %8, 1024
+  %cmp.i13.not.i.i.i = icmp eq i32 %and.i12.i.i.i, 0
+  br i1 %cmp.i13.not.i.i.i, label %tdata1_validate.exit.i.i, label %if.then31.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %do.body23.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
@@ -1177,9 +1177,9 @@ sw.bb.i.i.i90:                                    ; preds = %sw.bb.i31
 
 sw.bb5.i.i.i33:                                   ; preds = %sw.bb.i31, %sw.bb.i31
   %shr.i7.i.i.i34 = lshr i64 %val, 60
-  %conv7.i.i.i35 = trunc i64 %shr.i7.i.i.i34 to i32
-  %shr.i8.i.i.i36 = lshr i64 %val, 59
-  %43 = trunc i64 %shr.i8.i.i.i36 to i32
+  %conv7.i.i.i35 = trunc nuw nsw i64 %shr.i7.i.i.i34 to i32
+  %shr.i9.i.i.i36 = lshr i64 %val, 59
+  %43 = trunc nuw nsw i64 %shr.i9.i.i.i36 to i32
   br label %sw.epilog.i.i.i37
 
 do.body.i.i.i94:                                  ; preds = %sw.bb.i31
@@ -1196,8 +1196,8 @@ sw.epilog.i.i.i37:                                ; preds = %sw.bb5.i.i.i33, %sw
 
 do.body13.i.i.i43:                                ; preds = %sw.epilog.i.i.i37
   %44 = load i32, ptr @qemu_loglevel, align 4
-  %and.i10.i.i.i44 = and i32 %44, 2048
-  %cmp.i.not.i.i.i45 = icmp eq i32 %and.i10.i.i.i44, 0
+  %and.i11.i.i.i44 = and i32 %44, 2048
+  %cmp.i.not.i.i.i45 = icmp eq i32 %and.i11.i.i.i44, 0
   br i1 %cmp.i.not.i.i.i45, label %if.end19.i.i.i47, label %if.then17.i.i.i46
 
 if.then17.i.i.i46:                                ; preds = %do.body13.i.i.i43
@@ -1210,9 +1210,9 @@ if.end19.i.i.i47:                                 ; preds = %if.then17.i.i.i46, 
 
 do.body23.i.i.i49:                                ; preds = %if.end19.i.i.i47
   %45 = load i32, ptr @qemu_loglevel, align 4
-  %and.i11.i.i.i50 = and i32 %45, 1024
-  %cmp.i12.not.i.i.i51 = icmp eq i32 %and.i11.i.i.i50, 0
-  br i1 %cmp.i12.not.i.i.i51, label %tdata1_validate.exit.i.i53, label %if.then31.i.i.i52
+  %and.i12.i.i.i50 = and i32 %45, 1024
+  %cmp.i13.not.i.i.i51 = icmp eq i32 %and.i12.i.i.i50, 0
+  br i1 %cmp.i13.not.i.i.i51, label %tdata1_validate.exit.i.i53, label %if.then31.i.i.i52
 
 if.then31.i.i.i52:                                ; preds = %do.body23.i.i.i49
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
@@ -1522,9 +1522,9 @@ sw.bb.i.i.i141:                                   ; preds = %sw.bb.i98
 
 sw.bb5.i.i.i100:                                  ; preds = %sw.bb.i98, %sw.bb.i98
   %shr.i7.i.i.i101 = lshr i64 %val, 60
-  %conv7.i.i.i102 = trunc i64 %shr.i7.i.i.i101 to i32
-  %shr.i8.i.i.i103 = lshr i64 %val, 59
-  %73 = trunc i64 %shr.i8.i.i.i103 to i32
+  %conv7.i.i.i102 = trunc nuw nsw i64 %shr.i7.i.i.i101 to i32
+  %shr.i9.i.i.i103 = lshr i64 %val, 59
+  %73 = trunc nuw nsw i64 %shr.i9.i.i.i103 to i32
   br label %sw.epilog.i.i.i104
 
 do.body.i.i.i145:                                 ; preds = %sw.bb.i98
@@ -1541,8 +1541,8 @@ sw.epilog.i.i.i104:                               ; preds = %sw.bb5.i.i.i100, %s
 
 do.body13.i.i.i110:                               ; preds = %sw.epilog.i.i.i104
   %74 = load i32, ptr @qemu_loglevel, align 4
-  %and.i10.i.i.i111 = and i32 %74, 2048
-  %cmp.i.not.i.i.i112 = icmp eq i32 %and.i10.i.i.i111, 0
+  %and.i11.i.i.i111 = and i32 %74, 2048
+  %cmp.i.not.i.i.i112 = icmp eq i32 %and.i11.i.i.i111, 0
   br i1 %cmp.i.not.i.i.i112, label %if.end19.i.i.i114, label %if.then17.i.i.i113
 
 if.then17.i.i.i113:                               ; preds = %do.body13.i.i.i110
@@ -1555,9 +1555,9 @@ if.end19.i.i.i114:                                ; preds = %if.then17.i.i.i113,
 
 do.body23.i.i.i116:                               ; preds = %if.end19.i.i.i114
   %75 = load i32, ptr @qemu_loglevel, align 4
-  %and.i11.i.i.i117 = and i32 %75, 1024
-  %cmp.i12.not.i.i.i118 = icmp eq i32 %and.i11.i.i.i117, 0
-  br i1 %cmp.i12.not.i.i.i118, label %tdata1_validate.exit.i.i120, label %if.then31.i.i.i119
+  %and.i12.i.i.i117 = and i32 %75, 1024
+  %cmp.i13.not.i.i.i118 = icmp eq i32 %and.i12.i.i.i117, 0
+  br i1 %cmp.i13.not.i.i.i118, label %tdata1_validate.exit.i.i120, label %if.then31.i.i.i119
 
 if.then31.i.i.i119:                               ; preds = %do.body23.i.i.i116
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
@@ -1874,7 +1874,7 @@ for.body3:                                        ; preds = %for.cond2.preheader
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %arrayidx.i, align 8
   %shr.i2.i.i = lshr i64 %12, 60
-  %conv5 = trunc i64 %shr.i2.i.i to i32
+  %conv5 = trunc nuw nsw i64 %shr.i2.i.i to i32
   switch i32 %conv5, label %for.inc [
     i32 2, label %sw.bb
     i32 6, label %sw.bb19
@@ -1982,7 +1982,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %shr.i.i.i = lshr i64 %1, 28
   %conv2.i.i = and i64 %shr.i.i.i, 15
   %retval.0.i.i = select i1 %cond, i64 %conv2.i.i, i64 %shr.i2.i.i
-  %conv3 = trunc i64 %retval.0.i.i to i32
+  %conv3 = trunc nuw nsw i64 %retval.0.i.i to i32
   switch i32 %conv3, label %for.inc [
     i32 2, label %sw.bb
     i32 6, label %sw.bb25

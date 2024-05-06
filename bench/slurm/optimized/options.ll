@@ -187,7 +187,7 @@ define dso_local void @_init_params() local_unnamed_addr #2 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @decode_state_char(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 12) i32 @decode_state_char(ptr noundef %0) local_unnamed_addr #4 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.6) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %23, label %3

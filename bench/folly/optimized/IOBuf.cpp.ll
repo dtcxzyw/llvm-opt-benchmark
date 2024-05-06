@@ -5763,7 +5763,7 @@ if.end:                                           ; preds = %invoke.cont4
   %isnotnull.i128 = icmp ne i32 %call34, 0
   %isnotnull.zext.i129 = zext i1 %isnotnull.i128 to i32
   %add.i130 = or i32 %c.lobit.neg.i127, %isnotnull.zext.i129
-  %conv3.i131 = trunc i32 %add.i130 to i8
+  %conv3.i131 = trunc nsw i32 %add.i130 to i8
   %cmp.not = icmp eq i8 %conv3.i131, 0
   br i1 %cmp.not, label %if.end38, label %cleanup44
 

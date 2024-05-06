@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [21 x i8] c"CRL entry extensions\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_CRL_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_CRL_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2
@@ -60,7 +60,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_CRL_print(ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define noundef i32 @X509_CRL_print(ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_CRL_print_ex(ptr noundef %out, ptr noundef %x, i64 noundef 0)
   ret i32 1
@@ -69,7 +69,7 @@ entry:
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_CRL_print_ex(ptr noundef %out, ptr noundef %x, i64 noundef %nmflag) local_unnamed_addr #0 {
+define noundef i32 @X509_CRL_print_ex(ptr noundef %out, ptr noundef %x, i64 noundef %nmflag) local_unnamed_addr #0 {
 entry:
   %sig_alg = alloca ptr, align 8
   %sig = alloca ptr, align 8

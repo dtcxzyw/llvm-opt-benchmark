@@ -46,7 +46,7 @@ return:                                           ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ossl_qrl_enc_level_set_have_el(ptr nocapture noundef readonly %els, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_qrl_enc_level_set_have_el(ptr nocapture noundef readonly %els, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i32 %enc_level, 4
   tail call void @llvm.assume(i1 %cmp.i)
@@ -68,7 +68,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly %els, i32 noundef %enc_level, i8 noundef zeroext %tgt_state, i64 noundef %keyslot) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly %els, i32 noundef %enc_level, i8 noundef zeroext %tgt_state, i64 noundef %keyslot) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i32 %enc_level, 4
   br i1 %cmp.i, label %ossl_qrl_enc_level_set_get.exit, label %return
@@ -107,7 +107,7 @@ return:                                           ; preds = %entry, %if.end, %os
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef %els, ptr noundef %libctx, ptr noundef %propq, i32 noundef %enc_level, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, i8 noundef zeroext %init_key_phase_bit, i32 noundef %is_tx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef %els, ptr noundef %libctx, ptr noundef %propq, i32 noundef %enc_level, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, i8 noundef zeroext %init_key_phase_bit, i32 noundef %is_tx) local_unnamed_addr #1 {
 entry:
   %ku_key = alloca [64 x i8], align 16
   %hpr_key = alloca [64 x i8], align 16
@@ -427,7 +427,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end.i13.i:                                     ; preds = %if.end
   tail call void @ossl_quic_hdr_protector_cleanup(ptr noundef nonnull %arrayidx.i) #5
   %1 = load i8, ptr %state, align 8
-  switch i8 %1, label %if.end.i13.i21 [
+  switch i8 %1, label %if.end.i13.i22 [
     i8 1, label %if.end.i15
     i8 2, label %if.end.i15
     i8 3, label %sw.bb9.i.i
@@ -438,7 +438,7 @@ sw.bb9.i.i:                                       ; preds = %if.end.i13.i
   %2 = load i64, ptr %key_epoch.i.i, align 8
   %and.i.i = and i64 %2, 1
   %cmp10.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp10.i.i, label %if.end.i15, label %sw.bb9.i.i23
+  br i1 %cmp10.i.i, label %if.end.i15, label %sw.bb9.i.i24
 
 if.end.i15:                                       ; preds = %if.end.i13.i, %if.end.i13.i, %sw.bb9.i.i
   %cctx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
@@ -455,44 +455,44 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
   %iv.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 106
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %iv.i, i64 noundef 16) #5
   %.pre = load i8, ptr %state, align 8
-  br label %if.end.i13.i21
+  br label %if.end.i13.i22
 
-if.end.i13.i21:                                   ; preds = %if.end.i13.i, %if.end7.i
+if.end.i13.i22:                                   ; preds = %if.end.i13.i, %if.end7.i
   %4 = phi i8 [ %1, %if.end.i13.i ], [ %.pre, %if.end7.i ]
   switch i8 %4, label %if.end7 [
-    i8 1, label %ossl_qrl_enc_level_set_has_keyslot.exit.i34
-    i8 2, label %ossl_qrl_enc_level_set_has_keyslot.exit.i34
-    i8 3, label %sw.bb9.i.i23
+    i8 1, label %ossl_qrl_enc_level_set_has_keyslot.exit.i35
+    i8 2, label %ossl_qrl_enc_level_set_has_keyslot.exit.i35
+    i8 3, label %sw.bb9.i.i24
   ]
 
-sw.bb9.i.i23:                                     ; preds = %sw.bb9.i.i, %if.end.i13.i21
-  %key_epoch.i.i24 = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
-  %5 = load i64, ptr %key_epoch.i.i24, align 8
-  %and.i.i25 = and i64 %5, 1
-  %cmp10.i.i26.not = icmp eq i64 %and.i.i25, 0
-  br i1 %cmp10.i.i26.not, label %if.end7, label %if.end.i27
+sw.bb9.i.i24:                                     ; preds = %sw.bb9.i.i, %if.end.i13.i22
+  %key_epoch.i.i25 = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
+  %5 = load i64, ptr %key_epoch.i.i25, align 8
+  %and.i.i26 = and i64 %5, 1
+  %cmp10.i.i27.not = icmp eq i64 %and.i.i26, 0
+  br i1 %cmp10.i.i27.not, label %if.end7, label %if.end.i28
 
-ossl_qrl_enc_level_set_has_keyslot.exit.i34:      ; preds = %if.end.i13.i21, %if.end.i13.i21
-  %cmp5.i.i35 = icmp eq i32 %enc_level, 3
-  br i1 %cmp5.i.i35, label %if.end.i27, label %if.end7
+ossl_qrl_enc_level_set_has_keyslot.exit.i35:      ; preds = %if.end.i13.i22, %if.end.i13.i22
+  %cmp5.i.i36 = icmp eq i32 %enc_level, 3
+  br i1 %cmp5.i.i36, label %if.end.i28, label %if.end7
 
-if.end.i27:                                       ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i34, %sw.bb9.i.i23
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
-  %6 = load ptr, ptr %arrayidx.i29, align 8
-  %cmp.not.i30 = icmp eq ptr %6, null
-  br i1 %cmp.not.i30, label %if.end7.i32, label %if.then2.i31
+if.end.i28:                                       ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i35, %sw.bb9.i.i24
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %6 = load ptr, ptr %arrayidx.i30, align 8
+  %cmp.not.i31 = icmp eq ptr %6, null
+  br i1 %cmp.not.i31, label %if.end7.i33, label %if.then2.i32
 
-if.then2.i31:                                     ; preds = %if.end.i27
+if.then2.i32:                                     ; preds = %if.end.i28
   tail call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %6) #5
-  store ptr null, ptr %arrayidx.i29, align 8
-  br label %if.end7.i32
+  store ptr null, ptr %arrayidx.i30, align 8
+  br label %if.end7.i33
 
-if.end7.i32:                                      ; preds = %if.then2.i31, %if.end.i27
+if.end7.i33:                                      ; preds = %if.then2.i32, %if.end.i28
   %arrayidx8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 122
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %arrayidx8.i, i64 noundef 16) #5
   br label %if.end7
 
-if.end7:                                          ; preds = %if.end, %if.end7.i32, %ossl_qrl_enc_level_set_has_keyslot.exit.i34, %sw.bb9.i.i23, %if.end.i13.i21
+if.end7:                                          ; preds = %if.end, %if.end7.i33, %ossl_qrl_enc_level_set_has_keyslot.exit.i35, %sw.bb9.i.i24, %if.end.i13.i22
   %md = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %7 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %7) #5
@@ -513,7 +513,7 @@ declare i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef) local_unnamed_addr #
 declare i32 @tls13_hkdf_expand_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @el_setup_keyslot(ptr noundef %els, i32 noundef %enc_level, i64 noundef %keyslot, ptr noundef %secret, i64 noundef %secret_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @el_setup_keyslot(ptr noundef %els, i32 noundef %enc_level, i64 noundef %keyslot, ptr noundef %secret, i64 noundef %secret_len) unnamed_addr #1 {
 entry:
   %key = alloca [64 x i8], align 16
   %cmp.i = icmp ult i32 %enc_level, 4
@@ -664,7 +664,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrl_enc_level_set_key_update(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_key_update(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
 entry:
   %new_ku = alloca [64 x i8], align 16
   %cmp.i = icmp ult i32 %enc_level, 4
@@ -784,7 +784,7 @@ declare i32 @ossl_qrl_get_suite_secret_len(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ult i32 %enc_level, 4
   br i1 %cmp.i, label %ossl_qrl_enc_level_set_get.exit, label %if.then
@@ -852,7 +852,7 @@ return:                                           ; preds = %el_teardown_keyslot
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {
 entry:
   %new_ku = alloca [64 x i8], align 16
   %cmp.i = icmp ult i32 %enc_level, 4
@@ -879,7 +879,7 @@ if.end:                                           ; preds = %ossl_qrl_enc_level_
   br i1 %cmp7, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end
-  %call9 = tail call i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef nonnull %els, i32 noundef 3), !range !4
+  %call9 = tail call i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef nonnull %els, i32 noundef 3)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end12thread-pre-split
 
@@ -1014,4 +1014,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

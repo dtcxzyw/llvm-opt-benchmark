@@ -858,7 +858,7 @@ declare void @cairo_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @cairo_ps_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @writer(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 12) i32 @writer(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @gvwrite(ptr noundef %0, ptr noundef %1, i64 noundef %4) #14
   %6 = icmp eq i64 %5, %4

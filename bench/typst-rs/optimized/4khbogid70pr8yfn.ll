@@ -1285,7 +1285,7 @@ define hidden void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE
   br i1 %.not.i, label %7, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph.preheader.i
@@ -1331,7 +1331,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   br i1 %.not.i.i.i, label %9, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !141
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !141
   %.0..0..0..0..0..sroa.0.0.copyload1.pre.i = load ptr, ptr %5, align 8, !noalias !142
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.8..8..8..8..8..sroa.5.0.copyload3.pre.i = load i56, ptr %.8..8..8..8..8..sroa_idx, align 8, !noalias !142
@@ -1726,7 +1726,7 @@ define hidden void @"_ZN78_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   br i1 %.not.i.i, label %8, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !216
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !216
   %.0..0..0..sroa.0.0.copyload1.pre = load ptr, ptr %4, align 8, !noalias !217
   %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.8..8..8..sroa.5.0.copyload3.pre = load i56, ptr %.8..8..8..sroa_idx, align 8, !noalias !217
@@ -1935,7 +1935,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.1456616472302762
   br label %62
 
 "_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %9, i64 %58), !alias.scope !248
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 %58), !alias.scope !248
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %59 = icmp eq i32 %bcmp.i.i.fr.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !242
@@ -2247,7 +2247,7 @@ define hidden noundef i8 @_ZN12typst_syntax5lexer5Lexer5error17hd8d4c8b7a1a378c9
   br i1 %.not.i.i.i.i, label %8, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !287
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !287
   %.0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i = load ptr, ptr %4, align 8, !noalias !288
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !288

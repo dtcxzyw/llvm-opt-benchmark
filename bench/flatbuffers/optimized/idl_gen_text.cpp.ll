@@ -2169,9 +2169,9 @@ if.then19:                                        ; preds = %land.lhs.true16
   %add.ptr4.i.i30 = getelementptr inbounds i8, ptr %add.ptr.i.i28, i64 %idx.ext3.i.i29
   %add.ptr.i.i32 = getelementptr inbounds i8, ptr %add.ptr4.i.i30, i64 4
   %24 = load i32, ptr %add.ptr.i.i32, align 4
-  %idx.ext.i.i33 = zext i32 %24 to i64
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i32, i64 %idx.ext.i.i33
-  %call28 = tail call noundef ptr @_ZN11flatbuffers11JsonPrinter9GenStructERKNS_9StructDefEPKNS_5TableEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(328) %16, ptr noundef nonnull %add.ptr.i.i34, i32 noundef %indent)
+  %idx.ext.i.i34 = zext i32 %24 to i64
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %add.ptr.i.i32, i64 %idx.ext.i.i34
+  %call28 = tail call noundef ptr @_ZN11flatbuffers11JsonPrinter9GenStructERKNS_9StructDefEPKNS_5TableEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(328) %16, ptr noundef nonnull %add.ptr.i.i35, i32 noundef %indent)
   br label %return
 
 if.else29:                                        ; preds = %land.lhs.true16, %if.else14
@@ -2192,20 +2192,20 @@ cond.true:                                        ; preds = %_ZN11flatbuffers8Is
   %offset33 = getelementptr inbounds i8, ptr %fd, i64 264
   %28 = load i16, ptr %offset33, align 8
   %29 = load i32, ptr %table, align 4
-  %idx.ext.i.i.i35 = sext i32 %29 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %idx.ext.i.i.i35
-  %add.ptr.i.i.i36 = getelementptr inbounds i8, ptr %table, i64 %idx.neg.i.i.i
-  %30 = load i16, ptr %add.ptr.i.i.i36, align 2
+  %idx.ext.i.i.i36 = sext i32 %29 to i64
+  %idx.neg.i.i.i = sub nsw i64 0, %idx.ext.i.i.i36
+  %add.ptr.i.i.i37 = getelementptr inbounds i8, ptr %table, i64 %idx.neg.i.i.i
+  %30 = load i16, ptr %add.ptr.i.i.i37, align 2
   %cmp.i.i = icmp ugt i16 %30, %28
   br i1 %cmp.i.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %cond.true
-  %idx.ext.i.i37 = zext i16 %28 to i64
-  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i.i36, i64 %idx.ext.i.i37
-  %31 = load i16, ptr %add.ptr.i.i38, align 2
+  %idx.ext.i.i38 = zext i16 %28 to i64
+  %add.ptr.i.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37, i64 %idx.ext.i.i38
+  %31 = load i16, ptr %add.ptr.i.i39, align 2
   %.fr.i = freeze i16 %31
-  %idx.ext.i39 = zext i16 %.fr.i to i64
-  %add.ptr.i40 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i39
+  %idx.ext.i40 = zext i16 %.fr.i to i64
+  %add.ptr.i41 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i40
   %tobool.not.i = icmp eq i16 %.fr.i, 0
   br i1 %tobool.not.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, label %if.end39
 
@@ -2216,30 +2216,30 @@ cond.false:                                       ; preds = %if.else29, %_ZN11fl
   %offset36 = getelementptr inbounds i8, ptr %fd, i64 264
   %32 = load i16, ptr %offset36, align 8
   %33 = load i32, ptr %table, align 4
-  %idx.ext.i.i.i.i41 = sext i32 %33 to i64
-  %idx.neg.i.i.i.i42 = sub nsw i64 0, %idx.ext.i.i.i.i41
-  %add.ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %table, i64 %idx.neg.i.i.i.i42
-  %34 = load i16, ptr %add.ptr.i.i.i.i43, align 2
-  %cmp.i.i.i44 = icmp ugt i16 %34, %32
-  br i1 %cmp.i.i.i44, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46, label %if.end39
+  %idx.ext.i.i.i.i42 = sext i32 %33 to i64
+  %idx.neg.i.i.i.i43 = sub nsw i64 0, %idx.ext.i.i.i.i42
+  %add.ptr.i.i.i.i44 = getelementptr inbounds i8, ptr %table, i64 %idx.neg.i.i.i.i43
+  %34 = load i16, ptr %add.ptr.i.i.i.i44, align 2
+  %cmp.i.i.i45 = icmp ugt i16 %34, %32
+  br i1 %cmp.i.i.i45, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i47, label %if.end39
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46: ; preds = %cond.false
-  %idx.ext.i.i.i47 = zext i16 %32 to i64
-  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i43, i64 %idx.ext.i.i.i47
-  %35 = load i16, ptr %add.ptr.i.i.i48, align 2
-  %tobool.not.i.i49 = icmp eq i16 %35, 0
-  br i1 %tobool.not.i.i49, label %if.end39, label %cond.true.i.i50
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i47: ; preds = %cond.false
+  %idx.ext.i.i.i48 = zext i16 %32 to i64
+  %add.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i44, i64 %idx.ext.i.i.i48
+  %35 = load i16, ptr %add.ptr.i.i.i49, align 2
+  %tobool.not.i.i50 = icmp eq i16 %35, 0
+  br i1 %tobool.not.i.i50, label %if.end39, label %cond.true.i.i51
 
-cond.true.i.i50:                                  ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46
-  %idx.ext.i.i51 = zext i16 %35 to i64
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i51
-  %36 = load i32, ptr %add.ptr.i.i52, align 4
-  %idx.ext3.i.i53 = zext i32 %36 to i64
-  %add.ptr4.i.i54 = getelementptr inbounds i8, ptr %add.ptr.i.i52, i64 %idx.ext3.i.i53
+cond.true.i.i51:                                  ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i47
+  %idx.ext.i.i52 = zext i16 %35 to i64
+  %add.ptr.i.i53 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i52
+  %36 = load i32, ptr %add.ptr.i.i53, align 4
+  %idx.ext3.i.i54 = zext i32 %36 to i64
+  %add.ptr4.i.i55 = getelementptr inbounds i8, ptr %add.ptr.i.i53, i64 %idx.ext3.i.i54
   br label %if.end39
 
-if.end39:                                         ; preds = %cond.true.i.i50, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46, %cond.false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %if.then
-  %val.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ %add.ptr.i40, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i ], [ %add.ptr4.i.i54, %cond.true.i.i50 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46 ], [ null, %cond.false ]
+if.end39:                                         ; preds = %cond.true.i.i51, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i47, %cond.false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %if.then
+  %val.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ %add.ptr.i41, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i ], [ %add.ptr4.i.i55, %cond.true.i.i51 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i47 ], [ null, %cond.false ]
   %value40 = getelementptr inbounds i8, ptr %fd, i64 200
   %call42 = tail call noundef ptr @_ZN11flatbuffers11JsonPrinter11PrintOffsetEPKvRKNS_4TypeEiPKhi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %val.0, ptr noundef nonnull align 8 dereferenceable(26) %value40, i32 noundef %indent, ptr noundef %prev_val, i32 noundef -1)
   br label %return
@@ -12188,7 +12188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGenerator12GenerateCodeERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGenerator12GenerateCodeERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

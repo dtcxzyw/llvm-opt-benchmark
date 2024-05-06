@@ -129,7 +129,7 @@ define void @Abc_GetFirst(ptr nocapture noundef writeonly %0, ptr nocapture noun
   %7 = getelementptr inbounds [16 x ptr], ptr @__const.Abc_GetFirst.pMintStrs, i64 0, i64 %indvars.iv39
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv39
-  %10 = trunc i64 %indvars.iv39 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv39 to i32
   %11 = shl nuw nsw i32 1, %10
   br label %12
 
@@ -141,7 +141,7 @@ define void @Abc_GetFirst(ptr nocapture noundef writeonly %0, ptr nocapture noun
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = load i32, ptr %9, align 4
   %20 = or i32 %19, %18
@@ -177,7 +177,7 @@ define void @Abc_GetFirst(ptr nocapture noundef writeonly %0, ptr nocapture noun
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = trunc i64 %indvars.iv43 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv43 to i32
   %35 = shl nuw nsw i32 1, %34
   %36 = load i32, ptr %28, align 4
   %37 = or i32 %36, %35
@@ -213,7 +213,7 @@ define void @Abc_GetSecond(ptr nocapture noundef writeonly %0, ptr nocapture nou
   %7 = getelementptr inbounds [32 x ptr], ptr @__const.Abc_GetSecond.pMintStrs, i64 0, i64 %indvars.iv39
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv39
-  %10 = trunc i64 %indvars.iv39 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv39 to i32
   %11 = shl nuw i32 1, %10
   br label %12
 
@@ -225,7 +225,7 @@ define void @Abc_GetSecond(ptr nocapture noundef writeonly %0, ptr nocapture nou
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = load i32, ptr %9, align 4
   %20 = or i32 %19, %18
@@ -261,7 +261,7 @@ define void @Abc_GetSecond(ptr nocapture noundef writeonly %0, ptr nocapture nou
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = trunc i64 %indvars.iv43 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv43 to i32
   %35 = shl nuw i32 1, %34
   %36 = load i32, ptr %28, align 4
   %37 = or i32 %36, %35
@@ -294,7 +294,7 @@ define void @Abc_GetThird(ptr nocapture noundef writeonly %0, ptr nocapture noun
   %7 = getelementptr inbounds [16 x ptr], ptr @__const.Abc_GetThird.pMintStrs, i64 0, i64 %indvars.iv39
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv39
-  %10 = trunc i64 %indvars.iv39 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv39 to i32
   %11 = shl nuw nsw i32 1, %10
   br label %12
 
@@ -306,7 +306,7 @@ define void @Abc_GetThird(ptr nocapture noundef writeonly %0, ptr nocapture noun
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = load i32, ptr %9, align 4
   %20 = or i32 %19, %18
@@ -342,7 +342,7 @@ define void @Abc_GetThird(ptr nocapture noundef writeonly %0, ptr nocapture noun
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = trunc i64 %indvars.iv43 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv43 to i32
   %35 = shl nuw nsw i32 1, %34
   %36 = load i32, ptr %28, align 4
   %37 = or i32 %36, %35
@@ -475,7 +475,7 @@ Abc_Clock.exit:                                   ; preds = %1, %11
   %23 = getelementptr inbounds [32 x ptr], ptr @__const.Abc_GetSecond.pMintStrs, i64 0, i64 %indvars.iv39.i
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv39.i
-  %26 = trunc i64 %indvars.iv39.i to i32
+  %26 = trunc nuw nsw i64 %indvars.iv39.i to i32
   %27 = shl nuw i32 1, %26
   br label %28
 
@@ -487,7 +487,7 @@ Abc_Clock.exit:                                   ; preds = %1, %11
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %28
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %34 = shl nuw nsw i32 1, %33
   %35 = load i32, ptr %25, align 4
   %36 = or i32 %35, %34
@@ -523,7 +523,7 @@ Abc_Clock.exit:                                   ; preds = %1, %11
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %45
-  %50 = trunc i64 %indvars.iv43.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv43.i to i32
   %51 = shl nuw i32 1, %50
   %52 = load i32, ptr %44, align 4
   %53 = or i32 %52, %51
@@ -762,7 +762,7 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv237 = phi i64 [ 1, %.preheader189.lr.ph ], [ %indvars.iv.next238, %Abc_Clock.exit173 ]
   %.0208 = phi i32 [ 0, %.preheader189.lr.ph ], [ %.11, %Abc_Clock.exit173 ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
-  %155 = trunc i64 %indvars.iv.next240 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv.next240 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader189, %388
@@ -771,7 +771,7 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
   %156 = getelementptr inbounds [100 x i32], ptr %8, i64 0, i64 %indvars.iv226
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %157 = getelementptr inbounds [100 x i32], ptr %8, i64 0, i64 %indvars.iv.next227
-  %158 = trunc i64 %indvars.iv226 to i32
+  %158 = trunc nuw nsw i64 %indvars.iv226 to i32
   br label %159
 
 159:                                              ; preds = %.preheader, %.loopexit188
@@ -782,7 +782,7 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %161, label %162, label %.loopexit188
 
 162:                                              ; preds = %159
-  %163 = trunc i64 %indvars.iv228 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv228 to i32
   %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.93, i32 noundef %158, i32 noundef %163, i32 noundef %155)
   %165 = load i32, ptr %156, align 4
   %166 = load i32, ptr %157, align 4
@@ -813,8 +813,8 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %.lr.ph200.split
   %179 = sext i32 %177 to i64
-  %180 = trunc i64 %indvars.iv223 to i32
-  %181 = trunc i64 %indvars.iv223 to i32
+  %180 = trunc nsw i64 %indvars.iv223 to i32
+  %181 = trunc nsw i64 %indvars.iv223 to i32
   br label %182
 
 182:                                              ; preds = %.lr.ph, %.loopexit
@@ -1000,7 +1000,7 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %267, ptr %16, align 4
   %268 = sext i32 %266 to i64
   %269 = getelementptr inbounds i32, ptr %265, i64 %268
-  %270 = trunc i64 %indvars.iv220 to i32
+  %270 = trunc nsw i64 %indvars.iv220 to i32
   store i32 %270, ptr %269, align 4
   br label %271
 
@@ -1019,7 +1019,7 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %277, label %278, label %283
 
 278:                                              ; preds = %274
-  %279 = trunc i64 %indvars.iv212 to i32
+  %279 = trunc nuw nsw i64 %indvars.iv212 to i32
   %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, i32 noundef %279, i32 noundef %155)
   %.val111 = load i32, ptr %20, align 4
   %281 = add nsw i32 %.val111, -1
@@ -1157,7 +1157,7 @@ Vec_IntPush.exit163:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %336, ptr %16, align 4
   %337 = sext i32 %335 to i64
   %338 = getelementptr inbounds i32, ptr %334, i64 %337
-  %339 = trunc i64 %indvars.iv220 to i32
+  %339 = trunc nsw i64 %indvars.iv220 to i32
   store i32 %339, ptr %338, align 4
   %340 = load i32, ptr %16, align 4
   %341 = load i32, ptr %15, align 8
@@ -1238,7 +1238,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %374, label %375, label %380
 
 375:                                              ; preds = %371
-  %376 = trunc i64 %indvars.iv216 to i32
+  %376 = trunc nuw nsw i64 %indvars.iv216 to i32
   %377 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, i32 noundef %376, i32 noundef %155)
   %.val112 = load i32, ptr %20, align 4
   %378 = add nsw i32 %.val112, -1
@@ -1290,7 +1290,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   %390 = add nuw nsw i64 %indvars.iv239, 2
   %391 = getelementptr inbounds [100 x i32], ptr %8, i64 0, i64 %390
   store i32 %.val113, ptr %391, align 4
-  %392 = trunc i64 %indvars.iv.next240 to i32
+  %392 = trunc nuw nsw i64 %indvars.iv.next240 to i32
   %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.95, i32 noundef %392, i32 noundef %.val113)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %394 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #17
@@ -1540,8 +1540,8 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   %123 = add nsw i64 %indvars.iv189, -1
   %124 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %123
   %125 = getelementptr inbounds [16 x i64], ptr %16, i64 0, i64 %indvars.iv189
-  %126 = trunc i64 %indvars.iv189 to i32
-  %127 = trunc i64 %indvars.iv189 to i32
+  %126 = trunc nsw i64 %indvars.iv189 to i32
+  %127 = trunc nsw i64 %indvars.iv189 to i32
   br label %128
 
 128:                                              ; preds = %.lr.ph175, %.loopexit
@@ -1620,7 +1620,7 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   %169 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 %indvars.iv
   %170 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv
   %171 = getelementptr inbounds [16 x i64], ptr %16, i64 0, i64 %indvars.iv
-  %172 = trunc i64 %indvars.iv to i32
+  %172 = trunc nsw i64 %indvars.iv to i32
   br label %173
 
 173:                                              ; preds = %.lr.ph, %Abc_EnumerateFilter.exit.thread
@@ -2091,7 +2091,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2110,7 +2110,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2121,21 +2121,21 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #11
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
-
 declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
@@ -2164,8 +2164,8 @@ attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -128,7 +128,7 @@ entry:
 declare noundef ptr @_ZNK6icu_759VTimeZone5cloneEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @vzone_equals_75(ptr noundef %zone1, ptr noundef %zone2) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @vzone_equals_75(ptr noundef %zone1, ptr noundef %zone2) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %zone1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

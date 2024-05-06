@@ -349,7 +349,7 @@ declare i32 @Amap_LibFindNode(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare i32 @Amap_LibCreateNode(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Amap_CreateCheckAllZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Amap_CreateCheckAllZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 8
@@ -359,7 +359,7 @@ define noundef i32 @Amap_CreateCheckAllZero(ptr nocapture noundef readonly %0) l
 5:                                                ; preds = %13, %1
   %indvars.iv = phi i64 [ %6, %13 ], [ %4, %1 ]
   %6 = add nsw i64 %indvars.iv, -1
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %.critedge
 
@@ -469,7 +469,7 @@ Vec_PtrAlloc.exit93:                              ; preds = %Vec_PtrAlloc.exit, 
 45:                                               ; preds = %56, %Vec_PtrAlloc.exit93
   %indvars.iv.i = phi i64 [ %46, %56 ], [ %44, %Vec_PtrAlloc.exit93 ]
   %46 = add nsw i64 %indvars.iv.i, -1
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw i64 %indvars.iv.i to i32
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %52, label %Amap_CreateCheckAllZero.exit.preheader
 
@@ -652,7 +652,7 @@ Vec_PtrPush.exit101:                              ; preds = %.Vec_PtrGrow.exit11
   %115 = sext i32 %90 to i64
   %116 = getelementptr inbounds ptr, ptr %113, i64 %115
   store ptr %89, ptr %116, align 8
-  %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %.val80 = load i32, ptr %4, align 4
   %117 = sext i32 %.val80 to i64
   %118 = icmp slt i64 %indvars.iv.next148, %117
@@ -715,7 +715,7 @@ Vec_IntFree.exit104:                              ; preds = %Vec_IntFree.exit, %
   %.val85 = load ptr, ptr %43, align 8
   %134 = getelementptr inbounds ptr, ptr %.val85, i64 %indvars.iv.next154
   %135 = load ptr, ptr %134, align 8
-  %136 = trunc i64 %indvars.iv.next154 to i32
+  %136 = trunc nuw nsw i64 %indvars.iv.next154 to i32
   %137 = shl nuw i32 1, %136
   %138 = and i32 %137, %.177139
   %.not78 = icmp eq i32 %138, 0
@@ -1190,7 +1190,7 @@ define noalias noundef ptr @Amap_CreateRulesFromDsd(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Amap_CreateCheckEqual_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Amap_CreateCheckEqual_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = ashr i32 %1, 1
   %5 = load i16, ptr %0, align 8
   %6 = zext i16 %5 to i32
@@ -1279,7 +1279,7 @@ Kit_DsdNtkObj.exit37:                             ; preds = %Kit_DsdNtkObj.exit,
 50:                                               ; preds = %41
   %51 = and i32 %44, 65534
   %52 = and i32 %47, 65534
-  %53 = tail call i32 @Amap_CreateCheckEqual_rec(ptr noundef nonnull %0, i32 noundef %51, i32 noundef %52), !range !23
+  %53 = tail call i32 @Amap_CreateCheckEqual_rec(ptr noundef nonnull %0, i32 noundef %51, i32 noundef %52)
   %.not34 = icmp eq i32 %53, 0
   br i1 %.not34, label %.loopexit, label %40
 
@@ -1327,7 +1327,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %23 = lshr i32 %22, 26
   %24 = zext nneg i32 %23 to i64
   %25 = icmp ult i64 %indvars.iv.next, %24
-  br i1 %25, label %17, label %.critedge, !llvm.loop !24
+  br i1 %25, label %17, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %17, %.preheader39
   %26 = phi i32 [ %15, %.preheader39 ], [ %22, %17 ]
@@ -1351,7 +1351,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %30 = phi i32 [ %116, %.loopexit.loopexit ], [ %33, %32 ]
   %31 = icmp ult i64 %indvars.iv.next55, %.pre-phi63
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  br i1 %31, label %32, label %Kit_DsdNtkObj.exit.thread, !llvm.loop !25
+  br i1 %31, label %32, label %Kit_DsdNtkObj.exit.thread, !llvm.loop !24
 
 32:                                               ; preds = %.lr.ph44, %.loopexit
   %33 = phi i32 [ %26, %.lr.ph44 ], [ %30, %.loopexit ]
@@ -1521,7 +1521,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %118 = lshr i32 %117, 26
   %119 = zext nneg i32 %118 to i64
   %120 = icmp ult i64 %indvars.iv.next52, %119
-  br i1 %120, label %38, label %.loopexit.loopexit, !llvm.loop !26
+  br i1 %120, label %38, label %.loopexit.loopexit, !llvm.loop !25
 
 Kit_DsdNtkObj.exit.thread:                        ; preds = %.loopexit, %3, %.critedge, %Kit_DsdNtkObj.exit
   ret void
@@ -1589,7 +1589,7 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, -2
   %32 = zext i16 %31 to i32
-  call void @Amap_CreateCheckAsym_rec(ptr noundef %25, i32 noundef %32, ptr noundef nonnull %3)
+  call void @Amap_CreateCheckAsym_rec(ptr noundef readonly %25, i32 noundef %32, ptr noundef nonnull %3)
   %33 = getelementptr inbounds i8, ptr %0, i64 80
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
@@ -1609,7 +1609,7 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %43 = load i16, ptr %29, align 2
   %44 = and i16 %43, -2
   %45 = zext i16 %44 to i32
-  %46 = tail call ptr @Amap_CreateRulesFromDsd_rec(ptr noundef nonnull %0, ptr noundef nonnull %25, i32 noundef %45)
+  %46 = tail call ptr @Amap_CreateRulesFromDsd_rec(ptr noundef nonnull %0, ptr noundef nonnull readonly %25, i32 noundef %45)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %Amap_CreateRulesFromDsd.exit.thread, label %48
 
@@ -1774,12 +1774,12 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %.val = load i32, ptr %64, align 4
   %139 = sext i32 %.val to i64
   %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph, label %.critedge2, !llvm.loop !27
+  br i1 %140, label %.lr.ph, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %.lr.ph, %.preheader, %95, %89, %91
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !27
 
 .critedge:                                        ; preds = %.critedge2, %.preheader97..critedge_crit_edge
   %141 = phi ptr [ %.pre, %.preheader97..critedge_crit_edge ], [ %.val93, %.critedge2 ]
@@ -1919,7 +1919,7 @@ define void @Amap_LibCreateRules(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val = load i32, ptr %44, align 4
   %45 = sext i32 %.val to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !29
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %42, %2
   %47 = load ptr, ptr %8, align 8
@@ -1969,7 +1969,7 @@ Vec_PtrFree.exit.i:                               ; preds = %63, %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = sext i32 %.val.i to i64
   %66 = icmp slt i64 %indvars.iv.next.i, %65
-  br i1 %66, label %57, label %.critedge.i, !llvm.loop !30
+  br i1 %66, label %57, label %.critedge.i, !llvm.loop !29
 
 .critedge.i:                                      ; preds = %64, %.critedge
   %67 = getelementptr inbounds i8, ptr %53, i64 8
@@ -2023,7 +2023,7 @@ Vec_PtrFree.exit.i36:                             ; preds = %80, %77
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i32, 1
   %82 = sext i32 %.val.i38 to i64
   %83 = icmp slt i64 %indvars.iv.next.i39, %82
-  br i1 %83, label %74, label %.critedge.i28, !llvm.loop !30
+  br i1 %83, label %74, label %.critedge.i28, !llvm.loop !29
 
 .critedge.i28:                                    ; preds = %81, %Vec_VecFree.exit
   %84 = getelementptr inbounds i8, ptr %70, i64 8
@@ -2093,11 +2093,10 @@ attributes #12 = { nounwind allocsize(1) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 0, i32 2}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}

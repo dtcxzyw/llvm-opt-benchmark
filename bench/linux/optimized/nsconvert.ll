@@ -298,7 +298,7 @@ declare dso_local i32 @acpi_ex_convert_to_buffer(ptr noundef, ptr noundef) local
 declare dso_local ptr @acpi_ut_create_buffer_object(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_convert_to_unicode(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12293) i32 @acpi_ns_convert_to_unicode(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %38, label %5
 
@@ -357,7 +357,7 @@ define dso_local noundef i32 @acpi_ns_convert_to_unicode(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_convert_to_resource(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12292) i32 @acpi_ns_convert_to_resource(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %16, label %5
 

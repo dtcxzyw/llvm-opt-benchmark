@@ -953,7 +953,7 @@ entry:
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %size_, align 8
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #25, !noalias !17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %0, i64 %1, i1 false), !noalias !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %0, i64 %1, i1 false), !noalias !17
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
           to label %_ZNSt10unique_ptrIN4base11BinaryValueESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit4.i, !noalias !17
 
@@ -6026,7 +6026,7 @@ entry:
   store i32 7, ptr %type_.i.i, align 8
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %list_.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %list_.i, i8 0, i64 24, i1 false)
   %list_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %list_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -6376,7 +6376,7 @@ _ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; p
   store i32 7, ptr %type_.i.i, align 8
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %call14.i, align 8
   %list_.i38 = getelementptr inbounds i8, ptr %call14.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_.i38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %list_.i38, i8 0, i64 24, i1 false)
   br label %if.end.i
 
 lpad.i:                                           ; preds = %for.body.i

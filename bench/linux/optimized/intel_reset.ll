@@ -1968,7 +1968,7 @@ declare dso_local void @synchronize_srcu_expedited(ptr noundef) local_unnamed_ad
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gt_reset_trylock(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @intel_gt_reset_trylock(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 3488
   %4 = load volatile i64, ptr %3, align 8
@@ -1989,7 +1989,7 @@ define dso_local noundef i32 @intel_gt_reset_trylock(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gt_reset_lock_interruptible(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -4, 1) i32 @intel_gt_reset_lock_interruptible(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = tail call i32 @__SCT__might_resched() #10
   tail call void @__rcu_read_lock() #10
@@ -2079,7 +2079,7 @@ define dso_local void @intel_gt_reset_unlock(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_terminally_wedged(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, 1) i32 @intel_gt_terminally_wedged(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = tail call i32 @__SCT__might_resched() #10
   %4 = getelementptr inbounds i8, ptr %0, i64 3488
@@ -2862,7 +2862,7 @@ define internal i32 @ilk_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @g4x_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
+define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %0, align 8
@@ -3048,7 +3048,7 @@ define internal noundef i32 @g4x_do_reset(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @g33_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
+define internal range(i32 -110, 1) i32 @g33_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3119,7 +3119,7 @@ define internal noundef i32 @g33_do_reset(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
+define internal range(i32 -110, 1) i32 @i915_do_reset(ptr nocapture noundef readonly %0, i32 %1, i32 %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %0, align 8

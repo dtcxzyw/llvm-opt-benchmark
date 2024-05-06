@@ -318,7 +318,7 @@ define dso_local i32 @bitmap_parselist(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %45
-  %49 = trunc i64 %46 to i32
+  %49 = trunc nuw i64 %46 to i32
   %50 = zext nneg i32 %41 to i64
   %51 = getelementptr i8, ptr %19, i64 %50
   br label %52
@@ -380,7 +380,7 @@ define dso_local i32 @bitmap_parselist(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %79, label %80, label %.thread26
 
 80:                                               ; preds = %77
-  %81 = trunc i64 %78 to i32
+  %81 = trunc nuw i64 %78 to i32
   %82 = zext nneg i32 %73 to i64
   %83 = getelementptr i8, ptr %67, i64 %82
   br label %84
@@ -445,7 +445,7 @@ define dso_local i32 @bitmap_parselist(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %114, label %115, label %.thread29
 
 115:                                              ; preds = %112
-  %116 = trunc i64 %113 to i32
+  %116 = trunc nuw i64 %113 to i32
   %117 = zext nneg i32 %108 to i64
   %118 = getelementptr i8, ptr %102, i64 %117
   br label %119
@@ -494,7 +494,7 @@ define dso_local i32 @bitmap_parselist(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %137
-  %141 = trunc i64 %138 to i32
+  %141 = trunc nuw i64 %138 to i32
   %142 = zext nneg i32 %133 to i64
   %143 = getelementptr i8, ptr %127, i64 %142
   br label %144

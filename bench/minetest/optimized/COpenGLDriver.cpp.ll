@@ -12643,7 +12643,7 @@ _ZNK3irr5video14SMaterialLayerneERKS1_.exit:      ; preds = %lor.rhs56.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3irr5video13COpenGLDriver18getTextureWrapModeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this, i8 noundef zeroext %clamp) local_unnamed_addr #11 align 2 {
+define noundef range(i32 10496, 35091) i32 @_ZN3irr5video13COpenGLDriver18getTextureWrapModeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this, i8 noundef zeroext %clamp) local_unnamed_addr #11 align 2 {
 entry:
   switch i8 %clamp, label %sw.epilog [
     i8 7, label %sw.bb83
@@ -19011,7 +19011,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5video13COpenGLDriver14getZBufferBitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this) local_unnamed_addr #11 align 2 {
+define noundef range(i32 6402, 33192) i32 @_ZNK3irr5video13COpenGLDriver14getZBufferBitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this) local_unnamed_addr #11 align 2 {
 entry:
   %ZBufferBits = getelementptr inbounds i8, ptr %this, i64 4105
   %0 = load i8, ptr %ZBufferBits, align 1, !tbaa !492

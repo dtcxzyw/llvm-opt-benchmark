@@ -75,7 +75,7 @@ define i32 @LAPACKE_dppsvx_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
 
 46:                                               ; preds = %43
   %47 = add nuw nsw i32 %31, 1
-  %48 = mul nsw i32 %47, %31
+  %48 = mul nuw nsw i32 %47, %31
   %49 = zext nneg i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 2
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #8

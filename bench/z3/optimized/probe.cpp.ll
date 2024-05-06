@@ -1119,7 +1119,7 @@ entry:
   %m_depth.i = getelementptr inbounds i8, ptr %g, i64 120
   %bf.load.i = load i32, ptr %m_depth.i, align 8
   %bf.clear.i = and i32 %bf.load.i, 67108863
-  %conv.i = uitofp i32 %bf.clear.i to double
+  %conv.i = uitofp nneg i32 %bf.clear.i to double
   ret double %conv.i
 }
 

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [25 x i8] c"Failed to process frame.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z27alts_create_frame_protectorPKhmbbPmPP19tsi_frame_protector(ptr noundef %key, i64 noundef %key_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_rekey, ptr noundef %max_protected_frame_size, ptr noundef writeonly %self) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_Z27alts_create_frame_protectorPKhmbbPmPP19tsi_frame_protector(ptr noundef %key, i64 noundef %key_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_rekey, ptr noundef %max_protected_frame_size, ptr noundef writeonly %self) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %aead_crypter_seal.i = alloca ptr, align 8
   %aead_crypter_unseal.i = alloca ptr, align 8

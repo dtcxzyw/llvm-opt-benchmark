@@ -1011,7 +1011,7 @@ return:                                           ; preds = %entry, %delete.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZNK6icu_7513LocaleMatcher7Builder11copyErrorToER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %outErrorCode) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513LocaleMatcher7Builder11copyErrorToER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %outErrorCode) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %outErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1880,7 +1880,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_111compareLSRsE8UElementS1_(ptr nonnull %t1.coerce, ptr nonnull %t2.coerce) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_111compareLSRsE8UElementS1_(ptr nonnull %t1.coerce, ptr nonnull %t2.coerce) #2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_753LSReqERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %t1.coerce, ptr noundef nonnull align 8 dereferenceable(48) %t2.coerce)
   %conv = zext i1 %call to i8
@@ -3142,7 +3142,7 @@ return:                                           ; preds = %delete.notnull.i, %
 declare i32 @uhash_getiAndFound_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513LocaleMatcher7isMatchERKNS_6LocaleES3_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(217) %desired, ptr noundef nonnull align 8 dereferenceable(217) %supported, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513LocaleMatcher7isMatchERKNS_6LocaleES3_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(217) %desired, ptr noundef nonnull align 8 dereferenceable(217) %supported, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suppLSR = alloca %"struct.icu_75::LSR", align 8
   %pSuppLSR = alloca ptr, align 8
@@ -3928,7 +3928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext i8 @_ZNK6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEE7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZNK6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEE7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 {
 entry:
   %it_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %it_, align 8

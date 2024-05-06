@@ -1254,8 +1254,8 @@ _ZN11colvarvalue14num_dimensionsENS_4TypeE.exit:  ; preds = %switch.lookup, %18
   %82 = load double, ptr %81, align 8
   %83 = load <2 x double>, ptr %80, align 8
   store <2 x double> %83, ptr %11, align 8
-  %.sroa.340.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store double %82, ptr %.sroa.340.0..sroa_idx, align 8
+  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store double %82, ptr %.sroa.341.0..sroa_idx, align 8
   br label %_ZN12colvarmodule8vector1dIdEaSERKS1_.exit
 
 84:                                               ; preds = %75, %75

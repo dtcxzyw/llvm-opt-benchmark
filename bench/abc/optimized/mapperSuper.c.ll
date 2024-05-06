@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"A gate name is empty.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [5000 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [2 x i32], align 4
@@ -468,11 +468,11 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
   br i1 %.not6069, label %.critedge4.thread.loopexit80, label %.lr.ph73
 
 .critedge4.thread.loopexit:                       ; preds = %33
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4.thread
 
 .critedge4.thread.loopexit80:                     ; preds = %.critedge4
-  %40 = trunc i64 %indvars.iv.next to i32
+  %40 = trunc nuw i64 %indvars.iv.next to i32
   br label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %.critedge, %.critedge4.thread.loopexit80, %.critedge4.thread.loopexit, %._crit_edge

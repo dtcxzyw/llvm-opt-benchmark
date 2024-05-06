@@ -106,18 +106,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [22 x i8] c"[constant expression]\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @zend_string_hash_func(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i64 -9223372036854775808, 0) i64 @zend_string_hash_func(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = tail call i64 @zend_hash_func(ptr noundef nonnull %2, i64 noundef %4), !range !4
+  %5 = tail call i64 @zend_hash_func(ptr noundef nonnull %2, i64 noundef %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %5, ptr %6, align 8
   ret i64 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @zend_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i64 -9223372036854775808, 0) i64 @zend_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ugt i64 %1, 7
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -373,7 +373,7 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @zend_hash_func(ptr noundef nonnull %10, i64 noundef %12), !range !4
+  %13 = tail call i64 @zend_hash_func(ptr noundef nonnull %10, i64 noundef %12)
   store i64 %13, ptr %7, align 8
   br label %14
 
@@ -416,7 +416,7 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   %38 = getelementptr inbounds i8, ptr %32, i64 24
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %23, %39
-  %41 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 %34, ptr nonnull %38) #19, !srcloc !5
+  %41 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 %34, ptr nonnull %38) #19, !srcloc !4
   %42 = extractvalue { i64, i64, ptr } %41, 0
   %.not108 = icmp eq i64 %42, 0
   br i1 %.not108, label %.critedge, label %44
@@ -486,7 +486,7 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   %74 = getelementptr inbounds i8, ptr %68, i64 24
   %75 = ptrtoint ptr %68 to i64
   %76 = sub i64 %59, %75
-  %77 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %70, ptr nonnull %74) #19, !srcloc !5
+  %77 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %70, ptr nonnull %74) #19, !srcloc !4
   %78 = extractvalue { i64, i64, ptr } %77, 0
   %.not109 = icmp eq i64 %78, 0
   br i1 %.not109, label %.critedge2, label %80
@@ -1075,7 +1075,7 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @zend_hash_func(ptr noundef nonnull %10, i64 noundef %12), !range !4
+  %13 = tail call i64 @zend_hash_func(ptr noundef nonnull %10, i64 noundef %12)
   store i64 %13, ptr %7, align 8
   br label %14
 
@@ -1118,7 +1118,7 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
   %38 = getelementptr inbounds i8, ptr %32, i64 24
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %23, %39
-  %41 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 %34, ptr nonnull %38) #19, !srcloc !5
+  %41 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 %34, ptr nonnull %38) #19, !srcloc !4
   %42 = extractvalue { i64, i64, ptr } %41, 0
   %.not64 = icmp eq i64 %42, 0
   br i1 %.not64, label %.critedge, label %44
@@ -1629,7 +1629,7 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @zend_hash_func(ptr noundef nonnull %5, i64 noundef %7), !range !4
+  %8 = tail call i64 @zend_hash_func(ptr noundef nonnull %5, i64 noundef %7)
   store i64 %8, ptr %2, align 8
   br label %9
 
@@ -1672,7 +1672,7 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
   %33 = getelementptr inbounds i8, ptr %27, i64 24
   %34 = ptrtoint ptr %27 to i64
   %35 = sub i64 %18, %34
-  %36 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, i64 %29, ptr nonnull %33) #19, !srcloc !5
+  %36 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, i64 %29, ptr nonnull %33) #19, !srcloc !4
   %37 = extractvalue { i64, i64, ptr } %36, 0
   %.not24 = icmp eq i64 %37, 0
   br i1 %.not24, label %.critedge, label %._crit_edge
@@ -1741,7 +1741,7 @@ define zeroext i1 @zend_string_equal_val(ptr noundef %0, ptr noundef %1) local_u
   %6 = sub i64 %4, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %3) #19, !srcloc !5
+  %9 = tail call { i64, i64, ptr } asm ".LL0${:uid}:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne .LL1${:uid}\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja .LL0${:uid}\0A\09movq $$0x1, $0\0A\09jmp .LL3${:uid}\0A\09.LL1${:uid}:\0A\09cmpq $$0x8,$1\0A\09jb .LL2${:uid}\0A\09xorq $0, $0\0A\09jmp .LL3${:uid}\0A\09.LL2${:uid}:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\09.LL3${:uid}:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %3) #19, !srcloc !4
   %10 = extractvalue { i64, i64, ptr } %9, 0
   %11 = icmp ne i64 %10, 0
   ret i1 %11
@@ -1865,5 +1865,4 @@ attributes #19 = { nounwind memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 -9223372036854775808, i64 0}
-!5 = !{i64 14252, i64 14262, i64 14287, i64 14309, i64 14328, i64 14350, i64 14372, i64 14390, i64 14412, i64 14431, i64 14447, i64 14468, i64 14486, i64 14506, i64 14525, i64 14541, i64 14557, i64 14585, i64 14606, i64 14623, i64 14646}
+!4 = !{i64 14252, i64 14262, i64 14287, i64 14309, i64 14328, i64 14350, i64 14372, i64 14390, i64 14412, i64 14431, i64 14447, i64 14468, i64 14486, i64 14506, i64 14525, i64 14541, i64 14557, i64 14585, i64 14606, i64 14623, i64 14646}

@@ -238,7 +238,7 @@ declare i32 @llvm.bswap.i32(i32) #2
 declare dso_local ptr @nfs4_get_valid_delegation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_callback_recall(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %71, label %6

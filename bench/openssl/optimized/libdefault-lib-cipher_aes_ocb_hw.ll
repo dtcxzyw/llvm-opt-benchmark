@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aes_ocb_aesni_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_aes_ocb_aesni_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %ocb = getelementptr inbounds i8, ptr %vctx, i64 688
   tail call void @CRYPTO_ocb128_cleanup(ptr noundef nonnull %ocb) #3
@@ -68,7 +68,7 @@ declare void @aesni_ocb_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare void @aesni_ocb_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aes_ocb_generic_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_aes_ocb_generic_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
   %and = and i32 %0, 512

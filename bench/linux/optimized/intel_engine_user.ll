@@ -418,7 +418,7 @@ declare dso_local zeroext i1 @llist_add_batch(ptr noundef, ptr noundef, ptr noun
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @engine_cmp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 align 16 {
+define internal range(i32 -1, 2) i32 @engine_cmp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -56
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i64

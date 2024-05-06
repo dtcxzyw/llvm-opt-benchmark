@@ -226,7 +226,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 .preheader54.us:                                  ; preds = %.preheader54.lr.ph, %._crit_edge.us
   %.03757.us = phi i64 [ %46, %._crit_edge.us ], [ 0, %.preheader54.lr.ph ]
   %invariant.gep.us = getelementptr float, ptr %36, i64 %.03757.us
-  %39 = mul nsw i64 %.03757.us, %31
+  %39 = mul nuw nsw i64 %.03757.us, %31
   %40 = getelementptr float, ptr %27, i64 %39
   br label %41
 
@@ -234,7 +234,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   %.03656.us = phi i64 [ 0, %.preheader54.us ], [ %45, %41 ]
   %42 = getelementptr float, ptr %40, i64 %.03656.us
   %43 = load float, ptr %42, align 4
-  %44 = mul nsw i64 %.03656.us, %1
+  %44 = mul nuw nsw i64 %.03656.us, %1
   %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %44
   store float %43, ptr %gep.us, align 4
   %45 = add nuw nsw i64 %.03656.us, 1
@@ -259,7 +259,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSt4sortIPfEvT_S1_.exit.us
   %.03558.us = phi i64 [ %59, %_ZSt4sortIPfEvT_S1_.exit.us ], [ 0, %.lr.ph ]
-  %52 = mul nsw i64 %.03558.us, %1
+  %52 = mul nuw nsw i64 %.03558.us, %1
   %53 = getelementptr inbounds float, ptr %36, i64 %52
   %54 = getelementptr inbounds float, ptr %53, i64 %1
   invoke void @_ZSt6__sortIPfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %53, ptr noundef nonnull %54)

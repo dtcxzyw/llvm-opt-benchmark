@@ -5994,7 +5994,7 @@ define dso_local range(i32 0, -2147483648) i32 @curl_multi_socket_all(ptr nounde
 
 6:                                                ; preds = %2
   %7 = tail call { i64, i32 } @Curl_now() #19
-  %8 = tail call i32 @curl_multi_perform(ptr noundef nonnull %0, ptr noundef %1)
+  %8 = tail call i32 @curl_multi_perform(ptr noundef nonnull %0, ptr noundef writeonly %1)
   %.not76.i = icmp eq i32 %8, 1
   br i1 %.not76.i, label %multi_socket.exit.thread, label %9
 

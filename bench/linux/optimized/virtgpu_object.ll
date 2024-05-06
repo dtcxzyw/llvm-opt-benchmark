@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID_virglhacktype397, ptr @__param_virglhack], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_gpu_resource_id_get(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @virtio_gpu_resource_id_get(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @virtio_gpu_virglrenderer_workaround, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5

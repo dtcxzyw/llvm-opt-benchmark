@@ -429,7 +429,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -483,7 +483,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_, align 8
   %finalize_hint_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %prev_.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
@@ -543,7 +543,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %2 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -692,7 +692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN6v8impl7RefBase5UnrefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN6v8impl7RefBase5UnrefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
 entry:
   %refcount_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
@@ -729,7 +729,7 @@ entry:
   %2 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -793,7 +793,7 @@ entry:
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -1210,7 +1210,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6v8impl9Reference5UnrefEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN6v8impl9Reference5UnrefEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
   %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
@@ -1321,7 +1321,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -1396,7 +1396,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i: ; preds = %if.end.i.i, %entry
   %4 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %5 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %prev_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
@@ -1971,7 +1971,7 @@ if.end92:                                         ; preds = %for.body
   br i1 %cmp96.not, label %do.end100, label %cleanup298
 
 do.end100:                                        ; preds = %if.end92
-  %call102 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr noundef nonnull %add.ptr), !range !5
+  %call102 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr noundef nonnull %add.ptr)
   %getter = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %11 = load ptr, ptr %getter, align 8
   %cmp103.not = icmp eq ptr %11, null
@@ -2057,7 +2057,7 @@ for.inc:                                          ; preds = %if.end141, %if.else
   %static_property_count.1 = phi i64 [ %inc, %if.then91 ], [ %static_property_count.0100, %if.end141 ], [ %static_property_count.0100, %do.end184 ], [ %static_property_count.0100, %if.else204 ]
   %inc231 = add nuw i64 %i.099, 1
   %exitcond.not = icmp eq i64 %inc231, %property_count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %static_property_count.0.lcssa = phi i64 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %static_property_count.1, %for.inc ]
@@ -2098,7 +2098,7 @@ if.then279:                                       ; preds = %for.body273
 for.inc281:                                       ; preds = %for.body273, %if.then279
   %inc282 = add nuw i64 %i270.0102, 1
   %exitcond103.not = icmp eq i64 %inc282, %property_count
-  br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !8
+  br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !7
 
 do.body284:                                       ; preds = %for.inc281, %if.then269
   %20 = load ptr, ptr %result, align 8
@@ -2290,7 +2290,7 @@ return:                                           ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr nocapture noundef readonly %descriptor) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr nocapture noundef readonly %descriptor) unnamed_addr #10 {
 entry:
   %getter = getelementptr inbounds i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %getter, align 8
@@ -2798,7 +2798,7 @@ for.inc.sink.split:                               ; preds = %do.end153, %if.end1
 for.inc:                                          ; preds = %for.inc.sink.split, %do.body258
   %inc = add nuw i64 %i.0107, 1
   %exitcond.not = icmp eq i64 %inc, %property_count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call271 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -6247,7 +6247,7 @@ while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %whil
   %5 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i = icmp eq i16 %5, 0
   %inc.i.i.i.i.i = add i64 %__i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !9
 
 if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.i, %do.end25.i.i
   %6 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
@@ -11066,7 +11066,7 @@ do.end127:                                        ; preds = %_ZNO2v85MaybeIbE8Fr
 
 if.then130:                                       ; preds = %do.end127
   %finalize_callback_.i = getelementptr inbounds i8, ptr %call91, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   br label %if.end134
 
 delete.notnull:                                   ; preds = %do.end127
@@ -16011,7 +16011,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store ptr %retval.i32.sroa.0.0, ptr %arrayidx, align 8
   %add = add nuw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %add, %.sroa.speculated
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %entry
   %cmp9 = icmp ult i64 %0, %buffer_length
@@ -16034,7 +16034,7 @@ for.body27:                                       ; preds = %if.then, %for.body2
   store ptr %12, ptr %arrayidx28, align 8
   %add30 = add nuw i64 %i.122, 1
   %exitcond23.not = icmp eq i64 %add30, %buffer_length
-  br i1 %exitcond23.not, label %if.end, label %for.body27, !llvm.loop !12
+  br i1 %exitcond23.not, label %if.end, label %for.body27, !llvm.loop !11
 
 if.end:                                           ; preds = %for.body27, %for.end
   ret void
@@ -17382,11 +17382,10 @@ attributes #28 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 8}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

@@ -3090,7 +3090,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 102:                                              ; preds = %.preheader178, %122
   %indvars.iv198 = phi i64 [ 0, %.preheader178 ], [ %indvars.iv.next199, %122 ]
-  %103 = trunc i64 %indvars.iv198 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv198 to i32
   %104 = shl nuw nsw i32 1, %103
   %105 = and i32 %104, %101
   %.not161 = icmp eq i32 %105, 0
@@ -3190,7 +3190,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %channel_number_valid.exit.thread, label %136, !llvm.loop !17
 
 channel_number_valid.exit:                        ; preds = %136
-  %141 = trunc i64 %indvars.iv.i170 to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.i170 to i32
   %142 = icmp eq i32 %141, 64
   br i1 %142, label %channel_number_valid.exit.thread, label %144
 

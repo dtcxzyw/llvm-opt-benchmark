@@ -1207,7 +1207,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513LocaleUtility12isFallbackOfERKNS_13UnicodeStringES3_(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr noundef nonnull align 8 dereferenceable(64) %child) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513LocaleUtility12isFallbackOfERKNS_13UnicodeStringES3_(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr noundef nonnull align 8 dereferenceable(64) %child) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %root, i64 8
   %0 = load i16, ptr %fUnion.i.i.i, align 8

@@ -466,7 +466,7 @@ xdp_rxq_info_unreg_mem_model.exit:                ; preds = %5, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__xdp_rxq_info_reg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__xdp_rxq_info_reg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9
@@ -1430,7 +1430,7 @@ define dso_local void @xdp_warn(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xdp_alloc_skb_bulk(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @xdp_alloc_skb_bulk(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr @skbuff_cache, align 8
   %5 = sext i32 %1 to i64
   %6 = tail call i32 @kmem_cache_alloc_bulk(ptr noundef %4, i32 noundef %2, i64 noundef %5, ptr noundef %0) #19
@@ -1783,7 +1783,7 @@ define internal i32 @xdp_mem_id_hashfn(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @xdp_mem_id_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal range(i32 0, 2) i32 @xdp_mem_id_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4

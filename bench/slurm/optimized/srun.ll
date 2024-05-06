@@ -627,7 +627,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
   store ptr %231, ptr %246, align 8
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %247 = load i32, ptr %179, align 4
-  %248 = trunc i64 %indvars.iv.next318.i to i32
+  %248 = trunc nsw i64 %indvars.iv.next318.i to i32
   %249 = icmp ugt i32 %247, %248
   br i1 %249, label %226, label %._crit_edge258.loopexit.i, !llvm.loop !11
 
@@ -720,7 +720,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 
 .lr.ph.i.i:                                       ; preds = %293, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %293 ]
-  %282 = trunc i64 %indvars.iv.i.i to i32
+  %282 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %283 = call ptr @hostlist_nth(ptr noundef %270, i32 noundef %282) #15
   %.not48.i.i = icmp eq ptr %283, null
   br i1 %.not48.i.i, label %284, label %287
@@ -1654,7 +1654,7 @@ define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef %1, 
   store i32 -2, ptr %70, align 4
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %73, ptr noundef nonnull readonly align 8 dereferenceable(12) %1, i64 12, i1 false)
   %74 = getelementptr inbounds i8, ptr %28, i64 32
   %75 = load i16, ptr %74, align 8
   %76 = or i16 %75, 1
@@ -2138,8 +2138,8 @@ declare void @cfmakeraw(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind
 declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #4
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pty_restore() #0 {

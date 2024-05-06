@@ -150,7 +150,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br label %dissect_bencoding_int.exit
 
 32:                                               ; preds = %26
-  %33 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %.0152188, ptr noundef null, ptr noundef null, i32 noundef 0), !range !4
+  %33 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %.0152188, ptr noundef null, ptr noundef null, i32 noundef 0)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -187,14 +187,14 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %46, ptr noundef %0, i32 noundef %27, i32 noundef %47, i32 noundef 0) #2
   %49 = load i32, ptr @ett_bencode_dict_entry, align 4
   %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #2
-  %51 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %.0152188, ptr noundef %50, ptr noundef %48, i32 noundef 1), !range !4
+  %51 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %.0152188, ptr noundef %50, ptr noundef %48, i32 noundef 1)
   tail call void @increment_dissection_depth(ptr noundef %1) #2
   %52 = tail call fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1, i32 noundef %41, i32 noundef %38, ptr noundef %50, i32 noundef %25, ptr noundef %48, i32 noundef 2)
   tail call void @decrement_dissection_depth(ptr noundef %1) #2
   %53 = add i32 %47, %.0189
   %54 = sub i32 %.0152188, %47
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %26, label %._crit_edge192.loopexit, !llvm.loop !5
+  br i1 %55, label %26, label %._crit_edge192.loopexit, !llvm.loop !4
 
 ._crit_edge192.loopexit:                          ; preds = %45
   %56 = icmp ne i32 %54, 0
@@ -248,7 +248,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %79 = add i32 %75, %.1187
   %80 = sub nsw i32 %.1153186, %75
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %68, label %._crit_edge, !llvm.loop !7
+  br i1 %81, label %68, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %78, %61
   %.1.lcssa = phi i32 [ 1, %61 ], [ %79, %78 ]
@@ -342,7 +342,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %.160.i = phi i32 [ %.05984.i, %114 ], [ 1, %102 ], [ %.05984.i, %108 ]
   %.1.i = phi i32 [ 0, %114 ], [ %.05885.i, %102 ], [ 1, %108 ]
   %exitcond.not.i = icmp eq i32 %93, %3
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %119
   %120 = load i32, ptr @hf_bencode_truncated_data, align 4
@@ -355,7 +355,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef %7), !range !4
+  %125 = tail call fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef %7)
   br label %dissect_bencoding_int.exit
 
 126:                                              ; preds = %122
@@ -380,7 +380,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i32 %3, 2
   br i1 %8, label %9, label %.preheader
 
@@ -461,7 +461,7 @@ define internal fastcc i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1
   %43 = add i32 %42, -48
   %44 = add i32 %43, %16
   %.not = icmp slt i32 %44, %.081
-  br i1 %.not, label %45, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %45, label %.preheader, !llvm.loop !8
 
 45:                                               ; preds = %39, %35
   %46 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str, ptr noundef %0, i32 noundef %2, i32 noundef %14) #2
@@ -499,9 +499,8 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 0}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

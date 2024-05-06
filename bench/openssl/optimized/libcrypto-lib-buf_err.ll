@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BUF_str_reasons = internal constant [1 x %struct.ERR_string_data_st] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_BUF_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_BUF_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 0) #2
   %cmp = icmp eq ptr %call, null

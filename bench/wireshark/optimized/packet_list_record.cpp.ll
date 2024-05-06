@@ -3496,7 +3496,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4Nod
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !24
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -3804,13 +3804,13 @@ _ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE6insertEm.exit: ; preds
 170:                                              ; preds = %43, %_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE6insertEm.exit
   %171 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %171, 128
-  br i1 %exitcond.not, label %172, label %43, !llvm.loop !25
+  br i1 %exitcond.not, label %172, label %43, !llvm.loop !24
 
 172:                                              ; preds = %170
   tail call void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE8freeDataEv(ptr noundef nonnull align 8 dereferenceable(138) %41) #20
   %173 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %173, %38
-  br i1 %exitcond36.not, label %._crit_edge, label %40, !llvm.loop !26
+  br i1 %exitcond36.not, label %._crit_edge, label %40, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %172, %.loopexit32
   %174 = icmp eq ptr %15, null
@@ -3944,6 +3944,5 @@ attributes #26 = { cold noreturn }
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i64 0, i64 65}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

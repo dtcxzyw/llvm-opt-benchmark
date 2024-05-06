@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Status_set_cancelled = weak alias i32 (ptr, i32), ptr @PMPI_Status_set_cancelled
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_Status_set_cancelled(ptr noundef writeonly %0, i32 noundef %1) #0 {
+define range(i32 0, 14) i32 @PMPI_Status_set_cancelled(ptr noundef writeonly %0, i32 noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %13

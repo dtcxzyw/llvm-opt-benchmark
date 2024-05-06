@@ -3613,8 +3613,8 @@ if.end.i.i36:                                     ; preds = %"_ZZN4node4quic7Ses
   %43 = load i64, ptr %41, align 8
   %call.i.i37 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %42, i64 noundef %43) #28
   %defineProperty.val5.val.pre = load ptr, ptr %realm_.i11, align 8
-  %.phi.trans.insert109 = getelementptr i8, ptr %defineProperty.val5.val.pre, i64 176
-  %defineProperty.val5.val.val.pre = load ptr, ptr %.phi.trans.insert109, align 8
+  %.phi.trans.insert110 = getelementptr i8, ptr %defineProperty.val5.val.pre, i64 176
+  %defineProperty.val5.val.val.pre = load ptr, ptr %.phi.trans.insert110, align 8
   br label %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit
 
 _ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit", %if.end.i.i36
@@ -3678,11 +3678,11 @@ if.then.i:                                        ; preds = %_ZN4node17BaseObjec
   br label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exitthread-pre-split
 
 _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exitthread-pre-split: ; preds = %if.then.i, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit
-  %.pr102 = load ptr, ptr %qlog_stream_, align 8
+  %.pr103 = load ptr, ptr %qlog_stream_, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exitthread-pre-split, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit.thread
-  %54 = phi ptr [ %.pr102, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exitthread-pre-split ], [ %53, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit.thread ]
+  %54 = phi ptr [ %.pr103, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exitthread-pre-split ], [ %53, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit.thread ]
   %cmp.i53.not = icmp eq ptr %54, null
   br i1 %cmp.i53.not, label %if.end88, label %if.then69
 
@@ -3762,20 +3762,20 @@ _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69.thread: ; pre
   br label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73
 
 _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69: ; preds = %if.then95
-  %.pr103 = load ptr, ptr %ref.tmp96, align 8
-  %cmp.not.i70 = icmp eq ptr %.pr103, null
+  %.pr104 = load ptr, ptr %ref.tmp96, align 8
+  %cmp.not.i70 = icmp eq ptr %.pr104, null
   br i1 %cmp.not.i70, label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split, label %if.then.i71
 
 if.then.i71:                                      ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr103) #28
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr104) #28
   br label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split
 
 _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split: ; preds = %if.then.i71, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69
-  %.pr105 = load ptr, ptr %keylog_stream_, align 8
+  %.pr106 = load ptr, ptr %keylog_stream_, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73
 
 _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73: ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69.thread
-  %72 = phi ptr [ %.pr105, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split ], [ %71, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69.thread ]
+  %72 = phi ptr [ %.pr106, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit73thread-pre-split ], [ %71, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEaSEOS3_.exit69.thread ]
   %cmp.i74.not = icmp eq ptr %72, null
   br i1 %cmp.i74.not, label %if.end122, label %if.then102
 
@@ -3828,27 +3828,27 @@ if.end122:                                        ; preds = %if.then.i.i92, %_ZN
   %84 = load ptr, ptr %endpoint_, align 8
   %scid = getelementptr inbounds i8, ptr %this, i64 1296
   store ptr %this, ptr %agg.tmp126, align 8
-  %call3.i.i94 = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
-  %cmp2.not.i95 = icmp eq ptr %call3.i.i94, null
-  br i1 %cmp2.not.i95, label %do.body6.i96, label %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit97
+  %call3.i.i95 = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
+  %cmp2.not.i96 = icmp eq ptr %call3.i.i95, null
+  br i1 %cmp2.not.i96, label %do.body6.i97, label %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit98
 
-do.body6.i96:                                     ; preds = %if.end122
+do.body6.i97:                                     ; preds = %if.end122
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC1EPS2_E4args_0) #28
   call void @abort() #29
   unreachable
 
-_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit97: ; preds = %if.end122
+_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit98: ; preds = %if.end122
   call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   call void @_ZN4node4quic8Endpoint10AddSessionERKNS0_3CIDENS_17BaseObjectPtrImplINS0_7SessionELb0EEE(ptr noundef nonnull align 8 dereferenceable(1520) %84, ptr noundef nonnull align 8 dereferenceable(48) %scid, ptr noundef nonnull %agg.tmp126) #28
   %85 = load ptr, ptr %agg.tmp126, align 8
-  %cmp.not.i98 = icmp eq ptr %85, null
-  br i1 %cmp.not.i98, label %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit, label %if.then.i99
+  %cmp.not.i99 = icmp eq ptr %85, null
+  br i1 %cmp.not.i99, label %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit, label %if.then.i100
 
-if.then.i99:                                      ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit97
+if.then.i100:                                     ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit98
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #28
   br label %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit
 
-_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit97, %if.then.i99
+_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit98, %if.then.i100
   %86 = load ptr, ptr %endpoint_, align 8
   %dcid = getelementptr inbounds i8, ptr %this, i64 1248
   call void @_ZN4node4quic8Endpoint12AssociateCIDERKNS0_3CIDES4_(ptr noundef nonnull align 8 dereferenceable(1520) %86, ptr noundef nonnull align 8 dereferenceable(48) %dcid, ptr noundef nonnull align 8 dereferenceable(48) %scid) #28
@@ -6667,7 +6667,7 @@ if.end.i:                                         ; preds = %if.then9
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit": ; preds = %if.end.i, %if.then.i, %if.end
-  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull align 8 dereferenceable(2616) %this)
+  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull readonly align 8 dereferenceable(2616) %this)
   ret i1 true
 }
 
@@ -6803,7 +6803,7 @@ _ZN4node13SocketAddress6UpdateEPK8sockaddrm.exit.i: ; preds = %entry
   %remote.i = getelementptr inbounds i8, ptr %path, i64 16
   %1 = load ptr, ptr %remote.i, align 8
   %address_.i.i = getelementptr inbounds i8, ptr %this, i64 2288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address_.i.i, ptr align 2 %1, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %address_.i.i, ptr align 2 %1, i64 %conv.i, i1 false)
   %addrlen8.i = getelementptr inbounds i8, ptr %path, i64 8
   %2 = load i32, ptr %addrlen8.i, align 8
   %cmp.i4.i = icmp ugt i32 %2, 128
@@ -6818,7 +6818,7 @@ _ZN4node4quic7Session10UpdatePathERKNS0_11PathStorageE.exit: ; preds = %_ZN4node
   %conv9.i = zext nneg i32 %2 to i64
   %3 = load ptr, ptr %path, align 8
   %address_.i5.i = getelementptr inbounds i8, ptr %this, i64 2152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address_.i5.i, ptr align 2 %3, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %address_.i5.i, ptr align 2 %3, i64 %conv9.i, i1 false)
   %4 = load i64, ptr %packet, align 8
   store i64 %4, ptr %agg.tmp, align 8
   store ptr null, ptr %packet, align 8
@@ -6938,8 +6938,8 @@ _ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit: ; preds = %for.cond
   call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.59") align 8 %ref.tmp, ptr noundef %8, ptr noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(136) %remote_address_, i64 noundef %call12, ptr noundef nonnull @.str.21) #28
   %12 = load i64, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
-  %cmp.i9.not = icmp eq i64 %12, 0
-  br i1 %cmp.i9.not, label %if.then15, label %if.end18
+  %cmp.i10.not = icmp eq i64 %12, 0
+  br i1 %cmp.i10.not, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
   call void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.node::quic::QuicError") align 8 %ref.tmp16, i32 noundef -238, i64 0, ptr nonnull @.str.13) #28
@@ -6996,36 +6996,36 @@ do.body35:                                        ; preds = %do.body
 
 do.end38:                                         ; preds = %do.body
   call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %packet.sroa.0.1, i32 noundef -125) #28
-  br label %if.then.i36
+  br label %if.then.i37
 
 sw.bb41:                                          ; preds = %if.then30
   call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %packet.sroa.0.1, i32 noundef -125) #28
-  br label %if.then.i36
+  br label %if.then.i37
 
 sw.bb43:                                          ; preds = %if.then30
   call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %packet.sroa.0.1, i32 noundef -125) #28
-  br label %if.then.i36
+  br label %if.then.i37
 
 sw.epilog:                                        ; preds = %if.then30
   call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %packet.sroa.0.1, i32 noundef -125) #28
   %conv = trunc i64 %call28 to i32
   call void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.node::quic::QuicError") align 8 %ref.tmp46, i32 noundef %conv, i64 0, ptr nonnull @.str.13) #28
-  %reason_.i14 = getelementptr inbounds i8, ptr %this, i64 2512
-  %reason_2.i15 = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
-  %call3.i16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i14, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i15) #28
-  %error_.i17 = getelementptr inbounds i8, ptr %this, i64 2544
-  %error_4.i18 = getelementptr inbounds i8, ptr %ref.tmp46, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i17, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i18, i64 48, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i15) #28
+  %reason_.i15 = getelementptr inbounds i8, ptr %this, i64 2512
+  %reason_2.i16 = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
+  %call3.i17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i15, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i16) #28
+  %error_.i18 = getelementptr inbounds i8, ptr %this, i64 2544
+  %error_4.i19 = getelementptr inbounds i8, ptr %ref.tmp46, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i18, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i19, i64 48, i1 false)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i16) #28
   %19 = load ptr, ptr %ptr_.i, align 8
-  %destroyed.i.i21 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i8, ptr %destroyed.i.i21, align 8
-  %tobool.i.not.i22 = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i22, label %if.end.i23, label %if.then.i36
+  %destroyed.i.i22 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load i8, ptr %destroyed.i.i22, align 8
+  %tobool.i.not.i23 = icmp eq i8 %20, 0
+  br i1 %tobool.i.not.i23, label %if.end.i24, label %if.then.i37
 
-if.end.i23:                                       ; preds = %sw.epilog
+if.end.i24:                                       ; preds = %sw.epilog
   call void @_ZN4node4quic7Session7DoCloseEb(ptr noundef nonnull align 8 dereferenceable(2616) %this, i1 noundef zeroext true)
-  br label %if.then.i36
+  br label %if.then.i37
 
 if.end50:                                         ; preds = %if.end22
   call void @_ZN4node4quic6Packet8TruncateEm(ptr noundef nonnull align 8 dereferenceable(576) %packet.sroa.0.1, i64 noundef %call28) #28
@@ -7033,14 +7033,14 @@ if.end50:                                         ; preds = %if.end22
   store i64 %21, ptr %agg.tmp52, align 8
   call void @_ZN4node4quic7Session4SendENS_17BaseObjectPtrImplINS0_6PacketELb0EEE(ptr noundef nonnull align 8 dereferenceable(2616) %this, ptr noundef nonnull %agg.tmp52)
   %22 = load ptr, ptr %agg.tmp52, align 8
-  %cmp.not.i25 = icmp eq ptr %22, null
-  br i1 %cmp.not.i25, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28, label %if.then.i26
+  %cmp.not.i26 = icmp eq ptr %22, null
+  br i1 %cmp.not.i26, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit29, label %if.then.i27
 
-if.then.i26:                                      ; preds = %if.end50
+if.then.i27:                                      ; preds = %if.end50
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
-  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28
+  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit29
 
-_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28: ; preds = %if.end50, %if.then.i26
+_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit29: ; preds = %if.end50, %if.then.i27
   %23 = load ptr, ptr %connection_.i, align 8
   %call54 = call i64 @uv_hrtime() #28
   call void @ngtcp2_conn_update_pkt_tx_time(ptr noundef %23, i64 noundef %call54) #28
@@ -7048,35 +7048,35 @@ _ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28: ; preds = %if.end5
   %cmp55.not = icmp eq i32 %24, 0
   br i1 %cmp55.not, label %if.end63, label %if.then56
 
-if.then56:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28
-  %ptr_.i30 = getelementptr inbounds i8, ptr %this, i64 88
-  %25 = load ptr, ptr %ptr_.i30, align 8
+if.then56:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit29
+  %ptr_.i31 = getelementptr inbounds i8, ptr %this, i64 88
+  %25 = load ptr, ptr %ptr_.i31, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %25, i64 264
   %26 = load i64, ptr %memptr.offset.i, align 8
   %add.i = add i64 %26, 1
   store i64 %add.i, ptr %memptr.offset.i, align 8
-  %27 = load ptr, ptr %ptr_.i30, align 8
+  %27 = load ptr, ptr %ptr_.i31, align 8
   %28 = load i64, ptr %3, align 8
-  %memptr.offset.i32 = getelementptr inbounds i8, ptr %27, i64 56
-  %29 = load i64, ptr %memptr.offset.i32, align 8
-  %add.i33 = add i64 %29, %28
-  store i64 %add.i33, ptr %memptr.offset.i32, align 8
+  %memptr.offset.i33 = getelementptr inbounds i8, ptr %27, i64 56
+  %29 = load i64, ptr %memptr.offset.i33, align 8
+  %add.i34 = add i64 %29, %28
+  store i64 %add.i34, ptr %memptr.offset.i33, align 8
   %30 = load ptr, ptr %ptr_.i, align 8
   %last_datagram_id62 = getelementptr inbounds i8, ptr %30, i64 16
   store i64 %add, ptr %last_datagram_id62, align 8
   br label %return
 
-if.end63:                                         ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit28
+if.end63:                                         ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit29
   %inc = add nuw nsw i32 %attempts.0.ph, 1
   %cmp64 = icmp eq i32 %inc, 16
   br i1 %cmp64, label %return, label %for.cond.outer, !llvm.loop !100
 
-if.then.i36:                                      ; preds = %sw.bb43, %sw.bb41, %do.end38, %sw.epilog, %if.end.i23
+if.then.i37:                                      ; preds = %sw.bb43, %sw.bb41, %do.end38, %sw.epilog, %if.end.i24
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %packet.sroa.0.1) #28
   br label %return
 
-return:                                           ; preds = %if.end63, %if.then.i36, %if.end.i, %if.then15, %if.then56, %entry, %lor.lhs.false
-  %retval.1 = phi i64 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.then.i36 ], [ %add, %if.then56 ], [ 0, %if.then15 ], [ 0, %if.end.i ], [ 0, %if.end63 ]
+return:                                           ; preds = %if.end63, %if.then.i37, %if.end.i, %if.then15, %if.then56, %entry, %lor.lhs.false
+  %retval.1 = phi i64 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.then.i37 ], [ %add, %if.then56 ], [ 0, %if.then15 ], [ 0, %if.end.i ], [ 0, %if.end63 ]
   ret i64 %retval.1
 }
 

@@ -1879,7 +1879,7 @@ _restore_preempt_state.exit:                      ; preds = %122, %125, %131
 228:                                              ; preds = %222, %226, %219
   %229 = load i32, ptr @yield_sleep, align 4
   %230 = sext i32 %229 to i64
-  %231 = call fastcc i32 @_yield_locks(i64 noundef %230), !range !10
+  %231 = call fastcc i32 @_yield_locks(i64 noundef %230)
   %.not600 = icmp eq i32 %231, 0
   br i1 %.not600, label %240, label %232
 
@@ -2045,13 +2045,13 @@ _restore_preempt_state.exit:                      ; preds = %122, %125, %131
 311:                                              ; preds = %309
   %312 = load i32, ptr %310, align 8
   %313 = icmp eq i32 %312, %305
-  br i1 %313, label %309, label %314, !llvm.loop !11
+  br i1 %313, label %309, label %314, !llvm.loop !10
 
 314:                                              ; preds = %311
   %315 = getelementptr inbounds i8, ptr %310, i64 16
   %316 = load i64, ptr %315, align 8
   %.0..i.i = call i64 @llvm.smax.i64(i64 %.0.ph.i.i, i64 %316)
-  br label %.outer.i.i, !llvm.loop !11
+  br label %.outer.i.i, !llvm.loop !10
 
 _het_job_start_compute.exit.i:                    ; preds = %309
   call void @list_iterator_destroy(ptr noundef %308) #16
@@ -2551,7 +2551,7 @@ _check_bf_usage.exit:                             ; preds = %486
   %.not10.i803 = icmp ne ptr %555, null
   %556 = icmp ne ptr %555, %184
   %or.cond.not.i = and i1 %556, %.not10.i803
-  br i1 %or.cond.not.i, label %554, label %557, !llvm.loop !12
+  br i1 %or.cond.not.i, label %554, label %557, !llvm.loop !11
 
 557:                                              ; preds = %554
   call void @list_iterator_destroy(ptr noundef %553) #16
@@ -3403,7 +3403,7 @@ _set_job_time_limit.exit809:                      ; preds = %934, %940
 950:                                              ; preds = %944, %948, %_set_job_time_limit.exit809
   %951 = load i32, ptr @yield_sleep, align 4
   %952 = sext i32 %951 to i64
-  %953 = call fastcc i32 @_yield_locks(i64 noundef %952), !range !10
+  %953 = call fastcc i32 @_yield_locks(i64 noundef %952)
   %.not651 = icmp eq i32 %953, 0
   br i1 %.not651, label %962, label %954
 
@@ -4543,7 +4543,7 @@ _set_job_time_limit.exit816:                      ; preds = %1471
 1499:                                             ; preds = %1495, %1488
   %1500 = phi ptr [ %1496, %1495 ], [ %1480, %1488 ]
   %.4388 = phi i32 [ %1498, %1495 ], [ %.3387.ph.ph2000, %1488 ]
-  %1501 = call i32 @_bf_reserve_running(ptr noundef nonnull %1500, ptr noundef nonnull %31), !range !13
+  %1501 = call i32 @_bf_reserve_running(ptr noundef nonnull %1500, ptr noundef nonnull %31)
   br label %1504
 
 1502:                                             ; preds = %1485
@@ -5781,7 +5781,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   %38 = tail call i64 @bit_ffs_from_bit(ptr noundef %36, i64 noundef %37) #16
   %39 = and i64 %38, 2147483648
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
+  br i1 %40, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %41 = phi i64 [ %67, %63 ], [ %3, %.lr.ph ]
@@ -5831,7 +5831,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   %67 = tail call i64 @bit_ffs_from_bit(ptr noundef %65, i64 noundef %66) #16
   %68 = and i64 %67, 2147483648
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %69, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %63, %34
   %.013.lcssa = phi i1 [ %.2.us, %34 ], [ %.2, %63 ]
@@ -5924,7 +5924,7 @@ define internal noundef i32 @_set_hetjob_details(ptr nocapture noundef %0, ptr n
   %27 = getelementptr inbounds i8, ptr %25, i64 792
   %28 = load i32, ptr %27, align 8
   %.not6.not.i = icmp eq i32 %28, 0
-  br i1 %.not6.not.i, label %24, label %_hetjob_any_resv.exit, !llvm.loop !15
+  br i1 %.not6.not.i, label %24, label %_hetjob_any_resv.exit, !llvm.loop !13
 
 _hetjob_any_resv.exit:                            ; preds = %24, %26
   tail call void @list_iterator_destroy(ptr noundef %23) #16
@@ -6005,7 +6005,7 @@ _adjust_hetjob_prio.exit.i:                       ; preds = %56, %55, %52, %.lr.
   %59 = add i32 %.112.i, 1
   %60 = tail call ptr @list_next(ptr noundef %42) #16
   %.not27.i = icmp eq ptr %60, null
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %_adjust_hetjob_prio.exit.i, %40
   %.16.lcssa.i = phi i32 [ %.05.i, %40 ], [ %.27.i, %_adjust_hetjob_prio.exit.i ]
@@ -6070,7 +6070,7 @@ _adjust_hetjob_prio.exit37.i:                     ; preds = %75, %74, %71, %61
   %87 = icmp ne i32 %86, 0
   %88 = icmp eq i32 %.4.i, 65533
   %or.cond3.i = select i1 %87, i1 %88, i1 false
-  br i1 %or.cond3.i, label %89, label %33, !llvm.loop !17
+  br i1 %or.cond3.i, label %89, label %33, !llvm.loop !15
 
 89:                                               ; preds = %85, %79, %33
   %.5.i = phi i32 [ %.05.i, %33 ], [ 0, %79 ], [ 65533, %85 ]
@@ -6163,7 +6163,7 @@ _adjust_hetjob_prio.exit.us.us.us.i:              ; preds = %.preheader.split.us
   %117 = add i32 %.116.us.us.us.i, 1
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
-  br i1 %exitcond57.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.us.i, !llvm.loop !18
+  br i1 %exitcond57.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.us.i, !llvm.loop !16
 
 .preheader.split.us.split.us.split.i:             ; preds = %.preheader.split.us.split.us.i, %_adjust_hetjob_prio.exit.us.us.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %_adjust_hetjob_prio.exit.us.us.i ], [ 0, %.preheader.split.us.split.us.i ]
@@ -6179,7 +6179,7 @@ _adjust_hetjob_prio.exit.us.us.i:                 ; preds = %.preheader.split.us
   %121 = add i32 %.116.us.us.i, 1
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count56.i
-  br i1 %exitcond52.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.i, !llvm.loop !18
+  br i1 %exitcond52.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.i, !llvm.loop !16
 
 .preheader.split.us.split.i:                      ; preds = %.preheader.split.us.i, %_adjust_hetjob_prio.exit.us.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_adjust_hetjob_prio.exit.us.i ], [ 0, %.preheader.split.us.i ]
@@ -6197,7 +6197,7 @@ _adjust_hetjob_prio.exit.us.i:                    ; preds = %.preheader.split.us
   %125 = add i32 %.116.us.i, 1
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count56.i
-  br i1 %exitcond47.not.i, label %.split.us.thread.i, label %.preheader.split.us.split.i, !llvm.loop !18
+  br i1 %exitcond47.not.i, label %.split.us.thread.i, label %.preheader.split.us.split.i, !llvm.loop !16
 
 .split.us.thread.i:                               ; preds = %_adjust_hetjob_prio.exit.us.i
   %.us-phi1959.i = add i32 %107, %.022.i
@@ -6219,7 +6219,7 @@ _adjust_hetjob_prio.exit.i25:                     ; preds = %.preheader.split.i
   %129 = add i32 %.116.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !16
 
 .split.us.i:                                      ; preds = %_adjust_hetjob_prio.exit.i25, %_adjust_hetjob_prio.exit.us.us.i, %_adjust_hetjob_prio.exit.us.us.us.i
   %.us-phi18.i = phi i32 [ %spec.select.i35, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %spec.select.us.us.i, %_adjust_hetjob_prio.exit.us.us.i ], [ %.28.i, %_adjust_hetjob_prio.exit.i25 ]
@@ -6277,7 +6277,7 @@ _adjust_hetjob_prio.exit42.i:                     ; preds = %143, %142, %139, %1
   %150 = icmp ne i16 %149, 0
   %151 = icmp eq i32 %.5.i28, 1
   %or.cond.i30 = select i1 %150, i1 %151, i1 false
-  br i1 %or.cond.i30, label %.thread.i, label %98, !llvm.loop !19
+  br i1 %or.cond.i30, label %.thread.i, label %98, !llvm.loop !17
 
 .thread.i:                                        ; preds = %147, %131, %.split.us.i, %98, %.preheader.split.i, %.preheader.split.us.split.i, %.preheader.split.us.split.us.split.i, %.preheader.split.us.split.us.split.us.i
   %.6.i31 = phi i32 [ 0, %.preheader.split.us.split.us.split.us.i ], [ 0, %.preheader.split.us.split.us.split.i ], [ 0, %.preheader.split.us.split.i ], [ 0, %.preheader.split.i ], [ %.06.i, %98 ], [ 1, %147 ], [ 0, %.split.us.i ], [ 0, %131 ]
@@ -6374,7 +6374,7 @@ define internal noundef i32 @_bf_reserve_resv_licenses(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_bf_reserve_running(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_bf_reserve_running(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6573,7 +6573,7 @@ declare i32 @slurm_delta_tv(ptr noundef) local_unnamed_addr #4
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_yield_locks(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_yield_locks(i64 noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @max_rpc_cnt, align 4
   %3 = icmp sgt i32 %2, 209
   %4 = sdiv i32 %2, 10
@@ -6637,7 +6637,7 @@ define internal fastcc i32 @_yield_locks(i64 noundef %0) unnamed_addr #0 {
 32:                                               ; preds = %27, %30
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #16
   %.not31 = icmp eq i32 %33, 0
-  br i1 %.not31, label %11, label %34, !llvm.loop !20
+  br i1 %.not31, label %11, label %34, !llvm.loop !18
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #17
@@ -6848,13 +6848,13 @@ define internal fastcc void @_het_job_start_set(ptr noundef %0, i64 noundef %1, 
 75:                                               ; preds = %73
   %76 = load i32, ptr %74, align 8
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %73, label %78, !llvm.loop !11
+  br i1 %77, label %73, label %78, !llvm.loop !10
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %74, i64 16
   %80 = load i64, ptr %79, align 8
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %80)
-  br label %.outer.i, !llvm.loop !11
+  br label %.outer.i, !llvm.loop !10
 
 _het_job_start_compute.exit:                      ; preds = %73
   tail call void @list_iterator_destroy(ptr noundef %72) #16
@@ -6880,13 +6880,13 @@ _het_job_start_compute.exit:                      ; preds = %73
 87:                                               ; preds = %85
   %88 = load i32, ptr %86, align 8
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %85, label %90, !llvm.loop !11
+  br i1 %89, label %85, label %90, !llvm.loop !10
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %86, i64 16
   %92 = load i64, ptr %91, align 8
   %.0..i74 = tail call i64 @llvm.smax.i64(i64 %.0.ph.i72, i64 %92)
-  br label %.outer.i71, !llvm.loop !11
+  br label %.outer.i71, !llvm.loop !10
 
 _het_job_start_compute.exit75:                    ; preds = %85
   tail call void @list_iterator_destroy(ptr noundef %84) #16
@@ -7185,7 +7185,7 @@ define internal fastcc i32 @_try_sched(ptr noundef %0, ptr noundef %1, i32 nound
   %.1267 = phi i1 [ true, %23 ], [ %.0266, %.lr.ph.i ], [ %.0266, %.thread.fold.split ]
   %24 = tail call ptr @list_next(ptr noundef %15) #16
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_num_feature_count.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %_num_feature_count.exit, label %.lr.ph.i, !llvm.loop !19
 
 _num_feature_count.exit:                          ; preds = %.thread, %14
   %.2272 = phi i1 [ false, %14 ], [ %.1271275, %.thread ]
@@ -7248,7 +7248,7 @@ _num_feature_count.exit:                          ; preds = %.thread, %14
 .lr.ph305:                                        ; preds = %.lr.ph347
   %49 = tail call ptr @list_next(ptr noundef %31) #16
   %.not259 = icmp eq ptr %49, null
-  br i1 %.not259, label %.critedge, label %.lr.ph347, !llvm.loop !22
+  br i1 %.not259, label %.critedge, label %.lr.ph347, !llvm.loop !20
 
 .lr.ph347:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
   %50 = phi ptr [ %49, %.lr.ph305 ], [ %48, %.lr.ph305.preheader ]
@@ -7267,7 +7267,7 @@ _num_feature_count.exit:                          ; preds = %.thread, %14
   %60 = getelementptr inbounds i8, ptr %50, i64 32
   %61 = load i16, ptr %60, align 8
   %.not258 = icmp eq i16 %61, 0
-  br i1 %.not258, label %.critedge, label %.lr.ph305, !llvm.loop !22
+  br i1 %.not258, label %.critedge, label %.lr.ph305, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph347, %.lr.ph305, %.lr.ph305.preheader, %34
   %.0209.lcssa = phi ptr [ %37, %34 ], [ %37, %.lr.ph305.preheader ], [ %51, %.lr.ph305 ], [ %51, %.lr.ph347 ]
@@ -7356,7 +7356,7 @@ thread-pre-split:                                 ; preds = %80, %81
   %92 = icmp ne ptr %91, null
   %93 = icmp eq i32 %.1281, 0
   %94 = and i1 %93, %92
-  br i1 %94, label %34, label %._crit_edge314, !llvm.loop !23
+  br i1 %94, label %34, label %._crit_edge314, !llvm.loop !21
 
 ._crit_edge314:                                   ; preds = %90
   tail call void @list_iterator_destroy(ptr noundef %31) #16
@@ -7506,7 +7506,7 @@ thread-pre-split:                                 ; preds = %80, %81
 .lr.ph:                                           ; preds = %.lr.ph344
   %151 = tail call ptr @list_next(ptr noundef %135) #16
   %.not246 = icmp eq ptr %151, null
-  br i1 %.not246, label %.critedge5, label %.lr.ph344, !llvm.loop !24
+  br i1 %.not246, label %.critedge5, label %.lr.ph344, !llvm.loop !22
 
 .lr.ph344:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %152 = phi ptr [ %151, %.lr.ph ], [ %150, %.lr.ph.preheader ]
@@ -7523,7 +7523,7 @@ thread-pre-split:                                 ; preds = %80, %81
   %160 = getelementptr inbounds i8, ptr %152, i64 32
   %161 = load i16, ptr %160, align 8
   %.not245 = icmp eq i16 %161, 0
-  br i1 %.not245, label %.critedge5, label %.lr.ph, !llvm.loop !24
+  br i1 %.not245, label %.critedge5, label %.lr.ph, !llvm.loop !22
 
 .critedge5:                                       ; preds = %.lr.ph344, %.lr.ph, %.lr.ph.preheader, %138
   %.1210.lcssa = phi ptr [ %141, %138 ], [ %141, %.lr.ph.preheader ], [ %153, %.lr.ph ], [ %153, %.lr.ph344 ]
@@ -7585,7 +7585,7 @@ thread-pre-split:                                 ; preds = %80, %81
   store ptr null, ptr %25, align 8
   %185 = tail call ptr @list_next(ptr noundef %135) #16
   %.not239 = icmp eq ptr %185, null
-  br i1 %.not239, label %._crit_edge, label %138, !llvm.loop !25
+  br i1 %.not239, label %._crit_edge, label %138, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %184, %131
   %186 = phi ptr [ %133, %131 ], [ %180, %184 ]
@@ -8396,13 +8396,13 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
 61:                                               ; preds = %57, %.lr.ph
   %62 = tail call ptr @list_next(ptr noundef %52) #16
   %.not81 = icmp eq ptr %62, null
-  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %61, %50
   tail call void @list_iterator_destroy(ptr noundef %52) #16
   %63 = tail call ptr @list_next(ptr noundef %40) #16
   %.not75 = icmp eq ptr %63, null
-  br i1 %.not75, label %._crit_edge104, label %.lr.ph103, !llvm.loop !27
+  br i1 %.not75, label %._crit_edge104, label %.lr.ph103, !llvm.loop !25
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %38
   tail call void @list_iterator_destroy(ptr noundef %40) #16
@@ -8431,7 +8431,7 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
 
 .lr.ph107.backedge:                               ; preds = %.critedge.backedge, %.critedge.outer
   %.be = phi ptr [ %71, %.critedge.backedge ], [ %95, %.critedge.outer ]
-  br label %.lr.ph107, !llvm.loop !28
+  br label %.lr.ph107, !llvm.loop !26
 
 72:                                               ; preds = %.lr.ph107
   %73 = load ptr, ptr %69, align 8
@@ -8471,12 +8471,12 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
   %91 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %92 = and i64 %91, 562949953421312
   %.not80 = icmp eq i64 %92, 0
-  br i1 %.not80, label %.loopexit, label %96, !llvm.loop !28
+  br i1 %.not80, label %.loopexit, label %96, !llvm.loop !26
 
 93:                                               ; preds = %86, %83
   %94 = tail call ptr @list_next(ptr noundef %77) #16
   %.not78 = icmp eq ptr %94, null
-  br i1 %.not78, label %.critedge.outer, label %.lr.ph112, !llvm.loop !29
+  br i1 %.not78, label %.critedge.outer, label %.lr.ph112, !llvm.loop !27
 
 .critedge.outer:                                  ; preds = %93, %.lr.ph112, %75
   tail call void @list_iterator_destroy(ptr noundef %77) #16
@@ -8487,7 +8487,7 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
 96:                                               ; preds = %.thread90
   %97 = tail call i32 @get_log_level() #16
   %98 = icmp sgt i32 %97, 3
-  br i1 %98, label %99, label %.loopexit, !llvm.loop !28
+  br i1 %98, label %99, label %.loopexit, !llvm.loop !26
 
 99:                                               ; preds = %96
   %100 = load i32, ptr %.160, align 8
@@ -8501,7 +8501,7 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
   %108 = getelementptr inbounds i8, ptr %107, i64 224
   %109 = load ptr, ptr %108, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.150, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_deadlock_test, i32 noundef %100, ptr noundef %104, i32 noundef %105, ptr noundef %109) #16
-  br label %.loopexit, !llvm.loop !28
+  br label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.critedge.outer, %.critedge.backedge, %64, %.thread90, %96, %99
   %.not7696 = phi i1 [ true, %.thread90 ], [ true, %96 ], [ true, %99 ], [ false, %64 ], [ false, %.critedge.backedge ], [ false, %.critedge.outer ]
@@ -8670,7 +8670,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 82:                                               ; preds = %81, %78
   %83 = load i64, ptr %54, align 8
   %84 = icmp eq i64 %83, %47
-  br i1 %84, label %.split193.us, label %.split.split.us, !llvm.loop !30
+  br i1 %84, label %.split193.us, label %.split.split.us, !llvm.loop !28
 
 .split.split:                                     ; preds = %.split, %121
   %.2 = phi i32 [ %87, %121 ], [ %.0138, %.split ]
@@ -8740,7 +8740,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 121:                                              ; preds = %120, %115
   %122 = load i64, ptr %91, align 8
   %123 = icmp eq i64 %122, %47
-  br i1 %123, label %.split193.us, label %.split.split, !llvm.loop !30
+  br i1 %123, label %.split193.us, label %.split.split, !llvm.loop !28
 
 .split193.us:                                     ; preds = %121, %82
   %124 = phi i64 [ %52, %82 ], [ %89, %121 ]
@@ -8780,7 +8780,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 
 .backedge:                                        ; preds = %135, %._crit_edge
   %.not169 = icmp eq i32 %130, %.0
-  br i1 %.not169, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not169, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %132, %135
   %139 = getelementptr inbounds i8, ptr %128, i64 16
@@ -8857,7 +8857,7 @@ declare ptr @bf_licenses_to_string(ptr noundef) local_unnamed_addr #4
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_het_job_find_map(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @_het_job_find_map(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -8875,7 +8875,7 @@ define internal i32 @_het_job_find_map(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_het_job_find_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @_het_job_find_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -8999,7 +8999,7 @@ define internal fastcc void @_het_job_start_test_single(ptr nocapture noundef re
 .backedge.i:                                      ; preds = %46, %36
   %41 = tail call ptr @list_next(ptr noundef %27) #16
   %.not20.i = icmp eq ptr %41, null
-  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !30
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %28, align 8
@@ -9061,13 +9061,13 @@ _het_job_full.exit.thread:                        ; preds = %11, %15, %23, %_het
 63:                                               ; preds = %61
   %64 = load i32, ptr %62, align 8
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %61, label %66, !llvm.loop !11
+  br i1 %65, label %61, label %66, !llvm.loop !10
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %62, i64 16
   %68 = load i64, ptr %67, align 8
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %68)
-  br label %.outer.i, !llvm.loop !11
+  br label %.outer.i, !llvm.loop !10
 
 _het_job_start_compute.exit:                      ; preds = %61
   tail call void @list_iterator_destroy(ptr noundef %60) #16
@@ -9265,7 +9265,7 @@ _het_job_start_now.exit.thread:                   ; preds = %99
   %153 = phi ptr [ %183, %.thread81.i ], [ %183, %186 ], [ %183, %192 ], [ %105, %151 ]
   %154 = call ptr @list_next(ptr noundef %102) #16
   %.not.i39 = icmp eq ptr %154, null
-  br i1 %.not.i39, label %.loopexit.i, label %.lr.ph.i37, !llvm.loop !33
+  br i1 %.not.i39, label %.loopexit.i, label %.lr.ph.i37, !llvm.loop !31
 
 155:                                              ; preds = %145
   %156 = load ptr, ptr %4, align 8
@@ -9373,7 +9373,7 @@ _het_job_start_now.exit.thread:                   ; preds = %99
   %203 = add nsw i64 %191, %202
   %204 = getelementptr inbounds i8, ptr %108, i64 232
   store i64 %203, ptr %204, align 8
-  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %108, i64 noundef %100, ptr noundef %0)
+  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %108, i64 noundef %100, ptr noundef readonly %0)
   br label %.thread81.i
 
 .thread81.i:                                      ; preds = %.thread.i, %.thread79.i
@@ -9487,7 +9487,7 @@ _het_job_start_now.exit:                          ; preds = %.loopexit.i, %208
 .backedge.i41:                                    ; preds = %252, %249, %226
   %253 = call ptr @list_next(ptr noundef %221) #16
   %.not.i42 = icmp eq ptr %253, null
-  br i1 %.not.i42, label %_het_job_kill_now.exit, label %226, !llvm.loop !34
+  br i1 %.not.i42, label %_het_job_kill_now.exit, label %226, !llvm.loop !32
 
 _het_job_kill_now.exit:                           ; preds = %.backedge.i41, %217
   call void @list_iterator_destroy(ptr noundef %221) #16
@@ -9651,7 +9651,7 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture no
   call void @acct_policy_job_begin(ptr noundef nonnull %25, i1 noundef zeroext false) #16
   %86 = call ptr @list_next(ptr noundef %15) #16
   %.not = icmp eq ptr %86, null
-  br i1 %.not, label %.loopexit.loopexit, label %22, !llvm.loop !35
+  br i1 %.not, label %.loopexit.loopexit, label %22, !llvm.loop !33
 
 87:                                               ; preds = %79, %48
   %88 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9705,7 +9705,7 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture no
   %.1 = phi i32 [ %104, %93 ], [ %.06482, %.lr.ph83 ]
   %109 = call ptr @list_next(ptr noundef %15) #16
   %.not72 = icmp eq ptr %109, null
-  br i1 %.not72, label %._crit_edge, label %.lr.ph83, !llvm.loop !36
+  br i1 %.not72, label %._crit_edge, label %.lr.ph83, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %108, %.loopexit
   call void @list_iterator_destroy(ptr noundef %15) #16
@@ -9752,7 +9752,7 @@ define internal void @_deadlock_global_list_del(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_deadlock_global_list_srch(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #12 {
+define internal range(i32 0, 2) i32 @_deadlock_global_list_srch(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -9761,7 +9761,7 @@ define internal i32 @_deadlock_global_list_srch(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_deadlock_part_list_srch(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @_deadlock_part_list_srch(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load i32, ptr %4, align 8
@@ -9773,7 +9773,7 @@ define internal i32 @_deadlock_part_list_srch(ptr nocapture noundef readonly %0,
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_deadlock_job_list_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @_deadlock_job_list_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -9788,7 +9788,7 @@ define internal i32 @_deadlock_job_list_sort(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_deadlock_part_list_srch2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @_deadlock_part_list_srch2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -9862,10 +9862,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
@@ -9887,5 +9887,3 @@ attributes #19 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}

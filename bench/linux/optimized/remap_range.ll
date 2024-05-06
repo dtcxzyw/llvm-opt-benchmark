@@ -523,7 +523,7 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef i32 @generic_remap_check_len(i8 %.142.val, ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -52, 1) i32 @generic_remap_check_len(i8 %.142.val, ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
   %5 = zext nneg i8 %.142.val to i32
   %6 = shl nsw i32 -1, %5
   %7 = xor i32 %6, -1
@@ -1022,7 +1022,7 @@ declare dso_local i32 @mnt_want_write_file(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mnt_drop_write_file(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_dedupe_file_range(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

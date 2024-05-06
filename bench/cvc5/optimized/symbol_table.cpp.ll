@@ -4626,7 +4626,7 @@ entry:
 declare void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK4cvc58internal6parser11SymbolTable14Implementation8getLevelEv(ptr noundef nonnull align 8 dereferenceable(416) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal6parser11SymbolTable14Implementation8getLevelEv(ptr noundef nonnull align 8 dereferenceable(416) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %conv = zext i32 %call to i64
@@ -5005,7 +5005,7 @@ define void @_ZNK4cvc58internal6parser11SymbolTable29getOverloadedFunctionForTyp
 entry:
   %0 = load ptr, ptr %this, align 8
   %d_overload_trie.i = getelementptr inbounds i8, ptr %0, i64 320
-  tail call void @_ZNK4cvc58internal6parser18OverloadedTypeTrie29getOverloadedFunctionForTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISC_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %d_overload_trie.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %argTypes)
+  tail call void @_ZNK4cvc58internal6parser18OverloadedTypeTrie29getOverloadedFunctionForTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISC_EE(ptr writeonly sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %d_overload_trie.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(24) %argTypes)
   ret void
 }
 
@@ -5346,7 +5346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK4cvc58internal6parser11SymbolTable8getLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal6parser11SymbolTable8getLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %0)

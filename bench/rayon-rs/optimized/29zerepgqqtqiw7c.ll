@@ -52,7 +52,7 @@ define void @"_ZN99_$LT$rayon..iter..extend..ListStringFolder$u20$as$u20$rayon..
 
 9:                                                ; preds = %5
   %10 = lshr i32 %2, 6
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nuw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %.sroa.0.i, align 4, !alias.scope !7, !noalias !4
   %13 = trunc i32 %2 to i8
@@ -64,7 +64,7 @@ define void @"_ZN99_$LT$rayon..iter..extend..ListStringFolder$u20$as$u20$rayon..
 
 16:                                               ; preds = %7
   %17 = lshr i32 %2, 12
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   store i8 %19, ptr %.sroa.0.i, align 4, !alias.scope !7, !noalias !4
   %20 = lshr i32 %2, 6
@@ -127,7 +127,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %27
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !10, !noalias !15, !nonnull !17, !noundef !17
   %53 = getelementptr inbounds i8, ptr %52, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %43, i1 false)
   %54 = load i64, ptr %44, align 8, !alias.scope !10, !noalias !15, !noundef !17
   %55 = add i64 %54, %43
   store i64 %55, ptr %44, align 8, !alias.scope !10, !noalias !15
@@ -135,7 +135,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %27
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %3
-  %56 = trunc i32 %2 to i8
+  %56 = trunc nuw i32 %2 to i8
   %57 = getelementptr inbounds i8, ptr %1, i64 16
   %58 = load i64, ptr %57, align 8, !alias.scope !21, !noundef !17
   %59 = load i64, ptr %1, align 8, !alias.scope !21, !noundef !17

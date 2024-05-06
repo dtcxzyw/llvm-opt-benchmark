@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_pci_det
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_get_hp_hw_control_from_firmware358, ptr @__UNIQUE_ID___addressable_acpi_pci_check_ejectable359, ptr @__UNIQUE_ID___addressable_acpi_pci_detect_ejectable360, ptr @__UNIQUE_ID_debug_acpi362, ptr @__UNIQUE_ID_debug_acpitype361, ptr @__param_debug_acpi], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_get_hp_hw_control_from_firmware(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.acpi_buffer, align 8
@@ -266,7 +266,7 @@ declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pci_check_ejectable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @acpi_pci_check_ejectable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
@@ -368,7 +368,7 @@ define dso_local i32 @acpi_pci_detect_ejectable(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @check_hotplug(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 0, 16388) i32 @check_hotplug(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %6 = tail call zeroext i1 @acpi_has_method(ptr noundef %0, ptr noundef nonnull @.str.7) #4

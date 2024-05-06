@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659808
   %6 = load i64, ptr %5, align 8
@@ -290,7 +290,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -315,7 +315,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -689,7 +689,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -714,7 +714,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -846,7 +846,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659808
   %6 = load i64, ptr %5, align 8
@@ -1060,7 +1060,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -1085,7 +1085,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -1433,7 +1433,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -1458,7 +1458,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -1590,7 +1590,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659808
   %6 = load i64, ptr %5, align 8
@@ -1804,7 +1804,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -1829,7 +1829,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -2177,7 +2177,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -2202,7 +2202,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -2334,7 +2334,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_viota_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659808
   %6 = load i64, ptr %5, align 8
@@ -2548,7 +2548,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -2573,7 +2573,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1
@@ -2921,7 +2921,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 113:                                              ; preds = %105
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = getelementptr inbounds i8, ptr %0, i64 659816
   %116 = load float, ptr %115, align 8
   %117 = fptoui float %116 to i32
@@ -2946,7 +2946,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 127:                                              ; preds = %113
   %128 = fptosi float %116 to i32
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   %130 = tail call i32 @llvm.umax.i32(i32 %128, i32 1)
   %131 = add nsw i32 %130, %114
   %132 = add nuw nsw i32 %129, 1

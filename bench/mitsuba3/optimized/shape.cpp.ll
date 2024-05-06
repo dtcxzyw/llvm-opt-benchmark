@@ -6708,7 +6708,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not, label %.critedge, label %21
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
-  %22 = call i64 @llvm.ctpop.i64(i64 %20), !range !184
+  %22 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
   %.not.i = icmp ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
@@ -6803,13 +6803,13 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 .critedge2.us:                                    ; preds = %.lr.ph.i.i.i.us, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.us, %48, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26.us
   %.0.us = load ptr, ptr %.036.us, align 8
   %.not24.us = icmp eq ptr %.0.us, null
-  br i1 %.not24.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !185
+  br i1 %.not24.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !184
 
 63:                                               ; preds = %.lr.ph.i.i.i.us
   %64 = add nsw i64 %.01625.i.i.i.us, -1
   %65 = getelementptr inbounds i8, ptr %.027.i.i.i.us, i64 1
   %.not19.i.i.i.us = icmp eq i64 %64, 0
-  br i1 %.not19.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us, !llvm.loop !186
+  br i1 %.not19.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us, !llvm.loop !185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge2
   %.036 = phi ptr [ %.0, %.critedge2 ], [ %.034, %.lr.ph ]
@@ -6865,7 +6865,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   %88 = add nsw i64 %.01625.i.i.i, -1
   %89 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 1
   %.not19.i.i.i = icmp eq i64 %88, 0
-  br i1 %.not19.i.i.i, label %.critedge, label %.lr.ph.i.i.i, !llvm.loop !186
+  br i1 %.not19.i.i.i, label %.critedge, label %.lr.ph.i.i.i, !llvm.loop !185
 
 _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit: ; preds = %84
   %90 = getelementptr inbounds i8, ptr %.036, i64 32
@@ -6877,7 +6877,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 .critedge2:                                       ; preds = %.lr.ph.i.i.i, %75, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit
   %.0 = load ptr, ptr %.036, align 8
   %.not24 = icmp eq ptr %.0, null
-  br i1 %.not24, label %.critedge, label %.lr.ph.split, !llvm.loop !185
+  br i1 %.not24, label %.critedge, label %.lr.ph.split, !llvm.loop !184
 
 .critedge:                                        ; preds = %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit, %.critedge2, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26, %.preheader.i.i.i, %87, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.us, %.critedge2.us, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26.us, %.preheader.i.i.i.us, %63, %.preheader, %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit
   %.sroa.0.0 = phi ptr [ null, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ null, %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit ], [ null, %.preheader ], [ %.036.us, %63 ], [ %.036.us, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.us ], [ null, %.critedge2.us ], [ null, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26.us ], [ %.036.us, %.preheader.i.i.i.us ], [ %.036, %87 ], [ %.036, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit ], [ null, %.critedge2 ], [ null, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit26 ], [ %.036, %.preheader.i.i.i ]
@@ -7186,7 +7186,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__121__murmur2_or_cityhashImLm64E
   %234 = getelementptr inbounds i8, ptr %.043, i64 64
   %235 = add i64 %.044, -64
   %.not = icmp eq i64 %235, 0
-  br i1 %.not, label %236, label %187, !llvm.loop !187
+  br i1 %.not, label %236, label %187, !llvm.loop !186
 
 236:                                              ; preds = %187
   %237 = xor i64 %231, %217
@@ -7261,7 +7261,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail9FormatArg10formatImplIPK
 19:                                               ; preds = %.lr.ph.i.i
   %20 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i, label %_ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i, label %.lr.ph.i.i, !llvm.loop !188
+  br i1 %exitcond.not.i.i, label %_ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i, label %.lr.ph.i.i, !llvm.loop !187
 
 _ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i: ; preds = %19, %.lr.ph.i.i, %15
   %.0.lcssa.i.i = phi i64 [ 0, %15 ], [ %16, %19 ], [ %.07.i.i, %.lr.ph.i.i ]
@@ -7412,7 +7412,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not, label %.critedge, label %23
 
 23:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
-  %24 = call i64 @llvm.ctpop.i64(i64 %22), !range !184
+  %24 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %.not.i = icmp ult i64 %24, 2
   br i1 %.not.i, label %25, label %28
 
@@ -7507,13 +7507,13 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 .critedge2.us:                                    ; preds = %.lr.ph.i.i.i.us, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.us, %50, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us
   %.041.us = load ptr, ptr %.04181.us, align 8
   %.not50.us = icmp eq ptr %.041.us, null
-  br i1 %.not50.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !189
+  br i1 %.not50.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !188
 
 65:                                               ; preds = %.lr.ph.i.i.i.us
   %66 = add nsw i64 %.01625.i.i.i.us, -1
   %67 = getelementptr inbounds i8, ptr %.027.i.i.i.us, i64 1
   %.not19.i.i.i.us = icmp eq i64 %66, 0
-  br i1 %.not19.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.thread, label %.lr.ph.i.i.i.us, !llvm.loop !186
+  br i1 %.not19.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.thread, label %.lr.ph.i.i.i.us, !llvm.loop !185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge2
   %.04181 = phi ptr [ %.041, %.critedge2 ], [ %.04179, %.lr.ph ]
@@ -7569,7 +7569,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %71, %73
   %90 = add nsw i64 %.01625.i.i.i, -1
   %91 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 1
   %.not19.i.i.i = icmp eq i64 %90, 0
-  br i1 %.not19.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !186
+  br i1 %.not19.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !185
 
 _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit: ; preds = %86
   %92 = getelementptr inbounds i8, ptr %.04181, i64 32
@@ -7581,24 +7581,24 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 .critedge2:                                       ; preds = %.lr.ph.i.i.i, %77, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSI_RKS6_.exit
   %.041 = load ptr, ptr %.04181, align 8
   %.not50 = icmp eq ptr %.041, null
-  br i1 %.not50, label %.critedge, label %.lr.ph.split, !llvm.loop !189
+  br i1 %.not50, label %.critedge, label %.lr.ph.split, !llvm.loop !188
 
 .critedge:                                        ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53, %.critedge2, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us, %.critedge2.us, %.preheader, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit, %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %.042 = phi i64 [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ undef, %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit ], [ %32, %.preheader ], [ %32, %.critedge2.us ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us ], [ %32, %.critedge2 ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %95 = getelementptr inbounds i8, ptr %0, i64 16
-  %96 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28, !noalias !190
-  store ptr %96, ptr %5, align 8, !alias.scope !190
+  %96 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28, !noalias !189
+  store ptr %96, ptr %5, align 8, !alias.scope !189
   %97 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %95, ptr %97, align 8, !alias.scope !190
+  store ptr %95, ptr %97, align 8, !alias.scope !189
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
-  store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !190
-  store ptr null, ptr %96, align 8, !noalias !190
+  store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !189
+  store ptr null, ptr %96, align 8, !noalias !189
   %98 = getelementptr inbounds i8, ptr %96, i64 8
-  store i64 %17, ptr %98, align 8, !noalias !190
+  store i64 %17, ptr %98, align 8, !noalias !189
   %99 = getelementptr inbounds i8, ptr %96, i64 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_.exit unwind label %100, !noalias !190
+          to label %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_.exit unwind label %100, !noalias !189
 
 common.resume:                                    ; preds = %162, %100
   %common.resume.op = phi { ptr, i32 } [ %101, %100 ], [ %163, %162 ]
@@ -7613,10 +7613,10 @@ common.resume:                                    ; preds = %162, %100
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_.exit: ; preds = %.critedge
   %102 = getelementptr inbounds i8, ptr %96, i64 40
   %103 = getelementptr inbounds i8, ptr %2, i64 24
-  %104 = load ptr, ptr %103, align 8, !noalias !190
-  store ptr %104, ptr %102, align 8, !noalias !190
-  store ptr null, ptr %103, align 8, !noalias !190
-  store i8 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !190
+  %104 = load ptr, ptr %103, align 8, !noalias !189
+  store ptr %104, ptr %102, align 8, !noalias !189
+  store ptr null, ptr %103, align 8, !noalias !189
+  store i8 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !189
   %105 = getelementptr inbounds i8, ptr %0, i64 24
   %106 = load i64, ptr %105, align 8
   %107 = add i64 %106, 1
@@ -7632,7 +7632,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 114:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_.exit
   %115 = shl i64 %22, 1
   %116 = icmp ult i64 %22, 3
-  %117 = call i64 @llvm.ctpop.i64(i64 %22), !range !184
+  %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %.not.i55 = icmp ugt i64 %117, 1
   %.not75 = select i1 %116, i1 true, i1 %.not.i55
   %118 = zext i1 %.not75 to i64
@@ -7645,7 +7645,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
   br i1 %123, label %.noexc, label %124
 
 124:                                              ; preds = %114
-  %125 = call i64 @llvm.ctpop.i64(i64 %.sroa.speculated), !range !184
+  %125 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
   %.not.i.i = icmp ult i64 %125, 2
   br i1 %.not.i.i, label %.noexc, label %126
 
@@ -7665,7 +7665,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 132:                                              ; preds = %130
   %133 = icmp ugt i64 %128, 2
-  %134 = call i64 @llvm.ctpop.i64(i64 %128), !range !184
+  %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %128)
   %.not.i.i.i56 = icmp ult i64 %134, 2
   %135 = select i1 %133, i1 %.not.i.i.i56, i1 false
   %136 = load i64, ptr %105, align 8
@@ -7679,7 +7679,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 142:                                              ; preds = %132
   %143 = icmp ult i64 %141, 2
   %144 = add i64 %141, -1
-  %145 = call i64 @llvm.ctlz.i64(i64 %144, i1 true), !range !184
+  %145 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %144, i1 true)
   %146 = sub nuw nsw i64 64, %145
   %147 = shl nuw i64 1, %146
   %148 = select i1 %143, i64 %141, i64 %147
@@ -7702,7 +7702,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc57, %130, %.sink.split.i.i
   %153 = load i64, ptr %21, align 8
-  %154 = call i64 @llvm.ctpop.i64(i64 %153), !range !184
+  %154 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %153)
   %.not.i59 = icmp ult i64 %154, 2
   br i1 %.not.i59, label %155, label %158
 
@@ -7750,7 +7750,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %160, %158, %155, %_
 176:                                              ; preds = %169
   %177 = getelementptr inbounds i8, ptr %175, i64 8
   %178 = load i64, ptr %177, align 8
-  %179 = call i64 @llvm.ctpop.i64(i64 %.0), !range !184
+  %179 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
   %.not.i61 = icmp ult i64 %179, 2
   br i1 %.not.i61, label %180, label %183
 
@@ -7872,7 +7872,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   store ptr null, ptr %13, align 8
   %14 = add nuw i64 %.052, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %15, label %11, !llvm.loop !193
+  br i1 %exitcond.not, label %15, label %11, !llvm.loop !192
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7883,7 +7883,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !184
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %.not.i47 = icmp ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
@@ -7963,7 +7963,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us: ; preds = %_ZNSt3__116__cons
   %.1.us = phi i64 [ %37, %53 ], [ %.03756.us, %44 ], [ %.03756.us, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us ]
   %.038.us = load ptr, ptr %.140.us, align 8
   %.not46.us = icmp eq ptr %.038.us, null
-  br i1 %.not46.us, label %.loopexit, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us, !llvm.loop !194
+  br i1 %.not46.us, label %.loopexit, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us, !llvm.loop !193
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %77
   %.03857 = phi ptr [ %.038, %77 ], [ %.03853, %.lr.ph ]
@@ -8013,7 +8013,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49:  ; preds = %.lr.ph.split, %58
   %.1 = phi i64 [ %60, %67 ], [ %.03756, %68 ], [ %.03756, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49 ]
   %.038 = load ptr, ptr %.140, align 8
   %.not46 = icmp eq ptr %.038, null
-  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !194
+  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !193
 
 .critedge:                                        ; preds = %2
   %78 = load ptr, ptr %0, align 8
@@ -8118,14 +8118,14 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %42 = getelementptr inbounds i8, ptr %.031.i.i, i64 32
   %43 = getelementptr inbounds i8, ptr %.02830.i.i, i64 32
   %.not.i.i = icmp eq ptr %42, %31
-  br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !195
+  br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !194
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i ]
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i) #26
   %44 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %44, %31
-  br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba6ObjectEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !196
+  br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba6ObjectEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !195
 
 _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba6ObjectEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
   %.pre = load ptr, ptr %0, align 8
@@ -8398,16 +8398,15 @@ attributes #30 = { allocsize(0) }
 !181 = distinct !{!181, !14}
 !182 = distinct !{!182, !14}
 !183 = distinct !{!183, !14}
-!184 = !{i64 0, i64 65}
+!184 = distinct !{!184, !14}
 !185 = distinct !{!185, !14}
 !186 = distinct !{!186, !14}
 !187 = distinct !{!187, !14}
 !188 = distinct !{!188, !14}
-!189 = distinct !{!189, !14}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_: argument 0"}
-!192 = distinct !{!192, !"_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_"}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_: argument 0"}
+!191 = distinct !{!191, !"_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_7TextureIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEEEEEEENS_22__unordered_map_hasherIS7_SI_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SI_SN_SL_Lb1EEENS5_ISI_EEE21__construct_node_hashINS_4pairIKS7_SH_EEJEEENS_10unique_ptrINS_11__hash_nodeISI_PvEENS_22__hash_node_destructorINS5_IS10_EEEEEEmOT_DpOT0_"}
+!192 = distinct !{!192, !14}
 !193 = distinct !{!193, !14}
 !194 = distinct !{!194, !14}
 !195 = distinct !{!195, !14}
-!196 = distinct !{!196, !14}

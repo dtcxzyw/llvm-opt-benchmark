@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [85 x i8] c"Unable to find user's Linear Jacobian, which is required for the KIN_PICARD Strategy\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINDense(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @KINDense(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -120,7 +120,7 @@ define noundef i32 @KINDense(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 declare void @KINProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kinDenseInit(ptr noundef %0) #0 {
+define internal range(i32 -2, 1) i32 @kinDenseInit(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 96
@@ -161,7 +161,7 @@ define internal noundef i32 @kinDenseInit(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kinDenseSetup(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @kinDenseSetup(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 96

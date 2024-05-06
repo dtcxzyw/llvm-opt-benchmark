@@ -1066,8 +1066,8 @@ if.end:                                           ; preds = %_ZNK7bv_util11get_b
   %4 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %5 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %5, i64 32
+  %5 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %5, i64 32
   %cmp5.not21 = icmp eq i32 %4, 0
   br i1 %cmp5.not21, label %return, label %for.body.lr.ph
 
@@ -1160,8 +1160,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 176
+  %1 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 176
   %cmp.not13 = icmp eq i32 %0, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 

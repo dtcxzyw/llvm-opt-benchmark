@@ -965,7 +965,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %312 = getelementptr inbounds i8, ptr %310, i64 %311
   store ptr %312, ptr %77, align 8
   %313 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
-  %314 = tail call fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %313, ptr noundef nonnull %1), !range !9
+  %314 = tail call fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %313, ptr noundef nonnull %1)
   %315 = load ptr, ptr %82, align 8
   %.not241 = icmp eq i32 %314, 0
   br i1 %.not241, label %.outer.backedge, label %316
@@ -1028,7 +1028,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   store i8 %339, ptr %.099121.i, align 1
   %341 = add nuw nsw i32 %.0101119.i, 1
   %exitcond.not.i = icmp eq i32 %341, %336
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %84, align 8
@@ -1114,7 +1114,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0102.i = add i32 %.pn.i, %351
   %379 = icmp slt i32 %.0102.i, 1
-  br i1 %379, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !11
+  br i1 %379, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !10
 
 ._crit_edge127.i:                                 ; preds = %372, %350
   %380 = phi ptr [ %342, %350 ], [ %378, %372 ]
@@ -1441,7 +1441,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %47 = getelementptr inbounds [479 x i16], ptr @_ZL6yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not26 = icmp eq i16 %35, %48
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -1450,7 +1450,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %51 = sext i16 %50 to i32
   %52 = getelementptr inbounds i8, ptr %.02329, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !12
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -1458,7 +1458,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [327 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -1497,7 +1497,7 @@ define internal fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr
   %27 = getelementptr inbounds [479 x i16], ptr @_ZL6yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -2541,7 +2541,7 @@ define dso_local void @_Z25cmDependsJava_yyset_debugiPv(i32 noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z24cmDependsJava_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define dso_local noundef range(i32 0, 2) i32 @_Z24cmDependsJava_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2569,7 +2569,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z30cmDependsJava_yylex_init_extraP25cmDependsJavaParserHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define dso_local noundef range(i32 0, 2) i32 @_Z30cmDependsJava_yylex_init_extraP25cmDependsJavaParserHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2714,7 +2714,7 @@ _Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %23, %43, %47
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not21 = icmp eq ptr %59, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !15
+  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !14
 
 .thread:                                          ; preds = %_Z32cmDependsJava_yypop_buffer_statePv.exit, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, %40, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %40 ], [ null, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %56, %_Z32cmDependsJava_yypop_buffer_statePv.exit ]
@@ -2820,10 +2820,9 @@ attributes #35 = { nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -32768, i32 32768}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

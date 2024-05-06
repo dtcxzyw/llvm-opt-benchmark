@@ -273,7 +273,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -776,7 +776,7 @@ default.unreachable378:                           ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false)
   store i16 5, ptr %24, align 8, !alias.scope !67, !noalias !72
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !72
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
           to label %.thread unwind label %176
@@ -1259,7 +1259,7 @@ default.unreachable378:                           ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i193, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false)
   store i16 5, ptr %7, align 8, !alias.scope !133, !noalias !138
   %.sroa.4.0..sroa_idx.i.i194 = getelementptr inbounds i8, ptr %7, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i194, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i192, i64 54, i1 false), !noalias !138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i194, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i192, i64 54, i1 false), !noalias !138
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i192)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %315, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %7)
           to label %.thread345 unwind label %316
@@ -2072,7 +2072,7 @@ default.unreachable2571:                          ; preds = %1311, %514, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %391, i64 48, i1 false)
   store i16 5, ptr %380, align 8, !alias.scope !185, !noalias !190
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %380, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !190
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %501, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %380)
           to label %504 unwind label %502
@@ -4049,7 +4049,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc177.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1009, ptr noundef nonnull align 8 dereferenceable(48) %353, i64 48, i1 false)
   store i16 5, ptr %342, align 8, !alias.scope !486, !noalias !491
   %.sroa.4.0..sroa_idx.i.i1010 = getelementptr inbounds i8, ptr %342, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1010, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1008, i64 54, i1 false), !noalias !491
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1010, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1008, i64 54, i1 false), !noalias !491
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1008)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1122, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %342)
           to label %1125 unwind label %1123
@@ -4339,7 +4339,7 @@ select.unfold.i:                                  ; preds = %602, %.noexc177.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1039, ptr noundef nonnull align 8 dereferenceable(48) %366, i64 48, i1 false)
   store i16 5, ptr %355, align 8, !alias.scope !537, !noalias !542
   %.sroa.4.0..sroa_idx.i.i1040 = getelementptr inbounds i8, ptr %355, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1040, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1038, i64 54, i1 false), !noalias !542
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1040, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1038, i64 54, i1 false), !noalias !542
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1038)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1212, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %355)
           to label %1215 unwind label %1213
@@ -5325,7 +5325,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   br label %1473
 
 1511:                                             ; preds = %1471
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %1472, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false), !noalias !588
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %1472, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false), !noalias !588
   %1512 = getelementptr inbounds i8, ptr %0, i64 240
   store i64 0, ptr %1512, align 8, !alias.scope !654, !noalias !588
   %1513 = getelementptr inbounds i8, ptr %0, i64 248
@@ -9381,7 +9381,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1226, ptr noundef nonnull align 8 dereferenceable(48) %302, i64 48, i1 false)
   store i16 5, ptr %291, align 8, !alias.scope !1332, !noalias !1337
   %.sroa.4.0..sroa_idx.i.i1227 = getelementptr inbounds i8, ptr %291, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1227, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1225, i64 54, i1 false), !noalias !1337
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1227, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1225, i64 54, i1 false), !noalias !1337
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1225)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2773, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %291)
           to label %2776 unwind label %2774
@@ -9671,7 +9671,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1256, ptr noundef nonnull align 8 dereferenceable(48) %315, i64 48, i1 false)
   store i16 5, ptr %304, align 8, !alias.scope !1383, !noalias !1388
   %.sroa.4.0..sroa_idx.i.i1257 = getelementptr inbounds i8, ptr %304, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1257, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1255, i64 54, i1 false), !noalias !1388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1257, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1255, i64 54, i1 false), !noalias !1388
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1255)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2863, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %304)
           to label %2866 unwind label %2864
@@ -9961,7 +9961,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1286, ptr noundef nonnull align 8 dereferenceable(48) %328, i64 48, i1 false)
   store i16 5, ptr %317, align 8, !alias.scope !1434, !noalias !1439
   %.sroa.4.0..sroa_idx.i.i1287 = getelementptr inbounds i8, ptr %317, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1287, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1285, i64 54, i1 false), !noalias !1439
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1287, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1285, i64 54, i1 false), !noalias !1439
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1285)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2953, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %317)
           to label %2956 unwind label %2954
@@ -11000,11 +11000,11 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.experimental.noalias.scope.decl(metadata !1603)
   call void @llvm.experimental.noalias.scope.decl(metadata !1606)
   %3289 = getelementptr inbounds i8, ptr %181, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %3289, ptr noundef nonnull align 16 dereferenceable(528) %180, i64 528, i1 false), !alias.scope !1608, !noalias !1606
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %181, ptr noundef nonnull align 8 dereferenceable(40) %179, i64 40, i1 false), !alias.scope !1610, !noalias !1603
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(528) %3289, ptr noundef nonnull readonly align 16 dereferenceable(528) %180, i64 528, i1 false), !alias.scope !1608, !noalias !1606
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %181, ptr noundef nonnull readonly align 8 dereferenceable(40) %179, i64 40, i1 false), !alias.scope !1610, !noalias !1603
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %179)
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %180)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %182, ptr noundef nonnull align 8 dereferenceable(568) %181, i64 568, i1 false), !alias.scope !1611
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(568) %182, ptr noundef nonnull readonly align 8 dereferenceable(568) %181, i64 568, i1 false), !alias.scope !1611
   call void @llvm.lifetime.end.p0(i64 568, ptr nonnull %181)
   %3290 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %3290, ptr noundef nonnull align 8 dereferenceable(568) %182, i64 568, i1 false)
@@ -11278,7 +11278,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1400, ptr noundef nonnull align 8 dereferenceable(48) %195, i64 48, i1 false)
   store i16 5, ptr %184, align 8, !alias.scope !1658, !noalias !1663
   %.sroa.4.0..sroa_idx.i.i1401 = getelementptr inbounds i8, ptr %184, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1401, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1399, i64 54, i1 false), !noalias !1663
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1401, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1399, i64 54, i1 false), !noalias !1663
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1399)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3375, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %184)
           to label %3378 unwind label %3376
@@ -11573,7 +11573,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1430, ptr noundef nonnull align 8 dereferenceable(48) %208, i64 48, i1 false)
   store i16 5, ptr %197, align 8, !alias.scope !1709, !noalias !1714
   %.sroa.4.0..sroa_idx.i.i1431 = getelementptr inbounds i8, ptr %197, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1431, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1429, i64 54, i1 false), !noalias !1714
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1431, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1429, i64 54, i1 false), !noalias !1714
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1429)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3467, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %197)
           to label %3470 unwind label %3468
@@ -11863,7 +11863,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1460, ptr noundef nonnull align 8 dereferenceable(48) %221, i64 48, i1 false)
   store i16 5, ptr %210, align 8, !alias.scope !1760, !noalias !1765
   %.sroa.4.0..sroa_idx.i.i1461 = getelementptr inbounds i8, ptr %210, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1461, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1459, i64 54, i1 false), !noalias !1765
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1461, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1459, i64 54, i1 false), !noalias !1765
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1459)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3557, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %210)
           to label %3560 unwind label %3558
@@ -12812,7 +12812,7 @@ select.unfold1053.i:                              ; preds = %1386, %.noexc367.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1554, ptr noundef nonnull align 8 dereferenceable(48) %162, i64 48, i1 false)
   store i16 5, ptr %151, align 8, !alias.scope !1896, !noalias !1901
   %.sroa.4.0..sroa_idx.i.i1555 = getelementptr inbounds i8, ptr %151, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1555, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1553, i64 54, i1 false), !noalias !1901
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1555, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1553, i64 54, i1 false), !noalias !1901
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1553)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3857, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %151)
           to label %3860 unwind label %3858
@@ -13994,7 +13994,7 @@ _ZN7tracing4span4Span8do_enter17hbed5ccb6152a3815E.llvm.1552408990472658918.exit
   %290 = phi i64 [ %282, %.lr.ph.split.us.i.i.i ], [ %.pre.i.i.us.i.i.i, %.noexc17.us.i.i.i ]
   %291 = load ptr, ptr %281, align 8, !alias.scope !2026, !noalias !2031, !nonnull !5, !noundef !5
   %292 = getelementptr inbounds i8, ptr %291, i64 %290
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull align 1 %.sroa.5.0.copyload.i.i.i, i64 %278, i1 false), !noalias !2016
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %.sroa.5.0.copyload.i.i.i, i64 %278, i1 false), !noalias !2016
   %293 = load i64, ptr %280, align 8, !alias.scope !2026, !noalias !2031, !noundef !5
   %294 = add i64 %293, %278
   store i64 %294, ptr %280, align 8, !alias.scope !2026, !noalias !2031
@@ -15888,7 +15888,7 @@ default.unreachable378:                           ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false)
   store i16 5, ptr %24, align 8, !alias.scope !2172, !noalias !2177
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !2177
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !2177
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
           to label %.thread unwind label %176
@@ -16371,7 +16371,7 @@ default.unreachable378:                           ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i193, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false)
   store i16 5, ptr %7, align 8, !alias.scope !2238, !noalias !2243
   %.sroa.4.0..sroa_idx.i.i194 = getelementptr inbounds i8, ptr %7, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i194, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i192, i64 54, i1 false), !noalias !2243
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i194, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i192, i64 54, i1 false), !noalias !2243
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i192)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %315, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %7)
           to label %.thread345 unwind label %316
@@ -16504,7 +16504,7 @@ default.unreachable286:                           ; preds = %3
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 2440
   store i64 17, ptr %.sroa.53.0..sroa_idx.i, align 8, !alias.scope !2246
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 2448
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.25ffc651f2b9ef55399dd7d491e8c441.4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.25ffc651f2b9ef55399dd7d491e8c441.4, i64 32, i1 false)
   store i64 0, ptr %41, align 8, !alias.scope !2246
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 2408
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !2246
@@ -17100,7 +17100,7 @@ default.unreachable286:                           ; preds = %3
 224:                                              ; preds = %200
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2360, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2400) %8, ptr noundef nonnull align 8 dereferenceable(2400) %7, i64 2400, i1 false), !alias.scope !2330
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(2400) %8, ptr noundef nonnull readonly align 8 dereferenceable(2400) %7, i64 2400, i1 false), !alias.scope !2330
   call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef nonnull align 8 dereferenceable(2400) %8, i64 2400, i1 false)
   br label %244
@@ -19325,7 +19325,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %274, i64 48, i1 false)
   store i16 5, ptr %263, align 8, !alias.scope !2564, !noalias !2569
   %.sroa.4.0..sroa_idx.i.i1198 = getelementptr inbounds i8, ptr %263, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1198, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !2569
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1198, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !2569
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %757, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %263)
           to label %760 unwind label %758
@@ -19627,7 +19627,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1229, ptr noundef nonnull align 8 dereferenceable(48) %287, i64 48, i1 false)
   store i16 5, ptr %276, align 8, !alias.scope !2615, !noalias !2620
   %.sroa.4.0..sroa_idx.i.i1230 = getelementptr inbounds i8, ptr %276, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1230, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1228, i64 54, i1 false), !noalias !2620
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1230, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1228, i64 54, i1 false), !noalias !2620
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1228)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %848, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %276)
           to label %851 unwind label %849
@@ -19762,7 +19762,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 456
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !2631, !noalias !2627
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 464
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !2631, !noalias !2627
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !2631, !noalias !2627
   store i8 1, ptr %885, align 1, !noalias !2627
   store i8 0, ptr %886, align 2, !noalias !2627
   %889 = getelementptr inbounds i8, ptr %0, i64 488
@@ -22044,7 +22044,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1415, ptr noundef nonnull align 8 dereferenceable(48) %202, i64 48, i1 false)
   store i16 5, ptr %191, align 8, !alias.scope !2971, !noalias !2976
   %.sroa.4.0..sroa_idx.i.i1416 = getelementptr inbounds i8, ptr %191, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1416, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1414, i64 54, i1 false), !noalias !2976
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1416, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1414, i64 54, i1 false), !noalias !2976
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1414)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1645, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %191)
           to label %1648 unwind label %1646
@@ -22334,7 +22334,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %.sroa.4.8..sroa_idx.i.i1445, ptr noundef nonnull align 8 dereferenceable(48) %215, i64 48, i1 false)
   store i16 5, ptr %204, align 8, !alias.scope !3022, !noalias !3027
   %.sroa.4.0..sroa_idx.i.i1446 = getelementptr inbounds i8, ptr %204, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1446, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1444, i64 54, i1 false), !noalias !3027
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1446, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1444, i64 54, i1 false), !noalias !3027
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1444)
   invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17hf0b042223277ef99E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1735, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %204)
           to label %1738 unwind label %1736
@@ -23767,7 +23767,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   %2177 = extractvalue { i64, ptr } %2175, 1
   %2178 = icmp ne ptr %2177, null
   call void @llvm.assume(i1 %2178)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(114) %2177, ptr noundef nonnull align 1 dereferenceable(114) @anon.25ffc651f2b9ef55399dd7d491e8c441.154, i64 114, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(114) %2177, ptr noundef nonnull readonly align 1 dereferenceable(114) @anon.25ffc651f2b9ef55399dd7d491e8c441.154, i64 114, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !3249
   store i64 %2176, ptr %12, align 8, !noalias !3249
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
@@ -24560,7 +24560,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !3379
   %2434 = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !3389)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2434, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !alias.scope !3392
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %2434, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !alias.scope !3392
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1000000000, ptr %.sroa.1.0..sroa_idx.i, align 8, !alias.scope !3394, !noalias !3389
   %2435 = getelementptr inbounds i8, ptr %0, i64 88
@@ -25391,7 +25391,7 @@ common.ret:                                       ; preds = %1850, %671, %760, %
 2714:                                             ; preds = %2664
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 976, ptr nonnull %84)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %86, ptr noundef nonnull align 8 dereferenceable(1016) %85, i64 1016, i1 false), !alias.scope !3499
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1016) %86, ptr noundef nonnull readonly align 8 dereferenceable(1016) %85, i64 1016, i1 false), !alias.scope !3499
   call void @llvm.lifetime.end.p0(i64 1016, ptr nonnull %85)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %2583, ptr noundef nonnull align 8 dereferenceable(1016) %86, i64 1016, i1 false)
   br label %1875
@@ -29546,7 +29546,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17h0fa
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(116) %9, ptr noundef nonnull align 1 dereferenceable(116) @anon.25ffc651f2b9ef55399dd7d491e8c441.156, i64 116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(116) %9, ptr noundef nonnull readonly align 1 dereferenceable(116) @anon.25ffc651f2b9ef55399dd7d491e8c441.156, i64 116, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3937
   store i64 %8, ptr %4, align 8, !noalias !3937
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -29616,7 +29616,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17h1cd
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(124) %9, ptr noundef nonnull align 1 dereferenceable(124) @anon.25ffc651f2b9ef55399dd7d491e8c441.58, i64 124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(124) %9, ptr noundef nonnull readonly align 1 dereferenceable(124) @anon.25ffc651f2b9ef55399dd7d491e8c441.58, i64 124, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3945
   store i64 %8, ptr %4, align 8, !noalias !3945
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -29682,7 +29682,7 @@ define internal fastcc ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %5)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(97) %4, ptr noundef nonnull align 1 dereferenceable(97) @anon.25ffc651f2b9ef55399dd7d491e8c441.125, i64 97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(97) %4, ptr noundef nonnull readonly align 1 dereferenceable(97) @anon.25ffc651f2b9ef55399dd7d491e8c441.125, i64 97, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !3953
   store i64 %3, ptr %1, align 8, !noalias !3953
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -29795,7 +29795,7 @@ define internal noundef zeroext i1 @"_ZN73_$LT$aws_smithy_types..endpoint..Endpo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.1552408990472658918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.1552408990472658918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !range !3968, !noundef !5
   %4 = load i64, ptr %1, align 8, !range !1490, !noundef !5
   %5 = icmp ult i64 %3, %4

@@ -419,7 +419,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @watchdog_perform_action() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @i6300esb_mem_readfn(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4609) i64 @i6300esb_mem_readfn(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %do.body [
     i32 1, label %sw.epilog

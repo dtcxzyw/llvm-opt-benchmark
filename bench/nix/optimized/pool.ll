@@ -657,12 +657,12 @@ define void @_ZN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_Test8TestBo
   %14 = alloca %"class.testing::internal::AssertHelper", align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %18, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %17, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -1541,12 +1541,12 @@ define void @_ZN3nix34Pool_freshPoolCanGetAResource_Test8TestBodyEv(ptr nocaptur
   %29 = alloca %"class.testing::internal::AssertHelper", align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 16
   %31 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_freshPoolCanGetAResource_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %31, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_freshPoolCanGetAResource_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %4, i64 16
   %33 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_freshPoolCanGetAResource_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %33, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_freshPoolCanGetAResource_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %32, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -3523,12 +3523,12 @@ define void @_ZN3nix34Pool_capacityCanBeIncremented_Test8TestBodyEv(ptr nocaptur
   %14 = alloca %"class.testing::internal::AssertHelper", align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_capacityCanBeIncremented_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_capacityCanBeIncremented_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_capacityCanBeIncremented_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %18, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_capacityCanBeIncremented_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %17, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -3943,12 +3943,12 @@ define void @_ZN3nix34Pool_capacityCanBeDecremented_Test8TestBodyEv(ptr nocaptur
   %14 = alloca %"class.testing::internal::AssertHelper", align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_capacityCanBeDecremented_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_34Pool_capacityCanBeDecremented_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_capacityCanBeDecremented_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %18, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_34Pool_capacityCanBeDecremented_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %17, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -4364,12 +4364,12 @@ define void @_ZN3nix42Pool_flushBadDropsOutOfScopeResources_Test8TestBodyEv(ptr 
   %15 = alloca %"class.testing::internal::AssertHelper", align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_42Pool_flushBadDropsOutOfScopeResources_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %17, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_42Pool_flushBadDropsOutOfScopeResources_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
   %19 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_42Pool_flushBadDropsOutOfScopeResources_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %19, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_42Pool_flushBadDropsOutOfScopeResources_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %18, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -5057,12 +5057,12 @@ define void @_ZN3nix23Pool_reuseResource_Test8TestBodyEv(ptr nocapture nonnull r
   %10 = alloca %"class.testing::internal::AssertHelper", align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_23Pool_reuseResource_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_23Pool_reuseResource_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_23Pool_reuseResource_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_23Pool_reuseResource_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %13, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -5320,12 +5320,12 @@ define void @_ZN3nix32Pool_badResourceIsNotReused_Test8TestBodyEv(ptr nocapture 
   %10 = alloca %"class.testing::internal::AssertHelper", align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_32Pool_badResourceIsNotReused_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_12TestResourceEEEvEZNS0_32Pool_badResourceIsNotReused_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_32Pool_badResourceIsNotReused_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_12TestResourceEEEEZNS0_32Pool_badResourceIsNotReused_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %13, align 8
   invoke void @_ZN3nix4PoolINS_12TestResourceEEC2EmRKSt8functionIFNS_3refIS1_EEvEERKS3_IFbRKS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)

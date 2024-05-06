@@ -197,7 +197,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 79:                                               ; preds = %.lr.ph.i.i
   %80 = add nuw nsw i32 %.01116.i.i, 2
-  %81 = mul nsw i32 %80, %80
+  %81 = mul nuw nsw i32 %80, %80
   %.not.i.i = icmp ugt i32 %81, %77
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
@@ -295,7 +295,7 @@ Hsh_VecManStart.exit:                             ; preds = %Abc_PrimeCudd.exit.
   br i1 %exitcond.not.i73, label %Vec_IntFind.exit75, label %121, !llvm.loop !4
 
 ._crit_edge.loopexit.split.loop.exit12.i74:       ; preds = %121
-  %126 = trunc i64 %indvars.iv.i71 to i32
+  %126 = trunc nuw nsw i64 %indvars.iv.i71 to i32
   br label %Vec_IntFind.exit75
 
 Vec_IntFind.exit75:                               ; preds = %125, %109, %._crit_edge.loopexit.split.loop.exit12.i74
@@ -331,7 +331,7 @@ Vec_IntFind.exit75:                               ; preds = %125, %109, %._crit_
 
 137:                                              ; preds = %.lr.ph.i.i81
   %138 = add nuw nsw i32 %.01116.i.i82, 2
-  %139 = mul nsw i32 %138, %138
+  %139 = mul nuw nsw i32 %138, %138
   %.not.i.i83 = icmp ugt i32 %139, %135
   br i1 %.not.i.i83, label %Abc_PrimeCudd.exit.i84, label %.lr.ph.i.i81, !llvm.loop !8
 
@@ -422,7 +422,7 @@ Vec_IntFill.exit.i:                               ; preds = %156, %Vec_IntGrow.e
   %.012.i70.i = phi i32 [ 0, %.lr.ph.i67.i ], [ %180, %171 ]
   %172 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i69.i
   %173 = load i32, ptr %172, align 4
-  %174 = trunc i64 %indvars.iv.i69.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv.i69.i to i32
   %175 = urem i32 %174, 7
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %176
@@ -442,7 +442,7 @@ Hsh_VecManHash.exit.i:                            ; preds = %171, %163
   %184 = load i32, ptr %183, align 4
   %185 = getelementptr inbounds i8, ptr %167, i64 4
   store i32 %184, ptr %185, align 4
-  %186 = trunc i64 %indvars.iv.i86 to i32
+  %186 = trunc nuw nsw i64 %indvars.iv.i86 to i32
   store i32 %186, ptr %183, align 4
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %.val59.i = load i32, ptr %128, align 4
@@ -475,7 +475,7 @@ Hsh_VecManHash.exit.i:                            ; preds = %171, %163
   %.012.i80.i = phi i32 [ 0, %.lr.ph.i76.i ], [ %200, %191 ]
   %192 = getelementptr inbounds i32, ptr %.val.i77.i, i64 %indvars.iv.i79.i
   %193 = load i32, ptr %192, align 4
-  %194 = trunc i64 %indvars.iv.i79.i to i32
+  %194 = trunc nuw nsw i64 %indvars.iv.i79.i to i32
   %195 = urem i32 %194, 7
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %196
@@ -1153,7 +1153,7 @@ Hsh_VecManStop.exit:                              ; preds = %Vec_IntFree.exit6.i
   %indvars.iv35.i = phi i64 [ %477, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i105 ]
   %.val23.i = load ptr, ptr %476, align 8
   %493 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val23.i, i64 %indvars.iv35.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %493, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %493, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val.i106 = load i32, ptr %472, align 4
   %494 = sext i32 %.val.i106 to i64
@@ -1224,7 +1224,7 @@ define void @Fxch_CubesUnGruping(ptr nocapture noundef %0) local_unnamed_addr #0
 17:                                               ; preds = %14
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 8
-  %20 = trunc i64 %indvars.iv79 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv79 to i32
   %21 = mul nsw i32 %19, %20
   %22 = getelementptr i8, ptr %18, i64 8
   %.val57 = load ptr, ptr %22, align 8
@@ -1275,7 +1275,7 @@ define void @Fxch_CubesUnGruping(ptr nocapture noundef %0) local_unnamed_addr #0
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %148 ], [ 0, %.preheader61 ]
   %.168 = phi i32 [ %.3, %148 ], [ %49, %.preheader61 ]
   %50 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv76
-  %51 = trunc i64 %indvars.iv76 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv76 to i32
   %52 = shl i32 %51, 5
   %53 = sext i32 %52 to i64
   br label %54
@@ -1284,7 +1284,7 @@ define void @Fxch_CubesUnGruping(ptr nocapture noundef %0) local_unnamed_addr #0
   %indvars.iv73 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next74, %144 ]
   %.266 = phi i32 [ %.168, %.preheader ], [ %.3, %144 ]
   %55 = load i32, ptr %50, align 4
-  %56 = trunc i64 %indvars.iv73 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv73 to i32
   %57 = shl nuw i32 1, %56
   %58 = and i32 %55, %57
   %.not49 = icmp eq i32 %58, 0
@@ -1945,7 +1945,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %148
   %indvars.iv35.i = phi i64 [ %175, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i ]
   %.val23.i = load ptr, ptr %174, align 8
   %191 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val23.i, i64 %indvars.iv35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %191, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val.i48 = load i32, ptr %170, align 4
   %192 = sext i32 %.val.i48 to i64
@@ -2011,7 +2011,7 @@ declare void @Fxch_ManSCHashTablesFree(ptr noundef) local_unnamed_addr #3
 declare void @Fxch_ManFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkFxchPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkFxchPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Abc_NtkFxCheck(ptr noundef %0) #20
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.sink.split, label %6
@@ -2157,7 +2157,7 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @Vec_WecSortCompare3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @Vec_WecSortCompare3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %3, align 8
   %4 = load i32, ptr %.val6, align 4

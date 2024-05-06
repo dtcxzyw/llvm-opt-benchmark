@@ -21,7 +21,7 @@ define void @Init_parse_depth_limit(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @get_parse_depth_limit(i64 %0) #0 {
+define internal range(i64 1, 8589934592) i64 @get_parse_depth_limit(i64 %0) #0 {
   %2 = tail call i32 @onig_get_parse_depth_limit() #2
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 1

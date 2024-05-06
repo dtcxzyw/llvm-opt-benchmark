@@ -372,7 +372,7 @@ declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_ad
 declare void @zend_print_flat_zval_r(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_watchpoint_segfault_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phpdbg_watchpoint_segfault_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -2593,7 +2593,7 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
 
 110:                                              ; preds = %97
   %111 = getelementptr inbounds i8, ptr %1, i64 120
-  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %111, ptr noundef nonnull dereferenceable(12) %.058, i64 12)
+  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %111, ptr noundef nonnull readonly dereferenceable(12) %.058, i64 12)
   %.not72 = icmp eq i32 %bcmp16.i, 0
   br i1 %.not72, label %115, label %112
 
@@ -2696,7 +2696,7 @@ define hidden void @phpdbg_free_watch_element_tree(ptr noundef %0) local_unnamed
   %8 = getelementptr inbounds i8, ptr %.015, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.015)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.015)
   %11 = getelementptr inbounds i8, ptr %.015, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @zend_hash_del(ptr noundef nonnull %10, ptr noundef %12) #17
@@ -2939,7 +2939,7 @@ define hidden void @phpdbg_remove_watch_element(ptr noundef %0) local_unnamed_ad
   %8 = getelementptr inbounds i8, ptr %.026, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.026)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.026)
   %11 = getelementptr inbounds i8, ptr %.026, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @zend_hash_del(ptr noundef nonnull %10, ptr noundef %12) #17
@@ -2977,7 +2977,7 @@ phpdbg_clean_watch_element.exit23.thread:         ; preds = %.lr.ph29
   %25 = getelementptr inbounds i8, ptr %.01928, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.01928)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.01928)
   %28 = getelementptr inbounds i8, ptr %.01928, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @zend_hash_del(ptr noundef nonnull %27, ptr noundef %29) #17
@@ -3011,7 +3011,7 @@ phpdbg_clean_watch_element.exit23:                ; preds = %34, %22
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %0)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %0)
   %44 = getelementptr inbounds i8, ptr %0, i64 112
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @zend_hash_del(ptr noundef nonnull %43, ptr noundef %45) #17
@@ -4194,7 +4194,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %239, %246
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %249 = load ptr, ptr %0, align 8
-  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %154, ptr noundef nonnull dereferenceable(12) %249, i64 12)
+  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %154, ptr noundef nonnull readonly dereferenceable(12) %249, i64 12)
   %.not242 = icmp eq i32 %bcmp16.i, 0
   br i1 %.not242, label %250, label %.thread
 
@@ -4393,7 +4393,7 @@ define hidden void @phpdbg_reenable_memory_watches() local_unnamed_addr #0 {
 declare ptr @phpdbg_btree_find_closest(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
   %1 = alloca %struct.phpdbg_btree_position, align 8
   %2 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 15, i32 5), align 4
   %3 = icmp eq i32 %2, 0
@@ -4987,7 +4987,7 @@ define internal noundef i32 @phpdbg_create_recursive_watchpoint(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phpdbg_create_array_watchpoint(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @phpdbg_create_array_watchpoint(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._phpdbg_watchpoint_t, align 8
   %4 = alloca %struct._phpdbg_watchpoint_t, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

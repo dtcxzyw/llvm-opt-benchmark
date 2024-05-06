@@ -462,7 +462,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %Height, align 4, !tbaa !23
   %mul = mul i32 %3, %div
   %4 = lshr i64 %imageSize.coerce, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %div11 = udiv i32 %mul, %5
   %ImageCount = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %div11, ptr %ImageCount, align 8, !tbaa !24

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Nthreads = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 184
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -38,8 +38,8 @@ define noundef i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr nocapt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp ult i64 %indvars.iv, %11
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr %struct.envelope, ptr %14, i64 %indvars.iv
-  %16 = getelementptr i8, ptr %15, i64 184
+  %15 = getelementptr inbounds %struct.envelope, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds i8, ptr %15, i64 184
   %.sink = select i1 %13, ptr %16, ptr null
   %17 = getelementptr inbounds %struct.envelope, ptr %14, i64 %indvars.iv, i32 11
   store ptr %.sink, ptr %17, align 8
@@ -73,7 +73,7 @@ define void @_Z26tMPI_Free_env_list_destroyP18free_envelope_list(ptr nocapture n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23tMPI_Send_env_list_initP18send_envelope_listi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_listi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %3, ptr %4, align 8
@@ -98,8 +98,8 @@ define noundef i32 @_Z23tMPI_Send_env_list_initP18send_envelope_listi(ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp ult i64 %indvars.iv, %11
   %.pre = load ptr, ptr %7, align 8
-  %14 = getelementptr %struct.envelope, ptr %.pre, i64 %indvars.iv
-  %15 = getelementptr i8, ptr %14, i64 184
+  %14 = getelementptr inbounds %struct.envelope, ptr %.pre, i64 %indvars.iv
+  %15 = getelementptr inbounds i8, ptr %14, i64 184
   %16 = select i1 %13, ptr %15, ptr null
   %17 = getelementptr inbounds %struct.envelope, ptr %.pre, i64 %indvars.iv, i32 11
   store ptr %16, ptr %17, align 8
@@ -172,7 +172,7 @@ define void @_Z26tMPI_Recv_env_list_destroyP18recv_envelope_list(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 72
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -213,8 +213,8 @@ define noundef i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapture noundef %0, 
 21:                                               ; preds = %17, %15
   %.not = icmp ult i64 %indvars.iv, %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr %struct.tmpi_req_, ptr %22, i64 %indvars.iv
-  %24 = getelementptr i8, ptr %23, i64 72
+  %23 = getelementptr inbounds %struct.tmpi_req_, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
   %.sink = select i1 %.not, ptr %24, ptr null
   %25 = getelementptr inbounds %struct.tmpi_req_, ptr %22, i64 %indvars.iv, i32 8
   store ptr %.sink, ptr %25, align 8
@@ -1417,7 +1417,7 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %12, %_Z16t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 

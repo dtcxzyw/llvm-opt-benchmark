@@ -396,7 +396,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ;
   %.01757 = phi i32 [ 0, %.lr.ph.preheader ], [ %136, %.lr.ph ]
   %124 = load ptr, ptr %16, align 8
   %125 = load i32, ptr %124, align 4
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nuw nsw i64 %indvars.iv to i32
   %127 = add nsw i32 %125, %126
   %128 = sext i32 %127 to i64
   %129 = load ptr, ptr %1, align 8

@@ -137,7 +137,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.83 = private unnamed_addr constant [8 x i8] c"regInfo\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_PRIVATEKEYINFO_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_PRIVATEKEYINFO_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_PRIVATEKEYINFO_it.local_it
 }
@@ -179,7 +179,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_ENCKEYWITHID_IDENTIFIER_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_ENCKEYWITHID_IDENTIFIER_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_ENCKEYWITHID_IDENTIFIER_it.local_it
 }
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_ENCKEYWITHID_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OSSL_CRMF_ENCKEYWITHID_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OSSL_CRMF_ENCKEYWITHID_it.local_it
 }
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_CERTID_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_CERTID_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_CERTID_it.local_it
 }
@@ -290,7 +290,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_ENCRYPTEDVALUE_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OSSL_CRMF_ENCRYPTEDVALUE_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OSSL_CRMF_ENCRYPTEDVALUE_it.local_it
 }
@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_SINGLEPUBINFO_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_SINGLEPUBINFO_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_SINGLEPUBINFO_it.local_it
 }
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_PKIPUBLICATIONINFO_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_PKIPUBLICATIONINFO_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_PKIPUBLICATIONINFO_it.local_it
 }
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_PKMACVALUE_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_PKMACVALUE_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_PKMACVALUE_it.local_it
 }
@@ -433,7 +433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_POPOPRIVKEY_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_POPOPRIVKEY_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_POPOPRIVKEY_it.local_it
 }
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_PBMPARAMETER_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OSSL_CRMF_PBMPARAMETER_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OSSL_CRMF_PBMPARAMETER_it.local_it
 }
@@ -501,7 +501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_AUTHINFO_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_AUTHINFO_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_AUTHINFO_it.local_it
 }
@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_POPOSIGNINGKEYINPUT_it.local_it
 }
@@ -569,7 +569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_POPOSIGNINGKEY_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_POPOSIGNINGKEY_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_POPOSIGNINGKEY_it.local_it
 }
@@ -603,7 +603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_POPO_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_POPO_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_POPO_it.local_it
 }
@@ -637,7 +637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_it.local_it
 }
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_OPTIONALVALIDITY_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_OPTIONALVALIDITY_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_OPTIONALVALIDITY_it.local_it
 }
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_CERTTEMPLATE_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_CERTTEMPLATE_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_CERTTEMPLATE_it.local_it
 }
@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_CERTREQUEST_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_CERTREQUEST_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_CERTREQUEST_it.local_it
 }
@@ -787,7 +787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_MSG_it() #0 {
+define noundef nonnull ptr @OSSL_CRMF_MSG_it() #0 {
 entry:
   ret ptr @OSSL_CRMF_MSG_it.local_it
 }
@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CRMF_MSGS_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OSSL_CRMF_MSGS_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OSSL_CRMF_MSGS_it.local_it
 }
@@ -882,7 +882,7 @@ declare ptr @X509_PUBKEY_it() #2
 declare ptr @ASN1_OBJECT_it() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_adb() #0 {
+define internal noundef nonnull ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_adb() #0 {
 entry:
   ret ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_adb.internal_adb
 }

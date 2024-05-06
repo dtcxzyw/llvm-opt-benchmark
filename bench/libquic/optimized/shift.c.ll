@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/shift.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_lshift(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -123,7 +123,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly %a) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %r, %a
   br i1 %cmp.not, label %if.else, label %if.then
@@ -206,7 +206,7 @@ return:                                           ; preds = %if.end15, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_rshift(ptr noundef %r, ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_rshift(ptr noundef %r, ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -326,7 +326,7 @@ declare void @BN_zero(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_rshift1(ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %a) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -411,7 +411,7 @@ return:                                           ; preds = %if.then4, %while.en
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_set_bit(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_set_bit(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -471,7 +471,7 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_clear_bit(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_clear_bit(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -503,7 +503,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @BN_is_bit_set(ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @BN_is_bit_set(ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #3 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -533,7 +533,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mask_bits(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mask_bits(ptr noundef %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end

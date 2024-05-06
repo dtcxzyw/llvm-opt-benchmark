@@ -1932,7 +1932,7 @@ switch.hole_check:                                ; preds = %37
   %81 = load i16, ptr %74, align 2
   %82 = call zeroext i16 @ntohs(i16 noundef zeroext %81) #19
   %83 = zext i16 %82 to i32
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull %.str.36.sink.i, ptr noundef nonnull %5, i32 noundef %83) #18
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull %.str.36.sink.i, ptr noundef nonnull %5, i32 noundef %83) #18
   br label %_addr2fmt.exit
 
 _addr2fmt.exit:                                   ; preds = %._crit_edge201.thread, %._crit_edge201, %.sink.split.i
@@ -2056,7 +2056,7 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
   %.092.lcssa = phi ptr [ null, %111 ], [ %128, %._crit_edge185.loopexit ]
   %129 = call ptr @data_get_type_string(ptr noundef %.092.lcssa) #18
   %130 = ptrtoint ptr %.092.lcssa to i64
-  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.39, ptr noundef %129, i64 noundef %130) #18
+  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.39, ptr noundef %129, i64 noundef %130) #18
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %8) #18
   call void @llvm.va_end.p0(ptr nonnull %11)
   br label %thread-pre-split
@@ -2520,7 +2520,7 @@ define internal fastcc noundef ptr @_jobid2fmt(ptr noundef readonly %0, ptr noun
 define noundef ptr @log_build_step_id_str(ptr noundef readonly %0, ptr noundef returned writeonly %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = zext i16 %3 to i32
   %6 = and i32 %5, 8
-  %7 = trunc i32 %6 to i8
+  %7 = trunc nuw nsw i32 %6 to i8
   %spec.select = shl nuw nsw i8 %7, 2
   %.lobit = lshr exact i32 %6, 3
   store i8 %spec.select, ptr %1, align 1

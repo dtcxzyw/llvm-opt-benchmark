@@ -2288,7 +2288,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSo
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr nocapture readnone %env, ptr nocapture noundef readonly %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(56) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr nocapture readnone %env, ptr nocapture noundef readonly %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(56) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) local_unnamed_addr #3 align 2 {
 entry:
   %m_pkey.i5 = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %ctx.i6 = alloca %"class.std::unique_ptr", align 8
@@ -11728,7 +11728,7 @@ _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread: ; preds = 
   %params_.i17 = getelementptr inbounds i8, ptr %this, i64 248
   %in_18 = getelementptr inbounds i8, ptr %this, i64 328
   %out_19 = getelementptr inbounds i8, ptr %this, i64 352
-  %call320 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %params_.i17, ptr noundef nonnull align 8 dereferenceable(24) %in_18, ptr noundef nonnull %out_19), !range !138
+  %call320 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %params_.i17, ptr noundef nonnull align 8 dereferenceable(24) %in_18, ptr noundef nonnull %out_19)
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -11746,7 +11746,7 @@ _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24: ; preds 
   %params_.i27 = getelementptr inbounds i8, ptr %this, i64 248
   %in_28 = getelementptr inbounds i8, ptr %this, i64 328
   %out_29 = getelementptr inbounds i8, ptr %this, i64 352
-  %call330 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %params_.i27, ptr noundef nonnull align 8 dereferenceable(24) %in_28, ptr noundef nonnull %out_29), !range !138
+  %call330 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %params_.i27, ptr noundef nonnull align 8 dereferenceable(24) %in_28, ptr noundef nonnull %out_29)
   br label %if.then.i.i.i
 
 _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit: ; preds = %if.then.i.i.i.i
@@ -11757,7 +11757,7 @@ _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit: ; preds = %if.the
   %params_.i = getelementptr inbounds i8, ptr %this, i64 248
   %in_ = getelementptr inbounds i8, ptr %this, i64 328
   %out_ = getelementptr inbounds i8, ptr %this, i64 352
-  %call3 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(56) %params_.i, ptr noundef nonnull align 8 dereferenceable(24) %in_, ptr noundef nonnull %out_), !range !138
+  %call3 = call noundef i32 @_ZN4node6crypto15RSACipherTraits8DoCipherEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEENS0_19WebCryptoCipherModeERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_(ptr poison, ptr noundef nonnull %agg.tmp, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(56) %params_.i, ptr noundef nonnull align 8 dereferenceable(24) %in_, ptr noundef nonnull %out_)
   %cmp.not.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, label %if.then.i.i.i
 
@@ -12057,13 +12057,13 @@ if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 72
-  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !139
+  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !138
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 88
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !139
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !138
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 512
@@ -12161,13 +12161,13 @@ if.then8.i.i23:                                   ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i29:                                   ; preds = %if.then8.i.i23
   %_M_first3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %tracker, i64 72
-  %35 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i30, align 8, !noalias !142
+  %35 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i30, align 8, !noalias !141
   %cmp.i.i.i1.i.i.i31 = icmp eq ptr %33, %35
   br i1 %cmp.i.i.i1.i.i.i31, label %if.then.i.i.i.i.i.i39, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i32
 
 if.then.i.i.i.i.i.i39:                            ; preds = %if.end.i.i.i29
   %_M_node5.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %tracker, i64 88
-  %36 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i40, align 8, !noalias !142
+  %36 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i40, align 8, !noalias !141
   %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %36, i64 -8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i41, align 8
   %add.ptr.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %37, i64 512
@@ -12880,10 +12880,9 @@ attributes #25 = { cold }
 !135 = !{!136}
 !136 = distinct !{!136, !137, !"_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv: %agg.result"}
 !137 = distinct !{!137, !"_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv"}
-!138 = !{i32 0, i32 3}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!141 = distinct !{!141, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!144 = distinct !{!144, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!140 = distinct !{!140, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!143 = distinct !{!143, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}

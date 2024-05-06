@@ -138,7 +138,7 @@ for.body.lr.ph:                                   ; preds = %if.end14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %0, %hartid_base
   %conv20 = zext i32 %add to i64
   %call21 = tail call ptr @cpu_by_arch_id(i64 noundef %conv20) #5
@@ -291,7 +291,7 @@ for.body.lr.ph:                                   ; preds = %if.end3
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %0, %hartid_base
   %conv = zext i32 %add to i64
   %call9 = tail call ptr @cpu_by_arch_id(i64 noundef %conv) #5
@@ -515,7 +515,7 @@ do.body40:                                        ; preds = %if.else
   br i1 %cmp.i27.not, label %return, label %if.then48
 
 if.then48:                                        ; preds = %do.body40
-  %conv49 = trunc i64 %addr to i32
+  %conv49 = trunc nuw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv49) #5
   br label %return
 
@@ -676,7 +676,7 @@ do.body49:                                        ; preds = %if.then37
   br i1 %cmp.i64.not, label %do.end165, label %if.then57
 
 if.then57:                                        ; preds = %do.body49
-  %conv58 = trunc i64 %addr to i32
+  %conv58 = trunc nuw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv58) #5
   br label %do.end165
 
@@ -687,7 +687,7 @@ do.body63:                                        ; preds = %if.else
   br i1 %cmp.i66.not, label %do.end165, label %if.then71
 
 if.then71:                                        ; preds = %do.body63
-  %conv72 = trunc i64 %addr to i32
+  %conv72 = trunc nuw i64 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv72) #5
   br label %do.end165
 
@@ -1004,7 +1004,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @riscv_aclint_swi_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 2) i64 @riscv_aclint_swi_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %num_harts = getelementptr inbounds i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %num_harts, align 4

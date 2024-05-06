@@ -398,7 +398,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_EncryptedContent_init(ptr nocapture noundef writeonly %ec, ptr noundef %cipher, ptr noundef readonly %key, i64 noundef %keylen, ptr nocapture noundef readnone %cms_ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr nocapture noundef writeonly %ec, ptr noundef %cipher, ptr noundef readonly %key, i64 noundef %keylen, ptr nocapture noundef readnone %cms_ctx) local_unnamed_addr #0 {
 entry:
   %cipher1 = getelementptr inbounds i8, ptr %ec, i64 24
   store ptr %cipher, ptr %cipher1, align 8
@@ -433,7 +433,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_EncryptedData_set1_key(ptr noundef %cms, ptr noundef %ciph, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %cms, ptr noundef %ciph, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne i64 %keylen, 0
@@ -482,7 +482,7 @@ if.then.i:                                        ; preds = %if.then3
   br i1 %cmp.i, label %return, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %key, i64 %keylen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   %keylen6.i = getelementptr inbounds i8, ptr %2, i64 40
   store i64 %keylen, ptr %keylen6.i, align 8
   %call9.i = tail call ptr @OBJ_nid2obj(i32 noundef 21) #3
@@ -510,7 +510,7 @@ if.then.i20:                                      ; preds = %if.else
   br i1 %cmp.i23, label %return, label %if.end5.i25
 
 if.end5.i25:                                      ; preds = %if.then.i20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i21, ptr nonnull align 1 %key, i64 %keylen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i21, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   %keylen6.i26 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 %keylen, ptr %keylen6.i26, align 8
   br label %return

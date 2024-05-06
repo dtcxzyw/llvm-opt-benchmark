@@ -586,7 +586,7 @@ define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align
 declare dso_local void @mpi_barrett_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpi_ec_get_affine(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @mpi_cmp_ui(ptr noundef %6, i64 noundef 0) #9
@@ -2959,7 +2959,7 @@ declare dso_local ptr @mpi_const(i32 noundef) local_unnamed_addr #2
 declare dso_local void @mpi_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mpi_ec_curve_point(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %4 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %5 = tail call ptr @mpi_alloc(i32 noundef 0) #9

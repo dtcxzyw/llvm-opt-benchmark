@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_init_key(ptr noundef %ctx, ptr noundef %inkey, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_init_key(ptr noundef %ctx, ptr noundef %inkey, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #5
@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @rc4_hmac_md5_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %mac = alloca [16 x i8], align 16
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
@@ -241,7 +241,7 @@ return:                                           ; preds = %if.then150, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc4_hmac_md5_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
 entry:
   %hmac_key = alloca [64 x i8], align 16
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
@@ -328,7 +328,7 @@ if.then50:                                        ; preds = %if.end41
 if.end54:                                         ; preds = %if.then50
   %sub55 = add nsw i32 %or, -16
   %shr = lshr i32 %sub55, 8
-  %conv56 = trunc i32 %shr to i8
+  %conv56 = trunc nuw i32 %shr to i8
   store i8 %conv56, ptr %arrayidx43, align 1
   %conv60 = trunc i32 %sub55 to i8
   store i8 %conv60, ptr %arrayidx47, align 1

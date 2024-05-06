@@ -46,12 +46,12 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr nocapture noundef %1,
   %20 = getelementptr inbounds i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 16777215
   %25 = getelementptr inbounds i8, ptr %19, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 16777215
   %30 = icmp ugt i32 %24, %29
   %. = select i1 %30, ptr %15, ptr %19

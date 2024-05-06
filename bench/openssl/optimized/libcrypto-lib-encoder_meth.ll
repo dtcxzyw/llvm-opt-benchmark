@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ENCODER_is_a(ptr nocapture noundef readonly %encoder, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_is_a(ptr nocapture noundef readonly %encoder, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -540,7 +540,7 @@ entry:
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %ctx, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end

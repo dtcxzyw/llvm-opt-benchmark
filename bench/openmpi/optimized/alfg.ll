@@ -81,7 +81,7 @@ define i32 @opal_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @opal_random() local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @opal_random() local_unnamed_addr #3 {
   %1 = load i32, ptr getelementptr inbounds (%struct.opal_rng_buff_t, ptr @alfg_buffer, i64 0, i32 1), align 4
   %2 = sext i32 %1 to i64
   %3 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %2

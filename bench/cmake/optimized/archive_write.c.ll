@@ -65,7 +65,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_bytes_per_block(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_bytes_per_block(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -99,7 +99,7 @@ define dso_local i32 @archive_write_get_bytes_per_block(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_bytes_in_last_block(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_bytes_in_last_block(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 32767, ptr noundef nonnull @.str.2) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -131,7 +131,7 @@ define dso_local i32 @archive_write_get_bytes_in_last_block(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_skip_file(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_skip_file(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 32767, ptr noundef nonnull @.str.4) #13
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %10, label %6
@@ -244,7 +244,7 @@ __archive_write_filter.exit:                      ; preds = %3, %8, %10, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @__archive_write_nulls(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483648, 1) i32 @__archive_write_nulls(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %__archive_write_output.exit.thread, label %.preheader
 
@@ -522,7 +522,7 @@ archive_write_get_bytes_in_last_block.exit:       ; preds = %archive_write_get_b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_client_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #3 {
+define internal range(i32 -30, 1) i32 @archive_write_client_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -676,7 +676,7 @@ define internal noundef i32 @archive_write_client_write(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_client_close(ptr nocapture noundef %0) #3 {
+define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr nocapture noundef %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -860,7 +860,7 @@ define dso_local i32 @archive_write_open(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_write_close(ptr noundef %0) #3 {
+define internal range(i32 -2147483648, 1) i32 @_archive_write_close(ptr noundef %0) #3 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 65535, ptr noundef nonnull @.str.6) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %35, label %4

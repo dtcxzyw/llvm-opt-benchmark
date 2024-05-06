@@ -852,7 +852,7 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %src.coerce0 to i16
+  %conv = trunc nuw i64 %src.coerce0 to i16
   %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %5 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %5, 2
@@ -878,7 +878,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i15, %if.
   %9 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i = add i32 %9, 2
   store i32 %add.i, ptr %m_read_offset.i.i, align 4, !tbaa !30
-  %10 = trunc i64 %src.coerce0 to i32
+  %10 = trunc nuw nsw i64 %src.coerce0 to i32
   %add.i.i17 = add i32 %add.i, %10
   %11 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i19 = icmp ugt i32 %add.i.i17, %11
@@ -1000,7 +1000,7 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %src.coerce0 to i32
+  %conv = trunc nuw nsw i64 %src.coerce0 to i32
   %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %5 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %5, 4
@@ -1443,7 +1443,7 @@ if.end63:                                         ; preds = %for.cond.cleanup27
   %conv64 = zext i32 %5 to i64
   %30 = load ptr, ptr %this, align 8, !tbaa !27
   %add.ptr.i152 = getelementptr inbounds i8, ptr %30, i64 %conv64
-  %conv66 = trunc i32 %inc40 to i16
+  %conv66 = trunc nuw i32 %inc40 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv66)
   store i16 %rev.i.i, ptr %add.ptr.i152, align 1
   br label %return
@@ -2527,7 +2527,7 @@ if.then.i.i.i24:                                  ; preds = %_ZN13NetworkPacketl
 _ZN13NetworkPacketlsEs.exit27:                    ; preds = %if.then.i.i.i24, %_ZN13NetworkPacketlsEs.exit15
   %10 = phi i32 [ %add.i.i11, %_ZN13NetworkPacketlsEs.exit15 ], [ %.pre.i.i26, %if.then.i.i.i24 ]
   %src.sroa.3.0.extract.shift = lshr i48 %src.coerce, 32
-  %src.sroa.3.0.extract.trunc = trunc i48 %src.sroa.3.0.extract.shift to i16
+  %src.sroa.3.0.extract.trunc = trunc nuw i48 %src.sroa.3.0.extract.shift to i16
   %conv.i.i20 = zext i32 %10 to i64
   %11 = load ptr, ptr %this, align 8, !tbaa !27
   %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %11, i64 %conv.i.i20
@@ -2583,7 +2583,7 @@ if.then.i.i.i11:                                  ; preds = %_ZN13NetworkPacketl
 _ZN13NetworkPacketlsEi.exit14:                    ; preds = %if.then.i.i.i11, %_ZN13NetworkPacketlsEi.exit
   %6 = phi i32 [ %add.i.i, %_ZN13NetworkPacketlsEi.exit ], [ %.pre.i.i13, %if.then.i.i.i11 ]
   %src.sroa.2.0.extract.shift = lshr i64 %src.coerce, 32
-  %src.sroa.2.0.extract.trunc = trunc i64 %src.sroa.2.0.extract.shift to i32
+  %src.sroa.2.0.extract.trunc = trunc nuw i64 %src.sroa.2.0.extract.shift to i32
   %conv.i.i7 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %7, i64 %conv.i.i7
@@ -2600,7 +2600,7 @@ define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPa
 entry:
   %src.sroa.0.0.extract.trunc = trunc i64 %src.coerce0 to i32
   %src.sroa.2.0.extract.shift = lshr i64 %src.coerce0, 32
-  %src.sroa.2.0.extract.trunc = trunc i64 %src.sroa.2.0.extract.shift to i32
+  %src.sroa.2.0.extract.trunc = trunc nuw i64 %src.sroa.2.0.extract.shift to i32
   %m_read_offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
   %add.i.i.i = add i32 %0, 4

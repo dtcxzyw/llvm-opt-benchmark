@@ -759,7 +759,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %4 = call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !17
+  %4 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %4, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -866,7 +866,7 @@ invoke.cont26:                                    ; preds = %if.end.i26
   store float %call2.i30, ptr %add.ptr.i32, align 4
   %inc = add nuw i64 %idx.040, 1
   %exitcond.not = icmp eq i64 %inc, %call10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %invoke.cont26, %for.cond.preheader
   invoke void @_ZN19OpenColorIO_v2_4dev13CreateLut1DOpERNS_10OpRcPtrVecERSt10shared_ptrINS_11Lut1DOpDataEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(16) %lut, i32 noundef 0)
@@ -1085,5 +1085,4 @@ attributes #17 = { builtin nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev11Lut1DOpDataEJNS1_9HalfFlagsEibEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: %agg.result"}
 !16 = distinct !{!16, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev11Lut1DOpDataEJNS1_9HalfFlagsEibEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
-!17 = !{i32 9, i32 33}
-!18 = distinct !{!18, !5}
+!17 = distinct !{!17, !5}

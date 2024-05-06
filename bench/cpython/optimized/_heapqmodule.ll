@@ -52,7 +52,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_heapq_heappush(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_heapq_heappush(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -87,7 +87,7 @@ if.end.i:                                         ; preds = %if.end7
   %5 = getelementptr i8, ptr %0, i64 16
   %heap.val.i = load i64, ptr %5, align 8
   %sub.i = add i64 %heap.val.i, -1
-  %call2.i = tail call fastcc i32 @siftdown(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %sub.i), !range !4
+  %call2.i = tail call fastcc i32 @siftdown(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %sub.i)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   %_Py_NoneStruct..i = select i1 %tobool3.not.i, ptr @_Py_NoneStruct, ptr null
   br label %exit
@@ -214,7 +214,7 @@ if.end.i.i27.i:                                   ; preds = %if.end14.i
 _Py_NewRef.exit28.i:                              ; preds = %if.end.i.i27.i, %if.end14.i
   %heap.val20.i = phi ptr [ %14, %if.end14.i ], [ %heap.val20.pre.i, %if.end.i.i27.i ]
   store ptr %4, ptr %heap.val20.i, align 8
-  %call18.i = tail call i32 @siftup(ptr noundef nonnull %0, i64 noundef 0), !range !4
+  %call18.i = tail call i32 @siftup(ptr noundef nonnull readonly %0, i64 noundef 0)
   %tobool.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i, label %exit, label %if.then19.i
 
@@ -318,7 +318,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
   %heap.val7.i.i = phi ptr [ %7, %if.end.i.i ], [ %heap.val7.pre.i.i, %if.end.i.i.i.i ]
   store ptr %4, ptr %heap.val7.i.i, align 8
-  %call2.i.i = tail call i32 @siftup(ptr noundef nonnull %0, i64 noundef 0) #2, !callees !5
+  %call2.i.i = tail call i32 @siftup(ptr noundef nonnull readonly %0, i64 noundef 0) #2, !callees !4
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i, label %exit, label %if.then3.i.i
 
@@ -470,7 +470,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
   %heap.val7.i.i = phi ptr [ %7, %if.end.i.i ], [ %heap.val7.pre.i.i, %if.end.i.i.i.i ]
   store ptr %4, ptr %heap.val7.i.i, align 8
-  %call2.i.i = tail call i32 @siftup_max(ptr noundef nonnull %0, i64 noundef 0) #2, !callees !5
+  %call2.i.i = tail call i32 @siftup_max(ptr noundef nonnull readonly %0, i64 noundef 0) #2, !callees !4
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i, label %exit, label %if.then3.i.i
 
@@ -502,7 +502,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @siftdown(ptr nocapture noundef readonly %heap, i64 noundef %startpos, i64 noundef %pos) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr nocapture noundef readonly %heap, i64 noundef %startpos, i64 noundef %pos) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val = load i64, ptr %0, align 8
@@ -602,7 +602,7 @@ if.end14:                                         ; preds = %if.end11
   store ptr %12, ptr %arrayidx16, align 8
   store ptr %11, ptr %arrayidx17, align 8
   %cmp2 = icmp sgt i64 %shr, %startpos
-  br i1 %cmp2, label %while.body, label %return, !llvm.loop !6
+  br i1 %cmp2, label %while.body, label %return, !llvm.loop !5
 
 return.sink.split:                                ; preds = %if.end7, %entry
   %PyExc_RuntimeError.sink = phi ptr [ @PyExc_IndexError, %entry ], [ @PyExc_RuntimeError, %if.end7 ]
@@ -623,7 +623,7 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siftup(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
+define internal range(i32 -1, 1) i32 @siftup(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8
@@ -739,11 +739,11 @@ if.end19:                                         ; preds = %if.end11, %while.bo
   store ptr %14, ptr %arrayidx20, align 8
   store ptr %13, ptr %arrayidx21, align 8
   %cmp2 = icmp slt i64 %childpos.0, %shr
-  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end19, %if.end
   %pos.addr.0.lcssa = phi i64 [ %pos, %if.end ], [ %childpos.0, %if.end19 ]
-  %call24 = tail call fastcc i32 @siftdown(ptr noundef %heap, i64 noundef %pos, i64 noundef %pos.addr.0.lcssa), !range !4
+  %call24 = tail call fastcc i32 @siftdown(ptr noundef %heap, i64 noundef %pos, i64 noundef %pos.addr.0.lcssa)
   br label %return
 
 return:                                           ; preds = %Py_DECREF.exit, %while.end, %if.then17, %if.then
@@ -808,7 +808,7 @@ if.end7:                                          ; preds = %if.end4
   %7 = load ptr, ptr %ob_item, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %3, ptr %7, align 8
-  %call10 = tail call i32 %siftup_func(ptr noundef nonnull %heap, i64 noundef 0) #2, !callees !5
+  %call10 = tail call i32 %siftup_func(ptr noundef nonnull %heap, i64 noundef 0) #2, !callees !4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.then12
 
@@ -854,7 +854,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   %shr.i.i = lshr i64 %n.addr.05.i.i, 1
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %cmp.i.i = icmp ugt i64 %n.addr.05.i.i, 3
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !9
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !8
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i
   %1 = zext nneg i32 %inc.i.i to i64
@@ -867,7 +867,7 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
 
 while.body.preheader.i:                           ; preds = %while.end.loopexit.i.i, %for.inc.i
   %i.023.i = phi i64 [ %dec.i, %for.inc.i ], [ %sub3.i, %while.end.loopexit.i.i ]
-  %call419.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.023.i) #2, !callees !5
+  %call419.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.023.i) #2, !callees !4
   %tobool.not20.i = icmp eq i32 %call419.i, 0
   br i1 %tobool.not20.i, label %if.end.i, label %return
 
@@ -881,7 +881,7 @@ while.body13.preheader.preheader.i:               ; preds = %for.cond10.preheade
 
 while.body.i:                                     ; preds = %if.end.i
   %shr8.i = ashr i64 %j.021.i, 1
-  %call4.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %shr8.i) #2, !callees !5
+  %call4.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %shr8.i) #2, !callees !4
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
 
@@ -894,22 +894,22 @@ if.end.i:                                         ; preds = %while.body.preheade
 for.inc.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i64 %i.023.i, -1
   %cmp.not.not.i = icmp sgt i64 %i.023.i, %shr2.i
-  br i1 %cmp.not.not.i, label %while.body.preheader.i, label %for.cond10.preheader.i, !llvm.loop !10
+  br i1 %cmp.not.not.i, label %while.body.preheader.i, label %for.cond10.preheader.i, !llvm.loop !9
 
 for.cond10.loopexit.i:                            ; preds = %if.end17.i
   %i.1.i = add i64 %i.129.i, -1
   %cmp11.not.i = icmp slt i64 %i.1.i, %sub.i
-  br i1 %cmp11.not.i, label %return, label %while.body13.preheader.i, !llvm.loop !11
+  br i1 %cmp11.not.i, label %return, label %while.body13.preheader.i, !llvm.loop !10
 
 while.body13.preheader.i:                         ; preds = %for.cond10.loopexit.i, %while.body13.preheader.preheader.i
   %i.129.i = phi i64 [ %i.1.i, %for.cond10.loopexit.i ], [ %i.127.i, %while.body13.preheader.preheader.i ]
-  %call1424.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.129.i) #2, !callees !5
+  %call1424.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.129.i) #2, !callees !4
   %tobool15.not25.i = icmp eq i32 %call1424.i, 0
   br i1 %tobool15.not25.i, label %if.end17.i, label %return
 
 while.body13.i:                                   ; preds = %if.end17.i
   %shr22.i = ashr i64 %j.126.i, 1
-  %call14.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %shr22.i) #2, !callees !5
+  %call14.i = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %shr22.i) #2, !callees !4
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.end17.i, label %return
 
@@ -930,9 +930,9 @@ for.cond:                                         ; preds = %for.body, %if.end
 
 for.body:                                         ; preds = %for.cond
   %i.0 = add nsw i64 %i.0.in, -1
-  %call3 = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.0) #2, !callees !5
+  %call3 = tail call i32 %siftup_func(ptr noundef %heap, i64 noundef %i.0) #2, !callees !4
   %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %for.cond, label %return, !llvm.loop !12
+  br i1 %tobool.not, label %for.cond, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.cond, %for.body, %while.body.preheader.i, %while.body.i, %while.body13.preheader.i, %for.cond10.loopexit.i, %while.body13.i, %for.cond10.preheader.i
   %retval.0 = phi ptr [ @_Py_NoneStruct, %for.cond10.preheader.i ], [ null, %while.body13.i ], [ @_Py_NoneStruct, %for.cond10.loopexit.i ], [ null, %while.body13.preheader.i ], [ null, %while.body.i ], [ null, %while.body.preheader.i ], [ @_Py_NoneStruct, %for.cond ], [ null, %for.body ]
@@ -940,7 +940,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siftup_max(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
+define internal range(i32 -1, 1) i32 @siftup_max(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8
@@ -1046,7 +1046,7 @@ if.end19:                                         ; preds = %if.end11, %while.bo
   store ptr %12, ptr %arrayidx20, align 8
   store ptr %11, ptr %arrayidx21, align 8
   %cmp2 = icmp slt i64 %childpos.0, %shr
-  br i1 %cmp2, label %while.body, label %while.end.loopexit, !llvm.loop !13
+  br i1 %cmp2, label %while.body, label %while.end.loopexit, !llvm.loop !12
 
 while.end.loopexit:                               ; preds = %if.end19
   %heap.val30.i.pre = load i64, ptr %0, align 8
@@ -1150,7 +1150,7 @@ if.end15.i:                                       ; preds = %if.end12.i
   store ptr %24, ptr %arrayidx17.i, align 8
   store ptr %23, ptr %arrayidx18.i, align 8
   %cmp2.i = icmp sgt i64 %shr.i, %pos
-  br i1 %cmp2.i, label %while.body.i, label %return, !llvm.loop !14
+  br i1 %cmp2.i, label %while.body.i, label %return, !llvm.loop !13
 
 return.sink.split:                                ; preds = %if.end11, %if.end8.i, %while.end, %entry
   %PyExc_RuntimeError.sink.i.sink = phi ptr [ @PyExc_IndexError, %entry ], [ @PyExc_IndexError, %while.end ], [ @PyExc_RuntimeError, %if.end8.i ], [ @PyExc_RuntimeError, %if.end11 ]
@@ -1165,7 +1165,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapq_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @heapq_exec(ptr noundef %m) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @__about__) #2
   %call1 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull @.str.14, ptr noundef %call) #2
@@ -1187,14 +1187,13 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{ptr @siftup, ptr @siftup_max}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!4 = !{ptr @siftup, ptr @siftup_max}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

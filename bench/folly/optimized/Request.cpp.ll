@@ -496,10 +496,10 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5Val
 
 @_ZZN5folly12RequestTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9nextToken = internal unnamed_addr global i32 1, align 4
 @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = linkonce_odr global { i32 } zeroinitializer, comdat, align 4
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE = external global [2048 x %"struct.std::atomic.9"], align 128
 @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = linkonce_odr global { [257 x [256 x i8]], %"struct.std::atomic.11" } zeroinitializer, comdat, align 8
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @_ZTISt9bad_alloc = external constant ptr
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
@@ -575,7 +575,7 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5Val
 @_ZTVSt12system_error = external unnamed_addr constant { [5 x ptr] }, align 8
 @.str.64 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZN5folly12_GLOBAL__N_122getStaticContextCalledE = internal thread_local global i8 0, align 1
+@_ZN5folly12_GLOBAL__N_122getStaticContextCalledE = internal thread_local unnamed_addr global i8 0, align 1
 @_ZZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail11DefaultMakeIS2_EES1_E3getEvE5cache = linkonce_odr thread_local global %"struct.folly::detail::SingletonThreadLocalState::LocalCache" zeroinitializer, comdat, align 8
 @_ZZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail11DefaultMakeIS2_EES1_E7getSlowERNS3_25SingletonThreadLocalState10LocalCacheEE8lifetime = linkonce_odr thread_local global %"struct.folly::SingletonThreadLocal<folly::RequestContext::StaticContext, folly::RequestContext>::LocalLifetime" zeroinitializer, comdat, align 1
 @_ZGVZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail11DefaultMakeIS2_EES1_E7getSlowERNS3_25SingletonThreadLocalState10LocalCacheEE8lifetime = linkonce_odr thread_local local_unnamed_addr global i64 0, comdat, align 8

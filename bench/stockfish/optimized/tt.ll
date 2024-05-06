@@ -97,7 +97,7 @@ define dso_local void @_ZN9Stockfish7TTEntry4saveEmibNS_5BoundEiNS_4MoveEih(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZNK9Stockfish7TTEntry12relative_ageEh(ptr nocapture noundef nonnull readonly align 2 dereferenceable(10) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext range(i8 0, -7) i8 @_ZNK9Stockfish7TTEntry12relative_ageEh(ptr nocapture noundef nonnull readonly align 2 dereferenceable(10) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = add i8 %1, 7
   %4 = getelementptr inbounds i8, ptr %0, i64 3
   %5 = load i8, ptr %4, align 1
@@ -336,7 +336,7 @@ define dso_local noundef ptr @_ZNK9Stockfish18TranspositionTable5probeEmRb(ptr n
   %8 = zext i64 %6 to i128
   %9 = mul nuw i128 %8, %7
   %10 = lshr i128 %9, 64
-  %11 = trunc i128 %10 to i64
+  %11 = trunc nuw i128 %10 to i64
   %12 = getelementptr inbounds %"struct.Stockfish::TranspositionTable::Cluster", ptr %5, i64 %11
   %13 = trunc i64 %1 to i16
   br label %18
@@ -417,7 +417,7 @@ split:                                            ; preds = %24, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK9Stockfish18TranspositionTable8hashfullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK9Stockfish18TranspositionTable8hashfullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

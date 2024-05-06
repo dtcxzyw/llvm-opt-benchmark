@@ -836,7 +836,7 @@ declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1847,7 +1847,7 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) l
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = call i32 @cred_unpack(ptr noundef nonnull %3, ptr noundef %0, i16 noundef zeroext %1), !range !6
+  %7 = call i32 @cred_unpack(ptr noundef nonnull %3, ptr noundef %0, i16 noundef zeroext %1)
   %.not = icmp eq i32 %7, 0
   %.pre = load ptr, ptr %3, align 8
   br i1 %.not, label %8, label %31
@@ -2253,4 +2253,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}

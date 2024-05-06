@@ -223,7 +223,7 @@ Vec_WecStart.exit:                                ; preds = %1, %7
   br i1 %exitcond232.not, label %._crit_edge214, label %.lr.ph188.us, !llvm.loop !7
 
 ._crit_edge189.us.loopexit:                       ; preds = %.lr.ph188.us
-  %35 = trunc i64 %indvars.iv228 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv228 to i32
   br label %._crit_edge189.us
 
 ._crit_edge189.us:                                ; preds = %._crit_edge189.us.loopexit, %.preheader181.us
@@ -232,7 +232,7 @@ Vec_WecStart.exit:                                ; preds = %1, %7
   br i1 %36, label %._crit_edge214, label %.preheader.lr.ph.us
 
 .preheader.lr.ph.us:                              ; preds = %._crit_edge189.us
-  %37 = trunc i64 %indvars.iv252 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv252 to i32
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %37)
   %.val.us = load ptr, ptr %12, align 8
   %39 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.us, i64 %indvars.iv252
@@ -758,7 +758,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i.preheader, %.critedge2.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.critedge2.i ], [ 0, %.lr.ph23.i.preheader ]
   %268 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.pre.pre, i64 %indvars.iv25.i
-  %269 = trunc i64 %indvars.iv25.i to i32
+  %269 = trunc nuw nsw i64 %indvars.iv25.i to i32
   %270 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %269)
   %271 = getelementptr i8, ptr %268, i64 4
   %.val1619.i = load i32, ptr %271, align 4

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @softfloat_roundToUI32(i1 noundef zeroext %sign, i64 noundef %sig, i8 noundef zeroext %roundingMode, i1 noundef zeroext %exact) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4503599627370496) i64 @softfloat_roundToUI32(i1 noundef zeroext %sign, i64 noundef %sig, i8 noundef zeroext %roundingMode, i1 noundef zeroext %exact) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %roundingMode, -5
   %or.cond.not = icmp eq i8 %0, 0

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @v3_freshest_crl = external constant %struct.v3_ext_method, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_add(ptr noundef %ext) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add(ptr noundef %ext) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ext_list, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -229,7 +229,7 @@ return:                                           ; preds = %entry, %X509V3_EXT_
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_free(i32 noundef %nid, ptr noundef %ext_data) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_free(i32 noundef %nid, ptr noundef %ext_data) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.v3_ext_method, align 8
   %t.i = alloca ptr, align 8
@@ -317,7 +317,7 @@ return:                                           ; preds = %if.then2, %if.then5
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_add_list(ptr noundef %extlist) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add_list(ptr noundef %extlist) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %extlist, align 8
   %cmp.not3 = icmp eq i32 %0, -1
@@ -331,7 +331,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %extlist.addr.04 = phi ptr [ %incdec.ptr, %for.cond ], [ %extlist, %entry ]
-  %call = tail call i32 @X509V3_EXT_add(ptr noundef nonnull %extlist.addr.04), !range !9
+  %call = tail call i32 @X509V3_EXT_add(ptr noundef nonnull %extlist.addr.04)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.cond
 
@@ -341,7 +341,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_add_alias(i32 noundef %nid_to, i32 noundef %nid_from) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add_alias(i32 noundef %nid_to, i32 noundef %nid_from) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.v3_ext_method, align 8
   %t.i = alloca ptr, align 8
@@ -413,7 +413,7 @@ if.end4:                                          ; preds = %if.end
   %4 = load i32, ptr %ext_flags, align 4
   %or = or i32 %4, 1
   store i32 %or, ptr %ext_flags, align 4
-  %call5 = call i32 @X509V3_EXT_add(ptr noundef nonnull %call1), !range !9
+  %call5 = call i32 @X509V3_EXT_add(ptr noundef nonnull %call1)
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
@@ -595,7 +595,7 @@ for.inc.us:                                       ; preds = %if.then18.us, %for.
   %inc.us = add nuw i64 %i.036.us, 1
   %call.us = tail call i64 @sk_num(ptr noundef nonnull %x) #10
   %cmp12.us = icmp ult i64 %inc.us, %call.us
-  br i1 %cmp12.us, label %for.body.us, label %for.end, !llvm.loop !10
+  br i1 %cmp12.us, label %for.body.us, label %for.end, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.036 = phi i64 [ %inc, %for.inc ], [ %conv, %for.body.lr.ph ]
@@ -622,7 +622,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.036, 1
   %call = tail call i64 @sk_num(ptr noundef nonnull %x) #10
   %cmp12 = icmp ult i64 %inc, %call
-  br i1 %cmp12, label %for.body, label %if.end38, !llvm.loop !10
+  br i1 %cmp12, label %for.body, label %if.end38, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc.us
   %tobool31.not = icmp eq ptr %found_ex.1.us, null
@@ -667,7 +667,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509V3_add1_i2d(ptr nocapture noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr nocapture noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 15
   %cmp.not = icmp eq i64 %and, 1
@@ -815,5 +815,4 @@ attributes #11 = { nounwind allocsize(0) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8}

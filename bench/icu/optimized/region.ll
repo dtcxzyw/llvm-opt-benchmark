@@ -4884,7 +4884,7 @@ declare void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull
 declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_756Region8containsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_756Region8containsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -4942,7 +4942,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool10.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call11 = call noundef signext i8 @_ZNK6icu_756Region8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %call9, ptr noundef nonnull align 8 dereferenceable(112) %other), !range !56
+  %call11 = call noundef signext i8 @_ZNK6icu_756Region8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %call9, ptr noundef nonnull align 8 dereferenceable(112) %other)
   %tobool12.not = icmp eq i8 %call11, 0
   br i1 %tobool12.not, label %for.inc, label %return
 
@@ -4952,7 +4952,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %count.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %count.i, align 8
   %cmp = icmp slt i32 %inc, %9
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !57
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !56
 
 return:                                           ; preds = %land.lhs.true, %for.inc, %for.cond.preheader, %if.end, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %retval.0 = phi i8 [ 0, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ 1, %if.end ], [ 0, %for.cond.preheader ], [ 1, %land.lhs.true ], [ 0, %for.inc ]
@@ -5054,7 +5054,7 @@ _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %invoke.cont28
   %inc = add nuw nsw i32 %i.053, 1
   %6 = load i32, ptr %status, align 4
   %cmp.i15 = icmp sgt i32 %6, 0
-  br i1 %cmp.i15, label %if.end, label %land.rhs, !llvm.loop !58
+  br i1 %cmp.i15, label %if.end, label %land.rhs, !llvm.loop !57
 
 lpad4:                                            ; preds = %new.notnull
   %7 = landingpad { ptr, i32 }
@@ -5335,6 +5335,5 @@ attributes #19 = { nounwind willreturn memory(read) }
 !53 = distinct !{!53, !10}
 !54 = distinct !{!54, !10}
 !55 = distinct !{!55, !10}
-!56 = !{i8 0, i8 2}
+!56 = distinct !{!56, !10}
 !57 = distinct !{!57, !10}
-!58 = distinct !{!58, !10}

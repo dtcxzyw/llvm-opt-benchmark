@@ -1285,7 +1285,7 @@ if.else5.i:                                       ; preds = %if.else.i
   %16 = ashr i16 %result.0, 2
   %shr.i = lshr i16 %result.0, 2
   %and.lobit.i = lshr exact i32 %and.i, 1
-  %.sink.i = trunc i32 %and.lobit.i to i8
+  %.sink.i = trunc nuw nsw i32 %and.lobit.i to i8
   %storemerge.i = select i1 %tobool.not.not.i, i16 %16, i16 %shr.i
   %shr15.mask.i = and i32 %conv.i, 65532
   %cmp16.i = icmp eq i32 %shr15.mask.i, 65276
@@ -1473,7 +1473,7 @@ if.end176:                                        ; preds = %if.then165, %if.els
   br label %for.cond.outer.backedge
 
 for.cond.outer.backedge.loopexit:                 ; preds = %if.end140
-  %30 = trunc i64 %indvars.iv.next118 to i32
+  %30 = trunc nsw i64 %indvars.iv.next118 to i32
   br label %for.cond.outer.backedge
 
 for.cond.outer.backedge:                          ; preds = %for.cond.outer.backedge.loopexit, %if.end160, %if.end176, %if.end128
@@ -1754,7 +1754,7 @@ entry:
 declare void @ucln_common_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14usprep_cleanupv() #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL14usprep_cleanupv() #0 {
 entry:
   %pos.i = alloca i32, align 4
   %0 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8
@@ -1869,7 +1869,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef signext i8 @_ZL17isSPrepAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #9 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL17isSPrepAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #9 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19

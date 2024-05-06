@@ -778,7 +778,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exi
   %226 = select i1 %222, i1 true, i1 %225
   %227 = getelementptr inbounds i8, ptr %4, i64 136
   %228 = getelementptr inbounds i8, ptr %4, i64 56
-  %229 = trunc i8 %.142.i to i1
+  %229 = trunc nuw i8 %.142.i to i1
   %..i = select i1 %229, ptr %15, ptr null
   %230 = select i1 %.043.i, ptr %16, ptr null
   %231 = select i1 %.043.i, ptr %17, ptr null
@@ -832,7 +832,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exi
   br label %245
 
 245:                                              ; preds = %.critedge81.i, %.critedge.i
-  %246 = trunc i8 %.142.i to i1
+  %246 = trunc nuw i8 %.142.i to i1
   %.1.i = select i1 %246, ptr %15, ptr null
   %247 = select i1 %.043.i, ptr %16, ptr null
   %248 = select i1 %.043.i, ptr %17, ptr null
@@ -4205,7 +4205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc i32 %.0.lcssa.i to i8
+  %60 = trunc nuw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

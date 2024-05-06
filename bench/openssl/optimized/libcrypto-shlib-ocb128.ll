@@ -15,7 +15,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @CRYPTO_ocb128_init(ptr noundef nonnull %call, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream), !range !4
+  %call1 = tail call i32 @CRYPTO_ocb128_init(ptr noundef nonnull %call, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -31,7 +31,7 @@ return:                                           ; preds = %entry, %if.end, %if
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_init(ptr noundef %ctx, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_init(ptr noundef %ctx, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream) local_unnamed_addr #0 {
 entry:
   %l_index = getelementptr inbounds i8, ptr %ctx, i64 40
   %max_l_index = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -71,7 +71,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %or.i.i, ptr %arrayidx9.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %cmp.not.i.i, label %ocb_double.exit, label %for.body.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i, label %ocb_double.exit, label %for.body.i.i, !llvm.loop !4
 
 ocb_double.exit:                                  ; preds = %for.body.i.i
   %isneg.i = icmp slt i8 %0, 0
@@ -96,7 +96,7 @@ for.body.i.i27:                                   ; preds = %for.body.i.i27, %oc
   store i8 %or.i.i33, ptr %arrayidx9.i.i34, align 1
   %indvars.iv.next.i.i35 = add nsw i64 %indvars.iv.i.i28, -1
   %cmp.not.i.i36 = icmp eq i64 %indvars.iv.i.i28, 0
-  br i1 %cmp.not.i.i36, label %ocb_double.exit41, label %for.body.i.i27, !llvm.loop !5
+  br i1 %cmp.not.i.i36, label %ocb_double.exit41, label %for.body.i.i27, !llvm.loop !4
 
 ocb_double.exit41:                                ; preds = %for.body.i.i27
   %isneg.i37 = icmp slt i8 %4, 0
@@ -122,7 +122,7 @@ for.body.i.i42:                                   ; preds = %for.body.i.i42, %oc
   store i8 %or.i.i48, ptr %arrayidx9.i.i49, align 1
   %indvars.iv.next.i.i50 = add nsw i64 %indvars.iv.i.i43, -1
   %cmp.not.i.i51 = icmp eq i64 %indvars.iv.i.i43, 0
-  br i1 %cmp.not.i.i51, label %ocb_double.exit56, label %for.body.i.i42, !llvm.loop !5
+  br i1 %cmp.not.i.i51, label %ocb_double.exit56, label %for.body.i.i42, !llvm.loop !4
 
 ocb_double.exit56:                                ; preds = %for.body.i.i42
   %isneg.i52 = icmp slt i8 %8, 0
@@ -149,7 +149,7 @@ for.body.i.i57:                                   ; preds = %for.body.i.i57, %oc
   store i8 %or.i.i63, ptr %arrayidx9.i.i64, align 1
   %indvars.iv.next.i.i65 = add nsw i64 %indvars.iv.i.i58, -1
   %cmp.not.i.i66 = icmp eq i64 %indvars.iv.i.i58, 0
-  br i1 %cmp.not.i.i66, label %ocb_double.exit71, label %for.body.i.i57, !llvm.loop !5
+  br i1 %cmp.not.i.i66, label %ocb_double.exit71, label %for.body.i.i57, !llvm.loop !4
 
 ocb_double.exit71:                                ; preds = %for.body.i.i57
   %isneg.i67 = icmp slt i8 %12, 0
@@ -176,7 +176,7 @@ for.body.i.i72:                                   ; preds = %for.body.i.i72, %oc
   store i8 %or.i.i78, ptr %arrayidx9.i.i79, align 1
   %indvars.iv.next.i.i80 = add nsw i64 %indvars.iv.i.i73, -1
   %cmp.not.i.i81 = icmp eq i64 %indvars.iv.i.i73, 0
-  br i1 %cmp.not.i.i81, label %ocb_double.exit86, label %for.body.i.i72, !llvm.loop !5
+  br i1 %cmp.not.i.i81, label %ocb_double.exit86, label %for.body.i.i72, !llvm.loop !4
 
 ocb_double.exit86:                                ; preds = %for.body.i.i72
   %isneg.i82 = icmp slt i8 %16, 0
@@ -203,7 +203,7 @@ for.body.i.i87:                                   ; preds = %for.body.i.i87, %oc
   store i8 %or.i.i93, ptr %arrayidx9.i.i94, align 1
   %indvars.iv.next.i.i95 = add nsw i64 %indvars.iv.i.i88, -1
   %cmp.not.i.i96 = icmp eq i64 %indvars.iv.i.i88, 0
-  br i1 %cmp.not.i.i96, label %ocb_double.exit101, label %for.body.i.i87, !llvm.loop !5
+  br i1 %cmp.not.i.i96, label %ocb_double.exit101, label %for.body.i.i87, !llvm.loop !4
 
 ocb_double.exit101:                               ; preds = %for.body.i.i87
   %isneg.i97 = icmp slt i8 %20, 0
@@ -226,7 +226,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_copy_ctx(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, ptr noundef %keyenc, ptr noundef %keydec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, ptr noundef %keyenc, ptr noundef %keydec) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %dest, ptr noundef nonnull align 8 dereferenceable(176) %src, i64 176, i1 false)
   %tobool.not = icmp eq ptr %keyenc, null
@@ -280,7 +280,7 @@ return:                                           ; preds = %if.end5, %if.end10,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_setiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %len, i64 noundef %taglen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %len, i64 noundef %taglen) local_unnamed_addr #0 {
 entry:
   %ktop = alloca [16 x i8], align 16
   %tmp = alloca [16 x i8], align 16
@@ -335,7 +335,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
   %arrayidx26 = getelementptr inbounds i8, ptr %nonce, i64 15
@@ -364,7 +364,7 @@ for.body.i19:                                     ; preds = %for.body.i19, %ocb_
   store i8 %conv7.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp.not.i, label %ocb_block_lshift.exit, label %for.body.i19, !llvm.loop !5
+  br i1 %cmp.not.i, label %ocb_block_lshift.exit, label %for.body.i19, !llvm.loop !4
 
 ocb_block_lshift.exit:                            ; preds = %for.body.i19
   %shl37 = shl nuw nsw i32 255, %sh_prom.i
@@ -386,7 +386,7 @@ return:                                           ; preds = %entry, %ocb_block_l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_aad(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %aad, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %div40 = lshr i64 %len, 4
@@ -423,7 +423,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %inc.i = add i32 %cnt.06.i, 1
   %2 = and i64 %n.addr.05.i, 2
   %tobool.not.i = icmp eq i64 %2, 0
-  br i1 %tobool.not.i, label %while.body.i, label %ocb_ntz.exit, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.body.i, label %ocb_ntz.exit, !llvm.loop !7
 
 ocb_ntz.exit:                                     ; preds = %while.body.i, %for.body
   %cnt.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i, %while.body.i ]
@@ -476,7 +476,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %wh
   store i8 %or.i.i.i, ptr %arrayidx9.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %cmp.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !4
 
 ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   %isneg.i.i = icmp slt i8 %8, 0
@@ -487,7 +487,7 @@ ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   store i8 %xor.i.i, ptr %arrayidx9.i.i, align 1
   %inc.i42 = add nuw i64 %l_index.025.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i42, %conv
-  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i41, !llvm.loop !9
+  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i41, !llvm.loop !8
 
 while.end.i:                                      ; preds = %ocb_double.exit.i
   store i64 %conv, ptr %l_index1.i, align 8
@@ -526,7 +526,7 @@ if.end:                                           ; preds = %ocb_lookup_l.exit
   store <2 x i64> %22, ptr %sum, align 8
   %i.0 = add i64 %i.050, 1
   %cmp.not = icmp ugt i64 %i.0, %add
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end, %entry
   %aad.addr.0.lcssa = phi ptr [ %aad, %entry ], [ %add.ptr, %if.end ]
@@ -569,7 +569,7 @@ return:                                           ; preds = %if.then3.i, %ocb_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %pad = alloca %union.OCB_BLOCK, align 16
@@ -596,7 +596,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %shr = lshr i64 %top.0118, 1
   %inc = add nuw nsw i64 %max_idx.0117, 1
   %tobool3.not = icmp ult i64 %top.0118, 4
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body
   %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -651,7 +651,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %wh
   store i8 %or.i.i.i, ptr %arrayidx9.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %cmp.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !4
 
 ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   %isneg.i.i = icmp slt i8 %7, 0
@@ -662,7 +662,7 @@ ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   store i8 %xor.i.i, ptr %arrayidx9.i.i, align 1
   %inc.i = add nuw i64 %l_index.025.i, 1
   %exitcond.not.i = icmp eq i64 %l_index.025.i, %max_idx.0117
-  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %ocb_double.exit.i
   store i64 %inc, ptr %l_index1.i, align 8
@@ -716,7 +716,7 @@ while.body.i63:                                   ; preds = %for.body, %while.bo
   %inc.i64 = add i32 %cnt.06.i, 1
   %15 = and i64 %n.addr.05.i, 2
   %tobool.not.i = icmp eq i64 %15, 0
-  br i1 %tobool.not.i, label %while.body.i63, label %ocb_ntz.exit, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.body.i63, label %ocb_ntz.exit, !llvm.loop !7
 
 ocb_ntz.exit:                                     ; preds = %while.body.i63, %for.body
   %cnt.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i64, %while.body.i63 ]
@@ -769,7 +769,7 @@ for.body.i.i.i89:                                 ; preds = %for.body.i.i.i89, %
   store i8 %or.i.i.i95, ptr %arrayidx9.i.i.i96, align 1
   %indvars.iv.next.i.i.i97 = add nsw i64 %indvars.iv.i.i.i90, -1
   %cmp.not.i.i.i98 = icmp eq i64 %indvars.iv.i.i.i90, 0
-  br i1 %cmp.not.i.i.i98, label %ocb_double.exit.i99, label %for.body.i.i.i89, !llvm.loop !5
+  br i1 %cmp.not.i.i.i98, label %ocb_double.exit.i99, label %for.body.i.i.i89, !llvm.loop !4
 
 ocb_double.exit.i99:                              ; preds = %for.body.i.i.i89
   %isneg.i.i100 = icmp slt i8 %21, 0
@@ -780,7 +780,7 @@ ocb_double.exit.i99:                              ; preds = %for.body.i.i.i89
   store i8 %xor.i.i103, ptr %arrayidx9.i.i102, align 1
   %inc.i104 = add nuw i64 %l_index.025.i86, 1
   %exitcond.not.i105 = icmp eq i64 %inc.i104, %conv
-  br i1 %exitcond.not.i105, label %while.end.i106, label %while.body.i85, !llvm.loop !9
+  br i1 %exitcond.not.i105, label %while.end.i106, label %while.body.i85, !llvm.loop !8
 
 while.end.i106:                                   ; preds = %ocb_double.exit.i99
   store i64 %conv, ptr %l_index1.i65, align 8
@@ -823,7 +823,7 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.0122, i64 16
   %i.0 = add i64 %i.0124, 1
   %cmp16.not = icmp ugt i64 %i.0, %add
-  br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !12
+  br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !11
 
 if.end84:                                         ; preds = %if.end22, %if.else, %if.end
   %out.addr.1 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
@@ -856,7 +856,7 @@ for.body.i:                                       ; preds = %if.then87, %for.bod
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i108 = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
-  br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pad, i8 0, i64 16, i1 false)
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.then3.i74, %ocb_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_ocb128_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %pad = alloca %union.OCB_BLOCK, align 16
@@ -907,7 +907,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %shr = lshr i64 %top.0118, 1
   %inc = add nuw nsw i64 %max_idx.0117, 1
   %tobool3.not = icmp ult i64 %top.0118, 4
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body
   %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -962,7 +962,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %wh
   store i8 %or.i.i.i, ptr %arrayidx9.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %cmp.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i.i, label %ocb_double.exit.i, label %for.body.i.i.i, !llvm.loop !4
 
 ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   %isneg.i.i = icmp slt i8 %7, 0
@@ -973,7 +973,7 @@ ocb_double.exit.i:                                ; preds = %for.body.i.i.i
   store i8 %xor.i.i, ptr %arrayidx9.i.i, align 1
   %inc.i = add nuw i64 %l_index.025.i, 1
   %exitcond.not.i = icmp eq i64 %l_index.025.i, %max_idx.0117
-  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %ocb_double.exit.i
   store i64 %inc, ptr %l_index1.i, align 8
@@ -1029,7 +1029,7 @@ while.body.i63:                                   ; preds = %for.body, %while.bo
   %inc.i64 = add i32 %cnt.06.i, 1
   %15 = and i64 %n.addr.05.i, 2
   %tobool.not.i = icmp eq i64 %15, 0
-  br i1 %tobool.not.i, label %while.body.i63, label %ocb_ntz.exit, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.body.i63, label %ocb_ntz.exit, !llvm.loop !7
 
 ocb_ntz.exit:                                     ; preds = %while.body.i63, %for.body
   %cnt.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i64, %while.body.i63 ]
@@ -1082,7 +1082,7 @@ for.body.i.i.i89:                                 ; preds = %for.body.i.i.i89, %
   store i8 %or.i.i.i95, ptr %arrayidx9.i.i.i96, align 1
   %indvars.iv.next.i.i.i97 = add nsw i64 %indvars.iv.i.i.i90, -1
   %cmp.not.i.i.i98 = icmp eq i64 %indvars.iv.i.i.i90, 0
-  br i1 %cmp.not.i.i.i98, label %ocb_double.exit.i99, label %for.body.i.i.i89, !llvm.loop !5
+  br i1 %cmp.not.i.i.i98, label %ocb_double.exit.i99, label %for.body.i.i.i89, !llvm.loop !4
 
 ocb_double.exit.i99:                              ; preds = %for.body.i.i.i89
   %isneg.i.i100 = icmp slt i8 %21, 0
@@ -1093,7 +1093,7 @@ ocb_double.exit.i99:                              ; preds = %for.body.i.i.i89
   store i8 %xor.i.i103, ptr %arrayidx9.i.i102, align 1
   %inc.i104 = add nuw i64 %l_index.025.i86, 1
   %exitcond.not.i105 = icmp eq i64 %inc.i104, %conv
-  br i1 %exitcond.not.i105, label %while.end.i106, label %while.body.i85, !llvm.loop !9
+  br i1 %exitcond.not.i105, label %while.end.i106, label %while.body.i85, !llvm.loop !8
 
 while.end.i106:                                   ; preds = %ocb_double.exit.i99
   store i64 %conv, ptr %l_index1.i65, align 8
@@ -1137,7 +1137,7 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.0122, i64 16
   %i.0 = add i64 %i.0124, 1
   %cmp16.not = icmp ugt i64 %i.0, %add
-  br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !14
+  br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !13
 
 if.end84:                                         ; preds = %if.end22, %if.else, %if.end
   %out.addr.1 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
@@ -1170,7 +1170,7 @@ for.body.i:                                       ; preds = %if.then87, %for.bod
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i108 = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
-  br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pad, i8 0, i64 16, i1 false)
@@ -1314,14 +1314,13 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

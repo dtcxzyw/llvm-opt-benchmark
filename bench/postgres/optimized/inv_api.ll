@@ -259,7 +259,7 @@ define dso_local noundef i32 @inv_drop(i32 noundef %0) local_unnamed_addr #0 {
 declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inv_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4398046509057) i64 @inv_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.ScanKeyData], align 16
   switch i32 %2, label %73 [
     i32 0, label %77
@@ -689,7 +689,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @systable_endscan_ordered(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @inv_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
   %5 = alloca %union.anon.2, align 4
   %6 = ptrtoint ptr %5 to i64

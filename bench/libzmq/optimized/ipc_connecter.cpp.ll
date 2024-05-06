@@ -241,7 +241,7 @@ entry:
 define void @_ZN3zmq15ipc_connecter_t16start_connectingEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %call = tail call noundef i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr noundef nonnull align 8 dereferenceable(1544) %this), !range !4
+  %call = tail call noundef i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %land.lhs.true
 
@@ -338,7 +338,7 @@ if.end35:                                         ; preds = %invoke.cont14, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_s = getelementptr inbounds i8, ptr %this, i64 1472
   %0 = load i32, ptr %_s, align 8
@@ -548,4 +548,3 @@ attributes #12 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

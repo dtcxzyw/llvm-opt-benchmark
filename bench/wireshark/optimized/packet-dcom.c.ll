@@ -645,7 +645,7 @@ cmp_address.exit.thread:                          ; preds = %28, %24, %cmp_addre
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   store i32 %42, ptr %41, align 8
   %47 = icmp eq i32 %44, 0
   br i1 %47, label %copy_address.exit, label %48
@@ -2351,7 +2351,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %55, label %.lr.ph79, label %.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %.lr.ph83
-  %56 = trunc i64 %indvars.iv.next to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph79, %.preheader73, %.loopexit.loopexit, %.preheader71, %.preheader
@@ -2574,8 +2574,8 @@ define hidden i32 @dissect_dcom_STDOBJREF(ptr noundef %0, i32 noundef %1, ptr no
 declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dcom_register_routine(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
+define hidden range(i32 -1, 1) i32 @dcom_register_routine(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %3 = icmp eq i32 %bcmp.i, 0
   %.011.i = load ptr, ptr @dcom_marshalers, align 8
   %.not12.i = icmp eq ptr %.011.i, null
@@ -2592,7 +2592,7 @@ define hidden noundef i32 @dcom_register_routine(ptr noundef %0, ptr nocapture n
   %.013.i = phi ptr [ %.0.i, %4 ], [ %.011.i, %2 ]
   %6 = load ptr, ptr %.013.i, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %8 = icmp eq i32 %bcmp10.i, 0
   br i1 %8, label %dcom_get_routine_by_uuid.exit, label %4
 
@@ -2718,7 +2718,7 @@ define hidden i32 @dissect_dcom_OBJREF(ptr noundef %0, i32 noundef %1, ptr nound
   %49 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %45, ptr noundef %4, ptr noundef %5, i32 noundef %48, ptr noundef nonnull %9) #11
   %50 = load i32, ptr @hf_dcom_objref_size, align 4
   %51 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %45, ptr noundef %4, ptr noundef %5, i32 noundef %50, ptr noundef nonnull %10) #11
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %13, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %13, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %52 = icmp eq i32 %bcmp.i.i, 0
   %.011.i.i = load ptr, ptr @dcom_marshalers, align 8
   %.not12.i.i = icmp eq ptr %.011.i.i, null
@@ -2735,7 +2735,7 @@ define hidden i32 @dissect_dcom_OBJREF(ptr noundef %0, i32 noundef %1, ptr nound
   %.013.i.i = phi ptr [ %.0.i.i, %53 ], [ %.011.i.i, %41 ]
   %55 = load ptr, ptr %.013.i.i, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %56, ptr noundef nonnull dereferenceable(16) %13, i64 16)
+  %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %56, ptr noundef nonnull readonly dereferenceable(16) %13, i64 16)
   %57 = icmp eq i32 %bcmp10.i.i, 0
   br i1 %57, label %dcom_get_routine_by_uuid.exit.i, label %53
 
@@ -2978,7 +2978,7 @@ define internal void @dcom_cleanup() #1 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %16, %20, %24, %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store ptr null, ptr %2, align 8
   %.pre45 = load ptr, ptr %.02644, align 8
   br label %28

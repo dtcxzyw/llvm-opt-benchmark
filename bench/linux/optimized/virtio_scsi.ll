@@ -101,7 +101,7 @@ declare dso_local void @mempool_destroy(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @virtio_scsi_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @virtio_scsi_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.19, i32 noundef 192, i32 noundef 64, i32 noundef 0, ptr noundef null) #12
   store ptr %1, ptr @virtscsi_cmd_cache, align 8
   %2 = icmp eq ptr %1, null
@@ -664,7 +664,7 @@ declare dso_local void @scsi_host_put(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtscsi_queuecommand(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -248
   %4 = tail call i32 @blk_mq_unique_tag(ptr noundef %3) #12
   %5 = lshr i32 %4, 16
@@ -789,7 +789,7 @@ define internal void @virtscsi_commit_rqs(ptr noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtscsi_abort(ptr noundef %0) #2 align 16 {
+define internal range(i32 8194, 8196) i32 @virtscsi_abort(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.completion, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -874,7 +874,7 @@ virtscsi_tmf.exit:                                ; preds = %44, %8, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtscsi_device_reset(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca %struct.completion, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1495,7 +1495,7 @@ define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 al
   %59 = getelementptr inbounds i8, ptr %9, i64 87
   %60 = call i32 @llvm.umin.i32(i32 %54, i32 96)
   %61 = zext nneg i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr readonly align 1 %59, i64 %61, i1 false)
   br label %virtscsi_complete_cmd.exit
 
 virtscsi_complete_cmd.exit:                       ; preds = %53, %56

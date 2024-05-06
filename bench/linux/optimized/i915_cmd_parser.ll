@@ -73,7 +73,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [55 x i8] c"CMD: BB_START to 0x%llx not a previously executed cmd\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_engine_init_cmd_parser(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @intel_engine_init_cmd_parser(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 7176
   %4 = load i8, ptr %3, align 8
@@ -513,7 +513,7 @@ define dso_local i32 @intel_engine_init_cmd_parser(ptr noundef %0) local_unnamed
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen7_render_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 65536) i32 @gen7_render_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 536870912
   br i1 %2, label %11, label %3
 
@@ -538,7 +538,7 @@ define internal noundef i32 @gen7_render_get_cmd_length_mask(i32 noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen7_bsd_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 65536) i32 @gen7_bsd_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 536870912
   br i1 %2, label %14, label %3
 
@@ -568,7 +568,7 @@ define internal noundef i32 @gen7_bsd_get_cmd_length_mask(i32 noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen7_blt_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 256) i32 @gen7_blt_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 536870912
   br i1 %2, label %7, label %3
 
@@ -587,7 +587,7 @@ define internal noundef i32 @gen7_blt_get_cmd_length_mask(i32 noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gen9_blt_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 256) i32 @gen9_blt_get_cmd_length_mask(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 536870912
   %3 = and i32 %0, -536870912
   %4 = icmp eq i32 %3, 1073741824
@@ -832,7 +832,7 @@ define dso_local i32 @intel_engine_cmd_parser(ptr noundef %0, ptr nocapture noun
 99:                                               ; preds = %98
   %100 = add nuw nsw i64 %.pre, 3
   %101 = lshr i64 %100, 2
-  %102 = trunc i64 %101 to i32
+  %102 = trunc nuw nsw i64 %101 to i32
   %103 = call ptr @bitmap_zalloc(i32 noundef %102, i32 noundef 27840) #9
   %104 = icmp eq ptr %103, null
   %105 = select i1 %104, ptr inttoptr (i64 -12 to ptr), ptr %103
@@ -1249,7 +1249,7 @@ define dso_local i32 @intel_engine_cmd_parser(ptr noundef %0, ptr nocapture noun
 363:                                              ; preds = %357
   %364 = and i64 %360, 4294967295
   %365 = lshr i64 %364, 2
-  %366 = trunc i64 %365 to i32
+  %366 = trunc nuw nsw i64 %365 to i32
   %367 = add nsw i64 %364, %114
   store i64 %367, ptr %358, align 8
   %368 = icmp eq i32 %139, %366
@@ -1353,7 +1353,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_cmd_parser_get_version(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 11) i32 @i915_cmd_parser_get_version(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7896
   %3 = tail call ptr @rb_first(ptr noundef %2) #9
   %4 = icmp eq ptr %3, null

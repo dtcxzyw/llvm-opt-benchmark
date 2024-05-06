@@ -1513,7 +1513,7 @@ define noundef zeroext i1 @_ZTv0_n48_N3nix20MemorySourceAccessor10pathExistsERKN
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   store i8 0, ptr %8, align 8
-  %9 = invoke noundef ptr @_ZN3nix20MemorySourceAccessor4openERKNS_9CanonPathESt8optionalINS0_4FileEE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3)
+  %9 = invoke noundef ptr @_ZN3nix20MemorySourceAccessor4openERKNS_9CanonPathESt8optionalINS0_4FileEE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %3)
           to label %_ZN3nix20MemorySourceAccessor10pathExistsERKNS_9CanonPathE.exit unwind label %10
 
 10:                                               ; preds = %2

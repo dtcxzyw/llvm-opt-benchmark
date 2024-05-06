@@ -64,7 +64,7 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_
 @g_settings = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [27 x i8] c"sound_extensions_blacklist\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"AL_SOFT_direct_channels_remix\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.2 = private unnamed_addr constant [28 x i8] c"ALExtensions: Blacklisted: \00", align 1
 @.str.3 = private unnamed_addr constant [34 x i8] c"ALExtensions: Not compiled with: \00", align 1
 @.str.4 = private unnamed_addr constant [26 x i8] c"basic_string_view::substr\00", align 1

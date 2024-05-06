@@ -331,7 +331,7 @@ define hidden noundef i32 @mbedtls_to_psa_error(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_ecc_group_of_psa(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 14) i32 @mbedtls_ecc_group_of_psa(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i8 %0, label %17 [
     i8 18, label %4
     i8 48, label %10
@@ -408,7 +408,7 @@ define hidden noundef i32 @mbedtls_ecc_group_of_psa(i8 noundef zeroext %0, i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -135, 1) i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i16 %0, label %10 [
     i16 4097, label %8
     i16 4352, label %8
@@ -464,7 +464,7 @@ define hidden noundef i32 @psa_validate_unstructured_key_bit_size(i16 noundef ze
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @psa_allocate_buffer_to_slot(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -490,7 +490,7 @@ define hidden noundef i32 @psa_allocate_buffer_to_slot(ptr nocapture noundef %0,
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef i32 @psa_copy_key_material_into_slot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -141, 1) i32 @psa_copy_key_material_into_slot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -533,7 +533,7 @@ define hidden i32 @psa_import_key_into_slot(ptr noundef %0, ptr noundef %1, i64 
   %13 = shl i64 %2, 3
   store i64 %13, ptr %6, align 8
   %14 = load i16, ptr %0, align 8
-  %15 = tail call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %14, i64 noundef %13), !range !4
+  %15 = tail call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %14, i64 noundef %13)
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %16, label %30
 
@@ -602,7 +602,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_wipe_key_slot(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -151, 1) i32 @psa_wipe_key_slot(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -908,14 +908,14 @@ switch.early.test44.i:                            ; preds = %21
 .critedge.i:                                      ; preds = %31, %29, %27, %23, %switch.early.test44.i
   %33 = getelementptr inbounds i8, ptr %7, i64 16
   %34 = load i32, ptr %33, align 4
-  %35 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %34, i32 noundef %3), !range !5
+  %35 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %34, i32 noundef %3)
   %.not35.i = icmp eq i32 %35, 0
   br i1 %.not35.i, label %36, label %psa_key_policy_permits.exit
 
 36:                                               ; preds = %.critedge.i
   %37 = getelementptr inbounds i8, ptr %7, i64 20
   %38 = load i32, ptr %37, align 4
-  %39 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %38, i32 noundef %3), !range !5
+  %39 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %38, i32 noundef %3)
   %.not36.i = icmp eq i32 %39, 0
   br i1 %.not36.i, label %psa_key_policy_permits.exit.thread, label %psa_key_policy_permits.exit
 
@@ -935,7 +935,7 @@ declare i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext, ptr nounde
 declare void @mbedtls_rsa_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @psa_export_key_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
+define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
   %7 = load i16, ptr %0, align 8
   %8 = insertelement <4 x i16> poison, i16 %7, i64 0
   %9 = shufflevector <4 x i16> %8, <4 x i16> poison, <4 x i32> zeroinitializer
@@ -950,10 +950,10 @@ define hidden noundef i32 @psa_export_key_internal(ptr nocapture noundef readonl
   br i1 %14, label %psa_export_key_buffer_internal.exit, label %15
 
 15:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %16 = getelementptr inbounds i8, ptr %3, i64 %2
   %17 = sub i64 %4, %2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %16, i8 0, i64 %17, i1 false)
   store i64 %2, ptr %5, align 8
   br label %psa_export_key_buffer_internal.exit
 
@@ -1035,10 +1035,10 @@ define hidden i32 @psa_export_public_key_internal(ptr noundef %0, ptr noundef %1
   br i1 %17, label %psa_export_key_buffer_internal.exit, label %18
 
 18:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %19 = getelementptr inbounds i8, ptr %3, i64 %2
   %20 = sub i64 %4, %2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %19, i8 0, i64 %20, i1 false)
   store i64 %2, ptr %5, align 8
   br label %psa_export_key_buffer_internal.exit
 
@@ -1625,7 +1625,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
 psa_copy_key_material_into_slot.exit:             ; preds = %77
   %80 = getelementptr inbounds i8, ptr %.pr.pre53, i64 48
   store i64 %74, ptr %80, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %72, i64 %74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %72, i64 %74, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %62, %psa_copy_key_material_into_slot.exit
@@ -1841,7 +1841,7 @@ psa_hash_finish.exit:                             ; preds = %8, %12
   %22 = or i8 %.fr21, %.010.i
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %2
-  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !4
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not9 = icmp eq i8 %22, 0
@@ -1920,7 +1920,7 @@ define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef 
   %20 = or i8 %.fr16, %.010.i
   %21 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %21, %4
-  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !4
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not12 = icmp eq i8 %20, 0
@@ -2362,7 +2362,7 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %18 = or i8 %.fr14, %.010.i
   %19 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %19, %5
-  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !4
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not10 = icmp eq i8 %18, 0
@@ -2448,7 +2448,7 @@ define internal fastcc i32 @psa_sign_internal(i32 noundef %0, i32 noundef %1, i3
   %9 = alloca ptr, align 8
   %10 = alloca %struct.psa_key_attributes_s, align 8
   store i64 0, ptr %7, align 8
-  %11 = tail call fastcc i32 @psa_sign_verify_check_alg(i32 noundef %1, i32 noundef %2), !range !4
+  %11 = tail call fastcc i32 @psa_sign_verify_check_alg(i32 noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %43
 
@@ -3110,7 +3110,7 @@ define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef 
   %26 = sub i64 %.01216.i, %23
   %27 = getelementptr inbounds i8, ptr %.01117.i, i64 %23
   %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 psa_generate_random.exit:                         ; preds = %.lr.ph.i
   %28 = call i32 @mbedtls_to_psa_error(i32 noundef %24)
@@ -3178,7 +3178,7 @@ define hidden noundef i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) l
   %11 = sub i64 %.01216, %6
   %12 = getelementptr inbounds i8, ptr %.01117, i64 %6
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %10, %.preheader, %2, %8
   %.0 = phi i32 [ %9, %8 ], [ -137, %2 ], [ 0, %.preheader ], [ 0, %10 ]
@@ -3435,7 +3435,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   %49 = sub i64 %.01216.i, %46
   %50 = getelementptr inbounds i8, ptr %.01117.i, i64 %46
   %.not.i = icmp eq i64 %49, 0
-  br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 psa_generate_random.exit:                         ; preds = %.lr.ph.i
   %51 = call i32 @mbedtls_to_psa_error(i32 noundef %47)
@@ -3811,7 +3811,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 n
   br label %.thread48
 
 33:                                               ; preds = %32
-  %34 = call fastcc i32 @psa_validate_tag_length(ptr noundef nonnull %0, i32 noundef %3), !range !4
+  %34 = call fastcc i32 @psa_validate_tag_length(ptr noundef nonnull %0, i32 noundef %3)
   %.not41 = icmp eq i32 %34, 0
   %.pre54 = load ptr, ptr %5, align 8
   br i1 %.not41, label %.thread51, label %.thread48
@@ -3959,7 +3959,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
   %43 = sub i64 %.01216.i, %40
   %44 = getelementptr inbounds i8, ptr %.01117.i, i64 %40
   %.not.i = icmp eq i64 %43, 0
-  br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 psa_generate_random.exit:                         ; preds = %.lr.ph.i
   %45 = call i32 @mbedtls_to_psa_error(i32 noundef %41)
@@ -4573,7 +4573,7 @@ psa_mac_abort.exit:                               ; preds = %15, %9, %6, %42, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @psa_key_derivation_get_capacity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define hidden range(i32 -137, 1) i32 @psa_key_derivation_get_capacity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
@@ -4590,7 +4590,7 @@ define hidden noundef i32 @psa_key_derivation_get_capacity(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @psa_key_derivation_set_capacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
@@ -4909,7 +4909,7 @@ psa_mac_sign_finish.exit.i:                       ; preds = %128, %125
   %.0.i.i.i = phi i32 [ %129, %128 ], [ 0, %125 ]
   %132 = select i1 %.not2531.i111.i, i32 %.0.i.i.i, i32 %.029.i113.i
   %.not82.i = icmp eq i32 %132, 0
-  br i1 %.not82.i, label %60, label %psa_key_derivation_tls12_prf_read.exit.thread50, !llvm.loop !9
+  br i1 %.not82.i, label %60, label %psa_key_derivation_tls12_prf_read.exit.thread50, !llvm.loop !7
 
 psa_mac_update.exit.thread.sink.split.i:          ; preds = %106, %102, %92
   %.065.ph.i = phi i32 [ %91, %92 ], [ %100, %102 ], [ %103, %106 ]
@@ -5346,7 +5346,7 @@ psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %291, %psa_ma
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not43.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not43.i, label %.outer.split.i, label %psa_key_derivation_tls12_prf_read.exit.thread, !llvm.loop !10
+  br i1 %.not43.i, label %.outer.split.i, label %psa_key_derivation_tls12_prf_read.exit.thread, !llvm.loop !8
 
 .outer.i:                                         ; preds = %.outer.split.i
   %295 = zext i8 %171 to i64
@@ -5364,7 +5364,7 @@ psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %291, %psa_ma
   %305 = sub i8 %304, %.0.i36
   store i8 %305, ptr %137, align 8
   %.not.i35 = icmp eq i64 %303, 0
-  br i1 %.not.i35, label %psa_key_derivation_tls12_prf_read.exit.thread46, label %.outer.split.i.preheader, !llvm.loop !10
+  br i1 %.not.i35, label %psa_key_derivation_tls12_prf_read.exit.thread46, label %.outer.split.i.preheader, !llvm.loop !8
 
 psa_key_derivation_tls12_prf_read.exit.thread50:  ; preds = %psa_mac_update.exit96.i, %psa_mac_update.exit.i, %86, %psa_mac_sign_finish.exit.i, %psa_key_derivation_start_hmac.exit.i, %75, %39, %34, %92, %102, %106, %psa_mac_update.exit.thread.sink.split.i
   %.065.i.ph = phi i32 [ %.065.ph.i, %psa_mac_update.exit.thread.sink.split.i ], [ %103, %106 ], [ %100, %102 ], [ %91, %92 ], [ -137, %34 ], [ -137, %39 ], [ -137, %psa_mac_update.exit96.i ], [ -137, %psa_mac_update.exit.i ], [ -137, %86 ], [ %132, %psa_mac_sign_finish.exit.i ], [ %83, %psa_key_derivation_start_hmac.exit.i ], [ -137, %75 ]
@@ -5562,7 +5562,7 @@ mbedtls_ecc_group_of_psa.exit.thread.i.i:         ; preds = %mbedtls_ecc_group_o
 72:                                               ; preds = %76
   %73 = load i32, ptr %4, align 4
   %.not40.us.i.i = icmp eq i32 %73, 0
-  br i1 %.not40.us.i.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !11
+  br i1 %.not40.us.i.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !9
 
 74:                                               ; preds = %.lr.ph.split.us.i.i
   %75 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %5, ptr noundef nonnull %66, i64 noundef %62) #15
@@ -5572,12 +5572,12 @@ mbedtls_ecc_group_of_psa.exit.thread.i.i:         ; preds = %mbedtls_ecc_group_o
 76:                                               ; preds = %74
   %77 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #15
   %.not45.us.i.i = icmp eq i32 %77, 0
-  br i1 %.not45.us.i.i, label %72, label %.loopexit.i.i, !llvm.loop !11
+  br i1 %.not45.us.i.i, label %72, label %.loopexit.i.i, !llvm.loop !9
 
 78:                                               ; preds = %85
   %79 = load i32, ptr %4, align 4
   %.not40.i.i = icmp eq i32 %79, 0
-  br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !11
+  br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !9
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %78
   %80 = call i32 @psa_key_derivation_output_bytes(ptr noundef nonnull %1, ptr noundef nonnull %66, i64 noundef %62)
@@ -5595,7 +5595,7 @@ mbedtls_ecc_group_of_psa.exit.thread.i.i:         ; preds = %mbedtls_ecc_group_o
 85:                                               ; preds = %81
   %86 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #15
   %.not45.i.i = icmp eq i32 %86, 0
-  br i1 %.not45.i.i, label %78, label %.loopexit.i.i, !llvm.loop !11
+  br i1 %.not45.i.i, label %78, label %.loopexit.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %78, %72
   %87 = call i32 @mbedtls_mpi_add_int(ptr noundef nonnull %5, ptr noundef nonnull %5, i64 noundef 1) #15
@@ -6368,7 +6368,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
 
 151:                                              ; preds = %psa_key_derivation_check_input_type.exit
   %152 = getelementptr inbounds i8, ptr %0, i64 16
-  %153 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %152, i16 noundef zeroext %1, ptr noundef %3, i64 noundef %4), !range !12
+  %153 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %152, i16 noundef zeroext %1, ptr noundef %3, i64 noundef %4)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
 154:                                              ; preds = %psa_key_derivation_check_input_type.exit
@@ -6447,7 +6447,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   %195 = trunc nuw i64 %4 to i8
   %196 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
   store i8 %195, ptr %194, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr readonly align 1 %3, i64 %4, i1 false)
   %197 = getelementptr inbounds i8, ptr %196, i64 %4
   %198 = ptrtoint ptr %197 to i64
   %199 = ptrtoint ptr %171 to i64
@@ -6468,7 +6468,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   br i1 %205, label %psa_tls12_prf_set_key.exit.i.i, label %206
 
 206:                                              ; preds = %202
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr nonnull align 1 %171, i64 %200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr nonnull readonly align 1 %171, i64 %200, i1 false)
   %207 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %200, ptr %207, align 8
   br label %208
@@ -6501,7 +6501,7 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
   br i1 %216, label %psa_tls12_prf_psk_to_ms_input.exit.thread, label %217
 
 217:                                              ; preds = %213
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr readonly align 1 %3, i64 %4, i1 false)
   br label %psa_tls12_prf_psk_to_ms_input.exit.thread41
 
 psa_tls12_prf_psk_to_ms_input.exit.thread41:      ; preds = %212, %217
@@ -6512,7 +6512,7 @@ psa_tls12_prf_psk_to_ms_input.exit.thread41:      ; preds = %212, %217
 
 219:                                              ; preds = %154
   %220 = getelementptr inbounds i8, ptr %0, i64 16
-  %221 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %220, i16 noundef zeroext %1, ptr noundef %3, i64 noundef %4), !range !12
+  %221 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %220, i16 noundef zeroext %1, ptr noundef readonly %3, i64 noundef %4)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
 psa_tls12_prf_psk_to_ms_input.exit:               ; preds = %219, %psa_tls12_prf_set_key.exit.i.i, %psa_hkdf_input.exit, %151
@@ -6617,7 +6617,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   %21 = load i32, ptr %0, align 8
   %22 = and i32 %21, -151060480
   %23 = or disjoint i32 %22, 150994944
-  %24 = call fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %23, ptr noundef nonnull %15, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 66, ptr noundef nonnull %7)
+  %24 = call fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %23, ptr noundef nonnull readonly %15, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 66, ptr noundef nonnull %7)
   %.not.i18 = icmp eq i32 %24, 0
   %25 = load i64, ptr %7, align 8
   br i1 %.not.i18, label %psa_key_agreement_internal.exit, label %psa_key_agreement_internal.exit.thread
@@ -6729,7 +6729,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.01117.i, i64 %34
   %.not.i23 = icmp eq i64 %36, 0
   %or.cond34 = or i1 %.not14.i, %.not.i23
-  br i1 %or.cond34, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %or.cond34, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.thread26
   store i64 %5, ptr %6, align 8
@@ -6897,7 +6897,7 @@ define hidden i32 @psa_generate_key_internal(ptr noundef %0, ptr noundef %1, i64
   %21 = sub i64 %.01216.i, %18
   %22 = getelementptr inbounds i8, ptr %.01117.i, i64 %18
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 psa_generate_random.exit:                         ; preds = %.lr.ph.i
   %23 = tail call i32 @mbedtls_to_psa_error(i32 noundef %19)
@@ -7030,7 +7030,7 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
   ]
 
 28:                                               ; preds = %23, %23
-  %29 = call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %24, i64 noundef %26), !range !4
+  %29 = call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %24, i64 noundef %26)
   %.not15.i = icmp eq i32 %29, 0
   br i1 %.not15.i, label %psa_validate_key_type_and_size_for_key_generation.exit, label %.thread
 
@@ -7245,7 +7245,7 @@ psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.e
 declare i32 @psa_driver_wrapper_generate_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_psa_crypto_configure_entropy_sources(ptr noundef %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden range(i32 -137, 1) i32 @mbedtls_psa_crypto_configure_entropy_sources(ptr noundef %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = load i8, ptr @global_data, align 8
   %4 = and i8 %3, 6
   %.not = icmp eq i8 %4, 0
@@ -7376,7 +7376,7 @@ declare i32 @psa_initialize_key_slots() local_unnamed_addr #6
 declare i32 @psa_driver_wrapper_init() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @psa_key_algorithm_permits(i16 noundef zeroext %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, %1
   br i1 %4, label %psa_mac_key_can_do.exit, label %5
 
@@ -7976,7 +7976,7 @@ psa_mac_key_can_do.exit:                          ; preds = %22, %18, %59, %.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %0, i16 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #11 {
+define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %0, i16 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #11 {
   %3 = and i32 %0, 2130706432
   %4 = icmp eq i32 %3, 50331648
   br i1 %4, label %5, label %psa_mac_key_can_do.exit
@@ -8197,7 +8197,7 @@ declare i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef, ptr noundef, ptr n
 declare i32 @psa_driver_wrapper_mac_compute(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @psa_sign_verify_check_alg(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -135, 1) i32 @psa_sign_verify_check_alg(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   %3 = and i32 %1, -256
   br i1 %.not, label %19, label %4
@@ -8293,7 +8293,7 @@ declare i32 @psa_driver_wrapper_aead_encrypt_setup(ptr noundef, ptr noundef, ptr
 declare i32 @psa_driver_wrapper_aead_decrypt_setup(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @psa_validate_tag_length(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 -135, 1) i32 @psa_validate_tag_length(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = call i32 @psa_driver_get_tag_len(ptr noundef %0, ptr noundef nonnull %3) #15
@@ -8355,7 +8355,7 @@ declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @mbedtls_mpi_add_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef i32 @psa_tls12_prf_input(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
   switch i16 %1, label %psa_tls12_prf_set_seed.exit [
     i16 516, label %5
     i16 257, label %16
@@ -8380,7 +8380,7 @@ define internal fastcc noundef i32 @psa_tls12_prf_input(ptr nocapture noundef %0
   br i1 %12, label %psa_tls12_prf_set_seed.exit, label %13
 
 13:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr readonly align 1 %2, i64 %3, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %3, ptr %14, align 8
   br label %15
@@ -8408,7 +8408,7 @@ define internal fastcc noundef i32 @psa_tls12_prf_input(ptr nocapture noundef %0
   br i1 %23, label %psa_tls12_prf_set_seed.exit, label %24
 
 24:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr readonly align 1 %2, i64 %3, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %3, ptr %25, align 8
   br label %26
@@ -8435,7 +8435,7 @@ define internal fastcc noundef i32 @psa_tls12_prf_input(ptr nocapture noundef %0
   br i1 %34, label %psa_tls12_prf_set_seed.exit, label %35
 
 35:                                               ; preds = %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr readonly align 1 %2, i64 %3, i1 false)
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %3, ptr %36, align 8
   br label %37
@@ -8510,12 +8510,9 @@ attributes #15 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -135, i32 1}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i32 -141, i32 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

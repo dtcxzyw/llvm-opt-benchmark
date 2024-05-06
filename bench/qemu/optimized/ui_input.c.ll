@@ -1413,7 +1413,7 @@ if.end:                                           ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bevt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %evt.i)
   %frombool.i = zext i1 %tobool to i8
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %1, ptr %bevt.i, align 4
   store i8 %frombool.i, ptr %down1.i, align 4
   store i32 1, ptr %evt.i, align 8

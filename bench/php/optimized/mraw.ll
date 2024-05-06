@@ -323,7 +323,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not.i, label %37, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %1, i64 %.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %1, i64 %.0.copyload, i1 false)
   br label %37
 
 37:                                               ; preds = %36, %33
@@ -395,8 +395,8 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
   br i1 %73, label %84, label %74
 
 74:                                               ; preds = %71
-  %.not57 = icmp eq i64 %.0.copyload, 0
-  br i1 %.not57, label %76, label %75
+  %.not56 = icmp eq i64 %.0.copyload, 0
+  br i1 %.not56, label %76, label %75
 
 75:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %1, i64 %.0.copyload, i1 false)
@@ -457,7 +457,7 @@ define hidden ptr @lexbor_mraw_dup_noi(ptr nocapture noundef %0, ptr nocapture n
   br i1 %.not.i, label %lexbor_mraw_dup.exit, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %lexbor_mraw_dup.exit
 
 lexbor_mraw_dup.exit:                             ; preds = %3, %5

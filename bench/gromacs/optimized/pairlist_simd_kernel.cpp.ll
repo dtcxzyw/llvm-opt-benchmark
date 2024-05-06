@@ -203,12 +203,12 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
   %62 = fsub <8 x float> %.val198.i, %.val204.i
   %63 = getelementptr inbounds [4 x %"struct.std::array.41"], ptr %11, i64 0, i64 %indvars.iv.i
   store <8 x float> %62, ptr %63, align 32, !noalias !15
-  %64 = getelementptr i8, ptr %61, i64 32
+  %64 = getelementptr inbounds i8, ptr %61, i64 32
   %.val199.i = load <8 x float>, ptr %64, align 32, !noalias !15
   %65 = fsub <8 x float> %.val199.i, %.val205.i
   %66 = getelementptr inbounds i8, ptr %63, i64 32
   store <8 x float> %65, ptr %66, align 32, !noalias !15
-  %67 = getelementptr i8, ptr %61, i64 64
+  %67 = getelementptr inbounds i8, ptr %61, i64 64
   %.val200.i = load <8 x float>, ptr %67, align 32, !noalias !15
   %68 = fsub <8 x float> %.val200.i, %.val206.i
   %69 = getelementptr inbounds i8, ptr %63, i64 64
@@ -351,12 +351,12 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
   %136 = fsub <8 x float> %.val201.i, %.val207.i
   %137 = getelementptr inbounds [4 x %"struct.std::array.41"], ptr %14, i64 0, i64 %indvars.iv279.i
   store <8 x float> %136, ptr %137, align 32, !noalias !15
-  %138 = getelementptr i8, ptr %135, i64 32
+  %138 = getelementptr inbounds i8, ptr %135, i64 32
   %.val202.i = load <8 x float>, ptr %138, align 32, !noalias !15
   %139 = fsub <8 x float> %.val202.i, %.val208.i
   %140 = getelementptr inbounds i8, ptr %137, i64 32
   store <8 x float> %139, ptr %140, align 32, !noalias !15
-  %141 = getelementptr i8, ptr %135, i64 64
+  %141 = getelementptr inbounds i8, ptr %135, i64 64
   %.val203.i = load <8 x float>, ptr %141, align 32, !noalias !15
   %142 = fsub <8 x float> %.val203.i, %.val209.i
   %143 = getelementptr inbounds i8, ptr %137, i64 64
@@ -696,12 +696,12 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %.val205.i = load <8 x float>, ptr %57, align 32, !noalias !35
   %58 = fsub <8 x float> %.val205.i, %50
   store <8 x float> %58, ptr %indvars.iv.i.sroa.phi, align 32, !noalias !35
-  %59 = getelementptr i8, ptr %57, i64 32
+  %59 = getelementptr inbounds i8, ptr %57, i64 32
   %.val204.i = load <8 x float>, ptr %59, align 32, !noalias !35
   %60 = fsub <8 x float> %.val204.i, %52
   %61 = getelementptr inbounds i8, ptr %indvars.iv.i.sroa.phi, i64 32
   store <8 x float> %60, ptr %61, align 32, !noalias !35
-  %62 = getelementptr i8, ptr %57, i64 64
+  %62 = getelementptr inbounds i8, ptr %57, i64 64
   %.val203.i = load <8 x float>, ptr %62, align 32, !noalias !35
   %63 = fsub <8 x float> %.val203.i, %54
   %64 = getelementptr inbounds i8, ptr %indvars.iv.i.sroa.phi, i64 64
@@ -809,12 +809,12 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %.val202.i = load <8 x float>, ptr %117, align 32, !noalias !35
   %118 = fsub <8 x float> %.val202.i, %110
   store <8 x float> %118, ptr %indvars.iv274.i.sroa.phi, align 32, !noalias !35
-  %119 = getelementptr i8, ptr %117, i64 32
+  %119 = getelementptr inbounds i8, ptr %117, i64 32
   %.val201.i = load <8 x float>, ptr %119, align 32, !noalias !35
   %120 = fsub <8 x float> %.val201.i, %112
   %121 = getelementptr inbounds i8, ptr %indvars.iv274.i.sroa.phi, i64 32
   store <8 x float> %120, ptr %121, align 32, !noalias !35
-  %122 = getelementptr i8, ptr %117, i64 64
+  %122 = getelementptr inbounds i8, ptr %117, i64 64
   %.val200.i = load <8 x float>, ptr %122, align 32, !noalias !35
   %123 = fsub <8 x float> %.val200.i, %114
   %124 = getelementptr inbounds i8, ptr %indvars.iv274.i.sroa.phi, i64 64

@@ -127,7 +127,7 @@ define hidden void @proto_reg_handoff_clique_rm() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %dissect_reliable_packet.exit, label %7
@@ -177,7 +177,7 @@ define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture nou
 34:                                               ; preds = %31
   %35 = load i32, ptr @hf_clique_rm_packet_id, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #2
-  %37 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 16), !range !4
+  %37 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 16)
   %38 = add nuw nsw i32 %37, 16
   switch i8 %12, label %dissect_reliable_packet.exit [
     i8 15, label %39
@@ -227,7 +227,7 @@ define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture nou
   %65 = add nuw nsw i32 %.01920.i.i, 1
   %66 = add nuw nsw i32 %.021.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %65, %58
-  br i1 %exitcond.not.i.i, label %dissect_reliable_packet.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %dissect_reliable_packet.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 67:                                               ; preds = %34
   %68 = load i32, ptr @hf_clique_rm_attempt_join, align 4
@@ -254,7 +254,7 @@ define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture nou
   %79 = add nuw nsw i32 %.01920.i25.i, 1
   %80 = add nuw nsw i32 %.021.i24.i, 4
   %exitcond.not.i26.i = icmp eq i32 %79, %72
-  br i1 %exitcond.not.i26.i, label %dissect_reliable_packet.exit, label %.lr.ph.i23.i, !llvm.loop !5
+  br i1 %exitcond.not.i26.i, label %dissect_reliable_packet.exit, label %.lr.ph.i23.i, !llvm.loop !4
 
 81:                                               ; preds = %34
   %82 = load i32, ptr @hf_clique_rm_join_failures, align 4
@@ -281,7 +281,7 @@ define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture nou
   %93 = add nuw nsw i32 %.01920.i32.i, 1
   %94 = add nuw nsw i32 %.021.i31.i, 4
   %exitcond.not.i33.i = icmp eq i32 %93, %86
-  br i1 %exitcond.not.i33.i, label %dissect_reliable_packet.exit, label %.lr.ph.i30.i, !llvm.loop !5
+  br i1 %exitcond.not.i33.i, label %dissect_reliable_packet.exit, label %.lr.ph.i30.i, !llvm.loop !4
 
 95:                                               ; preds = %11
   %.not.i45 = icmp eq ptr %21, null
@@ -317,7 +317,7 @@ define internal noundef i32 @dissect_clique_rm(ptr noundef %0, ptr nocapture nou
   br label %dissect_reliable_packet.exit
 
 112:                                              ; preds = %96
-  %113 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 12), !range !4
+  %113 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 12)
   br label %dissect_reliable_packet.exit
 
 dissect_reliable_packet.exit:                     ; preds = %.lr.ph.i23.i, %.lr.ph.i.i, %.lr.ph.i30.i, %112, %107, %100, %97, %96, %95, %81, %67, %53, %39, %34, %31, %9, %7, %4
@@ -346,7 +346,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_depends(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 2042) i32 @dissect_depends(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %5 = zext i8 %4 to i32
   %6 = shl nuw nsw i32 %5, 3
@@ -376,7 +376,7 @@ define internal fastcc i32 @dissect_depends(ptr noundef %0, ptr noundef %1, i32 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef 4, i32 noundef 0) #2
   %21 = add i32 %.026, 8
   %exitcond.not = icmp eq i32 %14, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %7
@@ -398,7 +398,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 2042}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

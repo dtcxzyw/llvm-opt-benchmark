@@ -2028,7 +2028,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 356:                                              ; preds = %348
   %357 = load i32, ptr @ett_common_client_message, align 4
-  %358 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %353, ptr noundef nonnull %.0434, i32 noundef 1)
+  %358 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %353, ptr noundef nonnull readonly %.0434, i32 noundef 1)
   %359 = zext i16 %353 to i32
   %360 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %352, ptr noundef %0, i32 noundef %.8535, i32 noundef 2, i32 noundef %357, ptr noundef null, ptr noundef nonnull @.str.705, ptr noundef %358, i32 noundef %359) #4
   %361 = load i32, ptr @hf_message_type, align 4
@@ -2046,7 +2046,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %371 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %370) #4
   %372 = add i32 %.8535, 10
   %373 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %372) #4
-  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.8535)
+  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull readonly %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.8535)
   br label %dissect_spice_mini_data_header.exit.i
 
 dissect_spice_mini_data_header.exit.i:            ; preds = %365, %356, %348
@@ -2054,7 +2054,7 @@ dissect_spice_mini_data_header.exit.i:            ; preds = %365, %356, %348
   %.082.i = phi i32 [ %373, %365 ], [ %355, %348 ], [ %355, %356 ]
   %.0.i = phi i32 [ 18, %365 ], [ 6, %348 ], [ 6, %356 ]
   %374 = load ptr, ptr %39, align 8
-  %375 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %.083.i, ptr noundef nonnull %.0434, i32 noundef 1)
+  %375 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %.083.i, ptr noundef nonnull readonly %.0434, i32 noundef 1)
   call void @col_append_sep_str(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.703, ptr noundef %375) #4
   %376 = add i32 %.0.i, %.8535
   %377 = icmp ult i16 %.083.i, 101
@@ -2470,7 +2470,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_spice_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_spice_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp ugt i32 %5, 3
   br i1 %6, label %7, label %12
@@ -2785,7 +2785,7 @@ define internal fastcc i32 @dissect_spice_data_server_pdu(ptr noundef %0, ptr no
 
 28:                                               ; preds = %16
   %29 = load i32, ptr @ett_common_client_message, align 4
-  %30 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %17, ptr noundef nonnull %3, i32 noundef 0)
+  %30 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %17, ptr noundef nonnull readonly %3, i32 noundef 0)
   %31 = zext i16 %17 to i32
   %32 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %27, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.705, ptr noundef %30, i32 noundef %31) #4
   %33 = load i32, ptr @hf_message_type, align 4
@@ -3374,7 +3374,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
 386:                                              ; preds = %346
   %387 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %388 = add i32 %387, %53
-  %389 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %388), !range !15
+  %389 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %388)
   %390 = add i32 %388, %389
   br label %dissect_spice_playback_server.exit
 
@@ -3398,26 +3398,26 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
 404:                                              ; preds = %346
   %405 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %406 = add i32 %405, %53
-  %407 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %406), !range !15
+  %407 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %406)
   %408 = add i32 %406, %407
   br label %dissect_spice_playback_server.exit
 
 409:                                              ; preds = %346
   %410 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %411 = add i32 %410, %53
-  %412 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %411), !range !15
+  %412 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %411)
   %413 = add i32 %411, %412
   br label %dissect_spice_playback_server.exit
 
 414:                                              ; preds = %346
   %415 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %53)
   %416 = add i32 %415, %53
-  %417 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %416), !range !16
+  %417 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %416)
   %418 = add i32 %416, %417
   %419 = load i32, ptr @hf_display_rop_descriptor, align 4
   %420 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %419, ptr noundef %0, i32 noundef %418, i32 noundef 2, i32 noundef -2147483648) #4
   %421 = add i32 %418, 2
-  %422 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %421), !range !15
+  %422 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %421)
   %423 = add i32 %422, %421
   %.not445.i = icmp eq i32 %417, 5
   br i1 %.not445.i, label %dissect_spice_playback_server.exit, label %424
@@ -3459,7 +3459,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %454 = load i32, ptr @hf_display_scale_mode, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %454, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef 0) #4
   %456 = add i32 %445, 23
-  %457 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %456), !range !15
+  %457 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %456)
   %458 = add i32 %457, %456
   %459 = call fastcc i32 @dissect_Image(ptr noundef %0, ptr noundef %.0131, ptr noundef nonnull %2, i32 noundef %458)
   %460 = add i32 %458, %459
@@ -3473,7 +3473,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %466 = add i32 %463, 4
   %467 = call fastcc { i64, i64 } @dissect_SpiceRect(ptr noundef %0, ptr noundef %.0131, i32 noundef %466, i32 noundef -1)
   %468 = add i32 %463, 20
-  %469 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %468), !range !16
+  %469 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %468)
   %470 = add i32 %469, %468
   %471 = load i32, ptr @hf_spice_rop3, align 4
   %472 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %471, ptr noundef %0, i32 noundef %470, i32 noundef 1, i32 noundef 0) #4
@@ -3481,7 +3481,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %474 = load i32, ptr @hf_spice_scale_mode, align 4
   %475 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %474, ptr noundef %0, i32 noundef %473, i32 noundef 1, i32 noundef 0) #4
   %476 = add i32 %470, 2
-  %477 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %476), !range !15
+  %477 = call fastcc i32 @dissect_Mask(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %476)
   %478 = add i32 %477, %476
   %479 = call fastcc i32 @dissect_Image(ptr noundef %0, ptr noundef %.0131, ptr noundef nonnull %2, i32 noundef %478)
   %480 = add i32 %478, %479
@@ -3506,7 +3506,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   br i1 %.not450.i, label %493, label %496
 
 493:                                              ; preds = %481
-  %494 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %490), !range !16
+  %494 = call fastcc i32 @dissect_Brush(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0131, i32 noundef %490)
   %495 = add i32 %494, %490
   br label %496
 
@@ -3718,7 +3718,7 @@ dissect_Clip.exit447.i:                           ; preds = %557, %526
   %656 = add i32 %.2453.i, 28
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i148 = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !17
+  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !15
 
 657:                                              ; preds = %346
   %658 = load i32, ptr @hf_display_stream_id, align 4
@@ -3951,7 +3951,7 @@ define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr
   %31 = add i32 %.03035, 4
   %32 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %32, %4
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !16
 
 .loopexit:                                        ; preds = %30, %14, %16, %18, %26, %6, %28
   ret void
@@ -4211,7 +4211,7 @@ define internal fastcc noundef i32 @dissect_spice_agent_message(ptr noundef %0, 
   %51 = add i32 %.0115116, 20
   %52 = add nuw i32 %.0117, 1
   %exitcond.not = icmp eq i32 %52, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 53:                                               ; preds = %7
   %54 = load i32, ptr @hf_vd_agent_reply_type, align 4
@@ -4437,10 +4437,10 @@ define internal fastcc noundef i32 @dissect_DisplayBase(ptr noundef %0, ptr noun
   %12 = extractvalue { i64, i64 } %10, 1
   %.sroa.03.0.extract.trunc = trunc i64 %11 to i32
   %.sroa.24.0.extract.shift = lshr i64 %11, 32
-  %.sroa.24.0.extract.trunc = trunc i64 %.sroa.24.0.extract.shift to i32
+  %.sroa.24.0.extract.trunc = trunc nuw i64 %.sroa.24.0.extract.shift to i32
   %.sroa.3.8.extract.trunc = trunc i64 %12 to i32
   %.sroa.5.8.extract.shift = lshr i64 %12, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %13 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.890, i32 noundef %.sroa.03.0.extract.trunc, i32 noundef %.sroa.24.0.extract.trunc, i32 noundef %.sroa.3.8.extract.trunc, i32 noundef %.sroa.5.8.extract.trunc) #4
   %14 = add i32 %2, 20
@@ -4485,7 +4485,7 @@ dissect_Clip.exit:                                ; preds = %3, %16
   %32 = add i32 %.023.i, 16
   %33 = add nuw i32 %.02022.i, 1
   %exitcond.not.i = icmp eq i32 %33, %24
-  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !18
 
 dissect_RectList.exit:                            ; preds = %.lr.ph.i, %22, %25
   %34 = load ptr, ptr %4, align 8
@@ -4820,7 +4820,7 @@ dissect_ImageQuic.exit:                           ; preds = %dissect_ImageZLIB_G
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_Mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 13, 32) i32 @dissect_Mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_Mask, align 4
@@ -4865,7 +4865,7 @@ define internal fastcc noundef i32 @dissect_Mask(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_Brush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @dissect_Brush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #4
   %7 = load i32, ptr @hf_brush_type, align 4
@@ -4944,7 +4944,7 @@ define internal fastcc i32 @dissect_RectList(ptr noundef %0, ptr noundef %1, i32
   %12 = add i32 %.023, 16
   %13 = add nuw i32 %.02022, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %5
   ret i32 %.pre25
@@ -5106,9 +5106,7 @@ attributes #4 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 13, i32 32}
-!16 = !{i32 0, i32 14}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

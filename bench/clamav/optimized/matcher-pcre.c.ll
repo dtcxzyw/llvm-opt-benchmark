@@ -1007,7 +1007,7 @@ define void @cli_pcre_freeoff(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @cli_pcre_qoff(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
+define range(i32 0, 23) i32 @cli_pcre_qoff(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %5
 

@@ -2123,7 +2123,7 @@ declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noun
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dtls_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dtls_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %7 = icmp eq i32 %6, %5
@@ -2583,7 +2583,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br i1 %.not279, label %decrypt_dtls_record.exit, label %118
 
 118:                                              ; preds = %112
-  %119 = trunc i32 %.0261 to i16
+  %119 = trunc nuw i32 %.0261 to i16
   %120 = getelementptr inbounds i8, ptr %6, i64 560
   %121 = load i32, ptr %120, align 8
   %122 = and i32 %121, 8
@@ -2610,7 +2610,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 129:                                              ; preds = %124
   %130 = load i32, ptr %125, align 8
-  %131 = tail call fastcc i32 @dtls_is_null_cipher(i32 noundef %130), !range !12
+  %131 = tail call fastcc i32 @dtls_is_null_cipher(i32 noundef %130)
   %.not45.i = icmp eq i32 %131, 0
   br i1 %.not45.i, label %132, label %133
 
@@ -2650,7 +2650,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 147:                                              ; preds = %141
   %148 = load i32, ptr %125, align 8
-  %149 = tail call fastcc i32 @dtls_is_null_cipher(i32 noundef %148), !range !12
+  %149 = tail call fastcc i32 @dtls_is_null_cipher(i32 noundef %148)
   %.not47.i = icmp eq i32 %149, 0
   br i1 %.not47.i, label %decrypt_dtls_record.exit, label %.thread51.i
 
@@ -2693,7 +2693,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   %166 = getelementptr i8, ptr %159, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = icmp eq i8 %167, 0
-  br i1 %168, label %.preheader.i.i, label %170, !llvm.loop !13
+  br i1 %168, label %.preheader.i.i, label %170, !llvm.loop !12
 
 169:                                              ; preds = %.preheader.i.i
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.882, ptr noundef nonnull @__func__.dtls_save_decrypted_record, i32 noundef %160) #6
@@ -2701,7 +2701,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br label %decrypt_dtls_record.exit
 
 170:                                              ; preds = %164
-  %171 = trunc i64 %indvars.iv.i.i to i32
+  %171 = trunc nuw i64 %indvars.iv.i.i to i32
   %172 = sub i32 %160, %171
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.882, ptr noundef nonnull @__func__.dtls_save_decrypted_record, i32 noundef %172) #6
   %173 = add i32 %171, -1
@@ -3471,7 +3471,7 @@ dissect_dtls_hnd_hello_verify_request.exit:       ; preds = %132, %137, %139
 163:                                              ; preds = %.critedge, %118, %124, %dissect_dtls_hnd_hello_verify_request.exit, %142, %146, %147, %148, %149, %150, %151, %160, %161, %120, %153, %159, %154, %104, %74
   %164 = add i32 %32, %60
   %165 = icmp ult i32 %164, %12
-  br i1 %165, label %24, label %.loopexit, !llvm.loop !14
+  br i1 %165, label %24, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %163, %37, %10, %64
   ret void
@@ -3570,7 +3570,7 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
 
 42:                                               ; preds = %32
   %43 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @ei_dtls_heartbeat_payload_length, ptr noundef nonnull @.str.901, i32 noundef %18) #6
-  %44 = trunc i32 %22 to i16
+  %44 = trunc nuw i32 %22 to i16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.902, i32 noundef %22) #6
   br label %45
 
@@ -3605,7 +3605,7 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @dtls_is_null_cipher(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @dtls_is_null_cipher(i32 noundef %0) unnamed_addr #4 {
   switch i32 %0, label %2 [
     i32 0, label %3
     i32 1, label %3
@@ -3771,6 +3771,5 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

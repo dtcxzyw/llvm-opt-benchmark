@@ -61,7 +61,7 @@ entry:
 declare void @_ZN6icu_759UVector3217removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
 entry:
   %fLimit = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fLimit, align 8
@@ -132,7 +132,7 @@ cond.true.i26.lr.ph:                              ; preds = %if.end24.thread, %i
 
 for.cond:                                         ; preds = %cond.true.i26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %9, ptr %fPositionInCache, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %cond.true.i26, !llvm.loop !4
@@ -164,7 +164,7 @@ return:                                           ; preds = %if.then34, %_ZNK6ic
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
 entry:
   %fStart = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %fStart, align 4
@@ -268,7 +268,7 @@ for.cond:                                         ; preds = %_ZNK6icu_759UVector
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr %fPositionInCache12, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   %cmp41 = icmp sgt i32 %12, 0
   br i1 %cmp41, label %for.body, label %for.end
 
@@ -722,7 +722,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %if.then11
   br label %if.then7
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false.i, %lor.lhs.false
-  %call5 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %startPos, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call5 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %startPos, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool6.not = icmp eq i8 %call5, 0
   br i1 %tobool6.not, label %return, label %if.then7
 
@@ -739,7 +739,7 @@ if.then7:                                         ; preds = %_ZN6icu_7522RuleBas
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then7
-  %call.i.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this), !range !10
+  %call.i.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this)
   %11 = load ptr, ptr %fBI, align 8
   %fDone.i.i = getelementptr inbounds i8, ptr %11, i64 728
   %frombool.i.i = xor i8 %call.i.i, 1
@@ -781,7 +781,7 @@ return:                                           ; preds = %lor.lhs.false4, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %pos) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %pos) local_unnamed_addr #7 align 2 {
 entry:
   %fBoundaries = getelementptr inbounds i8, ptr %this, i64 32
   %fStartBufIdx = getelementptr inbounds i8, ptr %this, i64 16
@@ -866,7 +866,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1002,9 +1002,9 @@ while.cond:                                       ; preds = %if.end67, %while.bo
   br i1 %cmp78, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %call79 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this), !range !10
+  %call79 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this)
   %tobool80.not = icmp eq i8 %call79, 0
-  br i1 %tobool80.not, label %if.then81, label %while.cond, !llvm.loop !11
+  br i1 %tobool80.not, label %if.then81, label %while.cond, !llvm.loop !10
 
 if.then81:                                        ; preds = %while.body
   tail call void @abort() #13
@@ -1045,7 +1045,7 @@ if.end.i:                                         ; preds = %while.body91
   br i1 %cmp.i28, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call4.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call4.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre.i = load i32, ptr %fBufIdx, align 4
   br label %if.end9.i
 
@@ -1084,7 +1084,7 @@ if.end9.i:                                        ; preds = %if.else.i, %if.then
 _ZN6icu_7522RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; preds = %while.body91, %if.end9.i
   %37 = phi i32 [ %26, %while.body91 ], [ %.pre, %if.end9.i ]
   %cmp90 = icmp sgt i32 %37, %position
-  br i1 %cmp90, label %while.body91thread-pre-split, label %return, !llvm.loop !12
+  br i1 %cmp90, label %while.body91thread-pre-split, label %return, !llvm.loop !11
 
 if.end93:                                         ; preds = %if.end67
   %38 = load i32, ptr %fStartBufIdx, align 8
@@ -1095,13 +1095,13 @@ if.end93:                                         ; preds = %if.end67
   br i1 %cmp98, label %while.body106, label %return
 
 while.body106:                                    ; preds = %if.end93, %while.body106
-  %call107 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call107 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %40 = load i32, ptr %fStartBufIdx, align 8
   %idxprom103 = sext i32 %40 to i64
   %arrayidx104 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom103
   %41 = load i32, ptr %arrayidx104, align 4
   %cmp105 = icmp sgt i32 %41, %position
-  br i1 %cmp105, label %while.body106, label %while.end108, !llvm.loop !14
+  br i1 %cmp105, label %while.body106, label %while.end108, !llvm.loop !13
 
 while.end108:                                     ; preds = %while.body106
   %arrayidx104.le = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom103
@@ -1125,7 +1125,7 @@ while.body119:                                    ; preds = %while.body119.lr.ph
   br i1 %cmp.i35, label %if.then.i, label %if.else.i36
 
 if.then.i:                                        ; preds = %while.body119
-  %call.i.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this), !range !10
+  %call.i.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this)
   %45 = load ptr, ptr %fBI.i41, align 8
   %fDone.i.i = getelementptr inbounds i8, ptr %45, i64 728
   %frombool.i.i = xor i8 %call.i.i, 1
@@ -1160,7 +1160,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %if.then.i
   store i32 %conv.i46, ptr %fRuleStatusIndex.i47, align 8
   %53 = load i32, ptr %fTextIdx115, align 8
   %cmp118 = icmp slt i32 %53, %position
-  br i1 %cmp118, label %while.body119, label %while.end120, !llvm.loop !15
+  br i1 %cmp118, label %while.body119, label %while.end120, !llvm.loop !14
 
 while.end120:                                     ; preds = %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv.exit, %while.end108
   %.lcssa94 = phi i32 [ %42, %while.end108 ], [ %53, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv.exit ]
@@ -1177,7 +1177,7 @@ if.end.i49:                                       ; preds = %while.end120
   br i1 %cmp.i52, label %if.then3.i72, label %if.else.i53
 
 if.then3.i72:                                     ; preds = %if.end.i49
-  %call4.i73 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call4.i73 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre.i74 = load i32, ptr %fBufIdx110, align 4
   br label %if.end9.i60
 
@@ -1310,7 +1310,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %if.then11
   br label %if.then7
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false.i, %lor.lhs.false
-  %call5 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %startPos, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call5 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %startPos, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool6.not = icmp eq i8 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false4.if.then7_crit_edge
 
@@ -1337,7 +1337,7 @@ if.end.i7:                                        ; preds = %if.then10
   br i1 %cmp.i10, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i7
-  %call4.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call4.i = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre.i = load i32, ptr %fBufIdx.i8, align 4
   br label %if.end9.i
 
@@ -1415,7 +1415,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !10
+  %call4 = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre = load i32, ptr %fBufIdx, align 4
   br label %if.end9
 
@@ -1462,7 +1462,7 @@ return:                                           ; preds = %entry, %if.end9
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache6nextOLEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this), !range !10
+  %call = tail call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr noundef nonnull align 8 dereferenceable(832) %this)
   %fBI = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fBI, align 8
   %fDone = getelementptr inbounds i8, ptr %0, i64 728
@@ -1487,7 +1487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populateFollowingEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fBoundaries = getelementptr inbounds i8, ptr %this, i64 32
   %fEndBufIdx = getelementptr inbounds i8, ptr %this, i64 20
@@ -1564,7 +1564,7 @@ cond.true.i26.lr.ph.i:                            ; preds = %if.end24.i.cond.tru
 
 for.cond.i:                                       ; preds = %cond.true.i26.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = trunc i64 %indvars.iv.next.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %13, ptr %fPositionInCache.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %cond.true.i26.i, !llvm.loop !4
@@ -1679,7 +1679,7 @@ cond.true.i26.lr.ph.i21:                          ; preds = %if.end24.i18.cond.t
 
 for.cond.i28:                                     ; preds = %cond.true.i26.i24
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i25, 1
-  %33 = trunc i64 %indvars.iv.next.i29 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next.i29 to i32
   store i32 %33, ptr %fPositionInCache.i12, align 8
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i23
   br i1 %exitcond.not.i30, label %for.end.i20, label %cond.true.i26.i24, !llvm.loop !4
@@ -1781,7 +1781,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   store i32 %and.i.i88, ptr %fEndBufIdx, align 4
   %inc = add nuw nsw i32 %count.0118, 1
   %exitcond.not = icmp eq i32 %inc, 6
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
 
 return.sink.split.sink.split:                     ; preds = %if.then20, %if.then
   %.sink = phi i32 [ %15, %if.then ], [ %35, %if.then20 ]
@@ -1817,7 +1817,7 @@ return:                                           ; preds = %_ZN6icu_7522RuleBas
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1924,7 +1924,7 @@ for.cond.i:                                       ; preds = %_ZNK6icu_759UVector
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   store i32 %indvars.i, ptr %fPositionInCache12.i, align 8
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw i64 %indvars.iv.i to i32
   %cmp41.i = icmp sgt i32 %16, 0
   br i1 %cmp41.i, label %for.body.i, label %for.end.i
 
@@ -1988,7 +1988,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   br label %return
 
 do.body:                                          ; preds = %_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit, %do.cond
-  %backupPosition.0 = phi i32 [ %backupPosition.1249, %do.cond ], [ %2, %_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit ]
+  %backupPosition.0 = phi i32 [ %backupPosition.1251, %do.cond ], [ %2, %_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit ]
   %cmp9 = icmp slt i32 %backupPosition.0, 31
   br i1 %cmp9, label %do.cond, label %if.end13
 
@@ -2035,11 +2035,11 @@ if.end33:                                         ; preds = %if.then22, %if.then
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body, %if.end13, %if.end33
-  %backupPosition.1249 = phi i32 [ %call12, %if.end33 ], [ %call12, %if.end13 ], [ 0, %do.body ]
+  %backupPosition.1251 = phi i32 [ %call12, %if.end33 ], [ %call12, %if.end13 ], [ 0, %do.body ]
   %position.2 = phi i32 [ %position.1, %if.end33 ], [ 0, %if.end13 ], [ 0, %do.body ]
   %storemerge = phi i32 [ %28, %if.end33 ], [ 0, %if.end13 ], [ 0, %do.body ]
   %cmp36.not = icmp slt i32 %position.2, %2
-  br i1 %cmp36.not, label %do.end, label %do.body, !llvm.loop !17
+  br i1 %cmp36.not, label %do.end, label %do.body, !llvm.loop !16
 
 do.end:                                           ; preds = %do.cond
   %fSideBuffer = getelementptr inbounds i8, ptr %this, i64 800
@@ -2107,8 +2107,8 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52: ; preds = %_ZN6icu_759UV
   br label %do.body39
 
 do.body39:                                        ; preds = %do.cond70, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52
-  %position.3 = phi i32 [ %position.2, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %position.6260, %do.cond70 ]
-  %positionStatusIdx.1 = phi i32 [ %storemerge, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %positionStatusIdx.4262, %do.cond70 ]
+  %position.3 = phi i32 [ %position.2, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %position.6262, %do.cond70 ]
+  %positionStatusIdx.1 = phi i32 [ %storemerge, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %positionStatusIdx.4264, %do.cond70 ]
   %39 = load ptr, ptr %fBI, align 8
   %fPosition41 = getelementptr inbounds i8, ptr %39, i64 636
   store i32 %position.3, ptr %fPosition41, align 4
@@ -2131,30 +2131,30 @@ if.then51:                                        ; preds = %if.end48
   %44 = load ptr, ptr %fDictionaryCache53, align 8
   tail call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache18populateDictionaryEiiii(ptr noundef nonnull align 8 dereferenceable(60) %44, i32 noundef %position.3, i32 noundef %call43, i32 noundef %positionStatusIdx.1, i32 noundef %42)
   %45 = load ptr, ptr %fBI, align 8
-  %fDictionaryCache55283 = getelementptr inbounds i8, ptr %45, i64 656
-  %46 = load ptr, ptr %fDictionaryCache55283, align 8
-  %fLimit.i53284 = getelementptr inbounds i8, ptr %46, i64 48
-  %47 = load i32, ptr %fLimit.i53284, align 8
-  %cmp.not.i54285 = icmp sle i32 %47, %position.3
-  %fStart.i55286 = getelementptr inbounds i8, ptr %46, i64 44
-  %48 = load i32, ptr %fStart.i55286, align 4
-  %cmp2.i56287 = icmp sgt i32 %48, %position.3
-  %or.cond.i288 = select i1 %cmp.not.i54285, i1 true, i1 %cmp2.i56287
-  %fPositionInCache.i57289 = getelementptr inbounds i8, ptr %46, i64 40
-  br i1 %or.cond.i288, label %if.end63.thread, label %if.end.i58
+  %fDictionaryCache55285 = getelementptr inbounds i8, ptr %45, i64 656
+  %46 = load ptr, ptr %fDictionaryCache55285, align 8
+  %fLimit.i53286 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = load i32, ptr %fLimit.i53286, align 8
+  %cmp.not.i54287 = icmp sle i32 %47, %position.3
+  %fStart.i55288 = getelementptr inbounds i8, ptr %46, i64 44
+  %48 = load i32, ptr %fStart.i55288, align 4
+  %cmp2.i56289 = icmp sgt i32 %48, %position.3
+  %or.cond.i290 = select i1 %cmp.not.i54287, i1 true, i1 %cmp2.i56289
+  %fPositionInCache.i57291 = getelementptr inbounds i8, ptr %46, i64 40
+  br i1 %or.cond.i290, label %if.end63.thread, label %if.end.i58
 
 if.end63.thread:                                  ; preds = %if.then51
-  store i32 -1, ptr %fPositionInCache.i57289, align 8
+  store i32 -1, ptr %fPositionInCache.i57291, align 8
   br label %land.lhs.true
 
 if.end.i58:                                       ; preds = %if.then51, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107
-  %fPositionInCache.i57294 = phi ptr [ %fPositionInCache.i57, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %fPositionInCache.i57289, %if.then51 ]
+  %fPositionInCache.i57296 = phi ptr [ %fPositionInCache.i57, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %fPositionInCache.i57291, %if.then51 ]
   %49 = phi ptr [ %69, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %46, %if.then51 ]
-  %tobool64.not293 = phi i1 [ false, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ true, %if.then51 ]
-  %prevPosition.0292 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %position.3, %if.then51 ]
-  %positionStatusIdx.2291 = phi i32 [ %positionStatusIdx.3, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %42, %if.then51 ]
-  %position.4290 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %call43, %if.then51 ]
-  %50 = load i32, ptr %fPositionInCache.i57294, align 8
+  %tobool64.not295 = phi i1 [ false, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ true, %if.then51 ]
+  %prevPosition.0294 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %position.3, %if.then51 ]
+  %positionStatusIdx.2293 = phi i32 [ %positionStatusIdx.3, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %42, %if.then51 ]
+  %position.4292 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %call43, %if.then51 ]
+  %50 = load i32, ptr %fPositionInCache.i57296, align 8
   %cmp4.i59 = icmp sgt i32 %50, -1
   %count.i.i60 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load i32, ptr %count.i.i60, align 8
@@ -2168,16 +2168,16 @@ _ZNK6icu_759UVector3210elementAtiEi.exit.i66:     ; preds = %if.end.i58
   %idxprom.i.i68 = zext nneg i32 %50 to i64
   %arrayidx.i.i69 = getelementptr inbounds i32, ptr %52, i64 %idxprom.i.i68
   %53 = load i32, ptr %arrayidx.i.i69, align 4
-  %cmp11.i = icmp eq i32 %53, %prevPosition.0292
+  %cmp11.i = icmp eq i32 %53, %prevPosition.0294
   br i1 %cmp11.i, label %if.then12.i, label %if.end24.thread.i
 
 if.end24.thread.i:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i66
-  store i32 0, ptr %fPositionInCache.i57294, align 8
+  store i32 0, ptr %fPositionInCache.i57296, align 8
   br label %cond.true.i26.lr.ph.i
 
 if.then12.i:                                      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i66
   %inc.i70 = add nuw nsw i32 %50, 1
-  store i32 %inc.i70, ptr %fPositionInCache.i57294, align 8
+  store i32 %inc.i70, ptr %fPositionInCache.i57296, align 8
   %cmp17.not.i = icmp ult i32 %inc.i70, %51
   br i1 %cmp17.not.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit19.i, label %if.end63
 
@@ -2188,7 +2188,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit19.i:     ; preds = %if.then12.i
   br label %while.body
 
 if.end24.i:                                       ; preds = %if.end.i58
-  store i32 0, ptr %fPositionInCache.i57294, align 8
+  store i32 0, ptr %fPositionInCache.i57296, align 8
   %cmp2931.i = icmp sgt i32 %51, 0
   br i1 %cmp2931.i, label %cond.true.i26.lr.ph.i, label %for.end.i61
 
@@ -2200,8 +2200,8 @@ cond.true.i26.lr.ph.i:                            ; preds = %if.end24.i, %if.end
 
 for.cond.i63:                                     ; preds = %cond.true.i26.i
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
-  %56 = trunc i64 %indvars.iv.next.i64 to i32
-  store i32 %56, ptr %fPositionInCache.i57294, align 8
+  %56 = trunc nuw nsw i64 %indvars.iv.next.i64 to i32
+  store i32 %56, ptr %fPositionInCache.i57296, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i61, label %cond.true.i26.i, !llvm.loop !4
 
@@ -2209,7 +2209,7 @@ cond.true.i26.i:                                  ; preds = %for.cond.i63, %cond
   %indvars.iv.i62 = phi i64 [ 0, %cond.true.i26.lr.ph.i ], [ %indvars.iv.next.i64, %for.cond.i63 ]
   %arrayidx.i29.i = getelementptr inbounds i32, ptr %55, i64 %indvars.iv.i62
   %57 = load i32, ptr %arrayidx.i29.i, align 4
-  %cmp33.i = icmp sgt i32 %57, %prevPosition.0292
+  %cmp33.i = icmp sgt i32 %57, %prevPosition.0294
   br i1 %cmp33.i, label %while.body, label %for.cond.i63
 
 for.end.i61:                                      ; preds = %if.end24.i, %for.cond.i63
@@ -2235,11 +2235,11 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83: ; preds = %if.end6
   %add.i84 = add nsw i32 %58, 1
   %call.i.i85 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fSideBuffer, i32 noundef %add.i84, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i86 = icmp eq i8 %call.i.i85, 0
-  %.pre307 = load i32, ptr %count.i, align 8
+  %.pre309 = load i32, ptr %count.i, align 8
   br i1 %tobool.not.i86, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit89, label %if.then.i77
 
 if.then.i77:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83, %if.end60
-  %60 = phi i32 [ %58, %if.end60 ], [ %.pre307, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83 ]
+  %60 = phi i32 [ %58, %if.end60 ], [ %.pre309, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83 ]
   %61 = load ptr, ptr %elements.i78, align 8
   %idxprom.i79 = sext i32 %60 to i64
   %arrayidx.i80 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i79
@@ -2250,7 +2250,7 @@ if.then.i77:                                      ; preds = %_ZN6icu_759UVector3
   br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit89
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit89: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83, %if.then.i77
-  %63 = phi i32 [ %.pre307, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83 ], [ %inc.i81, %if.then.i77 ]
+  %63 = phi i32 [ %.pre309, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i83 ], [ %inc.i81, %if.then.i77 ]
   %cmp.i.i91 = icmp slt i32 %63, -1
   %64 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i93 = icmp sle i32 %64, %63
@@ -2290,20 +2290,20 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107: ; preds = %_ZN6icu_759U
   %cmp2.i56 = icmp sgt i32 %71, %position.5
   %or.cond.i = select i1 %cmp.not.i54, i1 true, i1 %cmp2.i56
   %fPositionInCache.i57 = getelementptr inbounds i8, ptr %69, i64 40
-  br i1 %or.cond.i, label %if.end63.thread315, label %if.end.i58, !llvm.loop !18
+  br i1 %or.cond.i, label %if.end63.thread317, label %if.end.i58, !llvm.loop !17
 
-if.end63.thread315:                               ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107
+if.end63.thread317:                               ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107
   store i32 -1, ptr %fPositionInCache.i57, align 8
   br label %do.cond70
 
 if.end63:                                         ; preds = %if.then12.i
-  store i32 -1, ptr %fPositionInCache.i57294, align 8
-  br i1 %tobool64.not293, label %land.lhs.true, label %do.cond70
+  store i32 -1, ptr %fPositionInCache.i57296, align 8
+  br i1 %tobool64.not295, label %land.lhs.true, label %do.cond70
 
 land.lhs.true:                                    ; preds = %if.end63.thread, %if.end48, %if.end63
-  %positionStatusIdx.4261 = phi i32 [ %positionStatusIdx.2291, %if.end63 ], [ %42, %if.end48 ], [ %42, %if.end63.thread ]
-  %position.6259 = phi i32 [ %position.4290, %if.end63 ], [ %call43, %if.end48 ], [ %call43, %if.end63.thread ]
-  %cmp65 = icmp slt i32 %position.6259, %2
+  %positionStatusIdx.4263 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %42, %if.end48 ], [ %42, %if.end63.thread ]
+  %position.6261 = phi i32 [ %position.4292, %if.end63 ], [ %call43, %if.end48 ], [ %call43, %if.end63.thread ]
+  %cmp65 = icmp slt i32 %position.6261, %2
   br i1 %cmp65, label %if.then66, label %do.cond70
 
 if.then66:                                        ; preds = %land.lhs.true
@@ -2318,22 +2318,22 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119: ; preds = %if.the
   %add.i120 = add nsw i32 %72, 1
   %call.i.i121 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fSideBuffer, i32 noundef %add.i120, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i122 = icmp eq i8 %call.i.i121, 0
-  %.pre308 = load i32, ptr %count.i, align 8
+  %.pre310 = load i32, ptr %count.i, align 8
   br i1 %tobool.not.i122, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit125, label %if.then.i113
 
 if.then.i113:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119, %if.then66
-  %74 = phi i32 [ %72, %if.then66 ], [ %.pre308, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119 ]
+  %74 = phi i32 [ %72, %if.then66 ], [ %.pre310, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119 ]
   %75 = load ptr, ptr %elements.i78, align 8
   %idxprom.i115 = sext i32 %74 to i64
   %arrayidx.i116 = getelementptr inbounds i32, ptr %75, i64 %idxprom.i115
-  store i32 %position.6259, ptr %arrayidx.i116, align 4
+  store i32 %position.6261, ptr %arrayidx.i116, align 4
   %76 = load i32, ptr %count.i, align 8
   %inc.i117 = add nsw i32 %76, 1
   store i32 %inc.i117, ptr %count.i, align 8
   br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit125
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit125: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119, %if.then.i113
-  %77 = phi i32 [ %.pre308, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119 ], [ %inc.i117, %if.then.i113 ]
+  %77 = phi i32 [ %.pre310, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i119 ], [ %inc.i117, %if.then.i113 ]
   %cmp.i.i127 = icmp slt i32 %77, -1
   %78 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i129 = icmp sle i32 %78, %77
@@ -2355,17 +2355,17 @@ if.then.i131:                                     ; preds = %_ZN6icu_759UVector3
   %80 = load ptr, ptr %elements.i78, align 8
   %idxprom.i133 = sext i32 %79 to i64
   %arrayidx.i134 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i133
-  store i32 %positionStatusIdx.4261, ptr %arrayidx.i134, align 4
+  store i32 %positionStatusIdx.4263, ptr %arrayidx.i134, align 4
   %81 = load i32, ptr %count.i, align 8
   %inc.i135 = add nsw i32 %81, 1
   store i32 %inc.i135, ptr %count.i, align 8
   br label %do.cond70
 
-do.cond70:                                        ; preds = %while.body, %if.end63.thread315, %if.then.i131, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137, %if.end63, %land.lhs.true
-  %positionStatusIdx.4262 = phi i32 [ %positionStatusIdx.2291, %if.end63 ], [ %positionStatusIdx.4261, %land.lhs.true ], [ %positionStatusIdx.4261, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %positionStatusIdx.4261, %if.then.i131 ], [ %positionStatusIdx.3, %if.end63.thread315 ], [ %positionStatusIdx.3, %while.body ]
-  %position.6260 = phi i32 [ %position.4290, %if.end63 ], [ %position.6259, %land.lhs.true ], [ %position.6259, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %position.6259, %if.then.i131 ], [ %position.5, %if.end63.thread315 ], [ %position.5, %while.body ]
-  %cmp71 = icmp slt i32 %position.6260, %2
-  br i1 %cmp71, label %do.body39, label %do.end72, !llvm.loop !19
+do.cond70:                                        ; preds = %while.body, %if.end63.thread317, %if.then.i131, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137, %if.end63, %land.lhs.true
+  %positionStatusIdx.4264 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %positionStatusIdx.4263, %land.lhs.true ], [ %positionStatusIdx.4263, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %positionStatusIdx.4263, %if.then.i131 ], [ %positionStatusIdx.3, %if.end63.thread317 ], [ %positionStatusIdx.3, %while.body ]
+  %position.6262 = phi i32 [ %position.4292, %if.end63 ], [ %position.6261, %land.lhs.true ], [ %position.6261, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %position.6261, %if.then.i131 ], [ %position.5, %if.end63.thread317 ], [ %position.5, %while.body ]
+  %cmp71 = icmp slt i32 %position.6262, %2
+  br i1 %cmp71, label %do.body39, label %do.end72, !llvm.loop !18
 
 do.end72:                                         ; preds = %do.body39, %do.cond70
   %82 = load i32, ptr %count.i, align 8
@@ -2397,8 +2397,8 @@ if.then.i159:                                     ; preds = %_ZN6icu_759UVector3
   br label %_ZN6icu_759UVector324popiEv.exit164
 
 _ZN6icu_759UVector324popiEv.exit164:              ; preds = %if.then76, %_ZN6icu_759UVector324popiEv.exit, %if.then.i159
-  %result.0.i322 = phi i16 [ %85, %if.then.i159 ], [ %85, %_ZN6icu_759UVector324popiEv.exit ], [ 0, %if.then76 ]
-  %count.i.promoted309 = phi i32 [ %dec.i160, %if.then.i159 ], [ 0, %_ZN6icu_759UVector324popiEv.exit ], [ %82, %if.then76 ]
+  %result.0.i324 = phi i16 [ %85, %if.then.i159 ], [ %85, %_ZN6icu_759UVector324popiEv.exit ], [ 0, %if.then76 ]
+  %count.i.promoted311 = phi i32 [ %dec.i160, %if.then.i159 ], [ 0, %_ZN6icu_759UVector324popiEv.exit ], [ %82, %if.then76 ]
   %result.0.i158 = phi i32 [ %87, %if.then.i159 ], [ 0, %_ZN6icu_759UVector324popiEv.exit ], [ 0, %if.then76 ]
   %88 = load i32, ptr %fStartBufIdx, align 8
   %sub.i166 = add i32 %88, 127
@@ -2409,9 +2409,9 @@ _ZN6icu_759UVector324popiEv.exit164:              ; preds = %if.then76, %_ZN6icu
   br i1 %cmp.i169, label %if.then.i179, label %if.end82
 
 if.then.i179:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit164
-  %sub7.i183 = add i32 %88, 126
-  %and.i7.i184 = and i32 %sub7.i183, 127
-  store i32 %and.i7.i184, ptr %fEndBufIdx.i168, align 4
+  %sub7.i184 = add i32 %88, 126
+  %and.i7.i185 = and i32 %sub7.i184, 127
+  store i32 %and.i7.i185, ptr %fEndBufIdx.i168, align 4
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then.i179, %_ZN6icu_759UVector324popiEv.exit164
@@ -2420,82 +2420,82 @@ if.end82:                                         ; preds = %if.then.i179, %_ZN6
   store i32 %result.0.i158, ptr %arrayidx.i172, align 4
   %fStatuses.i174 = getelementptr inbounds i8, ptr %this, i64 544
   %arrayidx12.i175 = getelementptr inbounds [128 x i16], ptr %fStatuses.i174, i64 0, i64 %idxprom.i171
-  store i16 %result.0.i322, ptr %arrayidx12.i175, align 2
+  store i16 %result.0.i324, ptr %arrayidx12.i175, align 2
   store i32 %and.i.i167, ptr %fStartBufIdx, align 8
   %fBufIdx16.i176 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %and.i.i167, ptr %fBufIdx16.i176, align 4
   %fTextIdx.i177 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %result.0.i158, ptr %fTextIdx.i177, align 8
-  %cmp.i187.not302 = icmp eq i32 %count.i.promoted309, 0
-  br i1 %cmp.i187.not302, label %return, label %while.body87.lr.ph
+  %cmp.i188.not304 = icmp eq i32 %count.i.promoted311, 0
+  br i1 %cmp.i188.not304, label %return, label %while.body87.lr.ph
 
 while.body87.lr.ph:                               ; preds = %if.end82
   %fStartBufIdx.promoted = load i32, ptr %fStartBufIdx, align 8
-  %fBufIdx.i222 = getelementptr inbounds i8, ptr %this, i64 28
+  %fBufIdx.i223 = getelementptr inbounds i8, ptr %this, i64 28
   %90 = load ptr, ptr %elements.i78, align 8
-  %fEndBufIdx.i212 = getelementptr inbounds i8, ptr %this, i64 20
-  %91 = load i32, ptr %fBufIdx.i222, align 4
-  %fStatuses.i218 = getelementptr inbounds i8, ptr %this, i64 544
-  %fEndBufIdx.i212.promoted = load i32, ptr %fEndBufIdx.i212, align 4
+  %fEndBufIdx.i213 = getelementptr inbounds i8, ptr %this, i64 20
+  %91 = load i32, ptr %fBufIdx.i223, align 4
+  %fStatuses.i219 = getelementptr inbounds i8, ptr %this, i64 544
+  %fEndBufIdx.i213.promoted = load i32, ptr %fEndBufIdx.i213, align 4
   br label %while.body87
 
-while.body87:                                     ; preds = %while.body87.lr.ph, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227
-  %and.i7.i226304 = phi i32 [ %fEndBufIdx.i212.promoted, %while.body87.lr.ph ], [ %and.i7.i226303, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227 ]
-  %92 = phi i32 [ %count.i.promoted309, %while.body87.lr.ph ], [ %96, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227 ]
-  %93 = phi i32 [ %fStartBufIdx.promoted, %while.body87.lr.ph ], [ %and.i.i211, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227 ]
-  %cmp.i190 = icmp sgt i32 %92, 0
-  br i1 %cmp.i190, label %_ZN6icu_759UVector324popiEv.exit198, label %_ZN6icu_759UVector324popiEv.exit208
+while.body87:                                     ; preds = %while.body87.lr.ph, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229
+  %and.i7.i228306 = phi i32 [ %fEndBufIdx.i213.promoted, %while.body87.lr.ph ], [ %and.i7.i228305, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
+  %92 = phi i32 [ %count.i.promoted311, %while.body87.lr.ph ], [ %96, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
+  %93 = phi i32 [ %fStartBufIdx.promoted, %while.body87.lr.ph ], [ %and.i.i212, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
+  %cmp.i191 = icmp sgt i32 %92, 0
+  br i1 %cmp.i191, label %_ZN6icu_759UVector324popiEv.exit199, label %_ZN6icu_759UVector324popiEv.exit209
 
-_ZN6icu_759UVector324popiEv.exit198:              ; preds = %while.body87
-  %dec.i194 = add nsw i32 %92, -1
-  store i32 %dec.i194, ptr %count.i, align 8
-  %idxprom.i196 = zext nneg i32 %dec.i194 to i64
-  %arrayidx.i197 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i196
-  %94 = load i32, ptr %arrayidx.i197, align 4
-  %cmp.i200.not = icmp eq i32 %dec.i194, 0
-  br i1 %cmp.i200.not, label %_ZN6icu_759UVector324popiEv.exit208, label %if.then.i203
+_ZN6icu_759UVector324popiEv.exit199:              ; preds = %while.body87
+  %dec.i195 = add nsw i32 %92, -1
+  store i32 %dec.i195, ptr %count.i, align 8
+  %idxprom.i197 = zext nneg i32 %dec.i195 to i64
+  %arrayidx.i198 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i197
+  %94 = load i32, ptr %arrayidx.i198, align 4
+  %cmp.i201.not = icmp eq i32 %dec.i195, 0
+  br i1 %cmp.i201.not, label %_ZN6icu_759UVector324popiEv.exit209, label %if.then.i204
 
-if.then.i203:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit198
-  %dec.i204 = add nsw i32 %92, -2
-  store i32 %dec.i204, ptr %count.i, align 8
-  %idxprom.i206 = zext nneg i32 %dec.i204 to i64
-  %arrayidx.i207 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i206
-  %95 = load i32, ptr %arrayidx.i207, align 4
-  br label %_ZN6icu_759UVector324popiEv.exit208
+if.then.i204:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit199
+  %dec.i205 = add nsw i32 %92, -2
+  store i32 %dec.i205, ptr %count.i, align 8
+  %idxprom.i207 = zext nneg i32 %dec.i205 to i64
+  %arrayidx.i208 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i207
+  %95 = load i32, ptr %arrayidx.i208, align 4
+  br label %_ZN6icu_759UVector324popiEv.exit209
 
-_ZN6icu_759UVector324popiEv.exit208:              ; preds = %while.body87, %_ZN6icu_759UVector324popiEv.exit198, %if.then.i203
-  %result.0.i192328 = phi i32 [ %94, %if.then.i203 ], [ %94, %_ZN6icu_759UVector324popiEv.exit198 ], [ 0, %while.body87 ]
-  %96 = phi i32 [ %dec.i204, %if.then.i203 ], [ 0, %_ZN6icu_759UVector324popiEv.exit198 ], [ %92, %while.body87 ]
-  %result.0.i202 = phi i32 [ %95, %if.then.i203 ], [ 0, %_ZN6icu_759UVector324popiEv.exit198 ], [ 0, %while.body87 ]
-  %sub.i210 = add i32 %93, 127
-  %and.i.i211 = and i32 %sub.i210, 127
-  %cmp.i213 = icmp eq i32 %and.i.i211, %and.i7.i226304
-  br i1 %cmp.i213, label %if.then.i221, label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227
+_ZN6icu_759UVector324popiEv.exit209:              ; preds = %while.body87, %_ZN6icu_759UVector324popiEv.exit199, %if.then.i204
+  %result.0.i193330 = phi i32 [ %94, %if.then.i204 ], [ %94, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
+  %96 = phi i32 [ %dec.i205, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ %92, %while.body87 ]
+  %result.0.i203 = phi i32 [ %95, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
+  %sub.i211 = add i32 %93, 127
+  %and.i.i212 = and i32 %sub.i211, 127
+  %cmp.i214 = icmp eq i32 %and.i.i212, %and.i7.i228306
+  br i1 %cmp.i214, label %if.then.i222, label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229
 
-if.then.i221:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit208
-  %cmp3.i223 = icmp eq i32 %91, %and.i7.i226304
-  br i1 %cmp3.i223, label %return, label %if.end.i224
+if.then.i222:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit209
+  %cmp3.i224 = icmp eq i32 %91, %and.i7.i228306
+  br i1 %cmp3.i224, label %return, label %if.end.i226
 
-if.end.i224:                                      ; preds = %if.then.i221
-  %sub7.i225 = add i32 %93, 126
-  %and.i7.i226 = and i32 %sub7.i225, 127
-  store i32 %and.i7.i226, ptr %fEndBufIdx.i212, align 4
-  br label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227
+if.end.i226:                                      ; preds = %if.then.i222
+  %sub7.i227 = add i32 %93, 126
+  %and.i7.i228 = and i32 %sub7.i227, 127
+  store i32 %and.i7.i228, ptr %fEndBufIdx.i213, align 4
+  br label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229
 
-_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227: ; preds = %_ZN6icu_759UVector324popiEv.exit208, %if.end.i224
-  %and.i7.i226303 = phi i32 [ %and.i7.i226304, %_ZN6icu_759UVector324popiEv.exit208 ], [ %and.i7.i226, %if.end.i224 ]
-  %idxprom.i215 = zext nneg i32 %and.i.i211 to i64
-  %arrayidx.i216 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i215
-  store i32 %result.0.i202, ptr %arrayidx.i216, align 4
-  %conv.i217 = trunc i32 %result.0.i192328 to i16
-  %arrayidx12.i219 = getelementptr inbounds [128 x i16], ptr %fStatuses.i218, i64 0, i64 %idxprom.i215
-  store i16 %conv.i217, ptr %arrayidx12.i219, align 2
-  store i32 %and.i.i211, ptr %fStartBufIdx, align 8
-  %cmp.i187.not = icmp eq i32 %96, 0
-  br i1 %cmp.i187.not, label %return, label %while.body87, !llvm.loop !20
+_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229: ; preds = %_ZN6icu_759UVector324popiEv.exit209, %if.end.i226
+  %and.i7.i228305 = phi i32 [ %and.i7.i228306, %_ZN6icu_759UVector324popiEv.exit209 ], [ %and.i7.i228, %if.end.i226 ]
+  %idxprom.i216 = zext nneg i32 %and.i.i212 to i64
+  %arrayidx.i217 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i216
+  store i32 %result.0.i203, ptr %arrayidx.i217, align 4
+  %conv.i218 = trunc i32 %result.0.i193330 to i16
+  %arrayidx12.i220 = getelementptr inbounds [128 x i16], ptr %fStatuses.i219, i64 0, i64 %idxprom.i216
+  store i16 %conv.i218, ptr %arrayidx12.i220, align 2
+  store i32 %and.i.i212, ptr %fStartBufIdx, align 8
+  %cmp.i188.not = icmp eq i32 %96, 0
+  br i1 %cmp.i188.not, label %return, label %while.body87, !llvm.loop !19
 
-return:                                           ; preds = %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227, %if.then.i221, %do.end72, %if.end82, %if.end, %entry, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit
-  %retval.0 = phi i8 [ 1, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit ], [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end82 ], [ 0, %do.end72 ], [ 1, %if.then.i221 ], [ 1, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit227 ]
+return:                                           ; preds = %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229, %if.then.i222, %do.end72, %if.end82, %if.end, %entry, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit
+  %retval.0 = phi i8 [ 1, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit ], [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end82 ], [ 0, %do.end72 ], [ 1, %if.then.i222 ], [ 1, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
   ret i8 %retval.0
 }
 
@@ -2641,14 +2641,13 @@ attributes #13 = { noreturn nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i8 0, i8 2}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

@@ -3208,7 +3208,7 @@ ehcleanup181:                                     ; preds = %ehcleanup177, %clea
   br label %ehcleanup204
 
 if.end182:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEaSERKS3_.exit
-  %tobool183 = trunc i8 %skipColorSpaceConversions.1 to i1
+  %tobool183 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
   br i1 %tobool183, label %if.end198, label %if.then184
 
 if.then184:                                       ; preds = %if.end182
@@ -4018,7 +4018,7 @@ ehcleanup258:                                     ; preds = %ehcleanup254, %clea
   br label %ehcleanup283
 
 if.end259:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEaSERKS3_.exit443
-  %tobool260 = trunc i8 %skipColorSpaceConversions.1 to i1
+  %tobool260 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
   br i1 %tobool260, label %if.end277, label %if.then261
 
 if.then261:                                       ; preds = %if.end259
@@ -4577,7 +4577,7 @@ if.else305:                                       ; preds = %invoke.cont299
   br i1 %tobool306, label %if.end317, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else305
-  %tobool307 = trunc i8 %skipColorSpaceConversions.1 to i1
+  %tobool307 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
   br i1 %tobool307, label %if.end317, label %if.then308
 
 if.then308:                                       ; preds = %land.lhs.true
@@ -4598,7 +4598,7 @@ if.end317:                                        ; preds = %if.else305, %land.l
 if.then319:                                       ; preds = %if.end317
   %331 = load ptr, ptr %dtInputColorSpace, align 8
   %call321 = call noundef ptr @_ZNK19OpenColorIO_v2_4dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %331) #16
-  %tobool322 = trunc i8 %skipColorSpaceConversions.1 to i1
+  %tobool322 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
   br i1 %tobool322, label %cond.end328, label %cond.false324
 
 cond.false324:                                    ; preds = %if.then319
@@ -4939,7 +4939,7 @@ if.end8.sink.split.i.i.i.i736:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end363
 
 if.end363:                                        ; preds = %if.end8.sink.split.i.i.i.i736, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i733, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i723, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2ERKS2_.exit713, %if.end354
-  %tobool364 = trunc i8 %skipColorSpaceConversions.1 to i1
+  %tobool364 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
   %386 = load ptr, ptr %displayColorSpace, align 8
   %cmp.i746 = icmp ne ptr %386, null
   %or.cond1144 = select i1 %tobool364, i1 %cmp.i746, i1 false
@@ -7004,7 +7004,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit: ; preds = %if.en
   br i1 %cmp.i63.not, label %if.end23, label %if.then11
 
 if.then11:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit
-  %tobool = trunc i8 %first.0 to i1
+  %tobool = trunc nuw i8 %first.0 to i1
   br i1 %tobool, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.then11
@@ -7186,7 +7186,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit159: ; preds = %if
   br i1 %cmp.i127.not, label %if.end41, label %if.then28
 
 if.then28:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit159
-  %tobool29 = trunc i8 %first.1 to i1
+  %tobool29 = trunc nuw i8 %first.1 to i1
   br i1 %tobool29, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %if.then28
@@ -7368,7 +7368,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit224: ; preds = %if
   br i1 %cmp.i192.not, label %if.end59, label %if.then46
 
 if.then46:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit224
-  %tobool47 = trunc i8 %first.2 to i1
+  %tobool47 = trunc nuw i8 %first.2 to i1
   br i1 %tobool47, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.then46
@@ -7550,7 +7550,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit289: ; preds = %if
   br i1 %cmp.i257.not, label %if.end77, label %if.then64
 
 if.then64:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit289
-  %tobool65 = trunc i8 %first.3 to i1
+  %tobool65 = trunc nuw i8 %first.3 to i1
   br i1 %tobool65, label %if.end68, label %if.then66
 
 if.then66:                                        ; preds = %if.then64
@@ -7656,7 +7656,7 @@ if.end77:                                         ; preds = %if.end8.sink.split.
   br i1 %call80, label %if.then81, label %if.end87
 
 if.then81:                                        ; preds = %if.end77
-  %tobool82 = trunc i8 %first.4 to i1
+  %tobool82 = trunc nuw i8 %first.4 to i1
   br i1 %tobool82, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
@@ -7683,7 +7683,7 @@ invoke.cont93:                                    ; preds = %if.end87
   br i1 %call94, label %if.end106, label %if.then95
 
 if.then95:                                        ; preds = %invoke.cont93
-  %tobool96 = trunc i8 %first.5 to i1
+  %tobool96 = trunc nuw i8 %first.5 to i1
   br i1 %tobool96, label %if.end101, label %if.then97
 
 if.then97:                                        ; preds = %if.then95

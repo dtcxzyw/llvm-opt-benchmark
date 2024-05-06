@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end4, %entry, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ufile_getch_75(ptr noundef %f, ptr nocapture noundef writeonly %ch) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ufile_getch_75(ptr noundef %f, ptr nocapture noundef writeonly %ch) local_unnamed_addr #0 {
 entry:
   store i16 -1, ptr %ch, align 2
   %str = getelementptr inbounds i8, ptr %f, i64 24
@@ -897,7 +897,7 @@ ufile_getch_75.exit:                              ; preds = %if.then9.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ufile_getch32_75(ptr noundef %f, ptr nocapture noundef %c32) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ufile_getch32_75(ptr noundef %f, ptr nocapture noundef %c32) local_unnamed_addr #0 {
 entry:
   store i32 65535, ptr %c32, align 4
   %str1 = getelementptr inbounds i8, ptr %f, i64 24

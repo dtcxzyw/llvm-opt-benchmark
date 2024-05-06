@@ -1474,18 +1474,18 @@ out:                                              ; preds = %entry, %if.end15, %
   call void @free(ptr noundef %16) #21
   store i32 -1, ptr %repo_fmt, align 8
   %fresh.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %repo_fmt, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %0, align 4
   store i32 1, ptr %1, align 8
   store i32 1, ptr %2, align 4
   %fresh.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %repo_fmt, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %4, align 8
   %fresh.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %repo_fmt, i64 73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
   store i8 1, ptr %5, align 8
   %fresh.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %repo_fmt, i64 113
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
   call void @strbuf_release(ptr noundef nonnull %repo_version) #21
   call void @strbuf_release(ptr noundef nonnull %err) #21
   ret i32 %ret.0
@@ -1511,7 +1511,7 @@ entry:
   tail call void @free(ptr noundef %1) #21
   store i32 -1, ptr %format, align 8
   %fresh.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
   %fresh.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 20
   store i32 -1, ptr %fresh.sroa.31.0..sroa_idx.i.i, align 4
   %fresh.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 24
@@ -1519,15 +1519,15 @@ entry:
   %fresh.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 28
   store i32 1, ptr %fresh.sroa.5.0..sroa_idx.i.i, align 4
   %fresh.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
   %fresh.sroa.62.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 72
   store i8 1, ptr %fresh.sroa.62.0..sroa_idx.i.i, align 8
   %fresh.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 73
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
   %fresh.sroa.73.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 112
   store i8 1, ptr %fresh.sroa.73.0..sroa_idx.i.i, align 8
   %fresh.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %format, i64 113
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
   %call = tail call i32 @git_config_from_file(ptr noundef nonnull @check_repo_format, ptr noundef %path, ptr noundef nonnull %format) #21
   %2 = load i32, ptr %format, align 8
   %cmp = icmp eq i32 %2, -1
@@ -1541,15 +1541,15 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %partial_clone.i, align 8
   tail call void @free(ptr noundef %4) #21
   store i32 -1, ptr %format, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %fresh.sroa.31.0..sroa_idx.i.i, align 4
   store i32 1, ptr %fresh.sroa.4.0..sroa_idx.i.i, align 8
   store i32 1, ptr %fresh.sroa.5.0..sroa_idx.i.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %fresh.sroa.62.0..sroa_idx.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i.i, i8 0, i64 39, i1 false)
   store i8 1, ptr %fresh.sroa.73.0..sroa_idx.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i.i, i8 0, i64 15, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1689,7 +1689,7 @@ entry:
   tail call void @free(ptr noundef %1) #21
   store i32 -1, ptr %format, align 8
   %fresh.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %fresh.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %fresh.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 20
   store i32 -1, ptr %fresh.sroa.31.0..sroa_idx.i, align 4
   %fresh.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 24
@@ -1697,15 +1697,15 @@ entry:
   %fresh.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 28
   store i32 1, ptr %fresh.sroa.5.0..sroa_idx.i, align 4
   %fresh.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fresh.sroa.6.0..sroa_idx.i, i8 0, i64 40, i1 false)
   %fresh.sroa.62.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 72
   store i8 1, ptr %fresh.sroa.62.0..sroa_idx.i, align 8
   %fresh.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 73
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i, i8 0, i64 39, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(39) %fresh.sroa.7.0..sroa_idx.i, i8 0, i64 39, i1 false)
   %fresh.sroa.73.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 112
   store i8 1, ptr %fresh.sroa.73.0..sroa_idx.i, align 8
   %fresh.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %format, i64 113
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %fresh.sroa.8.0..sroa_idx.i, i8 0, i64 15, i1 false)
   ret void
 }
 
@@ -1744,12 +1744,12 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end14, !llvm.loop !7
 
 if.then3:                                         ; preds = %do.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(5) @.str.87) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(5) @.str.87) #20
   %tobool.not.i15 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i15, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(16) @.str.88) #20
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(16) @.str.88) #20
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else5.i
 
@@ -1760,7 +1760,7 @@ if.then3.i:                                       ; preds = %if.else.i
   br label %return
 
 if.else5.i:                                       ; preds = %if.else.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.89) #20
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.89) #20
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.then8.i, label %if.else14.i
 
@@ -1775,7 +1775,7 @@ if.end.i:                                         ; preds = %if.then8.i
   br label %return
 
 if.else14.i:                                      ; preds = %if.else5.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.90) #20
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.90) #20
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %if.then17.i, label %sw.epilog
 
@@ -1790,12 +1790,12 @@ handle_extension_v0.exit:                         ; preds = %if.then8.i
   br label %return
 
 sw.epilog:                                        ; preds = %if.else14.i
-  %call.i16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.91) #20
+  %call.i16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.91) #20
   %tobool.not.i17 = icmp eq i32 %call.i16, 0
   br i1 %tobool.not.i17, label %sw.bb9, label %if.else.i18
 
 if.else.i18:                                      ; preds = %sw.epilog
-  %call1.i19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.92) #20
+  %call1.i19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.92) #20
   %tobool2.not.i20 = icmp eq i32 %call1.i19, 0
   br i1 %tobool2.not.i20, label %if.then3.i26, label %if.else14.i21
 
@@ -1832,7 +1832,7 @@ if.end13.i:                                       ; preds = %if.end.i27
   br label %sw.bb9
 
 if.else14.i21:                                    ; preds = %if.else.i18
-  %call15.i22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.94) #20
+  %call15.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.94) #20
   %tobool16.not.i23 = icmp eq i32 %call15.i22, 0
   br i1 %tobool16.not.i23, label %if.then17.i25, label %sw.bb11
 
@@ -2458,7 +2458,7 @@ land.lhs.true.i:                                  ; preds = %if.then62
   br i1 %tobool2.not.i, label %land.lhs.true5.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %gitfile.0)
+  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull readonly %gitfile.0)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %ensure_valid_ownership.exit, label %land.lhs.true5.i
 
@@ -4595,7 +4595,7 @@ entry.tail.i.i:                                   ; preds = %if.end41.i
   br i1 %64, label %land.lhs.true.i28.i, label %do.body.i.i.i.preheader
 
 land.lhs.true.i28.i:                              ; preds = %entry.tail.i.i
-  %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(6) @.str.150) #20
+  %call1.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(6) @.str.150) #20
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end46.i, label %do.body.i.i.i.preheader
 

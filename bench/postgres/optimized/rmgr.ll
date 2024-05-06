@@ -381,7 +381,7 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr nocapture n
   br i1 %.not22, label %41, label %47
 
 41:                                               ; preds = %38
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %43)
   %44 = load ptr, ptr %1, align 8

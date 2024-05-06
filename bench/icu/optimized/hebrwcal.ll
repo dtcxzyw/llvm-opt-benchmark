@@ -246,7 +246,7 @@ sw.epilog:                                        ; preds = %entry, %sw.default,
 declare noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7514HebrewCalendar10isLeapYearEi(i32 noundef %year) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7514HebrewCalendar10isLeapYearEi(i32 noundef %year) local_unnamed_addr #4 align 2 {
 entry:
   %mul = mul nsw i32 %year, 12
   %add = add nsw i32 %mul, 17
@@ -341,7 +341,7 @@ sw.epilog:                                        ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7514HebrewCalendar12monthsInYearEi(i32 noundef %year) local_unnamed_addr #4 align 2 {
+define noundef range(i32 12, 14) i32 @_ZN6icu_7514HebrewCalendar12monthsInYearEi(i32 noundef %year) local_unnamed_addr #4 align 2 {
 entry:
   %mul.i = mul nsw i32 %year, 12
   %add.i = add nsw i32 %mul.i, 17
@@ -385,7 +385,7 @@ if.then:                                          ; preds = %entry
   %add = add nsw i64 %mul4, 12084
   %mul5 = mul nsw i32 %conv2, 29
   %div = sdiv i64 %add, 25920
-  %conv6 = trunc i64 %div to i32
+  %conv6 = trunc nsw i64 %div to i32
   %add7 = add nsw i32 %mul5, %conv6
   %rem = srem i64 %add, 25920
   %rem8 = srem i32 %add7, 7
@@ -474,7 +474,7 @@ declare noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef, i64 nound
 declare void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7514HebrewCalendar22absoluteDayToDayOfWeekEi(i32 noundef %day) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -5, 8) i32 @_ZN6icu_7514HebrewCalendar22absoluteDayToDayOfWeekEi(i32 noundef %day) local_unnamed_addr #4 align 2 {
 entry:
   %rem = srem i32 %day, 7
   %add = add nsw i32 %rem, 1
@@ -482,7 +482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514HebrewCalendar8yearTypeEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK6icu_7514HebrewCalendar8yearTypeEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
@@ -508,7 +508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514HebrewCalendar20handleGetMonthLengthEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7514HebrewCalendar20handleGetMonthLengthEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %cmp16 = icmp slt i32 %month, 0
   br i1 %cmp16, label %while.body, label %while.cond2.preheader
@@ -566,7 +566,7 @@ sw.bb:                                            ; preds = %while.end6
   %switch.tableidx = add i32 %spec.select.i, -353
   %1 = icmp ult i32 %switch.tableidx, 3
   %narrow = select i1 %1, i32 %switch.tableidx, i32 1
-  %type.0.i = zext i32 %narrow to i64
+  %type.0.i = zext nneg i32 %narrow to i64
   %arrayidx9 = getelementptr inbounds [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom, i64 %type.0.i
   br label %return
 
@@ -675,7 +675,7 @@ while.end:                                        ; preds = %while.body, %entry
   %switch.tableidx = add i32 %spec.select.i, -353
   %2 = icmp ult i32 %switch.tableidx, 3
   %narrow = select i1 %2, i32 %switch.tableidx, i32 1
-  %type.0.i = zext i32 %narrow to i64
+  %type.0.i = zext nneg i32 %narrow to i64
   %mul.i = mul nsw i32 %year.0.lcssa, 12
   %add.i = add nsw i32 %mul.i, 17
   %rem.i = srem i32 %add.i, 19
@@ -822,7 +822,7 @@ if.end:                                           ; preds = %cond.true.i5, %if.e
 declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514HebrewCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #0 align 2 {
+define noundef range(i32 -2147135651, -2147483648) i32 @_ZNK6icu_7514HebrewCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #0 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -893,7 +893,7 @@ if.then10:                                        ; preds = %if.end
   %switch.tableidx51 = add i32 %spec.select.i30, -353
   %3 = icmp ult i32 %switch.tableidx51, 3
   %narrow = select i1 %3, i32 %switch.tableidx51, i32 1
-  %type.0.i32 = zext i32 %narrow to i64
+  %type.0.i32 = zext nneg i32 %narrow to i64
   %_ZL11MONTH_START._ZL16LEAP_MONTH_START = select i1 %cmp1.i.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
   %arrayidx22 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %type.0.i32
   %4 = load i16, ptr %arrayidx22, align 2
@@ -1117,7 +1117,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp9, label %if.then10, label %for.inc
 
 if.then10:                                        ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %3)
   br label %return
 

@@ -1590,7 +1590,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 invoke.cont:                                      ; preds = %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit187.i
   %div81.i = udiv i32 %xor10.i184.i, 165191049
   %retval.0.i188.i = add nuw nsw i32 %div81.i, 97
-  %conv4 = trunc i32 %retval.0.i188.i to i8
+  %conv4 = trunc nuw nsw i32 %retval.0.i188.i to i8
   %call1.i48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef nonnull @.str.14, i64 noundef 2)
           to label %invoke.cont12 unwind label %lpad.loopexit
 
@@ -7342,7 +7342,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %shr.i = lshr i32 %6, 30
   %xor.i = xor i32 %shr.i, %6
   %mul.i = mul i32 %xor.i, 1812433253
-  %7 = trunc i64 %storemerge19.i to i32
+  %7 = trunc nuw i64 %storemerge19.i to i32
   %8 = add i32 %mul.i, %7
   %arrayidx16.i = getelementptr inbounds [624 x i32], ptr %rng, i64 0, i64 %storemerge19.i
   store i32 %8, ptr %arrayidx16.i, align 4
@@ -8110,7 +8110,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shr.i.i.i.i.i = lshr i32 %1, 30
   %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %1
   %mul.i.i.i.i.i = mul i32 %xor.i.i.i.i.i, 1812433253
-  %2 = trunc i64 %storemerge19.i.i.i.i.i to i32
+  %2 = trunc nuw i64 %storemerge19.i.i.i.i.i to i32
   %3 = add i32 %mul.i.i.i.i.i, %2
   %arrayidx16.i.i.i.i.i = getelementptr inbounds [624 x i32], ptr %rng.i.i, i64 0, i64 %storemerge19.i.i.i.i.i
   store i32 %3, ptr %arrayidx16.i.i.i.i.i, align 4
@@ -9629,7 +9629,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shr.i.i.i.i.i = lshr i32 %1, 30
   %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %1
   %mul.i.i.i.i.i = mul i32 %xor.i.i.i.i.i, 1812433253
-  %2 = trunc i64 %storemerge19.i.i.i.i.i to i32
+  %2 = trunc nuw i64 %storemerge19.i.i.i.i.i to i32
   %3 = add i32 %mul.i.i.i.i.i, %2
   %arrayidx16.i.i.i.i.i = getelementptr inbounds [624 x i32], ptr %rng.i.i, i64 0, i64 %storemerge19.i.i.i.i.i
   store i32 %3, ptr %arrayidx16.i.i.i.i.i, align 4
@@ -9785,7 +9785,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shr.i.i.i.i.i = lshr i32 %1, 30
   %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %1
   %mul.i.i.i.i.i = mul i32 %xor.i.i.i.i.i, 1812433253
-  %2 = trunc i64 %storemerge19.i.i.i.i.i to i32
+  %2 = trunc nuw i64 %storemerge19.i.i.i.i.i to i32
   %3 = add i32 %mul.i.i.i.i.i, %2
   %arrayidx16.i.i.i.i.i = getelementptr inbounds [624 x i32], ptr %rng.i.i, i64 0, i64 %storemerge19.i.i.i.i.i
   store i32 %3, ptr %arrayidx16.i.i.i.i.i, align 4
@@ -14576,7 +14576,7 @@ if.then:                                          ; preds = %_ZNK7testing8intern
   %ref.tmp.sroa.420.4.extract.trunc = trunc i64 %26 to i32
   store i32 %ref.tmp.sroa.420.4.extract.trunc, ptr %add.ptr.i7.i.i.i.i.i, align 4
   %ref.tmp.sroa.420.8.extract.shift = lshr i64 %26, 32
-  %ref.tmp.sroa.420.8.extract.trunc = trunc i64 %ref.tmp.sroa.420.8.extract.shift to i32
+  %ref.tmp.sroa.420.8.extract.trunc = trunc nuw i64 %ref.tmp.sroa.420.8.extract.shift to i32
   %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %ref.tmp.sroa.420.8.extract.trunc, ptr %second3.i.i.i.i.i.i, align 8
   store i8 %25, ptr %current_value_, align 8

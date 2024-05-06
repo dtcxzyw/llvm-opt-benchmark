@@ -40,7 +40,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator3map17hcb18ab8a711e07
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h144b1801eca24e35E(ptr nocapture align 8 %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define range(i8 0, 5) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h144b1801eca24e35E(ptr nocapture align 8 %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

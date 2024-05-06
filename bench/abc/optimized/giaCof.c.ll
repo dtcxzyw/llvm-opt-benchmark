@@ -2170,8 +2170,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %138 = udiv i8 %.lhs.trunc245, 10
   %.val190 = load ptr, ptr %100, align 8
   %139 = zext nneg i8 %138 to i64
-  %140 = getelementptr i32, ptr %.val190, i64 %139
-  %141 = getelementptr i8, ptr %140, i64 40
+  %140 = getelementptr inbounds i32, ptr %.val190, i64 %139
+  %141 = getelementptr inbounds i8, ptr %140, i64 40
   br label %.sink.split
 
 142:                                              ; preds = %135
@@ -2183,8 +2183,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %145 = udiv i16 %.lhs.trunc247, 100
   %.val191 = load ptr, ptr %100, align 8
   %146 = zext nneg i16 %145 to i64
-  %147 = getelementptr i32, ptr %.val191, i64 %146
-  %148 = getelementptr i8, ptr %147, i64 80
+  %147 = getelementptr inbounds i32, ptr %.val191, i64 %146
+  %148 = getelementptr inbounds i8, ptr %147, i64 80
   br label %.sink.split
 
 149:                                              ; preds = %142
@@ -2196,8 +2196,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %152 = udiv i16 %.lhs.trunc249, 1000
   %.val192 = load ptr, ptr %100, align 8
   %153 = zext nneg i16 %152 to i64
-  %154 = getelementptr i32, ptr %.val192, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 120
+  %154 = getelementptr inbounds i32, ptr %.val192, i64 %153
+  %155 = getelementptr inbounds i8, ptr %154, i64 120
   br label %.sink.split
 
 156:                                              ; preds = %149
@@ -2208,8 +2208,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %159 = udiv i32 %.val186, 2560000
   %.val193 = load ptr, ptr %100, align 8
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr i32, ptr %.val193, i64 %160
-  %162 = getelementptr i8, ptr %161, i64 160
+  %161 = getelementptr inbounds i32, ptr %.val193, i64 %160
+  %162 = getelementptr inbounds i8, ptr %161, i64 160
   br label %.sink.split
 
 163:                                              ; preds = %156
@@ -2220,8 +2220,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %166 = udiv i32 %.val186, 25600000
   %.val194 = load ptr, ptr %100, align 8
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr i32, ptr %.val194, i64 %167
-  %169 = getelementptr i8, ptr %168, i64 200
+  %168 = getelementptr inbounds i32, ptr %.val194, i64 %167
+  %169 = getelementptr inbounds i8, ptr %168, i64 200
   br label %.sink.split
 
 170:                                              ; preds = %163
@@ -2232,8 +2232,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %173 = udiv i32 %.val186, 256000000
   %.val195 = load ptr, ptr %100, align 8
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr i32, ptr %.val195, i64 %174
-  %176 = getelementptr i8, ptr %175, i64 240
+  %175 = getelementptr inbounds i32, ptr %.val195, i64 %174
+  %176 = getelementptr inbounds i8, ptr %175, i64 240
   br label %.sink.split
 
 .sink.split:                                      ; preds = %132, %144, %158, %172, %165, %151, %137
@@ -2267,8 +2267,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %190 = udiv i8 %.lhs.trunc, 10
   %.val197 = load ptr, ptr %101, align 8
   %191 = zext nneg i8 %190 to i64
-  %192 = getelementptr i32, ptr %.val197, i64 %191
-  %193 = getelementptr i8, ptr %192, i64 40
+  %192 = getelementptr inbounds i32, ptr %.val197, i64 %191
+  %193 = getelementptr inbounds i8, ptr %192, i64 40
   br label %.sink.split342
 
 194:                                              ; preds = %187
@@ -2280,8 +2280,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %197 = udiv i16 %.lhs.trunc241, 100
   %.val198 = load ptr, ptr %101, align 8
   %198 = zext nneg i16 %197 to i64
-  %199 = getelementptr i32, ptr %.val198, i64 %198
-  %200 = getelementptr i8, ptr %199, i64 80
+  %199 = getelementptr inbounds i32, ptr %.val198, i64 %198
+  %200 = getelementptr inbounds i8, ptr %199, i64 80
   br label %.sink.split342
 
 201:                                              ; preds = %194
@@ -2293,8 +2293,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %204 = udiv i16 %.lhs.trunc243, 1000
   %.val199 = load ptr, ptr %101, align 8
   %205 = zext nneg i16 %204 to i64
-  %206 = getelementptr i32, ptr %.val199, i64 %205
-  %207 = getelementptr i8, ptr %206, i64 120
+  %206 = getelementptr inbounds i32, ptr %.val199, i64 %205
+  %207 = getelementptr inbounds i8, ptr %206, i64 120
   br label %.sink.split342
 
 208:                                              ; preds = %201
@@ -2305,8 +2305,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %211 = udiv i32 %125, 10000
   %.val200 = load ptr, ptr %101, align 8
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr i32, ptr %.val200, i64 %212
-  %214 = getelementptr i8, ptr %213, i64 160
+  %213 = getelementptr inbounds i32, ptr %.val200, i64 %212
+  %214 = getelementptr inbounds i8, ptr %213, i64 160
   br label %.sink.split342
 
 215:                                              ; preds = %208
@@ -2317,8 +2317,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %218 = udiv i32 %125, 100000
   %.val201 = load ptr, ptr %101, align 8
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr i32, ptr %.val201, i64 %219
-  %221 = getelementptr i8, ptr %220, i64 200
+  %220 = getelementptr inbounds i32, ptr %.val201, i64 %219
+  %221 = getelementptr inbounds i8, ptr %220, i64 200
   br label %.sink.split342
 
 222:                                              ; preds = %215
@@ -2329,8 +2329,8 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %225 = udiv i32 %125, 1000000
   %.val202 = load ptr, ptr %101, align 8
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr i32, ptr %.val202, i64 %226
-  %228 = getelementptr i8, ptr %227, i64 240
+  %227 = getelementptr inbounds i32, ptr %.val202, i64 %226
+  %228 = getelementptr inbounds i8, ptr %227, i64 240
   br label %.sink.split342
 
 .sink.split342:                                   ; preds = %184, %196, %210, %224, %217, %203, %189
@@ -2738,10 +2738,10 @@ define ptr @Gia_ManDupCofInt(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #28
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #28
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #25
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %19) #26
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %20
@@ -2753,10 +2753,10 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %20
   br i1 %.not.i149, label %Abc_UtilStrsav.exit150, label %28
 
 28:                                               ; preds = %Abc_UtilStrsav.exit
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #28
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #28
   %30 = add i64 %29, 1
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #25
-  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %27) #26
+  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %27) #26
   br label %Abc_UtilStrsav.exit150
 
 Abc_UtilStrsav.exit150:                           ; preds = %Abc_UtilStrsav.exit, %28

@@ -164,7 +164,7 @@ define dso_local void @acpi_numa_processor_affinity_init(ptr nocapture noundef r
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @x86_acpi_numa_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @x86_acpi_numa_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call i32 @acpi_numa_init() #3
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %7, label %3

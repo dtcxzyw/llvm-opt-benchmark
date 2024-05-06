@@ -240,7 +240,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_finalize_util() local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_finalize_util() local_unnamed_addr #3 {
   %1 = load i32, ptr @opal_util_initialized, align 4
   %2 = add nsw i32 %1, -1
   store i32 %2, ptr @opal_util_initialized, align 4

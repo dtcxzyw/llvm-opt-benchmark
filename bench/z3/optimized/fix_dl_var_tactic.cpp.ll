@@ -3071,8 +3071,8 @@ if.end.i36:                                       ; preds = %_ZNK3app13get_famil
   %42 = load i32, ptr %m_num_args.i.i37, align 8
   %idx.ext.i.i38 = zext i32 %42 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i38, 3
-  %43 = getelementptr i8, ptr %32, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %43, i64 32
+  %43 = getelementptr inbounds i8, ptr %32, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %43, i64 32
   %cmp.not10.i = icmp eq i32 %42, 0
   br i1 %cmp.not10.i, label %if.end34, label %for.body.preheader.i
 
@@ -3317,8 +3317,8 @@ if.end.i:                                         ; preds = %_ZN17fix_dl_var_tac
   %11 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %11 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %12 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %12, i64 32
+  %12 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %12, i64 32
   %cmp.not10.i = icmp eq i32 %11, 0
   br i1 %cmp.not10.i, label %if.end, label %for.body.i
 

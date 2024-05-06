@@ -432,7 +432,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.060.lcssa, label %.preheader, label %184
 
 .preheader:                                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %141 = trunc i8 %.058.lcssa to i1
+  %141 = trunc nuw i8 %.058.lcssa to i1
   br label %142
 
 142:                                              ; preds = %.preheader, %176
@@ -605,7 +605,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 188:                                              ; preds = %187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
-  %189 = trunc i8 %.058.lcssa to i1
+  %189 = trunc nuw i8 %.058.lcssa to i1
   br label %190
 
 190:                                              ; preds = %248, %188

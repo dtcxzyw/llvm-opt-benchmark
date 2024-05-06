@@ -67,7 +67,7 @@ define dso_local zeroext i1 @intel_gsc_uc_fw_init_done(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gsc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -48
   %5 = icmp ult i64 %2, 80
   br i1 %5, label %6, label %16

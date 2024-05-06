@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [7 x i8] c"highm1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -75,7 +75,7 @@ _valid_gpu_freq.exit.thread:                      ; preds = %16
   br i1 %.not20.i, label %24, label %28
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = call fastcc i32 @_test_val(ptr noundef nonnull %.01432.i), !range !6
+  %25 = call fastcc i32 @_test_val(ptr noundef nonnull %.01432.i)
   %.not21.i = icmp eq i32 %25, 0
   br i1 %.not21.i, label %.thread.i, label %26
 
@@ -92,14 +92,14 @@ _valid_gpu_freq.exit.thread:                      ; preds = %16
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %23, i64 1
-  %32 = call fastcc i32 @_test_val(ptr noundef nonnull %31), !range !6
+  %32 = call fastcc i32 @_test_val(ptr noundef nonnull %31)
   %.not24.i = icmp eq i32 %32, 0
   br i1 %.not24.i, label %.thread.i, label %_valid_gpu_freq.exit.thread20
 
 .thread.i:                                        ; preds = %30, %26, %24
   %33 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #6
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   call void @slurm_xfree(ptr noundef nonnull %3) #6
@@ -113,7 +113,7 @@ _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %34 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %4) #6
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.loopexit23, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit23, label %.lr.ph, !llvm.loop !8
 
 .loopexit23:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %_valid_gpu_freq.exit.thread20, %_valid_gpu_freq.exit.thread
   %.0 = phi i32 [ -1, %_valid_gpu_freq.exit.thread ], [ -1, %_valid_gpu_freq.exit.thread20 ], [ 0, %10 ], [ 0, %.loopexit ], [ -1, %.lr.ph ], [ -1, %14 ]
@@ -139,7 +139,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i32 @_test_val(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @_test_val(ptr noundef %0) unnamed_addr #4 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -221,7 +221,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

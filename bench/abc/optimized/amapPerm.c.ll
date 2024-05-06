@@ -712,7 +712,7 @@ Vec_IntFree.exit199:                              ; preds = %.critedge4, %205
   %211 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #9
   %212 = getelementptr inbounds i8, ptr %209, i64 8
   store ptr %211, ptr %212, align 8
-  tail call void @Amap_LibCollectFanins_rec(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %209)
+  tail call void @Amap_LibCollectFanins_rec(ptr noundef readonly %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %209)
   %.val158 = load i32, ptr %210, align 4
   %213 = load i32, ptr %15, align 4
   %214 = lshr i32 %213, 26
@@ -1509,7 +1509,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %5
 
 40:                                               ; preds = %.preheader26.us.us.i, %40
   %indvars.iv64.i = phi i64 [ 0, %.preheader26.us.us.i ], [ %indvars.iv.next65.i, %40 ]
-  %41 = trunc i64 %indvars.iv64.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %42 = and i32 %50, %41
   %.not.us.us.i = icmp ne i32 %42, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32
@@ -1730,7 +1730,7 @@ Kit_TruthNot.exit45:                              ; preds = %Kit_TruthNot.exit45
 
 select.unfold.i47:                                ; preds = %136, %Kit_TruthNot.exit45
   %indvars.iv.i48 = phi i64 [ %133, %Kit_TruthNot.exit45 ], [ %137, %136 ]
-  %134 = trunc i64 %indvars.iv.i48 to i32
+  %134 = trunc nuw i64 %indvars.iv.i48 to i32
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %136, label %Kit_TruthIsEqual.exit
 
@@ -1790,7 +1790,7 @@ Vec_PtrFree.exit53:                               ; preds = %Vec_PtrFree.exit, %
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, -2

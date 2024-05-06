@@ -711,7 +711,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_vfio_dma_map(ptr noundef %s, ptr noundef %host, i64 noundef %size, i1 noundef zeroext %temporary, ptr noundef %iova, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qemu_vfio_dma_map(ptr noundef %s, ptr noundef %host, i64 noundef %size, i1 noundef zeroext %temporary, ptr noundef %iova, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i93 = alloca %struct.timeval, align 8
   %_now.i.i.i53 = alloca %struct.timeval, align 8
@@ -2140,7 +2140,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_vfio_ram_block_added.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call = call i32 @qemu_vfio_dma_map(ptr noundef %add.ptr, ptr noundef %host, i64 noundef %max_size, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull %local_err), !range !15
+  %call = call i32 @qemu_vfio_dma_map(ptr noundef %add.ptr, ptr noundef %host, i64 noundef %max_size, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull %local_err)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2262,4 +2262,3 @@ attributes #19 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 -2147483648, i32 1}

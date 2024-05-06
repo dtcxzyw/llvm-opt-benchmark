@@ -378,7 +378,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %69 = phi i64 [ %48, %47 ], [ %64, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %70 = getelementptr inbounds i8, ptr %6, i64 96
   %71 = getelementptr inbounds i8, ptr %70, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %71, ptr noundef nonnull align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %71, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
   %72 = load i64, ptr %8, align 8
   %73 = add i64 %72, 3
   store i64 %73, ptr %8, align 8
@@ -685,7 +685,7 @@ buffer_append.exit21.i:                           ; preds = %dump_flush.exit.i.i
   %65 = phi i64 [ %42, %40 ], [ %60, %dump_flush.exit.i.i19.i ], [ 0, %dump_flush.exit.i.i19.thread.i ]
   %66 = getelementptr inbounds i8, ptr %1, i64 96
   %67 = getelementptr inbounds i8, ptr %66, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %67, ptr noundef nonnull align 1 dereferenceable(5) @.str.49, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %67, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.49, i64 5, i1 false)
   %68 = load i64, ptr %41, align 8
   %69 = add i64 %68, 5
   store i64 %69, ptr %41, align 8
@@ -841,7 +841,7 @@ buffer_append.exit.i.i:                           ; preds = %dump_flush.exit.i.i
   %143 = phi i64 [ %120, %RB_SYMBOL_P.exit.thread.i ], [ %138, %dump_flush.exit.i.i.i.i ], [ 0, %dump_flush.exit.i.i.thread.i.i ]
   %144 = getelementptr inbounds i8, ptr %1, i64 96
   %145 = getelementptr inbounds i8, ptr %144, i64 %143
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %145, ptr noundef nonnull align 1 dereferenceable(26) @.str.52, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(26) %145, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.52, i64 26, i1 false)
   %146 = load i64, ptr %119, align 8
   %147 = add i64 %146, 26
   store i64 %147, ptr %119, align 8
@@ -1054,7 +1054,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %250 = phi i64 [ %229, %227 ], [ %245, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %251 = getelementptr inbounds i8, ptr %1, i64 96
   %252 = getelementptr inbounds i8, ptr %251, i64 %250
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %252, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %252, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
   %253 = load i64, ptr %228, align 8
   %254 = add i64 %253, 11
   store i64 %254, ptr %228, align 8
@@ -1106,7 +1106,7 @@ dump_flush.exit.i.i231:                           ; preds = %261
 buffer_append.exit233:                            ; preds = %dump_flush.exit.i.i231.thread, %buffer_append.exit, %dump_flush.exit.i.i231
   %275 = phi i64 [ %255, %buffer_append.exit ], [ %270, %dump_flush.exit.i.i231 ], [ 0, %dump_flush.exit.i.i231.thread ]
   %276 = getelementptr inbounds i8, ptr %251, i64 %275
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %276, ptr noundef nonnull align 1 dereferenceable(10) @.str.4, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %276, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.4, i64 10, i1 false)
   %277 = load i64, ptr %228, align 8
   %278 = add i64 %277, 10
   store i64 %278, ptr %228, align 8
@@ -1182,7 +1182,7 @@ dump_flush.exit.i.i241:                           ; preds = %.sink.split.i.i.i23
 ruby_nonempty_memcpy.exit.i:                      ; preds = %dump_flush.exit.i.i241, %283
   %306 = phi i64 [ %278, %283 ], [ %301, %dump_flush.exit.i.i241 ]
   %307 = getelementptr inbounds i8, ptr %251, i64 %306
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull align 1 %.0.i448, i64 %282, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %307, ptr nonnull readonly align 1 %.0.i448, i64 %282, i1 false)
   %308 = load i64, ptr %228, align 8
   %309 = add i64 %308, %282
   store i64 %309, ptr %228, align 8
@@ -1289,7 +1289,7 @@ dump_flush.exit.i.i257:                           ; preds = %342
 buffer_append.exit259:                            ; preds = %dump_flush.exit.i.i257.thread, %buffer_append.exit251, %dump_flush.exit.i.i257
   %356 = phi i64 [ %336, %buffer_append.exit251 ], [ %351, %dump_flush.exit.i.i257 ], [ 0, %dump_flush.exit.i.i257.thread ]
   %357 = getelementptr inbounds i8, ptr %251, i64 %356
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %357, ptr noundef nonnull align 1 dereferenceable(13) @.str.6, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %357, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.6, i64 13, i1 false)
   %358 = load i64, ptr %228, align 8
   %359 = add i64 %358, 13
   store i64 %359, ptr %228, align 8
@@ -1341,7 +1341,7 @@ dump_flush.exit.i.i265:                           ; preds = %366
 buffer_append.exit267:                            ; preds = %dump_flush.exit.i.i265.thread, %buffer_append.exit259, %dump_flush.exit.i.i265
   %380 = phi i64 [ %360, %buffer_append.exit259 ], [ %375, %dump_flush.exit.i.i265 ], [ 0, %dump_flush.exit.i.i265.thread ]
   %381 = getelementptr inbounds i8, ptr %251, i64 %380
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %381, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(14) %381, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   %382 = load i64, ptr %228, align 8
   %383 = add i64 %382, 14
   store i64 %383, ptr %228, align 8
@@ -1400,7 +1400,7 @@ dump_flush.exit.i.i273:                           ; preds = %394
 buffer_append.exit275:                            ; preds = %dump_flush.exit.i.i273.thread, %387, %dump_flush.exit.i.i273
   %408 = phi i64 [ %388, %387 ], [ %403, %dump_flush.exit.i.i273 ], [ 0, %dump_flush.exit.i.i273.thread ]
   %409 = getelementptr inbounds i8, ptr %251, i64 %408
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %409, ptr noundef nonnull align 1 dereferenceable(10) @.str.8, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %409, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.8, i64 10, i1 false)
   %410 = load i64, ptr %228, align 8
   %411 = add i64 %410, 10
   store i64 %411, ptr %228, align 8
@@ -1461,7 +1461,7 @@ dump_flush.exit.i.i281:                           ; preds = %422
 buffer_append.exit283:                            ; preds = %dump_flush.exit.i.i281.thread, %415, %dump_flush.exit.i.i281
   %436 = phi i64 [ %416, %415 ], [ %431, %dump_flush.exit.i.i281 ], [ 0, %dump_flush.exit.i.i281.thread ]
   %437 = getelementptr inbounds i8, ptr %251, i64 %436
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %437, ptr noundef nonnull align 1 dereferenceable(15) @.str.9, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %437, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.9, i64 15, i1 false)
   %438 = load i64, ptr %228, align 8
   %439 = add i64 %438, 15
   store i64 %439, ptr %228, align 8
@@ -2059,7 +2059,7 @@ dump_flush.exit.i.i336:                           ; preds = %676
 buffer_append.exit338:                            ; preds = %dump_flush.exit.i.i336.thread, %669, %dump_flush.exit.i.i336
   %690 = phi i64 [ %670, %669 ], [ %685, %dump_flush.exit.i.i336 ], [ 0, %dump_flush.exit.i.i336.thread ]
   %691 = getelementptr inbounds i8, ptr %251, i64 %690
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %691, ptr noundef nonnull align 1 dereferenceable(10) @.str.39, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %691, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.39, i64 10, i1 false)
   %692 = load i64, ptr %228, align 8
   %693 = add i64 %692, 10
   store i64 %693, ptr %228, align 8
@@ -2123,7 +2123,7 @@ dump_flush.exit.i.i345:                           ; preds = %.sink.split.i.i.i34
 ruby_nonempty_memcpy.exit.i340:                   ; preds = %dump_flush.exit.i.i345, %696
   %719 = phi i64 [ %693, %696 ], [ %714, %dump_flush.exit.i.i345 ]
   %720 = getelementptr inbounds i8, ptr %251, i64 %719
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %720, ptr align 1 %694, i64 %695, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %720, ptr readonly align 1 %694, i64 %695, i1 false)
   %721 = load i64, ptr %228, align 8
   %722 = add i64 %721, %695
   store i64 %722, ptr %228, align 8
@@ -2237,7 +2237,7 @@ dump_flush.exit.i.i361:                           ; preds = %757
 buffer_append.exit363:                            ; preds = %dump_flush.exit.i.i361.thread, %750, %dump_flush.exit.i.i361
   %771 = phi i64 [ %751, %750 ], [ %766, %dump_flush.exit.i.i361 ], [ 0, %dump_flush.exit.i.i361.thread ]
   %772 = getelementptr inbounds i8, ptr %251, i64 %771
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %772, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(9) %772, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %773 = load i64, ptr %228, align 8
   %774 = add i64 %773, 9
   store i64 %774, ptr %228, align 8
@@ -2301,7 +2301,7 @@ dump_flush.exit.i.i369:                           ; preds = %788
 buffer_append.exit371:                            ; preds = %dump_flush.exit.i.i369.thread, %780, %dump_flush.exit.i.i369
   %802 = phi i64 [ %782, %780 ], [ %797, %dump_flush.exit.i.i369 ], [ 0, %dump_flush.exit.i.i369.thread ]
   %803 = getelementptr inbounds i8, ptr %251, i64 %802
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %803, ptr noundef nonnull align 1 dereferenceable(11) @.str.41, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %803, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.41, i64 11, i1 false)
   %804 = load i64, ptr %228, align 8
   %805 = add i64 %804, 11
   store i64 %805, ptr %228, align 8
@@ -2356,7 +2356,7 @@ dump_flush.exit.i.i377:                           ; preds = %813
 buffer_append.exit379:                            ; preds = %dump_flush.exit.i.i377.thread, %806, %dump_flush.exit.i.i377
   %827 = phi i64 [ %807, %806 ], [ %822, %dump_flush.exit.i.i377 ], [ 0, %dump_flush.exit.i.i377.thread ]
   %828 = getelementptr inbounds i8, ptr %251, i64 %827
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %828, ptr noundef nonnull align 1 dereferenceable(15) @.str.42, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %828, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.42, i64 15, i1 false)
   %829 = load i64, ptr %228, align 8
   %830 = add i64 %829, 15
   store i64 %830, ptr %228, align 8
@@ -2418,7 +2418,7 @@ dump_flush.exit.i.i385:                           ; preds = %842
 buffer_append.exit387:                            ; preds = %dump_flush.exit.i.i385.thread, %835, %dump_flush.exit.i.i385
   %856 = phi i64 [ %836, %835 ], [ %851, %dump_flush.exit.i.i385 ], [ 0, %dump_flush.exit.i.i385.thread ]
   %857 = getelementptr inbounds i8, ptr %251, i64 %856
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %857, ptr noundef nonnull align 1 dereferenceable(12) @.str.43, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %857, ptr noundef nonnull readonly align 1 dereferenceable(12) @.str.43, i64 12, i1 false)
   %858 = load i64, ptr %228, align 8
   %859 = add i64 %858, 12
   store i64 %859, ptr %228, align 8
@@ -2478,7 +2478,7 @@ dump_flush.exit.i.i393:                           ; preds = %868
 buffer_append.exit395:                            ; preds = %dump_flush.exit.i.i393.thread, %862, %dump_flush.exit.i.i393
   %882 = phi i64 [ %.pre558, %862 ], [ %877, %dump_flush.exit.i.i393 ], [ 0, %dump_flush.exit.i.i393.thread ]
   %883 = getelementptr inbounds i8, ptr %251, i64 %882
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %883, ptr noundef nonnull align 1 dereferenceable(11) @.str.44, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %883, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.44, i64 11, i1 false)
   %884 = load i64, ptr %228, align 8
   %885 = add i64 %884, 11
   store i64 %885, ptr %228, align 8
@@ -2602,7 +2602,7 @@ dump_flush.exit.i.i410:                           ; preds = %.sink.split.i.i.i40
 ruby_nonempty_memcpy.exit.i405:                   ; preds = %dump_flush.exit.i.i410, %918
   %940 = phi i64 [ %.pre557, %918 ], [ %935, %dump_flush.exit.i.i410 ]
   %941 = getelementptr inbounds i8, ptr %251, i64 %940
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %941, ptr align 1 %914, i64 %917, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %941, ptr readonly align 1 %914, i64 %917, i1 false)
   %942 = load i64, ptr %228, align 8
   %943 = add i64 %942, %917
   store i64 %943, ptr %228, align 8
@@ -2655,7 +2655,7 @@ dump_flush.exit.i.i418:                           ; preds = %949
 buffer_append.exit420:                            ; preds = %dump_flush.exit.i.i418.thread, %buffer_append.exit412, %dump_flush.exit.i.i418
   %963 = phi i64 [ %944, %buffer_append.exit412 ], [ %958, %dump_flush.exit.i.i418 ], [ 0, %dump_flush.exit.i.i418.thread ]
   %964 = getelementptr inbounds i8, ptr %251, i64 %963
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %964, ptr noundef nonnull align 1 dereferenceable(6) @.str.45, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %964, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.45, i64 6, i1 false)
   %965 = load i64, ptr %228, align 8
   %966 = add i64 %965, 6
   store i64 %966, ptr %228, align 8
@@ -2900,7 +2900,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %4, %dump_flush.exit
   %32 = phi i64 [ %6, %4 ], [ %27, %dump_flush.exit.i ]
   %33 = getelementptr inbounds i8, ptr %0, i64 96
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %34, ptr readonly align 1 %1, i64 %2, i1 false)
   %35 = load i64, ptr %5, align 8
   %36 = add i64 %35, %2
   store i64 %36, ptr %5, align 8
@@ -3017,7 +3017,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %dump_flush.exit.i.i
   %40 = phi i64 [ %14, %12 ], [ %35, %dump_flush.exit.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %0, i64 96
   %42 = getelementptr inbounds i8, ptr %41, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.ptr24.i, i64 %gepdiff25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %42, ptr nonnull readonly align 1 %.ptr24.i, i64 %gepdiff25.i, i1 false)
   %43 = load i64, ptr %13, align 8
   %44 = add i64 %43, %gepdiff25.i
   store i64 %44, ptr %13, align 8
@@ -3165,7 +3165,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %32 = phi i64 [ %9, %7 ], [ %27, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %33 = getelementptr inbounds i8, ptr %0, i64 96
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %34, ptr noundef nonnull align 1 dereferenceable(13) @.str.82, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %34, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.82, i64 13, i1 false)
   %35 = load i64, ptr %8, align 8
   %36 = add i64 %35, 13
   store i64 %36, ptr %8, align 8
@@ -3286,7 +3286,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %27 = phi i64 [ %4, %2 ], [ %22, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %29, ptr noundef nonnull align 1 dereferenceable(13) @.str.84, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %29, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.84, i64 13, i1 false)
   %30 = load i64, ptr %3, align 8
   %31 = add i64 %30, 13
   store i64 %31, ptr %3, align 8
@@ -3357,7 +3357,7 @@ dump_flush.exit.i.i25:                            ; preds = %49
 buffer_append.exit27:                             ; preds = %dump_flush.exit.i.i25.thread, %42, %dump_flush.exit.i.i25
   %64 = phi i64 [ %43, %42 ], [ %59, %dump_flush.exit.i.i25 ], [ 0, %dump_flush.exit.i.i25.thread ]
   %65 = getelementptr inbounds i8, ptr %28, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %65, ptr noundef nonnull align 1 dereferenceable(13) @.str.85, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %65, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.85, i64 13, i1 false)
   %66 = load i64, ptr %3, align 8
   %67 = add i64 %66, 13
   store i64 %67, ptr %3, align 8
@@ -3395,7 +3395,7 @@ RB_ENCODING_GET.exit:                             ; preds = %71, %77
   br i1 %.not.i28, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_ENCODING_GET.exit
-  %81 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %79) #12
+  %81 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %79) #12
   %.not3.i = icmp eq i32 %81, 0
   br i1 %.not3.i, label %82, label %rb_enc_asciicompat.exit.thread
 
@@ -3495,7 +3495,7 @@ dump_flush.exit.i.i35:                            ; preds = %104
 buffer_append.exit37:                             ; preds = %dump_flush.exit.i.i35.thread, %.thread, %dump_flush.exit.i.i35
   %119 = phi i64 [ %98, %.thread ], [ %114, %dump_flush.exit.i.i35 ], [ 0, %dump_flush.exit.i.i35.thread ]
   %120 = getelementptr inbounds i8, ptr %28, i64 %119
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull align 1 dereferenceable(10) @.str.86, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %120, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.86, i64 10, i1 false)
   %121 = load i64, ptr %3, align 8
   %122 = add i64 %121, 10
   store i64 %122, ptr %3, align 8
@@ -3883,7 +3883,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %35 = phi i64 [ %11, %12 ], [ %30, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %36 = getelementptr inbounds i8, ptr %1, i64 96
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull align 1 dereferenceable(16) @.str.91, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %37, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.91, i64 16, i1 false)
   br label %64
 
 38:                                               ; preds = %6
@@ -4197,7 +4197,7 @@ dump_flush.exit.i.i36:                            ; preds = %93
 buffer_append.exit38:                             ; preds = %dump_flush.exit.i.i36.thread, %88, %dump_flush.exit.i.i36
   %107 = phi i64 [ %43, %88 ], [ %102, %dump_flush.exit.i.i36 ], [ 0, %dump_flush.exit.i.i36.thread ]
   %108 = getelementptr inbounds i8, ptr %28, i64 %107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %108, ptr noundef nonnull align 1 dereferenceable(6) @.str.94, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %108, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.94, i64 6, i1 false)
   br label %dump_append_c.exit
 
 109:                                              ; preds = %42
@@ -4491,7 +4491,7 @@ dump_flush.exit.i.i78:                            ; preds = %219
 buffer_append.exit80:                             ; preds = %dump_flush.exit.i.i78.thread, %214, %dump_flush.exit.i.i78
   %233 = phi i64 [ %43, %214 ], [ %228, %dump_flush.exit.i.i78 ], [ 0, %dump_flush.exit.i.i78.thread ]
   %234 = getelementptr inbounds i8, ptr %28, i64 %233
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %234, ptr noundef nonnull align 1 dereferenceable(6) @.str.100, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %234, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.100, i64 6, i1 false)
   br label %dump_append_c.exit
 
 235:                                              ; preds = %42
@@ -4766,7 +4766,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %31 = phi i64 [ %8, %6 ], [ %26, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %32 = getelementptr inbounds i8, ptr %2, i64 96
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %33, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
   %34 = load i64, ptr %7, align 8
   %35 = add i64 %34, 3
   store i64 %35, ptr %7, align 8
@@ -4833,7 +4833,7 @@ buffer_append.exit30:                             ; preds = %dump_flush.exit.i.i
   %64 = phi i64 [ %40, %41 ], [ %59, %dump_flush.exit.i.i28 ], [ 0, %dump_flush.exit.i.i28.thread ]
   %65 = getelementptr inbounds i8, ptr %2, i64 96
   %66 = getelementptr inbounds i8, ptr %65, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %66, ptr noundef nonnull align 1 dereferenceable(24) @.str.103, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %66, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.103, i64 24, i1 false)
   %67 = load i64, ptr %39, align 8
   %68 = add i64 %67, 24
   store i64 %68, ptr %39, align 8
@@ -4897,7 +4897,7 @@ dump_flush.exit.i.i35:                            ; preds = %.sink.split.i.i.i33
 ruby_nonempty_memcpy.exit.i:                      ; preds = %dump_flush.exit.i.i35, %70
   %94 = phi i64 [ %68, %70 ], [ %89, %dump_flush.exit.i.i35 ]
   %95 = getelementptr inbounds i8, ptr %65, i64 %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %0, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %95, ptr readonly align 1 %0, i64 %69, i1 false)
   %96 = load i64, ptr %39, align 8
   %97 = add i64 %96, %69
   store i64 %97, ptr %39, align 8
@@ -4952,7 +4952,7 @@ dump_flush.exit.i.i43:                            ; preds = %104
 buffer_append.exit45:                             ; preds = %dump_flush.exit.i.i43.thread, %buffer_append.exit37, %dump_flush.exit.i.i43
   %119 = phi i64 [ %98, %buffer_append.exit37 ], [ %114, %dump_flush.exit.i.i43 ], [ 0, %dump_flush.exit.i.i43.thread ]
   %120 = getelementptr inbounds i8, ptr %65, i64 %119
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %120, ptr noundef nonnull align 1 dereferenceable(17) @.str.104, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(17) %120, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.104, i64 17, i1 false)
   br label %147
 
 121:                                              ; preds = %36
@@ -5087,7 +5087,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %33 = phi i64 [ %10, %8 ], [ %28, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
   %34 = getelementptr inbounds i8, ptr %1, i64 96
   %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %35, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %35, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
   %36 = load i64, ptr %9, align 8
   %37 = add i64 %36, 11
   store i64 %37, ptr %9, align 8
@@ -5141,7 +5141,7 @@ dump_flush.exit.i.i37:                            ; preds = %45
 buffer_append.exit39:                             ; preds = %dump_flush.exit.i.i37.thread, %buffer_append.exit, %dump_flush.exit.i.i37
   %60 = phi i64 [ %39, %buffer_append.exit ], [ %55, %dump_flush.exit.i.i37 ], [ 0, %dump_flush.exit.i.i37.thread ]
   %61 = getelementptr inbounds i8, ptr %34, i64 %60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %61, ptr noundef nonnull align 1 dereferenceable(23) @.str.105, i64 23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %61, ptr noundef nonnull readonly align 1 dereferenceable(23) @.str.105, i64 23, i1 false)
   %62 = load i64, ptr %9, align 8
   %63 = add i64 %62, 23
   store i64 %63, ptr %9, align 8
@@ -5200,7 +5200,7 @@ dump_flush.exit.i.i44:                            ; preds = %73
 buffer_append.exit46:                             ; preds = %dump_flush.exit.i.i44.thread, %66, %dump_flush.exit.i.i44
   %88 = phi i64 [ %67, %66 ], [ %83, %dump_flush.exit.i.i44 ], [ 0, %dump_flush.exit.i.i44.thread ]
   %89 = getelementptr inbounds i8, ptr %34, i64 %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %89, ptr noundef nonnull align 1 dereferenceable(14) @.str.106, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(14) %89, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.106, i64 14, i1 false)
   %90 = load i64, ptr %9, align 8
   %91 = add i64 %90, 14
   store i64 %91, ptr %9, align 8
@@ -5259,7 +5259,7 @@ dump_flush.exit.i.i51:                            ; preds = %102
 buffer_append.exit53:                             ; preds = %dump_flush.exit.i.i51.thread, %95, %dump_flush.exit.i.i51
   %117 = phi i64 [ %96, %95 ], [ %112, %dump_flush.exit.i.i51 ], [ 0, %dump_flush.exit.i.i51.thread ]
   %118 = getelementptr inbounds i8, ptr %34, i64 %117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %118, ptr noundef nonnull align 1 dereferenceable(10) @.str.107, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %118, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.107, i64 10, i1 false)
   %119 = load i64, ptr %9, align 8
   %120 = add i64 %119, 10
   store i64 %120, ptr %9, align 8
@@ -5313,7 +5313,7 @@ dump_flush.exit.i.i58:                            ; preds = %128
 buffer_append.exit60:                             ; preds = %dump_flush.exit.i.i58.thread, %buffer_append.exit53, %dump_flush.exit.i.i58
   %143 = phi i64 [ %122, %buffer_append.exit53 ], [ %138, %dump_flush.exit.i.i58 ], [ 0, %dump_flush.exit.i.i58.thread ]
   %144 = getelementptr inbounds i8, ptr %34, i64 %143
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %144, ptr noundef nonnull align 1 dereferenceable(15) @.str.108, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(15) %144, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.108, i64 15, i1 false)
   %145 = load i64, ptr %9, align 8
   %146 = add i64 %145, 15
   store i64 %146, ptr %9, align 8
@@ -5374,7 +5374,7 @@ dump_flush.exit.i.i65:                            ; preds = %154
 buffer_append.exit67:                             ; preds = %dump_flush.exit.i.i65.thread, %148, %dump_flush.exit.i.i65
   %169 = phi i64 [ %146, %148 ], [ %164, %dump_flush.exit.i.i65 ], [ 0, %dump_flush.exit.i.i65.thread ]
   %170 = getelementptr inbounds i8, ptr %34, i64 %169
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %170, ptr noundef nonnull align 1 dereferenceable(6) @.str.109, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %170, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.109, i64 6, i1 false)
   %171 = load i64, ptr %9, align 8
   %172 = add i64 %171, 6
   store i64 %172, ptr %9, align 8
@@ -5428,7 +5428,7 @@ dump_flush.exit.i.i72:                            ; preds = %179
 buffer_append.exit74:                             ; preds = %dump_flush.exit.i.i72.thread, %173, %dump_flush.exit.i.i72
   %194 = phi i64 [ %146, %173 ], [ %189, %dump_flush.exit.i.i72 ], [ 0, %dump_flush.exit.i.i72.thread ]
   %195 = getelementptr inbounds i8, ptr %34, i64 %194
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %195, ptr noundef nonnull align 1 dereferenceable(6) @.str.110, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %195, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.110, i64 6, i1 false)
   %196 = load i64, ptr %9, align 8
   %197 = add i64 %196, 6
   store i64 %197, ptr %9, align 8
@@ -5479,7 +5479,7 @@ dump_flush.exit.i.i79:                            ; preds = %203
 buffer_append.exit81:                             ; preds = %dump_flush.exit.i.i79.thread, %buffer_append.exit74, %dump_flush.exit.i.i79
   %218 = phi i64 [ %197, %buffer_append.exit74 ], [ %213, %dump_flush.exit.i.i79 ], [ 0, %dump_flush.exit.i.i79.thread ]
   %219 = getelementptr inbounds i8, ptr %34, i64 %218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %219, ptr noundef nonnull align 1 dereferenceable(13) @.str.111, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %219, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.111, i64 13, i1 false)
   %220 = load i64, ptr %9, align 8
   %221 = add i64 %220, 13
   store i64 %221, ptr %9, align 8
@@ -5591,7 +5591,7 @@ dump_flush.exit.i.i93:                            ; preds = %255
 buffer_append.exit95:                             ; preds = %dump_flush.exit.i.i93.thread, %249, %dump_flush.exit.i.i93
   %270 = phi i64 [ %146, %249 ], [ %265, %dump_flush.exit.i.i93 ], [ 0, %dump_flush.exit.i.i93.thread ]
   %271 = getelementptr inbounds i8, ptr %34, i64 %270
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %271, ptr noundef nonnull align 1 dereferenceable(10) @.str.113, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %271, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.113, i64 10, i1 false)
   %272 = load i64, ptr %9, align 8
   %273 = add i64 %272, 10
   store i64 %273, ptr %9, align 8
@@ -5645,7 +5645,7 @@ dump_flush.exit.i.i100:                           ; preds = %280
 buffer_append.exit102:                            ; preds = %dump_flush.exit.i.i100.thread, %274, %dump_flush.exit.i.i100
   %295 = phi i64 [ %146, %274 ], [ %290, %dump_flush.exit.i.i100 ], [ 0, %dump_flush.exit.i.i100.thread ]
   %296 = getelementptr inbounds i8, ptr %34, i64 %295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %296, ptr noundef nonnull align 1 dereferenceable(17) @.str.114, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(17) %296, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.114, i64 17, i1 false)
   %297 = load i64, ptr %9, align 8
   %298 = add i64 %297, 17
   store i64 %298, ptr %9, align 8
@@ -5704,7 +5704,7 @@ dump_flush.exit.i.i107:                           ; preds = %307
 buffer_append.exit109:                            ; preds = %dump_flush.exit.i.i107.thread, %300, %dump_flush.exit.i.i107
   %322 = phi i64 [ %301, %300 ], [ %317, %dump_flush.exit.i.i107 ], [ 0, %dump_flush.exit.i.i107.thread ]
   %323 = getelementptr inbounds i8, ptr %34, i64 %322
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %323, ptr noundef nonnull align 1 dereferenceable(10) @.str.116, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %323, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.116, i64 10, i1 false)
   %324 = load i64, ptr %9, align 8
   %325 = add i64 %324, 10
   store i64 %325, ptr %9, align 8
@@ -5758,7 +5758,7 @@ dump_flush.exit.i.i114:                           ; preds = %333
 buffer_append.exit116:                            ; preds = %dump_flush.exit.i.i114.thread, %buffer_append.exit109, %dump_flush.exit.i.i114
   %348 = phi i64 [ %327, %buffer_append.exit109 ], [ %343, %dump_flush.exit.i.i114 ], [ 0, %dump_flush.exit.i.i114.thread ]
   %349 = getelementptr inbounds i8, ptr %34, i64 %348
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %349, ptr noundef nonnull align 1 dereferenceable(12) @.str.43, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %349, ptr noundef nonnull readonly align 1 dereferenceable(12) @.str.43, i64 12, i1 false)
   %350 = load i64, ptr %9, align 8
   %351 = add i64 %350, 12
   store i64 %351, ptr %9, align 8

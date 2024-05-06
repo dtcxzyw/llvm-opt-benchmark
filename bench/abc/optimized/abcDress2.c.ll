@@ -26,20 +26,20 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Abc_ObjEquivId2ObjId(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 -536870912, 536870912) i32 @Abc_ObjEquivId2ObjId(i32 noundef %0) local_unnamed_addr #0 {
   %2 = ashr i32 %0, 2
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Abc_ObjEquivId2Polar(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @Abc_ObjEquivId2Polar(i32 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i32 %0, 1
   %3 = and i32 %2, 1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Abc_ObjEquivId2NtkId(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @Abc_ObjEquivId2NtkId(i32 noundef %0) local_unnamed_addr #0 {
   %2 = and i32 %0, 1
   ret i32 %2
 }
@@ -974,7 +974,7 @@ Vec_IntStart.exit137:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %132, label %133, label %172
 
 133:                                              ; preds = %129
-  %134 = trunc i64 %indvars.iv207 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv207 to i32
   %135 = shl i32 %134, 2
   %.val.i138 = load ptr, ptr %8, align 8
   %136 = getelementptr i8, ptr %.val.i138, i64 8
@@ -1068,7 +1068,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %178, label %179, label %.critedge4
 
 179:                                              ; preds = %175
-  %180 = trunc i64 %indvars.iv210 to i32
+  %180 = trunc nuw nsw i64 %indvars.iv210 to i32
   %181 = shl i32 %180, 2
   %.val.i140 = load ptr, ptr %39, align 8
   %182 = getelementptr i8, ptr %.val.i140, i64 8
@@ -1282,7 +1282,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i154, %Vec_P
 
 273:                                              ; preds = %270
   %274 = tail call ptr @Abc_ObjDressClass(ptr noundef nonnull %4, ptr noundef nonnull %calloc, i32 noundef %264)
-  %275 = trunc i64 %indvars.iv213 to i32
+  %275 = trunc nuw nsw i64 %indvars.iv213 to i32
   %276 = shl i32 %275, 2
   %.val.i158 = load ptr, ptr %8, align 8
   %277 = getelementptr i8, ptr %.val.i158, i64 8
@@ -1396,7 +1396,7 @@ Vec_IntPush.exit166:                              ; preds = %.Vec_IntGrow.exit10
 
 330:                                              ; preds = %327
   %331 = tail call ptr @Abc_ObjDressClass(ptr noundef nonnull %4, ptr noundef nonnull %calloc, i32 noundef %321)
-  %332 = trunc i64 %indvars.iv216 to i32
+  %332 = trunc nuw nsw i64 %indvars.iv216 to i32
   %333 = shl i32 %332, 2
   %.val.i167 = load ptr, ptr %39, align 8
   %334 = getelementptr i8, ptr %.val.i167, i64 8
@@ -1699,7 +1699,7 @@ define void @Abc_NtkDressPrintEquivs(ptr nocapture noundef readonly %0) local_un
   %.val17 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds ptr, ptr %.val17, i64 %indvars.iv27
   %7 = load ptr, ptr %6, align 8
-  %8 = trunc i64 %indvars.iv27 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv27 to i32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %8)
   %10 = getelementptr i8, ptr %7, i64 4
   %.val20 = load i32, ptr %10, align 4
@@ -1896,7 +1896,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1915,7 +1915,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2164,22 +2164,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
@@ -2207,9 +2207,9 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

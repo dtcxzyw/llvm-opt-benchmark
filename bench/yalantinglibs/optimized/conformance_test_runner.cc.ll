@@ -302,8 +302,8 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTINSt13__future_base12_Result_baseE = external constant ptr
 @_ZTINSt13__future_base7_ResultIlEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base7_ResultIlEE, ptr @_ZTINSt13__future_base12_Result_baseE }, comdat, align 8
 @_ZTIN10__cxxabiv115__forced_unwindE = external constant ptr
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @"_ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIlEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSD_mmEEEElEE" = internal constant [187 x i8] c"NSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIlEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSD_mmEEEElEE\00", align 1
 @"_ZTINSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIlEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSD_mmEEEElEE" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIlEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSD_mmEEEElEE" }, align 8
 @_ZTISt12future_error = external constant ptr
@@ -2939,7 +2939,7 @@ if.end:                                           ; preds = %invoke.cont10, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6google8protobuf14ForkPipeRunner3RunEiPPcRKSt6vectorIPNS0_20ConformanceTestSuiteESaIS6_EE(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %suites) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN6google8protobuf14ForkPipeRunner3RunEiPPcRKSt6vectorIPNS0_20ConformanceTestSuiteESaIS6_EE(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %suites) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i144 = alloca %"class.std::allocator", align 1
   %ref.tmp.i123 = alloca %"class.std::allocator", align 1
@@ -6388,7 +6388,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

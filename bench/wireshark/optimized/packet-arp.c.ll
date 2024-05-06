@@ -754,7 +754,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not362, label %87, label %85
 
 85:                                               ; preds = %83
-  %86 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %73, i32 noundef %70, ptr noundef nonnull %11), !range !4
+  %86 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %73, i32 noundef %70, ptr noundef nonnull %11)
   br label %87
 
 87:                                               ; preds = %83, %85, %77, %69
@@ -795,7 +795,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond383, label %107, label %105
 
 105:                                              ; preds = %102
-  %106 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %90, i32 noundef %88, ptr noundef nonnull %11), !range !4
+  %106 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %90, i32 noundef %88, ptr noundef nonnull %11)
   br label %107
 
 107:                                              ; preds = %87, %94, %105, %102, %64, %60, %51
@@ -2586,7 +2586,7 @@ define internal noundef i32 @address_hash_func(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @address_equal_func(ptr noundef readnone %0, ptr noundef readnone %1) #2 {
+define internal range(i32 0, 2) i32 @address_equal_func(ptr noundef readnone %0, ptr noundef readnone %1) #2 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -2602,7 +2602,7 @@ define internal i32 @duplicate_result_hash_func(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @duplicate_result_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @duplicate_result_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -2698,7 +2698,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare void @add_ether_byip(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct._address, align 8
   %8 = alloca %struct._address, align 8
   %9 = alloca i32, align 4
@@ -3105,4 +3105,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

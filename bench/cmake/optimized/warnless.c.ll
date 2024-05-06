@@ -16,13 +16,13 @@ define dso_local noundef zeroext i8 @curlx_ultouc(i64 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @curlx_uztoso(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @curlx_uztoso(i64 noundef %0) local_unnamed_addr #0 {
   %2 = and i64 %0, 9223372036854775807
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @curlx_uztosi(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, -2147483648) i32 @curlx_uztosi(i64 noundef %0) local_unnamed_addr #0 {
   %2 = trunc i64 %0 to i32
   %3 = and i32 %2, 2147483647
   ret i32 %3
@@ -40,7 +40,7 @@ define dso_local noundef i32 @curlx_uztoui(i64 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @curlx_sltosi(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, -2147483648) i32 @curlx_sltosi(i64 noundef %0) local_unnamed_addr #0 {
   %2 = trunc i64 %0 to i32
   %3 = and i32 %2, 2147483647
   ret i32 %3
@@ -59,7 +59,7 @@ define dso_local noundef zeroext i16 @curlx_sltous(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @curlx_uztosz(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @curlx_uztosz(i64 noundef %0) local_unnamed_addr #0 {
   %2 = and i64 %0, 9223372036854775807
   ret i64 %2
 }
@@ -70,7 +70,7 @@ define dso_local noundef i64 @curlx_sotouz(i64 noundef returned %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @curlx_sztosi(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, -2147483648) i32 @curlx_sztosi(i64 noundef %0) local_unnamed_addr #0 {
   %2 = trunc i64 %0 to i32
   %3 = and i32 %2, 2147483647
   ret i32 %3
@@ -83,7 +83,7 @@ define dso_local noundef zeroext i16 @curlx_uitous(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @curlx_sitouz(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @curlx_sitouz(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   ret i64 %2
 }

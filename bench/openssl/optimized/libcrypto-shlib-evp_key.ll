@@ -237,7 +237,7 @@ if.end74:                                         ; preds = %if.then72, %if.end6
   br i1 %cmp62.old, label %if.end77, label %if.end65
 
 if.end77.loopexit.split.loop.exit:                ; preds = %if.end65
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end74, %if.end77.loopexit.split.loop.exit, %for.end

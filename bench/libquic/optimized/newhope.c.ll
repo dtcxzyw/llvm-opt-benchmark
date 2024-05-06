@@ -61,7 +61,7 @@ declare void @newhope_poly_add(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @newhope_poly_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @NEWHOPE_client_compute_key(ptr noundef %key, ptr noundef %clientmsg, ptr noundef %servermsg, i64 noundef %msg_len) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %key, ptr noundef %clientmsg, ptr noundef %servermsg, i64 noundef %msg_len) local_unnamed_addr #4 {
 entry:
   %sp = alloca %struct.newhope_poly_st, align 32
   %ep = alloca %struct.newhope_poly_st, align 32
@@ -162,7 +162,7 @@ declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @SHA256_Final(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @NEWHOPE_server_compute_key(ptr noundef %key, ptr noundef %sk, ptr noundef %clientmsg, i64 noundef %msg_len) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %key, ptr noundef %sk, ptr noundef %clientmsg, i64 noundef %msg_len) local_unnamed_addr #4 {
 entry:
   %bp = alloca %struct.newhope_poly_st, align 32
   %v = alloca %struct.newhope_poly_st, align 32

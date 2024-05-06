@@ -279,7 +279,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.199 = private unnamed_addr constant [4 x i8] c"spl\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_ini_modify_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define hidden range(i32 -1, 1) i32 @phar_ini_modify_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
@@ -797,7 +797,7 @@ define hidden void @phar_metadata_tracker_free(ptr nocapture noundef %0, i32 nou
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_archive_delref(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @phar_archive_delref(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 324
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 256
@@ -1134,7 +1134,7 @@ define hidden noundef i32 @phar_entry_delref(ptr noundef %0) local_unnamed_addr 
 
 39:                                               ; preds = %32, %37, %4, %1
   %40 = load ptr, ptr %0, align 8
-  %41 = tail call i32 @phar_archive_delref(ptr noundef %40), !range !4
+  %41 = tail call i32 @phar_archive_delref(ptr noundef %40)
   tail call void @_efree(ptr noundef nonnull %0) #23
   ret i32 0
 }
@@ -2948,7 +2948,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = icmp ne ptr %7, null
   br i1 %10, label %11, label %12
@@ -3119,7 +3119,7 @@ declare void @php_var_serialize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @php_var_serialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_metadata_tracker_unserialize_or_copy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_metadata_tracker_unserialize_or_copy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %6
 
@@ -3503,12 +3503,12 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 14:                                               ; preds = %13, %8
   %15 = xor i1 %4, true
   %16 = zext i1 %15 to i32
-  %17 = call i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %16, i32 noundef 0, i32 noundef 1), !range !5
+  %17 = call i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %16, i32 noundef 0, i32 noundef 1)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %14
-  %20 = call i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %16, i32 noundef 1, i32 noundef 1), !range !5
+  %20 = call i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %16, i32 noundef 1, i32 noundef 1)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %30
 
@@ -3529,7 +3529,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
   br label %92
 
 30:                                               ; preds = %19, %14
-  %31 = call i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %10), !range !5
+  %31 = call i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %10)
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %59
 
@@ -3671,7 +3671,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
   br label %92
 
 90:                                               ; preds = %64, %85, %80
-  %91 = call i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7), !range !5
+  %91 = call i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
   br label %92
 
 92:                                               ; preds = %62, %63, %.thread113, %.thread, %39, %40, %22, %28, %26, %90, %87, %77, %50
@@ -3680,7 +3680,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   %8 = icmp ult i64 %1, 2
@@ -3972,7 +3972,7 @@ thread-pre-split:                                 ; preds = %9, %29
   %130 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #24
   store i64 %130, ptr %3, align 8
   %131 = load ptr, ptr %2, align 8
-  %132 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %131, i64 noundef %130, i32 noundef %4, i32 noundef %5), !range !5
+  %132 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %131, i64 noundef %130, i32 noundef %4, i32 noundef %5)
   %switch = icmp ne i32 %132, 0
   %. = sext i1 %switch to i32
   br label %.loopexit
@@ -3982,7 +3982,7 @@ thread-pre-split:                                 ; preds = %9, %29
   %135 = sub i64 %134, %126
   store i64 %135, ptr %3, align 8
   %136 = load ptr, ptr %2, align 8
-  %137 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %136, i64 noundef %135, i32 noundef %4, i32 noundef %5), !range !5
+  %137 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %136, i64 noundef %135, i32 noundef %4, i32 noundef %5)
   %switch214 = icmp eq i32 %137, 0
   br i1 %switch214, label %.loopexit, label %138
 
@@ -4010,7 +4010,7 @@ declare i32 @phar_open_or_create_zip(ptr noundef, i64 noundef, ptr noundef, i64 
 declare i32 @phar_open_or_create_tar(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca ptr, align 8
@@ -4263,7 +4263,7 @@ define hidden noundef i32 @phar_create_or_parse_filename(ptr noundef %0, i64 nou
   br i1 %.not150, label %.thread169, label %137
 
 137:                                              ; preds = %135
-  %138 = load ptr, ptr %136, align 8, !nonnull !6, !noundef !6
+  %138 = load ptr, ptr %136, align 8, !nonnull !4, !noundef !4
   %139 = call i32 @phar_free_alias(ptr noundef nonnull %138, ptr noundef nonnull %2, i64 noundef %3) #23
   %.not152 = icmp eq i32 %139, 0
   br i1 %.not152, label %.thread169, label %140
@@ -6230,7 +6230,7 @@ phar_strnstr.exit:                                ; preds = %172
   %901 = load ptr, ptr %887, align 8
   %902 = load i32, ptr %889, align 8
   %903 = zext i32 %902 to i64
-  %904 = call fastcc i32 @phar_validate_alias(ptr noundef %901, i64 noundef %903), !range !4
+  %904 = call fastcc i32 @phar_validate_alias(ptr noundef %901, i64 noundef %903)
   %.not1084.i = icmp eq i32 %904, 0
   br i1 %.not1084.i, label %905, label %914
 
@@ -6268,7 +6268,7 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %.not1087.i, label %.thread1154.i, label %916
 
 916:                                              ; preds = %914
-  %917 = load ptr, ptr %915, align 8, !nonnull !6, !noundef !6
+  %917 = load ptr, ptr %915, align 8, !nonnull !4, !noundef !4
   %918 = call i32 @phar_free_alias(ptr noundef nonnull %917, ptr noundef %.0946.i, i64 noundef %.0947.i) #23
   %.not1089.i = icmp eq i32 %918, 0
   br i1 %.not1089.i, label %.thread1154.i, label %919
@@ -6610,7 +6610,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
   %12 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.13) #24
   %.not = icmp eq ptr %12, null
   %spec.select = zext i1 %.not to i32
-  %13 = tail call i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %.not, i32 noundef %4, ptr noundef %5, ptr noundef %6), !range !5
+  %13 = tail call i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %.not, i32 noundef %4, ptr noundef %5, ptr noundef %6)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %56, label %15
 
@@ -6713,7 +6713,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp ugt i64 %2, 49
   br i1 %6, label %43, label %7
 
@@ -6756,7 +6756,7 @@ define internal fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 23:                                               ; preds = %20, %20, %20
-  %24 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4), !range !5
+  %24 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4)
   br label %43
 
 25:                                               ; preds = %7
@@ -6789,7 +6789,7 @@ define internal fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 36:                                               ; preds = %33
-  %37 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4), !range !5
+  %37 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4)
   br label %43
 
 38:                                               ; preds = %7
@@ -6802,7 +6802,7 @@ define internal fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 41:                                               ; preds = %38
-  %42 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4), !range !5
+  %42 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4)
   br label %43
 
 43:                                               ; preds = %30, %30, %30, %33, %33, %33, %38, %38, %38, %8, %11, %15, %20, %5, %41, %36, %23
@@ -7105,7 +7105,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_split_fname(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
@@ -7120,7 +7120,7 @@ define hidden noundef i32 @phar_split_fname(ptr noundef %0, i64 noundef %1, ptr 
   %.028.idx = select i1 %.not31, i64 7, i64 0
   %.028 = getelementptr inbounds i8, ptr %0, i64 %.028.idx
   store i64 0, ptr %10, align 8
-  %15 = call i32 @phar_detect_phar_fname_ext(ptr noundef %.028, i64 noundef %.029, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %6, i32 noundef %7, i32 noundef 0), !range !5
+  %15 = call i32 @phar_detect_phar_fname_ext(ptr noundef %.028, i64 noundef %.029, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %6, i32 noundef %7, i32 noundef 0)
   %16 = icmp eq i32 %15, -1
   %.pre = load i64, ptr %10, align 8
   br i1 %16, label %17, label %21
@@ -7206,7 +7206,7 @@ define hidden i32 @phar_open_executed_filename(ptr noundef %0, i64 noundef %1, p
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = tail call i32 @phar_open_parsed_phar(ptr noundef nonnull %12, i64 noundef %14, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false, i32 noundef 8, ptr noundef null, ptr noundef null), !range !5
+  %15 = tail call i32 @phar_open_parsed_phar(ptr noundef nonnull %12, i64 noundef %14, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false, i32 noundef 8, ptr noundef null, ptr noundef null)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %59, label %17
 
@@ -7307,7 +7307,7 @@ declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #1
 declare ptr @zend_get_constant_str(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_postprocess_file(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_postprocess_file(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._phar_zip_file_header, align 1
   %7 = alloca %struct._phar_zip_file_datadesc, align 1
@@ -7707,7 +7707,7 @@ declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readonly %0) #13 {
+define internal range(i32 0, 2) i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readonly %0) #13 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load i32, ptr %3, align 8
@@ -9814,7 +9814,7 @@ define internal fastcc void @phar_set_inode(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #17 {
   %3 = tail call ptr @memchr(ptr noundef %0, i32 noundef 47, i64 noundef %1) #24
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %16
@@ -9855,7 +9855,7 @@ declare i64 @zend_hash_func(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._php_stream_statbuf, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -10091,7 +10091,7 @@ define internal noundef i32 @phar_tmpclose_apply(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @phar_unalias_apply(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @phar_unalias_apply(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   %5 = zext i1 %4 to i32
@@ -10150,6 +10150,4 @@ attributes #29 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{}
+!4 = !{}

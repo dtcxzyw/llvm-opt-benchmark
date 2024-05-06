@@ -284,7 +284,7 @@ define internal i32 @dissect_mtp2_bitstream(ptr noundef %0, ptr noundef %1, ptr 
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 216
   %39 = load ptr, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 %35, ptr %33, align 8
   %40 = icmp eq i32 %37, 0
   br i1 %40, label %copy_address_wmem.exit, label %41
@@ -308,7 +308,7 @@ copy_address_wmem.exit:                           ; preds = %31, %41
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds i8, ptr %1, i64 240
   %53 = load ptr, ptr %52, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %49, ptr %48, align 8
   %54 = icmp eq i32 %51, 0
   br i1 %54, label %copy_address_wmem.exit166, label %55

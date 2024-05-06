@@ -621,7 +621,7 @@ define internal i32 @afavlab_setup(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef i32 @pci_hp_diva_init(ptr nocapture noundef readonly %0) #6 align 16 {
+define internal noundef range(i32 0, 5) i32 @pci_hp_diva_init(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 66
   %3 = load i16, ptr %2, align 2
   switch i16 %3, label %8 [
@@ -696,7 +696,7 @@ define internal i32 @pci_hp_diva_setup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_inteli960ni_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -19, 1) i32 @pci_inteli960ni_init(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 66
@@ -1116,7 +1116,7 @@ define internal void @pci_ite887x_exit(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_ni8420_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_ni8420_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 944
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 512
@@ -1201,7 +1201,7 @@ define internal void @pci_ni8420_exit(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_ni8430_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_ni8430_init(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.pci_bus_region, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 920
@@ -1738,7 +1738,7 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_plx9050_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_plx9050_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   %3 = getelementptr inbounds i8, ptr %0, i64 944
   %4 = load i64, ptr %3, align 8
@@ -1837,7 +1837,7 @@ define internal void @pci_plx9050_exit(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sbs_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sbs_init(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -1911,7 +1911,7 @@ define internal void @sbs_exit(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_siig_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @pci_siig_init(ptr noundef %0) #0 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 62
   %4 = load i16, ptr %3, align 2
@@ -2033,7 +2033,7 @@ define internal i32 @titan_400l_800l_setup(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_timedia_probe(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @pci_timedia_probe(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 66
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -2183,7 +2183,7 @@ define internal noundef i32 @pci_xircom_init(ptr nocapture readnone %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_netmos_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -19, 16) i32 @pci_netmos_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 66
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 15
@@ -2744,7 +2744,7 @@ define internal i32 @pci_wch_ch38x_setup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_wch_ch38x_init(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 9) i32 @pci_wch_ch38x_init(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 14419
@@ -2847,7 +2847,7 @@ define internal i32 @pci_brcm_trumanage_setup(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
   %2 = alloca [3 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 304
@@ -2979,7 +2979,7 @@ define internal i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_fintek_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i16, align 2
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
@@ -3018,7 +3018,7 @@ define internal noundef i32 @pci_fintek_setup(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_moxa_init(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 16) i32 @pci_moxa_init(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = getelementptr i8, ptr %0, i64 1048
@@ -3117,7 +3117,7 @@ define internal i32 @pci_moxa_setup(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_fintek_f815xxa_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -22, 256) i32 @pci_fintek_f815xxa_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 944
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 512
@@ -3165,7 +3165,7 @@ define internal i32 @pci_fintek_f815xxa_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_fintek_f815xxa_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_fintek_f815xxa_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 184
   %7 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef %6, i64 noundef 8, i32 noundef 3520) #17
@@ -3207,7 +3207,7 @@ declare dso_local i32 @serial8250_pci_setup_port(ptr noundef, ptr noundef, i8 no
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @kt_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 256) i32 @kt_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -3310,7 +3310,7 @@ declare dso_local i32 @ioread8(ptr noundef) local_unnamed_addr #3
 declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal i32 @pci_oxsemi_tornado_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 1
@@ -3706,13 +3706,13 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
 
 73:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, ptr noundef align 8 dereferenceable(24) %56, i64 24, i1 false)
-  %74 = call fastcc i32 @serial_pci_guess_board(ptr noundef %0, ptr noundef nonnull %3), !range !33
+  %74 = call fastcc i32 @serial_pci_guess_board(ptr noundef %0, ptr noundef nonnull %3)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %110, label %119
 
 76:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) @pci_boards, i64 24, i1 false)
-  %77 = call fastcc i32 @serial_pci_guess_board(ptr noundef %0, ptr noundef nonnull %3), !range !33
+  %77 = call fastcc i32 @serial_pci_guess_board(ptr noundef %0, ptr noundef nonnull %3)
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %110
 
@@ -3880,7 +3880,7 @@ declare dso_local i32 @pcim_enable_device(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @pci_save_state(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef i32 @serial_pci_guess_board(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 8
@@ -3924,7 +3924,7 @@ define internal fastcc noundef i32 @serial_pci_guess_board(ptr nocapture noundef
   %32 = add i32 %31, %17
   %33 = add nuw nsw i64 %14, 1
   %34 = icmp eq i64 %33, 6
-  br i1 %34, label %35, label %13, !llvm.loop !34
+  br i1 %34, label %35, label %13, !llvm.loop !33
 
 35:                                               ; preds = %13
   %36 = icmp slt i32 %32, 2
@@ -3992,7 +3992,7 @@ define internal fastcc noundef i32 @serial_pci_guess_board(ptr nocapture noundef
   %79 = phi i32 [ %52, %63 ], [ %52, %.preheader ], [ %52, %68 ], [ %77, %74 ], [ %52, %59 ]
   %80 = add nuw nsw i64 %51, 1
   %81 = icmp eq i64 %80, 6
-  br i1 %81, label %82, label %.preheader, !llvm.loop !35
+  br i1 %81, label %82, label %.preheader, !llvm.loop !34
 
 82:                                               ; preds = %.thread6
   %83 = icmp sgt i32 %78, 1
@@ -4015,7 +4015,7 @@ define internal fastcc noundef i32 @serial_pci_guess_board(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_io_error_detected(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 3, 5) i32 @serial8250_io_error_detected(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 3
@@ -4118,7 +4118,7 @@ define internal noundef i32 @serial8250_io_error_detected(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_io_slot_reset(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 4, 6) i32 @serial8250_io_slot_reset(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @pci_enable_device(ptr noundef %0) #14
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -4343,6 +4343,5 @@ attributes #17 = { nounwind allocsize(1) }
 !30 = distinct !{!30, !8, !6}
 !31 = distinct !{!31, !8, !6}
 !32 = distinct !{!32, !8, !6}
-!33 = !{i32 -19, i32 1}
+!33 = distinct !{!33, !8, !6}
 !34 = distinct !{!34, !8, !6}
-!35 = distinct !{!35, !8, !6}

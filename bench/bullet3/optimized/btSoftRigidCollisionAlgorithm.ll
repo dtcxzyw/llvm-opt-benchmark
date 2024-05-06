@@ -91,7 +91,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp eq i32 %2, %5
   br i1 %cmp, label %if.then, label %if.end
 

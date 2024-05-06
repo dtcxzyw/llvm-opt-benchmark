@@ -121,7 +121,7 @@ define dso_local void @hash_redo(ptr noundef %0) local_unnamed_addr #0 {
 BufferGetPage.exit.i:                             ; preds = %68, %62
   %.0.i.i.i = phi ptr [ %67, %62 ], [ %73, %68 ]
   %74 = lshr i64 %52, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw i64 %74 to i32
   store i32 %75, ptr %.0.i.i.i, align 4
   %76 = trunc i64 %52 to i32
   %77 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -173,7 +173,7 @@ hash_xlog_init_meta_page.exit:                    ; preds = %BufferGetPage.exit.
 BufferGetPage.exit.i15:                           ; preds = %95, %89
   %.0.i.i.i16 = phi ptr [ %94, %89 ], [ %100, %95 ]
   %101 = lshr i64 %83, 32
-  %102 = trunc i64 %101 to i32
+  %102 = trunc nuw i64 %101 to i32
   store i32 %102, ptr %.0.i.i.i16, align 4
   %103 = trunc i64 %83 to i32
   %104 = getelementptr inbounds i8, ptr %.0.i.i.i16, i64 4
@@ -307,7 +307,7 @@ BufferGetPage.exit.i18:                           ; preds = %161, %155
 
 174:                                              ; preds = %BufferGetPage.exit.i18
   %175 = lshr i64 %146, 32
-  %176 = trunc i64 %175 to i32
+  %176 = trunc nuw i64 %175 to i32
   store i32 %176, ptr %.0.i.i.i19, align 4
   %177 = trunc i64 %146 to i32
   %178 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 4
@@ -358,7 +358,7 @@ BufferGetPage.exit14.i:                           ; preds = %195, %189
   %203 = fadd double %202, 1.000000e+00
   store double %203, ptr %201, align 8
   %204 = lshr i64 %146, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %.0.i.i13.i, align 4
   %206 = trunc i64 %146 to i32
   %207 = getelementptr inbounds i8, ptr %.0.i.i13.i, i64 4
@@ -426,7 +426,7 @@ BufferGetPage.exit.i20:                           ; preds = %227, %221
   %237 = load i32, ptr %34, align 4
   store i32 %237, ptr %236, align 4
   %238 = lshr i64 %214, 32
-  %239 = trunc i64 %238 to i32
+  %239 = trunc nuw i64 %238 to i32
   store i32 %239, ptr %.0.i.i.i21, align 4
   %240 = trunc i64 %214 to i32
   %241 = getelementptr inbounds i8, ptr %.0.i.i.i21, i64 4
@@ -735,7 +735,7 @@ BufferGetPage.exit.i25:                           ; preds = %402, %396
   %415 = load i32, ptr %390, align 4
   store i32 %415, ptr %411, align 4
   %416 = lshr i64 %388, 32
-  %417 = trunc i64 %416 to i32
+  %417 = trunc nuw i64 %416 to i32
   store i32 %417, ptr %.0.i.i.i26, align 4
   %418 = trunc i64 %388 to i32
   %419 = getelementptr inbounds i8, ptr %.0.i.i.i26, i64 4
@@ -777,7 +777,7 @@ BufferGetPage.exit.i25:                           ; preds = %402, %396
 BufferGetPage.exit42.i:                           ; preds = %437, %431
   %.0.i.i41.i = phi ptr [ %436, %431 ], [ %442, %437 ]
   %443 = lshr i64 %388, 32
-  %444 = trunc i64 %443 to i32
+  %444 = trunc nuw i64 %443 to i32
   store i32 %444, ptr %.0.i.i41.i, align 4
   %445 = trunc i64 %388 to i32
   %446 = getelementptr inbounds i8, ptr %.0.i.i41.i, i64 4
@@ -976,7 +976,7 @@ BufferGetPage.exit.i32:                           ; preds = %534, %528
   %545 = getelementptr inbounds i8, ptr %543, i64 12
   store i16 %544, ptr %545, align 4
   %546 = lshr i64 %520, 32
-  %547 = trunc i64 %546 to i32
+  %547 = trunc nuw i64 %546 to i32
   store i32 %547, ptr %.0.i.i.i33, align 4
   %548 = trunc i64 %520 to i32
   %549 = getelementptr inbounds i8, ptr %.0.i.i.i33, i64 4
@@ -1032,7 +1032,7 @@ BufferGetPage.exit21.i30:                         ; preds = %566, %560
   %578 = getelementptr inbounds i8, ptr %575, i64 12
   store i16 %577, ptr %578, align 4
   %579 = lshr i64 %520, 32
-  %580 = trunc i64 %579 to i32
+  %580 = trunc nuw i64 %579 to i32
   store i32 %580, ptr %.0.i.i20.i31, align 4
   %581 = trunc i64 %520 to i32
   %582 = getelementptr inbounds i8, ptr %.0.i.i20.i31, i64 4
@@ -1162,7 +1162,7 @@ BufferGetPage.exit.i40:                           ; preds = %612, %606
 
 .loopexit.i:                                      ; preds = %640, %619, %BufferGetPage.exit.i40
   %647 = lshr i64 %589, 32
-  %648 = trunc i64 %647 to i32
+  %648 = trunc nuw i64 %647 to i32
   store i32 %648, ptr %.0.i.i.i41, align 4
   %649 = trunc i64 %589 to i32
   %650 = getelementptr inbounds i8, ptr %.0.i.i.i41, i64 4
@@ -1216,7 +1216,7 @@ BufferGetPage.exit46.i38:                         ; preds = %665, %659
 
 677:                                              ; preds = %675, %672, %BufferGetPage.exit46.i38
   %678 = lshr i64 %589, 32
-  %679 = trunc i64 %678 to i32
+  %679 = trunc nuw i64 %678 to i32
   store i32 %679, ptr %.0.i.i45.i39, align 4
   %680 = trunc i64 %589 to i32
   %681 = getelementptr inbounds i8, ptr %.0.i.i45.i39, i64 4
@@ -1402,7 +1402,7 @@ BufferGetPage.exit.i45:                           ; preds = %724, %718
 
 771:                                              ; preds = %763, %.loopexit.i47
   %772 = lshr i64 %694, 32
-  %773 = trunc i64 %772 to i32
+  %773 = trunc nuw i64 %772 to i32
   store i32 %773, ptr %.0.i.i.i46, align 4
   %774 = trunc i64 %694 to i32
   %775 = getelementptr inbounds i8, ptr %.0.i.i.i46, i64 4
@@ -1454,7 +1454,7 @@ BufferGetPage.exit82.i:                           ; preds = %788, %782
   %801 = getelementptr inbounds i8, ptr %797, i64 14
   store i16 -128, ptr %801, align 2
   %802 = lshr i64 %694, 32
-  %803 = trunc i64 %802 to i32
+  %803 = trunc nuw i64 %802 to i32
   store i32 %803, ptr %.0.i.i81.i, align 4
   %804 = trunc i64 %694 to i32
   %805 = getelementptr inbounds i8, ptr %.0.i.i81.i, i64 4
@@ -1515,7 +1515,7 @@ BufferGetPage.exit84.i:                           ; preds = %826, %820
   %838 = getelementptr inbounds i8, ptr %835, i64 4
   store i32 %837, ptr %838, align 4
   %839 = lshr i64 %694, 32
-  %840 = trunc i64 %839 to i32
+  %840 = trunc nuw i64 %839 to i32
   store i32 %840, ptr %.0.i.i83.i, align 4
   %841 = trunc i64 %694 to i32
   %842 = getelementptr inbounds i8, ptr %.0.i.i83.i, i64 4
@@ -1581,7 +1581,7 @@ BufferGetPage.exit86.i:                           ; preds = %868, %862
   %878 = load i32, ptr %696, align 4
   store i32 %878, ptr %877, align 4
   %879 = lshr i64 %694, 32
-  %880 = trunc i64 %879 to i32
+  %880 = trunc nuw i64 %879 to i32
   store i32 %880, ptr %.0.i.i85.i, align 4
   %881 = trunc i64 %694 to i32
   %882 = getelementptr inbounds i8, ptr %.0.i.i85.i, i64 4
@@ -1658,7 +1658,7 @@ BufferGetPage.exit88.i:                           ; preds = %905, %899
   %921 = and i32 %920, %916
   store i32 %921, ptr %919, align 4
   %922 = lshr i64 %694, 32
-  %923 = trunc i64 %922 to i32
+  %923 = trunc nuw i64 %922 to i32
   store i32 %923, ptr %.0.i.i87.i, align 4
   %924 = trunc i64 %694 to i32
   %925 = getelementptr inbounds i8, ptr %.0.i.i87.i, i64 4
@@ -1722,7 +1722,7 @@ BufferGetPage.exit90.i:                           ; preds = %952, %946
   %959 = getelementptr i8, ptr %.0.i.i89.i, i64 64
   store i32 %958, ptr %959, align 8
   %960 = lshr i64 %694, 32
-  %961 = trunc i64 %960 to i32
+  %961 = trunc nuw i64 %960 to i32
   store i32 %961, ptr %.0.i.i89.i, align 4
   %962 = trunc i64 %694 to i32
   %963 = getelementptr inbounds i8, ptr %.0.i.i89.i, i64 4
@@ -1837,7 +1837,7 @@ BufferGetPage.exit.i53:                           ; preds = %993, %987
 
 1016:                                             ; preds = %1008, %1005
   %1017 = lshr i64 %970, 32
-  %1018 = trunc i64 %1017 to i32
+  %1018 = trunc nuw i64 %1017 to i32
   store i32 %1018, ptr %.0.i.i.i54, align 4
   %1019 = trunc i64 %970 to i32
   %1020 = getelementptr inbounds i8, ptr %.0.i.i.i54, i64 4
@@ -1910,7 +1910,7 @@ BufferGetPage.exit.i57:                           ; preds = %1042, %1036
   %1054 = and i16 %1053, -65
   store i16 %1054, ptr %1052, align 4
   %1055 = lshr i64 %1030, 32
-  %1056 = trunc i64 %1055 to i32
+  %1056 = trunc nuw i64 %1055 to i32
   store i32 %1056, ptr %.0.i.i.i58, align 4
   %1057 = trunc i64 %1030 to i32
   %1058 = getelementptr inbounds i8, ptr %.0.i.i.i58, i64 4
@@ -1969,7 +1969,7 @@ BufferGetPage.exit.i60:                           ; preds = %1079, %1073
   %1086 = getelementptr i8, ptr %.0.i.i.i61, i64 32
   store double %1085, ptr %1086, align 8
   %1087 = lshr i64 %1065, 32
-  %1088 = trunc i64 %1087 to i32
+  %1088 = trunc nuw i64 %1087 to i32
   store i32 %1088, ptr %.0.i.i.i61, align 4
   %1089 = trunc i64 %1065 to i32
   %1090 = getelementptr inbounds i8, ptr %.0.i.i.i61, i64 4
@@ -2057,7 +2057,7 @@ BufferGetPage.exit.i66:                           ; preds = %1120, %1114
   %1135 = and i16 %1134, -129
   store i16 %1135, ptr %1133, align 4
   %1136 = lshr i64 %1097, 32
-  %1137 = trunc i64 %1136 to i32
+  %1137 = trunc nuw i64 %1136 to i32
   store i32 %1137, ptr %.0.i.i.i67, align 4
   %1138 = trunc i64 %1097 to i32
   %1139 = getelementptr inbounds i8, ptr %.0.i.i.i67, i64 4
@@ -2111,7 +2111,7 @@ BufferGetPage.exit21.i64:                         ; preds = %1156, %1150
   %1167 = fsub double %1166, %1164
   store double %1167, ptr %1165, align 8
   %1168 = lshr i64 %1097, 32
-  %1169 = trunc i64 %1168 to i32
+  %1169 = trunc nuw i64 %1168 to i32
   store i32 %1169, ptr %.0.i.i20.i65, align 4
   %1170 = trunc i64 %1097 to i32
   %1171 = getelementptr inbounds i8, ptr %.0.i.i20.i65, i64 4

@@ -59,7 +59,7 @@ define dso_local noundef zeroext i1 @context_set_module_from_filename(ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.preheader.i, label %._crit_edge.i

@@ -55,7 +55,7 @@ define void @ompi_type_match_size_f(ptr nocapture noundef readonly %0, ptr nocap
   br label %19
 
 switch.lookup:                                    ; preds = %13
-  %switch.idx.cast = trunc i32 %switch.tableidx to i16
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i16
   %switch.idx.mult = shl nuw nsw i16 %switch.idx.cast, 12
   %switch.offset = add nuw nsw i16 %switch.idx.mult, 4096
   %17 = tail call ptr @ompi_datatype_match_size(i32 noundef %5, i16 noundef zeroext %switch.offset, i16 noundef zeroext -16384) #2

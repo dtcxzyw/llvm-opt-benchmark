@@ -25,7 +25,7 @@ define void @Init_core_ext(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @int_bignum_p(i64 %0, i64 noundef %1) #2 {
+define internal range(i64 0, 21) i64 @int_bignum_p(i64 %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
@@ -46,7 +46,7 @@ define internal i64 @int_bignum_p(i64 %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @int_fixnum_p(i64 %0, i64 noundef %1) #3 {
+define internal noundef range(i64 0, 21) i64 @int_fixnum_p(i64 %0, i64 noundef %1) #3 {
   %3 = and i64 %1, 1
   %.not = icmp eq i64 %3, 0
   %4 = select i1 %.not, i64 0, i64 20

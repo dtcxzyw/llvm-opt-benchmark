@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [16 x i8] c" } at level %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -41,7 +41,7 @@ define i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @Msat_IntVecReadSize(ptr noundef %19) #6
   tail call void @Msat_IntVecPush(ptr noundef %17, i32 noundef %20) #6
-  %21 = tail call i32 @Msat_SolverEnqueue(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null), !range !4
+  %21 = tail call i32 @Msat_SolverEnqueue(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null)
   ret i32 %21
 }
 
@@ -55,7 +55,7 @@ declare void @Msat_IntVecPush(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Msat_SolverEnqueue(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Msat_SolverEnqueue(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ashr i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -220,13 +220,13 @@ define void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef %1) local_unname
 Msat_SolverUndoOne.exit.i:                        ; preds = %52, %.lr.ph.i
   %61 = add nsw i32 %.017.i, -1
   %.not15.i = icmp eq i32 %61, 0
-  br i1 %.not15.i, label %Msat_SolverCancel.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not15.i, label %Msat_SolverCancel.exit, label %.lr.ph.i, !llvm.loop !4
 
 Msat_SolverCancel.exit:                           ; preds = %Msat_SolverUndoOne.exit.i, %34
   %62 = load ptr, ptr %3, align 8
   %63 = tail call i32 @Msat_IntVecReadSize(ptr noundef %62) #6
   %64 = icmp sgt i32 %63, %1
-  br i1 %64, label %13, label %._crit_edge, !llvm.loop !7
+  br i1 %64, label %13, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %Msat_SolverCancel.exit, %2
   ret void
@@ -292,7 +292,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %.lr.ph
   %31 = load ptr, ptr %25, align 8
-  %32 = call i32 @Msat_SolverEnqueue(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %31), !range !4
+  %32 = call i32 @Msat_SolverEnqueue(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %31)
   %.not52 = icmp eq i32 %32, 0
   br i1 %.not52, label %38, label %33
 
@@ -305,7 +305,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br label %61
 
 38:                                               ; preds = %30
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = load ptr, ptr %25, align 8
   %41 = icmp sgt i32 %19, %39
   br i1 %41, label %.lr.ph67.preheader, label %._crit_edge68
@@ -324,10 +324,10 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %44, ptr %45, align 8
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !8
+  br i1 %exitcond92.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !7
 
 ._crit_edge68.loopexit:                           ; preds = %.lr.ph67
-  %46 = trunc i64 %indvars.iv.next84 to i32
+  %46 = trunc nsw i64 %indvars.iv.next84 to i32
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %38
@@ -362,7 +362,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   %.2 = phi i32 [ %.04661, %51 ], [ %58, %56 ], [ %35, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %61, %12
   %.046.lcssa = phi i32 [ 0, %12 ], [ %.2, %61 ]
@@ -371,7 +371,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   %63 = load ptr, ptr %5, align 8
   %64 = call i32 @Msat_QueueExtract(ptr noundef %63) #6
   %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %12, label %.loopexit, !llvm.loop !10
+  br i1 %65, label %12, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %._crit_edge68
   %.0 = phi ptr [ %40, %._crit_edge68 ], [ null, %1 ], [ null, %._crit_edge ]
@@ -393,7 +393,7 @@ declare void @Msat_QueueClear(ptr noundef) local_unnamed_addr #2
 declare void @Msat_ClauseVecPush(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Msat_SolverPropagate(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %22
@@ -446,13 +446,13 @@ define noundef i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_addr #0 
   %.2 = phi i32 [ %.138, %14 ], [ %19, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %5
   %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %20 ]
   %.1.lcssa = phi i32 [ %.041, %5 ], [ %.2, %20 ]
   tail call void @Msat_ClauseVecShrink(ptr noundef %6, i32 noundef %.030.lcssa) #6
-  br i1 %.not34, label %5, label %21, !llvm.loop !12
+  br i1 %.not34, label %5, label %21, !llvm.loop !11
 
 21:                                               ; preds = %._crit_edge
   store i32 %.1.lcssa, ptr %0, align 8
@@ -492,7 +492,7 @@ define void @Msat_SolverRemoveLearned(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %9, i32 noundef 1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %10 = load ptr, ptr %2, align 8
@@ -519,7 +519,7 @@ define void @Msat_SolverRemoveLearned(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load i32, ptr %14, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next22, %22
-  br i1 %23, label %18, label %._crit_edge19, !llvm.loop !14
+  br i1 %23, label %18, label %._crit_edge19, !llvm.loop !13
 
 ._crit_edge19:                                    ; preds = %18, %._crit_edge
   ret void
@@ -549,7 +549,7 @@ define void @Msat_SolverRemoveMarked(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %7, align 4
@@ -578,7 +578,7 @@ define void @Msat_SolverRemoveMarked(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %22, i32 noundef 1) #6
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !16
+  br i1 %exitcond30.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !15
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
   %23 = load ptr, ptr %15, align 8
@@ -590,7 +590,7 @@ define void @Msat_SolverRemoveMarked(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load i64, ptr %7, align 8
@@ -650,7 +650,7 @@ define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 nounde
   %48 = load i32, ptr %17, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %41, label %.preheader, !llvm.loop !17
+  br i1 %50, label %41, label %.preheader, !llvm.loop !16
 
 51:                                               ; preds = %.outer, %226
   %52 = call ptr @Msat_SolverPropagate(ptr noundef nonnull %0)
@@ -765,7 +765,7 @@ define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 nounde
   %.2.i = phi i32 [ %.16680.i, %.lr.ph.i ], [ %98, %97 ], [ %.16680.i, %99 ], [ %.16680.i, %101 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !17
 
 107:                                              ; preds = %107, %.preheader.i
   %.1.i = phi i32 [ %109, %107 ], [ %.0.i, %.preheader.i ]
@@ -779,7 +779,7 @@ define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 nounde
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %28, align 8
   %.not.i = icmp eq i32 %115, %116
-  br i1 %.not.i, label %117, label %107, !llvm.loop !19
+  br i1 %.not.i, label %117, label %107, !llvm.loop !18
 
 117:                                              ; preds = %107
   %118 = load ptr, ptr %29, align 8
@@ -787,7 +787,7 @@ define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 nounde
   %120 = load ptr, ptr %119, align 8
   %121 = add nsw i32 %.166.lcssa.i, -1
   %122 = icmp sgt i32 %.166.lcssa.i, 1
-  br i1 %122, label %77, label %123, !llvm.loop !20
+  br i1 %122, label %77, label %123, !llvm.loop !19
 
 123:                                              ; preds = %117
   %124 = xor i32 %110, 1
@@ -823,7 +823,7 @@ define noundef i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 nounde
   %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %138, i32 noundef %140)
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count89.i
-  br i1 %exitcond90.not.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !21
+  br i1 %exitcond90.not.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph82.i, %126
   %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.189)
@@ -838,7 +838,7 @@ Msat_SolverAnalyze.exit:                          ; preds = %123, %._crit_edge.i
   %145 = call i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %144, i32 noundef 1, ptr noundef nonnull %6) #6
   %146 = call i32 @Msat_IntVecReadEntry(ptr noundef %144, i32 noundef 0) #6
   %147 = load ptr, ptr %6, align 8
-  %148 = call i32 @Msat_SolverEnqueue(ptr noundef %0, i32 noundef %146, ptr noundef %147), !range !4
+  %148 = call i32 @Msat_SolverEnqueue(ptr noundef %0, i32 noundef %146, ptr noundef %147)
   %149 = load ptr, ptr %6, align 8
   %.not.i76 = icmp eq ptr %149, null
   br i1 %.not.i76, label %Msat_SolverRecord.exit, label %150
@@ -929,7 +929,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %.136.i = phi i32 [ %182, %181 ], [ %.03538.i, %180 ]
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i81
-  br i1 %exitcond.not.i85, label %.preheader.i77, label %.lr.ph.i82, !llvm.loop !22
+  br i1 %exitcond.not.i85, label %.preheader.i77, label %.lr.ph.i82, !llvm.loop !21
 
 .lr.ph43.i:                                       ; preds = %201, %.lr.ph43.preheader.i
   %indvars.iv46.i = phi i64 [ %175, %.lr.ph43.preheader.i ], [ %indvars.iv.next47.i, %201 ]
@@ -964,7 +964,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %.3.i = phi i32 [ %198, %196 ], [ %.241.i, %194 ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
-  br i1 %exitcond50.not.i, label %Msat_SolverReduceDB.exit, label %.lr.ph43.i, !llvm.loop !23
+  br i1 %exitcond50.not.i, label %Msat_SolverReduceDB.exit, label %.lr.ph43.i, !llvm.loop !22
 
 Msat_SolverReduceDB.exit:                         ; preds = %201, %.preheader.i77
   %.2.lcssa.i = phi i32 [ %.035.lcssa.i, %.preheader.i77 ], [ %.3.i, %201 ]
@@ -1014,7 +1014,7 @@ Msat_SolverReduceDB.exit:                         ; preds = %201, %.preheader.i7
   %228 = add nsw i64 %227, 1
   store i64 %228, ptr %40, align 8
   %229 = shl nsw i32 %205, 1
-  %230 = call i32 @Msat_SolverAssume(ptr noundef nonnull %0, i32 noundef %229), !range !4
+  %230 = call i32 @Msat_SolverAssume(ptr noundef nonnull %0, i32 noundef %229)
   br label %51
 
 .loopexit.sink.split:                             ; preds = %220, %207, %216
@@ -1089,23 +1089,22 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

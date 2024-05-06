@@ -185,7 +185,7 @@ declare void @abort() local_unnamed_addr #4
 declare noundef zeroext i1 @_ZNK2v815ArrayBufferView9HasBufferEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node4utilL19FastGuessHandleTypeEN2v85LocalINS1_5ValueEEEj(ptr nocapture readnone %receiver.coerce, i32 noundef %fd) #3 {
+define internal noundef range(i32 0, 6) i32 @_ZN4node4utilL19FastGuessHandleTypeEN2v85LocalINS1_5ValueEEEj(ptr nocapture readnone %receiver.coerce, i32 noundef %fd) #3 {
 entry:
   %call = tail call i32 @uv_guess_handle(i32 noundef %fd) #14
   switch i32 %call, label %do.body.i [
@@ -1339,7 +1339,7 @@ if.end:                                           ; preds = %entry
   %arrayinit.element = getelementptr inbounds i8, ptr %ret, i64 8
   %call.i12 = tail call i64 @_ZNK2v810StackFrame11GetLocationEv(ptr noundef nonnull align 1 dereferenceable(1) %call7) #14
   %ref.tmp.sroa.1.0.extract.shift.i = lshr i64 %call.i12, 32
-  %ref.tmp.sroa.1.0.extract.trunc.i = trunc i64 %ref.tmp.sroa.1.0.extract.shift.i to i32
+  %ref.tmp.sroa.1.0.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift.i to i32
   %add.i13 = add nsw i32 %ref.tmp.sroa.1.0.extract.trunc.i, 1
   %call23 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %1, i32 noundef %add.i13) #14
   store ptr %call23, ptr %arrayinit.element, align 8
@@ -1990,7 +1990,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call2.i = tail call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %18) #14
   %call13 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, ptr %call2.i) #14
   %ref.tmp.sroa.322.0.extract.shift = lshr i64 %call13, 32
-  %ref.tmp.sroa.322.0.extract.trunc = trunc i64 %ref.tmp.sroa.322.0.extract.shift to i32
+  %ref.tmp.sroa.322.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.322.0.extract.shift to i32
   %tobool.i55 = trunc i64 %call13 to i1
   br i1 %tobool.i55, label %do.body, label %return
 

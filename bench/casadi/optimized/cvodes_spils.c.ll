@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [28 x i8] c"cvSpilsJacTimesVecBSWrapper\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetPrecType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVSpilsSetPrecType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -92,7 +92,7 @@ define noundef i32 @CVSpilsSetPrecType(ptr noundef %0, i32 noundef %1) local_unn
 declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -139,7 +139,7 @@ define noundef i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -179,7 +179,7 @@ define noundef i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVSpilsSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -218,7 +218,7 @@ define noundef i32 @CVSpilsSetEpsLin(ptr noundef %0, double noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -249,7 +249,7 @@ define noundef i32 @CVSpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -288,7 +288,7 @@ define noundef i32 @CVSpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -362,7 +362,7 @@ define noundef i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -392,7 +392,7 @@ define noundef i32 @CVSpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -422,7 +422,7 @@ define noundef i32 @CVSpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -452,7 +452,7 @@ define noundef i32 @CVSpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -482,7 +482,7 @@ define noundef i32 @CVSpilsGetNumConvFails(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -512,7 +512,7 @@ define noundef i32 @CVSpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -542,7 +542,7 @@ define noundef i32 @CVSpilsGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVSpilsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -690,7 +690,7 @@ define i32 @CVSpilsPSolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 1696
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 424
@@ -739,7 +739,7 @@ define noundef i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, double nound
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -820,7 +820,7 @@ CVSpilsSetPrecType.exit:                          ; preds = %33, %32, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -911,7 +911,7 @@ CVSpilsSetGSType.exit:                            ; preds = %37, %36, %33, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -994,7 +994,7 @@ CVSpilsSetEpsLin.exit:                            ; preds = %34, %33, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1078,7 +1078,7 @@ CVSpilsSetMaxl.exit:                              ; preds = %35, %34, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1263,7 +1263,7 @@ define internal i32 @cvSpilsPrecSetupBWrapper(double noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1478,7 +1478,7 @@ define internal i32 @cvSpilsPrecSetupBSWrapper(double noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1623,7 +1623,7 @@ define internal i32 @cvSpilsJacTimesVecBWrapper(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

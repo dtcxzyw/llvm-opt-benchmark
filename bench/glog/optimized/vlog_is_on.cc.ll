@@ -114,7 +114,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
   %.04052 = phi i8 [ %.242, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader ]
   %7 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.04654, ptr noundef %0) #12
   %8 = icmp eq i32 %7, 0
-  %9 = trunc i8 %.04052 to i1
+  %9 = trunc nuw i8 %.04052 to i1
   br i1 %8, label %10, label %19
 
 10:                                               ; preds = %.lr.ph
@@ -161,7 +161,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %17, %24, %20, %19
   br i1 %.not, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge, label %.lr.ph, !llvm.loop !7
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %28 = trunc i8 %.242 to i1
+  %28 = trunc nuw i8 %.242 to i1
   br i1 %28, label %.loopexit, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge

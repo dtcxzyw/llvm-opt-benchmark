@@ -1119,7 +1119,7 @@ define dso_local i64 @record_recv(ptr nocapture noundef readonly %0) local_unnam
   br i1 %or.cond9, label %107, label %115
 
 107:                                              ; preds = %102
-  %108 = trunc i64 %indvars.iv181 to i32
+  %108 = trunc nuw nsw i64 %indvars.iv181 to i32
   %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %109)
   %110 = call i32 @errcode(i32 noundef 67141764) #11
@@ -1204,7 +1204,7 @@ define dso_local i64 @record_recv(ptr nocapture noundef readonly %0) local_unnam
   br i1 %or.cond155, label %160, label %154
 
 154:                                              ; preds = %145
-  %155 = trunc i64 %indvars.iv181 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv181 to i32
   %156 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %156)
   %157 = call i32 @errcode(i32 noundef 50462850) #11
@@ -1541,7 +1541,7 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %union.anon.2, align 8
@@ -1780,7 +1780,7 @@ define dso_local noundef i64 @record_eq(ptr nocapture noundef readonly %0) local
   br i1 %134, label %.lr.ph240.split, label %.thread.loopexit, !llvm.loop !29
 
 .split.us.loopexit.split.loop.exit334:            ; preds = %.lr.ph247
-  %135 = trunc i64 %indvars.iv293 to i32
+  %135 = trunc nsw i64 %indvars.iv293 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %126, %.split.us.loopexit.split.loop.exit334
@@ -1789,7 +1789,7 @@ define dso_local noundef i64 @record_eq(ptr nocapture noundef readonly %0) local
   br label %.split.us
 
 .split.us.loopexit311:                            ; preds = %129, %.lr.ph240.split
-  %136 = trunc i64 %indvars.iv to i32
+  %136 = trunc nsw i64 %indvars.iv to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit311, %.split.us.loopexit
@@ -1819,7 +1819,7 @@ define dso_local noundef i64 @record_eq(ptr nocapture noundef readonly %0) local
   br i1 %147, label %.lr.ph240, label %.thread, !llvm.loop !29
 
 148:                                              ; preds = %137
-  %149 = trunc i64 %indvars.iv295 to i32
+  %149 = trunc nsw i64 %indvars.iv295 to i32
   br i1 %.us-phi244, label %150, label %.thread
 
 150:                                              ; preds = %148
@@ -1938,16 +1938,16 @@ define dso_local noundef i64 @record_eq(ptr nocapture noundef readonly %0) local
   br i1 %216, label %.lr.ph240.lr.ph, label %.thread, !llvm.loop !29
 
 .thread.loopexit:                                 ; preds = %133
-  %217 = trunc i64 %indvars.iv295 to i32
-  %218 = trunc i64 %indvars.iv.next to i32
+  %217 = trunc nsw i64 %indvars.iv295 to i32
+  %218 = trunc nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread.loopexit313.split.loop.exit:              ; preds = %.split.us
-  %219 = trunc i64 %indvars.iv295 to i32
+  %219 = trunc nsw i64 %indvars.iv295 to i32
   br label %.thread
 
 .thread.loopexit313.split.loop.exit340:           ; preds = %.thread302
-  %220 = trunc i64 %indvars.iv295 to i32
+  %220 = trunc nsw i64 %indvars.iv295 to i32
   br label %.thread
 
 .thread:                                          ; preds = %148, %.outer, %.outer204, %.thread.loopexit313.split.loop.exit, %.thread.loopexit313.split.loop.exit340, %.thread.loopexit, %92
@@ -2020,22 +2020,22 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @record_eq(ptr noundef %0), !range !30
+define dso_local range(i64 0, 2) i64 @record_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @record_eq(ptr noundef %0)
   %3 = xor i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %.lobit = lshr i32 %2, 31
   %3 = zext nneg i32 %.lobit to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %union.anon.5, align 8
@@ -2271,10 +2271,10 @@ define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0
 133:                                              ; preds = %129
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %134 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %134, label %.lr.ph239.split, label %.thread.loopexit, !llvm.loop !32
+  br i1 %134, label %.lr.ph239.split, label %.thread.loopexit, !llvm.loop !30
 
 .split.us.loopexit.split.loop.exit333:            ; preds = %.lr.ph246
-  %135 = trunc i64 %indvars.iv292 to i32
+  %135 = trunc nsw i64 %indvars.iv292 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %126, %.split.us.loopexit.split.loop.exit333
@@ -2283,7 +2283,7 @@ define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0
   br label %.split.us
 
 .split.us.loopexit310:                            ; preds = %129, %.lr.ph239.split
-  %136 = trunc i64 %indvars.iv to i32
+  %136 = trunc nsw i64 %indvars.iv to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit310, %.split.us.loopexit
@@ -2310,10 +2310,10 @@ define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0
   %145 = icmp slt i64 %indvars.iv.next295, %97
   %146 = icmp slt i32 %.us-phi298305, %18
   %147 = select i1 %146, i1 true, i1 %145
-  br i1 %147, label %.lr.ph239, label %.thread, !llvm.loop !32
+  br i1 %147, label %.lr.ph239, label %.thread, !llvm.loop !30
 
 148:                                              ; preds = %137
-  %149 = trunc i64 %indvars.iv294 to i32
+  %149 = trunc nsw i64 %indvars.iv294 to i32
   br i1 %.us-phi243, label %150, label %.thread
 
 150:                                              ; preds = %148
@@ -2431,19 +2431,19 @@ define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0
   %215 = icmp slt i32 %213, %24
   %216 = icmp slt i32 %212, %18
   %217 = select i1 %216, i1 true, i1 %215
-  br i1 %217, label %.lr.ph239.lr.ph, label %.thread, !llvm.loop !32
+  br i1 %217, label %.lr.ph239.lr.ph, label %.thread, !llvm.loop !30
 
 .thread.loopexit:                                 ; preds = %133
-  %218 = trunc i64 %indvars.iv294 to i32
-  %219 = trunc i64 %indvars.iv.next to i32
+  %218 = trunc nsw i64 %indvars.iv294 to i32
+  %219 = trunc nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread.loopexit312.split.loop.exit:              ; preds = %.split.us
-  %220 = trunc i64 %indvars.iv294 to i32
+  %220 = trunc nsw i64 %indvars.iv294 to i32
   br label %.thread
 
 .thread.loopexit312.split.loop.exit339:           ; preds = %.thread301
-  %221 = trunc i64 %indvars.iv294 to i32
+  %221 = trunc nsw i64 %indvars.iv294 to i32
   br label %.thread
 
 .thread:                                          ; preds = %148, %.outer, %.outer203, %.thread.loopexit312.split.loop.exit, %.thread.loopexit312.split.loop.exit339, %.thread.loopexit, %92
@@ -2512,38 +2512,38 @@ define internal fastcc noundef i32 @record_cmp(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 1
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @btrecordcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 -1, 2) i64 @btrecordcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2768,10 +2768,10 @@ define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0)
 123:                                              ; preds = %119
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %124 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %124, label %.lr.ph197.split, label %.thread.loopexit, !llvm.loop !33
+  br i1 %124, label %.lr.ph197.split, label %.thread.loopexit, !llvm.loop !31
 
 .split.us.loopexit.split.loop.exit282:            ; preds = %.lr.ph204
-  %125 = trunc i64 %indvars.iv245 to i32
+  %125 = trunc nsw i64 %indvars.iv245 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %116, %.split.us.loopexit.split.loop.exit282
@@ -2780,7 +2780,7 @@ define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0)
   br label %.split.us
 
 .split.us.loopexit263:                            ; preds = %119, %.lr.ph197.split
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nsw i64 %indvars.iv to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit263, %.split.us.loopexit
@@ -2807,10 +2807,10 @@ define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0)
   %135 = icmp slt i64 %indvars.iv.next248, %96
   %136 = icmp slt i32 %.us-phi251258, %17
   %137 = select i1 %136, i1 true, i1 %135
-  br i1 %137, label %.lr.ph197, label %.thread, !llvm.loop !33
+  br i1 %137, label %.lr.ph197, label %.thread, !llvm.loop !31
 
 138:                                              ; preds = %127
-  %139 = trunc i64 %indvars.iv247 to i32
+  %139 = trunc nsw i64 %indvars.iv247 to i32
   br i1 %.us-phi201, label %140, label %.thread
 
 140:                                              ; preds = %138
@@ -2877,19 +2877,19 @@ define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0)
   %184 = icmp slt i32 %182, %23
   %185 = icmp slt i32 %181, %17
   %186 = select i1 %185, i1 true, i1 %184
-  br i1 %186, label %.lr.ph197.lr.ph, label %.thread, !llvm.loop !33
+  br i1 %186, label %.lr.ph197.lr.ph, label %.thread, !llvm.loop !31
 
 .thread.loopexit:                                 ; preds = %123
-  %187 = trunc i64 %indvars.iv247 to i32
-  %188 = trunc i64 %indvars.iv.next to i32
+  %187 = trunc nsw i64 %indvars.iv247 to i32
+  %188 = trunc nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread.loopexit265.split.loop.exit:              ; preds = %.split.us
-  %189 = trunc i64 %indvars.iv247 to i32
+  %189 = trunc nsw i64 %indvars.iv247 to i32
   br label %.thread
 
 .thread.loopexit265.split.loop.exit288:           ; preds = %.thread254
-  %190 = trunc i64 %indvars.iv247 to i32
+  %190 = trunc nsw i64 %indvars.iv247 to i32
   br label %.thread
 
 .thread:                                          ; preds = %138, %.outer, %.outer167, %.thread.loopexit265.split.loop.exit, %.thread.loopexit265.split.loop.exit288, %.thread.loopexit, %91
@@ -2960,22 +2960,22 @@ define dso_local noundef i64 @record_image_eq(ptr nocapture noundef readonly %0)
 declare zeroext i1 @datum_image_eq(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @record_image_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @record_image_eq(ptr noundef %0), !range !30
+define dso_local range(i64 0, 2) i64 @record_image_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @record_image_eq(ptr noundef %0)
   %3 = xor i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_image_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_image_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %.lobit = lshr i32 %2, 31
   %3 = zext nneg i32 %.lobit to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3200,10 +3200,10 @@ define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) 
 123:                                              ; preds = %119
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %124 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %124, label %.lr.ph282.split, label %.thread.loopexit, !llvm.loop !34
+  br i1 %124, label %.lr.ph282.split, label %.thread.loopexit, !llvm.loop !32
 
 .split.us.loopexit.split.loop.exit384:            ; preds = %.lr.ph289
-  %125 = trunc i64 %indvars.iv338 to i32
+  %125 = trunc nsw i64 %indvars.iv338 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %116, %.split.us.loopexit.split.loop.exit384
@@ -3212,7 +3212,7 @@ define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) 
   br label %.split.us
 
 .split.us.loopexit356:                            ; preds = %119, %.lr.ph282.split
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nsw i64 %indvars.iv to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit356, %.split.us.loopexit
@@ -3239,10 +3239,10 @@ define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) 
   %135 = icmp slt i64 %indvars.iv.next341, %96
   %136 = icmp slt i32 %.us-phi344351, %17
   %137 = select i1 %136, i1 true, i1 %135
-  br i1 %137, label %.lr.ph282, label %.thread, !llvm.loop !34
+  br i1 %137, label %.lr.ph282, label %.thread, !llvm.loop !32
 
 138:                                              ; preds = %127
-  %139 = trunc i64 %indvars.iv340 to i32
+  %139 = trunc nsw i64 %indvars.iv340 to i32
   br i1 %.us-phi286, label %140, label %.thread
 
 140:                                              ; preds = %138
@@ -3403,19 +3403,19 @@ define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) 
   %236 = icmp slt i32 %234, %23
   %237 = icmp slt i32 %233, %17
   %238 = select i1 %237, i1 true, i1 %236
-  br i1 %238, label %.lr.ph282.lr.ph, label %.thread, !llvm.loop !34
+  br i1 %238, label %.lr.ph282.lr.ph, label %.thread, !llvm.loop !32
 
 .thread.loopexit:                                 ; preds = %123
-  %239 = trunc i64 %indvars.iv340 to i32
-  %240 = trunc i64 %indvars.iv.next to i32
+  %239 = trunc nsw i64 %indvars.iv340 to i32
+  %240 = trunc nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread.loopexit358.split.loop.exit:              ; preds = %.split.us
-  %241 = trunc i64 %indvars.iv340 to i32
+  %241 = trunc nsw i64 %indvars.iv340 to i32
   br label %.thread
 
 .thread.loopexit358.split.loop.exit390:           ; preds = %.thread347
-  %242 = trunc i64 %indvars.iv340 to i32
+  %242 = trunc nsw i64 %indvars.iv340 to i32
   br label %.thread
 
 .thread:                                          ; preds = %138, %.thread224.thread, %.outer239, %.thread.loopexit358.split.loop.exit, %.thread.loopexit358.split.loop.exit390, %.thread.loopexit, %91
@@ -3484,38 +3484,38 @@ define internal fastcc i32 @record_image_cmp(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_image_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_image_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_image_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_image_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 1
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_image_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 0, 2) i64 @record_image_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @btrecordimagecmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0), !range !31
+define dso_local range(i64 -1, 2) i64 @btrecordimagecmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_record(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %union.anon.3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3740,7 +3740,7 @@ define dso_local i64 @hash_record(ptr nocapture noundef readonly %0) local_unnam
   %.1 = phi i32 [ %.0110, %80 ], [ %120, %118 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %80, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %80, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %121
   %122 = zext i32 %.1 to i64
@@ -4002,7 +4002,7 @@ define dso_local i64 @hash_record_extended(ptr nocapture noundef readonly %0) lo
   %.1 = phi i64 [ %.0114, %83 ], [ %122, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %123, %70
   %.0.lcssa = phi i64 [ 0, %70 ], [ %.1, %123 ]
@@ -4108,10 +4108,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !"pq_writeint32"}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = !{i64 0, i64 2}
-!31 = !{i32 -1, i32 2}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}

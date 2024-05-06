@@ -45,13 +45,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [7 x i8] c"%s,%d\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @enabled_protos_unsaved_changes() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @enabled_protos_unsaved_changes() local_unnamed_addr #0 {
   %1 = load i32, ptr @unsaved_changes, align 4
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proto_disable_proto_by_name(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proto_disable_proto_by_name(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @proto_get_id_by_filter_name(ptr noundef %0) #12
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %4, label %12
@@ -103,7 +103,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @proto_disable_all() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proto_enable_proto_by_name(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proto_enable_proto_by_name(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @proto_get_id_by_filter_name(ptr noundef %0) #12
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %4, label %12
@@ -142,7 +142,7 @@ define noundef i32 @proto_enable_proto_by_name(ptr noundef %0) local_unnamed_add
 declare void @proto_reenable_all() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proto_enable_heuristic_by_name(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proto_enable_heuristic_by_name(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @find_heur_dissector_by_unique_short_name(ptr noundef %0) #12
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %proto_set_heuristic_by_name.exit, label %3
@@ -164,7 +164,7 @@ proto_set_heuristic_by_name.exit:                 ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proto_disable_heuristic_by_name(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proto_disable_heuristic_by_name(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @find_heur_dissector_by_unique_short_name(ptr noundef %0) #12
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %proto_set_heuristic_by_name.exit, label %3
@@ -1046,7 +1046,7 @@ define internal fastcc void @save_protos_list(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @disable_proto_list_check(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @disable_proto_list_check(ptr noundef %0) #1 {
   %2 = tail call i32 @proto_is_protocol_enabled(ptr noundef %0) #12
   %3 = icmp eq i32 %2, 0
   %. = zext i1 %3 to i32
@@ -1054,7 +1054,7 @@ define internal i32 @disable_proto_list_check(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enable_proto_list_check(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @enable_proto_list_check(ptr noundef %0) #1 {
   %2 = tail call i32 @proto_is_protocol_enabled_by_default(ptr noundef %0) #12
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7

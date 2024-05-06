@@ -974,7 +974,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_persistence_lvl(ptr noundef %0, 
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr [4 x i32], ptr @hf_rr_persistence_lvl, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = lshr i32 %11, 1
   %13 = add i32 %12, %3
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0) #7

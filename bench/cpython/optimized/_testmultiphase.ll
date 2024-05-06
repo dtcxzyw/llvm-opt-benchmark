@@ -481,7 +481,7 @@ declare i32 @PyState_AddModule(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyState_RemoveModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @execfunc(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @execfunc(ptr noundef %m) #0 {
 entry:
   store ptr @PyUnicode_Type, ptr getelementptr inbounds ([2 x %struct.PyType_Slot], ptr @Str_Type_slots, i64 0, i64 0, i32 1), align 8
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @Example_Type_spec) #3
@@ -868,7 +868,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @meth_state_access_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @meth_state_access_exec(ptr noundef %m) #0 {
 entry:
   %call = tail call ptr @PyModule_GetState(ptr noundef %m) #3
   %cmp = icmp eq ptr %call, null

@@ -176,7 +176,7 @@ declare dso_local i32 @security_file_permission(ptr noundef, i32 noundef) local_
 declare dso_local i32 @down_read_killable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.readdir_callback, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -233,7 +233,7 @@ define dso_local i64 @__x64_sys_old_readdir(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.readdir_callback, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -291,7 +291,7 @@ define dso_local i64 @__ia32_sys_old_readdir(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -303,7 +303,7 @@ define dso_local i64 @__x64_sys_getdents(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_getdents(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getdents(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.getdents_callback, align 8
   %5 = trunc i64 %0 to i32
   %6 = inttoptr i64 %1 to ptr
@@ -387,7 +387,7 @@ define internal fastcc i64 @__se_sys_getdents(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -402,7 +402,7 @@ define dso_local i64 @__ia32_sys_getdents(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getdents64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getdents64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -414,7 +414,7 @@ define dso_local i64 @__x64_sys_getdents64(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_getdents64(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getdents64(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.getdents_callback64, align 8
   %5 = trunc i64 %0 to i32
   %6 = inttoptr i64 %1 to ptr
@@ -498,7 +498,7 @@ define internal fastcc i64 @__se_sys_getdents64(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getdents64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getdents64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -513,7 +513,7 @@ define dso_local i64 @__ia32_sys_getdents64(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_old_readdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_readdir_callback, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -571,7 +571,7 @@ define dso_local i64 @__ia32_compat_sys_old_readdir(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_getdents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.compat_getdents_callback, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -717,7 +717,7 @@ define internal noundef zeroext i1 @fillonedir(ptr nocapture noundef %0, ptr nou
           to label %29 [label %.loopexit], !srcloc !15
 
 29:                                               ; preds = %27
-  %30 = trunc i32 %2 to i16
+  %30 = trunc nuw i32 %2 to i16
   %31 = getelementptr inbounds i8, ptr %19, i64 16
   callbr void asm sideeffect "\0A1:\09movw $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i16 %30, ptr elementtype(%struct.__large_struct) %31) #6
           to label %32 [label %.loopexit], !srcloc !16
@@ -901,7 +901,7 @@ define internal noundef zeroext i1 @filldir(ptr nocapture noundef %0, ptr nounde
           to label %52 [label %.loopexit], !srcloc !29
 
 52:                                               ; preds = %51
-  %53 = trunc i32 %9 to i16
+  %53 = trunc nuw i32 %9 to i16
   %54 = getelementptr inbounds i8, ptr %38, i64 16
   callbr void asm sideeffect "\0A1:\09movw $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i16 %53, ptr elementtype(%struct.__large_struct) %54) #6
           to label %55 [label %.loopexit], !srcloc !30
@@ -1094,7 +1094,7 @@ define internal noundef zeroext i1 @filldir64(ptr nocapture noundef %0, ptr noun
           to label %52 [label %.loopexit], !srcloc !40
 
 52:                                               ; preds = %51
-  %53 = trunc i32 %9 to i16
+  %53 = trunc nuw i32 %9 to i16
   %54 = getelementptr inbounds i8, ptr %38, i64 16
   callbr void asm sideeffect "\0A1:\09movw $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i16 %53, ptr elementtype(%struct.__large_struct) %54) #6
           to label %55 [label %.loopexit], !srcloc !41
@@ -1262,7 +1262,7 @@ define internal noundef zeroext i1 @compat_fillonedir(ptr nocapture noundef %0, 
           to label %34 [label %.loopexit], !srcloc !51
 
 34:                                               ; preds = %31
-  %35 = trunc i32 %2 to i16
+  %35 = trunc nuw i32 %2 to i16
   %36 = getelementptr inbounds i8, ptr %23, i64 8
   callbr void asm sideeffect "\0A1:\09movw $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i16 %35, ptr elementtype(%struct.__large_struct) %36) #6
           to label %37 [label %.loopexit], !srcloc !52
@@ -1444,7 +1444,7 @@ define internal noundef zeroext i1 @compat_filldir(ptr nocapture noundef %0, ptr
           to label %57 [label %.loopexit], !srcloc !61
 
 57:                                               ; preds = %56
-  %58 = trunc i32 %9 to i16
+  %58 = trunc nuw i32 %9 to i16
   %59 = getelementptr inbounds i8, ptr %42, i64 8
   callbr void asm sideeffect "\0A1:\09movw $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i16 %58, ptr elementtype(%struct.__large_struct) %59) #6
           to label %60 [label %.loopexit], !srcloc !62

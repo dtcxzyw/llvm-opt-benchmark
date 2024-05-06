@@ -1634,7 +1634,7 @@ for.body200:                                      ; preds = %for.body200.lr.ph, 
   %indvars.iv270 = phi i64 [ 0, %for.body200.lr.ph ], [ %indvars.iv.next271, %invoke.cont222 ]
   %indvars.iv268 = phi i64 [ 0, %for.body200.lr.ph ], [ %indvars.iv.next269, %invoke.cont222 ]
   %62 = load ptr, ptr %lsrSubtagIndexes, align 8
-  %arrayidx.i127 = getelementptr i32, ptr %62, i64 %indvars.iv270
+  %arrayidx.i127 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv270
   %63 = load i32, ptr %arrayidx.i127, align 4
   %64 = load i8, ptr %isFrozen.i, align 8
   %tobool.i129 = trunc i8 %64 to i1
@@ -1651,7 +1651,7 @@ cond.true.i133:                                   ; preds = %for.body200
 
 invoke.cont206:                                   ; preds = %cond.true.i133, %for.body200
   %cond.i132 = phi ptr [ %add.ptr.i136, %cond.true.i133 ], [ null, %for.body200 ]
-  %arrayidx.i138 = getelementptr i8, ptr %arrayidx.i127, i64 4
+  %arrayidx.i138 = getelementptr inbounds i8, ptr %arrayidx.i127, i64 4
   %67 = load i32, ptr %arrayidx.i138, align 4
   %cmp.i141 = icmp sgt i32 %67, 0
   %or.cond.i142 = and i1 %cmp.i141, %tobool.i129
@@ -1666,7 +1666,7 @@ cond.true.i144:                                   ; preds = %invoke.cont206
 
 invoke.cont213:                                   ; preds = %cond.true.i144, %invoke.cont206
   %cond.i143 = phi ptr [ %add.ptr.i147, %cond.true.i144 ], [ null, %invoke.cont206 ]
-  %arrayidx.i149 = getelementptr i8, ptr %arrayidx.i127, i64 8
+  %arrayidx.i149 = getelementptr inbounds i8, ptr %arrayidx.i127, i64 8
   %70 = load i32, ptr %arrayidx.i149, align 4
   %cmp.i152 = icmp sgt i32 %70, 0
   %or.cond.i153 = and i1 %cmp.i152, %tobool.i129
@@ -1823,7 +1823,7 @@ for.body303:                                      ; preds = %for.body303.lr.ph, 
   %indvars.iv280 = phi i64 [ 0, %for.body303.lr.ph ], [ %indvars.iv.next281, %invoke.cont325 ]
   %indvars.iv278 = phi i64 [ 0, %for.body303.lr.ph ], [ %indvars.iv.next279, %invoke.cont325 ]
   %89 = load ptr, ptr %paradigmSubtagIndexes, align 8
-  %arrayidx.i178 = getelementptr i32, ptr %89, i64 %indvars.iv280
+  %arrayidx.i178 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv280
   %90 = load i32, ptr %arrayidx.i178, align 4
   %91 = load i8, ptr %isFrozen.i, align 8
   %tobool.i180 = trunc i8 %91 to i1
@@ -1840,7 +1840,7 @@ cond.true.i184:                                   ; preds = %for.body303
 
 invoke.cont309:                                   ; preds = %cond.true.i184, %for.body303
   %cond.i183 = phi ptr [ %add.ptr.i187, %cond.true.i184 ], [ null, %for.body303 ]
-  %arrayidx.i189 = getelementptr i8, ptr %arrayidx.i178, i64 4
+  %arrayidx.i189 = getelementptr inbounds i8, ptr %arrayidx.i178, i64 4
   %94 = load i32, ptr %arrayidx.i189, align 4
   %cmp.i192 = icmp sgt i32 %94, 0
   %or.cond.i193 = and i1 %cmp.i192, %tobool.i180
@@ -1855,7 +1855,7 @@ cond.true.i195:                                   ; preds = %invoke.cont309
 
 invoke.cont316:                                   ; preds = %cond.true.i195, %invoke.cont309
   %cond.i194 = phi ptr [ %add.ptr.i198, %cond.true.i195 ], [ null, %invoke.cont309 ]
-  %arrayidx.i200 = getelementptr i8, ptr %arrayidx.i178, i64 8
+  %arrayidx.i200 = getelementptr inbounds i8, ptr %arrayidx.i178, i64 8
   %97 = load i32, ptr %arrayidx.i200, align 4
   %cmp.i203 = icmp sgt i32 %97, 0
   %or.cond.i204 = and i1 %cmp.i203, %tobool.i180
@@ -2783,7 +2783,7 @@ if.end57:                                         ; preds = %if.else44, %land.lh
   store ptr %cond.i68, ptr %agg.tmp5.i, align 8, !noalias !13
   %length_.i5.i = getelementptr inbounds i8, ptr %agg.tmp5.i, i64 8
   store i32 %conv7.i, ptr %length_.i5.i, align 8, !noalias !13
-  tail call void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr sret(%"struct.icu_75::LSR") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(352) %this, ptr %cond.i, i32 %conv.i, ptr %script, i32 %conv4.i, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i, i1 noundef zeroext %returnInputIfUnmatch, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr sret(%"struct.icu_75::LSR") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr %cond.i, i32 %conv.i, ptr %script, i32 %conv4.i, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i, i1 noundef zeroext %returnInputIfUnmatch, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5.i)
   br label %return
 
@@ -4258,7 +4258,7 @@ if.end18:                                         ; preds = %land.lhs.true9, %la
   store ptr @.str, ptr %agg.tmp5.i, align 8, !noalias !18
   %length_.i5.i = getelementptr inbounds i8, ptr %agg.tmp5.i, i64 8
   store i32 0, ptr %length_.i5.i, align 8, !noalias !18
-  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %test, ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nonnull %2, i32 %conv.i24, ptr nonnull @.str, i32 0, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %test, ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr nonnull %2, i32 %conv.i24, ptr nonnull @.str, i32 0, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.end18
@@ -4309,7 +4309,7 @@ if.then41:                                        ; preds = %if.end39
   store ptr %9, ptr %agg.tmp5.i27, align 8, !noalias !21
   %length_.i5.i34 = getelementptr inbounds i8, ptr %agg.tmp5.i27, i64 8
   store i32 %conv7.i33, ptr %length_.i5.i34, align 8, !noalias !21
-  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(352) %this, ptr %8, i32 %conv.i29, ptr nonnull @.str, i32 0, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i27, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr %8, i32 %conv.i29, ptr nonnull @.str, i32 0, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i27, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont44 unwind label %lpad21
 
 invoke.cont44:                                    ; preds = %if.then41
@@ -4370,7 +4370,7 @@ if.end65:                                         ; preds = %invoke.cont51, %if.
   store ptr @.str, ptr %agg.tmp5.i38, align 8, !noalias !24
   %length_.i5.i45 = getelementptr inbounds i8, ptr %agg.tmp5.i38, i64 8
   store i32 0, ptr %length_.i5.i45, align 8, !noalias !24
-  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(352) %this, ptr %16, i32 %conv.i40, ptr %17, i32 %conv4.i42, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i38, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %ref.tmp66, ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr %16, i32 %conv.i40, ptr %17, i32 %conv4.i42, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp5.i38, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont69 unwind label %lpad21
 
 invoke.cont69:                                    ; preds = %if.end65
@@ -4854,7 +4854,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i28, label %if.then.i, label %if.then10
 
 if.then.i:                                        ; preds = %if.end7
-  %mul = mul nsw i32 %2, 3
+  %mul = mul nuw nsw i32 %2, 3
   %conv.i29 = zext nneg i32 %mul to i64
   %mul.i = shl nuw nsw i64 %conv.i29, 2
   %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #14
@@ -4904,7 +4904,7 @@ invoke.cont:                                      ; preds = %for.body
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont
-  %arrayidx26 = getelementptr i8, ptr %arrayidx16, i64 4
+  %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
   store i32 %call23, ptr %arrayidx26, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18) #13
   %9 = load i32, ptr %arrayidx, align 4
@@ -4967,7 +4967,7 @@ _ZN6icu_7517LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueE
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %_ZN6icu_7517LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueEiR10UErrorCode.exit
-  %arrayidx37 = getelementptr i8, ptr %arrayidx16, i64 8
+  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i32 %call33, ptr %arrayidx37, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp28) #13
   %15 = load i32, ptr %errorCode, align 4

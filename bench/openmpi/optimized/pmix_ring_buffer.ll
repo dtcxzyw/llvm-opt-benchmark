@@ -41,7 +41,7 @@ define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @pmix_ring_buffer_init(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -29, 1) i32 @pmix_ring_buffer_init(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 

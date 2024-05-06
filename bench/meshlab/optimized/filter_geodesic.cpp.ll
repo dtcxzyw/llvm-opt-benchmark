@@ -5218,8 +5218,8 @@ _ZNSt10shared_ptrIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11A
   %55 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 56, i1 false)
   store ptr %55, ptr %54, align 8
-  %.not6.i51 = icmp eq ptr %55, null
-  br i1 %.not6.i51, label %56, label %61
+  %.not6.i53 = icmp eq ptr %55, null
+  br i1 %.not6.i53, label %56, label %61
 
 56:                                               ; preds = %50
   %57 = tail call ptr @__cxa_allocate_exception(i64 8) #30

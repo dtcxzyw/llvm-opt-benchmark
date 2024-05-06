@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uprv_mapFile_75(ptr noundef %pData, ptr nocapture noundef readonly %path, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uprv_mapFile_75(ptr noundef %pData, ptr nocapture noundef readonly %path, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
 entry:
   %mystat = alloca %struct.stat, align 8
   %0 = load i32, ptr %status, align 4

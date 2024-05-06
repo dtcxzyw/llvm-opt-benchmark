@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @test_get_libctx(ptr noundef writeonly %libctx, ptr noundef writeonly %default_null_prov, ptr noundef %config_file, ptr noundef writeonly %provider, ptr noundef %module_name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_get_libctx(ptr noundef writeonly %libctx, ptr noundef writeonly %default_null_prov, ptr noundef %config_file, ptr noundef writeonly %provider, ptr noundef %module_name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %libctx, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -103,7 +103,7 @@ declare i32 @OSSL_LIB_CTX_load_config(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @test_arg_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_arg_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %argn to i64
   %call = tail call ptr @test_get_argument(i64 noundef %conv) #8
@@ -124,7 +124,7 @@ if.end5:                                          ; preds = %if.end
   %add = add nsw i32 %argn, 1
   %conv6 = sext i32 %add to i64
   %call7 = tail call ptr @test_get_argument(i64 noundef %conv6) #8
-  %call8 = tail call i32 @test_get_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %call7, ptr noundef %provider, ptr noundef %call), !range !4
+  %call8 = tail call i32 @test_get_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %call7, ptr noundef %provider, ptr noundef %call)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5, %if.then
@@ -142,10 +142,10 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_eq(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_eq(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -173,7 +173,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %vers) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %vers) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %vs = alloca ptr, align 8
@@ -220,10 +220,10 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_ne(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_ne(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -251,10 +251,10 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_le(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_le(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -292,10 +292,10 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_lt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_lt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -333,10 +333,10 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_gt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_gt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -374,10 +374,10 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_ge(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fips_provider_version_ge(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov), !range !5
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -415,7 +415,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fips_provider_version_match(ptr noundef %libctx, ptr noundef %versions) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @fips_provider_version_match(ptr noundef %libctx, ptr noundef %versions) local_unnamed_addr #0 {
 entry:
   %prov.i89 = alloca %struct.FIPS_VERSION, align 4
   %prov.i71 = alloca %struct.FIPS_VERSION, align 4
@@ -466,7 +466,7 @@ for.inc:                                          ; preds = %for.cond.preheader,
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 8192
   %tobool.not = icmp eq i16 %6, 0
-  br i1 %tobool.not, label %for.end, label %for.inc, !llvm.loop !6
+  br i1 %tobool.not, label %for.end, label %for.inc, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   %cmp5 = icmp eq i8 %.pr, 0
@@ -492,7 +492,7 @@ for.inc19:                                        ; preds = %land.rhs
   %incdec.ptr20 = getelementptr inbounds i8, ptr %versions.addr.2122, i64 1
   %11 = load i8, ptr %incdec.ptr20, align 1
   %cmp9.not = icmp eq i8 %11, 0
-  br i1 %cmp9.not, label %for.end21, label %land.rhs, !llvm.loop !8
+  br i1 %cmp9.not, label %for.end21, label %land.rhs, !llvm.loop !6
 
 for.end21:                                        ; preds = %land.rhs, %for.inc19
   %versions.addr.2.lcssa.ph = phi ptr [ %versions.addr.2122, %land.rhs ], [ %incdec.ptr20, %for.inc19 ]
@@ -564,7 +564,7 @@ if.end85:                                         ; preds = %if.end80
 
 sw.bb:                                            ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i)
-  %call.i = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i), !range !5
+  %call.i = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i)
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %if.then.i, label %if.end100
 
@@ -575,7 +575,7 @@ if.then.i:                                        ; preds = %sw.bb
 
 sw.bb87:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i31)
-  %call.i32 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i31), !range !5
+  %call.i32 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i31)
   %cmp.i33 = icmp slt i32 %call.i32, 1
   br i1 %cmp.i33, label %if.then.i41, label %fips_provider_version_ne.exit
 
@@ -598,7 +598,7 @@ fips_provider_version_ne.exit:                    ; preds = %sw.bb87
 
 sw.bb89:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i43)
-  %call.i44 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i43), !range !5
+  %call.i44 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i43)
   %cmp.i45 = icmp slt i32 %call.i44, 1
   br i1 %cmp.i45, label %if.then.i51, label %if.end.i46
 
@@ -639,7 +639,7 @@ fips_provider_version_le.exit:                    ; preds = %if.end.i46, %land.r
 
 sw.bb91:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i53)
-  %call.i54 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i53), !range !5
+  %call.i54 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i53)
   %cmp.i55 = icmp slt i32 %call.i54, 1
   br i1 %cmp.i55, label %if.then.i69, label %if.end.i56
 
@@ -680,7 +680,7 @@ fips_provider_version_lt.exit:                    ; preds = %if.end.i56, %land.r
 
 sw.bb93:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i71)
-  %call.i72 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i71), !range !5
+  %call.i72 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i71)
   %cmp.i73 = icmp slt i32 %call.i72, 1
   br i1 %cmp.i73, label %if.then.i87, label %if.end.i74
 
@@ -721,7 +721,7 @@ fips_provider_version_gt.exit:                    ; preds = %if.end.i74, %land.r
 
 sw.bb95:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i89)
-  %call.i90 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i89), !range !5
+  %call.i90 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i89)
   %cmp.i91 = icmp slt i32 %call.i90, 1
   br i1 %cmp.i91, label %if.then.i105, label %if.end.i92
 
@@ -778,7 +778,7 @@ if.end100:                                        ; preds = %sw.bb
 while.cond.backedge:                              ; preds = %if.end100, %fips_provider_version_ne.exit, %if.then.i, %if.then.i41, %if.then.i51, %lor.rhs11.i, %fips_provider_version_le.exit, %if.then.i69, %lor.rhs11.i65, %fips_provider_version_lt.exit, %if.then.i87, %lor.rhs11.i83, %fips_provider_version_gt.exit, %if.then.i105, %lor.rhs11.i101, %fips_provider_version_ge.exit
   %40 = load i8, ptr %versions.addr.2.lcssa.ph, align 1
   %cmp.not = icmp eq i8 %40, 0
-  br i1 %cmp.not, label %return, label %for.cond.preheader, !llvm.loop !9
+  br i1 %cmp.not, label %return, label %for.cond.preheader, !llvm.loop !7
 
 return:                                           ; preds = %if.then.i, %fips_provider_version_ne.exit, %if.end100, %for.end, %while.cond.backedge, %if.then.i41, %if.then.i51, %lor.rhs11.i, %if.then.i69, %lor.rhs11.i65, %if.then.i87, %lor.rhs11.i83, %if.then.i105, %lor.rhs11.i101, %entry, %fips_provider_version_ge.exit.thread, %fips_provider_version_gt.exit.thread, %fips_provider_version_lt.exit.thread, %fips_provider_version_le.exit.thread, %if.then84, %if.else73
   %retval.0 = phi i32 [ -1, %if.then84 ], [ -1, %if.else73 ], [ 0, %fips_provider_version_le.exit.thread ], [ 0, %fips_provider_version_lt.exit.thread ], [ 0, %fips_provider_version_gt.exit.thread ], [ 0, %fips_provider_version_ge.exit.thread ], [ 1, %entry ], [ 0, %lor.rhs11.i101 ], [ 0, %if.then.i105 ], [ 0, %lor.rhs11.i83 ], [ 0, %if.then.i87 ], [ 0, %lor.rhs11.i65 ], [ 0, %if.then.i69 ], [ 0, %lor.rhs11.i ], [ 0, %if.then.i51 ], [ 0, %if.then.i41 ], [ 1, %while.cond.backedge ], [ 1, %for.end ], [ 0, %if.end100 ], [ 0, %fips_provider_version_ne.exit ], [ 0, %if.then.i ]
@@ -831,9 +831,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

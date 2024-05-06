@@ -332,7 +332,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.then3.i.i, %if.e
 
 if.else:                                          ; preds = %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #11
-  %mul.i.i.i.i = mul nsw i64 %timeout_time, 1000
+  %mul.i.i.i.i = mul nuw nsw i64 %timeout_time, 1000
   %add.i.i.i = add nsw i64 %call.i, %mul.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i)
   %div.i.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000

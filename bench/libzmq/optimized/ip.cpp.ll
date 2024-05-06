@@ -125,7 +125,7 @@ do.end:                                           ; preds = %entry, %if.then
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq19get_peer_ip_addressEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %sockfd_, ptr noundef nonnull align 8 dereferenceable(32) %ip_addr_) local_unnamed_addr #6 {
+define noundef range(i32 0, 65536) i32 @_ZN3zmq19get_peer_ip_addressEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %sockfd_, ptr noundef nonnull align 8 dereferenceable(32) %ip_addr_) local_unnamed_addr #6 {
 entry:
   %ss = alloca %struct.sockaddr_storage, align 8
   %host = alloca [1025 x i8], align 16
@@ -247,7 +247,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %s_, ptr noundef nonnull align 8 dereferenceable(32) %bound_device_) local_unnamed_addr #6 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %s_, ptr noundef nonnull align 8 dereferenceable(32) %bound_device_) local_unnamed_addr #6 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %bound_device_) #14
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %bound_device_) #14
@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr nocapture noundef writeonly %r_, ptr nocapture noundef writeonly %w_) local_unnamed_addr #6 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq11make_fdpairEPiS0_(ptr nocapture noundef writeonly %r_, ptr nocapture noundef writeonly %w_) local_unnamed_addr #6 {
 entry:
   %call = tail call i32 @eventfd(i32 noundef 0, i32 noundef 524288) #14
   %cmp = icmp eq i32 %call, -1
@@ -379,7 +379,7 @@ declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq27create_ipc_wildcard_addressERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %path_, ptr noundef nonnull align 8 dereferenceable(32) %file_) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq27create_ipc_wildcard_addressERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %path_, ptr noundef nonnull align 8 dereferenceable(32) %file_) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp_path = alloca %"class.std::__cxx11::basic_string", align 8
   %statbuf = alloca %struct.stat, align 8
@@ -599,7 +599,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
+  %add.ptr.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1

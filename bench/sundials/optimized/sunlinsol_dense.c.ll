@@ -66,7 +66,7 @@ define noundef i32 @SUNLinSolInitialize_Dense(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNLinSolSetup_Dense(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 0, 809) i32 @SUNLinSolSetup_Dense(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = tail call ptr @SUNDenseMatrix_Cols(ptr noundef %1) #9
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

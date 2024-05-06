@@ -1258,7 +1258,7 @@ _ZN6icu_7522Normalizer2DataBuilder19checkNormForMappingEPNS_4NormEi.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder27mappingHasCompBoundaryAfterERKNS_23BuilderReorderingBufferENS_4Norm11MappingTypeE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(133) %buffer, i32 noundef %mappingType) local_unnamed_addr #1 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522Normalizer2DataBuilder27mappingHasCompBoundaryAfterERKNS_23BuilderReorderingBufferENS_4Norm11MappingTypeE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(133) %buffer, i32 noundef %mappingType) local_unnamed_addr #1 align 2 {
 entry:
   %fLength.i = getelementptr inbounds i8, ptr %buffer, i64 124
   %0 = load i32, ptr %fLength.i, align 4
@@ -1519,7 +1519,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755Norms10getN
 declare noundef i32 @_ZNK6icu_754Norm7combineEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder17mappingRecomposesERKNS_23BuilderReorderingBufferE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(133) %buffer) local_unnamed_addr #1 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522Normalizer2DataBuilder17mappingRecomposesERKNS_23BuilderReorderingBufferE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(133) %buffer) local_unnamed_addr #1 align 2 {
 entry:
   %fLastStarterIndex.i = getelementptr inbounds i8, ptr %buffer, i64 128
   %0 = load i32, ptr %fLastStarterIndex.i, align 4
@@ -1706,7 +1706,7 @@ land.end:                                         ; preds = %lor.rhs.i, %land.rh
 
 land.rhs29:                                       ; preds = %land.end
   %16 = load i32, ptr %mappingType.i, align 8
-  %call30 = call noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder27mappingHasCompBoundaryAfterERKNS_23BuilderReorderingBufferENS_4Norm11MappingTypeE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr noundef nonnull align 4 dereferenceable(133) %buffer, i32 noundef %16), !range !10
+  %call30 = call noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder27mappingHasCompBoundaryAfterERKNS_23BuilderReorderingBufferENS_4Norm11MappingTypeE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr noundef nonnull align 4 dereferenceable(133) %buffer, i32 noundef %16)
   br label %land.end32
 
 land.end32:                                       ; preds = %land.rhs29, %land.end
@@ -1771,7 +1771,7 @@ if.then60:                                        ; preds = %if.else57
   br label %if.end126
 
 if.else62:                                        ; preds = %if.else57
-  %call63 = call noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder17mappingRecomposesERKNS_23BuilderReorderingBufferE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr noundef nonnull align 4 dereferenceable(133) %buffer), !range !10
+  %call63 = call noundef signext i8 @_ZNK6icu_7522Normalizer2DataBuilder17mappingRecomposesERKNS_23BuilderReorderingBufferE(ptr noundef nonnull align 8 dereferenceable(860) %this, ptr noundef nonnull align 4 dereferenceable(133) %buffer)
   %tobool64.not = icmp eq i8 %call63, 0
   %type68 = getelementptr inbounds i8, ptr %norm, i64 48
   br i1 %tobool64.not, label %if.else67, label %if.then65
@@ -1904,7 +1904,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %conv6.i, ptr %arrayidx.i, align 1
   %inc = add i32 %c.039, 1
   %exitcond.not = icmp eq i32 %c.039, %end
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !10
 
 if.end:                                           ; preds = %for.body, %entry
   %type = getelementptr inbounds i8, ptr %norm, i64 48
@@ -2130,7 +2130,7 @@ entry:
 
 while.cond.loopexit:                              ; preds = %for.inc, %while.body
   %exitcond29.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond29.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %exitcond29.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.body:                                       ; preds = %entry, %while.cond.loopexit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %while.cond.loopexit ]
@@ -2158,7 +2158,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add i32 %c.025, 1
   %exitcond.not = icmp eq i32 %c.025, %1
-  br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond.loopexit
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
@@ -2233,7 +2233,7 @@ while.cond37:                                     ; preds = %invoke.cont32, %whi
 while.body39:                                     ; preds = %while.cond37
   %add = add nuw nsw i32 %c36.0, 28
   invoke void @umutablecptrie_set_75(ptr noundef %norm16Trie, i32 noundef %add, i32 noundef %4, ptr noundef nonnull %errorCode.i.i)
-          to label %while.cond37 unwind label %lpad.loopexit, !llvm.loop !14
+          to label %while.cond37 unwind label %lpad.loopexit, !llvm.loop !13
 
 while.end43:                                      ; preds = %while.cond37
   invoke void @_ZNK6icu_759ErrorCode13assertSuccessEv(ptr noundef nonnull align 8 dereferenceable(12) %errorCode)
@@ -2282,7 +2282,7 @@ do.body:                                          ; preds = %do.cond, %invoke.co
 do.cond:                                          ; preds = %do.body
   %0 = load i8, ptr %didDecompose.i, align 8
   %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !15
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond
   %normMem.i = getelementptr inbounds i8, ptr %this, i64 408
@@ -2309,7 +2309,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -2714,7 +2714,7 @@ if.then179:                                       ; preds = %if.end177
 for.cond141.backedge:                             ; preds = %if.then179, %if.else182, %if.else185
   %maxNorm16.0.be = phi i32 [ %or169, %if.then179 ], [ %or169, %if.else182 ], [ %maxNorm16.2, %if.else185 ]
   %start.0.be = phi i32 [ %and181, %if.then179 ], [ %add183, %if.else182 ], [ %add186, %if.else185 ]
-  br label %for.cond141, !llvm.loop !17
+  br label %for.cond141, !llvm.loop !16
 
 if.else182:                                       ; preds = %if.end177
   %add183 = add nsw i32 %or, 1
@@ -2856,7 +2856,7 @@ for.body280:                                      ; preds = %invoke.cont268, %fo
   store i32 %add275, ptr %arrayidx282, align 4
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 8
-  br i1 %exitcond189.not, label %for.end285, label %for.body280, !llvm.loop !18
+  br i1 %exitcond189.not, label %for.end285, label %for.body280, !llvm.loop !17
 
 for.end285:                                       ; preds = %for.body280
   %79 = load i8, ptr @_ZN6icu_759beVerboseE, align 1
@@ -3652,7 +3652,7 @@ do.cond:                                          ; preds = %if.else41, %if.else
   %start.1 = phi i32 [ %start.0, %if.end34 ], [ %c.0, %if.then46 ], [ %c.0, %if.else51 ], [ %c.0, %if.else41 ]
   %prevCC.1 = phi i8 [ %prevCC.0, %if.end34 ], [ %cc.0, %if.then46 ], [ %cc.0, %if.else51 ], [ %cc.0, %if.else41 ]
   %didWrite.2 = phi i1 [ %didWrite.0, %if.end34 ], [ true, %if.then46 ], [ true, %if.else51 ], [ %didWrite.0, %if.else41 ]
-  br i1 %done.1, label %do.end, label %do.body, !llvm.loop !19
+  br i1 %done.1, label %do.end, label %do.body, !llvm.loop !18
 
 do.end:                                           ; preds = %do.cond
   br i1 %didWrite.2, label %if.then62, label %if.end65
@@ -3865,7 +3865,7 @@ call6.i.noexc:                                    ; preds = %while.body.i
   %23 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %23, i32 %shr.i.i.i
   %cmp5.i = icmp slt i32 %add.i, %cond.i.i
-  br i1 %cmp5.i, label %while.body.i, label %_ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit, !llvm.loop !20
+  br i1 %cmp5.i, label %while.body.i, label %_ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit, !llvm.loop !19
 
 _ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit: ; preds = %call6.i.noexc, %if.end123, %land.lhs.true.i, %call1.i.noexc
   %fputc.i = call i32 @fputc(i32 10, ptr nonnull %call)
@@ -3875,7 +3875,7 @@ do.cond127:                                       ; preds = %_ZN6icu_7512_GLOBAL
   %start.3 = phi i32 [ %start.2, %invoke.cont97 ], [ %c69.062, %_ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit ], [ %c69.062, %cond.false ], [ %c69.062, %cond.true ]
   %prevMapping.1 = phi ptr [ %prevMapping.0, %invoke.cont97 ], [ %mapping.0, %_ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit ], [ %mapping.0, %cond.false ], [ %mapping.0, %cond.true ]
   %prevType.1 = phi i32 [ %prevType.0, %invoke.cont97 ], [ %type.0, %_ZN6icu_7512_GLOBAL__N_112writeMappingEP8_IO_FILEPKNS_13UnicodeStringE.exit ], [ %type.0, %cond.false ], [ %type.0, %cond.true ]
-  br i1 %done.361, label %do.end130, label %do.body68, !llvm.loop !21
+  br i1 %done.361, label %do.end130, label %do.body68, !llvm.loop !20
 
 do.end130:                                        ; preds = %do.cond127
   %call132 = call i32 @fclose(ptr noundef nonnull %call)
@@ -3971,7 +3971,7 @@ call.i.noexc:                                     ; preds = %if.then28
           to label %while.cond.backedge unwind label %lpad12.loopexit
 
 while.cond.backedge:                              ; preds = %call.i.noexc, %invoke.cont24
-  br label %while.cond, !llvm.loop !22
+  br label %while.cond, !llvm.loop !21
 
 lpad:                                             ; preds = %invoke.cont, %if.end
   %3 = landingpad { ptr, i32 }
@@ -4124,7 +4124,7 @@ call8.i.i.noexc:                                  ; preds = %land.rhs.i.i
   br i1 %tobool9.i.i.not, label %if.else80, label %while.cond39.backedge
 
 while.cond39.backedge:                            ; preds = %call8.i.i.noexc, %if.then.i.i, %if.else80, %if.then82, %if.then90, %if.then86, %invoke.cont77
-  br label %while.cond39, !llvm.loop !23
+  br label %while.cond39, !llvm.loop !22
 
 invoke.cont77:                                    ; preds = %land.lhs.true
   %cmp1.mux.i = and i1 %cmp.i51, %cmp1.i
@@ -4282,7 +4282,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -4295,4 +4295,3 @@ attributes #23 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}

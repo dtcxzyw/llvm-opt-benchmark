@@ -1131,7 +1131,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false), !alias.scope !11
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %52), !noalias !11
   store ptr @_ZN12_GLOBAL__N_118FileSetsArgsParserE, ptr %52, align 8, !noalias !11
   %65 = getelementptr inbounds i8, ptr %52, i64 8

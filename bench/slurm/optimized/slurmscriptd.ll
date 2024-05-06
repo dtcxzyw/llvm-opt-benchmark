@@ -3578,7 +3578,7 @@ define internal fastcc i32 @_run_script(ptr noundef %0, i32 noundef %1, i32 noun
   %11 = icmp slt i32 %2, 1
   %12 = icmp eq i32 %2, 65534
   %or.cond = or i1 %11, %12
-  %13 = mul nsw i32 %2, 1000
+  %13 = mul nuw nsw i32 %2, 1000
   %.035 = select i1 %or.cond, i32 -1, i32 %13
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.035, ptr %14, align 4

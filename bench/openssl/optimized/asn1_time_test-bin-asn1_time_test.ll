@@ -195,32 +195,32 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #1
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_table_pos(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_table_pos(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_pos, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_pos, i32 noundef %idx)
   ret i32 %call
 }
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_table_neg(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_table_neg(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_neg, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_neg, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_table_pos_64bit(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_table_pos_64bit(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_pos_64bit, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_pos_64bit, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_table_neg_64bit(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_table_neg_64bit(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_neg_64bit, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_table(ptr noundef nonnull @tbl_testdata_neg_64bit, i32 noundef %idx)
   ret i32 %call
 }
 
@@ -240,7 +240,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_time_dup() #0 {
+define internal range(i32 0, 2) i32 @test_time_dup() #0 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #4
   %call1 = tail call ptr @ASN1_TIME_adj(ptr noundef null, i64 noundef %call, i32 noundef 0, i64 noundef 0) #4
@@ -333,7 +333,7 @@ err:                                              ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @convert_asn1_to_time_t(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @convert_asn1_to_time_t(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %idxprom
@@ -355,7 +355,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_table(ptr nocapture noundef readonly %tbl, i32 noundef %idx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_table(ptr nocapture noundef readonly %tbl, i32 noundef %idx) unnamed_addr #0 {
 entry:
   %atime = alloca %struct.asn1_string_st, align 8
   %day = alloca i32, align 4
@@ -939,4 +939,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

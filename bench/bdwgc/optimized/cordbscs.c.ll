@@ -371,7 +371,7 @@ CORD__call_oom_fn.exit102:                        ; preds = %80, %82
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %85
-  %91 = trunc i64 %.286 to i8
+  %91 = trunc nuw i64 %.286 to i8
   %92 = getelementptr inbounds i8, ptr %78, i64 3
   store i8 %91, ptr %92, align 1
   br label %93
@@ -669,7 +669,7 @@ CORD__call_oom_fn.exit:                           ; preds = %30, %32
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %35
-  %40 = trunc i64 %.037 to i8
+  %40 = trunc nuw i64 %.037 to i8
   %41 = getelementptr inbounds i8, ptr %28, i64 3
   store i8 %40, ptr %41, align 1
   br label %42
@@ -821,7 +821,7 @@ define ptr @CORD_substr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_un
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %CORD_len.exit
 
 9:                                                ; preds = %5
@@ -1527,7 +1527,7 @@ define i32 @CORD_iter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CORD_riter4(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CORD_riter4(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %54, %4
@@ -1634,7 +1634,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   %55 = getelementptr inbounds i8, ptr %.tr, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = sub i64 %.tr59.ph, %53
-  %58 = tail call i32 @CORD_riter4(ptr noundef %56, i64 noundef %57, ptr noundef %2, ptr noundef %3), !range !17
+  %58 = tail call i32 @CORD_riter4(ptr noundef %56, i64 noundef %57, ptr noundef %2, ptr noundef %3)
   %.not57 = icmp eq i32 %58, 0
   %59 = add i64 %53, -1
   br i1 %.not57, label %tailrecurse.outer, label %.loopexit
@@ -1668,7 +1668,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CORD_riter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CORD_riter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %CORD_len.exit.thread, label %5
 
@@ -1678,7 +1678,7 @@ define noundef i32 @CORD_riter(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %CORD_len.exit
 
 9:                                                ; preds = %5
@@ -1693,7 +1693,7 @@ CORD_len.exit:                                    ; preds = %7, %9
 
 14:                                               ; preds = %CORD_len.exit
   %15 = add i64 %12, -1
-  %16 = tail call i32 @CORD_riter4(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %1, ptr noundef %2), !range !17
+  %16 = tail call i32 @CORD_riter4(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %1, ptr noundef %2)
   br label %CORD_len.exit.thread
 
 CORD_len.exit.thread:                             ; preds = %3, %CORD_len.exit, %14
@@ -1740,7 +1740,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %16, %.tr43.lcssa
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  br i1 %17, label %.lr.ph55, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %17, label %.lr.ph55, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %14
   %18 = and i64 %indvars.iv102, 4294967295
@@ -1781,7 +1781,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %31 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next110
   %32 = load i64, ptr %31, align 8
   %.not.i = icmp ult i64 %.3.i, %32
-  br i1 %.not.i, label %CORD_add_forest.exit, label %.lr.ph64, !llvm.loop !19
+  br i1 %.not.i, label %CORD_add_forest.exit, label %.lr.ph64, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
   %.tr4350 = phi i64 [ %75, %tailrecurse ], [ %1, %3 ]
@@ -1892,7 +1892,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %89 = load i64, ptr %88, align 8
   %90 = icmp ult i64 %89, %.tr4350
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  br i1 %90, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !18
+  br i1 %90, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !17
 
 ._crit_edge73.loopexit:                           ; preds = %87
   %91 = and i64 %indvars.iv, 4294967295
@@ -1933,7 +1933,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %104 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next100
   %105 = load i64, ptr %104, align 8
   %.not.i35 = icmp ult i64 %.3.i38, %105
-  br i1 %.not.i35, label %CORD_add_forest.exit, label %.lr.ph82, !llvm.loop !19
+  br i1 %.not.i35, label %CORD_add_forest.exit, label %.lr.ph82, !llvm.loop !18
 
 CORD_add_forest.exit:                             ; preds = %103, %30, %._crit_edge73, %._crit_edge
   %.lcssa.sink = phi i64 [ %.040.i.lcssa, %._crit_edge ], [ %.040.i29.lcssa, %._crit_edge73 ], [ %indvars.iv.next110, %30 ], [ %indvars.iv.next100, %103 ]
@@ -2044,7 +2044,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %31, ptr %32, align 1
   %33 = add nuw nsw i64 %.04557, 1
   %exitcond.not = icmp eq i64 %33, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2076,7 +2076,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #0 {
   %48 = add nsw i32 %41, -1
   store i32 %48, ptr %4, align 8
   %49 = icmp sgt i32 %41, 1
-  br i1 %49, label %.lr.ph, label %.critedge.thread63, !llvm.loop !21
+  br i1 %49, label %.lr.ph, label %.critedge.thread63, !llvm.loop !20
 
 .critedge:                                        ; preds = %39
   %50 = icmp eq i32 %5, 0
@@ -2195,7 +2195,7 @@ define internal fastcc void @CORD_extend_path(ptr nocapture noundef %0) unnamed_
   store i32 %53, ptr %3, align 8
   %54 = load i8, ptr %.sink75, align 1
   %.not54 = icmp eq i8 %54, 0
-  br i1 %.not54, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %.not54, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %45, %12
   %.051.lcssa = phi i64 [ %10, %12 ], [ %.sink, %45 ]
@@ -2274,7 +2274,7 @@ define void @CORD__prev(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %24 = add nsw i32 %16, -1
   store i32 %24, ptr %3, align 8
   %25 = icmp sgt i32 %16, 1
-  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !23
+  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %22, %13
   %.lcssa = phi i32 [ %8, %13 ], [ 0, %22 ], [ %16, %.lr.ph ]
@@ -2434,7 +2434,7 @@ thread-pre-split:                                 ; preds = %1, %4
   %31 = add nsw i32 %23, -1
   store i32 %31, ptr %11, align 8
   %32 = icmp sgt i32 %23, 1
-  br i1 %32, label %.lr.ph.i, label %.critedge.i, !llvm.loop !23
+  br i1 %32, label %.lr.ph.i, label %.critedge.i, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %29, %.lr.ph.i, %20
   %.lcssa.i = phi i32 [ %15, %20 ], [ %23, %.lr.ph.i ], [ 0, %29 ]
@@ -2461,7 +2461,7 @@ define ptr @CORD_pos_to_cord(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @CORD_pos_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @CORD_pos_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 1431655765
@@ -2586,10 +2586,9 @@ attributes #19 = { noreturn nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

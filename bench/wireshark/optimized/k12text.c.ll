@@ -2518,7 +2518,7 @@ define hidden void @k12text_set_debug(i32 noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @k12text_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @k12text_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2546,7 +2546,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @k12text_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @k12text_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2705,7 +2705,7 @@ k12text_pop_buffer_state.exit:                    ; preds = %23, %42, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @k12text_open(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @k12text_open(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.k12text_state_t, align 8
   %5 = tail call noalias dereferenceable_or_null(262144) ptr @g_malloc(i64 noundef 262144) #24
   %6 = getelementptr inbounds i8, ptr %4, i64 56
@@ -2814,7 +2814,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @k12text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.k12text_state_t, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -2898,7 +2898,7 @@ k12text_run_scanner.exit:                         ; preds = %21, %21
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %44, %46
   store i64 %47, ptr %9, align 8
-  %48 = call fastcc i32 @k12text_set_headers(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4), !range !13
+  %48 = call fastcc i32 @k12text_set_headers(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
   %.not22 = icmp eq i32 %48, 0
   br i1 %.not22, label %49, label %51
 
@@ -2934,7 +2934,7 @@ k12text_run_scanner.exit:                         ; preds = %21, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @k12text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.k12text_state_t, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3019,7 +3019,7 @@ k12text_run_scanner.exit:                         ; preds = %19, %19
   br label %.sink.split
 
 45:                                               ; preds = %k12text_run_scanner.exit
-  %46 = call fastcc i32 @k12text_set_headers(ptr noundef %2, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5), !range !13
+  %46 = call fastcc i32 @k12text_set_headers(ptr noundef %2, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
   %.not17 = icmp eq i32 %46, 0
   br i1 %.not17, label %47, label %49
 
@@ -3080,7 +3080,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @k12text_set_headers(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @k12text_set_headers(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %5 = tail call ptr @wtap_block_create(i32 noundef 5) #27
   %6 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3164,7 +3164,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @k12text_dump_can_write_encap(i32 noundef %0) #21 {
+define internal range(i32 -8, 1) i32 @k12text_dump_can_write_encap(i32 noundef %0) #21 {
   switch i32 %0, label %2 [
     i32 -1, label %3
     i32 1, label %3
@@ -3208,13 +3208,13 @@ define internal i32 @k12text_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %indvars.iv81 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %17, label %13, !llvm.loop !14
+  br i1 %exitcond, label %17, label %13, !llvm.loop !13
 
 13:                                               ; preds = %.lr.ph82
   %14 = getelementptr [6 x %struct.anon.3], ptr @encaps, i64 0, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 16
   %16 = icmp eq i32 %10, %15
-  br i1 %16, label %._crit_edge83, label %.lr.ph82, !llvm.loop !14
+  br i1 %16, label %._crit_edge83, label %.lr.ph82, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph82
   store i32 -8, ptr %3, align 4
@@ -3278,7 +3278,7 @@ define internal i32 @k12text_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %54 = icmp ult i64 %indvars.iv.next73, %53
   %55 = icmp ugt i64 %51, 2
   %56 = and i1 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %.055.lcssa = phi ptr [ %39, %33 ], [ %50, %.lr.ph ]
@@ -3359,6 +3359,5 @@ attributes #32 = { nounwind allocsize(0,1) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

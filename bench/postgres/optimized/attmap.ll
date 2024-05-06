@@ -112,7 +112,7 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %37, label %63, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nsw i64 %indvars.iv to i32
   %40 = add i32 %.05183, 1
   %41 = getelementptr inbounds i8, ptr %34, i64 68
   %42 = load i32, ptr %41, align 4

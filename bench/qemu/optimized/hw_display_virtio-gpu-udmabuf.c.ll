@@ -298,7 +298,7 @@ if.end:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr nocapture noundef readonly %res, ptr nocapture noundef readonly %fb, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr nocapture noundef readonly %res, ptr nocapture noundef readonly %fb, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %scanout1 = getelementptr inbounds i8, ptr %g, i64 864
   %dmabuf_fd.i = getelementptr inbounds i8, ptr %res, i64 72

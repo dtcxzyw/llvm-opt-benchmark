@@ -13,41 +13,41 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [33 x i8] c"hwloc_set_area_membind() failure\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_hwloc_base_set_process_membind_policy() local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @prte_hwloc_base_set_process_membind_policy() local_unnamed_addr #0 {
   %1 = tail call i32 @prte_hwloc_base_get_topology() #5
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %2, label %20
+  br i1 %.not, label %2, label %19
 
 2:                                                ; preds = %0
   %3 = load i32, ptr @prte_hwloc_base_map, align 4
   %4 = tail call noalias ptr @hwloc_bitmap_alloc() #5
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %20, label %6
+  br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   %cond = icmp eq i32 %3, 1
-  %.18 = select i1 %cond, i32 2, i32 0
+  %.23 = select i1 %cond, i32 2, i32 0
   %. = select i1 %cond, i32 4, i32 0
   %7 = load ptr, ptr @prte_hwloc_topology, align 8
   %8 = tail call i32 @hwloc_get_cpubind(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 0) #5
   %9 = load ptr, ptr @prte_hwloc_topology, align 8
-  %10 = tail call i32 @hwloc_set_membind(ptr noundef %9, ptr noundef nonnull %4, i32 noundef %.18, i32 noundef %.) #5
+  %10 = tail call i32 @hwloc_set_membind(ptr noundef %9, ptr noundef nonnull %4, i32 noundef %.23, i32 noundef %.) #5
   %11 = tail call ptr @__errno_location() #6
   %12 = load i32, ptr %11, align 4
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %4) #5
   %13 = icmp eq i32 %10, 0
   %14 = icmp ne i32 %12, 38
-  %or.cond.not = select i1 %13, i1 true, i1 %14
+  %or.cond.not22 = select i1 %13, i1 true, i1 %14
   %15 = load i32, ptr @prte_hwloc_base_map, align 4
   %16 = icmp ne i32 %15, 0
-  %or.cond3 = select i1 %or.cond.not, i1 true, i1 %16
+  %or.cond3.not19 = select i1 %or.cond.not22, i1 true, i1 %16
   %17 = icmp ne i32 %10, 0
-  %18 = select i1 %or.cond3, i1 %17, i1 false
-  %19 = sext i1 %18 to i32
-  br label %20
+  %.not17 = select i1 %or.cond3.not19, i1 %17, i1 false
+  %18 = sext i1 %.not17 to i32
+  br label %19
 
-20:                                               ; preds = %6, %2, %0
-  %.0 = phi i32 [ -5, %0 ], [ %19, %6 ], [ -1, %2 ]
+19:                                               ; preds = %6, %2, %0
+  %.0 = phi i32 [ -5, %0 ], [ %18, %6 ], [ -1, %2 ]
   ret i32 %.0
 }
 

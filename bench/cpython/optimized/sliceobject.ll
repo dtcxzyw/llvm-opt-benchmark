@@ -884,7 +884,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [11 x i8] c"__reduce__\00", align 1
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [32 x i8] c"EllipsisType takes no arguments\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @.str.6 = private unnamed_addr constant [67 x i8] c"slice indices must be integers or None or have an __index__ method\00", align 1
 @.str.7 = private unnamed_addr constant [18 x i8] c"slice(%R, %R, %R)\00", align 1
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PySlice_GetIndices(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr nocapture noundef %start, ptr nocapture noundef writeonly %stop, ptr nocapture noundef %step) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr nocapture noundef %start, ptr nocapture noundef writeonly %stop, ptr nocapture noundef %step) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end52, %if.end49
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -1486,9 +1486,9 @@ return:                                           ; preds = %if.then39, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PySlice_GetIndicesEx(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr nocapture noundef writeonly %slicelength) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_GetIndicesEx(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr nocapture noundef writeonly %slicelength) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @PySlice_Unpack(ptr noundef %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step), !range !5
+  %call = tail call i32 @PySlice_Unpack(ptr noundef %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1591,7 +1591,7 @@ return:                                           ; preds = %entry, %PySlice_Adj
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly %start_ptr, ptr nocapture noundef writeonly %stop_ptr, ptr nocapture noundef writeonly %step_ptr) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly %start_ptr, ptr nocapture noundef writeonly %stop_ptr, ptr nocapture noundef writeonly %step_ptr) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -2546,7 +2546,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call i32 @_PySlice_GetLongIndices(ptr noundef %self, ptr noundef nonnull %call, ptr noundef nonnull %start, ptr noundef nonnull %stop, ptr noundef nonnull %step), !range !5
+  %call4 = call i32 @_PySlice_GetLongIndices(ptr noundef %self, ptr noundef nonnull %call, ptr noundef nonnull %start, ptr noundef nonnull %stop, ptr noundef nonnull %step)
   %4 = load i64, ptr %call, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i21.not = icmp eq i64 %5, 0
@@ -2617,4 +2617,3 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

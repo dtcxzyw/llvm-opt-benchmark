@@ -257,7 +257,7 @@ define dso_local void @_ZN22DefaultRndNumGenerator10add_numberEiii(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN22DefaultRndNumGenerator8rnd_uptoEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_uptoEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %0, align 8
@@ -266,7 +266,7 @@ define dso_local noundef i32 @_ZN22DefaultRndNumGenerator8rnd_uptoEjPK6FilterPKN
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %11 = zext i32 %1 to i64
   %12 = urem i64 %10, %11
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
@@ -288,7 +288,7 @@ define dso_local noundef i32 @_ZN22DefaultRndNumGenerator8rnd_uptoEjPK6FilterPKN
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = urem i64 %24, %11
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = load ptr, ptr %2, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -529,7 +529,7 @@ define dso_local void @_ZN22DefaultRndNumGenerator12RandomDigitsB5cxx11Ei(ptr de
           to label %21 unwind label %.loopexit8
 
 21:                                               ; preds = %16
-  %22 = trunc i64 %17 to i32
+  %22 = trunc nuw nsw i64 %17 to i32
   %23 = load ptr, ptr %8, align 8
   %24 = load i64, ptr %9, align 8
   %25 = trunc i64 %24 to i32

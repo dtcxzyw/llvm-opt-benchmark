@@ -2502,7 +2502,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   br label %191
 
 62:                                               ; preds = %.preheader368
-  %63 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1264315, ptr noundef nonnull %4, ptr noundef nonnull %7), !range !4
+  %63 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1264315, ptr noundef nonnull %4, ptr noundef nonnull %7)
   br label %64
 
 64:                                               ; preds = %62, %.preheader368
@@ -2511,7 +2511,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not300, label %68, label %65
 
 65:                                               ; preds = %64
-  %66 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1267318, ptr noundef nonnull %5, ptr noundef nonnull %7), !range !4
+  %66 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1267318, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %67 = add nuw nsw i32 %66, %.0232
   br label %68
 
@@ -2521,7 +2521,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not301, label %72, label %69
 
 69:                                               ; preds = %68
-  %70 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1270321, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !4
+  %70 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.1270321, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %71 = add nuw nsw i32 %70, %.1
   br label %72
 
@@ -2809,7 +2809,7 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stream_array_to_fd_set(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @stream_array_to_fd_set(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
@@ -3322,7 +3322,7 @@ decode_context_param.exit:                        ; preds = %48
   br label %93
 
 73:                                               ; preds = %69
-  %74 = call fastcc i32 @parse_context_options(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %.1180), !range !5
+  %74 = call fastcc i32 @parse_context_options(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %.1180)
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %76, label %79
 
@@ -3373,7 +3373,7 @@ decode_context_param.exit:                        ; preds = %48
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_context_options(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_context_options(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3566,7 +3566,7 @@ decode_context_param.exit:                        ; preds = %19
 
 35:                                               ; preds = %.thread.i, %26, %14
   %.0.i.ph = phi ptr [ %17, %14 ], [ %28, %26 ], [ %30, %.thread.i ]
-  %36 = tail call fastcc i32 @parse_context_options(ptr noundef nonnull %.0.i.ph, ptr noundef %15), !range !5
+  %36 = tail call fastcc i32 @parse_context_options(ptr noundef nonnull %.0.i.ph, ptr noundef %15)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %41
 
@@ -3660,7 +3660,7 @@ decode_context_param.exit:                        ; preds = %19
 
 35:                                               ; preds = %.thread.i, %26, %14
   %.0.i.ph = phi ptr [ %17, %14 ], [ %28, %26 ], [ %30, %.thread.i ]
-  %36 = tail call fastcc i32 @parse_context_params(ptr noundef nonnull %.0.i.ph, ptr noundef %15), !range !5
+  %36 = tail call fastcc i32 @parse_context_params(ptr noundef nonnull %.0.i.ph, ptr noundef %15)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %41
 
@@ -3680,7 +3680,7 @@ decode_context_param.exit:                        ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_context_params(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_context_params(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.32, i64 noundef 12) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %22, label %4
@@ -3736,7 +3736,7 @@ define internal fastcc noundef i32 @parse_context_params(ptr noundef %0, ptr nou
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %23, align 8
-  %30 = tail call fastcc i32 @parse_context_options(ptr noundef %0, ptr noundef %29), !range !5
+  %30 = tail call fastcc i32 @parse_context_options(ptr noundef %0, ptr noundef %29)
   br label %32
 
 31:                                               ; preds = %24
@@ -4012,7 +4012,7 @@ define hidden void @zif_stream_context_get_default(ptr noundef %0, ptr nocapture
   br i1 %.not73, label %26, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call fastcc i32 @parse_context_options(ptr noundef %19, ptr noundef nonnull %.2.ph), !range !5
+  %21 = tail call fastcc i32 @parse_context_options(ptr noundef %19, ptr noundef nonnull %.2.ph)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %26
 
@@ -4077,7 +4077,7 @@ define hidden void @zif_stream_context_set_default(ptr noundef %0, ptr nocapture
 
 16:                                               ; preds = %14, %10
   %17 = phi ptr [ %15, %14 ], [ %12, %10 ]
-  %18 = tail call fastcc i32 @parse_context_options(ptr noundef %17, ptr noundef %11), !range !5
+  %18 = tail call fastcc i32 @parse_context_options(ptr noundef %17, ptr noundef %11)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %23
 
@@ -4169,7 +4169,7 @@ define hidden void @zif_stream_context_create(ptr noundef %0, ptr nocapture noun
   br i1 %.not122, label %28, label %22
 
 22:                                               ; preds = %.thread147
-  %23 = tail call fastcc i32 @parse_context_options(ptr noundef %21, ptr noundef nonnull %.1128), !range !5
+  %23 = tail call fastcc i32 @parse_context_options(ptr noundef %21, ptr noundef nonnull %.1128)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %25, label %28
 
@@ -4184,7 +4184,7 @@ define hidden void @zif_stream_context_create(ptr noundef %0, ptr nocapture noun
   br i1 %.not123, label %35, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call fastcc i32 @parse_context_params(ptr noundef %21, ptr noundef nonnull %.2113.ph), !range !5
+  %30 = tail call fastcc i32 @parse_context_params(ptr noundef %21, ptr noundef nonnull %.2113.ph)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %35
 
@@ -5773,5 +5773,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 1}

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_validate_public_key_partial(ptr noundef readonly %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_validate_public_key_partial(ptr noundef readonly %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %cmp = icmp eq ptr %params, null
@@ -100,9 +100,9 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_validate_public_key(ptr noundef %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_validate_public_key(ptr noundef %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef %params, ptr noundef %pub_key, ptr noundef %ret), !range !4
+  %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef %params, ptr noundef %pub_key, ptr noundef %ret)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -162,7 +162,7 @@ declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_validate_private_key(ptr noundef %upper, ptr noundef %priv, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_validate_private_key(ptr noundef %upper, ptr noundef %priv, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %cmp = icmp eq ptr %priv, null
@@ -209,4 +209,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

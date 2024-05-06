@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sbm_ManCheckSol(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbm_ManCheckSol(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -586,9 +586,9 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
-  %3 = tail call i32 @Sbm_ManCheckSol(ptr noundef %0, ptr poison), !range !10
+  %3 = tail call i32 @Sbm_ManCheckSol(ptr noundef %0, ptr poison)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %sat_solver_set_polarity.exit, label %4
 
@@ -677,7 +677,7 @@ define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_un
   %.val53 = load i32, ptr %53, align 4
   %54 = sext i32 %.val53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %25, label %.critedge.preheader, !llvm.loop !11
+  br i1 %55, label %25, label %.critedge.preheader, !llvm.loop !10
 
 56:                                               ; preds = %.lr.ph75, %.critedge4
   %57 = phi ptr [ %17, %.lr.ph75 ], [ %87, %.critedge4 ]
@@ -734,7 +734,7 @@ define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_un
   %.val56 = load i32, ptr %60, align 4
   %85 = sext i32 %.val56 to i64
   %86 = icmp slt i64 %indvars.iv.next78, %85
-  br i1 %86, label %63, label %.critedge4.loopexit, !llvm.loop !12
+  br i1 %86, label %63, label %.critedge4.loopexit, !llvm.loop !11
 
 .critedge4.loopexit:                              ; preds = %78
   %.pre = load ptr, ptr %7, align 8
@@ -747,7 +747,7 @@ define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_un
   %.val52 = load i32, ptr %88, align 4
   %89 = sext i32 %.val52 to i64
   %90 = icmp slt i64 %indvars.iv.next81, %89
-  br i1 %90, label %56, label %.critedge2, !llvm.loop !13
+  br i1 %90, label %56, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge.preheader
   %91 = load ptr, ptr %0, align 8
@@ -783,7 +783,7 @@ define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_un
   %104 = load i32, ptr %91, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
-  br i1 %106, label %101, label %.preheader.i, !llvm.loop !14
+  br i1 %106, label %101, label %.preheader.i, !llvm.loop !13
 
 107:                                              ; preds = %107, %.lr.ph12.i
   %indvars.iv14.i = phi i64 [ 0, %.lr.ph12.i ], [ %indvars.iv.next15.i, %107 ]
@@ -795,7 +795,7 @@ define noundef i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) local_un
   store i8 1, ptr %112, align 1
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next15.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %sat_solver_set_polarity.exit, label %107, !llvm.loop !15
+  br i1 %exitcond.not.i, label %sat_solver_set_polarity.exit, label %107, !llvm.loop !14
 
 sat_solver_set_polarity.exit:                     ; preds = %107, %.preheader.i, %1
   %.047 = phi i32 [ 0, %1 ], [ 1, %.preheader.i ], [ 1, %107 ]
@@ -877,11 +877,11 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %19, %lftr.wideiv
-  br i1 %exitcond.not, label %33, label %20, !llvm.loop !16
+  br i1 %exitcond.not, label %33, label %20, !llvm.loop !15
 
 33:                                               ; preds = %20
   call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef nonnull %4)
-  %34 = add nsw i32 %11, 1
+  %34 = add nuw nsw i32 %11, 1
   call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %34, i32 noundef %3, ptr noundef nonnull %4)
   call fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %4)
   br label %35
@@ -922,11 +922,11 @@ define i32 @Card_AddCardinSolver(i32 noundef %0, ptr nocapture noundef writeonly
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %18 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %19, ptr %18, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %17, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %17, !llvm.loop !16
 
 Vec_IntStartNatural.exit:                         ; preds = %17, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1037,7 +1037,7 @@ define noundef ptr @Sbm_AddCardinSolver2(i32 noundef %0, ptr noundef writeonly %
   %19 = getelementptr inbounds i32, ptr %.val20, i64 %15
   %.val = load i32, ptr %10, align 4
   %20 = icmp slt i32 %18, %.val
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.not = icmp eq ptr %1, null
@@ -1184,11 +1184,11 @@ define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr nounde
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %19, %lftr.wideiv
-  br i1 %exitcond.not, label %36, label %20, !llvm.loop !19
+  br i1 %exitcond.not, label %36, label %20, !llvm.loop !18
 
 36:                                               ; preds = %20
   call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef nonnull %4)
-  %37 = add nsw i32 %11, 1
+  %37 = add nuw nsw i32 %11, 1
   call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %37, i32 noundef %3, ptr noundef nonnull %4)
   call fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %4)
   br label %38
@@ -1229,11 +1229,11 @@ define noundef ptr @Sbm_AddCardinSolver(i32 noundef %0, ptr nocapture noundef wr
 19:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
   %20 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv.i
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %19, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %19, !llvm.loop !16
 
 Vec_IntStartNatural.exit:                         ; preds = %19, %2
   %22 = tail call ptr @sat_solver_new() #16
@@ -1420,7 +1420,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %61)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %63, label %24, !llvm.loop !20
+  br i1 %exitcond.not, label %63, label %24, !llvm.loop !19
 
 63:                                               ; preds = %Vec_IntPush.exit
   %putchar = call i32 @putchar(i32 10)
@@ -1659,7 +1659,7 @@ Vec_IntFree.exit18:                               ; preds = %Vec_IntFree.exit, %
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %18, label %._crit_edge.i.i, !llvm.loop !21
+  br i1 %29, label %18, label %._crit_edge.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %26, %Vec_IntFree.exit18
   %30 = getelementptr inbounds i8, ptr %14, i64 8
@@ -1705,7 +1705,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %3
   %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next.i.i25, %48
-  br i1 %49, label %38, label %._crit_edge.i.i19, !llvm.loop !21
+  br i1 %49, label %38, label %._crit_edge.i.i19, !llvm.loop !20
 
 ._crit_edge.i.i19:                                ; preds = %46, %Vec_WecFree.exit
   %50 = getelementptr inbounds i8, ptr %34, i64 8
@@ -1857,7 +1857,7 @@ Vec_IntFree.exit45:                               ; preds = %Vec_IntFree.exit43,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbm_ManTestSat(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbm_ManTestSat(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -1924,7 +1924,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %.val.i = load i32, ptr %33, align 4
   %41 = sext i32 %.val.i to i64
   %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %37, label %Vec_IntPrint.exit, !llvm.loop !22
+  br i1 %42, label %37, label %Vec_IntPrint.exit, !llvm.loop !21
 
 Vec_IntPrint.exit:                                ; preds = %37, %Abc_Clock.exit
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1951,7 +1951,7 @@ Vec_IntPrint.exit:                                ; preds = %37, %Abc_Clock.exit
   %51 = add nsw i32 %.val8.i148, %.011.i
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i149, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_WecSizeSize.exit, label %49, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Vec_WecSizeSize.exit, label %49, !llvm.loop !22
 
 Vec_WecSizeSize.exit:                             ; preds = %49, %Vec_IntPrint.exit
   %.0.lcssa.i = phi i32 [ 0, %Vec_IntPrint.exit ], [ %51, %49 ]
@@ -1975,14 +1975,14 @@ Vec_WecSizeSize.exit:                             ; preds = %49, %Vec_IntPrint.e
   %57 = add nsw i32 %.val8.i157, %.011.i156
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i155, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i154
-  br i1 %exitcond.not.i159, label %Vec_WecSizeSize.exit160, label %55, !llvm.loop !23
+  br i1 %exitcond.not.i159, label %Vec_WecSizeSize.exit160, label %55, !llvm.loop !22
 
 Vec_WecSizeSize.exit160:                          ; preds = %55, %Vec_WecSizeSize.exit
   %.0.lcssa.i151 = phi i32 [ 0, %Vec_WecSizeSize.exit ], [ %57, %55 ]
   %58 = add i32 %.val127, %.0.lcssa.i151
   %59 = sub i32 %52, %58
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %44, i32 noundef %.val128, i32 noundef %.0.lcssa.i, i32 noundef %59)
-  %61 = call i32 @Sbm_ManCreateCnf(ptr noundef nonnull %13), !range !10
+  %61 = call i32 @Sbm_ManCreateCnf(ptr noundef nonnull %13)
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %292, label %62
 
@@ -2113,7 +2113,7 @@ Vec_IntPush.exit167:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %91, ptr %122, align 4
   %123 = add i32 %.0112192, 1
   %exitcond.not = icmp eq i32 %123, 128
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !23
 
 .lr.ph195:                                        ; preds = %.preheader, %Vec_IntPush.exit174
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit174 ], [ 0, %.preheader ]
@@ -2196,7 +2196,7 @@ Vec_IntPush.exit174:                              ; preds = %.Vec_IntGrow.exit10
   %.val131 = load i32, ptr %162, align 4
   %163 = sext i32 %.val131 to i64
   %164 = icmp slt i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph195, label %.critedge, !llvm.loop !25
+  br i1 %164, label %.lr.ph195, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %Vec_IntPush.exit174, %.preheader
   %165 = load ptr, ptr %20, align 8
@@ -2278,7 +2278,7 @@ Abc_Clock.exit176:                                ; preds = %173, %187
   br i1 %205, label %206, label %214
 
 206:                                              ; preds = %202
-  %207 = trunc i64 %indvars.iv211 to i32
+  %207 = trunc nuw nsw i64 %indvars.iv211 to i32
   %208 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %207, i32 noundef 1)
   %209 = add nsw i32 %.0107198, 1
   %.val = load i32, ptr %197, align 4
@@ -2296,7 +2296,7 @@ Abc_Clock.exit176:                                ; preds = %173, %187
   %.1 = phi i32 [ %209, %211 ], [ %209, %206 ], [ %.0107198, %202 ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, 128
-  br i1 %exitcond214.not, label %215, label %202, !llvm.loop !26
+  br i1 %exitcond214.not, label %215, label %202, !llvm.loop !25
 
 215:                                              ; preds = %214
   %216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.1)
@@ -2331,7 +2331,7 @@ Abc_Clock.exit176:                                ; preds = %173, %187
   %.val133 = load ptr, ptr %231, align 8
   %232 = getelementptr inbounds i32, ptr %.val133, i64 %227
   %233 = load i32, ptr %232, align 4
-  %234 = trunc i64 %227 to i32
+  %234 = trunc nsw i64 %227 to i32
   %235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.2204, i32 noundef %234, i32 noundef %233)
   %236 = getelementptr i8, ptr %229, i64 4
   %.val129199 = load i32, ptr %236, align 4
@@ -2355,7 +2355,7 @@ Abc_Clock.exit176:                                ; preds = %173, %187
   %.val129 = load i32, ptr %236, align 4
   %245 = sext i32 %.val129 to i64
   %246 = icmp slt i64 %indvars.iv.next216, %245
-  br i1 %246, label %239, label %.critedge2, !llvm.loop !27
+  br i1 %246, label %239, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %239, %225
   %putchar121 = call i32 @putchar(i32 10)
@@ -2375,7 +2375,7 @@ Abc_Clock.exit176:                                ; preds = %173, %187
   %254 = call i32 @sat_solver_nvars(ptr noundef %190) #16
   %255 = sext i32 %254 to i64
   %256 = icmp slt i64 %indvars.iv.next219, %255
-  br i1 %256, label %222, label %._crit_edge, !llvm.loop !28
+  br i1 %256, label %222, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %253, %215
   %.2110.lcssa = phi i64 [ %.1109, %215 ], [ %.3111, %253 ]
@@ -2441,7 +2441,7 @@ Abc_Clock.exit180:                                ; preds = %Abc_Clock.exit178, 
   %289 = sub nsw i32 %.val130, %.1117
   %290 = icmp sgt i32 %289, 0
   %291 = select i1 %288, i1 %290, i1 false
-  br i1 %291, label %173, label %._crit_edge208, !llvm.loop !29
+  br i1 %291, label %173, label %._crit_edge208, !llvm.loop !28
 
 ._crit_edge208:                                   ; preds = %Abc_Clock.exit180, %.critedge
   call void @Sbm_ManStop(ptr noundef nonnull %13)
@@ -2533,7 +2533,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   store i32 %32, ptr %gep, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %20
   %43 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %43, label %30, label %.preheader, !llvm.loop !30
+  br i1 %43, label %30, label %.preheader, !llvm.loop !29
 
 44:                                               ; preds = %.lr.ph47, %44
   %indvars.iv49 = phi i64 [ %27, %.lr.ph47 ], [ %indvars.iv.next50, %44 ]
@@ -2549,7 +2549,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   store i32 %51, ptr %25, align 4
   call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %26)
   %52 = icmp slt i64 %indvars.iv.next50, %29
-  br i1 %52, label %44, label %.loopexit, !llvm.loop !31
+  br i1 %52, label %44, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %44, %.preheader, %6
   ret void
@@ -2702,7 +2702,7 @@ Vec_IntPush.exit13:                               ; preds = %.Vec_IntGrow.exit10
   %71 = getelementptr inbounds i32, ptr %67, i64 %70
   store i32 %43, ptr %71, align 4
   %72 = icmp ult ptr %42, %2
-  br i1 %72, label %41, label %._crit_edge, !llvm.loop !32
+  br i1 %72, label %41, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit13, %Vec_IntPush.exit
   ret void
@@ -2781,7 +2781,7 @@ define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr nounde
   store i32 %33, ptr %gep, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %20
   %46 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %46, label %30, label %.preheader, !llvm.loop !33
+  br i1 %46, label %30, label %.preheader, !llvm.loop !32
 
 47:                                               ; preds = %.lr.ph47, %47
   %indvars.iv49 = phi i64 [ %27, %.lr.ph47 ], [ %indvars.iv.next50, %47 ]
@@ -2797,7 +2797,7 @@ define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr nounde
   store i32 %54, ptr %25, align 4
   %55 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %26) #16
   %56 = icmp slt i64 %indvars.iv.next50, %29
-  br i1 %56, label %47, label %.loopexit, !llvm.loop !34
+  br i1 %56, label %47, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %47, %.preheader, %6
   ret void
@@ -2818,7 +2818,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2837,7 +2837,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2848,19 +2848,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
@@ -2889,8 +2889,8 @@ attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -2912,7 +2912,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -2936,4 +2936,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

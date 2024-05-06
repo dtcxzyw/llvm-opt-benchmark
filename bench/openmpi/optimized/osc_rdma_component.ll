@@ -2967,7 +2967,7 @@ _ompi_osc_rdma_register.exit:                     ; preds = %.thread, %399, %387
   ]
 
 421:                                              ; preds = %419
-  %422 = call fastcc i32 @ompi_osc_rdma_initialize_region(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.0227), !range !17
+  %422 = call fastcc i32 @ompi_osc_rdma_initialize_region(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.0227)
   br label %445
 
 423:                                              ; preds = %419
@@ -3240,7 +3240,7 @@ _ompi_osc_rdma_register.exit:                     ; preds = %.thread, %399, %387
   %.1 = phi i64 [ %.0228307, %527 ], [ %.0228307, %526 ], [ %.0228307, %532 ], [ %568, %561 ], [ %.0228307, %574 ], [ %.0228307, %569 ]
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count317
-  br i1 %exitcond318.not, label %.loopexit, label %459, !llvm.loop !18
+  br i1 %exitcond318.not, label %.loopexit, label %459, !llvm.loop !17
 
 .loopexit:                                        ; preds = %459, %577, %445, %269, %_ompi_osc_rdma_register.exit, %343, %326, %318, %272
   %.5 = phi i32 [ %281, %272 ], [ %325, %318 ], [ %333, %326 ], [ %350, %343 ], [ %418, %_ompi_osc_rdma_register.exit ], [ %452, %445 ], [ -2, %269 ], [ %470, %459 ], [ 0, %577 ]
@@ -3426,7 +3426,7 @@ define internal fastcc i32 @ompi_osc_rdma_share_data(ptr noundef %0) unnamed_add
   %109 = sdiv i32 %108, %106
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %111, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %98, %80, %27
   tail call void @free(ptr noundef nonnull %10) #15
@@ -3528,7 +3528,7 @@ declare i32 @opal_btl_base_am_rdma_create(ptr noundef, i32 noundef, i1 noundef z
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @btl_latency_sort_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @btl_latency_sort_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3565,7 +3565,7 @@ declare ptr @opal_shmem_segment_attach(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_shmem_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_osc_rdma_initialize_region(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @ompi_osc_rdma_initialize_region(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds i8, ptr %5, i64 328
@@ -3705,6 +3705,5 @@ attributes #18 = { nounwind allocsize(0) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -2, i32 1}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

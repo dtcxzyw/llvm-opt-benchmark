@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL20equalStringTrieNodes8UElementS_(ptr %key1.coerce, ptr %key2.coerce) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL20equalStringTrieNodes8UElementS_(ptr %key1.coerce, ptr %key2.coerce) #2 {
 entry:
   %vtable.i = load ptr, ptr %key1.coerce, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
@@ -760,7 +760,7 @@ entry:
   br i1 %cmp55, label %while.body, label %do.body.preheader
 
 do.body.preheader.loopexit:                       ; preds = %while.body
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw i64 %indvars.iv.next to i32
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.loopexit, %entry
@@ -791,7 +791,7 @@ while.body:                                       ; preds = %entry, %while.body
   %call9 = tail call noundef i32 @_ZN6icu_7517StringTrieBuilder18writeBranchSubNodeEiiii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.058, i32 noundef %call4, i32 noundef %unitIndex, i32 noundef %div)
   %arrayidx11 = getelementptr inbounds [14 x i32], ptr %lessThan, i64 0, i64 %indvars.iv
   store i32 %call9, ptr %arrayidx11, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub = sub nsw i32 %length.addr.057, %div
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
@@ -1108,33 +1108,33 @@ entry:
   br i1 %cmp.i, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %vtable147 = load ptr, ptr %this, align 8
-  %vfn148 = getelementptr inbounds i8, ptr %vtable147, i64 88
-  %1 = load ptr, ptr %vfn148, align 8
-  %call2149 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cmp150 = icmp slt i32 %call2149, %length
-  br i1 %cmp150, label %while.body, label %while.end
+  %vtable151 = load ptr, ptr %this, align 8
+  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 88
+  %1 = load ptr, ptr %vfn152, align 8
+  %call2153 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %cmp154 = icmp slt i32 %call2153, %length
+  br i1 %cmp154, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 0, %while.cond.preheader ]
-  %start.addr.0153 = phi i32 [ %call5, %while.body ], [ %start, %while.cond.preheader ]
-  %length.addr.0152 = phi i32 [ %sub, %while.body ], [ %length, %while.cond.preheader ]
-  %div = sdiv i32 %length.addr.0152, 2
+  %start.addr.0157 = phi i32 [ %call5, %while.body ], [ %start, %while.cond.preheader ]
+  %length.addr.0156 = phi i32 [ %sub, %while.body ], [ %length, %while.cond.preheader ]
+  %div = sdiv i32 %length.addr.0156, 2
   %vtable3 = load ptr, ptr %this, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 64
   %2 = load ptr, ptr %vfn4, align 8
-  %call5 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0153, i32 noundef %unitIndex, i32 noundef %div)
+  %call5 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0157, i32 noundef %unitIndex, i32 noundef %div)
   %vtable6 = load ptr, ptr %this, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
   %3 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call5, i32 noundef %unitIndex)
   %arrayidx = getelementptr inbounds [14 x i16], ptr %middleUnits, i64 0, i64 %indvars.iv
   store i16 %call8, ptr %arrayidx, align 2
-  %call10 = tail call noundef ptr @_ZN6icu_7517StringTrieBuilder17makeBranchSubNodeEiiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0153, i32 noundef %call5, i32 noundef %unitIndex, i32 noundef %div, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call10 = tail call noundef ptr @_ZN6icu_7517StringTrieBuilder17makeBranchSubNodeEiiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0157, i32 noundef %call5, i32 noundef %unitIndex, i32 noundef %div, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %arrayidx12 = getelementptr inbounds [14 x ptr], ptr %lessThan, i64 0, i64 %indvars.iv
   store ptr %call10, ptr %arrayidx12, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %sub = sub nsw i32 %length.addr.0152, %div
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %sub = sub nsw i32 %length.addr.0156, %div
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %4 = load ptr, ptr %vfn, align 8
@@ -1143,7 +1143,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !12
 
 while.end.loopexit:                               ; preds = %while.body
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nuw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -1168,9 +1168,9 @@ new.cont:                                         ; preds = %if.end17
   %length.i = getelementptr inbounds i8, ptr %call18, i64 64
   store i32 0, ptr %length.i, align 8
   %add = add nsw i32 %unitIndex, 1
-  %units.i59 = getelementptr inbounds i8, ptr %call18, i64 88
-  %equal.i63 = getelementptr inbounds i8, ptr %call18, i64 24
-  %values.i66 = getelementptr inbounds i8, ptr %call18, i64 68
+  %units.i61 = getelementptr inbounds i8, ptr %call18, i64 88
+  %equal.i65 = getelementptr inbounds i8, ptr %call18, i64 24
+  %values.i68 = getelementptr inbounds i8, ptr %call18, i64 68
   %sub45 = add i32 %length.addr.0.lcssa, -1
   %smax = tail call i32 @llvm.smax.i32(i32 %sub45, i32 1)
   br label %do.body
@@ -1211,15 +1211,15 @@ if.then36:                                        ; preds = %land.lhs.true
   %call39 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.1)
   %11 = load i32, ptr %length.i, align 8
   %idxprom.i = sext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %units.i59, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %units.i61, i64 0, i64 %idxprom.i
   store i16 %call26, ptr %arrayidx.i, align 2
   %12 = load i32, ptr %length.i, align 8
   %idxprom3.i = sext i32 %12 to i64
-  %arrayidx4.i = getelementptr inbounds [5 x ptr], ptr %equal.i63, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [5 x ptr], ptr %equal.i65, i64 0, i64 %idxprom3.i
   store ptr null, ptr %arrayidx4.i, align 8
   %13 = load i32, ptr %length.i, align 8
   %idxprom6.i = sext i32 %13 to i64
-  %arrayidx7.i = getelementptr inbounds [5 x i32], ptr %values.i66, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [5 x i32], ptr %values.i68, i64 0, i64 %idxprom6.i
   store i32 %call39, ptr %arrayidx7.i, align 4
   %14 = load i32, ptr %length.i, align 8
   %inc.i = add nsw i32 %14, 1
@@ -1234,41 +1234,41 @@ if.else:                                          ; preds = %land.lhs.true, %do.
   %conv40 = zext i16 %call26 to i32
   %call42 = tail call noundef ptr @_ZN6icu_7517StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.1, i32 noundef %call29, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %16 = load i32, ptr %length.i, align 8
-  %idxprom.i61 = sext i32 %16 to i64
-  %arrayidx.i62 = getelementptr inbounds [5 x i16], ptr %units.i59, i64 0, i64 %idxprom.i61
-  store i16 %call26, ptr %arrayidx.i62, align 2
+  %idxprom.i63 = sext i32 %16 to i64
+  %arrayidx.i64 = getelementptr inbounds [5 x i16], ptr %units.i61, i64 0, i64 %idxprom.i63
+  store i16 %call26, ptr %arrayidx.i64, align 2
   %17 = load i32, ptr %length.i, align 8
-  %idxprom3.i64 = sext i32 %17 to i64
-  %arrayidx4.i65 = getelementptr inbounds [5 x ptr], ptr %equal.i63, i64 0, i64 %idxprom3.i64
-  store ptr %call42, ptr %arrayidx4.i65, align 8
+  %idxprom3.i66 = sext i32 %17 to i64
+  %arrayidx4.i67 = getelementptr inbounds [5 x ptr], ptr %equal.i65, i64 0, i64 %idxprom3.i66
+  store ptr %call42, ptr %arrayidx4.i67, align 8
   %18 = load i32, ptr %length.i, align 8
-  %idxprom6.i67 = sext i32 %18 to i64
-  %arrayidx7.i68 = getelementptr inbounds [5 x i32], ptr %values.i66, i64 0, i64 %idxprom6.i67
-  store i32 0, ptr %arrayidx7.i68, align 4
+  %idxprom6.i69 = sext i32 %18 to i64
+  %arrayidx7.i70 = getelementptr inbounds [5 x i32], ptr %values.i68, i64 0, i64 %idxprom6.i69
+  store i32 0, ptr %arrayidx7.i70, align 4
   %19 = load i32, ptr %length.i, align 8
-  %inc.i69 = add nsw i32 %19, 1
-  store i32 %inc.i69, ptr %length.i, align 8
+  %inc.i71 = add nsw i32 %19, 1
+  store i32 %inc.i71, ptr %length.i, align 8
   %20 = load i32, ptr %hash.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %call42, null
   br i1 %cmp.i.i, label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.else
-  %hash.i.i.i71 = getelementptr inbounds i8, ptr %call42, i64 8
-  %21 = load i32, ptr %hash.i.i.i71, align 8
+  %hash.i.i.i73 = getelementptr inbounds i8, ptr %call42, i64 8
+  %21 = load i32, ptr %hash.i.i.i73, align 8
   br label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit
 
 _ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %if.else, %cond.false.i.i
   %cond.i.i = phi i32 [ %21, %cond.false.i.i ], [ 0, %if.else ]
-  %mul.i72 = mul i32 %20, 37
-  %add.i73 = add i32 %mul.i72, %conv40
-  %mul9.i74 = mul i32 %add.i73, 37
+  %mul.i74 = mul i32 %20, 37
+  %add.i75 = add i32 %mul.i74, %conv40
+  %mul9.i76 = mul i32 %add.i75, 37
   br label %if.end43
 
 if.end43:                                         ; preds = %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit, %if.then36
-  %mul9.i74.sink = phi i32 [ %mul9.i74, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %call39, %if.then36 ]
+  %mul9.i76.sink = phi i32 [ %mul9.i76, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %call39, %if.then36 ]
   %cond.i.i.sink = phi i32 [ %cond.i.i, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %mul9.i, %if.then36 ]
-  %add10.i75 = add i32 %cond.i.i.sink, %mul9.i74.sink
-  store i32 %add10.i75, ptr %hash.i.i.i, align 8
+  %add10.i77 = add i32 %cond.i.i.sink, %mul9.i76.sink
+  store i32 %add10.i77, ptr %hash.i.i.i, align 8
   %inc44 = add nuw nsw i32 %unitNumber.0, 1
   %exitcond.not = icmp eq i32 %inc44, %smax
   br i1 %exitcond.not, label %do.end, label %do.body, !llvm.loop !13
@@ -1297,68 +1297,68 @@ if.then59:                                        ; preds = %land.lhs.true53
   %24 = load ptr, ptr %vfn62, align 8
   %call63 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call29)
   %25 = load i32, ptr %length.i, align 8
-  %idxprom.i78 = sext i32 %25 to i64
-  %arrayidx.i79 = getelementptr inbounds [5 x i16], ptr %units.i59, i64 0, i64 %idxprom.i78
-  store i16 %call50, ptr %arrayidx.i79, align 2
+  %idxprom.i81 = sext i32 %25 to i64
+  %arrayidx.i82 = getelementptr inbounds [5 x i16], ptr %units.i61, i64 0, i64 %idxprom.i81
+  store i16 %call50, ptr %arrayidx.i82, align 2
   %26 = load i32, ptr %length.i, align 8
-  %idxprom3.i81 = sext i32 %26 to i64
-  %arrayidx4.i82 = getelementptr inbounds [5 x ptr], ptr %equal.i63, i64 0, i64 %idxprom3.i81
-  store ptr null, ptr %arrayidx4.i82, align 8
+  %idxprom3.i84 = sext i32 %26 to i64
+  %arrayidx4.i85 = getelementptr inbounds [5 x ptr], ptr %equal.i65, i64 0, i64 %idxprom3.i84
+  store ptr null, ptr %arrayidx4.i85, align 8
   %27 = load i32, ptr %length.i, align 8
-  %idxprom6.i84 = sext i32 %27 to i64
-  %arrayidx7.i85 = getelementptr inbounds [5 x i32], ptr %values.i66, i64 0, i64 %idxprom6.i84
-  store i32 %call63, ptr %arrayidx7.i85, align 4
+  %idxprom6.i87 = sext i32 %27 to i64
+  %arrayidx7.i88 = getelementptr inbounds [5 x i32], ptr %values.i68, i64 0, i64 %idxprom6.i87
+  store i32 %call63, ptr %arrayidx7.i88, align 4
   %28 = load i32, ptr %length.i, align 8
-  %inc.i86 = add nsw i32 %28, 1
-  store i32 %inc.i86, ptr %length.i, align 8
+  %inc.i89 = add nsw i32 %28, 1
+  store i32 %inc.i89, ptr %length.i, align 8
   %29 = load i32, ptr %hash.i.i.i, align 8
-  %mul.i88 = mul i32 %29, 37
-  %add.i89 = add i32 %mul.i88, %conv60
-  %mul9.i90 = mul i32 %add.i89, 37
+  %mul.i91 = mul i32 %29, 37
+  %add.i92 = add i32 %mul.i91, %conv60
+  %mul9.i93 = mul i32 %add.i92, 37
   br label %if.end68
 
 if.else64:                                        ; preds = %land.lhs.true53, %do.end
   %conv65 = zext i16 %call50 to i32
   %call67 = tail call noundef ptr @_ZN6icu_7517StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call29, i32 noundef %limit, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %30 = load i32, ptr %length.i, align 8
-  %idxprom.i94 = sext i32 %30 to i64
-  %arrayidx.i95 = getelementptr inbounds [5 x i16], ptr %units.i59, i64 0, i64 %idxprom.i94
-  store i16 %call50, ptr %arrayidx.i95, align 2
+  %idxprom.i98 = sext i32 %30 to i64
+  %arrayidx.i99 = getelementptr inbounds [5 x i16], ptr %units.i61, i64 0, i64 %idxprom.i98
+  store i16 %call50, ptr %arrayidx.i99, align 2
   %31 = load i32, ptr %length.i, align 8
-  %idxprom3.i97 = sext i32 %31 to i64
-  %arrayidx4.i98 = getelementptr inbounds [5 x ptr], ptr %equal.i63, i64 0, i64 %idxprom3.i97
-  store ptr %call67, ptr %arrayidx4.i98, align 8
+  %idxprom3.i101 = sext i32 %31 to i64
+  %arrayidx4.i102 = getelementptr inbounds [5 x ptr], ptr %equal.i65, i64 0, i64 %idxprom3.i101
+  store ptr %call67, ptr %arrayidx4.i102, align 8
   %32 = load i32, ptr %length.i, align 8
-  %idxprom6.i100 = sext i32 %32 to i64
-  %arrayidx7.i101 = getelementptr inbounds [5 x i32], ptr %values.i66, i64 0, i64 %idxprom6.i100
-  store i32 0, ptr %arrayidx7.i101, align 4
+  %idxprom6.i104 = sext i32 %32 to i64
+  %arrayidx7.i105 = getelementptr inbounds [5 x i32], ptr %values.i68, i64 0, i64 %idxprom6.i104
+  store i32 0, ptr %arrayidx7.i105, align 4
   %33 = load i32, ptr %length.i, align 8
-  %inc.i102 = add nsw i32 %33, 1
-  store i32 %inc.i102, ptr %length.i, align 8
+  %inc.i106 = add nsw i32 %33, 1
+  store i32 %inc.i106, ptr %length.i, align 8
   %34 = load i32, ptr %hash.i.i.i, align 8
-  %cmp.i.i104 = icmp eq ptr %call67, null
-  br i1 %cmp.i.i104, label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112, label %cond.false.i.i105
+  %cmp.i.i108 = icmp eq ptr %call67, null
+  br i1 %cmp.i.i108, label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116, label %cond.false.i.i109
 
-cond.false.i.i105:                                ; preds = %if.else64
-  %hash.i.i.i106 = getelementptr inbounds i8, ptr %call67, i64 8
-  %35 = load i32, ptr %hash.i.i.i106, align 8
-  br label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112
+cond.false.i.i109:                                ; preds = %if.else64
+  %hash.i.i.i110 = getelementptr inbounds i8, ptr %call67, i64 8
+  %35 = load i32, ptr %hash.i.i.i110, align 8
+  br label %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116
 
-_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112: ; preds = %if.else64, %cond.false.i.i105
-  %cond.i.i107 = phi i32 [ %35, %cond.false.i.i105 ], [ 0, %if.else64 ]
-  %mul.i108 = mul i32 %34, 37
-  %add.i109 = add i32 %mul.i108, %conv65
-  %mul9.i110 = mul i32 %add.i109, 37
+_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116: ; preds = %if.else64, %cond.false.i.i109
+  %cond.i.i111 = phi i32 [ %35, %cond.false.i.i109 ], [ 0, %if.else64 ]
+  %mul.i112 = mul i32 %34, 37
+  %add.i113 = add i32 %mul.i112, %conv65
+  %mul9.i114 = mul i32 %add.i113, 37
   br label %if.end68
 
-if.end68:                                         ; preds = %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112, %if.then59
-  %mul9.i110.sink = phi i32 [ %mul9.i110, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112 ], [ %call63, %if.then59 ]
-  %cond.i.i107.sink = phi i32 [ %cond.i.i107, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit112 ], [ %mul9.i90, %if.then59 ]
-  %add10.i111 = add i32 %cond.i.i107.sink, %mul9.i110.sink
-  store i32 %add10.i111, ptr %hash.i.i.i, align 8
+if.end68:                                         ; preds = %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116, %if.then59
+  %mul9.i114.sink = phi i32 [ %mul9.i114, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116 ], [ %call63, %if.then59 ]
+  %cond.i.i111.sink = phi i32 [ %cond.i.i111, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116 ], [ %mul9.i93, %if.then59 ]
+  %add10.i115 = add i32 %cond.i.i111.sink, %mul9.i114.sink
+  store i32 %add10.i115, ptr %hash.i.i.i, align 8
   %36 = load i32, ptr %errorCode, align 4
-  %cmp.i.i113 = icmp slt i32 %36, 1
-  br i1 %cmp.i.i113, label %if.end3.i, label %delete.notnull.i
+  %cmp.i.i117 = icmp slt i32 %36, 1
+  br i1 %cmp.i.i117, label %if.end3.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end68
   %vtable.i = load ptr, ptr %call18, align 8
@@ -1399,120 +1399,120 @@ delete.notnull19.i:                               ; preds = %if.end12.i
 
 _ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %delete.notnull.i, %delete.notnull8.i, %if.end12.i, %delete.notnull19.i
   %retval.0.i = phi ptr [ %40, %delete.notnull8.i ], [ null, %delete.notnull19.i ], [ null, %delete.notnull.i ], [ %call18, %if.end12.i ]
-  %cmp71156 = icmp sgt i32 %ltLength.0.lcssa, 0
-  br i1 %cmp71156, label %while.body72.lr.ph, label %return
+  %cmp71160 = icmp sgt i32 %ltLength.0.lcssa, 0
+  br i1 %cmp71160, label %while.body72.lr.ph, label %return
 
 while.body72.lr.ph:                               ; preds = %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
-  %nodes.i131 = getelementptr inbounds i8, ptr %this, i64 8
+  %nodes.i135 = getelementptr inbounds i8, ptr %this, i64 8
   %44 = zext nneg i32 %ltLength.0.lcssa to i64
   br label %while.body72
 
-while.body72:                                     ; preds = %while.body72.lr.ph, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
-  %indvars.iv161 = phi i64 [ %44, %while.body72.lr.ph ], [ %indvars.iv.next162, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145 ]
-  %node.0158 = phi ptr [ %retval.0.i, %while.body72.lr.ph ], [ %retval.0.i128, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145 ]
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, -1
+while.body72:                                     ; preds = %while.body72.lr.ph, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
+  %indvars.iv165 = phi i64 [ %44, %while.body72.lr.ph ], [ %indvars.iv.next166, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149 ]
+  %node.0162 = phi ptr [ %retval.0.i, %while.body72.lr.ph ], [ %retval.0.i132, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149 ]
+  %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
   %call73 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #13
   %new.isnull74 = icmp eq ptr %call73, null
   br i1 %new.isnull74, label %new.cont87, label %new.notnull75
 
 new.notnull75:                                    ; preds = %while.body72
-  %arrayidx79 = getelementptr inbounds [14 x i16], ptr %middleUnits, i64 0, i64 %indvars.iv.next162
+  %arrayidx79 = getelementptr inbounds [14 x i16], ptr %middleUnits, i64 0, i64 %indvars.iv.next166
   %45 = load i16, ptr %arrayidx79, align 2
-  %arrayidx81 = getelementptr inbounds [14 x ptr], ptr %lessThan, i64 0, i64 %indvars.iv.next162
+  %arrayidx81 = getelementptr inbounds [14 x ptr], ptr %lessThan, i64 0, i64 %indvars.iv.next166
   %46 = load ptr, ptr %arrayidx81, align 8
-  %cmp.i.i115 = icmp eq ptr %46, null
-  br i1 %cmp.i.i115, label %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i, label %cond.false.i.i116
+  %cmp.i.i119 = icmp eq ptr %46, null
+  br i1 %cmp.i.i119, label %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i, label %cond.false.i.i120
 
-cond.false.i.i116:                                ; preds = %new.notnull75
-  %hash.i.i.i117 = getelementptr inbounds i8, ptr %46, i64 8
-  %47 = load i32, ptr %hash.i.i.i117, align 8
+cond.false.i.i120:                                ; preds = %new.notnull75
+  %hash.i.i.i121 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load i32, ptr %hash.i.i.i121, align 8
   br label %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i
 
-_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %cond.false.i.i116, %new.notnull75
-  %cond.i.i118 = phi i32 [ %47, %cond.false.i.i116 ], [ 0, %new.notnull75 ]
-  %cmp.i4.i = icmp eq ptr %node.0158, null
+_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %cond.false.i.i120, %new.notnull75
+  %cond.i.i122 = phi i32 [ %47, %cond.false.i.i120 ], [ 0, %new.notnull75 ]
+  %cmp.i4.i = icmp eq ptr %node.0162, null
   br i1 %cmp.i4.i, label %new.cont87.thread, label %cond.false.i5.i
 
 cond.false.i5.i:                                  ; preds = %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i
-  %hash.i.i6.i = getelementptr inbounds i8, ptr %node.0158, i64 8
+  %hash.i.i6.i = getelementptr inbounds i8, ptr %node.0162, i64 8
   %48 = load i32, ptr %hash.i.i6.i, align 8
   br label %new.cont87.thread
 
 new.cont87:                                       ; preds = %while.body72
   %49 = load i32, ptr %errorCode, align 4
-  %cmp.i.i122 = icmp slt i32 %49, 1
-  br i1 %cmp.i.i122, label %if.then2.i144, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
+  %cmp.i.i126 = icmp slt i32 %49, 1
+  br i1 %cmp.i.i126, label %if.then2.i148, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
 new.cont87.thread:                                ; preds = %cond.false.i5.i, %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i
   %cond.i7.i = phi i32 [ %48, %cond.false.i5.i ], [ 0, %_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_.exit.i ]
-  %conv.i119 = zext i16 %45 to i32
-  %50 = mul nuw nsw i32 %conv.i119, 37
-  %mul.i120 = add nuw nsw i32 %50, -933932147
-  %add2.i = add i32 %mul.i120, %cond.i.i118
+  %conv.i123 = zext i16 %45 to i32
+  %50 = mul nuw nsw i32 %conv.i123, 37
+  %mul.i124 = add nuw nsw i32 %50, -933932147
+  %add2.i = add i32 %mul.i124, %cond.i.i122
   %mul3.i = mul i32 %add2.i, 37
   %add5.i = add i32 %cond.i7.i, %mul3.i
   %hash.i.i9.i = getelementptr inbounds i8, ptr %call73, i64 8
   store i32 %add5.i, ptr %hash.i.i9.i, align 8
-  %offset.i.i.i121 = getelementptr inbounds i8, ptr %call73, i64 12
-  store i32 0, ptr %offset.i.i.i121, align 4
+  %offset.i.i.i125 = getelementptr inbounds i8, ptr %call73, i64 12
+  store i32 0, ptr %offset.i.i.i125, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15SplitBranchNodeE, i64 0, i32 0, i64 2), ptr %call73, align 8
   %unit.i = getelementptr inbounds i8, ptr %call73, i64 20
   store i16 %45, ptr %unit.i, align 4
   %lessThan.i = getelementptr inbounds i8, ptr %call73, i64 24
   store ptr %46, ptr %lessThan.i, align 8
   %greaterOrEqual.i = getelementptr inbounds i8, ptr %call73, i64 32
-  store ptr %node.0158, ptr %greaterOrEqual.i, align 8
+  store ptr %node.0162, ptr %greaterOrEqual.i, align 8
   %51 = load i32, ptr %errorCode, align 4
-  %cmp.i.i122165 = icmp slt i32 %51, 1
-  br i1 %cmp.i.i122165, label %if.end3.i130, label %delete.notnull.i125
+  %cmp.i.i126169 = icmp slt i32 %51, 1
+  br i1 %cmp.i.i126169, label %if.end3.i134, label %delete.notnull.i129
 
-delete.notnull.i125:                              ; preds = %new.cont87.thread
-  %vtable.i126 = load ptr, ptr %call73, align 8
-  %vfn.i127 = getelementptr inbounds i8, ptr %vtable.i126, i64 8
-  %52 = load ptr, ptr %vfn.i127, align 8
+delete.notnull.i129:                              ; preds = %new.cont87.thread
+  %vtable.i130 = load ptr, ptr %call73, align 8
+  %vfn.i131 = getelementptr inbounds i8, ptr %vtable.i130, i64 8
+  %52 = load ptr, ptr %vfn.i131, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
-  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
+  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
-if.then2.i144:                                    ; preds = %new.cont87
+if.then2.i148:                                    ; preds = %new.cont87
   store i32 7, ptr %errorCode, align 4
-  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
+  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
-if.end3.i130:                                     ; preds = %new.cont87.thread
-  %53 = load ptr, ptr %nodes.i131, align 8
-  %call4.i132 = tail call ptr @uhash_find_75(ptr noundef %53, ptr noundef nonnull %call73)
-  %cmp5.not.i133 = icmp eq ptr %call4.i132, null
-  br i1 %cmp5.not.i133, label %if.end12.i138, label %delete.notnull8.i134
+if.end3.i134:                                     ; preds = %new.cont87.thread
+  %53 = load ptr, ptr %nodes.i135, align 8
+  %call4.i136 = tail call ptr @uhash_find_75(ptr noundef %53, ptr noundef nonnull %call73)
+  %cmp5.not.i137 = icmp eq ptr %call4.i136, null
+  br i1 %cmp5.not.i137, label %if.end12.i142, label %delete.notnull8.i138
 
-delete.notnull8.i134:                             ; preds = %if.end3.i130
-  %vtable9.i135 = load ptr, ptr %call73, align 8
-  %vfn10.i136 = getelementptr inbounds i8, ptr %vtable9.i135, i64 8
-  %54 = load ptr, ptr %vfn10.i136, align 8
+delete.notnull8.i138:                             ; preds = %if.end3.i134
+  %vtable9.i139 = load ptr, ptr %call73, align 8
+  %vfn10.i140 = getelementptr inbounds i8, ptr %vtable9.i139, i64 8
+  %54 = load ptr, ptr %vfn10.i140, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
-  %key.i137 = getelementptr inbounds i8, ptr %call4.i132, i64 16
-  %55 = load ptr, ptr %key.i137, align 8
-  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
+  %key.i141 = getelementptr inbounds i8, ptr %call4.i136, i64 16
+  %55 = load ptr, ptr %key.i141, align 8
+  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
-if.end12.i138:                                    ; preds = %if.end3.i130
-  %56 = load ptr, ptr %nodes.i131, align 8
-  %call14.i139 = tail call i32 @uhash_puti_75(ptr noundef %56, ptr noundef nonnull %call73, i32 noundef 1, ptr noundef nonnull %errorCode)
+if.end12.i142:                                    ; preds = %if.end3.i134
+  %56 = load ptr, ptr %nodes.i135, align 8
+  %call14.i143 = tail call i32 @uhash_puti_75(ptr noundef %56, ptr noundef nonnull %call73, i32 noundef 1, ptr noundef nonnull %errorCode)
   %57 = load i32, ptr %errorCode, align 4
-  %cmp.i11.i140 = icmp slt i32 %57, 1
-  br i1 %cmp.i11.i140, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145, label %delete.notnull19.i141
+  %cmp.i11.i144 = icmp slt i32 %57, 1
+  br i1 %cmp.i11.i144, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149, label %delete.notnull19.i145
 
-delete.notnull19.i141:                            ; preds = %if.end12.i138
-  %vtable20.i142 = load ptr, ptr %call73, align 8
-  %vfn21.i143 = getelementptr inbounds i8, ptr %vtable20.i142, i64 8
-  %58 = load ptr, ptr %vfn21.i143, align 8
+delete.notnull19.i145:                            ; preds = %if.end12.i142
+  %vtable20.i146 = load ptr, ptr %call73, align 8
+  %vfn21.i147 = getelementptr inbounds i8, ptr %vtable20.i146, i64 8
+  %58 = load ptr, ptr %vfn21.i147, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
-  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145
+  br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
-_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145: ; preds = %new.cont87, %delete.notnull.i125, %if.then2.i144, %delete.notnull8.i134, %if.end12.i138, %delete.notnull19.i141
-  %retval.0.i128 = phi ptr [ null, %if.then2.i144 ], [ %55, %delete.notnull8.i134 ], [ null, %delete.notnull19.i141 ], [ null, %delete.notnull.i125 ], [ %call73, %if.end12.i138 ], [ null, %new.cont87 ]
-  %cmp71 = icmp ugt i64 %indvars.iv161, 1
+_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149: ; preds = %new.cont87, %delete.notnull.i129, %if.then2.i148, %delete.notnull8.i138, %if.end12.i142, %delete.notnull19.i145
+  %retval.0.i132 = phi ptr [ null, %if.then2.i148 ], [ %55, %delete.notnull8.i138 ], [ null, %delete.notnull19.i145 ], [ null, %delete.notnull.i129 ], [ %call73, %if.end12.i142 ], [ null, %new.cont87 ]
+  %cmp71 = icmp ugt i64 %indvars.iv165, 1
   br i1 %cmp71, label %while.body72, label %return, !llvm.loop !14
 
-return:                                           ; preds = %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %while.end, %entry, %if.then20
-  %retval.0 = phi ptr [ null, %if.then20 ], [ null, %entry ], [ null, %while.end ], [ %retval.0.i, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit ], [ %retval.0.i128, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit145 ]
+return:                                           ; preds = %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %while.end, %entry, %if.then20
+  %retval.0 = phi ptr [ null, %if.then20 ], [ null, %entry ], [ null, %while.end ], [ %retval.0.i, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit ], [ %retval.0.i132, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149 ]
   ret ptr %retval.0
 }
 
@@ -1542,7 +1542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7517StringTrieBuilder10equalNodesEPKvS2_(ptr noundef %left, ptr noundef %right) local_unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517StringTrieBuilder10equalNodesEPKvS2_(ptr noundef %left, ptr noundef %right) local_unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %left, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

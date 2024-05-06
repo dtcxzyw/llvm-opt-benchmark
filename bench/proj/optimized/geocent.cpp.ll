@@ -17,7 +17,7 @@ define hidden noundef ptr @pj_geocent(ptr noundef writeonly %0) local_unnamed_ad
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL7inverse5PJ_XYP8PJconsts, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL7forward5PJ_LPP8PJconsts, ptr %6, align 8

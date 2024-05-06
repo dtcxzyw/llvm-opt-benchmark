@@ -13,7 +13,7 @@ define noundef i32 @LZ4_versionNumber() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4_compressBound(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2122219151) i32 @LZ4_compressBound(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 2113929216
   br i1 %2, label %7, label %3
 
@@ -35,7 +35,7 @@ define noundef i32 @LZ4_sizeofState() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @LZ4_compress_fast_extState(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %7 = icmp ugt i32 %3, 2113929216
   br i1 %7, label %LZ4_compressBound.exit, label %8
@@ -431,7 +431,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %152, %362
   br i1 %176, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 177:                                              ; preds = %.lr.ph.i
-  %178 = tail call i64 @llvm.cttz.i64(i64 %172, i1 true), !range !11
+  %178 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %172, i1 true)
   %179 = lshr i64 %178, 3
   %180 = getelementptr inbounds i8, ptr %.03141.i, i64 %179
   br label %_ZL9LZ4_countPKhS0_S0_.exit
@@ -518,7 +518,7 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
   br i1 %215, label %.lr.ph.i310, label %._crit_edge.i295, !llvm.loop !10
 
 216:                                              ; preds = %.lr.ph.i310
-  %217 = tail call i64 @llvm.cttz.i64(i64 %211, i1 true), !range !11
+  %217 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %211, i1 true)
   %218 = lshr i64 %217, 3
   %219 = getelementptr inbounds i8, ptr %.03141.i311, i64 %218
   br label %_ZL9LZ4_countPKhS0_S0_.exit316
@@ -604,7 +604,7 @@ _ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %216, %233, %235
   br i1 %253, label %.lr.ph.i332, label %._crit_edge.i317, !llvm.loop !10
 
 254:                                              ; preds = %.lr.ph.i332
-  %255 = tail call i64 @llvm.cttz.i64(i64 %249, i1 true), !range !11
+  %255 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %249, i1 true)
   %256 = lshr i64 %255, 3
   %257 = getelementptr inbounds i8, ptr %.03141.i333, i64 %256
   br label %_ZL9LZ4_countPKhS0_S0_.exit338
@@ -842,7 +842,7 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit345: ; preds = %350, %355
 364:                                              ; preds = %359, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit345
   %365 = getelementptr inbounds i8, ptr %.3, i64 2
   %366 = icmp ugt ptr %365, %.ptr438
-  br i1 %366, label %.loopexit362, label %.lr.ph, !llvm.loop !12
+  br i1 %366, label %.loopexit362, label %.lr.ph, !llvm.loop !11
 
 .loopexit362:                                     ; preds = %364, %.critedge.backedge, %312, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit, %37
   %.7 = phi ptr [ %2, %37 ], [ %2, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit ], [ %.6, %312 ], [ %.0247422, %.critedge.backedge ], [ %.6, %364 ]
@@ -938,7 +938,7 @@ define noundef i32 @LZ4_compress_default(ptr noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z23LZ4_compress_fast_forcePKcPciii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.LZ4_stream_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %6, i8 0, i64 16416, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %6, i8 0, i64 16416, i1 false)
   %7 = icmp slt i32 %2, 65547
   %. = select i1 %7, i32 2, i32 1
   %8 = call fastcc noundef i32 @_ZL20LZ4_compress_genericPvPKcPcii23limitedOutput_directive11tableType_t14dict_directive19dictIssue_directivej(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %., i32 noundef 0, i32 noundef 0, i32 noundef %4)
@@ -948,7 +948,7 @@ define noundef i32 @_Z23LZ4_compress_fast_forcePKcPciii(ptr noundef %0, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @LZ4_compress_destSize(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LZ4_stream_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %5, i8 0, i64 16416, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %5, i8 0, i64 16416, i1 false)
   %6 = load i32, ptr %2, align 4
   %7 = icmp ugt i32 %6, 2113929216
   br i1 %7, label %LZ4_compressBound.exit.i, label %8
@@ -1022,7 +1022,7 @@ define i32 @LZ4_loadDict(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -1077,7 +1077,7 @@ define i32 @LZ4_loadDict(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %
   store i32 %42, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %.133, i64 3
   %.not31 = icmp ugt ptr %44, %31
-  br i1 %.not31, label %.loopexit, label %36, !llvm.loop !13
+  br i1 %.not31, label %.loopexit, label %36, !llvm.loop !12
 
 .loopexit:                                        ; preds = %36, %19, %16
   %.0 = phi i32 [ 0, %16 ], [ %28, %19 ], [ %28, %36 ]
@@ -1123,7 +1123,7 @@ define noundef i32 @LZ4_compress_fast_continue(ptr nocapture noundef %0, ptr nou
   store i32 %storemerge.i, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %28, label %25, !llvm.loop !14
+  br i1 %exitcond.not.i, label %28, label %25, !llvm.loop !13
 
 28:                                               ; preds = %25
   store i32 65536, ptr %17, align 8
@@ -1235,7 +1235,7 @@ define noundef i32 @_Z25LZ4_compress_forceExtDictP12LZ4_stream_tPKcPci(ptr nocap
   store i32 %storemerge.i, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %23, label %20, !llvm.loop !14
+  br i1 %exitcond.not.i, label %23, label %20, !llvm.loop !13
 
 23:                                               ; preds = %20
   store i32 65536, ptr %12, align 8
@@ -1382,7 +1382,7 @@ define internal fastcc noundef i32 @_ZL22LZ4_decompress_genericPKcPciiiiiiPKhS3_
   %narrow = select i1 %.not236, i1 true, i1 %64
   %65 = icmp eq i8 %61, -1
   %66 = select i1 %narrow, i1 %65, i1 false
-  br i1 %66, label %.preheader293, label %67, !llvm.loop !15
+  br i1 %66, label %.preheader293, label %67, !llvm.loop !14
 
 67:                                               ; preds = %.preheader293
   %68 = icmp slt i64 %63, 0
@@ -1481,7 +1481,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
   %102 = zext i8 %101 to i64
   %103 = add i64 %.2214.us, %102
   %104 = icmp eq i8 %101, -1
-  br i1 %104, label %.preheader291.split.us, label %.split.us, !llvm.loop !16
+  br i1 %104, label %.preheader291.split.us, label %.split.us, !llvm.loop !15
 
 .preheader291.split:                              ; preds = %.preheader291, %105
   %.2214 = phi i64 [ %109, %105 ], [ 15, %.preheader291 ]
@@ -1495,7 +1495,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
   %108 = zext i8 %107 to i64
   %109 = add i64 %.2214, %108
   %110 = icmp eq i8 %107, -1
-  br i1 %110, label %.preheader291.split, label %.split.us, !llvm.loop !16
+  br i1 %110, label %.preheader291.split, label %.split.us, !llvm.loop !15
 
 .split.us:                                        ; preds = %105, %.preheader291.split.us
   %.us-phi = phi ptr [ %100, %.preheader291.split.us ], [ %106, %105 ]
@@ -1550,7 +1550,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
   %133 = getelementptr inbounds i8, ptr %.1204309, i64 1
   store i8 %132, ptr %.1204309, align 1
   %134 = icmp ult ptr %133, %115
-  br i1 %134, label %.lr.ph311, label %.backedge, !llvm.loop !17
+  br i1 %134, label %.lr.ph311, label %.backedge, !llvm.loop !16
 
 135:                                              ; preds = %124
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr nonnull align 1 %8, i64 %126, i1 false)
@@ -1558,7 +1558,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
 
 .backedge:                                        ; preds = %.preheader289, %.lr.ph, %.lr.ph311, %174, %123, %135, %.preheader
   %.0203.be = phi ptr [ %115, %123 ], [ %115, %135 ], [ %125, %.preheader ], [ %115, %174 ], [ %133, %.lr.ph311 ], [ %115, %.lr.ph ], [ %115, %.preheader289 ]
-  br label %53, !llvm.loop !18
+  br label %53, !llvm.loop !17
 
 136:                                              ; preds = %112
   %137 = ptrtoint ptr %70 to i64
@@ -1644,7 +1644,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit278:                 ; preds = %.preheader288
   %178 = getelementptr inbounds i8, ptr %.5208308, i64 1
   store i8 %177, ptr %.5208308, align 1
   %179 = icmp ult ptr %178, %115
-  br i1 %179, label %.lr.ph, label %.backedge, !llvm.loop !19
+  br i1 %179, label %.lr.ph, label %.backedge, !llvm.loop !18
 
 .preheader289:                                    ; preds = %162, %.preheader289
   %.09.i279 = phi ptr [ %181, %.preheader289 ], [ %.0209, %162 ]
@@ -1988,14 +1988,14 @@ define noundef i32 @LZ4_sizeofStreamState() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @LZ4_resetStreamState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @LZ4_resetStreamState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 16400
   store ptr %1, ptr %6, align 8
   br label %7
@@ -2187,7 +2187,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   %64 = add i32 %45, 1
   %65 = lshr i32 %45, 6
   %66 = icmp ugt ptr %63, %.ptr291
-  br i1 %66, label %.loopexit, label %43, !llvm.loop !20
+  br i1 %66, label %.loopexit, label %43, !llvm.loop !19
 
 .preheader:                                       ; preds = %61
   %.0176256.lcssa313 = ptrtoint ptr %.0176256 to i64
@@ -2215,7 +2215,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   %78 = icmp eq i8 %75, %77
   %indvar.next = add i32 %indvar, 1
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %78, label %70, label %.critedge2, !llvm.loop !21
+  br i1 %78, label %70, label %.critedge2, !llvm.loop !20
 
 .critedge2:                                       ; preds = %70, %73
   %79 = ptrtoint ptr %.1173 to i64
@@ -2315,7 +2315,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %107, %223
   br i1 %123, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 124:                                              ; preds = %.lr.ph.i
-  %125 = tail call i64 @llvm.cttz.i64(i64 %119, i1 true), !range !11
+  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %119, i1 true)
   %126 = lshr i64 %125, 3
   %127 = getelementptr inbounds i8, ptr %.03141.i, i64 %126
   br label %_ZL9LZ4_countPKhS0_S0_.exit
@@ -2514,7 +2514,7 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit216: ; preds = %202, %206
 225:                                              ; preds = %221, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit216
   %226 = getelementptr inbounds i8, ptr %160, i64 2
   %227 = icmp ugt ptr %226, %.ptr291
-  br i1 %227, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %227, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.critedge2, %225, %.critedge.backedge, %177, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit, %19
   %.6 = phi ptr [ %2, %19 ], [ %2, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit ], [ %.5, %177 ], [ %.0184278, %.critedge.backedge ], [ %.5, %225 ], [ %.0184278, %.critedge2 ]
@@ -2643,7 +2643,7 @@ attributes #16 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = !{i64 0, i64 65}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -2654,4 +2654,3 @@ attributes #16 = { nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}

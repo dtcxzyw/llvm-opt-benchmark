@@ -542,7 +542,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %exitcond46.not, label %if.end103, label %if.end.i28
 
 if.end.i28:                                       ; preds = %for.body.i
-  %call.i29 = call fastcc i32 @do_slabs_newslab(i32 noundef %i.03.i), !range !10
+  %call.i29 = call fastcc i32 @do_slabs_newslab(i32 noundef %i.03.i)
   %cmp2.i = icmp eq i32 %call.i29, 0
   br i1 %cmp2.i, label %if.then3.i, label %for.cond.i
 
@@ -638,7 +638,7 @@ grow_slab_list.exit.us:                           ; preds = %if.then.i5.us, %if.
   %arrayidx.us = getelementptr inbounds ptr, ptr %.pre2135, i64 %idxprom.us
   store ptr %call.i.us, ptr %arrayidx.us, align 8
   %cmp.us = icmp ult i64 %add12.i.us, %0
-  br i1 %cmp.us, label %land.rhs.us, label %while.end.sink.split, !llvm.loop !11
+  br i1 %cmp.us, label %land.rhs.us, label %while.end.sink.split, !llvm.loop !10
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %grow_slab_list.exit
   %call.i628 = phi ptr [ %call.i627, %grow_slab_list.exit ], [ %.promoted26, %land.rhs.preheader ]
@@ -689,7 +689,7 @@ grow_slab_list.exit:                              ; preds = %while.body, %if.the
   %arrayidx = getelementptr inbounds ptr, ptr %call.i627, i64 %idxprom
   store ptr %add.ptr.i1217, ptr %arrayidx, align 8
   %cmp = icmp ult i64 %add12.i, %0
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !10
 
 while.end.sink.split:                             ; preds = %grow_slab_list.exit.us, %land.rhs.us
   store i64 %add12.i.us, ptr @mem_malloced, align 8
@@ -719,7 +719,7 @@ for.body:                                         ; preds = %entry, %for.body
   store <2 x i32> %3, ptr %arrayidx2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
@@ -774,7 +774,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %call.i = tail call fastcc i32 @do_slabs_newslab(i32 noundef %id), !range !10
+  %call.i = tail call fastcc i32 @do_slabs_newslab(i32 noundef %id)
   %.pr.i = load i32, ptr %sl_curr.i, align 8
   br label %if.end5.i
 
@@ -950,7 +950,7 @@ if.end38.i:                                       ; preds = %if.then35.i, %while
   %inc41.i = add i32 %17, 1
   store i32 %inc41.i, ptr %sl_curr40.i, align 8
   %tobool24.not.i = icmp eq ptr %15, null
-  br i1 %tobool24.not.i, label %return, label %while.body.i, !llvm.loop !13
+  br i1 %tobool24.not.i, label %return, label %while.body.i, !llvm.loop !12
 
 return:                                           ; preds = %if.end38.i, %if.end22.i, %if.end11, %entry
   ret void
@@ -1081,7 +1081,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %cmp.not.not.i = icmp slt i64 %indvars.iv.i, %17
-  br i1 %cmp.not.not.i, label %for.body.i, label %do_slabs_stats.exit, !llvm.loop !14
+  br i1 %cmp.not.not.i, label %for.body.i, label %do_slabs_stats.exit, !llvm.loop !13
 
 do_slabs_stats.exit:                              ; preds = %for.inc.i, %entry
   %total.0.lcssa.i = phi i32 [ 0, %entry ], [ %total.1.i, %for.inc.i ]
@@ -1141,7 +1141,7 @@ while.body.i.i:                                   ; preds = %get_page_from_globa
   %sub.i.i = sub i64 %sub35.i.i, %conv.i.i
   store i64 %sub.i.i, ptr @mem_malloced, align 8
   %cmp3.i.i = icmp ugt i64 %sub.i.i, %new_mem_limit
-  br i1 %cmp3.i.i, label %land.rhs.i.i, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !15
+  br i1 %cmp3.i.i, label %land.rhs.i.i, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !14
 
 do_slabs_adjust_mem_limit.exit:                   ; preds = %land.rhs.i.i, %get_page_from_global_pool.exit.i.i, %while.body.i.i, %entry, %if.end.i.i
   %call2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
@@ -1197,7 +1197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @slabs_reassign(i32 noundef %src, i32 noundef %dst) local_unnamed_addr #4 {
+define dso_local range(i32 0, 5) i32 @slabs_reassign(i32 noundef %src, i32 noundef %dst) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @slabs_rebalance_lock) #22
   %cmp.not = icmp eq i32 %call, 0
@@ -1244,7 +1244,7 @@ if.end4.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.end4.i.i, %for.body.i.i
   %dec.i.i = add nsw i32 %tries.05.i.i, -1
   %cmp.i.i = icmp sgt i32 %tries.05.i.i, 1
-  br i1 %cmp.i.i, label %for.body.i.i, label %return.sink.split.i.i, !llvm.loop !16
+  br i1 %cmp.i.i, label %for.body.i.i, label %return.sink.split.i.i, !llvm.loop !15
 
 return.sink.split.i.i:                            ; preds = %for.inc.i.i, %if.end4.i.i
   %retval.0.ph.i.i = phi i32 [ -1, %for.inc.i.i ], [ %spec.store.select.i.i, %if.end4.i.i ]
@@ -1309,7 +1309,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_slab_maintenance_thread() local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @start_slab_maintenance_thread() local_unnamed_addr #4 {
 entry:
   store volatile i32 0, ptr @slab_rebalance_signal, align 4
   store ptr null, ptr @slab_rebal, align 8
@@ -1743,7 +1743,7 @@ if.then4.i:                                       ; preds = %if.end.i47
   %inc6.i = add nuw nsw i32 %x.010.i, 1
   %68 = load i32, ptr %perslab.i40, align 4
   %cmp.i52 = icmp ult i32 %inc6.i, %68
-  br i1 %cmp.i52, label %for.body.i45, label %do.body214.sink.split.i, !llvm.loop !17
+  br i1 %cmp.i52, label %for.body.i45, label %do.body214.sink.split.i, !llvm.loop !16
 
 if.then156.i:                                     ; preds = %land.lhs.true130.i
   %call151113.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
@@ -1788,7 +1788,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   store ptr %call131.i, ptr %head188.i, align 8
   %76 = load ptr, ptr %fch.0115.i, align 8
   %tobool187.not.i = icmp eq ptr %76, null
-  br i1 %tobool187.not.i, label %if.end190.i, label %while.body.i, !llvm.loop !18
+  br i1 %tobool187.not.i, label %if.end190.i, label %while.body.i, !llvm.loop !17
 
 if.end190.i:                                      ; preds = %while.body.i, %if.then156.i
   store i16 0, ptr %refcount39.i, align 4
@@ -1982,7 +1982,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx8.i = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv.i
   store ptr %108, ptr %arrayidx8.i, align 8
   %cmp.i25 = icmp ult i64 %indvars.iv.next.i, %107
-  br i1 %cmp.i25, label %for.body.i, label %for.end.i, !llvm.loop !19
+  br i1 %cmp.i25, label %for.body.i, label %for.end.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i, %if.then12
   %109 = load ptr, ptr @slab_rebal, align 8
@@ -2117,7 +2117,7 @@ if.end38.i.i.us:                                  ; preds = %if.then35.i.i.us, %
   %inc41.i.i.us = add i32 %132, 1
   store i32 %inc41.i.i.us, ptr %sl_curr40.i.i.us, align 8
   %tobool24.not.i.i.us = icmp eq ptr %130, null
-  br i1 %tobool24.not.i.i.us, label %do_slabs_free.exit.us, label %while.body.i.i68.us, !llvm.loop !13
+  br i1 %tobool24.not.i.i.us, label %do_slabs_free.exit.us, label %while.body.i.i68.us, !llvm.loop !12
 
 if.then4.i69.us:                                  ; preds = %for.body.i.i.us
   store i16 4, ptr %it_flags.i56.us, align 2
@@ -2149,7 +2149,7 @@ do_slabs_free.exit.us:                            ; preds = %if.end38.i.i.us, %i
   %inc.i.i.us = add nuw nsw i32 %x.07.i.i.us, 1
   %136 = load i32, ptr %perslab.i.i, align 4
   %cmp.i.i35.us = icmp ult i32 %inc.i.i.us, %136
-  br i1 %cmp.i.i35.us, label %for.body.i.i.us, label %if.end18.i, !llvm.loop !20
+  br i1 %cmp.i.i35.us, label %for.body.i.i.us, label %if.end18.i, !llvm.loop !19
 
 if.else.i26:                                      ; preds = %for.end.i
   %cmp15.i = icmp eq i32 %112, 0
@@ -2199,7 +2199,7 @@ while.body.i.i:                                   ; preds = %get_page_from_globa
   %sub.i.i = sub i64 %sub35.i.i, %conv.i.i30
   store i64 %sub.i.i, ptr @mem_malloced, align 8
   %cmp3.i.i = icmp ugt i64 %sub.i.i, %139
-  br i1 %cmp3.i.i, label %land.rhs.i.i, label %if.end18.i, !llvm.loop !15
+  br i1 %cmp3.i.i, label %land.rhs.i.i, label %if.end18.i, !llvm.loop !14
 
 if.end18.i:                                       ; preds = %while.body.i.i, %get_page_from_global_pool.exit.i.i, %land.rhs.i.i, %do_slabs_free.exit.us, %for.body.i.preheader.i, %while.cond.preheader.i.i, %if.end.i.i29, %if.then17.i28, %if.else.i26, %if.then.i31
   store i32 0, ptr getelementptr inbounds (%struct.slab_rebalance, ptr @slab_rebal, i64 0, i32 11), align 8
@@ -2265,7 +2265,7 @@ if.then23:                                        ; preds = %if.end21
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then23, %if.end21
-  br label %while.cond, !llvm.loop !21
+  br label %while.cond, !llvm.loop !20
 
 while.end:                                        ; preds = %lor.rhs
   %call26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_rebalance_lock) #22
@@ -2316,7 +2316,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_slabs_newslab(i32 noundef %id) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @do_slabs_newslab(i32 noundef %id) unnamed_addr #4 {
 entry:
   %idxprom = zext i32 %id to i64
   %arrayidx = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom
@@ -2462,7 +2462,7 @@ for.body.i:                                       ; preds = %if.end23, %for.body
   %inc.i = add nuw nsw i32 %x.07.i, 1
   %20 = load i32, ptr %perslab.i, align 4
   %cmp.i24 = icmp ult i32 %inc.i, %20
-  br i1 %cmp.i24, label %for.body.i, label %split_slab_page_into_freelist.exit, !llvm.loop !20
+  br i1 %cmp.i24, label %for.body.i, label %split_slab_page_into_freelist.exit, !llvm.loop !19
 
 split_slab_page_into_freelist.exit:               ; preds = %for.body.i, %if.end23
   %slab_list = getelementptr inbounds i8, ptr %arrayidx, i64 24
@@ -2585,7 +2585,7 @@ if.then4:                                         ; preds = %if.end
   %inc6 = add nuw nsw i32 %x.010, 1
   %12 = load i32, ptr %perslab, align 4
   %cmp = icmp ult i32 %inc6, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %if.then4, %if.end, %for.body, %for.body.lr.ph, %entry
   %new_it.1 = phi ptr [ null, %entry ], [ null, %for.body.lr.ph ], [ null, %for.body ], [ %6, %if.end ], [ null, %if.then4 ]
@@ -2652,7 +2652,7 @@ attributes #26 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -2663,4 +2663,3 @@ attributes #26 = { nounwind allocsize(0,1) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

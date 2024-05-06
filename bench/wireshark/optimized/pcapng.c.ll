@@ -492,7 +492,7 @@ define void @pcapng_process_bytes_option(ptr nocapture noundef readonly %0, i16 
 declare i32 @wtap_block_add_bytes_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pcapng_process_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
   br i1 %9, label %143, label %10
 
@@ -805,7 +805,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.wtapng_block_s, align 8
   %6 = alloca %struct.pcapng_block_header_s, align 4
@@ -841,7 +841,7 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %0, align 8
-  %21 = call fastcc i32 @pcapng_read_section_header_block(ptr noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2), !range !6
+  %21 = call fastcc i32 @pcapng_read_section_header_block(ptr noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
   switch i32 %21, label %31 [
     i32 2, label %25
     i32 1, label %22
@@ -1064,7 +1064,7 @@ get_block_type_internal.exit.thread:              ; preds = %thread-pre-split, %
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_section_header_block(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_section_header_block_s, align 8
   %8 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 16, ptr noundef %4, ptr noundef %5) #16
   %.not = icmp eq i32 %8, 0
@@ -1170,7 +1170,7 @@ define internal fastcc noundef i32 @pcapng_read_section_header_block(ptr noundef
   store i64 %storemerge, ptr %53, align 8
   %58 = load i32, ptr %28, align 4
   %59 = add i32 %58, -28
-  %60 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, i32 noundef %59, ptr noundef nonnull @pcapng_process_section_header_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5), !range !7
+  %60 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, i32 noundef %59, ptr noundef nonnull @pcapng_process_section_header_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %.not65 = icmp eq i32 %60, 0
   br i1 %.not65, label %63, label %61
 
@@ -1195,7 +1195,7 @@ declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
+define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
   %7 = alloca %struct.section_info_t, align 8
   %8 = alloca %struct.wtapng_block_s, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1253,7 +1253,7 @@ define internal noundef i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_seek_read(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.section_info_t, align 8
   %8 = alloca %struct.wtapng_block_s, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1345,7 +1345,7 @@ define internal void @pcapng_close(ptr nocapture noundef readonly %0) #0 {
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.lcssa = phi ptr [ %5, %1 ], [ %13, %.lr.ph ]
@@ -1358,7 +1358,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_block_header_s, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1374,7 +1374,7 @@ define internal fastcc noundef i32 @pcapng_read_block(ptr nocapture noundef %0, 
 
 15:                                               ; preds = %12
   store i32 168627466, ptr %4, align 8
-  %16 = call fastcc i32 @pcapng_read_section_header_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !6
+  %16 = call fastcc i32 @pcapng_read_section_header_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not96 = icmp eq i32 %16, 0
   br i1 %.not96, label %80, label %pcapng_read_meta_event_block.exit.thread
 
@@ -1447,37 +1447,37 @@ define internal fastcc noundef i32 @pcapng_read_block(ptr nocapture noundef %0, 
   ]
 
 34:                                               ; preds = %33
-  %35 = call fastcc i32 @pcapng_read_if_descr_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %35 = call fastcc i32 @pcapng_read_if_descr_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not94 = icmp eq i32 %35, 0
   br i1 %.not94, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 36:                                               ; preds = %33
-  %37 = call fastcc i32 @pcapng_read_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, i32 noundef 0), !range !7
+  %37 = call fastcc i32 @pcapng_read_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   %.not93 = icmp eq i32 %37, 0
   br i1 %.not93, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 38:                                               ; preds = %33
-  %39 = call fastcc i32 @pcapng_read_simple_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %39 = call fastcc i32 @pcapng_read_simple_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not92 = icmp eq i32 %39, 0
   br i1 %.not92, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 40:                                               ; preds = %33
-  %41 = call fastcc i32 @pcapng_read_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, i32 noundef 1), !range !7
+  %41 = call fastcc i32 @pcapng_read_packet_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, i32 noundef 1)
   %.not91 = icmp eq i32 %41, 0
   br i1 %.not91, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 42:                                               ; preds = %33
-  %43 = call fastcc i32 @pcapng_read_name_resolution_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %43 = call fastcc i32 @pcapng_read_name_resolution_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not90 = icmp eq i32 %43, 0
   br i1 %.not90, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 44:                                               ; preds = %33
-  %45 = call fastcc i32 @pcapng_read_interface_statistics_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %45 = call fastcc i32 @pcapng_read_interface_statistics_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not89 = icmp eq i32 %45, 0
   br i1 %.not89, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 46:                                               ; preds = %33
-  %47 = call fastcc i32 @pcapng_read_decryption_secrets_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %47 = call fastcc i32 @pcapng_read_decryption_secrets_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not88 = icmp eq i32 %47, 0
   br i1 %.not88, label %pcapng_read_meta_event_block.exit.thread, label %80
 
@@ -1526,12 +1526,12 @@ pcapng_read_meta_event_block.exit:                ; preds = %65
   br label %80
 
 72:                                               ; preds = %33, %33
-  %73 = call fastcc i32 @pcapng_read_custom_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %73 = call fastcc i32 @pcapng_read_custom_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not87 = icmp eq i32 %73, 0
   br i1 %.not87, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 74:                                               ; preds = %33, %33, %33
-  %75 = call fastcc i32 @pcapng_read_sysdig_event_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %75 = call fastcc i32 @pcapng_read_sysdig_event_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not86 = icmp eq i32 %75, 0
   br i1 %.not86, label %pcapng_read_meta_event_block.exit.thread, label %80
 
@@ -1541,7 +1541,7 @@ pcapng_read_meta_event_block.exit:                ; preds = %65
   br i1 %.not85, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 78:                                               ; preds = %33
-  %79 = call fastcc i32 @pcapng_read_unknown_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6), !range !7
+  %79 = call fastcc i32 @pcapng_read_unknown_block(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %.not95 = icmp eq i32 %79, 0
   br i1 %.not95, label %pcapng_read_meta_event_block.exit.thread, label %80
 
@@ -1825,7 +1825,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare ptr @wtap_block_get_mandatory_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_process_section_header_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 0, 2) i32 @pcapng_process_section_header_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   switch i16 %2, label %26 [
     i16 2, label %8
     i16 3, label %14
@@ -1887,7 +1887,7 @@ pcapng_process_unhandled_option.exit:             ; preds = %32, %8, %14, %20, %
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_if_descr_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.pcapng_interface_description_block_s, align 4
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1940,7 +1940,7 @@ define internal fastcc noundef i32 @pcapng_read_if_descr_block(ptr nocapture nou
   %34 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %33) #16
   %35 = load i32, ptr %10, align 4
   %36 = add i32 %35, -20
-  %37 = call i32 @pcapng_process_options(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %36, ptr noundef nonnull @pcapng_process_if_descr_block_option, i32 noundef 0, ptr noundef %5, ptr noundef %6), !range !7
+  %37 = call i32 @pcapng_process_options(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %36, ptr noundef nonnull @pcapng_process_if_descr_block_option, i32 noundef 0, ptr noundef %5, ptr noundef %6)
   %.not85 = icmp eq i32 %37, 0
   br i1 %.not85, label %94, label %38
 
@@ -2027,7 +2027,7 @@ define internal fastcc noundef i32 @pcapng_read_if_descr_block(ptr nocapture nou
   %75 = mul i64 %.06790, 10
   %76 = add nuw nsw i32 %.091, 1
   %exitcond.not = icmp eq i32 %76, %71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.067.lcssa = phi i64 [ 1, %.preheader ], [ %75, %.lr.ph ]
@@ -2084,7 +2084,7 @@ define internal fastcc noundef i32 @pcapng_read_if_descr_block(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_packet_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.pcapng_enhanced_packet_block_s, align 4
   %9 = alloca %struct.pcapng_packet_block_s, align 4
   %10 = alloca i32, align 4
@@ -2374,7 +2374,7 @@ define internal fastcc noundef i32 @pcapng_read_packet_block(ptr noundef %0, ptr
   %174 = load i32, ptr %173, align 4
   %reass.sub = sub i32 %174, %.1
   %175 = add i32 %reass.sub, -12
-  %176 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %175, ptr noundef nonnull @pcapng_process_packet_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5), !range !7
+  %176 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %175, ptr noundef nonnull @pcapng_process_packet_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %.not164 = icmp eq i32 %176, 0
   br i1 %.not164, label %207, label %177
 
@@ -2432,7 +2432,7 @@ define internal fastcc noundef i32 @pcapng_read_packet_block(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_simple_packet_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_simple_packet_block_s, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
@@ -2589,7 +2589,7 @@ define internal fastcc noundef i32 @pcapng_read_simple_packet_block(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_name_resolution_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_name_resolution_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_name_resolution_block_s, align 2
   %8 = alloca %struct.Buffer, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2785,7 +2785,7 @@ name_resolution_block_find_name_end.exit:         ; preds = %.lr.ph.i
   %97 = getelementptr i8, ptr %.098177, i64 %96
   %98 = sub i32 %.0100176, %88
   %.not115 = icmp eq i32 %98, 0
-  br i1 %.not115, label %._crit_edge178.loopexit, label %.lr.ph.i.preheader, !llvm.loop !10
+  br i1 %.not115, label %._crit_edge178.loopexit, label %.lr.ph.i.preheader, !llvm.loop !8
 
 ._crit_edge178.loopexit:                          ; preds = %90
   %.pre216 = load i16, ptr %26, align 2
@@ -2921,7 +2921,7 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
   %161 = getelementptr i8, ptr %.199174, i64 %160
   %162 = sub i32 %.1101173, %149
   %.not112 = icmp eq i32 %162, 0
-  br i1 %.not112, label %._crit_edge.loopexit, label %.lr.ph.i119.preheader, !llvm.loop !11
+  br i1 %.not112, label %._crit_edge.loopexit, label %.lr.ph.i119.preheader, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %151
   %.pre215 = load i16, ptr %26, align 2
@@ -2971,12 +2971,12 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
 185:                                              ; preds = %179, %168, %104
   %.1 = phi i32 [ %184, %179 ], [ %175, %168 ], [ %111, %104 ]
   %186 = icmp slt i32 %.1, %16
-  br i1 %186, label %29, label %._crit_edge181, !llvm.loop !12
+  br i1 %186, label %29, label %._crit_edge181, !llvm.loop !10
 
 ._crit_edge181:                                   ; preds = %55, %185, %22
   %.2 = phi i32 [ 0, %22 ], [ %.1, %185 ], [ %38, %55 ]
   %187 = sub i32 %16, %.2
-  %188 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef %2, i32 noundef %187, ptr noundef nonnull @pcapng_process_name_resolution_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5), !range !7
+  %188 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef %2, i32 noundef %187, ptr noundef nonnull @pcapng_process_name_resolution_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %.not117 = icmp eq i32 %188, 0
   br i1 %.not117, label %191, label %189
 
@@ -2992,7 +2992,7 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_interface_statistics_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_interface_statistics_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_interface_statistics_block_s, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
@@ -3050,7 +3050,7 @@ define internal fastcc noundef i32 @pcapng_read_interface_statistics_block(ptr n
   store i32 %.sink, ptr %38, align 4
   %39 = load i32, ptr %8, align 4
   %40 = add i32 %39, -24
-  %41 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %40, ptr noundef nonnull @pcapng_process_interface_statistics_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5), !range !7
+  %41 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %40, ptr noundef nonnull @pcapng_process_interface_statistics_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %.not25 = icmp eq i32 %41, 0
   br i1 %.not25, label %44, label %42
 
@@ -3065,7 +3065,7 @@ define internal fastcc noundef i32 @pcapng_read_interface_statistics_block(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_decryption_secrets_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_decryption_secrets_block_s, align 4
   %8 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %4, ptr noundef %5) #16
   %.not = icmp eq i32 %8, 0
@@ -3140,7 +3140,7 @@ define internal fastcc noundef i32 @pcapng_read_decryption_secrets_block(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_custom_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_nflx_custom_block_s, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_custom_block_s, align 4
@@ -3258,7 +3258,7 @@ pcapng_read_nflx_custom_block.exit:               ; preds = %38, %49
   %.sink34.i = phi i32 [ -24, %49 ], [ -20, %38 ]
   %60 = load i32, ptr %10, align 4
   %61 = add i32 %60, %.sink34.i
-  %62 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %61, ptr noundef null, i32 noundef 2, ptr noundef %4, ptr noundef %5), !range !7
+  %62 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %61, ptr noundef null, i32 noundef 2, ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not29 = icmp eq i32 %62, 0
@@ -3312,7 +3312,7 @@ pcapng_handle_generic_custom_block.exit.thread:   ; preds = %63, %pcapng_read_nf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_sysdig_event_block(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3500,7 +3500,7 @@ define internal fastcc noundef i32 @pcapng_read_sysdig_event_block(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_systemd_journal_export_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 4
@@ -3546,7 +3546,7 @@ define internal fastcc noundef i32 @pcapng_read_systemd_journal_export_block(ptr
   %33 = getelementptr i8, ptr %28, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %30, label %.critedge, !llvm.loop !13
+  br i1 %35, label %30, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %31
   %36 = trunc nuw i64 %indvars.iv to i32
@@ -3638,7 +3638,7 @@ define internal fastcc noundef i32 @pcapng_read_systemd_journal_export_block(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 12
@@ -3695,7 +3695,7 @@ declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 declare i32 @wtap_max_snaplen_for_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_process_if_descr_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.if_filter_opt_s, align 8
   switch i16 %2, label %112 [
     i16 2, label %9
@@ -3848,7 +3848,7 @@ define internal i32 @pcapng_process_if_descr_block_option(ptr nocapture noundef 
   %80 = getelementptr i8, ptr %.085101, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %79, %53
   %81 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3939,7 +3939,7 @@ declare i32 @pcap_process_pseudo_header(ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_process_packet_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 0, 2) i32 @pcapng_process_packet_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.packet_verdict_opt_s, align 8
   %9 = alloca %struct.packet_hash_opt_s, align 8
   switch i16 %2, label %96 [
@@ -4208,7 +4208,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_process_name_resolution_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 0, 2) i32 @pcapng_process_name_resolution_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @option_handlers, i64 0, i64 3), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %pcapng_process_unhandled_option.exit, label %9
@@ -4237,7 +4237,7 @@ pcapng_process_unhandled_option.exit:             ; preds = %13, %9, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_process_interface_statistics_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   switch i16 %2, label %76 [
     i16 2, label %8
     i16 3, label %22
@@ -4421,7 +4421,7 @@ declare void @wtapng_process_nrb(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_dump_can_write_encap(i32 noundef %0) #0 {
+define internal range(i32 -8, 1) i32 @pcapng_dump_can_write_encap(i32 noundef %0) #0 {
   switch i32 %0, label %2 [
     i32 -1, label %5
     i32 -2, label %5
@@ -4440,7 +4440,7 @@ define internal i32 @pcapng_dump_can_write_encap(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.pcapng_option_header, align 2
   %5 = alloca %struct.write_options_t, align 8
   %6 = alloca %struct.compute_options_size_t, align 8
@@ -4581,7 +4581,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader28, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader28 ]
@@ -4589,7 +4589,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr ptr, ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
-  %63 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %1), !range !7
+  %63 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %1)
   %.not25 = icmp eq i32 %63, 0
   br i1 %.not25, label %.loopexit, label %53
 
@@ -4612,7 +4612,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = icmp ult i64 %indvars.iv.next39, %72
-  br i1 %73, label %.lr.ph32, label %.loopexit, !llvm.loop !16
+  br i1 %73, label %.lr.ph32, label %.loopexit, !llvm.loop !14
 
 .lr.ph32:                                         ; preds = %.preheader, %68
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %68 ], [ 0, %.preheader ]
@@ -4620,7 +4620,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr ptr, ptr %75, i64 %indvars.iv38
   %77 = load ptr, ptr %76, align 8
-  %78 = call fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef nonnull %0, ptr noundef %77, ptr noundef %1), !range !7
+  %78 = call fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef nonnull %0, ptr noundef %77, ptr noundef %1)
   %.not24 = icmp eq i32 %78, 0
   br i1 %.not24, label %.loopexit, label %68
 
@@ -4632,7 +4632,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
 declare i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcapng_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @pcapng_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @wtap_block_create(i32 noundef 1) #16
   store ptr %6, ptr %5, align 8
@@ -4641,12 +4641,12 @@ define internal i32 @pcapng_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @g_array_append_vals(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1) #16
   %10 = load ptr, ptr %5, align 8
-  %11 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %10, ptr noundef %2), !range !7
+  %11 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %10, ptr noundef %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca %struct.pcapng_block_header_s, align 4
   %7 = alloca %struct.pcapng_custom_block_s, align 4
   %8 = alloca i32, align 4
@@ -4671,7 +4671,7 @@ define internal noundef i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = alloca %struct.pcapng_enhanced_packet_block_s, align 4
   %28 = alloca i32, align 4
   %29 = alloca ptr, align 8
-  %30 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %3), !range !7
+  %30 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %333, label %31
 
@@ -4814,7 +4814,7 @@ define internal noundef i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr nou
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
   %103 = icmp ult i64 %indvars.iv.next, %102
-  br i1 %103, label %81, label %._crit_edge.i, !llvm.loop !17
+  br i1 %103, label %81, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i.split.loop.exit75:                  ; preds = %95
   %104 = trunc nuw i64 %indvars.iv to i32
@@ -4839,7 +4839,7 @@ define internal noundef i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr nou
   %110 = load ptr, ptr %61, align 8
   %111 = call ptr @g_array_append_vals(ptr noundef %110, ptr noundef nonnull %29, i32 noundef 1) #16
   %112 = load ptr, ptr %29, align 8
-  %113 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef nonnull %0, ptr noundef %112, ptr noundef %3), !range !7
+  %113 = call fastcc i32 @pcapng_write_if_descr_block(ptr noundef nonnull %0, ptr noundef %112, ptr noundef %3)
   %.not88.i = icmp eq i32 %113, 0
   br i1 %.not88.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %114
 
@@ -4951,7 +4951,7 @@ define internal noundef i32 @pcapng_dump(ptr noundef %0, ptr noundef %1, ptr nou
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr %50, align 8
-  %182 = call fastcc i32 @write_options(ptr noundef nonnull %0, ptr noundef %181, ptr noundef nonnull @write_wtap_epb_option, ptr noundef %3), !range !7
+  %182 = call fastcc i32 @write_options(ptr noundef nonnull %0, ptr noundef %181, ptr noundef nonnull @write_wtap_epb_option, ptr noundef %3)
   %.not100.i = icmp eq i32 %182, 0
   br i1 %.not100.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %pcapng_write_enhanced_packet_block.exit
 
@@ -5371,13 +5371,13 @@ pcapng_write_custom_block.exit:                   ; preds = %326, %327
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.pcapng_option_header, align 2
   %5 = alloca %struct.write_options_t, align 8
   %6 = alloca %struct.compute_options_size_t, align 8
   %7 = alloca %struct.pcapng_block_header_s, align 4
   %8 = alloca %struct.pcapng_interface_statistics_block_s, align 8
-  %9 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1), !range !7
+  %9 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -5419,7 +5419,7 @@ define internal noundef i32 @pcapng_dump_finish(ptr noundef %0, ptr noundef %1, 
   %30 = load i8, ptr %26, align 8
   %31 = zext i8 %30 to i64
   %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %33, label %._crit_edge, !llvm.loop !18
+  br i1 %32, label %33, label %._crit_edge, !llvm.loop !16
 
 33:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -5502,7 +5502,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %49, %write_options.
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv.next30, %57
-  br i1 %58, label %20, label %.loopexit, !llvm.loop !19
+  br i1 %58, label %20, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %pcapng_write_interface_statistics_block.exit, %.preheader, %pcapng_write_interface_statistics_block.exit.thread, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %pcapng_write_interface_statistics_block.exit.thread ], [ 1, %.preheader ], [ 0, %pcapng_write_interface_statistics_block.exit ], [ 1, %._crit_edge ]
@@ -5510,7 +5510,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %49, %write_options.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pcapng_option_header, align 2
   %5 = alloca %struct.write_options_t, align 8
   %6 = alloca %struct.compute_options_size_t, align 8
@@ -5605,7 +5605,7 @@ write_options.exit:                               ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pcapng_block_header_s, align 4
   %5 = alloca %struct.pcapng_decryption_secrets_block_s, align 8
   %6 = alloca i32, align 4
@@ -5662,7 +5662,7 @@ define internal fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.pcapng_block_header_s, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5688,7 +5688,7 @@ define internal fastcc noundef i32 @pcapng_write_internal_blocks(ptr noundef %0,
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %1), !range !7
+  %18 = tail call fastcc i32 @pcapng_write_decryption_secrets_block(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %1)
   %.not65 = icmp eq i32 %18, 0
   br i1 %.not65, label %.loopexit, label %19
 
@@ -5702,7 +5702,7 @@ define internal fastcc noundef i32 @pcapng_write_internal_blocks(ptr noundef %0,
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.loopexit69, !llvm.loop !20
+  br i1 %26, label %.lr.ph, label %.loopexit69, !llvm.loop !18
 
 .loopexit69:                                      ; preds = %19, %7, %2
   %27 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5787,7 +5787,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp ult i64 %indvars.iv.next82, %68
-  br i1 %69, label %37, label %.loopexit67, !llvm.loop !21
+  br i1 %69, label %37, label %.loopexit67, !llvm.loop !19
 
 .loopexit67:                                      ; preds = %62, %29, %.loopexit69
   %70 = getelementptr inbounds i8, ptr %0, i64 80
@@ -5829,7 +5829,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %91, ptr %92, align 8
-  %93 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %.055, ptr noundef %1), !range !7
+  %93 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %.055, ptr noundef %1)
   %.not62 = icmp eq i32 %93, 0
   br i1 %.not62, label %.loopexit, label %94
 
@@ -5875,7 +5875,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr ptr, ptr %114, i64 %indvars.iv84
   %116 = load ptr, ptr %115, align 8
-  %117 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %116, ptr noundef %1), !range !7
+  %117 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %116, ptr noundef %1)
   %.not64 = icmp eq i32 %117, 0
   br i1 %.not64, label %.loopexit, label %118
 
@@ -5889,7 +5889,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %123 = load i32, ptr %122, align 8
   %124 = zext i32 %123 to i64
   %125 = icmp ult i64 %indvars.iv.next85, %124
-  br i1 %125, label %.lr.ph75, label %.loopexit, !llvm.loop !22
+  br i1 %125, label %.lr.ph75, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %.lr.ph75, %118, %106, %pcapng_write_meta_event_block.exit.thread, %103, %85
   %.0 = phi i32 [ 0, %85 ], [ 1, %103 ], [ 0, %pcapng_write_meta_event_block.exit.thread ], [ 1, %106 ], [ 0, %.lr.ph75 ], [ 1, %118 ], [ 0, %pcapng_write_meta_event_block.exit ], [ 0, %.lr.ph ]
@@ -5901,7 +5901,7 @@ declare i32 @wtap_addrinfo_list_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @wtap_block_make_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5962,7 +5962,7 @@ define internal fastcc i32 @pcapng_write_name_resolution_block(ptr noundef %0, p
   %29 = load ptr, ptr %8, align 8
   %30 = call ptr @g_list_nth_data(ptr noundef %29, i32 noundef %28) #16
   %.not169 = icmp eq ptr %30, null
-  br i1 %.not169, label %.loopexit177, label %23, !llvm.loop !23
+  br i1 %.not169, label %.loopexit177, label %23, !llvm.loop !21
 
 31:                                               ; preds = %23
   %32 = trunc nuw i64 %25 to i16
@@ -6040,7 +6040,7 @@ define internal fastcc i32 @pcapng_write_name_resolution_block(ptr noundef %0, p
   %77 = load ptr, ptr %8, align 8
   %78 = call ptr @g_list_nth_data(ptr noundef %77, i32 noundef %76) #16
   %.not169190 = icmp eq ptr %78, null
-  br i1 %.not169190, label %.loopexit177, label %.lr.ph, !llvm.loop !23
+  br i1 %.not169190, label %.loopexit177, label %.lr.ph, !llvm.loop !21
 
 .loopexit177:                                     ; preds = %.outer178, %27, %20, %16
   %.sroa.6.2 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.0.ph197, %27 ], [ %57, %.outer178 ]
@@ -6080,7 +6080,7 @@ define internal fastcc i32 @pcapng_write_name_resolution_block(ptr noundef %0, p
   %90 = load ptr, ptr %79, align 8
   %91 = call ptr @g_list_nth_data(ptr noundef %90, i32 noundef %89) #16
   %.not171 = icmp eq ptr %91, null
-  br i1 %.not171, label %.loopexit, label %84, !llvm.loop !24
+  br i1 %.not171, label %.loopexit, label %84, !llvm.loop !22
 
 92:                                               ; preds = %84
   %93 = trunc nuw i64 %86 to i16
@@ -6157,7 +6157,7 @@ define internal fastcc i32 @pcapng_write_name_resolution_block(ptr noundef %0, p
   %137 = load ptr, ptr %79, align 8
   %138 = call ptr @g_list_nth_data(ptr noundef %137, i32 noundef %136) #16
   %.not171203 = icmp eq ptr %138, null
-  br i1 %.not171203, label %.loopexit, label %.lr.ph206, !llvm.loop !24
+  br i1 %.not171203, label %.loopexit, label %.lr.ph206, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.outer, %88, %81, %.loopexit177
   %.sroa.6.5 = phi i32 [ %.sroa.6.2, %.loopexit177 ], [ %.sroa.6.2, %81 ], [ %.sroa.6.3.ph212, %88 ], [ %118, %.outer ]
@@ -6204,7 +6204,7 @@ declare void @wtap_dump_discard_name_resolution(ptr noundef) local_unnamed_addr 
 declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compute_nrb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
+define internal range(i32 0, 65539) i32 @compute_nrb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
   switch i32 %1, label %13 [
     i32 2, label %5
     i32 3, label %14
@@ -6213,7 +6213,7 @@ define internal i32 @compute_nrb_option_size(ptr nocapture readnone %0, i32 noun
 
 5:                                                ; preds = %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0
@@ -6253,7 +6253,7 @@ define internal noundef i32 @compute_block_option_size(ptr noundef %0, i32 nound
 
 6:                                                ; preds = %5
   %.val = load ptr, ptr %3, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 3
   %.not.i = icmp eq i32 %9, 0
@@ -6507,7 +6507,7 @@ declare ptr @wtap_rec_generate_idb(ptr noundef) local_unnamed_addr #1
 declare i32 @pcap_write_phdr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.pcapng_option_header, align 2
   %6 = alloca %struct.write_options_t, align 8
   store ptr %0, ptr %6, align 8
@@ -6536,7 +6536,7 @@ define internal fastcc i32 @write_options(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_wtap_epb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @write_wtap_epb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.pcapng_option_header, align 2
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -6735,7 +6735,7 @@ pcapng_write_packet_verdict_option.exit:          ; preds = %.thread.i, %30, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_block_option(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 2) i32 @write_block_option(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca %struct.pcapng_option_header, align 2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6913,7 +6913,7 @@ pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @compute_isb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #12 {
+define internal noundef range(i32 0, 9) i32 @compute_isb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #12 {
   %.off = add i32 %1, -2
   %switch = icmp ult i32 %.off, 7
   %spec.select = select i1 %switch, i32 8, i32 0
@@ -6921,7 +6921,7 @@ define internal noundef i32 @compute_isb_option_size(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_wtap_isb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @write_wtap_isb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.pcapng_option_header, align 2
   %8 = alloca %struct.pcapng_option_header, align 2
   %9 = alloca i32, align 4
@@ -7002,14 +7002,14 @@ pcapng_write_uint64_option.exit:                  ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compute_shb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
+define internal range(i32 0, 65539) i32 @compute_shb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
   %.off = add i32 %1, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %5, label %12
 
 5:                                                ; preds = %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0
@@ -7025,7 +7025,7 @@ define internal i32 @compute_shb_option_size(ptr nocapture readnone %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_wtap_shb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr nocapture noundef readonly %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @write_wtap_shb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr nocapture noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca %struct.pcapng_option_header, align 2
   %8 = alloca i32, align 4
   %.off = add i32 %2, -2
@@ -7085,7 +7085,7 @@ pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compute_idb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
+define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
   switch i32 %1, label %33 [
     i32 2, label %5
     i32 3, label %5
@@ -7100,7 +7100,7 @@ define internal i32 @compute_idb_option_size(ptr nocapture readnone %0, i32 noun
 
 5:                                                ; preds = %4, %4, %4, %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0
@@ -7161,7 +7161,7 @@ pcapng_compute_if_filter_option_size.exit:        ; preds = %13, %15, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_wtap_idb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @write_wtap_idb_option(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.pcapng_option_header, align 2
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -7462,8 +7462,8 @@ attributes #21 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 3}
-!7 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -7479,5 +7479,3 @@ attributes #21 = { noreturn nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

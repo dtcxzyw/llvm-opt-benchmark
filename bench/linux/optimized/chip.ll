@@ -129,7 +129,7 @@ define internal noundef i32 @bad_chained_irq(i32 noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_chip(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_chip(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !12
@@ -184,7 +184,7 @@ define dso_local i32 @irq_set_irq_type(i32 noundef %0, i32 noundef %1) #0 align 
 declare dso_local i32 @__irq_set_trigger(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_handler_data(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_handler_data(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !12
@@ -206,7 +206,7 @@ define dso_local noundef i32 @irq_set_handler_data(i32 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_msi_desc_off(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_msi_desc_off(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8, !annotation !12
@@ -239,7 +239,7 @@ define dso_local noundef i32 @irq_set_msi_desc_off(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_msi_desc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_msi_desc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !12
@@ -269,7 +269,7 @@ define dso_local noundef i32 @irq_set_msi_desc(i32 noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_chip_data(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_chip_data(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !12
@@ -3058,7 +3058,7 @@ define dso_local void @irq_chip_release_resources_parent(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_chip_compose_msi_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @irq_chip_compose_msi_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %.preheader
 
@@ -3102,7 +3102,7 @@ define dso_local noundef i32 @irq_chip_compose_msi_msg(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_pm_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3146,7 +3146,7 @@ define dso_local i32 @irq_chip_pm_get(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_pm_put(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_put(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

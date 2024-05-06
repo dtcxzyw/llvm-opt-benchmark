@@ -117,7 +117,7 @@ int_ctrl_cmd_is_null.exit.i.i:                    ; preds = %lor.lhs.false20.i, 
   br i1 %cmp1.i.not.i.i, label %if.then24.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %int_ctrl_cmd_is_null.exit.i.i
-  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.fr.i.i, ptr noundef nonnull dereferenceable(1) %p) #6
+  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.fr.i.i, ptr noundef nonnull readonly dereferenceable(1) %p) #6
   %cmp.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i.i, label %if.end25.i, label %while.body.i.i
 
@@ -285,7 +285,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_cmd_is_executable(ptr noundef %e, i32 noundef %cmd) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_cmd_is_executable(ptr noundef %e, i32 noundef %cmd) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %cmd to i64
   %call = tail call i32 @ENGINE_ctrl(ptr noundef %e, i32 noundef 18, i64 noundef %conv, ptr noundef null, ptr noundef null)
@@ -310,7 +310,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_ctrl_cmd(ptr noundef %e, ptr noundef %cmd_name, i64 noundef %i, ptr noundef %p, ptr noundef %f, i32 noundef %cmd_optional) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_ctrl_cmd(ptr noundef %e, ptr noundef %cmd_name, i64 noundef %i, ptr noundef %p, ptr noundef %f, i32 noundef %cmd_optional) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   %cmp1 = icmp eq ptr %cmd_name, null
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.end8, %if.end7, 
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_ctrl_cmd_string(ptr noundef %e, ptr noundef %cmd_name, ptr noundef %arg, i32 noundef %cmd_optional) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_ctrl_cmd_string(ptr noundef %e, ptr noundef %cmd_name, ptr noundef %arg, i32 noundef %cmd_optional) local_unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %cmp = icmp eq ptr %e, null

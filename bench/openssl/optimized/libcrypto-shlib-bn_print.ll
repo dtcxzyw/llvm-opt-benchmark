@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [12 x i8] c"bn(%zu,%zu)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_print_fp(ptr noundef %fp, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_print_fp(ptr noundef %fp, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2
@@ -20,7 +20,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #2
-  %call3 = tail call i32 @BN_print(ptr noundef nonnull %call1, ptr noundef %a), !range !4
+  %call3 = tail call i32 @BN_print(ptr noundef nonnull %call1, ptr noundef %a)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #2
   br label %return
 
@@ -36,7 +36,7 @@ declare ptr @BIO_s_file() local_unnamed_addr #1
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_print(ptr noundef %bp, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_print(ptr noundef %bp, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -70,7 +70,7 @@ for.cond9.preheader.preheader:                    ; preds = %if.end7
 
 for.cond.loopexit:                                ; preds = %for.inc
   %cmp8 = icmp sgt i64 %indvars.iv22, 1
-  br i1 %cmp8, label %for.cond9.preheader, label %end, !llvm.loop !5
+  br i1 %cmp8, label %for.cond9.preheader, label %end, !llvm.loop !4
 
 for.cond9.preheader:                              ; preds = %for.cond9.preheader.preheader, %for.cond.loopexit
   %indvars.iv22 = phi i64 [ %2, %for.cond9.preheader.preheader ], [ %indvars.iv.next23, %for.cond.loopexit ]
@@ -101,7 +101,7 @@ for.inc:                                          ; preds = %if.then15, %for.bod
   %z.2 = phi i32 [ 0, %for.body11 ], [ 1, %if.then15 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %cmp10.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp10.not, label %for.cond.loopexit, label %for.body11, !llvm.loop !7
+  br i1 %cmp10.not, label %for.cond.loopexit, label %for.body11, !llvm.loop !6
 
 end:                                              ; preds = %for.cond.loopexit, %if.then15, %if.end7, %land.lhs.true3, %land.lhs.true
   %ret.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ], [ 1, %if.end7 ], [ 0, %if.then15 ], [ 1, %for.cond.loopexit ]
@@ -141,7 +141,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

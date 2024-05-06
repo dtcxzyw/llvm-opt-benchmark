@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @overflowgid = external dso_local local_unnamed_addr global i32, align 4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @rpc_init_authunix() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @rpc_init_authunix() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @mempool_create(i32 noundef 16, ptr noundef nonnull @mempool_kmalloc, ptr noundef nonnull @mempool_kfree, ptr noundef nonnull inttoptr (i64 96 to ptr)) #8
   store ptr %1, ptr @unix_pool, align 8
   %2 = icmp eq ptr %1, null
@@ -141,7 +141,7 @@ define internal void @unx_destroy_cred(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal i32 @unx_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #5 align 16 {
+define internal range(i32 0, 2) i32 @unx_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -224,7 +224,7 @@ define internal i32 @unx_match(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unx_marshal(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -90, 1) i32 @unx_marshal(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -363,7 +363,7 @@ define internal noundef i32 @unx_refresh(ptr nocapture noundef readonly %0) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unx_validate(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -5, 1) i32 @unx_validate(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 160

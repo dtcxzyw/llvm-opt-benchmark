@@ -88,7 +88,7 @@ if.end8:                                          ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASYNC_start_job(ptr nocapture noundef %job, ptr noundef %wctx, ptr nocapture noundef writeonly %ret, ptr noundef %func, ptr noundef readonly %args, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @ASYNC_start_job(ptr nocapture noundef %job, ptr noundef %wctx, ptr nocapture noundef writeonly %ret, ptr noundef %func, ptr noundef readonly %args, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 256, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -282,7 +282,7 @@ if.end60:                                         ; preds = %for.cond
   br i1 %cmp.i71, label %if.then.i75, label %if.end5.i
 
 if.then.i75:                                      ; preds = %if.end60
-  %call1.i76 = tail call i32 @ASYNC_init_thread(i64 noundef 0, i64 noundef 0), !range !4
+  %call1.i76 = tail call i32 @ASYNC_init_thread(i64 noundef 0, i64 noundef 0)
   %cmp2.i = icmp eq i32 %call1.i76, 0
   br i1 %cmp2.i, label %async_get_pool_job.exit.thread, label %if.end.i77
 
@@ -495,7 +495,7 @@ entry:
 declare void @async_local_deinit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASYNC_init_thread(i64 noundef %max_size, i64 noundef %init_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_init_thread(i64 noundef %max_size, i64 noundef %init_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %init_size, %max_size
   br i1 %cmp, label %if.then, label %if.end
@@ -570,7 +570,7 @@ if.end25:                                         ; preds = %lor.lhs.false
   %call.i22 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i19) #7
   %inc = add nuw i64 %curr_size.027, 1
   %tobool18.not = icmp eq i64 %dec28, 0
-  br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end25, %while.body, %if.end16, %async_job_free.exit
   %curr_size.024 = phi i64 [ %curr_size.027, %async_job_free.exit ], [ 0, %if.end16 ], [ %init_size, %if.end25 ], [ %curr_size.027, %while.body ]
@@ -822,6 +822,5 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

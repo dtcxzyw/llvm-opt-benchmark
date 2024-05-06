@@ -32,7 +32,7 @@ define internal void @syslogstream_putc(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @syslogstream_puts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 0, -2147483648) i32 @syslogstream_puts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %8, label %5
 

@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @expr_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 281) i32 @expr_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -933,7 +933,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %exitcond179.not.i, label %.critedge.i, label %409, !llvm.loop !13
 
 .critedge.split.loop.exit.i:                      ; preds = %409, %409
-  %422 = trunc i64 %indvars.iv.i to i32
+  %422 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %412, %.critedge.split.loop.exit.i
@@ -1502,9 +1502,9 @@ define dso_local void @expr_yyerror_more(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.b8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader
-  %9 = call i32 @expr_yylex(ptr noundef nonnull %4, ptr noundef nonnull %0), !range !15
+  %9 = call i32 @expr_yylex(ptr noundef nonnull %4, ptr noundef nonnull %0)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %3
   %10 = trunc i64 %8 to i32
@@ -2556,7 +2556,7 @@ define dso_local void @expr_yyset_lval(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @expr_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @expr_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2584,7 +2584,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @expr_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @expr_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2729,7 +2729,7 @@ expr_yypop_buffer_state.exit:                     ; preds = %23, %42, %45
   %56 = getelementptr ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not21 = icmp eq ptr %57, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !17
+  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !16
 
 .thread:                                          ; preds = %expr_yypop_buffer_state.exit, %expr_yy_delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %expr_yy_delete_buffer.exit ], [ %54, %expr_yypop_buffer_state.exit ]
@@ -2786,7 +2786,7 @@ define dso_local ptr @expr_scanner_get_substring(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %13 = load i8, ptr %gep, align 1
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   switch i8 %13, label %.critedge [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
@@ -2835,7 +2835,7 @@ define dso_local noundef zeroext i1 @expr_lex_one_word(ptr noundef %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @expr_yylex(ptr noundef nonnull %4, ptr noundef %12), !range !15
+  %13 = call i32 @expr_yylex(ptr noundef nonnull %4, ptr noundef %12)
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %24
 
@@ -2919,7 +2919,7 @@ define dso_local i32 @expr_scanner_get_lineno(ptr nocapture noundef readonly %0,
   %15 = icmp ne i8 %14, 0
   %16 = icmp ugt i32 %.0810, 1
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi i32 [ 1, %2 ], [ %spec.select, %.lr.ph ]
@@ -3001,7 +3001,6 @@ attributes #33 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 0, i32 281}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

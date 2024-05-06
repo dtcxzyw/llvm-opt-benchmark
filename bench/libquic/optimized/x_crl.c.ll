@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_CRL_add0_revoked(ptr nocapture noundef readonly %crl, ptr noundef %rev) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_CRL_add0_revoked(ptr nocapture noundef readonly %crl, ptr noundef %rev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crl, align 8
   %revoked = getelementptr inbounds i8, ptr %0, i64 40
@@ -364,7 +364,7 @@ return:                                           ; preds = %sw.bb, %entry, %lor
 declare ptr @sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal range(i32 0, 2) i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   %j.i = alloca i32, align 4
   %0 = load ptr, ptr %pval, align 8
@@ -816,7 +816,7 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_crl_lookup(ptr nocapture noundef readonly %crl, ptr noundef writeonly %ret, ptr noundef %serial, ptr noundef %issuer) #0 {
+define internal range(i32 0, 3) i32 @def_crl_lookup(ptr nocapture noundef readonly %crl, ptr noundef writeonly %ret, ptr noundef %serial, ptr noundef %issuer) #0 {
 entry:
   %rtmp = alloca %struct.x509_revoked_st, align 8
   %idx = alloca i64, align 8

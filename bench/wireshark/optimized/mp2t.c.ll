@@ -370,7 +370,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -434,7 +434,7 @@ mp2t_read_packet.exit.thread:                     ; preds = %6, %39, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mp2t_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @mp2t_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #6
@@ -521,7 +521,7 @@ declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mp2t_dump_can_write_encap(i32 noundef %0) #3 {
+define internal noundef range(i32 -9, 1) i32 @mp2t_dump_can_write_encap(i32 noundef %0) #3 {
   %switch.selectcmp = icmp eq i32 %0, 138
   %switch.select = select i1 %switch.selectcmp, i32 0, i32 -8
   %switch.selectcmp4 = icmp eq i32 %0, -1
@@ -537,7 +537,7 @@ define internal noundef i32 @mp2t_dump_open(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mp2t_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @mp2t_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7

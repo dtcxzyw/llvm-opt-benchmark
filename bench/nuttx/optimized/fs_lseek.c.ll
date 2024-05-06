@@ -133,7 +133,7 @@ file_seek.exit:                                   ; preds = %29, %27, %25, %20, 
 declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lseek(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @lseek(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #3

@@ -2872,7 +2872,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hdcp2_authenticate_repeater_topology(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @hdcp2_authenticate_repeater_topology(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %union.anon.58, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
@@ -3968,7 +3968,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 461:                                              ; preds = %456
   store i8 16, ptr %2, align 1
   %462 = lshr i32 %459, 16
-  %463 = trunc i32 %462 to i8
+  %463 = trunc nuw i32 %462 to i8
   store i8 %463, ptr %41, align 1
   %464 = lshr i32 %459, 8
   %465 = trunc i32 %464 to i8
@@ -6634,7 +6634,7 @@ declare dso_local i32 @snb_pcode_write_timeout(ptr noundef, i32 noundef, i32 nou
 declare dso_local i32 @get_random_u32() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_hdcp_get_repeater_ctl(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, -2146435071) i32 @intel_hdcp_get_repeater_ctl(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 11
@@ -6724,7 +6724,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 declare dso_local i64 @schedule_timeout_uninterruptible(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_write_sha_text(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @intel_write_sha_text(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7368
   %3 = getelementptr inbounds i8, ptr %0, i64 7544
   %4 = load ptr, ptr %3, align 8

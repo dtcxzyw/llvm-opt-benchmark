@@ -2062,7 +2062,7 @@ define dso_local void @_ZN20cmCMakePresetsErrors24INVALID_CONDITION_OBJECTEN10Js
   %6 = alloca %"class.std::function.13", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors24INVALID_CONDITION_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E9_M_invokeERKSt9_Any_dataOS9_OSB_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors24INVALID_CONDITION_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZN10JsonErrors20INVALID_NAMED_OBJECTERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.10") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -2178,7 +2178,7 @@ define dso_local void @_ZN20cmCMakePresetsErrors23INVALID_VARIABLE_OBJECTEN10Jso
   %6 = alloca %"class.std::function.13", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors23INVALID_VARIABLE_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E9_M_invokeERKSt9_Any_dataOS9_OSB_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors23INVALID_VARIABLE_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZN10JsonErrors20INVALID_NAMED_OBJECTERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.10") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -2292,7 +2292,7 @@ define dso_local void @_ZN20cmCMakePresetsErrors21INVALID_PRESET_OBJECTEN10JsonE
   %6 = alloca %"class.std::function.13", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors21INVALID_PRESET_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E9_M_invokeERKSt9_Any_dataOS9_OSB_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors21INVALID_PRESET_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZN10JsonErrors20INVALID_NAMED_OBJECTERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.10") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -2406,7 +2406,7 @@ define dso_local void @_ZN20cmCMakePresetsErrors19INVALID_ROOT_OBJECTEN10JsonErr
   %6 = alloca %"class.std::function.13", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors19INVALID_ROOT_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E9_M_invokeERKSt9_Any_dataOS9_OSB_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEZN20cmCMakePresetsErrors19INVALID_ROOT_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorIS5_SaIS5_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZN10JsonErrors20INVALID_NAMED_OBJECTERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.10") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -2932,7 +2932,7 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !278
-  call void @_ZN20cmCMakePresetsErrors13getPresetNameB5cxx11EP11cmJSONState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef %.val), !noalias !283
+  call void @_ZN20cmCMakePresetsErrors13getPresetNameB5cxx11EP11cmJSONState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef readonly %.val), !noalias !283
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !283
   store i64 23, ptr %5, align 8, !alias.scope !286, !noalias !289
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8

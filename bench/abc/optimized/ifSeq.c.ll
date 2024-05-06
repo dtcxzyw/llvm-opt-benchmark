@@ -259,7 +259,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_ManPerformMappingRoundSeq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_ManPerformMappingRoundSeq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 Abc_Clock.exit:
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -463,7 +463,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -482,7 +482,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -490,7 +490,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -596,7 +596,7 @@ define noundef i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnamed_addr 
 
 60:                                               ; preds = %.lr.ph76, %.critedge2
   %.04775 = phi i32 [ 1, %.lr.ph76 ], [ %69, %.critedge2 ]
-  %61 = tail call i32 @If_ManPerformMappingRoundSeq(ptr noundef nonnull %0, i32 noundef %.04775), !range !14
+  %61 = tail call i32 @If_ManPerformMappingRoundSeq(ptr noundef nonnull %0, i32 noundef %.04775)
   %.not49 = icmp ne i32 %61, 0
   %62 = tail call float @If_ManDelayMax(ptr noundef nonnull %0, i32 noundef 1) #13
   store float %62, ptr %41, align 4
@@ -614,7 +614,7 @@ define noundef i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnamed_addr 
   %69 = add nuw nsw i32 %.04775, 1
   %70 = load i32, ptr %39, align 4
   %.not.not = icmp slt i32 %.04775, %70
-  br i1 %.not.not, label %60, label %.loopexit, !llvm.loop !15
+  br i1 %.not.not, label %60, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge2, %63, %60, %.critedge2.preheader
   %.04764 = phi i32 [ 1, %.critedge2.preheader ], [ %69, %.critedge2 ], [ %.04775, %63 ], [ %.04775, %60 ]
@@ -656,7 +656,7 @@ define noundef i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_ManBinarySearch_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @If_ManBinarySearch_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = add nsw i32 %1, 1
   %5 = icmp eq i32 %4, %2
   br i1 %5, label %tailrecurse.outer._crit_edge, label %.lr.ph.lr.ph
@@ -677,7 +677,7 @@ define i32 @If_ManBinarySearch_rec(ptr noundef %0, i32 noundef %1, i32 noundef %
   %10 = sdiv i32 %9, 2
   %11 = add nsw i32 %10, %.tr15.ph20
   store i32 %11, ptr %6, align 8
-  %12 = tail call i32 @If_ManBinarySearchPeriod(ptr noundef %0), !range !14
+  %12 = tail call i32 @If_ManBinarySearchPeriod(ptr noundef %0)
   %.not = icmp eq i32 %12, 0
   %13 = load i32, ptr %6, align 8
   br i1 %.not, label %tailrecurse.outer, label %tailrecurse
@@ -739,7 +739,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #1 {
   %28 = sub nsw i32 %.val53, %27
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %15, label %.critedge, !llvm.loop !16
+  br i1 %30, label %15, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %15, %1
   %.lcssa63 = phi ptr [ %4, %1 ], [ %25, %15 ]
@@ -794,7 +794,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #1 {
   %58 = sub nsw i32 %.val47, %57
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next81, %59
-  br i1 %60, label %50, label %.critedge2.preheader, !llvm.loop !17
+  br i1 %60, label %50, label %.critedge2.preheader, !llvm.loop !16
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %61 = getelementptr inbounds i8, ptr %0, i64 40
@@ -826,7 +826,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #1 {
   %.val57 = load i32, ptr %76, align 4
   %77 = sext i32 %.val57 to i64
   %78 = icmp slt i64 %indvars.iv.next84, %77
-  br i1 %78, label %.critedge2, label %.critedge4.preheader, !llvm.loop !18
+  br i1 %78, label %.critedge2, label %.critedge4.preheader, !llvm.loop !17
 
 .lr.ph75:                                         ; preds = %.critedge4.preheader, %.critedge4
   %79 = phi ptr [ %88, %.critedge4 ], [ %62, %.critedge4.preheader ]
@@ -855,7 +855,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #1 {
   %.val56 = load i32, ptr %89, align 4
   %90 = sext i32 %.val56 to i64
   %91 = icmp slt i64 %indvars.iv.next87, %90
-  br i1 %91, label %.lr.ph75, label %.critedge6, !llvm.loop !19
+  br i1 %91, label %.lr.ph75, label %.critedge6, !llvm.loop !18
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %92 = tail call i32 @If_ManPerformMappingComb(ptr noundef nonnull %0) #13
@@ -868,7 +868,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare i32 @If_ManPerformMappingComb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @If_ManPerformMappingSeq(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_ManPerformMappingSeq(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -969,7 +969,7 @@ If_ManPrepareMappingSeq.exit:                     ; preds = %28, %Abc_Clock.exit
   %67 = fptosi float %66 to i32
   %68 = getelementptr inbounds i8, ptr %0, i64 648
   store i32 %67, ptr %68, align 8
-  %69 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0), !range !14
+  %69 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0)
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %70, label %71
 
@@ -994,7 +994,7 @@ If_ManPrepareMappingSeq.exit:                     ; preds = %28, %Abc_Clock.exit
   %77 = sdiv i32 %76, 2
   %78 = add nsw i32 %77, %.tr15.ph20.i
   store i32 %78, ptr %68, align 8
-  %79 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0), !range !14
+  %79 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %79, 0
   %80 = load i32, ptr %68, align 8
   br i1 %.not.i, label %tailrecurse.outer.i, label %tailrecurse.i
@@ -1014,7 +1014,7 @@ If_ManBinarySearch_rec.exit:                      ; preds = %tailrecurse.outer.i
 
 84:                                               ; preds = %If_ManBinarySearch_rec.exit
   store i32 %.tr1618.i, ptr %68, align 8
-  %85 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0), !range !14
+  %85 = call i32 @If_ManBinarySearchPeriod(ptr noundef nonnull %0)
   %.not31 = icmp eq i32 %85, 0
   br i1 %.not31, label %86, label %._crit_edge
 
@@ -1093,22 +1093,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
@@ -1122,10 +1122,10 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind allocsize(1) }
 attributes #12 = { nounwind allocsize(0) }
@@ -1148,9 +1148,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

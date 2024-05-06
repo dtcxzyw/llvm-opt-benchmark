@@ -487,7 +487,7 @@ define dso_local ptr @crypto_clone_shash(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @crypto_clone_tfm(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @hash_prepare_alg(ptr nocapture noundef %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @hash_prepare_alg(ptr nocapture noundef %0) local_unnamed_addr #6 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp ugt i32 %2, 64
   br i1 %3, label %12, label %4

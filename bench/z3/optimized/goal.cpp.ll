@@ -10433,8 +10433,8 @@ if.then:                                          ; preds = %_ZNK11ast_manager5i
   %25 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %25 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %26 = getelementptr i8, ptr %cond.i, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %26, i64 32
+  %26 = getelementptr inbounds i8, ptr %cond.i, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %26, i64 32
   %cmp8.not86 = icmp eq i32 %25, 0
   br i1 %cmp8.not86, label %if.end12, label %for.body9.preheader
 

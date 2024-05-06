@@ -697,7 +697,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dom_node_children_valid = private unnamed_addr constant [12 x i32] [i32 -1, i32 -1, i32 0, i32 0, i32 -1, i32 -1, i32 0, i32 -1, i32 0, i32 -1, i32 0, i32 -1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @dom_node_is_read_only(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_node_is_read_only(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -5
@@ -723,7 +723,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @dom_node_children_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_node_children_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -3
@@ -891,7 +891,7 @@ dom_get_doc_props_read_only.exit:                 ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @dom_get_strict_error(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @dom_get_strict_error(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %2
 
@@ -12026,7 +12026,7 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dom_nodemap_has_dimension(ptr noundef %0, ptr noundef %1, i32 %2) #1 {
+define internal range(i32 0, 2) i32 @dom_nodemap_has_dimension(ptr noundef %0, ptr noundef %1, i32 %2) #1 {
   %4 = alloca double, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12244,7 +12244,7 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, i32 %2) #1 {
+define internal range(i32 0, 2) i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, i32 %2) #1 {
   %4 = alloca double, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -13559,7 +13559,7 @@ define hidden void @php_dom_create_implementation(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @dom_hierarchy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -14331,7 +14331,7 @@ dom_reconcile_ns_internal.exit:                   ; preds = %28, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dom_check_qname(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 15) i32 @dom_check_qname(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %21, label %7
 

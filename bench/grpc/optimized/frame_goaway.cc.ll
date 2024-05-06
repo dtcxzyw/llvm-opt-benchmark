@@ -562,7 +562,7 @@ do.end:                                           ; preds = %entry
   %cond.sroa.sel56 = select i1 %tobool.not, ptr %bytes2.sroa.gep54, ptr %.sroa.gep55
   store i8 0, ptr %cond.sroa.sel53, align 1
   %shr37 = lshr i32 %last_stream_id, 24
-  %conv38 = trunc i32 %shr37 to i8
+  %conv38 = trunc nuw i32 %shr37 to i8
   %bytes2.sroa.gep57 = getelementptr inbounds i8, ptr %header, i64 19
   %.sroa.gep58 = getelementptr inbounds i8, ptr %4, i64 10
   %cond.sroa.sel59 = select i1 %tobool.not, ptr %bytes2.sroa.gep57, ptr %.sroa.gep58
@@ -585,7 +585,7 @@ do.end:                                           ; preds = %entry
   %cond.sroa.sel68 = select i1 %tobool.not, ptr %bytes2.sroa.gep66, ptr %.sroa.gep67
   store i8 %conv46, ptr %cond.sroa.sel65, align 1
   %shr48 = lshr i32 %error_code, 24
-  %conv49 = trunc i32 %shr48 to i8
+  %conv49 = trunc nuw i32 %shr48 to i8
   %bytes2.sroa.gep69 = getelementptr inbounds i8, ptr %header, i64 23
   %.sroa.gep70 = getelementptr inbounds i8, ptr %4, i64 14
   %cond.sroa.sel71 = select i1 %tobool.not, ptr %bytes2.sroa.gep69, ptr %.sroa.gep70

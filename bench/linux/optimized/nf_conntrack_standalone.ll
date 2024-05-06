@@ -168,7 +168,7 @@ declare dso_local void @unregister_net_sysctl_table(ptr noundef) local_unnamed_a
 declare dso_local void @nf_conntrack_cleanup_end() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @nf_conntrack_standalone_init() #1 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @nf_conntrack_standalone_init() #1 section ".init.text" align 16 {
   %1 = tail call i32 @nf_conntrack_init_start() #5
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %16, label %3
@@ -213,7 +213,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nf_conntrack_pernet_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2436
   store i8 1, ptr %2, align 4
   %3 = load i32, ptr @nf_conntrack_net_id, align 4

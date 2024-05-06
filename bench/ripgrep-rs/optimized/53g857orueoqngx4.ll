@@ -107,7 +107,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !51, !noalias !52, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull %20, ptr nonnull %10, i64 %9), !alias.scope !54, !noalias !58
+  %bcmp.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull readonly %20, ptr nonnull readonly %10, i64 %9), !alias.scope !54, !noalias !58
   %21 = icmp eq i32 %bcmp.i.i.i.i.i.us, 0
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.backedge.i.us
 
@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   %21 = load ptr, ptr %20, align 8, !alias.scope !71, !noalias !70, !nonnull !11, !noundef !11
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !70, !noalias !71, !nonnull !11, !noundef !11
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %23, ptr nonnull %21, i64 %16), !alias.scope !72, !noalias !76
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %23, ptr nonnull readonly %21, i64 %16), !alias.scope !72, !noalias !76
   %24 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN70_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf57f2649b13a5006E.llvm.2822928188824460994.exit"
 
@@ -193,7 +193,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !11, !noundef !11
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %11, ptr nonnull %9, i64 %4), !alias.scope !77
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !77
   %12 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit"
 
@@ -248,7 +248,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %14, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !99, !noalias !100, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %27, ptr nonnull %12, i64 %11), !alias.scope !102, !noalias !106
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %27, ptr nonnull readonly %12, i64 %11), !alias.scope !102, !noalias !106
   %28 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split", label %.backedge
 
@@ -393,7 +393,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$grep_printer..hyperlink..Part$u20$a
   %20 = load ptr, ptr %19, align 8, !alias.scope !131, !noalias !128, !nonnull !11, !noundef !11
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !128, !noalias !131, !nonnull !11, !noundef !11
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %22, ptr nonnull %20, i64 %15), !alias.scope !133, !noalias !137
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull readonly %20, i64 %15), !alias.scope !133, !noalias !137
   %23 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbad53d0ec412d8f8E.llvm.2822928188824460994.exit"
 }

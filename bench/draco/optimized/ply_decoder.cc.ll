@@ -1392,7 +1392,7 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %103 = icmp slt i64 %102, 3
   %104 = add nsw i64 %102, -2
   %105 = select i1 %103, i64 0, i64 %104
-  %.1.i = add nsw i64 %105, %.02.i
+  %.1.i = add nuw nsw i64 %105, %.02.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit, label %.lr.ph.i, !llvm.loop !19
@@ -2628,7 +2628,7 @@ _ZNK5draco10PlyElement17GetPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_
 344:                                              ; preds = %.lr.ph, %357
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %357 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %345 = trunc i64 %indvars.iv to i32
+  %345 = trunc nuw i64 %indvars.iv to i32
   store i32 %345, ptr %7, align 4
   %346 = load ptr, ptr %334, align 8
   %.not.i.i.i327 = icmp eq ptr %346, null
@@ -3453,7 +3453,7 @@ _ZNK5draco10PlyElement17GetPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_
           to label %608 unwind label %.loopexit.split-lp
 
 608:                                              ; preds = %607
-  %609 = trunc i32 %.3120 to i8
+  %609 = trunc nuw nsw i32 %.3120 to i8
   %610 = zext nneg i32 %.3120 to i64
   invoke void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef 2, ptr noundef null, i8 noundef zeroext %609, i32 noundef 2, i1 noundef zeroext true, i64 noundef %610, i64 noundef 0)
           to label %611 unwind label %.loopexit.split-lp
@@ -3475,7 +3475,7 @@ _ZNK5draco10PlyElement17GetPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %629
   %indvars.iv476 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next477, %629 ]
-  %615 = trunc i64 %indvars.iv476 to i32
+  %615 = trunc nuw i64 %indvars.iv476 to i32
   br label %616
 
 616:                                              ; preds = %.preheader, %627
@@ -4000,7 +4000,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph87.preheader:                               ; preds = %.preheader
   %.pre = load ptr, ptr %6, align 8
-  %76 = trunc i64 %indvars.iv99 to i32
+  %76 = trunc nuw i64 %indvars.iv99 to i32
   br label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %86
@@ -4361,7 +4361,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 .lr.ph87.preheader:                               ; preds = %.preheader
   %.pre = load ptr, ptr %6, align 8
-  %76 = trunc i64 %indvars.iv99 to i32
+  %76 = trunc nuw i64 %indvars.iv99 to i32
   br label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %86

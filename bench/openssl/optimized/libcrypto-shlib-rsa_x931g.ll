@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_X931_derive_ex(ptr noundef %rsa, ptr noundef %p1, ptr noundef %p2, ptr noundef %q1, ptr noundef %q2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %Xq1, ptr noundef %Xq2, ptr noundef %Xq, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @RSA_X931_derive_ex(ptr noundef %rsa, ptr noundef %p1, ptr noundef %p2, ptr noundef %q1, ptr noundef %q2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %Xq1, ptr noundef %Xq2, ptr noundef %Xq, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rsa, null
   br i1 %cmp, label %err, label %if.end
@@ -240,7 +240,7 @@ declare ptr @BN_CTX_new() local_unnamed_addr #1
 declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_X931_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_X931_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %libctx, align 8
@@ -285,7 +285,7 @@ if.end21:                                         ; preds = %if.end16
   br i1 %tobool24.not, label %error, label %if.end26
 
 if.end26:                                         ; preds = %if.end21
-  %call27 = tail call i32 @RSA_X931_derive_ex(ptr noundef nonnull %rsa, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %e, ptr noundef %cb), !range !4
+  %call27 = tail call i32 @RSA_X931_derive_ex(ptr noundef nonnull %rsa, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %e, ptr noundef %cb)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %error, label %if.end30
 
@@ -297,10 +297,10 @@ if.end30:                                         ; preds = %if.end26
   br label %error
 
 error:                                            ; preds = %if.end26, %if.end21, %if.end16, %if.end8, %if.end5, %if.end, %entry, %if.end30
-  %tobool31.not = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end8 ], [ 1, %if.end30 ], [ 0, %if.end26 ], [ 0, %if.end21 ], [ 0, %if.end16 ], [ 0, %if.end5 ]
+  %not.tobool31.not = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end8 ], [ 1, %if.end30 ], [ 0, %if.end26 ], [ 0, %if.end21 ], [ 0, %if.end16 ], [ 0, %if.end5 ]
   tail call void @BN_CTX_end(ptr noundef %call) #2
   tail call void @BN_CTX_free(ptr noundef %call) #2
-  ret i32 %tobool31.not
+  ret i32 %not.tobool31.not
 }
 
 declare i32 @BN_X931_generate_Xpq(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -317,4 +317,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

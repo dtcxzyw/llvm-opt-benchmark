@@ -46,7 +46,7 @@ chunk_list_free.exit:                             ; preds = %while.body.i, %entr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_bufq_init2(ptr nocapture noundef writeonly %q, i64 noundef %chunk_size, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
   %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
   store i64 %chunk_size, ptr %chunk_size3.i, align 8
   %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
@@ -59,7 +59,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_bufq_init(ptr nocapture noundef writeonly %q, i64 noundef %chunk_size, i64 noundef %max_chunks) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
   %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
   store i64 %chunk_size, ptr %chunk_size3.i, align 8
   %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
@@ -74,7 +74,7 @@ define hidden void @Curl_bufq_initp(ptr nocapture noundef writeonly %q, ptr noun
 entry:
   %chunk_size = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load i64, ptr %chunk_size, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
   %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
   store i64 %0, ptr %chunk_size3.i, align 8
   %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
@@ -330,7 +330,7 @@ chunk_append.exit:                                ; preds = %if.end3
   %x.i = getelementptr inbounds i8, ptr %call, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %len.addr.024)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf.addr.025, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf.addr.025, i64 %cond.i, i1 false)
   %4 = load i64, ptr %w_offset.i, align 8
   %add.i = add i64 %4, %cond.i
   store i64 %add.i, ptr %w_offset.i, align 8
@@ -380,7 +380,7 @@ if.then.i:                                        ; preds = %if.end
   store ptr %4, ptr %spare.i, align 8
   store ptr null, ptr %3, align 8
   %r_offset.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %r_offset.i.i, i8 0, i64 16, i1 false)
   br label %if.then5
 
 if.end.i:                                         ; preds = %if.end
@@ -418,7 +418,7 @@ if.then.i.i:                                      ; preds = %if.then7.i
   store i64 %dec.i.i, ptr %spare_count.i.i, align 8
   store ptr null, ptr %9, align 8
   %r_offset.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
   br label %if.end11.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
@@ -477,7 +477,7 @@ return:                                           ; preds = %if.then5, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_bufq_read(ptr nocapture noundef %q, ptr nocapture noundef writeonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
+define hidden range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %q, ptr nocapture noundef writeonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %err, align 4
   %tobool.not14 = icmp eq i64 %len, 0
@@ -517,12 +517,12 @@ if.else.i:                                        ; preds = %while.body
   br i1 %cmp.not.i, label %if.else5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %sub.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i, i8 0, i64 16, i1 false)
   br label %chunk_read.exit
 
 if.else5.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %len.addr.015, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %len.addr.015, i1 false)
   %3 = load i64, ptr %r_offset.i, align 8
   %add.i = add i64 %3, %len.addr.015
   store i64 %add.i, ptr %r_offset.i, align 8
@@ -577,7 +577,7 @@ if.then.i.i:                                      ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   store ptr null, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %10, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr %10, align 8
@@ -706,7 +706,7 @@ if.then.i.i:                                      ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   store ptr null, ptr %3, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %8, align 8
   store ptr %12, ptr %3, align 8
   store ptr %3, ptr %8, align 8
@@ -919,7 +919,7 @@ if.then.i.i:                                      ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   store ptr null, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %9, align 8
   store ptr %13, ptr %4, align 8
   store ptr %4, ptr %9, align 8
@@ -975,7 +975,7 @@ while.end:                                        ; preds = %land.rhs, %prune_he
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_bufq_pass(ptr nocapture noundef %q, ptr nocapture noundef readonly %writer, ptr noundef %writer_ctx, ptr noundef %err) local_unnamed_addr #2 {
+define hidden range(i64 -1, -9223372036854775808) i64 @Curl_bufq_pass(ptr nocapture noundef %q, ptr nocapture noundef readonly %writer, ptr noundef %writer_ctx, ptr noundef %err) local_unnamed_addr #2 {
 entry:
   %buf = alloca ptr, align 8
   %blen = alloca i64, align 8
@@ -1166,7 +1166,7 @@ if.then.i.i:                                      ; preds = %if.end.i37
   store ptr %13, ptr %spare.i, align 8
   store ptr null, ptr %12, align 8
   %r_offset.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
   br label %if.then5.i
 
 if.end.i.i:                                       ; preds = %if.end.i37
@@ -1200,7 +1200,7 @@ if.then.i.i.i:                                    ; preds = %if.then7.i.i
   store i64 %dec.i.i.i, ptr %spare_count.i.i.i, align 8
   store ptr null, ptr %18, align 8
   %r_offset.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %r_offset.i.i.i.i, i8 0, i64 16, i1 false)
   br label %if.end11.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i
@@ -1275,7 +1275,7 @@ chunk_append.exit.i:                              ; preds = %if.end3.i26
   %x.i.i = getelementptr inbounds i8, ptr %retval.0.i40, i64 32
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %x.i.i, i64 0, i64 %33
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %len.addr.024.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr readonly align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
   %34 = load i64, ptr %w_offset.i.i, align 8
   %add.i.i = add i64 %34, %cond.i.i
   store i64 %add.i.i, ptr %w_offset.i.i, align 8
@@ -1329,7 +1329,7 @@ return:                                           ; preds = %Curl_bufq_write.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_bufq_sipn(ptr nocapture noundef %q, i64 noundef %max_len, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef %err) local_unnamed_addr #2 {
+define hidden range(i64 -1, -9223372036854775808) i64 @Curl_bufq_sipn(ptr nocapture noundef %q, i64 noundef %max_len, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef %err) local_unnamed_addr #2 {
 entry:
   store i32 81, ptr %err, align 4
   %call = tail call fastcc ptr @get_non_full_tail(ptr noundef %q)

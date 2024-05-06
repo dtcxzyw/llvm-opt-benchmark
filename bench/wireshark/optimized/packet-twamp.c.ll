@@ -872,7 +872,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @find_twamp_session_by_sender_port(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @find_twamp_session_by_sender_port(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 4
   %5 = load i16, ptr %1, align 2
@@ -898,7 +898,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @find_twamp_session_by_first_accept_waiting(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 0, 2) i32 @find_twamp_session_by_first_accept_waiting(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
   %3 = load i8, ptr %0, align 4
   %4 = icmp ne i8 %3, 0
   %. = zext i1 %4 to i32

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [66 x i8] c"huge OS page allocation timed out (after allocating %zu page(s))\0A\00", align 1
 @_mi_numa_node_count = hidden local_unnamed_addr global i64 0, align 8
 @.str.5 = private unnamed_addr constant [24 x i8] c"using %zd numa regions\0A\00", align 1
-@_mi_heap_default = external thread_local(initialexec) global ptr, align 8
+@_mi_heap_default = external thread_local(initialexec) local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [77 x i8] c"unable to free OS memory (error: %d (0x%x), size: 0x%zx bytes, address: %p)\0A\00", align 1
 @.str.7 = private unnamed_addr constant [111 x i8] c"unable to allocate OS memory (error: %d (0x%x), size: 0x%zx bytes, align: 0x%zx, commit: %d, allow large: %d)\0A\00", align 1
 @.str.8 = private unnamed_addr constant [140 x i8] c"unable to allocate aligned OS memory directly, fall back to over-allocation (size: 0x%zx bytes, address: %p, alignment: 0x%zx, commit: %d)\0A\00", align 1
@@ -123,7 +123,7 @@ if.end12:                                         ; preds = %if.else6, %if.else3
   br i1 %cmp13.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end12
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %align_size.0), !range !4
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0)
   %cmp.i = icmp ult i64 %1, 2
   %sub.i = add i64 %size, -1
   %add.i = add i64 %sub.i, %align_size.0
@@ -236,7 +236,7 @@ if.end12.i:                                       ; preds = %if.else6.i, %if.els
   br i1 %cmp13.not.i, label %if.end16.i, label %_mi_os_good_alloc_size.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %4 = tail call i64 @llvm.ctpop.i64(i64 %align_size.0.i), !range !4
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
   %cmp.i.i = icmp ult i64 %4, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
@@ -288,7 +288,7 @@ mi_os_prim_free.exit.i:                           ; preds = %if.then3.i.i, %if.e
   %sub.i7 = add i64 %size.addr.02.i, -1073741824
   %add.ptr.i = getelementptr inbounds i8, ptr %base.03.i, i64 1073741824
   %cmp2.i = icmp ugt i64 %sub.i7, 1073741823
-  br i1 %cmp2.i, label %if.end.i.i, label %if.end13, !llvm.loop !5
+  br i1 %cmp2.i, label %if.end.i.i, label %if.end13, !llvm.loop !4
 
 if.else:                                          ; preds = %_mi_os_good_alloc_size.exit
   %cmp.i8 = icmp eq ptr %base.0, null
@@ -402,7 +402,7 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %if.end12.i
   br label %if.end.i
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %align_size.0.i), !range !4
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
   %cmp.i.i = icmp ult i64 %1, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
@@ -521,7 +521,7 @@ if.end12.i:                                       ; preds = %if.else6.i, %if.els
   br i1 %cmp13.not.i, label %if.end16.i, label %_mi_os_good_alloc_size.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %align_size.0.i), !range !4
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align_size.0.i)
   %cmp.i.i = icmp ult i64 %1, 2
   %sub.i.i = add i64 %size, -1
   %add.i.i = add i64 %sub.i.i, %align_size.0.i
@@ -540,7 +540,7 @@ if.else.i.i:                                      ; preds = %if.end16.i
 _mi_os_good_alloc_size.exit:                      ; preds = %if.end12.i, %if.then.i.i, %if.else.i.i
   %retval.0.i = phi i64 [ %size, %if.end12.i ], [ %and1.i.i, %if.then.i.i ], [ %mul.i.i, %if.else.i.i ]
   %3 = load i64, ptr @mi_os_mem_config, align 8
-  %4 = tail call i64 @llvm.ctpop.i64(i64 %3), !range !4
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
   %cmp.i11 = icmp ult i64 %4, 2
   %sub.i10 = add i64 %alignment, -1
   %add.i = add i64 %sub.i10, %3
@@ -561,7 +561,7 @@ _mi_align_up.exit:                                ; preds = %if.then.i14, %if.el
   store i8 0, ptr %os_is_large, align 1
   %spec.select.i = and i1 %commit, %allow_large
   %cmp.not.i = icmp ule i64 %3, %retval.0.i13
-  %6 = tail call i64 @llvm.ctpop.i64(i64 %retval.0.i13), !range !4
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %retval.0.i13)
   %cmp2.i = icmp ult i64 %6, 2
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.end4.i, label %return
@@ -715,9 +715,9 @@ if.then31.i:                                      ; preds = %mi_align_up_ptr.exi
 
 if.else34.i:                                      ; preds = %if.end21.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i75.i)
-  br i1 %cmp.i64.i, label %mi_os_prim_alloc.exit88.thread.i, label %if.end.i77.i
+  br i1 %cmp.i64.i, label %mi_os_prim_alloc.exit89.thread.i, label %if.end.i77.i
 
-mi_os_prim_alloc.exit88.thread.i:                 ; preds = %if.else34.i
+mi_os_prim_alloc.exit89.thread.i:                 ; preds = %if.else34.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   br label %return
 
@@ -726,77 +726,77 @@ if.end.i77.i:                                     ; preds = %if.else34.i
   store ptr null, ptr %p.i75.i, align 8
   %call.i78.i = call i32 @_mi_prim_alloc(i64 noundef %add.i22, i64 noundef 1, i1 noundef zeroext %commit, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i75.i) #7
   %cmp9.not.i79.i = icmp eq i32 %call.i78.i, 0
-  br i1 %cmp9.not.i79.i, label %if.end14.i82.i, label %if.then10.i80.i
+  br i1 %cmp9.not.i79.i, label %if.end14.i83.i, label %if.then10.i80.i
 
 if.then10.i80.i:                                  ; preds = %if.end.i77.i
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i78.i, i32 noundef %call.i78.i, i64 noundef %add.i22, i64 noundef 1, i32 noundef %conv.i, i32 noundef 0) #7
-  br label %if.end14.i82.i
+  br label %if.end14.i83.i
 
-if.end14.i82.i:                                   ; preds = %if.then10.i80.i, %if.end.i77.i
+if.end14.i83.i:                                   ; preds = %if.then10.i80.i, %if.end.i77.i
   %14 = load ptr, ptr %p.i75.i, align 8
-  %cmp15.not.i83.i = icmp eq ptr %14, null
-  br i1 %cmp15.not.i83.i, label %mi_os_prim_alloc.exit88.thread13.i, label %if.then17.i84.i
+  %cmp15.not.i84.i = icmp eq ptr %14, null
+  br i1 %cmp15.not.i84.i, label %mi_os_prim_alloc.exit89.thread13.i, label %if.then17.i85.i
 
-mi_os_prim_alloc.exit88.thread13.i:               ; preds = %if.end14.i82.i
+mi_os_prim_alloc.exit89.thread13.i:               ; preds = %if.end14.i83.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   br label %return
 
-if.then17.i84.i:                                  ; preds = %if.end14.i82.i
+if.then17.i85.i:                                  ; preds = %if.end14.i83.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %add.i22) #7
-  br i1 %commit, label %if.then19.i87.i, label %mi_os_prim_alloc.exit88.i
+  br i1 %commit, label %if.then19.i88.i, label %mi_os_prim_alloc.exit89.i
 
-if.then19.i87.i:                                  ; preds = %if.then17.i84.i
+if.then19.i88.i:                                  ; preds = %if.then17.i85.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %add.i22) #7
-  br label %mi_os_prim_alloc.exit88.i
+  br label %mi_os_prim_alloc.exit89.i
 
-mi_os_prim_alloc.exit88.i:                        ; preds = %if.then19.i87.i, %if.then17.i84.i
+mi_os_prim_alloc.exit89.i:                        ; preds = %if.then19.i88.i, %if.then17.i85.i
   %.pr12.i = load ptr, ptr %p.i75.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   %cmp37.i = icmp eq ptr %.pr12.i, null
-  br i1 %cmp37.i, label %return, label %mi_align_up_ptr.exit98.i
+  br i1 %cmp37.i, label %return, label %mi_align_up_ptr.exit99.i
 
-mi_align_up_ptr.exit98.i:                         ; preds = %mi_os_prim_alloc.exit88.i
+mi_align_up_ptr.exit99.i:                         ; preds = %mi_os_prim_alloc.exit89.i
   %15 = ptrtoint ptr %.pr12.i to i64
-  %sub.i.i89.i = add i64 %retval.0.i13, -1
-  %add.i.i91.i = add i64 %sub.i.i89.i, %15
-  %not.i.i96.i = sub i64 0, %retval.0.i13
-  %and1.i.i97.i = and i64 %add.i.i91.i, %not.i.i96.i
-  %16 = inttoptr i64 %and1.i.i97.i to ptr
-  %sub.ptr.sub.i = sub i64 %and1.i.i97.i, %15
+  %sub.i.i90.i = add i64 %retval.0.i13, -1
+  %add.i.i92.i = add i64 %sub.i.i90.i, %15
+  %not.i.i97.i = sub i64 0, %retval.0.i13
+  %and1.i.i98.i = and i64 %add.i.i92.i, %not.i.i97.i
+  %16 = inttoptr i64 %and1.i.i98.i to ptr
+  %sub.ptr.sub.i = sub i64 %and1.i.i98.i, %15
   %17 = load i64, ptr @mi_os_mem_config, align 8
-  %18 = call i64 @llvm.ctpop.i64(i64 %17), !range !4
-  %cmp.i100.i = icmp ult i64 %18, 2
-  %sub.i99.i = add i64 %retval.0.i.i, -1
-  %add.i101.i = add i64 %sub.i99.i, %17
-  br i1 %cmp.i100.i, label %if.then.i105.i, label %if.else.i102.i
+  %18 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %cmp.i101.i = icmp ult i64 %18, 2
+  %sub.i100.i = add i64 %retval.0.i.i, -1
+  %add.i102.i = add i64 %sub.i100.i, %17
+  br i1 %cmp.i101.i, label %if.then.i106.i, label %if.else.i103.i
 
-if.then.i105.i:                                   ; preds = %mi_align_up_ptr.exit98.i
-  %not.i106.i = sub i64 0, %17
-  %and1.i107.i = and i64 %add.i101.i, %not.i106.i
-  br label %_mi_align_up.exit108.i
+if.then.i106.i:                                   ; preds = %mi_align_up_ptr.exit99.i
+  %not.i107.i = sub i64 0, %17
+  %and1.i108.i = and i64 %add.i102.i, %not.i107.i
+  br label %_mi_align_up.exit109.i
 
-if.else.i102.i:                                   ; preds = %mi_align_up_ptr.exit98.i
-  %19 = urem i64 %add.i101.i, %17
-  %mul.i103.i = sub nuw i64 %add.i101.i, %19
-  br label %_mi_align_up.exit108.i
+if.else.i103.i:                                   ; preds = %mi_align_up_ptr.exit99.i
+  %19 = urem i64 %add.i102.i, %17
+  %mul.i104.i = sub nuw i64 %add.i102.i, %19
+  br label %_mi_align_up.exit109.i
 
-_mi_align_up.exit108.i:                           ; preds = %if.else.i102.i, %if.then.i105.i
-  %retval.0.i104.i = phi i64 [ %and1.i107.i, %if.then.i105.i ], [ %mul.i103.i, %if.else.i102.i ]
-  %20 = add i64 %retval.0.i104.i, %sub.ptr.sub.i
+_mi_align_up.exit109.i:                           ; preds = %if.else.i103.i, %if.then.i106.i
+  %retval.0.i105.i = phi i64 [ %and1.i108.i, %if.then.i106.i ], [ %mul.i104.i, %if.else.i103.i ]
+  %20 = add i64 %retval.0.i105.i, %sub.ptr.sub.i
   %sub45.i = sub i64 %add.i22, %20
   %cmp46.not.i = icmp eq ptr %.pr12.i, %16
   br i1 %cmp46.not.i, label %if.end50.i, label %if.then48.i
 
-if.then48.i:                                      ; preds = %_mi_align_up.exit108.i
+if.then48.i:                                      ; preds = %_mi_align_up.exit109.i
   call fastcc void @mi_os_prim_free(ptr noundef nonnull %.pr12.i, i64 noundef %sub.ptr.sub.i, i1 noundef zeroext %commit) #8
   br label %if.end50.i
 
-if.end50.i:                                       ; preds = %if.then48.i, %_mi_align_up.exit108.i
+if.end50.i:                                       ; preds = %if.then48.i, %_mi_align_up.exit109.i
   %cmp51.not.i = icmp eq i64 %add.i22, %20
   br i1 %cmp51.not.i, label %mi_os_prim_alloc_aligned.exit, label %if.then53.i
 
 if.then53.i:                                      ; preds = %if.end50.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %retval.0.i104.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %retval.0.i105.i
   call fastcc void @mi_os_prim_free(ptr noundef %add.ptr.i, i64 noundef %sub45.i, i1 noundef zeroext %commit) #8
   br label %mi_os_prim_alloc_aligned.exit
 
@@ -829,8 +829,8 @@ if.then7:                                         ; preds = %if.end12.i21, %mi_o
   store i64 %retval.0.i13, ptr %alignment13, align 8
   br label %return
 
-return:                                           ; preds = %mi_os_prim_alloc.exit88.thread13.i, %mi_os_prim_alloc.exit88.thread.i, %mi_os_prim_alloc.exit74.thread8.i, %mi_os_prim_alloc.exit74.thread.i, %mi_os_prim_alloc.exit.thread3.i, %mi_os_prim_alloc.exit.thread.i, %mi_os_prim_alloc.exit88.i, %mi_os_prim_alloc.exit74.i, %mi_os_prim_free.exit.i, %mi_os_prim_alloc.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit, %if.then7, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i1535, %if.then7 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %mi_os_prim_alloc.exit74.i ], [ null, %mi_os_prim_alloc.exit88.i ], [ null, %mi_os_prim_alloc.exit.thread.i ], [ null, %mi_os_prim_alloc.exit.thread3.i ], [ null, %mi_os_prim_alloc.exit74.thread.i ], [ null, %mi_os_prim_alloc.exit74.thread8.i ], [ null, %mi_os_prim_alloc.exit88.thread.i ], [ null, %mi_os_prim_alloc.exit88.thread13.i ]
+return:                                           ; preds = %mi_os_prim_alloc.exit89.thread13.i, %mi_os_prim_alloc.exit89.thread.i, %mi_os_prim_alloc.exit74.thread8.i, %mi_os_prim_alloc.exit74.thread.i, %mi_os_prim_alloc.exit.thread3.i, %mi_os_prim_alloc.exit.thread.i, %mi_os_prim_alloc.exit89.i, %mi_os_prim_alloc.exit74.i, %mi_os_prim_free.exit.i, %mi_os_prim_alloc.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit, %if.then7, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i1535, %if.then7 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %mi_os_prim_alloc.exit74.i ], [ null, %mi_os_prim_alloc.exit89.i ], [ null, %mi_os_prim_alloc.exit.thread.i ], [ null, %mi_os_prim_alloc.exit.thread3.i ], [ null, %mi_os_prim_alloc.exit74.thread.i ], [ null, %mi_os_prim_alloc.exit74.thread8.i ], [ null, %mi_os_prim_alloc.exit89.thread.i ], [ null, %mi_os_prim_alloc.exit89.thread13.i ]
   ret ptr %retval.0
 }
 
@@ -852,7 +852,7 @@ if.then3:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %sub.i = add i64 %alignment, -1
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ult i64 %0, 2
   %add.i = add i64 %sub.i, %offset
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -887,7 +887,7 @@ if.end4.i.i.i.i:                                  ; preds = %if.end11
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %sub) #7
   %3 = load i64, ptr @mi_os_mem_config, align 8
   %4 = ptrtoint ptr %call8 to i64
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %3), !range !4
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
   %cmp.i.i.i.i.i.i = icmp ult i64 %5, 2
   %sub.i.i.i.i.i.i = add i64 %4, -1
   %add.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i, %3
@@ -947,7 +947,7 @@ entry:
 if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i.i.i = icmp ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
@@ -1013,7 +1013,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.end4.i:                                        ; preds = %if.end
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i = icmp ult i64 %2, 2
   %add.ptr1345.i = getelementptr inbounds i8, ptr %addr, i64 %size
   %3 = ptrtoint ptr %add.ptr1345.i to i64
@@ -1086,7 +1086,7 @@ entry:
 if.end4.i.i:                                      ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i.i = icmp ult i64 %2, 2
   %sub.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i = add i64 %sub.i.i.i.i, %0
@@ -1166,7 +1166,7 @@ if.then3:                                         ; preds = %land.lhs.true
 if.end4.i.i.i:                                    ; preds = %if.then3
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %p to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i.i.i = icmp ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
@@ -1222,7 +1222,7 @@ if.then6:                                         ; preds = %if.else
 if.end4.i.i.i10:                                  ; preds = %if.then6
   %7 = load i64, ptr @mi_os_mem_config, align 8
   %8 = ptrtoint ptr %p to i64
-  %9 = tail call i64 @llvm.ctpop.i64(i64 %7), !range !4
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %cmp.i.i.i.i.i11 = icmp ult i64 %9, 2
   %sub.i.i.i.i.i12 = add i64 %8, -1
   %add.i.i.i.i.i13 = add i64 %sub.i.i.i.i.i12, %7
@@ -1291,7 +1291,7 @@ entry:
 if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i.i.i = icmp ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
@@ -1345,7 +1345,7 @@ entry:
 if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
   %1 = ptrtoint ptr %addr to i64
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %cmp.i.i.i.i.i = icmp ult i64 %2, 2
   %sub.i.i.i.i.i = add i64 %1, -1
   %add.i.i.i.i.i = add i64 %sub.i.i.i.i.i, %0
@@ -1434,7 +1434,7 @@ if.end5.i:                                        ; preds = %if.then2.i, %do.bod
   %4 = cmpxchg ptr @mi_huge_start, i64 %huge_start.0.i, i64 %add6.i acq_rel acquire, align 64
   %5 = extractvalue { i64, i1 } %4, 1
   %6 = extractvalue { i64, i1 } %4, 0
-  br i1 %5, label %if.end6, label %do.body.i, !llvm.loop !7
+  br i1 %5, label %if.end6, label %do.body.i, !llvm.loop !6
 
 if.end6:                                          ; preds = %if.end5.i
   %7 = inttoptr i64 %start.0.i to ptr
@@ -1481,7 +1481,7 @@ if.end20.us:                                      ; preds = %if.end14.us
 
 if.end36.us:                                      ; preds = %if.end20.us
   %exitcond91.not = icmp eq i64 %inc.us, %pages
-  br i1 %exitcond91.not, label %while.end, label %while.body.us, !llvm.loop !8
+  br i1 %exitcond91.not, label %while.end, label %while.body.us, !llvm.loop !7
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
   %page.050 = phi i64 [ %inc, %if.end20 ], [ 0, %while.body.lr.ph ]
@@ -1543,7 +1543,7 @@ if.end20:                                         ; preds = %if.end14
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #7
   %exitcond.not = icmp eq i64 %inc, %pages
-  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.then34:                                        ; preds = %if.end20.us
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i64 noundef %inc.us) #7
@@ -1726,8 +1726,7 @@ attributes #8 = { "no-builtin-malloc" }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

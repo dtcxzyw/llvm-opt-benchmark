@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_debug_locks_
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_debug_locks64, ptr @__UNIQUE_ID___addressable_debug_locks_off66, ptr @__UNIQUE_ID___addressable_debug_locks_silent65], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @debug_locks_off() #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @debug_locks_off() #0 align 16 {
   %1 = load i32, ptr @debug_locks, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %10, label %3

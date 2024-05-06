@@ -245,7 +245,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
 
 17:                                               ; preds = %.preheader104
   %18 = load i32, ptr %8, align 8
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef %19, ptr noundef %16, i32 noundef %18) #7
   %20 = load ptr, ptr %15, align 8
   %21 = load i32, ptr %8, align 8
@@ -253,7 +253,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   br label %25
 
 22:                                               ; preds = %.preheader104
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef %23, ptr noundef %16) #7
   %24 = load ptr, ptr %15, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.6, i32 noundef %23, ptr noundef %24) #7
@@ -562,9 +562,9 @@ define internal void @disp_mac(ptr nocapture noundef writeonly %0, i64 noundef %
   %4 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %5 = lshr i32 %.sroa.0.0.extract.trunc, 24
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.6.0.extract.shift = lshr i64 %1, 40
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw nsw i64 %.sroa.6.0.extract.shift to i32
   %6 = and i32 %.sroa.6.0.extract.trunc, 255
   %7 = and i32 %.sroa.5.0.extract.trunc, 255
   %8 = and i32 %4, 255
@@ -634,7 +634,7 @@ define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1151,7 +1151,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 
 279:                                              ; preds = %103
   %280 = and i32 %105, 240
-  %trunc = trunc i32 %280 to i8
+  %trunc = trunc nuw i32 %280 to i8
   switch i8 %trunc, label %.loopexit402 [
     i8 -64, label %281
     i8 -48, label %281

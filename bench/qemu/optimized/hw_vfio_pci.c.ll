@@ -473,7 +473,7 @@ declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @vfio_vga_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define dso_local range(i64 -1, 4294967296) i64 @vfio_vga_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon.3, align 8
@@ -869,7 +869,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i70
 
 if.end.i70:                                       ; preds = %lor.lhs.false.i
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i71 = call { i64, i32 } @msi_get_message(ptr noundef nonnull %call.i, i32 noundef %27) #22
   %28 = extractvalue { i64, i32 } %call.i71, 0
   %29 = extractvalue { i64, i32 } %call.i71, 1
@@ -985,7 +985,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true83
   br i1 %cmp95, label %if.then97, label %for.inc99
 
 if.then97:                                        ; preds = %land.lhs.true88
-  %39 = trunc i64 %indvars.iv96 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv96 to i32
   call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %pdev, i32 noundef %39)
   br label %for.inc99
 
@@ -1069,7 +1069,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool4.i, label %vfio_add_kvm_msi_virq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %5, ptr noundef nonnull %vdev) #22
   store i32 %call.i, ptr %virq, align 8
   br label %vfio_add_kvm_msi_virq.exit
@@ -1342,7 +1342,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @vfio_msix_vector_release(ptr noundef nonnull %vdev, i32 noundef %4)
   tail call void @msix_vector_unuse(ptr noundef nonnull %vdev, i32 noundef %4) #22
   %.pre = load i32, ptr %nr_vectors, align 16
@@ -2065,7 +2065,7 @@ if.then16.us:                                     ; preds = %for.body.us
   br i1 %cmp20.us, label %if.then27.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %if.then16.us
-  %8 = trunc i64 %indvars.iv35 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv35 to i32
   %call25.us = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %vdev, i32 noundef %8) #22
   %.pre = load ptr, ptr %msi_vectors, align 16
   br i1 %call25.us, label %if.then27.us, label %if.else.us
@@ -2757,7 +2757,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not.i65.i, label %for.inc.i.i, label %if.then.i66.i
 
 if.then.i66.i:                                    ; preds = %for.body.i.i
-  %36 = call i64 @llvm.cttz.i64(i64 %35, i1 true), !range !17
+  %36 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
   %add.i.i = or disjoint i64 %36, %result.012.i.i
   %cond.i.i = call i64 @llvm.umin.i64(i64 %add.i.i, i64 %conv64.i)
   br label %find_first_bit.exit.i
@@ -2766,7 +2766,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %addr.addr.011.i.i, i64 8
   %add3.i.i = add i64 %result.012.i.i, 64
   %cmp.i67.i = icmp ult i64 %add3.i.i, %conv64.i
-  br i1 %cmp.i67.i, label %for.body.i.i, label %if.then70.i, !llvm.loop !18
+  br i1 %cmp.i67.i, label %for.body.i.i, label %if.then70.i, !llvm.loop !17
 
 find_first_bit.exit.i:                            ; preds = %if.then.i66.i, %if.end59.i
   %retval.0.i.i = phi i64 [ %cond.i.i, %if.then.i66.i ], [ 0, %if.end59.i ]
@@ -2947,7 +2947,7 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %indvars.iv.i
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @vfio_bar_quirk_finalize(ptr noundef %call.i, i32 noundef %0) #22
   tail call void @vfio_region_finalize(ptr noundef %arrayidx.i) #22
   %mr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
@@ -2975,7 +2975,7 @@ if.end.i:                                         ; preds = %if.then.i
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.inc.i
   %vga.i = getelementptr inbounds i8, ptr %call.i, i64 3416
@@ -2995,7 +2995,7 @@ for.body12.i:                                     ; preds = %for.body12.i, %if.t
   tail call void @object_unparent(ptr noundef %arrayidx16.i) #22
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %for.end19.i, label %for.body12.i, !llvm.loop !20
+  br i1 %exitcond23.not.i, label %for.end19.i, label %for.body12.i, !llvm.loop !19
 
 for.end19.i:                                      ; preds = %for.body12.i
   %6 = load ptr, ptr %vga.i, align 8
@@ -3465,7 +3465,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 for.body.i:                                       ; preds = %do.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %do.body.i ]
   %27 = load ptr, ptr %name34, align 8
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i184 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.150, ptr noundef %27, i32 noundef %28) #22
   %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %indvars.iv.i
   %call11.i = call i32 @vfio_region_setup(ptr noundef nonnull %call.i, ptr noundef nonnull %vbasedev1, ptr noundef %arrayidx.i, i32 noundef %28, ptr noundef %call.i184) #22
@@ -3483,7 +3483,7 @@ do.body.i:                                        ; preds = %for.body.i
   store ptr null, ptr %quirks.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
 
 for.end.i:                                        ; preds = %do.body.i
   %call18.i = call i32 @vfio_get_region_info(ptr noundef nonnull %vbasedev1, i32 noundef 7, ptr noundef nonnull %reg_info.i) #22
@@ -3683,7 +3683,7 @@ if.then107:                                       ; preds = %if.then103
   br label %error
 
 if.end108:                                        ; preds = %if.then103
-  %conv110 = trunc i32 %57 to i16
+  %conv110 = trunc nuw i32 %57 to i16
   %58 = load ptr, ptr %config, align 8
   store i16 %conv110, ptr %58, align 1
   %wmask.i = getelementptr inbounds i8, ptr %call.i, i64 184
@@ -3720,12 +3720,12 @@ if.then127:                                       ; preds = %if.then123
   br label %error
 
 if.end128:                                        ; preds = %if.then123
-  %conv130 = trunc i32 %64 to i16
+  %conv130 = trunc nuw i32 %64 to i16
   %65 = load ptr, ptr %config, align 8
   %add.ptr.i = getelementptr i8, ptr %65, i64 2
   store i16 %conv130, ptr %add.ptr.i, align 1
-  %wmask.i191 = getelementptr inbounds i8, ptr %call.i, i64 184
-  %66 = load ptr, ptr %wmask.i191, align 8
+  %wmask.i193 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %66 = load ptr, ptr %wmask.i193, align 8
   %add.ptr3.i = getelementptr i8, ptr %66, i64 2
   store i16 0, ptr %add.ptr3.i, align 1
   %67 = load ptr, ptr %emulated_config_bits, align 16
@@ -3761,17 +3761,17 @@ if.then147:                                       ; preds = %if.then143
   br label %error
 
 if.end148:                                        ; preds = %if.then143
-  %conv150 = trunc i32 %71 to i16
+  %conv150 = trunc nuw i32 %71 to i16
   %72 = load ptr, ptr %config, align 8
-  %add.ptr.i195 = getelementptr i8, ptr %72, i64 44
-  store i16 %conv150, ptr %add.ptr.i195, align 1
-  %wmask.i197 = getelementptr inbounds i8, ptr %call.i, i64 184
-  %73 = load ptr, ptr %wmask.i197, align 8
-  %add.ptr3.i198 = getelementptr i8, ptr %73, i64 44
-  store i16 0, ptr %add.ptr3.i198, align 1
+  %add.ptr.i197 = getelementptr i8, ptr %72, i64 44
+  store i16 %conv150, ptr %add.ptr.i197, align 1
+  %wmask.i200 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %73 = load ptr, ptr %wmask.i200, align 8
+  %add.ptr3.i201 = getelementptr i8, ptr %73, i64 44
+  store i16 0, ptr %add.ptr3.i201, align 1
   %74 = load ptr, ptr %emulated_config_bits, align 16
-  %add.ptr6.i200 = getelementptr i8, ptr %74, i64 44
-  store i16 -1, ptr %add.ptr6.i200, align 1
+  %add.ptr6.i203 = getelementptr i8, ptr %74, i64 44
+  store i16 -1, ptr %add.ptr6.i203, align 1
   %75 = load ptr, ptr %name34, align 8
   %76 = load i32, ptr %sub_vendor_id, align 16
   %conv153 = trunc i32 %76 to i16
@@ -3793,17 +3793,17 @@ if.then161:                                       ; preds = %if.then157
   br label %error
 
 if.end162:                                        ; preds = %if.then157
-  %conv164 = trunc i32 %77 to i16
+  %conv164 = trunc nuw i32 %77 to i16
   %78 = load ptr, ptr %config, align 8
-  %add.ptr.i203 = getelementptr i8, ptr %78, i64 46
-  store i16 %conv164, ptr %add.ptr.i203, align 1
-  %wmask.i205 = getelementptr inbounds i8, ptr %call.i, i64 184
-  %79 = load ptr, ptr %wmask.i205, align 8
-  %add.ptr3.i206 = getelementptr i8, ptr %79, i64 46
-  store i16 0, ptr %add.ptr3.i206, align 1
+  %add.ptr.i206 = getelementptr i8, ptr %78, i64 46
+  store i16 %conv164, ptr %add.ptr.i206, align 1
+  %wmask.i209 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %79 = load ptr, ptr %wmask.i209, align 8
+  %add.ptr3.i210 = getelementptr i8, ptr %79, i64 46
+  store i16 0, ptr %add.ptr3.i210, align 1
   %80 = load ptr, ptr %emulated_config_bits, align 16
-  %add.ptr6.i208 = getelementptr i8, ptr %80, i64 46
-  store i16 -1, ptr %add.ptr6.i208, align 1
+  %add.ptr6.i212 = getelementptr i8, ptr %80, i64 46
+  store i16 -1, ptr %add.ptr6.i212, align 1
   %81 = load ptr, ptr %name34, align 8
   %82 = load i32, ptr %sub_device_id, align 4
   %conv167 = trunc i32 %82 to i16
@@ -3861,11 +3861,11 @@ for.body.preheader:                               ; preds = %if.then200, %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.0213 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  call void @vfio_bar_quirk_setup(ptr noundef %call.i, i32 noundef %i.0213) #22
-  %inc = add nuw nsw i32 %i.0213, 1
+  %i.0217 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  call void @vfio_bar_quirk_setup(ptr noundef %call.i, i32 noundef %i.0217) #22
+  %inc = add nuw nsw i32 %i.0217, 1
   %exitcond.not = icmp eq i32 %inc, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body
   %igd_opregion = getelementptr inbounds i8, ptr %call.i, i64 3424
@@ -3922,11 +3922,11 @@ if.then226:                                       ; preds = %if.end222
   %idx.ext = zext i8 %101 to i64
   %add.ptr229 = getelementptr i8, ptr %100, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr229, i8 -1, i64 12, i1 false)
-  %.pre216 = load i32, ptr %cap_present223, align 4
+  %.pre220 = load i32, ptr %cap_present223, align 4
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then226, %if.end222
-  %102 = phi i32 [ %.pre216, %if.then226 ], [ %99, %if.end222 ]
+  %102 = phi i32 [ %.pre220, %if.then226 ], [ %99, %if.end222 ]
   %and232 = and i32 %102, 1
   %tobool233.not = icmp eq i32 %and232, 0
   br i1 %tobool233.not, label %if.end240, label %if.then234
@@ -4023,8 +4023,8 @@ if.end282:                                        ; preds = %if.end276, %lor.lhs
   %ramfb_migrate = getelementptr inbounds i8, ptr %call.i, i64 3556
   %113 = load i32, ptr %ramfb_migrate, align 4
   %cmp283 = icmp ne i32 %113, 1
-  %brmerge210 = or i1 %cmp283, %tobool261
-  br i1 %brmerge210, label %if.end290, label %if.then288
+  %brmerge214 = or i1 %cmp283, %tobool261
+  br i1 %brmerge214, label %if.end290, label %if.then288
 
 if.then288:                                       ; preds = %if.end282
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.141) #22
@@ -4257,7 +4257,7 @@ vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.e
 for.body.i:                                       ; preds = %for.inc.i, %vfio_pci_disable_rp_atomics.exit
   %indvars.iv.i = phi i64 [ 0, %vfio_pci_disable_rp_atomics.exit ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i27, i64 0, i64 %indvars.iv.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @vfio_bar_quirk_exit(ptr noundef nonnull %call.i, i32 noundef %19) #22
   call void @vfio_region_exit(ptr noundef %arrayidx.i) #22
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
@@ -4276,7 +4276,7 @@ if.then.i29:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i29, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %for.inc.i
   %vga.i = getelementptr inbounds i8, ptr %call.i, i64 3416
@@ -4378,14 +4378,14 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 if.then8:                                         ; preds = %for.body
   %6 = load ptr, ptr %name10, align 8
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.vfio_pci_post_reset, ptr noundef %6, i32 noundef %7) #22
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc
   call void @vfio_quirk_reset(ptr noundef nonnull %vdev) #22
@@ -4596,7 +4596,7 @@ trace_vfio_pci_hot_reset_dep_devices.exit:        ; preds = %for.body, %land.lhs
   %34 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i)
   %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv37, i32 noundef %conv40, i32 noundef %shr, i32 noundef %and49) #22
-  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull dereferenceable(1) %34) #26
+  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull readonly dereferenceable(1) %34) #26
   %cmp.i = icmp eq i32 %call2.i, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i)
   br i1 %cmp.i, label %for.inc104, label %for.cond61.preheader
@@ -4621,7 +4621,7 @@ for.inc:                                          ; preds = %for.body63
   %next = getelementptr inbounds i8, ptr %group.0200, i64 24
   %group.0 = load ptr, ptr %next, align 8
   %tobool62.not = icmp eq ptr %group.0, null
-  br i1 %tobool62.not, label %if.then71, label %for.body63, !llvm.loop !25
+  br i1 %tobool62.not, label %if.then71, label %for.body63, !llvm.loop !24
 
 if.then71:                                        ; preds = %for.cond61.preheader, %for.inc
   %has_pm_reset72 = getelementptr inbounds i8, ptr %vdev, i64 3545
@@ -4661,7 +4661,7 @@ if.end88:                                         ; preds = %lor.lhs.false
   %43 = load ptr, ptr %name91, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i130)
   %call.i134 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv37, i32 noundef %conv40, i32 noundef %shr, i32 noundef %and49) #22
-  %call2.i135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull dereferenceable(1) %43) #26
+  %call2.i135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull readonly dereferenceable(1) %43) #26
   %cmp.i136 = icmp eq i32 %call2.i135, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i130)
   br i1 %cmp.i136, label %if.then93, label %for.inc100
@@ -4679,14 +4679,14 @@ if.end96:                                         ; preds = %if.then93
 for.inc100:                                       ; preds = %if.end88, %for.body83, %lor.lhs.false
   %vbasedev_iter.0 = load ptr, ptr %vbasedev_iter.0206, align 8
   %tobool82.not = icmp eq ptr %vbasedev_iter.0, null
-  br i1 %tobool82.not, label %for.inc104, label %for.body83, !llvm.loop !26
+  br i1 %tobool82.not, label %for.inc104, label %for.body83, !llvm.loop !25
 
 for.inc104:                                       ; preds = %for.inc100, %if.end80, %if.end96, %trace_vfio_pci_hot_reset_dep_devices.exit
   %multi.1 = phi i1 [ %multi.0210, %trace_vfio_pci_hot_reset_dep_devices.exit ], [ true, %if.end96 ], [ %multi.0210, %if.end80 ], [ %multi.0210, %for.inc100 ]
   %inc = add nuw i32 %i.0211, 1
   %44 = load i32, ptr %count33, align 4
   %cmp34 = icmp ult i32 %inc, %44
-  br i1 %cmp34, label %for.body, label %for.end105, !llvm.loop !27
+  br i1 %cmp34, label %for.body, label %for.end105, !llvm.loop !26
 
 for.end105:                                       ; preds = %for.inc104, %trace_vfio_pci_hot_reset_has_dep_devices.exit
   %multi.0.lcssa = phi i1 [ false, %trace_vfio_pci_hot_reset_has_dep_devices.exit ], [ %multi.1, %for.inc104 ]
@@ -4711,7 +4711,7 @@ for.cond114.preheader.us:                         ; preds = %for.cond111.prehead
 for.cond114.us:                                   ; preds = %for.body118.us
   %inc128.us = add nuw i32 %i.1215.us, 1
   %exitcond.not = icmp eq i32 %inc128.us, %.lcssa
-  br i1 %exitcond.not, label %for.inc130.us, label %for.body118.us, !llvm.loop !28
+  br i1 %exitcond.not, label %for.inc130.us, label %for.body118.us, !llvm.loop !27
 
 for.body118.us:                                   ; preds = %for.cond114.preheader.us, %for.cond114.us
   %i.1215.us = phi i32 [ 0, %for.cond114.preheader.us ], [ %inc128.us, %for.cond114.us ]
@@ -4730,7 +4730,7 @@ for.inc130.us:                                    ; preds = %for.cond114.us, %if
   %next131.us = getelementptr inbounds i8, ptr %group.1219.us, i64 24
   %group.1.us = load ptr, ptr %next131.us, align 8
   %tobool112.not.us = icmp eq ptr %group.1.us, null
-  br i1 %tobool112.not.us, label %for.end133.loopexit, label %for.cond114.preheader.us, !llvm.loop !29
+  br i1 %tobool112.not.us, label %for.end133.loopexit, label %for.cond114.preheader.us, !llvm.loop !28
 
 for.end133.loopexit:                              ; preds = %for.inc130.us
   %47 = sext i32 %count.1.us to i64
@@ -4763,7 +4763,7 @@ for.body151.lr.ph:                                ; preds = %for.cond147.prehead
 for.cond147:                                      ; preds = %for.body151
   %inc165 = add nuw i32 %i.2222, 1
   %exitcond246.not = icmp eq i32 %inc165, %50
-  br i1 %exitcond246.not, label %for.inc167, label %for.body151, !llvm.loop !30
+  br i1 %exitcond246.not, label %for.inc167, label %for.body151, !llvm.loop !29
 
 for.body151:                                      ; preds = %for.body151.lr.ph, %for.cond147
   %i.2222 = phi i32 [ 0, %for.body151.lr.ph ], [ %inc165, %for.cond147 ]
@@ -4787,7 +4787,7 @@ for.inc167:                                       ; preds = %for.cond147, %if.th
   %next168 = getelementptr inbounds i8, ptr %group.2225, i64 24
   %group.2 = load ptr, ptr %next168, align 8
   %tobool145.not = icmp eq ptr %group.2, null
-  br i1 %tobool145.not, label %for.end170, label %for.body151.lr.ph, !llvm.loop !31
+  br i1 %tobool145.not, label %for.end170, label %for.body151.lr.ph, !llvm.loop !30
 
 for.end170:                                       ; preds = %for.inc167, %for.cond147.preheader.lr.ph, %for.end133
   %55 = load i32, ptr %fd, align 8
@@ -4866,7 +4866,7 @@ for.body184:                                      ; preds = %out, %for.inc259
   %70 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i151)
   %call.i155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv191, i32 noundef %conv196, i32 noundef %shr202, i32 noundef %and209) #22
-  %call2.i156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull dereferenceable(1) %70) #26
+  %call2.i156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull readonly dereferenceable(1) %70) #26
   %cmp.i157 = icmp eq i32 %call2.i156, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i151)
   br i1 %cmp.i157, label %for.inc259, label %for.cond216.preheader
@@ -4891,7 +4891,7 @@ for.inc226:                                       ; preds = %for.body218
   %next227 = getelementptr inbounds i8, ptr %group.3228, i64 24
   %group.3 = load ptr, ptr %next227, align 8
   %tobool217.not = icmp eq ptr %group.3, null
-  br i1 %tobool217.not, label %out_single, label %for.body218, !llvm.loop !33
+  br i1 %tobool217.not, label %out_single, label %for.body218, !llvm.loop !32
 
 if.end232:                                        ; preds = %for.body218
   %device_list233 = getelementptr inbounds i8, ptr %group.3228, i64 16
@@ -4919,7 +4919,7 @@ if.end246:                                        ; preds = %lor.lhs.false241
   %76 = load ptr, ptr %name251, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i158)
   %call.i162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv191, i32 noundef %conv196, i32 noundef %shr202, i32 noundef %and209) #22
-  %call2.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull dereferenceable(1) %76) #26
+  %call2.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull readonly dereferenceable(1) %76) #26
   %cmp.i164 = icmp eq i32 %call2.i163, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i158)
   br i1 %cmp.i164, label %if.then253, label %for.inc255
@@ -4932,13 +4932,13 @@ if.then253:                                       ; preds = %if.end246
 for.inc255:                                       ; preds = %if.end246, %for.body237, %lor.lhs.false241
   %vbasedev_iter187.0 = load ptr, ptr %vbasedev_iter187.0231, align 8
   %tobool236.not = icmp eq ptr %vbasedev_iter187.0, null
-  br i1 %tobool236.not, label %for.inc259, label %for.body237, !llvm.loop !34
+  br i1 %tobool236.not, label %for.inc259, label %for.body237, !llvm.loop !33
 
 for.inc259:                                       ; preds = %for.inc255, %if.end232, %if.then253, %for.body184
   %inc260 = add nuw i32 %i.3233, 1
   %77 = load i32, ptr %count33, align 4
   %cmp182 = icmp ult i32 %inc260, %77
-  br i1 %cmp182, label %for.body184, label %out_single, !llvm.loop !35
+  br i1 %cmp182, label %for.body184, label %out_single, !llvm.loop !34
 
 out_single:                                       ; preds = %for.inc259, %for.cond216.preheader, %for.inc226, %out, %if.then7, %if.then10, %if.then27
   %ret.1 = phi i32 [ %sub, %if.then7 ], [ %sub, %if.then10 ], [ %sub29, %if.then27 ], [ %ret.0, %out ], [ %ret.0, %for.inc226 ], [ %ret.0, %for.cond216.preheader ], [ %ret.0, %for.inc259 ]
@@ -5325,7 +5325,7 @@ if.end.i:                                         ; preds = %for.body
   br i1 %cmp.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.187, i32 noundef %5) #22
   br label %vfio_bar_prepare.exit
 
@@ -5354,7 +5354,7 @@ vfio_bar_prepare.exit:                            ; preds = %for.body, %if.then5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pci_bar.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %vfio_bar_prepare.exit
   ret void
@@ -5729,7 +5729,7 @@ if.end.i46:                                       ; preds = %lor.lhs.false.i45
   %sub12.i = sub nsw i64 0, %conv.i.i
   %and.i51 = and i64 %sub10.i, %sub12.i
   %sub.i.i52 = add nsw i64 %and.i51, -1
-  %80 = call i64 @llvm.ctlz.i64(i64 %sub.i.i52, i1 false), !range !17
+  %80 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i52, i1 false)
   %tobool.not.i.i = icmp eq i64 %80, 0
   %sub2.i.i = add nuw nsw i64 %80, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
@@ -5922,7 +5922,7 @@ if.end.i:                                         ; preds = %for.body
   %mr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   store ptr %call.i, ptr %mr.i, align 8
   %1 = load ptr, ptr %name1.i, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.203, ptr noundef %1, i32 noundef %2) #22
   %3 = load ptr, ptr %mr.i, align 8
   %4 = load i64, ptr %size.i, align 8
@@ -5957,7 +5957,7 @@ if.end17.i:                                       ; preds = %if.then13.i, %if.th
 vfio_bar_register.exit:                           ; preds = %for.body, %if.end17.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %vfio_bar_register.exit
   ret void
@@ -6044,10 +6044,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.ptr.i.i = getelementptr i8, ptr %call9.i, i64 %idx.ext.i.i
   %add.ptr.val.i.i = load i32, ptr %add.ptr.i.i, align 1
   %shr.i.i = lshr i32 %add.ptr.val.i.i, 20
-  %11 = trunc i32 %shr.i.i to i16
+  %11 = trunc nuw nsw i32 %shr.i.i to i16
   %conv8.i.i = and i16 %11, 4092
   %tobool.not.i.i = icmp eq i16 %conv8.i.i, 0
-  br i1 %tobool.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %for.body.i.i, !llvm.loop !38
+  br i1 %tobool.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %for.body.i.i, !llvm.loop !37
 
 vfio_ext_cap_max_size.exit.i:                     ; preds = %for.body.i.i
   %12 = trunc i32 %shr.i to i8
@@ -6166,7 +6166,7 @@ if.end.i.i:                                       ; preds = %for.body.i38.i
   store i32 -1, ptr %add.ptr5.i22.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.then30.i, label %for.body.i38.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %if.then30.i, label %for.body.i38.i, !llvm.loop !38
 
 if.then30.i:                                      ; preds = %if.end.i.i, %sw.bb27.i
   tail call void @pcie_add_capability(ptr noundef nonnull %vdev, i16 noundef zeroext 21, i8 noundef zeroext %conv19.i, i16 noundef zeroext %next.042.i, i16 noundef zeroext %sub.i.i) #22
@@ -6179,10 +6179,10 @@ sw.default.i:                                     ; preds = %vfio_ext_cap_max_si
 for.inc.i:                                        ; preds = %for.body.i38.i, %sw.default.i, %if.then30.i, %trace_vfio_add_ext_cap_dropped.exit.i
   %add.ptr15.val32.i = load i32, ptr %add.ptr15.i, align 1
   %shr36.i = lshr i32 %add.ptr15.val32.i, 20
-  %33 = trunc i32 %shr36.i to i16
+  %33 = trunc nuw nsw i32 %shr36.i to i16
   %conv38.i = and i16 %33, 4092
   %tobool14.not.i = icmp eq i16 %conv38.i, 0
-  br i1 %tobool14.not.i, label %for.end.i, label %for.body.i, !llvm.loop !40
+  br i1 %tobool14.not.i, label %for.end.i, label %for.body.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.inc.i
   %34 = load ptr, ptr %config, align 8
@@ -6452,7 +6452,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %indvars.iv
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @vfio_bar_quirk_exit(ptr noundef %vdev, i32 noundef %0) #22
   tail call void @vfio_region_exit(ptr noundef %arrayidx) #22
   %size = getelementptr inbounds i8, ptr %arrayidx, i64 24
@@ -6471,7 +6471,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc
   %vga = getelementptr inbounds i8, ptr %vdev, i64 3416
@@ -6611,7 +6611,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %0, ptr %arrayidx3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body
   %add.ptr = getelementptr i8, ptr %vbasedev, i64 -2608
@@ -6651,14 +6651,14 @@ land.lhs.true22:                                  ; preds = %land.lhs.true
   br i1 %cmp29, label %if.then31, label %for.inc33
 
 if.then31:                                        ; preds = %land.lhs.true22
-  %5 = trunc i64 %indvars.iv27 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv27 to i32
   tail call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %add.ptr, i32 noundef %5)
   br label %for.inc33
 
 for.inc33:                                        ; preds = %for.body9, %land.lhs.true, %land.lhs.true22, %if.then31
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 6
-  br i1 %exitcond30.not, label %for.end35, label %for.body9, !llvm.loop !42
+  br i1 %exitcond30.not, label %for.end35, label %for.body9, !llvm.loop !41
 
 for.end35:                                        ; preds = %for.inc33
   %call36 = tail call zeroext i1 @msi_enabled(ptr noundef %add.ptr) #22
@@ -6780,7 +6780,7 @@ _nocheck__trace_vfio_pci_size_rom.exit:           ; preds = %entry, %land.lhs.tr
 declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_rom_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @vfio_rom_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -6907,7 +6907,7 @@ if.then24.i:                                      ; preds = %if.else.i
   %add25.i = add i64 %call1948.i, %off.0.ph50.i
   %sub.i = sub i64 %size.0.ph51.i, %call1948.i
   %tobool15.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool15.not.i, label %while.end.i, label %while.body.lr.ph.split.i, !llvm.loop !43
+  br i1 %tobool15.not.i, label %while.end.i, label %while.body.lr.ph.split.i, !llvm.loop !42
 
 if.else26.i:                                      ; preds = %if.else.i
   %call27.i = tail call ptr @__errno_location() #23
@@ -6989,7 +6989,7 @@ for.body.i:                                       ; preds = %if.then85.i, %for.b
   %add103.i = add i8 %30, %csum.055.i
   %inc.i = add nuw i32 %i.054.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %29
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !43
 
 for.end.i:                                        ; preds = %for.body.i, %if.then85.i
   %csum.0.lcssa.i = phi i8 [ 0, %if.then85.i ], [ %add103.i, %for.body.i ]
@@ -7178,7 +7178,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %conv.i
   %tmp.0.i = load i8, ptr %gep.i, align 1
   %tobool.not.i = icmp eq i8 %tmp.0.i, 0
-  br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !45
+  br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !44
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %5 = trunc i16 %next.1.i to i8
@@ -7229,7 +7229,7 @@ for.body.i65:                                     ; preds = %if.end19, %for.body
   %gep.i71 = getelementptr i8, ptr %invariant.gep.i62, i64 %conv.i68
   %tmp.0.i72 = load i8, ptr %gep.i71, align 1
   %tobool.not.i73 = icmp eq i8 %tmp.0.i72, 0
-  br i1 %tobool.not.i73, label %for.end.loopexit.i74, label %for.body.i65, !llvm.loop !45
+  br i1 %tobool.not.i73, label %for.end.loopexit.i74, label %for.body.i65, !llvm.loop !44
 
 for.end.loopexit.i74:                             ; preds = %for.body.i65
   %12 = trunc i16 %next.1.i70 to i8
@@ -7435,8 +7435,8 @@ if.then16.i:                                      ; preds = %if.end.i104
   br i1 %tobool.i57.not.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then16.i, %while.body.i
-  %bus.0156.i = phi ptr [ %call.i1.i52.i, %while.body.i ], [ %call.i1.i55.i, %if.then16.i ]
-  %call20.i106 = tail call ptr @pci_bridge_get_device(ptr noundef nonnull %bus.0156.i) #22
+  %bus.0172.i = phi ptr [ %call.i1.i52.i, %while.body.i ], [ %call.i1.i55.i, %if.then16.i ]
+  %call20.i106 = tail call ptr @pci_bridge_get_device(ptr noundef nonnull %bus.0172.i) #22
   %call.i.i50.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call20.i106, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #22
   %call1.i51.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i50.i) #22
   %call.i1.i52.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i51.i, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.214, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #22
@@ -7444,7 +7444,7 @@ while.body.i:                                     ; preds = %if.then16.i, %while
   %bus.0.val.i = load i32, ptr %40, align 8
   %and.i.i = and i32 %bus.0.val.i, 1
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %while.body.i, label %while.end.i, !llvm.loop !46
+  br i1 %tobool.i.not.i, label %while.body.i, label %while.end.i, !llvm.loop !45
 
 while.end.i:                                      ; preds = %while.body.i, %if.then16.i
   %bus.0.lcssa.i = phi ptr [ %call.i1.i55.i, %if.then16.i ], [ %call.i1.i52.i, %while.body.i ]
@@ -7499,59 +7499,59 @@ if.then36.i:                                      ; preds = %if.then32.i
   %add.ptr.i66.i = getelementptr i8, ptr %47, i64 %idx.ext.i65.i
   store i16 0, ptr %add.ptr.i66.i, align 1
   %48 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr3.i69.i = getelementptr i8, ptr %48, i64 %idx.ext.i65.i
-  store i16 0, ptr %add.ptr3.i69.i, align 1
+  %add.ptr3.i71.i = getelementptr i8, ptr %48, i64 %idx.ext.i65.i
+  store i16 0, ptr %add.ptr3.i71.i, align 1
   %49 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i71.i = getelementptr i8, ptr %49, i64 %idx.ext.i65.i
-  store i16 -1, ptr %add.ptr6.i71.i, align 1
+  %add.ptr6.i73.i = getelementptr i8, ptr %49, i64 %idx.ext.i65.i
+  store i16 -1, ptr %add.ptr6.i73.i, align 1
   %add39.i = add nuw nsw i32 %conv, 18
   %50 = load ptr, ptr %config, align 8
-  %idx.ext.i74.i = zext nneg i32 %add39.i to i64
-  %add.ptr.i75.i = getelementptr i8, ptr %50, i64 %idx.ext.i74.i
-  store i16 0, ptr %add.ptr.i75.i, align 1
+  %idx.ext.i77.i = zext nneg i32 %add39.i to i64
+  %add.ptr.i78.i = getelementptr i8, ptr %50, i64 %idx.ext.i77.i
+  store i16 0, ptr %add.ptr.i78.i, align 1
   %51 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr3.i78.i = getelementptr i8, ptr %51, i64 %idx.ext.i74.i
-  store i16 0, ptr %add.ptr3.i78.i, align 1
+  %add.ptr3.i83.i = getelementptr i8, ptr %51, i64 %idx.ext.i77.i
+  store i16 0, ptr %add.ptr3.i83.i, align 1
   %52 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i80.i = getelementptr i8, ptr %52, i64 %idx.ext.i74.i
-  store i16 -1, ptr %add.ptr6.i80.i, align 1
+  %add.ptr6.i85.i = getelementptr i8, ptr %52, i64 %idx.ext.i77.i
+  store i16 -1, ptr %add.ptr6.i85.i, align 1
   %cmp41.i = icmp ugt i8 %13, 44
   br i1 %cmp41.i, label %if.then43.i, label %if.end67.i
 
 if.then43.i:                                      ; preds = %if.then36.i
   %add44.i = add nuw nsw i32 %conv, 44
   %53 = load ptr, ptr %config, align 8
-  %idx.ext.i83.i = zext nneg i32 %add44.i to i64
-  %add.ptr.i84.i = getelementptr i8, ptr %53, i64 %idx.ext.i83.i
-  store i32 0, ptr %add.ptr.i84.i, align 1
+  %idx.ext.i89.i = zext nneg i32 %add44.i to i64
+  %add.ptr.i90.i = getelementptr i8, ptr %53, i64 %idx.ext.i89.i
+  store i32 0, ptr %add.ptr.i90.i, align 1
   %54 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr3.i86.i = getelementptr i8, ptr %54, i64 %idx.ext.i83.i
-  store i32 0, ptr %add.ptr3.i86.i, align 1
+  %add.ptr3.i92.i = getelementptr i8, ptr %54, i64 %idx.ext.i89.i
+  store i32 0, ptr %add.ptr3.i92.i, align 1
   %55 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr5.i88.i = getelementptr i8, ptr %55, i64 %idx.ext.i83.i
-  store i32 -1, ptr %add.ptr5.i88.i, align 1
+  %add.ptr5.i94.i = getelementptr i8, ptr %55, i64 %idx.ext.i89.i
+  store i32 -1, ptr %add.ptr5.i94.i, align 1
   %add45.i = add nuw nsw i32 %conv, 48
   %56 = load ptr, ptr %config, align 8
-  %idx.ext.i90.i = zext nneg i32 %add45.i to i64
-  %add.ptr.i91.i = getelementptr i8, ptr %56, i64 %idx.ext.i90.i
-  store i16 0, ptr %add.ptr.i91.i, align 1
+  %idx.ext.i96.i = zext nneg i32 %add45.i to i64
+  %add.ptr.i97.i = getelementptr i8, ptr %56, i64 %idx.ext.i96.i
+  store i16 0, ptr %add.ptr.i97.i, align 1
   %57 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr3.i94.i = getelementptr i8, ptr %57, i64 %idx.ext.i90.i
-  store i16 0, ptr %add.ptr3.i94.i, align 1
+  %add.ptr3.i102.i = getelementptr i8, ptr %57, i64 %idx.ext.i96.i
+  store i16 0, ptr %add.ptr3.i102.i, align 1
   %58 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i96.i = getelementptr i8, ptr %58, i64 %idx.ext.i90.i
-  store i16 -1, ptr %add.ptr6.i96.i, align 1
+  %add.ptr6.i104.i = getelementptr i8, ptr %58, i64 %idx.ext.i96.i
+  store i16 -1, ptr %add.ptr6.i104.i, align 1
   %add46.i = add nuw nsw i32 %conv, 50
   %59 = load ptr, ptr %config, align 8
-  %idx.ext.i99.i = zext nneg i32 %add46.i to i64
-  %add.ptr.i100.i = getelementptr i8, ptr %59, i64 %idx.ext.i99.i
-  store i16 0, ptr %add.ptr.i100.i, align 1
+  %idx.ext.i108.i = zext nneg i32 %add46.i to i64
+  %add.ptr.i109.i = getelementptr i8, ptr %59, i64 %idx.ext.i108.i
+  store i16 0, ptr %add.ptr.i109.i, align 1
   %60 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr3.i103.i = getelementptr i8, ptr %60, i64 %idx.ext.i99.i
-  store i16 0, ptr %add.ptr3.i103.i, align 1
+  %add.ptr3.i114.i = getelementptr i8, ptr %60, i64 %idx.ext.i108.i
+  store i16 0, ptr %add.ptr3.i114.i, align 1
   %61 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i105.i = getelementptr i8, ptr %61, i64 %idx.ext.i99.i
-  store i16 -1, ptr %add.ptr6.i105.i, align 1
+  %add.ptr6.i116.i = getelementptr i8, ptr %61, i64 %idx.ext.i108.i
+  store i16 -1, ptr %add.ptr6.i116.i, align 1
   br label %if.end67.i
 
 if.else56.i:                                      ; preds = %if.else.i
@@ -7561,42 +7561,42 @@ if.else56.i:                                      ; preds = %if.else.i
 if.then60.i:                                      ; preds = %if.else56.i
   %add61.i = add nuw nsw i32 %conv, 2
   %62 = load ptr, ptr %config, align 8
-  %idx.ext.i108.i = zext nneg i32 %add61.i to i64
-  %add.ptr.i109.i = getelementptr i8, ptr %62, i64 %idx.ext.i108.i
-  %buf.val.i.i110.i = load i16, ptr %add.ptr.i109.i, align 1
-  %and.i.i111.i = and i16 %buf.val.i.i110.i, -241
-  store i16 %and.i.i111.i, ptr %add.ptr.i109.i, align 1
-  %wmask.i112.i = getelementptr inbounds i8, ptr %vdev, i64 184
-  %63 = load ptr, ptr %wmask.i112.i, align 8
-  %add.ptr3.i113.i = getelementptr i8, ptr %63, i64 %idx.ext.i108.i
-  store i16 -241, ptr %add.ptr3.i113.i, align 1
+  %idx.ext.i120.i = zext nneg i32 %add61.i to i64
+  %add.ptr.i121.i = getelementptr i8, ptr %62, i64 %idx.ext.i120.i
+  %buf.val.i.i122.i = load i16, ptr %add.ptr.i121.i, align 1
+  %and.i.i123.i = and i16 %buf.val.i.i122.i, -241
+  store i16 %and.i.i123.i, ptr %add.ptr.i121.i, align 1
+  %wmask.i125.i = getelementptr inbounds i8, ptr %vdev, i64 184
+  %63 = load ptr, ptr %wmask.i125.i, align 8
+  %add.ptr3.i126.i = getelementptr i8, ptr %63, i64 %idx.ext.i120.i
+  store i16 -241, ptr %add.ptr3.i126.i, align 1
   %64 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i115.i = getelementptr i8, ptr %64, i64 %idx.ext.i108.i
-  %buf.val.i13.i116.i = load i16, ptr %add.ptr6.i115.i, align 1
-  %or.i16.i117.i = or i16 %buf.val.i13.i116.i, 240
-  store i16 %or.i16.i117.i, ptr %add.ptr6.i115.i, align 1
+  %add.ptr6.i128.i = getelementptr i8, ptr %64, i64 %idx.ext.i120.i
+  %buf.val.i13.i129.i = load i16, ptr %add.ptr6.i128.i, align 1
+  %or.i16.i130.i = or i16 %buf.val.i13.i129.i, 240
+  store i16 %or.i16.i130.i, ptr %add.ptr6.i128.i, align 1
   %add62.i = add nuw nsw i32 %conv, 12
   %65 = load ptr, ptr %config, align 8
-  %idx.ext.i119.i = zext nneg i32 %add62.i to i64
-  %add.ptr.i120.i = getelementptr i8, ptr %65, i64 %idx.ext.i119.i
-  store i32 17, ptr %add.ptr.i120.i, align 1
-  %66 = load ptr, ptr %wmask.i112.i, align 8
-  %add.ptr3.i122.i = getelementptr i8, ptr %66, i64 %idx.ext.i119.i
-  store i32 0, ptr %add.ptr3.i122.i, align 1
+  %idx.ext.i132.i = zext nneg i32 %add62.i to i64
+  %add.ptr.i133.i = getelementptr i8, ptr %65, i64 %idx.ext.i132.i
+  store i32 17, ptr %add.ptr.i133.i, align 1
+  %66 = load ptr, ptr %wmask.i125.i, align 8
+  %add.ptr3.i135.i = getelementptr i8, ptr %66, i64 %idx.ext.i132.i
+  store i32 0, ptr %add.ptr3.i135.i, align 1
   %67 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr5.i124.i = getelementptr i8, ptr %67, i64 %idx.ext.i119.i
-  store i32 -1, ptr %add.ptr5.i124.i, align 1
+  %add.ptr5.i137.i = getelementptr i8, ptr %67, i64 %idx.ext.i132.i
+  store i32 -1, ptr %add.ptr5.i137.i, align 1
   %add64.i = add nuw nsw i32 %conv, 16
   %68 = load ptr, ptr %config, align 8
-  %idx.ext.i126.i = zext nneg i32 %add64.i to i64
-  %add.ptr.i127.i = getelementptr i8, ptr %68, i64 %idx.ext.i126.i
-  store i16 0, ptr %add.ptr.i127.i, align 1
-  %69 = load ptr, ptr %wmask.i112.i, align 8
-  %add.ptr3.i130.i = getelementptr i8, ptr %69, i64 %idx.ext.i126.i
-  store i16 0, ptr %add.ptr3.i130.i, align 1
+  %idx.ext.i139.i = zext nneg i32 %add64.i to i64
+  %add.ptr.i140.i = getelementptr i8, ptr %68, i64 %idx.ext.i139.i
+  store i16 0, ptr %add.ptr.i140.i, align 1
+  %69 = load ptr, ptr %wmask.i125.i, align 8
+  %add.ptr3.i145.i = getelementptr i8, ptr %69, i64 %idx.ext.i139.i
+  store i16 0, ptr %add.ptr3.i145.i, align 1
   %70 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i132.i = getelementptr i8, ptr %70, i64 %idx.ext.i126.i
-  store i16 -1, ptr %add.ptr6.i132.i, align 1
+  %add.ptr6.i147.i = getelementptr i8, ptr %70, i64 %idx.ext.i139.i
+  store i16 -1, ptr %add.ptr6.i147.i, align 1
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then60.i, %if.else56.i
@@ -7607,10 +7607,10 @@ if.end65.i:                                       ; preds = %if.then60.i, %if.el
   %71 = load ptr, ptr %parent_dev.i.i, align 8
   %72 = getelementptr i8, ptr %call.i1.i.i.i, i64 120
   %call.val.i.i = load i32, ptr %72, align 8
-  %and.i.i134.i = and i32 %call.val.i.i, 1
-  %tobool.i.i.i108 = icmp ne i32 %and.i.i134.i, 0
-  %tobool.i135.i = icmp eq ptr %71, null
-  %or.cond.not.i.i = select i1 %tobool.i.i.i108, i1 true, i1 %tobool.i135.i
+  %and.i.i150.i = and i32 %call.val.i.i, 1
+  %tobool.i.i.i108 = icmp ne i32 %and.i.i150.i, 0
+  %tobool.i151.i = icmp eq ptr %71, null
+  %or.cond.not.i.i = select i1 %tobool.i.i.i108, i1 true, i1 %tobool.i151.i
   br i1 %or.cond.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %lor.lhs.false2.i.i
 
 lor.lhs.false2.i.i:                               ; preds = %if.end65.i
@@ -7638,17 +7638,17 @@ lor.lhs.false12.i.i:                              ; preds = %lor.lhs.false7.i.i
 lor.lhs.false15.i.i:                              ; preds = %lor.lhs.false12.i.i
   %cap_present.i.i = getelementptr inbounds i8, ptr %vdev, i64 1260
   %75 = load i32, ptr %cap_present.i.i, align 4
-  %and.i136.i = and i32 %75, 8
-  %tobool17.not.i.i = icmp eq i32 %and.i136.i, 0
+  %and.i152.i = and i32 %75, 8
+  %tobool17.not.i.i = icmp eq i32 %and.i152.i, 0
   br i1 %tobool17.not.i.i, label %if.end.i.i, label %vfio_pci_enable_rp_atomics.exit.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false15.i.i
-  %config.i137.i = getelementptr inbounds i8, ptr %71, i64 168
-  %76 = load ptr, ptr %config.i137.i, align 8
+  %config.i153.i = getelementptr inbounds i8, ptr %71, i64 168
+  %76 = load ptr, ptr %config.i153.i, align 8
   %77 = load i8, ptr %exp.i.i, align 8
-  %idx.ext.i138.i = zext i8 %77 to i64
-  %add.ptr.i139.i = getelementptr i8, ptr %76, i64 %idx.ext.i138.i
-  %add.ptr21.i.i = getelementptr i8, ptr %add.ptr.i139.i, i64 36
+  %idx.ext.i154.i = zext i8 %77 to i64
+  %add.ptr.i155.i = getelementptr i8, ptr %76, i64 %idx.ext.i154.i
+  %add.ptr21.i.i = getelementptr i8, ptr %add.ptr.i155.i, i64 36
   %add.ptr21.val.i.i = load i32, ptr %add.ptr21.i.i, align 1
   %and23.i.i = and i32 %add.ptr21.val.i.i, 896
   %tobool24.not.i.i = icmp eq i32 %and23.i.i, 0
@@ -7676,8 +7676,8 @@ if.end34.i.i:                                     ; preds = %if.end30.i.i
 
 if.end53.i.i:                                     ; preds = %if.end34.i.i
   %config.val.i.i.i = load i32, ptr %add.ptr21.i.i, align 1
-  %or.i.i140.i = or i32 %config.val.i.i.i, %mask.2.i.i
-  store i32 %or.i.i140.i, ptr %add.ptr21.i.i, align 1
+  %or.i.i156.i = or i32 %config.val.i.i.i, %mask.2.i.i
+  store i32 %or.i.i156.i, ptr %add.ptr21.i.i, align 1
   %clear_parent_atomics_on_exit.i.i = getelementptr inbounds i8, ptr %vdev, i64 3561
   store i8 1, ptr %clear_parent_atomics_on_exit.i.i, align 1
   br label %vfio_pci_enable_rp_atomics.exit.i
@@ -7695,21 +7695,21 @@ if.end67.i:                                       ; preds = %vfio_pci_enable_rp_
 if.then72.i:                                      ; preds = %if.end67.i
   %add73.i = add nuw nsw i32 %conv, 2
   %81 = load ptr, ptr %config, align 8
-  %idx.ext.i142.i = zext nneg i32 %add73.i to i64
-  %add.ptr.i143.i = getelementptr i8, ptr %81, i64 %idx.ext.i142.i
-  %buf.val.i.i144.i = load i16, ptr %add.ptr.i143.i, align 1
-  %and.i.i145.i = and i16 %buf.val.i.i144.i, -16
-  %or.i.i146.i = or disjoint i16 %and.i.i145.i, 1
-  store i16 %or.i.i146.i, ptr %add.ptr.i143.i, align 1
-  %wmask.i147.i = getelementptr inbounds i8, ptr %vdev, i64 184
-  %82 = load ptr, ptr %wmask.i147.i, align 8
-  %add.ptr3.i148.i = getelementptr i8, ptr %82, i64 %idx.ext.i142.i
-  store i16 -16, ptr %add.ptr3.i148.i, align 1
+  %idx.ext.i158.i = zext nneg i32 %add73.i to i64
+  %add.ptr.i159.i = getelementptr i8, ptr %81, i64 %idx.ext.i158.i
+  %buf.val.i.i160.i = load i16, ptr %add.ptr.i159.i, align 1
+  %and.i.i161.i = and i16 %buf.val.i.i160.i, -16
+  %or.i.i162.i = or disjoint i16 %and.i.i161.i, 1
+  store i16 %or.i.i162.i, ptr %add.ptr.i159.i, align 1
+  %wmask.i163.i = getelementptr inbounds i8, ptr %vdev, i64 184
+  %82 = load ptr, ptr %wmask.i163.i, align 8
+  %add.ptr3.i164.i = getelementptr i8, ptr %82, i64 %idx.ext.i158.i
+  store i16 -16, ptr %add.ptr3.i164.i, align 1
   %83 = load ptr, ptr %emulated_config_bits25, align 16
-  %add.ptr6.i150.i = getelementptr i8, ptr %83, i64 %idx.ext.i142.i
-  %buf.val.i13.i151.i = load i16, ptr %add.ptr6.i150.i, align 1
-  %or.i16.i152.i = or i16 %buf.val.i13.i151.i, 15
-  store i16 %or.i16.i152.i, ptr %add.ptr6.i150.i, align 1
+  %add.ptr6.i166.i = getelementptr i8, ptr %83, i64 %idx.ext.i158.i
+  %buf.val.i13.i167.i = load i16, ptr %add.ptr6.i166.i, align 1
+  %or.i16.i168.i = or i16 %buf.val.i13.i167.i, 15
+  store i16 %or.i16.i168.i, ptr %add.ptr6.i166.i, align 1
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then72.i, %if.end67.i
@@ -8165,7 +8165,7 @@ attributes #27 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i64 0, i64 65}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
@@ -8178,9 +8178,9 @@ attributes #27 = { nounwind allocsize(1) }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6, !32}
-!32 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !6, !31}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
@@ -8194,4 +8194,3 @@ attributes #27 = { nounwind allocsize(1) }
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}

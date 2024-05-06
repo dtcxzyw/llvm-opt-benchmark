@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_auxiliary_dr
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable___auxiliary_device_add313, ptr @__UNIQUE_ID___addressable___auxiliary_driver_register319, ptr @__UNIQUE_ID___addressable_auxiliary_device_init312, ptr @__UNIQUE_ID___addressable_auxiliary_driver_unregister320, ptr @__UNIQUE_ID___addressable_auxiliary_find_device314], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @auxiliary_device_init(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @auxiliary_device_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -234,7 +234,7 @@ define dso_local void @auxiliary_bus_init() local_unnamed_addr #3 section ".init
 declare dso_local i32 @bus_register(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef i32 @auxiliary_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @auxiliary_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8

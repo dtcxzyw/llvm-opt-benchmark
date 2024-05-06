@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [7 x i8] c"%s.p%d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @sts_estimate(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -60129542064, 60129542197) i64 @sts_estimate(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   %3 = mul nsw i64 %2, 28
   %4 = add nsw i64 %3, 80

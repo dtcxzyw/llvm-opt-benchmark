@@ -72,7 +72,7 @@ switch.lookup:
   br i1 %exitcond.not, label %.critedge.thread, label %14, !llvm.loop !8
 
 .critedge:                                        ; preds = %14
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %22, label %26 [
     i32 8, label %.critedge.thread
     i32 3, label %.critedge.thread

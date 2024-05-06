@@ -571,7 +571,7 @@ create_shb_header.exit:                           ; preds = %166, %167
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr ptr, ptr %198, i64 %indvars.iv.i.i
   %200 = load ptr, ptr %199, align 8
-  %201 = call fastcc i32 @is_duplicate_idb(ptr noundef %196, ptr noundef %200), !range !14
+  %201 = call fastcc i32 @is_duplicate_idb(ptr noundef %196, ptr noundef %200)
   %.not28.i.i = icmp eq i32 %201, 0
   br i1 %.not28.i.i, label %all_idbs_are_duplicates.exit.i, label %192
 
@@ -603,7 +603,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph33.i.i, %.lr.
   %.pn49.i = load ptr, ptr %129, align 8
   %206 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn49.i) #14
   %.not48.i = icmp eq ptr %206, null
-  br i1 %.not48.i, label %generate_merged_idbs.exit, label %207, !llvm.loop !15
+  br i1 %.not48.i, label %generate_merged_idbs.exit, label %207, !llvm.loop !14
 
 207:                                              ; preds = %.loopexit.i179, %.lr.ph84.i
   %208 = phi ptr [ %203, %.lr.ph84.i ], [ %206, %.loopexit.i179 ]
@@ -644,7 +644,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph33.i.i, %.lr.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count.i165
-  br i1 %exitcond99.not.i, label %.loopexit.i179, label %.lr.ph80.i, !llvm.loop !16
+  br i1 %exitcond99.not.i, label %.loopexit.i179, label %.lr.ph80.i, !llvm.loop !15
 
 224:                                              ; preds = %.lr.ph80.i
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef 942, ptr noundef nonnull @__func__.generate_merged_idbs, ptr noundef nonnull @.str.12) #19
@@ -679,7 +679,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph33.i.i, %.lr.
   %234 = load ptr, ptr %172, align 8
   %235 = getelementptr ptr, ptr %234, i64 %indvars.iv.i55.i.us
   %236 = load ptr, ptr %235, align 8
-  %237 = call fastcc i32 @is_duplicate_idb(ptr noundef nonnull %232, ptr noundef %236), !range !14
+  %237 = call fastcc i32 @is_duplicate_idb(ptr noundef nonnull %232, ptr noundef %236)
   %.not.i56.i.us = icmp eq i32 %237, 0
   br i1 %.not.i56.i.us, label %241, label %238
 
@@ -697,7 +697,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph33.i.i, %.lr.
   %242 = load i32, ptr %225, align 8
   %243 = zext i32 %242 to i64
   %244 = icmp ult i64 %indvars.iv.next.i57.i.us, %243
-  br i1 %244, label %.lr.ph.i54.i.us, label %find_duplicate_idb.exit.thread.i.us, !llvm.loop !17
+  br i1 %244, label %.lr.ph.i54.i.us, label %find_duplicate_idb.exit.thread.i.us, !llvm.loop !16
 
 find_duplicate_idb.exit.thread.i.us:              ; preds = %241, %.lr.ph.i175.split.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -723,7 +723,7 @@ find_duplicate_idb.exit.thread.i.us:              ; preds = %241, %.lr.ph.i175.s
   %.pn.i.us = load ptr, ptr %229, align 8
   %254 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i.us) #14
   %.not46.i.us = icmp eq ptr %254, null
-  br i1 %.not46.i.us, label %._crit_edge.i176, label %.lr.ph.i175.split.us, !llvm.loop !18
+  br i1 %.not46.i.us, label %._crit_edge.i176, label %.lr.ph.i175.split.us, !llvm.loop !17
 
 find_duplicate_idb.exit.thread.i:                 ; preds = %.lr.ph.i175, %find_duplicate_idb.exit.thread.i
   %255 = phi ptr [ %264, %find_duplicate_idb.exit.thread.i ], [ %230, %.lr.ph.i175 ]
@@ -747,12 +747,12 @@ find_duplicate_idb.exit.thread.i:                 ; preds = %.lr.ph.i175, %find_
   %.pn.i = load ptr, ptr %229, align 8
   %264 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i) #14
   %.not46.i = icmp eq ptr %264, null
-  br i1 %.not46.i, label %._crit_edge.i176, label %find_duplicate_idb.exit.thread.i, !llvm.loop !18
+  br i1 %.not46.i, label %._crit_edge.i176, label %find_duplicate_idb.exit.thread.i, !llvm.loop !17
 
 ._crit_edge.i176:                                 ; preds = %find_duplicate_idb.exit.thread.i, %253, %227
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i174, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i165
-  br i1 %exitcond.not.i178, label %generate_merged_idbs.exit, label %227, !llvm.loop !19
+  br i1 %exitcond.not.i178, label %generate_merged_idbs.exit, label %227, !llvm.loop !18
 
 generate_merged_idbs.exit:                        ; preds = %._crit_edge.i176, %.loopexit.i179, %.loopexit69.i
   %.1202 = phi i32 [ 2, %.loopexit69.i ], [ 2, %.loopexit.i179 ], [ %.0201314, %._crit_edge.i176 ]
@@ -859,7 +859,7 @@ generate_merged_idbs.exit:                        ; preds = %._crit_edge.i176, %
   call void @ws_buffer_free(ptr noundef nonnull %301) #14
   %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, %wide.trip.count.i182
-  br i1 %exitcond.not.i186, label %merge_close_in_files.exit, label %.lr.ph.i183, !llvm.loop !20
+  br i1 %exitcond.not.i186, label %merge_close_in_files.exit, label %.lr.ph.i183, !llvm.loop !19
 
 merge_close_in_files.exit:                        ; preds = %.lr.ph.i183, %.thread
   call void @g_free(ptr noundef nonnull %.075.i) #14
@@ -898,14 +898,14 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i183, %.thre
   br i1 %.not84.i, label %.split, label %.split134
 
 .split:                                           ; preds = %311
-  %312 = call fastcc i32 @merge_process_packets(ptr noundef nonnull %.0128212, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.2203, i32 noundef %spec.store.select, ptr noundef null, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14), !range !21
+  %312 = call fastcc i32 @merge_process_packets(ptr noundef nonnull %.0128212, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.2203, i32 noundef %spec.store.select, ptr noundef null, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   br label %317
 
 .split134:                                        ; preds = %311
   %313 = load ptr, ptr %10, align 8
   %314 = load ptr, ptr %26, align 8
   %315 = call i32 %313(i32 noundef 2, i32 noundef 0, ptr noundef nonnull %.075.i, i32 noundef %.078.i, ptr noundef %314) #14
-  %316 = call fastcc i32 @merge_process_packets(ptr noundef nonnull %.0128212, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.2203, i32 noundef %spec.store.select, ptr noundef nonnull %10, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14), !range !21
+  %316 = call fastcc i32 @merge_process_packets(ptr noundef nonnull %.0128212, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.2203, i32 noundef %spec.store.select, ptr noundef nonnull %10, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   br label %317
 
 317:                                              ; preds = %.split, %.split134
@@ -933,7 +933,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i183, %.thre
   %325 = icmp ult i32 %324, %5
   %326 = icmp eq i32 %phi.call, 0
   %327 = select i1 %325, i1 %326, i1 false
-  br i1 %327, label %36, label %._crit_edge, !llvm.loop !22
+  br i1 %327, label %36, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %323
   %.not = icmp eq ptr %.2213, null
@@ -1012,7 +1012,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @merge_process_packets(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @merge_process_packets(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
   %18 = alloca %struct.wtap_rec, align 8
@@ -1075,7 +1075,7 @@ define internal fastcc i32 @merge_process_packets(ptr noundef %0, i32 noundef %1
 45:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %35
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1175,7 +1175,7 @@ is_earlier.exit.thread.i:                         ; preds = %is_earlier.exit.thr
   %.1.i = phi i32 [ %74, %is_earlier.exit.thread52.i ], [ %.04069.i, %.thread49.i ], [ %.04069.i, %68 ], [ %.04069.i, %.lr.ph.i191 ], [ %.04069.i, %72 ]
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, %wide.trip.count.i
-  br i1 %exitcond.not.i194, label %._crit_edge.i195, label %.lr.ph.i191, !llvm.loop !24
+  br i1 %exitcond.not.i194, label %._crit_edge.i195, label %.lr.ph.i191, !llvm.loop !22
 
 ._crit_edge.i195:                                 ; preds = %is_earlier.exit.thread.i
   %75 = icmp eq i32 %.1.i, -1
@@ -1235,7 +1235,7 @@ merge_read_packet.exit:                           ; preds = %63, %._crit_edge.th
   br i1 %.not170, label %97, label %95
 
 95:                                               ; preds = %.thread
-  %96 = call fastcc i32 @process_new_idbs(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %8, ptr noundef nonnull %11, ptr noundef %12), !range !14
+  %96 = call fastcc i32 @process_new_idbs(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %8, ptr noundef nonnull %11, ptr noundef %12)
   %.not171 = icmp eq i32 %96, 0
   br i1 %.not171, label %map_rec_interface_id.exit.thread, label %97
 
@@ -1358,7 +1358,7 @@ map_rec_interface_id.exit:                        ; preds = %130
   %161 = load i32, ptr %151, align 8
   %162 = zext i32 %161 to i64
   %163 = icmp ult i64 %indvars.iv.next, %162
-  br i1 %163, label %.lr.ph, label %.loopexit222, !llvm.loop !25
+  br i1 %163, label %.lr.ph, label %.loopexit222, !llvm.loop !23
 
 .loopexit222:                                     ; preds = %.lr.ph, %148, %143, %142
   br i1 %.not176, label %.loopexit221, label %164
@@ -1397,7 +1397,7 @@ map_rec_interface_id.exit:                        ; preds = %130
   %182 = load i32, ptr %172, align 8
   %183 = zext i32 %182 to i64
   %184 = icmp ult i64 %indvars.iv.next281, %183
-  br i1 %184, label %.lr.ph244, label %.loopexit221, !llvm.loop !26
+  br i1 %184, label %.lr.ph244, label %.loopexit221, !llvm.loop !24
 
 .loopexit221:                                     ; preds = %.lr.ph244, %169, %164, %.loopexit222
   %185 = getelementptr inbounds i8, ptr %.0144, i64 296
@@ -1439,7 +1439,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit221,
   br i1 %.not180, label %202, label %200
 
 200:                                              ; preds = %198
-  %201 = call fastcc i32 @process_new_idbs(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %8, ptr noundef nonnull %11, ptr noundef %12), !range !14
+  %201 = call fastcc i32 @process_new_idbs(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %8, ptr noundef nonnull %11, ptr noundef %12)
   %.not181 = icmp eq i32 %201, 0
   %spec.select = select i1 %.not181, i32 6, i32 %.0141216
   br label %202
@@ -1487,12 +1487,12 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit221,
   %222 = load i32, ptr %212, align 8
   %223 = zext i32 %222 to i64
   %224 = icmp ult i64 %indvars.iv.next284, %223
-  br i1 %224, label %.lr.ph246, label %.loopexit218, !llvm.loop !27
+  br i1 %224, label %.lr.ph246, label %.loopexit218, !llvm.loop !25
 
 .loopexit218:                                     ; preds = %.lr.ph246, %209, %.lr.ph248
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count.i
-  br i1 %exitcond.not, label %.loopexit220, label %.lr.ph248, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit220, label %.lr.ph248, !llvm.loop !26
 
 .loopexit220:                                     ; preds = %.loopexit218, %202
   %.2146 = phi ptr [ %.0144, %202 ], [ %204, %.loopexit218 ]
@@ -1536,12 +1536,12 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit221,
   %243 = load i32, ptr %233, align 8
   %244 = zext i32 %243 to i64
   %245 = icmp ult i64 %indvars.iv.next290, %244
-  br i1 %245, label %.lr.ph250, label %.loopexit, !llvm.loop !29
+  br i1 %245, label %.lr.ph250, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph250, %230, %.lr.ph252
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count.i
-  br i1 %exitcond296.not, label %.loopexit217, label %.lr.ph252, !llvm.loop !30
+  br i1 %exitcond296.not, label %.loopexit217, label %.lr.ph252, !llvm.loop !28
 
 .loopexit217:                                     ; preds = %.loopexit, %.loopexit220, %196
   %.4 = phi ptr [ %.2146, %.loopexit220 ], [ %.0144, %196 ], [ %225, %.loopexit ]
@@ -1584,7 +1584,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit221,
   call void @ws_buffer_free(ptr noundef nonnull %259) #14
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i203, 1
   %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, %wide.trip.count.i
-  br i1 %exitcond.not.i205, label %merge_close_in_files.exit, label %.lr.ph.i202, !llvm.loop !20
+  br i1 %exitcond.not.i205, label %merge_close_in_files.exit, label %.lr.ph.i202, !llvm.loop !19
 
 merge_close_in_files.exit:                        ; preds = %.lr.ph.i202, %251
   %260 = icmp eq i32 %.3, 0
@@ -1679,7 +1679,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare ptr @wtap_file_get_idb_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_duplicate_idb(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_duplicate_idb(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -1872,7 +1872,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_new_idbs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1897,7 +1897,7 @@ define internal fastcc noundef i32 @process_new_idbs(ptr noundef %0, ptr nocaptu
 ._crit_edge.split.us.us:                          ; preds = %52, %.lr.ph43.split.us
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph43.split.us, !llvm.loop !31
+  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph43.split.us, !llvm.loop !29
 
 .lr.ph.us:                                        ; preds = %.lr.ph43.split.us
   %15 = getelementptr i8, ptr %12, i64 344
@@ -1917,7 +1917,7 @@ define internal fastcc noundef i32 @process_new_idbs(ptr noundef %0, ptr nocaptu
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr ptr, ptr %22, i64 %indvars.iv.i.us.us
   %24 = load ptr, ptr %23, align 8
-  %25 = call fastcc i32 @is_duplicate_idb(ptr noundef nonnull %17, ptr noundef %24), !range !14
+  %25 = call fastcc i32 @is_duplicate_idb(ptr noundef nonnull %17, ptr noundef %24)
   %.not.i.us.us = icmp eq i32 %25, 0
   br i1 %.not.i.us.us, label %29, label %26
 
@@ -1937,7 +1937,7 @@ define internal fastcc noundef i32 @process_new_idbs(ptr noundef %0, ptr nocaptu
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next.i.us.us, %33
-  br i1 %34, label %.lr.ph.i.us.us, label %find_duplicate_idb.exit.thread.us.us, !llvm.loop !17
+  br i1 %34, label %.lr.ph.i.us.us, label %find_duplicate_idb.exit.thread.us.us, !llvm.loop !16
 
 find_duplicate_idb.exit.thread.us.us:             ; preds = %29, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1980,7 +1980,7 @@ find_duplicate_idb.exit.thread.us.us:             ; preds = %29, %16
   %.pn.us.us = load ptr, ptr %13, align 8
   %53 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.us.us) #14
   %.not.us.us = icmp eq ptr %53, null
-  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %16, !llvm.loop !32
+  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %16, !llvm.loop !30
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph43 ]
@@ -2038,12 +2038,12 @@ add_idb_to_merged_file.exit.thread:               ; preds = %66, %42
   %.pn = load ptr, ptr %55, align 8
   %76 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn) #14
   %.not = icmp eq ptr %76, null
-  br i1 %.not, label %._crit_edge.split, label %find_duplicate_idb.exit.thread, !llvm.loop !32
+  br i1 %.not, label %._crit_edge.split, label %find_duplicate_idb.exit.thread, !llvm.loop !30
 
 ._crit_edge.split:                                ; preds = %68, %.lr.ph43.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count52
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph43.split, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph43.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %7, %add_idb_to_merged_file.exit.thread
   %.025 = phi i32 [ 0, %add_idb_to_merged_file.exit.thread ], [ 1, %7 ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
@@ -2112,14 +2112,14 @@ attributes #19 = { noreturn nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i32 0, i32 8}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
@@ -2129,5 +2129,3 @@ attributes #19 = { noreturn nounwind }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

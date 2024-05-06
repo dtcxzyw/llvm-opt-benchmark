@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lzma_vli_encode(i64 noundef %0, ptr noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_vli_encode(i64 noundef %0, ptr noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
   %7 = icmp eq ptr %1, null
@@ -52,7 +52,7 @@ define dso_local noundef i32 @lzma_vli_encode(i64 noundef %0, ptr noundef %1, pt
   br label %38
 
 31:                                               ; preds = %16
-  %32 = trunc i64 %.025 to i8
+  %32 = trunc nuw nsw i64 %.025 to i8
   %33 = getelementptr inbounds i8, ptr %2, i64 %18
   store i8 %32, ptr %33, align 1
   %34 = add i64 %18, 1

@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32i_smaldaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_smaldaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -139,32 +139,32 @@ define noundef i64 @_Z17fast_rv32i_smaldaP11processor_t6insn_tm(ptr nocapture no
   br label %.preheader
 
 .preheader:                                       ; preds = %29, %31
-  %.03660.ph = phi i64 [ 0, %29 ], [ %39, %31 ]
+  %.03661.ph = phi i64 [ 0, %29 ], [ %39, %31 ]
   br label %40
 
 40:                                               ; preds = %.preheader, %40
-  %.03660 = phi i64 [ %53, %40 ], [ %.03660.ph, %.preheader ]
+  %.03661 = phi i64 [ %53, %40 ], [ %.03661.ph, %.preheader ]
   %41 = phi i1 [ false, %40 ], [ true, %.preheader ]
-  %.03759 = phi i64 [ 16, %40 ], [ 0, %.preheader ]
-  %42 = shl nuw nsw i64 65535, %.03759
+  %.03760 = phi i64 [ 16, %40 ], [ 0, %.preheader ]
+  %42 = shl nuw nsw i64 65535, %.03760
   %43 = and i64 %42, %16
-  %44 = shl nuw nsw i64 131070, %.03759
+  %44 = shl nuw nsw i64 131070, %.03760
   %45 = xor i64 %44, -1
   %46 = and i64 %42, %45
-  %.lhs.trunc = trunc i64 %43 to i32
-  %.rhs.trunc = trunc i64 %46 to i32
+  %.lhs.trunc = trunc nuw i64 %43 to i32
+  %.rhs.trunc = trunc nuw i64 %46 to i32
   %47 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i32 %47 to i64
   %sext40 = shl i64 %.zext, 48
   %48 = ashr exact i64 %sext40, 48
   %49 = and i64 %42, %20
-  %.lhs.trunc56 = trunc i64 %49 to i32
-  %50 = udiv i32 %.lhs.trunc56, %.rhs.trunc
-  %.zext58 = zext i32 %50 to i64
-  %sext41 = shl i64 %.zext58, 48
+  %.lhs.trunc57 = trunc nuw i64 %49 to i32
+  %50 = udiv i32 %.lhs.trunc57, %.rhs.trunc
+  %.zext59 = zext i32 %50 to i64
+  %sext41 = shl i64 %.zext59, 48
   %51 = ashr exact i64 %sext41, 48
   %52 = mul nsw i64 %51, %48
-  %53 = add nsw i64 %52, %.03660
+  %53 = add nsw i64 %52, %.03661
   br i1 %41, label %40, label %54, !llvm.loop !4
 
 54:                                               ; preds = %40
@@ -274,7 +274,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %40, %41
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32i_smaldaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_smaldaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -337,32 +337,32 @@ define noundef i64 @_Z19logged_rv32i_smaldaP11processor_t6insn_tm(ptr noundef %0
   br label %.preheader
 
 .preheader:                                       ; preds = %29, %31
-  %.04382.ph = phi i64 [ 0, %29 ], [ %39, %31 ]
+  %.04383.ph = phi i64 [ 0, %29 ], [ %39, %31 ]
   br label %40
 
 40:                                               ; preds = %.preheader, %40
-  %.04382 = phi i64 [ %53, %40 ], [ %.04382.ph, %.preheader ]
+  %.04383 = phi i64 [ %53, %40 ], [ %.04383.ph, %.preheader ]
   %41 = phi i1 [ false, %40 ], [ true, %.preheader ]
-  %.04481 = phi i64 [ 16, %40 ], [ 0, %.preheader ]
-  %42 = shl nuw nsw i64 65535, %.04481
+  %.04482 = phi i64 [ 16, %40 ], [ 0, %.preheader ]
+  %42 = shl nuw nsw i64 65535, %.04482
   %43 = and i64 %42, %16
-  %44 = shl nuw nsw i64 131070, %.04481
+  %44 = shl nuw nsw i64 131070, %.04482
   %45 = xor i64 %44, -1
   %46 = and i64 %42, %45
-  %.lhs.trunc = trunc i64 %43 to i32
-  %.rhs.trunc = trunc i64 %46 to i32
+  %.lhs.trunc = trunc nuw i64 %43 to i32
+  %.rhs.trunc = trunc nuw i64 %46 to i32
   %47 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i32 %47 to i64
   %sext47 = shl i64 %.zext, 48
   %48 = ashr exact i64 %sext47, 48
   %49 = and i64 %42, %20
-  %.lhs.trunc76 = trunc i64 %49 to i32
-  %50 = udiv i32 %.lhs.trunc76, %.rhs.trunc
-  %.zext78 = zext i32 %50 to i64
-  %sext48 = shl i64 %.zext78, 48
+  %.lhs.trunc77 = trunc nuw i64 %49 to i32
+  %50 = udiv i32 %.lhs.trunc77, %.rhs.trunc
+  %.zext79 = zext i32 %50 to i64
+  %sext48 = shl i64 %.zext79, 48
   %51 = ashr exact i64 %sext48, 48
   %52 = mul nsw i64 %51, %48
-  %53 = add nsw i64 %52, %.04382
+  %53 = add nsw i64 %52, %.04383
   br i1 %41, label %40, label %54, !llvm.loop !7
 
 54:                                               ; preds = %40
@@ -631,7 +631,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32e_smaldaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_smaldaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -743,32 +743,32 @@ define noundef i64 @_Z17fast_rv32e_smaldaP11processor_t6insn_tm(ptr nocapture no
   br label %.preheader
 
 .preheader:                                       ; preds = %43, %53
-  %.04884.ph = phi i64 [ 0, %43 ], [ %61, %53 ]
+  %.04885.ph = phi i64 [ 0, %43 ], [ %61, %53 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %62
-  %.04884 = phi i64 [ %75, %62 ], [ %.04884.ph, %.preheader ]
+  %.04885 = phi i64 [ %75, %62 ], [ %.04885.ph, %.preheader ]
   %63 = phi i1 [ false, %62 ], [ true, %.preheader ]
-  %.04983 = phi i64 [ 16, %62 ], [ 0, %.preheader ]
-  %64 = shl nuw nsw i64 65535, %.04983
+  %.04984 = phi i64 [ 16, %62 ], [ 0, %.preheader ]
+  %64 = shl nuw nsw i64 65535, %.04984
   %65 = and i64 %64, %23
-  %66 = shl nuw nsw i64 131070, %.04983
+  %66 = shl nuw nsw i64 131070, %.04984
   %67 = xor i64 %66, -1
   %68 = and i64 %64, %67
-  %.lhs.trunc = trunc i64 %65 to i32
-  %.rhs.trunc = trunc i64 %68 to i32
+  %.lhs.trunc = trunc nuw i64 %65 to i32
+  %.rhs.trunc = trunc nuw i64 %68 to i32
   %69 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i32 %69 to i64
   %sext52 = shl i64 %.zext, 48
   %70 = ashr exact i64 %sext52, 48
   %71 = and i64 %64, %34
-  %.lhs.trunc80 = trunc i64 %71 to i32
-  %72 = udiv i32 %.lhs.trunc80, %.rhs.trunc
-  %.zext82 = zext i32 %72 to i64
-  %sext53 = shl i64 %.zext82, 48
+  %.lhs.trunc81 = trunc nuw i64 %71 to i32
+  %72 = udiv i32 %.lhs.trunc81, %.rhs.trunc
+  %.zext83 = zext i32 %72 to i64
+  %sext53 = shl i64 %.zext83, 48
   %73 = ashr exact i64 %sext53, 48
   %74 = mul nsw i64 %73, %70
-  %75 = add nsw i64 %74, %.04884
+  %75 = add nsw i64 %74, %.04885
   br i1 %63, label %62, label %76, !llvm.loop !10
 
 76:                                               ; preds = %62
@@ -928,7 +928,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %61, %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32e_smaldaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_smaldaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -1040,32 +1040,32 @@ define noundef i64 @_Z19logged_rv32e_smaldaP11processor_t6insn_tm(ptr noundef %0
   br label %.preheader
 
 .preheader:                                       ; preds = %43, %53
-  %.055106.ph = phi i64 [ 0, %43 ], [ %61, %53 ]
+  %.055107.ph = phi i64 [ 0, %43 ], [ %61, %53 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %62
-  %.055106 = phi i64 [ %75, %62 ], [ %.055106.ph, %.preheader ]
+  %.055107 = phi i64 [ %75, %62 ], [ %.055107.ph, %.preheader ]
   %63 = phi i1 [ false, %62 ], [ true, %.preheader ]
-  %.056105 = phi i64 [ 16, %62 ], [ 0, %.preheader ]
-  %64 = shl nuw nsw i64 65535, %.056105
+  %.056106 = phi i64 [ 16, %62 ], [ 0, %.preheader ]
+  %64 = shl nuw nsw i64 65535, %.056106
   %65 = and i64 %64, %23
-  %66 = shl nuw nsw i64 131070, %.056105
+  %66 = shl nuw nsw i64 131070, %.056106
   %67 = xor i64 %66, -1
   %68 = and i64 %64, %67
-  %.lhs.trunc = trunc i64 %65 to i32
-  %.rhs.trunc = trunc i64 %68 to i32
+  %.lhs.trunc = trunc nuw i64 %65 to i32
+  %.rhs.trunc = trunc nuw i64 %68 to i32
   %69 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i32 %69 to i64
   %sext59 = shl i64 %.zext, 48
   %70 = ashr exact i64 %sext59, 48
   %71 = and i64 %64, %34
-  %.lhs.trunc100 = trunc i64 %71 to i32
-  %72 = udiv i32 %.lhs.trunc100, %.rhs.trunc
-  %.zext102 = zext i32 %72 to i64
-  %sext60 = shl i64 %.zext102, 48
+  %.lhs.trunc101 = trunc nuw i64 %71 to i32
+  %72 = udiv i32 %.lhs.trunc101, %.rhs.trunc
+  %.zext103 = zext i32 %72 to i64
+  %sext60 = shl i64 %.zext103, 48
   %73 = ashr exact i64 %sext60, 48
   %74 = mul nsw i64 %73, %70
-  %75 = add nsw i64 %74, %.055106
+  %75 = add nsw i64 %74, %.055107
   br i1 %63, label %62, label %76, !llvm.loop !12
 
 76:                                               ; preds = %62

@@ -90,7 +90,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   %i.015.us.us = phi i32 [ %i.0.us.us, %if.end.us.us ], [ %i.011, %while.body.lr.ph.split.us ]
   %9 = zext nneg i32 %8 to i64
   %gep.us.us = getelementptr %struct.object_entry, ptr %invariant.gep, i64 %9
-  %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %gep.us.us, i64 32)
+  %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %gep.us.us, i64 32)
   %retval.0.in.i.i.not.us.us = icmp eq i32 %bcmp3.i.i.us.us, 0
   br i1 %retval.0.in.i.i.not.us.us, label %return, label %if.end.us.us
 
@@ -108,7 +108,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
   %i.015.us = phi i32 [ %i.0.us, %if.end.us ], [ %i.011, %while.body.lr.ph.split.us ]
   %12 = zext nneg i32 %11 to i64
   %gep.us = getelementptr %struct.object_entry, ptr %invariant.gep, i64 %12
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %gep.us, i64 20)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %gep.us, i64 20)
   %retval.0.in.i.i.not.us = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %retval.0.in.i.i.not.us, label %return, label %if.end.us
 
@@ -133,7 +133,7 @@ while.body.us22:                                  ; preds = %while.body.lr.ph.sp
   %i.015.us23 = phi i32 [ %i.0.us32, %if.end.us30 ], [ %i.011, %while.body.lr.ph.split ]
   %16 = zext nneg i32 %15 to i64
   %gep.us24 = getelementptr %struct.object_entry, ptr %invariant.gep, i64 %16
-  %bcmp3.i.i.us26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %gep.us24, i64 32)
+  %bcmp3.i.i.us26 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %gep.us24, i64 32)
   %retval.0.in.i.i.not.us29 = icmp eq i32 %bcmp3.i.i.us26, 0
   br i1 %retval.0.in.i.i.not.us29, label %return, label %if.end.us30
 
@@ -151,7 +151,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   %i.015 = phi i32 [ %i.0, %if.end ], [ %i.011, %while.body.lr.ph.split ]
   %19 = zext nneg i32 %18 to i64
   %gep = getelementptr %struct.object_entry, ptr %invariant.gep, i64 %19
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %gep, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %gep, i64 20)
   %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %return, label %if.end
 
@@ -276,7 +276,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   %index.i = getelementptr inbounds i8, ptr %p.015.i, i64 148
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %1, ptr %index.i, align 4
   %arrayidx5.i = getelementptr inbounds ptr, ptr %call1.i, i64 %indvars.iv.i
   store ptr %p.015.i, ptr %arrayidx5.i, align 8
@@ -434,8 +434,8 @@ if.end38:                                         ; preds = %if.then31, %if.end2
 if.then40:                                        ; preds = %if.end38
   %14 = load i32, ptr %nr_alloc, align 4
   %conv43 = zext i32 %14 to i64
-  %mul.i62 = shl nuw nsw i64 %conv43, 2
-  %call45 = tail call ptr @xrealloc(ptr noundef nonnull %13, i64 noundef %mul.i62) #12
+  %mul.i63 = shl nuw nsw i64 %conv43, 2
+  %call45 = tail call ptr @xrealloc(ptr noundef nonnull %13, i64 noundef %mul.i63) #12
   store ptr %call45, ptr %cruft_mtime, align 8
   br label %if.end48
 
@@ -448,7 +448,7 @@ if.end48:                                         ; preds = %if.end38, %if.then4
   %idx.ext = zext i32 %16 to i64
   %add.ptr = getelementptr inbounds %struct.object_entry, ptr %15, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, i8 0, i64 96, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %17 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -463,8 +463,8 @@ if.end48:                                         ; preds = %if.end38, %if.then4
 
 if.then57:                                        ; preds = %if.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i)
-  %mul.i63 = mul i32 %19, 3
-  %sub.i.i = add i32 %mul.i63, -1
+  %mul.i64 = mul i32 %19, 3
+  %sub.i.i = add i32 %mul.i64, -1
   %shr.i.i = lshr i32 %sub.i.i, 1
   %or.i.i = or i32 %shr.i.i, %sub.i.i
   %shr1.i.i = lshr i32 %or.i.i, 2
@@ -644,7 +644,7 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   %idxprom = zext i32 %4 to i64
   %arrayidx = getelementptr inbounds %struct.object_entry, ptr %5, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayidx, i8 0, i64 96, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %6 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %arrayidx, i64 32

@@ -358,7 +358,7 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %82, %.lr.ph133
   %93 = zext i32 %92 to i64
   %94 = mul nuw nsw i64 %93, %89
   %95 = lshr i64 %94, 32
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw nsw i64 %95 to i32
   %97 = add nuw nsw i32 %88, %96
   %98 = getelementptr inbounds i8, ptr %91, i64 4
   %99 = load i32, ptr %98, align 4
@@ -400,7 +400,7 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %82, %.lr.ph133
   %119 = trunc i32 %104 to i8
   store i8 %119, ptr %117, align 1
   %120 = lshr i32 %118, 8
-  %121 = trunc i32 %120 to i8
+  %121 = trunc nuw i32 %120 to i8
   %122 = getelementptr inbounds i8, ptr %117, i64 1
   store i8 %121, ptr %122, align 1
   %123 = add nsw i32 %.sroa.6.1, 2
@@ -421,7 +421,7 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %82, %.lr.ph133
   %133 = getelementptr inbounds i8, ptr %128, i64 1
   store i8 %132, ptr %133, align 1
   %134 = lshr i32 %129, 16
-  %135 = trunc i32 %134 to i8
+  %135 = trunc nuw i32 %134 to i8
   %136 = getelementptr inbounds i8, ptr %128, i64 2
   store i8 %135, ptr %136, align 1
   %137 = add nsw i32 %.sroa.6.1, 3

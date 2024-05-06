@@ -183,8 +183,8 @@ entry:
   %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %3 = load i32, ptr %y3.i, align 4
   %conv14 = sext i32 %2 to i64
-  %.sroa.speculated14 = tail call i64 @llvm.smin.i64(i64 %sub, i64 %conv14)
-  %conv16 = trunc i64 %.sroa.speculated14 to i32
+  %.sroa.speculated15 = tail call i64 @llvm.smin.i64(i64 %sub, i64 %conv14)
+  %conv16 = trunc i64 %.sroa.speculated15 to i32
   %conv19 = sext i32 %3 to i64
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub11, i64 %conv19)
   %conv21 = trunc i64 %.sroa.speculated to i32
@@ -308,7 +308,7 @@ for.cond14.for.inc24_crit_edge:                   ; preds = %for.body17
 
 for.inc28:                                        ; preds = %for.cond14.for.inc24_crit_edge, %for.body12.lr.ph, %for.body
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.023) #12
-  %indvars.iv.next35 = add nuw i64 %indvars.iv34, 1
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %call3 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %call)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i, %call3
   br i1 %cmp.i.i.i.not, label %for.end31, label %for.body, !llvm.loop !8
@@ -584,7 +584,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZN7Imf_3_212_GLOBA
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i.i = shl nuw i32 1, %20
   %div.i.i = sdiv i32 %add.i.i, %shl.i.i
   %mul4.i.i = shl i32 %div.i.i, %20
@@ -627,7 +627,7 @@ for.body.lr.ph.i87:                               ; preds = %_ZN7Imf_3_212_GLOBA
 
 for.body.i94:                                     ; preds = %for.body.i94, %for.body.lr.ph.i87
   %indvars.iv.i95 = phi i64 [ 0, %for.body.lr.ph.i87 ], [ %indvars.iv.next.i109, %for.body.i94 ]
-  %25 = trunc i64 %indvars.iv.i95 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i95 to i32
   %shl.i.i96 = shl nuw i32 1, %25
   %div.i.i97 = sdiv i32 %add.i.i89, %shl.i.i96
   %mul4.i.i98 = shl i32 %div.i.i97, %25
@@ -865,7 +865,7 @@ delete.notnull52:                                 ; preds = %delete.end
   br label %delete.end53
 
 delete.end53:                                     ; preds = %delete.notnull52, %delete.end
-  %conv54 = trunc i64 %lineOffsetSize.354 to i32
+  %conv54 = trunc nuw i64 %lineOffsetSize.354 to i32
   ret i32 %conv54
 
 lpad61:                                           ; preds = %delete.end60

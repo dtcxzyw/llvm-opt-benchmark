@@ -169,7 +169,7 @@ do.end32:                                         ; preds = %if.then26, %if.end1
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @evwatch_prepare_get_timeout(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %timeout) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @evwatch_prepare_get_timeout(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %timeout) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %tobool.not = icmp eq ptr %0, null

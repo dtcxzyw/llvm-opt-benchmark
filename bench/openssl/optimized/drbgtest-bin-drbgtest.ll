@@ -125,7 +125,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @test_rand_reseed() #0 {
 entry:
   %rand_add_buf = alloca [256 x i8], align 16
-  %call = tail call fastcc i32 @using_fips_rng(), !range !5
+  %call = tail call fastcc i32 @using_fips_rng()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end83, %if.end45
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rand_fork_safety(i32 %i) #0 {
+define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %i) #0 {
 entry:
   %status.i.i = alloca i32, align 4
   %fd.i.i = alloca [2 x i32], align 4
@@ -299,7 +299,7 @@ if.end:                                           ; preds = %lor.lhs.false5
 for.cond.i:                                       ; preds = %test_drbg_reseed_in_child.exit.i
   %inc.i = add nuw nsw i32 %i.041.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 10
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end
   %result.pn42.i = phi ptr [ %result.i, %if.end ], [ %presult.043.i, %for.cond.i ]
@@ -365,13 +365,13 @@ if.then26.i.i:                                    ; preds = %land.lhs.true17.i.i
   store i32 %call2.i.i, ptr %pid28.i.i, align 4
   %private30.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 104
   store i32 0, ptr %private30.i.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %presult.043.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %presult.043.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 120
   %pid36.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 140
   store i32 %call2.i.i, ptr %pid36.i.i, align 4
   %private38.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 144
   store i32 1, ptr %private38.i.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx42.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx35.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx42.i.i, i64 16, i1 false)
   br label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then26.i.i, %land.lhs.true17.i.i, %land.lhs.true.i.i, %if.then9.i.i
@@ -452,7 +452,7 @@ for.body57.i:                                     ; preds = %for.body57.i, %if.e
   %add.ptr61.i = getelementptr inbounds i8, ptr %psample.045.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond55.not.i, label %for.end64.i, label %for.body57.i, !llvm.loop !8
+  br i1 %exitcond55.not.i, label %for.end64.i, label %for.body57.i, !llvm.loop !7
 
 for.end64.i:                                      ; preds = %for.body57.i
   call void @qsort(ptr noundef nonnull %result.i, i64 noundef 20, i64 noundef 40, ptr noundef nonnull @compare_drbg_fork_result) #14
@@ -480,7 +480,7 @@ if.then82.i:                                      ; preds = %for.body69.i
 for.inc90.i:                                      ; preds = %if.then82.i, %for.body69.i
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, 20
-  br i1 %exitcond60.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !9
+  br i1 %exitcond60.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !8
 
 for.end92.i:                                      ; preds = %for.inc90.i
   %13 = load i32, ptr %duplicate.i, align 8
@@ -518,7 +518,7 @@ for.body113.i:                                    ; preds = %for.body113.i, %if.
   %spec.select.i = add nuw nsw i32 %15, %inc120.i
   %add.i = add nuw nsw i32 %i.348.i, 2
   %cmp111.i = icmp ult i32 %i.348.i, 318
-  br i1 %cmp111.i, label %for.body113.i, label %for.end124.i, !llvm.loop !10
+  br i1 %cmp111.i, label %for.body113.i, label %for.end124.i, !llvm.loop !9
 
 for.end124.i:                                     ; preds = %for.body113.i
   %cmp126.i = icmp ugt i32 %spec.select.i, 7
@@ -552,7 +552,7 @@ for.body137.i:                                    ; preds = %for.body137.i, %for
   call void @CRYPTO_free(ptr noundef %call142.i, ptr noundef nonnull @.str.4, i32 noundef 518) #14
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 20
-  br i1 %exitcond64.not.i, label %test_rand_reseed_on_fork.exit, label %for.body137.i, !llvm.loop !11
+  br i1 %exitcond64.not.i, label %test_rand_reseed_on_fork.exit, label %for.body137.i, !llvm.loop !10
 
 test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %for.body137.i, %for.end.i, %if.end130.i
   %retval.0.i = phi i32 [ 0, %for.end.i ], [ %success.1.i, %if.end130.i ], [ %success.268.i, %for.body137.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
@@ -587,7 +587,7 @@ define internal i32 @test_rand_prediction_resistance() #0 {
 entry:
   %buf1 = alloca [51 x i8], align 16
   %buf2 = alloca [51 x i8], align 16
-  %call = tail call fastcc i32 @using_fips_rng(), !range !5
+  %call = tail call fastcc i32 @using_fips_rng()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -807,7 +807,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_thread() #0 {
+define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 entry:
   %t = alloca [3 x i64], align 16
   br label %for.body
@@ -818,7 +818,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = call i32 @pthread_create(ptr noundef nonnull %arrayidx, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef null) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   call fastcc void @run_multi_thread_test()
@@ -831,7 +831,7 @@ for.body3:                                        ; preds = %for.end, %for.body3
   %call.i7 = call i32 @pthread_join(i64 noundef %0, ptr noundef null) #14
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 3
-  br i1 %exitcond16.not, label %for.end9, label %for.body3, !llvm.loop !13
+  br i1 %exitcond16.not, label %for.end9, label %for.body3, !llvm.loop !12
 
 for.end9:                                         ; preds = %for.body3
   %.b = load i1, ptr @multi_thread_rand_bytes_succeeded, align 4
@@ -856,7 +856,7 @@ return:                                           ; preds = %if.end, %for.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @using_fips_rng() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @using_fips_rng() unnamed_addr #0 {
 entry:
   %call = tail call ptr @RAND_get0_primary(ptr noundef null) #14
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 144, ptr noundef nonnull @.str.13, ptr noundef %call) #14
@@ -905,7 +905,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @EVP_RAND_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_drbg_reseed(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
 entry:
   %params.i.i60 = alloca [2 x %struct.ossl_param_st], align 16
   %n.i.i61 = alloca i32, align 4
@@ -1565,7 +1565,7 @@ do.cond:                                          ; preds = %rand_priv_bytes.exi
   %call27 = call i64 @time(ptr noundef null) #14
   %sub = sub nsw i64 %call27, %call
   %cmp28 = icmp slt i64 %sub, 5
-  br i1 %cmp28, label %do.body, label %do.end, !llvm.loop !14
+  br i1 %cmp28, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond, %if.then
   ret void
@@ -1622,13 +1622,12 @@ attributes #16 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

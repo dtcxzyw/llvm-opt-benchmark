@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @methods_biop) #7
   %cmp = icmp eq ptr %call1, null
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_ctrl_reset_read_request(ptr noundef %bio) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_ctrl_reset_read_request(ptr noundef %bio) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 147, i64 noundef 0, ptr noundef null) #7
   %cmp = icmp ne i64 %call, 0
@@ -762,7 +762,7 @@ sw.epilog:                                        ; preds = %if.end6.i57, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bio_new(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @bio_new(ptr nocapture noundef writeonly %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 78) #7
   %cmp = icmp eq ptr %call, null
@@ -781,7 +781,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bio_free(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @bio_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

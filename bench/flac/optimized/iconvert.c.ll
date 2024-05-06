@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @iconvert(ptr noundef %fromcode, ptr noundef %tocode, ptr noundef %from, i64 noundef %fromlen, ptr noundef writeonly %to, ptr noundef writeonly %tolen) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 3) i32 @iconvert(ptr noundef %fromcode, ptr noundef %tocode, ptr noundef %from, i64 noundef %fromlen, ptr noundef writeonly %to, ptr noundef writeonly %tolen) local_unnamed_addr #0 {
 entry:
   %ib = alloca ptr, align 8
   %ob = alloca ptr, align 8
@@ -315,7 +315,7 @@ while.end:                                        ; preds = %if.end132, %for.con
 
 safe_malloc_add_2op_.exit:                        ; preds = %while.end
   %add.i89 = add nuw i64 %add144, 1
-  %call.i.i = call noalias ptr @malloc(i64 noundef %add.i89) #9
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i89) #9
   %tobool146.not = icmp eq ptr %call.i.i, null
   br i1 %tobool146.not, label %fail, label %while.body151.preheader
 

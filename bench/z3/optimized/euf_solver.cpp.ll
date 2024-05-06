@@ -6494,7 +6494,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3euf6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(9136) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3euf6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(9136) %this) unnamed_addr #3 align 2 {
 entry:
   %give_up = alloca i8, align 1
   %cont = alloca i8, align 1
@@ -7926,8 +7926,8 @@ if.then108:                                       ; preds = %invoke.cont106
   %62 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %62 to i64
   %add.ptr.i110.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %63 = getelementptr i8, ptr %61, i64 %add.ptr.i110.idx
-  %add.ptr.i110.ptr = getelementptr i8, ptr %63, i64 32
+  %63 = getelementptr inbounds i8, ptr %61, i64 %add.ptr.i110.idx
+  %add.ptr.i110.ptr = getelementptr inbounds i8, ptr %63, i64 32
   %cmp118.not202 = icmp eq i32 %62, 0
   br i1 %cmp118.not202, label %if.end127, label %for.body119.preheader
 
@@ -8464,8 +8464,8 @@ sw.bb98:                                          ; preds = %_ZNK3app13get_decl_
   %18 = load i32, ptr %m_num_args.i89, align 8
   %idx.ext.i = zext i32 %18 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %19 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %19, i64 32
+  %19 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %19, i64 32
   %cmp104.not303 = icmp eq i32 %18, 0
   br i1 %cmp104.not303, label %for.end136.thread, label %for.body.preheader
 
@@ -8655,8 +8655,8 @@ sw.bb146:                                         ; preds = %_ZNK3app13get_decl_
   %44 = load i32, ptr %m_num_args.i124, align 8
   %idx.ext.i125 = zext i32 %44 to i64
   %add.ptr.i126.idx = shl nuw nsw i64 %idx.ext.i125, 3
-  %45 = getelementptr i8, ptr %e, i64 %add.ptr.i126.idx
-  %add.ptr.i126.ptr = getelementptr i8, ptr %45, i64 32
+  %45 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i126.idx
+  %add.ptr.i126.ptr = getelementptr inbounds i8, ptr %45, i64 32
   %cmp159.not299 = icmp eq i32 %44, 0
   br i1 %cmp159.not299, label %if.then.i166, label %for.body160.preheader
 
@@ -14909,7 +14909,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

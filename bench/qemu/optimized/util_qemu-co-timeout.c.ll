@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_timeout, ptr @.str.2, ptr @.str.3, i32 57, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_timeout_entry, ptr @.str.2, ptr @.str.3, i32 38, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_sleep_ns_wakeable, ptr @.str.2, ptr @.str.4, i32 232, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_co_timeout(ptr noundef %entry1, ptr noundef %opaque, i64 noundef %timeout_ns, ptr noundef %clean) #0 {
+define dso_local range(i32 -110, 1) i32 @qemu_co_timeout(ptr noundef %entry1, ptr noundef %opaque, i64 noundef %timeout_ns, ptr noundef %clean) #0 {
 entry:
   %cmp = icmp eq i64 %timeout_ns, 0
   br i1 %cmp, label %if.then, label %if.end

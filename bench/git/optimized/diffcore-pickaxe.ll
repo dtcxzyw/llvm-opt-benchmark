@@ -202,7 +202,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %11 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %call.i37 = call fastcc i32 @pickaxe_match(ptr noundef %12, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef %fn.0)
+  %call.i37 = call fastcc i32 @pickaxe_match(ptr noundef %12, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef readonly %fn.0)
   %tobool3.not.i = icmp eq i32 %call.i37, 0
   br i1 %tobool3.not.i, label %for.cond.i, label %pickaxe.exit
 
@@ -223,7 +223,7 @@ for.body18.i:                                     ; preds = %for.cond15.preheade
   %17 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx22.i = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv13.i
   %18 = load ptr, ptr %arrayidx22.i, align 8
-  %call23.i = call fastcc i32 @pickaxe_match(ptr noundef %18, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef %fn.0)
+  %call23.i = call fastcc i32 @pickaxe_match(ptr noundef %18, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef readonly %fn.0)
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %if.else26.i, label %if.then25.i
 
@@ -303,7 +303,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @has_changes(ptr noundef readonly %one, ptr noundef readonly %two, ptr nocapture readnone %o, ptr noundef %regexp, ptr noundef %kws) #0 {
+define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly %one, ptr noundef readonly %two, ptr nocapture readnone %o, ptr noundef %regexp, ptr noundef %kws) #0 {
 entry:
   %regmatch.i8 = alloca %struct.regmatch_t, align 4
   %kwsm.i9 = alloca %struct.kwsmatch, align 8
@@ -582,7 +582,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare i32 @xdi_diff_outf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diffgrep_consume(ptr nocapture noundef %priv, ptr noundef %line, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @diffgrep_consume(ptr nocapture noundef %priv, ptr noundef %line, i64 noundef %len) #0 {
 entry:
   %regmatch = alloca %struct.regmatch_t, align 4
   %0 = load i8, ptr %line, align 1

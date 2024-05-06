@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [4 x i8] c"T02\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @use_gdb_syscalls() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @use_gdb_syscalls() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @semihosting_get_target() #5
   switch i32 %call, label %if.end3 [

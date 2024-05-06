@@ -28,7 +28,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @iova_tree_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %data) #3 {
+define internal range(i32 -1, 2) i32 @iova_tree_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %data) #3 {
 entry:
   %0 = load i64, ptr %a, align 1
   %1 = load i64, ptr %b, align 1
@@ -79,7 +79,7 @@ entry:
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @iova_tree_find_address_iterator(ptr noundef %key, ptr noundef readnone %value, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @iova_tree_find_address_iterator(ptr noundef %key, ptr noundef readnone %value, ptr nocapture noundef %data) #0 {
 entry:
   %cmp = icmp eq ptr %key, %value
   br i1 %cmp, label %do.end, label %if.else
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @iova_tree_insert(ptr nocapture noundef readonly %tree, ptr noundef %map) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @iova_tree_insert(ptr nocapture noundef readonly %tree, ptr noundef %map) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %map, align 1
   %size = getelementptr inbounds i8, ptr %map, i64 16
@@ -213,7 +213,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @g_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @iova_tree_alloc_map(ptr nocapture noundef readonly %tree, ptr noundef %map, i64 noundef %iova_begin, i64 noundef %iova_last) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @iova_tree_alloc_map(ptr nocapture noundef readonly %tree, ptr noundef %map, i64 noundef %iova_begin, i64 noundef %iova_last) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.IOVATreeAllocArgs, align 8
   %size = getelementptr inbounds i8, ptr %map, i64 16
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @iova_tree_alloc_traverse(ptr noundef readnone %key, ptr noundef %value, ptr nocapture noundef %pargs) #0 {
+define internal range(i32 0, 2) i32 @iova_tree_alloc_traverse(ptr noundef readnone %key, ptr noundef %value, ptr nocapture noundef %pargs) #0 {
 entry:
   %cmp = icmp eq ptr %key, %value
   br i1 %cmp, label %if.end, label %if.else

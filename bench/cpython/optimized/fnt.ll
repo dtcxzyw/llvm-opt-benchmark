@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_free = external hidden local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @std_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @std_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_mpd_init_fnt_params(i64 noundef %n, i32 noundef -1, i32 noundef %modnum) #2
   %cmp = icmp eq ptr %call, null
@@ -28,7 +28,7 @@ declare hidden ptr @_mpd_init_fnt_params(i64 noundef, i32 noundef, i32 noundef) 
 declare hidden void @fnt_dif2(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @std_inv_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @std_inv_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_mpd_init_fnt_params(i64 noundef %n, i32 noundef 1, i32 noundef %modnum) #2
   %cmp = icmp eq ptr %call, null

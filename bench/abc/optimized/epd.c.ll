@@ -25,7 +25,7 @@ define noalias noundef ptr @EpdAlloc() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EpdCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp une double %3, %4
@@ -184,7 +184,7 @@ EpdGetValueAndDecimalExponent.exit:               ; preds = %15, %19, %29, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @IsNanDouble(double noundef %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @IsNanDouble(double noundef %0) local_unnamed_addr #6 {
   %2 = bitcast double %0 to i64
   %or.cond = icmp ugt i64 %2, -4503599627370497
   %3 = and i64 %2, 4503599627370495
@@ -198,7 +198,7 @@ define noundef i32 @IsNanDouble(double noundef %0) local_unnamed_addr #6 {
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @IsInfDouble(double noundef %0) local_unnamed_addr #6 {
+define noundef range(i32 -1, 2) i32 @IsInfDouble(double noundef %0) local_unnamed_addr #6 {
   %2 = bitcast double %0 to i64
   %3 = tail call double @llvm.fabs.f64(double %0)
   %or.cond6 = fcmp oeq double %3, 0x7FF0000000000000
@@ -297,7 +297,7 @@ define void @EpdConvert(double noundef %0, ptr nocapture noundef writeonly %1) l
 
 6:                                                ; preds = %2
   %7 = lshr i64 %.cast, 52
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = and i32 %8, 2047
   %10 = icmp eq i32 %9, 1023
   br i1 %10, label %EpdNormalize.exit, label %11
@@ -331,7 +331,7 @@ define void @EpdNormalize(ptr nocapture noundef %0) local_unnamed_addr #9 {
 
 7:                                                ; preds = %1
   %8 = lshr i64 %2, 52
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %10 = and i32 %9, 2047
   %11 = icmp eq i32 %10, 1023
   br i1 %11, label %19, label %12
@@ -402,7 +402,7 @@ EpdConvert.exit:                                  ; preds = %13
 
 23:                                               ; preds = %20
   %24 = lshr i64 %8, 52
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = and i32 %25, 2047
   %27 = icmp eq i32 %26, 1023
   br i1 %27, label %EpdConvert.exit25, label %28
@@ -431,7 +431,7 @@ EpdConvert.exit25:                                ; preds = %20, %23, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EpdIsNan(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsNan(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %or.cond.i = icmp ugt i64 %2, -4503599627370497
   %3 = and i64 %2, 4503599627370495
@@ -450,7 +450,7 @@ define void @EpdMakeNan(ptr nocapture noundef writeonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EpdIsInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @EpdIsInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8
   %3 = bitcast double %2 to i64
   %4 = tail call double @llvm.fabs.f64(double %2)
@@ -844,7 +844,7 @@ EpdConvert.exit:                                  ; preds = %13
 
 44:                                               ; preds = %41
   %45 = lshr i64 %8, 52
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw nsw i64 %45 to i32
   %47 = and i32 %46, 2047
   %48 = icmp eq i32 %47, 1023
   br i1 %48, label %EpdConvert.exit46, label %49
@@ -1099,7 +1099,7 @@ define void @EpdAdd(ptr nocapture noundef %0, double noundef %1) local_unnamed_a
 
 19:                                               ; preds = %18
   %20 = lshr i64 %8, 52
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = and i32 %21, 2047
   %23 = icmp eq i32 %22, 1023
   br i1 %23, label %EpdConvert.exit, label %24
@@ -1145,7 +1145,7 @@ EpdConvert.exit:                                  ; preds = %18, %19, %24
 
 39:                                               ; preds = %38
   %40 = lshr i64 %8, 52
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 2047
   %43 = icmp eq i32 %42, 1023
   br i1 %43, label %EpdConvert.exit61, label %44
@@ -1505,7 +1505,7 @@ define void @EpdSubtract(ptr nocapture noundef %0, double noundef %1) local_unna
 
 19:                                               ; preds = %18
   %20 = lshr i64 %8, 52
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = and i32 %21, 2047
   %23 = icmp eq i32 %22, 1023
   br i1 %23, label %EpdConvert.exit, label %24
@@ -1551,7 +1551,7 @@ EpdConvert.exit:                                  ; preds = %18, %19, %24
 
 40:                                               ; preds = %39
   %41 = lshr i64 %8, 52
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = and i32 %42, 2047
   %44 = icmp eq i32 %43, 1023
   br i1 %44, label %EpdConvert.exit60, label %45
@@ -1881,7 +1881,7 @@ define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_u
 
 10:                                               ; preds = %6
   %11 = lshr i64 %.cast.i, 52
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 2047
   %14 = icmp eq i32 %13, 1023
   br i1 %14, label %EpdConvert.exit, label %15
@@ -1957,7 +1957,7 @@ define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_u
 
 51:                                               ; preds = %39
   %52 = lshr i64 %47, 52
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw nsw i64 %52 to i32
   %54 = and i32 %53, 2047
   %55 = icmp eq i32 %54, 1023
   br i1 %55, label %EpdConvert.exit, label %56
@@ -2103,7 +2103,7 @@ EpdNormalizeDecimal.exit:                         ; preds = %25, %32, %10, %40, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @IsNanOrInfDouble(double noundef %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @IsNanOrInfDouble(double noundef %0) local_unnamed_addr #6 {
   %2 = bitcast double %0 to i64
   %3 = and i64 %2, 9221120237041090559
   %or.cond7 = icmp eq i64 %3, 9218868437227405312
@@ -2115,10 +2115,10 @@ define noundef i32 @IsNanOrInfDouble(double noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @EpdGetExponent(double noundef %0) local_unnamed_addr #6 {
+define range(i32 0, 2048) i32 @EpdGetExponent(double noundef %0) local_unnamed_addr #6 {
   %2 = bitcast double %0 to i64
   %3 = lshr i64 %2, 52
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %5 = and i32 %4, 2047
   ret i32 %5
 }
@@ -2135,7 +2135,7 @@ define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EpdIsNanOrInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsNanOrInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 9221120237041090559
   %or.cond7.i = icmp eq i64 %3, 9218868437227405312
@@ -2147,7 +2147,7 @@ define i32 @EpdIsNanOrInf(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EpdIsZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp oeq double %2, 0.000000e+00
   %. = zext i1 %3 to i32

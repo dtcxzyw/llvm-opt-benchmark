@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_user_backend_dev_init(ptr noundef %b, ptr noundef %vdev, i32 noundef %nvqs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vhost_user_backend_dev_init(ptr noundef %b, ptr noundef %vdev, i32 noundef %nvqs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %vdev1 = getelementptr inbounds i8, ptr %b, i64 768
   %0 = load ptr, ptr %vdev1, align 8

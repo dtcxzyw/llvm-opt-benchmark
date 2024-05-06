@@ -826,14 +826,14 @@ _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit: ; preds = %_ZN11hb_vecto
   %30 = shl nuw nsw i64 %conv.i.i.i.i.i.i, 9
   %31 = shl nuw nsw i64 %conv4.i.i.i.i.i.i, 1
   %mul.i.i.i.i = or disjoint i64 %31, %30
-  %32 = getelementptr i8, ptr %subTable.i.i, i64 %mul.i.i.i.i
+  %32 = getelementptr inbounds i8, ptr %subTable.i.i, i64 %mul.i.i.i.i
   %arrayidx3.i.i.i.i48 = getelementptr inbounds i8, ptr %25, i64 3
   %33 = load i8, ptr %arrayidx3.i.i.i.i48, align 1
   %34 = and i8 %33, 16
   %tobool.not.i.i = icmp eq i8 %34, 0
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
   %retval.0.in.v.v.v.i.i = select i1 %tobool.not.i.i, i64 2, i64 4
-  %retval.0.in.v.v.i.i = getelementptr i8, ptr %32, i64 %retval.0.in.v.v.v.i.i
+  %retval.0.in.v.v.i.i = getelementptr inbounds i8, ptr %32, i64 %retval.0.in.v.v.v.i.i
   %retval.0.in.v.i.i = ptrtoint ptr %retval.0.in.v.v.i.i to i64
   %retval.0.in.i.i = sub i64 %retval.0.in.v.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i = and i64 %retval.0.in.i.i, 4294967295
@@ -1031,7 +1031,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %mul = shl i32 %.sroa.speculated, 1
   %add5 = add i32 %mul, 8
   %tobool.not.i = icmp eq i32 %add5, 0
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %add5, i1 true), !range !27
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add5, i1 true)
   %narrow.i = sub nuw nsw i32 32, %3
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %shl = shl nuw i32 1, %retval.0.i
@@ -1052,7 +1052,7 @@ if.end12:                                         ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.end12
   %conv.i = and i64 %mul7, 4294967280
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %conv.i, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -1079,7 +1079,7 @@ _ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit: ; preds = %_ZL9hb_mem
   %retval.0.i20 = phi i32 [ %7, %if.end.i19 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %prime = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %retval.0.i20, ptr %prime, align 8
-  %call6.tr = trunc i32 %retval.0.i to i16
+  %call6.tr = trunc nuw nsw i32 %retval.0.i to i16
   %conv22 = shl nuw nsw i16 %call6.tr, 1
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   store i16 %conv22, ptr %max_chain_length, align 2
@@ -1112,7 +1112,7 @@ if.then26:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %6) #11
@@ -1196,7 +1196,7 @@ if.end13:                                         ; preds = %while.body
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %9 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %9, 0
-  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !29
+  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.end13, %if.then10
   %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
@@ -1325,7 +1325,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i
 while.body.i.i:                                   ; preds = %if.end.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %6, %old_index
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i, !llvm.loop !30
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i, !llvm.loop !29
 
 if.then.i.i:                                      ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %bf.load.i18.i.lcssa.i = phi i32 [ %bf.load.i13.i.i, %while.body.lr.ph.i.i ], [ %bf.load.i.i.i, %while.body.i.i ]
@@ -1346,7 +1346,7 @@ if.end.i.i:                                       ; preds = %while.body.lr.ph.i.
   %bf.load.i.i.i = load i32, ptr %is_used_.i.i.i, align 4
   %8 = and i32 %bf.load.i.i.i, 2
   %tobool.i.not.i.i = icmp eq i32 %8, 0
-  br i1 %tobool.i.not.i.i, label %if.end21, label %while.body.i.i, !llvm.loop !30
+  br i1 %tobool.i.not.i.i, label %if.end21, label %while.body.i.i, !llvm.loop !29
 
 if.then7:                                         ; preds = %if.then.i.i
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %1, i64 %7, i32 2
@@ -1389,7 +1389,7 @@ while.body.lr.ph.i.i17:                           ; preds = %if.end.i6
 while.body.i.i28:                                 ; preds = %if.end.i.i19
   %17 = load i32, ptr %arrayidx.i.i24, align 4
   %cmp.i.i.i29 = icmp eq i32 %17, %old_index
-  br i1 %cmp.i.i.i29, label %if.then.i.i30, label %if.end.i.i19, !llvm.loop !30
+  br i1 %cmp.i.i.i29, label %if.then.i.i30, label %if.end.i.i19, !llvm.loop !29
 
 if.then.i.i30:                                    ; preds = %while.body.i.i28, %while.body.lr.ph.i.i17
   %bf.load.i18.i.lcssa.i31 = phi i32 [ %bf.load.i13.i.i15, %while.body.lr.ph.i.i17 ], [ %bf.load.i.i.i26, %while.body.i.i28 ]
@@ -1410,7 +1410,7 @@ if.end.i.i19:                                     ; preds = %while.body.lr.ph.i.
   %bf.load.i.i.i26 = load i32, ptr %is_used_.i.i.i25, align 4
   %19 = and i32 %bf.load.i.i.i26, 2
   %tobool.i.not.i.i27 = icmp eq i32 %19, 0
-  br i1 %tobool.i.not.i.i27, label %_ZN12hb_hashmap_tIjjLb0EE3delERKj.exit, label %while.body.i.i28, !llvm.loop !30
+  br i1 %tobool.i.not.i.i27, label %_ZN12hb_hashmap_tIjjLb0EE3delERKj.exit, label %while.body.i.i28, !llvm.loop !29
 
 if.then4.i34:                                     ; preds = %if.then.i.i30
   %is_real_.i.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %12, i64 %18, i32 1
@@ -1444,7 +1444,7 @@ _ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EdeEv.exit.i.us.i
   %ref.tmp2.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.us.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i ], [ %parents.val1, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i ]
   %ref.tmp2.sroa.3.sroa.0.0.i.i = phi i32 [ %dec.i.i.i.us.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i ], [ %add.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i ]
   %is_real_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.sroa.0.0.i.i, i64 4
-  %bf.load.i.i.i.i = load i32, ptr %is_real_.i.i.i.i, align 4, !noalias !31
+  %bf.load.i.i.i.i = load i32, ptr %is_real_.i.i.i.i, align 4, !noalias !30
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 1
   %tobool.i.not.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEEMS5_KFbvERK3$_7LPv0EEMS5_FRjvEL24hb_function_sortedness_t0ELSC_0EERK3$_8LSH_0ELSC_0EEjEdeEv.exit"
@@ -1453,7 +1453,7 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EppEv.exit.i.us.
   %dec.i.i.i.us.i.i.i.i.i = add i32 %ref.tmp2.sroa.3.sroa.0.0.i.i, -1
   %incdec.ptr.i.i.i.us.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.sroa.0.0.i.i, i64 12
   %tobool.i.i.not.i.us.i.i.i.i.i = icmp eq i32 %dec.i.i.i.us.i.i.i.i.i, 0
-  br i1 %tobool.i.i.not.i.us.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i, !llvm.loop !42
+  br i1 %tobool.i.i.not.i.us.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i, !llvm.loop !41
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i, %if.then15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
@@ -1519,7 +1519,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %add.i = add i32 %new_allocated.029.i, 8
   %add15.i = add i32 %add.i, %shr14.i
   %cmp13.i = icmp ult i32 %add15.i, %cond
-  br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !43
+  br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !42
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
   %new_allocated.128.i = phi i32 [ %.sroa.speculated.i, %if.then2.i ], [ %add15.i, %while.body.i ]
@@ -1587,7 +1587,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %length, align 4
   %cmp.i = icmp ult i32 %inc.i, %cond
-  br i1 %cmp.i, label %for.body.i, label %if.end15, !llvm.loop !44
+  br i1 %cmp.i, label %for.body.i, label %if.end15, !llvm.loop !43
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %4
@@ -1613,7 +1613,7 @@ while.body.i12:                                   ; preds = %while.body.i12, %wh
   %dec.i = add i32 %count.03.i, -1
   tail call void @_ZN5graph7graph_t8vertex_tD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %p.0.i) #11
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %if.end15, label %while.body.i12, !llvm.loop !45
+  br i1 %tobool.not.i, label %if.end15, label %while.body.i12, !llvm.loop !44
 
 if.end15:                                         ; preds = %while.body.i12, %for.body.i, %if.then12, %if.else, %if.then4
   store i32 %cond, ptr %length, align 4
@@ -1723,7 +1723,7 @@ _ZN5graph7graph_t8vertex_taSEOS1_.exit:           ; preds = %lor.lhs.false.i.i.i
   %12 = load i32, ptr %length, align 4
   %13 = zext i32 %12 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %13
-  br i1 %cmp, label %lor.lhs.false.i.i.i.i, label %return.sink.split, !llvm.loop !46
+  br i1 %cmp, label %lor.lhs.false.i.i.i.i, label %return.sink.split, !llvm.loop !45
 
 return.sink.split:                                ; preds = %_ZN5graph7graph_t8vertex_taSEOS1_.exit, %for.cond.preheader, %entry
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN5graph7graph_t8vertex_taSEOS1_.exit ]
@@ -1849,7 +1849,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %old.sroa.1.0.copyload = load ptr, ptr %old.sroa.1.0.retval.0.i.i.sroa_idx, align 8
   %old.sroa.2.0.retval.0.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0.retval.0.i.i.sroa_idx, align 8
-  store i32 %sub.i, ptr %length, align 4, !noalias !47
+  store i32 %sub.i, ptr %length, align 4, !noalias !46
   %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #11
   %tobool.not.i10 = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i10, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %if.then.i11
@@ -1862,7 +1862,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #11
   %6 = load i32, ptr %length, align 4
   %tobool5.not = icmp eq i32 %6, 0
-  br i1 %tobool5.not, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !50
+  br i1 %tobool5.not, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !49
 
 while.end:                                        ; preds = %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, %if.end
   %7 = load i32, ptr %this, align 8
@@ -2115,7 +2115,7 @@ if.end13:                                         ; preds = %while.body
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %9 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %9, 0
-  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !51
+  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !50
 
 while.end:                                        ; preds = %if.end13, %if.then10
   %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
@@ -2212,7 +2212,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %mul = shl i32 %.sroa.speculated, 1
   %add5 = add i32 %mul, 8
   %tobool.not.i = icmp eq i32 %add5, 0
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %add5, i1 true), !range !27
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add5, i1 true)
   %narrow.i = sub nuw nsw i32 32, %3
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
@@ -2231,7 +2231,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %tobool.not.i17, label %_ZL9hb_memsetPvij.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %5, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -2258,7 +2258,7 @@ _ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %retval.0.i20 = phi i32 [ %8, %if.end.i19 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %prime = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %retval.0.i20, ptr %prime, align 8
-  %call6.tr = trunc i32 %retval.0.i to i16
+  %call6.tr = trunc nuw nsw i32 %retval.0.i to i16
   %conv22 = shl nuw nsw i16 %call6.tr, 1
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   store i16 %conv22, ptr %max_chain_length, align 2
@@ -2291,7 +2291,7 @@ if.then26:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
 
 for.end:                                          ; preds = %for.inc, %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %7) #11
@@ -2372,7 +2372,7 @@ if.end13:                                         ; preds = %while.body
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %9 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %9, 0
-  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !53
+  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !52
 
 while.end:                                        ; preds = %if.end13, %if.then10
   %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
@@ -2493,30 +2493,29 @@ attributes #14 = { nounwind allocsize(0) }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = !{i32 0, i32 33}
+!27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = !{!32, !34, !36, !38, !40}
-!32 = distinct !{!32, !33, !"_ZN24hb_filter_iter_factory_tIMN12hb_hashmap_tIjjLb0EE6item_tEKFbvERK3$_7EclI10hb_array_tIS2_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISD_S4_S7_LDnEESD_: %agg.result"}
-!33 = distinct !{!33, !"_ZN24hb_filter_iter_factory_tIMN12hb_hashmap_tIjjLb0EE6item_tEKFbvERK3$_7EclI10hb_array_tIS2_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISD_S4_S7_LDnEESD_"}
-!34 = distinct !{!34, !35, !"_ZorI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEE24hb_filter_iter_factory_tIMS3_KFbvERK3$_7ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISD_Efp_EEEOSD_OSJ_: %agg.result"}
-!35 = distinct !{!35, !"_ZorI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEE24hb_filter_iter_factory_tIMS3_KFbvERK3$_7ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISD_Efp_EEEOSD_OSJ_"}
-!36 = distinct !{!36, !37, !"_ZNK12hb_hashmap_tIjjLb0EE10iter_itemsEv: %agg.result"}
-!37 = distinct !{!37, !"_ZNK12hb_hashmap_tIjjLb0EE10iter_itemsEv"}
-!38 = distinct !{!38, !39, !"_ZNK12hb_hashmap_tIjjLb0EE8keys_refEv: %agg.result"}
-!39 = distinct !{!39, !"_ZNK12hb_hashmap_tIjjLb0EE8keys_refEv"}
-!40 = distinct !{!40, !41, !"_ZNK12hb_hashmap_tIjjLb0EE4keysEv: %agg.result"}
-!41 = distinct !{!41, !"_ZNK12hb_hashmap_tIjjLb0EE4keysEv"}
+!30 = !{!31, !33, !35, !37, !39}
+!31 = distinct !{!31, !32, !"_ZN24hb_filter_iter_factory_tIMN12hb_hashmap_tIjjLb0EE6item_tEKFbvERK3$_7EclI10hb_array_tIS2_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISD_S4_S7_LDnEESD_: %agg.result"}
+!32 = distinct !{!32, !"_ZN24hb_filter_iter_factory_tIMN12hb_hashmap_tIjjLb0EE6item_tEKFbvERK3$_7EclI10hb_array_tIS2_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISD_S4_S7_LDnEESD_"}
+!33 = distinct !{!33, !34, !"_ZorI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEE24hb_filter_iter_factory_tIMS3_KFbvERK3$_7ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISD_Efp_EEEOSD_OSJ_: %agg.result"}
+!34 = distinct !{!34, !"_ZorI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEE24hb_filter_iter_factory_tIMS3_KFbvERK3$_7ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSD_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISD_Efp_EEEOSD_OSJ_"}
+!35 = distinct !{!35, !36, !"_ZNK12hb_hashmap_tIjjLb0EE10iter_itemsEv: %agg.result"}
+!36 = distinct !{!36, !"_ZNK12hb_hashmap_tIjjLb0EE10iter_itemsEv"}
+!37 = distinct !{!37, !38, !"_ZNK12hb_hashmap_tIjjLb0EE8keys_refEv: %agg.result"}
+!38 = distinct !{!38, !"_ZNK12hb_hashmap_tIjjLb0EE8keys_refEv"}
+!39 = distinct !{!39, !40, !"_ZNK12hb_hashmap_tIjjLb0EE4keysEv: %agg.result"}
+!40 = distinct !{!40, !"_ZNK12hb_hashmap_tIjjLb0EE4keysEv"}
+!41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: %agg.result"}
-!49 = distinct !{!49, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: %agg.result"}
+!48 = distinct !{!48, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}

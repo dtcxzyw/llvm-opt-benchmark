@@ -223,7 +223,7 @@ thread-pre-split.thread:                          ; preds = %2, %24
 
 83:                                               ; preds = %77
   %84 = lshr i64 %80, 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   %86 = getelementptr inbounds i8, ptr %76, i64 4
   store i32 %85, ptr %86, align 4
   %87 = tail call fastcc i32 @write_mmp_block_thawed(ptr noundef %0, ptr noundef %74), !range !6
@@ -475,7 +475,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local i64 @schedule_timeout_interruptible(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @write_mmp_block_thawed(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -5, 1) i32 @write_mmp_block_thawed(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon.8, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -755,7 +755,7 @@ define internal i32 @kmmpd(ptr noundef %0) #0 align 16 {
   %102 = udiv i64 %101, 1000
   %103 = tail call i64 @llvm.umin.i64(i64 %102, i64 300)
   %104 = tail call i64 @llvm.umax.i64(i64 %103, i64 5)
-  %105 = trunc i64 %104 to i16
+  %105 = trunc nuw nsw i64 %104 to i16
   store i16 %105, ptr %21, align 8
   %106 = tail call zeroext i1 @kthread_should_stop() #10
   br i1 %106, label %.loopexit4, label %27, !llvm.loop !22
@@ -846,7 +846,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local zeroext i1 @kthread_should_stop() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @write_mmp_block(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -5, 1) i32 @write_mmp_block(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 584
   %4 = tail call i32 @__SCT__might_resched() #10
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #10, !srcloc !29

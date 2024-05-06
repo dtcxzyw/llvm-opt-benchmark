@@ -12,7 +12,7 @@ define hidden ptr @lexbor_mem_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lexbor_mem_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 10) i32 @lexbor_mem_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 

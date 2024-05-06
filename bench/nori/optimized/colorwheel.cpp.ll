@@ -534,7 +534,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ColorWheel18mouse_button_eventERK
   br i1 %3, label %12, label %16
 
 12:                                               ; preds = %11
-  %13 = tail call noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef 3), !range !9
+  %13 = tail call noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef 3)
   %14 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %13, ptr %14, align 8
   %15 = icmp ne i32 %13, 0
@@ -553,7 +553,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ColorWheel18mouse_button_eventERK
 declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i1 noundef zeroext, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nanogui::Color", align 8
   %5 = alloca %"class.nanogui::Color", align 8
   %6 = load i32, ptr %1, align 4
@@ -722,7 +722,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77: ; preds = %96
 define hidden noundef zeroext i1 @_ZN7nanogui10ColorWheel16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8
-  %8 = tail call noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %7), !range !9
+  %8 = tail call noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %7)
   %9 = icmp ne i32 %8, 0
   ret i1 %9
 }
@@ -811,7 +811,7 @@ _ZNK7nanogui10ColorWheel7hue2rgbEf.exit:          ; preds = %1, %30, %31, %32, %
   store float %42, ptr %44, align 4
   %45 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %45, 4
-  br i1 %exitcond.not.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit, label %43, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit, label %43, !llvm.loop !9
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit:                ; preds = %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -828,7 +828,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit:                ; preds = %43
   store float %51, ptr %52, align 4
   %53 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i4 = icmp eq i64 %53, 4
-  br i1 %exitcond.not.i4, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit, label %46, !llvm.loop !11
+  br i1 %exitcond.not.i4, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit, label %46, !llvm.loop !10
 
 _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit:        ; preds = %46
   %.fca.0.load.i = load <2 x float>, ptr %6, align 8
@@ -846,7 +846,7 @@ _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit:        ; preds = %46
   store float %41, ptr %56, align 4
   %57 = add nuw nsw i64 %.04.i7, 1
   %exitcond.not.i8 = icmp eq i64 %57, 4
-  br i1 %exitcond.not.i8, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit9, label %55, !llvm.loop !10
+  br i1 %exitcond.not.i8, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit9, label %55, !llvm.loop !9
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit9:               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -863,7 +863,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit9:               ; preds = %55
   store float %63, ptr %64, align 4
   %65 = add nuw nsw i64 %.06.i10, 1
   %exitcond.not.i11 = icmp eq i64 %65, 4
-  br i1 %exitcond.not.i11, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit17, label %58, !llvm.loop !11
+  br i1 %exitcond.not.i11, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit17, label %58, !llvm.loop !10
 
 _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit17:      ; preds = %58
   %.fca.0.load.i12 = load <2 x float>, ptr %5, align 8
@@ -887,7 +887,7 @@ _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit17:      ; preds = %58
   store float %72, ptr %73, align 4
   %74 = add nuw nsw i64 %.06.i18, 1
   %exitcond.not.i19 = icmp eq i64 %74, 4
-  br i1 %exitcond.not.i19, label %_ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit, label %67, !llvm.loop !12
+  br i1 %exitcond.not.i19, label %_ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit, label %67, !llvm.loop !11
 
 _ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit:        ; preds = %67
   %.fca.0.load.i20 = load <2 x float>, ptr %4, align 8
@@ -905,7 +905,7 @@ _ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit:        ; preds = %67
   store float %38, ptr %77, align 4
   %78 = add nuw nsw i64 %.04.i25, 1
   %exitcond.not.i26 = icmp eq i64 %78, 4
-  br i1 %exitcond.not.i26, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit27, label %76, !llvm.loop !10
+  br i1 %exitcond.not.i26, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit27, label %76, !llvm.loop !9
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit27:              ; preds = %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -922,7 +922,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit27:              ; preds = %76
   store float %84, ptr %85, align 4
   %86 = add nuw nsw i64 %.06.i28, 1
   %exitcond.not.i29 = icmp eq i64 %86, 4
-  br i1 %exitcond.not.i29, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit35, label %79, !llvm.loop !11
+  br i1 %exitcond.not.i29, label %_ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit35, label %79, !llvm.loop !10
 
 _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit35:      ; preds = %79
   %.fca.0.load.i30 = load <2 x float>, ptr %3, align 8
@@ -946,7 +946,7 @@ _ZN7nanoguimlERKNS_5ArrayIfLm4EEES3_.exit35:      ; preds = %79
   store float %93, ptr %94, align 4
   %95 = add nuw nsw i64 %.06.i36, 1
   %exitcond.not.i37 = icmp eq i64 %95, 4
-  br i1 %exitcond.not.i37, label %_ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit43, label %88, !llvm.loop !12
+  br i1 %exitcond.not.i37, label %_ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit43, label %88, !llvm.loop !11
 
 _ZN7nanoguiplERKNS_5ArrayIfLm4EEES3_.exit43:      ; preds = %88
   %.fca.0.load.i38 = load <2 x float>, ptr %2, align 8
@@ -1143,7 +1143,6 @@ attributes #18 = { builtin nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 3}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

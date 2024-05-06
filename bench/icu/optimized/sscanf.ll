@@ -14,14 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @u_sscanf_75(ptr noundef %buffer, ptr noundef %patternSpecification, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @u_vsscanf_75(ptr noundef %buffer, ptr noundef %patternSpecification, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @u_vsscanf_75(ptr noundef %buffer, ptr noundef %patternSpecification, ptr noundef %ap) local_unnamed_addr #0 {
@@ -84,15 +81,12 @@ return:                                           ; preds = %u_vsscanf_u_75.exit
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: mustprogress uwtable
 define i32 @u_sscanf_u_75(ptr noundef %buffer, ptr noundef %patternSpecification, ...) local_unnamed_addr #0 {
 entry:
   %inStr.i = alloca %struct.UFILE, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 2160, ptr nonnull %inStr.i)
   %fOwnFile.i = getelementptr inbounds i8, ptr %inStr.i, i64 2152
   store i8 0, ptr %fOwnFile.i, align 8
@@ -121,7 +115,7 @@ if.end.i:                                         ; preds = %entry
 u_vsscanf_u_75.exit:                              ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %call5.i, %if.end.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 2160, ptr nonnull %inStr.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
 
@@ -159,22 +153,28 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
 
-declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
-declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #4
+declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #3
 
-declare ptr @u_locbund_init_75(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @u_locbund_init_75(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @u_scanf_parse_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @u_scanf_parse_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @u_locbund_close_75(ptr noundef) local_unnamed_addr #4
+declare void @u_locbund_close_75(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
@@ -186,10 +186,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind willreturn memory(read) }

@@ -9885,8 +9885,8 @@ define noundef zeroext i1 @_ZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_i
   %17 = getelementptr inbounds i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 10
-  %or.cond227 = select i1 %.not, i1 %19, i1 false
-  br i1 %or.cond227, label %20, label %._crit_edge
+  %or.cond228 = select i1 %.not, i1 %19, i1 false
+  br i1 %or.cond228, label %20, label %._crit_edge
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %1, i64 204

@@ -338,7 +338,7 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   %.0269 = phi i64 [ %144, %135 ], [ %151, %146 ]
   %.0268 = phi ptr [ %145, %135 ], [ %150, %146 ]
   %147 = urem i64 %.0269, 10
-  %148 = trunc i64 %147 to i8
+  %148 = trunc nuw nsw i64 %147 to i8
   %149 = or disjoint i8 %148, 48
   %150 = getelementptr inbounds i8, ptr %.0268, i64 -1
   store i8 %149, ptr %150, align 1
@@ -1297,7 +1297,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonl
   %131 = getelementptr inbounds %struct._zend_arg_info, ptr %.05886, i64 %130, i32 1, i32 1
   %132 = load i32, ptr %131, align 8
   %133 = lshr i32 %132, 27
-  %134 = trunc i32 %133 to i8
+  %134 = trunc nuw nsw i32 %133 to i8
   %.pre = trunc i32 %133 to i1
   br label %135
 

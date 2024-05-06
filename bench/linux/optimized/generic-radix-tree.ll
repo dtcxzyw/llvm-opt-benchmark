@@ -404,7 +404,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__genradix_prealloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__genradix_prealloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.loopexit, label %.preheader
 

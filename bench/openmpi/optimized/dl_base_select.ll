@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_dl = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_dl_base_select() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_dl_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

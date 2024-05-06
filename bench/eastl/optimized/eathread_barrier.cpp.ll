@@ -50,7 +50,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7BarrierC2EPKNS0_17BarrierParametersEb(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readonly %pBarrierParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #4 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
   %tobool.not = icmp eq ptr %pBarrierParameters, null
   br i1 %tobool.not, label %land.lhs.true, label %if.then.i
 
@@ -82,31 +82,31 @@ if.else.i:                                        ; preds = %if.then10.i
   br label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 %bDefaultParameters, label %if.then.i9, label %if.end
+  br i1 %bDefaultParameters, label %if.then.i10, label %if.end
 
-if.then.i9:                                       ; preds = %land.lhs.true
-  %mbValid.i7 = getelementptr inbounds i8, ptr %this, i64 104
-  %mnHeight.i10 = getelementptr inbounds i8, ptr %this, i64 88
-  %mMutex.i13 = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mnHeight.i10, i8 0, i64 17, i1 false)
-  %call.i14 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i13, ptr noundef null) #10
-  %cmp.i15 = icmp eq i32 %call.i14, 0
-  br i1 %cmp.i15, label %if.then10.i19, label %if.end
+if.then.i10:                                      ; preds = %land.lhs.true
+  %mbValid.i8 = getelementptr inbounds i8, ptr %this, i64 104
+  %mnHeight.i11 = getelementptr inbounds i8, ptr %this, i64 88
+  %mMutex.i14 = getelementptr inbounds i8, ptr %this, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mnHeight.i11, i8 0, i64 17, i1 false)
+  %call.i15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14, ptr noundef null) #10
+  %cmp.i16 = icmp eq i32 %call.i15, 0
+  br i1 %cmp.i16, label %if.then10.i20, label %if.end
 
-if.then10.i19:                                    ; preds = %if.then.i9
-  %call12.i20 = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #10
-  %cmp13.i21 = icmp eq i32 %call12.i20, 0
-  br i1 %cmp13.i21, label %if.then14.i24, label %if.else.i22
+if.then10.i20:                                    ; preds = %if.then.i10
+  %call12.i21 = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #10
+  %cmp13.i22 = icmp eq i32 %call12.i21, 0
+  br i1 %cmp13.i22, label %if.then14.i25, label %if.else.i23
 
-if.then14.i24:                                    ; preds = %if.then10.i19
-  store i8 1, ptr %mbValid.i7, align 8
+if.then14.i25:                                    ; preds = %if.then10.i20
+  store i8 1, ptr %mbValid.i8, align 8
   br label %if.end
 
-if.else.i22:                                      ; preds = %if.then10.i19
-  %call19.i23 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i13) #10
+if.else.i23:                                      ; preds = %if.then10.i20
+  %call19.i24 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i14) #10
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i9, %if.then14.i24, %if.else.i22, %if.then.i, %if.then14.i, %if.else.i, %land.lhs.true
+if.end:                                           ; preds = %if.then.i10, %if.then14.i25, %if.else.i23, %if.then.i, %if.then14.i, %if.else.i, %land.lhs.true
   ret void
 }
 
@@ -221,7 +221,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread7Barrier4WaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -2, 2) i32 @_ZN2EA6Thread7Barrier4WaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #6 align 2 {
 entry:
   %cancel = alloca i32, align 4
   %cancelTemp = alloca i32, align 4
@@ -330,50 +330,50 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 112, ptr noundef null, i32 noundef 0)
-  %mbValid.i7.i = getelementptr inbounds i8, ptr %call1, i64 104
-  %mMutex.i13.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %mbValid.i8.i = getelementptr inbounds i8, ptr %call1, i64 104
+  %mMutex.i14.i = getelementptr inbounds i8, ptr %call1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %call1, i8 0, i64 105, i1 false)
-  %call.i14.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i13.i, ptr noundef null) #10
-  %cmp.i15.i = icmp eq i32 %call.i14.i, 0
-  br i1 %cmp.i15.i, label %if.then10.i19.i, label %return
+  %call.i15.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14.i, ptr noundef null) #10
+  %cmp.i16.i = icmp eq i32 %call.i15.i, 0
+  br i1 %cmp.i16.i, label %if.then10.i20.i, label %return
 
-if.then10.i19.i:                                  ; preds = %if.then
-  %call12.i20.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %call1, ptr noundef null) #10
-  %cmp13.i21.i = icmp eq i32 %call12.i20.i, 0
-  br i1 %cmp13.i21.i, label %if.then14.i24.i, label %if.else.i22.i
+if.then10.i20.i:                                  ; preds = %if.then
+  %call12.i21.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %call1, ptr noundef null) #10
+  %cmp13.i22.i = icmp eq i32 %call12.i21.i, 0
+  br i1 %cmp13.i22.i, label %if.then14.i25.i, label %if.else.i23.i
 
-if.then14.i24.i:                                  ; preds = %if.then10.i19.i
-  store i8 1, ptr %mbValid.i7.i, align 8
+if.then14.i25.i:                                  ; preds = %if.then10.i20.i
+  store i8 1, ptr %mbValid.i8.i, align 8
   br label %return
 
-if.else.i22.i:                                    ; preds = %if.then10.i19.i
-  %call19.i23.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i13.i) #10
+if.else.i23.i:                                    ; preds = %if.then10.i20.i
+  %call19.i24.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i14.i) #10
   br label %return
 
 if.else:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #11
-  %mbValid.i7.i2 = getelementptr inbounds i8, ptr %call2, i64 104
-  %mMutex.i13.i4 = getelementptr inbounds i8, ptr %call2, i64 48
+  %mbValid.i8.i2 = getelementptr inbounds i8, ptr %call2, i64 104
+  %mMutex.i14.i4 = getelementptr inbounds i8, ptr %call2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %call2, i8 0, i64 105, i1 false)
-  %call.i14.i5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i13.i4, ptr noundef null) #10
-  %cmp.i15.i6 = icmp eq i32 %call.i14.i5, 0
-  br i1 %cmp.i15.i6, label %if.then10.i19.i7, label %return
+  %call.i15.i5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14.i4, ptr noundef null) #10
+  %cmp.i16.i6 = icmp eq i32 %call.i15.i5, 0
+  br i1 %cmp.i16.i6, label %if.then10.i20.i7, label %return
 
-if.then10.i19.i7:                                 ; preds = %if.else
-  %call12.i20.i8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %call2, ptr noundef null) #10
-  %cmp13.i21.i9 = icmp eq i32 %call12.i20.i8, 0
-  br i1 %cmp13.i21.i9, label %if.then14.i24.i12, label %if.else.i22.i10
+if.then10.i20.i7:                                 ; preds = %if.else
+  %call12.i21.i8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %call2, ptr noundef null) #10
+  %cmp13.i22.i9 = icmp eq i32 %call12.i21.i8, 0
+  br i1 %cmp13.i22.i9, label %if.then14.i25.i12, label %if.else.i23.i10
 
-if.then14.i24.i12:                                ; preds = %if.then10.i19.i7
-  store i8 1, ptr %mbValid.i7.i2, align 8
+if.then14.i25.i12:                                ; preds = %if.then10.i20.i7
+  store i8 1, ptr %mbValid.i8.i2, align 8
   br label %return
 
-if.else.i22.i10:                                  ; preds = %if.then10.i19.i7
-  %call19.i23.i11 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i13.i4) #10
+if.else.i23.i10:                                  ; preds = %if.then10.i20.i7
+  %call19.i24.i11 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i14.i4) #10
   br label %return
 
-return:                                           ; preds = %if.else.i22.i10, %if.then14.i24.i12, %if.else, %if.else.i22.i, %if.then14.i24.i, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ %call1, %if.then14.i24.i ], [ %call1, %if.else.i22.i ], [ %call2, %if.else ], [ %call2, %if.then14.i24.i12 ], [ %call2, %if.else.i22.i10 ]
+return:                                           ; preds = %if.else.i23.i10, %if.then14.i25.i12, %if.else, %if.else.i23.i, %if.then14.i25.i, %if.then
+  %retval.0 = phi ptr [ %call1, %if.then ], [ %call1, %if.then14.i25.i ], [ %call1, %if.else.i23.i ], [ %call2, %if.else ], [ %call2, %if.then14.i25.i12 ], [ %call2, %if.else.i23.i10 ]
   ret ptr %retval.0
 }
 

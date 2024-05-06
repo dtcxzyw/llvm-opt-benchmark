@@ -94,7 +94,7 @@ return:                                           ; preds = %while.end, %if.end,
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @utf8_width(ptr nocapture noundef %start, ptr noundef %remainder_p) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %start, ptr noundef %remainder_p), !range !7
+  %call = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %start, ptr noundef %remainder_p)
   %0 = load ptr, ptr %start, align 8
   %tobool.not = icmp eq ptr %0, null
   %cmp.i = icmp eq i32 %call, 0
@@ -143,7 +143,7 @@ if.end18.i.i:                                     ; preds = %if.then14.i.i, %if.
   %max.addr.1.i.i = phi i32 [ %max.addr.015.i.i, %if.then8.i.i ], [ %sub15.i.i, %if.then14.i.i ]
   %min.1.i.i = phi i32 [ %add9.i.i, %if.then8.i.i ], [ %min.016.i.i, %if.then14.i.i ]
   %cmp3.not.i.i = icmp slt i32 %max.addr.1.i.i, %min.1.i.i
-  br i1 %cmp3.not.i.i, label %if.end7.i, label %while.body.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i.i, label %if.end7.i, label %while.body.i.i, !llvm.loop !7
 
 if.end7.i:                                        ; preds = %if.end18.i.i
   %5 = add nsw i32 %call, -262142
@@ -180,7 +180,7 @@ if.end18.i25.i:                                   ; preds = %if.then14.i23.i, %i
   %max.addr.1.i26.i = phi i32 [ %max.addr.015.i12.i, %if.then8.i29.i ], [ %sub15.i24.i, %if.then14.i23.i ]
   %min.1.i27.i = phi i32 [ %add9.i30.i, %if.then8.i29.i ], [ %min.016.i11.i, %if.then14.i23.i ]
   %cmp3.not.i28.i = icmp slt i32 %max.addr.1.i26.i, %min.1.i27.i
-  br i1 %cmp3.not.i28.i, label %return, label %while.body.i10.i, !llvm.loop !8
+  br i1 %cmp3.not.i28.i, label %return, label %while.body.i10.i, !llvm.loop !7
 
 return:                                           ; preds = %if.else.i.i, %if.end18.i25.i, %if.else.i20.i, %if.end7.i, %if.end5.i, %if.end.i, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end.i ], [ 1, %if.end7.i ], [ 1, %if.end5.i ], [ 2, %if.else.i20.i ], [ 1, %if.end18.i25.i ], [ 0, %if.else.i.i ]
@@ -188,7 +188,7 @@ return:                                           ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @pick_one_utf8_char(ptr nocapture noundef %start, ptr noundef %remainder_p) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2097152) i32 @pick_one_utf8_char(ptr nocapture noundef %start, ptr noundef %remainder_p) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %start, align 8
   %tobool.not = icmp eq ptr %remainder_p, null
@@ -382,7 +382,7 @@ return:                                           ; preds = %if.end181, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @utf8_strnwidth(ptr noundef %string, i64 noundef %len, i32 noundef %skip_ansi) local_unnamed_addr #3 {
+define dso_local range(i32 0, -2147483648) i32 @utf8_strnwidth(ptr noundef %string, i64 noundef %len, i32 noundef %skip_ansi) local_unnamed_addr #3 {
 entry:
   %string.addr = alloca ptr, align 8
   store ptr %string, ptr %string.addr, align 8
@@ -446,7 +446,7 @@ while.body6:                                      ; preds = %while.end.i
 while.end:                                        ; preds = %while.body6, %if.end.i, %while.end.i, %land.rhs3.lr.ph.split, %while.cond1.preheader
   %add.ptr714.lcssa = phi ptr [ %string.addr.promoted, %while.cond1.preheader ], [ %string.addr.promoted, %land.rhs3.lr.ph.split ], [ %add.ptr7141523, %while.end.i ], [ %add.ptr7141523, %if.end.i ], [ %add.ptr7, %while.body6 ]
   store ptr %add.ptr714.lcssa, ptr %string.addr, align 8
-  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %string.addr, ptr noundef null), !range !7
+  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %string.addr, ptr noundef null)
   %7 = load ptr, ptr %string.addr, align 8
   %tobool.not.i = icmp eq ptr %7, null
   %cmp.i.i = icmp eq i32 %call.i, 0
@@ -495,7 +495,7 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
   %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
   %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
-  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %12 = add nsw i32 %call.i, -262142
@@ -532,7 +532,7 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
   %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
-  br i1 %cmp3.not.i28.i.i, label %.loopexit, label %while.body.i10.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i28.i.i, label %.loopexit, label %while.body.i10.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %if.else.i20.i.i, %if.end18.i25.i.i, %if.end7.i.i, %if.end5.i.i
   %retval.0.i5.ph = phi i64 [ 1, %if.end5.i.i ], [ 1, %if.end7.i.i ], [ 2, %if.else.i20.i.i ], [ 1, %if.end18.i25.i.i ]
@@ -544,7 +544,7 @@ utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.
   %tobool = icmp ne ptr %7, null
   %cmp = icmp ult ptr %7, %add.ptr
   %16 = select i1 %tobool, i1 %cmp, i1 false
-  br i1 %16, label %while.cond1.preheader, label %while.end10, !llvm.loop !9
+  br i1 %16, label %while.cond1.preheader, label %while.end10, !llvm.loop !8
 
 while.end10:                                      ; preds = %utf8_width.exit, %entry
   %width.0.lcssa = phi i64 [ 0, %entry ], [ %15, %utf8_width.exit ]
@@ -563,10 +563,10 @@ cast_size_t_to_int.exit:                          ; preds = %while.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @utf8_strwidth(ptr noundef %string) local_unnamed_addr #3 {
+define dso_local range(i32 0, -2147483648) i32 @utf8_strwidth(ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #21
-  %call1 = tail call i32 @utf8_strnwidth(ptr noundef %string, i64 noundef %call, i32 noundef 0), !range !10
+  %call1 = tail call i32 @utf8_strnwidth(ptr noundef %string, i64 noundef %call, i32 noundef 0)
   ret i32 %call1
 }
 
@@ -574,7 +574,7 @@ entry:
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_utf8(ptr noundef %text) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_utf8(ptr noundef %text) local_unnamed_addr #5 {
 entry:
   %text.addr = alloca ptr, align 8
   store ptr %text, ptr %text.addr, align 8
@@ -597,10 +597,10 @@ if.then:                                          ; preds = %while.cond, %while.
 
 while.cond.backedge:                              ; preds = %if.then, %if.end
   %.be = phi ptr [ %incdec.ptr, %if.then ], [ %2, %if.end ]
-  br label %while.cond, !llvm.loop !11
+  br label %while.cond, !llvm.loop !9
 
 if.end:                                           ; preds = %while.cond
-  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null), !range !7
+  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null)
   %2 = load ptr, ptr %text.addr, align 8
   %tobool.not.i.not = icmp eq ptr %2, null
   br i1 %tobool.not.i.not, label %return, label %while.cond.backedge
@@ -652,7 +652,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull %text.addr.011.i, i64 noundef %sub.ptr.sub.i) #22
   %3 = load i8, ptr %spec.select.i, align 1
   %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !10
 
 retry:                                            ; preds = %retry.backedge, %retry.preheader
   %tobool63.not = phi i1 [ false, %retry.preheader ], [ true, %retry.backedge ]
@@ -711,7 +711,7 @@ while.body.us:                                    ; preds = %while.end.i.us
   %sub.ptr.rhs.cast.i34.us = ptrtoint ptr %add.ptr98.us to i64
   %sub.ptr.sub.i35.us = sub i64 %sub.ptr.lhs.cast.i33.us, %sub.ptr.rhs.cast.i34.us
   %add.ptr.us = getelementptr inbounds i8, ptr %add.ptr98.us, i64 %sub.ptr.sub.i35.us
-  br label %while.cond.us, !llvm.loop !13
+  br label %while.cond.us, !llvm.loop !11
 
 lor.lhs.false.us:                                 ; preds = %while.cond.us, %if.end.i.us, %while.end.i.us
   %9 = phi i8 [ 27, %while.end.i.us ], [ 27, %if.end.i.us ], [ %4, %while.cond.us ]
@@ -774,7 +774,7 @@ while.body:                                       ; preds = %while.end.i
   %sub.ptr.rhs.cast.i34 = ptrtoint ptr %add.ptr98 to i64
   %sub.ptr.sub.i35 = sub i64 %sub.ptr.lhs.cast.i33, %sub.ptr.rhs.cast.i34
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr98, i64 %sub.ptr.sub.i35
-  br label %while.cond, !llvm.loop !13
+  br label %while.cond, !llvm.loop !11
 
 lor.lhs.false:                                    ; preds = %while.cond, %if.end.i, %while.end.i
   %17 = phi i8 [ 27, %while.end.i ], [ 27, %if.end.i ], [ %12, %while.cond ]
@@ -962,7 +962,7 @@ if.end61:                                         ; preds = %strbuf_addch.exit70
   br label %for.cond.outer
 
 if.end62:                                         ; preds = %lor.lhs.false
-  %call.i71 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null), !range !7
+  %call.i71 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null)
   %46 = load ptr, ptr %text.addr, align 8
   %tobool.not.i72 = icmp eq ptr %46, null
   %cmp.i.i = icmp eq i32 %call.i71, 0
@@ -1011,7 +1011,7 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
   %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
   %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
-  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %51 = add nsw i32 %call.i71, -262142
@@ -1048,7 +1048,7 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
   %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
-  br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !7
 
 utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i20.i.i, %if.end18.i25.i.i, %if.end62, %if.end7.i.i
   %retval.0.i74 = phi i32 [ 0, %if.end62 ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i20.i.i ], [ 0, %if.else.i.i.i ]
@@ -1171,7 +1171,7 @@ while.body4:                                      ; preds = %while.end.i
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr52527, i64 %sub.ptr.sub.i
   %7 = load i8, ptr %add.ptr5, align 1
   %cmp.not.i = icmp eq i8 %7, 27
-  br i1 %cmp.not.i, label %if.end.i, label %while.end, !llvm.loop !14
+  br i1 %cmp.not.i, label %if.end.i, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body4, %if.end.i, %while.end.i, %while.cond3.preheader
   %add.ptr525.lcssa = phi ptr [ %src.promoted, %while.cond3.preheader ], [ %add.ptr52527, %while.end.i ], [ %add.ptr52527, %if.end.i ], [ %add.ptr5, %while.body4 ]
@@ -1180,7 +1180,7 @@ while.end:                                        ; preds = %while.body4, %if.en
   br i1 %cmp6.not, label %if.end, label %while.end24
 
 if.end:                                           ; preds = %while.end
-  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %src, ptr noundef null), !range !7
+  %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %src, ptr noundef null)
   %8 = load ptr, ptr %src, align 8
   %tobool.not.i = icmp eq ptr %8, null
   %cmp.i.i = icmp eq i32 %call.i, 0
@@ -1229,7 +1229,7 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
   %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
   %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
-  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %13 = add nsw i32 %call.i, -262142
@@ -1266,7 +1266,7 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
   %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
-  br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !8
+  br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !7
 
 utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i20.i.i, %if.end18.i25.i.i, %if.end, %if.end7.i.i
   %retval.0.i16 = phi i32 [ 0, %if.end ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i20.i.i ], [ 0, %if.else.i.i.i ]
@@ -1303,7 +1303,7 @@ if.end22:                                         ; preds = %if.then18, %if.then
   %add23 = add nuw nsw i32 %spec.store.select, %w.034
   %16 = load ptr, ptr %src, align 8
   %cmp = icmp ult ptr %16, %add.ptr
-  br i1 %cmp, label %while.cond3.preheader, label %while.end24, !llvm.loop !15
+  br i1 %cmp, label %while.cond3.preheader, label %while.end24, !llvm.loop !13
 
 while.end24:                                      ; preds = %if.end22, %while.end, %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %_swap_buffer.i)
@@ -1323,13 +1323,13 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @is_encoding_utf8(ptr noundef readonly %name) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @is_encoding_utf8(ptr noundef readonly %name) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %name), !range !16
+  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %name)
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -1338,7 +1338,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @same_utf_encoding(ptr nocapture noundef readonly %src, ptr nocapture noundef readonly %dst) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @same_utf_encoding(ptr nocapture noundef readonly %src, ptr nocapture noundef readonly %dst) unnamed_addr #8 {
 entry:
   %scevgep.i = getelementptr i8, ptr %src, i64 3
   br label %do.body.i
@@ -1368,7 +1368,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %7 = and i8 %6, 32
   %spec.select.i52.i = or i8 %7, %0
   %cmp.i = icmp eq i8 %spec.select.i1.i, %spec.select.i52.i
-  br i1 %cmp.i, label %do.body.i, label %return, !llvm.loop !17
+  br i1 %cmp.i, label %do.body.i, label %return, !llvm.loop !14
 
 land.lhs.true:                                    ; preds = %do.body.i
   %scevgep.i1 = getelementptr i8, ptr %dst, i64 3
@@ -1399,7 +1399,7 @@ do.cond.i6:                                       ; preds = %do.body.i2
   %15 = and i8 %14, 32
   %spec.select.i52.i15 = or i8 %15, %8
   %cmp.i16 = icmp eq i8 %spec.select.i1.i11, %spec.select.i52.i15
-  br i1 %cmp.i16, label %do.body.i2, label %return, !llvm.loop !17
+  br i1 %cmp.i16, label %do.body.i2, label %return, !llvm.loop !14
 
 if.then:                                          ; preds = %do.body.i2
   %scevgep.i20 = getelementptr i8, ptr %src, i64 4
@@ -1418,7 +1418,7 @@ do.cond.i26:                                      ; preds = %do.body.i21
   %17 = load i8, ptr %str.addr.0.i22, align 1
   %prefix.addr.0.add.i28 = add nuw nsw i64 %prefix.addr.0.idx.i23, 1
   %cmp.i29 = icmp eq i8 %17, %16
-  br i1 %cmp.i29, label %do.body.i21, label %skip_prefix.exit, !llvm.loop !18
+  br i1 %cmp.i29, label %do.body.i21, label %skip_prefix.exit, !llvm.loop !15
 
 skip_prefix.exit:                                 ; preds = %do.body.i21, %do.cond.i26
   %src.addr.1 = phi ptr [ %scevgep.i, %do.cond.i26 ], [ %scevgep.i20, %do.body.i21 ]
@@ -1438,7 +1438,7 @@ do.cond.i37:                                      ; preds = %do.body.i32
   %19 = load i8, ptr %str.addr.0.i33, align 1
   %prefix.addr.0.add.i39 = add nuw nsw i64 %prefix.addr.0.idx.i34, 1
   %cmp.i40 = icmp eq i8 %19, %18
-  br i1 %cmp.i40, label %do.body.i32, label %skip_prefix.exit43, !llvm.loop !18
+  br i1 %cmp.i40, label %do.body.i32, label %skip_prefix.exit43, !llvm.loop !15
 
 skip_prefix.exit43:                               ; preds = %do.body.i32, %do.cond.i37
   %dst.addr.1 = phi ptr [ %scevgep.i1, %do.cond.i37 ], [ %scevgep.i31, %do.body.i32 ]
@@ -1453,13 +1453,13 @@ return:                                           ; preds = %do.cond.i, %do.cond
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @same_encoding(ptr noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @same_encoding(ptr noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %src, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.25, ptr %src
   %tobool1.not = icmp eq ptr %dst, null
   %spec.store.select1 = select i1 %tobool1.not, ptr @.str.25, ptr %dst
-  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1), !range !16
+  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1)
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
@@ -1495,7 +1495,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %buf3, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  %call1.i = call i32 @utf8_strnwidth(ptr noundef %1, i64 noundef %call.i, i32 noundef 0), !range !10
+  %call1.i = call i32 @utf8_strnwidth(ptr noundef %1, i64 noundef %call.i, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1633,15 +1633,15 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef nonnull %in_encoding), !range !16
+  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef nonnull %in_encoding)
   %tobool1.not = icmp eq i32 %call, 0
   %spec.select = select i1 %tobool1.not, ptr %in_encoding, ptr @.str.2
-  %call4 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef %out_encoding), !range !16
+  %call4 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef %out_encoding)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.else, label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %call7 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.4, ptr noundef %out_encoding), !range !16
+  %call7 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.4, ptr noundef %out_encoding)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
@@ -1658,12 +1658,12 @@ if.end11:                                         ; preds = %if.end, %if.else, %
   br i1 %cmp, label %is_encoding_utf8.exit.i, label %if.end22
 
 is_encoding_utf8.exit.i:                          ; preds = %if.end11
-  %call.i.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %spec.select), !range !16
+  %call.i.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %spec.select)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %fallback_encoding.exit
 
 if.end.i:                                         ; preds = %is_encoding_utf8.exit.i
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.26) #21
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %spec.select, ptr noundef nonnull @.str.26) #21
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   %.str.27.name.i = select i1 %tobool2.not.i, ptr @.str.27, ptr %spec.select
   br label %fallback_encoding.exit
@@ -1674,12 +1674,12 @@ fallback_encoding.exit:                           ; preds = %is_encoding_utf8.ex
   br i1 %tobool.not.i.i18, label %fallback_encoding.exit27, label %is_encoding_utf8.exit.i19
 
 is_encoding_utf8.exit.i19:                        ; preds = %fallback_encoding.exit
-  %call.i.i20 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %out_encoding.addr.0), !range !16
+  %call.i.i20 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %out_encoding.addr.0)
   %tobool.not.i21 = icmp eq i32 %call.i.i20, 0
   br i1 %tobool.not.i21, label %if.end.i23, label %fallback_encoding.exit27
 
 if.end.i23:                                       ; preds = %is_encoding_utf8.exit.i19
-  %call1.i24 = tail call i32 @strcasecmp(ptr noundef nonnull %out_encoding.addr.0, ptr noundef nonnull @.str.26) #21
+  %call1.i24 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %out_encoding.addr.0, ptr noundef nonnull @.str.26) #21
   %tobool2.not.i25 = icmp eq i32 %call1.i24, 0
   %.str.27.name.i26 = select i1 %tobool2.not.i25, ptr @.str.27, ptr %out_encoding.addr.0
   br label %fallback_encoding.exit27
@@ -1712,14 +1712,14 @@ declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @iconv_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @has_prohibited_utf_bom(ptr nocapture noundef readonly %enc, ptr noundef readonly %data, i64 noundef %len) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @has_prohibited_utf_bom(ptr nocapture noundef readonly %enc, ptr noundef readonly %data, i64 noundef %len) local_unnamed_addr #8 {
 entry:
-  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.5, ptr noundef %enc), !range !16
+  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.5, ptr noundef %enc)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.3, ptr noundef %enc), !range !16
+  %call1 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.3, ptr noundef %enc)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %lor.rhs, label %land.lhs.true
 
@@ -1730,22 +1730,22 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   br i1 %or.cond4.i, label %lor.rhs, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.end18, label %has_bom_prefix.exit17
 
 has_bom_prefix.exit17:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i15.not = icmp eq i32 %bcmp.i14, 0
   br i1 %tobool3.not.i15.not, label %lor.end18, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %has_bom_prefix.exit17, %lor.lhs.false
-  %call8 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.6, ptr noundef %enc), !range !16
+  %call8 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.6, ptr noundef %enc)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %lor.lhs.false10, label %land.rhs
 
 lor.lhs.false10:                                  ; preds = %lor.rhs
-  %call11 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.7, ptr noundef %enc), !range !16
+  %call11 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.7, ptr noundef %enc)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %lor.end18, label %land.rhs
 
@@ -1756,12 +1756,12 @@ land.rhs:                                         ; preds = %lor.lhs.false10, %l
   br i1 %or.cond4.i20, label %lor.end18, label %has_bom_prefix.exit25
 
 has_bom_prefix.exit25:                            ; preds = %land.rhs
-  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i23.not = icmp eq i32 %bcmp.i22, 0
   br i1 %tobool3.not.i23.not, label %lor.end18, label %land.rhs.i29
 
 land.rhs.i29:                                     ; preds = %has_bom_prefix.exit25
-  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i31 = icmp eq i32 %bcmp.i30, 0
   %0 = zext i1 %tobool3.not.i31 to i32
   br label %lor.end18
@@ -1772,9 +1772,9 @@ lor.end18:                                        ; preds = %land.rhs, %land.rhs
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @is_missing_required_utf_bom(ptr nocapture noundef readonly %enc, ptr noundef readonly %data, i64 noundef %len) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @is_missing_required_utf_bom(ptr nocapture noundef readonly %enc, ptr noundef readonly %data, i64 noundef %len) local_unnamed_addr #8 {
 entry:
-  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef %enc, ptr noundef nonnull @.str.2), !range !16
+  %call = tail call fastcc i32 @same_utf_encoding(ptr noundef %enc, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.rhs, label %land.lhs.true
 
@@ -1785,17 +1785,17 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond4.i, label %lor.end12, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.rhs, label %has_bom_prefix.exit15
 
 has_bom_prefix.exit15:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i13.not = icmp eq i32 %bcmp.i12, 0
   br i1 %tobool3.not.i13.not, label %lor.rhs, label %lor.end12
 
 lor.rhs:                                          ; preds = %has_bom_prefix.exit15, %has_bom_prefix.exit, %entry
-  %call5 = tail call fastcc i32 @same_utf_encoding(ptr noundef %enc, ptr noundef nonnull @.str.8), !range !16
+  %call5 = tail call fastcc i32 @same_utf_encoding(ptr noundef %enc, ptr noundef nonnull @.str.8)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %lor.end12, label %land.rhs
 
@@ -1806,12 +1806,12 @@ land.rhs:                                         ; preds = %lor.rhs
   br i1 %or.cond4.i18, label %lor.end12, label %has_bom_prefix.exit23
 
 has_bom_prefix.exit23:                            ; preds = %land.rhs
-  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i21.not = icmp eq i32 %bcmp.i20, 0
   br i1 %tobool3.not.i21.not, label %lor.end12, label %land.rhs.i27
 
 land.rhs.i27:                                     ; preds = %has_bom_prefix.exit23
-  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i29 = icmp ne i32 %bcmp.i28, 0
   %0 = zext i1 %tobool3.not.i29 to i32
   br label %lor.end12
@@ -1846,12 +1846,12 @@ if.end:                                           ; preds = %cond.end.thread, %c
   br i1 %tobool.not.i, label %if.then2, label %is_encoding_utf8.exit
 
 is_encoding_utf8.exit:                            ; preds = %if.end
-  %call.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %encoding), !range !16
+  %call.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %encoding)
   %tobool1.not = icmp eq i32 %call.i, 0
   br i1 %tobool1.not, label %if.end9, label %if.then2
 
 if.then2:                                         ; preds = %if.end, %is_encoding_utf8.exit
-  %call3 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %p, ptr noundef nonnull %r), !range !7
+  %call3 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %p, ptr noundef nonnull %r)
   %2 = load ptr, ptr %p, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end9, label %cond.true5
@@ -1882,19 +1882,19 @@ return:                                           ; preds = %if.end9, %if.then11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_hfs_dotgit(ptr noundef %path) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_hfs_dotgit(ptr noundef %path) local_unnamed_addr #5 {
 entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 3, %entry ]
   %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.9, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
@@ -1915,10 +1915,10 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
   %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -1932,19 +1932,19 @@ is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_hfs_dotgitmodules(ptr noundef %path) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_hfs_dotgitmodules(ptr noundef %path) local_unnamed_addr #5 {
 entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 10, %entry ]
   %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.10, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
@@ -1965,10 +1965,10 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
   %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -1982,19 +1982,19 @@ is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_hfs_dotgitignore(ptr noundef %path) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_hfs_dotgitignore(ptr noundef %path) local_unnamed_addr #5 {
 entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 9, %entry ]
   %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.11, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
@@ -2015,10 +2015,10 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
   %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2032,19 +2032,19 @@ is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_hfs_dotgitattributes(ptr noundef %path) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_hfs_dotgitattributes(ptr noundef %path) local_unnamed_addr #5 {
 entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 13, %entry ]
   %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.12, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
@@ -2065,10 +2065,10 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
   %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2082,19 +2082,19 @@ is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @is_hfs_dotmailmap(ptr noundef %path) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_hfs_dotmailmap(ptr noundef %path) local_unnamed_addr #5 {
 entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 7, %entry ]
   %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.13, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
@@ -2115,10 +2115,10 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
   %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2132,7 +2132,7 @@ is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @skip_utf8_bom(ptr nocapture noundef %text, i64 noundef %len) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @skip_utf8_bom(ptr nocapture noundef %text, i64 noundef %len) local_unnamed_addr #14 {
 entry:
   %cmp = icmp ult i64 %len, 3
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2157,7 +2157,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define dso_local void @strbuf_utf8_align(ptr noundef %buf, i32 noundef %position, i32 noundef %width, ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #21
-  %call1 = tail call i32 @utf8_strnwidth(ptr noundef %s, i64 noundef %call, i32 noundef 0), !range !10
+  %call1 = tail call i32 @utf8_strnwidth(ptr noundef %s, i64 noundef %call, i32 noundef 0)
   %0 = trunc i64 %call to i32
   %conv2 = sub i32 %0, %call1
   %cmp.not = icmp ult i32 %call1, %width
@@ -2211,9 +2211,9 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @next_hfs_char(ptr nocapture noundef %in) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2097152) i32 @next_hfs_char(ptr nocapture noundef %in) unnamed_addr #5 {
 entry:
-  %call3 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %in, ptr noundef null), !range !7
+  %call3 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %in, ptr noundef null)
   %0 = load ptr, ptr %in, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %return, label %if.end
@@ -2240,7 +2240,7 @@ if.end:                                           ; preds = %entry, %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %in, ptr noundef null), !range !7
+  %call = tail call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %in, ptr noundef null)
   %1 = load ptr, ptr %in, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2308,16 +2308,13 @@ attributes #23 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2097152}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 -2147483648}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 0, i32 2}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!16 = distinct !{!16, !6}

@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7511Normalizer216isNormalizedUTF8ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7511Normalizer216isNormalizedUTF8ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -1106,7 +1106,7 @@ if.end26:                                         ; preds = %if.then21, %invoke.
 
 if.else:                                          ; preds = %if.then14, %dynamic_cast.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %srcString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont30 unwind label %lpad29
@@ -1167,7 +1167,7 @@ return:                                           ; preds = %entry, %invoke.cont
 
 declare void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 
 declare noundef signext i8 @_ZN6icu_7516ReorderingBuffer4initEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -1378,7 +1378,7 @@ ehcleanup:                                        ; preds = %lpad52, %lpad26
 
 if.else:                                          ; preds = %if.then19, %dynamic_cast.end
   %secondLength.lobit = lshr i32 %secondLength, 31
-  %conv = trunc i32 %secondLength.lobit to i8
+  %conv = trunc nuw nsw i32 %secondLength.lobit to i8
   store ptr %second, ptr %agg.tmp60, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %secondString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp60, i32 noundef %secondLength)
           to label %invoke.cont63 unwind label %lpad62
@@ -1638,7 +1638,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %s, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %sString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -1701,7 +1701,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %s, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %sString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -1764,7 +1764,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %s, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %sString, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -4035,7 +4035,7 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind memory(read) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }

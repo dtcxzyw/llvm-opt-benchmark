@@ -492,7 +492,7 @@ define internal noundef i32 @_msg_socket_accept(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @msg_thr_create(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @msg_thr_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_un, align 2
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
@@ -1098,7 +1098,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   br label %.lr.ph159.split.us, !llvm.loop !10
 
 .preheader:                                       ; preds = %.split161.us, %.preheader
-  %87 = call fastcc i32 @_handle_request(i32 noundef %7, ptr noundef %9, i32 noundef %56, i32 noundef %57), !range !11
+  %87 = call fastcc i32 @_handle_request(i32 noundef %7, ptr noundef %9, i32 noundef %56, i32 noundef %57)
   %.not70 = icmp eq i32 %87, 0
   br i1 %.not70, label %.preheader, label %88
 
@@ -1178,7 +1178,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   br label %.lr.ph141.split.us.backedge
 
 .lr.ph141.split.us.backedge:                      ; preds = %119, %116
-  br label %.lr.ph141.split.us, !llvm.loop !12
+  br label %.lr.ph141.split.us, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.split143.us, %.split147.us, %111, %.split165.us, %78, %.split98.us, %43, %.split.us, %40, %.split101.us, %37
   %120 = call i32 @close(i32 noundef %7) #13
@@ -1213,7 +1213,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_handle_request(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -1482,7 +1482,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %136, %133
-  br label %.lr.ph.i, !llvm.loop !13
+  br label %.lr.ph.i, !llvm.loop !12
 
 .split405.i:                                      ; preds = %.lr.ph392.split.split.us.i, %173
   %137 = tail call i32 @get_log_level() #13
@@ -1531,7 +1531,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph392.i.backedge
 
 .lr.ph392.i.backedge:                             ; preds = %153, %150
-  br label %.lr.ph392.i, !llvm.loop !14
+  br label %.lr.ph392.i, !llvm.loop !13
 
 .lr.ph392.i:                                      ; preds = %.split345.us.i, %.lr.ph392.i.backedge
   %.0205.ph444.i = phi i32 [ %148, %.lr.ph392.i.backedge ], [ 4, %.split345.us.i ]
@@ -1646,7 +1646,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph446.i.backedge
 
 .lr.ph446.i.backedge:                             ; preds = %193, %190
-  br label %.lr.ph446.i, !llvm.loop !15
+  br label %.lr.ph446.i, !llvm.loop !14
 
 .lr.ph446.i:                                      ; preds = %.split397.i, %.lr.ph446.i.backedge
   %.0208.ph498.i = phi i32 [ %188, %.lr.ph446.i.backedge ], [ 4, %.split397.i ]
@@ -1843,7 +1843,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph500.i.backedge
 
 .lr.ph500.i.backedge:                             ; preds = %261, %258
-  br label %.lr.ph500.i, !llvm.loop !16
+  br label %.lr.ph500.i, !llvm.loop !15
 
 .split568.i:                                      ; preds = %.lr.ph554.split.split.us.i, %298
   %262 = tail call i32 @get_log_level() #13
@@ -1892,7 +1892,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph554.i.backedge
 
 .lr.ph554.i.backedge:                             ; preds = %278, %276
-  br label %.lr.ph554.i, !llvm.loop !17
+  br label %.lr.ph554.i, !llvm.loop !16
 
 .lr.ph554.i:                                      ; preds = %.lr.ph554.i.backedge, %.lr.ph554.i.preheader
   %.0211.ph607.i = phi ptr [ %75, %.lr.ph554.i.preheader ], [ %272, %.lr.ph554.i.backedge ]
@@ -2007,7 +2007,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %327
 
 327:                                              ; preds = %323, %320
-  %328 = tail call fastcc i32 @_wait_for_job_running(ptr noundef nonnull %1), !range !18
+  %328 = tail call fastcc i32 @_wait_for_job_running(ptr noundef nonnull %1)
   store i32 %328, ptr %70, align 4
   %.not251.i = icmp eq i32 %328, 0
   br i1 %.not251.i, label %330, label %329
@@ -2065,7 +2065,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %354 = zext i32 %353 to i64
   %355 = icmp ult i64 %indvars.iv.next.i, %354
-  br i1 %355, label %336, label %.loopexit271.i, !llvm.loop !19
+  br i1 %355, label %336, label %.loopexit271.i, !llvm.loop !17
 
 .loopexit271.i:                                   ; preds = %352, %332, %330
   %356 = getelementptr inbounds i8, ptr %1, i64 112
@@ -2252,7 +2252,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   %435 = load i32, ptr %426, align 8
   %436 = zext i32 %435 to i64
   %437 = icmp ult i64 %indvars.iv.next814.i, %436
-  br i1 %437, label %429, label %._crit_edge614.i, !llvm.loop !20
+  br i1 %437, label %429, label %._crit_edge614.i, !llvm.loop !18
 
 ._crit_edge614.i:                                 ; preds = %429, %.preheader270.i
   %438 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @suspend_mutex) #13
@@ -2449,7 +2449,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph615.split.us.i.backedge
 
 .lr.ph615.split.us.i.backedge:                    ; preds = %522, %519
-  br label %.lr.ph615.split.us.i, !llvm.loop !21
+  br label %.lr.ph615.split.us.i, !llvm.loop !19
 
 .split639.i:                                      ; preds = %539
   %523 = call i32 @get_log_level() #13
@@ -2479,7 +2479,7 @@ define internal fastcc noundef i32 @_handle_request(i32 noundef %0, ptr noundef 
   br label %.lr.ph633.split.us.i.backedge
 
 .lr.ph633.split.us.i.backedge:                    ; preds = %533, %530
-  br label %.lr.ph633.split.us.i, !llvm.loop !22
+  br label %.lr.ph633.split.us.i, !llvm.loop !20
 
 .lr.ph633.split.us.i:                             ; preds = %.split617.us.i, %.lr.ph633.split.us.i.backedge
   %.0198.ph649.i = phi ptr [ %527, %.lr.ph633.split.us.i.backedge ], [ %70, %.split617.us.i ]
@@ -2593,7 +2593,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph.split.us.i.backedge
 
 .lr.ph.split.us.i.backedge:                       ; preds = %573, %570
-  br label %.lr.ph.split.us.i, !llvm.loop !23
+  br label %.lr.ph.split.us.i, !llvm.loop !21
 
 574:                                              ; preds = %90
   %575 = tail call i32 @get_log_level() #13
@@ -2662,7 +2662,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph.split.us.i67.backedge
 
 .lr.ph.split.us.i67.backedge:                     ; preds = %601, %598
-  br label %.lr.ph.split.us.i67, !llvm.loop !24
+  br label %.lr.ph.split.us.i67, !llvm.loop !22
 
 .outer36._crit_edge.i:                            ; preds = %.split.us.i68
   %602 = getelementptr inbounds i8, ptr %1, i64 256
@@ -2722,7 +2722,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph59.split.us.i.backedge
 
 .lr.ph59.split.us.i.backedge:                     ; preds = %624, %621
-  br label %.lr.ph59.split.us.i, !llvm.loop !25
+  br label %.lr.ph59.split.us.i, !llvm.loop !23
 
 625:                                              ; preds = %90
   %626 = tail call i32 @get_log_level() #13
@@ -2791,7 +2791,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph.split.us.i72.backedge
 
 .lr.ph.split.us.i72.backedge:                     ; preds = %652, %649
-  br label %.lr.ph.split.us.i72, !llvm.loop !26
+  br label %.lr.ph.split.us.i72, !llvm.loop !24
 
 653:                                              ; preds = %90
   %654 = tail call i32 @get_log_level() #13
@@ -2860,7 +2860,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph.split.us.i82.backedge
 
 .lr.ph.split.us.i82.backedge:                     ; preds = %680, %677
-  br label %.lr.ph.split.us.i82, !llvm.loop !27
+  br label %.lr.ph.split.us.i82, !llvm.loop !25
 
 681:                                              ; preds = %90
   %682 = tail call i32 @get_log_level() #13
@@ -3018,7 +3018,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph.i92.backedge
 
 .lr.ph.i92.backedge:                              ; preds = %736, %733
-  br label %.lr.ph.i92, !llvm.loop !28
+  br label %.lr.ph.i92, !llvm.loop !26
 
 .outer324._crit_edge.i:                           ; preds = %.split428.us.i
   %737 = getelementptr inbounds i8, ptr %691, i64 8
@@ -3137,7 +3137,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph475.i.backedge
 
 .lr.ph475.i.backedge:                             ; preds = %777, %774
-  br label %.lr.ph475.i, !llvm.loop !29
+  br label %.lr.ph475.i, !llvm.loop !27
 
 .split543.i:                                      ; preds = %.lr.ph529.split.split.us.i, %814
   %778 = tail call i32 @get_log_level() #13
@@ -3186,7 +3186,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph529.i.backedge
 
 .lr.ph529.i.backedge:                             ; preds = %794, %791
-  br label %.lr.ph529.i, !llvm.loop !30
+  br label %.lr.ph529.i, !llvm.loop !28
 
 .lr.ph529.i:                                      ; preds = %.split480.us.i, %.lr.ph529.i.backedge
   %.0245.ph582.i = phi i32 [ %789, %.lr.ph529.i.backedge ], [ 4, %.split480.us.i ]
@@ -3381,7 +3381,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph584.i.backedge
 
 .lr.ph584.i.backedge:                             ; preds = %862, %859
-  br label %.lr.ph584.i, !llvm.loop !31
+  br label %.lr.ph584.i, !llvm.loop !29
 
 .outer320._crit_edge.i:                           ; preds = %.split590.us.i, %.outer322._crit_edge.i
   %863 = getelementptr inbounds i8, ptr %820, i64 264
@@ -3500,7 +3500,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph639.i.backedge
 
 .lr.ph639.i.backedge:                             ; preds = %903, %900
-  br label %.lr.ph639.i, !llvm.loop !32
+  br label %.lr.ph639.i, !llvm.loop !30
 
 .outer319._crit_edge.i:                           ; preds = %.split645.us.i
   %904 = getelementptr inbounds i8, ptr %820, i64 268
@@ -3619,7 +3619,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph694.i.backedge
 
 .lr.ph694.i.backedge:                             ; preds = %944, %941
-  br label %.lr.ph694.i, !llvm.loop !33
+  br label %.lr.ph694.i, !llvm.loop !31
 
 .outer318._crit_edge.i:                           ; preds = %.split700.us.i
   %.pre1148.i = load i16, ptr %904, align 4
@@ -3728,7 +3728,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
   br label %.lr.ph749.split.us.i.backedge
 
 .lr.ph749.split.us.i.backedge:                    ; preds = %990, %988
-  br label %.lr.ph749.split.us.i, !llvm.loop !34
+  br label %.lr.ph749.split.us.i, !llvm.loop !32
 
 .outer317._crit_edge.i:                           ; preds = %.split752.us.i
   %991 = icmp sgt i32 %987, 4
@@ -3802,7 +3802,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %1027 = zext i32 %1026 to i64
   %1028 = icmp ult i64 %indvars.iv.next.i98, %1027
-  br i1 %1028, label %.lr.ph769.i, label %.lr.ph770.split.us.i.preheader, !llvm.loop !35
+  br i1 %1028, label %.lr.ph769.i, label %.lr.ph770.split.us.i.preheader, !llvm.loop !33
 
 .lr.ph770.split.us.i.preheader:                   ; preds = %1025, %.preheader.i, %998
   br label %.lr.ph770.split.us.i
@@ -3861,7 +3861,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph770.split.us.i.backedge
 
 .lr.ph770.split.us.i.backedge:                    ; preds = %1050, %1047
-  br label %.lr.ph770.split.us.i, !llvm.loop !36
+  br label %.lr.ph770.split.us.i, !llvm.loop !34
 
 .outer315._crit_edge.i:                           ; preds = %.split773.us.i
   %1051 = icmp sgt i32 %1001, 0
@@ -3925,7 +3925,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph789.split.us.i.backedge
 
 .lr.ph789.split.us.i.backedge:                    ; preds = %1074, %1071
-  br label %.lr.ph789.split.us.i, !llvm.loop !37
+  br label %.lr.ph789.split.us.i, !llvm.loop !35
 
 .lr.ph808.preheader.i:                            ; preds = %.split792.us.i
   %1075 = load ptr, ptr %65, align 8
@@ -3985,7 +3985,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph808.split.us.i.backedge
 
 .lr.ph808.split.us.i.backedge:                    ; preds = %1097, %1094
-  br label %.lr.ph808.split.us.i, !llvm.loop !38
+  br label %.lr.ph808.split.us.i, !llvm.loop !36
 
 .outer313._crit_edge.i:                           ; preds = %.split811.us.i, %.outer315._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %66) #13
@@ -4074,7 +4074,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph827.split.us.i.backedge
 
 .lr.ph827.split.us.i.backedge:                    ; preds = %1132, %1129
-  br label %.lr.ph827.split.us.i, !llvm.loop !39
+  br label %.lr.ph827.split.us.i, !llvm.loop !37
 
 ._crit_edge828.i:                                 ; preds = %.split830.us.i
   %1133 = icmp ult i32 %1109, 2147483647
@@ -4143,7 +4143,7 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph846.split.us.i.backedge
 
 .lr.ph846.split.us.i.backedge:                    ; preds = %1155, %1152
-  br label %.lr.ph846.split.us.i, !llvm.loop !40
+  br label %.lr.ph846.split.us.i, !llvm.loop !38
 
 1156:                                             ; preds = %1103, %1100, %.lr.ph886.i
   store i32 0, ptr %68, align 4
@@ -4203,14 +4203,14 @@ thread-pre-split.i:                               ; preds = %992, %.outer317._cr
   br label %.lr.ph865.split.us.i.backedge
 
 .lr.ph865.split.us.i.backedge:                    ; preds = %1178, %1175
-  br label %.lr.ph865.split.us.i, !llvm.loop !41
+  br label %.lr.ph865.split.us.i, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %.split848.us.i, %.split867.us.i, %._crit_edge828.i
   %indvars.iv.next1113.i = add nuw nsw i64 %indvars.iv1112.i, 1
   %1179 = load i32, ptr %999, align 8
   %1180 = zext i32 %1179 to i64
   %1181 = icmp ult i64 %indvars.iv.next1113.i, %1180
-  br i1 %1181, label %.lr.ph886.i, label %.loopexit312.i, !llvm.loop !42
+  br i1 %1181, label %.lr.ph886.i, label %.loopexit312.i, !llvm.loop !40
 
 .loopexit312.i:                                   ; preds = %.loopexit.i, %.outer313._crit_edge.i, %thread-pre-split.i
   %1182 = load ptr, ptr %63, align 8
@@ -4382,7 +4382,7 @@ _handle_attach.exit:                              ; preds = %.loopexit312.i, %.s
   br label %.lr.ph.i102.backedge
 
 .lr.ph.i102.backedge:                             ; preds = %1234, %1231
-  br label %.lr.ph.i102, !llvm.loop !43
+  br label %.lr.ph.i102, !llvm.loop !41
 
 .outer42._crit_edge.i:                            ; preds = %.split58.us.i
   %.pre154.i = load i32, ptr %62, align 4
@@ -4444,7 +4444,7 @@ _handle_attach.exit:                              ; preds = %.loopexit312.i, %.s
   br label %.lr.ph105.i.backedge
 
 .lr.ph105.i.backedge:                             ; preds = %1256, %1254
-  br label %.lr.ph105.i, !llvm.loop !44
+  br label %.lr.ph105.i, !llvm.loop !42
 
 .outer._crit_edge.i:                              ; preds = %.split108.us.i
   %1257 = icmp sgt i32 %1250, 4
@@ -4527,7 +4527,7 @@ _handle_pid_in_container.exit:                    ; preds = %.split65.us.i110, %
   br label %.lr.ph.split.us.i111.backedge
 
 .lr.ph.split.us.i111.backedge:                    ; preds = %1286, %1283
-  br label %.lr.ph.split.us.i111, !llvm.loop !45
+  br label %.lr.ph.split.us.i111, !llvm.loop !43
 
 1287:                                             ; preds = %90
   %1288 = tail call i32 @get_log_level() #13
@@ -4577,7 +4577,7 @@ _handle_pid_in_container.exit:                    ; preds = %.split65.us.i110, %
   br label %.lr.ph.split.us.i122
 
 1307:                                             ; preds = %1296
-  %1308 = tail call fastcc i32 @_wait_for_job_running(ptr noundef %1), !range !18
+  %1308 = tail call fastcc i32 @_wait_for_job_running(ptr noundef %1)
   store i32 %1308, ptr %60, align 4
   %.not.i129 = icmp eq i32 %1308, 0
   br i1 %.not.i129, label %1310, label %1309
@@ -4739,7 +4739,7 @@ _handle_pid_in_container.exit:                    ; preds = %.split65.us.i110, %
   br label %.lr.ph.split.us.i122.backedge
 
 .lr.ph.split.us.i122.backedge:                    ; preds = %1375, %1372
-  br label %.lr.ph.split.us.i122, !llvm.loop !46
+  br label %.lr.ph.split.us.i122, !llvm.loop !44
 
 .split94.i:                                       ; preds = %1392
   %1376 = tail call i32 @get_log_level() #13
@@ -4769,7 +4769,7 @@ _handle_pid_in_container.exit:                    ; preds = %.split65.us.i110, %
   br label %.lr.ph88.split.us.i.backedge
 
 .lr.ph88.split.us.i.backedge:                     ; preds = %1386, %1383
-  br label %.lr.ph88.split.us.i, !llvm.loop !47
+  br label %.lr.ph88.split.us.i, !llvm.loop !45
 
 .lr.ph88.split.us.i:                              ; preds = %.split.us.i123, %.lr.ph88.split.us.i.backedge
   %.045.ph104.i = phi ptr [ %1380, %.lr.ph88.split.us.i.backedge ], [ %60, %.split.us.i123 ]
@@ -4851,7 +4851,7 @@ _handle_suspend.exit:                             ; preds = %.split90.i, %.split
   br label %.lr.ph.split.us.i131
 
 1418:                                             ; preds = %1407
-  %1419 = tail call fastcc i32 @_wait_for_job_running(ptr noundef %1), !range !18
+  %1419 = tail call fastcc i32 @_wait_for_job_running(ptr noundef %1)
   store i32 %1419, ptr %58, align 4
   %.not.i137 = icmp eq i32 %1419, 0
   br i1 %.not.i137, label %1421, label %1420
@@ -4992,7 +4992,7 @@ _handle_suspend.exit:                             ; preds = %.split90.i, %.split
   br label %.lr.ph.split.us.i131.backedge
 
 .lr.ph.split.us.i131.backedge:                    ; preds = %1473, %1470
-  br label %.lr.ph.split.us.i131, !llvm.loop !48
+  br label %.lr.ph.split.us.i131, !llvm.loop !46
 
 .split92.i:                                       ; preds = %1490
   %1474 = tail call i32 @get_log_level() #13
@@ -5022,7 +5022,7 @@ _handle_suspend.exit:                             ; preds = %.split90.i, %.split
   br label %.lr.ph86.split.us.i.backedge
 
 .lr.ph86.split.us.i.backedge:                     ; preds = %1484, %1481
-  br label %.lr.ph86.split.us.i, !llvm.loop !49
+  br label %.lr.ph86.split.us.i, !llvm.loop !47
 
 .lr.ph86.split.us.i:                              ; preds = %.split.us.i132, %.lr.ph86.split.us.i.backedge
   %.043.ph102.i = phi ptr [ %1478, %.lr.ph86.split.us.i.backedge ], [ %58, %.split.us.i132 ]
@@ -5109,7 +5109,7 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
 
 1520:                                             ; preds = %1518, %1515
   tail call void @step_terminate_monitor_start(ptr noundef nonnull %1) #13
-  %1521 = tail call fastcc i32 @_wait_for_job_running(ptr noundef nonnull %1), !range !18
+  %1521 = tail call fastcc i32 @_wait_for_job_running(ptr noundef nonnull %1)
   store i32 %1521, ptr %56, align 4
   %.not66.i = icmp eq i32 %1521, 0
   br i1 %.not66.i, label %.preheader72.i, label %1525
@@ -5160,7 +5160,7 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i149, 1
   %1544 = zext i32 %1543 to i64
   %1545 = icmp ult i64 %indvars.iv.next.i151, %1544
-  br i1 %1545, label %1526, label %._crit_edge.i, !llvm.loop !50
+  br i1 %1545, label %1526, label %._crit_edge.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %1542, %.preheader72.i
   %1546 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @suspend_mutex) #13
@@ -5297,7 +5297,7 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
   br label %.lr.ph83.split.us.i.backedge
 
 .lr.ph83.split.us.i.backedge:                     ; preds = %1598, %1595
-  br label %.lr.ph83.split.us.i, !llvm.loop !51
+  br label %.lr.ph83.split.us.i, !llvm.loop !49
 
 .split103.i:                                      ; preds = %1615
   %1599 = tail call i32 @get_log_level() #13
@@ -5327,7 +5327,7 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
   br label %.lr.ph97.split.us.i.backedge
 
 .lr.ph97.split.us.i.backedge:                     ; preds = %1609, %1606
-  br label %.lr.ph97.split.us.i, !llvm.loop !52
+  br label %.lr.ph97.split.us.i, !llvm.loop !50
 
 .lr.ph97.split.us.i:                              ; preds = %.split.us.i143, %.lr.ph97.split.us.i.backedge
   %.051.ph113.i = phi ptr [ %1603, %.lr.ph97.split.us.i.backedge ], [ %56, %.split.us.i143 ]
@@ -5477,7 +5477,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph.split.us.i153.backedge
 
 .lr.ph.split.us.i153.backedge:                    ; preds = %1666, %1663
-  br label %.lr.ph.split.us.i153, !llvm.loop !53
+  br label %.lr.ph.split.us.i153, !llvm.loop !51
 
 .split352.i:                                      ; preds = %1683
   %1667 = tail call i32 @get_log_level() #13
@@ -5507,7 +5507,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph346.split.us.i.backedge
 
 .lr.ph346.split.us.i.backedge:                    ; preds = %1677, %1674
-  br label %.lr.ph346.split.us.i, !llvm.loop !54
+  br label %.lr.ph346.split.us.i, !llvm.loop !52
 
 .lr.ph346.split.us.i:                             ; preds = %.split.us.i154, %.lr.ph346.split.us.i.backedge
   %.0176.ph362.i = phi i32 [ %1672, %.lr.ph346.split.us.i.backedge ], [ 4, %.split.us.i154 ]
@@ -5582,7 +5582,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph364.i.backedge
 
 .lr.ph364.i.backedge:                             ; preds = %1705, %1702
-  br label %.lr.ph364.i, !llvm.loop !55
+  br label %.lr.ph364.i, !llvm.loop !53
 
 .lr.ph364.i:                                      ; preds = %1634, %.lr.ph364.i.backedge
   %.0180.ph415.i = phi i32 [ %1700, %.lr.ph364.i.backedge ], [ 4, %1634 ]
@@ -5697,7 +5697,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph417.i.backedge
 
 .lr.ph417.i.backedge:                             ; preds = %1745, %1742
-  br label %.lr.ph417.i, !llvm.loop !56
+  br label %.lr.ph417.i, !llvm.loop !54
 
 .lr.ph417.i:                                      ; preds = %.split369.i, %.lr.ph417.i.backedge
   %.0182.ph469.i = phi i32 [ %1740, %.lr.ph417.i.backedge ], [ 4, %.split369.i ]
@@ -5812,7 +5812,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph471.i.backedge
 
 .lr.ph471.i.backedge:                             ; preds = %1785, %1782
-  br label %.lr.ph471.i, !llvm.loop !57
+  br label %.lr.ph471.i, !llvm.loop !55
 
 .lr.ph471.i:                                      ; preds = %.split422.i, %.lr.ph471.i.backedge
   %.0184.ph523.i = phi i32 [ %1780, %.lr.ph471.i.backedge ], [ 4, %.split422.i ]
@@ -5927,7 +5927,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph525.i.backedge
 
 .lr.ph525.i.backedge:                             ; preds = %1825, %1822
-  br label %.lr.ph525.i, !llvm.loop !58
+  br label %.lr.ph525.i, !llvm.loop !56
 
 .lr.ph525.i:                                      ; preds = %.split476.i, %.lr.ph525.i.backedge
   %.0188.ph577.i = phi ptr [ %1819, %.lr.ph525.i.backedge ], [ %54, %.split476.i ]
@@ -6116,7 +6116,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph579.i.backedge
 
 .lr.ph579.i.backedge:                             ; preds = %1891, %1888
-  br label %.lr.ph579.i, !llvm.loop !59
+  br label %.lr.ph579.i, !llvm.loop !57
 
 .outer247._crit_edge.i:                           ; preds = %.split585.us.i, %.outer249._crit_edge.i
   %1892 = tail call ptr @create_buf(ptr noundef %1850, i32 noundef %.pre.i158) #13
@@ -6269,7 +6269,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph634.split.us.i.backedge
 
 .lr.ph634.split.us.i.backedge:                    ; preds = %1961, %1958
-  br label %.lr.ph634.split.us.i, !llvm.loop !60
+  br label %.lr.ph634.split.us.i, !llvm.loop !58
 
 .split659.i:                                      ; preds = %1978
   %1962 = call i32 @get_log_level() #13
@@ -6299,7 +6299,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
   br label %.lr.ph652.split.us.i.backedge
 
 .lr.ph652.split.us.i.backedge:                    ; preds = %1972, %1969
-  br label %.lr.ph652.split.us.i, !llvm.loop !61
+  br label %.lr.ph652.split.us.i, !llvm.loop !59
 
 .lr.ph652.split.us.i:                             ; preds = %.split636.us.i, %.lr.ph652.split.us.i.backedge
   %.0174.ph669.i = phi ptr [ %1966, %.lr.ph652.split.us.i.backedge ], [ %48, %.split636.us.i ]
@@ -6486,7 +6486,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph.split.us.i163.backedge
 
 .lr.ph.split.us.i163.backedge:                    ; preds = %2036, %2033
-  br label %.lr.ph.split.us.i163, !llvm.loop !62
+  br label %.lr.ph.split.us.i163, !llvm.loop !60
 
 2037:                                             ; preds = %._crit_edge231.i, %.lr.ph250.i
   %indvars.iv.i168 = phi i64 [ 0, %.lr.ph250.i ], [ %indvars.iv.next.i170, %._crit_edge231.i ]
@@ -6550,7 +6550,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph161.split.us.i.backedge
 
 .lr.ph161.split.us.i.backedge:                    ; preds = %2063, %2060
-  br label %.lr.ph161.split.us.i, !llvm.loop !63
+  br label %.lr.ph161.split.us.i, !llvm.loop !61
 
 ._crit_edge.i169:                                 ; preds = %.split163.us.i
   %2064 = getelementptr inbounds i8, ptr %2040, i64 60
@@ -6610,7 +6610,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph179.split.us.i.backedge
 
 .lr.ph179.split.us.i.backedge:                    ; preds = %2086, %2083
-  br label %.lr.ph179.split.us.i, !llvm.loop !64
+  br label %.lr.ph179.split.us.i, !llvm.loop !62
 
 ._crit_edge180.i:                                 ; preds = %.split182.us.i
   %2087 = getelementptr inbounds i8, ptr %2040, i64 64
@@ -6670,7 +6670,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph198.split.us.i.backedge
 
 .lr.ph198.split.us.i.backedge:                    ; preds = %2109, %2106
-  br label %.lr.ph198.split.us.i, !llvm.loop !65
+  br label %.lr.ph198.split.us.i, !llvm.loop !63
 
 .split228.i:                                      ; preds = %.split201.us.i
   %2110 = getelementptr inbounds i8, ptr %2040, i64 147
@@ -6727,7 +6727,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph217.i.backedge
 
 .lr.ph217.i.backedge:                             ; preds = %2130, %2127
-  br label %.lr.ph217.i, !llvm.loop !66
+  br label %.lr.ph217.i, !llvm.loop !64
 
 .outer115._crit_edge.i:                           ; preds = %.split220.us.i
   %2131 = getelementptr inbounds i8, ptr %2040, i64 148
@@ -6787,14 +6787,14 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph230.split.us.i.backedge
 
 .lr.ph230.split.us.i.backedge:                    ; preds = %2153, %2150
-  br label %.lr.ph230.split.us.i, !llvm.loop !67
+  br label %.lr.ph230.split.us.i, !llvm.loop !65
 
 ._crit_edge231.i:                                 ; preds = %.split233.us.i
   %.pre287.i = load i32, ptr %2013, align 8
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i168, 1
   %2154 = zext i32 %.pre287.i to i64
   %2155 = icmp ult i64 %indvars.iv.next.i170, %2154
-  br i1 %2155, label %2037, label %_handle_state.exit, !llvm.loop !68
+  br i1 %2155, label %2037, label %_handle_state.exit, !llvm.loop !66
 
 2156:                                             ; preds = %90
   %2157 = tail call i32 @get_log_level() #13
@@ -6942,7 +6942,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   %2224 = load i32, ptr %46, align 4
   %2225 = sext i32 %2224 to i64
   %2226 = icmp slt i64 %indvars.iv.next96.i, %2225
-  br i1 %2226, label %.lr.ph72.i, label %._crit_edge.i189, !llvm.loop !69
+  br i1 %2226, label %.lr.ph72.i, label %._crit_edge.i189, !llvm.loop !67
 
 ._crit_edge.i189:                                 ; preds = %2223, %2200
   call void @slurm_xfree(ptr noundef nonnull %45) #13
@@ -6973,7 +6973,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   %2239 = load i32, ptr %2197, align 8
   %2240 = zext i32 %2239 to i64
   %2241 = icmp ult i64 %indvars.iv.next.i180, %2240
-  br i1 %2241, label %2227, label %.loopexit.i181, !llvm.loop !70
+  br i1 %2241, label %2227, label %.loopexit.i181, !llvm.loop !68
 
 .loopexit.i181:                                   ; preds = %2237, %.preheader.i176
   %.lcssa67.i = phi i32 [ 0, %.preheader.i176 ], [ %2238, %2237 ]
@@ -7040,7 +7040,7 @@ _handle_completion.exit:                          ; preds = %.split348.i, %1988,
   br label %.lr.ph73.split.us.i.backedge
 
 .lr.ph73.split.us.i.backedge:                     ; preds = %2267, %2264
-  br label %.lr.ph73.split.us.i, !llvm.loop !71
+  br label %.lr.ph73.split.us.i, !llvm.loop !69
 
 .outer._crit_edge.i185:                           ; preds = %.split.us.i182
   call void @jobacctinfo_destroy(ptr noundef %2187) #13
@@ -7183,7 +7183,7 @@ _handle_stat_jobacct.exit:                        ; preds = %2184, %2274, %2277,
   br label %.lr.ph.split.us.i192.backedge
 
 .lr.ph.split.us.i192.backedge:                    ; preds = %2325, %2322
-  br label %.lr.ph.split.us.i192, !llvm.loop !72
+  br label %.lr.ph.split.us.i192, !llvm.loop !70
 
 .lr.ph85.i:                                       ; preds = %.preheader.i195, %._crit_edge.i199
   %indvars.iv.i198 = phi i64 [ %indvars.iv.next.i200, %._crit_edge.i199 ], [ 0, %.preheader.i195 ]
@@ -7247,14 +7247,14 @@ _handle_stat_jobacct.exit:                        ; preds = %2184, %2274, %2277,
   br label %.lr.ph66.split.us.i.backedge
 
 .lr.ph66.split.us.i.backedge:                     ; preds = %2350, %2347
-  br label %.lr.ph66.split.us.i, !llvm.loop !73
+  br label %.lr.ph66.split.us.i, !llvm.loop !71
 
 ._crit_edge.i199:                                 ; preds = %.split68.us.i
   %.pre102.i = load i32, ptr %37, align 4
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i198, 1
   %2351 = sext i32 %.pre102.i to i64
   %2352 = icmp slt i64 %indvars.iv.next.i200, %2351
-  br i1 %2352, label %.lr.ph85.i, label %._crit_edge86.i, !llvm.loop !74
+  br i1 %2352, label %.lr.ph85.i, label %._crit_edge86.i, !llvm.loop !72
 
 ._crit_edge86.i:                                  ; preds = %._crit_edge.i199
   %2353 = icmp sgt i32 %.pre102.i, 0
@@ -7361,7 +7361,7 @@ _handle_list_pids.exit:                           ; preds = %.preheader.i195, %.
   br label %.lr.ph.i206.backedge
 
 .lr.ph.i206.backedge:                             ; preds = %2388, %2385
-  br label %.lr.ph.i206, !llvm.loop !75
+  br label %.lr.ph.i206, !llvm.loop !73
 
 .lr.ph.i206:                                      ; preds = %2361, %.lr.ph.i206.backedge
   %.073.ph178.i = phi i32 [ %2383, %.lr.ph.i206.backedge ], [ 4, %2361 ]
@@ -7557,7 +7557,7 @@ _handle_list_pids.exit:                           ; preds = %.preheader.i195, %.
   br label %.lr.ph180.i.backedge
 
 .lr.ph180.i.backedge:                             ; preds = %2456, %2453
-  br label %.lr.ph180.i, !llvm.loop !76
+  br label %.lr.ph180.i, !llvm.loop !74
 
 .outer98._crit_edge.i:                            ; preds = %.split186.us.i210, %2412
   tail call void @unpack_stepd_reconf(ptr noundef %2413) #13
@@ -7641,7 +7641,7 @@ _handle_list_pids.exit:                           ; preds = %.preheader.i195, %.
   br label %.lr.ph235.split.us.i.backedge
 
 .lr.ph235.split.us.i.backedge:                    ; preds = %2489, %2486
-  br label %.lr.ph235.split.us.i, !llvm.loop !77
+  br label %.lr.ph235.split.us.i, !llvm.loop !75
 
 .split259.i:                                      ; preds = %2506
   %2490 = tail call i32 @get_log_level() #13
@@ -7671,7 +7671,7 @@ _handle_list_pids.exit:                           ; preds = %.preheader.i195, %.
   br label %.lr.ph253.split.us.i.backedge
 
 .lr.ph253.split.us.i.backedge:                    ; preds = %2500, %2497
-  br label %.lr.ph253.split.us.i, !llvm.loop !78
+  br label %.lr.ph253.split.us.i, !llvm.loop !76
 
 .lr.ph253.split.us.i:                             ; preds = %.split237.us.i203, %.lr.ph253.split.us.i.backedge
   %.068.ph269.i = phi ptr [ %2494, %.lr.ph253.split.us.i.backedge ], [ %34, %.split237.us.i203 ]
@@ -7855,7 +7855,7 @@ _handle_reconfig.exit:                            ; preds = %.split255.i, %.spli
   br label %.lr.ph.i213.backedge
 
 .lr.ph.i213.backedge:                             ; preds = %2562, %2559
-  br label %.lr.ph.i213, !llvm.loop !79
+  br label %.lr.ph.i213, !llvm.loop !77
 
 .outer75._crit_edge.i:                            ; preds = %.split103.us.i
   %.pre.i215 = load i32, ptr %30, align 4
@@ -7983,7 +7983,7 @@ _handle_reconfig.exit:                            ; preds = %.split255.i, %.spli
   br label %.lr.ph150.i.backedge
 
 .lr.ph150.i.backedge:                             ; preds = %2607, %2604
-  br label %.lr.ph150.i, !llvm.loop !80
+  br label %.lr.ph150.i, !llvm.loop !78
 
 .loopexit.i217:                                   ; preds = %.split155.us.i, %2563, %.outer75._crit_edge.i
   %2608 = tail call i32 @get_log_level() #13
@@ -8085,7 +8085,7 @@ _handle_reconfig.exit:                            ; preds = %.split255.i, %.spli
   br label %.lr.ph204.split.us.i.backedge
 
 .lr.ph204.split.us.i.backedge:                    ; preds = %2650, %2647
-  br label %.lr.ph204.split.us.i, !llvm.loop !81
+  br label %.lr.ph204.split.us.i, !llvm.loop !79
 
 _handle_notify_job.exit:                          ; preds = %.split207.us.i, %.split110.us.i, %2548, %.split.us.i222, %2551, %.split107.us.i, %2554, %.split163.us.i221, %2593, %.split152.us.i, %2596, %.split159.us.i, %2599, %.split211.us.i, %2642
   %.0.i219 = phi i32 [ -1, %.split211.us.i ], [ -1, %2642 ], [ -1, %.split159.us.i ], [ -1, %2599 ], [ -1, %.split152.us.i ], [ -1, %2596 ], [ -1, %.split163.us.i221 ], [ -1, %2593 ], [ -1, %.split107.us.i ], [ -1, %2554 ], [ -1, %.split.us.i222 ], [ -1, %2551 ], [ -1, %.split110.us.i ], [ -1, %2548 ], [ 0, %.split207.us.i ]
@@ -8222,7 +8222,7 @@ _handle_notify_job.exit:                          ; preds = %.split207.us.i, %.s
   br label %.lr.ph.i224.backedge
 
 .lr.ph.i224.backedge:                             ; preds = %2695, %2692
-  br label %.lr.ph.i224, !llvm.loop !82
+  br label %.lr.ph.i224, !llvm.loop !80
 
 .outer44._crit_edge.i:                            ; preds = %.split61.us.i226
   %.pre.i229 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
@@ -8238,7 +8238,7 @@ _handle_notify_job.exit:                          ; preds = %.split207.us.i, %.s
   br label %2705
 
 2703:                                             ; preds = %.outer44._crit_edge.i
-  %2704 = tail call fastcc i32 @_handle_add_extern_pid_internal(ptr noundef %1, i32 noundef %2699), !range !11
+  %2704 = tail call fastcc i32 @_handle_add_extern_pid_internal(ptr noundef %1, i32 noundef %2699)
   br label %2705
 
 2705:                                             ; preds = %2703, %2700
@@ -8300,7 +8300,7 @@ _handle_notify_job.exit:                          ; preds = %.split207.us.i, %.s
   br label %.lr.ph108.split.us.i.backedge
 
 .lr.ph108.split.us.i.backedge:                    ; preds = %2727, %2725
-  br label %.lr.ph108.split.us.i, !llvm.loop !83
+  br label %.lr.ph108.split.us.i, !llvm.loop !81
 
 .outer._crit_edge.i231:                           ; preds = %.split111.us.i
   %2728 = icmp sgt i32 %2724, 4
@@ -8385,7 +8385,7 @@ _handle_add_extern_pid.exit:                      ; preds = %.split68.us.i237, %
   br label %.lr.ph.split.us.i238.backedge
 
 .lr.ph.split.us.i238.backedge:                    ; preds = %2757, %2754
-  br label %.lr.ph.split.us.i238, !llvm.loop !84
+  br label %.lr.ph.split.us.i238, !llvm.loop !82
 
 .outer76._crit_edge.i:                            ; preds = %.split.us.i239
   %.phi.trans.insert.i241 = getelementptr inbounds i8, ptr %1, i64 880
@@ -8454,7 +8454,7 @@ _handle_add_extern_pid.exit:                      ; preds = %.split68.us.i237, %
   br label %.lr.ph109.split.us.i.backedge
 
 .lr.ph109.split.us.i.backedge:                    ; preds = %2783, %2780
-  br label %.lr.ph109.split.us.i, !llvm.loop !85
+  br label %.lr.ph109.split.us.i, !llvm.loop !83
 
 .outer75._crit_edge.i246:                         ; preds = %.split112.us.i244
   %2784 = icmp ult i32 %2760, 2147483647
@@ -8518,7 +8518,7 @@ _handle_add_extern_pid.exit:                      ; preds = %.split68.us.i237, %
   br label %.lr.ph128.split.us.i.backedge
 
 .lr.ph128.split.us.i.backedge:                    ; preds = %2806, %2803
-  br label %.lr.ph128.split.us.i, !llvm.loop !86
+  br label %.lr.ph128.split.us.i, !llvm.loop !84
 
 .split152.i:                                      ; preds = %2823
   %2807 = tail call i32 @get_log_level() #13
@@ -8548,7 +8548,7 @@ _handle_add_extern_pid.exit:                      ; preds = %.split68.us.i237, %
   br label %.lr.ph146.split.us.i.backedge
 
 .lr.ph146.split.us.i.backedge:                    ; preds = %2817, %2814
-  br label %.lr.ph146.split.us.i, !llvm.loop !87
+  br label %.lr.ph146.split.us.i, !llvm.loop !85
 
 .lr.ph146.split.us.i:                             ; preds = %.outer76._crit_edge.i, %.lr.ph146.split.us.i.backedge
   %.052.ph162.i = phi ptr [ %2811, %.lr.ph146.split.us.i.backedge ], [ %26, %.outer76._crit_edge.i ]
@@ -8724,7 +8724,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph.i252.backedge
 
 .lr.ph.i252.backedge:                             ; preds = %2876, %2873
-  br label %.lr.ph.i252, !llvm.loop !88
+  br label %.lr.ph.i252, !llvm.loop !86
 
 .split533.i:                                      ; preds = %.lr.ph520.split.split.us.i, %2913
   %2877 = tail call i32 @get_log_level() #13
@@ -8773,7 +8773,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph520.i.backedge
 
 .lr.ph520.i.backedge:                             ; preds = %2893, %2890
-  br label %.lr.ph520.i, !llvm.loop !89
+  br label %.lr.ph520.i, !llvm.loop !87
 
 .lr.ph520.i:                                      ; preds = %.split473.us.i254, %.lr.ph520.i.backedge
   %.0260.ph572.i = phi i32 [ %2888, %.lr.ph520.i.backedge ], [ 4, %.split473.us.i254 ]
@@ -8888,7 +8888,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph574.i.backedge
 
 .lr.ph574.i.backedge:                             ; preds = %2933, %2930
-  br label %.lr.ph574.i, !llvm.loop !90
+  br label %.lr.ph574.i, !llvm.loop !88
 
 .lr.ph574.i:                                      ; preds = %.split525.i, %.lr.ph574.i.backedge
   %.0266.ph626.i = phi i32 [ %2928, %.lr.ph574.i.backedge ], [ 4, %.split525.i ]
@@ -9082,7 +9082,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph628.i.backedge
 
 .lr.ph628.i.backedge:                             ; preds = %3001, %2998
-  br label %.lr.ph628.i, !llvm.loop !91
+  br label %.lr.ph628.i, !llvm.loop !89
 
 .loopexit.i257:                                   ; preds = %.split633.us.i, %2957, %.outer360._crit_edge.i
   %3002 = phi ptr [ %2960, %2957 ], [ null, %.outer360._crit_edge.i ], [ %2960, %.split633.us.i ]
@@ -9214,7 +9214,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph682.split.us.i.backedge
 
 .lr.ph682.split.us.i.backedge:                    ; preds = %3060, %3057
-  br label %.lr.ph682.split.us.i, !llvm.loop !92
+  br label %.lr.ph682.split.us.i, !llvm.loop !90
 
 .outer357._crit_edge.i:                           ; preds = %.split685.us.i
   %.not342.i = icmp eq i32 %3038, 0
@@ -9281,7 +9281,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph701.split.us.i.backedge
 
 .lr.ph701.split.us.i.backedge:                    ; preds = %3086, %3083
-  br label %.lr.ph701.split.us.i, !llvm.loop !93
+  br label %.lr.ph701.split.us.i, !llvm.loop !91
 
 .outer356._crit_edge.i:                           ; preds = %.split704.us.i258
   %3087 = icmp sgt i32 %3064, 0
@@ -9345,7 +9345,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph720.split.us.i.backedge
 
 .lr.ph720.split.us.i.backedge:                    ; preds = %3109, %3106
-  br label %.lr.ph720.split.us.i, !llvm.loop !94
+  br label %.lr.ph720.split.us.i, !llvm.loop !92
 
 .outer355._crit_edge.i:                           ; preds = %.split723.us.i, %.outer356._crit_edge.i
   store i32 1, ptr %23, align 4
@@ -9405,7 +9405,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph739.split.us.i.backedge
 
 .lr.ph739.split.us.i.backedge:                    ; preds = %3131, %3128
-  br label %.lr.ph739.split.us.i, !llvm.loop !95
+  br label %.lr.ph739.split.us.i, !llvm.loop !93
 
 .split763.i:                                      ; preds = %3148
   %3132 = tail call i32 @get_log_level() #13
@@ -9435,7 +9435,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph757.split.us.i.backedge
 
 .lr.ph757.split.us.i.backedge:                    ; preds = %3142, %3139
-  br label %.lr.ph757.split.us.i, !llvm.loop !96
+  br label %.lr.ph757.split.us.i, !llvm.loop !94
 
 .lr.ph757.split.us.i:                             ; preds = %.split741.us.i, %.lr.ph757.split.us.i.backedge
   %.0273.ph773.i = phi ptr [ %3136, %.lr.ph757.split.us.i.backedge ], [ @.str.145, %.split741.us.i ]
@@ -9491,7 +9491,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph775.split.us.i.backedge
 
 .lr.ph775.split.us.i.backedge:                    ; preds = %3164, %3161
-  br label %.lr.ph775.split.us.i, !llvm.loop !97
+  br label %.lr.ph775.split.us.i, !llvm.loop !95
 
 .lr.ph775.split.us.i:                             ; preds = %.split759.i, %.lr.ph775.split.us.i.backedge
   %.0270.ph792.i = phi ptr [ %3158, %.lr.ph775.split.us.i.backedge ], [ %3007, %.split759.i ]
@@ -9577,7 +9577,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph794.split.us.i.backedge
 
 .lr.ph794.split.us.i.backedge:                    ; preds = %3198, %3195
-  br label %.lr.ph794.split.us.i, !llvm.loop !98
+  br label %.lr.ph794.split.us.i, !llvm.loop !96
 
 .outer350._crit_edge.i:                           ; preds = %.split797.us.i
   %.phi.trans.insert.i259 = getelementptr inbounds i8, ptr %1, i64 384
@@ -9641,7 +9641,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph813.split.us.i.backedge
 
 .lr.ph813.split.us.i.backedge:                    ; preds = %3222, %3219
-  br label %.lr.ph813.split.us.i, !llvm.loop !99
+  br label %.lr.ph813.split.us.i, !llvm.loop !97
 
 .outer349._crit_edge.i:                           ; preds = %.split816.us.i
   %3223 = icmp sgt i32 %3200, 0
@@ -9705,7 +9705,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph832.split.us.i.backedge
 
 .lr.ph832.split.us.i.backedge:                    ; preds = %3245, %3242
-  br label %.lr.ph832.split.us.i, !llvm.loop !100
+  br label %.lr.ph832.split.us.i, !llvm.loop !98
 
 .outer348._crit_edge.i:                           ; preds = %.split835.us.i, %.outer349._crit_edge.i
   %3246 = getelementptr inbounds i8, ptr %1, i64 392
@@ -9769,7 +9769,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph851.split.us.i.backedge
 
 .lr.ph851.split.us.i.backedge:                    ; preds = %3271, %3268
-  br label %.lr.ph851.split.us.i, !llvm.loop !101
+  br label %.lr.ph851.split.us.i, !llvm.loop !99
 
 .outer347._crit_edge.i:                           ; preds = %.split854.us.i
   %3272 = icmp sgt i32 %3249, 0
@@ -9833,7 +9833,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph870.split.us.i.backedge
 
 .lr.ph870.split.us.i.backedge:                    ; preds = %3294, %3291
-  br label %.lr.ph870.split.us.i, !llvm.loop !102
+  br label %.lr.ph870.split.us.i, !llvm.loop !100
 
 .outer346._crit_edge.i:                           ; preds = %.split873.us.i, %.outer347._crit_edge.i
   %3295 = getelementptr inbounds i8, ptr %1, i64 400
@@ -9897,7 +9897,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph889.split.us.i.backedge
 
 .lr.ph889.split.us.i.backedge:                    ; preds = %3320, %3317
-  br label %.lr.ph889.split.us.i, !llvm.loop !103
+  br label %.lr.ph889.split.us.i, !llvm.loop !101
 
 .outer345._crit_edge.i:                           ; preds = %.split892.us.i
   %3321 = icmp sgt i32 %3298, 0
@@ -9961,7 +9961,7 @@ _handle_x11_display.exit:                         ; preds = %.split98.us.i, %274
   br label %.lr.ph908.split.us.i.backedge
 
 .lr.ph908.split.us.i.backedge:                    ; preds = %3343, %3340
-  br label %.lr.ph908.split.us.i, !llvm.loop !104
+  br label %.lr.ph908.split.us.i, !llvm.loop !102
 
 .outer._crit_edge.i260:                           ; preds = %.split911.us.i, %.outer345._crit_edge.i
   %3344 = tail call i32 @get_log_level() #13
@@ -10119,7 +10119,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br label %.lr.ph.i269.backedge
 
 .lr.ph.i269.backedge:                             ; preds = %3392, %3389
-  br label %.lr.ph.i269, !llvm.loop !105
+  br label %.lr.ph.i269, !llvm.loop !103
 
 .split267.i:                                      ; preds = %.lr.ph254.split.split.us.i, %3429
   %3393 = tail call i32 @get_log_level() #13
@@ -10168,7 +10168,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br label %.lr.ph254.i.backedge
 
 .lr.ph254.i.backedge:                             ; preds = %3409, %3406
-  br label %.lr.ph254.i, !llvm.loop !106
+  br label %.lr.ph254.i, !llvm.loop !104
 
 .lr.ph254.i:                                      ; preds = %.split207.us.i271, %.lr.ph254.i.backedge
   %.0120.ph306.i = phi ptr [ %3403, %.lr.ph254.i.backedge ], [ %16, %.split207.us.i271 ]
@@ -10283,7 +10283,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br label %.lr.ph308.i.backedge
 
 .lr.ph308.i.backedge:                             ; preds = %3449, %3446
-  br label %.lr.ph308.i, !llvm.loop !107
+  br label %.lr.ph308.i, !llvm.loop !105
 
 .lr.ph308.i:                                      ; preds = %.split259.i274, %.lr.ph308.i.backedge
   %.0117.ph360.i = phi ptr [ %3443, %.lr.ph308.i.backedge ], [ %18, %.split259.i274 ]
@@ -10477,7 +10477,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br label %.lr.ph362.i.backedge
 
 .lr.ph362.i.backedge:                             ; preds = %3517, %3514
-  br label %.lr.ph362.i, !llvm.loop !108
+  br label %.lr.ph362.i, !llvm.loop !106
 
 .loopexit151.i:                                   ; preds = %.split367.us.i, %3473, %.outer154._crit_edge.i
   %3518 = phi ptr [ %3476, %3473 ], [ null, %.outer154._crit_edge.i ], [ %3476, %.split367.us.i ]
@@ -10528,7 +10528,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   %3540 = getelementptr inbounds i32, ptr %3539, i64 %indvars.iv.next.i283
   %3541 = load i32, ptr %3540, align 4
   %3542 = icmp eq i32 %3535, %3541
-  br i1 %3542, label %._crit_edge418.loopexit.i.loopexit, label %.lr.ph1335, !llvm.loop !109
+  br i1 %3542, label %._crit_edge418.loopexit.i.loopexit, label %.lr.ph1335, !llvm.loop !107
 
 .lr.ph1335:                                       ; preds = %.lr.ph417.i281, %3538
   %indvars.iv.i2821334 = phi i64 [ %indvars.iv.next.i283, %3538 ], [ 0, %.lr.ph417.i281 ]
@@ -10544,7 +10544,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   %indvars.iv.next.i283 = add nuw nsw i64 %indvars.iv.i2821334, 1
   %3548 = sext i32 %.pre.pre.i to i64
   %3549 = icmp slt i64 %indvars.iv.next.i283, %3548
-  br i1 %3549, label %3538, label %._crit_edge418.loopexit.i.loopexit, !llvm.loop !109
+  br i1 %3549, label %3538, label %._crit_edge418.loopexit.i.loopexit, !llvm.loop !107
 
 ._crit_edge418.loopexit.i.loopexit:               ; preds = %3547, %.lr.ph1335, %3538
   %.0113.lcssa.ph.in.i.ph = phi i64 [ %indvars.iv.next.i283, %3538 ], [ %indvars.iv.i2821334, %.lr.ph1335 ], [ %indvars.iv.next.i283, %3547 ]
@@ -10630,7 +10630,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br label %.lr.ph424.split.us.i.backedge
 
 .lr.ph424.split.us.i.backedge:                    ; preds = %3579, %3576
-  br label %.lr.ph424.split.us.i, !llvm.loop !110
+  br label %.lr.ph424.split.us.i, !llvm.loop !108
 
 .outer._crit_edge.i277:                           ; preds = %.split427.us.i
   br i1 %.not144.i, label %_handle_getgr.exit, label %3580
@@ -10646,7 +10646,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br i1 %3584, label %.lr.ph444.i, label %.loopexit.i279
 
 3585:                                             ; preds = %3580
-  %3586 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef %1, i32 noundef %.1.i), !range !11
+  %3586 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef readonly %1, i32 noundef %.1.i)
   %.not146.i = icmp eq i32 %3586, 0
   br i1 %.not146.i, label %.loopexit.i279, label %.loopexit149.i
 
@@ -10654,11 +10654,11 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   %3588 = add nuw nsw i32 %.0443.i, 1
   %3589 = load i32, ptr %3522, align 4
   %3590 = icmp slt i32 %3588, %3589
-  br i1 %3590, label %.lr.ph444.i, label %.loopexit.i279, !llvm.loop !111
+  br i1 %3590, label %.lr.ph444.i, label %.loopexit.i279, !llvm.loop !109
 
 .lr.ph444.i:                                      ; preds = %.preheader.i278, %3587
   %.0443.i = phi i32 [ %3588, %3587 ], [ 0, %.preheader.i278 ]
-  %3591 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %.0443.i), !range !11
+  %3591 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef nonnull readonly %1, i32 noundef %.0443.i)
   %.not145.i = icmp eq i32 %3591, 0
   br i1 %.not145.i, label %3587, label %.loopexit149.i
 
@@ -10768,7 +10768,7 @@ _handle_getgr.exit:                               ; preds = %.outer._crit_edge.i
   br label %.lr.ph.split.us.i288.backedge
 
 .lr.ph.split.us.i288.backedge:                    ; preds = %3632, %3629
-  br label %.lr.ph.split.us.i288, !llvm.loop !112
+  br label %.lr.ph.split.us.i288, !llvm.loop !110
 
 .outer._crit_edge.i291:                           ; preds = %.split.us.i289
   %3633 = icmp sgt i32 %3610, 0
@@ -10943,7 +10943,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph.i294.backedge
 
 .lr.ph.i294.backedge:                             ; preds = %3687, %3684
-  br label %.lr.ph.i294, !llvm.loop !113
+  br label %.lr.ph.i294, !llvm.loop !111
 
 .split451.i305:                                   ; preds = %.lr.ph438.split.split.us.i, %3724
   %3688 = tail call i32 @get_log_level() #13
@@ -10992,7 +10992,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph438.i.backedge
 
 .lr.ph438.i.backedge:                             ; preds = %3704, %3701
-  br label %.lr.ph438.i, !llvm.loop !114
+  br label %.lr.ph438.i, !llvm.loop !112
 
 .lr.ph438.i:                                      ; preds = %.split391.us.i, %.lr.ph438.i.backedge
   %.0200.ph490.i = phi i32 [ %3699, %.lr.ph438.i.backedge ], [ 4, %.split391.us.i ]
@@ -11186,7 +11186,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph492.i.backedge
 
 .lr.ph492.i.backedge:                             ; preds = %3772, %3769
-  br label %.lr.ph492.i, !llvm.loop !115
+  br label %.lr.ph492.i, !llvm.loop !113
 
 .loopexit298.i:                                   ; preds = %.split497.us.i, %3728, %.outer301._crit_edge.i
   %3773 = getelementptr inbounds i8, ptr %1, i64 688
@@ -11360,7 +11360,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph546.split.us.i.backedge
 
 .lr.ph546.split.us.i.backedge:                    ; preds = %3837, %3834
-  br label %.lr.ph546.split.us.i, !llvm.loop !116
+  br label %.lr.ph546.split.us.i, !llvm.loop !114
 
 .outer297._crit_edge.i:                           ; preds = %.split549.us.i
   br i1 %.not277.i, label %_handle_gethost.exit, label %3838
@@ -11426,7 +11426,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph565.split.us.i.backedge
 
 .lr.ph565.split.us.i.backedge:                    ; preds = %3863, %3860
-  br label %.lr.ph565.split.us.i, !llvm.loop !117
+  br label %.lr.ph565.split.us.i, !llvm.loop !115
 
 .outer296._crit_edge.i:                           ; preds = %.split568.us.i
   %3864 = icmp sgt i32 %3841, 0
@@ -11490,7 +11490,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph584.split.us.i.backedge
 
 .lr.ph584.split.us.i.backedge:                    ; preds = %3886, %3883
-  br label %.lr.ph584.split.us.i, !llvm.loop !118
+  br label %.lr.ph584.split.us.i, !llvm.loop !116
 
 .outer295._crit_edge.i:                           ; preds = %.split587.us.i301, %.outer296._crit_edge.i
   store i32 1, ptr %6, align 4
@@ -11550,7 +11550,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph603.split.us.i.backedge
 
 .lr.ph603.split.us.i.backedge:                    ; preds = %3908, %3905
-  br label %.lr.ph603.split.us.i, !llvm.loop !119
+  br label %.lr.ph603.split.us.i, !llvm.loop !117
 
 .outer294._crit_edge.i:                           ; preds = %.split606.us.i
   %.pre915.i = load ptr, ptr %8, align 8
@@ -11613,7 +11613,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph622.split.us.i.backedge
 
 .lr.ph622.split.us.i.backedge:                    ; preds = %3932, %3929
-  br label %.lr.ph622.split.us.i, !llvm.loop !120
+  br label %.lr.ph622.split.us.i, !llvm.loop !118
 
 .outer293._crit_edge.i:                           ; preds = %.split625.us.i
   %3933 = icmp sgt i32 %3910, 0
@@ -11680,7 +11680,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph641.split.us.i.backedge
 
 .lr.ph641.split.us.i.backedge:                    ; preds = %3955, %3952
-  br label %.lr.ph641.split.us.i, !llvm.loop !121
+  br label %.lr.ph641.split.us.i, !llvm.loop !119
 
 .split666.i:                                      ; preds = %3972
   %3956 = call i32 @get_log_level() #13
@@ -11710,7 +11710,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph659.split.us.i.backedge
 
 .lr.ph659.split.us.i.backedge:                    ; preds = %3966, %3963
-  br label %.lr.ph659.split.us.i, !llvm.loop !122
+  br label %.lr.ph659.split.us.i, !llvm.loop !120
 
 .lr.ph659.split.us.i:                             ; preds = %.lr.ph659.split.us.i.backedge, %.lr.ph659.split.us.i.preheader
   %.0201.ph676.i = phi ptr [ %12, %.lr.ph659.split.us.i.preheader ], [ %3960, %.lr.ph659.split.us.i.backedge ]
@@ -11802,7 +11802,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph714.split.us.i.backedge
 
 .lr.ph714.split.us.i.backedge:                    ; preds = %4000, %3997
-  br label %.lr.ph714.split.us.i, !llvm.loop !123
+  br label %.lr.ph714.split.us.i, !llvm.loop !121
 
 .split738.i:                                      ; preds = %4017
   %4001 = call i32 @get_log_level() #13
@@ -11832,7 +11832,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph732.split.us.i.backedge
 
 .lr.ph732.split.us.i.backedge:                    ; preds = %4011, %4008
-  br label %.lr.ph732.split.us.i, !llvm.loop !124
+  br label %.lr.ph732.split.us.i, !llvm.loop !122
 
 .lr.ph732.split.us.i:                             ; preds = %.split716.us.i, %.lr.ph732.split.us.i.backedge
   %.0195.ph748.i = phi ptr [ %4005, %.lr.ph732.split.us.i.backedge ], [ %11, %.split716.us.i ]
@@ -11918,7 +11918,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph678.split.us.i.backedge
 
 .lr.ph678.split.us.i.backedge:                    ; preds = %4045, %4042
-  br label %.lr.ph678.split.us.i, !llvm.loop !125
+  br label %.lr.ph678.split.us.i, !llvm.loop !123
 
 .split702.i:                                      ; preds = %4062
   %4046 = call i32 @get_log_level() #13
@@ -11948,7 +11948,7 @@ _handle_get_ns_fd.exit:                           ; preds = %.split28.us.i, %362
   br label %.lr.ph696.split.us.i.backedge
 
 .lr.ph696.split.us.i.backedge:                    ; preds = %4056, %4053
-  br label %.lr.ph696.split.us.i, !llvm.loop !126
+  br label %.lr.ph696.split.us.i, !llvm.loop !124
 
 .lr.ph696.split.us.i:                             ; preds = %.split680.us.i, %.lr.ph696.split.us.i.backedge
   %.0190.ph712.i = phi ptr [ %4050, %.lr.ph696.split.us.i.backedge ], [ %11, %.split680.us.i ]
@@ -12073,7 +12073,7 @@ define internal fastcc void @_decrement_message_connections() unnamed_addr #0 {
 declare void @free_buf(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_wait_for_job_running(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4028) i32 @_wait_for_job_running(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -12118,7 +12118,7 @@ define internal fastcc noundef i32 @_wait_for_job_running(ptr noundef %0) unname
   %20 = load i32, ptr %5, align 8
   %21 = icmp ult i32 %20, 2
   %22 = and i1 %21, %12
-  br i1 %22, label %11, label %._crit_edge, !llvm.loop !127
+  br i1 %22, label %11, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %19
   br i1 %21, label %23, label %._crit_edge.thread
@@ -12227,7 +12227,7 @@ declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_handle_add_extern_pid_internal(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid_internal(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.jobacct_id_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca %union.pthread_attr_t, align 8
@@ -12405,7 +12405,7 @@ define internal noalias noundef ptr @_wait_extern_pid(ptr noundef %0) #0 {
   %13 = call i32 @sleep(i32 noundef 1) #13
   %14 = call i32 @kill(i32 noundef %11, i32 noundef 0) #13
   %.not.i = icmp eq i32 %14, -1
-  br i1 %.not.i, label %_block_on_pid.exit, label %.lr.ph.i, !llvm.loop !128
+  br i1 %.not.i, label %_block_on_pid.exit, label %.lr.ph.i, !llvm.loop !126
 
 _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
   %15 = call ptr @jobacct_gather_remove_task(i32 noundef %11) #13
@@ -12489,7 +12489,7 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
   %60 = load ptr, ptr %3, align 8
   %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
-  %63 = call fastcc i32 @_handle_add_extern_pid_internal(ptr noundef %9, i32 noundef %62), !range !11
+  %63 = call fastcc i32 @_handle_add_extern_pid_internal(ptr noundef %9, i32 noundef %62)
   br label %64
 
 64:                                               ; preds = %43, %59, %47, %39
@@ -12501,7 +12501,7 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
   %67 = load i32, ptr %4, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !129
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %66, %21
   call void @slurm_xfree(ptr noundef nonnull %3) #13
@@ -12532,7 +12532,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 416
   %6 = load ptr, ptr %5, align 8
@@ -12602,7 +12602,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %34, %31
-  br label %.lr.ph.split.us, !llvm.loop !130
+  br label %.lr.ph.split.us, !llvm.loop !128
 
 .outer135._crit_edge:                             ; preds = %.split.us
   %35 = icmp sgt i32 %12, 0
@@ -12668,7 +12668,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph183.split.us.backedge
 
 .lr.ph183.split.us.backedge:                      ; preds = %57, %54
-  br label %.lr.ph183.split.us, !llvm.loop !131
+  br label %.lr.ph183.split.us, !llvm.loop !129
 
 .outer134._crit_edge:                             ; preds = %.split186.us, %.outer135._crit_edge
   store i32 1, ptr %4, align 4
@@ -12728,7 +12728,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph202.split.us.backedge
 
 .lr.ph202.split.us.backedge:                      ; preds = %79, %76
-  br label %.lr.ph202.split.us, !llvm.loop !132
+  br label %.lr.ph202.split.us, !llvm.loop !130
 
 .split227:                                        ; preds = %96
   %80 = tail call i32 @get_log_level() #13
@@ -12758,7 +12758,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph220.split.us.backedge
 
 .lr.ph220.split.us.backedge:                      ; preds = %90, %87
-  br label %.lr.ph220.split.us, !llvm.loop !133
+  br label %.lr.ph220.split.us, !llvm.loop !131
 
 .lr.ph220.split.us:                               ; preds = %.split204.us, %.lr.ph220.split.us.backedge
   %.0103.ph237 = phi ptr [ %84, %.lr.ph220.split.us.backedge ], [ @.str.145, %.split204.us ]
@@ -12846,7 +12846,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph239.split.us.backedge
 
 .lr.ph239.split.us.backedge:                      ; preds = %124, %121
-  br label %.lr.ph239.split.us, !llvm.loop !134
+  br label %.lr.ph239.split.us, !llvm.loop !132
 
 .outer131._crit_edge:                             ; preds = %.split242.us
   %.phi.trans.insert337 = getelementptr inbounds i8, ptr %1, i64 376
@@ -12911,7 +12911,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph258.split.us.backedge
 
 .lr.ph258.split.us.backedge:                      ; preds = %149, %146
-  br label %.lr.ph258.split.us, !llvm.loop !135
+  br label %.lr.ph258.split.us, !llvm.loop !133
 
 .outer130._crit_edge:                             ; preds = %.split261.us
   %150 = icmp sgt i32 %127, 0
@@ -12975,7 +12975,7 @@ define internal fastcc noundef i32 @_send_one_struct_group(i32 noundef %0, ptr n
   br label %.lr.ph277.split.us.backedge
 
 .lr.ph277.split.us.backedge:                      ; preds = %172, %169
-  br label %.lr.ph277.split.us, !llvm.loop !136
+  br label %.lr.ph277.split.us, !llvm.loop !134
 
 .loopexit:                                        ; preds = %.split279.us, %.outer130._crit_edge, %3, %26, %.split172.us, %49, %.split190.us, %71, %.split208.us, %82, %.split227, %116, %.split246.us, %141, %.split265.us, %164, %.split283.us
   %.0 = phi i32 [ -1, %.split283.us ], [ -1, %164 ], [ -1, %.split265.us ], [ -1, %141 ], [ -1, %.split246.us ], [ -1, %116 ], [ -1, %.split227 ], [ -1, %82 ], [ -1, %.split208.us ], [ -1, %71 ], [ -1, %.split190.us ], [ -1, %49 ], [ -1, %.split172.us ], [ -1, %26 ], [ -1, %3 ], [ 0, %.outer130._crit_edge ], [ 0, %.split279.us ]
@@ -13041,14 +13041,14 @@ attributes #16 = { nounwind willreturn memory(read) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = !{i32 0, i32 4028}
+!18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
@@ -13165,5 +13165,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !132 = distinct !{!132, !8}
 !133 = distinct !{!133, !8}
 !134 = distinct !{!134, !8}
-!135 = distinct !{!135, !8}
-!136 = distinct !{!136, !8}

@@ -312,7 +312,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = phi ptr [ %3, %for.inc ], [ %call.i.i.i15, %for.body.preheader ]
   %1 = phi i32 [ %4, %for.inc ], [ %numSolvers, %for.body.preheader ]
   %.pre.i = phi i32 [ %inc.i, %for.inc ], [ 0, %for.body.preheader ]
-  %i.035 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %i.036 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %call.i16 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 408, i32 noundef 16)
           to label %invoke.cont6 unwind label %lpad4.loopexit
 
@@ -389,7 +389,7 @@ for.inc:                                          ; preds = %_ZN20btAlignedObjec
   %6 = load i32, ptr %m_size.i.i9, align 4
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %m_size.i.i9, align 4
-  %inc = add nuw nsw i32 %i.035, 1
+  %inc = add nuw nsw i32 %i.036, 1
   %exitcond.not = icmp eq i32 %inc, %numSolvers
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -422,21 +422,21 @@ for.end:                                          ; preds = %for.inc, %invoke.co
           to label %invoke.cont12 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %for.end
-  %tobool.not.i.i.i28 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i28, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit, label %if.then3.i.i.i32
+  %tobool.not.i.i.i29 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i29, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit, label %if.then3.i.i.i33
 
-if.then3.i.i.i32:                                 ; preds = %invoke.cont12
+if.then3.i.i.i33:                                 ; preds = %invoke.cont12
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %10)
-          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %terminate.lpad.i33
+          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %terminate.lpad.i34
 
-terminate.lpad.i33:                               ; preds = %if.then3.i.i.i32
+terminate.lpad.i34:                               ; preds = %if.then3.i.i.i33
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   tail call void @__clang_call_terminate(ptr %12) #8
   unreachable
 
-_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %invoke.cont12, %if.then3.i.i.i32
+_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %invoke.cont12, %if.then3.i.i.i33
   ret void
 
 ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad7

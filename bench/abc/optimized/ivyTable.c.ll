@@ -202,7 +202,7 @@ define void @Ivy_TableInsert(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 38:                                               ; preds = %.lr.ph.i.i
   %39 = add nuw nsw i32 %.01116.i.i, 2
-  %40 = mul nsw i32 %39, %39
+  %40 = mul nuw nsw i32 %39, %39
   %.not.i.i = icmp ugt i32 %40, %36
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 

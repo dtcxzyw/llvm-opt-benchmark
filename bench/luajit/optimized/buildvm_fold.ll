@@ -310,7 +310,7 @@ for.cond1.preheader.i:                            ; preds = %for.inc22.i, %for.c
   %41 = add nuw nsw i64 %indvars.iv.i30, 1
   %mul.i.i = shl nuw nsw i64 %41, 2
   %42 = add nsw i64 %indvars.iv.i30, -1
-  %43 = trunc i64 %indvars.iv.i30 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   br label %for.body3.i
 
 for.cond6.preheader.i:                            ; preds = %for.inc.i
@@ -379,7 +379,7 @@ for.inc.i.i:                                      ; preds = %if.end105.i.i, %if.
   br i1 %exitcond.not.i.i, label %if.then.loopexit.i, label %for.body.i.i, !llvm.loop !8
 
 if.then.loopexit.i:                               ; preds = %for.inc.i.i
-  %50 = trunc i64 %41 to i32
+  %50 = trunc nuw nsw i64 %41 to i32
   %.pre.i = load i32, ptr %htab.i, align 16
   br label %if.then.i35
 

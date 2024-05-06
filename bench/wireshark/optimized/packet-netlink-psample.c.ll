@@ -179,7 +179,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @dissect_netlink_attributes_to_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_psample_attrs(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_psample_attrs(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca %struct.nstime_t, align 8
   %10 = alloca i32, align 4
@@ -313,7 +313,7 @@ define internal noundef i32 @dissect_psample_attrs(ptr noundef %0, ptr nocapture
   %87 = udiv i64 %86, 1000000000
   store i64 %87, ptr %9, align 8
   %88 = urem i64 %86, 1000000000
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw nsw i64 %88 to i32
   %90 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %89, ptr %90, align 8
   %91 = load i32, ptr @hf_psample_timestamp, align 4

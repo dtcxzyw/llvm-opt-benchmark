@@ -678,7 +678,7 @@ for.end:                                          ; preds = %delete.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7517QuantityFormatter11addIfAbsentEPKcRKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %variant, ptr noundef nonnull align 8 dereferenceable(64) %rawPattern, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517QuantityFormatter11addIfAbsentEPKcRKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %variant, ptr noundef nonnull align 8 dereferenceable(64) %rawPattern, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr noundef %variant, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %0 = load i32, ptr %status, align 4
@@ -738,7 +738,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7517QuantityFormatter7isValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517QuantityFormatter7isValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %arrayidx, align 8

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_int = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_fs_base_file_set_size(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_fs_base_file_set_size(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @ftruncate(i32 noundef %4, i64 noundef %1) #2

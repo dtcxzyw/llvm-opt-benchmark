@@ -167,8 +167,8 @@ $_ZTVSt15_Sp_counted_ptrIPKN7rocksdb14SliceTransformELN9__gnu_cxx12_Lock_policyE
 @_ZTVN7rocksdb12_GLOBAL__N_113NoopTransformE = internal unnamed_addr constant { [26 x ptr] } { [26 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD2Ev, ptr @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD0Ev, ptr @_ZNK7rocksdb12Customizable9GetOptionERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS9_, ptr @_ZNK7rocksdb12Customizable13AreEquivalentERKNS_13ConfigOptionsEPKNS_12ConfigurableEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb12Configurable19GetPrintableOptionsB5cxx11Ev, ptr @_ZN7rocksdb12Configurable14PrepareOptionsERKNS_13ConfigOptionsE, ptr @_ZNK7rocksdb12Configurable15ValidateOptionsERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsE, ptr @_ZNK7rocksdb12Customizable13GetOptionsPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN7rocksdb12Configurable18ParseStringOptionsERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN7rocksdb12Configurable16ConfigureOptionsERKNS_13ConfigOptionsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEPSJ_, ptr @_ZN7rocksdb12Configurable11ParseOptionERKNS_13ConfigOptionsERKNS_14OptionTypeInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_Pv, ptr @_ZNK7rocksdb12Configurable15OptionsAreEqualERKNS_13ConfigOptionsERKNS_14OptionTypeInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_, ptr @_ZNK7rocksdb12Customizable16SerializeOptionsERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb12Customizable13GetOptionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb12_GLOBAL__N_113NoopTransform4NameEv, ptr @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev, ptr @_ZNK7rocksdb12Customizable12IsInstanceOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb12Customizable5InnerEv, ptr @_ZNK7rocksdb12Customizable8NickNameEv, ptr @_ZNK7rocksdb12_GLOBAL__N_113NoopTransform9TransformERKNS_5SliceE, ptr @_ZNK7rocksdb12_GLOBAL__N_113NoopTransform8InDomainERKNS_5SliceE, ptr @_ZNK7rocksdb12_GLOBAL__N_113NoopTransform7InRangeERKNS_5SliceE, ptr @_ZNK7rocksdb14SliceTransform17FullLengthEnabledEPm, ptr @_ZNK7rocksdb12_GLOBAL__N_113NoopTransform22SameResultWhenAppendedERKNS_5SliceE] }, align 8
 @.str.9 = private unnamed_addr constant [13 x i8] c"rocksdb.Noop\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryIKNS_14SliceTransformEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryIKNS_14SliceTransformEED2Ev, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryIKNS_14SliceTransformEED0Ev, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryIKNS_14SliceTransformEE7MatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryIKNS_14SliceTransformEE4NameEv] }, comdat, align 8
 @.str.10 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.11 = private unnamed_addr constant [15 x i8] c"SliceTransform\00", align 1
@@ -446,7 +446,7 @@ define noalias noundef nonnull ptr @_ZN7rocksdb16NewNoopTransformEv() local_unna
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113NoopTransformE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
@@ -1413,7 +1413,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN7rocksdb5toHexEh(i8 noundef zeroext %v) local_unnamed_addr #6 {
+define noundef signext range(i8 65, 58) i8 @_ZN7rocksdb5toHexEh(i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ult i8 %v, 10
   %0 = or disjoint i8 %v, 48
@@ -1423,7 +1423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN7rocksdb7fromHexEc(i8 noundef signext %c) local_unnamed_addr #6 {
+define noundef range(i32 -1, 73) i32 @_ZN7rocksdb7fromHexEc(i8 noundef signext %c) local_unnamed_addr #6 {
 entry:
   %0 = add i8 %c, -97
   %or.cond = icmp ult i8 %0, 6
@@ -3363,7 +3363,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %invoke.cont.i68.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i62.i.i.i.i.i)
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_0E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %call6.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_14SliceTransformEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EESE_SO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i.i.i.i.i)
@@ -3516,7 +3516,7 @@ invoke.cont20.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   %_M_manager.i.i52.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp22.i.i.i.i.i.i, i64 16
   %_M_invoker.i53.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp22.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp22.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_1E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i53.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i52.i.i.i.i.i.i, align 8
   %call26.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_14SliceTransformEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EERKNS0_12PatternEntryESO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp7.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i.i)
@@ -3706,7 +3706,7 @@ invoke.cont46.i.i.i.i.i.i:                        ; preds = %if.else.i.i99.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i88.i.i.i.i.i.i)
   %_M_manager.i.i104.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48.i.i.i.i.i.i, i64 16
   %_M_invoker.i105.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp48.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_2E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i105.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i104.i.i.i.i.i.i, align 8
   %call52.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_14SliceTransformEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EERKNS0_12PatternEntryESO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp33.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48.i.i.i.i.i.i)
@@ -3917,7 +3917,7 @@ invoke.cont72.i.i.i.i.i.i:                        ; preds = %if.else.i.i174.i.i.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i163.i.i.i.i.i.i)
   %_M_manager.i.i179.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i.i.i.i.i, i64 16
   %_M_invoker.i180.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp74.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp74.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_3E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i180.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_3E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i179.i.i.i.i.i.i, align 8
   %call78.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_14SliceTransformEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EERKNS0_12PatternEntryESO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp59.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74.i.i.i.i.i.i)
@@ -4107,7 +4107,7 @@ invoke.cont98.i.i.i.i.i.i:                        ; preds = %if.else.i.i249.i.i.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i238.i.i.i.i.i.i)
   %_M_manager.i.i254.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp100.i.i.i.i.i.i, i64 16
   %_M_invoker.i255.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp100.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp100.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp100.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_4E9_M_invokeERKSt9_Any_dataSB_OSG_OSH_", ptr %_M_invoker.i255.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN7rocksdb14SliceTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS2_St14default_deleteIS2_EEPS9_EZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryESB_E3$_4E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %_M_manager.i.i254.i.i.i.i.i.i, align 8
   %call104.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryIKNS_14SliceTransformEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS5_St14default_deleteIS5_EEPSC_EERKNS0_12PatternEntryESO_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp85.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100.i.i.i.i.i.i)
@@ -5587,7 +5587,7 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %options_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113NoopTransformE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i.i, ptr %__args1.val, align 8

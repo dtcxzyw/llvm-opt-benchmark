@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z14fast_rv32i_lbuP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_lbuP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNK13xlate_flags_t17is_special_accessEv.exit:
   %3 = alloca %class.target_endian, align 1
   %4 = alloca %"class.std::tuple", align 8
@@ -286,7 +286,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.critedge2, %49
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16logged_rv32i_lbuP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_lbuP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNK13xlate_flags_t17is_special_accessEv.exit:
   %3 = alloca %class.target_endian, align 1
   %4 = alloca %"class.std::tuple", align 8
@@ -594,7 +594,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z14fast_rv32e_lbuP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_lbuP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -861,7 +861,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %62, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16logged_rv32e_lbuP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_lbuP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40

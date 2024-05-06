@@ -700,7 +700,7 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
   %86 = load i32, ptr %.55.i, align 8
   %87 = sext i32 %86 to i64
   %88 = getelementptr i16, ptr %85, i64 %87
-  %89 = trunc i32 %indvars.iv to i16
+  %89 = trunc nuw i32 %indvars.iv to i16
   store i16 %89, ptr %88, align 2
   %90 = load i32, ptr %.55.i, align 8
   %91 = add i32 %90, 1
@@ -721,7 +721,7 @@ genericPickSplit.exit:                            ; preds = %84, %63
   %99 = getelementptr i8, ptr %1, i64 40
   %100 = sext i32 %97 to i64
   %101 = shl nsw i64 %100, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %99, i64 %101, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr readonly align 8 %99, i64 %101, i1 false)
   %102 = getelementptr inbounds i8, ptr %5, i64 1576
   %103 = getelementptr [32 x %struct.FmgrInfo], ptr %102, i64 0, i64 %18
   %104 = load i32, ptr %41, align 4
@@ -736,7 +736,7 @@ genericPickSplit.exit:                            ; preds = %84, %63
   %111 = getelementptr %struct.GISTENTRY, ptr %99, i64 %110
   %112 = sext i32 %108 to i64
   %113 = shl nsw i64 %112, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %111, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr readonly align 8 %111, i64 %113, i1 false)
   %114 = load i32, ptr %41, align 4
   %115 = call i64 @FunctionCall2Coll(ptr noundef %103, i32 noundef %114, i64 noundef %105, i64 noundef %106) #7
   store i64 %115, ptr %37, align 8
@@ -1220,7 +1220,7 @@ removeDontCares.exit131:                          ; preds = %removeDontCares.exi
   %339 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv.i133
   %340 = load i8, ptr %339, align 1
   %341 = trunc i8 %340 to i1
-  %342 = trunc i64 %indvars.iv.i133 to i32
+  %342 = trunc nsw i64 %indvars.iv.i133 to i32
   %343 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %342, ptr noundef nonnull %9, i1 noundef zeroext %337, ptr noundef %338, i1 noundef zeroext %341) #7
   %344 = getelementptr [32 x i64], ptr %34, i64 0, i64 %indvars.iv.i133
   %345 = load i64, ptr %344, align 8

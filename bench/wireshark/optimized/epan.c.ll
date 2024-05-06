@@ -118,7 +118,7 @@ define void @epan_register_plugin(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @epan_plugins_supported() local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @epan_plugins_supported() local_unnamed_addr #2 {
   %1 = tail call zeroext i1 @plugins_supported() #15
   %not. = xor i1 %1, true
   %2 = zext i1 %not. to i32
@@ -1094,7 +1094,7 @@ declare void @col_custom_set_edt(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @col_fill_in(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @epan_dissect_packet_contains_field(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @epan_dissect_packet_contains_field(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 

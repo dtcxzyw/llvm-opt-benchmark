@@ -4486,7 +4486,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
   %d4.i.i = getelementptr inbounds i8, ptr %m.i, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i, align 4
-  call void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(98) %this, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull %call7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(64) %m.i)
+  call void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull readonly align 8 dereferenceable(98) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr noundef nonnull %call7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(64) %m.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %m.i)
   %25 = load ptr, ptr %nodes, align 8
   %26 = load ptr, ptr %_M_finish.i, align 8
@@ -4851,7 +4851,7 @@ invoke.cont98:                                    ; preds = %_ZN8aiString3SetERK
   store float 1.000000e+00, ptr %c3.i.i85, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i86, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i87, align 4
-  invoke void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(98) %this, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull %call89, ptr noundef nonnull %data, ptr noundef nonnull align 4 dereferenceable(64) %m.i81)
+  invoke void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull readonly align 8 dereferenceable(98) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr noundef nonnull %call89, ptr noundef nonnull %data, ptr noundef nonnull align 4 dereferenceable(64) %m.i81)
           to label %invoke.cont100 unwind label %lpad61.loopexit
 
 invoke.cont100:                                   ; preds = %invoke.cont98

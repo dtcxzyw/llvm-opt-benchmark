@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @test_members_newapi = internal global [16 x %struct.PyMemberDef] [%struct.PyMemberDef { ptr @.str.3, i32 14, i64 16, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.4, i32 8, i64 17, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.5, i32 9, i64 18, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.6, i32 0, i64 20, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.7, i32 10, i64 22, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.8, i32 1, i64 24, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.9, i32 11, i64 28, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.10, i32 2, i64 32, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.11, i32 12, i64 40, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.12, i32 19, i64 48, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.13, i32 3, i64 56, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.14, i32 4, i64 64, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.15, i32 13, i64 72, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.16, i32 17, i64 80, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.17, i32 18, i64 88, i32 0, ptr null }, %struct.PyMemberDef zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Structmember(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Structmember(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyType_Ready(ptr noundef nonnull @test_structmembersType_OldAPI) #4
   %cmp = icmp slt i32 %call, 0

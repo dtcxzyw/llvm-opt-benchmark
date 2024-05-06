@@ -117,7 +117,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   unreachable
 
 19:                                               ; preds = %1
-  %20 = trunc i64 %13 to i32
+  %20 = trunc nuw nsw i64 %13 to i32
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %0, i64 48

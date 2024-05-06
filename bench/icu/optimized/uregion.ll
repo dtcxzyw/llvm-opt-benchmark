@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregion_getRegionFromCode_75(ptr noundef %regionCode, ptr noundef nonnull %status) local_unnamed_addr #0 {
+define noundef ptr @uregion_getRegionFromCode_75(ptr noundef %regionCode, ptr noundef nonnull %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_756Region11getInstanceEPKcR10UErrorCode(ptr noundef %regionCode, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -13,7 +13,7 @@ entry:
 declare noundef ptr @_ZN6icu_756Region11getInstanceEPKcR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregion_getRegionFromNumericCode_75(i32 noundef %code, ptr noundef nonnull %status) local_unnamed_addr #0 {
+define noundef ptr @uregion_getRegionFromNumericCode_75(i32 noundef %code, ptr noundef nonnull %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_756Region11getInstanceEiR10UErrorCode(i32 noundef %code, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -34,7 +34,7 @@ declare noundef ptr @_ZN6icu_756Region12getAvailableE11URegionTypeR10UErrorCode(
 declare ptr @uenum_openFromStringEnumeration_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uregion_areEqual_75(ptr noundef readnone %uregion, ptr noundef readnone %otherRegion) local_unnamed_addr #2 {
+define signext range(i8 0, 2) i8 @uregion_areEqual_75(ptr noundef readnone %uregion, ptr noundef readnone %otherRegion) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %uregion, %otherRegion
   %conv = zext i1 %cmp to i8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregion_getContainingRegion_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
+define noundef ptr @uregion_getContainingRegion_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_756Region19getContainingRegionEv(ptr noundef nonnull align 8 dereferenceable(112) %uregion)
   ret ptr %call
@@ -51,7 +51,7 @@ entry:
 declare noundef ptr @_ZNK6icu_756Region19getContainingRegionEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregion_getContainingRegionOfType_75(ptr noundef nonnull %uregion, i32 noundef %type) local_unnamed_addr #0 {
+define noundef ptr @uregion_getContainingRegionOfType_75(ptr noundef nonnull %uregion, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_756Region19getContainingRegionE11URegionType(ptr noundef nonnull align 8 dereferenceable(112) %uregion, i32 noundef %type)
   ret ptr %call
@@ -80,7 +80,7 @@ entry:
 declare noundef ptr @_ZNK6icu_756Region19getContainedRegionsE11URegionTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uregion_contains_75(ptr noundef nonnull %uregion, ptr noundef nonnull %otherRegion) local_unnamed_addr #0 {
+define noundef signext i8 @uregion_contains_75(ptr noundef nonnull %uregion, ptr noundef nonnull %otherRegion) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_756Region8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %uregion, ptr noundef nonnull align 8 dereferenceable(112) %otherRegion)
   ret i8 %call
@@ -99,7 +99,7 @@ entry:
 declare noundef ptr @_ZNK6icu_756Region18getPreferredValuesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregion_getRegionCode_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
+define noundef ptr @uregion_getRegionCode_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_756Region13getRegionCodeEv(ptr noundef nonnull align 8 dereferenceable(112) %uregion)
   ret ptr %call
@@ -108,7 +108,7 @@ entry:
 declare noundef ptr @_ZNK6icu_756Region13getRegionCodeEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregion_getNumericCode_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
+define noundef i32 @uregion_getNumericCode_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_756Region14getNumericCodeEv(ptr noundef nonnull align 8 dereferenceable(112) %uregion)
   ret i32 %call
@@ -117,7 +117,7 @@ entry:
 declare noundef i32 @_ZNK6icu_756Region14getNumericCodeEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregion_getType_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
+define noundef i32 @uregion_getType_75(ptr noundef nonnull %uregion) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_756Region7getTypeEv(ptr noundef nonnull align 8 dereferenceable(112) %uregion)
   ret i32 %call

@@ -8690,7 +8690,7 @@ define internal fastcc void @iocg_incur_debt(ptr noundef %0, i64 noundef %1, ptr
 declare dso_local void @blkcg_schedule_throttle(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iocg_wake_fn(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define internal noundef range(i32 -1, 1) i32 @iocg_wake_fn(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8

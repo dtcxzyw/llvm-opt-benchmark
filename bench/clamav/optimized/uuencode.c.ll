@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [4 x i8] c"end\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_uuencode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_uuencode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1001 x i8], align 16
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -32,7 +32,7 @@ define noundef i32 @cli_uuencode(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 13:                                               ; preds = %10
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #4
-  %14 = call i32 @uudecodeFile(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %14 = call i32 @uudecodeFile(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %15 = icmp slt i32 %14, 0
   call void @messageDestroy(ptr noundef nonnull %11) #4
   br i1 %15, label %.sink.split, label %16
@@ -53,7 +53,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @messageCreate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1001 x i8], align 16
   %7 = alloca [1024 x i8], align 16
   %8 = tail call ptr @cli_strtok(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.2) #4
@@ -154,4 +154,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

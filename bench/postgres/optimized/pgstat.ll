@@ -457,7 +457,7 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   %3 = alloca i32, align 4
   %4 = alloca %struct.dshash_seq_status, align 8
   %5 = alloca %struct.nameData, align 1
-  %6 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true), !range !7
+  %6 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true)
   %7 = icmp eq i32 %0, 0
   br i1 %7, label %8, label %136
 
@@ -674,7 +674,7 @@ pgstat_build_snapshot_fixed.exit51.i:             ; preds = %70, %67
 .backedge.i:                                      ; preds = %94, %77
   %105 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #17
   %.not.i = icmp eq ptr %105, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %pgstat_build_snapshot_fixed.exit51.i
   call void @dshash_seq_term(ptr noundef nonnull %4) #17
@@ -747,7 +747,7 @@ pgstat_write_statsfile.exit:                      ; preds = %17, %19, %113, %124
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pgstat_report_stat(i1 noundef zeroext %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i1 %0 to i8
   %.b22 = load i1, ptr @pgStatForceNextFlush, align 1
   br i1 %.b22, label %3, label %4
@@ -779,7 +779,7 @@ define dso_local noundef i64 @pgstat_report_stat(i1 noundef zeroext %0) local_un
   br i1 %15, label %16, label %65
 
 16:                                               ; preds = %14, %11, %8, %4
-  %17 = trunc i8 %.019 to i1
+  %17 = trunc nuw i8 %.019 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -814,7 +814,7 @@ define dso_local noundef i64 @pgstat_report_stat(i1 noundef zeroext %0) local_un
   %.1 = phi i8 [ %.019, %18 ], [ %.019, %29 ], [ %.019, %26 ], [ 1, %24 ]
   %.018 = phi i64 [ %19, %18 ], [ %21, %29 ], [ %21, %26 ], [ %21, %24 ]
   tail call void @pgstat_update_dbstats(i64 noundef %.018) #17
-  %34 = trunc i8 %.1 to i1
+  %34 = trunc nuw i8 %.1 to i1
   %35 = xor i1 %34, true
   %36 = load ptr, ptr getelementptr inbounds (%struct.dlist_head, ptr @pgStatPending, i64 0, i32 0, i32 1), align 8
   %37 = icmp eq ptr %36, @pgStatPending
@@ -864,7 +864,7 @@ pgstat_delete_pending_entry.exit.i:               ; preds = %50, %45
   %.1.i = phi i1 [ %.01220.i, %pgstat_delete_pending_entry.exit.i ], [ true, %.lr.ph.i ]
   %.not22.i = icmp eq ptr %.114.val.i, null
   %.not.i = or i1 %.not17.i, %.not22.i
-  br i1 %.not.i, label %pgstat_flush_pending_entries.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %pgstat_flush_pending_entries.exit, label %.lr.ph.i, !llvm.loop !8
 
 pgstat_flush_pending_entries.exit:                ; preds = %55, %._crit_edge
   %.012.lcssa.i = phi i1 [ false, %._crit_edge ], [ %.1.i, %55 ]
@@ -918,7 +918,7 @@ define internal void @pgstat_shutdown_hook(i32 %0, i64 %1) #0 {
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true), !range !7
+  %6 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true)
   store ptr @pgStatPending, ptr @pgStatPending, align 8
   store ptr @pgStatPending, ptr getelementptr inbounds (%struct.dlist_head, ptr @pgStatPending, i64 0, i32 0, i32 1), align 8
   tail call void @pgstat_detach_shmem() #17
@@ -1367,7 +1367,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 .backedge:                                        ; preds = %23, %16, %19
   %43 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #17
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   call void @dshash_seq_term(ptr noundef nonnull %1) #17
@@ -1405,7 +1405,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 pgstat_build_snapshot_fixed.exit:                 ; preds = %56, %53, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %59, label %44, !llvm.loop !11
+  br i1 %exitcond.not, label %59, label %44, !llvm.loop !10
 
 59:                                               ; preds = %pgstat_build_snapshot_fixed.exit
   store i32 2, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3), align 8
@@ -1481,9 +1481,9 @@ define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr nocapture noundef
   %44 = shl i64 %38, 1
   %45 = load ptr, ptr %31, align 8
   %46 = tail call i64 @llvm.umax.i64(i64 %44, i64 2)
-  %47 = tail call i64 @llvm.ctpop.i64(i64 %46), !range !12
+  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
   %48 = icmp ult i64 %47, 2
-  %49 = tail call i64 @llvm.ctlz.i64(i64 %46, i1 true), !range !12
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 true)
   %50 = sub nuw nsw i64 64, %49
   %51 = shl nuw i64 1, %50
   %.0.i.i.i.i = select i1 %48, i64 %46, i64 %51
@@ -1503,9 +1503,9 @@ pgstat_snapshot_compute_size.exit.i.i:            ; preds = %43
   %57 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i, i64 noundef %52, i32 noundef 5) #17
   store ptr %57, ptr %31, align 8
   %58 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %59 = tail call i64 @llvm.ctpop.i64(i64 %58), !range !12
+  %59 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
   %60 = icmp ult i64 %59, 2
-  %61 = tail call i64 @llvm.ctlz.i64(i64 %58, i1 true), !range !12
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %58, i1 true)
   %62 = sub nuw nsw i64 64, %61
   %63 = shl nuw i64 1, %62
   %.0.i.i.i.i.i = select i1 %60, i64 %58, i64 %63
@@ -1578,7 +1578,7 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
   %107 = add i32 %.060.i.i, 1
   %108 = zext i32 %107 to i64
   %109 = icmp ugt i64 %38, %108
-  br i1 %109, label %.lr.ph.i.i, label %.lr.ph73.i.i.preheader, !llvm.loop !13
+  br i1 %109, label %.lr.ph.i.i, label %.lr.ph73.i.i.preheader, !llvm.loop !11
 
 .lr.ph73.i.i.preheader:                           ; preds = %106, %79, %.lr.ph.i.i
   %.04970.i.i.ph = phi i32 [ %.060.i.i, %.lr.ph.i.i ], [ %.060.i.i, %79 ], [ 0, %106 ]
@@ -1654,7 +1654,7 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
   %156 = add i32 %.171.i.i, 1
   %157 = zext i32 %156 to i64
   %158 = icmp ugt i64 %38, %157
-  br i1 %158, label %.lr.ph73.i.i, label %pgstat_snapshot_grow.exit.i, !llvm.loop !14
+  br i1 %158, label %.lr.ph73.i.i, label %pgstat_snapshot_grow.exit.i, !llvm.loop !12
 
 pgstat_snapshot_grow.exit.i:                      ; preds = %153, %pgstat_snapshot_update_parameters.exit.i.i
   tail call void @pfree(ptr noundef %45) #17
@@ -1785,7 +1785,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %196, %170
   %230 = getelementptr %struct.PgStat_SnapshotEntry, ptr %160, i64 %229
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.070138.i, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
   %.not72.i = icmp eq i32 %228, %.066111.i
-  br i1 %.not72.i, label %.sink.split.i, label %.lr.ph140.i, !llvm.loop !15
+  br i1 %.not72.i, label %.sink.split.i, label %.lr.ph140.i, !llvm.loop !13
 
 231:                                              ; preds = %pgstat_snapshot_distance.exit.i
   %232 = add i32 %.071110.i, 1
@@ -2059,7 +2059,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
 declare void @pfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 12) i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %9
@@ -2071,13 +2071,13 @@ define dso_local i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_add
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   ret i32 %8
 
 9:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %10, label %2, !llvm.loop !16
+  br i1 %exitcond.not, label %10, label %2, !llvm.loop !14
 
 10:                                               ; preds = %9
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2254,13 +2254,11 @@ attributes #19 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 10001}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i64 0, i64 65}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

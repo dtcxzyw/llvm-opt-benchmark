@@ -142,7 +142,7 @@ switch.early.test:                                ; preds = %1, %18
   br label %69
 
 60:                                               ; preds = %50
-  %61 = trunc i64 %48 to i16
+  %61 = trunc nuw i64 %48 to i16
   %62 = tail call ptr @palloc(i64 noundef 6) #10
   %63 = lshr i64 %28, 16
   %64 = trunc i64 %63 to i16
@@ -212,7 +212,7 @@ define dso_local noundef i64 @tidrecv(ptr nocapture noundef readonly %0) local_u
   %7 = trunc i32 %6 to i16
   %8 = tail call ptr @palloc(i64 noundef 6) #10
   %9 = lshr i32 %5, 16
-  %10 = trunc i32 %9 to i16
+  %10 = trunc nuw i32 %9 to i16
   store i16 %10, ptr %8, align 2
   %11 = trunc i32 %5 to i16
   %12 = getelementptr inbounds i8, ptr %8, i64 2
@@ -272,7 +272,7 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tideq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tideq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -288,7 +288,7 @@ define dso_local i64 @tideq(ptr nocapture noundef readonly %0) local_unnamed_add
 declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tidne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tidne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -302,7 +302,7 @@ define dso_local i64 @tidne(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tidlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tidlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -316,7 +316,7 @@ define dso_local i64 @tidlt(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tidle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tidle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -330,7 +330,7 @@ define dso_local i64 @tidle(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tidgt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tidgt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -344,7 +344,7 @@ define dso_local i64 @tidgt(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tidge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @tidge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -358,7 +358,7 @@ define dso_local i64 @tidge(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bttidcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bttidcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -401,7 +401,7 @@ define dso_local i64 @tidsmaller(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashtid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashtid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -669,7 +669,7 @@ currtid_for_view.exit:                            ; preds = %89
   unreachable
 
 common.ret:                                       ; preds = %16, %16, %16, %16, %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %3, ptr noundef nonnull readonly align 2 dereferenceable(6) %1, i64 6, i1 false)
   %112 = tail call ptr @GetLatestSnapshot() #10
   %113 = tail call ptr @RegisterSnapshot(ptr noundef %112) #10
   %114 = getelementptr inbounds i8, ptr %0, i64 312

@@ -66,7 +66,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mdiobus_register_board_info(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mdiobus_register_board_info(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 72
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #6

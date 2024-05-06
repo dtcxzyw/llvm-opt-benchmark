@@ -70,7 +70,7 @@ define void @Sim_SymmsStructCompute(ptr noundef %0, ptr nocapture noundef readon
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %20, i64 %31
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %33, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -347,8 +347,8 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   %152 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   %153 = getelementptr inbounds i8, ptr %150, i64 8
   store ptr %152, ptr %153, align 8
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef %20)
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef readonly %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef readonly %20)
   %154 = load i32, ptr %59, align 4
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %.lr.ph.i, label %._crit_edge.i
@@ -455,7 +455,7 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   br i1 %exitcond.not.i.i.i, label %Vec_IntPushUnique.exit.i.i, label %219, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %219
-  %224 = trunc i64 %indvars.iv.i.i.i to i32
+  %224 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %211
@@ -1144,7 +1144,7 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   br i1 %exitcond.not.i, label %Vec_IntPushUnique.exit, label %94, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %94
-  %99 = trunc i64 %indvars.iv.i to i32
+  %99 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %86
@@ -1248,7 +1248,7 @@ Vec_IntPushUnique.exit:                           ; preds = %._crit_edge.i, %84,
   %137 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %21, %98 ], [ %21, %106 ], [ %21, %84 ], [ %21, %._crit_edge.i ]
   %138 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %22, %98 ], [ %22, %106 ], [ %22, %84 ], [ %22, %._crit_edge.i ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %139 = trunc i64 %indvars.iv.next53 to i32
+  %139 = trunc nuw i64 %indvars.iv.next53 to i32
   %140 = icmp sgt i32 %138, %139
   br i1 %140, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !21
 

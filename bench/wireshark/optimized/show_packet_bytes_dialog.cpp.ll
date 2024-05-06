@@ -5044,7 +5044,7 @@ define noundef zeroext i1 @_ZN21ShowPacketBytesDialog18enableShowSelectedEv(ptr 
   br i1 %5, label %switch.lookup, label %switch.edge
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc i32 %4 to i9
+  %switch.cast = trunc nuw i32 %4 to i9
   %switch.downshift = lshr i9 -245, %switch.cast
   %switch.masked = trunc i9 %switch.downshift to i1
   br label %switch.edge

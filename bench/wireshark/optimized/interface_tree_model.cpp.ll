@@ -763,7 +763,7 @@ define void @_ZN18InterfaceTreeModel16getColumnContentEiii(ptr dead_on_unwind no
   %11 = getelementptr inbounds i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !10
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %13, align 8, !alias.scope !10
   ret void

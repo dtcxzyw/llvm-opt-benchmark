@@ -191,7 +191,7 @@ declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #11
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #11
   %6 = trunc i64 %5 to i32
   %7 = load i8, ptr %.val, align 1
   %8 = add i8 %7, -58
@@ -228,7 +228,7 @@ define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture no
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %14
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -474,7 +474,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   %125 = getelementptr inbounds ptr, ptr %.val190.val.val.i, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = tail call ptr @Abc_ObjName(ptr noundef %126) #10
-  %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #11
+  %128 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %127) #11
   %129 = trunc i64 %128 to i32
   %130 = load i8, ptr %127, align 1
   %131 = add i8 %130, -58
@@ -511,7 +511,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   br i1 %exitcond.not.i.i, label %Io_WriteVerilogGetName.exit.i, label %.lr.ph.i233.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i.i:                         ; preds = %137
-  %141 = trunc i64 %indvars.iv.i.i to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -576,7 +576,7 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
   %165 = getelementptr inbounds ptr, ptr %.val201.val.val.i, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = tail call ptr @Abc_ObjName(ptr noundef %166) #10
-  %168 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #11
+  %168 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %167) #11
   %169 = trunc i64 %168 to i32
   %170 = load i8, ptr %167, align 1
   %171 = add i8 %170, -58
@@ -613,7 +613,7 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
   br i1 %exitcond.not.i257.i, label %Io_WriteVerilogGetName.exit258.i, label %.lr.ph.i250.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i255.i:                      ; preds = %177
-  %181 = trunc i64 %indvars.iv.i251.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv.i251.i to i32
   br label %._crit_edge.i246.i
 
 ._crit_edge.i246.i:                               ; preds = %._crit_edge.loopexit.i255.i, %.preheader.i245.i
@@ -682,7 +682,7 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
   %205 = getelementptr inbounds ptr, ptr %.val199.val.val.i, i64 %204
   %206 = load ptr, ptr %205, align 8
   %207 = tail call ptr @Abc_ObjName(ptr noundef %206) #10
-  %208 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %207) #11
+  %208 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %207) #11
   %209 = trunc i64 %208 to i32
   %210 = load i8, ptr %207, align 1
   %211 = add i8 %210, -58
@@ -719,7 +719,7 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
   br i1 %exitcond.not.i282.i, label %Io_WriteVerilogGetName.exit283.i, label %.lr.ph.i275.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i280.i:                      ; preds = %217
-  %221 = trunc i64 %indvars.iv.i276.i to i32
+  %221 = trunc nuw nsw i64 %indvars.iv.i276.i to i32
   br label %._crit_edge.i271.i
 
 ._crit_edge.i271.i:                               ; preds = %._crit_edge.loopexit.i280.i, %.preheader.i270.i
@@ -784,7 +784,7 @@ Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49
   %245 = getelementptr inbounds ptr, ptr %.val188.val.val.i, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = tail call ptr @Abc_ObjName(ptr noundef %246) #10
-  %248 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %247) #11
+  %248 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %247) #11
   %249 = trunc i64 %248 to i32
   %250 = load i8, ptr %247, align 1
   %251 = add i8 %250, -58
@@ -821,7 +821,7 @@ Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49
   br i1 %exitcond.not.i307.i, label %Io_WriteVerilogGetName.exit308.i, label %.lr.ph.i300.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i305.i:                      ; preds = %257
-  %261 = trunc i64 %indvars.iv.i301.i to i32
+  %261 = trunc nuw nsw i64 %indvars.iv.i301.i to i32
   br label %._crit_edge.i296.i
 
 ._crit_edge.i296.i:                               ; preds = %._crit_edge.loopexit.i305.i, %.preheader.i295.i
@@ -979,7 +979,7 @@ Abc_Base10Log.exit315.i:                          ; preds = %.lr.ph.i310.i, %288
   %325 = getelementptr inbounds ptr, ptr %.val186.val.val.i, i64 %324
   %326 = load ptr, ptr %325, align 8
   %327 = tail call ptr @Abc_ObjName(ptr noundef %326) #10
-  %328 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %327) #11
+  %328 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %327) #11
   %329 = trunc i64 %328 to i32
   %330 = load i8, ptr %327, align 1
   %331 = add i8 %330, -58
@@ -1016,7 +1016,7 @@ Abc_Base10Log.exit315.i:                          ; preds = %.lr.ph.i310.i, %288
   br i1 %exitcond.not.i339.i, label %Io_WriteVerilogGetName.exit340.i, label %.lr.ph.i332.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i337.i:                      ; preds = %337
-  %341 = trunc i64 %indvars.iv.i333.i to i32
+  %341 = trunc nuw nsw i64 %indvars.iv.i333.i to i32
   br label %._crit_edge.i328.i
 
 ._crit_edge.i328.i:                               ; preds = %._crit_edge.loopexit.i337.i, %.preheader.i327.i
@@ -1081,7 +1081,7 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   %indvars.iv594.i = phi i64 [ 0, %.lr.ph563.i ], [ %indvars.iv.next595.i, %Io_WriteVerilogGetName.exit390.i ]
   %.1562.i = phi ptr [ %361, %.lr.ph563.i ], [ %425, %Io_WriteVerilogGetName.exit390.i ]
   %364 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.1562.i) #10
-  %365 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %364) #11
+  %365 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %364) #11
   %366 = trunc i64 %365 to i32
   %367 = load i8, ptr %364, align 1
   %368 = add i8 %367, -58
@@ -1118,7 +1118,7 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   br i1 %exitcond.not.i364.i, label %Io_WriteVerilogGetName.exit365.i, label %.lr.ph.i357.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i362.i:                      ; preds = %374
-  %378 = trunc i64 %indvars.iv.i358.i to i32
+  %378 = trunc nuw nsw i64 %indvars.iv.i358.i to i32
   br label %._crit_edge.i353.i
 
 ._crit_edge.i353.i:                               ; preds = %._crit_edge.loopexit.i362.i, %.preheader.i352.i
@@ -1172,7 +1172,7 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
   %396 = getelementptr inbounds ptr, ptr %.val225.val.val.i, i64 %395
   %397 = load ptr, ptr %396, align 8
   %398 = tail call ptr @Abc_ObjName(ptr noundef %397) #10
-  %399 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %398) #11
+  %399 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %398) #11
   %400 = trunc i64 %399 to i32
   %401 = load i8, ptr %398, align 1
   %402 = add i8 %401, -58
@@ -1209,7 +1209,7 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
   br i1 %exitcond.not.i389.i, label %Io_WriteVerilogGetName.exit390.i, label %.lr.ph.i382.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i387.i:                      ; preds = %408
-  %412 = trunc i64 %indvars.iv.i383.i to i32
+  %412 = trunc nuw nsw i64 %indvars.iv.i383.i to i32
   br label %._crit_edge.i378.i
 
 ._crit_edge.i378.i:                               ; preds = %._crit_edge.loopexit.i387.i, %.preheader.i377.i
@@ -1258,7 +1258,7 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
 
 ._crit_edge.i54:                                  ; preds = %Io_WriteVerilogGetName.exit390.i, %357
   %426 = tail call ptr @Mio_GateReadOutName(ptr noundef %311) #10
-  %427 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %426) #11
+  %427 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %426) #11
   %428 = trunc i64 %427 to i32
   %429 = load i8, ptr %426, align 1
   %430 = add i8 %429, -58
@@ -1295,7 +1295,7 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
   br i1 %exitcond.not.i414.i, label %Io_WriteVerilogGetName.exit415.i, label %.lr.ph.i407.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i412.i:                      ; preds = %436
-  %440 = trunc i64 %indvars.iv.i408.i to i32
+  %440 = trunc nuw nsw i64 %indvars.iv.i408.i to i32
   br label %._crit_edge.i403.i
 
 ._crit_edge.i403.i:                               ; preds = %._crit_edge.loopexit.i412.i, %.preheader.i402.i
@@ -1349,7 +1349,7 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
   %457 = getelementptr inbounds ptr, ptr %.val184.val.val.i, i64 %456
   %458 = load ptr, ptr %457, align 8
   %459 = tail call ptr @Abc_ObjName(ptr noundef %458) #10
-  %460 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %459) #11
+  %460 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %459) #11
   %461 = trunc i64 %460 to i32
   %462 = load i8, ptr %459, align 1
   %463 = add i8 %462, -58
@@ -1386,7 +1386,7 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
   br i1 %exitcond.not.i439.i, label %Io_WriteVerilogGetName.exit440.i, label %.lr.ph.i432.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i437.i:                      ; preds = %469
-  %473 = trunc i64 %indvars.iv.i433.i to i32
+  %473 = trunc nuw nsw i64 %indvars.iv.i433.i to i32
   br label %._crit_edge.i428.i
 
 ._crit_edge.i428.i:                               ; preds = %._crit_edge.loopexit.i437.i, %.preheader.i427.i
@@ -1496,7 +1496,7 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
   %519 = getelementptr inbounds ptr, ptr %.val182.val.val.i, i64 %518
   %520 = load ptr, ptr %519, align 8
   %521 = tail call ptr @Abc_ObjName(ptr noundef %520) #10
-  %522 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %521) #11
+  %522 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %521) #11
   %523 = trunc i64 %522 to i32
   %524 = load i8, ptr %521, align 1
   %525 = add i8 %524, -58
@@ -1533,7 +1533,7 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
   br i1 %exitcond.not.i464.i, label %Io_WriteVerilogGetName.exit465.i, label %.lr.ph.i457.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i462.i:                      ; preds = %531
-  %535 = trunc i64 %indvars.iv.i458.i to i32
+  %535 = trunc nuw nsw i64 %indvars.iv.i458.i to i32
   br label %._crit_edge.i453.i
 
 ._crit_edge.i453.i:                               ; preds = %._crit_edge.loopexit.i462.i, %.preheader.i452.i
@@ -1594,7 +1594,7 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
   %557 = getelementptr inbounds ptr, ptr %.val180.val.val.i, i64 %556
   %558 = load ptr, ptr %557, align 8
   %559 = tail call ptr @Abc_ObjName(ptr noundef %558) #10
-  %560 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %559) #11
+  %560 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %559) #11
   %561 = trunc i64 %560 to i32
   %562 = load i8, ptr %559, align 1
   %563 = add i8 %562, -58
@@ -1631,7 +1631,7 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
   br i1 %exitcond.not.i489.i, label %Io_WriteVerilogGetName.exit490.i, label %.lr.ph.i482.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i487.i:                      ; preds = %569
-  %573 = trunc i64 %indvars.iv.i483.i to i32
+  %573 = trunc nuw nsw i64 %indvars.iv.i483.i to i32
   br label %._crit_edge.i478.i
 
 ._crit_edge.i478.i:                               ; preds = %._crit_edge.loopexit.i487.i, %.preheader.i477.i
@@ -1695,7 +1695,7 @@ Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49
   %594 = getelementptr inbounds ptr, ptr %.val223.val.val.i, i64 %593
   %595 = load ptr, ptr %594, align 8
   %596 = tail call ptr @Abc_ObjName(ptr noundef %595) #10
-  %597 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %596) #11
+  %597 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %596) #11
   %598 = trunc i64 %597 to i32
   %599 = load i8, ptr %596, align 1
   %600 = add i8 %599, -58
@@ -1732,7 +1732,7 @@ Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49
   br i1 %exitcond.not.i514.i, label %Io_WriteVerilogGetName.exit515.i, label %.lr.ph.i507.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i512.i:                      ; preds = %606
-  %610 = trunc i64 %indvars.iv.i508.i to i32
+  %610 = trunc nuw nsw i64 %indvars.iv.i508.i to i32
   br label %._crit_edge.i503.i
 
 ._crit_edge.i503.i:                               ; preds = %._crit_edge.loopexit.i512.i, %.preheader.i502.i
@@ -1775,7 +1775,7 @@ Io_WriteVerilogGetName.exit515.i:                 ; preds = %609, %._crit_edge49
   %.0.i495.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i492.i ], [ %596, %._crit_edge.i503.i ], [ %596, %609 ]
   %622 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull %.0.i495.i) #10
   %623 = load ptr, ptr %501, align 8
-  %624 = trunc i64 %indvars.iv588.i to i32
+  %624 = trunc nuw nsw i64 %indvars.iv588.i to i32
   %625 = tail call ptr @Hop_IthVar(ptr noundef %623, i32 noundef %624) #10
   store ptr %622, ptr %625, align 8
   %indvars.iv.next589.i = add nuw nsw i64 %indvars.iv588.i, 1
@@ -2109,7 +2109,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   %47 = getelementptr inbounds ptr, ptr %.val186.val.val, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @Abc_ObjName(ptr noundef %48) #10
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #11
+  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #11
   %51 = trunc i64 %50 to i32
   %52 = load i8, ptr %49, align 1
   %53 = add i8 %52, -58
@@ -2146,7 +2146,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i243, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %59
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -2211,7 +2211,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i,
   %87 = getelementptr inbounds ptr, ptr %.val201.val.val, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr @Abc_ObjName(ptr noundef %88) #10
-  %90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #11
+  %90 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #11
   %91 = trunc i64 %90 to i32
   %92 = load i8, ptr %89, align 1
   %93 = add i8 %92, -58
@@ -2248,7 +2248,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i,
   br i1 %exitcond.not.i267, label %Io_WriteVerilogGetName.exit268, label %.lr.ph.i260, !llvm.loop !6
 
 ._crit_edge.loopexit.i265:                        ; preds = %99
-  %103 = trunc i64 %indvars.iv.i261 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv.i261 to i32
   br label %._crit_edge.i256
 
 ._crit_edge.i256:                                 ; preds = %._crit_edge.loopexit.i265, %.preheader.i255
@@ -2317,7 +2317,7 @@ Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i
   %127 = getelementptr inbounds ptr, ptr %.val203.val.val, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr @Abc_ObjName(ptr noundef %128) #10
-  %130 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #11
+  %130 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %129) #11
   %131 = trunc i64 %130 to i32
   %132 = load i8, ptr %129, align 1
   %133 = add i8 %132, -58
@@ -2354,7 +2354,7 @@ Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i
   br i1 %exitcond.not.i292, label %Io_WriteVerilogGetName.exit293, label %.lr.ph.i285, !llvm.loop !6
 
 ._crit_edge.loopexit.i290:                        ; preds = %139
-  %143 = trunc i64 %indvars.iv.i286 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv.i286 to i32
   br label %._crit_edge.i281
 
 ._crit_edge.i281:                                 ; preds = %._crit_edge.loopexit.i290, %.preheader.i280
@@ -2419,7 +2419,7 @@ Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i
   %167 = getelementptr inbounds ptr, ptr %.val188.val.val, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = tail call ptr @Abc_ObjName(ptr noundef %168) #10
-  %170 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #11
+  %170 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %169) #11
   %171 = trunc i64 %170 to i32
   %172 = load i8, ptr %169, align 1
   %173 = add i8 %172, -58
@@ -2456,7 +2456,7 @@ Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i
   br i1 %exitcond.not.i317, label %Io_WriteVerilogGetName.exit318, label %.lr.ph.i310, !llvm.loop !6
 
 ._crit_edge.loopexit.i315:                        ; preds = %179
-  %183 = trunc i64 %indvars.iv.i311 to i32
+  %183 = trunc nuw nsw i64 %indvars.iv.i311 to i32
   br label %._crit_edge.i306
 
 ._crit_edge.i306:                                 ; preds = %._crit_edge.loopexit.i315, %.preheader.i305
@@ -2559,7 +2559,7 @@ Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i
   %223 = getelementptr inbounds ptr, ptr %.val190.val.val, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = tail call ptr @Abc_ObjName(ptr noundef %224) #10
-  %226 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %225) #11
+  %226 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %225) #11
   %227 = trunc i64 %226 to i32
   %228 = load i8, ptr %225, align 1
   %229 = add i8 %228, -58
@@ -2596,7 +2596,7 @@ Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i
   br i1 %exitcond.not.i342, label %Io_WriteVerilogGetName.exit343, label %.lr.ph.i335, !llvm.loop !6
 
 ._crit_edge.loopexit.i340:                        ; preds = %235
-  %239 = trunc i64 %indvars.iv.i336 to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.i336 to i32
   br label %._crit_edge.i331
 
 ._crit_edge.i331:                                 ; preds = %._crit_edge.loopexit.i340, %.preheader.i330
@@ -2664,7 +2664,7 @@ Io_WriteVerilogGetName.exit343:                   ; preds = %238, %._crit_edge.i
   %263 = getelementptr inbounds ptr, ptr %.val228.val.val, i64 %262
   %264 = load ptr, ptr %263, align 8
   %265 = tail call ptr @Abc_ObjName(ptr noundef %264) #10
-  %266 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %265) #11
+  %266 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %265) #11
   %267 = trunc i64 %266 to i32
   %268 = load i8, ptr %265, align 1
   %269 = add i8 %268, -58
@@ -2701,7 +2701,7 @@ Io_WriteVerilogGetName.exit343:                   ; preds = %238, %._crit_edge.i
   br i1 %exitcond.not.i367, label %Io_WriteVerilogGetName.exit368, label %.lr.ph.i360, !llvm.loop !6
 
 ._crit_edge.loopexit.i365:                        ; preds = %275
-  %279 = trunc i64 %indvars.iv.i361 to i32
+  %279 = trunc nuw nsw i64 %indvars.iv.i361 to i32
   br label %._crit_edge.i356
 
 ._crit_edge.i356:                                 ; preds = %._crit_edge.loopexit.i365, %.preheader.i355
@@ -2900,7 +2900,7 @@ Abc_Base10Log.exit375:                            ; preds = %.lr.ph.i370, %.crit
   %363 = getelementptr inbounds ptr, ptr %.val192.val.val, i64 %362
   %364 = load ptr, ptr %363, align 8
   %365 = tail call ptr @Abc_ObjName(ptr noundef %364) #10
-  %366 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %365) #11
+  %366 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %365) #11
   %367 = trunc i64 %366 to i32
   %368 = load i8, ptr %365, align 1
   %369 = add i8 %368, -58
@@ -2937,7 +2937,7 @@ Abc_Base10Log.exit375:                            ; preds = %.lr.ph.i370, %.crit
   br i1 %exitcond.not.i399, label %Io_WriteVerilogGetName.exit400, label %.lr.ph.i392, !llvm.loop !6
 
 ._crit_edge.loopexit.i397:                        ; preds = %375
-  %379 = trunc i64 %indvars.iv.i393 to i32
+  %379 = trunc nuw nsw i64 %indvars.iv.i393 to i32
   br label %._crit_edge.i388
 
 ._crit_edge.i388:                                 ; preds = %._crit_edge.loopexit.i397, %.preheader.i387
@@ -3003,7 +3003,7 @@ Io_WriteVerilogGetName.exit400:                   ; preds = %378, %._crit_edge.i
   %400 = getelementptr inbounds ptr, ptr %.val234.val.val, i64 %399
   %401 = load ptr, ptr %400, align 8
   %402 = tail call ptr @Abc_ObjName(ptr noundef %401) #10
-  %403 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %402) #11
+  %403 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %402) #11
   %404 = trunc i64 %403 to i32
   %405 = load i8, ptr %402, align 1
   %406 = add i8 %405, -58
@@ -3040,7 +3040,7 @@ Io_WriteVerilogGetName.exit400:                   ; preds = %378, %._crit_edge.i
   br i1 %exitcond.not.i424, label %Io_WriteVerilogGetName.exit425, label %.lr.ph.i417, !llvm.loop !6
 
 ._crit_edge.loopexit.i422:                        ; preds = %412
-  %416 = trunc i64 %indvars.iv.i418 to i32
+  %416 = trunc nuw nsw i64 %indvars.iv.i418 to i32
   br label %._crit_edge.i413
 
 ._crit_edge.i413:                                 ; preds = %._crit_edge.loopexit.i422, %.preheader.i412
@@ -3093,7 +3093,7 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %415, %._crit_edge.i
   %434 = tail call i64 @Abc_SopToTruth(ptr noundef %432, i32 noundef %.val219) #10
   %435 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 13, i64 1, ptr %0)
   %436 = lshr i64 %434, 32
-  %437 = trunc i64 %436 to i32
+  %437 = trunc nuw i64 %436 to i32
   %438 = trunc i64 %434 to i32
   %439 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %437, i32 noundef %438) #10
   %440 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %.09.i374, i32 noundef %.2161583) #10
@@ -3109,7 +3109,7 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %415, %._crit_edge.i
   %445 = getelementptr inbounds ptr, ptr %.val194.val.val, i64 %444
   %446 = load ptr, ptr %445, align 8
   %447 = tail call ptr @Abc_ObjName(ptr noundef %446) #10
-  %448 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %447) #11
+  %448 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %447) #11
   %449 = trunc i64 %448 to i32
   %450 = load i8, ptr %447, align 1
   %451 = add i8 %450, -58
@@ -3146,7 +3146,7 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %415, %._crit_edge.i
   br i1 %exitcond.not.i449, label %Io_WriteVerilogGetName.exit450, label %.lr.ph.i442, !llvm.loop !6
 
 ._crit_edge.loopexit.i447:                        ; preds = %457
-  %461 = trunc i64 %indvars.iv.i443 to i32
+  %461 = trunc nuw nsw i64 %indvars.iv.i443 to i32
   br label %._crit_edge.i438
 
 ._crit_edge.i438:                                 ; preds = %._crit_edge.loopexit.i447, %.preheader.i437
@@ -3197,7 +3197,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %460, %._crit_edge.i
   br label %478
 
 .preheader534:                                    ; preds = %Io_WriteVerilogGetName.exit475
-  %476 = trunc i64 %indvars.iv.next633 to i32
+  %476 = trunc nuw nsw i64 %indvars.iv.next633 to i32
   %477 = icmp ult i32 %476, 6
   br i1 %477, label %.lr.ph580.preheader, label %.sink.split
 
@@ -3219,7 +3219,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %460, %._crit_edge.i
   %484 = getelementptr inbounds ptr, ptr %.val236.val.val, i64 %483
   %485 = load ptr, ptr %484, align 8
   %486 = tail call ptr @Abc_ObjName(ptr noundef %485) #10
-  %487 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #11
+  %487 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #11
   %488 = trunc i64 %487 to i32
   %489 = load i8, ptr %486, align 1
   %490 = add i8 %489, -58
@@ -3256,7 +3256,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %460, %._crit_edge.i
   br i1 %exitcond.not.i474, label %Io_WriteVerilogGetName.exit475, label %.lr.ph.i467, !llvm.loop !6
 
 ._crit_edge.loopexit.i472:                        ; preds = %496
-  %500 = trunc i64 %indvars.iv.i468 to i32
+  %500 = trunc nuw nsw i64 %indvars.iv.i468 to i32
   br label %._crit_edge.i463
 
 ._crit_edge.i463:                                 ; preds = %._crit_edge.loopexit.i472, %.preheader.i462
@@ -3355,7 +3355,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
 
 538:                                              ; preds = %532
   %539 = lshr i64 %536, 32
-  %540 = trunc i64 %539 to i32
+  %540 = trunc nuw i64 %539 to i32
   %541 = trunc i64 %536 to i32
   %542 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %540, i32 noundef %541) #10
   br label %547
@@ -3406,7 +3406,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
   %560 = getelementptr inbounds ptr, ptr %.val238.val.val, i64 %559
   %561 = load ptr, ptr %560, align 8
   %562 = tail call ptr @Abc_ObjName(ptr noundef %561) #10
-  %563 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %562) #11
+  %563 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %562) #11
   %564 = trunc i64 %563 to i32
   %565 = load i8, ptr %562, align 1
   %566 = add i8 %565, -58
@@ -3443,7 +3443,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
   br i1 %exitcond.not.i499, label %Io_WriteVerilogGetName.exit500, label %.lr.ph.i492, !llvm.loop !6
 
 ._crit_edge.loopexit.i497:                        ; preds = %572
-  %576 = trunc i64 %indvars.iv.i493 to i32
+  %576 = trunc nuw nsw i64 %indvars.iv.i493 to i32
   br label %._crit_edge.i488
 
 ._crit_edge.i488:                                 ; preds = %._crit_edge.loopexit.i497, %.preheader.i487
@@ -3503,7 +3503,7 @@ Io_WriteVerilogGetName.exit500:                   ; preds = %575, %._crit_edge.i
   %596 = getelementptr inbounds ptr, ptr %.val196.val.val, i64 %595
   %597 = load ptr, ptr %596, align 8
   %598 = tail call ptr @Abc_ObjName(ptr noundef %597) #10
-  %599 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %598) #11
+  %599 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %598) #11
   %600 = trunc i64 %599 to i32
   %601 = load i8, ptr %598, align 1
   %602 = add i8 %601, -58
@@ -3540,7 +3540,7 @@ Io_WriteVerilogGetName.exit500:                   ; preds = %575, %._crit_edge.i
   br i1 %exitcond.not.i524, label %Io_WriteVerilogGetName.exit525, label %.lr.ph.i517, !llvm.loop !6
 
 ._crit_edge.loopexit.i522:                        ; preds = %608
-  %612 = trunc i64 %indvars.iv.i518 to i32
+  %612 = trunc nuw nsw i64 %indvars.iv.i518 to i32
   br label %._crit_edge.i513
 
 ._crit_edge.i513:                                 ; preds = %._crit_edge.loopexit.i522, %.preheader.i512
@@ -3610,7 +3610,7 @@ declare i64 @Abc_SopToTruth(ptr noundef, i32 noundef) local_unnamed_addr #2
 define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #11
   %7 = trunc i64 %6 to i32
   %8 = load i8, ptr %.val, align 1
   %9 = add i8 %8, -58
@@ -3647,7 +3647,7 @@ define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %15
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -3850,7 +3850,7 @@ define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr no
   %14 = getelementptr inbounds ptr, ptr %.val23.val.val, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @Abc_ObjName(ptr noundef %15) #10
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #11
   %18 = trunc i64 %17 to i32
   %19 = load i8, ptr %16, align 1
   %20 = add i8 %19, -58
@@ -3887,7 +3887,7 @@ define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr no
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %26
-  %30 = trunc i64 %indvars.iv.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -3947,7 +3947,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %29, %._crit_edge.i,
   %.120 = phi i32 [ 3, %48 ], [ %.01954, %45 ], [ %.01954, %Io_WriteVerilogGetName.exit ]
   %.1 = phi i32 [ 0, %48 ], [ %.01855, %45 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %51 = tail call ptr @Abc_ObjName(ptr noundef %15) #10
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #11
+  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %51) #11
   %53 = trunc i64 %52 to i32
   %54 = load i8, ptr %51, align 1
   %55 = add i8 %54, -58
@@ -3984,7 +3984,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %29, %._crit_edge.i,
   br i1 %exitcond.not.i48, label %Io_WriteVerilogGetName.exit49, label %.lr.ph.i41, !llvm.loop !6
 
 ._crit_edge.loopexit.i46:                         ; preds = %61
-  %65 = trunc i64 %indvars.iv.i42 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   br label %._crit_edge.i37
 
 ._crit_edge.i37:                                  ; preds = %._crit_edge.loopexit.i46, %.preheader.i36
@@ -4101,7 +4101,7 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
 
 26:                                               ; preds = %.lr.ph
   %27 = tail call ptr @Abc_ObjName(ptr noundef nonnull %15) #10
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #11
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #11
   %29 = trunc i64 %28 to i32
   %30 = load i8, ptr %27, align 1
   %31 = add i8 %30, -58
@@ -4138,7 +4138,7 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %37
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -4198,7 +4198,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   %.130 = phi i32 [ 3, %59 ], [ %.02971, %56 ], [ %.02971, %Io_WriteVerilogGetName.exit ]
   %.126 = phi i32 [ 0, %59 ], [ %.02573, %56 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %62 = tail call ptr @Abc_ObjName(ptr noundef nonnull %15) #10
-  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #11
+  %63 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #11
   %64 = trunc i64 %63 to i32
   %65 = load i8, ptr %62, align 1
   %66 = add i8 %65, -58
@@ -4235,7 +4235,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   br i1 %exitcond.not.i64, label %Io_WriteVerilogGetName.exit65, label %.lr.ph.i57, !llvm.loop !6
 
 ._crit_edge.loopexit.i62:                         ; preds = %72
-  %76 = trunc i64 %indvars.iv.i58 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.i58 to i32
   br label %._crit_edge.i53
 
 ._crit_edge.i53:                                  ; preds = %._crit_edge.loopexit.i62, %.preheader.i52
@@ -4367,7 +4367,7 @@ define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr n
   %26 = load ptr, ptr %25, align 8
   %27 = add nsw i32 %.02165, 1
   %28 = tail call ptr @Abc_ObjName(ptr noundef %26) #10
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #11
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #11
   %30 = trunc i64 %29 to i32
   %31 = load i8, ptr %28, align 1
   %32 = add i8 %31, -58
@@ -4404,7 +4404,7 @@ define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr n
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %38
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -4464,7 +4464,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %41, %._crit_edge.i,
   %.125 = phi i32 [ 0, %60 ], [ %.02463, %57 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %.1 = phi i32 [ 3, %60 ], [ %.066, %57 ], [ %.066, %Io_WriteVerilogGetName.exit ]
   %63 = tail call ptr @Abc_ObjName(ptr noundef %26) #10
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #11
+  %64 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %63) #11
   %65 = trunc i64 %64 to i32
   %66 = load i8, ptr %63, align 1
   %67 = add i8 %66, -58
@@ -4501,7 +4501,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %41, %._crit_edge.i,
   br i1 %exitcond.not.i58, label %Io_WriteVerilogGetName.exit59, label %.lr.ph.i51, !llvm.loop !6
 
 ._crit_edge.loopexit.i56:                         ; preds = %73
-  %77 = trunc i64 %indvars.iv.i52 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv.i52 to i32
   br label %._crit_edge.i47
 
 ._crit_edge.i47:                                  ; preds = %._crit_edge.loopexit.i56, %.preheader.i46
@@ -4838,7 +4838,7 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
 41:                                               ; preds = %31, %22
   %42 = add nsw i32 %.0356, 1
   %43 = tail call ptr @Abc_ObjName(ptr noundef nonnull %28) #10
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
+  %44 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %43) #11
   %45 = trunc i64 %44 to i32
   %46 = load i8, ptr %43, align 1
   %47 = add i8 %46, -58
@@ -4875,7 +4875,7 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %53
-  %57 = trunc i64 %indvars.iv.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -4935,7 +4935,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   %.1115 = phi i32 [ 3, %75 ], [ %.0114353, %72 ], [ %.0114353, %Io_WriteVerilogGetName.exit ]
   %.1106 = phi i32 [ 0, %75 ], [ %.0105354, %72 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %78 = tail call ptr @Abc_ObjName(ptr noundef %28) #10
-  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #11
+  %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %78) #11
   %80 = trunc i64 %79 to i32
   %81 = load i8, ptr %78, align 1
   %82 = add i8 %81, -58
@@ -4972,7 +4972,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   br i1 %exitcond.not.i190, label %Io_WriteVerilogGetName.exit191, label %.lr.ph.i183, !llvm.loop !6
 
 ._crit_edge.loopexit.i188:                        ; preds = %88
-  %92 = trunc i64 %indvars.iv.i184 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i184 to i32
   br label %._crit_edge.i179
 
 ._crit_edge.i179:                                 ; preds = %._crit_edge.loopexit.i188, %.preheader.i178
@@ -5078,7 +5078,7 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   %133 = load ptr, ptr %132, align 8
   %134 = add nsw i32 %.2363, 1
   %135 = tail call ptr @Abc_ObjName(ptr noundef %133) #10
-  %136 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %135) #11
+  %136 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %135) #11
   %137 = trunc i64 %136 to i32
   %138 = load i8, ptr %135, align 1
   %139 = add i8 %138, -58
@@ -5115,7 +5115,7 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   br i1 %exitcond.not.i215, label %Io_WriteVerilogGetName.exit216, label %.lr.ph.i208, !llvm.loop !6
 
 ._crit_edge.loopexit.i213:                        ; preds = %145
-  %149 = trunc i64 %indvars.iv.i209 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv.i209 to i32
   br label %._crit_edge.i204
 
 ._crit_edge.i204:                                 ; preds = %._crit_edge.loopexit.i213, %.preheader.i203
@@ -5175,7 +5175,7 @@ Io_WriteVerilogGetName.exit216:                   ; preds = %148, %._crit_edge.i
   %.4118 = phi i32 [ 3, %167 ], [ %.3117360, %164 ], [ %.3117360, %Io_WriteVerilogGetName.exit216 ]
   %.4109 = phi i32 [ 0, %167 ], [ %.3108361, %164 ], [ 0, %Io_WriteVerilogGetName.exit216 ]
   %170 = tail call ptr @Abc_ObjName(ptr noundef %133) #10
-  %171 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #11
+  %171 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %170) #11
   %172 = trunc i64 %171 to i32
   %173 = load i8, ptr %170, align 1
   %174 = add i8 %173, -58
@@ -5212,7 +5212,7 @@ Io_WriteVerilogGetName.exit216:                   ; preds = %148, %._crit_edge.i
   br i1 %exitcond.not.i240, label %Io_WriteVerilogGetName.exit241, label %.lr.ph.i233, !llvm.loop !6
 
 ._crit_edge.loopexit.i238:                        ; preds = %180
-  %184 = trunc i64 %indvars.iv.i234 to i32
+  %184 = trunc nuw nsw i64 %indvars.iv.i234 to i32
   br label %._crit_edge.i229
 
 ._crit_edge.i229:                                 ; preds = %._crit_edge.loopexit.i238, %.preheader.i228
@@ -5341,7 +5341,7 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   %230 = load ptr, ptr %229, align 8
   %231 = add nsw i32 %.5372, 1
   %232 = tail call ptr @Abc_ObjName(ptr noundef %230) #10
-  %233 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #11
+  %233 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #11
   %234 = trunc i64 %233 to i32
   %235 = load i8, ptr %232, align 1
   %236 = add i8 %235, -58
@@ -5378,7 +5378,7 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   br i1 %exitcond.not.i265, label %Io_WriteVerilogGetName.exit266, label %.lr.ph.i258, !llvm.loop !6
 
 ._crit_edge.loopexit.i263:                        ; preds = %242
-  %246 = trunc i64 %indvars.iv.i259 to i32
+  %246 = trunc nuw nsw i64 %indvars.iv.i259 to i32
   br label %._crit_edge.i254
 
 ._crit_edge.i254:                                 ; preds = %._crit_edge.loopexit.i263, %.preheader.i253
@@ -5438,7 +5438,7 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   %.8122 = phi i32 [ 3, %264 ], [ %.7121369, %261 ], [ %.7121369, %Io_WriteVerilogGetName.exit266 ]
   %.8113 = phi i32 [ 0, %264 ], [ %.7112370, %261 ], [ 0, %Io_WriteVerilogGetName.exit266 ]
   %267 = tail call ptr @Abc_ObjName(ptr noundef %230) #10
-  %268 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %267) #11
+  %268 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %267) #11
   %269 = trunc i64 %268 to i32
   %270 = load i8, ptr %267, align 1
   %271 = add i8 %270, -58
@@ -5475,7 +5475,7 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   br i1 %exitcond.not.i290, label %Io_WriteVerilogGetName.exit291, label %.lr.ph.i283, !llvm.loop !6
 
 ._crit_edge.loopexit.i288:                        ; preds = %277
-  %281 = trunc i64 %indvars.iv.i284 to i32
+  %281 = trunc nuw nsw i64 %indvars.iv.i284 to i32
   br label %._crit_edge.i279
 
 ._crit_edge.i279:                                 ; preds = %._crit_edge.loopexit.i288, %.preheader.i278
@@ -5582,7 +5582,7 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
 326:                                              ; preds = %316, %300
   %327 = add nsw i32 %.6381, 1
   %328 = tail call ptr @Abc_ObjName(ptr noundef nonnull %313) #10
-  %329 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #11
+  %329 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %328) #11
   %330 = trunc i64 %329 to i32
   %331 = load i8, ptr %328, align 1
   %332 = add i8 %331, -58
@@ -5619,7 +5619,7 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   br i1 %exitcond.not.i316, label %Io_WriteVerilogGetName.exit317, label %.lr.ph.i309, !llvm.loop !6
 
 ._crit_edge.loopexit.i314:                        ; preds = %338
-  %342 = trunc i64 %indvars.iv.i310 to i32
+  %342 = trunc nuw nsw i64 %indvars.iv.i310 to i32
   br label %._crit_edge.i305
 
 ._crit_edge.i305:                                 ; preds = %._crit_edge.loopexit.i314, %.preheader.i304
@@ -5679,7 +5679,7 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   %.10124 = phi i32 [ 3, %360 ], [ %.9123378, %357 ], [ %.9123378, %Io_WriteVerilogGetName.exit317 ]
   %.10 = phi i32 [ 0, %360 ], [ %.9379, %357 ], [ 0, %Io_WriteVerilogGetName.exit317 ]
   %363 = tail call ptr @Abc_ObjName(ptr noundef %313) #10
-  %364 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %363) #11
+  %364 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %363) #11
   %365 = trunc i64 %364 to i32
   %366 = load i8, ptr %363, align 1
   %367 = add i8 %366, -58
@@ -5716,7 +5716,7 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   br i1 %exitcond.not.i341, label %Io_WriteVerilogGetName.exit342, label %.lr.ph.i334, !llvm.loop !6
 
 ._crit_edge.loopexit.i339:                        ; preds = %373
-  %377 = trunc i64 %indvars.iv.i335 to i32
+  %377 = trunc nuw nsw i64 %indvars.iv.i335 to i32
   br label %._crit_edge.i330
 
 ._crit_edge.i330:                                 ; preds = %._crit_edge.loopexit.i339, %.preheader.i329
@@ -5844,7 +5844,7 @@ define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, pt
   %28 = getelementptr inbounds ptr, ptr %.val54.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #10
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #11
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #11
   %32 = trunc i64 %31 to i32
   %33 = load i8, ptr %30, align 1
   %34 = add i8 %33, -58
@@ -5881,7 +5881,7 @@ define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, pt
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %40
-  %44 = trunc i64 %indvars.iv.i to i32
+  %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -5946,7 +5946,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %43, %._crit_edge.i,
   %67 = getelementptr inbounds ptr, ptr %.val58.val.val, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @Abc_ObjName(ptr noundef %68) #10
-  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #11
+  %70 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %69) #11
   %71 = trunc i64 %70 to i32
   %72 = load i8, ptr %69, align 1
   %73 = add i8 %72, -58
@@ -5983,7 +5983,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %43, %._crit_edge.i,
   br i1 %exitcond.not.i95, label %Io_WriteVerilogGetName.exit96, label %.lr.ph.i88, !llvm.loop !6
 
 ._crit_edge.loopexit.i93:                         ; preds = %79
-  %83 = trunc i64 %indvars.iv.i89 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.i89 to i32
   br label %._crit_edge.i84
 
 ._crit_edge.i84:                                  ; preds = %._crit_edge.loopexit.i93, %.preheader.i83
@@ -6076,7 +6076,7 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   br i1 %exitcond.not, label %.critedge2, label %106, !llvm.loop !42
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %111
-  %116 = trunc i64 %indvars.iv167 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv167 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %115, %.critedge2.loopexit.split.loop.exit, %.critedge
@@ -6140,7 +6140,7 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   %144 = getelementptr inbounds ptr, ptr %.val50.val.val, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = tail call ptr @Abc_ObjName(ptr noundef %145) #10
-  %147 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #11
+  %147 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %146) #11
   %148 = trunc i64 %147 to i32
   %149 = load i8, ptr %146, align 1
   %150 = add i8 %149, -58
@@ -6177,7 +6177,7 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   br i1 %exitcond.not.i120, label %Io_WriteVerilogGetName.exit121, label %.lr.ph.i113, !llvm.loop !6
 
 ._crit_edge.loopexit.i118:                        ; preds = %156
-  %160 = trunc i64 %indvars.iv.i114 to i32
+  %160 = trunc nuw nsw i64 %indvars.iv.i114 to i32
   br label %._crit_edge.i109
 
 ._crit_edge.i109:                                 ; preds = %._crit_edge.loopexit.i118, %.preheader.i108
@@ -6245,7 +6245,7 @@ Io_WriteVerilogGetName.exit121:                   ; preds = %159, %._crit_edge.i
   %184 = getelementptr inbounds ptr, ptr %.val46.val.val, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = tail call ptr @Abc_ObjName(ptr noundef %185) #10
-  %187 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %186) #11
+  %187 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %186) #11
   %188 = trunc i64 %187 to i32
   %189 = load i8, ptr %186, align 1
   %190 = add i8 %189, -58
@@ -6282,7 +6282,7 @@ Io_WriteVerilogGetName.exit121:                   ; preds = %159, %._crit_edge.i
   br i1 %exitcond.not.i145, label %Io_WriteVerilogGetName.exit146, label %.lr.ph.i138, !llvm.loop !6
 
 ._crit_edge.loopexit.i143:                        ; preds = %196
-  %200 = trunc i64 %indvars.iv.i139 to i32
+  %200 = trunc nuw nsw i64 %indvars.iv.i139 to i32
   br label %._crit_edge.i134
 
 ._crit_edge.i134:                                 ; preds = %._crit_edge.loopexit.i143, %.preheader.i133

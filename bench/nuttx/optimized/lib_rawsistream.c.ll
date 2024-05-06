@@ -18,7 +18,7 @@ define void @lib_rawsistream(ptr nocapture noundef writeonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @rawsistream_getc(ptr nocapture noundef %0) #1 {
+define internal range(i32 -128, 128) i32 @rawsistream_getc(ptr nocapture noundef %0) #1 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
@@ -41,7 +41,7 @@ define internal i32 @rawsistream_getc(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rawsistream_gets(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @rawsistream_gets(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %2 to i64

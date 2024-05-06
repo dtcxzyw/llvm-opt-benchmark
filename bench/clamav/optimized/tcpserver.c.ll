@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [35 x i8] c"TCP: Cannot listen on [%s]:%s: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @tcpserver(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.addrinfo, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [1025 x i8], align 16

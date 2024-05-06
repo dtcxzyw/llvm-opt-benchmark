@@ -172,7 +172,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 1, 4) i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.1) #18
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 1, i32 3
@@ -182,7 +182,7 @@ define i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 1, 5) i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = tail call i32 @dt_view_get_current() #18
   %3 = icmp eq i32 %2, 2
   %4 = select i1 %3, i32 1, i32 4
@@ -242,7 +242,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @_is_int(double noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_is_int(double noundef %0) local_unnamed_addr #0 {
   %2 = fptosi double %0 to i32
   %3 = sitofp i32 %2 to double
   %4 = fcmp reassoc nsz arcp contract afn oeq double %3, %0

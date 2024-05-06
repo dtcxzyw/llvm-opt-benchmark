@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [48 x i8] c"UPX: PE structure rebuilt from compressed file\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @upx_inflate2b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @upx_inflate2b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp ugt i32 %1, 3
   %9 = zext i32 %1 to i64
   %10 = ptrtoint ptr %0 to i64
@@ -433,7 +433,7 @@ doubleebx.exit213:                                ; preds = %148, %161
   br label %13
 
 206:                                              ; preds = %85
-  %207 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2b.magic, i32 noundef %31), !range !4
+  %207 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2b.magic, i32 noundef %31)
   br label %doubleebx.exit.thread
 
 doubleebx.exit.thread:                            ; preds = %113, %114, %97, %98, %168, %177, %182, %188, %192, %84, %18, %19, %32, %33, %68, %69, %45, %46, %doubleebx.exit178, %153, %154, %132, %133, %doubleebx.exit206, %206
@@ -445,7 +445,7 @@ doubleebx.exit.thread:                            ; preds = %113, %114, %97, %98
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @doubleebx(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @doubleebx(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = load i32, ptr %1, align 4
   %6 = shl i32 %5, 1
   store i32 %6, ptr %1, align 4
@@ -494,7 +494,7 @@ define internal fastcc i32 @doubleebx(ptr noundef %0, ptr nocapture noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pefromupx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
   %10 = ptrtoint ptr %2 to i64
   %11 = icmp eq ptr %2, null
   %12 = icmp eq ptr %0, null
@@ -1201,7 +1201,7 @@ checkpe.exit418:                                  ; preds = %223, %217, %.lr.ph5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @upx_inflate2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @upx_inflate2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp ugt i32 %1, 3
   %9 = zext i32 %1 to i64
   %10 = ptrtoint ptr %0 to i64
@@ -1660,7 +1660,7 @@ doubleebx.exit230:                                ; preds = %174, %187
   br label %13
 
 232:                                              ; preds = %110
-  %233 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2d.magic, i32 noundef %31), !range !4
+  %233 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2d.magic, i32 noundef %31)
   br label %doubleebx.exit.thread
 
 doubleebx.exit.thread:                            ; preds = %142, %143, %125, %126, %194, %203, %208, %214, %218, %109, %18, %19, %32, %33, %85, %86, %68, %69, %45, %46, %doubleebx.exit202, %doubleebx.exit188, %179, %180, %158, %159, %doubleebx.exit223, %232
@@ -1669,7 +1669,7 @@ doubleebx.exit.thread:                            ; preds = %142, %143, %125, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @upx_inflate2e(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @upx_inflate2e(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = icmp ugt i32 %1, 3
@@ -1987,7 +1987,7 @@ doubleebx.exit222:                                ; preds = %158, %169
   br label %227
 
 175:                                              ; preds = %155
-  %176 = call fastcc i32 @doubleebx(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %1), !range !5
+  %176 = call fastcc i32 @doubleebx(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %1)
   switch i32 %176, label %177 [
     i32 -1, label %doubleebx.exit.thread
     i32 0, label %.preheader250
@@ -1999,7 +1999,7 @@ doubleebx.exit222:                                ; preds = %158, %169
   br label %182
 
 177:                                              ; preds = %175
-  %178 = call fastcc i32 @doubleebx(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %1), !range !5
+  %178 = call fastcc i32 @doubleebx(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %1)
   %179 = icmp eq i32 %178, -1
   br i1 %179, label %doubleebx.exit.thread, label %180
 
@@ -2168,7 +2168,7 @@ doubleebx.exit236:                                ; preds = %205, %218
   br label %15
 
 266:                                              ; preds = %124
-  %267 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2e.magic, i32 noundef %37), !range !4
+  %267 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflate2e.magic, i32 noundef %37)
   br label %doubleebx.exit.thread
 
 doubleebx.exit.thread:                            ; preds = %161, %162, %139, %140, %227, %237, %242, %248, %252, %177, %175, %123, %22, %23, %38, %39, %97, %98, %78, %79, %53, %54, %doubleebx.exit208, %doubleebx.exit194, %210, %211, %187, %188, %doubleebx.exit229, %266
@@ -2177,7 +2177,7 @@ doubleebx.exit.thread:                            ; preds = %161, %162, %139, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.CLI_LZMA, align 8
   %10 = alloca [5 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %9, i8 0, i64 200, i1 false)
@@ -2230,7 +2230,7 @@ define noundef i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 40:                                               ; preds = %31
   %41 = load i32, ptr %3, align 4
-  %42 = call fastcc i32 @pefromupx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflatelzma.magic, i32 noundef %41), !range !4
+  %42 = call fastcc i32 @pefromupx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @__const.upx_inflatelzma.magic, i32 noundef %41)
   br label %43
 
 43:                                               ; preds = %31, %19, %8, %40
@@ -2277,5 +2277,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 2}

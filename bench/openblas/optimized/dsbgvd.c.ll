@@ -47,7 +47,7 @@ define void @dsbgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %.thread6, label %.thread
 
 .thread:                                          ; preds = %34
-  %35 = mul nsw i32 %32, 5
+  %35 = mul nuw nsw i32 %32, 5
   %36 = add nuw nsw i32 %35, 3
   store i32 %32, ptr %18, align 4, !tbaa !3
   %37 = add nuw nsw i32 %35, 1

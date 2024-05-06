@@ -41,7 +41,7 @@ define void @pg_sha1_update(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %15 = getelementptr i8, ptr %1, i64 %.025
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %13, i1 false)
   %16 = load i8, ptr %4, align 8
-  %17 = trunc i64 %13 to i8
+  %17 = trunc nuw nsw i64 %13 to i8
   %18 = add i8 %16, %17
   %19 = and i8 %18, 63
   store i8 %19, ptr %4, align 8
@@ -219,7 +219,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %101 = and i32 %.2236274, %100
   %102 = and i32 %.2240273, %.2244272
   %103 = or i32 %101, %102
-  %.lhs.trunc = trunc i64 %.2252270 to i8
+  %.lhs.trunc = trunc nuw i64 %.2252270 to i8
   %104 = udiv i8 %.lhs.trunc, 20
   %.zext = zext nneg i8 %104 to i64
   %105 = getelementptr [4 x i32], ptr @_K, i64 0, i64 %.zext
@@ -262,7 +262,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %131 = tail call i32 @llvm.fshl.i32(i32 %.3281, i32 %.3281, i32 5)
   %132 = xor i32 %.3241279, %.3245278
   %133 = xor i32 %132, %.3237280
-  %.lhs.trunc254 = trunc i64 %.3253276 to i8
+  %.lhs.trunc254 = trunc nuw i64 %.3253276 to i8
   %134 = udiv i8 %.lhs.trunc254, 20
   %.zext255 = zext nneg i8 %134 to i64
   %135 = getelementptr [4 x i32], ptr @_K, i64 0, i64 %.zext255
@@ -323,7 +323,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %20 = getelementptr [64 x i8], ptr %3, i64 0, i64 %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %17, i1 false)
   %21 = load i8, ptr %4, align 8
-  %22 = trunc i64 %17 to i8
+  %22 = trunc nuw nsw i64 %17 to i8
   %23 = add i8 %21, %22
   %24 = and i8 %23, 63
   store i8 %24, ptr %4, align 8
@@ -341,7 +341,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %31 = add nsw i64 %.079.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 %31, i1 false)
   %32 = load i8, ptr %4, align 8
-  %33 = trunc i64 %31 to i8
+  %33 = trunc nsw i64 %31 to i8
   %34 = add i8 %32, %33
   %35 = and i8 %34, 63
   %36 = getelementptr inbounds i8, ptr %0, i64 24

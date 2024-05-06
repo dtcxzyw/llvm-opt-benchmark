@@ -1083,7 +1083,7 @@ define internal void @drm_fb_xrgb8888_to_gray8_line(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_fb_blit(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) #1 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 %2, ptr %8, align 4
@@ -1529,7 +1529,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_fb_build_fourcc_list(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_fb_build_fourcc_list(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr i32, ptr %3, i64 %4

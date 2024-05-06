@@ -1343,7 +1343,7 @@ define hidden void @proto_reg_handoff_dnp3() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dnp3_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dnp3_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %check_dnp3_header.exit.thread
@@ -1370,7 +1370,7 @@ check_dnp3_header.exit.thread:                    ; preds = %4, %7, %12, %check_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dnp3_udp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dnp3_udp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @udp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 10, ptr noundef nonnull @dnp3_udp_check_header_heur, ptr noundef nonnull @get_dnp3_message_len, ptr noundef nonnull @dissect_dnp3_message, ptr noundef %3) #6
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -1388,7 +1388,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dnp3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_dnp3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i8 %6 to i32
@@ -4517,7 +4517,7 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %.thread.i
@@ -4556,7 +4556,7 @@ check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnp3_udp_check_header_heur(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dnp3_udp_check_header_heur(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %check_dnp3_header.exit

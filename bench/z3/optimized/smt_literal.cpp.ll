@@ -425,11 +425,11 @@ for.inc.us:                                       ; preds = %for.body3.us
   br i1 %exitcond.not, label %for.end.us.thread, label %for.body3.us, !llvm.loop !8
 
 for.end.us.thread:                                ; preds = %for.inc.us
-  %2 = trunc i64 %indvars.iv23 to i32
+  %2 = trunc nuw i64 %indvars.iv23 to i32
   br label %for.end11
 
 for.end.us:                                       ; preds = %for.body3.us
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %cmp6.us = icmp eq i32 %3, %num_lits2
   br i1 %cmp6.us, label %for.end11.loopexit.split.loop.exit, label %for.inc9.us
 
@@ -439,7 +439,7 @@ for.inc9.us:                                      ; preds = %for.end.us
   br i1 %exitcond27.not, label %for.end11, label %for.body.us, !llvm.loop !9
 
 for.end11.loopexit.split.loop.exit:               ; preds = %for.end.us
-  %4 = trunc i64 %indvars.iv23 to i32
+  %4 = trunc nuw i64 %indvars.iv23 to i32
   br label %for.end11
 
 for.end11:                                        ; preds = %for.inc9.us, %for.end11.loopexit.split.loop.exit, %for.end.us.thread, %entry

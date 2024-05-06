@@ -432,7 +432,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_serializer_full_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_serializer_full_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef %4) #10

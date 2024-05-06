@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @MOZ_Z_inflateBackInit_(ptr noundef %strm, i32 noundef %windowBits, ptr noundef %window, ptr noundef readonly %version, i32 noundef %stream_size) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @MOZ_Z_inflateBackInit_(ptr noundef %strm, i32 noundef %windowBits, ptr noundef %window, ptr noundef readonly %version, i32 noundef %stream_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %version, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -102,7 +102,7 @@ declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @MOZ_Z_inflateBack(ptr noundef %strm, ptr nocapture noundef readonly %in, ptr noundef %in_desc, ptr nocapture noundef readonly %out, ptr noundef %out_desc) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 2) i32 @MOZ_Z_inflateBack(ptr noundef %strm, ptr nocapture noundef readonly %in, ptr noundef %in_desc, ptr nocapture noundef readonly %out, ptr noundef %out_desc) local_unnamed_addr #0 {
 entry:
   %next = alloca ptr, align 8
   %cmp = icmp eq ptr %strm, null
@@ -313,7 +313,7 @@ do.end73:                                         ; preds = %do.body63, %if.then
   br i1 %cmp59, label %do.body63, label %do.end83.loopexit, !llvm.loop !5
 
 do.end83.loopexit:                                ; preds = %do.end73
-  %15 = trunc i64 %indvars.iv.next1009 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.next1009 to i32
   br label %do.end83
 
 do.end83:                                         ; preds = %do.end83.loopexit, %do.body50
@@ -426,7 +426,7 @@ do.end160:                                        ; preds = %do.body150, %if.the
   br i1 %cmp146, label %do.body150, label %do.end170.loopexit, !llvm.loop !8
 
 do.end170.loopexit:                               ; preds = %do.end160
-  %24 = trunc i64 %indvars.iv.next to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %do.end170
 
 do.end170:                                        ; preds = %do.end170.loopexit, %while.cond145.preheader
@@ -644,7 +644,7 @@ do.end309:                                        ; preds = %if.then302.do.end30
 
 for.end.loopexit:                                 ; preds = %do.end309
   %conv293 = zext i8 %here.sroa.16.0.copyload to i32
-  %49 = trunc i64 %indvars.iv.next985 to i32
+  %49 = trunc nuw i64 %indvars.iv.next985 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond283.preheader
@@ -741,7 +741,7 @@ do.end361:                                        ; preds = %do.body351, %if.the
   br i1 %cmp347, label %do.body351, label %do.body372.loopexit, !llvm.loop !11
 
 do.body372.loopexit:                              ; preds = %do.end361
-  %59 = trunc i64 %indvars.iv.next991 to i32
+  %59 = trunc nuw i64 %indvars.iv.next991 to i32
   br label %do.body372
 
 do.body372:                                       ; preds = %do.body372.loopexit, %while.cond343.preheader
@@ -811,7 +811,7 @@ do.end426:                                        ; preds = %do.body416, %if.the
   br i1 %cmp412, label %do.body416, label %do.body437.loopexit, !llvm.loop !12
 
 do.body437.loopexit:                              ; preds = %do.end426
-  %64 = trunc i64 %indvars.iv.next988 to i32
+  %64 = trunc nuw i64 %indvars.iv.next988 to i32
   br label %do.body437
 
 do.body437:                                       ; preds = %do.body437.loopexit, %while.cond408.preheader
@@ -859,7 +859,7 @@ do.end473:                                        ; preds = %do.body463, %if.the
   br i1 %cmp459, label %do.body463, label %do.body484.loopexit, !llvm.loop !13
 
 do.body484.loopexit:                              ; preds = %do.end473
-  %67 = trunc i64 %indvars.iv.next994 to i32
+  %67 = trunc nuw i64 %indvars.iv.next994 to i32
   br label %do.body484
 
 do.body484:                                       ; preds = %do.body484.loopexit, %while.cond455.preheader
@@ -1080,7 +1080,7 @@ do.end634:                                        ; preds = %if.then627.do.end63
 
 for.end643.loopexit:                              ; preds = %do.end634
   %conv618 = zext i8 %here.sroa.16.0.copyload32 to i32
-  %97 = trunc i64 %indvars.iv.next997 to i32
+  %97 = trunc nuw i64 %indvars.iv.next997 to i32
   br label %for.end643
 
 for.end643:                                       ; preds = %for.end643.loopexit, %for.cond608.preheader
@@ -1169,7 +1169,7 @@ do.end692:                                        ; preds = %if.then685.do.end69
   br i1 %cmp677.not, label %do.body682, label %do.body702.loopexit
 
 do.body702.loopexit:                              ; preds = %do.end692
-  %106 = trunc i64 %indvars.iv.next1000 to i32
+  %106 = trunc nuw i64 %indvars.iv.next1000 to i32
   br label %do.body702
 
 do.body702:                                       ; preds = %do.body702.loopexit, %for.cond653.preheader
@@ -1389,7 +1389,7 @@ do.end839:                                        ; preds = %if.then832.do.end83
 
 for.end848.loopexit:                              ; preds = %do.end839
   %conv823 = zext i8 %here.sroa.16.0.copyload34 to i32
-  %125 = trunc i64 %indvars.iv.next1003 to i32
+  %125 = trunc nuw i64 %indvars.iv.next1003 to i32
   br label %for.end848
 
 for.end848:                                       ; preds = %for.end848.loopexit, %if.end812
@@ -1477,7 +1477,7 @@ do.end894:                                        ; preds = %if.then887.do.end89
   br i1 %cmp879.not, label %do.body884, label %do.body904.loopexit
 
 do.body904.loopexit:                              ; preds = %do.end894
-  %133 = trunc i64 %indvars.iv.next1006 to i32
+  %133 = trunc nuw i64 %indvars.iv.next1006 to i32
   br label %do.body904
 
 do.body904:                                       ; preds = %do.body904.loopexit, %for.cond855.preheader
@@ -1696,7 +1696,7 @@ declare i32 @MOZ_Z_inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 declare void @MOZ_Z_inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @MOZ_Z_inflateBackEnd(ptr noundef %strm) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateBackEnd(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @defaultMemoryManager = external global %struct.UriMemoryManagerStruct, align 8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %queryList, null
   %cmp1.i = icmp eq ptr %charsRequired, null
@@ -71,7 +71,7 @@ uriComposeQueryCharsRequiredExA.exit:             ; preds = %cond.end13.us.i.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %queryList, null
   %cmp1 = icmp eq ptr %charsRequired, null
@@ -137,14 +137,14 @@ return:                                           ; preds = %cond.end13.us.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1), !range !6
+  %call = tail call i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef readonly %queryList, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef readonly %queryList, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dest, null
   %cmp1 = icmp eq ptr %queryList, null
@@ -268,21 +268,21 @@ return:                                           ; preds = %if.then57.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocA(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noundef i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null), !range !7
+  %call.i = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocExA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null), !range !7
+  %call = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dest, null
   br i1 %cmp, label %return, label %do.body
@@ -361,7 +361,7 @@ if.end10:                                         ; preds = %if.end21.us.i.i
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %call16 = tail call i32 @uriComposeQueryExA(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks), !range !6
+  %call16 = tail call i32 @uriComposeQueryExA(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks)
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
@@ -402,14 +402,14 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %5 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
-  br i1 %cmp4.not.i, label %uriFreeQueryListMmA.exit, label %while.body.i, !llvm.loop !8
+  br i1 %cmp4.not.i, label %uriFreeQueryListMmA.exit, label %while.body.i, !llvm.loop !6
 
 uriFreeQueryListMmA.exit:                         ; preds = %while.body.i, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFreeQueryListMmA(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -442,7 +442,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %free, align 8
   tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013) #6
   %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !8
+  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !6
 
 return:                                           ; preds = %while.body, %do.end, %if.else
   %retval.0 = phi i32 [ 10, %if.else ], [ 0, %do.end ], [ 0, %while.body ]
@@ -450,21 +450,21 @@ return:                                           ; preds = %while.body, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noundef i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null), !range !7
+  %call.i = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocExA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null), !range !7
+  %call = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef readnone %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef readnone %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %nullCounter = alloca i32, align 4
   %cmp = icmp eq ptr %itemCount, null
@@ -585,7 +585,7 @@ if.end45.i:                                       ; preds = %if.then41.i, %if.en
   br label %land.lhs.true
 
 if.end19:                                         ; preds = %sw.bb
-  %call2048 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.0147, ptr noundef nonnull %valueFirst.0148, ptr noundef nonnull %walk.0142, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0), !range !9
+  %call2048 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.0147, ptr noundef nonnull %valueFirst.0148, ptr noundef nonnull %walk.0142, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
   %cmp21 = icmp eq i32 %call2048, 0
   br i1 %cmp21, label %if.then23, label %if.end25
 
@@ -616,7 +616,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %15 = load ptr, ptr %free.i58, align 8
   call void %15(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %10, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !8
+  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !6
 
 if.end25:                                         ; preds = %if.else18.split, %if.end19
   %cmp26.not = icmp eq ptr %prevNext.0150.ph, null
@@ -643,7 +643,7 @@ for.inc:                                          ; preds = %if.then41, %sw.bb38
   %valueAfter.2 = phi ptr [ %valueAfter.0149, %for.body ], [ %valueAfter.0149, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %walk.0142, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr, %afterLast
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.inc.thread:                                   ; preds = %if.end25, %land.lhs.true
   %prevNext.1 = phi ptr [ null, %if.end25 ], [ %spec.select, %land.lhs.true ]
@@ -652,7 +652,7 @@ for.inc.thread:                                   ; preds = %if.end25, %land.lhs
   %add.ptr. = select i1 %cmp32, ptr %add.ptr, ptr null
   %incdec.ptr178 = getelementptr inbounds i8, ptr %walk.0142, i64 1
   %exitcond.not179 = icmp eq ptr %incdec.ptr178, %afterLast
-  br i1 %exitcond.not179, label %if.else53.split, label %for.body.outer, !llvm.loop !10
+  br i1 %exitcond.not179, label %if.else53.split, label %for.body.outer, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %17 = icmp eq ptr %valueAfter.2, null
@@ -728,7 +728,7 @@ if.end45.i90:                                     ; preds = %if.then41.i94, %if.
   br label %return
 
 if.end54:                                         ; preds = %for.end
-  %call5550 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0), !range !9
+  %call5550 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
   %cmp56 = icmp eq i32 %call5550, 0
   br i1 %cmp56, label %if.then58, label %return
 
@@ -759,7 +759,7 @@ while.body.i107:                                  ; preds = %while.body.i107, %w
   %32 = load ptr, ptr %free.i106, align 8
   call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i108) #6
   %cmp4.not.i111 = icmp eq ptr %27, null
-  br i1 %cmp4.not.i111, label %return, label %while.body.i107, !llvm.loop !8
+  br i1 %cmp4.not.i111, label %return, label %while.body.i107, !llvm.loop !6
 
 return:                                           ; preds = %while.body.i, %while.body.i107, %if.else53.split, %if.end45.i90, %if.then58, %if.then23, %if.end54, %if.else, %if.end, %entry
   %retval.0 = phi i32 [ 2, %entry ], [ 9, %if.end ], [ 10, %if.else ], [ 0, %if.end54 ], [ 3, %if.then23 ], [ 3, %if.then58 ], [ 0, %if.end45.i90 ], [ 0, %if.else53.split ], [ 3, %while.body.i107 ], [ 3, %while.body.i ]
@@ -767,7 +767,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriAppendQueryItemA(ptr noundef %prevNext, ptr noundef %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef %prevNext, ptr noundef %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %keyAfter to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %keyFirst to i64
@@ -894,7 +894,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %queryList, null
   %cmp1.i = icmp eq ptr %charsRequired, null
@@ -949,7 +949,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %while.body.us.i.i, !llvm.loop !11
+  br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %while.body.us.i.i, !llvm.loop !8
 
 uriComposeQueryCharsRequiredExW.exit:             ; preds = %cond.end13.us.i.i, %if.end21.us.i.i, %entry
   %retval.0.i = phi i32 [ 2, %entry ], [ 4, %cond.end13.us.i.i ], [ 0, %if.end21.us.i.i ]
@@ -957,7 +957,7 @@ uriComposeQueryCharsRequiredExW.exit:             ; preds = %cond.end13.us.i.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly %queryList, ptr noundef writeonly %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %queryList, null
   %cmp1 = icmp eq ptr %charsRequired, null
@@ -1015,7 +1015,7 @@ if.end21.us.i:                                    ; preds = %cond.end13.us.i
   %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i, i64 16
   %3 = load ptr, ptr %next.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !11
+  br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !8
 
 return:                                           ; preds = %cond.end13.us.i, %if.end21.us.i, %entry
   %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end21.us.i ], [ 4, %cond.end13.us.i ]
@@ -1023,14 +1023,14 @@ return:                                           ; preds = %cond.end13.us.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1), !range !6
+  %call = tail call i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef readonly %queryList, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef readonly %queryList, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dest, null
   %cmp1 = icmp eq ptr %queryList, null
@@ -1135,7 +1135,7 @@ if.end76.i:                                       ; preds = %if.end69.i, %if.end
   %next.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
-  br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !11
+  br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !8
 
 if.then79.i:                                      ; preds = %if.end76.i
   store i32 0, ptr %write.2.i, align 4
@@ -1157,21 +1157,21 @@ return:                                           ; preds = %if.then57.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocW(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noundef i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null), !range !7
+  %call.i = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocExW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null), !range !7
+  %call = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dest, null
   br i1 %cmp, label %return, label %do.body
@@ -1239,7 +1239,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !11
+  br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !8
 
 if.end10:                                         ; preds = %if.end21.us.i.i
   %inc = add nsw i32 %add34.us.i.i, 1
@@ -1251,7 +1251,7 @@ if.end10:                                         ; preds = %if.end21.us.i.i
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %call16 = tail call i32 @uriComposeQueryExW(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks), !range !6
+  %call16 = tail call i32 @uriComposeQueryExW(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks)
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
@@ -1290,14 +1290,14 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %5 = load ptr, ptr getelementptr inbounds (%struct.UriMemoryManagerStruct, ptr @defaultMemoryManager, i64 0, i32 4), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
-  br i1 %cmp4.not.i, label %uriFreeQueryListMmW.exit, label %while.body.i, !llvm.loop !12
+  br i1 %cmp4.not.i, label %uriFreeQueryListMmW.exit, label %while.body.i, !llvm.loop !9
 
 uriFreeQueryListMmW.exit:                         ; preds = %while.body.i, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFreeQueryListMmW(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -1330,7 +1330,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %free, align 8
   tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013) #6
   %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !12
+  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !9
 
 return:                                           ; preds = %while.body, %do.end, %if.else
   %retval.0 = phi i32 [ 10, %if.else ], [ 0, %do.end ], [ 0, %while.body ]
@@ -1338,21 +1338,21 @@ return:                                           ; preds = %while.body, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noundef i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null), !range !7
+  %call.i = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocExW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null), !range !7
+  %call = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef readnone %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef readnone %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
   %nullCounter = alloca i32, align 4
   %cmp = icmp eq ptr %itemCount, null
@@ -1476,7 +1476,7 @@ if.end46.i:                                       ; preds = %if.then42.i, %if.en
   br label %land.lhs.true
 
 if.end18:                                         ; preds = %sw.bb
-  %call1948 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0153.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0149.ph, ptr noundef %keyAfter.0150, ptr noundef nonnull %valueFirst.0151, ptr noundef nonnull %walk.0145, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0), !range !9
+  %call1948 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0153.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0149.ph, ptr noundef %keyAfter.0150, ptr noundef nonnull %valueFirst.0151, ptr noundef nonnull %walk.0145, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
   %cmp20 = icmp eq i32 %call1948, 0
   br i1 %cmp20, label %if.then21, label %if.end23
 
@@ -1507,7 +1507,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %16 = load ptr, ptr %free.i58, align 8
   call void %16(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %11, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !12
+  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !9
 
 if.end23:                                         ; preds = %if.else17.split, %if.end18
   %cmp24.not = icmp eq ptr %prevNext.0153.ph, null
@@ -1537,7 +1537,7 @@ for.inc:                                          ; preds = %if.then35, %sw.bb33
   %valueAfter.2 = phi ptr [ %valueAfter.0152, %for.body ], [ %valueAfter.0152, %sw.bb33 ], [ %spec.select54, %if.then35 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %walk.0145, i64 4
   %cmp14 = icmp ult ptr %incdec.ptr, %afterLast
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end23, %land.lhs.true
   %prevNext.1 = phi ptr [ null, %if.end23 ], [ %spec.select, %land.lhs.true ]
@@ -1546,7 +1546,7 @@ for.inc.thread:                                   ; preds = %if.end23, %land.lhs
   %add.ptr. = select i1 %cmp28, ptr %add.ptr, ptr null
   %incdec.ptr179 = getelementptr inbounds i8, ptr %walk.0145, i64 4
   %cmp14180 = icmp ult ptr %incdec.ptr179, %afterLast
-  br i1 %cmp14180, label %for.body.outer, label %if.else45.split, !llvm.loop !13
+  br i1 %cmp14180, label %for.body.outer, label %if.else45.split, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   %18 = icmp eq ptr %valueAfter.2, null
@@ -1625,7 +1625,7 @@ if.end46.i92:                                     ; preds = %if.then42.i96, %if.
   br label %return
 
 if.end46:                                         ; preds = %for.end
-  %call4750 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0153.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0149.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0), !range !9
+  %call4750 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0153.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0149.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
   %cmp48 = icmp eq i32 %call4750, 0
   br i1 %cmp48, label %if.then49, label %return
 
@@ -1656,7 +1656,7 @@ while.body.i110:                                  ; preds = %while.body.i110, %w
   %34 = load ptr, ptr %free.i109, align 8
   call void %34(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i111) #6
   %cmp4.not.i114 = icmp eq ptr %29, null
-  br i1 %cmp4.not.i114, label %return, label %while.body.i110, !llvm.loop !12
+  br i1 %cmp4.not.i114, label %return, label %while.body.i110, !llvm.loop !9
 
 return:                                           ; preds = %while.body.i, %while.body.i110, %if.else45.split, %if.end46.i92, %if.then49, %if.then21, %if.end46, %if.else, %if.end, %entry
   %retval.0 = phi i32 [ 2, %entry ], [ 9, %if.end ], [ 10, %if.else ], [ 0, %if.end46 ], [ 3, %if.then21 ], [ 3, %if.then49 ], [ 0, %if.end46.i92 ], [ 0, %if.else45.split ], [ 3, %while.body.i110 ], [ 3, %while.body.i ]
@@ -1664,7 +1664,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriAppendQueryItemW(ptr noundef %prevNext, ptr noundef %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef %prevNext, ptr noundef %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %keyAfter to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %keyFirst to i64
@@ -1829,11 +1829,8 @@ attributes #6 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 5}
-!7 = !{i32 0, i32 11}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

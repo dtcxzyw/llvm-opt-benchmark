@@ -679,7 +679,7 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.14 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.15 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEED2Ev, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE = linkonce_odr constant [111 x i8] c"N9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientMessageSizeFilterEEEEE\00", comdat, align 1
 @_ZTSN9grpc_core5Arena16ManagedNewObjectE = linkonce_odr constant [37 x i8] c"N9grpc_core5Arena16ManagedNewObjectE\00", comdat, align 1
@@ -690,7 +690,7 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE = linkonce_odr constant [89 x i8] c"N9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE\00", comdat, align 1
 @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE }, comdat, align 8
 @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientToServerMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_9AppendMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, ptr @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE }, comdat, align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_E7DestroyEPv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_E8PollOnceEPv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_ED2Ev, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_ED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr constant [335 x i8] c"N9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE\00", comdat, align 1
 @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFS1_I19grpc_metadata_batchS4_ERKS2_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISP_EEvSB_NS_13DebugLocationEEUlvE_EE, ptr @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE }, comdat, align 8
@@ -758,11 +758,11 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @.str.25 = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @.str.26 = private unnamed_addr constant [65 x i8] c"nullptr == pollent_.exchange(pollent, std::memory_order_release)\00", align 1
 @.str.27 = private unnamed_addr constant [33 x i8] c"then_schedule_closure == nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.28 = private unnamed_addr constant [49 x i8] c"args->is_last == ((kFlags & kFilterIsLast) != 0)\00", align 1
 @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail20InvalidChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr constant [58 x i8] c"N9grpc_core21promise_filter_detail20InvalidChannelFilterE\00", comdat, align 1
@@ -3224,7 +3224,7 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %max_send_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %max_send_size_2.i.i.i = getelementptr inbounds i8, ptr %channel, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %max_send_size_2.i.i.i, i64 16, i1 false)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E)
   %1 = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -4139,7 +4139,7 @@ entry:
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_send_size_.i.i, align 8, !noalias !69
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
@@ -4407,7 +4407,7 @@ entry:
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %max_recv_size_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_recv_size_.i.i, align 8, !noalias !95
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
@@ -5631,7 +5631,7 @@ entry:
   %2 = load ptr, ptr %channel, align 8
   %max_recv_size_.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_recv_size_.i.i, align 8, !noalias !149
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
@@ -5900,7 +5900,7 @@ entry:
   %2 = load ptr, ptr %channel, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_send_size_.i.i, align 8, !noalias !175
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
@@ -6922,7 +6922,7 @@ _ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_23Cli
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %t.i32, align 8
   %max_send_size_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   %max_send_size_2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %max_send_size_2.i.i.i.i, i64 16, i1 false)
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E)
   %5 = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -7285,7 +7285,7 @@ entry:
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_send_size_.i.i, align 8, !noalias !213
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
@@ -7596,7 +7596,7 @@ entry:
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %max_recv_size_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_recv_size_.i.i, align 8, !noalias !239
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %1, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
@@ -8214,7 +8214,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core23MessageSizeParsedConfigE, i64 0, i32 0, i64 2), ptr %parsed_config_.i.i.i.i.i, align 8, !alias.scope !248
   %max_send_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 40
   %max_send_size_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %max_send_size_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_send_size_2.i.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %status, align 8, !alias.scope !248
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !noalias !248
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !248
@@ -8840,7 +8840,7 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %max_recv_size_.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_recv_size_.i.i, align 8, !noalias !277
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
@@ -9074,7 +9074,7 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %max_send_size_.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %max_send_size_.i.i, align 8, !noalias !303
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_112CheckPayloadERKNS_7MessageESt8optionalIjEb(ptr noalias nonnull align 8 %return_md, ptr noundef nonnull readonly align 8 dereferenceable(268) %0, i64 %retval.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %return_md, i64 8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null

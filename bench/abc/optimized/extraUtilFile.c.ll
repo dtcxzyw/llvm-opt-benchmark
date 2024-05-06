@@ -238,10 +238,10 @@ define noundef ptr @Extra_FilePathWithoutName(ptr noundef readonly %0) local_unn
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #24
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #22
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2
@@ -399,7 +399,7 @@ define noalias noundef ptr @Extra_FileDesignName(ptr noundef %0) local_unnamed_a
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Extra_FileCheck(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Extra_FileCheck(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -577,7 +577,7 @@ define noalias noundef ptr @Extra_FileReadContents2(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %6 = trunc i64 %5 to i32
   %.not = icmp eq ptr %1, null
@@ -768,7 +768,7 @@ define void @Extra_PrintBinary2(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

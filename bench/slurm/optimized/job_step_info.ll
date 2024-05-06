@@ -369,7 +369,7 @@ declare i32 @cpu_freq_debug(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @slurm_step_layout_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -592,7 +592,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.us.i
   %indvars.iv.next.lcssa.sink.i = phi i64 [ %indvars.iv.i, %.backedge.us.i ], [ %indvars.iv.next.i, %.outer.i ]
-  %100 = trunc i64 %indvars.iv.next.lcssa.sink.i to i32
+  %100 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %57) #11
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph109.preheader.i, label %._crit_edge110.i
@@ -1136,7 +1136,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_stats_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_stats_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1371,7 +1371,7 @@ define void @slurm_job_step_pids_response_msg_free(ptr noundef %0) local_unnamed
 declare void @slurm_free_job_step_pids(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_pids_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_pids_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

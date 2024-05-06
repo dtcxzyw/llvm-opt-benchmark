@@ -337,7 +337,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 124:                                              ; preds = %118, %119
   %125 = phi i32 [ %123, %119 ], [ 2147483647, %118 ]
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nuw nsw i64 %indvars.iv to i32
   %127 = sub i32 %126, %125
   br i1 %108, label %133, label %128
 
@@ -399,7 +399,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 163:                                              ; preds = %157, %158
   %164 = phi i32 [ %162, %158 ], [ 2147483647, %157 ]
-  %165 = trunc i64 %indvars.iv to i32
+  %165 = trunc nuw nsw i64 %indvars.iv to i32
   %166 = sub i32 %165, %164
   br i1 %108, label %172, label %167
 

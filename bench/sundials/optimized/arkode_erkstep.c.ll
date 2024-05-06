@@ -181,7 +181,7 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %12, %18, %22, %26, 
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @erkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @erkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -228,7 +228,7 @@ define i32 @erkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unname
 declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
+define range(i32 -22, 1) i32 @erkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -271,7 +271,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br label %20
 
 20:                                               ; preds = %17, %14, %11
-  %21 = tail call i32 @erkStep_SetButcherTable(ptr noundef nonnull %0), !range !4
+  %21 = tail call i32 @erkStep_SetButcherTable(ptr noundef nonnull %0)
   %.not20 = icmp eq i32 %21, 0
   br i1 %.not20, label %23, label %22
 
@@ -280,7 +280,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br label %erkStep_AccessStepMem.exit.thread
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @erkStep_CheckButcherTable(ptr noundef nonnull %0), !range !5
+  %24 = tail call i32 @erkStep_CheckButcherTable(ptr noundef nonnull %0)
   %.not21 = icmp eq i32 %24, 0
   br i1 %.not21, label %26, label %25
 
@@ -437,7 +437,7 @@ erkStep_AccessStepMem.exit.thread:                ; preds = %59, %9, %4, %84, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define range(i32 -21, 1) i32 @erkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -576,7 +576,7 @@ erkStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %28, %63, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define range(i32 -38, 1) i32 @erkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
@@ -688,7 +688,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %exitcond.not, label %73, label %58
 
 73:                                               ; preds = %58
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
   %75 = and i64 %indvars.iv74, 4294967295
   %76 = getelementptr inbounds double, ptr %12, i64 %75
   store double 1.000000e+00, ptr %76, align 8
@@ -734,7 +734,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %.not49, label %45, label %erkStep_AccessStepMem.exit.thread
 
 ._crit_edge:                                      ; preds = %45, %31
-  %102 = tail call i32 @erkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1), !range !6
+  %102 = tail call i32 @erkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1)
   br label %erkStep_AccessStepMem.exit.thread
 
 erkStep_AccessStepMem.exit.thread:                ; preds = %101, %89, %84, %73, %10, %5, %._crit_edge, %17
@@ -837,7 +837,7 @@ erkStep_AccessStepMem.exit.thread:                ; preds = %36, %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1281,7 +1281,7 @@ declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @arkEwtSetSmallReal(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_SetButcherTable(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @erkStep_SetButcherTable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -1354,7 +1354,7 @@ switch.lookup:                                    ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_CheckButcherTable(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1517,7 +1517,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1571,7 +1571,7 @@ define noundef i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocapture nound
   br i1 %37, label %22, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %22
-  %38 = trunc i64 %indvars.iv.next to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
@@ -1633,7 +1633,7 @@ define noundef i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocapture nound
   br i1 %74, label %54, label %._crit_edge67.loopexit
 
 ._crit_edge67.loopexit:                           ; preds = %54
-  %75 = trunc i64 %indvars.iv.next74 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv.next74 to i32
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %._crit_edge67.loopexit, %.preheader
@@ -1662,7 +1662,7 @@ declare double @llvm.fabs.f64(double) #6
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1729,7 +1729,7 @@ define noundef i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef re
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %42 = trunc i64 %indvars.iv.next84 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.next84 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
@@ -1877,6 +1877,3 @@ attributes #10 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -21, i32 1}
-!5 = !{i32 -41, i32 1}
-!6 = !{i32 -28, i32 1}

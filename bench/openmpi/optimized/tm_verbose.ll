@@ -21,7 +21,7 @@ define hidden i32 @tm_get_verbose_level() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @tm_open_verbose_file(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @tm_open_verbose_file(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   store ptr %2, ptr @output, align 8
   %3 = icmp ne ptr %2, null

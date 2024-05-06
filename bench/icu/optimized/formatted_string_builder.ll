@@ -184,7 +184,7 @@ do.body.i:                                        ; preds = %if.end26.thread, %i
   %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %fChars.i, align 8
   %cond.i17 = select i1 %tobool.i16, ptr %10, ptr %fChars.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i17, ptr align 1 %cond.i20, i64 %mul30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %cond.i17, ptr readonly align 1 %cond.i20, i64 %mul30, i1 false)
   %11 = load i8, ptr %other, align 8
   %tobool.i23 = trunc i8 %11 to i1
   %fFields.i24 = getelementptr inbounds i8, ptr %other, i64 88
@@ -195,7 +195,7 @@ do.body.i:                                        ; preds = %if.end26.thread, %i
   %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load ptr, ptr %fFields.i, align 8
   %cond.i22 = select i1 %tobool.i21, ptr %14, ptr %fFields.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i22, ptr align 1 %cond.i25, i64 %conv29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %cond.i22, ptr readonly align 1 %cond.i25, i64 %conv29, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit28
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit28:    ; preds = %if.end26, %do.body.i
@@ -245,7 +245,7 @@ entry:
 declare i32 @u_countChar32_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.then17, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7522FormattedStringBuilder16getLastCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder16getLastCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
@@ -390,7 +390,7 @@ return:                                           ; preds = %if.then45, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7522FormattedStringBuilder11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -462,7 +462,7 @@ do.end:                                           ; preds = %entry, %if.else, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7522FormattedStringBuilder15codePointBeforeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder15codePointBeforeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, i32 noundef %codePoint, i8 %field.coerce, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 {
+define noundef range(i32 1, 3) i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, i32 noundef %codePoint, i8 %field.coerce, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp ult i32 %codePoint, 65536
   %cond = select i1 %cmp, i32 1, i32 2
@@ -647,7 +647,7 @@ if.end:                                           ; preds = %_ZN6icu_7522Formatt
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %conv = trunc i32 %codePoint to i16
+  %conv = trunc nuw i32 %codePoint to i16
   %idxprom = sext i32 %retval.0.i.ph to i64
   %arrayidx = getelementptr inbounds i16, ptr %cond.i, i64 %idxprom
   store i16 %conv, ptr %arrayidx, align 2
@@ -772,8 +772,8 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp.i.i14 = icmp eq i32 %index, 0
-  br i1 %cmp.i.i14, label %land.lhs.true.i.i, label %if.else.i.i
+  %cmp.i.i15 = icmp eq i32 %index, 0
+  br i1 %cmp.i.i15, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %fZero.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -801,11 +801,11 @@ land.lhs.true9.i.i:                               ; preds = %if.else.i.i
   %tobool.i.i.i = trunc i8 %10 to i1
   %capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i32, ptr %capacity.i.i.i, align 8
-  %cond.i.i.i15 = select i1 %tobool.i.i.i, i32 %11, i32 40
+  %cond.i.i.i16 = select i1 %tobool.i.i.i, i32 %11, i32 40
   %fZero11.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %12 = load i32, ptr %fZero11.i.i, align 8
   %13 = add i32 %12, %index
-  %sub14.i.i = sub i32 %cond.i.i.i15, %13
+  %sub14.i.i = sub i32 %cond.i.i.i16, %13
   %cmp15.not.i.i = icmp slt i32 %sub14.i.i, 1
   br i1 %cmp15.not.i.i, label %if.else23.i.i, label %if.then16.i.i
 
@@ -933,7 +933,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i.i = sext i16 %13 to i32
   %14 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %14, i32 %shr.i.i.i.i
-  %15 = trunc i64 %11 to i32
+  %15 = trunc nsw i64 %11 to i32
   %cmp.i.i12 = icmp ugt i32 %cond.i.i.i, %15
   br i1 %cmp.i.i12, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
@@ -1054,7 +1054,7 @@ do.body.i.i:                                      ; preds = %if.else
   %cond.i.i23 = select i1 %tobool.i.i22, ptr %12, ptr %fChars.i.i
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i.i23, i64 %idx.ext.i
   %add.ptr6.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.ext5.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr6.i, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr6.i, i64 %mul.i, i1 false)
   %.pre.i = load i32, ptr %fLength.i20, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit.i
 
@@ -1073,7 +1073,7 @@ do.body.i20.i:                                    ; preds = %_ZN12_GLOBAL__N_113
   %cond.i15.i = select i1 %tobool.i14.i, ptr %15, ptr %fFields.i.i
   %add.ptr10.i = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i15.i, i64 %idx.ext.i
   %add.ptr15.i = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr10.i, i64 %idx.ext5.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr align 1 %add.ptr15.i, i64 %conv19.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr10.i, ptr readonly align 1 %add.ptr15.i, i64 %conv19.i, i1 false)
   %.pre22.i = load i32, ptr %fLength.i20, align 4
   br label %_ZN6icu_7522FormattedStringBuilder6removeEii.exit
 
@@ -1112,7 +1112,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i.i = sext i16 %22 to i32
   %23 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %23, i32 %shr.i.i.i.i
-  %24 = trunc i64 %20 to i32
+  %24 = trunc nsw i64 %20 to i32
   %cmp.i.i26 = icmp ugt i32 %cond.i.i.i, %24
   br i1 %cmp.i.i26, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
@@ -1173,7 +1173,7 @@ do.body.i:                                        ; preds = %entry
   %cond.i = select i1 %tobool.i, ptr %4, ptr %fChars.i
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
   %add.ptr6 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr6, i64 %mul, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr readonly align 1 %add.ptr6, i64 %mul, i1 false)
   %.pre = load i32, ptr %fLength, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit
 
@@ -1192,7 +1192,7 @@ do.body.i20:                                      ; preds = %_ZN12_GLOBAL__N_113
   %cond.i15 = select i1 %tobool.i14, ptr %7, ptr %fFields.i
   %add.ptr10 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i15, i64 %idx.ext
   %add.ptr15 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr10, i64 %idx.ext5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr10, ptr align 1 %add.ptr15, i64 %conv19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr10, ptr readonly align 1 %add.ptr15, i64 %conv19, i1 false)
   %.pre22 = load i32, ptr %fLength, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit21
 
@@ -1483,7 +1483,7 @@ if.end17:                                         ; preds = %if.end8
 
 do.body.i:                                        ; preds = %if.end17
   %mul21 = shl nsw i64 %conv20, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr19, i64 %mul21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr readonly align 1 %add.ptr19, i64 %mul21, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit:      ; preds = %if.end17, %do.body.i
@@ -1499,7 +1499,7 @@ do.body.i66:                                      ; preds = %_ZN12_GLOBAL__N_112
   %add.ptr31 = getelementptr inbounds i16, ptr %add.ptr19, i64 %conv20
   %add.ptr25 = getelementptr inbounds i16, ptr %add.ptr, i64 %conv20
   %add.ptr27 = getelementptr inbounds i16, ptr %add.ptr25, i64 %idx.ext26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr27, ptr align 1 %add.ptr31, i64 %mul35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr27, ptr readonly align 1 %add.ptr31, i64 %mul35, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit67
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit67:    ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit, %do.body.i66
@@ -1508,7 +1508,7 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit67:    ; preds = %_ZN12_GLOBAL__N_112
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit70, label %do.body.i69
 
 do.body.i69:                                      ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit67
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr align 1 %add.ptr39, i64 %conv20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr37, ptr readonly align 1 %add.ptr39, i64 %conv20, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit70
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit70:    ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit67, %do.body.i69
@@ -1518,7 +1518,7 @@ do.body.i72:                                      ; preds = %_ZN12_GLOBAL__N_112
   %add.ptr51 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr39, i64 %conv20
   %add.ptr45 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr37, i64 %conv20
   %add.ptr47 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr45, i64 %idx.ext26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr47, ptr align 1 %add.ptr51, i64 %conv34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr47, ptr readonly align 1 %add.ptr51, i64 %conv34, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit73
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit73:    ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit70, %do.body.i72
@@ -1555,7 +1555,7 @@ do.body.i75:                                      ; preds = %if.else
   %conv71 = sext i32 %9 to i64
   %mul72 = shl nsw i64 %conv71, 1
   %add.ptr69 = getelementptr inbounds i16, ptr %cond.i62, i64 %idx.ext68
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr67, ptr align 1 %add.ptr69, i64 %mul72, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr67, ptr readonly align 1 %add.ptr69, i64 %mul72, i1 false)
   %.pre = load i32, ptr %fLength, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit
 
@@ -1572,7 +1572,7 @@ do.body.i77:                                      ; preds = %_ZN12_GLOBAL__N_113
   %mul86 = shl nsw i64 %conv85, 1
   %add.ptr76 = getelementptr inbounds i16, ptr %add.ptr67, i64 %idx.ext75
   %add.ptr78 = getelementptr inbounds i16, ptr %add.ptr76, i64 %idx.ext77
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr78, ptr align 1 %add.ptr76, i64 %mul86, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr78, ptr readonly align 1 %add.ptr76, i64 %mul86, i1 false)
   %.pre85 = load i32, ptr %fLength, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit78
 
@@ -1585,7 +1585,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit78:   ; preds = %_ZN12_GLOBAL__N_113
 do.body.i80:                                      ; preds = %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit78
   %conv92 = sext i32 %11 to i64
   %add.ptr90 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i64, i64 %idx.ext68
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr88, ptr align 1 %add.ptr90, i64 %conv92, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr88, ptr readonly align 1 %add.ptr90, i64 %conv92, i1 false)
   %.pre86 = load i32, ptr %fLength, align 4
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit81
 
@@ -1599,7 +1599,7 @@ do.body.i83:                                      ; preds = %_ZN12_GLOBAL__N_113
   %conv106 = sext i32 %sub105 to i64
   %add.ptr97 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr88, i64 %idx.ext75
   %add.ptr99 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %add.ptr97, i64 %idx.ext77
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr99, ptr align 1 %add.ptr97, i64 %conv106, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr99, ptr readonly align 1 %add.ptr97, i64 %conv106, i1 false)
   br label %if.end108
 
 if.end108:                                        ; preds = %do.body.i83, %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit81, %if.end58

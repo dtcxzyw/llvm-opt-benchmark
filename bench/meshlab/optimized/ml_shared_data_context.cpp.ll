@@ -3992,7 +3992,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions38filterUselessUdpateAccordingToM
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN29MLPoliciesStandAloneFunctions36bestPrimitiveModalityAccordingToMeshEPK9MeshModel(ptr noundef readonly %0) local_unnamed_addr #16 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN29MLPoliciesStandAloneFunctions36bestPrimitiveModalityAccordingToMeshEPK9MeshModel(ptr noundef readonly %0) local_unnamed_addr #16 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

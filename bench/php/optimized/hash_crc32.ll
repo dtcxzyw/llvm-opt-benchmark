@@ -124,7 +124,7 @@ define void @PHP_CRC32LEFinal(ptr nocapture noundef writeonly %0, ptr nocapture 
   %4 = xor i32 %3, -1
   store i32 %4, ptr %1, align 4
   %5 = lshr i32 %4, 24
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw i32 %5 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 3
   store i8 %6, ptr %7, align 1
   %8 = load i32, ptr %1, align 4
@@ -150,7 +150,7 @@ define void @PHP_CRC32BEFinal(ptr nocapture noundef writeonly %0, ptr nocapture 
   %4 = xor i32 %3, -1
   store i32 %4, ptr %1, align 4
   %5 = lshr i32 %4, 24
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw i32 %5 to i8
   store i8 %6, ptr %0, align 1
   %7 = load i32, ptr %1, align 4
   %8 = lshr i32 %7, 16

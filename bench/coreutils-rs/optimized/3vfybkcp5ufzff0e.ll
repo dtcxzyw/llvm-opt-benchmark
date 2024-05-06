@@ -146,7 +146,7 @@ define hidden { i32, i32 } @_ZN3nix24with_nix_path_allocating17haf6a216fbd905ed9
   %10 = load ptr, ptr %9, align 8, !nonnull !13, !align !24, !noundef !13
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !13
-  %13 = tail call noundef i32 @stat(ptr noundef nonnull %10, ptr noundef nonnull %2)
+  %13 = tail call noundef i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   store i8 0, ptr %10, align 1
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6678ea45537a1de9E.exit9", label %15
@@ -199,7 +199,7 @@ define hidden { i32, i32 } @_ZN3nix24with_nix_path_allocating17hd4764cd6d856e3ff
   %10 = load ptr, ptr %9, align 8, !nonnull !13, !align !24, !noundef !13
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !13
-  %13 = tail call noundef i32 @lstat(ptr noundef nonnull %10, ptr noundef nonnull %2)
+  %13 = tail call noundef i32 @lstat(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   store i8 0, ptr %10, align 1
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6678ea45537a1de9E.exit9", label %15
@@ -273,7 +273,7 @@ define hidden void @_ZN3std2fs16symlink_metadata17h7600fc107e1ef000E(ptr noalias
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %3, i64 176, i1 false), !alias.scope !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %3, i64 176, i1 false), !alias.scope !63
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9f8d61453f29dd0dE.llvm.17805363726009473480.exit"
 
 12:                                               ; preds = %2
@@ -314,7 +314,7 @@ define hidden void @_ZN3std2fs8metadata17h3389a6a55791db17E(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !69
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9f8d61453f29dd0dE.llvm.17805363726009473480.exit"
 
 8:                                                ; preds = %3
@@ -485,7 +485,7 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !13, !align !24, !noundef !13
-  %18 = call noundef i32 @stat(ptr noundef nonnull %17, ptr noundef nonnull %2)
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %7, %15
@@ -531,7 +531,7 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !13, !align !24, !noundef !13
-  %18 = call noundef i32 @lstat(ptr noundef nonnull %17, ptr noundef nonnull %2)
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %7, %15

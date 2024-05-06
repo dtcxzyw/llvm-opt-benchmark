@@ -71,7 +71,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.trace_malloc_data, align 8
   %4 = alloca [32 x ptr], align 16
   %5 = alloca %struct.JSMemoryUsage, align 8
@@ -569,7 +569,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not215, label %191, label %189
 
 189:                                              ; preds = %185
-  %190 = call fastcc i32 @eval_buf(ptr noundef nonnull %169, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1), !range !10
+  %190 = call fastcc i32 @eval_buf(ptr noundef nonnull %169, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1)
   br label %191
 
 191:                                              ; preds = %189, %185
@@ -583,13 +583,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 193:                                              ; preds = %.lr.ph547
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph547, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph547, !llvm.loop !10
 
 .lr.ph547:                                        ; preds = %.lr.ph547.preheader, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next, %193 ]
   %194 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %195 = load ptr, ptr %194, align 8
-  %196 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %195, i32 noundef %.0183.lcssa), !range !10
+  %196 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %195, i32 noundef %.0183.lcssa)
   %.not221 = icmp eq i32 %196, 0
   br i1 %.not221, label %193, label %.loopexit
 
@@ -638,7 +638,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
 
 213:                                              ; preds = %212
   %214 = load ptr, ptr %188, align 8
-  %215 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %214, i32 noundef %.0183.lcssa), !range !10
+  %215 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %214, i32 noundef %.0183.lcssa)
   %.not218 = icmp eq i32 %215, 0
   br i1 %.not218, label %216, label %.loopexit
 
@@ -712,7 +712,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   %245 = getelementptr [5 x double], ptr %7, i64 0, i64 %indvars.iv668
   store double %244, ptr %245, align 8
   %246 = icmp ugt i64 %indvars.iv668, 1
-  br i1 %246, label %.split.us, label %.split550.us, !llvm.loop !12
+  br i1 %246, label %.split.us, label %.split550.us, !llvm.loop !11
 
 .split:                                           ; preds = %229, %258
   %247 = phi i64 [ %249, %258 ], [ %236, %229 ]
@@ -735,12 +735,12 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
 
 258:                                              ; preds = %.split, %257
   %259 = icmp ugt i64 %indvars.iv665, 1
-  br i1 %259, label %.split, label %.split550.us, !llvm.loop !12
+  br i1 %259, label %.split, label %.split550.us, !llvm.loop !11
 
 .split550.us:                                     ; preds = %258, %.split.us
   %260 = add nuw nsw i32 %.0153551, 1
   %exitcond671.not = icmp eq i32 %260, 100
-  br i1 %exitcond671.not, label %261, label %229, !llvm.loop !13
+  br i1 %exitcond671.not, label %261, label %229, !llvm.loop !12
 
 261:                                              ; preds = %.split550.us
   %262 = getelementptr inbounds i8, ptr %7, i64 8
@@ -834,7 +834,7 @@ declare void @js_std_eval_binary(ptr noundef, ptr noundef, i64 noundef, i32 noun
 declare void @js_std_add_helpers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @eval_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = and i32 %4, 3
   %7 = icmp eq i32 %6, 1
   %8 = sext i32 %2 to i64
@@ -901,7 +901,7 @@ JS_FreeValue.exit:                                ; preds = %27, %30, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @eval_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = call ptr @js_load_file(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1) #16
   %.not = icmp eq ptr %5, null
@@ -939,7 +939,7 @@ define internal fastcc noundef i32 @eval_file(ptr noundef %0, ptr noundef %1, i3
   %17 = phi i32 [ 1, %9 ], [ %spec.select, %16 ]
   %18 = load i64, ptr %4, align 8
   %19 = trunc i64 %18 to i32
-  %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17), !range !10
+  %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17)
   call void @js_free(ptr noundef %0, ptr noundef nonnull %5) #16
   ret i32 %20
 }
@@ -1114,7 +1114,7 @@ define internal i64 @js_trace_malloc_usable_size(ptr noundef %0) #3 {
 ; Function Attrs: nounwind uwtable
 define internal void @js_trace_malloc_printf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1182,7 +1182,7 @@ define internal void @js_trace_malloc_printf(ptr nocapture noundef readonly %0, 
 
 .backedge.backedge:                               ; preds = %36, %53, %58
   %.0.be = phi ptr [ %37, %36 ], [ %57, %53 ], [ %7, %58 ]
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge, !llvm.loop !13
 
 38:                                               ; preds = %10
   %39 = getelementptr i8, ptr %.0, i64 2
@@ -1222,21 +1222,15 @@ define internal void @js_trace_malloc_printf(ptr nocapture noundef readonly %0, 
   br label %.backedge.backedge
 
 61:                                               ; preds = %.backedge
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #7
@@ -1276,6 +1270,12 @@ declare i32 @JS_DetectModule(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #6
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
 
@@ -1292,8 +1292,8 @@ attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nofree nounwind }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
@@ -1315,8 +1315,7 @@ attributes #19 = { nounwind allocsize(1) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}

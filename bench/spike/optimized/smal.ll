@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32i_smalP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_smalP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -240,7 +240,7 @@ define noundef i64 @_Z15fast_rv64i_smalP11processor_t6insn_tm(ptr nocapture noun
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %26 = ashr i32 %tr.sh.diff, 16
   %sh.diff29 = lshr i64 %19, 32
-  %tr.sh.diff30 = trunc i64 %sh.diff29 to i32
+  %tr.sh.diff30 = trunc nuw i64 %sh.diff29 to i32
   %27 = ashr i32 %tr.sh.diff30, 16
   %28 = mul nsw i32 %26, %27
   %29 = sext i32 %28 to i64
@@ -260,7 +260,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32i_smalP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_smalP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -520,7 +520,7 @@ define noundef i64 @_Z17logged_rv64i_smalP11processor_t6insn_tm(ptr noundef %0, 
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %23 = ashr i32 %tr.sh.diff, 16
   %sh.diff33 = lshr i64 %16, 32
-  %tr.sh.diff34 = trunc i64 %sh.diff33 to i32
+  %tr.sh.diff34 = trunc nuw i64 %sh.diff33 to i32
   %24 = ashr i32 %tr.sh.diff34, 16
   %25 = mul nsw i32 %23, %24
   %26 = sext i32 %25 to i64
@@ -603,7 +603,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32e_smalP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_smalP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -852,7 +852,7 @@ define noundef i64 @_Z15fast_rv64e_smalP11processor_t6insn_tm(ptr nocapture noun
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %49 = ashr i32 %tr.sh.diff, 16
   %sh.diff55 = lshr i64 %23, 32
-  %tr.sh.diff56 = trunc i64 %sh.diff55 to i32
+  %tr.sh.diff56 = trunc nuw i64 %sh.diff55 to i32
   %50 = ashr i32 %tr.sh.diff56, 16
   %51 = mul nsw i32 %49, %50
   %52 = sext i32 %51 to i64
@@ -870,7 +870,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %41, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32e_smalP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_smalP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 2251799813685248
@@ -1213,7 +1213,7 @@ define noundef i64 @_Z17logged_rv64e_smalP11processor_t6insn_tm(ptr noundef %0, 
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %39 = ashr i32 %tr.sh.diff, 16
   %sh.diff59 = lshr i64 %32, 32
-  %tr.sh.diff60 = trunc i64 %sh.diff59 to i32
+  %tr.sh.diff60 = trunc nuw i64 %sh.diff59 to i32
   %40 = ashr i32 %tr.sh.diff60, 16
   %41 = mul nsw i32 %39, %40
   %42 = sext i32 %41 to i64

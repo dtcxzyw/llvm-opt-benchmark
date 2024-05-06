@@ -55,7 +55,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @GetVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @GetVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = shl i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -217,7 +217,7 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %.not22, label %30, label %28
 
 28:                                               ; preds = %17
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr @LastNonZeroWord, align 4
   br label %30
 
@@ -426,7 +426,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
   br i1 %exitcond64.not, label %51, label %45, !llvm.loop !14
 
 51:                                               ; preds = %45
-  %52 = trunc i64 %indvars.iv.next59 to i32
+  %52 = trunc nsw i64 %indvars.iv.next59 to i32
   %53 = icmp sgt i32 %52, 4
   br i1 %53, label %.sink.split, label %.thread
 
@@ -470,7 +470,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
   br i1 %exitcond73.not, label %73, label %67, !llvm.loop !15
 
 73:                                               ; preds = %67
-  %74 = trunc i64 %indvars.iv.next68 to i32
+  %74 = trunc nsw i64 %indvars.iv.next68 to i32
   %75 = icmp sgt i32 %74, 4
   br i1 %75, label %.sink.split, label %.thread81
 

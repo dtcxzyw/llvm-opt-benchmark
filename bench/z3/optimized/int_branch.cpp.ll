@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp10int_branchclEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN2lp10int_branchclEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %lra = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %lra, align 8

@@ -1699,7 +1699,7 @@ if.end:                                           ; preds = %dpy_ui_info_support
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @dpy_set_ui_info(ptr noundef %con, ptr nocapture noundef readonly %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @dpy_set_ui_info(ptr noundef %con, ptr nocapture noundef readonly %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8

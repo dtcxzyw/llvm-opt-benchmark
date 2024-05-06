@@ -346,7 +346,7 @@ define internal i64 @rb_integer_test_numbits_2comp_without_sign(i64 %0, i64 noun
 
 4:                                                ; preds = %2
   %.lobit = lshr i64 %1, 63
-  %5 = trunc i64 %.lobit to i32
+  %5 = trunc nuw nsw i64 %.lobit to i32
   br label %11
 
 6:                                                ; preds = %2
@@ -398,7 +398,7 @@ define internal i64 @rb_integer_test_numbytes_2comp_with_sign(i64 %0, i64 nounde
 
 5:                                                ; preds = %2
   %.lobit = lshr i64 %1, 63
-  %6 = trunc i64 %.lobit to i32
+  %6 = trunc nuw nsw i64 %.lobit to i32
   br label %12
 
 7:                                                ; preds = %2

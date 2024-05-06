@@ -380,7 +380,7 @@ define void @gpu_common_print_freqs(ptr nocapture noundef readonly %0, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %11) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -556,13 +556,13 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not30, label %18, label %27
 
 18:                                               ; preds = %15
-  %19 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %16), !range !10
+  %19 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %16)
   store i32 %19, ptr %3, align 4
   %.not31 = icmp eq i32 %19, 0
   br i1 %.not31, label %20, label %42
 
 20:                                               ; preds = %18
-  %21 = call i64 @strtoul(ptr nocapture noundef nonnull %16, ptr noundef null, i32 noundef 10) #7
+  %21 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %16, ptr noundef null, i32 noundef 10) #7
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %4, align 4
   %.not32 = icmp eq i32 %22, 0
@@ -596,13 +596,13 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br label %42
 
 34:                                               ; preds = %31
-  %35 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %.034), !range !10
+  %35 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %.034)
   store i32 %35, ptr %1, align 4
   %.not28 = icmp eq i32 %35, 0
   br i1 %.not28, label %_xlate_freq_value.exit, label %42
 
 _xlate_freq_value.exit:                           ; preds = %34
-  %36 = call i64 @strtoul(ptr nocapture noundef nonnull %.034, ptr noundef null, i32 noundef 10) #7
+  %36 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %.034, ptr noundef null, i32 noundef 10) #7
   %37 = trunc i64 %36 to i32
   store i32 %37, ptr %2, align 4
   %.not29 = icmp eq i32 %37, 0
@@ -620,7 +620,7 @@ _xlate_freq_value.exit:                           ; preds = %34
 42:                                               ; preds = %33, %38, %41, %_xlate_freq_value.exit, %34, %23, %26, %20, %18, %30, %27
   %43 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %8) #7
   %.not25 = icmp eq ptr %43, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %42, %11
   call void @slurm_xfree(ptr noundef nonnull %7) #7
@@ -635,7 +635,7 @@ declare ptr @slurm_get_gpu_freq_def() local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @gpu_common_sort_freq_descending(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @gpu_common_sort_freq_descending(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = icmp ult i64 %3, %4
@@ -654,7 +654,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_xlate_freq_code(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -725,5 +725,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = !{i32 -4, i32 1}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7}

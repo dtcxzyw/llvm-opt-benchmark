@@ -1651,7 +1651,7 @@ _Z17is_uninterp_constPK4expr.exit32.i:            ; preds = %land.rhs.i27.i
   br i1 %43, label %for.inc18.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %_Z17is_uninterp_constPK4expr.exit32.i, %land.lhs.true.i24.i, %if.end11.i
-  %44 = trunc i64 %indvars.iv41.i to i32
+  %44 = trunc nuw i64 %indvars.iv41.i to i32
   %call15.i36 = invoke noundef zeroext i1 @_ZNK5nlsat6solver14is_interpretedEj(ptr noundef nonnull align 8 dereferenceable(16) %m_solver, i32 noundef %44)
           to label %call15.i.noexc unwind label %lpad76.loopexit
 
@@ -2644,7 +2644,7 @@ if.end:                                           ; preds = %land.rhs.i, %invoke
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.end
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5nlsat6solver5valueEj(ptr noundef nonnull align 8 dereferenceable(16) %m_solver, i32 noundef %14)
           to label %invoke.cont13 unwind label %lpad9
 
@@ -2721,7 +2721,7 @@ catch:                                            ; preds = %catch.fallthrough
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %catch
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw i64 %indvars.iv to i32
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5nlsat6solver5valueEj(ptr noundef nonnull align 8 dereferenceable(16) %m_solver, i32 noundef %29)
           to label %invoke.cont25 unwind label %lpad21
 
@@ -2819,7 +2819,7 @@ invoke.cont51:                                    ; preds = %land.rhs.i40
   br i1 %45, label %if.end54, label %for.inc74
 
 if.end54:                                         ; preds = %land.rhs.i40, %invoke.cont51
-  %46 = trunc i64 %indvars.iv84 to i32
+  %46 = trunc nuw i64 %indvars.iv84 to i32
   %call57 = invoke noundef i32 @_ZNK5nlsat6solver6bvalueEj(ptr noundef nonnull align 8 dereferenceable(16) %m_solver, i32 noundef %46)
           to label %invoke.cont56 unwind label %lpad.loopexit
 

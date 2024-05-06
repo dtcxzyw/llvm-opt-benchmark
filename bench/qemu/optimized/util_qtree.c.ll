@@ -466,7 +466,7 @@ q_tree_replace_node.exit:                         ; preds = %if.else.i, %do.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @q_tree_remove(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_remove(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -476,7 +476,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @q_tree_remove_internal(ptr noundef nonnull %tree, ptr noundef %key, i32 noundef 0), !range !9
+  %call = tail call fastcc i32 @q_tree_remove_internal(ptr noundef nonnull %tree, ptr noundef %key, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %do.end, %if.else
@@ -485,7 +485,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @q_tree_remove_internal(ptr nocapture noundef %tree, ptr noundef %key, i32 noundef %steal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @q_tree_remove_internal(ptr nocapture noundef %tree, ptr noundef %key, i32 noundef %steal) unnamed_addr #0 {
 entry:
   %path = alloca [40 x ptr], align 16
   %0 = load ptr, ptr %tree, align 8
@@ -639,7 +639,7 @@ while.body.i142:                                  ; preds = %while.cond.preheade
   %right_child.i145 = getelementptr inbounds i8, ptr %25, i64 34
   %26 = load i8, ptr %right_child.i145, align 2
   %tobool2.not.i146 = icmp eq i8 %26, 0
-  br i1 %tobool2.not.i146, label %q_tree_node_previous.exit, label %while.body.i142, !llvm.loop !10
+  br i1 %tobool2.not.i146, label %q_tree_node_previous.exit, label %while.body.i142, !llvm.loop !9
 
 q_tree_node_previous.exit:                        ; preds = %while.body.i142, %while.cond.preheader.i140
   %retval.0.i147 = phi ptr [ %23, %while.cond.preheader.i140 ], [ %25, %while.body.i142 ]
@@ -682,7 +682,7 @@ while.body133:                                    ; preds = %if.else126, %while.
   %left_child131 = getelementptr inbounds i8, ptr %next.0, i64 33
   %30 = load i8, ptr %left_child131, align 1
   %tobool132.not = icmp eq i8 %30, 0
-  br i1 %tobool132.not, label %while.end138, label %while.body133, !llvm.loop !11
+  br i1 %tobool132.not, label %while.end138, label %while.body133, !llvm.loop !10
 
 while.end138:                                     ; preds = %while.body133
   %.pre196 = sext i32 %idx.0.lcssa201 to i64
@@ -751,7 +751,7 @@ while.body170:                                    ; preds = %if.end166, %while.b
   %right_child168 = getelementptr inbounds i8, ptr %40, i64 34
   %41 = load i8, ptr %right_child168, align 2
   %tobool169.not = icmp eq i8 %41, 0
-  br i1 %tobool169.not, label %while.end172, label %while.body170, !llvm.loop !12
+  br i1 %tobool169.not, label %while.end172, label %while.body170, !llvm.loop !11
 
 while.end172:                                     ; preds = %while.body170, %if.end166
   %prev.0.lcssa = phi ptr [ %23, %if.end166 ], [ %40, %while.body170 ]
@@ -919,7 +919,7 @@ return:                                           ; preds = %if.else17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @q_tree_steal(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_steal(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -929,7 +929,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @q_tree_remove_internal(ptr noundef nonnull %tree, ptr noundef %key, i32 noundef 1), !range !9
+  %call = tail call fastcc i32 @q_tree_remove_internal(ptr noundef nonnull %tree, ptr noundef %key, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %do.end, %if.else
@@ -1003,7 +1003,7 @@ cond.end:                                         ; preds = %if.then5.i.i, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @q_tree_lookup_extended(ptr noundef readonly %tree, ptr noundef %lookup_key, ptr noundef writeonly %orig_key, ptr noundef writeonly %value) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_lookup_extended(ptr noundef readonly %tree, ptr noundef %lookup_key, ptr noundef writeonly %orig_key, ptr noundef writeonly %value) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -1150,7 +1150,7 @@ while.body.i8:                                    ; preds = %while.cond.preheade
 q_tree_node_next.exit:                            ; preds = %while.body.i8, %do.end.i, %while.cond.preheader.i7
   %retval.0.i11 = phi ptr [ %6, %do.end.i ], [ %6, %while.cond.preheader.i7 ], [ %9, %while.body.i8 ]
   %tobool3.not = icmp eq ptr %retval.0.i11, null
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %q_tree_node_next.exit, %while.body, %do.end, %if.else
   ret void
@@ -1795,8 +1795,7 @@ attributes #9 = { noreturn nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

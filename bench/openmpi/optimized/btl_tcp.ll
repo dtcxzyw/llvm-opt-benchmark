@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
   %6 = tail call ptr @opal_proc_local_get() #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -267,7 +267,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
   br i1 %.not51, label %109, label %106
 
 106:                                              ; preds = %105
-  %107 = trunc i64 %indvars.iv64 to i32
+  %107 = trunc nuw nsw i64 %indvars.iv64 to i32
   %108 = tail call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %107) #10
   br label %109
 
@@ -1145,7 +1145,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)

@@ -221,7 +221,7 @@ define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 align 16 {
   %6 = zext i32 %3 to i64
   %7 = shl nuw nsw i64 %6, 2
   %8 = tail call noalias ptr @__alloc_percpu_gfp(i64 noundef %7, i64 noundef 4, i32 noundef %2) #9
@@ -360,7 +360,7 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__percpu_counter_compare(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %5, %1

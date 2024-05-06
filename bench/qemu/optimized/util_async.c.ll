@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_TRACE_AIO_CO_SCHEDULE_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.17 = private unnamed_addr constant [43 x i8] c"%d@%zu.%06zu:aio_co_schedule ctx %p co %p\0A\00", align 1
 @.str.18 = private unnamed_addr constant [30 x i8] c"aio_co_schedule ctx %p co %p\0A\00", align 1
-@co_tls_my_aiocontext = internal thread_local global ptr null, align 8
+@co_tls_my_aiocontext = internal thread_local unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [13 x i8] c"coroutine_fn\00", section "llvm.metadata"
 @.str.20 = private unnamed_addr constant [108 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/coroutine-core.h\00", section "llvm.metadata"
 @.str.21 = private unnamed_addr constant [21 x i8] c"../qemu/util/async.c\00", section "llvm.metadata"
@@ -215,7 +215,7 @@ if.end13:                                         ; preds = %if.end7.thread, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @aio_bh_poll(ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @aio_bh_poll(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %slice = alloca %struct.BHListSlice, align 8
   %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
@@ -1329,7 +1329,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @aio_ctx_prepare(ptr noundef %source, ptr nocapture noundef %timeout) #0 {
+define internal range(i32 0, 2) i32 @aio_ctx_prepare(ptr noundef %source, ptr nocapture noundef %timeout) #0 {
 entry:
   %notify_me = getelementptr inbounds i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
@@ -1454,7 +1454,7 @@ if.end:                                           ; preds = %aio_compute_timeout
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @aio_ctx_check(ptr noundef %source) #0 {
+define internal range(i32 0, 2) i32 @aio_ctx_check(ptr noundef %source) #0 {
 entry:
   %notify_me = getelementptr inbounds i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8

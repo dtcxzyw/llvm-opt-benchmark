@@ -184,7 +184,7 @@ define hidden void @proto_reg_handoff_shicp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_shicp_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_shicp_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @udp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 18, ptr noundef nonnull @test_shicp, ptr noundef nonnull @get_shicp_len, ptr noundef nonnull @dissect_shicp, ptr noundef %3) #3
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -194,7 +194,7 @@ define internal i32 @dissect_shicp_heur_udp(ptr noundef %0, ptr noundef %1, ptr 
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_shicp(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_shicp(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 3250

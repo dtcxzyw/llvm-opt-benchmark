@@ -427,10 +427,10 @@ define internal fastcc noalias noundef ptr @Acb_ManAlloc(ptr noundef %0, ptr nou
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %7 = add i64 %6, 1
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #17
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #15
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %5
@@ -473,7 +473,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %5
 
 24:                                               ; preds = %.lr.ph.i.i
   %25 = add nuw nsw i32 %.01116.i.i, 2
-  %26 = mul nsw i32 %25, %25
+  %26 = mul nuw nsw i32 %25, %25
   %.not.i.i = icmp ugt i32 %26, %22
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
@@ -4092,7 +4092,7 @@ Ndr_ObjReadArray.exit330:                         ; preds = %468, %Ndr_DataSize.
   br i1 %487, label %488, label %491
 
 488:                                              ; preds = %481
-  %489 = trunc i64 %indvars.iv to i32
+  %489 = trunc nuw nsw i64 %indvars.iv to i32
   %490 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %489, ptr noundef %449)
   %.pre = load i32, ptr %482, align 4
   %.phi.trans.insert = sext i32 %.pre to i64

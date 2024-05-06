@@ -1001,7 +1001,7 @@ return:                                           ; preds = %for.inc, %do.end118
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @intel_hda_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @intel_hda_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %cmp.i = icmp ugt i64 %addr, 380
   br i1 %cmp.i, label %do.body.i, label %if.end.i

@@ -930,7 +930,7 @@ declare dso_local i32 @seq_write(ptr noundef, ptr noundef, i64 noundef) local_un
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_edid_override_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_edid_override_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = icmp eq ptr %1, null
   %5 = icmp ult i64 %2, 128
   %6 = or i1 %4, %5
@@ -2243,7 +2243,7 @@ define dso_local zeroext i1 @drm_probe_ddc(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drm_do_probe_ddc_edid(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #3 align 16 {
+define internal range(i32 -1, 1) i32 @drm_do_probe_ddc_edid(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #3 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca [3 x %struct.i2c_msg], align 16
@@ -4363,7 +4363,7 @@ define dso_local void @drm_edid_cta_sad_set(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_edid_to_sad(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define dso_local range(i32 -12, 11) i32 @drm_edid_to_sad(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = alloca %struct.cea_db_iter, align 8
   %4 = alloca %struct.drm_edid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
@@ -4462,7 +4462,7 @@ define dso_local i32 @drm_edid_to_sad(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_edid_to_speaker_allocation(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define dso_local range(i32 -12, 32) i32 @drm_edid_to_speaker_allocation(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = alloca %struct.cea_db_iter, align 8
   %4 = alloca %struct.drm_edid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
@@ -4532,7 +4532,7 @@ define dso_local i32 @drm_edid_to_speaker_allocation(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_av_sync_delay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @drm_av_sync_delay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1848
   %4 = load i8, ptr %3, align 8, !range !17, !noundef !18
   %5 = icmp eq i8 %4, 0
@@ -4904,7 +4904,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_default_rgb_quant_range(ptr noundef %0) #3 align 16 {
+define dso_local range(i32 1, 3) i32 @drm_default_rgb_quant_range(ptr noundef %0) #3 align 16 {
   %2 = tail call zeroext i8 @drm_match_cea_mode(ptr noundef %0)
   %3 = icmp ugt i8 %2, 1
   %4 = select i1 %3, i32 1, i32 2
@@ -7299,7 +7299,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   %.sroa.1282.1 = phi i32 [ %.sroa.1282.0, %75 ], [ %.sroa.1282.2, %84 ]
   %78 = phi i64 [ 0, %75 ], [ %85, %84 ]
   %79 = getelementptr [6 x %struct.std_timing], ptr %76, i64 0, i64 %78
-  %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %79)
+  %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %79)
   %81 = icmp eq ptr %80, null
   br i1 %81, label %84, label %82
 
@@ -7453,7 +7453,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
   %.sroa.1282.6 = phi i32 [ %.sroa.1282.5, %170 ], [ %.sroa.1282.7, %179 ]
   %173 = phi i64 [ 0, %170 ], [ %180, %179 ]
   %174 = getelementptr [6 x %struct.std_timing], ptr %171, i64 0, i64 %173
-  %175 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %174)
+  %175 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %174)
   %176 = icmp eq ptr %175, null
   br i1 %176, label %179, label %177
 
@@ -7519,7 +7519,7 @@ do_standard_modes.exit75:                         ; preds = %179, %156, %162, %1
   %.sroa.1282.10 = phi i32 [ %.sroa.1282.9, %210 ], [ %.sroa.1282.11, %219 ]
   %213 = phi i64 [ 0, %210 ], [ %220, %219 ]
   %214 = getelementptr [6 x %struct.std_timing], ptr %211, i64 0, i64 %213
-  %215 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %214)
+  %215 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %214)
   %216 = icmp eq ptr %215, null
   br i1 %216, label %219, label %217
 
@@ -9160,7 +9160,7 @@ define dso_local void @drm_set_preferred_mode(ptr noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
@@ -9591,7 +9591,7 @@ define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -13168,7 +13168,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @drm_gtf2_hbreak(ptr noundef readonly %0) unnamed_addr #17 align 16 {
+define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readonly %0) unnamed_addr #17 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread11, label %3
 

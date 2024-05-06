@@ -699,7 +699,7 @@ get_value_length.exit.i:                          ; preds = %32, %29
   %40 = getelementptr inbounds i8, ptr %11, i64 8
   store i16 %.0.i.i, ptr %40, align 4
   %41 = load i16, ptr %25, align 2
-  %42 = trunc i32 %.015.i.i to i16
+  %42 = trunc nuw nsw i32 %.015.i.i to i16
   %43 = add nuw i16 %.0.i.i, %42
   %44 = add i16 %43, %41
   store i16 %44, ptr %25, align 2

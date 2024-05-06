@@ -1572,7 +1572,7 @@ define dso_local void @nfs_readahead(ptr nocapture noundef %0) local_unnamed_add
 declare dso_local ptr @nfs_find_open_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @nfs_init_readpagecache() local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @nfs_init_readpagecache() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.1, i32 noundef 896, i32 noundef 0, i32 noundef 8192, ptr noundef null) #10
   store ptr %1, ptr @nfs_rdata_cachep, align 8
   %2 = icmp eq ptr %1, null

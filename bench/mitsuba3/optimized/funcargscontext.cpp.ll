@@ -47,7 +47,7 @@ define hidden void @_ZN6asmjit9_abi_1_1015FuncArgsContextC2Ev(ptr nocapture noun
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_1015FuncArgsContext12initWorkDataERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentEPKNS0_13RAConstraintsE(ptr noundef nonnull align 8 dereferenceable(804) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 66) i32 @_ZN6asmjit9_abi_1_1015FuncArgsContext12initWorkDataERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentEPKNS0_13RAConstraintsE(ptr noundef nonnull align 8 dereferenceable(804) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4, !tbaa !12
   %7 = load ptr, ptr %2, align 8, !tbaa !18

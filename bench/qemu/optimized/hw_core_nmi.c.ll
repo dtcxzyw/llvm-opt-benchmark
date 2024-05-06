@@ -71,7 +71,7 @@ entry:
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @do_nmi(ptr noundef %o, ptr noundef %opaque) #0 {
+define internal range(i32 -1, 1) i32 @do_nmi(ptr noundef %o, ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %o, ptr noundef nonnull @.str.2) #3
   %tobool.not = icmp eq ptr %call, null

@@ -567,7 +567,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE(i32 noundef %r) local_unnamed_addr #4 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE(i32 noundef %r) local_unnamed_addr #4 {
 entry:
   %switch.tableidx = add i32 %r, -1
   %0 = icmp ult i32 %switch.tableidx, 4

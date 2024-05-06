@@ -187,13 +187,13 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %.02667, i64 72
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %16, ptr noundef nonnull dereferenceable(8) %38, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %16, ptr noundef nonnull readonly dereferenceable(8) %38, i64 8)
   %.not66.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not66.i, label %39, label %93
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %.02667, i64 88
-  %bcmp.i64.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %16, ptr noundef nonnull dereferenceable(32) %40, i64 32)
+  %bcmp.i64.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %16, ptr noundef nonnull readonly dereferenceable(32) %40, i64 32)
   %.not67.i = icmp eq i32 %bcmp.i64.i, 0
   br i1 %.not67.i, label %41, label %93
 
@@ -265,7 +265,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
 
 .critedge.i:                                      ; preds = %81, %81
   %84 = getelementptr inbounds i8, ptr %.02667, i64 1395
-  %bcmp.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(653) %16, ptr noundef nonnull dereferenceable(653) %84, i64 653)
+  %bcmp.i65.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %84, i64 653)
   %.not68.i = icmp eq i32 %bcmp.i65.i, 0
   br i1 %.not68.i, label %85, label %93
 
@@ -293,7 +293,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   br i1 %.not32, label %95, label %isJolietSVD.exit.thread
 
 95:                                               ; preds = %93
-  %96 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef nonnull %.02667)
+  %96 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef nonnull readonly %.02667)
   %.not.i40 = icmp eq i32 %96, 0
   br i1 %.not.i40, label %isJolietSVD.exit.thread, label %97
 
@@ -369,13 +369,13 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds i8, ptr %.02667, i64 72
-  %bcmp.i.i46 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %16, ptr noundef nonnull dereferenceable(8) %129, i64 8)
+  %bcmp.i.i46 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %16, ptr noundef nonnull readonly dereferenceable(8) %129, i64 8)
   %.not46.i = icmp eq i32 %bcmp.i.i46, 0
   br i1 %.not46.i, label %130, label %.thread
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds i8, ptr %.02667, i64 88
-  %bcmp.i43.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %16, ptr noundef nonnull dereferenceable(32) %131, i64 32)
+  %bcmp.i43.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %16, ptr noundef nonnull readonly dereferenceable(32) %131, i64 32)
   %.not47.i = icmp eq i32 %bcmp.i43.i, 0
   br i1 %.not47.i, label %132, label %.thread
 
@@ -439,7 +439,7 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %.02667, i64 1395
-  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(653) %16, ptr noundef nonnull dereferenceable(653) %169, i64 653)
+  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %169, i64 653)
   %.not49.i49 = icmp eq i32 %bcmp.i45.i, 0
   br i1 %.not49.i49, label %170, label %.thread
 
@@ -2880,7 +2880,7 @@ define internal fastcc range(i32 0, 49) i32 @isSVD(ptr nocapture noundef readonl
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 528
   %6 = getelementptr inbounds i8, ptr %1, i64 72
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) %6, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %5, ptr noundef nonnull readonly dereferenceable(8) %6, i64 8)
   %.not38 = icmp eq i32 %bcmp.i, 0
   br i1 %.not38, label %7, label %48
 
@@ -2893,7 +2893,7 @@ define internal fastcc range(i32 0, 49) i32 @isSVD(ptr nocapture noundef readonl
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %1, i64 1395
-  %bcmp.i37 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(653) %5, ptr noundef nonnull dereferenceable(653) %10, i64 653)
+  %bcmp.i37 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %5, ptr noundef nonnull readonly dereferenceable(653) %10, i64 653)
   %.not40 = icmp eq i32 %bcmp.i37, 0
   br i1 %.not40, label %11, label %48
 
@@ -2975,7 +2975,7 @@ define internal fastcc range(i32 0, 2) i32 @isVDSetTerminator(ptr nocapture noun
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 528
   %9 = getelementptr inbounds i8, ptr %1, i64 7
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2041) %8, ptr noundef nonnull dereferenceable(2041) %9, i64 2041)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2041) %8, ptr noundef nonnull readonly dereferenceable(2041) %9, i64 2041)
   %.not6 = icmp eq i32 %bcmp.i, 0
   %. = zext i1 %.not6 to i32
   br label %10
@@ -4479,7 +4479,7 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
 
 312:                                              ; preds = %310
   store i32 1, ptr %16, align 8
-  %313 = call fastcc i64 @isodate17(ptr noundef nonnull %305)
+  %313 = call fastcc i64 @isodate17(ptr noundef nonnull readonly %305)
   store i64 %313, ptr %17, align 8
   %314 = getelementptr inbounds i8, ptr %.0119155188, i64 22
   %315 = add nsw i32 %81, -22

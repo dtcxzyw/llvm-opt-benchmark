@@ -137,7 +137,7 @@ entry:
   %3 = trunc i64 %2 to i32
   %4 = bitcast i32 %3 to float
   %5 = lshr i64 %2, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = bitcast i32 %6 to float
   %mul4.i.i = fmul float %7, %7
   %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul4.i.i)

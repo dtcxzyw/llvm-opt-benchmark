@@ -395,7 +395,7 @@ define internal noundef nonnull ptr @ptm_unix98_lookup(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pty_unix98_install(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pty_unix98_install(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 58
@@ -550,7 +550,7 @@ define internal void @pty_unix98_remove(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pty_open(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @pty_open(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
 
@@ -712,7 +712,7 @@ define internal void @pty_cleanup(ptr nocapture noundef readonly %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pty_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pty_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 444
   %5 = load i8, ptr %4, align 4, !range !16, !noundef !17
   %6 = icmp eq i8 %5, 0
@@ -909,7 +909,7 @@ define internal i32 @pty_unix98_ioctl(ptr noundef %0, i32 noundef %1, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pty_unix98_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pty_unix98_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i32 %1, 1074025526
   %5 = and i64 %2, 4294967295
   %6 = select i1 %4, i64 %2, i64 %5

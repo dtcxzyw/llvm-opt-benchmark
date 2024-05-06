@@ -891,7 +891,7 @@ define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vgacon_blank(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   switch i32 %1, label %186 [
     i32 0, label %4
     i32 1, label %136
@@ -1490,7 +1490,7 @@ define internal noundef i32 @vgacon_font_set(ptr nocapture noundef readonly %0, 
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq i32 %6, 512
-  %23 = tail call fastcc i32 @vgacon_do_font_op(ptr noundef %21, i32 noundef 1, i1 noundef zeroext %22), !range !19
+  %23 = tail call fastcc i32 @vgacon_do_font_op(ptr noundef %21, i32 noundef 1, i1 noundef zeroext %22)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %31
 
@@ -1512,7 +1512,7 @@ define internal noundef i32 @vgacon_font_set(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vgacon_font_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vgacon_font_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load i8, ptr @vga_video_type, align 1
   %5 = icmp ult i8 %4, 32
   %6 = icmp ne i32 %2, 32
@@ -1537,7 +1537,7 @@ define internal noundef i32 @vgacon_font_get(ptr nocapture noundef readonly %0, 
 
 19:                                               ; preds = %8
   %20 = icmp ne i8 %12, 0
-  %21 = tail call fastcc i32 @vgacon_do_font_op(ptr noundef nonnull %17, i32 noundef 0, i1 noundef zeroext %20), !range !19
+  %21 = tail call fastcc i32 @vgacon_do_font_op(ptr noundef nonnull %17, i32 noundef 0, i1 noundef zeroext %20)
   br label %22
 
 22:                                               ; preds = %19, %8, %3
@@ -1546,7 +1546,7 @@ define internal noundef i32 @vgacon_font_get(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vgacon_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vgacon_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = shl i32 %1, 1
   %6 = mul i32 %5, %2
   %7 = load i32, ptr @vga_vram_size, align 4
@@ -1707,7 +1707,7 @@ define internal void @vgacon_scrolldelta(ptr noundef %0, i32 noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vgacon_set_origin(ptr nocapture noundef writeonly %0) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr nocapture noundef writeonly %0) #1 align 16 {
   %2 = load i1, ptr @vga_is_gfx, align 1
   br i1 %2, label %15, label %3
 
@@ -1885,7 +1885,7 @@ define internal void @vgacon_invert_region(ptr nocapture readnone %0, ptr nocapt
   %17 = getelementptr i8, ptr %7, i64 2
   store i16 %16, ptr %7, align 2
   %18 = icmp eq i32 %8, 0
-  br i1 %18, label %.loopexit, label %.preheader.split.us, !llvm.loop !20
+  br i1 %18, label %.loopexit, label %.preheader.split.us, !llvm.loop !19
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %19 = phi i32 [ %21, %.preheader.split ], [ %2, %.preheader ]
@@ -1899,7 +1899,7 @@ define internal void @vgacon_invert_region(ptr nocapture readnone %0, ptr nocapt
   %27 = getelementptr i8, ptr %20, i64 2
   store i16 %26, ptr %20, align 2
   %28 = icmp eq i32 %21, 0
-  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !20
+  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %3
   ret void
@@ -2280,7 +2280,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #7 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #7 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = zext i1 %2 to i8
   %5 = load i16, ptr @vga_video_port_reg, align 2
   %6 = add nuw nsw i16 %5, 6
@@ -2315,7 +2315,7 @@ define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 nounde
   %20 = tail call i32 @__SCT__cond_resched() #13
   %21 = add nuw nsw i64 %16, 1
   %22 = icmp eq i64 %21, 8192
-  br i1 %22, label %.loopexit8, label %.preheader9, !llvm.loop !21
+  br i1 %22, label %.loopexit8, label %.preheader9, !llvm.loop !20
 
 .preheader7:                                      ; preds = %14, %.preheader7
   %23 = phi i64 [ %28, %.preheader7 ], [ 0, %14 ]
@@ -2326,7 +2326,7 @@ define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 nounde
   %27 = tail call i32 @__SCT__cond_resched() #13
   %28 = add nuw nsw i64 %23, 1
   %29 = icmp eq i64 %28, 8192
-  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !22
+  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !21
 
 .loopexit8:                                       ; preds = %.preheader9, %.preheader7
   br i1 %2, label %30, label %.loopexit4
@@ -2345,7 +2345,7 @@ define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 nounde
   %37 = tail call i32 @__SCT__cond_resched() #13
   %38 = add nuw nsw i64 %33, 1
   %39 = icmp eq i64 %38, 8192
-  br i1 %39, label %.loopexit4, label %.preheader5, !llvm.loop !23
+  br i1 %39, label %.loopexit4, label %.preheader5, !llvm.loop !22
 
 .preheader:                                       ; preds = %30, %.preheader
   %40 = phi i64 [ %45, %.preheader ], [ 0, %30 ]
@@ -2356,7 +2356,7 @@ define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 nounde
   %44 = tail call i32 @__SCT__cond_resched() #13
   %45 = add nuw nsw i64 %40, 1
   %46 = icmp eq i64 %45, 8192
-  br i1 %46, label %.loopexit4, label %.preheader, !llvm.loop !24
+  br i1 %46, label %.loopexit4, label %.preheader, !llvm.loop !23
 
 .loopexit4:                                       ; preds = %.preheader5, %.preheader, %.loopexit8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @vga_lock) #13
@@ -2453,7 +2453,7 @@ define internal fastcc noundef i32 @vgacon_do_font_op(ptr noundef %0, i32 nounde
 93:                                               ; preds = %91, %87, %82
   %94 = add nuw nsw i64 %83, 1
   %95 = icmp eq i64 %94, 63
-  br i1 %95, label %.loopexit, label %82, !llvm.loop !25
+  br i1 %95, label %.loopexit, label %82, !llvm.loop !24
 
 .loopexit:                                        ; preds = %93, %81, %3
   %96 = phi i32 [ -22, %3 ], [ 0, %81 ], [ 0, %93 ]
@@ -2498,7 +2498,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
   %27 = lshr i32 %4, 3
   %28 = and i32 %27, 64
   %29 = or disjoint i32 %28, %26
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %24, %30
   %32 = and i8 %19, -32
   %33 = trunc i32 %0 to i8
@@ -2582,7 +2582,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
 79:                                               ; preds = %75, %65, %60
   %80 = add nuw nsw i64 %61, 1
   %81 = icmp eq i64 %80, 63
-  br i1 %81, label %82, label %60, !llvm.loop !26
+  br i1 %81, label %82, label %60, !llvm.loop !25
 
 82:                                               ; preds = %79
   ret void
@@ -2640,11 +2640,10 @@ attributes #13 = { nounwind }
 !16 = !{i64 934382, i64 934388}
 !17 = distinct !{!17, !10, !11}
 !18 = distinct !{!18, !10, !11}
-!19 = !{i32 -22, i32 1}
+!19 = distinct !{!19, !10, !11}
 !20 = distinct !{!20, !10, !11}
 !21 = distinct !{!21, !10, !11}
 !22 = distinct !{!22, !10, !11}
 !23 = distinct !{!23, !10, !11}
 !24 = distinct !{!24, !10, !11}
 !25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}

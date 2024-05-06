@@ -528,7 +528,7 @@ return:                                           ; preds = %trace_m25p80_bindin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @m25p80_transfer8(ptr noundef %ss, i32 noundef %tx) #0 {
+define internal range(i32 0, 256) i32 @m25p80_transfer8(ptr noundef %ss, i32 noundef %tx) #0 {
 entry:
   %_now.i.i.i133 = alloca %struct.timeval, align 8
   %_now.i.i117 = alloca %struct.timeval, align 8
@@ -1322,8 +1322,8 @@ lor.lhs.false50.i:                                ; preds = %sw.bb46.i
   br i1 %tobool.not.i268.i, label %do.body63.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %lor.lhs.false50.i, %sw.bb46.i
-  %call56.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i), !range !7
-  %conv57.i = trunc i32 %call56.i to i8
+  %call56.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i)
+  %conv57.i = trunc nuw nsw i32 %call56.i to i8
   store i8 %conv57.i, ptr %needed_bytes, align 1
   store i32 0, ptr %pos, align 8
   store i32 0, ptr %len, align 4
@@ -1551,7 +1551,7 @@ if.end.i21.i.i:                                   ; preds = %get_addr_length.exi
   %150 = load i32, ptr %volatile_cfg.i.i.i, align 8
   %shr.i.i.i.i = lshr i32 %150, 4
   %and.i8.i.i.i = and i32 %shr.i.i.i.i, 15
-  %conv.i.i.i = trunc i32 %and.i8.i.i.i to i8
+  %conv.i.i.i = trunc nuw nsw i32 %and.i8.i.i.i to i8
   switch i32 %and.i8.i.i.i, label %numonyx_extract_cfg_num_dummies.exit.i.i [
     i32 15, label %if.then9.i.i.i
     i32 0, label %if.then9.i.i.i
@@ -1700,7 +1700,7 @@ if.end.i22.i.i:                                   ; preds = %get_addr_length.exi
   %166 = load i32, ptr %volatile_cfg.i.i388.i, align 8
   %shr.i.i.i389.i = lshr i32 %166, 4
   %and.i8.i.i390.i = and i32 %shr.i.i.i389.i, 15
-  %conv.i.i391.i = trunc i32 %and.i8.i.i390.i to i8
+  %conv.i.i391.i = trunc nuw nsw i32 %and.i8.i.i390.i to i8
   switch i32 %and.i8.i.i390.i, label %numonyx_extract_cfg_num_dummies.exit.i399.i [
     i32 15, label %if.then9.i.i392.i
     i32 0, label %if.then9.i.i392.i
@@ -1990,7 +1990,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then401.i
   br label %for.body.i
 
 for.cond411.preheader.i:                          ; preds = %for.body.i
-  %221 = trunc i64 %indvars.iv.next.i to i32
+  %221 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %cmp412450.i = icmp ult i32 %221, 6
   br i1 %cmp412450.i, label %for.body414.lr.ph.i, label %for.end420.i
 
@@ -2018,7 +2018,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %228 = load i8, ptr %id_len.i, align 2
   %229 = zext i8 %228 to i64
   %cmp404.i = icmp ult i64 %indvars.iv.next.i, %229
-  br i1 %cmp404.i, label %for.body.i, label %for.cond411.preheader.i, !llvm.loop !8
+  br i1 %cmp404.i, label %for.body.i, label %for.cond411.preheader.i, !llvm.loop !7
 
 for.end420.i:                                     ; preds = %for.body414.lr.ph.i, %for.cond411.preheader.i
   store i32 6, ptr %len, align 4
@@ -2263,8 +2263,8 @@ if.then595.i:                                     ; preds = %if.then592.i
 
 if.else597.i:                                     ; preds = %if.then592.i
   store i8 1, ptr %aai_enable593.i, align 1
-  %call599.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i), !range !7
-  %conv600.i = trunc i32 %call599.i to i8
+  %call599.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i)
+  %conv600.i = trunc nuw nsw i32 %call599.i to i8
   store i8 %conv600.i, ptr %needed_bytes, align 1
   store i8 3, ptr %state, align 8
   br label %sw.epilog
@@ -2297,8 +2297,8 @@ sw.bb630.i:                                       ; preds = %if.end14.i
   br i1 %tobool632.not.i, label %sw.default641.i, label %if.then633.i
 
 if.then633.i:                                     ; preds = %sw.bb630.i
-  %call634.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i), !range !7
-  %258 = trunc i32 %call634.i to i8
+  %call634.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i)
+  %258 = trunc nuw nsw i32 %call634.i to i8
   %conv635.i = add nuw nsw i8 %258, 1
   store i8 %conv635.i, ptr %needed_bytes, align 1
   store i32 0, ptr %pos, align 8
@@ -2459,7 +2459,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc noundef i32 @get_man(i8 %s.280.val.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 0, 7) i32 @get_man(i8 %s.280.val.8.val) unnamed_addr #5 {
 entry:
   switch i8 %s.280.val.8.val, label %sw.default [
     i8 32, label %return
@@ -2555,7 +2555,7 @@ for.body:                                         ; preds = %cond.end, %for.body
   store i32 %or, ptr %cur_addr, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
   %size = getelementptr inbounds i8, ptr %s, i64 192
@@ -2939,7 +2939,7 @@ declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_addr_length(ptr nocapture noundef readonly %s) unnamed_addr #7 {
+define internal fastcc range(i32 2, 5) i32 @get_addr_length(ptr nocapture noundef readonly %s) unnamed_addr #7 {
 entry:
   %pi = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %pi, align 8
@@ -3225,7 +3225,7 @@ if.end.i20:                                       ; preds = %get_addr_length.exi
   %6 = load i32, ptr %volatile_cfg.i, align 8
   %shr.i.i = lshr i32 %6, 4
   %and.i8.i = and i32 %shr.i.i, 15
-  %conv.i = trunc i32 %and.i8.i to i8
+  %conv.i = trunc nuw nsw i32 %and.i8.i to i8
   switch i32 %and.i8.i, label %numonyx_extract_cfg_num_dummies.exit [
     i32 15, label %if.then9.i
     i32 0, label %if.then9.i
@@ -3436,7 +3436,7 @@ if.then40:                                        ; preds = %if.end36
   %size = getelementptr inbounds i8, ptr %s, i64 192
   %13 = load i32, ptr %size, align 8
   %div48 = lshr i32 %13, 24
-  %14 = trunc i32 %div48 to i8
+  %14 = trunc nuw i32 %div48 to i8
   %conv = add i8 %14, -1
   store i8 %conv, ptr %ear, align 4
   br label %sw.epilog
@@ -3618,6 +3618,5 @@ attributes #14 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 2, i32 5}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

@@ -671,7 +671,7 @@ define void @cuddHashTableQuit(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddHashTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1309,7 +1309,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddHashTableInsert1(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1452,7 +1452,7 @@ define ptr @cuddHashTableLookup1(ptr nocapture noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddHashTableInsert2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1627,7 +1627,7 @@ define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddHashTableInsert3(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 44

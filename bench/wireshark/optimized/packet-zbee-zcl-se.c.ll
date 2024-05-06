@@ -6609,7 +6609,7 @@ define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr nocapture noundef r
   %108 = getelementptr [30 x i32], ptr @ett_zbee_zcl_pp_publish_top_up_entry, i64 0, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %110 = trunc i64 %indvars.iv.next.i to i32
+  %110 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %111 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %56, ptr noundef %0, i32 noundef %107, i32 noundef 0, i32 noundef %109, ptr noundef null, ptr noundef nonnull @.str.3409, i32 noundef %110) #6
   %112 = load i32, ptr @hf_zbee_zcl_pp_publish_top_up_log_top_up_code, align 4
   %113 = call ptr @proto_tree_add_item_ret_length(ptr noundef %111, i32 noundef %112, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef 1073741824, ptr noundef nonnull %6) #6
@@ -6659,7 +6659,7 @@ dissect_zcl_pp_publish_top_up_log.exit:           ; preds = %106, %98
   %140 = getelementptr [30 x i32], ptr @ett_zbee_zcl_pp_publish_debt_log_entry, i64 0, i64 %indvars.iv.i67
   %141 = load i32, ptr %140, align 4
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
-  %142 = trunc i64 %indvars.iv.next.i68 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv.next.i68 to i32
   %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %56, ptr noundef %0, i32 noundef %139, i32 noundef 13, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.3410, i32 noundef %142) #6
   %144 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %139) #6
   %145 = zext i32 %144 to i64
@@ -8076,7 +8076,7 @@ dissect_zcl_events_publish_event.exit:            ; preds = %68, %71
   %102 = getelementptr [100 x i32], ptr @ett_zbee_zcl_events_publish_event_log_entry, i64 0, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %104 = trunc i64 %indvars.iv.next.i to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %.1, i32 noundef 0, i32 noundef %103, ptr noundef null, ptr noundef nonnull @.str.3945, i32 noundef %104) #6
   %106 = load i32, ptr @gPREF_zbee_se_protocol_version, align 4
   %107 = icmp sgt i32 %106, 0
@@ -10073,7 +10073,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
 
 15:                                               ; preds = %14, %15
   %indvars.iv = phi i32 [ 0, %14 ], [ %indvars.iv.next, %15 ]
-  %16 = trunc i32 %indvars.iv to i16
+  %16 = trunc nuw nsw i32 %indvars.iv to i16
   tail call fastcc void @dissect_zcl_met_notification_flags(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i16 noundef zeroext %16)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %.0

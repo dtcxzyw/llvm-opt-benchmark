@@ -461,7 +461,7 @@ proto_item_set_generated.exit.i:                  ; preds = %105, %102, %99, %96
   %.str.124.sink.i = phi ptr [ @.str.124, %110 ], [ %109, %proto_item_set_generated.exit.i ]
   %113 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 25, ptr noundef nonnull %.str.124.sink.i) #5
-  %trunc.i = trunc i32 %spec.select96.i to i16
+  %trunc.i = trunc nuw i32 %spec.select96.i to i16
   switch i16 %trunc.i, label %dissect_usb_i1d3_command.exit [
     i16 -26112, label %114
     i16 2048, label %117

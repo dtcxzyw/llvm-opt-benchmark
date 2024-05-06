@@ -1261,7 +1261,7 @@ _ZNK19QualityMapperFilter10filterInfoEi.exit:     ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK19QualityMapperFilter8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 257) i32 @_ZNK19QualityMapperFilter8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -1273,7 +1273,7 @@ define noundef i32 @_ZNK19QualityMapperFilter8getClassEPK7QAction(ptr noundef no
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK19QualityMapperFilter8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 257) i32 @_ZThn16_NK19QualityMapperFilter8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4164,7 +4164,7 @@ define linkonce_odr noundef ptr @_ZNK11MLException4whatEv(ptr noundef nonnull al
 declare void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK19QualityMapperFilter16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 17) i32 @_ZNK19QualityMapperFilter16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -4176,7 +4176,7 @@ define noundef i32 @_ZNK19QualityMapperFilter16getPreConditionsEPK7QAction(ptr n
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK19QualityMapperFilter16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 17) i32 @_ZThn16_NK19QualityMapperFilter16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4187,7 +4187,7 @@ define noundef i32 @_ZThn16_NK19QualityMapperFilter16getPreConditionsEPK7QAction
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK19QualityMapperFilter13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 9) i32 @_ZNK19QualityMapperFilter13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -4199,7 +4199,7 @@ define noundef i32 @_ZNK19QualityMapperFilter13postConditionEPK7QAction(ptr noun
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK19QualityMapperFilter13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 9) i32 @_ZThn16_NK19QualityMapperFilter13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

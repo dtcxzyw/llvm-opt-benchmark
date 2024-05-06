@@ -57,7 +57,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec36, ptr %arrayidx35, align 4
   %idxprom37 = sext i32 %7 to i64
   %arrayidx38 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom37
-  %8 = trunc i64 %5 to i32
+  %8 = trunc nuw nsw i64 %5 to i32
   store i32 %8, ptr %arrayidx38, align 4
   %9 = add nsw i64 %indvars.iv, -2
   %arrayidx41 = getelementptr inbounds i8, ptr %code_lengths, i64 %9
@@ -69,7 +69,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec44, ptr %arrayidx43, align 4
   %idxprom45 = sext i32 %11 to i64
   %arrayidx46 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom45
-  %12 = trunc i64 %9 to i32
+  %12 = trunc nuw nsw i64 %9 to i32
   store i32 %12, ptr %arrayidx46, align 4
   %13 = add nsw i64 %indvars.iv, -3
   %arrayidx49 = getelementptr inbounds i8, ptr %code_lengths, i64 %13
@@ -81,7 +81,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec52, ptr %arrayidx51, align 4
   %idxprom53 = sext i32 %15 to i64
   %arrayidx54 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom53
-  %16 = trunc i64 %13 to i32
+  %16 = trunc nuw nsw i64 %13 to i32
   store i32 %16, ptr %arrayidx54, align 4
   %17 = add nsw i64 %indvars.iv, -4
   %arrayidx57 = getelementptr inbounds i8, ptr %code_lengths, i64 %17
@@ -93,7 +93,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec60, ptr %arrayidx59, align 4
   %idxprom61 = sext i32 %19 to i64
   %arrayidx62 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom61
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nuw nsw i64 %17 to i32
   store i32 %20, ptr %arrayidx62, align 4
   %21 = add nsw i64 %indvars.iv, -5
   %arrayidx65 = getelementptr inbounds i8, ptr %code_lengths, i64 %21
@@ -105,7 +105,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec68, ptr %arrayidx67, align 4
   %idxprom69 = sext i32 %23 to i64
   %arrayidx70 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom69
-  %24 = trunc i64 %21 to i32
+  %24 = trunc nuw nsw i64 %21 to i32
   store i32 %24, ptr %arrayidx70, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -6
   %arrayidx73 = getelementptr inbounds i8, ptr %code_lengths, i64 %indvars.iv.next
@@ -117,7 +117,7 @@ do.body:                                          ; preds = %do.body, %entry
   store i32 %dec76, ptr %arrayidx75, align 4
   %idxprom77 = sext i32 %26 to i64
   %arrayidx78 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom77
-  %27 = trunc i64 %indvars.iv.next to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %27, ptr %arrayidx78, align 4
   %cmp.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !4
@@ -157,7 +157,7 @@ for.body97.lr.ph:                                 ; preds = %do.body90
   %32 = sext i32 %31 to i64
   %33 = sext i32 %step.0 to i64
   %34 = sext i32 %symbol.1 to i64
-  %35 = trunc i64 %indvars.iv91 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv91 to i32
   br label %for.body97
 
 for.body97:                                       ; preds = %for.body97.lr.ph, %ReplicateValue.exit
@@ -191,7 +191,7 @@ ReplicateValue.exit:                              ; preds = %do.body.i
   br i1 %cmp95.not, label %for.end110.loopexit, label %for.body97, !llvm.loop !8
 
 for.end110.loopexit:                              ; preds = %ReplicateValue.exit
-  %39 = trunc i64 %indvars.iv.next89 to i32
+  %39 = trunc nsw i64 %indvars.iv.next89 to i32
   br label %for.end110
 
 for.end110:                                       ; preds = %for.end110.loopexit, %do.body90
@@ -220,11 +220,11 @@ while.cond:                                       ; preds = %while.cond, %entry
   %arrayidx = getelementptr inbounds i16, ptr %symbol_lists, i64 %indvars.iv
   %0 = load i16, ptr %arrayidx, align 2
   %cmp = icmp eq i16 %0, -1
-  %indvars.iv.next = add i64 %indvars.iv, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nsw i64 %indvars.iv to i32
   %add = add nsw i32 %1, 16
   %shl = shl nuw i32 1, %root_bits
   %cmp2 = icmp slt i32 %add, %root_bits
@@ -248,7 +248,7 @@ for.body.lr.ph:                                   ; preds = %do.body
   %conv7 = zext i16 %3 to i32
   %4 = trunc i64 %indvars.iv124 to i32
   %5 = add i32 %4, -16
-  %6 = trunc i64 %indvars.iv124 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv124 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %ReplicateValue.exit101
@@ -344,7 +344,7 @@ for.body46.lr.ph:                                 ; preds = %for.body38
   br i1 %cmp.i11087, label %for.body46.us.preheader, label %for.body46.lr.ph.split
 
 for.body46.us.preheader:                          ; preds = %for.body46.lr.ph
-  %15 = trunc i64 %11 to i32
+  %15 = trunc nsw i64 %11 to i32
   br label %for.body46.us
 
 for.body46.us:                                    ; preds = %for.body46.us.preheader, %ReplicateValue.exit.us
@@ -379,7 +379,7 @@ if.end.i.us:                                      ; preds = %while.body.i.us
   br i1 %cmp.i110.us, label %while.body.i.us, label %NextTableBitSize.exit.us, !llvm.loop !14
 
 NextTableBitSize.exit.us.split.loop.exit142:      ; preds = %while.body.i.us
-  %17 = trunc i64 %indvars.iv131 to i32
+  %17 = trunc nsw i64 %indvars.iv131 to i32
   br label %NextTableBitSize.exit.us
 
 NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextTableBitSize.exit.us.split.loop.exit142
@@ -439,9 +439,9 @@ ReplicateValue.exit.us:                           ; preds = %do.body.i.us
   br i1 %cmp44.not.us, label %for.end78, label %for.body46.us, !llvm.loop !15
 
 for.body46.lr.ph.split:                           ; preds = %for.body46.lr.ph
-  %22 = trunc i64 %indvars.iv.next135 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.next135 to i32
   %retval.i84.sroa.0.0.insert.ext = and i32 %22, 255
-  %23 = trunc i64 %11 to i32
+  %23 = trunc nsw i64 %11 to i32
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph.split, %ReplicateValue.exit

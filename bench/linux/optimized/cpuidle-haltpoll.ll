@@ -63,7 +63,7 @@ define internal fastcc void @haltpoll_uninit() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @haltpoll_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @haltpoll_init() #0 section ".init.text" align 16 {
   %1 = load i64, ptr @boot_option_idle_override, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %24
@@ -159,7 +159,7 @@ declare dso_local i32 @cpuidle_register_driver(ptr noundef) local_unnamed_addr #
 declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @haltpoll_cpu_online(i32 noundef %0) #1 align 16 {
+define internal noundef range(i32 -5, 1) i32 @haltpoll_cpu_online(i32 noundef %0) #1 align 16 {
   %2 = load ptr, ptr @haltpoll_cpuidle_devices, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = zext i32 %0 to i64

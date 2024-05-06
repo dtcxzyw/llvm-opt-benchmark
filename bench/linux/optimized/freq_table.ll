@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @policy_has_boost_freq(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpufreq_frequency_table_cpuinfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   br label %3
 
 3:                                                ; preds = %19, %2
@@ -192,7 +192,7 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cpufreq_generic_frequency_table_verify(ptr nocapture noundef %0) #3 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_verify(ptr nocapture noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -634,7 +634,7 @@ define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpufreq_table_validate_and_sort(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

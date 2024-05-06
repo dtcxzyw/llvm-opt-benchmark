@@ -88,8 +88,8 @@ CONF_load_bio.exit:                               ; preds = %if.end, %if.then.i.
   %3 = load ptr, ptr %ctmp.i, align 8
   %load_bio.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i.i, align 8
-  %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
-  %tobool.not.i = icmp eq i32 %call.i1.i, 0
+  %call.i2.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
+  %tobool.not.i = icmp eq i32 %call.i2.i, 0
   %5 = load ptr, ptr %data.i.i, align 8
   %retval.0.i = select i1 %tobool.not.i, ptr null, ptr %5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ctmp.i)
@@ -132,8 +132,8 @@ CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %3 = load ptr, ptr %ctmp, align 8
   %load_bio.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i, align 8
-  %call.i1 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %bp, ptr noundef %eline) #14
-  %tobool.not = icmp eq i32 %call.i1, 0
+  %call.i2 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %bp, ptr noundef %eline) #14
+  %tobool.not = icmp eq i32 %call.i2, 0
   %5 = load ptr, ptr %data.i, align 8
   %retval.0 = select i1 %tobool.not, ptr null, ptr %5
   ret ptr %retval.0
@@ -176,8 +176,8 @@ CONF_load_bio.exit:                               ; preds = %if.end, %if.then.i.
   %3 = load ptr, ptr %ctmp.i, align 8
   %load_bio.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i.i, align 8
-  %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
-  %tobool.not.i = icmp eq i32 %call.i1.i, 0
+  %call.i2.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
+  %tobool.not.i = icmp eq i32 %call.i2.i, 0
   %5 = load ptr, ptr %data.i.i, align 8
   %retval.0.i = select i1 %tobool.not.i, ptr null, ptr %5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ctmp.i)
@@ -249,11 +249,11 @@ if.then2.i:                                       ; preds = %CONF_set_nconf.exit
   br label %return
 
 if.end3.i:                                        ; preds = %CONF_set_nconf.exit
-  %call.i2 = call ptr @_CONF_get_section_values(ptr noundef nonnull %ctmp, ptr noundef nonnull %section) #14
+  %call.i3 = call ptr @_CONF_get_section_values(ptr noundef nonnull %ctmp, ptr noundef nonnull %section) #14
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.then2.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2.i ], [ %call.i2, %if.end3.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2.i ], [ %call.i3, %if.end3.i ]
   ret ptr %retval.0
 }
 
@@ -578,7 +578,7 @@ CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %3 = load ptr, ptr %ctmp, align 8
   %destroy_data.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %destroy_data.i, align 8
-  %call.i1 = call i32 %4(ptr noundef nonnull %ctmp) #14
+  %call.i2 = call i32 %4(ptr noundef nonnull %ctmp) #14
   ret void
 }
 
@@ -634,13 +634,13 @@ CONF_dump_bio.exit:                               ; preds = %if.end, %if.then.i.
   %3 = load ptr, ptr %ctmp.i, align 8
   %dump.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %dump.i.i, align 8
-  %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call) #14
+  %call.i2.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call) #14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ctmp.i)
   %call2 = call i32 @BIO_free(ptr noundef nonnull %call) #14
   br label %return
 
 return:                                           ; preds = %CONF_dump_bio.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call.i1.i, %CONF_dump_bio.exit ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ %call.i2.i, %CONF_dump_bio.exit ]
   ret i32 %retval.0
 }
 
@@ -667,8 +667,8 @@ CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %3 = load ptr, ptr %ctmp, align 8
   %dump.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %dump.i, align 8
-  %call.i1 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %out) #14
-  ret i32 %call.i1
+  %call.i2 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %out) #14
+  ret i32 %call.i2
 }
 
 ; Function Attrs: nounwind uwtable

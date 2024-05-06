@@ -408,10 +408,10 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   %.043 = phi i64 [ %28, %26 ], [ %1, %24 ]
   %34 = select i1 %.0415766, ptr @.str.20, ptr @.str.4
   %35 = lshr i64 %.043, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = trunc i64 %.043 to i32
   %38 = lshr i64 %.05865, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = trunc i64 %.05865 to i32
   %41 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.19, ptr noundef nonnull %34, i32 noundef %.pre, i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40) #7
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %41)

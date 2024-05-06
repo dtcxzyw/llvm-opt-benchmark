@@ -728,20 +728,20 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i111, label %dissect_reg_req.exit, label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %154, %dissect_grp_memstatedatacomp.exit.i
-  %.024.i113 = phi i16 [ %223, %dissect_grp_memstatedatacomp.exit.i ], [ 0, %154 ]
-  %.02223.i114 = phi i32 [ %.026.lcssa.i.i, %dissect_grp_memstatedatacomp.exit.i ], [ 20, %154 ]
+  %.025.i = phi i16 [ %223, %dissect_grp_memstatedatacomp.exit.i ], [ 0, %154 ]
+  %.02224.i = phi i32 [ %.026.lcssa.i.i, %dissect_grp_memstatedatacomp.exit.i ], [ 20, %154 ]
   %165 = load i32, ptr @ett_sasp_grp_memstatedatacomp, align 4
-  %166 = call ptr @proto_tree_add_subtree(ptr noundef %157, ptr noundef %0, i32 noundef %.02223.i114, i32 noundef -1, i32 noundef %165, ptr noundef null, ptr noundef nonnull @.str.278) #3
+  %166 = call ptr @proto_tree_add_subtree(ptr noundef %157, ptr noundef %0, i32 noundef %.02224.i, i32 noundef -1, i32 noundef %165, ptr noundef null, ptr noundef nonnull @.str.278) #3
   %167 = load i32, ptr @hf_sasp_grp_memstatedatacomp, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %167, ptr noundef %0, i32 noundef %.02223.i114, i32 noundef 2, i32 noundef 0) #3
-  %169 = add i32 %.02223.i114, 2
+  %168 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %167, ptr noundef %0, i32 noundef %.02224.i, i32 noundef 2, i32 noundef 0) #3
+  %169 = add i32 %.02224.i, 2
   %170 = load i32, ptr @hf_sasp_grp_memstatedatacomp_sz, align 4
   %171 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 2, i32 noundef 0) #3
-  %172 = add i32 %.02223.i114, 4
+  %172 = add i32 %.02224.i, 4
   %173 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %172) #3
   %174 = load i32, ptr @hf_sasp_grp_memstatedatacomp_cnt, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %174, ptr noundef %0, i32 noundef %172, i32 noundef 2, i32 noundef 0) #3
-  %176 = add i32 %.02223.i114, 6
+  %176 = add i32 %.02224.i, 6
   %177 = call fastcc i32 @dissect_grpdatacomp(ptr noundef %0, ptr noundef %166, i32 noundef %176)
   %.not.i.i = icmp eq i16 %173, 0
   br i1 %.not.i.i, label %dissect_grp_memstatedatacomp.exit.i, label %.lr.ph.i.i
@@ -802,9 +802,9 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 dissect_grp_memstatedatacomp.exit.i:              ; preds = %.lr.ph.i.i, %.lr.ph.i112
   %.026.lcssa.i.i = phi i32 [ %177, %.lr.ph.i112 ], [ %221, %.lr.ph.i.i ]
-  %223 = add nuw i16 %.024.i113, 1
-  %exitcond.not.i115 = icmp eq i16 %223, %162
-  br i1 %exitcond.not.i115, label %dissect_reg_req.exit, label %.lr.ph.i112, !llvm.loop !11
+  %223 = add nuw i16 %.025.i, 1
+  %exitcond.not.i113 = icmp eq i16 %223, %162
+  br i1 %exitcond.not.i113, label %dissect_reg_req.exit, label %.lr.ph.i112, !llvm.loop !11
 
 224:                                              ; preds = %23
   %225 = load ptr, ptr %6, align 8

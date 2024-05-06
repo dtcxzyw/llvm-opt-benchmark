@@ -178,7 +178,7 @@ archive_read_set_callback_data.exit:              ; preds = %archive_read_set_cl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_open_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_open_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.1) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -194,7 +194,7 @@ define dso_local noundef i32 @archive_read_set_open_callback(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_read_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_read_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.2) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -210,7 +210,7 @@ define dso_local noundef i32 @archive_read_set_read_callback(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_close_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_close_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.5) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -226,7 +226,7 @@ define dso_local noundef i32 @archive_read_set_close_callback(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.7) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %archive_read_set_callback_data2.exit, label %5
@@ -806,7 +806,7 @@ archive_read_set_close_callback.exit:             ; preds = %archive_read_set_sk
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_skip_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_skip_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.3) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -822,7 +822,7 @@ define dso_local noundef i32 @archive_read_set_skip_callback(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_seek_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_seek_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.4) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -838,7 +838,7 @@ define dso_local noundef i32 @archive_read_set_seek_callback(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_switch_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_switch_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.6) #15
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %7, label %5
@@ -854,7 +854,7 @@ define dso_local noundef i32 @archive_read_set_switch_callback(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_set_callback_data2(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_set_callback_data2(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.7) #15
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %30, label %6
@@ -912,7 +912,7 @@ define dso_local noundef i32 @archive_read_set_callback_data2(ptr noundef %0, pt
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.10) #15
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %43, label %6
@@ -972,7 +972,7 @@ define dso_local noundef i32 @archive_read_add_callback_data(ptr noundef %0, ptr
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %34 = icmp ugt i32 %indvars, %2
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw i64 %indvars.iv to i32
   br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1001,16 +1001,16 @@ define dso_local noundef i32 @archive_read_add_callback_data(ptr noundef %0, ptr
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_append_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_append_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
-  %5 = tail call i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef %4), !range !14
+  %5 = tail call i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_prepend_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !14
+define dso_local range(i32 -30, 1) i32 @archive_read_prepend_callback_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @archive_read_add_callback_data(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
@@ -1347,7 +1347,7 @@ define dso_local i64 @archive_read_data(ptr noundef %0, ptr nocapture noundef wr
   %.169 = phi ptr [ %56, %45 ], [ %41, %43 ]
   %.167 = phi i64 [ %57, %45 ], [ %42, %43 ]
   %.not = icmp eq i64 %.171, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.thread, %58, %3
   %.066.lcssa = phi i64 [ 0, %3 ], [ %42, %.thread ], [ %.167, %58 ]
@@ -1403,7 +1403,7 @@ define dso_local i32 @archive_read_data_skip(ptr noundef %0) local_unnamed_addr 
 .preheader:                                       ; preds = %7, %.preheader
   %14 = call i32 @archive_read_data_block(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.010 = phi i32 [ %13, %12 ], [ %14, %.preheader ]
@@ -1504,7 +1504,7 @@ close_filters.exit:                               ; preds = %14
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_read_register_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_read_register_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.19) #15
   %14 = icmp eq i32 %13, -30
   br i1 %14, label %.loopexit, label %.preheader
@@ -1516,7 +1516,7 @@ define dso_local noundef i32 @__archive_read_register_format(ptr noundef %0, ptr
 16:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %35, label %17, !llvm.loop !17
+  br i1 %exitcond.not, label %35, label %17, !llvm.loop !16
 
 17:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
@@ -1564,7 +1564,7 @@ define dso_local noundef i32 @__archive_read_register_format(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.21) #15
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %24, label %.preheader
@@ -1576,7 +1576,7 @@ define dso_local noundef i32 @__archive_read_register_bidder(ptr noundef %0, ptr
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !18
+  br i1 %exitcond.not, label %23, label %9, !llvm.loop !17
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
@@ -1872,7 +1872,7 @@ client_switch_proxy.exit:                         ; preds = %86, %95, %99
 115:                                              ; preds = %113
   %116 = shl i64 %.0126, 1
   %.not153 = icmp ugt i64 %116, %.1
-  br i1 %.not153, label %113, label %117, !llvm.loop !19
+  br i1 %.not153, label %113, label %117, !llvm.loop !18
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %17, align 8
@@ -1966,15 +1966,15 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @__archive_read_consume(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_consume(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i64 @__archive_read_filter_consume(ptr noundef %4, i64 noundef %1), !range !20
+  %5 = tail call i64 @__archive_read_filter_consume(ptr noundef %4, i64 noundef %1)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @__archive_read_filter_consume(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter_consume(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %152, label %4
 
@@ -2762,7 +2762,7 @@ define internal fastcc i64 @client_seek_proxy(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_archive_read_close(ptr noundef %0) #0 {
+define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %0) #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 65535, ptr noundef nonnull @.str.26) #15
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %close_filters.exit.thread, label %4
@@ -2879,7 +2879,7 @@ define internal i32 @_archive_read_free(ptr noundef %0) #0 {
 25:                                               ; preds = %19, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %26, label %19, !llvm.loop !21
+  br i1 %exitcond.not, label %26, label %19, !llvm.loop !19
 
 26:                                               ; preds = %25
   %27 = getelementptr i8, ptr %0, i64 632
@@ -2956,7 +2956,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %26, %clo
 56:                                               ; preds = %46, %51, %55
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 16
-  br i1 %exitcond70.not, label %57, label %46, !llvm.loop !22
+  br i1 %exitcond70.not, label %57, label %46, !llvm.loop !20
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %0, i64 2096
@@ -2975,7 +2975,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %26, %clo
   tail call void @free(ptr noundef %64) #15
   tail call void @free(ptr noundef nonnull %.04865) #15
   %.not60 = icmp eq ptr %61, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
   %65 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3053,7 +3053,7 @@ archive_read_data_skip.exit.thread38:             ; preds = %13
 .preheader.i:                                     ; preds = %16, %.preheader.i
   %23 = call i32 @archive_read_data_block(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.preheader.i, label %.loopexit.i, !llvm.loop !16
+  br i1 %24, label %.preheader.i, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %.preheader.i, %21
   %.010.i = phi i32 [ %22, %21 ], [ %23, %.preheader.i ]
@@ -3119,7 +3119,7 @@ archive_read_data_skip.exit.thread:               ; preds = %.loopexit.i, %archi
   %45 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %46, i8 0, i64 33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(33) %46, i8 0, i64 33, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 228
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %0, i64 656
@@ -3175,7 +3175,7 @@ define internal i32 @_archive_filter_count(ptr nocapture noundef readonly %0) #9
   %4 = getelementptr inbounds i8, ptr %.059, i64 16
   %.05 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.05, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
@@ -3196,7 +3196,7 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
@@ -3216,7 +3216,7 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !26
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
 get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
@@ -3247,7 +3247,7 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
@@ -3267,7 +3267,7 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !26
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
 get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
@@ -3299,7 +3299,7 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.exit.thread5, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i, label %get_filter.exit.thread5, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
@@ -3319,7 +3319,7 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !26
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
 get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
@@ -3363,7 +3363,7 @@ define internal i64 @client_read_proxy(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @client_close_proxy(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -2147483648, 1) i32 @client_close_proxy(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 208
@@ -3462,16 +3462,14 @@ attributes #19 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -30, i32 1}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i64 -30, i64 -9223372036854775808}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}

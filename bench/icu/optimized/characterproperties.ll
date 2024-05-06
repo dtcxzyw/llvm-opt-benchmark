@@ -1068,7 +1068,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %str, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad

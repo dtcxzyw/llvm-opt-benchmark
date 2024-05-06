@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [79 x i8] c"usage: remote_thr <connect-to> <message-size> <message-count> [<enable_curve>]\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %0 = add i32 %argc, -6

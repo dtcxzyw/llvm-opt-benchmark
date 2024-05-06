@@ -230,7 +230,7 @@ define dso_local void @ps2_drain(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   tail call void @_raw_spin_lock_irq(ptr noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 2, ptr %17, align 8
-  %18 = trunc i64 %8 to i8
+  %18 = trunc nuw nsw i64 %8 to i8
   %19 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %18, ptr %19, align 8
   %20 = load ptr, ptr %0, align 8
@@ -350,7 +350,7 @@ define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef %1, i32 noundef 
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 208
   tail call void @_raw_spin_lock_irq(ptr noundef %19) #7
-  %20 = trunc i32 %9 to i8
+  %20 = trunc nuw nsw i32 %9 to i8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %20, ptr %21, align 8
   switch i32 %2, label %23 [
@@ -682,7 +682,7 @@ define dso_local i32 @ps2_sliced_command(ptr noundef %0, i8 noundef zeroext %1) 
   %15 = phi i32 [ 6, %12 ], [ %21, %14 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   %16 = lshr i32 %13, %15
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = and i8 %17, 3
   store i8 %18, ptr %3, align 1
   %19 = call i32 @__ps2_command(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4328)

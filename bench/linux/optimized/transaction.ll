@@ -78,7 +78,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_jbd2_journal
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable_jbd2__journal_restart737, ptr @__UNIQUE_ID___addressable_jbd2__journal_start723, ptr @__UNIQUE_ID___addressable_jbd2_journal_free_reserved727, ptr @__UNIQUE_ID___addressable_jbd2_journal_restart738, ptr @__UNIQUE_ID___addressable_jbd2_journal_start724, ptr @__UNIQUE_ID___addressable_jbd2_journal_start_reserved732, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_jbd2_handle_extend.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace563, ptr @trace_jbd2_handle_extend.__UNIQUE_ID___addressable___SCK__tp_func_jbd2_handle_extend562, ptr @trace_jbd2_handle_restart.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace549, ptr @trace_jbd2_handle_restart.__UNIQUE_ID___addressable___SCK__tp_func_jbd2_handle_restart548, ptr @trace_jbd2_handle_start.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace535, ptr @trace_jbd2_handle_start.__UNIQUE_ID___addressable___SCK__tp_func_jbd2_handle_start534, ptr @trace_jbd2_handle_stats.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace577, ptr @trace_jbd2_handle_stats.__UNIQUE_ID___addressable___SCK__tp_func_jbd2_handle_stats576, ptr @trace_jbd2_lock_buffer_stall.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace647, ptr @trace_jbd2_lock_buffer_stall.__UNIQUE_ID___addressable___SCK__tp_func_jbd2_lock_buffer_stall646], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @jbd2_journal_init_transaction_cache() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_transaction_cache() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @transaction_cache, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3, !prof !6
@@ -307,7 +307,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @start_this_handle(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @start_this_handle(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = alloca %struct.wait_queue_entry, align 8
@@ -1025,7 +1025,7 @@ declare dso_local void @_raw_read_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_start_reserved(ptr noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_start_reserved(ptr noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
@@ -1380,7 +1380,7 @@ define dso_local i32 @jbd2_journal_stop(ptr noundef %0) local_unnamed_addr #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_extend(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 2) i32 @jbd2_journal_extend(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
@@ -1512,7 +1512,7 @@ define dso_local noundef i32 @jbd2_journal_extend(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4
@@ -1762,7 +1762,7 @@ define internal fastcc void @stop_this_handle(ptr noundef %0) unnamed_addr #3 al
 declare dso_local i32 @jbd2_log_start_commit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_restart(ptr noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_restart(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = tail call i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 3136), !range !13
   ret i32 %3
 }
@@ -1936,7 +1936,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_get_write_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_get_write_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -2034,7 +2034,7 @@ declare dso_local void @jbd2_journal_abort(ptr noundef, i32 noundef) local_unnam
 declare dso_local ptr @jbd2_journal_add_journal_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @do_get_write_access(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @do_get_write_access(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2407,7 +2407,7 @@ define internal fastcc noundef i32 @do_get_write_access(ptr noundef %0, ptr noun
 declare dso_local void @jbd2_journal_put_journal_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_get_create_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_get_create_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @jbd2_journal_add_journal_head(ptr noundef %1) #11
   %5 = getelementptr inbounds i8, ptr %0, i64 36
@@ -2715,7 +2715,7 @@ define dso_local void @__jbd2_journal_file_buffer(ptr noundef %0, ptr noundef %1
 declare dso_local i32 @jbd2_journal_cancel_revoke(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_get_undo_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_get_undo_access(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -2928,7 +2928,7 @@ define dso_local void @jbd2_buffer_abort_trigger(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_dirty_metadata(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @jbd2_journal_dirty_metadata(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load volatile i64, ptr %1, align 8
   %5 = and i64 %4, 65536
@@ -3223,7 +3223,7 @@ define dso_local noundef i32 @jbd2_journal_dirty_metadata(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_forget(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_forget(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -4140,7 +4140,7 @@ define dso_local void @jbd2_journal_refile_buffer(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_inode_ranged_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_inode_ranged_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = add i64 %2, -1
   %6 = add i64 %5, %3
   %.val = load ptr, ptr %0, align 8
@@ -4151,7 +4151,7 @@ define dso_local noundef i32 @jbd2_journal_inode_ranged_write(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
   %5 = and i32 %.36.val, 8
   %6 = icmp ne i32 %5, 0
   %7 = icmp eq ptr %.0.val, null
@@ -4272,7 +4272,7 @@ define internal fastcc noundef i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_inode_ranged_wait(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_inode_ranged_wait(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = add i64 %2, -1
   %6 = add i64 %5, %3
   %.val = load ptr, ptr %0, align 8
@@ -4401,7 +4401,7 @@ declare dso_local void @__lock_buffer(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__jbd2_journal_remove_checkpoint(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__dispose_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__dispose_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

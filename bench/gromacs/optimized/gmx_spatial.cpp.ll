@@ -751,13 +751,13 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i250.us.us.us: ; preds = %
   %349 = icmp eq i64 %.08.i.i.i251.us.us.us, 2
   %350 = select i1 %349, i64 %150, i64 1
   %351 = select i1 %348, i64 %149, i64 %350
-  %352 = mul nsw i64 %351, %.067.i.i.i252.us.us.us
+  %352 = mul nuw nsw i64 %351, %.067.i.i.i252.us.us.us
   %.0.i.i.i253.us.us.us = add nsw i64 %.08.i.i.i251.us.us.us, -1
   %.not.i254.us.us.us = icmp eq i64 %.0.i.i.i253.us.us.us, 0
   br i1 %.not.i254.us.us.us, label %_ZNK3gmx12basic_mdspanIiNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIiEEEixIiNS0_IiNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit255.us.us.us, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i250.us.us.us, !llvm.loop !8
 
 _ZNK3gmx12basic_mdspanIiNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIiEEEixIiNS0_IiNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit255.us.us.us: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i250.us.us.us
-  %353 = mul nsw i64 %352, %indvars.iv543
+  %353 = mul nuw nsw i64 %352, %indvars.iv543
   %gep.us.us.us = getelementptr i32, ptr %invariant.gep.us.us.us, i64 %353
   %354 = getelementptr inbounds i32, ptr %gep.us.us.us, i64 %indvars.iv533
   %355 = load i32, ptr %354, align 4

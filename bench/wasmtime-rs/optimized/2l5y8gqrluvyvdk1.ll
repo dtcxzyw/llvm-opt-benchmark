@@ -122,9 +122,9 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
 "_ZN74_$LT$cranelift_isle..overlap..Errors$u20$as$u20$core..default..Default$GT$7default17h07949a8036b18039E.exit.i": ; preds = %66
   %70 = extractvalue { i64, i64 } %67, 0
   %71 = extractvalue { i64, i64 } %67, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false), !noalias !7
   %72 = getelementptr inbounds i8, ptr %46, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) @anon.52c58e60444f7a11faa97e45e4d99f5f.12, i64 32, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) @anon.52c58e60444f7a11faa97e45e4d99f5f.12, i64 32, i1 false), !noalias !7
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %46, i64 80
   store i64 %70, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %46, i64 88
@@ -413,7 +413,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   br label %250
 
 163:                                              ; preds = %86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(96) %46, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(96) %46, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
@@ -664,7 +664,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %223 unwind label %.loopexit.split-lp76.i, !noalias !15
 
 223:                                              ; preds = %220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   invoke void @"_ZN4core3ptr164drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..lexer..Pos$C$std..collections..hash..set..HashSet$LT$cranelift_isle..lexer..Pos$GT$$GT$$GT$17hd2ed050595d87b97E"(ptr nonnull align 8 %51)
           to label %228 unwind label %161
 

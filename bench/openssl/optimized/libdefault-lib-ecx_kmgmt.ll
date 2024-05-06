@@ -54,9 +54,9 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_ecx_key_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 253, i32 noundef 128, i32 noundef 32), !range !4
+  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 253, i32 noundef 128, i32 noundef 32)
   ret i32 %call
 }
 
@@ -67,9 +67,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @x25519_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params), !range !4
+  %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params)
   ret i32 %call
 }
 
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @ecx_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -124,7 +124,7 @@ if.end14:                                         ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @ecx_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -246,14 +246,14 @@ return:                                           ; preds = %if.end5, %if.end71,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
+define internal range(i32 0, 2) i32 @x25519_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 0, i64 noundef 32), !range !4
+  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 0, i64 noundef 32)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecx_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp eq i32 %call, 0
@@ -366,7 +366,7 @@ if.end7.i:                                        ; preds = %if.end.i
   store i32 0, ptr %type5.i, align 8
   %selection6.i = getelementptr inbounds i8, ptr %call2.i, i64 20
   store i32 %selection, ptr %selection6.i, align 4
-  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
+  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params)
   %tobool9.not.i = icmp eq i32 %call87.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %ecx_gen_init.exit
 
@@ -380,7 +380,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -568,9 +568,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 448, i32 noundef 224, i32 noundef 56), !range !4
+  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 448, i32 noundef 224, i32 noundef 56)
   ret i32 %call
 }
 
@@ -581,9 +581,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @x448_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params), !range !4
+  %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params)
   ret i32 %call
 }
 
@@ -594,9 +594,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
+define internal range(i32 0, 2) i32 @x448_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 1, i64 noundef 56), !range !4
+  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 1, i64 noundef 56)
   ret i32 %call
 }
 
@@ -619,7 +619,7 @@ if.end7.i:                                        ; preds = %if.end.i
   store i32 1, ptr %type5.i, align 8
   %selection6.i = getelementptr inbounds i8, ptr %call2.i, i64 20
   store i32 %selection, ptr %selection6.i, align 4
-  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
+  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params)
   %tobool9.not.i = icmp eq i32 %call87.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %ecx_gen_init.exit
 
@@ -666,9 +666,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 256, i32 noundef 128, i32 noundef 64), !range !4
+  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 256, i32 noundef 128, i32 noundef 64)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -709,9 +709,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
+define internal range(i32 0, 2) i32 @ed25519_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 2, i64 noundef 32), !range !4
+  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 2, i64 noundef 32)
   ret i32 %call
 }
 
@@ -734,7 +734,7 @@ if.end7.i:                                        ; preds = %if.end.i
   store i32 2, ptr %type5.i, align 8
   %selection6.i = getelementptr inbounds i8, ptr %call2.i, i64 20
   store i32 %selection, ptr %selection6.i, align 4
-  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
+  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params)
   %tobool9.not.i = icmp eq i32 %call87.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %ecx_gen_init.exit
 
@@ -781,9 +781,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 456, i32 noundef 224, i32 noundef 114), !range !4
+  %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 456, i32 noundef 224, i32 noundef 114)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -824,9 +824,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
+define internal range(i32 0, 2) i32 @ed448_validate(ptr noundef %keydata, i32 noundef %selection, i32 %checktype) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 3, i64 noundef 57), !range !4
+  %call = tail call fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef 3, i64 noundef 57)
   ret i32 %call
 }
 
@@ -849,7 +849,7 @@ if.end7.i:                                        ; preds = %if.end.i
   store i32 3, ptr %type5.i, align 8
   %selection6.i = getelementptr inbounds i8, ptr %call2.i, i64 20
   store i32 %selection, ptr %selection6.i, align 4
-  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
+  %call87.i = tail call i32 @ecx_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params)
   %tobool9.not.i = icmp eq i32 %call87.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %ecx_gen_init.exit
 
@@ -885,7 +885,7 @@ declare ptr @ossl_ecx_key_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null
@@ -976,7 +976,7 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @ossl_param_build_set_octet_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_set_params(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
 entry:
   %buf = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -1060,7 +1060,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %type, i64 noundef %keylen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %type, i64 noundef %keylen) unnamed_addr #0 {
 entry:
   %pub.i = alloca [64 x i8], align 16
   %keylen1 = getelementptr inbounds i8, ptr %keydata, i64 88
@@ -1382,4 +1382,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

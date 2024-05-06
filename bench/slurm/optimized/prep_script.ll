@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @have_epilog_slurmctld = internal unnamed_addr global i1 false, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = tail call zeroext i1 @running_in_slurmctld() #5
   br i1 %1, label %2, label %20
 

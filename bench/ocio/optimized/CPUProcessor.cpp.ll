@@ -11745,7 +11745,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -11800,7 +11800,7 @@ if.else9.i.i15:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %8 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %8, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -11856,7 +11856,7 @@ if.else9.i.i45:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i46, label %_ZNK9Imath_3_14halfcvfEv.exit62, label %if.then11.i.i47
 
 if.then11.i.i47:                                  ; preds = %if.else9.i.i45
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true), !range !167
+  %14 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true)
   %sub.i.i48 = add nsw i32 %14, -8
   %shl13.i.i49 = shl i32 %shr.i.i41, %sub.i.i48
   %or12.i.i50 = or i32 %shl3.i.i43, %shl13.i.i49
@@ -11912,7 +11912,7 @@ if.else9.i.i75:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i76, label %_ZNK9Imath_3_14halfcvfEv.exit92, label %if.then11.i.i77
 
 if.then11.i.i77:                                  ; preds = %if.else9.i.i75
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true), !range !167
+  %20 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true)
   %sub.i.i78 = add nsw i32 %20, -8
   %shl13.i.i79 = shl i32 %shr.i.i71, %sub.i.i78
   %or12.i.i80 = or i32 %shl3.i.i73, %shl13.i.i79
@@ -11944,7 +11944,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit99: ; preds
   %add.ptr22 = getelementptr inbounds i8, ptr %out.0102, i64 4
   %inc = add nuw nsw i64 %pxl.0103, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !168
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !167
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit99, %entry
   ret void
@@ -12069,7 +12069,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -12124,7 +12124,7 @@ if.else9.i.i15:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %8 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %8, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -12180,7 +12180,7 @@ if.else9.i.i45:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i46, label %_ZNK9Imath_3_14halfcvfEv.exit62, label %if.then11.i.i47
 
 if.then11.i.i47:                                  ; preds = %if.else9.i.i45
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true), !range !167
+  %14 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true)
   %sub.i.i48 = add nsw i32 %14, -8
   %shl13.i.i49 = shl i32 %shr.i.i41, %sub.i.i48
   %or12.i.i50 = or i32 %shl3.i.i43, %shl13.i.i49
@@ -12236,7 +12236,7 @@ if.else9.i.i75:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i76, label %_ZNK9Imath_3_14halfcvfEv.exit92, label %if.then11.i.i77
 
 if.then11.i.i77:                                  ; preds = %if.else9.i.i75
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true), !range !167
+  %20 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true)
   %sub.i.i78 = add nsw i32 %20, -8
   %shl13.i.i79 = shl i32 %shr.i.i71, %sub.i.i78
   %or12.i.i80 = or i32 %shl3.i.i73, %shl13.i.i79
@@ -12268,7 +12268,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit99: ; preds
   %add.ptr22 = getelementptr inbounds i8, ptr %out.0102, i64 8
   %inc = add nuw nsw i64 %pxl.0103, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !169
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !168
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit99, %entry
   ret void
@@ -12390,7 +12390,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -12445,7 +12445,7 @@ if.else9.i.i15:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %8 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %8, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -12501,7 +12501,7 @@ if.else9.i.i45:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i46, label %_ZNK9Imath_3_14halfcvfEv.exit62, label %if.then11.i.i47
 
 if.then11.i.i47:                                  ; preds = %if.else9.i.i45
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true), !range !167
+  %14 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true)
   %sub.i.i48 = add nsw i32 %14, -8
   %shl13.i.i49 = shl i32 %shr.i.i41, %sub.i.i48
   %or12.i.i50 = or i32 %shl3.i.i43, %shl13.i.i49
@@ -12557,7 +12557,7 @@ if.else9.i.i75:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i76, label %_ZNK9Imath_3_14halfcvfEv.exit92, label %if.then11.i.i77
 
 if.then11.i.i77:                                  ; preds = %if.else9.i.i75
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true), !range !167
+  %20 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true)
   %sub.i.i78 = add nsw i32 %20, -8
   %shl13.i.i79 = shl i32 %shr.i.i71, %sub.i.i78
   %or12.i.i80 = or i32 %shl3.i.i73, %shl13.i.i79
@@ -12589,7 +12589,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit99: ; preds
   %add.ptr22 = getelementptr inbounds i8, ptr %out.0102, i64 8
   %inc = add nuw nsw i64 %pxl.0103, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !170
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !169
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit99, %entry
   ret void
@@ -12711,7 +12711,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -12766,7 +12766,7 @@ if.else9.i.i15:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %8 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %8, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -12822,7 +12822,7 @@ if.else9.i.i45:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i46, label %_ZNK9Imath_3_14halfcvfEv.exit62, label %if.then11.i.i47
 
 if.then11.i.i47:                                  ; preds = %if.else9.i.i45
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true), !range !167
+  %14 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i41, i1 true)
   %sub.i.i48 = add nsw i32 %14, -8
   %shl13.i.i49 = shl i32 %shr.i.i41, %sub.i.i48
   %or12.i.i50 = or i32 %shl3.i.i43, %shl13.i.i49
@@ -12878,7 +12878,7 @@ if.else9.i.i75:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i76, label %_ZNK9Imath_3_14halfcvfEv.exit92, label %if.then11.i.i77
 
 if.then11.i.i77:                                  ; preds = %if.else9.i.i75
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true), !range !167
+  %20 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i71, i1 true)
   %sub.i.i78 = add nsw i32 %20, -8
   %shl13.i.i79 = shl i32 %shr.i.i71, %sub.i.i78
   %or12.i.i80 = or i32 %shl3.i.i73, %shl13.i.i79
@@ -12910,7 +12910,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit99: ; preds
   %add.ptr22 = getelementptr inbounds i8, ptr %out.0102, i64 8
   %inc = add nuw nsw i64 %pxl.0103, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !171
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !170
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit99, %entry
   ret void
@@ -13032,7 +13032,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -13153,7 +13153,7 @@ if.else9.i.i15:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %13 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %13, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -13275,7 +13275,7 @@ if.else9.i.i88:                                   ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i89, label %_ZNK9Imath_3_14halfcvfEv.exit105, label %if.then11.i.i90
 
 if.then11.i.i90:                                  ; preds = %if.else9.i.i88
-  %24 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i84, i1 true), !range !167
+  %24 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i84, i1 true)
   %sub.i.i91 = add nsw i32 %24, -8
   %shl13.i.i92 = shl i32 %shr.i.i84, %sub.i.i91
   %or12.i.i93 = or i32 %shl3.i.i86, %shl13.i.i92
@@ -13397,7 +13397,7 @@ if.else9.i.i161:                                  ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp10.not.i.i162, label %_ZNK9Imath_3_14halfcvfEv.exit178, label %if.then11.i.i163
 
 if.then11.i.i163:                                 ; preds = %if.else9.i.i161
-  %35 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i157, i1 true), !range !167
+  %35 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i157, i1 true)
   %sub.i.i164 = add nsw i32 %35, -8
   %shl13.i.i165 = shl i32 %shr.i.i157, %sub.i.i164
   %or12.i.i166 = or i32 %shl3.i.i159, %shl13.i.i165
@@ -13495,7 +13495,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit228: ; pred
   %add.ptr28 = getelementptr inbounds i8, ptr %out.0231, i64 8
   %inc = add nuw nsw i64 %pxl.0230, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !172
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !171
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit228, %entry
   ret void
@@ -13617,7 +13617,7 @@ if.else9.i.i:                                     ; preds = %for.body
   br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !167
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -13660,7 +13660,7 @@ if.else9.i.i15:                                   ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp10.not.i.i16, label %_ZNK9Imath_3_14halfcvfEv.exit32, label %if.then11.i.i17
 
 if.then11.i.i17:                                  ; preds = %if.else9.i.i15
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true), !range !167
+  %7 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i11, i1 true)
   %sub.i.i18 = add nsw i32 %7, -8
   %shl13.i.i19 = shl i32 %shr.i.i11, %sub.i.i18
   %or12.i.i20 = or i32 %shl3.i.i13, %shl13.i.i19
@@ -13704,7 +13704,7 @@ if.else9.i.i38:                                   ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp10.not.i.i39, label %_ZNK9Imath_3_14halfcvfEv.exit55, label %if.then11.i.i40
 
 if.then11.i.i40:                                  ; preds = %if.else9.i.i38
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i34, i1 true), !range !167
+  %12 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i34, i1 true)
   %sub.i.i41 = add nsw i32 %12, -8
   %shl13.i.i42 = shl i32 %shr.i.i34, %sub.i.i41
   %or12.i.i43 = or i32 %shl3.i.i36, %shl13.i.i42
@@ -13748,7 +13748,7 @@ if.else9.i.i61:                                   ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp10.not.i.i62, label %_ZNK9Imath_3_14halfcvfEv.exit78, label %if.then11.i.i63
 
 if.then11.i.i63:                                  ; preds = %if.else9.i.i61
-  %17 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i57, i1 true), !range !167
+  %17 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i57, i1 true)
   %sub.i.i64 = add nsw i32 %17, -8
   %shl13.i.i65 = shl i32 %shr.i.i57, %sub.i.i64
   %or12.i.i66 = or i32 %shl3.i.i59, %shl13.i.i65
@@ -13768,7 +13768,7 @@ _ZNK9Imath_3_14halfcvfEv.exit78:                  ; preds = %if.then7.i.i76, %if
   %add.ptr22 = getelementptr inbounds i8, ptr %out.081, i64 16
   %inc = add nuw nsw i64 %pxl.082, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !173
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !172
 
 for.end:                                          ; preds = %_ZNK9Imath_3_14halfcvfEv.exit78, %entry
   ret void
@@ -13937,7 +13937,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit30: ; preds
   %add.ptr18 = getelementptr inbounds i8, ptr %out.033, i64 4
   %inc = add nuw nsw i64 %pxl.034, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !174
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !173
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit30, %entry
   ret void
@@ -14106,7 +14106,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit30: ; preds
   %add.ptr18 = getelementptr inbounds i8, ptr %out.033, i64 8
   %inc = add nuw nsw i64 %pxl.034, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !175
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !174
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit30, %entry
   ret void
@@ -14275,7 +14275,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit30: ; preds
   %add.ptr18 = getelementptr inbounds i8, ptr %out.033, i64 8
   %inc = add nuw nsw i64 %pxl.034, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !176
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !175
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit30, %entry
   ret void
@@ -14444,7 +14444,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit30: ; preds
   %add.ptr18 = getelementptr inbounds i8, ptr %out.033, i64 8
   %inc = add nuw nsw i64 %pxl.034, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !177
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !176
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit30, %entry
   ret void
@@ -14877,7 +14877,7 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159: ; pred
   %add.ptr24 = getelementptr inbounds i8, ptr %out.0162, i64 8
   %inc = add nuw nsw i64 %pxl.0161, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !178
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !177
 
 for.end:                                          ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, %entry
   ret void
@@ -15024,17 +15024,17 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_a
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_allocateEm.exit, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
-  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !182, !noalias !179
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !182, !noalias !179
-  store <2 x ptr> %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !179, !noalias !182
-  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !182, !noalias !179
+  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !181, !noalias !178
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
+  store <2 x ptr> %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !178, !noalias !181
+  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !181, !noalias !178
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i.i, !llvm.loop !184
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i.i, !llvm.loop !183
 
 _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
@@ -15045,17 +15045,17 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocate
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i.i12
   %__cur.07.i.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i.i18, %for.body.i.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %__first.addr.06.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i17, %for.body.i.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %_M_refcount4.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 8
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i14, align 8, !alias.scope !188, !noalias !185
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !188, !noalias !185
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i.i13, align 8, !alias.scope !185, !noalias !188
-  store ptr null, ptr %__first.addr.06.i.i.i.i14, align 8, !alias.scope !188, !noalias !185
+  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i14, align 8, !alias.scope !187, !noalias !184
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !187, !noalias !184
+  store <2 x ptr> %5, ptr %__cur.07.i.i.i.i13, align 8, !alias.scope !184, !noalias !187
+  store ptr null, ptr %__first.addr.06.i.i.i.i14, align 8, !alias.scope !187, !noalias !184
   %incdec.ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 16
   %incdec.ptr1.i.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 16
   %cmp.not.i.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i.i17, %0
-  br i1 %cmp.not.i.i.i.i19, label %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i.i12, !llvm.loop !184
+  br i1 %cmp.not.i.i.i.i19, label %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i.i12, !llvm.loop !183
 
 _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21: ; preds = %for.body.i.i.i.i12, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   %__cur.0.lcssa.i.i.i.i20 = phi ptr [ %incdec.ptr, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %incdec.ptr1.i.i.i.i18, %for.body.i.i.i.i12 ]
@@ -15307,7 +15307,7 @@ attributes #23 = { noreturn nounwind }
 !164 = distinct !{!164, !134}
 !165 = distinct !{!165, !134}
 !166 = distinct !{!166, !134}
-!167 = !{i32 9, i32 33}
+!167 = distinct !{!167, !134}
 !168 = distinct !{!168, !134}
 !169 = distinct !{!169, !134}
 !170 = distinct !{!170, !134}
@@ -15318,15 +15318,14 @@ attributes #23 = { noreturn nounwind }
 !175 = distinct !{!175, !134}
 !176 = distinct !{!176, !134}
 !177 = distinct !{!177, !134}
-!178 = distinct !{!178, !134}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!181 = distinct !{!181, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_"}
-!182 = !{!183}
-!183 = distinct !{!183, !181, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
-!184 = distinct !{!184, !134}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!187 = distinct !{!187, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_"}
-!188 = !{!189}
-!189 = distinct !{!189, !187, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!180 = distinct !{!180, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_"}
+!181 = !{!182}
+!182 = distinct !{!182, !180, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!183 = distinct !{!183, !134}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!186 = distinct !{!186, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_"}
+!187 = !{!188}
+!188 = distinct !{!188, !186, !"_ZSt19__relocate_object_aISt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}

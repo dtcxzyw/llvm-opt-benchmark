@@ -28,7 +28,7 @@ define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   ret void
 }
 

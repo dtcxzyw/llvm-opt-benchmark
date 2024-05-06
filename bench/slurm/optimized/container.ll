@@ -474,7 +474,7 @@ _load_config.exit:                                ; preds = %52, %55
   br i1 %.not20, label %56, label %.thread
 
 56:                                               ; preds = %_load_config.exit
-  %57 = call fastcc i32 @_merge_step_config_env(ptr noundef nonnull %0), !range !11
+  %57 = call fastcc i32 @_merge_step_config_env(ptr noundef nonnull %0)
   %.not21 = icmp eq i32 %57, 0
   br i1 %.not21, label %58, label %.thread
 
@@ -540,7 +540,7 @@ _load_config.exit:                                ; preds = %52, %55
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 56
   %91 = load i32, ptr %90, align 8
-  %92 = call fastcc ptr @_generate_pattern(ptr noundef nonnull %85, ptr noundef nonnull %0, i32 noundef %91, ptr noundef null)
+  %92 = call fastcc ptr @_generate_pattern(ptr noundef nonnull %85, ptr noundef nonnull readonly %0, i32 noundef %91, ptr noundef null)
   br label %95
 
 93:                                               ; preds = %82
@@ -553,7 +553,7 @@ _load_config.exit:                                ; preds = %52, %55
   store ptr %.sink.i, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %59, i64 40
   call void @slurm_xfree(ptr noundef nonnull %97) #9
-  %98 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull %0, ptr noundef null)
+  %98 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull readonly %0, ptr noundef null)
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 368
   %100 = load i32, ptr %99, align 8
@@ -595,7 +595,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @serializer_g_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_merge_step_config_env(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9203) i32 @_merge_step_config_env(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -925,7 +925,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %227 = getelementptr inbounds ptr, ptr %226, i64 %indvars.iv.next.i
   %228 = load ptr, ptr %227, align 8
   %.not100.i = icmp eq ptr %228, null
-  br i1 %.not100.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not100.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %223, %176, %172
   %229 = load ptr, ptr %37, align 8
@@ -968,7 +968,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %247 = getelementptr inbounds i8, ptr %.088108.i, i64 8
   %248 = load ptr, ptr %247, align 8
   %.not101.i = icmp eq ptr %248, null
-  br i1 %.not101.i, label %._crit_edge.i, label %.lr.ph109.i, !llvm.loop !13
+  br i1 %.not101.i, label %._crit_edge.i, label %.lr.ph109.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %244, %.loopexit.i
   %249 = load ptr, ptr %37, align 8
@@ -996,7 +996,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %262 = load i32, ptr %252, align 8
   %263 = zext i32 %262 to i64
   %264 = icmp ult i64 %indvars.iv.next117.i, %263
-  br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !14
+  br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !13
 
 _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -1032,7 +1032,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br label %.thread.i
 
 279:                                              ; preds = %272
-  %280 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
+  %280 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
   %281 = trunc i64 %280 to i32
   %282 = icmp sgt i32 %281, 0
   br i1 %282, label %.lr.ph.split.us.i, label %.outer._crit_edge.i
@@ -1069,7 +1069,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br i1 %295, label %296, label %327
 
 296:                                              ; preds = %.split45.us.i
-  %297 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
+  %297 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
   %298 = trunc i64 %297 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef 317, ptr noundef nonnull @__func__._write_config, i32 noundef %.032.ph52.i, i32 noundef %298) #9
   br label %327
@@ -1089,13 +1089,13 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br i1 %305, label %306, label %.lr.ph.split.us.i.backedge
 
 306:                                              ; preds = %303
-  %307 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
+  %307 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
   %308 = trunc i64 %307 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.64, i32 noundef 317, ptr noundef nonnull @__func__._write_config, i32 noundef %301, i32 noundef %308) #9
   br label %.lr.ph.split.us.i.backedge
 
 .lr.ph.split.us.i.backedge:                       ; preds = %306, %303
-  br label %.lr.ph.split.us.i, !llvm.loop !15
+  br label %.lr.ph.split.us.i, !llvm.loop !14
 
 .outer._crit_edge.i:                              ; preds = %.split.us.i, %279
   %309 = call i32 @fsync_and_close(i32 noundef %275, ptr noundef %273) #9
@@ -1340,7 +1340,7 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %430 = load ptr, ptr %419, align 8
   %431 = getelementptr inbounds ptr, ptr %430, i64 %indvars.iv.i.i
   %432 = load ptr, ptr %431, align 8
-  %433 = trunc i64 %indvars.iv.i.i to i32
+  %433 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._create_start, i32 noundef %433, ptr noundef %432) #9
   br label %434
 
@@ -1350,7 +1350,7 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %436 = getelementptr inbounds ptr, ptr %435, i64 %indvars.iv.next.i.i
   %437 = load ptr, ptr %436, align 8
   %.not.i.i = icmp eq ptr %437, null
-  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.i, %418
   %438 = call ptr @run_command(ptr noundef nonnull %5) #9
@@ -1431,7 +1431,7 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
   %468 = call i32 @usleep(i32 noundef %.sink.i) #9
   %469 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %469, 11
-  br i1 %exitcond.not.i, label %.loopexit.i53, label %444, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit.i53, label %444, !llvm.loop !16
 
 .loopexit.i53:                                    ; preds = %467, %464
   store ptr @start_argv, ptr %419, align 8
@@ -1458,7 +1458,7 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
   %478 = load ptr, ptr %419, align 8
   %479 = getelementptr inbounds ptr, ptr %478, i64 %indvars.iv.i18.i
   %480 = load ptr, ptr %479, align 8
-  %481 = trunc i64 %indvars.iv.i18.i to i32
+  %481 = trunc nuw nsw i64 %indvars.iv.i18.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._create_start, i32 noundef %481, ptr noundef %480) #9
   br label %482
 
@@ -1468,7 +1468,7 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
   %484 = getelementptr inbounds ptr, ptr %483, i64 %indvars.iv.next.i19.i
   %485 = load ptr, ptr %484, align 8
   %.not.i20.i = icmp eq ptr %485, null
-  br i1 %.not.i20.i, label %_dump_command_args.exit21.i, label %.lr.ph.i17.i, !llvm.loop !16
+  br i1 %.not.i20.i, label %_dump_command_args.exit21.i, label %.lr.ph.i17.i, !llvm.loop !15
 
 _dump_command_args.exit21.i:                      ; preds = %482, %.preheader.i15.i, %.loopexit.i53
   %486 = call ptr @run_command(ptr noundef nonnull %5) #9
@@ -1849,7 +1849,7 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %72 = load i32, ptr %19, align 8
   %73 = zext i32 %72 to i64
   %74 = icmp ult i64 %indvars.iv.next, %73
-  br i1 %74, label %23, label %.loopexit, !llvm.loop !18
+  br i1 %74, label %23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %71, %18
   %75 = getelementptr inbounds i8, ptr %5, i64 40
@@ -2002,7 +2002,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly %0, ptr nocap
   %36 = sext i8 %35 to i32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %36) #9
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %31, !llvm.loop !19
+  br label %31, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %31
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.32) #9
@@ -2104,7 +2104,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly %0, ptr nocap
 _pattern_argv.exit:                               ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %75, %57, %63, %49, %50, %40, %71, %69, %68, %66, %64, %54, %45, %43, %41, %25
   %.1 = phi ptr [ %23, %71 ], [ %23, %69 ], [ %23, %68 ], [ %23, %66 ], [ %23, %64 ], [ %23, %57 ], [ %23, %63 ], [ %23, %54 ], [ %23, %49 ], [ %23, %50 ], [ %23, %45 ], [ %23, %43 ], [ %23, %41 ], [ %23, %40 ], [ %23, %25 ], [ %.0, %75 ], [ %23, %.lr.ph.i.preheader ], [ %23, %.lr.ph.i ]
   %77 = getelementptr inbounds i8, ptr %.1, i64 1
-  br label %20, !llvm.loop !20
+  br label %20, !llvm.loop !19
 
 78:                                               ; preds = %20
   %79 = load ptr, ptr %5, align 8
@@ -2184,7 +2184,7 @@ declare ptr @data_resolve_dict_path(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @data_list_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_config_env(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_config_env(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @data_get_string_converted(ptr noundef %0, ptr noundef nonnull %3) #9
@@ -2356,7 +2356,7 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds ptr, ptr @query_argv, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i64 %indvars.iv.i.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._get_container_state, i32 noundef %23, ptr noundef %22) #9
   br label %24
 
@@ -2365,7 +2365,7 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
   %25 = getelementptr inbounds ptr, ptr @query_argv, i64 %indvars.iv.next.i.i
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 _dump_command_args.exit.i:                        ; preds = %24, %0
   %27 = call ptr @run_command(ptr noundef nonnull %4) #9
@@ -2562,7 +2562,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %.1 = select i1 %54, i32 1000000, i32 %55
   %56 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %56, 10
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %27, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %27, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %52, %34, %33, %43
   %.pre = load ptr, ptr %1, align 8
@@ -2604,7 +2604,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %71 = load ptr, ptr %59, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8
-  %74 = trunc i64 %indvars.iv.i to i32
+  %74 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._kill_container, i32 noundef %74, ptr noundef %73) #9
   br label %75
 
@@ -2614,7 +2614,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %77 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv.next.i
   %78 = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %_dump_command_args.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %_dump_command_args.exit, label %.lr.ph.i, !llvm.loop !15
 
 _dump_command_args.exit:                          ; preds = %75, %58, %.preheader.i
   %79 = call ptr @run_command(ptr noundef nonnull %2) #9
@@ -2670,7 +2670,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 9203}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
@@ -2680,4 +2680,3 @@ attributes #12 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}

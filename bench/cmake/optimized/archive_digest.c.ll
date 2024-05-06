@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__archive_digest = dso_local local_unnamed_addr constant %struct.archive_digest { ptr @__archive_md5init, ptr @__archive_md5update, ptr @__archive_md5final, ptr @__archive_ripemd160init, ptr @__archive_ripemd160update, ptr @__archive_ripemd160final, ptr @__archive_sha1init, ptr @__archive_sha1update, ptr @__archive_sha1final, ptr @__archive_sha256init, ptr @__archive_sha256update, ptr @__archive_sha256final, ptr @__archive_sha384init, ptr @__archive_sha384update, ptr @__archive_sha384final, ptr @__archive_sha512init, ptr @__archive_sha512update, ptr @__archive_sha512final }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_md5init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_md5init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -51,7 +51,7 @@ define internal noundef i32 @__archive_md5final(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_ripemd160init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_ripemd160init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -94,7 +94,7 @@ define internal noundef i32 @__archive_ripemd160final(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_sha1init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_sha1init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -137,7 +137,7 @@ define internal noundef i32 @__archive_sha1final(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_sha256init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_sha256init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -180,7 +180,7 @@ define internal noundef i32 @__archive_sha256final(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_sha384init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_sha384init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -223,7 +223,7 @@ define internal noundef i32 @__archive_sha384final(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__archive_sha512init(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -25, 1) i32 @__archive_sha512init(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @EVP_MD_CTX_new() #2
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null

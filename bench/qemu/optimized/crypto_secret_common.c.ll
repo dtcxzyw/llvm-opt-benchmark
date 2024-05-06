@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_qcrypto_secret_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %datalen, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %datalen, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_get_objects_root() #5
   %call1 = tail call ptr @object_resolve_path_component(ptr noundef %call, ptr noundef %secretid) #5
@@ -108,7 +108,7 @@ define dso_local noundef ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %secreti
 entry:
   %data = alloca ptr, align 8
   %datalen = alloca i64, align 8
-  %call = call i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr noundef nonnull %data, ptr noundef nonnull %datalen, ptr noundef %errp), !range !5
+  %call = call i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr noundef nonnull %data, ptr noundef nonnull %datalen, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -138,7 +138,7 @@ define dso_local noalias ptr @qcrypto_secret_lookup_as_base64(ptr noundef %secre
 entry:
   %data = alloca ptr, align 8
   %datalen = alloca i64, align 8
-  %call = call i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr noundef nonnull %data, ptr noundef nonnull %datalen, ptr noundef %errp), !range !5
+  %call = call i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr noundef nonnull %data, ptr noundef nonnull %datalen, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -258,7 +258,7 @@ if.then8:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ivlen.i)
   store ptr null, ptr %key.i, align 8
   store i64 0, ptr %outputlen, align 8
-  %call.i16 = call i32 @qcrypto_secret_lookup(ptr noundef nonnull %2, ptr noundef nonnull %key.i, ptr noundef nonnull %keylen.i, ptr noundef nonnull %local_err), !range !5
+  %call.i16 = call i32 @qcrypto_secret_lookup(ptr noundef nonnull %2, ptr noundef nonnull %key.i, ptr noundef nonnull %keylen.i, ptr noundef nonnull %local_err)
   %cmp.i = icmp slt i32 %call.i16, 0
   br i1 %cmp.i, label %cleanup.thread.i, label %if.end.i
 
@@ -562,4 +562,3 @@ attributes #6 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

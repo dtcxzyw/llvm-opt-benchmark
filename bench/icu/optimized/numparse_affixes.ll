@@ -2276,7 +2276,7 @@ for.body108.us:                                   ; preds = %for.inc137.us, %do.
   %arrayidx111.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %0
   %arrayidx114.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv214
   %call116.us = invoke noundef signext i8 @_ZNK6icu_758numparse4impl12AffixMatcher9compareToERKS2_(ptr noundef nonnull align 8 dereferenceable(28) %arrayidx111.us, ptr noundef nonnull align 8 dereferenceable(28) %arrayidx114.us)
-          to label %invoke.cont115.us unwind label %lpad.loopexit.split-lp.loopexit.split.us, !range !19
+          to label %invoke.cont115.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
 invoke.cont115.us:                                ; preds = %for.body108.us
   %cmp118.us = icmp sgt i8 %call116.us, 0
@@ -2299,7 +2299,7 @@ for.inc137.us:                                    ; preds = %if.then119.us, %inv
   %brmerge = select i1 %exitcond217.not, i1 true, i1 %madeChanges.1.us
   %indvars.iv.next215.mux = select i1 %exitcond217.not, i64 %indvars.iv.next215, i64 1
   %madeChanges.1.us.mux = select i1 %exitcond217.not, i1 %madeChanges.1.us, i1 false
-  br i1 %brmerge, label %for.body108.us, label %for.cond142.preheader, !llvm.loop !20
+  br i1 %brmerge, label %for.body108.us, label %for.cond142.preheader, !llvm.loop !19
 
 lpad.loopexit.split-lp.loopexit.split.us:         ; preds = %for.body108.us
   %lpad.loopexit190.us = landingpad { ptr, i32 }
@@ -2765,7 +2765,7 @@ for.inc:                                          ; preds = %land.lhs.true59, %i
   %numAffixMatchers.2 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.1179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0207, %invoke.cont60 ], [ %numAffixMatchers.0207, %invoke.cont12 ], [ %numAffixMatchers.0207, %invoke.cont ], [ %numAffixMatchers.0207, %if.end15 ], [ %numAffixMatchers.0207, %if.end21 ], [ %numAffixMatchers.0207, %land.lhs.true59 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !20
 
 for.cond142.preheader:                            ; preds = %for.inc137.us, %do.body.preheader
   %cmp143211 = icmp sgt i32 %numAffixMatchers.2, 0
@@ -2787,7 +2787,7 @@ for.body144:                                      ; preds = %for.body144.prehead
 for.inc151:                                       ; preds = %for.body144
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %for.end153, label %for.body144, !llvm.loop !22
+  br i1 %exitcond222.not, label %for.end153, label %for.body144, !llvm.loop !21
 
 for.end153:                                       ; preds = %for.inc151, %for.cond142.preheader
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %sb) #16
@@ -2800,7 +2800,7 @@ return:                                           ; preds = %entry, %for.end153
 declare void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i32 noundef, i1 noundef zeroext, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758numparse4impl12AffixMatcher9compareToERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %rhs) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 -1, 2) i8 @_ZNK6icu_758numparse4impl12AffixMatcher9compareToERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %rhs) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i91 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp.i92 = alloca %"class.icu_75::UnicodeString", align 8
@@ -2826,9 +2826,9 @@ entry:
 
 cond.false.i:                                     ; preds = %entry
   %fPattern.i.i = getelementptr inbounds i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !23
-  %1 = load ptr, ptr %fPattern.i.i, align 8, !noalias !26
-  store ptr %1, ptr %agg.tmp.i.i.i, align 8, !noalias !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !22
+  %1 = load ptr, ptr %fPattern.i.i, align 8, !noalias !25
+  store ptr %1, ptr %agg.tmp.i.i.i, align 8, !noalias !25
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i, i32 noundef -1)
           to label %cleanup.action.i unwind label %lpad.i.i.i
 
@@ -2839,14 +2839,14 @@ common.resume:                                    ; preds = %lpad.i.i.i96, %lpad
 lpad.i.i.i:                                       ; preds = %cond.false.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !26
+  %3 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !25
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i:                                 ; preds = %cond.false.i
-  %4 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !26
+  %4 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !25
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !22
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
@@ -2869,23 +2869,23 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit: ; 
 
 cond.false.i10:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit
   %fPattern.i.i11 = getelementptr inbounds i8, ptr %8, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !29
-  %9 = load ptr, ptr %fPattern.i.i11, align 8, !noalias !32
-  store ptr %9, ptr %agg.tmp.i.i.i7, align 8, !noalias !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !28
+  %9 = load ptr, ptr %fPattern.i.i11, align 8, !noalias !31
+  store ptr %9, ptr %agg.tmp.i.i.i7, align 8, !noalias !31
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i8, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i7, i32 noundef -1)
           to label %cleanup.action.i13 unwind label %lpad.i.i.i12
 
 lpad.i.i.i12:                                     ; preds = %cond.false.i10
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %agg.tmp.i.i.i7, align 8, !noalias !32
+  %11 = load ptr, ptr %agg.tmp.i.i.i7, align 8, !noalias !31
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i13:                               ; preds = %cond.false.i10
-  %12 = load ptr, ptr %agg.tmp.i.i.i7, align 8, !noalias !32
+  %12 = load ptr, ptr %agg.tmp.i.i.i7, align 8, !noalias !31
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !28
   %fUnion.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 8
   %13 = load i16, ptr %fUnion.i.i.i14, align 8
   %cmp.i.i.i15 = icmp slt i16 %13, 0
@@ -2911,23 +2911,23 @@ if.then:                                          ; preds = %_ZN12_GLOBAL__N_16l
 
 cond.false.i24:                                   ; preds = %if.then
   %fPattern.i.i25 = getelementptr inbounds i8, ptr %16, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !35
-  %17 = load ptr, ptr %fPattern.i.i25, align 8, !noalias !38
-  store ptr %17, ptr %agg.tmp.i.i.i21, align 8, !noalias !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !34
+  %17 = load ptr, ptr %fPattern.i.i25, align 8, !noalias !37
+  store ptr %17, ptr %agg.tmp.i.i.i21, align 8, !noalias !37
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i22, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i21, i32 noundef -1)
           to label %cleanup.action.i27 unwind label %lpad.i.i.i26
 
 lpad.i.i.i26:                                     ; preds = %cond.false.i24
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %agg.tmp.i.i.i21, align 8, !noalias !38
+  %19 = load ptr, ptr %agg.tmp.i.i.i21, align 8, !noalias !37
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i27:                               ; preds = %cond.false.i24
-  %20 = load ptr, ptr %agg.tmp.i.i.i21, align 8, !noalias !38
+  %20 = load ptr, ptr %agg.tmp.i.i.i21, align 8, !noalias !37
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !34
   %fUnion.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 8
   %21 = load i16, ptr %fUnion.i.i.i28, align 8
   %cmp.i.i.i29 = icmp slt i16 %21, 0
@@ -2949,23 +2949,23 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit34: 
 
 cond.false.i38:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit34
   %fPattern.i.i39 = getelementptr inbounds i8, ptr %24, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !41
-  %25 = load ptr, ptr %fPattern.i.i39, align 8, !noalias !44
-  store ptr %25, ptr %agg.tmp.i.i.i35, align 8, !noalias !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !40
+  %25 = load ptr, ptr %fPattern.i.i39, align 8, !noalias !43
+  store ptr %25, ptr %agg.tmp.i.i.i35, align 8, !noalias !43
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i36, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i35, i32 noundef -1)
           to label %cleanup.action.i41 unwind label %lpad.i.i.i40
 
 lpad.i.i.i40:                                     ; preds = %cond.false.i38
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %agg.tmp.i.i.i35, align 8, !noalias !44
+  %27 = load ptr, ptr %agg.tmp.i.i.i35, align 8, !noalias !43
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %27) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i41:                               ; preds = %cond.false.i38
-  %28 = load ptr, ptr %agg.tmp.i.i.i35, align 8, !noalias !44
+  %28 = load ptr, ptr %agg.tmp.i.i.i35, align 8, !noalias !43
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !41
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !40
   %fUnion.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i36, i64 8
   %29 = load i16, ptr %fUnion.i.i.i42, align 8
   %cmp.i.i.i43 = icmp slt i16 %29, 0
@@ -2993,23 +2993,23 @@ if.else:                                          ; preds = %_ZN12_GLOBAL__N_16l
 
 cond.false.i52:                                   ; preds = %if.else
   %fPattern.i.i53 = getelementptr inbounds i8, ptr %32, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !47
-  %33 = load ptr, ptr %fPattern.i.i53, align 8, !noalias !50
-  store ptr %33, ptr %agg.tmp.i.i.i49, align 8, !noalias !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !46
+  %33 = load ptr, ptr %fPattern.i.i53, align 8, !noalias !49
+  store ptr %33, ptr %agg.tmp.i.i.i49, align 8, !noalias !49
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i50, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i49, i32 noundef -1)
           to label %cleanup.action.i55 unwind label %lpad.i.i.i54
 
 lpad.i.i.i54:                                     ; preds = %cond.false.i52
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %agg.tmp.i.i.i49, align 8, !noalias !50
+  %35 = load ptr, ptr %agg.tmp.i.i.i49, align 8, !noalias !49
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i55:                               ; preds = %cond.false.i52
-  %36 = load ptr, ptr %agg.tmp.i.i.i49, align 8, !noalias !50
+  %36 = load ptr, ptr %agg.tmp.i.i.i49, align 8, !noalias !49
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !46
   %fUnion.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i50, i64 8
   %37 = load i16, ptr %fUnion.i.i.i56, align 8
   %cmp.i.i.i57 = icmp slt i16 %37, 0
@@ -3032,23 +3032,23 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit62: 
 
 cond.false.i66:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit62
   %fPattern.i.i67 = getelementptr inbounds i8, ptr %40, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !53
-  %41 = load ptr, ptr %fPattern.i.i67, align 8, !noalias !56
-  store ptr %41, ptr %agg.tmp.i.i.i63, align 8, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !52
+  %41 = load ptr, ptr %fPattern.i.i67, align 8, !noalias !55
+  store ptr %41, ptr %agg.tmp.i.i.i63, align 8, !noalias !55
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i64, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i63, i32 noundef -1)
           to label %cleanup.action.i69 unwind label %lpad.i.i.i68
 
 lpad.i.i.i68:                                     ; preds = %cond.false.i66
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %agg.tmp.i.i.i63, align 8, !noalias !56
+  %43 = load ptr, ptr %agg.tmp.i.i.i63, align 8, !noalias !55
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i69:                               ; preds = %cond.false.i66
-  %44 = load ptr, ptr %agg.tmp.i.i.i63, align 8, !noalias !56
+  %44 = load ptr, ptr %agg.tmp.i.i.i63, align 8, !noalias !55
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !53
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !52
   %fUnion.i.i.i70 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 8
   %45 = load i16, ptr %fUnion.i.i.i70, align 8
   %cmp.i.i.i71 = icmp slt i16 %45, 0
@@ -3074,23 +3074,23 @@ if.then13:                                        ; preds = %_ZN12_GLOBAL__N_16l
 
 cond.false.i80:                                   ; preds = %if.then13
   %fPattern.i.i81 = getelementptr inbounds i8, ptr %48, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !59
-  %49 = load ptr, ptr %fPattern.i.i81, align 8, !noalias !62
-  store ptr %49, ptr %agg.tmp.i.i.i77, align 8, !noalias !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !58
+  %49 = load ptr, ptr %fPattern.i.i81, align 8, !noalias !61
+  store ptr %49, ptr %agg.tmp.i.i.i77, align 8, !noalias !61
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i78, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i77, i32 noundef -1)
           to label %cleanup.action.i83 unwind label %lpad.i.i.i82
 
 lpad.i.i.i82:                                     ; preds = %cond.false.i80
   %50 = landingpad { ptr, i32 }
           cleanup
-  %51 = load ptr, ptr %agg.tmp.i.i.i77, align 8, !noalias !62
+  %51 = load ptr, ptr %agg.tmp.i.i.i77, align 8, !noalias !61
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %51) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i83:                               ; preds = %cond.false.i80
-  %52 = load ptr, ptr %agg.tmp.i.i.i77, align 8, !noalias !62
+  %52 = load ptr, ptr %agg.tmp.i.i.i77, align 8, !noalias !61
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %52) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !58
   %fUnion.i.i.i84 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 8
   %53 = load i16, ptr %fUnion.i.i.i84, align 8
   %cmp.i.i.i85 = icmp slt i16 %53, 0
@@ -3112,23 +3112,23 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit90: 
 
 cond.false.i94:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit90
   %fPattern.i.i95 = getelementptr inbounds i8, ptr %56, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !65
-  %57 = load ptr, ptr %fPattern.i.i95, align 8, !noalias !68
-  store ptr %57, ptr %agg.tmp.i.i.i91, align 8, !noalias !68
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !64
+  %57 = load ptr, ptr %fPattern.i.i95, align 8, !noalias !67
+  store ptr %57, ptr %agg.tmp.i.i.i91, align 8, !noalias !67
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i92, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i91, i32 noundef -1)
           to label %cleanup.action.i97 unwind label %lpad.i.i.i96
 
 lpad.i.i.i96:                                     ; preds = %cond.false.i94
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %agg.tmp.i.i.i91, align 8, !noalias !68
+  %59 = load ptr, ptr %agg.tmp.i.i.i91, align 8, !noalias !67
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #16, !srcloc !12
   br label %common.resume
 
 cleanup.action.i97:                               ; preds = %cond.false.i94
-  %60 = load ptr, ptr %agg.tmp.i.i.i91, align 8, !noalias !68
+  %60 = load ptr, ptr %agg.tmp.i.i.i91, align 8, !noalias !67
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !65
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !64
   %fUnion.i.i.i98 = getelementptr inbounds i8, ptr %ref.tmp.i92, i64 8
   %61 = load i16, ptr %fUnion.i.i.i98, align 8
   %cmp.i.i.i99 = icmp slt i16 %61, 0
@@ -3203,9 +3203,9 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then9:                                         ; preds = %if.end
   %4 = load ptr, ptr %fPrefix, align 8
   %fPattern.i = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !71
-  %5 = load ptr, ptr %fPattern.i, align 8, !noalias !74
-  store ptr %5, ptr %agg.tmp.i.i, align 8, !noalias !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !70
+  %5 = load ptr, ptr %fPattern.i, align 8, !noalias !73
+  store ptr %5, ptr %agg.tmp.i.i, align 8, !noalias !73
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i, i32 noundef -1)
           to label %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %lpad.i.i
 
@@ -3216,14 +3216,14 @@ common.resume:                                    ; preds = %lpad.i.i18, %lpad.i
 lpad.i.i:                                         ; preds = %if.then9
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !74
+  %7 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !73
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #16, !srcloc !12
   br label %common.resume
 
 _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %if.then9
-  %8 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !74
+  %8 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !73
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !71
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !70
   %call12 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
   br label %return.sink.split
 
@@ -3262,23 +3262,23 @@ if.end24:                                         ; preds = %lor.lhs.false19
 if.then35:                                        ; preds = %if.end24
   %14 = load ptr, ptr %fSuffix, align 8
   %fPattern.i17 = getelementptr inbounds i8, ptr %14, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i16), !noalias !77
-  %15 = load ptr, ptr %fPattern.i17, align 8, !noalias !80
-  store ptr %15, ptr %agg.tmp.i.i16, align 8, !noalias !80
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i16), !noalias !76
+  %15 = load ptr, ptr %fPattern.i17, align 8, !noalias !79
+  store ptr %15, ptr %agg.tmp.i.i16, align 8, !noalias !79
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp36, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i16, i32 noundef -1)
           to label %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit19 unwind label %lpad.i.i18
 
 lpad.i.i18:                                       ; preds = %if.then35
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %agg.tmp.i.i16, align 8, !noalias !80
+  %17 = load ptr, ptr %agg.tmp.i.i16, align 8, !noalias !79
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #16, !srcloc !12
   br label %common.resume
 
 _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit19: ; preds = %if.then35
-  %18 = load ptr, ptr %agg.tmp.i.i16, align 8, !noalias !80
+  %18 = load ptr, ptr %agg.tmp.i.i16, align 8, !noalias !79
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i16), !noalias !77
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i16), !noalias !76
   %call39 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %suffix, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp36) #16
   br label %return.sink.split
 
@@ -3314,9 +3314,9 @@ land.lhs.true:                                    ; preds = %entry
 
 land.rhs:                                         ; preds = %entry
   %fPattern.i = getelementptr inbounds i8, ptr %affix, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !83
-  %1 = load ptr, ptr %fPattern.i, align 8, !noalias !86
-  store ptr %1, ptr %agg.tmp.i.i, align 8, !noalias !86
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !82
+  %1 = load ptr, ptr %fPattern.i, align 8, !noalias !85
+  store ptr %1, ptr %agg.tmp.i.i, align 8, !noalias !85
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i, i32 noundef -1)
           to label %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %lpad.i.i
 
@@ -3327,14 +3327,14 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i
 lpad.i.i:                                         ; preds = %land.rhs
   %2 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !86
+  %3 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !85
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #16, !srcloc !12
   br label %common.resume
 
 _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %land.rhs
-  %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !86
+  %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !85
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !83
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !82
   %fUnion.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %5, 1
@@ -3544,23 +3544,23 @@ invoke.cont8:                                     ; preds = %invoke.cont
 
 cond.true:                                        ; preds = %invoke.cont8
   %fPattern.i = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !89
-  %2 = load ptr, ptr %fPattern.i, align 8, !noalias !92
-  store ptr %2, ptr %agg.tmp.i.i, align 8, !noalias !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !88
+  %2 = load ptr, ptr %fPattern.i, align 8, !noalias !91
+  store ptr %2, ptr %agg.tmp.i.i, align 8, !noalias !91
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i, i32 noundef -1)
           to label %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %cond.true
   %3 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !92
+  %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !91
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !12
   br label %ehcleanup43
 
 _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %cond.true
-  %5 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !92
+  %5 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !91
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !89
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !88
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont8
@@ -3587,23 +3587,23 @@ invoke.cont21:                                    ; preds = %invoke.cont19
 
 cond.true24:                                      ; preds = %invoke.cont21
   %fPattern.i12 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i11), !noalias !95
-  %7 = load ptr, ptr %fPattern.i12, align 8, !noalias !98
-  store ptr %7, ptr %agg.tmp.i.i11, align 8, !noalias !98
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i11), !noalias !94
+  %7 = load ptr, ptr %fPattern.i12, align 8, !noalias !97
+  store ptr %7, ptr %agg.tmp.i.i11, align 8, !noalias !97
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp22, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i11, i32 noundef -1)
           to label %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit15 unwind label %lpad.i.i13
 
 lpad.i.i13:                                       ; preds = %cond.true24
   %8 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp.i.i11, align 8, !noalias !98
+  %9 = load ptr, ptr %agg.tmp.i.i11, align 8, !noalias !97
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #16, !srcloc !12
   br label %ehcleanup39
 
 _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit15: ; preds = %cond.true24
-  %10 = load ptr, ptr %agg.tmp.i.i11, align 8, !noalias !98
+  %10 = load ptr, ptr %agg.tmp.i.i11, align 8, !noalias !97
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #16, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i11), !noalias !95
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i11), !noalias !94
   br label %cond.end30
 
 cond.false28:                                     ; preds = %invoke.cont21
@@ -4016,85 +4016,84 @@ attributes #19 = { builtin nounwind }
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
 !18 = distinct !{!18, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!19 = !{i8 -1, i8 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!25 = distinct !{!25, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!26 = !{!27, !24}
-!27 = distinct !{!27, !28, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!28 = distinct !{!28, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!31 = distinct !{!31, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!32 = !{!33, !30}
-!33 = distinct !{!33, !34, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!34 = distinct !{!34, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!37 = distinct !{!37, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!38 = !{!39, !36}
-!39 = distinct !{!39, !40, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!40 = distinct !{!40, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!43 = distinct !{!43, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!44 = !{!45, !42}
-!45 = distinct !{!45, !46, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!46 = distinct !{!46, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!49 = distinct !{!49, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!50 = !{!51, !48}
-!51 = distinct !{!51, !52, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!52 = distinct !{!52, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!55 = distinct !{!55, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!56 = !{!57, !54}
-!57 = distinct !{!57, !58, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!58 = distinct !{!58, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!61 = distinct !{!61, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!62 = !{!63, !60}
-!63 = distinct !{!63, !64, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!64 = distinct !{!64, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!67 = distinct !{!67, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!68 = !{!69, !66}
-!69 = distinct !{!69, !70, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!70 = distinct !{!70, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!73 = distinct !{!73, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!74 = !{!75, !72}
-!75 = distinct !{!75, !76, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!76 = distinct !{!76, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!79 = distinct !{!79, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!80 = !{!81, !78}
-!81 = distinct !{!81, !82, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!82 = distinct !{!82, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!85 = distinct !{!85, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!86 = !{!87, !84}
-!87 = distinct !{!87, !88, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!88 = distinct !{!88, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!91 = distinct !{!91, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!92 = !{!93, !90}
-!93 = distinct !{!93, !94, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!94 = distinct !{!94, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
-!97 = distinct !{!97, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
-!98 = !{!99, !96}
-!99 = distinct !{!99, !100, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
-!100 = distinct !{!100, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!25 = !{!26, !23}
+!26 = distinct !{!26, !27, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!27 = distinct !{!27, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!31 = !{!32, !29}
+!32 = distinct !{!32, !33, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!33 = distinct !{!33, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!36 = distinct !{!36, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!37 = !{!38, !35}
+!38 = distinct !{!38, !39, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!42 = distinct !{!42, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!43 = !{!44, !41}
+!44 = distinct !{!44, !45, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!45 = distinct !{!45, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!48 = distinct !{!48, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!49 = !{!50, !47}
+!50 = distinct !{!50, !51, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!51 = distinct !{!51, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!54 = distinct !{!54, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!55 = !{!56, !53}
+!56 = distinct !{!56, !57, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!57 = distinct !{!57, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!60 = distinct !{!60, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!61 = !{!62, !59}
+!62 = distinct !{!62, !63, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!63 = distinct !{!63, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!66 = distinct !{!66, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!67 = !{!68, !65}
+!68 = distinct !{!68, !69, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!69 = distinct !{!69, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!72 = distinct !{!72, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!73 = !{!74, !71}
+!74 = distinct !{!74, !75, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!75 = distinct !{!75, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!78 = distinct !{!78, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!79 = !{!80, !77}
+!80 = distinct !{!80, !81, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!81 = distinct !{!81, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!84 = distinct !{!84, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!85 = !{!86, !83}
+!86 = distinct !{!86, !87, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!87 = distinct !{!87, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!90 = distinct !{!90, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!91 = !{!92, !89}
+!92 = distinct !{!92, !93, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!93 = distinct !{!93, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv: %agg.result"}
+!96 = distinct !{!96, !"_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv"}
+!97 = !{!98, !95}
+!98 = distinct !{!98, !99, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: %agg.result"}
+!99 = distinct !{!99, !"_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}

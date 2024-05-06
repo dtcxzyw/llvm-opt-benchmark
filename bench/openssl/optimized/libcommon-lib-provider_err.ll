@@ -136,7 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.127 = private unnamed_addr constant [20 x i8] c"xts duplicated keys\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_PROV_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_PROV_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 478150840) #2
   %cmp = icmp eq ptr %call, null

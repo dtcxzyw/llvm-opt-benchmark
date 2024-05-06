@@ -34,7 +34,7 @@ define internal noundef i32 @stdinstream_getc(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stdinstream_gets(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @stdinstream_gets(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

@@ -17,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 @g_epoll_ops = internal constant %struct.file_operations { ptr @epoll_do_open, ptr @epoll_do_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @epoll_do_poll, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @epoll_create(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @epoll_do_create(i32 noundef %0, i32 noundef 0), !range !6
+define range(i32 -1, -2147483648) i32 @epoll_create(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @epoll_do_create(i32 noundef %0, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @epoll_do_create(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @epoll_do_create(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %4 = zext nneg i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 80
@@ -72,7 +72,7 @@ define internal fastcc i32 @epoll_do_create(i32 noundef %0, i32 noundef %1) unna
   store ptr %27, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %30, label %25, !llvm.loop !7
+  br i1 %exitcond.not, label %30, label %25, !llvm.loop !6
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %7, i64 4
@@ -101,8 +101,8 @@ define internal fastcc i32 @epoll_do_create(i32 noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @epoll_create1(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @epoll_do_create(i32 noundef 8, i32 noundef %0), !range !6
+define range(i32 -1, -2147483648) i32 @epoll_create1(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc i32 @epoll_do_create(i32 noundef 8, i32 noundef %0)
   ret i32 %2
 }
 
@@ -115,7 +115,7 @@ define void @epoll_close(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @epoll_ctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @epoll_ctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #9
@@ -177,7 +177,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   %30 = getelementptr inbounds i8, ptr %.0256335, i64 8
   %.0256 = load ptr, ptr %30, align 8
   %.not282 = icmp eq ptr %.0256, %27
-  br i1 %.not282, label %._crit_edge338, label %.lr.ph337, !llvm.loop !9
+  br i1 %.not282, label %._crit_edge338, label %.lr.ph337, !llvm.loop !8
 
 .lr.ph337:                                        ; preds = %26, %29
   %.0256335 = phi ptr [ %.0256, %29 ], [ %.0256333, %26 ]
@@ -197,7 +197,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   %37 = getelementptr inbounds i8, ptr %.1341, i64 8
   %.1 = load ptr, ptr %37, align 8
   %.not283 = icmp eq ptr %.1, %34
-  br i1 %.not283, label %._crit_edge344, label %.lr.ph343, !llvm.loop !10
+  br i1 %.not283, label %._crit_edge344, label %.lr.ph343, !llvm.loop !9
 
 .lr.ph343:                                        ; preds = %._crit_edge338, %36
   %.1341 = phi ptr [ %.1, %36 ], [ %.1339, %._crit_edge338 ]
@@ -217,7 +217,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   %44 = getelementptr inbounds i8, ptr %.2347, i64 8
   %.2 = load ptr, ptr %44, align 8
   %.not284 = icmp eq ptr %.2, %41
-  br i1 %.not284, label %._crit_edge350, label %.lr.ph349, !llvm.loop !11
+  br i1 %.not284, label %._crit_edge350, label %.lr.ph349, !llvm.loop !10
 
 .lr.ph349:                                        ; preds = %._crit_edge344, %43
   %.2347 = phi ptr [ %.2, %43 ], [ %.2345, %._crit_edge344 ]
@@ -274,7 +274,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   %71 = load i32, ptr %19, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph353, label %._crit_edge354, !llvm.loop !12
+  br i1 %73, label %.lr.ph353, label %._crit_edge354, !llvm.loop !11
 
 ._crit_edge354:                                   ; preds = %.lr.ph353, %59
   %.lcssa = phi i32 [ %65, %59 ], [ %71, %.lr.ph353 ]
@@ -385,7 +385,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %125 = getelementptr inbounds i8, ptr %.3318, i64 8
   %.3 = load ptr, ptr %125, align 8
   %.not279 = icmp eq ptr %.3, %107
-  br i1 %.not279, label %._crit_edge321, label %.lr.ph320, !llvm.loop !13
+  br i1 %.not279, label %._crit_edge321, label %.lr.ph320, !llvm.loop !12
 
 ._crit_edge321:                                   ; preds = %124, %106
   %126 = getelementptr inbounds i8, ptr %19, i64 96
@@ -424,7 +424,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %142 = getelementptr inbounds i8, ptr %.4324, i64 8
   %.4 = load ptr, ptr %142, align 8
   %.not280 = icmp eq ptr %.4, %126
-  br i1 %.not280, label %._crit_edge327, label %.lr.ph326, !llvm.loop !14
+  br i1 %.not280, label %._crit_edge327, label %.lr.ph326, !llvm.loop !13
 
 ._crit_edge327:                                   ; preds = %141, %._crit_edge321
   %143 = getelementptr inbounds i8, ptr %19, i64 112
@@ -463,7 +463,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %159 = getelementptr inbounds i8, ptr %.5330, i64 8
   %.5 = load ptr, ptr %159, align 8
   %.not281 = icmp eq ptr %.5, %143
-  br i1 %.not281, label %.loopexit290, label %.lr.ph332, !llvm.loop !15
+  br i1 %.not281, label %.loopexit290, label %.lr.ph332, !llvm.loop !14
 
 160:                                              ; preds = %25
   %161 = getelementptr inbounds i8, ptr %19, i64 80
@@ -510,7 +510,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %184 = getelementptr inbounds i8, ptr %.6304, i64 8
   %.6 = load ptr, ptr %184, align 8
   %.not = icmp eq ptr %.6, %161
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %183, %160
   %185 = getelementptr inbounds i8, ptr %19, i64 96
@@ -574,7 +574,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %216 = getelementptr inbounds i8, ptr %.7307, i64 8
   %.7 = load ptr, ptr %216, align 8
   %.not275 = icmp eq ptr %.7, %185
-  br i1 %.not275, label %._crit_edge310, label %.lr.ph309, !llvm.loop !17
+  br i1 %.not275, label %._crit_edge310, label %.lr.ph309, !llvm.loop !16
 
 ._crit_edge310:                                   ; preds = %215, %._crit_edge
   %217 = getelementptr inbounds i8, ptr %19, i64 112
@@ -630,7 +630,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   %244 = getelementptr inbounds i8, ptr %.8313, i64 8
   %.8 = load ptr, ptr %244, align 8
   %.not276 = icmp eq ptr %.8, %217
-  br i1 %.not276, label %.loopexit290, label %.lr.ph315, !llvm.loop !18
+  br i1 %.not276, label %.loopexit290, label %.lr.ph315, !llvm.loop !17
 
 .loopexit290:                                     ; preds = %243, %158, %._crit_edge310, %._crit_edge327, %102, %234, %190, %206, %166, %171, %148, %131, %112
   %245 = call i32 @nxmutex_unlock(ptr noundef nonnull %22) #9
@@ -783,7 +783,7 @@ epoll_head_from_fd.exit:                          ; preds = %16
   store ptr %.03443.i, ptr %45, align 8
   store ptr %.03443.i, ptr %30, align 8
   %.not.i28 = icmp eq ptr %.03345.i, %27
-  br i1 %.not.i28, label %.lr.ph, label %31, !llvm.loop !19
+  br i1 %.not.i28, label %.lr.ph, label %31, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %38, %26
   %46 = call i32 @nxmutex_unlock(ptr noundef nonnull %23) #9
@@ -866,7 +866,7 @@ epoll_head_from_fd.exit:                          ; preds = %16
   store ptr %.03443.i32, ptr %86, align 8
   store ptr %.03443.i32, ptr %53, align 8
   %.not.i35 = icmp eq ptr %.03345.i34, %51
-  br i1 %.not.i35, label %epoll_setup.exit39, label %.lr.ph.i31, !llvm.loop !19
+  br i1 %.not.i35, label %epoll_setup.exit39, label %.lr.ph.i31, !llvm.loop !18
 
 epoll_setup.exit39:                               ; preds = %79, %71
   %87 = call i32 @nxmutex_unlock(ptr noundef nonnull %23) #9
@@ -970,7 +970,7 @@ define internal fastcc i32 @epoll_teardown(ptr noundef %0, ptr nocapture noundef
 40:                                               ; preds = %.sink.split, %11
   %.1 = phi i32 [ %.05965, %11 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %.068, %6
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %40, %3
   %.059.lcssa = phi i32 [ 0, %3 ], [ %.1, %40 ]
@@ -1064,7 +1064,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   store ptr %.03443.i, ptr %43, align 8
   store ptr %.03443.i, ptr %28, align 8
   %.not.i27 = icmp eq ptr %.03345.i, %25
-  br i1 %.not.i27, label %.lr.ph, label %29, !llvm.loop !19
+  br i1 %.not.i27, label %.lr.ph, label %29, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %36, %24
   %44 = call i32 @nxmutex_unlock(ptr noundef nonnull %21) #9
@@ -1146,7 +1146,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   store ptr %.03443.i31, ptr %80, align 8
   store ptr %.03443.i31, ptr %51, align 8
   %.not.i34 = icmp eq ptr %.03345.i33, %49
-  br i1 %.not.i34, label %epoll_setup.exit38, label %.lr.ph.i30, !llvm.loop !19
+  br i1 %.not.i34, label %epoll_setup.exit38, label %.lr.ph.i30, !llvm.loop !18
 
 epoll_setup.exit38:                               ; preds = %73, %65
   %81 = call i32 @nxmutex_unlock(ptr noundef nonnull %21) #9
@@ -1236,7 +1236,7 @@ define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
   %21 = getelementptr inbounds i8, ptr %.03035, i64 8
   %.030 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.030, %16
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %22 = getelementptr inbounds i8, ptr %3, i64 144
@@ -1256,7 +1256,7 @@ define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
   store ptr %26, ptr %27, align 8
   tail call void @free(ptr noundef %.137)
   %.not32 = icmp eq ptr %.031, %22
-  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !22
+  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !21
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   tail call void @free(ptr noundef %3)
@@ -1308,20 +1308,19 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 -2147483648}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

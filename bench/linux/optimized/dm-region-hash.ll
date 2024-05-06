@@ -97,7 +97,7 @@ define dso_local i64 @dm_rh_get_region_key(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @dm_rh_get_region_size(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @dm_rh_get_region_size(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   ret i64 %3

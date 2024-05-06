@@ -52,7 +52,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %13 [
     i32 16, label %14
     i32 21, label %2
@@ -110,7 +110,7 @@ define dso_local noundef i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   switch i32 %0, label %15 [
     i32 20, label %14
     i32 1186, label %13

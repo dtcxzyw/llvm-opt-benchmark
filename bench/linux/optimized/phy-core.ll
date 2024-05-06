@@ -230,7 +230,7 @@ define dso_local noundef nonnull ptr @phy_rate_matching_to_str(i32 noundef %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @phy_interface_num_ports(i32 noundef %0) #1 align 16 {
+define dso_local noundef range(i32 0, 6) i32 @phy_interface_num_ports(i32 noundef %0) #1 align 16 {
   switch i32 %0, label %8 [
     i32 33, label %5
     i32 1, label %2
@@ -657,7 +657,7 @@ define dso_local void @phy_check_downshift(ptr noundef %0) #1 align 16 {
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @phy_speed_down_core(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !18
@@ -1080,7 +1080,7 @@ define dso_local i32 @phy_modify_changed(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 728
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 792
@@ -1091,7 +1091,7 @@ define dso_local i32 @__phy_modify(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 728
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1152
@@ -1169,7 +1169,7 @@ define dso_local i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__phy_modify_mmd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__phy_modify_mmd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = tail call i32 @__phy_read_mmd(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %20, label %8
@@ -1197,7 +1197,7 @@ define dso_local i32 @__phy_modify_mmd(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_modify_mmd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @phy_modify_mmd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1152
@@ -1555,7 +1555,7 @@ define dso_local i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_modify_paged(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @phy_modify_paged(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = tail call i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4)
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
   ret i32 %7

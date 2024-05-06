@@ -129,7 +129,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
   br i1 %53, label %.lr.ph.i.i, label %Abc_ManCollectLatches.exit.i, !llvm.loop !6
 
 Abc_ManCollectLatches.exit.i:                     ; preds = %49, %Abc_NtkIncrementTravId.exit.i.i
-  %54 = tail call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %9, i32 noundef %7, i32 noundef %1, i32 noundef %2), !range !7
+  %54 = tail call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %9, i32 noundef %7, i32 noundef %1, i32 noundef %2)
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %55, label %Abc_Clock.exit.i
 
@@ -204,7 +204,7 @@ tailrecurse.i.i:                                  ; preds = %Abc_Clock.exit.i, %
   %75 = sub nsw i32 %.tr3034.i.i, %.tr2933.i.i
   %76 = sdiv i32 %75, 2
   %77 = add nsw i32 %76, %.tr2933.i.i
-  %78 = call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %9, i32 noundef %77, i32 noundef %1, i32 noundef %2), !range !7
+  %78 = call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef readonly %0, ptr noundef readonly %8, ptr noundef nonnull readonly %9, i32 noundef %77, i32 noundef %1, i32 noundef %2)
   %.not.i75.i = icmp eq i32 %78, 0
   %..tr29.i.i = select i1 %.not.i75.i, i32 %77, i32 %.tr2933.i.i
   %.tr30..i.i = select i1 %.not.i75.i, i32 %.tr3034.i.i, i32 %77
@@ -217,7 +217,7 @@ Abc_NtkRetimeSearch_rec.exit.i:                   ; preds = %tailrecurse.i.i, %A
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %81 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %82 = call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %9, i32 noundef %.tr30.lcssa.i.i, i32 noundef %1, i32 noundef %2), !range !7
+  %82 = call fastcc i32 @Abc_NtkRetimeForPeriod(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %9, i32 noundef %.tr30.lcssa.i.i, i32 noundef %1, i32 noundef %2)
   %83 = getelementptr inbounds i8, ptr %0, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr i8, ptr %84, i64 4
@@ -262,7 +262,7 @@ Abc_NtkRetimeSearch_rec.exit.i:                   ; preds = %tailrecurse.i.i, %A
   %.val.i = load i32, ptr %103, align 4
   %104 = sext i32 %.val.i to i64
   %105 = icmp slt i64 %indvars.iv.next.i, %104
-  br i1 %105, label %.lr.ph.i, label %.critedge.i, !llvm.loop !8
+  br i1 %105, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %101, %Abc_NtkRetimeSearch_rec.exit.i
   %106 = phi ptr [ %84, %Abc_NtkRetimeSearch_rec.exit.i ], [ %102, %101 ]
@@ -352,7 +352,7 @@ Vec_IntStart.exit84.i:                            ; preds = %115, %Vec_IntAlloc.
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %144 = sext i32 %.val58.i to i64
   %145 = icmp slt i64 %indvars.iv.next99.i, %144
-  br i1 %145, label %122, label %.critedge2.i, !llvm.loop !9
+  br i1 %145, label %122, label %.critedge2.i, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %143, %Vec_IntStart.exit84.i
   %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.tr30.lcssa.i.i)
@@ -566,7 +566,7 @@ declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
@@ -613,7 +613,7 @@ define internal fastcc noundef i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef
   %.val = load i32, ptr %27, align 4
   %28 = sext i32 %.val to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.critedge.preheader, !llvm.loop !10
+  br i1 %29, label %.lr.ph, label %.critedge.preheader, !llvm.loop !9
 
 30:                                               ; preds = %.lr.ph67, %.critedge
   %.not66 = phi i1 [ false, %.lr.ph67 ], [ %.not, %.critedge ]
@@ -666,7 +666,7 @@ define internal fastcc noundef i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0302.i, i32 %48)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.i, label %40, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge2.i, label %40, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %40, %.lr.ph6.i
   %.030.lcssa.i = phi i32 [ -1000000000, %.lr.ph6.i ], [ %spec.select.i, %40 ]
@@ -691,7 +691,7 @@ define internal fastcc noundef i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %57 = sext i32 %.val36.i to i64
   %58 = icmp slt i64 %indvars.iv.next13.i, %57
-  br i1 %58, label %.lr.ph6.i, label %.critedge.preheader.i, !llvm.loop !12
+  br i1 %58, label %.lr.ph6.i, label %.critedge.preheader.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
@@ -739,7 +739,7 @@ define internal fastcc noundef i32 @Abc_NtkRetimeForPeriod(ptr nocapture noundef
   %.val.i = load i32, ptr %13, align 4
   %84 = sext i32 %.val.i to i64
   %85 = icmp slt i64 %indvars.iv.next16.i, %84
-  br i1 %85, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit, !llvm.loop !13
+  br i1 %85, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit, !llvm.loop !12
 
 Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.critedge.preheader.i
   %.not29 = icmp eq i32 %.0.lcssa.i, 0
@@ -761,7 +761,7 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
 90:                                               ; preds = %91
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i37
-  br i1 %exitcond.not.i42, label %.critedge, label %91, !llvm.loop !14
+  br i1 %exitcond.not.i42, label %.critedge, label %91, !llvm.loop !13
 
 91:                                               ; preds = %90, %.lr.ph.i36
   %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i41, %90 ]
@@ -789,7 +789,7 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
   %104 = add nuw i32 %.02765, 1
   %.not = icmp sge i32 %.02765, %4
   %exitcond = icmp eq i32 %.02765, %4
-  br i1 %exitcond, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !15
+  br i1 %exitcond, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !14
 
 Abc_NtkRetimePosOverLimit.exit.loopexit:          ; preds = %91
   %105 = select i1 %.not66, ptr @.str.4, ptr @.str.5
@@ -918,7 +918,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -968,7 +968,7 @@ attributes #14 = { nounwind allocsize(1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -977,4 +977,3 @@ attributes #14 = { nounwind allocsize(1) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

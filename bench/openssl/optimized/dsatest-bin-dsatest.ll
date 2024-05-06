@@ -121,7 +121,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.100 = private unnamed_addr constant [32 x i8] c"EVP_PKEY_param_check(check_ctx)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @dsa_test) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @dsa_keygen_test) #2
@@ -134,7 +134,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_test() #0 {
+define internal range(i32 0, 2) i32 @dsa_test() #0 {
 entry:
   %counter = alloca i32, align 4
   %buf = alloca [256 x i8], align 16
@@ -253,7 +253,7 @@ end:                                              ; preds = %if.end68, %if.end60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_keygen_test() #0 {
+define internal range(i32 0, 2) i32 @dsa_keygen_test() #0 {
 entry:
   %param_key = alloca ptr, align 8
   %key = alloca ptr, align 8
@@ -527,7 +527,7 @@ end:                                              ; preds = %lor.lhs.false137, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dsa_sig_infinite_loop() #0 {
+define internal range(i32 0, 2) i32 @test_dsa_sig_infinite_loop() #0 {
 entry:
   %msg = alloca [1 x i8], align 1
   %signature_len = alloca i32, align 4
@@ -705,7 +705,7 @@ err:                                              ; preds = %if.end107, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dsa_sig_neg_param() #0 {
+define internal range(i32 0, 2) i32 @test_dsa_sig_neg_param() #0 {
 entry:
   %msg = alloca [1 x i8], align 1
   %signature_len = alloca i32, align 4
@@ -829,7 +829,7 @@ if.end71:                                         ; preds = %if.then70, %err
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dsa_default_paramgen_validate(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_dsa_default_paramgen_validate(i32 noundef %i) #0 {
 entry:
   %params = alloca ptr, align 8
   store ptr null, ptr %params, align 8
@@ -893,7 +893,7 @@ declare ptr @BN_GENCB_new() local_unnamed_addr #1
 declare void @BN_GENCB_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_cb(i32 noundef %p, i32 %n, ptr nocapture readnone %arg) #0 {
+define internal range(i32 0, 2) i32 @dsa_cb(i32 noundef %p, i32 %n, ptr nocapture readnone %arg) #0 {
 entry:
   switch i32 %p, label %if.end4 [
     i32 0, label %if.end4.sink.split

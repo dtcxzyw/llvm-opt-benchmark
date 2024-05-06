@@ -795,7 +795,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %call1 to i16
+  %conv = trunc nuw i64 %call1 to i16
   %count3 = getelementptr inbounds i8, ptr %0, i64 48
   store i16 %conv, ptr %count3, align 8, !tbaa !21
   br label %if.end
@@ -1999,7 +1999,7 @@ declare noundef i32 @_ZN9LuaHelper9readParamIiEET_P9lua_Statei(ptr noundef, i32 
 declare noundef i32 @_Z19calculateResultWearjt(i32 noundef, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12LuaItemStack21l_get_wear_bar_paramsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12LuaItemStack21l_get_wear_bar_paramsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<float, std::pair<const float, irr::video::SColor>, std::_Select1st<std::pair<const float, irr::video::SColor>>, std::less<float>>::_Alloc_node", align 8
   %params = alloca %"class.std::optional", align 8
@@ -4332,7 +4332,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

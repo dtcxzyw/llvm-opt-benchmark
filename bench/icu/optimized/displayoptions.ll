@@ -162,7 +162,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6
@@ -209,7 +209,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6
@@ -253,7 +253,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6

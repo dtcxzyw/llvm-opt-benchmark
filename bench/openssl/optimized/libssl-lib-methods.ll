@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @DTLS_client_method.DTLS_client_method_data = internal constant %struct.ssl_method_st { i32 131071, i32 0, i64 0, ptr @ossl_ssl_connection_new, ptr @ossl_ssl_connection_free, ptr @ossl_ssl_connection_reset, ptr @dtls1_new, ptr @dtls1_clear, ptr @dtls1_free, ptr @ssl_undefined_function, ptr @ossl_statem_connect, ptr @ssl3_read, ptr @ssl3_peek, ptr @ssl3_write, ptr @dtls1_shutdown, ptr @ssl3_renegotiate, ptr @ssl3_renegotiate_check, ptr @dtls1_read_bytes, ptr @dtls1_write_app_data_bytes, ptr @dtls1_dispatch_alert, ptr @dtls1_ctrl, ptr @ssl3_ctx_ctrl, ptr @ssl3_get_cipher_by_char, ptr @ssl3_put_cipher_by_char, ptr @ssl3_pending, ptr @ssl3_num_ciphers, ptr @ssl3_get_cipher, ptr @dtls1_default_timeout, ptr @DTLSv1_2_enc_data, ptr @ssl_undefined_void_function, ptr @ssl3_callback_ctrl, ptr @ssl3_ctx_callback_ctrl }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLS_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLS_method() local_unnamed_addr #0 {
 entry:
   ret ptr @TLS_method.TLS_method_data
 }
@@ -101,31 +101,31 @@ declare i64 @ssl3_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) #1
 declare i64 @ssl3_ctx_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_3_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_3_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_3_method.tlsv1_3_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_2_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_2_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_method.tlsv1_2_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_method.tlsv1_1_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_method.tlsv1_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLS_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLS_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @TLS_server_method.TLS_server_method_data
 }
@@ -133,61 +133,61 @@ entry:
 declare i32 @ssl_undefined_function(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_3_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_3_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_3_server_method.tlsv1_3_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_2_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_2_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_server_method.tlsv1_2_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_server_method.tlsv1_1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_server_method.tlsv1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLS_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLS_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @TLS_client_method.TLS_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_3_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_3_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_3_client_method.tlsv1_3_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_2_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_2_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_client_method.tlsv1_2_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_client_method.tlsv1_1_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tlsv1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @tlsv1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_client_method.tlsv1_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_method.dtlsv1_method_data
 }
@@ -211,145 +211,145 @@ declare i64 @dtls1_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) #1
 declare i64 @dtls1_default_timeout() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_2_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_2_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_method.dtlsv1_2_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLS_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLS_method() local_unnamed_addr #0 {
 entry:
   ret ptr @DTLS_method.DTLS_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_server_method.dtlsv1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_2_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_2_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_server_method.dtlsv1_2_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLS_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLS_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @DTLS_server_method.DTLS_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_client_method.dtlsv1_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtls_bad_ver_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtls_bad_ver_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtls_bad_ver_client_method.dtls_bad_ver_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dtlsv1_2_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @dtlsv1_2_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_client_method.dtlsv1_2_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLS_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLS_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @DTLS_client_method.DTLS_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_2_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_2_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_method.tlsv1_2_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_2_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_2_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_server_method.tlsv1_2_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_2_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_2_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_2_client_method.tlsv1_2_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_method.tlsv1_1_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_server_method.tlsv1_1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_1_client_method.tlsv1_1_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_method.tlsv1_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_server_method.tlsv1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @TLSv1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @TLSv1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @tlsv1_client_method.tlsv1_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_2_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_2_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_method.dtlsv1_2_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_2_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_2_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_server_method.dtlsv1_2_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_2_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_2_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_2_client_method.dtlsv1_2_client_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_method.dtlsv1_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_server_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_server_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_server_method.dtlsv1_server_method_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @DTLSv1_client_method() local_unnamed_addr #0 {
+define noundef nonnull ptr @DTLSv1_client_method() local_unnamed_addr #0 {
 entry:
   ret ptr @dtlsv1_client_method.dtlsv1_client_method_data
 }

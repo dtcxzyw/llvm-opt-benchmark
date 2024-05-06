@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32i_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -369,7 +369,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = and i16 %162, 255
   %164 = mul nuw i16 %163, %161
   %165 = lshr i16 %164, 8
-  %166 = trunc i16 %165 to i8
+  %166 = trunc nuw i16 %165 to i8
   store i8 %166, ptr %157, align 1
   br label %197
 
@@ -383,7 +383,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %174 = and i32 %173, 65535
   %175 = mul nuw i32 %174, %172
   %176 = lshr i32 %175, 16
-  %177 = trunc i32 %176 to i16
+  %177 = trunc nuw i32 %176 to i16
   store i16 %177, ptr %168, align 2
   br label %197
 
@@ -396,7 +396,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %180, 4294967295
   %184 = mul nuw i64 %.mask, %183
   %185 = lshr i64 %184, 32
-  %186 = trunc i64 %185 to i32
+  %186 = trunc nuw i64 %185 to i32
   store i32 %186, ptr %179, align 4
   br label %197
 
@@ -409,7 +409,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %193 = zext i64 %189 to i128
   %194 = mul nuw i128 %192, %193
   %195 = lshr i128 %194, 64
-  %196 = trunc i128 %195 to i64
+  %196 = trunc nuw i128 %195 to i64
   store i64 %196, ptr %188, align 8
   br label %197
 
@@ -750,7 +750,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = and i16 %162, 255
   %164 = mul nuw i16 %163, %161
   %165 = lshr i16 %164, 8
-  %166 = trunc i16 %165 to i8
+  %166 = trunc nuw i16 %165 to i8
   store i8 %166, ptr %157, align 1
   br label %197
 
@@ -764,7 +764,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %174 = and i32 %173, 65535
   %175 = mul nuw i32 %174, %172
   %176 = lshr i32 %175, 16
-  %177 = trunc i32 %176 to i16
+  %177 = trunc nuw i32 %176 to i16
   store i16 %177, ptr %168, align 2
   br label %197
 
@@ -777,7 +777,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %180, 4294967295
   %184 = mul nuw i64 %.mask, %183
   %185 = lshr i64 %184, 32
-  %186 = trunc i64 %185 to i32
+  %186 = trunc nuw i64 %185 to i32
   store i32 %186, ptr %179, align 4
   br label %197
 
@@ -790,7 +790,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %193 = zext i64 %189 to i128
   %194 = mul nuw i128 %192, %193
   %195 = lshr i128 %194, 64
-  %196 = trunc i128 %195 to i64
+  %196 = trunc nuw i128 %195 to i64
   store i64 %196, ptr %188, align 8
   br label %197
 
@@ -807,7 +807,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32i_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1100,7 +1100,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = and i16 %162, 255
   %164 = mul nuw i16 %163, %161
   %165 = lshr i16 %164, 8
-  %166 = trunc i16 %165 to i8
+  %166 = trunc nuw i16 %165 to i8
   store i8 %166, ptr %157, align 1
   br label %197
 
@@ -1114,7 +1114,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %174 = and i32 %173, 65535
   %175 = mul nuw i32 %174, %172
   %176 = lshr i32 %175, 16
-  %177 = trunc i32 %176 to i16
+  %177 = trunc nuw i32 %176 to i16
   store i16 %177, ptr %168, align 2
   br label %197
 
@@ -1127,7 +1127,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %180, 4294967295
   %184 = mul nuw i64 %.mask, %183
   %185 = lshr i64 %184, 32
-  %186 = trunc i64 %185 to i32
+  %186 = trunc nuw i64 %185 to i32
   store i32 %186, ptr %179, align 4
   br label %197
 
@@ -1140,7 +1140,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %193 = zext i64 %189 to i128
   %194 = mul nuw i128 %192, %193
   %195 = lshr i128 %194, 64
-  %196 = trunc i128 %195 to i64
+  %196 = trunc nuw i128 %195 to i64
   store i64 %196, ptr %188, align 8
   br label %197
 
@@ -1452,7 +1452,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = and i16 %162, 255
   %164 = mul nuw i16 %163, %161
   %165 = lshr i16 %164, 8
-  %166 = trunc i16 %165 to i8
+  %166 = trunc nuw i16 %165 to i8
   store i8 %166, ptr %157, align 1
   br label %197
 
@@ -1466,7 +1466,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %174 = and i32 %173, 65535
   %175 = mul nuw i32 %174, %172
   %176 = lshr i32 %175, 16
-  %177 = trunc i32 %176 to i16
+  %177 = trunc nuw i32 %176 to i16
   store i16 %177, ptr %168, align 2
   br label %197
 
@@ -1479,7 +1479,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %180, 4294967295
   %184 = mul nuw i64 %.mask, %183
   %185 = lshr i64 %184, 32
-  %186 = trunc i64 %185 to i32
+  %186 = trunc nuw i64 %185 to i32
   store i32 %186, ptr %179, align 4
   br label %197
 
@@ -1492,7 +1492,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %193 = zext i64 %189 to i128
   %194 = mul nuw i128 %192, %193
   %195 = lshr i128 %194, 64
-  %196 = trunc i128 %195 to i64
+  %196 = trunc nuw i128 %195 to i64
   store i64 %196, ptr %188, align 8
   br label %197
 
@@ -1509,7 +1509,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32e_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1818,7 +1818,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %170 = and i16 %169, 255
   %171 = mul nuw i16 %170, %168
   %172 = lshr i16 %171, 8
-  %173 = trunc i16 %172 to i8
+  %173 = trunc nuw i16 %172 to i8
   store i8 %173, ptr %158, align 1
   br label %222
 
@@ -1847,7 +1847,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %187 = and i32 %186, 65535
   %188 = mul nuw i32 %187, %185
   %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i16
+  %190 = trunc nuw i32 %189 to i16
   store i16 %190, ptr %175, align 2
   br label %222
 
@@ -1875,7 +1875,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %199, 4294967295
   %203 = mul nuw i64 %.mask, %202
   %204 = lshr i64 %203, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %192, align 4
   br label %222
 
@@ -1903,7 +1903,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %218 = zext i64 %214 to i128
   %219 = mul nuw i128 %217, %218
   %220 = lshr i128 %219, 64
-  %221 = trunc i128 %220 to i64
+  %221 = trunc nuw i128 %220 to i64
   store i64 %221, ptr %207, align 8
   br label %222
 
@@ -2231,7 +2231,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %170 = and i16 %169, 255
   %171 = mul nuw i16 %170, %168
   %172 = lshr i16 %171, 8
-  %173 = trunc i16 %172 to i8
+  %173 = trunc nuw i16 %172 to i8
   store i8 %173, ptr %158, align 1
   br label %222
 
@@ -2260,7 +2260,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %187 = and i32 %186, 65535
   %188 = mul nuw i32 %187, %185
   %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i16
+  %190 = trunc nuw i32 %189 to i16
   store i16 %190, ptr %175, align 2
   br label %222
 
@@ -2288,7 +2288,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %199, 4294967295
   %203 = mul nuw i64 %.mask, %202
   %204 = lshr i64 %203, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %192, align 4
   br label %222
 
@@ -2316,7 +2316,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %218 = zext i64 %214 to i128
   %219 = mul nuw i128 %217, %218
   %220 = lshr i128 %219, 64
-  %221 = trunc i128 %220 to i64
+  %221 = trunc nuw i128 %220 to i64
   store i64 %221, ptr %207, align 8
   br label %222
 
@@ -2333,7 +2333,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32e_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vmulhu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2642,7 +2642,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %170 = and i16 %169, 255
   %171 = mul nuw i16 %170, %168
   %172 = lshr i16 %171, 8
-  %173 = trunc i16 %172 to i8
+  %173 = trunc nuw i16 %172 to i8
   store i8 %173, ptr %158, align 1
   br label %222
 
@@ -2671,7 +2671,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %187 = and i32 %186, 65535
   %188 = mul nuw i32 %187, %185
   %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i16
+  %190 = trunc nuw i32 %189 to i16
   store i16 %190, ptr %175, align 2
   br label %222
 
@@ -2699,7 +2699,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %199, 4294967295
   %203 = mul nuw i64 %.mask, %202
   %204 = lshr i64 %203, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %192, align 4
   br label %222
 
@@ -2727,7 +2727,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %218 = zext i64 %214 to i128
   %219 = mul nuw i128 %217, %218
   %220 = lshr i128 %219, 64
-  %221 = trunc i128 %220 to i64
+  %221 = trunc nuw i128 %220 to i64
   store i64 %221, ptr %207, align 8
   br label %222
 
@@ -3055,7 +3055,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %170 = and i16 %169, 255
   %171 = mul nuw i16 %170, %168
   %172 = lshr i16 %171, 8
-  %173 = trunc i16 %172 to i8
+  %173 = trunc nuw i16 %172 to i8
   store i8 %173, ptr %158, align 1
   br label %222
 
@@ -3084,7 +3084,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %187 = and i32 %186, 65535
   %188 = mul nuw i32 %187, %185
   %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i16
+  %190 = trunc nuw i32 %189 to i16
   store i16 %190, ptr %175, align 2
   br label %222
 
@@ -3112,7 +3112,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.mask = and i64 %199, 4294967295
   %203 = mul nuw i64 %.mask, %202
   %204 = lshr i64 %203, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %192, align 4
   br label %222
 
@@ -3140,7 +3140,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %218 = zext i64 %214 to i128
   %219 = mul nuw i128 %217, %218
   %220 = lshr i128 %219, 64
-  %221 = trunc i128 %220 to i64
+  %221 = trunc nuw i128 %220 to i64
   store i64 %221, ptr %207, align 8
   br label %222
 

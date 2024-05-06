@@ -147,7 +147,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   %83 = getelementptr i8, ptr %65, i64 8
   store i32 %82, ptr %81, align 4
   %84 = lshr i64 %80, 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = getelementptr i8, ptr %65, i64 12
   store i32 %85, ptr %83, align 4
   %87 = getelementptr inbounds i8, ptr %44, i64 80

@@ -156,7 +156,7 @@ define dso_local i32 @input_ff_upload(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %76, label %.thread10, label %72, !llvm.loop !6
 
 77:                                               ; preds = %72
-  %78 = trunc i64 %indvars.iv.next to i32
+  %78 = trunc nuw nsw i64 %indvars.iv.next to i32
   %79 = icmp sgt i32 %65, %78
   br i1 %79, label %.thread8, label %.thread10
 
@@ -360,7 +360,7 @@ define dso_local noundef i32 @input_ff_flush(ptr noundef %0, ptr noundef %1) #0 
   tail call void @_raw_spin_lock_irq(ptr noundef %10) #7
   %22 = getelementptr inbounds i8, ptr %11, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = trunc i64 %indvars.iv3 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv3 to i32
   %25 = tail call i32 %23(ptr noundef %0, i32 noundef %24, i32 noundef 0) #7
   store ptr null, ptr %18, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %10) #7
@@ -407,7 +407,7 @@ erase_effect.exit.us:                             ; preds = %32, %29, %21, %16, 
   tail call void @_raw_spin_lock_irq(ptr noundef %10) #7
   %47 = getelementptr inbounds i8, ptr %36, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = tail call i32 %48(ptr noundef %0, i32 noundef %49, i32 noundef 0) #7
   store ptr null, ptr %43, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %10) #7
@@ -464,7 +464,7 @@ define dso_local noundef i32 @input_ff_event(ptr noundef %0, i32 noundef %1, i32
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = trunc i32 %3 to i16
+  %19 = trunc nuw i32 %3 to i16
   tail call void %18(ptr noundef %0, i16 noundef zeroext %19) #7
   br label %47
 
@@ -480,7 +480,7 @@ define dso_local noundef i32 @input_ff_event(ptr noundef %0, i32 noundef %1, i32
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = trunc i32 %3 to i16
+  %30 = trunc nuw i32 %3 to i16
   tail call void %29(ptr noundef %0, i16 noundef zeroext %30) #7
   br label %47
 
@@ -513,7 +513,7 @@ define dso_local noundef i32 @input_ff_event(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @input_ff_create(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @input_ff_create(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 

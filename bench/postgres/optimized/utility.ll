@@ -1270,37 +1270,37 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %209, 
 
 50:                                               ; preds = %43, %47
   %51 = phi i32 [ %49, %47 ], [ %45, %43 ]
-  %52 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %51), !range !5
+  %52 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %51)
   br label %switch.lookup554
 
 53:                                               ; preds = %tailrecurse
   %54 = getelementptr inbounds i8, ptr %.tr, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %55), !range !5
+  %56 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %55)
   br label %switch.lookup554
 
 57:                                               ; preds = %tailrecurse
   %58 = getelementptr inbounds i8, ptr %.tr, i64 4
   %59 = load i32, ptr %58, align 4
-  %60 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %59), !range !5
+  %60 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %59)
   br label %switch.lookup554
 
 61:                                               ; preds = %tailrecurse
   %62 = getelementptr inbounds i8, ptr %.tr, i64 4
   %63 = load i32, ptr %62, align 4
-  %64 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %63), !range !5
+  %64 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %63)
   br label %switch.lookup554
 
 65:                                               ; preds = %tailrecurse
   %66 = getelementptr inbounds i8, ptr %.tr, i64 16
   %67 = load i32, ptr %66, align 8
-  %68 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %67), !range !5
+  %68 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %67)
   br label %switch.lookup554
 
 69:                                               ; preds = %tailrecurse
   %70 = getelementptr inbounds i8, ptr %.tr, i64 24
   %71 = load i32, ptr %70, align 8
-  %72 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %71), !range !5
+  %72 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %71)
   br label %switch.lookup554
 
 73:                                               ; preds = %tailrecurse
@@ -3129,7 +3129,7 @@ tailrecurse.backedge:                             ; preds = %3, %16, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @AlterObjectTypeCommandTag(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 45) i32 @AlterObjectTypeCommandTag(i32 noundef %0) unnamed_addr #6 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 51
   br i1 %2, label %switch.lookup, label %4
@@ -3668,4 +3668,3 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 45}

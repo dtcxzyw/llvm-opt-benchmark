@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexval_table = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @get_hash_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %sha1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @get_hash_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %sha1) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
@@ -56,7 +56,7 @@ if.end.i:                                         ; preds = %hex2chr.exit.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.05.i, i64 1
   store i8 %conv4.i, ptr %hash.addr.05.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 2
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i64, ptr %rawsz.i, align 8
   %cmp.i = icmp ugt i64 %7, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %get_hash_hex_algop.exit, !llvm.loop !5
@@ -67,7 +67,7 @@ get_hash_hex_algop.exit:                          ; preds = %hex2chr.exit.i, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @get_oid_hex_algop(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid, ptr noundef %algop) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @get_oid_hex_algop(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid, ptr noundef %algop) local_unnamed_addr #0 {
 entry:
   %rawsz.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i, align 8
@@ -107,7 +107,7 @@ if.end.i:                                         ; preds = %hex2chr.exit.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.05.i, i64 1
   store i8 %conv4.i, ptr %hash.addr.05.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 2
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i64, ptr %rawsz.i, align 8
   %cmp.i = icmp ugt i64 %5, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.then, !llvm.loop !5
@@ -127,7 +127,7 @@ if.end:                                           ; preds = %hex2chr.exit.i, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @get_oid_hex_any(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -192,7 +192,7 @@ return:                                           ; preds = %for.inc, %get_oid_h
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @get_oid_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @get_oid_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
@@ -235,7 +235,7 @@ if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i, i64 1
   store i8 %conv4.i.i, ptr %hash.addr.05.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 2
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = load i64, ptr %rawsz.i.i, align 8
   %cmp.i.i = icmp ugt i64 %7, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.then.i, !llvm.loop !5
@@ -255,7 +255,7 @@ get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @parse_oid_hex_algop(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end, ptr noundef %algop) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_oid_hex_algop(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end, ptr noundef %algop) local_unnamed_addr #0 {
 entry:
   %rawsz.i.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i.i, align 8
@@ -295,7 +295,7 @@ if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i, i64 1
   store i8 %conv4.i.i, ptr %hash.addr.05.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 2
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %5 = load i64, ptr %rawsz.i.i, align 8
   %cmp.i.i = icmp ugt i64 %5, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.then, !llvm.loop !5
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %hex2chr.exit.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @parse_oid_hex_any(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
 entry:
   br label %for.body.i
 
@@ -397,7 +397,7 @@ if.end:                                           ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @parse_oid_hex(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_oid_hex(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
@@ -440,7 +440,7 @@ if.end.i.i.i:                                     ; preds = %hex2chr.exit.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i.i, i64 1
   store i8 %conv4.i.i.i, ptr %hash.addr.05.i.i.i, align 1
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i.i, i64 2
-  %indvars.iv.next.i.i.i = add nuw i64 %indvars.iv.i.i.i, 1
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %7 = load i64, ptr %rawsz.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %7, %indvars.iv.next.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %if.then.i, !llvm.loop !5

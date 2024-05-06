@@ -877,7 +877,7 @@ define i32 @mca_base_component_pvar_register(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @mca_base_pvar_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pvar_count, align 4
   %.not.i = icmp sgt i32 %3, %0
   br i1 %.not.i, label %4, label %mca_base_pvar_get_internal.exit
@@ -930,7 +930,7 @@ mca_base_pvar_get_internal.exit:                  ; preds = %2, %opal_pointer_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_pvar_mark_invalid(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @mca_base_pvar_mark_invalid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @pvar_count, align 4
   %.not.i = icmp sgt i32 %2, %0
   br i1 %.not.i, label %3, label %mca_base_pvar_get_internal.exit.thread
@@ -1007,7 +1007,7 @@ define i32 @mca_base_pvar_notify(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_pvar_update_all_handles(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @mca_base_pvar_update_all_handles(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pvar_count, align 4
   %.not.i = icmp sgt i32 %3, %0
   br i1 %.not.i, label %4, label %mca_base_pvar_get_internal.exit.thread

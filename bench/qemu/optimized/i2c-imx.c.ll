@@ -343,7 +343,7 @@ if.else103:                                       ; preds = %do.end89
 
 while.cond:                                       ; preds = %if.end164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = trunc i64 %indvars.iv.next to i32
+  %27 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !7
 

@@ -3156,7 +3156,7 @@ sw.epilog:                                        ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net21QuicSentPacketManager21GetRetransmissionModeEv(ptr noundef nonnull align 8 dereferenceable(776) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZNK3net21QuicSentPacketManager21GetRetransmissionModeEv(ptr noundef nonnull align 8 dereferenceable(776) %this) local_unnamed_addr #0 align 2 {
 entry:
   %handshake_confirmed_ = getelementptr inbounds i8, ptr %this, i64 728
   %0 = load i8, ptr %handshake_confirmed_, align 8
@@ -3673,7 +3673,7 @@ if.then7.i:                                       ; preds = %sw.bb16
   %mul.i13 = fmul double %conv.i12, 5.000000e-01
   %conv10.i = fptosi double %mul.i13 to i64
   %.sroa.speculated20.i = tail call i64 @llvm.smax.i64(i64 %conv10.i, i64 10)
-  %mul.i.i14 = mul nsw i64 %.sroa.speculated20.i, 1000
+  %mul.i.i14 = mul nuw nsw i64 %.sroa.speculated20.i, 1000
   br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit
 
 if.end13.i:                                       ; preds = %sw.bb16
@@ -3693,7 +3693,7 @@ if.end26.i:                                       ; preds = %if.end13.i
   %div.i11.i = sdiv i64 %srtt.sroa.4.0.i, 1000
   %mul29.i = shl nsw i64 %div.i11.i, 1
   %.sroa.speculated.i10 = tail call i64 @llvm.smax.i64(i64 %mul29.i, i64 10)
-  %mul.i14.i = mul nsw i64 %.sroa.speculated.i10, 1000
+  %mul.i14.i = mul nuw nsw i64 %.sroa.speculated.i10, 1000
   br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit
 
 _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit: ; preds = %if.then7.i, %if.then15.i, %if.end26.i
@@ -3748,7 +3748,7 @@ if.then7.i51:                                     ; preds = %sw.bb32
   %mul.i54 = fmul double %conv.i53, 5.000000e-01
   %conv10.i55 = fptosi double %mul.i54 to i64
   %.sroa.speculated20.i56 = tail call i64 @llvm.smax.i64(i64 %conv10.i55, i64 10)
-  %mul.i.i57 = mul nsw i64 %.sroa.speculated20.i56, 1000
+  %mul.i.i57 = mul nuw nsw i64 %.sroa.speculated20.i56, 1000
   br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58
 
 if.end13.i34:                                     ; preds = %sw.bb32
@@ -3768,7 +3768,7 @@ if.end26.i46:                                     ; preds = %if.end13.i34
   %div.i11.i47 = sdiv i64 %srtt.sroa.4.0.i28, 1000
   %mul29.i48 = shl nsw i64 %div.i11.i47, 1
   %.sroa.speculated.i49 = tail call i64 @llvm.smax.i64(i64 %mul29.i48, i64 10)
-  %mul.i14.i50 = mul nsw i64 %.sroa.speculated.i49, 1000
+  %mul.i14.i50 = mul nuw nsw i64 %.sroa.speculated.i49, 1000
   br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58
 
 _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58: ; preds = %if.then7.i51, %if.then15.i37, %if.end26.i46
@@ -3832,7 +3832,7 @@ if.then7:                                         ; preds = %entry
   %mul = fmul double %conv, 5.000000e-01
   %conv10 = fptosi double %mul to i64
   %.sroa.speculated20 = tail call i64 @llvm.smax.i64(i64 %conv10, i64 10)
-  %mul.i = mul nsw i64 %.sroa.speculated20, 1000
+  %mul.i = mul nuw nsw i64 %.sroa.speculated20, 1000
   br label %return
 
 if.end13:                                         ; preds = %entry
@@ -3853,7 +3853,7 @@ if.end26:                                         ; preds = %if.end13
   %div.i11 = sdiv i64 %srtt.sroa.4.0, 1000
   %mul29 = shl nsw i64 %div.i11, 1
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %mul29, i64 10)
-  %mul.i14 = mul nsw i64 %.sroa.speculated, 1000
+  %mul.i14 = mul nuw nsw i64 %.sroa.speculated, 1000
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then15, %if.then7
@@ -3927,7 +3927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net21QuicSentPacketManager27GetCongestionWindowInTcpMssEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 12634756214869556) i64 @_ZNK3net21QuicSentPacketManager27GetCongestionWindowInTcpMssEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this) unnamed_addr #0 align 2 {
 entry:
   %send_algorithm_ = getelementptr inbounds i8, ptr %this, i64 488
   %0 = load ptr, ptr %send_algorithm_, align 8
@@ -3952,7 +3952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net21QuicSentPacketManager29GetSlowStartThresholdInTcpMssEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 12634756214869556) i64 @_ZNK3net21QuicSentPacketManager29GetSlowStartThresholdInTcpMssEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this) unnamed_addr #0 align 2 {
 entry:
   %send_algorithm_ = getelementptr inbounds i8, ptr %this, i64 488
   %0 = load ptr, ptr %send_algorithm_, align 8

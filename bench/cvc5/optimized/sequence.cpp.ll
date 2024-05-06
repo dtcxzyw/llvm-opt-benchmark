@@ -921,7 +921,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal8Sequence3cmpERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %y) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %y) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %y, align 8
@@ -2501,7 +2501,7 @@ land.end:                                         ; preds = %if.end.i17, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN4cvc58internal8Sequence7maxSizeEv() local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN4cvc58internal8Sequence7maxSizeEv() local_unnamed_addr #8 align 2 {
 entry:
   ret i64 4294967295
 }

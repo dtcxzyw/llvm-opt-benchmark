@@ -170,7 +170,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_initialize(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.stat, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
@@ -609,7 +609,7 @@ declare void @curl_global_cleanup() local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_prune_database_directory(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 11) i32 @fc_prune_database_directory(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @g_databaseDirectory, align 8
   %4 = tail call i32 @chdir(ptr noundef %3) #15
   %.not = icmp eq i32 %4, 0
@@ -760,7 +760,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @version_string_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #9 {
+define range(i32 -1, 2) i32 @version_string_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #9 {
   %5 = or i64 %1, %3
   %.not57 = icmp eq i64 %5, 0
   br i1 %.not57, label %._crit_edge, label %.preheader
@@ -835,7 +835,7 @@ define noundef i32 @version_string_compare(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_test_database(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = icmp eq ptr %0, null
@@ -931,7 +931,7 @@ declare void @cli_hashset_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @cl_engine_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_dns_query_update_info(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca [32 x i8], align 16
@@ -1042,14 +1042,14 @@ define noundef i32 @fc_dns_query_update_info(ptr noundef %0, ptr noundef writeon
   %63 = ptrtoint ptr %6 to i64
   %64 = sub i64 %62, %63
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
-  %66 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %64, ptr noundef nonnull %43, i64 noundef %65), !range !4
+  %66 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %64, ptr noundef nonnull %43, i64 noundef %65)
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %72, label %77
 
 .critedge:                                        ; preds = %59
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
   %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
-  %70 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %68, ptr noundef nonnull %43, i64 noundef %69), !range !4
+  %70 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %68, ptr noundef nonnull %43, i64 noundef %69)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %77
 
@@ -1871,4 +1871,3 @@ attributes #18 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

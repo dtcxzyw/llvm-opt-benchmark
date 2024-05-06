@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.netxray_open = private unnamed_addr constant [4 x i32] [i32 12, i32 17, i32 17, i32 17], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @netxray_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca %struct.netxray_hdr, align 4
   %6 = load ptr, ptr %0, align 8
@@ -602,7 +602,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 40
@@ -624,7 +624,7 @@ define internal noundef i32 @netxray_read(ptr nocapture noundef readonly %0, ptr
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8
-  %20 = tail call fastcc i32 @netxray_process_rec_header(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !4
+  %20 = tail call fastcc i32 @netxray_process_rec_header(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %35
 
@@ -718,7 +718,7 @@ netxray_guess_atm_type.exit:                      ; preds = %29, %31, %22, %62, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -727,7 +727,7 @@ define internal noundef i32 @netxray_seek_read(ptr nocapture noundef readonly %0
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @netxray_process_rec_header(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @netxray_process_rec_header(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %19
 
@@ -828,7 +828,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @netxray_process_rec_header(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %union.netxrayrec_hdr, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -1291,14 +1291,14 @@ declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) local_unnamed_add
 declare void @atm_guess_lane_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @netxray_dump_can_write_encap_1_1(i32 noundef %0) #5 {
+define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_1_1(i32 noundef %0) #5 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader
 
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
@@ -1313,7 +1313,7 @@ wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %3, %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @netxray_dump_1_1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1343,7 +1343,7 @@ define internal noundef i32 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.netxrayrec_1_x_hdr, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -1458,7 +1458,7 @@ define internal noundef i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [124 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1487,7 +1487,7 @@ define internal noundef i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef
 20:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %21, !llvm.loop !5
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %21, !llvm.loop !4
 
 21:                                               ; preds = %20, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %20 ]
@@ -1540,14 +1540,14 @@ declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i64 @wtap_dump_file_tell(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @netxray_dump_can_write_encap_2_0(i32 noundef %0) #5 {
+define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_2_0(i32 noundef %0) #5 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader
 
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
@@ -1562,7 +1562,7 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %3, %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @netxray_dump_2_0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1592,7 +1592,7 @@ define internal noundef i32 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.netxrayrec_2_x_hdr, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %1, i64 80
@@ -1797,7 +1797,7 @@ define internal noundef i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [124 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1826,7 +1826,7 @@ define internal noundef i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef
 20:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %21, !llvm.loop !7
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %21, !llvm.loop !6
 
 21:                                               ; preds = %20, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %20 ]
@@ -1916,7 +1916,6 @@ attributes #8 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

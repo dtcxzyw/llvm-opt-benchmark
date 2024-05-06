@@ -136,7 +136,7 @@ declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #2
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_coverage_supported(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_coverage_supported(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_sym2id(i64 noundef %1) #9
   %.pr.i = load i64, ptr @rb_coverage_supported.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -635,7 +635,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i13, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @rb_coverage_running(i64 %0) #3 {
+define internal range(i64 0, 21) i64 @rb_coverage_running(i64 %0) #3 {
   %2 = load i32, ptr @current_state, align 4
   %3 = icmp eq i32 %2, 2
   %4 = select i1 %3, i64 20, i64 0

@@ -2655,13 +2655,13 @@ define hidden void @dissect_rtps_submessages(ptr noundef %0, i32 noundef %1, ptr
   %94 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %95 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %96 = load i32, ptr @ett_rtps_rdentity, align 4
-  %97 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef %96, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %97 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef %96, ptr noundef nonnull @.str.88, ptr noundef null)
   %98 = add i32 %.092101, 8
   %99 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %100 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %101 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %102 = load i32, ptr @ett_rtps_wrentity, align 4
-  %103 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @.str.97, ptr noundef nonnull %14), !range !4
+  %103 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @.str.97, ptr noundef nonnull %14)
   %104 = or i32 %103, %97
   %105 = add i32 %.092101, 12
   %106 = load i32, ptr %14, align 4
@@ -2731,7 +2731,7 @@ define hidden void @dissect_rtps_submessages(ptr noundef %0, i32 noundef %1, ptr
   %134 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %135 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %136 = load i32, ptr @ett_rtps_entity, align 4
-  %137 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef %133, i32 noundef %134, i32 noundef %135, i32 noundef %136, ptr noundef nonnull @.str.1073, ptr noundef null), !range !4
+  %137 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef %133, i32 noundef %134, i32 noundef %135, i32 noundef %136, ptr noundef nonnull @.str.1073, ptr noundef null)
   %138 = add i32 %.0.i.i, 4
   %139 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %138, i32 noundef %52) #13
   %140 = zext i32 %139 to i64
@@ -2800,13 +2800,13 @@ dissect_DATA_v1.exit.i:                           ; preds = %155, %153, %151, %9
   %174 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %175 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %176 = load i32, ptr @ett_rtps_rdentity, align 4
-  %177 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %177 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @.str.88, ptr noundef null)
   %178 = add i32 %.092101, 8
   %179 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %180 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %181 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %182 = load i32, ptr @ett_rtps_wrentity, align 4
-  %183 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %178, i32 noundef %179, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull @.str.97, ptr noundef nonnull %13), !range !4
+  %183 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %178, i32 noundef %179, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull @.str.97, ptr noundef nonnull %13)
   %184 = add i32 %.092101, 12
   %185 = load i32, ptr %13, align 4
   store i32 %185, ptr %27, align 4
@@ -2855,7 +2855,7 @@ rtps_util_add_guid_prefix_v2.exit.i.i:            ; preds = %199, %198
   %215 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %216 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %217 = load i32, ptr @ett_rtps_entity, align 4
-  %218 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.0.i101.i, i32 noundef %214, i32 noundef %215, i32 noundef %216, i32 noundef %217, ptr noundef nonnull @.str.1073, ptr noundef null), !range !4
+  %218 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.0.i101.i, i32 noundef %214, i32 noundef %215, i32 noundef %216, i32 noundef %217, ptr noundef nonnull @.str.1073, ptr noundef null)
   %219 = add i32 %.0.i101.i, 4
   %220 = and i32 %51, 16
   %.not91.i102.i = icmp eq i32 %220, 0
@@ -2937,13 +2937,13 @@ dissect_DATA_v2.exit.i:                           ; preds = %240, %170
   %255 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %256 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %257 = load i32, ptr @ett_rtps_rdentity, align 4
-  %258 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %254, i32 noundef %255, i32 noundef %256, i32 noundef %257, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %258 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %254, i32 noundef %255, i32 noundef %256, i32 noundef %257, ptr noundef nonnull @.str.88, ptr noundef null)
   %259 = add i32 %.092101, 8
   %260 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %261 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %262 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %263 = load i32, ptr @ett_rtps_wrentity, align 4
-  %264 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %259, i32 noundef %260, i32 noundef %261, i32 noundef %262, i32 noundef %263, ptr noundef nonnull @.str.97, ptr noundef nonnull %12), !range !4
+  %264 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %259, i32 noundef %260, i32 noundef %261, i32 noundef %262, i32 noundef %263, ptr noundef nonnull @.str.97, ptr noundef nonnull %12)
   %265 = add i32 %.092101, 12
   %266 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %265, i32 noundef %52) #13
   %267 = zext i32 %266 to i64
@@ -3040,13 +3040,13 @@ dissect_NOKEY_DATA.exit.i:                        ; preds = %292, %284, %.thread
   %312 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %313 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %314 = load i32, ptr @ett_rtps_rdentity, align 4
-  %315 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %311, i32 noundef %312, i32 noundef %313, i32 noundef %314, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %315 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %311, i32 noundef %312, i32 noundef %313, i32 noundef %314, ptr noundef nonnull @.str.88, ptr noundef null)
   %316 = add i32 %.092101, 8
   %317 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %318 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %319 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %320 = load i32, ptr @ett_rtps_wrentity, align 4
-  %321 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %316, i32 noundef %317, i32 noundef %318, i32 noundef %319, i32 noundef %320, ptr noundef nonnull @.str.97, ptr noundef nonnull %11), !range !4
+  %321 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %316, i32 noundef %317, i32 noundef %318, i32 noundef %319, i32 noundef %320, ptr noundef nonnull @.str.97, ptr noundef nonnull %11)
   %322 = add i32 %.092101, 12
   %323 = load i32, ptr %11, align 4
   store i32 %323, ptr %27, align 4
@@ -3105,13 +3105,13 @@ dissect_HEARTBEAT.exit.i:                         ; preds = %345, %310, %308, %3
   %361 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %362 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %363 = load i32, ptr @ett_rtps_rdentity, align 4
-  %364 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %360, i32 noundef %361, i32 noundef %362, i32 noundef %363, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %364 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %360, i32 noundef %361, i32 noundef %362, i32 noundef %363, ptr noundef nonnull @.str.88, ptr noundef null)
   %365 = add i32 %.092101, 8
   %366 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %367 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %368 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %369 = load i32, ptr @ett_rtps_wrentity, align 4
-  %370 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %365, i32 noundef %366, i32 noundef %367, i32 noundef %368, i32 noundef %369, ptr noundef nonnull @.str.97, ptr noundef nonnull %10), !range !4
+  %370 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %48, ptr noundef %0, i32 noundef %365, i32 noundef %366, i32 noundef %367, i32 noundef %368, i32 noundef %369, ptr noundef nonnull @.str.97, ptr noundef nonnull %10)
   %371 = add i32 %.092101, 12
   %372 = load i32, ptr %10, align 4
   store i32 %372, ptr %27, align 4
@@ -3358,7 +3358,7 @@ dissect_GAP.exit.i:                               ; preds = %359, %357
   %525 = add i32 %.02022.i.i.i, 24
   %526 = add nuw i32 %.023.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %526, %519
-  br i1 %exitcond.not.i.i.i, label %rtps_util_add_locator_list.exit.i.i, label %.preheader.i.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i, label %rtps_util_add_locator_list.exit.i.i, label %.preheader.i.i.i, !llvm.loop !4
 
 rtps_util_add_locator_list.exit.i.i:              ; preds = %.preheader.i.i.i, %518
   %.1.i.i.i = phi i32 [ %522, %518 ], [ %525, %.preheader.i.i.i ]
@@ -3385,7 +3385,7 @@ rtps_util_add_locator_list.exit.i.i:              ; preds = %.preheader.i.i.i, %
   %534 = add i32 %.02022.i29.i.i, 24
   %535 = add nuw i32 %.023.i28.i.i, 1
   %exitcond.not.i30.i.i = icmp eq i32 %535, %528
-  br i1 %exitcond.not.i30.i.i, label %rtps_util_add_locator_list.exit32.i.i, label %.preheader.i27.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i30.i.i, label %rtps_util_add_locator_list.exit32.i.i, label %.preheader.i27.i.i, !llvm.loop !4
 
 rtps_util_add_locator_list.exit32.i.i:            ; preds = %.preheader.i27.i.i, %527
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
@@ -3395,7 +3395,7 @@ dissect_rtps_submessage_v1.exit:                  ; preds = %62
   br i1 %19, label %538, label %536
 
 536:                                              ; preds = %dissect_rtps_submessage_v1.exit
-  %537 = call fastcc i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i8 noundef zeroext %33, i16 noundef zeroext %5, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef %6, ptr noundef nonnull %15), !range !4
+  %537 = call fastcc i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i8 noundef zeroext %33, i16 noundef zeroext %5, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef %6, ptr noundef nonnull %15)
   %.not98 = icmp eq i32 %537, 0
   br i1 %.not98, label %538, label %dissect_rtps_submessage_v1.exit.thread
 
@@ -3448,7 +3448,7 @@ append_submessage_col_info.exit:                  ; preds = %554, %556
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %558 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63) #13
   %559 = icmp sgt i32 %558, 0
-  br i1 %559, label %32, label %._crit_edge, !llvm.loop !7
+  br i1 %559, label %32, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %append_submessage_col_info.exit, %7
   ret void
@@ -3478,7 +3478,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @p_set_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -3747,13 +3747,13 @@ dissect_HEADER_EXTENSION.exit:                    ; preds = %124, %125
   %148 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %149 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %150 = load i32, ptr @ett_rtps_rdentity, align 4
-  %151 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %151 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef nonnull @.str.88, ptr noundef null)
   %152 = add i32 %2, 8
   %153 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %154 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %155 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %156 = load i32, ptr @ett_rtps_wrentity, align 4
-  %157 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, i32 noundef %156, ptr noundef nonnull @.str.97, ptr noundef nonnull %47), !range !4
+  %157 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, i32 noundef %156, ptr noundef nonnull @.str.97, ptr noundef nonnull %47)
   %158 = add i32 %2, 12
   %159 = load i32, ptr %47, align 4
   %160 = getelementptr inbounds i8, ptr %10, i64 16
@@ -3805,7 +3805,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %175, %174
   %191 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %192 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %193 = load i32, ptr @ett_rtps_entity, align 4
-  %194 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %.0.i164, i32 noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef nonnull @.str.1073, ptr noundef null), !range !4
+  %194 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %.0.i164, i32 noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef nonnull @.str.1073, ptr noundef null)
   %195 = add i32 %.0.i164, 4
   %196 = load i32, ptr @hf_rtps_data_frag_number, align 4
   %197 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %8, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %46) #13
@@ -3893,13 +3893,13 @@ dissect_DATA_FRAG.exit:                           ; preds = %143, %212, %220
   %242 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %243 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %244 = load i32, ptr @ett_rtps_rdentity, align 4
-  %245 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %240, i32 noundef %241, i32 noundef %242, i32 noundef %243, i32 noundef %244, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %245 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %240, i32 noundef %241, i32 noundef %242, i32 noundef %243, i32 noundef %244, ptr noundef nonnull @.str.88, ptr noundef null)
   %246 = add i32 %2, 8
   %247 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %248 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %249 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %250 = load i32, ptr @ett_rtps_wrentity, align 4
-  %251 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %246, i32 noundef %247, i32 noundef %248, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @.str.97, ptr noundef nonnull %44), !range !4
+  %251 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %246, i32 noundef %247, i32 noundef %248, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @.str.97, ptr noundef nonnull %44)
   %252 = add i32 %2, 12
   %253 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %252, i32 noundef %4) #13
   %254 = zext i32 %253 to i64
@@ -3987,13 +3987,13 @@ dissect_NOKEY_DATA_FRAG.exit:                     ; preds = %237, %275, %284
   %304 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %305 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %306 = load i32, ptr @ett_rtps_rdentity, align 4
-  %307 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %302, i32 noundef %303, i32 noundef %304, i32 noundef %305, i32 noundef %306, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %307 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %302, i32 noundef %303, i32 noundef %304, i32 noundef %305, i32 noundef %306, ptr noundef nonnull @.str.88, ptr noundef null)
   %308 = add i32 %2, 8
   %309 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %310 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %311 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %312 = load i32, ptr @ett_rtps_wrentity, align 4
-  %313 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %308, i32 noundef %309, i32 noundef %310, i32 noundef %311, i32 noundef %312, ptr noundef nonnull @.str.97, ptr noundef null), !range !4
+  %313 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %308, i32 noundef %309, i32 noundef %310, i32 noundef %311, i32 noundef %312, ptr noundef nonnull @.str.97, ptr noundef null)
   %314 = add i32 %2, 12
   %315 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %314, i32 noundef %4) #13
   %316 = zext i32 %315 to i64
@@ -4089,13 +4089,13 @@ rtps_util_add_fragment_number_set.exit.thread.i:  ; preds = %338
   %372 = add nuw nsw i32 %.0901.i.i, 1
   %373 = icmp ult i32 %.0901.i.i, 31
   %or.cond.i.i = and i1 %373, %371
-  br i1 %or.cond.i.i, label %364, label %374, !llvm.loop !8
+  br i1 %or.cond.i.i, label %364, label %374, !llvm.loop !7
 
 374:                                              ; preds = %368, %364
   %.lcssa.i.i = phi i32 [ %369, %368 ], [ %smax.i.i, %364 ]
   %375 = add i32 %.0874.i.i, 32
   %376 = icmp slt i32 %375, %.086.i.i
-  br i1 %376, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %376, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %374, %356
   %.1.lcssa.i.i = phi i32 [ %357, %356 ], [ %360, %374 ]
@@ -4185,7 +4185,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %396, %391
   %424 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %425 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %426 = load i32, ptr @ett_rtps_rdentity, align 4
-  %427 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %422, i32 noundef %423, i32 noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef nonnull @.str.88, ptr noundef nonnull %40), !range !4
+  %427 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %422, i32 noundef %423, i32 noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef nonnull @.str.88, ptr noundef nonnull %40)
   %428 = add i32 %2, 8
   %429 = load i32, ptr %40, align 4
   %430 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4195,7 +4195,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %396, %391
   %432 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %433 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %434 = load i32, ptr @ett_rtps_wrentity, align 4
-  %435 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %428, i32 noundef %431, i32 noundef %432, i32 noundef %433, i32 noundef %434, ptr noundef nonnull @.str.97, ptr noundef nonnull %40), !range !4
+  %435 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %428, i32 noundef %431, i32 noundef %432, i32 noundef %433, i32 noundef %434, ptr noundef nonnull @.str.97, ptr noundef nonnull %40)
   %436 = add i32 %2, 12
   %437 = load i32, ptr @hf_rtps_param_app_ack_virtual_writer_count, align 4
   %438 = call ptr @proto_tree_add_item_ret_int(ptr noundef %8, i32 noundef %437, ptr noundef %0, i32 noundef %436, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %39) #13
@@ -4273,7 +4273,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %396, %391
   %495 = add nuw nsw i32 %.0102106.i, 1
   %496 = load i32, ptr %41, align 4
   %497 = icmp slt i32 %495, %496
-  br i1 %497, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %497, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %494, %.lr.ph111.i
   %.1.lcssa.i = phi i32 [ %452, %.lr.ph111.i ], [ %.2.i173, %494 ]
@@ -4283,7 +4283,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %396, %391
   %501 = add nuw nsw i32 %.0101108.i, 1
   %502 = load i32, ptr %39, align 4
   %503 = icmp slt i32 %501, %502
-  br i1 %503, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !11
+  br i1 %503, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !10
 
 ._crit_edge112.i:                                 ; preds = %._crit_edge.i, %421
   %.0.lcssa.i = phi i32 [ %439, %421 ], [ %500, %._crit_edge.i ]
@@ -4335,13 +4335,13 @@ dissect_APP_ACK.exit:                             ; preds = %419, %506, %509, %5
   %528 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %529 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %530 = load i32, ptr @ett_rtps_rdentity, align 4
-  %531 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %522, i32 noundef %527, i32 noundef %528, i32 noundef %529, i32 noundef %530, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %531 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %522, i32 noundef %527, i32 noundef %528, i32 noundef %529, i32 noundef %530, ptr noundef nonnull @.str.88, ptr noundef null)
   %532 = add i32 %2, 8
   %533 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %534 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %535 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %536 = load i32, ptr @ett_rtps_wrentity, align 4
-  %537 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535, i32 noundef %536, ptr noundef nonnull @.str.97, ptr noundef nonnull %38), !range !4
+  %537 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535, i32 noundef %536, ptr noundef nonnull @.str.97, ptr noundef nonnull %38)
   %538 = add i32 %2, 12
   %539 = load i32, ptr %38, align 4
   %540 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4388,7 +4388,7 @@ rtps_util_add_guid_prefix_v2.exit.i177:           ; preds = %552, %.lr.ph.i175
   %567 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %568 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %569 = load i32, ptr @ett_rtps_entity, align 4
-  %570 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %551, ptr noundef %0, i32 noundef %565, i32 noundef %566, i32 noundef %567, i32 noundef %568, i32 noundef %569, ptr noundef nonnull @.str.1179, ptr noundef null), !range !4
+  %570 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %551, ptr noundef %0, i32 noundef %565, i32 noundef %566, i32 noundef %567, i32 noundef %568, i32 noundef %569, ptr noundef nonnull @.str.1179, ptr noundef null)
   %571 = add i32 %.06568.i, 16
   %572 = load i32, ptr @hf_rtps_param_app_ack_conf_count, align 4
   %573 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %572, ptr noundef %0, i32 noundef %571, i32 noundef 4, i32 noundef %4) #13
@@ -4396,7 +4396,7 @@ rtps_util_add_guid_prefix_v2.exit.i177:           ; preds = %552, %.lr.ph.i175
   %575 = add nuw nsw i32 %.069.i, 1
   %576 = load i32, ptr %37, align 4
   %577 = icmp slt i32 %575, %576
-  br i1 %577, label %.lr.ph.i175, label %._crit_edge.i174, !llvm.loop !12
+  br i1 %577, label %.lr.ph.i175, label %._crit_edge.i174, !llvm.loop !11
 
 ._crit_edge.i174:                                 ; preds = %rtps_util_add_guid_prefix_v2.exit.i177, %526
   %.065.lcssa.i = phi i32 [ %545, %526 ], [ %574, %rtps_util_add_guid_prefix_v2.exit.i177 ]
@@ -4449,13 +4449,13 @@ dissect_APP_ACK_CONF.exit:                        ; preds = %524, %580, %583, %5
   %604 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %605 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %606 = load i32, ptr @ett_rtps_rdentity, align 4
-  %607 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %602, i32 noundef %603, i32 noundef %604, i32 noundef %605, i32 noundef %606, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %607 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %602, i32 noundef %603, i32 noundef %604, i32 noundef %605, i32 noundef %606, ptr noundef nonnull @.str.88, ptr noundef null)
   %608 = add i32 %2, 8
   %609 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %610 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %611 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %612 = load i32, ptr @ett_rtps_wrentity, align 4
-  %613 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %608, i32 noundef %609, i32 noundef %610, i32 noundef %611, i32 noundef %612, ptr noundef nonnull @.str.97, ptr noundef nonnull %36), !range !4
+  %613 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %608, i32 noundef %609, i32 noundef %610, i32 noundef %611, i32 noundef %612, ptr noundef nonnull @.str.97, ptr noundef nonnull %36)
   %614 = add i32 %2, 12
   %615 = load i32, ptr %36, align 4
   %616 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4539,13 +4539,13 @@ dissect_HEARTBEAT_BATCH.exit:                     ; preds = %597, %599, %601
   %678 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %679 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %680 = load i32, ptr @ett_rtps_rdentity, align 4
-  %681 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %676, i32 noundef %677, i32 noundef %678, i32 noundef %679, i32 noundef %680, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %681 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %676, i32 noundef %677, i32 noundef %678, i32 noundef %679, i32 noundef %680, ptr noundef nonnull @.str.88, ptr noundef null)
   %682 = add i32 %2, 8
   %683 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %684 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %685 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %686 = load i32, ptr @ett_rtps_wrentity, align 4
-  %687 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %682, i32 noundef %683, i32 noundef %684, i32 noundef %685, i32 noundef %686, ptr noundef nonnull @.str.97, ptr noundef nonnull %35), !range !4
+  %687 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %682, i32 noundef %683, i32 noundef %684, i32 noundef %685, i32 noundef %686, ptr noundef nonnull @.str.97, ptr noundef nonnull %35)
   %688 = add i32 %2, 12
   %689 = load i32, ptr %35, align 4
   %690 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4598,13 +4598,13 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %671, %673, %675
   %723 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %724 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %725 = load i32, ptr @ett_rtps_rdentity, align 4
-  %726 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %721, i32 noundef %722, i32 noundef %723, i32 noundef %724, i32 noundef %725, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %726 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %721, i32 noundef %722, i32 noundef %723, i32 noundef %724, i32 noundef %725, ptr noundef nonnull @.str.88, ptr noundef null)
   %727 = add i32 %2, 8
   %728 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %729 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %730 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %731 = load i32, ptr @ett_rtps_wrentity, align 4
-  %732 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %727, i32 noundef %728, i32 noundef %729, i32 noundef %730, i32 noundef %731, ptr noundef nonnull @.str.97, ptr noundef nonnull %34), !range !4
+  %732 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %727, i32 noundef %728, i32 noundef %729, i32 noundef %730, i32 noundef %731, ptr noundef nonnull @.str.97, ptr noundef nonnull %34)
   %733 = add i32 %2, 12
   %734 = load i32, ptr %34, align 4
   %735 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4660,7 +4660,7 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %671, %673, %675
   %760 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %761 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %762 = load i32, ptr @ett_rtps_wrentity, align 4
-  %763 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %758, ptr noundef %0, i32 noundef %spec.select124.us.i, i32 noundef %759, i32 noundef %760, i32 noundef %761, i32 noundef %762, ptr noundef nonnull @.str.97, ptr noundef null), !range !4
+  %763 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %758, ptr noundef %0, i32 noundef %spec.select124.us.i, i32 noundef %759, i32 noundef %760, i32 noundef %761, i32 noundef %762, ptr noundef nonnull @.str.97, ptr noundef null)
   %764 = add i32 %.2135.us.i, 4
   %.4.us.i = select i1 %754, i32 %.2135.us.i, i32 %764
   %765 = load i32, ptr @hf_rtps_virtual_heartbeat_num_virtual_guids, align 4
@@ -4723,13 +4723,13 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %671, %673, %675
   %814 = add i32 %.8.us.i, 32
   %815 = add nuw i32 %.0110131.us.i, 1
   %exitcond148.not.i = icmp eq i32 %815, %767
-  br i1 %exitcond148.not.i, label %.thread.us.i, label %772, !llvm.loop !13
+  br i1 %exitcond148.not.i, label %.thread.us.i, label %772, !llvm.loop !12
 
 .thread.us.i:                                     ; preds = %772, %.lr.ph.split.us.i
   %.9.us.i = phi i32 [ %768, %.lr.ph.split.us.i ], [ %814, %772 ]
   %816 = add nuw i32 %.0113134.us.i, 1
   %exitcond149.not.i = icmp eq i32 %816, %.0111154.i
-  br i1 %exitcond149.not.i, label %._crit_edge.i181, label %.lr.ph.split.us.i, !llvm.loop !14
+  br i1 %exitcond149.not.i, label %._crit_edge.i181, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i179
   br i1 %754, label %._crit_edge.loopexit145.i, label %.thread.i180
@@ -4743,11 +4743,11 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %671, %673, %675
   %820 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %821 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %822 = load i32, ptr @ett_rtps_wrentity, align 4
-  %823 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %818, ptr noundef %0, i32 noundef %.2135.i, i32 noundef %819, i32 noundef %820, i32 noundef %821, i32 noundef %822, ptr noundef nonnull @.str.97, ptr noundef null), !range !4
+  %823 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %818, ptr noundef %0, i32 noundef %.2135.i, i32 noundef %819, i32 noundef %820, i32 noundef %821, i32 noundef %822, ptr noundef nonnull @.str.97, ptr noundef null)
   %824 = add i32 %.2135.i, 4
   %825 = add nuw i32 %.0113134.i, 1
   %exitcond.not.i = icmp eq i32 %825, %.0111154.i
-  br i1 %exitcond.not.i, label %._crit_edge.i181, label %.thread.i180, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i181, label %.thread.i180, !llvm.loop !13
 
 ._crit_edge.loopexit145.i:                        ; preds = %.lr.ph.split.i
   %826 = load i32, ptr @ett_rtps_writer_heartbeat_virtual, align 4
@@ -4756,7 +4756,7 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %671, %673, %675
   %829 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %830 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %831 = load i32, ptr @ett_rtps_wrentity, align 4
-  %832 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %827, ptr noundef %0, i32 noundef %727, i32 noundef %828, i32 noundef %829, i32 noundef %830, i32 noundef %831, ptr noundef nonnull @.str.97, ptr noundef null), !range !4
+  %832 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %827, ptr noundef %0, i32 noundef %727, i32 noundef %828, i32 noundef %829, i32 noundef %830, i32 noundef %831, ptr noundef nonnull @.str.97, ptr noundef null)
   br label %._crit_edge.i181
 
 ._crit_edge.i181:                                 ; preds = %.thread.i180, %.thread.us.i, %._crit_edge.loopexit145.i, %747
@@ -4855,13 +4855,13 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %835, %843, %846
   %877 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %878 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %879 = load i32, ptr @ett_rtps_rdentity, align 4
-  %880 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %875, i32 noundef %876, i32 noundef %877, i32 noundef %878, i32 noundef %879, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %880 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %875, i32 noundef %876, i32 noundef %877, i32 noundef %878, i32 noundef %879, ptr noundef nonnull @.str.88, ptr noundef null)
   %881 = add i32 %2, 12
   %882 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %883 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %884 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %885 = load i32, ptr @ett_rtps_wrentity, align 4
-  %886 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %881, i32 noundef %882, i32 noundef %883, i32 noundef %884, i32 noundef %885, ptr noundef nonnull @.str.97, ptr noundef nonnull %29), !range !4
+  %886 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %881, i32 noundef %882, i32 noundef %883, i32 noundef %884, i32 noundef %885, ptr noundef nonnull @.str.97, ptr noundef nonnull %29)
   %887 = add i32 %2, 16
   %888 = load i32, ptr %29, align 4
   %889 = getelementptr inbounds i8, ptr %10, i64 16
@@ -5021,7 +5021,7 @@ switch.early.test.i186:                           ; preds = %934
   %976 = add nuw i32 %.0168.i, 1
   %977 = load i32, ptr %28, align 4
   %978 = icmp ult i32 %976, %977
-  br i1 %978, label %947, label %.loopexit.i, !llvm.loop !15
+  br i1 %978, label %947, label %.loopexit.i, !llvm.loop !14
 
 .lr.ph170.i:                                      ; preds = %.preheader.i, %.lr.ph170.i
   %.1169.i = phi i32 [ %992, %.lr.ph170.i ], [ 0, %.preheader.i ]
@@ -5042,7 +5042,7 @@ switch.early.test.i186:                           ; preds = %934
   %992 = add nuw i32 %.1169.i, 1
   %993 = load i32, ptr %28, align 4
   %994 = icmp ult i32 %992, %993
-  br i1 %994, label %.lr.ph170.i, label %._crit_edge.loopexit.i, !llvm.loop !16
+  br i1 %994, label %.lr.ph170.i, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph170.i
   %.pre.i189 = load i32, ptr %29, align 4
@@ -5161,13 +5161,13 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %866, %rtps_util_det
   %1043 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %1044 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %1045 = load i32, ptr @ett_rtps_rdentity, align 4
-  %1046 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %1041, i32 noundef %1042, i32 noundef %1043, i32 noundef %1044, i32 noundef %1045, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %1046 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %1041, i32 noundef %1042, i32 noundef %1043, i32 noundef %1044, i32 noundef %1045, ptr noundef nonnull @.str.88, ptr noundef null)
   %1047 = add i32 %2, 12
   %1048 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %1049 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %1050 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %1051 = load i32, ptr @ett_rtps_wrentity, align 4
-  %1052 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %1047, i32 noundef %1048, i32 noundef %1049, i32 noundef %1050, i32 noundef %1051, ptr noundef nonnull @.str.97, ptr noundef nonnull %13), !range !4
+  %1052 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %8, ptr noundef %0, i32 noundef %1047, i32 noundef %1048, i32 noundef %1049, i32 noundef %1050, i32 noundef %1051, ptr noundef nonnull @.str.97, ptr noundef nonnull %13)
   %1053 = add i32 %2, 16
   %1054 = load i32, ptr %13, align 4
   %1055 = getelementptr inbounds i8, ptr %10, i64 16
@@ -5319,7 +5319,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %866, %rtps_util_det
   call void @proto_item_set_len(ptr noundef %1155, i32 noundef %1156) #13
   %1157 = add i32 %.0230252.i, 1
   %1158 = icmp slt i32 %.4.i200, %1092
-  br i1 %1158, label %1107, label %.loopexit246.i, !llvm.loop !17
+  br i1 %1158, label %1107, label %.loopexit246.i, !llvm.loop !16
 
 .loopexit246.i:                                   ; preds = %1154, %1110, %1087
   %.0230251.i = phi i32 [ %.0230252.i, %1110 ], [ 0, %1087 ], [ %1157, %1154 ]
@@ -5453,7 +5453,7 @@ get_encapsulation_version.exit.i:                 ; preds = %1208, %get_encapsul
   %1219 = add i32 %1218, %.7257.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i195, label %.loopexit.i194, label %1184, !llvm.loop !18
+  br i1 %exitcond.not.i195, label %.loopexit.i194, label %1184, !llvm.loop !17
 
 .loopexit.i194:                                   ; preds = %1217, %1178, %1175, %1171
   %1220 = load i32, ptr %13, align 4
@@ -5809,7 +5809,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = zext i32 %127 to i64
   %129 = icmp ult i64 %indvars.iv.next.i, %128
-  br i1 %129, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %129, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %126, %0
   store i64 -7102936891987694935, ptr getelementptr inbounds (%struct.builtin_types_dissection_data_t, ptr @builtin_types_dissection_data, i64 0, i32 0, i32 0, i32 6), align 8
@@ -5878,7 +5878,7 @@ switch.lookup13:                                  ; preds = %.lr.ph4.i
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %158 = zext i32 %157 to i64
   %159 = icmp ult i64 %indvars.iv.next9.i, %158
-  br i1 %159, label %.lr.ph4.i, label %initialize_instance_state_data_response_dissection_info.exit, !llvm.loop !20
+  br i1 %159, label %.lr.ph4.i, label %initialize_instance_state_data_response_dissection_info.exit, !llvm.loop !19
 
 initialize_instance_state_data_response_dissection_info.exit: ; preds = %156, %._crit_edge.i
   tail call void @reassembly_table_register(ptr noundef nonnull @rtps_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #13
@@ -5927,7 +5927,7 @@ define internal i32 @hash_by_guid(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_by_guid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @compare_by_guid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) %1, i64 20)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -5945,7 +5945,7 @@ define internal i32 @coherent_set_key_hash_by_key(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_by_coherent_set_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @compare_by_coherent_set_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %0, ptr noundef nonnull dereferenceable(32) %1, i64 32)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -5969,7 +5969,7 @@ define internal i32 @hash_by_participant_guid(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_by_participant_guid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @compare_by_participant_guid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -6003,7 +6003,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_simple_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
 
@@ -6032,20 +6032,20 @@ define hidden void @proto_reg_handoff_rtps() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rtps_rtitcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+define internal range(i32 0, 2) i32 @dissect_rtps_rtitcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rtps_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+define internal range(i32 0, 2) i32 @dissect_rtps_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rtps_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4), !range !4
+define internal range(i32 0, 2) i32 @dissect_rtps_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4)
   ret i32 %5
 }
 
@@ -6073,13 +6073,13 @@ define internal fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef %1, i32
   %25 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %26 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %27 = load i32, ptr @ett_rtps_rdentity, align 4
-  %28 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @.str.88, ptr noundef null), !range !4
+  %28 = tail call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @.str.88, ptr noundef null)
   %29 = add i32 %2, 8
   %30 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %31 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %32 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %33 = load i32, ptr @ett_rtps_wrentity, align 4
-  %34 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.97, ptr noundef nonnull %10), !range !4
+  %34 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.97, ptr noundef nonnull %10)
   %35 = add i32 %2, 12
   %36 = load i32, ptr %10, align 4
   %37 = getelementptr inbounds i8, ptr %8, i64 16
@@ -6129,7 +6129,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtps_util_add_entity_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rtps_util_add_entity_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #13
   %11 = lshr i32 %10, 8
   %12 = tail call ptr @try_val_to_str(i32 noundef %10, ptr noundef nonnull @entity_id_vals) #13
@@ -7237,7 +7237,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %429, %thread-pre-sp
   %581 = call ptr @proto_tree_add_string(ptr noundef %571, i32 noundef %580, ptr noundef %2, i32 noundef %572, i32 noundef %579, ptr noundef %576) #13
   %582 = add i32 %579, %572
   %.not525.i = icmp eq i32 %560, 0
-  br i1 %.not525.i, label %583, label %559, !llvm.loop !21
+  br i1 %.not525.i, label %583, label %559, !llvm.loop !20
 
 583:                                              ; preds = %559
   %584 = load ptr, ptr %38, align 8
@@ -7270,7 +7270,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %429, %thread-pre-sp
   %598 = add i32 %.02.i, 4
   %599 = add nuw i32 %.0191.i, 1
   %exitcond.not.i229 = icmp eq i32 %599, %592
-  br i1 %exitcond.not.i229, label %rtps_util_add_seq_ulong.exit, label %.lr.ph.i228, !llvm.loop !22
+  br i1 %exitcond.not.i229, label %rtps_util_add_seq_ulong.exit, label %.lr.ph.i228, !llvm.loop !21
 
 rtps_util_add_seq_ulong.exit:                     ; preds = %.lr.ph.i228, %590
   %.0.lcssa.i = phi i32 [ %593, %590 ], [ %598, %.lr.ph.i228 ]
@@ -7297,7 +7297,7 @@ rtps_util_add_seq_ulong.exit:                     ; preds = %.lr.ph.i228, %590
   %611 = load i32, ptr @hf_rtps_filter_signature, align 4
   %612 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %.2, i32 noundef %611, ptr noundef %2, i32 noundef %.0515532.i, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.1091, i32 noundef %603, i32 noundef %605, i32 noundef %607, i32 noundef %609) #13
   %.not.i = icmp eq i32 %602, 0
-  br i1 %.not.i, label %dissect_parameter_sequence_v1.exit, label %.lr.ph534.i, !llvm.loop !23
+  br i1 %.not.i, label %dissect_parameter_sequence_v1.exit, label %.lr.ph534.i, !llvm.loop !22
 
 613:                                              ; preds = %159
   %614 = icmp slt i32 %.0193, 8
@@ -7522,7 +7522,7 @@ rtps_util_add_coherent_set_general_cases_case.exit: ; preds = %695, %proto_item_
   br label %dissect_parameter_sequence_v1.exit
 
 732:                                              ; preds = %159
-  %733 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef 0), !range !24
+  %733 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef 0)
   br label %dissect_parameter_sequence_v1.exit
 
 734:                                              ; preds = %159
@@ -7699,7 +7699,7 @@ rtps_util_add_coherent_set_general_cases_case.exit: ; preds = %695, %proto_item_
   %832 = add nuw nsw i32 %.0511530.i, 1
   %833 = add i32 %.0512529.i, 4
   %exitcond.not = icmp eq i32 %.0511530.i, %828
-  br i1 %exitcond.not, label %dissect_parameter_sequence_v1.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not, label %dissect_parameter_sequence_v1.exit, label %.lr.ph.i, !llvm.loop !23
 
 834:                                              ; preds = %159, %159
   %835 = icmp slt i32 %.0193, 4
@@ -7840,7 +7840,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %884, %883
   %899 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %900 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %901 = load i32, ptr @ett_rtps_entity, align 4
-  %902 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %897, i32 noundef %898, i32 noundef %899, i32 noundef %900, i32 noundef %901, ptr noundef nonnull @.str.1176, ptr noundef null), !range !4
+  %902 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %897, i32 noundef %898, i32 noundef %899, i32 noundef %900, i32 noundef %901, ptr noundef nonnull @.str.1176, ptr noundef null)
   br label %dissect_parameter_sequence_v2.exit.thread
 
 903:                                              ; preds = %863
@@ -7872,7 +7872,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %884, %883
 
 916:                                              ; preds = %915, %908
   %exitcond14.not.i = icmp eq i32 %912, %.0193
-  br i1 %exitcond14.not.i, label %dissect_parameter_sequence_v2.exit.thread, label %908, !llvm.loop !26
+  br i1 %exitcond14.not.i, label %dissect_parameter_sequence_v2.exit.thread, label %908, !llvm.loop !24
 
 917:                                              ; preds = %863
   %918 = icmp slt i32 %.0193, 4
@@ -7912,7 +7912,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %884, %883
   %936 = add i32 %.02.i.i, 4
   %937 = add nuw i32 %.0191.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %937, %930
-  br i1 %exitcond.not.i.i, label %rtps_util_add_seq_ulong.exit.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %rtps_util_add_seq_ulong.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 rtps_util_add_seq_ulong.exit.i:                   ; preds = %.lr.ph.i.i, %928
   %.0.lcssa.i.i = phi i32 [ %931, %928 ], [ %936, %.lr.ph.i.i ]
@@ -7939,7 +7939,7 @@ rtps_util_add_seq_ulong.exit.i:                   ; preds = %.lr.ph.i.i, %928
   %949 = load i32, ptr @hf_rtps_filter_signature, align 4
   %950 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %.2, i32 noundef %949, ptr noundef %2, i32 noundef %.02176.i, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.1091, i32 noundef %941, i32 noundef %943, i32 noundef %945, i32 noundef %947) #13
   %.not229.i = icmp eq i32 %940, 0
-  br i1 %.not229.i, label %dissect_parameter_sequence_v2.exit.thread, label %.lr.ph7.i, !llvm.loop !27
+  br i1 %.not229.i, label %dissect_parameter_sequence_v2.exit.thread, label %.lr.ph7.i, !llvm.loop !25
 
 951:                                              ; preds = %863
   %952 = icmp slt i32 %.0193, 4
@@ -8003,7 +8003,7 @@ rtps_util_add_guid_prefix_v2.exit235.i:           ; preds = %973, %972
   %988 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %989 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %990 = load i32, ptr @ett_rtps_entity, align 4
-  %991 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %986, i32 noundef %987, i32 noundef %988, i32 noundef %989, i32 noundef %990, ptr noundef nonnull @.str.1179, ptr noundef null), !range !4
+  %991 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %986, i32 noundef %987, i32 noundef %988, i32 noundef %989, i32 noundef %990, ptr noundef nonnull @.str.1179, ptr noundef null)
   %992 = add i32 %153, 16
   %993 = call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %992, i32 noundef %4) #13
   %994 = zext i32 %993 to i64
@@ -8091,7 +8091,7 @@ rtps_util_store_type_mapping.exit.i:              ; preds = %1016, %1013
   %1045 = add i32 %.02193.i, 2
   %1046 = add nuw i32 %.02202.i, 1
   %exitcond.not.i = icmp eq i32 %1046, %1036
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i212, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i212, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i212, %1035
   %.0219.lcssa.i = phi i32 [ %1039, %1035 ], [ %1045, %.lr.ph.i212 ]
@@ -8331,7 +8331,7 @@ dissect_parameter_sequence_v2.exit:               ; preds = %863
   call void @proto_item_set_len(ptr noundef %1132, i32 noundef %1153) #13
   %1154 = add nuw i32 %.02829.i, 1
   %exitcond.not.i267 = icmp eq i32 %1154, %1127
-  br i1 %exitcond.not.i267, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i266, !llvm.loop !29
+  br i1 %exitcond.not.i267, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i266, !llvm.loop !27
 
 1155:                                             ; preds = %1120
   %1156 = icmp slt i32 %.0193, 16
@@ -8631,7 +8631,7 @@ rtps_util_add_transport_info.exit.us.i:           ; preds = %1331, %rtps_util_ad
   %1334 = call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %.0472488.us.i, i32 noundef %4) #13
   %1335 = add i32 %.0472488.us.i, 8
   %.not481.us.i = icmp eq i32 %1333, 0
-  br i1 %.not481.us.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.us.i, !llvm.loop !30
+  br i1 %.not481.us.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.us.i, !llvm.loop !28
 
 rtps_util_add_transport_info.exit.i:              ; preds = %1331, %rtps_util_add_transport_info.exit.i
   %.0470489.i = phi i32 [ %1347, %rtps_util_add_transport_info.exit.i ], [ 1, %1331 ]
@@ -8650,7 +8650,7 @@ rtps_util_add_transport_info.exit.i:              ; preds = %1331, %rtps_util_ad
   %1346 = add i32 %.0472488.i, 8
   %1347 = add i32 %.0470489.i, 1
   %.not481.i = icmp eq i32 %1336, 0
-  br i1 %.not481.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.i, !llvm.loop !30
+  br i1 %.not481.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.i, !llvm.loop !28
 
 1348:                                             ; preds = %1120
   br i1 %.not205, label %1361, label %1349
@@ -8868,7 +8868,7 @@ rtps_util_add_guid_prefix_v2.exit261:             ; preds = %1464, %1465
   %1480 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %1481 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %1482 = load i32, ptr @ett_rtps_entity, align 4
-  %1483 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %1478, i32 noundef %1479, i32 noundef %1480, i32 noundef %1481, i32 noundef %1482, ptr noundef nonnull @.str.1179, ptr noundef null), !range !4
+  %1483 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %1478, i32 noundef %1479, i32 noundef %1480, i32 noundef %1481, i32 noundef %1482, ptr noundef nonnull @.str.1179, ptr noundef null)
   br label %dissect_parameter_sequence_rti_dds.exit
 
 1484:                                             ; preds = %1120
@@ -8957,7 +8957,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %1517, %1518
   %1533 = load i32, ptr @hf_rtps_sm_entity_id_key, align 4
   %1534 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %1535 = load i32, ptr @ett_rtps_entity, align 4
-  %1536 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %1531, i32 noundef %1532, i32 noundef %1533, i32 noundef %1534, i32 noundef %1535, ptr noundef nonnull @.str.1179, ptr noundef null), !range !4
+  %1536 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %.2, ptr noundef %2, i32 noundef %1531, i32 noundef %1532, i32 noundef %1533, i32 noundef %1534, i32 noundef %1535, ptr noundef nonnull @.str.1179, ptr noundef null)
   %1537 = add i32 %153, 16
   %1538 = call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %1537, i32 noundef %4) #13
   %1539 = zext i32 %1538 to i64
@@ -9043,7 +9043,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %1517, %1518
   br label %dissect_parameter_sequence_rti_dds.exit
 
 1590:                                             ; preds = %1120, %1120
-  %1591 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef 0), !range !24
+  %1591 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef 0)
   br label %dissect_parameter_sequence_rti_dds.exit
 
 1592:                                             ; preds = %1120
@@ -9184,7 +9184,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %1517, %1518
   %.1.i.i = add i32 %.04751.i.i, 24
   %1672 = add nuw i32 %.04850.i.i, 1
   %exitcond.not.i.i216 = icmp eq i32 %1672, %1634
-  br i1 %exitcond.not.i.i216, label %rtps_util_add_multichannel_locator_list.exit.i, label %.preheader.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i216, label %rtps_util_add_multichannel_locator_list.exit.i, label %.preheader.i.i, !llvm.loop !29
 
 rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1671, %1630
   %.2.i.i = phi i32 [ %1637, %1630 ], [ %.1.i.i, %1671 ]
@@ -9208,7 +9208,7 @@ rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1671, %1630
   %1685 = add nuw nsw i32 %.0471485.i, 1
   %1686 = load i32, ptr %31, align 4
   %1687 = icmp slt i32 %1685, %1686
-  br i1 %1687, label %1630, label %dissect_parameter_sequence_rti_dds.exit, !llvm.loop !32
+  br i1 %1687, label %1630, label %dissect_parameter_sequence_rti_dds.exit, !llvm.loop !30
 
 1688:                                             ; preds = %1120
   %1689 = icmp slt i32 %.0193, 28
@@ -9236,7 +9236,7 @@ rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1671, %1630
   %1701 = add i32 %.02.i.i255, 2
   %1702 = add nuw i32 %.0191.i.i256, 1
   %exitcond.not.i.i257 = icmp eq i32 %1702, %1695
-  br i1 %exitcond.not.i.i257, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i.i254, !llvm.loop !33
+  br i1 %exitcond.not.i.i257, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i.i254, !llvm.loop !31
 
 1703:                                             ; preds = %1120
   %1704 = icmp slt i32 %.0193, 4
@@ -9335,7 +9335,7 @@ dissect_parameter_sequence_rti_dds.exit:          ; preds = %.lr.ph.i.i254, %rtp
   br i1 %cond.i, label %1766, label %dissect_parameter_sequence_toc.exit
 
 1766:                                             ; preds = %1765
-  %1767 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !24
+  %1767 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %.2, ptr noundef %2, i32 noundef %153, i32 noundef %4, i32 noundef 0, i32 noundef 0, i16 noundef zeroext -1, i32 noundef 0, i32 noundef %153, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %dissect_parameter_sequence_toc.exit
 
 dissect_parameter_sequence_toc.exit:              ; preds = %1766, %1765, %1119, %dissect_parameter_sequence_rti_dds.exit
@@ -9490,7 +9490,7 @@ define internal fastcc void @rtps_util_add_seq_string(ptr noundef %0, ptr nounde
   %27 = add nuw nsw i32 %.03637, 1
   %28 = load i32, ptr %8, align 4
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.035.lcssa = phi i32 [ %10, %13 ], [ %26, %.lr.ph ]
@@ -9742,7 +9742,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef %12) unnamed_addr #0 {
+define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef %12) unnamed_addr #0 {
   %14 = alloca [40 x i8], align 16
   %15 = alloca [10 x i32], align 16
   %16 = tail call ptr @wmem_epan_scope() #13
@@ -9855,7 +9855,7 @@ rtps_util_typecode_id_to_string.exit.thread436:   ; preds = %13
   %60 = and i32 %59, -4
   %61 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %60, i32 noundef %3) #13
   %62 = add i32 %60, 4
-  %63 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %62, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %61, ptr noundef null, i32 noundef %spec.select), !range !24
+  %63 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %62, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %61, ptr noundef null, i32 noundef %spec.select)
   br label %289
 
 rtps_util_typecode_id_to_string.exit.thread438:   ; preds = %13
@@ -10100,15 +10100,15 @@ check_offset_addition.exit420:                    ; preds = %145
   call void @proto_item_set_len(ptr noundef %172, i32 noundef %30) #13
   %173 = add nuw i32 %.0396458, 1
   %exitcond487.not = icmp eq i32 %173, %165
-  br i1 %exitcond487.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !35
+  br i1 %exitcond487.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !33
 
 ._crit_edge461:                                   ; preds = %.lr.ph460, %check_offset_addition.exit420
   %.1.lcssa = phi i32 [ %166, %check_offset_addition.exit420 ], [ %170, %.lr.ph460 ]
   %174 = zext i8 %162 to i32
-  %175 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.1.lcssa, i32 noundef %3, i32 noundef %144, i32 noundef %174, i16 noundef zeroext 0, i32 noundef 0, i32 noundef %.0395463, ptr noundef %157, i32 noundef -1, ptr noundef null, i32 noundef %spec.select), !range !24
+  %175 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.1.lcssa, i32 noundef %3, i32 noundef %144, i32 noundef %174, i16 noundef zeroext 0, i32 noundef 0, i32 noundef %.0395463, ptr noundef %157, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
   %176 = add nuw i32 %.0389464, 1
   %exitcond488.not = icmp eq i32 %176, %142
-  br i1 %exitcond488.not, label %._crit_edge467, label %145, !llvm.loop !36
+  br i1 %exitcond488.not, label %._crit_edge467, label %145, !llvm.loop !34
 
 ._crit_edge467:                                   ; preds = %._crit_edge461
   %177 = add i32 %175, %.1.lcssa
@@ -10182,7 +10182,7 @@ check_offset_addition.exit421:                    ; preds = %rtps_util_typecode_
   %220 = add i32 %215, 5
   %221 = zext i8 %214 to i32
   %222 = zext i8 %219 to i32
-  %223 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %220, i32 noundef %3, i32 noundef %190, i32 noundef %221, i16 noundef zeroext %217, i32 noundef %222, i32 noundef %.0397470, ptr noundef %203, i32 noundef -1, ptr noundef null, i32 noundef %spec.select), !range !24
+  %223 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %220, i32 noundef %3, i32 noundef %190, i32 noundef %221, i16 noundef zeroext %217, i32 noundef %222, i32 noundef %.0397470, ptr noundef %203, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
   %224 = add i32 %223, %220
   br label %225
 
@@ -10190,7 +10190,7 @@ check_offset_addition.exit421:                    ; preds = %rtps_util_typecode_
   %.4 = phi i32 [ %209, %205 ], [ %224, %213 ]
   %226 = add nuw i32 %.1390471, 1
   %exitcond489.not = icmp eq i32 %226, %188
-  br i1 %exitcond489.not, label %._crit_edge474, label %191, !llvm.loop !37
+  br i1 %exitcond489.not, label %._crit_edge474, label %191, !llvm.loop !35
 
 ._crit_edge474:                                   ; preds = %225, %183
   %.3.lcssa = phi i32 [ %189, %183 ], [ %.4, %225 ]
@@ -10211,11 +10211,11 @@ check_offset_addition.exit421:                    ; preds = %rtps_util_typecode_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.5 = add i32 %.5457, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_typecode_id_to_string.exit.thread438
   %.5.lcssa = phi i32 [ %.5455, %rtps_util_typecode_id_to_string.exit.thread438 ], [ %.5, %.lr.ph ]
-  %230 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.5.lcssa, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef -1, ptr noundef nonnull %15, i32 noundef %spec.select), !range !24
+  %230 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.5.lcssa, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef -1, ptr noundef nonnull %15, i32 noundef %spec.select)
   br label %289
 
 231:                                              ; preds = %rtps_util_typecode_id_to_string.exit.thread440
@@ -10293,7 +10293,7 @@ check_offset_addition.exit424:                    ; preds = %234
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %258, ptr noundef nonnull @.str.1155, i32 noundef %261) #13
   %indvars.iv.next491 = add nuw nsw i64 %indvars.iv490, 1
   %exitcond493.not = icmp eq i64 %indvars.iv.next491, 10
-  br i1 %exitcond493.not, label %263, label %259, !llvm.loop !39
+  br i1 %exitcond493.not, label %263, label %259, !llvm.loop !37
 
 263:                                              ; preds = %259, %262
   %264 = load i32, ptr @hf_rtps_array, align 4
@@ -10814,7 +10814,7 @@ rtps_util_dissect_parameter_header.exit48.i:      ; preds = %81, %check_offset_a
   call void @proto_item_set_len(ptr noundef %95, i32 noundef %107) #13
   %108 = add nuw i32 %.067.i, 1
   %exitcond.not.i47 = icmp eq i32 %108, %86
-  br i1 %exitcond.not.i47, label %rtps_util_add_type_element_enumeration.exit, label %.lr.ph.i46, !llvm.loop !40
+  br i1 %exitcond.not.i47, label %rtps_util_add_type_element_enumeration.exit, label %.lr.ph.i46, !llvm.loop !38
 
 rtps_util_add_type_element_enumeration.exit:      ; preds = %.lr.ph.i46, %rtps_util_dissect_parameter_header.exit48.i
   %109 = getelementptr inbounds i8, ptr %19, i64 292
@@ -10951,7 +10951,7 @@ rtps_util_dissect_parameter_header.exit51.i:      ; preds = %171, %check_offset_
   store i32 %184, ptr %180, align 4
   %185 = add nuw i32 %.04782.i, 1
   %exitcond.not.i38 = icmp eq i32 %185, %176
-  br i1 %exitcond.not.i38, label %rtps_util_add_type_element_array.exit, label %.critedge.i, !llvm.loop !41
+  br i1 %exitcond.not.i38, label %rtps_util_add_type_element_array.exit, label %.critedge.i, !llvm.loop !39
 
 186:                                              ; preds = %rtps_util_dissect_parameter_header.exit
   %187 = call fastcc i32 @rtps_util_add_type_library_type(ptr noundef %36, ptr noundef %2, i32 noundef %.184, i32 noundef %4, ptr noundef nonnull %19)
@@ -11265,7 +11265,7 @@ rtps_util_dissect_parameter_header.exit.i.i:      ; preds = %322, %.lr.ph.i19
   %374 = add nuw nsw i32 %.015.i.i, 1
   %.064.i.i = add i32 %.06416.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %374, %327
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %357
   %.064.lcssa.i.i = phi i32 [ %.06414.i.i, %357 ], [ %.064.i.i, %.lr.ph.i.i ]
@@ -11289,7 +11289,7 @@ rtps_util_add_type_union_member.exit.i:           ; preds = %._crit_edge.i.i
   call void @proto_item_set_len(ptr noundef %312, i32 noundef %383) #13
   %384 = add nuw i32 %.047.i, 1
   %exitcond.not.i21 = icmp eq i32 %384, %307
-  br i1 %exitcond.not.i21, label %rtps_util_add_type_element_union.exit, label %.lr.ph.i19, !llvm.loop !43
+  br i1 %exitcond.not.i21, label %rtps_util_add_type_element_union.exit, label %.lr.ph.i19, !llvm.loop !41
 
 rtps_util_add_type_element_union.exit:            ; preds = %rtps_util_add_type_union_member.exit.i, %rtps_util_dissect_parameter_header.exit.i18
   %.036.lcssa.i = phi i32 [ %310, %rtps_util_dissect_parameter_header.exit.i18 ], [ %spec.select.i.i, %rtps_util_add_type_union_member.exit.i ]
@@ -11368,7 +11368,7 @@ rtps_util_dissect_parameter_header.exit.i:        ; preds = %398, %390
   call void @proto_item_set_len(ptr noundef %425, i32 noundef %428) #13
   %429 = add nuw i32 %.04869.us.i, 1
   %exitcond71.not.i = icmp eq i32 %429, %418
-  br i1 %exitcond71.not.i, label %rtps_util_add_type_element_struct.exit, label %.lr.ph.split.us.i, !llvm.loop !44
+  br i1 %exitcond71.not.i, label %rtps_util_add_type_element_struct.exit, label %.lr.ph.split.us.i, !llvm.loop !42
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.04869.i = phi i32 [ %434, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -11380,7 +11380,7 @@ rtps_util_dissect_parameter_header.exit.i:        ; preds = %398, %390
   call void @proto_item_set_len(ptr noundef %431, i32 noundef %433) #13
   %434 = add nuw i32 %.04869.i, 1
   %exitcond.not.i = icmp eq i32 %434, %418
-  br i1 %exitcond.not.i, label %rtps_util_add_type_element_struct.exit, label %.lr.ph.split.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %rtps_util_add_type_element_struct.exit, label %.lr.ph.split.i, !llvm.loop !42
 
 rtps_util_add_type_element_struct.exit:           ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i, %417
   %435 = call i32 @wmem_array_get_count(ptr noundef %422) #13
@@ -11453,7 +11453,7 @@ check_offset_addition.exit:                       ; preds = %rtps_util_add_type_
 rtps_util_add_type_library_element.exit:          ; preds = %464, %467
   %470 = add nuw i32 %.0124, 1
   %exitcond.not = icmp eq i32 %470, %11
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %rtps_util_add_type_library_element.exit, %6
   ret void
@@ -11675,7 +11675,7 @@ rtps_util_dissect_parameter_header.exit68:        ; preds = %check_offset_additi
   %74 = call fastcc i32 @rtps_util_add_type_annotation_usage(ptr noundef %72, ptr noundef %1, i32 noundef %.196, i32 noundef %3, i32 noundef %.194)
   %75 = add nuw i32 %.06395, 1
   %exitcond.not = icmp eq i32 %75, %70
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_dissect_parameter_header.exit68
   %76 = add i32 %.192, %.194
@@ -11722,7 +11722,7 @@ define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noun
   %.1 = phi i32 [ %19, %16 ], [ %15, %.lr.ph ]
   %21 = add nuw i32 %.03132, 1
   %exitcond.not = icmp eq i32 %21, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %20, %5
   %.0.lcssa = phi i32 [ %8, %5 ], [ %.1, %20 ]
@@ -11875,7 +11875,7 @@ rtps_util_dissect_parameter_header.exit92:        ; preds = %check_offset_additi
   %92 = call fastcc i32 @rtps_util_add_type_annotation_usage(ptr noundef %90, ptr noundef %1, i32 noundef %.0124, i32 noundef %3, i32 noundef %.1122)
   %93 = add nuw i32 %.088123, 1
   %exitcond.not = icmp eq i32 %93, %88
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_dissect_parameter_header.exit92
   %94 = add i32 %.1, %.1122
@@ -12538,7 +12538,7 @@ define internal fastcc void @dissect_parametrized_serialized_data(ptr noundef %0
   %11 = add i32 %.076, %.sink83
   %12 = add i32 %11, %.072
   %13 = icmp slt i32 %12, %3
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !49
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %5, %10
   %.076 = phi i32 [ %12, %10 ], [ 0, %5 ]
@@ -13166,7 +13166,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
   %261 = load i32, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %.0468, i64 16
   %263 = load i64, ptr %262, align 8
-  %264 = call fastcc i32 @get_native_type_cdr_length(i64 noundef %263), !range !50
+  %264 = call fastcc i32 @get_native_type_cdr_length(i64 noundef %263)
   br label %265
 
 265:                                              ; preds = %259, %258
@@ -13207,7 +13207,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
   %283 = call fastcc i32 @dissect_user_defined(ptr noundef %269, ptr noundef %1, i32 noundef %.15820, i32 noundef %3, i32 noundef %4, ptr noundef null, i64 noundef %282, ptr noundef nonnull %16, i32 noundef 1, i32 noundef %.0466, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 1)
   %284 = add nuw i32 %.0474821, 1
   %exitcond865.not = icmp eq i32 %284, %.0490
-  br i1 %exitcond865.not, label %.thread, label %279, !llvm.loop !51
+  br i1 %exitcond865.not, label %.thread, label %279, !llvm.loop !48
 
 285:                                              ; preds = %279
   %286 = sub i32 %.0490, %273
@@ -13240,7 +13240,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
 301:                                              ; preds = %295
   %302 = getelementptr inbounds i8, ptr %.0468, i64 16
   %303 = load i64, ptr %302, align 8
-  %304 = call fastcc i32 @get_native_type_cdr_length(i64 noundef %303), !range !50
+  %304 = call fastcc i32 @get_native_type_cdr_length(i64 noundef %303)
   br label %305
 
 305:                                              ; preds = %301, %295
@@ -13273,7 +13273,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
   %318 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 256, ptr noundef nonnull @.str.1248, ptr noundef %7, i32 noundef %.0485815.us) #13
   %319 = add nuw i32 %.0485815.us, 1
   %exitcond863.not = icmp eq i32 %319, %300
-  br i1 %exitcond863.not, label %.thread780, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %exitcond863.not, label %.thread780, label %.lr.ph.split.us, !llvm.loop !49
 
 320:                                              ; preds = %305
   %321 = mul i32 %.0473, %300
@@ -13301,7 +13301,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
   %.18 = phi i32 [ %.17814, %324 ], [ %328, %327 ]
   %330 = add nuw i32 %.0485815, 1
   %exitcond861.not = icmp eq i32 %330, %300
-  br i1 %exitcond861.not, label %.thread780, label %.lr.ph.split, !llvm.loop !52
+  br i1 %exitcond861.not, label %.thread780, label %.lr.ph.split, !llvm.loop !49
 
 .split817.us:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i32 [ %310, %.lr.ph.split.us ], [ %.17814, %.lr.ph.split ]
@@ -13621,7 +13621,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %.not531 = icmp ne i32 %.1454, 0
   %483 = zext i1 %.not531 to i32
   %spec.select = add i32 %.0459836, %483
-  br label %.preheader, !llvm.loop !53
+  br label %.preheader, !llvm.loop !50
 
 484:                                              ; preds = %399
   %485 = load i64, ptr %403, align 8
@@ -13710,7 +13710,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %522 = zext i32 %521 to i64
   %523 = icmp ult i64 %indvars.iv.next, %522
-  br i1 %523, label %501, label %.loopexit, !llvm.loop !54
+  br i1 %523, label %501, label %.loopexit, !llvm.loop !51
 
 .loopexit.loopexit:                               ; preds = %rtps_util_dissect_parameter_header.exit617
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -13764,7 +13764,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @dissector_try_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @get_native_type_cdr_length(i64 noundef %0) unnamed_addr #9 {
+define internal fastcc range(i32 1, 17) i32 @get_native_type_cdr_length(i64 noundef %0) unnamed_addr #9 {
   %switch.tableidx = add i64 %0, -3
   %2 = icmp ult i64 %switch.tableidx, 12
   br i1 %2, label %switch.lookup, label %3
@@ -13948,7 +13948,7 @@ proto_item_set_generated.exit105:                 ; preds = %proto_item_set_gene
   %78 = add nuw nsw i32 %.085111, 1
   %79 = icmp ult i32 %.085111, 31
   %or.cond117 = and i1 %77, %79
-  br i1 %or.cond117, label %64, label %._crit_edge119, !llvm.loop !55
+  br i1 %or.cond117, label %64, label %._crit_edge119, !llvm.loop !52
 
 ._crit_edge119:                                   ; preds = %75
   %.pre = load i32, ptr %7, align 4
@@ -13958,7 +13958,7 @@ split:                                            ; preds = %72, %._crit_edge119
   %80 = phi i32 [ %.pre, %._crit_edge119 ], [ %74, %72 ]
   %81 = add i32 %.084114, 32
   %82 = icmp slt i32 %81, %80
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !56
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %split, %proto_item_set_generated.exit105
   %.083.lcssa = phi i32 [ %27, %proto_item_set_generated.exit105 ], [ %63, %split ]
@@ -14145,13 +14145,13 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
   %78 = load i32, ptr @hf_rtps_sm_rdentity_id_key, align 4
   %79 = load i32, ptr @hf_rtps_sm_rdentity_id_kind, align 4
   %80 = load i32, ptr @ett_rtps_rdentity, align 4
-  %81 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @.str.88, ptr noundef nonnull %29), !range !4
+  %81 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @.str.88, ptr noundef nonnull %29)
   %82 = add i32 %2, 12
   %83 = load i32, ptr @hf_rtps_sm_wrentity_id, align 4
   %84 = load i32, ptr @hf_rtps_sm_wrentity_id_key, align 4
   %85 = load i32, ptr @hf_rtps_sm_wrentity_id_kind, align 4
   %86 = load i32, ptr @ett_rtps_wrentity, align 4
-  %87 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef nonnull @.str.97, ptr noundef nonnull %28), !range !4
+  %87 = call fastcc i32 @rtps_util_add_entity_id(ptr noundef %6, ptr noundef %0, i32 noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef nonnull @.str.97, ptr noundef nonnull %28)
   %88 = add i32 %2, 16
   %89 = load i32, ptr %28, align 4
   %90 = getelementptr inbounds i8, ptr %9, i64 16
@@ -14497,7 +14497,7 @@ get_encapsulation_endianness.exit283:             ; preds = %switch.hole_check31
   call void @proto_item_set_len(ptr noundef %311, i32 noundef %312) #13
   %313 = add nuw i32 %.0761.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %313, %287
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !54
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.0.lcssa.i.i = phi i32 [ %288, %.lr.ph.i ], [ %310, %.lr.ph.i.i ]
@@ -14553,7 +14553,7 @@ rtps_util_add_seq_octets.exit.i.i:                ; preds = %338, %.lr.ph6.i.i
   call void @proto_item_set_len(ptr noundef %340, i32 noundef %341) #13
   %342 = add nuw i32 %.1773.i.i, 1
   %exitcond10.not.i.i = icmp eq i32 %342, %318
-  br i1 %exitcond10.not.i.i, label %rtps_util_add_data_holder.exit.i, label %.lr.ph6.i.i, !llvm.loop !58
+  br i1 %exitcond10.not.i.i, label %rtps_util_add_data_holder.exit.i, label %.lr.ph6.i.i, !llvm.loop !55
 
 rtps_util_add_data_holder.exit.i:                 ; preds = %rtps_util_add_seq_octets.exit.i.i, %._crit_edge.i.i
   %.1.lcssa.i.i = phi i32 [ %319, %._crit_edge.i.i ], [ %.0.i.i.i, %rtps_util_add_seq_octets.exit.i.i ]
@@ -14570,7 +14570,7 @@ rtps_util_add_data_holder.exit.i:                 ; preds = %rtps_util_add_seq_o
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %348 = add nuw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %348, %268
-  br i1 %exitcond.not.i, label %rtps_util_add_data_holder_seq.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %rtps_util_add_data_holder_seq.exit, label %.lr.ph.i, !llvm.loop !56
 
 rtps_util_add_data_holder_seq.exit:               ; preds = %rtps_util_add_data_holder.exit.i, %get_encapsulation_endianness.exit283
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
@@ -14861,7 +14861,7 @@ rtps_util_dissect_parameter_header.exit113.i.i:   ; preds = %514, %rtps_util_dis
   %535 = add i32 %527, %533
   %536 = add nuw i32 %.0208.i.i, 1
   %exitcond.not.i.i291 = icmp eq i32 %536, %519
-  br i1 %exitcond.not.i.i291, label %._crit_edge.i.i292, label %.lr.ph.i.i290, !llvm.loop !60
+  br i1 %exitcond.not.i.i291, label %._crit_edge.i.i292, label %.lr.ph.i.i290, !llvm.loop !57
 
 ._crit_edge.i.i292:                               ; preds = %.lr.ph.i.i290, %rtps_util_dissect_parameter_header.exit113.i.i
   %.4.lcssa.i.i = phi i32 [ %522, %rtps_util_dissect_parameter_header.exit113.i.i ], [ %535, %.lr.ph.i.i290 ]
@@ -15100,7 +15100,7 @@ rtps_util_dissect_parameter_header.exit.i37.i:    ; preds = %667, %get_encapsula
   %677 = add i32 %.144.i.i, 24
   %678 = add nuw i32 %.045.i.i, 1
   %exitcond.not.i40.i = icmp eq i32 %678, %672
-  br i1 %exitcond.not.i40.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i, !llvm.loop !61
+  br i1 %exitcond.not.i40.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i, !llvm.loop !58
 
 rtps_util_add_rti_locator_reachability_service_request.exit.i: ; preds = %.lr.ph.i39.i, %rtps_util_dissect_parameter_header.exit.i37.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -15308,7 +15308,7 @@ declare i32 @g_bytes_hash(ptr noundef) local_unnamed_addr #2
 declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._endpoint_guid, align 4
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct._rtps_tvb_field, align 8
@@ -15689,61 +15689,58 @@ attributes #15 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = !{i32 6, i32 65542}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = !{i32 1, i32 17}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
-!58 = distinct !{!58, !6}
-!59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE = internal unnamed_addr constant [256 x i8] c"012aceiost %-./3456789=A_bdfghlmnpru:BCDEFGHIJKLMNOPQRSTUVWYjkqvwxyz&*,;XZ!\22()?'+|#>\00$@[]~^}<`{\\\C3\D0\80\82\83\A2\B8\C2\E0\E2\99\A1\A7\AC\B0\B1\B3\D1\D8\D9\E3\E5\E6\81\84\85\86\88\92\9A\9C\A0\A3\A4\A9\AA\AD\B2\B5\B9\BA\BB\BD\BE\C4\C6\E4\E8\E9\01\87\89\8A\8B\8C\8D\8F\93\95\96\97\98\9B\9D\9E\A5\A6\A8\AE\AF\B4\B6\B7\BC\BF\C5\E7\EF\09\8E\90\91\94\9F\AB\CE\D7\E1\EC\ED\C7\CF\EA\EB\C0\C1\C8\C9\CA\CD\D2\D5\DA\DB\EE\F0\F2\F3\FF\CB\CC\D3\D4\D6\DD\DE\DF\F1\F4\F5\F6\F7\F8\FA\FB\FC\FD\FE\02\03\04\05\06\07\08\0B\0C\0E\0F\10\11\12\13\14\15\17\18\19\1A\1B\1C\1D\1E\1F\7F\DC\F9\0A\0D\16", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net19HpackHuffmanDecoder18CodeLengthOfPrefixEj(i32 noundef %value) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 5, 31) i64 @_ZN3net19HpackHuffmanDecoder18CodeLengthOfPrefixEj(i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %value, -1207959552
   br i1 %cmp, label %if.then, label %if.else3
@@ -261,7 +261,7 @@ if.else22:                                        ; preds = %if.end14
   %7 = load i8, ptr %arrayidx23.i, align 1
   %conv.i = zext i8 %7 to i32
   %sub.i = sub i32 %2, %6
-  %8 = trunc i64 %length.0.i to i32
+  %8 = trunc nuw nsw i64 %length.0.i to i32
   %sh_prom.i = sub nuw nsw i32 32, %8
   %shr.i = lshr i32 %sub.i, %sh_prom.i
   %add.i = add nuw nsw i32 %shr.i, %conv.i

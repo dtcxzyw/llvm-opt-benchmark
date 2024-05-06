@@ -262,7 +262,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.186 = private unnamed_addr constant [27 x i8] c"Reassembled Profinet Frame\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden range(i32 0, 2) i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [16 x i8], align 16
   %6 = ptrtoint ptr %3 to i64
   %7 = trunc i64 %6 to i32
@@ -1140,7 +1140,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 65520

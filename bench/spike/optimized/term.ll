@@ -32,7 +32,7 @@ define linkonce_odr void @_ZN19canonical_termios_tD2Ev(ptr noundef nonnull align
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN20canonical_terminal_t4readEv() local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN20canonical_terminal_t4readEv() local_unnamed_addr #2 align 2 {
   %1 = alloca %struct.pollfd, align 4
   %2 = alloca i8, align 1
   store i32 0, ptr %1, align 4

@@ -832,7 +832,7 @@ declare i32 @Hop_ManCheck(ptr noundef) local_unnamed_addr #1
 declare void @Hop_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -889,7 +889,7 @@ define noundef i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr noundef
   %27 = sext i32 %.val20.val to i64
   %28 = getelementptr inbounds ptr, ptr %.val19.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %29, ptr noundef %1), !range !17
+  %30 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %29, ptr noundef %1)
   %.not15 = icmp eq i32 %30, 0
   br i1 %.not15, label %31, label %._crit_edge
 
@@ -905,7 +905,7 @@ define noundef i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr noundef
   %35 = sext i32 %.val22.val to i64
   %36 = getelementptr inbounds ptr, ptr %.val21.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %37, ptr noundef %1), !range !17
+  %38 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %37, ptr noundef %1)
   %.not16 = icmp eq i32 %38, 0
   br i1 %.not16, label %tailrecurse, label %._crit_edge
 
@@ -921,7 +921,7 @@ tailrecurse:                                      ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkHaigCheckTfi(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -961,7 +961,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %12, %6
   store i32 0, ptr %19, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_IntFill.exit.i, label %17, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %Vec_IntFill.exit.i, label %17, !llvm.loop !17
 
 Vec_IntFill.exit.i:                               ; preds = %17, %Vec_IntGrow.exit.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 228
@@ -973,7 +973,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 8
-  %24 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %2, ptr noundef %1), !range !17
+  %24 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %2, ptr noundef %1)
   ret i32 %24
 }
 
@@ -1027,7 +1027,7 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %.val66 = load i32, ptr %26, align 4
   %27 = sext i32 %.val66 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %16, label %.critedge.preheader, !llvm.loop !19
+  br i1 %28, label %16, label %.critedge.preheader, !llvm.loop !18
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %29 = phi ptr [ %12, %.critedge.preheader ], [ %65, %.critedge ]
@@ -1092,7 +1092,7 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %.val65 = load i32, ptr %66, align 4
   %67 = sext i32 %.val65 to i64
   %68 = icmp slt i64 %indvars.iv.next97, %67
-  br i1 %68, label %34, label %.critedge2.preheader, !llvm.loop !20
+  br i1 %68, label %34, label %.critedge2.preheader, !llvm.loop !19
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge2
   %.pre105 = load ptr, ptr %11, align 8
@@ -1145,7 +1145,7 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %.val77.val = load i32, ptr %95, align 4
   %96 = sext i32 %.val77.val to i64
   %97 = icmp slt i64 %indvars.iv.next100, %96
-  br i1 %97, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !21
+  br i1 %97, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !20
 
 98:                                               ; preds = %.lr.ph94, %.critedge4
   %indvars.iv102 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next103, %.critedge4 ]
@@ -1208,7 +1208,7 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %119, %115
   store i32 0, ptr %126, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Vec_IntFill.exit.i.i, label %124, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %Vec_IntFill.exit.i.i, label %124, !llvm.loop !17
 
 Vec_IntFill.exit.i.i:                             ; preds = %124, %Vec_IntGrow.exit.i.i.i
   store i32 %117, ptr %75, align 4
@@ -1218,7 +1218,7 @@ Abc_NtkHaigCheckTfi.exit:                         ; preds = %109, %Vec_IntFill.e
   %127 = load i32, ptr %76, align 8
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %76, align 8
-  %129 = tail call noundef i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %111, ptr noundef %113), !range !17
+  %129 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %111, ptr noundef %113)
   %.not62 = icmp eq i32 %129, 0
   br i1 %.not62, label %.preheader, label %.critedge4
 
@@ -1227,7 +1227,7 @@ Abc_NtkHaigCheckTfi.exit:                         ; preds = %109, %Vec_IntFill.e
   %130 = getelementptr inbounds i8, ptr %.056, i64 56
   %131 = load ptr, ptr %130, align 8
   %.not63 = icmp eq ptr %131, null
-  br i1 %.not63, label %132, label %.preheader, !llvm.loop !22
+  br i1 %.not63, label %132, label %.preheader, !llvm.loop !21
 
 132:                                              ; preds = %.preheader
   %133 = getelementptr inbounds i8, ptr %.056, i64 56
@@ -1241,7 +1241,7 @@ Abc_NtkHaigCheckTfi.exit:                         ; preds = %109, %Vec_IntFill.e
   %.val = load i32, ptr %135, align 4
   %136 = sext i32 %.val to i64
   %137 = icmp slt i64 %indvars.iv.next103, %136
-  br i1 %137, label %98, label %.critedge6, !llvm.loop !23
+  br i1 %137, label %98, label %.critedge6, !llvm.loop !22
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %138 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #9
@@ -1360,7 +1360,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   %.val78 = load i32, ptr %22, align 4
   %23 = sext i32 %.val78 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge.preheader, !llvm.loop !24
+  br i1 %24, label %.lr.ph, label %.critedge.preheader, !llvm.loop !23
 
 .critedge2.preheader:                             ; preds = %.critedge
   %25 = icmp sgt i32 %.val77, 0
@@ -1391,7 +1391,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   %.val77 = load i32, ptr %35, align 4
   %36 = sext i32 %.val77 to i64
   %37 = icmp slt i64 %indvars.iv.next101, %36
-  br i1 %37, label %.lr.ph88, label %.critedge2.preheader, !llvm.loop !25
+  br i1 %37, label %.lr.ph88, label %.critedge2.preheader, !llvm.loop !24
 
 .critedge4.preheader:                             ; preds = %.critedge2
   %38 = icmp sgt i32 %.val76, 0
@@ -1433,7 +1433,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   %.val76 = load i32, ptr %54, align 4
   %55 = sext i32 %.val76 to i64
   %56 = icmp slt i64 %indvars.iv.next104, %55
-  br i1 %56, label %.lr.ph91, label %.critedge4.preheader, !llvm.loop !26
+  br i1 %56, label %.lr.ph91, label %.critedge4.preheader, !llvm.loop !25
 
 .lr.ph98:                                         ; preds = %.critedge4.preheader, %.critedge4
   %57 = phi ptr [ %70, %.critedge4 ], [ %53, %.critedge4.preheader ]
@@ -1473,7 +1473,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   %.val = load i32, ptr %71, align 4
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next107, %72
-  br i1 %73, label %.lr.ph98, label %.critedge6, !llvm.loop !27
+  br i1 %73, label %.lr.ph98, label %.critedge6, !llvm.loop !26
 
 .critedge6:                                       ; preds = %.critedge4, %1, %.critedge.preheader, %.critedge2.preheader, %.critedge4.preheader
   %.060.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.262, %.critedge4 ]
@@ -1492,7 +1492,7 @@ define noundef ptr @Abc_NtkHopRemoveLoops(ptr noundef %0, ptr noundef %1) local_
   tail call void @Hop_ManStop(ptr noundef %.08) #9
   %5 = tail call i32 @Abc_NtkHaigResetReprs(ptr noundef %4)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %4, %.lr.ph ]
@@ -1592,7 +1592,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -1639,7 +1639,7 @@ attributes #10 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -1651,4 +1651,3 @@ attributes #10 = { nounwind allocsize(1) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

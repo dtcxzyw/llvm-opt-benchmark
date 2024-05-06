@@ -38,7 +38,7 @@ define noundef i32 @_Z17tMPI_Lock_trylockP9tMPI_Lock(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @_Z18tMPI_Lock_islockedP9tMPI_Lock(ptr noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Lock_islockedP9tMPI_Lock(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp ne i32 %2, 0
   %4 = zext i1 %3 to i32

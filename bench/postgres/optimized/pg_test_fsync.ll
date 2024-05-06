@@ -574,7 +574,7 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %6 = load ptr, ptr @stdout, align 8
   %7 = tail call i32 @fflush(ptr noundef %6)
   %8 = load ptr, ptr @filename, align 8
-  %9 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef %8, i32 noundef 20482, i32 noundef 0) #14
+  %9 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %8, i32 noundef 20482, i32 noundef 0) #14
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %13
 
@@ -834,7 +834,7 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %122 = load ptr, ptr @stdout, align 8
   %123 = tail call i32 @fflush(ptr noundef %122)
   %124 = load ptr, ptr @filename, align 8
-  %125 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef %124, i32 noundef 1069058, i32 noundef 0) #14
+  %125 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %124, i32 noundef 1069058, i32 noundef 0) #14
   %126 = icmp eq i32 %125, -1
   br i1 %126, label %.critedge, label %128
 
@@ -981,7 +981,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unna
   %4 = load ptr, ptr @stdout, align 8
   %5 = tail call i32 @fflush(ptr noundef %4)
   %6 = load ptr, ptr @filename, align 8
-  %7 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 1069058, i32 noundef 0) #14
+  %7 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %6, i32 noundef 1069058, i32 noundef 0) #14
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %11
 

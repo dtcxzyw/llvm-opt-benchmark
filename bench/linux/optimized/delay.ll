@@ -153,7 +153,7 @@ define internal void @delay_halt_tpause(i64 noundef %0, i64 noundef %1) #1 align
   %3 = add i64 %1, %0
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   tail call void asm sideeffect "tpause %ecx\0A", "{cx},{dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 %6, i32 %4) #8, !srcloc !22
   ret void
 }
@@ -208,7 +208,7 @@ define internal void @delay_halt_mwaitx(i64 %0, i64 noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @read_current_timer(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @read_current_timer(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @delay_fn, align 8
   %3 = icmp eq ptr %2, @delay_tsc
   br i1 %3, label %4, label %10

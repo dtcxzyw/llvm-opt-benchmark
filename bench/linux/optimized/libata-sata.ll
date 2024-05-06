@@ -131,7 +131,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_eh_analy
 @llvm.compiler.used = appending global [34 x ptr] [ptr @__UNIQUE_ID___addressable_ata_change_queue_depth467, ptr @__UNIQUE_ID___addressable_ata_eh_analyze_ncq_error476, ptr @__UNIQUE_ID___addressable_ata_eh_read_sense_success_ncq_log475, ptr @__UNIQUE_ID___addressable_ata_ncq_sdev_groups459, ptr @__UNIQUE_ID___addressable_ata_qc_complete_multiple449, ptr @__UNIQUE_ID___addressable_ata_sas_port_alloc469, ptr @__UNIQUE_ID___addressable_ata_sas_queuecmd473, ptr @__UNIQUE_ID___addressable_ata_sas_slave_configure472, ptr @__UNIQUE_ID___addressable_ata_sas_tport_add470, ptr @__UNIQUE_ID___addressable_ata_sas_tport_delete471, ptr @__UNIQUE_ID___addressable_ata_scsi_change_queue_depth468, ptr @__UNIQUE_ID___addressable_ata_slave_link_init454, ptr @__UNIQUE_ID___addressable_ata_tf_from_fis441, ptr @__UNIQUE_ID___addressable_ata_tf_to_fis440, ptr @__UNIQUE_ID___addressable_dev_attr_em_message460, ptr @__UNIQUE_ID___addressable_dev_attr_em_message_type461, ptr @__UNIQUE_ID___addressable_dev_attr_link_power_management_policy456, ptr @__UNIQUE_ID___addressable_dev_attr_ncq_prio_enable458, ptr @__UNIQUE_ID___addressable_dev_attr_ncq_prio_supported457, ptr @__UNIQUE_ID___addressable_dev_attr_sw_activity462, ptr @__UNIQUE_ID___addressable_sata_async_notification474, ptr @__UNIQUE_ID___addressable_sata_deb_timing_hotplug434, ptr @__UNIQUE_ID___addressable_sata_deb_timing_long435, ptr @__UNIQUE_ID___addressable_sata_deb_timing_normal433, ptr @__UNIQUE_ID___addressable_sata_link_debounce442, ptr @__UNIQUE_ID___addressable_sata_link_hardreset448, ptr @__UNIQUE_ID___addressable_sata_link_resume443, ptr @__UNIQUE_ID___addressable_sata_link_scr_lpm446, ptr @__UNIQUE_ID___addressable_sata_lpm_ignore_phy_events455, ptr @__UNIQUE_ID___addressable_sata_scr_read437, ptr @__UNIQUE_ID___addressable_sata_scr_valid436, ptr @__UNIQUE_ID___addressable_sata_scr_write438, ptr @__UNIQUE_ID___addressable_sata_scr_write_flush439, ptr @__UNIQUE_ID___addressable_sata_set_spd447], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @sata_scr_valid(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @sata_scr_valid(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -1747,7 +1747,7 @@ define dso_local i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %1) #
 declare dso_local void @ata_qc_complete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_slave_link_init(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_slave_link_init(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14720
   %3 = load ptr, ptr %2, align 64
   %4 = icmp eq ptr %3, null
@@ -1823,7 +1823,7 @@ define dso_local noundef zeroext i1 @sata_lpm_ignore_phy_events(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_scsi_lpm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_lpm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 15820
@@ -1923,7 +1923,7 @@ define internal noundef i64 @ata_scsi_lpm_store(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_ncq_prio_supported_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_ncq_prio_supported_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -440
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2064
@@ -1958,7 +1958,7 @@ define internal i64 @ata_ncq_prio_supported_show(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_ncq_prio_enable_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_ncq_prio_enable_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -440
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2064
@@ -2129,7 +2129,7 @@ define internal i64 @ata_scsi_em_message_store(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_scsi_em_message_type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_em_message_type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 15880
@@ -2437,7 +2437,7 @@ declare dso_local i32 @__ata_scsi_queuecmd(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @scsi_done(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sata_async_notification(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @sata_async_notification(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2622,7 +2622,7 @@ declare dso_local void @ata_port_schedule_eh(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @ata_link_next(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_eh_read_sense_success_ncq_log(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -5, 1) i32 @ata_eh_read_sense_success_ncq_log(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1152
   %3 = load ptr, ptr %2, align 64
   %4 = load ptr, ptr %3, align 64

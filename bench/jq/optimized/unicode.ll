@@ -2101,7 +2101,7 @@ declare i32 @onigenc_unicode_fold1_key(ptr noundef) local_unnamed_addr #1
 declare i32 @onigenc_unicode_fold2_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %1, %3
@@ -2293,7 +2293,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 83:                                               ; preds = %82, %82, %82
-  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !37
+  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not272 = icmp eq i32 %84, 0
   br i1 %.not272, label %.loopexit410, label %85
 
@@ -2350,7 +2350,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 96:                                               ; preds = %95
-  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !37
+  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %98 = icmp ne i32 %97, 0
   %99 = load i32, ptr %7, align 4
   %100 = icmp eq i32 %99, 7
@@ -2447,7 +2447,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 125:                                              ; preds = %124, %124, %124
-  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !37
+  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %127 = icmp ne i32 %126, 0
   %128 = load i32, ptr %7, align 4
   %129 = icmp eq i32 %128, 14
@@ -2508,7 +2508,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   %150 = add nuw nsw i32 %.0352, 1
   %151 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %145) #10
   %.not276 = icmp eq ptr %151, null
-  br i1 %.not276, label %._crit_edge354, label %.lr.ph353, !llvm.loop !38
+  br i1 %.not276, label %._crit_edge354, label %.lr.ph353, !llvm.loop !37
 
 ._crit_edge354:                                   ; preds = %149, %.lr.ph353
   %.0.lcssa.ph = phi i32 [ %150, %149 ], [ %.0352, %.lr.ph353 ]
@@ -2612,7 +2612,7 @@ define i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wb_get_next_main_code(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   %8 = sext i32 %7 to i64
@@ -2685,7 +2685,7 @@ wb_get_type.exit.thread:                          ; preds = %24, %26, %wb_get_ty
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %1, %3
   %7 = icmp eq ptr %1, %4
   %or.cond = or i1 %6, %7
@@ -2711,7 +2711,7 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 2
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %22, label %.preheader68
+  br i1 %.not, label %22, label %.preheader69
 
 22:                                               ; preds = %13
   %23 = icmp ne i32 %16, 13
@@ -2720,9 +2720,9 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %26 = zext i1 %25 to i32
   br label %unicode_egcb_is_break_2code.exit.thread
 
-.preheader68:                                     ; preds = %13, %.preheader68
-  %.016.i.i = phi i32 [ %.1.i.i, %.preheader68 ], [ 0, %13 ]
-  %.01315.i.i = phi i32 [ %.114.i.i, %.preheader68 ], [ 1371, %13 ]
+.preheader69:                                     ; preds = %13, %.preheader69
+  %.016.i.i = phi i32 [ %.1.i.i, %.preheader69 ], [ 0, %13 ]
+  %.01315.i.i = phi i32 [ %.114.i.i, %.preheader69 ], [ 1371, %13 ]
   %27 = add i32 %.01315.i.i, %.016.i.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
@@ -2733,9 +2733,9 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %.114.i.i = select i1 %32, i32 %.01315.i.i, i32 %28
   %.1.i.i = select i1 %32, i32 %33, i32 %.016.i.i
   %34 = icmp ult i32 %.1.i.i, %.114.i.i
-  br i1 %34, label %.preheader68, label %35, !llvm.loop !39
+  br i1 %34, label %.preheader69, label %35, !llvm.loop !38
 
-35:                                               ; preds = %.preheader68
+35:                                               ; preds = %.preheader69
   %36 = icmp ult i32 %.1.i.i, 1371
   br i1 %36, label %37, label %egcb_get_type.exit.i
 
@@ -2768,7 +2768,7 @@ egcb_get_type.exit.i:                             ; preds = %41, %37, %35
   %.114.i58.i = select i1 %51, i32 %.01315.i57.i, i32 %47
   %.1.i59.i = select i1 %51, i32 %52, i32 %.016.i56.i
   %53 = icmp ult i32 %.1.i59.i, %.114.i58.i
-  br i1 %53, label %45, label %54, !llvm.loop !39
+  br i1 %53, label %45, label %54, !llvm.loop !38
 
 54:                                               ; preds = %45
   %55 = icmp ult i32 %.1.i59.i, 1371
@@ -2791,7 +2791,7 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   %64 = icmp eq i32 %44, 0
   %65 = icmp eq i32 %63, 0
   %or.cond.i = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond.i, label %unicode_egcb_is_break_2code.exit.thread64, label %66
+  br i1 %or.cond.i, label %unicode_egcb_is_break_2code.exit.thread65, label %66
 
 66:                                               ; preds = %egcb_get_type.exit61.i
   %67 = icmp eq i32 %44, 1
@@ -2805,7 +2805,7 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   %71 = add i32 %63, -1
   %or.cond7.i = icmp ult i32 %71, 3
   %or.cond55.i = select i1 %or.cond5.i, i1 true, i1 %or.cond7.i
-  br i1 %or.cond55.i, label %unicode_egcb_is_break_2code.exit.thread64, label %72
+  br i1 %or.cond55.i, label %unicode_egcb_is_break_2code.exit.thread65, label %72
 
 72:                                               ; preds = %69
   %73 = icmp ugt i32 %44, 12
@@ -2835,7 +2835,7 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   %83 = add i32 %44, -15
   %or.cond17.i = icmp ult i32 %83, 2
   %or.cond54.i = select i1 %82, i1 %or.cond17.i, i1 false
-  br i1 %or.cond54.i, label %unicode_egcb_is_break_2code.exit.thread, label %unicode_egcb_is_break_2code.exit.thread64
+  br i1 %or.cond54.i, label %unicode_egcb_is_break_2code.exit.thread, label %unicode_egcb_is_break_2code.exit.thread65
 
 84:                                               ; preds = %72
   switch i32 %63, label %85 [
@@ -2853,20 +2853,20 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
 86:                                               ; preds = %85
   %87 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %18) #10
   %.not.i = icmp eq i32 %87, 0
-  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread64, label %.critedge
+  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread65, label %.critedge
 
 88:                                               ; preds = %85
   %89 = icmp eq i32 %44, 6
   %90 = icmp eq i32 %63, 6
   %or.cond21.i = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread64
+  br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread65
 
 unicode_egcb_is_break_2code.exit.preheader:       ; preds = %88
   %91 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.041) #10
-  %.not4969 = icmp eq ptr %91, null
-  br i1 %.not4969, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
+  %.not4970 = icmp eq ptr %91, null
+  br i1 %.not4970, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
 
-unicode_egcb_is_break_2code.exit.thread64:        ; preds = %egcb_get_type.exit61.i, %81, %86, %88, %69
+unicode_egcb_is_break_2code.exit.thread65:        ; preds = %egcb_get_type.exit61.i, %81, %86, %88, %69
   br label %unicode_egcb_is_break_2code.exit.thread
 
 .critedge:                                        ; preds = %86, %egcb_get_type.exit
@@ -2895,7 +2895,7 @@ unicode_egcb_is_break_2code.exit.thread64:        ; preds = %egcb_get_type.exit6
   %.114.i = select i1 %102, i32 %.01315.i, i32 %98
   %.1.i = select i1 %102, i32 %103, i32 %.016.i
   %104 = icmp ult i32 %.1.i, %.114.i
-  br i1 %104, label %.preheader, label %105, !llvm.loop !39
+  br i1 %104, label %.preheader, label %105, !llvm.loop !38
 
 105:                                              ; preds = %.preheader
   %106 = icmp ult i32 %.1.i, 1371
@@ -2905,76 +2905,76 @@ unicode_egcb_is_break_2code.exit.thread64:        ; preds = %egcb_get_type.exit6
   %108 = zext nneg i32 %.1.i to i64
   %109 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
-  %.not.i55 = icmp ugt i32 %110, %95
-  br i1 %.not.i55, label %egcb_get_type.exit.thread, label %egcb_get_type.exit
+  %.not.i56 = icmp ugt i32 %110, %95
+  br i1 %.not.i56, label %egcb_get_type.exit.thread, label %egcb_get_type.exit
 
 egcb_get_type.exit:                               ; preds = %107
   %111 = getelementptr inbounds i8, ptr %109, i64 8
   %112 = load i32, ptr %111, align 4
   %.not53 = icmp eq i32 %112, 4
-  br i1 %.not53, label %.critedge, label %egcb_get_type.exit.thread, !llvm.loop !40
+  br i1 %.not53, label %.critedge, label %egcb_get_type.exit.thread, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %unicode_egcb_is_break_2code.exit.preheader, %unicode_egcb_is_break_2code.exit
   %113 = phi ptr [ %134, %unicode_egcb_is_break_2code.exit ], [ %91, %unicode_egcb_is_break_2code.exit.preheader ]
-  %.070 = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ]
+  %.071 = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ]
   %114 = load ptr, ptr %14, align 8
   %115 = tail call i32 %114(ptr noundef nonnull %113, ptr noundef %4) #10
   br label %116
 
 116:                                              ; preds = %116, %.lr.ph
-  %.016.i56 = phi i32 [ 0, %.lr.ph ], [ %.1.i59, %116 ]
-  %.01315.i57 = phi i32 [ 1371, %.lr.ph ], [ %.114.i58, %116 ]
-  %117 = add i32 %.01315.i57, %.016.i56
+  %.016.i57 = phi i32 [ 0, %.lr.ph ], [ %.1.i60, %116 ]
+  %.01315.i58 = phi i32 [ 1371, %.lr.ph ], [ %.114.i59, %116 ]
+  %117 = add i32 %.01315.i58, %.016.i57
   %118 = lshr i32 %117, 1
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %119, i32 1
   %121 = load i32, ptr %120, align 4
   %122 = icmp ult i32 %121, %115
   %123 = add nuw i32 %118, 1
-  %.114.i58 = select i1 %122, i32 %.01315.i57, i32 %118
-  %.1.i59 = select i1 %122, i32 %123, i32 %.016.i56
-  %124 = icmp ult i32 %.1.i59, %.114.i58
-  br i1 %124, label %116, label %125, !llvm.loop !39
+  %.114.i59 = select i1 %122, i32 %.01315.i58, i32 %118
+  %.1.i60 = select i1 %122, i32 %123, i32 %.016.i57
+  %124 = icmp ult i32 %.1.i60, %.114.i59
+  br i1 %124, label %116, label %125, !llvm.loop !38
 
 125:                                              ; preds = %116
-  %126 = icmp ult i32 %.1.i59, 1371
-  br i1 %126, label %127, label %egcb_get_type.exit61.thread
+  %126 = icmp ult i32 %.1.i60, 1371
+  br i1 %126, label %127, label %egcb_get_type.exit62.thread
 
 127:                                              ; preds = %125
-  %128 = zext nneg i32 %.1.i59 to i64
+  %128 = zext nneg i32 %.1.i60 to i64
   %129 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
-  %.not.i60 = icmp ugt i32 %130, %115
-  br i1 %.not.i60, label %egcb_get_type.exit61.thread, label %egcb_get_type.exit61
+  %.not.i61 = icmp ugt i32 %130, %115
+  br i1 %.not.i61, label %egcb_get_type.exit62.thread, label %egcb_get_type.exit62
 
-egcb_get_type.exit61:                             ; preds = %127
+egcb_get_type.exit62:                             ; preds = %127
   %131 = getelementptr inbounds i8, ptr %129, i64 8
   %132 = load i32, ptr %131, align 4
   %.not50 = icmp eq i32 %132, 6
-  br i1 %.not50, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit61.thread
+  br i1 %.not50, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit62.thread
 
-unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit61
-  %133 = add nuw nsw i32 %.070, 1
+unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit62
+  %133 = add nuw nsw i32 %.071, 1
   %134 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %113) #10
   %.not49 = icmp eq ptr %134, null
-  br i1 %.not49, label %egcb_get_type.exit61.thread, label %.lr.ph, !llvm.loop !41
+  br i1 %.not49, label %egcb_get_type.exit62.thread, label %.lr.ph, !llvm.loop !40
 
-egcb_get_type.exit61.thread:                      ; preds = %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit61, %127, %125
-  %.0.lcssa.ph = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ %.070, %egcb_get_type.exit61 ], [ %.070, %127 ], [ %.070, %125 ]
+egcb_get_type.exit62.thread:                      ; preds = %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit62, %127, %125
+  %.0.lcssa.ph = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ %.071, %egcb_get_type.exit62 ], [ %.071, %127 ], [ %.071, %125 ]
   %135 = and i32 %.0.lcssa.ph, 1
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit.thread
 
-egcb_get_type.exit.thread:                        ; preds = %105, %107, %.critedge, %egcb_get_type.exit, %egcb_get_type.exit61.thread
+egcb_get_type.exit.thread:                        ; preds = %105, %107, %.critedge, %egcb_get_type.exit, %egcb_get_type.exit62.thread
   br label %unicode_egcb_is_break_2code.exit.thread
 
-unicode_egcb_is_break_2code.exit.thread:          ; preds = %93, %unicode_egcb_is_break_2code.exit.preheader, %85, %84, %84, %84, %81, %79, %75, %66, %egcb_get_type.exit61.thread, %10, %5, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread64, %22
-  %.040 = phi i32 [ 1, %egcb_get_type.exit.thread ], [ 1, %unicode_egcb_is_break_2code.exit.thread64 ], [ %26, %22 ], [ 1, %5 ], [ 1, %10 ], [ 0, %egcb_get_type.exit61.thread ], [ 0, %66 ], [ 0, %75 ], [ 0, %79 ], [ 0, %81 ], [ 0, %84 ], [ 0, %84 ], [ 0, %84 ], [ 0, %85 ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ], [ 0, %93 ]
+unicode_egcb_is_break_2code.exit.thread:          ; preds = %93, %unicode_egcb_is_break_2code.exit.preheader, %85, %84, %84, %84, %81, %79, %75, %66, %egcb_get_type.exit62.thread, %10, %5, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread65, %22
+  %.040 = phi i32 [ 1, %egcb_get_type.exit.thread ], [ 1, %unicode_egcb_is_break_2code.exit.thread65 ], [ %26, %22 ], [ 1, %5 ], [ 1, %10 ], [ 0, %egcb_get_type.exit62.thread ], [ 0, %66 ], [ 0, %75 ], [ 0, %79 ], [ 0, %81 ], [ 0, %84 ], [ 0, %84 ], [ 0, %84 ], [ 0, %85 ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ], [ 0, %93 ]
   ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onig_unicode_define_user_property(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @UserDefinedPropertyNum, align 4
   %4 = icmp sgt i32 %3, 19
   br i1 %4, label %45, label %5
@@ -3031,7 +3031,7 @@ define i32 @onig_unicode_define_user_property(ptr nocapture noundef readonly %0,
   %.1 = phi i32 [ %22, %19 ], [ %.03844, %18 ], [ %.03844, %18 ], [ %.03844, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %23
   %24 = sext i32 %.1 to i64
@@ -3100,7 +3100,7 @@ declare i32 @onig_st_insert_strend(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = icmp ugt i32 %0, 605
   br i1 %3, label %4, label %11
 
@@ -3132,7 +3132,7 @@ define noundef i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   store i32 0, ptr %1, align 4
   %4 = icmp ugt i32 %0, 605
   br i1 %4, label %5, label %12
@@ -3206,7 +3206,7 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %.02537, i64 %22
   %24 = icmp ult ptr %23, %2
-  br i1 %24, label %8, label %._crit_edge, !llvm.loop !43
+  br i1 %24, label %8, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %19, %3
   %.024.lcssa = phi i32 [ 0, %3 ], [ %.1, %19 ]
@@ -3374,7 +3374,7 @@ hash.exit.i:                                      ; preds = %76, %35
   %122 = getelementptr inbounds i8, ptr %.0918.i.i, i64 1
   %123 = add nsw i64 %.01017.i.i, -1
   %.not.i.i = icmp eq i64 %123, 0
-  br i1 %.not.i.i, label %gperf_case_strncmp.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %gperf_case_strncmp.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !43
 
 gperf_case_strncmp.exit.i:                        ; preds = %.lr.ph.i.i
   br i1 %119, label %gperf_case_strncmp.exit.thread.i, label %unicode_lookup_property_name.exit.thread
@@ -3463,11 +3463,10 @@ attributes #12 = { nounwind allocsize(0) }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = !{i32 0, i32 2}
+!37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

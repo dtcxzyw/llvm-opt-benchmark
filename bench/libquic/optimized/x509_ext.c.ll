@@ -99,7 +99,7 @@ entry:
 declare i32 @X509V3_add1_i2d(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_add_ext(ptr nocapture noundef readonly %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_CRL_add_ext(ptr nocapture noundef readonly %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %extensions = getelementptr inbounds i8, ptr %0, i64 48
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_add_ext(ptr nocapture noundef readonly %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_add_ext(ptr nocapture noundef readonly %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %extensions = getelementptr inbounds i8, ptr %0, i64 72
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REVOKED_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REVOKED_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %x, i64 16
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %extensions, ptr noundef %ex, i32 noundef %loc) #2

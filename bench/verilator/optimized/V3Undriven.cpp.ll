@@ -2059,8 +2059,8 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit110:       ; preds = %83
 
 140:                                              ; preds = %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i, %.lr.ph.i.i
   %141 = phi i1 [ true, %.lr.ph.i.i ], [ %169, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i ]
-  %.017.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %168, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i ]
-  %142 = mul nuw nsw i32 %.017.i.i, 3
+  %.018.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %168, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i ]
+  %142 = mul nuw nsw i32 %.018.i.i, 3
   %143 = icmp slt i32 %142, %137
   br i1 %143, label %144, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i
 
@@ -2072,8 +2072,8 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit110:       ; preds = %83
 
 147:                                              ; preds = %144
   %148 = lshr i32 %142, 6
-  %.sext14.i.i = zext nneg i32 %148 to i64
-  %149 = getelementptr inbounds i64, ptr %126, i64 %.sext14.i.i
+  %.sext15.i.i = zext nneg i32 %148 to i64
+  %149 = getelementptr inbounds i64, ptr %126, i64 %.sext15.i.i
   %150 = and i32 %142, 63
   %151 = zext nneg i32 %150 to i64
   %152 = shl nuw i64 1, %151
@@ -2087,8 +2087,8 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit110:       ; preds = %83
 
 158:                                              ; preds = %144
   %.old.i.i = and i64 %145, 2
-  %.old15.not.i.i = icmp eq i64 %.old.i.i, 0
-  br i1 %.old15.not.i.i, label %159, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i
+  %.old16.not.i.i = icmp eq i64 %.old.i.i, 0
+  br i1 %.old16.not.i.i, label %159, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i
 
 159:                                              ; preds = %158, %147
   %160 = add nuw nsw i32 %142, 1
@@ -2100,11 +2100,11 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit110:       ; preds = %83
   %165 = shl nuw i64 1, %164
   %166 = load i64, ptr %162, align 8
   %167 = and i64 %166, %165
-  %.not16.i.i = icmp eq i64 %167, 0
-  br i1 %.not16.i.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenAnyEv.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i
+  %.not17.i.i = icmp eq i64 %167, 0
+  br i1 %.not17.i.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenAnyEv.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i
 
 _ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i.i: ; preds = %159, %158, %147, %140
-  %168 = add nuw nsw i32 %.017.i.i, 1
+  %168 = add nuw nsw i32 %.018.i.i, 1
   %169 = icmp slt i32 %168, %134
   %exitcond.not.i.i = icmp eq i32 %168, %134
   br i1 %exitcond.not.i.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenAnyEv.exit, label %140, !llvm.loop !13
@@ -2883,13 +2883,13 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %35
 
 52:                                               ; preds = %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i, %.lr.ph.i
   %53 = phi i1 [ true, %.lr.ph.i ], [ %83, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i ]
-  %.017.i = phi i32 [ 0, %.lr.ph.i ], [ %82, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i ]
-  %54 = add nsw i32 %.017.i, %28
+  %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %82, %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i ]
+  %54 = add nsw i32 %.018.i, %28
   %55 = icmp sgt i32 %54, -1
-  %56 = mul nsw i32 %54, 3
+  %56 = mul nuw nsw i32 %54, 3
   %57 = icmp slt i32 %56, %49
-  %or.cond22.i = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond22.i, label %58, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
+  %or.cond23.i = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond23.i, label %58, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
 
 58:                                               ; preds = %52
   %59 = load i64, ptr %51, align 8
@@ -2899,8 +2899,8 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %35
 
 61:                                               ; preds = %58
   %62 = lshr i32 %56, 6
-  %.sext14.i = zext nneg i32 %62 to i64
-  %63 = getelementptr inbounds i64, ptr %44, i64 %.sext14.i
+  %.sext15.i = zext nneg i32 %62 to i64
+  %63 = getelementptr inbounds i64, ptr %44, i64 %.sext15.i
   %64 = and i32 %56, 63
   %65 = zext nneg i32 %64 to i64
   %66 = shl nuw i64 1, %65
@@ -2914,8 +2914,8 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %35
 
 72:                                               ; preds = %58
   %.old.i = and i64 %59, 2
-  %.old15.not.i = icmp eq i64 %.old.i, 0
-  br i1 %.old15.not.i, label %73, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
+  %.old16.not.i = icmp eq i64 %.old.i, 0
+  br i1 %.old16.not.i, label %73, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
 
 73:                                               ; preds = %72, %61
   %74 = add nuw nsw i32 %56, 1
@@ -2927,11 +2927,11 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %35
   %79 = shl nuw i64 1, %78
   %80 = load i64, ptr %76, align 8
   %81 = and i64 %80, %79
-  %.not16.i = icmp eq i64 %81, 0
-  br i1 %.not16.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenBitEii.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
+  %.not17.i = icmp eq i64 %81, 0
+  br i1 %.not17.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenBitEii.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i
 
 _ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread.i:  ; preds = %73, %72, %61, %52
-  %82 = add nuw nsw i32 %.017.i, 1
+  %82 = add nuw nsw i32 %.018.i, 1
   %83 = icmp slt i32 %82, %37
   %exitcond.not.i = icmp eq i32 %82, %37
   br i1 %exitcond.not.i, label %_ZNK16UndrivenVarEntry18isUsedNotDrivenBitEii.exit, label %52, !llvm.loop !13
@@ -6299,7 +6299,7 @@ _ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %23
   br i1 %42, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread
 
 _ZNK16UndrivenVarEntry8bitNumOkEi.exit:           ; preds = %40
-  %43 = mul nsw i32 %41, 3
+  %43 = mul nuw nsw i32 %41, 3
   %44 = load ptr, ptr %38, align 8
   %45 = load i32, ptr %39, align 8
   %46 = load ptr, ptr %37, align 8
@@ -6422,7 +6422,7 @@ _ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %23
   br i1 %42, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit, label %_ZNK16UndrivenVarEntry8bitNumOkEi.exit.thread
 
 _ZNK16UndrivenVarEntry8bitNumOkEi.exit:           ; preds = %40
-  %43 = mul nsw i32 %41, 3
+  %43 = mul nuw nsw i32 %41, 3
   %44 = load ptr, ptr %38, align 8
   %45 = load i32, ptr %39, align 8
   %46 = load ptr, ptr %37, align 8
@@ -7200,7 +7200,7 @@ define linkonce_odr dso_local void @_ZN16UndrivenVarEntry8bitNamesB5cxx11ENS_13B
   br i1 %.not.i, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit:           ; preds = %39
-  %43 = mul nsw i32 %.042184, 3
+  %43 = mul nuw nsw i32 %.042184, 3
   %44 = load ptr, ptr %20, align 8
   %45 = lshr i32 %43, 6
   %.sext.i = zext nneg i32 %45 to i64
@@ -7239,7 +7239,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit:        ; preds = %52
   br i1 %.not.i59, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit63, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit63:         ; preds = %62
-  %66 = mul nsw i32 %.042184, 3
+  %66 = mul nuw nsw i32 %.042184, 3
   %67 = load ptr, ptr %20, align 8
   %68 = lshr i32 %66, 6
   %.sext.i60 = zext nneg i32 %68 to i64
@@ -7262,7 +7262,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread:  ; preds = %62
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread._ZNK16UndrivenVarEntry10drivenFlagEi.exit68_crit_edge: ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread
   %.pre = load ptr, ptr %20, align 8
-  %.pre187 = mul nsw i32 %.042184, 3
+  %.pre187 = mul nuw nsw i32 %.042184, 3
   br label %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68
 
 _ZNK16UndrivenVarEntry10drivenFlagEi.exit68:      ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread._ZNK16UndrivenVarEntry10drivenFlagEi.exit68_crit_edge, %_ZNK16UndrivenVarEntry8usedFlagEi.exit63
@@ -7288,7 +7288,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit68:      ; preds = %_ZNK16UndrivenVarEn
   br i1 %.not.i69, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit73, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit73:         ; preds = %86
-  %90 = mul nsw i32 %.042184, 3
+  %90 = mul nuw nsw i32 %.042184, 3
   %91 = load ptr, ptr %20, align 8
   %92 = lshr i32 %90, 6
   %.sext.i70 = zext nneg i32 %92 to i64

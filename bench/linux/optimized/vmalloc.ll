@@ -763,7 +763,7 @@ define dso_local zeroext i1 @is_vmalloc_addr(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ioremap_page_range(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ioremap_page_range(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3) local_unnamed_addr #1 align 16 {
   %5 = or i64 %3, -9223372036854775808
   %6 = load i1, ptr @ioremap_max_page_shift, align 4
   %7 = select i1 %6, i32 12, i32 63
@@ -772,7 +772,7 @@ define dso_local noundef i32 @ioremap_page_range(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vmap_range_noflush(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %.fr = freeze i64 %3
@@ -1869,7 +1869,7 @@ define dso_local noundef i32 @vmap_pages_range_noflush(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @is_vmalloc_or_module_addr(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @is_vmalloc_or_module_addr(ptr noundef %0) #1 align 16 {
   %2 = icmp ugt ptr %0, inttoptr (i64 -1073741825 to ptr)
   %3 = icmp ult ptr %0, inttoptr (i64 -16777216 to ptr)
   %4 = and i1 %2, %3
@@ -2092,7 +2092,7 @@ define dso_local ptr @vmalloc_to_page(ptr noundef %0) #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vmalloc_to_pfn(ptr noundef %0) #1 align 16 {
+define dso_local range(i64 -144115188075855872, 144115188075855872) i64 @vmalloc_to_pfn(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @vmalloc_to_page(ptr noundef %0)
   %3 = load i64, ptr @vmemmap_base, align 8
   %4 = ptrtoint ptr %2 to i64
@@ -4978,7 +4978,7 @@ define dso_local ptr @vmap_pfn(ptr noundef %0, i32 noundef %1, i64 %2) #1 align 
 declare dso_local i32 @apply_to_page_range(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vmap_pfn_apply(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vmap_pfn_apply(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16

@@ -1418,7 +1418,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_processor_get_throttling_fadt(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_get_throttling_fadt(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -1476,7 +1476,7 @@ define internal noundef i32 @acpi_processor_get_throttling_fadt(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_processor_set_throttling_fadt(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fadt(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5
@@ -1705,7 +1705,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_processor_set_throttling_ptc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5
@@ -1795,7 +1795,7 @@ define internal noundef i32 @acpi_processor_set_throttling_ptc(ptr noundef %0, i
 63:                                               ; preds = %57
   %64 = trunc i64 %33 to i32
   %65 = lshr i64 %33, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 410, i32 %64, i32 %66) #9, !srcloc !35
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #9
           to label %72 [label %68], !srcloc !32
@@ -1834,7 +1834,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @acpi_evaluation_failure_warn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @__acpi_processor_get_throttling(ptr noundef %0) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @__acpi_processor_get_throttling(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 744
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0) #9
@@ -1846,7 +1846,7 @@ define internal i64 @__acpi_processor_get_throttling(ptr noundef %0) #0 align 16
 declare dso_local i64 @work_on_cpu_key(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @acpi_processor_throttling_fn(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @acpi_processor_throttling_fn(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 752
   %4 = load ptr, ptr %3, align 8

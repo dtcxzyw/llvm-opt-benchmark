@@ -501,7 +501,7 @@ for.cond.preheader:                               ; preds = %if.end
 invoke.cont9:                                     ; preds = %.noexc45
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %typeName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %words, align 8
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %8 to i64

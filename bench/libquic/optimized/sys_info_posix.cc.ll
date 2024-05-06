@@ -439,7 +439,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4base7SysInfo23VMAllocationGranularityEv() local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN4base7SysInfo23VMAllocationGranularityEv() local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call i32 @getpagesize() #11
   %conv = sext i32 %call to i64

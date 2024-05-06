@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_dist_code = external hidden local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3), !range !4
+define range(i32 -6, 1) i32 @deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %6, null
   br i1 %9, label %118, label %10
 
@@ -128,7 +128,7 @@ define noundef i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %63 = add nsw i32 %61, -1
   %64 = getelementptr inbounds i8, ptr %47, i64 124
   store i32 %63, ptr %64, align 4
-  %65 = trunc i32 %4 to i8
+  %65 = trunc nuw i32 %4 to i8
   %.lhs.trunc = add nuw nsw i8 %65, 9
   %66 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %66 to i32
@@ -187,7 +187,7 @@ define noundef i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store i32 666, ptr %103, align 8
   %104 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @z_errmsg, i64 0, i64 6), align 16
   store ptr %104, ptr %17, align 8
-  %105 = tail call i32 @deflateEnd(ptr noundef nonnull %0), !range !5
+  %105 = tail call i32 @deflateEnd(ptr noundef nonnull %0)
   br label %118
 
 106:                                              ; preds = %98
@@ -206,7 +206,7 @@ define noundef i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store i32 %5, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %47, i64 60
   store i8 8, ptr %116, align 4
-  %117 = tail call i32 @deflateReset(ptr noundef nonnull %0), !range !6
+  %117 = tail call i32 @deflateReset(ptr noundef nonnull %0)
   br label %118
 
 118:                                              ; preds = %44, %37, %14, %8, %10, %106, %102
@@ -219,7 +219,7 @@ declare hidden ptr @zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare hidden void @zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %53, label %3
 
@@ -323,7 +323,7 @@ define noundef i32 @deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateReset(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @deflateReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %84, label %3
 
@@ -457,7 +457,7 @@ define noundef i32 @deflateReset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -540,7 +540,7 @@ define noundef i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 nou
   %49 = load i32, ptr %33, align 8
   %50 = shl i32 %48, %49
   %51 = load ptr, ptr %24, align 8
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw i64 %indvars.iv to i32
   %53 = add nuw i64 %indvars.iv, 2
   %54 = and i64 %53, 4294967295
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
@@ -568,7 +568,7 @@ define noundef i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 nou
   store i16 %70, ptr %74, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %47, !llvm.loop !7
+  br i1 %exitcond, label %.loopexit, label %47, !llvm.loop !4
 
 .loopexit:                                        ; preds = %47, %10, %19, %3, %5, %13
   %.055 = phi i32 [ -2, %10 ], [ -2, %13 ], [ -2, %5 ], [ -2, %3 ], [ 0, %19 ], [ 0, %47 ]
@@ -585,7 +585,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden void @_tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 
@@ -612,7 +612,7 @@ define noundef i32 @deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -640,7 +640,7 @@ define noundef i32 @deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %50, label %5
 
@@ -683,7 +683,7 @@ define i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %.not40, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @deflate(ptr noundef nonnull %0, i32 noundef 5), !range !9
+  %28 = tail call i32 @deflate(ptr noundef nonnull %0, i32 noundef 5)
   br label %29
 
 29:                                               ; preds = %27, %24, %16
@@ -727,7 +727,7 @@ define i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread414, label %4
 
@@ -1311,7 +1311,7 @@ flush_pending.exit._crit_edge420:                 ; preds = %flush_pending.exit
   %399 = load i32, ptr %398, align 8
   %400 = and i32 %399, 65535
   %401 = icmp ult i32 %396, %400
-  br i1 %401, label %328, label %flush_pending.exit._crit_edge, !llvm.loop !10
+  br i1 %401, label %328, label %flush_pending.exit._crit_edge, !llvm.loop !6
 
 flush_pending.exit._crit_edge:                    ; preds = %383, %flush_pending.exit, %315
   %402 = phi ptr [ %312, %315 ], [ %.pre423.pre, %flush_pending.exit ], [ %397, %383 ]
@@ -1489,7 +1489,7 @@ flush_pending.exit393._crit_edge:                 ; preds = %flush_pending.exit3
   %504 = getelementptr inbounds i8, ptr %502, i64 %.pre-phi448
   store i8 %501, ptr %504, align 1
   %.not371 = icmp eq i8 %501, 0
-  br i1 %.not371, label %._crit_edge, label %440, !llvm.loop !11
+  br i1 %.not371, label %._crit_edge, label %440, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %flush_pending.exit393._crit_edge
   %.pre428 = load ptr, ptr %429, align 8
@@ -1658,7 +1658,7 @@ flush_pending.exit395._crit_edge:                 ; preds = %flush_pending.exit3
   %599 = getelementptr inbounds i8, ptr %597, i64 %.pre-phi447
   store i8 %596, ptr %599, align 1
   %.not375 = icmp eq i8 %596, 0
-  br i1 %.not375, label %._crit_edge434, label %535, !llvm.loop !12
+  br i1 %.not375, label %._crit_edge434, label %535, !llvm.loop !8
 
 ._crit_edge434:                                   ; preds = %flush_pending.exit395._crit_edge
   %.pre436 = load ptr, ptr %523, align 8
@@ -1890,11 +1890,11 @@ flush_pending.exit397:                            ; preds = %flush_pending.exit3
   ]
 
 717:                                              ; preds = %714
-  %718 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %6, i32 noundef %1), !range !13
+  %718 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %6, i32 noundef %1)
   br label %728
 
 719:                                              ; preds = %714
-  %720 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %6, i32 noundef %1), !range !13
+  %720 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %6, i32 noundef %1)
   br label %728
 
 721:                                              ; preds = %714
@@ -2140,7 +2140,7 @@ flush_pending.exit397:                            ; preds = %flush_pending.exit3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %16, label %7
 
@@ -2238,7 +2238,7 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   %40 = getelementptr inbounds i8, ptr %.0, i64 1
   %41 = load i8, ptr %.0, align 1
   %.not42 = icmp eq i8 %41, 0
-  br i1 %.not42, label %.loopexit50, label %.preheader49, !llvm.loop !14
+  br i1 %.not42, label %.loopexit50, label %.preheader49, !llvm.loop !9
 
 .loopexit50:                                      ; preds = %.preheader49, %36
   %.2 = phi i64 [ %.032, %36 ], [ %39, %.preheader49 ]
@@ -2254,7 +2254,7 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   %45 = getelementptr inbounds i8, ptr %.1, i64 1
   %46 = load i8, ptr %.1, align 1
   %.not44 = icmp eq i8 %46, 0
-  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit50
   %.4 = phi i64 [ %.2, %.loopexit50 ], [ %44, %.preheader ]
@@ -2357,7 +2357,7 @@ define internal fastcc void @flush_pending(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2595,7 +2595,7 @@ flush_pending.exit46:                             ; preds = %109, %126, %151
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = icmp eq i32 %1, 0
@@ -2720,7 +2720,7 @@ define internal fastcc noundef i32 @deflate_rle(ptr noundef %0, i32 noundef %1) 
   %75 = icmp eq i8 %33, %74
   %76 = icmp ult i64 %.0105.idx, 250
   %or.cond116 = and i1 %76, %75
-  br i1 %or.cond116, label %45, label %thread-pre-split119.split.loop.exit, !llvm.loop !16
+  br i1 %or.cond116, label %45, label %thread-pre-split119.split.loop.exit, !llvm.loop !11
 
 thread-pre-split119.split.loop.exit:              ; preds = %73
   %.ptr.le = getelementptr inbounds i8, ptr %31, i64 %.0105.add
@@ -3032,7 +3032,7 @@ declare hidden void @_tr_stored_block(ptr noundef, ptr noundef, i64 noundef, i32
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -3103,7 +3103,7 @@ define noundef i32 @deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %or.cond72, label %50, label %52
 
 50:                                               ; preds = %46, %43, %16
-  %51 = tail call i32 @deflateEnd(ptr noundef nonnull %0), !range !5
+  %51 = tail call i32 @deflateEnd(ptr noundef nonnull %0)
   br label %100
 
 52:                                               ; preds = %46
@@ -3172,7 +3172,7 @@ define noundef i32 @deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -5
@@ -3486,7 +3486,7 @@ flush_pending.exit68:                             ; preds = %148, %165, %190
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3686,7 +3686,7 @@ define internal noundef i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 {
   %145 = add i32 %144, -1
   store i32 %145, ptr %14, align 8
   %.not128 = icmp eq i32 %145, 0
-  br i1 %.not128, label %146, label %114, !llvm.loop !17
+  br i1 %.not128, label %146, label %114, !llvm.loop !12
 
 146:                                              ; preds = %114
   %147 = load i32, ptr %8, align 4
@@ -3928,7 +3928,7 @@ flush_pending.exit131:                            ; preds = %256, %273, %298
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -4181,7 +4181,7 @@ thread-pre-split:                                 ; preds = %71, %74, %92, %87, 
   %173 = add i32 %172, -1
   store i32 %173, ptr %6, align 8
   %.not164 = icmp eq i32 %173, 0
-  br i1 %.not164, label %174, label %139, !llvm.loop !18
+  br i1 %.not164, label %174, label %139, !llvm.loop !13
 
 174:                                              ; preds = %171
   %175 = icmp eq i32 %132, %134
@@ -4585,11 +4585,11 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
   %45 = tail call i32 @llvm.usub.sat.i32(i32 %44, i32 %3)
-  %46 = trunc i32 %45 to i16
+  %46 = trunc nuw i32 %45 to i16
   store i16 %46, ptr %42, align 2
   %47 = add i32 %.087, -1
   %.not99 = icmp eq i32 %47, 0
-  br i1 %.not99, label %48, label %41, !llvm.loop !19
+  br i1 %.not99, label %48, label %41, !llvm.loop !14
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %13, align 8
@@ -4603,11 +4603,11 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %54, i32 %3)
-  %56 = trunc i32 %55 to i16
+  %56 = trunc nuw i32 %55 to i16
   store i16 %56, ptr %52, align 2
   %57 = add i32 %.1, -1
   %.not101 = icmp eq i32 %57, 0
-  br i1 %.not101, label %58, label %51, !llvm.loop !20
+  br i1 %.not101, label %58, label %51, !llvm.loop !15
 
 58:                                               ; preds = %51
   %59 = add i32 %3, %27
@@ -4664,7 +4664,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
 90:                                               ; preds = %85, %80, %74
   %91 = load ptr, ptr %61, align 8
   %92 = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %91, i64 %92, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %72, ptr align 1 %91, i64 %92, i1 false)
   %93 = load ptr, ptr %61, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 %92
   store ptr %94, ptr %61, align 8
@@ -4709,7 +4709,7 @@ read_buf.exit:                                    ; preds = %65, %90
   %120 = getelementptr inbounds i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
   %.not102 = icmp eq i32 %121, 0
-  br i1 %.not102, label %.critedge, label %19, !llvm.loop !21
+  br i1 %.not102, label %.critedge, label %19, !llvm.loop !16
 
 .critedge:                                        ; preds = %101, %.thread
   %122 = getelementptr inbounds i8, ptr %0, i64 5928
@@ -4909,7 +4909,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %100 = icmp eq i8 %97, %99
   %101 = icmp ult i64 %.187.idx, 250
   %or.cond = and i1 %101, %100
-  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !22
+  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !17
 
 .critedge.split.loop.exit:                        ; preds = %54
   %102 = getelementptr inbounds i8, ptr %.187.ptr, i64 1
@@ -4981,7 +4981,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %128 = add i32 %.185, -1
   %.not109 = icmp eq i32 %128, 0
   %or.cond111 = select i1 %127, i1 true, i1 %.not109
-  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !23
+  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !18
 
 .critedge2:                                       ; preds = %121, %112
   %.291 = phi i32 [ %.190, %121 ], [ %110, %112 ]
@@ -5018,23 +5018,18 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -6, i32 1}
-!5 = !{i32 -3, i32 1}
-!6 = !{i32 -2, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -5, i32 2}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i32 0, i32 4}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

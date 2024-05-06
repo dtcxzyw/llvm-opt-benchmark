@@ -2225,7 +2225,7 @@ declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_mbtcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 6, 65542) i32 @get_mbtcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 4
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #5
   %7 = zext i16 %6 to i32
@@ -2428,7 +2428,7 @@ define internal i32 @dissect_mbtls_pdu(ptr noundef %0, ptr noundef %1, ptr nound
 define internal i32 @get_mbrtu_pdu_len(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #5
   %6 = load ptr, ptr @global_mbus_tcp_rtu_ports, align 8
-  %7 = tail call fastcc i32 @classify_mbrtu_packet(ptr noundef %0, ptr noundef %1, ptr noundef %6), !range !15
+  %7 = tail call fastcc i32 @classify_mbrtu_packet(ptr noundef %0, ptr noundef %1, ptr noundef %6)
   switch i32 %7, label %23 [
     i32 0, label %8
     i32 1, label %15
@@ -2499,7 +2499,7 @@ define internal i32 @dissect_mbrtu_pdu(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @classify_mbrtu_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @classify_mbrtu_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #5
   %5 = tail call i32 @tvb_reported_length(ptr noundef %1) #5
   %6 = getelementptr inbounds i8, ptr %0, i64 284
@@ -2585,7 +2585,7 @@ switch.lookup:
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %11 = and i8 %10, 127
-  %12 = tail call fastcc i32 @classify_mbrtu_packet(ptr noundef %1, ptr noundef %0, ptr noundef %3), !range !15
+  %12 = tail call fastcc i32 @classify_mbrtu_packet(ptr noundef %1, ptr noundef %0, ptr noundef %3)
   store i32 %12, ptr %4, align 4
   %13 = getelementptr inbounds i8, ptr %4, i64 4
   store i16 0, ptr %13, align 4
@@ -2750,4 +2750,3 @@ attributes #5 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 3}

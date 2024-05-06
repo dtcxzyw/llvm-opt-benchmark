@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cosine_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cosine_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 239
@@ -114,7 +114,7 @@ define hidden i32 @cosine_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cosine_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @cosine_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [240 x i8], align 16
   %8 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7)
@@ -162,7 +162,7 @@ cosine_seek_next_packet.exit:                     ; preds = %19, %21
 26:                                               ; preds = %cosine_seek_next_packet.exit
   store i64 %11, ptr %5, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = call fastcc i32 @parse_cosine_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4), !range !6
+  %28 = call fastcc i32 @parse_cosine_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
   br label %29
 
 29:                                               ; preds = %cosine_seek_next_packet.exit.thread, %cosine_seek_next_packet.exit, %26
@@ -171,7 +171,7 @@ cosine_seek_next_packet.exit:                     ; preds = %19, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cosine_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @cosine_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [240 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -194,7 +194,7 @@ define internal noundef i32 @cosine_seek_read(ptr nocapture noundef readonly %0,
   br label %22
 
 20:                                               ; preds = %12
-  %21 = call fastcc i32 @parse_cosine_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5), !range !6
+  %21 = call fastcc i32 @parse_cosine_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
   br label %22
 
 22:                                               ; preds = %6, %20, %17
@@ -227,7 +227,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_cosine_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [16 x i32], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -481,7 +481,7 @@ define internal fastcc noundef i32 @parse_cosine_packet(ptr noundef %0, ptr noun
   %144 = getelementptr i8, ptr %.08.i, i64 1
   %145 = load i8, ptr %144, align 1
   %.not.i = icmp eq i8 %145, 0
-  br i1 %.not.i, label %empty_line.exit.thread, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %empty_line.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %141, %143
   %146 = phi i8 [ %145, %143 ], [ %142, %141 ]
@@ -496,7 +496,7 @@ define internal fastcc noundef i32 @parse_cosine_packet(ptr noundef %0, ptr noun
 empty_line.exit.thread84:                         ; preds = %.lr.ph.i
   %151 = shl i32 %.06194, 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %7, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef nonnull %131, ptr noundef nonnull %132, ptr noundef nonnull %133, ptr noundef nonnull %134) #9
+  %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %7, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef nonnull %131, ptr noundef nonnull %132, ptr noundef nonnull %133, ptr noundef nonnull %134) #9
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %parse_single_hex_dump_line.exit.thread, label %154
 
@@ -518,14 +518,14 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %empty_line.exit.thr
   %156 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv.i
   %157 = load i32, ptr %156, align 4
   %158 = trunc i32 %157 to i8
-  %159 = trunc i64 %indvars.iv.i to i32
+  %159 = trunc nuw nsw i64 %indvars.iv.i to i32
   %160 = add nuw nsw i32 %151, %159
   %161 = zext i32 %160 to i64
   %162 = getelementptr i8, ptr %112, i64 %161
   store i8 %158, ptr %162, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit, label %.lr.ph.i81, !llvm.loop !8
+  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit, label %.lr.ph.i81, !llvm.loop !7
 
 parse_single_hex_dump_line.exit:                  ; preds = %.lr.ph.i81, %154
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
@@ -542,7 +542,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %.lr.ph.i81, %154
   %166 = add i32 %spec.store.select.i, %.095
   %167 = add nuw nsw i32 %.06194, 1
   %exitcond.not = icmp eq i32 %167, %117
-  br i1 %exitcond.not, label %empty_line.exit.thread, label %135, !llvm.loop !9
+  br i1 %exitcond.not, label %empty_line.exit.thread, label %135, !llvm.loop !8
 
 empty_line.exit.thread:                           ; preds = %165, %141, %143, %89
   %.093 = phi i32 [ 0, %89 ], [ %.095, %143 ], [ %166, %165 ], [ %.095, %141 ]
@@ -607,7 +607,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

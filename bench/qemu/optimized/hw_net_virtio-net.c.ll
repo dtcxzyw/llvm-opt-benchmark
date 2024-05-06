@@ -6539,7 +6539,7 @@ if.then.i:                                        ; preds = %lor.lhs.false15.i, 
   br label %if.end8
 
 if.end.i:                                         ; preds = %lor.lhs.false15.i
-  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull %unit)
+  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull readonly %unit)
   br label %if.end8
 
 if.else:                                          ; preds = %land.rhs
@@ -6580,7 +6580,7 @@ if.then.i35:                                      ; preds = %lor.lhs.false14.i, 
   br label %if.end8
 
 if.end.i45:                                       ; preds = %lor.lhs.false14.i
-  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull %unit)
+  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull readonly %unit)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end.i45, %if.then.i35, %if.end.i, %if.then.i
@@ -7293,7 +7293,7 @@ if.end.i116:                                      ; preds = %if.end18
   %40 = load i64, ptr %host_hdr_len, align 8
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %40
   %arrayidx.i118 = getelementptr i8, ptr %add.ptr.i, i64 12
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %arrayidx.i118, ptr noundef nonnull dereferenceable(2) @receive_filter.vlan, i64 2)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %arrayidx.i118, ptr noundef nonnull dereferenceable(2) @receive_filter.vlan, i64 2)
   %tobool1.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end11.i
 
@@ -7322,7 +7322,7 @@ if.end11.i:                                       ; preds = %if.then2.i, %if.end
   br i1 %tobool14.not.i, label %if.else41.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end11.i
-  %bcmp31.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) @receive_filter.bcast, i64 6)
+  %bcmp31.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) @receive_filter.bcast, i64 6)
   %tobool17.not.i = icmp eq i32 %bcmp31.i, 0
   br i1 %tobool17.not.i, label %receive_filter.exit, label %if.else.i
 
@@ -7367,7 +7367,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %mul.i = mul i32 %i.036.i, 6
   %idxprom35.i = sext i32 %mul.i to i64
   %arrayidx36.i = getelementptr i8, ptr %51, i64 %idxprom35.i
-  %bcmp32.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %arrayidx36.i, i64 6)
+  %bcmp32.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %arrayidx36.i, i64 6)
   %tobool38.not.i = icmp eq i32 %bcmp32.i, 0
   br i1 %tobool38.not.i, label %while.cond.preheader, label %for.cond.i
 
@@ -7391,7 +7391,7 @@ lor.lhs.false47.i:                                ; preds = %if.else44.i
 
 if.else52.i:                                      ; preds = %lor.lhs.false47.i
   %mac.i = getelementptr inbounds i8, ptr %call, i64 520
-  %bcmp29.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %mac.i, i64 6)
+  %bcmp29.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(6) %mac.i, i64 6)
   %tobool54.not.i = icmp eq i32 %bcmp29.i, 0
   br i1 %tobool54.not.i, label %while.cond.preheader, label %for.cond59.preheader.i
 
@@ -7416,7 +7416,7 @@ for.body64.i:                                     ; preds = %for.cond59.i, %for.
   %mul67.i = mul i32 %i.139.i, 6
   %idxprom68.i = sext i32 %mul67.i to i64
   %arrayidx69.i = getelementptr i8, ptr %56, i64 %idxprom68.i
-  %bcmp30.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %arrayidx69.i, i64 6)
+  %bcmp30.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %arrayidx69.i, i64 6)
   %tobool71.not.i = icmp eq i32 %bcmp30.i, 0
   br i1 %tobool71.not.i, label %while.cond.preheader, label %for.cond59.i
 

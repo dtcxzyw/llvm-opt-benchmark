@@ -150,7 +150,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 51:                                               ; preds = %56, %53
   %.0109 = phi i8 [ %.1110, %53 ], [ %.2111, %56 ]
   %.pn142 = phi { ptr, i32 } [ %54, %53 ], [ %.pn138.pn.pn, %56 ]
-  %52 = trunc i8 %.0109 to i1
+  %52 = trunc nuw i8 %.0109 to i1
   br i1 %52, label %136, label %137
 
 53:                                               ; preds = %122, %70, %48
@@ -249,7 +249,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 76:                                               ; preds = %81, %78
   %.0101 = phi i8 [ %.1102, %78 ], [ %.2103, %81 ]
   %.pn138 = phi { ptr, i32 } [ %79, %78 ], [ %.pn135.pn, %81 ]
-  %77 = trunc i8 %.0101 to i1
+  %77 = trunc nuw i8 %.0101 to i1
   br i1 %77, label %134, label %56
 
 78:                                               ; preds = %121, %96, %68

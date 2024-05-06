@@ -3269,7 +3269,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %565 = getelementptr inbounds i8, ptr %555, i64 48
   %566 = load i32, ptr %565, align 8, !tbaa !246, !noalias !241
   %567 = ashr i32 %566, 1
-  %568 = mul nsw i32 %567, %564
+  %568 = mul nuw nsw i32 %567, %564
   %569 = icmp sgt i32 %562, -1
   call void @llvm.assume(i1 %569)
   %570 = icmp sgt i32 %564, -1
@@ -3769,7 +3769,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %19 = getelementptr inbounds i8, ptr %9, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !246, !noalias !253
   %21 = ashr i32 %20, 1
-  %22 = mul nsw i32 %21, %18
+  %22 = mul nuw nsw i32 %21, %18
   %23 = icmp sgt i32 %16, -1
   call void @llvm.assume(i1 %23)
   %24 = icmp sgt i32 %18, -1

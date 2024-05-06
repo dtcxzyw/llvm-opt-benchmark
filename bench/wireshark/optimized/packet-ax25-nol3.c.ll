@@ -129,7 +129,7 @@ define internal i32 @dissect_ax25_nol3(ptr noundef %0, ptr noundef %1, ptr nound
 
 12:                                               ; preds = %4
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %14 = tail call fastcc i32 @isaprs(i8 noundef zeroext %13), !range !4
+  %14 = tail call fastcc i32 @isaprs(i8 noundef zeroext %13)
   %.not38 = icmp eq i32 %14, 0
   br i1 %.not38, label %16, label %15
 
@@ -170,7 +170,7 @@ define internal i32 @dissect_ax25_nol3(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not40, label %38, label %33
 
 33:                                               ; preds = %25
-  %34 = tail call fastcc i32 @isaprs(i8 noundef zeroext %.037), !range !4
+  %34 = tail call fastcc i32 @isaprs(i8 noundef zeroext %.037)
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %38, label %35
 
@@ -236,7 +236,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @isaprs(i8 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @isaprs(i8 noundef zeroext %0) unnamed_addr #2 {
   switch i8 %0, label %3 [
     i8 28, label %2
     i8 29, label %2
@@ -298,4 +298,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -979,7 +979,7 @@ if.end15:                                         ; preds = %_Z15is_numeral_sort
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end15
-  %conv.i.i.i.i.i = trunc i64 %value to i32
+  %conv.i.i.i.i.i = trunc nsw i64 %value to i32
   store i32 %conv.i.i.i.i.i, ptr %n, align 8
   store i8 %bf.clear3.i.i.i, ptr %m_kind.i.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpql.exit.i
@@ -1169,7 +1169,7 @@ if.end15:                                         ; preds = %_Z15is_numeral_sort
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end15
-  %conv.i.i.i.i = trunc i64 %value to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %value to i32
   store i32 %conv.i.i.i.i, ptr %n, align 8
   store i8 %bf.clear3.i.i.i, ptr %m_kind.i.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpqm.exit.i
@@ -1543,7 +1543,7 @@ if.then31:                                        ; preds = %invoke.cont29
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then31
-  %conv.i.i.i.i = trunc i64 %7 to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %7 to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpqm.exit.i
@@ -3198,7 +3198,7 @@ invoke.cont19:                                    ; preds = %if.end18
   br i1 %or.cond1, label %if.then24, label %cleanup
 
 if.then24:                                        ; preds = %invoke.cont19
-  %conv = trunc i64 %14 to i32
+  %conv = trunc nsw i64 %14 to i32
   store i32 %conv, ptr %i, align 4
   br label %cleanup
 
@@ -3490,7 +3490,7 @@ invoke.cont19:                                    ; preds = %if.end18
   br i1 %or.cond, label %if.then22, label %cleanup
 
 if.then22:                                        ; preds = %invoke.cont19
-  %conv = trunc i64 %14 to i32
+  %conv = trunc nuw i64 %14 to i32
   store i32 %conv, ptr %u, align 4
   br label %cleanup
 
@@ -4096,7 +4096,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN8rational12power_of_twoEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp, i32 noundef %4)
           to label %invoke.cont10 unwind label %lpad9.loopexit
 

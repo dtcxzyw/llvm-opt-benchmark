@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @net_dgram_socket_info = internal global %struct.NetClientInfo { i32 7, i64 70072, ptr @net_dgram_receive, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @net_dgram_cleanup, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_dgram(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_dgram(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %localaddr.i = alloca %struct.in_addr, align 4
   %laddr_in = alloca %struct.sockaddr_in, align 4
@@ -124,7 +124,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end5.i
-  %call7.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef %call.i, ptr noundef null, ptr noundef %errp), !range !5
+  %call7.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef %call.i, ptr noundef null, ptr noundef %errp)
   %cmp8.i = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i, label %if.then9.i, label %do.body.i
 
@@ -153,7 +153,7 @@ if.then16.i:                                      ; preds = %sw.bb.i
   br label %net_dgram_mcast_init.exit
 
 if.end19.i:                                       ; preds = %sw.bb.i
-  %call20.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef %call.i, ptr noundef nonnull %localaddr.i, ptr noundef %errp), !range !5
+  %call20.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef %call.i, ptr noundef nonnull %localaddr.i, ptr noundef %errp)
   %cmp21.i = icmp slt i32 %call20.i, 0
   br i1 %cmp21.i, label %if.then22.i, label %do.body.i
 
@@ -211,7 +211,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   br label %net_dgram_mcast_init.exit
 
 if.end48.i:                                       ; preds = %if.end44.i
-  %call49.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef nonnull %call35.i, ptr noundef null, ptr noundef %errp), !range !5
+  %call49.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef nonnull %call35.i, ptr noundef null, ptr noundef %errp)
   %cmp50.i = icmp slt i32 %call49.i, 0
   br i1 %cmp50.i, label %if.then51.i, label %if.end53.i
 
@@ -676,7 +676,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @net_dgram_mcast_create(ptr noundef %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @net_dgram_mcast_create(ptr noundef %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %imr = alloca %struct.ip_mreq, align 4
   %val = alloca i32, align 4
@@ -1065,4 +1065,3 @@ attributes #15 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 -2147483648}

@@ -333,7 +333,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_memory_rw_debug(ptr nocapture noundef readnone %cpu, i64 noundef %addr, ptr nocapture noundef %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr nocapture noundef readnone %cpu, i64 noundef %addr, ptr nocapture noundef %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
 entry:
   %cmp.not26 = icmp eq i64 %len, 0
   br i1 %cmp.not26, label %return, label %while.body.lr.ph

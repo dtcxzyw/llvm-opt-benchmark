@@ -1415,7 +1415,7 @@ sw.default:                                       ; preds = %for.end
   %stream22 = getelementptr inbounds i8, ptr %info, i64 8
   %11 = load ptr, ptr %stream22, align 8
   %call23 = call i32 (ptr, ptr, ...) %10(ptr noundef %11, ptr noundef nonnull @.str.950, i64 noundef %inst.036) #12
-  %12 = trunc i64 %len.034 to i32
+  %12 = trunc nuw nsw i64 %len.034 to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb17, %sw.bb13, %sw.bb
@@ -1643,7 +1643,7 @@ sw.bb13.i:                                        ; preds = %if.end20
   %or.i.i = or disjoint i64 %shl4.i.i, %shr10.i.i
   %or8.i.i = or disjoint i64 %or.i.i, %shl7.i.i
   %or12.i.i = or disjoint i64 %or8.i.i, %shl1.i.i
-  %conv.i440.i = trunc i64 %or12.i.i to i32
+  %conv.i440.i = trunc nuw i64 %or12.i.i to i32
   %imm20.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i440.i, ptr %imm20.i, align 8
   br label %decode_inst_operands.exit
@@ -1663,7 +1663,7 @@ sw.bb21.i:                                        ; preds = %if.end20
   store i8 0, ptr %rs228.i, align 1
   %shl.i443.i = shl i64 %7, 32
   %shr.i.i = ashr i64 %shl.i443.i, 52
-  %conv.i444.i = trunc i64 %shr.i.i to i32
+  %conv.i444.i = trunc nsw i64 %shr.i.i to i32
   %imm30.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i444.i, ptr %imm30.i, align 8
   br label %decode_inst_operands.exit
@@ -1766,7 +1766,7 @@ sw.bb71.i:                                        ; preds = %if.end20
   %50 = lshr i64 %7, 7
   %shr3.i.i = and i64 %50, 31
   %or.i460.i = or disjoint i64 %shl1.i459.i, %shr3.i.i
-  %conv.i461.i = trunc i64 %or.i460.i to i32
+  %conv.i461.i = trunc nuw i64 %or.i460.i to i32
   %imm80.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i461.i, ptr %imm80.i, align 8
   br label %decode_inst_operands.exit
@@ -1795,7 +1795,7 @@ sw.bb81.i:                                        ; preds = %if.end20
   %or.i468.i = or disjoint i64 %shl7.i467.i, %shl4.i466.i
   %or8.i469.i = or disjoint i64 %or.i468.i, %shl11.i.i
   %or12.i470.i = or disjoint i64 %or8.i469.i, %shl1.i465.i
-  %conv.i471.i = trunc i64 %or12.i470.i to i32
+  %conv.i471.i = trunc nuw i64 %or12.i470.i to i32
   %imm90.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i471.i, ptr %imm90.i, align 8
   br label %decode_inst_operands.exit
@@ -1863,7 +1863,7 @@ sw.bb115.i:                                       ; preds = %if.end20
   %rs2124.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv123.i, ptr %rs2124.i, align 1
   %79 = lshr i32 %72, 27
-  %conv126.i = trunc i32 %79 to i8
+  %conv126.i = trunc nuw nsw i32 %79 to i8
   %rs3.i = getelementptr inbounds i8, ptr %dec, i64 46
   store i8 %conv126.i, ptr %rs3.i, align 2
   %imm127.i = getelementptr inbounds i8, ptr %dec, i64 32
@@ -1895,12 +1895,12 @@ sw.bb131.i:                                       ; preds = %if.end20
   %imm141.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm141.i, align 8
   %89 = lshr i32 %82, 26
-  %90 = trunc i32 %89 to i8
+  %90 = trunc nuw nsw i32 %89 to i8
   %conv143.i = and i8 %90, 1
   %aq.i = getelementptr inbounds i8, ptr %dec, i64 50
   store i8 %conv143.i, ptr %aq.i, align 2
   %91 = lshr i32 %82, 25
-  %92 = trunc i32 %91 to i8
+  %92 = trunc nuw nsw i32 %91 to i8
   %conv145.i = and i8 %92, 1
   %rl.i = getelementptr inbounds i8, ptr %dec, i64 51
   store i8 %conv145.i, ptr %rl.i, align 1
@@ -1923,12 +1923,12 @@ sw.bb146.i:                                       ; preds = %if.end20
   %imm154.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm154.i, align 8
   %98 = lshr i32 %93, 26
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %conv156.i = and i8 %99, 1
   %aq157.i = getelementptr inbounds i8, ptr %dec, i64 50
   store i8 %conv156.i, ptr %aq157.i, align 2
   %100 = lshr i32 %93, 25
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw nsw i32 %100 to i8
   %conv159.i = and i8 %101, 1
   %rl160.i = getelementptr inbounds i8, ptr %dec, i64 51
   store i8 %conv159.i, ptr %rl160.i, align 1
@@ -1980,7 +1980,7 @@ sw.bb170.i:                                       ; preds = %if.end20
   %or8.i501.i = or disjoint i64 %or.i500.i, %shl11.i499.i
   %or12.i502.i = or disjoint i64 %or8.i501.i, %shl15.i.i
   %or16.i.i = or disjoint i64 %or12.i502.i, %shl1.i496.i
-  %conv.i503.i = trunc i64 %or16.i.i to i32
+  %conv.i503.i = trunc nuw i64 %or16.i.i to i32
   %imm177.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i503.i, ptr %imm177.i, align 8
   br label %decode_inst_operands.exit
@@ -2002,7 +2002,7 @@ sw.bb178.i:                                       ; preds = %if.end20
   %117 = lshr i64 %7, 2
   %shr3.i507.i = and i64 %117, 31
   %or.i508.i = or disjoint i64 %shl1.i506.i, %shr3.i507.i
-  %conv.i509.i = trunc i64 %or.i508.i to i32
+  %conv.i509.i = trunc nuw i64 %or.i508.i to i32
   %imm186.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i509.i, ptr %imm186.i, align 8
   br label %decode_inst_operands.exit
@@ -2040,7 +2040,7 @@ sw.bb196.i:                                       ; preds = %if.end20
   %126 = lshr i64 %7, 2
   %shr3.i514.i = and i64 %126, 31
   %or.i515.i = or disjoint i64 %shl1.i513.i, %shr3.i514.i
-  %conv.i516.i = trunc i64 %or.i515.i to i32
+  %conv.i516.i = trunc nuw nsw i64 %or.i515.i to i32
   %cmp.i.i = icmp eq i32 %isa, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %operand_cimmshr6.exit.i
 
@@ -2074,7 +2074,7 @@ sw.bb205.i:                                       ; preds = %if.end20
   %130 = lshr i64 %7, 2
   %shr3.i520.i = and i64 %130, 31
   %or.i521.i = or disjoint i64 %shl1.i519.i, %shr3.i520.i
-  %conv.i522.i = trunc i64 %or.i521.i to i32
+  %conv.i522.i = trunc nuw i64 %or.i521.i to i32
   %imm212.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i522.i, ptr %imm212.i, align 8
   br label %decode_inst_operands.exit
@@ -2110,7 +2110,7 @@ sw.bb221.i:                                       ; preds = %if.end20
   %137 = lshr i64 %7, 2
   %shr3.i527.i = and i64 %137, 31
   %or.i528.i = or disjoint i64 %shl1.i526.i, %shr3.i527.i
-  %conv.i529.i = trunc i64 %or.i528.i to i32
+  %conv.i529.i = trunc nuw nsw i64 %or.i528.i to i32
   %cmp.i530.i = icmp eq i32 %isa, 2
   %tobool.not.i531.i = icmp eq i32 %conv.i529.i, 0
   %138 = select i1 %cmp.i530.i, i1 %tobool.not.i531.i, i1 false
@@ -2141,7 +2141,7 @@ sw.bb229.i:                                       ; preds = %if.end20
   %or8.i540.i = or disjoint i64 %or.i539.i, %shl11.i537.i
   %or12.i541.i = or disjoint i64 %or8.i540.i, %shl15.i538.i
   %or16.i542.i = or disjoint i64 %or12.i541.i, %shl1.i534.i
-  %conv.i543.i = trunc i64 %or16.i542.i to i32
+  %conv.i543.i = trunc nuw i64 %or16.i542.i to i32
   %imm234.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i543.i, ptr %imm234.i, align 8
   br label %decode_inst_operands.exit
@@ -2163,7 +2163,7 @@ sw.bb235.i:                                       ; preds = %if.end20
   %147 = shl i64 %7, 4
   %shl7.i548.i = and i64 %147, 192
   %or8.i549.i = or disjoint i64 %or.i547.i, %shl7.i548.i
-  %conv.i550.i = trunc i64 %or8.i549.i to i32
+  %conv.i550.i = trunc nuw nsw i64 %or8.i549.i to i32
   %imm242.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i550.i, ptr %imm242.i, align 8
   br label %decode_inst_operands.exit
@@ -2185,7 +2185,7 @@ sw.bb243.i:                                       ; preds = %if.end20
   %151 = shl i64 %7, 4
   %shl7.i555.i = and i64 %151, 448
   %or8.i556.i = or disjoint i64 %or.i554.i, %shl7.i555.i
-  %conv.i557.i = trunc i64 %or8.i556.i to i32
+  %conv.i557.i = trunc nuw nsw i64 %or8.i556.i to i32
   %imm250.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i557.i, ptr %imm250.i, align 8
   br label %decode_inst_operands.exit
@@ -2207,7 +2207,7 @@ sw.bb251.i:                                       ; preds = %if.end20
   %155 = shl i64 %7, 4
   %shl7.i562.i = and i64 %155, 960
   %or8.i563.i = or disjoint i64 %or.i561.i, %shl7.i562.i
-  %conv.i564.i = trunc i64 %or8.i563.i to i32
+  %conv.i564.i = trunc nuw nsw i64 %or8.i563.i to i32
   %imm258.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i564.i, ptr %imm258.i, align 8
   br label %decode_inst_operands.exit
@@ -2228,7 +2228,7 @@ sw.bb259.i:                                       ; preds = %if.end20
   %159 = lshr i64 %7, 2
   %shr3.i568.i = and i64 %159, 31
   %or.i569.i = or disjoint i64 %shl1.i567.i, %shr3.i568.i
-  %conv.i570.i = trunc i64 %or.i569.i to i32
+  %conv.i570.i = trunc nuw i64 %or.i569.i to i32
   %imm266.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i570.i, ptr %imm266.i, align 8
   br label %decode_inst_operands.exit
@@ -2249,7 +2249,7 @@ sw.bb267.i:                                       ; preds = %if.end20
   %163 = shl i64 %7, 10
   %shl4.i574.i = and i64 %163, 126976
   %or.i575.i = or disjoint i64 %shl1.i573.i, %shl4.i574.i
-  %conv.i576.i = trunc i64 %or.i575.i to i32
+  %conv.i576.i = trunc nuw i64 %or.i575.i to i32
   %imm274.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i576.i, ptr %imm274.i, align 8
   br label %decode_inst_operands.exit
@@ -2287,7 +2287,7 @@ sw.bb280.i:                                       ; preds = %if.end20
   %170 = lshr i64 %7, 2
   %shl11.i583.i = and i64 %170, 8
   %or12.i584.i = or disjoint i64 %or8.i582.i, %shl11.i583.i
-  %conv.i585.i = trunc i64 %or12.i584.i to i32
+  %conv.i585.i = trunc nuw nsw i64 %or12.i584.i to i32
   %imm288.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i585.i, ptr %imm288.i, align 8
   br label %decode_inst_operands.exit
@@ -2338,7 +2338,7 @@ sw.bb301.i:                                       ; preds = %if.end20
   %178 = shl i64 %7, 1
   %shl7.i591.i = and i64 %178, 64
   %or8.i592.i = or disjoint i64 %or.i590.i, %shl7.i591.i
-  %conv.i593.i = trunc i64 %or8.i592.i to i32
+  %conv.i593.i = trunc nuw nsw i64 %or8.i592.i to i32
   %imm312.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i593.i, ptr %imm312.i, align 8
   br label %decode_inst_operands.exit
@@ -2362,7 +2362,7 @@ sw.bb313.i:                                       ; preds = %if.end20
   %185 = shl i64 %7, 1
   %shl4.i597.i = and i64 %185, 192
   %or.i598.i = or disjoint i64 %shl1.i596.i, %shl4.i597.i
-  %conv.i599.i = trunc i64 %or.i598.i to i32
+  %conv.i599.i = trunc nuw nsw i64 %or.i598.i to i32
   %imm324.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i599.i, ptr %imm324.i, align 8
   br label %decode_inst_operands.exit
@@ -2389,7 +2389,7 @@ sw.bb325.i:                                       ; preds = %if.end20
   %193 = shl i64 %7, 1
   %shl7.i605.i = and i64 %193, 192
   %or8.i606.i = or disjoint i64 %or.i604.i, %shl7.i605.i
-  %conv.i607.i = trunc i64 %or8.i606.i to i32
+  %conv.i607.i = trunc nuw nsw i64 %or8.i606.i to i32
   %imm336.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i607.i, ptr %imm336.i, align 8
   br label %decode_inst_operands.exit
@@ -2497,7 +2497,7 @@ sw.bb380.i:                                       ; preds = %if.end20
   %219 = shl i64 %7, 1
   %shl7.i621.i = and i64 %219, 64
   %or8.i622.i = or disjoint i64 %or.i620.i, %shl7.i621.i
-  %conv.i623.i = trunc i64 %or8.i622.i to i32
+  %conv.i623.i = trunc nuw nsw i64 %or8.i622.i to i32
   %imm391.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i623.i, ptr %imm391.i, align 8
   br label %decode_inst_operands.exit
@@ -2521,7 +2521,7 @@ sw.bb392.i:                                       ; preds = %if.end20
   %226 = shl i64 %7, 1
   %shl4.i627.i = and i64 %226, 192
   %or.i628.i = or disjoint i64 %shl1.i626.i, %shl4.i627.i
-  %conv.i629.i = trunc i64 %or.i628.i to i32
+  %conv.i629.i = trunc nuw nsw i64 %or.i628.i to i32
   %imm403.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i629.i, ptr %imm403.i, align 8
   br label %decode_inst_operands.exit
@@ -2548,7 +2548,7 @@ sw.bb404.i:                                       ; preds = %if.end20
   %234 = shl i64 %7, 1
   %shl7.i635.i = and i64 %234, 192
   %or8.i636.i = or disjoint i64 %or.i634.i, %shl7.i635.i
-  %conv.i637.i = trunc i64 %or8.i636.i to i32
+  %conv.i637.i = trunc nuw nsw i64 %or8.i636.i to i32
   %imm415.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i637.i, ptr %imm415.i, align 8
   br label %decode_inst_operands.exit
@@ -2568,7 +2568,7 @@ sw.bb416.i:                                       ; preds = %if.end20
   %238 = lshr i64 %7, 1
   %shl4.i640.i = and i64 %238, 192
   %or.i641.i = or disjoint i64 %shl1.i639.i, %shl4.i640.i
-  %conv.i642.i = trunc i64 %or.i641.i to i32
+  %conv.i642.i = trunc nuw nsw i64 %or.i641.i to i32
   %imm423.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i642.i, ptr %imm423.i, align 8
   br label %decode_inst_operands.exit
@@ -2588,7 +2588,7 @@ sw.bb424.i:                                       ; preds = %if.end20
   %242 = lshr i64 %7, 1
   %shl4.i645.i = and i64 %242, 448
   %or.i646.i = or disjoint i64 %shl1.i644.i, %shl4.i645.i
-  %conv.i647.i = trunc i64 %or.i646.i to i32
+  %conv.i647.i = trunc nuw nsw i64 %or.i646.i to i32
   %imm431.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i647.i, ptr %imm431.i, align 8
   br label %decode_inst_operands.exit
@@ -2608,7 +2608,7 @@ sw.bb432.i:                                       ; preds = %if.end20
   %246 = lshr i64 %7, 1
   %shl4.i650.i = and i64 %246, 960
   %or.i651.i = or disjoint i64 %shl1.i649.i, %shl4.i650.i
-  %conv.i652.i = trunc i64 %or.i651.i to i32
+  %conv.i652.i = trunc nuw nsw i64 %or.i651.i to i32
   %imm439.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i652.i, ptr %imm439.i, align 8
   br label %decode_inst_operands.exit
@@ -2626,7 +2626,7 @@ sw.bb440.i:                                       ; preds = %if.end20
   %rs2446.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv445.i, ptr %rs2446.i, align 1
   %252 = lshr i32 %247, 30
-  %conv448.i = trunc i32 %252 to i8
+  %conv448.i = trunc nuw nsw i32 %252 to i8
   %bs.i = getelementptr inbounds i8, ptr %dec, i64 52
   store i8 %conv448.i, ptr %bs.i, align 4
   br label %decode_inst_operands.exit
@@ -2667,7 +2667,7 @@ sw.bb458.i:                                       ; preds = %if.end20
   %rs2467.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv466.i, ptr %rs2467.i, align 1
   %266 = lshr i32 %259, 25
-  %267 = trunc i32 %266 to i8
+  %267 = trunc nuw nsw i32 %266 to i8
   %conv469.i = and i8 %267, 1
   %vm.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv469.i, ptr %vm.i, align 2
@@ -2686,7 +2686,7 @@ sw.bb470.i:                                       ; preds = %if.end20
   %rs1476.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv475.i, ptr %rs1476.i, align 4
   %273 = lshr i32 %268, 25
-  %274 = trunc i32 %273 to i8
+  %274 = trunc nuw nsw i32 %273 to i8
   %conv478.i = and i8 %274, 1
   %vm479.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv478.i, ptr %vm479.i, align 2
@@ -2706,11 +2706,11 @@ sw.bb480.i:                                       ; preds = %if.end20
   store i8 %conv485.i, ptr %rs2486.i, align 1
   %shl.i667.i = shl i64 %7, 44
   %shr.i668.i = ashr i64 %shl.i667.i, 59
-  %conv.i669.i = trunc i64 %shr.i668.i to i32
+  %conv.i669.i = trunc nsw i64 %shr.i668.i to i32
   %imm488.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i669.i, ptr %imm488.i, align 8
   %280 = lshr i32 %275, 25
-  %281 = trunc i32 %280 to i8
+  %281 = trunc nuw nsw i32 %280 to i8
   %conv490.i = and i8 %281, 1
   %vm491.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv490.i, ptr %vm491.i, align 2
@@ -2733,11 +2733,11 @@ sw.bb492.i:                                       ; preds = %if.end20
   %288 = lshr i64 %7, 15
   %shr3.i674.i = and i64 %288, 31
   %or.i675.i = or disjoint i64 %shl1.i673.i, %shr3.i674.i
-  %conv.i676.i = trunc i64 %or.i675.i to i32
+  %conv.i676.i = trunc nuw nsw i64 %or.i675.i to i32
   %imm500.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i676.i, ptr %imm500.i, align 8
   %289 = lshr i32 %282, 25
-  %290 = trunc i32 %289 to i8
+  %290 = trunc nuw nsw i32 %289 to i8
   %conv502.i = and i8 %290, 1
   %vm503.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv502.i, ptr %vm503.i, align 2
@@ -2770,7 +2770,7 @@ sw.bb512.i:                                       ; preds = %if.end20
   store i8 %conv514.i, ptr %rd515.i, align 1
   %shl.i682.i = shl i64 %7, 44
   %shr.i683.i = ashr i64 %shl.i682.i, 59
-  %conv.i684.i = trunc i64 %shr.i683.i to i32
+  %conv.i684.i = trunc nsw i64 %shr.i683.i to i32
   %imm517.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i684.i, ptr %imm517.i, align 8
   %300 = lshr i32 %297, 20
@@ -2797,7 +2797,7 @@ sw.bb520.i:                                       ; preds = %if.end20
   %308 = lshr i64 %7, 6
   %shr3.i689.i = and i64 %308, 1
   %or.i690.i = or disjoint i64 %shl1.i688.i, %shr3.i689.i
-  %conv.i691.i = trunc i64 %or.i690.i to i32
+  %conv.i691.i = trunc nuw nsw i64 %or.i690.i to i32
   %imm530.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i691.i, ptr %imm530.i, align 8
   br label %decode_inst_operands.exit
@@ -2863,7 +2863,7 @@ sw.bb556.i:                                       ; preds = %if.end20
   %add4.i.i.i = add i32 %and.i.i.i, %conv.i2.i.i
   %imm558.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %add4.i.i.i, ptr %imm558.i, align 8
-  %conv560.i = trunc i32 %conv.i.i.i to i8
+  %conv560.i = trunc nuw nsw i32 %conv.i.i.i to i8
   %rlist.i = getelementptr inbounds i8, ptr %dec, i64 60
   store i8 %conv560.i, ptr %rlist.i, align 4
   br label %decode_inst_operands.exit
@@ -2875,7 +2875,7 @@ sw.bb561.i:                                       ; preds = %if.end20
   %cmp.i.i700.i = icmp ult i32 %conv.i699.i, 2
   %cond.v.i.i.i = select i1 %cmp.i.i700.i, i32 8, i32 16
   %cond.i.i701.i = or disjoint i32 %cond.v.i.i.i, %conv.i699.i
-  %conv563.i = trunc i32 %cond.i.i701.i to i8
+  %conv563.i = trunc nuw nsw i32 %cond.i.i701.i to i8
   %rd564.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv563.i, ptr %rd564.i, align 1
   %331 = lshr i32 %329, 2
@@ -2883,7 +2883,7 @@ sw.bb561.i:                                       ; preds = %if.end20
   %cmp.i.i703.i = icmp ult i32 %conv.i702.i, 2
   %cond.v.i.i704.i = select i1 %cmp.i.i703.i, i32 8, i32 16
   %cond.i.i705.i = or disjoint i32 %cond.v.i.i704.i, %conv.i702.i
-  %conv566.i = trunc i32 %cond.i.i705.i to i8
+  %conv566.i = trunc nuw nsw i32 %cond.i.i705.i to i8
   %rs2567.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv566.i, ptr %rs2567.i, align 1
   br label %decode_inst_operands.exit
@@ -3362,7 +3362,7 @@ if.then.i.i61:                                    ; preds = %sw.bb.i59
   %arrayidx4.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom3.i
   %408 = load ptr, ptr %arrayidx4.i, align 8
   %sub.i.i = sub i64 128, %call.i.i
-  %call3.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %408, i64 noundef %sub.i.i) #12
+  %call3.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %408, i64 noundef %sub.i.i) #12
   br label %sw.epilog321.i
 
 sw.bb5.i:                                         ; preds = %while.cond.i
@@ -3372,7 +3372,7 @@ sw.bb5.i:                                         ; preds = %while.cond.i
 
 if.then.i190.i:                                   ; preds = %sw.bb5.i
   %sub.i191.i = sub i64 128, %call.i188.i
-  %call3.i192.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.954, i64 noundef %sub.i191.i) #12
+  %call3.i192.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.954, i64 noundef %sub.i191.i) #12
   br label %sw.epilog321.i
 
 sw.bb6.i58:                                       ; preds = %while.cond.i
@@ -3382,7 +3382,7 @@ sw.bb6.i58:                                       ; preds = %while.cond.i
 
 if.then.i196.i:                                   ; preds = %sw.bb6.i58
   %sub.i197.i = sub i64 128, %call.i194.i
-  %call3.i198.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.955, i64 noundef %sub.i197.i) #12
+  %call3.i198.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i197.i) #12
   br label %sw.epilog321.i
 
 sw.bb7.i:                                         ; preds = %while.cond.i
@@ -3392,7 +3392,7 @@ sw.bb7.i:                                         ; preds = %while.cond.i
 
 if.then.i202.i:                                   ; preds = %sw.bb7.i
   %sub.i203.i = sub i64 128, %call.i200.i
-  %call3.i204.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.956, i64 noundef %sub.i203.i) #12
+  %call3.i204.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.956, i64 noundef %sub.i203.i) #12
   br label %sw.epilog321.i
 
 sw.bb8.i:                                         ; preds = %while.cond.i
@@ -3402,7 +3402,7 @@ sw.bb8.i:                                         ; preds = %while.cond.i
 
 if.then.i208.i:                                   ; preds = %sw.bb8.i
   %sub.i209.i = sub i64 128, %call.i206.i
-  %call3.i210.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.957, i64 noundef %sub.i209.i) #12
+  %call3.i210.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.957, i64 noundef %sub.i209.i) #12
   br label %sw.epilog321.i
 
 sw.bb9.i:                                         ; preds = %while.cond.i
@@ -3415,7 +3415,7 @@ sw.bb9.i:                                         ; preds = %while.cond.i
 
 if.then.i214.i:                                   ; preds = %sw.bb9.i
   %sub.i215.i = sub i64 128, %call.i212.i
-  %call3.i216.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i215.i) #12
+  %call3.i216.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i215.i) #12
   br label %sw.epilog321.i
 
 sw.bb12.i:                                        ; preds = %while.cond.i
@@ -3428,7 +3428,7 @@ sw.bb12.i:                                        ; preds = %while.cond.i
 
 if.then.i220.i:                                   ; preds = %sw.bb12.i
   %sub.i221.i = sub i64 128, %call.i218.i
-  %call3.i222.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i221.i) #12
+  %call3.i222.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i221.i) #12
   br label %sw.epilog321.i
 
 sw.bb17.i:                                        ; preds = %while.cond.i
@@ -3441,7 +3441,7 @@ if.then.i226.i:                                   ; preds = %sw.bb17.i
   %idxprom18.i = zext i8 %411 to i64
   %arrayidx19.i = getelementptr [32 x [5 x i8]], ptr @rv_ireg_name_sym, i64 0, i64 %idxprom18.i
   %sub.i227.i = sub i64 128, %call.i224.i
-  %call3.i228.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx19.i, i64 noundef %sub.i227.i) #12
+  %call3.i228.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx19.i, i64 noundef %sub.i227.i) #12
   br label %sw.epilog321.i
 
 sw.bb21.i56:                                      ; preds = %while.cond.i
@@ -3454,7 +3454,7 @@ if.then.i232.i:                                   ; preds = %sw.bb21.i56
   %idxprom22.i = zext i8 %412 to i64
   %arrayidx23.i = getelementptr [32 x [5 x i8]], ptr @rv_ireg_name_sym, i64 0, i64 %idxprom22.i
   %sub.i233.i = sub i64 128, %call.i230.i
-  %call3.i234.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx23.i, i64 noundef %sub.i233.i) #12
+  %call3.i234.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx23.i, i64 noundef %sub.i233.i) #12
   br label %sw.epilog321.i
 
 sw.bb25.i:                                        ; preds = %while.cond.i
@@ -3467,7 +3467,7 @@ if.then.i238.i:                                   ; preds = %sw.bb25.i
   %idxprom26.i = zext i8 %413 to i64
   %arrayidx27.i = getelementptr [32 x [5 x i8]], ptr @rv_ireg_name_sym, i64 0, i64 %idxprom26.i
   %sub.i239.i = sub i64 128, %call.i236.i
-  %call3.i240.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx27.i, i64 noundef %sub.i239.i) #12
+  %call3.i240.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx27.i, i64 noundef %sub.i239.i) #12
   br label %sw.epilog321.i
 
 sw.bb29.i:                                        ; preds = %while.cond.i
@@ -3485,7 +3485,7 @@ if.then.i244.i:                                   ; preds = %sw.bb29.i
   %idxprom33.i = zext i8 %416 to i64
   %arrayidx38.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym.i, i64 0, i64 %idxprom33.i
   %sub.i245.i = sub i64 128, %call.i242.i
-  %call3.i246.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx38.i, i64 noundef %sub.i245.i) #12
+  %call3.i246.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx38.i, i64 noundef %sub.i245.i) #12
   br label %sw.epilog321.i
 
 sw.bb40.i:                                        ; preds = %while.cond.i
@@ -3503,7 +3503,7 @@ if.then.i250.i:                                   ; preds = %sw.bb40.i
   %idxprom47.i = zext i8 %419 to i64
   %arrayidx53.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym568.i, i64 0, i64 %idxprom47.i
   %sub.i251.i = sub i64 128, %call.i248.i
-  %call3.i252.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx53.i, i64 noundef %sub.i251.i) #12
+  %call3.i252.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx53.i, i64 noundef %sub.i251.i) #12
   br label %sw.epilog321.i
 
 sw.bb57.i:                                        ; preds = %while.cond.i
@@ -3521,7 +3521,7 @@ if.then.i256.i:                                   ; preds = %sw.bb57.i
   %idxprom64.i = zext i8 %422 to i64
   %arrayidx70.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym569.i, i64 0, i64 %idxprom64.i
   %sub.i257.i = sub i64 128, %call.i254.i
-  %call3.i258.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx70.i, i64 noundef %sub.i257.i) #12
+  %call3.i258.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx70.i, i64 noundef %sub.i257.i) #12
   br label %sw.epilog321.i
 
 sw.bb74.i:                                        ; preds = %while.cond.i
@@ -3539,7 +3539,7 @@ if.then.i262.i:                                   ; preds = %sw.bb74.i
   %idxprom80.i = zext i8 %425 to i64
   %arrayidx86.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym570.i, i64 0, i64 %idxprom80.i
   %sub.i263.i = sub i64 128, %call.i260.i
-  %call3.i264.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx86.i, i64 noundef %sub.i263.i) #12
+  %call3.i264.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx86.i, i64 noundef %sub.i263.i) #12
   br label %sw.epilog321.i
 
 sw.bb90.i:                                        ; preds = %while.cond.i
@@ -3552,7 +3552,7 @@ sw.bb90.i:                                        ; preds = %while.cond.i
 
 if.then.i268.i:                                   ; preds = %sw.bb90.i
   %sub.i269.i = sub i64 128, %call.i266.i
-  %call3.i270.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i269.i) #12
+  %call3.i270.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i269.i) #12
   br label %sw.epilog321.i
 
 sw.bb96.i:                                        ; preds = %while.cond.i
@@ -3564,7 +3564,7 @@ sw.bb96.i:                                        ; preds = %while.cond.i
 
 if.then.i274.i:                                   ; preds = %sw.bb96.i
   %sub.i275.i = sub i64 128, %call.i272.i
-  %call3.i276.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i275.i) #12
+  %call3.i276.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i275.i) #12
   br label %sw.epilog321.i
 
 sw.bb100.i:                                       ; preds = %while.cond.i
@@ -3577,7 +3577,7 @@ sw.bb100.i:                                       ; preds = %while.cond.i
 
 if.then.i280.i:                                   ; preds = %sw.bb100.i
   %sub.i281.i = sub i64 128, %call.i278.i
-  %call3.i282.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i281.i) #12
+  %call3.i282.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i281.i) #12
   br label %sw.epilog321.i
 
 sw.bb105.i:                                       ; preds = %while.cond.i
@@ -3589,7 +3589,7 @@ sw.bb105.i:                                       ; preds = %while.cond.i
 
 if.then.i286.i:                                   ; preds = %sw.bb105.i
   %sub.i287.i = sub i64 128, %call.i284.i
-  %call3.i288.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i287.i) #12
+  %call3.i288.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i287.i) #12
   br label %sw.epilog321.i
 
 sw.bb109.i:                                       ; preds = %while.cond.i
@@ -3601,7 +3601,7 @@ sw.bb109.i:                                       ; preds = %while.cond.i
 
 if.then.i292.i:                                   ; preds = %sw.bb109.i
   %sub.i293.i = sub i64 128, %call.i290.i
-  %call3.i294.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i293.i) #12
+  %call3.i294.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i293.i) #12
   br label %append.exit295.i
 
 append.exit295.i:                                 ; preds = %if.then.i292.i, %sw.bb109.i
@@ -3612,7 +3612,7 @@ append.exit295.i:                                 ; preds = %if.then.i292.i, %sw
 append.exit301.i:                                 ; preds = %append.exit295.i, %append.exit301.i
   %call115559.i = phi i64 [ %call115.i, %append.exit301.i ], [ %call115557.i, %append.exit295.i ]
   %sub.i299.i = sub nuw nsw i64 128, %call115559.i
-  %call3.i300.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i299.i) #12
+  %call3.i300.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i299.i) #12
   %call115.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.i = icmp ult i64 %call115.i, 48
   br i1 %cmp.i, label %append.exit301.i, label %while.end.i, !llvm.loop !10
@@ -3629,7 +3629,7 @@ while.end.i:                                      ; preds = %append.exit301.i, %
 
 if.then.i304.i:                                   ; preds = %while.end.i
   %sub.i305.i = sub i64 128, %call.i302.i
-  %call3.i306.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i305.i) #12
+  %call3.i306.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i305.i) #12
   br label %sw.epilog321.i
 
 sw.bb123.i:                                       ; preds = %while.cond.i
@@ -3643,7 +3643,7 @@ sw.bb123.i:                                       ; preds = %while.cond.i
 
 if.then.i310.i:                                   ; preds = %sw.bb123.i
   %sub.i311.i = sub i64 128, %call.i308.i
-  %call3.i312.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i311.i) #12
+  %call3.i312.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i311.i) #12
   br label %append.exit313.i
 
 append.exit313.i:                                 ; preds = %if.then.i310.i, %sw.bb123.i
@@ -3659,7 +3659,7 @@ while.cond131.preheader.i:                        ; preds = %append.exit313.i
 append.exit319.i:                                 ; preds = %while.cond131.preheader.i, %append.exit319.i
   %call132556.i = phi i64 [ %call132.i, %append.exit319.i ], [ %call132554.i, %while.cond131.preheader.i ]
   %sub.i317.i = sub nuw nsw i64 128, %call132556.i
-  %call3.i318.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i317.i) #12
+  %call3.i318.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i317.i) #12
   %call132.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp134.i = icmp ult i64 %call132.i, 48
   br i1 %cmp134.i, label %append.exit319.i, label %while.end137.i, !llvm.loop !11
@@ -3676,7 +3676,7 @@ while.end137.i:                                   ; preds = %append.exit319.i, %
 
 if.then.i322.i:                                   ; preds = %while.end137.i
   %sub.i323.i = sub i64 128, %call.i320.i
-  %call3.i324.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i323.i) #12
+  %call3.i324.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i323.i) #12
   br label %sw.epilog321.i
 
 sw.bb145.i:                                       ; preds = %while.cond.i
@@ -4510,7 +4510,7 @@ if.then151.i:                                     ; preds = %sw.bb204.i.i, %sw.b
 
 if.then.i328.i:                                   ; preds = %if.then151.i
   %sub.i329.i = sub i64 128, %call.i326.i
-  %call3.i330.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %retval.0.i.ph.i, i64 noundef %sub.i329.i) #12
+  %call3.i330.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %retval.0.i.ph.i, i64 noundef %sub.i329.i) #12
   br label %sw.epilog321.i
 
 if.else.i:                                        ; preds = %sw.bb145.i
@@ -4521,7 +4521,7 @@ if.else.i:                                        ; preds = %sw.bb145.i
 
 if.then.i334.i:                                   ; preds = %if.else.i
   %sub.i335.i = sub i64 128, %call.i332.i
-  %call3.i336.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i335.i) #12
+  %call3.i336.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i335.i) #12
   br label %sw.epilog321.i
 
 sw.bb158.i:                                       ; preds = %while.cond.i
@@ -4542,7 +4542,7 @@ sw.bb160.i:                                       ; preds = %sw.bb158.i
 
 if.then.i340.i:                                   ; preds = %sw.bb160.i
   %sub.i341.i = sub i64 128, %call.i374.i
-  %call3.i342.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.963, i64 noundef %sub.i341.i) #12
+  %call3.i342.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.963, i64 noundef %sub.i341.i) #12
   br label %sw.epilog321.i
 
 sw.bb161.i35:                                     ; preds = %sw.bb158.i
@@ -4550,7 +4550,7 @@ sw.bb161.i35:                                     ; preds = %sw.bb158.i
 
 if.then.i346.i:                                   ; preds = %sw.bb161.i35
   %sub.i347.i = sub i64 128, %call.i374.i
-  %call3.i348.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.964, i64 noundef %sub.i347.i) #12
+  %call3.i348.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.964, i64 noundef %sub.i347.i) #12
   br label %sw.epilog321.i
 
 sw.bb162.i:                                       ; preds = %sw.bb158.i
@@ -4558,7 +4558,7 @@ sw.bb162.i:                                       ; preds = %sw.bb158.i
 
 if.then.i352.i:                                   ; preds = %sw.bb162.i
   %sub.i353.i = sub i64 128, %call.i374.i
-  %call3.i354.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.965, i64 noundef %sub.i353.i) #12
+  %call3.i354.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.965, i64 noundef %sub.i353.i) #12
   br label %sw.epilog321.i
 
 sw.bb163.i:                                       ; preds = %sw.bb158.i
@@ -4566,7 +4566,7 @@ sw.bb163.i:                                       ; preds = %sw.bb158.i
 
 if.then.i358.i:                                   ; preds = %sw.bb163.i
   %sub.i359.i = sub i64 128, %call.i374.i
-  %call3.i360.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.966, i64 noundef %sub.i359.i) #12
+  %call3.i360.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.966, i64 noundef %sub.i359.i) #12
   br label %sw.epilog321.i
 
 sw.bb164.i:                                       ; preds = %sw.bb158.i
@@ -4574,7 +4574,7 @@ sw.bb164.i:                                       ; preds = %sw.bb158.i
 
 if.then.i364.i:                                   ; preds = %sw.bb164.i
   %sub.i365.i = sub i64 128, %call.i374.i
-  %call3.i366.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.967, i64 noundef %sub.i365.i) #12
+  %call3.i366.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.967, i64 noundef %sub.i365.i) #12
   br label %sw.epilog321.i
 
 sw.bb165.i:                                       ; preds = %sw.bb158.i
@@ -4582,7 +4582,7 @@ sw.bb165.i:                                       ; preds = %sw.bb158.i
 
 if.then.i370.i:                                   ; preds = %sw.bb165.i
   %sub.i371.i = sub i64 128, %call.i374.i
-  %call3.i372.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.968, i64 noundef %sub.i371.i) #12
+  %call3.i372.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.968, i64 noundef %sub.i371.i) #12
   br label %sw.epilog321.i
 
 sw.default.i:                                     ; preds = %sw.bb158.i
@@ -4590,7 +4590,7 @@ sw.default.i:                                     ; preds = %sw.bb158.i
 
 if.then.i376.i:                                   ; preds = %sw.default.i
   %sub.i377.i = sub i64 128, %call.i374.i
-  %call3.i378.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.969, i64 noundef %sub.i377.i) #12
+  %call3.i378.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.969, i64 noundef %sub.i377.i) #12
   br label %sw.epilog321.i
 
 sw.bb166.i:                                       ; preds = %while.cond.i
@@ -4606,7 +4606,7 @@ if.then170.i:                                     ; preds = %sw.bb166.i
 
 if.then.i382.i:                                   ; preds = %if.then170.i
   %sub.i383.i = sub i64 128, %call.i380.i
-  %call3.i384.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.970, i64 noundef %sub.i383.i) #12
+  %call3.i384.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.970, i64 noundef %sub.i383.i) #12
   br label %if.end171.i
 
 if.end171.i:                                      ; preds = %if.then.i382.i, %if.then170.i, %sw.bb166.i
@@ -4621,7 +4621,7 @@ if.then176.i:                                     ; preds = %if.end171.i
 
 if.then.i388.i:                                   ; preds = %if.then176.i
   %sub.i389.i = sub i64 128, %call.i386.i
-  %call3.i390.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.971, i64 noundef %sub.i389.i) #12
+  %call3.i390.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.971, i64 noundef %sub.i389.i) #12
   br label %if.end177.i
 
 if.end177.i:                                      ; preds = %if.then.i388.i, %if.then176.i, %if.end171.i
@@ -4636,7 +4636,7 @@ if.then182.i:                                     ; preds = %if.end177.i
 
 if.then.i394.i:                                   ; preds = %if.then182.i
   %sub.i395.i = sub i64 128, %call.i392.i
-  %call3.i396.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.972, i64 noundef %sub.i395.i) #12
+  %call3.i396.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.972, i64 noundef %sub.i395.i) #12
   br label %if.end183.i
 
 if.end183.i:                                      ; preds = %if.then.i394.i, %if.then182.i, %if.end177.i
@@ -4651,7 +4651,7 @@ if.then188.i:                                     ; preds = %if.end183.i
 
 if.then.i400.i:                                   ; preds = %if.then188.i
   %sub.i401.i = sub i64 128, %call.i398.i
-  %call3.i402.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.973, i64 noundef %sub.i401.i) #12
+  %call3.i402.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.973, i64 noundef %sub.i401.i) #12
   br label %sw.epilog321.i
 
 sw.bb190.i:                                       ; preds = %while.cond.i
@@ -4667,7 +4667,7 @@ if.then194.i:                                     ; preds = %sw.bb190.i
 
 if.then.i406.i:                                   ; preds = %if.then194.i
   %sub.i407.i = sub i64 128, %call.i404.i
-  %call3.i408.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.970, i64 noundef %sub.i407.i) #12
+  %call3.i408.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.970, i64 noundef %sub.i407.i) #12
   br label %if.end195.i
 
 if.end195.i:                                      ; preds = %if.then.i406.i, %if.then194.i, %sw.bb190.i
@@ -4682,7 +4682,7 @@ if.then200.i:                                     ; preds = %if.end195.i
 
 if.then.i412.i:                                   ; preds = %if.then200.i
   %sub.i413.i = sub i64 128, %call.i410.i
-  %call3.i414.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.971, i64 noundef %sub.i413.i) #12
+  %call3.i414.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.971, i64 noundef %sub.i413.i) #12
   br label %if.end201.i
 
 if.end201.i:                                      ; preds = %if.then.i412.i, %if.then200.i, %if.end195.i
@@ -4697,7 +4697,7 @@ if.then206.i:                                     ; preds = %if.end201.i
 
 if.then.i418.i:                                   ; preds = %if.then206.i
   %sub.i419.i = sub i64 128, %call.i416.i
-  %call3.i420.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.972, i64 noundef %sub.i419.i) #12
+  %call3.i420.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.972, i64 noundef %sub.i419.i) #12
   br label %if.end207.i
 
 if.end207.i:                                      ; preds = %if.then.i418.i, %if.then206.i, %if.end201.i
@@ -4712,13 +4712,13 @@ if.then212.i:                                     ; preds = %if.end207.i
 
 if.then.i424.i:                                   ; preds = %if.then212.i
   %sub.i425.i = sub i64 128, %call.i422.i
-  %call3.i426.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.973, i64 noundef %sub.i425.i) #12
+  %call3.i426.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.973, i64 noundef %sub.i425.i) #12
   br label %sw.epilog321.i
 
 append.exit433.i:                                 ; preds = %while.cond215.preheader.i, %append.exit433.i
   %call216553.i = phi i64 [ %call216.i, %append.exit433.i ], [ %call216551.i, %while.cond215.preheader.i ]
   %sub.i431.i = sub nuw nsw i64 128, %call216553.i
-  %call3.i432.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i431.i) #12
+  %call3.i432.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i431.i) #12
   %call216.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp217.i = icmp ult i64 %call216.i, 24
   br i1 %cmp217.i, label %append.exit433.i, label %sw.epilog321.i, !llvm.loop !12
@@ -4735,7 +4735,7 @@ if.then223.i:                                     ; preds = %sw.bb221.i34
 
 if.then.i436.i:                                   ; preds = %if.then223.i
   %sub.i437.i = sub i64 128, %call.i434.i
-  %call3.i438.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.974, i64 noundef %sub.i437.i) #12
+  %call3.i438.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.974, i64 noundef %sub.i437.i) #12
   br label %sw.epilog321.i
 
 sw.bb225.i:                                       ; preds = %while.cond.i
@@ -4750,7 +4750,7 @@ if.then227.i:                                     ; preds = %sw.bb225.i
 
 if.then.i442.i:                                   ; preds = %if.then227.i
   %sub.i443.i = sub i64 128, %call.i440.i
-  %call3.i444.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.975, i64 noundef %sub.i443.i) #12
+  %call3.i444.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.975, i64 noundef %sub.i443.i) #12
   br label %sw.epilog321.i
 
 sw.bb229.i33:                                     ; preds = %while.cond.i
@@ -4760,7 +4760,7 @@ sw.bb229.i33:                                     ; preds = %while.cond.i
 
 if.then.i448.i:                                   ; preds = %sw.bb229.i33
   %sub.i449.i = sub i64 128, %call.i446.i
-  %call3.i450.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.976, i64 noundef %sub.i449.i) #12
+  %call3.i450.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.976, i64 noundef %sub.i449.i) #12
   br label %sw.epilog321.i
 
 sw.bb230.i:                                       ; preds = %while.cond.i
@@ -4775,7 +4775,7 @@ if.then234.i:                                     ; preds = %sw.bb230.i
 
 if.then.i454.i:                                   ; preds = %if.then234.i
   %sub.i455.i = sub i64 128, %call.i452.i
-  %call3.i456.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.977, i64 noundef %sub.i455.i) #12
+  %call3.i456.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.977, i64 noundef %sub.i455.i) #12
   br label %sw.epilog321.i
 
 sw.bb236.i:                                       ; preds = %while.cond.i
@@ -4788,7 +4788,7 @@ if.then.i460.i:                                   ; preds = %sw.bb236.i
   %idxprom238.i = zext i8 %452 to i64
   %arrayidx239.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom238.i
   %sub.i461.i = sub i64 128, %call.i458.i
-  %call3.i462.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx239.i, i64 noundef %sub.i461.i) #12
+  %call3.i462.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx239.i, i64 noundef %sub.i461.i) #12
   br label %sw.epilog321.i
 
 sw.bb241.i:                                       ; preds = %while.cond.i
@@ -4801,7 +4801,7 @@ if.then.i466.i:                                   ; preds = %sw.bb241.i
   %idxprom243.i = zext i8 %453 to i64
   %arrayidx244.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom243.i
   %sub.i467.i = sub i64 128, %call.i464.i
-  %call3.i468.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx244.i, i64 noundef %sub.i467.i) #12
+  %call3.i468.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx244.i, i64 noundef %sub.i467.i) #12
   br label %sw.epilog321.i
 
 sw.bb246.i:                                       ; preds = %while.cond.i
@@ -4814,7 +4814,7 @@ if.then.i472.i:                                   ; preds = %sw.bb246.i
   %idxprom248.i = zext i8 %454 to i64
   %arrayidx249.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom248.i
   %sub.i473.i = sub i64 128, %call.i470.i
-  %call3.i474.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx249.i, i64 noundef %sub.i473.i) #12
+  %call3.i474.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx249.i, i64 noundef %sub.i473.i) #12
   br label %sw.epilog321.i
 
 sw.bb251.i32:                                     ; preds = %while.cond.i
@@ -4827,7 +4827,7 @@ if.then.i478.i:                                   ; preds = %sw.bb251.i32
   %idxprom253.i = zext i8 %455 to i64
   %arrayidx254.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom253.i
   %sub.i479.i = sub i64 128, %call.i476.i
-  %call3.i480.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx254.i, i64 noundef %sub.i479.i) #12
+  %call3.i480.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx254.i, i64 noundef %sub.i479.i) #12
   br label %sw.epilog321.i
 
 sw.bb256.i:                                       ; preds = %while.cond.i
@@ -4851,7 +4851,7 @@ sw.bb256.i:                                       ; preds = %while.cond.i
 
 if.then.i484.i:                                   ; preds = %sw.bb256.i
   %sub.i485.i = sub i64 128, %call.i482.i
-  %call3.i486.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.982, i64 noundef %sub.i485.i) #12
+  %call3.i486.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.982, i64 noundef %sub.i485.i) #12
   br label %append.exit487.i
 
 append.exit487.i:                                 ; preds = %if.then.i484.i, %sw.bb256.i
@@ -4861,7 +4861,7 @@ append.exit487.i:                                 ; preds = %if.then.i484.i, %sw
 
 if.then.i490.i:                                   ; preds = %append.exit487.i
   %sub.i491.i = sub i64 128, %call.i488.i
-  %call3.i492.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %nbuf.i, i64 noundef %sub.i491.i) #12
+  %call3.i492.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %nbuf.i, i64 noundef %sub.i491.i) #12
   br label %append.exit493.i
 
 append.exit493.i:                                 ; preds = %if.then.i490.i, %append.exit487.i
@@ -4871,7 +4871,7 @@ append.exit493.i:                                 ; preds = %if.then.i490.i, %ap
 
 if.then.i496.i:                                   ; preds = %append.exit493.i
   %sub.i497.i = sub i64 128, %call.i494.i
-  %call3.i498.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.983, i64 noundef %sub.i497.i) #12
+  %call3.i498.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.983, i64 noundef %sub.i497.i) #12
   br label %append.exit499.i
 
 append.exit499.i:                                 ; preds = %if.then.i496.i, %append.exit493.i
@@ -4913,7 +4913,7 @@ if.else291.i:                                     ; preds = %append.exit499.i
 if.end296.sink.split.i:                           ; preds = %if.else291.i, %sw.epilog289.i
   %call.i506.sink.i = phi i64 [ %call.i500.i, %sw.epilog289.i ], [ %call.i506.i, %if.else291.i ]
   %sub.i509.i = sub i64 128, %call.i506.sink.i
-  %call3.i510.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %nbuf.i, i64 noundef %sub.i509.i) #12
+  %call3.i510.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %nbuf.i, i64 noundef %sub.i509.i) #12
   br label %if.end296.i
 
 if.end296.i:                                      ; preds = %if.end296.sink.split.i, %if.else291.i, %sw.epilog289.i
@@ -4923,7 +4923,7 @@ if.end296.i:                                      ; preds = %if.end296.sink.spli
 
 if.then.i514.i:                                   ; preds = %if.end296.i
   %sub.i515.i = sub i64 128, %call.i512.i
-  %call3.i516.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.955, i64 noundef %sub.i515.i) #12
+  %call3.i516.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i515.i) #12
   br label %append.exit517.i
 
 append.exit517.i:                                 ; preds = %if.then.i514.i, %if.end296.i
@@ -4933,7 +4933,7 @@ append.exit517.i:                                 ; preds = %if.then.i514.i, %if
 
 if.then.i520.i:                                   ; preds = %append.exit517.i
   %sub.i521.i = sub i64 128, %call.i518.i
-  %call3.i522.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %cond271.i, i64 noundef %sub.i521.i) #12
+  %call3.i522.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %cond271.i, i64 noundef %sub.i521.i) #12
   br label %append.exit523.i
 
 append.exit523.i:                                 ; preds = %if.then.i520.i, %append.exit517.i
@@ -4943,7 +4943,7 @@ append.exit523.i:                                 ; preds = %if.then.i520.i, %ap
 
 if.then.i526.i:                                   ; preds = %append.exit523.i
   %sub.i527.i = sub i64 128, %call.i524.i
-  %call3.i528.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.955, i64 noundef %sub.i527.i) #12
+  %call3.i528.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i527.i) #12
   br label %append.exit529.i
 
 append.exit529.i:                                 ; preds = %if.then.i526.i, %append.exit523.i
@@ -4953,7 +4953,7 @@ append.exit529.i:                                 ; preds = %if.then.i526.i, %ap
 
 if.then.i532.i:                                   ; preds = %append.exit529.i
   %sub.i533.i = sub i64 128, %call.i530.i
-  %call3.i534.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %cond276.i, i64 noundef %sub.i533.i) #12
+  %call3.i534.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %cond276.i, i64 noundef %sub.i533.i) #12
   br label %sw.epilog321.i
 
 sw.bb297.i:                                       ; preds = %while.cond.i
@@ -4989,7 +4989,7 @@ sw.epilog313.i:                                   ; preds = %sw.default308.i, %s
 
 if.then.i538.i:                                   ; preds = %sw.epilog313.i
   %sub.i539.i = sub i64 128, %call.i536.i
-  %call3.i540.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull %tmp.i, i64 noundef %sub.i539.i) #12
+  %call3.i540.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly %tmp.i, i64 noundef %sub.i539.i) #12
   br label %sw.epilog321.i
 
 sw.bb315.i:                                       ; preds = %while.cond.i
@@ -5002,7 +5002,7 @@ if.then.i544.i:                                   ; preds = %sw.bb315.i
   %idxprom317.i = sext i32 %462 to i64
   %arrayidx318.i = getelementptr [32 x [9 x i8]], ptr @rv_fli_name_const, i64 0, i64 %idxprom317.i
   %sub.i545.i = sub i64 128, %call.i542.i
-  %call3.i546.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx318.i, i64 noundef %sub.i545.i) #12
+  %call3.i546.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx318.i, i64 noundef %sub.i545.i) #12
   br label %sw.epilog321.i
 
 sw.epilog321.i:                                   ; preds = %append.exit433.i, %if.then.i544.i, %sw.bb315.i, %if.then.i538.i, %sw.epilog313.i, %if.then.i532.i, %append.exit529.i, %if.then.i478.i, %sw.bb251.i32, %if.then.i472.i, %sw.bb246.i, %if.then.i466.i, %sw.bb241.i, %if.then.i460.i, %sw.bb236.i, %if.then.i454.i, %if.then234.i, %sw.bb230.i, %if.then.i448.i, %sw.bb229.i33, %if.then.i442.i, %if.then227.i, %sw.bb225.i, %if.then.i436.i, %if.then223.i, %sw.bb221.i34, %if.then.i424.i, %if.then212.i, %if.end207.i, %if.then.i400.i, %if.then188.i, %if.end183.i, %if.then.i376.i, %sw.default.i, %if.then.i370.i, %sw.bb165.i, %if.then.i364.i, %sw.bb164.i, %if.then.i358.i, %sw.bb163.i, %if.then.i352.i, %sw.bb162.i, %if.then.i346.i, %sw.bb161.i35, %if.then.i340.i, %sw.bb160.i, %if.then.i334.i, %if.else.i, %if.then.i328.i, %if.then151.i, %if.then.i322.i, %while.end137.i, %append.exit313.i, %if.then.i304.i, %while.end.i, %if.then.i286.i, %sw.bb105.i, %if.then.i280.i, %sw.bb100.i, %if.then.i274.i, %sw.bb96.i, %if.then.i268.i, %sw.bb90.i, %if.then.i262.i, %sw.bb74.i, %if.then.i256.i, %sw.bb57.i, %if.then.i250.i, %sw.bb40.i, %if.then.i244.i, %sw.bb29.i, %if.then.i238.i, %sw.bb25.i, %if.then.i232.i, %sw.bb21.i56, %if.then.i226.i, %sw.bb17.i, %if.then.i220.i, %sw.bb12.i, %if.then.i214.i, %sw.bb9.i, %if.then.i208.i, %sw.bb8.i, %if.then.i202.i, %sw.bb7.i, %if.then.i196.i, %sw.bb6.i58, %if.then.i190.i, %sw.bb5.i, %if.then.i.i61, %sw.bb.i59, %while.cond215.preheader.i, %while.cond.i
@@ -5935,7 +5935,7 @@ sw.bb490:                                         ; preds = %sw.bb202
   %shr493 = lshr i64 %0, 12
   %and494 = and i64 %shr493, 7
   %or495 = or disjoint i64 %and492, %and494
-  %trunc244 = trunc i64 %or495 to i8
+  %trunc244 = trunc nuw i64 %or495 to i8
   switch i8 %trunc244, label %sw.epilog1655 [
     i8 2, label %sw.bb496
     i8 3, label %sw.bb497
@@ -6685,7 +6685,7 @@ sw.bb880:                                         ; preds = %sw.bb675
   %shr883 = lshr i64 %0, 12
   %and884 = and i64 %shr883, 7
   %or885 = or disjoint i64 %and882, %and884
-  %trunc243 = trunc i64 %or885 to i8
+  %trunc243 = trunc nuw i64 %or885 to i8
   %switch.selectcmp289 = icmp eq i8 %trunc243, 1
   %switch.select290 = select i1 %switch.selectcmp289, i16 155, i16 0
   %switch.selectcmp291 = icmp eq i8 %trunc243, 0
@@ -6698,7 +6698,7 @@ sw.bb889:                                         ; preds = %sw.bb675
   %shr892 = lshr i64 %0, 12
   %and893 = and i64 %shr892, 7
   %or894 = or disjoint i64 %and891, %and893
-  %trunc242 = trunc i64 %or894 to i8
+  %trunc242 = trunc nuw i64 %or894 to i8
   switch i8 %trunc242, label %sw.epilog1655 [
     i8 0, label %sw.bb895
     i8 1, label %sw.bb896
@@ -6730,7 +6730,7 @@ sw.bb907:                                         ; preds = %sw.bb675
   %shr910 = lshr i64 %0, 12
   %and911 = and i64 %shr910, 7
   %or912 = or disjoint i64 %and909, %and911
-  %trunc241 = trunc i64 %or912 to i8
+  %trunc241 = trunc nuw i64 %or912 to i8
   switch i8 %trunc241, label %sw.epilog1655 [
     i8 0, label %sw.bb913
     i8 1, label %sw.bb914
@@ -6752,7 +6752,7 @@ sw.bb917:                                         ; preds = %sw.bb675
   %shr920 = lshr i64 %0, 12
   %and921 = and i64 %shr920, 7
   %or922 = or disjoint i64 %and919, %and921
-  %trunc240 = trunc i64 %or922 to i8
+  %trunc240 = trunc nuw i64 %or922 to i8
   %switch.selectcmp294 = icmp eq i8 %trunc240, 8
   %switch.select295 = select i1 %switch.selectcmp294, i16 801, i16 0
   %switch.selectcmp296 = icmp eq i8 %trunc240, 0
@@ -6765,7 +6765,7 @@ sw.bb926:                                         ; preds = %sw.bb675
   %shr929 = lshr i64 %0, 12
   %and930 = and i64 %shr929, 7
   %or931 = or disjoint i64 %and928, %and930
-  %trunc239 = trunc i64 %or931 to i8
+  %trunc239 = trunc nuw i64 %or931 to i8
   %switch.selectcmp298 = icmp eq i8 %trunc239, 8
   %switch.select299 = select i1 %switch.selectcmp298, i16 802, i16 0
   %switch.selectcmp300 = icmp eq i8 %trunc239, 0
@@ -6778,7 +6778,7 @@ sw.bb935:                                         ; preds = %sw.bb675
   %shr938 = lshr i64 %0, 12
   %and939 = and i64 %shr938, 7
   %or940 = or disjoint i64 %and937, %and939
-  %trunc238 = trunc i64 %or940 to i8
+  %trunc238 = trunc nuw i64 %or940 to i8
   %switch.selectcmp302 = icmp eq i8 %trunc238, 8
   %switch.select303 = select i1 %switch.selectcmp302, i16 804, i16 0
   %switch.selectcmp304 = icmp eq i8 %trunc238, 0
@@ -6791,7 +6791,7 @@ sw.bb944:                                         ; preds = %sw.bb675
   %shr947 = lshr i64 %0, 12
   %and948 = and i64 %shr947, 7
   %or949 = or disjoint i64 %and946, %and948
-  %trunc = trunc i64 %or949 to i8
+  %trunc = trunc nuw i64 %or949 to i8
   %switch.selectcmp306 = icmp eq i8 %trunc, 8
   %switch.select307 = select i1 %switch.selectcmp306, i16 803, i16 0
   %switch.selectcmp308 = icmp eq i8 %trunc, 0
@@ -8469,12 +8469,12 @@ default.unreachable349:                           ; preds = %sw.bb954, %sw.bb426
   unreachable
 
 switch.lookup:                                    ; preds = %sw.bb80
-  %switch.idx.cast = trunc i64 %and82 to i16
+  %switch.idx.cast = trunc nuw nsw i64 %and82 to i16
   %switch.offset = add nuw nsw i16 %switch.idx.cast, 769
   br label %sw.epilog1655
 
 switch.lookup363:                                 ; preds = %sw.bb306
-  %switch.cast = trunc i64 %and308 to i48
+  %switch.cast = trunc nuw nsw i64 %and308 to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 4
   %switch.downshift = lshr i48 227635822630, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
@@ -8491,7 +8491,7 @@ switch.lookup367:                                 ; preds = %sw.bb354
   br label %sw.epilog1655
 
 switch.lookup370:                                 ; preds = %sw.bb401
-  %switch.idx.cast371 = trunc i64 %and403 to i16
+  %switch.idx.cast371 = trunc nuw nsw i64 %and403 to i16
   %switch.offset372 = add nuw nsw i16 %switch.idx.cast371, 347
   br label %sw.epilog1655
 
@@ -8501,7 +8501,7 @@ switch.lookup373:                                 ; preds = %sw.bb417
   br label %sw.epilog1655
 
 switch.hole_check:                                ; preds = %sw.epilog607
-  %switch.maskindex = trunc i64 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw nsw i64 %switch.tableidx to i16
   %switch.shifted = lshr i16 725, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup380, label %sw.epilog1655
@@ -8512,17 +8512,17 @@ switch.lookup380:                                 ; preds = %switch.hole_check
   br label %sw.epilog1655
 
 switch.lookup399:                                 ; preds = %sw.bb690
-  %switch.idx.cast400 = trunc i64 %and692 to i16
+  %switch.idx.cast400 = trunc nuw nsw i64 %and692 to i16
   %switch.offset401 = add nuw nsw i16 %switch.idx.cast400, 141
   br label %sw.epilog1655
 
 switch.lookup402:                                 ; preds = %sw.bb697
-  %switch.idx.cast403 = trunc i64 %and699 to i16
+  %switch.idx.cast403 = trunc nuw nsw i64 %and699 to i16
   %switch.offset404 = add nuw nsw i16 %switch.idx.cast403, 171
   br label %sw.epilog1655
 
 switch.lookup405:                                 ; preds = %sw.bb704
-  %switch.idx.cast406 = trunc i64 %and706 to i16
+  %switch.idx.cast406 = trunc nuw nsw i64 %and706 to i16
   %switch.offset407 = add nuw nsw i16 %switch.idx.cast406, 203
   br label %sw.epilog1655
 
@@ -8801,7 +8801,7 @@ entry:
   %or20 = or disjoint i64 %or16, %shl23
   %or24 = or i64 %or20, %shl27
   %or28 = or i64 %or24, %shl1
-  %conv = trunc i64 %or28 to i32
+  %conv = trunc nuw i64 %or28 to i32
   ret i32 %conv
 }
 

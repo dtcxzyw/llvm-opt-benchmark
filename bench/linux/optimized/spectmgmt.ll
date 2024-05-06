@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [65 x i8] c"\016%s: BSS %pM: CSA has inconsistent channel data, disconnecting\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_parse_ch_switch_ie(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @ieee80211_parse_ch_switch_ie(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.cfg80211_chan_def, align 8
   %10 = alloca %struct.ieee80211_vht_operation, align 1

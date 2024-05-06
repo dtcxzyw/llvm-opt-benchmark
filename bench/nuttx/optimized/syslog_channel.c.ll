@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @syslog_default_write.lock = internal global %struct.mutex_s { %struct.sem_s { i16 1, i8 5, %struct.dq_queue_s zeroinitializer, ptr null }, i32 -1 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @syslog_channel(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @syslog_channel(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -29,7 +29,7 @@ define noundef i32 @syslog_channel(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @syslog_channel_remove(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @syslog_channel_remove(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp ne ptr %0, null
   %2 = load ptr, ptr @g_syslog_channel, align 8
   %3 = icmp eq ptr %2, %0

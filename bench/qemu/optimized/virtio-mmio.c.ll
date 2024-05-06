@@ -146,7 +146,7 @@ if.then:                                          ; preds = %entry
   %8 = load i64, ptr %addr, align 8
   %add12 = add i64 %8, 32
   %shr = lshr i64 %features, 32
-  %conv13 = trunc i64 %shr to i32
+  %conv13 = trunc nuw i64 %shr to i32
   tail call void @qtest_writel(ptr noundef %7, i64 noundef %add12, i32 noundef %conv13) #6
   br label %if.end
 
@@ -155,7 +155,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @qvirtio_mmio_get_guest_features(ptr nocapture noundef readonly %d) #1 {
+define internal range(i64 0, 4294967296) i64 @qvirtio_mmio_get_guest_features(ptr nocapture noundef readonly %d) #1 {
 entry:
   %features = getelementptr i8, ptr %d, i64 52
   %0 = load i32, ptr %features, align 4
@@ -359,12 +359,12 @@ qvirtio_mmio_queue_select.exit:                   ; preds = %entry, %if.else.i
   %10 = load i32, ptr %features, align 4
   %indirect = getelementptr inbounds i8, ptr %call, i64 54
   %11 = lshr i32 %10, 28
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %frombool = and i8 %12, 1
   store i8 %frombool, ptr %indirect, align 2
   %event = getelementptr inbounds i8, ptr %call, i64 55
   %13 = lshr i32 %10, 29
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %frombool11 = and i8 %14, 1
   store i8 %frombool11, ptr %event, align 1
   %15 = load ptr, ptr %qts.i, align 8
@@ -385,7 +385,7 @@ do.body21:                                        ; preds = %qvirtio_mmio_queue_
   br i1 %cmp28, label %do.end35, label %if.else31
 
 if.else31:                                        ; preds = %do.body21
-  %conv32 = uitofp i32 %and25 to x86_fp80
+  %conv32 = uitofp nneg i32 %and25 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @__func__.qvirtio_mmio_virtqueue_setup, ptr noundef nonnull @.str.8, x86_fp80 noundef %conv32, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 105) #6
   br label %do.end35
 

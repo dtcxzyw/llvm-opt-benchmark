@@ -3187,7 +3187,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %33 = load i64, ptr %32, align 8, !alias.scope !621, !noalias !628, !noundef !4
   %34 = sub i64 %29, %33
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %33)
-  %35 = tail call i32 @memcmp(ptr nonnull %27, ptr nonnull %31, i64 %..i.i.i.i), !alias.scope !632, !noalias !636
+  %35 = tail call i32 @memcmp(ptr nonnull readonly %27, ptr nonnull readonly %31, i64 %..i.i.i.i), !alias.scope !632, !noalias !636
   %36 = sext i32 %35 to i64
   %37 = icmp eq i32 %35, 0
   %spec.store.select.i.i.i.i = select i1 %37, i64 %34, i64 %36
@@ -3245,7 +3245,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   %61 = load i64, ptr %60, align 8, !alias.scope !651, !noalias !658, !noundef !4
   %62 = sub i64 %57, %61
   %..i.i.i.i41 = tail call i64 @llvm.umin.i64(i64 %57, i64 %61)
-  %63 = tail call i32 @memcmp(ptr nonnull %55, ptr nonnull %59, i64 %..i.i.i.i41), !alias.scope !662, !noalias !666
+  %63 = tail call i32 @memcmp(ptr nonnull readonly %55, ptr nonnull readonly %59, i64 %..i.i.i.i41), !alias.scope !662, !noalias !666
   %64 = sext i32 %63 to i64
   %65 = icmp eq i32 %63, 0
   %spec.store.select.i.i.i.i42 = select i1 %65, i64 %62, i64 %64
@@ -3311,7 +3311,7 @@ _ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit.thread: ; preds = %105, %99
   %91 = load i64, ptr %90, align 8, !alias.scope !681, !noalias !688, !noundef !4
   %92 = sub i64 %87, %91
   %..i.i.i.i52 = tail call i64 @llvm.umin.i64(i64 %87, i64 %91)
-  %93 = tail call i32 @memcmp(ptr nonnull %86, ptr nonnull %89, i64 %..i.i.i.i52), !alias.scope !692, !noalias !696
+  %93 = tail call i32 @memcmp(ptr nonnull readonly %86, ptr nonnull readonly %89, i64 %..i.i.i.i52), !alias.scope !692, !noalias !696
   %94 = sext i32 %93 to i64
   %95 = icmp eq i32 %93, 0
   %spec.store.select.i.i.i.i53 = select i1 %95, i64 %92, i64 %94
@@ -3409,7 +3409,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %33 = load i64, ptr %32, align 8, !noalias !705, !noundef !4
   %34 = sub i64 %29, %33
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %33)
-  %35 = tail call i32 @memcmp(ptr nonnull %27, ptr nonnull %31, i64 %..i.i.i.i), !alias.scope !710, !noalias !714
+  %35 = tail call i32 @memcmp(ptr nonnull readonly %27, ptr nonnull readonly %31, i64 %..i.i.i.i), !alias.scope !710, !noalias !714
   %36 = sext i32 %35 to i64
   %37 = icmp eq i32 %35, 0
   %spec.store.select.i.i.i.i = select i1 %37, i64 %34, i64 %36
@@ -3467,7 +3467,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   %61 = load i64, ptr %60, align 8, !noalias !723, !noundef !4
   %62 = sub i64 %57, %61
   %..i.i.i.i41 = tail call i64 @llvm.umin.i64(i64 %57, i64 %61)
-  %63 = tail call i32 @memcmp(ptr nonnull %55, ptr nonnull %59, i64 %..i.i.i.i41), !alias.scope !728, !noalias !732
+  %63 = tail call i32 @memcmp(ptr nonnull readonly %55, ptr nonnull readonly %59, i64 %..i.i.i.i41), !alias.scope !728, !noalias !732
   %64 = sext i32 %63 to i64
   %65 = icmp eq i32 %63, 0
   %spec.store.select.i.i.i.i42 = select i1 %65, i64 %62, i64 %64
@@ -3533,7 +3533,7 @@ _ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit.thread: ; preds = %105, %99
   %91 = load i64, ptr %90, align 8, !noalias !741, !noundef !4
   %92 = sub i64 %87, %91
   %..i.i.i.i52 = tail call i64 @llvm.umin.i64(i64 %87, i64 %91)
-  %93 = tail call i32 @memcmp(ptr nonnull %86, ptr nonnull %89, i64 %..i.i.i.i52), !alias.scope !746, !noalias !750
+  %93 = tail call i32 @memcmp(ptr nonnull readonly %86, ptr nonnull readonly %89, i64 %..i.i.i.i52), !alias.scope !746, !noalias !750
   %94 = sext i32 %93 to i64
   %95 = icmp eq i32 %93, 0
   %spec.store.select.i.i.i.i53 = select i1 %95, i64 %92, i64 %94
@@ -3646,7 +3646,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   ret void
 
 33:                                               ; preds = %.lr.ph
-  %34 = add i8 %22, 1
+  %34 = add nsw i8 %22, 1
   %switch.selectcmp.i = icmp ult i8 %34, 2
   %35 = zext i1 %switch.selectcmp.i to i64
   %36 = add nuw i64 %.073, %35
@@ -3756,7 +3756,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
   %36 = load i64, ptr %35, align 8, !noalias !770, !noundef !4
   %37 = sub i64 %32, %36
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %36)
-  %38 = tail call i32 @memcmp(ptr nonnull %30, ptr nonnull %34, i64 %..i.i.i.i.i.i), !alias.scope !775, !noalias !779
+  %38 = tail call i32 @memcmp(ptr nonnull readonly %30, ptr nonnull readonly %34, i64 %..i.i.i.i.i.i), !alias.scope !775, !noalias !779
   %39 = sext i32 %38 to i64
   %40 = icmp eq i32 %38, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %40, i64 %37, i64 %39
@@ -3843,7 +3843,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   %73 = load i64, ptr %72, align 8, !noalias !788, !noundef !4
   %74 = sub i64 %63, %73
   %..i.i.i.i.i30.i.i = tail call i64 @llvm.umin.i64(i64 %63, i64 %73)
-  %75 = tail call i32 @memcmp(ptr nonnull %62, ptr nonnull %71, i64 %..i.i.i.i.i30.i.i), !alias.scope !793, !noalias !797
+  %75 = tail call i32 @memcmp(ptr nonnull readonly %62, ptr nonnull readonly %71, i64 %..i.i.i.i.i30.i.i), !alias.scope !793, !noalias !797
   %76 = sext i32 %75 to i64
   %77 = icmp eq i32 %75, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %77, i64 %74, i64 %76
@@ -4034,7 +4034,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
           to label %47 unwind label %.body.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
-  %48 = add i8 %46, 1
+  %48 = add nsw i8 %46, 1
   %switch.selectcmp.i.i.i.i = icmp ult i8 %48, 2
   br i1 %switch.selectcmp.i.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha251d43d1b29f8b8E.exit.i", label %49
 
@@ -4045,7 +4045,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
   br i1 %.not.i.i6.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha251d43d1b29f8b8E.exit.i", label %.lr.ph.i.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
-  %52 = add i8 %32, 1
+  %52 = add nsw i8 %32, 1
   %switch.selectcmp.i.i.i = icmp ult i8 %52, 2
   %53 = zext i1 %switch.selectcmp.i.i.i to i64
   %54 = add nuw i64 %.019.i.i, %53
@@ -4153,7 +4153,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
   %36 = load i64, ptr %35, align 8, !alias.scope !836, !noalias !843, !noundef !4
   %37 = sub i64 %32, %36
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %36)
-  %38 = tail call i32 @memcmp(ptr nonnull %30, ptr nonnull %34, i64 %..i.i.i.i.i.i), !alias.scope !847, !noalias !851
+  %38 = tail call i32 @memcmp(ptr nonnull readonly %30, ptr nonnull readonly %34, i64 %..i.i.i.i.i.i), !alias.scope !847, !noalias !851
   %39 = sext i32 %38 to i64
   %40 = icmp eq i32 %38, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %40, i64 %37, i64 %39
@@ -4240,7 +4240,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   %73 = load i64, ptr %72, align 8, !alias.scope !866, !noalias !873, !noundef !4
   %74 = sub i64 %63, %73
   %..i.i.i.i.i30.i.i = tail call i64 @llvm.umin.i64(i64 %63, i64 %73)
-  %75 = tail call i32 @memcmp(ptr nonnull %62, ptr nonnull %71, i64 %..i.i.i.i.i30.i.i), !alias.scope !877, !noalias !881
+  %75 = tail call i32 @memcmp(ptr nonnull readonly %62, ptr nonnull readonly %71, i64 %..i.i.i.i.i30.i.i), !alias.scope !877, !noalias !881
   %76 = sext i32 %75 to i64
   %77 = icmp eq i32 %75, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %77, i64 %74, i64 %76
@@ -5305,7 +5305,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$crossbeam_channel..channel..Receive
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @"_ZN104_$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$I$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd5f7ed2797e8b097E"(ptr readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN104_$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$I$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd5f7ed2797e8b097E"(ptr readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !924)
@@ -5344,7 +5344,7 @@ define internal fastcc noundef i8 @"_ZN104_$LT$mini_lsm_mvcc..iterators..merge_i
   %20 = load i64, ptr %19, align 8, !alias.scope !948, !noalias !955, !noundef !4
   %21 = sub i64 %9, %20
   %..i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %20)
-  %22 = tail call i32 @memcmp(ptr nonnull %7, ptr nonnull %18, i64 %..i.i), !alias.scope !959, !noalias !963
+  %22 = tail call i32 @memcmp(ptr nonnull readonly %7, ptr nonnull readonly %18, i64 %..i.i), !alias.scope !959, !noalias !963
   %23 = sext i32 %22 to i64
   %24 = icmp eq i32 %22, 0
   %spec.store.select.i.i = select i1 %24, i64 %21, i64 %23
@@ -5645,7 +5645,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
           to label %88 unwind label %92
 
 88:                                               ; preds = %.lr.ph.i.i
-  %89 = add i8 %87, 1
+  %89 = add nsw i8 %87, 1
   %switch.selectcmp.i.i.i = icmp ult i8 %89, 2
   br i1 %switch.selectcmp.i.i.i, label %.loopexit, label %90
 
@@ -6016,7 +6016,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   %77 = load i64, ptr %76, align 8, !alias.scope !1075, !noalias !1082, !noundef !4
   %78 = sub i64 %73, %77
   %..i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %73, i64 %77)
-  %79 = call i32 @memcmp(ptr nonnull %72, ptr nonnull %75, i64 %..i.i.i.i.i.i), !alias.scope !1086, !noalias !1090
+  %79 = call i32 @memcmp(ptr nonnull readonly %72, ptr nonnull readonly %75, i64 %..i.i.i.i.i.i), !alias.scope !1086, !noalias !1090
   %80 = sext i32 %79 to i64
   %81 = icmp eq i32 %79, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %81, i64 %78, i64 %80
@@ -6404,7 +6404,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   %88 = load i64, ptr %87, align 8, !noalias !1162, !noundef !4
   %89 = sub i64 %84, %88
   %..i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %84, i64 %88)
-  %90 = call i32 @memcmp(ptr nonnull %83, ptr nonnull %86, i64 %..i.i.i.i.i.i), !alias.scope !1167, !noalias !1171
+  %90 = call i32 @memcmp(ptr nonnull readonly %83, ptr nonnull readonly %86, i64 %..i.i.i.i.i.i), !alias.scope !1167, !noalias !1171
   %91 = sext i32 %90 to i64
   %92 = icmp eq i32 %90, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %92, i64 %89, i64 %91
@@ -6868,7 +6868,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %27 = load i64, ptr %26, align 8, !alias.scope !1256, !noalias !1263, !noundef !4
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !1256, !noalias !1263, !nonnull !4, !noundef !4
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %29, ptr nonnull %25, i64 %18), !alias.scope !1278, !noalias !1282
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %29, ptr nonnull readonly %25, i64 %18), !alias.scope !1278, !noalias !1282
   %30 = icmp eq i32 %bcmp.i.i, 0
   %31 = icmp eq i64 %27, %23
   %spec.select.i = and i1 %31, %30
@@ -7068,7 +7068,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %90 = load i64, ptr %89, align 8, !alias.scope !1321, !noalias !1328, !noundef !4
   %91 = sub i64 %70, %90
   %..i.i.i = call i64 @llvm.umin.i64(i64 %70, i64 %90)
-  %92 = call i32 @memcmp(ptr nonnull %86, ptr nonnull %88, i64 %..i.i.i), !alias.scope !1332, !noalias !1336
+  %92 = call i32 @memcmp(ptr nonnull readonly %86, ptr nonnull readonly %88, i64 %..i.i.i), !alias.scope !1332, !noalias !1336
   %93 = sext i32 %92 to i64
   %94 = icmp eq i32 %92, 0
   %spec.store.select.i.i.i = select i1 %94, i64 %91, i64 %93
@@ -7178,7 +7178,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %27 = load i64, ptr %26, align 8, !noalias !1357, !noundef !4
   %28 = getelementptr inbounds i8, ptr %16, i64 144
   %29 = load ptr, ptr %28, align 8, !noalias !1357, !nonnull !4, !noundef !4
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %29, ptr nonnull %25, i64 %18), !alias.scope !1367, !noalias !1371
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %29, ptr nonnull readonly %25, i64 %18), !alias.scope !1367, !noalias !1371
   %30 = icmp eq i32 %bcmp.i.i, 0
   %31 = icmp eq i64 %27, %23
   %spec.select.i = and i1 %31, %30
@@ -7444,7 +7444,7 @@ common.resume:                                    ; preds = %.body87, %.body, %4
   %108 = load i64, ptr %107, align 8, !noalias !1419, !noundef !4
   %109 = sub i64 %82, %108
   %..i.i.i = call i64 @llvm.umin.i64(i64 %82, i64 %108)
-  %110 = call i32 @memcmp(ptr nonnull %104, ptr nonnull %106, i64 %..i.i.i), !alias.scope !1424, !noalias !1428
+  %110 = call i32 @memcmp(ptr nonnull readonly %104, ptr nonnull readonly %106, i64 %..i.i.i), !alias.scope !1424, !noalias !1428
   %111 = sext i32 %110 to i64
   %112 = icmp eq i32 %110, 0
   %spec.store.select.i.i.i = select i1 %112, i64 %109, i64 %111
@@ -7574,7 +7574,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %35 = load i64, ptr %34, align 8, !alias.scope !1468, !noalias !1475, !noundef !4
   %36 = getelementptr inbounds i8, ptr %27, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !1468, !noalias !1475, !nonnull !4, !noundef !4
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %22, ptr nonnull %37, i64 %24), !alias.scope !1479, !noalias !1483
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull readonly %37, i64 %24), !alias.scope !1479, !noalias !1483
   %38 = icmp eq i32 %bcmp.i.i, 0
   %39 = icmp eq i64 %26, %35
   %spec.select.i = and i1 %39, %38

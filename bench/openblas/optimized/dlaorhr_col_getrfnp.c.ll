@@ -84,7 +84,7 @@ define void @dlaorhr_col_getrfnp_(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 46:                                               ; preds = %88, %42
   %47 = phi i64 [ 1, %42 ], [ %89, %88 ]
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = load i32, ptr %0, align 4, !tbaa !3
   %50 = load i32, ptr %1, align 4, !tbaa !3
   %51 = call i32 @llvm.smin.i32(i32 %49, i32 %50)

@@ -56,7 +56,7 @@ define void @Abc_EnumerateCubeStates2() local_unnamed_addr #0 {
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = add nuw nsw i32 %.01116.i.i, 2
-  %17 = mul nsw i32 %16, %16
+  %17 = mul nuw nsw i32 %16, %16
   %.not.i.i = icmp ugt i32 %17, %13
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -187,7 +187,7 @@ Abc_StatePush.exit:                               ; preds = %.preheader150
   br i1 %exitcond.not.i125, label %Abc_StatePush.exit126, label %68, !llvm.loop !8
 
 Abc_StatePush.exit126:                            ; preds = %68
-  %73 = trunc i64 %indvars.iv192 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv192 to i32
   %74 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %73)
   %75 = add nuw nsw i64 %indvars.iv190, 3
   %76 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %75
@@ -232,7 +232,7 @@ Abc_StatePush.exit126:                            ; preds = %68
   br i1 %exitcond.not.i130, label %Abc_StatePush.exit131, label %93, !llvm.loop !8
 
 Abc_StatePush.exit131:                            ; preds = %93
-  %98 = trunc i64 %91 to i32
+  %98 = trunc nuw nsw i64 %91 to i32
   %99 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %98)
   %100 = add nuw nsw i64 %indvars.iv190, 6
   %101 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %100
@@ -277,7 +277,7 @@ Abc_StatePush.exit131:                            ; preds = %93
   br i1 %exitcond.not.i135, label %Abc_StatePush.exit136, label %118, !llvm.loop !8
 
 Abc_StatePush.exit136:                            ; preds = %118
-  %123 = trunc i64 %116 to i32
+  %123 = trunc nuw nsw i64 %116 to i32
   %124 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %123)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 3
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
@@ -528,7 +528,7 @@ define internal fastcc i32 @Hsh_IntManAdd(ptr nocapture noundef readonly %0, i32
 
 15:                                               ; preds = %.lr.ph.i
   %16 = add nuw nsw i32 %.01116.i, 2
-  %17 = mul nsw i32 %16, %16
+  %17 = mul nuw nsw i32 %16, %16
   %.not.i = icmp ugt i32 %17, %13
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -651,7 +651,7 @@ Hsh_IntManHash.exit:                              ; preds = %41, %._crit_edge.lo
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %45, i64 4
   store i32 %69, ptr %70, align 4
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %71, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load ptr, ptr %3, align 8
@@ -730,7 +730,7 @@ Hsh_IntObj.exit.lr.ph.split.i:                    ; preds = %Hsh_IntObj.exit.lr.
   %109 = mul nsw i32 %108, %.val41
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %.val42.val, i64 %110
-  %bcmp25.i = tail call i32 @bcmp(ptr %81, ptr %111, i64 %105)
+  %bcmp25.i = tail call i32 @bcmp(ptr readonly %81, ptr %111, i64 %105)
   %.not1626.i = icmp eq i32 %bcmp25.i, 0
   br i1 %.not1626.i, label %Hsh_IntObj.exit, label %.lr.ph.i53
 
@@ -749,7 +749,7 @@ Hsh_IntObj.exit.i:                                ; preds = %.lr.ph.i53
   %120 = mul nsw i32 %119, %.val41
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %.val42.val, i64 %121
-  %bcmp.i = tail call i32 @bcmp(ptr %81, ptr %122, i64 %105)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %81, ptr %122, i64 %105)
   %.not16.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not16.i, label %Hsh_IntObj.exit, label %.lr.ph.i53, !llvm.loop !20
 

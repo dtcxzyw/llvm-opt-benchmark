@@ -87,7 +87,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_SIG_marshal(ptr noundef %cbb, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_SIG_marshal(ptr noundef %cbb, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -218,7 +218,7 @@ declare ptr @DSA_new() local_unnamed_addr #1
 declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -352,7 +352,7 @@ return:                                           ; preds = %lor.lhs.false10, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_marshal_parameters(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_parameters(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -517,7 +517,7 @@ return:                                           ; preds = %lor.lhs.false23, %e
 declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -651,7 +651,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @DSA_SIG_marshal(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @DSA_SIG_marshal(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -717,7 +717,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @DSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @DSA_marshal_public_key(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -777,7 +777,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @DSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @DSA_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -837,7 +837,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @DSA_marshal_parameters(ptr noundef nonnull %cbb, ptr noundef %in), !range !7
+  %call1 = call i32 @DSA_marshal_parameters(ptr noundef nonnull %cbb, ptr noundef %in)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
@@ -873,4 +873,3 @@ attributes #2 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

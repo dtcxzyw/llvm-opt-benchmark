@@ -241,7 +241,7 @@ define i64 @strftime(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noc
   br label %.loopexit
 
 87:                                               ; preds = %.preheader
-  %88 = tail call fastcc i32 @get_week_num(ptr noundef %3)
+  %88 = tail call fastcc i32 @get_week_num(ptr noundef readonly %3)
   %89 = load i32, ptr %12, align 4
   %90 = load i32, ptr %17, align 4
   %91 = icmp slt i32 %90, 3
@@ -270,7 +270,7 @@ get_week_year.exit:                               ; preds = %93, %95
 
 101:                                              ; preds = %.preheader
   %102 = zext nneg i32 %.0171234 to i64
-  %103 = tail call fastcc i32 @get_week_num(ptr noundef %3)
+  %103 = tail call fastcc i32 @get_week_num(ptr noundef readonly %3)
   %104 = load i32, ptr %12, align 4
   %105 = load i32, ptr %17, align 4
   %106 = icmp slt i32 %105, 3

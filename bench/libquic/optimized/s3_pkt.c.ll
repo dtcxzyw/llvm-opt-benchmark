@@ -307,14 +307,14 @@ return:                                           ; preds = %if.end10.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_read_app_data(ptr noundef %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_app_data(ptr noundef %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf, i32 noundef %len, i32 noundef %peek), !range !7
+  %call = tail call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf, i32 noundef %len, i32 noundef %peek)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
   %type.i = alloca i8, align 1
   %alert.i = alloca i8, align 1
@@ -467,7 +467,7 @@ ssl3_get_record.exit:                             ; preds = %sw.bb.i
   %rrec.i = getelementptr inbounds i8, ptr %14, i64 120
   %15 = load i8, ptr %type.i, align 1
   store i8 %15, ptr %rrec.i, align 8
-  %conv.i = trunc i64 %3 to i16
+  %conv.i = trunc nuw i64 %3 to i16
   %length.i = getelementptr inbounds i8, ptr %14, i64 122
   store i16 %conv.i, ptr %length.i, align 2
   %data.i = getelementptr inbounds i8, ptr %14, i64 128
@@ -537,7 +537,7 @@ if.end49:                                         ; preds = %if.end45
 
 if.then60:                                        ; preds = %if.end49
   %22 = load i16, ptr %length, align 2
-  %23 = trunc i32 %conv41.len to i16
+  %23 = trunc nuw i32 %conv41.len to i16
   %conv63 = sub i16 %22, %23
   store i16 %conv63, ptr %length, align 2
   %24 = load ptr, ptr %data, align 8
@@ -620,7 +620,7 @@ if.end106:                                        ; preds = %if.end96
   %hello_request_len = getelementptr inbounds i8, ptr %36, i64 136
   %37 = load i8, ptr %hello_request_len, align 8
   %cmp89 = icmp ult i8 %37, 4
-  br i1 %cmp89, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp89, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end106, %while.cond.preheader
   %.lcssa = phi ptr [ %29, %while.cond.preheader ], [ %36, %if.end106 ]
@@ -860,10 +860,10 @@ return:                                           ; preds = %if.end131, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_read_change_cipher_spec(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_read_change_cipher_spec(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %byte = alloca i8, align 1
-  %call = call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 20, ptr noundef nonnull %byte, i32 noundef 1, i32 noundef 0), !range !7
+  %call = call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 20, ptr noundef nonnull %byte, i32 noundef 1, i32 noundef 0)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -982,7 +982,7 @@ return:                                           ; preds = %if.end, %if.then9
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3_read_close_notify(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0), !range !7
+  %call = tail call i32 @ssl3_read_bytes(ptr noundef %ssl, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
@@ -1004,7 +1004,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_dispatch_alert(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_dispatch_alert(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -1180,6 +1180,5 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -2147483648, i32 65536}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [27 x i8] c"Huffman (dict=RLE+Huffman)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @Ptngc_comp_huff_buflen(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147351648, -2147483648) i32 @Ptngc_comp_huff_buflen(i32 noundef %0) local_unnamed_addr #0 {
   %2 = shl nsw i32 %0, 3
   %3 = add nsw i32 %2, 132000
   ret i32 %3

@@ -29,7 +29,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @DES_check_key_parity(ptr nocapture noundef readonly %key) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @DES_check_key_parity(ptr nocapture noundef readonly %key) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -58,7 +58,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DES_is_weak_key(ptr noundef %key) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @DES_is_weak_key(ptr noundef %key) local_unnamed_addr #2 {
 entry:
   br label %for.body
 
@@ -84,7 +84,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @DES_set_key(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @DES_set_key(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
 entry:
   br label %for.body.i
 
@@ -308,7 +308,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DES_set_key_checked(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @DES_set_key_checked(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
 entry:
   br label %for.body.i
 
@@ -364,7 +364,7 @@ return:                                           ; preds = %DES_is_weak_key.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DES_key_sched(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @DES_key_sched(ptr noundef %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #2 {
 entry:
   br label %for.body.i.i
 
@@ -407,7 +407,7 @@ DES_set_key.exit:                                 ; preds = %for.body.i3.i
   %and.i.i = and i32 %or.i.i, 1
   %tobool2.not.i = icmp eq i32 %and.i.i, 0
   %ret.1.i = select i1 %tobool2.not.i, i32 %spec.select.i, i32 -2
-  tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef %schedule)
+  tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef writeonly %schedule)
   ret i32 %ret.1.i
 }
 

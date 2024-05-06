@@ -37,7 +37,7 @@ define void @Map_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Map_CommandReadLibrary(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #4
   %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #4
   %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #4

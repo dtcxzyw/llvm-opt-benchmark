@@ -158,11 +158,11 @@ define noalias noundef ptr @print_stream_text_new(i32 noundef %0, ptr nocapture 
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
+  %4 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @popen(ptr noundef %1, ptr noundef nonnull @.str)
+  %6 = tail call noalias ptr @popen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 open_print_dest.exit:                             ; preds = %3, %5
@@ -245,11 +245,11 @@ define noalias noundef ptr @print_stream_ps_new(i32 noundef %0, ptr nocapture no
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
+  %4 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @popen(ptr noundef %1, ptr noundef nonnull @.str)
+  %6 = tail call noalias ptr @popen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 open_print_dest.exit:                             ; preds = %3, %5
@@ -313,13 +313,13 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_line_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @print_line_color_text(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null), !range !4
+define internal range(i32 0, 2) i32 @print_line_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = tail call i32 @print_line_color_text(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_line_color_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #0 {
+define internal range(i32 0, 2) i32 @print_line_color_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -480,7 +480,7 @@ set_color_24bit_escape.exit:                      ; preds = %38, %39
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @new_page_text(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 0, 2) i32 @new_page_text(ptr nocapture noundef readonly %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -494,7 +494,7 @@ define internal noundef i32 @new_page_text(ptr nocapture noundef readonly %0) #8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_text(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @destroy_text(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -566,7 +566,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_preamble_ps(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @print_preamble_ps(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -616,7 +616,7 @@ define internal noundef i32 @print_preamble_ps(ptr nocapture noundef readonly %0
   %26 = add i32 %.022.i, 1
   %27 = add nsw i32 %.120.i, 1
   %28 = icmp slt i32 %.120.i, 255
-  br i1 %28, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !5
+  br i1 %28, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
 
 ps_clean_string.exit:                             ; preds = %21, %25, %12
   %29 = load ptr, ptr %7, align 8
@@ -631,7 +631,7 @@ ps_clean_string.exit:                             ; preds = %21, %25, %12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @print_line_ps(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) #8 {
+define internal range(i32 0, 2) i32 @print_line_ps(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) #8 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -676,7 +676,7 @@ define internal noundef i32 @print_line_ps(ptr nocapture noundef readonly %0, i3
   %22 = add i32 %.022.i, 1
   %23 = add nsw i32 %.120.i, 1
   %24 = icmp slt i32 %.120.i, 255
-  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !5
+  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
 
 ps_clean_string.exit:                             ; preds = %17, %21, %8
   %25 = getelementptr inbounds i8, ptr %6, i64 8
@@ -690,7 +690,7 @@ ps_clean_string.exit:                             ; preds = %17, %21, %8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @print_bookmark_ps(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #8 {
+define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #8 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -735,7 +735,7 @@ define internal noundef i32 @print_bookmark_ps(ptr nocapture noundef readonly %0
   %22 = add i32 %.022.i, 1
   %23 = add nsw i32 %.120.i, 1
   %24 = icmp slt i32 %.120.i, 255
-  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !5
+  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
 
 ps_clean_string.exit:                             ; preds = %17, %21, %8
   %25 = getelementptr inbounds i8, ptr %6, i64 8
@@ -755,7 +755,7 @@ ps_clean_string.exit:                             ; preds = %17, %21, %8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @new_page_ps(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 0, 2) i32 @new_page_ps(ptr nocapture noundef readonly %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -769,7 +769,7 @@ define internal noundef i32 @new_page_ps(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_finale_ps(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @print_finale_ps(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -783,7 +783,7 @@ define internal noundef i32 @print_finale_ps(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_ps(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @destroy_ps(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -842,6 +842,5 @@ attributes #15 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -789,7 +789,7 @@ define dso_local ptr @vp_bus_name(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vp_set_vq_affinity(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 960
@@ -924,7 +924,7 @@ define internal noundef i32 @vp_config_changed(i32 %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vp_vring_interrupt(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @vp_vring_interrupt(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 936
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #10
   %5 = getelementptr inbounds i8, ptr %1, i64 944
@@ -957,7 +957,7 @@ declare dso_local void @virtio_config_changed(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vp_interrupt(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @vp_interrupt(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 928
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @ioread8(ptr noundef %4) #10
@@ -1145,7 +1145,7 @@ define internal void @virtio_pci_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtio_pci_sriov_configure(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @virtio_pci_sriov_configure(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 752

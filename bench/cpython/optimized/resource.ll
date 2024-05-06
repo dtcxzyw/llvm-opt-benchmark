@@ -340,7 +340,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp6.not.i, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %call8.i = call fastcc i32 @py2rlimit(ptr noundef %limits.0, ptr noundef nonnull %new_limit.i), !range !4
+  %call8.i = call fastcc i32 @py2rlimit(ptr noundef %limits.0, ptr noundef nonnull %new_limit.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %resource_prlimit_impl.exit, label %if.end11.i
 
@@ -610,7 +610,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @py2rlimit(ptr noundef %limits, ptr nocapture noundef writeonly %rl_out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @py2rlimit(ptr noundef %limits, ptr nocapture noundef writeonly %rl_out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Tuple(ptr noundef %limits) #6
   %tobool.not = icmp eq ptr %call, null
@@ -693,7 +693,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call fastcc i32 @py2rlimit(ptr noundef %limits, ptr noundef nonnull %rl), !range !4
+  %call5 = call fastcc i32 @py2rlimit(ptr noundef %limits, ptr noundef nonnull %rl)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %return, label %if.end8
 
@@ -737,7 +737,7 @@ declare i32 @setrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resource_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @resource_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #6
   %0 = load ptr, ptr @PyExc_OSError, align 8
@@ -893,4 +893,3 @@ attributes #7 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

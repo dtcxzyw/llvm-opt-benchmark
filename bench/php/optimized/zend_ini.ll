@@ -221,7 +221,7 @@ define void @zend_ini_deactivate() local_unnamed_addr #0 {
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.016, align 8
-  %17 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef %16, i32 noundef 8), !range !4
+  %17 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef %16, i32 noundef 8)
   br label %18
 
 18:                                               ; preds = %.lr.ph, %15
@@ -249,7 +249,7 @@ define void @zend_ini_deactivate() local_unnamed_addr #0 {
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_restore_ini_entry_cb(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_restore_ini_entry_cb(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 70
   %5 = load i8, ptr %4, align 2
@@ -402,7 +402,7 @@ define internal i32 @ini_key_compare(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_register_ini_entries_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_register_ini_entries_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._zval_struct, align 8
   %6 = load ptr, ptr @registered_zend_ini_directives, align 8
@@ -590,7 +590,7 @@ define void @zend_unregister_ini_entries_ex(i32 noundef %0, i32 noundef %1) loca
 declare ptr @zend_get_configuration_directive(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_register_ini_entries(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_register_ini_entries(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (%struct._zend_array, ptr @module_registry, i64 0, i32 4), align 8
   %.not20 = icmp eq i32 %3, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
@@ -629,7 +629,7 @@ define noundef i32 @zend_register_ini_entries(ptr nocapture noundef readonly %0,
   %25 = getelementptr inbounds i8, ptr %20, i64 140
   %26 = load i8, ptr %25, align 4
   %27 = zext i8 %26 to i32
-  %28 = tail call i32 @zend_register_ini_entries_ex(ptr noundef %0, i32 noundef %1, i32 noundef %27), !range !4
+  %28 = tail call i32 @zend_register_ini_entries_ex(ptr noundef %0, i32 noundef %1, i32 noundef %27)
   br label %.loopexit
 
 29:                                               ; preds = %19, %14
@@ -645,7 +645,7 @@ define noundef i32 @zend_register_ini_entries(ptr nocapture noundef readonly %0,
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @zend_remove_ini_entries(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @zend_remove_ini_entries(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 64
@@ -716,13 +716,13 @@ define void @zend_unregister_ini_entries(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_alter_ini_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext false), !range !4
+define range(i32 -1, 1) i32 @zend_alter_ini_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext false)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 46), align 8
   %8 = tail call ptr @zend_hash_find(ptr noundef %7, ptr noundef %0) #20
@@ -730,7 +730,7 @@ define noundef i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
+  %10 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 68
   %12 = load i8, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %10, i64 70
@@ -901,7 +901,7 @@ define noundef i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_alter_ini_entry_chars(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_alter_ini_entry_chars(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = and i32 %4, 60
   %.not = icmp eq i32 %6, 0
   %7 = and i64 %2, -8
@@ -930,7 +930,7 @@ define noundef i32 @zend_alter_ini_entry_chars(ptr noundef %0, ptr nocapture nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %1, i64 %2, i1 false)
   %20 = getelementptr inbounds [1 x i8], ptr %19, i64 0, i64 %2
   store i8 0, ptr %20, align 1
-  %21 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false), !range !4
+  %21 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false)
   %22 = load i32, ptr %16, align 4
   %23 = and i32 %22, 64
   %.not71 = icmp eq i32 %23, 0
@@ -963,7 +963,7 @@ define noundef i32 @zend_alter_ini_entry_chars(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_alter_ini_entry_chars_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_alter_ini_entry_chars_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = and i32 %4, 60
   %.not = icmp eq i32 %7, 0
   %8 = and i64 %2, -8
@@ -993,7 +993,7 @@ define noundef i32 @zend_alter_ini_entry_chars_ex(ptr noundef %0, ptr nocapture 
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %2
   store i8 0, ptr %21, align 1
   %22 = icmp ne i32 %5, 0
-  %23 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %16, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %22), !range !4
+  %23 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %16, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %22)
   %24 = load i32, ptr %17, align 4
   %25 = and i32 %24, 64
   %.not72 = icmp eq i32 %25, 0
@@ -1028,14 +1028,14 @@ define noundef i32 @zend_alter_ini_entry_chars_ex(ptr noundef %0, ptr nocapture 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_restore_ini_entry(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_restore_ini_entry(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 46), align 8
   %4 = tail call ptr @zend_hash_find(ptr noundef %3, ptr noundef %0) #20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
+  %6 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %7 = icmp eq i32 %1, 16
   br i1 %7, label %8, label %13
 
@@ -1052,7 +1052,7 @@ define noundef i32 @zend_restore_ini_entry(ptr noundef %0, i32 noundef %1) local
   br i1 %.not14, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef nonnull %6, i32 noundef %1), !range !4
+  %16 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef nonnull %6, i32 noundef %1)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.thread
 
@@ -1069,7 +1069,7 @@ define noundef i32 @zend_restore_ini_entry(ptr noundef %0, i32 noundef %1) local
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_ini_register_displayer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_ini_register_displayer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @registered_zend_ini_directives, align 8
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @zend_hash_str_find(ptr noundef %4, ptr noundef %0, i64 noundef %5) #20
@@ -1077,7 +1077,7 @@ define noundef i32 @zend_ini_register_displayer(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %2, ptr %9, align 8
   br label %.thread
@@ -1095,7 +1095,7 @@ define i64 @zend_ini_long(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %14, label %8
 
@@ -1139,7 +1139,7 @@ define double @zend_ini_double(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %14, label %8
 
@@ -1182,7 +1182,7 @@ define ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, p
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %10, label %9
 
@@ -1237,7 +1237,7 @@ define ptr @zend_ini_string(ptr noundef %0, i64 noundef %1, i32 noundef %2) loca
   br i1 %.not.i.not, label %zend_ini_string_ex.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %.not28.i = icmp eq i32 %2, 0
   br i1 %.not28.i, label %15, label %8
 
@@ -1279,7 +1279,7 @@ define ptr @zend_ini_str_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %10, label %9
 
@@ -1327,7 +1327,7 @@ define ptr @zend_ini_str(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) 
   br i1 %.not.i.not, label %zend_ini_str_ex.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   br i1 %2, label %8, label %11
 
 8:                                                ; preds = %6
@@ -1362,7 +1362,7 @@ define ptr @zend_ini_get_value(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
+  %5 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not15 = icmp eq ptr %7, null
@@ -1545,7 +1545,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 35:                                               ; preds = %27
   call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %10) #20
-  %36 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %36 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = load i64, ptr %38, align 8
@@ -1637,7 +1637,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 75:                                               ; preds = %72
   call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %10) #20
-  %76 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %76 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds i8, ptr %76, i64 24
   %78 = getelementptr inbounds i8, ptr %76, i64 16
   %79 = load i64, ptr %78, align 8
@@ -1678,7 +1678,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 96:                                               ; preds = %94
   call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %10) #20
-  %97 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %97 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = getelementptr inbounds i8, ptr %97, i64 16
   %100 = load i64, ptr %99, align 8
@@ -1772,7 +1772,7 @@ thread-pre-split:                                 ; preds = %24, %26
 138:                                              ; preds = %133
   %139 = load i64, ptr %9, align 8
   call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %139) #20
-  %140 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %140 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %141 = getelementptr inbounds i8, ptr %140, i64 24
   %142 = getelementptr inbounds i8, ptr %140, i64 16
   %143 = load i64, ptr %142, align 8
@@ -1881,7 +1881,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 186:                                              ; preds = %181, %176
   call void @smart_str_append_escaped(ptr noundef nonnull %8, ptr noundef nonnull %164, i64 noundef 1) #20
-  %187 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
+  %187 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %188 = getelementptr inbounds i8, ptr %187, i64 24
   %189 = getelementptr inbounds i8, ptr %187, i64 16
   %190 = load i64, ptr %189, align 8
@@ -2053,7 +2053,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 273:                                              ; preds = %268, %263
   call void @smart_str_append_escaped(ptr noundef nonnull %8, ptr noundef nonnull %164, i64 noundef 1) #20
-  %274 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
+  %274 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %275 = getelementptr inbounds i8, ptr %274, i64 24
   %276 = getelementptr inbounds i8, ptr %274, i64 16
   %277 = load i64, ptr %276, align 8
@@ -2162,7 +2162,7 @@ thread-pre-split:                                 ; preds = %24, %26
 326:                                              ; preds = %324
   %327 = load i64, ptr %9, align 8
   call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %327) #20
-  %328 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %328 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %329 = getelementptr inbounds i8, ptr %328, i64 24
   %330 = getelementptr inbounds i8, ptr %328, i64 16
   %331 = load i64, ptr %330, align 8
@@ -2276,7 +2276,7 @@ define i64 @zend_ini_parse_uquantity(ptr noundef %0, ptr nocapture noundef write
 ; Function Attrs: nounwind uwtable
 define i64 @zend_ini_parse_quantity_warn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 0, ptr noundef nonnull writeonly %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
@@ -2322,7 +2322,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @zend_ini_parse_uquantity_warn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 1, ptr noundef nonnull writeonly %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
@@ -2613,7 +2613,7 @@ define noundef i32 @OnUpdateLong(ptr nocapture noundef readonly %0, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull writeonly %7)
   %10 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %zend_ini_parse_quantity_warn.exit, label %11
@@ -2659,11 +2659,11 @@ zend_ini_parse_quantity_warn.exit:                ; preds = %6, %11, %17, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OnUpdateLongGEZero(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @OnUpdateLongGEZero(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull writeonly %7)
   %10 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %zend_ini_parse_quantity_warn.exit, label %11
@@ -2738,7 +2738,7 @@ define noundef i32 @OnUpdateString(ptr nocapture noundef readnone %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @OnUpdateStringUnempty(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @OnUpdateStringUnempty(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
@@ -2770,7 +2770,7 @@ define noundef i32 @OnUpdateStr(ptr nocapture noundef readnone %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @OnUpdateStrNotEmpty(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @OnUpdateStrNotEmpty(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %7
 
@@ -2956,5 +2956,4 @@ attributes #23 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
+!4 = !{}

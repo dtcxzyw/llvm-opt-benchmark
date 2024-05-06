@@ -2230,7 +2230,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zbee_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_zbee_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %5
 
@@ -2260,7 +2260,7 @@ define internal noundef i32 @dissect_zbee_beacon_heur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zbip_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_zbip_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %5
 
@@ -2290,7 +2290,7 @@ define internal noundef i32 @dissect_zbip_beacon_heur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %28, label %6
 

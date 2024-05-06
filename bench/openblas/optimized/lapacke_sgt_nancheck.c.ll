@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @LAPACKE_sgt_nancheck(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @LAPACKE_sgt_nancheck(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = add nsw i32 %0, -1
   %6 = tail call i32 @LAPACKE_s_nancheck(i32 noundef %5, ptr noundef %1, i32 noundef 1) #2
   %7 = icmp eq i32 %6, 0

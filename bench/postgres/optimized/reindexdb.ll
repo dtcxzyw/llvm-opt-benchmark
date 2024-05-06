@@ -316,7 +316,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 75:                                               ; preds = %73
-  %76 = trunc i8 %.078 to i1
+  %76 = trunc nuw i8 %.078 to i1
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
@@ -356,15 +356,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 87:                                               ; preds = %84
   store ptr %.090, ptr %4, align 8
-  %88 = trunc i8 %.074 to i1
-  %89 = trunc i8 %.070 to i1
-  %90 = trunc i8 %.0 to i1
+  %88 = trunc nuw i8 %.074 to i1
+  %89 = trunc nuw i8 %.070 to i1
+  %90 = trunc nuw i8 %.0 to i1
   %91 = load i32, ptr %8, align 4
   call fastcc void @reindex_all_databases(ptr noundef nonnull %4, ptr noundef %11, i1 noundef zeroext %88, i1 noundef zeroext %.072, i1 noundef zeroext %89, i1 noundef zeroext %90, i32 noundef %91, ptr noundef %.082)
   br label %165
 
 92:                                               ; preds = %67
-  %93 = trunc i8 %.078 to i1
+  %93 = trunc nuw i8 %.078 to i1
   br i1 %93, label %94, label %119
 
 94:                                               ; preds = %92
@@ -428,9 +428,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 115:                                              ; preds = %111, %109, %113, %107
   %.3 = phi ptr [ %114, %113 ], [ %.2, %107 ], [ %110, %109 ], [ %112, %111 ]
   store ptr %.3, ptr %4, align 8
-  %116 = trunc i8 %.074 to i1
-  %117 = trunc i8 %.070 to i1
-  %118 = trunc i8 %.0 to i1
+  %116 = trunc nuw i8 %.074 to i1
+  %117 = trunc nuw i8 %.070 to i1
+  %118 = trunc nuw i8 %.0 to i1
   call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %116, i1 noundef zeroext %117, i1 noundef zeroext %118, i32 noundef 1, ptr noundef %.082)
   br label %165
 
@@ -473,9 +473,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not103, label %140, label %135
 
 135:                                              ; preds = %133
-  %136 = trunc i8 %.074 to i1
-  %137 = trunc i8 %.070 to i1
-  %138 = trunc i8 %.0 to i1
+  %136 = trunc nuw i8 %.074 to i1
+  %137 = trunc nuw i8 %.070 to i1
+  %138 = trunc nuw i8 %.0 to i1
   %139 = load i32, ptr %8, align 4
   call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %136, i1 noundef zeroext %137, i1 noundef zeroext %138, i32 noundef %139, ptr noundef %.082)
   br label %140
@@ -486,9 +486,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not104, label %146, label %142
 
 142:                                              ; preds = %140
-  %143 = trunc i8 %.074 to i1
-  %144 = trunc i8 %.070 to i1
-  %145 = trunc i8 %.0 to i1
+  %143 = trunc nuw i8 %.074 to i1
+  %144 = trunc nuw i8 %.070 to i1
+  %145 = trunc nuw i8 %.0 to i1
   call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %143, i1 noundef zeroext %144, i1 noundef zeroext %145, i32 noundef 1, ptr noundef %.082)
   br label %146
 
@@ -498,9 +498,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not105, label %154, label %148
 
 148:                                              ; preds = %146
-  %149 = trunc i8 %.074 to i1
-  %150 = trunc i8 %.070 to i1
-  %151 = trunc i8 %.0 to i1
+  %149 = trunc nuw i8 %.074 to i1
+  %150 = trunc nuw i8 %.070 to i1
+  %151 = trunc nuw i8 %.0 to i1
   %152 = load i32, ptr %8, align 4
   call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %149, i1 noundef zeroext %150, i1 noundef zeroext %151, i32 noundef %152, ptr noundef %.082)
   %.pre = load ptr, ptr %6, align 8
@@ -518,9 +518,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond10, label %160, label %165
 
 160:                                              ; preds = %154
-  %161 = trunc i8 %.074 to i1
-  %162 = trunc i8 %.070 to i1
-  %163 = trunc i8 %.0 to i1
+  %161 = trunc nuw i8 %.074 to i1
+  %162 = trunc nuw i8 %.070 to i1
+  %163 = trunc nuw i8 %.0 to i1
   %164 = load i32, ptr %8, align 4
   call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %161, i1 noundef zeroext %162, i1 noundef zeroext %163, i32 noundef %164, ptr noundef %.082)
   br label %165

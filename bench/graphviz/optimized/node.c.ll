@@ -518,7 +518,7 @@ declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @agdeledgeimage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agdelnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agdelnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr getelementptr inbounds (%struct.Agnode_s, ptr @agfindnode_by_id.dummy, i64 0, i32 0, i32 0, i32 1), align 8
@@ -605,7 +605,7 @@ declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare void @agfree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agrelabel_node(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agrelabel_node(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = tail call ptr @agraphof(ptr noundef %0) #4
@@ -698,7 +698,7 @@ define internal void @dict_relabel(ptr nocapture readnone %0, ptr noundef %1, pt
 declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @agsubnodeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -733,7 +733,7 @@ define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @agsubnodeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agsubnodeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -750,7 +750,7 @@ define internal i32 @agsubnodeseqcmpf(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agroot(ptr noundef %0) #4
   %4 = load i32, ptr %0, align 8
   %5 = lshr i32 %4, 4

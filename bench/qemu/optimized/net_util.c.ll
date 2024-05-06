@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @net_parse_macaddr(ptr nocapture noundef writeonly %macaddr, ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_parse_macaddr(ptr nocapture noundef writeonly %macaddr, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %p.addr = alloca ptr, align 8
   %last_char = alloca ptr, align 8
@@ -29,7 +29,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %shr = lshr i64 %call1, 16
-  %conv11 = trunc i64 %shr to i8
+  %conv11 = trunc nuw i64 %shr to i8
   %arrayidx = getelementptr i8, ptr %macaddr, i64 3
   store i8 %conv11, ptr %arrayidx, align 1
   %and12 = lshr i64 %call1, 8

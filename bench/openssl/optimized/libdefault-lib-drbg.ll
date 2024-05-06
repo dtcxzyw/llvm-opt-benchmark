@@ -64,7 +64,7 @@ entry:
 if.end10:                                         ; preds = %entry
   %strength = getelementptr inbounds i8, ptr %vdrbg, i64 128
   %0 = load i32, ptr %strength, align 8
-  %call11 = call i32 @ossl_prov_drbg_generate(ptr noundef %vdrbg, ptr noundef nonnull %call, i64 noundef %bytes_needed.1, i32 noundef %0, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg, i64 noundef 8), !range !4
+  %call11 = call i32 @ossl_prov_drbg_generate(ptr noundef %vdrbg, ptr noundef nonnull %call, i64 noundef %bytes_needed.1, i32 noundef %0, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg, i64 noundef 8)
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %if.then12, label %if.end13
 
@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %if.end13, %
 declare noalias ptr @CRYPTO_secure_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_drbg_generate(ptr noundef %drbg, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adinlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_prov_drbg_generate(ptr noundef %drbg, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adinlen) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #8
   %tobool.not = icmp eq i32 %call, 0
@@ -126,7 +126,7 @@ if.end.i:                                         ; preds = %if.end5, %if.then.i
 if.then3.i:                                       ; preds = %if.end.i
   %strength.i = getelementptr inbounds i8, ptr %drbg, i64 128
   %4 = load i32, ptr %strength.i, align 8
-  %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %4, i32 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %4, i32 noundef 0, ptr noundef null, i64 noundef 0)
   %.pre = load i32, ptr %state, align 8
   br label %rand_drbg_restart.exit
 
@@ -255,7 +255,7 @@ if.end56:                                         ; preds = %land.lhs.true52, %i
   br i1 %or.cond.not, label %if.end65, label %if.then60
 
 if.then60:                                        ; preds = %if.end56
-  %call61 = tail call fastcc i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef nonnull %drbg, i32 noundef %prediction_resistance, ptr noundef null, i64 noundef 0, ptr noundef %adin, i64 noundef %adinlen), !range !4
+  %call61 = tail call fastcc i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef nonnull %drbg, i32 noundef %prediction_resistance, ptr noundef null, i64 noundef 0, ptr noundef %adin, i64 noundef %adinlen)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %if.end65
 
@@ -365,7 +365,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_prov_drbg_instantiate(ptr noundef %drbg, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %pers, i64 noundef %perslen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_prov_drbg_instantiate(ptr noundef %drbg, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %pers, i64 noundef %perslen) local_unnamed_addr #1 {
 entry:
   %nonce = alloca ptr, align 8
   %entropy = alloca ptr, align 8
@@ -689,7 +689,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %drbg, ptr noundef nonnull %p_str), !range !4
+  %call4 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %drbg, ptr noundef nonnull %p_str)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.end6
 
@@ -837,7 +837,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_prov_drbg_reseed(ptr noundef %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_prov_drbg_reseed(ptr noundef %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %drbg, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -849,7 +849,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call2 = tail call fastcc i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef nonnull %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen), !range !4
+  %call2 = tail call fastcc i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef nonnull %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen)
   %1 = load ptr, ptr %drbg, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %return, label %if.then5
@@ -866,7 +866,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ossl_prov_drbg_reseed_unlocked(ptr noundef %drbg, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #1 {
 entry:
   %entropy = alloca ptr, align 8
   store ptr null, ptr %entropy, align 8
@@ -897,7 +897,7 @@ if.end.i:                                         ; preds = %if.end, %if.then.i
 if.then3.i:                                       ; preds = %if.end.i
   %strength.i = getelementptr inbounds i8, ptr %drbg, i64 128
   %3 = load i32, ptr %strength.i, align 8
-  %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %3, i32 noundef 0, ptr noundef null, i64 noundef 0), !range !4
+  %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %3, i32 noundef 0, ptr noundef null, i64 noundef 0)
   %.pre = load i32, ptr %state, align 8
   br label %rand_drbg_restart.exit
 
@@ -1142,7 +1142,7 @@ return:                                           ; preds = %if.then, %ossl_drbg
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_enable_locking(ptr noundef %vctx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef %vctx) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %vctx, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -1231,7 +1231,7 @@ if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %dispatch.addr.06.i, i64 16
   %2 = load i32, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq i32 %2, 0
-  br i1 %cmp1.not.i, label %while.body.i44.preheader, label %while.body.i, !llvm.loop !5
+  br i1 %cmp1.not.i, label %while.body.i44.preheader, label %while.body.i, !llvm.loop !4
 
 if.then13:                                        ; preds = %while.body.i
   %3 = getelementptr i8, ptr %dispatch.addr.06.i, i64 8
@@ -1253,7 +1253,7 @@ if.end.i47:                                       ; preds = %while.body.i44
   %incdec.ptr.i48 = getelementptr inbounds i8, ptr %dispatch.addr.06.i45, i64 16
   %5 = load i32, ptr %incdec.ptr.i48, align 8
   %cmp1.not.i49 = icmp eq i32 %5, 0
-  br i1 %cmp1.not.i49, label %while.body.i55.preheader, label %while.body.i44, !llvm.loop !5
+  br i1 %cmp1.not.i49, label %while.body.i55.preheader, label %while.body.i44, !llvm.loop !4
 
 if.then18:                                        ; preds = %while.body.i44
   %6 = getelementptr i8, ptr %dispatch.addr.06.i45, i64 8
@@ -1275,7 +1275,7 @@ if.end.i58:                                       ; preds = %while.body.i55
   %incdec.ptr.i59 = getelementptr inbounds i8, ptr %dispatch.addr.06.i56, i64 16
   %8 = load i32, ptr %incdec.ptr.i59, align 8
   %cmp1.not.i60 = icmp eq i32 %8, 0
-  br i1 %cmp1.not.i60, label %while.body.i66.preheader, label %while.body.i55, !llvm.loop !5
+  br i1 %cmp1.not.i60, label %while.body.i66.preheader, label %while.body.i55, !llvm.loop !4
 
 if.then23:                                        ; preds = %while.body.i55
   %9 = getelementptr i8, ptr %dispatch.addr.06.i56, i64 8
@@ -1297,7 +1297,7 @@ if.end.i69:                                       ; preds = %while.body.i66
   %incdec.ptr.i70 = getelementptr inbounds i8, ptr %dispatch.addr.06.i67, i64 16
   %11 = load i32, ptr %incdec.ptr.i70, align 8
   %cmp1.not.i71 = icmp eq i32 %11, 0
-  br i1 %cmp1.not.i71, label %while.body.i77.preheader, label %while.body.i66, !llvm.loop !5
+  br i1 %cmp1.not.i71, label %while.body.i77.preheader, label %while.body.i66, !llvm.loop !4
 
 if.then28:                                        ; preds = %while.body.i66
   %12 = getelementptr i8, ptr %dispatch.addr.06.i67, i64 8
@@ -1319,7 +1319,7 @@ if.end.i80:                                       ; preds = %while.body.i77
   %incdec.ptr.i81 = getelementptr inbounds i8, ptr %dispatch.addr.06.i78, i64 16
   %14 = load i32, ptr %incdec.ptr.i81, align 8
   %cmp1.not.i82 = icmp eq i32 %14, 0
-  br i1 %cmp1.not.i82, label %while.body.i88.preheader, label %while.body.i77, !llvm.loop !5
+  br i1 %cmp1.not.i82, label %while.body.i88.preheader, label %while.body.i77, !llvm.loop !4
 
 if.then33:                                        ; preds = %while.body.i77
   %15 = getelementptr i8, ptr %dispatch.addr.06.i78, i64 8
@@ -1341,7 +1341,7 @@ if.end.i91:                                       ; preds = %while.body.i88
   %incdec.ptr.i92 = getelementptr inbounds i8, ptr %dispatch.addr.06.i89, i64 16
   %17 = load i32, ptr %incdec.ptr.i92, align 8
   %cmp1.not.i93 = icmp eq i32 %17, 0
-  br i1 %cmp1.not.i93, label %while.body.i99.preheader, label %while.body.i88, !llvm.loop !5
+  br i1 %cmp1.not.i93, label %while.body.i99.preheader, label %while.body.i88, !llvm.loop !4
 
 if.then38:                                        ; preds = %while.body.i88
   %18 = getelementptr i8, ptr %dispatch.addr.06.i89, i64 8
@@ -1363,7 +1363,7 @@ if.end.i102:                                      ; preds = %while.body.i99
   %incdec.ptr.i103 = getelementptr inbounds i8, ptr %dispatch.addr.06.i100, i64 16
   %20 = load i32, ptr %incdec.ptr.i103, align 8
   %cmp1.not.i104 = icmp eq i32 %20, 0
-  br i1 %cmp1.not.i104, label %if.end45, label %while.body.i99, !llvm.loop !5
+  br i1 %cmp1.not.i104, label %if.end45, label %while.body.i99, !llvm.loop !4
 
 if.then43:                                        ; preds = %while.body.i99
   %21 = getelementptr i8, ptr %dispatch.addr.06.i100, i64 8
@@ -1398,7 +1398,7 @@ if.end49:                                         ; preds = %if.end45
   br i1 %cmp50.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %call1, ptr noundef nonnull %p_str), !range !4
+  %call52 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %call1, ptr noundef nonnull %p_str)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %ossl_rand_drbg_free.exit, label %if.end55
 
@@ -1427,7 +1427,7 @@ return:                                           ; preds = %if.end49, %if.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_parent_strength(ptr nocapture noundef readonly %drbg, ptr noundef %str) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_parent_strength(ptr nocapture noundef readonly %drbg, ptr noundef %str) unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1522,7 +1522,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_get_ctx_params(ptr nocapture noundef readonly %drbg, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params(ptr nocapture noundef readonly %drbg, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #8
   %cmp.not = icmp eq ptr %call, null
@@ -1674,7 +1674,7 @@ declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_set_time_t(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_get_ctx_params_no_lock(ptr nocapture noundef readonly %drbg, ptr noundef %params, ptr nocapture noundef writeonly %complete) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params_no_lock(ptr nocapture noundef readonly %drbg, ptr noundef %params, ptr nocapture noundef writeonly %complete) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.12) #8
   %cmp.not = icmp eq ptr %call, null
@@ -1719,7 +1719,7 @@ return:                                           ; preds = %if.then6, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_set_ctx_params(ptr noundef %drbg, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_set_ctx_params(ptr noundef %drbg, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
@@ -1761,7 +1761,7 @@ declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_get_time_t(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_verify_digest(ptr nocapture noundef readnone %libctx, ptr noundef %md) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_verify_digest(ptr nocapture noundef readnone %libctx, ptr noundef %md) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @EVP_MD_get_flags(ptr noundef %md) #8
   %and = and i64 %call, 2
@@ -1826,6 +1826,5 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

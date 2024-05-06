@@ -884,7 +884,7 @@ for.body22.lr.ph:                                 ; preds = %invoke.cont16
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %invoke.cont31
   %indvars.iv66 = phi i64 [ 0, %for.body22.lr.ph ], [ %indvars.iv.next67, %invoke.cont31 ]
-  %38 = trunc i64 %indvars.iv66 to i32
+  %38 = trunc nuw i64 %indvars.iv66 to i32
   invoke void @_ZNK10polynomial7manager7factorsixEj(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(44) %fs, i32 noundef %38)
           to label %invoke.cont25 unwind label %lpad.loopexit
 

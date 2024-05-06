@@ -2003,8 +2003,8 @@ define void @_Z9done_idefP6t_idef(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %exitcond.not, label %14, label %11, !llvm.loop !21
 
 14:                                               ; preds = %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %15
 
 15:                                               ; preds = %15, %14

@@ -32,7 +32,7 @@ define void @Vec_WrdDoubleSimInfo(ptr nocapture noundef %0, i32 noundef %1) loca
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = mul i32 %9, %15
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i64, ptr %6, i64 %17
@@ -190,7 +190,7 @@ define void @Ssc_GiaSavePiPattern(ptr nocapture noundef %0, ptr nocapture nounde
 
 26:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %28 = mul i32 %21, %27
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i64, ptr %18, i64 %29
@@ -755,7 +755,7 @@ Ssc_GiaResetPiPattern.exit:                       ; preds = %83, %Vec_WrdGrow.ex
   %.val3.val.i.i59 = load i32, ptr %101, align 4
   %102 = sub nsw i32 %.val3.val.i.i59, %.val2.i.i57
   %103 = sdiv i32 %.val.i.i56, %102
-  %104 = trunc i64 %indvars.iv73 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv73 to i32
   %105 = mul nsw i32 %103, %104
   %106 = getelementptr i8, ptr %99, i64 8
   %.val.i60 = load ptr, ptr %106, align 8
@@ -1072,7 +1072,7 @@ Ssc_GiaResetSimInfo.exit:                         ; preds = %32, %Vec_WrdGrow.ex
   %.val.i89 = load ptr, ptr %38, align 8
   %39 = zext nneg i32 %9 to i64
   %40 = shl nuw nsw i64 %39, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.val.i89, i8 0, i64 %40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val.i89, i8 0, i64 %40, i1 false)
   br label %Ssc_SimConst.exit
 
 Ssc_SimConst.exit:                                ; preds = %Ssc_GiaResetSimInfo.exit, %.lr.ph.preheader.i
@@ -1191,7 +1191,7 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %89 = sub nsw i64 0, %88
   %90 = getelementptr inbounds i64, ptr %.161158, i64 %89
   %91 = lshr i64 %.val80, 32
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   %93 = and i32 %92, 536870911
   %94 = mul nsw i32 %93, %9
   %95 = sext i32 %94 to i64
@@ -1503,7 +1503,7 @@ Ssc_SimFindBit.exit:                              ; preds = %.lr.ph.split.i, %Ss
   br label %.critedge
 
 37:                                               ; preds = %.lr.ph.i25
-  %38 = trunc i64 %indvars.iv.i26 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %39 = shl nsw i32 %38, 6
   %40 = and i64 %35, 4294967295
   %41 = icmp eq i64 %40, 0

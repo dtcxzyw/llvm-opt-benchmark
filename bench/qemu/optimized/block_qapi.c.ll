@@ -454,7 +454,7 @@ cleanup:                                          ; preds = %if.end25, %if.end22
 declare void @qapi_free_BlockDeviceInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_query_snapshot_info_list(ptr noundef %bs, ptr nocapture noundef writeonly %p_list, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_query_snapshot_info_list(ptr noundef %bs, ptr nocapture noundef writeonly %p_list, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %head = alloca ptr, align 8
@@ -700,7 +700,7 @@ if.end50:                                         ; preds = %if.then46, %if.end4
 
 if.end51:                                         ; preds = %if.end50, %if.end31
   %snapshots = getelementptr inbounds i8, ptr %info, i64 96
-  %call52 = call i32 @bdrv_query_snapshot_info_list(ptr noundef nonnull %bs, ptr noundef nonnull %snapshots, ptr noundef nonnull %err), !range !8
+  %call52 = call i32 @bdrv_query_snapshot_info_list(ptr noundef nonnull %bs, ptr noundef nonnull %snapshots, ptr noundef nonnull %err)
   switch i32 %call52, label %sw.default [
     i32 0, label %sw.bb
     i32 -123, label %sw.bb57
@@ -771,7 +771,7 @@ for.cond:                                         ; preds = %for.body
   %next21 = getelementptr inbounds i8, ptr %c.023, i64 64
   %c.0 = load ptr, ptr %next21, align 8
   %tobool8.not = icmp eq ptr %c.0, null
-  br i1 %tobool8.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool8.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %c.023 = phi ptr [ %c.0, %for.cond ], [ %c.020, %for.body.preheader ]
@@ -943,7 +943,7 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
   %p_next.1 = phi ptr [ %call6, %if.end9 ], [ %p_next.010, %land.lhs.true ]
   %call10 = call ptr @blk_all_next(ptr noundef nonnull %blk.011) #9
   %tobool.not = icmp eq ptr %call10, null
-  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
+  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.inc
   %head.0.head.0.head.0.head.0.8.pre = load ptr, ptr %head, align 8
@@ -1002,7 +1002,7 @@ for.body:                                         ; preds = %if.then, %for.body
   tail call void @aio_context_release(ptr noundef %call5) #9
   %call8 = tail call ptr @bdrv_next_node(ptr noundef nonnull %bs.031) #9
   %tobool4.not = icmp eq ptr %call8, null
-  br i1 %tobool4.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body, !llvm.loop !11
+  br i1 %tobool4.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
   %call9 = tail call ptr @blk_all_next(ptr noundef null) #9
@@ -1260,7 +1260,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store ptr %call84.i, ptr %timed_stats.i, align 8
   %call58.i = tail call ptr @block_acct_interval_next(ptr noundef %call.i, ptr noundef nonnull %call58237.i) #9
   %tobool59.not.i = icmp eq ptr %call58.i, null
-  br i1 %tobool59.not.i, label %while.end.i, label %while.body.i, !llvm.loop !12
+  br i1 %tobool59.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i
   %arrayidx86.i = getelementptr i8, ptr %call.i, i64 384
@@ -1296,7 +1296,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %do.
   %42 = load ptr, ptr %tail.07.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.end.loopexit.i.i.i, label %do.body.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %for.end.loopexit.i.i.i, label %do.body.i.i.i, !llvm.loop !12
 
 for.end.loopexit.i.i.i:                           ; preds = %do.body.i.i.i
   %out_list.i.i.i.0.out_list.i.i.i.0.out_list.i.i.i.0.out_list.i.i.0.out_list.i.i.0.out_list.i.0.out_list.i.0.out_list.0.out_list.0.out_list.0..pre.i.i.i = load ptr, ptr %out_list.i.i.i, align 8
@@ -1330,7 +1330,7 @@ do.body.i12.i.i:                                  ; preds = %do.body.i12.i.i, %d
   %46 = load ptr, ptr %tail.07.i14.i.i, align 8
   %indvars.iv.next.i18.i.i = add nuw nsw i64 %indvars.iv.i13.i.i, 1
   %exitcond.not.i19.i.i = icmp eq i64 %indvars.iv.next.i18.i.i, %wide.trip.count.i11.i.i
-  br i1 %exitcond.not.i19.i.i, label %for.end.loopexit.i20.i.i, label %do.body.i12.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i19.i.i, label %for.end.loopexit.i20.i.i, label %do.body.i12.i.i, !llvm.loop !12
 
 for.end.loopexit.i20.i.i:                         ; preds = %do.body.i12.i.i
   %out_list.i7.i.i.0.out_list.i7.i.i.0.out_list.i7.i.i.0.out_list.i7.i.0.out_list.i7.i.0.out_list.i7.0.out_list.i7.0.out_list.0.out_list.0.out_list.0..pre.i21.i.i = load ptr, ptr %out_list.i7.i.i, align 8
@@ -1380,7 +1380,7 @@ do.body.i.i139.i:                                 ; preds = %do.body.i.i139.i, %
   %51 = load ptr, ptr %tail.07.i.i141.i, align 8
   %indvars.iv.next.i.i145.i = add nuw nsw i64 %indvars.iv.i.i140.i, 1
   %exitcond.not.i.i146.i = icmp eq i64 %indvars.iv.next.i.i145.i, %wide.trip.count.i.i138.i
-  br i1 %exitcond.not.i.i146.i, label %for.end.loopexit.i.i147.i, label %do.body.i.i139.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i146.i, label %for.end.loopexit.i.i147.i, label %do.body.i.i139.i, !llvm.loop !12
 
 for.end.loopexit.i.i147.i:                        ; preds = %do.body.i.i139.i
   %out_list.i.i110.i.0.out_list.i.i110.i.0.out_list.i.i110.i.0.out_list.i.i110.0.out_list.i.i110.0.out_list.i.0.out_list.i.0.out_list.0.out_list.0.out_list.0..pre.i.i148.i = load ptr, ptr %out_list.i.i110.i, align 8
@@ -1414,7 +1414,7 @@ do.body.i12.i127.i:                               ; preds = %do.body.i12.i127.i,
   %55 = load ptr, ptr %tail.07.i14.i129.i, align 8
   %indvars.iv.next.i18.i133.i = add nuw nsw i64 %indvars.iv.i13.i128.i, 1
   %exitcond.not.i19.i134.i = icmp eq i64 %indvars.iv.next.i18.i133.i, %wide.trip.count.i11.i126.i
-  br i1 %exitcond.not.i19.i134.i, label %for.end.loopexit.i20.i135.i, label %do.body.i12.i127.i, !llvm.loop !13
+  br i1 %exitcond.not.i19.i134.i, label %for.end.loopexit.i20.i135.i, label %do.body.i12.i127.i, !llvm.loop !12
 
 for.end.loopexit.i20.i135.i:                      ; preds = %do.body.i12.i127.i
   %out_list.i7.i109.i.0.out_list.i7.i109.i.0.out_list.i7.i109.i.0.out_list.i7.i109.0.out_list.i7.i109.0.out_list.i7.0.out_list.i7.0.out_list.0.out_list.0.out_list.0..pre.i21.i136.i = load ptr, ptr %out_list.i7.i109.i, align 8
@@ -1464,7 +1464,7 @@ do.body.i.i181.i:                                 ; preds = %do.body.i.i181.i, %
   %60 = load ptr, ptr %tail.07.i.i183.i, align 8
   %indvars.iv.next.i.i187.i = add nuw nsw i64 %indvars.iv.i.i182.i, 1
   %exitcond.not.i.i188.i = icmp eq i64 %indvars.iv.next.i.i187.i, %wide.trip.count.i.i180.i
-  br i1 %exitcond.not.i.i188.i, label %for.end.loopexit.i.i189.i, label %do.body.i.i181.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i188.i, label %for.end.loopexit.i.i189.i, label %do.body.i.i181.i, !llvm.loop !12
 
 for.end.loopexit.i.i189.i:                        ; preds = %do.body.i.i181.i
   %out_list.i.i152.i.0.out_list.i.i152.i.0.out_list.i.i152.i.0.out_list.i.i152.0.out_list.i.i152.0.out_list.i.0.out_list.i.0.out_list.0.out_list.0.out_list.0..pre.i.i190.i = load ptr, ptr %out_list.i.i152.i, align 8
@@ -1498,7 +1498,7 @@ do.body.i12.i169.i:                               ; preds = %do.body.i12.i169.i,
   %64 = load ptr, ptr %tail.07.i14.i171.i, align 8
   %indvars.iv.next.i18.i175.i = add nuw nsw i64 %indvars.iv.i13.i170.i, 1
   %exitcond.not.i19.i176.i = icmp eq i64 %indvars.iv.next.i18.i175.i, %wide.trip.count.i11.i168.i
-  br i1 %exitcond.not.i19.i176.i, label %for.end.loopexit.i20.i177.i, label %do.body.i12.i169.i, !llvm.loop !13
+  br i1 %exitcond.not.i19.i176.i, label %for.end.loopexit.i20.i177.i, label %do.body.i12.i169.i, !llvm.loop !12
 
 for.end.loopexit.i20.i177.i:                      ; preds = %do.body.i12.i169.i
   %out_list.i7.i151.i.0.out_list.i7.i151.i.0.out_list.i7.i151.i.0.out_list.i7.i151.0.out_list.i7.i151.0.out_list.i7.0.out_list.i7.0.out_list.0.out_list.0.out_list.0..pre.i21.i178.i = load ptr, ptr %out_list.i7.i151.i, align 8
@@ -1548,7 +1548,7 @@ do.body.i.i223.i:                                 ; preds = %do.body.i.i223.i, %
   %69 = load ptr, ptr %tail.07.i.i225.i, align 8
   %indvars.iv.next.i.i229.i = add nuw nsw i64 %indvars.iv.i.i224.i, 1
   %exitcond.not.i.i230.i = icmp eq i64 %indvars.iv.next.i.i229.i, %wide.trip.count.i.i222.i
-  br i1 %exitcond.not.i.i230.i, label %for.end.loopexit.i.i231.i, label %do.body.i.i223.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i230.i, label %for.end.loopexit.i.i231.i, label %do.body.i.i223.i, !llvm.loop !12
 
 for.end.loopexit.i.i231.i:                        ; preds = %do.body.i.i223.i
   %out_list.i.i194.i.0.out_list.i.i194.i.0.out_list.i.i194.i.0.out_list.i.i194.0.out_list.i.i194.0.out_list.i.0.out_list.i.0.out_list.0.out_list.0.out_list.0..pre.i.i232.i = load ptr, ptr %out_list.i.i194.i, align 8
@@ -1582,7 +1582,7 @@ do.body.i12.i211.i:                               ; preds = %do.body.i12.i211.i,
   %73 = load ptr, ptr %tail.07.i14.i213.i, align 8
   %indvars.iv.next.i18.i217.i = add nuw nsw i64 %indvars.iv.i13.i212.i, 1
   %exitcond.not.i19.i218.i = icmp eq i64 %indvars.iv.next.i18.i217.i, %wide.trip.count.i11.i210.i
-  br i1 %exitcond.not.i19.i218.i, label %for.end.loopexit.i20.i219.i, label %do.body.i12.i211.i, !llvm.loop !13
+  br i1 %exitcond.not.i19.i218.i, label %for.end.loopexit.i20.i219.i, label %do.body.i12.i211.i, !llvm.loop !12
 
 for.end.loopexit.i20.i219.i:                      ; preds = %do.body.i12.i211.i
   %out_list.i7.i193.i.0.out_list.i7.i193.i.0.out_list.i7.i193.i.0.out_list.i7.i193.0.out_list.i7.i193.0.out_list.i7.0.out_list.i7.0.out_list.0.out_list.0.out_list.0..pre.i21.i220.i = load ptr, ptr %out_list.i7.i193.i, align 8
@@ -1611,7 +1611,7 @@ for.inc39:                                        ; preds = %land.lhs.true17, %b
   %tail.2 = phi ptr [ %74, %bdrv_query_blk_stats.exit ], [ %tail.129, %land.lhs.true17 ]
   %call40 = tail call ptr @blk_all_next(ptr noundef nonnull %blk.028) #9
   %tobool11.not = icmp eq ptr %call40, null
-  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12, !llvm.loop !14
+  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12, !llvm.loop !13
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc39, %for.body, %if.else, %if.then
   %head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
@@ -1699,7 +1699,7 @@ for.inc:                                          ; preds = %if.then24, %for.bod
   %next = getelementptr inbounds i8, ptr %c.040, i64 64
   %c.0 = load ptr, ptr %next, align 8
   %tobool20.not = icmp eq ptr %c.0, null
-  br i1 %tobool20.not, label %if.end29, label %for.body, !llvm.loop !15
+  br i1 %tobool20.not, label %if.end29, label %for.body, !llvm.loop !14
 
 if.end29:                                         ; preds = %for.inc
   %tobool30.not = icmp eq ptr %parent_child.1, null
@@ -1907,23 +1907,23 @@ lor.lhs.false.i:                                  ; preds = %if.end7
   %refcnt.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i, label %if.else.i15, label %land.lhs.true.i13
+  br i1 %tobool1.not.i, label %if.else.i16, label %land.lhs.true.i14
 
-if.else.i15:                                      ; preds = %lor.lhs.false.i
+if.else.i16:                                      ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.44, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #12
   unreachable
 
-land.lhs.true.i13:                                ; preds = %lor.lhs.false.i
+land.lhs.true.i14:                                ; preds = %lor.lhs.false.i
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i14 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i14, label %if.then5.i, label %qobject_unref_impl.exit
+  %cmp.i15 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i15, label %if.then5.i, label %qobject_unref_impl.exit
 
-if.then5.i:                                       ; preds = %land.lhs.true.i13
+if.then5.i:                                       ; preds = %land.lhs.true.i14
   call void @qobject_destroy(ptr noundef nonnull %3) #9
   br label %qobject_unref_impl.exit
 
-qobject_unref_impl.exit:                          ; preds = %if.end7, %land.lhs.true.i13, %if.then5.i
+qobject_unref_impl.exit:                          ; preds = %if.end7, %land.lhs.true.i14, %if.then5.i
   call void @visit_free(ptr noundef %call) #9
   ret void
 }
@@ -2018,7 +2018,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %for.
   %arrayidx22.i = getelementptr i8, ptr %call6.i, i64 %idxprom.i
   store i8 %cond.i, ptr %arrayidx22.i, align 1
   %inc.i = add i32 %i.0.i, 1
-  br label %for.cond7.i, !llvm.loop !16
+  br label %for.cond7.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.cond7.i
   %7 = icmp eq i32 %3, 4
@@ -2038,7 +2038,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.end
   tail call void @g_free(ptr noundef nonnull %call6.i) #9
   %call34.i = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry1.0.i79) #9
   %tobool.not.i29 = icmp eq ptr %call34.i, null
-  br i1 %tobool.not.i29, label %sw.epilog, label %for.body.i, !llvm.loop !17
+  br i1 %tobool.not.i29, label %sw.epilog, label %for.body.i, !llvm.loop !16
 
 qobject_check_type.exit39:                        ; preds = %qobject_type.exit
   %9 = getelementptr i8, ptr %obj, i64 16
@@ -2082,7 +2082,7 @@ for.inc.i:                                        ; preds = %if.then.i52, %qobje
   %inc.i53 = add i32 %i.0.i4276, 1
   %entry1.0.i43 = load ptr, ptr %15, align 8
   %tobool.not.i44 = icmp eq ptr %entry1.0.i43, null
-  br i1 %tobool.not.i44, label %sw.epilog, label %for.body.i45, !llvm.loop !18
+  br i1 %tobool.not.i44, label %sw.epilog, label %for.body.i45, !llvm.loop !17
 
 qobject_check_type.exit64:                        ; preds = %qobject_type.exit
   %call18 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #9
@@ -2297,7 +2297,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   %call79 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
   %elem.0 = load ptr, ptr %elem.053, align 8
   %tobool57.not = icmp eq ptr %elem.0, null
-  br i1 %tobool57.not, label %if.end80, label %for.body, !llvm.loop !19
+  br i1 %tobool57.not, label %if.end80, label %for.body, !llvm.loop !18
 
 if.end80:                                         ; preds = %cond.end, %if.then53, %if.end51
   %format_specific = getelementptr inbounds i8, ptr %info, i64 104
@@ -2435,7 +2435,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -2147483648, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -2446,4 +2446,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

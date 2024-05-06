@@ -137,7 +137,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %lor.lhs.false.i
-  %call3.i = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov), !range !6
+  %call3.i = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %lor.lhs.false.i, %entry
@@ -224,7 +224,7 @@ entry:
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_disable_fallback_loading(ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_disable_fallback_loading(ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -262,7 +262,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -636,7 +636,7 @@ for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %p.038, i64 40
   %2 = load ptr, ptr %incdec.ptr, align 8
   %cmp4.not = icmp eq ptr %2, null
-  br i1 %cmp4.not, label %if.then12, label %for.body, !llvm.loop !7
+  br i1 %cmp4.not, label %if.then12, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %template, ptr noundef nonnull align 8 dereferenceable(40) %p.038, i64 40, i1 false)
@@ -676,7 +676,7 @@ for.inc24:                                        ; preds = %for.body18
   %incdec.ptr25 = getelementptr inbounds i8, ptr %p.140, i64 40
   %inc = add nuw i64 %i.041, 1
   %exitcond.not = icmp eq i64 %inc, %4
-  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !7
 
 for.end26:                                        ; preds = %for.inc24, %if.end15, %if.then22
   %7 = load ptr, ptr %lock, align 8
@@ -724,7 +724,7 @@ for.body41:                                       ; preds = %for.cond39.preheade
 if.end46:                                         ; preds = %for.body41
   %data = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   %13 = load ptr, ptr %data, align 8
-  %call.i30 = call fastcc noundef i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef nonnull %11, ptr noundef %13), !range !6
+  %call.i30 = call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef nonnull %11, ptr noundef %13)
   %cmp53.not.not = icmp eq i32 %call.i30, 0
   br i1 %cmp53.not.not, label %return, label %for.inc56
 
@@ -733,7 +733,7 @@ for.inc56:                                        ; preds = %if.end46, %for.body
   %arrayidx = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv.next
   %14 = load ptr, ptr %arrayidx, align 8
   %cmp40.not = icmp eq ptr %14, null
-  br i1 %cmp40.not, label %if.then64.loopexit, label %for.body41, !llvm.loop !9
+  br i1 %cmp40.not, label %if.then64.loopexit, label %for.body41, !llvm.loop !8
 
 if.then64.loopexit:                               ; preds = %for.inc56
   %.pre = load ptr, ptr %parameters, align 8
@@ -771,10 +771,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_info_add_parameter(ptr nocapture noundef %provinfo, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_info_add_parameter(ptr nocapture noundef %provinfo, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %parameters = getelementptr inbounds i8, ptr %provinfo, i64 24
-  %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value), !range !6
+  %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value)
   ret i32 %call
 }
 
@@ -839,7 +839,7 @@ return:                                           ; preds = %entry, %if.end18, %
 declare i32 @ERR_get_next_error_library() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_add_to_store(ptr noundef %prov, ptr noundef writeonly %actualprov, i32 noundef %retain_fallbacks) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_add_to_store(ptr noundef %prov, ptr noundef writeonly %actualprov, i32 noundef %retain_fallbacks) local_unnamed_addr #0 {
 entry:
   %tmpl = alloca %struct.ossl_provider_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %tmpl, i8 0, i64 224, i1 false)
@@ -913,7 +913,7 @@ for.body.i:                                       ; preds = %if.end20, %for.body
   %and.i = and i32 %call4.i, %ret.010.i
   %inc.i = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call.i.i
-  br i1 %exitcond.not.i, label %create_provider_children.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %create_provider_children.exit, label %for.body.i, !llvm.loop !9
 
 create_provider_children.exit:                    ; preds = %for.body.i
   %tobool23.not = icmp eq i32 %and.i, 0
@@ -987,7 +987,7 @@ lor.lhs.false.i:                                  ; preds = %if.then42
   br i1 %cmp2.i, label %cond.true.i, label %ossl_provider_deactivate.exit
 
 cond.true.i:                                      ; preds = %lor.lhs.false.i
-  %call3.i = call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov), !range !6
+  %call3.i = call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %ossl_provider_deactivate.exit
 
 ossl_provider_deactivate.exit:                    ; preds = %if.then42, %lor.lhs.false.i, %cond.true.i
@@ -1010,7 +1010,7 @@ return:                                           ; preds = %get_provider_store.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_deactivate(ptr noundef %prov, i32 noundef %removechildren) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_deactivate(ptr noundef %prov, i32 noundef %removechildren) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %prov, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1025,7 +1025,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp2, label %cond.true, label %return
 
 cond.true:                                        ; preds = %if.end
-  %call3 = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov), !range !6
+  %call3 = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry, %lor.lhs.false
@@ -1069,7 +1069,7 @@ declare i32 @DSO_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_provider_free_parent(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_set_module_path(ptr nocapture noundef %prov, ptr noundef %module_path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_set_module_path(ptr nocapture noundef %prov, ptr noundef %module_path) local_unnamed_addr #0 {
 entry:
   %path = getelementptr inbounds i8, ptr %prov, i64 48
   %0 = load ptr, ptr %path, align 8
@@ -1093,15 +1093,15 @@ return:                                           ; preds = %if.end, %entry
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_add_parameter(ptr nocapture noundef %prov, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_add_parameter(ptr nocapture noundef %prov, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %parameters = getelementptr inbounds i8, ptr %prov, i64 72
-  %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value), !range !6
+  %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @infopair_add(ptr nocapture noundef %infopairsk, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @infopair_add(ptr nocapture noundef %infopairsk, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 776) #11
   %cond = icmp eq ptr %call, null
@@ -1158,7 +1158,7 @@ return:                                           ; preds = %entry, %if.then17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef %libctx, ptr noundef %path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef %libctx, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %path, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1238,7 +1238,7 @@ if.end:                                           ; preds = %get_provider_store.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_activate(ptr noundef %prov, i32 noundef %upcalls, i32 noundef %aschild) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_activate(ptr noundef %prov, i32 noundef %upcalls, i32 noundef %aschild) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %prov, null
   br i1 %cmp, label %return, label %if.end
@@ -1574,7 +1574,7 @@ for.inc.i:                                        ; preds = %sw.bb115.i, %sw.bb1
   %p_get_reason_strings.1.i = phi ptr [ %.val80.i, %sw.bb115.i ], [ %p_get_reason_strings.0.i, %sw.bb113.i ], [ %p_get_reason_strings.0.i, %sw.bb111.i ], [ %p_get_reason_strings.0.i, %sw.bb109.i ], [ %p_get_reason_strings.0.i, %sw.bb107.i ], [ %p_get_reason_strings.0.i, %sw.bb105.i ], [ %p_get_reason_strings.0.i, %sw.bb103.i ], [ %p_get_reason_strings.0.i, %sw.bb.i ], [ %p_get_reason_strings.0.i, %for.cond.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr104.i, i64 16
   store ptr %incdec.ptr.i, ptr %provider_dispatch.i, align 8
-  br label %for.cond.i, !llvm.loop !11
+  br label %for.cond.i, !llvm.loop !10
 
 if.end117.i:                                      ; preds = %for.cond.i
   %cmp118.not.i = icmp eq ptr %p_get_reason_strings.0.i, null
@@ -1597,7 +1597,7 @@ if.end132.i:                                      ; preds = %while.body.i
   %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr %call122.i, i64 %inc.i
   %33 = load i32, ptr %arrayidx.i, align 8
   %cmp123.not.i = icmp eq i32 %33, 0
-  br i1 %cmp123.not.i, label %while.end.i, label %while.body.i, !llvm.loop !12
+  br i1 %cmp123.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %if.end132.i, %if.then120.i
   %cnt.0.lcssa.i = phi i64 [ 0, %if.then120.i ], [ %inc.i, %if.end132.i ]
@@ -1644,7 +1644,7 @@ for.body149.i:                                    ; preds = %for.body149.i, %for
   store ptr %42, ptr %string160.i, align 8
   %inc162.i = add nuw i64 %cnt2.0108.i, 1
   %exitcond.i = icmp eq i64 %inc162.i, %umax.i
-  br i1 %exitcond.i, label %for.end163.loopexit.i, label %for.body149.i, !llvm.loop !13
+  br i1 %exitcond.i, label %for.end163.loopexit.i, label %for.body149.i, !llvm.loop !12
 
 for.end163.loopexit.i:                            ; preds = %for.body149.i
   %.pre.i = load i32, ptr %error_lib.i, align 8
@@ -1766,7 +1766,7 @@ for.body.i:                                       ; preds = %if.then54, %for.bod
   %and.i = and i32 %call4.i, %ret.010.i
   %inc.i27 = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i27, %call.i.i26
-  br i1 %exitcond.not.i, label %create_provider_children.exit.loopexit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %create_provider_children.exit.loopexit, label %for.body.i, !llvm.loop !9
 
 create_provider_children.exit.loopexit:           ; preds = %for.body.i
   %56 = icmp eq i32 %and.i, 0
@@ -1887,7 +1887,7 @@ for.body:                                         ; preds = %if.then42, %for.bod
   %call48 = call i32 %9(ptr noundef nonnull %prov, ptr noundef %10) #11
   %inc = add nuw nsw i32 %i.038, 1
   %exitcond.not = icmp eq i32 %inc, %call.i23
-  br i1 %exitcond.not, label %if.then51, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %if.then51, label %for.body, !llvm.loop !13
 
 if.end49:                                         ; preds = %if.end37.thread, %if.end37
   %tobool63.not2733 = phi i1 [ %or.cond.not, %if.end37.thread ], [ true, %if.end37 ]
@@ -1928,7 +1928,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @provider_remove_store_methods(ptr noundef %prov) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @provider_remove_store_methods(ptr noundef %prov) unnamed_addr #0 {
 entry:
   %libctx = getelementptr inbounds i8, ptr %prov, i64 80
   %0 = load ptr, ptr %libctx, align 8
@@ -2005,7 +2005,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_doall_activated(ptr noundef %ctx, ptr nocapture noundef readonly %cb, ptr noundef %cbdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_doall_activated(ptr noundef %ctx, ptr nocapture noundef readonly %cb, ptr noundef %cbdata) local_unnamed_addr #0 {
 entry:
   %ref = alloca i32, align 4
   store i32 0, ptr %ref, align 4
@@ -2032,7 +2032,7 @@ if.end:                                           ; preds = %if.then, %get_provi
   br i1 %cmp.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i), !range !6
+  %call5 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
@@ -2115,7 +2115,7 @@ if.end43:                                         ; preds = %if.then27, %if.else
   %9 = load ptr, ptr %flag_lock, align 8
   %call45 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #11
   %cmp20 = icmp ugt i32 %curr.0.in63, 1
-  br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end43
   %10 = load ptr, ptr %lock, align 8
@@ -2126,7 +2126,7 @@ for.end:                                          ; preds = %if.end43
 for.cond49:                                       ; preds = %for.body51
   %inc = add nuw nsw i32 %curr.166, 1
   %exitcond.not = icmp eq i32 %inc, %max.1
-  br i1 %exitcond.not, label %finish, label %for.body51, !llvm.loop !16
+  br i1 %exitcond.not, label %finish, label %for.body51, !llvm.loop !15
 
 for.body51:                                       ; preds = %for.end, %for.cond49
   %curr.166 = phi i32 [ %inc, %for.cond49 ], [ 0, %for.end ]
@@ -2193,7 +2193,7 @@ for.inc90:                                        ; preds = %if.then.i50, %if.en
   %ret.3 = phi i32 [ 0, %for.body65 ], [ %ret.2, %if.end84 ], [ %ret.2, %if.then.i50 ]
   %inc91 = add i32 %curr.370, 1
   %exitcond81.not = icmp eq i32 %inc91, %max.057
-  br i1 %exitcond81.not, label %for.end92, label %for.body65, !llvm.loop !17
+  br i1 %exitcond81.not, label %for.end92, label %for.body65, !llvm.loop !16
 
 for.end92:                                        ; preds = %for.inc90, %finish
   %ret.1.lcssa = phi i32 [ %ret.0, %finish ], [ %ret.3, %for.inc90 ]
@@ -2206,7 +2206,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @provider_activate_fallbacks(ptr noundef %store) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noundef %store) unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %store, i64 32
   %0 = load ptr, ptr %lock, align 8
@@ -2297,7 +2297,7 @@ for.inc:                                          ; preds = %for.body, %if.end42
   %incdec.ptr = getelementptr inbounds i8, ptr %p.031, i64 40
   %8 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %8, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
   %9 = icmp sgt i32 %activated_fallback_count.1, 0
@@ -2323,7 +2323,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @CRYPTO_atomic_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_PROVIDER_available(ptr noundef %libctx, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PROVIDER_available(ptr noundef %libctx, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -2336,7 +2336,7 @@ get_provider_store.exit.thread:                   ; preds = %entry
   br label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i), !range !6
+  %call1 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2505,7 +2505,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov), !range !6
+  %call4 = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then3, %entry
@@ -2570,7 +2570,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_set_operation_bit(ptr nocapture noundef %provider, i64 noundef %bitnum) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr nocapture noundef %provider, i64 noundef %bitnum) local_unnamed_addr #0 {
 entry:
   %div17 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
@@ -2626,7 +2626,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_test_operation_bit(ptr nocapture noundef readonly %provider, i64 noundef %bitnum, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr nocapture noundef readonly %provider, i64 noundef %bitnum, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %div8 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
@@ -2685,7 +2685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_provider_is_child(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_provider_is_child(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
 entry:
   %ischild = getelementptr inbounds i8, ptr %prov, i64 200
   %bf.load = load i8, ptr %ischild, align 8
@@ -2707,7 +2707,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_provider_default_props_update(ptr noundef %libctx, ptr noundef %props) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_default_props_update(ptr noundef %libctx, ptr noundef %props) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -2744,7 +2744,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %call8 = tail call i32 %3(ptr noundef %props, ptr noundef %4) #11
   %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %call.i7
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.end3
   %5 = load ptr, ptr %lock, align 8
@@ -2909,7 +2909,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %6 = load ptr, ptr %parameters, align 8
   %call.i14 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #11
   %cmp18 = icmp slt i32 %inc, %call.i14
-  br i1 %cmp18, label %for.body, label %return, !llvm.loop !20
+  br i1 %cmp18, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end12
   ret i32 1
@@ -3110,7 +3110,7 @@ declare i32 @CRYPTO_secure_allocated(ptr noundef) #1
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_provider_register_child_cb(ptr noundef %handle, ptr noundef %create_cb, ptr noundef %remove_cb, ptr noundef %global_props_cb, ptr noundef %cbdata) #0 {
+define internal range(i32 0, -2147483648) i32 @ossl_provider_register_child_cb(ptr noundef %handle, ptr noundef %create_cb, ptr noundef %remove_cb, ptr noundef %global_props_cb, ptr noundef %cbdata) #0 {
 entry:
   %libctx1 = getelementptr inbounds i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx1, align 8
@@ -3192,7 +3192,7 @@ land.lhs.true:                                    ; preds = %if.end26
 for.inc:                                          ; preds = %if.end26, %land.lhs.true
   %inc = add nuw nsw i32 %i.043, 1
   %exitcond.not = icmp eq i32 %inc, %call.i38
-  br i1 %exitcond.not, label %if.end37, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %if.end37, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %land.lhs.true, %if.end18
   %i.0.lcssa = phi i32 [ 0, %if.end18 ], [ %i.043, %land.lhs.true ], [ %i.043, %for.body ]
@@ -3221,7 +3221,7 @@ for.body43:                                       ; preds = %for.cond41.preheade
   %call46 = tail call i32 %remove_cb(ptr noundef %call.i41, ptr noundef %cbdata) #11
   %dec = add nsw i32 %i.147, -1
   %cmp42.not = icmp eq i32 %i.147, 0
-  br i1 %cmp42.not, label %for.end48, label %for.body43, !llvm.loop !22
+  br i1 %cmp42.not, label %for.end48, label %for.body43, !llvm.loop !21
 
 for.end48:                                        ; preds = %for.body43, %for.cond41.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %call2, ptr noundef nonnull @.str, i32 noundef 1846) #11
@@ -3284,7 +3284,7 @@ if.then10:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %call.i10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %if.end4, %if.then10
   %6 = load ptr, ptr %lock, align 8
@@ -3323,7 +3323,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @ossl_provider_activate(ptr noundef %prov, i32 noundef 1, i32 noundef 0), !range !6
+  %call.i = tail call i32 @ossl_provider_activate(ptr noundef %prov, i32 noundef 1, i32 noundef 0)
   br label %provider_up_ref_intern.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3351,7 +3351,7 @@ provider_up_ref_intern.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_provider_free_intern(ptr noundef %prov, i32 noundef %deactivate) #0 {
+define internal range(i32 0, 2) i32 @core_provider_free_intern(ptr noundef %prov, i32 noundef %deactivate) #0 {
 entry:
   %tobool.not.i = icmp eq i32 %deactivate, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -3370,7 +3370,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %cmp2.i.i, label %cond.true.i.i, label %provider_free_intern.exit
 
 cond.true.i.i:                                    ; preds = %if.end.i.i
-  %call3.i.i = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov), !range !6
+  %call3.i.i = tail call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %provider_free_intern.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3424,7 +3424,7 @@ return:                                           ; preds = %if.end14, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_obj_create(ptr nocapture readnone %prov, ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) #0 {
+define internal range(i32 0, 2) i32 @core_obj_create(ptr nocapture readnone %prov, ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) #0 {
 entry:
   %call = tail call i32 @OBJ_txt2nid(ptr noundef %oid) #11
   %cmp.not = icmp eq i32 %call, 0
@@ -3544,7 +3544,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3561,4 +3561,3 @@ attributes #12 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

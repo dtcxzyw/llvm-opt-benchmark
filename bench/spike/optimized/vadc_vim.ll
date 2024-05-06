@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32i_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33558400
   %or.cond = icmp eq i64 %4, 0
   br i1 %or.cond, label %5, label %10
@@ -330,9 +330,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 61)
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   br label %144
 
 144:                                              ; preds = %.lr.ph, %179
@@ -355,7 +355,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %154 = load i8, ptr %153, align 1
   %155 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %156 = trunc i64 %151 to i8
+  %156 = trunc nuw nsw i64 %151 to i8
   %157 = add nsw i8 %156, %143
   %158 = add i8 %157, %154
   store i8 %158, ptr %155, align 1
@@ -365,7 +365,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %161 = load i16, ptr %160, align 2
   %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %163 = trunc i64 %151 to i16
+  %163 = trunc nuw nsw i64 %151 to i16
   %164 = add nsw i16 %163, %142
   %165 = add i16 %164, %161
   store i16 %165, ptr %162, align 2
@@ -375,7 +375,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %167 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %168 = load i32, ptr %167, align 4
   %169 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %170 = trunc i64 %151 to i32
+  %170 = trunc nuw nsw i64 %151 to i32
   %171 = add nsw i32 %170, %141
   %172 = add i32 %171, %168
   store i32 %172, ptr %169, align 4
@@ -690,9 +690,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 61)
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   br label %144
 
 144:                                              ; preds = %.lr.ph, %179
@@ -715,7 +715,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %154 = load i8, ptr %153, align 1
   %155 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %156 = trunc i64 %151 to i8
+  %156 = trunc nuw nsw i64 %151 to i8
   %157 = add nsw i8 %156, %143
   %158 = add i8 %157, %154
   store i8 %158, ptr %155, align 1
@@ -725,7 +725,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %161 = load i16, ptr %160, align 2
   %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %163 = trunc i64 %151 to i16
+  %163 = trunc nuw nsw i64 %151 to i16
   %164 = add nsw i16 %163, %142
   %165 = add i16 %164, %161
   store i16 %165, ptr %162, align 2
@@ -735,7 +735,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %167 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %168 = load i32, ptr %167, align 4
   %169 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %170 = trunc i64 %151 to i32
+  %170 = trunc nuw nsw i64 %151 to i32
   %171 = add nsw i32 %170, %141
   %172 = add i32 %171, %168
   store i32 %172, ptr %169, align 4
@@ -763,7 +763,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32i_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33558400
   %or.cond = icmp eq i64 %4, 0
   br i1 %or.cond, label %5, label %10
@@ -1017,9 +1017,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 61)
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   br label %144
 
 144:                                              ; preds = %.lr.ph, %179
@@ -1042,7 +1042,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %154 = load i8, ptr %153, align 1
   %155 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %156 = trunc i64 %151 to i8
+  %156 = trunc nuw nsw i64 %151 to i8
   %157 = add nsw i8 %156, %143
   %158 = add i8 %157, %154
   store i8 %158, ptr %155, align 1
@@ -1052,7 +1052,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %161 = load i16, ptr %160, align 2
   %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %163 = trunc i64 %151 to i16
+  %163 = trunc nuw nsw i64 %151 to i16
   %164 = add nsw i16 %163, %142
   %165 = add i16 %164, %161
   store i16 %165, ptr %162, align 2
@@ -1062,7 +1062,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %167 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %168 = load i32, ptr %167, align 4
   %169 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %170 = trunc i64 %151 to i32
+  %170 = trunc nuw nsw i64 %151 to i32
   %171 = add nsw i32 %170, %141
   %172 = add i32 %171, %168
   store i32 %172, ptr %169, align 4
@@ -1346,9 +1346,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 61)
   %139 = shl i64 %1, 44
   %140 = ashr i64 %139, 59
-  %141 = trunc i64 %140 to i32
-  %142 = trunc i64 %140 to i16
-  %143 = trunc i64 %140 to i8
+  %141 = trunc nsw i64 %140 to i32
+  %142 = trunc nsw i64 %140 to i16
+  %143 = trunc nsw i64 %140 to i8
   br label %144
 
 144:                                              ; preds = %.lr.ph, %179
@@ -1371,7 +1371,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %154 = load i8, ptr %153, align 1
   %155 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %156 = trunc i64 %151 to i8
+  %156 = trunc nuw nsw i64 %151 to i8
   %157 = add nsw i8 %156, %143
   %158 = add i8 %157, %154
   store i8 %158, ptr %155, align 1
@@ -1381,7 +1381,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %161 = load i16, ptr %160, align 2
   %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %163 = trunc i64 %151 to i16
+  %163 = trunc nuw nsw i64 %151 to i16
   %164 = add nsw i16 %163, %142
   %165 = add i16 %164, %161
   store i16 %165, ptr %162, align 2
@@ -1391,7 +1391,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %167 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %129, i64 noundef %.0104135, i1 noundef zeroext false)
   %168 = load i32, ptr %167, align 4
   %169 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0104135, i1 noundef zeroext true)
-  %170 = trunc i64 %151 to i32
+  %170 = trunc nuw nsw i64 %151 to i32
   %171 = add nsw i32 %170, %141
   %172 = add i32 %171, %168
   store i32 %172, ptr %169, align 4
@@ -1419,7 +1419,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32e_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33558400
   %or.cond = icmp eq i64 %4, 0
   br i1 %or.cond, label %5, label %10
@@ -1723,7 +1723,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %168 = load i8, ptr %161, align 1
   %169 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
   %170 = and i8 %168, %139
-  %171 = trunc i64 %159 to i8
+  %171 = trunc nuw nsw i64 %159 to i8
   %172 = add nuw nsw i8 %151, %171
   %173 = add i8 %172, %170
   store i8 %173, ptr %169, align 1
@@ -1748,7 +1748,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %174
   %182 = load i16, ptr %175, align 2
   %183 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %184 = trunc i64 %159 to i16
+  %184 = trunc nuw nsw i64 %159 to i16
   %185 = add nuw nsw i16 %149, %184
   %186 = add i16 %185, %182
   store i16 %186, ptr %183, align 2
@@ -1773,7 +1773,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 194:                                              ; preds = %187
   %195 = load i32, ptr %188, align 4
   %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %197 = trunc i64 %159 to i32
+  %197 = trunc nuw nsw i64 %159 to i32
   %198 = add nuw nsw i32 %147, %197
   %199 = add i32 %198, %195
   store i32 %199, ptr %196, align 4
@@ -2122,7 +2122,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %168 = load i8, ptr %161, align 1
   %169 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
   %170 = and i8 %168, %139
-  %171 = trunc i64 %159 to i8
+  %171 = trunc nuw nsw i64 %159 to i8
   %172 = add nuw nsw i8 %151, %171
   %173 = add i8 %172, %170
   store i8 %173, ptr %169, align 1
@@ -2147,7 +2147,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %174
   %182 = load i16, ptr %175, align 2
   %183 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %184 = trunc i64 %159 to i16
+  %184 = trunc nuw nsw i64 %159 to i16
   %185 = add nuw nsw i16 %149, %184
   %186 = add i16 %185, %182
   store i16 %186, ptr %183, align 2
@@ -2172,7 +2172,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 194:                                              ; preds = %187
   %195 = load i32, ptr %188, align 4
   %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %197 = trunc i64 %159 to i32
+  %197 = trunc nuw nsw i64 %159 to i32
   %198 = add nuw nsw i32 %147, %197
   %199 = add i32 %198, %195
   store i32 %199, ptr %196, align 4
@@ -2215,7 +2215,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32e_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vadc_vimP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33558400
   %or.cond = icmp eq i64 %4, 0
   br i1 %or.cond, label %5, label %10
@@ -2519,7 +2519,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %168 = load i8, ptr %161, align 1
   %169 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
   %170 = and i8 %168, %139
-  %171 = trunc i64 %159 to i8
+  %171 = trunc nuw nsw i64 %159 to i8
   %172 = add nuw nsw i8 %151, %171
   %173 = add i8 %172, %170
   store i8 %173, ptr %169, align 1
@@ -2544,7 +2544,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %174
   %182 = load i16, ptr %175, align 2
   %183 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %184 = trunc i64 %159 to i16
+  %184 = trunc nuw nsw i64 %159 to i16
   %185 = add nuw nsw i16 %149, %184
   %186 = add i16 %185, %182
   store i16 %186, ptr %183, align 2
@@ -2569,7 +2569,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 194:                                              ; preds = %187
   %195 = load i32, ptr %188, align 4
   %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %197 = trunc i64 %159 to i32
+  %197 = trunc nuw nsw i64 %159 to i32
   %198 = add nuw nsw i32 %147, %197
   %199 = add i32 %198, %195
   store i32 %199, ptr %196, align 4
@@ -2918,7 +2918,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %168 = load i8, ptr %161, align 1
   %169 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
   %170 = and i8 %168, %139
-  %171 = trunc i64 %159 to i8
+  %171 = trunc nuw nsw i64 %159 to i8
   %172 = add nuw nsw i8 %151, %171
   %173 = add i8 %172, %170
   store i8 %173, ptr %169, align 1
@@ -2943,7 +2943,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %174
   %182 = load i16, ptr %175, align 2
   %183 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %184 = trunc i64 %159 to i16
+  %184 = trunc nuw nsw i64 %159 to i16
   %185 = add nuw nsw i16 %149, %184
   %186 = add i16 %185, %182
   store i16 %186, ptr %183, align 2
@@ -2968,7 +2968,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 194:                                              ; preds = %187
   %195 = load i32, ptr %188, align 4
   %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %11, i64 noundef %127, i64 noundef %.0112155, i1 noundef zeroext true)
-  %197 = trunc i64 %159 to i32
+  %197 = trunc nuw nsw i64 %159 to i32
   %198 = add nuw nsw i32 %147, %197
   %199 = add i32 %198, %195
   store i32 %199, ptr %196, align 4

@@ -40,7 +40,7 @@ entry:
   %2 = trunc i64 %env.val to i32
   %3 = lshr i32 %2, 3
   %sh_prom.i = and i32 %3, 7
-  %4 = tail call i32 @llvm.cttz.i32(i32 %esz, i1 true), !range !5
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %esz, i1 true)
   %5 = shl i32 %desc, 18
   %shr.i1.i.i = ashr i32 %5, 29
   %sub.i = add nsw i32 %4, %shr.i1.i.i
@@ -89,7 +89,7 @@ if.end.us.us:                                     ; preds = %for.body.us.us
 for.inc.us.us:                                    ; preds = %for.body.us.us, %if.end.us.us
   %inc.us.us = add i32 %i.037.us.us, 1
   %exitcond43.not = icmp eq i32 %inc.us.us, %conv
-  br i1 %exitcond43.not, label %for.end, label %for.body.us.us, !llvm.loop !6
+  br i1 %exitcond43.not, label %for.end, label %for.body.us.us, !llvm.loop !5
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv = phi i64 [ %9, %for.body.us.preheader ], [ %indvars.iv.next, %for.inc.us ]
@@ -119,20 +119,20 @@ if.then.us:                                       ; preds = %for.body.us
 if.end3.i.us:                                     ; preds = %if.then.us
   %idx.ext.i.us = zext i32 %mul.us to i64
   %add.ptr.i.us = getelementptr i8, ptr %vd, i64 %idx.ext.i.us
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end3.i.us, %if.then.us, %if.end.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !6
+  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.037 = phi i32 [ %inc, %for.body ], [ %conv5, %for.body.lr.ph ]
   tail call void %fn(ptr noundef %vd, ptr noundef %vs1, ptr noundef %vs2, i32 noundef %i.037) #4
   %inc = add i32 %i.037, 1
   %exitcond.not = icmp eq i32 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %for.inc.us, %for.inc.us.us, %entry
   store i64 0, ptr %vstart, align 8
@@ -151,7 +151,7 @@ if.end3.i29:                                      ; preds = %for.end
   %idx.ext.i31 = zext i32 %mul11 to i64
   %add.ptr.i32 = getelementptr i8, ptr %vd, i64 %idx.ext.i31
   %conv.i33 = zext i32 %sub.i30 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
   br label %vext_set_elems_1s.exit34
 
 vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i29
@@ -172,7 +172,7 @@ entry:
   %2 = trunc i64 %env.val to i32
   %3 = lshr i32 %2, 3
   %sh_prom.i = and i32 %3, 7
-  %4 = tail call i32 @llvm.cttz.i32(i32 %esz, i1 true), !range !5
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %esz, i1 true)
   %5 = shl i32 %desc, 18
   %shr.i1.i.i = ashr i32 %5, 29
   %sub.i = add nsw i32 %4, %shr.i1.i.i
@@ -221,7 +221,7 @@ if.end.us.us:                                     ; preds = %for.body.us.us
 for.inc.us.us:                                    ; preds = %for.body.us.us, %if.end.us.us
   %inc.us.us = add i32 %i.037.us.us, 1
   %exitcond43.not = icmp eq i32 %inc.us.us, %conv
-  br i1 %exitcond43.not, label %for.end, label %for.body.us.us, !llvm.loop !8
+  br i1 %exitcond43.not, label %for.end, label %for.body.us.us, !llvm.loop !7
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv = phi i64 [ %9, %for.body.us.preheader ], [ %indvars.iv.next, %for.inc.us ]
@@ -251,20 +251,20 @@ if.then.us:                                       ; preds = %for.body.us
 if.end3.i.us:                                     ; preds = %if.then.us
   %idx.ext.i.us = zext i32 %mul.us to i64
   %add.ptr.i.us = getelementptr i8, ptr %vd, i64 %idx.ext.i.us
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end3.i.us, %if.then.us, %if.end.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !8
+  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.037 = phi i32 [ %inc, %for.body ], [ %conv5, %for.body.lr.ph ]
   tail call void %fn(ptr noundef %vd, i64 noundef %s1, ptr noundef %vs2, i32 noundef %i.037) #4
   %inc = add i32 %i.037, 1
   %exitcond.not = icmp eq i32 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.inc.us, %for.inc.us.us, %entry
   store i64 0, ptr %vstart, align 8
@@ -283,7 +283,7 @@ if.end3.i29:                                      ; preds = %for.end
   %idx.ext.i31 = zext i32 %mul11 to i64
   %add.ptr.i32 = getelementptr i8, ptr %vd, i64 %idx.ext.i31
   %conv.i33 = zext i32 %sub.i30 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
   br label %vext_set_elems_1s.exit34
 
 vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i29
@@ -309,7 +309,6 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

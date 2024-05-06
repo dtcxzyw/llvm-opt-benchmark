@@ -28,7 +28,7 @@ define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly %0) local
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkFastExtract(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_NtkFastExtract(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 Abc_NtkIsSopLogic.exit:
   %2 = tail call i32 @Abc_NtkToSop(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 1000000000) #9
   %.not = icmp eq i32 %2, 0

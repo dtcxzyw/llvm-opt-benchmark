@@ -221,7 +221,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_interconnect_fini() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2

@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [33 x i8] c"%s: error: Too many alias lists\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %line.i = alloca [32767 x i8], align 16
   %lastLine.i = alloca [32767 x i8], align 16
@@ -408,7 +408,7 @@ if.end13.i.i:                                     ; preds = %if.end7.i.i
 
 while.body.i.i:                                   ; preds = %if.end13.i.i, %allocString.exit.i
   %tag.08.i.i = phi ptr [ %call21.i.i, %allocString.exit.i ], [ %call14.i.i, %if.end13.i.i ]
-  %call.i27.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tag.08.i.i) #20
+  %call.i27.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %tag.08.i.i) #20
   %conv.i.i = trunc i64 %call.i27.i to i32
   %46 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i64 0, i32 1), align 8
   %47 = and i32 %conv.i.i, -2
@@ -432,7 +432,7 @@ if.end8.i.i:                                      ; preds = %while.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 %idx.ext.i.i
   %sext.i = shl i64 %call.i27.i, 32
   %conv10.i.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %tag.08.i.i, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %tag.08.i.i, i64 %conv10.i.i, i1 false)
   %arrayidx.i29.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %conv10.i.i
   store i8 0, ptr %arrayidx.i29.i, align 1
   %and11.i.i = and i32 %conv.i.i, 1
@@ -938,8 +938,8 @@ for.cond40.preheader.preheader.i.i.i:             ; preds = %for.cond34.preheade
   br label %for.cond40.preheader.i.i.i
 
 if.then.i.i.i54:                                  ; preds = %for.body16.us.i.i.i
-  %130 = trunc i64 %indvars.iv52.i.i.i to i16
-  %131 = trunc i64 %indvars.iv47.i.i.i to i16
+  %130 = trunc nuw i64 %indvars.iv52.i.i.i to i16
+  %131 = trunc nuw i64 %indvars.iv47.i.i.i to i16
   br label %resolveAliasToConverter.exit.i.i
 
 for.cond40.preheader.i.i.i:                       ; preds = %for.inc70.i.i.i, %for.cond40.preheader.preheader.i.i.i
@@ -968,7 +968,7 @@ for.body51.i.i.i:                                 ; preds = %for.cond40.i.i.i, %
   br i1 %cmp63.i.i.i, label %if.then65.i.i.i, label %for.cond40.i.i.i
 
 if.then65.i.i.i:                                  ; preds = %for.body51.i.i.i
-  %135 = trunc i64 %indvars.iv62.i.i.i to i16
+  %135 = trunc nuw i64 %indvars.iv62.i.i.i to i16
   br label %resolveAliasToConverter.exit.i.i
 
 for.inc70.i.i.i:                                  ; preds = %for.cond40.i.i.i, %for.cond40.preheader.i.i.i
@@ -1074,8 +1074,8 @@ for.cond40.preheader.preheader.i39.i.i:           ; preds = %for.cond34.preheade
   br label %for.cond40.preheader.i41.i.i
 
 if.then.i91.i.i:                                  ; preds = %for.body16.us.i78.i.i
-  %145 = trunc i64 %indvars.iv52.i70.i.i to i16
-  %146 = trunc i64 %indvars.iv47.i72.i.i to i16
+  %145 = trunc nuw i64 %indvars.iv52.i70.i.i to i16
+  %146 = trunc nuw i64 %indvars.iv47.i72.i.i to i16
   br label %resolveAliasToConverter.exit92.i.i
 
 for.cond40.preheader.i41.i.i:                     ; preds = %for.inc70.i55.i.i, %for.cond40.preheader.preheader.i39.i.i
@@ -1104,7 +1104,7 @@ for.body51.i48.i.i:                               ; preds = %for.cond40.i52.i.i,
   br i1 %cmp63.i51.i.i, label %if.then65.i63.i.i, label %for.cond40.i52.i.i
 
 if.then65.i63.i.i:                                ; preds = %for.body51.i48.i.i
-  %150 = trunc i64 %indvars.iv62.i42.i.i to i16
+  %150 = trunc nuw i64 %indvars.iv62.i42.i.i to i16
   br label %resolveAliasToConverter.exit92.i.i
 
 for.inc70.i55.i.i:                                ; preds = %for.cond40.i52.i.i, %for.cond40.preheader.i41.i.i
@@ -1899,7 +1899,7 @@ if.end50:                                         ; preds = %if.else, %land.lhs.
   br label %return
 
 return.loopexit:                                  ; preds = %land.lhs.true
-  %19 = trunc i64 %indvars.iv to i16
+  %19 = trunc nuw i64 %indvars.iv to i16
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.end50

@@ -673,7 +673,7 @@ if.then8:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %conv9 = trunc i64 %mul to i32
+  %conv9 = trunc nuw nsw i64 %mul to i32
   %e.i = getelementptr inbounds i8, ptr %sb, i64 8
   %3 = load ptr, ptr %e.i, align 8
   %4 = load ptr, ptr %sb, align 8
@@ -764,7 +764,7 @@ for.cond.preheader:                               ; preds = %cond.end
 for.cond:                                         ; preds = %for.cond.preheader, %if.end39
   %indvars.iv = phi i64 [ %1, %for.cond.preheader ], [ %indvars.iv.next, %if.end39 ]
   %2 = load i32, ptr %asize, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nsw i64 %indvars.iv to i32
   %cmp1 = icmp ugt i32 %2, %3
   br i1 %cmp1, label %cond.true2, label %cond.false3
 
@@ -792,7 +792,7 @@ badtype:                                          ; preds = %if.else19, %cond.en
 if.else:                                          ; preds = %cond.end4
   %7 = load i64, ptr %cond5, align 8
   %shr = ashr i64 %7, 47
-  %conv9 = trunc i64 %shr to i32
+  %conv9 = trunc nsw i64 %shr to i32
   %cmp10 = icmp eq i32 %conv9, -5
   %8 = bitcast i64 %7 to double
   br i1 %cmp10, label %if.then12, label %if.else19

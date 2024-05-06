@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_bn_rsa_fips186_4_derive_prime = private unnamed_addr constant [35 x i8] c"ossl_bn_rsa_fips186_4_derive_prime\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %p, ptr noundef %Xpout, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %p, ptr noundef %Xpout, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %p, null
   %cmp1 = icmp eq ptr %Xpout, null
@@ -97,12 +97,12 @@ if.then42:                                        ; preds = %if.end40
   br i1 %tobool44.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.end40
-  %call48 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond14, ptr noundef nonnull %cond, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb), !range !4
+  %call48 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond14, ptr noundef nonnull %cond, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end47
-  %call51 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond20, ptr noundef nonnull %cond8, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb), !range !4
+  %call51 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond20, ptr noundef nonnull %cond8, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %err, label %if.end54
 
@@ -117,7 +117,7 @@ if.end54:                                         ; preds = %lor.lhs.false50
   br i1 %cmp58.not, label %if.end60, label %err
 
 if.end60:                                         ; preds = %if.end54
-  %call61 = tail call i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef nonnull %p, ptr noundef nonnull %Xpout, ptr noundef %Xp, ptr noundef nonnull %cond, ptr noundef nonnull %cond8, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb), !range !4
+  %call61 = tail call i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef nonnull %p, ptr noundef nonnull %Xpout, ptr noundef %Xp, ptr noundef nonnull %cond, ptr noundef nonnull %cond8, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb)
   br label %err
 
 err:                                              ; preds = %if.end3.i, %if.end60, %if.end54, %if.end47, %lor.lhs.false50, %if.then42, %if.then36, %cond.end19
@@ -165,7 +165,7 @@ declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef %Xp1, ptr noundef %p1, ptr noundef %ctx, i32 noundef %rounds, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef %Xp1, ptr noundef %p1, ptr noundef %ctx, i32 noundef %rounds, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_copy(ptr noundef %p1, ptr noundef %Xp1) #3
   %cmp = icmp eq ptr %call, null
@@ -204,7 +204,7 @@ return:                                           ; preds = %if.end5, %if.end8, 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %Y, ptr noundef %X, ptr noundef %Xin, ptr noundef %r1, ptr noundef %r2, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %Y, ptr noundef %X, ptr noundef %Xin, ptr noundef %r1, ptr noundef %r2, i32 noundef %nlen, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %shr = ashr i32 %nlen, 1
   tail call void @BN_CTX_start(ptr noundef %ctx) #3
@@ -447,4 +447,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

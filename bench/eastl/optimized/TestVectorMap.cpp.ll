@@ -41914,7 +41914,7 @@ for.cond116:                                      ; preds = %for.cond116.prehead
 for.cond.i.i:                                     ; preds = %if.end9.i.i, %for.cond116
   %76 = phi i32 [ %.pre.i.i258, %for.cond116 ], [ %77, %if.end9.i.i ]
   %__i.0.idx.i.i = phi i64 [ -4, %for.cond116 ], [ %__i.0.add.i.i, %if.end9.i.i ]
-  %incdec.ptr5.ptr.i.i = getelementptr inbounds i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
+  %incdec.ptr5.ptr.i.i = getelementptr i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
   %77 = load i32, ptr %incdec.ptr5.ptr.i.i, align 4
   %cmp.i.i.i259 = icmp slt i32 %77, %76
   br i1 %cmp.i.i.i259, label %while.cond.i.i, label %if.end9.i.i
@@ -45783,7 +45783,7 @@ for.cond113:                                      ; preds = %for.cond113.prehead
 for.cond.i.i:                                     ; preds = %if.end9.i.i, %for.cond113
   %113 = phi i32 [ %.pre.i.i292, %for.cond113 ], [ %114, %if.end9.i.i ]
   %__i.0.idx.i.i = phi i64 [ -4, %for.cond113 ], [ %__i.0.add.i.i, %if.end9.i.i ]
-  %incdec.ptr5.ptr.i.i = getelementptr inbounds i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
+  %incdec.ptr5.ptr.i.i = getelementptr i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
   %114 = load i32, ptr %incdec.ptr5.ptr.i.i, align 4
   %cmp.i.i.i293 = icmp slt i32 %114, %113
   br i1 %cmp.i.i.i293, label %while.cond.i.i, label %if.end9.i.i
@@ -62783,7 +62783,7 @@ for.cond111:                                      ; preds = %for.cond111.prehead
 for.cond.i.i:                                     ; preds = %if.end9.i.i, %for.cond111
   %71 = phi i32 [ %.pre.i.i273, %for.cond111 ], [ %72, %if.end9.i.i ]
   %__i.0.idx.i.i = phi i64 [ -4, %for.cond111 ], [ %__i.0.add.i.i, %if.end9.i.i ]
-  %incdec.ptr5.ptr.i.i = getelementptr inbounds i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
+  %incdec.ptr5.ptr.i.i = getelementptr i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
   %72 = load i32, ptr %incdec.ptr5.ptr.i.i, align 4
   %cmp.i.i.i274 = icmp slt i32 %72, %71
   br i1 %cmp.i.i.i274, label %while.cond.i.i, label %if.end9.i.i
@@ -67040,7 +67040,7 @@ for.cond113:                                      ; preds = %for.cond113.prehead
 for.cond.i.i:                                     ; preds = %if.end9.i.i, %for.cond113
   %123 = phi i32 [ %.pre.i.i288, %for.cond113 ], [ %124, %if.end9.i.i ]
   %__i.0.idx.i.i = phi i64 [ -4, %for.cond113 ], [ %__i.0.add.i.i, %if.end9.i.i ]
-  %incdec.ptr5.ptr.i.i = getelementptr inbounds i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
+  %incdec.ptr5.ptr.i.i = getelementptr i8, ptr %valueArrayInsert.sroa.29.4.pn, i64 %__i.0.idx.i.i
   %124 = load i32, ptr %incdec.ptr5.ptr.i.i, align 4
   %cmp.i.i.i289 = icmp slt i32 %124, %123
   br i1 %cmp.i.i.i289, label %while.cond.i.i, label %if.end9.i.i

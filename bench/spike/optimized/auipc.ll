@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @_Z16fast_rv32i_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %.not.i = icmp eq i64 %5, 0
@@ -125,7 +125,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32i_auipcP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_auipcP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 4294963200
   %5 = add i64 %4, %2
   %6 = shl i64 %5, 32
@@ -285,7 +285,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16fast_rv32e_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_auipcP11processor_t6insn_tm(ptr nocapture noundef writeonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = icmp ugt i64 %5, 15
@@ -374,7 +374,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %12, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32e_auipcP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_auipcP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 4294963200
   %5 = add i64 %4, %2
   %6 = shl i64 %5, 32

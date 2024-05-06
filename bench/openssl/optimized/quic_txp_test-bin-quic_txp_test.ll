@@ -226,17 +226,17 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_script(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_script(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [18 x ptr], ptr @scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef %0), !range !5
+  %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef %0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_dyn_script_1(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_dyn_script_1(i32 noundef %idx) #0 {
 entry:
   %conv = sext i32 %idx to i64
   %add = add nsw i64 %conv, 1000
@@ -253,7 +253,7 @@ if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i32 [ 9, %if.then ], [ 23, %entry ]
   store i32 %.sink4, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9), align 16
   store i32 %.sink, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10), align 16
-  %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef nonnull @dyn_script_1), !range !5
+  %call = tail call fastcc i32 @run_script(i32 noundef %idx, ptr noundef nonnull @dyn_script_1)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.then3, label %return
 
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @run_script(i32 noundef %script_idx, ptr nocapture noundef readonly %script) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @run_script(i32 noundef %script_idx, ptr nocapture noundef readonly %script) unnamed_addr #0 {
 entry:
   %frame_type.i61 = alloca i64, align 8
   %frame_type.i = alloca i64, align 8
@@ -412,7 +412,7 @@ if.end88.i:                                       ; preds = %if.end79.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.067.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end88.i
   %i.067.i = phi i64 [ 0, %if.end88.i ], [ %inc.i, %for.cond.i ]
@@ -764,7 +764,7 @@ lor.lhs.false64.i:                                ; preds = %lor.lhs.false55.i
 lor.lhs.false68.i:                                ; preds = %lor.lhs.false64.i
   %dst_conn_id.i = getelementptr inbounds i8, ptr %42, i64 8
   %dst_conn_id69.i = getelementptr inbounds i8, ptr %43, i64 8
-  %call70.i = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %dst_conn_id.i, ptr noundef nonnull %dst_conn_id69.i), !range !5
+  %call70.i = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %dst_conn_id.i, ptr noundef nonnull %dst_conn_id69.i)
   %call72.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @.str.90, i32 noundef %call70.i) #8
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %if.then95.i, label %lor.lhs.false74.i
@@ -772,7 +772,7 @@ lor.lhs.false68.i:                                ; preds = %lor.lhs.false64.i
 lor.lhs.false74.i:                                ; preds = %lor.lhs.false68.i
   %src_conn_id.i = getelementptr inbounds i8, ptr %42, i64 29
   %src_conn_id75.i = getelementptr inbounds i8, ptr %43, i64 29
-  %call76.i56 = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %src_conn_id.i, ptr noundef nonnull %src_conn_id75.i), !range !5
+  %call76.i56 = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %src_conn_id.i, ptr noundef nonnull %src_conn_id75.i)
   %call79.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 34, ptr noundef nonnull @.str.91, i32 noundef %call76.i56) #8
   %tobool80.not.i = icmp eq i32 %call79.i, 0
   br i1 %tobool80.not.i, label %if.then95.i, label %lor.lhs.false81.i
@@ -1318,7 +1318,7 @@ sw.default461:                                    ; preds = %for.cond
 for.inc:                                          ; preds = %for.cond, %if.end9, %if.end46, %if.end58, %if.then111, %if.end351, %if.end363, %if.end455, %sw.bb458, %land.lhs.true20, %sw.bb13, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb219, %sw.bb209, %sw.bb199, %sw.bb189, %sw.bb179, %sw.bb165, %sw.bb152, %sw.bb142, %sw.bb133, %sw.bb124, %sw.bb115, %skip_padding.exit69, %if.end250, %sw.bb265, %if.end287, %lor.lhs.false316, %if.end384, %if.end412, %sw.bb426
   %incdec.ptr = getelementptr inbounds i8, ptr %op.0, i64 48
   %inc = add i64 %opn.0, 1
-  br label %for.cond, !llvm.loop !8
+  br label %for.cond, !llvm.loop !7
 
 if.end466.thread86:                               ; preds = %land.lhs.true, %land.lhs.true20, %sw.bb26, %PACKET_buf_init.exit, %sw.bb47, %sw.bb60, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb115, %sw.bb124, %sw.bb133, %sw.bb142, %sw.bb152, %sw.bb165, %sw.bb179, %sw.bb189, %sw.bb199, %sw.bb209, %sw.bb219, %skip_padding.exit69, %sw.bb236, %if.end250, %sw.bb265, %sw.bb276, %if.end287, %sw.bb293, %sw.bb326, %if.end336, %if.end346, %sw.bb354, %sw.bb365, %if.end374, %if.end384, %sw.bb393, %if.end402, %if.end412, %sw.bb426, %sw.bb437, %if.end446, %sw.default, %if.then321, %sw.default461
   %add89 = add nsw i32 %script_idx, 1
@@ -1457,7 +1457,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call = tail call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %1, i32 noundef %pn_space.024) #8
   %inc = add nuw nsw i32 %pn_space.024, 1
   %exitcond.not = icmp eq i32 %inc, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
   %2 = load ptr, ptr %h, align 8
@@ -1517,7 +1517,7 @@ for.body14:                                       ; preds = %if.end11, %for.body
   tail call void @ossl_quic_sstream_free(ptr noundef %11) #8
   %inc17 = add nuw nsw i64 %i.025, 1
   %exitcond26.not = icmp eq i64 %inc17, 3
-  br i1 %exitcond26.not, label %for.end18, label %for.body14, !llvm.loop !10
+  br i1 %exitcond26.not, label %for.end18, label %for.body14, !llvm.loop !9
 
 for.end18:                                        ; preds = %for.body14
   %12 = load ptr, ptr %ackm, align 8
@@ -1572,7 +1572,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @ossl_quic_conn_id_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ossl_quic_conn_id_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %a, align 1
   %1 = load i8, ptr %b, align 1
@@ -1644,7 +1644,7 @@ entry:
 declare void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @schedule_max_data(ptr noundef %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_max_data(ptr noundef %h) #0 {
 entry:
   %stream_rxfc = getelementptr inbounds i8, ptr %h, i64 472
   %call = tail call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %stream_rxfc) #8
@@ -1676,7 +1676,7 @@ declare i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef, i64 noundef, i32 nou
 declare i32 @ossl_quic_rxfc_on_retire(ptr noundef, i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @schedule_cfq_new_conn_id(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_cfq_new_conn_id(ptr nocapture noundef readonly %h) #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %l = alloca i64, align 8
@@ -1746,7 +1746,7 @@ if.end29:                                         ; preds = %if.then28, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_cfq_new_conn_id(ptr noundef %h) #0 {
+define internal range(i32 0, 2) i32 @check_cfq_new_conn_id(ptr noundef %h) #0 {
 entry:
   %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
@@ -1803,7 +1803,7 @@ entry:
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @schedule_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %l = alloca i64, align 8
@@ -1863,7 +1863,7 @@ if.end29:                                         ; preds = %if.then28, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
 entry:
   %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load ptr, ptr %frame, align 8
@@ -1878,7 +1878,7 @@ entry:
 declare i32 @ossl_quic_wire_encode_frame_new_token(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @schedule_ack(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_ack(ptr nocapture noundef readonly %h) #0 {
 entry:
   %rx_pkt = alloca %struct.ossl_ackm_rx_pkt_st, align 8
   %0 = getelementptr inbounds i8, ptr %rx_pkt, i64 8
@@ -1891,7 +1891,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.03, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.03 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
@@ -1918,7 +1918,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @ossl_ackm_on_rx_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_9(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_9(ptr nocapture noundef readonly %h) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %h, i64 1104
   %0 = load ptr, ptr %data, align 8
@@ -1931,7 +1931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @check_stream_10a(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10a(ptr nocapture noundef readonly %h) #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -1967,7 +1967,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @check_stream_10b(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10b(ptr nocapture noundef readonly %h) #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2003,7 +2003,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_10c(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10c(ptr nocapture noundef readonly %h) #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2034,7 +2034,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_10d(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10d(ptr nocapture noundef readonly %h) #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2069,7 +2069,7 @@ declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare i32 @test_uint64_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_12(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_12(ptr nocapture noundef readonly %h) #0 {
 entry:
   %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
@@ -2091,7 +2091,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_13(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_13(ptr nocapture noundef readonly %h) #0 {
 entry:
   %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
@@ -2120,7 +2120,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gen_conn_close(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @gen_conn_close(ptr nocapture noundef readonly %h) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   store i64 0, ptr %f, align 8
@@ -2143,7 +2143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_14(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_14(ptr nocapture noundef readonly %h) #0 {
 entry:
   %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %bf.load = load i8, ptr %frame, align 8
@@ -2225,7 +2225,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @try_big_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @try_big_token(ptr nocapture noundef readonly %h) #0 {
 entry:
   %0 = load ptr, ptr %h, align 8
   %call = tail call i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef %0, ptr noundef nonnull @big_token, i64 noundef 1950, ptr noundef null, ptr noundef null) #8
@@ -2261,7 +2261,7 @@ return:                                           ; preds = %for.cond, %if.end5,
 declare i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @check_is_handshake(ptr nocapture noundef readonly %h) #5 {
+define internal range(i32 0, 2) i32 @check_is_handshake(ptr nocapture noundef readonly %h) #5 {
 entry:
   %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
@@ -2274,7 +2274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @check_is_initial(ptr nocapture noundef readonly %h) #5 {
+define internal range(i32 0, 2) i32 @check_is_initial(ptr nocapture noundef readonly %h) #5 {
 entry:
   %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
@@ -2312,10 +2312,9 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

@@ -62,7 +62,7 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
   %15 = load i8, ptr %14, align 2
   %16 = zext nneg i8 %15 to i64
   %17 = lshr i64 4096, %16
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = trunc i64 %2 to i32
   %20 = trunc i64 %3 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
@@ -319,7 +319,7 @@ declare dso_local void @lock_two_nondirectories(ptr noundef, ptr noundef) local_
 declare dso_local void @inode_dio_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc i32 @mext_check_arguments(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -95, 1) i32 @mext_check_arguments(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #3 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 142
   %7 = load i8, ptr %6, align 2
   %8 = zext nneg i8 %7 to i32

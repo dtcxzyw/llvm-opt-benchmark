@@ -81,7 +81,7 @@ for.end43:                                        ; preds = %for.body33
   %call54 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call53, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.4)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.end43
+for.body.i:                                       ; preds = %for.end43, %for.body.i
   %rng.sroa.0.0 = phi i64 [ %conv48, %for.end43 ], [ %xor.i.i.i.i, %for.body.i ]
   %swapIter.08.i = phi i64 [ 1, %for.end43 ], [ %add.i, %for.body.i ]
   %add.ptr.i = getelementptr inbounds i32, ptr %intArray, i64 %swapIter.08.i
@@ -431,7 +431,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
 for.end13:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc6.us, %for.inc.us ], [ %inc6, %for.inc ]
   %bReturnValue.0.lcssa = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
-  %tobool14 = trunc i8 %bReturnValue.0.lcssa to i1
+  %tobool14 = trunc nuw i8 %bReturnValue.0.lcssa to i1
   br i1 %tobool14, label %if.then15, label %if.end49
 
 if.then15:                                        ; preds = %entry, %for.end13
@@ -514,7 +514,7 @@ if.else46:                                        ; preds = %do.end
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end26, %for.end13
   %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa48, %vaarg.end26 ], [ %bReturnValue.0.lcssa, %for.end13 ], [ 0, %if.else46 ], [ 0, %if.then45 ]
   call void @llvm.va_end.p0(ptr nonnull %args)
-  %tobool51 = trunc i8 %bReturnValue.2 to i1
+  %tobool51 = trunc nuw i8 %bReturnValue.2 to i1
   ret i1 %tobool51
 }
 

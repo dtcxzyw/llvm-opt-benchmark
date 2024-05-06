@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [35 x i8] c"Bad netmask '/%s' for LocalNet %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nc_send(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [256 x i8], align 16
   %6 = alloca %struct.fd_set, align 8
@@ -543,7 +543,7 @@ define dso_local void @nc_ping_entry(ptr nocapture noundef %0) local_unnamed_add
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @nc_send(i32 noundef %2, ptr noundef nonnull @.str.9, i64 noundef 6), !range !5
+  %5 = tail call i32 @nc_send(i32 noundef %2, ptr noundef nonnull @.str.9, i64 noundef 6)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %14
 
@@ -582,7 +582,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @cpool_get_rand(ptr noundef %0) #13
   %.not = icmp eq ptr %5, null
@@ -614,7 +614,7 @@ define dso_local noundef i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, pt
   %21 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %21) #13
   %22 = load i32, ptr %0, align 4
-  %23 = call i32 @nc_send(i32 noundef %22, ptr noundef nonnull @.str.12, i64 noundef 8), !range !5
+  %23 = call i32 @nc_send(i32 noundef %22, ptr noundef nonnull @.str.12, i64 noundef 8)
   %.not15 = icmp eq i32 %23, 0
   br i1 %.not15, label %37, label %24
 
@@ -628,7 +628,7 @@ define dso_local noundef i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, pt
 
 30:                                               ; preds = %6
   %31 = load i32, ptr %0, align 4
-  %32 = tail call i32 @nc_send(i32 noundef %31, ptr noundef nonnull @.str.14, i64 noundef 10), !range !5
+  %32 = tail call i32 @nc_send(i32 noundef %31, ptr noundef nonnull @.str.14, i64 noundef 10)
   %.not13 = icmp eq i32 %32, 0
   br i1 %.not13, label %37, label %33
 
@@ -651,7 +651,7 @@ declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @islocalnet_name(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @islocalnet_name(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @lnet, align 8
@@ -659,7 +659,7 @@ define dso_local noundef i32 @islocalnet_name(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %islocalnet.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = call fastcc i32 @resolve(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2), !range !5
+  %6 = call fastcc i32 @resolve(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
   %.not2 = icmp eq i32 %6, 0
   br i1 %.not2, label %9, label %7
 
@@ -737,7 +737,7 @@ islocalnet.exit:                                  ; preds = %51, %44, %9, %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resolve(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -839,7 +839,7 @@ define internal fastcc noundef i32 @resolve(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @islocalnet_sock(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = alloca [4 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr @lnet, align 8
@@ -1015,7 +1015,7 @@ define dso_local void @localnets_free() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @localnets_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.17) #13
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
@@ -1053,7 +1053,7 @@ define dso_local noundef i32 @localnets_init(ptr noundef %0) local_unnamed_addr 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %14, i64 40
   %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = tail call fastcc i32 @resolve(ptr noundef %spec.store.select, ptr noundef nonnull %18, ptr noundef nonnull %19), !range !5
+  %20 = tail call fastcc i32 @resolve(ptr noundef %spec.store.select, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %.not48.i = icmp eq i32 %20, 0
   br i1 %.not48.i, label %22, label %21
 
@@ -1220,4 +1220,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

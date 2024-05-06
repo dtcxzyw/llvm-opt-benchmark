@@ -2974,7 +2974,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119GetTransitiveUsagesERK18CxxModul
   store ptr %12, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 0, ptr %16, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not3461 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not3461, label %._crit_edge67, label %.lr.ph
 

@@ -166,7 +166,7 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %p
   %call1.i = call i64 @memory_region_size(ptr noundef %call.i10) #8
   %add.i = shl i64 %call1.i, 1
   %sub.i = add i64 %add.i, -1
-  %6 = call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !8
+  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub3.i = xor i64 %6, 63
   %shl.i = shl nuw i64 1, %sub3.i
   %call4.i = call zeroext i1 @memory_region_is_mapped(ptr noundef %call.i10) #8
@@ -189,7 +189,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %9 = load i32, ptr %mmio_size.i, align 16
   %conv.i11 = zext i32 %9 to i64
   %cmp.i = icmp ult i64 %add8.i, %conv.i11
-  br i1 %cmp.i, label %for.body.i, label %if.then10.i, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %if.then10.i, !llvm.loop !8
 
 if.then10.i:                                      ; preds = %for.cond.preheader.i, %for.inc.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, i64 noundef %call1.i) #8
@@ -204,7 +204,7 @@ platform_bus_map_mmio.exit:                       ; preds = %for.body3, %if.end1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
   %inc5 = add i32 %i.119, 1
   %call2 = call zeroext i1 @sysbus_has_mmio(ptr noundef %sbdev, i32 noundef %inc5) #8
-  br i1 %call2, label %for.body3, label %for.end6, !llvm.loop !10
+  br i1 %call2, label %for.body3, label %for.end6, !llvm.loop !9
 
 for.end6:                                         ; preds = %platform_bus_map_mmio.exit, %for.cond1.preheader
   ret void
@@ -312,7 +312,7 @@ for.body:                                         ; preds = %bitmap_new.exit, %f
   %inc = add nuw i32 %i.019, 1
   %7 = load i32, ptr %num_irqs, align 16
   %cmp = icmp ult i32 %inc, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %8 = load ptr, ptr %used_irqs, align 16
@@ -329,7 +329,7 @@ if.else.i.i:                                      ; preds = %for.end
   %sub.i.i16 = add nuw nsw i64 %conv.i, 63
   %10 = lshr i64 %sub.i.i16, 3
   %mul.i.i17 = and i64 %10, 1073741816
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %mul.i.i17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %8, i8 0, i64 %mul.i.i17, i1 false)
   br label %plaform_bus_refresh_irqs.exit
 
 plaform_bus_refresh_irqs.exit:                    ; preds = %if.then.i.i, %if.else.i.i
@@ -386,7 +386,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.cond2:                                        ; preds = %for.body
   %inc = add nuw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %0
-  br i1 %exitcond.not, label %for.inc6, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.inc6, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond2
   %i.010 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond2 ]
@@ -444,8 +444,7 @@ attributes #11 = { nounwind allocsize(0,1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

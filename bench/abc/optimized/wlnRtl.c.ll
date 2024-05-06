@@ -204,7 +204,7 @@ define ptr @Wln_GetYosysName() local_unnamed_addr #0 {
 declare ptr @Abc_FrameReadFlag(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Wln_ConvertToRtl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Wln_ConvertToRtl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 @system(ptr noundef %0) #12
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %8
@@ -427,10 +427,10 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %.not42, label %55, label %50
 
 50:                                               ; preds = %49
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %52 = add i64 %51, 1
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #10
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %1) #12
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   br label %58
 
 55:                                               ; preds = %49

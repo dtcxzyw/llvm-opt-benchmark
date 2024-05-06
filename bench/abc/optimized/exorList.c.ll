@@ -578,7 +578,7 @@ define i32 @GetQuequeStats(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   store i32 %0, ptr @s_Iter.1, align 8
   store ptr %1, ptr @s_Iter.2, align 8
   store ptr %2, ptr @s_Iter.3, align 8
@@ -2352,7 +2352,7 @@ define void @PrintQuequeStats() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @IteratorCubePairNext() local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @IteratorCubePairNext() local_unnamed_addr #3 {
   %1 = load i32, ptr @s_Iter.1, align 8
   %2 = zext i32 %1 to i64
   %3 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %2

@@ -959,7 +959,7 @@ define hidden noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 32) i32 @_ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   br label %switch.lookup
 
 2:                                                ; preds = %switch.lookup
@@ -2949,13 +2949,13 @@ define hidden { ptr, i64 } @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN73_$LT$wasmtime_types..DataIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h12bedf4781eba19bE.llvm.9151662839961121684"(i32 noundef %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN73_$LT$wasmtime_types..DataIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h12bedf4781eba19bE.llvm.9151662839961121684"(i32 noundef %0) unnamed_addr #1 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN73_$LT$wasmtime_types..ElemIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h5c5749c01a39258fE.llvm.9151662839961121684"(i32 noundef %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN73_$LT$wasmtime_types..ElemIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h5c5749c01a39258fE.llvm.9151662839961121684"(i32 noundef %0) unnamed_addr #1 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -3098,7 +3098,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime2gc7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN16wasmtime_runtime2gc7enabled9externref11VMExternRef5clone17h983d295de883f85bE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #0 {
+define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc7enabled9externref11VMExternRef5clone17h983d295de883f85bE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %3 = load i32, ptr %0, align 4, !range !187, !alias.scope !185, !noalias !182, !noundef !14
@@ -3145,7 +3145,7 @@ _ZN16wasmtime_runtime2gc7GcStore11drop_gc_ref17hfb1c4a2e2b0219d5E.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN16wasmtime_runtime2gc7enabled9externref11VMExternRef14unchecked_copy17h61706fe7167581bcE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #8 {
+define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc7enabled9externref11VMExternRef14unchecked_copy17h61706fe7167581bcE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4, !range !187, !alias.scope !192, !noundef !14
   ret i32 %2
 }

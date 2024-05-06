@@ -98,7 +98,7 @@ return:                                           ; preds = %if.end5.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
 entry:
   %storage = alloca [16 x i64], align 16
   %top = getelementptr inbounds i8, ptr %m, i64 8
@@ -231,9 +231,9 @@ declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) lo
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mod_add_quick(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_add_quick(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m), !range !8
+  %call = tail call i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -289,7 +289,7 @@ return:                                           ; preds = %if.end5.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_mod_sub_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %m, i64 8
   %0 = load i32, ptr %top, align 8
@@ -357,7 +357,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add44 = add i64 %shr43, %bi.071
   %sub46 = sub nsw i64 0, %borrow.1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
   %10 = load ptr, ptr %m, align 8
@@ -381,7 +381,7 @@ for.body50:                                       ; preds = %for.end, %for.body5
   %add66 = add nuw nsw i64 %conv65, %conv57
   %inc67 = add nuw i64 %i.179, 1
   %exitcond85.not = icmp eq i64 %inc67, %conv
-  br i1 %exitcond85.not, label %for.end68, label %for.body50, !llvm.loop !10
+  br i1 %exitcond85.not, label %for.end68, label %for.body50, !llvm.loop !9
 
 for.end68:                                        ; preds = %for.body50
   %sub69.neg = sub nsw i64 %add66, %borrow.1
@@ -405,7 +405,7 @@ for.body74:                                       ; preds = %for.end68, %for.bod
   %add90 = add nuw nsw i64 %conv89, %conv81
   %inc92 = add nuw i64 %i.283, 1
   %exitcond86.not = icmp eq i64 %inc92, %conv
-  br i1 %exitcond86.not, label %for.end93, label %for.body74, !llvm.loop !11
+  br i1 %exitcond86.not, label %for.end93, label %for.body74, !llvm.loop !10
 
 for.end93:                                        ; preds = %for.body74, %if.end, %for.end, %for.end68
   %top95 = getelementptr inbounds i8, ptr %r, i64 8
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #3
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
@@ -606,7 +606,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mod_lshift(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_lshift(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %r, %m
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -657,7 +657,7 @@ if.end7:                                          ; preds = %if.end5, %if.end
   %abs_m.0 = phi ptr [ %call3, %if.end5 ], [ null, %if.end ]
   %tobool8.not = icmp eq ptr %abs_m.0, null
   %cond = select i1 %tobool8.not, ptr %m, ptr %abs_m.0
-  %call9 = tail call i32 @BN_mod_lshift_quick(ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %n, ptr noundef %cond), !range !8
+  %call9 = tail call i32 @BN_mod_lshift_quick(ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %n, ptr noundef %cond)
   tail call void @BN_free(ptr noundef %abs_m.0) #3
   br label %return
 
@@ -669,7 +669,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mod_lshift_quick(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %r, %a
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -733,7 +733,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end31:                                         ; preds = %if.then26, %if.end23
   %cmp4 = icmp sgt i32 %n.addr.1, 0
-  br i1 %cmp4, label %while.body, label %return, !llvm.loop !12
+  br i1 %cmp4, label %while.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %if.then13, %if.else, %if.then26, %if.end31, %if.end3, %if.then, %if.then8
   %retval.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then ], [ 1, %if.end3 ], [ 0, %if.then13 ], [ 0, %if.else ], [ 0, %if.then26 ], [ 1, %if.end31 ]
@@ -766,8 +766,7 @@ attributes #3 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

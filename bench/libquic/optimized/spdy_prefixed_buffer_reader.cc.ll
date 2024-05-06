@@ -175,7 +175,7 @@ if.end.i:                                         ; preds = %_ZNSt10unique_ptrIA
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit.i:               ; preds = %if.end.i
   %10 = load ptr, ptr %this, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %7, ptr align 1 %10, i64 %count, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %7, ptr align 1 %10, i64 %count, i1 false)
   %.pre.i = load i64, ptr %prefix_length_.i, align 8
   %11 = load ptr, ptr %this, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %11, i64 %count
@@ -194,7 +194,7 @@ if.end21.thread.i:                                ; preds = %if.else.i
 
 if.end21.i:                                       ; preds = %if.else.i
   %12 = load ptr, ptr %this, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %7, ptr align 1 %12, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %7, ptr align 1 %12, i64 %8, i1 false)
   %add.ptr.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %7, i64 %8
   %13 = load i64, ptr %prefix_length_.i, align 8
   %sub18.i = sub i64 %count, %13

@@ -190,7 +190,7 @@ declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = load i16, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9), align 1
   %5 = zext i16 %4 to i32
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5) #11
@@ -212,7 +212,7 @@ define internal noundef i64 @boot_params_data_read(ptr nocapture readnone %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @get_setup_data_total_num(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   store i32 0, ptr %1, align 4
   br label %3
 
@@ -296,7 +296,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @get_setup_data_size(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.loopexit, label %.preheader
@@ -369,7 +369,7 @@ define internal fastcc noundef i32 @get_setup_data_size(i32 noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @setup_data_data_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) #9 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) #9 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4, !annotation !5
@@ -493,7 +493,7 @@ define internal i64 @setup_data_data_read(ptr nocapture readnone %0, ptr nocaptu
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !5

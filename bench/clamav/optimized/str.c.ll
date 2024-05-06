@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hex_chars = internal unnamed_addr constant [256 x i32] [i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -292,7 +292,7 @@ cli_hex2str_to.exit:                              ; preds = %25, %10, %6, %32, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_hex2str_to(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_hex2str_to(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -535,7 +535,7 @@ define ptr @cli_str2hex(ptr nocapture noundef readonly %0, i32 noundef %1) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @cli_strbcasestr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_strbcasestr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
@@ -562,7 +562,7 @@ define i32 @cli_strbcasestr(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define i32 @cli_chomp(ptr noundef %0) local_unnamed_addr #8 {
+define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -1507,7 +1507,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #17 {
+define range(i32 0, 28) i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #17 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = icmp ne i64 %1, 0
@@ -1557,7 +1557,7 @@ define noundef i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #17 {
+define range(i32 0, 28) i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #17 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = icmp ne i64 %1, 0
@@ -1701,7 +1701,7 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @cli_isnumber(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @cli_isnumber(ptr noundef readonly %0) local_unnamed_addr #20 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1953,7 +1953,7 @@ output_utf8.exit:                                 ; preds = %96, %99, %104, %111
 declare ptr @cli_max_realloc_or_free(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_textbuffer_append_normalize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %textbuffer_ensure_capacity.exit, label %.lr.ph
 
@@ -2196,7 +2196,7 @@ textbuffer_ensure_capacity.exit:                  ; preds = %128, %72, %120, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @cli_hexnibbles(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @cli_hexnibbles(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2227,7 +2227,7 @@ define noundef i32 @cli_hexnibbles(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 27) i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

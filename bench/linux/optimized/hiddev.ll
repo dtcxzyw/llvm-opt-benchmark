@@ -337,7 +337,7 @@ define dso_local i32 @hiddev_connect(ptr noundef %0, i32 noundef %1) local_unnam
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds i8, ptr %38, i64 100
   %59 = lshr i32 %57, 29
-  %60 = trunc i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = and i8 %60, 1
   store i8 %61, ptr %58, align 4
   %62 = load ptr, ptr %49, align 8
@@ -687,7 +687,7 @@ define internal noundef i64 @hiddev_write(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hiddev_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 70) i32 @hiddev_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 49176
@@ -729,7 +729,7 @@ define internal i32 @hiddev_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hiddev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.hiddev_collection_info, align 4
   %5 = alloca %struct.hiddev_report_info, align 4
   %6 = alloca %struct.hiddev_field_info, align 4
@@ -1722,7 +1722,7 @@ hiddev_ioctl_string.exit:                         ; preds = %51, %.thread.i, %27
 declare dso_local i64 @compat_ptr_ioctl(ptr noundef, i32 noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hiddev_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @hiddev_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1048575

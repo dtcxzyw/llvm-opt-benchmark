@@ -2272,7 +2272,7 @@ $_ZTIZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 @_ZN14asio_prefer_fn15static_instanceINS_4implEE8instanceE = linkonce_odr dso_local constant %"struct.asio_prefer_fn::impl" undef, comdat, align 1
 @_ZN4asio9execution6detail10blocking_tILi0EE5neverE = linkonce_odr dso_local constant %"struct.asio::execution::detail::blocking::never_t" undef, comdat, align 1
 @_ZN4asio9execution6detail14relationship_tILi0EE4forkE = linkonce_odr dso_local constant %"struct.asio::execution::detail::relationship::fork_t" undef, comdat, align 1
-@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local global ptr null, comdat, align 8
+@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTSN4asio19multiple_exceptionsE = linkonce_odr dso_local constant [29 x i8] c"N4asio19multiple_exceptionsE\00", comdat, align 1
 @_ZTISt9exception = external constant ptr
 @_ZTIN4asio19multiple_exceptionsE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4asio19multiple_exceptionsE, ptr @_ZTISt9exception }, comdat, align 8
@@ -2280,7 +2280,7 @@ $_ZTIZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 @.str.53 = private unnamed_addr constant [20 x i8] c"multiple exceptions\00", align 1
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
 @_ZTISt9bad_alloc = external constant ptr
-@_ZZN7coro_io11get_currentEvE7current = linkonce_odr dso_local thread_local global ptr null, comdat, align 8
+@_ZZN7coro_io11get_currentEvE7current = linkonce_odr dso_local thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableINS_10io_context19basic_executor_typeISaIvELm0EEEEEPKNS2_10target_fnsEbPNSt9enable_ifIXntsr7is_sameIT_vEE5valueEvE4typeEE16fns_with_execute = linkonce_odr dso_local constant %"struct.asio::execution::detail::any_executor_base::target_fns" { ptr @_ZN4asio9execution6detail17any_executor_base14target_type_exINS_10io_context19basic_executor_typeISaIvELm0EEEEERKSt9type_infov, ptr @_ZN4asio9execution6detail17any_executor_base8equal_exINS_10io_context19basic_executor_typeISaIvELm0EEEEEbRKS2_S9_, ptr @_ZN4asio9execution6detail17any_executor_base10execute_exINS_10io_context19basic_executor_typeISaIvELm0EEEEEvRKS2_ONS_6detail17executor_functionE, ptr null }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN4asio10io_context19basic_executor_typeISaIvELm0EEE = linkonce_odr dso_local constant [52 x i8] c"N4asio10io_context19basic_executor_typeISaIvELm0EEE\00", comdat, align 1
@@ -2458,7 +2458,7 @@ $_ZTIZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 @.str.94 = private unnamed_addr constant [20 x i8] c"get file size error\00", align 1
 @.str.95 = private unnamed_addr constant [4 x i8] c"\EF\BB\BF\00", align 1
 @_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E3buf = linkonce_odr dso_local thread_local global [33 x i8] zeroinitializer, comdat, align 16
-@_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E9last_sec_ = linkonce_odr dso_local thread_local global %"class.std::chrono::duration.44" zeroinitializer, comdat, align 8
+@_ZZN7easylog12get_time_strINSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEPcRKT_E9last_sec_ = linkonce_odr dso_local thread_local local_unnamed_addr global %"class.std::chrono::duration.44" zeroinitializer, comdat, align 8
 @_ZN7easylogL6digitsE = internal unnamed_addr constant [10 x i8] c"0123456789", align 1
 @.str.96 = private unnamed_addr constant [9 x i8] c"TRACE   \00", align 1
 @.str.97 = private unnamed_addr constant [9 x i8] c"DEBUG   \00", align 1
@@ -2468,13 +2468,13 @@ $_ZTIZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 @.str.101 = private unnamed_addr constant [9 x i8] c"CRITICAL\00", align 1
 @.str.102 = private unnamed_addr constant [9 x i8] c"NONE    \00", align 1
 @_ZZN7easylog8appender11get_tid_bufEjE3buf = linkonce_odr dso_local thread_local global [24 x i8] zeroinitializer, comdat, align 16
-@_ZZN7easylog8appender11get_tid_bufEjE8last_tid = linkonce_odr dso_local thread_local global i32 0, comdat, align 4
-@_ZZN7easylog8appender11get_tid_bufEjE8last_len = linkonce_odr dso_local thread_local global i64 0, comdat, align 8
+@_ZZN7easylog8appender11get_tid_bufEjE8last_tid = linkonce_odr dso_local thread_local local_unnamed_addr global i32 0, comdat, align 4
+@_ZZN7easylog8appender11get_tid_bufEjE8last_len = linkonce_odr dso_local thread_local local_unnamed_addr global i64 0, comdat, align 8
 @.str.103 = private unnamed_addr constant [6 x i8] c"\1B[93m\00", align 1
 @.str.104 = private unnamed_addr constant [6 x i8] c"\1B[91m\00", align 1
 @.str.105 = private unnamed_addr constant [11 x i8] c"\1B[97m\1B[41m\00", align 1
 @.str.106 = private unnamed_addr constant [9 x i8] c"\1B[0m\1B[0K\00", align 1
-@_ZZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local global i32 0, comdat, align 4
+@_ZZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local local_unnamed_addr global i32 0, comdat, align 4
 @_ZGVZN7easylog8record_t8_get_tidEvE3tid = linkonce_odr dso_local thread_local local_unnamed_addr global i64 0, comdat, align 8
 @_ZZN10moodycamel7details9thread_idEvE1x = linkonce_odr dso_local thread_local global i32 0, comdat, align 4
 @_ZTSN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseE = linkonce_odr dso_local constant [101 x i8] c"N10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseE\00", comdat, align 1
@@ -2549,8 +2549,8 @@ $_ZTIZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 @_ZTISt12future_error = external constant ptr
 @_ZTVSt12future_error = external unnamed_addr constant { [5 x ptr] }, align 8
 @.str.123 = private unnamed_addr constant [20 x i8] c"std::future_error: \00", align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED2Ev, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED0Ev, ptr @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEE6_M_runEv] }, comdat, align 8
 @_ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local constant [158 x i8] c"NSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE\00", comdat, align 1
 @_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io17g_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, ptr @_ZTINSt6thread6_StateE }, comdat, align 8
@@ -2828,9 +2828,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp5, align 1, !alias.scope !6
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11hello_worldB5cxx11vENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11hello_worldB5cxx11vENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call2, i32 noundef 3, i64 21, ptr nonnull %ref.tmp5)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -3146,9 +3146,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp5, align 1, !alias.scope !10
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ7A_add_BiiENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ7A_add_BiiENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call2, i32 noundef 3, i64 21, ptr nonnull %ref.tmp5)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -3282,9 +3282,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp5, align 1, !alias.scope !13
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call2, i32 noundef 3, i64 21, ptr nonnull %ref.tmp5)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -4036,9 +4036,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp5, align 1, !alias.scope !25
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call2, i32 noundef 3, i64 21, ptr nonnull %ref.tmp5)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -4439,9 +4439,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp5, align 1, !alias.scope !31
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call2, i32 noundef 3, i64 21, ptr nonnull %ref.tmp5)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -5484,9 +5484,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp6, align 1, !alias.scope !43
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZN12HelloService5helloB5cxx11EvENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZN12HelloService5helloB5cxx11EvENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call3, i32 noundef 3, i64 21, ptr nonnull %ref.tmp6)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -5632,9 +5632,9 @@ if.else:                                          ; preds = %_ZN7easylog6loggerI
   %call3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #30
   store i8 91, ptr %ref.tmp6, align 1, !alias.scope !46
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i64 %call3, i32 noundef 3, i64 21, ptr nonnull %ref.tmp6)
   invoke void @_ZN7easylog8record_t20printf_string_formatIJRA2_KcEEEvPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
           to label %invoke.cont unwind label %lpad
@@ -48185,7 +48185,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %1 = getelementptr inbounds i8, ptr %__source.val5, i64 16
   %2 = load ptr, ptr %1, align 8
@@ -63645,9 +63645,9 @@ if.else:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %ref.tmp17) #30
   store i8 91, ptr %ref.tmp17, align 1, !alias.scope !836
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp11, i64 %call13, i32 noundef 3, i64 21, ptr nonnull %ref.tmp17)
           to label %invoke.cont24 unwind label %lpad19
 
@@ -63928,9 +63928,9 @@ if.else74:                                        ; preds = %invoke.cont69
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %ref.tmp81) #30
   store i8 91, ptr %ref.tmp81, align 1, !alias.scope !849
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i37 = getelementptr inbounds i8, ptr %ref.tmp81, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i37, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i37, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i38 = getelementptr inbounds i8, ptr %ref.tmp81, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i38, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i38, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp75, i64 %call77, i32 noundef 3, i64 21, ptr nonnull %ref.tmp81)
           to label %invoke.cont88 unwind label %lpad83
 
@@ -71432,9 +71432,9 @@ if.else:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %ref.tmp17) #30
   store i8 91, ptr %ref.tmp17, align 1, !alias.scope !1024
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp11, i64 %call13, i32 noundef 3, i64 21, ptr nonnull %ref.tmp17)
           to label %invoke.cont24 unwind label %lpad19
 
@@ -71913,9 +71913,9 @@ if.else134:                                       ; preds = %invoke.cont129
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %ref.tmp141) #30
   store i8 91, ptr %ref.tmp141, align 1, !alias.scope !1050
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i71 = getelementptr inbounds i8, ptr %ref.tmp141, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i71, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i71, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i72 = getelementptr inbounds i8, ptr %ref.tmp141, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i72, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i72, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp135, i64 %call137, i32 noundef 3, i64 21, ptr nonnull %ref.tmp141)
           to label %invoke.cont148 unwind label %lpad143
 
@@ -72189,9 +72189,9 @@ if.else197:                                       ; preds = %invoke.cont192
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %ref.tmp204) #30
   store i8 91, ptr %ref.tmp204, align 1, !alias.scope !1066
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i130 = getelementptr inbounds i8, ptr %ref.tmp204, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i130, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv.prefix", i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(18) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i130, ptr noundef nonnull align 1 dereferenceable(18) @"__const._ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv.prefix", i64 18, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i131 = getelementptr inbounds i8, ptr %ref.tmp204, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i131, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i131, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp198, i64 %call200, i32 noundef 3, i64 21, ptr nonnull %ref.tmp204)
           to label %invoke.cont211 unwind label %lpad206
 

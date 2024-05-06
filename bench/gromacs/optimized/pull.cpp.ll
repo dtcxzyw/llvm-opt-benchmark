@@ -2037,12 +2037,12 @@ _ZL37check_external_potential_registrationPK6pull_t.exit: ; preds = %43, %9, %22
   %87 = trunc i8 %86 to i1
   %..i.i.i.i = select i1 %87, double 0x3F91DF46A2529D39, double 1.000000e+00
   %88 = fmul double %81, %..i.i.i.i
-  %89 = tail call fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.024.044, double noundef %88)
+  %89 = tail call fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd(ptr noundef nonnull readonly align 8 dereferenceable(176) %.sroa.024.044, double noundef %88)
   store double %89, ptr %72, align 8
   br label %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i
 
 _ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i: ; preds = %76, %71
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
   %90 = getelementptr inbounds i8, ptr %.sroa.024.044, i64 376
   %91 = load double, ptr %90, align 8
   %92 = load double, ptr %72, align 8
@@ -2441,7 +2441,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
 
 .lr.ph:                                           ; preds = %38
   %48 = udiv exact i64 %46, 488
-  %.045 = add nsw i64 %48, -1
+  %.046 = add nsw i64 %48, -1
   %49 = getelementptr inbounds i8, ptr %21, i64 8
   %50 = getelementptr inbounds i8, ptr %21, i64 16
   %51 = getelementptr inbounds i8, ptr %21, i64 48
@@ -2463,9 +2463,9 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %80
-  %.046.us = phi i64 [ %.0.us, %80 ], [ %.045, %.lr.ph ]
+  %.047.us = phi i64 [ %.0.us, %80 ], [ %.046, %.lr.ph ]
   %67 = load ptr, ptr %40, align 8
-  %68 = getelementptr inbounds %struct.pull_coord_work_t, ptr %67, i64 %.046.us
+  %68 = getelementptr inbounds %struct.pull_coord_work_t, ptr %67, i64 %.047.us
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 1
   br i1 %70, label %80, label %71
@@ -2485,14 +2485,14 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br label %80
 
 80:                                               ; preds = %71, %75, %.lr.ph.split.us
-  %.0.us = add nsw i64 %.046.us, -1
-  %81 = icmp sgt i64 %.046.us, 0
+  %.0.us = add nsw i64 %.047.us, -1
+  %81 = icmp sgt i64 %.047.us, 0
   br i1 %81, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %451
-  %.046 = phi i64 [ %.0, %451 ], [ %.045, %.lr.ph ]
+  %.047 = phi i64 [ %.0, %451 ], [ %.046, %.lr.ph ]
   %82 = load ptr, ptr %40, align 8
-  %83 = getelementptr inbounds %struct.pull_coord_work_t, ptr %82, i64 %.046
+  %83 = getelementptr inbounds %struct.pull_coord_work_t, ptr %82, i64 %.047
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 1
   br i1 %85, label %451, label %86
@@ -2626,7 +2626,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br i1 %exitcond137.not.i, label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit, label %157, !llvm.loop !21
 
 170:                                              ; preds = %114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 171:                                              ; preds = %95
@@ -2681,7 +2681,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br i1 %exitcond.not.i, label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit, label %200, !llvm.loop !22
 
 209:                                              ; preds = %171
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 210:                                              ; preds = %95
@@ -2779,7 +2779,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 289:                                              ; preds = %210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 290:                                              ; preds = %290, %.preheader.i
@@ -2977,17 +2977,17 @@ _ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit: ;
   br label %371
 
 371:                                              ; preds = %371, %344
-  %indvars.iv.i29 = phi i64 [ 0, %344 ], [ %indvars.iv.next.i30, %371 ]
-  %372 = getelementptr inbounds [3 x double], ptr %21, i64 0, i64 %indvars.iv.i29
+  %indvars.iv.i30 = phi i64 [ 0, %344 ], [ %indvars.iv.next.i31, %371 ]
+  %372 = getelementptr inbounds [3 x double], ptr %21, i64 0, i64 %indvars.iv.i30
   %373 = load double, ptr %372, align 8
-  %374 = getelementptr inbounds [3 x double], ptr %370, i64 0, i64 %indvars.iv.i29
+  %374 = getelementptr inbounds [3 x double], ptr %370, i64 0, i64 %indvars.iv.i30
   %375 = load double, ptr %374, align 8
   %376 = call double @llvm.fmuladd.f64(double %369, double %375, double %373)
-  %377 = getelementptr inbounds [3 x double], ptr %16, i64 0, i64 %indvars.iv.i29
+  %377 = getelementptr inbounds [3 x double], ptr %16, i64 0, i64 %indvars.iv.i30
   store double %376, ptr %377, align 8
-  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 3
-  br i1 %exitcond.not.i31, label %378, label %371, !llvm.loop !26
+  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
+  %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 3
+  br i1 %exitcond.not.i32, label %378, label %371, !llvm.loop !26
 
 378:                                              ; preds = %371
   %379 = getelementptr inbounds i8, ptr %83, i64 96
@@ -3002,7 +3002,7 @@ _ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit: ;
   %384 = getelementptr inbounds i8, ptr %83, i64 264
   br label %390
 
-.preheader.i.i27:                                 ; preds = %390
+.preheader.i.i28:                                 ; preds = %390
   %385 = fneg double %395
   %386 = getelementptr inbounds i8, ptr %83, i64 288
   %387 = load double, ptr %386, align 8
@@ -3011,19 +3011,19 @@ _ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit: ;
   br label %396
 
 390:                                              ; preds = %390, %383
-  %indvars.iv.i.i24 = phi i64 [ 0, %383 ], [ %indvars.iv.next.i.i25, %390 ]
+  %indvars.iv.i.i25 = phi i64 [ 0, %383 ], [ %indvars.iv.next.i.i26, %390 ]
   %.02231.i.i = phi double [ 0.000000e+00, %383 ], [ %395, %390 ]
-  %391 = getelementptr inbounds [3 x double], ptr %96, i64 0, i64 %indvars.iv.i.i24
+  %391 = getelementptr inbounds [3 x double], ptr %96, i64 0, i64 %indvars.iv.i.i25
   %392 = load double, ptr %391, align 8
-  %393 = getelementptr inbounds [3 x double], ptr %384, i64 0, i64 %indvars.iv.i.i24
+  %393 = getelementptr inbounds [3 x double], ptr %384, i64 0, i64 %indvars.iv.i.i25
   %394 = load double, ptr %393, align 8
   %395 = call double @llvm.fmuladd.f64(double %392, double %394, double %.02231.i.i)
-  %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i24, 1
-  %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, 3
-  br i1 %exitcond.not.i.i26, label %.preheader.i.i27, label %390, !llvm.loop !27
+  %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
+  %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 3
+  br i1 %exitcond.not.i.i27, label %.preheader.i.i28, label %390, !llvm.loop !27
 
-396:                                              ; preds = %396, %.preheader.i.i27
-  %indvars.iv35.i.i = phi i64 [ 0, %.preheader.i.i27 ], [ %indvars.iv.next36.i.i, %396 ]
+396:                                              ; preds = %396, %.preheader.i.i28
+  %indvars.iv35.i.i = phi i64 [ 0, %.preheader.i.i28 ], [ %indvars.iv.next36.i.i, %396 ]
   %397 = getelementptr inbounds [3 x double], ptr %96, i64 0, i64 %indvars.iv35.i.i
   %398 = load double, ptr %397, align 8
   %399 = getelementptr inbounds [3 x double], ptr %384, i64 0, i64 %indvars.iv35.i.i
@@ -3090,8 +3090,8 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds %struct.pull_group_work_t, ptr %415, i64 %439
   call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %440, ptr %1, ptr %64, ptr noundef nonnull %54, i32 noundef 1, ptr noundef %414)
-  %.pr.i28 = load i32, ptr %429, align 8
-  %441 = icmp sgt i32 %.pr.i28, 5
+  %.pr.i29 = load i32, ptr %429, align 8
+  %441 = icmp sgt i32 %.pr.i29, 5
   br i1 %441, label %442, label %_ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit
 
 442:                                              ; preds = %432
@@ -3112,8 +3112,8 @@ _ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tE
   br label %451
 
 451:                                              ; preds = %90, %_ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit, %.lr.ph.split
-  %.0 = add nsw i64 %.046, -1
-  %452 = icmp sgt i64 %.046, 0
+  %.0 = add nsw i64 %.047, -1
+  %452 = icmp sgt i64 %.047, 0
   br i1 %452, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %451, %80, %38
@@ -3127,28 +3127,28 @@ _ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tE
 
 .preheader10.i:                                   ; preds = %453
   %457 = getelementptr inbounds i8, ptr %4, i64 20
-  br label %.preheader.i32
+  br label %.preheader.i33
 
-.preheader.i32:                                   ; preds = %464, %.preheader10.i
+.preheader.i33:                                   ; preds = %464, %.preheader10.i
   %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %464 ]
   br label %458
 
-458:                                              ; preds = %458, %.preheader.i32
-  %indvars.iv.i33 = phi i64 [ 0, %.preheader.i32 ], [ %indvars.iv.next.i34, %458 ]
-  %459 = getelementptr inbounds [3 x float], ptr %20, i64 %indvars.iv14.i, i64 %indvars.iv.i33
+458:                                              ; preds = %458, %.preheader.i33
+  %indvars.iv.i34 = phi i64 [ 0, %.preheader.i33 ], [ %indvars.iv.next.i35, %458 ]
+  %459 = getelementptr inbounds [3 x float], ptr %20, i64 %indvars.iv14.i, i64 %indvars.iv.i34
   %460 = load float, ptr %459, align 4
-  %461 = getelementptr inbounds [3 x [3 x float]], ptr %457, i64 0, i64 %indvars.iv14.i, i64 %indvars.iv.i33
+  %461 = getelementptr inbounds [3 x [3 x float]], ptr %457, i64 0, i64 %indvars.iv14.i, i64 %indvars.iv.i34
   %462 = load float, ptr %461, align 4
   %463 = fadd float %460, %462
   store float %463, ptr %461, align 4
-  %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
-  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
-  br i1 %exitcond.not.i35, label %464, label %458, !llvm.loop !29
+  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
+  %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
+  br i1 %exitcond.not.i36, label %464, label %458, !llvm.loop !29
 
 464:                                              ; preds = %458
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next15.i, 3
-  br i1 %exitcond17.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit, label %.preheader.i32, !llvm.loop !30
+  br i1 %exitcond17.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit, label %.preheader.i33, !llvm.loop !30
 
 _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %464, %453, %5, %._crit_edge
   ret void
@@ -3745,7 +3745,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   br i1 %.not281.i, label %144, label %190
 
 144:                                              ; preds = %.lr.ph488.i
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %142, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %142, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
   %145 = getelementptr inbounds i8, ptr %142, i64 192
   %146 = load ptr, ptr @debug, align 8
   %.not282.i = icmp eq ptr %146, null
@@ -9752,7 +9752,7 @@ define void @_Z22preparePrevStepPullComPK10t_inputrecP6pull_tN3gmx8ArrayRefIKfEE
   %68 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %54, ptr %68, align 8
   call void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcNS5_IKNS4_11BasicVectorIfEEEE(ptr noundef %6, ptr noundef %1, ptr %2, ptr %46, ptr noundef nonnull align 4 dereferenceable(384) %9, ptr noundef nonnull byval(%"class.gmx::ArrayRef.90") align 8 %10)
-  call void @_Z21updatePrevStepPullComP6pull_tSt8optionalIN3gmx8ArrayRefIdEEE(ptr noundef %1, ptr noundef nonnull byval(%"class.std::optional") align 8 %11)
+  call void @_Z21updatePrevStepPullComP6pull_tSt8optionalIN3gmx8ArrayRefIdEEE(ptr noundef %1, ptr noundef nonnull readonly byval(%"class.std::optional") align 8 %11)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %69

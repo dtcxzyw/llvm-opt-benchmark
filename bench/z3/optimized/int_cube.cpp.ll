@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp8int_cubeclEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 6) i32 @_ZN2lp8int_cubeclEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504) %0)
@@ -92,7 +92,7 @@ _ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i:  ; preds = %if.end.i.i, %for.co
   br i1 %cmp.not.i.not, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i
-  %call3.i = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %i.0.i)
+  %call3.i = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %i.0.i)
   %inc.i = add nuw i32 %i.0.i, 1
   br i1 %call3.i, label %for.cond.i, label %if.then, !llvm.loop !4
 

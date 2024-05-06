@@ -1130,7 +1130,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
 39:                                               ; preds = %47, %45, %38
   %40 = getelementptr inbounds i8, ptr %1, i64 176
   %41 = load i8, ptr %40, align 8, !range !6, !noundef !4
-  %42 = trunc i8 %41 to i1
+  %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %55, label %.thread
 
 43:                                               ; preds = %38

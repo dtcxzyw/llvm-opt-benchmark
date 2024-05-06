@@ -182,7 +182,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
 
 if.end12:                                         ; preds = %invoke.cont8, %invoke.cont3
   %filenameBuffer.0 = phi ptr [ %call6, %invoke.cont8 ], [ %buffer, %invoke.cont3 ]
-  %call.i = call noalias ptr @fopen(ptr noundef nonnull %filenameBuffer.0, ptr noundef %perm)
+  %call.i = call noalias ptr @fopen(ptr noundef nonnull readonly %filenameBuffer.0, ptr noundef readonly %perm)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %invoke.cont13, label %if.end.i
 
@@ -272,7 +272,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare ptr @u_locbund_init_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext i8 @u_feof_75(ptr noundef readonly %f) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @u_feof_75(ptr noundef readonly %f) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %f, null
   br i1 %cmp, label %return, label %if.end
@@ -484,7 +484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fsetlocale_75(ptr noundef %file, ptr noundef %locale) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @u_fsetlocale_75(ptr noundef %file, ptr noundef %locale) local_unnamed_addr #0 {
 entry:
   %fBundle = getelementptr inbounds i8, ptr %file, i64 48
   tail call void @u_locbund_close_75(ptr noundef nonnull %fBundle)
@@ -519,7 +519,7 @@ return:                                           ; preds = %if.then, %entry
 declare ptr @ucnv_getName_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fsetcodepage_75(ptr noundef %codepage, ptr nocapture noundef %file) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @u_fsetcodepage_75(ptr noundef %codepage, ptr nocapture noundef %file) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

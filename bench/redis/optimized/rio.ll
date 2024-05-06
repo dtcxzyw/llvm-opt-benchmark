@@ -222,7 +222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i8 @rioCheckType(ptr nocapture noundef readonly %r) local_unnamed_addr #4 {
+define dso_local zeroext range(i8 1, 9) i8 @rioCheckType(ptr nocapture noundef readonly %r) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %r, align 8
   %cmp = icmp eq ptr %0, @rioFileRead
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @rioBufferRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #6 {
+define internal range(i64 0, 2) i64 @rioBufferRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #6 {
 entry:
   %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -668,7 +668,7 @@ sw.bb5.i165:                                      ; preds = %sdslen.exit157
   %conv11.i169 = zext i16 %49 to i64
   %sub12.i170 = sub nsw i64 %conv9.i168, %conv11.i169
   %50 = lshr i16 %48, 8
-  %51 = trunc i16 %50 to i8
+  %51 = trunc nuw i16 %50 to i8
   %52 = trunc i16 %48 to i8
   br label %sdsavail.exit181
 
@@ -680,7 +680,7 @@ sw.bb14.i159:                                     ; preds = %sdslen.exit157
   %sub19.i162 = sub i32 %53, %54
   %conv20.i163 = zext i32 %sub19.i162 to i64
   %55 = lshr i32 %53, 24
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %57 = lshr i32 %53, 16
   %58 = trunc i32 %57 to i8
   br label %sdsavail.exit181
@@ -692,7 +692,7 @@ sw.bb21.i177:                                     ; preds = %sdslen.exit157
   %60 = load i64, ptr %add.ptr23.i178, align 1
   %sub26.i180 = sub i64 %59, %60
   %61 = lshr i64 %59, 56
-  %62 = trunc i64 %61 to i8
+  %62 = trunc nuw i64 %61 to i8
   %63 = lshr i64 %59, 48
   %64 = trunc i64 %63 to i8
   br label %sdsavail.exit181
@@ -856,7 +856,7 @@ return:                                           ; preds = %sdslen.exit224, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rioWriteBulkCount(ptr noundef %r, i8 noundef signext %prefix, i64 noundef %count) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483645, 2147483648) i64 @rioWriteBulkCount(ptr noundef %r, i8 noundef signext %prefix, i64 noundef %count) local_unnamed_addr #2 {
 entry:
   %cbuf = alloca [128 x i8], align 16
   store i8 %prefix, ptr %cbuf, align 16
@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @rioFileFlush(ptr nocapture noundef readonly %r) #5 {
+define internal range(i32 0, 2) i32 @rioFileFlush(ptr nocapture noundef readonly %r) #5 {
 entry:
   %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -1356,7 +1356,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rioFdWrite(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) #2 {
+define internal range(i64 0, 2) i64 @rioFdWrite(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) #2 {
 entry:
   %cmp = icmp eq ptr %buf, null
   %cmp2 = icmp eq i64 %len, 0
@@ -1659,10 +1659,10 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rioFdFlush(ptr nocapture noundef %r) #2 {
+define internal range(i32 0, 2) i32 @rioFdFlush(ptr nocapture noundef %r) #2 {
 entry:
-  %call = tail call i64 @rioFdWrite(ptr noundef %r, ptr noundef null, i64 noundef 0), !range !10
-  %conv = trunc i64 %call to i32
+  %call = tail call i64 @rioFdWrite(ptr noundef %r, ptr noundef null, i64 noundef 0)
+  %conv = trunc nuw nsw i64 %call to i32
   ret i32 %conv
 }
 
@@ -1725,4 +1725,3 @@ attributes #17 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 2}

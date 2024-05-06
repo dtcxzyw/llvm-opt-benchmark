@@ -1045,7 +1045,7 @@ define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noun
 207:                                              ; preds = %203
   %208 = or disjoint i32 %204, 256
   store i32 %208, ptr %3, align 8
-  %209 = tail call signext i8 @defGetStreamingMode(ptr noundef nonnull %83), !range !5
+  %209 = tail call signext i8 @defGetStreamingMode(ptr noundef nonnull %83)
   store i8 %209, ptr %70, align 2
   br label %325
 
@@ -1616,7 +1616,7 @@ slot_getattr.exit:                                ; preds = %43, %slot_getsomeat
   call void %54(ptr noundef nonnull %36) #10
   %55 = load ptr, ptr %37, align 8
   %56 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %55, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %36) #10
-  br i1 %56, label %43, label %._crit_edge, !llvm.loop !6
+  br i1 %56, label %43, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %slot_getattr.exit, %32
   %.0.lcssa = phi ptr [ %33, %32 ], [ %51, %slot_getattr.exit ]
@@ -1776,7 +1776,7 @@ get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.88, ptr noundef %33, ptr noundef %34) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %get_publications_str.exit
   %35 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -1838,7 +1838,7 @@ slot_getattr.exit:                                ; preds = %58, %slot_getsomeat
   %69 = call ptr @list_append_unique(ptr noundef %.041, ptr noundef %68) #10
   %70 = load ptr, ptr %52, align 8
   %71 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %70, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %51) #10
-  br i1 %71, label %58, label %._crit_edge44, !llvm.loop !9
+  br i1 %71, label %58, label %._crit_edge44, !llvm.loop !8
 
 ._crit_edge44:                                    ; preds = %slot_getattr.exit
   %.not34 = icmp eq ptr %69, null
@@ -2115,7 +2115,7 @@ slot_getattr.exit35.us:                           ; preds = %slot_getsomeattrs.e
   call void %93(ptr noundef nonnull %67) #10
   %94 = load ptr, ptr %68, align 8
   %95 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %94, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %67) #10
-  br i1 %95, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
+  br i1 %95, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %slot_getattr.exit35
   %.041 = phi ptr [ %110, %slot_getattr.exit35 ], [ null, %.lr.ph ]
@@ -2154,7 +2154,7 @@ slot_getattr.exit35:                              ; preds = %slot_getattr.exit, 
   call void %113(ptr noundef nonnull %67) #10
   %114 = load ptr, ptr %68, align 8
   %115 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %114, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %67) #10
-  br i1 %115, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %115, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 .split.us:                                        ; preds = %slot_getattr.exit35.us
   %116 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2808,7 +2808,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   unreachable
 
 .thread57.i:                                      ; preds = %311
-  %321 = trunc i64 %indvars.iv.i to i32
+  %321 = trunc nuw nsw i64 %indvars.iv.i to i32
   %322 = call ptr @list_delete_nth_cell(ptr noundef nonnull %.070.i131, i32 noundef %321) #10
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i130, 1
   %323 = load i32, ptr %274, align 4
@@ -2993,10 +2993,10 @@ publicationListToArray.exit125:                   ; preds = %._crit_edge73.i
   %422 = call i32 @errcode(i32 noundef 50856066) #10
   %423 = load i64, ptr %411, align 8
   %424 = lshr i64 %423, 32
-  %425 = trunc i64 %424 to i32
+  %425 = trunc nuw i64 %424 to i32
   %426 = trunc i64 %423 to i32
   %427 = lshr i64 %416, 32
-  %428 = trunc i64 %427 to i32
+  %428 = trunc nuw i64 %427 to i32
   %429 = trunc i64 %416 to i32
   %430 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, i32 noundef %425, i32 noundef %426, i32 noundef %428, i32 noundef %429) #10
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1492, ptr noundef nonnull @__func__.AlterSubscription) #10
@@ -3398,7 +3398,7 @@ list_length.exit125:                              ; preds = %114, %117
   %.196 = phi i32 [ %.095143, %list_length.exit125 ], [ %132, %142 ], [ %132, %140 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %114, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %114, !llvm.loop !10
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %158
   %indvars.iv160 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next161, %158 ]
@@ -3420,7 +3420,7 @@ list_length.exit125:                              ; preds = %114, %117
 158:                                              ; preds = %.lr.ph148, %155
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph148, !llvm.loop !12
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph148, !llvm.loop !11
 
 .loopexit:                                        ; preds = %158, %list_length.exit123, %.preheader, %33
   %.3100 = phi ptr [ null, %33 ], [ %.299, %.preheader ], [ null, %list_length.exit123 ], [ %.299, %158 ]
@@ -4129,7 +4129,7 @@ define dso_local void @AlterSubscriptionOwner_oid(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef signext i8 @defGetStreamingMode(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local signext range(i8 102, 117) i8 @defGetStreamingMode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4247,7 +4247,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 12:                                               ; preds = %15
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count91
-  br i1 %exitcond87.not, label %.thread33.us.us58, label %13, !llvm.loop !13
+  br i1 %exitcond87.not, label %.thread33.us.us58, label %13, !llvm.loop !12
 
 13:                                               ; preds = %.lr.ph.us.us59, %12
   %indvars.iv83 = phi i64 [ 0, %.lr.ph.us.us59 ], [ %indvars.iv.next84, %12 ]
@@ -4291,7 +4291,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 29:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread33, label %30, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread33, label %30, !llvm.loop !12
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -4423,12 +4423,11 @@ attributes #14 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i8 102, i8 117}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

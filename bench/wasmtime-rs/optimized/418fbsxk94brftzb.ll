@@ -90,13 +90,13 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr noc
 "_ZN81_$LT$cranelift_isle..serialize..ScopedState$u20$as$u20$core..default..Default$GT$7default17h08e3a5c8e3f07315E.exit.i": ; preds = %21
   %27 = extractvalue { i64, i64 } %22, 0
   %28 = extractvalue { i64, i64 } %22, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !7
   %29 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !7
   %30 = getelementptr inbounds i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !7
   %31 = getelementptr inbounds i8, ptr %8, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) @anon.d4af4c79604ea0f35702c9c623b8a88c.23, i64 32, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) @anon.d4af4c79604ea0f35702c9c623b8a88c.23, i64 32, i1 false), !noalias !7
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 104
   store i64 %27, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 112
@@ -156,7 +156,7 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr noc
           to label %53 unwind label %51
 
 45:                                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8)
   %46 = getelementptr inbounds i8, ptr %10, i64 8
@@ -330,13 +330,13 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_bl
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZN77_$LT$cranelift_isle..serialize..ScopedState$u20$as$u20$core..clone..Clone$GT$5clone17h05d39db19475f45eE.exit": ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %26 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %7, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1219,19 +1219,19 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   unreachable
 
 267:                                              ; preds = %262
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !22
   store ptr %254, ptr %119, align 8, !alias.scope !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
   store i64 0, ptr %120, align 8, !alias.scope !22
   store ptr inttoptr (i64 2 to ptr), ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !22
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.01.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22
   store i64 0, ptr %.sroa.01.sroa.3.0..sroa_idx.i, align 8, !alias.scope !22
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11)
@@ -1974,13 +1974,13 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit:
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN78_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..clone..Clone$GT$5clone17h7778d885031dc70cE"(ptr nocapture readonly align 1 %0) unnamed_addr #1 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN78_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..clone..Clone$GT$5clone17h7778d885031dc70cE"(ptr nocapture readonly align 1 %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !17, !noundef !3
   ret i8 %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..cmp..Ord$GT$3cmp17hd281b433fef93bf3E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..cmp..Ord$GT$3cmp17hd281b433fef93bf3E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !17, !noundef !3
   %4 = load i8, ptr %1, align 1, !range !17, !noundef !3
   %5 = icmp ult i8 %3, %4
@@ -1991,7 +1991,7 @@ define hidden noundef i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4
@@ -2034,7 +2034,7 @@ define hidden void @"_ZN75_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN71_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h2b6f1a21859d6a38E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @"_ZN71_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h2b6f1a21859d6a38E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4
@@ -2125,7 +2125,7 @@ default.unreachable:                              ; preds = %22
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN78_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2835827e623ff46dE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @"_ZN78_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2835827e623ff46dE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4
@@ -2246,7 +2246,7 @@ define hidden void @"_ZN80_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN76_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b257d88d30854bbE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden range(i8 -1, 2) i8 @"_ZN76_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b257d88d30854bbE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4

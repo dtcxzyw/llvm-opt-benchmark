@@ -265,7 +265,7 @@ add_address_to_hash.exit52:                       ; preds = %.lr.ph.i47
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @osmux_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -864,7 +864,7 @@ define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, 
   %37 = load i32, ptr %5, align 8
   %38 = load i32, ptr %33, align 4
   %39 = load ptr, ptr %13, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store i32 %37, ptr %35, align 8
   %40 = icmp eq i32 %38, 0
   br i1 %40, label %copy_address_wmem.exit.i, label %41
@@ -886,7 +886,7 @@ copy_address_wmem.exit.i:                         ; preds = %41, %32
   %49 = load i32, ptr %15, align 8
   %50 = load i32, ptr %19, align 4
   %51 = load ptr, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %49, ptr %48, align 8
   %52 = icmp eq i32 %50, 0
   br i1 %52, label %copy_address_wmem.exit16.i, label %53

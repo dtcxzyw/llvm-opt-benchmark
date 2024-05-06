@@ -653,7 +653,7 @@ if.then29:                                        ; preds = %if.else
   br label %for.inc
 
 if.else31:                                        ; preds = %if.else
-  %conv = trunc i32 %spec.store.select to i8
+  %conv = trunc nuw nsw i32 %spec.store.select to i8
   %len.i21 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %len.i21, align 8
   %add.i22 = add i64 %17, 1

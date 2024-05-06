@@ -285,7 +285,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @qcrypto_der_decode_seq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @extract_seq_content(ptr nocapture noundef writeonly %ctx, ptr noundef %value, i64 noundef %vlen, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @extract_seq_content(ptr nocapture noundef writeonly %ctx, ptr noundef %value, i64 noundef %vlen, ptr noundef %errp) #0 {
 entry:
   %cmp = icmp eq i64 %vlen, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -306,7 +306,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @qcrypto_der_decode_int(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @extract_version(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %value, i64 noundef %vlen, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @extract_version(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %value, i64 noundef %vlen, ptr noundef %errp) #0 {
 entry:
   %cmp.not = icmp eq i64 %vlen, 1
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -330,7 +330,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @extract_mpi(ptr nocapture noundef writeonly %ctx, ptr noundef %value, i64 noundef %vlen, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @extract_mpi(ptr nocapture noundef writeonly %ctx, ptr noundef %value, i64 noundef %vlen, ptr noundef %errp) #0 {
 entry:
   %cmp = icmp eq i64 %vlen, 0
   br i1 %cmp, label %if.then, label %if.end

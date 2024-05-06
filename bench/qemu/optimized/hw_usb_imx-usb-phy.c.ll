@@ -115,7 +115,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @imx_usbphy_read(ptr nocapture noundef readonly %opaque, i64 noundef %offset, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @imx_usbphy_read(ptr nocapture noundef readonly %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %shr = lshr i64 %offset, 2
   %conv = trunc i64 %shr to i32

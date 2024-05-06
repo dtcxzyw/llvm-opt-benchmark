@@ -179,7 +179,7 @@ $_ZGVZN7rocksdb21BasicTypedCacheHelperINS_11TableReaderELNS_14CacheEntryRoleE13E
 @__dso_handle = external hidden global i8
 @_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
 @.str = private unnamed_addr constant [45 x i8] c"Table not found in table_cache, no_io is set\00", align 1
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"Deadline exceeded\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"/\\\00", align 1

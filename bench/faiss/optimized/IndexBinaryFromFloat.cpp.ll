@@ -269,7 +269,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 
 69:                                               ; preds = %59
   %70 = load ptr, ptr %58, align 8
-  %71 = mul nsw i64 %.03066, %3
+  %71 = mul nuw nsw i64 %.03066, %3
   %72 = getelementptr inbounds i64, ptr %5, i64 %71
   %73 = load ptr, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 40
@@ -283,7 +283,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %78 = getelementptr i32, ptr %4, i64 %71
+  %78 = getelementptr inbounds i32, ptr %4, i64 %71
   br label %79
 
 79:                                               ; preds = %.lr.ph, %79
@@ -294,7 +294,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   %83 = fmul double %82, 2.500000e-01
   %84 = tail call double @llvm.round.f64(double %83)
   %85 = fptosi double %84 to i32
-  %86 = getelementptr i32, ptr %78, i64 %indvars.iv
+  %86 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv
   store i32 %85, ptr %86, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %60

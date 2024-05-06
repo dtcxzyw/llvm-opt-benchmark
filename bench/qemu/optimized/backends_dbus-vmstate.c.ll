@@ -164,7 +164,7 @@ declare void @g_object_unref(ptr noundef) #1
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_vmstate_post_load(ptr noundef %opaque, i32 noundef %version_id) #0 {
+define internal range(i32 -1, 1) i32 @dbus_vmstate_post_load(ptr noundef %opaque, i32 noundef %version_id) #0 {
 entry:
   %err.i = alloca ptr, align 8
   %_now.i.i17 = alloca %struct.timeval, align 8
@@ -447,7 +447,7 @@ glib_autoptr_cleanup_GInputStream.exit:           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_vmstate_pre_save(ptr noundef %opaque) #0 {
+define internal range(i32 -1, 1) i32 @dbus_vmstate_pre_save(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8

@@ -47,7 +47,7 @@ define ptr @php_pcre2_maketables(ptr noundef readonly %0) local_unnamed_addr #0 
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 512
   %.not107 = icmp eq i16 %21, 0
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not107, label %25, label %23
 
 23:                                               ; preds = %17
@@ -333,7 +333,7 @@ define ptr @php_pcre2_maketables(ptr noundef readonly %0) local_unnamed_addr #0 
   %or.cond = or i1 %188, %187
   %189 = or disjoint i16 %.3110, 16
   %.4 = select i1 %or.cond, i16 %189, i16 %.3110
-  %190 = trunc i16 %.4 to i8
+  %190 = trunc nuw nsw i16 %.4 to i8
   %191 = getelementptr inbounds i8, ptr %.286118, i64 1
   store i8 %190, ptr %.286118, align 1
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1

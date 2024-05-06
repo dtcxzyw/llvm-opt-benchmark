@@ -780,7 +780,7 @@ define internal void @sighandler(i32 noundef %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @suite_filter(ptr nocapture noundef readonly %0) #9 {
+define internal range(i32 0, 2) i32 @suite_filter(ptr nocapture noundef readonly %0) #9 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
@@ -791,7 +791,7 @@ define internal i32 @suite_filter(ptr nocapture noundef readonly %0) #9 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @suite_test_filter(ptr nocapture noundef readonly %0) #9 {
+define internal range(i32 0, 2) i32 @suite_test_filter(ptr nocapture noundef readonly %0) #9 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16

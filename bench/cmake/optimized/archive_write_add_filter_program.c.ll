@@ -13,16 +13,16 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [26 x i8] c"Error closing program: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #11
-  %3 = tail call i32 @archive_write_add_filter_program(ptr noundef %0, ptr noundef %1), !range !5
+  %3 = tail call i32 @archive_write_add_filter_program(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 declare void @__archive_write_filters_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #11
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #11
   %5 = icmp eq i32 %4, -30
@@ -52,7 +52,7 @@ define dso_local noundef i32 @archive_write_add_filter_program(ptr noundef %0, p
   store i32 -1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 -1, ptr %19, align 8
-  %20 = tail call noalias ptr @strdup(ptr noundef %1) #11
+  %20 = tail call noalias ptr @strdup(ptr noundef readonly %1) #11
   %21 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %20, ptr %21, align 8
   store ptr %15, ptr %7, align 8
@@ -163,7 +163,7 @@ declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_program_open(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_open(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -209,20 +209,20 @@ __archive_write_program_open.exit:                ; preds = %15, %18, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @__archive_write_program_write(ptr noundef %0, ptr noundef %6, ptr noundef %1, i64 noundef %2), !range !5
+  %7 = tail call i32 @__archive_write_program_write(ptr noundef %0, ptr noundef %6, ptr noundef %1, i64 noundef %2)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_program_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @__archive_write_program_close(ptr noundef %0, ptr noundef %4), !range !5
+  %5 = tail call i32 @__archive_write_program_close(ptr noundef %0, ptr noundef %4)
   ret i32 %5
 }
 
@@ -287,7 +287,7 @@ define dso_local noundef i32 @__archive_write_program_free(ptr noundef %0) local
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_write_program_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -333,7 +333,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare i32 @__archive_create_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_write_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   %6 = icmp eq i32 %5, 0
   %.not41 = icmp eq i64 %3, 0
@@ -358,7 +358,7 @@ define dso_local noundef i32 @__archive_write_program_write(ptr nocapture nounde
 
 .preheader49.i:                                   ; preds = %13, %.preheader49.i.backedge
   %16 = load i32, ptr %7, align 4
-  %17 = tail call i64 @write(i32 noundef %16, ptr noundef %.043, i64 noundef %.01742) #11
+  %17 = tail call i64 @write(i32 noundef %16, ptr noundef readonly %.043, i64 noundef %.01742) #11
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %19, label %.critedge.i
 
@@ -456,7 +456,7 @@ child_write.exit:                                 ; preds = %.critedge.i
   %60 = sub i64 %.01742, %17
   %61 = getelementptr inbounds i8, ptr %.043, i64 %17
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.loopexit23, label %13, !llvm.loop !6
+  br i1 %.not, label %.loopexit23, label %13, !llvm.loop !5
 
 child_write.exit.thread:                          ; preds = %13, %.critedge46.i, %19, %44, %25
   %62 = getelementptr inbounds i8, ptr %0, i64 8
@@ -472,7 +472,7 @@ child_write.exit.thread:                          ; preds = %13, %.critedge46.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_write_program_close(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
@@ -570,7 +570,7 @@ define dso_local noundef i32 @__archive_write_program_close(ptr nocapture nounde
   %51 = tail call ptr @__errno_location() #15
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 4
-  br i1 %53, label %46, label %.critedge2, !llvm.loop !8
+  br i1 %53, label %46, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %46, %50
   store i32 0, ptr %1, align 8
@@ -636,7 +636,6 @@ attributes #15 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

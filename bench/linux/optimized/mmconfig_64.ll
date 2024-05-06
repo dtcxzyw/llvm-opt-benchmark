@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @raw_pci_ext_ops = external dso_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_mmcfg_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pci_mmcfg_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   %7 = or i32 %2, %1
   %8 = icmp ugt i32 %7, 255
   %9 = icmp sgt i32 %3, 4095
@@ -38,7 +38,7 @@ define internal noundef i32 @pci_mmcfg_read(i32 noundef %0, i32 noundef %1, i32 
 19:                                               ; preds = %15
   %20 = shl nuw nsw i32 %1, 20
   %21 = shl nuw nsw i32 %2, 12
-  %22 = or i32 %21, %20
+  %22 = or disjoint i32 %21, %20
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr i8, ptr %17, i64 %23
   %25 = icmp eq ptr %24, null
@@ -90,7 +90,7 @@ define internal noundef i32 @pci_mmcfg_read(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_mmcfg_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pci_mmcfg_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = or i32 %2, %1
   %8 = icmp ugt i32 %7, 255
   %9 = icmp sgt i32 %3, 4095
@@ -112,7 +112,7 @@ define internal noundef i32 @pci_mmcfg_write(i32 noundef %0, i32 noundef %1, i32
 18:                                               ; preds = %14
   %19 = shl nuw nsw i32 %1, 20
   %20 = shl nuw nsw i32 %2, 12
-  %21 = or i32 %20, %19
+  %21 = or disjoint i32 %20, %19
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr i8, ptr %16, i64 %22
   %24 = icmp eq ptr %23, null
@@ -156,7 +156,7 @@ define internal noundef i32 @pci_mmcfg_write(i32 noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_mmcfg_arch_map(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @pci_mmcfg_arch_map(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 98
@@ -233,7 +233,7 @@ define dso_local void @pci_mmcfg_arch_unmap(ptr noundef %0) local_unnamed_addr #
 declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @pci_mmcfg_arch_init() local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pci_mmcfg_arch_init() local_unnamed_addr #3 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0

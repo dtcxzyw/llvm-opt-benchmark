@@ -170,7 +170,7 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr nocapture noundef readonly %0
   %73 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %57, i64 %72, i32 1
   %74 = load i32, ptr %73, align 4
   %75 = lshr i64 %.val82, 61
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw nsw i64 %75 to i32
   %77 = and i32 %76, 1
   %78 = xor i32 %74, %77
   %79 = shl i32 %69, 1
@@ -421,7 +421,7 @@ Vec_StrGrow.exit.i12:                             ; preds = %46, %44
 
 Vec_StrPush.exit13:                               ; preds = %.Vec_StrGrow.exit10_crit_edge.i7, %Vec_StrGrow.exit.i12, %58
   %60 = phi ptr [ %.pre.i9, %.Vec_StrGrow.exit10_crit_edge.i7 ], [ %59, %58 ], [ %48, %Vec_StrGrow.exit.i12 ]
-  %61 = trunc i32 %.0.lcssa to i8
+  %61 = trunc nuw i32 %.0.lcssa to i8
   %62 = load i32, ptr %35, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %35, align 4
@@ -1179,7 +1179,7 @@ Vec_IntPush.exit:                                 ; preds = %Gia_AigerReadUnsign
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit115
   %.074283 = phi i32 [ %93, %Vec_IntPush.exit115 ], [ 0, %Vec_IntPush.exit ]
-  %65 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %61), !range !18
+  %65 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %61)
   %66 = load i32, ptr %53, align 4
   %67 = load i32, ptr %52, align 8
   %68 = icmp eq i32 %66, %67
@@ -1243,7 +1243,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %65, ptr %92, align 4
   %93 = add nuw nsw i32 %.074283, 1
   %exitcond.not = icmp eq i32 %93, %19
-  br i1 %exitcond.not, label %.preheader248, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader248, label %.lr.ph, !llvm.loop !18
 
 .preheader247:                                    ; preds = %Vec_IntPush.exit122, %.preheader248
   %94 = icmp sgt i32 %51, 0
@@ -1260,7 +1260,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph285:                                        ; preds = %.preheader248, %Vec_IntPush.exit122
   %.1284 = phi i32 [ %128, %Vec_IntPush.exit122 ], [ 0, %.preheader248 ]
-  %100 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %61), !range !18
+  %100 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %61)
   %101 = load i32, ptr %53, align 4
   %102 = load i32, ptr %52, align 8
   %103 = icmp eq i32 %101, %102
@@ -1324,7 +1324,7 @@ Vec_IntPush.exit122:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %100, ptr %127, align 4
   %128 = add nuw nsw i32 %.1284, 1
   %exitcond336.not = icmp eq i32 %128, %35
-  br i1 %exitcond336.not, label %.preheader247, label %.lr.ph285, !llvm.loop !20
+  br i1 %exitcond336.not, label %.preheader247, label %.lr.ph285, !llvm.loop !19
 
 .preheader:                                       ; preds = %Vec_IntPush.exit152, %.preheader247
   %.3243.lcssa = phi ptr [ %.2242, %.preheader247 ], [ %.5245, %Vec_IntPush.exit152 ]
@@ -1631,7 +1631,7 @@ Vec_IntPush.exit152:                              ; preds = %Vec_IntPush.exit152
   store i32 %301, ptr %317, align 4
   %318 = add nuw nsw i32 %.2287, 1
   %exitcond337.not = icmp eq i32 %318, %51
-  br i1 %exitcond337.not, label %.preheader, label %129, !llvm.loop !21
+  br i1 %exitcond337.not, label %.preheader, label %129, !llvm.loop !20
 
 .lr.ph291:                                        ; preds = %.preheader, %Gia_AigerReadUnsigned.exit163
   %.3290 = phi i32 [ %324, %Gia_AigerReadUnsigned.exit163 ], [ 0, %.preheader ]
@@ -1652,7 +1652,7 @@ Gia_AigerReadUnsigned.exit163:                    ; preds = %.lr.ph.i155, %.lr.p
   %.7 = phi ptr [ %319, %.lr.ph291 ], [ %322, %.lr.ph.i155 ]
   %324 = add nuw nsw i32 %.3290, 1
   %exitcond338.not = icmp eq i32 %324, %35
-  br i1 %exitcond338.not, label %._crit_edge, label %.lr.ph291, !llvm.loop !22
+  br i1 %exitcond338.not, label %._crit_edge, label %.lr.ph291, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %Gia_AigerReadUnsigned.exit163, %.preheader
   %.6.lcssa = phi ptr [ %.3243.lcssa, %.preheader ], [ %.7, %Gia_AigerReadUnsigned.exit163 ]
@@ -1742,7 +1742,7 @@ Gia_AigerReadUnsigned.exit185:                    ; preds = %342, %._crit_edge.l
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %61, i32 noundef %365)
   %366 = add nuw nsw i32 %.4294, 1
   %exitcond339.not = icmp eq i32 %366, %340
-  br i1 %exitcond339.not, label %._crit_edge296, label %342, !llvm.loop !23
+  br i1 %exitcond339.not, label %._crit_edge296, label %342, !llvm.loop !22
 
 ._crit_edge296:                                   ; preds = %Gia_AigerReadUnsigned.exit185, %Gia_AigerReadUnsigned.exit174
   %.9.lcssa = phi ptr [ %.8, %Gia_AigerReadUnsigned.exit174 ], [ %.10, %Gia_AigerReadUnsigned.exit185 ]
@@ -1889,7 +1889,7 @@ Vec_IntPush.exit237:                              ; preds = %.Vec_IntGrow.exit10
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %61, i32 noundef %428)
   %429 = add nuw nsw i32 %.5299, 1
   %exitcond340.not = icmp eq i32 %429, %35
-  br i1 %exitcond340.not, label %._crit_edge301, label %.lr.ph300, !llvm.loop !24
+  br i1 %exitcond340.not, label %._crit_edge301, label %.lr.ph300, !llvm.loop !23
 
 ._crit_edge301:                                   ; preds = %Vec_IntPush.exit237, %Vec_IntAlloc.exit
   tail call void @Gia_ManSetRegNum(ptr noundef nonnull %61, i32 noundef %35) #17
@@ -1930,7 +1930,7 @@ Vec_IntFree.exit240:                              ; preds = %433, %435
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -2156,7 +2156,7 @@ declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManFromBridgeReadPackage(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManFromBridgeReadPackage(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca [24 x i8], align 16
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 1, ptr noundef %0)
   %7 = and i64 %6, 4294967295
@@ -2224,11 +2224,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManFromBridge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Gia_ManFromBridge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3), !range !25
+  %6 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %7 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -2243,7 +2243,7 @@ define noundef ptr @Gia_ManFromBridge(ptr nocapture noundef %0, ptr noundef %1) 
   br i1 %.not13, label %23, label %10
 
 10:                                               ; preds = %9
-  %11 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3), !range !25
+  %11 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %.not14 = icmp eq i32 %11, 0
   br i1 %.not14, label %23, label %12
 
@@ -2263,7 +2263,7 @@ define noundef ptr @Gia_ManFromBridge(ptr nocapture noundef %0, ptr noundef %1) 
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %16
-  %19 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3), !range !25
+  %19 = call i32 @Gia_ManFromBridgeReadPackage(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %20 = load ptr, ptr %3, align 8
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %22, label %21
@@ -2293,7 +2293,7 @@ define void @Gia_ManToBridgeAbsNetlistTest(ptr noundef %0, ptr nocapture noundef
   br label %14
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @Gia_ManToBridgeVec(ptr noundef %1)
+  %9 = tail call ptr @Gia_ManToBridgeVec(ptr noundef readonly %1)
   %10 = getelementptr i8, ptr %9, i64 4
   %.val.i = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %9, i64 8
@@ -2583,11 +2583,9 @@ attributes #20 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 -1}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = !{i32 0, i32 2}

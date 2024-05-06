@@ -84,7 +84,7 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %39 = add nsw i32 %.04853.i, 1
   %40 = sext i32 %.04853.i to i64
   %41 = getelementptr inbounds i32, ptr %16, i64 %40
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %42, ptr %41, align 4
   br label %43
 
@@ -188,7 +188,7 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
   %88 = add nsw i32 %.04853.i231, 1
   %89 = sext i32 %.04853.i231 to i64
   %90 = getelementptr inbounds i32, ptr %14, i64 %89
-  %91 = trunc i64 %indvars.iv.i230 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i230 to i32
   store i32 %91, ptr %90, align 4
   br label %92
 
@@ -318,7 +318,7 @@ cs_unmatched.exit.thread:                         ; preds = %136
   %148 = add nsw i32 %.014.i, 1
   %149 = sext i32 %.014.i to i64
   %150 = getelementptr inbounds i32, ptr %16, i64 %149
-  %151 = trunc i64 %indvars.iv.i255 to i32
+  %151 = trunc nuw nsw i64 %indvars.iv.i255 to i32
   store i32 %151, ptr %150, align 4
   br label %152
 
@@ -353,7 +353,7 @@ cs_unmatched.exit:                                ; preds = %152
   %163 = add nsw i32 %.02325.i, 1
   %164 = sext i32 %.02325.i to i64
   %165 = getelementptr inbounds i32, ptr %16, i64 %164
-  %166 = trunc i64 %indvars.iv.i264 to i32
+  %166 = trunc nuw nsw i64 %indvars.iv.i264 to i32
   store i32 %166, ptr %165, align 4
   br label %167
 
@@ -390,7 +390,7 @@ cs_matched.exit:                                  ; preds = %167
   %178 = add nsw i32 %.02325.i277, 1
   %179 = sext i32 %.02325.i277 to i64
   %180 = getelementptr inbounds i32, ptr %16, i64 %179
-  %181 = trunc i64 %indvars.iv.i275 to i32
+  %181 = trunc nuw nsw i64 %indvars.iv.i275 to i32
   store i32 %181, ptr %180, align 4
   br label %182
 
@@ -427,7 +427,7 @@ cs_matched.exit283:                               ; preds = %182
   %193 = add nsw i32 %.02325.i292, 1
   %194 = sext i32 %.02325.i292 to i64
   %195 = getelementptr inbounds i32, ptr %16, i64 %194
-  %196 = trunc i64 %indvars.iv.i290 to i32
+  %196 = trunc nuw nsw i64 %indvars.iv.i290 to i32
   store i32 %196, ptr %195, align 4
   br label %197
 
@@ -463,7 +463,7 @@ cs_matched.exit298:                               ; preds = %197, %cs_unmatched.
   %204 = add nsw i32 %.014.i305, 1
   %205 = sext i32 %.014.i305 to i64
   %206 = getelementptr inbounds i32, ptr %14, i64 %205
-  %207 = trunc i64 %indvars.iv.i304 to i32
+  %207 = trunc nuw nsw i64 %indvars.iv.i304 to i32
   store i32 %207, ptr %206, align 4
   br label %208
 
@@ -518,7 +518,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   %229 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv
   %230 = load i32, ptr %229, align 4
   %231 = load i32, ptr %224, align 4
-  %232 = trunc i64 %indvars.iv to i32
+  %232 = trunc nuw i64 %indvars.iv to i32
   %233 = sub nsw i32 %232, %231
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i32, ptr %221, i64 %234
@@ -625,7 +625,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   %277 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv361
   %278 = load i32, ptr %277, align 4
   %279 = load i32, ptr %224, align 4
-  %280 = trunc i64 %indvars.iv361 to i32
+  %280 = trunc nuw nsw i64 %indvars.iv361 to i32
   %281 = add nsw i32 %279, %280
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i32, ptr %16, i64 %282
@@ -661,7 +661,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   %292 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv371
   %293 = load i32, ptr %292, align 4
   %294 = load i32, ptr %240, align 4
-  %295 = trunc i64 %indvars.iv371 to i32
+  %295 = trunc nuw nsw i64 %indvars.iv371 to i32
   %296 = add nsw i32 %294, %295
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i32, ptr %14, i64 %297
@@ -704,7 +704,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   br i1 %exitcond384.not, label %._crit_edge349.loopexit, label %.lr.ph348, !llvm.loop !16
 
 ._crit_edge349.loopexit:                          ; preds = %.lr.ph348
-  %312 = trunc i64 %indvars.iv.next379 to i32
+  %312 = trunc nuw i64 %indvars.iv.next379 to i32
   br label %._crit_edge349
 
 ._crit_edge349:                                   ; preds = %._crit_edge349.loopexit, %._crit_edge344
@@ -756,7 +756,7 @@ declare ptr @cs_permute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @cs_fkeep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cs_rprune(i32 noundef %0, i32 %1, double %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 0, 2) i32 @cs_rprune(i32 noundef %0, i32 %1, double %2, ptr nocapture noundef readonly %3) #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp sgt i32 %6, %0

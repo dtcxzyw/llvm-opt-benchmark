@@ -25,7 +25,7 @@ define double @area2(double %0, double %1, double %2, double %3, double %4, doub
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @wind(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @wind(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
   %7 = fsub double %1, %3
   %8 = fsub double %4, %2
   %9 = fsub double %5, %3
@@ -538,7 +538,7 @@ gv_calloc.exit:                                   ; preds = %18
   br i1 %43, label %.split.loop.exit15.i, label %29
 
 .split.loop.exit15.i:                             ; preds = %33
-  %44 = trunc i64 %indvars.iv.i to i32
+  %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %polyhit.exit
 
 polyhit.exit:                                     ; preds = %.split.loop.exit15.i, %gv_calloc.exit
@@ -552,7 +552,7 @@ polyhit.exit:                                     ; preds = %.split.loop.exit15.
   %49 = zext nneg i32 %.0 to i64
   %50 = getelementptr inbounds i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr i8, ptr %50, i64 4
+  %52 = getelementptr inbounds i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   br label %polyhit.exit.thread
 
@@ -1348,12 +1348,12 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %21 = zext nneg i32 %. to i64
   %22 = getelementptr inbounds i32, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i8, ptr %22, i64 4
+  %24 = getelementptr inbounds i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = zext nneg i32 %.125 to i64
   %27 = getelementptr inbounds i32, ptr %20, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr i8, ptr %27, i64 4
+  %29 = getelementptr inbounds i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %23, 0
   br i1 %31, label %.lr.ph.preheader, label %.preheader76
@@ -1374,7 +1374,7 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %35 = zext nneg i32 %.sink121 to i64
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr i8, ptr %36, i64 4
+  %38 = getelementptr inbounds i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   br label %.preheader76
 

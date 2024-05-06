@@ -97,12 +97,12 @@ define noundef zeroext i1 @_ZNK6Assimp23GenVertexNormalsProcess8IsActiveEj(ptr n
 entry:
   %force_ = getelementptr inbounds i8, ptr %this, i64 28
   %and = lshr i32 %pFlags, 29
-  %0 = trunc i32 %and to i8
+  %0 = trunc nuw nsw i32 %and to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %force_, align 4
   %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 29
   %and2 = lshr i32 %pFlags, 24
-  %1 = trunc i32 %and2 to i8
+  %1 = trunc nuw i32 %and2 to i8
   %frombool4 = and i8 %1, 1
   store i8 %frombool4, ptr %flippedWindingOrder_, align 1
   %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 30
@@ -172,7 +172,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %call2 = tail call noundef zeroext i1 @_ZN6Assimp23GenVertexNormalsProcess20GenMeshVertexNormalsEP6aiMeshj(ptr noundef nonnull align 8 dereferenceable(31) %this, ptr noundef %4, i32 noundef %5)
   %spec.select = select i1 %call2, i1 true, i1 %bHas.07
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

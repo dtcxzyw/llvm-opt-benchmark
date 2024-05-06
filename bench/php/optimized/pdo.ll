@@ -345,7 +345,7 @@ define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pdo_register_driver(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @php_pdo_register_driver(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -405,7 +405,7 @@ define void @php_pdo_unregister_driver(ptr nocapture noundef readonly %0) local_
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pdo_register_driver_specific_ce(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @php_pdo_register_driver_specific_ce(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef nonnull @.str.4, i64 noundef 3) #13
   %.not = icmp eq ptr %4, null

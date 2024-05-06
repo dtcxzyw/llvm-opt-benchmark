@@ -876,11 +876,11 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   br i1 %423, label %.thread637, label %424
 
 424:                                              ; preds = %421
-  %425 = trunc i8 %.2447 to i1
+  %425 = trunc nuw i8 %.2447 to i1
   br i1 %425, label %.thread637, label %426
 
 426:                                              ; preds = %424
-  %427 = trunc i8 %.2 to i1
+  %427 = trunc nuw i8 %.2 to i1
   br i1 %427, label %.thread637, label %.thread618
 
 428:                                              ; preds = %184
@@ -1062,7 +1062,7 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
 
 .loopexit676:                                     ; preds = %.lr.ph958, %.preheader675, %514
   %.3490 = phi ptr [ %516, %514 ], [ %516, %.preheader675 ], [ %520, %.lr.ph958 ]
-  %524 = trunc i8 %.2450 to i1
+  %524 = trunc nuw i8 %.2450 to i1
   br i1 %524, label %525, label %.thread618
 
 525:                                              ; preds = %.loopexit676
@@ -1257,7 +1257,7 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
 
 .loopexit678:                                     ; preds = %.lr.ph, %.preheader677, %617
   %.5492 = phi ptr [ %619, %617 ], [ %619, %.preheader677 ], [ %623, %.lr.ph ]
-  %627 = trunc i8 %.2450 to i1
+  %627 = trunc nuw i8 %.2450 to i1
   %628 = icmp ne i64 %.1456, 0
   %or.cond10 = and i1 %628, %627
   br i1 %or.cond10, label %629, label %.thread618
@@ -1387,7 +1387,7 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   %689 = load i8, ptr %.10506, align 1
   %690 = icmp eq i8 %689, 102
   %spec.select605 = select i1 %690, i8 70, i8 %689
-  %691 = trunc i8 %.2450 to i1
+  %691 = trunc nuw i8 %.2450 to i1
   %692 = select i1 %.0442, i32 %.2476, i32 6
   br i1 %690, label %693, label %696
 
@@ -1404,11 +1404,11 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   br i1 %700, label %.thread637, label %701
 
 701:                                              ; preds = %696
-  %702 = trunc i8 %.2447 to i1
+  %702 = trunc nuw i8 %.2447 to i1
   br i1 %702, label %.thread637, label %703
 
 703:                                              ; preds = %701
-  %704 = trunc i8 %.2 to i1
+  %704 = trunc nuw i8 %.2 to i1
   br i1 %704, label %.thread637, label %.thread618
 
 705:                                              ; preds = %184, %184, %184, %184
@@ -1515,11 +1515,11 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   br label %758
 
 754:                                              ; preds = %745
-  %755 = trunc i8 %.2447 to i1
+  %755 = trunc nuw i8 %.2447 to i1
   br i1 %755, label %758, label %756
 
 756:                                              ; preds = %754
-  %757 = trunc i8 %.2 to i1
+  %757 = trunc nuw i8 %.2 to i1
   %spec.select608 = select i1 %757, i8 32, i8 0
   br label %758
 
@@ -1528,7 +1528,7 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   %.0464 = phi i8 [ 45, %752 ], [ 43, %754 ], [ %spec.select608, %756 ]
   %759 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.7494) #14
   store i64 %759, ptr %5, align 8
-  %760 = trunc i8 %.2450 to i1
+  %760 = trunc nuw i8 %.2450 to i1
   br i1 %760, label %761, label %826
 
 761:                                              ; preds = %758

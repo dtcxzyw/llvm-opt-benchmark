@@ -60,7 +60,7 @@ cond.false.i:                                     ; preds = %if.end
   unreachable
 
 cond.end.i:                                       ; preds = %if.end
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %size), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp1.i = icmp ult i64 %0, 2
   br i1 %cmp1.i, label %if.end.i, label %cond.false3.i
 
@@ -73,7 +73,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp10.i, label %if.end26.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %minsize), !range !4
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %minsize)
   %cmp16.i = icmp ult i64 %1, 2
   br i1 %cmp16.i, label %if.end26.i, label %cond.false18.i
 
@@ -97,7 +97,7 @@ for.body.i:                                       ; preds = %if.end26.i, %for.bo
   %inc31.i = add nsw i64 %inc312829.i, 1
   %shr32.i = lshr i64 %i.030.i, 1
   %tobool.not.i = icmp ult i64 %i.030.i, 2
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
   store i64 %inc31.i, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 5), align 8
@@ -239,7 +239,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CRYPTO_secure_malloc_done() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_secure_malloc_done() local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @secure_mem_used, align 8
   %cmp = icmp eq i64 %0, 0
@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %sh_done.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @CRYPTO_secure_malloc_initialized() local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CRYPTO_secure_malloc_initialized() local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @secure_mem_initialized, align 4
   %0 = zext i1 %.b to i32
@@ -316,7 +316,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   %list.0.i = add nsw i64 %list.0.in.i, -1
   %cmp1.i = icmp ult i64 %i.0.i, %num
   %shl.i = shl i64 %i.0.i, 1
-  br i1 %cmp1.i, label %for.cond.i, label %for.end.i, !llvm.loop !7
+  br i1 %cmp1.i, label %for.cond.i, label %for.end.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.cond.i
   %cmp6181.i = icmp sgt i64 %list.0.in.i, 0
@@ -344,11 +344,11 @@ while.cond.i.preheader.while.end.i_crit_edge:     ; preds = %while.cond.i.prehea
 for.inc11.i:                                      ; preds = %for.body7.i
   %dec12.i = add nsw i64 %slist.0182.i, -1
   %cmp6.i = icmp sgt i64 %slist.0182.i, 0
-  br i1 %cmp6.i, label %for.body7.i, label %err, !llvm.loop !8
+  br i1 %cmp6.i, label %for.body7.i, label %err, !llvm.loop !7
 
 while.cond.i:                                     ; preds = %sh_find_my_buddy.exit.i
   %cmp17.not.i = icmp eq i64 %inc.i, %list.0.i
-  br i1 %cmp17.not.i, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !9
+  br i1 %cmp17.not.i, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !8
 
 while.body.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
   %slist.1.i56 = phi i64 [ %inc.i, %while.cond.i ], [ %slist.0182.i, %while.cond.i.preheader ]
@@ -656,7 +656,7 @@ if.then.i126.i:                                   ; preds = %land.lhs.true.i.i
 sh_find_my_buddy.exit.i:                          ; preds = %if.then.i126.i, %land.lhs.true.i.i, %cond.end57.i
   %chunk.0.i.i = phi ptr [ null, %land.lhs.true.i.i ], [ %add.ptr.i.i, %if.then.i126.i ], [ null, %cond.end57.i ]
   %cmp63.i = icmp eq ptr %add.ptr60.i, %chunk.0.i.i
-  br i1 %cmp63.i, label %while.cond.i, label %cond.false66.i, !llvm.loop !9
+  br i1 %cmp63.i, label %while.cond.i, label %cond.false66.i, !llvm.loop !8
 
 cond.false66.i:                                   ; preds = %sh_find_my_buddy.exit.i
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 682) #9
@@ -865,7 +865,7 @@ for.cond.i:                                       ; preds = %if.end.i
   %shr5.i = lshr exact i64 %bit.09.i, 1
   %list.0.i = add nsw i64 %list.010.i, -1
   %tobool.not.i = icmp eq i64 %bit.09.i, 0
-  br i1 %tobool.not.i, label %sh_getlist.exit, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %sh_getlist.exit, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %list.010.i = phi i64 [ %list.07.i, %for.body.lr.ph.i ], [ %list.0.i, %for.cond.i ]
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @CRYPTO_secure_allocated(ptr noundef readnone %ptr) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone %ptr) local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @secure_mem_initialized, align 4
   br i1 %.b, label %if.end, label %return
@@ -1083,7 +1083,7 @@ for.cond.i:                                       ; preds = %if.end.i
   %shr5.i = lshr exact i64 %bit.09.i, 1
   %list.0.i = add nsw i64 %list.010.i, -1
   %tobool.not.i = icmp eq i64 %bit.09.i, 0
-  br i1 %tobool.not.i, label %sh_getlist.exit, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %sh_getlist.exit, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %list.010.i = phi i64 [ %list.07.i, %for.body.lr.ph.i ], [ %list.0.i, %for.cond.i ]
@@ -1507,7 +1507,7 @@ cond.end65:                                       ; preds = %sh_testbit.exit212
   %arrayidx69 = getelementptr inbounds ptr, ptr %46, i64 %dec
   %47 = load ptr, ptr %arrayidx69, align 8
   %cmp70 = icmp eq ptr %47, %spec.select
-  br i1 %cmp70, label %while.cond, label %cond.false73, !llvm.loop !11
+  br i1 %cmp70, label %while.cond, label %cond.false73, !llvm.loop !10
 
 cond.false73:                                     ; preds = %cond.end65
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 736) #9
@@ -1856,11 +1856,10 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

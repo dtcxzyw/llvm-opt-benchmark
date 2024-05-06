@@ -199,7 +199,7 @@ if.end:                                           ; preds = %_ZN15btSdfDataStrea
   %ds.sroa.33.6370 = phi i32 [ %add.i65.pre-phi, %_ZN15btSdfDataStream4readIyEEbRT_.exit72 ], [ %ds.sroa.33.5, %_ZN15btSdfDataStream4readIyEEbRT_.exit63 ]
   %nodes0.0369 = phi i64 [ %16, %_ZN15btSdfDataStream4readIyEEbRT_.exit72 ], [ undef, %_ZN15btSdfDataStream4readIyEEbRT_.exit63 ]
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 104
-  %conv85 = trunc i64 %nodes0.0369 to i32
+  %conv85 = trunc nuw nsw i64 %nodes0.0369 to i32
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -1637,77 +1637,77 @@ if.then:                                          ; preds = %entry
   %119 = fmul <2 x float> %11, %118
   store <2 x float> %119, ptr %gradient, align 4
   %mul244 = fmul float %79, %sub238
-  %arrayidx3.i442 = getelementptr inbounds i8, ptr %gradient, i64 8
-  store float %mul244, ptr %arrayidx3.i442, align 4
-  %arrayidx.i443 = getelementptr inbounds i8, ptr %gradient, i64 16
+  %arrayidx3.i445 = getelementptr inbounds i8, ptr %gradient, i64 8
+  store float %mul244, ptr %arrayidx3.i445, align 4
+  %arrayidx.i446 = getelementptr inbounds i8, ptr %gradient, i64 16
   %120 = fmul <2 x float> %17, %118
   %mul248 = extractelement <2 x float> %120, i64 1
-  %arrayidx3.i445 = getelementptr inbounds i8, ptr %gradient, i64 20
-  store float %mul248, ptr %arrayidx3.i445, align 4
+  %arrayidx3.i449 = getelementptr inbounds i8, ptr %gradient, i64 20
+  store float %mul248, ptr %arrayidx3.i449, align 4
   %mul250 = fmul float %101, %sub238
-  %arrayidx3.i447 = getelementptr inbounds i8, ptr %gradient, i64 24
-  store float %mul250, ptr %arrayidx3.i447, align 4
-  %arrayidx.i448 = getelementptr inbounds i8, ptr %gradient, i64 32
+  %arrayidx3.i451 = getelementptr inbounds i8, ptr %gradient, i64 24
+  store float %mul250, ptr %arrayidx3.i451, align 4
+  %arrayidx.i452 = getelementptr inbounds i8, ptr %gradient, i64 32
   %121 = shufflevector <2 x float> %118, <2 x float> %11, <2 x i32> <i32 0, i32 3>
   %mul256 = fmul float %90, %sub238
-  %arrayidx3.i452 = getelementptr inbounds i8, ptr %gradient, i64 40
-  store float %mul256, ptr %arrayidx3.i452, align 4
-  %arrayidx.i453 = getelementptr inbounds i8, ptr %gradient, i64 48
+  %arrayidx3.i457 = getelementptr inbounds i8, ptr %gradient, i64 40
+  store float %mul256, ptr %arrayidx3.i457, align 4
+  %arrayidx.i458 = getelementptr inbounds i8, ptr %gradient, i64 48
   %122 = fadd <2 x float> %117, %116
   %123 = fmul <2 x float> %11, %122
   %mul246 = extractelement <2 x float> %123, i64 0
-  store float %mul246, ptr %arrayidx.i443, align 4
+  store float %mul246, ptr %arrayidx.i446, align 4
   %124 = shufflevector <2 x float> %17, <2 x float> %122, <2 x i32> <i32 0, i32 3>
   %125 = fmul <2 x float> %124, %121
-  store <2 x float> %125, ptr %arrayidx.i448, align 4
+  store <2 x float> %125, ptr %arrayidx.i452, align 4
   %126 = fmul <2 x float> %17, %122
-  store <2 x float> %126, ptr %arrayidx.i453, align 4
+  store <2 x float> %126, ptr %arrayidx.i458, align 4
   %mul262 = fmul float %97, %sub238
-  %arrayidx3.i457 = getelementptr inbounds i8, ptr %gradient, i64 56
-  store float %mul262, ptr %arrayidx3.i457, align 4
-  %arrayidx.i458 = getelementptr inbounds i8, ptr %gradient, i64 64
+  %arrayidx3.i463 = getelementptr inbounds i8, ptr %gradient, i64 56
+  store float %mul262, ptr %arrayidx3.i463, align 4
+  %arrayidx.i464 = getelementptr inbounds i8, ptr %gradient, i64 64
   %127 = fmul <2 x float> %15, %118
-  store <2 x float> %127, ptr %arrayidx.i458, align 4
+  store <2 x float> %127, ptr %arrayidx.i464, align 4
   %mul268 = fmul float %79, %add239
-  %arrayidx3.i462 = getelementptr inbounds i8, ptr %gradient, i64 72
-  store float %mul268, ptr %arrayidx3.i462, align 4
+  %arrayidx3.i469 = getelementptr inbounds i8, ptr %gradient, i64 72
+  store float %mul268, ptr %arrayidx3.i469, align 4
   %128 = fmul <2 x float> %15, %122
   %mul270 = extractelement <2 x float> %128, i64 0
-  %arrayidx.i463 = getelementptr inbounds i8, ptr %gradient, i64 80
-  store float %mul270, ptr %arrayidx.i463, align 4
+  %arrayidx.i470 = getelementptr inbounds i8, ptr %gradient, i64 80
+  store float %mul270, ptr %arrayidx.i470, align 4
   %129 = fmul <2 x float> %19, %118
   %mul272 = extractelement <2 x float> %129, i64 1
-  %arrayidx3.i465 = getelementptr inbounds i8, ptr %gradient, i64 84
-  store float %mul272, ptr %arrayidx3.i465, align 4
+  %arrayidx3.i473 = getelementptr inbounds i8, ptr %gradient, i64 84
+  store float %mul272, ptr %arrayidx3.i473, align 4
   %mul274 = fmul float %101, %add239
-  %arrayidx3.i467 = getelementptr inbounds i8, ptr %gradient, i64 88
-  store float %mul274, ptr %arrayidx3.i467, align 4
+  %arrayidx3.i475 = getelementptr inbounds i8, ptr %gradient, i64 88
+  store float %mul274, ptr %arrayidx3.i475, align 4
   %130 = fmul <2 x float> %19, %118
   %mul276 = extractelement <2 x float> %130, i64 0
-  %arrayidx.i468 = getelementptr inbounds i8, ptr %gradient, i64 96
-  store float %mul276, ptr %arrayidx.i468, align 4
+  %arrayidx.i476 = getelementptr inbounds i8, ptr %gradient, i64 96
+  store float %mul276, ptr %arrayidx.i476, align 4
   %131 = fmul <2 x float> %15, %122
   %mul278 = extractelement <2 x float> %131, i64 1
-  %arrayidx3.i470 = getelementptr inbounds i8, ptr %gradient, i64 100
-  store float %mul278, ptr %arrayidx3.i470, align 4
+  %arrayidx3.i479 = getelementptr inbounds i8, ptr %gradient, i64 100
+  store float %mul278, ptr %arrayidx3.i479, align 4
   %mul280 = fmul float %90, %add239
-  %arrayidx3.i472 = getelementptr inbounds i8, ptr %gradient, i64 104
-  store float %mul280, ptr %arrayidx3.i472, align 4
-  %arrayidx.i473 = getelementptr inbounds i8, ptr %gradient, i64 112
+  %arrayidx3.i481 = getelementptr inbounds i8, ptr %gradient, i64 104
+  store float %mul280, ptr %arrayidx3.i481, align 4
+  %arrayidx.i482 = getelementptr inbounds i8, ptr %gradient, i64 112
   %132 = fmul <2 x float> %19, %122
-  store <2 x float> %132, ptr %arrayidx.i473, align 4
+  store <2 x float> %132, ptr %arrayidx.i482, align 4
   %mul286 = fmul float %97, %add239
-  %arrayidx3.i477 = getelementptr inbounds i8, ptr %gradient, i64 120
-  store float %mul286, ptr %arrayidx3.i477, align 4
+  %arrayidx3.i487 = getelementptr inbounds i8, ptr %gradient, i64 120
+  store float %mul286, ptr %arrayidx3.i487, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i478 = getelementptr inbounds [32 x %class.btVector3], ptr %gradient, i64 0, i64 %indvars.iv.i
-  %133 = load <2 x float>, ptr %arrayidx.i478, align 4
+  %arrayidx.i488 = getelementptr inbounds [32 x %class.btVector3], ptr %gradient, i64 0, i64 %indvars.iv.i
+  %133 = load <2 x float>, ptr %arrayidx.i488, align 4
   %134 = fmul <2 x float> %133, <float 1.562500e-02, float 1.562500e-02>
-  store <2 x float> %134, ptr %arrayidx.i478, align 4
-  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i478, i64 8
+  store <2 x float> %134, ptr %arrayidx.i488, align 4
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i488, i64 8
   %135 = load float, ptr %arrayidx6.i.i.i, align 4
   %mul7.i.i.i = fmul float %135, 1.562500e-02
   store float %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 4
@@ -1727,68 +1727,68 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %mul290 = fmul float %conv55, %136
   %137 = extractelement <2 x float> %43, i64 0
   %mul291 = fmul float %conv55, %137
-  %arrayidx.i479 = getelementptr inbounds i8, ptr %gradient, i64 128
+  %arrayidx.i489 = getelementptr inbounds i8, ptr %gradient, i64 128
   %fneg294 = fneg float %mul290
   %138 = insertelement <2 x float> %11, float %conv14, i64 1
   %139 = insertelement <2 x float> poison, float %sub288, i64 0
   %140 = insertelement <2 x float> %139, float %fneg294, i64 1
   %141 = fmul <2 x float> %138, %140
-  store <2 x float> %141, ptr %arrayidx.i479, align 4
+  store <2 x float> %141, ptr %arrayidx.i489, align 4
   %142 = extractelement <2 x float> %4, i64 1
   %mul298 = fmul float %142, %fneg294
-  %arrayidx3.i483 = getelementptr inbounds i8, ptr %gradient, i64 136
-  store float %mul298, ptr %arrayidx3.i483, align 4
-  %arrayidx.i484 = getelementptr inbounds i8, ptr %gradient, i64 144
+  %arrayidx3.i494 = getelementptr inbounds i8, ptr %gradient, i64 136
+  store float %mul298, ptr %arrayidx3.i494, align 4
+  %arrayidx.i495 = getelementptr inbounds i8, ptr %gradient, i64 144
   %fneg302 = fneg float %mul291
   %143 = insertelement <2 x float> poison, float %sub289, i64 0
   %144 = insertelement <2 x float> %143, float %fneg302, i64 1
   %145 = fmul <2 x float> %138, %144
-  store <2 x float> %145, ptr %arrayidx.i484, align 4
+  store <2 x float> %145, ptr %arrayidx.i495, align 4
   %mul306 = fmul float %142, %fneg302
-  %arrayidx3.i488 = getelementptr inbounds i8, ptr %gradient, i64 152
-  store float %mul306, ptr %arrayidx3.i488, align 4
-  %arrayidx.i489 = getelementptr inbounds i8, ptr %gradient, i64 160
+  %arrayidx3.i500 = getelementptr inbounds i8, ptr %gradient, i64 152
+  store float %mul306, ptr %arrayidx3.i500, align 4
+  %arrayidx.i501 = getelementptr inbounds i8, ptr %gradient, i64 160
   %146 = insertelement <2 x float> %15, float %conv22, i64 1
   %147 = fmul <2 x float> %146, %140
-  store <2 x float> %147, ptr %arrayidx.i489, align 4
+  store <2 x float> %147, ptr %arrayidx.i501, align 4
   %mul313 = fmul float %142, %mul290
-  %arrayidx3.i493 = getelementptr inbounds i8, ptr %gradient, i64 168
-  store float %mul313, ptr %arrayidx3.i493, align 4
-  %arrayidx.i494 = getelementptr inbounds i8, ptr %gradient, i64 176
+  %arrayidx3.i506 = getelementptr inbounds i8, ptr %gradient, i64 168
+  store float %mul313, ptr %arrayidx3.i506, align 4
+  %arrayidx.i507 = getelementptr inbounds i8, ptr %gradient, i64 176
   %148 = fmul <2 x float> %146, %144
-  store <2 x float> %148, ptr %arrayidx.i494, align 4
+  store <2 x float> %148, ptr %arrayidx.i507, align 4
   %mul320 = fmul float %142, %mul291
-  %arrayidx3.i498 = getelementptr inbounds i8, ptr %gradient, i64 184
-  store float %mul320, ptr %arrayidx3.i498, align 4
-  %arrayidx.i499 = getelementptr inbounds i8, ptr %gradient, i64 192
+  %arrayidx3.i512 = getelementptr inbounds i8, ptr %gradient, i64 184
+  store float %mul320, ptr %arrayidx3.i512, align 4
+  %arrayidx.i513 = getelementptr inbounds i8, ptr %gradient, i64 192
   %149 = insertelement <2 x float> %17, float %conv14, i64 1
   %150 = insertelement <2 x float> %139, float %mul290, i64 1
   %151 = fmul <2 x float> %149, %150
-  store <2 x float> %151, ptr %arrayidx.i499, align 4
+  store <2 x float> %151, ptr %arrayidx.i513, align 4
   %152 = extractelement <2 x float> %5, i64 1
   %mul327 = fmul float %152, %fneg294
-  %arrayidx3.i503 = getelementptr inbounds i8, ptr %gradient, i64 200
-  store float %mul327, ptr %arrayidx3.i503, align 4
-  %arrayidx.i504 = getelementptr inbounds i8, ptr %gradient, i64 208
+  %arrayidx3.i518 = getelementptr inbounds i8, ptr %gradient, i64 200
+  store float %mul327, ptr %arrayidx3.i518, align 4
+  %arrayidx.i519 = getelementptr inbounds i8, ptr %gradient, i64 208
   %153 = insertelement <2 x float> %143, float %mul291, i64 1
   %154 = fmul <2 x float> %149, %153
-  store <2 x float> %154, ptr %arrayidx.i504, align 4
+  store <2 x float> %154, ptr %arrayidx.i519, align 4
   %mul334 = fmul float %152, %fneg302
-  %arrayidx3.i508 = getelementptr inbounds i8, ptr %gradient, i64 216
-  store float %mul334, ptr %arrayidx3.i508, align 4
-  %arrayidx.i509 = getelementptr inbounds i8, ptr %gradient, i64 224
+  %arrayidx3.i524 = getelementptr inbounds i8, ptr %gradient, i64 216
+  store float %mul334, ptr %arrayidx3.i524, align 4
+  %arrayidx.i525 = getelementptr inbounds i8, ptr %gradient, i64 224
   %155 = insertelement <2 x float> %19, float %conv22, i64 1
   %156 = fmul <2 x float> %155, %150
-  store <2 x float> %156, ptr %arrayidx.i509, align 4
+  store <2 x float> %156, ptr %arrayidx.i525, align 4
   %mul340 = fmul float %152, %mul290
-  %arrayidx3.i513 = getelementptr inbounds i8, ptr %gradient, i64 232
-  store float %mul340, ptr %arrayidx3.i513, align 4
-  %arrayidx.i514 = getelementptr inbounds i8, ptr %gradient, i64 240
+  %arrayidx3.i530 = getelementptr inbounds i8, ptr %gradient, i64 232
+  store float %mul340, ptr %arrayidx3.i530, align 4
+  %arrayidx.i531 = getelementptr inbounds i8, ptr %gradient, i64 240
   %157 = fmul <2 x float> %155, %153
-  store <2 x float> %157, ptr %arrayidx.i514, align 4
+  store <2 x float> %157, ptr %arrayidx.i531, align 4
   %mul346 = fmul float %152, %mul291
-  %arrayidx3.i518 = getelementptr inbounds i8, ptr %gradient, i64 248
-  store float %mul346, ptr %arrayidx3.i518, align 4
+  %arrayidx3.i536 = getelementptr inbounds i8, ptr %gradient, i64 248
+  store float %mul346, ptr %arrayidx3.i536, align 4
   %fneg348 = fneg float %conv221
   %sub349 = fsub float %fneg348, %conv230
   %sub350 = fsub float %conv221, %conv230
@@ -1797,69 +1797,69 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %159 = extractelement <2 x float> %63, i64 1
   %mul352 = fmul float %conv58, %159
   %fneg353 = fneg float %mul351
-  %arrayidx.i519 = getelementptr inbounds i8, ptr %gradient, i64 256
+  %arrayidx.i537 = getelementptr inbounds i8, ptr %gradient, i64 256
   %160 = insertelement <2 x float> %11, float %conv14, i64 0
   %161 = insertelement <2 x float> poison, float %fneg353, i64 0
   %162 = insertelement <2 x float> %161, float %sub349, i64 1
   %163 = fmul <2 x float> %160, %162
-  store <2 x float> %163, ptr %arrayidx.i519, align 4
+  store <2 x float> %163, ptr %arrayidx.i537, align 4
   %164 = extractelement <2 x float> %4, i64 0
   %mul359 = fmul float %164, %fneg353
-  %arrayidx3.i523 = getelementptr inbounds i8, ptr %gradient, i64 264
-  store float %mul359, ptr %arrayidx3.i523, align 4
+  %arrayidx3.i542 = getelementptr inbounds i8, ptr %gradient, i64 264
+  store float %mul359, ptr %arrayidx3.i542, align 4
   %fneg361 = fneg float %mul352
-  %arrayidx.i524 = getelementptr inbounds i8, ptr %gradient, i64 272
+  %arrayidx.i543 = getelementptr inbounds i8, ptr %gradient, i64 272
   %165 = insertelement <2 x float> poison, float %fneg361, i64 0
   %166 = insertelement <2 x float> %165, float %sub350, i64 1
   %167 = fmul <2 x float> %160, %166
-  store <2 x float> %167, ptr %arrayidx.i524, align 4
+  store <2 x float> %167, ptr %arrayidx.i543, align 4
   %mul367 = fmul float %164, %fneg361
-  %arrayidx3.i528 = getelementptr inbounds i8, ptr %gradient, i64 280
-  store float %mul367, ptr %arrayidx3.i528, align 4
-  %arrayidx.i529 = getelementptr inbounds i8, ptr %gradient, i64 288
+  %arrayidx3.i548 = getelementptr inbounds i8, ptr %gradient, i64 280
+  store float %mul367, ptr %arrayidx3.i548, align 4
+  %arrayidx.i549 = getelementptr inbounds i8, ptr %gradient, i64 288
   %168 = insertelement <2 x float> %17, float %conv14, i64 0
   %169 = insertelement <2 x float> poison, float %mul351, i64 0
   %170 = insertelement <2 x float> %169, float %sub349, i64 1
   %171 = fmul <2 x float> %168, %170
-  store <2 x float> %171, ptr %arrayidx.i529, align 4
+  store <2 x float> %171, ptr %arrayidx.i549, align 4
   %172 = extractelement <2 x float> %5, i64 0
   %mul374 = fmul float %172, %fneg353
-  %arrayidx3.i533 = getelementptr inbounds i8, ptr %gradient, i64 296
-  store float %mul374, ptr %arrayidx3.i533, align 4
-  %arrayidx.i534 = getelementptr inbounds i8, ptr %gradient, i64 304
+  %arrayidx3.i554 = getelementptr inbounds i8, ptr %gradient, i64 296
+  store float %mul374, ptr %arrayidx3.i554, align 4
+  %arrayidx.i555 = getelementptr inbounds i8, ptr %gradient, i64 304
   %173 = insertelement <2 x float> poison, float %mul352, i64 0
   %174 = insertelement <2 x float> %173, float %sub350, i64 1
   %175 = fmul <2 x float> %168, %174
-  store <2 x float> %175, ptr %arrayidx.i534, align 4
+  store <2 x float> %175, ptr %arrayidx.i555, align 4
   %mul381 = fmul float %172, %fneg361
-  %arrayidx3.i538 = getelementptr inbounds i8, ptr %gradient, i64 312
-  store float %mul381, ptr %arrayidx3.i538, align 4
-  %arrayidx.i539 = getelementptr inbounds i8, ptr %gradient, i64 320
+  %arrayidx3.i560 = getelementptr inbounds i8, ptr %gradient, i64 312
+  store float %mul381, ptr %arrayidx3.i560, align 4
+  %arrayidx.i561 = getelementptr inbounds i8, ptr %gradient, i64 320
   %176 = insertelement <2 x float> %15, float %conv22, i64 0
   %177 = fmul <2 x float> %176, %162
-  store <2 x float> %177, ptr %arrayidx.i539, align 4
+  store <2 x float> %177, ptr %arrayidx.i561, align 4
   %mul388 = fmul float %164, %mul351
-  %arrayidx3.i543 = getelementptr inbounds i8, ptr %gradient, i64 328
-  store float %mul388, ptr %arrayidx3.i543, align 4
-  %arrayidx.i544 = getelementptr inbounds i8, ptr %gradient, i64 336
+  %arrayidx3.i566 = getelementptr inbounds i8, ptr %gradient, i64 328
+  store float %mul388, ptr %arrayidx3.i566, align 4
+  %arrayidx.i567 = getelementptr inbounds i8, ptr %gradient, i64 336
   %178 = fmul <2 x float> %176, %166
-  store <2 x float> %178, ptr %arrayidx.i544, align 4
+  store <2 x float> %178, ptr %arrayidx.i567, align 4
   %mul395 = fmul float %164, %mul352
-  %arrayidx3.i548 = getelementptr inbounds i8, ptr %gradient, i64 344
-  store float %mul395, ptr %arrayidx3.i548, align 4
-  %arrayidx.i549 = getelementptr inbounds i8, ptr %gradient, i64 352
+  %arrayidx3.i572 = getelementptr inbounds i8, ptr %gradient, i64 344
+  store float %mul395, ptr %arrayidx3.i572, align 4
+  %arrayidx.i573 = getelementptr inbounds i8, ptr %gradient, i64 352
   %179 = insertelement <2 x float> %19, float %conv22, i64 0
   %180 = fmul <2 x float> %179, %170
-  store <2 x float> %180, ptr %arrayidx.i549, align 4
+  store <2 x float> %180, ptr %arrayidx.i573, align 4
   %mul401 = fmul float %172, %mul351
-  %arrayidx3.i553 = getelementptr inbounds i8, ptr %gradient, i64 360
-  store float %mul401, ptr %arrayidx3.i553, align 4
-  %arrayidx.i554 = getelementptr inbounds i8, ptr %gradient, i64 368
+  %arrayidx3.i578 = getelementptr inbounds i8, ptr %gradient, i64 360
+  store float %mul401, ptr %arrayidx3.i578, align 4
+  %arrayidx.i579 = getelementptr inbounds i8, ptr %gradient, i64 368
   %181 = fmul <2 x float> %179, %174
-  store <2 x float> %181, ptr %arrayidx.i554, align 4
+  store <2 x float> %181, ptr %arrayidx.i579, align 4
   %mul407 = fmul float %172, %mul352
-  %arrayidx3.i558 = getelementptr inbounds i8, ptr %gradient, i64 376
-  store float %mul407, ptr %arrayidx3.i558, align 4
+  %arrayidx3.i584 = getelementptr inbounds i8, ptr %gradient, i64 376
+  store float %mul407, ptr %arrayidx3.i584, align 4
   %fneg409 = fneg float %conv224
   %sub410 = fsub float %fneg409, %conv233
   %sub411 = fsub float %conv224, %conv233
@@ -1868,93 +1868,93 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %183 = extractelement <2 x float> %83, i64 1
   %mul413 = fmul float %conv61, %183
   %fneg414 = fneg float %mul412
-  %arrayidx.i559 = getelementptr inbounds i8, ptr %gradient, i64 384
+  %arrayidx.i585 = getelementptr inbounds i8, ptr %gradient, i64 384
   %184 = insertelement <2 x float> poison, float %fneg414, i64 0
   %185 = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> zeroinitializer
   %186 = fmul <2 x float> %4, %185
   %187 = shufflevector <2 x float> %186, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %187, ptr %arrayidx.i559, align 4
+  store <2 x float> %187, ptr %arrayidx.i585, align 4
   %mul420 = fmul float %79, %sub410
-  %arrayidx3.i563 = getelementptr inbounds i8, ptr %gradient, i64 392
-  store float %mul420, ptr %arrayidx3.i563, align 4
+  %arrayidx3.i590 = getelementptr inbounds i8, ptr %gradient, i64 392
+  store float %mul420, ptr %arrayidx3.i590, align 4
   %fneg422 = fneg float %mul413
-  %arrayidx.i564 = getelementptr inbounds i8, ptr %gradient, i64 400
+  %arrayidx.i591 = getelementptr inbounds i8, ptr %gradient, i64 400
   %188 = insertelement <2 x float> poison, float %fneg422, i64 0
   %189 = shufflevector <2 x float> %188, <2 x float> poison, <2 x i32> zeroinitializer
   %190 = fmul <2 x float> %4, %189
   %191 = shufflevector <2 x float> %190, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %191, ptr %arrayidx.i564, align 4
+  store <2 x float> %191, ptr %arrayidx.i591, align 4
   %mul428 = fmul float %79, %sub411
-  %arrayidx3.i568 = getelementptr inbounds i8, ptr %gradient, i64 408
-  store float %mul428, ptr %arrayidx3.i568, align 4
+  %arrayidx3.i596 = getelementptr inbounds i8, ptr %gradient, i64 408
+  store float %mul428, ptr %arrayidx3.i596, align 4
   %mul431 = fmul float %152, %fneg414
-  %arrayidx.i569 = getelementptr inbounds i8, ptr %gradient, i64 416
-  store float %mul431, ptr %arrayidx.i569, align 4
+  %arrayidx.i597 = getelementptr inbounds i8, ptr %gradient, i64 416
+  store float %mul431, ptr %arrayidx.i597, align 4
   %mul433 = fmul float %164, %mul412
-  %arrayidx3.i571 = getelementptr inbounds i8, ptr %gradient, i64 420
-  store float %mul433, ptr %arrayidx3.i571, align 4
+  %arrayidx3.i600 = getelementptr inbounds i8, ptr %gradient, i64 420
+  store float %mul433, ptr %arrayidx3.i600, align 4
   %mul435 = fmul float %90, %sub410
-  %arrayidx3.i573 = getelementptr inbounds i8, ptr %gradient, i64 424
-  store float %mul435, ptr %arrayidx3.i573, align 4
+  %arrayidx3.i602 = getelementptr inbounds i8, ptr %gradient, i64 424
+  store float %mul435, ptr %arrayidx3.i602, align 4
   %mul438 = fmul float %152, %fneg422
-  %arrayidx.i574 = getelementptr inbounds i8, ptr %gradient, i64 432
-  store float %mul438, ptr %arrayidx.i574, align 4
+  %arrayidx.i603 = getelementptr inbounds i8, ptr %gradient, i64 432
+  store float %mul438, ptr %arrayidx.i603, align 4
   %mul440 = fmul float %164, %mul413
-  %arrayidx3.i576 = getelementptr inbounds i8, ptr %gradient, i64 436
-  store float %mul440, ptr %arrayidx3.i576, align 4
+  %arrayidx3.i606 = getelementptr inbounds i8, ptr %gradient, i64 436
+  store float %mul440, ptr %arrayidx3.i606, align 4
   %mul442 = fmul float %90, %sub411
-  %arrayidx3.i578 = getelementptr inbounds i8, ptr %gradient, i64 440
-  store float %mul442, ptr %arrayidx3.i578, align 4
+  %arrayidx3.i608 = getelementptr inbounds i8, ptr %gradient, i64 440
+  store float %mul442, ptr %arrayidx3.i608, align 4
   %mul444 = fmul float %142, %mul412
-  %arrayidx.i579 = getelementptr inbounds i8, ptr %gradient, i64 448
-  store float %mul444, ptr %arrayidx.i579, align 4
-  %arrayidx3.i581 = getelementptr inbounds i8, ptr %gradient, i64 452
+  %arrayidx.i609 = getelementptr inbounds i8, ptr %gradient, i64 448
+  store float %mul444, ptr %arrayidx.i609, align 4
+  %arrayidx3.i612 = getelementptr inbounds i8, ptr %gradient, i64 452
   %192 = shufflevector <2 x float> %5, <2 x float> %23, <2 x i32> <i32 0, i32 2>
   %193 = insertelement <2 x float> %184, float %sub410, i64 1
   %194 = fmul <2 x float> %192, %193
-  store <2 x float> %194, ptr %arrayidx3.i581, align 4
+  store <2 x float> %194, ptr %arrayidx3.i612, align 4
   %mul451 = fmul float %142, %mul413
-  %arrayidx.i584 = getelementptr inbounds i8, ptr %gradient, i64 464
-  store float %mul451, ptr %arrayidx.i584, align 4
-  %arrayidx3.i586 = getelementptr inbounds i8, ptr %gradient, i64 468
+  %arrayidx.i615 = getelementptr inbounds i8, ptr %gradient, i64 464
+  store float %mul451, ptr %arrayidx.i615, align 4
+  %arrayidx3.i618 = getelementptr inbounds i8, ptr %gradient, i64 468
   %195 = insertelement <2 x float> %188, float %sub411, i64 1
   %196 = fmul <2 x float> %192, %195
-  store <2 x float> %196, ptr %arrayidx3.i586, align 4
-  %arrayidx.i589 = getelementptr inbounds i8, ptr %gradient, i64 480
+  store <2 x float> %196, ptr %arrayidx3.i618, align 4
+  %arrayidx.i621 = getelementptr inbounds i8, ptr %gradient, i64 480
   %197 = insertelement <2 x float> poison, float %mul412, i64 0
   %198 = shufflevector <2 x float> %197, <2 x float> poison, <2 x i32> zeroinitializer
   %199 = fmul <2 x float> %5, %198
   %200 = shufflevector <2 x float> %199, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %200, ptr %arrayidx.i589, align 4
+  store <2 x float> %200, ptr %arrayidx.i621, align 4
   %mul462 = fmul float %97, %sub410
-  %arrayidx3.i593 = getelementptr inbounds i8, ptr %gradient, i64 488
-  store float %mul462, ptr %arrayidx3.i593, align 4
-  %arrayidx.i594 = getelementptr inbounds i8, ptr %gradient, i64 496
+  %arrayidx3.i626 = getelementptr inbounds i8, ptr %gradient, i64 488
+  store float %mul462, ptr %arrayidx3.i626, align 4
+  %arrayidx.i627 = getelementptr inbounds i8, ptr %gradient, i64 496
   %201 = insertelement <2 x float> poison, float %mul413, i64 0
   %202 = shufflevector <2 x float> %201, <2 x float> poison, <2 x i32> zeroinitializer
   %203 = fmul <2 x float> %5, %202
   %204 = shufflevector <2 x float> %203, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %204, ptr %arrayidx.i594, align 4
+  store <2 x float> %204, ptr %arrayidx.i627, align 4
   %mul468 = fmul float %97, %sub411
-  %arrayidx3.i598 = getelementptr inbounds i8, ptr %gradient, i64 504
-  store float %mul468, ptr %arrayidx3.i598, align 4
-  br label %for.body.i599
+  %arrayidx3.i632 = getelementptr inbounds i8, ptr %gradient, i64 504
+  store float %mul468, ptr %arrayidx3.i632, align 4
+  br label %for.body.i633
 
-for.body.i599:                                    ; preds = %for.body.i599, %_ZN16btShapeGradients13topRowsDivideEid.exit
-  %indvars.iv.i600 = phi i64 [ 8, %_ZN16btShapeGradients13topRowsDivideEid.exit ], [ %indvars.iv.next.i602, %for.body.i599 ]
-  %arrayidx.i601 = getelementptr inbounds [32 x %class.btVector3], ptr %gradient, i64 0, i64 %indvars.iv.i600
-  %205 = load <2 x float>, ptr %arrayidx.i601, align 4
+for.body.i633:                                    ; preds = %for.body.i633, %_ZN16btShapeGradients13topRowsDivideEid.exit
+  %indvars.iv.i634 = phi i64 [ 8, %_ZN16btShapeGradients13topRowsDivideEid.exit ], [ %indvars.iv.next.i636, %for.body.i633 ]
+  %arrayidx.i635 = getelementptr inbounds [32 x %class.btVector3], ptr %gradient, i64 0, i64 %indvars.iv.i634
+  %205 = load <2 x float>, ptr %arrayidx.i635, align 4
   %206 = fmul <2 x float> %205, <float 1.406250e-01, float 1.406250e-01>
-  store <2 x float> %206, ptr %arrayidx.i601, align 4
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i601, i64 8
+  store <2 x float> %206, ptr %arrayidx.i635, align 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i635, i64 8
   %207 = load float, ptr %arrayidx6.i.i, align 4
   %mul7.i.i = fmul float %207, 1.406250e-01
   store float %mul7.i.i, ptr %arrayidx6.i.i, align 4
-  %indvars.iv.next.i602 = add nuw nsw i64 %indvars.iv.i600, 1
-  %exitcond = icmp eq i64 %indvars.iv.next.i602, 32
-  br i1 %exitcond, label %if.end, label %for.body.i599, !llvm.loop !28
+  %indvars.iv.next.i636 = add nuw nsw i64 %indvars.iv.i634, 1
+  %exitcond = icmp eq i64 %indvars.iv.next.i636, 32
+  br i1 %exitcond, label %if.end, label %for.body.i633, !llvm.loop !28
 
-if.end:                                           ; preds = %for.body.i599, %entry
+if.end:                                           ; preds = %for.body.i633, %entry
   ret void
 }
 
@@ -2112,9 +2112,9 @@ if.then85:                                        ; preds = %if.end57
   br label %for.body
 
 for.body:                                         ; preds = %if.then85, %if.end93
-  %indvars.iv217 = phi i64 [ 0, %if.then85 ], [ %indvars.iv.next218, %if.end93 ]
-  %phi.0213 = phi double [ 0.000000e+00, %if.then85 ], [ %55, %if.end93 ]
-  %arrayidx88 = getelementptr inbounds [32 x i32], ptr %arrayidx.i143, i64 0, i64 %indvars.iv217
+  %indvars.iv218 = phi i64 [ 0, %if.then85 ], [ %indvars.iv.next219, %if.end93 ]
+  %phi.0214 = phi double [ 0.000000e+00, %if.then85 ], [ %55, %if.end93 ]
+  %arrayidx88 = getelementptr inbounds [32 x i32], ptr %arrayidx.i143, i64 0, i64 %indvars.iv218
   %52 = load i32, ptr %arrayidx88, align 4
   %idxprom.i148 = sext i32 %52 to i64
   %arrayidx.i149 = getelementptr inbounds double, ptr %51, i64 %idxprom.i148
@@ -2123,12 +2123,12 @@ for.body:                                         ; preds = %if.then85, %if.end9
   br i1 %cmp91, label %return, label %if.end93
 
 if.end93:                                         ; preds = %for.body
-  %arrayidx.i151 = getelementptr inbounds [32 x double], ptr %N, i64 0, i64 %indvars.iv217
+  %arrayidx.i151 = getelementptr inbounds [32 x double], ptr %N, i64 0, i64 %indvars.iv218
   %54 = load double, ptr %arrayidx.i151, align 8
-  %55 = tail call double @llvm.fmuladd.f64(double %53, double %54, double %phi.0213)
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond220.not = icmp eq i64 %indvars.iv.next218, 32
-  br i1 %exitcond220.not, label %for.end, label %for.body, !llvm.loop !34
+  %55 = tail call double @llvm.fmuladd.f64(double %53, double %54, double %phi.0214)
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %exitcond221.not = icmp eq i64 %indvars.iv.next219, 32
+  br i1 %exitcond221.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %if.end93
   store double %55, ptr %dist, align 8
@@ -2144,7 +2144,7 @@ if.end95:                                         ; preds = %if.end57
 for.body101:                                      ; preds = %if.end95, %if.end112
   %56 = phi float [ 0.000000e+00, %if.end95 ], [ %conv131, %if.end112 ]
   %indvars.iv = phi i64 [ 0, %if.end95 ], [ %indvars.iv.next, %if.end112 ]
-  %phi97.0211 = phi double [ 0.000000e+00, %if.end95 ], [ %63, %if.end112 ]
+  %phi97.0212 = phi double [ 0.000000e+00, %if.end95 ], [ %63, %if.end112 ]
   %57 = phi <2 x float> [ zeroinitializer, %if.end95 ], [ %70, %if.end112 ]
   %arrayidx105 = getelementptr inbounds [32 x i32], ptr %arrayidx.i143, i64 0, i64 %indvars.iv
   %58 = load i32, ptr %arrayidx105, align 4
@@ -2164,7 +2164,7 @@ if.then111:                                       ; preds = %for.body101
 if.end112:                                        ; preds = %for.body101
   %arrayidx.i159 = getelementptr inbounds [32 x double], ptr %N96, i64 0, i64 %indvars.iv
   %62 = load double, ptr %arrayidx.i159, align 8
-  %63 = call double @llvm.fmuladd.f64(double %61, double %62, double %phi97.0211)
+  %63 = call double @llvm.fmuladd.f64(double %61, double %62, double %phi97.0212)
   %arrayidx.i161 = getelementptr inbounds [32 x %class.btVector3], ptr %dN, i64 0, i64 %indvars.iv
   %64 = fpext <2 x float> %57 to <2 x double>
   %65 = load <2 x float>, ptr %arrayidx.i161, align 4
@@ -2174,8 +2174,8 @@ if.end112:                                        ; preds = %for.body101
   %69 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %68, <2 x double> %66, <2 x double> %64)
   %70 = fptrunc <2 x double> %69 to <2 x float>
   store <2 x float> %70, ptr %gradient, align 4
-  %arrayidx3.i167 = getelementptr inbounds i8, ptr %arrayidx.i161, i64 8
-  %71 = load float, ptr %arrayidx3.i167, align 4
+  %arrayidx3.i168 = getelementptr inbounds i8, ptr %arrayidx.i161, i64 8
+  %71 = load float, ptr %arrayidx3.i168, align 4
   %conv127 = fpext float %71 to double
   %conv130 = fpext float %56 to double
   %72 = call double @llvm.fmuladd.f64(double %61, double %conv127, double %conv130)

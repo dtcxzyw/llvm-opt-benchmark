@@ -130,7 +130,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
   %indvars.iv293 = phi i64 [ 0, %.lr.ph236.preheader ], [ %indvars.iv.next294, %.lr.ph236 ]
   %57 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv293
-  %58 = trunc i64 %indvars.iv293 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv293 to i32
   store i32 %58, ptr %57, align 4
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
@@ -164,7 +164,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .lr.ph241:                                        ; preds = %.lr.ph241.preheader, %.lr.ph241
   %indvars.iv301 = phi i64 [ 0, %.lr.ph241.preheader ], [ %indvars.iv.next302, %.lr.ph241 ]
   %68 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv301
-  %69 = trunc i64 %indvars.iv301 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv301 to i32
   store i32 %69, ptr %68, align 4
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
@@ -288,7 +288,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 119:                                              ; preds = %.lr.ph226, %cs_augment.exit
   %indvars.iv280 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next281, %cs_augment.exit ]
-  %120 = trunc i64 %indvars.iv280 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv280 to i32
   br i1 %.not184, label %124, label %121
 
 121:                                              ; preds = %119
@@ -349,7 +349,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %149, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %150 = trunc i64 %indvars.iv.next.i to i32
+  %150 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %150, ptr %134, align 4
   br i1 %147, label %._crit_edge.thread.i, label %.lr.ph28.preheader.i
 
@@ -391,7 +391,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 169:                                              ; preds = %.lr.ph20.i
   %170 = getelementptr inbounds i32, ptr %90, i64 %162
-  %171 = trunc i64 %indvars.iv42.i to i32
+  %171 = trunc nsw i64 %indvars.iv42.i to i32
   %172 = add nsw i32 %171, 1
   store i32 %172, ptr %156, align 4
   %173 = getelementptr inbounds i32, ptr %103, i64 %127
@@ -465,7 +465,7 @@ cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.p
 196:                                              ; preds = %.lr.ph232
   %197 = zext nneg i32 %194 to i64
   %198 = getelementptr inbounds i32, ptr %91, i64 %197
-  %199 = trunc i64 %indvars.iv288 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv288 to i32
   store i32 %199, ptr %198, align 4
   br label %200
 

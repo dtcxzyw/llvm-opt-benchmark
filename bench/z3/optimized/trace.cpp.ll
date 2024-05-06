@@ -49,7 +49,7 @@ entry:
 define hidden noundef zeroext i1 @_Z11is_threadedv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @_ZL13g_is_threaded, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -121,7 +121,7 @@ arch_select_decompress_func.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
+define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end612, %if.end6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
+define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -2741,7 +2741,7 @@ for.body122:                                      ; preds = %for.cond119.prehead
 if.end130:                                        ; preds = %do.body
   %incdec.ptr = getelementptr inbounds i8, ptr %sorted_syms.addr.1, i64 2
   %xor = xor i32 %codeword.1, %sub115
-  %22 = tail call i32 @llvm.ctlz.i32(i32 %xor, i1 true), !range !5
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor, i1 true)
   %sub.i248 = xor i32 %22, 31
   %shl133 = shl nuw i32 1, %sub.i248
   %sub134 = add i32 %shl133, -1
@@ -2870,7 +2870,7 @@ do.end207:                                        ; preds = %do.body200
 if.end213:                                        ; preds = %do.end207
   %incdec.ptr193 = getelementptr inbounds i8, ptr %sorted_syms.addr.2, i64 2
   %xor216 = xor i32 %codeword.2, %sub209
-  %28 = tail call i32 @llvm.ctlz.i32(i32 %xor216, i1 true), !range !5
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor216, i1 true)
   %sub.i = xor i32 %28, 31
   %shl218 = shl nuw i32 1, %sub.i
   %sub219 = add i32 %shl218, -1
@@ -2921,4 +2921,3 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{ptr @deflate_decompress_bmi2, ptr @deflate_decompress_default}
-!5 = !{i32 0, i32 33}

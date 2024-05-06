@@ -297,7 +297,7 @@ if.end:                                           ; preds = %while.body.preheade
   %arrayidx55 = getelementptr inbounds i8, ptr %ctx, i64 57
   store i8 %conv53, ptr %arrayidx55, align 1
   %shr57 = lshr i64 %add, 56
-  %conv58 = trunc i64 %shr57 to i8
+  %conv58 = trunc nuw i64 %shr57 to i8
   %arrayidx60 = getelementptr inbounds i8, ptr %ctx, i64 56
   store i8 %conv58, ptr %arrayidx60, align 8
   tail call void @sha256_transform(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx)

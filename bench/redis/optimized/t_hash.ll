@@ -227,7 +227,7 @@ declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -361,7 +361,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -373,7 +373,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %vstr, align 8
-  %call = tail call i32 @hashTypeGetFromListpack(ptr noundef nonnull %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef %vlen, ptr noundef %vll), !range !7
+  %call = tail call i32 @hashTypeGetFromListpack(ptr noundef nonnull %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef %vlen, ptr noundef %vll)
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %return, label %if.end15
 
@@ -468,7 +468,7 @@ entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
   %vll = alloca i64, align 8
-  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll), !range !7
+  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -498,7 +498,7 @@ declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @createStringObjectFromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashTypeGetValueLength(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashTypeGetValueLength(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -506,7 +506,7 @@ entry:
   store ptr null, ptr %vstr, align 8
   store i32 -1, ptr %vlen, align 4
   store i64 9223372036854775807, ptr %vll, align 8
-  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll), !range !7
+  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -537,21 +537,21 @@ if.end:                                           ; preds = %cond.end, %entry
 declare i32 @sdigits10(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
   %vll = alloca i64, align 8
   store i32 -1, ptr %vlen, align 4
   store i64 9223372036854775807, ptr %vll, align 8
-  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll), !range !7
+  %call = call i32 @hashTypeGetValue(ptr noundef %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vll)
   %cmp = icmp eq i32 %call, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %vptr = alloca ptr, align 8
   %existing = alloca ptr, align 8
@@ -1060,7 +1060,7 @@ declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %fptr = alloca ptr, align 8
   %bf.load = load i32, ptr %o, align 8
@@ -1236,7 +1236,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1646,7 +1646,7 @@ hashTypeLength.exit:                              ; preds = %if.then.i21, %if.th
   br label %while.cond
 
 while.cond:                                       ; preds = %hashTypeCurrentObjectNewSds.exit36, %hashTypeLength.exit
-  %call10 = call i32 @hashTypeNext(ptr noundef nonnull %call.i), !range !7
+  %call10 = call i32 @hashTypeNext(ptr noundef nonnull %call.i)
   %cmp11.not = icmp eq i32 %call10, -1
   br i1 %cmp11.not, label %while.end, label %while.body
 
@@ -1654,7 +1654,7 @@ while.body:                                       ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
-  call void @hashTypeCurrentObject(ptr noundef nonnull %call.i, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  call void @hashTypeCurrentObject(ptr noundef nonnull readonly %call.i, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %6 = load ptr, ptr %vstr.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i24
@@ -1678,7 +1678,7 @@ hashTypeCurrentObjectNewSds.exit:                 ; preds = %if.then.i24, %if.en
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i28)
-  call void @hashTypeCurrentObject(ptr noundef nonnull %call.i, i32 noundef 2, ptr noundef nonnull %vstr.i26, ptr noundef nonnull %vlen.i27, ptr noundef nonnull %vll.i28)
+  call void @hashTypeCurrentObject(ptr noundef nonnull readonly %call.i, i32 noundef 2, ptr noundef nonnull %vstr.i26, ptr noundef nonnull %vlen.i27, ptr noundef nonnull %vll.i28)
   %9 = load ptr, ptr %vstr.i26, align 8
   %tobool.not.i29 = icmp eq ptr %9, null
   br i1 %tobool.not.i29, label %if.end.i34, label %if.then.i30
@@ -1701,7 +1701,7 @@ hashTypeCurrentObjectNewSds.exit36:               ; preds = %if.then.i30, %if.en
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vll.i28)
   %call15 = call i32 @dictAdd(ptr noundef %call7, ptr noundef %retval.0.i, ptr noundef %retval.0.i33) #10
   %cmp16.not = icmp eq i32 %call15, 0
-  br i1 %cmp16.not, label %while.cond, label %if.then18, !llvm.loop !8
+  br i1 %cmp16.not, label %while.cond, label %if.then18, !llvm.loop !7
 
 if.then18:                                        ; preds = %hashTypeCurrentObjectNewSds.exit36
   call void @sdsfree(ptr noundef %retval.0.i) #10
@@ -1824,7 +1824,7 @@ if.else7.i:                                       ; preds = %if.then15
   unreachable
 
 hashTypeInitIterator.exit:                        ; preds = %if.then.i, %if.then5.i
-  %call2329 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i), !range !7
+  %call2329 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i)
   %cmp24.not30 = icmp eq i32 %call2329, -1
   br i1 %cmp24.not30, label %while.end, label %while.body.lr.ph
 
@@ -1849,9 +1849,9 @@ hashTypeCurrentFromHashTable.exit24:              ; preds = %while.body
   %call28 = tail call ptr @sdsdup(ptr noundef %call.i19) #10
   %call29 = tail call ptr @sdsdup(ptr noundef %call4.i) #10
   %call30 = tail call i32 @dictAdd(ptr noundef %call16, ptr noundef %call28, ptr noundef %call29) #10
-  %call23 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i), !range !7
+  %call23 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i)
   %cmp24.not = icmp eq i32 %call23, -1
-  br i1 %cmp24.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp24.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %hashTypeCurrentFromHashTable.exit24, %hashTypeInitIterator.exit
   %7 = load i32, ptr %encoding.i, align 8
@@ -2116,7 +2116,7 @@ if.end:                                           ; preds = %if.end.i, %hashType
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i15 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i22, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i), !range !7
+  %call.i15 = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %retval.0.i22, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i16.not = icmp eq i32 %call.i15, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i)
@@ -2140,7 +2140,7 @@ if.else:                                          ; preds = %if.end
   %12 = load ptr, ptr %arrayidx10, align 8
   %ptr11 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr11, align 8
-  %call12 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i22, ptr noundef %11, ptr noundef %13, i32 noundef 0), !range !10
+  %call12 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i22, ptr noundef %11, ptr noundef %13, i32 noundef 0)
   %14 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 4), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %14) #10
   %15 = load ptr, ptr %db.i, align 8
@@ -2229,14 +2229,14 @@ for.body:                                         ; preds = %if.end3, %for.body
   %13 = load ptr, ptr %arrayidx12, align 8
   %ptr13 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr13, align 8
-  %call14 = tail call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %11, ptr noundef %14, i32 noundef 0), !range !10
+  %call14 = tail call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %11, ptr noundef %14, i32 noundef 0)
   %lnot.ext = xor i32 %call14, 1
   %add15 = add nuw nsw i32 %lnot.ext, %created.031
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %15 = load i32, ptr %argc, align 8
   %16 = trunc nuw i64 %indvars.iv.next to i32
   %cmp7 = icmp sgt i32 %15, %16
-  br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !11
+  br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.body
   %17 = zext nneg i32 %add15 to i64
@@ -2338,7 +2338,7 @@ if.end6:                                          ; preds = %if.end.i, %hashType
   %7 = load ptr, ptr %arrayidx8, align 8
   %ptr = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
-  %call9 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i29, ptr noundef %8, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %value), !range !7
+  %call9 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i29, ptr noundef %8, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %value)
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.else
 
@@ -2395,7 +2395,7 @@ if.end37:                                         ; preds = %lor.lhs.false
   %14 = load ptr, ptr %arrayidx40, align 8
   %ptr41 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %ptr41, align 8
-  %call42 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %15, ptr noundef %call38, i32 noundef 2), !range !10
+  %call42 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %15, ptr noundef %call38, i32 noundef 2)
   %16 = load i64, ptr %value, align 8
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %16) #10
   %17 = load ptr, ptr %db.i, align 8
@@ -2481,7 +2481,7 @@ if.end8:                                          ; preds = %if.end.i, %hashType
   %9 = load ptr, ptr %arrayidx10, align 8
   %ptr = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr, align 8
-  %call11 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i27, ptr noundef %10, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %ll), !range !7
+  %call11 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i27, ptr noundef %10, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %ll)
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end24
 
@@ -2532,7 +2532,7 @@ if.end29:                                         ; preds = %if.end24
   %18 = load ptr, ptr %arrayidx35, align 8
   %ptr36 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %ptr36, align 8
-  %call37 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i27, ptr noundef %19, ptr noundef %call33, i32 noundef 2), !range !10
+  %call37 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i27, ptr noundef %19, ptr noundef %call33, i32 noundef 2)
   call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %buf, i64 noundef %conv32) #10
   %20 = load ptr, ptr %db.i, align 8
   %21 = load ptr, ptr %argv, align 8
@@ -2611,7 +2611,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i), !range !7
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else5.i
 
@@ -2690,7 +2690,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %inc.us = add nuw nsw i32 %i.012.us, 1
   %5 = load i32, ptr %argc, align 8
   %cmp.us = icmp slt i32 %inc.us, %5
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !12
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %addHashFieldToReply.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %addHashFieldToReply.exit ], [ 2, %for.body.lr.ph ]
@@ -2705,7 +2705,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ad
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %8, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i), !range !7
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %8, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else5.i
 
@@ -2737,7 +2737,7 @@ addHashFieldToReply.exit:                         ; preds = %if.then3.i, %if.els
   %12 = load i32, ptr %argc, align 8
   %13 = sext i32 %12 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %13
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %addHashFieldToReply.exit, %for.body.us, %if.end, %entry
   ret void
@@ -2782,7 +2782,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %arrayidx4, align 8
   %ptr = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr, align 8
-  %call5 = tail call i32 @hashTypeDelete(ptr noundef nonnull %call, ptr noundef %6), !range !10
+  %call5 = tail call i32 @hashTypeDelete(ptr noundef nonnull %call, ptr noundef %6)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
@@ -2836,7 +2836,7 @@ for.inc:                                          ; preds = %for.body, %hashType
   %14 = load i32, ptr %argc, align 8
   %15 = sext i32 %14 to i64
   %cmp2.not = icmp slt i64 %indvars.iv.next, %15
-  br i1 %cmp2.not, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp2.not, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.then10
   %cmp2.not24 = phi i1 [ true, %if.then10 ], [ false, %for.inc ]
@@ -2979,7 +2979,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i), !range !7
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %hashTypeGetValueLength.exit
 
@@ -3126,7 +3126,7 @@ if.else7.i:                                       ; preds = %if.end15
   unreachable
 
 hashTypeInitIterator.exit:                        ; preds = %if.then.i34, %if.then5.i32
-  %call1738 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28), !range !7
+  %call1738 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not39 = icmp eq i32 %call1738, -1
   br i1 %cmp18.not39, label %while.end, label %while.body.lr.ph
 
@@ -3137,17 +3137,17 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   br i1 %tobool2.not, label %while.body.us.us, label %while.body.us
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %while.body.us.us
-  %call17.us.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28), !range !7
+  %call17.us.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not.us.us = icmp eq i32 %call17.us.us, -1
-  br i1 %cmp18.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !14
+  br i1 %cmp18.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !12
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
   %count.040.us = phi i32 [ %inc27.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us ]
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 2)
   %inc27.us = add nuw nsw i32 %count.040.us, 1
-  %call17.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28), !range !7
+  %call17.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not.us = icmp eq i32 %call17.us, -1
-  br i1 %cmp18.not.us, label %while.end, label %while.body.us, !llvm.loop !14
+  br i1 %cmp18.not.us, label %while.end, label %while.body.us, !llvm.loop !12
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool2.not, label %while.body.us41, label %while.body
@@ -3156,18 +3156,18 @@ while.body.us41:                                  ; preds = %while.body.lr.ph.sp
   %count.040.us42 = phi i32 [ %inc.us, %while.body.us41 ], [ 0, %while.body.lr.ph.split ]
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 1)
   %inc.us = add nuw nsw i32 %count.040.us42, 1
-  %call17.us45 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28), !range !7
+  %call17.us45 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not.us46 = icmp eq i32 %call17.us45, -1
-  br i1 %cmp18.not.us46, label %while.end, label %while.body.us41, !llvm.loop !14
+  br i1 %cmp18.not.us46, label %while.end, label %while.body.us41, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %count.040 = phi i32 [ %inc27, %while.body ], [ 0, %while.body.lr.ph.split ]
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 1)
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 2)
   %inc27 = add nuw nsw i32 %count.040, 2
-  %call17 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28), !range !7
+  %call17 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not = icmp eq i32 %call17, -1
-  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %while.body.us41, %while.body.us, %while.body.us.us, %hashTypeInitIterator.exit
   %count.0.lcssa = phi i32 [ 0, %hashTypeInitIterator.exit ], [ 0, %while.body.us.us ], [ %inc27.us, %while.body.us ], [ %inc.us, %while.body.us41 ], [ %inc27, %while.body ]
@@ -3357,7 +3357,7 @@ if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i), !range !7
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i.not = icmp eq i32 %call.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i)
@@ -3674,7 +3674,7 @@ if.end34:                                         ; preds = %sdslen.exit164, %sd
   %26 = load i64, ptr %flags, align 8
   %and = and i64 %26, 1024
   %tobool35.not = icmp eq i64 %and, 0
-  br i1 %tobool35.not, label %while.cond, label %if.end250, !llvm.loop !15
+  br i1 %tobool35.not, label %while.cond, label %if.end250, !llvm.loop !13
 
 if.then43:                                        ; preds = %if.end17
   %cond = tail call i64 @llvm.umin.i64(i64 %count.0, i64 1000)
@@ -3705,7 +3705,7 @@ while.body54:                                     ; preds = %if.end51, %while.bo
   %tobool65 = icmp eq i64 %and64, 0
   %tobool53 = icmp ne i64 %sub60, 0
   %or.cond1 = and i1 %tobool53, %tobool65
-  br i1 %or.cond1, label %while.body54, label %while.end68, !llvm.loop !16
+  br i1 %or.cond1, label %while.body54, label %while.end68, !llvm.loop !14
 
 while.end68:                                      ; preds = %while.body54
   tail call void @zfree(ptr noundef %call46) #10
@@ -3763,7 +3763,7 @@ if.else7.i:                                       ; preds = %if.then89
   unreachable
 
 hashTypeInitIterator.exit:                        ; preds = %if.then.i171, %if.then5.i169
-  %call92215 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165), !range !7
+  %call92215 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165)
   %cmp93.not216 = icmp eq i32 %call92215, -1
   br i1 %cmp93.not216, label %while.end106, label %while.body95.lr.ph
 
@@ -3773,9 +3773,9 @@ while.body95.lr.ph:                               ; preds = %hashTypeInitIterato
 
 while.body95.us:                                  ; preds = %while.body95.lr.ph, %while.body95.us
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i165, i32 noundef 1)
-  %call92.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165), !range !7
+  %call92.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165)
   %cmp93.not.us = icmp eq i32 %call92.us, -1
-  br i1 %cmp93.not.us, label %while.end106, label %while.body95.us, !llvm.loop !17
+  br i1 %cmp93.not.us, label %while.end106, label %while.body95.us, !llvm.loop !15
 
 while.body95:                                     ; preds = %while.body95.lr.ph, %if.then104
   %31 = load i32, ptr %resp98, align 8
@@ -3789,9 +3789,9 @@ if.then101:                                       ; preds = %while.body95
 if.then104:                                       ; preds = %while.body95, %if.then101
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i165, i32 noundef 1)
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i165, i32 noundef 2)
-  %call92 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165), !range !7
+  %call92 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165)
   %cmp93.not = icmp eq i32 %call92, -1
-  br i1 %cmp93.not, label %while.end106, label %while.body95, !llvm.loop !17
+  br i1 %cmp93.not, label %while.end106, label %while.body95, !llvm.loop !15
 
 while.end106:                                     ; preds = %if.then104, %while.body95.us, %hashTypeInitIterator.exit
   %32 = load i32, ptr %encoding.i, align 8
@@ -3856,7 +3856,7 @@ if.then140:                                       ; preds = %if.end136
   br label %while.cond145
 
 while.cond145:                                    ; preds = %if.end156, %if.then140
-  %call146 = call i32 @hashTypeNext(ptr noundef %call144), !range !7
+  %call146 = call i32 @hashTypeNext(ptr noundef %call144)
   %cmp147.not = icmp eq i32 %call146, -1
   br i1 %cmp147.not, label %while.end169, label %while.body149
 
@@ -3864,7 +3864,7 @@ while.body149:                                    ; preds = %while.cond145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
-  call void @hashTypeCurrentObject(ptr noundef %call144, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  call void @hashTypeCurrentObject(ptr noundef readonly %call144, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %36 = load ptr, ptr %vstr.i, align 8
   %tobool.not.i = icmp eq ptr %36, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i175
@@ -3891,7 +3891,7 @@ if.then154:                                       ; preds = %hashTypeCurrentObje
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i179)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i180)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i181)
-  call void @hashTypeCurrentObject(ptr noundef %call144, i32 noundef 2, ptr noundef nonnull %vstr.i179, ptr noundef nonnull %vlen.i180, ptr noundef nonnull %vll.i181)
+  call void @hashTypeCurrentObject(ptr noundef readonly %call144, i32 noundef 2, ptr noundef nonnull %vstr.i179, ptr noundef nonnull %vlen.i180, ptr noundef nonnull %vll.i181)
   %39 = load ptr, ptr %vstr.i179, align 8
   %tobool.not.i182 = icmp eq ptr %39, null
   br i1 %tobool.not.i182, label %if.end.i187, label %if.then.i183
@@ -3918,7 +3918,7 @@ if.end156:                                        ; preds = %hashTypeCurrentObje
   %value151.0 = phi ptr [ %retval.0.i186, %hashTypeCurrentObjectNewSds.exit189 ], [ null, %hashTypeCurrentObjectNewSds.exit ]
   %call157 = call i32 @dictAdd(ptr noundef %call141, ptr noundef %retval.0.i178, ptr noundef %value151.0) #10
   %cmp158 = icmp eq i32 %call157, 0
-  br i1 %cmp158, label %while.cond145, label %cond.false167, !llvm.loop !18
+  br i1 %cmp158, label %while.cond145, label %cond.false167, !llvm.loop !16
 
 cond.false167:                                    ; preds = %if.end156
   call void @_serverAssert(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 1062) #10
@@ -3956,7 +3956,7 @@ while.body187:                                    ; preds = %cond.end183, %while
   call void @dictFreeUnlinkedEntry(ptr noundef %call141, ptr noundef %call189) #10
   %dec194 = add i64 %size.0220, -1
   %cmp185 = icmp ugt i64 %dec194, %count.0
-  br i1 %cmp185, label %while.body187, label %while.end195, !llvm.loop !19
+  br i1 %cmp185, label %while.body187, label %while.end195, !llvm.loop !17
 
 while.end195:                                     ; preds = %while.body187, %cond.end183
   %call197 = call ptr @dictGetIterator(ptr noundef %call141) #10
@@ -3975,7 +3975,7 @@ while.body202.us:                                 ; preds = %while.body202.lr.ph
   call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call204.us) #10
   %call199.us = call ptr @dictNext(ptr noundef %call197) #10
   %cmp200.not.us = icmp eq ptr %call199.us, null
-  br i1 %cmp200.not.us, label %while.end217, label %while.body202.us, !llvm.loop !20
+  br i1 %cmp200.not.us, label %while.end217, label %while.body202.us, !llvm.loop !18
 
 while.body202:                                    ; preds = %while.body202.lr.ph, %if.then215
   %call199223 = phi ptr [ %call199, %if.then215 ], [ %call199221, %while.body202.lr.ph ]
@@ -3994,7 +3994,7 @@ if.then215:                                       ; preds = %while.body202, %if.
   call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call206) #10
   %call199 = call ptr @dictNext(ptr noundef %call197) #10
   %cmp200.not = icmp eq ptr %call199, null
-  br i1 %cmp200.not, label %while.end217, label %while.body202, !llvm.loop !20
+  br i1 %cmp200.not, label %while.end217, label %while.body202, !llvm.loop !18
 
 while.end217:                                     ; preds = %if.then215, %while.body202.us, %while.end195
   call void @dictReleaseIterator(ptr noundef %call197) #10
@@ -4015,7 +4015,7 @@ if.else218:                                       ; preds = %if.end136
 while.body227.lr.ph:                              ; preds = %if.else218, %if.end248
   %cmp225218 = phi i1 [ true, %if.else218 ], [ %cmp225, %if.end248 ]
   %added.0.ph217 = phi i64 [ 0, %if.else218 ], [ %inc, %if.end248 ]
-  br i1 %cmp225218, label %while.body227.us, label %while.body227.lr.ph.split, !llvm.loop !21
+  br i1 %cmp225218, label %while.body227.us, label %while.body227.lr.ph.split, !llvm.loop !19
 
 while.body227.us:                                 ; preds = %while.body227.lr.ph, %if.then237.us
   call void @hashTypeRandomElement(ptr noundef nonnull %call, i64 noundef %length.0.i, ptr noundef nonnull %key219, ptr noundef %value220.)
@@ -4135,7 +4135,7 @@ if.else.i212:                                     ; preds = %if.end248.critedge
 if.end248:                                        ; preds = %if.else.i212, %if.then.i208, %if.else.i204, %if.then.i200
   %cmp225 = icmp ult i64 %inc, %count.0
   %exitcond.not = icmp eq i64 %inc, %l
-  br i1 %exitcond.not, label %while.end249, label %while.body227.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %while.end249, label %while.body227.lr.ph, !llvm.loop !19
 
 while.end249:                                     ; preds = %if.end248, %if.then237
   call void @dictRelease(ptr noundef %call222) #10
@@ -4182,7 +4182,7 @@ if.else.us:                                       ; preds = %for.body.us
 if.end11.us:                                      ; preds = %if.else.us, %if.then5.us
   %inc.us = add nuw nsw i64 %i.025.us, 1
   %exitcond27.not = icmp eq i64 %inc.us, %conv
-  br i1 %exitcond27.not, label %for.end, label %for.body.us, !llvm.loop !22
+  br i1 %exitcond27.not, label %for.end, label %for.body.us, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.025 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -4235,7 +4235,7 @@ if.else23:                                        ; preds = %if.end11
 for.inc:                                          ; preds = %if.else23, %if.then17
   %inc = add nuw nsw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %if.end11.us, %entry
   ret void
@@ -4434,10 +4434,10 @@ attributes #13 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -4448,5 +4448,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

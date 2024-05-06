@@ -246,7 +246,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare i16 @llvm.bswap.i16(i16) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_transport_finish2(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @xfrm6_transport_finish2(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 @xfrm_trans_queue(ptr noundef %2, ptr noundef nonnull @ip6_rcv_finish) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
@@ -303,7 +303,7 @@ define dso_local i32 @xfrm6_udp_encap_rcv(ptr noundef %0, ptr noundef %1) local_
 declare dso_local i32 @xfrm4_udp_encap_rcv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__xfrm6_udp_encap_rcv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @__xfrm6_udp_encap_rcv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 972
   %5 = load volatile i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -422,7 +422,7 @@ define internal fastcc noundef i32 @__xfrm6_udp_encap_rcv(ptr noundef %0, ptr no
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i16, ptr %79, align 4
   %81 = tail call i16 @llvm.bswap.i16(i16 %80)
-  %82 = trunc i32 %56 to i16
+  %82 = trunc nuw nsw i32 %56 to i16
   %83 = sub i16 %81, %82
   %84 = tail call i16 @llvm.bswap.i16(i16 %83)
   store i16 %84, ptr %79, align 4
@@ -653,7 +653,7 @@ define dso_local i32 @xfrm6_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm6_input_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @xfrm6_input_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 272

@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pop3_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @pop3_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 24) #7

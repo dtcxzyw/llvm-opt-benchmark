@@ -345,7 +345,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @avtab_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cond_init_bool_indexes(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @cond_init_bool_indexes(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #13
@@ -368,7 +368,7 @@ define dso_local noundef i32 @cond_destroy_bool(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cond_index_bool(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cond_index_bool(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %22, label %6
@@ -765,7 +765,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
 declare dso_local i32 @avtab_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cond_write_bool(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cond_write_bool(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1217,7 +1217,7 @@ define internal noundef i32 @cond_bools_destroy(ptr nocapture readnone %0, ptr n
 declare dso_local void @hashtab_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cond_policydb_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 408
@@ -1464,7 +1464,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @avtab_read_item(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cond_insertf(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cond_insertf(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1569,7 +1569,7 @@ declare dso_local i32 @avtab_write_item(ptr noundef, ptr noundef, ptr noundef) l
 declare dso_local i32 @hashtab_duplicate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cond_bools_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @cond_bools_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call dereferenceable_or_null(8) ptr @kmemdup(ptr noundef %5, i64 noundef 8, i32 noundef 3264) #17

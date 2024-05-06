@@ -1716,7 +1716,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
 
 528:                                              ; preds = %525
   %529 = load i32, ptr @hf_q933_cumulative_transit_delay, align 4
-  %530 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %526, i32 noundef %129, ptr noundef %136, i32 noundef %529), !range !8
+  %530 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %526, i32 noundef %129, ptr noundef %136, i32 noundef %529)
   %531 = icmp slt i32 %530, 0
   br i1 %531, label %dissect_q933_segmented_message_ie.exit, label %532
 
@@ -1728,7 +1728,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
 
 536:                                              ; preds = %532
   %537 = load i32, ptr @hf_q933_requested_end_to_end_transit_delay, align 4
-  %538 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, ptr noundef %136, i32 noundef %537), !range !8
+  %538 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, ptr noundef %136, i32 noundef %537)
   %539 = icmp slt i32 %538, 0
   %540 = icmp eq i32 %534, %538
   %or.cond.i209 = select i1 %539, i1 true, i1 %540
@@ -1738,7 +1738,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %542 = sub nsw i32 %534, %538
   %543 = add i32 %538, %533
   %544 = load i32, ptr @hf_q933_max_end_to_end_transit_delay, align 4
-  %545 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %543, i32 noundef %542, ptr noundef %136, i32 noundef %544), !range !8
+  %545 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %543, i32 noundef %542, ptr noundef %136, i32 noundef %544)
   br label %dissect_q933_segmented_message_ie.exit
 
 546:                                              ; preds = %126
@@ -1748,7 +1748,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
 548:                                              ; preds = %546
   %549 = add i32 %.1225, 2
   %550 = load i32, ptr @hf_q933_transit_delay, align 4
-  %551 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %549, i32 noundef %129, ptr noundef %136, i32 noundef %550), !range !8
+  %551 = call fastcc i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %549, i32 noundef %129, ptr noundef %136, i32 noundef %550)
   br label %dissect_q933_segmented_message_ie.exit
 
 552:                                              ; preds = %126
@@ -2089,7 +2089,7 @@ define internal fastcc void @dissect_q933_number_ie(ptr noundef %0, i32 noundef 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %8, label %33
@@ -2168,4 +2168,3 @@ attributes #3 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 4}

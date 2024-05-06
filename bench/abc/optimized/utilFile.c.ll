@@ -85,7 +85,7 @@ define noalias noundef ptr @vnsprintf(ptr nocapture noundef readonly %0, ptr nou
 
 7:                                                ; preds = %5, %2
   %8 = phi ptr [ %6, %5 ], [ %4, %2 ]
-  call void @llvm.va_copy(ptr nonnull %3, ptr %1)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr %1)
   %9 = call i32 @vfprintf(ptr noundef %8, ptr noundef %0, ptr noundef %1) #13
   %10 = add i32 %9, 1
   %11 = zext i32 %10 to i64
@@ -100,9 +100,6 @@ define noalias noundef ptr @vnsprintf(ptr nocapture noundef readonly %0, ptr nou
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
@@ -113,7 +110,7 @@ declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef reado
 define noalias noundef ptr @nsprintf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #8 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %4 = load ptr, ptr @vnsprintf.dummy_file, align 8
   %.not.i = icmp eq ptr %4, null
@@ -126,25 +123,28 @@ define noalias noundef ptr @nsprintf(ptr nocapture noundef readonly %0, ...) loc
 
 vnsprintf.exit:                                   ; preds = %1, %5
   %7 = phi ptr [ %6, %5 ], [ %4, %1 ]
-  call void @llvm.va_copy(ptr nonnull %2, ptr nonnull %3)
-  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %3) #13
+  call void @llvm.va_copy.p0(ptr nonnull %2, ptr nonnull %3)
+  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef readonly %0, ptr noundef nonnull %3) #13
   %9 = add i32 %8, 1
   %10 = zext i32 %9 to i64
   %11 = call noalias ptr @malloc(i64 noundef %10) #12
   %12 = zext i32 %8 to i64
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   store i8 -1, ptr %13, align 1
-  %14 = call i32 @vsprintf(ptr noundef %11, ptr noundef %0, ptr noundef nonnull %2) #13
+  %14 = call i32 @vsprintf(ptr noundef %11, ptr noundef readonly %0, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret ptr %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
+declare void @llvm.va_copy.p0(ptr, ptr) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

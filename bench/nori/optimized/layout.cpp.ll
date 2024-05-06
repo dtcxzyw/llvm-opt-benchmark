@@ -2617,11 +2617,11 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   %105 = load i8, ptr %indvars.iv.sroa.phi135, align 1
   %106 = zext i8 %105 to i64
   %107 = load ptr, ptr %indvars.iv.sroa.phi137, align 8
-  %108 = getelementptr i32, ptr %107, i64 %106
+  %108 = getelementptr inbounds i32, ptr %107, i64 %106
   %109 = load i32, ptr %108, align 4
   %110 = load i8, ptr %65, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr i32, ptr %108, i64 %111
+  %112 = getelementptr inbounds i32, ptr %108, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = sub nsw i32 %113, %109
   %115 = load ptr, ptr %68, align 8

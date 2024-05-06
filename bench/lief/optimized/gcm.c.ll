@@ -256,7 +256,7 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
 .lr.ph.preheader:                                 ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %15 = lshr i64 %3, 53
-  %16 = trunc i64 %15 to i8
+  %16 = trunc nuw i64 %15 to i8
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 %16, ptr %17, align 8
   %18 = lshr i64 %3, 45
@@ -354,7 +354,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   %7 = getelementptr inbounds i8, ptr %0, i64 288
   %8 = load i64, ptr %7, align 8
   %9 = lshr i64 %8, 56
-  %10 = trunc i64 %9 to i8
+  %10 = trunc nuw i64 %9 to i8
   store i8 %10, ptr %4, align 16
   %11 = lshr i64 %8, 48
   %12 = trunc i64 %11 to i8
@@ -386,7 +386,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   %31 = getelementptr inbounds i8, ptr %0, i64 160
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 56
-  %34 = trunc i64 %33 to i8
+  %34 = trunc nuw i64 %33 to i8
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   store i8 %34, ptr %35, align 8
   %36 = lshr i64 %32, 48
@@ -484,7 +484,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
 102:                                              ; preds = %87
   %103 = lshr i64 %98, 32
   %104 = lshr i64 %98, 56
-  %105 = trunc i64 %104 to i8
+  %105 = trunc nuw i64 %104 to i8
   store i8 %105, ptr %2, align 1
   %106 = lshr i64 %98, 48
   %107 = trunc i64 %106 to i8
@@ -514,7 +514,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   store i8 %123, ptr %124, align 1
   %125 = lshr i64 %101, 32
   %126 = lshr i64 %101, 56
-  %127 = trunc i64 %126 to i8
+  %127 = trunc nuw i64 %126 to i8
   %128 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 %127, ptr %128, align 1
   %129 = lshr i64 %101, 48
@@ -552,7 +552,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp ult i64 %2, 2305843009213693952
   br i1 %.not, label %4, label %.loopexit
 
@@ -824,9 +824,9 @@ gcm_mask.exit:                                    ; preds = %36
   br label %83
 
 83:                                               ; preds = %.lr.ph, %112
-  %.1118 = phi ptr [ %.069, %.lr.ph ], [ %115, %112 ]
-  %.171117 = phi ptr [ %.070, %.lr.ph ], [ %114, %112 ]
-  %.173116 = phi i64 [ %.072, %.lr.ph ], [ %113, %112 ]
+  %.1119 = phi ptr [ %.069, %.lr.ph ], [ %115, %112 ]
+  %.171118 = phi ptr [ %.070, %.lr.ph ], [ %114, %112 ]
+  %.173117 = phi i64 [ %.072, %.lr.ph ], [ %113, %112 ]
   br label %84
 
 84:                                               ; preds = %84, %83
@@ -846,7 +846,7 @@ gcm_incr.exit:                                    ; preds = %84
   store i64 0, ptr %7, align 8
   %89 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %7) #10
   %.not.i94 = icmp eq i32 %89, 0
-  br i1 %.not.i94, label %.preheader.i96, label %gcm_mask.exit102
+  br i1 %.not.i94, label %.preheader.i96, label %gcm_mask.exit103
 
 .preheader.i96:                                   ; preds = %gcm_incr.exit, %110
   %.029.i98 = phi i64 [ %111, %110 ], [ 0, %gcm_incr.exit ]
@@ -855,7 +855,7 @@ gcm_incr.exit:                                    ; preds = %84
   br i1 %91, label %92, label %._crit_edge.i99
 
 92:                                               ; preds = %.preheader.i96
-  %93 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i98
+  %93 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
   %94 = load i8, ptr %93, align 1
   %95 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i98
   %96 = load i8, ptr %95, align 1
@@ -866,10 +866,10 @@ gcm_incr.exit:                                    ; preds = %84
 ._crit_edge.i99:                                  ; preds = %.preheader.i96, %92
   %98 = getelementptr inbounds i8, ptr %9, i64 %.029.i98
   %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i98
+  %100 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
   %101 = load i8, ptr %100, align 1
   %102 = xor i8 %101, %99
-  %103 = getelementptr inbounds i8, ptr %.1118, i64 %.029.i98
+  %103 = getelementptr inbounds i8, ptr %.1119, i64 %.029.i98
   store i8 %102, ptr %103, align 1
   %104 = load i32, ptr %81, align 8
   %105 = icmp eq i32 %104, 1
@@ -884,10 +884,10 @@ gcm_incr.exit:                                    ; preds = %84
 
 110:                                              ; preds = %106, %._crit_edge.i99
   %111 = add nuw nsw i64 %.029.i98, 1
-  %exitcond.not.i101 = icmp eq i64 %111, 16
-  br i1 %exitcond.not.i101, label %112, label %.preheader.i96, !llvm.loop !16
+  %exitcond.not.i102 = icmp eq i64 %111, 16
+  br i1 %exitcond.not.i102, label %112, label %.preheader.i96, !llvm.loop !16
 
-gcm_mask.exit102:                                 ; preds = %gcm_incr.exit
+gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %125
@@ -895,9 +895,9 @@ gcm_mask.exit102:                                 ; preds = %gcm_incr.exit
 112:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
-  %113 = add i64 %.173116, -16
-  %114 = getelementptr inbounds i8, ptr %.171117, i64 16
-  %115 = getelementptr inbounds i8, ptr %.1118, i64 16
+  %113 = add i64 %.173117, -16
+  %114 = getelementptr inbounds i8, ptr %.171118, i64 16
+  %115 = getelementptr inbounds i8, ptr %.1119, i64 16
   %116 = icmp ugt i64 %113, 15
   br i1 %116, label %83, label %._crit_edge, !llvm.loop !18
 
@@ -909,32 +909,32 @@ gcm_mask.exit102:                                 ; preds = %gcm_incr.exit
   br i1 %.not86, label %124, label %117
 
 117:                                              ; preds = %._crit_edge
-  %invariant.gep.i103 = getelementptr i8, ptr %0, i64 383
+  %invariant.gep.i104 = getelementptr i8, ptr %0, i64 383
   br label %118
 
 118:                                              ; preds = %118, %117
-  %.03.i104 = phi i64 [ 16, %117 ], [ %121, %118 ]
-  %gep.i105 = getelementptr i8, ptr %invariant.gep.i103, i64 %.03.i104
-  %119 = load i8, ptr %gep.i105, align 1
+  %.03.i105 = phi i64 [ 16, %117 ], [ %121, %118 ]
+  %gep.i106 = getelementptr i8, ptr %invariant.gep.i104, i64 %.03.i105
+  %119 = load i8, ptr %gep.i106, align 1
   %120 = add i8 %119, 1
-  store i8 %120, ptr %gep.i105, align 1
-  %.not.i106 = icmp eq i8 %120, 0
-  %121 = add nsw i64 %.03.i104, -1
+  store i8 %120, ptr %gep.i106, align 1
+  %.not.i107 = icmp eq i8 %120, 0
+  %121 = add nsw i64 %.03.i105, -1
   %122 = icmp ugt i64 %121, 12
-  %or.cond.i107 = select i1 %.not.i106, i1 %122, i1 false
-  br i1 %or.cond.i107, label %118, label %gcm_incr.exit108, !llvm.loop !17
+  %or.cond.i108 = select i1 %.not.i107, i1 %122, i1 false
+  br i1 %or.cond.i108, label %118, label %gcm_incr.exit109, !llvm.loop !17
 
-gcm_incr.exit108:                                 ; preds = %118
+gcm_incr.exit109:                                 ; preds = %118
   %123 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %.173.lcssa, ptr noundef %.171.lcssa, ptr noundef %.1.lcssa)
   %.not87 = icmp eq i32 %123, 0
   br i1 %.not87, label %124, label %125
 
-124:                                              ; preds = %gcm_incr.exit108, %._crit_edge
+124:                                              ; preds = %gcm_incr.exit109, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
   br label %125
 
-125:                                              ; preds = %gcm_mask.exit102, %gcm_mask.exit, %gcm_incr.exit108, %19, %13, %11, %6, %124
-  %.068 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit102 ], [ %123, %gcm_incr.exit108 ]
+125:                                              ; preds = %gcm_mask.exit103, %gcm_mask.exit, %gcm_incr.exit109, %19, %13, %11, %6, %124
+  %.068 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit103 ], [ %123, %gcm_incr.exit109 ]
   ret i32 %.068
 }
 
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef %1, i64 noundef
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [16 x i8], align 16
   store i64 0, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 352
@@ -1060,7 +1060,7 @@ define hidden noundef i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture read
 29:                                               ; preds = %25
   %30 = lshr i64 %13, 32
   %31 = lshr i64 %13, 56
-  %32 = trunc i64 %31 to i8
+  %32 = trunc nuw i64 %31 to i8
   store i8 %32, ptr %7, align 16
   %33 = lshr i64 %13, 48
   %34 = trunc i64 %33 to i8
@@ -1090,7 +1090,7 @@ define hidden noundef i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture read
   store i8 %50, ptr %51, align 1
   %52 = lshr i64 %10, 32
   %53 = lshr i64 %10, 56
-  %54 = trunc i64 %53 to i8
+  %54 = trunc nuw i64 %53 to i8
   %55 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %54, ptr %55, align 8
   %56 = lshr i64 %10, 48
@@ -1164,7 +1164,7 @@ define hidden i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %0, i32 noundef %1, i64
   br i1 %.not, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef %5, i64 noundef %6), !range !21
+  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef %5, i64 noundef %6)
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %16, label %20
 
@@ -1174,7 +1174,7 @@ define hidden i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %0, i32 noundef %1, i64
   br i1 %.not24, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = call i32 @mbedtls_gcm_finish(ptr noundef %0, ptr poison, i64 poison, ptr noundef nonnull %12, ptr noundef %10, i64 noundef %9), !range !21
+  %19 = call i32 @mbedtls_gcm_finish(ptr noundef %0, ptr poison, i64 poison, ptr noundef nonnull %12, ptr noundef %10, i64 noundef %9)
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %11
@@ -1187,12 +1187,12 @@ define hidden i32 @mbedtls_gcm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr 
   %11 = alloca i64, align 8
   %12 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %13 = tail call i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef 0, ptr noundef %2, i64 noundef %3)
+  %13 = tail call i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef 0, ptr noundef readonly %2, i64 noundef %3)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef %4, i64 noundef %5), !range !21
+  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef readonly %4, i64 noundef %5)
   %.not23.i = icmp eq i32 %15, 0
   br i1 %.not23.i, label %16, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
@@ -1207,7 +1207,7 @@ mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %10, %14, %16
   br label %._crit_edge.thread
 
 mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %16
-  %18 = call i32 @mbedtls_gcm_finish(ptr noundef %0, ptr poison, i64 poison, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %7), !range !21
+  %18 = call i32 @mbedtls_gcm_finish(ptr noundef %0, ptr poison, i64 poison, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.preheader, label %._crit_edge.thread
@@ -1228,7 +1228,7 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %16
   %25 = or i32 %.027, %24
   %26 = add nuw i64 %.02026, 1
   %exitcond.not = icmp eq i64 %26, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = icmp eq i32 %25, 0
@@ -1275,17 +1275,17 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %11 = add nuw nsw i64 %10, 128
   %12 = icmp eq i64 %11, 192
   %13 = mul nuw nsw i64 %indvars.iv214, 6
-  %14 = trunc i64 %11 to i32
-  %.pre = trunc i64 %11 to i32
+  %14 = trunc nuw nsw i64 %11 to i32
+  %.pre = trunc nuw nsw i64 %11 to i32
   br label %15
 
 15:                                               ; preds = %9, %135
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %135 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   br i1 %.not147, label %._crit_edge, label %16
 
 16:                                               ; preds = %15
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14, i32 noundef %17, ptr noundef nonnull @.str.1)
   br label %._crit_edge
 
@@ -1328,12 +1328,12 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [6 x [64 x i8]], ptr @pt_test_data, i64 0, i64 %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %46 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %33, i64 noundef %35)
+  %46 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull readonly %33, i64 noundef %35)
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
 47:                                               ; preds = %27
-  %48 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41), !range !21
+  %48 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull readonly %39, i64 noundef %41)
   %.not23.i = icmp eq i32 %48, 0
   br i1 %.not23.i, label %49, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
@@ -1348,7 +1348,7 @@ mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %27, %47, %49
   br label %.thread
 
 mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %49
-  %51 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef 16), !range !21
+  %51 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not149 = icmp eq i32 %51, 0
   br i1 %.not149, label %52, label %.thread
@@ -1373,13 +1373,13 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %49
 
 58:                                               ; preds = %57
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %59 = trunc i64 %indvars.iv to i32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre-phi, i32 noundef %59, ptr noundef nonnull @.str.4)
   br label %61
 
 .critedge:                                        ; preds = %57
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   br label %61
 
 61:                                               ; preds = %.critedge, %58
@@ -1389,12 +1389,12 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %49
 
 63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %64 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %33, i64 noundef %35)
+  %64 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull readonly %33, i64 noundef %35)
   %.not.i194 = icmp eq i32 %64, 0
   br i1 %.not.i194, label %65, label %mbedtls_gcm_crypt_and_tag.exit198.thread
 
 65:                                               ; preds = %63
-  %66 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41), !range !21
+  %66 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull readonly %39, i64 noundef %41)
   %.not23.i196 = icmp eq i32 %66, 0
   br i1 %.not23.i196, label %67, label %mbedtls_gcm_crypt_and_tag.exit198.thread
 
@@ -1409,7 +1409,7 @@ mbedtls_gcm_crypt_and_tag.exit198.thread:         ; preds = %63, %65, %67
   br label %.thread
 
 mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
-  %69 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 16), !range !21
+  %69 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.not154 = icmp eq i32 %69, 0
   br i1 %.not154, label %70, label %.thread
@@ -1431,13 +1431,13 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
 
 73:                                               ; preds = %72
   %puts159 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %74 = trunc i64 %indvars.iv to i32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre-phi, i32 noundef %74, ptr noundef nonnull @.str.1)
   br label %76
 
 .critedge191:                                     ; preds = %72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   br label %76
 
 76:                                               ; preds = %.critedge191, %73
@@ -1451,7 +1451,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %.not161, label %80, label %.thread
 
 80:                                               ; preds = %78
-  %81 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41), !range !21
+  %81 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41)
   %.not162 = icmp eq i32 %81, 0
   br i1 %.not162, label %82, label %.thread
 
@@ -1490,7 +1490,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %.not164, label %99, label %.thread208
 
 99:                                               ; preds = %97, %93
-  %100 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16), !range !21
+  %100 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16)
   %.not167 = icmp eq i32 %100, 0
   br i1 %.not167, label %101, label %.thread
 
@@ -1511,13 +1511,13 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
 
 104:                                              ; preds = %103
   %puts172 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %105 = trunc i64 %indvars.iv to i32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  %105 = trunc nuw nsw i64 %indvars.iv to i32
   %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre-phi, i32 noundef %105, ptr noundef nonnull @.str.4)
   br label %107
 
 .critedge193:                                     ; preds = %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   br label %107
 
 107:                                              ; preds = %.critedge193, %104
@@ -1531,7 +1531,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %.not174, label %111, label %.thread
 
 111:                                              ; preds = %109
-  %112 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41), !range !21
+  %112 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41)
   %.not175 = icmp eq i32 %112, 0
   br i1 %.not175, label %113, label %.thread
 
@@ -1569,7 +1569,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %.not177, label %129, label %.thread208
 
 129:                                              ; preds = %127, %123
-  %130 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16), !range !21
+  %130 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16)
   %.not180 = icmp eq i32 %130, 0
   br i1 %.not180, label %131, label %.thread
 
@@ -1595,12 +1595,12 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
 135:                                              ; preds = %133, %134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !22
 
 .loopexit:                                        ; preds = %135, %25
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next215, 3
-  br i1 %exitcond217.not, label %136, label %9, !llvm.loop !24
+  br i1 %exitcond217.not, label %136, label %9, !llvm.loop !23
 
 136:                                              ; preds = %.loopexit
   br i1 %.not147, label %.thread208, label %137
@@ -1695,7 +1695,6 @@ attributes #10 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i32 -20, i32 1}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

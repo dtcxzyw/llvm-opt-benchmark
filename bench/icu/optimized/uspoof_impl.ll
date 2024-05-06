@@ -705,7 +705,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1397,7 +1397,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare double @u_getNumericValue_75(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_759SpoofImpl19getRestrictionLevelERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 268435456, 1610612737) i32 @_ZNK6icu_759SpoofImpl19getRestrictionLevelERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resolvedScriptSet = alloca %"class.icu_75::ScriptSet", align 4
   %resolvedNoLatn = alloca %"class.icu_75::ScriptSet", align 4
@@ -1443,7 +1443,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end9:                                          ; preds = %for.body
   call void @_ZN6icu_759ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet)
-  invoke void @_ZNK6icu_759SpoofImpl27getResolvedScriptSetWithoutERKNS_13UnicodeStringE11UScriptCodeRNS_9ScriptSetER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef 200, ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759SpoofImpl27getResolvedScriptSetWithoutERKNS_13UnicodeStringE11UScriptCodeRNS_9ScriptSetER10UErrorCode(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef 200, ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end9
@@ -2015,7 +2015,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2196,7 +2196,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2328,7 +2328,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2840,7 +2840,7 @@ declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i8 @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo(ptr noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #11 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo(ptr noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #11 {
 entry:
   %2 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %2, 19

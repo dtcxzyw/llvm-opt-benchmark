@@ -12815,7 +12815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %199
   %203 = extractvalue { i64, ptr } %200, 1
-  %bcmp.i.i150 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %203, ptr noundef nonnull dereferenceable(2) @.str.361, i64 2)
+  %bcmp.i.i150 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %203, ptr noundef nonnull readonly dereferenceable(2) @.str.361, i64 2)
   %204 = icmp eq i32 %bcmp.i.i150, 0
   br i1 %204, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
 
@@ -12942,7 +12942,7 @@ _Z18cmHasLiteralPrefixILm3EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i156: ; preds = %253
   %258 = extractvalue { i64, ptr } %255, 1
-  %bcmp.i.i157 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %258, ptr noundef nonnull dereferenceable(14) @.str.363, i64 14)
+  %bcmp.i.i157 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %258, ptr noundef nonnull readonly dereferenceable(14) @.str.363, i64 14)
   %259 = icmp eq i32 %bcmp.i.i157, 0
   br i1 %259, label %260, label %.critedge4
 
@@ -13022,7 +13022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit163: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i164: ; preds = %.critedge4
   %291 = extractvalue { i64, ptr } %288, 1
-  %bcmp.i.i165 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %291, ptr noundef nonnull dereferenceable(16) @.str.364, i64 16)
+  %bcmp.i.i165 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %291, ptr noundef nonnull readonly dereferenceable(16) @.str.364, i64 16)
   %292 = icmp eq i32 %bcmp.i.i165, 0
   br i1 %292, label %293, label %.critedge6
 
@@ -13048,7 +13048,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i164: ; preds = %.critedge4
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i167: ; preds = %.critedge6
   %306 = extractvalue { i64, ptr } %303, 1
-  %bcmp.i.i168 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %306, ptr noundef nonnull dereferenceable(17) @.str.365, i64 17)
+  %bcmp.i.i168 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %306, ptr noundef nonnull readonly dereferenceable(17) @.str.365, i64 17)
   %307 = icmp eq i32 %bcmp.i.i168, 0
   br i1 %307, label %308, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit169
 
@@ -20367,7 +20367,7 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest26HandleCommandLineArgumentsERmR
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %4
   %102 = extractvalue { i64, ptr } %99, 1
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %102, ptr noundef nonnull dereferenceable(2) @.str.228, i64 2)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %102, ptr noundef nonnull readonly dereferenceable(2) @.str.228, i64 2)
   %103 = icmp eq i32 %bcmp.i.i, 0
   br i1 %103, label %104, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
 
@@ -20390,7 +20390,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i591: ; preds = %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
   %112 = extractvalue { i64, ptr } %109, 1
-  %bcmp.i.i592 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %112, ptr noundef nonnull dereferenceable(2) @.str.229, i64 2)
+  %bcmp.i.i592 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %112, ptr noundef nonnull readonly dereferenceable(2) @.str.229, i64 2)
   %113 = icmp eq i32 %bcmp.i.i592, 0
   br i1 %113, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit593.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit593
 
@@ -20472,7 +20472,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread: ; pred
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i595: ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
   %156 = extractvalue { i64, ptr } %153, 1
-  %bcmp.i.i596 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %156, ptr noundef nonnull dereferenceable(19) @.str.231, i64 19)
+  %bcmp.i.i596 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %156, ptr noundef nonnull readonly dereferenceable(19) @.str.231, i64 19)
   %157 = icmp eq i32 %bcmp.i.i596, 0
   br i1 %157, label %158, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit597
 
@@ -20543,7 +20543,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i598: ; preds = %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit597
   %196 = extractvalue { i64, ptr } %193, 1
-  %bcmp.i.i599 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %196, ptr noundef nonnull dereferenceable(8) @.str.236, i64 8)
+  %bcmp.i.i599 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %196, ptr noundef nonnull readonly dereferenceable(8) @.str.236, i64 8)
   %197 = icmp eq i32 %bcmp.i.i599, 0
   br i1 %197, label %198, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit600
 
@@ -20694,7 +20694,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i602: ; preds = %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit600
   %267 = extractvalue { i64, ptr } %264, 1
-  %bcmp.i.i603 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %267, ptr noundef nonnull dereferenceable(11) @.str.243, i64 11)
+  %bcmp.i.i603 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %267, ptr noundef nonnull readonly dereferenceable(11) @.str.243, i64 11)
   %268 = icmp eq i32 %bcmp.i.i603, 0
   br i1 %268, label %269, label %.critedge3
 
@@ -20786,7 +20786,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i602: ; preds = %_ZN7cmCTest13Che
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i605: ; preds = %.critedge3
   %312 = extractvalue { i64, ptr } %309, 1
-  %bcmp.i.i606 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %312, ptr noundef nonnull dereferenceable(20) @.str.244, i64 20)
+  %bcmp.i.i606 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %312, ptr noundef nonnull readonly dereferenceable(20) @.str.244, i64 20)
   %313 = icmp eq i32 %bcmp.i.i606, 0
   br i1 %313, label %314, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit607
 
@@ -21776,7 +21776,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit616.thread: ; p
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i622: ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit616.thread
   %831 = extractvalue { i64, ptr } %828, 1
-  %bcmp.i.i623 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %831, ptr noundef nonnull dereferenceable(2) @.str.297, i64 2)
+  %bcmp.i.i623 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %831, ptr noundef nonnull readonly dereferenceable(2) @.str.297, i64 2)
   %832 = icmp eq i32 %bcmp.i.i623, 0
   br i1 %832, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit624.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit624
 
@@ -21903,7 +21903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit631: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i632: ; preds = %.critedge31
   %876 = extractvalue { i64, ptr } %873, 1
-  %bcmp.i.i633 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %876, ptr noundef nonnull dereferenceable(2) @.str.300, i64 2)
+  %bcmp.i.i633 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %876, ptr noundef nonnull readonly dereferenceable(2) @.str.300, i64 2)
   %877 = icmp eq i32 %bcmp.i.i633, 0
   br i1 %877, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit634.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit634
 
@@ -22073,7 +22073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit654: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i655: ; preds = %910
   %914 = extractvalue { i64, ptr } %911, 1
-  %bcmp.i.i656 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %914, ptr noundef nonnull dereferenceable(2) @.str.303, i64 2)
+  %bcmp.i.i656 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %914, ptr noundef nonnull readonly dereferenceable(2) @.str.303, i64 2)
   %915 = icmp eq i32 %bcmp.i.i656, 0
   br i1 %915, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit657.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit657
 
@@ -22200,7 +22200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit667: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i668: ; preds = %.critedge33
   %959 = extractvalue { i64, ptr } %956, 1
-  %bcmp.i.i669 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %959, ptr noundef nonnull dereferenceable(2) @.str.306, i64 2)
+  %bcmp.i.i669 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %959, ptr noundef nonnull readonly dereferenceable(2) @.str.306, i64 2)
   %960 = icmp eq i32 %bcmp.i.i669, 0
   br i1 %960, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit670.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit670
 
@@ -22327,7 +22327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit680: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i681: ; preds = %.critedge35
   %1004 = extractvalue { i64, ptr } %1001, 1
-  %bcmp.i.i682 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1004, ptr noundef nonnull dereferenceable(3) @.str.309, i64 3)
+  %bcmp.i.i682 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1004, ptr noundef nonnull readonly dereferenceable(3) @.str.309, i64 3)
   %1005 = icmp eq i32 %bcmp.i.i682, 0
   br i1 %1005, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit683.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit683
 
@@ -22454,7 +22454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit693: ;
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i694: ; preds = %.critedge37
   %1049 = extractvalue { i64, ptr } %1046, 1
-  %bcmp.i.i695 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1049, ptr noundef nonnull dereferenceable(2) @.str.312, i64 2)
+  %bcmp.i.i695 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1049, ptr noundef nonnull readonly dereferenceable(2) @.str.312, i64 2)
   %1050 = icmp eq i32 %bcmp.i.i695, 0
   br i1 %1050, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit696.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit696
 
@@ -22553,7 +22553,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i697: ; preds = %.critedge39
   %1092 = extractvalue { i64, ptr } %1089, 1
-  %bcmp.i.i698 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1092, ptr noundef nonnull dereferenceable(3) @.str.315, i64 3)
+  %bcmp.i.i698 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1092, ptr noundef nonnull readonly dereferenceable(3) @.str.315, i64 3)
   %1093 = icmp eq i32 %bcmp.i.i698, 0
   br i1 %1093, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit699.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit699
 
@@ -22652,7 +22652,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i700: ; preds = %.critedge41
   %1135 = extractvalue { i64, ptr } %1132, 1
-  %bcmp.i.i701 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1135, ptr noundef nonnull dereferenceable(3) @.str.318, i64 3)
+  %bcmp.i.i701 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1135, ptr noundef nonnull readonly dereferenceable(3) @.str.318, i64 3)
   %1136 = icmp eq i32 %bcmp.i.i701, 0
   br i1 %1136, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit702.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit702
 
@@ -22751,7 +22751,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i703: ; preds = %.critedge43
   %1178 = extractvalue { i64, ptr } %1175, 1
-  %bcmp.i.i704 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1178, ptr noundef nonnull dereferenceable(3) @.str.321, i64 3)
+  %bcmp.i.i704 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1178, ptr noundef nonnull readonly dereferenceable(3) @.str.321, i64 3)
   %1179 = icmp eq i32 %bcmp.i.i704, 0
   br i1 %1179, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit705.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit705
 
@@ -22850,7 +22850,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i706: ; preds = %.critedge45
   %1221 = extractvalue { i64, ptr } %1218, 1
-  %bcmp.i.i707 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1221, ptr noundef nonnull dereferenceable(20) @.str.324, i64 20)
+  %bcmp.i.i707 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1221, ptr noundef nonnull readonly dereferenceable(20) @.str.324, i64 20)
   %1222 = icmp eq i32 %bcmp.i.i707, 0
   br i1 %1222, label %1223, label %.critedge47
 
@@ -23790,7 +23790,7 @@ define dso_local void @_ZN7cmCTest21HandleScriptArgumentsERmRSt6vectorINSt7__cxx
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %4
   %12 = extractvalue { i64, ptr } %9, 1
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %12, ptr noundef nonnull dereferenceable(3) @.str.337, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %12, ptr noundef nonnull readonly dereferenceable(3) @.str.337, i64 3)
   %13 = icmp eq i32 %bcmp.i.i, 0
   br i1 %13, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
 
@@ -23845,7 +23845,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39: ; preds = %.critedge
   %43 = extractvalue { i64, ptr } %40, 1
-  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull dereferenceable(3) @.str.339, i64 3)
+  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull readonly dereferenceable(3) @.str.339, i64 3)
   %44 = icmp eq i32 %bcmp.i.i40, 0
   br i1 %44, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit41.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit41
 
@@ -23890,7 +23890,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i42: ; preds = %.critedge2
   %69 = extractvalue { i64, ptr } %66, 1
-  %bcmp.i.i43 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %69, ptr noundef nonnull dereferenceable(2) @.str.341, i64 2)
+  %bcmp.i.i43 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %69, ptr noundef nonnull readonly dereferenceable(2) @.str.341, i64 2)
   %70 = icmp eq i32 %bcmp.i.i43, 0
   br i1 %70, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit44.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit44
 
@@ -26559,7 +26559,7 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest24HandleTestActionArgumentEPKcRm
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %4
   %16 = extractvalue { i64, ptr } %13, 1
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %16, ptr noundef nonnull dereferenceable(2) @.str.370, i64 2)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %16, ptr noundef nonnull readonly dereferenceable(2) @.str.370, i64 2)
   %17 = icmp eq i32 %bcmp.i.i, 0
   br i1 %17, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
 
@@ -26608,7 +26608,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br i1 %.not17.i, label %_ZN7cmCTest7SetTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.thread, label %.preheader.i, !llvm.loop !86
 
 42:                                               ; preds = %30
-  %43 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  %43 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %36)
   %.not.i = icmp eq i32 %43, 12
   br i1 %.not.i, label %49, label %44
 
@@ -26887,7 +26887,7 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest23HandleTestModelArgumentEPKcRmR
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %4
   %18 = extractvalue { i64, ptr } %15, 1
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.384, i64 2)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.384, i64 2)
   %19 = icmp eq i32 %bcmp.i.i, 0
   br i1 %19, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit.thread, label %_ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EPKc.exit
 
@@ -33459,9 +33459,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #28
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -33469,9 +33469,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #33
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #29
           to label %44 unwind label %37
 
@@ -33485,7 +33485,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -35561,7 +35561,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN7cmCTest10RunCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_SD_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRS2_IcS7_ERbEUlSS_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
 
@@ -37565,7 +37565,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %.val6, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN7cmCTest14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS7_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEERSoN15cmProcessOutput8EncodingEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
@@ -37733,7 +37733,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7cmCTest14Ru
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN7cmCTest14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS7_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEERSoN15cmProcessOutput8EncodingEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
@@ -37940,9 +37940,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #28
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -37950,9 +37950,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #33
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #29
           to label %44 unwind label %37
 
@@ -37966,7 +37966,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -38177,7 +38177,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN7cmCTest7RunTestERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PiPSoNSt6chrono8durationIdSt5ratioILl1ELl1EEEEPSA_N15cmProcessOutput8EncodingEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
@@ -38473,7 +38473,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7cmCTest7Run
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN7cmCTest7RunTestERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PiPSoNSt6chrono8durationIdSt5ratioILl1ELl1EEEEPSA_N15cmProcessOutput8EncodingEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 

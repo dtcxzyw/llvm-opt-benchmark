@@ -299,7 +299,7 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not126, label %43, label %40
 
 40:                                               ; preds = %32
-  %41 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %41 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not127 = icmp eq i32 %41, 0
   br i1 %.not127, label %43, label %42
 
@@ -367,7 +367,7 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
 .backedge:                                        ; preds = %357, %356, %332, %329, %327, %203, %200, %198, %74, %78, %.thread
   %.0120.be = phi ptr [ null, %.thread ], [ null, %78 ], [ null, %74 ], [ %.075141.i, %198 ], [ null, %327 ], [ null, %356 ], [ null, %357 ], [ %.075141.i, %203 ], [ %.075141.i, %200 ], [ null, %332 ], [ null, %329 ]
   %.not128 = icmp eq ptr %.0120.be, null
-  br i1 %.not128, label %58, label %.critedge, !llvm.loop !7
+  br i1 %.not128, label %58, label %.critedge, !llvm.loop !6
 
 79:                                               ; preds = %62
   %80 = load i32, ptr %47, align 4
@@ -485,12 +485,12 @@ seq_check_truncation.exit.thread124.i:            ; preds = %seq_check_truncatio
   br i1 %.not98.i, label %138, label %136
 
 136:                                              ; preds = %133
-  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not100.i = icmp eq i32 %137, 0
   br i1 %.not100.i, label %140, label %.critedge.thread
 
 138:                                              ; preds = %133
-  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not99.i = icmp eq i32 %139, 0
   br i1 %.not99.i, label %140, label %.critedge.thread
 
@@ -549,7 +549,7 @@ classify.exit.thread.i:                           ; preds = %152, %151, %150
   br i1 %.not86.i, label %160, label %158
 
 158:                                              ; preds = %155
-  %159 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %159 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not88.i = icmp eq i32 %159, 0
   br i1 %.not88.i, label %classify.exit.i, label %170
 
@@ -566,7 +566,7 @@ classify.exit.thread.i:                           ; preds = %152, %151, %150
   br i1 %.not5.i.i, label %classify.exit.i, label %parse_check_done.exit.i
 
 parse_check_done.exit.i:                          ; preds = %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %167 = tail call { i64, ptr } @jv_invalid() #8
   %168 = extractvalue { i64, ptr } %167, 0
   %169 = extractvalue { i64, ptr } %167, 1
@@ -647,7 +647,7 @@ tokenadd.exit.i:                                  ; preds = %174, %._crit_edge.i
   br i1 %.not91.i, label %200, label %198
 
 198:                                              ; preds = %195
-  %199 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %199 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not93.i = icmp eq i32 %199, 0
   br i1 %.not93.i, label %.backedge, label %.critedge.thread
 
@@ -664,7 +664,7 @@ tokenadd.exit.i:                                  ; preds = %174, %._crit_edge.i
   br i1 %.not5.i108.i, label %.backedge, label %parse_check_done.exit109.i
 
 parse_check_done.exit109.i:                       ; preds = %203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %207 = tail call { i64, ptr } @jv_invalid() #8
   %208 = extractvalue { i64, ptr } %207, 0
   %209 = extractvalue { i64, ptr } %207, 1
@@ -776,7 +776,7 @@ parse_check_done.exit109.i:                       ; preds = %203
   %252 = or i32 %250, %251
   %253 = add nuw nsw i32 %.02531.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %253, 4
-  br i1 %exitcond.not.i.i.i, label %unhex4.exit.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %unhex4.exit.i.i, label %.preheader.i.i, !llvm.loop !7
 
 unhex4.exit.i.i:                                  ; preds = %249
   %254 = icmp slt i32 %252, 0
@@ -836,7 +836,7 @@ unhex4.exit.i.i:                                  ; preds = %249
   %280 = or i32 %278, %279
   %281 = add nuw nsw i32 %.02531.i74.i.i, 1
   %exitcond.not.i82.i.i = icmp eq i32 %281, 4
-  br i1 %exitcond.not.i82.i.i, label %unhex4.exit83.i.i, label %268, !llvm.loop !8
+  br i1 %exitcond.not.i82.i.i, label %unhex4.exit83.i.i, label %268, !llvm.loop !7
 
 unhex4.exit83.i.i:                                ; preds = %277
   %282 = and i32 %280, -1024
@@ -874,7 +874,7 @@ unhex4.exit83.i.i:                                ; preds = %277
   %.160.i.i = phi ptr [ %294, %288 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %297, %296 ]
   %.2.i.i = phi ptr [ %.1.i.i, %288 ], [ %224, %236 ], [ %224, %234 ], [ %224, %232 ], [ %224, %230 ], [ %224, %228 ], [ %224, %226 ], [ %219, %296 ]
   %299 = icmp ult ptr %.2.i.i, %217
-  br i1 %299, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !9
+  br i1 %299, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i:                         ; preds = %298
   %.pre.i112.i = load ptr, ptr %56, align 8
@@ -939,7 +939,7 @@ unhex4.exit83.i.i:                                ; preds = %277
   br i1 %.not81.i, label %329, label %327
 
 327:                                              ; preds = %322
-  %328 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !6
+  %328 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not83.i = icmp eq i32 %328, 0
   br i1 %.not83.i, label %.backedge, label %.critedge.thread
 
@@ -954,7 +954,7 @@ unhex4.exit83.i.i:                                ; preds = %277
   br i1 %.not5.i114.i, label %.backedge, label %parse_check_done.exit115.i
 
 parse_check_done.exit115.i:                       ; preds = %332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %334 = tail call { i64, ptr } @jv_invalid() #8
   %335 = extractvalue { i64, ptr } %334, 0
   %336 = extractvalue { i64, ptr } %334, 1
@@ -1293,7 +1293,7 @@ define internal fastcc void @parser_reset(ptr nocapture noundef %0) unnamed_addr
   %40 = load i32, ptr %30, align 8
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %34, label %._crit_edge, !llvm.loop !10
+  br i1 %42, label %34, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %34, %14
   store i32 0, ptr %30, align 8
@@ -1305,7 +1305,7 @@ define internal fastcc void @parser_reset(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -1501,7 +1501,7 @@ define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unna
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %28, label %23, !llvm.loop !11
+  br i1 %exitcond.not, label %28, label %23, !llvm.loop !10
 
 23:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
@@ -1844,7 +1844,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -3077,9 +3077,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

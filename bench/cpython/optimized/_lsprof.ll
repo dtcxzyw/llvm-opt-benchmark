@@ -1126,7 +1126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_lsprof_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_lsprof_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @_lsprof_profiler_type_spec, ptr noundef null) #4
@@ -1304,7 +1304,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @profiler_init(ptr nocapture noundef %pObj, ptr noundef %args, ptr noundef %kw) #0 {
+define internal range(i32 -1, 1) i32 @profiler_init(ptr nocapture noundef %pObj, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %timer = alloca ptr, align 8
   %timeunit = alloca double, align 8

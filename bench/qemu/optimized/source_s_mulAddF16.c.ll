@@ -146,7 +146,7 @@ if.then137:                                       ; preds = %if.then133
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then137
-  %sh_prom.i = trunc i64 %sub140 to i32
+  %sh_prom.i = trunc nuw nsw i64 %sub140 to i32
   %shr.i = lshr i32 %conv138, %sh_prom.i
   %18 = sub nsw i32 0, %sh_prom.i
   %sh_prom1.i = and i32 %18, 31
@@ -169,25 +169,25 @@ softfloat_shiftRightJam32.exit:                   ; preds = %cond.true.i, %cond.
 
 if.else:                                          ; preds = %if.then133
   %cmp.i101 = icmp ult i8 %sub125, 31
-  br i1 %cmp.i101, label %cond.true.i104, label %softfloat_shiftRightJam32.exit112
+  br i1 %cmp.i101, label %cond.true.i106, label %softfloat_shiftRightJam32.exit114
 
-cond.true.i104:                                   ; preds = %if.else
+cond.true.i106:                                   ; preds = %if.else
   %shl122.tr = trunc i64 %shl122 to i32
   %conv146 = shl i32 %shl122.tr, 16
-  %sh_prom.i105 = zext nneg i8 %sub125 to i32
-  %shr.i106 = lshr i32 %conv146, %sh_prom.i105
-  %19 = sub nsw i32 0, %sh_prom.i105
-  %sh_prom1.i107 = and i32 %19, 31
-  %shl.i108 = shl i32 %conv146, %sh_prom1.i107
-  %cmp2.i109 = icmp ne i32 %shl.i108, 0
-  %conv.i110 = zext i1 %cmp2.i109 to i32
-  %or.i111 = or i32 %shr.i106, %conv.i110
-  %20 = zext nneg i32 %or.i111 to i64
-  br label %softfloat_shiftRightJam32.exit112
+  %sh_prom.i107 = zext nneg i8 %sub125 to i32
+  %shr.i108 = lshr i32 %conv146, %sh_prom.i107
+  %19 = sub nsw i32 0, %sh_prom.i107
+  %sh_prom1.i109 = and i32 %19, 31
+  %shl.i110 = shl i32 %conv146, %sh_prom1.i109
+  %cmp2.i111 = icmp ne i32 %shl.i110, 0
+  %conv.i112 = zext i1 %cmp2.i111 to i32
+  %or.i113 = or i32 %shr.i108, %conv.i112
+  %20 = zext nneg i32 %or.i113 to i64
+  br label %softfloat_shiftRightJam32.exit114
 
-softfloat_shiftRightJam32.exit112:                ; preds = %if.else, %cond.true.i104
-  %cond.i103 = phi i64 [ %20, %cond.true.i104 ], [ 1, %if.else ]
-  %add150 = add i64 %cond.i103, %sigProd.0
+softfloat_shiftRightJam32.exit114:                ; preds = %if.else, %cond.true.i106
+  %cond.i105 = phi i64 [ %20, %cond.true.i106 ], [ 1, %if.else ]
+  %add150 = add i64 %cond.i105, %sigProd.0
   %shr151 = lshr i64 %add150, 16
   %and152 = and i64 %add150, 65535
   %cmp153 = icmp ne i64 %and152, 0
@@ -195,9 +195,9 @@ softfloat_shiftRightJam32.exit112:                ; preds = %if.else, %cond.true
   %or156 = or i64 %shr151, %conv155
   br label %if.end157
 
-if.end157:                                        ; preds = %softfloat_shiftRightJam32.exit112, %softfloat_shiftRightJam32.exit
-  %expZ.0 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit ], [ %expProd.0, %softfloat_shiftRightJam32.exit112 ]
-  %sigZ.0 = phi i64 [ %add144, %softfloat_shiftRightJam32.exit ], [ %or156, %softfloat_shiftRightJam32.exit112 ]
+if.end157:                                        ; preds = %softfloat_shiftRightJam32.exit114, %softfloat_shiftRightJam32.exit
+  %expZ.0 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit ], [ %expProd.0, %softfloat_shiftRightJam32.exit114 ]
+  %sigZ.0 = phi i64 [ %add144, %softfloat_shiftRightJam32.exit ], [ %or156, %softfloat_shiftRightJam32.exit114 ]
   %cmp158 = icmp ult i64 %sigZ.0, 16384
   br i1 %cmp158, label %if.then160, label %roundPack
 
@@ -215,28 +215,28 @@ if.then169:                                       ; preds = %if.else164
   %conv166 = sext i8 %sub125 to i64
   %conv172 = trunc i64 %sigProd.0 to i32
   %sub174 = sub nsw i64 0, %conv166
-  %cmp.i113 = icmp ult i64 %sub174, 31
-  br i1 %cmp.i113, label %cond.true.i118, label %cond.false.i114
+  %cmp.i115 = icmp ult i64 %sub174, 31
+  br i1 %cmp.i115, label %cond.true.i120, label %cond.false.i116
 
-cond.true.i118:                                   ; preds = %if.then169
-  %sh_prom.i119 = trunc i64 %sub174 to i32
-  %shr.i120 = lshr i32 %conv172, %sh_prom.i119
-  %21 = sub nsw i32 0, %sh_prom.i119
-  %sh_prom1.i121 = and i32 %21, 31
-  %shl.i122 = shl i32 %conv172, %sh_prom1.i121
-  %cmp2.i123 = icmp ne i32 %shl.i122, 0
-  %conv.i124 = zext i1 %cmp2.i123 to i32
-  %or.i125 = or i32 %shr.i120, %conv.i124
-  br label %softfloat_shiftRightJam32.exit126
+cond.true.i120:                                   ; preds = %if.then169
+  %sh_prom.i121 = trunc nuw nsw i64 %sub174 to i32
+  %shr.i122 = lshr i32 %conv172, %sh_prom.i121
+  %21 = sub nsw i32 0, %sh_prom.i121
+  %sh_prom1.i123 = and i32 %21, 31
+  %shl.i124 = shl i32 %conv172, %sh_prom1.i123
+  %cmp2.i125 = icmp ne i32 %shl.i124, 0
+  %conv.i126 = zext i1 %cmp2.i125 to i32
+  %or.i127 = or i32 %shr.i122, %conv.i126
+  br label %softfloat_shiftRightJam32.exit128
 
-cond.false.i114:                                  ; preds = %if.then169
-  %cmp3.i115 = icmp ne i32 %conv172, 0
-  %conv4.i116 = zext i1 %cmp3.i115 to i32
-  br label %softfloat_shiftRightJam32.exit126
+cond.false.i116:                                  ; preds = %if.then169
+  %cmp3.i117 = icmp ne i32 %conv172, 0
+  %conv4.i118 = zext i1 %cmp3.i117 to i32
+  br label %softfloat_shiftRightJam32.exit128
 
-softfloat_shiftRightJam32.exit126:                ; preds = %cond.true.i118, %cond.false.i114
-  %cond.i117 = phi i32 [ %or.i125, %cond.true.i118 ], [ %conv4.i116, %cond.false.i114 ]
-  %conv177 = zext nneg i32 %cond.i117 to i64
+softfloat_shiftRightJam32.exit128:                ; preds = %cond.true.i120, %cond.false.i116
+  %cond.i119 = phi i32 [ %or.i127, %cond.true.i120 ], [ %conv4.i118, %cond.false.i116 ]
+  %conv177 = zext nneg i32 %cond.i119 to i64
   %sub178 = sub i64 %shl165, %conv177
   br label %if.end200
 
@@ -260,43 +260,43 @@ if.then188:                                       ; preds = %if.end185
   br label %if.end200
 
 if.else193:                                       ; preds = %if.else179
-  %cmp.i127 = icmp ult i8 %sub125, 31
-  br i1 %cmp.i127, label %cond.true.i130, label %softfloat_shiftRightJam32.exit138
+  %cmp.i129 = icmp ult i8 %sub125, 31
+  br i1 %cmp.i129, label %cond.true.i134, label %softfloat_shiftRightJam32.exit142
 
-cond.true.i130:                                   ; preds = %if.else193
+cond.true.i134:                                   ; preds = %if.else193
   %conv194 = trunc i64 %shl165 to i32
-  %sh_prom.i131 = zext nneg i8 %sub125 to i32
-  %shr.i132 = lshr i32 %conv194, %sh_prom.i131
-  %22 = sub nsw i32 0, %sh_prom.i131
-  %sh_prom1.i133 = and i32 %22, 31
-  %shl.i134 = shl i32 %conv194, %sh_prom1.i133
-  %cmp2.i135 = icmp ne i32 %shl.i134, 0
-  %conv.i136 = zext i1 %cmp2.i135 to i32
-  %or.i137 = or i32 %shr.i132, %conv.i136
-  %23 = zext i32 %or.i137 to i64
-  br label %softfloat_shiftRightJam32.exit138
+  %sh_prom.i135 = zext nneg i8 %sub125 to i32
+  %shr.i136 = lshr i32 %conv194, %sh_prom.i135
+  %22 = sub nsw i32 0, %sh_prom.i135
+  %sh_prom1.i137 = and i32 %22, 31
+  %shl.i138 = shl i32 %conv194, %sh_prom1.i137
+  %cmp2.i139 = icmp ne i32 %shl.i138, 0
+  %conv.i140 = zext i1 %cmp2.i139 to i32
+  %or.i141 = or i32 %shr.i136, %conv.i140
+  %23 = zext i32 %or.i141 to i64
+  br label %softfloat_shiftRightJam32.exit142
 
-softfloat_shiftRightJam32.exit138:                ; preds = %if.else193, %cond.true.i130
-  %cond.i129 = phi i64 [ %23, %cond.true.i130 ], [ 1, %if.else193 ]
-  %sub198 = sub i64 %sigProd.0, %cond.i129
+softfloat_shiftRightJam32.exit142:                ; preds = %if.else193, %cond.true.i134
+  %cond.i133 = phi i64 [ %23, %cond.true.i134 ], [ 1, %if.else193 ]
+  %sub198 = sub i64 %sigProd.0, %cond.i133
   br label %if.end200
 
-if.end200:                                        ; preds = %softfloat_shiftRightJam32.exit138, %if.then188, %if.end185, %softfloat_shiftRightJam32.exit126
-  %signZ.0 = phi i1 [ %tobool25, %softfloat_shiftRightJam32.exit126 ], [ %tobool42, %softfloat_shiftRightJam32.exit138 ], [ %lnot, %if.then188 ], [ %tobool42, %if.end185 ]
-  %expZ.1 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit126 ], [ %expProd.0, %softfloat_shiftRightJam32.exit138 ], [ %expProd.0, %if.then188 ], [ %expProd.0, %if.end185 ]
-  %sig32Z.0 = phi i64 [ %sub178, %softfloat_shiftRightJam32.exit126 ], [ %sub198, %softfloat_shiftRightJam32.exit138 ], [ %sub191, %if.then188 ], [ %sub182, %if.end185 ]
+if.end200:                                        ; preds = %softfloat_shiftRightJam32.exit142, %if.then188, %if.end185, %softfloat_shiftRightJam32.exit128
+  %signZ.0 = phi i1 [ %tobool25, %softfloat_shiftRightJam32.exit128 ], [ %tobool42, %softfloat_shiftRightJam32.exit142 ], [ %lnot, %if.then188 ], [ %tobool42, %if.end185 ]
+  %expZ.1 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit128 ], [ %expProd.0, %softfloat_shiftRightJam32.exit142 ], [ %expProd.0, %if.then188 ], [ %expProd.0, %if.end185 ]
+  %sig32Z.0 = phi i64 [ %sub178, %softfloat_shiftRightJam32.exit128 ], [ %sub198, %softfloat_shiftRightJam32.exit142 ], [ %sub191, %if.then188 ], [ %sub182, %if.end185 ]
   %conv201 = trunc i64 %sig32Z.0 to i32
-  %cmp.i139 = icmp ult i32 %conv201, 65536
-  %shl.i140 = shl nuw i32 %conv201, 16
-  %spec.select.i = select i1 %cmp.i139, i32 %shl.i140, i32 %conv201
-  %spec.select7.i = select i1 %cmp.i139, i8 16, i8 0
+  %cmp.i143 = icmp ult i32 %conv201, 65536
+  %shl.i144 = shl nuw i32 %conv201, 16
+  %spec.select.i = select i1 %cmp.i143, i32 %shl.i144, i32 %conv201
+  %spec.select7.i = select i1 %cmp.i143, i8 16, i8 0
   %cmp1.i = icmp ult i32 %spec.select.i, 16777216
   %24 = or disjoint i8 %spec.select7.i, 8
   %shl4.i = shl nuw i32 %spec.select.i, 8
   %a.addr.1.i = select i1 %cmp1.i, i32 %shl4.i, i32 %spec.select.i
   %count.1.i = select i1 %cmp1.i, i8 %24, i8 %spec.select7.i
-  %shr.i141 = lshr i32 %a.addr.1.i, 24
-  %idxprom.i = zext nneg i32 %shr.i141 to i64
+  %shr.i145 = lshr i32 %a.addr.1.i, 24
+  %idxprom.i = zext nneg i32 %shr.i145 to i64
   %arrayidx.i = getelementptr [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %idxprom.i
   %25 = load i8, ptr %arrayidx.i, align 1
   %add8.i = add i8 %count.1.i, %25

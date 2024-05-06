@@ -97,7 +97,7 @@ common.resume:                                    ; preds = %42, %29, %48, %22
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit"
   %.fca.0.extract1 = extractvalue { ptr, ptr } %28, 0
   %.fca.1.extract2 = extractvalue { ptr, ptr } %28, 1
-  %32 = trunc i8 %.0.i.i.i to i1
+  %32 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %33
 
 33:                                               ; preds = %31
@@ -539,7 +539,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
 103:                                              ; preds = %"_ZN4slab13Slab$LT$T$GT$9insert_at17hc240560d0918b05bE.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %104 = trunc i8 %.0.i.i.i to i1
+  %104 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %104, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %105
 
 105:                                              ; preds = %103
@@ -1024,7 +1024,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -1066,7 +1066,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0

@@ -100,7 +100,7 @@ define internal fastcc void @save_ptr(ptr noundef %0, i64 noundef %1, ptr nocapt
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %3, ptr %7, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #14
   %9 = shl i64 %8, 32
   %sext.i = add i64 %9, 4294967296
   %10 = ashr exact i64 %sext.i, 32
@@ -109,7 +109,7 @@ define internal fastcc void @save_ptr(ptr noundef %0, i64 noundef %1, ptr nocapt
   br i1 %.not.i, label %my_strdup.exit, label %12
 
 12:                                               ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %2, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr readonly align 1 %2, i64 %10, i1 false)
   br label %my_strdup.exit
 
 my_strdup.exit:                                   ; preds = %4, %12
@@ -682,7 +682,7 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
   %8 = trunc i64 %5 to i32
   %9 = trunc i64 %5 to i32
   %sh.diff = lshr i64 %5, 32
-  %tr.sh.diff = trunc i64 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %10 = and i32 %tr.sh.diff, -16777216
   %11 = add i32 %10, -1640531527
   %sh.diff247 = lshr i64 %5, 24

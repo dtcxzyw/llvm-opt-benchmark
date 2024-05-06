@@ -62,7 +62,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i8, ptr %8, align 8, !range !4, !noundef !5
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   %.sroa.05.0.copyload.pre = load i64, ptr %1, align 8
   %.sroa.57.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.57.0.copyload.pre = load i64, ptr %.sroa.57.0..sroa_idx.phi.trans.insert, align 8

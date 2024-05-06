@@ -320,7 +320,7 @@ conjugate_gradient.exit.i:                        ; preds = %127, %gv_calloc.exi
   br i1 %.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.preheader.i
 
 .lr.ph52.preheader.i:                             ; preds = %conjugate_gradient.exit.i
-  %invariant.gep.i = getelementptr double, ptr %3, i64 %indvars.iv64.i
+  %invariant.gep.i = getelementptr inbounds double, ptr %3, i64 %indvars.iv64.i
   br label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
@@ -328,7 +328,7 @@ conjugate_gradient.exit.i:                        ; preds = %127, %gv_calloc.exi
   %145 = getelementptr inbounds double, ptr %55, i64 %indvars.iv59.i
   %146 = load double, ptr %145, align 8
   %147 = mul nuw nsw i64 %indvars.iv59.i, %66
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %147
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %147
   store double %146, ptr %gep.i, align 8
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i14

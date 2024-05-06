@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [16 x i8] c"sbcast_p_unpack\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cred_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 18), align 8
@@ -328,7 +328,7 @@ define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %29, %._crit_edge.loopexit.split.loop.exit

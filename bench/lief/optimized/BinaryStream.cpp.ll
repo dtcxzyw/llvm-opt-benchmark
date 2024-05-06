@@ -281,7 +281,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i: ; preds
 27:                                               ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i
   %.sroa.028.0.extract.trunc29 = trunc i64 %24 to i32
   %.sroa.15.0.extract.shift34 = lshr i64 %24, 32
-  %.sroa.15.0.extract.trunc35 = trunc i64 %.sroa.15.0.extract.shift34 to i32
+  %.sroa.15.0.extract.trunc35 = trunc nuw i64 %.sroa.15.0.extract.shift34 to i32
   br label %_ZN2tl8expectedIl11lief_errorsEC2ImS1_TnPNSt9enable_ifIXaasr3std14is_convertibleIOT_lEE5valuesr3std14is_convertibleIOT0_S1_EE5valueEvE4typeELPv0ETnPNS4_IXaaaaaaaaaaaaaaaaaasr3std16is_constructibleIlS6_EE5valuesr3std16is_constructibleIS1_S8_EE5valuentsr3std16is_constructibleIlRNS0_IS5_S7_EEEE5valuentsr3std16is_constructibleIlOSD_EE5valuentsr3std16is_constructibleIlRKSD_EE5valuentsr3std16is_constructibleIlOSG_EE5valuentsr3std14is_convertibleISE_lEE5valuentsr3std14is_convertibleISF_lEE5valuentsr3std14is_convertibleISH_lEE5valuentsr3std14is_convertibleISI_lEE5valueEvE4typeELSC_0EEESF_.exit
 
 28:                                               ; preds = %2, %2
@@ -334,7 +334,7 @@ _ZNK4LIEF12BinaryStream4readIiEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   %50 = ashr i32 %.sroa.016.0.extract.trunc, 31
   %spec.select = select i1 %.not.i, i32 0, i32 %50
   %.lobit = lshr exact i64 %47, 32
-  %spec.select81 = trunc i64 %.lobit to i8
+  %spec.select81 = trunc nuw nsw i64 %.lobit to i8
   br label %_ZN2tl8expectedIl11lief_errorsEC2ImS1_TnPNSt9enable_ifIXaasr3std14is_convertibleIOT_lEE5valuesr3std14is_convertibleIOT0_S1_EE5valueEvE4typeELPv0ETnPNS4_IXaaaaaaaaaaaaaaaaaasr3std16is_constructibleIlS6_EE5valuesr3std16is_constructibleIS1_S8_EE5valuentsr3std16is_constructibleIlRNS0_IS5_S7_EEEE5valuentsr3std16is_constructibleIlOSD_EE5valuentsr3std16is_constructibleIlRKSD_EE5valuentsr3std16is_constructibleIlOSG_EE5valuentsr3std14is_convertibleISE_lEE5valuentsr3std14is_convertibleISF_lEE5valuentsr3std14is_convertibleISH_lEE5valuentsr3std14is_convertibleISI_lEE5valueEvE4typeELSC_0EEESF_.exit
 
 51:                                               ; preds = %2, %2
@@ -351,7 +351,7 @@ _ZNK4LIEF12BinaryStream4readIiEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   %.lobit.i.i = lshr exact i64 %58, 32
   store i64 %53, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %60 = trunc i64 %.lobit.i.i to i1
+  %60 = trunc nuw i64 %.lobit.i.i to i1
   br i1 %60, label %61, label %_ZNK4LIEF12BinaryStream4readIlEEN2tl8expectedIT_11lief_errorsEEv.exit
 
 61:                                               ; preds = %51
@@ -360,12 +360,12 @@ _ZNK4LIEF12BinaryStream4readIiEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   br label %_ZNK4LIEF12BinaryStream4readIlEEN2tl8expectedIT_11lief_errorsEEv.exit
 
 _ZNK4LIEF12BinaryStream4readIlEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %51, %61
-  %spec.select.i.i = trunc i64 %.lobit.i.i to i8
+  %spec.select.i.i = trunc nuw nsw i64 %.lobit.i.i to i8
   %.not.not.i.i = icmp eq i64 %58, 0
   %spec.select5.i.i = select i1 %.not.not.i.i, i64 1, i64 %59
   %.sroa.028.0.extract.trunc = trunc i64 %spec.select5.i.i to i32
   %.sroa.15.0.extract.shift = lshr i64 %spec.select5.i.i, 32
-  %.sroa.15.0.extract.trunc = trunc i64 %.sroa.15.0.extract.shift to i32
+  %.sroa.15.0.extract.trunc = trunc nuw i64 %.sroa.15.0.extract.shift to i32
   br label %_ZN2tl8expectedIl11lief_errorsEC2ImS1_TnPNSt9enable_ifIXaasr3std14is_convertibleIOT_lEE5valuesr3std14is_convertibleIOT0_S1_EE5valueEvE4typeELPv0ETnPNS4_IXaaaaaaaaaaaaaaaaaasr3std16is_constructibleIlS6_EE5valuesr3std16is_constructibleIS1_S8_EE5valuentsr3std16is_constructibleIlRNS0_IS5_S7_EEEE5valuentsr3std16is_constructibleIlOSD_EE5valuentsr3std16is_constructibleIlRKSD_EE5valuentsr3std16is_constructibleIlOSG_EE5valuentsr3std14is_convertibleISE_lEE5valuentsr3std14is_convertibleISF_lEE5valuentsr3std14is_convertibleISH_lEE5valuentsr3std14is_convertibleISI_lEE5valueEvE4typeELSC_0EEESF_.exit
 
 63:                                               ; preds = %2
@@ -410,7 +410,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i7: ; pred
   %.1.i = or i64 %78, %84
   %.sroa.028.0.extract.trunc32 = trunc i64 %.1.i to i32
   %.sroa.15.0.extract.shift40 = lshr i64 %.1.i, 32
-  %.sroa.15.0.extract.trunc41 = trunc i64 %.sroa.15.0.extract.shift40 to i32
+  %.sroa.15.0.extract.trunc41 = trunc nuw i64 %.sroa.15.0.extract.shift40 to i32
   br label %_ZN2tl8expectedIl11lief_errorsEC2ImS1_TnPNSt9enable_ifIXaasr3std14is_convertibleIOT_lEE5valuesr3std14is_convertibleIOT0_S1_EE5valueEvE4typeELPv0ETnPNS4_IXaaaaaaaaaaaaaaaaaasr3std16is_constructibleIlS6_EE5valuesr3std16is_constructibleIS1_S8_EE5valuentsr3std16is_constructibleIlRNS0_IS5_S7_EEEE5valuentsr3std16is_constructibleIlOSD_EE5valuentsr3std16is_constructibleIlRKSD_EE5valuentsr3std16is_constructibleIlOSG_EE5valuentsr3std14is_convertibleISE_lEE5valuentsr3std14is_convertibleISF_lEE5valuentsr3std14is_convertibleISH_lEE5valuentsr3std14is_convertibleISI_lEE5valueEvE4typeELSC_0EEESF_.exit
 
 _ZN2tl8expectedIl11lief_errorsEC2ImS1_TnPNSt9enable_ifIXaasr3std14is_convertibleIOT_lEE5valuesr3std14is_convertibleIOT0_S1_EE5valueEvE4typeELPv0ETnPNS4_IXaaaaaaaaaaaaaaaaaasr3std16is_constructibleIlS6_EE5valuesr3std16is_constructibleIS1_S8_EE5valuentsr3std16is_constructibleIlRNS0_IS5_S7_EEEE5valuentsr3std16is_constructibleIlOSD_EE5valuentsr3std16is_constructibleIlRKSD_EE5valuentsr3std16is_constructibleIlOSG_EE5valuentsr3std14is_convertibleISE_lEE5valuentsr3std14is_convertibleISF_lEE5valuentsr3std14is_convertibleISH_lEE5valuentsr3std14is_convertibleISI_lEE5valueEvE4typeELSC_0EEESF_.exit: ; preds = %65, %11, %_ZNK4LIEF12BinaryStream4readIiEEN2tl8expectedIT_11lief_errorsEEv.exit, %28, %2, %81, %_ZNK4LIEF12BinaryStream4readIsEEN2tl8expectedIT_11lief_errorsEEv.exit, %27, %_ZNK4LIEF12BinaryStream4readIlEEN2tl8expectedIT_11lief_errorsEEv.exit
@@ -2104,7 +2104,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -2624,7 +2624,7 @@ define linkonce_odr hidden ptr @_ZN4utf89unchecked6appendISt20back_insert_iterat
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = trunc i32 %0 to i8
+  %5 = trunc nuw nsw i32 %0 to i8
   br label %43
 
 6:                                                ; preds = %2
@@ -2633,7 +2633,7 @@ define linkonce_odr hidden ptr @_ZN4utf89unchecked6appendISt20back_insert_iterat
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext %11)
   %12 = trunc i32 %0 to i8
@@ -2647,7 +2647,7 @@ define linkonce_odr hidden ptr @_ZN4utf89unchecked6appendISt20back_insert_iterat
 
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 12
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext %20)
   %21 = lshr i32 %0, 6

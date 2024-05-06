@@ -115,7 +115,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
@@ -233,7 +233,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void

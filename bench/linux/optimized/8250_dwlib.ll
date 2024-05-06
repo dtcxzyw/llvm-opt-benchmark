@@ -265,7 +265,7 @@ define dso_local void @dw8250_setup_port(ptr nocapture noundef %0) #0 align 16 {
   %122 = or i64 %121, 134217728
   store i64 %122, ptr %120, align 8
   %123 = lshr exact i64 %116, 12
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 %124, ptr %125, align 4
   store i32 262400, ptr %42, align 8

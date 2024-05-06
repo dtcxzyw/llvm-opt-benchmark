@@ -108,7 +108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr127 = getelementptr inbounds i8, ptr %out.addr.0254, i64 3
   store i8 %conv126, ptr %incdec.ptr123, align 1
   %shr128 = lshr i32 %xor118, 24
-  %conv130 = trunc i32 %shr128 to i8
+  %conv130 = trunc nuw i32 %shr128 to i8
   %incdec.ptr131 = getelementptr inbounds i8, ptr %out.addr.0254, i64 4
   store i8 %conv130, ptr %incdec.ptr127, align 1
   %23 = load i32, ptr %arrayidx116, align 4
@@ -125,7 +125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr144 = getelementptr inbounds i8, ptr %out.addr.0254, i64 7
   store i8 %conv143, ptr %incdec.ptr140, align 1
   %shr145 = lshr i32 %xor133, 24
-  %conv147 = trunc i32 %shr145 to i8
+  %conv147 = trunc nuw i32 %shr145 to i8
   %incdec.ptr148 = getelementptr inbounds i8, ptr %out.addr.0254, i64 8
   store i8 %conv147, ptr %incdec.ptr144, align 1
   %cmp = icmp ugt i64 %l.0.in258, 15
@@ -147,14 +147,14 @@ for.end.if.end_crit_edge:                         ; preds = %for.end
   %.pre276 = lshr i32 %tout0.0.lcssa, 16
   %.pre277 = trunc i32 %.pre276 to i8
   %.pre278 = lshr i32 %tout0.0.lcssa, 24
-  %.pre279 = trunc i32 %.pre278 to i8
+  %.pre279 = trunc nuw i32 %.pre278 to i8
   %.pre280 = trunc i32 %tout1.0.lcssa to i8
   %.pre281 = lshr i32 %tout1.0.lcssa, 8
   %.pre282 = trunc i32 %.pre281 to i8
   %.pre283 = lshr i32 %tout1.0.lcssa, 16
   %.pre284 = trunc i32 %.pre283 to i8
   %.pre285 = lshr i32 %tout1.0.lcssa, 24
-  %.pre286 = trunc i32 %.pre285 to i8
+  %.pre286 = trunc nuw i32 %.pre285 to i8
   br label %if.end
 
 if.then152:                                       ; preds = %for.end
@@ -261,7 +261,7 @@ sw.epilog:                                        ; preds = %sw.bb185, %if.then1
   %incdec.ptr208 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 3
   store i8 %conv207, ptr %incdec.ptr204, align 1
   %shr209 = lshr i32 %xor197, 24
-  %conv211 = trunc i32 %shr209 to i8
+  %conv211 = trunc nuw i32 %shr209 to i8
   %incdec.ptr212 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 4
   store i8 %conv211, ptr %incdec.ptr208, align 1
   %34 = load i32, ptr %arrayidx194, align 4
@@ -278,7 +278,7 @@ sw.epilog:                                        ; preds = %sw.bb185, %if.then1
   %incdec.ptr225 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 7
   store i8 %conv224, ptr %incdec.ptr221, align 1
   %shr226 = lshr i32 %xor214, 24
-  %conv228 = trunc i32 %shr226 to i8
+  %conv228 = trunc nuw i32 %shr226 to i8
   store i8 %conv228, ptr %incdec.ptr225, align 1
   br label %if.end
 
@@ -364,7 +364,7 @@ for.body293:                                      ; preds = %for.body293.lr.ph, 
   %incdec.ptr343 = getelementptr inbounds i8, ptr %out.addr.1264, i64 3
   store i8 %conv342, ptr %incdec.ptr339, align 1
   %shr344 = lshr i32 %xor329, 24
-  %conv346 = trunc i32 %shr344 to i8
+  %conv346 = trunc nuw i32 %shr344 to i8
   %incdec.ptr347 = getelementptr inbounds i8, ptr %out.addr.1264, i64 4
   store i8 %conv346, ptr %incdec.ptr343, align 1
   %conv349 = trunc i32 %xor332 to i8
@@ -379,7 +379,7 @@ for.body293:                                      ; preds = %for.body293.lr.ph, 
   %incdec.ptr358 = getelementptr inbounds i8, ptr %out.addr.1264, i64 7
   store i8 %conv357, ptr %incdec.ptr354, align 1
   %shr359 = lshr i32 %xor332, 24
-  %conv361 = trunc i32 %shr359 to i8
+  %conv361 = trunc nuw i32 %shr359 to i8
   %incdec.ptr362 = getelementptr inbounds i8, ptr %out.addr.1264, i64 8
   store i8 %conv361, ptr %incdec.ptr358, align 1
   %cmp291 = icmp ugt i64 %l.1.in268, 16
@@ -446,7 +446,7 @@ if.then368:                                       ; preds = %for.body293, %for.e
 
 sw.bb411:                                         ; preds = %if.then368
   %shr412 = lshr i32 %xor407, 24
-  %conv414 = trunc i32 %shr412 to i8
+  %conv414 = trunc nuw i32 %shr412 to i8
   %incdec.ptr415 = getelementptr inbounds i8, ptr %add.ptr409, i64 -1
   store i8 %conv414, ptr %incdec.ptr415, align 1
   br label %sw.bb416
@@ -477,7 +477,7 @@ sw.bb426:                                         ; preds = %sw.bb421, %if.then3
 sw.bb430:                                         ; preds = %sw.bb426, %if.then368
   %out.addr.5 = phi ptr [ %add.ptr409, %if.then368 ], [ %incdec.ptr429, %sw.bb426 ]
   %shr431 = lshr i32 %xor404, 24
-  %conv433 = trunc i32 %shr431 to i8
+  %conv433 = trunc nuw i32 %shr431 to i8
   %incdec.ptr434 = getelementptr inbounds i8, ptr %out.addr.5, i64 -1
   store i8 %conv433, ptr %incdec.ptr434, align 1
   br label %sw.bb435
@@ -517,7 +517,7 @@ if.end450:                                        ; preds = %if.then368, %sw.bb4
   %conv461 = trunc i32 %shr459 to i8
   store i8 %conv461, ptr %incdec.ptr263, align 1
   %shr463 = lshr i32 %xor0.1, 24
-  %conv465 = trunc i32 %shr463 to i8
+  %conv465 = trunc nuw i32 %shr463 to i8
   store i8 %conv465, ptr %incdec.ptr267, align 1
   %conv468 = trunc i32 %xor1.1 to i8
   store i8 %conv468, ptr %incdec.ptr271, align 1
@@ -528,7 +528,7 @@ if.end450:                                        ; preds = %if.then368, %sw.bb4
   %conv476 = trunc i32 %shr474 to i8
   store i8 %conv476, ptr %incdec.ptr277, align 1
   %shr478 = lshr i32 %xor1.1, 24
-  %conv480 = trunc i32 %shr478 to i8
+  %conv480 = trunc nuw i32 %shr478 to i8
   br label %if.end482
 
 if.end482:                                        ; preds = %if.end450, %if.end

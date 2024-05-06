@@ -1392,7 +1392,7 @@ if.end106:                                        ; preds = %if.then105, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL22ucnv_getNextUChar_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #0 {
+define internal noundef range(i32 -63447168, 4460608) i32 @_ZL22ucnv_getNextUChar_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #0 {
 entry:
   %converter = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -1431,8 +1431,8 @@ cond.end:                                         ; preds = %if.end6
   %add = add nuw nsw i32 %conv13, %conv16
   %add.fr = freeze i32 %add
   %4 = zext nneg i32 %add.fr to i64
-  %5 = getelementptr i8, ptr %incdec.ptr, i64 %4
-  %add.ptr = getelementptr i8, ptr %5, i64 1
+  %5 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %4
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 1
   %cmp26 = icmp ugt ptr %add.ptr, %2
   br i1 %cmp26, label %if.then27, label %if.end45
 

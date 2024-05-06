@@ -216,7 +216,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_8_6 = internal constant [2 x i8] c"\F6k", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @hungarian_ISO_8859_2_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12

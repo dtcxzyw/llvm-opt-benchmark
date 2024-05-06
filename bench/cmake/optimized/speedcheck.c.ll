@@ -16,7 +16,7 @@ define dso_local void @Curl_speedinit(ptr nocapture noundef writeonly %0) local_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_speedcheck(ptr noundef %0, i64 %1, i32 %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 29) i32 @Curl_speedcheck(ptr noundef %0, i64 %1, i32 %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 16

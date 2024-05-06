@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_2 = internal unnamed_addr constant [16 x i8] c"\00\01\04\05\02\08\06\09\03\0C\0A\07\0D\0B\0E\0F", align 256
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_encode_block_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_block_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i64], align 256
   %4 = alloca [16 x i64], align 256
   %5 = alloca [16 x i64], align 256
@@ -708,7 +708,7 @@ encode_few_ints_prec_uint64.exit:                 ; preds = %.critedge.i, %71
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_encode_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i64], align 256
   %6 = shl nsw i64 %2, 2
   %7 = sub nsw i64 %3, %6
@@ -739,12 +739,12 @@ define i64 @zfp_encode_block_strided_int64_2(ptr nocapture noundef readonly %0, 
   br i1 %exitcond21.not.i, label %gather_int64_2.exit, label %.preheader.i
 
 gather_int64_2.exit:                              ; preds = %13
-  %16 = call i64 @zfp_encode_block_int64_2(ptr noundef %0, ptr noundef nonnull %5), !range !17
+  %16 = call i64 @zfp_encode_block_int64_2(ptr noundef %0, ptr noundef nonnull %5)
   ret i64 %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_encode_partial_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i64], align 256
   %cond = icmp eq i64 %3, 0
   br i1 %cond, label %.preheader.i.split.us, label %.preheader34.lr.ph.i
@@ -864,7 +864,7 @@ pad_block_int64.exit33.i.us15:                    ; preds = %.preheader.i, %pad_
   br i1 %exitcond74.not.i.us16, label %gather_partial_int64_2.exit, label %pad_block_int64.exit33.i.us15
 
 gather_partial_int64_2.exit:                      ; preds = %._crit_edge14.i28.i.us, %._crit_edge.i31.i.us, %pad_block_int64.exit33.i.us15, %.preheader.i, %.preheader.i.split.us
-  %41 = call i64 @zfp_encode_block_int64_2(ptr noundef %0, ptr noundef nonnull %7), !range !17
+  %41 = call i64 @zfp_encode_block_int64_2(ptr noundef %0, ptr noundef nonnull %7)
   ret i64 %41
 }
 
@@ -916,4 +916,3 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"encode_few_ints_prec_uint64: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

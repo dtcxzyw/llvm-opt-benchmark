@@ -1315,15 +1315,15 @@ land.lhs.true11:                                  ; preds = %if.end8
   br i1 %tobool13.not, label %land.lhs.true11.split, label %long_range.sink.split
 
 land.lhs.true11.split:                            ; preds = %land.lhs.true11
-  %cmp5.i27 = icmp sgt i64 %call, %call2
-  br i1 %cmp5.i27, label %if.then6.i29, label %if.end33
+  %cmp5.i28 = icmp sgt i64 %call, %call2
+  br i1 %cmp5.i28, label %if.then6.i31, label %if.end33
 
-if.then6.i29:                                     ; preds = %land.lhs.true11.split
-  %add11.i31 = sub i64 %call, %call2
+if.then6.i31:                                     ; preds = %land.lhs.true11.split
+  %add11.i34 = sub i64 %call, %call2
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then6.i29, %if.then6.i, %if.then.i
-  %phi.call = phi i64 [ %add.i, %if.then.i ], [ %add11.i, %if.then6.i ], [ %add11.i31, %if.then6.i29 ]
+if.end15:                                         ; preds = %if.then6.i31, %if.then6.i, %if.then.i
+  %phi.call = phi i64 [ %add.i, %if.then.i ], [ %add11.i, %if.then6.i ], [ %add11.i34, %if.then6.i31 ]
   %cmp17 = icmp slt i64 %phi.call, 0
   br i1 %cmp17, label %long_range, label %if.end19
 
@@ -1346,10 +1346,10 @@ if.else:                                          ; preds = %if.then21
   br i1 %cmp29, label %long_range, label %if.end33
 
 if.end33:                                         ; preds = %if.else.i, %land.lhs.true11.split, %if.then23, %if.else, %if.end19
-  %phi.call4447 = phi i64 [ %phi.call, %if.then23 ], [ %phi.call, %if.else ], [ 0, %if.end19 ], [ 0, %land.lhs.true11.split ], [ 0, %if.else.i ]
+  %phi.call5154 = phi i64 [ %phi.call, %if.then23 ], [ %phi.call, %if.else ], [ 0, %if.end19 ], [ 0, %land.lhs.true11.split ], [ 0, %if.else.i ]
   %call.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyRangeIter_Type) #6
-  %cmp.i33 = icmp eq ptr %call.i, null
-  br i1 %cmp.i33, label %return, label %if.end.i
+  %cmp.i40 = icmp eq ptr %call.i, null
+  br i1 %cmp.i40, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end33
   %start1.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1357,7 +1357,7 @@ if.end.i:                                         ; preds = %if.end33
   %step2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call9, ptr %step2.i, align 8
   %len3.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store i64 %phi.call4447, ptr %len3.i, align 8
+  store i64 %phi.call5154, ptr %len3.i, align 8
   br label %return
 
 long_range.sink.split:                            ; preds = %land.lhs.true11, %land.lhs.true4, %land.lhs.true
@@ -1386,35 +1386,35 @@ _Py_NewRef.exit:                                  ; preds = %if.end38, %if.end.i
   %step42 = getelementptr inbounds i8, ptr %seq, i64 32
   %7 = load ptr, ptr %step42, align 8
   %8 = load i32, ptr %7, align 8
-  %add.i.i34 = add i32 %8, 1
-  %cmp.i.i35 = icmp eq i32 %add.i.i34, 0
-  br i1 %cmp.i.i35, label %_Py_NewRef.exit37, label %if.end.i.i36
+  %add.i.i41 = add i32 %8, 1
+  %cmp.i.i42 = icmp eq i32 %add.i.i41, 0
+  br i1 %cmp.i.i42, label %_Py_NewRef.exit44, label %if.end.i.i43
 
-if.end.i.i36:                                     ; preds = %_Py_NewRef.exit
-  store i32 %add.i.i34, ptr %7, align 8
-  br label %_Py_NewRef.exit37
+if.end.i.i43:                                     ; preds = %_Py_NewRef.exit
+  store i32 %add.i.i41, ptr %7, align 8
+  br label %_Py_NewRef.exit44
 
-_Py_NewRef.exit37:                                ; preds = %_Py_NewRef.exit, %if.end.i.i36
+_Py_NewRef.exit44:                                ; preds = %_Py_NewRef.exit, %if.end.i.i43
   %step44 = getelementptr inbounds i8, ptr %call35, i64 24
   store ptr %7, ptr %step44, align 8
   %length = getelementptr inbounds i8, ptr %seq, i64 40
   %9 = load ptr, ptr %length, align 8
   %10 = load i32, ptr %9, align 8
-  %add.i.i38 = add i32 %10, 1
-  %cmp.i.i39 = icmp eq i32 %add.i.i38, 0
-  br i1 %cmp.i.i39, label %_Py_NewRef.exit41, label %if.end.i.i40
+  %add.i.i45 = add i32 %10, 1
+  %cmp.i.i46 = icmp eq i32 %add.i.i45, 0
+  br i1 %cmp.i.i46, label %_Py_NewRef.exit48, label %if.end.i.i47
 
-if.end.i.i40:                                     ; preds = %_Py_NewRef.exit37
-  store i32 %add.i.i38, ptr %9, align 8
-  br label %_Py_NewRef.exit41
+if.end.i.i47:                                     ; preds = %_Py_NewRef.exit44
+  store i32 %add.i.i45, ptr %9, align 8
+  br label %_Py_NewRef.exit48
 
-_Py_NewRef.exit41:                                ; preds = %_Py_NewRef.exit37, %if.end.i.i40
+_Py_NewRef.exit48:                                ; preds = %_Py_NewRef.exit44, %if.end.i.i47
   %len = getelementptr inbounds i8, ptr %call35, i64 32
   store ptr %9, ptr %len, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.end33, %long_range, %_Py_NewRef.exit41
-  %retval.0 = phi ptr [ %call35, %_Py_NewRef.exit41 ], [ null, %long_range ], [ null, %if.end33 ], [ %call.i, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.end33, %long_range, %_Py_NewRef.exit48
+  %retval.0 = phi ptr [ %call35, %_Py_NewRef.exit48 ], [ null, %long_range ], [ null, %if.end33 ], [ %call.i, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -2415,15 +2415,15 @@ land.lhs.true20.i.i:                              ; preds = %if.end18.i.i
   br i1 %tobool22.not.i.i, label %land.lhs.true20.split.i.i, label %if.else.i
 
 land.lhs.true20.split.i.i:                        ; preds = %land.lhs.true20.i.i
-  %cmp5.i9.i.i = icmp sgt i64 %call.i.i, %call5.i.i
-  br i1 %cmp5.i9.i.i, label %if.then6.i11.i.i, label %compute_range_length.exit
+  %cmp5.i10.i.i = icmp sgt i64 %call.i.i, %call5.i.i
+  br i1 %cmp5.i10.i.i, label %if.then6.i13.i.i, label %compute_range_length.exit
 
-if.then6.i11.i.i:                                 ; preds = %land.lhs.true20.split.i.i
-  %add11.i13.i.i = sub i64 %call.i.i, %call5.i.i
+if.then6.i13.i.i:                                 ; preds = %land.lhs.true20.split.i.i
+  %add11.i16.i.i = sub i64 %call.i.i, %call5.i.i
   br label %if.end24.i.i
 
-if.end24.i.i:                                     ; preds = %if.then6.i11.i.i, %if.then6.i.i.i, %if.then.i.i.i
-  %phi.call.i.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %add11.i.i.i, %if.then6.i.i.i ], [ %add11.i13.i.i, %if.then6.i11.i.i ]
+if.end24.i.i:                                     ; preds = %if.then6.i13.i.i, %if.then6.i.i.i, %if.then.i.i.i
+  %phi.call.i.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %add11.i.i.i, %if.then6.i.i.i ], [ %add11.i16.i.i, %if.then6.i13.i.i ]
   %phi.call.fr.i.i = freeze i64 %phi.call.i.i
   %cmp26.i.i = icmp slt i64 %phi.call.fr.i.i, 0
   br i1 %cmp26.i.i, label %if.end6.i, label %compute_range_length.exit

@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_end_io
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_netfs_end_io_direct681, ptr @__UNIQUE_ID___addressable_netfs_end_io_read677, ptr @__UNIQUE_ID___addressable_netfs_end_io_write679, ptr @__UNIQUE_ID___addressable_netfs_start_io_direct680, ptr @__UNIQUE_ID___addressable_netfs_start_io_read676, ptr @__UNIQUE_ID___addressable_netfs_start_io_write678], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netfs_start_io_read(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @netfs_start_io_read(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = tail call i32 @down_read_interruptible(ptr noundef %2) #4
   %4 = icmp slt i32 %3, 0
@@ -78,7 +78,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @down_write_killable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netfs_block_o_direct(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -512, 1) i32 @netfs_block_o_direct(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_bit_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 624
   %4 = load volatile i64, ptr %3, align 8
@@ -168,7 +168,7 @@ define dso_local void @netfs_end_io_read(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netfs_start_io_write(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @netfs_start_io_write(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = tail call i32 @down_write_killable(ptr noundef %2) #4
   %4 = icmp slt i32 %3, 0
@@ -196,7 +196,7 @@ define dso_local void @netfs_end_io_write(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_start_io_direct(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @netfs_start_io_direct(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = tail call i32 @down_read_interruptible(ptr noundef %2) #4
   %4 = icmp slt i32 %3, 0

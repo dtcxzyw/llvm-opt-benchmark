@@ -95,7 +95,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_deformationP8PJconst
   %3 = alloca %"class.std::vector.13", align 16
   %4 = alloca %"class.std::vector.18", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152

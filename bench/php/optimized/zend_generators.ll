@@ -3874,7 +3874,7 @@ define internal void @zend_generator_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_generator_iterator_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @zend_generator_iterator_valid(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 80

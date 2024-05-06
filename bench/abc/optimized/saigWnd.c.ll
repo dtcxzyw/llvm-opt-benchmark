@@ -1716,10 +1716,10 @@ Vec_PtrFree.exit147:                              ; preds = %.critedge2, %.crite
   br i1 %.not.i148, label %Abc_UtilStrsav.exit, label %63
 
 63:                                               ; preds = %Vec_PtrFree.exit147
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #19
+  %64 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #19
   %65 = add i64 %64, 1
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #16
-  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %62) #18
+  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %62) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit147, %63
@@ -1731,10 +1731,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit147
   br i1 %.not.i149, label %Abc_UtilStrsav.exit150, label %71
 
 71:                                               ; preds = %Abc_UtilStrsav.exit
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #19
+  %72 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #19
   %73 = add i64 %72, 1
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #16
-  %75 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %70) #18
+  %75 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(1) %70) #18
   br label %Abc_UtilStrsav.exit150
 
 Abc_UtilStrsav.exit150:                           ; preds = %Abc_UtilStrsav.exit, %71
@@ -2023,74 +2023,74 @@ define ptr @Saig_ManFindPivot(ptr nocapture noundef readonly %0) local_unnamed_a
   %9 = getelementptr i8, ptr %0, i64 148
   %10 = getelementptr i8, ptr %0, i64 152
   %wide.trip.count = zext nneg i32 %.val30 to i64
-  br label %19
+  br label %18
 
 11:                                               ; preds = %1
   %12 = icmp eq i32 %.val37, 1
   %13 = getelementptr i8, ptr %0, i64 16
-  br i1 %12, label %14, label %16
+  br i1 %12, label %16, label %.lr.ph53
 
-14:                                               ; preds = %11
-  %15 = getelementptr i8, ptr %0, i64 108
-  %.val33 = load i32, ptr %15, align 4
-  br label %.critedge.sink.split
-
-16:                                               ; preds = %11
-  %17 = lshr i32 %.val37, 1
-  %18 = add nsw i32 %.val37, -1
-  %.not = icmp ugt i32 %17, %18
+.lr.ph53:                                         ; preds = %11
+  %14 = lshr i32 %.val37, 1
+  %15 = add nsw i32 %.val37, -1
+  %.not = icmp ugt i32 %14, %15
   br i1 %.not, label %.critedge, label %.critedge.loopexit.split.loop.exit
 
-19:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %33 ]
-  %20 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %33, label %23
-
-23:                                               ; preds = %19
-  %24 = getelementptr i8, ptr %21, i64 24
-  %.val34 = load i64, ptr %24, align 8
-  %25 = trunc i64 %.val34 to i32
-  %26 = and i32 %25, 7
-  %27 = add nsw i32 %26, -7
-  %narrow.i = icmp ult i32 %27, -2
-  br i1 %narrow.i, label %33, label %28
-
-28:                                               ; preds = %23
-  %29 = add nsw i32 %.044, 1
-  %.val38 = load i32, ptr %9, align 4
-  %.val39 = load i32, ptr %10, align 8
-  %30 = add nsw i32 %.val39, %.val38
-  %31 = sdiv i32 %30, 2
-  %32 = icmp eq i32 %.044, %31
-  br i1 %32, label %.critedge, label %33
-
-33:                                               ; preds = %23, %19, %28
-  %.1 = phi i32 [ %.044, %19 ], [ %29, %28 ], [ %.044, %23 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !21
-
-.critedge.loopexit.split.loop.exit:               ; preds = %16
-  %34 = getelementptr i8, ptr %0, i64 108
-  %.val.le = load i32, ptr %34, align 4
-  %35 = add nsw i32 %.val.le, %17
+16:                                               ; preds = %11
+  %17 = getelementptr i8, ptr %0, i64 108
+  %.val33 = load i32, ptr %17, align 4
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %14, %.critedge.loopexit.split.loop.exit
-  %.sink = phi i32 [ %35, %.critedge.loopexit.split.loop.exit ], [ %.val33, %14 ]
-  %.sink61 = load ptr, ptr %13, align 8
-  %36 = getelementptr i8, ptr %.sink61, i64 8
-  %.val29.le = load ptr, ptr %36, align 8
-  %37 = sext i32 %.sink to i64
-  %38 = getelementptr inbounds ptr, ptr %.val29.le, i64 %37
-  %39 = load ptr, ptr %38, align 8
+18:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
+  %19 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %32, label %22
+
+22:                                               ; preds = %18
+  %23 = getelementptr i8, ptr %20, i64 24
+  %.val34 = load i64, ptr %23, align 8
+  %24 = trunc i64 %.val34 to i32
+  %25 = and i32 %24, 7
+  %26 = add nsw i32 %25, -7
+  %narrow.i = icmp ult i32 %26, -2
+  br i1 %narrow.i, label %32, label %27
+
+27:                                               ; preds = %22
+  %28 = add nsw i32 %.044, 1
+  %.val38 = load i32, ptr %9, align 4
+  %.val39 = load i32, ptr %10, align 8
+  %29 = add nsw i32 %.val39, %.val38
+  %30 = sdiv i32 %29, 2
+  %31 = icmp eq i32 %.044, %30
+  br i1 %31, label %.critedge, label %32
+
+32:                                               ; preds = %22, %18, %27
+  %.1 = phi i32 [ %.044, %18 ], [ %28, %27 ], [ %.044, %22 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !21
+
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph53
+  %33 = getelementptr i8, ptr %0, i64 108
+  %.val.le = load i32, ptr %33, align 4
+  %34 = add nsw i32 %.val.le, %14
+  br label %.critedge.sink.split
+
+.critedge.sink.split:                             ; preds = %16, %.critedge.loopexit.split.loop.exit
+  %.sink = phi i32 [ %34, %.critedge.loopexit.split.loop.exit ], [ %.val33, %16 ]
+  %.sink60 = load ptr, ptr %13, align 8
+  %35 = getelementptr i8, ptr %.sink60, i64 8
+  %.val29.le = load ptr, ptr %35, align 8
+  %36 = sext i32 %.sink to i64
+  %37 = getelementptr inbounds ptr, ptr %.val29.le, i64 %36
+  %38 = load ptr, ptr %37, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %33, %.critedge.sink.split, %16, %.preheader40
-  %.026 = phi ptr [ null, %.preheader40 ], [ null, %16 ], [ %39, %.critedge.sink.split ], [ %21, %28 ], [ null, %33 ]
+.critedge:                                        ; preds = %27, %32, %.critedge.sink.split, %.lr.ph53, %.preheader40
+  %.026 = phi ptr [ null, %.preheader40 ], [ null, %.lr.ph53 ], [ %38, %.critedge.sink.split ], [ %20, %27 ], [ null, %32 ]
   ret ptr %.026
 }
 
@@ -2205,92 +2205,92 @@ define ptr @Saig_ManWindowTest(ptr noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %0, i64 148
   %10 = getelementptr i8, ptr %0, i64 152
   %wide.trip.count.i = zext nneg i32 %.val30.i to i64
-  br label %19
+  br label %18
 
 11:                                               ; preds = %1
   %12 = icmp eq i32 %.val37.i, 1
   %13 = getelementptr i8, ptr %0, i64 16
-  br i1 %12, label %14, label %16
+  br i1 %12, label %16, label %.lr.ph53.i
 
-14:                                               ; preds = %11
-  %15 = getelementptr i8, ptr %0, i64 108
-  %.val33.i = load i32, ptr %15, align 4
-  br label %.critedge.sink.split.i
-
-16:                                               ; preds = %11
-  %17 = lshr i32 %.val37.i, 1
-  %18 = add nsw i32 %.val37.i, -1
-  %.not.i = icmp ugt i32 %17, %18
+.lr.ph53.i:                                       ; preds = %11
+  %14 = lshr i32 %.val37.i, 1
+  %15 = add nsw i32 %.val37.i, -1
+  %.not.i = icmp ugt i32 %14, %15
   br i1 %.not.i, label %Saig_ManFindPivot.exit, label %.critedge.loopexit.split.loop.exit.i
 
-19:                                               ; preds = %33, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %.044.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %33 ]
-  %20 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv.i
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %33, label %23
-
-23:                                               ; preds = %19
-  %24 = getelementptr i8, ptr %21, i64 24
-  %.val34.i = load i64, ptr %24, align 8
-  %25 = trunc i64 %.val34.i to i32
-  %26 = and i32 %25, 7
-  %27 = add nsw i32 %26, -7
-  %narrow.i.i = icmp ult i32 %27, -2
-  br i1 %narrow.i.i, label %33, label %28
-
-28:                                               ; preds = %23
-  %29 = add nsw i32 %.044.i, 1
-  %.val38.i = load i32, ptr %9, align 4
-  %.val39.i = load i32, ptr %10, align 8
-  %30 = add nsw i32 %.val39.i, %.val38.i
-  %31 = sdiv i32 %30, 2
-  %32 = icmp eq i32 %.044.i, %31
-  br i1 %32, label %Saig_ManFindPivot.exit, label %33
-
-33:                                               ; preds = %28, %23, %19
-  %.1.i = phi i32 [ %.044.i, %19 ], [ %29, %28 ], [ %.044.i, %23 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Saig_ManFindPivot.exit, label %19, !llvm.loop !21
-
-.critedge.loopexit.split.loop.exit.i:             ; preds = %16
-  %34 = getelementptr i8, ptr %0, i64 108
-  %.val.le.i = load i32, ptr %34, align 4
-  %35 = add nsw i32 %.val.le.i, %17
+16:                                               ; preds = %11
+  %17 = getelementptr i8, ptr %0, i64 108
+  %.val33.i = load i32, ptr %17, align 4
   br label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %.critedge.loopexit.split.loop.exit.i, %14
-  %.sink.i = phi i32 [ %35, %.critedge.loopexit.split.loop.exit.i ], [ %.val33.i, %14 ]
-  %.sink61.i = load ptr, ptr %13, align 8
-  %36 = getelementptr i8, ptr %.sink61.i, i64 8
-  %.val29.le.i = load ptr, ptr %36, align 8
-  %37 = sext i32 %.sink.i to i64
-  %38 = getelementptr inbounds ptr, ptr %.val29.le.i, i64 %37
-  %39 = load ptr, ptr %38, align 8
+18:                                               ; preds = %32, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
+  %.044.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %32 ]
+  %19 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv.i
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %32, label %22
+
+22:                                               ; preds = %18
+  %23 = getelementptr i8, ptr %20, i64 24
+  %.val34.i = load i64, ptr %23, align 8
+  %24 = trunc i64 %.val34.i to i32
+  %25 = and i32 %24, 7
+  %26 = add nsw i32 %25, -7
+  %narrow.i.i = icmp ult i32 %26, -2
+  br i1 %narrow.i.i, label %32, label %27
+
+27:                                               ; preds = %22
+  %28 = add nsw i32 %.044.i, 1
+  %.val38.i = load i32, ptr %9, align 4
+  %.val39.i = load i32, ptr %10, align 8
+  %29 = add nsw i32 %.val39.i, %.val38.i
+  %30 = sdiv i32 %29, 2
+  %31 = icmp eq i32 %.044.i, %30
+  br i1 %31, label %Saig_ManFindPivot.exit, label %32
+
+32:                                               ; preds = %27, %22, %18
+  %.1.i = phi i32 [ %.044.i, %18 ], [ %28, %27 ], [ %.044.i, %22 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Saig_ManFindPivot.exit, label %18, !llvm.loop !21
+
+.critedge.loopexit.split.loop.exit.i:             ; preds = %.lr.ph53.i
+  %33 = getelementptr i8, ptr %0, i64 108
+  %.val.le.i = load i32, ptr %33, align 4
+  %34 = add nsw i32 %.val.le.i, %14
+  br label %.critedge.sink.split.i
+
+.critedge.sink.split.i:                           ; preds = %.critedge.loopexit.split.loop.exit.i, %16
+  %.sink.i = phi i32 [ %34, %.critedge.loopexit.split.loop.exit.i ], [ %.val33.i, %16 ]
+  %.sink60.i = load ptr, ptr %13, align 8
+  %35 = getelementptr i8, ptr %.sink60.i, i64 8
+  %.val29.le.i = load ptr, ptr %35, align 8
+  %36 = sext i32 %.sink.i to i64
+  %37 = getelementptr inbounds ptr, ptr %.val29.le.i, i64 %36
+  %38 = load ptr, ptr %37, align 8
   br label %Saig_ManFindPivot.exit
 
-Saig_ManFindPivot.exit:                           ; preds = %28, %33, %.preheader40.i, %16, %.critedge.sink.split.i
-  %.026.i = phi ptr [ null, %.preheader40.i ], [ null, %16 ], [ %39, %.critedge.sink.split.i ], [ null, %33 ], [ %21, %28 ]
+Saig_ManFindPivot.exit:                           ; preds = %27, %32, %.preheader40.i, %.lr.ph53.i, %.critedge.sink.split.i
+  %.026.i = phi ptr [ null, %.preheader40.i ], [ null, %.lr.ph53.i ], [ %38, %.critedge.sink.split.i ], [ null, %32 ], [ %20, %27 ]
   tail call void @Aig_ManFanoutStart(ptr noundef %0) #18
-  %40 = tail call ptr @Saig_ManWindowOutline(ptr noundef %0, ptr noundef %.026.i, i32 noundef 3)
-  %41 = tail call ptr @Saig_ManWindowExtractNodes(ptr noundef %0, ptr noundef %40)
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %Saig_ManWindowExtract.exit, label %44
+  %39 = tail call ptr @Saig_ManWindowOutline(ptr noundef %0, ptr noundef %.026.i, i32 noundef 3)
+  %40 = tail call ptr @Saig_ManWindowExtractNodes(ptr noundef %0, ptr noundef %39)
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i, label %Saig_ManWindowExtract.exit, label %43
 
-44:                                               ; preds = %Saig_ManFindPivot.exit
-  tail call void @free(ptr noundef nonnull %43) #18
+43:                                               ; preds = %Saig_ManFindPivot.exit
+  tail call void @free(ptr noundef nonnull %42) #18
   br label %Saig_ManWindowExtract.exit
 
-Saig_ManWindowExtract.exit:                       ; preds = %Saig_ManFindPivot.exit, %44
-  tail call void @free(ptr noundef nonnull %40) #18
+Saig_ManWindowExtract.exit:                       ; preds = %Saig_ManFindPivot.exit, %43
+  tail call void @free(ptr noundef nonnull %39) #18
   tail call void @Aig_ManFanoutStop(ptr noundef %0) #18
-  %45 = tail call ptr @Saig_ManWindowInsert(ptr noundef %0, ptr noundef %.026.i, i32 noundef 3, ptr noundef %41)
-  tail call void @Aig_ManStop(ptr noundef %41) #18
-  ret ptr %45
+  %44 = tail call ptr @Saig_ManWindowInsert(ptr noundef %0, ptr noundef %.026.i, i32 noundef 3, ptr noundef %40)
+  tail call void @Aig_ManStop(ptr noundef %40) #18
+  ret ptr %44
 }
 
 ; Function Attrs: nounwind uwtable

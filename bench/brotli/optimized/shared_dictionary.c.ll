@@ -31,7 +31,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BrotliSharedDictionaryAttach(ptr noundef %dict, i32 noundef %type, i64 noundef %data_size, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliSharedDictionaryAttach(ptr noundef %dict, i32 noundef %type, i64 noundef %data_size, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp ne ptr %dict, null
   %cmp = icmp eq i32 %type, 0

@@ -116,7 +116,7 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
 
 44:                                               ; preds = %.loopexit
   %45 = getelementptr inbounds i8, ptr %43, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr readonly align 1 %1, i64 %2, i1 false)
   %46 = getelementptr inbounds i8, ptr %43, i64 32
   store i64 %2, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %43, i64 24
@@ -164,7 +164,7 @@ declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_hash_delete(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @Curl_hash_delete(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -485,7 +485,7 @@ define dso_local i64 @Curl_hash_str(ptr noundef readonly %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @Curl_str_key_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i64 %1, %3
   br i1 %5, label %6, label %7
 

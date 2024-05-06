@@ -126,7 +126,7 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %17 ]
   %24 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv.i, i32 1
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %25) #7
+  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %25) #7
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %mca_coll_han_component_name_to_id.exit, label %28
 

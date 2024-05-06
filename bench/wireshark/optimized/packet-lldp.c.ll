@@ -1842,7 +1842,7 @@ define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noun
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.957..str.956.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.957..str.956.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
   ret void
 }
 
@@ -1867,7 +1867,7 @@ define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 nou
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.960..str.959.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.960..str.959.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
   ret void
 }
 
@@ -2756,7 +2756,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -2968,7 +2968,7 @@ define internal fastcc i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -3175,7 +3175,7 @@ define internal fastcc i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_lldp_time_to_live(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
   %.mask = and i16 %4, -512
   %.not = icmp eq i16 %.mask, 1536

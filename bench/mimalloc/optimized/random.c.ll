@@ -11,14 +11,14 @@ define hidden void @_mi_random_split(ptr nocapture noundef readonly %ctx, ptr no
 entry:
   %0 = ptrtoint ptr %ctx_new to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx_new, i8 0, i64 136, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %ctx_new, ptr noundef nonnull align 1 dereferenceable(64) %ctx, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %ctx_new, ptr noundef nonnull readonly align 1 dereferenceable(64) %ctx, i64 48, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %ctx_new, i64 52
   store i32 0, ptr %arrayidx5.i, align 4
   %conv.i = trunc i64 %0 to i32
   %arrayidx7.i = getelementptr inbounds i8, ptr %ctx_new, i64 56
   store i32 %conv.i, ptr %arrayidx7.i, align 4
   %shr.i = lshr i64 %0, 32
-  %conv8.i = trunc i64 %shr.i to i32
+  %conv8.i = trunc nuw i64 %shr.i to i32
   %arrayidx10.i = getelementptr inbounds i8, ptr %ctx_new, i64 60
   store i32 %conv8.i, ptr %arrayidx10.i, align 4
   tail call fastcc void @chacha_block(ptr noundef %ctx_new) #6
@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not, label %if.end7, label %for.body, !llvm.loop !6
 
 if.end7:                                          ; preds = %for.body, %lor.lhs.false
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(136) %ctx, i8 0, i64 136, i1 false)
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.body.i10, %if.end7
@@ -249,7 +249,7 @@ chacha_init.exit:                                 ; preds = %for.body4.i
   %arrayidx16.i = getelementptr inbounds i8, ptr %ctx, i64 56
   store i32 %conv.i, ptr %arrayidx16.i, align 4
   %shr.i14 = lshr i64 %8, 32
-  %conv17.i = trunc i64 %shr.i14 to i32
+  %conv17.i = trunc nuw i64 %shr.i14 to i32
   %arrayidx19.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %conv17.i, ptr %arrayidx19.i, align 4
   ret void
@@ -320,44 +320,44 @@ entry:
   br label %for.body5
 
 for.cond16.preheader:                             ; preds = %for.body5
-  store i32 %or.i44.i126, ptr %arrayidx.i, align 16
-  store i32 %add15.i73, ptr %x, align 16
-  store i32 %or.i41.i91, ptr %arrayidx2.i, align 16
-  store i32 %add23.i108, ptr %arrayidx6.i, align 16
-  store i32 %or.i44.i78, ptr %arrayidx.i17, align 4
-  store i32 %add15.i89, ptr %arrayidx1.i, align 4
-  store i32 %or.i41.i107, ptr %arrayidx2.i19, align 4
-  store i32 %add23.i124, ptr %arrayidx6.i22, align 4
-  store i32 %or.i44.i94, ptr %arrayidx.i32, align 8
-  store i32 %add15.i105, ptr %arrayidx1.i33, align 8
-  store i32 %or.i41.i123, ptr %arrayidx2.i35, align 8
-  store i32 %add23.i76, ptr %arrayidx6.i38, align 8
-  store i32 %or.i44.i110, ptr %arrayidx.i48, align 4
-  store i32 %add15.i121, ptr %arrayidx1.i49, align 4
-  store i32 %or.i41.i75, ptr %arrayidx2.i51, align 4
-  store i32 %add23.i92, ptr %arrayidx6.i54, align 4
+  store i32 %or.i44.i127, ptr %arrayidx.i, align 16
+  store i32 %add15.i74, ptr %x, align 16
+  store i32 %or.i41.i92, ptr %arrayidx2.i, align 16
+  store i32 %add23.i109, ptr %arrayidx6.i, align 16
+  store i32 %or.i44.i79, ptr %arrayidx.i17, align 4
+  store i32 %add15.i90, ptr %arrayidx1.i, align 4
+  store i32 %or.i41.i108, ptr %arrayidx2.i19, align 4
+  store i32 %add23.i125, ptr %arrayidx6.i22, align 4
+  store i32 %or.i44.i95, ptr %arrayidx.i32, align 8
+  store i32 %add15.i106, ptr %arrayidx1.i33, align 8
+  store i32 %or.i41.i124, ptr %arrayidx2.i35, align 8
+  store i32 %add23.i77, ptr %arrayidx6.i38, align 8
+  store i32 %or.i44.i111, ptr %arrayidx.i48, align 4
+  store i32 %add15.i122, ptr %arrayidx1.i49, align 4
+  store i32 %or.i41.i76, ptr %arrayidx2.i51, align 4
+  store i32 %add23.i93, ptr %arrayidx6.i54, align 4
   %output = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %for.body18
 
 for.body5:                                        ; preds = %entry, %for.body5
-  %i2.0144 = phi i64 [ 0, %entry ], [ %add, %for.body5 ]
-  %0 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i44.i126, %for.body5 ]
-  %add15.i73128143 = phi i32 [ %x.promoted, %entry ], [ %add15.i73, %for.body5 ]
-  %1 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i41.i91, %for.body5 ]
-  %2 = phi i32 [ %arrayidx6.i.promoted, %entry ], [ %add23.i108, %for.body5 ]
-  %3 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i44.i78, %for.body5 ]
-  %4 = phi i32 [ %arrayidx1.i.promoted, %entry ], [ %add15.i89, %for.body5 ]
-  %5 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i41.i107, %for.body5 ]
-  %6 = phi i32 [ %arrayidx6.i22.promoted, %entry ], [ %add23.i124, %for.body5 ]
-  %7 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i44.i94, %for.body5 ]
-  %8 = phi i32 [ %arrayidx1.i33.promoted, %entry ], [ %add15.i105, %for.body5 ]
-  %9 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i41.i123, %for.body5 ]
-  %10 = phi i32 [ %arrayidx6.i38.promoted, %entry ], [ %add23.i76, %for.body5 ]
-  %11 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i44.i110, %for.body5 ]
-  %12 = phi i32 [ %arrayidx1.i49.promoted, %entry ], [ %add15.i121, %for.body5 ]
-  %13 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i41.i75, %for.body5 ]
-  %14 = phi i32 [ %arrayidx6.i54.promoted, %entry ], [ %add23.i92, %for.body5 ]
-  %add.i = add i32 %add15.i73128143, %0
+  %i2.0145 = phi i64 [ 0, %entry ], [ %add, %for.body5 ]
+  %0 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i44.i127, %for.body5 ]
+  %add.i66129144 = phi i32 [ %x.promoted, %entry ], [ %add15.i74, %for.body5 ]
+  %1 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i41.i92, %for.body5 ]
+  %2 = phi i32 [ %arrayidx6.i.promoted, %entry ], [ %add23.i109, %for.body5 ]
+  %3 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i44.i79, %for.body5 ]
+  %4 = phi i32 [ %arrayidx1.i.promoted, %entry ], [ %add15.i90, %for.body5 ]
+  %5 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i41.i108, %for.body5 ]
+  %6 = phi i32 [ %arrayidx6.i22.promoted, %entry ], [ %add23.i125, %for.body5 ]
+  %7 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i44.i95, %for.body5 ]
+  %8 = phi i32 [ %arrayidx1.i33.promoted, %entry ], [ %add15.i106, %for.body5 ]
+  %9 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i41.i124, %for.body5 ]
+  %10 = phi i32 [ %arrayidx6.i38.promoted, %entry ], [ %add23.i77, %for.body5 ]
+  %11 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i44.i111, %for.body5 ]
+  %12 = phi i32 [ %arrayidx1.i49.promoted, %entry ], [ %add15.i122, %for.body5 ]
+  %13 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i41.i76, %for.body5 ]
+  %14 = phi i32 [ %arrayidx6.i54.promoted, %entry ], [ %add23.i93, %for.body5 ]
+  %add.i = add i32 %add.i66129144, %0
   %xor.i = xor i32 %1, %add.i
   %or.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 16)
   %add7.i = add i32 %2, %or.i.i
@@ -405,68 +405,68 @@ for.body5:                                        ; preds = %entry, %for.body5
   %add23.i61 = add i32 %or.i41.i60, %add7.i55
   %xor26.i62 = xor i32 %add23.i61, %or.i38.i57
   %or.i44.i63 = tail call i32 @llvm.fshl.i32(i32 %xor26.i62, i32 %xor26.i62, i32 7)
-  %add.i65 = add i32 %or.i44.i31, %add15.i
-  %xor.i67 = xor i32 %or.i41.i60, %add.i65
-  %or.i.i68 = tail call i32 @llvm.fshl.i32(i32 %xor.i67, i32 %xor.i67, i32 16)
-  %add7.i70 = add i32 %or.i.i68, %add23.i45
-  %xor10.i71 = xor i32 %add7.i70, %or.i44.i31
-  %or.i38.i72 = tail call i32 @llvm.fshl.i32(i32 %xor10.i71, i32 %xor10.i71, i32 12)
-  %add15.i73 = add i32 %or.i38.i72, %add.i65
-  %xor18.i74 = xor i32 %add15.i73, %or.i.i68
-  %or.i41.i75 = tail call i32 @llvm.fshl.i32(i32 %xor18.i74, i32 %xor18.i74, i32 8)
-  %add23.i76 = add i32 %or.i41.i75, %add7.i70
-  %xor26.i77 = xor i32 %add23.i76, %or.i38.i72
-  %or.i44.i78 = tail call i32 @llvm.fshl.i32(i32 %xor26.i77, i32 %xor26.i77, i32 7)
-  %add.i81 = add i32 %or.i44.i47, %add15.i26
-  %xor.i83 = xor i32 %add.i81, %or.i41.i
-  %or.i.i84 = tail call i32 @llvm.fshl.i32(i32 %xor.i83, i32 %xor.i83, i32 16)
-  %add7.i86 = add i32 %add23.i61, %or.i.i84
-  %xor10.i87 = xor i32 %add7.i86, %or.i44.i47
-  %or.i38.i88 = tail call i32 @llvm.fshl.i32(i32 %xor10.i87, i32 %xor10.i87, i32 12)
-  %add15.i89 = add i32 %or.i38.i88, %add.i81
-  %xor18.i90 = xor i32 %add15.i89, %or.i.i84
-  %or.i41.i91 = tail call i32 @llvm.fshl.i32(i32 %xor18.i90, i32 %xor18.i90, i32 8)
-  %add23.i92 = add i32 %or.i41.i91, %add7.i86
-  %xor26.i93 = xor i32 %add23.i92, %or.i38.i88
-  %or.i44.i94 = tail call i32 @llvm.fshl.i32(i32 %xor26.i93, i32 %xor26.i93, i32 7)
-  %add.i97 = add i32 %or.i44.i63, %add15.i42
-  %xor.i99 = xor i32 %add.i97, %or.i41.i28
-  %or.i.i100 = tail call i32 @llvm.fshl.i32(i32 %xor.i99, i32 %xor.i99, i32 16)
-  %add7.i102 = add i32 %or.i.i100, %add23.i
-  %xor10.i103 = xor i32 %add7.i102, %or.i44.i63
-  %or.i38.i104 = tail call i32 @llvm.fshl.i32(i32 %xor10.i103, i32 %xor10.i103, i32 12)
-  %add15.i105 = add i32 %or.i38.i104, %add.i97
-  %xor18.i106 = xor i32 %add15.i105, %or.i.i100
-  %or.i41.i107 = tail call i32 @llvm.fshl.i32(i32 %xor18.i106, i32 %xor18.i106, i32 8)
-  %add23.i108 = add i32 %or.i41.i107, %add7.i102
-  %xor26.i109 = xor i32 %add23.i108, %or.i38.i104
-  %or.i44.i110 = tail call i32 @llvm.fshl.i32(i32 %xor26.i109, i32 %xor26.i109, i32 7)
-  %add.i113 = add i32 %add15.i58, %or.i44.i
-  %xor.i115 = xor i32 %add.i113, %or.i41.i44
-  %or.i.i116 = tail call i32 @llvm.fshl.i32(i32 %xor.i115, i32 %xor.i115, i32 16)
-  %add7.i118 = add i32 %or.i.i116, %add23.i29
-  %xor10.i119 = xor i32 %add7.i118, %or.i44.i
-  %or.i38.i120 = tail call i32 @llvm.fshl.i32(i32 %xor10.i119, i32 %xor10.i119, i32 12)
-  %add15.i121 = add i32 %or.i38.i120, %add.i113
-  %xor18.i122 = xor i32 %add15.i121, %or.i.i116
-  %or.i41.i123 = tail call i32 @llvm.fshl.i32(i32 %xor18.i122, i32 %xor18.i122, i32 8)
-  %add23.i124 = add i32 %or.i41.i123, %add7.i118
-  %xor26.i125 = xor i32 %add23.i124, %or.i38.i120
-  %or.i44.i126 = tail call i32 @llvm.fshl.i32(i32 %xor26.i125, i32 %xor26.i125, i32 7)
-  %add = add nuw nsw i64 %i2.0144, 2
-  %cmp4 = icmp ult i64 %i2.0144, 18
+  %add.i66 = add i32 %or.i44.i31, %add15.i
+  %xor.i68 = xor i32 %or.i41.i60, %add.i66
+  %or.i.i69 = tail call i32 @llvm.fshl.i32(i32 %xor.i68, i32 %xor.i68, i32 16)
+  %add7.i71 = add i32 %or.i.i69, %add23.i45
+  %xor10.i72 = xor i32 %add7.i71, %or.i44.i31
+  %or.i38.i73 = tail call i32 @llvm.fshl.i32(i32 %xor10.i72, i32 %xor10.i72, i32 12)
+  %add15.i74 = add i32 %or.i38.i73, %add.i66
+  %xor18.i75 = xor i32 %add15.i74, %or.i.i69
+  %or.i41.i76 = tail call i32 @llvm.fshl.i32(i32 %xor18.i75, i32 %xor18.i75, i32 8)
+  %add23.i77 = add i32 %or.i41.i76, %add7.i71
+  %xor26.i78 = xor i32 %add23.i77, %or.i38.i73
+  %or.i44.i79 = tail call i32 @llvm.fshl.i32(i32 %xor26.i78, i32 %xor26.i78, i32 7)
+  %add.i82 = add i32 %or.i44.i47, %add15.i26
+  %xor.i84 = xor i32 %add.i82, %or.i41.i
+  %or.i.i85 = tail call i32 @llvm.fshl.i32(i32 %xor.i84, i32 %xor.i84, i32 16)
+  %add7.i87 = add i32 %add23.i61, %or.i.i85
+  %xor10.i88 = xor i32 %add7.i87, %or.i44.i47
+  %or.i38.i89 = tail call i32 @llvm.fshl.i32(i32 %xor10.i88, i32 %xor10.i88, i32 12)
+  %add15.i90 = add i32 %or.i38.i89, %add.i82
+  %xor18.i91 = xor i32 %add15.i90, %or.i.i85
+  %or.i41.i92 = tail call i32 @llvm.fshl.i32(i32 %xor18.i91, i32 %xor18.i91, i32 8)
+  %add23.i93 = add i32 %or.i41.i92, %add7.i87
+  %xor26.i94 = xor i32 %add23.i93, %or.i38.i89
+  %or.i44.i95 = tail call i32 @llvm.fshl.i32(i32 %xor26.i94, i32 %xor26.i94, i32 7)
+  %add.i98 = add i32 %or.i44.i63, %add15.i42
+  %xor.i100 = xor i32 %add.i98, %or.i41.i28
+  %or.i.i101 = tail call i32 @llvm.fshl.i32(i32 %xor.i100, i32 %xor.i100, i32 16)
+  %add7.i103 = add i32 %or.i.i101, %add23.i
+  %xor10.i104 = xor i32 %add7.i103, %or.i44.i63
+  %or.i38.i105 = tail call i32 @llvm.fshl.i32(i32 %xor10.i104, i32 %xor10.i104, i32 12)
+  %add15.i106 = add i32 %or.i38.i105, %add.i98
+  %xor18.i107 = xor i32 %add15.i106, %or.i.i101
+  %or.i41.i108 = tail call i32 @llvm.fshl.i32(i32 %xor18.i107, i32 %xor18.i107, i32 8)
+  %add23.i109 = add i32 %or.i41.i108, %add7.i103
+  %xor26.i110 = xor i32 %add23.i109, %or.i38.i105
+  %or.i44.i111 = tail call i32 @llvm.fshl.i32(i32 %xor26.i110, i32 %xor26.i110, i32 7)
+  %add.i114 = add i32 %add15.i58, %or.i44.i
+  %xor.i116 = xor i32 %add.i114, %or.i41.i44
+  %or.i.i117 = tail call i32 @llvm.fshl.i32(i32 %xor.i116, i32 %xor.i116, i32 16)
+  %add7.i119 = add i32 %or.i.i117, %add23.i29
+  %xor10.i120 = xor i32 %add7.i119, %or.i44.i
+  %or.i38.i121 = tail call i32 @llvm.fshl.i32(i32 %xor10.i120, i32 %xor10.i120, i32 12)
+  %add15.i122 = add i32 %or.i38.i121, %add.i114
+  %xor18.i123 = xor i32 %add15.i122, %or.i.i117
+  %or.i41.i124 = tail call i32 @llvm.fshl.i32(i32 %xor18.i123, i32 %xor18.i123, i32 8)
+  %add23.i125 = add i32 %or.i41.i124, %add7.i119
+  %xor26.i126 = xor i32 %add23.i125, %or.i38.i121
+  %or.i44.i127 = tail call i32 @llvm.fshl.i32(i32 %xor26.i126, i32 %xor26.i126, i32 7)
+  %add = add nuw nsw i64 %i2.0145, 2
+  %cmp4 = icmp ult i64 %i2.0145, 18
   br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !9
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.body18
-  %i15.0145 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
-  %arrayidx19 = getelementptr inbounds [16 x i32], ptr %x, i64 0, i64 %i15.0145
+  %i15.0146 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
+  %arrayidx19 = getelementptr inbounds [16 x i32], ptr %x, i64 0, i64 %i15.0146
   %15 = load i32, ptr %arrayidx19, align 4
-  %arrayidx21 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i15.0145
+  %arrayidx21 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i15.0146
   %16 = load i32, ptr %arrayidx21, align 4
   %add22 = add i32 %16, %15
-  %arrayidx23 = getelementptr inbounds [16 x i32], ptr %output, i64 0, i64 %i15.0145
+  %arrayidx23 = getelementptr inbounds [16 x i32], ptr %output, i64 0, i64 %i15.0146
   store i32 %add22, ptr %arrayidx23, align 4
-  %inc25 = add nuw nsw i64 %i15.0145, 1
+  %inc25 = add nuw nsw i64 %i15.0146, 1
   %exitcond.not = icmp eq i64 %inc25, 16
   br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !10
 

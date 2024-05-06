@@ -93,7 +93,7 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nsw i64 %indvars.iv to i32
   %call9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, i32 noundef %7) #5
   %8 = load ptr, ptr %in, align 8
   %arrayidx = getelementptr ptr, ptr %8, i64 %indvars.iv
@@ -202,7 +202,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %3 = load i32, ptr %num_out, align 4
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %3, %4
   %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, i32 noundef %add) #5
   %arrayidx = getelementptr ptr, ptr %pins, i64 %indvars.iv

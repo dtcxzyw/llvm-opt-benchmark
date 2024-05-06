@@ -200,7 +200,7 @@ desirable_join.exit.thread.us.us154:              ; preds = %.lr.ph.split.us.spl
   br i1 %26, label %desirable_join.exit.thread.us.us154, label %.split.us
 
 .split75.us.us:                                   ; preds = %desirable_join.exit.thread.us.us154
-  %27 = trunc i64 %indvars.iv202 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv202 to i32
   tail call void @generate_partitionwise_join_paths(ptr noundef %0, ptr noundef nonnull %18) #2
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -239,7 +239,7 @@ desirable_join.exit.thread:                       ; preds = %.lr.ph112, %desirab
   br i1 %.not53, label %58, label %.split75
 
 .split75:                                         ; preds = %desirable_join.exit.thread
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @generate_partitionwise_join_paths(ptr noundef %0, ptr noundef nonnull %45) #2
   %47 = getelementptr inbounds i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -312,7 +312,7 @@ list_length.exit:                                 ; preds = %69
   br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %69
-  %75 = trunc i64 %indvars.iv205 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv205 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_length.exit, %._crit_edge.loopexit.split.loop.exit, %list_length.exit.preheader

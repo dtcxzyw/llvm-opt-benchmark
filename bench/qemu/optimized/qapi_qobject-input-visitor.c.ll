@@ -750,25 +750,25 @@ cond.end36:                                       ; preds = %qobject_input_visit
   %v.0 = phi ptr [ %call.i.i, %qobject_input_visitor_new.exit ], [ %call.i.i13, %qobject_input_visitor_new_keyval.exit ]
   %args.0 = phi ptr [ %call, %qobject_input_visitor_new.exit ], [ %call12, %qobject_input_visitor_new_keyval.exit ]
   %tobool1.not.i = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i, label %if.else.i39, label %land.lhs.true.i37
+  br i1 %tobool1.not.i, label %if.else.i40, label %land.lhs.true.i38
 
-if.else.i39:                                      ; preds = %cond.end36
+if.else.i40:                                      ; preds = %cond.end36
   tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.13, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #7
   unreachable
 
-land.lhs.true.i37:                                ; preds = %cond.end36
+land.lhs.true.i38:                                ; preds = %cond.end36
   %refcnt.i = getelementptr inbounds i8, ptr %args.0, i64 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i38 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i38, label %if.then5.i, label %return
+  %cmp.i39 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i39, label %if.then5.i, label %return
 
-if.then5.i:                                       ; preds = %land.lhs.true.i37
+if.then5.i:                                       ; preds = %land.lhs.true.i38
   tail call void @qobject_destroy(ptr noundef nonnull %args.0) #8
   br label %return
 
-return:                                           ; preds = %if.then5.i, %land.lhs.true.i37, %if.else11, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.else11 ], [ %v.0, %land.lhs.true.i37 ], [ %v.0, %if.then5.i ]
+return:                                           ; preds = %if.then5.i, %land.lhs.true.i38, %if.else11, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.else11 ], [ %v.0, %land.lhs.true.i38 ], [ %v.0, %if.then5.i ]
   ret ptr %retval.0
 }
 
@@ -1205,8 +1205,8 @@ define internal void @qobject_input_free(ptr noundef %v) #0 {
 entry:
   %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
-  %cmp.not11 = icmp eq ptr %0, null
-  br i1 %cmp.not11, label %while.end, label %while.body
+  %cmp.not12 = icmp eq ptr %0, null
+  br i1 %cmp.not12, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %qobject_input_stack_object_free.exit
   %1 = phi ptr [ %4, %qobject_input_stack_object_free.exit ], [ %0, %entry ]

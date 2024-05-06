@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [23 x i8] c"test_data.rw.bits == 3\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestInternalCapi_Init_Lock(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestInternalCapi_Init_Lock(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #5
   %call.lobit = ashr i32 %call, 31
@@ -727,7 +727,7 @@ if.then.i:                                        ; preds = %for.body
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %for.body, %if.then.i
-  %rem.lhs.trunc = trunc i64 %i.08 to i8
+  %rem.lhs.trunc = trunc nuw i64 %i.08 to i8
   %rem7 = urem i8 %rem.lhs.trunc, 7
   %cmp2 = icmp eq i8 %rem7, 0
   br i1 %cmp2, label %if.then, label %if.end
@@ -1099,7 +1099,7 @@ declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_maybe_fail(ptr nocapture noundef %arg) #0 {
+define internal range(i32 -1, 1) i32 @init_maybe_fail(ptr nocapture noundef %arg) #0 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %inc = add i32 %0, 1

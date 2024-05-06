@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tty_set_ldis
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_tty_ldisc_deref352, ptr @__UNIQUE_ID___addressable_tty_ldisc_flush355, ptr @__UNIQUE_ID___addressable_tty_ldisc_ref351, ptr @__UNIQUE_ID___addressable_tty_ldisc_ref_wait350, ptr @__UNIQUE_ID___addressable_tty_register_ldisc346, ptr @__UNIQUE_ID___addressable_tty_set_ldisc360, ptr @__UNIQUE_ID___addressable_tty_unregister_ldisc347], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_register_ldisc(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tty_register_ldisc(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 30
@@ -199,7 +199,7 @@ define dso_local void @tty_ldisc_deref(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_ldisc_lock(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @tty_ldisc_lock(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 418
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 16, ptr elementtype(i8) %3) #10, !srcloc !5
   %4 = getelementptr inbounds i8, ptr %0, i64 520

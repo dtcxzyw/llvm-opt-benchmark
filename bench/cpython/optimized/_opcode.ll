@@ -129,7 +129,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.74 = private unnamed_addr constant [36 x i8] c"Missing initialization for NB_OP %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_opcode_exec(ptr noundef %m) #0 {
+define hidden range(i32 -1, 1) i32 @_opcode_exec(ptr noundef %m) #0 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str, i64 noundef 1) #3
   %call.lobit = ashr i32 %call, 31
@@ -1350,7 +1350,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   br i1 %cmp181.i, label %if.then182.i, label %for.inc.i
 
 if.then182.i:                                     ; preds = %for.body.i
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %56 = load i64, ptr %call.i, align 8
   %57 = and i64 %56, 2147483648
   %cmp.i523.not.i = icmp eq i64 %57, 0
@@ -1394,7 +1394,7 @@ for.cond.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end5.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end5.i ]
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call2.i = tail call ptr @_PyCompile_GetUnaryIntrinsicName(i32 noundef %1) #3
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
@@ -1441,7 +1441,7 @@ for.cond.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end5.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end5.i ]
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call2.i = tail call ptr @_PyCompile_GetBinaryIntrinsicName(i32 noundef %1) #3
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i

@@ -134,7 +134,7 @@ if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %line_buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line_buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.generate_id_list.line_buf, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid.i, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i.i, align 8
@@ -174,7 +174,7 @@ while.body.i:                                     ; preds = %flush_current_id.ex
   %init_fn.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %init_fn.i.i, align 8
   call void %9(ptr noundef nonnull %ctx.i.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %result.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %result.i, i8 0, i64 32, i1 false)
   %10 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i.i = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i.i.i, align 8
@@ -428,7 +428,7 @@ if.then90.i.i:                                    ; preds = %if.end84.i.i
 
 if.then93.i.i:                                    ; preds = %if.then90.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 4
-  %call.i.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
+  %call.i.i.i = call i64 @strspn(ptr noundef nonnull readonly %add.ptr.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
   %sext.i.i.i = shl i64 %call.i.i.i, 32
   %idxprom.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idxprom.i.i.i
@@ -440,8 +440,8 @@ if.then.i65.i.i:                                  ; preds = %if.then93.i.i
   %sext22.i.i.i = add i64 %sext.i.i.i, 4294967296
   %idx.ext.i.i.i = ashr exact i64 %sext22.i.i.i, 32
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
-  %call4.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr3.i.i.i) #10
-  %call5.i.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr3.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
+  %call4.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %add.ptr3.i.i.i) #10
+  %call5.i.i.i = call i64 @strspn(ptr noundef nonnull readonly %add.ptr3.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i65.i.i, %if.then93.i.i
@@ -581,7 +581,7 @@ cond.end.i.i:                                     ; preds = %remove_space.exit.i
 
 if.then136.critedge.i.i:                          ; preds = %if.end95.i.i, %while.cond.outer.outer.backedge.i.i, %if.else68.i.i, %if.end41.i.i, %while.cond.outer95.loopexit.i.i, %while.cond.backedge.i.i, %while.body.i
   %patchlen.0.ph96111.i.i = phi i32 [ 0, %while.body.i ], [ %patchlen.0.ph96125.i.i, %while.cond.backedge.i.i ], [ 0, %while.cond.outer95.loopexit.i.i ], [ %patchlen.0.ph96125.i.i, %if.end41.i.i ], [ %patchlen.0.ph.ph.be.i.i, %while.cond.outer.outer.backedge.i.i ], [ %patchlen.0.ph96125.i.i, %if.end95.i.i ], [ %patchlen.0.ph96125.i.i, %if.else68.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %n.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %n.i, i8 0, i64 32, i1 false)
   %49 = load ptr, ptr @the_repository, align 8
   %hash_algo.i70.i.i = getelementptr inbounds i8, ptr %49, i64 256
   %50 = load ptr, ptr %hash_algo.i70.i.i, align 8
@@ -608,7 +608,7 @@ if.then.i5.i:                                     ; preds = %get_one_patchid.exi
   br label %flush_current_id.exit.i
 
 flush_current_id.exit.i:                          ; preds = %if.then.i5.i, %get_one_patchid.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i, ptr noundef nonnull align 4 dereferenceable(32) %n.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %n.i, i64 32, i1 false)
   %51 = load i32, ptr %algo.i75.i.i, align 4
   store i32 %51, ptr %algo.i.i, align 4
   %52 = load ptr, ptr @stdin, align 8

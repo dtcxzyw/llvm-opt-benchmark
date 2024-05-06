@@ -431,7 +431,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %66 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %indvars.iv.i to i32
+  %68 = trunc nuw nsw i64 %indvars.iv.i to i32
   %69 = xor i32 %68, -1
   %70 = add i32 %.pre, %69
   %71 = sext i32 %70 to i64
@@ -5035,7 +5035,7 @@ declare void @Abc_SclTimeIncInsert(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @Abc_NodeInvUpdateObjFanoutPolarity(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_SclObjCheckMarkedFanFans(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Abc_SclObjCheckMarkedFanFans(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
@@ -5882,7 +5882,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %41 = fpext float %35 to double
   %42 = fpext float %32 to double
   %43 = fpext float %34 to double
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %44, double noundef %41, double noundef %42, double noundef %43)
   %.pre = load ptr, ptr %15, align 8
   br label %46
@@ -5904,7 +5904,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %58 = fpext float %52 to double
   %59 = fpext float %49 to double
   %60 = fpext float %51 to double
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %61, double noundef %58, double noundef %59, double noundef %60)
   br label %63
 
@@ -5925,7 +5925,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %75 = fpext float %69 to double
   %76 = fpext float %66 to double
   %77 = fpext float %68 to double
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %78, double noundef %75, double noundef %76, double noundef %77)
   %.pre122 = load ptr, ptr %13, align 8
   br label %80
@@ -5947,7 +5947,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %92 = fpext float %86 to double
   %93 = fpext float %83 to double
   %94 = fpext float %85 to double
-  %95 = trunc i64 %indvars.iv to i32
+  %95 = trunc nuw nsw i64 %indvars.iv to i32
   %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %95, double noundef %92, double noundef %93, double noundef %94)
   br label %97
 
@@ -5968,7 +5968,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %109 = fpext float %103 to double
   %110 = fpext float %100 to double
   %111 = fpext float %102 to double
-  %112 = trunc i64 %indvars.iv to i32
+  %112 = trunc nuw nsw i64 %indvars.iv to i32
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %112, double noundef %109, double noundef %110, double noundef %111)
   %.pre123 = load ptr, ptr %11, align 8
   br label %114
@@ -5990,7 +5990,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr nocapture noundef readn
   %126 = fpext float %120 to double
   %127 = fpext float %117 to double
   %128 = fpext float %119 to double
-  %129 = trunc i64 %indvars.iv to i32
+  %129 = trunc nuw nsw i64 %indvars.iv to i32
   %130 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %129, double noundef %126, double noundef %127, double noundef %128)
   br label %131
 
@@ -8069,7 +8069,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #24
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #24
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -8088,7 +8088,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -8237,7 +8237,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -8327,25 +8327,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
@@ -8354,6 +8348,12 @@ declare ptr @Extra_FileNameWithoutPath(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
@@ -8397,8 +8397,8 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nofree nounwind willreturn memory(argmem: readwrite) }

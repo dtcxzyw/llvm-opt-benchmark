@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [16 x i8] c"OpenSSL NULL UI\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @UI_null() local_unnamed_addr #0 {
+define noundef nonnull ptr @UI_null() local_unnamed_addr #0 {
 entry:
   ret ptr @ui_null
 }

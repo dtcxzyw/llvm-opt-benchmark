@@ -27161,7 +27161,7 @@ _ZN6duckdb10unique_ptrINS_25PartitionGlobalMergeStateESt14default_deleteIS1_ELb1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb18PartitionMergeTask11ExecuteTaskENS_17TaskExecutionModeE(ptr noundef nonnull align 8 dereferenceable(264) %this, i8 zeroext %mode) unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb18PartitionMergeTask11ExecuteTaskENS_17TaskExecutionModeE(ptr noundef nonnull align 8 dereferenceable(264) %this, i8 zeroext %mode) unnamed_addr #0 align 2 {
 entry:
   %callback = alloca %"struct.duckdb::PartitionMergeTask::ExecutorCallback", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callback) #28

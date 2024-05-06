@@ -142,7 +142,7 @@ if.end9:                                          ; preds = %if.end, %entry
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_759InputText5isSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759InputText5isSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fRawInput = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -185,7 +185,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %narrow = select i1 %cmp3, i8 %3, i8 0
   %spec.select = zext nneg i8 %narrow to i32
   %badTags.2 = add nuw nsw i32 %badTags.035, %spec.select
-  %tobool9 = trunc i8 %inMarkup.1 to i1
+  %tobool9 = trunc nuw i8 %inMarkup.1 to i1
   br i1 %tobool9, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %for.body

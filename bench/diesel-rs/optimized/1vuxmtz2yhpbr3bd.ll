@@ -146,7 +146,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %27
   %.sroa.448.0 = phi i64 [ %.sroa.448.0.copyload, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ], [ 8, %27 ]
   %34 = getelementptr inbounds i8, ptr %20, i64 4
   %35 = load i8, ptr %34, align 4, !range !21, !noundef !4
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   store i64 %.sroa.043.0, ptr %14, align 8
   %.sroa.345.0..sroa_idx46 = getelementptr inbounds i8, ptr %14, i64 8
@@ -433,7 +433,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !51, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %5 = load i64, ptr %4, align 8, !range !55, !alias.scope !52, !noalias !56, !noundef !4
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
@@ -837,7 +837,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !103, !noalias !108, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %5, i64 %7, i1 false), !noalias !113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !113
   %22 = load i64, ptr %9, align 8, !alias.scope !103, !noalias !108, !noundef !4
   %23 = add i64 %22, %7
   store i64 %23, ptr %9, align 8, !alias.scope !103, !noalias !108
@@ -881,7 +881,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !141, !noalias !146, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %5, i64 %7, i1 false), !noalias !151
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !151
   %22 = load i64, ptr %9, align 8, !alias.scope !141, !noalias !146, !noundef !4
   %23 = add i64 %22, %7
   store i64 %23, ptr %9, align 8, !alias.scope !141, !noalias !146
@@ -919,7 +919,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !164, !noalias !169, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %4, i64 %6, i1 false), !noalias !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %4, i64 %6, i1 false), !noalias !174
   %21 = load i64, ptr %8, align 8, !alias.scope !164, !noalias !169, !noundef !4
   %22 = add i64 %21, %6
   store i64 %22, ptr %8, align 8, !alias.scope !164, !noalias !169
@@ -959,7 +959,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !194, !noalias !199, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %4, i64 %6, i1 false), !noalias !204
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %4, i64 %6, i1 false), !noalias !204
   %21 = load i64, ptr %8, align 8, !alias.scope !194, !noalias !199, !noundef !4
   %22 = add i64 %21, %6
   store i64 %22, ptr %8, align 8, !alias.scope !194, !noalias !199
@@ -1580,7 +1580,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
 198:                                              ; preds = %194
   %199 = getelementptr inbounds i8, ptr %156, i64 4
   %200 = load i8, ptr %199, align 4, !range !21, !noalias !269, !noundef !4
-  %201 = trunc i8 %200 to i1
+  %201 = trunc nuw i8 %200 to i1
   br i1 %201, label %202, label %197
 
 202:                                              ; preds = %198
@@ -1799,7 +1799,7 @@ define hidden { ptr, ptr } @"_ZN6diesel10type_impls6tuples87_$LT$impl$u20$diesel
 define hidden void @_ZN6diesel5mysql10connection4bind22PreparedStatementBinds15from_input_data17hd4246bffb19582eeE(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
   %.sroa.0 = alloca { { i64, ptr }, i64 }, align 8
   %3 = alloca { { { ptr, i64, ptr, ptr, {}, { {} } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64, i64, i64 }, {} }, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !alias.scope !311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %3, ptr noundef nonnull readonly align 8 dereferenceable(88) %1, i64 88, i1 false), !alias.scope !311
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17hc11bfeac003ce0f3E"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
@@ -2045,12 +2045,12 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !358
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h39d2e11dc5cf76acE.llvm.2243659495454626895"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   %33 = load i8, ptr %5, align 8, !range !21, !noalias !358, !noundef !4
-  %trunc.i = trunc i8 %33 to i1
+  %trunc.i = trunc nuw i8 %33 to i1
   br i1 %trunc.i, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load i8, ptr %30, align 1, !range !21, !noalias !358, !noundef !4
-  %trunc5.i = trunc i8 %35 to i1
+  %trunc5.i = trunc nuw i8 %35 to i1
   br i1 %trunc5.i, label %41, label %39
 
 36:                                               ; preds = %32
@@ -2084,7 +2084,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 48:                                               ; preds = %44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !361
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !361
   br label %51
 
 49:                                               ; preds = %36, %39, %46

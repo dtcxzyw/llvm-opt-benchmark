@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Dot11DecryptWepDecrypt(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [4 x i8], align 1
   br label %7
@@ -97,7 +97,7 @@ define noundef i32 @Dot11DecryptWepDecrypt(ptr nocapture noundef readonly %0, i6
   %46 = getelementptr inbounds i8, ptr %6, i64 2
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %.060.lcssa, 24
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw i32 %47 to i8
   %49 = getelementptr inbounds i8, ptr %6, i64 3
   store i8 %48, ptr %49, align 1
   br label %50

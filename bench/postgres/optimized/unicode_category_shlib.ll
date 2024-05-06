@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.unicode_category_abbrev = private unnamed_addr constant [30 x ptr] [ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @unicode_category(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %21

@@ -2375,7 +2375,7 @@ define internal fastcc void @param_block_nam_imsi_t(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fresh_handler(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @fresh_handler(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %10, label %5

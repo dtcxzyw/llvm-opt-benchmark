@@ -38,7 +38,7 @@ search.exit.thread:                               ; preds = %7, %search.exit
   br label %22
 
 12:                                               ; preds = %search.exit
-  %.tr = trunc i32 %.02.i to i8
+  %.tr = trunc nuw i32 %.02.i to i8
   %13 = shl nuw nsw i8 %.tr, 4
   %14 = icmp ult i32 %.02.i, 2
   %15 = trunc i32 %.017 to i8
@@ -119,7 +119,7 @@ search.exit:                                      ; preds = %3
   br i1 %9, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %6, %search.exit
-  %10 = trunc i32 %.013 to i8
+  %10 = trunc nuw i32 %.013 to i8
   %11 = and i8 %10, -128
   br label %20
 
@@ -130,7 +130,7 @@ search.exit.thread:                               ; preds = %6, %search.exit
   %16 = and i32 %15, 15
   %17 = or disjoint i32 %16, %13
   %18 = xor i32 %17, %.013
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   br label %20
 
 20:                                               ; preds = %12, %search.exit.thread
@@ -139,7 +139,7 @@ search.exit.thread:                               ; preds = %6, %search.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ulaw2linear(i8 noundef zeroext %0) local_unnamed_addr #1 {
+define range(i32 -32124, 32125) i32 @ulaw2linear(i8 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = xor i8 %0, -1
   %3 = zext i8 %2 to i32
   %4 = shl nuw nsw i32 %3, 3

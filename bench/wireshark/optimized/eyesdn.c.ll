@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @esc_write.esc = internal constant i8 -2, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @eyesdn_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @eyesdn_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 6, ptr noundef %1, ptr noundef %2) #5
@@ -62,7 +62,7 @@ define hidden i32 @eyesdn_open(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eyesdn_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @eyesdn_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -92,7 +92,7 @@ eyesdn_seek_next_packet.exit:                     ; preds = %10
 17:                                               ; preds = %eyesdn_seek_next_packet.exit
   store i64 %12, ptr %5, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call fastcc i32 @read_eyesdn_rec(ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %19 = tail call fastcc i32 @read_eyesdn_rec(ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %20
 
 20:                                               ; preds = %eyesdn_seek_next_packet.exit.thread, %eyesdn_seek_next_packet.exit, %17
@@ -101,7 +101,7 @@ eyesdn_seek_next_packet.exit:                     ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eyesdn_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @eyesdn_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
@@ -110,7 +110,7 @@ define internal noundef i32 @eyesdn_seek_read(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @read_eyesdn_rec(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @read_eyesdn_rec(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -131,12 +131,12 @@ declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_eyesdn_rec(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_eyesdn_rec(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [12 x i8], align 1
   %7 = alloca [53 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %1, i64 64
   %9 = getelementptr inbounds i8, ptr %1, i64 80
-  %10 = call fastcc i32 @esc_read(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = call fastcc i32 @esc_read(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %130, label %11
 
@@ -239,7 +239,7 @@ define internal fastcc noundef i32 @read_eyesdn_rec(ptr noundef %0, ptr nocaptur
 
 71:                                               ; preds = %68
   %72 = tail call i64 @file_tell(ptr noundef %0) #5
-  %73 = call fastcc i32 @esc_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 53, ptr noundef %3, ptr noundef %4), !range !4
+  %73 = call fastcc i32 @esc_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 53, ptr noundef %3, ptr noundef %4)
   %.not96 = icmp eq i32 %73, 0
   br i1 %.not96, label %130, label %74
 
@@ -345,7 +345,7 @@ define internal fastcc noundef i32 @read_eyesdn_rec(ptr noundef %0, ptr nocaptur
   %126 = getelementptr inbounds i8, ptr %2, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = getelementptr i8, ptr %125, i64 %127
-  %129 = tail call fastcc i32 @esc_read(ptr noundef %0, ptr noundef %128, i32 noundef %52, ptr noundef %3, ptr noundef %4), !range !4
+  %129 = tail call fastcc i32 @esc_read(ptr noundef %0, ptr noundef %128, i32 noundef %52, ptr noundef %3, ptr noundef %4)
   br label %130
 
 130:                                              ; preds = %116, %74, %71, %5, %69
@@ -360,7 +360,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @esc_read(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @esc_read(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph.preheader, label %.loopexit
 
@@ -413,7 +413,7 @@ define internal fastcc noundef i32 @esc_read(ptr noundef %0, ptr nocapture nound
   store i8 %22, ptr %23, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %21, %5, %16, %11, %8
   %.026 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %16 ], [ 1, %5 ], [ 1, %21 ]
@@ -431,7 +431,7 @@ declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_add
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @eyesdn_dump_can_write_encap(i32 noundef %0) #2 {
+define internal range(i32 -8, 1) i32 @eyesdn_dump_can_write_encap(i32 noundef %0) #2 {
   switch i32 %0, label %2 [
     i32 17, label %3
     i32 110, label %3
@@ -452,7 +452,7 @@ define internal noundef i32 @eyesdn_dump_can_write_encap(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eyesdn_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @eyesdn_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @eyesdn_dump, ptr %4, align 8
   %5 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @eyesdn_hdr_magic, i64 noundef 6, ptr noundef %1) #5
@@ -469,7 +469,7 @@ define internal noundef i32 @eyesdn_dump_open(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eyesdn_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @eyesdn_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca [12 x i8], align 1
@@ -543,7 +543,7 @@ define internal noundef i32 @eyesdn_dump(ptr noundef %0, ptr nocapture noundef r
   %.033.shrunk = phi i8 [ %25, %34 ], [ %25, %33 ], [ %25, %32 ], [ %25, %31 ], [ -128, %30 ], [ %25, %29 ], [ %25, %28 ], [ %25, %17 ]
   %.032 = phi i8 [ 16, %34 ], [ 14, %33 ], [ 8, %32 ], [ 4, %31 ], [ 6, %30 ], [ 10, %29 ], [ 2, %28 ], [ 0, %17 ]
   %37 = ashr i32 %21, 16
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nsw i32 %37 to i8
   store i8 %38, ptr %8, align 1
   %39 = lshr i32 %21, 8
   %40 = trunc i32 %39 to i8
@@ -577,7 +577,7 @@ define internal noundef i32 @eyesdn_dump(ptr noundef %0, ptr nocapture noundef r
   %59 = getelementptr inbounds i8, ptr %8, i64 9
   store i8 %58, ptr %59, align 1
   %60 = lshr i32 %14, 8
-  %61 = trunc i32 %60 to i8
+  %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds i8, ptr %8, i64 10
   store i8 %61, ptr %62, align 1
   %63 = trunc i32 %14 to i8
@@ -594,7 +594,7 @@ define internal noundef i32 @eyesdn_dump(ptr noundef %0, ptr nocapture noundef r
 67:                                               ; preds = %75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %77, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %77, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %67, %66
   %indvars.iv.i = phi i64 [ 0, %66 ], [ %indvars.iv.next.i, %67 ]
@@ -637,7 +637,7 @@ esc_write.exit.thread:                            ; preds = %75, %70
 78:                                               ; preds = %86
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i
-  br i1 %exitcond.not.i45, label %esc_write.exit47, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %exitcond.not.i45, label %esc_write.exit47, label %.lr.ph.i40, !llvm.loop !6
 
 .lr.ph.i40:                                       ; preds = %78, %.lr.ph.preheader.i
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i44, %78 ]
@@ -700,7 +700,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

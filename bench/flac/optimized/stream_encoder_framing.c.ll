@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.FLAC__frame_add_header = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 4, i32 5, i32 6, i32 0, i32 7], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__add_metadata_block(ptr noundef %metadata, ptr noundef %bw, i32 noundef %update_vendor_string) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %metadata, ptr noundef %bw, i32 noundef %update_vendor_string) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @FLAC__VENDOR_STRING, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
@@ -653,7 +653,7 @@ declare i32 @FLAC__bitwriter_write_zeroes(ptr noundef, i32 noundef) local_unname
 declare i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__frame_add_header(ptr nocapture noundef readonly %header, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr nocapture noundef readonly %header, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %crc = alloca i8, align 1
   %0 = load i32, ptr @FLAC__FRAME_HEADER_SYNC, align 4
@@ -961,7 +961,7 @@ declare i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef, i64 noundef) local_u
 declare i32 @FLAC__bitwriter_get_write_crc8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_constant(ptr nocapture noundef readonly %subframe, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__subframe_add_constant(ptr nocapture noundef readonly %subframe, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_CONSTANT_BYTE_ALIGNED_MASK, align 4
   %tobool.not = icmp ne i32 %wasted_bits, 0
@@ -1002,7 +1002,7 @@ declare i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef, i32 noundef) loca
 declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds i8, ptr %subframe, i64 24
@@ -1091,7 +1091,7 @@ sw.bb:                                            ; preds = %if.end19
   %19 = load i32, ptr %data.i, align 8
   %cmp31 = icmp eq i32 %.pr, 1
   %conv = zext i1 %cmp31 to i32
-  %call32 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %14, i32 noundef %residual_samples, i32 noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %conv), !range !10
+  %call32 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %14, i32 noundef %residual_samples, i32 noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %conv)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %return, label %sw.epilog
 
@@ -1104,7 +1104,7 @@ return:                                           ; preds = %for.body, %sw.bb.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_extended, 0
   %0 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4
@@ -1156,7 +1156,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond62.not, label %if.end32, label %for.body, !llvm.loop !11
+  br i1 %exitcond62.not, label %if.end32, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv59 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next60, %for.cond ]
@@ -1227,7 +1227,7 @@ for.cond70:                                       ; preds = %for.body72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %add41, %lftr.wideiv
-  br i1 %exitcond.not, label %if.end84, label %for.body72, !llvm.loop !12
+  br i1 %exitcond.not, label %if.end84, label %for.body72, !llvm.loop !11
 
 for.body72:                                       ; preds = %for.body72.preheader, %for.cond70
   %indvars.iv = phi i64 [ %16, %for.body72.preheader ], [ %indvars.iv.next, %for.cond70 ]
@@ -1242,7 +1242,7 @@ if.end84:                                         ; preds = %for.cond70, %for.co
   %inc86 = add i32 %i34.052, 1
   %i34.0.highbits = lshr i32 %inc86, %partition_order
   %cmp36 = icmp eq i32 %i34.0.highbits, 0
-  br i1 %cmp36, label %for.body37, label %return, !llvm.loop !13
+  br i1 %cmp36, label %for.body37, label %return, !llvm.loop !12
 
 return:                                           ; preds = %if.end84, %if.end63, %if.else59, %if.end51, %if.then45, %for.body72, %for.body, %if.end19, %if.else, %if.end, %if.then7, %if.end32
   %retval.0 = phi i32 [ 1, %if.end32 ], [ 0, %if.then7 ], [ 0, %if.end ], [ 0, %if.else ], [ 0, %if.end19 ], [ 0, %for.body ], [ 0, %for.body72 ], [ 1, %if.end84 ], [ 0, %if.end63 ], [ 0, %if.else59 ], [ 0, %if.end51 ], [ 0, %if.then45 ]
@@ -1250,7 +1250,7 @@ return:                                           ; preds = %if.end84, %if.end63
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds i8, ptr %subframe, i64 24
@@ -1293,7 +1293,7 @@ for.cond:                                         ; preds = %for.body
   %6 = load i32, ptr %order, align 8
   %7 = zext i32 %6 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -1334,7 +1334,7 @@ for.cond26:                                       ; preds = %for.body29
   %14 = load i32, ptr %order, align 8
   %15 = zext i32 %14 to i64
   %cmp28 = icmp ult i64 %indvars.iv.next41, %15
-  br i1 %cmp28, label %for.body29, label %for.end39, !llvm.loop !15
+  br i1 %cmp28, label %for.body29, label %for.end39, !llvm.loop !14
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond26
   %indvars.iv40 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next41, %for.cond26 ]
@@ -1382,7 +1382,7 @@ sw.bb:                                            ; preds = %if.end43
   %28 = load i32, ptr %data.i, align 8
   %cmp55 = icmp eq i32 %.pr, 1
   %conv = zext i1 %cmp55 to i32
-  %call56 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %23, i32 noundef %residual_samples, i32 noundef %24, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %conv), !range !10
+  %call56 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %23, i32 noundef %residual_samples, i32 noundef %24, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %conv)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %sw.epilog
 
@@ -1397,7 +1397,7 @@ return:                                           ; preds = %for.body, %for.body
 declare i32 @FLAC__bitwriter_write_raw_int32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__subframe_add_verbatim(ptr nocapture noundef readonly %subframe, i32 noundef %samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr nocapture noundef readonly %subframe, i32 noundef %samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK, align 4
   %tobool.not = icmp ne i32 %wasted_bits, 0
@@ -1439,7 +1439,7 @@ for.body.preheader:                               ; preds = %if.then10
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %return, label %for.body, !llvm.loop !16
+  br i1 %exitcond31.not, label %return, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv27 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next28, %for.cond ]
@@ -1459,7 +1459,7 @@ for.body20.preheader:                             ; preds = %if.else
 for.cond18:                                       ; preds = %for.body20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body20, !llvm.loop !17
+  br i1 %exitcond.not, label %return, label %for.body20, !llvm.loop !16
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.cond18
   %indvars.iv = phi i64 [ 0, %for.body20.preheader ], [ %indvars.iv.next, %for.cond18 ]
@@ -1498,11 +1498,10 @@ attributes #5 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

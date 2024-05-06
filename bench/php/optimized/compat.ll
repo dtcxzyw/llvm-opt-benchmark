@@ -345,7 +345,7 @@ define void @php_XML_SetEndNamespaceDeclHandler(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_XML_Parse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @php_XML_Parse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xmlParseChunk(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #9
@@ -585,7 +585,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %40 = tail call ptr %38(i64 noundef %39) #9
   store i8 38, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %40, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %1, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr readonly align 1 %1, i64 %36, i1 false)
   %42 = getelementptr i8, ptr %40, i64 %36
   %43 = getelementptr i8, ptr %42, i64 1
   store i8 59, ptr %43, align 1
@@ -854,7 +854,7 @@ define internal void @_comment_handler(ptr nocapture noundef readonly %0, ptr no
   %11 = tail call ptr %9(i64 noundef %10) #9
   store i32 757932348, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %11, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %1, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %7, i1 false)
   %13 = getelementptr inbounds i8, ptr %12, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %13, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false)
   %14 = getelementptr inbounds i8, ptr %11, i64 %8
@@ -978,7 +978,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   br i1 %.not122, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit140
-  %invariant.gep = getelementptr i8, ptr %8, i64 32
+  %invariant.gep = getelementptr inbounds i8, ptr %8, i64 32
   %57 = icmp sgt i32 %6, 0
   br i1 %57, label %.lr.ph161, label %.loopexit
 
@@ -993,7 +993,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %62 = getelementptr i8, ptr %58, i64 24
   %63 = load ptr, ptr %62, align 8
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 5
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv183
+  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv183
   %64 = load ptr, ptr %gep, align 8
   %.not123 = icmp eq ptr %61, null
   br i1 %.not123, label %67, label %65
@@ -1073,15 +1073,15 @@ _qualify_namespace.exit:                          ; preds = %87, %94
   %indvars.iv169 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next170, %_qualify_namespace.exit127 ]
   %indvars.iv167 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next168, %_qualify_namespace.exit127 ]
   %.2148 = phi i32 [ 0, %.lr.ph149 ], [ %133, %_qualify_namespace.exit127 ]
-  %104 = getelementptr ptr, ptr %8, i64 %indvars.iv169
-  %105 = getelementptr i8, ptr %104, i64 8
+  %104 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv169
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not118 = icmp eq ptr %106, null
   %107 = load ptr, ptr %104, align 8
   br i1 %.not118, label %119, label %108
 
 108:                                              ; preds = %103
-  %109 = getelementptr i8, ptr %104, i64 16
+  %109 = getelementptr inbounds i8, ptr %104, i64 16
   %110 = load ptr, ptr %109, align 8
   %.not.i125 = icmp eq ptr %110, null
   br i1 %.not.i125, label %117, label %111
@@ -1106,9 +1106,9 @@ _qualify_namespace.exit127:                       ; preds = %117, %111, %119
   %.0134 = phi ptr [ %120, %119 ], [ %118, %117 ], [ %116, %111 ]
   %121 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv167
   store ptr %.0134, ptr %121, align 8
-  %122 = getelementptr i8, ptr %104, i64 24
+  %122 = getelementptr inbounds i8, ptr %104, i64 24
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr i8, ptr %104, i64 32
+  %124 = getelementptr inbounds i8, ptr %104, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
   %127 = ptrtoint ptr %123 to i64
@@ -1125,7 +1125,7 @@ _qualify_namespace.exit127:                       ; preds = %117, %111, %119
   br i1 %exitcond174.not, label %._crit_edge.loopexit, label %103
 
 ._crit_edge.loopexit:                             ; preds = %_qualify_namespace.exit127
-  %134 = trunc i64 %indvars.iv.next168 to i32
+  %134 = trunc nuw i64 %indvars.iv.next168 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %96

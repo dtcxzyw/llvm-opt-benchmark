@@ -3478,7 +3478,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -4287,7 +4287,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %7 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i34
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i37
 
 if.end.thread:                                    ; preds = %lpad.body
   %value.i.i.i32 = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -4301,11 +4301,11 @@ lpad23:                                           ; preds = %invoke.cont25
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i34:                                      ; preds = %lpad.body
+if.then.i37:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #16
   br label %invoke.cont25
 
-invoke.cont25:                                    ; preds = %if.then.i34, %if.end.thread
+invoke.cont25:                                    ; preds = %if.then.i37, %if.end.thread
   invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad23
 

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @test_random_state = internal unnamed_addr global [31 x i32] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @test_random() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @test_random() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @test_random.pos, align 4
   %cmp = icmp eq i32 %0, 31
@@ -44,7 +44,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv = sext i32 %0 to i64
   %mul = mul nsw i64 %conv, 16807
   %rem = srem i64 %mul, 2147483647
-  %conv1 = trunc i64 %rem to i32
+  %conv1 = trunc nsw i64 %rem to i32
   %arrayidx3 = getelementptr inbounds [31 x i32], ptr @test_random_state, i64 0, i64 %indvars.iv
   store i32 %conv1, ptr %arrayidx3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

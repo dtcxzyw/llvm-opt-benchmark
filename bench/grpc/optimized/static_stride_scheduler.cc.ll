@@ -434,7 +434,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK9grpc_core21StaticStrideScheduler4PickEv(ptr noundef nonnull align 16 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK9grpc_core21StaticStrideScheduler4PickEv(ptr noundef nonnull align 16 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %weights_ = getelementptr inbounds i8, ptr %this, i64 32

@@ -102,7 +102,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
@@ -236,7 +236,7 @@ mbc_enc_len.exit:                                 ; preds = %35, %23, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 -401, 5) i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #2 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %11, label %4
 

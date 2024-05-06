@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @text_import_lex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1023,7 +1023,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i223, %451
   br i1 %exitcond177.not.i, label %.critedge.i, label %546, !llvm.loop !12
 
 .critedge.split.loop.exit.i:                      ; preds = %546, %546
-  %559 = trunc i64 %indvars.iv.i to i32
+  %559 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %549, %.critedge.split.loop.exit.i
@@ -2591,7 +2591,7 @@ define hidden void @text_import_set_debug(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @text_import_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @text_import_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2619,7 +2619,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @text_import_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @text_import_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2778,7 +2778,7 @@ text_import_pop_buffer_state.exit:                ; preds = %23, %42, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @text_import_scan(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @text_import_scan(ptr noundef %0) local_unnamed_addr #0 {
   %calloc.i = tail call dereferenceable_or_null(144) ptr @calloc(i64 1, i64 144)
   %2 = icmp eq ptr %calloc.i, null
   br i1 %2, label %text_import_lex_init.exit, label %4
@@ -2791,7 +2791,7 @@ text_import_lex_init.exit:                        ; preds = %1
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = tail call i32 @text_import_lex(ptr noundef nonnull %calloc.i), !range !15
+  %6 = tail call i32 @text_import_lex(ptr noundef nonnull %calloc.i)
   %7 = tail call i32 @text_import_lex_destroy(ptr noundef nonnull %calloc.i)
   br label %8
 
@@ -2877,4 +2877,3 @@ attributes #28 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 2}

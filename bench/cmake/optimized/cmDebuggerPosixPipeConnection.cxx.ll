@@ -233,8 +233,8 @@ $_ZTINSt13__future_base13_State_baseV27_SetterIvvEE = comdat any
 @_ZTISt12future_error = external constant ptr
 @_ZTVSt12future_error = external unnamed_addr constant { [5 x ptr] }, align 8
 @.str.5 = private unnamed_addr constant [20 x i8] c"std::future_error: \00", align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSNSt13__future_base13_State_baseV27_SetterIvvEE = linkonce_odr dso_local constant [47 x i8] c"NSt13__future_base13_State_baseV27_SetterIvvEE\00", comdat, align 1
 @_ZTINSt13__future_base13_State_baseV27_SetterIvvEE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base13_State_baseV27_SetterIvvEE }, comdat, align 8
 @_ZTISt12bad_weak_ptr = external constant ptr
@@ -1582,7 +1582,7 @@ define dso_local noundef zeroext i1 @_ZThn8_N10cmDebugger30cmDebuggerPipeConnect
   br i1 %7, label %8, label %_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @write(i32 noundef %6, ptr noundef %1, i64 noundef %2)
+  %9 = tail call i64 @write(i32 noundef %6, ptr noundef readonly %1, i64 noundef %2)
   %10 = icmp sgt i64 %9, -1
   br i1 %10, label %_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm.exit, label %11
 
@@ -2394,7 +2394,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv.exit: ; preds = %1, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX4readEPvm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX4readEPvm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2464,7 +2464,7 @@ define dso_local noundef zeroext i1 @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i64 @write(i32 noundef %11, ptr noundef %1, i64 noundef %2)
+  %12 = tail call i64 @write(i32 noundef %11, ptr noundef readonly %1, i64 noundef %2)
   %13 = trunc i64 %12 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5writeEPKvm.exit

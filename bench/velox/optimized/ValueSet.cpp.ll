@@ -110,7 +110,7 @@ entry:
 if.then:                                          ; preds = %entry
   %retval.sroa.0.0.copyload = load i64, ptr %value, align 8
   %retval.sroa.0.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload, 32
-  %retval.sroa.0.sroa.3.0.extract.trunc = trunc i64 %retval.sroa.0.sroa.3.0.extract.shift to i32
+  %retval.sroa.0.sroa.3.0.extract.trunc = trunc nuw i64 %retval.sroa.0.sroa.3.0.extract.shift to i32
   %retval.sroa.4.0.value.sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
   %retval.sroa.4.0.copyload = load ptr, ptr %retval.sroa.4.0.value.sroa_idx, align 8
   %.pre = and i64 %retval.sroa.0.0.copyload, 4294967295

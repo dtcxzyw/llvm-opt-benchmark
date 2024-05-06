@@ -251,7 +251,7 @@ for.body61:                                       ; preds = %for.cond58.preheade
   %tobool70.not = icmp eq i64 %and69, 0
   %11 = or disjoint i64 %indvars.iv, %10
   %shl75 = shl nuw nsw i64 1, %11
-  %12 = trunc i64 %shl75 to i16
+  %12 = trunc nuw i64 %shl75 to i16
   %13 = xor i16 %12, -1
   %conv79 = select i1 %tobool70.not, i16 -1, i16 %13
   %level_status.2 = and i16 %level_status.141, %conv79
@@ -292,7 +292,7 @@ if.end103:                                        ; preds = %land.lhs.true86, %i
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @tpci200_read_cfg(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 256) i64 @tpci200_read_cfg(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
 entry:
   %cmp = icmp ult i64 %addr, 88
   br i1 %cmp, label %if.then, label %if.end
@@ -396,7 +396,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw
   %tobool = trunc i8 %2 to i1
   %cmp.i = icmp eq i32 %size, 2
   %or.cond.i = and i1 %cmp.i, %tobool
-  %conv.i = trunc i64 %ret.0 to i16
+  %conv.i = trunc nuw i64 %ret.0 to i16
   %3 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %conv1.i = zext i16 %3 to i64
   %4 = select i1 %or.cond.i, i64 %conv1.i, i64 %ret.0
@@ -440,7 +440,7 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call11 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %2) #6
   %cmp12.not = icmp eq ptr %call11, null
   br i1 %cmp12.not, label %if.end31, label %if.then
@@ -481,7 +481,7 @@ if.end31:                                         ; preds = %if.end, %do.end27, 
 
 do.end39:                                         ; preds = %if.end31
   %8 = load i16, ptr %status, align 8
-  %9 = trunc i64 %shl34 to i16
+  %9 = trunc nuw i64 %shl34 to i16
   %10 = xor i16 %9, -1
   %conv45 = and i16 %8, %10
   store i16 %conv45, ptr %status, align 8
@@ -737,7 +737,7 @@ if.end9:                                          ; preds = %if.else, %if.then5,
   %tobool12 = trunc i8 %3 to i1
   %cmp.i7 = icmp eq i32 %size, 2
   %or.cond.i8 = and i1 %cmp.i7, %tobool12
-  %conv.i = trunc i64 %ret.0 to i16
+  %conv.i = trunc nuw i64 %ret.0 to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %conv1.i = zext i16 %4 to i64
   %5 = select i1 %or.cond.i8, i64 %conv1.i, i64 %ret.0
@@ -799,7 +799,7 @@ if.end12:                                         ; preds = %if.else, %if.then9,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tpci200_read_las3(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 256) i64 @tpci200_read_las3(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %shr = lshr i64 %addr, 22
   %conv = trunc i64 %shr to i32

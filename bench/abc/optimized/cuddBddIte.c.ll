@@ -1570,7 +1570,7 @@ define ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %87, label %5
 
@@ -1697,12 +1697,12 @@ define i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 80:                                               ; preds = %74, %75
   %.066 = phi ptr [ %77, %75 ], [ %.064, %74 ]
   %.065 = phi ptr [ %79, %75 ], [ %.064, %74 ]
-  %81 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.065), !range !14
+  %81 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.065)
   %.not83 = icmp eq i32 %81, 0
   br i1 %.not83, label %.thread, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.068, ptr noundef %.066), !range !14
+  %83 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.068, ptr noundef %.066)
   %.fr = freeze i32 %83
   %84 = icmp ne i32 %.fr, 0
   %spec.select = select i1 %84, ptr %31, ptr %43
@@ -1765,4 +1765,3 @@ attributes #5 = { nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}

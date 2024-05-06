@@ -368,7 +368,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @allocation_sourceline(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @allocation_sourceline(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = load ptr, ptr @tmp_trace_arg, align 8
@@ -947,7 +947,7 @@ declare i64 @rb_st_memsize(ptr noundef) local_unnamed_addr #3
 declare i32 @rb_st_foreach_with_replace(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hash_foreach_should_replace_key(i64 %0, i64 noundef %1, i64 %2, i32 %3) #0 {
+define internal range(i32 0, 5) i32 @hash_foreach_should_replace_key(i64 %0, i64 noundef %1, i64 %2, i32 %3) #0 {
   %5 = tail call i64 @rb_gc_location(i64 noundef %1) #11
   %.not = icmp eq i64 %5, %1
   %. = select i1 %.not, i32 0, i32 4

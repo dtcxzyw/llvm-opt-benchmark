@@ -1331,7 +1331,7 @@ hwloc_calc_parse_level_size.exit.i:               ; preds = %410, %404
   br i1 %473, label %hwloc_calc_append_iodev_by_index.exit.i.i, label %474
 
 474:                                              ; preds = %465
-  %475 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef %472, ptr noundef nonnull %13)
+  %475 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef %472, ptr noundef nonnull readonly %13)
   %.not37.i.i.i = icmp eq i32 %475, 0
   br i1 %.not37.i.i.i, label %476, label %481
 
@@ -1341,7 +1341,7 @@ hwloc_calc_parse_level_size.exit.i:               ; preds = %410, %404
   br i1 %.not38.i.i.i, label %478, label %481
 
 478:                                              ; preds = %476
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef %472)
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %14, ptr noundef %472)
   %479 = add nsw i32 %468, -1
   %.not40.i.i.i = icmp eq i32 %479, 0
   br i1 %.not40.i.i.i, label %hwloc_calc_append_iodev_by_index.exit.i.i, label %480
@@ -1384,12 +1384,12 @@ hwloc_calc_append_iodev_by_index.exit.i.i:        ; preds = %481, %478, %465, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %4, align 4
-  %494 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %493, ptr noundef nonnull @.str.173, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
+  %494 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %493, ptr noundef nonnull @.str.173, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
   %.not.i77.i.i = icmp eq i32 %494, 3
   br i1 %.not.i77.i.i, label %499, label %495
 
 495:                                              ; preds = %492
-  %496 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %493, ptr noundef nonnull @.str.174, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
+  %496 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %493, ptr noundef nonnull @.str.174, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
   %.not4.i.i.i = icmp eq i32 %496, 4
   br i1 %.not4.i.i.i, label %._crit_edge.i79.i.i, label %497
 
@@ -1418,7 +1418,7 @@ hwloc_calc_append_iodev_by_index.exit.i.i:        ; preds = %481, %478, %465, %4
   br i1 %.not.i.i.i.i.i.i.i, label %506, label %508
 
 506:                                              ; preds = %.lr.ph.i.i.i.i
-  %507 = call ptr @hwloc_get_obj_by_depth(ptr noundef %420, i32 noundef %505, i32 noundef 0) #21
+  %507 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %420, i32 noundef %505, i32 noundef 0) #21
   br label %hwloc_get_next_pcidev.exit.i.i.i.i
 
 508:                                              ; preds = %.lr.ph.i.i.i.i
@@ -1510,7 +1510,7 @@ hwloc_get_next_pcidev.exit.i.i.i.i:               ; preds = %511, %506
   br i1 %.not.i.i.i.i.i, label %547, label %549
 
 547:                                              ; preds = %546
-  %548 = call ptr @hwloc_get_obj_by_depth(ptr noundef %420, i32 noundef %545, i32 noundef 0) #21
+  %548 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %420, i32 noundef %545, i32 noundef 0) #21
   br label %hwloc_get_next_osdev.exit.i.i
 
 549:                                              ; preds = %546
@@ -1592,7 +1592,7 @@ hwloc_get_obj_by_type.exit.i.i:                   ; preds = %565
   %582 = call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %420) #21
   %583 = call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %420) #21
   %584 = getelementptr inbounds i8, ptr %416, i64 1
-  %585 = call fastcc i32 @hwloc_calc_append_object_range(ptr noundef nonnull %17, ptr noundef %582, ptr noundef %583, ptr noundef nonnull %13, ptr noundef nonnull %584, ptr noundef nonnull %14)
+  %585 = call fastcc i32 @hwloc_calc_append_object_range(ptr noundef nonnull %17, ptr noundef %582, ptr noundef %583, ptr noundef nonnull %13, ptr noundef nonnull %584, ptr noundef nonnull readonly %14)
   br label %hwloc_calc_process_location.exit.i
 
 hwloc_calc_process_location.exit.thread.i:        ; preds = %563, %577, %._crit_edge.i.i466, %560, %hwloc_get_next_osdev.exit.thread.i.i, %538, %.loopexit.i.i, %432, %430, %427, %425
@@ -1602,7 +1602,7 @@ hwloc_calc_process_location.exit.thread.i:        ; preds = %563, %577, %._crit_
 
 hwloc_calc_process_location.exit.thread125.i:     ; preds = %569, %555, %536
   %.0.i.i.i.i.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i.i.i, %536 ], [ %.0.i.i.i.i, %555 ], [ %.17.i.i, %569 ]
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %.0.i.i.i.i.i.lcssa.sink.i)
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %14, ptr noundef nonnull %.0.i.i.i.i.i.lcssa.sink.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13)
   br label %hwloc_calc_process_location_as_set.exit
 
@@ -1617,7 +1617,7 @@ hwloc_calc_parse_level_size.exit.thread.i:        ; preds = %415, %hwloc_calc_pa
   %586 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.093.i, i32 noundef 44) #21
   %.not109.i = icmp eq ptr %586, null
   %587 = select i1 %.not109.i, i64 7, i64 8
-  %588 = call i32 @strncasecmp(ptr noundef nonnull %.093.i, ptr noundef nonnull @.str.140, i64 noundef %587) #21
+  %588 = call i32 @strncasecmp(ptr noundef nonnull readonly %.093.i, ptr noundef nonnull readonly @.str.140, i64 noundef %587) #21
   %589 = icmp eq i32 %588, 0
   br i1 %589, label %590, label %594
 
@@ -1632,7 +1632,7 @@ hwloc_calc_parse_level_size.exit.thread.i:        ; preds = %415, %hwloc_calc_pa
   br i1 %.not109.i, label %595, label %.preheader.i
 
 595:                                              ; preds = %594
-  %596 = call i32 @strncasecmp(ptr noundef nonnull %.096.i, ptr noundef nonnull @.str.141, i64 noundef 2) #21
+  %596 = call i32 @strncasecmp(ptr noundef nonnull readonly %.096.i, ptr noundef nonnull readonly @.str.141, i64 noundef 2) #21
   %.not112.i = icmp eq i32 %596, 0
   br i1 %.not112.i, label %597, label %hwloc_calc_process_location_as_set.exit.thread
 
@@ -1656,7 +1656,7 @@ hwloc_calc_parse_level_size.exit.thread.i:        ; preds = %415, %hwloc_calc_pa
 .preheader.i:                                     ; preds = %594, %.thread.i
   %.197.i = phi ptr [ %620, %.thread.i ], [ %.096.i, %594 ]
   %606 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.197.i, i32 noundef 44) #21
-  %607 = call i32 @strncasecmp(ptr noundef nonnull %.197.i, ptr noundef nonnull @.str.141, i64 noundef 2) #21
+  %607 = call i32 @strncasecmp(ptr noundef nonnull readonly %.197.i, ptr noundef nonnull readonly @.str.141, i64 noundef 2) #21
   %608 = icmp eq i32 %607, 0
   br i1 %608, label %609, label %612
 
@@ -1711,7 +1711,7 @@ hwloc_calc_parse_level_size.exit.thread.i:        ; preds = %415, %hwloc_calc_pa
   br i1 %.not.i.i.i118.i, label %631, label %633
 
 631:                                              ; preds = %630
-  %632 = call ptr @hwloc_get_obj_by_depth(ptr noundef %380, i32 noundef %629, i32 noundef 0) #21
+  %632 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %380, i32 noundef %629, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.i.i.i
 
 633:                                              ; preds = %630
@@ -1734,7 +1734,7 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %636, %631
   %.015.i.i.i = phi ptr [ %644, %642 ], [ %.0.i.i.i119.i, %hwloc_get_next_obj_by_depth.exit.i.i.i ]
   %639 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 184
   %640 = load ptr, ptr %639, align 8
-  %641 = call i32 @hwloc_bitmap_intersects(ptr noundef %625, ptr noundef %640) #21
+  %641 = call i32 @hwloc_bitmap_intersects(ptr noundef readonly %625, ptr noundef %640) #21
   %.not12.i.i.i = icmp eq i32 %641, 0
   br i1 %.not12.i.i.i, label %642, label %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i
 
@@ -1773,7 +1773,7 @@ hwloc_cpuset_to_nodeset.exit.i:                   ; preds = %hwloc_get_next_obj_
   br i1 %.not.i.i477, label %655, label %657
 
 655:                                              ; preds = %654
-  %656 = call ptr @hwloc_get_obj_by_depth(ptr noundef %380, i32 noundef %653, i32 noundef 0) #21
+  %656 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %380, i32 noundef %653, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 657:                                              ; preds = %654
@@ -1795,7 +1795,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %660, %655
 663:                                              ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %664 = getelementptr inbounds i8, ptr %.0.i.i478, i64 16
   %665 = load i32, ptr %664, align 8
-  %666 = call i32 @hwloc_bitmap_isset(ptr noundef %625, i32 noundef %665) #21
+  %666 = call i32 @hwloc_bitmap_isset(ptr noundef readonly %625, i32 noundef %665) #21
   %.not12.i = icmp eq i32 %666, 0
   br i1 %.not12.i, label %.backedge, label %667
 
@@ -2069,7 +2069,7 @@ hwloc_calc_process_location_as_set.exit:          ; preds = %hwloc_calc_process_
   br i1 %.not.i.i.i470, label %756, label %758
 
 756:                                              ; preds = %755
-  %757 = call ptr @hwloc_get_obj_by_depth(ptr noundef %753, i32 noundef %754, i32 noundef 0) #21
+  %757 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %753, i32 noundef %754, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 758:                                              ; preds = %755
@@ -2092,7 +2092,7 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %761, %756
   %.015.i.i = phi ptr [ %769, %767 ], [ %.0.i.i.i471, %hwloc_get_next_obj_by_depth.exit.i.i ]
   %764 = getelementptr inbounds i8, ptr %.015.i.i, i64 184
   %765 = load ptr, ptr %764, align 8
-  %766 = call i32 @hwloc_bitmap_intersects(ptr noundef %36, ptr noundef %765) #21
+  %766 = call i32 @hwloc_bitmap_intersects(ptr noundef readonly %36, ptr noundef %765) #21
   %.not12.i.i = icmp eq i32 %766, 0
   br i1 %.not12.i.i, label %767, label %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i
 
@@ -2263,7 +2263,7 @@ switch.lookup:                                    ; preds = %814
 .lr.ph.i:                                         ; preds = %836, %842
   %.016.i = phi i32 [ %843, %842 ], [ 0, %836 ]
   %840 = load ptr, ptr %3, align 8
-  %841 = call i32 @strcasecmp(ptr noundef %840, ptr noundef nonnull %.0346.lcssa) #21
+  %841 = call i32 @strcasecmp(ptr noundef %840, ptr noundef nonnull readonly %.0346.lcssa) #21
   %.not.i474 = icmp eq i32 %841, 0
   br i1 %.not.i474, label %hwloc_utils_parse_memattr_name.exit, label %842
 
@@ -2280,7 +2280,7 @@ switch.lookup:                                    ; preds = %814
   br i1 %or.cond.i475, label %hwloc_utils_parse_memattr_name.exit.thread, label %848
 
 848:                                              ; preds = %._crit_edge.i
-  %849 = call i32 @atoi(ptr nocapture noundef nonnull %.0346.lcssa) #21
+  %849 = call i32 @atoi(ptr nocapture noundef nonnull readonly %.0346.lcssa) #21
   %850 = call i32 @hwloc_memattr_get_name(ptr noundef %837, i32 noundef %849, ptr noundef nonnull %3) #20
   %.inv.i = icmp sgt i32 %850, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
@@ -3135,7 +3135,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr noundef 
   br i1 %.not41, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = call i32 @strncasecmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.153, i64 noundef 2) #21
+  %32 = call i32 @strncasecmp(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly @.str.153, i64 noundef 2) #21
   %.not42 = icmp eq i32 %32, 0
   br i1 %.not42, label %33, label %35
 
@@ -3431,7 +3431,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %32, %39, %hwloc_cal
   br i1 %.not.i.i, label %70, label %72
 
 70:                                               ; preds = %.backedge.i
-  %71 = call ptr @hwloc_get_obj_by_depth(ptr noundef %.val, i32 noundef %69, i32 noundef 0) #21
+  %71 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %.val, i32 noundef %69, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 72:                                               ; preds = %.backedge.i
@@ -3458,7 +3458,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %75, %70
   br i1 %.not17.i, label %82, label %.thread.i
 
 82:                                               ; preds = %78
-  %83 = call i32 @hwloc_bitmap_intersects(ptr noundef %80, ptr noundef %1) #21
+  %83 = call i32 @hwloc_bitmap_intersects(ptr noundef %80, ptr noundef readonly %1) #21
   %.not18.i = icmp eq i32 %83, 0
   br i1 %.not18.i, label %.backedge.i.backedge, label %84
 
@@ -3478,7 +3478,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %75, %70
 
 91:                                               ; preds = %.thread.i, %84
   %92 = phi ptr [ %89, %.thread.i ], [ %86, %84 ]
-  %93 = call i32 @hwloc_bitmap_intersects(ptr noundef %92, ptr noundef %2) #21
+  %93 = call i32 @hwloc_bitmap_intersects(ptr noundef %92, ptr noundef readonly %2) #21
   %.not20.not.i = icmp eq i32 %93, 0
   br i1 %.not20.not.i, label %.backedge.i.backedge, label %94
 
@@ -3486,7 +3486,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %75, %70
   br label %.backedge.i, !llvm.loop !22
 
 94:                                               ; preds = %91, %84
-  %95 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %3)
+  %95 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i, ptr noundef nonnull readonly %3)
   %96 = xor i32 %95, 1
   %spec.select.i = add i32 %96, %.0.ph.i
   br label %.outer.i, !llvm.loop !22
@@ -3548,7 +3548,7 @@ hwloc_calc_get_nbobjs_inside_sets_by_depth.exit:  ; preds = %72, %hwloc_get_next
   br label %hwloc_get_next_obj_by_depth.exit.us.i
 
 124:                                              ; preds = %.outer.us.i
-  %125 = call ptr @hwloc_get_obj_by_depth(ptr noundef %.val89, i32 noundef %117, i32 noundef 0) #21
+  %125 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %.val89, i32 noundef %117, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.us.i
 
 hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
@@ -3564,7 +3564,7 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
   br i1 %.not26.us.i, label %130, label %.thread.i100
 
 130:                                              ; preds = %126
-  %131 = call i32 @hwloc_bitmap_intersects(ptr noundef %128, ptr noundef %1) #21
+  %131 = call i32 @hwloc_bitmap_intersects(ptr noundef %128, ptr noundef readonly %1) #21
   %.not27.us.i = icmp eq i32 %131, 0
   br i1 %.not27.us.i, label %.outer.us.i.backedge, label %132
 
@@ -3584,12 +3584,12 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
 
 139:                                              ; preds = %.thread.i100, %132
   %140 = phi ptr [ %137, %.thread.i100 ], [ %134, %132 ]
-  %141 = call i32 @hwloc_bitmap_intersects(ptr noundef %140, ptr noundef %2) #21
+  %141 = call i32 @hwloc_bitmap_intersects(ptr noundef %140, ptr noundef readonly %2) #21
   %.not29.us.not.i = icmp eq i32 %141, 0
   br i1 %.not29.us.not.i, label %.outer.us.i.backedge, label %142
 
 142:                                              ; preds = %139, %132
-  %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef nonnull %3)
+  %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef nonnull readonly %3)
   %.not32.us.i = icmp eq i32 %143, 0
   br i1 %.not32.us.i, label %144, label %.outer.us.i.backedge
 
@@ -3618,7 +3618,7 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
   br i1 %.not.i.i94, label %148, label %150
 
 148:                                              ; preds = %.backedge.i99
-  %149 = call ptr @hwloc_get_obj_by_depth(ptr noundef %.val89, i32 noundef %117, i32 noundef 0) #21
+  %149 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %.val89, i32 noundef %117, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_depth.exit.i96
 
 150:                                              ; preds = %.backedge.i99
@@ -3645,7 +3645,7 @@ hwloc_get_next_obj_by_depth.exit.i96:             ; preds = %153, %148
   br i1 %.not26.i, label %160, label %.thread9.i
 
 160:                                              ; preds = %156
-  %161 = call i32 @hwloc_bitmap_intersects(ptr noundef %158, ptr noundef %1) #21
+  %161 = call i32 @hwloc_bitmap_intersects(ptr noundef %158, ptr noundef readonly %1) #21
   %.not27.i = icmp eq i32 %161, 0
   br i1 %.not27.i, label %.backedge.i99.backedge, label %162
 
@@ -3665,12 +3665,12 @@ hwloc_get_next_obj_by_depth.exit.i96:             ; preds = %153, %148
 
 169:                                              ; preds = %.thread9.i, %162
   %170 = phi ptr [ %167, %.thread9.i ], [ %164, %162 ]
-  %171 = call i32 @hwloc_bitmap_intersects(ptr noundef %170, ptr noundef %2) #21
+  %171 = call i32 @hwloc_bitmap_intersects(ptr noundef %170, ptr noundef readonly %2) #21
   %.not29.not.i = icmp eq i32 %171, 0
   br i1 %.not29.not.i, label %.backedge.i99.backedge, label %172
 
 172:                                              ; preds = %169, %162
-  %173 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i97, ptr noundef nonnull %3)
+  %173 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i97, ptr noundef nonnull readonly %3)
   %.not32.i = icmp eq i32 %173, 0
   br i1 %.not32.i, label %174, label %.backedge.i99.backedge
 

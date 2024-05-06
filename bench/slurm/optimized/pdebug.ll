@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [14 x i8] c"TracerPid:\09%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pdebug_trace_process(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pdebug_trace_process(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 672
   %5 = load i32, ptr %4, align 8

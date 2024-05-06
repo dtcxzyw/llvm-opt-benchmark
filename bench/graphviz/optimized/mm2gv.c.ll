@@ -118,7 +118,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
 
 8:                                                ; preds = %openF.exit.i
   %9 = load ptr, ptr @optarg, align 8
-  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.4)
+  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull readonly @.str.4)
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %11, label %openF.exit.i.outer129
 
@@ -190,7 +190,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   %49 = sext i32 %46 to i64
   %50 = getelementptr inbounds ptr, ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef nonnull @.str.10)
+  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef nonnull readonly @.str.10)
   %.not.i25.i = icmp eq ptr %52, null
   br i1 %.not.i25.i, label %53, label %init.exit
 
@@ -403,7 +403,7 @@ agxbsizeof.exit.i.i190.lr.ph:                     ; preds = %65
 
 agxbsizeof.exit.i.i190:                           ; preds = %agxbsizeof.exit.i.i190.lr.ph, %agxbuse.exit202
   %indvars.iv = phi i64 [ 0, %agxbsizeof.exit.i.i190.lr.ph ], [ %indvars.iv.next, %agxbuse.exit202 ]
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef %71)
   %.val.i.i.i187 = load i8, ptr %68, align 1
   %.not.i.i.i188 = icmp eq i8 %.val.i.i.i187, -1
@@ -536,7 +536,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not185, label %133, label %129
 
 129:                                              ; preds = %.lr.ph
-  %130 = trunc i8 %.139 to i1
+  %130 = trunc nuw i8 %.139 to i1
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %129
@@ -584,7 +584,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not184, label %153, label %149
 
 149:                                              ; preds = %144
-  %150 = trunc i8 %.346 to i1
+  %150 = trunc nuw i8 %.346 to i1
   br i1 %150, label %153, label %151
 
 151:                                              ; preds = %149
@@ -1256,7 +1256,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #16
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -1316,7 +1316,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #16
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #16
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

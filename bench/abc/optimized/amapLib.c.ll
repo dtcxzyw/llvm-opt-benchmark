@@ -330,7 +330,7 @@ declare void @Aig_MmFlexStop(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Amap_LibNumPinsMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -496,7 +496,7 @@ define void @Amap_LibWrite(ptr nocapture noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Amap_LibCompareGatesByArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define range(i32 -1, 2) i32 @Amap_LibCompareGatesByArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load double, ptr %4, align 8
@@ -955,7 +955,7 @@ define void @Amap_LibPrintSelectedGates(ptr nocapture noundef readonly %0, i32 n
   %14 = lshr i32 %13, 24
   %15 = getelementptr inbounds i8, ptr %9, i64 32
   %16 = load double, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %17, ptr noundef %11, i32 noundef %14, double noundef %16)
   %19 = getelementptr inbounds i8, ptr %9, i64 24
   %20 = load ptr, ptr %19, align 8
@@ -1019,10 +1019,10 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %21
 
 21:                                               ; preds = %20
-  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
   %23 = add i64 %22, 1
   %24 = call noalias ptr @malloc(i64 noundef %23) #21
-  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %0) #22
+  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %0) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %20, %21
@@ -1196,7 +1196,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1215,7 +1215,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1240,16 +1240,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15

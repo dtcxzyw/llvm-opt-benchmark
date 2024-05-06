@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @iseries_unicode_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @iseries_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @iseries_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [270 x i8], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 270, ptr noundef %1, ptr noundef %2) #14
@@ -87,7 +87,7 @@ define hidden i32 @iseries_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %12
-  %17 = call fastcc i32 @iseries_check_file_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 2), !range !6
+  %17 = call fastcc i32 @iseries_check_file_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
   %.not44 = icmp eq i32 %17, 0
   br i1 %.not44, label %18, label %21
 
@@ -123,7 +123,7 @@ define hidden i32 @iseries_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 33:                                               ; preds = %.preheader
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 250
-  br i1 %exitcond54.not, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %exitcond54.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %9, %33
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %33 ], [ 0, %9 ]
@@ -139,7 +139,7 @@ define hidden i32 @iseries_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %36
-  %41 = call fastcc i32 @iseries_check_file_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !6
+  %41 = call fastcc i32 @iseries_check_file_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %.not42 = icmp eq i32 %41, 0
   br i1 %.not42, label %42, label %45
 
@@ -182,7 +182,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iseries_check_file_type(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @iseries_check_file_type(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [270 x i8], align 16
   %6 = alloca [9 x i8], align 1
   %7 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc_n(i64 noundef 1, i64 noundef 20) #15
@@ -238,7 +238,7 @@ define internal fastcc i32 @iseries_check_file_type(ptr nocapture noundef %0, pt
   %.115.i = phi ptr [ %26, %25 ], [ %.017.i, %.preheader ], [ %.017.i, %.preheader ], [ %.017.i, %.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 270
-  br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader, !llvm.loop !7
 
 iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
   %.2.i = phi ptr [ %.115.i, %.thread.i ], [ %26, %25 ]
@@ -273,7 +273,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
 39:                                               ; preds = %35, %38
   %40 = add nuw nsw i32 %.02326, 1
   %exitcond.not = icmp eq i32 %40, 100
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %39, %16
   %.025 = phi i32 [ %.027, %16 ], [ %.1, %39 ]
@@ -294,7 +294,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @iseries_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @iseries_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [270 x i8], align 16
   %8 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 270, ptr nonnull %7)
@@ -345,7 +345,7 @@ define internal noundef i32 @iseries_read(ptr nocapture noundef readonly %0, ptr
   %.115.i.i = phi ptr [ %26, %25 ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 270
-  br i1 %exitcond.not.i.i, label %iseries_UNICODE_to_ASCII.exit.i, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %iseries_UNICODE_to_ASCII.exit.i, label %.preheader.i, !llvm.loop !7
 
 iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %25
   %.013.lcssa.i.i = phi i64 [ 270, %.thread.i.i ], [ %indvars.iv.i.i, %25 ]
@@ -391,7 +391,7 @@ iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %25
 48:                                               ; preds = %34, %31
   %49 = add nuw nsw i32 %.02426.i, 1
   %exitcond.not.i = icmp eq i32 %49, 99999999
-  br i1 %exitcond.not.i, label %50, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i, label %50, label %13, !llvm.loop !9
 
 50:                                               ; preds = %48
   store i32 -13, ptr %3, align 4
@@ -423,7 +423,7 @@ iseries_seek_next_packet.exit:                    ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @iseries_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @iseries_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
@@ -480,7 +480,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @iseries_parse_packet(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @iseries_parse_packet(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -499,7 +499,7 @@ define internal fastcc noundef i32 @iseries_parse_packet(ptr nocapture readonly 
 19:                                               ; preds = %34
   %20 = add nuw nsw i32 %.011420, 1
   %exitcond = icmp eq i32 %20, 4
-  br i1 %exitcond, label %.critedge, label %21, !llvm.loop !11
+  br i1 %exitcond, label %.critedge, label %21, !llvm.loop !10
 
 21:                                               ; preds = %5, %19
   %.011420 = phi i32 [ 1, %5 ], [ %20, %19 ]
@@ -539,7 +539,7 @@ define internal fastcc noundef i32 @iseries_parse_packet(ptr nocapture readonly 
   %.115.i = phi ptr [ %32, %31 ], [ %.017.i, %.preheader3 ], [ %.017.i, %.preheader3 ], [ %.017.i, %.preheader3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 270
-  br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader3, !llvm.loop !8
+  br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader3, !llvm.loop !7
 
 iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   %.2.i = phi ptr [ %.115.i, %.thread.i ], [ %32, %31 ]
@@ -727,7 +727,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   %115 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %114, ptr %115, align 8
   %116 = load i32, ptr %15, align 4
-  %117 = call fastcc i32 @csec_multiplier(i32 noundef %116), !range !12
+  %117 = call fastcc i32 @csec_multiplier(i32 noundef %116)
   %118 = mul i32 %117, %116
   %119 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %118, ptr %119, align 8
@@ -804,7 +804,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   %.115.i142 = phi ptr [ %151, %150 ], [ %.017.i140, %.preheader ], [ %.017.i140, %.preheader ], [ %.017.i140, %.preheader ]
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, 270
-  br i1 %exitcond.not.i144, label %iseries_UNICODE_to_ASCII.exit149, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not.i144, label %iseries_UNICODE_to_ASCII.exit149, label %.preheader, !llvm.loop !7
 
 iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   %.013.lcssa.i145 = phi i64 [ 270, %.thread.i141 ], [ %indvars.iv.i139, %150 ]
@@ -831,7 +831,7 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   %163 = and i16 %162, 256
   %.not130 = icmp eq i16 %163, 0
   %164 = add i32 %.0111, 1
-  br i1 %.not130, label %165, label %156, !llvm.loop !13
+  br i1 %.not130, label %165, label %156, !llvm.loop !11
 
 165:                                              ; preds = %156
   switch i32 %.0111, label %200 [
@@ -890,7 +890,7 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
 
 .outer.backedge:                                  ; preds = %182, %189, %194
   %.0.ph.be = phi i32 [ %185, %182 ], [ %192, %189 ], [ %198, %194 ]
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !12
 
 187:                                              ; preds = %165
   %bcmp138 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %133, ptr noundef nonnull dereferenceable(18) @.str.29, i64 18)
@@ -977,7 +977,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @csec_multiplier(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 1, 100000001) i32 @csec_multiplier(i32 noundef %0) unnamed_addr #7 {
   %2 = icmp ult i32 %0, 10
   br i1 %2, label %17, label %3
 
@@ -1072,7 +1072,7 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
 .loopexit.backedge:                               ; preds = %.preheader, %21
   %.03761.be = phi i32 [ %22, %21 ], [ 0, %.preheader ]
   %.14359.be = phi i32 [ %23, %21 ], [ %.244, %.preheader ]
-  br label %.loopexit, !llvm.loop !15
+  br label %.loopexit, !llvm.loop !13
 
 .preheader:                                       ; preds = %21, %.preheader
   %.244 = phi i32 [ %28, %.preheader ], [ %23, %21 ]
@@ -1081,7 +1081,7 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 32
   %28 = add i32 %.244, 1
-  br i1 %27, label %.preheader, label %.loopexit.backedge, !llvm.loop !15
+  br i1 %27, label %.preheader, label %.loopexit.backedge, !llvm.loop !13
 
 29:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %30 = and i32 %.03761, 1
@@ -1142,7 +1142,7 @@ define internal fastcc void @iseries_parse_hex_string(ptr nocapture noundef read
   %21 = add i32 %.026, 1
   %22 = add nuw i64 %.01925, 2
   %23 = icmp ult i64 %22, %2
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %11, %16, %3
   ret void
@@ -1188,14 +1188,12 @@ attributes #18 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 1, i32 100000001}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

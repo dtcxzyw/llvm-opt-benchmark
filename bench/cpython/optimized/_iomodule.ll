@@ -929,7 +929,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [6 x i8] c"OsssO\00", align 1
 @PyExc_EncodingWarning = external local_unnamed_addr global ptr, align 8
 @.str.35 = private unnamed_addr constant [34 x i8] c"'encoding' argument not specified\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_io_open_code._kwtuple = internal global %struct.anon.770 { %struct.PyGC_Head zeroinitializer, %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyTuple_Type }, i64 1 }, [1 x ptr] [ptr getelementptr (i8, ptr @_PyRuntime, i64 54680)] }, align 8
 @_io_open_code._keywords = internal constant [2 x ptr] [ptr @.str.36, ptr null], align 16
 @.str.36 = private unnamed_addr constant [5 x i8] c"path\00", align 1
@@ -2580,7 +2580,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare ptr @PyFile_OpenCodeObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iomodule_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @iomodule_exec(ptr noundef %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8

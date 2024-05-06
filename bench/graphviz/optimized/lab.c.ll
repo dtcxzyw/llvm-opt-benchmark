@@ -823,7 +823,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   br label %66
 
 66:                                               ; preds = %60, %._crit_edge146
-  %67 = mul nsw i32 %1, 3
+  %67 = mul nuw nsw i32 %1, 3
   %68 = zext nneg i32 %67 to i64
   %69 = call fastcc ptr @gv_calloc(i64 noundef %68, i64 noundef 8)
   %70 = icmp eq i32 %1, 1

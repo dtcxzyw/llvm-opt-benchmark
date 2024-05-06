@@ -45,7 +45,7 @@ define hidden void @phpdbg_init_lexer(ptr noundef %0, ptr noundef %1) local_unna
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_lex(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %.promoted1236 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 5), align 8
   %.promoted1239 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 8, i32 2), align 8
   br label %thread-pre-split

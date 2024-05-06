@@ -482,7 +482,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ses_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_ses_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %52, label %7
@@ -736,14 +736,14 @@ get_item_len.exit:                                ; preds = %70, %73
 
 .split:                                           ; preds = %get_item_len.exit
   %76 = add i32 %storemerge.i, %67
-  %77 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %.0.i, ptr noundef null, ptr noundef %.2126, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !6
+  %77 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %.0.i, ptr noundef null, ptr noundef %.2126, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   br label %82
 
 .split131:                                        ; preds = %get_item_len.exit
   %78 = load i32, ptr @hf_ses_length, align 4
   %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.2126, i32 noundef %78, ptr noundef %0, i32 noundef %67, i32 noundef %storemerge.i, i32 noundef %75) #3
   %80 = add i32 %storemerge.i, %67
-  %81 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %80, i16 noundef zeroext %.0.i, ptr noundef nonnull %3, ptr noundef %.2126, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !6
+  %81 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %80, i16 noundef zeroext %.0.i, ptr noundef nonnull %3, ptr noundef %.2126, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   br label %82
 
 82:                                               ; preds = %.split, %.split131
@@ -866,7 +866,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_parameters(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %.not136 = icmp eq i16 %2, 0
@@ -919,7 +919,7 @@ get_item_len.exit:                                ; preds = %24, %27
   br label %.loopexit
 
 36:                                               ; preds = %get_item_len.exit
-  %37 = trunc i32 %storemerge.i to i16
+  %37 = trunc nuw nsw i32 %storemerge.i to i16
   %38 = sub i16 %21, %37
   %39 = icmp ugt i16 %.0.i, %38
   br i1 %39, label %40, label %46
@@ -1043,7 +1043,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   br label %dissect_parameter_group.exit
 
 99:                                               ; preds = %get_item_len.exit.i
-  %100 = trunc i32 %storemerge.i.i to i16
+  %100 = trunc nuw nsw i32 %storemerge.i.i to i16
   %101 = sub i16 %84, %100
   %102 = icmp ugt i16 %.0.i.i, %101
   br i1 %102, label %103, label %109
@@ -1083,7 +1083,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   br label %122
 
 120:                                              ; preds = %116
-  %121 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %115, ptr noundef %3, ptr noundef %79, ptr noundef %5, i8 noundef zeroext %75, i16 noundef zeroext %.0.i.i, ptr noundef %114, ptr noundef %6, ptr noundef %7), !range !6
+  %121 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %115, ptr noundef %3, ptr noundef %79, ptr noundef %5, i8 noundef zeroext %75, i16 noundef zeroext %.0.i.i, ptr noundef %114, ptr noundef writeonly %6, ptr noundef %7)
   %.not72.i = icmp eq i32 %121, 0
   %spec.select.i = select i1 %.not72.i, i32 0, i32 %.06490.i
   br label %122
@@ -1093,7 +1093,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   %123 = add i32 %115, %92
   %124 = sub i16 %101, %.0.i.i
   %.not.i96 = icmp eq i16 %124, 0
-  br i1 %.not.i96, label %dissect_parameter_group.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i96, label %dissect_parameter_group.exit, label %.lr.ph.i, !llvm.loop !6
 
 dissect_parameter_group.exit:                     ; preds = %122, %95, %103
   %.06479.i = phi i32 [ %.06490.i, %103 ], [ %.06490.i, %95 ], [ %.1.i, %122 ]
@@ -1104,7 +1104,7 @@ dissect_parameter_group.exit:                     ; preds = %122, %95, %103
   br label %call_pres_dissector.exit
 
 125:                                              ; preds = %53
-  %126 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %52, ptr noundef %3, ptr noundef %16, ptr noundef %5, i8 noundef zeroext %12, i16 noundef zeroext %.0.i, ptr noundef %51, ptr noundef %6, ptr noundef %7), !range !6
+  %126 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %52, ptr noundef %3, ptr noundef %16, ptr noundef %5, i8 noundef zeroext %12, i16 noundef zeroext %.0.i, ptr noundef %51, ptr noundef %6, ptr noundef %7)
   %.not91 = icmp eq i32 %126, 0
   %spec.select92 = select i1 %.not91, i32 0, i32 %.082137
   br label %call_pres_dissector.exit
@@ -1114,7 +1114,7 @@ call_pres_dissector.exit:                         ; preds = %dissect_parameter_g
   %127 = add i32 %52, %29
   %128 = sub i16 %38, %.0.i
   %.not = icmp eq i16 %128, 0
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %11, !llvm.loop !7
 
 .loopexit:                                        ; preds = %call_pres_dissector.exit, %8, %40, %32
   %.082125 = phi i32 [ %.082137, %40 ], [ %.082137, %32 ], [ 1, %8 ], [ %.1, %call_pres_dissector.exit ]
@@ -1175,7 +1175,7 @@ define internal fastcc void @call_pres_dissector(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef writeonly %8, ptr noundef %9) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_parameter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef writeonly %8, ptr noundef %9) unnamed_addr #1 {
   %11 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4) #3
   switch i8 %5, label %180 [
@@ -1543,6 +1543,5 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\05\0D\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_pk_load_file(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -16256, 1) i32 @mbedtls_pk_load_file(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %35, label %6
@@ -125,7 +125,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 define hidden i32 @mbedtls_pk_parse_keyfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @mbedtls_pk_load_file(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !4
+  %8 = call i32 @mbedtls_pk_load_file(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
 
@@ -422,7 +422,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 define hidden i32 @mbedtls_pk_parse_public_keyfile(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = call i32 @mbedtls_pk_load_file(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3), !range !4
+  %5 = call i32 @mbedtls_pk_load_file(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
 
@@ -755,7 +755,7 @@ declare ptr @mbedtls_pk_info_from_type(i32 noundef) local_unnamed_addr #3
 declare i32 @mbedtls_pk_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_get_rsapubkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_get_rsapubkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 48) #10
   %.not = icmp eq i32 %5, 0
@@ -1156,7 +1156,7 @@ pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52,
   %168 = getelementptr inbounds i8, ptr %.021.i.i, i64 4
   %169 = load i32, ptr %168, align 4
   %.not.i5.i = icmp eq i32 %169, 0
-  br i1 %.not.i5.i, label %pk_group_id_from_group.exit.i, label %133, !llvm.loop !5
+  br i1 %.not.i5.i, label %pk_group_id_from_group.exit.i, label %133, !llvm.loop !4
 
 pk_group_id_from_group.exit.i:                    ; preds = %133, %163, %167, %112
   %.0.lcssa.i.i = phi ptr [ %113, %112 ], [ %.021.i.i, %133 ], [ %.021.i.i, %163 ], [ %168, %167 ]
@@ -1224,7 +1224,7 @@ declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #3
 declare i32 @mbedtls_pem_read_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_parse_key_pkcs1_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1910,7 +1910,7 @@ declare i32 @mbedtls_mpi_cmp_int(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @mbedtls_ecp_keypair_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_get_ecparams(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_get_ecparams(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -1992,6 +1992,5 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -16256, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -629,7 +629,7 @@ if.then25:                                        ; preds = %if.end21
 
 if.end27:                                         ; preds = %if.then25, %if.end21
   %stats.i = getelementptr inbounds i8, ptr %call.i28, i64 576
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stats.i, i8 -1, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %stats.i, i8 -1, i64 80, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then6, %if.then
@@ -1645,7 +1645,7 @@ if.then2:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.then2, %if.end
   store ptr %call1, ptr %stats_vq_elem, align 8
   %stats.i = getelementptr inbounds i8, ptr %call.i, i64 576
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stats.i, i8 -1, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %stats.i, i8 -1, i64 80, i1 false)
   %out_sg = getelementptr inbounds i8, ptr %call1, i64 48
   %out_num = getelementptr inbounds i8, ptr %call1, i64 12
   %val11 = getelementptr inbounds i8, ptr %stat, i64 2

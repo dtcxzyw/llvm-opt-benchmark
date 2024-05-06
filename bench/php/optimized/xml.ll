@@ -286,7 +286,7 @@ define internal noundef signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i16 @xml_encode_iso_8859_1(i8 noundef zeroext %0) #2 {
+define internal zeroext range(i16 0, 256) i16 @xml_encode_iso_8859_1(i8 noundef zeroext %0) #2 {
   %2 = zext i8 %0 to i16
   ret i16 %2
 }
@@ -300,7 +300,7 @@ define internal noundef signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i16 @xml_encode_us_ascii(i8 noundef zeroext %0) #2 {
+define internal zeroext range(i16 0, 256) i16 @xml_encode_us_ascii(i8 noundef zeroext %0) #2 {
   %2 = zext i8 %0 to i16
   ret i16 %2
 }
@@ -2376,7 +2376,7 @@ define internal fastcc ptr @xml_utf8_decode(ptr noundef %0, i64 noundef %1, ptr 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ @.str.3, %3 ], [ %12, %10 ]
   %.09.i = phi ptr [ @xml_encodings, %3 ], [ %11, %10 ]
-  %8 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull %7) #19
+  %8 = tail call i32 @strcasecmp(ptr noundef readonly %2, ptr noundef nonnull %7) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
 
@@ -2853,7 +2853,7 @@ define hidden void @_xml_characterDataHandler(ptr noundef %0, ptr noundef %1, i3
 _xml_xmlcharlen.exit.i:                           ; preds = %.lr.ph.i.i, %27, %25
   %.0.i = phi i32 [ %2, %25 ], [ 0, %27 ], [ %29, %.lr.ph.i.i ]
   %32 = sext i32 %.0.i to i64
-  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %32, ptr noundef %22)
+  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %32, ptr noundef readonly %22)
   store ptr %33, ptr %23, align 16
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -3439,7 +3439,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %23
   %.0.i = phi i64 [ 0, %23 ], [ %28, %_xml_xmlcharlen.exit.i.loopexit ]
-  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %20)
+  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %20)
   store ptr %29, ptr %21, align 16
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -3478,7 +3478,7 @@ _xml_xmlcharlen.exit.i43.loopexit:                ; preds = %.lr.ph.i.i39
 
 _xml_xmlcharlen.exit.i43:                         ; preds = %_xml_xmlcharlen.exit.i43.loopexit, %38
   %.0.i44 = phi i64 [ 0, %38 ], [ %43, %_xml_xmlcharlen.exit.i43.loopexit ]
-  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef %34)
+  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef readonly %34)
   store ptr %44, ptr %36, align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
@@ -3590,7 +3590,7 @@ define hidden void @_xml_defaultHandler(ptr noundef readonly %0, ptr noundef %1,
 _xml_xmlcharlen.exit.i:                           ; preds = %.lr.ph.i.i, %25, %23
   %.0.i = phi i32 [ %2, %23 ], [ 0, %25 ], [ %27, %.lr.ph.i.i ]
   %30 = sext i32 %.0.i to i64
-  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %30, ptr noundef %20)
+  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %30, ptr noundef readonly %20)
   store ptr %31, ptr %21, align 16
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -3700,7 +3700,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %26
   %.0.i = phi i64 [ 0, %26 ], [ %31, %_xml_xmlcharlen.exit.i.loopexit ]
-  %32 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %23)
+  %32 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %23)
   store ptr %32, ptr %24, align 16
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
@@ -3739,7 +3739,7 @@ _xml_xmlcharlen.exit.i49.loopexit:                ; preds = %.lr.ph.i.i45
 
 _xml_xmlcharlen.exit.i49:                         ; preds = %_xml_xmlcharlen.exit.i49.loopexit, %41
   %.0.i50 = phi i64 [ 0, %41 ], [ %46, %_xml_xmlcharlen.exit.i49.loopexit ]
-  %47 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i50, ptr noundef %37)
+  %47 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i50, ptr noundef readonly %37)
   store ptr %47, ptr %39, align 16
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
@@ -3778,7 +3778,7 @@ _xml_xmlcharlen.exit.i59.loopexit:                ; preds = %.lr.ph.i.i55
 
 _xml_xmlcharlen.exit.i59:                         ; preds = %_xml_xmlcharlen.exit.i59.loopexit, %56
   %.0.i60 = phi i64 [ 0, %56 ], [ %61, %_xml_xmlcharlen.exit.i59.loopexit ]
-  %62 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i60, ptr noundef %52)
+  %62 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i60, ptr noundef readonly %52)
   store ptr %62, ptr %54, align 16
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -3817,7 +3817,7 @@ _xml_xmlcharlen.exit.i69.loopexit:                ; preds = %.lr.ph.i.i65
 
 _xml_xmlcharlen.exit.i69:                         ; preds = %_xml_xmlcharlen.exit.i69.loopexit, %71
   %.0.i70 = phi i64 [ 0, %71 ], [ %76, %_xml_xmlcharlen.exit.i69.loopexit ]
-  %77 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i70, ptr noundef %67)
+  %77 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i70, ptr noundef readonly %67)
   store ptr %77, ptr %69, align 16
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
@@ -3856,7 +3856,7 @@ _xml_xmlcharlen.exit.i79.loopexit:                ; preds = %.lr.ph.i.i75
 
 _xml_xmlcharlen.exit.i79:                         ; preds = %_xml_xmlcharlen.exit.i79.loopexit, %86
   %.0.i80 = phi i64 [ 0, %86 ], [ %91, %_xml_xmlcharlen.exit.i79.loopexit ]
-  %92 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %5, i64 noundef %.0.i80, ptr noundef %82)
+  %92 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %5, i64 noundef %.0.i80, ptr noundef readonly %82)
   store ptr %92, ptr %84, align 16
   %93 = getelementptr inbounds i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
@@ -3970,7 +3970,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %25
   %.0.i = phi i64 [ 0, %25 ], [ %30, %_xml_xmlcharlen.exit.i.loopexit ]
-  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %22)
+  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %22)
   store ptr %31, ptr %23, align 16
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -4009,7 +4009,7 @@ _xml_xmlcharlen.exit.i47.loopexit:                ; preds = %.lr.ph.i.i43
 
 _xml_xmlcharlen.exit.i47:                         ; preds = %_xml_xmlcharlen.exit.i47.loopexit, %40
   %.0.i48 = phi i64 [ 0, %40 ], [ %45, %_xml_xmlcharlen.exit.i47.loopexit ]
-  %46 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i48, ptr noundef %36)
+  %46 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i48, ptr noundef readonly %36)
   store ptr %46, ptr %38, align 16
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -4048,7 +4048,7 @@ _xml_xmlcharlen.exit.i57.loopexit:                ; preds = %.lr.ph.i.i53
 
 _xml_xmlcharlen.exit.i57:                         ; preds = %_xml_xmlcharlen.exit.i57.loopexit, %55
   %.0.i58 = phi i64 [ 0, %55 ], [ %60, %_xml_xmlcharlen.exit.i57.loopexit ]
-  %61 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i58, ptr noundef %51)
+  %61 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i58, ptr noundef readonly %51)
   store ptr %61, ptr %53, align 16
   %62 = getelementptr inbounds i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
@@ -4087,7 +4087,7 @@ _xml_xmlcharlen.exit.i67.loopexit:                ; preds = %.lr.ph.i.i63
 
 _xml_xmlcharlen.exit.i67:                         ; preds = %_xml_xmlcharlen.exit.i67.loopexit, %70
   %.0.i68 = phi i64 [ 0, %70 ], [ %75, %_xml_xmlcharlen.exit.i67.loopexit ]
-  %76 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i68, ptr noundef %66)
+  %76 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i68, ptr noundef readonly %66)
   store ptr %76, ptr %68, align 16
   %77 = getelementptr inbounds i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
@@ -4202,7 +4202,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %27
   %.0.i = phi i64 [ 0, %27 ], [ %32, %_xml_xmlcharlen.exit.i.loopexit ]
-  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %24)
+  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %24)
   store ptr %33, ptr %25, align 16
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -4241,7 +4241,7 @@ _xml_xmlcharlen.exit.i52.loopexit:                ; preds = %.lr.ph.i.i48
 
 _xml_xmlcharlen.exit.i52:                         ; preds = %_xml_xmlcharlen.exit.i52.loopexit, %42
   %.0.i53 = phi i64 [ 0, %42 ], [ %47, %_xml_xmlcharlen.exit.i52.loopexit ]
-  %48 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i53, ptr noundef %38)
+  %48 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i53, ptr noundef readonly %38)
   store ptr %48, ptr %40, align 16
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -4280,7 +4280,7 @@ _xml_xmlcharlen.exit.i62.loopexit:                ; preds = %.lr.ph.i.i58
 
 _xml_xmlcharlen.exit.i62:                         ; preds = %_xml_xmlcharlen.exit.i62.loopexit, %57
   %.0.i63 = phi i64 [ 0, %57 ], [ %62, %_xml_xmlcharlen.exit.i62.loopexit ]
-  %63 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i63, ptr noundef %53)
+  %63 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i63, ptr noundef readonly %53)
   store ptr %63, ptr %55, align 16
   %64 = getelementptr inbounds i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
@@ -4319,7 +4319,7 @@ _xml_xmlcharlen.exit.i72.loopexit:                ; preds = %.lr.ph.i.i68
 
 _xml_xmlcharlen.exit.i72:                         ; preds = %_xml_xmlcharlen.exit.i72.loopexit, %72
   %.0.i73 = phi i64 [ 0, %72 ], [ %77, %_xml_xmlcharlen.exit.i72.loopexit ]
-  %78 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i73, ptr noundef %68)
+  %78 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i73, ptr noundef readonly %68)
   store ptr %78, ptr %70, align 16
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
@@ -4446,7 +4446,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %23
   %.0.i = phi i64 [ 0, %23 ], [ %28, %_xml_xmlcharlen.exit.i.loopexit ]
-  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %20)
+  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %20)
   store ptr %29, ptr %21, align 16
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -4485,7 +4485,7 @@ _xml_xmlcharlen.exit.i43.loopexit:                ; preds = %.lr.ph.i.i39
 
 _xml_xmlcharlen.exit.i43:                         ; preds = %_xml_xmlcharlen.exit.i43.loopexit, %38
   %.0.i44 = phi i64 [ 0, %38 ], [ %43, %_xml_xmlcharlen.exit.i43.loopexit ]
-  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef %34)
+  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef readonly %34)
   store ptr %44, ptr %36, align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
@@ -4596,7 +4596,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %22
   %.0.i = phi i64 [ 0, %22 ], [ %27, %_xml_xmlcharlen.exit.i.loopexit ]
-  %28 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %19)
+  %28 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %19)
   store ptr %28, ptr %20, align 16
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
@@ -4827,8 +4827,8 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %15, i64 -480
   %22 = load ptr, ptr %21, align 8
-  %.not772 = icmp eq ptr %22, null
-  br i1 %.not772, label %143, label %23
+  %.not763 = icmp eq ptr %22, null
+  br i1 %.not763, label %143, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %15, i64 -456
@@ -4848,24 +4848,24 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 64
-  %.not773 = icmp eq i32 %36, 0
-  br i1 %.not773, label %37, label %40
+  %.not764 = icmp eq i32 %36, 0
+  br i1 %.not764, label %37, label %40
 
 37:                                               ; preds = %31
   %38 = load i32, ptr %33, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %33, align 4
   %.pre = load ptr, ptr %21, align 8
-  %.pre945 = load ptr, ptr %24, align 8
+  %.pre936 = load ptr, ptr %24, align 8
   br label %40
 
 40:                                               ; preds = %37, %31
-  %41 = phi ptr [ %.pre945, %37 ], [ %25, %31 ]
+  %41 = phi ptr [ %.pre936, %37 ], [ %25, %31 ]
   %42 = phi ptr [ %.pre, %37 ], [ %22, %31 ]
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
-  %.not774 = icmp eq ptr %41, null
-  br i1 %.not774, label %56, label %44
+  %.not765 = icmp eq ptr %41, null
+  br i1 %.not765, label %56, label %44
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %41, align 4
@@ -4895,8 +4895,8 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %21) #16
   %57 = getelementptr inbounds i8, ptr %15, i64 -448
   %58 = load ptr, ptr %57, align 8
-  %.not775 = icmp eq ptr %58, null
-  br i1 %.not775, label %71, label %59
+  %.not766 = icmp eq ptr %58, null
+  br i1 %.not766, label %71, label %59
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %58, align 4
@@ -4975,8 +4975,8 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   store ptr %17, ptr %24, align 8
   %95 = load i32, ptr %34, align 4
   %96 = and i32 %95, 64
-  %.not776 = icmp eq i32 %96, 0
-  br i1 %.not776, label %116, label %125
+  %.not767 = icmp eq i32 %96, 0
+  br i1 %.not767, label %116, label %125
 
 php_xml_check_string_method_arg.exit:             ; preds = %92
   %97 = load ptr, ptr %75, align 8
@@ -4987,8 +4987,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef nonnull %100, ptr noundef nonnull %101) #16
   %102 = load i32, ptr %34, align 4
   %103 = and i32 %102, 64
-  %.not870 = icmp eq i32 %103, 0
-  br i1 %.not870, label %104, label %113
+  %.not861 = icmp eq i32 %103, 0
+  br i1 %.not861, label %104, label %113
 
 104:                                              ; preds = %php_xml_check_string_method_arg.exit
   %105 = load i32, ptr %33, align 4
@@ -5001,8 +5001,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 
 109:                                              ; preds = %104
   %110 = and i32 %102, 128
-  %.not871 = icmp eq i32 %110, 0
-  br i1 %.not871, label %112, label %111
+  %.not862 = icmp eq i32 %110, 0
+  br i1 %.not862, label %112, label %111
 
 111:                                              ; preds = %109
   call void @free(ptr noundef nonnull %33) #16
@@ -5029,8 +5029,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 
 121:                                              ; preds = %116
   %122 = and i32 %95, 128
-  %.not777 = icmp eq i32 %122, 0
-  br i1 %.not777, label %124, label %123
+  %.not768 = icmp eq i32 %122, 0
+  br i1 %.not768, label %124, label %123
 
 123:                                              ; preds = %121
   call void @free(ptr noundef nonnull %33) #16
@@ -5057,8 +5057,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 
 133:                                              ; preds = %128, %125
   %134 = load ptr, ptr %24, align 8
-  %.not778 = icmp eq ptr %134, null
-  br i1 %.not778, label %138, label %135
+  %.not769 = icmp eq ptr %134, null
+  br i1 %.not769, label %138, label %135
 
 135:                                              ; preds = %133
   %136 = load i32, ptr %134, align 4
@@ -5068,8 +5068,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 
 138:                                              ; preds = %135, %133
   %139 = load ptr, ptr %57, align 8
-  %.not779 = icmp eq ptr %139, null
-  br i1 %.not779, label %143, label %140
+  %.not770 = icmp eq ptr %139, null
+  br i1 %.not770, label %143, label %140
 
 140:                                              ; preds = %138
   %141 = load i32, ptr %139, align 4
@@ -5080,8 +5080,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
 143:                                              ; preds = %138, %140, %27, %23, %20
   %144 = getelementptr inbounds i8, ptr %15, i64 -440
   %145 = load ptr, ptr %144, align 8
-  %.not780 = icmp eq ptr %145, null
-  br i1 %.not780, label %267, label %146
+  %.not771 = icmp eq ptr %145, null
+  br i1 %.not771, label %267, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds i8, ptr %15, i64 -416
@@ -5102,24 +5102,24 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   %158 = getelementptr inbounds i8, ptr %157, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, 64
-  %.not781 = icmp eq i32 %160, 0
-  br i1 %.not781, label %161, label %164
+  %.not772 = icmp eq i32 %160, 0
+  br i1 %.not772, label %161, label %164
 
 161:                                              ; preds = %155
   %162 = load i32, ptr %157, align 4
   %163 = add i32 %162, 1
   store i32 %163, ptr %157, align 4
-  %.pre946 = load ptr, ptr %144, align 8
-  %.pre947 = load ptr, ptr %147, align 8
+  %.pre937 = load ptr, ptr %144, align 8
+  %.pre938 = load ptr, ptr %147, align 8
   br label %164
 
 164:                                              ; preds = %161, %155
-  %165 = phi ptr [ %.pre947, %161 ], [ %148, %155 ]
-  %166 = phi ptr [ %.pre946, %161 ], [ %145, %155 ]
+  %165 = phi ptr [ %.pre938, %161 ], [ %148, %155 ]
+  %166 = phi ptr [ %.pre937, %161 ], [ %145, %155 ]
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  %.not782 = icmp eq ptr %165, null
-  br i1 %.not782, label %180, label %168
+  %.not773 = icmp eq ptr %165, null
+  br i1 %.not773, label %180, label %168
 
 168:                                              ; preds = %164
   %169 = load i32, ptr %165, align 4
@@ -5149,8 +5149,8 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %144) #16
   %181 = getelementptr inbounds i8, ptr %15, i64 -408
   %182 = load ptr, ptr %181, align 8
-  %.not783 = icmp eq ptr %182, null
-  br i1 %.not783, label %195, label %183
+  %.not774 = icmp eq ptr %182, null
+  br i1 %.not774, label %195, label %183
 
 183:                                              ; preds = %180
   %184 = load i32, ptr %182, align 4
@@ -5182,27 +5182,27 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   %197 = load i64, ptr %196, align 8
   %198 = icmp ne i64 %197, 0
   call void @llvm.assume(i1 %198)
-  %.not.i872 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i872)
+  %.not.i863 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i863)
   %199 = getelementptr inbounds i8, ptr %17, i64 16
   %200 = load ptr, ptr %199, align 8
   %201 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %157, i1 noundef zeroext false) #16
   %202 = getelementptr inbounds i8, ptr %200, i64 64
   %203 = call ptr @zend_hash_find(ptr noundef nonnull %202, ptr noundef %201) #16
-  %.not41.i873 = icmp eq ptr %203, null
-  br i1 %.not41.i873, label %206, label %204
+  %.not41.i864 = icmp eq ptr %203, null
+  br i1 %.not41.i864, label %206, label %204
 
 204:                                              ; preds = %195
   %205 = load ptr, ptr %203, align 8, !nonnull !4, !noundef !4
   br label %206
 
 206:                                              ; preds = %204, %195
-  %.0.i874 = phi ptr [ %205, %204 ], [ null, %195 ]
+  %.0.i865 = phi ptr [ %205, %204 ], [ null, %195 ]
   %207 = getelementptr inbounds i8, ptr %201, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = and i32 %208, 64
-  %.not42.i875 = icmp eq i32 %209, 0
-  br i1 %.not42.i875, label %210, label %216
+  %.not42.i866 = icmp eq i32 %209, 0
+  br i1 %.not42.i866, label %210, label %216
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %201, align 4
@@ -5218,21 +5218,21 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   br label %216
 
 216:                                              ; preds = %215, %210, %206
-  %.not43.i876 = icmp eq ptr %.0.i874, null
-  br i1 %.not43.i876, label %php_xml_check_string_method_arg.exit878, label %217
+  %.not43.i867 = icmp eq ptr %.0.i865, null
+  br i1 %.not43.i867, label %php_xml_check_string_method_arg.exit869, label %217
 
 217:                                              ; preds = %216
-  store ptr %.0.i874, ptr %144, align 8
+  store ptr %.0.i865, ptr %144, align 8
   store ptr null, ptr %152, align 8
   %218 = getelementptr inbounds i8, ptr %15, i64 -424
   store ptr %200, ptr %218, align 8
   store ptr %17, ptr %147, align 8
   %219 = load i32, ptr %158, align 4
   %220 = and i32 %219, 64
-  %.not784 = icmp eq i32 %220, 0
-  br i1 %.not784, label %240, label %249
+  %.not775 = icmp eq i32 %220, 0
+  br i1 %.not775, label %240, label %249
 
-php_xml_check_string_method_arg.exit878:          ; preds = %216
+php_xml_check_string_method_arg.exit869:          ; preds = %216
   %221 = load ptr, ptr %199, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8
@@ -5241,10 +5241,10 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef nonnull %224, ptr noundef nonnull %225) #16
   %226 = load i32, ptr %158, align 4
   %227 = and i32 %226, 64
-  %.not868 = icmp eq i32 %227, 0
-  br i1 %.not868, label %228, label %237
+  %.not859 = icmp eq i32 %227, 0
+  br i1 %.not859, label %228, label %237
 
-228:                                              ; preds = %php_xml_check_string_method_arg.exit878
+228:                                              ; preds = %php_xml_check_string_method_arg.exit869
   %229 = load i32, ptr %157, align 4
   %230 = icmp ne i32 %229, 0
   call void @llvm.assume(i1 %230)
@@ -5255,8 +5255,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
 
 233:                                              ; preds = %228
   %234 = and i32 %226, 128
-  %.not869 = icmp eq i32 %234, 0
-  br i1 %.not869, label %236, label %235
+  %.not860 = icmp eq i32 %234, 0
+  br i1 %.not860, label %236, label %235
 
 235:                                              ; preds = %233
   call void @free(ptr noundef nonnull %157) #16
@@ -5266,7 +5266,7 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   call void @_efree(ptr noundef nonnull %157) #16
   br label %237
 
-237:                                              ; preds = %php_xml_check_string_method_arg.exit878, %235, %236, %228
+237:                                              ; preds = %php_xml_check_string_method_arg.exit869, %235, %236, %228
   %238 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %239 = icmp ne ptr %238, null
   call void @llvm.assume(i1 %239)
@@ -5283,8 +5283,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
 
 245:                                              ; preds = %240
   %246 = and i32 %219, 128
-  %.not785 = icmp eq i32 %246, 0
-  br i1 %.not785, label %248, label %247
+  %.not776 = icmp eq i32 %246, 0
+  br i1 %.not776, label %248, label %247
 
 247:                                              ; preds = %245
   call void @free(ptr noundef nonnull %157) #16
@@ -5311,8 +5311,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
 
 257:                                              ; preds = %252, %249
   %258 = load ptr, ptr %147, align 8
-  %.not786 = icmp eq ptr %258, null
-  br i1 %.not786, label %262, label %259
+  %.not777 = icmp eq ptr %258, null
+  br i1 %.not777, label %262, label %259
 
 259:                                              ; preds = %257
   %260 = load i32, ptr %258, align 4
@@ -5322,8 +5322,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
 
 262:                                              ; preds = %259, %257
   %263 = load ptr, ptr %181, align 8
-  %.not787 = icmp eq ptr %263, null
-  br i1 %.not787, label %267, label %264
+  %.not778 = icmp eq ptr %263, null
+  br i1 %.not778, label %267, label %264
 
 264:                                              ; preds = %262
   %265 = load i32, ptr %263, align 4
@@ -5334,8 +5334,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
 267:                                              ; preds = %262, %264, %151, %146, %143
   %268 = getelementptr inbounds i8, ptr %15, i64 -400
   %269 = load ptr, ptr %268, align 8
-  %.not788 = icmp eq ptr %269, null
-  br i1 %.not788, label %391, label %270
+  %.not779 = icmp eq ptr %269, null
+  br i1 %.not779, label %391, label %270
 
 270:                                              ; preds = %267
   %271 = getelementptr inbounds i8, ptr %15, i64 -376
@@ -5356,24 +5356,24 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   %282 = getelementptr inbounds i8, ptr %281, i64 4
   %283 = load i32, ptr %282, align 4
   %284 = and i32 %283, 64
-  %.not789 = icmp eq i32 %284, 0
-  br i1 %.not789, label %285, label %288
+  %.not780 = icmp eq i32 %284, 0
+  br i1 %.not780, label %285, label %288
 
 285:                                              ; preds = %279
   %286 = load i32, ptr %281, align 4
   %287 = add i32 %286, 1
   store i32 %287, ptr %281, align 4
-  %.pre948 = load ptr, ptr %268, align 8
-  %.pre949 = load ptr, ptr %271, align 8
+  %.pre939 = load ptr, ptr %268, align 8
+  %.pre940 = load ptr, ptr %271, align 8
   br label %288
 
 288:                                              ; preds = %285, %279
-  %289 = phi ptr [ %.pre949, %285 ], [ %272, %279 ]
-  %290 = phi ptr [ %.pre948, %285 ], [ %269, %279 ]
+  %289 = phi ptr [ %.pre940, %285 ], [ %272, %279 ]
+  %290 = phi ptr [ %.pre939, %285 ], [ %269, %279 ]
   %291 = icmp ne ptr %290, null
   call void @llvm.assume(i1 %291)
-  %.not790 = icmp eq ptr %289, null
-  br i1 %.not790, label %304, label %292
+  %.not781 = icmp eq ptr %289, null
+  br i1 %.not781, label %304, label %292
 
 292:                                              ; preds = %288
   %293 = load i32, ptr %289, align 4
@@ -5403,8 +5403,8 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %268) #16
   %305 = getelementptr inbounds i8, ptr %15, i64 -368
   %306 = load ptr, ptr %305, align 8
-  %.not791 = icmp eq ptr %306, null
-  br i1 %.not791, label %319, label %307
+  %.not782 = icmp eq ptr %306, null
+  br i1 %.not782, label %319, label %307
 
 307:                                              ; preds = %304
   %308 = load i32, ptr %306, align 4
@@ -5436,27 +5436,27 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   %321 = load i64, ptr %320, align 8
   %322 = icmp ne i64 %321, 0
   call void @llvm.assume(i1 %322)
-  %.not.i879 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i879)
+  %.not.i870 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i870)
   %323 = getelementptr inbounds i8, ptr %17, i64 16
   %324 = load ptr, ptr %323, align 8
   %325 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %281, i1 noundef zeroext false) #16
   %326 = getelementptr inbounds i8, ptr %324, i64 64
   %327 = call ptr @zend_hash_find(ptr noundef nonnull %326, ptr noundef %325) #16
-  %.not41.i880 = icmp eq ptr %327, null
-  br i1 %.not41.i880, label %330, label %328
+  %.not41.i871 = icmp eq ptr %327, null
+  br i1 %.not41.i871, label %330, label %328
 
 328:                                              ; preds = %319
   %329 = load ptr, ptr %327, align 8, !nonnull !4, !noundef !4
   br label %330
 
 330:                                              ; preds = %328, %319
-  %.0.i881 = phi ptr [ %329, %328 ], [ null, %319 ]
+  %.0.i872 = phi ptr [ %329, %328 ], [ null, %319 ]
   %331 = getelementptr inbounds i8, ptr %325, i64 4
   %332 = load i32, ptr %331, align 4
   %333 = and i32 %332, 64
-  %.not42.i882 = icmp eq i32 %333, 0
-  br i1 %.not42.i882, label %334, label %340
+  %.not42.i873 = icmp eq i32 %333, 0
+  br i1 %.not42.i873, label %334, label %340
 
 334:                                              ; preds = %330
   %335 = load i32, ptr %325, align 4
@@ -5472,21 +5472,21 @@ php_xml_check_string_method_arg.exit878:          ; preds = %216
   br label %340
 
 340:                                              ; preds = %339, %334, %330
-  %.not43.i883 = icmp eq ptr %.0.i881, null
-  br i1 %.not43.i883, label %php_xml_check_string_method_arg.exit885, label %341
+  %.not43.i874 = icmp eq ptr %.0.i872, null
+  br i1 %.not43.i874, label %php_xml_check_string_method_arg.exit876, label %341
 
 341:                                              ; preds = %340
-  store ptr %.0.i881, ptr %268, align 8
+  store ptr %.0.i872, ptr %268, align 8
   store ptr null, ptr %276, align 8
   %342 = getelementptr inbounds i8, ptr %15, i64 -384
   store ptr %324, ptr %342, align 8
   store ptr %17, ptr %271, align 8
   %343 = load i32, ptr %282, align 4
   %344 = and i32 %343, 64
-  %.not792 = icmp eq i32 %344, 0
-  br i1 %.not792, label %364, label %373
+  %.not783 = icmp eq i32 %344, 0
+  br i1 %.not783, label %364, label %373
 
-php_xml_check_string_method_arg.exit885:          ; preds = %340
+php_xml_check_string_method_arg.exit876:          ; preds = %340
   %345 = load ptr, ptr %323, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -5495,10 +5495,10 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef nonnull %348, ptr noundef nonnull %349) #16
   %350 = load i32, ptr %282, align 4
   %351 = and i32 %350, 64
-  %.not866 = icmp eq i32 %351, 0
-  br i1 %.not866, label %352, label %361
+  %.not857 = icmp eq i32 %351, 0
+  br i1 %.not857, label %352, label %361
 
-352:                                              ; preds = %php_xml_check_string_method_arg.exit885
+352:                                              ; preds = %php_xml_check_string_method_arg.exit876
   %353 = load i32, ptr %281, align 4
   %354 = icmp ne i32 %353, 0
   call void @llvm.assume(i1 %354)
@@ -5509,8 +5509,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
 
 357:                                              ; preds = %352
   %358 = and i32 %350, 128
-  %.not867 = icmp eq i32 %358, 0
-  br i1 %.not867, label %360, label %359
+  %.not858 = icmp eq i32 %358, 0
+  br i1 %.not858, label %360, label %359
 
 359:                                              ; preds = %357
   call void @free(ptr noundef nonnull %281) #16
@@ -5520,7 +5520,7 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   call void @_efree(ptr noundef nonnull %281) #16
   br label %361
 
-361:                                              ; preds = %php_xml_check_string_method_arg.exit885, %359, %360, %352
+361:                                              ; preds = %php_xml_check_string_method_arg.exit876, %359, %360, %352
   %362 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %363 = icmp ne ptr %362, null
   call void @llvm.assume(i1 %363)
@@ -5537,8 +5537,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
 
 369:                                              ; preds = %364
   %370 = and i32 %343, 128
-  %.not793 = icmp eq i32 %370, 0
-  br i1 %.not793, label %372, label %371
+  %.not784 = icmp eq i32 %370, 0
+  br i1 %.not784, label %372, label %371
 
 371:                                              ; preds = %369
   call void @free(ptr noundef nonnull %281) #16
@@ -5565,8 +5565,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
 
 381:                                              ; preds = %376, %373
   %382 = load ptr, ptr %271, align 8
-  %.not794 = icmp eq ptr %382, null
-  br i1 %.not794, label %386, label %383
+  %.not785 = icmp eq ptr %382, null
+  br i1 %.not785, label %386, label %383
 
 383:                                              ; preds = %381
   %384 = load i32, ptr %382, align 4
@@ -5576,8 +5576,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
 
 386:                                              ; preds = %383, %381
   %387 = load ptr, ptr %305, align 8
-  %.not795 = icmp eq ptr %387, null
-  br i1 %.not795, label %391, label %388
+  %.not786 = icmp eq ptr %387, null
+  br i1 %.not786, label %391, label %388
 
 388:                                              ; preds = %386
   %389 = load i32, ptr %387, align 4
@@ -5588,8 +5588,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
 391:                                              ; preds = %386, %388, %275, %270, %267
   %392 = getelementptr inbounds i8, ptr %15, i64 -360
   %393 = load ptr, ptr %392, align 8
-  %.not796 = icmp eq ptr %393, null
-  br i1 %.not796, label %515, label %394
+  %.not787 = icmp eq ptr %393, null
+  br i1 %.not787, label %515, label %394
 
 394:                                              ; preds = %391
   %395 = getelementptr inbounds i8, ptr %15, i64 -336
@@ -5610,24 +5610,24 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   %406 = getelementptr inbounds i8, ptr %405, i64 4
   %407 = load i32, ptr %406, align 4
   %408 = and i32 %407, 64
-  %.not797 = icmp eq i32 %408, 0
-  br i1 %.not797, label %409, label %412
+  %.not788 = icmp eq i32 %408, 0
+  br i1 %.not788, label %409, label %412
 
 409:                                              ; preds = %403
   %410 = load i32, ptr %405, align 4
   %411 = add i32 %410, 1
   store i32 %411, ptr %405, align 4
-  %.pre950 = load ptr, ptr %392, align 8
-  %.pre951 = load ptr, ptr %395, align 8
+  %.pre941 = load ptr, ptr %392, align 8
+  %.pre942 = load ptr, ptr %395, align 8
   br label %412
 
 412:                                              ; preds = %409, %403
-  %413 = phi ptr [ %.pre951, %409 ], [ %396, %403 ]
-  %414 = phi ptr [ %.pre950, %409 ], [ %393, %403 ]
+  %413 = phi ptr [ %.pre942, %409 ], [ %396, %403 ]
+  %414 = phi ptr [ %.pre941, %409 ], [ %393, %403 ]
   %415 = icmp ne ptr %414, null
   call void @llvm.assume(i1 %415)
-  %.not798 = icmp eq ptr %413, null
-  br i1 %.not798, label %428, label %416
+  %.not789 = icmp eq ptr %413, null
+  br i1 %.not789, label %428, label %416
 
 416:                                              ; preds = %412
   %417 = load i32, ptr %413, align 4
@@ -5657,8 +5657,8 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %392) #16
   %429 = getelementptr inbounds i8, ptr %15, i64 -328
   %430 = load ptr, ptr %429, align 8
-  %.not799 = icmp eq ptr %430, null
-  br i1 %.not799, label %443, label %431
+  %.not790 = icmp eq ptr %430, null
+  br i1 %.not790, label %443, label %431
 
 431:                                              ; preds = %428
   %432 = load i32, ptr %430, align 4
@@ -5690,27 +5690,27 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   %445 = load i64, ptr %444, align 8
   %446 = icmp ne i64 %445, 0
   call void @llvm.assume(i1 %446)
-  %.not.i886 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i886)
+  %.not.i877 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i877)
   %447 = getelementptr inbounds i8, ptr %17, i64 16
   %448 = load ptr, ptr %447, align 8
   %449 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %405, i1 noundef zeroext false) #16
   %450 = getelementptr inbounds i8, ptr %448, i64 64
   %451 = call ptr @zend_hash_find(ptr noundef nonnull %450, ptr noundef %449) #16
-  %.not41.i887 = icmp eq ptr %451, null
-  br i1 %.not41.i887, label %454, label %452
+  %.not41.i878 = icmp eq ptr %451, null
+  br i1 %.not41.i878, label %454, label %452
 
 452:                                              ; preds = %443
   %453 = load ptr, ptr %451, align 8, !nonnull !4, !noundef !4
   br label %454
 
 454:                                              ; preds = %452, %443
-  %.0.i888 = phi ptr [ %453, %452 ], [ null, %443 ]
+  %.0.i879 = phi ptr [ %453, %452 ], [ null, %443 ]
   %455 = getelementptr inbounds i8, ptr %449, i64 4
   %456 = load i32, ptr %455, align 4
   %457 = and i32 %456, 64
-  %.not42.i889 = icmp eq i32 %457, 0
-  br i1 %.not42.i889, label %458, label %464
+  %.not42.i880 = icmp eq i32 %457, 0
+  br i1 %.not42.i880, label %458, label %464
 
 458:                                              ; preds = %454
   %459 = load i32, ptr %449, align 4
@@ -5726,21 +5726,21 @@ php_xml_check_string_method_arg.exit885:          ; preds = %340
   br label %464
 
 464:                                              ; preds = %463, %458, %454
-  %.not43.i890 = icmp eq ptr %.0.i888, null
-  br i1 %.not43.i890, label %php_xml_check_string_method_arg.exit892, label %465
+  %.not43.i881 = icmp eq ptr %.0.i879, null
+  br i1 %.not43.i881, label %php_xml_check_string_method_arg.exit883, label %465
 
 465:                                              ; preds = %464
-  store ptr %.0.i888, ptr %392, align 8
+  store ptr %.0.i879, ptr %392, align 8
   store ptr null, ptr %400, align 8
   %466 = getelementptr inbounds i8, ptr %15, i64 -344
   store ptr %448, ptr %466, align 8
   store ptr %17, ptr %395, align 8
   %467 = load i32, ptr %406, align 4
   %468 = and i32 %467, 64
-  %.not800 = icmp eq i32 %468, 0
-  br i1 %.not800, label %488, label %497
+  %.not791 = icmp eq i32 %468, 0
+  br i1 %.not791, label %488, label %497
 
-php_xml_check_string_method_arg.exit892:          ; preds = %464
+php_xml_check_string_method_arg.exit883:          ; preds = %464
   %469 = load ptr, ptr %447, align 8
   %470 = getelementptr inbounds i8, ptr %469, i64 8
   %471 = load ptr, ptr %470, align 8
@@ -5749,10 +5749,10 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef nonnull %472, ptr noundef nonnull %473) #16
   %474 = load i32, ptr %406, align 4
   %475 = and i32 %474, 64
-  %.not864 = icmp eq i32 %475, 0
-  br i1 %.not864, label %476, label %485
+  %.not855 = icmp eq i32 %475, 0
+  br i1 %.not855, label %476, label %485
 
-476:                                              ; preds = %php_xml_check_string_method_arg.exit892
+476:                                              ; preds = %php_xml_check_string_method_arg.exit883
   %477 = load i32, ptr %405, align 4
   %478 = icmp ne i32 %477, 0
   call void @llvm.assume(i1 %478)
@@ -5763,8 +5763,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
 
 481:                                              ; preds = %476
   %482 = and i32 %474, 128
-  %.not865 = icmp eq i32 %482, 0
-  br i1 %.not865, label %484, label %483
+  %.not856 = icmp eq i32 %482, 0
+  br i1 %.not856, label %484, label %483
 
 483:                                              ; preds = %481
   call void @free(ptr noundef nonnull %405) #16
@@ -5774,7 +5774,7 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   call void @_efree(ptr noundef nonnull %405) #16
   br label %485
 
-485:                                              ; preds = %php_xml_check_string_method_arg.exit892, %483, %484, %476
+485:                                              ; preds = %php_xml_check_string_method_arg.exit883, %483, %484, %476
   %486 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %487 = icmp ne ptr %486, null
   call void @llvm.assume(i1 %487)
@@ -5791,8 +5791,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
 
 493:                                              ; preds = %488
   %494 = and i32 %467, 128
-  %.not801 = icmp eq i32 %494, 0
-  br i1 %.not801, label %496, label %495
+  %.not792 = icmp eq i32 %494, 0
+  br i1 %.not792, label %496, label %495
 
 495:                                              ; preds = %493
   call void @free(ptr noundef nonnull %405) #16
@@ -5819,8 +5819,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
 
 505:                                              ; preds = %500, %497
   %506 = load ptr, ptr %395, align 8
-  %.not802 = icmp eq ptr %506, null
-  br i1 %.not802, label %510, label %507
+  %.not793 = icmp eq ptr %506, null
+  br i1 %.not793, label %510, label %507
 
 507:                                              ; preds = %505
   %508 = load i32, ptr %506, align 4
@@ -5830,8 +5830,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
 
 510:                                              ; preds = %507, %505
   %511 = load ptr, ptr %429, align 8
-  %.not803 = icmp eq ptr %511, null
-  br i1 %.not803, label %515, label %512
+  %.not794 = icmp eq ptr %511, null
+  br i1 %.not794, label %515, label %512
 
 512:                                              ; preds = %510
   %513 = load i32, ptr %511, align 4
@@ -5842,8 +5842,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
 515:                                              ; preds = %510, %512, %399, %394, %391
   %516 = getelementptr inbounds i8, ptr %15, i64 -320
   %517 = load ptr, ptr %516, align 8
-  %.not804 = icmp eq ptr %517, null
-  br i1 %.not804, label %639, label %518
+  %.not795 = icmp eq ptr %517, null
+  br i1 %.not795, label %639, label %518
 
 518:                                              ; preds = %515
   %519 = getelementptr inbounds i8, ptr %15, i64 -296
@@ -5864,24 +5864,24 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   %530 = getelementptr inbounds i8, ptr %529, i64 4
   %531 = load i32, ptr %530, align 4
   %532 = and i32 %531, 64
-  %.not805 = icmp eq i32 %532, 0
-  br i1 %.not805, label %533, label %536
+  %.not796 = icmp eq i32 %532, 0
+  br i1 %.not796, label %533, label %536
 
 533:                                              ; preds = %527
   %534 = load i32, ptr %529, align 4
   %535 = add i32 %534, 1
   store i32 %535, ptr %529, align 4
-  %.pre952 = load ptr, ptr %516, align 8
-  %.pre953 = load ptr, ptr %519, align 8
+  %.pre943 = load ptr, ptr %516, align 8
+  %.pre944 = load ptr, ptr %519, align 8
   br label %536
 
 536:                                              ; preds = %533, %527
-  %537 = phi ptr [ %.pre953, %533 ], [ %520, %527 ]
-  %538 = phi ptr [ %.pre952, %533 ], [ %517, %527 ]
+  %537 = phi ptr [ %.pre944, %533 ], [ %520, %527 ]
+  %538 = phi ptr [ %.pre943, %533 ], [ %517, %527 ]
   %539 = icmp ne ptr %538, null
   call void @llvm.assume(i1 %539)
-  %.not806 = icmp eq ptr %537, null
-  br i1 %.not806, label %552, label %540
+  %.not797 = icmp eq ptr %537, null
+  br i1 %.not797, label %552, label %540
 
 540:                                              ; preds = %536
   %541 = load i32, ptr %537, align 4
@@ -5911,8 +5911,8 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %516) #16
   %553 = getelementptr inbounds i8, ptr %15, i64 -288
   %554 = load ptr, ptr %553, align 8
-  %.not807 = icmp eq ptr %554, null
-  br i1 %.not807, label %567, label %555
+  %.not798 = icmp eq ptr %554, null
+  br i1 %.not798, label %567, label %555
 
 555:                                              ; preds = %552
   %556 = load i32, ptr %554, align 4
@@ -5944,27 +5944,27 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   %569 = load i64, ptr %568, align 8
   %570 = icmp ne i64 %569, 0
   call void @llvm.assume(i1 %570)
-  %.not.i893 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i893)
+  %.not.i884 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i884)
   %571 = getelementptr inbounds i8, ptr %17, i64 16
   %572 = load ptr, ptr %571, align 8
   %573 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %529, i1 noundef zeroext false) #16
   %574 = getelementptr inbounds i8, ptr %572, i64 64
   %575 = call ptr @zend_hash_find(ptr noundef nonnull %574, ptr noundef %573) #16
-  %.not41.i894 = icmp eq ptr %575, null
-  br i1 %.not41.i894, label %578, label %576
+  %.not41.i885 = icmp eq ptr %575, null
+  br i1 %.not41.i885, label %578, label %576
 
 576:                                              ; preds = %567
   %577 = load ptr, ptr %575, align 8, !nonnull !4, !noundef !4
   br label %578
 
 578:                                              ; preds = %576, %567
-  %.0.i895 = phi ptr [ %577, %576 ], [ null, %567 ]
+  %.0.i886 = phi ptr [ %577, %576 ], [ null, %567 ]
   %579 = getelementptr inbounds i8, ptr %573, i64 4
   %580 = load i32, ptr %579, align 4
   %581 = and i32 %580, 64
-  %.not42.i896 = icmp eq i32 %581, 0
-  br i1 %.not42.i896, label %582, label %588
+  %.not42.i887 = icmp eq i32 %581, 0
+  br i1 %.not42.i887, label %582, label %588
 
 582:                                              ; preds = %578
   %583 = load i32, ptr %573, align 4
@@ -5980,21 +5980,21 @@ php_xml_check_string_method_arg.exit892:          ; preds = %464
   br label %588
 
 588:                                              ; preds = %587, %582, %578
-  %.not43.i897 = icmp eq ptr %.0.i895, null
-  br i1 %.not43.i897, label %php_xml_check_string_method_arg.exit899, label %589
+  %.not43.i888 = icmp eq ptr %.0.i886, null
+  br i1 %.not43.i888, label %php_xml_check_string_method_arg.exit890, label %589
 
 589:                                              ; preds = %588
-  store ptr %.0.i895, ptr %516, align 8
+  store ptr %.0.i886, ptr %516, align 8
   store ptr null, ptr %524, align 8
   %590 = getelementptr inbounds i8, ptr %15, i64 -304
   store ptr %572, ptr %590, align 8
   store ptr %17, ptr %519, align 8
   %591 = load i32, ptr %530, align 4
   %592 = and i32 %591, 64
-  %.not808 = icmp eq i32 %592, 0
-  br i1 %.not808, label %612, label %621
+  %.not799 = icmp eq i32 %592, 0
+  br i1 %.not799, label %612, label %621
 
-php_xml_check_string_method_arg.exit899:          ; preds = %588
+php_xml_check_string_method_arg.exit890:          ; preds = %588
   %593 = load ptr, ptr %571, align 8
   %594 = getelementptr inbounds i8, ptr %593, i64 8
   %595 = load ptr, ptr %594, align 8
@@ -6003,10 +6003,10 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef nonnull %596, ptr noundef nonnull %597) #16
   %598 = load i32, ptr %530, align 4
   %599 = and i32 %598, 64
-  %.not862 = icmp eq i32 %599, 0
-  br i1 %.not862, label %600, label %609
+  %.not853 = icmp eq i32 %599, 0
+  br i1 %.not853, label %600, label %609
 
-600:                                              ; preds = %php_xml_check_string_method_arg.exit899
+600:                                              ; preds = %php_xml_check_string_method_arg.exit890
   %601 = load i32, ptr %529, align 4
   %602 = icmp ne i32 %601, 0
   call void @llvm.assume(i1 %602)
@@ -6017,8 +6017,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
 
 605:                                              ; preds = %600
   %606 = and i32 %598, 128
-  %.not863 = icmp eq i32 %606, 0
-  br i1 %.not863, label %608, label %607
+  %.not854 = icmp eq i32 %606, 0
+  br i1 %.not854, label %608, label %607
 
 607:                                              ; preds = %605
   call void @free(ptr noundef nonnull %529) #16
@@ -6028,7 +6028,7 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   call void @_efree(ptr noundef nonnull %529) #16
   br label %609
 
-609:                                              ; preds = %php_xml_check_string_method_arg.exit899, %607, %608, %600
+609:                                              ; preds = %php_xml_check_string_method_arg.exit890, %607, %608, %600
   %610 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %611 = icmp ne ptr %610, null
   call void @llvm.assume(i1 %611)
@@ -6045,8 +6045,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
 
 617:                                              ; preds = %612
   %618 = and i32 %591, 128
-  %.not809 = icmp eq i32 %618, 0
-  br i1 %.not809, label %620, label %619
+  %.not800 = icmp eq i32 %618, 0
+  br i1 %.not800, label %620, label %619
 
 619:                                              ; preds = %617
   call void @free(ptr noundef nonnull %529) #16
@@ -6073,8 +6073,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
 
 629:                                              ; preds = %624, %621
   %630 = load ptr, ptr %519, align 8
-  %.not810 = icmp eq ptr %630, null
-  br i1 %.not810, label %634, label %631
+  %.not801 = icmp eq ptr %630, null
+  br i1 %.not801, label %634, label %631
 
 631:                                              ; preds = %629
   %632 = load i32, ptr %630, align 4
@@ -6084,8 +6084,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
 
 634:                                              ; preds = %631, %629
   %635 = load ptr, ptr %553, align 8
-  %.not811 = icmp eq ptr %635, null
-  br i1 %.not811, label %639, label %636
+  %.not802 = icmp eq ptr %635, null
+  br i1 %.not802, label %639, label %636
 
 636:                                              ; preds = %634
   %637 = load i32, ptr %635, align 4
@@ -6096,8 +6096,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
 639:                                              ; preds = %634, %636, %523, %518, %515
   %640 = getelementptr inbounds i8, ptr %15, i64 -280
   %641 = load ptr, ptr %640, align 8
-  %.not812 = icmp eq ptr %641, null
-  br i1 %.not812, label %763, label %642
+  %.not803 = icmp eq ptr %641, null
+  br i1 %.not803, label %763, label %642
 
 642:                                              ; preds = %639
   %643 = getelementptr inbounds i8, ptr %15, i64 -256
@@ -6118,24 +6118,24 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   %654 = getelementptr inbounds i8, ptr %653, i64 4
   %655 = load i32, ptr %654, align 4
   %656 = and i32 %655, 64
-  %.not813 = icmp eq i32 %656, 0
-  br i1 %.not813, label %657, label %660
+  %.not804 = icmp eq i32 %656, 0
+  br i1 %.not804, label %657, label %660
 
 657:                                              ; preds = %651
   %658 = load i32, ptr %653, align 4
   %659 = add i32 %658, 1
   store i32 %659, ptr %653, align 4
-  %.pre954 = load ptr, ptr %640, align 8
-  %.pre955 = load ptr, ptr %643, align 8
+  %.pre945 = load ptr, ptr %640, align 8
+  %.pre946 = load ptr, ptr %643, align 8
   br label %660
 
 660:                                              ; preds = %657, %651
-  %661 = phi ptr [ %.pre955, %657 ], [ %644, %651 ]
-  %662 = phi ptr [ %.pre954, %657 ], [ %641, %651 ]
+  %661 = phi ptr [ %.pre946, %657 ], [ %644, %651 ]
+  %662 = phi ptr [ %.pre945, %657 ], [ %641, %651 ]
   %663 = icmp ne ptr %662, null
   call void @llvm.assume(i1 %663)
-  %.not814 = icmp eq ptr %661, null
-  br i1 %.not814, label %676, label %664
+  %.not805 = icmp eq ptr %661, null
+  br i1 %.not805, label %676, label %664
 
 664:                                              ; preds = %660
   %665 = load i32, ptr %661, align 4
@@ -6165,8 +6165,8 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %640) #16
   %677 = getelementptr inbounds i8, ptr %15, i64 -248
   %678 = load ptr, ptr %677, align 8
-  %.not815 = icmp eq ptr %678, null
-  br i1 %.not815, label %691, label %679
+  %.not806 = icmp eq ptr %678, null
+  br i1 %.not806, label %691, label %679
 
 679:                                              ; preds = %676
   %680 = load i32, ptr %678, align 4
@@ -6198,27 +6198,27 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   %693 = load i64, ptr %692, align 8
   %694 = icmp ne i64 %693, 0
   call void @llvm.assume(i1 %694)
-  %.not.i900 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i900)
+  %.not.i891 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i891)
   %695 = getelementptr inbounds i8, ptr %17, i64 16
   %696 = load ptr, ptr %695, align 8
   %697 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %653, i1 noundef zeroext false) #16
   %698 = getelementptr inbounds i8, ptr %696, i64 64
   %699 = call ptr @zend_hash_find(ptr noundef nonnull %698, ptr noundef %697) #16
-  %.not41.i901 = icmp eq ptr %699, null
-  br i1 %.not41.i901, label %702, label %700
+  %.not41.i892 = icmp eq ptr %699, null
+  br i1 %.not41.i892, label %702, label %700
 
 700:                                              ; preds = %691
   %701 = load ptr, ptr %699, align 8, !nonnull !4, !noundef !4
   br label %702
 
 702:                                              ; preds = %700, %691
-  %.0.i902 = phi ptr [ %701, %700 ], [ null, %691 ]
+  %.0.i893 = phi ptr [ %701, %700 ], [ null, %691 ]
   %703 = getelementptr inbounds i8, ptr %697, i64 4
   %704 = load i32, ptr %703, align 4
   %705 = and i32 %704, 64
-  %.not42.i903 = icmp eq i32 %705, 0
-  br i1 %.not42.i903, label %706, label %712
+  %.not42.i894 = icmp eq i32 %705, 0
+  br i1 %.not42.i894, label %706, label %712
 
 706:                                              ; preds = %702
   %707 = load i32, ptr %697, align 4
@@ -6234,21 +6234,21 @@ php_xml_check_string_method_arg.exit899:          ; preds = %588
   br label %712
 
 712:                                              ; preds = %711, %706, %702
-  %.not43.i904 = icmp eq ptr %.0.i902, null
-  br i1 %.not43.i904, label %php_xml_check_string_method_arg.exit906, label %713
+  %.not43.i895 = icmp eq ptr %.0.i893, null
+  br i1 %.not43.i895, label %php_xml_check_string_method_arg.exit897, label %713
 
 713:                                              ; preds = %712
-  store ptr %.0.i902, ptr %640, align 8
+  store ptr %.0.i893, ptr %640, align 8
   store ptr null, ptr %648, align 8
   %714 = getelementptr inbounds i8, ptr %15, i64 -264
   store ptr %696, ptr %714, align 8
   store ptr %17, ptr %643, align 8
   %715 = load i32, ptr %654, align 4
   %716 = and i32 %715, 64
-  %.not816 = icmp eq i32 %716, 0
-  br i1 %.not816, label %736, label %745
+  %.not807 = icmp eq i32 %716, 0
+  br i1 %.not807, label %736, label %745
 
-php_xml_check_string_method_arg.exit906:          ; preds = %712
+php_xml_check_string_method_arg.exit897:          ; preds = %712
   %717 = load ptr, ptr %695, align 8
   %718 = getelementptr inbounds i8, ptr %717, i64 8
   %719 = load ptr, ptr %718, align 8
@@ -6257,10 +6257,10 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %720, ptr noundef nonnull %721) #16
   %722 = load i32, ptr %654, align 4
   %723 = and i32 %722, 64
-  %.not860 = icmp eq i32 %723, 0
-  br i1 %.not860, label %724, label %733
+  %.not851 = icmp eq i32 %723, 0
+  br i1 %.not851, label %724, label %733
 
-724:                                              ; preds = %php_xml_check_string_method_arg.exit906
+724:                                              ; preds = %php_xml_check_string_method_arg.exit897
   %725 = load i32, ptr %653, align 4
   %726 = icmp ne i32 %725, 0
   call void @llvm.assume(i1 %726)
@@ -6271,8 +6271,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
 
 729:                                              ; preds = %724
   %730 = and i32 %722, 128
-  %.not861 = icmp eq i32 %730, 0
-  br i1 %.not861, label %732, label %731
+  %.not852 = icmp eq i32 %730, 0
+  br i1 %.not852, label %732, label %731
 
 731:                                              ; preds = %729
   call void @free(ptr noundef nonnull %653) #16
@@ -6282,7 +6282,7 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   call void @_efree(ptr noundef nonnull %653) #16
   br label %733
 
-733:                                              ; preds = %php_xml_check_string_method_arg.exit906, %731, %732, %724
+733:                                              ; preds = %php_xml_check_string_method_arg.exit897, %731, %732, %724
   %734 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %735 = icmp ne ptr %734, null
   call void @llvm.assume(i1 %735)
@@ -6299,8 +6299,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
 
 741:                                              ; preds = %736
   %742 = and i32 %715, 128
-  %.not817 = icmp eq i32 %742, 0
-  br i1 %.not817, label %744, label %743
+  %.not808 = icmp eq i32 %742, 0
+  br i1 %.not808, label %744, label %743
 
 743:                                              ; preds = %741
   call void @free(ptr noundef nonnull %653) #16
@@ -6327,8 +6327,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
 
 753:                                              ; preds = %748, %745
   %754 = load ptr, ptr %643, align 8
-  %.not818 = icmp eq ptr %754, null
-  br i1 %.not818, label %758, label %755
+  %.not809 = icmp eq ptr %754, null
+  br i1 %.not809, label %758, label %755
 
 755:                                              ; preds = %753
   %756 = load i32, ptr %754, align 4
@@ -6338,8 +6338,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
 
 758:                                              ; preds = %755, %753
   %759 = load ptr, ptr %677, align 8
-  %.not819 = icmp eq ptr %759, null
-  br i1 %.not819, label %763, label %760
+  %.not810 = icmp eq ptr %759, null
+  br i1 %.not810, label %763, label %760
 
 760:                                              ; preds = %758
   %761 = load i32, ptr %759, align 4
@@ -6350,8 +6350,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
 763:                                              ; preds = %758, %760, %647, %642, %639
   %764 = getelementptr inbounds i8, ptr %15, i64 -240
   %765 = load ptr, ptr %764, align 8
-  %.not820 = icmp eq ptr %765, null
-  br i1 %.not820, label %887, label %766
+  %.not811 = icmp eq ptr %765, null
+  br i1 %.not811, label %887, label %766
 
 766:                                              ; preds = %763
   %767 = getelementptr inbounds i8, ptr %15, i64 -216
@@ -6372,24 +6372,24 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   %778 = getelementptr inbounds i8, ptr %777, i64 4
   %779 = load i32, ptr %778, align 4
   %780 = and i32 %779, 64
-  %.not821 = icmp eq i32 %780, 0
-  br i1 %.not821, label %781, label %784
+  %.not812 = icmp eq i32 %780, 0
+  br i1 %.not812, label %781, label %784
 
 781:                                              ; preds = %775
   %782 = load i32, ptr %777, align 4
   %783 = add i32 %782, 1
   store i32 %783, ptr %777, align 4
-  %.pre956 = load ptr, ptr %764, align 8
-  %.pre957 = load ptr, ptr %767, align 8
+  %.pre947 = load ptr, ptr %764, align 8
+  %.pre948 = load ptr, ptr %767, align 8
   br label %784
 
 784:                                              ; preds = %781, %775
-  %785 = phi ptr [ %.pre957, %781 ], [ %768, %775 ]
-  %786 = phi ptr [ %.pre956, %781 ], [ %765, %775 ]
+  %785 = phi ptr [ %.pre948, %781 ], [ %768, %775 ]
+  %786 = phi ptr [ %.pre947, %781 ], [ %765, %775 ]
   %787 = icmp ne ptr %786, null
   call void @llvm.assume(i1 %787)
-  %.not822 = icmp eq ptr %785, null
-  br i1 %.not822, label %800, label %788
+  %.not813 = icmp eq ptr %785, null
+  br i1 %.not813, label %800, label %788
 
 788:                                              ; preds = %784
   %789 = load i32, ptr %785, align 4
@@ -6419,8 +6419,8 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %764) #16
   %801 = getelementptr inbounds i8, ptr %15, i64 -208
   %802 = load ptr, ptr %801, align 8
-  %.not823 = icmp eq ptr %802, null
-  br i1 %.not823, label %815, label %803
+  %.not814 = icmp eq ptr %802, null
+  br i1 %.not814, label %815, label %803
 
 803:                                              ; preds = %800
   %804 = load i32, ptr %802, align 4
@@ -6452,27 +6452,27 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   %817 = load i64, ptr %816, align 8
   %818 = icmp ne i64 %817, 0
   call void @llvm.assume(i1 %818)
-  %.not.i907 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i907)
+  %.not.i898 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i898)
   %819 = getelementptr inbounds i8, ptr %17, i64 16
   %820 = load ptr, ptr %819, align 8
   %821 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %777, i1 noundef zeroext false) #16
   %822 = getelementptr inbounds i8, ptr %820, i64 64
   %823 = call ptr @zend_hash_find(ptr noundef nonnull %822, ptr noundef %821) #16
-  %.not41.i908 = icmp eq ptr %823, null
-  br i1 %.not41.i908, label %826, label %824
+  %.not41.i899 = icmp eq ptr %823, null
+  br i1 %.not41.i899, label %826, label %824
 
 824:                                              ; preds = %815
   %825 = load ptr, ptr %823, align 8, !nonnull !4, !noundef !4
   br label %826
 
 826:                                              ; preds = %824, %815
-  %.0.i909 = phi ptr [ %825, %824 ], [ null, %815 ]
+  %.0.i900 = phi ptr [ %825, %824 ], [ null, %815 ]
   %827 = getelementptr inbounds i8, ptr %821, i64 4
   %828 = load i32, ptr %827, align 4
   %829 = and i32 %828, 64
-  %.not42.i910 = icmp eq i32 %829, 0
-  br i1 %.not42.i910, label %830, label %836
+  %.not42.i901 = icmp eq i32 %829, 0
+  br i1 %.not42.i901, label %830, label %836
 
 830:                                              ; preds = %826
   %831 = load i32, ptr %821, align 4
@@ -6488,21 +6488,21 @@ php_xml_check_string_method_arg.exit906:          ; preds = %712
   br label %836
 
 836:                                              ; preds = %835, %830, %826
-  %.not43.i911 = icmp eq ptr %.0.i909, null
-  br i1 %.not43.i911, label %php_xml_check_string_method_arg.exit913, label %837
+  %.not43.i902 = icmp eq ptr %.0.i900, null
+  br i1 %.not43.i902, label %php_xml_check_string_method_arg.exit904, label %837
 
 837:                                              ; preds = %836
-  store ptr %.0.i909, ptr %764, align 8
+  store ptr %.0.i900, ptr %764, align 8
   store ptr null, ptr %772, align 8
   %838 = getelementptr inbounds i8, ptr %15, i64 -224
   store ptr %820, ptr %838, align 8
   store ptr %17, ptr %767, align 8
   %839 = load i32, ptr %778, align 4
   %840 = and i32 %839, 64
-  %.not824 = icmp eq i32 %840, 0
-  br i1 %.not824, label %860, label %869
+  %.not815 = icmp eq i32 %840, 0
+  br i1 %.not815, label %860, label %869
 
-php_xml_check_string_method_arg.exit913:          ; preds = %836
+php_xml_check_string_method_arg.exit904:          ; preds = %836
   %841 = load ptr, ptr %819, align 8
   %842 = getelementptr inbounds i8, ptr %841, i64 8
   %843 = load ptr, ptr %842, align 8
@@ -6511,10 +6511,10 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.27, ptr noundef nonnull %844, ptr noundef nonnull %845) #16
   %846 = load i32, ptr %778, align 4
   %847 = and i32 %846, 64
-  %.not858 = icmp eq i32 %847, 0
-  br i1 %.not858, label %848, label %857
+  %.not849 = icmp eq i32 %847, 0
+  br i1 %.not849, label %848, label %857
 
-848:                                              ; preds = %php_xml_check_string_method_arg.exit913
+848:                                              ; preds = %php_xml_check_string_method_arg.exit904
   %849 = load i32, ptr %777, align 4
   %850 = icmp ne i32 %849, 0
   call void @llvm.assume(i1 %850)
@@ -6525,8 +6525,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
 
 853:                                              ; preds = %848
   %854 = and i32 %846, 128
-  %.not859 = icmp eq i32 %854, 0
-  br i1 %.not859, label %856, label %855
+  %.not850 = icmp eq i32 %854, 0
+  br i1 %.not850, label %856, label %855
 
 855:                                              ; preds = %853
   call void @free(ptr noundef nonnull %777) #16
@@ -6536,7 +6536,7 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   call void @_efree(ptr noundef nonnull %777) #16
   br label %857
 
-857:                                              ; preds = %php_xml_check_string_method_arg.exit913, %855, %856, %848
+857:                                              ; preds = %php_xml_check_string_method_arg.exit904, %855, %856, %848
   %858 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %859 = icmp ne ptr %858, null
   call void @llvm.assume(i1 %859)
@@ -6553,8 +6553,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
 
 865:                                              ; preds = %860
   %866 = and i32 %839, 128
-  %.not825 = icmp eq i32 %866, 0
-  br i1 %.not825, label %868, label %867
+  %.not816 = icmp eq i32 %866, 0
+  br i1 %.not816, label %868, label %867
 
 867:                                              ; preds = %865
   call void @free(ptr noundef nonnull %777) #16
@@ -6581,8 +6581,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
 
 877:                                              ; preds = %872, %869
   %878 = load ptr, ptr %767, align 8
-  %.not826 = icmp eq ptr %878, null
-  br i1 %.not826, label %882, label %879
+  %.not817 = icmp eq ptr %878, null
+  br i1 %.not817, label %882, label %879
 
 879:                                              ; preds = %877
   %880 = load i32, ptr %878, align 4
@@ -6592,8 +6592,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
 
 882:                                              ; preds = %879, %877
   %883 = load ptr, ptr %801, align 8
-  %.not827 = icmp eq ptr %883, null
-  br i1 %.not827, label %887, label %884
+  %.not818 = icmp eq ptr %883, null
+  br i1 %.not818, label %887, label %884
 
 884:                                              ; preds = %882
   %885 = load i32, ptr %883, align 4
@@ -6604,8 +6604,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
 887:                                              ; preds = %882, %884, %771, %766, %763
   %888 = getelementptr inbounds i8, ptr %15, i64 -200
   %889 = load ptr, ptr %888, align 8
-  %.not828 = icmp eq ptr %889, null
-  br i1 %.not828, label %1011, label %890
+  %.not819 = icmp eq ptr %889, null
+  br i1 %.not819, label %1011, label %890
 
 890:                                              ; preds = %887
   %891 = getelementptr inbounds i8, ptr %15, i64 -176
@@ -6626,24 +6626,24 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   %902 = getelementptr inbounds i8, ptr %901, i64 4
   %903 = load i32, ptr %902, align 4
   %904 = and i32 %903, 64
-  %.not829 = icmp eq i32 %904, 0
-  br i1 %.not829, label %905, label %908
+  %.not820 = icmp eq i32 %904, 0
+  br i1 %.not820, label %905, label %908
 
 905:                                              ; preds = %899
   %906 = load i32, ptr %901, align 4
   %907 = add i32 %906, 1
   store i32 %907, ptr %901, align 4
-  %.pre958 = load ptr, ptr %888, align 8
-  %.pre959 = load ptr, ptr %891, align 8
+  %.pre949 = load ptr, ptr %888, align 8
+  %.pre950 = load ptr, ptr %891, align 8
   br label %908
 
 908:                                              ; preds = %905, %899
-  %909 = phi ptr [ %.pre959, %905 ], [ %892, %899 ]
-  %910 = phi ptr [ %.pre958, %905 ], [ %889, %899 ]
+  %909 = phi ptr [ %.pre950, %905 ], [ %892, %899 ]
+  %910 = phi ptr [ %.pre949, %905 ], [ %889, %899 ]
   %911 = icmp ne ptr %910, null
   call void @llvm.assume(i1 %911)
-  %.not830 = icmp eq ptr %909, null
-  br i1 %.not830, label %924, label %912
+  %.not821 = icmp eq ptr %909, null
+  br i1 %.not821, label %924, label %912
 
 912:                                              ; preds = %908
   %913 = load i32, ptr %909, align 4
@@ -6673,8 +6673,8 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %888) #16
   %925 = getelementptr inbounds i8, ptr %15, i64 -168
   %926 = load ptr, ptr %925, align 8
-  %.not831 = icmp eq ptr %926, null
-  br i1 %.not831, label %939, label %927
+  %.not822 = icmp eq ptr %926, null
+  br i1 %.not822, label %939, label %927
 
 927:                                              ; preds = %924
   %928 = load i32, ptr %926, align 4
@@ -6706,27 +6706,27 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   %941 = load i64, ptr %940, align 8
   %942 = icmp ne i64 %941, 0
   call void @llvm.assume(i1 %942)
-  %.not.i914 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i914)
+  %.not.i905 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i905)
   %943 = getelementptr inbounds i8, ptr %17, i64 16
   %944 = load ptr, ptr %943, align 8
   %945 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %901, i1 noundef zeroext false) #16
   %946 = getelementptr inbounds i8, ptr %944, i64 64
   %947 = call ptr @zend_hash_find(ptr noundef nonnull %946, ptr noundef %945) #16
-  %.not41.i915 = icmp eq ptr %947, null
-  br i1 %.not41.i915, label %950, label %948
+  %.not41.i906 = icmp eq ptr %947, null
+  br i1 %.not41.i906, label %950, label %948
 
 948:                                              ; preds = %939
   %949 = load ptr, ptr %947, align 8, !nonnull !4, !noundef !4
   br label %950
 
 950:                                              ; preds = %948, %939
-  %.0.i916 = phi ptr [ %949, %948 ], [ null, %939 ]
+  %.0.i907 = phi ptr [ %949, %948 ], [ null, %939 ]
   %951 = getelementptr inbounds i8, ptr %945, i64 4
   %952 = load i32, ptr %951, align 4
   %953 = and i32 %952, 64
-  %.not42.i917 = icmp eq i32 %953, 0
-  br i1 %.not42.i917, label %954, label %960
+  %.not42.i908 = icmp eq i32 %953, 0
+  br i1 %.not42.i908, label %954, label %960
 
 954:                                              ; preds = %950
   %955 = load i32, ptr %945, align 4
@@ -6742,21 +6742,21 @@ php_xml_check_string_method_arg.exit913:          ; preds = %836
   br label %960
 
 960:                                              ; preds = %959, %954, %950
-  %.not43.i918 = icmp eq ptr %.0.i916, null
-  br i1 %.not43.i918, label %php_xml_check_string_method_arg.exit920, label %961
+  %.not43.i909 = icmp eq ptr %.0.i907, null
+  br i1 %.not43.i909, label %php_xml_check_string_method_arg.exit911, label %961
 
 961:                                              ; preds = %960
-  store ptr %.0.i916, ptr %888, align 8
+  store ptr %.0.i907, ptr %888, align 8
   store ptr null, ptr %896, align 8
   %962 = getelementptr inbounds i8, ptr %15, i64 -184
   store ptr %944, ptr %962, align 8
   store ptr %17, ptr %891, align 8
   %963 = load i32, ptr %902, align 4
   %964 = and i32 %963, 64
-  %.not832 = icmp eq i32 %964, 0
-  br i1 %.not832, label %984, label %993
+  %.not823 = icmp eq i32 %964, 0
+  br i1 %.not823, label %984, label %993
 
-php_xml_check_string_method_arg.exit920:          ; preds = %960
+php_xml_check_string_method_arg.exit911:          ; preds = %960
   %965 = load ptr, ptr %943, align 8
   %966 = getelementptr inbounds i8, ptr %965, i64 8
   %967 = load ptr, ptr %966, align 8
@@ -6765,10 +6765,10 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.28, ptr noundef nonnull %968, ptr noundef nonnull %969) #16
   %970 = load i32, ptr %902, align 4
   %971 = and i32 %970, 64
-  %.not856 = icmp eq i32 %971, 0
-  br i1 %.not856, label %972, label %981
+  %.not847 = icmp eq i32 %971, 0
+  br i1 %.not847, label %972, label %981
 
-972:                                              ; preds = %php_xml_check_string_method_arg.exit920
+972:                                              ; preds = %php_xml_check_string_method_arg.exit911
   %973 = load i32, ptr %901, align 4
   %974 = icmp ne i32 %973, 0
   call void @llvm.assume(i1 %974)
@@ -6779,8 +6779,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
 
 977:                                              ; preds = %972
   %978 = and i32 %970, 128
-  %.not857 = icmp eq i32 %978, 0
-  br i1 %.not857, label %980, label %979
+  %.not848 = icmp eq i32 %978, 0
+  br i1 %.not848, label %980, label %979
 
 979:                                              ; preds = %977
   call void @free(ptr noundef nonnull %901) #16
@@ -6790,7 +6790,7 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   call void @_efree(ptr noundef nonnull %901) #16
   br label %981
 
-981:                                              ; preds = %php_xml_check_string_method_arg.exit920, %979, %980, %972
+981:                                              ; preds = %php_xml_check_string_method_arg.exit911, %979, %980, %972
   %982 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %983 = icmp ne ptr %982, null
   call void @llvm.assume(i1 %983)
@@ -6807,8 +6807,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
 
 989:                                              ; preds = %984
   %990 = and i32 %963, 128
-  %.not833 = icmp eq i32 %990, 0
-  br i1 %.not833, label %992, label %991
+  %.not824 = icmp eq i32 %990, 0
+  br i1 %.not824, label %992, label %991
 
 991:                                              ; preds = %989
   call void @free(ptr noundef nonnull %901) #16
@@ -6835,8 +6835,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
 
 1001:                                             ; preds = %996, %993
   %1002 = load ptr, ptr %891, align 8
-  %.not834 = icmp eq ptr %1002, null
-  br i1 %.not834, label %1006, label %1003
+  %.not825 = icmp eq ptr %1002, null
+  br i1 %.not825, label %1006, label %1003
 
 1003:                                             ; preds = %1001
   %1004 = load i32, ptr %1002, align 4
@@ -6846,8 +6846,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
 
 1006:                                             ; preds = %1003, %1001
   %1007 = load ptr, ptr %925, align 8
-  %.not835 = icmp eq ptr %1007, null
-  br i1 %.not835, label %1011, label %1008
+  %.not826 = icmp eq ptr %1007, null
+  br i1 %.not826, label %1011, label %1008
 
 1008:                                             ; preds = %1006
   %1009 = load i32, ptr %1007, align 4
@@ -6858,8 +6858,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
 1011:                                             ; preds = %1006, %1008, %895, %890, %887
   %1012 = getelementptr inbounds i8, ptr %15, i64 -160
   %1013 = load ptr, ptr %1012, align 8
-  %.not836 = icmp eq ptr %1013, null
-  br i1 %.not836, label %1135, label %1014
+  %.not827 = icmp eq ptr %1013, null
+  br i1 %.not827, label %1135, label %1014
 
 1014:                                             ; preds = %1011
   %1015 = getelementptr inbounds i8, ptr %15, i64 -136
@@ -6880,24 +6880,24 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   %1026 = getelementptr inbounds i8, ptr %1025, i64 4
   %1027 = load i32, ptr %1026, align 4
   %1028 = and i32 %1027, 64
-  %.not837 = icmp eq i32 %1028, 0
-  br i1 %.not837, label %1029, label %1032
+  %.not828 = icmp eq i32 %1028, 0
+  br i1 %.not828, label %1029, label %1032
 
 1029:                                             ; preds = %1023
   %1030 = load i32, ptr %1025, align 4
   %1031 = add i32 %1030, 1
   store i32 %1031, ptr %1025, align 4
-  %.pre960 = load ptr, ptr %1012, align 8
-  %.pre961 = load ptr, ptr %1015, align 8
+  %.pre951 = load ptr, ptr %1012, align 8
+  %.pre952 = load ptr, ptr %1015, align 8
   br label %1032
 
 1032:                                             ; preds = %1029, %1023
-  %1033 = phi ptr [ %.pre961, %1029 ], [ %1016, %1023 ]
-  %1034 = phi ptr [ %.pre960, %1029 ], [ %1013, %1023 ]
+  %1033 = phi ptr [ %.pre952, %1029 ], [ %1016, %1023 ]
+  %1034 = phi ptr [ %.pre951, %1029 ], [ %1013, %1023 ]
   %1035 = icmp ne ptr %1034, null
   call void @llvm.assume(i1 %1035)
-  %.not838 = icmp eq ptr %1033, null
-  br i1 %.not838, label %1048, label %1036
+  %.not829 = icmp eq ptr %1033, null
+  br i1 %.not829, label %1048, label %1036
 
 1036:                                             ; preds = %1032
   %1037 = load i32, ptr %1033, align 4
@@ -6927,8 +6927,8 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %1012) #16
   %1049 = getelementptr inbounds i8, ptr %15, i64 -128
   %1050 = load ptr, ptr %1049, align 8
-  %.not839 = icmp eq ptr %1050, null
-  br i1 %.not839, label %1063, label %1051
+  %.not830 = icmp eq ptr %1050, null
+  br i1 %.not830, label %1063, label %1051
 
 1051:                                             ; preds = %1048
   %1052 = load i32, ptr %1050, align 4
@@ -6960,27 +6960,27 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   %1065 = load i64, ptr %1064, align 8
   %1066 = icmp ne i64 %1065, 0
   call void @llvm.assume(i1 %1066)
-  %.not.i921 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i921)
+  %.not.i912 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i912)
   %1067 = getelementptr inbounds i8, ptr %17, i64 16
   %1068 = load ptr, ptr %1067, align 8
   %1069 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %1025, i1 noundef zeroext false) #16
   %1070 = getelementptr inbounds i8, ptr %1068, i64 64
   %1071 = call ptr @zend_hash_find(ptr noundef nonnull %1070, ptr noundef %1069) #16
-  %.not41.i922 = icmp eq ptr %1071, null
-  br i1 %.not41.i922, label %1074, label %1072
+  %.not41.i913 = icmp eq ptr %1071, null
+  br i1 %.not41.i913, label %1074, label %1072
 
 1072:                                             ; preds = %1063
   %1073 = load ptr, ptr %1071, align 8, !nonnull !4, !noundef !4
   br label %1074
 
 1074:                                             ; preds = %1072, %1063
-  %.0.i923 = phi ptr [ %1073, %1072 ], [ null, %1063 ]
+  %.0.i914 = phi ptr [ %1073, %1072 ], [ null, %1063 ]
   %1075 = getelementptr inbounds i8, ptr %1069, i64 4
   %1076 = load i32, ptr %1075, align 4
   %1077 = and i32 %1076, 64
-  %.not42.i924 = icmp eq i32 %1077, 0
-  br i1 %.not42.i924, label %1078, label %1084
+  %.not42.i915 = icmp eq i32 %1077, 0
+  br i1 %.not42.i915, label %1078, label %1084
 
 1078:                                             ; preds = %1074
   %1079 = load i32, ptr %1069, align 4
@@ -6996,21 +6996,21 @@ php_xml_check_string_method_arg.exit920:          ; preds = %960
   br label %1084
 
 1084:                                             ; preds = %1083, %1078, %1074
-  %.not43.i925 = icmp eq ptr %.0.i923, null
-  br i1 %.not43.i925, label %php_xml_check_string_method_arg.exit927, label %1085
+  %.not43.i916 = icmp eq ptr %.0.i914, null
+  br i1 %.not43.i916, label %php_xml_check_string_method_arg.exit918, label %1085
 
 1085:                                             ; preds = %1084
-  store ptr %.0.i923, ptr %1012, align 8
+  store ptr %.0.i914, ptr %1012, align 8
   store ptr null, ptr %1020, align 8
   %1086 = getelementptr inbounds i8, ptr %15, i64 -144
   store ptr %1068, ptr %1086, align 8
   store ptr %17, ptr %1015, align 8
   %1087 = load i32, ptr %1026, align 4
   %1088 = and i32 %1087, 64
-  %.not840 = icmp eq i32 %1088, 0
-  br i1 %.not840, label %1108, label %1117
+  %.not831 = icmp eq i32 %1088, 0
+  br i1 %.not831, label %1108, label %1117
 
-php_xml_check_string_method_arg.exit927:          ; preds = %1084
+php_xml_check_string_method_arg.exit918:          ; preds = %1084
   %1089 = load ptr, ptr %1067, align 8
   %1090 = getelementptr inbounds i8, ptr %1089, i64 8
   %1091 = load ptr, ptr %1090, align 8
@@ -7019,10 +7019,10 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull %1092, ptr noundef nonnull %1093) #16
   %1094 = load i32, ptr %1026, align 4
   %1095 = and i32 %1094, 64
-  %.not854 = icmp eq i32 %1095, 0
-  br i1 %.not854, label %1096, label %1105
+  %.not845 = icmp eq i32 %1095, 0
+  br i1 %.not845, label %1096, label %1105
 
-1096:                                             ; preds = %php_xml_check_string_method_arg.exit927
+1096:                                             ; preds = %php_xml_check_string_method_arg.exit918
   %1097 = load i32, ptr %1025, align 4
   %1098 = icmp ne i32 %1097, 0
   call void @llvm.assume(i1 %1098)
@@ -7033,8 +7033,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
 
 1101:                                             ; preds = %1096
   %1102 = and i32 %1094, 128
-  %.not855 = icmp eq i32 %1102, 0
-  br i1 %.not855, label %1104, label %1103
+  %.not846 = icmp eq i32 %1102, 0
+  br i1 %.not846, label %1104, label %1103
 
 1103:                                             ; preds = %1101
   call void @free(ptr noundef nonnull %1025) #16
@@ -7044,7 +7044,7 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   call void @_efree(ptr noundef nonnull %1025) #16
   br label %1105
 
-1105:                                             ; preds = %php_xml_check_string_method_arg.exit927, %1103, %1104, %1096
+1105:                                             ; preds = %php_xml_check_string_method_arg.exit918, %1103, %1104, %1096
   %1106 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %1107 = icmp ne ptr %1106, null
   call void @llvm.assume(i1 %1107)
@@ -7061,8 +7061,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
 
 1113:                                             ; preds = %1108
   %1114 = and i32 %1087, 128
-  %.not841 = icmp eq i32 %1114, 0
-  br i1 %.not841, label %1116, label %1115
+  %.not832 = icmp eq i32 %1114, 0
+  br i1 %.not832, label %1116, label %1115
 
 1115:                                             ; preds = %1113
   call void @free(ptr noundef nonnull %1025) #16
@@ -7089,8 +7089,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
 
 1125:                                             ; preds = %1120, %1117
   %1126 = load ptr, ptr %1015, align 8
-  %.not842 = icmp eq ptr %1126, null
-  br i1 %.not842, label %1130, label %1127
+  %.not833 = icmp eq ptr %1126, null
+  br i1 %.not833, label %1130, label %1127
 
 1127:                                             ; preds = %1125
   %1128 = load i32, ptr %1126, align 4
@@ -7100,8 +7100,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
 
 1130:                                             ; preds = %1127, %1125
   %1131 = load ptr, ptr %1049, align 8
-  %.not843 = icmp eq ptr %1131, null
-  br i1 %.not843, label %1135, label %1132
+  %.not834 = icmp eq ptr %1131, null
+  br i1 %.not834, label %1135, label %1132
 
 1132:                                             ; preds = %1130
   %1133 = load i32, ptr %1131, align 4
@@ -7112,8 +7112,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
 1135:                                             ; preds = %1130, %1132, %1019, %1014, %1011
   %1136 = getelementptr inbounds i8, ptr %15, i64 -120
   %1137 = load ptr, ptr %1136, align 8
-  %.not844 = icmp eq ptr %1137, null
-  br i1 %.not844, label %1258, label %1138
+  %.not835 = icmp eq ptr %1137, null
+  br i1 %.not835, label %1258, label %1138
 
 1138:                                             ; preds = %1135
   %1139 = getelementptr inbounds i8, ptr %15, i64 -96
@@ -7134,24 +7134,24 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   %1150 = getelementptr inbounds i8, ptr %1149, i64 4
   %1151 = load i32, ptr %1150, align 4
   %1152 = and i32 %1151, 64
-  %.not845 = icmp eq i32 %1152, 0
-  br i1 %.not845, label %1153, label %1156
+  %.not836 = icmp eq i32 %1152, 0
+  br i1 %.not836, label %1153, label %1156
 
 1153:                                             ; preds = %1147
   %1154 = load i32, ptr %1149, align 4
   %1155 = add i32 %1154, 1
   store i32 %1155, ptr %1149, align 4
-  %.pre962 = load ptr, ptr %1136, align 8
-  %.pre963 = load ptr, ptr %1139, align 8
+  %.pre953 = load ptr, ptr %1136, align 8
+  %.pre954 = load ptr, ptr %1139, align 8
   br label %1156
 
 1156:                                             ; preds = %1153, %1147
-  %1157 = phi ptr [ %.pre963, %1153 ], [ %1140, %1147 ]
-  %1158 = phi ptr [ %.pre962, %1153 ], [ %1137, %1147 ]
+  %1157 = phi ptr [ %.pre954, %1153 ], [ %1140, %1147 ]
+  %1158 = phi ptr [ %.pre953, %1153 ], [ %1137, %1147 ]
   %1159 = icmp ne ptr %1158, null
   call void @llvm.assume(i1 %1159)
-  %.not846 = icmp eq ptr %1157, null
-  br i1 %.not846, label %1172, label %1160
+  %.not837 = icmp eq ptr %1157, null
+  br i1 %.not837, label %1172, label %1160
 
 1160:                                             ; preds = %1156
   %1161 = load i32, ptr %1157, align 4
@@ -7181,8 +7181,8 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %1136) #16
   %1173 = getelementptr inbounds i8, ptr %15, i64 -88
   %1174 = load ptr, ptr %1173, align 8
-  %.not847 = icmp eq ptr %1174, null
-  br i1 %.not847, label %1187, label %1175
+  %.not838 = icmp eq ptr %1174, null
+  br i1 %.not838, label %1187, label %1175
 
 1175:                                             ; preds = %1172
   %1176 = load i32, ptr %1174, align 4
@@ -7214,27 +7214,27 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   %1189 = load i64, ptr %1188, align 8
   %1190 = icmp ne i64 %1189, 0
   call void @llvm.assume(i1 %1190)
-  %.not.i928 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i928)
+  %.not.i919 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %.not.i919)
   %1191 = getelementptr inbounds i8, ptr %17, i64 16
   %1192 = load ptr, ptr %1191, align 8
   %1193 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %1149, i1 noundef zeroext false) #16
   %1194 = getelementptr inbounds i8, ptr %1192, i64 64
   %1195 = call ptr @zend_hash_find(ptr noundef nonnull %1194, ptr noundef %1193) #16
-  %.not41.i929 = icmp eq ptr %1195, null
-  br i1 %.not41.i929, label %1198, label %1196
+  %.not41.i920 = icmp eq ptr %1195, null
+  br i1 %.not41.i920, label %1198, label %1196
 
 1196:                                             ; preds = %1187
   %1197 = load ptr, ptr %1195, align 8, !nonnull !4, !noundef !4
   br label %1198
 
 1198:                                             ; preds = %1196, %1187
-  %.0.i930 = phi ptr [ %1197, %1196 ], [ null, %1187 ]
+  %.0.i921 = phi ptr [ %1197, %1196 ], [ null, %1187 ]
   %1199 = getelementptr inbounds i8, ptr %1193, i64 4
   %1200 = load i32, ptr %1199, align 4
   %1201 = and i32 %1200, 64
-  %.not42.i931 = icmp eq i32 %1201, 0
-  br i1 %.not42.i931, label %1202, label %1208
+  %.not42.i922 = icmp eq i32 %1201, 0
+  br i1 %.not42.i922, label %1202, label %1208
 
 1202:                                             ; preds = %1198
   %1203 = load i32, ptr %1193, align 4
@@ -7250,21 +7250,21 @@ php_xml_check_string_method_arg.exit927:          ; preds = %1084
   br label %1208
 
 1208:                                             ; preds = %1207, %1202, %1198
-  %.not43.i932 = icmp eq ptr %.0.i930, null
-  br i1 %.not43.i932, label %php_xml_check_string_method_arg.exit934, label %1209
+  %.not43.i923 = icmp eq ptr %.0.i921, null
+  br i1 %.not43.i923, label %php_xml_check_string_method_arg.exit925, label %1209
 
 1209:                                             ; preds = %1208
-  store ptr %.0.i930, ptr %1136, align 8
+  store ptr %.0.i921, ptr %1136, align 8
   store ptr null, ptr %1144, align 8
   %1210 = getelementptr inbounds i8, ptr %15, i64 -104
   store ptr %1192, ptr %1210, align 8
   store ptr %17, ptr %1139, align 8
   %1211 = load i32, ptr %1150, align 4
   %1212 = and i32 %1211, 64
-  %.not848 = icmp eq i32 %1212, 0
-  br i1 %.not848, label %1232, label %1241
+  %.not839 = icmp eq i32 %1212, 0
+  br i1 %.not839, label %1232, label %1241
 
-php_xml_check_string_method_arg.exit934:          ; preds = %1208
+php_xml_check_string_method_arg.exit925:          ; preds = %1208
   %1213 = load ptr, ptr %1191, align 8
   %1214 = getelementptr inbounds i8, ptr %1213, i64 8
   %1215 = load ptr, ptr %1214, align 8
@@ -7273,10 +7273,10 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %1216, ptr noundef nonnull %1217) #16
   %1218 = load i32, ptr %1150, align 4
   %1219 = and i32 %1218, 64
-  %.not852 = icmp eq i32 %1219, 0
-  br i1 %.not852, label %1220, label %1229
+  %.not843 = icmp eq i32 %1219, 0
+  br i1 %.not843, label %1220, label %1229
 
-1220:                                             ; preds = %php_xml_check_string_method_arg.exit934
+1220:                                             ; preds = %php_xml_check_string_method_arg.exit925
   %1221 = load i32, ptr %1149, align 4
   %1222 = icmp ne i32 %1221, 0
   call void @llvm.assume(i1 %1222)
@@ -7287,8 +7287,8 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
 
 1225:                                             ; preds = %1220
   %1226 = and i32 %1218, 128
-  %.not853 = icmp eq i32 %1226, 0
-  br i1 %.not853, label %1228, label %1227
+  %.not844 = icmp eq i32 %1226, 0
+  br i1 %.not844, label %1228, label %1227
 
 1227:                                             ; preds = %1225
   call void @free(ptr noundef nonnull %1149) #16
@@ -7298,7 +7298,7 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
   call void @_efree(ptr noundef nonnull %1149) #16
   br label %1229
 
-1229:                                             ; preds = %php_xml_check_string_method_arg.exit934, %1227, %1228, %1220
+1229:                                             ; preds = %php_xml_check_string_method_arg.exit925, %1227, %1228, %1220
   %1230 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %1231 = icmp ne ptr %1230, null
   call void @llvm.assume(i1 %1231)
@@ -7315,8 +7315,8 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
 
 1237:                                             ; preds = %1232
   %1238 = and i32 %1211, 128
-  %.not849 = icmp eq i32 %1238, 0
-  br i1 %.not849, label %1240, label %1239
+  %.not840 = icmp eq i32 %1238, 0
+  br i1 %.not840, label %1240, label %1239
 
 1239:                                             ; preds = %1237
   call void @free(ptr noundef nonnull %1149) #16
@@ -7342,8 +7342,8 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
 
 1248:                                             ; preds = %1244, %1241
   %1249 = load ptr, ptr %1139, align 8
-  %.not850 = icmp eq ptr %1249, null
-  br i1 %.not850, label %1253, label %1250
+  %.not841 = icmp eq ptr %1249, null
+  br i1 %.not841, label %1253, label %1250
 
 1250:                                             ; preds = %1248
   %1251 = load i32, ptr %1249, align 4
@@ -7353,8 +7353,8 @@ php_xml_check_string_method_arg.exit934:          ; preds = %1208
 
 1253:                                             ; preds = %1250, %1248
   %1254 = load ptr, ptr %1173, align 8
-  %.not851 = icmp eq ptr %1254, null
-  br i1 %.not851, label %1258, label %1255
+  %.not842 = icmp eq ptr %1254, null
+  br i1 %.not842, label %1258, label %1255
 
 1255:                                             ; preds = %1253
   %1256 = load i32, ptr %1254, align 4
@@ -8750,7 +8750,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
 78:                                               ; preds = %82, %.critedge
   %79 = phi ptr [ @.str.3, %.critedge ], [ %84, %82 ]
   %.09.i = phi ptr [ @xml_encodings, %.critedge ], [ %83, %82 ]
-  %80 = call i32 @strcasecmp(ptr noundef nonnull %77, ptr noundef nonnull %79) #19
+  %80 = call i32 @strcasecmp(ptr noundef nonnull readonly %77, ptr noundef nonnull %79) #19
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %xml_get_encoding.exit, label %82
 

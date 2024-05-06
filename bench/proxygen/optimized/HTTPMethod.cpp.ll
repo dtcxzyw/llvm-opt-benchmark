@@ -361,14 +361,14 @@ arraydestroy.body55:                              ; preds = %arraydestroy.body55
 
 ehcleanup:                                        ; preds = %arraydestroy.body55, %lpad48
   %.pn = phi { ptr, i32 } [ %17, %lpad48 ], [ %18, %arraydestroy.body55 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad48 ], [ true, %arraydestroy.body55 ]
+  %20 = phi i1 [ false, %lpad48 ], [ true, %arraydestroy.body55 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #11
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup, %lpad44
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element46, %ehcleanup ], [ %arrayinit.element42, %lpad44 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad44 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad44 ]
+  %cleanup.isactive.1 = phi i1 [ %20, %ehcleanup ], [ false, %lpad44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43) #11
   br label %ehcleanup61
 

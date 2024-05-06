@@ -604,7 +604,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %cond.true.i.i.i.i.i
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i19.i.i.i.i.i, %invoke.cont.i.i.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %chunks.sroa.0.0408.i.i, %invoke.cont.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.02.i.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !19, !noalias !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %__cur.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %__first.addr.02.i.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !19, !noalias !14
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 12
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 12
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %chunks.sroa.17.0407.i.i
@@ -707,7 +707,7 @@ invoke.cont.i.i77.i.i.i:                          ; preds = %cond.true.i.i.i75.i
 for.body.i.i.i.i.i82.i.i.i:                       ; preds = %invoke.cont.i.i77.i.i.i, %for.body.i.i.i.i.i82.i.i.i
   %__cur.03.i.i.i.i.i83.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i86.i.i.i, %for.body.i.i.i.i.i82.i.i.i ], [ %cond.i19.i.i78.i.i.i, %invoke.cont.i.i77.i.i.i ]
   %__first.addr.02.i.i.i.i.i84.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i85.i.i.i, %for.body.i.i.i.i.i82.i.i.i ], [ %chunks.sroa.0.5.i.i, %invoke.cont.i.i77.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.03.i.i.i.i.i83.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.02.i.i.i.i.i84.i.i.i, i64 12, i1 false), !alias.scope !24, !noalias !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %__cur.03.i.i.i.i.i83.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %__first.addr.02.i.i.i.i.i84.i.i.i, i64 12, i1 false), !alias.scope !24, !noalias !14
   %incdec.ptr.i.i.i.i.i85.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i84.i.i.i, i64 12
   %incdec.ptr1.i.i.i.i.i86.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i83.i.i.i, i64 12
   %cmp.not.i.i.i.i.i87.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i85.i.i.i, %chunks.sroa.25.2.i.i
@@ -3805,7 +3805,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i
 
 call5.i.i.i.i1.i.i2.i.noexc.i:                    ; preds = %if.then.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i2.i14.i, ptr %tab.i.i, align 8, !noalias !98
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i2.i14.i, i64 %conv.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i2.i14.i, i64 %conv.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %fc.i, i64 32
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !noalias !98
   store i8 0, ptr %call5.i.i.i.i1.i.i2.i14.i, align 1
@@ -5296,7 +5296,7 @@ _ZN3ue2L21fdrBuildTableInternalERKNS_9HWLMProtoERKNS_4GreyE.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN3ue27fdrSizeEPK3FDR(ptr nocapture noundef readonly %fdr) local_unnamed_addr #1 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN3ue27fdrSizeEPK3FDR(ptr nocapture noundef readonly %fdr) local_unnamed_addr #1 {
 entry:
   %size = getelementptr inbounds i8, ptr %fdr, i64 4
   %0 = load i32, ptr %size, align 4

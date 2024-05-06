@@ -51,7 +51,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_pm_check_blacklist355, ptr @__UNIQUE_ID___addressable_acpi_pm_check_graylist356, ptr @__UNIQUE_ID___addressable_acpi_pm_check_graylist357, ptr @__UNIQUE_ID___addressable_init_acpi_pm_clocksource359, ptr @__setup_acpi_pm_good_setup, ptr @__setup_parse_pmtmr], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pm_read_verified() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16777216) i32 @acpi_pm_read_verified() local_unnamed_addr #0 align 16 {
   br label %1
 
 1:                                                ; preds = %.backedge, %0
@@ -233,7 +233,7 @@ define internal noundef i32 @parse_pmtmr(ptr noundef %0) #3 section ".init.text"
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @acpi_pm_read_slow(ptr nocapture readnone %0) #0 align 16 {
+define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr nocapture readnone %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -269,7 +269,7 @@ define internal i64 @acpi_pm_read_slow(ptr nocapture readnone %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @acpi_pm_read(ptr nocapture readnone %0) #0 align 16 {
+define internal range(i64 0, 16777216) i64 @acpi_pm_read(ptr nocapture readnone %0) #0 align 16 {
   %2 = load i32, ptr @pmtmr_ioport, align 4
   %3 = trunc i32 %2 to i16
   %4 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %3) #6, !srcloc !5

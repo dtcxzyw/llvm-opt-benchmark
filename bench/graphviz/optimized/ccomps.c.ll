@@ -54,7 +54,7 @@ define noundef ptr @pccomps(ptr noundef %0, ptr nocapture noundef writeonly %1, 
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @insertFn, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 32
@@ -270,7 +270,7 @@ define internal fastcc void @setPrefix(ptr nocapture noundef %0, ptr noundef rea
 
 isLegal.exit:                                     ; preds = %5, %.preheader, %2
   %.0 = phi ptr [ @.str.9, %2 ], [ @.str.9, %5 ], [ %1, %.preheader ]
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #20
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %agxbput.exit, label %15
 
@@ -341,7 +341,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
 
 39:                                               ; preds = %agxblen.exit.thread.i.i
   %40 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %.0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull readonly align 1 %.0, i64 %13, i1 false)
   %41 = trunc i64 %13 to i8
   %42 = load i8, ptr %16, align 1
   %43 = add i8 %42, %41
@@ -353,7 +353,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
   %46 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %.0.i25.i.i, %.thread35.i.i ]
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = getelementptr inbounds i8, ptr %46, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %.0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull readonly align 1 %.0, i64 %13, i1 false)
   %49 = load i64, ptr %47, align 8
   %50 = add i64 %49, %13
   store i64 %50, ptr %47, align 8
@@ -367,16 +367,16 @@ agxbput.exit:                                     ; preds = %isLegal.exit, %39, 
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %3) #16
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -484,7 +484,7 @@ agxbnext.exit.i:                                  ; preds = %37, %35
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %45, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -802,7 +802,7 @@ define noundef ptr @ccomps(ptr noundef %0, ptr nocapture noundef writeonly %1, p
   unreachable
 
 gv_calloc.exit:                                   ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @insertFn, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1056,7 +1056,7 @@ deriveGraph.exit:                                 ; preds = %._crit_edge51.i, %.
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %57
   %64 = phi ptr [ %52, %.thread.i ], [ %58, %57 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @insertFn, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1237,7 +1237,7 @@ declare i32 @agnedges(ptr noundef) local_unnamed_addr #2
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @isConnected(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @isConnected(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stk_t, align 8
   %3 = tail call i32 @agnnodes(ptr noundef %0) #16
   %4 = icmp eq i32 %3, 0
@@ -1301,15 +1301,6 @@ declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
@@ -1380,10 +1371,10 @@ declare ptr @agfstedge(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #12
+declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 declare ptr @agopen(ptr noundef, i32, ptr noundef) local_unnamed_addr #2
 
@@ -1396,7 +1387,7 @@ define internal fastcc void @deriveClusters(ptr noundef %0, ptr noundef %1) unna
 .lr.ph29:                                         ; preds = %2, %.loopexit
   %.02127 = phi ptr [ %32, %.loopexit ], [ %3, %2 ]
   %4 = tail call ptr @agnameof(ptr noundef nonnull %.02127) #16
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %31
 
@@ -1539,7 +1530,7 @@ define internal fastcc void @subgInduce(ptr noundef %0, ptr noundef %1, i32 noun
   %29 = tail call i64 @graphviz_node_induce(ptr noundef nonnull %.3.i, ptr noundef nonnull %.016) #16
   %30 = tail call i32 @agcopyattr(ptr noundef nonnull %.016, ptr noundef nonnull %.3.i) #16
   %31 = tail call ptr @agnameof(ptr noundef nonnull %.3.i) #16
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -1554,7 +1545,7 @@ define internal fastcc void @subgInduce(ptr noundef %0, ptr noundef %1, i32 noun
 
 38:                                               ; preds = %37
   %39 = tail call ptr @agnameof(ptr noundef nonnull %.016) #16
-  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %40 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %39, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %41 = icmp eq i32 %40, 0
   br label %42
 
@@ -1574,6 +1565,15 @@ projectG.exit:                                    ; preds = %27, %42, %6
 }
 
 declare i32 @agcopyattr(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
@@ -1598,9 +1598,9 @@ attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }

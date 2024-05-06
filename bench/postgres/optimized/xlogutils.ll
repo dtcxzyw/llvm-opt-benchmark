@@ -154,13 +154,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false, ptr noundef %2), !range !7
+define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.RelFileLocator, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -354,7 +354,7 @@ BufferGetPage.exit44:                             ; preds = %89, %95
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @XLogInitBufferForRedo(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %3), !range !7
+  %4 = call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4
   ret i32 %5
 }
@@ -696,7 +696,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
 47:                                               ; preds = %40, %25, %21, %18, %14, %.lr.ph
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %5) #7
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %47, %8, %4
   ret void
@@ -766,7 +766,7 @@ define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %27, %.lr.ph.i
   %35 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %forget_invalid_pages_db.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %forget_invalid_pages_db.exit, label %.lr.ph.i, !llvm.loop !8
 
 forget_invalid_pages_db.exit:                     ; preds = %34, %1, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -1178,6 +1178,5 @@ attributes #9 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 4}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

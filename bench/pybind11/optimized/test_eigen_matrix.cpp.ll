@@ -2493,8 +2493,8 @@ $_ZTVN8pybind1120reference_cast_errorE = comdat any
 @_ZTVN8pybind1111index_errorE = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN8pybind1111index_errorE, ptr @_ZN8pybind1111index_errorD2Ev, ptr @_ZN8pybind1111index_errorD0Ev, ptr @_ZNKSt13runtime_error4whatEv, ptr @_ZNK8pybind1111index_error9set_errorEv] }, comdat, align 8
 @.str.215 = private unnamed_addr constant [45 x i8] c"NumPy: shape ndim doesn't match strides ndim\00", align 1
 @_ZZN8pybind116detail7npy_api3getEvE7storage = linkonce_odr hidden global { [152 x i8], %"struct.std::once_flag", i8 } zeroinitializer, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.216 = private unnamed_addr constant [11 x i8] c"multiarray\00", align 1
 @.str.217 = private unnamed_addr constant [11 x i8] c"_ARRAY_API\00", align 1
 @.str.218 = private unnamed_addr constant [44 x i8] c"FAILURE obtaining numpy _ARRAY_API pointer.\00", align 1
@@ -3116,14 +3116,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %_ZN
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %14 = mul i64 %indvars.iv19.i, 10
-  %15 = add i64 %14, 11
+  %14 = mul nuw nsw i64 %indvars.iv19.i, 10
+  %15 = add nuw nsw i64 %14, 11
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = add i64 %15, %indvars.iv.i
-  %18 = trunc i64 %17 to i32
+  %17 = add nuw nsw i64 %15, %indvars.iv.i
+  %18 = trunc nuw i64 %17 to i32
   %19 = uitofp nneg i32 %18 to double
   %20 = load ptr, ptr %2, align 8
   %21 = load i64, ptr %5, align 8
@@ -3199,15 +3199,15 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %_ZN
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %14 = mul i64 %indvars.iv19.i, 10
-  %15 = add i64 %14, 11
+  %14 = mul nuw nsw i64 %indvars.iv19.i, 10
+  %15 = add nuw nsw i64 %14, 11
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %17 = phi i64 [ %12, %.lr.ph.i ], [ %25, %16 ]
-  %18 = add i64 %15, %indvars.iv.i
-  %19 = trunc i64 %18 to i32
+  %18 = add nuw nsw i64 %15, %indvars.iv.i
+  %19 = trunc nuw i64 %18 to i32
   %20 = uitofp nneg i32 %19 to double
   %21 = load ptr, ptr %2, align 8
   %22 = mul nsw i64 %17, %indvars.iv19.i
@@ -3257,14 +3257,14 @@ define hidden void @_Z10reset_refsv() #1 personality ptr @__gxx_personality_v0 {
   br i1 %10, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %11 = mul i64 %indvars.iv19.i, 10
-  %12 = add i64 %11, 11
+  %11 = mul nuw nsw i64 %indvars.iv19.i, 10
+  %12 = add nuw nsw i64 %11, 11
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %14 = add i64 %12, %indvars.iv.i
-  %15 = trunc i64 %14 to i32
+  %14 = add nuw nsw i64 %12, %indvars.iv.i
+  %15 = trunc nuw i64 %14 to i32
   %16 = uitofp nneg i32 %15 to double
   %17 = load ptr, ptr %1, align 8
   %18 = load i64, ptr %2, align 8
@@ -3309,15 +3309,15 @@ _Z9reset_refIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEvRT_.exit: ; preds = %._
   br i1 %36, label %.lr.ph.i6, label %._crit_edge.i4
 
 .lr.ph.i6:                                        ; preds = %.preheader.i2
-  %37 = mul i64 %indvars.iv19.i3, 10
-  %38 = add i64 %37, 11
+  %37 = mul nuw nsw i64 %indvars.iv19.i3, 10
+  %38 = add nuw nsw i64 %37, 11
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.i6
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i8, %39 ]
   %40 = phi i64 [ %35, %.lr.ph.i6 ], [ %48, %39 ]
-  %41 = add i64 %38, %indvars.iv.i7
-  %42 = trunc i64 %41 to i32
+  %41 = add nuw nsw i64 %38, %indvars.iv.i7
+  %42 = trunc nuw i64 %41 to i32
   %43 = uitofp nneg i32 %42 to double
   %44 = load ptr, ptr %27, align 8
   %45 = mul nsw i64 %40, %indvars.iv19.i3
@@ -21065,7 +21065,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKS1_Li0ENS_11OuterStrideIL
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = mul nsw i64 %indvars.iv22, 100
+  %17 = mul nuw nsw i64 %indvars.iv22, 100
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -21075,9 +21075,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKS1_Li0ENS_11OuterStrideIL
   %21 = mul nsw i64 %20, %indvars.iv22
   %22 = getelementptr double, ptr %19, i64 %21
   %23 = getelementptr double, ptr %22, i64 %indvars.iv
-  %24 = mul nsw i64 %indvars.iv, 10
+  %24 = mul nuw nsw i64 %indvars.iv, 10
   %25 = add nuw nsw i64 %24, %17
-  %26 = trunc nsw i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = uitofp nneg i32 %26 to double
   %28 = load double, ptr %23, align 8
   %29 = fadd double %28, %27
@@ -21297,7 +21297,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKNS0_IdLin1ELin1ELi1ELin1E
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = mul nsw i64 %indvars.iv22, 100
+  %17 = mul nuw nsw i64 %indvars.iv22, 100
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -21307,9 +21307,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKNS0_IdLin1ELin1ELi1ELin1E
   %21 = mul nsw i64 %20, %indvars.iv22
   %22 = getelementptr double, ptr %19, i64 %21
   %23 = getelementptr double, ptr %22, i64 %indvars.iv
-  %24 = mul nsw i64 %indvars.iv, 10
+  %24 = mul nuw nsw i64 %indvars.iv, 10
   %25 = add nuw nsw i64 %24, %17
-  %26 = trunc nsw i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = uitofp nneg i32 %26 to double
   %28 = load double, ptr %23, align 8
   %29 = fadd double %28, %27
@@ -50236,7 +50236,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %59 = load <2 x i64>, ptr %58, align 1
   %60 = and <2 x i64> %59, <i64 9223372036854775807, i64 9223372036854775807>
   %61 = bitcast <2 x i64> %60 to <2 x double>
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %47, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 48
   %62 = icmp ugt i64 %.048, 7
   br i1 %62, label %.lr.ph.i.i.i.i.i21, label %._crit_edge.i.i.i.i.i
 
@@ -50250,7 +50250,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = fadd <2 x double> %.07275.i.i.i.i.i, %66
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %68 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
   %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
   %70 = bitcast <2 x i64> %69 to <2 x double>
@@ -50638,7 +50638,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %38 = getelementptr inbounds i8, ptr %25, i64 16
   %39 = load <2 x double>, ptr %38, align 1
   %40 = fmul <2 x double> %39, %39
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %25, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
   %41 = icmp ugt i64 %.02962, 7
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -50651,7 +50651,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %43 = load <2 x double>, ptr %42, align 1
   %44 = fmul <2 x double> %43, %43
   %45 = fadd <2 x double> %.07275.i.i.i.i, %44
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %46 = load <2 x double>, ptr %gep.i.i.i.i, align 1
   %47 = fmul <2 x double> %46, %46
   %48 = fadd <2 x double> %storemerge76.i.i.i.i, %47
@@ -50966,7 +50966,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %43 = getelementptr inbounds i8, ptr %29, i64 16
   %44 = load <2 x double>, ptr %43, align 1
   %45 = fmul <2 x double> %44, %44
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %29, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 48
   %46 = icmp ugt i64 %.02966, 7
   br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -50979,7 +50979,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %48 = load <2 x double>, ptr %47, align 1
   %49 = fmul <2 x double> %48, %48
   %50 = fadd <2 x double> %.07275.i.i.i.i, %49
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %51 = load <2 x double>, ptr %gep.i.i.i.i, align 1
   %52 = fmul <2 x double> %51, %51
   %53 = fadd <2 x double> %storemerge76.i.i.i.i, %52
@@ -53084,7 +53084,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %32, %24, %29
   %.sroa.speculated319.us.us = call i64 @llvm.smin.i64(i64 %.sroa.speculated329, i64 %97)
   %98 = add nsw i64 %.sroa.speculated319.us.us, %.0243393.us.us
   %99 = icmp sgt i64 %97, 0
-  %100 = mul nsw i64 %.0243393.us.us, %.sroa.speculated324.us
+  %100 = mul nuw nsw i64 %.0243393.us.us, %.sroa.speculated324.us
   %101 = getelementptr inbounds double, ptr %56, i64 %100
   %102 = mul nsw i64 %.0243393.us.us, %6
   %invariant.gep.us.us = getelementptr double, ptr %4, i64 %102
@@ -57451,7 +57451,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %59 = load <2 x i64>, ptr %58, align 1
   %60 = and <2 x i64> %59, <i64 9223372036854775807, i64 9223372036854775807>
   %61 = bitcast <2 x i64> %60 to <2 x double>
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %47, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 48
   %62 = icmp ugt i64 %.048, 7
   br i1 %62, label %.lr.ph.i.i.i.i.i21, label %._crit_edge.i.i.i.i.i
 
@@ -57465,7 +57465,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = fadd <2 x double> %.07275.i.i.i.i.i, %66
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %68 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
   %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
   %70 = bitcast <2 x i64> %69 to <2 x double>
@@ -60581,7 +60581,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2181)
   %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_Z6get_cmv(), !noalias !2184
   %14 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !2184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !2184
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %13, align 8, !noalias !2184
   store ptr %16, ptr %2, align 8, !alias.scope !2184
@@ -60860,7 +60860,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2198)
   %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_Z6get_rmv(), !noalias !2201
   %14 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !2201
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !2201
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !2201
   %17 = getelementptr inbounds i8, ptr %13, i64 16
@@ -61225,7 +61225,7 @@ _ZN8pybind116detail15argument_loaderIJN5Eigen3RefINS2_6MatrixIdLin1ELin1ELi0ELin
 
 46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !2202
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2205
   %47 = getelementptr inbounds i8, ptr %11, i64 24
   %48 = getelementptr inbounds i8, ptr %.val19.i, i64 24
   %49 = load i64, ptr %48, align 8, !noalias !2205
@@ -61264,7 +61264,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2211)
   call void @llvm.experimental.noalias.scope.decl(metadata !2214)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !2211
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2217
   %58 = getelementptr inbounds i8, ptr %6, i64 24
   %59 = getelementptr inbounds i8, ptr %.val19.i, i64 24
   %60 = load i64, ptr %59, align 8, !noalias !2217
@@ -61294,7 +61294,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2221
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !2221
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !2221
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %67 = getelementptr inbounds i8, ptr %13, i64 24
   %68 = load i64, ptr %58, align 8, !noalias !2221
   store i64 %68, ptr %67, align 8, !alias.scope !2221
@@ -78064,7 +78064,7 @@ define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5Blo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ27test_submodule_eigen_matrixRN8pybind117module_EE12ReturnTester, ptr %2, align 8
   %6 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -78091,7 +78091,7 @@ _ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %16, label %17, label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5BlockINS3_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJiiiiEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPSA_iiiiE_S7_JSO_iiiiEJSB_SC_SD_EEEvOSF_PFSE_SH_ESN_ENKUlRNS_6detail13function_callEE_clESV_.exit
 
 17:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEEC2Ev.exit.i
@@ -78468,7 +78468,7 @@ define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5Blo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ27test_submodule_eigen_matrixRN8pybind117module_EE12ReturnTester, ptr %2, align 8
   %6 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -78495,7 +78495,7 @@ _ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %16, label %17, label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5BlockINS3_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJiiiiEJNS_4nameENS_9is_methodENS_7siblingENS_19return_value_policyEEEEMT0_FT_DpT1_EDpRKT2_EUlPSA_iiiiE_S7_JSP_iiiiEJSB_SC_SD_SE_EEEvOSG_PFSF_SI_ESO_ENKUlRNS_6detail13function_callEE_clESW_.exit
 
 17:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEEC2Ev.exit.i
@@ -78584,7 +78584,7 @@ define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5Blo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ27test_submodule_eigen_matrixRN8pybind117module_EE12ReturnTester, ptr %2, align 8
   %6 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -83060,7 +83060,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %12
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_33N5Eigen6MatrixIfLi5ELi6ELi1ELi5ELi6EEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
 19:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull align 4 dereferenceable(120) %2, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(120) %3, ptr noundef nonnull readonly align 4 dereferenceable(120) %2, i64 120, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8
   %21 = call ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLi5ELi6ELi1ELi5ELi6EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %3, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)
@@ -83436,7 +83436,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %12
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_34N5Eigen6MatrixIfLi5ELi6ELi0ELi5ELi6EEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
 19:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull align 4 dereferenceable(120) %2, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(120) %3, ptr noundef nonnull readonly align 4 dereferenceable(120) %2, i64 120, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8
   %21 = call ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLi5ELi6ELi0ELi5ELi6EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %3, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)
@@ -85540,7 +85540,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %29, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %30 = mul nsw i64 %.0810.i, %22
+  %30 = mul nuw nsw i64 %.0810.i, %22
   %31 = getelementptr float, ptr %24, i64 %30
   %invariant.gep = getelementptr float, ptr %4, i64 %.0810.i
   br label %.lr.ph.i
@@ -102535,7 +102535,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %31, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %32 = mul nsw i64 %.0810.i, %25
+  %32 = mul nuw nsw i64 %.0810.i, %25
   %33 = getelementptr double, ptr %26, i64 %32
   %34 = getelementptr double, ptr %4, i64 %.0810.i
   br label %.lr.ph.i
@@ -104341,7 +104341,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %36, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %37 = mul nsw i64 %.0810.i, %29
+  %37 = mul nuw nsw i64 %.0810.i, %29
   %38 = getelementptr double, ptr %30, i64 %37
   br label %.lr.ph.i
 
@@ -104684,7 +104684,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %33, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %34 = mul nsw i64 %.0810.i, %27
+  %34 = mul nuw nsw i64 %.0810.i, %27
   %35 = getelementptr double, ptr %28, i64 %34
   %36 = mul nsw i64 %.0810.i, %8
   %37 = getelementptr double, ptr %4, i64 %36

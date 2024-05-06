@@ -2529,7 +2529,7 @@ define void @_ZN16PacketListHeader12setAlignmentEP7QAction(ptr noundef nonnull a
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   %14 = call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %15 = icmp ugt i16 %12, 255
-  %16 = trunc i16 %12 to i8
+  %16 = trunc nuw i16 %12 to i8
   %spec.select.i = select i1 %15, i8 0, i8 %16
   %17 = select i1 %14, i8 %spec.select.i, i8 0
   call void @recent_set_column_xalign(i32 noundef %8, i8 noundef signext %17)

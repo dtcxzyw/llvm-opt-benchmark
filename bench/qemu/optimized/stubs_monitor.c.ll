@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [43 x i8] c"only QEMU supports file descriptor passing\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_get_fd(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @monitor_get_fd(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef nonnull @__func__.monitor_get_fd, ptr noundef nonnull @.str.1) #3
   ret i32 -1

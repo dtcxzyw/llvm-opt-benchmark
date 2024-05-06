@@ -532,7 +532,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_status(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @decode_dataitem_status(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -580,7 +580,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v4conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 5, 8) i32 @decode_dataitem_v4conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -631,7 +631,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v6conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 17, 20) i32 @decode_dataitem_v6conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -682,7 +682,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_peertype(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @decode_dataitem_peertype(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %7 = load i32, ptr @hf_dlep_dataitem_peertype, align 4
@@ -1189,7 +1189,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dlep_message_header_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 65540) i32 @get_dlep_message_header_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %5, i32 noundef 0) #5
   %7 = zext i16 %6 to i32

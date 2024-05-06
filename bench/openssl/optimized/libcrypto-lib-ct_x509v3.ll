@@ -50,7 +50,7 @@ return:                                           ; preds = %for.cond.i, %for.co
 declare i32 @i2d_SCT_LIST(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_SCT_LIST(ptr nocapture readnone %method, ptr noundef %sct_list, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_SCT_LIST(ptr nocapture readnone %method, ptr noundef %sct_list, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   tail call void @SCT_LIST_print(ptr noundef %sct_list, ptr noundef %out, i32 noundef %indent, ptr noundef nonnull @.str, ptr noundef null) #2
   ret i32 1

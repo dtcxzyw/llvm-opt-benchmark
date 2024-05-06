@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [21 x i8] c"internal fatal error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_yr_compiler_push_file(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 24) i32 @_yr_compiler_push_file(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 688
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 16
@@ -73,7 +73,7 @@ define ptr @_yr_compiler_pop_file(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_yr_compiler_push_file_name(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 552
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

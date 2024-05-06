@@ -14070,7 +14070,7 @@ _ZNSt10unique_ptrI13swaphistory_tSt14default_deleteIS0_EED2Ev.exit.i: ; preds = 
 
 434:                                              ; preds = %431
   %435 = load i32, ptr %39, align 8
-  invoke fastcc void @_ZL16do_cpt_mdmodules17CheckPointVersionP8t_fileioRKN3gmx18MDModulesNotifiersEP8_IO_FILE(i32 noundef %435, ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef null)
+  invoke fastcc void @_ZL16do_cpt_mdmodules17CheckPointVersionP8t_fileioRKN3gmx18MDModulesNotifiersEP8_IO_FILE(i32 noundef %435, ptr noundef %65, ptr noundef nonnull readonly align 8 dereferenceable(600) %8, ptr noundef null)
           to label %436 unwind label %432
 
 436:                                              ; preds = %434

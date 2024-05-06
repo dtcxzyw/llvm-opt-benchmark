@@ -128,8 +128,8 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
   %and.i16 = and i32 %or.i15, %weight.addr.026
   %shl1.i17 = shl i32 %3, %mul.i.i27
   %or2.i18 = or i32 %shl1.i17, %and.i16
-  %indvars.iv.next = add i64 %indvars.iv, -1
-  %4 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %4 = trunc nsw i64 %indvars.iv.next to i32
   %5 = shl i32 %4, 3
   %mul.i.i = sub i32 32, %5
   %shr.i.i = lshr i32 %or2.i18, %mul.i.i
@@ -198,8 +198,8 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
   %shl1.i25 = shl i32 %add9, %mul.i.i43
   %or2.i26 = or i32 %shl1.i25, %and.i24
   %div = sdiv i32 %sub, %add.i
-  %indvars.iv.next = add i64 %indvars.iv, -1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   %6 = shl i32 %5, 3
   %mul.i.i = sub i32 32, %6
   %shr.i.i = lshr i32 %or2.i26, %mul.i.i
@@ -251,7 +251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit) local_unnamed_addr #4 align 2 {
 entry:
   %lower = alloca [5 x %"struct.icu_75::CollationWeights::WeightRange"], align 16
   %upper = alloca [5 x %"struct.icu_75::CollationWeights::WeightRange"], align 16
@@ -320,7 +320,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
 for.body:                                         ; preds = %for.body.lr.ph, %if.end32
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %if.end32 ]
   %weight.0161 = phi i32 [ %lowerLimit, %for.body.lr.ph ], [ %and.i109, %if.end32 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nsw i64 %indvars.iv to i32
   %5 = shl i32 %4, 3
   %mul.i100 = sub i32 32, %5
   %shr.i = lshr i32 %weight.0161, %mul.i100
@@ -352,7 +352,7 @@ if.then14:                                        ; preds = %for.body
 
 if.end32:                                         ; preds = %if.then14, %for.body
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nsw i64 %indvars.iv.next to i32
   %9 = shl i32 %8, 3
   %mul.i107 = sub i32 32, %9
   %shl.i108 = shl nsw i32 -1, %mul.i107
@@ -382,7 +382,7 @@ for.body46.lr.ph:                                 ; preds = %for.end
 for.body46:                                       ; preds = %for.body46.lr.ph, %if.end74
   %indvars.iv201 = phi i64 [ %12, %for.body46.lr.ph ], [ %indvars.iv.next202, %if.end74 ]
   %weight.1165 = phi i32 [ %upperLimit, %for.body46.lr.ph ], [ %and.i126, %if.end74 ]
-  %14 = trunc i64 %indvars.iv201 to i32
+  %14 = trunc nsw i64 %indvars.iv201 to i32
   %15 = shl i32 %14, 3
   %mul.i114 = sub i32 32, %15
   %shr.i115 = lshr i32 %weight.1165, %mul.i114
@@ -414,7 +414,7 @@ if.then52:                                        ; preds = %for.body46
 
 if.end74:                                         ; preds = %if.then52, %for.body46
   %indvars.iv.next202 = add nsw i64 %indvars.iv201, -1
-  %18 = trunc i64 %indvars.iv.next202 to i32
+  %18 = trunc nsw i64 %indvars.iv.next202 to i32
   %19 = shl i32 %18, 3
   %mul.i124 = sub i32 32, %19
   %shl.i125 = shl nsw i32 -1, %mul.i124
@@ -464,7 +464,7 @@ if.then109:                                       ; preds = %land.lhs.true
 
 if.then117:                                       ; preds = %if.then109
   %end112.le234 = getelementptr inbounds i8, ptr %arrayidx102, i64 4
-  %26 = trunc i64 %indvars.iv204 to i32
+  %26 = trunc nsw i64 %indvars.iv204 to i32
   %end120 = getelementptr inbounds i8, ptr %arrayidx106, i64 4
   %27 = load i32, ptr %end120, align 4
   store i32 %27, ptr %end112.le234, align 4
@@ -484,7 +484,7 @@ if.else137:                                       ; preds = %if.then109
   br i1 %cmp138, label %for.inc175, label %if.else140
 
 if.else140:                                       ; preds = %if.else137
-  %30 = trunc i64 %indvars.iv204 to i32
+  %30 = trunc nsw i64 %indvars.iv204 to i32
   %31 = shl i32 %30, 3
   %mul.i.i19.i = sub i32 32, %31
   %shr.i.i20.i = lshr i32 %24, %mul.i.i19.i
@@ -509,8 +509,8 @@ if.else.i137:                                     ; preds = %if.else140, %if.els
   %and.i16.i = and i32 %or.i15.i, %weight.addr.026.i
   %shl1.i17.i = shl i32 %34, %mul.i.i27.i
   %or2.i18.i = or i32 %and.i16.i, %shl1.i17.i
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
-  %35 = trunc i64 %indvars.iv.next.i to i32
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %35 = trunc nsw i64 %indvars.iv.next.i to i32
   %36 = shl i32 %35, 3
   %mul.i.i.i = sub i32 32, %36
   %shr.i.i.i = lshr i32 %or2.i18.i, %mul.i.i.i
@@ -673,7 +673,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #7 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
@@ -703,7 +703,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp6.not, label %if.end25, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp11 = icmp sgt i32 %1, %minLength
   br i1 %cmp11, label %if.then12, label %if.end
 
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.end25, %land.rhs
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN6icu_75L13compareRangesEPKvS1_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #2 {
+define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L13compareRangesEPKvS1_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #2 {
 entry:
   %1 = load i32, ptr %left, align 4
   %2 = load i32, ptr %right, align 4
@@ -749,7 +749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #9 align 2 {
 entry:
   %ranges = getelementptr inbounds i8, ptr %this, i64 44
   %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
@@ -779,7 +779,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !14
 
 for.end.loopexit.split.loop.exit124:              ; preds = %land.rhs
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.body, %for.end.loopexit.split.loop.exit124, %entry
@@ -920,8 +920,8 @@ if.else.i:                                        ; preds = %if.else, %if.else.i
   %shl1.i25.i = shl i32 %add9.i, %mul.i.i43.i
   %or2.i26.i = or i32 %shl1.i25.i, %and.i24.i
   %div.i = sdiv i32 %sub.i46, %add.i.i47
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
-  %21 = trunc i64 %indvars.iv.next.i to i32
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %21 = trunc nsw i64 %indvars.iv.next.i to i32
   %22 = shl i32 %21, 3
   %mul.i.i.i = sub i32 32, %22
   %shr.i.i.i = lshr i32 %or2.i26.i, %mul.i.i.i
@@ -970,8 +970,8 @@ if.else.i53:                                      ; preds = %_ZNK6icu_7516Collat
   %and.i16.i = and i32 %or.i15.i, %weight.addr.026.i
   %shl1.i17.i = shl i32 %26, %mul.i.i27.i
   %or2.i18.i = or i32 %and.i16.i, %shl1.i17.i
-  %indvars.iv.next.i56 = add i64 %indvars.iv.i54, -1
-  %27 = trunc i64 %indvars.iv.next.i56 to i32
+  %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i54, -1
+  %27 = trunc nsw i64 %indvars.iv.next.i56 to i32
   %28 = shl i32 %27, 3
   %mul.i.i.i57 = sub i32 32, %28
   %shr.i.i.i58 = lshr i32 %or2.i18.i, %mul.i.i.i57
@@ -1037,10 +1037,10 @@ return:                                           ; preds = %for.end, %if.end93
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit, i32 noundef %n) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit, i32 noundef %n) local_unnamed_addr #7 align 2 {
 entry:
   %errorCode.i = alloca i32, align 4
-  %call = tail call noundef signext i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit), !range !16
+  %call = tail call noundef signext i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
@@ -1082,7 +1082,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   br i1 %cmp6.not.i, label %if.end25.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp11.i = icmp sgt i32 %2, %1
   br i1 %cmp11.i, label %if.then12.i, label %if.end.i
 
@@ -1118,7 +1118,7 @@ if.end5:                                          ; preds = %land.rhs.i, %if.end
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end5
-  %call8 = tail call noundef signext i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %1), !range !16
+  %call8 = tail call noundef signext i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %1)
   %tobool9.not = icmp eq i8 %call8, 0
   br i1 %tobool9.not, label %for.cond12.preheader, label %for.end21
 
@@ -1144,7 +1144,7 @@ land.rhs:                                         ; preds = %for.body
   %length16 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %8 = load i32, ptr %length16, align 4
   %cmp17 = icmp eq i32 %8, %1
-  br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !16
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %length1646 = phi ptr [ %length16, %land.rhs ], [ %length1642, %land.rhs.preheader ]
@@ -1176,11 +1176,11 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %16 = load i32, ptr %rangeCount.i, align 4
   %17 = sext i32 %16 to i64
   %cmp13 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %cmp13, label %land.rhs, label %for.end, !llvm.loop !17
+  br i1 %cmp13, label %land.rhs, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %land.rhs, %land.rhs.preheader, %for.cond12.preheader
   %18 = phi i32 [ %5, %for.cond12.preheader ], [ %5, %land.rhs.preheader ], [ %16, %land.rhs ], [ %16, %for.body ]
-  br label %for.cond, !llvm.loop !18
+  br label %for.cond, !llvm.loop !17
 
 for.end21:                                        ; preds = %if.end7, %_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii.exit
   %rangeIndex = getelementptr inbounds i8, ptr %this, i64 156
@@ -1252,8 +1252,8 @@ if.else.i:                                        ; preds = %if.else.i, %if.else
   %and.i16.i = and i32 %or.i15.i, %weight.addr.026.i
   %shl1.i17.i = shl i32 %8, %mul.i.i27.i
   %or2.i18.i = or i32 %and.i16.i, %shl1.i17.i
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
-  %9 = trunc i64 %indvars.iv.next.i to i32
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %9 = trunc nsw i64 %indvars.iv.next.i to i32
   %10 = shl i32 %9, 3
   %mul.i.i.i = sub i32 32, %10
   %shr.i.i.i = lshr i32 %or2.i18.i, %mul.i.i.i
@@ -1329,6 +1329,5 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i8 0, i8 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

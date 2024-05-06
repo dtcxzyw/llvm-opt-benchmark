@@ -323,7 +323,7 @@ define dso_local noundef i32 @x509_note_tbs_certificate(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @x509_note_sig_algo(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #7 align 16 {
+define dso_local noundef range(i32 -65, 1) i32 @x509_note_sig_algo(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #7 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %42 [
@@ -424,7 +424,7 @@ define dso_local noundef i32 @x509_note_sig_algo(ptr nocapture noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_note_signature(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_note_signature(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -598,7 +598,7 @@ define dso_local i32 @x509_note_issuer(ptr nocapture noundef %0, i64 noundef %1,
 28:                                               ; preds = %23, %5
   %29 = phi ptr [ %.pre, %23 ], [ %11, %5 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = tail call fastcc i32 @x509_fabricate_name(ptr noundef %0, ptr noundef %30), !range !6
+  %31 = tail call fastcc i32 @x509_fabricate_name(ptr noundef %0, ptr noundef %30)
   br label %32
 
 32:                                               ; preds = %28, %20
@@ -607,7 +607,7 @@ define dso_local i32 @x509_note_issuer(ptr nocapture noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @x509_fabricate_name(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -758,7 +758,7 @@ define internal fastcc noundef i32 @x509_fabricate_name(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_note_subject(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @x509_note_subject(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   store ptr %3, ptr %7, align 8
@@ -768,7 +768,7 @@ define dso_local noundef i32 @x509_note_subject(ptr nocapture noundef %0, i64 no
   store i32 %8, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  %13 = tail call fastcc i32 @x509_fabricate_name(ptr noundef %0, ptr noundef %12), !range !6
+  %13 = tail call fastcc i32 @x509_fabricate_name(ptr noundef %0, ptr noundef %12)
   ret i32 %13
 }
 
@@ -801,7 +801,7 @@ define dso_local noundef i32 @x509_note_params(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_extract_key_data(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_extract_key_data(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 52
@@ -918,7 +918,7 @@ define dso_local i32 @x509_process_extension(ptr nocapture noundef %0, i64 nound
 
 24:                                               ; preds = %18
   %25 = getelementptr i8, ptr %3, i64 2
-  %26 = trunc i64 %22 to i32
+  %26 = trunc nuw nsw i64 %22 to i32
   %27 = getelementptr inbounds i8, ptr %9, i64 140
   store i32 %26, ptr %27, align 4
   %28 = load ptr, ptr %0, align 8
@@ -1072,7 +1072,7 @@ define dso_local i32 @x509_process_extension(ptr nocapture noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_decode_time(ptr nocapture noundef writeonly %0, i64 %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr nocapture noundef writeonly %0, i64 %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) #0 align 16 {
   %6 = icmp eq i8 %2, 23
   br i1 %6, label %7, label %27
 
@@ -1268,7 +1268,7 @@ define dso_local noundef i32 @x509_decode_time(ptr nocapture noundef writeonly %
   br i1 %139, label %140, label %147
 
 140:                                              ; preds = %130
-  %.lhs.trunc = trunc i32 %61 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %61 to i16
   %141 = urem i16 %.lhs.trunc, 100
   %142 = icmp eq i16 %141, 0
   br i1 %142, label %143, label %147
@@ -1308,18 +1308,18 @@ define dso_local noundef i32 @x509_decode_time(ptr nocapture noundef writeonly %
 declare dso_local i64 @mktime64(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_note_not_before(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_note_not_before(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 64
-  %8 = tail call i32 @x509_decode_time(ptr noundef %7, i64 poison, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4), !range !7
+  %8 = tail call i32 @x509_decode_time(ptr noundef %7, i64 poison, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4)
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_note_not_after(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_note_not_after(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 72
-  %8 = tail call i32 @x509_decode_time(ptr noundef %7, i64 poison, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4), !range !7
+  %8 = tail call i32 @x509_decode_time(ptr noundef %7, i64 poison, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4)
   ret i32 %8
 }
 
@@ -1448,5 +1448,3 @@ attributes #20 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = !{i32 -22, i32 1}
-!7 = !{i32 -74, i32 1}

@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_set_lastUpdate(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_CRL_set_lastUpdate(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -108,7 +108,7 @@ declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_set_nextUpdate(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_CRL_set_nextUpdate(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -201,7 +201,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REVOKED_set_revocationDate(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REVOKED_set_revocationDate(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REVOKED_set_serialNumber(ptr noundef %x, ptr noundef %serial) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REVOKED_set_serialNumber(ptr noundef %x, ptr noundef %serial) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end

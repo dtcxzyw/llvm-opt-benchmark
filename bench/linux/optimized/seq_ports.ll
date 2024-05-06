@@ -195,7 +195,7 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %87, label %5
@@ -374,7 +374,7 @@ declare dso_local void @_raw_write_unlock_irq(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_delete_port(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @snd_seq_delete_port(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @mutex_lock(ptr noundef %3) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -547,7 +547,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local void @snd_seq_system_broadcast(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_set_port_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_set_port_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = or i1 %3, %4
@@ -649,7 +649,7 @@ define dso_local noundef i32 @snd_seq_set_port_info(ptr noundef %0, ptr noundef 
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_get_port_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_get_port_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = or i1 %3, %4
@@ -726,7 +726,7 @@ define dso_local noundef i32 @snd_seq_get_port_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_port_connect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_port_connect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 120) #12
   %9 = icmp eq ptr %8, null
@@ -790,7 +790,7 @@ define dso_local i32 @snd_seq_port_connect(ptr nocapture noundef readonly %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @check_and_subscribe_port(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = select i1 %3, i64 104, i64 192
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 24
@@ -965,7 +965,7 @@ define internal fastcc i32 @check_and_subscribe_port(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_port_disconnect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @snd_seq_port_disconnect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %4, i64 192
   %8 = getelementptr inbounds i8, ptr %4, i64 216
   tail call void @down_write(ptr noundef %8) #10
@@ -1150,7 +1150,7 @@ define internal fastcc void @__delete_and_unsubscribe_port(ptr nocapture noundef
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_port_get_subscription(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @snd_seq_port_get_subscription(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @down_read(ptr noundef %4) #10
   %5 = getelementptr inbounds i8, ptr %1, i64 1

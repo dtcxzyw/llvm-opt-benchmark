@@ -977,7 +977,7 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
   %45 = load ptr, ptr %53, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv61
   %47 = load i32, ptr %46, align 4
-  %gep72 = getelementptr i32, ptr %invariant.gep71, i64 %indvars.iv61
+  %gep72 = getelementptr inbounds i32, ptr %invariant.gep71, i64 %indvars.iv61
   store i32 %47, ptr %gep72, align 4
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
@@ -996,7 +996,7 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 ..preheader_crit_edge.us.us:                      ; preds = %48
   %53 = getelementptr inbounds i8, ptr %39, i64 112
-  %invariant.gep71 = getelementptr i32, ptr %42, i64 %34
+  %invariant.gep71 = getelementptr inbounds i32, ptr %42, i64 %34
   br label %44
 
 ._crit_edge.us.us:                                ; preds = %44
@@ -1091,7 +1091,7 @@ declare i32 @Fraig_ManReadPatternNumRandom(ptr noundef) local_unnamed_addr #5
 declare i32 @Fraig_ManReadPatternNumDynamic(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fraig_ManCheckClauseUsingSimInfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   %6 = and i64 %4, -2

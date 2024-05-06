@@ -149,7 +149,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @message_advice_ref_needs_update = internal constant [261 x i8] c"Updates were rejected because the tip of the remote-tracking branch has\0Abeen updated since the last checkout. If you want to integrate the\0Aremote changes, use 'git pull' before pushing again.\0ASee the 'Note about fast-forwards' in 'git push --help' for details.\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_push(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @cmd_push(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %query.i.i = alloca %struct.refspec_item, align 8
   %matched.i = alloca ptr, align 8
@@ -1160,7 +1160,7 @@ if.then18.i.i:                                    ; preds = %if.end12.i.i
   %call2.val.val.i.i = load ptr, ptr %call2.val.i.i, align 8
   %48 = getelementptr i8, ptr %call2.val.val.i.i, i64 8
   %call2.val.val.val.i.i = load ptr, ptr %48, align 8
-  call fastcc void @die_push_simple(ptr %call2.val.val.val.i.i, ptr noundef nonnull %call373) #16
+  call fastcc void @die_push_simple(ptr %call2.val.val.val.i.i, ptr noundef nonnull readonly %call373) #16
   unreachable
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i
@@ -1231,11 +1231,11 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i23,
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %.sink.i.i, i64 %indvars.iv33.i
   %55 = load ptr, ptr %arrayidx.us.i, align 8
   %call17.us.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %55) #13
-  %call23.us.i = call fastcc i32 @push_with_options(ptr noundef %call17.us.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i), !range !8
+  %call23.us.i = call fastcc i32 @push_with_options(ptr noundef %call17.us.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
   %spec.select.us.i = add nuw nsw i32 %call23.us.i, %errs.029.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
-  br i1 %exitcond37.not.i, label %do_push.exit, label %for.body.us.i, !llvm.loop !9
+  br i1 %exitcond37.not.i, label %do_push.exit, label %for.body.us.i, !llvm.loop !8
 
 for.body.i24:                                     ; preds = %for.body.lr.ph.i23, %for.body.i24
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i24 ], [ 0, %for.body.lr.ph.i23 ]
@@ -1245,11 +1245,11 @@ for.body.i24:                                     ; preds = %for.body.lr.ph.i23,
   %call17.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %56) #13
   %push_options21.i = getelementptr inbounds i8, ptr %call17.i, i64 64
   store ptr %push_options_cmdline.push_options_config, ptr %push_options21.i, align 8
-  %call23.i = call fastcc i32 @push_with_options(ptr noundef %call17.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i), !range !8
+  %call23.i = call fastcc i32 @push_with_options(ptr noundef %call17.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
   %spec.select.i = add nuw nsw i32 %call23.i, %errs.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count36.i
-  br i1 %exitcond.not.i, label %do_push.exit, label %for.body.i24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %do_push.exit, label %for.body.i24, !llvm.loop !8
 
 if.else28.i:                                      ; preds = %if.end14.i
   %call30.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef null) #13
@@ -1263,7 +1263,7 @@ if.then33.i:                                      ; preds = %if.else28.i
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then33.i, %if.else28.i
-  %call36.i = call fastcc i32 @push_with_options(ptr noundef %call30.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i), !range !8
+  %call36.i = call fastcc i32 @push_with_options(ptr noundef %call30.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
   br label %do_push.exit
 
 do_push.exit:                                     ; preds = %for.body.i24, %for.body.us.i, %for.cond.preheader.i, %if.end35.i
@@ -1499,7 +1499,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.else70, !llvm.loop !5
 
 if.then60:                                        ; preds = %do.body.i
-  %call61 = tail call fastcc i32 @parse_push_color_slot(ptr noundef %scevgep), !range !10
+  %call61 = tail call fastcc i32 @parse_push_color_slot(ptr noundef %scevgep)
   %cmp = icmp slt i32 %call61, 0
   br i1 %cmp, label %return, label %if.end63
 
@@ -1603,7 +1603,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @git_config_colorbool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @parse_push_color_slot(ptr nocapture noundef readonly %slot) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 2) i32 @parse_push_color_slot(ptr nocapture noundef readonly %slot) unnamed_addr #6 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %slot, ptr noundef nonnull @.str.81) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -1647,7 +1647,7 @@ declare ptr @branch_get(ptr noundef) local_unnamed_addr #2
 declare ptr @transport_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @push_with_options(ptr noundef %transport, ptr noundef %rs, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @push_with_options(ptr noundef %transport, ptr noundef %rs, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %reject_reasons = alloca i32, align 4
   %url = getelementptr inbounds i8, ptr %transport, i64 16
@@ -2153,6 +2153,4 @@ attributes #17 = { cold }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 2}
+!8 = distinct !{!8, !6}

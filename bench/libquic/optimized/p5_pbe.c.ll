@@ -52,7 +52,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen) local_unnamed_addr #0 {
 entry:
   %pbe_str = alloca ptr, align 8
   store ptr null, ptr %pbe_str, align 8
@@ -174,7 +174,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PKCS5_pbe_set0_algor(ptr noundef nonnull %call, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen), !range !7
+  %call1 = tail call i32 @PKCS5_pbe_set0_algor(ptr noundef nonnull %call, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -205,4 +205,3 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

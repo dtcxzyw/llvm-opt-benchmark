@@ -838,7 +838,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
 .lr.ph1728:                                       ; preds = %.preheader1423, %.lr.ph1728
   %.110271727 = phi i32 [ %379, %.lr.ph1728 ], [ %.01026.lcssa, %.preheader1423 ]
   %.010281726 = phi i64 [ %378, %.lr.ph1728 ], [ 1, %.preheader1423 ]
-  %378 = mul nsw i64 %.010281726, 10
+  %378 = mul nuw nsw i64 %.010281726, 10
   %379 = add nsw i32 %.110271727, -1
   %380 = icmp ugt i32 %.110271727, 1
   br i1 %380, label %.lr.ph1728, label %._crit_edge, !llvm.loop !10

@@ -166,7 +166,7 @@ define internal noundef i32 @ll_loadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #6
-  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %call), !range !8
+  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %call)
   tail call void @lua_pushnil(ptr noundef %L) #6
   tail call void @lua_insert(ptr noundef %L, i32 noundef -2) #6
   %cmp3 = icmp eq i32 %call2, 1
@@ -198,7 +198,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 3) i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %path) #6
   tail call void @lua_gettable(ptr noundef %L, i32 noundef -10000) #6
@@ -329,7 +329,7 @@ if.end:                                           ; preds = %entry
   %call1.i = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef %spec.select.i, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.35) #6
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.36, ptr noundef %call1.i) #6
   tail call void @lua_remove(ptr noundef %L, i32 noundef -2) #6
-  %0 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %call1), !range !8
+  %0 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %call1)
   %call.i16 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1.i17 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
   %call2.i18 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.33, ptr noundef %call.i16, ptr noundef nonnull %call1, ptr noundef %call1.i17) #6
@@ -340,7 +340,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @loader_Croot(ptr noundef %L) #0 {
+define internal noundef range(i32 0, 2) i32 @loader_Croot(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #7
@@ -365,7 +365,7 @@ if.end6:                                          ; preds = %if.end
   %call1.i = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef %spec.select.i, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.35) #6
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.36, ptr noundef %call1.i) #6
   tail call void @lua_remove(ptr noundef %L, i32 noundef -2) #6
-  %call8 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %call3), !range !8
+  %call8 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %call3)
   %cmp11.not = icmp eq i32 %call8, 2
   br i1 %cmp11.not, label %if.end13, label %if.then12
 
@@ -405,7 +405,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.end
   %path.addr.0.i = phi ptr [ %call1, %if.end ], [ %path.addr.0.i.be, %while.cond.i.backedge ]
-  %0 = load i8, ptr %path.addr.0.i, align 1, !tbaa !9
+  %0 = load i8, ptr %path.addr.0.i, align 1, !tbaa !8
   switch i8 %0, label %if.end.i [
     i8 59, label %while.body.i
     i8 0, label %cleanup11
@@ -454,7 +454,7 @@ cleanup:                                          ; preds = %while.body
 
 while.cond.i.backedge:                            ; preds = %cleanup, %while.body.i
   %path.addr.0.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %l.0.i39, %cleanup ]
-  br label %while.cond.i, !llvm.loop !10
+  br label %while.cond.i, !llvm.loop !9
 
 cleanup11:                                        ; preds = %while.cond.i, %cleanup.thread
   %retval.2 = phi ptr [ %call6, %cleanup.thread ], [ null, %while.cond.i ]
@@ -573,7 +573,7 @@ for.body.i:                                       ; preds = %setfenv.exit, %for.
   call void @lua_call(ptr noundef %L, i32 noundef 1, i32 noundef 0) #6
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %i.06.i, %call1
-  br i1 %exitcond.not.i, label %cleanup, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %cleanup, label %for.body.i, !llvm.loop !11
 
 cleanup:                                          ; preds = %for.body.i, %setfenv.exit, %if.then5
   %retval.0 = phi i32 [ %call6, %if.then5 ], [ 0, %setfenv.exit ], [ 0, %for.body.i ]
@@ -723,8 +723,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{i32 1, i32 3}
-!9 = !{!6, !6, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!8 = !{!6, !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}

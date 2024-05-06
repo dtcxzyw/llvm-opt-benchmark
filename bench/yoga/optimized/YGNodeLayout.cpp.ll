@@ -106,32 +106,32 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i15.i = getelementptr inbounds i8, ptr %node, i64 488
-  %bf.load.i16.i = load i8, ptr %direction_.i15.i, align 4
-  %bf.clear.i17.i = and i8 %bf.load.i16.i, 3
-  %cmp19.i = icmp eq i8 %bf.clear.i17.i, 2
+  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
+  %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
+  %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %margin_.i19.i = getelementptr inbounds i8, ptr %node, i64 524
+  %margin_.i20.i = getelementptr inbounds i8, ptr %node, i64 524
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i22.i = getelementptr inbounds i8, ptr %node, i64 532
+  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 532
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %margin_.i24.i = getelementptr inbounds i8, ptr %node, i64 524
+  %margin_.i26.i = getelementptr inbounds i8, ptr %node, i64 524
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i25.i = getelementptr inbounds [4 x float], ptr %margin_.i24.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %margin_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i
-  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %margin_.i13.i, %if.else.i ], [ %margin_.i19.i, %if.then20.i ], [ %arrayidx.i.i.i22.i, %if.else28.i ], [ %arrayidx.i.i.i25.i, %if.end36.i ]
+  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %margin_.i13.i, %if.else.i ], [ %margin_.i20.i, %if.then20.i ], [ %arrayidx.i.i.i24.i, %if.else28.i ], [ %arrayidx.i.i.i27.i, %if.end36.i ]
   %retval.0.i = load float, ptr %retval.0.in.i, align 4
   ret float %retval.0.i
 }
@@ -164,32 +164,32 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i15.i = getelementptr inbounds i8, ptr %node, i64 488
-  %bf.load.i16.i = load i8, ptr %direction_.i15.i, align 4
-  %bf.clear.i17.i = and i8 %bf.load.i16.i, 3
-  %cmp19.i = icmp eq i8 %bf.clear.i17.i, 2
+  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
+  %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
+  %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %border_.i19.i = getelementptr inbounds i8, ptr %node, i64 540
+  %border_.i20.i = getelementptr inbounds i8, ptr %node, i64 540
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i22.i = getelementptr inbounds i8, ptr %node, i64 548
+  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 548
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %border_.i24.i = getelementptr inbounds i8, ptr %node, i64 540
+  %border_.i26.i = getelementptr inbounds i8, ptr %node, i64 540
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i25.i = getelementptr inbounds [4 x float], ptr %border_.i24.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %border_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i
-  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %border_.i13.i, %if.else.i ], [ %border_.i19.i, %if.then20.i ], [ %arrayidx.i.i.i22.i, %if.else28.i ], [ %arrayidx.i.i.i25.i, %if.end36.i ]
+  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %border_.i13.i, %if.else.i ], [ %border_.i20.i, %if.then20.i ], [ %arrayidx.i.i.i24.i, %if.else28.i ], [ %arrayidx.i.i.i27.i, %if.end36.i ]
   %retval.0.i = load float, ptr %retval.0.in.i, align 4
   ret float %retval.0.i
 }
@@ -222,32 +222,32 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i15.i = getelementptr inbounds i8, ptr %node, i64 488
-  %bf.load.i16.i = load i8, ptr %direction_.i15.i, align 4
-  %bf.clear.i17.i = and i8 %bf.load.i16.i, 3
-  %cmp19.i = icmp eq i8 %bf.clear.i17.i, 2
+  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
+  %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
+  %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %padding_.i19.i = getelementptr inbounds i8, ptr %node, i64 556
+  %padding_.i20.i = getelementptr inbounds i8, ptr %node, i64 556
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i22.i = getelementptr inbounds i8, ptr %node, i64 564
+  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 564
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %padding_.i24.i = getelementptr inbounds i8, ptr %node, i64 556
+  %padding_.i26.i = getelementptr inbounds i8, ptr %node, i64 556
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i25.i = getelementptr inbounds [4 x float], ptr %padding_.i24.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %padding_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i
-  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %padding_.i13.i, %if.else.i ], [ %padding_.i19.i, %if.then20.i ], [ %arrayidx.i.i.i22.i, %if.else28.i ], [ %arrayidx.i.i.i25.i, %if.end36.i ]
+  %retval.0.in.i = phi ptr [ %arrayidx.i.i.i.i, %if.then5.i ], [ %padding_.i13.i, %if.else.i ], [ %padding_.i20.i, %if.then20.i ], [ %arrayidx.i.i.i24.i, %if.else28.i ], [ %arrayidx.i.i.i27.i, %if.end36.i ]
   %retval.0.i = load float, ptr %retval.0.in.i, align 4
   ret float %retval.0.i
 }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5cmsys7FStream7ReadBOMERSi(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN5cmsys7FStream7ReadBOMERSi(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 -24

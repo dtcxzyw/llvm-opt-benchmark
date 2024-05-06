@@ -122,7 +122,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36, %._crit_edge.loopexit.split.loop.exit, %25
@@ -154,7 +154,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %jvp_utf8_next.exit, %2
@@ -215,7 +215,7 @@ define noundef i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr noundef readn
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
-  %36 = trunc i64 %indvars.iv.i to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %31, %._crit_edge.loopexit.split.loop.exit.i, %20
@@ -246,7 +246,7 @@ jvp_utf8_next.exit.thread:                        ; preds = %._crit_edge.i, %16,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @jvp_utf8_decode_length(i8 noundef signext %0) local_unnamed_addr #3 {
+define range(i32 1, 5) i32 @jvp_utf8_decode_length(i8 noundef signext %0) local_unnamed_addr #3 {
   %2 = zext i8 %0 to i32
   %3 = icmp sgt i8 %0, -1
   br i1 %3, label %10, label %4
@@ -268,7 +268,7 @@ define noundef i32 @jvp_utf8_decode_length(i8 noundef signext %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @jvp_utf8_encode_length(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 1, 5) i32 @jvp_utf8_encode_length(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp slt i32 %0, 128
   br i1 %2, label %7, label %3
 
@@ -303,7 +303,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nuw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1
@@ -320,7 +320,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   %24 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %23, ptr %1, align 1

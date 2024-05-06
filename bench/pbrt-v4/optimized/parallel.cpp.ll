@@ -1745,7 +1745,7 @@ entry:
   %agg.tmp4.sroa.0.0.copyload = load i64, ptr %nextStart, align 8
   %t0.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp4.sroa.0.0.copyload to i32
   %t0.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp4.sroa.0.0.copyload, 32
-  %t0.sroa.3.0.extract.trunc.i.i = trunc i64 %t0.sroa.3.0.extract.shift.i.i to i32
+  %t0.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %t0.sroa.3.0.extract.shift.i.i to i32
   %.sroa.speculated5.i.i = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %t0.sroa.0.0.extract.trunc.i.i)
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %add4.i, i32 %t0.sroa.3.0.extract.trunc.i.i)
   %.sroa.speculated5.i9.i = tail call i32 @llvm.smax.i32(i32 %t0.sroa.0.0.extract.trunc.i.i, i32 %add.i)
@@ -1754,7 +1754,7 @@ entry:
   %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %extent, align 8
   %t1.sroa.0.0.extract.trunc.i.i4 = trunc i64 %agg.tmp1.sroa.0.0.copyload.i to i32
   %t1.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp1.sroa.0.0.copyload.i, 32
-  %t1.sroa.3.0.extract.trunc.i.i = trunc i64 %t1.sroa.3.0.extract.shift.i.i to i32
+  %t1.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %t1.sroa.3.0.extract.shift.i.i to i32
   %.sroa.speculated5.i.i5 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated5.i.i, i32 %t1.sroa.0.0.extract.trunc.i.i4)
   %.sroa.speculated.i.i6 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 %t1.sroa.3.0.extract.trunc.i.i)
   %retval.sroa.2.0.insert.ext.i.i7 = zext i32 %.sroa.speculated.i.i6 to i64
@@ -1763,7 +1763,7 @@ entry:
   %agg.tmp6.sroa.0.0.copyload.i = load i64, ptr %pMax7.i, align 8
   %t1.sroa.0.0.extract.trunc.i6.i = trunc i64 %agg.tmp6.sroa.0.0.copyload.i to i32
   %t1.sroa.3.0.extract.shift.i7.i = lshr i64 %agg.tmp6.sroa.0.0.copyload.i, 32
-  %t1.sroa.3.0.extract.trunc.i8.i = trunc i64 %t1.sroa.3.0.extract.shift.i7.i to i32
+  %t1.sroa.3.0.extract.trunc.i8.i = trunc nuw i64 %t1.sroa.3.0.extract.shift.i7.i to i32
   %.sroa.speculated5.i9.i12 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.0.0.extract.trunc.i6.i, i32 %.sroa.speculated5.i9.i)
   %.sroa.speculated.i10.i13 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i8.i, i32 %.sroa.speculated.i10.i)
   %retval.sroa.2.0.insert.ext.i11.i14 = zext i32 %.sroa.speculated.i10.i13 to i64
@@ -2177,7 +2177,7 @@ if.end:                                           ; preds = %land.end
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %extent, align 4
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub.i.i = sub nsw i32 %2, %p.sroa.0.0.extract.trunc.i.i
   %sub4.i.i = sub nsw i32 %4, %p.sroa.2.0.extract.trunc.i.i
   %mul.i = mul nsw i32 %sub4.i.i, %sub.i.i
@@ -5865,7 +5865,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

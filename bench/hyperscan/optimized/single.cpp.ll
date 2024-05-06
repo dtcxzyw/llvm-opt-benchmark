@@ -6058,7 +6058,7 @@ if.else239:                                       ; preds = %if.else195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_240) #25
   %and242 = and i32 %49, 1
   %tobool243.not = icmp eq i32 %and242, 0
-  %frombool.i756 = trunc i32 %and242 to i8
+  %frombool.i756 = trunc nuw nsw i32 %and242 to i8
   store i8 %frombool.i756, ptr %gtest_ar_240, align 8
   %message_.i757 = getelementptr inbounds i8, ptr %gtest_ar_240, i64 8
   store ptr null, ptr %message_.i757, align 8
@@ -8057,7 +8057,7 @@ if.else209:                                       ; preds = %if.else165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_210) #25
   %and212 = and i32 %49, 1
   %tobool213.not = icmp eq i32 %and212, 0
-  %frombool.i669 = trunc i32 %and212 to i8
+  %frombool.i669 = trunc nuw nsw i32 %and212 to i8
   store i8 %frombool.i669, ptr %gtest_ar_210, align 8
   %message_.i670 = getelementptr inbounds i8, ptr %gtest_ar_210, i64 8
   store ptr null, ptr %message_.i670, align 8
@@ -19244,7 +19244,7 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 
 declare void @__cxa_bad_typeid() local_unnamed_addr
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -36059,7 +36059,7 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read) }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

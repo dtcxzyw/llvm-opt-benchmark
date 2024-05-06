@@ -1509,7 +1509,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %81 = zext i16 %43 to i32
   %82 = zext i16 %44 to i32
   %83 = zext i16 %78 to i32
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.837, ptr noundef %80, i32 noundef %76, i32 noundef %81, i32 noundef %82, i32 noundef %83) #5
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.837, ptr noundef %80, i32 noundef %76, i32 noundef %81, i32 noundef %82, i32 noundef %83) #5
   br label %EcSummaryFormater.exit
 
 85:                                               ; preds = %._crit_edge.i
@@ -1523,7 +1523,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %93 = tail call ptr @val_to_str(i32 noundef %92, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %94 = getelementptr inbounds i8, ptr %7, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.838, i32 noundef 2, ptr noundef %88, i32 noundef %89, ptr noundef %93, i32 noundef %95) #5
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.838, i32 noundef 2, ptr noundef %88, i32 noundef %89, ptr noundef %93, i32 noundef %95) #5
   br label %EcSummaryFormater.exit
 
 97:                                               ; preds = %._crit_edge.i
@@ -1543,7 +1543,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %111 = tail call ptr @val_to_str(i32 noundef %110, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %112 = getelementptr inbounds i8, ptr %7, i64 8
   %113 = load i32, ptr %112, align 8
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.839, i32 noundef 3, ptr noundef %100, i32 noundef %101, ptr noundef %105, i32 noundef %107, ptr noundef %111, i32 noundef %113) #5
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.839, i32 noundef 3, ptr noundef %100, i32 noundef %101, ptr noundef %105, i32 noundef %107, ptr noundef %111, i32 noundef %113) #5
   br label %EcSummaryFormater.exit
 
 115:                                              ; preds = %._crit_edge.i
@@ -1569,7 +1569,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %135 = tail call ptr @val_to_str(i32 noundef %134, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %136 = getelementptr inbounds i8, ptr %7, i64 12
   %137 = load i32, ptr %136, align 4
-  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.840, i32 noundef 4, ptr noundef %118, i32 noundef %119, ptr noundef %123, i32 noundef %125, ptr noundef %129, i32 noundef %131, ptr noundef %135, i32 noundef %137) #5
+  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.840, i32 noundef 4, ptr noundef %118, i32 noundef %119, ptr noundef %123, i32 noundef %125, ptr noundef %129, i32 noundef %131, ptr noundef %135, i32 noundef %137) #5
   br label %EcSummaryFormater.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %37
@@ -1577,7 +1577,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %.14283.i = phi i32 [ %68, %._crit_edge.i ], [ 0, %37 ]
   %139 = zext i8 %41 to i32
   %140 = tail call ptr @val_to_str(i32 noundef %139, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
-  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.841, i32 noundef %.184.i, i32 noundef %.14283.i, ptr noundef %140) #5
+  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.841, i32 noundef %.184.i, i32 noundef %.14283.i, ptr noundef %140) #5
   br label %EcSummaryFormater.exit
 
 EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115, %._crit_edge.thread.i
@@ -1669,7 +1669,7 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   %185 = zext i16 %174 to i32
   %186 = zext i16 %175 to i32
   %187 = zext i16 %181 to i32
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.843, ptr noundef %184, i32 noundef %183, i32 noundef %179, i32 noundef %185, i32 noundef %186, i32 noundef %187) #5
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.843, ptr noundef %184, i32 noundef %183, i32 noundef %179, i32 noundef %185, i32 noundef %186, i32 noundef %187) #5
   br label %EcSubFormatter.exit
 
 189:                                              ; preds = %171, %171, %171
@@ -1680,16 +1680,16 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   %.sroa.7.4.insert.ext.i = zext i16 %174 to i32
   %.sroa.7.4.insert.insert.i = or disjoint i32 %.sroa.10.4.insert.shift.i, %.sroa.7.4.insert.ext.i
   %192 = zext i16 %181 to i32
-  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.844, ptr noundef %191, i32 noundef %190, i32 noundef %179, i32 noundef %.sroa.7.4.insert.insert.i, i32 noundef %192) #5
+  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.844, ptr noundef %191, i32 noundef %190, i32 noundef %179, i32 noundef %.sroa.7.4.insert.insert.i, i32 noundef %192) #5
   br label %EcSubFormatter.exit
 
 194:                                              ; preds = %171
-  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.845, i32 noundef 255, i32 noundef %179) #5
+  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.845, i32 noundef 255, i32 noundef %179) #5
   br label %EcSubFormatter.exit
 
 196:                                              ; preds = %171
   %197 = zext i8 %172 to i32
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.846, i32 noundef %197, i32 noundef %179) #5
+  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.846, i32 noundef %197, i32 noundef %179) #5
   br label %EcSubFormatter.exit
 
 EcSubFormatter.exit:                              ; preds = %182, %189, %194, %196
@@ -1706,11 +1706,11 @@ EcSubFormatter.exit:                              ; preds = %182, %189, %194, %1
   br i1 %.not.i325, label %208, label %206
 
 206:                                              ; preds = %EcSubFormatter.exit
-  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.847, i32 noundef %203, ptr noundef %204) #5
+  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.847, i32 noundef %203, ptr noundef %204) #5
   br label %EcCmdFormatter.exit
 
 208:                                              ; preds = %EcSubFormatter.exit
-  %209 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.848, i32 noundef %203) #5
+  %209 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.848, i32 noundef %203) #5
   br label %EcCmdFormatter.exit
 
 EcCmdFormatter.exit:                              ; preds = %206, %208
@@ -1900,7 +1900,7 @@ proto_item_set_hidden.exit332:                    ; preds = %281, %278, %272, %p
 init_dc_measure.exit:                             ; preds = %.preheader
   %309 = load i32, ptr @ett_ecat_dc, align 4
   %310 = call ptr @proto_tree_add_subtree(ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.836) #5
-  %311 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %310, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170), !range !8
+  %311 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %310, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
   %312 = icmp ult i32 %.0294, 10
   br i1 %312, label %313, label %proto_item_set_hidden.exit341
 
@@ -2108,7 +2108,7 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
   br i1 %.not5.i358, label %proto_item_set_hidden.exit356, label %proto_item_set_hidden.exit356.sink.split
 
 421:                                              ; preds = %300
-  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170), !range !8
+  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
   %.not310 = icmp eq i32 %422, 0
   br i1 %.not310, label %proto_item_set_hidden.exit356, label %423
 
@@ -2239,7 +2239,7 @@ proto_item_set_hidden.exit365:                    ; preds = %475, %472, %467, %4
   %481 = icmp ult i32 %479, %13
   %482 = icmp slt i16 %162, 0
   %483 = select i1 %481, i1 %482, i1 false
-  br i1 %483, label %153, label %484, !llvm.loop !9
+  br i1 %483, label %153, label %484, !llvm.loop !8
 
 484:                                              ; preds = %proto_item_set_hidden.exit365
   %.not319 = icmp eq i32 %13, %33
@@ -2293,7 +2293,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %8
 
@@ -2350,7 +2350,7 @@ define internal fastcc i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1,
   %.1.lcssa.us = phi i32 [ %.04764.us, %.preheader.us ], [ %.2.us.us, %._crit_edge77 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 108
-  br i1 %exitcond76.not, label %.loopexit, label %23, !llvm.loop !10
+  br i1 %exitcond76.not, label %.loopexit, label %23, !llvm.loop !9
 
 .preheader.us:                                    ; preds = %23
   %28 = getelementptr inbounds i8, ptr %24, i64 4
@@ -2376,7 +2376,7 @@ define internal fastcc i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1,
   %.2.us.us = select i1 %34, i32 %.161.us.us, i32 0
   %35 = add nuw nsw i32 %.04860.us.us, 1
   %exitcond72.not = icmp eq i32 %35, %30
-  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !11
+  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !10
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %._crit_edge.split ]
@@ -2467,13 +2467,13 @@ define internal fastcc i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1,
   %.2 = phi i32 [ %.161, %._crit_edge ], [ 0, %67 ], [ 0, %75 ], [ 0, %61 ], [ %.161, %55 ]
   %82 = add nuw nsw i32 %.04860, 1
   %exitcond.not = icmp eq i32 %82, %45
-  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !10
 
 ._crit_edge.split:                                ; preds = %81, %.preheader
   %.1.lcssa = phi i32 [ %.04764, %.preheader ], [ %.2, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, 108
-  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !10
+  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
   %.3 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.04764.us, %23 ], [ %.1.lcssa, %._crit_edge.split ], [ %.04764, %.split ]
@@ -2593,7 +2593,6 @@ attributes #5 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

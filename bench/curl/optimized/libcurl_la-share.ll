@@ -35,7 +35,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @Curl_init_dnscache(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_share_setopt(ptr noundef %share, i32 noundef %option, ...) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %share, i32 noundef %option, ...) local_unnamed_addr #0 {
 entry:
   %param = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %share, null
@@ -53,7 +53,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %tobool1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %param)
+  call void @llvm.va_start.p0(ptr nonnull %param)
   switch i32 %option, label %sw.epilog122 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb45
@@ -306,16 +306,13 @@ vaarg.end119:                                     ; preds = %vaarg.in_mem115, %v
 
 sw.epilog122:                                     ; preds = %vaarg.end, %if.then27, %if.then17, %if.then8, %if.end3, %do.body, %sw.default78, %vaarg.end56, %if.then64, %sw.bb61, %if.then71, %sw.bb68, %vaarg.end56, %sw.epilog, %if.then43, %vaarg.end119, %vaarg.end105, %vaarg.end91
   %res.1 = phi i32 [ 0, %vaarg.end119 ], [ 0, %vaarg.end105 ], [ 0, %vaarg.end91 ], [ 1, %sw.default78 ], [ 0, %do.body ], [ 0, %if.then71 ], [ 0, %sw.bb68 ], [ 0, %if.then64 ], [ 0, %sw.bb61 ], [ 0, %vaarg.end56 ], [ 0, %vaarg.end56 ], [ 4, %sw.epilog ], [ 0, %if.then43 ], [ 1, %if.end3 ], [ 4, %if.then8 ], [ 4, %if.then17 ], [ 4, %if.then27 ], [ 1, %vaarg.end ]
-  call void @llvm.va_end(ptr nonnull %param)
+  call void @llvm.va_end.p0(ptr nonnull %param)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %land.lhs.true, %sw.epilog122
   %retval.0 = phi i32 [ %res.1, %sw.epilog122 ], [ 3, %land.lhs.true ], [ 3, %entry ], [ 2, %if.end ]
   ret i32 %retval.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 declare ptr @Curl_cookie_init(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -327,11 +324,8 @@ declare void @Curl_cookie_cleanup(ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_share_cleanup(ptr noundef %share) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @curl_share_cleanup(ptr noundef %share) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %share, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -449,7 +443,7 @@ declare void @Curl_ssl_kill_session(ptr noundef) local_unnamed_addr #1
 declare void @Curl_psl_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_share_lock(ptr noundef %data, i32 noundef %type, i32 noundef %accesstype) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @Curl_share_lock(ptr noundef %data, i32 noundef %type, i32 noundef %accesstype) local_unnamed_addr #0 {
 entry:
   %share1 = getelementptr inbounds i8, ptr %data, i64 208
   %0 = load ptr, ptr %share1, align 8
@@ -482,7 +476,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_share_unlock(ptr noundef %data, i32 noundef %type) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @Curl_share_unlock(ptr noundef %data, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %share1 = getelementptr inbounds i8, ptr %data, i64 208
   %0 = load ptr, ptr %share1, align 8
@@ -513,6 +507,12 @@ return:                                           ; preds = %if.end, %if.then5, 
   %retval.0 = phi i32 [ 3, %entry ], [ 0, %if.then3 ], [ 0, %if.then5 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

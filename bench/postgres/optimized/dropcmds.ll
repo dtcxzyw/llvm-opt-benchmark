@@ -81,7 +81,7 @@ define dso_local void @RemoveObjects(ptr nocapture noundef readonly %0) local_un
   store i64 %.fca.0.extract, ptr %4, align 8
   store i32 %.fca.1.extract, ptr %.sroa.24.0..sroa_idx, align 8
   %22 = lshr i64 %.fca.0.extract, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %.not32 = icmp eq i32 %23, 0
   %24 = load i32, ptr %11, align 8
   br i1 %.not32, label %25, label %500

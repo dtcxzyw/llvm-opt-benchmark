@@ -504,7 +504,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %213
 
 202:                                              ; preds = %179
-  %203 = trunc i8 %.0118 to i1
+  %203 = trunc nuw i8 %.0118 to i1
   br i1 %203, label %208, label %204
 
 204:                                              ; preds = %202
@@ -587,7 +587,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
 230:                                              ; preds = %225
   %.sroa.0102.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0102.sroa.3.0.extract.shift = lshr i64 %.sroa.0102.0.copyload, 32
-  %.sroa.0102.sroa.3.0.extract.trunc = trunc i64 %.sroa.0102.sroa.3.0.extract.shift to i32
+  %.sroa.0102.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.0102.sroa.3.0.extract.shift to i32
   %.sroa.4103.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
   %231 = and i64 %.sroa.0102.0.copyload, 4294967295
   br label %238
@@ -1000,7 +1000,7 @@ define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_import_system_collations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [128 x i16], align 16
   %4 = alloca [128 x i8], align 16

@@ -393,7 +393,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -627,7 +627,7 @@ blobGetData.exit25:                               ; preds = %12
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @blobGrow(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 21) i32 @blobGrow(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -719,7 +719,7 @@ define noalias noundef ptr @fileblobCreate() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fileblobScanAndDestroy(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @fileblobScanAndDestroy(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @fileblobScan(ptr noundef %0)
   switch i32 %2, label %5 [
     i32 1, label %3
@@ -1097,7 +1097,7 @@ fileblobAddData.exit.thread33:                    ; preds = %38
   br label %fileblobAddData.exit.thread
 
 fileblobAddData.exit:                             ; preds = %36
-  %45 = tail call i32 @blobAddData(ptr noundef nonnull %4, ptr noundef nonnull %31, i64 noundef %34), !range !4
+  %45 = tail call i32 @blobAddData(ptr noundef nonnull %4, ptr noundef nonnull %31, i64 noundef %34)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %fileblobAddData.exit.thread, label %51
 
@@ -1130,7 +1130,7 @@ declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly)
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fileblobAddData(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %21, label %5
 
@@ -1167,7 +1167,7 @@ define noundef i32 @fileblobAddData(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = tail call i32 @blobAddData(ptr noundef nonnull %19, ptr noundef nonnull %1, i64 noundef %2), !range !4
+  %20 = tail call i32 @blobAddData(ptr noundef nonnull %19, ptr noundef nonnull %1, i64 noundef %2)
   br label %21
 
 21:                                               ; preds = %3, %18, %14, %11
@@ -1369,7 +1369,7 @@ declare i32 @cli_matchmeta(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i
 declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fileblobInfected(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @fileblobInfected(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 1
@@ -1410,4 +1410,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

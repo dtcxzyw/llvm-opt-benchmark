@@ -120,7 +120,7 @@ define void @expand_cluster(ptr noundef %0) local_unnamed_addr #0 {
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next72.i, %73
-  %75 = trunc i64 %indvars.iv71.i to i32
+  %75 = trunc nsw i64 %indvars.iv71.i to i32
   br i1 %74, label %.lr.ph61.i, label %._crit_edge.i21
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph61.i, %52
@@ -185,7 +185,7 @@ define void @expand_cluster(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i19 = phi i64 [ %94, %.lr.ph.i18 ], [ %indvars.iv.next.i20, %104 ]
   %105 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv.i19
   %106 = load ptr, ptr %105, align 8
-  %107 = trunc i64 %indvars.iv.i19 to i32
+  %107 = trunc nsw i64 %indvars.iv.i19 to i32
   %108 = add i32 %92, %107
   %109 = getelementptr inbounds i8, ptr %106, i64 16
   %110 = load ptr, ptr %109, align 8
@@ -238,7 +238,7 @@ make_slots.exit:                                  ; preds = %.lr.ph64.i, %._crit
   %143 = getelementptr inbounds i8, ptr %136, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 364
-  %146 = trunc i64 %indvars.iv59.i to i32
+  %146 = trunc nsw i64 %indvars.iv59.i to i32
   store i32 %146, ptr %145, align 4
   %147 = load ptr, ptr %143, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 216
@@ -294,7 +294,7 @@ make_slots.exit:                                  ; preds = %.lr.ph64.i, %._crit
   br i1 %.not.not.i, label %30, label %._crit_edge56.loopexit.i
 
 ._crit_edge56.loopexit.i:                         ; preds = %._crit_edge.i
-  %182 = trunc i64 %indvars.iv.next65.i to i32
+  %182 = trunc nsw i64 %indvars.iv.next65.i to i32
   br label %._crit_edge56.i
 
 ._crit_edge56.i:                                  ; preds = %._crit_edge56.loopexit.i, %23
@@ -765,7 +765,7 @@ gv_calloc.exit:                                   ; preds = %12
   %32 = getelementptr inbounds i8, ptr %27, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 360
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nsw i64 %indvars.iv to i32
   store i32 %35, ptr %34, align 8
   %36 = load ptr, ptr %32, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 233
@@ -1380,7 +1380,7 @@ map_interclust_node.exit11:                       ; preds = %map_interclust_node
   br i1 %100, label %.lr.ph129.i, label %map_path.exit
 
 .lr.ph129.i:                                      ; preds = %93
-  %101 = trunc i32 %.0 to i8
+  %101 = trunc nuw nsw i32 %.0 to i8
   br label %102
 
 102:                                              ; preds = %188, %.lr.ph129.i
@@ -1430,7 +1430,7 @@ map_interclust_node.exit11:                       ; preds = %map_interclust_node
   %indvars.iv.i.i.i = phi i64 [ %131, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %133 ]
   %134 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv.i.i.i
   %135 = load ptr, ptr %134, align 8
-  %136 = trunc i64 %indvars.iv.i.i.i to i32
+  %136 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %137 = add i32 %136, 1
   %138 = getelementptr inbounds i8, ptr %135, i64 16
   %139 = load ptr, ptr %138, align 8
@@ -1558,7 +1558,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %230 = load ptr, ptr %44, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 232
   store ptr %226, ptr %231, align 8
-  %232 = trunc i32 %.0 to i8
+  %232 = trunc nuw nsw i32 %.0 to i8
   %233 = getelementptr inbounds i8, ptr %226, i64 16
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 152
@@ -1590,7 +1590,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %252 = getelementptr inbounds i8, ptr %251, i64 232
   store ptr null, ptr %252, align 8
   %253 = tail call ptr @virtual_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i10, ptr noundef nonnull %2) #9
-  %254 = trunc i32 %.0 to i8
+  %254 = trunc nuw nsw i32 %.0 to i8
   %255 = getelementptr inbounds i8, ptr %253, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 152
@@ -1692,7 +1692,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %313 = getelementptr inbounds i8, ptr %312, i64 56
   %314 = load ptr, ptr %313, align 8
   %315 = tail call ptr @virtual_edge(ptr noundef %314, ptr noundef nonnull %.0.i10, ptr noundef %2) #9
-  %316 = trunc i32 %.0 to i8
+  %316 = trunc nuw nsw i32 %.0 to i8
   %317 = getelementptr inbounds i8, ptr %315, i64 16
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 152

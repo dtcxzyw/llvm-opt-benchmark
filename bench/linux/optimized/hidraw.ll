@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hidraw_disco
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_hidraw_connect423, ptr @__UNIQUE_ID___addressable_hidraw_disconnect424, ptr @__UNIQUE_ID___addressable_hidraw_report_event422], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hidraw_report_event(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 7192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -396,7 +396,7 @@ declare dso_local void @device_destroy(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hidraw_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -549,7 +549,7 @@ define internal i64 @hidraw_read(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hidraw_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hidraw_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @minors_rwsem) #13
   %5 = getelementptr i8, ptr %0, i64 168
   %.val = load ptr, ptr %5, align 8
@@ -561,7 +561,7 @@ define internal i64 @hidraw_write(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hidraw_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 260, 384) i32 @hidraw_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1040
@@ -599,7 +599,7 @@ define internal i32 @hidraw_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hidraw_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.hidraw_devinfo, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -1094,7 +1094,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = and i32 %.168.val.76.val, 1048575
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %5
@@ -1201,7 +1201,7 @@ declare i64 @llvm.read_register.i64(metadata) #9
 declare void @llvm.write_register.i64(metadata, i64) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = and i32 %.168.val.76.val, 1048575
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
@@ -1263,7 +1263,7 @@ define internal fastcc i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef 
   %43 = call i64 @llvm.umin.i64(i64 %42, i64 %1)
   %44 = call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %43) #13
   %45 = icmp eq i64 %44, 0
-  %46 = trunc i64 %43 to i32
+  %46 = trunc nuw nsw i64 %43 to i32
   %47 = select i1 %45, i32 %46, i32 -14
   br label %48
 

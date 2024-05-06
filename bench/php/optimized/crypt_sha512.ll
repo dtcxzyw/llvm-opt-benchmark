@@ -144,7 +144,7 @@ sub_2:                                            ; preds = %sub_1
   %68 = getelementptr inbounds i8, ptr %6, i64 56
   store i64 6620516959819538809, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %6, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef nonnull %6)
   call fastcc void @sha512_process_bytes(ptr noundef %.2, i64 noundef %spec.select533, ptr noundef nonnull %6)
   store i64 7640891576956012808, ptr %7, align 8
@@ -163,7 +163,7 @@ sub_2:                                            ; preds = %sub_1
   %76 = getelementptr inbounds i8, ptr %7, i64 56
   store i64 6620516959819538809, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef nonnull %7)
   call fastcc void @sha512_process_bytes(ptr noundef %.2, i64 noundef %spec.select533, ptr noundef nonnull %7)
   call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef nonnull %7)
@@ -213,7 +213,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 -7276294671716946913, ptr %74, align 8
   store i64 2270897969802886507, ptr %75, align 8
   store i64 6620516959819538809, ptr %76, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   br i1 %.not524536, label %.thread806, label %.lr.ph543
 
 .thread806.critedge:                              ; preds = %._crit_edge
@@ -226,7 +226,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 -7276294671716946913, ptr %74, align 8
   store i64 2270897969802886507, ptr %75, align 8
   store i64 6620516959819538809, ptr %76, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   br label %.thread806
 
 .thread806:                                       ; preds = %.thread806.critedge, %._crit_edge540
@@ -282,7 +282,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 -7276294671716946913, ptr %74, align 8
   store i64 2270897969802886507, ptr %75, align 8
   store i64 6620516959819538809, ptr %76, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   br label %105
 
 105:                                              ; preds = %._crit_edge549, %105
@@ -312,7 +312,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 -7276294671716946913, ptr %66, align 8
   store i64 2270897969802886507, ptr %67, align 8
   store i64 6620516959819538809, ptr %68, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   %114 = and i64 %.6482553, 1
   %.not529 = icmp eq i64 %114, 0
   br i1 %.not529, label %116, label %115
@@ -1261,7 +1261,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 -7276294671716946913, ptr %66, align 8
   store i64 2270897969802886507, ptr %67, align 8
   store i64 6620516959819538809, ptr %68, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   %671 = call fastcc ptr @sha512_finish_ctx(ptr noundef nonnull %6, ptr noundef nonnull %4)
   call void @explicit_bzero(ptr noundef nonnull %5, i64 noundef 64) #14
   call void @explicit_bzero(ptr noundef %103, i64 noundef %36) #14

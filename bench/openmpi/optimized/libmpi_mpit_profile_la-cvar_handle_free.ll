@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_cvar_handle_free = weak alias i32 (ptr), ptr @PMPI_T_cvar_handle_free
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @PMPI_T_cvar_handle_free(ptr nocapture noundef %0) #0 {
+define range(i32 0, 56) i32 @PMPI_T_cvar_handle_free(ptr nocapture noundef %0) #0 {
   %2 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not2 = icmp eq i32 %2, 0
   br i1 %.not2, label %5, label %3

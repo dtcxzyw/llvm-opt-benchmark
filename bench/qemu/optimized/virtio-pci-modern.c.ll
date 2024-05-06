@@ -387,7 +387,7 @@ do.end:                                           ; preds = %if.else, %entry
   %conv17 = zext i32 %14 to i64
   %add18 = add nuw nsw i64 %conv17, 12
   %shr = lshr i64 %features, 32
-  %conv19 = trunc i64 %shr to i32
+  %conv19 = trunc nuw i64 %shr to i32
   %15 = load i64, ptr %bar, align 8
   %16 = load i8, ptr %3, align 8
   tail call void @qpci_io_writel(ptr noundef %13, i64 %15, i8 %16, i64 noundef %add18, i32 noundef %conv19) #3
@@ -671,7 +671,7 @@ entry:
   %add6 = add nuw nsw i64 %conv5, 36
   %8 = load i64, ptr %desc, align 8
   %shr = lshr i64 %8, 32
-  %conv8 = trunc i64 %shr to i32
+  %conv8 = trunc nuw i64 %shr to i32
   %9 = load i64, ptr %bar, align 8
   %10 = load i8, ptr %4, align 8
   tail call void @qpci_io_writel(ptr noundef %6, i64 %9, i8 %10, i64 noundef %add6, i32 noundef %conv8) #3
@@ -691,7 +691,7 @@ entry:
   %add19 = add nuw nsw i64 %conv18, 44
   %18 = load i64, ptr %avail, align 8
   %shr21 = lshr i64 %18, 32
-  %conv22 = trunc i64 %shr21 to i32
+  %conv22 = trunc nuw i64 %shr21 to i32
   %19 = load i64, ptr %bar, align 8
   %20 = load i8, ptr %4, align 8
   tail call void @qpci_io_writel(ptr noundef %16, i64 %19, i8 %20, i64 noundef %add19, i32 noundef %conv22) #3
@@ -711,7 +711,7 @@ entry:
   %add33 = add nuw nsw i64 %conv32, 52
   %28 = load i64, ptr %used, align 8
   %shr35 = lshr i64 %28, 32
-  %conv36 = trunc i64 %shr35 to i32
+  %conv36 = trunc nuw i64 %shr35 to i32
   %29 = load i64, ptr %bar, align 8
   %30 = load i8, ptr %4, align 8
   tail call void @qpci_io_writel(ptr noundef %26, i64 %29, i8 %30, i64 noundef %add33, i32 noundef %conv36) #3

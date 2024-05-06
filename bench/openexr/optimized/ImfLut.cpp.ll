@@ -383,18 +383,18 @@ if.else:                                          ; preds = %entry
   %conv7 = fptosi double %add to i32
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %conv7, i32 4095)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 1)
-  %addconv = add nsw i32 %spec.store.select1, -2000
-  %sub = sitofp i32 %addconv to double
+  %2 = add nsw i32 %spec.store.select1, -2000
+  %sub = sitofp i32 %2 to double
   %div16 = fdiv double %sub, 2.000000e+02
   %exp2 = tail call double @exp2(double %div16)
   %mul18 = fmul double %exp2, 0x3FC6A09E60000000
   %conv19 = fptrunc double %mul18 to float
-  %2 = bitcast float %conv19 to i32
-  %3 = tail call float @llvm.fabs.f32(float %conv19)
-  %and.i.i = bitcast float %3 to i32
-  %shr.i.i = lshr i32 %2, 16
-  %4 = trunc i32 %shr.i.i to i16
-  %conv.i.i = and i16 %4, -32768
+  %3 = bitcast float %conv19 to i32
+  %4 = tail call float @llvm.fabs.f32(float %conv19)
+  %and.i.i = bitcast float %4 to i32
+  %shr.i.i = lshr i32 %3, 16
+  %5 = trunc nuw i32 %shr.i.i to i16
+  %conv.i.i = and i16 %5, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
 
@@ -411,10 +411,10 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %and9.i.i = lshr i32 %and.i.i, 13
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
-  %5 = zext i1 %cmp15.i.i to i16
-  %6 = trunc i32 %shr10.i.i to i16
-  %7 = or i16 %6, %5
-  %conv19.i.i = or disjoint i16 %7, %conv6.i.i
+  %6 = zext i1 %cmp15.i.i to i16
+  %7 = trunc nuw nsw i32 %shr10.i.i to i16
+  %8 = or i16 %7, %6
+  %conv19.i.i = or disjoint i16 %8, %conv6.i.i
   br label %return
 
 if.end20.i.i:                                     ; preds = %if.then.i.i
@@ -450,7 +450,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
   %conv47.i.i = and i32 %shr.i.i, 32768
   %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc i32 %or48.i.i to i16
+  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 

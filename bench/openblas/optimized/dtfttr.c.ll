@@ -77,7 +77,7 @@ define void @dtfttr_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 41:                                               ; preds = %35
   %42 = add nuw nsw i32 %22, 1
-  %43 = mul nsw i32 %42, %22
+  %43 = mul nuw nsw i32 %42, %22
   %44 = lshr i32 %43, 1
   %45 = lshr i32 %22, 1
   %46 = sub nsw i32 %22, %45

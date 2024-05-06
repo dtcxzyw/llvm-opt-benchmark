@@ -1045,7 +1045,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_PtrFreeP.exit, 
   br label %.thread333
 
 394:                                              ; preds = %389
-  %395 = trunc i64 %indvars.iv491 to i32
+  %395 = trunc nuw nsw i64 %indvars.iv491 to i32
   %396 = shl i64 %indvars.iv, 32
   %sext = add i64 %396, -4294967296
   %397 = ashr exact i64 %sext, 32
@@ -1799,7 +1799,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Amap_LibNumPinsMax(ptr noundef %0) #13
   %4 = icmp sgt i32 %3, 15
   br i1 %4, label %5, label %7
@@ -1875,7 +1875,7 @@ define i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %124
 
 45:                                               ; preds = %41
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = getelementptr inbounds i8, ptr %28, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %37, ptr noundef %48)
@@ -2108,7 +2108,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %Abc_Clock.exit
-  %13 = call i32 @Amap_LibParseEquations(ptr noundef nonnull %10, i32 noundef 0), !range !11
+  %13 = call i32 @Amap_LibParseEquations(ptr noundef nonnull %10, i32 noundef 0)
   call void @Amap_LibFree(ptr noundef nonnull %10) #13
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -2151,7 +2151,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2170,7 +2170,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2187,16 +2187,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
@@ -2238,4 +2238,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}

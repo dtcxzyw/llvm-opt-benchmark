@@ -1253,15 +1253,15 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %906 = xor i8 %905, -1
   %907 = getelementptr float, ptr %3, i64 %709
   %908 = bitcast i8 %906 to <8 x i1>
-  %909 = mul nsw i64 %2, 7
+  %909 = mul nuw nsw i64 %2, 7
   %910 = getelementptr float, ptr %897, i64 %909
-  %911 = mul nsw i64 %2, 6
+  %911 = mul nuw nsw i64 %2, 6
   %912 = getelementptr float, ptr %897, i64 %911
-  %913 = mul nsw i64 %2, 5
+  %913 = mul nuw nsw i64 %2, 5
   %914 = getelementptr float, ptr %897, i64 %913
   %915 = shl nsw i64 %2, 2
   %916 = getelementptr float, ptr %897, i64 %915
-  %917 = mul nsw i64 %2, 3
+  %917 = mul nuw nsw i64 %2, 3
   %918 = getelementptr float, ptr %897, i64 %917
   %919 = shl nuw nsw i64 %2, 1
   %920 = getelementptr float, ptr %897, i64 %919
@@ -1289,7 +1289,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %932 = phi i64 [ 0, %.split310.us ], [ %937, %931 ]
   %933 = getelementptr float, ptr %929, i64 %932
   %934 = load float, ptr %933, align 4, !tbaa !99
-  %935 = mul nsw i64 %932, %2
+  %935 = mul nuw nsw i64 %932, %2
   %936 = getelementptr float, ptr %930, i64 %935
   store float %934, ptr %936, align 4, !tbaa !99
   %937 = add nuw nsw i64 %932, 1
@@ -1441,16 +1441,16 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1027, label %1036, label %.loopexit151
 
 1036:                                             ; preds = %1032
-  %1037 = mul nsw i64 %1033, %2
+  %1037 = mul nuw nsw i64 %1033, %2
   %1038 = getelementptr float, ptr %897, i64 %1037
   %1039 = or disjoint i64 %1033, 1
-  %1040 = mul nsw i64 %1039, %2
+  %1040 = mul nuw nsw i64 %1039, %2
   %1041 = getelementptr float, ptr %897, i64 %1040
   %1042 = or disjoint i64 %1033, 2
-  %1043 = mul nsw i64 %1042, %2
+  %1043 = mul nuw nsw i64 %1042, %2
   %1044 = getelementptr float, ptr %897, i64 %1043
   %1045 = or disjoint i64 %1033, 3
-  %1046 = mul nsw i64 %1045, %2
+  %1046 = mul nuw nsw i64 %1045, %2
   %1047 = getelementptr float, ptr %897, i64 %1046
   br label %1083
 
@@ -1487,16 +1487,16 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1070, label %1071, label %.loopexit150
 
 1071:                                             ; preds = %.loopexit151
-  %1072 = mul nsw i64 %1033, %2
+  %1072 = mul nuw nsw i64 %1033, %2
   %1073 = getelementptr float, ptr %897, i64 %1072
   %1074 = or disjoint i64 %1033, 1
-  %1075 = mul nsw i64 %1074, %2
+  %1075 = mul nuw nsw i64 %1074, %2
   %1076 = getelementptr float, ptr %897, i64 %1075
   %1077 = or disjoint i64 %1033, 2
-  %1078 = mul nsw i64 %1077, %2
+  %1078 = mul nuw nsw i64 %1077, %2
   %1079 = getelementptr float, ptr %897, i64 %1078
   %1080 = or disjoint i64 %1033, 3
-  %1081 = mul nsw i64 %1080, %2
+  %1081 = mul nuw nsw i64 %1080, %2
   %1082 = getelementptr float, ptr %897, i64 %1081
   br label %1338
 
@@ -1773,16 +1773,16 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1325, label %1326, label %.loopexit149
 
 1326:                                             ; preds = %.loopexit150
-  %1327 = mul nsw i64 %1033, %2
+  %1327 = mul nuw nsw i64 %1033, %2
   %1328 = getelementptr float, ptr %897, i64 %1327
   %1329 = or disjoint i64 %1033, 1
-  %1330 = mul nsw i64 %1329, %2
+  %1330 = mul nuw nsw i64 %1329, %2
   %1331 = getelementptr float, ptr %897, i64 %1330
   %1332 = or disjoint i64 %1033, 2
-  %1333 = mul nsw i64 %1332, %2
+  %1333 = mul nuw nsw i64 %1332, %2
   %1334 = getelementptr float, ptr %897, i64 %1333
   %1335 = or disjoint i64 %1033, 3
-  %1336 = mul nsw i64 %1335, %2
+  %1336 = mul nuw nsw i64 %1335, %2
   %1337 = getelementptr float, ptr %897, i64 %1336
   br label %1475
 
@@ -2054,11 +2054,11 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1055, label %1566, label %.loopexit145
 
 1566:                                             ; preds = %1563
-  %1567 = mul nsw i64 %1564, %2
+  %1567 = mul nuw nsw i64 %1564, %2
   %1568 = getelementptr float, ptr %897, i64 %1567
   %1569 = and i64 %1564, 4294967294
   %1570 = or disjoint i64 %1569, 1
-  %1571 = mul nsw i64 %1570, %2
+  %1571 = mul nuw nsw i64 %1570, %2
   %1572 = getelementptr float, ptr %897, i64 %1571
   br label %1596
 
@@ -2088,11 +2088,11 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1588, label %1589, label %.loopexit144
 
 1589:                                             ; preds = %.loopexit145
-  %1590 = mul nsw i64 %1564, %2
+  %1590 = mul nuw nsw i64 %1564, %2
   %1591 = getelementptr float, ptr %897, i64 %1590
   %1592 = and i64 %1564, 4294967294
   %1593 = or disjoint i64 %1592, 1
-  %1594 = mul nsw i64 %1593, %2
+  %1594 = mul nuw nsw i64 %1593, %2
   %1595 = getelementptr float, ptr %897, i64 %1594
   %invariant.gep = getelementptr float, ptr %9, i64 %1565
   br label %1757
@@ -2270,11 +2270,11 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1749, label %1750, label %.loopexit143
 
 1750:                                             ; preds = %.loopexit144
-  %1751 = mul nsw i64 %1564, %2
+  %1751 = mul nuw nsw i64 %1564, %2
   %1752 = getelementptr float, ptr %897, i64 %1751
   %1753 = and i64 %1564, 4294967294
   %1754 = or disjoint i64 %1753, 1
-  %1755 = mul nsw i64 %1754, %2
+  %1755 = mul nuw nsw i64 %1754, %2
   %1756 = getelementptr float, ptr %897, i64 %1755
   br label %1839
 
@@ -2462,7 +2462,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1580, label %1900, label %.loopexit138
 
 1900:                                             ; preds = %1896
-  %1901 = mul nsw i64 %1897, %2
+  %1901 = mul nuw nsw i64 %1897, %2
   %1902 = getelementptr float, ptr %897, i64 %1901
   br label %1908
 
@@ -2472,7 +2472,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %1904, label %1905, label %.loopexit137
 
 1905:                                             ; preds = %.loopexit138
-  %1906 = mul nsw i64 %1897, %2
+  %1906 = mul nuw nsw i64 %1897, %2
   %1907 = getelementptr float, ptr %897, i64 %1906
   br label %2017
 
@@ -2600,7 +2600,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %2013, label %2014, label %.loopexit136
 
 2014:                                             ; preds = %.loopexit137
-  %2015 = mul nsw i64 %1897, %2
+  %2015 = mul nuw nsw i64 %1897, %2
   %2016 = getelementptr float, ptr %897, i64 %2015
   br label %2080
 

@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h53c67dcee61546dfE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !4, !noalias !5, !noundef !10
-  %trunc.i.i = trunc i64 %2 to i1
+  %trunc.i.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.thread, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit: ; preds = %1
@@ -807,7 +807,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 .body364:                                         ; preds = %75, %.thread564, %.thread548, %597
   %.0155 = phi i8 [ %.4159538552, %.thread548 ], [ %.4159536543, %597 ], [ %.2157457563, %.thread564 ], [ %.1156, %75 ]
   %.pn253 = phi { ptr, i32 } [ %.pn251553, %.thread548 ], [ %598, %597 ], [ %.pn249458561, %.thread564 ], [ %76, %75 ]
-  %74 = trunc i8 %.0155 to i1
+  %74 = trunc nuw i8 %.0155 to i1
   br i1 %74, label %.thread, label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h6ff015252568a890E.exit368"
 
 75:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb02f09d1c3a58833E.llvm.566609780180471337.exit.i361", %604, %4
@@ -818,7 +818,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 
 77:                                               ; preds = %4
   %78 = load i64, ptr %70, align 8, !range !4, !noundef !10
-  %trunc = trunc i64 %78 to i1
+  %trunc = trunc nuw i64 %78 to i1
   %79 = getelementptr inbounds i8, ptr %70, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
@@ -1093,7 +1093,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(32) %162, i64 32, i1 false)
   %164 = getelementptr inbounds i8, ptr %62, i64 32
   store i8 %.0148, ptr %164, align 8
-  %165 = trunc i8 %.0148 to i1
+  %165 = trunc nuw i8 %.0148 to i1
   %166 = load i64, ptr %62, align 8, !range !38, !noundef !10
   %167 = icmp eq i64 %166, -9223372036854775807
   %168 = load i64, ptr %163, align 8, !range !11
@@ -1405,7 +1405,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 256:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   %257 = load i64, ptr %23, align 8, !range !4, !alias.scope !260, !noundef !10
-  %trunc.i = trunc i64 %257 to i1
+  %trunc.i = trunc nuw i64 %257 to i1
   br i1 %trunc.i, label %258, label %259
 
 258:                                              ; preds = %256
@@ -2026,7 +2026,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   store i64 0, ptr %418, align 8, !noalias !295
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !295
   store ptr %418, ptr %11, align 8, !noalias !295
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %421, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %421, i64 24, i1 false)
   invoke void @"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h674c7ba3266a0730E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
           to label %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$10try_unwrap17h264997a3f6550c28E.exit" unwind label %413
 
@@ -2425,7 +2425,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br i1 %.not246, label %532, label %530
 
 530:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit345"
-  %531 = trunc i8 %.4182 to i1
+  %531 = trunc nuw i8 %.4182 to i1
   br i1 %531, label %534, label %532
 
 532:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.exit", %530, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit345"
@@ -2456,7 +2456,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
           to label %.thread452 unwind label %219
 
 538:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit"
-  %539 = trunc i8 %.4182 to i1
+  %539 = trunc nuw i8 %.4182 to i1
   br i1 %539, label %540, label %.body346
 
 540:                                              ; preds = %538
@@ -2495,7 +2495,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br i1 %.not236, label %.body346, label %554
 
 554:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit349"
-  %555 = trunc i8 %.4182 to i1
+  %555 = trunc nuw i8 %.4182 to i1
   br i1 %555, label %556, label %.body346
 
 556:                                              ; preds = %554
@@ -2550,7 +2550,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br i1 %.not233, label %577, label %575
 
 575:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit351"
-  %576 = trunc i8 %.0178 to i1
+  %576 = trunc nuw i8 %.0178 to i1
   br i1 %576, label %579, label %577
 
 577:                                              ; preds = %579, %575, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$syn..item..Variadic$GT$$GT$17h81a4c1bee0898108E.exit351"
@@ -2565,7 +2565,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 
 580:                                              ; preds = %532
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %69)
-  %581 = trunc i8 %.6 to i1
+  %581 = trunc nuw i8 %.6 to i1
   br i1 %581, label %.thread539, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$17hd313feaa9cfe6ddaE.exit.thread"
 
 "_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$17hd313feaa9cfe6ddaE.exit.thread": ; preds = %580
@@ -2624,12 +2624,12 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 597:                                              ; preds = %588
   %598 = landingpad { ptr, i32 }
           cleanup
-  %599 = trunc i8 %.7533544 to i1
+  %599 = trunc nuw i8 %.7533544 to i1
   br i1 %599, label %.thread548, label %.body364
 
 "_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$17hd313feaa9cfe6ddaE.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$17ha80a92c6e4788c6dE.exit.i", %.thread545
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %73)
-  %600 = trunc i8 %.4159536543 to i1
+  %600 = trunc nuw i8 %.4159536543 to i1
   br i1 %600, label %639, label %425
 
 .thread545:                                       ; preds = %.thread539, %"_ZN4core3ptr49drop_in_place$LT$proc_macro2..fallback..Ident$GT$17h02f86d19a73b458aE.llvm.566609780180471337.exit.i.i.i355"
@@ -2682,7 +2682,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 .thread452:                                       ; preds = %577, %.body346, %106
   %.pn249458 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %106 ], [ %.pn231, %577 ], [ %.pn247, %.body346 ]
   %.0164456 = phi i8 [ %.1165.ph, %106 ], [ %.2166, %577 ], [ %.6, %.body346 ]
-  %617 = trunc i8 %.0164456 to i1
+  %617 = trunc nuw i8 %.0164456 to i1
   br i1 %617, label %.thread556, label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h6ff015252568a890E.exit368"
 
 .thread466:                                       ; preds = %94, %124, %121, %.thread471
@@ -3014,7 +3014,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 ._crit_edge:                                      ; preds = %453
   %.pre = load i8, ptr %86, align 8, !range !237
-  %131 = trunc i8 %.pre to i1
+  %131 = trunc nuw i8 %.pre to i1
   br i1 %131, label %138, label %._crit_edge.thread
 
 132:                                              ; preds = %.lr.ph, %453
@@ -3052,12 +3052,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %.sroa.5119.0.lcssa600 = phi i32 [ %.sroa.5119.0.lcssa599, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5119.3, %._crit_edge ]
   %.sroa.0117.0.lcssa598 = phi i32 [ %.sroa.0117.0.lcssa597, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0117.3, %._crit_edge ]
   %.0129.lcssa596 = phi i8 [ %.0129.lcssa595, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.2131, %._crit_edge ]
-  %139 = trunc i8 %.0129.lcssa596 to i1
+  %139 = trunc nuw i8 %.0129.lcssa596 to i1
   %spec.select = select i1 %139, i32 %.sroa.0117.0.lcssa598, i32 0
-  %140 = trunc i8 %.0.lcssa602 to i1
+  %140 = trunc nuw i8 %.0.lcssa602 to i1
   %.sroa.0124.1 = select i1 %140, i32 %.sroa.0124.0.lcssa604, i32 0
   %141 = load i8, ptr %85, align 8, !range !237, !noundef !10
-  %142 = trunc i8 %141 to i1
+  %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %156, label %145
 
 143:                                              ; preds = %137
@@ -3106,7 +3106,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 156:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$GT$17h5b31f922d0de32edE.exit", %138
   %157 = load i8, ptr %84, align 8, !range !237, !noundef !10
-  %158 = trunc i8 %157 to i1
+  %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %172, label %161
 
 159:                                              ; preds = %147
@@ -3436,45 +3436,45 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br label %.body
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit": ; preds = %233
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %234, ptr noundef nonnull dereferenceable(8) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.20, i64 8), !alias.scope !510
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %234, ptr noundef nonnull readonly dereferenceable(8) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.20, i64 8), !alias.scope !510
   %238 = icmp eq i32 %bcmp.i, 0
   br i1 %238, label %239, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187.thread"
 
 239:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit"
   %240 = load i8, ptr %86, align 8, !range !237, !noundef !10
-  %241 = trunc i8 %240 to i1
+  %241 = trunc nuw i8 %240 to i1
   br i1 %241, label %420, label %418
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit175": ; preds = %233
-  %bcmp.i174 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %234, ptr noundef nonnull dereferenceable(10) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.21, i64 10), !alias.scope !514
+  %bcmp.i174 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %234, ptr noundef nonnull readonly dereferenceable(10) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.21, i64 10), !alias.scope !514
   %242 = icmp eq i32 %bcmp.i174, 0
   br i1 %242, label %243, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187.thread"
 
 243:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit175"
-  %244 = trunc i8 %.0129578 to i1
+  %244 = trunc nuw i8 %.0129578 to i1
   br i1 %244, label %389, label %387
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit179": ; preds = %233
-  %bcmp.i178 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %234, ptr noundef nonnull dereferenceable(13) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.22, i64 13), !alias.scope !518
+  %bcmp.i178 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) %234, ptr noundef nonnull readonly dereferenceable(13) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.22, i64 13), !alias.scope !518
   %245 = icmp eq i32 %bcmp.i178, 0
   br i1 %245, label %246, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187.thread"
 
 246:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit179"
-  %247 = trunc i8 %.0581 to i1
+  %247 = trunc nuw i8 %.0581 to i1
   br i1 %247, label %358, label %356
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit183": ; preds = %233
-  %bcmp.i182 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %234, ptr noundef nonnull dereferenceable(9) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.23, i64 9), !alias.scope !522
+  %bcmp.i182 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %234, ptr noundef nonnull readonly dereferenceable(9) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.23, i64 9), !alias.scope !522
   %248 = icmp eq i32 %bcmp.i182, 0
   br i1 %248, label %249, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187"
 
 249:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit183"
   %250 = load i8, ptr %85, align 8, !range !237, !noundef !10
-  %251 = trunc i8 %250 to i1
+  %251 = trunc nuw i8 %250 to i1
   br i1 %251, label %318, label %316
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit183"
-  %bcmp.i186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %234, ptr noundef nonnull dereferenceable(9) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.24, i64 9), !alias.scope !526
+  %bcmp.i186 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %234, ptr noundef nonnull readonly dereferenceable(9) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.24, i64 9), !alias.scope !526
   %252 = icmp eq i32 %bcmp.i186, 0
   br i1 %252, label %257, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187.thread"
 
@@ -3508,7 +3508,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 257:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit187"
   %258 = load i8, ptr %84, align 8, !range !237, !noundef !10
-  %259 = trunc i8 %258 to i1
+  %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %278, label %276
 
 260:                                              ; preds = %.noexc188
@@ -4030,7 +4030,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 364:                                              ; preds = %359
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %29), !noalias !768
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28), !noalias !768
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %75, i64 88, i1 false), !noalias !765
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull readonly align 8 dereferenceable(88) %75, i64 88, i1 false), !noalias !765
   call void @llvm.experimental.noalias.scope.decl(metadata !769)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %27), !noalias !772
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
@@ -4178,7 +4178,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 395:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %21), !noalias !824
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20), !noalias !824
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, ptr noundef nonnull align 8 dereferenceable(88) %78, i64 88, i1 false), !noalias !821
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, ptr noundef nonnull readonly align 8 dereferenceable(88) %78, i64 88, i1 false), !noalias !821
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %19), !noalias !828
   call void @llvm.experimental.noalias.scope.decl(metadata !831)

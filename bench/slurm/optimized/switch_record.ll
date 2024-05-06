@@ -853,7 +853,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
   store i32 -1, ptr %332, align 4
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %333 = load i32, ptr @switch_record_cnt, align 4
-  %334 = trunc i64 %indvars.iv.next333 to i32
+  %334 = trunc nuw i64 %indvars.iv.next333 to i32
   %335 = icmp sgt i32 %333, %334
   br i1 %335, label %.lr.ph278, label %.preheader203, !llvm.loop !22
 
@@ -1273,7 +1273,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 
 533:                                              ; preds = %._crit_edge.i179
   %534 = load ptr, ptr %1, align 8
-  %535 = trunc i64 %indvars.iv48.i to i32
+  %535 = trunc nuw nsw i64 %indvars.iv48.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._log_switches, i32 noundef %535, ptr noundef %534) #6
   br label %536
 
@@ -1318,7 +1318,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 
 556:                                              ; preds = %._crit_edge43.i
   %557 = load ptr, ptr %1, align 8
-  %558 = trunc i64 %indvars.iv54.i to i32
+  %558 = trunc nuw nsw i64 %indvars.iv54.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._log_switches, i32 noundef %558, ptr noundef %557) #6
   br label %559
 
@@ -1381,7 +1381,7 @@ declare ptr @hostlist_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @running_in_daemon() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_switches(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_switches(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @s_p_hashtbl_create(ptr noundef nonnull @_parse_switches._switch_options) #6

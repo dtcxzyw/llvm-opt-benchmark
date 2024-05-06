@@ -125,7 +125,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sstream_simple() #0 {
+define internal range(i32 0, 2) i32 @test_sstream_simple() #0 {
 entry:
   %hdr = alloca %struct.ossl_quic_frame_stream_st, align 8
   %iov = alloca [2 x %struct.ossl_qtx_iovec_st], align 16
@@ -218,7 +218,7 @@ lor.lhs.false45:                                  ; preds = %lor.lhs.false42
 
 if.end51:                                         ; preds = %lor.lhs.false45
   %5 = load i64, ptr %num_iov, align 8
-  %call53 = call fastcc i32 @compare_iov(ptr noundef nonnull @data_1, i64 noundef 16, ptr noundef nonnull %iov, i64 noundef %5), !range !5
+  %call53 = call fastcc i32 @compare_iov(ptr noundef nonnull @data_1, i64 noundef 16, ptr noundef nonnull %iov, i64 noundef %5)
   %call56 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef nonnull @.str.16, i32 noundef %call53) #7
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err, label %if.end59
@@ -269,7 +269,7 @@ lor.lhs.false84:                                  ; preds = %lor.lhs.false80
 
 if.end95:                                         ; preds = %lor.lhs.false84
   %10 = load i64, ptr %num_iov, align 8
-  %call97 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @data_1, i64 0, i64 8), i64 noundef 8, ptr noundef nonnull %iov, i64 noundef %10), !range !5
+  %call97 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @data_1, i64 0, i64 8), i64 noundef 8, ptr noundef nonnull %iov, i64 noundef %10)
   %call100 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 98, ptr noundef nonnull @.str.20, i32 noundef %call97) #7
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %err, label %if.end103
@@ -337,7 +337,7 @@ lor.lhs.false143:                                 ; preds = %lor.lhs.false139
 
 if.end154:                                        ; preds = %lor.lhs.false143
   %15 = load i64, ptr %num_iov, align 8
-  %call156 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @data_1, i64 0, i64 4), i64 noundef 3, ptr noundef nonnull %iov, i64 noundef %15), !range !5
+  %call156 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds ([16 x i8], ptr @data_1, i64 0, i64 4), i64 noundef 3, ptr noundef nonnull %iov, i64 noundef %15)
   %call159 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 124, ptr noundef nonnull @.str.25, i32 noundef %call156) #7
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %err, label %if.end162
@@ -412,7 +412,7 @@ if.end215:                                        ; preds = %lor.lhs.false210
   br label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false242
-  br i1 %cmp216, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp216, label %for.body, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end215, %for.cond
   %cmp216 = phi i1 [ true, %if.end215 ], [ false, %for.cond ]
@@ -477,7 +477,7 @@ if.end261:                                        ; preds = %if.end253
   br i1 %tobool266.not, label %err, label %for.body272
 
 for.cond269:                                      ; preds = %lor.lhs.false297
-  br i1 %cmp270, label %for.body272, label %for.end304, !llvm.loop !8
+  br i1 %cmp270, label %for.body272, label %for.end304, !llvm.loop !7
 
 for.body272:                                      ; preds = %if.end261, %for.cond269
   %cmp270 = phi i1 [ false, %for.cond269 ], [ true, %if.end261 ]
@@ -559,7 +559,7 @@ err:                                              ; preds = %for.body, %lor.lhs.
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sstream_bulk(i32 %idx) #0 {
+define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %idx) #0 {
 entry:
   %hdr = alloca %struct.ossl_quic_frame_stream_st, align 8
   %iov = alloca [2 x %struct.ossl_qtx_iovec_st], align 16
@@ -640,7 +640,7 @@ for.body:                                         ; preds = %lor.lhs.false40, %f
   store i8 %conv54, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.073, 1
   %exitcond.not = icmp eq i64 %inc, 8192
-  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !8
 
 do.body:                                          ; preds = %for.body, %if.end63
   %total_written.0 = phi i64 [ %add64, %if.end63 ], [ 0, %for.body ]
@@ -662,7 +662,7 @@ if.end63:                                         ; preds = %do.body
   %add.ptr = getelementptr inbounds i8, ptr %ref_src_cur.0, i64 %2
   %add64 = add i64 %2, %total_written.0
   %cmp65.not = icmp eq i64 %2, 0
-  br i1 %cmp65.not, label %do.end, label %do.body, !llvm.loop !10
+  br i1 %cmp65.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %if.end63
   %call67 = call i64 @ossl_quic_sstream_get_buffer_used(ptr noundef %call) #7
@@ -712,7 +712,7 @@ if.end95:                                         ; preds = %if.else, %if.then84
   %incdec.ptr96 = getelementptr inbounds i8, ptr %ref_src_cur.178, i64 1
   %inc98 = add nuw i64 %i.175, 1
   %exitcond93.not = icmp eq i64 %inc98, %add64
-  br i1 %exitcond93.not, label %for.end99, label %for.body79, !llvm.loop !11
+  br i1 %exitcond93.not, label %for.end99, label %for.body79, !llvm.loop !10
 
 for.end99:                                        ; preds = %if.end95, %for.cond76.preheader
   %expected.0.lcssa = phi i64 [ 0, %for.cond76.preheader ], [ %expected.1, %if.end95 ]
@@ -778,7 +778,7 @@ if.end133:                                        ; preds = %for.body127
   %inc144 = add nuw i64 %j.080, 1
   %9 = load i64, ptr %num_iov, align 8
   %cmp125 = icmp ult i64 %inc144, %9
-  br i1 %cmp125, label %for.body127, label %for.end145, !llvm.loop !12
+  br i1 %cmp125, label %for.body127, label %for.end145, !llvm.loop !11
 
 for.end145:                                       ; preds = %if.end133, %for.cond124.preheader
   %cur_rd.0.lcssa = phi i64 [ 0, %for.cond124.preheader ], [ %add142, %if.end133 ]
@@ -792,7 +792,7 @@ if.end149:                                        ; preds = %for.end145
   %add150 = add i64 %cur_rd.0.lcssa, %rd.087
   %inc152 = add i64 %i.286, 1
   %cmp114 = icmp ult i64 %add150, %expected.0.lcssa
-  br i1 %cmp114, label %for.body116, label %for.end153, !llvm.loop !13
+  br i1 %cmp114, label %for.body116, label %for.end153, !llvm.loop !12
 
 for.end153:                                       ; preds = %if.end149, %for.cond113.preheader
   %rd.0.lcssa = phi i64 [ 0, %for.cond113.preheader ], [ %add150, %if.end149 ]
@@ -816,7 +816,7 @@ err:                                              ; preds = %do.body, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rstream_simple(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %idx) #0 {
 entry:
   %buf = alloca [45 x i8], align 16
   %readbytes = alloca i64, align 8
@@ -1016,7 +1016,7 @@ lor.lhs.false129:                                 ; preds = %lor.lhs.false124
   br i1 %tobool131.not, label %err, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false129
-  %call134 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %buf, i64 noundef 2, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !14
+  %call134 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %buf, i64 noundef 2, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp135 = icmp ne i32 %call134, 0
   %conv136 = zext i1 %cmp135 to i32
   %call137 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @.str.77, i32 noundef %conv136) #7
@@ -1044,7 +1044,7 @@ lor.lhs.false147:                                 ; preds = %lor.lhs.false144
 
 lor.lhs.false151:                                 ; preds = %lor.lhs.false147
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 2
-  %call153 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr, i64 noundef 12, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !14
+  %call153 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr, i64 noundef 12, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp154 = icmp ne i32 %call153, 0
   %conv155 = zext i1 %cmp154 to i32
   %call156 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 441, ptr noundef nonnull @.str.79, i32 noundef %conv155) #7
@@ -1099,7 +1099,7 @@ land.lhs.true187:                                 ; preds = %land.lhs.true179
 
 lor.lhs.false193:                                 ; preds = %lor.lhs.false177, %land.lhs.true187
   %add.ptr195 = getelementptr inbounds i8, ptr %buf, i64 14
-  %call196 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr195, i64 noundef 5, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !14
+  %call196 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr195, i64 noundef 5, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp197 = icmp ne i32 %call196, 0
   %conv198 = zext i1 %cmp197 to i32
   %call199 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 453, ptr noundef nonnull @.str.84, i32 noundef %conv198) #7
@@ -1127,7 +1127,7 @@ lor.lhs.false209:                                 ; preds = %lor.lhs.false206
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false209
   %add.ptr216 = getelementptr inbounds i8, ptr %buf, i64 19
-  %call217 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr216, i64 noundef 26, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !14
+  %call217 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr216, i64 noundef 26, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp218 = icmp ne i32 %call217, 0
   %conv219 = zext i1 %cmp218 to i32
   %call220 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 458, ptr noundef nonnull @.str.86, i32 noundef %conv219) #7
@@ -1165,7 +1165,7 @@ land.lhs.true236:                                 ; preds = %lor.lhs.false234
   br i1 %tobool241.not, label %err, label %lor.lhs.false242
 
 lor.lhs.false242:                                 ; preds = %land.lhs.true236, %lor.lhs.false234
-  %call244 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %buf, i64 noundef 45, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !14
+  %call244 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %buf, i64 noundef 45, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp245 = icmp ne i32 %call244, 0
   %conv246 = zext i1 %cmp245 to i32
   %call247 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 463, ptr noundef nonnull @.str.88, i32 noundef %conv246) #7
@@ -1194,7 +1194,7 @@ err:                                              ; preds = %lor.lhs.false254, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rstream_random(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %idx) #0 {
 entry:
   %record.i = alloca ptr, align 8
   %rec_len.i = alloca i64, align 8
@@ -1244,7 +1244,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %conv, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.092, 1
   %exitcond.not = icmp eq i64 %inc, 10000
-  br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !14
 
 for.cond17.preheader:                             ; preds = %for.cond13.preheader, %for.inc175
   %indvars.iv108 = phi i64 [ 0, %for.cond13.preheader ], [ %indvars.iv.next109, %for.inc175 ]
@@ -1322,7 +1322,7 @@ for.inc97:                                        ; preds = %if.end90, %if.end43
   %queued_max.3 = phi i64 [ %queued_max.194, %for.body20 ], [ %spec.select80, %if.end43 ], [ %spec.select83, %if.end90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond107.not, label %for.end99, label %for.body20, !llvm.loop !16
+  br i1 %exitcond107.not, label %for.end99, label %for.body20, !llvm.loop !15
 
 for.end99:                                        ; preds = %for.inc97
   br i1 %cmp101, label %if.then103, label %if.else
@@ -1465,7 +1465,7 @@ for.inc175:                                       ; preds = %if.end157, %land.lh
   %fin_set.1 = phi i32 [ 1, %if.end157 ], [ 1, %if.then166 ], [ 0, %land.lhs.true159 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, 100
-  br i1 %exitcond112.not, label %for.end177, label %for.cond17.preheader, !llvm.loop !17
+  br i1 %exitcond112.not, label %for.end177, label %for.cond17.preheader, !llvm.loop !16
 
 for.end177:                                       ; preds = %for.inc175
   %13 = load i32, ptr %fin, align 4
@@ -1477,7 +1477,7 @@ for.end177:                                       ; preds = %for.inc175
 for.cond182:                                      ; preds = %for.body185
   %inc192 = add nuw i64 %i.1101, 1
   %exitcond113.not = icmp eq i64 %inc192, %add136
-  br i1 %exitcond113.not, label %if.end194, label %for.body185, !llvm.loop !18
+  br i1 %exitcond113.not, label %if.end194, label %for.body185, !llvm.loop !17
 
 for.body185:                                      ; preds = %for.end177, %for.cond182
   %i.1101 = phi i64 [ %inc192, %for.cond182 ], [ 0, %for.end177 ]
@@ -1499,7 +1499,7 @@ if.then201:                                       ; preds = %if.end194
   br i1 %cmp101, label %if.then205, label %if.else213
 
 if.then205:                                       ; preds = %if.then201
-  %call206 = call i32 @test_single_copy_read(ptr noundef %call6, ptr noundef %call2, i64 noundef 10000, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin), !range !5
+  %call206 = call i32 @test_single_copy_read(ptr noundef %call6, ptr noundef %call2, i64 noundef 10000, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin)
   %call209 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 578, ptr noundef nonnull @.str.92, i32 noundef %call206) #7
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %err, label %if.end221
@@ -1560,7 +1560,7 @@ declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef %ref_len, ptr nocapture noundef readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef %ref_len, ptr nocapture noundef readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
 entry:
   %cmp14.not = icmp eq i64 %iov_len, 0
   br i1 %cmp14.not, label %for.end.thread, label %for.body
@@ -1573,7 +1573,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add i64 %0, %total_len.016
   %inc = add nuw i64 %i.015, 1
   %exitcond.not = icmp eq i64 %inc, %iov_len
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
   %cmp1.not = icmp ne i64 %add, %ref_len
@@ -1598,7 +1598,7 @@ for.body4:                                        ; preds = %for.end, %for.body4
   %inc13 = add nuw i64 %i.118, 1
   %exitcond22.not = icmp ne i64 %inc13, %iov_len
   %or.cond.not = select i1 %tobool.not, i1 %exitcond22.not, i1 false
-  br i1 %or.cond.not, label %for.body4, label %return, !llvm.loop !20
+  br i1 %or.cond.not, label %for.body4, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.body4, %for.end.thread, %for.end
   %retval.0.shrunk = phi i1 [ %not.cmp1.not, %for.end ], [ %cmp1.not24, %for.end.thread ], [ %tobool.not, %for.body4 ]
@@ -1646,7 +1646,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr noundef %fin) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr noundef %fin) unnamed_addr #0 {
 entry:
   %record = alloca ptr, align 8
   %rec_len = alloca i64, align 8
@@ -1755,19 +1755,18 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{ptr @ossl_quic_rstream_read, ptr @test_single_copy_read}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = !{ptr @ossl_quic_rstream_read, ptr @test_single_copy_read}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

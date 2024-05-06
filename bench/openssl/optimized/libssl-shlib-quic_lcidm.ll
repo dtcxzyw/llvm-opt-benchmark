@@ -86,7 +86,7 @@ bin_hash.exit:                                    ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @lcid_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 0, 2) i32 @lcid_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
   %0 = load i8, ptr %a, align 1
   %1 = load i8, ptr %b, align 1
@@ -99,7 +99,7 @@ if.end.i:                                         ; preds = %entry
   %id.i = getelementptr inbounds i8, ptr %a, i64 1
   %id8.i = getelementptr inbounds i8, ptr %b, i64 1
   %conv11.i = zext nneg i8 %0 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i = icmp ne i32 %bcmp.i, 0
   %2 = zext i1 %cmp12.i to i32
   br label %ossl_quic_conn_id_eq.exit
@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @lcidm_conn_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 0, 2) i32 @lcidm_conn_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_enrol_odcid(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef readonly %initial_odcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef readonly %initial_odcid) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %initial_odcid, null
@@ -369,14 +369,14 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_generate_initial(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef %initial_lcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_generate_initial(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef %initial_lcid) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @lcidm_generate(ptr noundef %lcidm, ptr noundef %opaque, i32 noundef 1, ptr noundef %initial_lcid, ptr noundef null), !range !6
+  %call = tail call fastcc i32 @lcidm_generate(ptr noundef %lcidm, ptr noundef %opaque, i32 noundef 1, ptr noundef %initial_lcid, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i32 noundef %type, ptr noundef %lcid_out, ptr noundef writeonly %seq_num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i32 noundef %type, ptr noundef %lcid_out, ptr noundef writeonly %seq_num) unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %call = tail call fastcc ptr @lcidm_upsert_conn(ptr noundef %lcidm, ptr noundef %opaque)
@@ -417,9 +417,9 @@ if.end9:                                          ; preds = %do.body
 
 if.end.i.i:                                       ; preds = %if.end9
   %lcidm.val = load ptr, ptr %lcidm, align 8
-  %conv.i.i = trunc i64 %lcidm.val14 to i8
+  %conv.i.i = trunc nuw nsw i64 %lcidm.val14 to i8
   store i8 %conv.i.i, ptr %lcid_out, align 1
-  %len.tr.i.i = trunc i64 %lcidm.val14 to i32
+  %len.tr.i.i = trunc nuw i64 %lcidm.val14 to i32
   %conv1.i.i = shl nuw nsw i32 %len.tr.i.i, 3
   %call.i.i = call i32 @RAND_bytes_ex(ptr noundef %lcidm.val, ptr noundef nonnull %id.i.i, i64 noundef %lcidm.val14, i32 noundef %conv1.i.i) #10
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 1
@@ -437,7 +437,7 @@ if.end12:                                         ; preds = %if.end.i.i
   %3 = load ptr, ptr %lcids, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %key) #10
   %cmp14.not = icmp eq ptr %call.i, null
-  br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !7
+  br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %if.end12
   %call15 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef nonnull %call, ptr noundef nonnull %lcid_out)
@@ -449,7 +449,7 @@ if.end18:                                         ; preds = %do.end
   %seq_num20 = getelementptr inbounds i8, ptr %call15, i64 24
   store i64 %4, ptr %seq_num20, align 8
   %type21 = getelementptr inbounds i8, ptr %call15, i64 40
-  %5 = trunc i32 %type to i8
+  %5 = trunc nuw nsw i32 %type to i8
   %bf.load = load i8, ptr %type21, align 8
   %bf.value = and i8 %5, 3
   %bf.clear = and i8 %bf.load, -4
@@ -474,16 +474,16 @@ return:                                           ; preds = %if.end9, %do.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef %ncid_frame) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef %ncid_frame) local_unnamed_addr #0 {
 entry:
   %conn_id = getelementptr inbounds i8, ptr %ncid_frame, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ncid_frame, i8 0, i64 16, i1 false)
-  %call = tail call fastcc i32 @lcidm_generate(ptr noundef %lcidm, ptr noundef %opaque, i32 noundef 2, ptr noundef nonnull %conn_id, ptr noundef nonnull %ncid_frame), !range !6
+  %call = tail call fastcc i32 @lcidm_generate(ptr noundef %lcidm, ptr noundef %opaque, i32 noundef 2, ptr noundef nonnull %conn_id, ptr noundef nonnull %ncid_frame)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_retire_odcid(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_retire_odcid(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @lcidm_upsert_conn(ptr noundef %lcidm, ptr noundef %opaque)
   %cmp = icmp eq ptr %call, null
@@ -518,7 +518,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_retire(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i64 noundef %retire_prior_to, ptr noundef readonly %containing_pkt_dcid, ptr noundef writeonly %retired_lcid, ptr noundef writeonly %retired_seq_num, ptr noundef writeonly %did_retire) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_retire(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i64 noundef %retire_prior_to, ptr noundef readonly %containing_pkt_dcid, ptr noundef writeonly %retired_lcid, ptr noundef writeonly %retired_seq_num, ptr noundef writeonly %did_retire) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcidm_conn_st, align 8
   %args = alloca %struct.retire_args, align 8
@@ -564,7 +564,7 @@ ossl_quic_conn_id_eq.exit:                        ; preds = %land.lhs.true
   %id.i = getelementptr inbounds i8, ptr %2, i64 1
   %id8.i = getelementptr inbounds i8, ptr %containing_pkt_dcid, i64 1
   %conv11.i = zext nneg i8 %3 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp12.i.not, label %return, label %if.end13
 
@@ -644,7 +644,7 @@ if.end7:                                          ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_cull(ptr noundef %lcidm, ptr noundef %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_cull(ptr noundef %lcidm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcidm_conn_st, align 8
   %opaque1 = getelementptr inbounds i8, ptr %key, i64 16
@@ -674,7 +674,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_lookup(ptr nocapture noundef readonly %lcidm, ptr noundef readonly %lcid, ptr noundef writeonly %seq_num, ptr noundef writeonly %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_lookup(ptr nocapture noundef readonly %lcidm, ptr noundef readonly %lcid, ptr noundef writeonly %seq_num, ptr noundef writeonly %opaque) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %lcid, null
@@ -682,7 +682,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key.i, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %lcid, i64 21, i1 false)
   %0 = load i8, ptr %key.i, align 8
   %cmp.i = icmp ugt i8 %0, 20
   br i1 %cmp.i, label %lcidm_get0_lcid.exit.thread, label %lcidm_get0_lcid.exit
@@ -727,7 +727,7 @@ return:                                           ; preds = %lcidm_get0_lcid.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_debug_remove(ptr nocapture noundef readonly %lcidm, ptr nocapture noundef readonly %lcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_remove(ptr nocapture noundef readonly %lcidm, ptr nocapture noundef readonly %lcid) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
@@ -758,7 +758,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_lcidm_debug_add(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef readonly %lcid, i64 noundef %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef readonly %lcid, i64 noundef %seq_num) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %lcid, null
@@ -874,5 +874,4 @@ attributes #10 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

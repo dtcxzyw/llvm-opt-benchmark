@@ -150,7 +150,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_7_3 = internal constant [3 x i8] c"\C5\CA\DB", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @russian_KOI8_R_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @russian_KOI8_R_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -169,7 +169,7 @@ define hidden i32 @russian_KOI8_R_stem(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %22, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ %9, %7 ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv to i32
   store i32 %11, ptr %4, align 4
   %12 = icmp eq i64 %indvars.iv, %sext
   br i1 %12, label %21, label %13
@@ -195,7 +195,7 @@ define hidden i32 @russian_KOI8_R_stem(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %21
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %23, ptr %2, align 8
   br label %10
 
@@ -553,7 +553,7 @@ r_adjective.exit.i:                               ; preds = %123
   %192 = load i32, ptr %5, align 4
   %193 = sub i32 %192, %108
   store i32 %193, ptr %2, align 8
-  %194 = tail call fastcc i32 @r_noun(ptr noundef nonnull %0), !range !4
+  %194 = tail call fastcc i32 @r_noun(ptr noundef nonnull %0)
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %r_derivational.exit, label %r_perfective_gerund.exit
 
@@ -746,7 +746,7 @@ r_derivational.exit:                              ; preds = %17, %188, %185, %12
 declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_noun(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_noun(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -831,4 +831,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

@@ -19736,8 +19736,8 @@ _ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_1
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %233
   %indvars.iv = phi i64 [ %229, %.lr.ph67.preheader ], [ %indvars.iv.next, %233 ]
   %230 = load ptr, ptr %8, align 8
-  %231 = getelementptr %"class.glw::detail::ObjectSharedPointer", ptr %230, i64 %indvars.iv
-  %232 = getelementptr i8, ptr %231, i64 8
+  %231 = getelementptr inbounds %"class.glw::detail::ObjectSharedPointer", ptr %230, i64 %indvars.iv
+  %232 = getelementptr inbounds i8, ptr %231, i64 8
   invoke void @_ZN14TexturePainter4pullERN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14DefaultDeleterINS0_10SafeObjectEEENS0_11SafeTextureEEES9_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %232, ptr noundef nonnull align 8 dereferenceable(8) %231)
           to label %233 unwind label %.loopexit
 

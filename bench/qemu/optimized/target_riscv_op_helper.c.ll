@@ -117,7 +117,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
-  %coerce7.sroa.2.0.extract.trunc = trunc i128 %coerce7.sroa.2.0.extract.shift to i64
+  %coerce7.sroa.2.0.extract.trunc = trunc nuw i128 %coerce7.sroa.2.0.extract.shift to i64
   %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64
@@ -165,7 +165,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
-  %coerce7.sroa.2.0.extract.trunc = trunc i128 %coerce7.sroa.2.0.extract.shift to i64
+  %coerce7.sroa.2.0.extract.trunc = trunc nuw i128 %coerce7.sroa.2.0.extract.shift to i64
   %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64

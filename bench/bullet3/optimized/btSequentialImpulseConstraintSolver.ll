@@ -2556,29 +2556,29 @@ if.then13:                                        ; preds = %if.else11
   %call19 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool14, ptr noundef nonnull align 8 dereferenceable(248) %ref.tmp18)
   %m_deltaLinearVelocity.i.i = getelementptr inbounds i8, ptr %call19, i64 64
   %m_pushVelocity.i.i = getelementptr inbounds i8, ptr %call19, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_deltaLinearVelocity.i.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_pushVelocity.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_deltaLinearVelocity.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_pushVelocity.i.i, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %call19, align 8
   %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 4
   %arrayidx3.i1.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx3.i.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i.i.i, align 4
   %arrayidx5.i2.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 24
   %arrayidx5.i5.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i2.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx5.i2.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i, align 8
   %arrayidx7.i6.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %arrayidx7.i6.i.i.i.i, i8 0, i64 20, i1 false)
   %m_invMass.i93.i = getelementptr inbounds i8, ptr %call19, i64 128
   %m_originalBody56.i = getelementptr inbounds i8, ptr %call19, i64 240
   store ptr null, ptr %m_originalBody56.i, align 8
   %m_angularFactor57.i = getelementptr inbounds i8, ptr %call19, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_invMass.i93.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_invMass.i93.i, i8 0, i64 16, i1 false)
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_angularFactor57.i, align 8
   %m_linearFactor61.i = getelementptr inbounds i8, ptr %call19, i64 112
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_linearFactor61.i, align 8
   %m_linearVelocity65.i = getelementptr inbounds i8, ptr %call19, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_linearVelocity65.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %m_linearVelocity65.i, i8 0, i64 64, i1 false)
   %.pre = load i32, ptr %m_fixedBodyId, align 4
   br label %return
 

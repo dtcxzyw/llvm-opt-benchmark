@@ -56,7 +56,7 @@ if.end:                                           ; preds = %entry
   %conv2 = zext i32 %w to i64
   %mul = mul nuw i64 %conv, %conv2
   %cmp = icmp ugt i64 %mul, 1073741823
-  %conv5 = trunc i64 %mul to i32
+  %conv5 = trunc nuw nsw i64 %mul to i32
   %storemerge = select i1 %cmp, i32 -1, i32 %conv5
   store i32 %storemerge, ptr %this, align 4
   br label %return

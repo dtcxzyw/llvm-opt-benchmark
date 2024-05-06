@@ -210,7 +210,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @nlm_msg_res_unmatched_hash(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 256) i32 @nlm_msg_res_unmatched_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -242,7 +242,7 @@ define internal i32 @nlm_msg_res_unmatched_hash(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @nlm_msg_res_unmatched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @nlm_msg_res_unmatched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -274,7 +274,7 @@ define internal noundef i32 @nlm_msg_res_matched_hash(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nlm_msg_res_matched_equal(ptr noundef %0, ptr noundef %1) #4 {
+define internal range(i32 0, 2) i32 @nlm_msg_res_matched_equal(ptr noundef %0, ptr noundef %1) #4 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64

@@ -47,7 +47,7 @@ define internal i32 @init_nls_utf8() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uni2char(i16 noundef zeroext %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal range(i32 -36, -2147483648) i32 @uni2char(i16 noundef zeroext %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %10, label %5
 

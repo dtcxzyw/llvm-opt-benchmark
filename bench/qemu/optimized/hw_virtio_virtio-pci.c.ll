@@ -260,10 +260,10 @@ define dso_local i32 @virtio_pci_add_shm_cap(ptr noundef %proxy, i8 noundef zero
 virtio_pci_add_mem_cap.exit:
   %conv = trunc i64 %length to i32
   %shr = lshr i64 %length, 32
-  %conv5 = trunc i64 %shr to i32
+  %conv5 = trunc nuw i64 %shr to i32
   %conv7 = trunc i64 %offset to i32
   %shr11 = lshr i64 %offset, 32
-  %conv12 = trunc i64 %shr11 to i32
+  %conv12 = trunc nuw i64 %shr11 to i32
   %call.i = tail call i32 @pci_add_capability(ptr noundef %proxy, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 24, ptr noundef nonnull @error_abort) #13
   %config.i = getelementptr inbounds i8, ptr %proxy, i64 168
   %0 = load ptr, ptr %config.i, align 8
@@ -757,7 +757,7 @@ if.end:                                           ; preds = %if.then, %virtio_bu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_pci_load_queue(ptr noundef %d, i32 noundef %n, ptr noundef %f) #0 {
+define internal range(i32 -22, 1) i32 @virtio_pci_load_queue(ptr noundef %d, i32 noundef %n, ptr noundef %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %d, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -835,7 +835,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_pci_set_guest_notifiers(ptr noundef %d, i32 noundef %nvqs, i1 noundef zeroext %assign) #0 {
+define internal range(i32 -2147483648, 1) i32 @virtio_pci_set_guest_notifiers(ptr noundef %d, i32 noundef %nvqs, i1 noundef zeroext %assign) #0 {
 entry:
   %0 = getelementptr i8, ptr %d, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -953,18 +953,18 @@ for.body:                                         ; preds = %if.end29, %for.inc
   br i1 %tobool32.not, label %for.end, label %if.end34
 
 if.end34:                                         ; preds = %for.body
-  %call37 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %n.0122, i1 noundef zeroext %assign, i1 noundef zeroext %3), !range !9
+  %call37 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %n.0122, i1 noundef zeroext %assign, i1 noundef zeroext %3)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %assign_error, label %for.inc
 
 for.inc:                                          ; preds = %if.end34
   %inc = add nuw nsw i32 %n.0122, 1
   %exitcond.not = icmp eq i32 %inc, %cond
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.body, %if.end29
   %n.0.lcssa = phi i32 [ 0, %if.end29 ], [ %n.0122, %for.body ], [ %cond, %for.inc ]
-  %call43 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef -1, i1 noundef zeroext %assign, i1 noundef zeroext %3), !range !9
+  %call43 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef -1, i1 noundef zeroext %assign, i1 noundef zeroext %3)
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %config_assign_error, label %if.end46
 
@@ -1013,22 +1013,22 @@ for.body.i73:                                     ; preds = %virtio_bus_get_devi
   br i1 %tobool.not.i76, label %config_assign_error, label %if.end.i77
 
 if.end.i77:                                       ; preds = %for.body.i73
-  %call2.i = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef %queue_no.06.i74), !range !9
+  %call2.i = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef %queue_no.06.i74)
   %inc.i78 = add nuw nsw i32 %queue_no.06.i74, 1
   %exitcond.not.i79 = icmp eq i32 %inc.i78, %cond
-  br i1 %exitcond.not.i79, label %kvm_virtio_pci_vector_vq_use.exit, label %for.body.i73, !llvm.loop !11
+  br i1 %exitcond.not.i79, label %kvm_virtio_pci_vector_vq_use.exit, label %for.body.i73, !llvm.loop !10
 
 kvm_virtio_pci_vector_vq_use.exit:                ; preds = %if.end.i77
   %cmp64 = icmp slt i32 %call2.i, 0
   br i1 %cmp64, label %config_assign_error, label %if.end67
 
 if.end67:                                         ; preds = %kvm_virtio_pci_vector_vq_use.exit
-  %call.i80 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef -1), !range !9
+  %call.i80 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef -1)
   %cmp69 = icmp slt i32 %call.i80, 0
   br i1 %cmp69, label %if.then89, label %if.end73
 
 if.end67.thread:                                  ; preds = %virtio_bus_get_device.exit.i70
-  %call.i80108 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %d, i32 noundef -1), !range !9
+  %call.i80108 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %d, i32 noundef -1)
   %cmp69109 = icmp slt i32 %call.i80108, 0
   br i1 %cmp69109, label %if.then89, label %if.end73.thread113
 
@@ -1060,7 +1060,7 @@ if.then89:                                        ; preds = %if.end67, %if.end67
 config_assign_error:                              ; preds = %for.body.i73, %if.end73.thread, %if.then89, %kvm_virtio_pci_vector_vq_use.exit, %for.end
   %r.1 = phi i32 [ %call43, %for.end ], [ %call2.i, %kvm_virtio_pci_vector_vq_use.exit ], [ %r.0107, %if.then89 ], [ %call7597, %if.end73.thread ], [ -1, %for.body.i73 ]
   %lnot = xor i1 %assign, true
-  %call93 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef -1, i1 noundef zeroext %lnot, i1 noundef zeroext %3), !range !9
+  %call93 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef -1, i1 noundef zeroext %lnot, i1 noundef zeroext %3)
   br label %assign_error
 
 assign_error:                                     ; preds = %if.end34, %config_assign_error
@@ -1079,10 +1079,10 @@ if.else96:                                        ; preds = %assign_error
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %dec126 = phi i32 [ %dec, %while.body ], [ %dec124, %while.cond.preheader ]
-  %call103 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %dec126, i1 noundef zeroext false, i1 noundef zeroext %3), !range !9
+  %call103 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %dec126, i1 noundef zeroext false, i1 noundef zeroext %3)
   %dec = add nsw i32 %dec126, -1
   %cmp98.not = icmp eq i32 %dec126, 0
-  br i1 %cmp98.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %cmp98.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %15 = load ptr, ptr %vector_irqfd85, align 16
@@ -1096,7 +1096,7 @@ return:                                           ; preds = %if.end73.thread113,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_pci_set_host_notifier_mr(ptr noundef %d, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) #0 {
+define internal range(i32 -1, 1) i32 @virtio_pci_set_host_notifier_mr(ptr noundef %d, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) #0 {
 entry:
   %cmp = icmp sgt i32 %n, 1023
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1531,7 +1531,7 @@ if.end58:                                         ; preds = %virtio_pci_modern_i
   %idx.ext.i = sext i32 %call.i174 to i64
   %add.ptr.i = getelementptr i8, ptr %50, i64 %idx.ext.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull align 2 dereferenceable(18) getelementptr inbounds (%struct.virtio_pci_cfg_cap, ptr @__const.virtio_pci_device_plugged.cfg, i64 0, i32 0, i32 2), i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull readonly align 2 dereferenceable(18) getelementptr inbounds (%struct.virtio_pci_cfg_cap, ptr @__const.virtio_pci_device_plugged.cfg, i64 0, i32 0, i32 2), i64 18, i1 false)
   %config_cap = getelementptr inbounds i8, ptr %call.i, i64 4880
   store i32 %call.i174, ptr %config_cap, align 16
   %wmask = getelementptr inbounds i8, ptr %call.i, i64 184
@@ -1588,7 +1588,7 @@ if.then88:                                        ; preds = %if.end84
   %add94 = add i64 %cond, %call93
   %conv96 = and i64 %add94, 4294967295
   %sub.i177 = add nsw i64 %conv96, -1
-  %55 = tail call i64 @llvm.ctlz.i64(i64 %sub.i177, i1 false), !range !13
+  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i177, i1 false)
   %tobool.not.i178 = icmp eq i64 %55, 0
   %sub2.i = add nuw nsw i64 %55, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
@@ -1891,7 +1891,7 @@ for.end:                                          ; preds = %if.end, %for.body, 
 declare i32 @virtio_queue_get_num(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %n, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef %n, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %d, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -1985,7 +1985,7 @@ declare i32 @msix_nr_vectors_allocated(ptr noundef) local_unnamed_addr #1
 declare i32 @msix_set_vector_notifiers(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_pci_vector_unmask(ptr noundef %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) #0 {
+define internal range(i32 -2147483648, 1) i32 @virtio_pci_vector_unmask(ptr noundef %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -2036,7 +2036,7 @@ if.end14:                                         ; preds = %if.end13, %if.end
   %unmasked.1 = phi i32 [ %inc, %if.end13 ], [ %unmasked.064, %if.end ]
   %call15 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.063) #13
   %tobool.not = icmp eq ptr %call15, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end14, %while.body, %virtio_bus_get_device.exit
   %unmasked.0.lcssa = phi i32 [ 0, %virtio_bus_get_device.exit ], [ %unmasked.064, %while.body ], [ %unmasked.1, %if.end14 ]
@@ -2174,7 +2174,7 @@ if.end42:                                         ; preds = %virtio_pci_one_vect
   %tobool31 = icmp ne ptr %call43, null
   %cmp32 = icmp sgt i32 %unmasked.3, -1
   %18 = select i1 %tobool31, i1 %cmp32, i1 false
-  br i1 %18, label %while.body34, label %return, !llvm.loop !15
+  br i1 %18, label %while.body34, label %return, !llvm.loop !13
 
 return:                                           ; preds = %if.end42, %undo, %while.end, %if.then19
   %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %while.end ], [ %ret.0, %undo ], [ %ret.0, %if.end42 ]
@@ -2266,7 +2266,7 @@ if.else.i.i:                                      ; preds = %if.else.i
 if.end9:                                          ; preds = %if.else.i, %if.then.i, %if.end
   %call10 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.039) #13
   %tobool.not = icmp eq ptr %call10, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end9, %while.body, %virtio_bus_get_device.exit
   %config_vector = getelementptr inbounds i8, ptr %cond.i, i64 216
@@ -2407,7 +2407,7 @@ for.inc:                                          ; preds = %if.then13, %if.then
   %inc = add nuw nsw i32 %queue_no.052, 1
   %5 = load i32, ptr %nvqs_with_notifiers, align 8
   %cmp = icmp slt i32 %inc, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %if.else.i, %virtio_bus_get_device.exit
   %dev.val25 = load ptr, ptr %0, align 8
@@ -2599,7 +2599,7 @@ declare i32 @event_notifier_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @event_notifier_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %proxy, i32 noundef %queue_no) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef %proxy, i32 noundef %queue_no) unnamed_addr #0 {
 entry:
   %c.i = alloca %struct.KVMRouteChange, align 8
   %0 = getelementptr i8, ptr %proxy, i64 33696
@@ -3139,7 +3139,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %if.end50, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %if.end50, label %for.body.i.i, !llvm.loop !16
 
 virtio_address_space_lookup.exit.i:               ; preds = %land.lhs.true.i.i
   %conv2.i.i.le = zext i32 %20 to i64
@@ -3183,7 +3183,7 @@ sw.bb12.i:                                        ; preds = %if.end6.i
 
 sw.epilog.i:                                      ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb.i
   %val.0.i = phi i64 [ %conv14.i, %sw.bb12.i ], [ %conv11.i, %sw.bb9.i ], [ %conv8.i51, %sw.bb.i ]
-  %23 = tail call i32 @llvm.cttz.i32(i32 %17, i1 false), !range !19
+  %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %17, i1 false)
   %call43.i = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i47, i64 noundef %val.0.i, i32 noundef %23, i32 1) #13
   br label %if.end50
 
@@ -3258,7 +3258,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %virtio_address_space_read.exit, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %virtio_address_space_read.exit, label %for.body.i.i, !llvm.loop !16
 
 virtio_address_space_lookup.exit.i:               ; preds = %land.lhs.true.i.i
   %conv2.i.i.le = zext i32 %5 to i64
@@ -3279,7 +3279,7 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i
-  %8 = tail call i32 @llvm.cttz.i32(i32 %2, i1 false), !range !19
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 false)
   %call35.i = call i32 @memory_region_dispatch_read(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i16, ptr noundef nonnull %val.i, i32 noundef %8, i32 1) #13
   switch i32 %2, label %virtio_address_space_read.exit [
     i32 1, label %sw.bb.i
@@ -3319,7 +3319,7 @@ declare i64 @virtio_bus_get_vdev_config_len(ptr noundef) local_unnamed_addr #1
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pci_common_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 -1, 4294967296) i64 @virtio_pci_common_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -3414,7 +3414,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add = add nuw nsw i32 %i.042, 1
   %spec.select = select i1 %tobool.not, i32 %val.041, i32 %add
   %exitcond.not = icmp eq i32 %add, 1024
-  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !17
 
 sw.bb25:                                          ; preds = %if.end
   %status = getelementptr inbounds i8, ptr %1, i64 168
@@ -3623,7 +3623,7 @@ if.end26:                                         ; preds = %if.then23, %sw.bb19
   br i1 %cmp28, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.end26
-  %conv32 = trunc i64 %val to i32
+  %conv32 = trunc nuw i64 %val to i32
   tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv32) #13
   %7 = trunc i64 %val to i16
   br label %if.end33
@@ -3666,7 +3666,7 @@ sw.bb52:                                          ; preds = %if.end
   br i1 %cmp53, label %if.then55, label %sw.epilog
 
 if.then55:                                        ; preds = %sw.bb52
-  %conv56 = trunc i64 %val to i16
+  %conv56 = trunc nuw nsw i64 %val to i16
   %queue_sel = getelementptr inbounds i8, ptr %1, i64 170
   store i16 %conv56, ptr %queue_sel, align 2
   br label %sw.epilog
@@ -3712,7 +3712,7 @@ if.end83:                                         ; preds = %if.then80, %sw.bb73
   br i1 %cmp86, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end83
-  %conv90 = trunc i64 %val to i32
+  %conv90 = trunc nuw i64 %val to i32
   tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv90) #13
   %15 = trunc i64 %val to i16
   br label %if.end92
@@ -3855,7 +3855,7 @@ sw.epilog:                                        ; preds = %entry, %if.end, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pci_isr_read(ptr noundef %opaque, i64 %addr, i32 %size) #0 {
+define internal range(i64 -1, 256) i64 @virtio_pci_isr_read(ptr noundef %opaque, i64 %addr, i32 %size) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -3887,7 +3887,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pci_device_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -1, 4294967296) i64 @virtio_pci_device_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -3976,7 +3976,7 @@ sw.epilog:                                        ; preds = %entry, %virtio_bus_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @virtio_pci_notify_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %size) #4 {
+define internal range(i64 -1, 1) i64 @virtio_pci_notify_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %size) #4 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -4202,7 +4202,7 @@ declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pci_config_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -1, 4294967296) i64 @virtio_pci_config_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -4227,7 +4227,7 @@ if.end:                                           ; preds = %virtio_bus_get_devi
   br i1 %cmp2, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
-  %conv5 = trunc i64 %addr to i32
+  %conv5 = trunc nuw nsw i64 %addr to i32
   %bus.val.i = load ptr, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %bus.val.i, null
   br i1 %tobool.not.i.i, label %virtio_bus_get_device.exit.i, label %cond.true.i.i
@@ -4414,7 +4414,7 @@ if.end:                                           ; preds = %virtio_bus_get_devi
   br i1 %cmp2, label %virtio_bus_get_device.exit.i, label %if.end7
 
 virtio_bus_get_device.exit.i:                     ; preds = %if.end
-  %conv5 = trunc i64 %addr to i32
+  %conv5 = trunc nuw nsw i64 %addr to i32
   %conv6 = trunc i64 %val to i32
   %2 = add nsw i32 %conv5, -4
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
@@ -4819,7 +4819,7 @@ if.end:                                           ; preds = %land.end, %if.then
   %modern_bar = getelementptr inbounds i8, ptr %call.i, i64 4320
   %4 = or disjoint i32 %cond.i, 12287
   %sub.i = zext nneg i32 %4 to i64
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !13
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %5, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
@@ -5163,15 +5163,12 @@ attributes #15 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -2147483648, i32 1}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i64 0, i64 65}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{i32 0, i32 33}
-!20 = distinct !{!20, !6}

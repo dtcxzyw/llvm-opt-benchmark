@@ -22,7 +22,7 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -154,7 +154,7 @@ common.resume.i:                                  ; preds = %39, %19
 
 28:                                               ; preds = %27, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i"
   %.0.i = phi i1 [ true, %27 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i" ]
-  %29 = trunc i8 %.0.i.i.i.i to i1
+  %29 = trunc nuw i8 %.0.i.i.i.i to i1
   br i1 %29, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %30
 
 30:                                               ; preds = %28
@@ -308,7 +308,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7657b45618dbb8a1E.exit"
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %23, align 8
-  %24 = trunc i8 %.0.i.i.i to i1
+  %24 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %24, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %25
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit"
@@ -431,7 +431,7 @@ common.resume:                                    ; preds = %31, %19
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %34 = trunc i8 %.0.i.i.i to i1
+  %34 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %34, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %35
 
 35:                                               ; preds = %33
@@ -471,7 +471,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %40, %_ZN3
 
 46:                                               ; preds = %27, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %47 = trunc i8 %.0.i.i.i to i1
+  %47 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %47, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i7, label %48
 
 48:                                               ; preds = %46

@@ -239,7 +239,7 @@ if.end139:                                        ; preds = %entry, %if.end130
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @oidset_contains(ptr nocapture noundef readonly %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @oidset_contains(ptr nocapture noundef readonly %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #2 {
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp2 = alloca %struct.object_id, align 8
@@ -307,11 +307,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp2, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp2, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp2, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp2, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -346,7 +346,7 @@ kh_get_oid_set.exit:                              ; preds = %while.body.i, %entr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @oidset_insert(ptr nocapture noundef %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @oidset_insert(ptr nocapture noundef %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp1 = alloca %struct.object_id, align 8
@@ -442,11 +442,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp1, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp1, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp1, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp1, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -502,7 +502,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %19 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %19, i64 %idxprom83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
   %not.i = xor i32 %shl87.i, -1
   %20 = load ptr, ptr %flags.i, align 8
@@ -526,7 +526,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %24 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %24, i64 %idxprom110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
   %not116.i = xor i32 %shl115.i, -1
   %25 = load ptr, ptr %flags.i, align 8
@@ -548,7 +548,7 @@ kh_put_oid_set.exit:                              ; preds = %if.then81.i, %if.el
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @oidset_remove(ptr nocapture noundef %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @oidset_remove(ptr nocapture noundef %set, ptr nocapture noundef readonly %oid) local_unnamed_addr #2 {
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp4 = alloca %struct.object_id, align 8
@@ -616,11 +616,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp4, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp4, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp4, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -772,13 +772,13 @@ lor.lhs.false.us:                                 ; preds = %if.end10.us
   br i1 %cmp.not.us, label %if.end17.us, label %if.then15
 
 if.end17.us:                                      ; preds = %lor.lhs.false.us
-  %call23.us = call i32 @oidset_insert(ptr noundef %set, ptr noundef nonnull %oid), !range !10
+  %call23.us = call i32 @oidset_insert(ptr noundef %set, ptr noundef nonnull %oid)
   br label %while.cond.backedge.us
 
 while.cond.backedge.us:                           ; preds = %if.end17.us, %if.end7.us
   %call1.us = call i32 @strbuf_getline(ptr noundef nonnull %sb, ptr noundef nonnull %call) #15
   %tobool2.not.us = icmp eq i32 %call1.us, 0
-  br i1 %tobool2.not.us, label %while.body.us, label %while.end, !llvm.loop !11
+  br i1 %tobool2.not.us, label %while.body.us, label %while.end, !llvm.loop !10
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef %path) #17
@@ -842,13 +842,13 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %tobool20.not, label %if.end22, label %while.cond.backedge
 
 if.end22:                                         ; preds = %if.end17
-  %call23 = call i32 @oidset_insert(ptr noundef %set, ptr noundef nonnull %oid), !range !10
+  %call23 = call i32 @oidset_insert(ptr noundef %set, ptr noundef nonnull %oid)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end22, %if.end7, %if.end17
   %call1 = call i32 @strbuf_getline(ptr noundef nonnull %sb, ptr noundef nonnull %call) #15
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %tobool2.not, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond.backedge, %while.cond.backedge.us, %while.cond.preheader
   %call24 = call i32 @ferror(ptr noundef nonnull %call) #15
@@ -949,5 +949,4 @@ attributes #17 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

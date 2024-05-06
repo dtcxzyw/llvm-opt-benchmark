@@ -161,7 +161,7 @@ declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_resident_set_memory(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_resident_set_memory(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   br label %3
 
@@ -270,7 +270,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i32 @getpagesize() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_uptime(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_uptime(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca %struct.timespec, align 8
   %4 = call i32 @uv__slurp(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, i64 noundef 128) #14
@@ -771,7 +771,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_interface_addresses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8
@@ -1061,7 +1061,7 @@ define dso_local i64 @uv_get_free_memory() local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %uv__read_proc_meminfo.exit.thread
 
 5:                                                ; preds = %0
-  %6 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.4) #16
+  %6 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) @.str.4) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
@@ -1115,7 +1115,7 @@ define dso_local i64 @uv_get_total_memory() local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %uv__read_proc_meminfo.exit.thread
 
 5:                                                ; preds = %0
-  %6 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.5) #16
+  %6 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) @.str.5) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 

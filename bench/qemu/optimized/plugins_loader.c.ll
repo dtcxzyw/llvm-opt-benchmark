@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [9 x i8] c"inserted\00", align 1
 @error_fatal = external global ptr, align 8
 @.str.5 = private unnamed_addr constant [8 x i8] c"riscv64\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @__func__.plugin_add = private unnamed_addr constant [11 x i8] c"plugin_add\00", align 1
 @.str.7 = private unnamed_addr constant [30 x i8] c"requires a non-empty argument\00", align 1
 @.str.8 = private unnamed_addr constant [39 x i8] c"missing earlier '-plugin file=' option\00", align 1
@@ -63,7 +63,7 @@ entry:
   %0 = ptrtoint ptr %arr to i64
   %conv.i.i = trunc i64 %0 to i32
   %shr.i.i = lshr i64 %0, 32
-  %conv1.i.i = trunc i64 %shr.i.i to i32
+  %conv1.i.i = trunc nuw i64 %shr.i.i to i32
   %mul.i.i = mul i32 %conv.i.i, -2048144777
   %add.i.i = add i32 %mul.i.i, 606290985
   %or.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
@@ -140,7 +140,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 declare i32 @qemu_opt_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @plugin_add(ptr nocapture noundef %opaque, ptr noundef %name, ptr noundef %value, ptr noundef %errp) #0 {
+define internal range(i32 0, 2) i32 @plugin_add(ptr nocapture noundef %opaque, ptr noundef %name, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %is_on = alloca i8, align 1
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(5) @.str.1) #12
@@ -165,7 +165,7 @@ if.end:                                           ; preds = %if.then
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %desc.06.i = phi ptr [ %desc.0.i, %for.inc.i ], [ %desc.04.i, %if.end ]
   %1 = load ptr, ptr %desc.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %value) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end18, label %for.inc.i
 

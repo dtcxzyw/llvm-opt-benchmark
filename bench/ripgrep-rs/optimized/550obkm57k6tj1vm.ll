@@ -562,7 +562,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %.sroa.8.0235455 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
   %.sroa.02.028236454 = phi ptr [ %.8.val, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit.lr.ph" ], [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0efeaf134ed99dfeE.exit" ]
   %32 = getelementptr inbounds i8, ptr %.sroa.02.028236454, i64 24
-  %33 = trunc i64 %.sroa.8.0235455 to i32
+  %33 = trunc nuw nsw i64 %.sroa.8.0235455 to i32
   %34 = getelementptr i8, ptr %.sroa.02.028236454, i64 8
   %.val.i = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
   %35 = getelementptr i8, ptr %.sroa.02.028236454, i64 16
@@ -581,7 +581,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br label %73
 
 38:                                               ; preds = %30
-  %39 = trunc i64 %.val1.i to i32
+  %39 = trunc nuw nsw i64 %.val1.i to i32
   %40 = load i64, ptr %14, align 16, !noundef !5
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %.val1.i)
   store i64 %.0.sroa.speculated.i, ptr %14, align 16
@@ -636,7 +636,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %55 = load ptr, ptr %19, align 8, !nonnull !5, !align !27, !noundef !5
   %56 = getelementptr inbounds i8, ptr %55, i64 9
   %57 = load i8, ptr %56, align 1, !range !28, !noundef !5
-  %58 = trunc i8 %57 to i1
+  %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
@@ -665,7 +665,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %66 = getelementptr inbounds i8, ptr %.sroa.019.0223, i64 1
   %67 = add nuw i64 %.sroa.921.0224, 1
   %68 = load i8, ptr %.sroa.019.0223, align 1, !noundef !5
-  %69 = trunc i8 %.0111227 to i1
+  %69 = trunc nuw i8 %.0111227 to i1
   br i1 %69, label %85, label %74
 
 70:                                               ; preds = %._crit_edge
@@ -717,7 +717,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %85
-  %91 = trunc i8 %.1112 to i1
+  %91 = trunc nuw i8 %.1112 to i1
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %85, %90
@@ -725,7 +725,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %93 = load ptr, ptr %19, align 8, !nonnull !5, !align !27, !noundef !5
   %94 = getelementptr inbounds i8, ptr %93, i64 10
   %95 = load i8, ptr %94, align 2, !range !28, !noundef !5
-  %96 = trunc i8 %95 to i1
+  %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %141, label %98
 
 97:                                               ; preds = %90
@@ -872,7 +872,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %156 = load ptr, ptr %19, align 8, !nonnull !5, !align !27, !noundef !5
   %157 = getelementptr inbounds i8, ptr %156, i64 10
   %158 = load i8, ptr %157, align 2, !range !28, !noundef !5
-  %159 = trunc i8 %158 to i1
+  %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %161, label %172
 
 160:                                              ; preds = %151
@@ -1111,7 +1111,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !66, !nonnull !5, !noundef !5
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %8, i64 %1), !alias.scope !69
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %8, i64 %1), !alias.scope !69
   %9 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h5f3d082cec0a83e1E.exit"
 

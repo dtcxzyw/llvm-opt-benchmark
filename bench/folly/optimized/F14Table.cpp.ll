@@ -43,7 +43,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN5folly3f146detail13tlsMinstdRandEm(i64 noundef %n) local_unnamed_addr #2 {
+define noundef range(i64 0, 2147483647) i64 @_ZN5folly3f146detail13tlsMinstdRandEm(i64 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = load atomic i32, ptr @_ZZN5folly3f146detail13tlsMinstdRandEmE12state_non_tl.0 monotonic, align 4
   %cmp = icmp eq i32 %0, 0
@@ -70,7 +70,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv = zext i32 %s.0 to i64
   %mul = mul nuw nsw i64 %conv, 48271
   %rem = urem i64 %mul, 2147483647
-  %conv8 = trunc i64 %rem to i32
+  %conv8 = trunc nuw nsw i64 %rem to i32
   store atomic i32 %conv8, ptr @_ZZN5folly3f146detail13tlsMinstdRandEmE12state_non_tl.0 monotonic, align 4
   %rem10 = urem i64 %rem, %n
   ret i64 %rem10

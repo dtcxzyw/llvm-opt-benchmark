@@ -2449,7 +2449,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !198, !noalias !201, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i64, [2 x i64] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !198, !noalias !201, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !198, !noalias !201
@@ -2846,7 +2846,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !242, !noalias !245, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !242, !noalias !245, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !242, !noalias !245
@@ -2969,7 +2969,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !257, !noalias !260, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !257, !noalias !260, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !257, !noalias !260
@@ -2995,7 +2995,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !262, !noalias !265, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !262, !noalias !265, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !262, !noalias !265
@@ -3261,7 +3261,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !292, !noalias !295, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !292, !noalias !295, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !292, !noalias !295
@@ -3437,7 +3437,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !313, !noalias !316, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !313, !noalias !316, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !313, !noalias !316
@@ -3511,7 +3511,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !323, !noalias !326, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, [3 x i32] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !323, !noalias !326, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !323, !noalias !326
@@ -3537,7 +3537,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !328, !noalias !331, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !328, !noalias !331, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !328, !noalias !331
@@ -3563,7 +3563,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !333, !noalias !336, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !333, !noalias !336, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !333, !noalias !336
@@ -3663,7 +3663,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !346, !noalias !349, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { i32, [9 x i32] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %12, ptr noundef nonnull align 4 dereferenceable(44) %1, i64 44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %12, ptr noundef nonnull readonly align 4 dereferenceable(44) %1, i64 44, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !346, !noalias !349, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !346, !noalias !349
@@ -3833,7 +3833,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !366, !noalias !369, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull readonly align 8 dereferenceable(64) %1, i64 64, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !366, !noalias !369, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !366, !noalias !369
@@ -3955,7 +3955,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !381, !noalias !384, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %12, ptr noundef nonnull readonly align 4 dereferenceable(48) %1, i64 48, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !381, !noalias !384, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !381, !noalias !384
@@ -4029,7 +4029,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !391, !noalias !394, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { i32, [1 x i32] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !391, !noalias !394, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !391, !noalias !394
@@ -4199,7 +4199,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !411, !noalias !414, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !411, !noalias !414, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !411, !noalias !414
@@ -4623,7 +4623,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !460, !noalias !463, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !460, !noalias !463, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !460, !noalias !463
@@ -4793,7 +4793,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !480, !noalias !483, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, [7 x i32] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull readonly align 16 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !480, !noalias !483, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !480, !noalias !483
@@ -4847,7 +4847,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !488, !noalias !491, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [2 x i32] }, i8, [3 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !488, !noalias !491, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !488, !noalias !491
@@ -7813,7 +7813,7 @@ define hidden noundef i32 @"_ZN73_$LT$wasmtime_types..FuncIndex$u20$as$u20$crane
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN73_$LT$wasmtime_types..FuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h857394d0187b4a5eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN73_$LT$wasmtime_types..FuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h857394d0187b4a5eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -7825,7 +7825,7 @@ define hidden noundef i32 @"_ZN73_$LT$wasmtime_types..TypeIndex$u20$as$u20$crane
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN73_$LT$wasmtime_types..TypeIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h6304285c1666cc2eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN73_$LT$wasmtime_types..TypeIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h6304285c1666cc2eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -7837,7 +7837,7 @@ define hidden noundef i32 @"_ZN74_$LT$wasmtime_types..TableIndex$u20$as$u20$cran
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN74_$LT$wasmtime_types..TableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf145bc25bc15644dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN74_$LT$wasmtime_types..TableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf145bc25bc15644dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -7849,7 +7849,7 @@ define hidden noundef i32 @"_ZN75_$LT$wasmtime_types..GlobalIndex$u20$as$u20$cra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN75_$LT$wasmtime_types..GlobalIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h07fcc935347d7620E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN75_$LT$wasmtime_types..GlobalIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h07fcc935347d7620E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -7861,7 +7861,7 @@ define hidden noundef i32 @"_ZN75_$LT$wasmtime_types..MemoryIndex$u20$as$u20$cra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN75_$LT$wasmtime_types..MemoryIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h238e7604229f84d4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN75_$LT$wasmtime_types..MemoryIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h238e7604229f84d4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -7999,7 +7999,7 @@ define hidden noundef i32 @"_ZN81_$LT$wasmtime_types..DefinedTableIndex$u20$as$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN81_$LT$wasmtime_types..DefinedTableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h7ed3da6a85de3177E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN81_$LT$wasmtime_types..DefinedTableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h7ed3da6a85de3177E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -8011,7 +8011,7 @@ define hidden noundef i32 @"_ZN81_$LT$wasmtime_types..StaticModuleIndex$u20$as$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN81_$LT$wasmtime_types..StaticModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h22dd11354d485a14E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN81_$LT$wasmtime_types..StaticModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h22dd11354d485a14E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -8029,7 +8029,7 @@ define hidden noundef i32 @"_ZN87_$LT$wasmtime_types..ModuleInternedTypeIndex$u2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN87_$LT$wasmtime_types..ModuleInternedTypeIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h09405089b49d143eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN87_$LT$wasmtime_types..ModuleInternedTypeIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h09405089b49d143eE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -8307,7 +8307,7 @@ define hidden noundef i32 @"_ZN91_$LT$wasmtime_types..ModuleInternedRecGroupInde
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN91_$LT$wasmtime_types..ModuleInternedRecGroupIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h47dc256c6832a370E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN91_$LT$wasmtime_types..ModuleInternedRecGroupIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h47dc256c6832a370E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -10131,7 +10131,7 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg11instantiate17h887f60d67558ea3
   %.sroa.02.0.i.i = phi i64 [ %.sroa.02.0.copyload.i.i, %.noexc135 ], [ -9223372036854775805, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb3c9069ab96290a8E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !1105
   %189 = getelementptr inbounds i8, ptr %184, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %189, i64 12, i1 false), !noalias !1099
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %189, i64 12, i1 false), !noalias !1099
   %190 = getelementptr inbounds i8, ptr %184, i64 44
   %191 = load i32, ptr %190, align 4, !alias.scope !1102, !noalias !1099, !noundef !9
   store i64 %.sroa.02.0.i.i, ptr %119, align 8, !noalias !1105
@@ -11239,7 +11239,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   call void @llvm.experimental.noalias.scope.decl(metadata !1316)
   call void @llvm.experimental.noalias.scope.decl(metadata !1319)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1322
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false), !noalias !1296
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull readonly align 16 dereferenceable(32) %5, i64 32, i1 false), !noalias !1296
   %21 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i, align 16, !alias.scope !1323, !noalias !1296, !noundef !9
   %22 = shl i64 %21, 56
   %23 = getelementptr inbounds i8, ptr %5, i64 56
@@ -11291,7 +11291,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   br i1 %.not.i.i.i.i, label %53, label %select.unfold
 
 44:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %45 = call i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true), !range !1340
+  %45 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
   %46 = zext nneg i16 %45 to i64
   %47 = add i16 %.022.i.i.i, -1
   %48 = and i16 %47, %.022.i.i.i
@@ -11299,7 +11299,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   %50 = and i64 %49, %.val5.i
   %51 = sub nsw i64 0, %50
   %gep.i.i.i = getelementptr { i32, i32 }, ptr %invariant.gep.i.i.i, i64 %51
-  %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !1341, !noalias !1346, !noundef !9
+  %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !1340, !noalias !1345, !noundef !9
   %52 = icmp eq i32 %.val4.i.i.i.i, %1
   br i1 %52, label %56, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
 
@@ -11332,7 +11332,7 @@ select.unfold:                                    ; preds = %41, %2
   %.val5 = load ptr, ptr %66, align 8, !nonnull !9, !noundef !9
   %67 = getelementptr inbounds [0 x { i32, { i32, [9 x i32] } }], ptr %.val5, i64 0, i64 %63
   %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4, !range !1351, !noundef !9
+  %69 = load i32, ptr %68, align 4, !range !1350, !noundef !9
   %70 = add nsw i32 %69, -2
   %71 = icmp ult i32 %70, 9
   %72 = zext nneg i32 %69 to i64
@@ -11372,17 +11372,17 @@ select.unfold:                                    ; preds = %41, %2
   store i32 %82, ptr %84, align 4
   store i64 -9223372036854775807, ptr %9, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 16
-  %86 = load i64, ptr %85, align 8, !alias.scope !1352, !noalias !1355, !noundef !9
-  %87 = load i64, ptr %0, align 8, !alias.scope !1352, !noalias !1355, !noundef !9
+  %86 = load i64, ptr %85, align 8, !alias.scope !1351, !noalias !1354, !noundef !9
+  %87 = load i64, ptr %0, align 8, !alias.scope !1351, !noalias !1354, !noundef !9
   %88 = icmp eq i64 %86, %87
   br i1 %88, label %89, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
 
 89:                                               ; preds = %77
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h21fa4a0f36211c86E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %86)
-          to label %._crit_edge.i unwind label %90, !noalias !1355
+          to label %._crit_edge.i unwind label %90, !noalias !1354
 
 ._crit_edge.i:                                    ; preds = %89
-  %.pre.i = load i64, ptr %85, align 8, !alias.scope !1352, !noalias !1355
+  %.pre.i = load i64, ptr %85, align 8, !alias.scope !1351, !noalias !1354
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
 
 90:                                               ; preds = %89
@@ -11403,59 +11403,59 @@ select.unfold:                                    ; preds = %41, %2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit": ; preds = %77, %._crit_edge.i
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %86, %77 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8, !alias.scope !1352, !noalias !1355, !nonnull !9, !noundef !9
+  %97 = load ptr, ptr %96, align 8, !alias.scope !1351, !noalias !1354, !nonnull !9, !noundef !9
   %98 = getelementptr inbounds { i64, [9 x i64] }, ptr %97, i64 %95
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %98, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
-  %99 = load i64, ptr %85, align 8, !alias.scope !1352, !noalias !1355, !noundef !9
+  %99 = load i64, ptr %85, align 8, !alias.scope !1351, !noalias !1354, !noundef !9
   %100 = add i64 %99, 1
-  store i64 %100, ptr %85, align 8, !alias.scope !1352, !noalias !1355
+  store i64 %100, ptr %85, align 8, !alias.scope !1351, !noalias !1354
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1357)
-  %101 = load i32, ptr %68, align 4, !range !794, !alias.scope !1357, !noalias !1360, !noundef !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !1356)
+  %101 = load i32, ptr %68, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
   %trunc.i = trunc nuw i32 %101 to i1
   br i1 %trunc.i, label %102, label %106
 
 102:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
   %103 = getelementptr inbounds i8, ptr %67, i64 8
-  %104 = load i32, ptr %103, align 4, !alias.scope !1357, !noalias !1360
-  %105 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h9fd097aedbf914faE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %104), !noalias !1363
+  %104 = load i32, ptr %103, align 4, !alias.scope !1356, !noalias !1359
+  %105 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h9fd097aedbf914faE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %104), !noalias !1362
   br label %106
 
 106:                                              ; preds = %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
   %.sroa.05.0.i = phi i32 [ 1, %102 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %.sroa.3.0.i = phi i32 [ %105, %102 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %107 = getelementptr inbounds i8, ptr %67, i64 12
-  %108 = load i32, ptr %107, align 4, !range !794, !alias.scope !1357, !noalias !1360, !noundef !9
+  %108 = load i32, ptr %107, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
   %trunc10.i = trunc nuw i32 %108 to i1
   br i1 %trunc10.i, label %109, label %113
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %67, i64 16
-  %111 = load i32, ptr %110, align 4, !alias.scope !1357, !noalias !1360
-  %112 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17he099f4b167bf63acE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %111), !noalias !1363
+  %111 = load i32, ptr %110, align 4, !alias.scope !1356, !noalias !1359
+  %112 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17he099f4b167bf63acE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %111), !noalias !1362
   br label %113
 
 113:                                              ; preds = %109, %106
   %.sroa.06.0.i = phi i32 [ 1, %109 ], [ 0, %106 ]
   %.sroa.37.0.i = phi i32 [ %112, %109 ], [ undef, %106 ]
   %114 = getelementptr inbounds i8, ptr %67, i64 20
-  %115 = load i32, ptr %114, align 4, !range !794, !alias.scope !1357, !noalias !1360, !noundef !9
+  %115 = load i32, ptr %114, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
   %trunc11.i = trunc nuw i32 %115 to i1
   br i1 %trunc11.i, label %116, label %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds i8, ptr %67, i64 24
-  %118 = load i32, ptr %117, align 4, !alias.scope !1357, !noalias !1360
-  %119 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h89ccf5dec8c98690E(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %118), !noalias !1363
+  %118 = load i32, ptr %117, align 4, !alias.scope !1356, !noalias !1359
+  %119 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h89ccf5dec8c98690E(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %118), !noalias !1362
   br label %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit
 
 _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit: ; preds = %113, %116
   %.sroa.08.0.i = phi i32 [ 1, %116 ], [ 0, %113 ]
   %.sroa.39.0.i = phi i32 [ %119, %116 ], [ undef, %113 ]
   %120 = getelementptr inbounds i8, ptr %67, i64 28
-  %121 = load i32, ptr %120, align 4, !alias.scope !1357, !noalias !1360, !noundef !9
+  %121 = load i32, ptr %120, align 4, !alias.scope !1356, !noalias !1359, !noundef !9
   %122 = getelementptr inbounds i8, ptr %67, i64 32
-  %123 = load i8, ptr %122, align 4, !range !1274, !alias.scope !1357, !noalias !1360, !noundef !9
+  %123 = load i8, ptr %122, align 4, !range !1274, !alias.scope !1356, !noalias !1359, !noundef !9
   %124 = getelementptr inbounds i8, ptr %67, i64 40
   %125 = load i32, ptr %124, align 4, !noundef !9
   %.sroa.18.sroa.0.0.extract.trunc = trunc i32 %.sroa.37.0.i to i8
@@ -11468,17 +11468,17 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.ex
 
 126:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit"
   %127 = getelementptr inbounds i8, ptr %67, i64 16
-  %128 = load i8, ptr %127, align 4, !range !1364, !noundef !9
+  %128 = load i8, ptr %127, align 4, !range !1363, !noundef !9
   %129 = getelementptr inbounds i8, ptr %67, i64 8
   %130 = load i32, ptr %129, align 4, !noundef !9
   %131 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h9fd097aedbf914faE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %130)
   %132 = getelementptr inbounds i8, ptr %67, i64 17
-  %133 = load i8, ptr %132, align 1, !range !1365, !noundef !9
+  %133 = load i8, ptr %132, align 1, !range !1364, !noundef !9
   %134 = getelementptr inbounds i8, ptr %67, i64 12
   %135 = load i32, ptr %134, align 4, !noundef !9
   %136 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h9fd097aedbf914faE(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %135)
   %137 = getelementptr inbounds i8, ptr %67, i64 18
-  %138 = load i8, ptr %137, align 2, !range !1365, !noundef !9
+  %138 = load i8, ptr %137, align 2, !range !1364, !noundef !9
   br label %152
 
 139:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit"
@@ -11526,45 +11526,45 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.ex
   %153 = getelementptr inbounds i8, ptr %0, i64 24
   %154 = load i32, ptr %67, align 4, !noundef !9
   %155 = getelementptr inbounds i8, ptr %0, i64 40
-  %156 = load i64, ptr %155, align 8, !alias.scope !1366, !noundef !9
-  %157 = load i64, ptr %153, align 8, !alias.scope !1369, !noundef !9
+  %156 = load i64, ptr %155, align 8, !alias.scope !1365, !noundef !9
+  %157 = load i64, ptr %153, align 8, !alias.scope !1368, !noundef !9
   %158 = icmp eq i64 %156, %157
   br i1 %158, label %159, label %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit"
 
 159:                                              ; preds = %152
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha80ba4967250188eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %153, i64 noundef %156)
-  %.pre.i.i = load i64, ptr %155, align 8, !alias.scope !1369
+  %.pre.i.i = load i64, ptr %155, align 8, !alias.scope !1368
   br label %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit"
 
 "_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit": ; preds = %152, %159
   %160 = phi i64 [ %.pre.i.i, %159 ], [ %156, %152 ]
   %161 = trunc i64 %156 to i32
   %162 = getelementptr inbounds i8, ptr %0, i64 32
-  %163 = load ptr, ptr %162, align 8, !alias.scope !1369, !nonnull !9, !noundef !9
+  %163 = load ptr, ptr %162, align 8, !alias.scope !1368, !nonnull !9, !noundef !9
   %164 = getelementptr inbounds i32, ptr %163, i64 %160
   store i32 %154, ptr %164, align 4
-  %165 = load i64, ptr %155, align 8, !alias.scope !1369, !noundef !9
+  %165 = load i64, ptr %155, align 8, !alias.scope !1368, !noundef !9
   %166 = add i64 %165, 1
-  store i64 %166, ptr %155, align 8, !alias.scope !1369
+  store i64 %166, ptr %155, align 8, !alias.scope !1368
   store i32 %161, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %167 = getelementptr inbounds i8, ptr %0, i64 48
   %168 = getelementptr inbounds i8, ptr %0, i64 64
-  %169 = load i64, ptr %168, align 8, !alias.scope !1372, !noalias !1375, !noundef !9
-  %170 = load i64, ptr %167, align 8, !alias.scope !1377, !noalias !1380, !noundef !9
+  %169 = load i64, ptr %168, align 8, !alias.scope !1371, !noalias !1374, !noundef !9
+  %170 = load i64, ptr %167, align 8, !alias.scope !1376, !noalias !1379, !noundef !9
   %171 = icmp eq i64 %169, %170
   br i1 %171, label %172, label %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E.exit"
 
 172:                                              ; preds = %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit"
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf7645b1b9f6cdd8cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %167, i64 noundef %169), !noalias !1380
-  %.pre.i.i7 = load i64, ptr %168, align 8, !alias.scope !1377, !noalias !1380
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf7645b1b9f6cdd8cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %167, i64 noundef %169), !noalias !1379
+  %.pre.i.i7 = load i64, ptr %168, align 8, !alias.scope !1376, !noalias !1379
   br label %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E.exit"
 
 "_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E.exit": ; preds = %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit", %172
   %173 = phi i64 [ %.pre.i.i7, %172 ], [ %169, %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E.exit" ]
   %174 = trunc i64 %169 to i32
   %175 = getelementptr inbounds i8, ptr %0, i64 56
-  %176 = load ptr, ptr %175, align 8, !alias.scope !1377, !noalias !1380, !nonnull !9, !noundef !9
+  %176 = load ptr, ptr %175, align 8, !alias.scope !1376, !noalias !1379, !nonnull !9, !noundef !9
   %177 = getelementptr inbounds { i32, [9 x i32] }, ptr %176, i64 %173
   store i32 %.sroa.010.0, ptr %177, align 4
   %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 4
@@ -11593,9 +11593,9 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.ex
   store i32 %.sroa.27.0, ptr %.sroa.27.0..sroa_idx, align 4
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 36
   store i32 %.sroa.28.0, ptr %.sroa.28.0..sroa_idx, align 4
-  %178 = load i64, ptr %168, align 8, !alias.scope !1377, !noalias !1380, !noundef !9
+  %178 = load i64, ptr %168, align 8, !alias.scope !1376, !noalias !1379, !noundef !9
   %179 = add i64 %178, 1
-  store i64 %179, ptr %168, align 8, !alias.scope !1377, !noalias !1380
+  store i64 %179, ptr %168, align 8, !alias.scope !1376, !noalias !1379
   store i32 %174, ptr %7, align 4
   %180 = icmp eq i32 %161, %174
   br i1 %180, label %182, label %181
@@ -11618,20 +11618,20 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg7adapter17h
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !182, !noundef !9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1382)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1381)
   %7 = zext i32 %2 to i64
   %8 = getelementptr inbounds i8, ptr %6, i64 544
-  %9 = load i64, ptr %8, align 8, !alias.scope !1382, !noalias !1385, !noundef !9
+  %9 = load i64, ptr %8, align 8, !alias.scope !1381, !noalias !1384, !noundef !9
   %10 = icmp ugt i64 %9, %7
   br i1 %10, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350.exit", label %11, !prof !103
 
 11:                                               ; preds = %3
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ee06f84100492e954937ed63d5188b8.93.llvm.11220155100889424350) #22, !noalias !1382
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ee06f84100492e954937ed63d5188b8.93.llvm.11220155100889424350) #22, !noalias !1381
   unreachable
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350.exit": ; preds = %3
   %12 = getelementptr inbounds i8, ptr %6, i64 536
-  %13 = load ptr, ptr %12, align 8, !alias.scope !1382, !noalias !1385, !nonnull !9, !noundef !9
+  %13 = load ptr, ptr %12, align 8, !alias.scope !1381, !noalias !1384, !nonnull !9, !noundef !9
   %14 = getelementptr inbounds [0 x { i32, { i32, [1 x i32] } }], ptr %13, i64 0, i64 %7
   %15 = load i32, ptr %14, align 4, !noundef !9
   %16 = getelementptr inbounds i8, ptr %14, i64 4
@@ -11639,7 +11639,7 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg7adapter17h
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load <2 x i32>, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %15, ptr %4, align 4, !noalias !1387
+  store i32 %15, ptr %4, align 4, !noalias !1386
   %19 = call noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6intern17h0e0cc5b280995cb5E(ptr noalias noundef nonnull align 8 dereferenceable(328) %1, i32 noundef 1, i32 noundef %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %19, ptr %17, align 8
@@ -11663,7 +11663,7 @@ define hidden noundef i32 @"_ZN95_$LT$wasmtime_environ..component..types..Module
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN95_$LT$wasmtime_environ..component..types..ModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf9e12307b4fd3cccE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN95_$LT$wasmtime_environ..component..types..ModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf9e12307b4fd3cccE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11675,7 +11675,7 @@ define hidden noundef i32 @"_ZN98_$LT$wasmtime_environ..component..types..Compon
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN98_$LT$wasmtime_environ..component..types..ComponentIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf3ebca823a832edaE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN98_$LT$wasmtime_environ..component..types..ComponentIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf3ebca823a832edaE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11687,7 +11687,7 @@ define hidden noundef i32 @"_ZN103_$LT$wasmtime_environ..component..types..Modul
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN103_$LT$wasmtime_environ..component..types..ModuleInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h22250e4c6d74d0bdE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN103_$LT$wasmtime_environ..component..types..ModuleInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h22250e4c6d74d0bdE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11699,7 +11699,7 @@ define hidden noundef i32 @"_ZN106_$LT$wasmtime_environ..component..types..Compo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN106_$LT$wasmtime_environ..component..types..ComponentInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h8551fadfe7f8a805E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN106_$LT$wasmtime_environ..component..types..ComponentInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h8551fadfe7f8a805E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11711,7 +11711,7 @@ define hidden noundef i32 @"_ZN102_$LT$wasmtime_environ..component..types..Compo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN102_$LT$wasmtime_environ..component..types..ComponentFuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17he8eafc26c3909f33E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN102_$LT$wasmtime_environ..component..types..ComponentFuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17he8eafc26c3909f33E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11729,7 +11729,7 @@ define hidden noundef i32 @"_ZN110_$LT$wasmtime_environ..component..types..TypeC
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN110_$LT$wasmtime_environ..component..types..TypeComponentInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h6461a1a9ba03a452E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN110_$LT$wasmtime_environ..component..types..TypeComponentInstanceIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h6461a1a9ba03a452E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11741,7 +11741,7 @@ define hidden noundef i32 @"_ZN99_$LT$wasmtime_environ..component..types..TypeMo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hfad3a8396c2b808dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeModuleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hfad3a8396c2b808dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11753,7 +11753,7 @@ define hidden noundef i32 @"_ZN97_$LT$wasmtime_environ..component..types..TypeFu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeFuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hed10ecfdfc914764E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeFuncIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hed10ecfdfc914764E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11765,7 +11765,7 @@ define hidden noundef i32 @"_ZN99_$LT$wasmtime_environ..component..types..TypeRe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeRecordIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h4085fe13e0d74965E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeRecordIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h4085fe13e0d74965E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11777,7 +11777,7 @@ define hidden noundef i32 @"_ZN100_$LT$wasmtime_environ..component..types..TypeV
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN100_$LT$wasmtime_environ..component..types..TypeVariantIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h2912b007a351d2d4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN100_$LT$wasmtime_environ..component..types..TypeVariantIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h2912b007a351d2d4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11789,7 +11789,7 @@ define hidden noundef i32 @"_ZN98_$LT$wasmtime_environ..component..types..TypeTu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN98_$LT$wasmtime_environ..component..types..TypeTupleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17he482a72baa69a3a0E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN98_$LT$wasmtime_environ..component..types..TypeTupleIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17he482a72baa69a3a0E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11801,7 +11801,7 @@ define hidden noundef i32 @"_ZN98_$LT$wasmtime_environ..component..types..TypeFl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN98_$LT$wasmtime_environ..component..types..TypeFlagsIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h42a918e3ee71095cE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN98_$LT$wasmtime_environ..component..types..TypeFlagsIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h42a918e3ee71095cE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11813,7 +11813,7 @@ define hidden noundef i32 @"_ZN97_$LT$wasmtime_environ..component..types..TypeEn
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeEnumIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf9a16bd5fceb1332E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeEnumIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hf9a16bd5fceb1332E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11825,7 +11825,7 @@ define hidden noundef i32 @"_ZN99_$LT$wasmtime_environ..component..types..TypeOp
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeOptionIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h8bef26d0e917eb39E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeOptionIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h8bef26d0e917eb39E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11837,7 +11837,7 @@ define hidden noundef i32 @"_ZN99_$LT$wasmtime_environ..component..types..TypeRe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeResultIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h5349a0ae9943f6bdE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$wasmtime_environ..component..types..TypeResultIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h5349a0ae9943f6bdE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11849,7 +11849,7 @@ define hidden noundef i32 @"_ZN97_$LT$wasmtime_environ..component..types..TypeLi
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeListIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hb75d3c96d4ff6c98E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$wasmtime_environ..component..types..TypeListIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hb75d3c96d4ff6c98E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11861,7 +11861,7 @@ define hidden noundef i32 @"_ZN106_$LT$wasmtime_environ..component..types..TypeR
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN106_$LT$wasmtime_environ..component..types..TypeResourceTableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hae5502b6306a9f54E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN106_$LT$wasmtime_environ..component..types..TypeResourceTableIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hae5502b6306a9f54E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11885,7 +11885,7 @@ define hidden noundef i32 @"_ZN100_$LT$wasmtime_environ..component..types..Modul
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN100_$LT$wasmtime_environ..component..types..ModuleUpvarIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hcccbff5a8a87c421E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN100_$LT$wasmtime_environ..component..types..ModuleUpvarIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hcccbff5a8a87c421E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11897,7 +11897,7 @@ define hidden noundef i32 @"_ZN103_$LT$wasmtime_environ..component..types..Compo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN103_$LT$wasmtime_environ..component..types..ComponentUpvarIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h4d131a25a280d488E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN103_$LT$wasmtime_environ..component..types..ComponentUpvarIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h4d131a25a280d488E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11909,7 +11909,7 @@ define hidden noundef i32 @"_ZN104_$LT$wasmtime_environ..component..types..Stati
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN104_$LT$wasmtime_environ..component..types..StaticComponentIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h83f27399f4323fb4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN104_$LT$wasmtime_environ..component..types..StaticComponentIndex$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h83f27399f4323fb4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11949,7 +11949,7 @@ define hidden noundef i32 @"_ZN92_$LT$wasmtime_environ..component..dfg..Instance
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN92_$LT$wasmtime_environ..component..dfg..InstanceId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hd473fa0fecd0cbf1E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN92_$LT$wasmtime_environ..component..dfg..InstanceId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hd473fa0fecd0cbf1E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11961,7 +11961,7 @@ define hidden noundef i32 @"_ZN90_$LT$wasmtime_environ..component..dfg..MemoryId
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN90_$LT$wasmtime_environ..component..dfg..MemoryId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h34e14e0457fb3874E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN90_$LT$wasmtime_environ..component..dfg..MemoryId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h34e14e0457fb3874E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11973,7 +11973,7 @@ define hidden noundef i32 @"_ZN91_$LT$wasmtime_environ..component..dfg..ReallocI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN91_$LT$wasmtime_environ..component..dfg..ReallocId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h96c4ffad3b8a6db4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN91_$LT$wasmtime_environ..component..dfg..ReallocId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h96c4ffad3b8a6db4E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11985,7 +11985,7 @@ define hidden noundef i32 @"_ZN91_$LT$wasmtime_environ..component..dfg..AdapterI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN91_$LT$wasmtime_environ..component..dfg..AdapterId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h19c2c976cecd74bfE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN91_$LT$wasmtime_environ..component..dfg..AdapterId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h19c2c976cecd74bfE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -11997,7 +11997,7 @@ define hidden noundef i32 @"_ZN94_$LT$wasmtime_environ..component..dfg..PostRetu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN94_$LT$wasmtime_environ..component..dfg..PostReturnId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h487e8007ead0322dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN94_$LT$wasmtime_environ..component..dfg..PostReturnId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h487e8007ead0322dE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -12009,7 +12009,7 @@ define hidden noundef i32 @"_ZN97_$LT$wasmtime_environ..component..dfg..AdapterM
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN97_$LT$wasmtime_environ..component..dfg..AdapterModuleId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h67e21673e674566bE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$wasmtime_environ..component..dfg..AdapterModuleId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h67e21673e674566bE.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -12021,7 +12021,7 @@ define hidden noundef i32 @"_ZN82_$LT$wasmtime_environ..fact..FunctionId$u20$as$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN82_$LT$wasmtime_environ..fact..FunctionId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hac9df0c482b18938E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN82_$LT$wasmtime_environ..fact..FunctionId$u20$as$u20$cranelift_entity..EntityRef$GT$5index17hac9df0c482b18938E.llvm.11220155100889424350"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -13993,53 +13993,52 @@ attributes #25 = { cold noreturn nounwind }
 !1337 = distinct !{!1337, !1338, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h802e164367ed6f3dE: argument 0"}
 !1338 = distinct !{!1338, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h802e164367ed6f3dE"}
 !1339 = distinct !{!1339, !1338, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h802e164367ed6f3dE: argument 1"}
-!1340 = !{i16 0, i16 17}
-!1341 = !{!1342, !1344}
-!1342 = distinct !{!1342, !1343, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466: argument 1"}
-!1343 = distinct !{!1343, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466"}
-!1344 = distinct !{!1344, !1345, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E: argument 1"}
-!1345 = distinct !{!1345, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E"}
-!1346 = !{!1347, !1348, !1349, !1335, !1337, !1339, !1291}
-!1347 = distinct !{!1347, !1343, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466: argument 0"}
-!1348 = distinct !{!1348, !1345, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E: argument 0"}
-!1349 = distinct !{!1349, !1350, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7a712a1a75dd7c14E: argument 0"}
-!1350 = distinct !{!1350, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7a712a1a75dd7c14E"}
-!1351 = !{i32 0, i32 11}
-!1352 = !{!1353}
-!1353 = distinct !{!1353, !1354, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E: argument 0"}
-!1354 = distinct !{!1354, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E"}
-!1355 = !{!1356}
-!1356 = distinct !{!1356, !1354, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E: argument 1"}
-!1357 = !{!1358}
-!1358 = distinct !{!1358, !1359, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 2"}
-!1359 = distinct !{!1359, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE"}
-!1360 = !{!1361, !1362}
-!1361 = distinct !{!1361, !1359, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 0"}
-!1362 = distinct !{!1362, !1359, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 1"}
-!1363 = !{!1361, !1358}
-!1364 = !{i8 0, i8 12}
-!1365 = !{i8 0, i8 2}
-!1366 = !{!1367}
-!1367 = distinct !{!1367, !1368, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E: argument 0"}
-!1368 = distinct !{!1368, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E"}
-!1369 = !{!1370, !1367}
-!1370 = distinct !{!1370, !1371, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6d38f8f4eb50a00aE.llvm.11220155100889424350: argument 0"}
-!1371 = distinct !{!1371, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6d38f8f4eb50a00aE.llvm.11220155100889424350"}
-!1372 = !{!1373}
-!1373 = distinct !{!1373, !1374, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E: argument 0"}
-!1374 = distinct !{!1374, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E"}
-!1375 = !{!1376}
-!1376 = distinct !{!1376, !1374, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E: argument 1"}
-!1377 = !{!1378, !1373}
-!1378 = distinct !{!1378, !1379, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE: argument 0"}
-!1379 = distinct !{!1379, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE"}
-!1380 = !{!1381, !1376}
-!1381 = distinct !{!1381, !1379, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE: argument 1"}
-!1382 = !{!1383}
-!1383 = distinct !{!1383, !1384, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350: argument 0"}
-!1384 = distinct !{!1384, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350"}
-!1385 = !{!1386}
-!1386 = distinct !{!1386, !1384, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350: argument 1"}
-!1387 = !{!1388}
-!1388 = distinct !{!1388, !1389, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg14adapter_module17h3350743a7cf18620E.llvm.11220155100889424350: argument 0"}
-!1389 = distinct !{!1389, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg14adapter_module17h3350743a7cf18620E.llvm.11220155100889424350"}
+!1340 = !{!1341, !1343}
+!1341 = distinct !{!1341, !1342, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466: argument 1"}
+!1342 = distinct !{!1342, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466"}
+!1343 = distinct !{!1343, !1344, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E: argument 1"}
+!1344 = distinct !{!1344, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E"}
+!1345 = !{!1346, !1347, !1348, !1335, !1337, !1339, !1291}
+!1346 = distinct !{!1346, !1342, !"_ZN92_$LT$wasmtime_environ..component..types..TrampolineIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h526721fae500fb18E.llvm.3269599604001853466: argument 0"}
+!1347 = distinct !{!1347, !1344, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd51a489ba974f3b6E: argument 0"}
+!1348 = distinct !{!1348, !1349, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7a712a1a75dd7c14E: argument 0"}
+!1349 = distinct !{!1349, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7a712a1a75dd7c14E"}
+!1350 = !{i32 0, i32 11}
+!1351 = !{!1352}
+!1352 = distinct !{!1352, !1353, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E: argument 0"}
+!1353 = distinct !{!1353, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E"}
+!1354 = !{!1355}
+!1355 = distinct !{!1355, !1353, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E: argument 1"}
+!1356 = !{!1357}
+!1357 = distinct !{!1357, !1358, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 2"}
+!1358 = distinct !{!1358, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE"}
+!1359 = !{!1360, !1361}
+!1360 = distinct !{!1360, !1358, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 0"}
+!1361 = distinct !{!1361, !1358, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE: argument 1"}
+!1362 = !{!1360, !1357}
+!1363 = !{i8 0, i8 12}
+!1364 = !{i8 0, i8 2}
+!1365 = !{!1366}
+!1366 = distinct !{!1366, !1367, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E: argument 0"}
+!1367 = distinct !{!1367, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h7ba6fd24cb9a4fe1E"}
+!1368 = !{!1369, !1366}
+!1369 = distinct !{!1369, !1370, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6d38f8f4eb50a00aE.llvm.11220155100889424350: argument 0"}
+!1370 = distinct !{!1370, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6d38f8f4eb50a00aE.llvm.11220155100889424350"}
+!1371 = !{!1372}
+!1372 = distinct !{!1372, !1373, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E: argument 0"}
+!1373 = distinct !{!1373, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E"}
+!1374 = !{!1375}
+!1375 = distinct !{!1375, !1373, !"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h56df3eb72424caa0E: argument 1"}
+!1376 = !{!1377, !1372}
+!1377 = distinct !{!1377, !1378, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE: argument 0"}
+!1378 = distinct !{!1378, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE"}
+!1379 = !{!1380, !1375}
+!1380 = distinct !{!1380, !1378, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19da2aecb959d39dE: argument 1"}
+!1381 = !{!1382}
+!1382 = distinct !{!1382, !1383, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350: argument 0"}
+!1383 = distinct !{!1383, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350"}
+!1384 = !{!1385}
+!1385 = distinct !{!1385, !1383, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h5cbc480b332b157cE.llvm.11220155100889424350: argument 1"}
+!1386 = !{!1387}
+!1387 = distinct !{!1387, !1388, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg14adapter_module17h3350743a7cf18620E.llvm.11220155100889424350: argument 0"}
+!1388 = distinct !{!1388, !"_ZN16wasmtime_environ9component3dfg12LinearizeDfg14adapter_module17h3350743a7cf18620E.llvm.11220155100889424350"}

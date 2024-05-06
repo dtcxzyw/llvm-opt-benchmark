@@ -232,7 +232,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_write_conf(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call i32 @acct_gather_conf_init()
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @conf_mutex) #9
@@ -414,7 +414,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   br label %.lr.ph
 
@@ -689,7 +689,7 @@ declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
 declare ptr @s_p_unpack_hashtbl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_conf_destroy() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_conf_destroy() local_unnamed_addr #0 {
   %.b7 = load i1, ptr @inited, align 1
   br i1 %.b7, label %1, label %14
 
@@ -858,7 +858,7 @@ _get_int.exit:                                    ; preds = %8
   %28 = load ptr, ptr %5, align 8
   %29 = icmp eq ptr %28, %26
   %30 = trunc i64 %27 to i32
-  %spec.select.i27 = select i1 %29, i32 -1, i32 %30
+  %spec.select.i28 = select i1 %29, i32 -1, i32 %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %48
 
@@ -875,7 +875,7 @@ _get_int.exit:                                    ; preds = %8
   %36 = load ptr, ptr %4, align 8
   %37 = icmp eq ptr %36, %34
   %38 = trunc i64 %35 to i32
-  %spec.select.i29 = select i1 %37, i32 -1, i32 %38
+  %spec.select.i31 = select i1 %37, i32 -1, i32 %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %48
 
@@ -892,7 +892,7 @@ _get_int.exit:                                    ; preds = %8
   %44 = load ptr, ptr %3, align 8
   %45 = icmp eq ptr %44, %42
   %46 = trunc i64 %43 to i32
-  %spec.select.i31 = select i1 %45, i32 -1, i32 %46
+  %spec.select.i34 = select i1 %45, i32 -1, i32 %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %48
 
@@ -901,14 +901,14 @@ _get_int.exit:                                    ; preds = %8
   unreachable
 
 48:                                               ; preds = %11, %9, %25, %23, %_get_int.exit, %33, %31, %41, %39, %2
-  %.015 = phi i32 [ -1, %2 ], [ %spec.select.i31, %41 ], [ -1, %39 ], [ %spec.select.i29, %33 ], [ -1, %31 ], [ %spec.select.i27, %25 ], [ -1, %23 ], [ %20, %_get_int.exit ], [ %spec.select.i, %11 ], [ -1, %9 ]
+  %.015 = phi i32 [ -1, %2 ], [ %spec.select.i34, %41 ], [ -1, %39 ], [ %spec.select.i31, %33 ], [ -1, %31 ], [ %spec.select.i28, %25 ], [ -1, %23 ], [ %20, %_get_int.exit ], [ %spec.select.i, %11 ], [ -1, %9 ]
   ret i32 %.015
 }
 
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

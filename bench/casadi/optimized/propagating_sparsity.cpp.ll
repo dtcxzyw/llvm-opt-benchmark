@@ -221,7 +221,7 @@ define void @_Z12print_binaryy(i64 noundef %0) local_unnamed_addr #3 {
 
 2:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
@@ -1521,7 +1521,7 @@ _ZNSt6vectorIPKySaIS1_EED2Ev.exit:                ; preds = %_ZNSt6vectorIPySaIS
 
 356:                                              ; preds = %.noexc282, %_ZNSt6vectorIPKySaIS1_EED2Ev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNSt6vectorIPKySaIS1_EED2Ev.exit ], [ %indvars.iv.next.i, %.noexc282 ]
-  %357 = trunc i64 %indvars.iv.i to i32
+  %357 = trunc nuw nsw i64 %indvars.iv.i to i32
   %358 = and i32 %357, 3
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %.noexc280
@@ -1781,7 +1781,7 @@ _ZNSt6vectorIPySaIS0_EED2Ev.exit309:              ; preds = %_ZNSt6vectorIPySaIS
 
 435:                                              ; preds = %.noexc317, %_ZNSt6vectorIPySaIS0_EED2Ev.exit309
   %indvars.iv.i310 = phi i64 [ 0, %_ZNSt6vectorIPySaIS0_EED2Ev.exit309 ], [ %indvars.iv.next.i313, %.noexc317 ]
-  %436 = trunc i64 %indvars.iv.i310 to i32
+  %436 = trunc nuw nsw i64 %indvars.iv.i310 to i32
   %437 = and i32 %436, 3
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %439, label %.noexc315
@@ -1822,7 +1822,7 @@ _Z12print_binaryy.exit319:                        ; preds = %448
 
 451:                                              ; preds = %.noexc327, %_Z12print_binaryy.exit319
   %indvars.iv.i320 = phi i64 [ 0, %_Z12print_binaryy.exit319 ], [ %indvars.iv.next.i323, %.noexc327 ]
-  %452 = trunc i64 %indvars.iv.i320 to i32
+  %452 = trunc nuw nsw i64 %indvars.iv.i320 to i32
   %453 = and i32 %452, 3
   %454 = icmp eq i32 %453, 0
   br i1 %454, label %455, label %.noexc325
@@ -1863,7 +1863,7 @@ _Z12print_binaryy.exit329:                        ; preds = %464
 
 467:                                              ; preds = %.noexc337, %_Z12print_binaryy.exit329
   %indvars.iv.i330 = phi i64 [ 0, %_Z12print_binaryy.exit329 ], [ %indvars.iv.next.i333, %.noexc337 ]
-  %468 = trunc i64 %indvars.iv.i330 to i32
+  %468 = trunc nuw nsw i64 %indvars.iv.i330 to i32
   %469 = and i32 %468, 3
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %.noexc335

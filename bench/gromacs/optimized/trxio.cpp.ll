@@ -118,7 +118,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12check_times2ffb(float noundef %0, float noundef %1, i1 zeroext %2) local_unnamed_addr #2 {
+define noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %0, float noundef %1, i1 zeroext %2) local_unnamed_addr #2 {
   %4 = tail call i64 @_Z9timeValue11TimeControl(i32 noundef 0)
   %.sroa.027.0.extract.trunc = trunc i64 %4 to i32
   %5 = bitcast i32 %.sroa.027.0.extract.trunc to float
@@ -202,8 +202,8 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11check_timesf(float noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noundef i32 @_Z12check_times2ffb(float noundef %0, float noundef %0, i1 zeroext poison), !range !5
+define noundef range(i32 -1, 2) i32 @_Z11check_timesf(float noundef %0) local_unnamed_addr #2 {
+  %2 = tail call noundef i32 @_Z12check_times2ffb(float noundef %0, float noundef %0, i1 zeroext poison)
   ret i32 %2
 }
 
@@ -916,7 +916,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   store float %70, ptr %71, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.loopexit156, label %58, !llvm.loop !6
+  br i1 %exitcond171.not, label %.loopexit156, label %58, !llvm.loop !5
 
 .loopexit156:                                     ; preds = %58, %53, %.thread
   %.0119 = phi ptr [ null, %.thread ], [ %55, %53 ], [ %55, %58 ]
@@ -956,7 +956,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   store float %92, ptr %93, align 4
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %.loopexit155, label %80, !llvm.loop !8
+  br i1 %exitcond176.not, label %.loopexit155, label %80, !llvm.loop !7
 
 .loopexit155:                                     ; preds = %80, %75, %.loopexit156
   %.0 = phi ptr [ null, %.loopexit156 ], [ %77, %75 ], [ %77, %80 ]
@@ -996,7 +996,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   store float %114, ptr %115, align 4
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %.loopexit, label %102, !llvm.loop !9
+  br i1 %exitcond181.not, label %.loopexit, label %102, !llvm.loop !8
 
 116:                                              ; preds = %49
   %117 = sext i32 %2 to i64
@@ -1029,7 +1029,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   store float %133, ptr %134, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread149, label %121, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread149, label %121, !llvm.loop !9
 
 .loopexit:                                        ; preds = %102, %97, %.loopexit155
   %.0124 = phi ptr [ null, %.loopexit155 ], [ %99, %97 ], [ %99, %102 ]
@@ -1282,7 +1282,7 @@ define noundef ptr @_Z32trjtools_gmx_prepare_tng_writingRKNSt10filesystem7__cxx1
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = getelementptr inbounds i8, ptr %29, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 -1, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %29, i64 8
   store <2 x float> zeroinitializer, ptr %32, align 8
@@ -1775,7 +1775,7 @@ define noundef ptr @_Z8open_trxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 -1, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   store <2 x float> zeroinitializer, ptr %16, align 8
@@ -2196,7 +2196,7 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
   br i1 %200, label %201, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %198, %203, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108, %248, %244, %237, %208, %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit.sink.split
-  br label %.critedge, !llvm.loop !11
+  br label %.critedge, !llvm.loop !10
 
 201:                                              ; preds = %198, %195
   %202 = and i32 %196, 8
@@ -2220,7 +2220,7 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
 
 .thread129:                                       ; preds = %206, %208
   %211 = load float, ptr %46, align 8
-  %212 = call noundef i32 @_Z12check_times2ffb(float noundef %193, float noundef %211, i1 zeroext poison), !range !5
+  %212 = call noundef i32 @_Z12check_times2ffb(float noundef %193, float noundef %211, i1 zeroext poison)
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %219, label %214
 
@@ -2537,8 +2537,8 @@ declare void @_Z15gmx_fio_getnameB5cxx11P8t_fileio(ptr dead_on_unwind writable s
 define linkonce_odr void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18, !noalias !12
-  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18, !noalias !12
+  %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18, !noalias !11
+  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18, !noalias !11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, i64 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_.exit unwind label %6
 
@@ -2637,7 +2637,7 @@ define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstat
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 116
   %33 = getelementptr inbounds i8, ptr %3, i64 156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %32, i8 0, i64 37, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(37) %32, i8 0, i64 37, i1 false)
   store i32 4, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %3, i64 160
   store i8 0, ptr %34, align 8
@@ -2648,7 +2648,7 @@ define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstat
   store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = getelementptr inbounds i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i32 -1, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   store <2 x float> zeroinitializer, ptr %39, align 8
@@ -3074,7 +3074,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %234, %_Z24t
   br i1 %.not105.not, label %254, label %270
 
 254:                                              ; preds = %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit
-  %255 = call noundef i32 @_Z12check_times2ffb(float noundef %250, float noundef %250, i1 zeroext poison), !range !5
+  %255 = call noundef i32 @_Z12check_times2ffb(float noundef %250, float noundef %250, i1 zeroext poison)
   %256 = icmp sgt i32 %255, 0
   %257 = load float, ptr %24, align 4
   br i1 %256, label %258, label %.thread145
@@ -3093,7 +3093,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %234, %_Z24t
   br label %267
 
 .thread145:                                       ; preds = %254
-  %265 = call noundef i32 @_Z12check_times2ffb(float noundef %257, float noundef %257, i1 zeroext poison), !range !5
+  %265 = call noundef i32 @_Z12check_times2ffb(float noundef %257, float noundef %257, i1 zeroext poison)
   %266 = icmp slt i32 %265, 0
   br i1 %266, label %267, label %270
 
@@ -3327,13 +3327,12 @@ attributes #23 = { cold }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
-!14 = distinct !{!14, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
+!13 = distinct !{!13, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}

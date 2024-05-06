@@ -343,7 +343,7 @@ define i32 @Aig_ManRegFindSeed(ptr nocapture noundef readonly %0) local_unnamed_
 .critedge:                                        ; preds = %19, %11
   %.019.lcssa = phi i32 [ 0, %11 ], [ %26, %19 ]
   %27 = icmp slt i32 %.033, %.019.lcssa
-  %28 = trunc i64 %indvars.iv37 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv37 to i32
   %spec.select = select i1 %27, i32 %28, i32 %.02032
   %spec.select25 = tail call i32 @llvm.smax.i32(i32 %.033, i32 %.019.lcssa)
   br label %29
@@ -555,7 +555,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %49, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %49
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = icmp eq i32 %.val32, %54
   br i1 %55, label %Vec_IntRemove.exit, label %.preheader.i
 
@@ -579,7 +579,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %61, ptr %63, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %64 = load i32, ptr %45, align 4
-  %65 = trunc i64 %indvars.iv.next35.i to i32
+  %65 = trunc nuw i64 %indvars.iv.next35.i to i32
   %66 = icmp sgt i32 %64, %65
   br i1 %66, label %58, label %._crit_edge30.i, !llvm.loop !11
 
@@ -868,7 +868,7 @@ define ptr @Aig_ManRegProjectOnehots(ptr nocapture noundef readonly %0, ptr noca
   %11 = getelementptr inbounds ptr, ptr %.val69, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %5, align 8
@@ -1903,7 +1903,7 @@ define ptr @Aig_ManRegPartitionSmart(ptr noundef %0, i32 noundef %1) local_unnam
 .critedge.i:                                      ; preds = %29, %21
   %.019.lcssa.i = phi i32 [ 0, %21 ], [ %36, %29 ]
   %37 = icmp slt i32 %.033.i, %.019.lcssa.i
-  %38 = trunc i64 %indvars.iv37.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv37.i to i32
   %spec.select.i = select i1 %37, i32 %38, i32 %.02032.i
   %spec.select25.i = tail call i32 @llvm.smax.i32(i32 %.033.i, i32 %.019.lcssa.i)
   br label %39
@@ -2514,7 +2514,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %58
-  %60 = trunc i64 %indvars.iv.next to i32
+  %60 = trunc nsw i64 %indvars.iv.next to i32
   %.val.pre = load i32, ptr %19, align 4
   br label %._crit_edge
 
@@ -2757,7 +2757,7 @@ define noalias noundef ptr @Aig_ManRegPartitionTraverse(ptr noundef %0) local_un
   %8 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 40
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %2, align 8

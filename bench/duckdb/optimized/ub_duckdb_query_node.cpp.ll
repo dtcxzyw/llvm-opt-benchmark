@@ -4730,7 +4730,7 @@ if.end16.i.i:                                     ; preds = %if.end12.i.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %if.end16.i.i, %if.then14.i.i, %if.then10.i.i, %if.then6.i.i, %invoke.cont361
   %retval.0.i.i = phi i32 [ %add.i.i1064, %if.then6.i.i ], [ %add11.i.i, %if.then10.i.i ], [ %add15.i.i, %if.then14.i.i ], [ 1, %invoke.cont361 ], [ %add17.i.i, %if.end16.i.i ]
   %__val.lobit.i = lshr i64 %333, 63
-  %conv.i = trunc i64 %__val.lobit.i to i32
+  %conv.i = trunc nuw nsw i64 %__val.lobit.i to i32
   %add2.i = add i32 %retval.0.i.i, %conv.i
   %conv3.i = zext i32 %add2.i to i64
   %334 = getelementptr inbounds i8, ptr %ref.tmp358, i64 16
@@ -4787,7 +4787,7 @@ if.then.i.i1063:                                  ; preds = %while.end.i.i
   br label %invoke.cont364
 
 if.else.i.i1062:                                  ; preds = %while.end.i.i
-  %340 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %340 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %340, 48
   br label %invoke.cont364
 

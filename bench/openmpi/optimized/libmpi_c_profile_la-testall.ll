@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Testall = weak alias i32 (i32, ptr, ptr, ptr), ptr @PMPI_Testall
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Testall(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define range(i32 0, 19) i32 @PMPI_Testall(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %38

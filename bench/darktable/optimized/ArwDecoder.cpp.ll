@@ -2366,7 +2366,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %305 = shl nuw i16 %304, 4
   %306 = zext nneg i32 %291 to i64
   %307 = zext nneg i32 %300 to i64
-  %invariant.gep = getelementptr i16, ptr %3, i64 %306
+  %invariant.gep = getelementptr inbounds i16, ptr %3, i64 %306
   br label %308
 
 308:                                              ; preds = %308, %299
@@ -2376,7 +2376,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %311 = add <16 x i16> %309, <i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272>
   %312 = add <16 x i16> %309, <i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528>
   %313 = add <16 x i16> %309, <i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784>
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv47
+  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv47
   %314 = getelementptr inbounds i8, ptr %gep, i64 32
   %315 = getelementptr inbounds i8, ptr %gep, i64 64
   %316 = getelementptr inbounds i8, ptr %gep, i64 96
@@ -5197,7 +5197,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %48 = phi i32 [ %39, %34 ], [ %28, %23 ]
   %49 = phi i32 [ %41, %34 ], [ %30, %23 ]
   tail call void @llvm.assume(i1 %46)
-  %50 = mul nsw i32 %47, %15
+  %50 = mul nuw nsw i32 %47, %15
   %51 = icmp eq i32 %50, %48
   tail call void @llvm.assume(i1 %51)
   %52 = icmp sgt i32 %47, -1
@@ -5329,7 +5329,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %121 = load i32, ptr %14, align 4, !tbaa !192, !noalias !203
   %122 = load i32, ptr %16, align 8, !tbaa !193, !noalias !203
   %123 = ashr i32 %122, 1
-  %124 = mul nsw i32 %123, %121
+  %124 = mul nuw nsw i32 %123, %121
   %125 = icmp sgt i32 %120, -1
   call void @llvm.assume(i1 %125)
   %126 = icmp sgt i32 %121, -1
@@ -5357,7 +5357,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %143 = getelementptr inbounds i8, ptr %133, i64 48
   %144 = load i32, ptr %143, align 8, !tbaa !193, !noalias !206
   %145 = ashr i32 %144, 1
-  %146 = mul nsw i32 %145, %142
+  %146 = mul nuw nsw i32 %145, %142
   %147 = icmp sgt i32 %140, -1
   call void @llvm.assume(i1 %147)
   %148 = icmp sgt i32 %142, -1
@@ -7175,13 +7175,13 @@ define hidden void @_ZNK8rawspeed10ArwDecoder5GetWBEv(ptr nocapture noundef nonn
   %450 = icmp ne i32 %442, 0
   %451 = xor i1 %449, %450
   call void @llvm.assume(i1 %451)
-  %452 = mul nsw i32 %445, %442
+  %452 = mul nuw nsw i32 %445, %442
   %453 = icmp eq i32 %436, %452
   call void @llvm.assume(i1 %453)
   %454 = icmp eq i32 %442, 1
   %455 = icmp eq i32 %445, %439
   %456 = or i1 %454, %455
-  %457 = mul nsw i32 %442, %439
+  %457 = mul nuw nsw i32 %442, %439
   call void @llvm.assume(i1 %456)
   %458 = getelementptr inbounds i8, ptr %0, i64 108
   %459 = invoke noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %406, i32 noundef 0)

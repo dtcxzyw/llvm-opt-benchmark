@@ -36,7 +36,7 @@ define dso_local void @snd_seq_system_broadcast(i32 noundef %0, i32 noundef %1, 
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds i8, ptr %4, i64 12
   store i8 %9, ptr %10, align 4
-  %11 = trunc i32 %5 to i8
+  %11 = trunc nuw i32 %5 to i8
   %12 = getelementptr inbounds i8, ptr %4, i64 13
   store i8 %11, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %4, i64 14

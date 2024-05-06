@@ -239,10 +239,10 @@ define dso_local void @netfs_write_subrequest_terminated(ptr noundef %0, i64 nou
   br i1 %11, label %12, label %16, !prof !24
 
 12:                                               ; preds = %10
-  %13 = trunc i64 %1 to i16
+  %13 = trunc nsw i64 %1 to i16
   %14 = getelementptr inbounds i8, ptr %0, i64 124
   store i16 %13, ptr %14, align 4
-  %15 = trunc i64 %1 to i32
+  %15 = trunc nsw i64 %1 to i32
   tail call fastcc void @trace_netfs_failure(ptr noundef %4, ptr noundef %0, i32 noundef %15)
   br label %98
 
@@ -755,7 +755,7 @@ define dso_local void @netfs_queue_write_request(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_begin_write(ptr noundef %0, i1 noundef zeroext %1, i8 noundef signext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @netfs_begin_write(ptr noundef %0, i1 noundef zeroext %1, i8 noundef signext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_netfs_write, i64 0, i32 1), i32 2) #8
@@ -980,7 +980,7 @@ declare dso_local ptr @netfs_alloc_request(ptr noundef, ptr noundef, i64 noundef
 declare dso_local void @iov_iter_xarray(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_advance_writethrough(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @netfs_advance_writethrough(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %1
@@ -1036,7 +1036,7 @@ define dso_local i32 @netfs_advance_writethrough(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_end_writethrough(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @netfs_end_writethrough(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184

@@ -115,7 +115,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_trans_q
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_secpath_set859, ptr @__UNIQUE_ID___addressable_xfrm_input869, ptr @__UNIQUE_ID___addressable_xfrm_input_register_afinfo852, ptr @__UNIQUE_ID___addressable_xfrm_input_resume870, ptr @__UNIQUE_ID___addressable_xfrm_input_unregister_afinfo854, ptr @__UNIQUE_ID___addressable_xfrm_parse_spi860, ptr @__UNIQUE_ID___addressable_xfrm_trans_queue874, ptr @__UNIQUE_ID___addressable_xfrm_trans_queue_net873, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_input_register_afinfo(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_input_register_afinfo(ptr noundef %0) #0 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 10
   br i1 %3, label %4, label %5, !prof !5
@@ -165,7 +165,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_input_unregister_afinfo(ptr noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_input_unregister_afinfo(ptr noundef readonly %0) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_input_afinfo_lock) #10
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !range !9, !noundef !10
@@ -242,7 +242,7 @@ declare dso_local ptr @skb_ext_add(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_parse_spi(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @xfrm_parse_spi(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   switch i8 %1, label %64 [
     i8 51, label %31
     i8 50, label %5
@@ -2365,7 +2365,7 @@ define dso_local i32 @xfrm_input_resume(ptr noundef %0, i32 noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_trans_queue_net(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @xfrm_trans_queue_net(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @xfrm_trans_tasklet) #11, !srcloc !41
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -2403,7 +2403,7 @@ define dso_local noundef i32 @xfrm_trans_queue_net(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_trans_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @xfrm_trans_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 272

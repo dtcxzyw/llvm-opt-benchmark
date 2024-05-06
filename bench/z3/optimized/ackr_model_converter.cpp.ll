@@ -1187,8 +1187,8 @@ if.end:                                           ; preds = %_ZNK7obj_mapI9func_
   %13 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %13 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %14 = getelementptr i8, ptr %term, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %14, i64 32
+  %14 = getelementptr inbounds i8, ptr %term, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %14, i64 32
   %cmp.not40 = icmp eq i32 %13, 0
   br i1 %cmp.not40, label %for.end, label %for.body.lr.ph
 
@@ -1869,7 +1869,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN5model17copy_func_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %1)
   tail call void @_ZN5model18copy_usort_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %1)
-  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull %1, ptr noundef nonnull %call)
+  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull %1, ptr noundef nonnull %call)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1887,7 +1887,7 @@ if.end.i.thread:                                  ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   tail call void @_ZN5model17copy_func_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %2)
   tail call void @_ZN5model18copy_usort_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull %2, ptr noundef nonnull %call)
+  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull %2, ptr noundef nonnull %call)
   %.pr = load ptr, ptr %md, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load i32, ptr %m_ref_count.i.i, align 8

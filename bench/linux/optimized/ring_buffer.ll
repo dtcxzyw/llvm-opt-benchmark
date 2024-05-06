@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_perf_get_aux
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_perf_aux_output_begin405, ptr @__UNIQUE_ID___addressable_perf_aux_output_end408, ptr @__UNIQUE_ID___addressable_perf_aux_output_flag398, ptr @__UNIQUE_ID___addressable_perf_aux_output_skip410, ptr @__UNIQUE_ID___addressable_perf_get_aux411, ptr @perf_output_put_handle.__UNIQUE_ID___addressable___SCK__preempt_schedule390], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @perf_output_begin_forward(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_forward(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.anon.31, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   tail call void @__rcu_read_lock() #13
@@ -222,7 +222,7 @@ define dso_local noundef i32 @perf_output_begin_forward(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @perf_output_begin_backward(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_backward(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.anon.31, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   tail call void @__rcu_read_lock() #13
@@ -403,7 +403,7 @@ define dso_local noundef i32 @perf_output_begin_backward(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @perf_output_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.anon.31, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 256
   %7 = load i64, ptr %6, align 8
@@ -1258,7 +1258,7 @@ define dso_local void @perf_aux_output_end(ptr nocapture noundef %0, i64 noundef
 declare dso_local void @perf_event_aux_event(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @perf_aux_output_skip(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @perf_aux_output_skip(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1442,7 +1442,7 @@ define dso_local i64 @perf_output_copy_aux(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rb_alloc_aux(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = and i32 %5, 1
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %1, i64 652

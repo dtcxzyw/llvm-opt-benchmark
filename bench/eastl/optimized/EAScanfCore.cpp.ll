@@ -4374,7 +4374,7 @@ while.body164:                                    ; preds = %land.rhs155
   br i1 %exitcond285.not, label %if.then171, label %land.rhs155, !llvm.loop !38
 
 while.end:                                        ; preds = %land.rhs155
-  %27 = trunc i64 %indvars.iv282 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv282 to i32
   switch i32 %27, label %while.end236.loopexit [
     i32 8, label %if.then171
     i32 3, label %if.then171
@@ -4382,7 +4382,7 @@ while.end:                                        ; preds = %land.rhs155
 
 if.then171:                                       ; preds = %while.body164, %while.end, %while.end
   %i.0.lcssa293 = phi i32 [ %27, %while.end ], [ %27, %while.end ], [ 8, %while.body164 ]
-  %tobool172 = trunc i8 %bNegative.0245 to i1
+  %tobool172 = trunc nuw i8 %bNegative.0245 to i1
   %.150 = select i1 %tobool172, double 0xFFF0000000000000, double 0x7FF0000000000000
   %add176 = add nsw i32 %nSignCount.0241, %nSpaceCount.0240
   %add177 = add nsw i32 %add176, %i.0.lcssa293
@@ -4410,7 +4410,7 @@ while.body193:                                    ; preds = %land.rhs184
   br i1 %exitcond.not, label %land.rhs206.preheader, label %land.rhs184, !llvm.loop !39
 
 while.end197:                                     ; preds = %land.rhs184
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = add nsw i32 %31, -3
   %or.cond2 = icmp ult i32 %32, 2
   br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
@@ -4458,7 +4458,7 @@ if.else221:                                       ; preds = %while.end218
 if.end224:                                        ; preds = %if.then201, %if.else221
   %i181.0.lcssa267 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
   %j.1 = phi i32 [ %inc222, %if.else221 ], [ 0, %if.then201 ]
-  %tobool225 = trunc i8 %bNegative.0245 to i1
+  %tobool225 = trunc nuw i8 %bNegative.0245 to i1
   %.151 = select i1 %tobool225, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
   %add230 = add nsw i32 %nSignCount.0241, %nSpaceCount.0240
   %add231 = add nsw i32 %add230, %i181.0.lcssa267
@@ -4509,7 +4509,7 @@ while.end236.loopexit:                            ; preds = %while.end236.loopex
   %.pre = load i16, ptr %mSigLen.i, align 2
   %39 = add i32 %nSpaceCount.1322, -1
   %40 = freeze i1 %bExponentNegative.2327
-  %41 = trunc i8 %bNegative.2326 to i1
+  %41 = trunc nuw i8 %bNegative.2326 to i1
   br label %while.end236
 
 while.end236:                                     ; preds = %while.end236.loopexit, %entry
@@ -4553,7 +4553,7 @@ while.body262:                                    ; preds = %land.rhs255
   br i1 %exitcond289.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !42
 
 while.end265.loopexit:                            ; preds = %while.body262
-  %47 = trunc i64 %indvars.iv.next287 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.next287 to i32
   br label %while.end265
 
 while.end265:                                     ; preds = %while.end265.loopexit, %while.end236
@@ -4563,13 +4563,13 @@ while.end265:                                     ; preds = %while.end265.loopex
   br i1 %cmp266, label %if.then267, label %if.else271
 
 if.then267.loopexit:                              ; preds = %land.rhs255
-  %48 = trunc i64 %indvars.iv286 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv286 to i32
   br label %if.then267
 
 if.then267:                                       ; preds = %if.then267.loopexit, %while.end265
   %nExponentAdd.4195 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4258, %if.then267.loopexit ]
   %i249.0.in193 = phi i32 [ 1, %while.end265 ], [ %48, %if.then267.loopexit ]
-  %conv269 = trunc i32 %i249.0.in193 to i16
+  %conv269 = trunc nuw nsw i32 %i249.0.in193 to i16
   store i16 %conv269, ptr %mSigLen.i, align 2
   %add274 = add nsw i32 %nExponentAdd.4195, %spec.select
   %conv275 = trunc i32 %add274 to i16
@@ -4614,7 +4614,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i249.0.in193, 32767
   %51 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %51, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
@@ -5724,7 +5724,7 @@ while.body164:                                    ; preds = %_ZN2EA4StdC7Toupper
   br i1 %exitcond319.not, label %if.then171, label %land.rhs155, !llvm.loop !47
 
 while.end:                                        ; preds = %_ZN2EA4StdC7ToupperEDs.exit187
-  %17 = trunc i64 %indvars.iv316 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv316 to i32
   switch i32 %17, label %while.end236.loopexit [
     i32 8, label %if.then171
     i32 3, label %if.then171
@@ -5732,7 +5732,7 @@ while.end:                                        ; preds = %_ZN2EA4StdC7Toupper
 
 if.then171:                                       ; preds = %while.body164, %while.end, %while.end
   %i.0.lcssa327 = phi i32 [ %17, %while.end ], [ %17, %while.end ], [ 8, %while.body164 ]
-  %tobool172 = trunc i8 %bNegative.0277 to i1
+  %tobool172 = trunc nuw i8 %bNegative.0277 to i1
   %.150 = select i1 %tobool172, double 0xFFF0000000000000, double 0x7FF0000000000000
   %add176 = add nsw i32 %nSignCount.0273, %nSpaceCount.0272
   %add177 = add nsw i32 %add176, %i.0.lcssa327
@@ -5772,7 +5772,7 @@ while.body193:                                    ; preds = %_ZN2EA4StdC7Toupper
   br i1 %exitcond.not, label %land.rhs206.preheader, label %land.rhs184, !llvm.loop !48
 
 while.end197:                                     ; preds = %_ZN2EA4StdC7ToupperEDs.exit194
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = add nsw i32 %21, -3
   %or.cond2 = icmp ult i32 %22, 2
   br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
@@ -5830,7 +5830,7 @@ if.else221:                                       ; preds = %while.end218
 if.end224:                                        ; preds = %if.then201, %if.else221
   %i181.0.lcssa301 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
   %j.1 = phi i32 [ %inc222, %if.else221 ], [ 0, %if.then201 ]
-  %tobool225 = trunc i8 %bNegative.0277 to i1
+  %tobool225 = trunc nuw i8 %bNegative.0277 to i1
   %.151 = select i1 %tobool225, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
   %add230 = add nsw i32 %nSignCount.0273, %nSpaceCount.0272
   %add231 = add nsw i32 %add230, %i181.0.lcssa301
@@ -5881,7 +5881,7 @@ while.end236.loopexit:                            ; preds = %lor.rhs, %while.end
   %.pre = load i16, ptr %mSigLen.i, align 2
   %29 = add i32 %nSpaceCount.1356, -1
   %30 = freeze i1 %bExponentNegative.2361
-  %31 = trunc i8 %bNegative.2360 to i1
+  %31 = trunc nuw i8 %bNegative.2360 to i1
   br label %while.end236
 
 while.end236:                                     ; preds = %while.end236.loopexit, %entry
@@ -5925,7 +5925,7 @@ while.body262:                                    ; preds = %land.rhs255
   br i1 %exitcond323.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !51
 
 while.end265.loopexit:                            ; preds = %while.body262
-  %37 = trunc i64 %indvars.iv.next321 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.next321 to i32
   br label %while.end265
 
 while.end265:                                     ; preds = %while.end265.loopexit, %while.end236
@@ -5935,13 +5935,13 @@ while.end265:                                     ; preds = %while.end265.loopex
   br i1 %cmp266, label %if.then267, label %if.else271
 
 if.then267.loopexit:                              ; preds = %land.rhs255
-  %38 = trunc i64 %indvars.iv320 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv320 to i32
   br label %if.then267
 
 if.then267:                                       ; preds = %if.then267.loopexit, %while.end265
   %nExponentAdd.4224 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4290, %if.then267.loopexit ]
   %i249.0.in222 = phi i32 [ 1, %while.end265 ], [ %38, %if.then267.loopexit ]
-  %conv269 = trunc i32 %i249.0.in222 to i16
+  %conv269 = trunc nuw nsw i32 %i249.0.in222 to i16
   store i16 %conv269, ptr %mSigLen.i, align 2
   %add274 = add nsw i32 %nExponentAdd.4224, %spec.select
   %conv275 = trunc i32 %add274 to i16
@@ -5986,7 +5986,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i249.0.in222, 32767
   %41 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %41, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
@@ -6896,7 +6896,7 @@ if.then45:                                        ; preds = %sw.bb42
   br i1 %cmp46, label %if.then47, label %if.else51
 
 if.then47:                                        ; preds = %if.then45
-  %conv48 = trunc i32 %c.0272 to i8
+  %conv48 = trunc nuw i32 %c.0272 to i8
   %inc50 = add nsw i16 %5, 1
   store i16 %inc50, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %5 to i64
@@ -6947,7 +6947,7 @@ if.then77:                                        ; preds = %if.then73
   br i1 %or.cond, label %if.then81, label %if.end89
 
 if.then81:                                        ; preds = %if.then77
-  %conv82 = trunc i32 %c.0272 to i8
+  %conv82 = trunc nuw i32 %c.0272 to i8
   %inc85 = add nsw i16 %8, 1
   store i16 %inc85, ptr %mSigLen.i, align 2
   %idxprom86 = sext i16 %8 to i64
@@ -7067,7 +7067,7 @@ while.body153:                                    ; preds = %_ZN2EA4StdC7Toupper
   br i1 %exitcond311.not, label %if.then160, label %land.rhs146, !llvm.loop !56
 
 while.end:                                        ; preds = %_ZN2EA4StdC7ToupperEDi.exit180
-  %13 = trunc i64 %indvars.iv308 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv308 to i32
   switch i32 %13, label %while.end221.loopexit [
     i32 8, label %if.then160
     i32 3, label %if.then160
@@ -7075,7 +7075,7 @@ while.end:                                        ; preds = %_ZN2EA4StdC7Toupper
 
 if.then160:                                       ; preds = %while.body153, %while.end, %while.end
   %i.0.lcssa319 = phi i32 [ %13, %while.end ], [ %13, %while.end ], [ 8, %while.body153 ]
-  %tobool161 = trunc i8 %bNegative.0269 to i1
+  %tobool161 = trunc nuw i8 %bNegative.0269 to i1
   %.150 = select i1 %tobool161, double 0xFFF0000000000000, double 0x7FF0000000000000
   %add165 = add nsw i32 %nSignCount.0265, %nSpaceCount.0264
   %add166 = add nsw i32 %add165, %i.0.lcssa319
@@ -7112,7 +7112,7 @@ while.body180:                                    ; preds = %_ZN2EA4StdC7Toupper
   br i1 %exitcond.not, label %land.rhs193.preheader, label %land.rhs173, !llvm.loop !57
 
 while.end184:                                     ; preds = %_ZN2EA4StdC7ToupperEDi.exit187
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add nsw i32 %16, -3
   %or.cond2 = icmp ult i32 %17, 2
   br i1 %or.cond2, label %if.then188, label %while.end221.loopexit
@@ -7167,7 +7167,7 @@ if.else206:                                       ; preds = %while.end203
 if.end209:                                        ; preds = %if.then188, %if.else206
   %i170.0.lcssa293 = phi i32 [ 4, %if.else206 ], [ 3, %if.then188 ]
   %j.1 = phi i32 [ %inc207, %if.else206 ], [ 0, %if.then188 ]
-  %tobool210 = trunc i8 %bNegative.0269 to i1
+  %tobool210 = trunc nuw i8 %bNegative.0269 to i1
   %.151 = select i1 %tobool210, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
   %add215 = add nsw i32 %nSignCount.0265, %nSpaceCount.0264
   %add216 = add nsw i32 %add215, %i170.0.lcssa293
@@ -7218,7 +7218,7 @@ while.end221.loopexit:                            ; preds = %lor.rhs, %while.end
   %.pre = load i16, ptr %mSigLen.i, align 2
   %23 = add i32 %nSpaceCount.1348, -1
   %24 = freeze i1 %bExponentNegative.2353
-  %25 = trunc i8 %bNegative.2352 to i1
+  %25 = trunc nuw i8 %bNegative.2352 to i1
   br label %while.end221
 
 while.end221:                                     ; preds = %while.end221.loopexit, %entry
@@ -7262,7 +7262,7 @@ while.body247:                                    ; preds = %land.rhs240
   br i1 %exitcond315.not, label %while.end250.loopexit, label %land.rhs240, !llvm.loop !60
 
 while.end250.loopexit:                            ; preds = %while.body247
-  %31 = trunc i64 %indvars.iv.next313 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next313 to i32
   br label %while.end250
 
 while.end250:                                     ; preds = %while.end250.loopexit, %while.end221
@@ -7272,13 +7272,13 @@ while.end250:                                     ; preds = %while.end250.loopex
   br i1 %cmp251, label %if.then252, label %if.else256
 
 if.then252.loopexit:                              ; preds = %land.rhs240
-  %32 = trunc i64 %indvars.iv312 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv312 to i32
   br label %if.then252
 
 if.then252:                                       ; preds = %if.then252.loopexit, %while.end250
   %nExponentAdd.4216 = phi i32 [ %nExponentAdd.4.lcssa, %while.end250 ], [ %nExponentAdd.4282, %if.then252.loopexit ]
   %i234.0.in214 = phi i32 [ 1, %while.end250 ], [ %32, %if.then252.loopexit ]
-  %conv254 = trunc i32 %i234.0.in214 to i16
+  %conv254 = trunc nuw nsw i32 %i234.0.in214 to i16
   store i16 %conv254, ptr %mSigLen.i, align 2
   %add259 = add nsw i32 %nExponentAdd.4216, %spec.select
   %conv260 = trunc i32 %add259 to i16
@@ -7323,7 +7323,7 @@ for.cond15.preheader.i:                           ; preds = %if.end278
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i234.0.in214, 32767
   %35 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %35, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end278

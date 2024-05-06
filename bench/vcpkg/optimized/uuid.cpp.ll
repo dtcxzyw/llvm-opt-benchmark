@@ -390,7 +390,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
   br i1 %9, label %10, label %28
 
 10:                                               ; preds = %3
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nuw i64 %8 to i32
   %12 = add nuw i32 %11, 1
   %13 = tail call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %1)
   %14 = zext i32 %13 to i64

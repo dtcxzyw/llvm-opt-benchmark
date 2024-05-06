@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @acpi_pcihp_is_hotpluggbale_bus(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %bus) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @acpi_pcihp_is_hotpluggbale_bus(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %bus) local_unnamed_addr #0 {
 entry:
   ret i1 true
 }

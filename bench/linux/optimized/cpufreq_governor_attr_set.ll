@@ -29,7 +29,7 @@ define internal i64 @governor_show(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @governor_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @governor_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @mutex_lock(ptr noundef %5) #2
   %6 = getelementptr inbounds i8, ptr %0, i64 112

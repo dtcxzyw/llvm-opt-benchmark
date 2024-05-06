@@ -1181,11 +1181,11 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %dissect_comrej.exit
 
 302:                                              ; preds = %268
-  %303 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %121), !range !4
+  %303 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %121)
   br label %dissect_comrej.exit
 
 304:                                              ; preds = %268
-  %305 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %272, ptr noundef %3), !range !5
+  %305 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %272, ptr noundef %3)
   br label %dissect_comrej.exit
 
 306:                                              ; preds = %268
@@ -1483,11 +1483,11 @@ dissect_configresponse.exit:                      ; preds = %377, %.thread67.i54
   br label %dissect_comrej.exit
 
 447:                                              ; preds = %268
-  %448 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 1), !range !6
+  %448 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 1)
   br label %dissect_comrej.exit
 
 449:                                              ; preds = %268
-  %450 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 0), !range !6
+  %450 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 0)
   br label %dissect_comrej.exit
 
 451:                                              ; preds = %268
@@ -1695,11 +1695,11 @@ dissect_configresponse.exit:                      ; preds = %377, %.thread67.i54
   br label %dissect_comrej.exit
 
 571:                                              ; preds = %268
-  %572 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %121), !range !4
+  %572 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %272, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %121)
   br label %dissect_comrej.exit
 
 573:                                              ; preds = %268
-  %574 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %272, ptr noundef %3), !range !5
+  %574 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull readonly %1, ptr noundef %272, ptr noundef %3)
   br label %dissect_comrej.exit
 
 575:                                              ; preds = %268
@@ -2075,7 +2075,7 @@ proto_item_set_generated.exit.i:                  ; preds = %679, %676, %673, %6
   %783 = load i16, ptr %782, align 4
   %784 = getelementptr inbounds i8, ptr %764, i64 24
   %785 = load i32, ptr %784, align 8
-  %786 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull %1, ptr noundef nonnull %121, i16 noundef zeroext %783, i32 noundef %785)
+  %786 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %121, i16 noundef zeroext %783, i32 noundef %785)
   %787 = getelementptr inbounds i8, ptr %764, i64 32
   %788 = load i32, ptr %787, align 8
   %.not107.i = icmp eq i16 %786, 0
@@ -2596,7 +2596,7 @@ proto_item_set_generated.exit.i551:               ; preds = %913, %910, %907, %9
   %1023 = load i16, ptr %1022, align 4
   %1024 = getelementptr inbounds i8, ptr %1004, i64 24
   %1025 = load i32, ptr %1024, align 8
-  %1026 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull %1, ptr noundef nonnull %121, i16 noundef zeroext %1023, i32 noundef %1025)
+  %1026 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %121, i16 noundef zeroext %1023, i32 noundef %1025)
   %1027 = getelementptr inbounds i8, ptr %1004, i64 32
   %1028 = load i32, ptr %1027, align 8
   %.not110.i = icmp eq i16 %1026, 0
@@ -2652,7 +2652,7 @@ proto_item_set_generated.exit116.i:               ; preds = %1048, %1045, %1042,
   %1053 = add i32 %1052, 1
   store i32 %1053, ptr %16, align 4
   %1054 = icmp slt i32 %.0123.i, %929
-  br i1 %1054, label %930, label %dissect_l2cap_credit_based_connrequest.exit, !llvm.loop !7
+  br i1 %1054, label %930, label %dissect_l2cap_credit_based_connrequest.exit, !llvm.loop !4
 
 dissect_l2cap_credit_based_connrequest.exit:      ; preds = %proto_item_set_generated.exit116.i, %proto_item_set_generated.exit.i551
   %.0.lcssa.i = phi i32 [ %926, %proto_item_set_generated.exit.i551 ], [ %933, %proto_item_set_generated.exit116.i ]
@@ -2840,7 +2840,7 @@ dissect_l2cap_credit_based_connrequest.exit:      ; preds = %proto_item_set_gene
   %1127 = add i32 %1126, 1
   store i32 %1127, ptr %6, align 4
   %1128 = icmp slt i32 %.064.i, %1070
-  br i1 %1128, label %1071, label %dissect_l2cap_credit_based_connresponse.exit, !llvm.loop !9
+  br i1 %1128, label %1071, label %dissect_l2cap_credit_based_connresponse.exit, !llvm.loop !6
 
 dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1125, %1055
   %.0.lcssa.i565 = phi i32 [ %1067, %1055 ], [ %1074, %1125 ]
@@ -2864,7 +2864,7 @@ dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1125, %1055
 dissect_comrej.exit:                              ; preds = %566, %545, %523, %484, %467, %.sink.split.i, %290, %1129, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %890, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %660, %dissect_connparamrequest.exit, %614, %601, %588, %575, %573, %571, %459, %455, %451, %449, %447, %dissect_configresponse.exit, %dissect_configrequest.exit, %304, %302
   %.1 = phi i32 [ %1132, %1129 ], [ %.0.lcssa.i565, %dissect_l2cap_credit_based_connresponse.exit ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %896, %890 ], [ %884, %dissect_le_credit_based_connresponse.exit ], [ %812, %dissect_le_credit_based_connrequest.exit ], [ %664, %660 ], [ %659, %dissect_connparamrequest.exit ], [ %618, %614 ], [ %609, %601 ], [ %596, %588 ], [ %583, %575 ], [ %574, %573 ], [ %572, %571 ], [ %463, %459 ], [ %458, %455 ], [ %454, %451 ], [ %450, %449 ], [ %448, %447 ], [ %.0.i539, %dissect_configresponse.exit ], [ %.0.i537, %dissect_configrequest.exit ], [ %305, %304 ], [ %303, %302 ], [ %294, %290 ], [ %301, %.sink.split.i ], [ %570, %566 ], [ %565, %545 ], [ %544, %523 ], [ %487, %484 ], [ %475, %467 ]
   %1133 = icmp slt i32 %.1, %158
-  br i1 %1133, label %268, label %.loopexit, !llvm.loop !10
+  br i1 %1133, label %268, label %.loopexit, !llvm.loop !7
 
 1134:                                             ; preds = %142
   %1135 = icmp eq i16 %106, 2
@@ -3349,7 +3349,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef readonly %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3700,7 +3700,7 @@ proto_item_set_generated.exit130:                 ; preds = %211, %208, %205, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
   %6 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3909,7 +3909,7 @@ define internal fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -5589,7 +5589,7 @@ define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef %1, ptr 
   %.1 = phi i32 [ %108, %107 ], [ %106, %103 ], [ %102, %84 ], [ %83, %80 ], [ %79, %62 ], [ %56, %35 ], [ %34, %31 ], [ %30, %27 ], [ %25, %11 ]
   %110 = sub nsw i32 %.01331, %17
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %11, label %._crit_edge, !llvm.loop !11
+  br i1 %111, label %11, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %109, %8
   %.0.lcssa = phi i32 [ %1, %8 ], [ %.1, %109 ]
@@ -5655,11 +5655,8 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483640, i32 65548}
-!5 = !{i32 -2147483636, i32 65551}
-!6 = !{i32 -2147483640, i32 65547}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

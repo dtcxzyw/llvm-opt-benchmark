@@ -24,8 +24,8 @@ $_ZN5ZXing9BitMatrixC2Eii = comdat any
 @_ZTISt16invalid_argument = external constant ptr
 @.str.1 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 
 @_ZN5ZXing12BinaryBitmapD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ZXing12BinaryBitmapD2Ev
 

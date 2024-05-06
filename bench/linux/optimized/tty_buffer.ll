@@ -79,7 +79,7 @@ define dso_local void @tty_buffer_unlock_exclusive(ptr noundef %0) #0 align 16 {
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @tty_buffer_space_avail(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @tty_buffer_space_avail(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -283,7 +283,7 @@ define internal fastcc i32 @__tty_buffer_request_room(ptr noundef %0, i64 nounde
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %3
-  %23 = trunc i64 %1 to i32
+  %23 = trunc nuw i64 %1 to i32
   br label %58
 
 24:                                               ; preds = %3
@@ -508,7 +508,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @tty_prepare_flip_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tty_prepare_flip_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 28
@@ -526,7 +526,7 @@ define dso_local i64 @tty_prepare_flip_string(ptr noundef %0, ptr nocapture noun
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %3
-  %19 = trunc i64 %2 to i32
+  %19 = trunc nuw i64 %2 to i32
   br label %__tty_buffer_request_room.exit
 
 20:                                               ; preds = %3
@@ -708,7 +708,7 @@ define dso_local i32 @tty_insert_flip_string_and_push_buffer(ptr noundef %0, ptr
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %10
-  %29 = trunc i64 %14 to i32
+  %29 = trunc nuw nsw i64 %14 to i32
   br label %__tty_buffer_request_room.exit
 
 30:                                               ; preds = %10
@@ -739,7 +739,7 @@ __tty_buffer_request_room.exit.thread:            ; preds = %34, %41
   %46 = phi ptr [ %44, %41 ], [ %35, %34 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 0, ptr %47, align 8
-  %48 = trunc i64 %32 to i32
+  %48 = trunc nuw nsw i64 %32 to i32
   %49 = getelementptr inbounds i8, ptr %46, i64 12
   store i32 %48, ptr %49, align 4
   store ptr null, ptr %46, align 8
@@ -760,7 +760,7 @@ __tty_buffer_request_room.exit.thread:            ; preds = %34, %41
   store volatile i32 %54, ptr %55, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !30
   store volatile ptr %46, ptr %15, align 8
-  %56 = trunc i64 %14 to i32
+  %56 = trunc nuw nsw i64 %14 to i32
   br label %59
 
 __tty_buffer_request_room.exit:                   ; preds = %37, %41, %28
@@ -1056,7 +1056,7 @@ define internal void @flush_to_ldisc(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @tty_buffer_set_limit(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tty_buffer_set_limit(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
   %3 = icmp slt i32 %1, 256
   br i1 %3, label %6, label %4
 

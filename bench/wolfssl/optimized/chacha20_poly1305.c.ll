@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end, %if.then9, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly %authTag, ptr noundef readonly %authTagChk) local_unnamed_addr #2 {
+define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly %authTag, ptr noundef readonly %authTagChk) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %authTag, null
   %cmp1 = icmp eq ptr %authTagChk, null

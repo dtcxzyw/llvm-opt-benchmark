@@ -50,7 +50,7 @@ define void @_ZN5ZXing8MaxiCode15BitMatrixParser13ReadCodewordsERKNS_9BitMatrixE
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv28 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next29, %._crit_edge.us ]
   %20 = getelementptr inbounds [33 x %"struct.std::array.0"], ptr @_ZN5ZXing8MaxiCodeL5BITNRE, i64 0, i64 %indvars.iv28
-  %21 = mul nsw i64 %indvars.iv28, %19
+  %21 = mul nuw nsw i64 %indvars.iv28, %19
   br label %22
 
 22:                                               ; preds = %.preheader.us, %41

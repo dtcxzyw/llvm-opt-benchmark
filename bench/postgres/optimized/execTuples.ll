@@ -2339,7 +2339,7 @@ define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr
   tail call void @ReleaseBuffer(i32 noundef %2) #13
   br label %tts_buffer_heap_store_tuple.exit
 
-tts_buffer_heap_store_tuple.exit:                 ; preds = %30, %31, %32
+tts_buffer_heap_store_tuple.exit:                 ; preds = %31, %32, %30
   %33 = getelementptr inbounds i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 56
@@ -4048,10 +4048,10 @@ define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %22 to i64
   %30 = shl nsw i64 %29, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %.sroa.016, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull readonly align 8 %.sroa.016, i64 %30, i1 false)
   %31 = getelementptr inbounds i8, ptr %19, i64 32
   %32 = load ptr, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %.sroa.0, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %.sroa.0, i64 %29, i1 false)
   %33 = getelementptr inbounds i8, ptr %19, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, -3
@@ -4220,7 +4220,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %.not, label %51, label %38
 
 38:                                               ; preds = %36
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nsw i64 %indvars.iv to i32
   %40 = ashr i32 %39, 3
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %13, i64 %41
@@ -4491,7 +4491,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %36, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %175
-  %176 = trunc i32 %. to i16
+  %176 = trunc nsw i32 %. to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28

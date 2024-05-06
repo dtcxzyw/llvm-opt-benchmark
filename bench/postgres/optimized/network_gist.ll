@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.inet_gist_consistent = private unnamed_addr constant [21 x i8] c"inet_gist_consistent\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_gist_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -498,10 +498,10 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %38, %calc_inet_
   %.0 = phi i32 [ %spec.select.i, %calc_inet_union_params.exit ], [ 0, %38 ], [ %12, %1 ]
   %39 = load i64, ptr %5, align 8
   %40 = tail call ptr @palloc0(i64 noundef 20) #8
-  %41 = trunc i32 %.0 to i8
+  %41 = trunc nuw i32 %.0 to i8
   %42 = getelementptr inbounds i8, ptr %40, i64 1
   store i8 %41, ptr %42, align 1
-  %43 = trunc i32 %spec.select50.i20 to i8
+  %43 = trunc nuw i32 %spec.select50.i20 to i8
   %44 = getelementptr inbounds i8, ptr %40, i64 2
   store i8 %43, ptr %44, align 1
   %45 = trunc i32 %spec.select51.i21 to i8
@@ -517,7 +517,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %38, %calc_inet_
   %52 = add nuw i32 %spec.select51.i21, 7
   %53 = sdiv i32 %52, 8
   %54 = sext i32 %53 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %50, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %50, i64 %54, i1 false)
   br label %55
 
 55:                                               ; preds = %48, %calc_inet_union_params.exit.thread
@@ -1029,10 +1029,10 @@ calc_inet_union_params_indexed.exit.thread:       ; preds = %.loopexit, %137, %c
   %140 = getelementptr %struct.GISTENTRY, ptr %8, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = tail call ptr @palloc0(i64 noundef 20) #8
-  %143 = trunc i32 %.0149 to i8
+  %143 = trunc nuw i32 %.0149 to i8
   %144 = getelementptr inbounds i8, ptr %142, i64 1
   store i8 %143, ptr %144, align 1
-  %145 = trunc i32 %spec.select49.i166 to i8
+  %145 = trunc nuw i32 %spec.select49.i166 to i8
   %146 = getelementptr inbounds i8, ptr %142, i64 2
   store i8 %145, ptr %146, align 1
   %147 = trunc i32 %spec.select50.i99167 to i8
@@ -1048,7 +1048,7 @@ calc_inet_union_params_indexed.exit.thread:       ; preds = %.loopexit, %137, %c
   %154 = add nuw i32 %spec.select50.i99167, 7
   %155 = sdiv i32 %154, 8
   %156 = sext i32 %155 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %152, i64 %156, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull readonly align 1 %152, i64 %156, i1 false)
   br label %157
 
 157:                                              ; preds = %150, %calc_inet_union_params_indexed.exit.thread
@@ -1155,10 +1155,10 @@ calc_inet_union_params_indexed.exit129.thread:    ; preds = %build_inet_union_ke
   %213 = getelementptr %struct.GISTENTRY, ptr %8, i64 %212
   %214 = load i64, ptr %213, align 8
   %215 = tail call ptr @palloc0(i64 noundef 20) #8
-  %216 = trunc i32 %.1150 to i8
+  %216 = trunc nuw i32 %.1150 to i8
   %217 = getelementptr inbounds i8, ptr %215, i64 1
   store i8 %216, ptr %217, align 1
-  %218 = trunc i32 %spec.select49.i112175 to i8
+  %218 = trunc nuw i32 %spec.select49.i112175 to i8
   %219 = getelementptr inbounds i8, ptr %215, i64 2
   store i8 %218, ptr %219, align 1
   %220 = trunc i32 %spec.select50.i113176 to i8
@@ -1174,7 +1174,7 @@ calc_inet_union_params_indexed.exit129.thread:    ; preds = %build_inet_union_ke
   %227 = add nuw i32 %spec.select50.i113176, 7
   %228 = sdiv i32 %227, 8
   %229 = sext i32 %228 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull align 1 %225, i64 %229, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull readonly align 1 %225, i64 %229, i1 false)
   br label %230
 
 230:                                              ; preds = %223, %calc_inet_union_params_indexed.exit129.thread

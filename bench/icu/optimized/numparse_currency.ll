@@ -597,7 +597,7 @@ invoke.cont19:                                    ; preds = %.noexc
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %fCurrencyCode = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %fCurrencyCode, ptr noundef nonnull align 2 dereferenceable(6) %call22, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %fCurrencyCode, ptr noundef nonnull readonly align 2 dereferenceable(6) %call22, i64 6, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 14
   store i16 0, ptr %arrayidx.i, align 2
   %3 = load i8, ptr %fUseFullCurrencyData, align 8
@@ -870,7 +870,7 @@ lor.rhs:                                          ; preds = %if.then, %entry
 if.then9:                                         ; preds = %lor.rhs
   %currencyCode = getelementptr inbounds i8, ptr %result, i64 208
   %fCurrencyCode = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %currencyCode, ptr noundef nonnull align 8 dereferenceable(6) %fCurrencyCode, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %currencyCode, ptr noundef nonnull readonly align 8 dereferenceable(6) %fCurrencyCode, i64 6, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %result, i64 214
   store i16 0, ptr %arrayidx.i, align 2
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %overlap1.0)
@@ -912,7 +912,7 @@ lor.end24:                                        ; preds = %lor.rhs21, %if.end1
 if.then29:                                        ; preds = %lor.end24
   %currencyCode30 = getelementptr inbounds i8, ptr %result, i64 208
   %fCurrencyCode32 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %currencyCode30, ptr noundef nonnull align 8 dereferenceable(6) %fCurrencyCode32, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %currencyCode30, ptr noundef nonnull readonly align 8 dereferenceable(6) %fCurrencyCode32, i64 6, i1 false)
   %arrayidx.i51 = getelementptr inbounds i8, ptr %result, i64 214
   store i16 0, ptr %arrayidx.i51, align 2
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %overlap2.0)
@@ -1016,7 +1016,7 @@ for.end:                                          ; preds = %for.body
 if.then82:                                        ; preds = %for.end
   %currencyCode83 = getelementptr inbounds i8, ptr %result, i64 208
   %fCurrencyCode85 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %currencyCode83, ptr noundef nonnull align 8 dereferenceable(6) %fCurrencyCode85, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %currencyCode83, ptr noundef nonnull readonly align 8 dereferenceable(6) %fCurrencyCode85, i64 6, i1 false)
   %arrayidx.i70 = getelementptr inbounds i8, ptr %result, i64 214
   store i16 0, ptr %arrayidx.i70, align 2
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %longestFullMatch.1)

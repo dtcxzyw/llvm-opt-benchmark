@@ -871,7 +871,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8), !range !7
+  %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
 
@@ -1001,7 +1001,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8), !range !7
+  %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
 
@@ -1093,7 +1093,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
   %6 = alloca [12 x [2 x double]], align 16
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.lr.ph.i, label %46
@@ -1601,11 +1601,11 @@ _ZL10vector_subPKdS0_Pd.exit.critedge:            ; preds = %121, %120, %119, %1
   %132 = getelementptr inbounds [2 x double], ptr %124, i64 %indvars.iv18.i, i64 %indvars.iv.i27
   %133 = load double, ptr %132, align 8
   %134 = tail call double @llvm.fmuladd.f64(double %133, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %131)
-  br i1 %130, label %129, label %135, !llvm.loop !8
+  br i1 %130, label %129, label %135, !llvm.loop !7
 
 135:                                              ; preds = %129
   store double %134, ptr %indvars.iv18.i.sroa.phi, align 8
-  br i1 %128, label %127, label %_ZL11dot_productPA2_KdPS_Pd.exit, !llvm.loop !9
+  br i1 %128, label %127, label %_ZL11dot_productPA2_KdPS_Pd.exit, !llvm.loop !8
 
 _ZL11dot_productPA2_KdPS_Pd.exit:                 ; preds = %135
   %136 = sitofp i32 %122 to double
@@ -1644,6 +1644,5 @@ attributes #9 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

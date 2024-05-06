@@ -142,7 +142,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph438:                                        ; preds = %.lr.ph438.preheader, %.lr.ph438
   %indvars.iv512 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next513, %.lr.ph438 ]
-  %60 = trunc i64 %indvars.iv512 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv512 to i32
   %61 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %60) #5
   %62 = getelementptr inbounds [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv512
   store ptr %61, ptr %62, align 8

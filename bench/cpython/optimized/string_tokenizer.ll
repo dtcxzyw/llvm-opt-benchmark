@@ -177,7 +177,7 @@ declare ptr @_PyTokenizer_tok_new() local_unnamed_addr #1
 declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
+define internal range(i32 0, 2) i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
 entry:
   %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %0 = load ptr, ptr %inp, align 8
@@ -238,7 +238,7 @@ declare ptr @_PyTokenizer_translate_newlines(ptr noundef, i32 noundef, i32 nound
 declare i32 @_PyTokenizer_check_bom(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @buf_getc(ptr nocapture noundef %tok) #4 {
+define internal range(i32 0, 256) i32 @buf_getc(ptr nocapture noundef %tok) #4 {
 entry:
   %str = getelementptr inbounds i8, ptr %tok, i64 2816
   %0 = load ptr, ptr %str, align 8

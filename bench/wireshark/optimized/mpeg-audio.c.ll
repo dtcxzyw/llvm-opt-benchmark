@@ -117,7 +117,7 @@ define i32 @mpa_padding(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @decode_synchsafe_int(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 268435456) i32 @decode_synchsafe_int(i32 noundef %0) local_unnamed_addr #1 {
   %2 = lshr i32 %0, 17
   %3 = and i32 %2, 16256
   %4 = lshr i32 %0, 16

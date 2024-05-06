@@ -2724,7 +2724,7 @@ if.end:                                           ; preds = %entry
   %key = getelementptr inbounds i8, ptr %dump_unit, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   store i32 0, ptr %len.i, align 4
-  %add.ptr.i.i10 = getelementptr inbounds i8, ptr %call.i, i64 %call2.i
+  %add.ptr.i.i10 = getelementptr i8, ptr %call.i, i64 %call2.i
   %cmp.i.i.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
 
@@ -2816,7 +2816,7 @@ if.end18:                                         ; preds = %if.end12
   %sub.i.i29 = add i64 %sub.i.i11, -8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i35)
   store i32 0, ptr %len.i35, align 4
-  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i37 = getelementptr i8, ptr %3, i64 %sub.ptr.sub.i.i
   %cmp.i.i.i38 = icmp sgt i64 %sub.i.i29, 0
   br i1 %cmp.i.i.i38, label %if.then.i.i.i55, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i39
 
@@ -3510,7 +3510,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.shiftamt = zext nneg i32 %5 to i40
   %switch.downshift = lshr i40 47295824899, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %call.i.i.i = tail call noundef zeroext i1 @_ZN7rocksdb15CacheDumperImpl15ShouldFilterOutERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %__args)
+  %call.i.i.i = tail call noundef zeroext i1 @_ZN7rocksdb15CacheDumperImpl15ShouldFilterOutERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %__args)
   br i1 %call.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %switch.lookup
@@ -3534,7 +3534,7 @@ if.then17.i.i.i:                                  ; preds = %invoke.cont.i.i.i
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp18.i.i.i, i64 8
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   store i64 %call2.i.i.i.i, ptr %size_.i.i.i.i, align 8
-  invoke void @_ZN7rocksdb15CacheDumperImpl10WriteBlockENS_17CacheDumpUnitTypeERKNS_5SliceES4_(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %0, i8 noundef zeroext %switch.masked, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.i.i.i)
+  invoke void @_ZN7rocksdb15CacheDumperImpl10WriteBlockENS_17CacheDumpUnitTypeERKNS_5SliceES4_(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %0, i8 noundef zeroext %switch.masked, ptr noundef nonnull readonly align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.i.i.i)
           to label %invoke.cont20.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont20.i.i.i:                              ; preds = %if.then17.i.i.i
@@ -3601,7 +3601,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb

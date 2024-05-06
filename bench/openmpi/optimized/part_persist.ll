@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_part_persist_progress() #0 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_progress() #0 {
   %1 = alloca i32, align 4
   %2 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i64 0, i32 16), i32 1 monotonic, align 4
   %3 = add i32 %2, 1
@@ -1102,7 +1102,7 @@ opal_free_list_return.exit:                       ; preds = %._crit_edge253, %op
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -2, 1) i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -1168,7 +1168,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %33 = extractvalue { i128, i1 } %31, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %33 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %33, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -1416,7 +1416,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %113, %
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i.i = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -1490,7 +1490,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %37 = extractvalue { i128, i1 } %35, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %37 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %37, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -1672,7 +1672,7 @@ opal_update_counted_pointer.exit.i40.i.i:         ; preds = %.lr.ph.i28.i.i
   %106 = extractvalue { i128, i1 } %104, 0
   %.sroa.0.0.extract.trunc.i41.i.i = trunc i128 %106 to i64
   %.sroa.4.0.extract.shift.i42.i.i = lshr i128 %106, 64
-  %.sroa.4.0.extract.trunc.i43.i.i = trunc i128 %.sroa.4.0.extract.shift.i42.i.i to i64
+  %.sroa.4.0.extract.trunc.i43.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i42.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i43.i.i, ptr %.sroa.4.i24.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
@@ -1794,7 +1794,7 @@ opal_update_counted_pointer.exit.i.i25.i.i:       ; preds = %.lr.ph.i.i13.i.i
   %146 = extractvalue { i128, i1 } %144, 0
   %.sroa.0.0.extract.trunc.i.i26.i.i = trunc i128 %146 to i64
   %.sroa.4.0.extract.shift.i.i27.i.i = lshr i128 %146, 64
-  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i28.i.i, ptr %.sroa.4.i.i8.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)

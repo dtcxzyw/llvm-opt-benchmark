@@ -41,9 +41,9 @@ get_dh_from_pg.exit:                              ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_dh_from_pg(ptr noundef %libctx, ptr noundef %type, ptr noundef %pdata, i64 noundef %plen, ptr noundef %gdata, i64 noundef %glen, ptr noundef %qdata, i64 noundef %qlen) unnamed_addr #0 {
 entry:
-  %conv = trunc i64 %plen to i32
+  %conv = trunc nuw nsw i64 %plen to i32
   %call = tail call ptr @BN_bin2bn(ptr noundef %pdata, i32 noundef %conv, ptr noundef null) #2
-  %conv1 = trunc i64 %glen to i32
+  %conv1 = trunc nuw nsw i64 %glen to i32
   %call2 = tail call ptr @BN_bin2bn(ptr noundef %gdata, i32 noundef %conv1, ptr noundef null) #2
   %cmp = icmp eq ptr %call, null
   %cmp4 = icmp eq ptr %call2, null
@@ -55,7 +55,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %conv8 = trunc i64 %qlen to i32
+  %conv8 = trunc nuw nsw i64 %qlen to i32
   %call9 = tail call ptr @BN_bin2bn(ptr noundef nonnull %qdata, i32 noundef %conv8, ptr noundef null) #2
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %err, label %if.end13

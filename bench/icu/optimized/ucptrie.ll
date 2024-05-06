@@ -104,9 +104,9 @@ if.end39:                                         ; preds = %if.end28
   %shl52 = shl nuw nsw i32 %conv51, 9
   %add = add nuw nsw i32 %shl52, 4095
   %shr54 = lshr i32 %add, 12
-  %conv55 = trunc i32 %shr54 to i16
-  %conv56 = trunc i32 %and19 to i8
-  %conv58 = trunc i32 %and20 to i8
+  %conv55 = trunc nuw nsw i32 %shr54 to i16
+  %conv56 = trunc nuw nsw i32 %and19 to i8
+  %conv58 = trunc nuw nsw i32 %and20 to i8
   %mul = shl nuw nsw i32 %conv40, 1
   %add61 = add nuw nsw i32 %mul, 16
   switch i32 %and20, label %if.else72 [
@@ -239,7 +239,7 @@ entry:
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ucptrie_getType_75(ptr nocapture noundef readonly %trie) local_unnamed_addr #5 {
+define range(i32 -128, 128) i32 @ucptrie_getType_75(ptr nocapture noundef readonly %trie) local_unnamed_addr #5 {
 entry:
   %type = getelementptr inbounds i8, ptr %trie, i64 30
   %0 = load i8, ptr %type, align 2
@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ucptrie_getValueWidth_75(ptr nocapture noundef readonly %trie) local_unnamed_addr #5 {
+define range(i32 -128, 128) i32 @ucptrie_getValueWidth_75(ptr nocapture noundef readonly %trie) local_unnamed_addr #5 {
 entry:
   %valueWidth = getelementptr inbounds i8, ptr %trie, i64 31
   %0 = load i8, ptr %valueWidth, align 1
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucptrie_internalSmallIndex_75(ptr nocapture noundef readonly %trie, i32 noundef %c) local_unnamed_addr #6 {
+define range(i32 0, 262159) i32 @ucptrie_internalSmallIndex_75(ptr nocapture noundef readonly %trie, i32 noundef %c) local_unnamed_addr #6 {
 entry:
   %shr = ashr i32 %c, 14
   %type = getelementptr inbounds i8, ptr %trie, i64 30
@@ -322,7 +322,7 @@ if.end37:                                         ; preds = %if.else19, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucptrie_internalSmallU8Index_75(ptr nocapture noundef readonly %trie, i32 noundef %lt1, i8 noundef zeroext %t2, i8 noundef zeroext %t3) local_unnamed_addr #6 {
+define range(i32 -2147483648, 2147483646) i32 @ucptrie_internalSmallU8Index_75(ptr nocapture noundef readonly %trie, i32 noundef %lt1, i8 noundef zeroext %t2, i8 noundef zeroext %t3) local_unnamed_addr #6 {
 entry:
   %shl = shl i32 %lt1, 12
   %conv = zext i8 %t2 to i32
@@ -926,7 +926,7 @@ if.end49:                                         ; preds = %if.else
   br i1 %cmp51, label %if.then52, label %if.end66
 
 if.then52:                                        ; preds = %if.end49
-  %tobool = trunc i8 %haveValue.0 to i1
+  %tobool = trunc nuw i8 %haveValue.0 to i1
   br i1 %tobool, label %if.then53, label %if.else58
 
 if.then53:                                        ; preds = %if.then52
@@ -989,7 +989,7 @@ if.then73:                                        ; preds = %do.body70
   br label %if.end94
 
 if.else78:                                        ; preds = %do.body70
-  %18 = trunc i64 %indvars.iv334 to i32
+  %18 = trunc nsw i64 %indvars.iv334 to i32
   %and80 = and i32 %18, -8
   %add81 = add nsw i32 %and80, %and79
   %shr82 = ashr i32 %18, 3
@@ -1030,7 +1030,7 @@ if.else101:                                       ; preds = %if.end94
   br i1 %cmp104, label %if.then105, label %if.else120
 
 if.then105:                                       ; preds = %if.else101
-  %tobool106 = trunc i8 %haveValue.2 to i1
+  %tobool106 = trunc nuw i8 %haveValue.2 to i1
   br i1 %tobool106, label %if.then107, label %if.else112
 
 if.then107:                                       ; preds = %if.then105
@@ -1088,7 +1088,7 @@ sw.bb4.i126:                                      ; preds = %if.else120
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138: ; preds = %if.else120, %sw.bb.i134, %sw.bb1.i131, %sw.bb4.i126
   %retval.0.i130 = phi i32 [ %conv7.i129, %sw.bb4.i126 ], [ %24, %sw.bb1.i131 ], [ %conv.i137, %sw.bb.i134 ], [ -1, %if.else120 ]
-  %tobool128 = trunc i8 %haveValue.2 to i1
+  %tobool128 = trunc nuw i8 %haveValue.2 to i1
   br i1 %tobool128, label %if.then129, label %if.else141
 
 if.then129:                                       ; preds = %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
@@ -1571,7 +1571,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue)
+  %call.i.i = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue)
   br label %ucptrie_getRange_75.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1579,7 +1579,7 @@ if.end.i.i:                                       ; preds = %entry
   %spec.store.select.i.i = select i1 %cmp1.i.i, ptr %value.i.i, ptr %pValue
   %cmp4.i.i = icmp eq i32 %option, 2
   %cond.i.i = select i1 %cmp4.i.i, i32 57343, i32 56319
-  %call5.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i.i)
+  %call5.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i.i)
   %cmp6.i.i = icmp slt i32 %call5.i.i, 55295
   %cmp7.i.i = icmp slt i32 %cond.i.i, %start
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp6.i.i
@@ -1605,7 +1605,7 @@ if.end17.i.i:                                     ; preds = %if.else.i.i
 
 if.end21.i.i:                                     ; preds = %if.end17.i.i, %if.then11.i.i
   %add.i.i = add nuw nsw i32 %cond.i.i, 1
-  %call22.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %add.i.i, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %value2.i.i)
+  %call22.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %add.i.i, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %value2.i.i)
   %1 = load i32, ptr %value2.i.i, align 4
   %cmp23.i.i = icmp eq i32 %1, %surrogateValue
   %call22.cond.i.i = select i1 %cmp23.i.i, i32 %call22.i.i, i32 %cond.i.i

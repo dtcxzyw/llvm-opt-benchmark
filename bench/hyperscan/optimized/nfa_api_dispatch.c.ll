@@ -508,7 +508,7 @@ nfaQueueExec2_i.exit:                             ; preds = %entry, %sw.bb39.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExec(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %items = getelementptr inbounds i8, ptr %q, i64 104
   %cur = getelementptr inbounds i8, ptr %q, i64 8
@@ -601,7 +601,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
 if.end65.i:                                       ; preds = %lor.lhs.false.i
   store i32 %sub35.i127, ptr %end31.i, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv126, -1
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw i64 %indvars.iv.next to i32
   %sub35.i = add i32 %13, -1
   %idxprom.i = zext i32 %sub35.i to i64
   %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i, i32 1
@@ -963,7 +963,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
 if.end65.i:                                       ; preds = %lor.lhs.false.i
   store i32 %sub35.i132, ptr %end31.i, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv131, -1
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw i64 %indvars.iv.next to i32
   %sub35.i = add i32 %13, -1
   %idxprom.i = zext i32 %sub35.i to i64
   %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i, i32 1

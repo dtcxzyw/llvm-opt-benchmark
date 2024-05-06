@@ -314,7 +314,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr i8, ptr %.0.i.i, i64 %42
   %44 = getelementptr %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull align 2 dereferenceable(6) %43, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %44, ptr noundef nonnull readonly align 2 dereferenceable(6) %43, i64 6, i1 false)
   %45 = trunc i32 %35 to i16
   %46 = getelementptr %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv, i32 1
   store i16 %45, ptr %46, align 2
@@ -431,7 +431,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = trunc i64 %indvars.iv to i16
   %44 = add i16 %43, 1
   store i16 %44, ptr %34, align 4
@@ -822,7 +822,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %49
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   %55 = trunc i64 %indvars.iv to i16
   %56 = add i16 %55, 1
   store i16 %56, ptr %46, align 4

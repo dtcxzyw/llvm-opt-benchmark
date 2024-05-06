@@ -345,7 +345,7 @@ declare dso_local void @dw8250_do_set_termios(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @serial8250_get_port(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @byt_serial_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @byt_serial_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = getelementptr inbounds i8, ptr %1, i64 344
   %5 = load ptr, ptr %4, align 8
@@ -457,7 +457,7 @@ define internal void @byt_set_termios(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @byt_get_mctrl(ptr noundef %0) #2 align 16 {
+define internal range(i32 320, 0) i32 @byt_get_mctrl(ptr noundef %0) #2 align 16 {
   %2 = tail call i32 @serial8250_do_get_mctrl(ptr noundef %0) #9
   %3 = or i32 %2, 320
   ret i32 %3

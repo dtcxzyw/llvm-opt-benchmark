@@ -160,7 +160,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_AEAD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly %aead) local_unnamed_addr #5 {
+define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly %aead) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %aead, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -286,7 +286,7 @@ if.end8:                                          ; preds = %if.end7, %if.end3
 
 if.then.i:                                        ; preds = %if.end8
   %5 = lshr i16 %wire_version, 8
-  %conv1.i = trunc i16 %5 to i8
+  %conv1.i = trunc nuw i16 %5 to i8
   store i8 %conv1.i, ptr %len.0.i.sroa.gep, align 1
   %conv4.i = trunc i16 %wire_version to i8
   %arrayidx6.i = getelementptr inbounds i8, ptr %ad, i64 10
@@ -306,7 +306,7 @@ if.then8.i:                                       ; preds = %if.end.i
   store i8 %conv10.i, ptr %len.0.i.sroa.phi, align 1
   %conv13.i = trunc i64 %plaintext_len.0 to i8
   %inc14.i = add nuw nsw i64 %len.0.i, 2
-  %arrayidx15.i = getelementptr i8, ptr %len.0.i.sroa.phi, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %len.0.i.sroa.phi, i64 1
   store i8 %conv13.i, ptr %arrayidx15.i, align 1
   br label %ssl_aead_ctx_get_ad.exit
 
@@ -414,7 +414,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i32 @EVP_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_AEAD_CTX_seal(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr nocapture noundef readonly %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr nocapture noundef readonly %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %ad = alloca [13 x i8], align 8
   %nonce = alloca [16 x i8], align 16
@@ -448,7 +448,7 @@ if.end3:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end3
   %1 = lshr i16 %wire_version, 8
-  %conv1.i = trunc i16 %1 to i8
+  %conv1.i = trunc nuw i16 %1 to i8
   store i8 %conv1.i, ptr %len.0.i.sroa.gep, align 1
   %conv4.i = trunc i16 %wire_version to i8
   %arrayidx6.i = getelementptr inbounds i8, ptr %ad, i64 10
@@ -469,7 +469,7 @@ if.then8.i:                                       ; preds = %if.end.i
   store i8 %conv10.i, ptr %len.0.i.sroa.phi, align 1
   %conv13.i = trunc i64 %in_len to i8
   %inc14.i = add nuw nsw i64 %len.0.i, 2
-  %arrayidx15.i = getelementptr i8, ptr %len.0.i.sroa.phi, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %len.0.i.sroa.phi, i64 1
   store i8 %conv13.i, ptr %arrayidx15.i, align 1
   br label %ssl_aead_ctx_get_ad.exit
 

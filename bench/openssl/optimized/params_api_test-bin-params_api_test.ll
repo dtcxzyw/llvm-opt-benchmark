@@ -199,7 +199,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_int(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_int(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -246,7 +246,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_long(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_long(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -302,7 +302,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -311,7 +311,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_uint(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_uint(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -358,7 +358,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -367,7 +367,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_ulong(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_ulong(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -414,7 +414,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -423,7 +423,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_int32(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_int32(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -470,7 +470,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -479,7 +479,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_uint32(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_uint32(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -526,7 +526,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -535,7 +535,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_size_t(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_size_t(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -582,7 +582,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -591,7 +591,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_time_t(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_time_t(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -638,7 +638,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -647,7 +647,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_int64(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_int64(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -694,7 +694,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -703,7 +703,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_uint64(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_uint64(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -750,7 +750,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -759,7 +759,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_bignum(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %n) #0 {
 entry:
   %buf = alloca [20 x i8], align 16
   %bnbuf = alloca [20 x i8], align 16
@@ -790,7 +790,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool9.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %bnbuf, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull readonly align 16 %bnbuf, i64 %0, i1 false)
   %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 439, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef nonnull %value, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %if.end22
@@ -822,7 +822,7 @@ err:                                              ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_signed_bignum(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %n) #0 {
 entry:
   %buf = alloca [20 x i8], align 16
   %bnbuf = alloca [20 x i8], align 16
@@ -866,7 +866,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %tobool23.not, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.end18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %bnbuf, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull readonly align 16 %bnbuf, i64 %0, i1 false)
   %call33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 473, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef nonnull %value, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #4
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %if.end36
@@ -905,7 +905,7 @@ err:                                              ; preds = %lor.lhs.false, %if.
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_real() #0 {
+define internal range(i32 0, 2) i32 @test_param_real() #0 {
 entry:
   %p = alloca double, align 8
   %param = alloca %struct.ossl_param_st, align 8
@@ -932,7 +932,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_construct(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %tstid) #0 {
 entry:
   %params = alloca [20 x %struct.ossl_param_st], align 16
   %buf = alloca [100 x i8], align 16
@@ -1098,7 +1098,7 @@ if.then95:                                        ; preds = %lor.lhs.false91, %l
 for.inc:                                          ; preds = %lor.lhs.false91
   %inc99 = add nuw nsw i64 %j.083, 1
   %exitcond.not = icmp eq i64 %inc99, 4
-  br i1 %exitcond.not, label %for.body103, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.body103, label %for.body, !llvm.loop !5
 
 for.body103:                                      ; preds = %for.inc, %for.inc135
   %j.184 = phi i64 [ %inc136, %for.inc135 ], [ 0, %for.inc ]
@@ -1150,7 +1150,7 @@ if.then131:                                       ; preds = %lor.lhs.false127, %
 for.inc135:                                       ; preds = %lor.lhs.false127
   %inc136 = add nuw nsw i64 %j.184, 1
   %exitcond90.not = icmp eq i64 %inc136, 5
-  br i1 %exitcond90.not, label %for.end137, label %for.body103, !llvm.loop !8
+  br i1 %exitcond90.not, label %for.end137, label %for.body103, !llvm.loop !7
 
 for.end137:                                       ; preds = %for.inc135
   %call138 = call ptr @OSSL_PARAM_locate(ptr noundef %p.0, ptr noundef nonnull @.str.73) #4
@@ -1491,7 +1491,7 @@ if.end353:                                        ; preds = %if.then352, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_param_modified() #0 {
+define internal range(i32 0, 2) i32 @test_param_modified() #0 {
 entry:
   %param = alloca [3 x %struct.ossl_param_st], align 16
   %a = alloca i32, align 4
@@ -1607,7 +1607,7 @@ return:                                           ; preds = %land.lhs.true77, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_copy_null() #0 {
+define internal range(i32 0, 2) i32 @test_param_copy_null() #0 {
 entry:
   %val = alloca i32, align 4
   %a = alloca i32, align 4
@@ -1751,7 +1751,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_param_type_extra(ptr noundef %param, ptr noundef %cmp, i64 noundef %width) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef %param, ptr noundef %cmp, i64 noundef %width) unnamed_addr #0 {
 entry:
   %i32 = alloca i32, align 4
   %i64 = alloca i64, align 8
@@ -2073,7 +2073,6 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

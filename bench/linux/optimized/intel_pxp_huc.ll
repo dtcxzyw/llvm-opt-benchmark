@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [53 x i8] c"[drm] *ERROR* HuC load failed with GSC error = 0x%x\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_pxp_huc_load_and_auth(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @intel_pxp_huc_load_and_auth(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.pxp43_start_huc_auth_in, align 4
   %3 = alloca %struct.pxp43_huc_auth_out, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #5

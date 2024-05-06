@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [3 x i8] c"DC\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_string_to_names(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
@@ -96,7 +96,7 @@ define hidden noundef i32 @mbedtls_x509_string_to_names(ptr noundef %0, ptr noun
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef %.058106, i64 noundef %13) #4
+  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef readonly %.058106, i64 noundef %13) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %x509_attr_descr_from_name.exit, label %22
 
@@ -214,7 +214,7 @@ declare void @mbedtls_asn1_free_named_data_list(ptr noundef) local_unnamed_addr 
 declare ptr @mbedtls_asn1_store_named_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = add i64 %5, 1
   %8 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %7) #5
   %9 = icmp eq ptr %8, null

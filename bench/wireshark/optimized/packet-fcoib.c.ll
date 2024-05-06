@@ -142,7 +142,7 @@ define hidden void @proto_reg_handoff_fcoib() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_fcoib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_fcoib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %6 = add i32 %5, -24
   %7 = add i32 %5, -4
@@ -343,7 +343,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
 71:                                               ; preds = %68, %66
   %72 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 0, ptr %72, align 4
-  %trunc = trunc i32 %.096 to i8
+  %trunc = trunc nuw i32 %.096 to i8
   %switch.tableidx = add i8 %trunc, -40
   %73 = icmp ult i8 %switch.tableidx, 7
   br i1 %73, label %switch.hole_check, label %75

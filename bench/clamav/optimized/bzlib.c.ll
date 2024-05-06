@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nsis_BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @nsis_BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %2, 1
   %or.cond38 = or i1 %4, %or.cond
@@ -2403,7 +2403,7 @@ makeMaps_d.exit.i:                                ; preds = %881
 .preheader68.i.i:                                 ; preds = %._crit_edge.us.i.i
   %1361 = getelementptr inbounds [6 x [258 x i32]], ptr %34, i64 0, i64 %indvars.iv1747.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1361, i8 0, i64 92, i1 false)
-  %invariant.gep.i.i = getelementptr i8, ptr %1361, i64 4
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %1361, i64 4
   br label %.lr.ph.i.i
 
 .preheader66.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader68.i.thread.i
@@ -2418,7 +2418,7 @@ makeMaps_d.exit.i:                                ; preds = %881
   %1363 = getelementptr inbounds i8, ptr %1348, i64 %indvars.iv92.i.i
   %1364 = load i8, ptr %1363, align 1
   %1365 = zext i8 %1364 to i64
-  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %1365
+  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %1365
   %1366 = load i32, ptr %gep.i.i, align 4
   %1367 = add nsw i32 %1366, 1
   store i32 %1367, ptr %gep.i.i, align 4
@@ -4062,7 +4062,7 @@ unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %43, %2102, %BZ2_dec
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nsis_BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @nsis_BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 

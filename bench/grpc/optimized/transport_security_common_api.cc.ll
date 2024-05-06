@@ -149,7 +149,7 @@ if.end6.i:                                        ; preds = %call.i.i7.noexc
           to label %.noexc9 unwind label %if.then.i.i13
 
 .noexc9:                                          ; preds = %if.end6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i, %call.i.i7.noexc, %.noexc9
@@ -577,7 +577,7 @@ return:                                           ; preds = %if.end.i13, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_(ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2) local_unnamed_addr #4 {
+define noundef range(i32 -1, 2) i32 @_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_(ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %v1, align 4
   %1 = load i32, ptr %v2, align 4

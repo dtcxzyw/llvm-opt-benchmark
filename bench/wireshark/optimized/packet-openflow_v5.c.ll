@@ -2861,7 +2861,7 @@ dissect_openflow_hello_element_v5.exit.i:         ; preds = %48, %47
   %287 = load i32, ptr @hf_openflow_v5_port_status_pad, align 4
   %288 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %287, ptr noundef %0, i32 noundef %286, i32 noundef 7, i32 noundef 0) #4
   %289 = add i32 %3, 16
-  %290 = tail call fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %289, i16 noundef zeroext %10), !range !6
+  %290 = tail call fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %289, i16 noundef zeroext %10)
   br label %dissect_openflow_hello_v5.exit
 
 291:                                              ; preds = %4
@@ -2887,7 +2887,7 @@ dissect_openflow_hello_element_v5.exit.i:         ; preds = %48, %47
   %.080.i = phi i32 [ %308, %.lr.ph.i143 ], [ %304, %291 ]
   %308 = tail call fastcc i32 @dissect_openflow_action_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.080.i, i16 noundef zeroext %10)
   %309 = icmp slt i32 %308, %306
-  br i1 %309, label %.lr.ph.i143, label %._crit_edge.i, !llvm.loop !7
+  br i1 %309, label %.lr.ph.i143, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i143, %291
   %.0.lcssa.i = phi i32 [ %304, %291 ], [ %308, %.lr.ph.i143 ]
@@ -3022,7 +3022,7 @@ dissect_openflow_hello_element_v5.exit.i:         ; preds = %48, %47
   %.075.i = phi i32 [ %410, %.lr.ph.i145 ], [ %408, %359 ]
   %410 = tail call fastcc i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.075.i, i16 noundef zeroext %10)
   %411 = icmp slt i32 %410, %11
-  br i1 %411, label %.lr.ph.i145, label %dissect_openflow_hello_v5.exit, !llvm.loop !8
+  br i1 %411, label %.lr.ph.i145, label %dissect_openflow_hello_v5.exit, !llvm.loop !7
 
 412:                                              ; preds = %4
   %413 = load i32, ptr @hf_openflow_v5_groupmod_command, align 4
@@ -3044,7 +3044,7 @@ dissect_openflow_hello_element_v5.exit.i:         ; preds = %48, %47
   %.022.i = phi i32 [ %426, %.lr.ph.i147 ], [ %424, %412 ]
   %426 = tail call fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i, i16 noundef zeroext %10)
   %427 = icmp slt i32 %426, %11
-  br i1 %427, label %.lr.ph.i147, label %dissect_openflow_hello_v5.exit, !llvm.loop !9
+  br i1 %427, label %.lr.ph.i147, label %dissect_openflow_hello_v5.exit, !llvm.loop !8
 
 428:                                              ; preds = %4
   %429 = load i32, ptr @hf_openflow_v5_portmod_port_no, align 4
@@ -3201,7 +3201,7 @@ dissect_openflow_portmod_prop_v5.exit.i:          ; preds = %554, %543, %516, %4
   %.sink.i = phi i32 [ 8, %479 ], [ 24, %516 ], [ %471, %543 ], [ %471, %554 ]
   %557 = add nsw i32 %.sink.i, %.056.i
   %558 = icmp slt i32 %557, %11
-  br i1 %558, label %.lr.ph.i149, label %dissect_openflow_hello_v5.exit, !llvm.loop !10
+  br i1 %558, label %.lr.ph.i149, label %dissect_openflow_hello_v5.exit, !llvm.loop !9
 
 ._crit_edge.sink.split.i:                         ; preds = %552, %541
   %559 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %473, ptr noundef nonnull @ei_openflow_v5_length_too_short) #4
@@ -3233,7 +3233,7 @@ dissect_openflow_portmod_prop_v5.exit.i:          ; preds = %554, %543, %516, %4
 578:                                              ; preds = %576
   %579 = tail call fastcc i32 @dissect_openflow_tablemod_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i, i16 noundef zeroext %10)
   %.not.i = icmp sgt i32 %579, %.0.i
-  br i1 %.not.i, label %576, label %dissect_openflow_hello_v5.exit, !llvm.loop !11
+  br i1 %.not.i, label %576, label %dissect_openflow_hello_v5.exit, !llvm.loop !10
 
 580:                                              ; preds = %4
   %581 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #4
@@ -3369,7 +3369,7 @@ dissect_openflow_portmod_prop_v5.exit.i:          ; preds = %554, %543, %516, %4
   %.094.i = phi i32 [ %672, %.lr.ph.i150 ], [ %594, %.preheader.i ]
   %672 = tail call fastcc i32 @dissect_openflow_table_features_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.094.i)
   %673 = icmp slt i32 %672, %11
-  br i1 %673, label %.lr.ph.i150, label %dissect_openflow_hello_v5.exit, !llvm.loop !12
+  br i1 %673, label %.lr.ph.i150, label %dissect_openflow_hello_v5.exit, !llvm.loop !11
 
 674:                                              ; preds = %580
   %675 = load i32, ptr @hf_openflow_v5_queue_desc_request_port_no, align 4
@@ -3611,7 +3611,7 @@ dissect_openflow_async_config_prop_v5.exit.i:     ; preds = %849, %838, %827, %8
   %.sink.i154 = phi i32 [ 8, %762 ], [ 8, %779 ], [ 8, %790 ], [ 8, %807 ], [ 8, %818 ], [ 8, %827 ], [ %754, %838 ], [ %754, %849 ]
   %852 = add nsw i32 %.sink.i154, %.06.i153
   %853 = icmp slt i32 %852, %11
-  br i1 %853, label %.lr.ph.i152, label %dissect_openflow_hello_v5.exit, !llvm.loop !13
+  br i1 %853, label %.lr.ph.i152, label %dissect_openflow_hello_v5.exit, !llvm.loop !12
 
 ._crit_edge.sink.split.i155:                      ; preds = %847, %836
   %854 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %760, ptr noundef nonnull @ei_openflow_v5_length_too_short) #4
@@ -3644,7 +3644,7 @@ dissect_openflow_async_config_prop_v5.exit.i:     ; preds = %849, %838, %827, %8
   %.031.i = phi i32 [ %876, %.lr.ph.i157 ], [ %874, %855 ]
   %876 = tail call fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.031.i)
   %877 = icmp slt i32 %876, %11
-  br i1 %877, label %.lr.ph.i157, label %dissect_openflow_hello_v5.exit, !llvm.loop !14
+  br i1 %877, label %.lr.ph.i157, label %dissect_openflow_hello_v5.exit, !llvm.loop !13
 
 878:                                              ; preds = %4
   %879 = load i32, ptr @hf_openflow_v5_role_status_role, align 4
@@ -3703,9 +3703,9 @@ dissect_openflow_async_config_prop_v5.exit.i:     ; preds = %849, %838, %827, %8
 
 .lr.ph.i159:                                      ; preds = %905, %.lr.ph.i159
   %.025.i = phi i32 [ %922, %.lr.ph.i159 ], [ %920, %905 ]
-  %922 = tail call fastcc i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.025.i, i16 noundef zeroext %10), !range !15
+  %922 = tail call fastcc i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.025.i, i16 noundef zeroext %10)
   %923 = icmp slt i32 %922, %11
-  br i1 %923, label %.lr.ph.i159, label %dissect_openflow_hello_v5.exit, !llvm.loop !16
+  br i1 %923, label %.lr.ph.i159, label %dissect_openflow_hello_v5.exit, !llvm.loop !14
 
 924:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -3737,9 +3737,9 @@ dissect_openflow_async_config_prop_v5.exit.i:     ; preds = %849, %838, %827, %8
 
 .lr.ph:                                           ; preds = %924, %.lr.ph
   %.0.i160176 = phi i32 [ %947, %.lr.ph ], [ %942, %924 ]
-  %947 = call fastcc i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i160176, i16 noundef zeroext %10), !range !15
+  %947 = call fastcc i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i160176, i16 noundef zeroext %10)
   %948 = icmp slt i32 %947, %11
-  br i1 %948, label %.lr.ph, label %dissect_openflow_bundle_add_v5.exit, !llvm.loop !17
+  br i1 %948, label %.lr.ph, label %dissect_openflow_bundle_add_v5.exit, !llvm.loop !15
 
 dissect_openflow_bundle_add_v5.exit:              ; preds = %.lr.ph, %924
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3966,13 +3966,13 @@ define internal fastcc void @dissect_openflow_multipart_reply_v5(ptr noundef %0,
   %.091.i = phi i32 [ %131, %.lr.ph.i ], [ %129, %.lr.ph218 ]
   %131 = call fastcc i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %70, i32 noundef %.091.i, i16 noundef zeroext %4)
   %132 = icmp slt i32 %131, %73
-  br i1 %132, label %.lr.ph.i, label %dissect_openflow_flow_stats_v5.exit, !llvm.loop !18
+  br i1 %132, label %.lr.ph.i, label %dissect_openflow_flow_stats_v5.exit, !llvm.loop !16
 
 dissect_openflow_flow_stats_v5.exit:              ; preds = %.lr.ph.i, %.lr.ph218
   %.0.lcssa.i = phi i32 [ %129, %.lr.ph218 ], [ %131, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %133 = icmp slt i32 %.0.lcssa.i, %52
-  br i1 %133, label %.lr.ph218, label %.loopexit, !llvm.loop !19
+  br i1 %133, label %.lr.ph218, label %.loopexit, !llvm.loop !17
 
 134:                                              ; preds = %5
   %135 = load i32, ptr @hf_openflow_v5_aggregate_stats_packet_count, align 4
@@ -4008,7 +4008,7 @@ dissect_openflow_flow_stats_v5.exit:              ; preds = %.lr.ph.i, %.lr.ph21
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 8, i32 noundef 0) #4
   %162 = add nsw i32 %.1215, 24
   %163 = icmp slt i32 %162, %50
-  br i1 %163, label %.lr.ph216, label %.loopexit, !llvm.loop !20
+  br i1 %163, label %.lr.ph216, label %.loopexit, !llvm.loop !18
 
 .lr.ph214:                                        ; preds = %.preheader167, %dissect_openflow_port_stats_v5.exit
   %.2213 = phi i32 [ %.0.lcssa.i147, %dissect_openflow_port_stats_v5.exit ], [ %25, %.preheader167 ]
@@ -4188,12 +4188,12 @@ dissect_openflow_flow_stats_v5.exit:              ; preds = %.lr.ph.i, %.lr.ph21
 dissect_openflow_port_stats_prop_v5.exit.i:       ; preds = %307, %305, %293, %291, %238, %222
   %.0.i.i = phi i32 [ %48, %305 ], [ %310, %307 ], [ %48, %291 ], [ %302, %293 ], [ %288, %238 ], [ %237, %222 ]
   %311 = icmp slt i32 %.0.i.i, %209
-  br i1 %311, label %.lr.ph.i148, label %dissect_openflow_port_stats_v5.exit, !llvm.loop !21
+  br i1 %311, label %.lr.ph.i148, label %dissect_openflow_port_stats_v5.exit, !llvm.loop !19
 
 dissect_openflow_port_stats_v5.exit:              ; preds = %dissect_openflow_port_stats_prop_v5.exit.i, %.lr.ph214
   %.0.lcssa.i147 = phi i32 [ %208, %.lr.ph214 ], [ %.0.i.i, %dissect_openflow_port_stats_prop_v5.exit.i ]
   %312 = icmp slt i32 %.0.lcssa.i147, %48
-  br i1 %312, label %.lr.ph214, label %.loopexit, !llvm.loop !22
+  br i1 %312, label %.lr.ph214, label %.loopexit, !llvm.loop !20
 
 313:                                              ; preds = %.lr.ph212, %dissect_openflow_queue_stats_v5.exit
   %.3211 = phi i32 [ %25, %.lr.ph212 ], [ %.0.lcssa.i149, %dissect_openflow_queue_stats_v5.exit ]
@@ -4283,12 +4283,12 @@ dissect_openflow_port_stats_v5.exit:              ; preds = %dissect_openflow_po
 dissect_openflow_queue_stats_prop_v5.exit.i:      ; preds = %375, %373, %362, %360
   %.0.i.i151 = phi i32 [ %44, %360 ], [ %370, %362 ], [ %44, %373 ], [ %377, %375 ]
   %378 = icmp slt i32 %.0.i.i151, %316
-  br i1 %378, label %.lr.ph.i150, label %dissect_openflow_queue_stats_v5.exit, !llvm.loop !23
+  br i1 %378, label %.lr.ph.i150, label %dissect_openflow_queue_stats_v5.exit, !llvm.loop !21
 
 dissect_openflow_queue_stats_v5.exit:             ; preds = %dissect_openflow_queue_stats_prop_v5.exit.i, %313
   %.0.lcssa.i149 = phi i32 [ %345, %313 ], [ %.0.i.i151, %dissect_openflow_queue_stats_prop_v5.exit.i ]
   %379 = icmp slt i32 %.0.lcssa.i149, %44
-  br i1 %379, label %313, label %.loopexit, !llvm.loop !24
+  br i1 %379, label %313, label %.loopexit, !llvm.loop !22
 
 .lr.ph210:                                        ; preds = %.preheader171, %dissect_openflow_group_stats_v5.exit
   %.4209 = phi i32 [ %.0.lcssa.i152, %dissect_openflow_group_stats_v5.exit ], [ %25, %.preheader171 ]
@@ -4341,13 +4341,13 @@ dissect_openflow_queue_stats_v5.exit:             ; preds = %dissect_openflow_qu
   %420 = call ptr @proto_tree_add_item(ptr noundef %415, i32 noundef %419, ptr noundef %0, i32 noundef %418, i32 noundef 8, i32 noundef 0) #4
   %421 = add nsw i32 %.01.i, 16
   %422 = icmp slt i32 %421, %384
-  br i1 %422, label %.lr.ph.i153, label %dissect_openflow_group_stats_v5.exit, !llvm.loop !25
+  br i1 %422, label %.lr.ph.i153, label %dissect_openflow_group_stats_v5.exit, !llvm.loop !23
 
 dissect_openflow_group_stats_v5.exit:             ; preds = %.lr.ph.i153, %.lr.ph210
   %.0.lcssa.i152 = phi i32 [ %412, %.lr.ph210 ], [ %421, %.lr.ph.i153 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %423 = icmp slt i32 %.0.lcssa.i152, %42
-  br i1 %423, label %.lr.ph210, label %.loopexit, !llvm.loop !26
+  br i1 %423, label %.lr.ph210, label %.loopexit, !llvm.loop !24
 
 .lr.ph208:                                        ; preds = %.preheader173, %dissect_openflow_group_desc_v5.exit
   %.5207 = phi i32 [ %.0.lcssa.i154, %dissect_openflow_group_desc_v5.exit ], [ %25, %.preheader173 ]
@@ -4378,13 +4378,13 @@ dissect_openflow_group_stats_v5.exit:             ; preds = %.lr.ph.i153, %.lr.p
   %.031.i = phi i32 [ %443, %.lr.ph.i155 ], [ %441, %.lr.ph208 ]
   %443 = call fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %425, i32 noundef %.031.i, i16 noundef zeroext %4)
   %444 = icmp slt i32 %443, %428
-  br i1 %444, label %.lr.ph.i155, label %dissect_openflow_group_desc_v5.exit, !llvm.loop !27
+  br i1 %444, label %.lr.ph.i155, label %dissect_openflow_group_desc_v5.exit, !llvm.loop !25
 
 dissect_openflow_group_desc_v5.exit:              ; preds = %.lr.ph.i155, %.lr.ph208
   %.0.lcssa.i154 = phi i32 [ %441, %.lr.ph208 ], [ %443, %.lr.ph.i155 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %445 = icmp slt i32 %.0.lcssa.i154, %40
-  br i1 %445, label %.lr.ph208, label %.loopexit, !llvm.loop !28
+  br i1 %445, label %.lr.ph208, label %.loopexit, !llvm.loop !26
 
 446:                                              ; preds = %5
   %447 = load i32, ptr @hf_openflow_v5_group_features_types, align 4
@@ -4624,13 +4624,13 @@ dissect_openflow_group_desc_v5.exit:              ; preds = %.lr.ph.i155, %.lr.p
   %671 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %670, ptr noundef %0, i32 noundef %669, i32 noundef 8, i32 noundef 0) #4
   %672 = add nsw i32 %.01.i158, 16
   %673 = icmp slt i32 %672, %663
-  br i1 %673, label %.lr.ph.i157, label %dissect_openflow_meter_stats_v5.exit, !llvm.loop !29
+  br i1 %673, label %.lr.ph.i157, label %dissect_openflow_meter_stats_v5.exit, !llvm.loop !27
 
 dissect_openflow_meter_stats_v5.exit:             ; preds = %.lr.ph.i157, %.lr.ph206
   %.0.lcssa.i156 = phi i32 [ %662, %.lr.ph206 ], [ %672, %.lr.ph.i157 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %674 = icmp slt i32 %.0.lcssa.i156, %38
-  br i1 %674, label %.lr.ph206, label %.loopexit, !llvm.loop !30
+  br i1 %674, label %.lr.ph206, label %.loopexit, !llvm.loop !28
 
 .lr.ph204:                                        ; preds = %.preheader177, %dissect_openflow_meter_config_v5.exit
   %.7203 = phi i32 [ %.0.lcssa.i159, %dissect_openflow_meter_config_v5.exit ], [ %25, %.preheader177 ]
@@ -4669,13 +4669,13 @@ dissect_openflow_meter_stats_v5.exit:             ; preds = %.lr.ph.i157, %.lr.p
   %.039.i = phi i32 [ %701, %.lr.ph.i160 ], [ %699, %.lr.ph204 ]
   %701 = call fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr noundef %1, ptr noundef %676, i32 noundef %.039.i)
   %702 = icmp slt i32 %701, %679
-  br i1 %702, label %.lr.ph.i160, label %dissect_openflow_meter_config_v5.exit, !llvm.loop !31
+  br i1 %702, label %.lr.ph.i160, label %dissect_openflow_meter_config_v5.exit, !llvm.loop !29
 
 dissect_openflow_meter_config_v5.exit:            ; preds = %.lr.ph.i160, %.lr.ph204
   %.0.lcssa.i159 = phi i32 [ %699, %.lr.ph204 ], [ %701, %.lr.ph.i160 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %703 = icmp slt i32 %.0.lcssa.i159, %36
-  br i1 %703, label %.lr.ph204, label %.loopexit, !llvm.loop !32
+  br i1 %703, label %.lr.ph204, label %.loopexit, !llvm.loop !30
 
 704:                                              ; preds = %5
   %705 = load i32, ptr @hf_openflow_v5_meter_features_max_meter, align 4
@@ -4717,19 +4717,19 @@ dissect_openflow_meter_config_v5.exit:            ; preds = %.lr.ph.i160, %.lr.p
   %.8201 = phi i32 [ %738, %.lr.ph202 ], [ %25, %.preheader179 ]
   %738 = tail call fastcc i32 @dissect_openflow_table_features_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.8201)
   %739 = icmp slt i32 %738, %34
-  br i1 %739, label %.lr.ph202, label %.loopexit, !llvm.loop !33
+  br i1 %739, label %.lr.ph202, label %.loopexit, !llvm.loop !31
 
 .lr.ph200:                                        ; preds = %.preheader181, %.lr.ph200
   %.9199 = phi i32 [ %740, %.lr.ph200 ], [ %25, %.preheader181 ]
-  %740 = tail call fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9199, i16 noundef zeroext %4), !range !6
+  %740 = tail call fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9199, i16 noundef zeroext %4)
   %741 = icmp ult i32 %740, %32
-  br i1 %741, label %.lr.ph200, label %.loopexit, !llvm.loop !34
+  br i1 %741, label %.lr.ph200, label %.loopexit, !llvm.loop !32
 
 .lr.ph198:                                        ; preds = %.preheader183, %.lr.ph198
   %.10197 = phi i32 [ %742, %.lr.ph198 ], [ %25, %.preheader183 ]
   %742 = tail call fastcc i32 @dissect_openflow_table_desc_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.10197, i16 noundef zeroext %4)
   %743 = icmp slt i32 %742, %30
-  br i1 %743, label %.lr.ph198, label %.loopexit, !llvm.loop !35
+  br i1 %743, label %.lr.ph198, label %.loopexit, !llvm.loop !33
 
 .lr.ph196:                                        ; preds = %.preheader185, %dissect_openflow_queue_desc_v5.exit
   %.11195 = phi i32 [ %.0.lcssa.i161, %dissect_openflow_queue_desc_v5.exit ], [ %25, %.preheader185 ]
@@ -4845,12 +4845,12 @@ dissect_openflow_queue_desc_prop_v5.exit.i:       ; preds = %815, %812, %800, %7
   %.0.i.i163 = phi i32 [ %775, %777 ], [ %28, %812 ], [ %818, %815 ], [ %28, %797 ], [ %809, %800 ], [ %794, %788 ], [ %787, %781 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %819 = icmp slt i32 %.0.i.i163, %747
-  br i1 %819, label %.lr.ph.i162, label %dissect_openflow_queue_desc_v5.exit, !llvm.loop !36
+  br i1 %819, label %.lr.ph.i162, label %dissect_openflow_queue_desc_v5.exit, !llvm.loop !34
 
 dissect_openflow_queue_desc_v5.exit:              ; preds = %dissect_openflow_queue_desc_prop_v5.exit.i, %.lr.ph196
   %.0.lcssa.i161 = phi i32 [ %759, %.lr.ph196 ], [ %.0.i.i163, %dissect_openflow_queue_desc_prop_v5.exit.i ]
   %820 = icmp slt i32 %.0.lcssa.i161, %28
-  br i1 %820, label %.lr.ph196, label %.loopexit, !llvm.loop !37
+  br i1 %820, label %.lr.ph196, label %.loopexit, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader187, %dissect_openflow_flow_update_v5.exit
   %.12194 = phi i32 [ %.0.i, %dissect_openflow_flow_update_v5.exit ], [ %25, %.preheader187 ]
@@ -4917,7 +4917,7 @@ dissect_openflow_queue_desc_v5.exit:              ; preds = %dissect_openflow_qu
   %.08385.i = phi i32 [ %862, %.lr.ph.i164 ], [ %860, %837 ]
   %862 = tail call fastcc i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %827, i32 noundef %.08385.i, i16 noundef zeroext %4)
   %863 = icmp slt i32 %862, %823
-  br i1 %863, label %.lr.ph.i164, label %dissect_openflow_flow_update_v5.exit, !llvm.loop !38
+  br i1 %863, label %.lr.ph.i164, label %dissect_openflow_flow_update_v5.exit, !llvm.loop !36
 
 864:                                              ; preds = %836
   %865 = load i32, ptr @hf_openflow_v5_flow_update_abbrev_xid, align 4
@@ -4939,7 +4939,7 @@ dissect_openflow_queue_desc_v5.exit:              ; preds = %dissect_openflow_qu
 dissect_openflow_flow_update_v5.exit:             ; preds = %.lr.ph.i164, %834, %837, %864, %868, %872
   %.0.i = phi i32 [ %832, %834 ], [ %823, %872 ], [ %871, %868 ], [ %867, %864 ], [ %860, %837 ], [ %862, %.lr.ph.i164 ]
   %875 = icmp slt i32 %.0.i, %26
-  br i1 %875, label %.lr.ph, label %.loopexit, !llvm.loop !39
+  br i1 %875, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 876:                                              ; preds = %5
   %877 = load i32, ptr @hf_openflow_v5_multipart_reply_experimenter_experimenter, align 4
@@ -5030,7 +5030,7 @@ define internal fastcc i32 @dissect_openflow_match_v5(ptr noundef %0, ptr nounde
   %.06063 = phi i32 [ %40, %.lr.ph ], [ %23, %37 ]
   %40 = call fastcc i32 @dissect_openflow_oxm_v5(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %.06063)
   %41 = icmp slt i32 %40, %38
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 42:                                               ; preds = %27
   %43 = icmp eq i16 %13, 4
@@ -5277,7 +5277,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v5(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_openflow_v5_port, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 64, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.45) #4
   %8 = load i32, ptr @hf_openflow_v5_port_port_no, align 4
@@ -5592,7 +5592,7 @@ define internal fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef
 dissect_openflow_port_desc_prop_v5.exit:          ; preds = %68, %226, %269, %271, %283, %285
   %.0.i = phi i32 [ %55, %283 ], [ %288, %285 ], [ %55, %269 ], [ %280, %271 ], [ %266, %226 ], [ %225, %68 ]
   %289 = icmp slt i32 %.0.i, %53
-  br i1 %289, label %56, label %._crit_edge, !llvm.loop !41
+  br i1 %289, label %56, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %dissect_openflow_port_desc_prop_v5.exit, %5
   %.0.lcssa = phi i32 [ %52, %5 ], [ %.0.i, %dissect_openflow_port_desc_prop_v5.exit ]
@@ -5876,7 +5876,7 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
   %.076 = phi i32 [ %48, %.lr.ph ], [ %43, %40 ]
   %48 = tail call fastcc i32 @dissect_openflow_action_v5(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.076, i16 noundef zeroext %4)
   %49 = icmp slt i32 %48, %46
-  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 50:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
   %51 = load i32, ptr @hf_openflow_v5_instruction_meter_meter_id, align 4
@@ -5946,7 +5946,7 @@ define internal fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr nound
   %.036 = phi i32 [ %30, %.lr.ph ], [ %26, %5 ]
   %30 = call fastcc i32 @dissect_openflow_action_v5(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %.036, i16 noundef zeroext %4)
   %31 = icmp slt i32 %30, %28
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %26, %5 ], [ %30, %.lr.ph ]
@@ -6161,7 +6161,7 @@ dissect_openflow_instruction_header_v5.exit.i:    ; preds = %71, %.lr.ph119.i
   %77 = sub i32 %.0.i.i, %76
   call void @proto_item_set_len(ptr noundef %75, i32 noundef %77) #4
   %78 = icmp slt i32 %.0.i.i, %57
-  br i1 %78, label %.lr.ph119.i, label %.loopexit.i, !llvm.loop !44
+  br i1 %78, label %.lr.ph119.i, label %.loopexit.i, !llvm.loop !42
 
 79:                                               ; preds = %.lr.ph, %.lr.ph
   %80 = icmp slt i32 %55, %57
@@ -6173,7 +6173,7 @@ dissect_openflow_instruction_header_v5.exit.i:    ; preds = %71, %.lr.ph119.i
   %82 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %81, ptr noundef %0, i32 noundef %.1115.i, i32 noundef 1, i32 noundef 0) #4
   %83 = add i32 %.1115.i, 1
   %exitcond127.not.i = icmp eq i32 %83, %57
-  br i1 %exitcond127.not.i, label %.loopexit.i, label %.lr.ph116.i, !llvm.loop !45
+  br i1 %exitcond127.not.i, label %.loopexit.i, label %.lr.ph116.i, !llvm.loop !43
 
 84:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %85 = icmp slt i32 %55, %57
@@ -6206,7 +6206,7 @@ dissect_openflow_action_header_v5.exit.i:         ; preds = %96, %.lr.ph113.i
   %102 = sub i32 %.0.i103.i, %101
   call void @proto_item_set_len(ptr noundef %100, i32 noundef %102) #4
   %103 = icmp slt i32 %.0.i103.i, %57
-  br i1 %103, label %.lr.ph113.i, label %.loopexit.i, !llvm.loop !46
+  br i1 %103, label %.lr.ph113.i, label %.loopexit.i, !llvm.loop !44
 
 104:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %105 = icmp slt i32 %55, %57
@@ -6238,7 +6238,7 @@ dissect_openflow_action_header_v5.exit.i:         ; preds = %96, %.lr.ph113.i
   %125 = sub i32 %122, %124
   call void @proto_item_set_len(ptr noundef %123, i32 noundef %125) #4
   %126 = icmp slt i32 %122, %57
-  br i1 %126, label %.lr.ph110.i, label %.loopexit.i, !llvm.loop !47
+  br i1 %126, label %.lr.ph110.i, label %.loopexit.i, !llvm.loop !45
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.4108.i = phi i32 [ %129, %.lr.ph.i ], [ %55, %.preheader.i ]
@@ -6246,7 +6246,7 @@ dissect_openflow_action_header_v5.exit.i:         ; preds = %96, %.lr.ph113.i
   %128 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %127, ptr noundef %0, i32 noundef %.4108.i, i32 noundef 1, i32 noundef 0) #4
   %129 = add i32 %.4108.i, 1
   %exitcond.not.i = icmp eq i32 %129, %57
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !46
 
 130:                                              ; preds = %.lr.ph, %.lr.ph
   %131 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_experimenter, align 4
@@ -6283,7 +6283,7 @@ dissect_openflow_table_feature_prop_v5.exit:      ; preds = %.loopexit.i, %144
   %.6.i = phi i32 [ %149, %144 ], [ %.5.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %150 = icmp slt i32 %.6.i, %11
-  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %dissect_openflow_table_feature_prop_v5.exit, %4
   %.0.lcssa = phi i32 [ %42, %4 ], [ %.6.i, %dissect_openflow_table_feature_prop_v5.exit ]
@@ -6322,7 +6322,7 @@ define internal fastcc noundef i32 @dissect_openflow_table_desc_v5(ptr noundef %
   %.038 = phi i32 [ %30, %.lr.ph ], [ %28, %5 ]
   %30 = tail call fastcc i32 @dissect_openflow_tablemod_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %.038, i16 noundef zeroext %4)
   %31 = icmp slt i32 %30, %8
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %28, %5 ], [ %30, %.lr.ph ]
@@ -6401,7 +6401,7 @@ define internal fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, 131066) i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #4
   %7 = add nsw i32 %3, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4
@@ -6479,7 +6479,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 -2147483648}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -6488,7 +6488,7 @@ attributes #4 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -2147483647, i32 131066}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
@@ -6522,5 +6522,3 @@ attributes #4 = { nounwind }
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}

@@ -161,7 +161,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
 
 42:                                               ; preds = %45, %Vec_StrFree.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ %41, %Vec_StrFree.exit ]
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw i64 %indvars.iv to i32
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %._crit_edge78.thread
 
@@ -191,7 +191,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
   %storemerge = add i8 %storemerge.v, %51
   store i8 %storemerge, ptr %50, align 1
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, -1
-  %53 = trunc i64 %indvars.iv80 to i32
+  %53 = trunc nuw i64 %indvars.iv80 to i32
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph77, label %._crit_edge78, !llvm.loop !8
 
@@ -321,10 +321,10 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
 .critedge.sink.split:                             ; preds = %14, %18
   %indvars.iv.lcssa66.sink71 = phi i64 [ %indvars.iv.next, %18 ], [ %indvars.iv, %14 ]
   %22 = add nuw nsw i64 %indvars.iv, 2
-  %23 = trunc i64 %indvars.iv.lcssa66.sink71 to i32
+  %23 = trunc nuw i64 %indvars.iv.lcssa66.sink71 to i32
   %24 = and i64 %indvars.iv, 4294967295
-  %25 = getelementptr i32, ptr %.val33, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 4
+  %25 = getelementptr inbounds i32, ptr %.val33, i64 %24
+  %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i64 %22, 4294967295
   %29 = getelementptr inbounds i32, ptr %.val33, i64 %28
@@ -470,7 +470,7 @@ Wlc_StdinCollectStop.exit:                        ; preds = %42
   %44 = sext i32 %.val to i64
   %45 = getelementptr inbounds i8, ptr %.val9, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 %11
-  %47 = tail call i32 @strncmp(ptr noundef %46, ptr noundef %0, i64 noundef %10) #17
+  %47 = tail call i32 @strncmp(ptr noundef readonly %46, ptr noundef readonly %0, i64 noundef %10) #17
   %.not.i.not = icmp eq i32 %47, 0
   br i1 %.not.i.not, label %Wlc_StdinCollectStop.exit._crit_edge, label %Wlc_StdinCollectStop.exit.thread
 
@@ -740,7 +740,7 @@ Vec_StrPush.exit19:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Wlc_StdinProcessSmt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Wlc_StdinProcessSmt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Wlc_StdinCollectProblem(ptr noundef nonnull @.str.6)
   %4 = getelementptr i8, ptr %3, i64 8
   %.val30 = load ptr, ptr %4, align 8
@@ -896,7 +896,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -915,7 +915,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -954,16 +954,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11

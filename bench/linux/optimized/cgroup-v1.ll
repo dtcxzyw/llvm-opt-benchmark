@@ -884,7 +884,7 @@ define internal i64 @cgroup1_procs_write(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i64 @cgroup_clone_children_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
+define internal range(i64 0, 2) i64 @cgroup_clone_children_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 200
   %5 = load volatile i64, ptr %4, align 8
@@ -925,7 +925,7 @@ define internal i64 @cgroup1_tasks_write(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i64 @cgroup_read_notify_on_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
+define internal range(i64 0, 2) i64 @cgroup_read_notify_on_release(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 200
   %5 = load volatile i64, ptr %4, align 8
@@ -1046,7 +1046,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local zeroext i1 @cgroup_ssid_enabled(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cgroupstats_build(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cgroupstats_build(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.css_task_iter, align 8
   %4 = tail call ptr @kernfs_node_from_dentry(ptr noundef %1) #18
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #18
@@ -1353,7 +1353,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @fs_param_is_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cgroup1_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -518, -519) i32 @cgroup1_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.fs_parse_result, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1804,7 +1804,7 @@ declare dso_local ptr @cgroup_root_from_kf(ptr noundef) local_unnamed_addr #3
 declare dso_local void @cgroup_lock_and_drain_offline(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_cgroupfs_options(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @check_cgroupfs_options(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -2118,7 +2118,7 @@ define internal i32 @cgroup1_rename(ptr noundef %0, ptr noundef %1, ptr noundef 
 declare dso_local i32 @cgroup_show_path(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cgroup1_get_tree(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40

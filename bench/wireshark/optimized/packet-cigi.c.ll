@@ -4702,7 +4702,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cigi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @packet_is_cigi(ptr noundef %0), !range !4
+  %5 = tail call fastcc i32 @packet_is_cigi(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -4721,8 +4721,8 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cigi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @packet_is_cigi(ptr noundef %0), !range !4
+define internal range(i32 0, 2) i32 @dissect_cigi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @packet_is_cigi(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -4738,7 +4738,7 @@ define internal noundef i32 @dissect_cigi_heur(ptr noundef %0, ptr noundef %1, p
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @packet_is_cigi(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @packet_is_cigi(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %3 = icmp ult i32 %2, 3
   br i1 %3, label %66, label %4
@@ -6244,7 +6244,7 @@ switch.lookup:                                    ; preds = %132
   %.1.i = phi i32 [ %224, %192 ], [ %262, %227 ], [ %289, %264 ], [ %360, %292 ], [ %427, %362 ], [ %446, %430 ], [ %488, %449 ], [ %529, %490 ], [ %555, %532 ], [ %558, %557 ], [ %561, %560 ], [ %563, %562 ], [ %568, %567 ], [ %571, %570 ], [ %574, %573 ], [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %582, %581 ], [ %584, %583 ], [ %586, %585 ], [ %588, %587 ], [ %590, %589 ], [ %592, %591 ], [ %594, %593 ], [ %596, %595 ], [ %598, %597 ], [ %600, %599 ], [ %602, %601 ], [ %605, %604 ], [ %607, %606 ], [ %610, %609 ], [ %612, %611 ], [ %615, %614 ], [ %617, %616 ], [ %619, %618 ], [ %621, %620 ], [ %625, %624 ], [ %629, %628 ], [ %633, %632 ], [ %637, %636 ], [ %641, %640 ], [ %645, %644 ], [ %649, %648 ], [ %652, %651 ], [ %655, %654 ], [ %659, %658 ], [ %661, %660 ], [ %664, %663 ], [ %666, %665 ], [ %669, %668 ], [ %671, %670 ], [ %674, %673 ], [ %676, %675 ], [ %678, %677 ], [ %680, %679 ], [ %682, %681 ], [ %684, %683 ], [ %686, %685 ], [ %688, %687 ], [ %690, %689 ], [ %692, %691 ], [ %694, %693 ], [ %699, %695 ], [ %701, %700 ], [ %703, %702 ], [ %705, %704 ]
   %707 = sub i32 %.1.i, %.0453.i
   %.not.i98 = icmp eq i32 %707, %.0454.i
-  br i1 %.not.i98, label %103, label %708, !llvm.loop !5
+  br i1 %.not.i98, label %103, label %708, !llvm.loop !4
 
 708:                                              ; preds = %706
   %709 = tail call ptr @proto_tree_add_expert(ptr noundef %182, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0453.i, i32 noundef %707) #2
@@ -6319,7 +6319,7 @@ switch.lookup:                                    ; preds = %132
   %748 = tail call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %747, ptr noundef %0, i32 noundef %.1.i102, i32 noundef %.045.i, i32 noundef 0) #2
   %749 = add i32 %.1.i102, %.045.i
   %750 = icmp slt i32 %749, %712
-  br i1 %750, label %.lr.ph.i, label %cigi3_add_tree.exit, !llvm.loop !7
+  br i1 %750, label %.lr.ph.i, label %cigi3_add_tree.exit, !llvm.loop !6
 
 cigi3_add_tree.exit:                              ; preds = %103, %746, %.lr.ph.i, %711, %708, %100, %710, %36
   ret void
@@ -7318,7 +7318,7 @@ cigi2_add_image_generator_message.exit:           ; preds = %775, %772, %763, %7
   %.1 = phi i32 [ %759, %748 ], [ %747, %735 ], [ %734, %714 ], [ %713, %690 ], [ %689, %666 ], [ %665, %653 ], [ %652, %634 ], [ %633, %624 ], [ %623, %599 ], [ %598, %577 ], [ %576, %564 ], [ %563, %519 ], [ %518, %471 ], [ %470, %425 ], [ %424, %368 ], [ %367, %355 ], [ %354, %323 ], [ %322, %283 ], [ %282, %240 ], [ %239, %204 ], [ %203, %179 ], [ %178, %139 ], [ %138, %120 ], [ %119, %77 ], [ %76, %57 ], [ %771, %763 ], [ -1, %760 ], [ %780, %775 ], [ -1, %772 ]
   %781 = sub i32 %.1, %.0153
   %.not = icmp eq i32 %781, %.0154
-  br i1 %.not, label %5, label %782, !llvm.loop !8
+  br i1 %.not, label %5, label %782, !llvm.loop !7
 
 782:                                              ; preds = %cigi2_add_image_generator_message.exit
   %783 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0153, i32 noundef %781) #2
@@ -9399,7 +9399,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %.b72.i611 = load i1, ptr @cigi_byte_order, align 4
   %1421 = select i1 %.b72.i611, i32 -2147483648, i32 0
   %1422 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %1420, ptr noundef %0, i32 noundef %.06578.i, i32 noundef 1, i32 noundef %1421) #2
-  %1423 = trunc i64 %indvars.iv.i to i32
+  %1423 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1422, ptr noundef nonnull @.str.2861, i32 noundef %1423) #2
   %1424 = load i32, ptr @ett_cigi4_symbol_circle_definition_circles, align 4
   %1425 = tail call ptr @proto_item_add_subtree(ptr noundef %1422, i32 noundef %1424) #2
@@ -9441,7 +9441,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %1455 = add i32 %.06578.i, 24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i, !llvm.loop !8
 
 1456:                                             ; preds = %146
   %1457 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0363) #2
@@ -9490,7 +9490,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %.b48.i628 = load i1, ptr @cigi_byte_order, align 4
   %1483 = select i1 %.b48.i628, i32 -2147483648, i32 0
   %1484 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %1482, ptr noundef %0, i32 noundef %.04554.i, i32 noundef 1, i32 noundef %1483) #2
-  %1485 = trunc i64 %indvars.iv.i627 to i32
+  %1485 = trunc nuw nsw i64 %indvars.iv.i627 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1484, ptr noundef nonnull @.str.2862, i32 noundef %1485) #2
   %1486 = load i32, ptr @ett_cigi4_symbol_polygon_definition_vertices, align 4
   %1487 = tail call ptr @proto_item_add_subtree(ptr noundef %1484, i32 noundef %1486) #2
@@ -9508,7 +9508,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %1497 = add i32 %.04554.i, 8
   %indvars.iv.next.i631 = add nuw nsw i64 %indvars.iv.i627, 1
   %exitcond.not.i632 = icmp eq i64 %indvars.iv.next.i631, %wide.trip.count.i625
-  br i1 %exitcond.not.i632, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i626, !llvm.loop !10
+  br i1 %exitcond.not.i632, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i626, !llvm.loop !9
 
 1498:                                             ; preds = %146
   %1499 = load i32, ptr @hf_cigi4_symbol_clone_symbol_id, align 4
@@ -9709,7 +9709,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %.b91.i = load i1, ptr @cigi_byte_order, align 4
   %1640 = select i1 %.b91.i, i32 -2147483648, i32 0
   %1641 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %1639, ptr noundef %0, i32 noundef %.08096.i, i32 noundef 1, i32 noundef %1640) #2
-  %1642 = trunc i64 %indvars.iv.i664 to i32
+  %1642 = trunc nuw nsw i64 %indvars.iv.i664 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1641, ptr noundef nonnull @.str.2861, i32 noundef %1642) #2
   %1643 = load i32, ptr @ett_cigi4_symbol_circle_textured_definition_circles, align 4
   %1644 = tail call ptr @proto_item_add_subtree(ptr noundef %1641, i32 noundef %1643) #2
@@ -9775,7 +9775,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %1694 = add i32 %.08096.i, 40
   %indvars.iv.next.i675 = add nuw nsw i64 %indvars.iv.i664, 1
   %exitcond.not.i676 = icmp eq i64 %indvars.iv.next.i675, %wide.trip.count.i662
-  br i1 %exitcond.not.i676, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i663, !llvm.loop !11
+  br i1 %exitcond.not.i676, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i663, !llvm.loop !10
 
 1695:                                             ; preds = %146
   %1696 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0363) #2
@@ -9819,7 +9819,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %.b55.i686 = load i1, ptr @cigi_byte_order, align 4
   %1718 = select i1 %.b55.i686, i32 -2147483648, i32 0
   %1719 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %1717, ptr noundef %0, i32 noundef %.05060.i, i32 noundef 1, i32 noundef %1718) #2
-  %1720 = trunc i64 %indvars.iv.i685 to i32
+  %1720 = trunc nuw nsw i64 %indvars.iv.i685 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1719, ptr noundef nonnull @.str.2861, i32 noundef %1720) #2
   %1721 = load i32, ptr @ett_cigi4_symbol_polygon_textured_definition_vertices, align 4
   %1722 = tail call ptr @proto_item_add_subtree(ptr noundef %1719, i32 noundef %1721) #2
@@ -9849,7 +9849,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %1742 = add i32 %.05060.i, 16
   %indvars.iv.next.i691 = add nuw nsw i64 %indvars.iv.i685, 1
   %exitcond.not.i692 = icmp eq i64 %indvars.iv.next.i691, %wide.trip.count.i683
-  br i1 %exitcond.not.i692, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i684, !llvm.loop !12
+  br i1 %exitcond.not.i692, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.i684, !llvm.loop !11
 
 1743:                                             ; preds = %146
   %1744 = load i32, ptr @hf_cigi4_entity_control_entity_state, align 4
@@ -10145,7 +10145,7 @@ cigi4_add_symbol_text_definition.exit:            ; preds = %.lr.ph.i684, %.lr.p
   %.1 = phi i32 [ %145, %98 ], [ %191, %147 ], [ %208, %192 ], [ %249, %209 ], [ %274, %250 ], [ %333, %275 ], [ %372, %334 ], [ %417, %373 ], [ %459, %418 ], [ %491, %460 ], [ %540, %492 ], [ %635, %541 ], [ %666, %636 ], [ %709, %667 ], [ %732, %710 ], [ %793, %733 ], [ %841, %794 ], [ %879, %842 ], [ %892, %880 ], [ %932, %893 ], [ %1000, %933 ], [ %1041, %1001 ], [ %1093, %1042 ], [ %1130, %1094 ], [ %1195, %1131 ], [ %1254, %1196 ], [ %1273, %1255 ], [ %1294, %1274 ], [ %1364, %1295 ], [ %1510, %1498 ], [ %1584, %1511 ], [ %1618, %1585 ], [ %1795, %1743 ], [ %1825, %1796 ], [ %1880, %1827 ], [ %1883, %1882 ], [ %1885, %1884 ], [ %1887, %1886 ], [ %1889, %1888 ], [ %1891, %1890 ], [ %1893, %1892 ], [ %1895, %1894 ], [ %1897, %1896 ], [ %1899, %1898 ], [ %1901, %1900 ], [ %1903, %1902 ], [ %1905, %1904 ], [ %1907, %1906 ], [ %1912, %1908 ], [ %1914, %1913 ], [ %1916, %1915 ], [ %1920, %1919 ], [ %1924, %1923 ], [ %1926, %1925 ], [ %1393, %1368 ], [ -1, %1365 ], [ -1, %1394 ], [ %1417, %1397 ], [ -1, %1456 ], [ %1479, %1459 ], [ -1, %1619 ], [ %1637, %1622 ], [ -1, %1695 ], [ %1715, %1698 ], [ %1455, %.lr.ph.i ], [ %1497, %.lr.ph.i626 ], [ %1694, %.lr.ph.i663 ], [ %1742, %.lr.ph.i684 ]
   %1927 = sub i32 %.1, %.0363
   %.not = icmp eq i32 %1927, %.0364
-  br i1 %.not, label %5, label %1928, !llvm.loop !13
+  br i1 %.not, label %5, label %1928, !llvm.loop !12
 
 1928:                                             ; preds = %cigi4_add_symbol_text_definition.exit
   %1929 = tail call ptr @proto_tree_add_expert(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0363, i32 noundef %1927) #2
@@ -11975,7 +11975,7 @@ define internal fastcc noundef i32 @cigi3_3_add_symbol_circle_definition(ptr nou
   %58 = add i32 %.05971, 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
   %.058 = phi i32 [ -1, %3 ], [ %27, %7 ], [ %58, %.lr.ph ]
@@ -12042,7 +12042,7 @@ define internal fastcc noundef i32 @cigi3_3_add_symbol_line_definition(ptr nound
   %40 = add i32 %.03947, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
   %.038 = phi i32 [ -1, %3 ], [ %29, %7 ], [ %40, %.lr.ph ]
@@ -13894,15 +13894,14 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

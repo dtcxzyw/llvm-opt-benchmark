@@ -1248,8 +1248,8 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit:            ; preds = %103, %104
 _ZNK5ZXing9GenericGF8multiplyEii.exit48:          ; preds = %.lr.ph, %135
   %.0.i47 = phi i32 [ %152, %135 ], [ 0, %.lr.ph ]
   %153 = load ptr, ptr %73, align 8
-  %154 = getelementptr i32, ptr %153, i64 %indvars.iv
-  %155 = getelementptr i32, ptr %154, i64 %indvars.iv102
+  %154 = getelementptr inbounds i32, ptr %153, i64 %indvars.iv
+  %155 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv102
   %156 = load i32, ptr %155, align 4
   %157 = xor i32 %156, %.0.i47
   store i32 %157, ptr %155, align 4

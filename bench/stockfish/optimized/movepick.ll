@@ -1037,14 +1037,14 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit: ; preds
 .lr.ph.i:                                         ; preds = %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit, %.lr.ph.i
   %.07.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit ]
   %.046.i = phi i64 [ %37, %.lr.ph.i ], [ %34, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit ]
-  %35 = tail call i64 @llvm.cttz.i64(i64 %.046.i, i1 true), !range !18
+  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i, i1 true)
   %36 = add i64 %.046.i, -1
   %37 = and i64 %36, %.046.i
   %38 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2, i64 %35
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %.07.i
   %.not.i = icmp eq i64 %37, 0
-  br i1 %.not.i, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit: ; preds = %.lr.ph.i, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit ], [ %40, %.lr.ph.i ]
@@ -1062,7 +1062,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit: ; preds
 46:                                               ; preds = %46, %.lr.ph.i88
   %.07.i89 = phi i64 [ 0, %.lr.ph.i88 ], [ %65, %46 ]
   %.046.i90 = phi i64 [ %43, %.lr.ph.i88 ], [ %49, %46 ]
-  %47 = tail call i64 @llvm.cttz.i64(i64 %.046.i90, i1 true), !range !18
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i90, i1 true)
   %48 = add i64 %.046.i90, -1
   %49 = and i64 %48, %.046.i90
   %50 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %47
@@ -1082,7 +1082,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit: ; preds
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, %.07.i89
   %.not.i91 = icmp eq i64 %49, 0
-  br i1 %.not.i91, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit, label %46, !llvm.loop !20
+  br i1 %.not.i91, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit, label %46, !llvm.loop !19
 
 _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit: ; preds = %46, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit
   %.0.lcssa.i92 = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit ], [ %65, %46 ]
@@ -1102,7 +1102,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit: ; preds
 73:                                               ; preds = %73, %.lr.ph.i94
   %.07.i95 = phi i64 [ 0, %.lr.ph.i94 ], [ %92, %73 ]
   %.046.i96 = phi i64 [ %70, %.lr.ph.i94 ], [ %76, %73 ]
-  %74 = tail call i64 @llvm.cttz.i64(i64 %.046.i96, i1 true), !range !18
+  %74 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i96, i1 true)
   %75 = add i64 %.046.i96, -1
   %76 = and i64 %75, %.046.i96
   %77 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %74
@@ -1122,7 +1122,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit: ; preds
   %91 = load i64, ptr %90, align 8
   %92 = or i64 %91, %.07.i95
   %.not.i97 = icmp eq i64 %76, 0
-  br i1 %.not.i97, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit, label %73, !llvm.loop !21
+  br i1 %.not.i97, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit, label %73, !llvm.loop !20
 
 _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds = %73, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit
   %.0.lcssa.i98 = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit ], [ %92, %73 ]
@@ -1369,7 +1369,6 @@ attributes #7 = { nounwind }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i64 0, i64 65}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

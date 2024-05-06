@@ -64,7 +64,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %35 = getelementptr i8, ptr %31, i64 3
   store <4 x i8> <i8 113, i8 111, i8 105, i8 102>, ptr %31, align 1
   %36 = lshr i32 %9, 24
-  %37 = trunc i32 %36 to i8
+  %37 = trunc nuw i32 %36 to i8
   %38 = getelementptr i8, ptr %31, i64 4
   store i8 %37, ptr %38, align 1
   %39 = lshr i32 %9, 16
@@ -79,7 +79,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %46 = getelementptr inbounds i8, ptr %31, i64 7
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %13, 24
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw i32 %47 to i8
   %49 = getelementptr inbounds i8, ptr %31, i64 8
   store i8 %48, ptr %49, align 1
   %50 = lshr i32 %13, 16
@@ -119,7 +119,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %.0210.lcssa = phi i64 [ 14, %32 ], [ %68, %.preheader.loopexit ]
   %scevgep = getelementptr i8, ptr %31, i64 %.0210.lcssa
   store i64 72057594037927936, ptr %scevgep, align 1
-  %69 = trunc i64 %.0210.lcssa to i32
+  %69 = trunc nsw i64 %.0210.lcssa to i32
   %70 = add i32 %69, 8
   store i32 %70, ptr %2, align 4
   br label %168
@@ -134,14 +134,14 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %.0210227 = phi i32 [ 14, %.lr.ph ], [ %.2212, %166 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr i8, ptr %72, i64 1
+  %74 = getelementptr inbounds i8, ptr %72, i64 1
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr i8, ptr %72, i64 2
+  %76 = getelementptr inbounds i8, ptr %72, i64 2
   %77 = load i8, ptr %76, align 1
   br i1 %64, label %78, label %81
 
 78:                                               ; preds = %71
-  %79 = getelementptr i8, ptr %72, i64 3
+  %79 = getelementptr inbounds i8, ptr %72, i64 3
   %80 = load i8, ptr %79, align 1
   br label %81
 
@@ -218,7 +218,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %102
-  %116 = trunc i32 %110 to i8
+  %116 = trunc nuw nsw i32 %110 to i8
   %117 = add nsw i32 %.1211, 1
   %118 = sext i32 %.1211 to i64
   %119 = getelementptr inbounds i8, ptr %31, i64 %118
@@ -560,14 +560,14 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly %0, i32 no
   %146 = add nsw i32 %145, -40
   %147 = lshr i32 %144, 4
   %148 = add nsw i32 %147, %146
-  %149 = trunc i32 %148 to i8
+  %149 = trunc nsw i32 %148 to i8
   %150 = add i8 %.sroa.0.0134, %149
-  %151 = trunc i32 %145 to i8
+  %151 = trunc nuw nsw i32 %145 to i8
   %152 = add i8 %.sroa.11.0135, -32
   %153 = add i8 %152, %151
   %154 = and i32 %144, 15
   %155 = add nsw i32 %154, %146
-  %156 = trunc i32 %155 to i8
+  %156 = trunc nsw i32 %155 to i8
   %157 = add i8 %.sroa.20.0136, %156
   br label %160
 
@@ -629,7 +629,7 @@ default.unreachable:                              ; preds = %122
 
 180:                                              ; preds = %174, %178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
-  %181 = trunc i64 %indvars.iv.next to i32
+  %181 = trunc nuw i64 %indvars.iv.next to i32
   %182 = icmp sgt i32 %87, %181
   br i1 %182, label %95, label %.loopexit, !llvm.loop !7
 

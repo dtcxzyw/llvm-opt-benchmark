@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_camellia_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_camellia_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %mode1 = getelementptr inbounds i8, ptr %dat, i64 64
   %0 = load i32, ptr %mode1, align 8

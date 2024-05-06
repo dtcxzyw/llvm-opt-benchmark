@@ -1322,7 +1322,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   br i1 %.not119, label %98, label %95
 
 95:                                               ; preds = %84
-  %96 = trunc i64 %89 to i32
+  %96 = trunc nuw nsw i64 %89 to i32
   %97 = call i64 @getmissingattr(ptr noundef nonnull %67, i32 noundef %96, ptr noundef nonnull %8) #11
   br label %heap_getattr.exit
 
@@ -1394,13 +1394,13 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   br label %heap_getattr.exit
 
 136:                                              ; preds = %102
-  %137 = trunc i64 %89 to i32
+  %137 = trunc nuw nsw i64 %89 to i32
   %138 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef %137, ptr noundef nonnull %67) #11
   br label %heap_getattr.exit
 
 139:                                              ; preds = %98
   %140 = getelementptr inbounds i8, ptr %90, i64 23
-  %141 = trunc i64 %indvars.iv to i32
+  %141 = trunc nuw nsw i64 %indvars.iv to i32
   %142 = lshr i64 %indvars.iv, 3
   %143 = getelementptr i8, ptr %140, i64 %142
   %144 = load i8, ptr %143, align 1
@@ -1416,7 +1416,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   br label %heap_getattr.exit
 
 150:                                              ; preds = %139
-  %151 = trunc i64 %89 to i32
+  %151 = trunc nuw nsw i64 %89 to i32
   %152 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef %151, ptr noundef nonnull %67) #11
   br label %heap_getattr.exit
 
@@ -2648,7 +2648,7 @@ define dso_local i64 @jsonb_agg_finalfn(ptr nocapture noundef %0) local_unnamed_
 
 16:                                               ; preds = %8
   %17 = tail call ptr @palloc(i64 noundef 56) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
@@ -3123,7 +3123,7 @@ define dso_local i64 @jsonb_object_agg_finalfn(ptr nocapture noundef %0) local_u
 
 16:                                               ; preds = %8
   %17 = tail call ptr @palloc(i64 noundef 56) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
@@ -3224,7 +3224,7 @@ declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #2
 declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_bool(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_bool(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3751,7 +3751,7 @@ define internal noundef i32 @jsonb_in_array_end(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jsonb_in_scalar(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 20) i32 @jsonb_in_scalar(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.JsonbValue, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.JsonbValue, align 8
@@ -3881,7 +3881,7 @@ checkStringLen.exit.thread:                       ; preds = %17, %15, %42, %54, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jsonb_in_object_field_start(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0 {
+define internal range(i32 0, 20) i32 @jsonb_in_object_field_start(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0 {
   %4 = alloca %struct.JsonbValue, align 8
   store i32 1, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10

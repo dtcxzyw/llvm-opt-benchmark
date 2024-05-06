@@ -141,7 +141,7 @@ declare i32 @vm_stop(i32 noundef) local_unnamed_addr #3
 declare void @qemu_cpu_kick(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @gdbserver_start(ptr noundef %device) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @gdbserver_start(ptr noundef %device) local_unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %act = alloca %struct.sigaction, align 8
@@ -895,7 +895,7 @@ declare zeroext i1 @runstate_needs_reset() local_unnamed_addr #3
 declare void @vm_start() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdb_continue_partial(ptr nocapture noundef readonly %newstates) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr nocapture noundef readonly %newstates) local_unnamed_addr #2 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1070,7 +1070,7 @@ declare void @cpu_resume(ptr noundef) local_unnamed_addr #3
 declare void @qemu_clock_enable(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @gdb_signal_to_target(i32 noundef %sig) local_unnamed_addr #1 {
+define dso_local noundef range(i32 -1, 6) i32 @gdb_signal_to_target(i32 noundef %sig) local_unnamed_addr #1 {
 entry:
   %switch.selectcmp = icmp eq i32 %sig, 5
   %switch.select = select i1 %switch.selectcmp, i32 5, i32 -1
@@ -1540,7 +1540,7 @@ return:                                           ; preds = %if.end9, %if.end
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @pid_order(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 -1, 2) i32 @pid_order(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8

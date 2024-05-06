@@ -756,7 +756,7 @@ define internal i32 @oca_handle_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @oca_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @oca_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -994,7 +994,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %81, %78, %66
   %105 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %87, i32 noundef 0) #6
   %106 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %94, i32 noundef 0) #6
   %107 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %97) #6
-  %108 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %103, i32 noundef %100, i32 noundef %104, i16 noundef zeroext %105, i16 noundef zeroext %106, i8 noundef zeroext %107, i1 noundef zeroext true, ptr noundef %69), !range !4
+  %108 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %103, i32 noundef %100, i32 noundef %104, i16 noundef zeroext %105, i16 noundef zeroext %106, i8 noundef zeroext %107, i1 noundef zeroext true, ptr noundef %69)
   br label %109
 
 109:                                              ; preds = %102, %proto_item_set_generated.exit.i.i
@@ -1064,7 +1064,7 @@ dissect_ocp1_msg_command.exit.i:                  ; preds = %141, %138, %135, %1
   %145 = add i32 %64, %.0133156.i
   %146 = add i32 %.0157.i, 1
   %147 = icmp ult i32 %145, %62
-  br i1 %147, label %.lr.ph158.i, label %dissect_ocp1_pdu.exit, !llvm.loop !5
+  br i1 %147, label %.lr.ph158.i, label %dissect_ocp1_pdu.exit, !llvm.loop !4
 
 .lr.ph155.i:                                      ; preds = %.preheader147.i, %dissect_ocp1_msg_notification.exit.i
   %.1154.i = phi i32 [ %227, %dissect_ocp1_msg_notification.exit.i ], [ 1, %.preheader147.i ]
@@ -1165,7 +1165,7 @@ proto_item_set_generated.exit.i142.i:             ; preds = %162, %159, %150
   %222 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %168, i32 noundef 0) #6
   %223 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %175, i32 noundef 0) #6
   %224 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %178) #6
-  %225 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %217, i32 noundef %218, i32 noundef %221, i16 noundef zeroext %222, i16 noundef zeroext %223, i8 noundef zeroext %224, i1 noundef zeroext false, ptr noundef %204), !range !4
+  %225 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %217, i32 noundef %218, i32 noundef %221, i16 noundef zeroext %222, i16 noundef zeroext %223, i8 noundef zeroext %224, i1 noundef zeroext false, ptr noundef %204)
   br label %dissect_ocp1_msg_notification.exit.i
 
 dissect_ocp1_msg_notification.exit.i:             ; preds = %220, %proto_item_set_generated.exit.i142.i
@@ -1174,7 +1174,7 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %220, %proto_item_se
   %226 = add i32 %148, %.1134153.i
   %227 = add i32 %.1154.i, 1
   %228 = icmp ult i32 %226, %60
-  br i1 %228, label %.lr.ph155.i, label %dissect_ocp1_pdu.exit, !llvm.loop !7
+  br i1 %228, label %.lr.ph155.i, label %dissect_ocp1_pdu.exit, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader149.i, %dissect_ocp1_msg_response.exit.i
   %.2152.i = phi i32 [ %280, %dissect_ocp1_msg_response.exit.i ], [ 1, %.preheader149.i ]
@@ -1241,7 +1241,7 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %220, %proto_item_se
   %262 = phi i32 [ %.else.val72.i.i, %.else.i.i ], [ 0, %259 ]
   %263 = phi i16 [ %.else.val.i.i, %.else.i.i ], [ 0, %259 ]
   %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %248) #6
-  %265 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %260, i32 noundef %257, i32 noundef %262, i16 noundef zeroext %261, i16 noundef zeroext %263, i8 noundef zeroext %264, i1 noundef zeroext false, ptr noundef %234), !range !4
+  %265 = call fastcc i32 @decode_params(ptr noundef %0, i32 noundef %260, i32 noundef %257, i32 noundef %262, i16 noundef zeroext %261, i16 noundef zeroext %263, i8 noundef zeroext %264, i1 noundef zeroext false, ptr noundef %234)
   br label %266
 
 266:                                              ; preds = %.cont.i.i, %247
@@ -1285,7 +1285,7 @@ dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i,
   %279 = add i32 %229, %.2135151.i
   %280 = add i32 %.2152.i, 1
   %281 = icmp ult i32 %279, %58
-  br i1 %281, label %.lr.ph.i, label %dissect_ocp1_pdu.exit, !llvm.loop !8
+  br i1 %281, label %.lr.ph.i, label %dissect_ocp1_pdu.exit, !llvm.loop !7
 
 282:                                              ; preds = %40
   %283 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %55, i32 noundef 0) #6
@@ -1347,7 +1347,7 @@ dissect_ocp1_pdu.exit:                            ; preds = %dissect_ocp1_msg_re
   %300 = add i32 %.0132.i37, %.02143
   %301 = call i32 @tvb_captured_length(ptr noundef %0) #6
   %302 = icmp ult i32 %300, %301
-  br i1 %302, label %24, label %._crit_edge, !llvm.loop !9
+  br i1 %302, label %24, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %299
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..pre = load i32, ptr %.sroa.0, align 16
@@ -1430,8 +1430,8 @@ define hidden void @proto_reg_handoff_ocp1() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ocp1_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @test_ocp1(ptr noundef %0), !range !10
+define internal range(i32 0, 2) i32 @dissect_ocp1_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call fastcc i32 @test_ocp1(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %dissect_ocp1_tcp.exit, label %6
 
@@ -1451,8 +1451,8 @@ dissect_ocp1_tcp.exit:                            ; preds = %8, %6, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ocp1_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @test_ocp1(ptr noundef %0), !range !10
+define internal range(i32 0, 2) i32 @dissect_ocp1_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @test_ocp1(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -1529,7 +1529,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_params(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 1, -2147483648) i32 @decode_params(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -1939,7 +1939,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
 274:                                              ; preds = %270
   %275 = load i32, ptr @ett_ocp1_params, align 4
   %276 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef %275, ptr noundef nonnull %108, ptr noundef nonnull @.str.350) #6
-  %277 = call fastcc i32 @decode_params_OcaBlobFixedLen(ptr noundef %0, i32 noundef %1, i32 noundef 16, ptr noundef %276, ptr noundef nonnull @.str.351), !range !11
+  %277 = call fastcc i32 @decode_params_OcaBlobFixedLen(ptr noundef %0, i32 noundef %1, i32 noundef 16, ptr noundef %276, ptr noundef nonnull @.str.351)
   %278 = add i32 %1, 16
   %279 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %278, i32 noundef 0) #6
   %280 = zext i16 %279 to i32
@@ -2020,7 +2020,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
   %325 = add i32 %324, %323
   %326 = add nuw nsw i32 %.0336358.i, 1
   %exitcond.not.i = icmp eq i32 %326, %313
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %311
   %.0335.lcssa.i = phi i32 [ 2, %311 ], [ %325, %.lr.ph.i ]
@@ -2053,7 +2053,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
   %345 = call fastcc i32 @decode_params_OcaManagerDescriptor(ptr noundef %0, i32 noundef %.0362.i, ptr noundef %344)
   %346 = add i32 %345, %.0362.i
   %exitcond368.not.i = icmp eq i32 %343, %313
-  br i1 %exitcond368.not.i, label %decode_params_OcaDeviceManager.exit, label %.lr.ph364.i, !llvm.loop !13
+  br i1 %exitcond368.not.i, label %decode_params_OcaDeviceManager.exit, label %.lr.ph364.i, !llvm.loop !10
 
 347:                                              ; preds = %309
   %348 = icmp ne i16 %5, 20
@@ -2258,7 +2258,7 @@ decode_params_OcaSecurityManager.exit:            ; preds = %362, %389, %418, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   %463 = add i32 %.0117125.i, 14
   %exitcond.not.i117 = icmp eq i32 %443, %434
-  br i1 %exitcond.not.i117, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i116, !llvm.loop !14
+  br i1 %exitcond.not.i117, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i116, !llvm.loop !11
 
 464:                                              ; preds = %428
   %465 = icmp eq i16 %5, 3
@@ -2756,7 +2756,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %559, %634, %668, %7
   %821 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %820, ptr noundef %0, i32 noundef %.0144.i, i32 noundef 4, i32 noundef 0) #6
   %822 = add i32 %.0144.i, 4
   %exitcond.not.i125 = icmp eq i32 %818, %809
-  br i1 %exitcond.not.i125, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i124, !llvm.loop !15
+  br i1 %exitcond.not.i125, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i124, !llvm.loop !12
 
 823:                                              ; preds = %805
   %824 = icmp ne i16 %5, 4
@@ -2789,7 +2789,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %559, %634, %668, %7
   %839 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %838, ptr noundef %0, i32 noundef %.1146.i, i32 noundef 4, i32 noundef 0) #6
   %840 = add i32 %.1146.i, 4
   %exitcond152.not.i = icmp eq i32 %836, %827
-  br i1 %exitcond152.not.i, label %decode_params_OcaPowerManager.exit, label %.lr.ph147.i, !llvm.loop !16
+  br i1 %exitcond152.not.i, label %decode_params_OcaPowerManager.exit, label %.lr.ph147.i, !llvm.loop !13
 
 841:                                              ; preds = %823
   %842 = icmp eq i16 %5, 5
@@ -2880,7 +2880,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.p
   %887 = call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %886, ptr noundef %0, i32 noundef %.0138.i, i32 noundef 4, i32 noundef 0) #6
   %888 = add i32 %.0138.i, 4
   %exitcond.not.i130 = icmp eq i32 %884, %875
-  br i1 %exitcond.not.i130, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i129, !llvm.loop !17
+  br i1 %exitcond.not.i130, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i129, !llvm.loop !14
 
 889:                                              ; preds = %870
   %890 = icmp ne i16 %5, 2
@@ -2913,7 +2913,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.p
   %905 = call ptr @proto_tree_add_item(ptr noundef %903, i32 noundef %904, ptr noundef %0, i32 noundef %.1140.i, i32 noundef 4, i32 noundef 0) #6
   %906 = add i32 %.1140.i, 4
   %exitcond160.not.i = icmp eq i32 %902, %893
-  br i1 %exitcond160.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph141.i, !llvm.loop !18
+  br i1 %exitcond160.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph141.i, !llvm.loop !15
 
 907:                                              ; preds = %889
   %908 = icmp ne i16 %5, 3
@@ -2946,7 +2946,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.p
   %923 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %922, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef 0) #6
   %924 = add i32 %.2144.i, 4
   %exitcond161.not.i = icmp eq i32 %920, %911
-  br i1 %exitcond161.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph145.i, !llvm.loop !19
+  br i1 %exitcond161.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph145.i, !llvm.loop !16
 
 925:                                              ; preds = %907
   %926 = icmp ne i16 %5, 4
@@ -2979,7 +2979,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.p
   %941 = call ptr @proto_tree_add_item(ptr noundef %939, i32 noundef %940, ptr noundef %0, i32 noundef %.3148.i, i32 noundef 4, i32 noundef 0) #6
   %942 = add i32 %.3148.i, 4
   %exitcond162.not.i = icmp eq i32 %938, %929
-  br i1 %exitcond162.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph149.i, !llvm.loop !20
+  br i1 %exitcond162.not.i, label %decode_params_OcaNetworkManager.exit, label %.lr.ph149.i, !llvm.loop !17
 
 943:                                              ; preds = %925
   %944 = load i32, ptr @hf_ocp1_params, align 4
@@ -3029,7 +3029,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.p
   %963 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %962, ptr noundef %0, i32 noundef %.0105.i, i32 noundef 4, i32 noundef 0) #6
   %964 = add i32 %.0105.i, 4
   %exitcond.not.i135 = icmp eq i32 %960, %951
-  br i1 %exitcond.not.i135, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i134, !llvm.loop !21
+  br i1 %exitcond.not.i135, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i134, !llvm.loop !18
 
 965:                                              ; preds = %946
   %966 = icmp ne i16 %5, 2
@@ -3061,7 +3061,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.p
   %980 = call ptr @proto_tree_add_item(ptr noundef %978, i32 noundef %979, ptr noundef %0, i32 noundef %.1107.i, i32 noundef 1, i32 noundef 0) #6
   %981 = add i32 %.1107.i, 1
   %exitcond120.not.i = icmp eq i32 %977, %969
-  br i1 %exitcond120.not.i, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph108.i, !llvm.loop !22
+  br i1 %exitcond120.not.i, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph108.i, !llvm.loop !19
 
 982:                                              ; preds = %965
   %983 = icmp ne i16 %5, 3
@@ -3094,7 +3094,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.p
   %998 = call ptr @proto_tree_add_item(ptr noundef %996, i32 noundef %997, ptr noundef %0, i32 noundef %.2111.i, i32 noundef 4, i32 noundef 0) #6
   %999 = add i32 %.2111.i, 4
   %exitcond121.not.i = icmp eq i32 %995, %986
-  br i1 %exitcond121.not.i, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph112.i, !llvm.loop !23
+  br i1 %exitcond121.not.i, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph112.i, !llvm.loop !20
 
 1000:                                             ; preds = %982
   %1001 = load i32, ptr @hf_ocp1_params, align 4
@@ -3240,7 +3240,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i134, %.lr.p
   %1072 = call ptr @proto_tree_add_item(ptr noundef %1065, i32 noundef %1071, ptr noundef %0, i32 noundef %1070, i32 noundef 4, i32 noundef 0) #6
   %1073 = add i32 %.0157.i, 11
   %exitcond.not.i142 = icmp eq i32 %1064, %1055
-  br i1 %exitcond.not.i142, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i141, !llvm.loop !24
+  br i1 %exitcond.not.i142, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i141, !llvm.loop !21
 
 1074:                                             ; preds = %1052
   %1075 = icmp ne i16 %5, 5
@@ -3352,7 +3352,7 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i141, %1006,
   %1122 = call ptr @proto_tree_add_item(ptr noundef %1120, i32 noundef %1121, ptr noundef %0, i32 noundef %.0126.i, i32 noundef 4, i32 noundef 0) #6
   %1123 = add i32 %.0126.i, 4
   %exitcond.not.i151 = icmp eq i32 %1119, %1110
-  br i1 %exitcond.not.i151, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i149, !llvm.loop !25
+  br i1 %exitcond.not.i151, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i149, !llvm.loop !22
 
 1124:                                             ; preds = %1106
   %1125 = icmp ne i16 %5, 4
@@ -3681,7 +3681,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i149, %1093,
   %1319 = add i32 %1318, %1317
   %1320 = add nuw nsw i32 %.0356382.i, 1
   %exitcond.not.i161 = icmp eq i32 %1320, %1298
-  br i1 %exitcond.not.i161, label %._crit_edge.i162, label %.lr.ph.i160, !llvm.loop !26
+  br i1 %exitcond.not.i161, label %._crit_edge.i162, label %.lr.ph.i160, !llvm.loop !23
 
 ._crit_edge.i162:                                 ; preds = %1314, %1296
   %.0354.lcssa.i = phi i32 [ 2, %1296 ], [ %1319, %1314 ]
@@ -3726,7 +3726,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i149, %1093,
   %1348 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1326, ptr noundef %1345)
   %1349 = add i32 %1348, %1326
   %exitcond394.not.i = icmp eq i32 %1344, %1298
-  br i1 %exitcond394.not.i, label %decode_params_OcaTaskManager.exit, label %.lr.ph388.i, !llvm.loop !27
+  br i1 %exitcond394.not.i, label %decode_params_OcaTaskManager.exit, label %.lr.ph388.i, !llvm.loop !24
 
 1350:                                             ; preds = %1294
   %1351 = icmp eq i16 %5, 10
@@ -3876,7 +3876,7 @@ decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i160, %1337,
   %1430 = add i32 %1429, %1428
   %1431 = add nuw nsw i32 %.05157.i, 1
   %exitcond.not.i168 = icmp eq i32 %1431, %1424
-  br i1 %exitcond.not.i168, label %._crit_edge.i169, label %.lr.ph.i167, !llvm.loop !28
+  br i1 %exitcond.not.i168, label %._crit_edge.i169, label %.lr.ph.i167, !llvm.loop !25
 
 ._crit_edge.i169:                                 ; preds = %.lr.ph.i167, %1422
   %.052.lcssa.i = phi i32 [ 2, %1422 ], [ %1430, %.lr.ph.i167 ]
@@ -3902,7 +3902,7 @@ decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i160, %1337,
   %1443 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1442, ptr noundef %1439, ptr noundef nonnull @.str.440)
   %1444 = add i32 %1443, %1442
   %exitcond66.not.i = icmp eq i32 %1438, %1424
-  br i1 %exitcond66.not.i, label %decode_params_OcaCodingManager.exit, label %.lr.ph62.i, !llvm.loop !29
+  br i1 %exitcond66.not.i, label %decode_params_OcaCodingManager.exit, label %.lr.ph62.i, !llvm.loop !26
 
 1445:                                             ; preds = %1418
   %1446 = load i32, ptr @hf_ocp1_params, align 4
@@ -4030,7 +4030,7 @@ define internal fastcc noundef i32 @decode_params_OcaClassID(ptr noundef %0, i32
   %17 = add i32 %.02426, 2
   %18 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %18, %9
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %13, %3
   %.024.lcssa = phi i32 [ %7, %3 ], [ %17, %13 ]
@@ -4057,7 +4057,7 @@ define internal fastcc void @decode_params_OcaModelDescription(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_params_OcaBlobFixedLen(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 17) i32 @decode_params_OcaBlobFixedLen(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %7, ptr noundef nonnull @.str.366, ptr noundef %4) #6
@@ -4231,7 +4231,7 @@ define internal fastcc noundef i32 @decode_params_OcaTask(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_ocp1(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_ocp1(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %3 = icmp ult i32 %2, 10
   br i1 %3, label %25, label %4
@@ -4302,30 +4302,27 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 -2147483648}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
-!11 = !{i32 1, i32 17}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}

@@ -802,7 +802,7 @@ declare dso_local void @sidtab_destroy(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @sidtab_set_initial(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @policydb_class_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @policydb_class_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %9, label %4
 
@@ -819,7 +819,7 @@ define dso_local i32 @policydb_class_isvalid(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @policydb_role_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @policydb_role_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %9, label %4
 
@@ -836,7 +836,7 @@ define dso_local i32 @policydb_role_isvalid(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @policydb_type_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @policydb_type_isvalid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %9, label %4
 
@@ -853,7 +853,7 @@ define dso_local i32 @policydb_type_isvalid(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @policydb_context_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @policydb_context_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -3512,7 +3512,7 @@ define internal fastcc i32 @role_trans_write(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @role_allow_write(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @role_allow_write(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #10 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader6
 
@@ -6726,7 +6726,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local i32 @cond_init_bool_indexes(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @common_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @common_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %6
@@ -6752,7 +6752,7 @@ define internal noundef i32 @common_index(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @class_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @class_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %22, label %6
@@ -6785,7 +6785,7 @@ define internal noundef i32 @class_index(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @role_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @role_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %26, label %6
@@ -6824,7 +6824,7 @@ define internal noundef i32 @role_index(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @type_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @type_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -6869,7 +6869,7 @@ define internal noundef i32 @type_index(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @user_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @user_index(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %26, label %6
@@ -6911,7 +6911,7 @@ define internal noundef i32 @user_index(ptr noundef %0, ptr noundef %1, ptr noca
 declare dso_local i32 @cond_index_bool(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @sens_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #19 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sens_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #19 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
@@ -6944,7 +6944,7 @@ define internal noundef i32 @sens_index(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @cat_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cat_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -7056,7 +7056,7 @@ declare dso_local i32 @mls_range_isvalid(ptr noundef, ptr noundef) local_unnamed
 declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @user_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 280
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -7201,7 +7201,7 @@ define internal noundef i32 @user_bounds_sanity_check(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @role_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 272
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -7346,7 +7346,7 @@ define internal noundef i32 @role_bounds_sanity_check(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @type_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @type_bounds_sanity_check(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 288
   br label %5
 
@@ -7730,7 +7730,7 @@ define internal i32 @role_write(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @type_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #21 align 16 {
+define internal noundef range(i32 -22, 1) i32 @type_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #21 align 16 {
   %4 = alloca [4 x i32], align 16
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -8029,7 +8029,7 @@ define internal i32 @sens_write(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @cat_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #21 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cat_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #21 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef %0) #22
@@ -8075,7 +8075,7 @@ define internal noundef i32 @cat_write(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @perm_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #21 align 16 {
+define internal noundef range(i32 -22, 1) i32 @perm_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #21 align 16 {
   %4 = tail call i64 @strlen(ptr noundef %0) #22
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8256,7 +8256,7 @@ thread-pre-split:                                 ; preds = %76
 declare dso_local i32 @ebitmap_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @role_trans_write_one(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #19 align 16 {
+define internal noundef range(i32 -22, 1) i32 @role_trans_write_one(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #19 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8309,7 +8309,7 @@ define internal noundef i32 @role_trans_write_one(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @filename_write_helper_compat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef %5) #22

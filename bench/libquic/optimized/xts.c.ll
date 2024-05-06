@@ -76,7 +76,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_cipher(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
 entry:
   %tweak.i = alloca %union.anon.0, align 16
   %scratch.i = alloca %union.anon.0, align 16
@@ -105,7 +105,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %3 = load i32, ptr %encrypt, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tweak.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   %block2.i = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %block2.i, align 8
   call void %4(ptr noundef nonnull %tweak.i, ptr noundef nonnull %tweak.i, ptr noundef nonnull %2) #8
@@ -291,7 +291,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @aes_xts_ctrl(ptr nocapture noundef readonly %c, i32 noundef %type, i32 %arg, ptr nocapture noundef readonly %ptr) #2 {
+define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr nocapture noundef readonly %c, i32 noundef %type, i32 %arg, ptr nocapture noundef readonly %ptr) #2 {
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load ptr, ptr %cipher_data, align 8

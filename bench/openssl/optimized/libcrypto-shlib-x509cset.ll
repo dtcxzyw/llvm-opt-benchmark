@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_CRL_set_version(ptr noundef %x, i64 noundef %version) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_CRL_set_version(ptr noundef %x, i64 noundef %version) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -41,7 +41,7 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_CRL_set_issuer_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_CRL_set_issuer_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -138,7 +138,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @X509_CRL_up_ref(ptr nocapture noundef %crl) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @X509_CRL_up_ref(ptr nocapture noundef %crl) local_unnamed_addr #2 {
 entry:
   %references = getelementptr inbounds i8, ptr %crl, i64 128
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4

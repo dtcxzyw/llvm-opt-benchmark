@@ -52,7 +52,7 @@ thread-pre-split:                                 ; preds = %31
 
 20:                                               ; preds = %17
   %21 = call i64 @llvm.umin.i64(i64 %.1, i64 4294967295)
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   store i32 %22, ptr %16, align 8
   %23 = sub i64 %.1, %21
   br label %24
@@ -65,7 +65,7 @@ thread-pre-split:                                 ; preds = %31
 
 27:                                               ; preds = %24
   %28 = call i64 @llvm.umin.i64(i64 %.026, i64 4294967295)
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   store i32 %29, ptr %11, align 8
   %30 = sub i64 %.026, %28
   br label %31

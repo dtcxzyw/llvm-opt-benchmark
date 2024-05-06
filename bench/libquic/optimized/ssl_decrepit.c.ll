@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [3 x i8] c"')\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_add_dir_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %dir) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %dir) local_unnamed_addr #0 {
 entry:
   %dirent.i = alloca ptr, align 8
   %buf = alloca [1024 x i8], align 16
@@ -38,7 +38,7 @@ if.then4.i:                                       ; preds = %while.cond
   br i1 %cmp6.i, label %while.end.thread, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then4.i
-  %call10.i = call ptr @opendir(ptr noundef nonnull %dir)
+  %call10.i = call ptr @opendir(ptr noundef nonnull readonly %dir)
   store ptr %call10.i, ptr %calloc.i, align 8
   %cmp12.i = icmp eq ptr %call10.i, null
   br i1 %cmp12.i, label %if.then13.i, label %if.end17.i

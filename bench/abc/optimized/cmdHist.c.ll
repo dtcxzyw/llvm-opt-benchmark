@@ -140,7 +140,7 @@ define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %.critedge.thread, label %44, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %44
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %34
@@ -283,7 +283,7 @@ define void @Cmd_HistoryWrite(ptr nocapture noundef readonly %0, i32 noundef %1)
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr i8, ptr %19, i64 4
   %.val = load i32, ptr %20, align 4
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw i64 %indvars.iv.next to i32
   %22 = icmp sgt i32 %.val, %21
   br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !6
 
@@ -306,7 +306,7 @@ define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef
 
 7:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %11, %10 ], [ %6, %2 ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %16
 
@@ -549,7 +549,7 @@ define void @Cmd_HistoryPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
   %16 = load ptr, ptr %3, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val = load i32, ptr %17, align 4
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nuw i64 %indvars.iv.next to i32
   %19 = icmp sgt i32 %.val, %18
   br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !10
 

@@ -228,7 +228,7 @@ declare zeroext i1 @zend_unary_op_produces_error(i32 noundef, ptr noundef) local
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_optimizer_eval_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %62 [
     i32 1, label %4
     i32 18, label %6
@@ -361,7 +361,7 @@ define hidden noundef i32 @zend_optimizer_eval_cast(ptr noundef %0, i32 noundef 
 declare void @convert_to_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @zend_optimizer_eval_strlen(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_strlen(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 6
@@ -382,7 +382,7 @@ define hidden noundef i32 @zend_optimizer_eval_strlen(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_optimizer_eval_special_func_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_special_func_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %.critedge10 [
@@ -1168,7 +1168,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
   br i1 %.not159, label %165, label %152
 
 152:                                              ; preds = %150
-  %153 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %2), !range !5
+  %153 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %2)
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %165
 
@@ -1734,7 +1734,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
   br i1 %.not237, label %158, label %408
 
 158:                                              ; preds = %152
-  %159 = tail call i32 @zend_optimizer_classify_function(ptr noundef nonnull %153, i32 poison), !range !6
+  %159 = tail call i32 @zend_optimizer_classify_function(ptr noundef nonnull %153, i32 poison)
   %.not238 = icmp eq i32 %159, 0
   br i1 %.not238, label %160, label %408
 
@@ -2175,7 +2175,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @zend_optimizer_classify_function(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 5) i32 @zend_optimizer_classify_function(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %.critedge12 [
@@ -5649,5 +5649,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 0, i32 5}

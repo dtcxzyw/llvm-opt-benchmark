@@ -50,7 +50,7 @@ define noundef nonnull ptr @pg_finfo_mic_to_big5() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @euc_tw_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -141,7 +141,7 @@ define i64 @euc_tw_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 47:                                               ; preds = %37
   %48 = lshr i16 %43, 8
-  %49 = trunc i16 %48 to i8
+  %49 = trunc nuw i16 %48 to i8
   %50 = getelementptr i8, ptr %.04666.i, i64 1
   store i8 %49, ptr %.04666.i, align 1
   %51 = trunc i16 %43 to i8
@@ -191,7 +191,7 @@ euc_tw2big5.exit:                                 ; preds = %64, %1, %24, %45, %
 declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @big5_to_euc_tw(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 64
@@ -283,7 +283,7 @@ define i64 @big5_to_euc_tw(ptr nocapture noundef readonly %0) local_unnamed_addr
   %.sink87.i = phi ptr [ %38, %36 ], [ %45, %41 ], [ %.04864.i, %27 ]
   %.sink86.i = phi i64 [ 4, %36 ], [ 4, %41 ], [ 2, %27 ]
   %49 = lshr i16 %34, 8
-  %50 = trunc i16 %49 to i8
+  %50 = trunc nuw i16 %49 to i8
   %51 = getelementptr i8, ptr %.04864.i, i64 %.sink88.i
   store i8 %50, ptr %.sink87.i, align 1
   %52 = trunc i16 %34 to i8
@@ -332,7 +332,7 @@ big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @euc_tw_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -470,7 +470,7 @@ euc_tw2mic.exit:                                  ; preds = %62, %1, %24, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @mic_to_euc_tw(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_tw(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -606,7 +606,7 @@ mic2euc_tw.exit:                                  ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @big5_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @big5_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 64
@@ -705,7 +705,7 @@ define i64 @big5_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %51 = getelementptr i8, ptr %.1.i, i64 1
   store i8 %50, ptr %.1.i, align 1
   %52 = lshr i16 %43, 8
-  %53 = trunc i16 %52 to i8
+  %53 = trunc nuw i16 %52 to i8
   %54 = getelementptr i8, ptr %.1.i, i64 2
   store i8 %53, ptr %51, align 1
   %55 = trunc i16 %43 to i8
@@ -736,7 +736,7 @@ big52mic.exit:                                    ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @mic_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -841,7 +841,7 @@ define i64 @mic_to_big5(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 52:                                               ; preds = %39
   %53 = lshr i16 %48, 8
-  %54 = trunc i16 %53 to i8
+  %54 = trunc nuw i16 %53 to i8
   %55 = getelementptr i8, ptr %.05272.i, i64 1
   store i8 %54, ptr %.05272.i, align 1
   %56 = trunc i16 %48 to i8

@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [76 x i8] c"Ivy_ManCheck: The number of nodes in the structural hashing table is wrong.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -53,7 +53,7 @@ define i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not63, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.val83, i32 noundef %16)
   br label %121
 
@@ -378,7 +378,7 @@ define i32 @Ivy_ManCheckFanoutNums(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -449,7 +449,7 @@ define i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge2.thread, label %27, !llvm.loop !7
 
 .critedge2.loopexit:                              ; preds = %27
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %25
@@ -499,7 +499,7 @@ define i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond189.not, label %.critedge4.thread, label %45, !llvm.loop !8
 
 .critedge4.loopexit:                              ; preds = %45
-  %50 = trunc i64 %indvars.iv185 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv185 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %43

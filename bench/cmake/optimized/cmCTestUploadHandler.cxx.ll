@@ -212,7 +212,7 @@ define dso_local void @_ZN20cmCTestUploadHandler8SetFilesERKSt3setINSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN20cmCTestUploadHandler14ProcessHandlerEv(ptr noundef nonnull readonly align 8 dereferenceable(336) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN20cmCTestUploadHandler14ProcessHandlerEv(ptr noundef nonnull readonly align 8 dereferenceable(336) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.cmXMLSafe, align 8
   %3 = alloca %class.cmXMLSafe, align 8
   %4 = alloca %class.cmXMLSafe, align 8

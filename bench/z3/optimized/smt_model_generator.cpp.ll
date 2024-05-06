@@ -1950,7 +1950,7 @@ for.body28:                                       ; preds = %invoke.cont, %for.i
   %__begin1.0100 = phi ptr [ %incdec.ptr31, %for.inc30 ], [ %47, %invoke.cont ]
   %visited18.099 = phi i1 [ %visited18.1, %for.inc30 ], [ true, %invoke.cont ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i59)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.0100, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i59, ptr noundef nonnull readonly align 8 dereferenceable(16) %__begin1.0100, i64 16, i1 false)
   %call.i.i.i.i6080 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_iE(ptr noundef nonnull align 8 dereferenceable(20) %colors, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i.i.i59)
           to label %call.i.i.i.i60.noexc unwind label %lpad.loopexit
 
@@ -1993,7 +1993,7 @@ _ZN6vectorIN3smt22model_value_dependencyELb0EjE9push_backERKS1_.exit.i71: ; pred
   %54 = phi ptr [ %.pre.i.i77, %.noexc ], [ %50, %lor.lhs.false.i.i67 ]
   %idx.ext.i.i72 = zext i32 %53 to i64
   %add.ptr.i.i73 = getelementptr inbounds %"class.smt::model_value_dependency", ptr %54, i64 %idx.ext.i.i72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i73, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.0100, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i73, ptr noundef nonnull readonly align 8 dereferenceable(16) %__begin1.0100, i64 16, i1 false)
   %55 = load ptr, ptr %todo, align 8
   %arrayidx10.i.i74 = getelementptr inbounds i8, ptr %55, i64 -4
   %56 = load i32, ptr %arrayidx10.i.i74, align 4
@@ -2084,7 +2084,7 @@ entry:
   %ref.tmp.i.i.i = alloca %struct._key_data, align 8
   %curr = alloca %"class.smt::model_value_dependency", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %src, i64 16, i1 false)
   %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_iE(ptr noundef nonnull align 8 dereferenceable(20) %colors, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.not.i = icmp eq ptr %call.i.i.i, null
@@ -2149,7 +2149,7 @@ _ZN6vectorIN3smt22model_value_dependencyELb0EjE4backEv.exit: ; preds = %_ZNK6vec
   %arrayidx.i1.i = getelementptr inbounds %"class.smt::model_value_dependency", ptr %9, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %curr, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %curr, i64 16, i1 false)
   %call.i.i.i13 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_iE(ptr noundef nonnull align 8 dereferenceable(20) %colors, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i.i12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i12)
   %tobool.i.not.i14 = icmp eq ptr %call.i.i.i13, null
@@ -2166,7 +2166,7 @@ _ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_
 
 sw.bb:                                            ; preds = %_ZN6vectorIN3smt22model_value_dependencyELb0EjE4backEv.exit, %_ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_14source_eq_procEERKS1_.exit18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %curr, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %curr, i64 16, i1 false)
   store i32 1, ptr %m_value.i.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_iE(ptr noundef nonnull align 8 dereferenceable(20) %colors, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
@@ -2175,7 +2175,7 @@ sw.bb:                                            ; preds = %_ZN6vectorIN3smt22m
 
 sw.bb7:                                           ; preds = %_ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_14source_eq_procEERKS1_.exit18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %curr, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i19, ptr noundef nonnull readonly align 8 dereferenceable(16) %curr, i64 16, i1 false)
   store i32 2, ptr %m_value.i.i.i20, align 8
   call void @_ZN14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_iE(ptr noundef nonnull align 8 dereferenceable(20) %colors, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i19)

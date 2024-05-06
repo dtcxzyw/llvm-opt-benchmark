@@ -305,7 +305,7 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %135 = add nuw nsw i64 %134, %133
   %136 = add nuw nsw i64 %135, %122
   %137 = lshr i64 %136, 32
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw nsw i64 %137 to i32
   %139 = add i32 %.0152153, %3
   %140 = add i32 %139, %138
   %141 = and i64 %124, 4294967295
@@ -355,7 +355,7 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %185 = lshr i64 %184, 32
   %186 = add i64 %178, %185
   %187 = lshr i64 %186, 32
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw i64 %187 to i32
   %189 = add i32 %179, %188
   %190 = and i64 %151, 4294967295
   %191 = lshr i32 %189, 2
@@ -379,7 +379,7 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %209 = add nuw nsw i64 %208, %207
   %210 = trunc i64 %209 to i32
   %211 = lshr i64 %209, 32
-  %212 = trunc i64 %211 to i32
+  %212 = trunc nuw nsw i64 %211 to i32
   %213 = add nuw nsw i32 %197, %212
   %214 = add i64 %.0147158, 16
   %215 = add nuw nsw i64 %.0159, 1
@@ -447,7 +447,7 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   %36 = add nuw nsw i64 %35, %34
   %37 = trunc i64 %36 to i32
   %38 = lshr i64 %36, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = add i32 %22, %39
   %41 = lshr i32 %40, 2
   %42 = sub nsw i32 0, %41
@@ -485,7 +485,7 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   %72 = getelementptr inbounds i8, ptr %0, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = lshr i64 %71, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw nsw i64 %74 to i32
   %76 = add i32 %55, %73
   %77 = add i32 %76, %75
   %78 = trunc i32 %add.narrowed.i to i8
@@ -499,7 +499,7 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   %84 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %83, ptr %84, align 1
   %85 = lshr i32 %add.narrowed.i, 24
-  %86 = trunc i32 %85 to i8
+  %86 = trunc nuw i32 %85 to i8
   %87 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %86, ptr %87, align 1
   %88 = trunc i64 %64 to i8
@@ -544,7 +544,7 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   %117 = getelementptr inbounds i8, ptr %1, i64 14
   store i8 %116, ptr %117, align 1
   %118 = lshr i32 %77, 24
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   %120 = getelementptr inbounds i8, ptr %1, i64 15
   store i8 %119, ptr %120, align 1
   ret i32 0
@@ -600,7 +600,7 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
 
 34:                                               ; preds = %32
   %35 = lshr i64 %2, 4
-  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %35, ptr noundef %1, i32 noundef 1)
+  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %35, ptr noundef readonly %1, i32 noundef 1)
   %36 = and i64 %2, -16
   %37 = and i64 %2, 15
   %.not45.i = icmp eq i64 %37, 0
@@ -611,7 +611,7 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
   %.139.i11 = phi i64 [ %37, %34 ], [ %2, %32 ]
   store i64 %.139.i11, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 %.1.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr align 1 %38, i64 %.139.i11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr readonly align 1 %38, i64 %.139.i11, i1 false)
   br label %mbedtls_poly1305_update.exit
 
 mbedtls_poly1305_update.exit:                     ; preds = %4, %34, %.thread
@@ -621,7 +621,7 @@ mbedtls_poly1305_update.exit:                     ; preds = %4, %34, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_poly1305_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %.split.us, label %.split
@@ -645,7 +645,7 @@ define hidden noundef i32 @mbedtls_poly1305_self_test(i32 noundef %0) local_unna
 .split:                                           ; preds = %1, %22
   %12 = phi i1 [ false, %22 ], [ true, %1 ]
   %indvars.iv = phi i64 [ 1, %22 ], [ 0, %1 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13)
   %15 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
   %16 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv

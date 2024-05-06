@@ -324,7 +324,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_Z21verletbufGetListSetupN5Nbnxm10KernelTypeE(i32 noundef %0) local_unnamed_addr #8 {
+define range(i64 0, 68719476736) i64 @_Z21verletbufGetListSetupN5Nbnxm10KernelTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp ult i32 %0, 7
   br i1 %2, label %switch.lookup, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
 
@@ -352,7 +352,7 @@ _ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit: ; preds = %_ZN5NbnxmL15sc_iCl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_Z25verletbufGetSafeListSetup13ListSetupType(i32 noundef %0) local_unnamed_addr #8 {
+define noundef range(i64 0, 68719476736) i64 @_Z25verletbufGetSafeListSetup13ListSetupType(i32 noundef %0) local_unnamed_addr #8 {
 _Z21verletbufGetListSetupN5Nbnxm10KernelTypeE.exit:
   %switch.selectcmp4.not = icmp eq i32 %0, 2
   %.sroa.0.0.insert.insert.i = select i1 %switch.selectcmp4.not, i64 17179869192, i64 17179869188

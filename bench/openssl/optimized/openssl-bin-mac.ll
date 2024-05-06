@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [6 x i8] c"%s:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mac_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @mac_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %opts = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -384,7 +384,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @alloc_mac_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_mac_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #4
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #4

@@ -872,7 +872,7 @@ define dso_local void @clocksource_touch_watchdog() local_unnamed_addr #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local i64 @clocks_calc_max_nsecs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @clocks_calc_max_nsecs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #7 align 16 {
   %6 = add i32 %2, %0
   %7 = zext i32 %6 to i64
   %8 = udiv i64 -1, %7
@@ -1477,7 +1477,7 @@ define dso_local void @clocksource_change_rating(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @clocksource_unregister(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @clocksource_unregister(ptr noundef %0) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load volatile ptr, ptr %2, align 8
@@ -1495,7 +1495,7 @@ define dso_local noundef i32 @clocksource_unregister(ptr noundef %0) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @clocksource_unbind(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @watchdog, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %4, label %7
@@ -1765,7 +1765,7 @@ define internal noundef i32 @clocksource_watchdog_kthread(ptr nocapture readnone
 declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__clocksource_watchdog_kthread() unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @__clocksource_watchdog_kthread() unnamed_addr #2 align 16 {
   %1 = load ptr, ptr @curr_clocksource, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %9, label %3
@@ -2529,7 +2529,7 @@ declare dso_local i32 @subsys_system_register(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @current_clocksource_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksource_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %4 = load ptr, ptr @curr_clocksource, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48

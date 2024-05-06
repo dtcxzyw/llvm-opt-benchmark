@@ -167,7 +167,7 @@ define void @Hop_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unn
 
 26:                                               ; preds = %.lr.ph.i.i
   %27 = add nuw nsw i32 %.01116.i.i, 2
-  %28 = mul nsw i32 %27, %27
+  %28 = mul nuw nsw i32 %27, %27
   %.not.i.i = icmp ugt i32 %28, %24
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 

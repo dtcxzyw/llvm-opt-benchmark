@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_set_input_params(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @newreno_set_input_params(ptr nocapture noundef %cc, ptr noundef %params) #0 {
 entry:
   %value = alloca i64, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.end26.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_bind_diagnostic(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @newreno_bind_diagnostic(ptr nocapture noundef %cc, ptr noundef %params) #0 {
 entry:
   %call.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -598,7 +598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @newreno_get_wakeup_deadline(ptr nocapture noundef readonly %cc) #2 {
+define internal range(i64 -1, 1) i64 @newreno_get_wakeup_deadline(ptr nocapture noundef readonly %cc) #2 {
 entry:
   %bytes_in_flight.i = getelementptr inbounds i8, ptr %cc, i64 56
   %0 = load i64, ptr %bytes_in_flight.i, align 8
@@ -839,7 +839,7 @@ newreno_update_diag.exit:                         ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @newreno_on_data_lost(ptr nocapture noundef %cc, ptr nocapture noundef readonly %info) #3 {
+define internal range(i32 0, 2) i32 @newreno_on_data_lost(ptr nocapture noundef %cc, ptr nocapture noundef readonly %info) #3 {
 entry:
   %tx_size = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i64, ptr %tx_size, align 8

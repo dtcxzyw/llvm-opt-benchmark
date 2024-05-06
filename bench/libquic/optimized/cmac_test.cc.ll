@@ -40,7 +40,7 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut1)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -58,8 +58,8 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 
 _ZL21rfc_4493_test_vectorsv.exit:                 ; preds = %lor.lhs.false3.i
   %call7.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.4, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg4, i64 noundef 64, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut4)
-  %tobool8.not.i.not = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i.not, label %return, label %if.end
+  %tobool.not = icmp eq i32 %call7.i, 0
+  br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL21rfc_4493_test_vectorsv.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca [16 x i8], align 16
   %ctx = alloca %"class.std::unique_ptr", align 8
@@ -203,29 +203,29 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.then24:                                        ; preds = %invoke.cont21.us
-  %.pre44 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.pre44, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
+  %7 = load ptr, ptr @stderr, align 8
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
   br label %cleanup
 
 if.then37:                                        ; preds = %invoke.cont34.us
-  %7 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
+  %8 = load ptr, ptr @stderr, align 8
+  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
   br label %cleanup
 
 if.then46:                                        ; preds = %invoke.cont43.us
-  %.pre43 = load ptr, ptr @stderr, align 8
-  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.pre43, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
+  %9 = load ptr, ptr @stderr, align 8
+  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
   br label %cleanup
 
 if.then51:                                        ; preds = %if.end49.us
-  %.pre = load ptr, ptr @stderr, align 8
+  %10 = load ptr, ptr @stderr, align 8
   %conv52 = trunc i64 %5 to i32
-  %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.pre, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #7
+  %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #7
   br label %cleanup
 
 if.then60:                                        ; preds = %invoke.cont57.us
-  %.pre42 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.pre42, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
+  %11 = load ptr, ptr @stderr, align 8
+  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #7
   invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %out, ptr noundef %expected)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -234,19 +234,19 @@ cleanup:                                          ; preds = %for.inc.us, %if.the
   br i1 %cmp.i.not, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond.preheader, %cleanup
-  %retval.046 = phi i32 [ %retval.0, %cleanup ], [ 1, %for.cond.preheader ]
+  %retval.038 = phi i32 [ %retval.0, %cleanup ], [ 1, %for.cond.preheader ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %call8)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %8 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #9
   unreachable
 
 return:                                           ; preds = %if.then.i, %cleanup, %if.then4, %if.then
-  %retval.1 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.0, %cleanup ], [ %retval.046, %if.then.i ]
+  %retval.1 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.0, %cleanup ], [ %retval.038, %if.then.i ]
   ret i32 %retval.1
 }
 

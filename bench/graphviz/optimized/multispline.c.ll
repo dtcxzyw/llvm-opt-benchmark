@@ -2050,13 +2050,13 @@ mkPoly.exit:                                      ; preds = %538
   %662 = getelementptr inbounds %struct.pointf_s, ptr %661, i64 %indvars.iv.i71
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i71, 1
   %663 = getelementptr inbounds %struct.pointf_s, ptr %661, i64 %indvars.iv.next.i79
-  %664 = getelementptr i8, ptr %662, i64 32
+  %664 = getelementptr inbounds i8, ptr %662, i64 32
   %665 = load double, ptr %662, align 8
   %666 = getelementptr inbounds i8, ptr %662, i64 8
   %667 = load double, ptr %666, align 8
   %668 = load <2 x double>, ptr %663, align 8
   %669 = load double, ptr %664, align 8
-  %670 = getelementptr i8, ptr %662, i64 40
+  %670 = getelementptr inbounds i8, ptr %662, i64 40
   %671 = load double, ptr %670, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %672 = load i32, ptr %544, align 8
@@ -2159,7 +2159,7 @@ mkPoly.exit:                                      ; preds = %538
   %730 = load double, ptr %726, align 8
   %731 = getelementptr inbounds i8, ptr %726, i64 8
   %732 = load double, ptr %731, align 8
-  %733 = call fastcc i32 @raySeg(double %675, double %676, double %717, double %718, double %727, double %729, double %730, double %732), !range !7
+  %733 = call fastcc i32 @raySeg(double %675, double %676, double %717, double %718, double %727, double %729, double %730, double %732)
   %.not.i.i.i.i = icmp eq i32 %733, 0
   br i1 %.not.i.i.i.i, label %raySegIntersect.exit.thread.i.i.i, label %raySegIntersect.exit.i.i.i
 
@@ -2322,8 +2322,8 @@ mkCtrlPts.exit.i:                                 ; preds = %.lr.ph107.i.i, %.lr
   %801 = getelementptr inbounds %struct.pointf_s, ptr %799, i64 %800
   %gep168.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv209.i
   %802 = load ptr, ptr %gep168.i, align 8
-  %803 = getelementptr %struct.pointf_s, ptr %802, i64 %indvars.iv215.i
-  %804 = getelementptr i8, ptr %803, i64 16
+  %803 = getelementptr inbounds %struct.pointf_s, ptr %802, i64 %indvars.iv215.i
+  %804 = getelementptr inbounds i8, ptr %803, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %801, ptr noundef nonnull align 8 dereferenceable(16) %804, i64 16, i1 false)
   %indvars.iv.next210.i = add nuw nsw i64 %indvars.iv209.i, 1
   %805 = load i32, ptr %558, align 8
@@ -2709,7 +2709,7 @@ inCone.exit191.thread:                            ; preds = %inCone.exit.thread,
   %100 = load double, ptr %84, align 8
   %101 = load double, ptr %91, align 8
   %102 = load double, ptr %93, align 8
-  %103 = call fastcc i32 @raySeg(double %1, double %2, double %.sroa.060.0, double %.sroa.9.0, double %99, double %100, double %101, double %102), !range !7
+  %103 = call fastcc i32 @raySeg(double %1, double %2, double %.sroa.060.0, double %.sroa.9.0, double %99, double %100, double %101, double %102)
   %.not144 = icmp eq i32 %103, 0
   br i1 %.not144, label %156, label %104
 
@@ -2840,7 +2840,7 @@ define internal void @freeItem(ptr nocapture noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpItem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
+define internal range(i32 -1, 2) i32 @cmpItem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp slt i32 %5, %6
@@ -2926,7 +2926,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @raySeg(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @raySeg(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7) unnamed_addr #0 {
   %9 = tail call i32 @wind(double %0, double %1, double %2, double %3, double %4, double %5) #19
   %10 = tail call i32 @wind(double %0, double %1, double %2, double %3, double %6, double %7) #19
   %11 = icmp eq i32 %9, %10
@@ -2989,7 +2989,7 @@ define internal void @freeIpair(ptr nocapture noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpIpair(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
+define internal range(i32 -1, 2) i32 @cmpIpair(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp slt i32 %5, %6
@@ -3275,4 +3275,3 @@ attributes #24 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"bbox: argument 0"}
 !6 = distinct !{!6, !"bbox"}
-!7 = !{i32 0, i32 2}

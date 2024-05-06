@@ -1911,7 +1911,7 @@ define internal void @i915_pm_complete(ptr nocapture readonly %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_pm_suspend(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_pm_suspend(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

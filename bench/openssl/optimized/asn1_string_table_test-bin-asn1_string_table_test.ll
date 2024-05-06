@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [38 x i8] c"asn1 string table: get NID(%d) failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_string_tbl) #2
   ret i32 1
@@ -21,7 +21,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_string_tbl() #0 {
+define internal range(i32 0, 2) i32 @test_string_tbl() #0 {
 entry:
   %call = tail call ptr @ASN1_STRING_TABLE_get(i32 noundef 12345678) #2
   %call1 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 24, ptr noundef nonnull @.str.2, ptr noundef %call) #2

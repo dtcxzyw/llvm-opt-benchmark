@@ -496,7 +496,7 @@ define internal i32 @ip6frag_obj_hashfn(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ip6frag_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal range(i32 0, 2) i32 @ip6frag_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -824,7 +824,7 @@ define internal i32 @ipv6_frag_rcv(ptr noundef %0) #3 align 16 {
 212:                                              ; preds = %184
   %213 = load i16, ptr %193, align 2
   %214 = lshr i16 %213, 12
-  %215 = trunc i16 %214 to i8
+  %215 = trunc nuw nsw i16 %214 to i8
   %216 = and i8 %215, 3
   %217 = shl nuw nsw i8 1, %216
   %218 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1262,7 +1262,7 @@ declare dso_local i32 @csum_partial(ptr noundef, i32 noundef, i32 noundef) local
 declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -1498,7 +1498,7 @@ declare dso_local ptr @register_net_sysctl_sz(ptr noundef, ptr noundef, ptr noun
 declare dso_local i32 @proc_dointvec_jiffies(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipv6_frags_init_net(ptr noundef %0) #3 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ipv6_frags_init_net(ptr noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1872
   %3 = tail call i32 @fqdir_init(ptr noundef %2, ptr noundef nonnull @ip6_frags, ptr noundef %0) #13
   %4 = icmp slt i32 %3, 0

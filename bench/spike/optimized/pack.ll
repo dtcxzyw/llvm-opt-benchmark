@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32i_packP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_packP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
   %6 = icmp ne i64 %5, 0
@@ -196,7 +196,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.critedge, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32i_packP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_packP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
   %6 = icmp ne i64 %5, 0
@@ -416,7 +416,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32e_packP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_packP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
   %6 = icmp ne i64 %5, 0
@@ -633,7 +633,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %40, %41
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32e_packP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_packP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
   %6 = icmp ne i64 %5, 0

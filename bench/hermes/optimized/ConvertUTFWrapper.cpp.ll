@@ -144,10 +144,10 @@ land.rhs9:                                        ; preds = %land.rhs
   br label %land.end13.sink.split
 
 land.end13.sink.split:                            ; preds = %land.rhs, %land.rhs9
-  %.sink6 = phi i8 [ -1, %land.rhs9 ], [ -2, %land.rhs ]
+  %.sink7 = phi i8 [ -1, %land.rhs9 ], [ -2, %land.rhs ]
   %arrayidx.i = getelementptr inbounds i8, ptr %S.coerce0, i64 1
   %1 = load i8, ptr %arrayidx.i, align 1
-  %cmp5 = icmp eq i8 %1, %.sink6
+  %cmp5 = icmp eq i8 %1, %.sink7
   br label %land.end13
 
 land.end13:                                       ; preds = %land.end13.sink.split, %land.rhs, %entry
@@ -186,8 +186,8 @@ if.then6:                                         ; preds = %if.end3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %3 = and i64 %sub.ptr.sub.i, 8589934590
-  %cmp13.not28 = icmp eq i64 %3, 0
-  br i1 %cmp13.not28, label %for.end, label %for.body.preheader
+  %cmp13.not29 = icmp eq i64 %3, 0
+  br i1 %cmp13.not29, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then6
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
@@ -207,22 +207,22 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %ByteSwapped, align 8
-  %.pre31 = load ptr, ptr %_M_finish.i, align 8
-  %.pre33 = ptrtoint ptr %.pre31 to i64
-  %.pre34 = ptrtoint ptr %.pre to i64
-  %.pre35 = sub i64 %.pre33, %.pre34
+  %.pre32 = load ptr, ptr %_M_finish.i, align 8
+  %.pre34 = ptrtoint ptr %.pre32 to i64
+  %.pre35 = ptrtoint ptr %.pre to i64
+  %.pre36 = sub i64 %.pre34, %.pre35
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then6
-  %sub.ptr.sub.i20.pre-phi = phi i64 [ %.pre35, %for.end.loopexit ], [ %sub.ptr.sub.i, %if.then6 ]
+  %sub.ptr.sub.i21.pre-phi = phi i64 [ %.pre36, %for.end.loopexit ], [ %sub.ptr.sub.i, %if.then6 ]
   %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.then6 ]
   store ptr %7, ptr %Src, align 8
-  %8 = getelementptr i8, ptr %7, i64 %sub.ptr.sub.i20.pre-phi
-  %.pre32 = load i16, ptr %7, align 2
+  %8 = getelementptr i8, ptr %7, i64 %sub.ptr.sub.i21.pre-phi
+  %.pre33 = load i16, ptr %7, align 2
   br label %if.end22
 
 if.end22:                                         ; preds = %for.end, %if.end3
-  %9 = phi i16 [ %.pre32, %for.end ], [ %0, %if.end3 ]
+  %9 = phi i16 [ %.pre33, %for.end ], [ %0, %if.end3 ]
   %10 = phi ptr [ %7, %for.end ], [ %SrcBytes.coerce0, %if.end3 ]
   %SrcEnd.0 = phi ptr [ %8, %for.end ], [ %add.ptr.i, %if.end3 ]
   %cmp25 = icmp eq i16 %9, -257

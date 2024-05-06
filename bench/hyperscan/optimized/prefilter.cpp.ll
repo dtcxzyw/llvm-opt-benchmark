@@ -561,7 +561,7 @@ if.end21:                                         ; preds = %if.else, %_ZN3ue212
   %mode = getelementptr inbounds i8, ptr %this, i64 16
   %33 = load ptr, ptr %mode, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %mode.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i, ptr noundef nonnull align 1 dereferenceable(6) %33, i64 6, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %33, i64 6, i1 false), !noalias !7
   %dotall.i = getelementptr inbounds i8, ptr %mode.i, i64 1
   store i8 1, ptr %dotall.i, align 1, !noalias !7
   call void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr nonnull sret(%"class.std::unique_ptr.21") align 8 %ref.tmp22, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(6) %mode.i)
@@ -758,7 +758,7 @@ entry:
   %mode = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mode, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %mode.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i, ptr noundef nonnull align 1 dereferenceable(6) %0, i64 6, i1 false), !noalias !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6, i1 false), !noalias !10
   %dotall.i = getelementptr inbounds i8, ptr %mode.i, i64 1
   store i8 1, ptr %dotall.i, align 1, !noalias !10
   call void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr nonnull sret(%"class.std::unique_ptr.21") align 8 %ref.tmp, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(6) %mode.i)

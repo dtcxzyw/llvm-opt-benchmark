@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.vtx_data = type { i64, ptr, ptr, ptr, ptr }
 
-@gv_sort_compar = internal thread_local global ptr null, align 8
-@gv_sort_arg = internal thread_local global ptr null, align 8
+@gv_sort_compar = internal thread_local unnamed_addr global ptr null, align 8
+@gv_sort_arg = internal thread_local unnamed_addr global ptr null, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1

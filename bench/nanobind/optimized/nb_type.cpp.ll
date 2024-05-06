@@ -4354,7 +4354,7 @@ define noundef ptr @_ZN8nanobind6detail14nb_type_lookupEPKSt9type_info(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN8nanobind6detail12nb_type_sizeEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef range(i64 0, 4294967296) i64 @_ZN8nanobind6detail12nb_type_sizeEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 888
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -4362,7 +4362,7 @@ define noundef i64 @_ZN8nanobind6detail12nb_type_sizeEP7_object(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN8nanobind6detail13nb_type_alignEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef range(i64 0, 256) i64 @_ZN8nanobind6detail13nb_type_alignEP7_object(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 892
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 255
@@ -6547,7 +6547,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE
   br label %37
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !81
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %16 = icmp ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
@@ -6562,7 +6562,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
   %23 = icmp ult i64 %.015.i.i, 32
-  br i1 %23, label %19, label %24, !llvm.loop !82
+  br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19
   %25 = add i64 %21, 1
@@ -6605,7 +6605,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
   %35 = add i64 %.057.i.i.i.i.i, -1
   %36 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
+  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !82
 
 37:                                               ; preds = %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.thread
   %38 = phi ptr [ %14, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.thread ], [ %27, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i ]
@@ -6613,7 +6613,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %40 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %.thread, !prof !84
+  br i1 %41, label %42, label %.thread, !prof !83
 
 42:                                               ; preds = %37
   %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #26
@@ -6759,13 +6759,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %.not = icmp sgt i16 %29, %32
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !85
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph60, %.lr.ph63
   %.2.lcssa = phi i16 [ 0, %.lr.ph63 ], [ %39, %.lr.ph60 ]
   %.231.lcssa = phi i64 [ %.23156, %.lr.ph63 ], [ %.231, %.lr.ph60 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.2.lcssa)
-  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !86
+  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !85
 
 .lr.ph63:                                         ; preds = %.preheader, %.loopexit
   %34 = load i64, ptr %0, align 8
@@ -6785,7 +6785,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %40 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.231, i32 1
   %41 = load i16, ptr %40, align 4
   %.not32 = icmp sgt i16 %39, %41
-  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !87
+  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.130.lcssa = phi i64 [ %.029.lcssa, %.preheader ], [ %.231.lcssa, %.loopexit ]
@@ -6998,7 +6998,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %42 = getelementptr inbounds i8, ptr %41, i64 4
   %43 = load i16, ptr %42, align 4
   %.not.i.i.i = icmp sgt i16 %40, %43
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %26, !llvm.loop !88
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %26, !llvm.loop !87
 
 ._crit_edge.i.i.i:                                ; preds = %38, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit
   %44 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7058,13 +7058,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %.not = icmp sgt i16 %29, %32
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !89
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph60, %.lr.ph63
   %.2.lcssa = phi i16 [ 0, %.lr.ph63 ], [ %39, %.lr.ph60 ]
   %.231.lcssa = phi i64 [ %.23156, %.lr.ph63 ], [ %.231, %.lr.ph60 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.2.lcssa)
-  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !90
+  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !89
 
 .lr.ph63:                                         ; preds = %.preheader, %.loopexit
   %34 = load i64, ptr %0, align 8
@@ -7084,7 +7084,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %40 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.24", ptr %35, i64 %.231, i32 1
   %41 = load i16, ptr %40, align 4
   %.not32 = icmp sgt i16 %39, %41
-  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !91
+  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.130.lcssa = phi i64 [ %.029.lcssa, %.preheader ], [ %.231.lcssa, %.loopexit ]
@@ -7188,7 +7188,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i16, ptr %95, align 4
   %97 = icmp eq i16 %96, -1
-  br i1 %97, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %72, !llvm.loop !92
+  br i1 %97, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %72, !llvm.loop !91
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit: ; preds = %89, %54
   %.sroa.04.2.i = phi ptr [ %59, %54 ], [ %.sroa.04.1.i, %89 ]
@@ -7392,7 +7392,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %47 = add i16 %.114.i.us, 1
   %48 = add i64 %.0.i.us, 1
   %49 = and i64 %46, %48
-  br label %27, !llvm.loop !93
+  br label %27, !llvm.loop !92
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E22insert_value_on_rehashEmsjOSA_.exit.us: ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
@@ -7471,7 +7471,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %91 = add i16 %.114.i, 1
   %92 = add i64 %.0.i, 1
   %93 = and i64 %90, %92
-  br label %71, !llvm.loop !93
+  br label %71, !llvm.loop !92
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E22insert_value_on_rehashEmsjOSA_.exit: ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
@@ -7552,7 +7552,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
 _ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %131, %.lr.ph.i.i.i.i.i
   %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %132, %101
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !94
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %97, align 8
@@ -7601,7 +7601,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nan
   br label %37
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !81
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %16 = icmp ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
@@ -7616,7 +7616,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
   %23 = icmp ult i64 %.015.i.i, 32
-  br i1 %23, label %19, label %24, !llvm.loop !82
+  br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19
   %25 = add i64 %21, 1
@@ -7659,7 +7659,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   %35 = add i64 %.057.i.i.i.i.i, -1
   %36 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !94
 
 37:                                               ; preds = %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.thread
   %38 = phi ptr [ %14, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.thread ], [ %27, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i ]
@@ -7667,7 +7667,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %40 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %.thread, !prof !84
+  br i1 %41, label %42, label %.thread, !prof !83
 
 42:                                               ; preds = %37
   %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #26
@@ -7820,13 +7820,13 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %46 = getelementptr inbounds i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 4
   %.not = icmp sgt i16 %44, %47
-  br i1 %.not, label %.preheader, label %30, !llvm.loop !96
+  br i1 %.not, label %.preheader, label %30, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph60, %.lr.ph63
   %.2.lcssa = phi i16 [ 0, %.lr.ph63 ], [ %54, %.lr.ph60 ]
   %.231.lcssa = phi i64 [ %.23156, %.lr.ph63 ], [ %.231, %.lr.ph60 ]
   %48 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.2.lcssa)
-  br i1 %48, label %.lr.ph63, label %._crit_edge, !llvm.loop !97
+  br i1 %48, label %.lr.ph63, label %._crit_edge, !llvm.loop !96
 
 .lr.ph63:                                         ; preds = %.preheader, %.loopexit
   %49 = load i64, ptr %0, align 8
@@ -7846,7 +7846,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %55 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.24", ptr %50, i64 %.231, i32 1
   %56 = load i16, ptr %55, align 4
   %.not32 = icmp sgt i16 %54, %56
-  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !98
+  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.130.lcssa = phi i64 [ %.029.lcssa, %.preheader ], [ %.231.lcssa, %.loopexit ]
@@ -7950,7 +7950,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %110 = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load i16, ptr %110, align 4
   %112 = icmp eq i16 %111, -1
-  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !99
+  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !98
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit: ; preds = %104, %69
   %.sroa.06.2.i = phi ptr [ %74, %69 ], [ %.sroa.06.1.i, %104 ]
@@ -8154,7 +8154,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %46 = add i16 %.114.i.us, 1
   %47 = add i64 %.0.i.us, 1
   %48 = and i64 %45, %47
-  br label %26, !llvm.loop !100
+  br label %26, !llvm.loop !99
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22insert_value_on_rehashEmsjOSA_.exit.us: ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
@@ -8242,7 +8242,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %91 = add i16 %.114.i, 1
   %92 = add i64 %.0.i, 1
   %93 = and i64 %90, %92
-  br label %71, !llvm.loop !100
+  br label %71, !llvm.loop !99
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22insert_value_on_rehashEmsjOSA_.exit: ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
@@ -8323,7 +8323,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
 _ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %131, %.lr.ph.i.i.i.i.i
   %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %132, %101
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !94
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %97, align 8
@@ -8372,7 +8372,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nan
   br label %37
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !81
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %16 = icmp ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
@@ -8387,7 +8387,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
   %23 = icmp ult i64 %.015.i.i, 32
-  br i1 %23, label %19, label %24, !llvm.loop !82
+  br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19
   %25 = add i64 %21, 1
@@ -8430,7 +8430,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   %35 = add i64 %.057.i.i.i.i.i, -1
   %36 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !94
 
 37:                                               ; preds = %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.thread
   %38 = phi ptr [ %14, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.thread ], [ %27, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_S_check_init_lenEmRKSD_.exit.i ]
@@ -8438,7 +8438,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %40 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %.thread, !prof !84
+  br i1 %41, label %42, label %.thread, !prof !83
 
 42:                                               ; preds = %37
   %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #26
@@ -8576,13 +8576,13 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %46 = getelementptr inbounds i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 4
   %.not = icmp sgt i16 %44, %47
-  br i1 %.not, label %.preheader, label %30, !llvm.loop !101
+  br i1 %.not, label %.preheader, label %30, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph60, %.lr.ph63
   %.2.lcssa = phi i16 [ 0, %.lr.ph63 ], [ %54, %.lr.ph60 ]
   %.231.lcssa = phi i64 [ %.23156, %.lr.ph63 ], [ %.231, %.lr.ph60 ]
   %48 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.2.lcssa)
-  br i1 %48, label %.lr.ph63, label %._crit_edge, !llvm.loop !102
+  br i1 %48, label %.lr.ph63, label %._crit_edge, !llvm.loop !101
 
 .lr.ph63:                                         ; preds = %.preheader, %.loopexit
   %49 = load i64, ptr %0, align 8
@@ -8602,7 +8602,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %55 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.24", ptr %50, i64 %.231, i32 1
   %56 = load i16, ptr %55, align 4
   %.not32 = icmp sgt i16 %54, %56
-  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !103
+  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.130.lcssa = phi i64 [ %.029.lcssa, %.preheader ], [ %.231.lcssa, %.loopexit ]
@@ -8706,7 +8706,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %110 = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load i16, ptr %110, align 4
   %112 = icmp eq i16 %111, -1
-  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !99
+  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !98
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit: ; preds = %104, %69
   %.sroa.04.2.i = phi ptr [ %74, %69 ], [ %.sroa.04.1.i, %104 ]
@@ -8789,13 +8789,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i16, ptr %31, align 4
   %.not = icmp sgt i16 %29, %32
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !104
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph60, %.lr.ph63
   %.2.lcssa = phi i16 [ 0, %.lr.ph63 ], [ %39, %.lr.ph60 ]
   %.231.lcssa = phi i64 [ %.23156, %.lr.ph63 ], [ %.231, %.lr.ph60 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.2.lcssa)
-  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !105
+  br i1 %33, label %.lr.ph63, label %._crit_edge, !llvm.loop !104
 
 .lr.ph63:                                         ; preds = %.preheader, %.loopexit
   %34 = load i64, ptr %0, align 8
@@ -8815,7 +8815,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %40 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.231, i32 1
   %41 = load i16, ptr %40, align 4
   %.not32 = icmp sgt i16 %39, %41
-  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !106
+  br i1 %.not32, label %.loopexit, label %.lr.ph60, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.130.lcssa = phi i64 [ %.029.lcssa, %.preheader ], [ %.231.lcssa, %.loopexit ]
@@ -9086,10 +9086,10 @@ attributes #30 = { builtin allocsize(0) }
 !78 = distinct !{!78, !17}
 !79 = distinct !{!79, !17}
 !80 = distinct !{!80, !17}
-!81 = !{i64 0, i64 65}
+!81 = distinct !{!81, !17}
 !82 = distinct !{!82, !17}
-!83 = distinct !{!83, !17}
-!84 = !{!"branch_weights", i32 1, i32 1048575}
+!83 = !{!"branch_weights", i32 1, i32 1048575}
+!84 = distinct !{!84, !17}
 !85 = distinct !{!85, !17}
 !86 = distinct !{!86, !17}
 !87 = distinct !{!87, !17}
@@ -9111,4 +9111,3 @@ attributes #30 = { builtin allocsize(0) }
 !103 = distinct !{!103, !17}
 !104 = distinct !{!104, !17}
 !105 = distinct !{!105, !17}
-!106 = distinct !{!106, !17}

@@ -56,7 +56,7 @@ if.end11:                                         ; preds = %if.then8, %if.end
 declare void @ossl_algorithm_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_method_construct_precondition(ptr noundef %provider, i32 noundef %operation_id, i32 noundef %no_store, ptr nocapture noundef readonly %cbdata, ptr noundef %result) #0 {
+define internal range(i32 0, 2) i32 @ossl_method_construct_precondition(ptr noundef %provider, i32 noundef %operation_id, i32 noundef %no_store, ptr nocapture noundef readonly %cbdata, ptr noundef %result) #0 {
 entry:
   %cmp.not = icmp eq ptr %result, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_method_construct_postcondition(ptr noundef %provider, i32 noundef %operation_id, i32 noundef %no_store, ptr nocapture noundef readonly %cbdata, ptr noundef writeonly %result) #0 {
+define internal range(i32 0, 2) i32 @ossl_method_construct_postcondition(ptr noundef %provider, i32 noundef %operation_id, i32 noundef %no_store, ptr nocapture noundef readonly %cbdata, ptr noundef writeonly %result) #0 {
 entry:
   %cmp.not = icmp eq ptr %result, null
   br i1 %cmp.not, label %if.then, label %if.end

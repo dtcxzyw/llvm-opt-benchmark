@@ -62,7 +62,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10pu
 30:                                               ; preds = %7
   %31 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.llvm.5646377590840740190"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190.exit" unwind label %43
 
 32:                                               ; preds = %2, %.noexc, %18, %25
@@ -295,7 +295,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
 30:                                               ; preds = %7
   %31 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.llvm.5646377590840740190"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190.exit" unwind label %44
 
 32:                                               ; preds = %2, %.noexc, %18, %25
@@ -412,7 +412,7 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17hf56
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit"
 
 20:                                               ; preds = %15
-  %21 = trunc i64 %3 to i32
+  %21 = trunc nuw nsw i64 %3 to i32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit": ; preds = %13, %17, %20
@@ -424,7 +424,7 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17hf56
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.03, ptr %.sroa.5.0..sroa_idx, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = trunc i64 %6 to i8
+  %24 = trunc nuw nsw i64 %6 to i8
   store i8 %24, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %.0, ptr %25, align 4
@@ -450,11 +450,11 @@ define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 12
-  %.03.i10 = load i32, ptr %13, align 4, !noalias !44, !noundef !4
+  %.03.i = load i32, ptr %13, align 4, !noalias !44, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !47
   %14 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %14)
-  %15 = zext i32 %.03.i10 to i64
+  %15 = zext i32 %.03.i to i64
   %16 = add nuw nsw i64 %15, 15
   %17 = lshr i64 %16, 4
   %18 = add nuw nsw i64 %17, 1
@@ -484,7 +484,7 @@ define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds i8, ptr %10, i64 8
-  %.03.i = load i32, ptr %28, align 4, !noalias !44, !noundef !4
+  %.03.i10 = load i32, ptr %28, align 4, !noalias !44, !noundef !4
   %29 = load i64, ptr %10, align 8, !noundef !4
   %30 = add i64 %29, -1
   store i64 %30, ptr %10, align 8
@@ -496,7 +496,7 @@ define hidden void @"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20
 
 33:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !57
-  %34 = zext i32 %.03.i to i64
+  %34 = zext i32 %.03.i10 to i64
   %35 = add nuw nsw i64 %34, 15
   %36 = lshr i64 %35, 4
   %37 = add nuw nsw i64 %36, 1

@@ -172,18 +172,18 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.else:                                          ; preds = %if.end5
   %2 = load ptr, ptr %this, align 8
-  %cmp2.i9 = icmp eq ptr %2, null
-  br i1 %cmp2.i9, label %if.then.i10, label %if.end9
+  %cmp2.i10 = icmp eq ptr %2, null
+  br i1 %cmp2.i10, label %if.then.i11, label %if.end9
 
-if.then.i10:                                      ; preds = %if.else
-  %vtable.i11 = load ptr, ptr @_ZN2EA6EAMainL14gPrintfChannelE, align 8
-  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 16
-  %3 = load ptr, ptr %vfn.i12, align 8
+if.then.i11:                                      ; preds = %if.else
+  %vtable.i12 = load ptr, ptr @_ZN2EA6EAMainL14gPrintfChannelE, align 8
+  %vfn.i13 = getelementptr inbounds i8, ptr %vtable.i12, i64 16
+  %3 = load ptr, ptr %vfn.i13, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2EA6EAMainL14gPrintfChannelE)
   store ptr @_ZN2EA6EAMainL14gPrintfChannelE, ptr %this, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then.i10, %if.else, %if.then.i, %land.lhs.true.i
+if.end9:                                          ; preds = %if.then.i11, %if.else, %if.then.i, %land.lhs.true.i
   ret void
 }
 

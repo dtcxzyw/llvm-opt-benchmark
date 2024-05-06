@@ -128,7 +128,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @_PyMp_sem_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @multiprocessing_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @multiprocessing_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @_PyMp_SemLockType_spec, ptr noundef null) #3
   %cmp = icmp eq ptr %call, null

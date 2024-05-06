@@ -518,7 +518,7 @@ declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #1
 declare void @policies_print(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_cert_stuff(ptr noundef %ctx, ptr noundef %cert_file, ptr noundef %key_file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @set_cert_stuff(ptr noundef %ctx, ptr noundef %cert_file, ptr noundef %key_file) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cert_file, null
   br i1 %cmp.not, label %return, label %if.then
@@ -573,7 +573,7 @@ declare i32 @SSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @SSL_CTX_check_private_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_cert_key_stuff(ptr noundef %ctx, ptr noundef %cert, ptr noundef %key, ptr noundef %chain, i32 noundef %build_chain) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @set_cert_key_stuff(ptr noundef %ctx, ptr noundef %cert, ptr noundef %key, ptr noundef %chain, i32 noundef %build_chain) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %chain, null
   %cmp = icmp eq ptr %cert, null
@@ -1263,7 +1263,7 @@ declare i32 @EVP_PKEY_get_utf8_string_param(ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @bio_dump_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @bio_dump_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_get_callback_arg(ptr noundef %bio) #6
   %cmp = icmp eq ptr %call, null
@@ -1689,7 +1689,7 @@ lookup.exit:                                      ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   store i64 0, ptr %length, align 8
@@ -1806,7 +1806,7 @@ declare zeroext i16 @BIO_ADDR_rawport(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result = alloca [64 x i8], align 16
   %resultlength = alloca i64, align 8
@@ -1814,7 +1814,7 @@ entry:
   br i1 %.b, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result, ptr noundef nonnull %resultlength), !range !14
+  %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result, ptr noundef nonnull %resultlength)
   %tobool1.not = icmp ne i32 %call, 0
   %0 = load i64, ptr %resultlength, align 8
   %cmp = icmp eq i64 %0, %cookie_len
@@ -1835,11 +1835,11 @@ return:                                           ; preds = %land.lhs.true3, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr nocapture noundef writeonly %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr nocapture noundef writeonly %cookie_len) local_unnamed_addr #0 {
 entry:
   %temp = alloca i64, align 8
   store i64 0, ptr %temp, align 8
-  %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef nonnull %temp), !range !14
+  %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef nonnull %temp)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1854,7 +1854,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result.i = alloca [64 x i8], align 16
   %resultlength.i = alloca i64, align 8
@@ -1865,7 +1865,7 @@ entry:
   br i1 %.b.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call.i = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result.i, ptr noundef nonnull %resultlength.i), !range !14
+  %call.i = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result.i, ptr noundef nonnull %resultlength.i)
   %tobool1.not.i = icmp ne i32 %call.i, 0
   %0 = load i64, ptr %resultlength.i, align 8
   %cmp.i = icmp eq i64 %0, %conv
@@ -1873,7 +1873,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.end.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %bcmp.i = call i32 @bcmp(ptr nonnull %result.i, ptr %cookie, i64 %conv)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %result.i, ptr readonly %cookie, i64 %conv)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %verify_stateless_cookie_callback.exit, label %if.end.i
 
@@ -1897,7 +1897,7 @@ entry:
 declare void @SSL_CTX_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_cert_cb(ptr noundef %ssl, ptr noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @set_cert_cb(ptr noundef %ssl, ptr noundef readonly %arg) #0 {
 entry:
   tail call void @SSL_certs_clear(ptr noundef %ssl) #6
   %cmp = icmp eq ptr %arg, null
@@ -1908,7 +1908,7 @@ while.cond:                                       ; preds = %entry, %while.cond
   %next = getelementptr inbounds i8, ptr %exc.0, i64 72
   %0 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %0, null
-  br i1 %cmp1.not, label %while.body5, label %while.cond, !llvm.loop !15
+  br i1 %cmp1.not, label %while.body5, label %while.cond, !llvm.loop !14
 
 while.body5:                                      ; preds = %while.cond, %if.end37
   %exc.124 = phi ptr [ %18, %if.end37 ], [ %exc.0, %while.cond ]
@@ -1945,7 +1945,7 @@ for.body.i:                                       ; preds = %for.body.i, %while.
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pp.05.i, i64 16
   %11 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.body.i
   %12 = load ptr, ptr @bio_err, align 8
@@ -2009,7 +2009,7 @@ if.end37:                                         ; preds = %if.then22, %if.then
   %prev = getelementptr inbounds i8, ptr %exc.124, i64 80
   %18 = load ptr, ptr %prev, align 8
   %cmp4.not = icmp eq ptr %18, null
-  br i1 %cmp4.not, label %return, label %while.body5, !llvm.loop !17
+  br i1 %cmp4.not, label %return, label %while.body5, !llvm.loop !16
 
 return:                                           ; preds = %if.end37, %if.then29, %if.then22, %if.then12, %lor.lhs.false, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end37 ], [ 0, %if.then29 ], [ 0, %if.then22 ], [ 0, %if.then12 ], [ 0, %lor.lhs.false ]
@@ -2048,7 +2048,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @load_excert(ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @load_excert(ptr nocapture noundef %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -2151,7 +2151,7 @@ for.inc:                                          ; preds = %if.end27, %if.then2
   %next36 = getelementptr inbounds i8, ptr %exc.026, i64 72
   %16 = load ptr, ptr %next36, align 8
   %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !17
 
 return:                                           ; preds = %for.inc, %if.then29, %if.end23, %if.end8, %entry, %if.then7, %ssl_excert_free.exit
   %retval.0 = phi i32 [ 1, %ssl_excert_free.exit ], [ 0, %if.then7 ], [ 1, %entry ], [ 1, %for.inc ], [ 0, %if.then29 ], [ 0, %if.end23 ], [ 0, %if.end8 ]
@@ -2165,7 +2165,7 @@ declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr no
 declare i32 @load_certs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @args_excert(i32 noundef %opt, ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @args_excert(i32 noundef %opt, ptr nocapture noundef %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -2376,7 +2376,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %incdec.ptr19.i = getelementptr inbounds i8, ptr %cp.012.i, i64 2
   store i8 %7, ptr %incdec.ptr.i, align 1
   %cmp11.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp11.not.i, label %if.end19, label %while.body.i, !llvm.loop !19
+  br i1 %cmp11.not.i, label %if.end19, label %while.body.i, !llvm.loop !18
 
 if.else17:                                        ; preds = %if.then11
   %mul.i = shl nuw nsw i64 %0, 1
@@ -2406,7 +2406,7 @@ while.body.i15:                                   ; preds = %if.else17, %while.b
   %incdec.ptr19.i26 = getelementptr inbounds i8, ptr %cp.012.i18, i64 2
   store i8 %13, ptr %incdec.ptr.i22, align 1
   %cmp11.not.i27 = icmp eq i64 %dec.i19, 0
-  br i1 %cmp11.not.i27, label %if.end19, label %while.body.i15, !llvm.loop !19
+  br i1 %cmp11.not.i27, label %if.end19, label %while.body.i15, !llvm.loop !18
 
 if.end19:                                         ; preds = %while.body.i15, %while.body.i, %if.else17
   %cp.0.lcssa.i.sink = phi ptr [ %call10.i14, %if.else17 ], [ %incdec.ptr19.i, %while.body.i ], [ %incdec.ptr19.i26, %while.body.i15 ]
@@ -2546,7 +2546,7 @@ for.inc26.i:                                      ; preds = %if.else18.i, %if.th
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 2
   store ptr %add.ptr.i, ptr %rlist.i, align 8
   %cmp4.i = icmp ult i64 %add.i, %call2.i
-  br i1 %cmp4.i, label %for.body.i, label %for.end27.i, !llvm.loop !20
+  br i1 %cmp4.i, label %for.body.i, label %for.end27.i, !llvm.loop !19
 
 for.end27.i:                                      ; preds = %for.inc26.i, %cond.end.i
   %14 = load ptr, ptr @bio_err, align 8
@@ -2739,7 +2739,7 @@ declare ptr @SSL_get_current_cipher(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @config_ctx(ptr noundef %cctx, ptr noundef %str, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @config_ctx(ptr noundef %cctx, ptr noundef %str, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef %cctx, ptr noundef %ctx) #6
   %call111 = tail call i32 @OPENSSL_sk_num(ptr noundef %str) #6
@@ -2750,7 +2750,7 @@ for.cond:                                         ; preds = %for.body
   %add10 = add nuw nsw i32 %i.013, 2
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %str) #6
   %cmp = icmp slt i32 %add10, %call1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.013 = phi i32 [ %add10, %for.cond ], [ 0, %entry ]
@@ -2813,7 +2813,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %inc.i = add nuw nsw i32 %i.06.i, 1
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %crls) #6
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %add_crls_store.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %add_crls_store.exit, !llvm.loop !21
 
 add_crls_store.exit:                              ; preds = %for.body.i, %entry
   %tobool.not = icmp eq i32 %crl_download, 0
@@ -2832,7 +2832,7 @@ declare ptr @SSL_CTX_get_cert_store(ptr noundef) local_unnamed_addr #1
 declare void @store_setup_crl_download(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl_load_stores(ptr noundef %ctx, ptr noundef %vfyCApath, ptr noundef %vfyCAfile, ptr noundef %vfyCAstore, ptr noundef %chCApath, ptr noundef %chCAfile, ptr noundef %chCAstore, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_load_stores(ptr noundef %ctx, ptr noundef %vfyCApath, ptr noundef %vfyCAfile, ptr noundef %vfyCAstore, ptr noundef %chCApath, ptr noundef %chCAfile, ptr noundef %chCAstore, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %vfyCApath, null
   %cmp1 = icmp ne ptr %vfyCAfile, null
@@ -2882,7 +2882,7 @@ for.body.i:                                       ; preds = %if.end21, %for.body
   %inc.i = add nuw nsw i32 %i.06.i, 1
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %crls) #6
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %add_crls_store.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %add_crls_store.exit, !llvm.loop !21
 
 add_crls_store.exit:                              ; preds = %for.body.i, %if.end21
   %call23 = tail call i64 @SSL_CTX_ctrl(ptr noundef %ctx, i32 noundef 106, i64 noundef 1, ptr noundef nonnull %call) #6
@@ -3241,7 +3241,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare void @SSL_CTX_set0_security_ex_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_keylog_file(ptr noundef %ctx, ptr noundef %keylog_file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @set_keylog_file(ptr noundef %ctx, ptr noundef %keylog_file) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @bio_keylog, align 8
   tail call void @BIO_free_all(ptr noundef %0) #6
@@ -3351,7 +3351,7 @@ for.body:                                         ; preds = %if.end9, %for.body
   %inc = add nuw nsw i32 %i.014, 1
   %call12 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #6
   %cmp13 = icmp slt i32 %inc, %call12
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %if.end9, %if.then, %if.then7
   ret void
@@ -3480,7 +3480,7 @@ attributes #7 = { noreturn nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -3489,4 +3489,3 @@ attributes #7 = { noreturn nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

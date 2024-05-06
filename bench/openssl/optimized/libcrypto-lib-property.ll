@@ -67,7 +67,7 @@ declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_global_properties_no_mirrored(ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_global_properties_no_mirrored(ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 14) #6
   %cmp.not = icmp eq ptr %call, null
@@ -267,7 +267,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_add(ptr noundef %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %properties, ptr noundef %method, ptr noundef %method_up_ref, ptr noundef %method_destruct) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_add(ptr noundef %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %properties, ptr noundef %method, ptr noundef %method_up_ref, ptr noundef %method_destruct) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %nid, 1
   %cmp1 = icmp eq ptr %method, null
@@ -542,7 +542,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_remove(ptr noundef %store, i32 noundef %nid, ptr noundef readnone %method) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_remove(ptr noundef %store, i32 noundef %nid, ptr noundef readnone %method) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %nid, 1
   %cmp1 = icmp eq ptr %method, null
@@ -630,7 +630,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_remove_all_provided(ptr noundef %store, ptr noundef %prov) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_remove_all_provided(ptr noundef %store, ptr noundef %prov) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.alg_cleanup_by_provider_data_st, align 8
   %cmp.not.i = icmp eq ptr %store, null
@@ -775,7 +775,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_fetch(ptr noundef readonly %store, i32 noundef %nid, ptr noundef %prop_query, ptr noundef %prov_rw, ptr noundef writeonly %method) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_fetch(ptr noundef readonly %store, i32 noundef %nid, ptr noundef %prop_query, ptr noundef %prov_rw, ptr noundef writeonly %method) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prov_rw, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -1089,7 +1089,7 @@ declare i32 @ossl_property_has_optional(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_property_match_count(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_cache_flush_all(ptr noundef %store) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_cache_flush_all(ptr noundef %store) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %store, null
   br i1 %cmp.not.i, label %return, label %ossl_property_write_lock.exit
@@ -1128,7 +1128,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_cache_get(ptr noundef readonly %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %prop_query, ptr nocapture noundef writeonly %method) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_cache_get(ptr noundef readonly %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %prop_query, ptr nocapture noundef writeonly %method) local_unnamed_addr #0 {
 entry:
   %elem = alloca %struct.QUERY, align 8
   %cmp = icmp slt i32 %nid, 1
@@ -1189,7 +1189,7 @@ return:                                           ; preds = %if.end, %entry, %os
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_method_store_cache_set(ptr noundef %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %prop_query, ptr noundef %method, ptr noundef %method_up_ref, ptr noundef %method_destruct) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_method_store_cache_set(ptr noundef %store, ptr noundef %prov, i32 noundef %nid, ptr noundef %prop_query, ptr noundef %method, ptr noundef %method_up_ref, ptr noundef %method_destruct) local_unnamed_addr #0 {
 entry:
   %state.i = alloca %struct.IMPL_CACHE_FLUSH, align 8
   %elem = alloca %struct.QUERY, align 8

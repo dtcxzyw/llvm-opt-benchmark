@@ -66,7 +66,7 @@ define internal fastcc void @SetHintBits(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 20
@@ -443,10 +443,10 @@ declare i32 @HeapTupleHeaderGetCmax(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @HeapTupleSatisfiesVacuum(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  %5 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4), !range !5
+  %5 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %10
 
@@ -462,7 +462,7 @@ define dso_local i32 @HeapTupleSatisfiesVacuum(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   store i32 0, ptr %2, align 4
@@ -1941,7 +1941,7 @@ HeapTupleSatisfiesHistoricMVCC.exit:              ; preds = %460, %471, %476, %4
 548:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %549 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4), !range !5
+  %549 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %4)
   %550 = icmp eq i32 %549, 2
   br i1 %550, label %551, label %HeapTupleSatisfiesNonVacuumable.exit
 
@@ -2004,4 +2004,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 5}

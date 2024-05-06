@@ -289,17 +289,17 @@ entry:
   %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
   %50 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %49, <2 x float> %30, <2 x float> %47)
   %51 = fsub <2 x float> %41, %50
-  %sub14.i70 = fsub float %add14.i.i, %24
-  %retval.sroa.3.12.vec.insert.i73 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i70, i64 0
+  %sub14.i71 = fsub float %add14.i.i, %24
+  %retval.sroa.3.12.vec.insert.i74 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i71, i64 0
   store <2 x float> %51, ptr %aabbMin, align 4
   %ref.tmp108.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMin, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i73, ptr %ref.tmp108.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i74, ptr %ref.tmp108.sroa.2.0..sroa_idx, align 4
   %52 = fadd <2 x float> %50, %41
-  %add14.i82 = fadd float %24, %add14.i.i
-  %retval.sroa.3.12.vec.insert.i85 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i82, i64 0
+  %add14.i83 = fadd float %24, %add14.i.i
+  %retval.sroa.3.12.vec.insert.i86 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i83, i64 0
   store <2 x float> %52, ptr %aabbMax, align 4
   %ref.tmp111.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMax, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i85, ptr %ref.tmp111.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i86, ptr %ref.tmp111.sroa.2.0..sroa_idx, align 4
   ret void
 }
 

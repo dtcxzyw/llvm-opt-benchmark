@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %sa, align 2
   %cmp = icmp eq i16 %0, 10
@@ -28,7 +28,7 @@ if.end:                                           ; preds = %if.then
   %3 = and i8 %2, -64
   %conv4.masked = zext i8 %3 to i32
   %and12 = or disjoint i32 %shl, %conv4.masked
-  %trunc = trunc i32 %and12 to i16
+  %trunc = trunc nuw i32 %and12 to i16
   switch i16 %trunc, label %if.end64 [
     i16 -384, label %return
     i16 -320, label %sw.bb13
@@ -68,7 +68,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_if2ip(i32 noundef %af, i32 noundef %remote_scope, i32 noundef %local_scope_id, ptr noundef %interf, ptr noundef %buf, i32 noundef %buf_size) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %af, i32 noundef %remote_scope, i32 noundef %local_scope_id, ptr noundef %interf, ptr noundef %buf, i32 noundef %buf_size) local_unnamed_addr #1 {
 entry:
   %head = alloca ptr, align 8
   %scope = alloca [12 x i8], align 1
@@ -141,7 +141,7 @@ if.end.i.us:                                      ; preds = %if.then.i.us
   %8 = and i8 %7, -64
   %conv4.masked.i.us = zext i8 %8 to i32
   %and12.i.us = or disjoint i32 %shl.i.us, %conv4.masked.i.us
-  %trunc.i.us = trunc i32 %and12.i.us to i16
+  %trunc.i.us = trunc nuw i32 %and12.i.us to i16
   switch i16 %trunc.i.us, label %if.end64.i.us [
     i16 -384, label %Curl_ipv6_scope.exit.us
     i16 -320, label %sw.bb13.i.us

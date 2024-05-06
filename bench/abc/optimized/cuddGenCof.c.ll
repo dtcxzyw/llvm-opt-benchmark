@@ -1238,10 +1238,10 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
   br i1 %25, label %.lr.ph44, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %22, %15
-  %26 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7), !range !10
+  %26 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7)
   %27 = load i32, ptr %14, align 8
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %15, label %29, !llvm.loop !11
+  br i1 %28, label %15, label %29, !llvm.loop !10
 
 29:                                               ; preds = %._crit_edge
   %30 = icmp eq i32 %26, 0
@@ -1286,7 +1286,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next50, %50
-  br i1 %51, label %35, label %.loopexit, !llvm.loop !12
+  br i1 %51, label %35, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %48, %.preheader, %34, %12
   %.037 = phi ptr [ null, %12 ], [ null, %34 ], [ %7, %.preheader ], [ %7, %48 ]
@@ -1297,7 +1297,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -1333,7 +1333,7 @@ define internal fastcc noundef i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr n
   store i32 %29, ptr %27, align 4
   %30 = xor i64 %24, 1
   %31 = inttoptr i64 %30 to ptr
-  %32 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %31, ptr noundef %2), !range !10
+  %32 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %31, ptr noundef %2)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.sink.split, label %34
 
@@ -1433,7 +1433,7 @@ define ptr @Cudd_addRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %37 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %38 = load i32, ptr %35, align 8
   %39 = icmp eq i32 %38, 1
-  br i1 %39, label %36, label %40, !llvm.loop !13
+  br i1 %39, label %36, label %40, !llvm.loop !12
 
 40:                                               ; preds = %36
   %41 = tail call i32 @Cudd_DagSize(ptr noundef %1) #8
@@ -1734,7 +1734,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %37) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph47, !llvm.loop !14
+  br i1 %exitcond.not, label %.thread, label %.lr.ph47, !llvm.loop !13
 
 38:                                               ; preds = %.lr.ph
   %39 = ptrtoint ptr %29 to i64
@@ -1755,7 +1755,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   %indvars.iv.next55 = add nuw nsw i32 %indvars.iv54, 1
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %38
   %.pre58 = load i32, ptr %16, align 8
@@ -1766,7 +1766,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %.pre = phi i32 [ %50, %._crit_edge ], [ %.pre.pre, %.thread..backedge_crit_edge ]
   store i32 0, ptr %16, align 8
   %54 = icmp sgt i32 %.pre, 0
-  br i1 %54, label %.lr.ph.preheader, label %.split, !llvm.loop !16
+  br i1 %54, label %.lr.ph.preheader, label %.split, !llvm.loop !15
 
 .thread:                                          ; preds = %.lr.ph47, %.preheader
   %55 = load i32, ptr %16, align 8
@@ -1936,7 +1936,7 @@ define ptr @Cudd_bddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = tail call ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %5, label %9, !llvm.loop !18
+  br i1 %8, label %5, label %9, !llvm.loop !17
 
 9:                                                ; preds = %5
   ret ptr %6
@@ -2006,7 +2006,7 @@ define ptr @Cudd_bddSqueeze(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %6 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %5, label %9, !llvm.loop !19
+  br i1 %8, label %5, label %9, !llvm.loop !18
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %6, null
@@ -2506,7 +2506,7 @@ define ptr @Cudd_bddMinimize(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %35 = tail call ptr @cuddBddLICompaction(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24)
   %36 = load i32, ptr %33, align 8
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %34, label %Cudd_bddLICompaction.exit, !llvm.loop !18
+  br i1 %37, label %34, label %Cudd_bddLICompaction.exit, !llvm.loop !17
 
 Cudd_bddLICompaction.exit:                        ; preds = %34
   %38 = icmp eq ptr %35, null
@@ -2632,7 +2632,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @MarkCacheCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @MarkCacheCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, %4
@@ -3136,13 +3136,12 @@ attributes #9 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

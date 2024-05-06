@@ -125,7 +125,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_namemap_empty(ptr noundef readonly %namemap) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_namemap_empty(ptr noundef readonly %namemap) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %namemap, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -143,7 +143,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_namemap_doall_names(ptr noundef readonly %namemap, i32 noundef %number, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly %namemap, i32 noundef %number, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cbdata = alloca %struct.doall_names_data_st, align 8
   store i32 %number, ptr %cbdata, align 8
@@ -458,7 +458,7 @@ entry:
   store i64 %idx, ptr %data, align 8
   %name = getelementptr inbounds i8, ptr %data, i64 8
   store ptr null, ptr %name, align 8
-  %call = call i32 @ossl_namemap_doall_names(ptr noundef %namemap, i32 noundef %number, ptr noundef nonnull @do_num2name, ptr noundef nonnull %data), !range !7
+  %call = call i32 @ossl_namemap_doall_names(ptr noundef %namemap, i32 noundef %number, ptr noundef nonnull @do_num2name, ptr noundef nonnull %data)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr %name, align 8
   %retval.0 = select i1 %tobool.not, ptr null, ptr %0
@@ -715,7 +715,7 @@ for.inc:                                          ; preds = %namemap_name2num.ex
   %number.addr.1 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
   %4 = load i8, ptr %q.060, align 1
   %cmp14.not = icmp eq i8 %4, 0
-  br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !8
+  br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !7
 
 for.body43:                                       ; preds = %for.cond40.preheader, %for.inc58
   %number.addr.246 = phi i32 [ %number.addr.3, %for.inc58 ], [ %number.addr.1, %for.cond40.preheader ]
@@ -740,7 +740,7 @@ if.then55:                                        ; preds = %if.else52
 for.inc58:                                        ; preds = %for.body43, %if.else52
   %number.addr.3 = phi i32 [ %number.addr.246, %if.else52 ], [ %call48, %for.body43 ]
   %cmp41 = icmp ult ptr %add.ptr47, %q.060
-  br i1 %cmp41, label %for.body43, label %end, !llvm.loop !9
+  br i1 %cmp41, label %for.body43, label %end, !llvm.loop !8
 
 end:                                              ; preds = %for.inc58, %for.cond.preheader, %for.cond40.preheader, %if.then55, %if.then37, %if.then26
   %number.addr.4 = phi i32 [ 0, %if.then26 ], [ 0, %if.then37 ], [ 0, %if.then55 ], [ %number.addr.1, %for.cond40.preheader ], [ %number, %for.cond.preheader ], [ %number.addr.3, %for.inc58 ]
@@ -1027,68 +1027,68 @@ if.then12:                                        ; preds = %ossl_namemap_add_na
   br i1 %cmp14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.then12
-  br i1 %cmp.i36, label %if.then.i89, label %if.end.i75
+  br i1 %cmp.i36, label %if.then.i90, label %if.end.i75
 
-if.then.i89:                                      ; preds = %if.then15
-  %call.i90 = call ptr @ossl_namemap_stored(ptr noundef null)
+if.then.i90:                                      ; preds = %if.then15
+  %call.i91 = call ptr @ossl_namemap_stored(ptr noundef null)
   br label %if.end.i75
 
-if.end.i75:                                       ; preds = %if.then.i89, %if.then15
-  %namemap.addr.0.i76 = phi ptr [ %call.i90, %if.then.i89 ], [ %arg, %if.then15 ]
+if.end.i75:                                       ; preds = %if.then.i90, %if.then15
+  %namemap.addr.0.i76 = phi ptr [ %call.i91, %if.then.i90 ], [ %arg, %if.then15 ]
   %12 = load i8, ptr %txtoid, align 16
-  %cmp2.i78 = icmp eq i8 %12, 0
-  %cmp5.i79 = icmp eq ptr %namemap.addr.0.i76, null
-  %or.cond.i80 = select i1 %cmp2.i78, i1 true, i1 %cmp5.i79
-  br i1 %or.cond.i80, label %if.end20, label %if.end8.i81
+  %cmp2.i79 = icmp eq i8 %12, 0
+  %cmp5.i80 = icmp eq ptr %namemap.addr.0.i76, null
+  %or.cond.i81 = select i1 %cmp2.i79, i1 true, i1 %cmp5.i80
+  br i1 %or.cond.i81, label %if.end20, label %if.end8.i82
 
-if.end8.i81:                                      ; preds = %if.end.i75
-  %lock.i82 = getelementptr inbounds i8, ptr %namemap.addr.0.i76, i64 8
-  %13 = load ptr, ptr %lock.i82, align 8
-  %call9.i83 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #7
-  %tobool.not.i84 = icmp eq i32 %call9.i83, 0
-  br i1 %tobool.not.i84, label %if.end20, label %if.end11.i85
+if.end8.i82:                                      ; preds = %if.end.i75
+  %lock.i83 = getelementptr inbounds i8, ptr %namemap.addr.0.i76, i64 8
+  %13 = load ptr, ptr %lock.i83, align 8
+  %call9.i84 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #7
+  %tobool.not.i85 = icmp eq i32 %call9.i84, 0
+  br i1 %tobool.not.i85, label %if.end20, label %if.end11.i86
 
-if.end11.i85:                                     ; preds = %if.end8.i81
-  %call12.i86 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef nonnull %txtoid)
-  %14 = load ptr, ptr %lock.i82, align 8
-  %call14.i87 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #7
+if.end11.i86:                                     ; preds = %if.end8.i82
+  %call12.i87 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef nonnull %txtoid)
+  %14 = load ptr, ptr %lock.i83, align 8
+  %call14.i88 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #7
   br label %if.end20
 
-if.end20:                                         ; preds = %if.end11.i85, %if.end8.i81, %if.end.i75, %ossl_namemap_add_name.exit73, %if.then12, %if.end
-  %num.1 = phi i32 [ %retval.0.i70, %if.then12 ], [ %retval.0.i70, %ossl_namemap_add_name.exit73 ], [ %num.0, %if.end ], [ %call12.i86, %if.end11.i85 ], [ 0, %if.end.i75 ], [ 0, %if.end8.i81 ]
+if.end20:                                         ; preds = %if.end11.i86, %if.end8.i82, %if.end.i75, %ossl_namemap_add_name.exit73, %if.then12, %if.end
+  %num.1 = phi i32 [ %retval.0.i70, %if.then12 ], [ %retval.0.i70, %ossl_namemap_add_name.exit73 ], [ %num.0, %if.end ], [ %call12.i87, %if.end11.i86 ], [ 0, %if.end.i75 ], [ 0, %if.end8.i82 ]
   %cmp21.not = icmp eq ptr %pem_name, null
   br i1 %cmp21.not, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %cmp.i92 = icmp eq ptr %arg, null
-  br i1 %cmp.i92, label %if.then.i108, label %lor.lhs.false.i96
+  %cmp.i93 = icmp eq ptr %arg, null
+  br i1 %cmp.i93, label %if.then.i109, label %lor.lhs.false.i97
 
-if.then.i108:                                     ; preds = %if.then22
-  %call.i109 = call ptr @ossl_namemap_stored(ptr noundef null)
-  br label %lor.lhs.false.i96
+if.then.i109:                                     ; preds = %if.then22
+  %call.i110 = call ptr @ossl_namemap_stored(ptr noundef null)
+  br label %lor.lhs.false.i97
 
-lor.lhs.false.i96:                                ; preds = %if.then22, %if.then.i108
-  %namemap.addr.0.i94 = phi ptr [ %call.i109, %if.then.i108 ], [ %arg, %if.then22 ]
+lor.lhs.false.i97:                                ; preds = %if.then22, %if.then.i109
+  %namemap.addr.0.i95 = phi ptr [ %call.i110, %if.then.i109 ], [ %arg, %if.then22 ]
   %15 = load i8, ptr %pem_name, align 1
-  %cmp2.i97 = icmp eq i8 %15, 0
-  %cmp5.i98 = icmp eq ptr %namemap.addr.0.i94, null
-  %or.cond.i99 = select i1 %cmp2.i97, i1 true, i1 %cmp5.i98
-  br i1 %or.cond.i99, label %if.end24, label %if.end8.i100
+  %cmp2.i98 = icmp eq i8 %15, 0
+  %cmp5.i99 = icmp eq ptr %namemap.addr.0.i95, null
+  %or.cond.i100 = select i1 %cmp2.i98, i1 true, i1 %cmp5.i99
+  br i1 %or.cond.i100, label %if.end24, label %if.end8.i101
 
-if.end8.i100:                                     ; preds = %lor.lhs.false.i96
-  %lock.i101 = getelementptr inbounds i8, ptr %namemap.addr.0.i94, i64 8
-  %16 = load ptr, ptr %lock.i101, align 8
-  %call9.i102 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %16) #7
-  %tobool.not.i103 = icmp eq i32 %call9.i102, 0
-  br i1 %tobool.not.i103, label %if.end24, label %if.end11.i104
+if.end8.i101:                                     ; preds = %lor.lhs.false.i97
+  %lock.i102 = getelementptr inbounds i8, ptr %namemap.addr.0.i95, i64 8
+  %16 = load ptr, ptr %lock.i102, align 8
+  %call9.i103 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %16) #7
+  %tobool.not.i104 = icmp eq i32 %call9.i103, 0
+  br i1 %tobool.not.i104, label %if.end24, label %if.end11.i105
 
-if.end11.i104:                                    ; preds = %if.end8.i100
-  %call12.i105 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i94, i32 noundef %num.1, ptr noundef nonnull %pem_name)
-  %17 = load ptr, ptr %lock.i101, align 8
-  %call14.i106 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #7
+if.end11.i105:                                    ; preds = %if.end8.i101
+  %call12.i106 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i95, i32 noundef %num.1, ptr noundef nonnull %pem_name)
+  %17 = load ptr, ptr %lock.i102, align 8
+  %call14.i107 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #7
   br label %if.end24
 
-if.end24:                                         ; preds = %if.end11.i104, %if.end8.i100, %lor.lhs.false.i96, %if.end20
+if.end24:                                         ; preds = %if.end11.i105, %if.end8.i101, %lor.lhs.false.i97, %if.end20
   ret void
 }
 
@@ -1141,6 +1141,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

@@ -37,7 +37,7 @@ declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ascii_is_code_ctype(i32 noundef %0, i32 noundef %1) #1 {
+define internal range(i32 0, 2) i32 @ascii_is_code_ctype(i32 noundef %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %11
 
@@ -62,7 +62,7 @@ declare ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef, ptr noundef)
 declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @init() #2 {
+define internal range(i32 -2147483648, 1) i32 @init() #2 {
   %1 = alloca [4 x i32], align 16
   %2 = alloca [4 x %union.OnigValue], align 16
   %3 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.1) #4

@@ -1312,7 +1312,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 .loopexit40:                                      ; preds = %43, %.noexc, %38
   %.0.i.pn.i.i = phi ptr [ %39, %38 ], [ %54, %.noexc ], [ %45, %43 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 12
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %56, ptr %.0.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load ptr, ptr %26, align 8

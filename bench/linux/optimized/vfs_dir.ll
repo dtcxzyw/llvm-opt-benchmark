@@ -266,7 +266,7 @@ define internal i32 @v9fs_dir_readdir(ptr nocapture noundef readonly %0, ptr nou
 declare dso_local i32 @v9fs_file_open(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_dir_readdir_dotl(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.p9_dirent, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %3, i8 0, i64 288, i1 false), !annotation !9

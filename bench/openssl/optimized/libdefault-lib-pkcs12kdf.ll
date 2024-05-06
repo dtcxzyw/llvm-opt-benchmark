@@ -160,14 +160,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pkcs12_derive(ptr noundef %vctx, ptr nocapture noundef writeonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %vctx, ptr nocapture noundef writeonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -276,7 +276,7 @@ for.body41.i:                                     ; preds = %for.cond.preheader.
   store i8 %16, ptr %p.089.i, align 1
   %inc44.i = add nuw i64 %i.190.i, 1
   %cmp39.i = icmp ult i64 %inc44.i, %mul.i
-  br i1 %cmp39.i, label %for.body41.i, label %for.cond46.preheader.i, !llvm.loop !5
+  br i1 %cmp39.i, label %for.body41.i, label %for.cond46.preheader.i, !llvm.loop !4
 
 for.cond56.preheader.i:                           ; preds = %for.body49.i, %for.cond46.preheader.i
   %call57101.i = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call.i, ptr noundef %call8, ptr noundef null) #6
@@ -298,7 +298,7 @@ for.body49.i:                                     ; preds = %for.cond46.preheade
   store i8 %17, ptr %p.192.i, align 1
   %inc54.i = add nuw i64 %i.293.i, 1
   %exitcond.not.i = icmp eq i64 %inc54.i, %Plen.0.i
-  br i1 %exitcond.not.i, label %for.cond56.preheader.i, label %for.body49.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.cond56.preheader.i, label %for.body49.i, !llvm.loop !6
 
 for.cond56.loopexit.i:                            ; preds = %for.inc125.i, %for.cond103.preheader.i
   %call57.i = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call.i, ptr noundef %call8, ptr noundef null) #6
@@ -328,7 +328,7 @@ for.cond69.preheader.i:                           ; preds = %lor.lhs.false64.i
 for.cond69.i:                                     ; preds = %lor.lhs.false78.i
   %inc84.i = add nuw i64 %iter_cnt.095.i, 1
   %exitcond111.not.i = icmp eq i64 %inc84.i, %7
-  br i1 %exitcond111.not.i, label %for.end85.i, label %for.body72.i, !llvm.loop !8
+  br i1 %exitcond111.not.i, label %for.end85.i, label %for.body72.i, !llvm.loop !7
 
 for.body72.i:                                     ; preds = %for.cond69.preheader.i, %for.cond69.i
   %iter_cnt.095.i = phi i64 [ %inc84.i, %for.cond69.i ], [ 1, %for.cond69.preheader.i ]
@@ -366,7 +366,7 @@ for.body96.i:                                     ; preds = %for.end85.i, %for.b
   store i8 %18, ptr %arrayidx99.i, align 1
   %inc101.i = add nuw nsw i64 %j.096.i, 1
   %exitcond113.not.i = icmp eq i64 %inc101.i, %conv7.i
-  br i1 %exitcond113.not.i, label %for.cond103.preheader.i, label %for.body96.i, !llvm.loop !9
+  br i1 %exitcond113.not.i, label %for.cond103.preheader.i, label %for.body96.i, !llvm.loop !8
 
 for.body106.i:                                    ; preds = %for.cond103.preheader.i, %for.inc125.i
   %j.1100.i = phi i64 [ %add126.i, %for.inc125.i ], [ 0, %for.cond103.preheader.i ]
@@ -389,12 +389,12 @@ for.body111.i:                                    ; preds = %for.body111.i, %for
   store i8 %conv120.i, ptr %arrayidx112.i, align 1
   %shr.i = lshr i16 %add118.i, 8
   %cmp109.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp109.not.i, label %for.inc125.i, label %for.body111.i, !llvm.loop !10
+  br i1 %cmp109.not.i, label %for.inc125.i, label %for.body111.i, !llvm.loop !9
 
 for.inc125.i:                                     ; preds = %for.body111.i
   %add126.i = add i64 %j.1100.i, %conv7.i
   %cmp104.i = icmp ult i64 %add126.i, %add20.i
-  br i1 %cmp104.i, label %for.body106.i, label %for.cond56.loopexit.i, !llvm.loop !11
+  br i1 %cmp104.i, label %for.body106.i, label %for.cond56.loopexit.i, !llvm.loop !10
 
 end.sink.split.i:                                 ; preds = %if.end.i, %if.end7
   %.sink115.i = phi i32 [ 63, %if.end7 ], [ 69, %if.end.i ]
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
@@ -639,11 +639,10 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

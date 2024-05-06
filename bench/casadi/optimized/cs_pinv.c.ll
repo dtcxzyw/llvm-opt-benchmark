@@ -27,7 +27,7 @@ define ptr @cs_pinv(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %4, i64 %8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

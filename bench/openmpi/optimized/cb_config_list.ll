@@ -152,7 +152,7 @@ declare i32 @PMPI_Info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -498,7 +498,7 @@ define i32 @ADIOI_cb_config_list_parse(ptr noundef %0, ptr nocapture noundef rea
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next, %.lr.ph100 ]
   %31 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -769,7 +769,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   br i1 %exitcond139.not.i, label %match_procs.exit, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i
-  %132 = trunc i64 %indvars.iv.i to i32
+  %132 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %.preheader102.i
@@ -796,7 +796,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   br label %.lr.ph.i.i
 
 .preheader.thread.i.i:                            ; preds = %160
-  %146 = trunc i64 %indvars.iv.next.i.i to i32
+  %146 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %.lr.ph69.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %134
@@ -830,7 +830,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
 153:                                              ; preds = %.lr.ph.i.i.i
   %154 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i.i
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %155) #11
+  %156 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %155) #11
   %.not13.i.i.i = icmp eq i32 %156, 0
   br i1 %.not13.i.i.i, label %find_name.exit.i.i, label %157
 
@@ -841,7 +841,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   br i1 %exitcond.not.i.i.i, label %find_name.exit.thread.loopexit84.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 find_name.exit.i.i:                               ; preds = %153
-  %158 = trunc i64 %indvars.iv.i.i.i to i32
+  %158 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %find_name.exit.thread.loopexit85.i.i, label %160
 
@@ -872,7 +872,7 @@ find_name.exit.i.i:                               ; preds = %153
 170:                                              ; preds = %.lr.ph.i44.i.i
   %171 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i45.i.i
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %172) #11
+  %173 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %172) #11
   %.not13.i50.i.i = icmp eq i32 %173, 0
   br i1 %.not13.i50.i.i, label %find_name.exit52.i.i, label %174
 
@@ -883,7 +883,7 @@ find_name.exit.i.i:                               ; preds = %153
   br i1 %exitcond.not.i49.i.i, label %match_this_proc.exit.i, label %.lr.ph.i44.i.i, !llvm.loop !11
 
 find_name.exit52.i.i:                             ; preds = %170
-  %175 = trunc i64 %indvars.iv.i45.i.i to i32
+  %175 = trunc nsw i64 %indvars.iv.i45.i.i to i32
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %find_name.exit52.thread.i.i, label %match_this_proc.exit.i
 
@@ -896,11 +896,11 @@ find_name.exit52.thread.i.i:                      ; preds = %find_name.exit52.i.
   br i1 %180, label %.lr.ph.preheader.i43.i.i, label %match_this_proc.exit.i
 
 find_name.exit.thread.loopexit84.i.i:             ; preds = %157
-  %181 = trunc i64 %indvars.iv.i.i to i32
+  %181 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %match_this_proc.exit.i
 
 find_name.exit.thread.loopexit85.i.i:             ; preds = %find_name.exit.i.i, %.lr.ph.i.i
-  %182 = trunc i64 %indvars.iv.i.i to i32
+  %182 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %match_this_proc.exit.i
 
 match_this_proc.exit.i:                           ; preds = %find_name.exit52.thread.i.i, %find_name.exit52.i.i, %174, %find_name.exit.thread.loopexit85.i.i, %find_name.exit.thread.loopexit84.i.i, %.lr.ph69.preheader.i.i, %.preheader.i.i
@@ -922,7 +922,7 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
   br label %.lr.ph.i83.i
 
 .preheader.thread.i99.i:                          ; preds = %203
-  %190 = trunc i64 %indvars.iv.next.i98.i to i32
+  %190 = trunc nsw i64 %indvars.iv.next.i98.i to i32
   br label %.lr.ph69.preheader.i65.i
 
 .lr.ph69.preheader.i65.i:                         ; preds = %.preheader.thread.i99.i, %185
@@ -952,7 +952,7 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
 196:                                              ; preds = %.lr.ph.i.i89.i
   %197 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i90.i
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %198) #11
+  %199 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %198) #11
   %.not13.i.i96.i = icmp eq i32 %199, 0
   br i1 %.not13.i.i96.i, label %find_name.exit.i97.i, label %200
 
@@ -963,7 +963,7 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
   br i1 %exitcond, label %find_name.exit.thread.loopexit84.i95.i, label %.lr.ph.i.i89.i, !llvm.loop !11
 
 find_name.exit.i97.i:                             ; preds = %196
-  %201 = trunc i64 %indvars.iv.i.i90.i to i32
+  %201 = trunc nsw i64 %indvars.iv.i.i90.i to i32
   %202 = icmp slt i32 %201, 0
   br i1 %202, label %find_name.exit.thread.loopexit85.i87.i, label %203
 
@@ -994,7 +994,7 @@ find_name.exit.i97.i:                             ; preds = %196
 213:                                              ; preds = %.lr.ph.i44.i73.i
   %214 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i45.i74.i
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %215) #11
+  %216 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %215) #11
   %.not13.i50.i79.i = icmp eq i32 %216, 0
   br i1 %.not13.i50.i79.i, label %find_name.exit52.i80.i, label %217
 
@@ -1005,7 +1005,7 @@ find_name.exit.i97.i:                             ; preds = %196
   br i1 %exitcond.not.i49.i78.i, label %match_this_proc.exit100.i, label %.lr.ph.i44.i73.i, !llvm.loop !11
 
 find_name.exit52.i80.i:                           ; preds = %213
-  %218 = trunc i64 %indvars.iv.i45.i74.i to i32
+  %218 = trunc nsw i64 %indvars.iv.i45.i74.i to i32
   %219 = icmp sgt i32 %218, -1
   br i1 %219, label %find_name.exit52.thread.i81.i, label %match_this_proc.exit100.i
 
@@ -1018,11 +1018,11 @@ find_name.exit52.thread.i81.i:                    ; preds = %find_name.exit52.i8
   br i1 %223, label %.lr.ph.preheader.i43.i72.i, label %match_this_proc.exit100.i
 
 find_name.exit.thread.loopexit84.i95.i:           ; preds = %200
-  %224 = trunc i64 %indvars.iv.i84.i to i32
+  %224 = trunc nsw i64 %indvars.iv.i84.i to i32
   br label %match_this_proc.exit100.i
 
 find_name.exit.thread.loopexit85.i87.i:           ; preds = %find_name.exit.i97.i, %.lr.ph.i83.i
-  %225 = trunc i64 %indvars.iv.i84.i to i32
+  %225 = trunc nsw i64 %indvars.iv.i84.i to i32
   br label %match_this_proc.exit100.i
 
 match_this_proc.exit100.i:                        ; preds = %find_name.exit52.thread.i81.i, %find_name.exit52.i80.i, %217, %find_name.exit.thread.loopexit85.i87.i, %find_name.exit.thread.loopexit84.i95.i, %.lr.ph69.preheader.i65.i

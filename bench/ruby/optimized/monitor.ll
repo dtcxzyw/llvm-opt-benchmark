@@ -93,7 +93,7 @@ rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @monitor_try_enter(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @monitor_try_enter(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @monitor_data_type) #5
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %3, align 8
@@ -280,7 +280,7 @@ define internal noundef i64 @monitor_check_owner(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @monitor_owned_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @monitor_owned_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @monitor_data_type) #5
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -395,7 +395,7 @@ declare i64 @rb_mutex_locked_p(i64 noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @monitor_wait_for_cond_body(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @monitor_wait_for_cond_body(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @monitor_data_type) #5

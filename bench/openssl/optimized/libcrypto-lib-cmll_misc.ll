@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Camellia_set_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Camellia_set_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %userKey, null
   %tobool1 = icmp ne ptr %key, null

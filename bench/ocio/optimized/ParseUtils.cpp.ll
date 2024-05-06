@@ -658,7 +658,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev22LoggingLevelFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 256) i32 @_ZN19OpenColorIO_v2_4dev22LoggingLevelFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev28TransformDirectionFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev28TransformDirectionFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -818,7 +818,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %d1, i32 noundef %d2) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %d1, i32 noundef %d2) local_unnamed_addr #7 {
 entry:
   %0 = or i32 %d2, %d1
   %or.cond = icmp ne i32 %0, 0
@@ -831,7 +831,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef %dir) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef %dir) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq i32 %dir, 0
   %. = zext i1 %cmp to i32
@@ -857,7 +857,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev18BitDepthFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 9) i32 @_ZN19OpenColorIO_v2_4dev18BitDepthFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -918,7 +918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev13BitDepthToIntENS_8BitDepthE(i32 noundef %bitDepth) local_unnamed_addr #7 {
+define noundef range(i32 0, 33) i32 @_ZN19OpenColorIO_v2_4dev13BitDepthToIntENS_8BitDepthE(i32 noundef %bitDepth) local_unnamed_addr #7 {
 entry:
   %switch.tableidx = add i32 %bitDepth, -1
   %0 = icmp ult i32 %switch.tableidx, 6
@@ -946,7 +946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev20AllocationFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN19OpenColorIO_v2_4dev20AllocationFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -1004,7 +1004,7 @@ return:                                           ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev23InterpolationFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 256) i32 @_ZN19OpenColorIO_v2_4dev23InterpolationFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -1070,7 +1070,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev21GpuLanguageFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 9) i32 @_ZN19OpenColorIO_v2_4dev21GpuLanguageFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1214,7 +1214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev25EnvironmentModeFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN19OpenColorIO_v2_4dev25EnvironmentModeFromStringEPKc(ptr noundef %s) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -1245,7 +1245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev18CDLStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev18CDLStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1352,7 +1352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev20RangeStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev20RangeStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1539,7 +1539,7 @@ eh.resume:                                        ; preds = %lpad13, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev28FixedFunctionStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_ZN19OpenColorIO_v2_4dev28FixedFunctionStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1719,7 +1719,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev22GradingStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN19OpenColorIO_v2_4dev22GradingStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1852,7 +1852,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev31ExposureContrastStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN19OpenColorIO_v2_4dev31ExposureContrastStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1985,7 +1985,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN19OpenColorIO_v2_4dev23NegativeStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN19OpenColorIO_v2_4dev23NegativeStyleFromStringEPKc(ptr noundef %style) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -4524,17 +4524,17 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store float 0.000000e+00, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
@@ -4543,14 +4543,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
-  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31
+  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32
 
-_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -4558,7 +4558,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIf
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, %entry
   ret void
 }
 
@@ -4626,17 +4626,17 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
 
@@ -4645,14 +4645,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
-  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit31
+  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit31: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -4660,7 +4660,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit31: ; preds = %_ZNSt6vectorIi
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32, %entry
   ret void
 }
 

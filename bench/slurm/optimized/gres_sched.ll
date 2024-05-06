@@ -87,40 +87,40 @@ declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @gres_sched_init(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %15, label %2
+  br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #3
   br label %.outer
 
-.outer:                                           ; preds = %12, %2
-  %4 = phi i1 [ true, %12 ], [ false, %2 ]
-  br label %5
+.outer:                                           ; preds = %11, %2
+  %.0.ph = phi i1 [ true, %11 ], [ false, %2 ]
+  br label %4
 
-5:                                                ; preds = %.outer, %7
-  %6 = tail call ptr @slurm_list_next(ptr noundef %3) #3
-  %.not12 = icmp eq ptr %6, null
-  br i1 %.not12, label %14, label %7
+4:                                                ; preds = %.outer, %6
+  %5 = tail call ptr @slurm_list_next(ptr noundef %3) #3
+  %.not12 = icmp eq ptr %5, null
+  br i1 %.not12, label %13, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = load i64, ptr %10, align 8
-  %.not13 = icmp eq i64 %11, 0
-  br i1 %.not13, label %5, label %12, !llvm.loop !8
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = load i64, ptr %9, align 8
+  %.not13 = icmp eq i64 %10, 0
+  br i1 %.not13, label %4, label %11, !llvm.loop !8
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 112
-  store i64 0, ptr %13, align 8
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  store i64 0, ptr %12, align 8
   br label %.outer, !llvm.loop !8
 
-14:                                               ; preds = %5
+13:                                               ; preds = %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %3) #3
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %14
-  %.09 = phi i1 [ %4, %14 ], [ false, %1 ]
+14:                                               ; preds = %1, %13
+  %.09 = phi i1 [ %.0.ph, %13 ], [ false, %1 ]
   ret i1 %.09
 }
 

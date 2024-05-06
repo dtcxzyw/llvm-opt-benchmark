@@ -593,7 +593,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %135 = load i32, ptr @hf_wai_challenge, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %135, ptr noundef %.075, i32 noundef 33, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
-  %137 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 65, ptr noundef %73, ptr noundef nonnull @.str.217), !range !4
+  %137 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 65, ptr noundef %73, ptr noundef nonnull @.str.217)
   %narrow278.i = add nuw nsw i16 %137, 65
   %138 = zext nneg i16 %narrow278.i to i32
   %139 = add nuw nsw i32 %138, 2
@@ -625,7 +625,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 162:                                              ; preds = %130
   %163 = zext i16 %161 to i32
-  %164 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %163, ptr noundef %73), !range !5
+  %164 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %163, ptr noundef %73)
   %165 = trunc i32 %164 to i16
   %166 = add i16 %161, %165
   br label %167
@@ -648,10 +648,10 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %176, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.221) #3
   %177 = load i32, ptr @hf_wai_access_res, align 4
   %178 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %177, ptr noundef %.075, i32 noundef 65, i32 noundef 1, i32 noundef 0) #3
-  %179 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 66, ptr noundef %73, ptr noundef nonnull @.str.217), !range !4
+  %179 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 66, ptr noundef %73, ptr noundef nonnull @.str.217)
   %narrow275.i = add nuw nsw i16 %179, 66
   %180 = zext nneg i16 %narrow275.i to i32
-  %181 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef %180, ptr noundef %73, ptr noundef nonnull @.str.221), !range !4
+  %181 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef %180, ptr noundef %73, ptr noundef nonnull @.str.221)
   %narrow276.i = add nuw nsw i16 %narrow275.i, %181
   %182 = zext nneg i16 %narrow276.i to i32
   %183 = add nuw nsw i32 %182, 2
@@ -696,7 +696,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 218:                                              ; preds = %170
   %219 = zext i16 %217 to i32
-  %220 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef %219, ptr noundef %73), !range !5
+  %220 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef %219, ptr noundef %73)
   %221 = trunc i32 %220 to i16
   %222 = add i16 %217, %221
   %223 = zext i16 %222 to i32
@@ -749,7 +749,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 258:                                              ; preds = %239
   %259 = add i16 %255, %257
   %260 = zext i16 %259 to i32
-  %261 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %260, ptr noundef %73), !range !5
+  %261 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %260, ptr noundef %73)
   br label %dissect_wai_data.exit
 
 262:                                              ; preds = %68
@@ -761,7 +761,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %268 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %267, ptr noundef %.075, i32 noundef 0, i32 noundef 6, i32 noundef 0) #3
   %269 = load i32, ptr @hf_wai_asue_mac, align 4
   %270 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %269, ptr noundef %.075, i32 noundef 6, i32 noundef 6, i32 noundef 0) #3
-  %271 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef 12, ptr noundef %73), !range !5
+  %271 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef 12, ptr noundef %73)
   %272 = add nuw nsw i32 %271, 12
   %273 = and i32 %272, 65535
   %274 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %273, ptr noundef %73, ptr noundef nonnull @.str.222)
@@ -867,7 +867,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %356 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %355, ptr noundef %.075, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
   %357 = load i32, ptr @hf_wai_key_ann_id, align 4
   %358 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %357, ptr noundef %.075, i32 noundef 31, i32 noundef 16, i32 noundef 0) #3
-  %359 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 47, ptr noundef %73, ptr noundef null), !range !4
+  %359 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 47, ptr noundef %73, ptr noundef null)
   %narrow.i = add nuw nsw i16 %359, 47
   %360 = zext nneg i16 %narrow.i to i32
   %361 = load i32, ptr @hf_wai_message_auth_code, align 4
@@ -1033,7 +1033,7 @@ define internal fastcc noundef zeroext i16 @dissect_ecdh_parameter(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_key_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 1, 257) i16 @dissect_key_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %6 = load i32, ptr @hf_wai_key_data, align 4
   %7 = zext i8 %5 to i32
@@ -1056,12 +1056,12 @@ define internal fastcc noundef zeroext i16 @dissect_key_data(ptr noundef %0, i32
   br label %20
 
 20:                                               ; preds = %16, %4
-  %21 = trunc i32 %8 to i16
+  %21 = trunc nuw nsw i32 %8 to i16
   ret i16 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_identity_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 3, 65539) i32 @dissect_identity_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 4
   %5 = add nuw nsw i32 %1, 1
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %5) #3
@@ -1115,7 +1115,7 @@ define internal fastcc noundef i32 @dissect_identity_list(ptr noundef %0, i32 no
   %42 = add i32 %31, %.03335
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %9
@@ -1226,7 +1226,7 @@ dissect_signature_algorithm.exit:                 ; preds = %53, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_multiple_certificate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 3, 65539) i32 @dissect_multiple_certificate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = add nuw nsw i32 %1, 1
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4) #3
   %6 = zext i16 %5 to i32
@@ -1279,7 +1279,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i16 1, i16 257}
-!5 = !{i32 3, i32 65539}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

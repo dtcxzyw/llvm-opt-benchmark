@@ -2213,7 +2213,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diameterstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @diameterstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %34, label %6
 
@@ -2367,7 +2367,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_diameter_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %check_diameter.exit.thread, label %7
@@ -2456,7 +2456,7 @@ define internal i32 @dissect_diameter_eap_payload(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_diameter_base_framed_ipv6_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca %struct._address, align 8
@@ -2641,7 +2641,7 @@ define internal noundef i32 @dissect_diameter_user_equipment_info_type(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_user_equipment_info_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 44
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %45 [
@@ -2727,7 +2727,7 @@ define internal noundef i32 @dissect_diameter_user_equipment_info_value(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_3gpp2_exp_res(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 5) i32 @dissect_diameter_3gpp2_exp_res(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %19, label %6
 
@@ -3265,7 +3265,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %26 = and i32 %11, 16777215
   %27 = and i32 %11, 3
   %.not = icmp eq i32 %27, 0
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = sub nuw nsw i8 4, %28
   %30 = select i1 %.not, i8 0, i8 %29
   %.not184 = icmp eq ptr %25, null
@@ -3590,7 +3590,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @wmem_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_avps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @compare_avps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ugt i32 %3, %4
@@ -3905,7 +3905,7 @@ define internal i32 @strcase_hash(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @strcase_equal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @strcase_equal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef %1) #13
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -4165,7 +4165,7 @@ define internal noundef ptr @build_simple_avp(ptr nocapture noundef readonly %0,
   br label %35
 
 switch.hole_check:                                ; preds = %9
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2827, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %13

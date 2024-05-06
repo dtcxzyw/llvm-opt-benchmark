@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @merged_iter_vtable = internal global %struct.reftable_iterator_vtable { ptr @merged_iter_next_void, ptr @merged_iter_close }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @reftable_new_merged_table(ptr nocapture noundef writeonly %dest, ptr noundef %stack, i32 noundef %n, i32 noundef %hash_id) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @reftable_new_merged_table(ptr nocapture noundef writeonly %dest, ptr noundef %stack, i32 noundef %n, i32 noundef %hash_id) local_unnamed_addr #0 {
 entry:
   %cmp24 = icmp sgt i32 %n, 0
   br i1 %cmp24, label %for.body.preheader, label %for.end
@@ -129,14 +129,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_merged_table_seek_ref(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_ref(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
   store i8 114, ptr %rec, align 8
   %u = getelementptr inbounds i8, ptr %rec, i64 8
   store ptr %name, ptr %u, align 8
-  %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec), !range !7
+  %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec)
   ret i32 %call
 }
 
@@ -144,7 +144,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @merged_table_seek_record(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %rec) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @merged_table_seek_record(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %rec) unnamed_addr #0 {
 entry:
   %rec.i = alloca %struct.reftable_record, align 8
   %e.i = alloca %struct.pq_entry, align 8
@@ -200,12 +200,12 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp18 = icmp eq i32 %call.i, 0
   %inc = zext i1 %cmp18 to i32
   %n.1 = add nuw nsw i32 %n.037, %inc
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i64, ptr %stack_len, align 8
   %cmp = icmp ugt i64 %6, %indvars.iv.next
   %cmp10 = icmp sgt i32 %call.i, -1
   %7 = and i1 %cmp10, %cmp
-  br i1 %7, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %7, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %spec.select = tail call i32 @llvm.smin.i32(i32 %call.i, i32 0)
@@ -226,7 +226,7 @@ for.body30:                                       ; preds = %for.body30.preheade
   tail call void @reftable_iterator_destroy(ptr noundef %arrayidx32) #10
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
-  br i1 %exitcond.not, label %for.end35, label %for.body30, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end35, label %for.body30, !llvm.loop !8
 
 for.end35:                                        ; preds = %for.body30, %for.cond27.preheader
   tail call void @reftable_free(ptr noundef %call) #10
@@ -266,17 +266,17 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %11, ptr %e.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec10.i, ptr noundef nonnull align 8 dereferenceable(96) %rec.i, i64 96, i1 false)
   call void @merged_iter_pqueue_add(ptr noundef nonnull %pq, ptr noundef nonnull %e.i) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then6.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i64, ptr %stack_len2, align 8
   %cmp.i = icmp ugt i64 %12, %indvars.iv.next.i
-  br i1 %cmp.i, label %for.body.i, label %if.else, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %if.else, !llvm.loop !9
 
 if.then42:                                        ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
@@ -291,10 +291,10 @@ for.body.i27:                                     ; preds = %if.then42, %for.bod
   %14 = load ptr, ptr %merged, align 8
   %arrayidx.i29 = getelementptr inbounds %struct.reftable_iterator, ptr %14, i64 %indvars.iv.i28
   call void @reftable_iterator_destroy(ptr noundef %arrayidx.i29) #10
-  %indvars.iv.next.i30 = add nuw i64 %indvars.iv.i28, 1
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %15 = load i64, ptr %stack_len2, align 8
   %cmp.i31 = icmp ugt i64 %15, %indvars.iv.next.i30
-  br i1 %cmp.i31, label %for.body.i27, label %merged_iter_close.exit, !llvm.loop !11
+  br i1 %cmp.i31, label %for.body.i27, label %merged_iter_close.exit, !llvm.loop !10
 
 merged_iter_close.exit:                           ; preds = %for.body.i27, %if.then42
   %16 = load ptr, ptr %merged, align 8
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.else, %merged_it
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_merged_table_seek_log_at(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name, i64 noundef %update_index) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log_at(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name, i64 noundef %update_index) local_unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
@@ -328,12 +328,12 @@ entry:
   store ptr %name, ptr %u, align 8
   %update_index1 = getelementptr inbounds i8, ptr %rec, i64 16
   store i64 %update_index, ptr %update_index1, align 8
-  %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec), !range !7
+  %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_merged_table_seek_log(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %rec.i = alloca %struct.reftable_record, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
@@ -343,7 +343,7 @@ entry:
   store ptr %name, ptr %u.i, align 8
   %update_index1.i = getelementptr inbounds i8, ptr %rec.i, i64 16
   store i64 -1, ptr %update_index1.i, align 8
-  %call.i = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec.i), !range !7
+  %call.i = call fastcc i32 @merged_table_seek_record(ptr noundef readonly %mt, ptr noundef writeonly %it, ptr noundef nonnull %rec.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
   ret i32 %call.i
 }
@@ -384,10 +384,10 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %p, align 8
   %arrayidx = getelementptr inbounds %struct.reftable_iterator, ptr %1, i64 %indvars.iv
   tail call void @reftable_iterator_destroy(ptr noundef %arrayidx) #10
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i64, ptr %stack_len, align 8
   %cmp = icmp ugt i64 %2, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %3 = load ptr, ptr %p, align 8
@@ -450,7 +450,7 @@ if.end.i.i:                                       ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %entry1.i.i, ptr noundef nonnull align 8 dereferenceable(104) %tmp.i.i, i64 104, i1 false)
   %0 = load i32, ptr %entry1.i.i, align 8
   %conv.i.i = sext i32 %0 to i64
-  %call3.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv.i.i), !range !7
+  %call3.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv.i.i)
   %cmp.i.i = icmp slt i32 %call3.i.i, 0
   br i1 %cmp.i.i, label %merged_iter_next_entry.exit.thread.i, label %if.end6.i.i
 
@@ -471,7 +471,7 @@ if.end20.i.i:                                     ; preds = %while.body.i.i
   call void @merged_iter_pqueue_remove(ptr nonnull sret(%struct.pq_entry) align 8 %tmp22.i.i, ptr noundef nonnull %pq) #10
   %1 = load i32, ptr %top.i.i, align 8
   %conv24.i.i = sext i32 %1 to i64
-  %call25.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv24.i.i), !range !7
+  %call25.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv24.i.i)
   %cmp26.i.i = icmp slt i32 %call25.i.i, 0
   br i1 %cmp26.i.i, label %if.then33.i.i, label %if.end29.i.i
 
@@ -479,7 +479,7 @@ if.end29.i.i:                                     ; preds = %if.end20.i.i
   call void @reftable_record_release(ptr noundef nonnull %rec13.i.i) #10
   %call9.i.i = call i32 @merged_iter_pqueue_is_empty(ptr noundef nonnull byval(%struct.merged_iter_pqueue) align 8 %pq) #10
   %tobool10.not.i.i = icmp eq i32 %call9.i.i, 0
-  br i1 %tobool10.not.i.i, label %while.body.i.i, label %land.lhs.true.i, !llvm.loop !12
+  br i1 %tobool10.not.i.i, label %while.body.i.i, label %land.lhs.true.i, !llvm.loop !11
 
 if.then33.i.i:                                    ; preds = %if.end20.i.i
   call void @reftable_record_release(ptr noundef nonnull %rec7.i.i) #10
@@ -521,7 +521,7 @@ declare i32 @reftable_record_is_deletion(ptr noundef) local_unnamed_addr #1
 declare void @merged_iter_pqueue_remove(ptr sret(%struct.pq_entry) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @merged_iter_advance_subiter(ptr noundef %mi, i64 noundef %idx) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @merged_iter_advance_subiter(ptr noundef %mi, i64 noundef %idx) unnamed_addr #0 {
 entry:
   %e.i = alloca %struct.pq_entry, align 8
   %0 = load ptr, ptr %mi, align 8
@@ -532,7 +532,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %e.i)
-  %conv.i = trunc i64 %idx to i32
+  %conv.i = trunc nsw i64 %idx to i32
   store i32 %conv.i, ptr %e.i, align 8
   %rec.i = getelementptr inbounds i8, ptr %e.i, i64 8
   %typ.i = getelementptr inbounds i8, ptr %mi, i64 24
@@ -579,9 +579,9 @@ declare i32 @strbuf_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @iterator_is_null(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_merged_table_seek_void(ptr nocapture noundef readonly %tab, ptr nocapture noundef writeonly %it, ptr noundef %rec) #0 {
+define internal range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_void(ptr nocapture noundef readonly %tab, ptr nocapture noundef writeonly %it, ptr noundef %rec) #0 {
 entry:
-  %call = tail call fastcc i32 @merged_table_seek_record(ptr noundef %tab, ptr noundef %it, ptr noundef %rec), !range !7
+  %call = tail call fastcc i32 @merged_table_seek_record(ptr noundef %tab, ptr noundef %it, ptr noundef %rec)
   ret i32 %call
 }
 
@@ -645,9 +645,8 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2147483648, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

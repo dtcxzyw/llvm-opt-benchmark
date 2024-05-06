@@ -72,7 +72,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 .preheader:                                       ; preds = %14, %28
   %16 = phi i1 [ false, %28 ], [ true, %14 ]
   %17 = phi i64 [ 1, %28 ], [ 0, %14 ]
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add nuw nsw i32 %18, 1
   %20 = and i32 %19, %1
   %21 = icmp eq i32 %20, 0
@@ -127,7 +127,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 49:                                               ; preds = %.loopexit11, %46
   %50 = phi i1 [ true, %46 ], [ false, %.loopexit11 ]
   %51 = phi i64 [ 0, %46 ], [ 1, %.loopexit11 ]
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = add nuw nsw i32 %52, 1
   %54 = and i32 %53, %1
   %55 = icmp eq i32 %54, 0
@@ -176,7 +176,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 78:                                               ; preds = %89, %72
   %79 = phi i1 [ true, %72 ], [ false, %89 ]
   %80 = phi i64 [ 0, %72 ], [ 1, %89 ]
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw nsw i64 %80 to i32
   %82 = add nuw nsw i32 %81, 1
   %83 = and i32 %82, %1
   %84 = icmp eq i32 %83, 0
@@ -258,7 +258,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
 .preheader:                                       ; preds = %10, %27
   %12 = phi i1 [ false, %27 ], [ true, %10 ]
   %13 = phi i64 [ 1, %27 ], [ 0, %10 ]
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = add nuw nsw i32 %14, 1
   %16 = and i32 %15, %1
   %17 = icmp eq i32 %16, 0
@@ -301,7 +301,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
 36:                                               ; preds = %73, %34
   %37 = phi i1 [ true, %34 ], [ false, %73 ]
   %38 = phi i64 [ 0, %34 ], [ 1, %73 ]
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = add nuw nsw i32 %39, 1
   %41 = and i32 %40, %1
   %42 = icmp eq i32 %41, 0
@@ -716,7 +716,7 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
   %55 = zext i8 %52 to i32
   %56 = or disjoint i32 %54, %55
   %57 = or disjoint i32 %56, %2
-  %58 = trunc i32 %57 to i8
+  %58 = trunc nuw i32 %57 to i8
   store i8 %58, ptr %29, align 8
   %59 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   call void @acpi_os_release_lock(ptr noundef %59, i64 noundef %25) #5

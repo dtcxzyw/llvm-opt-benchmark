@@ -242,7 +242,7 @@ define noundef i32 @_Z17tMPI_Thread_equalP11tMPI_ThreadS0_(ptr nocapture noundef
 declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z31tMPI_Thread_setaffinity_supportv() local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_Z31tMPI_Thread_setaffinity_supportv() local_unnamed_addr #1 {
   %1 = alloca %struct.cpu_set_t, align 8
   %2 = tail call i64 @pthread_self() #15
   %3 = call i32 @pthread_getaffinity_np(i64 noundef %2, i64 noundef 128, ptr noundef nonnull %1) #13

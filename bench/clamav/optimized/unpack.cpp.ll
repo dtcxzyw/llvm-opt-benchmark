@@ -1714,7 +1714,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %38, %5, %.thread.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 19616
@@ -2931,7 +2931,7 @@ define void @_ZN6Unpack8Unpack15Eb(ptr noundef nonnull align 8 dereferenceable(5
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 22692
   %5 = getelementptr inbounds i8, ptr %0, i64 22688
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 13568, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 22736
   store i32 8193, ptr %6, align 8
@@ -3053,7 +3053,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %34, %_Z
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %0, i64 22170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %61, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %61, i8 0, i64 256, i1 false)
   br label %62
 
 62:                                               ; preds = %62, %60
@@ -3419,9 +3419,9 @@ _ZN6Unpack13UnpInitData20Ei.exit:                 ; preds = %13
   %24 = getelementptr inbounds i8, ptr %0, i64 39052
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 39064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %25, i8 0, i64 368, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(368) %25, i8 0, i64 368, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 22740
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16308) %26, i8 0, i64 16308, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16308) %26, i8 0, i64 16308, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 59501
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %0, i64 59092
@@ -3687,7 +3687,7 @@ define void @_ZN6Unpack8InitHuffEv(ptr nocapture noundef nonnull align 8 derefer
   br i1 %.not.i, label %25, label %.preheader.i, !llvm.loop !44
 
 25:                                               ; preds = %23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %15, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %15, i8 0, i64 256, i1 false)
   br label %26
 
 26:                                               ; preds = %26, %25
@@ -3797,7 +3797,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit:                ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !50
 
 44:                                               ; preds = %42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %24, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %24, i8 0, i64 256, i1 false)
   br label %45
 
 45:                                               ; preds = %45, %44
@@ -4287,7 +4287,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit80:              ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !52
 
 186:                                              ; preds = %184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %166, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %166, i8 0, i64 256, i1 false)
   br label %187
 
 187:                                              ; preds = %187, %186
@@ -4632,7 +4632,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit89:              ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !54
 
 134:                                              ; preds = %132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %115, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %115, i8 0, i64 256, i1 false)
   br label %135
 
 135:                                              ; preds = %135, %134
@@ -8091,7 +8091,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit144:               ; preds = %131
   br i1 %160, label %161, label %193
 
 161:                                              ; preds = %158
-  %162 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109), !range !74
+  %162 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109)
   %163 = icmp eq i32 %162, -1
   br i1 %163, label %164, label %165
 
@@ -8106,7 +8106,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit144:               ; preds = %131
   br i1 %167, label %168, label %187
 
 168:                                              ; preds = %165
-  %169 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109), !range !74
+  %169 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109)
   switch i32 %169, label %187 [
     i32 -1, label %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread
     i32 0, label %170
@@ -8132,7 +8132,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit.thread:      ; preds = %168
 .preheader:                                       ; preds = %168, %177
   %.0110228 = phi i32 [ %179, %177 ], [ 0, %168 ]
   %.0112227 = phi i32 [ %180, %177 ], [ 0, %168 ]
-  %174 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109), !range !74
+  %174 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109)
   %175 = icmp eq i32 %174, -1
   br i1 %175, label %.thread259, label %_ZN6Unpack17SafePPMDecodeCharEv.exit145
 
@@ -8149,7 +8149,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit145:          ; preds = %.preheader
   %178 = shl i32 %.0110228, 8
   %179 = add nuw nsw i32 %174, %178
   %180 = add nuw nsw i32 %.0112227, 1
-  br i1 %175, label %.thread254, label %.preheader, !llvm.loop !75
+  br i1 %175, label %.thread254, label %.preheader, !llvm.loop !74
 
 .thread254:                                       ; preds = %177, %_ZN6Unpack17SafePPMDecodeCharEv.exit145
   %.2252258 = phi i32 [ %174, %_ZN6Unpack17SafePPMDecodeCharEv.exit145 ], [ %.0115, %177 ]
@@ -8161,10 +8161,10 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit145:          ; preds = %.preheader
 
 .backedge:                                        ; preds = %603, %594, %469, %471, %.thread254, %_ZN6Unpack17SafePPMDecodeCharEv.exit146, %187, %248, %441, %560, %170, %172, %_ZN6Unpack14ReadEndOfBlockEv.exit, %467
   %.0115.be = phi i32 [ %.0115, %170 ], [ %.0115, %172 ], [ %.2252258, %.thread254 ], [ %.0115, %_ZN6Unpack17SafePPMDecodeCharEv.exit146 ], [ %.0115, %187 ], [ %.0115, %248 ], [ %.0115, %441 ], [ %.0115, %_ZN6Unpack14ReadEndOfBlockEv.exit ], [ %.0115, %467 ], [ %.0115, %560 ], [ %.0115, %471 ], [ %.0115, %469 ], [ %.0115, %594 ], [ %.0115, %603 ]
-  br label %111, !llvm.loop !76
+  br label %111, !llvm.loop !75
 
 183:                                              ; preds = %168
-  %184 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109), !range !74
+  %184 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109)
   %185 = icmp eq i32 %184, -1
   br i1 %185, label %_ZN6Unpack17SafePPMDecodeCharEv.exit146.thread, label %_ZN6Unpack17SafePPMDecodeCharEv.exit146
 
@@ -8647,7 +8647,7 @@ _ZN6Unpack14ReadEndOfBlockEv.exit:                ; preds = %447
   %483 = getelementptr inbounds [4 x i32], ptr %79, i64 0, i64 %indvars.iv244
   store i32 %482, ptr %483, align 4
   %.not132.wide = icmp eq i64 %480, 0
-  br i1 %.not132.wide, label %._crit_edge224.loopexit, label %.lr.ph223, !llvm.loop !77
+  br i1 %.not132.wide, label %._crit_edge224.loopexit, label %.lr.ph223, !llvm.loop !76
 
 ._crit_edge224.loopexit:                          ; preds = %.lr.ph223
   %.pre = load ptr, ptr %65, align 8
@@ -9072,7 +9072,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %23
   %76 = icmp ne i32 %75, 0
   %77 = icmp ult i64 %indvars.iv, 19
   %78 = and i1 %76, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %79 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -9091,7 +9091,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %23
   %.240 = phi i32 [ %.03863, %66 ], [ %80, %._crit_edge ], [ %.03863, %81 ]
   %87 = add nsw i32 %.240, 1
   %88 = icmp ult i32 %87, 20
-  br i1 %88, label %57, label %89, !llvm.loop !79
+  br i1 %88, label %57, label %89, !llvm.loop !78
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %0, i64 204
@@ -9296,7 +9296,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   %204 = icmp ne i32 %202, 0
   %205 = icmp ult i64 %indvars.iv85, 403
   %206 = and i1 %204, %205
-  br i1 %206, label %.lr.ph71, label %.loopexit.loopexit, !llvm.loop !80
+  br i1 %206, label %.lr.ph71, label %.loopexit.loopexit, !llvm.loop !79
 
 207:                                              ; preds = %192
   %208 = icmp eq i16 %.0.in.i, 18
@@ -9328,7 +9328,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   %218 = icmp ne i32 %217, 0
   %219 = icmp ult i64 %indvars.iv80, 403
   %220 = and i1 %218, %219
-  br i1 %220, label %.lr.ph67, label %.loopexit.loopexit74, !llvm.loop !81
+  br i1 %220, label %.lr.ph67, label %.loopexit.loopexit74, !llvm.loop !80
 
 .loopexit.loopexit:                               ; preds = %.lr.ph71
   %221 = trunc nuw nsw i64 %indvars.iv.next86 to i32
@@ -9341,7 +9341,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
 .loopexit:                                        ; preds = %.loopexit.loopexit74, %.loopexit.loopexit, %183
   %.3 = phi i32 [ %191, %183 ], [ %221, %.loopexit.loopexit ], [ %222, %.loopexit.loopexit74 ]
   %223 = icmp ult i32 %.3, 404
-  br i1 %223, label %101, label %.loopexit.thread, !llvm.loop !82
+  br i1 %223, label %101, label %.loopexit.thread, !llvm.loop !81
 
 .loopexit.thread:                                 ; preds = %207, %.preheader, %.loopexit
   %224 = getelementptr inbounds i8, ptr %0, i64 59501
@@ -9527,7 +9527,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   %96 = getelementptr inbounds ptr, ptr %95, i64 %127
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %._crit_edge, label %.lr.ph142, !llvm.loop !83
+  br i1 %98, label %._crit_edge, label %.lr.ph142, !llvm.loop !82
 
 .lr.ph142:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %99 = phi ptr [ %97, %.lr.ph ], [ %93, %.lr.ph.preheader ]
@@ -9582,7 +9582,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   %127 = add nuw i64 %100, 1
   %128 = load i64, ptr %8, align 8
   %129 = icmp ult i64 %127, %128
-  br i1 %129, label %.lr.ph, label %._crit_edge, !llvm.loop !83
+  br i1 %129, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph142, %102, %105, %124, %.lr.ph.preheader, %85
   %.080.lcssa = phi i32 [ %79, %85 ], [ %79, %.lr.ph.preheader ], [ %118, %124 ], [ %.080100141, %105 ], [ %.080100141, %102 ], [ %.080100141, %.lr.ph142 ], [ %118, %.lr.ph ]
@@ -9627,7 +9627,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   %150 = phi i64 [ %140, %.lr.ph129 ], [ %140, %144 ], [ %.pre134, %148 ]
   %151 = add nuw i64 %.072128, 1
   %152 = icmp ult i64 %151, %150
-  br i1 %152, label %.lr.ph129, label %._crit_edge130, !llvm.loop !84
+  br i1 %152, label %.lr.ph129, label %._crit_edge130, !llvm.loop !83
 
 ._crit_edge130:                                   ; preds = %149, %.preheader
   %153 = zext i32 %.1 to i64
@@ -9640,7 +9640,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   %155 = add nuw i64 %.278, 1
   %156 = load i64, ptr %8, align 8
   %157 = icmp ult i64 %155, %156
-  br i1 %157, label %19, label %._crit_edge126.loopexit, !llvm.loop !85
+  br i1 %157, label %19, label %._crit_edge126.loopexit, !llvm.loop !84
 
 ._crit_edge126.loopexit:                          ; preds = %154
   %.pre135 = load i64, ptr %5, align 8
@@ -9663,7 +9663,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Unpack13ReadVMCodePPMEv(ptr noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 39440
-  %3 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2), !range !74
+  %3 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2)
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread, label %_ZN6Unpack17SafePPMDecodeCharEv.exit
 
@@ -9682,7 +9682,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit:             ; preds = %1
   ]
 
 8:                                                ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit
-  %9 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2), !range !74
+  %9 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread, label %_ZN6Unpack17SafePPMDecodeCharEv.exit31
 
@@ -9697,7 +9697,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit31:           ; preds = %8
   br label %.thread
 
 13:                                               ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit
-  %14 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2), !range !74
+  %14 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread, label %_ZN6Unpack17SafePPMDecodeCharEv.exit32
 
@@ -9708,7 +9708,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit32.thread:    ; preds = %13
   br label %_ZN5ArrayIhED2Ev.exit38
 
 _ZN6Unpack17SafePPMDecodeCharEv.exit32:           ; preds = %13
-  %17 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2), !range !74
+  %17 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %2)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread, label %20
 
@@ -9780,7 +9780,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit35:           ; preds = %.noexc
   store i8 %33, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %35, label %27, !llvm.loop !86
+  br i1 %exitcond.not, label %35, label %27, !llvm.loop !85
 
 35:                                               ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit35
   %36 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %3, ptr noundef nonnull %malloc.i, i32 noundef %.02343)
@@ -10047,7 +10047,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
   store i32 %102, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %103, label %50, !llvm.loop !87
+  br i1 %exitcond.not, label %103, label %50, !llvm.loop !86
 
 103:                                              ; preds = %85
   %104 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %15, ptr noundef nonnull %malloc.i, i32 noundef %.01629)
@@ -10400,7 +10400,7 @@ _ZN5ArrayIiE4PushEi.exit:                         ; preds = %._ZN5ArrayIiE3AddEm
   %156 = zext i32 %155 to i64
   %157 = load i64, ptr %139, align 8
   %158 = icmp ugt i64 %157, %156
-  br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !88
+  br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %154
   %159 = icmp eq i32 %spec.select, 0
@@ -10565,7 +10565,7 @@ _ZN5ArrayIP14UnpackFilter30E3AddEm.exit107:       ; preds = %183, %.thread, %._c
 244:                                              ; preds = %237, %241
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit115, label %237, !llvm.loop !89
+  br i1 %exitcond.not, label %.loopexit115, label %237, !llvm.loop !88
 
 .loopexit115:                                     ; preds = %244, %226
   br i1 %66, label %245, label %273
@@ -10594,7 +10594,7 @@ _ZN5ArrayIP14UnpackFilter30E3AddEm.exit107:       ; preds = %183, %.thread, %._c
   %256 = load i32, ptr %6, align 8
   %257 = add i32 %256, -32765
   %258 = icmp ult i32 %257, -32768
-  br i1 %258, label %.loopexit.loopexit, label %.lr.ph152, !llvm.loop !90
+  br i1 %258, label %.loopexit.loopexit, label %.lr.ph152, !llvm.loop !89
 
 .loopexit114:                                     ; preds = %.lr.ph152, %263
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -10633,7 +10633,7 @@ _ZN5ArrayIP14UnpackFilter30E3AddEm.exit107:       ; preds = %183, %.thread, %._c
 268:                                              ; preds = %263
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139151, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next140, %252
-  br i1 %exitcond141.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !90
+  br i1 %exitcond141.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !89
 
 ._crit_edge131:                                   ; preds = %268
   %269 = load ptr, ptr %5, align 8
@@ -10818,7 +10818,7 @@ define void @_ZN6Unpack12UnpWriteAreaEmm(ptr nocapture noundef nonnull align 8 d
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow12GetBlockSizeEmm.exit, label %28, !llvm.loop !91
+  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow12GetBlockSizeEmm.exit, label %28, !llvm.loop !90
 
 28:                                               ; preds = %27, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %27 ]
@@ -10864,7 +10864,7 @@ _ZN16FragmentedWindow12GetBlockSizeEmm.exit:      ; preds = %27, %32
 51:                                               ; preds = %.preheader.i
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 32
-  br i1 %exitcond.not.i30, label %52, label %.preheader.i, !llvm.loop !92
+  br i1 %exitcond.not.i30, label %52, label %.preheader.i, !llvm.loop !91
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %21, align 8
@@ -10894,7 +10894,7 @@ _ZN6Unpack12UnpWriteDataEPhm.exit:                ; preds = %_ZN16FragmentedWind
   %63 = add i64 %.011.i, %.045
   %64 = and i64 %61, %63
   %.not27 = icmp eq i64 %62, 0
-  br i1 %.not27, label %_ZN6Unpack12UnpWriteDataEPhm.exit36, label %25, !llvm.loop !93
+  br i1 %.not27, label %_ZN6Unpack12UnpWriteDataEPhm.exit36, label %25, !llvm.loop !92
 
 65:                                               ; preds = %8
   %66 = getelementptr inbounds i8, ptr %0, i64 19312
@@ -11281,7 +11281,7 @@ thread-pre-split:                                 ; preds = %137
 
 137:                                              ; preds = %135
   %138 = tail call noundef zeroext i1 @_ZN6Unpack10ReadTablesER8BitInputR17UnpackBlockHeaderR17UnpackBlockTables(ptr noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 4 dereferenceable(20) %65, ptr noundef nonnull align 4 dereferenceable(19100) %70)
-  br i1 %138, label %thread-pre-split, label %_ZN6Unpack10UnpReadBufEv.exit.thread, !llvm.loop !94
+  br i1 %138, label %thread-pre-split, label %_ZN6Unpack10UnpReadBufEv.exit.thread, !llvm.loop !93
 
 .critedge74:                                      ; preds = %127, %130
   %139 = load i32, ptr %71, align 8
@@ -11516,7 +11516,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %203, %.prehea
 266:                                              ; preds = %.preheader.i87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %267, label %.preheader.i87, !llvm.loop !92
+  br i1 %exitcond.not.i, label %267, label %.preheader.i87, !llvm.loop !91
 
 267:                                              ; preds = %266
   %268 = load ptr, ptr %85, align 8
@@ -11537,7 +11537,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %251, %257, %267
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN16FragmentedWindowixEm.exit15.i130, %_ZN16FragmentedWindowixEm.exit15.i165, %_ZN16FragmentedWindowixEm.exit15.i, %737, %684, %540, %598, %513, %460, %_ZN16FragmentedWindowixEm.exit, %269, %_ZN6Unpack9AddFilterER12UnpackFilter.exit
-  br label %117, !llvm.loop !95
+  br label %117, !llvm.loop !94
 
 274:                                              ; preds = %_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit
   %275 = icmp ugt i16 %.0.in.i, 261
@@ -11878,7 +11878,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit111: ; preds = %396, %.pre
 487:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %488, label %.preheader.i.i, !llvm.loop !92
+  br i1 %exitcond.not.i.i, label %488, label %.preheader.i.i, !llvm.loop !91
 
 488:                                              ; preds = %487
   %489 = load ptr, ptr %85, align 8
@@ -11916,7 +11916,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %488, %478, %472
 507:                                              ; preds = %.preheader.i10.i
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 32
-  br i1 %exitcond.not.i13.i, label %508, label %.preheader.i10.i, !llvm.loop !92
+  br i1 %exitcond.not.i13.i, label %508, label %.preheader.i10.i, !llvm.loop !91
 
 508:                                              ; preds = %507
   %509 = load ptr, ptr %85, align 8
@@ -11930,7 +11930,7 @@ _ZN16FragmentedWindowixEm.exit15.i:               ; preds = %508, %498, %492
   %512 = and i64 %511, %461
   store i64 %512, ptr %62, align 8
   %.not.i113 = icmp eq i32 %467, 0
-  br i1 %.not.i113, label %.backedge, label %465, !llvm.loop !96
+  br i1 %.not.i113, label %.backedge, label %465, !llvm.loop !95
 
 513:                                              ; preds = %455
   tail call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %.056, i32 noundef %.2178)
@@ -12052,7 +12052,7 @@ _ZN6Unpack9AddFilterER12UnpackFilter.exit:        ; preds = %._crit_edge.i, %527
 572:                                              ; preds = %.preheader.i.i120
   %indvars.iv.next.i.i122 = add nuw nsw i64 %indvars.iv.i.i121, 1
   %exitcond.not.i.i123 = icmp eq i64 %indvars.iv.next.i.i122, 32
-  br i1 %exitcond.not.i.i123, label %573, label %.preheader.i.i120, !llvm.loop !92
+  br i1 %exitcond.not.i.i123, label %573, label %.preheader.i.i120, !llvm.loop !91
 
 573:                                              ; preds = %572
   %574 = load ptr, ptr %85, align 8
@@ -12090,7 +12090,7 @@ _ZN16FragmentedWindowixEm.exit.i124:              ; preds = %573, %563, %557
 592:                                              ; preds = %.preheader.i10.i126
   %indvars.iv.next.i12.i128 = add nuw nsw i64 %indvars.iv.i11.i127, 1
   %exitcond.not.i13.i129 = icmp eq i64 %indvars.iv.next.i12.i128, 32
-  br i1 %exitcond.not.i13.i129, label %593, label %.preheader.i10.i126, !llvm.loop !92
+  br i1 %exitcond.not.i13.i129, label %593, label %.preheader.i10.i126, !llvm.loop !91
 
 593:                                              ; preds = %592
   %594 = load ptr, ptr %85, align 8
@@ -12104,7 +12104,7 @@ _ZN16FragmentedWindowixEm.exit15.i130:            ; preds = %593, %583, %577
   %597 = and i64 %596, %546
   store i64 %597, ptr %62, align 8
   %.not.i132 = icmp eq i32 %552, 0
-  br i1 %.not.i132, label %.backedge, label %550, !llvm.loop !96
+  br i1 %.not.i132, label %.backedge, label %550, !llvm.loop !95
 
 598:                                              ; preds = %542
   tail call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %541, i32 noundef %545)
@@ -12126,7 +12126,7 @@ _ZN16FragmentedWindowixEm.exit15.i130:            ; preds = %593, %583, %577
   %607 = getelementptr inbounds [4 x i32], ptr %84, i64 0, i64 %indvars.iv
   store i32 %606, ptr %607, align 4
   %.not70.wide = icmp eq i64 %604, 0
-  br i1 %.not70.wide, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not70.wide, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre232 = load ptr, ptr %72, align 8
@@ -12301,7 +12301,7 @@ _ZN6Unpack12SlotToLengthER8BitInputj.exit150:     ; preds = %.thread.i148, %662
 711:                                              ; preds = %.preheader.i.i155
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i156, 1
   %exitcond.not.i.i158 = icmp eq i64 %indvars.iv.next.i.i157, 32
-  br i1 %exitcond.not.i.i158, label %712, label %.preheader.i.i155, !llvm.loop !92
+  br i1 %exitcond.not.i.i158, label %712, label %.preheader.i.i155, !llvm.loop !91
 
 712:                                              ; preds = %711
   %713 = load ptr, ptr %85, align 8
@@ -12339,7 +12339,7 @@ _ZN16FragmentedWindowixEm.exit.i159:              ; preds = %712, %702, %696
 731:                                              ; preds = %.preheader.i10.i161
   %indvars.iv.next.i12.i163 = add nuw nsw i64 %indvars.iv.i11.i162, 1
   %exitcond.not.i13.i164 = icmp eq i64 %indvars.iv.next.i12.i163, 32
-  br i1 %exitcond.not.i13.i164, label %732, label %.preheader.i10.i161, !llvm.loop !92
+  br i1 %exitcond.not.i13.i164, label %732, label %.preheader.i10.i161, !llvm.loop !91
 
 732:                                              ; preds = %731
   %733 = load ptr, ptr %85, align 8
@@ -12353,7 +12353,7 @@ _ZN16FragmentedWindowixEm.exit15.i165:            ; preds = %732, %722, %716
   %736 = and i64 %735, %685
   store i64 %736, ptr %62, align 8
   %.not.i167 = icmp eq i32 %691, 0
-  br i1 %.not.i167, label %.backedge, label %689, !llvm.loop !96
+  br i1 %.not.i167, label %.backedge, label %689, !llvm.loop !95
 
 737:                                              ; preds = %_ZN6Unpack12SlotToLengthER8BitInputj.exit150
   tail call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %.1.i147, i32 noundef %603)
@@ -12509,7 +12509,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %52
   store i32 %82, ptr %56, align 4
   %83 = add nuw nsw i32 %.04150, 1
   %exitcond.not = icmp eq i32 %.04150, %63
-  br i1 %exitcond.not, label %84, label %71, !llvm.loop !98
+  br i1 %exitcond.not, label %84, label %71, !llvm.loop !97
 
 84:                                               ; preds = %71
   store i32 %76, ptr %2, align 4
@@ -12701,7 +12701,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %58
   %80 = icmp ne i32 %79, 0
   %81 = icmp ult i64 %indvars.iv, 19
   %82 = and i1 %80, %81
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !99
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %83 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -12720,7 +12720,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %58
   %.263 = phi i32 [ %.06188, %70 ], [ %84, %._crit_edge ], [ %.06188, %85 ]
   %91 = add nsw i32 %.263, 1
   %92 = icmp ult i32 %91, 20
-  br i1 %92, label %61, label %93, !llvm.loop !100
+  br i1 %92, label %61, label %93, !llvm.loop !99
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %3, i64 15280
@@ -12958,7 +12958,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
   %221 = icmp ne i32 %219, 0
   %222 = icmp ult i64 %indvars.iv110, 429
   %223 = and i1 %221, %222
-  br i1 %223, label %.lr.ph96, label %.loopexit.loopexit, !llvm.loop !101
+  br i1 %223, label %.lr.ph96, label %.loopexit.loopexit, !llvm.loop !100
 
 224:                                              ; preds = %209
   %225 = icmp eq i16 %.0.in.i, 18
@@ -12990,7 +12990,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
   %235 = icmp ne i32 %234, 0
   %236 = icmp ult i64 %indvars.iv105, 429
   %237 = and i1 %235, %236
-  br i1 %237, label %.lr.ph92, label %.loopexit.loopexit99, !llvm.loop !102
+  br i1 %237, label %.lr.ph92, label %.loopexit.loopexit99, !llvm.loop !101
 
 .loopexit.loopexit:                               ; preds = %.lr.ph96
   %238 = trunc nuw nsw i64 %indvars.iv.next111 to i32
@@ -13003,7 +13003,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
 .loopexit:                                        ; preds = %.loopexit.loopexit99, %.loopexit.loopexit, %204
   %.3 = phi i32 [ %208, %204 ], [ %238, %.loopexit.loopexit ], [ %239, %.loopexit.loopexit99 ]
   %240 = icmp ult i32 %.3, 430
-  br i1 %240, label %109, label %.loopexit.thread, !llvm.loop !103
+  br i1 %240, label %109, label %.loopexit.thread, !llvm.loop !102
 
 .loopexit.thread:                                 ; preds = %224, %.preheader, %.loopexit
   %241 = getelementptr inbounds i8, ptr %0, i64 59502
@@ -13227,7 +13227,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
 103:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %104, label %.preheader.i.i, !llvm.loop !92
+  br i1 %exitcond.not.i.i, label %104, label %.preheader.i.i, !llvm.loop !91
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %19, align 8
@@ -13240,7 +13240,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %104, %94, %88
   store i8 %106, ptr %107, align 1
   %108 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %108, %58
-  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit, label %.lr.ph.i, !llvm.loop !104
+  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit, label %.lr.ph.i, !llvm.loop !103
 
 109:                                              ; preds = %82
   %110 = load ptr, ptr %18, align 8
@@ -13292,7 +13292,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %104, %94, %88
 136:                                              ; preds = %.preheader.i.i109
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, 32
-  br i1 %exitcond.not.i.i112, label %137, label %.preheader.i.i109, !llvm.loop !92
+  br i1 %exitcond.not.i.i112, label %137, label %.preheader.i.i109, !llvm.loop !91
 
 137:                                              ; preds = %136
   %138 = load ptr, ptr %19, align 8
@@ -13305,7 +13305,7 @@ _ZN16FragmentedWindowixEm.exit.i113:              ; preds = %137, %127, %121
   store i8 %139, ptr %140, align 1
   %141 = add nuw i64 %.08.i108, 1
   %exitcond.not.i115 = icmp eq i64 %141, %114
-  br i1 %exitcond.not.i115, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit116, label %.lr.ph.i107, !llvm.loop !104
+  br i1 %exitcond.not.i115, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit116, label %.lr.ph.i107, !llvm.loop !103
 
 _ZN16FragmentedWindow8CopyDataEPhmm.exit116:      ; preds = %_ZN16FragmentedWindowixEm.exit.i113
   %.not.i117 = icmp eq i32 %63, 0
@@ -13348,7 +13348,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit116:      ; preds = %_ZN16FragmentedWind
 161:                                              ; preds = %.preheader.i.i120
   %indvars.iv.next.i.i122 = add nuw nsw i64 %indvars.iv.i.i121, 1
   %exitcond.not.i.i123 = icmp eq i64 %indvars.iv.next.i.i122, 32
-  br i1 %exitcond.not.i.i123, label %162, label %.preheader.i.i120, !llvm.loop !92
+  br i1 %exitcond.not.i.i123, label %162, label %.preheader.i.i120, !llvm.loop !91
 
 162:                                              ; preds = %161
   %163 = load ptr, ptr %19, align 8
@@ -13361,7 +13361,7 @@ _ZN16FragmentedWindowixEm.exit.i124:              ; preds = %162, %152, %146
   store i8 %164, ptr %165, align 1
   %166 = add nuw nsw i64 %.08.i119, 1
   %exitcond.not.i126 = icmp eq i64 %166, %143
-  br i1 %exitcond.not.i126, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit, label %.lr.ph.i118, !llvm.loop !104
+  br i1 %exitcond.not.i126, label %_ZN16FragmentedWindow8CopyDataEPhmm.exit, label %.lr.ph.i118, !llvm.loop !103
 
 167:                                              ; preds = %112
   %168 = load ptr, ptr %18, align 8
@@ -13423,7 +13423,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %196 = phi i64 [ %189, %.lr.ph152 ], [ %.pre168, %193 ]
   %197 = add nuw i64 %.082151, 1
   %198 = icmp ult i64 %197, %196
-  br i1 %198, label %.lr.ph152, label %.loopexit, !llvm.loop !105
+  br i1 %198, label %.lr.ph152, label %.loopexit, !llvm.loop !104
 
 199:                                              ; preds = %42, %59, %178, %35, %41, %24
   %.285 = phi i64 [ %.083147, %24 ], [ %.083147, %41 ], [ %.083147, %35 ], [ %185, %178 ], [ %.184, %59 ], [ %.083147, %42 ]
@@ -13431,7 +13431,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %200 = add nuw i64 %.087146, 1
   %201 = load i64, ptr %11, align 8
   %202 = icmp ult i64 %200, %201
-  br i1 %202, label %24, label %.loopexit, !llvm.loop !106
+  br i1 %202, label %24, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %199, %195, %186
   %203 = phi i64 [ %187, %186 ], [ %196, %195 ], [ %201, %199 ]
@@ -13471,7 +13471,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %spec.select = add i64 %.079153, %215
   %216 = add nuw i64 %.0154, 1
   %217 = icmp ult i64 %216, %211
-  br i1 %217, label %.lr.ph155, label %._crit_edge, !llvm.loop !107
+  br i1 %217, label %.lr.ph155, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge.thread:                               ; preds = %.loopexit
   %.pre172187 = load i64, ptr %4, align 8
@@ -13611,7 +13611,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm
 21:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !92
+  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !91
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %0, align 8
@@ -13671,7 +13671,7 @@ define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnu
 32:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %33, label %.preheader.i, !llvm.loop !92
+  br i1 %exitcond.not.i, label %33, label %.preheader.i, !llvm.loop !91
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %0, align 8
@@ -13709,7 +13709,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %17, %23, %33
 52:                                               ; preds = %.preheader.i10
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 32
-  br i1 %exitcond.not.i13, label %53, label %.preheader.i10, !llvm.loop !92
+  br i1 %exitcond.not.i13, label %53, label %.preheader.i10, !llvm.loop !91
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %0, align 8
@@ -13723,7 +13723,7 @@ _ZN16FragmentedWindowixEm.exit15:                 ; preds = %37, %43, %53
   %57 = and i64 %56, %4
   store i64 %57, ptr %3, align 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !96
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %_ZN16FragmentedWindowixEm.exit15, %5
   ret void
@@ -13858,7 +13858,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %51
   store i32 %75, ptr %57, align 4
   %76 = add nuw nsw i32 %.011.i17, 1
   %exitcond.not.i = icmp eq i32 %.011.i17, %56
-  br i1 %exitcond.not.i, label %_ZN6Unpack14ReadFilterDataER8BitInput.exit, label %64, !llvm.loop !108
+  br i1 %exitcond.not.i, label %_ZN6Unpack14ReadFilterDataER8BitInput.exit, label %64, !llvm.loop !107
 
 _ZN6Unpack14ReadFilterDataER8BitInput.exit:       ; preds = %64
   %77 = getelementptr inbounds i8, ptr %2, i64 4
@@ -13893,7 +13893,7 @@ _ZN6Unpack14ReadFilterDataER8BitInput.exit:       ; preds = %64
   store i32 %97, ptr %57, align 4
   %98 = add nuw nsw i32 %.011.i18, 1
   %exitcond.not.i20 = icmp eq i32 %.011.i18, %79
-  br i1 %exitcond.not.i20, label %_ZN6Unpack14ReadFilterDataER8BitInput.exit21, label %86, !llvm.loop !108
+  br i1 %exitcond.not.i20, label %_ZN6Unpack14ReadFilterDataER8BitInput.exit21, label %86, !llvm.loop !107
 
 _ZN6Unpack14ReadFilterDataER8BitInput.exit21:     ; preds = %86
   %99 = getelementptr inbounds i8, ptr %2, i64 8
@@ -14021,7 +14021,7 @@ define noundef i32 @_ZN6Unpack14ReadFilterDataER8BitInput(ptr nocapture noundef 
   store i32 %23, ptr %5, align 4
   %24 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %4
-  br i1 %exitcond.not, label %25, label %12, !llvm.loop !108
+  br i1 %exitcond.not, label %25, label %12, !llvm.loop !107
 
 25:                                               ; preds = %12
   ret i32 %17
@@ -14140,7 +14140,7 @@ define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull r
 25:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %26, label %.preheader.i, !llvm.loop !92
+  br i1 %exitcond.not.i, label %26, label %.preheader.i, !llvm.loop !91
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %0, align 8
@@ -14153,7 +14153,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %10, %16, %26
   store i8 %28, ptr %29, align 1
   %30 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %30, %3
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZN16FragmentedWindowixEm.exit, %4
   ret void
@@ -14229,7 +14229,7 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr nocapture nou
   %.166 = phi ptr [ %32, %31 ], [ %13, %.lr.ph87 ]
   %35 = add i32 %.168, 4
   %36 = icmp ult i32 %35, %2
-  br i1 %36, label %.lr.ph87, label %.loopexit, !llvm.loop !109
+  br i1 %36, label %.lr.ph87, label %.loopexit, !llvm.loop !108
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 19856
@@ -14277,7 +14277,7 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr nocapture nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %66 = or disjoint i64 %indvars.iv.next, 3
   %67 = icmp ult i64 %66, %42
-  br i1 %67, label %.lr.ph83, label %.loopexit, !llvm.loop !110
+  br i1 %67, label %.lr.ph83, label %.loopexit, !llvm.loop !109
 
 68:                                               ; preds = %4
   %69 = getelementptr inbounds i8, ptr %3, i64 12
@@ -14357,13 +14357,13 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
   store i8 %99, ptr %101, align 1
   %102 = add i32 %.078, %71
   %103 = icmp ult i32 %102, %2
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !111
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i32 [ %.06479, %.preheader ], [ %95, %.lr.ph ]
   %104 = add nuw nsw i32 %.06280, 1
   %exitcond.not = icmp eq i32 %104, %71
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !112
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !111
 
 .loopexit:                                        ; preds = %._crit_edge, %65, %34, %_ZN5ArrayIhE5AllocEm.exit, %37, %6, %4
   %.063 = phi ptr [ null, %4 ], [ %1, %6 ], [ %1, %37 ], [ %93, %_ZN5ArrayIhE5AllocEm.exit ], [ %1, %34 ], [ %1, %65 ], [ %93, %._crit_edge ]
@@ -14378,7 +14378,7 @@ define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef
 5:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !90
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
@@ -14458,7 +14458,7 @@ define void @_ZN16FragmentedWindowD2Ev(ptr nocapture noundef nonnull align 8 der
 6:                                                ; preds = %5, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow5ResetEv.exit, label %2, !llvm.loop !113
+  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow5ResetEv.exit, label %2, !llvm.loop !112
 
 _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %6
   ret void
@@ -14483,7 +14483,7 @@ define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8
 6:                                                ; preds = %2, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !113
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !112
 
 7:                                                ; preds = %6
   ret void
@@ -14508,7 +14508,7 @@ define void @_ZN16FragmentedWindow4InitEm(ptr nocapture noundef nonnull align 8 
 7:                                                ; preds = %6, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow5ResetEv.exit.preheader, label %3, !llvm.loop !113
+  br i1 %exitcond.not.i, label %_ZN16FragmentedWindow5ResetEv.exit.preheader, label %3, !llvm.loop !112
 
 _ZN16FragmentedWindow5ResetEv.exit.preheader:     ; preds = %7
   %.not51 = icmp eq i64 %1, 0
@@ -14538,7 +14538,7 @@ _ZN16FragmentedWindow5ResetEv.exit.preheader:     ; preds = %7
   %14 = lshr i64 %.02841, 5
   %15 = sub i64 %.02841, %14
   %.not = icmp ult i64 %15, %spec.select
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %9, %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #21
@@ -14556,7 +14556,7 @@ _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %.lr.ph
   %20 = icmp ult i64 %18, %1
   %21 = icmp ult i64 %indvars.iv, 31
   %22 = and i1 %20, %21
-  br i1 %22, label %9, label %_ZN16FragmentedWindow5ResetEv.exit._crit_edge, !llvm.loop !115
+  br i1 %22, label %9, label %_ZN16FragmentedWindow5ResetEv.exit._crit_edge, !llvm.loop !114
 
 _ZN16FragmentedWindow5ResetEv.exit._crit_edge:    ; preds = %_ZN16FragmentedWindow5ResetEv.exit
   br i1 %20, label %23, label %_ZN16FragmentedWindow5ResetEv.exit._crit_edge.thread
@@ -14617,7 +14617,7 @@ define void @_ZN6UnpackC2EP11ComprDataIO(ptr noundef nonnull align 8 dereference
   tail call void @_ZN6Unpack11UnpInitDataEb(ptr noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext false)
   %22 = getelementptr inbounds i8, ptr %0, i64 22692
   %23 = getelementptr inbounds i8, ptr %0, i64 22688
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 13568, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 22736
   store i32 8193, ptr %24, align 8
@@ -14682,7 +14682,7 @@ define void @_ZN6UnpackC2EP11ComprDataIO(ptr noundef nonnull align 8 dereference
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %0, i64 22170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %52, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %52, i8 0, i64 256, i1 false)
   br label %53
 
 53:                                               ; preds = %53, %51
@@ -15068,7 +15068,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   store i8 %51, ptr %53, align 1
   %54 = add nuw i64 %.036, 1
   %exitcond = icmp eq i64 %54, %umax
-  br i1 %exitcond, label %.loopexit, label %47, !llvm.loop !116
+  br i1 %exitcond, label %.loopexit, label %47, !llvm.loop !115
 
 .loopexit:                                        ; preds = %47, %.preheader, %38
   %55 = getelementptr inbounds i8, ptr %0, i64 19312
@@ -15189,7 +15189,7 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   %22 = getelementptr inbounds i8, ptr %.051, i64 10
   %23 = load i8, ptr %22, align 1
   %.not71 = icmp eq i8 %23, %21
-  br i1 %.not71, label %.loopexit89, label %.preheader88, !llvm.loop !117
+  br i1 %.not71, label %.loopexit89, label %.preheader88, !llvm.loop !116
 
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr inbounds i8, ptr %15, i64 2
@@ -15216,7 +15216,7 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   %30 = getelementptr inbounds i8, ptr %.1, i64 12
   %31 = load ptr, ptr %30, align 1
   %.not68 = icmp eq ptr %31, null
-  br i1 %.not68, label %32, label %._crit_edge, !llvm.loop !118
+  br i1 %.not68, label %32, label %._crit_edge, !llvm.loop !117
 
 32:                                               ; preds = %.loopexit89, %29
   %.350 = phi ptr [ %.ptr67, %29 ], [ %.249.ptr, %.loopexit89 ]
@@ -15252,7 +15252,7 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   %45 = getelementptr inbounds i8, ptr %.354, i64 10
   %46 = load i8, ptr %45, align 1
   %.not75 = icmp eq i8 %46, %34
-  br i1 %.not75, label %.loopexit, label %.preheader, !llvm.loop !119
+  br i1 %.not75, label %.loopexit, label %.preheader, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.preheader, %40
   %.455 = phi ptr [ %43, %40 ], [ %45, %.preheader ]
@@ -15347,7 +15347,7 @@ _ZN12SubAllocator12AllocContextEv.exit.i:         ; preds = %86
   %94 = getelementptr inbounds i8, ptr %81, i64 2
   store ptr %.0.i12.i, ptr %94, align 1
   %.not78 = icmp eq ptr %80, %4
-  br i1 %.not78, label %_ZN14RARPPM_CONTEXT11createChildEP8ModelPPMP12RARPPM_STATERS2_.exit.thread, label %79, !llvm.loop !120
+  br i1 %.not78, label %_ZN14RARPPM_CONTEXT11createChildEP8ModelPPMP12RARPPM_STATERS2_.exit.thread, label %79, !llvm.loop !119
 
 _ZN14RARPPM_CONTEXT11createChildEP8ModelPPMP12RARPPM_STATERS2_.exit.thread: ; preds = %_ZN12SubAllocator12AllocContextEv.exit.i, %91, %37, %32, %28
   %.0 = phi ptr [ null, %28 ], [ %.2, %32 ], [ null, %37 ], [ null, %_ZN12SubAllocator12AllocContextEv.exit.i ], [ %.0.i12.i, %91 ]
@@ -15499,7 +15499,7 @@ attributes #26 = { nounwind allocsize(1) }
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
 !73 = distinct !{!73, !5}
-!74 = !{i32 -1, i32 256}
+!74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
@@ -15545,4 +15545,3 @@ attributes #26 = { nounwind allocsize(1) }
 !117 = distinct !{!117, !5}
 !118 = distinct !{!118, !5}
 !119 = distinct !{!119, !5}
-!120 = distinct !{!120, !5}

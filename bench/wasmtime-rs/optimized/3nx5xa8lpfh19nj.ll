@@ -85,7 +85,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN16cranelift_e
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   %13 = shl i64 %8, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 4 %7, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %7, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !alias.scope !41, !noalias !26, !noundef !9
   store i64 %10, ptr %3, align 8, !alias.scope !26, !noalias !29
@@ -781,7 +781,7 @@ define hidden noundef i32 @"_ZN77_$LT$cranelift_codegen..ir..entities..Value$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN86_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h967cd819e61bac7bE.llvm.7332213574936156402"(i32 noundef %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN86_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h967cd819e61bac7bE.llvm.7332213574936156402"(i32 noundef %0) unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -799,7 +799,7 @@ define hidden void @"_ZN87_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   %11 = shl i64 %6, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %9, ptr nonnull align 4 %5, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %9, ptr nonnull readonly align 4 %5, i64 %11, i1 false)
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8, !alias.scope !153, !noundef !9
   store i64 %8, ptr %0, align 8
@@ -924,7 +924,7 @@ define hidden noundef zeroext i1 @"_ZN18cranelift_frontend3ssa10SSABuilder26fini
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN80_$LT$cranelift_frontend..frontend..BlockStatus$u20$as$u20$core..clone..Clone$GT$5clone17hc3974ada5577cd2cE.llvm.7332213574936156402"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
+define hidden noundef range(i8 0, 3) i8 @"_ZN80_$LT$cranelift_frontend..frontend..BlockStatus$u20$as$u20$core..clone..Clone$GT$5clone17hc3974ada5577cd2cE.llvm.7332213574936156402"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1, !range !88, !noundef !9
   ret i8 %2
 }

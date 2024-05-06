@@ -59,7 +59,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   %29 = getelementptr i8, ptr %25, i64 8
   store i32 %28, ptr %27, align 4
   %30 = lshr i64 %1, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %32 = getelementptr i8, ptr %25, i64 12
   store i32 %31, ptr %29, align 4
   %33 = getelementptr i8, ptr %25, i64 16
@@ -68,7 +68,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   %35 = getelementptr i8, ptr %25, i64 20
   store i32 %34, ptr %33, align 4
   %36 = lshr i64 %3, 32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %38 = getelementptr i8, ptr %25, i64 24
   store i32 %37, ptr %35, align 4
   %39 = getelementptr i8, ptr %25, i64 28
@@ -514,7 +514,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   store i32 %130, ptr %10, align 4
   %131 = load i64, ptr %2, align 8
   %132 = lshr i64 %131, 32
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw i64 %132 to i32
   store i32 %133, ptr %11, align 4
   %134 = load i32, ptr %13, align 8
   store i32 %134, ptr %12, align 4
@@ -523,7 +523,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   store i32 %136, ptr %14, align 4
   %137 = load i64, ptr %15, align 8
   %138 = lshr i64 %137, 32
-  %139 = trunc i64 %138 to i32
+  %139 = trunc nuw i64 %138 to i32
   store i32 %139, ptr %16, align 4
   %140 = load i32, ptr %18, align 8
   store i32 %140, ptr %17, align 4

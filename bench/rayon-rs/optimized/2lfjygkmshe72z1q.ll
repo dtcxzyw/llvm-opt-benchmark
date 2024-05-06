@@ -133,7 +133,7 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -814,7 +814,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
 
 71:                                               ; preds = %81, %66
   %72 = load i8, ptr %67, align 1, !range !110, !noundef !4
-  %73 = trunc i8 %72 to i1
+  %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %71
@@ -881,7 +881,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br label %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit
 
 _ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit: ; preds = %92, %.loopexit
-  %94 = trunc i8 %.0.i.i.i to i1
+  %94 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %94, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %95
 
 95:                                               ; preds = %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit
@@ -923,7 +923,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %100, %_ZN
   br label %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45
 
 _ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45: ; preds = %107, %103, %39
-  %109 = trunc i8 %.0.i.i.i to i1
+  %109 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %109, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47, label %110
 
 110:                                              ; preds = %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45

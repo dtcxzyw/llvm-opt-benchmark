@@ -399,7 +399,7 @@ ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
   %136 = add i32 %spec.select63.i, %127
   %137 = icmp ult i32 %136, %127
   %138 = zext i1 %137 to i32
-  %spec.select.i.i = add i32 %136, %138
+  %spec.select.i.i = add nuw i32 %136, %138
   %139 = icmp ult i32 %127, %135
   %140 = icmp uge i32 %spec.select.i.i, %135
   %141 = icmp ult i32 %spec.select.i.i, %127
@@ -467,7 +467,7 @@ MultiXactOffsetWouldWrap.exit.i:                  ; preds = %133
   %177 = add i32 %176, 1047040
   %178 = icmp ult i32 %177, %127
   %179 = zext i1 %178 to i32
-  %spec.select.i53.i = add i32 %177, %179
+  %spec.select.i53.i = add nuw i32 %177, %179
   %180 = icmp ult i32 %127, %175
   %181 = icmp uge i32 %spec.select.i53.i, %175
   %182 = icmp ult i32 %spec.select.i53.i, %127
@@ -3192,7 +3192,7 @@ declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mxactMemberComparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %.sroa.03.0.copyload = load i32, ptr %0, align 4
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.35.0.copyload = load i32, ptr %.sroa.35.0..sroa_idx, align 4

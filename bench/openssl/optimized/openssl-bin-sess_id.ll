@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.28 = private unnamed_addr constant [28 x i8] c"unable to load SSL_SESSION\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sess_id_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sess_id_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %informat = alloca i32, align 4
   %outformat = alloca i32, align 4
@@ -182,7 +182,7 @@ if.then37:                                        ; preds = %if.then34
   br label %end
 
 if.end39:                                         ; preds = %if.then34
-  %conv = trunc i64 %call35 to i32
+  %conv = trunc nuw nsw i64 %call35 to i32
   %call40 = call i32 @SSL_SESSION_set1_id_context(ptr noundef nonnull %x.0.i, ptr noundef nonnull %context.0, i32 noundef %conv) #3
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.then42, label %if.end45

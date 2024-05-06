@@ -83,13 +83,13 @@ define noundef zeroext i1 @"_ZN85_$LT$base64..chunked_encoder..StringSink$u20$as
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i64, ptr %5, align 8, !range !9, !alias.scope !6, !noundef !4
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.1c306b8cbe36e5e2ca04834f1c52fbae.0, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c306b8cbe36e5e2ca04834f1c52fbae.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c306b8cbe36e5e2ca04834f1c52fbae.8) #9, !noalias !6
   unreachable
 
@@ -116,7 +116,7 @@ define noundef zeroext i1 @"_ZN85_$LT$base64..chunked_encoder..StringSink$u20$as
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !11, !noalias !16, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %11, i64 %13, i1 false)
   %24 = load i64, ptr %14, align 8, !alias.scope !11, !noalias !16, !noundef !4
   %25 = add i64 %24, %13
   store i64 %25, ptr %14, align 8, !alias.scope !11, !noalias !16

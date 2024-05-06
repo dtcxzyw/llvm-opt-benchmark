@@ -172,7 +172,7 @@ define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1)
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %.08.i to i64
   %44 = getelementptr inbounds i16, ptr %42, i64 %43
-  tail call void @dump_operation(ptr noundef nonnull %1, ptr noundef %44)
+  tail call void @dump_operation(ptr noundef nonnull readonly %1, ptr noundef %44)
   %putchar.i = tail call i32 @putchar(i32 10)
   %45 = load ptr, ptr %1, align 8
   %46 = getelementptr inbounds i16, ptr %45, i64 %43
@@ -233,7 +233,7 @@ dump_code.exit:                                   ; preds = %bytecode_operation_
   %81 = extractvalue { i64, ptr } %80, 0
   %82 = extractvalue { i64, ptr } %80, 1
   %83 = tail call ptr @jv_string_value(i64 %81, ptr %82) #6
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef %83, i32 noundef %84)
   tail call void @jv_free(i64 %81, ptr %82) #6
   tail call void @dump_disassembly(i32 noundef %65, ptr noundef %69)

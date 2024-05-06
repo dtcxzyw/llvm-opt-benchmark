@@ -102,7 +102,7 @@ define i32 @SUNContext_PeekLastError(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNContext_PushErrHandler(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -130,7 +130,7 @@ define noundef i32 @SUNContext_PushErrHandler(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNContext_PopErrHandler(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
@@ -156,7 +156,7 @@ define noundef i32 @SUNContext_PopErrHandler(ptr noundef %0) local_unnamed_addr 
 declare void @SUNErrHandler_Destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNContext_ClearErrHandlers(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -9978, 1) i32 @SUNContext_ClearErrHandlers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -185,7 +185,7 @@ SUNContext_PopErrHandler.exit:                    ; preds = %.preheader, %SUNCon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SUNContext_GetProfiler(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -199,14 +199,14 @@ define noundef i32 @SUNContext_GetProfiler(ptr noundef readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNContext_SetProfiler(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
+define noundef range(i32 -9978, 1) i32 @SUNContext_SetProfiler(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, i32 -9978, i32 0
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SUNContext_GetLogger(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -9978, 1) i32 @SUNContext_GetLogger(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -222,7 +222,7 @@ define noundef i32 @SUNContext_GetLogger(ptr noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNContext_SetLogger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -9986, 1) i32 @SUNContext_SetLogger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 

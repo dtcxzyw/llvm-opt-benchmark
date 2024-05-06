@@ -150,7 +150,7 @@ define void @_ZN7RSCoder6pnInitEv(ptr nocapture noundef nonnull align 4 derefere
   br i1 %or.cond.i, label %.lr.ph23.preheader.i, label %.loopexit.i
 
 .lr.ph23.preheader.i:                             ; preds = %.lr.ph26.i
-  %invariant.gep.i = getelementptr i32, ptr %10, i64 %indvars.iv31.i
+  %invariant.gep.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv31.i
   %30 = trunc nuw nsw i64 %indvars.iv31.i to i32
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %31
@@ -176,7 +176,7 @@ define void @_ZN7RSCoder6pnInitEv(ptr nocapture noundef nonnull align 4 derefere
 
 _ZN7RSCoder6gfMultEii.exit.i:                     ; preds = %36, %.lr.ph23.i
   %45 = phi i32 [ %44, %36 ], [ 0, %.lr.ph23.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv28.i
   %46 = load i32, ptr %gep.i, align 4
   %47 = xor i32 %46, %45
   store i32 %47, ptr %gep.i, align 4
@@ -256,7 +256,7 @@ define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr nocapture noundef nonnull readonly 
   br i1 %or.cond, label %.lr.ph23.preheader, label %.loopexit
 
 .lr.ph23.preheader:                               ; preds = %14
-  %invariant.gep = getelementptr i32, ptr %3, i64 %indvars.iv31
+  %invariant.gep = getelementptr inbounds i32, ptr %3, i64 %indvars.iv31
   %20 = trunc nuw nsw i64 %indvars.iv31 to i32
   br label %.lr.ph23
 
@@ -285,7 +285,7 @@ define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr nocapture noundef nonnull readonly 
 
 _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph23, %26
   %37 = phi i32 [ %36, %26 ], [ 0, %.lr.ph23 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv28
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv28
   %38 = load i32, ptr %gep, align 4
   %39 = xor i32 %38, %37
   store i32 %39, ptr %gep, align 4
@@ -800,7 +800,7 @@ _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %130
   br i1 %.not.i.not, label %.loopexit.i, label %.lr.ph23.preheader.i
 
 .lr.ph23.preheader.i:                             ; preds = %163
-  %invariant.gep.i = getelementptr i32, ptr %7, i64 %indvars.iv31.i
+  %invariant.gep.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv31.i
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds [256 x i32], ptr %161, i64 0, i64 %168
   br label %.lr.ph23.i
@@ -825,7 +825,7 @@ _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %130
 
 _ZN7RSCoder6gfMultEii.exit.i:                     ; preds = %173, %.lr.ph23.i
   %182 = phi i32 [ %181, %173 ], [ 0, %.lr.ph23.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv28.i
   %183 = load i32, ptr %gep.i, align 4
   %184 = xor i32 %183, %182
   store i32 %184, ptr %gep.i, align 4

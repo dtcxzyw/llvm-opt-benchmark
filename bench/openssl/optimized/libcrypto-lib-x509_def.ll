@@ -11,37 +11,37 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [14 x i8] c"SSL_CERT_FILE\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_private_dir() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_private_dir() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_cert_area() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_cert_area() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_cert_dir() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_cert_dir() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_cert_file() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_cert_file() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_cert_dir_env() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_cert_dir_env() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_default_cert_file_env() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_get_default_cert_file_env() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.5
 }

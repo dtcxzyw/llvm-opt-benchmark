@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._unpack_log_msg = private unnamed_addr constant [16 x i8] c"_unpack_log_msg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @slurmscriptd_pack_msg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @slurmscriptd_pack_msg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4

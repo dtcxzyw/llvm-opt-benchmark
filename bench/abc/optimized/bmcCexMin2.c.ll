@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %4, align 8
   %5 = ashr i32 %.val, 4
@@ -194,7 +194,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %102 = trunc i64 %101 to i32
   %103 = lshr i32 %102, 30
   %104 = lshr i64 %.val225, 61
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw nsw i64 %104 to i32
   %106 = xor i32 %103, %105
   %107 = and i32 %96, 1
   %108 = and i32 %107, %106
@@ -626,7 +626,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %386 = and i32 %385, 30
   %387 = lshr i32 %384, %386
   %388 = lshr i64 %.val226, 61
-  %389 = trunc i64 %388 to i32
+  %389 = trunc nuw nsw i64 %388 to i32
   %390 = xor i32 %387, %389
   %391 = and i32 %390, 1
   %392 = icmp eq i32 %372, %391
@@ -965,7 +965,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not191.not.not.us, label %45, label %42
 
 42:                                               ; preds = %27
-  %43 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6), !range !14
+  %43 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6)
   %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val212.us, i64 %26, i32 1
   store i32 %43, ptr %44, align 4
   %.val221.us.pre = load i32, ptr %9, align 8
@@ -975,7 +975,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %.val221.us = phi i32 [ %.val221.us.pre, %42 ], [ %.val221.us314, %27 ]
   %46 = add nuw nsw i32 %.0161267.us, 1
   %47 = icmp slt i32 %46, %.val221.us
-  br i1 %47, label %.lr.ph269.split.us, label %.critedge, !llvm.loop !15
+  br i1 %47, label %.lr.ph269.split.us, label %.critedge, !llvm.loop !14
 
 .lr.ph269.split:                                  ; preds = %.lr.ph269, %80
   %.val221268 = phi i32 [ %.val221, %80 ], [ %.val221266, %.lr.ph269 ]
@@ -997,7 +997,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not171, label %.critedge, label %57
 
 57:                                               ; preds = %.lr.ph269.split
-  %58 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6), !range !14
+  %58 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6)
   %59 = load ptr, ptr %17, align 8
   %60 = load i32, ptr %18, align 4
   %.val.i = load ptr, ptr %16, align 8
@@ -1031,7 +1031,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %81 = add nuw nsw i32 %.0161267, 1
   %.val221 = load i32, ptr %9, align 8
   %82 = icmp slt i32 %81, %.val221
-  br i1 %82, label %.lr.ph269.split, label %.critedge, !llvm.loop !15
+  br i1 %82, label %.lr.ph269.split, label %.critedge, !llvm.loop !14
 
 83:                                               ; preds = %.lr.ph, %84
   %.val220264 = phi i32 [ %.val221266, %.lr.ph ], [ %.val220, %84 ]
@@ -1073,7 +1073,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %109 = add nuw nsw i32 %.1263, 1
   %.val220 = load i32, ptr %9, align 8
   %110 = icmp slt i32 %109, %.val220
-  br i1 %110, label %83, label %.critedge, !llvm.loop !16
+  br i1 %110, label %83, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %84, %83, %80, %.lr.ph269.split, %45, %.lr.ph269.split.us, %.preheader260, %.preheader259
   tail call void @Gia_ManHashAlloc(ptr noundef nonnull %6) #12
@@ -1161,7 +1161,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %156 = sub nsw i32 %.val198.val, %.val197
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next306, %157
-  br i1 %158, label %.lr.ph283, label %.critedge4, !llvm.loop !17
+  br i1 %158, label %.lr.ph283, label %.critedge4, !llvm.loop !16
 
 .lr.ph276:                                        ; preds = %.preheader257, %224
   %indvars.iv = phi i64 [ %indvars.iv.next, %224 ], [ 0, %.preheader257 ]
@@ -1203,7 +1203,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not175, label %203, label %183
 
 183:                                              ; preds = %182
-  %184 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6), !range !14
+  %184 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6)
   %185 = load ptr, ptr %114, align 8
   %186 = load i32, ptr %115, align 4
   %.val.i237 = load ptr, ptr %113, align 8
@@ -1252,7 +1252,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not176.not.not, label %224, label %222
 
 222:                                              ; preds = %203
-  %223 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6), !range !14
+  %223 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %6)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %183, %222
@@ -1269,7 +1269,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %226 = sub nsw i32 %.val196.val, %.val195
   %227 = sext i32 %226 to i64
   %228 = icmp slt i64 %indvars.iv.next, %227
-  br i1 %228, label %.lr.ph276, label %.critedge4, !llvm.loop !18
+  br i1 %228, label %.lr.ph276, label %.critedge4, !llvm.loop !17
 
 .critedge4:                                       ; preds = %224, %.lr.ph276, %134, %.lr.ph283, %.preheader257, %.preheader256
   %229 = load i32, ptr %118, align 8
@@ -1371,7 +1371,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %277 = load i32, ptr %118, align 8
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next309, %278
-  br i1 %279, label %.lr.ph286, label %.critedge8, !llvm.loop !19
+  br i1 %279, label %.lr.ph286, label %.critedge8, !llvm.loop !18
 
 .critedge8:                                       ; preds = %.lr.ph286, %276, %.critedge4
   %280 = load ptr, ptr %119, align 8
@@ -1407,7 +1407,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %.val = load i32, ptr %297, align 4
   %298 = sext i32 %.val to i64
   %299 = icmp slt i64 %indvars.iv.next312, %298
-  br i1 %299, label %.lr.ph290, label %.critedge10, !llvm.loop !20
+  br i1 %299, label %.lr.ph290, label %.critedge10, !llvm.loop !19
 
 .critedge10:                                      ; preds = %.lr.ph290, %284, %.critedge8
   %300 = load i32, ptr %111, align 4
@@ -1455,7 +1455,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %322 = add nuw nsw i32 %.6294, 1
   %.val219 = load i32, ptr %116, align 8
   %323 = icmp slt i32 %322, %.val219
-  br i1 %323, label %.lr.ph296, label %.critedge12.loopexit, !llvm.loop !21
+  br i1 %323, label %.lr.ph296, label %.critedge12.loopexit, !llvm.loop !20
 
 .critedge12.loopexit:                             ; preds = %303, %.lr.ph296
   %.pre = load i32, ptr %111, align 4
@@ -1465,7 +1465,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %324 = phi i32 [ %.pre, %.critedge12.loopexit ], [ %300, %.preheader ]
   %325 = add nsw i32 %.0299, 1
   %.not172.not = icmp slt i32 %.0299, %324
-  br i1 %.not172.not, label %121, label %.critedge10._crit_edge, !llvm.loop !22
+  br i1 %.not172.not, label %121, label %.critedge10._crit_edge, !llvm.loop !21
 
 .critedge10._crit_edge:                           ; preds = %.critedge12, %.critedge10, %.critedge
   tail call void @Gia_ManHashStop(ptr noundef nonnull %6) #12
@@ -1610,7 +1610,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 declare void @Gia_ManCleanValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -1722,7 +1722,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Gia_ManCexMin(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = tail call i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr noundef %1, i32 noundef %4), !range !23
+  %8 = tail call i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   %9 = icmp sgt i32 %3, -1
   br i1 %9, label %10, label %15
 
@@ -1759,7 +1759,7 @@ define noalias noundef ptr @Gia_ManCexMin(ptr noundef %0, ptr nocapture noundef 
   tail call void @Gia_ManStop(ptr noundef %18) #12
   %20 = add nsw i32 %.032.us, -1
   %.not.us.not = icmp sgt i32 %.032.us, %2
-  br i1 %.not.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !24
+  br i1 %.not.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.032 = phi i32 [ %23, %.lr.ph.split ], [ %17, %.lr.ph ]
@@ -1770,7 +1770,7 @@ define noalias noundef ptr @Gia_ManCexMin(ptr noundef %0, ptr nocapture noundef 
   tail call void @Gia_ManStop(ptr noundef %21) #12
   %23 = add nsw i32 %.032, -1
   %.not.not = icmp sgt i32 %.032, %2
-  br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !24
+  br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %15, %14
   %24 = getelementptr inbounds i8, ptr %0, i64 432
@@ -2033,7 +2033,7 @@ attributes #14 = { noreturn nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 -1}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -2042,5 +2042,3 @@ attributes #14 = { noreturn nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 0, i32 2}
-!24 = distinct !{!24, !5}

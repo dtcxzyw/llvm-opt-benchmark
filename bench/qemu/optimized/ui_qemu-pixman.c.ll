@@ -182,7 +182,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %sw.bb95,
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @qemu_default_pixman_format(i32 noundef %bpp, i1 noundef zeroext %native_endian) local_unnamed_addr #2 {
+define dso_local range(i32 0, 537397385) i32 @qemu_default_pixman_format(i32 noundef %bpp, i1 noundef zeroext %native_endian) local_unnamed_addr #2 {
 entry:
   br i1 %native_endian, label %if.then, label %if.else
 
@@ -273,7 +273,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @qemu_pixman_get_type(i32 noundef %rshift, i32 noundef %gshift, i32 noundef %bshift) local_unnamed_addr #2 {
+define dso_local range(i32 0, 10) i32 @qemu_pixman_get_type(i32 noundef %rshift, i32 noundef %gshift, i32 noundef %bshift) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i32 %rshift, %gshift
   %cmp1 = icmp sgt i32 %gshift, %bshift

@@ -1737,7 +1737,7 @@ if.end655:                                        ; preds = %if.then648, %if.end
 
 if.then657:                                       ; preds = %if.end655
   %call658 = call ptr @CMS_get1_certs(ptr noundef nonnull %call643) #2
-  %call659 = call fastcc i32 @save_certs(ptr noundef nonnull %certsoutfile.0.lcssa1514167617361855, ptr noundef %call658), !range !8
+  %call659 = call fastcc i32 @save_certs(ptr noundef nonnull %certsoutfile.0.lcssa1514167617361855, ptr noundef %call658)
   %tobool660.not = icmp eq i32 %call659, 0
   br i1 %tobool660.not, label %if.then661, label %if.end663
 
@@ -1865,7 +1865,7 @@ for.inc739:                                       ; preds = %for.body734
   %next740 = getelementptr inbounds i8, ptr %kparam.01323, i64 16
   %57 = load ptr, ptr %next740, align 8
   %tobool733.not = icmp eq ptr %57, null
-  br i1 %tobool733.not, label %for.end741, label %for.body734, !llvm.loop !9
+  br i1 %tobool733.not, label %for.end741, label %for.body734, !llvm.loop !8
 
 for.end741:                                       ; preds = %for.inc739, %for.body734, %for.body728
   %kparam.0.lcssa = phi ptr [ null, %for.body728 ], [ %kparam.01323, %for.body734 ], [ null, %for.inc739 ]
@@ -1881,7 +1881,7 @@ if.end745:                                        ; preds = %for.end741
 if.then748:                                       ; preds = %if.end745
   %param749 = getelementptr inbounds i8, ptr %kparam.0.lcssa, i64 8
   %58 = load ptr, ptr %param749, align 8
-  %call750 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call746, ptr noundef %58), !range !8
+  %call750 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call746, ptr noundef %58)
   %tobool751.not = icmp eq i32 %call750, 0
   br i1 %tobool751.not, label %if.then1145, label %if.end754
 
@@ -1913,7 +1913,7 @@ for.inc773:                                       ; preds = %if.end761, %if.then
   %inc774 = add nuw nsw i32 %i.01331, 1
   %call726 = call i32 @OPENSSL_sk_num(ptr noundef %call) #2
   %cmp727 = icmp slt i32 %inc774, %call726
-  br i1 %cmp727, label %for.body728, label %for.end775, !llvm.loop !10
+  br i1 %cmp727, label %for.body728, label %for.end775, !llvm.loop !9
 
 for.end775:                                       ; preds = %for.inc773, %for.cond724.preheader
   %cmp776.not = icmp eq ptr %secret_key.0.lcssa1554, null
@@ -2050,7 +2050,7 @@ for.body861:                                      ; preds = %if.end907
   %call868 = call ptr @OPENSSL_sk_value(ptr noundef %skkeys.9, i32 noundef %inc909) #2
   %call869 = call ptr @load_cert_pass(ptr noundef %call866, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.296) #2
   %cmp870 = icmp eq ptr %call869, null
-  br i1 %cmp870, label %if.then1145, label %if.end872, !llvm.loop !11
+  br i1 %cmp870, label %if.then1145, label %if.end872, !llvm.loop !10
 
 if.end872:                                        ; preds = %for.body861.lr.ph, %for.body861
   %call8692121 = phi ptr [ %call869, %for.body861 ], [ %call8692116, %for.body861.lr.ph ]
@@ -2076,7 +2076,7 @@ for.inc885:                                       ; preds = %for.body879
   %next886 = getelementptr inbounds i8, ptr %kparam863.01313, i64 16
   %70 = load ptr, ptr %next886, align 8
   %tobool878.not = icmp eq ptr %70, null
-  br i1 %tobool878.not, label %for.end887, label %for.body879, !llvm.loop !12
+  br i1 %tobool878.not, label %for.end887, label %for.body879, !llvm.loop !11
 
 for.end887:                                       ; preds = %for.inc885, %for.cond877.preheader
   %71 = load ptr, ptr %sign_md, align 8
@@ -2094,7 +2094,7 @@ if.then893:                                       ; preds = %for.end887.thread
   %call895 = call ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef nonnull %call888450) #2
   %param896 = getelementptr inbounds i8, ptr %kparam863.01313, i64 8
   %73 = load ptr, ptr %param896, align 8
-  %call897 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call895, ptr noundef %73), !range !8
+  %call897 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call895, ptr noundef %73)
   %tobool898.not = icmp eq i32 %call897, 0
   br i1 %tobool898.not, label %if.then1145, label %if.end901
 
@@ -2113,7 +2113,7 @@ if.end907:                                        ; preds = %land.lhs.true903, %
   %inc909 = add nuw nsw i32 %i824.013172118, 1
   %call859 = call i32 @OPENSSL_sk_num(ptr noundef %sksigners.9) #2
   %cmp860 = icmp slt i32 %inc909, %call859
-  br i1 %cmp860, label %for.body861, label %for.end910, !llvm.loop !11
+  br i1 %cmp860, label %for.body861, label %for.end910, !llvm.loop !10
 
 for.end910:                                       ; preds = %if.end907, %if.end856
   %signer.1.lcssa = phi ptr [ %signer.0439444, %if.end856 ], [ null, %if.end907 ]
@@ -2289,7 +2289,7 @@ if.else1037:                                      ; preds = %if.then1027
 
 if.then1050:                                      ; preds = %if.then1031
   %call1051 = call ptr @CMS_get0_signers(ptr noundef nonnull %cms.2) #2
-  %call1052 = call fastcc i32 @save_certs(ptr noundef nonnull %signerfile.5, ptr noundef %call1051), !range !8
+  %call1052 = call fastcc i32 @save_certs(ptr noundef nonnull %signerfile.5, ptr noundef %call1051)
   %tobool1053.not = icmp eq i32 %call1052, 0
   br i1 %tobool1053.not, label %if.then1054, label %if.end1056
 
@@ -2513,7 +2513,7 @@ for.body1153:                                     ; preds = %if.end1146, %for.bo
   %98 = load ptr, ptr %next1156, align 8
   call void @CRYPTO_free(ptr noundef nonnull %key_param.31333, ptr noundef nonnull @.str.266, i32 noundef 1290) #2
   %tobool1152.not = icmp eq ptr %98, null
-  br i1 %tobool1152.not, label %for.end1157, label %for.body1153, !llvm.loop !13
+  br i1 %tobool1152.not, label %for.end1157, label %for.body1153, !llvm.loop !12
 
 for.end1157:                                      ; preds = %for.body1153, %if.end1146
   call void @X509_STORE_free(ptr noundef %store.1538) #2
@@ -2688,7 +2688,7 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @CMS_get1_certs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_new_file(ptr noundef %signerfile, ptr noundef nonnull @.str.316) #2
   %cmp1 = icmp eq ptr %call, null
@@ -2706,7 +2706,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw nsw i32 %i.09, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %signers) #2
   %cmp6 = icmp slt i32 %inc, %call5
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call10 = tail call i32 @BIO_free(ptr noundef nonnull %call) #2
@@ -2764,7 +2764,7 @@ declare ptr @CMS_add1_recipient(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_set_pkey_param(ptr noundef %pctx, ptr noundef %param) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_set_pkey_param(ptr noundef %pctx, ptr noundef %param) unnamed_addr #0 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %param) #2
   %cmp = icmp slt i32 %call1, 1
@@ -2779,7 +2779,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.08, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %param) #2
   %cmp4 = icmp slt i32 %inc, %call3
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !15
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !14
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.08 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -2993,7 +2993,7 @@ if.end35:                                         ; preds = %if.then10, %if.end3
   call void @CMS_ReceiptRequest_free(ptr noundef %17) #2
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %call) #2
   %cmp = icmp slt i32 %add, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end35, %entry
   ret void
@@ -3089,13 +3089,13 @@ for.body8:                                        ; preds = %for.body, %for.body
   %inc = add nuw nsw i32 %j.09, 1
   %call6 = tail call i32 @OPENSSL_sk_num(ptr noundef %call3) #2
   %cmp7 = icmp slt i32 %inc, %call6
-  br i1 %cmp7, label %for.body8, label %for.inc14, !llvm.loop !17
+  br i1 %cmp7, label %for.body8, label %for.inc14, !llvm.loop !16
 
 for.inc14:                                        ; preds = %for.body8, %for.body
   %inc15 = add nuw nsw i32 %i.012, 1
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %gns) #2
   %cmp = icmp slt i32 %inc15, %call1
-  br i1 %cmp, label %for.body, label %for.end16, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %for.end16, !llvm.loop !17
 
 for.end16:                                        ; preds = %for.inc14, %entry
   ret void
@@ -3119,7 +3119,7 @@ for.cond:                                         ; preds = %if.end18
   %inc = add nuw nsw i32 %i.014, 1
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %ns) #2
   %cmp3 = icmp slt i32 %inc, %call2
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !19
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !18
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.014 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -3184,7 +3184,7 @@ attributes #2 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -3195,4 +3195,3 @@ attributes #2 = { nounwind }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

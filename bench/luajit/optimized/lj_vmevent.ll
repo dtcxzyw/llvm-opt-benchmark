@@ -102,7 +102,7 @@ if.end27:                                         ; preds = %cond.end, %land.lhs
   %shl = shl nuw nsw i32 1, %and28
   %vmevmask = getelementptr inbounds i8, ptr %1, i64 147
   %21 = load i8, ptr %vmevmask, align 1
-  %22 = trunc i32 %shl to i8
+  %22 = trunc nuw i32 %shl to i8
   %23 = xor i8 %22, -1
   %conv31 = and i8 %21, %23
   store i8 %conv31, ptr %vmevmask, align 1

@@ -701,7 +701,7 @@ if.end49:                                         ; preds = %invoke.cont43
   br i1 %cmp.i23, label %cleanup.thread, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.end49
-  %call.i25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 8) #16
+  %call.i25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %name, i64 noundef 8) #16
   %arrayidx4.i = getelementptr inbounds i8, ptr %call42, i64 85
   br label %cleanup.thread
 

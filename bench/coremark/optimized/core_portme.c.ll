@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local double @time_in_secs(i64 noundef %ticks) local_unnamed_addr #3 {
+define dso_local noundef double @time_in_secs(i64 noundef %ticks) local_unnamed_addr #3 {
 entry:
   %conv = sitofp i64 %ticks to double
   %div = fdiv double %conv, 1.000000e+06

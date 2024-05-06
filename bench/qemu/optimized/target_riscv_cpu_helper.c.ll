@@ -59,25 +59,25 @@ land.rhs:                                         ; preds = %land.lhs.true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.then
-  %and6.i68 = phi i32 [ 32768, %land.lhs.true ], [ 0, %if.then ], [ 32768, %land.rhs ]
+  %and6.i73 = phi i32 [ 32768, %land.lhs.true ], [ 0, %if.then ], [ 32768, %land.rhs ]
   %bf.cast53 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then ], [ %9, %land.rhs ]
   %vill = getelementptr inbounds i8, ptr %env, i64 4648
   %10 = load i8, ptr %vill, align 8
   %11 = and i8 %10, 1
   %shl57.i = zext nneg i8 %11 to i32
   %and6.i = shl nuw nsw i32 %shl57.i, 14
-  %and6.i47 = shl nuw nsw i32 %conv.i, 10
-  %or.i = or disjoint i32 %and6.i, %and6.i47
+  %and6.i48 = shl nuw nsw i32 %conv.i, 10
+  %or.i = or disjoint i32 %and6.i, %and6.i48
   %bf.cast40 = shl i32 %5, 7
-  %and6.i50 = and i32 %bf.cast40, 896
-  %or.i51 = or disjoint i32 %or.i, %and6.i50
-  %and.i58 = or disjoint i32 %or.i51, %bf.cast53
+  %and6.i53 = and i32 %bf.cast40, 896
+  %or.i54 = or disjoint i32 %or.i, %and6.i53
+  %and.i61 = or disjoint i32 %or.i54, %bf.cast53
   %12 = shl i32 %5, 14
-  %and6.i59 = and i32 %12, 1048576
-  %and6.i64 = and i32 %12, 2097152
-  %and.i63.masked.masked = or disjoint i32 %and.i58, %and6.i59
-  %and.i66.masked.masked = or disjoint i32 %and6.i64, %and6.i68
-  %13 = or i32 %and.i66.masked.masked, %and.i63.masked.masked
+  %and6.i63 = and i32 %12, 1048576
+  %and6.i69 = and i32 %12, 2097152
+  %and.i67.masked.masked = or disjoint i32 %and.i61, %and6.i63
+  %and.i71.masked.masked = or disjoint i32 %and6.i69, %and6.i73
+  %13 = or i32 %and.i71.masked.masked, %and.i67.masked.masked
   %14 = or i32 %13, 120
   br label %if.end
 
@@ -85,20 +85,20 @@ if.end:                                           ; preds = %entry, %land.end
   %flags.0 = phi i32 [ %14, %land.end ], [ 16504, %entry ]
   %15 = load i32, ptr %xl, align 16
   %bf.value130 = and i32 %15, 3
-  %and6.i75 = shl nuw nsw i32 %bf.value130, 16
-  %and.i77 = or i32 %and6.i75, %flags.0
-  %and6.i78 = shl nuw nsw i32 %bf.value130, 26
-  %or.i79 = or i32 %and.i77, %and6.i78
+  %and6.i81 = shl nuw nsw i32 %bf.value130, 16
+  %and.i83 = or i32 %and6.i81, %flags.0
+  %and6.i85 = shl nuw nsw i32 %bf.value130, 26
+  %or.i86 = or i32 %and.i83, %and6.i85
   %cur_pmmask = getelementptr inbounds i8, ptr %env, i64 5056
   %16 = load i64, ptr %cur_pmmask, align 16
   %cmp151.not = icmp eq i64 %16, 0
-  %or.i81 = or i32 %or.i79, 262144
-  %flags.1 = select i1 %cmp151.not, i32 %or.i79, i32 %or.i81
+  %or.i88 = or i32 %or.i86, 262144
+  %flags.1 = select i1 %cmp151.not, i32 %or.i86, i32 %or.i88
   %cur_pmbase = getelementptr inbounds i8, ptr %env, i64 5064
   %17 = load i64, ptr %cur_pmbase, align 8
   %cmp162.not = icmp eq i64 %17, 0
-  %or.i83 = or i32 %flags.1, 524288
-  %flags.2 = select i1 %cmp162.not, i32 %flags.1, i32 %or.i83
+  %or.i90 = or i32 %flags.1, 524288
+  %flags.2 = select i1 %cmp162.not, i32 %flags.1, i32 %or.i90
   store i32 %flags.2, ptr %pflags, align 4
   ret void
 }

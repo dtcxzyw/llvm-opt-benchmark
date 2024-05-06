@@ -262,7 +262,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %seen_bits to i8
+  %switch.maskindex = trunc nuw i32 %seen_bits to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %return

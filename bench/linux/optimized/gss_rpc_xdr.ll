@@ -127,13 +127,13 @@ define dso_local void @gssx_enc_accept_sec_context(ptr noundef %0, ptr noundef %
   %84 = load i32, ptr %75, align 8
   %85 = tail call ptr @xdr_encode_opaque(ptr noundef nonnull %79, ptr noundef %83, i32 noundef %84) #9
   %86 = getelementptr inbounds i8, ptr %44, i64 56
-  %87 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef %86), !range !6
+  %87 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef %86)
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %.thread31
 
 89:                                               ; preds = %81
   %90 = getelementptr inbounds i8, ptr %44, i64 72
-  %91 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef %90), !range !6
+  %91 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef %90)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %.thread31
 
@@ -196,7 +196,7 @@ define dso_local void @gssx_enc_accept_sec_context(ptr noundef %0, ptr noundef %
   br i1 %131, label %161, label %132
 
 132:                                              ; preds = %127
-  %133 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef nonnull %130), !range !6
+  %133 = tail call fastcc i32 @gssx_enc_name(ptr noundef %1, ptr noundef nonnull %130)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %.thread31
 
@@ -1079,7 +1079,7 @@ declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed
 declare dso_local ptr @xdr_encode_opaque(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @gssx_enc_name(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @gssx_enc_name(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = add nuw nsw i64 %4, 4
@@ -1142,7 +1142,7 @@ declare dso_local void @xdr_write_pages(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dummy_dec_opt_array(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @dummy_dec_opt_array(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %33, label %5, !prof !5

@@ -1460,7 +1460,7 @@ declare dso_local ptr @idr_get_next(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_revoke_lease_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_revoke_lease_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = icmp eq ptr %0, null

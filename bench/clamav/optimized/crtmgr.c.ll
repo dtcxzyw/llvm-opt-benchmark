@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.crtmgr_rsa_verify = private unnamed_addr constant [7 x i32] [i32 20, i32 16, i32 20, i32 20, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_crt_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_crt_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, i8 0, i64 408, i1 false)
   %2 = tail call ptr @BN_new() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 328
@@ -317,7 +317,7 @@ define ptr @crtmgr_lookup(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.022.i, i64 200
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %6, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull readonly dereferenceable(20) %6, i64 20)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %14, label %24
 
@@ -337,7 +337,7 @@ define ptr @crtmgr_lookup(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.022.i, i64 240
-  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull dereferenceable(20) %8, i64 20)
+  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
   %.not19.i = icmp eq i32 %bcmp18.i, 0
   br i1 %.not19.i, label %crtmgr_block_list_lookup.exit, label %24
 
@@ -383,7 +383,7 @@ define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture no
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.022.i, i64 200
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %6, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull readonly dereferenceable(20) %6, i64 20)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %14, label %24
 
@@ -403,7 +403,7 @@ define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture no
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.022.i, i64 240
-  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull dereferenceable(20) %8, i64 20)
+  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
   %.not19.i = icmp eq i32 %bcmp18.i, 0
   br i1 %.not19.i, label %crtmgr_block_list_lookup.exit, label %24
 
@@ -713,7 +713,7 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 17:                                               ; preds = %15
   %18 = load ptr, ptr %4, align 8
   %19 = load i32, ptr %5, align 8
-  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.03550, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6), !range !4
+  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.03550, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6)
   %.not40 = icmp eq i32 %20, 0
   br i1 %.not40, label %21, label %34
 
@@ -762,7 +762,7 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @crtmgr_rsa_verify(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @BN_num_bits(ptr noundef %6) #10
@@ -1066,8 +1066,8 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
 
 116:                                              ; preds = %111
   %117 = zext nneg i8 %82 to i64
-  %118 = getelementptr i8, ptr %.087, i64 %117
-  %119 = getelementptr i8, ptr %118, i64 5
+  %118 = getelementptr inbounds i8, ptr %.087, i64 %117
+  %119 = getelementptr inbounds i8, ptr %118, i64 5
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   %.not70 = icmp eq i32 %switch.load, %121
@@ -1087,7 +1087,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br label %130
 
 126:                                              ; preds = %123
-  %127 = getelementptr i8, ptr %118, i64 6
+  %127 = getelementptr inbounds i8, ptr %118, i64 6
   %128 = zext nneg i32 %switch.load to i64
   %bcmp72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %3, i64 %128)
   %.not73 = icmp eq i32 %bcmp72, 0
@@ -1161,7 +1161,7 @@ define ptr @crtmgr_verify_pkcs7(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not33, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.02537, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6), !range !4
+  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.02537, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6)
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %._crit_edge, label %27
 
@@ -1190,7 +1190,7 @@ declare ptr @BN_new() local_unnamed_addr #2
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @crtmgr_add_roots(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   %.not = icmp eq ptr %4, %1
   br i1 %.not, label %crtmgr_free.exit, label %.preheader
@@ -1290,4 +1290,3 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

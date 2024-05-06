@@ -422,7 +422,7 @@ define hidden void @proto_reg_handoff_lnet() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_lnet_ib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_lnet_ib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %11, label %7
@@ -455,7 +455,7 @@ define internal noundef i32 @get_noop_message_len(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ksock_msg_noop(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef range(i32 24, 33) i32 @dissect_ksock_msg_noop(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %2)
   ret i32 %5
 }
@@ -864,7 +864,7 @@ get_lnet_conv.exit:                               ; preds = %230, %235
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 24, 33) i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr @hf_lnet_ksm_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #5

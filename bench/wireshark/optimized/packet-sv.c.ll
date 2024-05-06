@@ -402,7 +402,7 @@ define internal noundef i32 @dissect_sv_UtcTime(i1 zeroext %0, ptr noundef %1, i
   %21 = zext i32 %20 to i64
   %22 = mul nuw nsw i64 %21, 1000000000
   %23 = lshr i64 %22, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = zext i32 %17 to i64
   store i64 %25, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 8

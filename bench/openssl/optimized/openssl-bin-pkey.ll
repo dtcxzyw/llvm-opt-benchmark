@@ -83,7 +83,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.69 = private unnamed_addr constant [9 x i8] c"explicit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %cipher = alloca ptr, align 8
   %passin = alloca ptr, align 8

@@ -86,7 +86,7 @@ file_write.exit:                                  ; preds = %24, %21, %18, %15, 
 declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = icmp eq ptr %1, null

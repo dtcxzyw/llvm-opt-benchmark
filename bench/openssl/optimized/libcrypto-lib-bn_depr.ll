@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_generate_prime(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #0 {
+define noundef ptr @BN_generate_prime(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %cb = alloca %struct.bn_gencb_st, align 8
   call void @BN_GENCB_set_old(ptr noundef nonnull %cb, ptr noundef %callback, ptr noundef %cb_arg) #2

@@ -341,7 +341,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -988,7 +988,7 @@ declare i32 @BIO_get_mem_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %plaintext_vec, i64 noundef %plaintext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %ciphertext_vec, ptr noundef writeonly %ciphertext_bytes_written, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %plaintext_vec, i64 noundef %plaintext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %ciphertext_vec, ptr noundef writeonly %ciphertext_bytes_written, ptr noundef %error_details) #0 {
 entry:
   %nonce_masked = alloca [12 x i8], align 8
   %aad_bytes_read = alloca i64, align 8
@@ -1039,7 +1039,7 @@ if.then14:                                        ; preds = %if.end12
 
 if.end15:                                         ; preds = %if.end12
   store i64 0, ptr %ciphertext_bytes_written, align 8
-  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details), !range !7
+  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details)
   %cmp16.not = icmp eq i32 %call, 0
   br i1 %cmp16.not, label %if.end18, label %return
 
@@ -1123,7 +1123,7 @@ if.then43:                                        ; preds = %if.end38
 for.inc:                                          ; preds = %if.end38, %for.body
   %inc = add nuw i64 %i.076, 1
   %exitcond.not = icmp eq i64 %inc, %aad_vec_length
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %12 = load ptr, ptr %ciphertext_vec, align 8
@@ -1199,7 +1199,7 @@ for.inc76:                                        ; preds = %if.then58, %if.end7
   %ciphertext_length.1 = phi i64 [ %ciphertext_length.079, %if.then58 ], [ %sub, %if.end74 ]
   %inc77 = add nuw i64 %i.180, 1
   %exitcond82.not = icmp eq i64 %inc77, %plaintext_vec_length
-  br i1 %exitcond82.not, label %for.end78, label %for.body52, !llvm.loop !10
+  br i1 %exitcond82.not, label %for.end78, label %for.body52, !llvm.loop !9
 
 for.end78:                                        ; preds = %for.inc76, %if.end49
   %ciphertext.0.lcssa = phi ptr [ %12, %if.end49 ], [ %ciphertext.1, %for.inc76 ]
@@ -1254,7 +1254,7 @@ return:                                           ; preds = %if.end15, %if.end94
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %ciphertext_vec, i64 noundef %ciphertext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %plaintext_vec, ptr noundef writeonly %plaintext_bytes_written, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %ciphertext_vec, i64 noundef %ciphertext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %plaintext_vec, ptr noundef writeonly %plaintext_bytes_written, ptr noundef %error_details) #0 {
 entry:
   %nonce_masked = alloca [12 x i8], align 8
   %aad_bytes_read = alloca i64, align 8
@@ -1308,7 +1308,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add = add i64 %0, %total_ciphertext_length.0133
   %inc = add nuw i64 %i.0132, 1
   %exitcond.not = icmp eq i64 %inc, %ciphertext_vec_length
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %cmp14 = icmp ult i64 %add, 16
@@ -1328,7 +1328,7 @@ if.then18:                                        ; preds = %if.end16
 
 if.end19:                                         ; preds = %if.end16
   store i64 0, ptr %plaintext_bytes_written, align 8
-  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details), !range !7
+  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details)
   %cmp20.not = icmp eq i32 %call, 0
   br i1 %cmp20.not, label %if.end22, label %if.then21
 
@@ -1416,7 +1416,7 @@ if.then51:                                        ; preds = %if.end46
 for.inc53:                                        ; preds = %if.end46, %for.body37
   %inc54 = add nuw i64 %i.1135, 1
   %exitcond153.not = icmp eq i64 %inc54, %aad_vec_length
-  br i1 %exitcond153.not, label %for.end55, label %for.body37, !llvm.loop !12
+  br i1 %exitcond153.not, label %for.end55, label %for.body37, !llvm.loop !11
 
 for.end55:                                        ; preds = %for.inc53, %for.cond35.preheader
   %13 = load ptr, ptr %plaintext_vec, align 8
@@ -1514,7 +1514,7 @@ for.inc103:                                       ; preds = %if.then72, %if.end9
   %cmp64 = icmp ult i64 %inc104, %ciphertext_vec_length
   %cmp65 = icmp ugt i64 %total_ciphertext_length.2, 16
   %26 = select i1 %cmp64, i1 %cmp65, i1 false
-  br i1 %26, label %for.body66, label %for.end105, !llvm.loop !13
+  br i1 %26, label %for.body66, label %for.end105, !llvm.loop !12
 
 for.end105:                                       ; preds = %for.inc103
   br i1 %cmp65, label %if.then107, label %if.end110
@@ -1575,7 +1575,7 @@ for.inc134:                                       ; preds = %if.then125, %if.end
   %tag_tmp.2 = phi ptr [ %tag_tmp.1151, %if.then125 ], [ %add.ptr132, %if.end131 ]
   %inc135 = add i64 %i.3149, 1
   %exitcond154.not = icmp eq i64 %inc135, %ciphertext_vec_length
-  br i1 %exitcond154.not, label %for.end136, label %for.body119, !llvm.loop !14
+  br i1 %exitcond154.not, label %for.end136, label %for.body119, !llvm.loop !13
 
 for.end136:                                       ; preds = %for.inc134, %if.end116
   %33 = load ptr, ptr %ctx, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.then148, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %plaintext_length, ptr noundef writeonly %max_ciphertext_and_tag_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %plaintext_length, ptr noundef writeonly %max_ciphertext_and_tag_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %max_ciphertext_and_tag_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1654,7 +1654,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %ciphertext_and_tag_length, ptr noundef writeonly %max_plaintext_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %ciphertext_and_tag_length, ptr noundef writeonly %max_plaintext_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %max_plaintext_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %nonce_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %nonce_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %nonce_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %key_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %key_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %key_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1732,7 +1732,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %tag_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %tag_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %tag_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr nocapture noundef readonly %aes_gcm_crypter, ptr nocapture noundef readonly %nonce, ptr noundef %error_details) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr nocapture noundef readonly %aes_gcm_crypter, ptr nocapture noundef readonly %nonce, ptr noundef %error_details) unnamed_addr #0 {
 entry:
   %gsec_key = getelementptr inbounds i8, ptr %aes_gcm_crypter, i64 32
   %0 = load ptr, ptr %gsec_key, align 8
@@ -1858,7 +1858,7 @@ declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
 entry:
   %ctr = alloca i8, align 1
   store i8 1, ptr %ctr, align 1
@@ -2132,11 +2132,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN9grpc_core7GsecKeyEJRKSt6vectorIhSaIhEERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN9grpc_core7GsecKeyEJRKSt6vectorIhSaIhEERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!7 = !{i32 0, i32 14}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

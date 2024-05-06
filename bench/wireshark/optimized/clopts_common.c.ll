@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [52 x i8] c"The specified %s \22%s\22 isn't a floating point number\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_natural_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @get_natural_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call zeroext i1 @ws_strtoi32(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3) #5
   br i1 %4, label %15, label %5
@@ -66,8 +66,8 @@ declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_positive_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @get_natural_int(ptr noundef %0, ptr noundef %1), !range !4
+define range(i32 1, 0) i32 @get_positive_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @get_natural_int(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
 
@@ -111,7 +111,7 @@ define i32 @get_guint32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_nonzero_guint32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @get_nonzero_guint32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtou32(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3) #5
@@ -198,4 +198,3 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 -2147483648}

@@ -173,7 +173,7 @@ err:                                              ; preds = %if.then57, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PBE_find_ex(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen, ptr noundef writeonly %pkeygen_ex) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen, ptr noundef writeonly %pkeygen_ex) local_unnamed_addr #0 {
 entry:
   %pbelu = alloca %struct.evp_pbe_st, align 8
   %cmp = icmp eq i32 %pbe_nid, 0
@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PBE_alg_add_type(i32 noundef %pbe_type, i32 noundef %pbe_nid, i32 noundef %cipher_nid, i32 noundef %md_nid, ptr noundef %keygen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_alg_add_type(i32 noundef %pbe_type, i32 noundef %pbe_nid, i32 noundef %cipher_nid, i32 noundef %md_nid, ptr noundef %keygen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @pbe_algs, align 8
   %cmp = icmp eq ptr %0, null
@@ -369,7 +369,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PBE_alg_add(i32 noundef %nid, ptr noundef %cipher, ptr noundef %md, ptr noundef %keygen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_alg_add(i32 noundef %nid, ptr noundef %cipher, ptr noundef %md, ptr noundef %keygen) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -389,7 +389,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end, %if.then2
   %md_nid.0 = phi i32 [ %call3, %if.then2 ], [ -1, %if.end ]
-  %call6 = tail call i32 @EVP_PBE_alg_add_type(i32 noundef 0, i32 noundef %nid, i32 noundef %cipher_nid.0, i32 noundef %md_nid.0, ptr noundef %keygen), !range !4
+  %call6 = tail call i32 @EVP_PBE_alg_add_type(i32 noundef 0, i32 noundef %nid, i32 noundef %cipher_nid.0, i32 noundef %md_nid.0, ptr noundef %keygen)
   ret i32 %call6
 }
 
@@ -398,7 +398,7 @@ declare i32 @EVP_CIPHER_get_nid(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PBE_find(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen) local_unnamed_addr #0 {
 entry:
   %pbelu.i = alloca %struct.evp_pbe_st, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pbelu.i)
@@ -481,7 +481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @EVP_PBE_get(ptr noundef writeonly %ptype, ptr noundef writeonly %ppbe_nid, i64 noundef %num) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly %ptype, ptr noundef writeonly %ppbe_nid, i64 noundef %num) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %num, 33
   br i1 %cmp, label %return, label %if.end
@@ -589,4 +589,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

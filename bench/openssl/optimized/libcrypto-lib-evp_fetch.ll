@@ -261,7 +261,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @ossl_method_store_remove_all_provided(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_set_default_properties_int(ptr noundef %libctx, ptr noundef %propq, i32 noundef %loadconfig, i32 noundef %mirrored) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_set_default_properties_int(ptr noundef %libctx, ptr noundef %propq, i32 noundef %loadconfig, i32 noundef %mirrored) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %propq, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -375,7 +375,7 @@ return:                                           ; preds = %if.then3, %if.end23
 declare void @ossl_property_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_set_default_properties(ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_set_default_properties(ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %propq, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
@@ -407,7 +407,7 @@ evp_set_default_properties_int.exit:              ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_default_properties_is_fips_enabled(ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_default_properties_is_fips_enabled(ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_ctx_global_properties(ptr noundef %libctx, i32 noundef 1) #4
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -426,7 +426,7 @@ evp_default_property_is_enabled.exit:             ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_default_properties_enable_fips_int(ptr noundef %libctx, i32 noundef %enable, i32 noundef %loadconfig) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_default_properties_enable_fips_int(ptr noundef %libctx, i32 noundef %enable, i32 noundef %loadconfig) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %enable, 0
   %cond = select i1 %cmp.not, ptr @.str.3, ptr @.str.2
@@ -498,9 +498,9 @@ evp_default_properties_merge.exit:                ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_default_properties_enable_fips(ptr noundef %libctx, i32 noundef %enable) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_default_properties_enable_fips(ptr noundef %libctx, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @evp_default_properties_enable_fips_int(ptr noundef %libctx, i32 noundef %enable, i32 noundef 1), !range !4
+  %call = tail call i32 @evp_default_properties_enable_fips_int(ptr noundef %libctx, i32 noundef %enable, i32 noundef 1)
   ret i32 %call
 }
 
@@ -620,7 +620,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_is_a(ptr noundef %prov, i32 noundef %number, ptr noundef %legacy_name, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_is_a(ptr noundef %prov, i32 noundef %number, ptr noundef %legacy_name, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_provider_libctx(ptr noundef %prov) #4
   %call1 = tail call ptr @ossl_namemap_stored(ptr noundef %call) #4
@@ -966,4 +966,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

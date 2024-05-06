@@ -233,7 +233,7 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #2
 declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @crs_range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 -1, 2) i32 @crs_range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -411,7 +411,7 @@ while.body9:                                      ; preds = %while.cond3, %while
   br label %while.cond3, !llvm.loop !10
 
 while.end11:                                      ; preds = %while.cond3
-  %trunc = trunc i32 %inc to i8
+  %trunc = trunc nuw i32 %inc to i8
   switch i8 %trunc, label %sw.default [
     i8 1, label %sw.bb
     i8 2, label %sw.bb16
@@ -809,7 +809,7 @@ if.then5:                                         ; preds = %if.else3
   store i8 10, ptr %val.addr.i20, align 1
   %call.i21 = call ptr @g_array_append_vals(ptr noundef %table, ptr noundef nonnull %val.addr.i20, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i20)
-  %0 = trunc i64 %value to i8
+  %0 = trunc nuw i64 %value to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 %0, ptr %val.addr.i.i, align 1
   %call.i.i = call ptr @g_array_append_vals(ptr noundef %table, ptr noundef nonnull %val.addr.i.i, i32 noundef 1) #14
@@ -1202,8 +1202,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 121, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %count)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %arg1)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %count)
   %1 = load ptr, ptr %call.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 0, ptr %val.addr.i.i, align 1
@@ -1299,8 +1299,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -120, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %idx)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %arg1)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %idx)
   %1 = load ptr, ptr %call.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 0, ptr %val.addr.i.i, align 1
@@ -1737,11 +1737,11 @@ aml_gpio_connection.exit:                         ; preds = %for.end.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @aml_memory32_fixed(i32 noundef %addr, i32 noundef %size, i32 noundef %read_and_write) local_unnamed_addr #0 {
 entry:
-  %val.addr.i50 = alloca i8, align 1
-  %val.addr.i47 = alloca i8, align 1
-  %val.addr.i43 = alloca i8, align 1
-  %val.addr.i39 = alloca i8, align 1
-  %val.addr.i36 = alloca i8, align 1
+  %val.addr.i53 = alloca i8, align 1
+  %val.addr.i49 = alloca i8, align 1
+  %val.addr.i45 = alloca i8, align 1
+  %val.addr.i41 = alloca i8, align 1
+  %val.addr.i37 = alloca i8, align 1
   %val.addr.i33 = alloca i8, align 1
   %val.addr.i29 = alloca i8, align 1
   %val.addr.i26 = alloca i8, align 1
@@ -1798,38 +1798,38 @@ entry:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i33)
   %7 = load ptr, ptr %call.i, align 8
   %shr.i35 = lshr i32 %addr, 24
-  %conv15 = trunc i32 %shr.i35 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i36)
-  store i8 %conv15, ptr %val.addr.i36, align 1
-  %call.i37 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %val.addr.i36, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i36)
+  %conv15 = trunc nuw i32 %shr.i35 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i37)
+  store i8 %conv15, ptr %val.addr.i37, align 1
+  %call.i38 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %val.addr.i37, i32 noundef 1) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i37)
   %8 = load ptr, ptr %call.i, align 8
   %conv18 = trunc i32 %size to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i39)
-  store i8 %conv18, ptr %val.addr.i39, align 1
-  %call.i40 = call ptr @g_array_append_vals(ptr noundef %8, ptr noundef nonnull %val.addr.i39, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i39)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i41)
+  store i8 %conv18, ptr %val.addr.i41, align 1
+  %call.i42 = call ptr @g_array_append_vals(ptr noundef %8, ptr noundef nonnull %val.addr.i41, i32 noundef 1) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i41)
   %9 = load ptr, ptr %call.i, align 8
-  %shr.i41 = lshr i32 %size, 8
-  %conv21 = trunc i32 %shr.i41 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i43)
-  store i8 %conv21, ptr %val.addr.i43, align 1
-  %call.i44 = call ptr @g_array_append_vals(ptr noundef %9, ptr noundef nonnull %val.addr.i43, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i43)
+  %shr.i43 = lshr i32 %size, 8
+  %conv21 = trunc i32 %shr.i43 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i45)
+  store i8 %conv21, ptr %val.addr.i45, align 1
+  %call.i46 = call ptr @g_array_append_vals(ptr noundef %9, ptr noundef nonnull %val.addr.i45, i32 noundef 1) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i45)
   %10 = load ptr, ptr %call.i, align 8
-  %shr.i45 = lshr i32 %size, 16
-  %conv24 = trunc i32 %shr.i45 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i47)
-  store i8 %conv24, ptr %val.addr.i47, align 1
-  %call.i48 = call ptr @g_array_append_vals(ptr noundef %10, ptr noundef nonnull %val.addr.i47, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i47)
+  %shr.i47 = lshr i32 %size, 16
+  %conv24 = trunc i32 %shr.i47 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i49)
+  store i8 %conv24, ptr %val.addr.i49, align 1
+  %call.i50 = call ptr @g_array_append_vals(ptr noundef %10, ptr noundef nonnull %val.addr.i49, i32 noundef 1) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i49)
   %11 = load ptr, ptr %call.i, align 8
-  %shr.i49 = lshr i32 %size, 24
-  %conv27 = trunc i32 %shr.i49 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i50)
-  store i8 %conv27, ptr %val.addr.i50, align 1
-  %call.i51 = call ptr @g_array_append_vals(ptr noundef %11, ptr noundef nonnull %val.addr.i50, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i50)
+  %shr.i51 = lshr i32 %size, 24
+  %conv27 = trunc nuw i32 %shr.i51 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i53)
+  store i8 %conv27, ptr %val.addr.i53, align 1
+  %call.i54 = call ptr @g_array_append_vals(ptr noundef %11, ptr noundef nonnull %val.addr.i53, i32 noundef 1) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i53)
   ret ptr %call.i
 }
 
@@ -1959,7 +1959,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i14)
   %3 = load ptr, ptr %call.i, align 8
   %4 = lshr i16 %min_base, 8
-  %conv8 = trunc i16 %4 to i8
+  %conv8 = trunc nuw i16 %4 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i16)
   store i8 %conv8, ptr %val.addr.i16, align 1
   %call.i17 = call ptr @g_array_append_vals(ptr noundef %3, ptr noundef nonnull %val.addr.i16, i32 noundef 1) #14
@@ -1972,7 +1972,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i18)
   %6 = load ptr, ptr %call.i, align 8
   %7 = lshr i16 %max_base, 8
-  %conv17 = trunc i16 %7 to i8
+  %conv17 = trunc nuw i16 %7 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i20)
   store i8 %conv17, ptr %val.addr.i20, align 1
   %call.i21 = call ptr @g_array_append_vals(ptr noundef %6, ptr noundef nonnull %val.addr.i20, i32 noundef 1) #14
@@ -2025,7 +2025,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i7)
   %2 = load ptr, ptr %call.i, align 8
   %shr = lshr i32 %shl, 8
-  %conv9 = trunc i32 %shr to i8
+  %conv9 = trunc nuw i32 %shr to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i9)
   store i8 %conv9, ptr %val.addr.i9, align 1
   %call.i10 = call ptr @g_array_append_vals(ptr noundef %2, ptr noundef nonnull %val.addr.i9, i32 noundef 1) #14
@@ -2472,8 +2472,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -118, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %index)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %srcbuf)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %index)
   %1 = load ptr, ptr %call.i.i.i, align 8
   tail call void (ptr, ptr, ...) @build_append_namestring(ptr noundef %1, ptr nonnull poison, ptr noundef %name)
   ret ptr %call.i.i.i
@@ -2492,8 +2492,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -113, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %index)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %srcbuf)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %index)
   %1 = load ptr, ptr %call.i.i.i, align 8
   tail call void (ptr, ptr, ...) @build_append_namestring(ptr noundef %1, ptr nonnull poison, ptr noundef %name)
   ret ptr %call.i.i.i
@@ -2780,7 +2780,7 @@ entry:
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i15, align 8
-  %conv2.i = trunc i32 %type to i8
+  %conv2.i = trunc nuw nsw i32 %type to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 %conv2.i, ptr %val.addr.i.i, align 1
   %call.i4.i = call ptr @g_array_append_vals(ptr noundef %call.i.i.i, ptr noundef nonnull %val.addr.i.i, i32 noundef 1) #14
@@ -2945,7 +2945,7 @@ entry:
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i15, align 8
-  %conv2.i = trunc i32 %type to i8
+  %conv2.i = trunc nuw nsw i32 %type to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 %conv2.i, ptr %val.addr.i.i, align 1
   %call.i4.i = call ptr @g_array_append_vals(ptr noundef %call.i.i.i, ptr noundef nonnull %val.addr.i.i, i32 noundef 1) #14
@@ -3243,7 +3243,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i)
   %1 = load ptr, ptr %call.i, align 8
   %shl7 = shl nuw nsw i32 1, %conv3
-  %conv8 = trunc i32 %shl7 to i8
+  %conv8 = trunc nuw i32 %shl7 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i6)
   store i8 %conv8, ptr %val.addr.i6, align 1
   %call.i7 = call ptr @g_array_append_vals(ptr noundef %1, ptr noundef nonnull %val.addr.i6, i32 noundef 1) #14
@@ -4204,7 +4204,7 @@ if.else.i:                                        ; preds = %build_append_int_no
   unreachable
 
 do.end.i:                                         ; preds = %build_append_int_noprefix.exit
-  %conv.i37 = trunc i64 %call.i to i32
+  %conv.i37 = trunc nuw nsw i64 %call.i to i32
   %call1.i = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef %3, i32 noundef %conv.i37) #14
   %cmp2.not7.i = icmp eq i64 %call.i, 6
   br i1 %cmp2.not7.i, label %build_append_padded_str.exit, label %for.body.i38.preheader
@@ -4235,7 +4235,7 @@ if.else.i52:                                      ; preds = %build_append_padded
   unreachable
 
 do.end.i42:                                       ; preds = %build_append_padded_str.exit
-  %conv.i43 = trunc i64 %call.i40 to i32
+  %conv.i43 = trunc nuw nsw i64 %call.i40 to i32
   %call1.i44 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef %4, i32 noundef %conv.i43) #14
   %cmp2.not7.i46 = icmp eq i64 %call.i40, 8
   br i1 %cmp2.not7.i46, label %build_append_padded_str.exit53, label %for.body.i47.preheader
@@ -5027,7 +5027,7 @@ if.end54:                                         ; preds = %if.end20, %land.lhs
   br i1 %cmp55, label %if.then57, label %if.else58
 
 if.then57:                                        ; preds = %if.end54
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 10, i32 noundef %cluster_offset.1, i32 noundef %10)
   br label %for.inc
 
@@ -5055,7 +5055,7 @@ if.end76:                                         ; preds = %if.then66
 if.end85:                                         ; preds = %if.end76, %if.else58
   %core_id.3 = phi i64 [ %11, %if.end76 ], [ %core_id.2, %if.else58 ]
   %core_offset.1 = phi i32 [ %sub83, %if.end76 ], [ %core_offset.051, %if.else58 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %13)
   br label %for.inc
 
@@ -6391,8 +6391,8 @@ if.else148:                                       ; preds = %land.lhs.true140, %
 
 if.end149:                                        ; preds = %land.lhs.true140
   %conv151 = trunc i64 %34 to i32
-  %conv153 = trunc i64 %33 to i32
-  %conv158 = trunc i64 %add144 to i32
+  %conv153 = trunc nuw i64 %33 to i32
+  %conv158 = trunc nuw i64 %add144 to i32
   %call.i119 = tail call fastcc noundef ptr @aml_dword_as_desc(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv151, i32 noundef %conv153, i32 noundef %mmio32_offset, i32 noundef %conv158, i8 noundef zeroext 1)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i119)
   %35 = load ptr, ptr %mem_ranges160, align 8

@@ -355,7 +355,7 @@ declare dso_local void @inc_diskseq(ptr noundef) local_unnamed_addr #2
 declare dso_local void @bdev_mark_dead(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i64 @disk_events_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal range(i64 2, 1) i64 @disk_events_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 46
@@ -375,7 +375,7 @@ define internal i64 @disk_events_show(ptr nocapture noundef readonly %0, ptr noc
   %16 = phi i64 [ 0, %10 ], [ 1, %30 ]
   %17 = phi i64 [ 0, %10 ], [ %32, %30 ]
   %18 = phi ptr [ @.str.9, %10 ], [ %31, %30 ]
-  %19 = trunc i64 %16 to i32
+  %19 = trunc nuw nsw i64 %16 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = and i32 %20, %13
   %22 = icmp eq i32 %21, 0
@@ -416,7 +416,7 @@ define internal noundef i64 @disk_events_async_show(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_events_poll_msecs_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_events_poll_msecs_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 512
@@ -441,7 +441,7 @@ define internal noundef i64 @disk_events_poll_msecs_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @disk_events_poll_msecs_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 1, 0) i64 @disk_events_poll_msecs_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 -184
   %7 = load ptr, ptr %6, align 8
@@ -499,7 +499,7 @@ define internal noundef i64 @disk_events_poll_msecs_store(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @disk_alloc_events(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @disk_alloc_events(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48
@@ -778,7 +778,7 @@ define internal fastcc void @disk_check_events(ptr noundef %0, ptr nocapture nou
   %60 = phi i1 [ true, %55 ], [ false, %74 ]
   %61 = phi i64 [ 0, %55 ], [ 1, %74 ]
   %62 = phi i32 [ 0, %55 ], [ %75, %74 ]
-  %63 = trunc i64 %61 to i32
+  %63 = trunc nuw nsw i64 %61 to i32
   %64 = shl nuw nsw i32 1, %63
   %65 = and i32 %64, %58
   %66 = and i32 %65, %16
@@ -830,7 +830,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @disk_events_set_dfl_poll_msecs(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @disk_events_set_dfl_poll_msecs(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @param_set_ulong(ptr noundef %0, ptr noundef %1) #9
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %27, label %5

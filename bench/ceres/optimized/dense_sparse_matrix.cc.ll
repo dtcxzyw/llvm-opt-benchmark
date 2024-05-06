@@ -655,7 +655,7 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix10ToTextFileEP8_IO_FIL
   br i1 %20, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %21 = trunc i64 %indvars.iv23 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv23 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -666,7 +666,7 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix10ToTextFileEP8_IO_FIL
   %25 = getelementptr double, ptr %23, i64 %24
   %26 = getelementptr double, ptr %25, i64 %indvars.iv
   %27 = load double, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i32 noundef %21, i32 noundef %28, double noundef %27) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i64, ptr %8, align 8

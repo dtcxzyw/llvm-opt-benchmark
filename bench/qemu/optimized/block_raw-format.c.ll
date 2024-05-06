@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [38 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_lock_medium, ptr @.str.24, ptr @.str.25, i32 179, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_eject, ptr @.str.24, ptr @.str.25, i32 182, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_report, ptr @.str.24, ptr @.str.25, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_create_opts, ptr @.str.24, ptr @.str.26, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_report, ptr @.str.24, ptr @.str.26, i32 323, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.24, ptr @.str.27, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pwrite_zeroes, ptr @.str.24, ptr @.str.26, i32 298, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_child, ptr @.str.28, ptr @.str.27, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_preadv, ptr @.str.24, ptr @.str.26, i32 210, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_zeroes, ptr @.str.24, ptr @.str.25, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_ioctl, ptr @.str.24, ptr @.str.25, i32 108, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_from, ptr @.str.24, ptr @.str.29, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pdiscard, ptr @.str.24, ptr @.str.25, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pdiscard, ptr @.str.24, ptr @.str.26, i32 311, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_copy_range_from, ptr @.str.24, ptr @.str.26, i32 579, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.24, ptr @.str.25, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_mgmt, ptr @.str.24, ptr @.str.25, i32 121, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_mgmt, ptr @.str.24, ptr @.str.26, i32 331, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.24, ptr @.str.29, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_truncate, ptr @.str.24, ptr @.str.25, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_get_info, ptr @.str.24, ptr @.str.26, i32 397, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_getlength, ptr @.str.24, ptr @.str.26, i32 345, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_lock_medium, ptr @.str.24, ptr @.str.26, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_get_info, ptr @.str.24, ptr @.str.25, i32 196, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_append, ptr @.str.24, ptr @.str.26, i32 338, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_block_status, ptr @.str.24, ptr @.str.26, i32 286, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_ioctl, ptr @.str.24, ptr @.str.26, i32 448, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.24, ptr @.str.25, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_truncate, ptr @.str.24, ptr @.str.26, i32 415, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_to, ptr @.str.24, ptr @.str.29, i32 122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_eject, ptr @.str.24, ptr @.str.26, i32 436, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.28, ptr @.str.25, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.30, ptr @.str.25, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_has_zero_init, ptr @.str.30, ptr @.str.27, i32 197, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_copy_range_to, ptr @.str.24, ptr @.str.26, i32 596, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_append, ptr @.str.24, ptr @.str.25, i32 124, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.24, ptr @.str.29, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pwritev, ptr @.str.24, ptr @.str.26, i32 225, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_reopen_prepare(ptr noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @raw_reopen_prepare(ptr noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call, label %do.end, label %if.else
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @raw_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr noundef %bsz) #0 {
+define internal range(i32 -2147483648, 1) i32 @raw_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr noundef %bsz) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

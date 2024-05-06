@@ -30,7 +30,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @ossl_md5_sha1_update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @md5_sha1_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal range(i32 0, 2) i32 @md5_sha1_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -90,7 +90,7 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @md5_sha1_internal_init(ptr noundef %ctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @md5_sha1_internal_init(ptr noundef %ctx, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0

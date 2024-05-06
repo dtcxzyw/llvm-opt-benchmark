@@ -482,7 +482,7 @@ do.body:                                          ; preds = %do.body, %if.end5
   %shr.i = ashr i64 %max_rtt.sroa.2.0.copyload.sroa.speculated, %indvars.iv
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.i = icmp slt i64 %shr.i, %sub.i
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %cmp27 = icmp sgt i32 %5, 1
   %or.cond = and i1 %cmp27, %cmp.i
   br i1 %or.cond, label %do.body, label %do.end.loopexit, !llvm.loop !30

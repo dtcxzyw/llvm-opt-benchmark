@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
   %3 = alloca { { { [4 x i64], i64, [3 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull align 16 dereferenceable(192) %1, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(192) %3, ptr noundef nonnull readonly align 16 dereferenceable(192) %1, i64 192, i1 false)
   call fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias align 8 %0, ptr nonnull align 16 %3)
   ret void
 }
@@ -4651,7 +4651,7 @@ switch.early.test.i:                              ; preds = %.noexc23
   %.sroa.235.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.48.0.copyload.i, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !101
   %.sroa.336.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.336.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.611.0..sroa_idx.i, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(60) %.sroa.336.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.611.0..sroa_idx.i, i64 60, i1 false)
   br label %79
 
 58:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %.noexc23
@@ -4689,7 +4689,7 @@ switch.early.test.i:                              ; preds = %.noexc23
           to label %.noexc28 unwind label %77
 
 .noexc28:                                         ; preds = %.noexc27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
   br label %79
 
 66:                                               ; preds = %.noexc25
@@ -4711,7 +4711,7 @@ switch.early.test.i:                              ; preds = %.noexc23
   %.sroa.348.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %68, ptr %.sroa.348.0..sroa_idx.i, align 8, !alias.scope !101
   %.sroa.449.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.449.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.449.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !101
   br label %79
 
@@ -4732,7 +4732,7 @@ switch.early.test.i:                              ; preds = %.noexc23
           to label %.noexc32 unwind label %77
 
 .noexc32:                                         ; preds = %.noexc31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
   br label %79
 
 76:                                               ; preds = %_ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit

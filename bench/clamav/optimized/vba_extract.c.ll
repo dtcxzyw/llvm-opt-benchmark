@@ -2464,7 +2464,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %32 = icmp ugt i32 %16, 2048
   %.neg95 = sext i1 %32 to i32
   %33 = bitcast <4 x i1> %29 to i4
-  %34 = call i4 @llvm.ctpop.i4(i4 %33), !range !4
+  %34 = call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %33)
   %35 = zext nneg i4 %34 to i32
   %op.rdx = sub nsw i32 %.neg93, %35
   %op.rdx122 = add nsw i32 %.neg94, %.neg95
@@ -2900,7 +2900,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not123, label %63, label %57
 
 63:                                               ; preds = %61
-  %64 = call fastcc i32 @seekandread(i32 noundef %24, i64 noundef -3, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 2), !range !5
+  %64 = call fastcc i32 @seekandread(i32 noundef %24, i64 noundef -3, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 2)
   %.not124 = icmp eq i32 %64, 0
   br i1 %.not124, label %65, label %67
 
@@ -3480,7 +3480,7 @@ read_uint16.exit.thread:                          ; preds = %57, %5, %17, %33, %
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @seekandread(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @seekandread(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = tail call i64 @lseek(i32 noundef %0, i64 noundef %1, i32 noundef %2) #17
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %8, label %9
@@ -3819,7 +3819,7 @@ skip_past_nul.exit49:                             ; preds = %41
   br i1 %51, label %read_uint32.exit.thread, label %52
 
 52:                                               ; preds = %49
-  %53 = call fastcc i32 @skip_past_nul(i32 noundef %0), !range !5
+  %53 = call fastcc i32 @skip_past_nul(i32 noundef %0)
   %.not36 = icmp eq i32 %53, 0
   br i1 %.not36, label %read_uint32.exit.thread, label %54
 
@@ -3913,7 +3913,7 @@ read_uint32.exit.thread:                          ; preds = %54, %9, %skip_past_
 declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @skip_past_nul(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @skip_past_nul(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   br label %3
 
@@ -4968,5 +4968,3 @@ attributes #20 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i4 0, i4 5}
-!5 = !{i32 0, i32 2}

@@ -107,7 +107,7 @@ declare i32 @isalnum(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN3gmx10countWordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #21
   %.not15.i = icmp eq i64 %3, 0
   br i1 %.not15.i, label %_ZN3gmx10countWordsEPKc.exit, label %.lr.ph.i
 
@@ -201,15 +201,15 @@ _ZN3gmxL13isNullOrEmptyEPKc.exit.i.i:             ; preds = %4
   br i1 %8, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread, label %9
 
 9:                                                ; preds = %_ZN3gmxL13isNullOrEmptyEPKc.exit.i.i
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #21
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #21
   %.not.i.i = icmp ult i64 %10, %11
   br i1 %.not.i.i, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread11, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
 
 _ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; preds = %9
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %6, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %2) #21
+  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %2) #21
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread11
 
@@ -572,7 +572,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %48, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %31, i64 %38
+  %50 = getelementptr i8, ptr %31, i64 %38
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %47, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i
 
@@ -2066,7 +2066,7 @@ define void @_ZNK3gmx15TextLineWrapper12wrapToStringERKNSt7__cxx1112basic_string
 7:                                                ; preds = %.lr.ph, %26
   %.01923 = phi i64 [ 0, %.lr.ph ], [ %9, %26 ]
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %9 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef %8, i64 noundef %.01923)
+  %9 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef %8, i64 noundef %.01923)
   invoke void @_ZNK3gmx15TextLineWrapper10formatLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %.01923, i64 noundef %9)
           to label %10 unwind label %22
 
@@ -2134,7 +2134,7 @@ define void @_ZNK3gmx15TextLineWrapper12wrapToVectorERKNSt7__cxx1112basic_string
 8:                                                ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
   %.01315 = phi i64 [ 0, %.lr.ph ], [ %10, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %10 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef %9, i64 noundef %.01315)
+  %10 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef %9, i64 noundef %.01315)
   invoke void @_ZNK3gmx15TextLineWrapper10formatLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %.01315, i64 noundef %10)
           to label %11 unwind label %19
 

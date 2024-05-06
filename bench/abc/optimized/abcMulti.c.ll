@@ -629,7 +629,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph.i64, %316
   %.val38.val.us.i = load ptr, ptr %302, align 8
   %303 = getelementptr inbounds ptr, ptr %.val38.val.us.i, i64 %indvars.iv51.i
   %304 = load ptr, ptr %303, align 8
-  %305 = trunc i64 %indvars.iv51.i to i32
+  %305 = trunc nuw nsw i64 %indvars.iv51.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %305, ptr noundef null) #6
   %.val32.us.i = load ptr, ptr %304, align 8
   %306 = getelementptr i8, ptr %304, i64 32
@@ -676,7 +676,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph.i64, %316
   br i1 %325, label %Extra_ProgressBarUpdate.exit.i, label %326
 
 326:                                              ; preds = %.lr.ph.split.i
-  %327 = trunc i64 %indvars.iv.i65 to i32
+  %327 = trunc nuw nsw i64 %indvars.iv.i65 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %299, i32 noundef %327, ptr noundef null) #6
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -910,9 +910,9 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr nocapture noundef readonl
 
 .preheader:                                       ; preds = %59, %.preheader
   store i32 0, ptr %4, align 4
-  %62 = tail call noundef i32 @Abc_NtkMultiLimit_rec(ptr noundef nonnull %57, ptr noundef nonnull %3, i32 noundef %2, i32 noundef 1, i32 noundef 1), !range !17
+  %62 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef nonnull %57, ptr noundef nonnull %3, i32 noundef %2, i32 noundef 1, i32 noundef 1)
   %.not44 = icmp eq i32 %62, 0
-  br i1 %.not44, label %.critedge4.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %.not44, label %.critedge4.loopexit, label %.preheader, !llvm.loop !17
 
 .critedge4.loopexit:                              ; preds = %.preheader
   %.pre77 = load ptr, ptr %7, align 8
@@ -925,7 +925,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr nocapture noundef readonl
   %.val47 = load i32, ptr %64, align 4
   %65 = sext i32 %.val47 to i64
   %66 = icmp slt i64 %indvars.iv.next75, %65
-  br i1 %66, label %.lr.ph68, label %.critedge6.loopexit, !llvm.loop !19
+  br i1 %66, label %.lr.ph68, label %.critedge6.loopexit, !llvm.loop !18
 
 .critedge6.loopexit:                              ; preds = %.critedge4
   %.pre78 = load ptr, ptr %6, align 8
@@ -960,7 +960,7 @@ declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMultiLimit_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkMultiLimit_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = icmp eq i32 %4, 0
   br label %tailrecurse
@@ -1000,7 +1000,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not40, label %21, label %29
 
 21:                                               ; preds = %13
-  %22 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0), !range !17
+  %22 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0)
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %21, %53
@@ -1020,7 +1020,7 @@ tailrecurse.backedge:                             ; preds = %21, %53
   br label %tailrecurse
 
 29:                                               ; preds = %13
-  %30 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0), !range !17
+  %30 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %.not41 = icmp eq i32 %30, 0
   br i1 %.not41, label %31, label %.loopexit
 
@@ -1037,7 +1037,7 @@ tailrecurse.backedge:                             ; preds = %21, %53
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds ptr, ptr %.val50.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %39, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0), !range !17
+  %40 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %39, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0)
   %41 = load i32, ptr %6, align 4
   %.not42 = icmp sgt i32 %41, %2
   br i1 %.not42, label %42, label %.loopexit
@@ -1055,7 +1055,7 @@ tailrecurse.backedge:                             ; preds = %21, %53
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %.val52.val.val, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %49, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, i32 noundef 0), !range !17
+  %50 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %49, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, i32 noundef 0)
   %51 = load i32, ptr %6, align 4
   %52 = icmp sgt i32 %51, %2
   br i1 %52, label %53, label %54
@@ -1119,7 +1119,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !19
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -1200,10 +1200,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMultiLimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkMultiLimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
-  %5 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 1), !range !17
+  %5 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 1)
   ret i32 %5
 }
 
@@ -1322,7 +1322,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   tail call void @Abc_ObjAddFanin(ptr noundef %24, ptr noundef %32) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %0, i64 256
@@ -1338,7 +1338,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %37 = getelementptr inbounds ptr, ptr %.pre26, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = tail call ptr @Cudd_bddIthVar(ptr noundef %35, i32 noundef %39) #6
   %41 = getelementptr inbounds i8, ptr %38, i64 56
   store ptr %40, ptr %41, align 8
@@ -1349,7 +1349,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   store i32 %44, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = icmp ult i64 %indvars.iv.next.i, %36
-  br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+  br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread, %._crit_edge
   %46 = phi ptr [ %28, %._crit_edge.thread ], [ %35, %._crit_edge ], [ %35, %.lr.ph.i ]
@@ -1375,7 +1375,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %58 = load i32, ptr %7, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next30.i, %59
-  br i1 %60, label %.lr.ph26.i, label %Abc_NtkMultiDeriveBdd.exit, !llvm.loop !23
+  br i1 %60, label %.lr.ph26.i, label %Abc_NtkMultiDeriveBdd.exit, !llvm.loop !22
 
 Abc_NtkMultiDeriveBdd.exit:                       ; preds = %.lr.ph26.i, %._crit_edge.i
   tail call void @Cudd_Deref(ptr noundef %47) #6
@@ -1599,10 +1599,9 @@ attributes #8 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

@@ -82,7 +82,7 @@ opal_hash_table_remove_all.exit:                  ; preds = %15, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @opal_hash_table_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @opal_hash_table_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = sext i32 %3 to i64
   %8 = mul i64 %7, %1
   %9 = sext i32 %2 to i64
@@ -125,7 +125,7 @@ define noundef i32 @opal_hash_table_init2(ptr nocapture noundef writeonly %0, i6
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @opal_hash_table_init(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @opal_hash_table_init(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = shl i64 %1, 1
   %4 = add i64 %3, 29
   %5 = urem i64 %4, 30
@@ -206,7 +206,7 @@ define noundef i32 @opal_hash_table_remove_all(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 -13, 1) i32 @opal_hash_table_get_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -249,7 +249,7 @@ define noundef i32 @opal_hash_table_get_value_uint32(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -379,7 +379,7 @@ opal_hash_grow.exit:                              ; preds = %._crit_edge, %opal_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hash_table_remove_value_uint32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -13, 1) i32 @opal_hash_table_remove_value_uint32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -482,7 +482,7 @@ opal_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 -13, 1) i32 @opal_hash_table_get_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -524,7 +524,7 @@ define noundef i32 @opal_hash_table_get_value_uint64(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -653,7 +653,7 @@ opal_hash_grow.exit:                              ; preds = %._crit_edge, %opal_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hash_table_remove_value_uint64(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -13, 1) i32 @opal_hash_table_remove_value_uint64(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -755,7 +755,7 @@ opal_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define range(i32 -13, 1) i32 @opal_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1113,7 +1113,7 @@ opal_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_first_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_first_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 24
@@ -1149,7 +1149,7 @@ opal_hash_table_get_next_key_uint32.exit:         ; preds = %7, %4, %opal_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_next_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_next_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
   %6 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 24
@@ -1192,7 +1192,7 @@ opal_hash_table_get_next_elt.exit.thread:         ; preds = %16, %5, %opal_hash_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_first_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_first_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
   %6 = getelementptr i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 24
@@ -1231,7 +1231,7 @@ opal_hash_table_get_next_key_ptr.exit:            ; preds = %8, %5, %opal_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_next_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_next_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %0, i64 24
@@ -1277,7 +1277,7 @@ opal_hash_table_get_next_elt.exit.thread:         ; preds = %17, %6, %opal_hash_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_first_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_first_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 24
@@ -1313,7 +1313,7 @@ opal_hash_table_get_next_key_uint64.exit:         ; preds = %7, %4, %opal_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_hash_table_get_next_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_hash_table_get_next_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
   %6 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 24
@@ -1400,7 +1400,7 @@ opal_hash_table_init.exit:                        ; preds = %3, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_proc_table_remove_all(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef range(i32 1, 0) i32 @opal_proc_table_remove_all(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 24
@@ -1626,7 +1626,7 @@ opal_hash_table_get_value_uint32.exit12:          ; preds = %13, %33, %3, %42, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_proc_table_set_value(ptr nocapture noundef %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @opal_proc_table_set_value(ptr nocapture noundef %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -1766,7 +1766,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i20, %57
   store i64 %68, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr null, ptr %70, align 8
-  %71 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef nonnull %0, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull %25), !range !12
+  %71 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef nonnull %0, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull %25)
   %.not17 = icmp eq i32 %71, 0
   br i1 %.not17, label %91, label %72
 
@@ -1815,7 +1815,7 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %83
 
 91:                                               ; preds = %opal_hash_table_get_value_uint32.exit, %65
   %.1 = phi ptr [ %23, %opal_hash_table_get_value_uint32.exit ], [ %25, %65 ]
-  %92 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef %.1, i32 noundef %.sroa.3.0.extract.trunc, ptr noundef %2), !range !12
+  %92 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef %.1, i32 noundef %.sroa.3.0.extract.trunc, ptr noundef %2)
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %29, %opal_obj_run_destructors.exit28, %opal_thread_add_fetch_32.exit23, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %91
@@ -1824,7 +1824,7 @@ opal_obj_new.exit.thread:                         ; preds = %29, %opal_obj_run_d
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_proc_table_remove_value(ptr nocapture noundef %0, i64 %1) local_unnamed_addr #1 {
+define i32 @opal_proc_table_remove_value(ptr nocapture noundef %0, i64 %1) local_unnamed_addr #1 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -1861,7 +1861,7 @@ define noundef i32 @opal_proc_table_remove_value(ptr nocapture noundef %0, i64 %
   %23 = load ptr, ptr %22, align 8
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %24 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef %23, i32 noundef %.sroa.3.0.extract.trunc), !range !13
+  %24 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef %23, i32 noundef %.sroa.3.0.extract.trunc)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %opal_hash_table_get_value_uint32.exit.thread
 
@@ -1872,7 +1872,7 @@ define noundef i32 @opal_proc_table_remove_value(ptr nocapture noundef %0, i64 %
   br i1 %29, label %30, label %opal_hash_table_get_value_uint32.exit.thread
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef %0, i32 noundef %.sroa.0.0.extract.trunc), !range !13
+  %31 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef %0, i32 noundef %.sroa.0.0.extract.trunc)
   %32 = getelementptr inbounds i8, ptr %23, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
   %34 = trunc i8 %33 to i1
@@ -1985,7 +1985,7 @@ opal_hash_table_get_first_key_uint32.exit.thread: ; preds = %8, %19, %12, %5, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_proc_table_get_next_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_proc_table_get_next_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2099,7 +2099,7 @@ opal_hash_table_get_next_key_uint32.exit31.thread: ; preds = %42, %53, %46, %.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @opal_hash_hash_elt_uint32(ptr nocapture noundef readonly %0) #11 {
+define internal range(i64 0, 4294967296) i64 @opal_hash_hash_elt_uint32(ptr nocapture noundef readonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -2204,5 +2204,3 @@ attributes #19 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -2, i32 1}
-!13 = !{i32 -13, i32 1}

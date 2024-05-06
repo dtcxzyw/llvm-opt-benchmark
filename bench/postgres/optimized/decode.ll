@@ -1126,7 +1126,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %73 = shl i64 %72, 32
   %sext.i.i = add i64 %73, -21474836480
   %74 = ashr exact i64 %sext.i.i, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nsw i64 %74 to i32
   %76 = add i32 %75, 23
   store i32 %76, ptr %70, align 8
   %77 = getelementptr inbounds i8, ptr %70, i64 16
@@ -1147,7 +1147,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %78, i8 0, i64 23, i1 false)
   %86 = load ptr, ptr %77, align 8
   %87 = getelementptr i8, ptr %86, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 %83, i64 %74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr readonly align 1 %83, i64 %74, i1 false)
   store <2 x i16> %85, ptr %84, align 2
   %88 = getelementptr inbounds i8, ptr %78, i64 22
   store i8 %.sroa.3.0.copyload.i.i, ptr %88, align 2
@@ -1176,7 +1176,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %104 = shl nuw i64 %99, 32
   %sext.i34.i = add i64 %104, -81604378624
   %105 = ashr exact i64 %sext.i34.i, 32
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nsw i64 %105 to i32
   %107 = add i32 %106, 23
   store i32 %107, ptr %102, align 8
   %108 = getelementptr inbounds i8, ptr %102, i64 16
@@ -1197,7 +1197,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %109, i8 0, i64 23, i1 false)
   %117 = load ptr, ptr %108, align 8
   %118 = getelementptr i8, ptr %117, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr align 1 %114, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %114, i64 %105, i1 false)
   store <2 x i16> %116, ptr %115, align 2
   %119 = getelementptr inbounds i8, ptr %109, i64 22
   store i8 %.sroa.3.0.copyload.i39.i, ptr %119, align 2
@@ -1333,7 +1333,7 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   %48 = shl i64 %47, 32
   %sext.i = add i64 %48, -21474836480
   %49 = ashr exact i64 %sext.i, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nsw i64 %49 to i32
   %51 = add i32 %50, 23
   store i32 %51, ptr %45, align 8
   %52 = getelementptr inbounds i8, ptr %45, i64 16
@@ -1354,7 +1354,7 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %61 = load ptr, ptr %52, align 8
   %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %58, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
   store <2 x i16> %60, ptr %59, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
@@ -1444,7 +1444,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %48 = shl nuw i64 %42, 32
   %sext.i = add i64 %48, -55834574848
   %49 = ashr exact i64 %sext.i, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nsw i64 %49 to i32
   %51 = add i32 %50, 23
   store i32 %51, ptr %45, align 8
   %52 = getelementptr inbounds i8, ptr %45, i64 16
@@ -1465,7 +1465,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %61 = load ptr, ptr %52, align 8
   %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %58, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
   store <2 x i16> %60, ptr %59, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2

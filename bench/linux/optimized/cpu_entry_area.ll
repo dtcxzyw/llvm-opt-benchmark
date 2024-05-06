@@ -178,7 +178,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %35, 1408
   %37 = lshr i64 %34, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = select i1 %36, i32 %31, i32 %38, !prof !11
   br i1 %36, label %.preheader11.backedge, label %40
 

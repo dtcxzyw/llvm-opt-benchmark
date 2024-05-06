@@ -28,7 +28,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_authenc_extractkeys511, ptr @__UNIQUE_ID___addressable_crypto_authenc_module_init515, ptr @__UNIQUE_ID_alias_crypto520, ptr @__UNIQUE_ID_alias_userspace519, ptr @__UNIQUE_ID_description518, ptr @__UNIQUE_ID_file516, ptr @__UNIQUE_ID_license517, ptr @__exitcall_crypto_authenc_module_exit, ptr @crypto_authenc_module_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @crypto_authenc_extractkeys(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ugt i32 %2, 3
   br i1 %4, label %5, label %34
 

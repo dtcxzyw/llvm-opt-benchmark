@@ -110,7 +110,7 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
   %.lobit.i.i = lshr i32 %54, 31
-  %56 = trunc i32 %.lobit.i.i to i8
+  %56 = trunc nuw nsw i32 %.lobit.i.i to i8
   %57 = getelementptr inbounds i8, ptr %1, i64 80
   %58 = load i32, ptr %57, align 8
   %.lobit102.i.i = lshr i32 %58, 31
@@ -334,7 +334,7 @@ opal_update_counted_pointer.exit.i.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i
   %162 = extractvalue { i128, i1 } %160, 0
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %162 to i64
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i128 %162, 64
-  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i.i.i, ptr %.sroa.4.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)

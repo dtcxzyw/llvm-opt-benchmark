@@ -555,7 +555,7 @@ declare dso_local void @drm_gem_object_free(ptr noundef) local_unnamed_addr #2
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ext_set_placements(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca [7 x ptr], align 16
   %4 = alloca %struct.drm_i915_gem_memory_class_instance, align 4
   %5 = alloca [256 x i8], align 16
@@ -883,7 +883,7 @@ define internal noundef i32 @ext_set_placements(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ext_set_protected(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ext_set_protected(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.drm_i915_gem_create_ext_protected_content, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !20
@@ -918,7 +918,7 @@ define internal noundef i32 @ext_set_protected(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ext_set_pat(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ext_set_pat(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.drm_i915_gem_create_ext_set_pat, align 8
   %4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11

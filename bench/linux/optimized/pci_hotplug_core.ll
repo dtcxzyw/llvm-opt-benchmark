@@ -696,7 +696,7 @@ declare dso_local void @pci_hp_remove_module_link(ptr noundef) local_unnamed_add
 declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @power_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @power_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -824,7 +824,7 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @attention_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @attention_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -920,7 +920,7 @@ define internal noundef i64 @attention_write_file(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @latch_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @latch_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -968,7 +968,7 @@ define internal i64 @latch_read_file(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @presence_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @presence_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 24

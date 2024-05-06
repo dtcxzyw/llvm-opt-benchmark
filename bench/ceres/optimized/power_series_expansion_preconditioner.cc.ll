@@ -588,7 +588,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %118 = getelementptr inbounds i8, ptr %108, i64 16
   %119 = load <2 x double>, ptr %118, align 16
   %120 = fmul <2 x double> %119, %119
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %108, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %108, i64 48
   %121 = icmp ugt i64 %105, 7
   br i1 %121, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -601,7 +601,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %123 = load <2 x double>, ptr %122, align 16
   %124 = fmul <2 x double> %123, %123
   %125 = fadd <2 x double> %.07275.i.i.i.i.i, %124
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %126 = load <2 x double>, ptr %gep.i.i.i.i.i, align 16
   %127 = fmul <2 x double> %126, %126
   %128 = fadd <2 x double> %storemerge76.i.i.i.i.i, %127
@@ -2939,7 +2939,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %49 = getelementptr inbounds i8, ptr %37, i64 16
   %50 = load <2 x double>, ptr %49, align 1
   %51 = fmul <2 x double> %50, %50
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %37, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 48
   %52 = icmp ugt i64 %35, 7
   br i1 %52, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -2952,7 +2952,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %54 = load <2 x double>, ptr %53, align 1
   %55 = fmul <2 x double> %54, %54
   %56 = fadd <2 x double> %.07275.i.i.i.i.i.i.i, %55
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %57 = load <2 x double>, ptr %gep.i.i.i.i.i.i.i, align 1
   %58 = fmul <2 x double> %57, %57
   %59 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %58
@@ -3481,7 +3481,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %102 = getelementptr inbounds i8, ptr %90, i64 16
   %103 = load <2 x double>, ptr %102, align 1
   %104 = fmul <2 x double> %103, %103
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %90, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 48
   %105 = icmp ugt i64 %88, 7
   br i1 %105, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -3494,7 +3494,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %107 = load <2 x double>, ptr %106, align 1
   %108 = fmul <2 x double> %107, %107
   %109 = fadd <2 x double> %.07275.i.i.i.i.i.i.i, %108
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %110 = load <2 x double>, ptr %gep.i.i.i.i.i.i.i, align 1
   %111 = fmul <2 x double> %110, %110
   %112 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %111
@@ -4037,7 +4037,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %144 = getelementptr inbounds i8, ptr %132, i64 16
   %145 = load <2 x double>, ptr %144, align 1
   %146 = fmul <2 x double> %145, %145
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %132, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %132, i64 48
   %147 = icmp ugt i64 %130, 7
   br i1 %147, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -4050,7 +4050,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %149 = load <2 x double>, ptr %148, align 1
   %150 = fmul <2 x double> %149, %149
   %151 = fadd <2 x double> %.07275.i.i.i.i.i.i.i, %150
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %152 = load <2 x double>, ptr %gep.i.i.i.i.i.i.i, align 1
   %153 = fmul <2 x double> %152, %152
   %154 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %153

@@ -357,7 +357,7 @@ arkStep_CheckNVector.exit.thread:                 ; preds = %17, %23, %27, %31, 
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @arkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @arkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -407,7 +407,7 @@ declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 {
+define range(i32 -21, 1) i32 @arkStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -459,7 +459,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %14, %9, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_AttachMasssol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+define range(i32 -21, 1) i32 @arkStep_AttachMasssol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #0 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12
 
@@ -642,7 +642,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %8, %3, %arkStep_Acc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_GetGammas(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define range(i32 -21, 1) i32 @arkStep_GetGammas(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -685,7 +685,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %arkStep_Ac
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
+define range(i32 -29, 1) i32 @arkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -746,7 +746,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br label %29
 
 29:                                               ; preds = %20, %26, %25
-  %30 = tail call i32 @arkStep_SetButcherTables(ptr noundef nonnull %0), !range !4
+  %30 = tail call i32 @arkStep_SetButcherTables(ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %30, 0
   br i1 %.not46, label %32, label %31
 
@@ -755,7 +755,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br label %arkStep_AccessStepMem.exit.thread
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @arkStep_CheckButcherTables(ptr noundef nonnull %0), !range !5
+  %33 = tail call i32 @arkStep_CheckButcherTables(ptr noundef nonnull %0)
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %35, label %34
 
@@ -1224,7 +1224,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %84, %110, %142, %9,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define range(i32 -21, 1) i32 @arkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
@@ -2244,12 +2244,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %.not116, label %177, label %arkStep_AccessStepMem.exit.thread
 
 177:                                              ; preds = %168, %176
-  %178 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189), !range !6
+  %178 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189)
   %.not117 = icmp eq i32 %178, 0
   br i1 %.not117, label %180, label %arkStep_AccessStepMem.exit.thread
 
 .thread191:                                       ; preds = %164
-  %179 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189), !range !6
+  %179 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189)
   %.not117192 = icmp eq i32 %179, 0
   br i1 %.not117192, label %.thread193, label %arkStep_AccessStepMem.exit.thread
 
@@ -2441,11 +2441,11 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %288, label %289, label %291
 
 289:                                              ; preds = %._crit_edge
-  %290 = tail call i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef nonnull %0, ptr noundef %1), !range !7
+  %290 = tail call i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef nonnull %0, ptr noundef %1)
   br label %293
 
 291:                                              ; preds = %._crit_edge
-  %292 = tail call i32 @arkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1), !range !6
+  %292 = tail call i32 @arkStep_ComputeSolutions(ptr noundef nonnull %0, ptr noundef %1)
   br label %293
 
 293:                                              ; preds = %291, %289
@@ -3017,7 +3017,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %.loopexit, %15, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -3347,7 +3347,7 @@ define i32 @ARKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
 declare i32 @arkGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ARKStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @ARKStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3540,7 +3540,7 @@ declare double @llvm.fabs.f64(double) #7
 declare i32 @arkEwtSetSmallReal(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_SetButcherTables(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkStep_SetButcherTables(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3719,7 +3719,7 @@ switch.lookup68:                                  ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_CheckButcherTables(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4417,7 +4417,7 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4744,7 +4744,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
 declare i32 @arkStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -28, 5) i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5016,7 +5016,7 @@ select.unfold:                                    ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_ComputeSolutions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5633,7 +5633,7 @@ define i32 @arkStep_MRIStepInnerEvolve(ptr noundef %0, double %1, double noundef
   %17 = load double, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   %19 = load i32, ptr %10, align 4
-  %20 = call i32 @arkStep_SetInnerForcing(ptr noundef %15, double noundef %16, double noundef %17, ptr noundef %18, i32 noundef %19), !range !4
+  %20 = call i32 @arkStep_SetInnerForcing(ptr noundef %15, double noundef %16, double noundef %17, ptr noundef %18, i32 noundef %19)
   %.not24 = icmp eq i32 %20, 0
   br i1 %.not24, label %21, label %31
 
@@ -5651,7 +5651,7 @@ define i32 @arkStep_MRIStepInnerEvolve(ptr noundef %0, double %1, double noundef
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @arkStep_SetInnerForcing(ptr noundef %29, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef null, i32 noundef 0), !range !4
+  %30 = call i32 @arkStep_SetInnerForcing(ptr noundef %29, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef null, i32 noundef 0)
   br label %31
 
 31:                                               ; preds = %28, %24, %21, %14, %12, %4
@@ -5670,7 +5670,7 @@ define i32 @arkStep_MRIStepInnerFullRhs(ptr noundef %0, double noundef %1, ptr n
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %6, align 8
-  %10 = call i32 @arkStep_FullRHS(ptr noundef %9, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4), !range !4
+  %10 = call i32 @arkStep_FullRHS(ptr noundef %9, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %11
 
 11:                                               ; preds = %5, %8
@@ -5725,7 +5725,7 @@ declare i32 @MRIStepInnerStepper_GetContent(ptr noundef, ptr noundef) local_unna
 declare i32 @MRIStepInnerStepper_GetForcingData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_SetInnerForcing(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkStep_SetInnerForcing(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -5861,7 +5861,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %69, %28, %
 declare i32 @ARKStepSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 232
@@ -6173,7 +6173,3 @@ attributes #13 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -21, i32 1}
-!5 = !{i32 -41, i32 1}
-!6 = !{i32 -28, i32 1}
-!7 = !{i32 -28, i32 5}

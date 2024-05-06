@@ -117,7 +117,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN8proxygen2hq17hqToHttpErrorCodeENS_5HTTP39ErrorCodeE(i64 noundef %err) local_unnamed_addr #3 {
+define noundef zeroext range(i8 0, 12) i8 @_ZN8proxygen2hq17hqToHttpErrorCodeENS_5HTTP39ErrorCodeE(i64 noundef %err) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i64 %err, -256
   %0 = icmp ult i64 %switch.tableidx, 17
@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN8proxygen2hq15toProxygenErrorEN4quic13QuicErrorCodeEb(ptr nocapture noundef readonly %error, i1 noundef zeroext %fromPeer) local_unnamed_addr #4 {
+define noundef range(i32 0, 35) i32 @_ZN8proxygen2hq15toProxygenErrorEN4quic13QuicErrorCodeEb(ptr nocapture noundef readonly %error, i1 noundef zeroext %fromPeer) local_unnamed_addr #4 {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %error, i64 8
   %0 = load i32, ptr %type_.i, align 8

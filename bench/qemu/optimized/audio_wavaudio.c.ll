@@ -76,7 +76,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wav_init_out(ptr noundef %hw, ptr nocapture readnone %as, ptr nocapture noundef readonly %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @wav_init_out(ptr noundef %hw, ptr nocapture readnone %as, ptr nocapture noundef readonly %drv_opaque) #0 {
 entry:
   %hdr = alloca [44 x i8], align 16
   %wav_as = alloca %struct.audsettings, align 8
@@ -186,7 +186,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %le_s
 le_store.exit31:                                  ; preds = %for.body.i23
   %add.ptr18 = getelementptr inbounds i8, ptr %hdr, i64 32
   %shl20 = shl nuw nsw i32 1, %add
-  %8 = trunc i32 %shl20 to i8
+  %8 = trunc nuw nsw i32 %shl20 to i8
   br label %for.body.i32
 
 for.body.i32:                                     ; preds = %for.body.i32, %le_store.exit31

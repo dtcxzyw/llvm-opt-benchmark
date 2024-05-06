@@ -1036,7 +1036,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %arrayidx17.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 1
   store i8 %conv16.i.i.i, ptr %arrayidx17.i.i.i, align 1
   %shr18.i.i.i = lshr i64 %9, 56
-  %conv19.i.i.i = trunc i64 %shr18.i.i.i to i8
+  %conv19.i.i.i = trunc nuw i64 %shr18.i.i.i to i8
   store i8 %conv19.i.i.i, ptr %add.ptr.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 2
@@ -1082,7 +1082,7 @@ for.body.i:                                       ; preds = %for.body.i, %SHA512
   %arrayidx17.i.i = getelementptr i8, ptr %add.ptr.i, i64 1
   store i8 %conv16.i.i, ptr %arrayidx17.i.i, align 1
   %shr18.i.i = lshr i64 %10, 56
-  %conv19.i.i = trunc i64 %shr18.i.i to i8
+  %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
@@ -1099,8 +1099,8 @@ define noundef i32 @crypto_hash_sha512(ptr nocapture noundef nonnull writeonly %
 entry:
   %state = alloca %struct.crypto_hash_sha512_state, align 8
   %count.i = getelementptr inbounds i8, ptr %state, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
   %call1 = call i32 @crypto_hash_sha512_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)
   %call2 = call i32 @crypto_hash_sha512_final(ptr noundef %state, ptr noundef %out)
   ret i32 0

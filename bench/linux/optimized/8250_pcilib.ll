@@ -13,7 +13,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_serial8250_p
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_serial8250_pci_setup_port433, ptr @__UNIQUE_ID_file434, ptr @__UNIQUE_ID_license435], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @serial8250_pci_setup_port(ptr noundef %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @serial8250_pci_setup_port(ptr noundef %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = zext i8 %2 to i32
   %7 = icmp ugt i8 %2, 5
   br i1 %7, label %46, label %8

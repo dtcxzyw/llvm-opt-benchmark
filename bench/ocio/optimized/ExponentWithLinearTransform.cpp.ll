@@ -520,7 +520,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9TransformELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #7 align 2 {
 entry:
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8

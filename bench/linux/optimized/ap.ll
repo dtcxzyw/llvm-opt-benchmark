@@ -74,7 +74,7 @@ define dso_local i32 @cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %19, %14
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 noundef %25, i1 noundef zeroext %3)
   %27 = icmp eq i32 %26, 0
   %28 = select i1 %27, i32 %18, i32 %26

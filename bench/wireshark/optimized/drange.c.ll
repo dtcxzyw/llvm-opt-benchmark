@@ -65,7 +65,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %drange_str_to_gint32.exit.thread
 
 21:                                               ; preds = %15
-  %22 = trunc i64 %8 to i32
+  %22 = trunc nsw i64 %8 to i32
   %.pre = load i8, ptr %11, align 1
   %.not83 = icmp eq i8 %.pre, 0
   br i1 %.not83, label %.thread126, label %.lr.ph
@@ -129,7 +129,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %.critedge.thread
 
 50:                                               ; preds = %44
-  %51 = trunc i64 %37 to i32
+  %51 = trunc nsw i64 %37 to i32
   br label %.critedge.thread
 
 52:                                               ; preds = %.critedge
@@ -174,7 +174,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %.critedge.thread
 
 73:                                               ; preds = %67
-  %74 = trunc i64 %60 to i32
+  %74 = trunc nsw i64 %60 to i32
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %73, %71, %65, %50, %48, %42, %.critedge

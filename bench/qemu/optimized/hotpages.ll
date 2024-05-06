@@ -354,7 +354,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_access_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @cmp_access_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i32, ptr @sort_by, align 4
   switch i32 %0, label %default.unreachable [

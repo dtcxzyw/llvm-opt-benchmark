@@ -13,7 +13,7 @@ define dso_local ptr @acpi_ps_get_parent_scope(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i8 @acpi_ps_has_completed_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext range(i8 0, 2) i8 @acpi_ps_has_completed_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -36,7 +36,7 @@ define dso_local zeroext i8 @acpi_ps_has_completed_scope(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ps_init_scope(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ps_init_scope(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @acpi_ut_create_generic_state() #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
@@ -69,7 +69,7 @@ define dso_local noundef i32 @acpi_ps_init_scope(ptr nocapture noundef %0, ptr n
 declare dso_local ptr @acpi_ut_create_generic_state() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ps_push_scope(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ps_push_scope(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = tail call ptr @acpi_ut_create_generic_state() #3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %22, label %7

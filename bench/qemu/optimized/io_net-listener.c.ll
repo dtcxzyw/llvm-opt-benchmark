@@ -45,7 +45,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_net_listener_open_sync(ptr noundef %listener, ptr noundef %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_net_listener_open_sync(ptr noundef %listener, ptr noundef %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %resaddrs = alloca ptr, align 8
   %nresaddrs = alloca i64, align 8

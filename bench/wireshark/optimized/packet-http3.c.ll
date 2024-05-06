@@ -296,7 +296,7 @@ define internal i32 @dissect_http3(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %switch, label %11, label %15
 
 11:                                               ; preds = %8
-  %12 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !4
+  %12 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %.not52 = icmp eq i32 %12, 0
   br i1 %.not52, label %13, label %15
 
@@ -386,7 +386,7 @@ default.unreachable61:                            ; preds = %44
 
 .lr.ph.i:                                         ; preds = %47, %56
   %.0173.i = phi i32 [ %57, %56 ], [ 0, %47 ]
-  %53 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.0173.i), !range !4
+  %53 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.0173.i)
   %.not18.i = icmp eq i32 %53, 0
   br i1 %.not18.i, label %54, label %56
 
@@ -395,10 +395,10 @@ default.unreachable61:                            ; preds = %44
   br label %dissect_http3_client_bidi_stream.exit
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull %.0)
+  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull readonly %.0)
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57) #11
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i, !llvm.loop !4
 
 59:                                               ; preds = %44
   %60 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
@@ -468,7 +468,7 @@ default.unreachable61:                            ; preds = %44
 
 .lr.ph.i57:                                       ; preds = %.preheader.i, %92
   %.162.i = phi i32 [ %93, %92 ], [ %.053.i, %.preheader.i ]
-  %89 = call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.162.i), !range !4
+  %89 = call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.162.i)
   %.not55.i = icmp eq i32 %89, 0
   br i1 %.not55.i, label %90, label %92
 
@@ -480,7 +480,7 @@ default.unreachable61:                            ; preds = %44
   %93 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.162.i, ptr noundef nonnull %.0)
   %94 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %93) #11
   %.not54.i = icmp eq i32 %94, 0
-  br i1 %.not54.i, label %dissect_http3_uni_stream.exit, label %.lr.ph.i57, !llvm.loop !7
+  br i1 %.not54.i, label %dissect_http3_uni_stream.exit, label %.lr.ph.i57, !llvm.loop !6
 
 95:                                               ; preds = %86
   %96 = load i32, ptr %66, align 8
@@ -672,7 +672,7 @@ define hidden void @proto_reg_handoff_http3() local_unnamed_addr #0 {
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @http3_check_frame_size(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @http3_check_frame_size(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #11
@@ -720,7 +720,7 @@ try_get_quic_varint.exit10.i:                     ; preds = %24
   %32 = load i64, ptr %4, align 8
   %33 = add i64 %32, %31
   %34 = icmp ugt i64 %33, 2147483647
-  %35 = trunc i64 %33 to i32
+  %35 = trunc nuw nsw i64 %33 to i32
   %spec.select.i = select i1 %34, i32 0, i32 %35
   br label %get_http3_frame_size.exit
 
@@ -999,7 +999,7 @@ dissect_http3_data.exit:                          ; preds = %http3_find_inner_co
   %115 = add i32 %114, %101
   %116 = call i32 @tvb_reported_length_remaining(ptr noundef %84, i32 noundef %115) #11
   %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %.lr.ph.i, label %dissect_http3_settings.exit, !llvm.loop !8
+  br i1 %117, label %.lr.ph.i, label %dissect_http3_settings.exit, !llvm.loop !7
 
 dissect_http3_settings.exit:                      ; preds = %113, %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1158,7 +1158,7 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   %44 = add nuw nsw i64 %.05276.i, 7
   %.0.i = getelementptr i8, ptr %.078.i, i64 1
   %.not63.i = icmp eq ptr %.0.i, %37
-  br i1 %.not63.i, label %read_qpack_prefixed_integer.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not63.i, label %read_qpack_prefixed_integer.exit, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
   %.078.i = phi ptr [ %.0.i, %43 ], [ %.073.i, %.lr.ph.preheader.i ]
@@ -1220,7 +1220,7 @@ read_qpack_prefixed_integer.exit:                 ; preds = %43, %.lr.ph.i, %51,
   %76 = add nuw nsw i64 %.05276.i194, 7
   %.0.i197 = getelementptr i8, ptr %.078.i192, i64 1
   %.not63.i198 = icmp eq ptr %.0.i197, %69
-  br i1 %.not63.i198, label %read_qpack_prefixed_integer.exit200, label %.lr.ph.i191, !llvm.loop !9
+  br i1 %.not63.i198, label %read_qpack_prefixed_integer.exit200, label %.lr.ph.i191, !llvm.loop !8
 
 .lr.ph.i191:                                      ; preds = %75, %.lr.ph.preheader.i189
   %.078.i192 = phi ptr [ %.0.i197, %75 ], [ %.073.i190, %.lr.ph.preheader.i189 ]
@@ -1324,7 +1324,7 @@ read_qpack_prefixed_integer.exit200:              ; preds = %75, %.lr.ph.i191, %
   %133 = add nuw nsw i64 %.05276.i208, 7
   %.0.i211 = getelementptr i8, ptr %.078.i206, i64 1
   %.not63.i212 = icmp eq ptr %.0.i211, %125
-  br i1 %.not63.i212, label %read_qpack_prefixed_integer.exit214, label %.lr.ph.i205, !llvm.loop !9
+  br i1 %.not63.i212, label %read_qpack_prefixed_integer.exit214, label %.lr.ph.i205, !llvm.loop !8
 
 .lr.ph.i205:                                      ; preds = %132, %.lr.ph.preheader.i203
   %.078.i206 = phi ptr [ %.0.i211, %132 ], [ %.073.i204, %.lr.ph.preheader.i203 ]
@@ -1390,7 +1390,7 @@ read_qpack_prefixed_integer.exit214:              ; preds = %132, %.lr.ph.i205, 
   %169 = add nuw nsw i64 %.05276.i222, 7
   %.0.i225 = getelementptr i8, ptr %.078.i220, i64 1
   %.not63.i226 = icmp eq ptr %.0.i225, %162
-  br i1 %.not63.i226, label %read_qpack_prefixed_integer.exit228, label %.lr.ph.i219, !llvm.loop !9
+  br i1 %.not63.i226, label %read_qpack_prefixed_integer.exit228, label %.lr.ph.i219, !llvm.loop !8
 
 .lr.ph.i219:                                      ; preds = %168, %.lr.ph.preheader.i217
   %.078.i220 = phi ptr [ %.0.i225, %168 ], [ %.073.i218, %.lr.ph.preheader.i217 ]
@@ -1514,7 +1514,7 @@ read_qpack_prefixed_integer.exit228:              ; preds = %168, %.lr.ph.i219, 
   %235 = add nuw nsw i64 %.05276.i236, 7
   %.0.i239 = getelementptr i8, ptr %.078.i234, i64 1
   %.not63.i240 = icmp eq ptr %.0.i239, %227
-  br i1 %.not63.i240, label %read_qpack_prefixed_integer.exit242, label %.lr.ph.i233, !llvm.loop !9
+  br i1 %.not63.i240, label %read_qpack_prefixed_integer.exit242, label %.lr.ph.i233, !llvm.loop !8
 
 .lr.ph.i233:                                      ; preds = %234, %.lr.ph.preheader.i231
   %.078.i234 = phi ptr [ %.0.i239, %234 ], [ %.073.i232, %.lr.ph.preheader.i231 ]
@@ -1577,7 +1577,7 @@ read_qpack_prefixed_integer.exit242:              ; preds = %234, %.lr.ph.i233, 
   %266 = add nuw nsw i64 %.05276.i250, 7
   %.0.i253 = getelementptr i8, ptr %.078.i248, i64 1
   %.not63.i254 = icmp eq ptr %.0.i253, %227
-  br i1 %.not63.i254, label %read_qpack_prefixed_integer.exit256, label %.lr.ph.i247, !llvm.loop !9
+  br i1 %.not63.i254, label %read_qpack_prefixed_integer.exit256, label %.lr.ph.i247, !llvm.loop !8
 
 .lr.ph.i247:                                      ; preds = %264, %.lr.ph.preheader.i245
   %.078.i248 = phi ptr [ %.0.i253, %264 ], [ %.073.i246, %.lr.ph.preheader.i245 ]
@@ -1682,7 +1682,7 @@ read_qpack_prefixed_integer.exit256.thread:       ; preds = %262, %read_qpack_pr
   call void @except_free(ptr noundef %305) #11
   %306 = call ptr @except_pop() #11
   %307 = icmp ult i32 %.2, %10
-  br i1 %307, label %14, label %.critedge, !llvm.loop !10
+  br i1 %307, label %14, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %14, %304, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.2, %304 ], [ %.044, %14 ]
@@ -1733,7 +1733,7 @@ define internal i32 @http3_conn_info_hash(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @http3_conn_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @http3_conn_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i8, ptr %0, align 8
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %3, %4
@@ -1819,10 +1819,9 @@ attributes #13 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

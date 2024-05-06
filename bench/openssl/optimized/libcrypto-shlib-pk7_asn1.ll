@@ -561,7 +561,7 @@ declare ptr @ASN1_OCTET_STRING_NDEF_it() #2
 declare ptr @ASN1_ANY_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pk7_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @pk7_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr noundef %exarg) #1 {
 entry:
   switch i32 %operation, label %sw.epilog [
     i32 10, label %sw.bb

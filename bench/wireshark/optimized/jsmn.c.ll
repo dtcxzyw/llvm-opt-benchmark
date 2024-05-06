@@ -138,7 +138,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %48, i64 8
-  %59 = trunc i64 %indvars.iv238 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv238 to i32
   store i32 -1, ptr %11, align 4
   %60 = add i32 %14, 1
   store i32 %60, ptr %58, align 4
@@ -147,7 +147,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 61:                                               ; preds = %.lr.ph200, %51
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, -1
   %62 = icmp sgt i64 %indvars.iv238, 0
-  %63 = trunc i64 %indvars.iv238 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv238 to i32
   br i1 %62, label %.lr.ph200, label %jsmn_alloc_token.exit.thread, !llvm.loop !4
 
 .loopexit163:                                     ; preds = %42, %57
@@ -179,7 +179,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
-  %75 = trunc i64 %indvars.iv241 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv241 to i32
   store i32 %75, ptr %11, align 4
   br label %.loopexit
 
@@ -386,7 +386,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %149
-  %154 = trunc i64 %indvars.iv to i32
+  %154 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %154, ptr %11, align 4
   br label %.loopexit
 

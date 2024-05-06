@@ -8767,7 +8767,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br i1 %cmp14, label %cleanup, label %if.end17
 
 if.end17:                                         ; preds = %invoke.cont12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(16) %result, i64 16, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6, %if.end17
@@ -13898,7 +13898,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   %2 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
@@ -13935,7 +13935,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %add.ptr.i.i, i8 0, i64 96, i1 false)
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit52.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i

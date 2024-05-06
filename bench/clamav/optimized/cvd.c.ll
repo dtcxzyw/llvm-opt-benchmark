@@ -1516,7 +1516,7 @@ define i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) 
   br label %111
 
 20:                                               ; preds = %17, %16
-  %21 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #19
+  %21 = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %0, i32 noundef 0) #19
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %cli_cvdunpack.exit.thread, label %23
 

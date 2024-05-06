@@ -316,7 +316,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cp2179(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_cp2179(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp slt i32 %5, 7
   br i1 %6, label %427, label %7
@@ -519,7 +519,7 @@ clean_telnet_iac.exit:                            ; preds = %.outer.i, %31, %.th
 
 classify_message_type.exit.i:                     ; preds = %94, %87, %84, %82, %77, %76, %73, %70, %68, %65, %60, %56, %53, %49, %40
   %.4.i.i = phi i32 [ -99, %94 ], [ -1, %76 ], [ 1, %49 ], [ %spec.select.i.i, %53 ], [ 10, %56 ], [ 11, %60 ], [ %spec.select70.i.i, %65 ], [ %spec.select71.i.i, %68 ], [ 3, %70 ], [ 5, %73 ], [ %spec.select72.i.i, %77 ], [ %..i.i, %82 ], [ 20, %40 ], [ %spec.select75.i.i, %84 ], [ %spec.select76.i.i, %87 ]
-  %95 = trunc i32 %.4.i.i to i16
+  %95 = trunc nsw i32 %.4.i.i to i16
   %96 = load ptr, ptr %41, align 8
   %97 = tail call ptr @val_to_str_ext_const(i32 noundef %.4.i.i, ptr noundef nonnull @cp2179_messagetype_vals_ext, ptr noundef nonnull @.str.164) #3
   tail call void @col_add_str(ptr noundef %96, i32 noundef 25, ptr noundef %97) #3

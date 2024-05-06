@@ -943,7 +943,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [17 x i8] c"Assertion failed\00", align 1
 @.str.49 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @__func__._PyObject_AssertFailed = private unnamed_addr constant [23 x i8] c"_PyObject_AssertFailed\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.50 = private unnamed_addr constant [62 x i8] c"'%s' not supported between instances of '%.100s' and '%.100s'\00", align 1
 @opstrings = internal unnamed_addr constant [6 x ptr] [ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56], align 16
 @.str.51 = private unnamed_addr constant [2 x i8] c"<\00", align 1
@@ -1137,7 +1137,7 @@ if.end19:                                         ; preds = %if.else, %if.then16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_PyObject_IsFreed(ptr noundef %op) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @_PyObject_IsFreed(ptr noundef %op) local_unnamed_addr #1 {
 entry:
   %magicptr = ptrtoint ptr %op to i64
   switch i64 %magicptr, label %lor.lhs.false [
@@ -1612,7 +1612,7 @@ if.end10:                                         ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_CallFinalizerFromDealloc(ptr noundef %self) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_CallFinalizerFromDealloc(ptr noundef %self) local_unnamed_addr #0 {
 entry:
   %self.val12 = load i64, ptr %self, align 8
   %cmp.not = icmp eq i64 %self.val12, 0
@@ -1707,7 +1707,7 @@ new_reference.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_Print(ptr noundef %op, ptr nocapture noundef %fp, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_Print(ptr noundef %op, ptr nocapture noundef %fp, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = tail call i32 @PyErr_CheckSignals() #17
@@ -2089,7 +2089,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %call12 = tail call i32 @PyGILState_Ensure() #17
   %call13 = tail call ptr @PyErr_GetRaisedException() #17
   %11 = load ptr, ptr @stderr, align 8
-  %call14 = tail call i32 @PyObject_Print(ptr noundef nonnull %op, ptr noundef %11, i32 noundef 0), !range !5
+  %call14 = tail call i32 @PyObject_Print(ptr noundef nonnull %op, ptr noundef %11, i32 noundef 0)
   %12 = load ptr, ptr @stderr, align 8
   %call15 = tail call i32 @fflush(ptr noundef %12)
   tail call void @PyErr_SetRaisedException(ptr noundef %call13) #17
@@ -2337,7 +2337,7 @@ define dso_local ptr @_PyObject_FunctionStr(ptr noundef %x) local_unnamed_addr #
 entry:
   %qualname = alloca ptr, align 8
   %module = alloca ptr, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %x, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), ptr noundef nonnull %qualname), !range !6
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %x, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), ptr noundef nonnull %qualname)
   %0 = load ptr, ptr %qualname, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end4
@@ -2351,7 +2351,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %call5 = call i32 @PyObject_GetOptionalAttr(ptr noundef %x, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %module), !range !6
+  %call5 = call i32 @PyObject_GetOptionalAttr(ptr noundef %x, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), ptr noundef nonnull %module)
   %1 = load ptr, ptr %module, align 8
   %cmp6 = icmp ne ptr %1, null
   %cmp7 = icmp ne ptr %1, @_Py_NoneStruct
@@ -2430,7 +2430,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_GetOptionalAttr(ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttr(ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %supress_missing_attribute_exception = alloca i32, align 4
   %0 = getelementptr i8, ptr %v, i64 8
@@ -3129,7 +3129,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_HasAttrStringWithError(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_HasAttrStringWithError(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -3145,7 +3145,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %Py_XDECREF.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call4.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1.i, ptr noundef nonnull %res), !range !6
+  %call4.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1.i, ptr noundef nonnull writeonly %res)
   %2 = load i64, ptr %call1.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i16.not.i = icmp eq i64 %3, 0
@@ -3215,7 +3215,7 @@ Py_XDECREF.exit:                                  ; preds = %if.then.i, %PyObjec
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_GetOptionalAttrString(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttrString(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val12 = load ptr, ptr %0, align 8
@@ -3234,7 +3234,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call4 = tail call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1, ptr noundef %result), !range !6
+  %call4 = tail call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1, ptr noundef %result)
   %2 = load i64, ptr %call1, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i16.not = icmp eq i64 %3, 0
@@ -3276,9 +3276,9 @@ return:                                           ; preds = %if.end11, %if.end5,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_HasAttrString(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @PyObject_HasAttrString(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PyObject_HasAttrStringWithError(ptr noundef %obj, ptr noundef %name), !range !6
+  %call = tail call i32 @PyObject_HasAttrStringWithError(ptr noundef %obj, ptr noundef %name)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %return
 
@@ -3572,7 +3572,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 88), ptr noundef nonnull %isabstract), !range !6
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 88), ptr noundef nonnull %isabstract)
   %cmp1 = icmp sgt i32 %call, 0
   br i1 %cmp1, label %if.then2, label %return
 
@@ -4093,10 +4093,10 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #3
 declare void @PyErr_Clear() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_HasAttrWithError(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_HasAttrWithError(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull %res), !range !6
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull %res)
   %0 = load ptr, ptr %res, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -4126,11 +4126,11 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_HasAttr(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @PyObject_HasAttr(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull %res.i), !range !6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull %res.i)
   %0 = load ptr, ptr %res.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %PyObject_HasAttrWithError.exit, label %if.then.i.i
@@ -4316,7 +4316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyObject_GetMethod(ptr noundef %obj, ptr noundef %name, ptr noundef %method) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyObject_GetMethod(ptr noundef %obj, ptr noundef %name, ptr noundef %method) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val65 = load ptr, ptr %0, align 8
@@ -4962,7 +4962,7 @@ declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_GenericSetDict(ptr noundef %obj, ptr noundef %value, ptr nocapture noundef readnone %context) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_GenericSetDict(ptr noundef %obj, ptr noundef %value, ptr nocapture noundef readnone %context) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -5123,7 +5123,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_Not(ptr noundef %v) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 2) i32 @PyObject_Not(ptr noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %v, @_Py_TrueStruct
   br i1 %cmp.i, label %PyObject_IsTrue.exit.thread, label %if.end.i
@@ -5203,7 +5203,7 @@ PyObject_IsTrue.exit.thread:                      ; preds = %if.end47.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyCallable_Check(ptr noundef readonly %x) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @PyCallable_Check(ptr noundef readonly %x) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -5559,7 +5559,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.05, 1
   %exitcond.not = icmp eq i64 %inc, 116
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
@@ -5618,7 +5618,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @_PyStaticType_Dealloc(ptr noundef %interp, ptr noundef %0) #17
   %dec = add nsw i64 %i.03, -1
   %cmp.not = icmp eq i64 %i.03, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -5663,7 +5663,7 @@ declare void @_PyList_DebugMallocStats(ptr noundef) local_unnamed_addr #3
 declare void @_PyTuple_DebugMallocStats(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Py_ReprEnter(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @Py_ReprEnter(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyThreadState_GetDict() #17
   %cmp = icmp eq ptr %call, null
@@ -5727,7 +5727,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx = getelementptr ptr, ptr %5, i64 %dec
   %6 = load ptr, ptr %arrayidx, align 8
   %cmp18 = icmp eq ptr %6, %obj
-  br i1 %cmp18, label %return, label %while.cond, !llvm.loop !10
+  br i1 %cmp18, label %return, label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
   %call21 = tail call i32 @PyList_Append(ptr noundef nonnull %list.0, ptr noundef %obj) #17
@@ -5786,7 +5786,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx = getelementptr ptr, ptr %4, i64 %dec
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp10 = icmp eq ptr %5, %obj
-  br i1 %cmp10, label %if.then11, label %while.cond, !llvm.loop !11
+  br i1 %cmp10, label %if.then11, label %while.cond, !llvm.loop !9
 
 if.then11:                                        ; preds = %while.body
   %call12 = tail call i32 @PyList_SetSlice(ptr noundef nonnull %call2, i64 noundef %dec, i64 noundef %i.0, ptr noundef null) #17
@@ -5800,7 +5800,7 @@ finally:                                          ; preds = %while.cond, %if.the
 declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyTrash_begin(ptr noundef %tstate, ptr noundef %op) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyTrash_begin(ptr noundef %tstate, ptr noundef %op) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tstate, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -5915,7 +5915,7 @@ while.body.i:                                     ; preds = %if.then3, %while.bo
   tail call void %4(ptr noundef nonnull %2) #17
   %7 = load ptr, ptr %delete_later, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %_PyTrash_thread_destroy_chain.exit, label %while.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %_PyTrash_thread_destroy_chain.exit, label %while.body.i, !llvm.loop !10
 
 _PyTrash_thread_destroy_chain.exit:               ; preds = %while.body.i
   %.pre.i = load i32, ptr %retval.0.i, align 8
@@ -5946,7 +5946,7 @@ if.end4:                                          ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyTrash_cond(ptr nocapture noundef readonly %op, ptr noundef readnone %dealloc) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @_PyTrash_cond(ptr nocapture noundef readonly %op, ptr noundef readnone %dealloc) local_unnamed_addr #8 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -6051,7 +6051,7 @@ _Py_XNewRef.exit:                                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Py_Is(ptr noundef readnone %x, ptr noundef readnone %y) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @Py_Is(ptr noundef readnone %x, ptr noundef readnone %y) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %x, %y
   %conv = zext i1 %cmp to i32
@@ -6059,7 +6059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Py_IsNone(ptr noundef readnone %x) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @Py_IsNone(ptr noundef readnone %x) local_unnamed_addr #7 {
 entry:
   %cmp.i = icmp eq ptr %x, @_Py_NoneStruct
   %conv.i = zext i1 %cmp.i to i32
@@ -6067,7 +6067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Py_IsTrue(ptr noundef readnone %x) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @Py_IsTrue(ptr noundef readnone %x) local_unnamed_addr #7 {
 entry:
   %cmp.i = icmp eq ptr %x, @_Py_TrueStruct
   %conv.i = zext i1 %cmp.i to i32
@@ -6075,7 +6075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Py_IsFalse(ptr noundef readnone %x) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @Py_IsFalse(ptr noundef readnone %x) local_unnamed_addr #7 {
 entry:
   %cmp.i = icmp eq ptr %x, @_Py_FalseStruct
   %conv.i = zext i1 %cmp.i to i32
@@ -6126,7 +6126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @notimplemented_bool(ptr nocapture readnone %v) #0 {
+define internal range(i32 -1, 2) i32 @notimplemented_bool(ptr nocapture readnone %v) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call = tail call i32 @PyErr_WarnEx(ptr noundef %0, ptr noundef nonnull @.str.62, i64 noundef 1) #17
@@ -6198,11 +6198,9 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 -1, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

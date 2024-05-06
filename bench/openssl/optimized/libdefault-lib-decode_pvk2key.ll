@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pvk2key_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal noundef range(i32 0, 2) i32 @pvk2key_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp = icmp eq i32 %selection, 0
   %and = and i32 %selection, 1
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pvk2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @pvk2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
   %propq = getelementptr inbounds i8, ptr %vctx, i64 8

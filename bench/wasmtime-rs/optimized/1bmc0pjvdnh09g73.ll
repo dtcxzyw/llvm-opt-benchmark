@@ -211,7 +211,7 @@ define hidden void @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$
   %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !10, !noundef !4
   %7 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i
   %8 = sub i64 %5, %.0.sroa.speculated.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %2, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !11, !noalias !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %6, ptr nonnull readonly align 1 %2, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !11, !noalias !15
   store ptr %7, ptr %1, align 8
   store i64 %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -229,7 +229,7 @@ define hidden noundef ptr @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$f
   %6 = load ptr, ptr %0, align 8, !alias.scope !17, !noalias !20, !nonnull !4, !align !10, !noundef !4
   %7 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i
   %8 = sub i64 %5, %.0.sroa.speculated.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %1, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !23, !noalias !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %6, ptr nonnull readonly align 1 %1, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !23, !noalias !27
   store ptr %7, ptr %0, align 8, !alias.scope !17, !noalias !20
   store i64 %8, ptr %4, align 8, !alias.scope !17, !noalias !20
   %.not = icmp ult i64 %5, %2
@@ -5508,7 +5508,7 @@ switch.lookup:
   %33 = getelementptr inbounds i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8, !alias.scope !514, !noalias !521, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds i8, ptr %34, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %18, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %18, i64 %20, i1 false)
   %36 = load i64, ptr %22, align 8, !alias.scope !514, !noalias !521, !noundef !4
   %37 = add i64 %36, %20
   store i64 %37, ptr %22, align 8, !alias.scope !514, !noalias !521
@@ -7008,7 +7008,7 @@ define internal fastcc i64 @"_ZN5gimli5write4line11LineProgram5write28_$u7b$$u7b
   %74 = getelementptr inbounds i8, ptr %62, i64 32
   %75 = load ptr, ptr %74, align 8, !alias.scope !722, !noalias !729, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %77 = load i64, ptr %64, align 8, !alias.scope !722, !noalias !729, !noundef !4
   %78 = add i64 %77, 16
   store i64 %78, ptr %64, align 8, !alias.scope !722, !noalias !729
@@ -7406,7 +7406,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   %.0.sroa.speculated.i.i.i.i = zext i1 %223 to i64
   %224 = getelementptr inbounds i8, ptr %215, i64 %.0.sroa.speculated.i.i.i.i
   %225 = sub nuw i64 %214, %.0.sroa.speculated.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %215, ptr nonnull align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !946, !noalias !961
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %215, ptr nonnull readonly align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !946, !noalias !961
   %exitcond = icmp eq i64 %217, 10
   br i1 %exitcond, label %226, label %.lr.ph.i
 
@@ -8453,7 +8453,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817h4afea6
   %.0.sroa.speculated.i.i.i.i = zext i1 %18 to i64
   %19 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i
   %20 = sub nuw i64 %10, %.0.sroa.speculated.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1326, !noalias !1341
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1326, !noalias !1341
   %exitcond = icmp eq i64 %12, 10
   br i1 %exitcond, label %21, label %.lr.ph.i
 
@@ -8512,7 +8512,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817h4afea6
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !1352, !noalias !1359, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds i8, ptr %40, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %12, i1 false)
   %42 = load i64, ptr %30, align 8, !alias.scope !1352, !noalias !1359, !noundef !4
   %43 = add i64 %42, %12
   store i64 %43, ptr %30, align 8, !alias.scope !1352, !noalias !1359
@@ -8563,7 +8563,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817hb83e66
   %.0.sroa.speculated.i.i.i.i = zext i1 %18 to i64
   %19 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i
   %20 = sub nuw i64 %10, %.0.sroa.speculated.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1365, !noalias !1380
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1365, !noalias !1380
   %exitcond = icmp eq i64 %12, 10
   br i1 %exitcond, label %21, label %.lr.ph.i
 
@@ -8623,7 +8623,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817hb83e66
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !alias.scope !1391, !noalias !1398, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds i8, ptr %41, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %12, i1 false)
   %43 = load i64, ptr %31, align 8, !alias.scope !1391, !noalias !1398, !noundef !4
   %44 = add i64 %43, %12
   store i64 %44, ptr %31, align 8, !alias.scope !1391, !noalias !1398
@@ -8672,7 +8672,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h28306e
   %.0.sroa.speculated.i.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i
   %21 = sub nuw i64 %10, %.0.sroa.speculated.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1404, !noalias !1419
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1404, !noalias !1419
   %exitcond = icmp eq i64 %13, 10
   br i1 %exitcond, label %22, label %.lr.ph.i
 
@@ -8731,7 +8731,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h28306e
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !1430, !noalias !1437, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds i8, ptr %41, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %13, i1 false)
   %43 = load i64, ptr %31, align 8, !alias.scope !1430, !noalias !1437, !noundef !4
   %44 = add i64 %43, %13
   store i64 %44, ptr %31, align 8, !alias.scope !1430, !noalias !1437
@@ -8780,7 +8780,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31
   %.0.sroa.speculated.i.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i
   %21 = sub nuw i64 %10, %.0.sroa.speculated.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1443, !noalias !1458
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !1443, !noalias !1458
   %exitcond = icmp eq i64 %13, 10
   br i1 %exitcond, label %22, label %.lr.ph.i
 
@@ -8840,7 +8840,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !alias.scope !1469, !noalias !1476, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %42, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %13, i1 false)
   %44 = load i64, ptr %32, align 8, !alias.scope !1469, !noalias !1476, !noundef !4
   %45 = add i64 %44, %13
   store i64 %45, ptr %32, align 8, !alias.scope !1469, !noalias !1476
@@ -10112,7 +10112,7 @@ define hidden void @_ZN5gimli6leb1285write6signed17h490ad2e29266f224E(ptr noalia
   %.0.sroa.speculated.i.i.i30 = zext i1 %8 to i64
   %9 = getelementptr inbounds i8, ptr %.promoted24, i64 %.0.sroa.speculated.i.i.i30
   %10 = sub i64 %.promoted, %.0.sroa.speculated.i.i.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.promoted24, ptr nonnull align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i30, i1 false), !alias.scope !2110, !noalias !2114
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.promoted24, ptr nonnull readonly align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i30, i1 false), !alias.scope !2110, !noalias !2114
   %.not.i.not31 = icmp eq i64 %.promoted, 0
   br i1 %.not.i.not31, label %._crit_edge, label %.lr.ph
 
@@ -10149,7 +10149,7 @@ define hidden void @_ZN5gimli6leb1285write6signed17h490ad2e29266f224E(ptr noalia
   %.0.sroa.speculated.i.i.i = zext i1 %20 to i64
   %21 = getelementptr inbounds i8, ptr %12, i64 %.0.sroa.speculated.i.i.i
   %22 = sub i64 %11, %.0.sroa.speculated.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !2110, !noalias !2118
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %12, ptr nonnull readonly align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !2110, !noalias !2118
   %.not.i.not = icmp eq i64 %11, 0
   br i1 %.not.i.not, label %._crit_edge, label %.lr.ph
 
@@ -10184,7 +10184,7 @@ define hidden void @_ZN5gimli6leb1285write8unsigned17h349fd1a81a0581c9E(ptr noal
   %.0.sroa.speculated.i.i.i24 = zext i1 %8 to i64
   %9 = getelementptr inbounds i8, ptr %.promoted19, i64 %.0.sroa.speculated.i.i.i24
   %10 = sub i64 %.promoted, %.0.sroa.speculated.i.i.i24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.promoted19, ptr nonnull align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i24, i1 false), !alias.scope !2130, !noalias !2134
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.promoted19, ptr nonnull readonly align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i24, i1 false), !alias.scope !2130, !noalias !2134
   %.not.i.not25 = icmp eq i64 %.promoted, 0
   br i1 %.not.i.not25, label %._crit_edge, label %.lr.ph
 
@@ -10227,7 +10227,7 @@ define hidden void @_ZN5gimli6leb1285write8unsigned17h349fd1a81a0581c9E(ptr noal
   %.0.sroa.speculated.i.i.i = zext i1 %23 to i64
   %24 = getelementptr inbounds i8, ptr %12, i64 %.0.sroa.speculated.i.i.i
   %25 = sub i64 %11, %.0.sroa.speculated.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !2130, !noalias !2138
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %12, ptr nonnull readonly align 1 %.sroa.0, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !2130, !noalias !2138
   %.not.i.not = icmp eq i64 %11, 0
   br i1 %.not.i.not, label %._crit_edge, label %.lr.ph
 

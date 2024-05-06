@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_decode.next_state = internal unnamed_addr constant [12 x i32] [i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_lzma_decoder_create(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %14
@@ -5484,7 +5484,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %2569 = sub i64 %.sroa.46.0, %.sroa.10.76
   %2570 = zext i32 %.743260 to i64
   %2571 = icmp ult i64 %2569, %2570
-  %2572 = trunc i64 %2569 to i32
+  %2572 = trunc nuw i64 %2569 to i32
   %2573 = select i1 %2571, i32 %2572, i32 %.743260
   %2574 = sub i32 %.743260, %2573
   %2575 = icmp ugt i32 %2573, %.842737
@@ -5924,7 +5924,7 @@ define dso_local i32 @lzma_lzma_decoder_init(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @lzma_lz_decoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_decoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 5
@@ -6066,7 +6066,7 @@ is_lclppb_valid.exit.thread:                      ; preds = %1, %5, %is_lclppb_v
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_lzma_props_decode(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @lzma_lzma_props_decode(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %3, 5
   br i1 %.not, label %5, label %27
 

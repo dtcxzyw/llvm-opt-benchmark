@@ -637,7 +637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin
 
 .preheader.i.i.i.i.i.i.i.i.i.i:                   ; preds = %3, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.i.i.i.i = phi i64 [ %12, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ 0, %3 ]
-  %8 = mul nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i, %6
+  %8 = mul nuw nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i, %6
   %invariant.gep.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %2, i64 %8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
@@ -764,7 +764,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin
 
 .preheader.i.i.i.i.i.i.i.i.i.i:                   ; preds = %3, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.i.i.i.i = phi i64 [ %12, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ 0, %3 ]
-  %8 = mul nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i, %6
+  %8 = mul nuw nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i, %6
   %invariant.gep.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %2, i64 %8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

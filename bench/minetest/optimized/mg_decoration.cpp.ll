@@ -2126,7 +2126,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %this, ptr nocapture noundef readonly %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %this, ptr nocapture noundef readonly %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i32
@@ -2756,7 +2756,7 @@ declare void @_ZNK12NodeResolver7cloneToEPS_(ptr noundef nonnull align 8 derefer
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN13DecoSchematic8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(329) %this, ptr noundef %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN13DecoSchematic8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(329) %this, ptr noundef %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i16
   %p.sroa.7.0.extract.shift = lshr i48 %p.coerce, 16
@@ -3127,7 +3127,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i7.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN11DecoLSystem8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %this, ptr noundef %vm, ptr nocapture readnone %pr, i48 %p.coerce, i1 zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN11DecoLSystem8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %this, ptr noundef %vm, ptr nocapture readnone %pr, i48 %p.coerce, i1 zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN10Decoration18canPlaceDecorationEP8MMVManipN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %vm, i48 %p.coerce)
   br i1 %call, label %if.end, label %return

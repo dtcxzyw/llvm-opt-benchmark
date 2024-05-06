@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z27grpc_auth_json_key_is_validPK18grpc_auth_json_key(ptr noundef readonly %json_key) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_Z27grpc_auth_json_key_is_validPK18grpc_auth_json_key(ptr noundef readonly %json_key) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %json_key, null
   br i1 %cmp.not, label %land.end, label %land.rhs

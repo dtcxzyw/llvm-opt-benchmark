@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_LOADER_is_a(ptr nocapture noundef readonly %loader, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_STORE_LOADER_is_a(ptr nocapture noundef readonly %loader, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %prov = getelementptr inbounds i8, ptr %loader, i64 96
   %0 = load ptr, ptr %prov, align 8

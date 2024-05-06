@@ -23,7 +23,7 @@ declare i32 @_nc_Synchronize_Options(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @field_opts(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 1024) i32 @field_opts(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Field, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

@@ -48,7 +48,7 @@ define i32 @softfloat_roundPackToF32(i1 noundef zeroext %0, i64 noundef %1, i64 
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %24
-  %30 = trunc i64 %27 to i32
+  %30 = trunc nuw i64 %27 to i32
   %31 = lshr i32 %26, %30
   %32 = sub nsw i32 0, %30
   %33 = and i32 %32, 31

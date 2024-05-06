@@ -446,7 +446,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_dev_pm_explicit_set(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_dev_pm_explicit_set(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = alloca [5 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i8, ptr %3, align 8
@@ -581,7 +581,7 @@ declare dso_local zeroext i1 @acpi_device_is_present(ptr noundef) local_unnamed_
 declare dso_local i32 @acpi_power_on_resources(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_device_fix_up_power(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_device_fix_up_power(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca [5 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 244
   %4 = load i32, ptr %3, align 4
@@ -1197,7 +1197,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
 declare dso_local i32 @dev_pm_qos_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_dev_pm_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
   %6 = alloca [5 x i8], align 1
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #6
@@ -1771,7 +1771,7 @@ define dso_local i32 @acpi_subsys_prepare(ptr noundef %0) #1 align 16 {
 
 69:                                               ; preds = %63
   store i32 0, ptr %2, align 4, !annotation !5
-  %70 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %29, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %70 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %7, i32 noundef %29, ptr noundef null, ptr noundef nonnull %2), !range !6
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %acpi_dev_needs_resume.exit
 
@@ -1903,7 +1903,7 @@ acpi_dev_needs_resume.exit.thread1:               ; preds = %45
 
 53:                                               ; preds = %47
   store i32 0, ptr %2, align 4, !annotation !5
-  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %acpi_dev_needs_resume.exit, label %acpi_dev_needs_resume.exit.thread
 
@@ -2114,7 +2114,7 @@ acpi_dev_needs_resume.exit.thread1:               ; preds = %45
 
 53:                                               ; preds = %47
   store i32 0, ptr %2, align 4, !annotation !5
-  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %acpi_dev_needs_resume.exit, label %acpi_dev_needs_resume.exit.thread
 
@@ -2142,7 +2142,7 @@ acpi_dev_needs_resume.exit:                       ; preds = %53
 declare dso_local i32 @pm_generic_poweroff(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_dev_pm_attach(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @acpi_dev_pm_attach(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #6

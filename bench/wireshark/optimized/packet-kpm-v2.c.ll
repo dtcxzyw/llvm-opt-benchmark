@@ -831,7 +831,7 @@ define hidden void @proto_reg_handoff_kpm_v2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_E2SM_KPM_RANfunction_Description_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_E2SM_KPM_RANfunction_Description_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #2
   %6 = load i32, ptr @hf_kpm_v2_E2SM_KPM_RANfunction_Description_PDU, align 4
@@ -843,7 +843,7 @@ define internal i32 @dissect_E2SM_KPM_RANfunction_Description_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_E2SM_KPM_ActionDefinition_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_E2SM_KPM_ActionDefinition_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #2
   %6 = load i32, ptr @hf_kpm_v2_E2SM_KPM_ActionDefinition_PDU, align 4
@@ -855,7 +855,7 @@ define internal i32 @dissect_E2SM_KPM_ActionDefinition_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_E2SM_KPM_IndicationMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_E2SM_KPM_IndicationMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #2
   %6 = load i32, ptr @hf_kpm_v2_E2SM_KPM_IndicationMessage_PDU, align 4
@@ -867,7 +867,7 @@ define internal i32 @dissect_E2SM_KPM_IndicationMessage_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_E2SM_KPM_IndicationHeader_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_E2SM_KPM_IndicationHeader_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #2
   %6 = load i32, ptr @hf_kpm_v2_E2SM_KPM_IndicationHeader_PDU, align 4
@@ -879,7 +879,7 @@ define internal i32 @dissect_E2SM_KPM_IndicationHeader_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_E2SM_KPM_EventTriggerDefinition_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_E2SM_KPM_EventTriggerDefinition_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #2
   %6 = load i32, ptr @hf_kpm_v2_E2SM_KPM_EventTriggerDefinition_PDU, align 4

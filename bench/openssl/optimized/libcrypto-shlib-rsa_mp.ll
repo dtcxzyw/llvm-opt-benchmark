@@ -97,7 +97,7 @@ declare ptr @BN_secure_new() local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_multip_calc_product(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_multip_calc_product(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %prime_infos = getelementptr inbounds i8, ptr %rsa, i64 136
   %0 = load ptr, ptr %prime_infos, align 8
@@ -159,7 +159,7 @@ declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ossl_rsa_multip_cap(i32 noundef %bits) local_unnamed_addr #2 {
+define range(i32 2, 6) i32 @ossl_rsa_multip_cap(i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i32 %bits, 1024
   br i1 %cmp, label %if.end7, label %if.else

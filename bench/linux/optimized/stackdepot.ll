@@ -110,7 +110,7 @@ define dso_local void @stack_depot_request_early_init() local_unnamed_addr #0 se
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @stack_depot_early_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @stack_depot_early_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i1, ptr @__stack_depot_early_init_passed, align 1
   br i1 %1, label %2, label %3, !prof !6
 
@@ -175,7 +175,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local ptr @alloc_large_system_hash(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @stack_depot_init() #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @stack_depot_init() #3 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @stack_depot_init.stack_depot_init_mutex) #10
   %1 = load i8, ptr @stack_depot_disabled, align 1, !range !13, !noundef !14
   %2 = icmp ne i8 %1, 0
@@ -207,7 +207,7 @@ define dso_local noundef i32 @stack_depot_init() #3 align 16 {
   br label %.loopexit
 
 22:                                               ; preds = %6
-  %23 = trunc i64 %15 to i32
+  %23 = trunc nuw nsw i64 %15 to i32
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @stack_hash_mask, align 4
   br label %25
@@ -1324,7 +1324,7 @@ define dso_local i32 @stack_depot_set_extra_bits(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @stack_depot_get_extra_bits(i32 noundef %0) #4 align 16 {
+define dso_local noundef range(i32 0, 32) i32 @stack_depot_get_extra_bits(i32 noundef %0) #4 align 16 {
   %2 = lshr i32 %0, 27
   ret i32 %2
 }

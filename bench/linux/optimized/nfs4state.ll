@@ -1565,7 +1565,7 @@ define dso_local void @nfs4_put_lock_state(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_set_lock_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs4_set_lock_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1758,7 +1758,7 @@ define dso_local noundef zeroext i1 @nfs4_copy_open_stateid(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_select_rw_stateid(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 512
@@ -2167,7 +2167,7 @@ define dso_local void @nfs_increment_lock_seqid(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_wait_on_sequence(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @nfs_wait_on_sequence(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %25, label %4
 
@@ -3492,7 +3492,7 @@ define dso_local void @nfs4_schedule_lease_recovery(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_schedule_migration_recovery(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @nfs4_schedule_migration_recovery(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load i32, ptr %3, align 8
@@ -3659,7 +3659,7 @@ define dso_local void @nfs4_schedule_path_down_recovery(ptr noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_state_mark_reclaim_nograce(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs4_state_mark_reclaim_nograce(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 512
@@ -3683,7 +3683,7 @@ define dso_local noundef i32 @nfs4_state_mark_reclaim_nograce(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_schedule_stateid_recovery(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -9, 1) i32 @nfs4_schedule_stateid_recovery(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load volatile i64, ptr %4, align 8
@@ -5021,7 +5021,7 @@ declare i64 @llvm.read_register.i64(metadata) #14
 declare void @llvm.write_register.i64(metadata, i64) #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2147483648, 1) i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   switch i32 %1, label %75 [
     i32 -10063, label %3
     i32 -10022, label %9

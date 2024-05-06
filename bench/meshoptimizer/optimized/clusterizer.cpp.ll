@@ -306,7 +306,7 @@ for.body.i105:                                    ; preds = %invoke.cont4, %for.
 
 _ZN7meshoptL20computeTriangleConesEPNS_4ConeEPKjmPKfmm.exit: ; preds = %for.body.i105, %invoke.cont4
   %mesh_area.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont4 ], [ %add88.i, %for.body.i105 ]
-  %conv = uitofp i64 %div.i to float
+  %conv = uitofp nneg i64 %div.i to float
   %div8 = fdiv float %mesh_area.0.lcssa.i, %conv
   %mul9 = fmul float %div8, 5.000000e-01
   %cond = select i1 %cmp2061.not.i, float 0.000000e+00, float %mul9
@@ -426,7 +426,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.body.lr.ph.i:                                 ; preds = %if.then
   %87 = load i32, ptr %meshlet, align 4
   %conv1.i = zext i32 %87 to i64
-  %invariant.gep.i = getelementptr i32, ptr %meshlet_vertices, i64 %conv1.i
+  %invariant.gep.i = getelementptr inbounds i32, ptr %meshlet_vertices, i64 %conv1.i
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc98.us.i, %for.body.lr.ph.i
@@ -434,7 +434,7 @@ for.body.us.i:                                    ; preds = %for.inc98.us.i, %fo
   %best_extra.068.us.i = phi i32 [ %best_extra.1.lcssa.us.i, %for.inc98.us.i ], [ 5, %for.body.lr.ph.i ]
   %best_score.067.us.i = phi float [ %best_score.1.lcssa.us.i, %for.inc98.us.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
   %i.066.us.i = phi i64 [ %inc99.us.i, %for.inc98.us.i ], [ 0, %for.body.lr.ph.i ]
-  %gep.us.i = getelementptr i32, ptr %invariant.gep.i, i64 %i.066.us.i
+  %gep.us.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %i.066.us.i
   %88 = load i32, ptr %gep.us.i, align 4
   %idxprom.us.i = zext i32 %88 to i64
   %arrayidx3.us.i = getelementptr inbounds i32, ptr %call.i45.i89, i64 %idxprom.us.i
@@ -566,7 +566,7 @@ if.end50:                                         ; preds = %land.lhs.true, %if.
   %best_triangle.1167 = phi i32 [ %103, %if.then41 ], [ %best_triangle.1.lcssa.us.i, %if.end ], [ %call30, %land.lhs.true ]
   %mul51 = mul i32 %best_triangle.1167, 3
   %idxprom = zext i32 %mul51 to i64
-  %arrayidx53 = getelementptr i32, ptr %indices, i64 %idxprom
+  %arrayidx53 = getelementptr inbounds i32, ptr %indices, i64 %idxprom
   %104 = load i32, ptr %arrayidx53, align 4
   %add55 = add i32 %mul51, 1
   %idxprom56 = zext i32 %add55 to i64
@@ -600,7 +600,7 @@ if.end50:                                         ; preds = %land.lhs.true, %if.
 
 for.body77:                                       ; preds = %if.end50, %for.inc107
   %k.0172 = phi i64 [ 0, %if.end50 ], [ %inc108, %for.inc107 ]
-  %gep = getelementptr i32, ptr %arrayidx53, i64 %k.0172
+  %gep = getelementptr inbounds i32, ptr %arrayidx53, i64 %k.0172
   %112 = load i32, ptr %gep, align 4
   %idxprom84 = zext i32 %112 to i64
   %arrayidx85 = getelementptr inbounds i32, ptr %call.i45.i89, i64 %idxprom84
@@ -675,7 +675,7 @@ while.body.preheader.i:                           ; preds = %if.then141
   %127 = add nuw nsw i64 %126, %124
   %128 = and i64 %127, 3
   %129 = add nuw nsw i64 %128, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %129, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %129, i1 false)
   br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then141, %while.body.preheader.i
@@ -824,7 +824,7 @@ for.body.lr.ph.i:                                 ; preds = %for.inc19
   %idxprom32 = zext nneg i32 %cond31 to i64
   %arrayidx33 = getelementptr inbounds [3 x float], ptr %mean, i64 0, i64 %idxprom32
   %12 = load float, ptr %arrayidx33, align 4
-  %invariant.gep.i = getelementptr float, ptr %points, i64 %idxprom32
+  %invariant.gep.i = getelementptr inbounds float, ptr %points, i64 %idxprom32
   br label %for.body.i56
 
 for.body.i56:                                     ; preds = %for.body.i56, %for.body.lr.ph.i
@@ -834,7 +834,7 @@ for.body.i56:                                     ; preds = %for.body.i56, %for.
   %13 = load i32, ptr %arrayidx.i57, align 4
   %conv.i58 = zext i32 %13 to i64
   %mul.i = mul nuw nsw i64 %conv.i58, 6
-  %gep.i59 = getelementptr float, ptr %invariant.gep.i, i64 %mul.i
+  %gep.i59 = getelementptr inbounds float, ptr %invariant.gep.i, i64 %mul.i
   %14 = load float, ptr %gep.i59, align 4
   %arrayidx3.i = getelementptr inbounds i32, ptr %indices.tr85, i64 %m.014.i
   %15 = load i32, ptr %arrayidx3.i, align 4
@@ -920,7 +920,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load i32, ptr %meshlet, align 4
   %conv1 = zext i32 %1 to i64
-  %invariant.gep = getelementptr i32, ptr %meshlet_vertices, i64 %conv1
+  %invariant.gep = getelementptr inbounds i32, ptr %meshlet_vertices, i64 %conv1
   %data = getelementptr inbounds i8, ptr %adjacency, i64 16
   %2 = load ptr, ptr %data, align 8
   %offsets = getelementptr inbounds i8, ptr %adjacency, i64 8
@@ -940,7 +940,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %best_extra.068.us = phi i32 [ %best_extra.1.lcssa.us, %for.inc98.us ], [ 5, %for.body.lr.ph ]
   %best_score.067.us = phi float [ %best_score.1.lcssa.us, %for.inc98.us ], [ 0x47EFFFFFE0000000, %for.body.lr.ph ]
   %i.066.us = phi i64 [ %inc99.us, %for.inc98.us ], [ 0, %for.body.lr.ph ]
-  %gep.us = getelementptr i32, ptr %invariant.gep, i64 %i.066.us
+  %gep.us = getelementptr inbounds i32, ptr %invariant.gep, i64 %i.066.us
   %5 = load i32, ptr %gep.us, align 4
   %idxprom.us = zext i32 %5 to i64
   %arrayidx3.us = getelementptr inbounds i32, ptr %3, i64 %idxprom.us
@@ -1058,7 +1058,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %best_extra.068 = phi i32 [ %best_extra.1.lcssa, %for.inc98 ], [ 5, %for.body.lr.ph ]
   %best_score.067 = phi float [ %best_score.1.lcssa, %for.inc98 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph ]
   %i.066 = phi i64 [ %inc99, %for.inc98 ], [ 0, %for.body.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %i.066
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %i.066
   %19 = load i32, ptr %gep, align 4
   %idxprom = zext i32 %19 to i64
   %arrayidx3 = getelementptr inbounds i32, ptr %3, i64 %idxprom
@@ -1359,8 +1359,8 @@ for.body:                                         ; preds = %if.then, %for.body
   %j.054 = phi i64 [ %inc, %for.body ], [ 0, %if.then ]
   %6 = load i32, ptr %meshlet, align 4
   %conv22 = zext i32 %6 to i64
-  %7 = getelementptr i32, ptr %meshlet_vertices, i64 %j.054
-  %arrayidx24 = getelementptr i32, ptr %7, i64 %conv22
+  %7 = getelementptr inbounds i32, ptr %meshlet_vertices, i64 %j.054
+  %arrayidx24 = getelementptr inbounds i32, ptr %7, i64 %conv22
   %8 = load i32, ptr %arrayidx24, align 4
   %idxprom25 = zext i32 %8 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %used, i64 %idxprom25
@@ -1391,7 +1391,7 @@ while.body.preheader.i:                           ; preds = %for.end
   %15 = add nuw nsw i64 %12, %14
   %16 = and i64 %15, 3
   %17 = add nuw nsw i64 %16, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %17, i1 false)
   %.pre = load i32, ptr %vertex_count, align 4
   %.pre55 = load i32, ptr %triangle_count, align 4
   %.pre56 = load i32, ptr %11, align 4
@@ -1601,7 +1601,7 @@ while.body.preheader.i:                           ; preds = %if.then
   %9 = add nuw nsw i64 %8, %6
   %10 = and i64 %9, 3
   %11 = add nuw nsw i64 %10, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %11, i1 false)
   br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then, %while.body.preheader.i

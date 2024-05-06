@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @known_settable_ecxkem_ctx_params = internal constant [3 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.14, i32 4, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st { ptr @.str.13, i32 5, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecx_dhkem_derive_private(ptr nocapture noundef readonly %ecx, ptr noundef %privout, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_dhkem_derive_private(ptr nocapture noundef readonly %ecx, ptr noundef %privout, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
 entry:
   %prk = alloca [64 x i8], align 16
   %suiteid = alloca [2 x i8], align 1
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_encapsulate_init(ptr noundef %vecxctx, ptr noundef %vecx, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_encapsulate_init(ptr noundef %vecxctx, ptr noundef %vecx, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -162,7 +162,7 @@ if.end9.i:                                        ; preds = %if.end.i.i
   store ptr %vecx, ptr %vecxctx, align 8
   %op.i = getelementptr inbounds i8, ptr %vecxctx, i64 36
   store i32 4096, ptr %op.i, align 4
-  %call25.i = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params), !range !4
+  %call25.i = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params)
   br label %ecxkem_init.exit
 
 ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %if.end.i.i, %if.end9.i
@@ -171,7 +171,7 @@ ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_encapsulate(ptr nocapture noundef readonly %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_encapsulate(ptr nocapture noundef readonly %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
 entry:
   %tmpbuf.i.i = alloca [66 x i8], align 16
   %mode = getelementptr inbounds i8, ptr %vctx, i64 32
@@ -286,7 +286,7 @@ if.end17.i.i:                                     ; preds = %if.end11.i.i
 if.end20.i.i:                                     ; preds = %if.end17.i.i, %if.end5.i.i
   %seed.0.i.i = phi ptr [ %tmpbuf.i.i, %if.end17.i.i ], [ %8, %if.end5.i.i ]
   %seedlen.0.i.i = phi i64 [ %16, %if.end17.i.i ], [ %9, %if.end5.i.i ]
-  %call21.i.i = call i32 @ossl_ecx_dhkem_derive_private(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call2.i.i, ptr noundef nonnull %seed.0.i.i, i64 noundef %seedlen.0.i.i), !range !4
+  %call21.i.i = call i32 @ossl_ecx_dhkem_derive_private(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call2.i.i, ptr noundef nonnull %seed.0.i.i, i64 noundef %seedlen.0.i.i)
   %tobool.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool.not.i.i, label %if.then29.i.i, label %if.end23.i.i
 
@@ -370,13 +370,13 @@ if.end25.i:                                       ; preds = %ecx_pubkey.exit46.i
   %pubkey.i43.i = getelementptr inbounds i8, ptr %17, i64 17
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %18 = load ptr, ptr %sender_authkey.i, align 8
-  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef nonnull %pubkey.i43.i), !range !4
+  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef nonnull %pubkey.i43.i)
   %tobool.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.end25.i
   %19 = load i64, ptr %Nenc16.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %retval.0.i35.i, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %out, ptr nonnull align 1 %retval.0.i35.i, i64 %19, i1 false)
   %20 = load i64, ptr %Nenc16.i, align 8
   store i64 %20, ptr %outlen, align 8
   %21 = load i64, ptr %Nsecret12.i, align 8
@@ -400,7 +400,7 @@ return:                                           ; preds = %err.i, %if.then18.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_decapsulate_init(ptr noundef %vecxctx, ptr noundef %vecx, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_decapsulate_init(ptr noundef %vecxctx, ptr noundef %vecx, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -437,7 +437,7 @@ if.end9.i:                                        ; preds = %if.end.i.i
   store ptr %vecx, ptr %vecxctx, align 8
   %op.i = getelementptr inbounds i8, ptr %vecxctx, i64 36
   store i32 8192, ptr %op.i, align 4
-  %call25.i = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params), !range !4
+  %call25.i = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params)
   br label %ecxkem_init.exit
 
 ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %if.then.i.i, %if.end.i.i, %if.end9.i
@@ -446,7 +446,7 @@ ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_decapsulate(ptr nocapture noundef readonly %vctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_decapsulate(ptr nocapture noundef readonly %vctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i.i = alloca %struct.ossl_param_st, align 8
@@ -554,7 +554,7 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i.i
   %11 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %12 = load ptr, ptr %sender_authkey.i, align 8
-  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef nonnull %pubkey.i.i), !range !4
+  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef nonnull %pubkey.i.i)
   %tobool.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end20.i
 
@@ -600,7 +600,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecxkem_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %tmp = alloca ptr, align 8
   %tmplen = alloca i64, align 8
@@ -682,16 +682,16 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_auth_encapsulate_init(ptr noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_auth_encapsulate_init(ptr noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecxkem_init(ptr noundef %vctx, i32 noundef 4096, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params), !range !5
+  %call = tail call fastcc i32 @ecxkem_init(ptr noundef %vctx, i32 noundef 4096, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecxkem_auth_decapsulate_init(ptr noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_auth_decapsulate_init(ptr noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ecxkem_init(ptr noundef %vctx, i32 noundef 8192, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params), !range !5
+  %call = tail call fastcc i32 @ecxkem_init(ptr noundef %vctx, i32 noundef 8192, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params)
   ret i32 %call
 }
 
@@ -702,7 +702,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecxkem_init(ptr noundef %vecxctx, i32 noundef %operation, ptr noundef %vecx, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @ecxkem_init(ptr noundef %vecxctx, i32 noundef %operation, ptr noundef %vecx, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -781,7 +781,7 @@ sender_authkey_set.exit:                          ; preds = %if.then.i20
 if.end24:                                         ; preds = %sender_authkey_set.exit, %if.end9
   %op = getelementptr inbounds i8, ptr %vecxctx, i64 36
   store i32 %operation, ptr %op, align 4
-  %call25 = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params), !range !4
+  %call25 = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.then.i20, %if.then12, %if.end.i, %if.then.i, %ecx_match_params.exit, %lor.lhs.false, %if.end, %entry, %if.end24
@@ -796,7 +796,7 @@ declare void @ossl_ecx_key_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ecx_key_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef readonly %recipient_pub) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef readonly %recipient_pub) unnamed_addr #0 {
 entry:
   %suiteid.i = alloca [2 x i8], align 1
   %prk.i = alloca [64 x i8], align 16
@@ -994,5 +994,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -2, i32 2}

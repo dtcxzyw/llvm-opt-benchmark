@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [13 x i8] c"default_seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @expr_yyparse(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.YYSTYPE, align 8
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x %union.YYSTYPE], align 16
@@ -90,7 +90,7 @@ define dso_local noundef i32 @expr_yyparse(ptr noundef %0) local_unnamed_addr #0
   %.0255 = phi i64 [ 200, %1 ], [ %.1256, %5 ]
   %.1250 = phi i32 [ 0, %1 ], [ %.0249, %5 ]
   %.1 = phi i32 [ -2, %1 ], [ %.0, %5 ]
-  %8 = trunc i32 %.1250 to i8
+  %8 = trunc nsw i32 %.1250 to i8
   store i8 %8, ptr %.1276, align 1
   %9 = getelementptr i8, ptr %.0257, i64 %.0255
   %10 = getelementptr i8, ptr %9, i64 -1
@@ -441,7 +441,7 @@ find_func.exit.i:                                 ; preds = %150
 
 make_uop.exit:                                    ; preds = %find_func.exit.i, %163
   %.sink.i.i = phi ptr [ %166, %163 ], [ %158, %find_func.exit.i ]
-  %167 = trunc i64 %indvars.iv.i.i to i32
+  %167 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store ptr %159, ptr %.sink.i.i, align 8
   %168 = getelementptr inbounds i8, ptr %158, i64 8
   store ptr %159, ptr %168, align 8
@@ -655,7 +655,7 @@ find_func.exit.i308:                              ; preds = %294
 
 make_uop.exit310:                                 ; preds = %find_func.exit.i308, %307
   %.sink.i.i309 = phi ptr [ %310, %307 ], [ %302, %find_func.exit.i308 ]
-  %311 = trunc i64 %indvars.iv.i.i305 to i32
+  %311 = trunc nuw nsw i64 %indvars.iv.i.i305 to i32
   store ptr %303, ptr %.sink.i.i309, align 8
   %312 = getelementptr inbounds i8, ptr %302, i64 8
   store ptr %303, ptr %312, align 8
@@ -725,7 +725,7 @@ find_func.exit.i314:                              ; preds = %330
 
 make_uop.exit316:                                 ; preds = %find_func.exit.i314, %343
   %.sink.i.i315 = phi ptr [ %346, %343 ], [ %338, %find_func.exit.i314 ]
-  %347 = trunc i64 %indvars.iv.i.i311 to i32
+  %347 = trunc nuw nsw i64 %indvars.iv.i.i311 to i32
   store ptr %339, ptr %.sink.i.i315, align 8
   %348 = getelementptr inbounds i8, ptr %338, i64 8
   store ptr %339, ptr %348, align 8
@@ -799,7 +799,7 @@ find_func.exit.i320:                              ; preds = %370
 
 make_uop.exit322:                                 ; preds = %find_func.exit.i320, %383
   %.sink.i.i321 = phi ptr [ %386, %383 ], [ %378, %find_func.exit.i320 ]
-  %387 = trunc i64 %indvars.iv.i.i317 to i32
+  %387 = trunc nuw nsw i64 %indvars.iv.i.i317 to i32
   store ptr %379, ptr %.sink.i.i321, align 8
   %388 = getelementptr inbounds i8, ptr %378, i64 8
   store ptr %379, ptr %388, align 8
@@ -1031,7 +1031,7 @@ find_func.exit.i338:                              ; preds = %488
 
 make_case.exit:                                   ; preds = %499, %504
   %.sink.i.i339 = phi ptr [ %507, %504 ], [ %.0.i.i, %499 ]
-  %508 = trunc i64 %indvars.iv.i.i335 to i32
+  %508 = trunc nuw nsw i64 %indvars.iv.i.i335 to i32
   store ptr %500, ptr %.sink.i.i339, align 8
   %509 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   store ptr %500, ptr %509, align 8
@@ -1091,7 +1091,7 @@ find_func.exit.i343:                              ; preds = %517
 
 make_case.exit346:                                ; preds = %528, %533
   %.sink.i.i345 = phi ptr [ %536, %533 ], [ %.0.i.i344, %528 ]
-  %537 = trunc i64 %indvars.iv.i.i340 to i32
+  %537 = trunc nuw nsw i64 %indvars.iv.i.i340 to i32
   store ptr %529, ptr %.sink.i.i345, align 8
   %538 = getelementptr inbounds i8, ptr %.0.i.i344, i64 8
   store ptr %529, ptr %538, align 8
@@ -1263,7 +1263,7 @@ find_func.exit:                                   ; preds = %5
 
 make_elist.exit6:                                 ; preds = %22, %28
   %.sink.i5 = phi ptr [ %30, %28 ], [ %13, %22 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr %24, ptr %.sink.i5, align 8
   store ptr %24, ptr %23, align 8
   %32 = tail call fastcc ptr @make_func(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %13)

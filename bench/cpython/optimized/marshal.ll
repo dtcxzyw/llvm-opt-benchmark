@@ -929,7 +929,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [42 x i8] c"bad marshal data (long size out of range)\00", align 1
 @.str.30 = private unnamed_addr constant [42 x i8] c"bad marshal data (unnormalized long data)\00", align 1
 @.str.31 = private unnamed_addr constant [46 x i8] c"bad marshal data (digit out of range in long)\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.32 = private unnamed_addr constant [40 x i8] c"bad marshal data (index list too large)\00", align 1
 @.str.33 = private unnamed_addr constant [8 x i8] c"marshal\00", align 1
 @module_doc = internal constant [1190 x i8] c"This module contains functions that can read and write Python values in\0Aa binary format. The format is specific to Python, but independent of\0Amachine architecture issues.\0A\0ANot all Python object types are supported; in general, only objects\0Awhose value is independent from a particular invocation of Python can be\0Awritten and read by this module. The following types are supported:\0ANone, integers, floating point numbers, strings, bytes, bytearrays,\0Atuples, lists, sets, dictionaries, and code objects, where it\0Ashould be understood that tuples, lists and dictionaries are only\0Asupported as long as the values contained therein are themselves\0Asupported; and recursive lists and dictionaries should not be written\0A(they will cause infinite loops).\0A\0AVariables:\0A\0Aversion -- indicates the format that the module uses. Version 0 is the\0A    historical format, version 1 shares interned strings and version 2\0A    uses a binary format for floating point numbers.\0A    Version 3 shares common object references (New in version 3.4).\0A\0AFunctions:\0A\0Adump() -- write value to a file\0Aload() -- read value from a file\0Adumps() -- marshal value as a bytes object\0Aloads() -- read value from a bytes-like object\00", align 16
@@ -1643,7 +1643,7 @@ do.body40:                                        ; preds = %if.else37
   br i1 %cmp43.not, label %lor.lhs.false44, label %if.then47
 
 lor.lhs.false44:                                  ; preds = %do.body40
-  %call45 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call45 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.end93, label %lor.lhs.false44.if.then47_crit_edge
 
@@ -1671,7 +1671,7 @@ do.body55:                                        ; preds = %if.else52
   br i1 %cmp58.not, label %lor.lhs.false59, label %if.then62
 
 lor.lhs.false59:                                  ; preds = %do.body55
-  %call60 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call60 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end93, label %lor.lhs.false59.if.then62_crit_edge
 
@@ -1699,7 +1699,7 @@ do.body70:                                        ; preds = %if.else67
   br i1 %cmp73.not, label %lor.lhs.false74, label %if.then77
 
 lor.lhs.false74:                                  ; preds = %do.body70
-  %call75 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call75 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.end93, label %lor.lhs.false74.if.then77_crit_edge
 
@@ -1899,7 +1899,7 @@ if.end93:                                         ; preds = %lor.lhs.false29, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyMarshal_ReadShortFromFile(ptr noundef %fp) local_unnamed_addr #0 {
+define dso_local range(i32 -32768, 32768) i32 @PyMarshal_ReadShortFromFile(ptr noundef %fp) local_unnamed_addr #0 {
 entry:
   %rf = alloca %struct.RFILE, align 8
   %readable = getelementptr inbounds i8, ptr %rf, i64 16
@@ -2489,7 +2489,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @w_reserve(ptr noundef %p, i64 noundef %needed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @w_reserve(ptr noundef %p, i64 noundef %needed) unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
@@ -2941,7 +2941,7 @@ do.body73:                                        ; preds = %if.then67
   br i1 %cmp76.not, label %lor.lhs.false78, label %if.then81
 
 lor.lhs.false78:                                  ; preds = %do.body73
-  %call79 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call79 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %do.end89, label %lor.lhs.false78.if.then81_crit_edge
 
@@ -2998,7 +2998,7 @@ do.body94:                                        ; preds = %if.then67
   br i1 %cmp76.not, label %lor.lhs.false99, label %if.then102
 
 lor.lhs.false99:                                  ; preds = %do.body94
-  %call100 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call100 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %do.end110, label %lor.lhs.false99.if.then102_crit_edge
 
@@ -3061,7 +3061,7 @@ do.body119:                                       ; preds = %if.else114
   br i1 %cmp122.not, label %lor.lhs.false124, label %if.then127
 
 lor.lhs.false124:                                 ; preds = %do.body119
-  %call125 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call125 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %do.end135, label %lor.lhs.false124.if.then127_crit_edge
 
@@ -3135,7 +3135,7 @@ do.body158:                                       ; preds = %if.then153
   br i1 %cmp180.not, label %lor.lhs.false163, label %if.end194.sink.split
 
 lor.lhs.false163:                                 ; preds = %do.body158
-  %call164 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call164 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %if.end194, label %if.end194.sink.split.sink.split
 
@@ -3143,7 +3143,7 @@ do.body177:                                       ; preds = %if.then153
   br i1 %cmp180.not, label %lor.lhs.false182, label %if.end194.sink.split
 
 lor.lhs.false182:                                 ; preds = %do.body177
-  %call183 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call183 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool184.not = icmp eq i32 %call183, 0
   br i1 %tobool184.not, label %if.end194, label %if.end194.sink.split.sink.split
 
@@ -3192,7 +3192,7 @@ do.body202:                                       ; preds = %if.else197
   br i1 %cmp180.not, label %lor.lhs.false207, label %if.end238.sink.split
 
 lor.lhs.false207:                                 ; preds = %do.body202
-  %call208 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call208 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool209.not = icmp eq i32 %call208, 0
   br i1 %tobool209.not, label %if.end238, label %if.end238.sink.split.sink.split
 
@@ -3200,7 +3200,7 @@ do.body221:                                       ; preds = %if.else197
   br i1 %cmp180.not, label %lor.lhs.false226, label %if.end238.sink.split
 
 lor.lhs.false226:                                 ; preds = %do.body221
-  %call227 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call227 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool228.not = icmp eq i32 %call227, 0
   br i1 %tobool228.not, label %if.end238, label %if.end238.sink.split.sink.split
 
@@ -3277,7 +3277,7 @@ do.body256:                                       ; preds = %land.lhs.true251
   br i1 %cmp259.not, label %lor.lhs.false261, label %if.end292.sink.split
 
 lor.lhs.false261:                                 ; preds = %do.body256
-  %call262 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call262 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool263.not = icmp eq i32 %call262, 0
   br i1 %tobool263.not, label %if.end292, label %if.end292.sink.split.sink.split
 
@@ -3290,7 +3290,7 @@ do.body275:                                       ; preds = %land.lhs.true251, %
   br i1 %cmp278.not, label %lor.lhs.false280, label %if.end292.sink.split
 
 lor.lhs.false280:                                 ; preds = %do.body275
-  %call281 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call281 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool282.not = icmp eq i32 %call281, 0
   br i1 %tobool282.not, label %if.end292, label %if.end292.sink.split.sink.split
 
@@ -3353,7 +3353,7 @@ do.body309:                                       ; preds = %if.then299
   br i1 %cmp312.not, label %lor.lhs.false314, label %if.then317
 
 lor.lhs.false314:                                 ; preds = %do.body309
-  %call315 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call315 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool316.not = icmp eq i32 %call315, 0
   br i1 %tobool316.not, label %do.body326, label %lor.lhs.false314.if.then317_crit_edge
 
@@ -3376,7 +3376,7 @@ do.body326:                                       ; preds = %lor.lhs.false314, %
   br i1 %cmp329.not, label %lor.lhs.false331, label %if.then334
 
 lor.lhs.false331:                                 ; preds = %do.body326
-  %call332 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call332 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool333.not = icmp eq i32 %call332, 0
   br i1 %tobool333.not, label %if.end368, label %lor.lhs.false331.if.then334_crit_edge
 
@@ -3396,7 +3396,7 @@ do.body342:                                       ; preds = %if.then299
   br i1 %cmp312.not, label %lor.lhs.false347, label %if.then350
 
 lor.lhs.false347:                                 ; preds = %do.body342
-  %call348 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call348 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool349.not = icmp eq i32 %call348, 0
   br i1 %tobool349.not, label %do.body359, label %lor.lhs.false347.if.then350_crit_edge
 
@@ -3444,7 +3444,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @w_object(ptr noundef %87, ptr noundef %p)
   %inc = add nuw nsw i64 %i.0498, 1
   %exitcond501.not = icmp eq i64 %inc, %v.val303
-  br i1 %exitcond501.not, label %if.end647, label %for.body, !llvm.loop !6
+  br i1 %exitcond501.not, label %if.end647, label %for.body, !llvm.loop !5
 
 if.else371:                                       ; preds = %if.else296
   %cmp.i459.not = icmp eq ptr %v.val282, @PyList_Type
@@ -3459,7 +3459,7 @@ do.body376:                                       ; preds = %if.else371
   br i1 %cmp379.not, label %lor.lhs.false381, label %if.then384
 
 lor.lhs.false381:                                 ; preds = %do.body376
-  %call382 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call382 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool383.not = icmp eq i32 %call382, 0
   br i1 %tobool383.not, label %do.end392, label %lor.lhs.false381.if.then384_crit_edge
 
@@ -3507,7 +3507,7 @@ for.body406:                                      ; preds = %for.body406.lr.ph, 
   tail call fastcc void @w_object(ptr noundef %95, ptr noundef %p)
   %inc410 = add nuw nsw i64 %i.1496, 1
   %exitcond500.not = icmp eq i64 %inc410, %v.val304
-  br i1 %exitcond500.not, label %if.end647, label %for.body406, !llvm.loop !8
+  br i1 %exitcond500.not, label %if.end647, label %for.body406, !llvm.loop !7
 
 if.else412:                                       ; preds = %if.else371
   %cmp.i461.not = icmp eq ptr %v.val282, @PyDict_Type
@@ -3522,7 +3522,7 @@ do.body417:                                       ; preds = %if.else412
   br i1 %cmp420.not, label %lor.lhs.false422, label %if.then425
 
 lor.lhs.false422:                                 ; preds = %do.body417
-  %call423 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call423 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool424.not = icmp eq i32 %call423, 0
   br i1 %tobool424.not, label %do.end433, label %lor.lhs.false422.if.then425_crit_edge
 
@@ -3551,7 +3551,7 @@ while.body:                                       ; preds = %do.end433, %while.b
   call fastcc void @w_object(ptr noundef %101, ptr noundef %p)
   %call434 = call i32 @PyDict_Next(ptr noundef %v, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #9
   %tobool435.not = icmp eq i32 %call434, 0
-  br i1 %tobool435.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool435.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %do.end433
   call fastcc void @w_object(ptr noundef null, ptr noundef %p)
@@ -3576,7 +3576,7 @@ do.body449:                                       ; preds = %if.then442
   br i1 %cmp452.not, label %lor.lhs.false454, label %if.end485.sink.split
 
 lor.lhs.false454:                                 ; preds = %do.body449
-  %call455 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call455 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool456.not = icmp eq i32 %call455, 0
   br i1 %tobool456.not, label %if.end485, label %if.end485.sink.split.sink.split
 
@@ -3584,7 +3584,7 @@ do.body468:                                       ; preds = %if.then442
   br i1 %cmp452.not, label %lor.lhs.false473, label %if.end485.sink.split
 
 lor.lhs.false473:                                 ; preds = %do.body468
-  %call474 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call474 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool475.not = icmp eq i32 %call474, 0
   br i1 %tobool475.not, label %if.end485, label %if.end485.sink.split.sink.split
 
@@ -3711,7 +3711,7 @@ if.end519:                                        ; preds = %Py_DECREF.exit683
   store ptr %call514, ptr %arrayidx.i, align 8
   %call504 = call i32 @_PySet_NextEntry(ptr noundef %v, ptr noundef nonnull %pos444, ptr noundef nonnull %value443, ptr noundef nonnull %hash) #9
   %tobool505.not = icmp eq i32 %call504, 0
-  br i1 %tobool505.not, label %while.end521, label %while.body506, !llvm.loop !10
+  br i1 %tobool505.not, label %while.end521, label %while.body506, !llvm.loop !9
 
 while.end521:                                     ; preds = %if.end519, %while.cond503.preheader
   %call522 = call i32 @PyList_Sort(ptr noundef nonnull %call496) #9
@@ -3755,7 +3755,7 @@ for.body531:                                      ; preds = %for.body531.lr.ph, 
   call fastcc void @w_object(ptr noundef %121, ptr noundef %p)
   %inc538 = add nuw nsw i64 %i527.0492, 1
   %exitcond.not = icmp eq i64 %inc538, %v.val305
-  br i1 %exitcond.not, label %for.end539, label %for.body531, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end539, label %for.body531, !llvm.loop !10
 
 for.end539:                                       ; preds = %for.body531, %for.cond528.preheader
   %122 = load i64, ptr %call496, align 8
@@ -3796,7 +3796,7 @@ do.body551:                                       ; preds = %if.then543
   br i1 %cmp554.not, label %lor.lhs.false556, label %if.then559
 
 lor.lhs.false556:                                 ; preds = %do.body551
-  %call557 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call557 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool558.not = icmp eq i32 %call557, 0
   br i1 %tobool558.not, label %do.end567, label %lor.lhs.false556.if.then559_crit_edge
 
@@ -3899,7 +3899,7 @@ do.body582:                                       ; preds = %if.then577
   br i1 %cmp603.not, label %lor.lhs.false587, label %if.then590
 
 lor.lhs.false587:                                 ; preds = %do.body582
-  %call588 = call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call588 = call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool589.not = icmp eq i32 %call588, 0
   br i1 %tobool589.not, label %do.end594, label %lor.lhs.false587.if.then590_crit_edge
 
@@ -3927,7 +3927,7 @@ do.body600:                                       ; preds = %if.then577
   br i1 %cmp603.not, label %lor.lhs.false605, label %if.then608
 
 lor.lhs.false605:                                 ; preds = %do.body600
-  %call606 = call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call606 = call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool607.not = icmp eq i32 %call606, 0
   br i1 %tobool607.not, label %do.end616, label %lor.lhs.false605.if.then608_crit_edge
 
@@ -3960,7 +3960,7 @@ do.body619:                                       ; preds = %if.else574
   br i1 %cmp622.not, label %lor.lhs.false624, label %if.then627
 
 lor.lhs.false624:                                 ; preds = %do.body619
-  %call625 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1), !range !5
+  %call625 = tail call fastcc i32 @w_reserve(ptr noundef nonnull %p, i64 noundef 1)
   %tobool626.not = icmp eq i32 %call625, 0
   br i1 %tobool626.not, label %do.end635, label %lor.lhs.false624.if.then627_crit_edge
 
@@ -4096,7 +4096,7 @@ do.body10:                                        ; preds = %do.body10, %if.end7
   %shr = lshr i32 %d.0, 15
   %inc = add nsw i64 %l.0, 1
   %cmp11.not = icmp ult i32 %d.0, 32768
-  br i1 %cmp11.not, label %do.end13, label %do.body10, !llvm.loop !12
+  br i1 %cmp11.not, label %do.end13, label %do.body10, !llvm.loop !11
 
 do.end13:                                         ; preds = %do.body10
   %cmp14 = icmp sgt i64 %l.0, 2147483646
@@ -4288,12 +4288,12 @@ if.then10.i:                                      ; preds = %w_reserve.exit48.i,
 
 w_short.exit:                                     ; preds = %lor.lhs.false.i, %if.then25.i.i, %lor.lhs.false7.i, %if.then18.i46.i, %if.then25.i40.i, %w_reserve.exit48.i, %if.then10.i
   %shr31 = lshr i32 %d.1131, 15
-  br i1 %cmp28, label %for.body30, label %for.inc33, !llvm.loop !13
+  br i1 %cmp28, label %for.body30, label %for.inc33, !llvm.loop !12
 
 for.inc33:                                        ; preds = %w_short.exit
   %inc34 = add nuw nsw i64 %i.0133, 1
   %exitcond.not = icmp eq i64 %inc34, %sub
-  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !13
 
 for.end35:                                        ; preds = %for.inc33, %if.end17
   %34 = load i32, ptr %arrayidx, align 4
@@ -4459,7 +4459,7 @@ if.then10.i50:                                    ; preds = %w_reserve.exit48.i6
 w_short.exit124:                                  ; preds = %lor.lhs.false.i89, %if.then25.i.i117, %lor.lhs.false7.i54, %if.then18.i46.i87, %if.then25.i40.i82, %w_reserve.exit48.i62, %if.then10.i50
   %shr42 = lshr i32 %d.2, 15
   %cmp44.not = icmp ult i32 %d.2, 32768
-  br i1 %cmp44.not, label %do.end46, label %do.body40, !llvm.loop !15
+  br i1 %cmp44.not, label %do.end46, label %do.body40, !llvm.loop !14
 
 do.end46:                                         ; preds = %w_short.exit124, %if.then16, %if.then6
   ret void
@@ -5482,7 +5482,7 @@ if.end272:                                        ; preds = %for.body
   store ptr %call262, ptr %arrayidx.i, align 8
   %inc273 = add nuw nsw i64 %i.0340, 1
   %exitcond349.not = icmp eq i64 %inc273, %n.1
-  br i1 %exitcond349.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond349.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end272, %for.cond.preheader, %do.body270, %if.then1.i719, %if.end.i716
   %42 = load ptr, ptr %v, align 8
@@ -5565,7 +5565,7 @@ if.end314:                                        ; preds = %for.body301
   store ptr %call302, ptr %arrayidx.i292, align 8
   %inc316 = add nuw nsw i64 %i.1338, 1
   %exitcond348.not = icmp eq i64 %inc316, %call275
-  br i1 %exitcond348.not, label %for.end317, label %for.body301, !llvm.loop !17
+  br i1 %exitcond348.not, label %for.end317, label %for.body301, !llvm.loop !16
 
 for.end317:                                       ; preds = %if.end314, %for.cond298.preheader, %do.body310, %if.then1.i710, %if.end.i707
   %51 = load ptr, ptr %v, align 8
@@ -5780,7 +5780,7 @@ if.then395:                                       ; preds = %do.body393
 if.else399:                                       ; preds = %if.else385
   %call389 = tail call ptr @PyFrozenSet_New(ptr noundef null) #9
   store ptr %call389, ptr %v, align 8
-  %call400 = tail call fastcc i64 @r_ref_reserve(i32 noundef %and, ptr noundef nonnull %p), !range !18
+  %call400 = tail call fastcc i64 @r_ref_reserve(i32 noundef %and, ptr noundef nonnull %p)
   %cmp401 = icmp slt i64 %call400, 0
   br i1 %cmp401, label %do.body404, label %if.end411thread-pre-split
 
@@ -5913,7 +5913,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc438:                                       ; preds = %if.end.i, %if.then1.i, %if.end437
   %inc439 = add nuw nsw i64 %i.2333, 1
   %exitcond.not = icmp eq i64 %inc439, %or11.i304
-  br i1 %exitcond.not, label %for.end440, label %for.body419, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end440, label %for.body419, !llvm.loop !17
 
 for.end440:                                       ; preds = %for.inc438, %for.cond416.preheader, %do.body428, %if.then1.i638, %if.end.i635, %Py_DECREF.exit622
   %.pre350 = load ptr, ptr %v, align 8
@@ -5924,7 +5924,7 @@ if.then443:                                       ; preds = %for.end440
   br label %sw.epilog
 
 sw.bb447:                                         ; preds = %if.end9
-  %call449 = tail call fastcc i64 @r_ref_reserve(i32 noundef %and, ptr noundef nonnull %p), !range !18
+  %call449 = tail call fastcc i64 @r_ref_reserve(i32 noundef %and, ptr noundef nonnull %p)
   %cmp450 = icmp slt i64 %call449, 0
   br i1 %cmp450, label %sw.epilog, label %if.end453
 
@@ -6410,14 +6410,14 @@ if.end42:                                         ; preds = %r_short.exit
   %10 = zext nneg i16 %9 to i32
   %shl = shl nuw nsw i32 %10, %j.075
   %add43 = add i32 %shl, %d.076
-  br i1 %cmp32, label %for.body34, label %for.end, !llvm.loop !20
+  br i1 %cmp32, label %for.body34, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end42
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %i.078
   store i32 %add43, ptr %arrayidx, align 4
   %inc45 = add nuw nsw i64 %i.078, 1
   %exitcond.not = icmp eq i64 %inc45, %div.sext
-  br i1 %exitcond.not, label %for.cond47.preheader, label %for.cond31.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %for.cond47.preheader, label %for.cond31.preheader, !llvm.loop !19
 
 for.body50:                                       ; preds = %for.cond47.preheader, %if.end66
   %d.181 = phi i32 [ %add69, %if.end66 ], [ 0, %for.cond47.preheader ]
@@ -6465,7 +6465,7 @@ if.end66:                                         ; preds = %if.end58
   %add69 = add i32 %shl68, %d.181
   %inc71 = add nuw nsw i32 %j.180, 1
   %exitcond83.not = icmp eq i32 %j.180, %rem70
-  br i1 %exitcond83.not, label %for.end72, label %for.body50, !llvm.loop !22
+  br i1 %exitcond83.not, label %for.end72, label %for.body50, !llvm.loop !20
 
 for.end72:                                        ; preds = %if.end66, %for.cond47.preheader
   %d.1.lcssa = phi i32 [ 0, %for.cond47.preheader ], [ %add69, %if.end66 ]
@@ -6645,7 +6645,7 @@ declare ptr @PySet_New(ptr noundef) local_unnamed_addr #2
 declare ptr @PyFrozenSet_New(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @r_ref_reserve(i32 noundef %flag, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775808, 2147483646) i64 @r_ref_reserve(i32 noundef %flag, ptr nocapture noundef readonly %p) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %flag, 0
   br i1 %tobool.not, label %return, label %if.then
@@ -7018,7 +7018,7 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #2
 declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @marshal_module_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @marshal_module_exec(ptr noundef %mod) #0 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %mod, ptr noundef nonnull @.str.40, i64 noundef 4) #9
   %call.lobit = ashr i32 %call, 31
@@ -7059,21 +7059,19 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i64 -9223372036854775808, i64 2147483646}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

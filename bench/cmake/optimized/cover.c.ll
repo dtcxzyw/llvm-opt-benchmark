@@ -193,7 +193,7 @@ COVER_checkParameters.exit:                       ; preds = %6
   br label %COVER_ctx_destroy.exit
 
 47:                                               ; preds = %38
-  %48 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %14, double noundef 1.000000e+00), !range !7
+  %48 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %14, double noundef 1.000000e+00)
   %49 = icmp ult i64 %48, -119
   br i1 %49, label %50, label %COVER_ctx_destroy.exit
 
@@ -221,7 +221,7 @@ COVER_checkParameters.exit:                       ; preds = %6
 COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   %66 = add i32 %16, 1
   %67 = sub i32 %66, %14
-  %68 = call i32 @llvm.ctlz.i32(i32 %67, i1 true), !range !8
+  %68 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %69 = xor i32 %68, 31
   %70 = sub nuw nsw i32 33, %68
   %71 = getelementptr inbounds i8, ptr %8, i64 8
@@ -295,7 +295,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %COVER_ctx_destroy.exit
 
 103:                                              ; preds = %COVER_warnOnSmallCorpus.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, i8 -1, i64 %77, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %78, i8 -1, i64 %77, i1 false)
   %104 = load i32, ptr @g_displayLevel, align 4
   %105 = icmp sgt i32 %104, 1
   br i1 %105, label %106, label %111
@@ -380,7 +380,7 @@ COVER_ctx_destroy.exit:                           ; preds = %102, %99, %47, %40,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @COVER_ctx_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5) unnamed_addr #4 {
+define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5) unnamed_addr #4 {
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %COVER_sum.exit, label %.lr.ph.preheader.i
 
@@ -647,7 +647,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   store i64 %129, ptr %130, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %120
   %131 = load i32, ptr @g_displayLevel, align 4
@@ -676,7 +676,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   %144 = zext i32 %143 to i64
   %145 = load i64, ptr %87, align 8
   %146 = icmp ugt i64 %145, %144
-  br i1 %146, label %.lr.ph132, label %._crit_edge133, !llvm.loop !10
+  br i1 %146, label %.lr.ph132, label %._crit_edge133, !llvm.loop !8
 
 ._crit_edge133:                                   ; preds = %.lr.ph132, %138
   %.lcssa = phi i64 [ 0, %138 ], [ %145, %.lr.ph132 ]
@@ -723,9 +723,9 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
 
 167:                                              ; preds = %166
   %.1.i = add i64 %.1.in.i, 1
-  %168 = tail call i32 %163(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #26, !callees !11
+  %168 = tail call i32 %163(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #26, !callees !9
   %169 = icmp eq i32 %168, 0
-  br i1 %169, label %166, label %.critedge.i, !llvm.loop !12
+  br i1 %169, label %166, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %167, %166
   %.1.lcssa.i = phi i64 [ %umax.i, %166 ], [ %.1.i, %167 ]
@@ -785,7 +785,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   %.114.i.i.i = select i1 %198, i64 %200, i64 %195
   %.1.i.i.i = select i1 %198, ptr %199, ptr %.017.i.i.i
   %.not.i.i.i = icmp eq i64 %.114.i.i.i, 0
-  br i1 %.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %191
   %.0.lcssa.i.i.i = phi ptr [ %.02935.i.i, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
@@ -799,7 +799,7 @@ COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %191
   %.1.i.i = phi i64 [ %.02637.i.i, %181 ], [ %201, %COVER_lower_bound.exit.i.i ], [ %.02637.i.i, %189 ]
   %204 = getelementptr inbounds i8, ptr %.038.i.i, i64 4
   %.not.i.i = icmp eq ptr %.038.i.i, %.020.pn.i
-  br i1 %.not.i.i, label %COVER_group.exit.i, label %181, !llvm.loop !14
+  br i1 %.not.i.i, label %COVER_group.exit.i, label %181, !llvm.loop !12
 
 COVER_group.exit.i:                               ; preds = %203
   %.pre.i.i = load ptr, ptr %90, align 8
@@ -807,7 +807,7 @@ COVER_group.exit.i:                               ; preds = %203
   %206 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %205
   store i32 %.128.i.i, ptr %206, align 4
   %207 = icmp ult i64 %.1.lcssa.i, %160
-  br i1 %207, label %.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !15
+  br i1 %207, label %.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !13
 
 COVER_groupBy.exit.loopexit:                      ; preds = %COVER_group.exit.i
   %.pre = load ptr, ptr %90, align 8
@@ -890,7 +890,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
   %.val71.i = load i32, ptr %30, align 4
   %42 = zext i32 %.val71.i to i64
   %43 = shl nuw nsw i64 %42, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.val.i, i8 -1, i64 %43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %.val.i, i8 -1, i64 %43, i1 false)
   %44 = icmp ult i32 %40, %41
   br i1 %44, label %.lr.ph.i, label %COVER_selectSegment.exit.thread
 
@@ -1145,7 +1145,7 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   %.sroa.048.sroa.7.1.i = select i1 %180, i32 %indvars.i, i32 %.sroa.048.sroa.7.011.i
   %.sroa.048.sroa.0.1.i = select i1 %180, i32 %.sroa.022.1.i, i32 %.sroa.048.sroa.0.012.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i, label %47, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.preheader1.i, label %47, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %181
   %.not6922.i = icmp eq i32 %.168.i, %.1.i
@@ -1167,7 +1167,7 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   %.168.i = select i1 %.not70.i, i32 %.06716.i, i32 %188
   %.1.i = select i1 %.not70.i, i32 %.06617.i, i32 %189
   %.not.i49 = icmp eq i32 %189, %.sroa.048.sroa.7.1.i
-  br i1 %.not.i49, label %.preheader.i, label %181, !llvm.loop !17
+  br i1 %.not.i49, label %.preheader.i, label %181, !llvm.loop !15
 
 .lr.ph24.i:                                       ; preds = %.preheader.i, %.lr.ph24.i
   %.023.i = phi i32 [ %196, %.lr.ph24.i ], [ %.168.i, %.preheader.i ]
@@ -1180,7 +1180,7 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   store i32 0, ptr %195, align 4
   %196 = add i32 %.023.i, 1
   %.not69.i = icmp eq i32 %196, %.1.i
-  br i1 %.not69.i, label %COVER_selectSegment.exit, label %.lr.ph24.i, !llvm.loop !18
+  br i1 %.not69.i, label %COVER_selectSegment.exit, label %.lr.ph24.i, !llvm.loop !16
 
 COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
   %.066.lcssa41.i = phi i32 [ %.168.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
@@ -1241,7 +1241,7 @@ COVER_selectSegment.exit.thread:                  ; preds = %38, %COVER_selectSe
   %229 = add nsw i64 %.04215, 1
   %230 = urem i64 %229, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.1, 0
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %228, %COVER_selectSegment.exit.thread, %199, %29
   %.0.lcssa = phi i64 [ 0, %29 ], [ %.017, %199 ], [ %.017, %COVER_selectSegment.exit.thread ], [ 0, %228 ]
@@ -1279,7 +1279,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   %..042 = tail call i64 @llvm.umax.i64(i64 %15, i64 %.04252)
   %16 = add nuw i64 %.04351, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.042.lcssa = phi i64 [ 0, %8 ], [ %..042, %.lr.ph ]
@@ -1314,7 +1314,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   %34 = add i64 %31, %.054
   %35 = add i64 %.14453, 1
   %exitcond59.not = icmp eq i64 %35, %5
-  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph55, !llvm.loop !21
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph55, !llvm.loop !19
 
 .loopexit:                                        ; preds = %33, %.lr.ph55, %._crit_edge
   %.1 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
@@ -1378,7 +1378,7 @@ define dso_local void @COVER_best_wait(ptr nocapture noundef readonly %0) local_
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not2 = icmp eq i64 %3, 0
-  br i1 %.not2, label %.loopexit, label %.preheader.split, !llvm.loop !22
+  br i1 %.not2, label %.loopexit, label %.preheader.split, !llvm.loop !20
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   br label %.preheader.split
@@ -1396,7 +1396,7 @@ define dso_local void @COVER_best_destroy(ptr noundef readonly %0) local_unnamed
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not2.i = icmp eq i64 %3, 0
-  br i1 %.not2.i, label %COVER_best_wait.exit, label %.preheader.split.i, !llvm.loop !22
+  br i1 %.not2.i, label %COVER_best_wait.exit, label %.preheader.split.i, !llvm.loop !20
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   br label %.preheader.split.i
@@ -1504,12 +1504,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @COVER_dictSelectionError(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i64 %1, ptr %3, align 8, !alias.scope !23
+  store i64 %1, ptr %3, align 8, !alias.scope !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %0) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, -120
@@ -1546,8 +1546,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %24 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !26
-  store i64 %3, ptr %24, align 8, !alias.scope !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !24
+  store i64 %3, ptr %24, align 8, !alias.scope !27
   br label %69
 
 25:                                               ; preds = %12
@@ -1562,8 +1562,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
   %30 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !32
-  store i64 %27, ptr %30, align 8, !alias.scope !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !30
+  store i64 %27, ptr %30, align 8, !alias.scope !33
   br label %69
 
 31:                                               ; preds = %25
@@ -1575,8 +1575,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !38
-  store i64 %32, ptr %35, align 8, !alias.scope !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !36
+  store i64 %32, ptr %35, align 8, !alias.scope !39
   br label %69
 
 36:                                               ; preds = %31
@@ -1596,11 +1596,11 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 
 43:                                               ; preds = %36
   tail call void @free(ptr noundef nonnull %15) #26
-  store ptr %14, ptr %0, align 8, !alias.scope !44
+  store ptr %14, ptr %0, align 8, !alias.scope !42
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %27, ptr %44, align 8, !alias.scope !44
+  store i64 %27, ptr %44, align 8, !alias.scope !42
   %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %32, ptr %45, align 8, !alias.scope !44
+  store i64 %32, ptr %45, align 8, !alias.scope !42
   br label %69
 
 46:                                               ; preds = %.lr.ph, %64
@@ -1617,8 +1617,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %52 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !47
-  store i64 %49, ptr %52, align 8, !alias.scope !50
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
+  store i64 %49, ptr %52, align 8, !alias.scope !48
   br label %69
 
 53:                                               ; preds = %46
@@ -1630,8 +1630,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %57 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !53
-  store i64 %54, ptr %57, align 8, !alias.scope !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
+  store i64 %54, ptr %57, align 8, !alias.scope !54
   br label %69
 
 58:                                               ; preds = %53
@@ -1641,25 +1641,25 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 
 61:                                               ; preds = %58
   tail call void @free(ptr noundef %14) #26
-  store ptr %15, ptr %0, align 8, !alias.scope !59
+  store ptr %15, ptr %0, align 8, !alias.scope !57
   %62 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %49, ptr %62, align 8, !alias.scope !59
+  store i64 %49, ptr %62, align 8, !alias.scope !57
   %63 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %54, ptr %63, align 8, !alias.scope !59
+  store i64 %54, ptr %63, align 8, !alias.scope !57
   br label %69
 
 64:                                               ; preds = %58
   %65 = shl i64 %49, 1
   %66 = icmp ult i64 %65, %27
-  br i1 %66, label %46, label %._crit_edge, !llvm.loop !62
+  br i1 %66, label %46, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %64, %.preheader
   tail call void @free(ptr noundef %15) #26
-  store ptr %14, ptr %0, align 8, !alias.scope !63
+  store ptr %14, ptr %0, align 8, !alias.scope !61
   %67 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %27, ptr %67, align 8, !alias.scope !63
+  store i64 %27, ptr %67, align 8, !alias.scope !61
   %68 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %32, ptr %68, align 8, !alias.scope !63
+  store i64 %32, ptr %68, align 8, !alias.scope !61
   br label %69
 
 69:                                               ; preds = %._crit_edge, %61, %56, %51, %43, %34, %29, %23
@@ -1780,10 +1780,10 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %.0114 = phi ptr [ %79, %77 ], [ null, %75 ]
   %81 = getelementptr inbounds i8, ptr %7, i64 8
   %82 = getelementptr inbounds i8, ptr %7, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i64 -1, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
   %84 = tail call i32 @llvm.usub.sat.i32(i32 %36, i32 1)
   store i32 %84, ptr @g_displayLevel, align 4
   %85 = icmp sgt i32 %36, 1
@@ -1828,7 +1828,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   br label %108
 
 108:                                              ; preds = %103, %102
-  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110173, double noundef %14), !range !7
+  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110173, double noundef %14)
   %110 = icmp ult i64 %109, -119
   br i1 %110, label %122, label %111
 
@@ -1845,7 +1845,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 117:                                              ; preds = %112, %111
   %118 = load i64, ptr %81, align 8
   %.not2.i.i = icmp eq i64 %118, 0
-  br i1 %.not2.i.i, label %COVER_best_wait.exit.i, label %.preheader.split.i.i, !llvm.loop !22
+  br i1 %.not2.i.i, label %COVER_best_wait.exit.i, label %.preheader.split.i.i, !llvm.loop !20
 
 .preheader.split.i.i:                             ; preds = %117, %.preheader.split.i.i
   br label %.preheader.split.i.i
@@ -1917,7 +1917,7 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
 148:                                              ; preds = %143, %142
   %149 = load i64, ptr %81, align 8
   %.not2.i.i140 = icmp eq i64 %149, 0
-  br i1 %.not2.i.i140, label %COVER_best_wait.exit.i142, label %.preheader.split.i.i141, !llvm.loop !22
+  br i1 %.not2.i.i140, label %COVER_best_wait.exit.i142, label %.preheader.split.i.i141, !llvm.loop !20
 
 .preheader.split.i.i141:                          ; preds = %148, %.preheader.split.i.i141
   br label %.preheader.split.i.i141
@@ -2061,12 +2061,12 @@ COVER_checkParameters.exit:                       ; preds = %164
   %.2 = phi i32 [ %203, %202 ], [ %.1170, %183 ]
   %205 = add i32 %.0111169, %30
   %.not136 = icmp ugt i32 %205, %23
-  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %204
   %206 = load i64, ptr %81, align 8
   %.not2.i = icmp eq i64 %206, 0
-  br i1 %.not2.i, label %COVER_best_wait.exit, label %.preheader.split.i, !llvm.loop !22
+  br i1 %.not2.i, label %COVER_best_wait.exit, label %.preheader.split.i, !llvm.loop !20
 
 .preheader.split.i:                               ; preds = %._crit_edge, %.preheader.split.i
   br label %.preheader.split.i
@@ -2114,7 +2114,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
 COVER_ctx_destroy.exit149:                        ; preds = %215, %217
   %218 = add i32 %.0110173, 2
   %.not132 = icmp ugt i32 %218, %19
-  br i1 %.not132, label %._crit_edge177, label %102, !llvm.loop !67
+  br i1 %.not132, label %._crit_edge177, label %102, !llvm.loop !65
 
 ._crit_edge177:                                   ; preds = %COVER_ctx_destroy.exit149, %91
   br i1 %85, label %219, label %224
@@ -2136,7 +2136,7 @@ COVER_ctx_destroy.exit149:                        ; preds = %215, %217
 229:                                              ; preds = %224
   %230 = load i64, ptr %81, align 8
   %.not2.i.i150 = icmp eq i64 %230, 0
-  br i1 %.not2.i.i150, label %COVER_best_wait.exit.i152, label %.preheader.split.i.i151, !llvm.loop !22
+  br i1 %.not2.i.i150, label %COVER_best_wait.exit.i152, label %.preheader.split.i.i151, !llvm.loop !20
 
 .preheader.split.i.i151:                          ; preds = %229, %.preheader.split.i.i151
   br label %.preheader.split.i.i151
@@ -2162,7 +2162,7 @@ COVER_best_destroy.exit154:                       ; preds = %COVER_best_wait.exi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %236, i64 %226, i1 false)
   %237 = load i64, ptr %81, align 8
   %.not2.i.i155 = icmp eq i64 %237, 0
-  br i1 %.not2.i.i155, label %COVER_best_wait.exit.i157, label %.preheader.split.i.i156, !llvm.loop !22
+  br i1 %.not2.i.i155, label %COVER_best_wait.exit.i157, label %.preheader.split.i.i156, !llvm.loop !20
 
 .preheader.split.i.i156:                          ; preds = %234, %.preheader.split.i.i156
   br label %.preheader.split.i.i156
@@ -2211,7 +2211,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, 1
   %19 = sub i32 %18, %17
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !8
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 33, %20
   %23 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2240,7 +2240,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   br label %.sink.split
 
 37:                                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, i8 -1, i64 %29, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %30, i8 -1, i64 %29, i1 false)
   %38 = icmp ne ptr %10, null
   %39 = icmp ne ptr %14, null
   %or.cond = and i1 %38, %39
@@ -2360,7 +2360,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %95 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %.sroa.5.0, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %73, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 %.sroa.544.0, ptr %78, align 8
   br label %COVER_best_finish.exit
 
@@ -2440,7 +2440,7 @@ define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_cmp8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #16 {
+define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 8
@@ -2551,11 +2551,11 @@ attributes #27 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 -72, i64 1}
-!8 = !{i32 0, i32 33}
-!9 = distinct !{!9, !6}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{ptr @COVER_cmp, ptr @COVER_cmp8}
 !10 = distinct !{!10, !6}
-!11 = !{ptr @COVER_cmp, ptr @COVER_cmp8}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -2565,50 +2565,48 @@ attributes #27 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"setDictSelection: argument 0"}
-!25 = distinct !{!25, !"setDictSelection"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"COVER_dictSelectionError: argument 0"}
-!28 = distinct !{!28, !"COVER_dictSelectionError"}
-!29 = !{!30, !27}
-!30 = distinct !{!30, !31, !"setDictSelection: argument 0"}
-!31 = distinct !{!31, !"setDictSelection"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"COVER_dictSelectionError: argument 0"}
-!34 = distinct !{!34, !"COVER_dictSelectionError"}
-!35 = !{!36, !33}
-!36 = distinct !{!36, !37, !"setDictSelection: argument 0"}
-!37 = distinct !{!37, !"setDictSelection"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"COVER_dictSelectionError: argument 0"}
-!40 = distinct !{!40, !"COVER_dictSelectionError"}
-!41 = !{!42, !39}
-!42 = distinct !{!42, !43, !"setDictSelection: argument 0"}
-!43 = distinct !{!43, !"setDictSelection"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"setDictSelection: argument 0"}
-!46 = distinct !{!46, !"setDictSelection"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"COVER_dictSelectionError: argument 0"}
-!49 = distinct !{!49, !"COVER_dictSelectionError"}
-!50 = !{!51, !48}
-!51 = distinct !{!51, !52, !"setDictSelection: argument 0"}
-!52 = distinct !{!52, !"setDictSelection"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"COVER_dictSelectionError: argument 0"}
-!55 = distinct !{!55, !"COVER_dictSelectionError"}
-!56 = !{!57, !54}
-!57 = distinct !{!57, !58, !"setDictSelection: argument 0"}
-!58 = distinct !{!58, !"setDictSelection"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"setDictSelection: argument 0"}
-!61 = distinct !{!61, !"setDictSelection"}
-!62 = distinct !{!62, !6}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"setDictSelection: argument 0"}
-!65 = distinct !{!65, !"setDictSelection"}
-!66 = distinct !{!66, !6}
-!67 = distinct !{!67, !6}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"setDictSelection: argument 0"}
+!23 = distinct !{!23, !"setDictSelection"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"COVER_dictSelectionError: argument 0"}
+!26 = distinct !{!26, !"COVER_dictSelectionError"}
+!27 = !{!28, !25}
+!28 = distinct !{!28, !29, !"setDictSelection: argument 0"}
+!29 = distinct !{!29, !"setDictSelection"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"COVER_dictSelectionError: argument 0"}
+!32 = distinct !{!32, !"COVER_dictSelectionError"}
+!33 = !{!34, !31}
+!34 = distinct !{!34, !35, !"setDictSelection: argument 0"}
+!35 = distinct !{!35, !"setDictSelection"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"COVER_dictSelectionError: argument 0"}
+!38 = distinct !{!38, !"COVER_dictSelectionError"}
+!39 = !{!40, !37}
+!40 = distinct !{!40, !41, !"setDictSelection: argument 0"}
+!41 = distinct !{!41, !"setDictSelection"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"setDictSelection: argument 0"}
+!44 = distinct !{!44, !"setDictSelection"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"COVER_dictSelectionError: argument 0"}
+!47 = distinct !{!47, !"COVER_dictSelectionError"}
+!48 = !{!49, !46}
+!49 = distinct !{!49, !50, !"setDictSelection: argument 0"}
+!50 = distinct !{!50, !"setDictSelection"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"COVER_dictSelectionError: argument 0"}
+!53 = distinct !{!53, !"COVER_dictSelectionError"}
+!54 = !{!55, !52}
+!55 = distinct !{!55, !56, !"setDictSelection: argument 0"}
+!56 = distinct !{!56, !"setDictSelection"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"setDictSelection: argument 0"}
+!59 = distinct !{!59, !"setDictSelection"}
+!60 = distinct !{!60, !6}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"setDictSelection: argument 0"}
+!63 = distinct !{!63, !"setDictSelection"}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}

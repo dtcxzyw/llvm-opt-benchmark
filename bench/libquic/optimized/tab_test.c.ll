@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 entry:
   tail call void @CRYPTO_library_init() #4
   br label %for.body

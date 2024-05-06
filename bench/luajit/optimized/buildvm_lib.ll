@@ -709,7 +709,7 @@ if.then58:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then58
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %p, i64 %indvars.iv.next
   %19 = load i8, ptr %arrayidx, align 1
   %tobool48.not = icmp eq i8 %19, 0
@@ -1003,7 +1003,7 @@ for.body.i:                                       ; preds = %if.end7, %if.end.i
   %p.0.ptr18.i = phi ptr [ %p.0.ptr.i, %if.end.i ], [ @obuf, %if.end7 ]
   %n.017.i = phi i32 [ %inc.i, %if.end.i ], [ 2, %if.end7 ]
   %p.0.idx16.i = phi i64 [ %p.0.add10.i, %if.end.i ], [ 0, %if.end7 ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.0.ptr18.i, ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.0.ptr18.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %find_rec.exit, label %if.end.i
 
@@ -1021,7 +1021,7 @@ for.end.i:                                        ; preds = %if.end.i, %if.end7
   %p.0.idx.lcssa.i = phi i64 [ 0, %if.end7 ], [ %p.0.add10.i, %if.end.i ]
   %n.0.lcssa.i = phi i32 [ 2, %if.end7 ], [ %inc.i, %if.end.i ]
   %p.0.ptr.lcssa.i = phi ptr [ @obuf, %if.end7 ], [ %p.0.ptr.i, %if.end.i ]
-  %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
+  %call2.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
   %p.0.add.i = add nsw i64 %call2.i, %p.0.idx.lcssa.i
   %cmp5.not.i = icmp slt i64 %p.0.add.i, 8191
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
@@ -1033,7 +1033,7 @@ if.then6.i:                                       ; preds = %for.end.i
   unreachable
 
 if.end8.i:                                        ; preds = %for.end.i
-  %call9.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %p.0.ptr.lcssa.i, ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
+  %call9.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %p.0.ptr.lcssa.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #15
   br label %find_rec.exit
 
 find_rec.exit:                                    ; preds = %for.body.i, %if.end8.i
@@ -1111,7 +1111,7 @@ if.then19.i:                                      ; preds = %if.end13.i
   unreachable
 
 libdef_name.exit:                                 ; preds = %if.end13.i
-  %7 = trunc i64 %call.i to i8
+  %7 = trunc nuw i64 %call.i to i8
   %conv23.i = or disjoint i8 %7, -64
   store i8 %conv23.i, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i, ptr nonnull align 1 %add.ptr, i64 %call.i, i1 false)
@@ -1262,7 +1262,7 @@ if.then19.i:                                      ; preds = %if.end13.i
   unreachable
 
 libdef_name.exit:                                 ; preds = %if.end13.i
-  %7 = trunc i64 %call.i to i8
+  %7 = trunc nuw i64 %call.i to i8
   %conv23.i = or disjoint i8 %7, -64
   store i8 %conv23.i, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i, ptr nonnull align 1 %p, i64 %call.i, i1 false)

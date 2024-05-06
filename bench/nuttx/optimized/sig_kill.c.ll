@@ -22,7 +22,7 @@ define i32 @nxsig_kill(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = tail call i32 @sched_lock() #3
-  %10 = trunc i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %11, align 1
@@ -52,7 +52,7 @@ declare i32 @nxsig_dispatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @kill(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @kill(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.siginfo, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = load ptr, ptr @g_readytorun, align 8
@@ -70,7 +70,7 @@ nxsig_kill.exit.thread:                           ; preds = %2, %6
 
 nxsig_kill.exit:                                  ; preds = %6
   %8 = tail call i32 @sched_lock() #3
-  %9 = trunc i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %10, align 1

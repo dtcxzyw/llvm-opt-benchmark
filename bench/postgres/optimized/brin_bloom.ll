@@ -45,7 +45,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_bloom_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -237,7 +237,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   %127 = zext i8 %124 to i64
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %144, %.lr.ph.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %144
   %.1 = phi i8 [ %.030, %.lr.ph.i ], [ %.2, %144 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %144 ]
   %128 = mul nuw nsw i64 %indvars.iv.i, %122
@@ -287,7 +287,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_bloom_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -95,7 +95,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_asyncio(i32 noundef %test) #1 {
+define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %test) #1 {
 entry:
   %serverctx = alloca ptr, align 8
   %clientctx = alloca ptr, align 8
@@ -755,7 +755,7 @@ return:                                           ; preds = %sw.default, %entry
 declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @async_new(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @async_new(ptr noundef %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.14, i32 noundef 66) #5
   %cmp = icmp eq ptr %call, null
@@ -774,7 +774,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @async_free(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @async_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

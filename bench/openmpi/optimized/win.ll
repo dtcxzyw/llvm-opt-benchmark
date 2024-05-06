@@ -1007,7 +1007,7 @@ opal_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %77
   %86 = load i32, ptr %6, align 4
   %87 = getelementptr inbounds i8, ptr %9, i64 280
   store i32 %86, ptr %87, align 8
-  %88 = trunc i32 %2 to i16
+  %88 = trunc nuw nsw i32 %2 to i16
   %89 = getelementptr inbounds i8, ptr %9, i64 234
   store i16 %88, ptr %89, align 2
   %90 = getelementptr inbounds i8, ptr %0, i64 248

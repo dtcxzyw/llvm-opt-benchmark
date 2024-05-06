@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Bdc_TableCheckContainment(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Bdc_TableCheckContainment(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18,7 +18,7 @@ define noundef i32 @Bdc_TableCheckContainment(ptr nocapture noundef readonly %0,
 
 select.unfold.i:                                  ; preds = %14, %3
   %indvars.iv.i = phi i64 [ %11, %3 ], [ %15, %14 ]
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw i64 %indvars.iv.i to i32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %Kit_TruthIsImply.exit
 
@@ -40,7 +40,7 @@ Kit_TruthIsImply.exit:                            ; preds = %select.unfold.i
 
 select.unfold.i7:                                 ; preds = %26, %Kit_TruthIsImply.exit
   %indvars.iv.i8 = phi i64 [ %11, %Kit_TruthIsImply.exit ], [ %27, %26 ]
-  %24 = trunc i64 %indvars.iv.i8 to i32
+  %24 = trunc nuw i64 %indvars.iv.i8 to i32
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %Kit_TruthIsDisjoint.exit
 
@@ -79,7 +79,7 @@ define ptr @Bdc_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 select.unfold.i:                                  ; preds = %16, %5
   %indvars.iv.i = phi i64 [ %13, %5 ], [ %17, %16 ]
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw i64 %indvars.iv.i to i32
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %Kit_TruthIsConst1.exit
 
@@ -133,7 +133,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i
 
 select.unfold.i.i:                                ; preds = %45, %40
   %indvars.iv.i.i = phi i64 [ %38, %40 ], [ %46, %45 ]
-  %43 = trunc i64 %indvars.iv.i.i to i32
+  %43 = trunc nuw i64 %indvars.iv.i.i to i32
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %Kit_TruthIsImply.exit.i
 
@@ -154,7 +154,7 @@ Kit_TruthIsImply.exit.i:                          ; preds = %select.unfold.i.i
 
 select.unfold.i7.i:                               ; preds = %56, %Kit_TruthIsImply.exit.i
   %indvars.iv.i8.i = phi i64 [ %38, %Kit_TruthIsImply.exit.i ], [ %57, %56 ]
-  %54 = trunc i64 %indvars.iv.i8.i to i32
+  %54 = trunc nuw i64 %indvars.iv.i8.i to i32
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %Bdc_TableCheckContainment.exit
 
@@ -204,7 +204,7 @@ select.unfold.i7.i:                               ; preds = %56, %Kit_TruthIsImp
 
 select.unfold.i.i33:                              ; preds = %80, %75
   %indvars.iv.i.i34 = phi i64 [ %74, %75 ], [ %81, %80 ]
-  %78 = trunc i64 %indvars.iv.i.i34 to i32
+  %78 = trunc nuw i64 %indvars.iv.i.i34 to i32
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %select.unfold.i7.i36
 
@@ -221,7 +221,7 @@ select.unfold.i.i33:                              ; preds = %80, %75
 
 select.unfold.i7.i36:                             ; preds = %select.unfold.i.i33, %90
   %indvars.iv.i8.i37 = phi i64 [ %91, %90 ], [ %74, %select.unfold.i.i33 ]
-  %88 = trunc i64 %indvars.iv.i8.i37 to i32
+  %88 = trunc nuw i64 %indvars.iv.i8.i37 to i32
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %Bdc_TableCheckContainment.exit40
 

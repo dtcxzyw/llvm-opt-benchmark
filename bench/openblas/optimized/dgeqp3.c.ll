@@ -62,7 +62,7 @@ define void @dgeqp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %38, label %49, label %39
 
 39:                                               ; preds = %36
-  %40 = mul nsw i32 %30, 3
+  %40 = mul nuw nsw i32 %30, 3
   %41 = add nuw nsw i32 %40, 1
   %42 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #5
   %43 = load i32, ptr %1, align 4, !tbaa !3

@@ -100,7 +100,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   store i32 %.08399.us, ptr %62, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
-  %63 = trunc i64 %indvars.iv111 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv111 to i32
   %64 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %63, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %.08399.us) #2
   %65 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %63, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %64) #2
   %66 = load i32, ptr %62, align 4
@@ -136,7 +136,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   store i32 %.08399, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %76, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
   %78 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %76, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %77) #2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115

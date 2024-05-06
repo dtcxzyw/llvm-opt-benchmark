@@ -3035,7 +3035,7 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   %273 = load i32, ptr @hf_openflow_v6_port_status_pad, align 4
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 7, i32 noundef 0) #4
   %275 = add i32 %3, 16
-  %276 = tail call fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %275, i16 noundef zeroext %23), !range !6
+  %276 = tail call fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %275, i16 noundef zeroext %23)
   br label %dissect_openflow_hello_v6.exit
 
 277:                                              ; preds = %4
@@ -3059,7 +3059,7 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   %.078.i = phi i32 [ %291, %.lr.ph.i148 ], [ %287, %277 ]
   %291 = call fastcc i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.078.i)
   %292 = icmp slt i32 %291, %289
-  br i1 %292, label %.lr.ph.i148, label %._crit_edge.i, !llvm.loop !7
+  br i1 %292, label %.lr.ph.i148, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i148, %277
   %.0.lcssa.i = phi i32 [ %287, %277 ], [ %291, %.lr.ph.i148 ]
@@ -3198,7 +3198,7 @@ dissect_openflow_packet_out_v6.exit:              ; preds = %._crit_edge.i, %294
   %.075.i = phi i32 [ %393, %.lr.ph.i150 ], [ %391, %342 ]
   %393 = tail call fastcc i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.075.i)
   %394 = icmp slt i32 %393, %24
-  br i1 %394, label %.lr.ph.i150, label %dissect_openflow_hello_v6.exit, !llvm.loop !8
+  br i1 %394, label %.lr.ph.i150, label %dissect_openflow_hello_v6.exit, !llvm.loop !7
 
 395:                                              ; preds = %4
   %396 = load i32, ptr @hf_openflow_v6_groupmod_command, align 4
@@ -3229,7 +3229,7 @@ dissect_openflow_packet_out_v6.exit:              ; preds = %._crit_edge.i, %294
   %.034.i = phi i32 [ %418, %.lr.ph.i152 ], [ %416, %395 ]
   %418 = tail call fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.034.i)
   %419 = icmp slt i32 %418, %24
-  br i1 %419, label %.lr.ph.i152, label %dissect_openflow_hello_v6.exit, !llvm.loop !9
+  br i1 %419, label %.lr.ph.i152, label %dissect_openflow_hello_v6.exit, !llvm.loop !8
 
 420:                                              ; preds = %4
   %421 = load i32, ptr @hf_openflow_v6_portmod_port_no, align 4
@@ -3408,7 +3408,7 @@ dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %553, %538, %509, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %559 = icmp slt i32 %.0.i.i155, %24
-  br i1 %559, label %.lr.ph.i154, label %dissect_openflow_hello_v6.exit, !llvm.loop !10
+  br i1 %559, label %.lr.ph.i154, label %dissect_openflow_hello_v6.exit, !llvm.loop !9
 
 560:                                              ; preds = %4
   %561 = load i32, ptr @hf_openflow_v6_tablemod_table_id, align 4
@@ -3436,7 +3436,7 @@ dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %553, %538, %509, %4
 578:                                              ; preds = %576
   %579 = tail call fastcc i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i, i16 noundef zeroext %23)
   %.not.i = icmp sgt i32 %579, %.0.i
-  br i1 %.not.i, label %576, label %dissect_openflow_hello_v6.exit, !llvm.loop !11
+  br i1 %.not.i, label %576, label %dissect_openflow_hello_v6.exit, !llvm.loop !10
 
 580:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -3555,7 +3555,7 @@ dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %553, %538, %509, %4
   %.0102.i = phi i32 [ %650, %.lr.ph.i156 ], [ %593, %.preheader.i ]
   %650 = call fastcc i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0102.i)
   %651 = icmp slt i32 %650, %24
-  br i1 %651, label %.lr.ph.i156, label %dissect_openflow_multipart_request_v6.exit, !llvm.loop !12
+  br i1 %651, label %.lr.ph.i156, label %dissect_openflow_multipart_request_v6.exit, !llvm.loop !11
 
 652:                                              ; preds = %580
   %653 = load i32, ptr @hf_openflow_v6_queue_desc_request_port_no, align 4
@@ -3734,7 +3734,7 @@ dissect_openflow_bundle_feature_prop_v6.exit.i.i: ; preds = %777, %771
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %781 = icmp slt i32 %.1.i.i.i, %24
-  br i1 %781, label %.lr.ph.i.i, label %dissect_openflow_multipart_request_v6.exit, !llvm.loop !13
+  br i1 %781, label %.lr.ph.i.i, label %dissect_openflow_multipart_request_v6.exit, !llvm.loop !12
 
 782:                                              ; preds = %580
   %783 = load i32, ptr @hf_openflow_v6_multipart_request_experimenter_experimenter, align 4
@@ -3966,7 +3966,7 @@ dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %926, %911, %898, %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %932 = icmp slt i32 %.0.i.i160, %24
-  br i1 %932, label %.lr.ph.i158, label %dissect_openflow_hello_v6.exit, !llvm.loop !14
+  br i1 %932, label %.lr.ph.i158, label %dissect_openflow_hello_v6.exit, !llvm.loop !13
 
 933:                                              ; preds = %4
   %934 = load i32, ptr @hf_openflow_v6_metermod_command, align 4
@@ -3995,7 +3995,7 @@ dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %926, %911, %898, %8
   %.031.i = phi i32 [ %954, %.lr.ph.i162 ], [ %952, %933 ]
   %954 = tail call fastcc i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.031.i)
   %955 = icmp slt i32 %954, %24
-  br i1 %955, label %.lr.ph.i162, label %dissect_openflow_hello_v6.exit, !llvm.loop !15
+  br i1 %955, label %.lr.ph.i162, label %dissect_openflow_hello_v6.exit, !llvm.loop !14
 
 956:                                              ; preds = %4
   %957 = load i32, ptr @hf_openflow_v6_role_status_role, align 4
@@ -4056,7 +4056,7 @@ dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %926, %911, %898, %8
   %.025.i = phi i32 [ %1000, %.lr.ph.i164 ], [ %998, %983 ]
   %1000 = tail call fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.025.i, i16 noundef zeroext %23)
   %1001 = icmp slt i32 %1000, %24
-  br i1 %1001, label %.lr.ph.i164, label %dissect_openflow_hello_v6.exit, !llvm.loop !16
+  br i1 %1001, label %.lr.ph.i164, label %dissect_openflow_hello_v6.exit, !llvm.loop !15
 
 1002:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -4090,7 +4090,7 @@ dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %926, %911, %898, %8
   %.0.i165178 = phi i32 [ %1025, %.lr.ph ], [ %1020, %1002 ]
   %1025 = call fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i165178, i16 noundef zeroext %23)
   %1026 = icmp slt i32 %1025, %24
-  br i1 %1026, label %.lr.ph, label %dissect_openflow_bundle_add_v6.exit, !llvm.loop !17
+  br i1 %1026, label %.lr.ph, label %dissect_openflow_bundle_add_v6.exit, !llvm.loop !16
 
 dissect_openflow_bundle_add_v6.exit:              ; preds = %.lr.ph, %1002
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -4289,7 +4289,7 @@ define internal fastcc void @dissect_openflow_multipart_reply_v6(ptr noundef %0,
   %99 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 8, i32 noundef 0) #4
   %100 = add nsw i32 %.0221, 24
   %101 = icmp slt i32 %100, %63
-  br i1 %101, label %.lr.ph222, label %.loopexit, !llvm.loop !18
+  br i1 %101, label %.lr.ph222, label %.loopexit, !llvm.loop !17
 
 .lr.ph220:                                        ; preds = %.preheader170, %dissect_openflow_port_stats_v6.exit
   %.1219 = phi i32 [ %.0.lcssa.i, %dissect_openflow_port_stats_v6.exit ], [ %35, %.preheader170 ]
@@ -4481,13 +4481,13 @@ dissect_openflow_port_stats_prop_v6.exit.i:       ; preds = %248, %246, %231, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %253 = icmp slt i32 %.0.i.i, %146
-  br i1 %253, label %.lr.ph.i, label %dissect_openflow_port_stats_v6.exit, !llvm.loop !19
+  br i1 %253, label %.lr.ph.i, label %dissect_openflow_port_stats_v6.exit, !llvm.loop !18
 
 dissect_openflow_port_stats_v6.exit:              ; preds = %dissect_openflow_port_stats_prop_v6.exit.i, %.lr.ph220
   %.0.lcssa.i = phi i32 [ %145, %.lr.ph220 ], [ %.0.i.i, %dissect_openflow_port_stats_prop_v6.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   %254 = icmp slt i32 %.0.lcssa.i, %61
-  br i1 %254, label %.lr.ph220, label %.loopexit, !llvm.loop !20
+  br i1 %254, label %.lr.ph220, label %.loopexit, !llvm.loop !19
 
 255:                                              ; preds = %.lr.ph218, %dissect_openflow_queue_stats_v6.exit
   %.2217 = phi i32 [ %35, %.lr.ph218 ], [ %.0.lcssa.i154, %dissect_openflow_queue_stats_v6.exit ]
@@ -4579,12 +4579,12 @@ dissect_openflow_queue_stats_prop_v6.exit.i:      ; preds = %317, %315, %304, %3
   %.0.i.i156 = phi i32 [ %57, %302 ], [ %312, %304 ], [ %57, %315 ], [ %319, %317 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %320 = icmp slt i32 %.0.i.i156, %258
-  br i1 %320, label %.lr.ph.i155, label %dissect_openflow_queue_stats_v6.exit, !llvm.loop !21
+  br i1 %320, label %.lr.ph.i155, label %dissect_openflow_queue_stats_v6.exit, !llvm.loop !20
 
 dissect_openflow_queue_stats_v6.exit:             ; preds = %dissect_openflow_queue_stats_prop_v6.exit.i, %255
   %.0.lcssa.i154 = phi i32 [ %287, %255 ], [ %.0.i.i156, %dissect_openflow_queue_stats_prop_v6.exit.i ]
   %321 = icmp slt i32 %.0.lcssa.i154, %57
-  br i1 %321, label %255, label %.loopexit, !llvm.loop !22
+  br i1 %321, label %255, label %.loopexit, !llvm.loop !21
 
 .lr.ph216:                                        ; preds = %.preheader174, %dissect_openflow_group_stats_v6.exit
   %.3215 = phi i32 [ %.0.lcssa.i157, %dissect_openflow_group_stats_v6.exit ], [ %35, %.preheader174 ]
@@ -4637,13 +4637,13 @@ dissect_openflow_queue_stats_v6.exit:             ; preds = %dissect_openflow_qu
   %362 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %361, ptr noundef %0, i32 noundef %360, i32 noundef 8, i32 noundef 0) #4
   %363 = add nsw i32 %.01.i, 16
   %364 = icmp slt i32 %363, %326
-  br i1 %364, label %.lr.ph.i158, label %dissect_openflow_group_stats_v6.exit, !llvm.loop !23
+  br i1 %364, label %.lr.ph.i158, label %dissect_openflow_group_stats_v6.exit, !llvm.loop !22
 
 dissect_openflow_group_stats_v6.exit:             ; preds = %.lr.ph.i158, %.lr.ph216
   %.0.lcssa.i157 = phi i32 [ %354, %.lr.ph216 ], [ %363, %.lr.ph.i158 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %365 = icmp slt i32 %.0.lcssa.i157, %55
-  br i1 %365, label %.lr.ph216, label %.loopexit, !llvm.loop !24
+  br i1 %365, label %.lr.ph216, label %.loopexit, !llvm.loop !23
 
 .lr.ph214:                                        ; preds = %.preheader176, %dissect_openflow_group_desc_v6.exit
   %.4213 = phi i32 [ %.0.lcssa.i159, %dissect_openflow_group_desc_v6.exit ], [ %35, %.preheader176 ]
@@ -4674,13 +4674,13 @@ dissect_openflow_group_stats_v6.exit:             ; preds = %.lr.ph.i158, %.lr.p
   %.031.i = phi i32 [ %385, %.lr.ph.i160 ], [ %383, %.lr.ph214 ]
   %385 = call fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %367, i32 noundef %.031.i)
   %386 = icmp slt i32 %385, %370
-  br i1 %386, label %.lr.ph.i160, label %dissect_openflow_group_desc_v6.exit, !llvm.loop !25
+  br i1 %386, label %.lr.ph.i160, label %dissect_openflow_group_desc_v6.exit, !llvm.loop !24
 
 dissect_openflow_group_desc_v6.exit:              ; preds = %.lr.ph.i160, %.lr.ph214
   %.0.lcssa.i159 = phi i32 [ %383, %.lr.ph214 ], [ %385, %.lr.ph.i160 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %387 = icmp slt i32 %.0.lcssa.i159, %53
-  br i1 %387, label %.lr.ph214, label %.loopexit, !llvm.loop !26
+  br i1 %387, label %.lr.ph214, label %.loopexit, !llvm.loop !25
 
 388:                                              ; preds = %5
   %389 = load i32, ptr @hf_openflow_v6_group_features_types, align 4
@@ -4936,13 +4936,13 @@ dissect_openflow_group_desc_v6.exit:              ; preds = %.lr.ph.i160, %.lr.p
   %629 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %628, ptr noundef %0, i32 noundef %627, i32 noundef 8, i32 noundef 0) #4
   %630 = add nsw i32 %.01.i163, 16
   %631 = icmp slt i32 %630, %621
-  br i1 %631, label %.lr.ph.i162, label %dissect_openflow_meter_stats_v6.exit, !llvm.loop !27
+  br i1 %631, label %.lr.ph.i162, label %dissect_openflow_meter_stats_v6.exit, !llvm.loop !26
 
 dissect_openflow_meter_stats_v6.exit:             ; preds = %.lr.ph.i162, %.lr.ph212
   %.0.lcssa.i161 = phi i32 [ %620, %.lr.ph212 ], [ %630, %.lr.ph.i162 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %632 = icmp slt i32 %.0.lcssa.i161, %51
-  br i1 %632, label %.lr.ph212, label %.loopexit, !llvm.loop !28
+  br i1 %632, label %.lr.ph212, label %.loopexit, !llvm.loop !27
 
 .lr.ph210:                                        ; preds = %.preheader180, %dissect_openflow_meter_desc_v6.exit
   %.6209 = phi i32 [ %.0.lcssa.i164, %dissect_openflow_meter_desc_v6.exit ], [ %35, %.preheader180 ]
@@ -4981,13 +4981,13 @@ dissect_openflow_meter_stats_v6.exit:             ; preds = %.lr.ph.i162, %.lr.p
   %.039.i = phi i32 [ %659, %.lr.ph.i165 ], [ %657, %.lr.ph210 ]
   %659 = call fastcc i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef %1, ptr noundef %634, i32 noundef %.039.i)
   %660 = icmp slt i32 %659, %637
-  br i1 %660, label %.lr.ph.i165, label %dissect_openflow_meter_desc_v6.exit, !llvm.loop !29
+  br i1 %660, label %.lr.ph.i165, label %dissect_openflow_meter_desc_v6.exit, !llvm.loop !28
 
 dissect_openflow_meter_desc_v6.exit:              ; preds = %.lr.ph.i165, %.lr.ph210
   %.0.lcssa.i164 = phi i32 [ %657, %.lr.ph210 ], [ %659, %.lr.ph.i165 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %661 = icmp slt i32 %.0.lcssa.i164, %49
-  br i1 %661, label %.lr.ph210, label %.loopexit, !llvm.loop !30
+  br i1 %661, label %.lr.ph210, label %.loopexit, !llvm.loop !29
 
 662:                                              ; preds = %5
   %663 = load i32, ptr @hf_openflow_v6_meter_features_max_meter, align 4
@@ -5029,19 +5029,19 @@ dissect_openflow_meter_desc_v6.exit:              ; preds = %.lr.ph.i165, %.lr.p
   %.7207 = phi i32 [ %696, %.lr.ph208 ], [ %35, %.preheader182 ]
   %696 = call fastcc i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.7207)
   %697 = icmp slt i32 %696, %47
-  br i1 %697, label %.lr.ph208, label %.loopexit, !llvm.loop !31
+  br i1 %697, label %.lr.ph208, label %.loopexit, !llvm.loop !30
 
 .lr.ph206:                                        ; preds = %.preheader184, %.lr.ph206
   %.8205 = phi i32 [ %698, %.lr.ph206 ], [ %35, %.preheader184 ]
-  %698 = call fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.8205, i16 noundef zeroext %4), !range !6
+  %698 = call fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.8205, i16 noundef zeroext %4)
   %699 = icmp ult i32 %698, %45
-  br i1 %699, label %.lr.ph206, label %.loopexit, !llvm.loop !32
+  br i1 %699, label %.lr.ph206, label %.loopexit, !llvm.loop !31
 
 .lr.ph204:                                        ; preds = %.preheader186, %.lr.ph204
   %.9203 = phi i32 [ %700, %.lr.ph204 ], [ %35, %.preheader186 ]
   %700 = call fastcc i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9203, i16 noundef zeroext %4)
   %701 = icmp slt i32 %700, %43
-  br i1 %701, label %.lr.ph204, label %.loopexit, !llvm.loop !33
+  br i1 %701, label %.lr.ph204, label %.loopexit, !llvm.loop !32
 
 .lr.ph202:                                        ; preds = %.preheader188, %dissect_openflow_queue_desc_v6.exit
   %.10201 = phi i32 [ %.0.lcssa.i166, %dissect_openflow_queue_desc_v6.exit ], [ %35, %.preheader188 ]
@@ -5159,12 +5159,12 @@ dissect_openflow_queue_desc_prop_v6.exit.i:       ; preds = %773, %770, %758, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %777 = icmp slt i32 %.0.i.i168, %705
-  br i1 %777, label %.lr.ph.i167, label %dissect_openflow_queue_desc_v6.exit, !llvm.loop !34
+  br i1 %777, label %.lr.ph.i167, label %dissect_openflow_queue_desc_v6.exit, !llvm.loop !33
 
 dissect_openflow_queue_desc_v6.exit:              ; preds = %dissect_openflow_queue_desc_prop_v6.exit.i, %.lr.ph202
   %.0.lcssa.i166 = phi i32 [ %717, %.lr.ph202 ], [ %.0.i.i168, %dissect_openflow_queue_desc_prop_v6.exit.i ]
   %778 = icmp slt i32 %.0.lcssa.i166, %41
-  br i1 %778, label %.lr.ph202, label %.loopexit, !llvm.loop !35
+  br i1 %778, label %.lr.ph202, label %.loopexit, !llvm.loop !34
 
 .lr.ph200:                                        ; preds = %.preheader190, %dissect_openflow_flow_update_v6.exit
   %.11199 = phi i32 [ %.0.i, %dissect_openflow_flow_update_v6.exit ], [ %35, %.preheader190 ]
@@ -5238,7 +5238,7 @@ dissect_openflow_queue_desc_v6.exit:              ; preds = %dissect_openflow_qu
   %.07173.i = phi i32 [ %822, %.lr.ph.i169 ], [ %820, %796 ]
   %822 = call fastcc i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef %1, ptr noundef %780, i32 noundef %.07173.i)
   %823 = icmp slt i32 %822, %784
-  br i1 %823, label %.lr.ph.i169, label %dissect_openflow_flow_update_v6.exit, !llvm.loop !36
+  br i1 %823, label %.lr.ph.i169, label %dissect_openflow_flow_update_v6.exit, !llvm.loop !35
 
 824:                                              ; preds = %794
   %825 = load i32, ptr @hf_openflow_v6_flow_update_abbrev_xid, align 4
@@ -5265,7 +5265,7 @@ dissect_openflow_flow_update_v6.exit:             ; preds = %.lr.ph.i169, %792, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %837 = icmp slt i32 %.0.i, %39
-  br i1 %837, label %.lr.ph200, label %.loopexit, !llvm.loop !37
+  br i1 %837, label %.lr.ph200, label %.loopexit, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.preheader192, %.lr.ph
   %.12198 = phi i32 [ %858, %.lr.ph ], [ %35, %.preheader192 ]
@@ -5296,7 +5296,7 @@ dissect_openflow_flow_update_v6.exit:             ; preds = %.lr.ph.i169, %792, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %859 = icmp slt i32 %858, %37
-  br i1 %859, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %859, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 860:                                              ; preds = %5
   call fastcc void @dissect_openflow_controller_status_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %35)
@@ -5482,7 +5482,7 @@ define internal fastcc i32 @dissect_openflow_match_v6(ptr noundef %0, ptr nounde
   %.05154 = phi i32 [ %31, %.lr.ph ], [ %22, %28 ]
   %31 = call fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %.05154)
   %32 = icmp slt i32 %31, %29
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !39
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 33:                                               ; preds = %26
   br label %.loopexit.sink.split
@@ -5924,7 +5924,7 @@ dissect_openflow_v6_oxs.exit:                     ; preds = %.lr.ph, %33, %35, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %66 = icmp slt i32 %65, %15
-  br i1 %66, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !40
+  br i1 %66, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %dissect_openflow_v6_oxs.exit
   %.pre = load i32, ptr %8, align 4
@@ -5950,7 +5950,7 @@ dissect_openflow_v6_oxs.exit:                     ; preds = %.lr.ph, %33, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6261,7 +6261,7 @@ define internal fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef
   %.065.i = phi i32 [ %286, %.lr.ph67.i ], [ %71, %282 ]
   %286 = call fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.065.i)
   %287 = icmp slt i32 %286, %284
-  br i1 %287, label %.lr.ph67.i, label %._crit_edge68.loopexit.i, !llvm.loop !41
+  br i1 %287, label %.lr.ph67.i, label %._crit_edge68.loopexit.i, !llvm.loop !40
 
 ._crit_edge68.loopexit.i:                         ; preds = %.lr.ph67.i
   %.pre71.i = load i32, ptr %7, align 4
@@ -6288,7 +6288,7 @@ define internal fastcc i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef
   %298 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %297, ptr noundef %0, i32 noundef %.164.i, i32 noundef 4, i32 noundef 0) #4
   %299 = add i32 %.164.i, 4
   %300 = icmp slt i32 %299, %295
-  br i1 %300, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !42
+  br i1 %300, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load i32, ptr %7, align 4
@@ -6347,7 +6347,7 @@ dissect_openflow_port_desc_prop_v6.exit:          ; preds = %73, %241, %._crit_e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %333 = icmp slt i32 %.2.i, %60
-  br i1 %333, label %63, label %._crit_edge, !llvm.loop !43
+  br i1 %333, label %63, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %dissect_openflow_port_desc_prop_v6.exit, %5
   %.0.lcssa = phi i32 [ %59, %5 ], [ %.2.i, %dissect_openflow_port_desc_prop_v6.exit ]
@@ -6653,7 +6653,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
   %.076 = phi i32 [ %49, %.lr.ph77 ], [ %47, %44 ]
   %49 = call fastcc i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.076)
   %50 = icmp slt i32 %49, %26
-  br i1 %50, label %.lr.ph77, label %.loopexit, !llvm.loop !44
+  br i1 %50, label %.lr.ph77, label %.loopexit, !llvm.loop !43
 
 51:                                               ; preds = %dissect_openflow_instruction_header_v6.exit
   %52 = load i32, ptr @hf_openflow_v6_instruction_stat_trigger_flags, align 4
@@ -6675,7 +6675,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
   %.175 = phi i32 [ %64, %.lr.ph ], [ %62, %51 ]
   %64 = call fastcc i32 @dissect_openflow_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.175)
   %65 = icmp slt i32 %64, %26
-  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 66:                                               ; preds = %dissect_openflow_instruction_header_v6.exit
   %67 = add i32 %spec.select, -8
@@ -6726,7 +6726,7 @@ define internal fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr nound
   %.036 = phi i32 [ %29, %.lr.ph ], [ %25, %4 ]
   %29 = call fastcc i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %.036)
   %30 = icmp slt i32 %29, %27
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %25, %4 ], [ %29, %.lr.ph ]
@@ -7016,7 +7016,7 @@ dissect_openflow_instruction_header_v6.exit.i:    ; preds = %83, %.lr.ph127.i
   %89 = sub i32 %.0.i.i, %88
   call void @proto_item_set_len(ptr noundef %87, i32 noundef %89) #4
   %90 = icmp slt i32 %.0.i.i, %.pre-phi.i
-  br i1 %90, label %.lr.ph127.i, label %.loopexit.i, !llvm.loop !47
+  br i1 %90, label %.lr.ph127.i, label %.loopexit.i, !llvm.loop !46
 
 91:                                               ; preds = %66, %66
   %92 = icmp slt i32 %62, %.pre-phi.i
@@ -7028,7 +7028,7 @@ dissect_openflow_instruction_header_v6.exit.i:    ; preds = %83, %.lr.ph127.i
   %94 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %93, ptr noundef %0, i32 noundef %.1123.i, i32 noundef 1, i32 noundef 0) #4
   %95 = add i32 %.1123.i, 1
   %exitcond137.not.i = icmp eq i32 %95, %.pre-phi.i
-  br i1 %exitcond137.not.i, label %.loopexit.i, label %.lr.ph124.i, !llvm.loop !48
+  br i1 %exitcond137.not.i, label %.loopexit.i, label %.lr.ph124.i, !llvm.loop !47
 
 96:                                               ; preds = %66, %66, %66, %66
   %97 = icmp slt i32 %62, %.pre-phi.i
@@ -7063,7 +7063,7 @@ dissect_openflow_action_header_v6.exit.i:         ; preds = %108, %.lr.ph121.i
   %114 = sub i32 %.0.i106.i, %113
   call void @proto_item_set_len(ptr noundef %112, i32 noundef %114) #4
   %115 = icmp slt i32 %.0.i106.i, %.pre-phi.i
-  br i1 %115, label %.lr.ph121.i, label %.loopexit.i, !llvm.loop !49
+  br i1 %115, label %.lr.ph121.i, label %.loopexit.i, !llvm.loop !48
 
 116:                                              ; preds = %66, %66, %66, %66, %66, %66, %66, %66, %66, %66
   %117 = icmp slt i32 %62, %.pre-phi.i
@@ -7118,7 +7118,7 @@ dissect_openflow_oxm_header_v6.exit:              ; preds = %124, %128, %131
   %142 = sub i32 %139, %141
   call void @proto_item_set_len(ptr noundef %140, i32 noundef %142) #4
   %143 = icmp slt i32 %139, %.pre-phi.i
-  br i1 %143, label %.lr.ph118.i, label %.loopexit.i, !llvm.loop !50
+  br i1 %143, label %.lr.ph118.i, label %.loopexit.i, !llvm.loop !49
 
 .lr.ph115.i:                                      ; preds = %.preheader.i, %.lr.ph115.i
   %.4114.i = phi i32 [ %146, %.lr.ph115.i ], [ %62, %.preheader.i ]
@@ -7126,7 +7126,7 @@ dissect_openflow_oxm_header_v6.exit:              ; preds = %124, %128, %131
   %145 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %144, ptr noundef %0, i32 noundef %.4114.i, i32 noundef 1, i32 noundef 0) #4
   %146 = add i32 %.4114.i, 1
   %exitcond.not.i = icmp eq i32 %146, %.pre-phi.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph115.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph115.i, !llvm.loop !50
 
 .lr.ph.i:                                         ; preds = %.preheader111.i, %.lr.ph.i
   %.5113.i = phi i32 [ %149, %.lr.ph.i ], [ %62, %.preheader111.i ]
@@ -7138,7 +7138,7 @@ dissect_openflow_oxm_header_v6.exit:              ; preds = %124, %128, %131
   %152 = sub i32 %149, %151
   call void @proto_item_set_len(ptr noundef %150, i32 noundef %152) #4
   %153 = icmp slt i32 %149, %.pre-phi.i
-  br i1 %153, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !52
+  br i1 %153, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !51
 
 154:                                              ; preds = %66, %66
   %155 = load i32, ptr @hf_openflow_v6_table_feature_prop_experimenter_experimenter, align 4
@@ -7178,7 +7178,7 @@ dissect_openflow_table_feature_prop_v6.exit:      ; preds = %.loopexit.i, %171
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %175 = icmp slt i32 %.7.i, %22
-  br i1 %175, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %175, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %dissect_openflow_table_feature_prop_v6.exit, %4
   %.0.lcssa = phi i32 [ %51, %4 ], [ %.7.i, %dissect_openflow_table_feature_prop_v6.exit ]
@@ -7247,7 +7247,7 @@ define internal fastcc i32 @dissect_openflow_flow_desc_v6(ptr noundef %0, ptr no
   %.08486 = phi i32 [ %58, %.lr.ph ], [ %56, %5 ]
   %58 = call fastcc i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.08486)
   %59 = icmp slt i32 %58, %13
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.084.lcssa = phi i32 [ %56, %5 ], [ %58, %.lr.ph ]
@@ -7301,7 +7301,7 @@ define internal fastcc i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr n
   %.033 = phi i32 [ %33, %.lr.ph ], [ %31, %5 ]
   %33 = call fastcc i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.033, i16 noundef zeroext %4)
   %34 = icmp slt i32 %33, %15
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %31, %5 ], [ %33, %.lr.ph ]
@@ -7487,7 +7487,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 -2147483648}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -7536,4 +7536,3 @@ attributes #4 = { nounwind }
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}

@@ -976,7 +976,7 @@ define internal noundef i64 @ossl_x509_sign(i64 noundef returned %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509_verify(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509_verify(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1010,7 +1010,7 @@ define internal noundef i64 @ossl_x509_verify(i64 noundef %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509_check_private_key(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509_check_private_key(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @GetPrivPKeyPtr(i64 noundef %1) #5
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
   %.not = icmp eq ptr %4, null
@@ -1355,7 +1355,7 @@ ossl_x509_get_not_after.exit:                     ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1405,7 +1405,7 @@ declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @load_chained_certificates(i64 noundef %0) #0 {
+define internal range(i64 5, 4) i64 @load_chained_certificates(i64 noundef %0) #0 {
   %2 = alloca %struct.load_chained_certificates_arguments, align 8
   %3 = alloca %struct.load_chained_certificates_arguments, align 8
   %4 = alloca %struct.load_chained_certificates_arguments, align 8

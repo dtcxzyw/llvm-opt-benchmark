@@ -100,7 +100,7 @@ declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_provide_initial_secret(ptr noundef %libctx, ptr noundef %propq, ptr noundef %dst_conn_id, i32 noundef %is_server, ptr noundef %qrx, ptr noundef %qtx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_provide_initial_secret(ptr noundef %libctx, ptr noundef %propq, ptr noundef %dst_conn_id, i32 noundef %is_server, ptr noundef %qrx, ptr noundef %qtx) local_unnamed_addr #0 {
 entry:
   %initial_secret = alloca [32 x i8], align 16
   %client_initial_secret = alloca [32 x i8], align 16

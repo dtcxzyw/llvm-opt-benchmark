@@ -921,7 +921,7 @@ define internal void @kyber_exit_sched(ptr nocapture noundef readonly %0) #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_init_hctx(ptr noundef %0, i32 %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i32 %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load i32, ptr %3, align 16
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
@@ -1735,7 +1735,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 
 69:                                               ; preds = %.thread8, %55
   %70 = phi i64 [ 0, %55 ], [ %124, %.thread8 ]
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = tail call fastcc i32 @calculate_percentile(ptr noundef %14, i32 noundef %71, i32 noundef 0, i32 noundef 99)
   br i1 %57, label %73, label %78
 
@@ -2404,7 +2404,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #0 
 declare dso_local i32 @timer_reduce(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @kyber_read_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 560
@@ -2442,7 +2442,7 @@ define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @kyber_write_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 568

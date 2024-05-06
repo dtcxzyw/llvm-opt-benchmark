@@ -114,7 +114,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash18check_bloom_filterEj(ptr nocap
   %16 = sub i64 %14, %15
   %17 = lshr exact i64 %16, 3
   %18 = trunc i64 %17 to i32
-  %.lhs.trunc = trunc i64 %9 to i32
+  %.lhs.trunc = trunc nuw i64 %9 to i32
   %19 = urem i32 %.lhs.trunc, %18
   %.zext = zext i32 %19 to i64
   %20 = urem i64 %8, %4
@@ -150,7 +150,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkERKNSt7__cxx1112basic_stri
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 3
   %20 = trunc i64 %19 to i32
-  %.lhs.trunc.i.i = trunc i64 %11 to i32
+  %.lhs.trunc.i.i = trunc nuw i64 %11 to i32
   %21 = urem i32 %.lhs.trunc.i.i, %20
   %.zext.i.i = zext i32 %21 to i64
   %22 = urem i64 %10, %6
@@ -210,7 +210,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkEj(ptr nocapture noundef n
   %16 = sub i64 %14, %15
   %17 = lshr exact i64 %16, 3
   %18 = trunc i64 %17 to i32
-  %.lhs.trunc.i = trunc i64 %9 to i32
+  %.lhs.trunc.i = trunc nuw i64 %9 to i32
   %19 = urem i32 %.lhs.trunc.i, %18
   %.zext.i = zext i32 %19 to i64
   %20 = urem i64 %8, %4

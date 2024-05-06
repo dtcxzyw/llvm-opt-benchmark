@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/div.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_div(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %wnum = alloca %struct.bignum_st, align 8
   %top = getelementptr inbounds i8, ptr %num, i64 8
@@ -468,7 +468,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_nnmod(ptr noundef %r, ptr noundef %m, ptr noundef %d, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %m, ptr noundef %d, ptr noundef %ctx), !range !11
+  %call = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %m, ptr noundef %d, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -483,7 +483,7 @@ if.end3:                                          ; preds = %if.end
   %1 = load i32, ptr %neg4, align 8
   %tobool5.not = icmp eq i32 %1, 0
   %cond = select i1 %tobool5.not, ptr @BN_add, ptr @BN_sub
-  %call6 = tail call i32 %cond(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %d) #4, !callees !12
+  %call6 = tail call i32 %cond(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %d) #4, !callees !11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -503,7 +503,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -518,7 +518,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
-  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !12
+  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !11
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end.i, %if.end, %entry
@@ -559,7 +559,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -574,7 +574,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
-  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !12
+  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !11
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end.i, %if.end, %entry
@@ -605,7 +605,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -627,7 +627,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool7.not, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then2
-  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef nonnull %call, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef nonnull %call, ptr noundef %m, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %BN_nnmod.exit.thread, label %if.end.i
 
@@ -642,7 +642,7 @@ BN_nnmod.exit:                                    ; preds = %if.end.i
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
-  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !12
+  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !11
   %call6.i.fr = freeze i32 %call6.i
   %tobool12.not = icmp eq i32 %call6.i.fr, 0
   br i1 %tobool12.not, label %BN_nnmod.exit.thread, label %err
@@ -661,14 +661,14 @@ declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mod_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mod_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call1 = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -677,9 +677,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mod_lshift(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mod_lshift(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %a, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %a, ptr noundef %m, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -694,7 +694,7 @@ BN_nnmod.exit:                                    ; preds = %if.end.i
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
-  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !12
+  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !11
   %tobool.not = icmp eq i32 %call6.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -718,7 +718,7 @@ if.end7:                                          ; preds = %if.end5, %if.end
   %abs_m.0 = phi ptr [ %call3, %if.end5 ], [ null, %if.end ]
   %tobool8.not = icmp eq ptr %abs_m.0, null
   %cond = select i1 %tobool8.not, ptr %m, ptr %abs_m.0
-  %call9 = tail call i32 @BN_mod_lshift_quick(ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %n, ptr noundef %cond), !range !11
+  %call9 = tail call i32 @BN_mod_lshift_quick(ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %n, ptr noundef %cond)
   tail call void @BN_free(ptr noundef %abs_m.0) #4
   br label %return
 
@@ -730,7 +730,7 @@ return:                                           ; preds = %entry, %if.then2, %
 declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mod_lshift_quick(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %r, %a
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -792,7 +792,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end31:                                         ; preds = %if.then26, %if.end23
   %cmp4 = icmp sgt i32 %n.addr.1, 0
-  br i1 %cmp4, label %while.body, label %return, !llvm.loop !13
+  br i1 %cmp4, label %while.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %if.then13, %if.else, %if.then26, %if.end31, %if.end3, %if.then, %if.then8
   %retval.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then ], [ 1, %if.end3 ], [ 0, %if.then13 ], [ 0, %if.else ], [ 0, %if.then26 ], [ 1, %if.end31 ]
@@ -813,7 +813,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx), !range !11
+  %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef %r, ptr noundef %m, ptr noundef %ctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -828,7 +828,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
-  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !12
+  %call6.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #4, !callees !11
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end.i, %if.end, %entry
@@ -902,7 +902,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx16 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next
   store i64 %asmresult.i, ptr %arrayidx16, align 8
   %cmp9 = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
   %.pre = load i32, ptr %top, align 8
@@ -964,7 +964,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %or = or disjoint i128 %shl, %conv
   %rem = urem i128 %or, %conv2
   %cmp1 = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp1, label %for.body, label %for.end.loopexit, !llvm.loop !15
+  br i1 %cmp1, label %for.body, label %for.end.loopexit, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body
   %extract.t = trunc nuw i128 %rem to i64
@@ -997,8 +997,7 @@ attributes #4 = { nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{i64 5801}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 2}
-!12 = !{ptr @BN_add, ptr @BN_sub}
+!11 = !{ptr @BN_add, ptr @BN_sub}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}

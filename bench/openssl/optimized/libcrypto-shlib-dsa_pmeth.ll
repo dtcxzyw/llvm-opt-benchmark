@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_dsa_init(ptr nocapture noundef writeonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_dsa_init(ptr nocapture noundef writeonly %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 40) #6
   %cmp = icmp eq ptr %call, null
@@ -50,7 +50,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_dsa_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_dsa_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 40) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -204,7 +204,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_dsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %sltmp = alloca i32, align 4
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
@@ -271,7 +271,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_dsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
+define internal range(i32 -2, 2) i32 @pkey_dsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8

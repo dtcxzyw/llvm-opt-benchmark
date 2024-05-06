@@ -3065,7 +3065,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void %2(ptr nonnull sret(%"class.node::NativeSymbolDebuggingContext::SymbolInfo") align 8 %s, ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef %1) #17
   call void @_ZNK4node28NativeSymbolDebuggingContext10SymbolInfo7DisplayB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %s)
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.80, i32 noundef %3, ptr noundef %1, ptr noundef %call7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i) #17

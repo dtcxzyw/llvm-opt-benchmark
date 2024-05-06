@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @multi_setting_parse_next(ptr nocapture noundef %setting_segment_cur, ptr nocapture noundef %len_left, ptr nocapture noundef writeonly %key_start, ptr nocapture noundef writeonly %key_end, ptr nocapture noundef writeonly %value) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @multi_setting_parse_next(ptr nocapture noundef %setting_segment_cur, ptr nocapture noundef %len_left, ptr nocapture noundef writeonly %key_start, ptr nocapture noundef writeonly %key_end, ptr nocapture noundef writeonly %value) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %0 = load ptr, ptr %setting_segment_cur, align 8

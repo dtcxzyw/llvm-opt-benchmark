@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_print_hex_du
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_bin2hex7, ptr @__UNIQUE_ID___addressable_hex2bin6, ptr @__UNIQUE_ID___addressable_hex_asc3, ptr @__UNIQUE_ID___addressable_hex_asc_upper4, ptr @__UNIQUE_ID___addressable_hex_dump_to_buffer8, ptr @__UNIQUE_ID___addressable_hex_to_bin5, ptr @__UNIQUE_ID___addressable_print_hex_dump11], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @hex_to_bin(i8 noundef zeroext %0) #0 align 16 {
+define dso_local range(i32 -1, 33554430) i32 @hex_to_bin(i8 noundef zeroext %0) #0 align 16 {
   %2 = zext i8 %0 to i32
   %3 = and i8 %0, -33
   %4 = add nuw nsw i32 %2, 16777169
@@ -60,7 +60,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @hex2bin(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.thread, label %.lr.ph
 
@@ -187,7 +187,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %25 = select i1 %24, i32 %21, i32 1
   %26 = sext i32 %25 to i64
   %27 = udiv i64 %11, %26
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = shl nuw nsw i32 %9, 1
   %30 = sdiv i32 %9, %25
   %31 = or disjoint i32 %29, 1
@@ -443,7 +443,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   br i1 %6, label %190, label %193
 
 190:                                              ; preds = %.loopexit18
-  %191 = trunc i64 %11 to i32
+  %191 = trunc nuw nsw i64 %11 to i32
   %192 = add nuw nsw i32 %32, %191
   br label %198
 

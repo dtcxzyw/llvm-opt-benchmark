@@ -2450,7 +2450,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
 declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define noundef range(i32 -1, 1) i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   %7 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef 0, i32 noundef 2)
@@ -2488,7 +2488,7 @@ define noundef i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32 noundef %0, ptr 
   br label %20
 
 20:                                               ; preds = %.backedge, %18
-  %21 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !31
+  %21 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   switch i32 %21, label %.backedge [
     i32 1, label %22
     i32 -1, label %25
@@ -2506,7 +2506,7 @@ define noundef i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32 noundef %0, ptr 
   br i1 %.not.i, label %.backedge, label %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread
 
 .backedge:                                        ; preds = %25, %20
-  br label %20, !llvm.loop !32
+  br label %20, !llvm.loop !31
 
 _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread: ; preds = %.preheader, %22, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2538,7 +2538,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   %37 = and i64 %36, 9223372036854775804
   %38 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %37, i32 noundef 0)
   %.not45 = icmp eq i32 %38, 0
-  br i1 %.not45, label %.preheader, label %.loopexit, !llvm.loop !33
+  br i1 %.not45, label %.preheader, label %.loopexit, !llvm.loop !32
 
 39:                                               ; preds = %28, %29
   %40 = icmp ult i64 %.0, 17
@@ -2548,7 +2548,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   br i1 %.not43, label %42, label %.loopexit
 
 42:                                               ; preds = %39
-  %43 = call fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !34
+  %43 = call fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %44 = icmp slt i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
@@ -2571,14 +2571,14 @@ declare noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef) local_unnamed_addr #5
 declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc noundef range(i64 -9223372036854775808, 9223372036854775804) i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca float, align 4
   %6 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %1, ptr noundef nonnull %4)
   br label %7
 
 7:                                                ; preds = %7, %3
-  %8 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !31
+  %8 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   switch i32 %8, label %7 [
     i32 1, label %9
     i32 -1, label %.loopexit
@@ -2597,7 +2597,7 @@ define internal fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [10 x float], align 16
   %8 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
@@ -2607,7 +2607,7 @@ define internal fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !35
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !33
 
 .preheader:                                       ; preds = %5, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %5 ]
@@ -2641,7 +2641,7 @@ define internal fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf
 21:                                               ; preds = %22
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 10
-  br i1 %exitcond46.not, label %28, label %22, !llvm.loop !36
+  br i1 %exitcond46.not, label %28, label %22, !llvm.loop !34
 
 22:                                               ; preds = %.preheader47, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 0, %.preheader47 ]
@@ -2710,7 +2710,7 @@ define internal fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(float noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(float noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   %8 = alloca float, align 4
@@ -2776,7 +2776,7 @@ define noundef i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(float noundef %0, pt
   br label %40
 
 40:                                               ; preds = %40, %38
-  %41 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %10), !range !31
+  %41 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %10)
   switch i32 %41, label %40 [
     i32 1, label %42
     i32 -1, label %44
@@ -2840,7 +2840,7 @@ _ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb.exit:  ; preds = %.lr.ph
   br label %63
 
 63:                                               ; preds = %63, %61
-  %64 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %12), !range !31
+  %64 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %12)
   switch i32 %64, label %63 [
     i32 1, label %65
     i32 -1, label %67
@@ -2960,7 +2960,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %58, %65, 
   br label %116
 
 116:                                              ; preds = %116, %114
-  %117 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8), !range !31
+  %117 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8)
   switch i32 %117, label %116 [
     i32 1, label %118
     i32 -1, label %121
@@ -3036,7 +3036,7 @@ _ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb.exit111: ; preds = %_ZL23xtc_get_next
   br label %145
 
 145:                                              ; preds = %145, %143
-  %146 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !31
+  %146 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6)
   switch i32 %146, label %145 [
     i32 1, label %147
     i32 -1, label %150
@@ -3092,13 +3092,13 @@ _ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb.exit114: ; preds = %_ZL23xtc_get_next
   store i8 0, ptr %14, align 1
   %161 = call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %1)
   %162 = icmp slt i64 %161, 0
-  br i1 %162, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %162, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .thread143:                                       ; preds = %84, %_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb.exit114, %102
   %163 = icmp slt i64 %.087187, 17
   %spec.select = select i1 %163, i64 %.193185, i64 %.087187
   %164 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %spec.select, i32 noundef 0)
-  %165 = call fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !34
+  %165 = call fastcc noundef i64 @_ZL24xtc_get_next_frame_startP8_IO_FILEP3XDRi(ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %166 = icmp slt i64 %165, 0
   br i1 %166, label %.loopexit, label %167
 
@@ -3123,7 +3123,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4, %17
-  %9 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !31
+  %9 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   switch i32 %9, label %17 [
     i32 1, label %10
     i32 -1, label %15
@@ -3150,7 +3150,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
 17:                                               ; preds = %.preheader
   %18 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef -8, i32 noundef 1)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !38
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %17, %15, %4, %13, %12
   %.0 = phi float [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %17 ]
@@ -3212,7 +3212,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
   br i1 %13, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11, %22
-  %14 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !31
+  %14 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   switch i32 %14, label %22 [
     i32 1, label %15
     i32 -1, label %20
@@ -3239,7 +3239,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
 22:                                               ; preds = %.preheader.i
   %23 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef -8, i32 noundef 1)
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %.preheader.i, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, !llvm.loop !39
+  br i1 %.not.i, label %.preheader.i, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, !llvm.loop !37
 
 _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %17, %18, %20
   %.0.i = phi i32 [ -1, %17 ], [ %19, %18 ], [ -1, %11 ], [ -1, %20 ], [ -1, %22 ]
@@ -3347,12 +3347,10 @@ attributes #21 = { nounwind }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = !{i32 -1, i32 2}
+!31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
-!34 = !{i64 -9223372036854775808, i64 9223372036854775804}
+!34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}

@@ -21,7 +21,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ENGINE_set_RSA_method(ptr nocapture noundef writeonly %engine, ptr noundef %method, i64 noundef %method_size) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ENGINE_set_RSA_method(ptr nocapture noundef writeonly %engine, ptr noundef %method, i64 noundef %method_size) local_unnamed_addr #3 {
 entry:
   %cmp.not.i = icmp eq i64 %method_size, 144
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %set_method.exit
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ENGINE_set_ECDSA_method(ptr nocapture noundef writeonly %engine, ptr noundef %method, i64 noundef %method_size) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ENGINE_set_ECDSA_method(ptr nocapture noundef writeonly %engine, ptr noundef %method, i64 noundef %method_size) local_unnamed_addr #3 {
 entry:
   %ecdsa_method = getelementptr inbounds i8, ptr %engine, i64 8
   %cmp.not.i = icmp eq i64 %method_size, 64

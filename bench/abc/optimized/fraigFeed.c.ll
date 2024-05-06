@@ -570,7 +570,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %83 = load ptr, ptr %18, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
-  %86 = trunc i64 %indvars.iv.next188.i.i to i32
+  %86 = trunc nuw i64 %indvars.iv.next188.i.i to i32
   %87 = icmp sgt i32 %85, %86
   br i1 %87, label %.lr.ph138.i.i, label %.loopexit131.loopexit.i.i, !llvm.loop !14
 
@@ -783,7 +783,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %185 = load ptr, ptr %133, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
-  %188 = trunc i64 %indvars.iv.next208.i.i to i32
+  %188 = trunc nuw i64 %indvars.iv.next208.i.i to i32
   %189 = icmp sgt i32 %187, %188
   br i1 %189, label %.lr.ph172.i.i, label %.loopexit.loopexit.i.i, !llvm.loop !23
 
@@ -853,7 +853,7 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   %.01522.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i ], [ %.116.i.i, %224 ]
   %219 = getelementptr inbounds i32, ptr %199, i64 %indvars.iv.i54.i
   %220 = load i32, ptr %219, align 4
-  %221 = trunc i64 %indvars.iv.i54.i to i32
+  %221 = trunc nuw nsw i64 %indvars.iv.i54.i to i32
   switch i32 %220, label %222 [
     i32 0, label %224
     i32 1, label %Fraig_GetSmallestColumn.exit.i
@@ -909,7 +909,7 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   br i1 %.not.i60.i, label %242, label %238
 
 238:                                              ; preds = %.preheader.i.i
-  %239 = trunc i64 %indvars.iv.i59.i to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.i59.i to i32
   %240 = shl nsw i32 %239, 5
   %241 = add nuw nsw i32 %.017.i.i, %240
   br label %.lr.ph.i65.i
@@ -1056,7 +1056,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 314:                                              ; preds = %.lr.ph131
   %315 = load i32, ptr %272, align 8
-  %316 = trunc i64 %indvars.iv166 to i32
+  %316 = trunc nuw nsw i64 %indvars.iv166 to i32
   %317 = add nsw i32 %315, %316
   %318 = load i32, ptr %284, align 4
   %319 = shl nsw i32 %318, 5
@@ -1516,7 +1516,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = trunc i64 %indvars.iv.next58 to i32
+  %52 = trunc nuw i64 %indvars.iv.next58 to i32
   %53 = icmp sgt i32 %51, %52
   br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !44
 
@@ -1638,7 +1638,7 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef re
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = trunc i64 %indvars.iv.next51 to i32
+  %48 = trunc nuw i64 %indvars.iv.next51 to i32
   %49 = icmp sgt i32 %47, %48
   br i1 %49, label %.lr.ph40, label %.loopexit.loopexit, !llvm.loop !49
 
@@ -1675,7 +1675,7 @@ define noalias noundef ptr @Fraig_ManAllocCounterExample(ptr nocapture noundef r
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Fraig_NodeIsTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -1693,13 +1693,13 @@ define i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %1) local_u
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %13), !range !51
+  %14 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %13)
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %19), !range !51
+  %20 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %19)
   %21 = load ptr, ptr %9, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i32
@@ -1729,7 +1729,7 @@ declare i32 @Fraig_NodeIsTravIdCurrent(ptr noundef, ptr noundef) local_unnamed_a
 declare void @Fraig_NodeSetTravIdCurrent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   tail call void @Fraig_ManIncrementTravId(ptr noundef %0) #12
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1765,7 +1765,7 @@ define i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %31 = ptrtoint ptr %1 to i64
@@ -1773,7 +1773,7 @@ define i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %33 = and i32 %32, 1
   %34 = and i64 %31, -2
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef nonnull %0, ptr noundef %35), !range !51
+  %36 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef nonnull %0, ptr noundef %35)
   %37 = xor i32 %36, %33
   ret i32 %37
 }
@@ -1839,7 +1839,7 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 40:                                               ; preds = %30, %38
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %30, !llvm.loop !53
+  br i1 %exitcond52.not, label %.loopexit, label %30, !llvm.loop !52
 
 41:                                               ; preds = %2
   %42 = load ptr, ptr %12, align 8
@@ -1886,7 +1886,7 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 67:                                               ; preds = %57, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !53
 
 68:                                               ; preds = %41
   %.not = icmp eq ptr %calloc.i, null
@@ -2019,7 +2019,6 @@ attributes #13 = { nounwind allocsize(0) }
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
-!51 = !{i32 0, i32 2}
+!51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}

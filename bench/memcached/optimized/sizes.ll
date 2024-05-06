@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [41 x i8] c"----------------------------------------\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull @.str, i32 noundef 64)
   %call.i1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull @.str.1, i32 noundef 2352)

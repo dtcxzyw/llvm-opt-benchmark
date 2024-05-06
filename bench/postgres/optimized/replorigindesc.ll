@@ -28,7 +28,7 @@ define dso_local void @replorigin_desc(ptr noundef %0, ptr nocapture noundef rea
   %13 = zext i16 %12 to i32
   %14 = load i64, ptr %6, align 8
   %15 = lshr i64 %14, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = trunc i64 %14 to i32
   %18 = getelementptr inbounds i8, ptr %6, i64 10
   %19 = load i8, ptr %18, align 2

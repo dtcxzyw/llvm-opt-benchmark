@@ -708,7 +708,7 @@ define internal void @perf_trace_hwmon_attr_show_string(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hwmon_notify_event(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca [37 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [2 x ptr], align 16
@@ -1577,7 +1577,7 @@ define dso_local void @devm_hwmon_device_unregister(ptr noundef %0) #1 align 16 
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @devm_hwmon_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #7 align 16 {
+define internal range(i32 0, 2) i32 @devm_hwmon_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #7 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -1839,7 +1839,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hwmon_attr_show_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hwmon_attr_show_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
@@ -1918,7 +1918,7 @@ define internal i64 @hwmon_attr_show_string(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hwmon_attr_show(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hwmon_attr_show(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8, !annotation !13
@@ -2138,7 +2138,7 @@ define internal zeroext i16 @hwmon_dev_attr_is_visible(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #17 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #17 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.161, ptr noundef %5) #18
@@ -2147,7 +2147,7 @@ define internal noundef i64 @name_show(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.161, ptr noundef %5) #18

@@ -1977,7 +1977,7 @@ define internal i32 @dissect_q931(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_q931_tpkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @dissect_q931_tpkt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !7
+  %5 = tail call i32 @dissect_q931_tpkt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %6
 }
@@ -2045,7 +2045,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_q931_tpkt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_q931_tpkt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @is_tpkt(ptr noundef %0, i32 noundef 3) #5
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %18, label %7
@@ -2095,7 +2095,7 @@ define internal fastcc void @dissect_q931_pdu(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i8 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 -1, ptr %13, align 4
@@ -2505,7 +2505,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   %32 = add i32 %.0471, 1
   %33 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32) #5
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %34, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !7
 
 35:                                               ; preds = %19
   br i1 %.not, label %36, label %75
@@ -2551,7 +2551,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   %.0.be = phi i32 [ %52, %51 ], [ %74, %73 ], [ %160, %159 ]
   %53 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be) #5
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %19, label %.loopexit, !llvm.loop !8
+  br i1 %54, label %19, label %.loopexit, !llvm.loop !7
 
 55:                                               ; preds = %48, %39
   %.pre-phi517 = phi i32 [ %.pre-phi528, %48 ], [ %42, %39 ]
@@ -2952,7 +2952,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   %256 = icmp slt i8 %248, 0
   %257 = icmp eq i32 %250, 0
   %or.cond.i = select i1 %256, i1 true, i1 %257
-  br i1 %or.cond.i, label %258, label %.preheader127.i, !llvm.loop !9
+  br i1 %or.cond.i, label %258, label %.preheader127.i, !llvm.loop !8
 
 258:                                              ; preds = %.preheader127.i
   %259 = load i32, ptr @hf_q931_channel_interface_id, align 4
@@ -3005,7 +3005,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   %284 = add i32 %.3133.i, 1
   %285 = add i32 %.3103132.i, -1
   %.not115.i = icmp eq i32 %285, 0
-  br i1 %.not115.i, label %dissect_q931_change_status_ie.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not115.i, label %dissect_q931_change_status_ie.exit, label %.lr.ph.i, !llvm.loop !9
 
 286:                                              ; preds = %274
   br i1 %.old7.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i
@@ -3023,7 +3023,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   %294 = icmp slt i8 %287, 0
   %295 = icmp eq i32 %293, 0
   %or.cond8.i = select i1 %294, i1 true, i1 %295
-  br i1 %or.cond8.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %or.cond8.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i, !llvm.loop !10
 
 296:                                              ; preds = %split
   br i1 %.not393, label %dissect_q931_change_status_ie.exit, label %297
@@ -3230,7 +3230,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
 
 423:                                              ; preds = %419
   %424 = load i32, ptr @hf_q931_cumulative_transit_delay, align 4
-  %425 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %420, i32 noundef %.pre-phi530, ptr noundef %169, ptr noundef %421, i32 noundef %424), !range !12
+  %425 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %420, i32 noundef %.pre-phi530, ptr noundef %169, ptr noundef %421, i32 noundef %424)
   %426 = icmp slt i32 %425, 0
   br i1 %426, label %dissect_q931_change_status_ie.exit, label %427
 
@@ -3242,7 +3242,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
 
 431:                                              ; preds = %427
   %432 = load i32, ptr @hf_q931_requested_end_to_end_transit_delay, align 4
-  %433 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %428, i32 noundef %429, ptr noundef %169, ptr noundef %421, i32 noundef %432), !range !12
+  %433 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %428, i32 noundef %429, ptr noundef %169, ptr noundef %421, i32 noundef %432)
   %434 = icmp slt i32 %433, 0
   %435 = icmp eq i32 %429, %433
   %or.cond.i412 = select i1 %434, i1 true, i1 %435
@@ -3252,7 +3252,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   %437 = sub nsw i32 %429, %433
   %438 = add i32 %433, %428
   %439 = load i32, ptr @hf_q931_maximum_end_to_end_transit_delay, align 4
-  %440 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %438, i32 noundef %437, ptr noundef %169, ptr noundef %421, i32 noundef %439), !range !12
+  %440 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %438, i32 noundef %437, ptr noundef %169, ptr noundef %421, i32 noundef %439)
   br label %dissect_q931_change_status_ie.exit
 
 441:                                              ; preds = %split
@@ -3263,7 +3263,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   %444 = load ptr, ptr %9, align 8
   %445 = add i32 %.0471, 2
   %446 = load i32, ptr @hf_q931_transit_delay, align 4
-  %447 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %445, i32 noundef %.pre-phi530, ptr noundef %169, ptr noundef %444, i32 noundef %446), !range !12
+  %447 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %445, i32 noundef %.pre-phi530, ptr noundef %169, ptr noundef %444, i32 noundef %446)
   br label %dissect_q931_change_status_ie.exit
 
 448:                                              ; preds = %split
@@ -3475,7 +3475,7 @@ dissect_q931_change_status_ie.exit:               ; preds = %.lr.ph.i, %.prehead
   %.1 = add i32 %.pn, %.0471
   %555 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5
   %556 = icmp sgt i32 %555, 0
-  br i1 %556, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %556, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.outer, %.outer432, %.backedge, %8, %140
   %.not392 = icmp eq ptr %7, null
@@ -3659,7 +3659,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
   %.not = icmp sgt i8 %8, -1
   br i1 %.not, label %9, label %32
@@ -3752,9 +3752,7 @@ attributes #5 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{i32 -1, i32 4}

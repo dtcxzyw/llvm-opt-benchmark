@@ -382,7 +382,7 @@ define void @reset_conversation_table_data(ptr noundef %0) local_unnamed_addr #1
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %.lr.ph, %12, %16, %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %9, i64 32
   %21 = load i32, ptr %20, align 8
   %.not.i.i17 = icmp eq i32 %21, 0
@@ -405,7 +405,7 @@ free_address.exit:                                ; preds = %.lr.ph, %12, %16, %
   br label %free_address.exit19
 
 free_address.exit19:                              ; preds = %free_address.exit, %22, %26, %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
@@ -483,7 +483,7 @@ define void @reset_endpoint_table_data(ptr noundef %0) local_unnamed_addr #1 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %.lr.ph, %11, %15, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -557,7 +557,7 @@ define void @reset_hostlist_table_data(ptr noundef %0) local_unnamed_addr #1 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.ph.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -1499,7 +1499,7 @@ define void @add_conversation_table_data_with_conv_id(ptr nocapture noundef %0, 
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   store i32 %48, ptr %47, align 8
   %53 = icmp eq i32 %50, 0
   br i1 %53, label %copy_address.exit, label %54
@@ -1522,7 +1522,7 @@ copy_address.exit:                                ; preds = %.thread102, %54
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %2, i64 8
   %65 = load ptr, ptr %64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   store i32 %61, ptr %60, align 8
   %66 = icmp eq i32 %63, 0
   br i1 %66, label %copy_address.exit100, label %67
@@ -1809,7 +1809,7 @@ add_address_to_hash.exit19:                       ; preds = %.lr.ph.i14, %add_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @conversation_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @conversation_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -2033,7 +2033,7 @@ define void @add_endpoint_table_data(ptr nocapture noundef %0, ptr nocapture nou
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store i32 %36, ptr %35, align 8
   %41 = icmp eq i32 %38, 0
   br i1 %41, label %copy_address.exit, label %42
@@ -2168,7 +2168,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @endpoint_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @endpoint_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24

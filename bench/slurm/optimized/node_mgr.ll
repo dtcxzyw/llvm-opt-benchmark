@@ -777,7 +777,7 @@ declare void @free_buf(ptr noundef) local_unnamed_addr #2
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @load_all_node_state(i1 noundef zeroext %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 15) i32 @load_all_node_state(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -7138,7 +7138,7 @@ declare zeroext i1 @node_features_g_changeable_feature(ptr noundef) local_unname
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @drain_nodes(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2019) i32 @drain_nodes(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %9, label %6
@@ -7205,7 +7205,7 @@ define dso_local noundef i32 @drain_nodes(ptr noundef %0, ptr noundef %1, i32 no
 declare void @validate_all_reservations(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @update_node_record_acct_gather_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @update_node_record_acct_gather_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @find_node_record(ptr noundef %3) #16
@@ -7664,7 +7664,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %208 = getelementptr inbounds i8, ptr %20, i64 202
   %209 = load i16, ptr %208, align 2
   %210 = zext i16 %209 to i32
-  %211 = mul nsw i32 %207, %210
+  %211 = mul nuw nsw i32 %207, %210
   %212 = getelementptr inbounds i8, ptr %20, i64 96
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %23, i64 256
@@ -7719,7 +7719,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %248 = getelementptr inbounds i8, ptr %55, i64 88
   %249 = load i16, ptr %248, align 8
   %250 = zext i16 %249 to i32
-  %251 = mul nsw i32 %247, %250
+  %251 = mul nuw nsw i32 %247, %250
   %252 = icmp ult i32 %211, %251
   br i1 %252, label %253, label %261
 
@@ -8294,7 +8294,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %533 = load ptr, ptr %21, align 8
   %534 = load ptr, ptr %9, align 8
   %535 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %536 = call i32 @drain_nodes(ptr noundef %533, ptr noundef %534, i32 noundef %535), !range !28
+  %536 = call i32 @drain_nodes(ptr noundef %533, ptr noundef %534, i32 noundef %535)
   br label %549
 
 537:                                              ; preds = %527
@@ -8346,7 +8346,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %.str.82..str.83 = select i1 %560, ptr @.str.82, ptr @.str.83
   %561 = load ptr, ptr %21, align 8
   %562 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %563 = call i32 @drain_nodes(ptr noundef %561, ptr noundef nonnull %.str.82..str.83, i32 noundef %562), !range !28
+  %563 = call i32 @drain_nodes(ptr noundef %561, ptr noundef nonnull %.str.82..str.83, i32 noundef %562)
   %564 = call i64 @time(ptr noundef null) #16
   store i64 %564, ptr @last_node_update, align 8
   br label %746
@@ -9131,7 +9131,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @validate_nodes_via_front_end(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2019) i32 @validate_nodes_via_front_end(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -9454,7 +9454,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
   store i32 %189, ptr %4, align 4
   %190 = load i32, ptr %88, align 8
   %191 = icmp ugt i32 %190, %189
-  br i1 %191, label %92, label %._crit_edge, !llvm.loop !29
+  br i1 %191, label %92, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %188, %87
   %192 = load ptr, ptr @job_list, align 8
@@ -9480,7 +9480,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
 .backedge:                                        ; preds = %.lr.ph241, %199, %216, %204, %207
   %203 = tail call ptr @list_next(ptr noundef %193) #16
   %.not = icmp eq ptr %203, null
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !30
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !29
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds i8, ptr %195, i64 288
@@ -9870,7 +9870,7 @@ set_node_down.exit:                               ; preds = %267, %269
   store i32 %409, ptr %4, align 4
   %410 = call ptr @next_node(ptr noundef nonnull %4) #16
   %.not203 = icmp eq ptr %410, null
-  br i1 %.not203, label %._crit_edge248, label %233, !llvm.loop !31
+  br i1 %.not203, label %._crit_edge248, label %233, !llvm.loop !30
 
 ._crit_edge248:                                   ; preds = %407
   %.not204 = icmp eq ptr %.2182, null
@@ -10353,7 +10353,7 @@ define dso_local void @node_no_resp_msg() local_unnamed_addr #0 {
   store i32 %22, ptr %1, align 4
   %23 = call ptr @next_node(ptr noundef nonnull %1) #16
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %20
   %.not14 = icmp eq ptr %.2, null
@@ -10541,7 +10541,7 @@ define dso_local void @msg_to_slurmd(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %48, ptr %2, align 4
   %49 = call ptr @next_node(ptr noundef nonnull %2) #16
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %46, %13
   %50 = load i32, ptr %4, align 8
@@ -10689,7 +10689,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
   store i32 %56, ptr %4, align 4
   %57 = call ptr @next_node(ptr noundef nonnull %4) #16
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %54, %0
   %58 = load i32, ptr %5, align 8
@@ -11612,7 +11612,7 @@ define dso_local i32 @send_nodes_to_accounting(i64 noundef %0) local_unnamed_add
   store i32 %26, ptr %2, align 4
   %27 = call ptr @next_node(ptr noundef nonnull %2) #16
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %24, %22, %1
   %.3 = phi i32 [ 0, %1 ], [ -1, %22 ], [ %.2, %24 ]
@@ -11908,7 +11908,7 @@ define dso_local void @check_node_timers() local_unnamed_addr #0 {
   store i32 %51, ptr %1, align 4
   %52 = call ptr @next_node(ptr noundef nonnull %1) #16
   %.not32 = icmp eq ptr %52, null
-  br i1 %.not32, label %._crit_edge, label %13, !llvm.loop !36
+  br i1 %.not32, label %._crit_edge, label %13, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %49
   %.not33 = icmp eq ptr %.2, null
@@ -12154,7 +12154,7 @@ _get_config_list_update.exit:                     ; preds = %8
 _is_dup_config_record.exit.i:                     ; preds = %114, %109, %104, %99, %94, %89, %84, %79, %74, %69, %64, %59, %54, %49, %45, %42
   %119 = call ptr @list_next(ptr noundef %24) #16
   %.not.i14 = icmp eq ptr %119, null
-  br i1 %.not.i14, label %.outer._crit_edge.i, label %42, !llvm.loop !37
+  br i1 %.not.i14, label %.outer._crit_edge.i, label %42, !llvm.loop !36
 
 .outer.i:                                         ; preds = %114
   %120 = load ptr, ptr %40, align 8
@@ -12164,7 +12164,7 @@ _is_dup_config_record.exit.i:                     ; preds = %114, %109, %104, %9
   %123 = call i32 @list_delete_item(ptr noundef %24) #16
   %124 = call ptr @list_next(ptr noundef %24) #16
   %.not17.i = icmp eq ptr %124, null
-  br i1 %.not17.i, label %.critedge22.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not17.i, label %.critedge22.i, label %.lr.ph.i, !llvm.loop !36
 
 .outer._crit_edge.i:                              ; preds = %_is_dup_config_record.exit.i
   call void @list_iterator_destroy(ptr noundef %24) #16
@@ -12219,7 +12219,7 @@ _update_config_ptr.exit.i:                        ; preds = %.lr.ph.i.i, %133
 _combine_dup_config_records.exit:                 ; preds = %.outer._crit_edge.i, %_update_config_ptr.exit.i, %.critedge.i
   %141 = call ptr @list_next(ptr noundef %20) #16
   %.not12 = icmp eq ptr %141, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_combine_dup_config_records.exit, %18
   call void @list_iterator_destroy(ptr noundef %20) #16
@@ -12558,7 +12558,7 @@ define internal i32 @_build_node_callback(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond3, label %117, label %.thread
 
 117:                                              ; preds = %113
-  %118 = call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %115), !range !39
+  %118 = call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %115)
   br label %.thread
 
 .thread:                                          ; preds = %66, %61, %117, %113
@@ -12579,7 +12579,7 @@ declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @clusteracct_storage_g_cluster_tres(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_dynamic_reg_node(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2003) i32 @create_dynamic_reg_node(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca ptr, align 8
@@ -12920,7 +12920,7 @@ _delete_node.exit.thread:                         ; preds = %.lr.ph
   br label %22
 
 _delete_node.exit:                                ; preds = %.lr.ph
-  %21 = tail call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %19), !range !39
+  %21 = tail call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %19)
   %.not37 = icmp eq i32 %21, 0
   br i1 %.not37, label %28, label %22
 
@@ -12946,7 +12946,7 @@ _delete_node.exit:                                ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %18) #16
   %30 = tail call ptr @hostlist_shift(ptr noundef nonnull %10) #16
   %.not35 = icmp eq ptr %30, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %28
   %31 = trunc nuw i8 %.129 to i1
@@ -13051,7 +13051,7 @@ declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #2
 declare i32 @gres_g_node_config_load(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_delete_node_ptr(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2029) i32 @_delete_node_ptr(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
@@ -13256,7 +13256,7 @@ attributes #19 = { noreturn nounwind }
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = !{i32 0, i32 2019}
+!28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
@@ -13267,5 +13267,3 @@ attributes #19 = { noreturn nounwind }
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = !{i32 0, i32 2029}
-!40 = distinct !{!40, !8}

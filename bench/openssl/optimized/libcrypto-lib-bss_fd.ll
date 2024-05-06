@@ -35,7 +35,7 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 declare i64 @BIO_int_ctrl(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @BIO_fd_should_retry(i32 noundef %i) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @BIO_fd_should_retry(i32 noundef %i) local_unnamed_addr #3 {
 entry:
   %0 = add i32 %i, 1
   %or.cond = icmp ult i32 %0, 2
@@ -65,7 +65,7 @@ return:                                           ; preds = %sw.epilog.i, %if.th
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @BIO_fd_non_fatal_error(i32 noundef %err) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_fd_non_fatal_error(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   switch i32 %err, label %sw.epilog [
     i32 11, label %return
@@ -182,7 +182,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef %str, i64 noundef %conv.i) #9
+  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #9
   %conv2.i = trunc i64 %call1.i to i32
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #9
   %1 = add i32 %conv2.i, 1
@@ -384,7 +384,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

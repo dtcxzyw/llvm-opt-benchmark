@@ -3116,7 +3116,7 @@ define dso_local i32 @security_change_sid(i32 noundef %0, i32 noundef %1, i16 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @services_convert_context(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3479,7 +3479,7 @@ declare dso_local i32 @mls_range_set(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local i32 @policydb_context_isvalid(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   %6 = icmp eq ptr %2, null
@@ -4238,7 +4238,7 @@ declare dso_local void @sidtab_destroy(ptr noundef) local_unnamed_addr #3
 declare dso_local void @policydb_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_port_sid(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_port_sid(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
@@ -4345,7 +4345,7 @@ define dso_local i32 @security_port_sid(i8 noundef zeroext %0, i16 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ib_pkey_sid(i64 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_ib_pkey_sid(i64 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
@@ -4452,7 +4452,7 @@ define dso_local i32 @security_ib_pkey_sid(i64 noundef %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ib_endport_sid(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_ib_endport_sid(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
@@ -4557,7 +4557,7 @@ define dso_local i32 @security_ib_endport_sid(ptr nocapture noundef readonly %0,
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_netif_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_netif_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
@@ -4656,7 +4656,7 @@ define dso_local i32 @security_netif_sid(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_node_sid(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %7 = icmp eq i8 %6, 0
@@ -5220,7 +5220,7 @@ declare dso_local i32 @sidtab_context_to_sid(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @avc_has_perm_noaudit(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_genfs_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_genfs_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
@@ -5384,7 +5384,7 @@ define dso_local i32 @selinux_policy_genfs_sid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_fs_use(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -115, -116) i32 @security_fs_use(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
@@ -5495,7 +5495,7 @@ define dso_local i32 @security_fs_use(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_get_bools(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @security_get_bools(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 152
@@ -5610,7 +5610,7 @@ thread-pre-split:                                 ; preds = %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_set_bools(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
@@ -5978,7 +5978,7 @@ declare dso_local void @audit_log_n_untrustedstring(ptr noundef, ptr noundef, i6
 declare dso_local void @audit_log_end(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_net_peersid_resolve(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @security_net_peersid_resolve(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %3, align 4
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %6, label %7
@@ -6123,7 +6123,7 @@ define dso_local i32 @security_get_classes(ptr noundef %0, ptr nocapture noundef
 declare dso_local i32 @hashtab_map(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @get_classes_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i32 -12, 1) i32 @get_classes_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, -1
   %6 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 2080) #17
@@ -6209,7 +6209,7 @@ define dso_local i32 @security_get_permissions(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @get_permissions_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i32 -12, 1) i32 @get_permissions_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = add i32 %4, -1
   %6 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 2080) #17
@@ -6222,7 +6222,7 @@ define internal i32 @get_permissions_callback(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_get_reject_unknown() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @security_get_reject_unknown() local_unnamed_addr #0 align 16 {
   %1 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %2 = icmp eq i8 %1, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
@@ -6244,7 +6244,7 @@ define dso_local i32 @security_get_reject_unknown() local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_get_allow_unknown() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @security_get_allow_unknown() local_unnamed_addr #0 align 16 {
   %1 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !5, !noundef !6
   %2 = icmp eq i8 %1, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
@@ -6462,7 +6462,7 @@ declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare dso_local i32 @mls_from_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @selinux_audit_rule_known(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @selinux_audit_rule_known(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 276
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -6502,7 +6502,7 @@ define dso_local noundef i32 @selinux_audit_rule_known(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_audit_rule_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -116, 2) i32 @selinux_audit_rule_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %9, !prof !16
 

@@ -1188,7 +1188,7 @@ invoke.cont158:                                   ; preds = %_ZN7testing15Assert
 _ZN4absl11AbsDurationENS_8DurationE.exit170.thread: ; preds = %invoke.cont158
   store i64 0, ptr %ref.tmp154, align 8
   store i32 %retval.sroa.2.0.copyload.i144, ptr %tmp.coerce171.sroa.2.0.ref.tmp154.sroa_idx, align 8
-  br label %_ZN4abslleENS_8DurationES0_.exit.i181
+  br label %cond.false.i.i.i179
 
 _ZN4abslltENS_8DurationES0_.exit.i148:            ; preds = %invoke.cont158
   %cmp8.i.i149 = icmp slt i64 %retval.sroa.0.0.copyload.i143, 0
@@ -1229,22 +1229,22 @@ _ZN4absl11AbsDurationENS_8DurationE.exit170:      ; preds = %cond.true.i154, %co
   store i64 %call4.fca.0.extract.i157, ptr %ref.tmp154, align 8
   store i32 %call4.fca.1.extract.i158, ptr %tmp.coerce171.sroa.2.0.ref.tmp154.sroa_idx, align 8
   %cmp.not.i.i.i174 = icmp eq i64 %call4.fca.0.extract.i157, 0
-  br i1 %cmp.not.i.i.i174, label %_ZN4abslleENS_8DurationES0_.exit.i181, label %cond.true.i.i.i175
+  br i1 %cmp.not.i.i.i174, label %cond.false.i.i.i179, label %cond.true.i.i.i175
 
 cond.true.i.i.i175:                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit170
   %cmp8.i.i.i176 = icmp sgt i64 %call4.fca.0.extract.i157, 0
   br i1 %cmp8.i.i.i176, label %if.else.i178, label %if.then.i177
 
-_ZN4abslleENS_8DurationES0_.exit.i181:            ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit170, %_ZN4absl11AbsDurationENS_8DurationE.exit170.thread
+cond.false.i.i.i179:                              ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit170.thread, %_ZN4absl11AbsDurationENS_8DurationE.exit170
   %retval.sroa.3.0.i151546 = phi i32 [ %retval.sroa.2.0.copyload.i144, %_ZN4absl11AbsDurationENS_8DurationE.exit170.thread ], [ %call4.fca.1.extract.i158, %_ZN4absl11AbsDurationENS_8DurationE.exit170 ]
   %cmp25.i.i.i182 = icmp ugt i32 %retval.sroa.3.0.i151546, 1000000
   br i1 %cmp25.i.i.i182, label %if.else.i178, label %if.then.i177
 
-if.then.i177:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.i181, %cond.true.i.i.i175
+if.then.i177:                                     ; preds = %cond.false.i.i.i179, %cond.true.i.i.i175
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar153)
           to label %invoke.cont172 unwind label %lpad
 
-if.else.i178:                                     ; preds = %cond.true.i.i.i175.thread, %_ZN4abslleENS_8DurationES0_.exit.i181, %cond.true.i.i.i175
+if.else.i178:                                     ; preds = %cond.true.i.i.i175.thread, %cond.false.i.i.i179, %cond.true.i.i.i175
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_S6_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar153, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp154, ptr noundef nonnull align 4 dereferenceable(12) @_ZN12_GLOBAL__N_112kTimingBoundE, ptr noundef nonnull @.str.42)
           to label %invoke.cont172 unwind label %lpad
 
@@ -1880,7 +1880,7 @@ invoke.cont301:                                   ; preds = %_ZN7testing15Assert
 _ZN4absl11AbsDurationENS_8DurationE.exit479.thread: ; preds = %invoke.cont301
   store i64 0, ptr %ref.tmp297, align 8
   store i32 %retval.sroa.2.0.copyload.i453, ptr %tmp.coerce315.sroa.2.0.ref.tmp297.sroa_idx, align 8
-  br label %_ZN4abslleENS_8DurationES0_.exit.i490
+  br label %cond.false.i.i.i488
 
 _ZN4abslltENS_8DurationES0_.exit.i457:            ; preds = %invoke.cont301
   %cmp8.i.i458 = icmp slt i64 %retval.sroa.0.0.copyload.i451, 0
@@ -1921,22 +1921,22 @@ _ZN4absl11AbsDurationENS_8DurationE.exit479:      ; preds = %cond.true.i463, %co
   store i64 %call4.fca.0.extract.i466, ptr %ref.tmp297, align 8
   store i32 %call4.fca.1.extract.i467, ptr %tmp.coerce315.sroa.2.0.ref.tmp297.sroa_idx, align 8
   %cmp.not.i.i.i483 = icmp eq i64 %call4.fca.0.extract.i466, 0
-  br i1 %cmp.not.i.i.i483, label %_ZN4abslleENS_8DurationES0_.exit.i490, label %cond.true.i.i.i484
+  br i1 %cmp.not.i.i.i483, label %cond.false.i.i.i488, label %cond.true.i.i.i484
 
 cond.true.i.i.i484:                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit479
   %cmp8.i.i.i485 = icmp sgt i64 %call4.fca.0.extract.i466, 0
   br i1 %cmp8.i.i.i485, label %if.else.i487, label %if.then.i486
 
-_ZN4abslleENS_8DurationES0_.exit.i490:            ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit479, %_ZN4absl11AbsDurationENS_8DurationE.exit479.thread
+cond.false.i.i.i488:                              ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit479.thread, %_ZN4absl11AbsDurationENS_8DurationE.exit479
   %retval.sroa.3.0.i460579 = phi i32 [ %retval.sroa.2.0.copyload.i453, %_ZN4absl11AbsDurationENS_8DurationE.exit479.thread ], [ %call4.fca.1.extract.i467, %_ZN4absl11AbsDurationENS_8DurationE.exit479 ]
   %cmp25.i.i.i491 = icmp ugt i32 %retval.sroa.3.0.i460579, 1000000
   br i1 %cmp25.i.i.i491, label %if.else.i487, label %if.then.i486
 
-if.then.i486:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.i490, %cond.true.i.i.i484
+if.then.i486:                                     ; preds = %cond.false.i.i.i488, %cond.true.i.i.i484
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar296)
           to label %invoke.cont316 unwind label %lpad
 
-if.else.i487:                                     ; preds = %cond.true.i.i.i484.thread, %_ZN4abslleENS_8DurationES0_.exit.i490, %cond.true.i.i.i484
+if.else.i487:                                     ; preds = %cond.true.i.i.i484.thread, %cond.false.i.i.i488, %cond.true.i.i.i484
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_S6_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar296, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.34, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp297, ptr noundef nonnull align 4 dereferenceable(12) @_ZN12_GLOBAL__N_112kTimingBoundE, ptr noundef nonnull @.str.42)
           to label %invoke.cont316 unwind label %lpad
 
@@ -10921,7 +10921,7 @@ invoke.cont161:                                   ; preds = %_ZN7testing15Assert
 _ZN4absl11AbsDurationENS_8DurationE.exit212.thread: ; preds = %invoke.cont161
   store i64 0, ptr %ref.tmp157, align 8
   store i32 %retval.sroa.2.0.copyload.i186, ptr %tmp.coerce169.sroa.2.0.ref.tmp157.sroa_idx, align 8
-  br label %_ZN4abslleENS_8DurationES0_.exit.i223
+  br label %cond.false.i.i.i221
 
 _ZN4abslltENS_8DurationES0_.exit.i190:            ; preds = %invoke.cont161
   %cmp8.i.i191 = icmp slt i64 %retval.sroa.0.0.copyload.i185, 0
@@ -10962,22 +10962,22 @@ _ZN4absl11AbsDurationENS_8DurationE.exit212:      ; preds = %cond.true.i196, %co
   store i64 %call4.fca.0.extract.i199, ptr %ref.tmp157, align 8
   store i32 %call4.fca.1.extract.i200, ptr %tmp.coerce169.sroa.2.0.ref.tmp157.sroa_idx, align 8
   %cmp.not.i.i.i216 = icmp eq i64 %call4.fca.0.extract.i199, 0
-  br i1 %cmp.not.i.i.i216, label %_ZN4abslleENS_8DurationES0_.exit.i223, label %cond.true.i.i.i217
+  br i1 %cmp.not.i.i.i216, label %cond.false.i.i.i221, label %cond.true.i.i.i217
 
 cond.true.i.i.i217:                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit212
   %cmp8.i.i.i218 = icmp sgt i64 %call4.fca.0.extract.i199, 0
   br i1 %cmp8.i.i.i218, label %if.else.i220, label %if.then.i219
 
-_ZN4abslleENS_8DurationES0_.exit.i223:            ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit212, %_ZN4absl11AbsDurationENS_8DurationE.exit212.thread
+cond.false.i.i.i221:                              ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit212.thread, %_ZN4absl11AbsDurationENS_8DurationE.exit212
   %retval.sroa.3.0.i193555 = phi i32 [ %retval.sroa.2.0.copyload.i186, %_ZN4absl11AbsDurationENS_8DurationE.exit212.thread ], [ %call4.fca.1.extract.i200, %_ZN4absl11AbsDurationENS_8DurationE.exit212 ]
   %cmp25.i.i.i224 = icmp ugt i32 %retval.sroa.3.0.i193555, 1000000
   br i1 %cmp25.i.i.i224, label %if.else.i220, label %if.then.i219
 
-if.then.i219:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.i223, %cond.true.i.i.i217
+if.then.i219:                                     ; preds = %cond.false.i.i.i221, %cond.true.i.i.i217
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar156)
           to label %invoke.cont170 unwind label %lpad
 
-if.else.i220:                                     ; preds = %cond.true.i.i.i217.thread, %_ZN4abslleENS_8DurationES0_.exit.i223, %cond.true.i.i.i217
+if.else.i220:                                     ; preds = %cond.true.i.i.i217.thread, %cond.false.i.i.i221, %cond.true.i.i.i217
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_S6_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar156, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.34, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(12) @_ZN12_GLOBAL__N_112kTimingBoundE, ptr noundef nonnull @.str.42)
           to label %invoke.cont170 unwind label %lpad
 
@@ -11454,7 +11454,7 @@ invoke.cont278:                                   ; preds = %invoke.cont268
 _ZN4absl11AbsDurationENS_8DurationE.exit423.thread: ; preds = %invoke.cont278
   store i64 0, ptr %ref.tmp264, align 8
   store i32 %retval.sroa.2.0.copyload.i.i397, ptr %tmp.coerce288.sroa.2.0.ref.tmp264.sroa_idx, align 8
-  br label %_ZN4abslleENS_8DurationES0_.exit.i434
+  br label %cond.false.i.i.i432
 
 _ZN4abslltENS_8DurationES0_.exit.i401:            ; preds = %invoke.cont278
   %cmp8.i.i402 = icmp slt i64 %retval.sroa.0.0.copyload.i.i395, 0
@@ -11495,22 +11495,22 @@ _ZN4absl11AbsDurationENS_8DurationE.exit423:      ; preds = %cond.true.i407, %co
   store i64 %call4.fca.0.extract.i410, ptr %ref.tmp264, align 8
   store i32 %call4.fca.1.extract.i411, ptr %tmp.coerce288.sroa.2.0.ref.tmp264.sroa_idx, align 8
   %cmp.not.i.i.i427 = icmp eq i64 %call4.fca.0.extract.i410, 0
-  br i1 %cmp.not.i.i.i427, label %_ZN4abslleENS_8DurationES0_.exit.i434, label %cond.true.i.i.i428
+  br i1 %cmp.not.i.i.i427, label %cond.false.i.i.i432, label %cond.true.i.i.i428
 
 cond.true.i.i.i428:                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit423
   %cmp8.i.i.i429 = icmp sgt i64 %call4.fca.0.extract.i410, 0
   br i1 %cmp8.i.i.i429, label %if.else.i431, label %if.then.i430
 
-_ZN4abslleENS_8DurationES0_.exit.i434:            ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit423, %_ZN4absl11AbsDurationENS_8DurationE.exit423.thread
+cond.false.i.i.i432:                              ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit423.thread, %_ZN4absl11AbsDurationENS_8DurationE.exit423
   %retval.sroa.3.0.i404562 = phi i32 [ %retval.sroa.2.0.copyload.i.i397, %_ZN4absl11AbsDurationENS_8DurationE.exit423.thread ], [ %call4.fca.1.extract.i411, %_ZN4absl11AbsDurationENS_8DurationE.exit423 ]
   %cmp25.i.i.i435 = icmp ugt i32 %retval.sroa.3.0.i404562, 1000000
   br i1 %cmp25.i.i.i435, label %if.else.i431, label %if.then.i430
 
-if.then.i430:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.i434, %cond.true.i.i.i428
+if.then.i430:                                     ; preds = %cond.false.i.i.i432, %cond.true.i.i.i428
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar263)
           to label %invoke.cont289 unwind label %lpad
 
-if.else.i431:                                     ; preds = %cond.true.i.i.i428.thread, %_ZN4abslleENS_8DurationES0_.exit.i434, %cond.true.i.i.i428
+if.else.i431:                                     ; preds = %cond.true.i.i.i428.thread, %cond.false.i.i.i432, %cond.true.i.i.i428
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_S6_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar263, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.34, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp264, ptr noundef nonnull align 4 dereferenceable(12) @_ZN12_GLOBAL__N_112kTimingBoundE, ptr noundef nonnull @.str.42)
           to label %invoke.cont289 unwind label %lpad
 
@@ -11637,7 +11637,7 @@ invoke.cont312:                                   ; preds = %_ZN7testing15Assert
 _ZN4absl11AbsDurationENS_8DurationE.exit504.thread: ; preds = %invoke.cont312
   store i64 0, ptr %ref.tmp308, align 8
   store i32 %retval.sroa.2.0.copyload.i478, ptr %tmp.coerce321.sroa.2.0.ref.tmp308.sroa_idx, align 8
-  br label %_ZN4abslleENS_8DurationES0_.exit.i515
+  br label %cond.false.i.i.i513
 
 _ZN4abslltENS_8DurationES0_.exit.i482:            ; preds = %invoke.cont312
   %cmp8.i.i483 = icmp slt i64 %retval.sroa.0.0.copyload.i476, 0
@@ -11678,22 +11678,22 @@ _ZN4absl11AbsDurationENS_8DurationE.exit504:      ; preds = %cond.true.i488, %co
   store i64 %call4.fca.0.extract.i491, ptr %ref.tmp308, align 8
   store i32 %call4.fca.1.extract.i492, ptr %tmp.coerce321.sroa.2.0.ref.tmp308.sroa_idx, align 8
   %cmp.not.i.i.i508 = icmp eq i64 %call4.fca.0.extract.i491, 0
-  br i1 %cmp.not.i.i.i508, label %_ZN4abslleENS_8DurationES0_.exit.i515, label %cond.true.i.i.i509
+  br i1 %cmp.not.i.i.i508, label %cond.false.i.i.i513, label %cond.true.i.i.i509
 
 cond.true.i.i.i509:                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit504
   %cmp8.i.i.i510 = icmp sgt i64 %call4.fca.0.extract.i491, 0
   br i1 %cmp8.i.i.i510, label %if.else.i512, label %if.then.i511
 
-_ZN4abslleENS_8DurationES0_.exit.i515:            ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit504, %_ZN4absl11AbsDurationENS_8DurationE.exit504.thread
+cond.false.i.i.i513:                              ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit504.thread, %_ZN4absl11AbsDurationENS_8DurationE.exit504
   %retval.sroa.3.0.i485569 = phi i32 [ %retval.sroa.2.0.copyload.i478, %_ZN4absl11AbsDurationENS_8DurationE.exit504.thread ], [ %call4.fca.1.extract.i492, %_ZN4absl11AbsDurationENS_8DurationE.exit504 ]
   %cmp25.i.i.i516 = icmp ugt i32 %retval.sroa.3.0.i485569, 1000000
   br i1 %cmp25.i.i.i516, label %if.else.i512, label %if.then.i511
 
-if.then.i511:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.i515, %cond.true.i.i.i509
+if.then.i511:                                     ; preds = %cond.false.i.i.i513, %cond.true.i.i.i509
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar307)
           to label %invoke.cont322 unwind label %lpad
 
-if.else.i512:                                     ; preds = %cond.true.i.i.i509.thread, %_ZN4abslleENS_8DurationES0_.exit.i515, %cond.true.i.i.i509
+if.else.i512:                                     ; preds = %cond.true.i.i.i509.thread, %cond.false.i.i.i513, %cond.true.i.i.i509
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_S6_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar307, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.34, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp308, ptr noundef nonnull align 4 dereferenceable(12) @_ZN12_GLOBAL__N_112kTimingBoundE, ptr noundef nonnull @.str.42)
           to label %invoke.cont322 unwind label %lpad
 

@@ -19,7 +19,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_select_in_table(ptr no
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %.not20 = icmp eq i32 %11, 0
-  %trunc = trunc i64 %4 to i8
+  %trunc = trunc nuw i64 %4 to i8
   br i1 %.not20, label %20, label %12
 
 12:                                               ; preds = %8

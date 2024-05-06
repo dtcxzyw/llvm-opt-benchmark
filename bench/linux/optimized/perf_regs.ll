@@ -65,7 +65,7 @@ define dso_local i64 @perf_reg_value(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @perf_reg_validate(i64 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @perf_reg_validate(i64 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp ne i64 %0, 0
   %3 = and i64 %0, 4278251520
   %4 = icmp eq i64 %3, 0
@@ -75,7 +75,7 @@ define dso_local noundef i32 @perf_reg_validate(i64 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @perf_reg_abi(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 1, 3) i64 @perf_reg_abi(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 32
   %4 = ptrtoint ptr %3 to i64

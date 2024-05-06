@@ -275,7 +275,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %.095.ph.lcssa164, i64 5
-  %99 = tail call noalias ptr @fopen(ptr noundef nonnull %98, ptr noundef nonnull @.str.1)
+  %99 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %98, ptr noundef nonnull @.str.1)
   %100 = icmp eq ptr %99, null
   br i1 %100, label %245, label %.preheader.i.i
 
@@ -563,7 +563,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 204:                                              ; preds = %.lr.ph.i138.i
   store i8 0, ptr %201, align 1
-  %205 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull %.0111.i, ptr noundef %.03447.i.i, i32 noundef %151, ptr noundef %.0109.i, ptr noundef nonnull %1), !range !11
+  %205 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull %.0111.i, ptr noundef %.03447.i.i, i32 noundef %151, ptr noundef %.0109.i, ptr noundef nonnull %1)
   switch i32 %205, label %206 [
     i32 0, label %208
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -582,7 +582,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %.1.i.i = phi ptr [ %209, %208 ], [ %.03447.i.i, %.lr.ph.i138.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i136.i, label %.lr.ph.i138.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %._crit_edge.i136.i, label %.lr.ph.i138.i, !llvm.loop !11
 
 ._crit_edge.i136.i:                               ; preds = %210, %195
   %.034.lcssa.i.i = phi ptr [ %197, %195 ], [ %.1.i.i, %210 ]
@@ -609,7 +609,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %222
 
 222:                                              ; preds = %221, %216, %214
-  %223 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull %.0111.i, ptr noundef %.034.lcssa.i.i, i32 noundef %151, ptr noundef %.0109.i, ptr noundef nonnull %1), !range !11
+  %223 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull %.0111.i, ptr noundef %.034.lcssa.i.i, i32 noundef %151, ptr noundef %.0109.i, ptr noundef nonnull %1)
   switch i32 %223, label %224 [
     i32 0, label %226
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -667,7 +667,7 @@ regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %2
   %.pn.i = phi i64 [ %244, %241 ], [ %240, %238 ]
   %.0107.be.i = phi i8 [ %.1108231.i, %241 ], [ %.1108223238.i, %238 ]
   %.0111.be.i = getelementptr inbounds i8, ptr %.0111.i, i64 %.pn.i
-  br label %120, !llvm.loop !13
+  br label %120, !llvm.loop !12
 
 .thread140.i:                                     ; preds = %241, %233, %230
   call void @free(ptr noundef %108) #13
@@ -714,7 +714,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread140.i, %._cr
   %263 = getelementptr inbounds ptr, ptr %262, i64 %indvars.iv.next
   %264 = load ptr, ptr %263, align 8
   %.not114 = icmp eq ptr %264, null
-  br i1 %.not114, label %.loopexit, label %.lr.ph214, !llvm.loop !14
+  br i1 %.not114, label %.loopexit, label %.lr.ph214, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph214, %.preheader, %257, %250, %245, %91
   %265 = phi i1 [ true, %91 ], [ %90, %245 ], [ %90, %250 ], [ %90, %257 ], [ %90, %.preheader ], [ %90, %.lr.ph214 ]
@@ -830,7 +830,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [132 x i8], align 16
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
@@ -862,7 +862,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef readonly
 21:                                               ; preds = %14
   %22 = add nuw i64 %.07194, 1
   %exitcond.not = icmp eq i64 %22, %10
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !14
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds i8, ptr %1, i64 %.07194
@@ -897,7 +897,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef readonly
 37:                                               ; preds = %29
   %38 = add nuw i64 %.17295, 1
   %39 = icmp ult i64 %38, %10
-  br i1 %39, label %29, label %.thread85, !llvm.loop !16
+  br i1 %39, label %29, label %.thread85, !llvm.loop !15
 
 .lr.ph99:                                         ; preds = %.preheader90, %49
   %.298 = phi i64 [ %50, %49 ], [ %.17295, %.preheader90 ]
@@ -918,7 +918,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef readonly
 49:                                               ; preds = %.lr.ph99
   %50 = add nuw i64 %.298, 1
   %51 = icmp ult i64 %50, %10
-  br i1 %51, label %.lr.ph99, label %._crit_edge100, !llvm.loop !17
+  br i1 %51, label %.lr.ph99, label %._crit_edge100, !llvm.loop !16
 
 ._crit_edge100:                                   ; preds = %49, %.preheader90
   %52 = tail call ptr @PMIx_Error_string(i32 noundef -46) #13
@@ -993,7 +993,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef readonly
   %72 = call i32 @PMIx_Argv_append_nosize(ptr noundef %4, ptr noundef nonnull %60) #13
   %73 = add i64 %.3110, 1
   %.not83 = icmp ugt i64 %73, %.067.ph
-  br i1 %.not83, label %._crit_edge112, label %64, !llvm.loop !18
+  br i1 %.not83, label %._crit_edge112, label %64, !llvm.loop !17
 
 ._crit_edge112:                                   ; preds = %71, %.preheader
   call void @free(ptr noundef %60) #13
@@ -1055,11 +1055,10 @@ attributes #16 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 -46, i32 1}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

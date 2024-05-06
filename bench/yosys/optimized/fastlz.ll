@@ -287,7 +287,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %136 = shl nuw nsw i32 %.1, 5
   %137 = lshr i32 %56, 8
   %138 = add nuw nsw i32 %136, %137
-  %139 = trunc i32 %138 to i8
+  %139 = trunc nuw i32 %138 to i8
   %140 = trunc i32 %56 to i8
   br label %149
 
@@ -726,7 +726,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %161 = shl nuw nsw i32 %156, 5
   %162 = lshr i32 %141, 8
   %163 = or disjoint i32 %161, %162
-  %164 = trunc i32 %163 to i8
+  %164 = trunc nuw i32 %163 to i8
   %165 = getelementptr inbounds i8, ptr %.2184, i64 1
   store i8 %164, ptr %.2184, align 1
   %166 = trunc i32 %141 to i8
@@ -736,7 +736,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
 
 168:                                              ; preds = %159
   %169 = lshr i32 %141, 8
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw i32 %169 to i8
   %171 = or disjoint i8 %170, -32
   store i8 %171, ptr %.2184, align 1
   %172 = add i32 %156, -7
@@ -763,7 +763,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %.2184.pn220.lcssa = phi ptr [ %.2184, %168 ], [ %scevgep291, %.lr.ph248.preheader ]
   %.1.lcssa = phi i32 [ %172, %168 ], [ %181, %.lr.ph248.preheader ]
   %.3185.lcssa = phi ptr [ %.3185244, %168 ], [ %scevgep293, %.lr.ph248.preheader ]
-  %182 = trunc i32 %.1.lcssa to i8
+  %182 = trunc nuw i32 %.1.lcssa to i8
   %183 = getelementptr inbounds i8, ptr %.2184.pn220.lcssa, i64 2
   store i8 %182, ptr %.3185.lcssa, align 1
   %184 = trunc i32 %141 to i8
@@ -818,7 +818,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %.2184.pn.lcssa = phi ptr [ %.2184, %198 ], [ %scevgep287, %.lr.ph240.preheader ]
   %.2.lcssa = phi i32 [ %199, %198 ], [ %208, %.lr.ph240.preheader ]
   %.4.lcssa = phi ptr [ %.4237, %198 ], [ %scevgep289, %.lr.ph240.preheader ]
-  %209 = trunc i32 %.2.lcssa to i8
+  %209 = trunc nuw i32 %.2.lcssa to i8
   %210 = getelementptr inbounds i8, ptr %.2184.pn.lcssa, i64 2
   store i8 %209, ptr %.4.lcssa, align 1
   %211 = getelementptr inbounds i8, ptr %.2184.pn.lcssa, i64 3

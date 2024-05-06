@@ -69,7 +69,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aes_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %cmp = icmp eq ptr %in, null
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_siv_dupctx(ptr noundef %in_vctx, ptr noundef %out_vctx) #1 {
+define internal range(i32 0, 2) i32 @aes_siv_dupctx(ptr noundef %in_vctx, ptr noundef %out_vctx) #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %out_vctx, ptr noundef nonnull align 8 dereferenceable(120) %in_vctx, i64 120, i1 false)
   %siv = getelementptr inbounds i8, ptr %out_vctx, i64 24

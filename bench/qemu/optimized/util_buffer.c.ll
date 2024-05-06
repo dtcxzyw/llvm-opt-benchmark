@@ -49,7 +49,7 @@ entry:
   %1 = getelementptr i8, ptr %buffer, i64 16
   %buffer.val = load i64, ptr %1, align 8
   %sub.i.i = add i64 %buffer.val, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false)
   %tobool.not.i.i = icmp eq i64 %2, 0
   %sub2.i.i = add nuw nsw i64 %2, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
@@ -63,7 +63,7 @@ entry:
   %shr.i = lshr i64 %add, 7
   %add.i = add i64 %shr.i, %buffer.val
   %sub.i.i14 = add i64 %add.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i14, i1 false), !range !5
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14, i1 false)
   %tobool.not.i.i15 = icmp eq i64 %3, 0
   %sub2.i.i16 = add nuw nsw i64 %3, 4294967295
   %sh_prom.i.i17 = and i64 %sub2.i.i16, 4294967295
@@ -99,7 +99,7 @@ entry:
   %buffer.val = load i64, ptr %1, align 8
   %add.i = add i64 %buffer.val, %len
   %sub.i.i = add i64 %add.i, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false)
   %tobool.not.i.i = icmp eq i64 %2, 0
   %sub2.i.i = add nuw nsw i64 %2, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
@@ -180,7 +180,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds i8, ptr %buffer, i64 16
   %0 = load i64, ptr %offset, align 8
@@ -213,7 +213,7 @@ entry:
   store i64 %add.i, ptr %avg_size.i, align 8
   %shr.i.i = lshr i64 %add.i, 7
   %sub.i.i14.i = add nsw i64 %shr.i.i, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false), !range !5
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false)
   %sub2.i.i16.i = add nuw nsw i64 %1, 4294967295
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
@@ -326,7 +326,7 @@ entry:
   %mul.i = mul i64 %3, 127
   %shr.i = lshr i64 %mul.i, 7
   %sub.i.i.i = add i64 %sub4, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 false), !range !5
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 false)
   %tobool.not.i.i.i = icmp eq i64 %4, 0
   %sub2.i.i.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i.i.i = and i64 %sub2.i.i.i, 4294967295
@@ -340,7 +340,7 @@ entry:
   %shr.i.i = lshr i64 %add.i, 7
   %add.i.i = add i64 %shr.i.i, %sub4
   %sub.i.i14.i = add i64 %add.i.i, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false), !range !5
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false)
   %tobool.not.i.i15.i = icmp eq i64 %5, 0
   %sub2.i.i16.i = add nuw nsw i64 %5, 4294967295
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
@@ -523,7 +523,7 @@ buffer_reserve.exit:                              ; preds = %trace_buffer_move.e
   %buffer1.i = getelementptr inbounds i8, ptr %to, i64 32
   %16 = load ptr, ptr %buffer1.i, align 8
   %add.ptr.i = getelementptr i8, ptr %16, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %15, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %15, i64 %14, i1 false)
   %17 = load i64, ptr %offset, align 8
   %add.i = add i64 %17, %14
   store i64 %add.i, ptr %offset, align 8
@@ -590,4 +590,3 @@ attributes #13 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}

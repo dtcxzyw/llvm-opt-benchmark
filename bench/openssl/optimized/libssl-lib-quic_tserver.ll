@@ -203,7 +203,7 @@ declare i32 @SSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) 
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 3) i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %alpn1 = getelementptr inbounds i8, ptr %arg, i64 56
   %0 = load ptr, ptr %alpn1, align 8
@@ -387,7 +387,7 @@ entry:
 declare i32 @ossl_quic_channel_is_handshake_confirmed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_read(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_read) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_read(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_read) local_unnamed_addr #0 {
 entry:
   %is_fin = alloca i32, align 4
   %rtt_info = alloca %struct.ossl_rtt_info_st, align 8
@@ -495,7 +495,7 @@ declare i32 @ossl_quic_stream_map_notify_totally_read(ptr noundef, ptr noundef) 
 declare void @ossl_quic_stream_map_update_state(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_has_read_ended(ptr nocapture noundef readonly %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_has_read_ended(ptr nocapture noundef readonly %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1 x i8], align 1
   %bytes_read = alloca i64, align 8
@@ -561,7 +561,7 @@ return:                                           ; preds = %if.end11, %if.then1
 declare i32 @ossl_quic_rstream_peek(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_write(ptr nocapture noundef %srv, i64 noundef %stream_id, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_written) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_write(ptr nocapture noundef %srv, i64 noundef %stream_id, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_written) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -627,7 +627,7 @@ return:                                           ; preds = %if.then.i, %if.end1
 declare i32 @ossl_quic_sstream_append(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_conclude(ptr nocapture noundef %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_conclude(ptr nocapture noundef %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -692,7 +692,7 @@ declare i32 @ossl_quic_sstream_get_final_size(ptr noundef, ptr noundef) local_un
 declare void @ossl_quic_sstream_fin(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_stream_new(ptr nocapture noundef readonly %srv, i32 noundef %is_uni, ptr nocapture noundef writeonly %stream_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_new(ptr nocapture noundef readonly %srv, i32 noundef %is_uni, ptr nocapture noundef writeonly %stream_id) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -736,7 +736,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -774,7 +774,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -939,7 +939,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_quic_channel_local_close(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tserver_ping(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_ping(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8

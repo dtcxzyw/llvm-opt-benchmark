@@ -2052,7 +2052,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -2355,7 +2355,7 @@ define dso_local void @_ZN9cmProcess14ResetStartTimeEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK9cmProcess16GetExitExceptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZNK9cmProcess16GetExitExceptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 12

@@ -30,7 +30,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
   store ptr %.sink7, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %11, align 8
-  %12 = call fastcc i32 @json_lex_number(ptr noundef nonnull %5, ptr noundef %.sink7, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !5
+  %12 = call fastcc i32 @json_lex_number(ptr noundef nonnull %5, ptr noundef %.sink7, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %13 = load i8, ptr %3, align 1
   %14 = trunc i8 %13 to i1
   %15 = load i32, ptr %4, align 4
@@ -46,7 +46,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -88,7 +88,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %25 = load i8, ptr %22, align 1
   %26 = add i8 %25, -48
   %or.cond125 = icmp ult i8 %26, 10
-  br i1 %or.cond125, label %.preheader137, label %.critedge, !llvm.loop !6
+  br i1 %or.cond125, label %.preheader137, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %23, %4, %19, %16
   %.191 = phi ptr [ %17, %16 ], [ %1, %19 ], [ %1, %4 ], [ %22, %23 ]
@@ -131,7 +131,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %43 = load i8, ptr %39, align 1
   %44 = add i8 %43, -48
   %or.cond127 = icmp ult i8 %44, 10
-  br i1 %or.cond127, label %.preheader136, label %.critedge2, !llvm.loop !8
+  br i1 %or.cond127, label %.preheader136, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %42, %35, %28, %.critedge
   %.393 = phi ptr [ %.191, %28 ], [ %.191, %.critedge ], [ %32, %35 ], [ %39, %42 ]
@@ -194,7 +194,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %67 = load i8, ptr %63, align 1
   %68 = add i8 %67, -48
   %or.cond129 = icmp ult i8 %68, 10
-  br i1 %or.cond129, label %.preheader, label %.critedge4, !llvm.loop !9
+  br i1 %or.cond129, label %.preheader, label %.critedge4, !llvm.loop !8
 
 .critedge4:                                       ; preds = %66, %59, %46, %.critedge2
   %.696 = phi ptr [ %.393, %.critedge2 ], [ %.393, %46 ], [ %.494, %59 ], [ %63, %66 ]
@@ -226,7 +226,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %76 = getelementptr i8, ptr %.797143, i64 1
   %77 = add i32 %.7145, 1
   %exitcond158.not = icmp eq i32 %77, %11
-  br i1 %exitcond158.not, label %.critedge6, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond158.not, label %.critedge6, label %.lr.ph, !llvm.loop !9
 
 .critedge6:                                       ; preds = %.preheader137, %.preheader136, %.preheader, %.critedge8, %74, %31, %57, %.critedge4
   %.797.lcssa = phi ptr [ %.696, %.critedge4 ], [ %.494, %57 ], [ %32, %31 ], [ %.797143, %74 ], [ %76, %.critedge8 ], [ %63, %.preheader ], [ %39, %.preheader136 ], [ %22, %.preheader137 ]
@@ -404,7 +404,7 @@ lex_expect.exit:                                  ; preds = %18, %16, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @json_lex(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define dso_local i32 @json_lex(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = alloca [5 x i8], align 1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -445,7 +445,7 @@ define dso_local noundef i32 @json_lex(ptr nocapture noundef %0) local_unnamed_a
 
 20:                                               ; preds = %17, %.critedge2
   %21 = icmp ult ptr %15, %7
-  br i1 %21, label %13, label %._crit_edge, !llvm.loop !11
+  br i1 %21, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %1
   %.0107.lcssa = phi ptr [ %9, %1 ], [ %15, %20 ]
@@ -644,7 +644,7 @@ define dso_local noundef i32 @json_lex(ptr nocapture noundef %0) local_unnamed_a
   %.1140.i = phi i32 [ %78, %75 ], [ %85, %81 ], [ %92, %88 ]
   %99 = add nuw nsw i32 %.0141269.i, 1
   %exitcond.not.i = icmp eq i32 %99, 5
-  br i1 %exitcond.not.i, label %100, label %.preheader198.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %100, label %.preheader198.i, !llvm.loop !11
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %54, align 8
@@ -839,7 +839,7 @@ define dso_local noundef i32 @json_lex(ptr nocapture noundef %0) local_unnamed_a
   %187 = icmp eq <16 x i8> %.val14.i.i, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
   %188 = bitcast <16 x i1> %187 to i16
   %.not.i.i = icmp eq i16 %188, 0
-  br i1 %.not.i.i, label %183, label %.critedge.i, !llvm.loop !13
+  br i1 %.not.i.i, label %183, label %.critedge.i, !llvm.loop !12
 
 pg_lfind8.exit.i:                                 ; preds = %183, %190
   %189 = phi i1 [ false, %190 ], [ true, %183 ]
@@ -852,7 +852,7 @@ pg_lfind8.exit.i:                                 ; preds = %183, %190
   %192 = icmp eq <16 x i8> %.val14.i181.i, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
   %193 = bitcast <16 x i1> %192 to i16
   %.not.i182.i = icmp eq i16 %193, 0
-  br i1 %.not.i182.i, label %pg_lfind8.exit.i, label %.critedge.i, !llvm.loop !13
+  br i1 %.not.i182.i, label %pg_lfind8.exit.i, label %.critedge.i, !llvm.loop !12
 
 pg_lfind8.exit183.i:                              ; preds = %pg_lfind8.exit.i, %195
   %194 = phi i1 [ false, %195 ], [ true, %pg_lfind8.exit.i ]
@@ -865,12 +865,12 @@ pg_lfind8.exit183.i:                              ; preds = %pg_lfind8.exit.i, %
   %197 = icmp ult <16 x i8> %.val14.i185.i, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
   %198 = bitcast <16 x i1> %197 to i16
   %.not.i186.i = icmp eq i16 %198, 0
-  br i1 %.not.i186.i, label %pg_lfind8.exit183.i, label %.critedge.i, !llvm.loop !14
+  br i1 %.not.i186.i, label %pg_lfind8.exit183.i, label %.critedge.i, !llvm.loop !13
 
 pg_lfind8_le.exit.i:                              ; preds = %pg_lfind8.exit183.i
   %199 = getelementptr i8, ptr %.0271.i, i64 16
   %200 = icmp ult ptr %199, %61
-  br i1 %200, label %.preheader.i, label %.critedge.i, !llvm.loop !15
+  br i1 %200, label %.preheader.i, label %.critedge.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %pg_lfind8_le.exit.i, %185, %190, %195, %.preheader196.i
   %.0211.i = phi ptr [ %63, %.preheader196.i ], [ %.0271.i, %195 ], [ %.0271.i, %190 ], [ %.0271.i, %185 ], [ %199, %pg_lfind8_le.exit.i ]
@@ -892,7 +892,7 @@ pg_lfind8_le.exit.i:                              ; preds = %pg_lfind8.exit183.i
 205:                                              ; preds = %203
   %206 = getelementptr i8, ptr %.1272.i, i64 1
   %207 = icmp ult ptr %206, %7
-  br i1 %207, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %207, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %205, %.lr.ph.i, %.lr.ph.i, %.critedge.i
   %.1.lcssa.i = phi ptr [ %.0211.i, %.critedge.i ], [ %206, %205 ], [ %.1272.i, %.lr.ph.i ], [ %.1272.i, %.lr.ph.i ]
@@ -947,7 +947,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
 
 225:                                              ; preds = %25
   %226 = getelementptr i8, ptr %.0107203, i64 1
-  %227 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef %226, ptr noundef null, ptr noundef null), !range !5
+  %227 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef %226, ptr noundef null, ptr noundef null)
   %.not118 = icmp eq i32 %227, 0
   br i1 %.not118, label %228, label %262
 
@@ -957,7 +957,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br label %262
 
 230:                                              ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %231 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef nonnull %.0107203, ptr noundef null, ptr noundef null), !range !5
+  %231 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef nonnull %.0107203, ptr noundef null, ptr noundef null)
   %.not117 = icmp eq i32 %231, 0
   br i1 %.not117, label %232, label %262
 
@@ -986,7 +986,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
 .critedge6:                                       ; preds = %.lr.ph205, %238
   %240 = getelementptr i8, ptr %.0204, i64 1
   %241 = icmp ult ptr %240, %7
-  br i1 %241, label %.lr.ph205, label %.critedge4, !llvm.loop !17
+  br i1 %241, label %.lr.ph205, label %.critedge4, !llvm.loop !16
 
 .critedge4:                                       ; preds = %.critedge6, %238
   %.0.lcssa = phi ptr [ %240, %.critedge6 ], [ %.0204, %238 ]
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @parse_object(ptr nocapture noundef %0, ptr nocapture
 22:                                               ; preds = %20
   %23 = tail call fastcc i32 @parse_object_field(ptr noundef nonnull %0, ptr noundef %1)
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.critedge.thread, !llvm.loop !18
+  br i1 %24, label %.lr.ph, label %.critedge.thread, !llvm.loop !17
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1209,7 +1209,7 @@ lex_expect.exit:                                  ; preds = %10
 29:                                               ; preds = %27
   %30 = tail call fastcc i32 @parse_array_element(ptr noundef nonnull %0, ptr noundef %1)
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !19
+  br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !18
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1387,15 +1387,15 @@ thread-pre-split:                                 ; preds = %37
   ]
 
 25:                                               ; preds = %24
-  %26 = call fastcc i32 @parse_object(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction) #10
+  %26 = call fastcc i32 @parse_object(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction) #10
   br label %31
 
 27:                                               ; preds = %24
-  %28 = call fastcc i32 @parse_array(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction) #10
+  %28 = call fastcc i32 @parse_array(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction) #10
   br label %31
 
 29:                                               ; preds = %24
-  %30 = call fastcc i32 @parse_scalar(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction)
+  %30 = call fastcc i32 @parse_scalar(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction)
   br label %31
 
 31:                                               ; preds = %29, %27, %25
@@ -1674,18 +1674,17 @@ attributes #10 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 13}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

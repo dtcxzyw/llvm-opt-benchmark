@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_err_unwind_dwarf(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr noundef %uex, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 3, 9) i32 @lj_err_unwind_dwarf(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr noundef %uex, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %version, 1
   br i1 %cmp.not, label %if.end, label %return
@@ -296,7 +296,7 @@ while.body.lr.ph.split.split.split.us.i:          ; preds = %while.body.lr.ph.sp
 
 if.end12.us150.lr.ph.i:                           ; preds = %while.body.lr.ph.split.split.split.us.i
   %add.ptr15.us151.i = getelementptr inbounds i8, ptr %31, i64 8
-  %trunc = trunc i32 %errcode.0 to i8
+  %trunc = trunc nuw i32 %errcode.0 to i8
   br label %if.end12.us150.i
 
 if.end12.us150.i:                                 ; preds = %sw.epilog.us175.i, %if.end12.us150.lr.ph.i
@@ -530,7 +530,7 @@ if.then47.i:                                      ; preds = %if.then45.i37
   %54 = and i8 %53, -17
   store i8 %54, ptr %hookmask.i, align 1
   store ptr null, ptr %cframe.i25, align 8
-  %conv52.i = trunc i32 %errcode.0 to i8
+  %conv52.i = trunc nuw i32 %errcode.0 to i8
   %status.i = getelementptr inbounds i8, ptr %2, i64 11
   store i8 %conv52.i, ptr %status.i, align 1
   br label %err_unwind.exit86
@@ -733,7 +733,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @err_unwind_jit(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr nocapture noundef readonly %uex, ptr noundef %ctx) #0 {
+define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr nocapture noundef readonly %uex, ptr noundef %ctx) #0 {
 entry:
   %exitno = alloca i32, align 4
   %cmp.not = icmp eq i32 %version, 1
@@ -1165,7 +1165,7 @@ entry:
 define internal void @err_msgv(ptr noundef %L, i32 noundef %em, ...) unnamed_addr #3 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -1214,7 +1214,7 @@ if.end15:                                         ; preds = %if.then5, %if.end
   %idx.ext16 = sext i32 %em to i64
   %add.ptr17 = getelementptr inbounds i8, ptr %11, i64 %idx.ext16
   %call = call ptr @lj_strfmt_pushvf(ptr noundef nonnull %L, ptr noundef %add.ptr17, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   %12 = load ptr, ptr %base3, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %12, i64 -8
   call void @lj_debug_addloc(ptr noundef nonnull %L, ptr noundef %call, ptr noundef nonnull %add.ptr21, ptr noundef null) #11
@@ -1258,7 +1258,7 @@ entry:
   %oname = alloca ptr, align 8
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   %not = and i64 %shr, 15
   %1 = xor i64 %not, 15
@@ -1320,7 +1320,7 @@ define hidden void @lj_err_comp(ptr noundef %L, ptr nocapture noundef readonly %
 entry:
   %0 = load i64, ptr %o1, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   %not = and i64 %shr, 15
   %1 = xor i64 %not, 15
@@ -1329,7 +1329,7 @@ entry:
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i64, ptr %o2, align 8
   %shr4 = ashr i64 %3, 47
-  %conv5 = trunc i64 %shr4 to i32
+  %conv5 = trunc nsw i64 %shr4 to i32
   %cmp6 = icmp ult i32 %conv5, -13
   %not12 = and i64 %shr4, 15
   %4 = xor i64 %not12, 15
@@ -1359,7 +1359,7 @@ entry:
 if.then:                                          ; preds = %entry
   %4 = load i64, ptr %o, align 8
   %shr = ashr i64 %4, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp2 = icmp ult i32 %conv, -13
   %not = and i64 %shr, 15
   %5 = xor i64 %not, 15
@@ -1471,21 +1471,15 @@ declare hidden void @lj_debug_addloc(ptr noundef, ptr noundef, ptr noundef, ptr 
 define hidden void @lj_err_callerv(ptr noundef %L, i32 noundef %em, ...) local_unnamed_addr #3 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %0 = load ptr, ptr @lj_err_allmsg, align 8
   %idx.ext = sext i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %add.ptr, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #14
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @lj_err_caller(ptr noundef %L, i32 noundef %em) local_unnamed_addr #3 {
@@ -1501,12 +1495,12 @@ entry:
 define hidden void @lj_err_argv(ptr noundef %L, i32 noundef %narg, i32 noundef %em, ...) local_unnamed_addr #3 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %0 = load ptr, ptr @lj_err_allmsg, align 8
   %idx.ext = sext i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %add.ptr, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %call) #14
   unreachable
 }
@@ -1645,7 +1639,7 @@ if.end52.sink.split:                              ; preds = %cond.end30, %if.the
   %arrayidx.sink = phi ptr [ %arrayidx, %if.then5 ], [ %cond31, %cond.end30 ]
   %7 = load i64, ptr %arrayidx.sink, align 8
   %shr = ashr i64 %7, 47
-  %conv37 = trunc i64 %shr to i32
+  %conv37 = trunc nsw i64 %shr to i32
   %cmp38 = icmp ult i32 %conv37, -13
   %not44 = and i64 %shr, 15
   %8 = xor i64 %not44, 15
@@ -1675,7 +1669,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_atpanic(ptr nocapture noundef readonly %L, ptr noundef %panicf) local_unnamed_addr #8 {
+define dso_local ptr @lua_atpanic(ptr nocapture noundef readonly %L, ptr noundef %panicf) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -1727,9 +1721,9 @@ declare hidden ptr @lj_debug_frame(ptr noundef, i32 noundef, ptr noundef) local_
 define dso_local noundef i32 @luaL_error(ptr noundef %L, ptr noundef %fmt, ...) local_unnamed_addr #3 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #14
   unreachable
 }
@@ -1765,14 +1759,20 @@ declare i64 @_Unwind_GetIP(ptr noundef) local_unnamed_addr #1
 declare hidden i64 @lj_trace_unwind(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 declare i32 @_Unwind_RaiseException(ptr noundef) local_unnamed_addr #1
 
 declare hidden ptr @lj_debug_funcname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1781,10 +1781,10 @@ attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-tra
 attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { noreturn nounwind }

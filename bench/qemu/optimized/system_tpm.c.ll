@@ -107,7 +107,7 @@ for.end:                                          ; preds = %for.end.critedge, %
 declare void @object_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tpm_init() local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @tpm_init() local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #7
   %call1 = tail call i32 @qemu_opts_foreach(ptr noundef %call, ptr noundef nonnull @tpm_init_tpmdev, ptr noundef null, ptr noundef null) #7
@@ -121,7 +121,7 @@ declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare ptr @qemu_find_opts(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_init_tpmdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr nocapture readnone %errp) #2 {
+define internal range(i32 0, 2) i32 @tpm_init_tpmdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr nocapture readnone %errp) #2 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -221,7 +221,7 @@ return:                                           ; preds = %if.end16, %if.end28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tpm_config_parse(ptr noundef %opts_list, ptr noundef %optstr) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @tpm_config_parse(ptr noundef %opts_list, ptr noundef %optstr) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optstr, ptr noundef nonnull dereferenceable(5) @.str.1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -265,7 +265,7 @@ tpm_be_find_by_type.exit:                         ; preds = %for.body
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %tpm_be_find_by_type.exit
-  %tobool1 = trunc i8 %got_one.09 to i1
+  %tobool1 = trunc nuw i8 %got_one.09 to i1
   br i1 %tobool1, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -285,7 +285,7 @@ for.inc:                                          ; preds = %for.body, %tpm_be_f
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %tobool7 = trunc i8 %got_one.2 to i1
+  %tobool7 = trunc nuw i8 %got_one.2 to i1
   br i1 %tobool7, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %for.end

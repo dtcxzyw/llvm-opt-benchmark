@@ -47,7 +47,7 @@ define dso_local zeroext i1 @virtio_pci_admin_has_legacy_io(ptr noundef %0) #0 a
 declare dso_local ptr @virtio_pci_vf_get_pf_dev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_admin_legacy_common_io_write(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local range(i32 -38, -18) i32 @virtio_pci_admin_legacy_common_io_write(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call ptr @virtio_pci_vf_get_pf_dev(ptr noundef %0) #2
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 -19, i32 -38
@@ -55,7 +55,7 @@ define dso_local i32 @virtio_pci_admin_legacy_common_io_write(ptr noundef %0, i8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_admin_legacy_device_io_write(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local range(i32 -38, -18) i32 @virtio_pci_admin_legacy_device_io_write(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call ptr @virtio_pci_vf_get_pf_dev(ptr noundef %0) #2
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 -19, i32 -38
@@ -63,7 +63,7 @@ define dso_local i32 @virtio_pci_admin_legacy_device_io_write(ptr noundef %0, i8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_admin_legacy_device_io_read(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local range(i32 -38, -18) i32 @virtio_pci_admin_legacy_device_io_read(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call ptr @virtio_pci_vf_get_pf_dev(ptr noundef %0) #2
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 -19, i32 -38
@@ -71,7 +71,7 @@ define dso_local i32 @virtio_pci_admin_legacy_device_io_read(ptr noundef %0, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_admin_legacy_common_io_read(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local range(i32 -38, -18) i32 @virtio_pci_admin_legacy_common_io_read(ptr noundef %0, i8 zeroext %1, i8 zeroext %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call ptr @virtio_pci_vf_get_pf_dev(ptr noundef %0) #2
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 -19, i32 -38
@@ -79,7 +79,7 @@ define dso_local i32 @virtio_pci_admin_legacy_common_io_read(ptr noundef %0, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_admin_legacy_io_notify_info(ptr noundef %0, i8 zeroext %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local range(i32 -38, -18) i32 @virtio_pci_admin_legacy_io_notify_info(ptr noundef %0, i8 zeroext %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = tail call ptr @virtio_pci_vf_get_pf_dev(ptr noundef %0) #2
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 -19, i32 -38

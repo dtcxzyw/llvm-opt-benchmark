@@ -82,13 +82,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [41 x i8] c"X509_STORE_CTX_set_purpose(ctx, purpose)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -219,7 +219,7 @@ declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_alt_chains_cert_forgery() #1 {
+define internal range(i32 0, 2) i32 @test_alt_chains_cert_forgery() #1 {
 entry:
   %call = tail call ptr @X509_STORE_new() #3
   %cmp = icmp eq ptr %call, null
@@ -287,7 +287,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_distinguishing_id() #1 {
+define internal range(i32 0, 2) i32 @test_distinguishing_id() #1 {
 entry:
   %0 = load ptr, ptr @bad_f, align 8
   %call = tail call ptr @load_cert_pem(ptr noundef %0, ptr noundef null) #3
@@ -329,7 +329,7 @@ err:                                              ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_req_distinguishing_id() #1 {
+define internal range(i32 0, 2) i32 @test_req_distinguishing_id() #1 {
 entry:
   %0 = load ptr, ptr @req_f, align 8
   %call = tail call ptr @BIO_new_file(ptr noundef %0, ptr noundef nonnull @.str.52) #3
@@ -401,23 +401,23 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_purpose_ssl_client() #1 {
+define internal range(i32 0, 2) i32 @test_purpose_ssl_client() #1 {
 entry:
-  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 1, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_purpose_ssl_server() #1 {
+define internal range(i32 0, 2) i32 @test_purpose_ssl_server() #1 {
 entry:
-  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 2, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 2, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_purpose_any() #1 {
+define internal range(i32 0, 2) i32 @test_purpose_any() #1 {
 entry:
-  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 7, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @do_test_purpose(i32 noundef 7, i32 noundef 1)
   ret i32 %call
 }
 
@@ -573,7 +573,7 @@ declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_test_purpose(i32 noundef %purpose, i32 noundef %expected) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @do_test_purpose(i32 noundef %purpose, i32 noundef %expected) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @ee_cert, align 8
   %call = tail call ptr @load_cert_pem(ptr noundef %0, ptr noundef null) #3
@@ -680,4 +680,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

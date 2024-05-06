@@ -452,7 +452,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   %65 = zext i8 %62 to i32
   %66 = and i32 %65, 15
   %67 = add nuw nsw i32 %66, 1
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   switch i32 %66, label %71 [
     i32 3, label %72
     i32 15, label %69
@@ -491,13 +491,13 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
 
 85:                                               ; preds = %72
   %.not.i36 = icmp sgt i8 %62, -1
-  %86 = trunc i32 %66 to i16
+  %86 = trunc nuw nsw i32 %66 to i16
   %87 = add nuw nsw i16 %86, 5
   %.0132.i = select i1 %.not.i36, i16 4, i16 %87
   %.lobit.i = lshr exact i32 %76, 6
-  %88 = trunc i32 %.lobit.i to i16
+  %88 = trunc nuw nsw i32 %.lobit.i to i16
   %.lobit145.i = lshr exact i32 %77, 5
-  %89 = trunc i32 %.lobit145.i to i16
+  %89 = trunc nuw nsw i32 %.lobit145.i to i16
   %.1133.i = add nuw nsw i16 %89, %88
   %.2134.i = add nuw nsw i16 %.1133.i, %.0132.i
   %90 = add nuw nsw i16 %.2134.i, 2
@@ -1239,7 +1239,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %138 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5) #6
   %139 = lshr i8 %138, 3
   %140 = and i8 %138, 7
-  %141 = uitofp i8 %140 to float
+  %141 = uitofp nneg i8 %140 to float
   %142 = fmul float %141, 1.250000e-01
   %143 = fpext float %142 to double
   %144 = fadd double %143, 1.000000e+00
@@ -1257,7 +1257,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %153 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5) #6
   %154 = lshr i8 %153, 3
   %155 = and i8 %153, 7
-  %156 = uitofp i8 %155 to float
+  %156 = uitofp nneg i8 %155 to float
   %157 = fmul float %156, 1.250000e-01
   %158 = fpext float %157 to double
   %159 = fadd double %158, 1.000000e+00

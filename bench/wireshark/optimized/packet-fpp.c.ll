@@ -190,7 +190,7 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %14 = load i32, ptr @ett_fpp, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #3
-  %16 = tail call fastcc i32 @get_packet_type(ptr noundef %0), !range !4
+  %16 = tail call fastcc i32 @get_packet_type(ptr noundef %0)
   switch i32 %16, label %dissect_express.exit [
     i32 0, label %17
     i32 3, label %71
@@ -353,7 +353,7 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %114
 
 114:                                              ; preds = %111, %106
-  %115 = tail call fastcc i32 @get_packet_type(ptr noundef %0), !range !4
+  %115 = tail call fastcc i32 @get_packet_type(ptr noundef %0)
   %116 = icmp eq i32 %115, 4
   %117 = load i32, ptr @hf_fpp_preamble_smd, align 4
   br i1 %116, label %118, label %125
@@ -1084,7 +1084,7 @@ define internal fastcc noundef i32 @get_preamble_length(ptr noundef %0) unnamed_
   %10 = add nuw i32 %.113, 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #3
   %12 = icmp eq i8 %11, 85
-  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %9, %1
   %.1.lcssa = phi i32 [ %spec.select, %1 ], [ %10, %9 ], [ %.113, %.lr.ph ]
@@ -1127,7 +1127,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_packet_type(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %3 = icmp eq i8 %2, 80
   %spec.select = zext i1 %3 to i32
@@ -1146,7 +1146,7 @@ define internal fastcc noundef i32 @get_packet_type(ptr noundef %0) unnamed_addr
   %10 = add nuw i32 %.114, 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #3
   %12 = icmp eq i8 %11, 85
-  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %9, %1
   %.1.lcssa = phi i32 [ %spec.select, %1 ], [ %10, %9 ], [ %.114, %.lr.ph ]
@@ -1200,7 +1200,7 @@ declare i32 @crc32_ccitt_tvb_offset(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @col_fstr_process(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call fastcc i32 @get_preamble_length(ptr noundef %0)
-  %5 = tail call fastcc i32 @get_packet_type(ptr noundef %0), !range !4
+  %5 = tail call fastcc i32 @get_packet_type(ptr noundef %0)
   switch i32 %5, label %38 [
     i32 0, label %6
     i32 1, label %9
@@ -1355,7 +1355,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 6}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

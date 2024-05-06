@@ -274,16 +274,16 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %.not264 = icmp ne ptr %1, null
   %13 = icmp ne i64 %2, 0
   %or.cond = and i1 %.not264, %13
-  br i1 %or.cond, label %.lr.ph375, label %.loopexit
+  br i1 %or.cond, label %.lr.ph376, label %.loopexit
 
-.lr.ph375:                                        ; preds = %12, %.thread
-  %.0374 = phi i1 [ %.1, %.thread ], [ false, %12 ]
-  %.0223373 = phi i64 [ %198, %.thread ], [ 0, %12 ]
-  %14 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.0223373
+.lr.ph376:                                        ; preds = %12, %.thread
+  %.0375 = phi i1 [ %.1, %.thread ], [ false, %12 ]
+  %.0223374 = phi i64 [ %198, %.thread ], [ 0, %12 ]
+  %14 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.0223374
   %15 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %14, ptr noundef nonnull @.str.13) #16
   br i1 %15, label %16, label %23
 
-16:                                               ; preds = %.lr.ph375
+16:                                               ; preds = %.lr.ph376
   %17 = load ptr, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 7), align 8
   %.not307 = icmp eq ptr %17, null
   br i1 %.not307, label %19, label %18
@@ -299,14 +299,14 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   store ptr %22, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 7), align 8
   br label %.thread
 
-23:                                               ; preds = %.lr.ph375
+23:                                               ; preds = %.lr.ph376
   %24 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %14, ptr noundef nonnull @.str.14) #16
   br i1 %24, label %25, label %85
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %14, i64 520
   %27 = load i16, ptr %26, align 8
-  switch i16 %27, label %.thread363 [
+  switch i16 %27, label %.thread364 [
     i16 4, label %28
     i16 6, label %32
     i16 7, label %35
@@ -441,12 +441,12 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %89, i64 8
   %93 = load i64, ptr %92, align 8
-  %.not376 = icmp eq i64 %93, 0
-  br i1 %.not376, label %.thread, label %.lr.ph
+  %.not377 = icmp eq i64 %93, 0
+  br i1 %.not377, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %87, %.thread358
-  %.0222372 = phi i64 [ %165, %.thread358 ], [ 0, %87 ]
-  %94 = getelementptr inbounds %struct.pmix_info, ptr %91, i64 %.0222372
+.lr.ph:                                           ; preds = %87, %.thread359
+  %.0222373 = phi i64 [ %165, %.thread359 ], [ 0, %87 ]
+  %94 = getelementptr inbounds %struct.pmix_info, ptr %91, i64 %.0222373
   %95 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %94, ptr noundef nonnull @.str.13) #16
   br i1 %95, label %96, label %103
 
@@ -464,16 +464,16 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noalias ptr @strdup(ptr noundef %101) #16
   store ptr %102, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 7), align 8
-  br label %.thread358
+  br label %.thread359
 
 103:                                              ; preds = %.lr.ph
   %104 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %94, ptr noundef nonnull @.str.14) #16
-  br i1 %104, label %105, label %.thread358
+  br i1 %104, label %105, label %.thread359
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %94, i64 520
   %107 = load i16, ptr %106, align 8
-  switch i16 %107, label %.thread363 [
+  switch i16 %107, label %.thread364 [
     i16 4, label %108
     i16 6, label %112
     i16 7, label %115
@@ -497,108 +497,108 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %110 = load i64, ptr %109, align 8
   %111 = trunc i64 %110 to i32
   store i32 %111, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 112:                                              ; preds = %105
   %113 = getelementptr inbounds i8, ptr %94, i64 528
   %114 = load i32, ptr %113, align 8
   store i32 %114, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 115:                                              ; preds = %105
   %116 = getelementptr inbounds i8, ptr %94, i64 528
   %117 = load i8, ptr %116, align 8
   %118 = sext i8 %117 to i32
   store i32 %118, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 119:                                              ; preds = %105
   %120 = getelementptr inbounds i8, ptr %94, i64 528
   %121 = load i16, ptr %120, align 8
   %122 = sext i16 %121 to i32
   store i32 %122, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 123:                                              ; preds = %105
   %124 = getelementptr inbounds i8, ptr %94, i64 528
   %125 = load i32, ptr %124, align 8
   store i32 %125, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 126:                                              ; preds = %105
   %127 = getelementptr inbounds i8, ptr %94, i64 528
   %128 = load i64, ptr %127, align 8
   %129 = trunc i64 %128 to i32
   store i32 %129, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 130:                                              ; preds = %105
   %131 = getelementptr inbounds i8, ptr %94, i64 528
   %132 = load i32, ptr %131, align 8
   store i32 %132, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 133:                                              ; preds = %105
   %134 = getelementptr inbounds i8, ptr %94, i64 528
   %135 = load i8, ptr %134, align 8
   %136 = zext i8 %135 to i32
   store i32 %136, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 137:                                              ; preds = %105
   %138 = getelementptr inbounds i8, ptr %94, i64 528
   %139 = load i16, ptr %138, align 8
   %140 = zext i16 %139 to i32
   store i32 %140, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 141:                                              ; preds = %105
   %142 = getelementptr inbounds i8, ptr %94, i64 528
   %143 = load i32, ptr %142, align 8
   store i32 %143, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 144:                                              ; preds = %105
   %145 = getelementptr inbounds i8, ptr %94, i64 528
   %146 = load i64, ptr %145, align 8
   %147 = trunc i64 %146 to i32
   store i32 %147, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 148:                                              ; preds = %105
   %149 = getelementptr inbounds i8, ptr %94, i64 528
   %150 = load float, ptr %149, align 8
   %151 = fptoui float %150 to i32
   store i32 %151, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 152:                                              ; preds = %105
   %153 = getelementptr inbounds i8, ptr %94, i64 528
   %154 = load double, ptr %153, align 8
   %155 = fptoui double %154 to i32
   store i32 %155, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 156:                                              ; preds = %105
   %157 = getelementptr inbounds i8, ptr %94, i64 528
   %158 = load i32, ptr %157, align 8
   store i32 %158, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 159:                                              ; preds = %105
   %160 = getelementptr inbounds i8, ptr %94, i64 528
   %161 = load i32, ptr %160, align 8
   store i32 %161, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
 162:                                              ; preds = %105
   %163 = getelementptr inbounds i8, ptr %94, i64 528
   %164 = load i32, ptr %163, align 8
   store i32 %164, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 10), align 8
-  br label %.thread358
+  br label %.thread359
 
-.thread358:                                       ; preds = %162, %159, %156, %152, %148, %144, %141, %137, %133, %130, %126, %123, %119, %115, %112, %108, %99, %103
-  %165 = add nuw i64 %.0222372, 1
+.thread359:                                       ; preds = %162, %159, %156, %152, %148, %144, %141, %137, %133, %130, %126, %123, %119, %115, %112, %108, %99, %103
+  %165 = add nuw i64 %.0222373, 1
   %exitcond.not = icmp eq i64 %165, %93
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !4
 
@@ -667,11 +667,11 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   tail call void @pmix_iof_check_flags(ptr noundef nonnull %14, ptr noundef nonnull getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 36)) #16
   br label %.thread
 
-.thread:                                          ; preds = %.thread358, %87, %82, %79, %76, %72, %68, %64, %61, %57, %53, %50, %46, %43, %39, %35, %32, %28, %19, %174, %187, %197, %193, %179, %168
-  %.1 = phi i1 [ %.0374, %19 ], [ %.0374, %168 ], [ %.0374, %174 ], [ %181, %179 ], [ %.0374, %187 ], [ %.0374, %193 ], [ %.0374, %197 ], [ %.0374, %28 ], [ %.0374, %32 ], [ %.0374, %35 ], [ %.0374, %39 ], [ %.0374, %43 ], [ %.0374, %46 ], [ %.0374, %50 ], [ %.0374, %53 ], [ %.0374, %57 ], [ %.0374, %61 ], [ %.0374, %64 ], [ %.0374, %68 ], [ %.0374, %72 ], [ %.0374, %76 ], [ %.0374, %79 ], [ %.0374, %82 ], [ %.0374, %87 ], [ %.0374, %.thread358 ]
-  %198 = add nuw i64 %.0223373, 1
-  %exitcond378.not = icmp eq i64 %198, %2
-  br i1 %exitcond378.not, label %.loopexit, label %.lr.ph375, !llvm.loop !6
+.thread:                                          ; preds = %.thread359, %87, %82, %79, %76, %72, %68, %64, %61, %57, %53, %50, %46, %43, %39, %35, %32, %28, %19, %174, %187, %197, %193, %179, %168
+  %.1 = phi i1 [ %.0375, %19 ], [ %.0375, %168 ], [ %.0375, %174 ], [ %181, %179 ], [ %.0375, %187 ], [ %.0375, %193 ], [ %.0375, %197 ], [ %.0375, %28 ], [ %.0375, %32 ], [ %.0375, %35 ], [ %.0375, %39 ], [ %.0375, %43 ], [ %.0375, %46 ], [ %.0375, %50 ], [ %.0375, %53 ], [ %.0375, %57 ], [ %.0375, %61 ], [ %.0375, %64 ], [ %.0375, %68 ], [ %.0375, %72 ], [ %.0375, %76 ], [ %.0375, %79 ], [ %.0375, %82 ], [ %.0375, %87 ], [ %.0375, %.thread359 ]
+  %198 = add nuw i64 %.0223374, 1
+  %exitcond379.not = icmp eq i64 %198, %2
+  br i1 %exitcond379.not, label %.loopexit, label %.lr.ph376, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.thread, %12
   %.2 = phi i1 [ false, %12 ], [ %.1, %.thread ]
@@ -679,7 +679,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %200 = tail call ptr @pmix_progress_thread_init(ptr noundef null) #16
   store ptr %200, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 13), align 8
   %201 = icmp eq ptr %200, null
-  br i1 %201, label %.thread363, label %202
+  br i1 %201, label %.thread364, label %202
 
 202:                                              ; preds = %.loopexit
   %203 = load ptr, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 14), align 8
@@ -712,7 +712,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
 212:                                              ; preds = %211, %206
   store ptr @pmix_events_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 16, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 16, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 16, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 16, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %213 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_events_t_class, i64 0, i32 6), align 8
   %214 = load ptr, ptr %213, align 8
   %.not6.i = icmp eq ptr %214, null
@@ -744,7 +744,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %212
 223:                                              ; preds = %222, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 20, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 20, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 20, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 20, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %224 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %225 = load ptr, ptr %224, align 8
   %.not6.i308 = icmp eq ptr %225, null
@@ -772,7 +772,7 @@ pmix_obj_run_constructors.exit312:                ; preds = %.lr.ph.i309, %223
 232:                                              ; preds = %231, %pmix_obj_run_constructors.exit312
   store ptr @pmix_hotel_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 24, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 24, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 24, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 24, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %233 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hotel_t_class, i64 0, i32 6), align 8
   %234 = load ptr, ptr %233, align 8
   %.not6.i313 = icmp eq ptr %234, null
@@ -804,7 +804,7 @@ pmix_obj_run_constructors.exit317:                ; preds = %.lr.ph.i314, %232
 245:                                              ; preds = %244, %pmix_obj_run_constructors.exit317
   store ptr @pmix_list_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 31, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 31, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 31, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 31, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %246 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %247 = load ptr, ptr %246, align 8
   %.not6.i318 = icmp eq ptr %247, null
@@ -832,7 +832,7 @@ pmix_obj_run_constructors.exit322:                ; preds = %.lr.ph.i319, %245
 254:                                              ; preds = %253, %pmix_obj_run_constructors.exit322
   store ptr @pmix_keyindex_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 37, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 37, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 37, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 37, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %255 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_keyindex_t_class, i64 0, i32 6), align 8
   %256 = load ptr, ptr %255, align 8
   %.not6.i323 = icmp eq ptr %256, null
@@ -860,7 +860,7 @@ pmix_obj_run_constructors.exit327:                ; preds = %.lr.ph.i324, %254
 263:                                              ; preds = %262, %pmix_obj_run_constructors.exit327
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i64 0, i32 4, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i64 0, i32 4, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i64 0, i32 4, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i64 0, i32 4, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %264 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %265 = load ptr, ptr %264, align 8
   %.not6.i328 = icmp eq ptr %265, null
@@ -892,7 +892,7 @@ pmix_obj_run_constructors.exit332:                ; preds = %.lr.ph.i329, %263
 273:                                              ; preds = %272, %269
   store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 21, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 21, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 21, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 21, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %274 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
   %275 = load ptr, ptr %274, align 8
   %.not6.i333 = icmp eq ptr %275, null
@@ -921,7 +921,7 @@ pmix_obj_run_constructors.exit337:                ; preds = %.lr.ph.i334, %273
 283:                                              ; preds = %282, %pmix_obj_run_constructors.exit337
   store ptr @pmix_list_t_class, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 26, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 26, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 26, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 26, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %284 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %285 = load ptr, ptr %284, align 8
   %.not6.i338 = icmp eq ptr %285, null
@@ -1052,7 +1052,7 @@ pmix_obj_run_constructors.exit342:                ; preds = %.lr.ph.i339, %283
 
 344:                                              ; preds = %343, %338
   %.not22.i = icmp eq ptr %340, null
-  br i1 %.not22.i, label %.thread363.sink.split, label %345
+  br i1 %.not22.i, label %.thread364.sink.split, label %345
 
 345:                                              ; preds = %344
   %346 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %340, ptr noundef null) #16
@@ -1067,7 +1067,7 @@ pmix_obj_run_constructors.exit342:                ; preds = %.lr.ph.i339, %283
   %351 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_peer_t_class, i64 0, i32 6), align 8
   %352 = load ptr, ptr %351, align 8
   %.not6.i.i = icmp eq ptr %352, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread361, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread362, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %345, %.lr.ph.i.i
   %353 = phi ptr [ %355, %.lr.ph.i.i ], [ %352, %345 ]
@@ -1076,9 +1076,9 @@ pmix_obj_run_constructors.exit342:                ; preds = %.lr.ph.i339, %283
   %354 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %355 = load ptr, ptr %354, align 8
   %.not.i.i = icmp eq ptr %355, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread361, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread362, label %.lr.ph.i.i, !llvm.loop !7
 
-pmix_obj_new_tma.exit.thread361:                  ; preds = %.lr.ph.i.i, %345
+pmix_obj_new_tma.exit.thread362:                  ; preds = %.lr.ph.i.i, %345
   store ptr %340, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 4), align 8
   %356 = getelementptr inbounds i8, ptr %340, i64 136
   %357 = load i32, ptr %356, align 8
@@ -1097,11 +1097,11 @@ pmix_obj_new_tma.exit.thread361:                  ; preds = %.lr.ph.i.i, %345
   %.not.i344 = icmp eq i32 %364, %365
   br i1 %.not.i344, label %367, label %366
 
-366:                                              ; preds = %pmix_obj_new_tma.exit.thread361
+366:                                              ; preds = %pmix_obj_new_tma.exit.thread362
   tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_namespace_t_class) #16
   br label %367
 
-367:                                              ; preds = %366, %pmix_obj_new_tma.exit.thread361
+367:                                              ; preds = %366, %pmix_obj_new_tma.exit.thread362
   %.not22.i345 = icmp eq ptr %363, null
   br i1 %.not22.i345, label %pmix_obj_new_tma.exit350, label %368
 
@@ -1158,7 +1158,7 @@ pmix_obj_new_tma.exit350:                         ; preds = %.lr.ph.i.i347, %367
   store i32 %393, ptr %391, align 8
   %394 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %381) #16
   %395 = icmp eq i32 %393, 0
-  br i1 %395, label %396, label %.thread363
+  br i1 %395, label %396, label %.thread364
 
 396:                                              ; preds = %390
   %397 = getelementptr inbounds i8, ptr %381, i64 40
@@ -1188,12 +1188,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i352, %396
   %408 = getelementptr inbounds i8, ptr %381, i64 56
   %409 = load ptr, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 4), align 8
   tail call void %406(ptr noundef nonnull %408, ptr noundef %409) #16
-  br label %.thread363.sink.split
+  br label %.thread364.sink.split
 
 410:                                              ; preds = %pmix_obj_run_destructors.exit
   %411 = load ptr, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 4), align 8
   tail call void @free(ptr noundef %411) #16
-  br label %.thread363.sink.split
+  br label %.thread364.sink.split
 
 412:                                              ; preds = %pmix_obj_new_tma.exit350
   %413 = load ptr, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 7), align 8
@@ -1365,20 +1365,20 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i352, %396
   %.0224 = phi ptr [ @.str.22, %pmix_obj_run_constructors.exit332 ], [ @.str.25, %428 ], [ @.str.26, %430 ], [ @.str.27, %432 ], [ @.str.28, %435 ], [ @.str.29, %437 ], [ @.str.30, %439 ], [ @.str.31, %441 ], [ @.str.32, %443 ], [ @.str.33, %445 ], [ @.str.34, %447 ], [ @.str.37, %453 ], [ @.str.38, %455 ], [ @.str.39, %457 ], [ @.str.40, %459 ], [ @.str.41, %461 ], [ @.str.42, %463 ], [ @.str.43, %465 ], [ @.str.44, %467 ], [ @.str.45, %469 ], [ @.str.46, %471 ], [ @.str.47, %473 ], [ @.str.48, %475 ], [ @.str.49, %477 ]
   %.2221 = phi i32 [ %241, %pmix_obj_run_constructors.exit332 ], [ %429, %428 ], [ %431, %430 ], [ %434, %432 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ]
   %.not306 = icmp eq i32 %.2221, -2
-  br i1 %.not306, label %481, label %.thread363
+  br i1 %.not306, label %481, label %.thread364
 
-.thread363.sink.split:                            ; preds = %407, %410, %344
+.thread364.sink.split:                            ; preds = %407, %410, %344
   store ptr null, ptr getelementptr inbounds ({ i32, %struct.pmix_proc, { i16, { ptr, [16 x i8] } }, { i16, { ptr, [16 x i8] } }, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }, ptr @pmix_globals, i64 0, i32 4), align 8
-  br label %.thread363
+  br label %.thread364
 
-.thread363:                                       ; preds = %25, %105, %.thread363.sink.split, %390, %.loopexit, %479
-  %.2221368 = phi i32 [ %.2221, %479 ], [ -32, %390 ], [ -1, %.loopexit ], [ -32, %.thread363.sink.split ], [ -27, %105 ], [ -27, %25 ]
-  %.0224367 = phi ptr [ %.0224, %479 ], [ null, %390 ], [ @.str.21, %.loopexit ], [ null, %.thread363.sink.split ], [ null, %105 ], [ null, %25 ]
-  %480 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef 1, ptr noundef %.0224367, i32 noundef %.2221368) #16
+.thread364:                                       ; preds = %25, %105, %.thread364.sink.split, %390, %.loopexit, %479
+  %.2221369 = phi i32 [ %.2221, %479 ], [ -32, %390 ], [ -1, %.loopexit ], [ -32, %.thread364.sink.split ], [ -27, %105 ], [ -27, %25 ]
+  %.0224368 = phi ptr [ %.0224, %479 ], [ null, %390 ], [ @.str.21, %.loopexit ], [ null, %.thread364.sink.split ], [ null, %105 ], [ null, %25 ]
+  %480 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef 1, ptr noundef %.0224368, i32 noundef %.2221369) #16
   br label %481
 
-481:                                              ; preds = %479, %.thread363, %477, %4, %9
-  %.0218 = phi i32 [ %8, %9 ], [ -1, %4 ], [ 0, %477 ], [ %.2221368, %.thread363 ], [ -2, %479 ]
+481:                                              ; preds = %479, %.thread364, %477, %4, %9
+  %.0218 = phi i32 [ %8, %9 ], [ -1, %4 ], [ 0, %477 ], [ %.2221369, %.thread364 ], [ -2, %479 ]
   ret i32 %.0218
 }
 

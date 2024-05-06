@@ -30,7 +30,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_create_init_pkru_value376, ptr @__setup_setup_init_pkru], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__execute_only_pkey(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -32768, -2147483648) i32 @__execute_only_pkey(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1118
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i32
@@ -123,7 +123,7 @@ declare dso_local i32 @arch_set_user_pkey_access(ptr noundef, i32 noundef, i64 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__arch_override_mprotect_pkey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -1) i32 @__arch_override_mprotect_pkey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %81
 
@@ -229,7 +229,7 @@ define dso_local i32 @__arch_override_mprotect_pkey(ptr nocapture noundef readon
 
 66:                                               ; preds = %61
   %67 = lshr i64 %63, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %69 = and i32 %68, 15
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
@@ -243,7 +243,7 @@ define dso_local i32 @__arch_override_mprotect_pkey(ptr nocapture noundef readon
   %76 = getelementptr inbounds i8, ptr %0, i64 32
   %77 = load i64, ptr %76, align 8
   %78 = lshr i64 %77, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = and i32 %79, 15
   br label %81
 

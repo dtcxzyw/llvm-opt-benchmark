@@ -363,7 +363,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_gnutls_cipher_encrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_encrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
@@ -463,7 +463,7 @@ return:                                           ; preds = %if.then3, %cleanup,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_gnutls_cipher_decrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_decrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
@@ -563,7 +563,7 @@ return:                                           ; preds = %if.then3, %cleanup,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_gnutls_cipher_setiv(ptr nocapture noundef readonly %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_setiv(ptr nocapture noundef readonly %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
   %blocksize = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8

@@ -560,7 +560,7 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 63
   %5 = lshr i64 %4, 6
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = shl nuw nsw i64 %5, 3
   %8 = icmp ugt i32 %6, 4096
   br i1 %8, label %9, label %11

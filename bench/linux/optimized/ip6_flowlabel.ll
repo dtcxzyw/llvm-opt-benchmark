@@ -338,7 +338,7 @@ define dso_local ptr @fl6_merge_options(ptr noundef writeonly %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ipv6_flowlabel_opt_get(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @ipv6_flowlabel_opt_get(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -1302,7 +1302,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = icmp ult i64 %1, 6
   br i1 %4, label %.thread4, label %5
 
@@ -1488,7 +1488,7 @@ define internal fastcc void @fl_free(ptr noundef %0) unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mem_check(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @mem_check(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   %3 = load volatile i8, ptr %2, align 2
   %4 = zext nneg i8 %3 to i32
@@ -1710,7 +1710,7 @@ declare dso_local i32 @get_random_u32() local_unnamed_addr #0
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ip6_flowlabel_proc_init(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -12, 1) i32 @ip6_flowlabel_proc_init(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @ip6fl_seq_ops, i32 noundef 24, ptr noundef null) #13

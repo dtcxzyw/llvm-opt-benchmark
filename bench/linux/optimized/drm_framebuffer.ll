@@ -78,7 +78,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_framebuf
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_drm_framebuffer_cleanup398, ptr @__UNIQUE_ID___addressable_drm_framebuffer_init395, ptr @__UNIQUE_ID___addressable_drm_framebuffer_lookup396, ptr @__UNIQUE_ID___addressable_drm_framebuffer_remove407, ptr @__UNIQUE_ID___addressable_drm_framebuffer_unregister_private397], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_framebuffer_check_src_coords(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @drm_framebuffer_check_src_coords(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %4, i64 128
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 16
@@ -742,7 +742,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %237, label %246, label %238
 
 238:                                              ; preds = %233
-  %239 = trunc i64 %234 to i32
+  %239 = trunc nuw nsw i64 %234 to i32
   %240 = icmp eq ptr %0, null
   br i1 %240, label %244, label %241
 
@@ -769,7 +769,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %253, label %262, label %254
 
 254:                                              ; preds = %250
-  %255 = trunc i64 %234 to i32
+  %255 = trunc nuw nsw i64 %234 to i32
   %256 = icmp eq ptr %0, null
   br i1 %256, label %260, label %257
 
@@ -790,7 +790,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %265, label %274, label %266
 
 266:                                              ; preds = %262
-  %267 = trunc i64 %234 to i32
+  %267 = trunc nuw nsw i64 %234 to i32
   %268 = icmp eq ptr %0, null
   br i1 %268, label %272, label %269
 
@@ -811,7 +811,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %277, label %286, label %278
 
 278:                                              ; preds = %274
-  %279 = trunc i64 %234 to i32
+  %279 = trunc nuw nsw i64 %234 to i32
   %280 = icmp eq ptr %0, null
   br i1 %280, label %284, label %281
 
@@ -927,7 +927,7 @@ drm_mode_addfb2.exit:                             ; preds = %3, %16, %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_rmfb(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_mode_rmfb_work, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -1116,14 +1116,14 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_rmfb_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call i32 @drm_mode_rmfb(ptr noundef %0, i32 noundef %4, ptr noundef %2), !range !19
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_closefb_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_closefb_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176

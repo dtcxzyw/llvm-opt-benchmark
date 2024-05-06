@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [15 x i8] c"Message data:\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_ASN1_INTEGER_print_bio(ptr noundef %bio, ptr noundef %num) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @TS_ASN1_INTEGER_print_bio(ptr noundef %bio, ptr noundef %num) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %num, ptr noundef null) #3
   %cmp = icmp eq ptr %call, null
@@ -83,7 +83,7 @@ declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loc
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_ext_print_bio(ptr noundef %bio, ptr noundef %extensions) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_ext_print_bio(ptr noundef %bio, ptr noundef %extensions) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.3) #3
   %call1 = tail call i32 @X509v3_get_ext_count(ptr noundef %extensions) #3

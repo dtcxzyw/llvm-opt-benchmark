@@ -354,7 +354,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5ZXing6QRCode19CodecModeBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN5ZXing6QRCode19CodecModeBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
@@ -367,7 +367,7 @@ define noundef i32 @_ZN5ZXing6QRCode19CodecModeBitsLengthERKNS0_7VersionE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5ZXing6QRCode20TerminatorBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing6QRCode20TerminatorBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2

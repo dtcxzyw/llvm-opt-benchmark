@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [29 x i8] c"Duplicate record for task %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @mpir_set_multi_name(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [16384 x i8], align 16
   %5 = alloca ptr, align 8
@@ -489,7 +489,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [16384 x i8], align 16
   %5 = alloca ptr, align 8
@@ -730,14 +730,14 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
 119:                                              ; preds = %114, %99
   %.031.i = phi i32 [ %100, %99 ], [ %115, %114 ]
   %.0.i = phi i32 [ %100, %99 ], [ %116, %114 ]
-  %120 = call fastcc i32 @_update_task_mask(i32 noundef %.031.i, i32 noundef %.0.i, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext false), !range !19
+  %120 = call fastcc i32 @_update_task_mask(i32 noundef %.031.i, i32 noundef %.0.i, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext false)
   %.not42.i = icmp eq i32 %120, 0
   br i1 %.not42.i, label %121, label %_validate_ranks.exit.thread
 
 121:                                              ; preds = %119
   %122 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #10
   %.not.i = icmp eq ptr %122, null
-  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !20
+  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !19
 
 _validate_ranks.exit.thread:                      ; preds = %119, %96, %112, %117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -757,7 +757,7 @@ _validate_ranks.exit:                             ; preds = %75
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %126, align 4
-  %129 = call fastcc i32 @_update_task_mask(i32 noundef 0, i32 noundef %124, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext true), !range !19
+  %129 = call fastcc i32 @_update_task_mask(i32 noundef 0, i32 noundef %124, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not65 = icmp eq i32 %129, 0
   br i1 %.not65, label %131, label %.loopexit78
@@ -791,7 +791,7 @@ _validate_ranks.exit:                             ; preds = %75
 .backedge:                                        ; preds = %62, %.critedge, %.preheader76, %141, %52
   %142 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 16384, ptr noundef nonnull %17)
   %.not = icmp eq ptr %142, null
-  br i1 %.not, label %.preheader, label %30, !llvm.loop !21
+  br i1 %.not, label %.preheader, label %30, !llvm.loop !20
 
 .lr.ph108:                                        ; preds = %.preheader, %148
   %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %.preheader ]
@@ -810,7 +810,7 @@ _validate_ranks.exit:                             ; preds = %75
   %149 = load i32, ptr %8, align 8
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next, %150
-  br i1 %151, label %.lr.ph108, label %.loopexit, !llvm.loop !22
+  br i1 %151, label %.lr.ph108, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %148, %.preheader, %145, %139, %.loopexit78, %70, %35
   %.051 = phi i32 [ -1, %35 ], [ -1, %.loopexit78 ], [ -1, %139 ], [ -1, %70 ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %148 ]
@@ -840,7 +840,7 @@ declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %0, %1
   br i1 %6, label %7, label %9
 
@@ -905,7 +905,7 @@ define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 nounde
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %33 = trunc nuw i64 %indvars.iv39 to i32
   %.not30.us.not = icmp slt i32 %33, %1
-  br i1 %.not30.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
+  br i1 %.not30.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %27, %.lr.ph ]
@@ -925,7 +925,7 @@ define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = trunc nuw i64 %indvars.iv to i32
   %.not30.not = icmp slt i32 %41, %1
-  br i1 %.not30.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
+  br i1 %.not30.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %39, %32, %36, %21, %11, %7
   %.025 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %36 ], [ -1, %21 ], [ 0, %32 ], [ 0, %39 ]
@@ -987,8 +987,7 @@ attributes #13 = { noreturn nounwind }
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = !{i32 -1, i32 1}
+!19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}

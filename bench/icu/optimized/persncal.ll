@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7515PersianCalendar10isLeapYearEi(i32 noundef %year) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515PersianCalendar10isLeapYearEi(i32 noundef %year) local_unnamed_addr #1 align 2 {
 entry:
   %remainder = alloca i32, align 4
   %mul = mul nsw i32 %year, 25
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
 entry:
   %remainder.i = alloca i32, align 4
   %month.addr = alloca i32, align 4
@@ -201,7 +201,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear) unnamed_addr #1 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear) unnamed_addr #1 align 2 {
 entry:
   %remainder.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %remainder.i)

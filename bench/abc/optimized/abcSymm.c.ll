@@ -551,7 +551,7 @@ Abc_TtCopy.exit.preheader:                        ; preds = %.lr.ph.i, %3
 
 Abc_TtCopy.exit:                                  ; preds = %Abc_TtCopy.exit.preheader, %17
   %indvars.iv.i37 = phi i64 [ %18, %17 ], [ %.pre, %Abc_TtCopy.exit.preheader ]
-  %15 = trunc i64 %indvars.iv.i37 to i32
+  %15 = trunc nuw i64 %indvars.iv.i37 to i32
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %Abc_TtCopy.exit38
 
@@ -680,7 +680,7 @@ Abc_TtFlip.exit.preheader:                        ; preds = %._crit_edge.us.i, %
 
 Abc_TtFlip.exit:                                  ; preds = %Abc_TtFlip.exit.preheader, %77
   %indvars.iv.i45 = phi i64 [ %78, %77 ], [ %.pre, %Abc_TtFlip.exit.preheader ]
-  %75 = trunc i64 %indvars.iv.i45 to i32
+  %75 = trunc nuw i64 %indvars.iv.i45 to i32
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %Abc_TtCopy.exit55
 
@@ -725,7 +725,7 @@ Abc_TtNot.exit.preheader:                         ; preds = %.lr.ph.i58, %Abc_Tt
 
 Abc_TtNot.exit:                                   ; preds = %Abc_TtNot.exit.preheader, %90
   %indvars.iv.i62 = phi i64 [ %91, %90 ], [ %.pre, %Abc_TtNot.exit.preheader ]
-  %88 = trunc i64 %indvars.iv.i62 to i32
+  %88 = trunc nuw i64 %indvars.iv.i62 to i32
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %Abc_TtCopy.exit72
 
@@ -806,7 +806,7 @@ define void @Ntk_SymFunGenerate(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = add nuw nsw i32 %.01116.i.i, 2
-  %17 = mul nsw i32 %16, %16
+  %17 = mul nuw nsw i32 %16, %16
   %.not.i.i = icmp ugt i32 %17, %13
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
@@ -889,7 +889,7 @@ Vec_MemHashAlloc.exit:                            ; preds = %Abc_PrimeCudd.exit.
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %52 ]
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = lshr i32 %.03275, %55
   %57 = trunc i32 %56 to i8
   %58 = and i8 %57, 1
@@ -1039,7 +1039,7 @@ Abc_TtSymFunGenerate.exit.thread52:               ; preds = %63, %Abc_TtSymFunGe
 
 120:                                              ; preds = %.lr.ph.i.i.i
   %121 = add nuw nsw i32 %.01116.i.i.i, 2
-  %122 = mul nsw i32 %121, %121
+  %122 = mul nuw nsw i32 %121, %121
   %.not.i.i.i = icmp ugt i32 %122, %118
   br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !17
 
@@ -1191,7 +1191,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %190 = mul nsw i32 %189, %165
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds i64, ptr %188, i64 %191
-  %bcmp.i26.i.i = call i32 @bcmp(ptr %192, ptr nonnull %163, i64 %184)
+  %bcmp.i26.i.i = call i32 @bcmp(ptr %192, ptr nonnull readonly %163, i64 %184)
   %.not15.i1727.i.i = icmp eq i32 %bcmp.i26.i.i, 0
   %.pre40.i.i = load ptr, ptr %34, align 8
   br i1 %.not15.i1727.i.i, label %Vec_MemHashLookup.exit.i.i, label %.lr.ph.i.i41
@@ -1210,7 +1210,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %200 = mul nsw i32 %199, %165
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds i64, ptr %198, i64 %201
-  %bcmp.i.i.i = call i32 @bcmp(ptr %202, ptr nonnull %163, i64 %184)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %202, ptr nonnull readonly %163, i64 %184)
   %.not15.i17.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not15.i17.i.i, label %Vec_MemHashLookup.exit.i.i.loopexit, label %203, !llvm.loop !24
 
@@ -1364,7 +1364,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %270 = mul nsw i32 %269, %242
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds i64, ptr %268, i64 %271
-  %bcmp.i48.i = call i32 @bcmp(ptr %272, ptr %64, i64 %264)
+  %bcmp.i48.i = call i32 @bcmp(ptr %272, ptr readonly %64, i64 %264)
   %.not15.i49.i = icmp eq i32 %bcmp.i48.i, 0
   br i1 %.not15.i49.i, label %Vec_MemHashInsert.exit, label %.lr.ph.i
 
@@ -1383,7 +1383,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %281 = mul nsw i32 %280, %242
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i64, ptr %279, i64 %282
-  %bcmp.i.i = call i32 @bcmp(ptr %283, ptr %64, i64 %264)
+  %bcmp.i.i = call i32 @bcmp(ptr %283, ptr readonly %64, i64 %264)
   %.not15.i.i39 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i.i39, label %Vec_MemHashInsert.exit, label %284, !llvm.loop !24
 
@@ -1548,7 +1548,7 @@ Vec_MemPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.
   %358 = getelementptr inbounds i64, ptr %352, i64 %357
   %359 = sext i32 %353 to i64
   %360 = shl nsw i64 %359, 3
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %358, ptr align 8 %64, i64 %360, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %358, ptr readonly align 8 %64, i64 %360, i1 false)
   %361 = load ptr, ptr %34, align 8
   %362 = getelementptr i8, ptr %361, i64 4
   %.val15.i = load i32, ptr %362, align 4

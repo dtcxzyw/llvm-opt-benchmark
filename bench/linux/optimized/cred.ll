@@ -758,7 +758,7 @@ define dso_local ptr @prepare_exec_creds() local_unnamed_addr #0 align 16 {
 declare dso_local void @key_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @copy_creds(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @copy_creds(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -904,7 +904,7 @@ define dso_local noundef i32 @copy_creds(ptr noundef %0, i64 noundef %1) local_u
 declare dso_local i64 @inc_rlimit_ucounts(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_cred_ucounts(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @set_cred_ucounts(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1359,7 +1359,7 @@ define dso_local void @revert_creds(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @cred_fscmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @cred_fscmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 

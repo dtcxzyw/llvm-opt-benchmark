@@ -11,7 +11,7 @@ define void @_Z6uiInit17SOUND_NOTIFY_MODE(i32 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14uiAskReplaceExP11CommandDataPwmlP7RarTimej(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_Z14uiAskReplaceExP11CommandDataPwmlP7RarTimej(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [2048 x i32], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 57404
   %9 = load i32, ptr %8, align 4

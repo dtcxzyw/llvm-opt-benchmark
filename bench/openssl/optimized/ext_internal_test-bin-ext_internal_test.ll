@@ -55,7 +55,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_extension_list() #0 {
+define internal range(i32 0, 2) i32 @test_extension_list() #0 {
 entry:
   br label %for.body
 

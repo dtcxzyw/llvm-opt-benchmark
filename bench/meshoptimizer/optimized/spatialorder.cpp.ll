@@ -28,7 +28,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i = shl i64 %vertex_count, 2
+  %mul.i = shl nuw i64 %vertex_count, 2
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
   %call.i26 = invoke noundef ptr %0(i64 noundef %cond.i)
           to label %invoke.cont unwind label %lpad
@@ -462,7 +462,7 @@ lpad:                                             ; preds = %if.then, %for.end, 
 for.end:                                          ; preds = %for.body, %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit
   %14 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i48 = icmp ugt i64 %index_count, -4611686018427387905
-  %mul.i49 = shl i64 %div, 2
+  %mul.i49 = shl nuw i64 %div, 2
   %cond.i50 = select i1 %cmp.i48, i64 -1, i64 %mul.i49
   %call.i54 = invoke noundef ptr %14(i64 noundef %cond.i50)
           to label %invoke.cont43 unwind label %lpad
